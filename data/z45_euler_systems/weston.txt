@@ -1,0 +1,1229 @@
+            THE EULER SYSTEM OF HEEGNER POINTS
+
+                                    TOM WESTON
+
+
+
+
+                                      Contents
+  1. Introduction                                                                      1
+  Notation                                                                             3
+  2. Local cohomology groups                                                           4
+  2.1. Basic facts                                                                     4
+  2.2. Local Selmer structures                                                         4
+  2.3. Local cohomology of elliptic curves                                             4
+  3. Global cohomology groups                                                          5
+  3.1. Selmer groups                                                                   5
+  3.2. Global cohomology of elliptic curves                                            6
+  3.3. Global duality                                                                  6
+  3.4. Bounds on restricted Selmer groups I                                            7
+  3.5. Bounds on restricted Selmer groups II                                           8
+  4. Galois cohomology calculations                                                   10
+  4.1. Statements                                                                     10
+  4.2. Preliminaries                                                                  10
+  4.3. The −ε-eigenspace                                                              11
+  4.4. The ε-eigenspace                                                               13
+  5. Heegner points                                                                   14
+  5.1. Ring class fields                                                              14
+  5.2. Complex multiplication                                                         15
+  5.3. Heegner points on elliptic curves                                              16
+  6. The Euler system                                                                 17
+  6.1. Kolyvagin’s derivative operator                                                17
+  6.2. Derived cohomology classes                                                     18
+  6.3. Ramification of the derived classes                                            20
+  6.4. Final considerations                                                           22
+  7. Examples                                                                         23
+  References                                                                          24
+
+
+
+                                  1. Introduction
+   Let E be an elliptic curve over Q of conductor N and let K be an imaginary
+quadratic field in which all primes dividing N split. The theory of complex mul-
+tiplication and a modular parameterization X0 (N ) → E can be used to define a
+point yK ∈ E(K), called a Heegner point. yK depends on some choices, but it is
+well-defined up to sign and torsion, so that its canonical height ĥ(yK ) is well-defined
+independent of any choices. If L(E/K, s) is the L-function of E over K, one has
+                                            1
+2                                   TOM WESTON
+
+
+L(E/K, 1) = 0 for trivial reasons, and Gross and Zagier proved the spectacular
+formula                         Ã                 !
+                                       Z
+                   0                1
+                 L (E/K, 1) = √             ω ∧ iω · ĥ(yK ).
+                                    D E(C)
+Here D is the discriminant of K/Q and ω is the differential on E coming from
+the modular parameterization. In particular, L0 (E/K, 1) 6= 0 if and only if yK has
+infinite order.
+   Motivated by this and the conjecture of Birch and Swinnerton-Dyer, Gross and
+Zagier were led to the following conjecture (their conjecture is somewhat more
+precise):
+Conjecture (Gross–Zagier). Assume that yK has infinite order in E(K). Then
+E(K) has rank one and the Shafarevich-Tate group X(E/K) has trivial p-primary
+component for any odd prime p such that:
+   • E has good reduction at p;
+   • Gal(Q(E[p])/Q) ∼= GL2 (Fp );
+   • yK ∈
+        / pE(K).
+    In this paper we give Kolyvagin’s proof of this conjecture. The key idea is that
+the Heegner point yK does not come alone: it lies at the bottom of a certain
+family of points of E defined over anti-cyclotomic extensions of K. These points
+satisfy relations which make them an Euler system. This allows one to use them
+and techniques from Galois cohomology to bound the Selmer group Sel(K, E[p])
+(and thus to obtain information on E(K)/pE(K) and X(E/K)[p]) for appropriate
+primes p.
+    This paper could not exist without the magnificent paper [6]. In particular,
+Sections 5 and 6 of this paper follow the corresponding sections of [6] very closely.
+We deviate from Gross in our treatment of the Galois cohomology. Our exposition
+is intended to relate somewhat more directly to the more recent theories of Euler
+systems developed by Rubin, Kato and Perrin-Riou.
+    We present this Galois cohomology in Sections 2 and 3. We first define Selmer
+groups and recall the relevant duality results. Our treatment of Euler systems is
+based on the exact sequence (7) which divides the computation of a Selmer group
+into two parts. The first part is the computation of a certain restricted Selmer
+group. This can be done quite generally, and we present these results without
+reference to elliptic curves. The second part is the production of an Euler system.
+We give no general theory for this; we only explain it in the case of elliptic curves
+in Sections 6.
+    Section 4 contains the details of the proof of Kolyvagin’s theorem; it assumes
+the existence of the cohomology classes constructed via the Euler system in Section
+6. Section 4 is mostly a straightforward application of the results of Section 3; we
+try to emphasize that this part of the proof consists entirely in fairly routine Galois
+cohomology calculations.
+    We introduce Heegner points and their basic properties (which make them an
+Euler system) in Section 5. In Section 6 we explain how to use these properties to
+prove the results needed in Section 4.
+    It is our hope that this paper can serve as an introduction to Euler systems for a
+graduate student with some knowledge of Galois cohomology and the arithmetic of
+elliptic curves. Although Heegner points do not fit into most of the general theories
+                     THE EULER SYSTEM OF HEEGNER POINTS                              3
+
+
+of Euler systems, we regard it is an especially interesting and striking example of
+the fundamental ideas involved.
+    This paper grew out of one of the student projects at the 2001 Arizona Winter
+School. In the process of helping my student group to prepare their presentation on
+[6], it became clear to me that the Galois cohomology in Gross’ argument could be
+simplified in several ways. This paper is my attempt to demonstrate that. Although
+it may seem strange that the allegedly simpler proof given here is somewhat longer
+than that given in [6], I believe that much of the extra bulk comes from the general
+treatment of the Galois cohomology and some elaboration on points Gross treats
+very quickly. (See [4] and [13] for another example of an intended simplification by
+this author which ended up being far longer than the original, especially considering
+that all of the hard parts were omitted.)
+    My Winter School student group consisted of Kirsten Eisentraeger, Chris Hall,
+Ling Long, Satya Mohit, Jorge Pineiro, Marat Sadykov and Michael Schein. I would
+like to express my sincere gratitude to each of them for preparing and giving an
+outstanding presentation of these ideas; I would also like to thank them for helping
+me to understand this proof far better than I ever had before. I hope that skipping
+the Desert Museum seemed at least a little worthwhile in the end. Robert Pollack
+provided invaluable insight throughout the project, and Mark Dickinson helped me
+work out some of the details in this write-up. The calculations presented in Section
+7 were done by Kirsten Eisentraeger and Peter Green; William Stein helped with
+some of them as well. I would also like to thank the organizers of the Winter School
+for giving all of us this opportunity. Lastly, I would like to thank Barry Mazur for
+inviting me to share in his lectures at the Winter School and for all of the help and
+inspiration he provided. If nothing else, I hope that this paper can at least serve
+as the long-awaited conclusion to [7].
+
+Notation. If H is an abelian group with pH = 0, we write H ∨ for its Pontrjagin
+dual HomFp (H, Fp ). If H is an arbitrary abelian group, we write H[p] for the
+p-torsion in H.
+   If K is a perfect field we will write GK for the absolute Galois group Gal(K̄/K).
+If L is an extension of K and T is a Gal(L/K)-module, we write H i (L/K, T ) for the
+group cohomology H i (Gal(L/K), T ); if L = K̄ we will just write this as H i (K, T ).
+(All Galois modules we consider will be discrete so that there is no need to worry
+about topologies.) If T is a p-torsion GK -module for some prime p, we write T ∗ for
+its Cartier dual HomFp (T, µp ) (where µp denotes the GK -module of the pth roots
+of unity) endowed with the adjoint Galois action. We write K(T ) for the fixed field
+of the kernel of the homomorphism GK → Aut(T ).
+   We will identify non-archimedean places of number fields with prime ideals; we
+will usually use places when working abstractly and ideals when working somewhat
+more concretely. We will tend to ignore archimedean places; this will not be a
+problem since we almost always have p 6= 2.
+   We will have frequent use for the following construction: let M/L and L/K
+be Galois extensions and assume that Gal(M/L) is abelian. There is a natural
+action of Gal(L/K) on Gal(M/L) defined as follows: given τ ∈ Gal(L/K) and
+σ ∈ Gal(M/L), let τ̃ be any lift of τ to Gal(M/K). Then the action of τ on σ
+is given by τ σ = τ̃ στ̃ −1 . (The fact that Gal(M/L) is abelian implies that this is
+independent of the choice of τ̃ .) The action of Gal(L/K) on Gal(M/L) is trivial
+precisely when M is an abelian extension of K.
+4                                    TOM WESTON
+
+
+   We will often be working with eigenspaces for involutions, and we make the
+following sign convention: whenever ± appears in a formula, it is to be regarded
+as a fixed choice of sign, and every other ± in that formula should agree with this
+choice; a ∓ indicates the opposite of this initial choice.
+
+                          2. Local cohomology groups
+2.1. Basic facts. Fix a prime l and let K be a finite extension of Ql . Let K ur
+denote the maximal unramified extension of K; we write IK for the inertia group
+Gal(K̄/K ur ) and Gur              ∼        ur
+                      K for GK /IK = Gal(K /K). Let T be a finite dimensional
+Fp -vector space with a discrete action of GK . We say that T is unramified if IK
+acts trivially on T .
+   We will need the following facts about the Galois cohomology group H 1 (K, T ).
+   Inflation-restriction: There is an exact sequence [10, Chapter 7, Section 6]
+                                     inf             res             ur
+(1)         0 → H 1 (K ur /K, T IK ) −→ H 1 (K, T ) −→ H 1 (IK , T )GK → 0.
+      (We will always use inflation to regard H 1 (K ur /K, T IK ) as a subspace of
+      H 1 (K, T ).)
+    Tate local duality: There is a perfect pairing of Fp -vector spaces [8, Chapter
+      I, Corollary 2.3]
+(2)                        H 1 (K, T ) ⊗Fp H 1 (K, T ∗ ) → Fp .
+    Unramified duality: If l 6= p and T is unramified, then H 1 (K ur /K, T ) and
+     H 1 (K ur /K, T ∗ ) are exact orthogonal complements under the Tate pairing;
+     see [8, Chapter I, Theorem 2.6].
+
+2.2. Local Selmer structures. By a local Selmer structure F (sometimes called a
+                                                                              1
+finite/singular structure) for T we simply mean a choice of Fp -subspace Hf,F     (K, T )
+of H 1 (K, T ). We define the singular quotient Hs,F
+                                                 1
+                                                     (K, T ) as H 1 (K, T )/Hf,F
+                                                                             1
+                                                                                 (K, T ),
+so that there is an exact sequence
+                      1
+(3)              0 → Hf,F (K, T ) → H 1 (K, T ) → Hs,F
+                                                   1
+                                                       (K, T ) → 0.
+For c ∈ H 1 (K, T ) we write cs for the image of c in Hs,F
+                                                       1
+                                                           (K, T ).
+   We say that F is the unramified structure if Hf,F (K, T ) = H 1 (K ur /K, T IK ). In
+                                                    1
+
+this case the sequence (3) identifies with the sequence (1).
+   Given a local Selmer structure F on T , we define the Cartier dual local Selmer
+structure F ∗ on T ∗ to be the exact orthogonal complement of Hf,F  1
+                                                                        (K, T ) under
+the Tate pairing (2). In particular, there is an induced perfect pairing
+                          1                1
+(4)                      Hs,F (K, T ) ⊗Fp Hf,F (K, T ∗ ) → Fp .
+Note that if T is unramified, F is the unramified structure and l 6= p, then T ∗ is
+unramified and F ∗ is the unramified structure.
+
+2.3. Local cohomology of elliptic curves. Let E be an elliptic curve over the
+local field K. We will be studying the GK -module E[p] = E(K̄)[p]; it is a two-
+dimensional Fp -vector space. Recall that the Weil pairing on E[p] is a perfect
+Galois equivariant pairing
+                              E[p] ⊗Fp E[p] → µp ;
+see [11, Chapter 3, Section 8] It follows that E[p]∗ is canonically isomorphic to E[p].
+                     THE EULER SYSTEM OF HEEGNER POINTS                              5
+
+
+  We have an exact sequence
+                                                p
+                         0 → E[p] → E(K̄) −→ E(K̄) → 0
+of GK -modules. The associated long exact sequence in GK -cohomology yields a
+short exact sequence
+                                     κ
+              0 → E(K)/pE(K) −→ H 1 (K, E[p]) → H 1 (K, E)[p] → 0;
+                              ¡         ¢
+here by H 1 (K, E) we mean H 1 K, E(K̄) . The Kummer map is given explicitly as
+follows: for P ∈ E(K), fix Q ∈ E(K̄) such that pQ = P . Then the cocycle κ(P )
+sends σ ∈ GK to σ(Q) − Q ∈ E[p]. (One checks that changing the choice of Q
+changes this cocycle by a coboundary.)
+   We define the geometric local Selmer structure F on E[p] by setting
+                                  Hf,F (K, E[p]) = im κ.
+We will need the following two facts (see [1, Chapter 1]):
+  Duality: The Cartier dual of the geometric structure is the geometric structure.
+    (This makes sense since E[p]∗ ∼ = E[p].)
+  Compatibility: If E has good reduction over K and l 6= p, then E[p] is an un-
+    ramified E[p]-module and the geometric structure agrees with the unramified
+    structure.
+
+                        3. Global cohomology groups
+3.1. Selmer groups. Let K be a number field. For a place v of K we write Kv
+for the completion of K at v; we write Gv and Iv for the absolute Galois group and
+inertia group of Kv , respectively. We also write Fv for the residue field of OKv . We
+fix an embedding K̄ ,→ K̄v for every v; this yields a restriction map Gv ,→ GK .
+   Let T be a finite-dimensional Fp -vector space with a discrete action of GK . For
+any place v we can regard T as a Gv -module via the injection Gv ,→ GK ; we say
+that T is unramified at v if it is unramified as a Gv -module. Since T is finite and
+discrete it is unramified at almost all places v. Note that for any place v we have
+a restriction map
+                           resv : H 1 (K, T ) → H 1 (Kv , T )
+                                            c 7→ cv
+which is in fact independent of the choice of embedding Gv ,→ GK .
+   We define a global Selmer structure F on T to be a choice of local Selmer struc-
+tures for every place of K; we further require these structures to be unramified at
+almost all places. Thus a global Selmer structure F on T is a choice of Fp -subspace
+                              1
+                             Hf,F (Kv , T ) ⊆ H 1 (Kv , T )
+for every place of v, such that
+                          1
+                         Hf,F (Kv , T ) = H 1 (Kvur /Kv , T Iv )
+for almost all v.
+   We define the Selmer group SelF (K, T ) to be the set of all c ∈ H 1 (K, T ) such
+                  1
+that cv lies in Hf,F (Kv , T ) for every place v of T . That is,
+                                      ¡                              ¢
+                   SelF (K, T ) = ker H 1 (K, T ) → ⊕v Hs,F
+                                                          1
+                                                            (Kv , T ) .
+6                                          TOM WESTON
+
+
+3.2. Global cohomology of elliptic curves. Let E be an elliptic curve over K.
+Since the coordinates of the p-torsion points E[p] generate a finite extension of K,
+the Galois module E[p] is discrete; in particular, it is unramified almost everywhere.
+(In fact, by our local discussion we know that E[p] is unramified at all places of
+good reduction which do not divide p.) We define the geometric global Selmer
+structure F on E[p] by letting it agree with the geometric local Selmer structure at
+every place of K. By our local discussion we know that this really will be a Selmer
+structure (since it it is the unramified structure at all places of good reduction not
+dividing p). We also know that the geometric structure is self-dual under the Weil
+pairing identification E[p]∗ ∼= E[p].
+   We claim that the Selmer group SelF (K, E[p]) agrees with the usual p-torsion
+Selmer group Sel(K, E[p]) (see [11, Chapter 10, Section 4]) of E sitting in an exact
+sequence
+(5)               0 → E(K)/pE(K) → Sel(K, E[p]) → X(K, E)[p] → 0
+with
+                                    ¡            Q            ¢
+                       X(K, E) = ker H 1 (K, E) → H 1 (Kv , E) .
+                                                             v
+
+Indeed, the classical Sel(K, E[p]) is defined to be the subspace of H 1 (K, E[p]) of
+classes whose restriction to H 1 (Kv , E[p]) lie in the image of the local Kummer map
+κv for every v. This is precisely our definition of SelF (K, E[p]).
+
+3.3. Global duality. Fix a GK -module T as in Section 3.1 and a global Selmer
+structure F on T ; this induces a Cartier dual Selmer structure F ∗ on T ∗ . We will
+omit these structures from our notation for the remainder of the section.
+   For any ideal a of the ring of integers OK , we define groups
+              Sela (K, T ) = {c ∈ H 1 (K, T ) | cv ∈ Hf,F
+                                                      1
+                                                          (Kv , T ) for all v - a};
+
+    Sela (K, T ∗ ) = {c ∈ H 1 (K, T ∗ ) | cv ∈ Hf,F
+                                                1
+                                                    (Kv , T ∗ ) for all v and cv = 0 for v|a}.
+From these definitions we have exact sequences
+                       0 → Sel(K, T ) → Sela (K, T ) → ⊕ Hs1 (Kv , T )
+                                                                 v|a
+
+                     0 → Sela (K, T ∗ ) → Sel(K, T ∗ ) → ⊕ Hf1 (Kv , T ∗ ).
+                                                                 v|a
+
+The dualities (2) induce a duality between
+                         ⊕ Hs1 (Kv , T )     and       ⊕ Hf1 (Kv , T ∗ ).
+                         v|a                           v|a
+
+Combining these facts, we obtain a sequence
+
+(6) 0 → Sel(K, T ) → Sela (K, T ) → ⊕ Hs1 (Kv , T )
+                                            v|a
+
+                                                    → Sel(K, T ∗ )∨ → Sela (K, T ∗ )∨ → 0
+which is obviously exact except possibly in the middle.
+Proposition 3.1. The sequence (6) is exact.
+Proof. A proof is given in [8, Chapter 1, Theorem 4.10]; see also [9, Theorem
+1.7.3].
+                      THE EULER SYSTEM OF HEEGNER POINTS                               7
+
+
+   It follows that for any ideal a we have a short exact sequence
+            ¡              ¢
+(7)     0 → ⊕ Hs1 (Kv , T ) / im Sela (K, T ) → Sel(K, T ∗ )∨ → Sela (K, T ∗ )∨ → 0.
+             v|a
+
+In particular, if we can choose a so that we can compute both of the flanking terms,
+we will immediately determine Sel(K, T ∗ ). In the next section we will show that for
+appropriate a it is easy to obtain a bound on Sela (K, T ∗ ); this part of the argument
+only depends on the coarse structure of T . The difficult part is to exhibit elements
+in Sela (K, T ) so as to bound the cokernel of the map
+                             Sela (K, T ) → ⊕ Hs1 (Kv , T ).
+                                            v|a
+
+This is accomplished, in a few special cases, via Euler systems.
+
+3.4. Bounds on restricted Selmer groups I. We will prove the result we actu-
+ally need for our applications to elliptic curves in the next section. In this section
+we present a less cluttered version which is often useful.
+    We now assume that p is an odd prime. Let L/K be a finite extension of number
+fields and let T be a finite-dimensional Fp -vector space with an action of Gal(L/K).
+(Of course, we can also regard T as a discrete GK -module.) We assume that T is
+irreducible as a Gal(L/K)-module; that is, T has no proper subspaces which are
+stable under the action of Gal(L/K). We wish to exhibit ideals a for which we can
+bound Sela (K, T ) in terms of L. (The T of this section corresponds to the T ∗ of the
+previous section.) In fact, we will use nothing special about the subspace Sel(K, T )
+of H 1 (K, T ), so we proceed in somewhat more generality.
+    Suppose that τ ∈ Gal(L/K) is an involution; that is, τ 2 = 1. Associated to τ
+we have a decomposition T = T + ⊕ T − where
+                                T ε = {t ∈ T | τ t = εt}
+for ε ∈ {±}. We say that τ is non-scalar if both T + and T − are non-zero.
+   Let S be a finite-dimensional Fp -subspace of H 1 (K, T ). If a is an ideal of OK ,
+we write
+                  S a = {s ∈ S | sv = 0 in H 1 (Kv , T ) for all v|a}.
+Since S is finite we can choose a finite Galois extension M of L such that S lies in
+the image of H 1 (M/K, T ) under inflation. We fix such an M and we assume that
+τ extends to an involution in Gal(M/K) which we still write as τ . Let {γ1 , . . . , γr }
+be a set of generators of Gal(M/L).
+Proposition 3.2. With notation as above, let w1 , . . . , wr be places of M such that
+FrobM/K wi = τ γi . Let vi denote the restriction of wi to K and set a = v1 · · · vr .
+Then S a lies in the image of H 1 (L/K, T ) under inflation.
+   The power of this result lies in the fact that in practice H 1 (L/K, T ) is generally
+easily computable if L is chosen appropriately. For example, let E be an elliptic
+curve over Q and set T = E[p]. Take τ to be (a choice of) complex conjugation;
+since p 6= 2 it follows from the existence of the Weil pairing that τ is non-scalar
+on E[p]. Set S = Sel(Q, E[p]); it is finite by the weak Mordell-Weil theorem. Let
+L = Q(E[p]). If Gal(L/Q) is isomorphic to GL2 (Fp ), which is true for almost all
+primes p, we will see later that H 1 (L/Q, E[p]) = 0. Thus in this case the proposition
+says that for appropriately chosen ideals a of Z, we have Sela (Q, E[p]) = 0.
+8                                    TOM WESTON
+
+
+Proof. We begin with the inflation-restriction exact sequence
+            0 → H 1 (L/K, T ) → H 1 (M/K, T ) → H 1 (M/L, T )Gal(L/K) .
+Since S ⊆ H 1 (M/K, T ), to prove the proposition we must show that the image
+s̃ ∈ H 1 (M/L, T ) of any s ∈ S a is zero.
+    Fix an s ∈ S a . Since Gal(M/L) acts trivially on T , we have H 1 (M/L, T ) =
+Hom(Gal(M/L), T ). We may therefore regard s̃ as a homomorphism Gal(M/L) →
+T . In this language, Gal(L/K)-invariance translates to Gal(L/K)-equivariance of
+s̃ for the conjugation action on Gal(M/L) and the usual action on T .
+    Fix one of the places w = wi of M corresponding to γ = γi as in the statement
+of the proposition; that is, FrobM/K w = τ γ. We will also write w for the induced
+place of L and v for the induced place of K. We have
+                           FrobL/K w = FrobM/K w|L = τ,
+which has order 2. Thus
+                        FrobM/L w = (FrobM/K w)2 = (τ γ)2 .
+   Since s ∈ S a , we know that the restriction of s to H 1 (Mw /Kv , T ) is a coboundary.
+Thus the homomorphism s̃|Gal(Mw /Lw ) is zero. In particular, s̃(FrobM/L w) = 0;
+that is,
+(8)                                  s̃(τ γτ γ) = 0.
+Since τ is an involution, τ γτ is nothing other than τ γ. We can thus rewrite (8) as
+s̃(τ γ) = −s̃(γ). Since s̃ is Gal(L/K)-equivariant, this means that τ s̃(γ) = −s̃(γ).
+We conclude that s̃(γ) lies in the eigenspace T − for the action of τ on T .
+    Since the γi generate Gal(M/L), by applying the above argument to each of
+γ1 , . . . , γr we see that the Fp -span of the image of s̃ : Gal(M/L) → T lies in T − .
+Let us write this span as W . Since s̃ is Gal(L/K)-equivariant and Gal(M/L) is
+stable under the conjugation action of Gal(L/K), W is stable under the action of
+Gal(L/K).
+    We have now shown that W is Gal(L/K)-stable and lies in T − . However, since
+τ is non-scalar by hypothesis, we have T − 6= T ; thus W 6= T . T is irreducible as a
+Gal(L/K)-module, so this implies that W = 0. Thus s̃ = 0, as desired.
+
+3.5. Bounds on restricted Selmer groups II. As in the previous section, let
+T be an irreducible Fp [Gal(L/K)]-module and let S be a finite-dimensional sub-
+space of H 1 (M/K, T ) for some finite Galois extension M of L. We introduce an
+intermediate field L0 of the extension L/K, Galois over K, and we assume that
+the action of Gal(L/K) on T factors through Gal(L0 /K). We also assume that K
+is a quadratic extension of a field K0 and that the Gal(L0 /K)-action on T is the
+restriction of a Gal(L0 /K0 )-action.
+   We now let τ denote an involution of Gal(M/K0 ) which projects to the non-
+trivial element of Gal(K/K0 ). (In particular, τ ∈
+                                                 / Gal(M/K).) As before we have a
+decomposition T = T + ⊕T − and we assume that both of these factors are non-zero.
+Note that τ also acts on H 1 (M/K, T ) (via conjugation on Gal(M/K) and the usual
+action on T ) and we have a decomposition
+                  H 1 (M/K, T ) = H 1 (M/K, T )+ ⊕ H 1 (M/K, T )− .
+We assume that S ⊆ H 1 (M/K, T )ε for some ε ∈ {±}.
+                       THE EULER SYSTEM OF HEEGNER POINTS                                9
+
+
+  Finally, let σ be an element of Gal(M/L0 ) such that τ στ −1 = σ −1 . As before
+we let {γ1 , . . . , γr } be a set of generators of Gal(M/L).
+Proposition 3.3. With notation as above, let w1 , . . . , wr be places of M such that
+FrobM/K0 wi = τ σγi . Let vi denote the restriction of wi to K and set a = v1 · · · vr .
+Then S a lies in the image of H 1 (L/K, T )ε .
+   The Tchebatorev density theorem guarantees the existence of an infinite number
+of choices for each of the wi above. In particular, we obtain the following corollary.
+Corollary 3.4. There is an ideal a of K, divisible only by primes λ lying over
+primes λ0 of K0 with Frobenius conjugate to τ σ on L, such that S a ⊆ H 1 (L/K, T )ε .
+   In our applications to an elliptic curve E over Q, we will take K0 = Q and K will
+be an appropriate imaginary quadratic field. T will be the p-torsion representation
+E[p], τ will be a complex conjugation and S will be Sel(K, E[p])ε for some ε. We
+will take L0 to be the field K(E[p]) or an extension of it of degree p2 ; in either case,
+L will be a certain extension of L0 of degree p2 . We will need the extra flexibility
+provided by taking σ to be non-trivial to insure that the Euler system part of our
+argument succeeds.
+Proof. Since S = S ε , it suffices to show that S a lies in the inflation of H 1 (L/K, T ).
+As before, by the inflation-restriction sequence we must show that for any s ∈ S a
+the induced Gal(L/K)-homomorphism s̃ : Gal(M/L) → T is zero. Note also that
+s̃ extends to a homomorphism Gal(M/L0 ) → T .
+    Fix one of the places w = wi of M corresponding to γ = γi . We will also write w
+for the induced places of L and L0 and v for the induced places of K and K0 . Note
+that v is inert in K/K0 and splits completely in L0 /K. Since FrobM/K0 w = τ σγ
+and K/K0 is quadratic, we thus have FrobM/L0 w = (τ σγ)2 . Since τ is an involution
+we have
+                         (τ σγ)2 = τ στ τ γτ σγ = τ σ · τ γ · σ · γ.
+Since τ σ = σ −1 , we conclude that
+(9)                          FrobM/L0 w = σ −1 · τ γ · σ · γ.
+  As before, since s ∈ S a we must have s̃(FrobM/L0 w) = 0. Since s̃ is a homomor-
+phism on Gal(M/L0 ), (9) now implies that
+                          s̃(σ −1 ) + s̃(τ γ) + s̃(σ) + s̃(γ) = 0.
+Since s̃(σ −1 ) = −s̃(σ), this implies that
+(10)                                 s̃(τ γ) = −s̃(γ).
+   s̃ need not be equivariant for the action of τ since τ ∈
+                                                          / Gal(L/K). However, since
+s ∈ H 1 (L/K, T )ε , we do have
+                                     s̃(τ γ) = ετ s̃(γ)
+by the definition of the τ -action on H 1 (L/K, T ). Combining this with (10) we see
+that s̃(γ) lies in T −ε .
+   Let W ⊆ T be the Fp -span of s̃(Gal(M/L)); it is Gal(L/K)-stable since s̃ is
+Gal(L/K)-equivariant. By the above argument applied to each of γ1 , . . . , γr we see
+that W ⊆ T −ε . But we are assuming both that T is irreducible and that T −ε 6= T .
+Thus W must be zero, and s̃ = 0, as desired.
+10                                 TOM WESTON
+
+
+                    4. Galois cohomology calculations
+4.1. Statements. Let E be an elliptic curve over Q of conductor N and let ε be
+the negative of the sign of the functional equation of E over Q. We fix a modular
+parameterization X0 (N ) → E and we let K be an imaginary quadratic field in
+which every prime dividing N splits. In the next section we will construct a point
+yK in E(K) which is mapped to ε · yK (up to torsion) under ¡ complex conjugation.
+                                                                         ¢ε
+(If E(K) has no p-torsion, then this implies that yK ∈ E(K)/pE(K) .) The
+main result of this paper is the following.
+Theorem 4.1. Let p be an odd prime such that:
+   • E has good reduction at p;
+   • Gal(Q(E[p])/Q) ∼   = GL2 (Fp );
+   • yK ∈ / pE(K).
+Then Sel(K, E[p]) has order p; it is generated by the image of yK under the Kummer
+map.
+   By Lemma 6.3 below, the second condition implies that Gal(K(E[p])/K) ∼          =
+GL2 (Fp ) as well. In particular, E has no K-rational p-torsion.
+   Note that if yK has infinite order then the conditions of the theorem hold for
+almost all p (while if yK is torsion, then the conditions of the theorem never hold).
+In particular, by (5) we have the following corollary.
+Corollary 4.2. If yK has infinite order, then E(K) has rank one and X(E/K)
+has trivial p-primary part for all p satisfying the conditions of the theorem.
+  In this section we will use Corollary 3.4 to reduce the proof of the theorem to the
+construction of certain classes in H 1 (K, E[p]). Before we can apply Corollary 3.4,
+however, we must compute the relevant Galois cohomology groups.
+4.2. Preliminaries. The proof proceeds differently for the different eigenspaces of
+Sel(K, E[p]) under complex conjugation. Fix a complex conjugation τ ∈ GQ and a
+prime p as in the theorem. We begin with the following fundamental fact.
+Lemma 4.3. dimFp E[p]± = 1.
+Proof. Recall that the Weil pairing is a Galois equivariant perfect pairing E[p] ⊗
+E[p] → µp . Since τ acts on µp as inversion, the Galois equivariance implies that
+the Weil pairing yields a perfect pairing E[p]+ ⊗ E[p]− → µp . Since at least one of
+E[p]± is non-zero, the result follows.
+   The maps of (6) respect the action of complex conjugation; we therefore obtain
+exact sequences
+(11)
+  Sela (K, E[p])± → ⊕ Hs1 (Kv , E[p])± → Sel(K, E[p])±∨ → Sela (K, E[p])±∨ → 0.
+                    v|a
+
+We will prove the theorem by choosing a in such a way that we can compute all of
+the terms above.
+   Let l be a prime of Q which is inert in K; set λ = lOK . Then τ yields the
+non-trivial element of Gal(Kλ /Ql ), so that we can define a conjugation action of
+τ on Gλ = Gal(K̄λ /Kλ ) and thus on H 1 (Kλ , E[p]). Furthermore, the action of τ
+respects Hf1 (Kλ , E[p]) (as always we are using the geometric Selmer structure for
+E[p]) so that that the eigenspaces Hs1 (Kλ , E[p])± are defined.
+                      THE EULER SYSTEM OF HEEGNER POINTS                           11
+
+
+Lemma 4.4. Let l be a prime of Q such that:
+  • E has good reduction at l;
+  • l 6= p;
+  • FrobK(E[p])/Q l is conjugate to τ .
+Then Hs1 (Kλ , E[p])± is a one-dimensional Fp -vector space.
+Proof. Note that l as above is inert in K/Q and splits completely in K(E[p])/K. In
+particular, E[p] ⊆ E(Kλ ); it follows by the Weil pairing that µp ⊆ Kλ× . Since the
+geometric structure at l agrees with the unramified structure and E[p] is unramified
+at λ, we have
+                                                 ur                  ur
+               Hs1 (Kλ , E[p]) ∼
+                               = H 1 (Iλ , E[p])Gλ ∼= Hom(Iλ , E[p])Gλ .
+By the basic Galois theory of local fields [5, Section 8]
+                        Iλ /pIλ ∼
+                                = Gal(Kλur (l1/p )/Kλur ) ∼
+                                                          = µp
+as Gur                 ur
+    λ -modules. Since Gλ acts trivially on E[p] and µp (both are defined over Kλ )
+we conclude that
+                        Hs1 (Kλ , E[p]) ∼
+                                        = Hom(µp , E[p]).
+This isomorphism respects the action of τ ; since τ acts on µp as inversion, we find
+that
+                            Hs1 (Kλ , E[p])± ∼
+                                             = E[p]∓ .
+Lemma 4.3 now completes the proof.
+
+4.3. The −ε-eigenspace. We now prepare to apply Corollary 3.4. Fix z ∈ E(K̄)
+with pz = yK . Set K0 = Q, L0 = K(E[p]) and L = L0 (z). By Lemma 4.3, τ is
+non-scalar on E[p]. Let κ : E(K)/pE(K) → H 1 (K, E[p]) be the Kummer map.
+Note that κ(yK ) is non-zero (since κ is injective and yK ∈/ pE(K) by assumption)
+and lies in H 1 (L/K, E[p]). Our first task is to compute the group H 1 (L/K, E[p]);
+this is done in the next three lemmas.
+Lemma 4.5. H i (L0 /K, E[p]) = 0 for all i.
+Proof. Since              ∼
+           ¡ Gal(L0 /K) ¢ = GL2 (Fp ), the cohomology groups we must   calculate are
+simply H GL2 (Fp ), Fp with the natural action of GL2 (Fp ) on F2p . Let Z = F×
+         i            2
+                                                                                  p
+be the normal subgroup of GL2 (Fp ) of scalars; there is a spectral sequence
+                  ¡                         ¢       ¡              ¢
+(12)           H p PGL2 (Fp ), H q (Z, F2p ) ⇒ H p+q GL2 (Fp ), F2p .
+Since Z has order p − 1, H q (Z, F2p ) = 0 for q > 0; since p 6= 2, one computes that
+H 0 (Z, F2p ) = 0 as well. The desired vanishing now follows from (12).
+
+Lemma 4.6. Gal(L/L0 ) is isomorphic to E[p] as a Gal(L0 /K)-module. This iso-
+morphism may not respect the action of τ , but one does have dimFp Gal(L/L0 )± =
+1.
+Proof. The cocycle κ(yK ) : GK → E[p] is given by σ 7→ σ(z) − z. Thus if we let
+c : GL0 → E[p] be the Gal(L0 /K)-equivariant restriction of κ(yK ) to GL0 , the field
+L is precisely the kernel of c. We must show that c is surjective.
+    It follows from Lemma 4.5 that restriction yields an isomorphism
+                     H 1 (K, E[p]) ∼
+                                   = Hom(GL0 , E[p])Gal(L0 /K) .
+12                                    TOM WESTON
+
+
+Since yK ∈/ pE(K) we have κ(yK ) 6= 0; thus the homomorphism c is non-zero as
+well. Since it is Gal(L0 /K)-equivariant and Gal(L0 /K) acts transitively on E[p],
+the surjectivity follows.
+
+Lemma 4.7. H 1 (L/K, E[p]) ∼
+                           = Fp · κ(yK ).
+Proof. Lemma 4.5 and the inflation-restriction sequence for the tower L/L0 /K yield
+an isomorphism
+
+                      H 1 (L/K, E[p]) ∼
+                                      = H 1 (L/L0 , E[p])Gal(L0 /K) .
+Gal(L/L0 ) acts trivially on E[p], so by Lemma 4.6 this is just the Gal(L0 /K)-
+invariants of Hom(E[p], E[p]). Since Gal(L0 /K) ∼= GL2 (Fp ), one computes directly
+that these invariants consist precisely of the one-dimensional space of scalars in
+Hom(E[p], E[p]). Thus H 1 (L/K, E[p]) has dimension one as an Fp -vector space.
+Since κ(yK ) is a non-zero element of H 1 (L/K, E[p]), this completes the proof.
+
+     We will give the proof of the next proposition in Section 6.
+
+Proposition 4.8. Assume that yK ∈    / pE(K). Let l be a prime of Q which has
+FrobL0 /Q l conjugate to complex conjugation and which does not split completely in
+L/L0 ; set λ = lOK . Then there exists a cohomology class c(l) ∈ Selλ (K, E[p])−ε
+with c(l)sλ 6= 0 in Hs1 (Kλ , E[p]).
+
+     We can now give the proof of the following portion of the main theorem.
+
+Theorem 4.9. Sel(K, E[p])−ε = 0.
+
+Proof. By Lemma 4.6 we can choose a nontrivial σ ∈ Gal(L/L0 )− ; thus τ στ −1 =
+σ −1 . We may now apply Corollary 3.4 with S = Sel(K, E[p])−ε . (Note that E[p]
+is irreducible as a Gal(L0 /K)-module since Gal(L0 /K) ∼     = GL2 (Fp ).) We conclude
+that there exist primes l1 , . . . , lr of Q with FrobL/Q li conjugate to τ σ and such
+that
+                         Sela (K, E[p])−ε ⊆ H 1 (L/K, E[p])−ε ;
+here a = λ1 · · · λr with λi = li OK . By Lemma 4.7 we know that H 1 (L/K, E[p]) has
+dimension ¡one, with generator
+                            ¢ε     κ(yK ). Since κ commutes with complex conjugation
+and yK ∈ E(K)/pE(K) , we have κ(yK ) ∈ H 1 (L/K, E[p])ε . Thus
+
+                       H 1 (L/K, E[p])−ε = Sela (K, E[p])−ε = 0.
+
+This takes care of one of the terms in (11).
+  By Lemma 4.4, the vector space
+
+                               V = ⊕ri=1 Hs1 (Kλi , E[p])−ε
+
+has dimension r. Since FrobL/Q li is conjugate to τ σ and σ 6= 1, the primes
+li satisfy the conditions of Proposition 4.8. This yields classes c(l1 ), . . . , c(lr ) ∈
+Sela (K, E[p])−ε . Since the image of c(li ) in V is supported precisely in the one-
+dimensional space Hs1 (Kλ , E[p])−ε , the images of c(l1 ), . . . , c(lr ) in V are linearly
+independent. Therefore they span V . Thus the map Sela (K, E[p])−ε → V is sur-
+jective; applying (11) completes the proof.
+                      THE EULER SYSTEM OF HEEGNER POINTS                               13
+
+
+4.4. The ε-eigenspace. We now consider Sel(K, E[p])ε ; the proof here is com-
+plicated somewhat by the fact that Sel(K, E[p])ε is manifestly non-trivial, as it
+contains κ(yK ).
+   We continue with the notation of the previous section. We begin by choosing
+an auxiliary prime q as in Proposition 4.8; the role it plays will only become clear
+in Section 6. This yields a class c(q) ∈ Selq (K, E[p])−ε with c(q)sq 6= 0, (where q
+is the prime of K above q). Note that κ(yK ) and c(q) are linearly independent
+in H 1 (K, E[p]) since κ(yK )sq = 0. Let L0 be the fixed field of the kernel of the
+homomorphism GL → E[p] obtained by restricting c(q); L0 is the smallest extension
+of L such that c(q) ∈ H 1 (L0 /K, E[p]).
+Lemma 4.10. Gal(L0 /L) is isomorphic to E[p] as a Gal(L/K)-module. Further-
+more, we have dimFp Gal(L0 /L)± = 1.
+Proof. Since c(q) is linearly independent from κ(yK ), it follows from inflation-
+restriction and Lemma 4.7 that the restriction of c(q) to GL is non-zero. From
+here the proof proceeds as in Lemma 4.6; we omit the details.
+Lemma 4.11. H 1 (L0 /K, E[p]) ∼
+                              = Fp · κ(yK ) ⊕ Fp · c(q).
+Proof. The proof of this is quite similar to the proof of Lemma 4.7: one shows
+via inflation-restriction for the tower L0 /L/K that H 1 (L0 /K, E[p]) has dimension
+2 over Fp . The elements κ(yK ) and c(q) are linearly independent, so they must be
+a basis.
+  We give the proof of the next proposition in Section 6. It will require the use of
+Theorem 4.9.
+Proposition 4.12. Assume that yK ∈    / pE(K). Let l be a prime of Q which has
+FrobL/Q l conjugate to complex conjugation and which does not split completely in
+L0 /L; set λ = lOK . Then there exists a cohomology class c(ql) ∈ Selλ (K, E[p])ε
+with c(ql)sλ 6= 0 in Hs1 (Kλ , E[p]).
+  We can now complete the proof of the main theorem.
+Theorem 4.13. Sel(K, E[p])ε = Fp · κ(yK ).
+Proof. By Lemma 4.10 we can choose a nontrivial σ ∈ Gal(L0 /L)− . We now apply
+Corollary 3.4 with S = Sel(K, E[p])ε and the tower of fields L0 /L/K/Q. We con-
+clude that there exist primes l1 , . . . , lr of Q such that FrobL0 /Q li is conjugate to
+τ σ and such that
+                        Sela (K, E[p])ε ⊆ H 1 (L0 /K, E[p])ε ;
+here a = λ1 · · · λr with λi = li OK .
+   By Lemma 4.11 we know that H 1 (L0 /K, E[p]) has dimension two, with basis
+κ(yK ) and c(q). However, c(q) lies in the −ε-eigenspace, so we conclude that
+Sela (K, E[p])ε has dimension at most one.
+   As before,
+                                V = ⊕ri=1 Hs1 (Kλi , E[p])ε
+has dimension r. Proposition 4.12 implies that we have r elements
+                          c(ql1 ), . . . , c(qlr ) ∈ Sela (K, E[p])ε
+whose images span V . Thus the map Sela (K, E[p])ε → V is surjective.
+14                                   TOM WESTON
+
+
+     We conclude by (11) that
+                           Sel(K, E[p])ε ∼
+                                         = Sela (K, E[p])ε
+and that these are Fp -vector spaces of dimension at most one. Since κ(yK ) is a
+non-zero element of Sel(K, E[p])ε , the theorem follows.
+
+   It is perhaps worth noting that we can also prove Theorem 4.13 with the ideal
+aq = λ1 · · · λr q; one then has Selaq (K, E[p])ε = 0, but now the cokernel of
+                        Selaq (K, E[p])ε → ⊕ Hs1 (Kλ , E[p])ε
+                                             v|aq
+
+has dimension 1.
+  It remains, then, to prove Propositions 4.8 and 4.12. This will be done via
+Heegner points.
+
+                                 5. Heegner points
+5.1. Ring class fields. The class field theory of the field Q is fairly straightfor-
+ward: all abelian extensions of Q are contained in cyclotomic extensions of Q. An
+imaginary quadratic field K, however, has two kinds of abelian extensions: the
+cyclotomic extensions (which are still abelian over Q) and the anti-cyclotomic ex-
+tensions (which are not abelian over Q). These anti-cyclotomic extensions are the
+ring class fields of K.
+   For proofs of the assertions of this section see [2, Section 9]. Fix an imaginary
+quadratic field K. For any integer n let On = Z + nOK be the order of conductor
+n in OK . Let I(n) denote the group of fractional ideals of OK relatively prime to n
+and let P (n) be the subgroup generated by principal ideals αOK where α ∈ OK is
+congruent to a rational integer modulo nOK . It is an elementary fact that the ideal
+class group Pic(On ) is isomorphic to the quotient I(n)/P (n). This is a generalized
+ideal class group for K, so class field theory yields an abelian extension Kn /K,
+unramified away from n, such that there is an isomorphism
+                                         ≃
+(13)                            Pic(On ) −→ Gal(Kn /K)
+sending a prime ideal λ ∈ I(n) to its Frobenius element. This Kn is the ring class
+field of K of conductor n. Note that if l is a prime of Q, relatively prime to n,
+which is inert in K, then λ = lOK lies in P (n), so it splits completely in Kn /K. As
+we have said, Kn is not abelian over Q: the conjugation action of the non-trivial
+τ ∈ Gal(K/Q) sends σ ∈ Gal(Kn /K) to σ −1 .
+    K1 is simply the Hilbert class field of K. We will write Gn for Gal(Kn /K1 ); one
+computes from the definitions that there is a canonical isomorphism
+(14)             Gn ∼
+                    = Pic(On )/ Pic(OK ) ∼
+                                         = (OK /nOK )× /(Z/nZ)× .
+In particular, for an odd prime l which is unramified in K/Q, Gl is cyclic and
+                                      (
+                                        l − 1 l splits in K;
+                         [Kl : K1 ] =
+                                        l + 1 l inert in K.
+In this case Kl /K1 is totally ramified as well. (We should at least comment that
+the notation Gl could in principle conflict with our earlier notation for Gal(Q̄l /Ql ).
+Since this latter group will never appear below, this should cause no confusion.)
+                     THE EULER SYSTEM OF HEEGNER POINTS                             15
+
+
+   Suppose that n is squarefree. By ramification considerations (or else the Chinese
+remainder theorem applied to (14)) we find that there is a canonical isomorphism
+                                         Q
+(15)                               Gn ∼
+                                      =       Gl
+                                            l|n
+
+which will be useful later.
+
+5.2. Complex multiplication. Let N be a positive integer and consider the mod-
+ular curve X0 (N ). (See [14] and the references given there for more details on
+modular curves.) Recall that the non-cuspidal C-valued points of X0 (N ) classify
+isomorphism classes of cyclic N -isogenies E → E 0 of elliptic curves over C. (A
+cyclic N -isogeny is simply a map of algebraic curves which respects the group laws
+and has kernel cyclic of order N .) X0 (N ) is a smooth projective curve which ad-
+mits a model over Q and has good reduction at primes not dividing N . If K is a
+number field, the non-cuspidal K-points of X0 (N ) correspond to cyclic N -isogenies
+E → E 0 defined over K, but only up to isomorphism over K̄; this subtlety can be
+safely ignored below.
+   We now fix a quadratic imaginary field K such that every prime dividing N
+splits completely in K/Q. It follows that we can choose an ideal N of OK such
+that OK /N ∼  = Z/N Z. Let D denote the discriminant of K/Q.
+   Let n be an integer which is relatively prime to N D and consider the order On
+in K. The ideal Nn = N ∩ On still satisfies On /Nn ∼   = Z/N Z. We can therefore
+consider the cyclic N -isogeny
+                                 C/On → C/Nn−1
+of elliptic curves over C induced by the identity map on C. We denote the cor-
+responding C-point of X0 (N ) by xn ; it is the Heegner point of conductor n for
+K. (Note that the point xn depends on the choice of ideal N , so it is not entirely
+canonical.)
+   The theory of complex multiplication (see [12, Chapter 2] and the references given
+there for more details) yields the following information on the action of Aut(C/K)
+on xn : consider the restriction of σ ∈ Aut(C/K) to Gal(Kn /K) with Kn the ring
+class field of K of conductor N . σ|Kn corresponds to an ideal class in Pic(On ) under
+the isomorphism (13); let aσ be any ideal in this class. Then the cyclic N -isogeny
+corresponding to σxn is
+                                C/a−1           −1 −1
+                                    σ → C/Nn aσ .
+It follows in particular that xn is a Kn -rational point of X0 (N ).
+   For any field L ⊆ K̄ we let Div X0 (N )(L) denote the group of divisors on
+X0 (N )(K̄) which are stable under the action of Gal(K̄/L). For a prime l not
+dividing N we have the lth Hecke correspondence
+                        Tl : Div X0 (N )(L) → Div X0 (N )(L)
+sending a cyclic N -isogeny E → E 0 to the formal sum
+                               X
+                                    (E/C → E 0 /C)
+                               C⊆E[l]
+
+of l + 1 cyclic N -isogenies.
+   Let n be an integer relatively prime to N D and let l be a prime not dividing
+nN D. There is a natural trace map
+                     Trl : Div X0 (N )(Knl ) → Div X0 (N )(Kn )
+16                                  TOM WESTON
+
+
+sending a point of X0 (N )(Knl ) to the formal sum of its Gal(Knl /Kn )-conjugates.
+It follows from the main theorem of complex multiplication as given above and the
+definition of the Hecke correspondence that Trl xnl = Tl xn .
+   Heegner points also satisfy a certain congruence which we now explain. If L/Q
+is any extension and λ is a prime of L with residue field Fλ , we write
+                               redλ : E(Lλ ) → E(Fλ )
+for reduction modulo λ.
+   Let l be inert in K and set λ = lOK ; λ splits completely in Kn /K and is
+totally ramified in Knl /Kn . Let λn be a prime of Kn above λ and let λnl be the
+unique prime of Knl over λn . The residue fields Fλn and Fλnl at these primes are
+canonically isomorphic to the residue field Fλ = OK /λ; Fλ is isomorphic to Fl2 ,
+although not canonically.
+   We consider the image of the Heegner points xn , xnl under the reduction maps
+redλn and redλnl ; note that both maps land in E(Fλ ). The congruence (which is a
+fairly direct consequence of the Eichler-Shimura relation) is
+                                           ¡                   ¢
+                      redλnl (xnl ) = redλn FrobKn /K λn · xn ) .
+See [6, Proposition 3.7] for details.
+  We summarize these results in the following proposition.
+Proposition 5.1. Let K be as above. For every integer n relatively prime to N D
+there is a point xn ∈ X0 (N )(Kn ) such that:
+     • If l is a prime not dividing nN D, then we have an equality Trl xnl = Tl xn of
+       divisors on X0 (N )(Knl );
+     • If l is a prime not dividing nN D which is inert in K, then we have
+                                             ¡                 ¢
+                        redλnl (xnl ) = redλn FrobKn /K λn · xn .
+       for any prime λn of Kn over λ.
+5.3. Heegner points on elliptic curves. Let E be an elliptic curve of conductor
+N and let
+                              ϕ : X0 (N ) → E
+be
+P a modular     parameterization of E; ϕ corresponds to a normalized newform f =
+   an q n on Γ0 (N ). Recall that for a prime l not dividing N we have
+                                al = l + 1 − #E(Fl ).
+Let ε be the negative of the sign of the functional equation of E over Q; it is also
+the eigenvalue of f for the Atkin-Lehner involution wN .
+   For any field L, ϕ induces a map
+                                 X0 (N )(L) → E(L)
+and we define the Heegner points of E by
+                                yn = ϕ(xn ) ∈ E(Kn ).
+The translation of Proposition 5.1 is the following. Note that we can regard the
+trace map Trl as a map E(Knl ) → E(Kn ) (rather than as a map of divisors) by
+applying the group law on E.
+                     THE EULER SYSTEM OF HEEGNER POINTS                           17
+
+
+Proposition 5.2. Let E be an elliptic curve of conductor N (endowed with a fixed
+modular parameterization as above) and let K be an imaginary quadratic field of
+discriminant D in which every prime dividing N splits. Then for any integer n not
+dividing N D there is a point yn ∈ E(Kn ) such that:
+    • If l is a prime not dividing nN D, then Trl ynl = al yn in E(Kn );
+    • If l is a prime not dividing nN D which is inert in K, then we have
+                                            ¡                  ¢
+                       redλnl (ynl ) = redλn FrobKn /K λn · yn
+      for any prime λn of Kn over λ.
+Furthermore, if τ is a complex conjugation, then there exists σ ∈ Gal(Kn /K) such
+that τ yn = εσyn in E(K)/E(K)tors .
+Proof. The fact that ϕ ◦ Tl = al ϕ is a consequence of Eichler-Shimura theory; see
+[3, Section 13] for a discussion. Given this, the first two statements follow from
+Proposition 5.1. The last statement follows from the behavior of xn under the
+Atkin-Lehner involution wN ; see [6, Proposition 5.3].
+   We conclude this section by defining the basic Heegner point yK . It is simply
+the image of y1 ∈ E(K1 ) under the trace map
+                            TrK1 /K : E(K1 ) → E(K).
+We let complex conjugation act on E(K)/pE(K) in the usual way.
+                                                           ¡      ¢ε
+Lemma 5.3. Assume that E(K) has no p-torsion. Then yK ∈ E(K)/pE(K) .
+Proof. Since E(K) has no p-torsion, Proposition 5.2 implies that there is a σ ∈
+Gal(K1 /K) such that τ y1 = εσy1 ∈ E(K)/pE(K). Let Tr denote the trace from
+K1 to K. We have
+(16)                    Tr τ y1 = ε Tr σy1 ∈ E(K)/pE(K).
+Since the conjugation action of τ on Gal(K1 /K) is inversion and Tr is stable under
+this operation, we have Tr τ = τ Tr. Since σ ∈ Gal(K1 /K), we also have Tr σ = Tr.
+Thus (16) becomes
+                         τ Tr y1 = ε Tr y1 ∈ E(K)/pE(K),
+which is the statement of the lemma.
+
+                             6. The Euler system
+6.1. Kolyvagin’s derivative operator. We now fix an elliptic curve E of con-
+ductor N , a modular parameterization X0 (N ) → E, an imaginary quadratic field K
+and a prime p as in Section 4. This data defines a basic Heegner point yK ∈ E(K)
+and Heegner points yn ∈ E(Kn ) for every n relatively prime to N D, with D the
+discriminant of K/Q. We are also assuming that E has good reduction at p and
+that Gal(Q(E[p])/Q) ∼   = GL2 (Fp ). We will not invoke the assumption yK ∈/ pE(K)
+until the very end of the argument.
+   We will now convert the Heegner points yn ∈ E(Kn )/pE(Kn ) into cohomology
+classes in H 1 (K, E[n]). The most brutal way to do this is to simply take the trace
+of yn from Kn down to K and then apply the Kummer map. This approach,
+however, does not yield interesting cohomology classes. Instead we will apply a
+certain derivative operator to the yn to obtain Gal(Kn /K1 )-invariant elements.
+Applying the trace from K1 to K will yield the desired cohomology classes.
+18                                      TOM WESTON
+
+
+   Let R be the set of squarefree integers which are relatively prime to pN D and
+which are products of primes l such that FrobK(E[p])/Q l is conjugate to complex con-
+jugation. Note that such an l is inert in K/Q and splits completely in K(E[p])/K.
+We will only need to consider Heegner points yn for n ∈ R.
+Lemma 6.1. For every prime l ∈ R, p divides l + 1 and al = l + 1 − #E(Fl ).
+Proof. The characteristic polynomial of Frob l on E[p] is x2 − al x + l and the
+characteristic polynomial of complex conjugation on E[p] is x2 − 1. Since Frob l is
+conjugate to complex conjugation on E[p], these polynomials must be congruent
+modulo p; the lemma follows.
+  For a prime l ∈ R, the group Gl = Gal(Kl /K1 ) is cyclic of order l + 1. Fix a
+generator σl and define operators
+                             l
+                             X                            l
+                                                          X
+                      Dl =         iσli ,         Trl =         σli ∈ Z[Gl ].
+                             i=1                          i=0
+Trl is just the trace operator for Kl /K1 . These are related by the telescoping
+identity
+(17)                       (σl − 1)Dl = l + 1 − Trl .
+                                 Q
+For general n ∈ R, we have Gn ∼= l|n Gl , and we define
+                                   Q
+                             Dn = Dl ∈ Z[Gn ].
+                                            l|n
+
+   We will need two more operators. Fix a set of coset representatives for the
+subgroup Gal(Kn /K1 ) of Gal(Kn /K); let Tr (resp. Tr−1 ) be the sum of these
+representatives (resp. of their inverses). If M is a Z[Gal(Kn /K)]-module and m ∈
+M Gn , then Tr m lies in M Gal(Kn /K) and is independent of the choice of coset
+representatives above; in particular, Tr m = Tr−1 m.
+   We can regard all of the above operators as elements of the commutative group
+ring Z[Gal(Kn /K)]. These operators do not commute with complex conjugation τ ;
+indeed, since conjugation by τ is inversion on Gal(Kn /K), one finds, for example,
+that
+(18)                  τ Tr = Tr−1 τ ;              τ Dl = l Trl −σl Dl τ.
+6.2. Derived cohomology classes. There is a natural action of the group ring
+Z[Gal(Kn /K)] on E(Kn )/pE(Kn ). The following lemma is the main step in the
+construction of our desired cohomology classes.
+                                               ¡          ¢ Gn
+Lemma 6.2. For any n ∈ R we have Dn yn ∈ E(Kn )/pE(Kn )        .
+Proof. Since Gn is generated by the σl for l dividing n, the statement of the lemma
+is equivalent to the statement that
+                              (σl − 1)Dn yn ∈ pE(Kn )
+for all l dividing n. Using (17) we compute that
+                        (σl − 1)Dn yn = Dn/l (σl − 1)Dl yn
+                                      = Dn/l (l + 1 − Trl )yn
+                                                ¡                 ¢
+in E(Kn ). By Proposition 5.2 this equals Dn/l (l + 1)yn − al yn/l . By Lemma 6.1
+this lies in pE(Kn ), which completes the proof.
+                      THE EULER SYSTEM OF HEEGNER POINTS                              19
+
+
+  We now define
+                               Pn = Tr Dn yn ∈ E(Kn );
+by Lemma 6.2, the image of Pn in E(Kn )/pE(Kn ) is Gal(Kn /K)-invariant and is
+independent of the choice of Tr. We will use the next two lemmas to produce an
+element of H 1 (K, E[p]) from Pn .
+Lemma 6.3. E has no Kn -rational p-torsion for any n ∈ R.
+Proof. This is basically the statement that the groups GL2 (Fp ) and Gal(Kn /Q)
+are not very compatible; see [6, Lemma 4.3] for details.
+
+Lemma 6.4. The restriction map
+                     res : H 1 (K, E[p]) → H 1 (Kn , E[p])Gal(Kn /K)
+is an isomorphism.
+Proof. By inflation-restriction the kernel and cokernel of this map are the groups
+H i (Kn /K, E[p]Gal(Kn /K) ) for i = 1, 2 respectively. Both of these groups vanish by
+Lemma 6.3, so the restriction map is an isomorphism.
+
+  Now consider the image of Pn under the Kummer map
+                        κ : E(Kn )/pE(Kn ) → H 1 (Kn , E[p]).
+The Kummer map is Galois equivariant, so that κ(Pn ) ∈ H 1 (Kn , E[p])Gal(Kn /K) ,
+and we define c(n) ∈ H 1 (K, E[p]) to be the unique class such that res c(n) = κ(Pn ).
+  These are the cohomology classes which we need to complete our proof. We
+begin our investigation of them by determining how they behave under complex
+conjugation.
+                                                                                 k
+Lemma 6.5. Let n ∈ R have k prime factors. Then c(n) ∈ H 1 (K, E[p])(−1) ε .
+Proof. Since κ and res respect the action of complex conjugation, it suffices to show
+that τ Pn = (−1)k εPn in E(Kn )/pE(Kn ). In the calculations below we always work
+in E(Kn )/pE(Kn ). By (18) we have
+                              Q                Q
+                  τ Pn = τ Tr Dl yn = Tr−1 (l Trl −σl Dl )τ yn .
+                               l|n                  l|n
+
+By Proposition 5.2 there is a σ ∈ Gal(Kn /K) such that τ yn = (−1)k εσyn in
+E(Kn )/pE(Kn ); thus
+                                         Q
+                     τ Pn = (−1)k εσ Tr−1 (l Trl −σl Dl )yn .
+                                              l|n
+
+For each l we have Trl yn = al yn/l ; by Proposition 5.2 this is zero in E(Kn )/pE(Kn ).
+It follows that only one term survives in the above product and
+                                           ¡Q ¢
+(19)                      τ Pn = (−1)k εσ σl Tr−1 Dn yn .
+                                            l|n
+
+But Dn yn is Gn -invariant, so that Tr−1 Dn yn = Tr Dn yn = Pn . Since Pn is
+Gal(Kn /K)-invariant, the other group operations in (19) are trivial; we conclude
+that τ Pn = (−1)k εPn , as claimed.
+20                                    TOM WESTON
+
+
+6.3. Ramification of the derived classes. We begin with the fact that the class
+c(n) is unramified away from n.
+Lemma 6.6. Fix n = l1 · · · lr ∈ R and set λi = li OK . Then
+                              c(n) ∈ Selλ1 ···λr (K, E[p]).
+Proof. Let v be a place of K distinct from λ1 , . . . , λr ; we must show that c(n)v ∈
+Hf1 (Kv , E[n]), or equivalently that c(n)sv = 0 in Hs1 (Kv , E[n]). This is straight-
+forward if E has good reduction at v. In this case we have Hs1 (Kv , E[p]) =
+                 ur
+Hom(Iv , E[p])Gv , so that c(n)sv is zero exactly when the restriction of c(n) to Iv is
+trivial.
+   Let w be a place of Kn over v. Since v does not divide n, Kn,w /Kv is unramified.
+In particular, the inertia group of Kn,w is also Iv . We therefore have a commutative
+diagram
+
+                                         H 1 (Kv , E[p])      / Hom(Iv , E[p])
+
+                                                    res
+                                                ²
+                                 κ     / H 1 (Kn,w , E[p])    / Hom(Iv , E[p])
+          E(Kn,w )/pE(Kn,w )
+
+in which the bottom row is exact. (Both rows are just portions of the exact sequence
+(3) over Kv and Kn,w , respectively.) We know that res c(n)v = κ(Pn ), so that
+exactness of the bottom row shows that (res c(n)v )s is trivial. But then c(n)sv is
+trivial as well, as claimed.
+   The proof at places v of bad reduction for E is somewhat more subtle and
+involves an analysis of the Néron model of E. We refer to [6, Proposition 6.2] for
+the details.
+
+   We now turn to the local behavior of a class c(n) at primes dividing n. The key
+computation is given in Lemma 6.7 below; we first set some notation. Let nl ∈ R
+with l prime and set λ = lOK . Since Pnl ∈ E(Knl ) is Gal(Knl /K)-invariant in
+E(Knl )/pE(Knl ), we know that (σl − 1)Pnl ∈ pE(Knl ). Since also E(Knl ) has no
+p-torsion, this implies that there is a unique Qn,l ∈ E(Knl ) with pQn,l = (σl −1)Pnl .
+Indeed, it is clear from the proof of Lemma 6.2 that Qn,l is given by the formula
+                                     l+1            al
+(20)                        Qn,l =       Tr Dn ynl − Pn ;
+                                      p             p
+this makes sense since l + 1 and al are divisible by p.
+   Recall that λ splits completely in Kn /K and is totally ramified in Knl /Kn . For
+each prime λn of Kn over λ, we write λnl for the unique prime of Knl over λn . We
+will consider the image of Qn,l under the reduction map
+                            redλnl : E(Knl,λnl ) → E(Fλ );
+recall that Fλ is the residue field of each of λ, λn and λnl . Note that we also have
+Kn,λn = Kλ , so that we can consider Pn as an element of E(Kλ ).
+Lemma 6.7. redλnl (Qn,l ) is trivial in E(Fλ ) if and only if Pn ∈ pE(Kλ ).
+Proof. We first show that
+                                          ¡                       ¢
+(21)            redλn (Tr Dn ynl ) = redλn FrobKn /K λn · Tr Dn yn .
+                      THE EULER SYSTEM OF HEEGNER POINTS                               21
+
+
+This reduces immediately to showing that
+                                        ¡                   ¢
+(22)               redλn (σynl ) = redλn FrobKn /K λn · σyn
+for any σ ∈ Gal(Kn /K). Note that the case σ = 1 is given in Proposition 5.2. In
+general, we begin with the congruence of Proposition 5.2 for the ideal σ −1 λn :
+                                             ¡                         ¢
+                redσ−1 λnl (ynl ) = redσ−1 λn FrobKn /K (σ −1 λn ) · yn .
+Since redσ−1 λn = redλn ◦σ, this is equivalent to
+                                        ¡                           ¢
+                  redλnl (σynl ) = redλn σ FrobKn /K (σ −1 λn ) · yn .
+But FrobKn /K (σ −1 λn ) = σ −1 FrobKn /K (λn )σ, which now completes the proof of
+(22) and thus of (21) as well.
+   Combining (21) with (20) and the fact that Tr Dn yn = Pn , we conclude that
+                                         µµ                 ¶ ¶
+                                            l+1          al
+(23)              redλnl (Qn,l ) = redλn          Frob −     Pn
+                                              p          p
+where we now simply write Frob for FrobKn /K λn .
+    We claim that (l + 1) Frob −al annihilates E(Fλ ). To see this, recall that Fλ ∼=
+Fl ; thus Frob is an involution and we have a decomposition E(Fλ ) = E(Fλ )+ ⊕
+   2
+
+E(Fλ )− . We have E(Fλ )+ = E(Fl ), which has order l + 1 − al by definition. The
+Weil conjectures for elliptic curves imply that E(Fλ )− then has order l + 1 + al . In
+either case, we see that ±(l + 1) − al annihilates E(Fλ )± , so that (l + 1) Frob −al
+annihilates E(Fλ ).
+    Since Frob is the reduction of a complex conjugation, by the proof of Lemma 6.5
+we have Frob Pn = νPn + pQ for some ν ∈ {±1} and some Q ∈ E(Kn ). Since
+(l + 1) Frob −al annihilates E(Fλ ), it follows that
+                                           (l + 1)ν − al
+                        redλnl (Qn,l ) =                 redλn (Pn )
+                                                 p
+in E(Fλ )ν . Since E(Fλ )ν has order equal to the absolute value of (l + 1)ν − al ,
+it follows that redλnl (Qn,l ) = 0 if and only if redλn (Pn ) ∈ pE(Kn,λn ). Since
+Kλ = Kn,λn and the kernel of the map E(Kλ ) → E(Fλ ) is pro-l, this is equivalent
+to Pn ∈ pE(Kλ ), as claimed.
+
+   A consequence of this lemma is the following result which is the key to the entire
+proof. It relates the ramification of c(n) at a prime l dividing n to the behavior of
+the local divisibility of the point Pn/l at l.
+Lemma 6.8. Let nl ∈ R with l prime and set λ = lOK . Then c(nl)sλ = 0 if and
+only if Pn ∈ pE(Kλ ).
+Proof. Since Hs1 (Kλ , E[p]) = Hom(Iλ , E[p]), we can regard c(nl)sλ as a homomor-
+phism Iλ → E[p]. We claim that it factors through Iλ /Iλnl for any prime λnl
+of Knl above λ. To see this, let res : H 1 (K, E[p]) → H 1 (Knl , E[p]) be the re-
+striction map. By definition res c(nl) lies in the image of the Kummer map, so
+that res c(nl) ∈ Sel(Knl , E[p]). In particular, c(nl)sλnl = 0. Since Hs1 (Knl,λnl , E[p])
+equals Hom(Iλnl , E[p]), we see that c(nl)(Iλnl ) = 0, as claimed.
+   Since Gl is the inertia group of Gal(Knl /K) at λ, we have Iλ /Iλnl ∼      = Gl . In
+particular, we now see that c(nl)sλ = 0 if and only if c(nl)(σl ) = 0.
+22                                  TOM WESTON
+
+
+    We now need a formula for c(nl). Fix Q ∈ E(K̄) with pQ = Pnl . We claim that
+it is represented by the cocycle GK → E[p] given by
+                                      1
+                         σ 7→ σQ − Q − (σ − 1)Pnl ∈ E[p].
+                                      p
+Here we know that (σ − 1)Pnl ∈ pE(Knl ) by Lemma 6.2 and p1 (σ − 1)Pnl is the
+unique (by Lemma 6.3) pth root in E(Knl ). It is easy to see that the expression
+above is in E[p], and to check that it represents c(nl) one simply needs to check
+that res c(nl) = κ(Pnl ); this is clear since (σ − 1)Pnl = 0 for σ ∈ GKnl .
+   Note that c(nl)(σl ) equals
+(24)                               σl Q − Q − Qn,l .
+Fix a prime λ̄ of K̄ over λ and consider the corresponding reduction map
+                                red : E(K̄) → E(k̄λ ).
+Since E has good reduction at p, we know that this map is injective on p-torsion.
+In particular, c(nl)(σl ) = 0 if and only if the reduction of (24) is trivial.
+   Note that red(σl Q − Q) and red(Qn,l ) both lie in E[p] even though neither point
+does prior to reduction. In fact, red(σl Q − Q) = 0 since σl lies in inertia and thus
+acts trivially on the residue fields. Thus
+                          red(σl Q − Q − Qn,l ) = red(Qn,l ).
+We conclude that c(nl)(σl ) = 0 (and thus c(nl)sλ = 0) if and only if red(Qn,l ) = 0.
+Lemma 6.7 now completes the proof.
+6.4. Final considerations. We are now in a position to prove Propositions 4.8
+and 4.12. Recall that L0 = K(E[p]) and L = K(E[p], p1 yK ).
+Proposition. Assume that yK ∈   / pE(K). Let l be a prime of Q with FrobL0 /Q l
+conjugate to complex conjugation and which does not split completely in L/L0 ;
+set λ = lOK . Then there exists a cohomology class c(l) ∈ Selλ (K, E[p])−ε with
+c(l)sλ 6= 0 in Hs1 (Kλ , E[p]).
+Proof. We consider the class c(l) defined above via Heegner points. The fact that
+c(l) ∈ Selλ (K, E[p])−ε follows from Lemmas 6.6 and 6.5. It remains to check that
+c(l)sλ 6= 0 in Hs1 (Kλ , E[p]). By Lemma 6.8 this is true if and only if P1 ∈
+                                                                            / pE(Kλ ).
+Note that P1 ∈ E(K) is precisely the point yK . Since L is the minimal extension of
+L0 in which yK is globally divisible by p, yK is divisible by p in E(Kλ ) precisely if λ
+splits completely in L/L0 . Since we are assuming that λ does not split completely
+in L/L0 , we have yK ∈    / pE(Kλ ), which implies that c(l)sλ 6= 0.
+   For the next result, recall that we have chosen a non-trivial c(q) ∈ H 1 (K, E[p])
+and we let L0 /L be the minimal extension over which c(q) is defined. We need the
+following lemma.
+Lemma 6.9. Let l be a prime with FrobL/Q l conjugate to complex conjugation;
+set λ = lOK . Then Pq ∈ pE(Kλ ) if and only if l splits completely in L0 /L.
+Proof. We show that both conditions are equivalent to the vanishing of c(q)λ in
+H 1 (Kλ , E[p]). Note first that if l has FrobL/Q l conjugate to τ , then λ splits com-
+pletely in L. In particular, LλL = Kλ where λL is any prime of L above λ. Fix
+such an l and λL and let λL0 be a prime of L0 above λL .
+                      THE EULER SYSTEM OF HEEGNER POINTS                             23
+
+                                                                   ≃
+   Recall that c(q)|GL yields an isomorphism c : Gal(L0 /L) −→ E[p]. c(q)λ is
+therefore trivial precisely when Gal(L0λL0 /LλL ) is trivial. This in turn is the same
+as λL splitting completely in L0 , as claimed.
+   For the other equivalence, recall that λ splits completely in the ring class field
+Kq . In particular, the restriction map H 1 (K, E[p]) → H 1 (Kλ , E[p]) factors through
+H 1 (Kq , E[p]). We therefore have a commutative diagram
+                                                 H 1 (K, E[p])
+
+
+                                                       ²
+                        E(Kq )/pE(Kq )        / H 1 (Kq , E[p])
+
+
+                               ²                       ²
+                        E(Kλ )/pE(Kλ )        / H 1 (Kλ , E[p])
+
+It now follows from the definitions that c(q)λ is the image of Pq ∈ E(Kλ )/pE(Kλ )
+under the Kummer map. The second asserted equivalence follows.
+Proposition. Assume that yK ∈    / pE(K). Let l be a prime of Q which has FrobL/Q l
+conjugate to complex conjugation and which does not split completely in L0 /L;
+set λ = lOK . Then there exists a cohomology class c(ql) ∈ Selλ (K, E[p])ε with
+c(ql)sλ 6= 0 in Hs1 (Kλ , E[p]).
+Proof. By Lemmas 6.6 and 6.5 we have c(ql) ∈ Selqλ (K, E[p])ε . The fact that
+c(ql)sλ 6= 0 follows immediately from Lemmas 6.9 and 6.8.
+   It remains to check that c(ql)sq = 0. Consider the class c(l) ∈ Selλ (K, E[p])−ε .
+Since l splits completely in L/L0 , we have yK ∈ pE(Kλ ) and thus by Lemma 6.8 we
+have c(l)sλ = 0. Thus c(l) ∈ Sel(K, E[p])−ε . But this group is zero by Theorem 4.9.
+Thus c(l) = 0. By the construction of c(l) this implies that Pl ∈ pE(Kl ). But then
+certainly Pl ∈ pE(Kl,q ), so that by Lemma 6.8 we have c(ql)sq = 0, as claimed.
+
+                                    7. Examples
+  In this section we give some examples for the elliptic curve
+                            y 2 + y = x3 − x2 − 10x − 20,
+(otherwise
+   √        known as X0 (11); see [14]) and the imaginary quadratic field K =
+Q( −7). Note that K has class number 1, so that K1 = K. E has bad reduction
+only at 11, and√ it is known that Gal(Q(E[p])/Q) ∼ = GL2 (Fp ) for p 6= 5.
+            1+ −7
+   Set α =     2    . In the table below we give the minimal polynomials (over K)
+of the Heegner points xn = yn for 1 ≤ n ≤ 4. (We suppress the various choices
+required to define the Heegner points.)
+              n x-coordinate of yn           y-coordinate of yn
+              1 X −α                         X + (4 − 4α)
+              2 X + (14 − 17α)               X + (−120 + 34α)
+                  X 4 + (93 − 46α)X 3 +      X 4 +(−347−475α)X 3 +
+                                     2
+                  (−1530 − 519α)X +          (29550 − 38190α)X 2 +
+              3
+                  (−1816 + 5545α)X +         (−95394 − 782135α)X +
+                  (1943 − 14460α)            (−6593671 + 715920α)
+                  X 2 + (216 − 290α)X +      X 2 + (8414 − 2690α)X +
+              4
+                  (−1649 + 3745ω)            (304382 − 191230α)
+24                                      TOM WESTON
+
+                                               ¡ √              √ ¢
+   In particular, the basic Heegner point yK is 1+ 2 −7 , −2 + 2 −7 . It can be
+shown (via height computations) that yK has infinite order and is not divisible by
+any odd primes in E(K). In particular, Theorem 4.1 thus shows that E(K) has
+rank 1 and that X(E/K) has trivial p-primary part for p 6= 2, 5, 11.
+
+                                        References
+ [1] J. Coates and R. Sujatha, Galois cohomology of elliptic curves, Narosa Publishing House,
+     2000.
+ [2] D. Cox, Primes of the form x2 + ny 2 , John Wiley and Sons, 1989.
+ [3] F. Diamond and J. Im, Modular forms and modular curves, pp. 39–133, in: Seminar on
+     Fermat’s last theorem, Canadian Mathematical Society Conference Proceedings 17, American
+     Mathematical Society, 1995.
+ [4] M. Flach, A finiteness theorem for the symmetric square of an elliptic curve, Inventiones
+     Mathematicae 109 (1992), pp. 307–327.
+ [5] A. Fröhlich, Local fields, pp. 1–41, in: Algebraic number theory (Brighton 1965), Academic
+     Press, 1967.
+ [6] B. Gross, Kolyvagin’s work on modular elliptic curves, pp. 235–256, in: L-functions and
+     arithmetic (Durham 1989), London Mathematical Soceity Lecture Note Series 153, Cam-
+     bridge University Press, 1991.
+ [7] B. Mazur and T. Weston, Euler systems and arithmetic geometry, lecture notes from a course
+     given in 1997, available at http://www.math.harvard.edu/~weston/mazur.html
+ [8] J. Milne, Arithmetic duality theorems, Perspectives in Mathematics 1, Academic Press, 1986.
+ [9] K. Rubin, Euler systems, Annals of Mathematics Studies 147, Princeton University Press,
+     2000.
+[10] J.-P. Serre, Local fields, Graduate Texts in Mathematics 67, Springer-Verlag, 1967.
+[11] J. Silverman, The arithmetic of elliptic curves, Graduate Texts in Mathematics 106,
+     Springer-Verlag, 1986.
+[12] J. Silverman, Advanced topics in the arithmetic of elliptic curves, Graduate Texts in Math-
+     ematics 151, Springer-Verlag, 1994.
+[13] T. Weston, An overview of a theorem of Flach, in: Arithmetic algebraic geometry, IAS/Park
+     City Mathematics Series, American Mathematical Society, 2001.
+[14] T. Weston, The modular curves X0 (11) and X1 (11), available from the author.
+
+     Department of Mathematics, University of Michigan, 48109-1109
+     E-mail address: weston@math.lsa.umich.edu
+
