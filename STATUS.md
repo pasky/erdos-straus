@@ -7,6 +7,11 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+**Consolidation (2026-10-19; (J)109–(J)110; tasks O277–O279, reviews R288–R292): ES is not solved.**
+* **`FRONTIER.md`** is the entry point for a fresh expert. It covers the problem, the lower-tail reduction, the barrier map as theorems, a "what a proof needs" checklist, dead ends and open sub-problems. Its fidelity was reviewed by R290; that review also reconciled the main-term constants: 1/8 is the all-integer average, 3/(2π²) the prime singular series.
+* **`paper/es-exponential-families.tex`** (22 pp; two independent hostile reviews). It proves ES for every 3·2^s+1, 63·2^s+1, 7·4^s+9, 4^s+105 and nine 4^s+k, and **(new) every 15·2^s+1 with 60 ∤ s**. Theorems 2.7 and W show these families are beyond every ET covering.
+* **`paper/es-threequarter-note.tex`** hardened. It proves E(N) ≪ N exp(−c (log N)^{3/4}), improving Vaughan's 2/3; two more independent hostile reviews (Claude Opus, GPT Astra) found it SOUND, and no earlier improvement was found in the literature. It is internal only and not externally refereed.
+
 **Wave AC: the single-integer lower tail, attacked from every side (2026-10-18/19; ledger (J)103–(J)108; tasks O271–O276, reviews R282–R287, board #2 ~/.pi/boards/20261018-es-lowertail): ES is not solved.**
 * *Synthesis IX ((J)103).*
   * In level coordinates the Brauer–Manin layer is pointwise free (Prop 2.2).
