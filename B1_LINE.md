@@ -137,7 +137,7 @@ prime-conditioned main term is M_φ = Σ 1/φ(4cd − 1) (= 24.7 at 10⁶), and 
 10⁶ is 27.7. The hard class p ≡ 1 (24) (22.3) is thus ≈ 20 % *below* the all-class mean; it is only above M₁. The extra
 factor ≈ avg w/φ(w) is common to both lines, so the factor-2 comparison below is unaffected. "Haar main term" below means
 the 1/w main term.
-**So the b = 1 line has twice as many distinct trials (Haar main term) as (★).** Per distinct solution, the main terms are (log p)²/8 and
+(Parent note per reviews/frontier-review.md X2: the (log p)²/8-type main terms here are all-integer densities; at primes each trial has density 1/φ(w), raising the main terms by a factor → 12/π² ≈ 1.216 at leading order. The factor-2 comparison is unaffected, but the NB model's predicted failure counts in §3 are pessimistic by construction, consistent with §3.6's observation.) **So the b = 1 line has twice as many distinct trials (Haar main term) as (★).** Per distinct solution, the main terms are (log p)²/8 and
 (log p)²/16. Empirically (class samples, `logs/z29_classes.txt`): N₁/(log p)² = 0.117, 0.124, 0.131, 0.135 at p ≈ 10⁶, 10⁸,
 10¹⁰, 10¹² (p ≡ 1 (24)), and N_{c1}/(log p)² ≈ 0.070–0.074. The ratio N₁/N_{c1} is 1.67, 1.69, 1.78, 1.85, consistent with the
 main-term ratio 2 (convergence not proved; EVIDENCE). Add Prop 1.4 (the b = 1 nontrivial class p ≡ 1 (24) is half the size of the (★) class p ≡ 1 (8)),

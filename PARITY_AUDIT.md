@@ -147,7 +147,7 @@ M_U(p) = (log p/4)·H_U + O((log U)² + 1), with H_U = Σ_{u≤U} 1/u.
 (p + u + 1)/(4u), so |𝓡| = Σ_{u ≤ p} (p/(4u) + O(1)) and M = Σ_u Σ_{C ≤ p/(4u)} 1/(4uC) + O(log p)
 = Σ_u (1/(4u)) log(p/(4u)) + O(log p) = (log p)²/8 + O(log p). The U-version is the same sum cut at u ≤ U (the O(1) per-u errors sum to O(U), and
 Σ_{u≤U} log(4u)/(4u) = O((log U)² + 1)). ∎
-(M(p) reproduces the (J)6 heuristic Σ_B M(B) ≈ (log p)²/8 and the observed R(p) = 44, 52, 68 at p ≈ 10⁸, 10⁹,
+(Parent note per reviews/frontier-review.md X1: (log p)²/8 is the average over ALL integers n; at PRIMES the heuristic main term is (3/(2π²))(log p)² (= BM_CORRECTED_COUNT M₀; ratio 12/π²), so at primes E(p) has mean ≈ +0.027(log p)², and the agreement with R(p) = 44, 52, 68 below is a coincidence of single values.) (M(p) reproduces the (J)6 heuristic Σ_B M(B) ≈ (log p)²/8 and the observed R(p) = 44, 52, 68 at p ≈ 10⁸, 10⁹,
 10¹⁰, where (log p)²/8 = 42.4, 53.7, 66.3.)
 Check (`scripts/pa_lemma21_check.py`): the (u,C)-identity equals brute force for all primes < 400; at
 p = 10⁴+7, 10⁵+3, 10⁶+3, 10⁷+19: M = 10.34, 16.17, 23.33, 31.81 vs (log p)²/8 = 10.61, 16.57, 23.86, 32.47 and

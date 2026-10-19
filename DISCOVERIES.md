@@ -510,7 +510,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Lemma 2.1 (PROVED): forcing k prime factors costs e^{(1+o(1))k log k}, against 3^{k+1} needed. Lemma 2.3: every covering certificate has e ≤ p^{o(1)}.
    * **Thm 2.2 (PROVED relative to PNT in APs, Brun–Titchmarsh, Shiu, Nicolas–Robin; R135: holds for all θ < 1).** Certificates built from the prime factors of N_e below the modulus, plus one opaque cofactor, fail for a positive proportion of primes in every e-slice of both types. This is a change of regime, not a log log near miss.
    * Not excluded: certificates that use the residues of prime factors above the modulus. That is the per-slice lottery again (H-A/H-B).
-   * CONJECTURE PH: every large p has a full-coset cover with φ(e) ≥ 40. EVIDENCE: all hard primes up to 3.7·10⁷ have one; exceptions below 10⁶ are 3529 and 110881.
+   * CONJECTURE PH: every large p has a full-coset cover with φ(e) ≥ 40. EVIDENCE: all Mordell-hard primes < 10⁶ except 3529, 110881 (e ≤ 2000); 300 consecutive Mordell-hard primes after 10^k, k = 4…8 (e ≤ 5000); 14 selected hard primes ≤ 3.7·10⁷ (e ≤ 20000) [wording corrected per reviews/frontier-review.md task (3)].
 
 10. **Long shot B: fibred encodings do not escape the scale constraint (LONGSHOT_FIBRED.md (O136); review `reviews/longshot-fibred-review.md` (R136): no FATAL; two MAJOR (D1 scope overclaim, D2 a hidden hypothesis in Thm 2.3(c)) and minors, repaired by the reviewer).**
    * Lemma 2.1 / Thm 2.3 (PROVED): rational recipes are constant on Zariski-dense sets, and lattice orbits are Zariski-dense (Borel). So for algebraic recipes the counting is idle.
