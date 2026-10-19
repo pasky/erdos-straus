@@ -1,0 +1,1 @@
+qnr97 candidates=2000000 prime_hits=26

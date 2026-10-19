@@ -1,0 +1,128 @@
+{
+  "separation": [
+    {
+      "cutoff": 4,
+      "M": 24,
+      "q": 7,
+      "s": 11,
+      "p": 3121,
+      "H4": 7,
+      "a_min": 3,
+      "lambda": 2
+    },
+    {
+      "cutoff": 8,
+      "M": 840,
+      "q": 19,
+      "s": 11,
+      "p": 997081,
+      "H4": 11,
+      "a_min": 3,
+      "lambda": 2
+    },
+    {
+      "cutoff": 12,
+      "M": 27720,
+      "q": 19,
+      "s": 23,
+      "p": 25862761,
+      "H4": 19,
+      "a_min": 3,
+      "lambda": 2
+    },
+    {
+      "cutoff": 16,
+      "M": 720720,
+      "q": 19,
+      "s": 23,
+      "p": 837476641,
+      "H4": 17,
+      "a_min": 3,
+      "lambda": 2
+    },
+    {
+      "cutoff": 20,
+      "M": 232792560,
+      "q": 31,
+      "s": 23,
+      "p": 109878088321,
+      "H4": 23,
+      "a_min": 3,
+      "lambda": 2
+    },
+    {
+      "cutoff": 24,
+      "M": 5354228880,
+      "q": 31,
+      "s": 47,
+      "p": 3667646782801,
+      "H4": 31,
+      "a_min": 3,
+      "lambda": 2
+    }
+  ],
+  "finite_prime_Haar": [
+    {
+      "H": 4,
+      "modulus": 96,
+      "unit_classes": 4,
+      "avoiding_classes": 4,
+      "density": 1.0,
+      "mean_edges": 0.0
+    },
+    {
+      "H": 6,
+      "modulus": 480,
+      "unit_classes": 16,
+      "avoiding_classes": 8,
+      "density": 0.5,
+      "mean_edges": 0.5
+    },
+    {
+      "H": 8,
+      "modulus": 3360,
+      "unit_classes": 96,
+      "avoiding_classes": 24,
+      "density": 0.25,
+      "mean_edges": 1.2083333333333333
+    },
+    {
+      "H": 10,
+      "modulus": 10080,
+      "unit_classes": 288,
+      "avoiding_classes": 72,
+      "density": 0.25,
+      "mean_edges": 1.25
+    },
+    {
+      "H": 12,
+      "modulus": 110880,
+      "unit_classes": 2880,
+      "avoiding_classes": 444,
+      "density": 0.15416666666666667,
+      "mean_edges": 1.725
+    },
+    {
+      "H": 14,
+      "modulus": 1441440,
+      "unit_classes": 34560,
+      "avoiding_classes": 4664,
+      "density": 0.13495370370370371,
+      "mean_edges": 2.073611111111111
+    },
+    {
+      "H": 16,
+      "modulus": 2882880,
+      "unit_classes": 69120,
+      "avoiding_classes": 9328,
+      "density": 0.13495370370370371,
+      "mean_edges": 2.723611111111111
+    }
+  ],
+  "record_parent": {
+    "p": 1002125860849,
+    "r": 31,
+    "parent": 14,
+    "remainder": 4
+  }
+}
