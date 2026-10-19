@@ -1,0 +1,462 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{mainthm}{Main Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{computation}[theorem]{Computation}
+\newtheorem{assessment}[theorem]{Assessment}
+\newtheorem{problem}{Problem}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Zh}{\widehat{\Z}}
+\newcommand{\Cl}{\operatorname{Cl}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\lc}{\operatorname{lc}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\status}[1]{\textup{\textsc{#1}}}
+\title[Erd\H{o}s--Straus for exponential families]{The Erd\H{o}s--Straus equation on exponential families beyond every Elsholtz--Tao covering}
+\author{Anonymous}
+\date{Internal draft (task O277), 19 October 2026; internal checks only, not externally refereed}
+\emergencystretch=3em
+\begin{document}
+\begin{abstract}
+For an exponential family $n_s=c_0\,2^s+k$ the residues of $n_s$ modulo any
+fixed integer are eventually periodic in $s$, so one may try to prove the
+Erd\H{o}s--Straus conjecture $4/n=1/x+1/y+1/z$ for all members at once by a
+finite covering of the exponents with Elsholtz--Tao identity classes and
+divisor classes, in the manner of Sierpi\'nski's coverings for $k\cdot2^n+1$.
+When $c_0+k=4^J$ and $k\equiv1\pmod 8$ this is impossible: along
+$s\equiv0\pmod L$ the members imitate the even square $4^J$ modulo every
+odd number, and an odd-square (Schinzel--Yamamoto) argument shows that no
+finite set of such classes covers them.  We show that these
+obstructed families can nevertheless be settled completely, by adding a few
+identity classes whose coordinates are polynomials in a root $Y=2^{s/D}$ of
+the exponential rather than in $n$.  Their divisors are forced by an
+algebraic factorisation along the family (Sophie Germain's identity
+$4X^4+1=(2X^2+2X+1)(2X^2-2X+1)$, cyclotomic factors of $Y^h+w^h$, or a
+binomial $n+4a^2d$), in the spirit of Izotov's construction for Sierpi\'nski
+numbers.  We prove the Erd\H{o}s--Straus conjecture for every
+$n=3\cdot2^s+1$, every $63\cdot2^s+1$ and every $7\cdot4^s+9$ (all three
+provably beyond every finite Elsholtz--Tao covering), and for every
+$4^s+k$ with $k\in\{9,57,81,105,129,153,177,201,225,249\}$; for
+$15\cdot2^s+1$ we prove it for every $s\not\equiv0\pmod{60}$.  All proofs
+are explicit identity certificates; most were found by computer search and
+are re-verified by a short self-contained script.  On the negative side we
+prove that no identity class of constant gap $4x-n$ or constant ratio $x/n$,
+polynomial in any root $2^{s/D}$, reaches the unit-square point of
+$15\cdot2^s+1$, $31\cdot4^s+33$, $7\cdot4^s+57$, $63\cdot4^s+1$,
+$47\cdot4^s+17$ or $55\cdot4^s+9$, and we close one branch of the
+moving-gap binomial menu at $15\cdot2^s+1$.  The families are thin; nothing
+here bears on the Erd\H{o}s--Straus conjecture for primes in general.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+
+The Erd\H{o}s--Straus conjecture (ES) asserts that for every integer $n\ge2$
+\begin{equation}\label{eq:ES}
+ \frac4n=\frac1x+\frac1y+\frac1z
+\end{equation}
+has a solution in positive integers.  If $n=ab$ and \eqref{eq:ES} is
+solvable for $a$, it is solvable for $n$ (multiply $x,y,z$ by $b$), so it
+suffices to treat primes.  The conjecture has been verified numerically
+up to $10^{17}$ by Salez \cite{Salez} and up to $10^{18}$ by Mihnea and
+Dumitru \cite{MD}.
+
+\subsection*{Identity classes and their limits}
+The classical tool is the polynomial identity on a residue class.  Mordell
+\cite{Mordell} showed that every $n$ outside the six classes
+$1,121,169,289,361,529\pmod{840}$ (the squares modulo $840$) is covered by
+such identities, and Elsholtz and Tao \cite[Prop.~1.9]{ET} essentially
+classified the residue classes that are \emph{solvable by polynomials}: up
+to finitely many primes they are unions of classes of seven explicit
+families (Table~\ref{tab:ET}).  A primitive class whose residue is a perfect
+square is never solvable by polynomials (Mordell, Schinzel
+\cite{Mordell,Schinzel}; it also follows from the vanishing of Type~I and
+Type~II solutions at odd squares, \cite[Prop.~1.6]{ET}).  Elsholtz and Tao
+remark that this ``rules out \dots\ a finite set of covering congruence
+strategies'' for ES \cite[p.~6]{ET}.  A companion note \cite{CovNote}
+studies this obstruction for sets of primes from the profinite point of
+view.
+
+\subsection*{Exponential families}
+Here we look at thin families
+\[
+  \mathcal F(c_0,b,k)=\{\,n_s=c_0\,b^s+k : s\ge0\,\},\qquad b\in\{2,4\},
+\]
+with $c_0,k$ positive integers.  The residue of $n_s$ modulo a fixed $M$ is
+eventually periodic in $s$, so a finite list of identity classes may cover
+\emph{all} exponents, exactly as Sierpi\'nski \cite{Sierpinski} proved that
+$k\cdot2^n+1$ is composite for all $n$ by covering the exponents $n$ with
+finitely many congruences (see \cite[\S1]{FFK}).  We call such a list an
+\emph{exponent covering}.  For many families it exists and is small
+(Theorem~\ref{thm:nine}); the companion work \cite{ExpCov} certified,
+for instance, ES for every $315\cdot2^m+1$ and every $15015\cdot2^m+1$.
+
+The obstruction is a \emph{unit-square point}.  If $c_0$ is odd,
+$k\equiv1\pmod8$ and $c_0+k=4^J$, then for $s\equiv0\pmod L$ with $L$
+highly divisible, $n_s\equiv c_0+k=4^J$ modulo every odd number of the form
+$2^L-1$ and $n_s\equiv k\pmod{2^s}$; so $n_s$ is congruent to an odd
+perfect square modulo every fixed modulus, and the odd-square argument
+shows that no finite set of Elsholtz--Tao classes and divisor classes
+covers the family (Theorem~\ref{thm:sterile}).  Examples are
+$3\cdot2^s+1$ (the Proth numbers with $k=3$), $15\cdot2^s+1$,
+$63\cdot2^s+1$, $7\cdot4^s+9$, $31\cdot4^s+33$.
+
+\subsection*{Results}
+The point of this note is that the obstruction concerns identities that
+are polynomial in $n$, not ES itself.  Along a residue class of exponents
+the integer $n_s$ is a polynomial in a root $Y=2^{(s-s_0)/D}$, and an
+identity polynomial in $Y$ is again valid on a whole residue class of $s$.
+Such an identity can use divisors that move with $n$ and are forced by an
+algebraic factorisation of $Y$-polynomials, and these can reach the
+unit-square point.
+
+\begin{mainthm}
+\begin{enumerate}
+\item[(a)] \textup{(Theorems~\ref{thm:proth3}, \ref{thm:63}, \ref{thm:c7})}
+The Erd\H{o}s--Straus conjecture holds for every $n=3\cdot2^s+1$, every
+$n=63\cdot2^s+1$ and every $n=7\cdot4^s+9$ ($s\ge0$).  None of these
+families admits a finite covering by Elsholtz--Tao classes and divisor
+classes (Theorem~\ref{thm:sterile}).
+\item[(b)] \textup{(Theorems~\ref{thm:105}, \ref{thm:nine})} It holds for
+every $n=4^s+k$, $s\ge0$, for
+$k\in\{9,57,81,105,129,153,177,201,225,249\}$.
+\item[(c)] \textup{(Proposition~\ref{prop:15half})} It holds for every
+$n=15\cdot2^s+1$ with $60\nmid s$.
+\item[(d)] \textup{(Theorem~\ref{thm:W}, Corollary~\ref{cor:ratio})} For
+$(c_0,k)\in\{(15,1),(31,33),(7,57),(63,1),(47,17),(55,9)\}$ no identity
+family that is polynomial in a root $Y=2^{s/D}$ (any $D$) and has constant
+gap $4x-n$ or constant ratio $x/n$ is valid on a neighbourhood
+$\{s\equiv0\pmod L,\ s\ge s_0\}$ of the unit-square point.  Hence
+these families have no finite covering by Elsholtz--Tao classes, divisor
+classes and such families.
+\end{enumerate}
+\end{mainthm}
+
+Parts (a)--(c) are \status{proved}; the certificates of (a) for
+$63\cdot2^s+1$ and $7\cdot4^s+9$, of (b) and of (c) were found by computer
+search and the proofs are \emph{computer-assisted} in the sense that a
+finite coverage statement (a list of at most $9180$ residues) is checked by
+machine; every identity is printed in the text and can be checked by hand.
+The proof for $3\cdot2^s+1$ (Theorem~\ref{thm:proth3}) is short and fully
+hand-checkable.  Part (d) is \status{proved} up to a finite enumeration
+(Computation~\ref{comp:W}).  In \S\ref{sec:fifteen} we also prove that one of
+the two branches of the moving-gap menu that produced (a) for
+$63\cdot2^s+1$ is empty for $15\cdot2^s+1$ (Theorem~\ref{thm:iiad3}); the
+other branch, and ES for $15\cdot2^s+1$ with $60\mid s$, remain open.
+
+\subsection*{The mechanism, and a precedent}
+In all three families of (a) the unit-square point is reached by a single
+kind of move.  For $3\cdot2^s+1$ with $4\mid s-4$ put $X=2^{(s-4)/4}$, so
+$n=48X^4+1$ and $x:=(n+11)/4=3(4X^4+1)$.  Sophie Germain's identity
+\[
+  4X^4+1=(2X^2+2X+1)(2X^2-2X+1)
+\]
+supplies divisors of $x$ that are not powers of fixed primes, and the
+elementary window lemma (Lemma~\ref{lem:window}) turns a congruence
+between them modulo the \emph{window} $m=4x-n=11$ into a solution of
+\eqref{eq:ES}.  The congruence holds on whole residue classes of $s$,
+including a neighbourhood of the unit-square point.  This is the ES
+counterpart of Izotov's observation \cite{Izotov} (see \cite[pp.~3--4]{FFK})
+that a Sierpi\'nski-type covering may omit one congruence class of
+exponents if the family factors algebraically there, by the same
+factorisation $4x^4+1=(2x^2+2x+1)(2x^2-2x+1)$.  For $4^s+105$ the closing
+class uses $u^3+1=(u+1)(u^2-u+1)$, $u=4^{(s-4)/3}$; for $63\cdot2^s+1$ it is
+a Type~II family with a \emph{moving} gap $4x-n=3(Y^2-3Y+9)$ built from
+$Y^3+27=(Y+3)(Y^2-3Y+9)$ (\S\ref{sec:forced}).  Part (d) shows that the
+constant-gap version of the mechanism has a precise 2-adic limit: it can
+reach a unit-square point only through a Sophie Germain piece whose value
+at the limit has odd 2-adic valuation (Lemma~\ref{lem:limitjacobi}), and an
+explicit finite check shows that no such piece exists for the six listed
+families.
+
+\subsection*{Scope}
+Each family has $O(\log X)$ members up to $X$, so these theorems say
+nothing about ES for primes in general; a finite set of thin identity
+classes misses almost all primes of any residue class (see
+\cite[Prop.~5.1]{MenuSterility}).  The members $s\le 50$ or so are already
+covered by the numerical verifications \cite{Salez,MD}.  Each family lies
+in a finite union of residue classes, and several of our families are
+settled by Mordell's identities for most $s$; we say where the new content
+lies.  We found no prior work on ES for exponential families (searches of
+zbMATH Open for all documents on the Erd\H{o}s--Straus equation, and web
+searches; see \cite{Audit}); this is not a claim of priority.
+
+\subsection*{Labels}
+\status{Proved} means that a complete proof is given here.
+\status{Computer-assisted} means that a finite verification (always of a
+statement about finitely many explicit residues and identities) is done by
+the script \texttt{scripts/c1\_expfam\_verify.py}
+(Appendix~\ref{app:script}), which uses only exact arithmetic and imports
+nothing from the search code; the original certificates were in addition
+checked by two independent reviewers' programs each.  \status{Evidence}
+means a computation that supports but does not prove a statement.
+\status{Open} and \status{Conjecture} are not results.
+
+\subsection*{Provenance}
+This note consolidates internally reviewed work of a research notebook:
+\cite{ExpCov} (exponent coverings, the unit-square criterion),
+\cite{SignFields} ($4^s+k$), \cite{Sparks6} ($4^s+105$),
+\cite{MenuSterility} ($3\cdot2^s+1$), \cite{Exp105} ($7\cdot4^s+9$ and a
+second proof for $3\cdot2^m+1$), \cite{ExpOpen} ($63\cdot2^s+1$ and
+Theorem~\ref{thm:W}) and \cite{Exp15} ($15\cdot2^s+1$).  Several proofs are
+re-derived and expanded here; Proposition~\ref{prop:15half} is new in this
+note.
+
+\section{Exponent coverings and unit-square points}\label{sec:criterion}
+
+\subsection{The Elsholtz--Tao classes}
+We use the seven families of \cite[Prop.~1.9]{ET} in the notation of
+\cite[\S2]{CovNote}.  Each is indexed by a triple $\kappa$ of positive
+integers subject to a side condition and defines a set of residue classes
+modulo $M(\kappa)$ (Table~\ref{tab:ET}).  On its class each family carries
+an explicit solution
+\[
+ \pi^{I}(a,b,c,d)=(abdn,\ acd,\ bcd)\quad\text{(I1--I4)},\qquad
+ \pi^{II}(a,b,c,d)=(abd,\ acdn,\ bcdn)\quad\text{(II1--II3)},
+\]
+where three of $a,b,c,d$ are given by $\kappa$ or by $\kappa$ alone, and the
+remaining ones are the polynomials in $n$ listed in the table.
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lllll}
+\toprule
+family & $\kappa$ & side condition & class & remaining coordinates\\
+\midrule
+I1 & $a,d,f$ & $f\mid 4a^2d+1$ & $n\equiv-f \pmod{4ad}$ & $e=\frac{4a^2d+1}{f}$, $b=\frac{ne+1}{4ad}$, $c=\frac{n+f}{4ad}$\\
+I2 & $a,c,f$ & $(4ac,f)=1$ & $n\equiv-f\ (4ac)$, $n\equiv -c/a\ (f)$ & $d=\frac{n+f}{4ac}$, $b=\frac{na+c}{f}$\\
+I3 & $c,d,f$ & $(4cd,f)=1$ & $n\equiv-f\ (4cd)$, $f\mid n^2+4c^2d$ & $a=\frac{n+f}{4cd}$, $b=\frac{n^2+4c^2d+nf}{4cdf}$\\
+I4 & $a,b,e$ & $e\mid a+b$, $(e,4ab)=1$ & $n\equiv-1/e \pmod{4ab}$ & $c=\frac{a+b}{e}$, $d=\frac{ne+1}{4ab}$\\
+II1 & $a,b,e$ & $e\mid a+b$, $(e,4ab)=1$ & $n\equiv-e\pmod{4ab}$ & $c=\frac{a+b}{e}$, $d=\frac{n+e}{4ab}$\\
+II2 & $a,d,f$ & $4ad\mid f+1$ & $n\equiv-4a^2d\pmod f$ & $c=\frac{f+1}{4ad}$, $b=\frac{nc+a}{f}$\\
+II3 & $a,d,e$ & $(4ad,e)=1$ & $n\equiv-4a^2d-e\pmod{4ade}$ & $c=\frac{n+4a^2d+e}{4ade}$, $b=\frac{n+e}{4ad}$\\
+\bottomrule
+\end{tabular}
+\caption{The Elsholtz--Tao families \cite[Prop.~1.9]{ET}.}\label{tab:ET}
+\end{table}
+
+\begin{lemma}[\status{proved}; {\cite[\S\S2,10]{ET}, \cite[Lemma~2.1]{CovNote}}]\label{lem:solve}
+If $\kappa$ is admissible and the integer $n\ge1$ lies in its class, the
+coordinates of Table~\ref{tab:ET} are positive integers and $\pi^{I}$
+\textup{(}resp.\ $\pi^{II}$\textup{)} is a solution of \eqref{eq:ES}.
+Moreover $4/n=1/(abdn)+1/(acd)+1/(bcd)$ is equivalent to
+$4abcd=n(a+b)+c$, and $4/n=1/(abd)+1/(acdn)+1/(bcdn)$ to $4abcd=nc+a+b$.
+\end{lemma}
+
+The last two equivalences are immediate on clearing denominators.  We call
+the class of $\kappa$ an \emph{ET class}.  A \emph{divisor class} is
+$D_q=\{n\equiv0\pmod q\}$ for an odd prime $q$; on it
+$(x,y,z)=\frac nq(x_q,y_q,z_q)$ for a fixed solution $(x_q,y_q,z_q)$ of
+$4/q=1/x+1/y+1/z$.  (All divisor classes used below have $q\le 541$, and
+the script records explicit solutions.)
+
+\subsection{Odd squares}
+The following is the classical quadratic-reciprocity obstruction of
+Schinzel and Yamamoto \cite{Yamamoto}, in the form proved by Elsholtz and Tao
+for Type~I \cite[\S4]{ET} (they omit the Type~II case).  We give both
+cases, since every negative statement below rests on it.
+
+\begin{lemma}[\status{proved}]\label{lem:T1}
+Let $n$ be an odd perfect square.
+\begin{enumerate}
+\item[(i)] There are no positive integers $a,b,c,d$ with
+$4abcd=n(a+b)+c$ and $\gcd(c,n)=1$.
+\item[(ii)] There are no positive integers $a,b,c,d$ with
+$4abcd=nc+a+b$ and $\gcd(abd,n)=1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Note $n\equiv1\pmod8$, and write $q$ for the odd part of $ab$.  We use the
+Jacobi symbol and the reciprocity law for odd positive coprime $q,e$:
+$\leg qe=\leg eq(-1)^{\frac{q-1}2\frac{e-1}2}$.
+
+(i) Since $c\mid n(a+b)$ and $\gcd(c,n)=1$, $e:=(a+b)/c$ is a positive
+integer, and $4abd=ne+1$.  Hence $\gcd(e,ab)=1$, $\gcd(n,q)=1$, and
+$ne\equiv-1\pmod 4$, so $e\equiv3\pmod4$.  Modulo $q$, $e\equiv-n^{-1}$, and
+$n$ is a square, so $\leg eq=\leg{-1}q$.  By reciprocity with $e\equiv3\pmod
+4$, $\leg qe=\leg eq\leg{-1}q=1$.  On the other hand $b\equiv-a\pmod e$ and
+$\gcd(a,e)=1$, so $\leg{ab}e=\leg{-a^2}e=\leg{-1}e=-1$.  Writing
+$ab=2^vq$ we get $\leg 2e^v=-1$, so $v\ge1$.  Then $8\mid4abd=ne+1$, so
+$e\equiv7\pmod8$ and $\leg2e=1$, a contradiction.
+
+(ii) Put $e:=4abd-n$.  Then $ce=4abcd-nc=a+b>0$, so $e\ge1$.  Since
+$\gcd(ab,n)=1$ we have $\gcd(n,q)=1$; $e\equiv-n\pmod q$ gives
+$\leg eq=\leg{-1}q$; and $e\equiv-n\equiv3\pmod4$.  As in (i),
+$\leg qe=1$.  A prime dividing $e$ and $a$ (or $e$ and $b$) divides
+$4abd-e=n$, which is excluded, so $\gcd(ab,e)=1$, and $b\equiv-a\pmod e$
+gives $\leg{ab}e=-1$.  Hence $ab$ is even, $8\mid 4abd$,
+$e\equiv-n\equiv7\pmod8$ and $\leg2e=1$, a contradiction.
+\end{proof}
+
+\begin{corollary}[\status{proved}]\label{cor:T1class}
+Let $\kappa$ be an admissible triple of one of the seven families, let
+$P_\kappa$ be the product of those coordinates among $a,b,c,d,e,f$ that do
+not depend on $n$ \textup{(}the entries of $\kappa$, together with $e$ for
+I1, $c$ for I4, II1 and II2\textup{)}, and let $t$ be an odd integer with
+$\gcd(t,P_\kappa)=1$.  Then $t^2$ does not lie in the class of $\kappa$.
+\end{corollary}
+
+\begin{proof}
+Suppose it does and put $n=t^2$.  By Lemma~\ref{lem:solve} the coordinates
+$a,b,c,d$ are positive integers with $4abcd=n(a+b)+c$ (Type~I) or
+$4abcd=nc+a+b$ (Type~II).  For Type~I we need $\gcd(c,n)=1$: in I2, I3 and
+I4 the coordinate $c$ divides $P_\kappa$, and in I1 the relation $4ad\,c=n+f$
+gives $\gcd(c,n)\mid f$.  For Type~II we need $\gcd(abd,n)=1$: the
+constant coordinates divide $P_\kappa$, and for the others, in II1
+$4ab\,d=n+e$ gives $\gcd(d,n)\mid e$, in II2 $fb=nc+a$ gives
+$\gcd(b,n)\mid a$, and in II3 $4ad\,b=n+e$ gives $\gcd(b,n)\mid e$.  In
+every case the relevant gcd divides $P_\kappa$ and is therefore $1$, and
+Lemma~\ref{lem:T1} gives a contradiction.
+\end{proof}
+
+\subsection{Rules and exponent coverings}
+Fix a family $\mathcal F(c_0,b,k)$.  For an integer $M=2^aM'$ with $M'$ odd,
+\begin{equation}\label{eq:period}
+ n_{s+\ell}\equiv n_s \pmod{M}\qquad\text{whenever } \ord_{M'}(b)\mid \ell \text{ and } b^s\equiv0\pmod{2^a},
+\end{equation}
+since $n_{s+\ell}-n_s=c_0b^s(b^\ell-1)$.  So for every ET or divisor class
+$C$ the set $\{s\ge s_1: n_s\in C\}$ is, for $s_1$ large, a union of
+residue classes modulo $\ord_{M'}(b)$.  More generally:
+
+\begin{definition}\label{def:rule}
+A \emph{rule} for $\mathcal F(c_0,b,k)$ consists of integers $s_0\ge0$,
+$\sigma\ge1$, $\omega\ge1$ such that $D:=\sigma\log_2 b/\omega$ is an integer,
+and of $x,y,z\in\Q[Y]$ with
+\[
+ 4xyz=n(Y)\,(xy+yz+zx),\qquad n(Y):=c_0b^{s_0}Y^D+k .
+\]
+For $s=s_0+\sigma t$ ($t\ge0$) put $Y=2^{\omega t}$; then $n(Y)=n_s$.  The
+rule \emph{applies} at $s$ if $x,y,z$ take positive integer values there.
+An \emph{exponent covering} of the family is a finite list of rules such
+that every $s\ge0$ at which no rule applies is treated separately.
+\end{definition}
+
+ET and divisor classes are rules with $s_0=0$, $\sigma=1$, $Y=b^s$ and
+$n(Y)=c_0Y+k$: their coordinates are polynomials in $n$.  The point of
+this note is to use rules with $D\ge2$.
+
+\begin{lemma}[\status{proved}]\label{lem:ruleperiod}
+Let a rule be given, and write each of $x,y,z$ as $R_1(Y)/N$ with
+$R_1\in\Z[Y]$ and $N=2^aN'$, $N'$ odd.  There are $t^*\ge0$ and $T\ge1$
+such that for $t\ge t^*$ whether the rule applies at $s=s_0+\sigma t$
+depends only on $t\bmod T$.  One may take $T$ the least common multiple of
+the orders $\ord_{N'}(2^\omega)$ over the three coordinates, and $t^*$ such
+that $\omega t^*\ge a$ for all three and all numerators are positive on
+$[2^{\omega t^*},\infty)$.
+\end{lemma}
+
+\begin{proof}
+For $\omega t\ge a$ we have $R_1(2^{\omega t})\equiv R_1(0)\pmod{2^a}$, and
+$R_1(2^{\omega t})\bmod N'$ is periodic in $t$ with period
+$\ord_{N'}(2^\omega)$.  Positivity holds for all $t\ge t^*$ by the choice of
+$t^*$.
+\end{proof}
+
+So the set of exponents at which a rule applies is, up to finitely many
+$s$, a finite union of residue classes $s\equiv u\pmod{\sigma T}$.  The
+script of Appendix~\ref{app:script} computes $T$, $t^*$ and the exact set of
+admissible residues $t\bmod T$ for every rule, by evaluating one full period.
+In profinite terms, these sets are clopen subsets of the exponent space
+$\Zh$, and a finite covering of all large $s$ by them covers all of $\Zh$,
+because the integers $s\ge s_1$ are dense in $\Zh$.  We use this only in the
+following elementary form.
+
+\begin{lemma}[\status{proved}]\label{lem:compact}
+If finitely many sets $E_i=\{s\equiv u_i\pmod{P_i},\ s\ge s_i\}$ cover all
+sufficiently large $s$, then for some $i$ we have $u_i\equiv0\pmod{P_i}$, so
+$E_i$ contains every sufficiently large multiple of $P_i$.
+\end{lemma}
+
+\begin{proof}
+Let $P=\operatorname{lcm}P_i$.  A large multiple $s$ of $P$ lies in some
+$E_i$, so $u_i\equiv s\equiv0\pmod{P_i}$.
+\end{proof}
+
+\subsection{Unit-square points}
+\begin{theorem}[\status{proved}; {\cite[Thm.~1.4, Cor.~1.5]{ExpCov}, \cite[Lemma~3.1]{ExpNearSq}}]\label{thm:sterile}
+Let $c_0$ be odd, $k\equiv1\pmod 8$ and $c_0+k=4^J$.  For every $L\ge1$ and
+$s_1\ge0$ there is no finite set of ET classes and divisor classes
+containing all $n_s=c_0\,2^s+k$ with $s\equiv0\pmod L$, $s\ge s_1$.
+\end{theorem}
+
+\begin{proof}
+Suppose $C_1,\dots,C_r$ are such classes, of moduli $M_1,\dots,M_r$, and
+let $M=\operatorname{lcm}M_i=2^aM'$ with $M'$ odd.  For
+$s\in S:=\{s\ge\max(a,s_1): L\ord_{M'}(2)\mid s\}$ we have $n_s\equiv
+c_0+k=4^J\pmod{M'}$ and $n_s\equiv k\pmod{2^a}$, so $\rho:=n_s\bmod M$ does
+not depend on $s\in S$, and $\rho\in C_i$ for some $i$.  If $C_i=D_q$, then
+$q\mid M'$ and $q\mid\rho\equiv4^J\pmod q$, impossible.  So $C_i$ is the
+class of some $\kappa$.  Since $k\equiv1\pmod8$, $k$ is a square in
+$\Z_2^\times$; choose by the Chinese remainder theorem an odd integer $t$
+with $t\equiv2^J\pmod{M'}$, $t^2\equiv k\pmod{2^a}$, and $t\equiv1$ modulo
+every prime of $P_\kappa$ not dividing $M$.  Then $t^2\equiv\rho\pmod M$, so
+$t^2$ lies in the class of $\kappa$, and $\gcd(t,P_\kappa)=1$ (the primes of
+$P_\kappa$ dividing $M'$ do not divide $t\equiv2^J$, and $t$ is odd).  This
+contradicts Corollary~\ref{cor:T1class}.
+\end{proof}
+
+The same proof works for the subfamilies $s\equiv0\pmod 2$, i.e.\ for
+$c_0\cdot4^{s'}+k$; so $3\cdot2^s+1$, $15\cdot2^s+1$, $63\cdot2^s+1$,
+$7\cdot4^s+9$, $15\cdot4^s+1$, $23\cdot4^s+41$, $31\cdot4^s+33$,
+$7\cdot4^s+57$, $63\cdot4^s+1$, $47\cdot4^s+17$, $55\cdot4^s+9$ admit no finite
+ET/divisor covering.  The limit point behind the proof is $\mu=0$ in the
+exponent space $\Zh$: there the $q$-adic limit of $n_s$ is $4^J$ for every
+odd $q$ and the $2$-adic limit is $k$, a unit square at every place.  By
+\cite[Prop.~1.9]{ET} the statement extends to all primitive classes solvable
+by polynomials (cf.\ \cite[Prop.~3.1]{CovNote}); we do not need this.
+
+The integer points of $\Zh$ that are unit-square points are classified as
+follows.  Write $\nu(\ell)$ for the point of $\prod_q\Z_q$ with odd
+components $c_0b^\ell+k\in\Z[1/2]$ and $2$-component $k$.
+
+\begin{proposition}[\status{proved}; {\cite[Cor.~1.5]{ExpCov}, \cite[Lemma~3.1]{ExpNearSq}, \cite[Lemma~1.2]{SignFields}}]\label{prop:intpoints}
+Let $k\equiv1\pmod 8$, $b\in\{2,4\}$, and $c_0$ odd.  For $\ell\in\Z$,
+$\nu(\ell)$ is a square of a unit at every prime iff $\ell=0$ and
+$c_0+k=4^J$ for some $J\ge1$.  For $c_0\equiv2\pmod 4$ and $b=4$ there is no
+such $\ell$.
+\end{proposition}
+
+\begin{proof}
+Let $\ell\ge0$ and $N=c_0b^\ell+k$.  A positive integer that is a square in
+$\Z_q$ for all odd $q$ is a perfect square (an integer that is not a
+square is a non-residue modulo infinitely many primes), and it is a unit at
+all odd $q$ iff it is a power of $2$; so $N=4^J$.  For $\ell\ge1$ and $c_0$
+odd $N$ is odd and $>1$; so $\ell=0$, $c_0+k=4^J$.  If
+$\ell=-a<0$, the odd components are $(c_0+kb^{a})/b^{a}$; this is a unit
+square everywhere iff $b^a(c_0+kb^a)$ is a perfect square with
+$c_0+kb^a$ a power of $2$; but $c_0+kb^a$ is odd and $>1$.  For
+$c_0\equiv2\pmod4$, $b=4$: $N=c_0b^\ell+k$ is odd for $\ell\ge1$, and
+$c_0+k\equiv3\pmod 4$ is not a power of $4$; the case $\ell<0$ is as
+before ($c_0+k4^a$ is odd).
+\end{proof}
+
+\begin{remark}[non-integer points; \status{open}]\label{rem:EH}
+Whether the closure of a family can meet the unit squares at a
+non-integer point of $\Zh$ is an exponential local--global question in the
+style of Skolem's conjecture and the Hasse-type principle of
+Bert\'ok and Hajdu \cite{BH}; we call it (EH) as in \cite[\S3]{ExpCov}.  It
+is open in general.  For $4^s+105$ a finite screen shows that the closure
+avoids the unit squares (\cite[\S1.4]{SignFields}: for every residue
+$s\bmod360$ some prime $q<3\cdot10^6$ with $\ord_q(4)\mid360$ divides
+$n_s$ or has $\leg{n_s}q=-1$; a certified finite computation).  Beyond the
+unit squares, the sterile set of the ET menu can contain non-square points;
+none is known on any of the families studied here.
+\end{remark}
