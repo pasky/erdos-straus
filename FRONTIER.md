@@ -161,3 +161,68 @@ square** (ℓ(n) = least odd prime with (n/ℓ) = −1; `SYNTHESIS_SPARKS9.md` P
 What remains is the class of the divisor inside the coset {χ_{−t} = −1} (size φ(t)/2), where the other genus and higher-order
 characters are active. The expected number of "hit" levels is ≈ (0.44 → 0.97)·log p for p ≤ 3·10⁶ (EVIDENCE): critical, not
 supercritical.
+
+## 3. The barrier map, as theorems with exact hypotheses
+
+Format: **statement** · *scope* · rules out · does NOT rule out · pointer. The classic six (B1–B6) come from the automorphic
+phase (`reviews/redteam-automorphic.md` §4 collapse tests T1–T8, `reviews/redteam-automorphic-2.md` §2–3); the rest were added
+in Waves Y–AC. A barrier "with known technology" is an Assessment about methods, never an impossibility theorem for ES.
+
+**B1 — formal genericity (congruences, identities, bounded search).** `POINTWISE_SIZE.md` Thms M, C, Prop A; (H)-ledger.
+* *Statement.* Thm M (PROVED): a deterministic procedure (ring operations, floor division, sign/size tests, full
+  factorisations, loops over the resulting lists) whose run at a profinite "square-mimicking" point is finite follows that
+  formal run at every admissible p (one congruence class, all polynomials met take prime values). Thm C (CONDITIONAL on
+  Hypothesis H): every *correct* bounded witness-producing procedure fails for infinitely many p ≡ 1 (24). Prop A (PROVED):
+  eventual-sign size comparisons (against p^θ, divisors in [p^θ, 2p^θ], …) stay inside the scope. Instances: Mordell–Schinzel
+  (square classes are not solvable by polynomials), ET's odd-square remark, FORMAL_CLOSURE Thm F (the signed seed component
+  is sterile for infinitely many p = 24q + 1, under H for 6402 explicit polynomials; the sibling needs Dickson for only 159
+  linear forms). Quantitative form: Type II witness moduli must exceed exp(c(log p)^{1/4}(log log p)^{−1/4}) infinitely often
+  (`POINTWISE_OMEGA13.md` Thm 5.1, PROVED modulo Gallagher, Nair–Tenenbaum and the energy bound).
+* *Rules out:* congruence coverings, finite unions of polynomial/identity families, bounded searches, Haar/CRT majorants.
+* *Does NOT rule out:* (E1) a search over a p-dependent family of integers whose length grows with p, or (E2) non-quasi-
+  polynomial primitives (⌊p^θ⌋, the least non-residue, orders) *whose actual factorisations are then used*. Whether fixed
+  non-abelian Frobenius data escape was left open there (later: inert on finite witness sets, (J)96, and see B-reciprocity).
+
+**B2 — divisor-class reduction (the tied-modulus divisor event).** `reviews/redteam-automorphic-2.md` Lemma 2.1 / Thm 2.2, (I)8.
+* *Statement.* Every two-coordinate slice of ET's varieties is either a finite union of congruence classes of p, or "one
+  integer N_θ(p) has a divisor in a residue class mod q_θ" (PROVED, elementary). All encodings tried (Heegner/Hecke, Type II
+  shells, ternary forms, quaternion orders in B_{p,∞}, Brauer–Manin, fibrations, class-number identities, GRH/GLH/covering
+  conjectures) are such slices (Thm 2.2(i),(ii), PROVED relative to the reviewed statements). Thm 2.2(iii) (CONDITIONAL on H):
+  any argument certifying ES(p) through a *fixed* finite set Θ₀ of slices fails for infinitely many p ≡ 1 (24).
+* *Scope:* (iii) needs Θ₀ fixed independently of p.
+* *Rules out:* any fixed finite menu of slices, however clever the auxiliary input.
+* *Does NOT rule out:* growing, p-dependent families of slices (hatch H-A) or a parity-breaking count at fixed p (H-B) — but
+  see "tied modulus" below for why both are, so far, the same wall.
+
+**B3 — scale constraint.** `CONDITIONAL_ES.md` Prop 2.3, Remark 2.4; phase (I) Prop 5.4.
+* *Statement* (PROVED relative to ET Thm 1.1). If a hypothesis drives an ES-detector with target main term M(p) and error
+  ≤ M/2 through an encoding with fibres ≤ μ(p), then M(p) ≤ 2μ(p)f(p); for μ ≤ p^{o(1)} (every natural lattice/Heegner/matrix
+  parametrisation), M(p) ≤ p^{o(1)} for all p outside a density-zero set. Thickening a target to width K/p (Prop 5.4) is
+  exactly averaging over n with |n − p| ≤ K.
+* *Rules out:* every "main term = power of p, error = smaller power" argument (Heegner/CM equidistribution with |D| ≥ p^κ,
+  power-scale covering conjectures, termwise GRH).
+* *Does NOT rule out* (Remark 2.4): a polylog main term with a power-small error (M ≍ log²p, error ≪ p^{−η}), high-
+  multiplicity encodings, families of size p^{o(1)} with unrestricted auxiliaries. This is exactly where §2 sits.
+
+**B4 — deterministic pigeonhole / large fibres.** `LONGSHOT_PIGEONHOLE.md` Thm 2.2, `LONGSHOT_FIBRED.md` Thm 3.1.
+* *Statement.* Covering certificates built from the prime factors below the modulus fail for a positive proportion of primes
+  in every slice (PROVED relative to classical inputs); pigeonhole collisions give only signed solutions. Algebraic/orbit
+  recipes with bounded covolume ratio: the fibre factor cancels and B3 returns (PROVED relative to the counting theorems).
+* *Scope:* transparent coset-covering certificates; arithmetic-group orbits with a covolume count.
+* *Does NOT rule out:* CONJECTURE PH (full-coset covers exist for every large p; EVIDENCE to 3.7·10⁷) — open, not a route.
+
+**B5 = T1 — the odd-square test.** ET Prop 1.6; `PARITY_AUDIT.md` Lemma 3.2; (J)13 (T1 = Kudla's Diff-parity = Hilbert
+reciprocity for the incoherent ternary collection).
+* *Statement.* f_I(m²) = f_II(m²) = 0 for odd m, while local/genus/spinor conditions all hold; at the level of single events:
+  n = m² + … : m² + u has no divisor ≡ −1 (mod 4u), for every u (PROVED). At a prime p ≡ 1 (4), any hit f | p + u,
+  f ≡ −1 (mod 4u), has a prime factor ℓ with (ℓ/p) = −1 (Lemma CT / Lemma 3.2).
+* *Rules out:* every route whose steps are all true at odd squares: "local + spinor ⇒ global", Siegel–Weil/genus averages,
+  full-rank theta series, BM-type corrections alone, fibration/descent through finitely many families.
+* *Does NOT rule out:* routes that use the quadratic character at p (non-residues) in an essential way — every survivor must.
+  T1 is *one* order-2 obstruction; it deforms to near-squares (p = m² + k with tk + 1 = c² forces level t to χ = +1, (J)53,
+  (J)55), explaining a 6–7σ deficit there.
+
+**B6 = T7 — the average leak.** Any estimate averaged over p, or over a level/discriminant attached to p (spectral large
+sieve, DI Thm 7, Kuznetsov with exceptional eigenvalues, Bombieri–Vinogradov, zero-density), says nothing at a single p.
+Concretely: Σ_{p≤N} f_I(p) ≪ N log²N ((D)32b) and the 3/4 exceptional-set bound are theorems *on average*; neither yields one
+prime. Fixed-p variance diagnostics were tried and fail ((J)103: "critical"). Use T7 against every cited estimate.
