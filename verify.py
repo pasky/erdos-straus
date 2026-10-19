@@ -27326,4 +27326,41 @@ def check_hw():
 check_hw()
 
 
+def check_hx():
+    # (hx) ES_EXPONENTIAL_FAMILIES paper (O277/R291/R292): the paper's own verifier plus the two independent reviewers'
+    # from-scratch checkers — ES for every 3·2^s+1, 63·2^s+1, 7·4^s+9, 4^s+105, nine 4^s+k (complete coverage, exact
+    # solutions), Theorem W (6 points, 4 positive controls), Lemma 5.14 (39 boxed solutions), and the NEW Prop 5.12: ES for
+    # every 15·2^s+1 with 60 ∤ s (11 ET/divisor rules, period 60, residue 0 excluded).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2", PYTHONPATH=sdir)
+
+    def run(args, cwd):
+        r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=900, cwd=cwd, env=env)
+        assert r.returncode == 0, ("EXPFAM subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    out = run(["c1_expfam_verify.py"], sdir)
+    lines = [l for l in out.split("\n") if l.startswith("[")]
+    assert len(lines) >= 25 and all(l.startswith("[OK]") for l in lines), [l for l in lines if not l.startswith("[OK]")]
+    for fam in ("3*2^s+1", "63*2^s+1", "7*4^s+9", "4^s+105", "15*2^s+1"):
+        assert any(l.startswith("[OK] " + fam) for l in lines), fam
+    assert "residues s mod 60 in {0} are excluded and NOT claimed" in out, out[-800:]
+    out = run(["scripts/review_r292_certificates.py"], root)
+    assert "PASS independent printed-certificate checks" in out, out[-800:]
+    out = run(["review_r292_obstructions.py"], sdir)
+    assert "boxed equation: 39 solutions" in out and "PASS obstruction enumeration" in out, out[-800:]
+    out = run(["review_r291_tables.py"], sdir)
+    assert out.strip().endswith("ALL OK"), out[-800:]
+    print(f"== (hx) EXPFAM paper R291/R292: all family certificates + Prop 5.12 (15·2^s+1, 60 ∤ s) + Theorem W + boxed "
+          f"equation; seconds = {perf_counter() - t0:.1f}")
+
+
+check_hx()
+
+
 print("\nall checks passed")

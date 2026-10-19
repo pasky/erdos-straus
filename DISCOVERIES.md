@@ -1778,6 +1778,17 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Status: an internally proved result that survived four internal reviews in total (two earlier and two now). It is not externally refereed, and no release is made.
    * verify.py (hw) re-runs the reviewers' arithmetic, CRT, Bonferroni and Rankin checks.
 
+110. **Consolidation C1: the exponential-families paper (internal) — ES on families beyond every Elsholtz–Tao covering, with a NEW certified case: ES for every 15·2^s + 1 with 60 ∤ s (paper/es-exponential-families.tex, 22 pp + scripts/c1_expfam_verify.py (O277); two independent hostile reviews `reviews/expfam-paper-review-1.md` (R291, Claude Opus) and `reviews/expfam-paper-review-2.md` (R292, GPT Astra, independent): both no FATAL or MAJOR in the mathematics. R292 found one false side claim in Open Problem 4 (a coverage claim at the (0,1) boundary of 2^a3^b + 1; counterexample X = 3¹⁰). R291 found minors m1–m10. All repaired by R291, R292's in round 2.)**
+   * Theorems (PROVED, computer-assisted where stated; every certificate re-verified by three independent checkers): ES for every 3·2^s + 1, 63·2^s + 1, 7·4^s + 9 and 4^s + 105, and for the nine 4^s + k of (J)62. Each comes with complete residue coverage, exact solutions and small-s checks.
+     * The paper's verifier also requires ET-class membership, not mere integrality. That surfaced three leaves valid only through extra cancellation; coverage is unaffected.
+   * NEW (Proposition 5.12, computer-assisted; R291 re-derived the coverage by hand and code, and R292 checked independently): ES for every 15·2^s + 1 with 60 ∤ s.
+     * The proof uses 11 ET/divisor classes (II2 and D) with moduli 7, 11, 31, 39, 99, 287 and coverage period 60.
+     * Members with 3 | s are Mordell-hard. The residue s ≡ 0 (mod 60), including the u ≡ 7 (8) binomial branch, remains open.
+   * Lemma 2.2 / Cor 2.3 (PROVED): the odd-square obstruction, including the Type II case, now rests on ET's Σ-variety identities, no longer on the unaccessed Mordell/Schinzel. Theorem 2.7 (PROVED, elementary): no ET/divisor covering exists when c₀ + k = 4^J and k ≡ 1 (8).
+   * Theorem W (PROVED + finite check, with positive controls) and its lemma chain are written out in full. Lemma 5.13 makes the integer-valued b, c hypothesis explicit. Lemma 5.14 has simpler bounds and the same 39 boxed solutions.
+   * Referee-readiness (R291): the mathematics is ready. Before any external use, internal-notebook citations must be removed and the classical sources not accessed here (Mordell, Schinzel, Rav, Izotov, Sierpiński, Salez, Yamamoto, Mihnea–Dumitru) must be checked. No release is made.
+   * verify.py (hx) re-runs the paper's verifier and the reviewers' independent checkers.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

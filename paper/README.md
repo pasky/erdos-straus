@@ -1,3 +1,5 @@
+**New (consolidation C1/C2, 2026-10-19):** `es-exponential-families.tex` / `.pdf` (22 pp; O277; two independent hostile reviews R291/R292, SOUND after minor repairs) — ES for every 3·2^s+1, 63·2^s+1, 7·4^s+9, 4^s+105, nine 4^s+k, and (NEW) every 15·2^s+1 with 60 ∤ s; Theorem 2.7 / Theorem W (no ET covering / no constant-gap class at the unit-square points). `es-threequarter-note.tex` hardened (O278; reviews R288/R289 SOUND; v1 archived as `es-threequarter-note-v1.tex`). Internal only. See DISCOVERIES (J)109–(J)110.
+
 # Paper draft status
 
 **New (O134; refereed R134, ACCEPT (internal) after repairs, `reviews/es-automorphic-barrier-note-referee.md`): `es-automorphic-barrier-note.tex` / `.pdf`** (18 pp) — "Automorphic and geometric reformulations of
