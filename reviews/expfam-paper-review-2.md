@@ -1,6 +1,18 @@
 # R292 — independent hostile review, round 1
 
-Reviewed author branch `side-agent/paper-expfam`, merged into this worktree; no access to reviewer #1's review or branch. Author files are not modified. This is a claim-by-claim working review; numerical results and final recommendation are added below as completed.
+Reviewed author branch `side-agent/paper-expfam`, merged into this worktree; no access to reviewer #1's review or branch. Author files are not modified. Round 1 is complete. All headline theorems pass the independent checks. Overall recommendation: **SOUND-AFTER-REPAIRS** — correct one false side assertion in Open Problem 4 and make two small scope/definition clarifications; no fatal defect found.
+
+| Section / claim | Verdict |
+|---|---|
+| §1 main results and scope | SOUND-AFTER-REPAIRS (D2 clarification) |
+| §2 odd squares, periodicity, Theorem 2.7 | SOUND (D1 definition repair) |
+| §3 forced budgets and specialisation | SOUND |
+| §4 all positive family theorems | SOUND, independently CERTIFIED |
+| §5.1 Theorem W and constant-ratio/non-covering results | SOUND, independently CERTIFIED enumeration |
+| §5.2 Proposition 5.12 and moving-gap branch exclusion | SOUND, independently CERTIFIED |
+| §5.3 open problems | SOUND-AFTER-REPAIRS (D3) |
+| Appendix and helper/certificate artifacts | SOUND |
+| Novelty/attribution | SOUND as cautious Assessment, not a priority theorem |
 
 ## Referee summary
 
@@ -14,7 +26,7 @@ For the class corollary the fixed-parameter product really does suffice, includi
 
 The proposition classifying integer unit-square points is also sound under the positive c0,k convention of the paper. For negative exponents the numerator is odd and >1 (or has 2-adic valuation one in the even-c0 case), excluding a unit square at every odd prime.
 
-Minor definitional issue to repair: Definition 2.4 (`def:rule`, lines 350–360) calls a finite list an exponent covering when every uncovered s is “treated separately”, without requiring that exceptional set to be finite. Taken literally this makes the non-covering claims false/vacuous. Say “all but finitely many exponents are covered, with explicit solutions for the finitely many exceptions.” This is defect D1 (MINOR); the proofs consistently use the intended finite-exception meaning.
+Minor definitional issue to repair: Definition 2.4 (`def:rule`, lines 350–351) calls a finite list an exponent covering when every uncovered s is “treated separately”, without requiring that exceptional set to be finite. Taken literally this makes the non-covering claims false/vacuous. Say “all but finitely many exponents are covered, with explicit solutions for the finitely many exceptions.” This is defect D1 (MINOR); the proofs consistently use the intended finite-exception meaning.
 
 ## Claim 2: Proposition 5.12, 15·2^s+1 for 60∤s — SOUND
 
@@ -53,6 +65,36 @@ The Capelli reduction to K=15u^p is correct: an odd K cannot have K/15∈4Q^4, a
 
 I re-derived all four P≤4 bounding cases in Lemma 5.14 and independently enumerated with different bounds d≤21, m1≤36, a≤81. There are exactly 39 solutions, 31 with a,d odd, and the only relevant pair is (1,11) with K/15=3, not a p-th power for p≥3. The u≡3 mod 8 branch is excluded for all D; the even-parameter branch remains genuinely open.
 
-The Ridout discussion is a compressed side remark rather than a proved lemma here. Its intended implication can be recovered from (X,X')≥(q−16,q−1) for q>16, yielding 2^E a1≳u^(p/2), and then |u−15^(−1/p)|_2≲u^(−1−epsilon). The exceptional q≤16 regime is an S-unit/Thue finiteness argument, not furnished in the paper. Recommend spelling out that reduction or only referring to the source note; no uniformity in p or effective bound is claimed.
+The Ridout discussion is a compressed side remark rather than a proved lemma here. Its intended implication can be recovered from (X,X')≥(q−16,q−1) for q>16, yielding q≲u^(p/2) and 2^E a1=(15u^p−1)/q≳u^(p/2). The same lower bound holds immediately for q≤16. The small-a1 hypothesis then gives |u−15^(−1/p)|_2≲u^(−1−epsilon), the integer-approximation form of Ridout. No uniformity in p or effective bound is claimed. I did not access Ridout's original article; the application is secondary and is not used in any headline theorem.
 
+## Numbered defects and concrete repairs
 
+1. **D1 — MINOR, Definition 2.4, `paper/es-exponential-families.tex:350–351`.** Require the separately treated exceptional exponents to be *finite*. Otherwise the definition permits an empty list followed by infinitely many separate solutions and no longer implies the hypothesis used by the finite-cover lemma. Replace the final sentence by “An exponent covering is a finite list of rules covering all but finitely many s≥0, together with explicit solutions for those finitely many exceptions.”
+2. **D2 — MINOR, abstract lines 60–61 / Main Theorem (d), lines 144–149, compared with Definition 5.1, lines 1062–1063 and Corollary 5.9, lines 1230–1234.** The headline says arbitrary constant ratio whereas the definition says an integer ratio. Add the rational-to-integer reduction given under Claim 4, or qualify the headline by “integer constant ratio.” This is a presentation gap, not a counterexample.
+3. **D3 — MAJOR but localized, Open Problem 4, lines 1478–1482.** The parenthesis says that “48X^4+1 with X=2^t3^{t'} is handled by the rules of Theorem 4.1.” That is false without a residue restriction. Take t=0, t'=10, X=59049, n=583567942034732582449. Then X≡1 mod 11, so none of the four SG budgets applies. Meanwhile n≡4 mod 7, n≡4 mod 15 and n≡49 mod 61, so none of the six elementary rules applies either. This is reproduced by `review_r292_obstructions.py`; it is a counterexample to the asserted *rule coverage*, not to ES. The source `EXP_15.md`, Lemma 1.1, explicitly restricts the SG result to X≢0,±1 mod 11. Replace the parenthesis by: “near the boundary (a,b)=(0,1), the SG window applies because X tends to 1/2≡6 mod 11; near (3,0), cubic factorisation provides descent to a smaller Pierpont number.” Say “covered neighbourhood / descent” rather than asserting the entire 48X^4+1 two-base slice is solved.
+
+D3 does not affect any numbered theorem or any certificate. No FATAL defect and no GAP in the headline mathematical claims was found.
+
+## External sources and novelty
+
+- **Elsholtz–Tao:** read the actual local PDF `sources/elsholtz-tao-1107.1010.pdf`, Proposition 1.6 and §4, Proposition 1.9 and §10. The seven classes, side conditions, and coordinate formulas agree. The classification is for primitive polynomial-solvable classes and sufficiently large primes; the paper states that limitation and does not silently use it to cover every integer. The negative theorem here is independently proved through CRT and odd squares, not merely asserted from the primes-only classification.
+- **Capelli:** Lang's cited page/theorem was not available locally and I did not verify its exact numbering. I accessed the actual statement of Theorem 1 in [*Irreducibility of x^n−a*, arXiv:2006.03787v1](https://arxiv.org/html/2006.03787v1): over Q, reducibility iff a=b^t for some divisor t>1 of n, or 4|n and a=−4b^4. This is equivalent to the prime-divisor formulation used here; signs, rational denominators, and the exceptional −4Q^4 clause are correctly applied.
+- **Sierpiński / Izotov / Filaseta–Finch–Kozek:** checked pp. 1–4 of the actual FFK text in `sources/lit2026e/filaseta-finch-kozek-sierpinski-powers.txt` (the paper is available at https://people.math.sc.edu/filaseta/papers/SierpinskiEtCoPapNew.pdf). It explicitly describes Sierpiński's exponent covering and Izotov's omission of n≡2 mod 4, closed by the Sophie Germain factorisation. The analogy and attribution are accurate. FFK only regards the absence of a finite *prime-divisor* covering for its examples as likely; the draft does not import that conjectural assertion as proof of its own ET non-covering result.
+- **Original sources not accessed:** Lang, Izotov, Sierpiński, Rav, Mordell, Schinzel, Yamamoto and Ridout originals. The central identities and reciprocity arguments have self-contained proofs here. I did not independently audit the historical 10^17/10^18 exhaustive-computation claims or the notebook's reported search-failure densities; they are background/evidence, not proof dependencies.
+- **Fresh quick web audit:** searched `"Erdos Straus" "exponential" families`, `"Erdős–Straus" "2^n"`, `"Erdos Straus" "Proth"`, `"Erdos-Straus" "63" "2" exponential`, and `"Erdos-Straus" "15" "2^"`, plus the FFK/Izotov and Capelli searches. No directly matching prior ES theorem for these exponential families or a general all-k method surfaced. This is only a limited negative search result. The draft's “not a claim of priority” caveat should remain. The strongest apparent contribution is the explicit beyond-ET positive families and the all-root-degree obstruction; not every small-offset theorem is new beyond Mordell, as the draft correctly acknowledges.
+
+## Additional independent audit and reproducibility
+
+`review_r292_auxiliary.py` verifies the auxiliary JSON trees (9, 2 and 59 leaves; periods 60, 2 and 9180), with no missing exponent class or ET-membership discrepancy. It checks all seven ET shapes symbolically for bounded admissible parameters and tests their coprime odd-square exclusion, checks the six elementary Proth identities symbolically, and checks the third cubic mechanism in Remark 4.2(ii). It independently confirms q=18837001 is prime, ord_q(4)=45, and the nonresidue assertion for the 105 window. The 360-class unit-square screen for 4^s+105 also checks out; the independent ascending-prime screen already completes by q=181, well inside the stated bound 3·10^6. The Mordell-hard residue assertions check over a full eventual period.
+
+I read the author's verifier and both helpers, then also ran the verifier at its default s≤1000 bound (s≤600 for the nine offsets): all checks pass, runtime about 3.4 seconds. This author-script run is supplementary, not the independent verification. The helper extraction and table-printer scripts are not mathematical proof dependencies; the printed tables and exported leaves were checked directly.
+
+Independent commands, all passed in this worktree under `ulimit -v 8000000`, `OMP_NUM_THREADS=2`, `OPENBLAS_NUM_THREADS=2`, and `timeout 120`:
+
+```sh
+PYTHONPATH=scripts uv run --with sympy python scripts/review_r292_certificates.py
+PYTHONPATH=scripts uv run --with sympy python scripts/review_r292_obstructions.py
+PYTHONPATH=scripts uv run --with sympy python scripts/review_r292_auxiliary.py
+```
+
+The obstruction script's reported counterexample is intentional and checks D3; it does not indicate failure of the headline certificates. No author files were edited, no other worktree was written, and reviewer #1 was not consulted. **Recommendation: retain all headline theorems; repair D1–D3 before circulation.**
