@@ -6,7 +6,7 @@ repository file, with a pointer. When a summary and its source disagree, the sou
 
 > **The Erdős–Straus conjecture (ES) is not solved — not here, not anywhere.** No case of "ES for all large primes" is
 > proved here, conditionally on any standard conjecture or otherwise. The literature was checked through 2026-09-28
-> (`LITERATURE_2026.md`) and spot-checked on 2026-10-18; every recent claimed proof has an identifiable gap.
+> (`LITERATURE_2026.md`; the verification record was re-checked on 2026-10-18); every recent claimed proof has an identifiable gap.
 
 **Labels** (as in `DISCOVERIES.md`). PROVED = complete proof in the repo, possibly *relative to* named published theorems;
 CONDITIONAL = proved assuming a named hypothesis (GRH, Dickson, Hypothesis H, SEL, …); CERTIFIED = an exact finite computation,
@@ -14,13 +14,13 @@ independently reproduced; EVIDENCE = numerics or heuristics only; CONJECTURE = s
 interpretation, not a theorem. Everything PROVED here is *internally* reviewed (hostile reviews in `reviews/`), and **none of it
 is externally refereed.** Pointers like (J)100 are entries in the ledger `DISCOVERIES.md`.
 
-**One-paragraph summary.** After ~280 tasks, 13 phases and two advisory boards with seats from three labs, every route the
+**One-paragraph summary.** After ~280 tasks, a dozen phases and two advisory boards with seats from three labs, every route the
 campaign or its sibling (`../erdos-straus-astra`) tried ends at one statement: *a single specific integer, determined by p,
 must have a divisor in a residue class whose modulus is itself part of the solution* ("B2", the tied-modulus divisor
 event), with only polylog(p) expected winners. In counting form this is a **one-sided lower tail at one integer**,
 R(p) ≥ ε·M_BM(p), where the main term M_BM(p) ≫ (log p)² is now an unconditional theorem and the odd-square obstruction
-(T1) is built into it exactly. No standard conjecture is known to imply this lower tail, and no technique in the literature
-proves an every-n statement of this shape (polylog main term, no averaging). §3 maps the barriers as theorems with scopes,
+(T1) is built into it exactly. No standard conjecture is known to imply this lower tail, and a literature survey found no
+every-n theorem of this shape (polylog main term, no averaging) for any natural problem. §3 maps the barriers as theorems with scopes,
 §4 turns them into a five-minute screening checklist, §7 lists well-posed sub-problems.
 
 ## 1. The problem and the known landscape
@@ -29,7 +29,7 @@ proves an every-n statement of this shape (polylog main term, no averaging). §3
 gives one for every multiple of n, and the classes n ≡ 0, 2, 3 (mod 4) have identities, so ES reduces to **primes
 p ≡ 1 (mod 4)**, in practice p ≡ 1 (mod 24). Mordell's identities reduce further: a counterexample must lie in
 n ≡ 1, 121, 169, 289, 361, 529 (mod 840) — the square classes mod 840. These "Mordell-hard" primes are where all difficulty
-sits (`AMPLIFY_EXCEPTION.md` §0, `LITERATURE_2026.md`).
+sits (`AMPLIFY_EXCEPTION.md:7–12`, `LITERATURE_2026.md`).
 
 **Verification.** ES holds for all n ≤ 10¹⁷ (Salez); Mihnea–Dumitru (arXiv:2509.00128, 2025, unrefereed preprint) report
 10¹⁸ (`DISPROOF_AVENUES.md:63`). Internally (EVIDENCE): f_I(p) ≥ 1 and f_II(p) ≥ 1 for every prime 5 ≤ p ≤ 10⁸ (Type I and Type
@@ -97,8 +97,8 @@ So R(p) is a sum of ≍ p log p rare events with polylog mean: the *tied-modulus
 R*(n) = Σ_{𝒫(n)} 1[n ≡ a (mod q)] = M_gen(n) + X(n), where M_gen is exactly the contribution of the characters of order ≤ 2
 mod q and X that of order ≥ 3; R*(p) = R(p). **T1 lives entirely in the genus part:** M_gen(m²) = X(m²) = R*(m²) = 0.
 
-**Census** (CERTIFIED, two engines): among primes p ≡ 1 (4), (★) fails at exactly **14 primes ≤ 10¹⁰**, from 409 to
-8 813 281 ((J)89, `B1_LINE.md` §3.6); the b = 1 line (López 2024 Type A: p + 4d has a divisor ≡ −1 (mod 4d)) fails exactly
+**Census** (CERTIFIED to 10⁸ by two independent engines, extended to 10¹⁰ by one): among primes p ≡ 1 (4), (★) fails at
+exactly **14 primes ≤ 10¹⁰**, from 409 to 8 813 281 ((J)89, `B1_LINE.md` §3.6); the b = 1 line (López 2024 Type A: p + 4d has a divisor ≡ −1 (mod 4d)) fails exactly
 at 193, 2521, 66529 among primes p ≡ 1 (4) ≤ 10¹¹; the union of the two lines never fails ≤ 10⁸ ((J)89, (J)90). Note: (★)
 failing is *not* ES failing.
 
