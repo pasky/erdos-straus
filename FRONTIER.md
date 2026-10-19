@@ -33,9 +33,9 @@ sits (`AMPLIFY_EXCEPTION.md` §0, `LITERATURE_2026.md`).
 
 **Verification.** ES holds for all n ≤ 10¹⁷ (Salez); Mihnea–Dumitru (arXiv:2509.00128, 2025, unrefereed preprint) report
 10¹⁸ (`DISPROOF_AVENUES.md:63`). Internally (EVIDENCE): f_I(p) ≥ 1 and f_II(p) ≥ 1 for every prime 5 ≤ p ≤ 10⁸ (Type I and Type
-II separately); min f_II/log³p ≈ 0.012 (STATUS, phase (I)). Adversarial searches at 10¹⁸–10²⁵ never approached failure: the
-hardest prime found, p = 2054098191162848070241, still has 870 solutions on its cheapest 1024 e-slices alone
-(`DISPROOF_AVENUES.md:246–290`, EVIDENCE).
+II separately); min f_II/log³p ≈ 0.012 (STATUS, phase (I)). Adversarial searches at 10¹⁸–10²⁵ (BPSW-probable primes) never
+approached failure: the hardest relative to controls, p = 2054098191162848070241, still has 870 solutions on its cheapest 1024
+e-slices alone (0.26× controls); the smallest absolute count seen was 612 (`DISPROOF_AVENUES.md:246–290`, EVIDENCE).
 
 **Parametrisations (Elsholtz–Tao, ET = J. Aust. Math. Soc. 94 (2013)).** For a prime p every solution is Type I (p divides
 exactly one denominator) or Type II (two). In divisor form (`CONDITIONAL_ES.md` §1, PROVED):
@@ -46,7 +46,7 @@ exactly one denominator) or Type II (two). In divisor form (`CONDITIONAL_ES.md` 
 
 **The odd-square obstruction T1** (ET Prop 1.6; Yamamoto 1965; Bright–Loughran Cor 1.3–1.4). For odd m,
 f_I(m²) = f_II(m²) = 0: odd squares have no Type I/II solutions, although all local, genus and spinor conditions hold there
-(`reviews/redteam-automorphic.md` §4, phase (I) Prop 8.3). (ES(m²) is of course true, via ES(m).) T1 is the single most
+(`reviews/redteam-automorphic.md` §4, phase (I) Prop 8.3). (This is no obstruction to ES(m²): any solution for m scales to one for m².) T1 is the single most
 useful test in this document: **any mechanism producing Type I/II solutions must contain a step that is false at n = m².**
 
 **Brauer–Manin (Bright–Loughran 2020, BL).** U_n : 4xyz = n(xy + xz + yz) has Br U_n / Br ℚ ≅ ℤ/2, there is **no
@@ -76,8 +76,8 @@ menu ladder collapses to B1/B2).
 
 **Other numerators.** m/n for m ≥ 5 has genuine exceptions for large m (Schinzel exceptions n_m ≥ exp(m^{1/3+o(1)}),
 Pomerance–Weingartner); **8/n fails at n = 131 and 241** (E₈ ∩ primes < 2000 = {2, 3, 11, 17, 131, 241}; `AMPLIFY_EXCEPTION.md`
-§5, CERTIFIED; the 8/n failures are known, PW Table 1). 5/n and 7/n have no known exception (7/n: none in [3, 10¹³], PW).
-This matters for §4: numerator 4 must be used.
+Thm 2.5, CERTIFIED; the 8/n failures are known, PW Table 1). 5/n and 7/n have no known exception (7/n: none in [3, 10¹³],
+PW). This matters for §4: a numerator-uniform argument without a threshold would prove 8/131 ((J)41).
 
 ## 2. The reduction everything ends at: the single-integer lower tail
 
@@ -128,8 +128,9 @@ Fix the level t ≥ 2 and count *ES words of level t*, R_t(n) := #{(u, v) : u, v
 these are the (★) triples with that C, up to the boundary u or B = 1). Put X = q^{t−1}, Q = q^t, θ(x) = (x; Q)_∞(Q/x; Q)_∞,
 D_t^∓(N) := #{d | N : d ≡ ∓1 (mod t)}, σ_χ(N) = Σ_{d|N} χ(d). Then (K1′)
   q^{t−2}(Q;Q)_∞² θ(X²)/θ(X)² = Σ_{n≥0} (D_t⁻ − D_t⁺)(tn + 1) qⁿ = −(2/φ(t)) Σ_{n≥0} Σ_{χ mod t odd} σ_χ(tn + 1) qⁿ,
-and R_t(n) = D_t⁻(tn+1) − β_t(n) with the explicit boundary term β_t(n) = 2·1[(t−1) | (n+1)] − 1[n = t−2] (K2). So **each level series is an exact Kronecker theta quotient: Eisenstein
-data only, no cusp forms.** For 4 | t, T1 is an exact cancellation (D_t⁻(tm² + 1) = 0). The all-level word series is
+and R_t(n) = D_t⁻(tn+1) − β_t(n) with the explicit boundary term β_t(n) = 2·1[(t−1) | (n+1)] − 1[n = t−2] (K2). Since R_t =
+½(D_t⁻ + D_t⁺) + ½(D_t⁻ − D_t⁺) − β_t, **the odd-character component of each level series is exactly a Kronecker theta
+quotient** and the even component is an even-character divisor sum (Eisenstein data; no cusp forms appear in the identity). For 4 | t, T1 is an exact cancellation (D_t⁻(tm² + 1) = 0). The all-level word series is
 Σ_{t,u,v≥2} q^{tuv−u−v} = Σ_{u,v≥2} q^{2uv−u−v}/(1 − q^{uv}). Also PROVED: holomorphic weight-½ forms are supported on finitely many square
 classes (Serre–Stark), and the five-slice failure set is not such a support. Modular identification after normalisation and
 the shifted-d₃ / GL(3)-Eisenstein reading are Assessment. *What this does not do:* an exact automorphic normal form does not
@@ -147,14 +148,16 @@ Montgomery, Kuznetsov/θ or any other standard equidistribution conjecture is es
 (`BM_CORRECTED_COUNT.md` §3.3; `SINGLE_P_COUNT` (J)98: GRH gives only M_gen(p) ≥ (1 − o(1)) log log p). Each of those
 controls averages over the integer, the modulus or the character — never one integer with a polylog main term.
 
-*Numerics for H⁻_BM* (EVIDENCE, primes ≤ 10⁶): min M_BM/L² = 0.062 (far above the proved 0.019), mean 0.149; P(R = 0 | M)
-is ≈ 1.5–2.8 × the swap-Poisson value e^{−M/2} at M ≤ 22, possibly fatter beyond (6 zeros). Whether log P(0 | M(n))/log n → −∞
+*Numerics for H⁻_BM* (EVIDENCE). Primes ≤ 10⁶: min M_BM/L² = 0.062 (far above the proved 0.019), mean M_BM/L² = 0.149 at p > 5·10⁵ (`BM_CORRECTED_COUNT.md` §3.2). Zero law (measured on odd non-squares
+n ∈ [10⁵, 10⁶], with R* and the mod-8-refined main term M_BM8): P(R* = 0 | M)
+is ≈ 1.5–2.8 × the swap-Poisson value e^{−M/2} for M < 22, possibly fatter beyond (6 zeros). Whether log P(0 | M(n))/log n → −∞
 is "exactly the open question; nothing at 10⁶ decides it." Precedent for caution: for Markoff surfaces (same (log m)²
 class-number scale) there are infinitely many integral Hasse failures *with non-empty BM set* (Loughran–Mitankin Thm 1.5;
 Ghosh–Sarnak).
 
 *Related exact reductions.* Five-slice ES (ES₅; λ(p) ≤ 3 in continued-fraction length) has a T1-exact BM main term with
-principal constant **45/(8π²)** and unconditional Burgess bound M(p) ≥ (45/(32π²) − o(1))L² (`BOARD2_SLATE.md` Thm 3.5, (J)105;
+principal constant **45/(8π²)** (`BOARD2_SLATE.md` Prop 3.4: Assessment — Dirichlet-series sketch plus EVIDENCE fit) and
+unconditional Burgess bound M(p) ≥ (45/(32π²) − o(1))L² (Thm 3.5, PROVED; (J)105;
 this *corrects* the board memo's 33/(8π²), so cite BOARD2_SLATE, not the memo). In level coordinates
 M_t^lev(n) = (τ(N) − σ_{χ_{−t}}(N))/φ(t) ≥ 0 (N = tn + 1), and **some 4 | t ≤ 4ℓ(n) has M_t^lev(n) > 0 iff n is not a
 square** (ℓ(n) = least odd prime with (n/ℓ) = −1; `SYNTHESIS_SPARKS9.md` Prop 2.2, (J)103): *the BM layer is pointwise free.*
