@@ -112,3 +112,79 @@ prime, ord_q(4)=45, (n_s/q)=−1 on s≡34 (45)); 10^18 thresholds (s≤53, s≤
 ET p. 6 quote ("a finite set of covering congruence strategies") verified in the arXiv PDF.
 Not accessed by me: Mihnea–Dumitru (arXiv:2509.00128), Salez, Yamamoto, Lang (Capelli statement checked
 from memory of the standard statement), Izotov/FFK.
+
+## Defects
+
+No FATAL and no MAJOR defect found. Every certificate, every residue split, and every lemma of the
+Theorem-W chain and of §5.2 re-derives; the new Proposition 5.12 is now independently confirmed
+(hand coverage + from-scratch code). Defects below are MINOR (wording / unsupported side remarks).
+
+**m1 (MINOR, factual; Problem 4, §5.3).** "($48X^4+1$ with $X=2^t3^{t'}$ is handled by the rules of
+Theorem 4.1 …)" is false as written: Step 1 misses $X\equiv\pm1\pmod{11}$, and the Step-2 classes are
+classes of $n$, which need not contain these members. Counterexample: $X=3^{10}$ ($X\equiv1$ (11),
+$n\equiv4$ (7), $n\equiv4$ (15), $61\nmid n$); 224 of the pairs $t,t'<60$ are not handled
+(`/tmp`-style check reproduced in the review log; trivial to rerun). The source (EXP_15 Lemma 1.1)
+says only that ES holds for $X\not\equiv0,\pm1\pmod{11}$ and that a *neighbourhood* of the boundary
+point $(a,b)=(0,1)$ lies in the window classes ($X\to1/2\equiv6\pmod{11}$).
+*Repair:* "(a neighbourhood of the boundary point $(0,1)$, where $n=48X^4+1$ with $X\to1/2$, lies in
+the Sophie Germain window classes $X\not\equiv0,\pm1\pmod{11}$ of Theorem 4.1, and $8X^3+1$ factors)".
+
+**m2 (MINOR, unsupported claim; Remark 4.2(i), last parenthesis).** "A rule polynomial in $X$ with
+integrality depending only on $X\bmod33$ cannot be valid on a class containing $X=\pm1$, by the
+odd-square argument applied to the integer 49" — as stated this lacks the hypothesis that makes the
+odd-square argument applicable (a Type I/II family whose coprimality conditions survive at $X=1$):
+$4/49$ *is* solvable (via $7\mid49$), so specialisation at $X=1$ alone yields no contradiction. The
+cited source (MENU_STERILITY §4.3) proves it only for the window-11 menu $d=3^af_+^bf_-^c$ via
+NEAR_SQUARE Thm 3.3 for Type I/II polynomial families, and notes that divisor families by 7 do exist there.
+*Repair:* "(No Type I/II family polynomial in $X$ — in particular no rule of the window-11 menu
+$d=3^\alpha f_+^\beta f_-^\gamma$, whose integrality depends only on $X\bmod33$ — is valid on a class
+containing $X=\pm1$ \cite[§4.3]{MenuSterility}; divisor families by 7 are, e.g. the first line of Step 2.)"
+
+**m3 (MINOR, garbled; Remark 5.17(i)).** "for $a=1$ this is a 2-adic approximation of $15^{-1/p}$ …
+with $a_1\le u^{p/2-1-\epsilon}$": for $a=1$ one has $a_1=1$, so the restriction is vacuous and the
+sentence mixes two cases. The source (EXP_15 §2.4, after R281 D1) says: since $a_1d_1\lesssim\sqrt{15u^p}$,
+a solution with $a_1\le u^{p/2-1-\epsilon}$ forces $|15u^p-1|_2\le u^{-1-\epsilon}$, a 2-adic
+approximation of $15^{-1/p}$ by integers, finite (ineffectively) by Ridout for each odd $p$.
+*Repair:* "for $a_1\le u^{p/2-1-\epsilon}$ (e.g. $a$ a power of 2) this forces
+$|15u^p-1|_2\le u^{-1-\epsilon}$, …".
+
+**m4 (MINOR, consistency; Remark 5.11(i)).** "so for $63\cdot2^s+1$ the obstruction of Corollary 5.10 is
+real" — Corollary 5.10 lists $63\cdot4^s+1$, not $63\cdot2^s+1$. Both are true (Computation 5.8 is about
+$(c_0,k)=(63,1)$ and Thm W is stated for $c_0 2^s+k$). *Repair:* add $63\cdot2^s+1$ to the list of
+Cor 5.10 (and Main Theorem (d) already lists $(63,1)$), or say "for $63\cdot4^s+1$".
+
+**m5 (MINOR, wording; Definition 2.4).** "An exponent covering … is a finite list of rules such that every
+$s\ge0$ at which no rule applies is treated separately" — vacuous as written (no finiteness of the
+exceptional set). *Repair:* "such that all but finitely many $s\ge0$ are covered; the finitely many
+remaining $s$ are treated separately".
+
+**m6 (MINOR, wording; §2.1, before Table 1).** "where three of $a,b,c,d$ are given by $\kappa$ or by
+$\kappa$ alone" is garbled (in I1, I2, I3, II3 two of $a,b,c,d$ are constant; in I4, II1, II2 three).
+*Repair:* "where two or three of $a,b,c,d$ depend on $\kappa$ alone and the remaining ones are …".
+
+**m7 (MINOR, scope wording; Def 5.1 / Main Thm (d)).** "Constant ratio" is defined with $t\in\N$ while
+the abstract/Main Theorem say "constant ratio $x/n$". Harmless (near $\mu=0$, $x=tn$ integral with $n$
+coprime to every fixed odd prime and odd forces $t\in\Z$), but say so in one line; likewise state that
+"up to permuting $x,y,z$" applies to the gap as well.
+
+**m8 (MINOR, provenance; Appendix A last sentence).** "the certificate of Proposition 5.12 is new and has
+so far been checked only by the script above" — now also checked from scratch by R291
+(`review_r291_tables.py`, plus the hand coverage argument). Update.
+
+**m9 (MINOR, optional; Lemma 2.2(ii)).** Hypothesis $\gcd(abd,n)=1$; the proof uses only
+$\gcd(ab,n)=1$. Fine as is (Cor 2.3 checks the stronger condition anyway); optionally weaken.
+
+**m10 (MINOR; Lemma 5.14 statement).** "All have $a\le81$, $m_1\le100$ and $m_1d\le120$" reads as data;
+the actual maxima are $a=81$, $m_1=36$, $m_1d=40$. Say "the proof shows a priori $a\le81$, $m_1\le100$,
+$m_1d\le120$".
+
+## Referee-readiness (Assessment)
+
+Mathematically the paper is in good shape: I could not break any proved statement, all labels are
+appropriate (computer-assisted parts are finite, explicit, and every identity is printed), and the
+known scope limits (Remark 5.16, Remark 5.17, Problem 1) are stated honestly. Before external
+submission: (i) the bibliography still points to internal notebook files for attributions
+(`[ExpOpen, Thm 3.1]` etc.) — these must become either self-contained text (mostly already the case)
+or be removed; (ii) several classical sources are flagged "not accessed" (Mordell, Schinzel, Rav,
+Izotov, Sierpiński) — fine since nothing depends on them any more, but a referee will want them
+checked; (iii) apply m1–m8.
