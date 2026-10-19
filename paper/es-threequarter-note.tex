@@ -678,8 +678,9 @@ Theorem~\ref{thm:moments}, using $m!\geq(m/\e)^m$,
  +\frac{\E((H_X)_{r+1}\mid S_y=1)}{(r+1)!}
  \leq\e^{-c_vt^3}+\Bigl(\frac{\e C_ut^3}{r+1}\Bigr)^{r+1}.
 \]
-Choose $D_B>\e C_u$ with $D_B\log(D_B/(\e C_u))\geq2c_v$.  The
-function $m\mapsto m\log(m/(\e C_ut^3))$ is increasing for $m\geq C_ut^3$, and
+Choose a constant $D_B>\e C_u$ such that
+$D_B\log(D_B/(\e C_u))\geq2c_v$.  The function
+$m\mapsto m\log(m/(\e C_ut^3))$ is increasing for $m\geq C_ut^3$, and
 $r+1\geq D_Bt^3$, so the last term is at most $\e^{-2c_vt^3}$.
 Multiplying by $\Prob(S_y=1)\leq1$ gives $\E\nu_X\leq\e^{-c_at^3}$ with
 $c_a=c_v/2$ for large $X$.  The
