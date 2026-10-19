@@ -677,3 +677,93 @@ $n\equiv529\pmod{840}$ ($n\equiv1\pmod{24}$, $n\equiv4\pmod5$,
 $n\equiv4\pmod7$).  So the content of Theorem~\ref{thm:proth3} beyond
 Mordell's identities is the case $12\mid s$.
 \end{remark}
+
+\subsection{The family $63\cdot2^s+1$}
+
+\begin{lemma}[\status{proved}; {\cite[Thm.~2.3]{ExpOpen}}]\label{lem:63class}
+Let $s\equiv0\pmod{24}$, $s\ge24$, $Y=2^{s/3}$, $n=63Y^3+1=63\cdot2^s+1$,
+$a=5$, $d=17$ and
+\[
+ b=\frac{63Y^3+3Y^2-9Y+28}{340},\qquad c=\frac{21Y+64}{340}.
+\]
+Then $(x,y,z)=(abd,\ acdn,\ bcdn)$ is a solution of \eqref{eq:ES} in positive
+integers.  Its gap is $4x-n=3(Y^2-3Y+9)$.
+\end{lemma}
+
+\begin{proof}
+We have $n+4a^2d=63Y^3+1701=63(Y+3)(Y^2-3Y+9)$.  Put $f=3(Y^2-3Y+9)$ and
+$f'=21(Y+3)$, so $ff'=n+1700=n+4a^2d$.  One checks $340b-n=f$ and
+$340c-1=f'$, i.e.\ $4abd-n=f$ and $4acd-1=f'$; so \eqref{eq:binom} holds
+and $4abcd=cn+a+b$, which is the Type~II identity
+(Lemma~\ref{lem:solve}).  Integrality: $340=4\cdot5\cdot17$; $4\mid Y$ since
+$s\ge6$; $\ord_5(2)=4$ and $\ord_{17}(2)=8$, so $8\mid s/3$ gives
+$Y\equiv1\pmod{85}$, and then $21Y+64\equiv85\equiv0$ and
+$63Y^3+3Y^2-9Y+28\equiv85\equiv0\pmod{85}$, while both are $\equiv0\pmod4$.
+Positivity is clear.
+\end{proof}
+
+The class $s\equiv0\pmod{24}$ contains a neighbourhood of the unit-square
+point $\mu=0$ ($63+1=4^3$).  By Theorem~\ref{thm:sterile} no class polynomial
+in $n$ reaches it, and by Theorem~\ref{thm:W} below no rule with constant
+gap or constant ratio does either; the gap of Lemma~\ref{lem:63class} is the
+cyclotomic factor $3(Y^2-3Y+9)$ of $Y^3+27$.  At $s=0$ the formulas give
+$c=85/340$, so the condition $s\ge24$ is needed.
+
+\begin{theorem}[\status{proved}, computer-assisted; {\cite[Thm.~3.1]{ExpOpen}}]\label{thm:63}
+For every $s\ge0$, $4/(63\cdot2^s+1)$ is a sum of three unit fractions.
+\end{theorem}
+
+\begin{proof}
+For $s\equiv0\pmod{24}$, $s\ge24$, use Lemma~\ref{lem:63class}.  The
+eighteen ET and divisor classes of Table~\ref{tab:63} apply on the stated
+exponent classes (for the classes of $n$ this follows from
+\eqref{eq:period} and the listed orders; the identities are those of
+Table~\ref{tab:ET}).  They cover every residue $s\bmod2520$ except
+$s\equiv0,840,1680\pmod{2520}$, all of which are $\equiv0\pmod{24}$
+(computer-checked coverage of $2520$ residues).  The thresholds in the table
+are at most $5$, and for $s<24$ with $24\mid s$, i.e.\ $s=0$, $4/64=1/32+1/64+1/64$.
+\end{proof}
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lll}
+\toprule
+class & condition on $n$ & exponents\\
+\midrule
+D$(5)$ & $5\mid n$ & $s\equiv 3\pmod{4}$ \\
+II2$(1,2,15)$ & $n\equiv7\ (15)$ & $s\equiv 1\pmod{4}$ \\
+II2$(2,2,15)$ & $n\equiv13\ (15)$ & $s\equiv 2\pmod{4}$ \\
+II2$(5,3,119)$ & $n\equiv57\ (119)$ & $s\equiv 4\pmod{8}$ \\
+II2$(5,2,39)$ & $n\equiv34\ (39)$ & $s\equiv 4\pmod{12}$ \\
+II2$(1,5,19)$ & $n\equiv18\ (19)$ & $s\equiv 14\pmod{18}$ \\
+I1$(1,146,39)$ & $n\equiv545\ (584)$ & $s\equiv 2\pmod{9}$, $s\ge5$ \\
+D$(11)$ & $11\mid n$ & $s\equiv 2\pmod{10}$ \\
+II2$(3,1,11)$ & $n\equiv8\ (11)$ & $s\equiv 4\pmod{10}$ \\
+II2$(1,1,11)$ & $n\equiv7\ (11)$ & $s\equiv 6\pmod{10}$ \\
+D$(29)$ & $29\mid n$ & $s\equiv 20\pmod{28}$ \\
+II2$(1,11,87)$ & $n\equiv43\ (87)$ & $s\equiv 24\pmod{28}$ \\
+D$(127)$ & $127\mid n$ & $s\equiv 1\pmod{7}$ \\
+II2$(1,32,127)$ & $n\equiv126\ (127)$ & $s\equiv 2\pmod{7}$ \\
+I1$(1,86,23)$ & $n\equiv321\ (344)$ & $s\equiv 4\pmod{14}$, $s\ge5$ \\
+II1$(1,254,15)$ & $n\equiv1001\ (1016)$ & $s\equiv 1,5\pmod{7}$, $s\ge3$ \\
+I1$(1,1405,511)$ & $n\equiv5109\ (5620)$ & $s\equiv 28\pmod{140}$, $s\ge4$ \\
+I2$(2,43,151)$ & $n\equiv193\ (344)$, $n\equiv54\ (151)$ & $s\equiv 140\pmod{210}$, $s\ge3$ \\
+\bottomrule
+\end{tabular}
+\caption{The ET/divisor classes for $63\cdot2^s+1$ (Theorem~\ref{thm:63}).  The
+exponent classes are derived from the identities by the script (one full
+period); ``$s\ge s_1$'' marks where the $2$-adic part of the class or
+positivity needs $s$ large.}\label{tab:63}
+\end{table}
+
+\begin{remark}\label{rem:63}
+Since $n_s\equiv1\pmod{168}$ and $n_s\equiv3\cdot2^s+1\pmod5$, $n_s$ lies in a
+Mordell square class modulo $840$ (namely $169$) iff $4\mid s$; Mordell's
+identities already handle $s\not\equiv0\pmod4$.  The essential content of
+Theorem~\ref{thm:63} is the neighbourhood $s\equiv0\pmod{840}$ of $\mu=0$.
+The only squares in the family are $n_0=8^2$ and $n_8=127^2$: if
+$63\cdot2^s+1=v^2$ with $s\ge1$ then $v$ is odd, $s\ge2$, and with $v=2A+1$ we
+get $A(A+1)=63\cdot2^{s-2}$; the odd one of the coprime factors $A,A+1$ is a
+divisor $\delta$ of $63$ and the other is $(63/\delta)2^{s-2}$, and of the six
+choices of $\delta$ only $\delta=63$, $2^{s-2}=64$ works.  The square $127^2$
+lies in the divisor class $D_{127}$, as it must by Lemma~\ref{lem:T1}.
+\end{remark}
