@@ -583,3 +583,97 @@ $x=K=3(4X^4+1)\mapsto 15/4$, $f_\pm=2X^2\pm2X+1\mapsto 5/2,\,1/2$: the
 budget $K+d$ with $d=f_+^2f_-$ becomes $15/4+25/8=55/8$, divisible by
 $11$ in $\Z[1/2]$.  The odd $2$-adic valuation of $f_\pm(1/2)$ is what makes
 this possible (Lemma~\ref{lem:limitjacobi}).
+
+\section{Theorems}\label{sec:theorems}
+
+\subsection{The Proth family $3\cdot 2^s+1$}
+
+\begin{theorem}[\status{proved}; {\cite[Thm.~C]{MenuSterility}}]\label{thm:proth3}
+For every $s\ge0$, $4/(3\cdot2^s+1)$ is a sum of three unit fractions.
+\end{theorem}
+
+\begin{proof}
+Write $n=3\cdot2^s+1$.  For $s=0$, $4/4=1/2+1/3+1/6$.
+
+\emph{Step 1: the Sophie Germain window (for $4\mid s$, $s\ge4$).}  Put
+$X=2^{(s-4)/4}$, so $n=48X^4+1$, and
+\[
+ K:=\frac{n+11}4=3(4X^4+1)=3f_+f_-,\qquad f_\pm:=2X^2\pm2X+1 .
+\]
+For $(\beta,\gamma)\in\{(2,1),(0,2),(2,0),(1,2)\}$ let $d=f_+^\beta f_-^\gamma$.
+Then $d\mid K^2$ in $\Z[X]$, and $\gcd(11,K)=1$ because $4X^4\equiv-1\pmod{11}$
+has no solution ($-1/4\equiv8$ is not a fourth power, indeed not a square,
+modulo $11$).  By Lemma~\ref{lem:window}(b) with $x=K$, $m=11$,
+\[
+ x=K,\qquad y=\frac{n(K+d)}{11},\qquad z=\frac{nK(K+d)}{11\,d}
+\]
+is a solution as soon as $11\mid K+d$.  Since $K+d=f_+f_-(3+f_+)$,
+$f_-(3f_++f_-)$, $f_+(3f_-+f_+)$, $f_+f_-(3+f_-)$ in the four cases and
+$11\nmid f_+f_-$, the condition $11\mid K+d$ reads, respectively,
+\begin{align*}
+ (\beta,\gamma)=(2,1):&\ X^2+X+2\equiv0, & X&\equiv4,6 \pmod{11},\\
+ (0,2):&\ 2X^2+X+1\equiv0, & X&\equiv2,3,\\
+ (2,0):&\ 2X^2-X+1\equiv0, & X&\equiv8,9,\\
+ (1,2):&\ X^2-X+2\equiv0, & X&\equiv5,7 .
+\end{align*}
+So every $X\not\equiv0,\pm1\pmod{11}$ is covered.  All of $n,K,f_\pm,d,K+d$
+are positive for real $X$ (the discriminant of $f_\pm$ is $-4$), so the
+solution is positive.  Since $2$ is a primitive root modulo $11$ and
+$X=2^{(s-4)/4}$, $X\equiv1$ iff $s\equiv4\pmod{40}$ and $X\equiv-1$ iff
+$s\equiv24\pmod{40}$.  Hence ES holds for all $s\equiv0\pmod4$ with
+$s\not\equiv4,24\pmod{40}$.
+
+\emph{Step 2: classes polynomial in $n$.}  Each line is an identity checked by
+clearing denominators, valid with positive integer coordinates on the
+stated class:
+\begin{center}\small
+\begin{tabular}{lll}
+\toprule
+condition on $n$ & exponents $s$ & $(x,y,z)$\\
+\midrule
+$7\mid n$ & $s\equiv1\pmod3$ & $(2n/7,\ 15n/7,\ 30n)$\\
+$n\equiv6\pmod7$ & $s\equiv2\pmod3$ & $(2(n+1)/7,\ 2n,\ 2n(n+1)/7)$\\
+$n\equiv7\pmod{15}$ & $s\equiv1\pmod4$ & $((4n+2)/15,\ 4n,\ 4n(2n+1)/15)$\\
+$n\equiv13\pmod{15}$ & $s\equiv2\pmod4$ & $((4n+8)/15,\ 4n,\ 2n(n+2)/15)$\\
+$5\mid n$ & $s\equiv3\pmod4$ & $(2n/5,\ 4n/5,\ 4n)$\\
+$61\mid n$ & $s\equiv24\pmod{60}$ & $(16n/61,\ 326n/61,\ 2608n)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+(The exponent classes follow from $\ord_7(2)=3$, $\ord_{15}(2)=4$,
+$\ord_{61}(2)=60$ and $3\cdot2^{24}\equiv-1\pmod{61}$.)
+
+\emph{Coverage.}  Let $s\ge1$.  If $3\nmid s$ or $4\nmid s$, a line of
+Step~2 applies.  If $12\mid s$ and $s\not\equiv4,24\pmod{40}$, Step~1
+applies.  If $12\mid s$ and $s\equiv4$ or $24\pmod{40}$, then
+$s\equiv84$ or $24\pmod{120}$, so $s\equiv24\pmod{60}$ and $61\mid n$.
+\end{proof}
+
+\begin{remark}[structure and history]\label{rem:proth3}
+(i) The Sophie Germain step is the only one that reaches the unit-square
+point $\mu=0$: the class $s\equiv0\pmod{40}$ ($X\equiv6$) lies in Step~1.
+By Theorem~\ref{thm:sterile} no finite set of classes polynomial in $n$ could
+do this.  The two classes $X\equiv\pm1\pmod{11}$ that Step~1 misses are the
+neighbourhoods of the integer point $X=\pm1$, where $48X^4+1=7^2$ is a
+square; Step~2 handles them through $61$.  (A rule polynomial in $X$ with
+integrality depending only on $X\bmod 33$ cannot be valid on a class
+containing $X=\pm1$, by the odd-square argument applied to the integer
+$49$, \cite[\S4.3]{MenuSterility}.)
+
+(ii) A second, independent certificate was found in \cite[Thms.~2.2,
+2.3]{Exp105}: for $3\cdot4^s+1$ a tree with nine leaves (three windows
+$m=11$, two of Sophie Germain type), and for $6\cdot4^s+1$ the single class
+I3$(1,5,3)$ for $s\ge1$.  It is re-verified by our script.  A third
+mechanism reaches the same point: for $s\equiv0,12\pmod{36}$, $s\ge36$, with
+$Y=2^{s/3}$, the Type~II family $a=80$, $c=1$, $d=(21Y+64)/320$,
+$b=(Y^2-3Y+9)/7$ is valid.  Here $a,c$ are constant and the Type~II identity
+$4abcd=cn+a+b$ is equivalent to $cn+a=b(4acd-1)$; the two factors are
+$cn+a=3(Y+3)(Y^2-3Y+9)$ and $4acd-1=21(Y+3)$ \cite[Prop.~2.1]{ExpOpen}.
+
+(iii) The family contains the primes $3\cdot2^s+1$ for
+$s=1,2,5,6,8,12,18,30,36,41,66,189,\dots$.  For $s\ge3$ a member lies in one
+of Mordell's six square classes modulo $840$ exactly when $12\mid s$; then
+$n\equiv529\pmod{840}$ ($n\equiv1\pmod{24}$, $n\equiv4\pmod5$,
+$n\equiv4\pmod7$).  So the content of Theorem~\ref{thm:proth3} beyond
+Mordell's identities is the case $12\mid s$.
+\end{remark}
