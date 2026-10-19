@@ -62,6 +62,13 @@ Labels follow DISCOVERIES.md.
 3. **δ ≤ 1 finite-box statement.** It is cheap, falsifiable, and gives a graded notion between "BM-allowed" and
    "certificate", which FRONTIER §7 item 3 asks for.
 4. Adversarial falsification of H₄(p) ≪ (log p)² (compare X_win: a_min ≪ log p, FRONTIER §5.5; is H₄ just a restatement?).
+5. **Group-algebra-valued stability** — parked. Keeping all residue sectors in ℂ[(ℤ/MZ)^*] is keeping all
+   characters; the failure is at extraction of the target sector, and no invariant that survives extraction is
+   proposed, so there is nothing concrete to test. M moves with the solution (a family of group algebras = B2).
+   The only working toy (C₂) is the quadratic layer, already known to be free ((J)103).
+6. **Arithmetic exposure trees** — modelling only. The required growing-order inverse-moment bound at one fixed p
+   restates H⁻_BM; the solved toy is the BM (quadratic) layer. Use it to calibrate disproof probability, not as a
+   proof route.
 
 Low priority (each closed in its displayed form): spectral/interlacing, faithful Euler systems, the Siegel
 dichotomy, ultraproduct transfer, and larger program-synthesis runs.
