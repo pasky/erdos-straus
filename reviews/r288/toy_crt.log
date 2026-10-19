@@ -1,0 +1,18 @@
+PASS A identity (exact Fractions) :: 501 instances
+PASS B distinct classes mod ell across multipliers :: 6672 atoms, 0 collisions
+PASS B' negative control (H=0) has collisions :: 2012 collisions
+   toy: ells=[67, 151, 167], |A|=16, M=152058510
+PASS C at most one atom per ell contains n
+PASS C fibre activity <=> k | u+cv :: 30 fibres in S
+PASS C P(H=0|c,S) = prod(1-f_c/ell) :: maxdev 1.1e-16
+PASS C E((H)_m|c,S) = m! e_m(p) <= mu_c^m, m<=3
+PASS D Bonferroni Q_r(h)=C(h-1,r), 1_{h=0}<=Q_r<=1_{h=0}+C(h,r+1)
+PASS E r=0 E nu (term sum) == enumeration over Z/MZ :: Enu=0.33333, T_abs=4
+PASS E r=0 N=10000 direct==term count, |sum-N Enu|<=T_abs :: direct=3333, err=0.33
+PASS E r=0 N=123457 direct==term count, |sum-N Enu|<=T_abs :: direct=41153, err=0.67
+PASS E r=0 N=200003 direct==term count, |sum-N Enu|<=T_abs :: direct=66668, err=0.33
+PASS E r=2 E nu (term sum) == enumeration over Z/MZ :: Enu=0.31604, T_abs=548
+PASS E r=2 N=10000 direct==term count, |sum-N Enu|<=T_abs :: direct=3160, err=0.44
+PASS E r=2 N=123457 direct==term count, |sum-N Enu|<=T_abs :: direct=39024, err=6.20
+PASS E r=2 N=200003 direct==term count, |sum-N Enu|<=T_abs :: direct=63219, err=9.33
+ALL PASS

@@ -1,0 +1,13 @@
+PASS exact identity (18999 instances), class-set equality, divisor convolution (A<=300)
+PASS full CRT period 20122110, 6 atoms, all 45 fibres (including nonunits), moments m<=8
+PASS ledger r=0: raw=4, nonempty=4, exact mean=1/3, including q>N
+PASS ledger r=2: raw=88, nonempty=56, exact mean=952/3015, including q>N
+PASS ledger r=4: raw=228, nonempty=72, exact mean=70596/223579, including q>N
+PASS Bonferroni, factorial, phi, Shiu local-factor, selector-mgf, and Rankin pointwise inequalities
+EVIDENCE toy lattice H=24,z=600,k<=20: lower/main in [0.59833,0.914175], max upper/main=1.51945
+EVIDENCE weighted incidence: 40 (c,J) cases; max normalized=0.00189353; PASS grouping Cauchy inequality
+EVIDENCE h(K), K=100: h/logK=0.36611866, h-(2/pi²)logK=0.75283616
+EVIDENCE h(K), K=1000: h/logK=0.31189986, h-(2/pi²)logK=0.75472405
+EVIDENCE h(K), K=10000: h/logK=0.28459558, h-(2/pi²)logK=0.75481694
+PASS complete lcm-pair bound and multiplier removal inequality
+ALL ASSERTED CHECKS PASS; asymptotic bounds and unknown constants are not numerically certified.
