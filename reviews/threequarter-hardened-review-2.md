@@ -18,12 +18,24 @@ This is an independent mathematical audit, not external refereeing or a claim th
 
 ## Claim-by-claim verdicts (in progress)
 
-- Sections 1–2, identity and conditional independence: pending detailed checks.
+- Sections 1–2, identity and conditional independence: **SOUND** (core statements).
 - Sections 3–4, analytic inputs and uniform cubic supply: pending.
 - Sections 5–6, moments and conditioned void: pending.
 - Section 7, Bonferroni and coefficient ledger: pending.
 - Section 8, primes and Rankin transfer: pending.
 - Section 9 and introductory comparison/cap remarks: pending.
+
+## Detailed checks
+
+### Sections 1–2: identity, atoms, CRT — SOUND
+
+Independently clearing denominators gives `nv + u + s = s(kℓ + 1) = 4suvw`. Since `nv+u` is a positive multiple of `kℓ`, all three denominators are positive integers. No primality or coprimality with `n` is required for this identity. Coprimality of `v` with `kℓ` follows from `uvw | kℓ+1`.
+
+For a fixed prime, equality of residues implies `ℓ | uv′−u′v`; its absolute value is less than `z² < ℓ`. Equality of two reduced positive fractions forces equality of both numerator and denominator. Then `4uv | k−k′`, and `4uv > K` forces equality of the multipliers. This checks distinctness across **all** multipliers, not just within a fibre. Consequently the prime-level indicator really is Bernoulli even when several multipliers are active.
+
+Every large prime is coprime to `lcm(L_K,P_y)`. Conditioning on a residue of that modulus, or any compatible event determined by it, leaves the large-prime coordinates mutually independent and uniform. Zero-probability combinations of `c` and `S_y=1` are simply omitted when averaging. There is no equidistribution assertion about `[1,N]` in this step. The exact fibre activity test is `k | u+cv`; it also forces `gcd(c,k)=1`.
+
+The parameter inequality is strict in the needed direction: `20κ < 1/12`, so `H² ≤ X^(20κ) < X^(1/12) ≤ z_j`. This implies `log(z_j/H) ≥ ½ log z_j`. Fixing `κ=1/480` before all other constants makes the eventual constants absolute. No inaccessible finite asymptotic threshold is being presented as a numerical certification.
 
 ## Numbered defects
 
