@@ -564,7 +564,7 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
 2. **Growing roots in the forest F_p** (edge uv ⇔ uv | p + u + v). Fixed roots and the least-non-residue root fail i.o. under
    Dickson, and the component of 1 can be as small as 8 vertices i.o. (CONDITIONAL on Dickson, `LOWER_TAIL_ASTRA.md` Thms 3.1,
    5.1) — so Fable's spark "|comp(1)| ≫ (log p)² unconditionally" is false under Dickson and the growth claim behind it was
-   retracted (`LOWER_TAIL_FABLE.md` §3, R286). Open: can p-dependent roots, or full reduction-cycle / Pell / class-group data,
+   retracted (`LOWER_TAIL_FABLE.md` §2, R286 repair D5). Open: can p-dependent roots, or full reduction-cycle / Pell / class-group data,
    force a bichromatic edge (Astra's open questions)? An almost-all size bound for comp(1) is a different, open question.
    *Why:* the forest is the cleanest combinatorial form of ES₅.
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
