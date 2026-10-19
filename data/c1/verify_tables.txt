@@ -53,7 +53,7 @@ ES solutions used by divisor classes: {5: (2, 5, 10), 7: (2, 28, 28), 11: (3, 66
       II1(1, 254, 15)                          s mod 7     in [1, 5]  (s >= 3)
       I1(1, 1405, 511)                         s mod 140   in [28]  (s >= 4)
       I2(2, 43, 151)                           s mod 210   in [140]  (s >= 3)
-[OK] 7*4^s+9        35 rules (33 used), coverage period L = 9180, all s >= 3 covered; s < 3: brute force at s = [0]; exact solutions checked for s <= 1000  (0.4s)
+[OK] 7*4^s+9        33 rules (33 used), coverage period L = 9180, all s >= 3 covered; s < 3: brute force at s = [0]; exact solutions checked for s <= 1000  (0.4s)
       W(m=19,j=1,cyc,w=1,h=1;00-,0)            s mod 9     in [6]  (s >= 1)
       W(m=19,j=1,sg1,w=1,h=2;-00+,0)           s mod 36    in [18, 26]  (s >= 2)
       W(m=19,j=1,sg1,w=1,h=2;-0+0,0)           s mod 36    in [0, 8]  (s >= 2)
@@ -143,4 +143,4 @@ ES solutions used by divisor classes: {5: (2, 5, 10), 7: (2, 28, 28), 11: (3, 66
 [OK] 4^s+249         2 rules ( 2 used), coverage period L = 2, all s >= 0 covered; s < 0: all by rules; exact solutions checked for s <= 600  (0.1s)
       D(5,)                                    s mod 2     in [0]  (s >= 0)
       II2(2, 2, 15)                            s mod 2     in [1]  (s >= 0)
-total 3.2s
+total 3.0s
