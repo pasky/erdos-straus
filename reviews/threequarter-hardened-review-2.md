@@ -1,6 +1,8 @@
 # R289 — independent hostile review #2 (round 1)
 
-Author revision reviewed: `5e418734`, `paper/es-threequarter-note.tex` (C2). Reviewer branch: `side-agent/review-threequarter-2`. No author files changed; no access to reviewer #1's report or branch. This report is being built claim by claim.
+Author revision reviewed: `5e418734`, `paper/es-threequarter-note.tex` (C2), with the accompanying PDF. Reviewer branch: `side-agent/review-threequarter-2`. **Round 1 complete.** No author files changed; no access to reviewer #1's report or branch.
+
+**Overall recommendation: SOUND-AFTER-REPAIRS (two MINOR wording/citation repairs).** The headline bound and every load-bearing lemma are **SOUND** on this audit. No MAJOR or FATAL defect found. I would recommend acceptance of the mathematical argument after the minor repairs below, subject to the ordinary external referee/source-verification process. This remains an internal review, not external certification or a proof of ES.
 
 ## Cold referee summary
 
@@ -16,7 +18,7 @@ The logical route is reconstructible from the note alone. In particular, the eno
 
 This is an independent mathematical audit, not external refereeing or a claim that ES is solved. Numerical tests below will be finite sanity checks, not validation of asymptotic analytic estimates. Source-access limitations will be stated explicitly.
 
-## Claim-by-claim verdicts (in progress)
+## Claim-by-claim verdicts
 
 - Sections 1–2, identity and conditional independence: **SOUND** (core statements).
 - Section 3, analytic inputs and lattice sums: **SOUND**.
@@ -25,7 +27,10 @@ This is an independent mathematical audit, not external refereeing or a claim th
 - Section 6, conditioned void: **SOUND**.
 - Section 7, Bonferroni and coefficient ledger: **SOUND**.
 - Section 8, primes and Rankin transfer: **SOUND**.
-- Section 9 and introductory comparison/cap remarks: pending.
+- Section 9.1, Vaughan comparison: **SOUND-AFTER-REPAIRS** (MINOR #1).
+- Section 9.2, total identity-class supply: **SOUND**.
+- Section 9.3, numerator extension as an external-to-this-note report: **SOUND-AFTER-REPAIRS** (MINOR #2); its independent proof is outside this review.
+- Introductory literature statements and Remark 1.2 cap scope: **SOUND** as accurately qualified reports of the cited results; not an independent certification of the full cap framework or a new priority search.
 
 ## Detailed checks
 
@@ -95,6 +100,38 @@ Taking `t=α(log N)^(1/4)` after fixing the ledger constants, with `C_Lα⁴≤1
 
 A representation scales from any prime divisor to its multiple. Therefore the exceptional integers form a subset of the semigroup on exceptional primes, including 1; equality is neither asserted nor needed. In Rankin's product, the higher powers have a uniformly convergent logarithmic contribution for `δ<1/4`. For the first powers, partial summation gives the displayed endpoint plus an integral after dropping a nonpositive lower endpoint and the factor `1−δ≤1`. The key inequality is `δs=η_0 s L^(−1/4)≤η_0 s^(3/4)` for `0≤s≤L`. Thus the entire Euler product is bounded independently of x, not merely by a power of log x, and the exponent `3/4` survives. Constants depending on the fixed x_0 are still absolute (ineffective). Bounded N is harmless after increasing the outer constant.
 
-## Numbered defects
+### Introduction and Section 9: comparisons, cap, ancillary extension
 
-Final wording/citation audit still in progress; no load-bearing defect found.
+**Vaughan and later literature.** I checked the actual local PDFs: ET §1 states the `2/3` exceptional-set exponent; PW Theorem 1.3 states exactly the range `4≤m≤log²N` and the factor `φ(m)^(−1/3)` quoted in C2. PW §4 uses the large-sieve denominator and a Rankin tail with `v=1/log X`, giving the claimed cubic balance for the logarithm of X. The Bloom–Elsholtz survey §4, Theorem 3, gives `1−1/(2^(k−1)−1)`, hence `2/3` for three summands and `6/7` for four. I did not access Vaughan's original 1970 article or Elsholtz's original 2001 article; the former's statement/mechanism and the latter's exponent are verified through those explicitly identified sources, not through the originals. The local `sources/lit2026g/vaughan1970.txt` is only a 459-byte unverified access note, not the article. No new comprehensive 2026 literature search was conducted; C2 appropriately presents its novelty wording as a report of a search rather than a priority theorem.
+
+**LL comparison.** I read `paper/vaughan-loglog-note.tex` in full. Its large-sieve step really does split into progressions modulo `L_K`, and its choice `K≈δ log N` gives a `log log N` multiplier mass. The resulting exponent `(log N)^(2/3)(log log N)^(1/3)` agrees with C2. This validates the comparison for that particular implementation, not a theorem that every conceivable multiplier large sieve must condition on the same modulus. See MINOR #1.
+
+**Total identity-class supply.** For each exponent `0≤d≤2e` of a divisor of `A²`, the exponents `floor(d/2)`, `d mod 2`, and `e−ceil(d/2)` are nonnegative and produce `D=u²w`, so the set equality is correct. Exactly `(τ(A²)−1)/2` divisors lie below A, and their classes are distinct since their positive representatives `4D` are below `M=4A−1`. The local generating-function identity `(1−z²)/(1−z)³=(1+z)/(1−z)²` gives the stated convolution for `τ(n²)`. Summing it gives main term `x log²x/(2ζ(2))`; partial summation then gives cubic harmonic mass. Thus the asserted order is not based on counting duplicate parameterizations as distinct classes. The finite set-equality checks pass as well.
+
+**CRT cap.** I read `EXCEPTIONAL_KARY3.md`, especially Theorem 4.1 and Corollary 4.2, and compared `paper/sieve-limits-note.tex` Theorem 10.14 and the following coverage remark. C2 includes the indispensable hypotheses: global nonnegativity, majorization of the **whole** avoider set, the allowed four class types, polynomially bounded family primes, and evaluation by `N Eν+Σ|a_i|` with coefficient sum `<N`. Its own majorant covers the whole avoider set only after the selector classes `0 mod p` are included, and C2 includes them. With the final choice of α, its ledger is at most `N^(1/2)<N` and its family primes are at most `X≤N`, so it fits literally. Arbitrarily composite moduli and prime powers are permitted by the cited cap. The cap is expressly internal/unrefereed and unused in the headline proof. I checked ET Proposition 1.4's actual statement (`k≪(AB)^O(1)` and the `log(1+k)` factor) and inspected the §7 statements cited by KA3; this does **not** amount to re-reviewing the entire K2/EK dependency chain, which KA3 itself lists. Accordingly, the scope comparison is SOUND, while an independent theorem-level certification of that separate cap is not claimed here.
+
+**Numerator extension.** `paper/es-mn-short-note.tex`, Theorem A, states the stronger uniform `m^(−1/4)` result alluded to by C2. Its statement therefore is not invented. However, C2 should point to it rather than imply that merely substituting m for 4 proves the absolute-constant assertion. In particular, the normalized supply and the m-dependent parameter balance require additional work. See MINOR #2.
+
+### C2 consolidation and evidence limitations
+
+I compared the author's O278 changelog and the relevant v1 dependency path: old §5 (weighted second moment, unpruned slice, no-pruning corollary), the conditional-independence moment proof, and the old checkpoint/cap discussion. The removed pruning, residue-profile and ordered-atom arguments are genuinely not required by the present proof. C2's inline upper supply proof and exact identity `f_c=f_{c;J_c}` close the dependency path without appealing to deleted lemmas. Narrowing the selector range to `y<K` is harmless at `y=Bt³`. The PDF's main statements and numbering agree with the supplied TeX in the extracted text; no unresolved-reference markers were found.
+
+I read `scripts/c2_threequarter_check.py` only **after** writing, executing and committing my own script. I did not rerun or reuse it. Its finite checks, like mine, cannot establish the asymptotic supply estimates. My independently streamed CRT enumeration avoids its large full-period arrays. There is no numerical evidence here for the nonexistence of ES exceptions, no usable numerical threshold for the theorem, and no new effective value of its saving constant.
+
+## Numbered defects and concrete repairs
+
+1. **MINOR — necessity wording exceeds the stated heuristic.** Location: `paper/es-threequarter-note.tex:789–802`, Remark 9.1, especially lines 793–794 ("only at levels" / "forces") and 799–801 ("would require splitting" / "impossible"). The referenced Rankin-tail estimate gives a sufficient scale for the standard large-sieve evaluation; the comparison does not by itself prove necessity for every possible large-sieve implementation. The heuristic disclaimer helps, and this does not affect the proof. **Repair:** write "In the standard Euler-product/Rankin-tail evaluation, taking `log Q` at least a suitable constant times `μ log X` yields the exponential gain" and "The particular fibrewise large-sieve implementation of [LL] pays for splitting modulo `L_K`, and ceases to be useful when `L_K>N`." Keep the rigorous method-cap claim in its separately qualified Remark 1.2.
+
+2. **MINOR — unreferenced uniformity in an ancillary remark.** Location: `paper/es-threequarter-note.tex:826–831`, Remark 9.3. The absolute constant and explicit `m^(−1/4)` factor are stronger information than a formal fixed-m replacement in the displayed proof. Saying the extension is not a claim of this note does not identify where that stronger information is established. **Repair:** add an explicit internal citation to `paper/es-mn-short-note.tex`, Theorem A, state that this is a separately proved extension relative to the present note, and do not present its uniformity as following solely from the identity substitution. Alternatively omit the explicit m-dependence here and retain only the fixed-m statement with an m-dependent constant.
+
+Neither repair changes Theorem 1.1, the atom family, the supply proof, or the optimization. No author-file edits were made in round 1.
+
+## Replay
+
+```sh
+ulimit -v 8000000
+timeout 180 env PYTHONPATH=scripts OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  uv run python scripts/review_r289_checks.py
+```
+
+**Final assessment:** the `3/4` exponent really follows from a cubic conditional supply and an `exp(O(t⁴))` coefficient ledger. I found no use of Elliott–Halberstam, no hidden uniformity assumption beyond the correctly applied standard inputs, no atom-independence fallacy, and no lost error at the passage from the CRT probability space to the integers.
