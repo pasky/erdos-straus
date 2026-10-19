@@ -488,8 +488,8 @@ $\li(2x)-\li(x)\geq x/\log(2x)$ and $\varphi(4uv)\leq4uv$,
  \geq\frac{x\Lambda^2h(\J)}{16\log2x}\gg x\,t\,h(\J).
 \]
 For the error terms, group the triples by $q=4uv$.  The triples with a
-given $(u,v)$ number $r_\J(u,v;c)$, and at a given $q$ they lie in
-distinct reduced classes, each with $|E_x|\leq E_x^*(q)$.  Put
+given $(u,v)$ number $r_\J(u,v;c)$, and each triple with modulus $q$ has
+error $|E_x(q,-k^{-1})|\leq E_x^*(q)$.  Put
 $W(q)=\sum_{4uv=q}r_\J(u,v;c)$, summed over coprime $H<u,v\leq z$.  There
 are at most $2^{\omega(q/4)}$ ordered coprime pairs with $uv=q/4$, so
 $W(q)^2\leq2^{\omega(q/4)}\sum_{4uv=q}r_\J(u,v;c)^2$ by Cauchy--Schwarz.
@@ -540,3 +540,95 @@ and $(c,L_{\J_c})=1$, so Theorem~\ref{thm:supply} applies with
 $\J=\J_c$.  Finally $h(\J_c)\leq h(\K(K))\ll\log K\leq\kappa t$ by
 Lemma~\ref{lem:h}.
 \end{proof}
+
+\section{Factorial moments}\label{sec:moments}
+For $y\geq2$ let $S_y(n)=\ind_{(n,P_y)=1}=\sum_{d\mid P_y}\mu(d)\ind_{d\mid n}$,
+and write $(h)_m=h(h-1)\cdots(h-m+1)$.
+
+\begin{theorem}[upper factorial moments]\label{thm:moments}
+For every $X\geq X_h$, every real $2\leq y<K$ and every integer $m\geq1$,
+\begin{equation}\label{eq:moments}
+ \E\bigl((H_X)_m\bigm|S_y=1\bigr)\leq(C_ut^3)^m .
+\end{equation}
+\end{theorem}
+\begin{proof}
+The pair $(c,S_y)$ is a function of $n\bmod\lcm(L_K,P_y)$.  By
+Lemma~\ref{lem:CRT}, conditionally on $c$ and $S_y=1$ we can write
+$H_X=\sum_\ell I_\ell$, where the $I_\ell$ are independent and $I_\ell$ is
+Bernoulli with mean $p_\ell=f_c(\ell)/\ell$.  For $0/1$ variables,
+$(\sum_\ell I_\ell)_m$ is the sum of $\prod_{i\leq m}I_{\ell_i}$ over ordered
+$m$-tuples of distinct primes.  Hence
+\[
+ \E\bigl((H_X)_m\bigm|c,S_y=1\bigr)
+ =\sum_{\ell_1,\ldots,\ell_m\ \mathrm{distinct}}\prod_{i=1}^mp_{\ell_i}
+ \leq\mu_c^m\leq(C_ut^3)^m
+\]
+by Corollary~\ref{cor:fibremass}, which holds for every $c$.  Averaging
+over $c$ gives \eqref{eq:moments}.
+\end{proof}
+The base $C_u$ does not depend on $m$; this matters because we shall take
+$m\asymp t^3$.  The bound uses the upper estimate in \emph{every} fibre,
+including fibres where $c$ is not reduced modulo $L_K$.  No Poisson
+approximation is involved.
+
+\section{An exponentially small conditioned void}\label{sec:void}
+The fibres $c$ with $(c,L_K)>1$ have a smaller multiplier set $\J_c$, and
+for them the lower bound in \eqref{eq:fibremass} can be weak.  A
+small-prime selector makes such fibres exponentially rare.  Put
+\begin{equation}\label{eq:selector}
+ y=Bt^3,\qquad S_y(n)=\ind_{(n,P_y)=1}.
+\end{equation}
+For fixed $B$ and large $X$ we have $2\leq y<K$.  Every non-representable
+integer without prime factors $\leq y$, in particular every
+non-representable prime $>y$, has $S_y=1$.
+
+\begin{lemma}[conditioned void]\label{lem:void}
+There are $c_v>0$ and $B_0$, depending only on $\kappa$, such that for
+every fixed $B\geq B_0$ and all $X\geq X_v(B)$,
+\begin{equation}\label{eq:void}
+ \Prob(H_X=0\mid S_y=1)\leq\e^{-c_vt^3}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let
+\[
+ Z(c)=\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}\frac1p .
+\]
+The divisibility $p\mid c$ is meaningful because $p\mid L_K$.
+Conditionally on $S_y=1$, the events $p\mid n$ for the primes $p>y$ with
+$p\mid L_K$ are independent with probabilities $1/p$, by the CRT, because
+$S_y$ depends only on $n\bmod P_y$.  Since $0<y/p<1$ and
+$\e^s-1\leq(\e-1)s$ on $[0,1]$,
+\[
+ \E(\e^{yZ}\mid S_y=1)=\prod_{\substack{y<p\leq K\\p\mid L_K}}
+ \Bigl(1+\frac{\e^{y/p}-1}p\Bigr)
+ \leq\exp\Bigl\{(\e-1)y\sum_{n>y}n^{-2}\Bigr\}\leq\e^{\e},
+\]
+and therefore $\Prob(Z>\eta\mid S_y=1)\leq\e^{\e-\eta y}$ for every $\eta>0$.
+
+By \eqref{eq:hfull} there are absolute $a_0>0$ and $K_1$ with
+$h(\K(K))\geq a_0\log K$ for $K\geq K_1$.  On $S_y=1$ no prime $p\leq y$
+divides $c$.  A multiplier $k\notin\J_c$ therefore has a prime factor $p$
+with $y<p\leq K$, $p\mid L_K$ and $p\mid c$.  By \eqref{eq:hremove},
+\[
+ h(\J_c)\geq h(\K(K))-\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}
+ \frac{1+\log K}p\geq(a_0-2Z(c))\log K .
+\]
+Put $\eta=a_0/4$.  On the event $Z(c)\leq\eta$ we get
+$h(\J_c)\geq\frac{a_0}2\log K\geq\frac{a_0\kappa}4t$.  By
+Lemma~\ref{lem:CRT} and Corollary~\ref{cor:fibremass},
+\[
+ \Prob(H_X=0\mid c,S_y=1)=\prod_\ell\Bigl(1-\frac{f_c(\ell)}\ell\Bigr)
+ \leq\e^{-\mu_c}\leq\e^{-a_ht^2h(\J_c)}\leq\e^{-a_vt^3},
+ \qquad a_v=\frac{a_ha_0\kappa}4 .
+\]
+Choose $B_0=2a_v/\eta$.  For $B\geq B_0$, averaging over $c$ gives
+$\Prob(H_X=0\mid S_y=1)\leq\e^{-a_vt^3}+\e^{\e-2a_vt^3}\leq\e^{-a_vt^3/2}$
+for large $X$.  Take $c_v=a_v/2$.
+\end{proof}
+A Markov bound for $Z$ would be far too weak here.  The exponential moment
+at parameter $y\asymp t^3$ makes the bad fibres as rare as the required
+saving.  The price is the expansion of $S_y$ into $2^{\pi(y)}$ classes,
+which is affordable.  Revealing $c$ is an operation inside the CRT
+computation only.  It does not expand anything into the $L_K$ progressions
+modulo $L_K$.
