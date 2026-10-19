@@ -83,3 +83,34 @@ dichotomy, ultraproduct transfer, and larger program-synthesis runs.
 | 4 | `FOREST_H4.md` | **PARTIAL, 1/5.** **PROVED:** r(p) ≤ H₄, a_min ≤ 2H₄ − 1, and H₄ ≤ h(p) for almost all p whenever h → ∞. For every H, infinitely many primes have a_min = 3, λ = 2 and H₄ > H, so H₄ is distinct from the existing minima. **CERTIFIED:** 517 362 adversarial primes have max H₄/(log p)² = 1.61 (p = 1 002 125 860 849, H₄ = 1231, r = 31). Caveat (R-z46): the random hunt silently dropped draws that exhausted the 10⁶ endpoint cap, so its aggregate maximum is not certified; fix before rerunning. Residual event: an opposite-coloured candidate parent v must actually divide ⌈p/v⌉ + 1, which is B2. |
 
 **Reading (Assessment).** Step 1 closes the finite descent–Brauer hierarchy: no structured obstruction of that kind exists at any n ≥ 2, so a disproof via descent of this kind is ruled out. Steps 2–4 each produce a clean new invariant (trace support, overflow distance δ, endpoint height H₄) with exact laws *conditional on support*. Each stops at the same unconditional step: forcing one prescribed integer to have a divisor in the tied class. The most informative new fact is that all real sibling failures sit at δ = 1, exactly one exponent step from success. A theorem of the shape "δ ≤ 1 at every level with a forced window ⟹ δ = 0 at some level", provable for numerator 4 and failing for 8, would be the next rung, but no mechanism for it is known.
+
+## 6. Third wave (z47 + board #3, 2026-10-19)
+
+* **H₄ hunt fixed (`FOREST_H4.md` §"R-z46 follow-up").** The scanner now counts draws that exhaust the endpoint cap as
+  CENSORED. Rerun: zero censored draws in 4 521 959 prime evaluations. **CERTIFIED:** max H₄/(log p)² = 1.6121
+  (p = 1 002 125 860 849, H₄ = 1231). The conjecture H₄ ≪ (log p)² survives the adversarial hunt.
+* **δ-transport (`DELTA_TRANSPORT.md`, PARTIAL 1/5).** **PROVED:** a numerator-4 distance-one witness that overflows
+  at the prime 2 with quotient a = (u+v)/m = 1 folds explicitly to a zero-distance window m′ = v < m. This
+  dyadic step is automatic for 4 (b ≥ 1 ⟹ 4 | u) but needs an extra 2-adic bit for 8. That bit is missing at the
+  8/131 source (u = 4, v = 9, m = 13; K′ = 35/2). Example: 4/409 = 1/105 + 1/4090 + 1/85890 (window 31 → 11). For
+  a > 1, folding solves an instead of n and cannot descend. **CERTIFIED:** over p ≡ 1 (24), p ≤ 10⁴, the folding and
+  re-splitting moves reach δ = 0 from 296 of 2 166 distance-one windows. 35 of the 143 primes have no move edge.
+  This is a genuine 4-vs-8 separation in one dyadic face, not a global transport.
+* **Board #3: sidestep B2 (`~/.pi/boards/20261019-es-sidestep/memo.md`; fable, astra, argon; 17 items + 3 forks,
+  4 rounds).** Unanimous: **no proposal sidesteps B2.** Every item died in one of four ways: a re-indexing, a
+  parity count whose even total includes zero, a false lemma, or a rewriting walk whose exits are B2 windows.
+  Retained:
+  1. A **q = 3 pivot spine on U_{3p}**. Because 4 − 3 = 1, the seed (p, 4p, 12p) has an unconditional 3-step spine.
+     Its depth-4 exits are the ET windows q = 4e₁ + 3 with e₁ \| ((p+3)/4)², i.e. x = (p+3)/4 + e₁. These are
+     standard windows, so the note is explanatory.
+     **Q3 (CONJECTURE):** pivot components of p·U₃ in U_{3p} always reach (3ℕ)³. EVIDENCE: 83 Mordell-hard
+     p < 3·10⁴ and 27 adversarial primes up to 4.4·10⁵. Q3 implies ES(p).
+  2. **Trapped components (CERTIFIED by 3 independent implementations).** ES(p) holds, yet the q = 2 pivot component
+     and the 4-particle collision graph are closed and miss every target. This happens for 21 primes < 10⁵
+     (1321, 6121, 8641, 12241, 14281, …), sometimes with composite side numbers (14281: (p+1)/2 = 37·193).
+     So fixed-q positive rewriting (q = 2, and q = 5 at 76 of 83 tested primes) is not universal.
+  3. **Parity-loophole closure.** Pairing the sterile part leaves an even certifying count, which may be zero, so
+     parity cannot certify existence. The square detector also fails (d₁(9) = d₁(49) = 2).
+  The board does *not* claim B2 is necessary for ES. All three seats converged that the missing object is a
+  **propagation law** (one exception ⟹ many, cf. AMPLIFY_EXCEPTION.md criteria) or a **single global object
+  whose positivity is proved without counting**. None was produced.
