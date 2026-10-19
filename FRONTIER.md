@@ -519,3 +519,74 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Cross-field net (13 fields) → no sharp transfer; pattern M1a–M5 → (J)94.
 * Boards: Davenport forcing, √−2 norm shifts, clean-side norm towers, one-child lemma, W_binom, HJ grammars (trap at 193), CEGAR, Λ-damped counts, iso-modulus packets, Fermat splitting, consecutive blocks, mod-8 escape → each refuted or a restatement → `~/.pi/boards/20261018-es-routes/memo.md` §dead, `…-es-lowertail/memo.md` §dead.
 * 51 brainstorm memos (logic, LLL/Janson, Markoff/Ghosh–Sarnak, tropical, p-adic, motivic, Maynard–Tao, entropy decrement, Kahn–Kalai, …) → none LIVE, promise ≤ 2/5 → `BRAINSTORM/README.md`.
+
+## 7. Open sub-problems that are well-posed and plausibly tractable
+
+Ordered roughly by (relevance to the lower tail) × (tractability), an Assessment. None is claimed to lead to ES.
+
+1. **Cancellation on a height-dependent subset of the modular hyperbola.** Bound E(p) = R(p) − M(p) better than the divisor
+   bound p^{2/5+o(1)} *by cancellation*, i.e. any non-trivial estimate for #{(x, y) : xy ≡ 1 (mod 4p), x ≡ y ≡ −1 (mod 4C),
+   C = (xy − 1)/4p} in a range. *Why:* "the only lead not ruled out" (`PARITY_AUDIT` §2–3); even a weak power saving would be
+   the first class-aware single-integer input of this shape.
+2. **Size of the root component.** In the forest F_p (edge uv ⇔ uv | p + u + v), prove |comp(1)| ≫ (log p)² unconditionally
+   (`LOWER_TAIL_FABLE.md` open questions). *Why:* it would isolate the χ_p-colouring as the sole remaining obstruction for ES₅.
+3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n — e.g. show
+   that some level t ≤ (log p)^{O(1)} has *two* independent genus characters forced ((J)103 Prop 2.2 is the first-character
+   case). *Why:* it is the next layer after the one already proved free.
+4. **A polylog lower bound for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *Why:* M_gen is the finer
+   T1-exact main term; with it the one-sided target could be stated relative to the genus series.
+5. **BM-corrected Harris/FKG inequality over primes** giving a power-saving exceptional set for (★) ((J)103 §3, CONJECTURE-
+   shape). *Why:* the only variance loophole identified; would sharpen the average theory toward the tail.
+6. **Full-factor-multiset realisation** (`CLASS_FORCING.md` §6): can fixed Frobenius data of p restrict the classes of *all*
+   prime factors of p + 4d jointly (Thm 5.2 excludes single factors)? *Why:* the precise residue of "reciprocity forces
+   parity never class".
+7. **General-m Stickelberger identity** (`TWO_POWER_LADDER.md`; proved for m = 3, 4 only). *Why:* would close the
+   higher-reciprocity route at every layer, or reveal an exceptional m.
+8. **Thin families still open:** 15·2^s + 1 (u ≡ 7 (8) valuation branch — reduces to a 2-adic approximation problem — and
+   menus II-ac, I-ac, II-cd; two-base boundary at X = 2^t3^{t′}), 4^s + 297 (not attempted), 4^s + 33, 4^s + 273 ((J)102; routes
+   board's champion lane). *Why:* concrete, finite-looking, and the only setting where forced-budget identities have beaten
+   every ET covering.
+9. **Uniform multiplicity on the r-generic line** (`SIBLING.md` Conj 4.2; certified for 17 ≤ r < 2·10⁴) and **r = 17**.
+   *Why:* would give sterile points for every r and close the coverings line ((J)77).
+10. **F₃[T], CONJECTURE 0.2** (the thirds corner x*_c is uncovered). *Why:* the last open case of function-field sterility;
+    a percolation/König question ((J)71, (J)72, (J)77).
+11. **Question R / restricted Hypothesis TG** (`QUESTION_R.md`, (J)99): self-levelled SL₂ words and the theta multiplier.
+    *Why:* the exact Rickards–Stange form of T1; open in its own right.
+12. **Exceptional-set exponent θ > 3/4**: weak SPW (log(K/η) = O((log N)^{3/4})), the shift-uniform avoider count (W_𝔊),
+    TC^alt_θ, residue dispersion (RD′) (STATUS "Exceptional-set exponent"). *Why:* the sharpest averaged statement; each
+    is reduced to a precise open estimate.
+13. **Cap 0 / bounded cap pointwise** (R200 M1): a bounded cap for every prime under a standard hypothesis, or replacing
+    Hypothesis W by a standard one ((J)85, (J)91). *Why:* the only pointwise positive mechanism; its last step is B2.
+14. **ES ⇒ ES₅?** Is every ES prime a five-slice prime (λ(p) ≤ 3)? (56 % of solutions below 3000 lie outside the five-slice
+    image; `LOWER_TAIL_FABLE.md`.) *Why:* decides whether the cleaner Legendre-form/forest picture loses anything.
+15. **A "prime T1"** for disproof ((J)97): a global invariant at one prime forcing all ≍ (log p)³ events into the wrong
+    class — or a proof that none exists beyond squares. *Why:* the only conceivable disproof shape.
+16. *Housekeeping (small):* reconcile the (★) main-term constants (log p)²/8 (`PARITY_AUDIT` Lemma 2.1, trial expansion) and
+    3/(2π²)(log p)² (`BM_CORRECTED_COUNT` Thm 2.2, prime-averaged pair series); the repo states both without comparison.
+
+## 8. Pointers into the repository
+
+* **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
+  for Waves Z–AC), `CAMPAIGN_SUMMARY.md` (human-readable overview), `PROJECT.md` (original plan).
+* **§2 lower tail:** `SINGLE_P_COUNT.md` (pair form, genus split), `BM_CORRECTED_COUNT.md` (M_BM, H⁻_BM, Linnik, numerics),
+  `METAPLECTIC_ES.md` (Theorem K), `SYNTHESIS_SPARKS9.md` (level coordinates, BM layer free), `BOARD2_SLATE.md` (five-slice
+  constant 45/(8π²), ABH, moving windows), `LOWER_TAIL_ASTRA.md` (forest), `LOWER_TAIL_FABLE.md` (two-target form), board
+  memos `~/.pi/boards/20261018-es-lowertail/memo.md` and `…/20261018-es-routes/memo.md` (note: the lower-tail memo's
+  five-slice constants are superseded by BOARD2_SLATE).
+* **§3 barriers:** `POINTWISE_SIZE.md` (B1), `reviews/redteam-automorphic.md` §4 and `reviews/redteam-automorphic-2.md` §2–3
+  (T1–T8, B2, hatches H-A…H-G), `CONDITIONAL_ES.md` (B3, X_slice), `LONGSHOT_PIGEONHOLE.md` / `LONGSHOT_FIBRED.md` (B4),
+  `PARITY_AUDIT.md` (tied modulus), `CLASS_FORCING.md`, `TWO_POWER_LADDER.md`, `SYNTHESIS_SPARKS8.md` (privacy, b = 1 line),
+  `JOINT_BUDGET.md`, `SYNTHESIS_SPARKS4.md` (positivity), `SYNTHESIS_SPARKS3.md` (numerator blindness), `AMPLIFY_EXCEPTION.md`,
+  `NONCONG_LIFTS.md`, `DISPROOF_AVENUES.md`, `POWER_LADDER_ES.md`, `B2_ACROSS_FIELDS.md`, `ZAREMBA_TRANSFER.md`,
+  `FIXED_MODULUS_SHOTS.md`, `UNIT_ORBIT_ES.md`.
+* **Sibling bridge:** `ASTRA_BRIDGE.md` (the lattice L_ρ(g): Astra sources (m, 1), Claude shots (2k, Y), ES = intersection;
+  PROVED), `LATTICE_MEETING.md`, `HARD_PAIR.md`, `ASTRA_BRIEF_DIRECTION2.md`. The sibling `../erdos-straus-astra` is read-only.
+* **Literature:** `LITERATURE_2026.md` (survey to 2026-09-28, claimed proofs and their gaps), `LITERATURE_AUTOMORPHIC.md`,
+  `sources/`.
+* **Papers** (`paper/README.md`; all internal): `es-threequarter-note` (INTERNALLY PROVED), `vaughan-loglog-note`,
+  `es-typei-heegner-note` (Σ f_I ≪ N log²N), `es-mn-short-note`, `sieve-limits-note`, `es-subexp-note`, `es-omega-note`,
+  `es-window-note`, `es-coverings-note`, `es-automorphic-barrier-note`, `pointwise-obstruction`, `energy-dnf-note`.
+* **Reproducibility:** `verify.py` (lettered blocks re-run reviewers' from-scratch checks), `scripts/` (e.g. `z38_*` for
+  BM_CORRECTED_COUNT, `z39_kronecker.py` for Theorem K), `logs/`. Run with `PYTHONPATH=scripts uv run python …`.
+* **Reviews:** `reviews/` (hostile reviews per result), `reviews/agent-reports/` (task reports O1–O279), novelty audits
+  `reviews/novelty-audit-2026-10*.md`.
