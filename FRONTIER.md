@@ -179,7 +179,8 @@ in Waves Y–AC. A barrier "with known technology" is an Assessment about method
   eventual-sign size comparisons (against p^θ, divisors in [p^θ, 2p^θ], …) stay inside the scope. Instances: Mordell–Schinzel
   (square classes are not solvable by polynomials), ET's odd-square remark, FORMAL_CLOSURE Thm F (the signed seed component
   is sterile for infinitely many p = 24q + 1, under H for 6402 explicit polynomials; the sibling needs Dickson for only 159
-  linear forms). Quantitative form: Type II witness moduli must exceed exp(c(log p)^{1/4}(log log p)^{−1/4}) infinitely often
+  linear forms). Quantitative form: the least Type II witness modulus satisfies W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4}) for infinitely
+  many Mordell-hard primes, so no multiplier mechanism with witness moduli ≤ exp((log p)^{1/4−ε}) proves ES
   (`POINTWISE_OMEGA13.md` Thm 5.1, PROVED modulo Gallagher, Nair–Tenenbaum and the energy bound).
 * *Rules out:* congruence coverings, finite unions of polynomial/identity families, bounded searches, Haar/CRT majorants.
 * *Does NOT rule out:* (E1) a search over a p-dependent family of integers whose length grows with p, or (E2) non-quasi-
@@ -221,9 +222,9 @@ reciprocity for the incoherent ternary collection).
 * *Statement.* f_I(m²) = f_II(m²) = 0 for odd m, while local/genus/spinor conditions all hold; at the level of single events:
   for any square n = m² and every u ≥ 1, n + u has no divisor ≡ −1 (mod 4u) (PROVED). At a prime p ≡ 1 (4), any hit f | p + u,
   f ≡ −1 (mod 4u), has a prime factor ℓ with (ℓ/p) = −1 (Lemma CT / Lemma 3.2).
-* *Rules out:* every route whose steps are all true at odd squares: "local + spinor ⇒ global", Siegel–Weil/genus averages,
+* *Rules out* (for routes producing Type I/II solutions): every route whose steps are all true at odd squares: "local + spinor ⇒ global", Siegel–Weil/genus averages,
   full-rank theta series, BM-type corrections alone, fibration/descent through finitely many families.
-* *Does NOT rule out:* routes that use the quadratic character at p (non-residues) in an essential way — every survivor must.
+* *Does NOT rule out:* routes that use the quadratic character at p (non-residues) in an essential way.
   T1 is *one* order-2 obstruction; it deforms to near-squares (p = m² + k with tk + 1 = c² forces level t to χ = +1, (J)53,
   (J)55), explaining a 6–7σ deficit there.
 
