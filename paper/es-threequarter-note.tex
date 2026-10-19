@@ -33,12 +33,15 @@ with an absolute, ineffective constant $c>0$.  We are not aware of an
 earlier improvement of the exponent $2/3$.  The forced residue classes are
 those of the classical Type~II identity, but a prime $\ell\leq X$ is used
 together with a \emph{multiplier} $k\leq X^\kappa$, giving classes modulo
-$k\ell$.  Conditionally on $n\bmod\lcm(k)$ the hits at different primes are
-independent, and Bombieri--Vinogradov, Shiu's theorem and a Cauchy--Schwarz
-argument show that the expected number of hits is $\ll(\log X)^3$ in
-every conditional fibre.  After conditioning on $n$ having no small prime
-factors, it is $\gg(\log X)^3$ outside an exponentially rare set of
-fibres.  For Vaughan's classes the corresponding count is
+$k\ell$.
+% (R289 repair) R288 m1: define the conditioning modulus and separate the analytic inputs.
+Conditionally on $n\bmod L_K$, where $L_K$ is the least common multiple of
+the multipliers, the hits at different primes are independent.
+Brun--Titchmarsh gives an expected number of hits $\ll(\log X)^3$ in every
+fibre.  Bombieri--Vinogradov, Shiu's theorem and Cauchy--Schwarz give a
+lower bound $\gg(\log X)^3$ outside an exponentially rare set of fibres,
+after conditioning on $n$ having no small prime factors.  For Vaughan's
+classes the corresponding count is
 $\asymp(\log X)^2$.  Instead of
 the large sieve we count on $[1,N]$ an explicit nonnegative majorant made
 of congruence classes, namely a small-prime selector times an even
@@ -81,7 +84,9 @@ survey of Bloom and Elsholtz \cite{BE}.  Pomerance and Weingartner
 \cite[Thm.~1.3]{PW} give a version that is uniform in the numerator $m$:
 for $4\leq m\leq(\log N)^2$, at most $N\exp\{-C(\log^2N/\varphi(m))^{1/3}\}$
 integers $n\leq N$ have $m/n$ not a sum of three unit fractions.  For fixed
-$m$ the exponent is again $2/3$.  For sums of $k\geq3$ unit fractions,
+$m$ the exponent is again $2/3$.
+% (R289 repair) R288 m5: retain the numerator range of the cited result.
+For sums of $k\geq3$ unit fractions representing $m/n$, with $m>k$,
 Elsholtz's bound has exponent $1-1/(2^{k-1}-1)$ \cite{Elsholtz},
 \cite[\S on exceptional sets]{BE}.  This is $2/3$ for $k=3$; larger $k$ is
 a different problem.  A companion internal note \cite{LL} obtains the
@@ -111,9 +116,11 @@ class is a class modulo $\ell$.  Summed over $k$, the extra mass is the
 factor $\sum_k\varphi(k)/k^2\asymp\log K\asymp t$
 (Theorem~\ref{thm:supply}).  There is a difficulty: $L_K=\lcm\{k\leq K:
 k\equiv1\ (4)\}$
-satisfies $\log L_K\asymp K$.  Thus $L_K$ is far larger than $N$, and one
-cannot split $[1,N]$ into progressions modulo $L_K$ as \cite{LL} does.  We avoid any such
-splitting.  The majorant of Section~\ref{sec:assembly} is a fixed finite
+satisfies $\log L_K\asymp K$.
+% (R289 repair) R289 item 1: the obstruction concerns the particular fibrewise evaluation.
+Thus $L_K$ is far larger than $N$, and the fibrewise large-sieve evaluation
+of \cite{LL} ceases to be useful.  We avoid any such splitting.
+The majorant of Section~\ref{sec:assembly} is a fixed finite
 signed combination of congruence classes.  Its mean is computed exactly in
 a finite CRT probability space.  The fibres modulo $L_K$ appear only
 inside that computation, and its count on $[1,N]$ costs one unit per term.
@@ -121,8 +128,11 @@ The terms number $\exp\{O(t^4)\}$, so $t\asymp(\log N)^{1/4}$ and the
 saving is $t^3\asymp(\log N)^{3/4}$.
 
 \begin{remark}[the method limit]\label{rem:limit}
-Internal, unrefereed companion work \cite{KA3,SL} shows that $3/4$ is
-optimal for the architecture used here.  More precisely, consider any
+% (R289 repair) R288 m3: distinguish the companion cap from this note's proved claims.
+Internal, unrefereed companion work \cite{KA3,SL} claims that $3/4$ is
+optimal for the architecture used here.  This optimality assertion is
+\emph{conditional on the proofs in those notes}; it is not established
+here.  More precisely, consider any
 nonnegative CRT majorant that is $\geq1$ on all integers avoiding a finite
 family of forced classes (the classes
 $\mathcal R(M)=\{-4D\bmod M:D\mid((M+1)/4)^2\}$ of
@@ -130,8 +140,8 @@ Remark~\ref{rem:supply}, and the $(a,D)$ and Case~A classes in the
 notation of \cite{KA3}) and of selector classes $0\bmod p$, with all
 primes involved $\leq N^{A}$ for a fixed $A$ and no condition on the
 moduli, and that is used through $N\E\nu+\sum|{\rm coefficients}|$ with
-coefficient sum $<N$.  Every such majorant saves at most
-$C_A(\log N)^{3/4}$; see \cite[Cor.~4.2]{KA3} and
+coefficient sum $<N$.  Under those companion results, every such majorant
+saves at most $C_A(\log N)^{3/4}$; see \cite[Cor.~4.2]{KA3} and
 \cite[Thm.~10.14]{SL}; the Case~A part uses \cite[Prop.~1.4, \S7]{ET}.
 The majorant of Theorem~\ref{thm:assembly} is of this form, since its
 atoms are classes in $\mathcal R(k\ell)$.  These results do not cover large sieves of super-polynomial
@@ -305,9 +315,10 @@ Fix $0<\alpha_s,\beta_s<1/2$.  Shiu \cite[Thm.~1]{Shiu} proves that
  \ll\frac{Y}{\varphi(q)\log V}
  \exp\Bigl\{\sum_{p\leq V,\ p\nmid q}\frac{F(p)}p\Bigr\},
 \end{equation}
-uniformly for $0<a<q$, $(a,q)=1$, $q<Y^{1-\alpha_s}$ and
-$V^{\beta_s}<Y\leq V$.  The implied constant depends only on
-$\alpha_s,\beta_s,A_1,A_2$.  We use it only for
+% (R289 repair) R288 m4: match Shiu's asymptotic threshold and fixed-function dependence.
+for $V\geq V_0(\alpha_s,\beta_s,F)$, uniformly for $0<a<q$, $(a,q)=1$,
+$q<Y^{1-\alpha_s}$ and $V^{\beta_s}<Y\leq V$.  The implied constant depends
+only on $\alpha_s,\beta_s$ and $F$.  We use it only for
 \[
  F(n)=2^{\omega(n)}\frac n{\varphi(n)},\qquad F(p^a)=\frac{2p}{p-1}\leq4,
  \qquad F(n)\leq4^{\omega(n)}\leq\tau(n)^2\ll_\epsilon n^\epsilon,
@@ -315,8 +326,10 @@ $\alpha_s,\beta_s,A_1,A_2$.  We use it only for
 in \emph{boxes} $(U,\frac{21}{20}U]$ with $U\geq H=K^{10}$ and moduli
 $q\leq K^2$.  We take $V=\frac{21}{20}U$, $Y=\frac1{20}U$ and
 $\alpha_s=\beta_s=\frac14$.  Then $q\leq K^2\leq U^{1/5}<Y^{3/4}$ and
-$V^{1/4}<Y$ as soon as $K$ is large.  An interval $(H,z]$ is covered by
-consecutive boxes starting at $U=H$, and the last box is enlarged.  This
+$V^{1/4}<Y$ as soon as $K$ is large.  Since $U\geq H=K^{10}\to\infty$,
+every box also lies beyond the fixed threshold $V_0$.  An interval
+$(H,z]$ is covered by consecutive boxes starting at $U=H$, and the last
+box is enlarged.  This
 uses $O(\log z)$ boxes, all with endpoints $\leq\frac{21}{20}z$.  The
 modulus $q=1$ is excluded in \cite{Shiu}.  For it we use instead the
 elementary bound $\sum_{n\leq V}F(n)\ll V\log V$, which follows from
@@ -362,7 +375,8 @@ gives
 \[
  \sum_{\Sset}\frac1{uv}=\frac{\varphi(k)}{k^2}\Lambda^2
  \sum_{\substack{d\leq H\\(d,k)=1}}\frac{\mu(d)}{d^2}
- +O\Bigl(\frac{\Lambda\tau(k)\log z}{H}+\frac{\Lambda^2}{H}\Bigr).
+% (R289 repair) R288 m7: the small-divisor error sums only over d <= H.
+ +O\Bigl(\frac{\Lambda\tau(k)\log H}{H}+\frac{\Lambda^2}{H}\Bigr).
 \]
 The coefficient is $\prod_{p\nmid k}(1-p^{-2})+O(H^{-1})\geq6/\pi^2-O(H^{-1})$.
 Because $k/\varphi(k)\leq2^{\omega(k)}\leq\tau(k)\leq2\sqrt k$, the error
@@ -668,10 +682,11 @@ $\frac h{r+1}\binom{h-1}r=\binom h{r+1}$.
 \end{proof}
 
 \begin{theorem}[assembly]\label{thm:assembly}
-Let $B\geq B_0$ be fixed and $y=Bt^3$.  There are constants
-$c_a,D_B,C_L>0$ and a threshold $X_a$, depending only on $\kappa$ and $B$,
-with the following property.  For $X\geq X_a$, let $r$ be the least even
-integer $\geq D_Bt^3$ and put
+% (R289 repair) R288 m6: make the constant dependencies precise.
+Let $B\geq B_0$ be fixed and $y=Bt^3$.  There are constants $c_a,D_B>0$
+depending only on $\kappa$, and a constant $C_L>0$ and a threshold $X_a$
+depending only on $\kappa$ and $B$, with the following property.
+For $X\geq X_a$, let $r$ be the least even integer $\geq D_Bt^3$ and put
 \begin{equation}\label{eq:majorant}
  \nu_X(n)=S_y(n)\,Q_r(H_X(n)).
 \end{equation}
@@ -789,17 +804,20 @@ $E(x)\ll x^{1-\delta}=x\exp\{-\eta_0(\log x)^{3/4}\}$.
 Vaughan uses the classes of Lemma~\ref{lem:identity} with $k=1$ and
 Montgomery's large sieve with prime moduli (we follow the account in
 \cite{PW}, \cite{LL}; the following balance is heuristic).  With $k=1$ only, the mass
-in \eqref{eq:supply} is $\asymp t^2$.  The large sieve gains
-$\exp\{c\mu\}$ only at levels $Q$ with $\log Q\gtrsim\mu\log X$.  Since
-$Q\leq N^{1/2}$, this forces $t^3\lesssim\log N$ and gives
-$(\log N)^{2/3}$.  Here the extra factor $h(\K(K))\asymp\log K\asymp t$
+in \eqref{eq:supply} is $\asymp t^2$.
+% (R289 repair) R289 item 1: this is a sufficient scale for the standard evaluation, not a universal necessity.
+In the standard Euler-product/Rankin-tail evaluation, taking $\log Q$
+at least a suitable constant times $\mu\log X$ yields a gain
+$\exp\{c\mu\}$.  With $Q\leq N^{1/2}$, this choice gives the balance
+$t^3\asymp\log N$ and the saving $(\log N)^{2/3}$.  Here the extra factor
+$h(\K(K))\asymp\log K\asymp t$
 in the mass is paid for by the same kind of budget: the Bonferroni degree
 is $r\asymp\mu$ and each degree costs a factor $\e^{O(t)}$ in
-\eqref{eq:termcount}.  The balance becomes $t^4\asymp\log N$.  Using the
-multipliers in the large sieve directly, as in \cite{LL}, would require
-splitting $[1,N]$ modulo $L_K$, which is impossible once $\log L_K\asymp K$
-exceeds $\log N$.  This is why \cite{LL} is limited to $K\ll\log N$ and to
-a gain of $(\log\log N)^{1/3}$.
+\eqref{eq:termcount}.  The balance becomes $t^4\asymp\log N$.  The
+particular fibrewise large-sieve implementation of \cite{LL} pays for
+splitting $[1,N]$ modulo $L_K$ and ceases to be useful when $L_K>N$.
+Since $\log L_K\asymp K$, that implementation is limited to
+$K\ll\log N$ and to a gain of $(\log\log N)^{1/3}$.
 \end{remark}
 
 \begin{remark}[total identity-class supply]\label{rem:supply}
@@ -818,17 +836,22 @@ $\sum_{M\leq Q,\,M\equiv3\,(4)}|\mathcal R(M)|/M\asymp(\log Q)^3$.  So the
 supply of all identity classes, over all moduli and with distinct
 residues, has exponent three, and the multipliers of this note reach
 that order of magnitude.  Combined with the heuristic balance above, this
-explains the value $3/4$.  The rigorous statement that $3/4$ cannot be
-beaten by majorants of the type used here is the internal result quoted
-in Remark~\ref{rem:limit}.
+explains the value $3/4$.
+% (R289 repair) R288 m3: preserve the qualification when recalling the companion cap.
+The corresponding method-limit statement is conditional on the internal
+companion results quoted in Remark~\ref{rem:limit}.
 \end{remark}
 
 \begin{remark}[numerator $m$]
-The argument transfers to $m/n$ for fixed $m\geq4$.  The identity becomes
-$k\ell+1=m\,uvw$ with $(k,m)=1$, and the moduli become $muv$.  This gives
-$E_m(N)\ll N\exp\{-c(\log N)^{3/4}m^{-1/4}\}$ with absolute $c$.  That
-extension is recorded in internal working notes and is not part of the
-claims of this note.
+% (R289 repair) R288 m2 and R289 item 2: remove the unproved uniform formula and identify its separate source.
+For a numerator $m\geq4$, the algebraic identity has the analogue
+$k\ell+1=m\,uvw$ with $(k,m)=1$, and the prime-counting moduli become
+$muv$.  A separate internal, unrefereed note \cite[Thm.~A]{MN} records an
+extension to $m/n$, including uniform dependence on $m$, proved relative
+to the present note.  That extension is conditional here on the companion
+argument: its analytic uniformity requires additional work, does not
+follow merely from the identity substitution, and is not claimed or
+proved in this note.
 \end{remark}
 
 \begin{thebibliography}{99}
@@ -853,6 +876,11 @@ for coefficient-sum CRT majorants without the $(\log\log N)^{3/4}$ loss,
 Internal note \texttt{paper/vaughan-loglog-note.tex}: a logarithmic
 improvement of Vaughan's bound for the Erd\H{o}s--Straus exceptional set,
 2026.  Internally reviewed, unrefereed.
+% (R289 repair) R288 m2 and R289 item 2: explicit source for the ancillary numerator extension.
+\bibitem[MN]{MN}
+Internal note \texttt{paper/es-mn-short-note.tex}: the exponent $3/4$ for
+the exceptional set of $m/n$, in short intervals and progressions, 2026.
+Internally reviewed, unrefereed; Theorem~A is proved relative to this note.
 \bibitem[MV]{MV}
 H.~L. Montgomery and R.~C. Vaughan, The large sieve, \emph{Mathematika}
 \textbf{20} (1973), 119--134.

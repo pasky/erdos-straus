@@ -1,8 +1,8 @@
 # R289 — independent hostile review #2 (round 1)
 
-Author revision reviewed: `5e418734`, `paper/es-threequarter-note.tex` (C2), with the accompanying PDF. Reviewer branch: `side-agent/review-threequarter-2`. **Round 1 complete.** No author files changed; no access to reviewer #1's report or branch.
+Author revision reviewed in round 1: `5e418734`, `paper/es-threequarter-note.tex` (C2), with the accompanying PDF. Reviewer branch: `side-agent/review-threequarter-2`. **Rounds 1 and 2 complete.** During round 1, no author files changed and reviewer #1's report and branch were not accessed. Round 2, explicitly authorized by the parent, merges reviewer #1 and applies all repairs; see the appended record.
 
-**Overall recommendation: SOUND-AFTER-REPAIRS (two MINOR wording/citation repairs).** The headline bound and every load-bearing lemma are **SOUND** on this audit. No MAJOR or FATAL defect found. I would recommend acceptance of the mathematical argument after the minor repairs below, subject to the ordinary external referee/source-verification process. This remains an internal review, not external certification or a proof of ES.
+**Round 1 recommendation: SOUND-AFTER-REPAIRS (two MINOR wording/citation repairs; now applied).** The headline bound and every load-bearing lemma are **SOUND** on this audit. No MAJOR or FATAL defect found. I would recommend acceptance of the mathematical argument after the minor repairs below, subject to the ordinary external referee/source-verification process. This remains an internal review, not external certification or a proof of ES.
 
 ## Cold referee summary
 
@@ -135,3 +135,29 @@ timeout 180 env PYTHONPATH=scripts OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 ```
 
 **Final assessment:** the `3/4` exponent really follows from a cubic conditional supply and an `exp(O(t⁴))` coefficient ledger. I found no use of Elliott–Halberstam, no hidden uniformity assumption beyond the correctly applied standard inputs, no atom-independence fallacy, and no lost error at the passage from the CRT probability space to the integers.
+
+## Round 2 — repairs applied
+
+At the parent's explicit request, merged `side-agent/review-threequarter-1` and read R288's complete review. Its seven MINOR findings agree with the soundness of the load-bearing proof. Applied all seven, including the optional m6–m7 refinements, together with both R289 findings. Every repair has a `% (R289 repair)` comment identifying its review item in `paper/es-threequarter-note.tex`.
+
+| Item | Repair applied |
+|---|---|
+| R288 m1 | Abstract defines `L_K` as the lcm of the multipliers; credits the all-fibre upper bound to Brun–Titchmarsh and the supply lower bound to BV/Shiu/Cauchy–Schwarz, retaining the small-prime conditioning. |
+| R288 m2 | Removed the explicit numerator-uniform formula from Remark 9.3; the extension is now a conditional report of separate, internal work, not an assertion proved here. |
+| R288 m3 | Remark 1.2 explicitly makes the cap conditional on the proofs in the internal companion notes; the later recall in Remark 9.2 preserves that qualification. |
+| R288 m4 | Shiu's statement now includes `V≥V_0(α_s,β_s,F)` and dependence on the fixed function F; the box discussion explicitly checks eventual passage beyond that threshold. |
+| R288 m5 | Added `m>k` to the scope of Elsholtz's k-unit-fraction bound. |
+| R288 m6 | The assembly statement distinguishes `c_a,D_B`, depending only on κ, from `C_L,X_a`, which may also depend on B. |
+| R288 m7 | Tightened the lattice lower-bound error from `Λτ(k)log z/H` to the directly derived `Λτ(k)log H/H`; the rest of the proof is unchanged. |
+| R289 item 1 | Rephrased the Vaughan comparison as a sufficient scale for the standard Euler-product/Rankin-tail evaluation; restricted the splitting limitation to the specific fibrewise implementation of LL, also in the introduction. |
+| R289 item 2 | Added bibliography entry `[MN]` and the precise Theorem A reference to `paper/es-mn-short-note.tex`; clarified that its analytic uniformity needs a separate argument relative to this note, not merely an identity substitution. |
+
+The overlapping numerator findings are resolved together by **removing** the unproved uniform formula and adding the precise companion citation, rather than asserting a new fixed-m or uniform theorem here. The main theorem, atom family, analytic inputs, moment bound and exponent optimization are unchanged. No author files other than the target TeX and rebuilt PDF are modified.
+
+Validation:
+
+- Three bounded `pdflatex -interaction=nonstopmode -halt-on-error` passes succeed; final PDF is 13 pages, with no LaTeX warnings, undefined references/citations, or overfull/underfull boxes. Rebuilt `paper/es-threequarter-note.pdf` from the repaired source.
+- Reran `scripts/review_r289_checks.py` with the documented timeout, memory and thread limits. All assertions pass; output is identical to `reviews/threequarter-hardened-review-2-checks.log`.
+- Inspected the final TeX diff and extracted PDF text, including the new citation, conditional cap wording, Shiu threshold and assembly dependencies. `git diff --check` passes.
+
+**Round 2 verdict: SOUND; all nine requested review items resolved.** The status remains internally proved and internally reviewed, not externally refereed. No claim to solve ES is made.
