@@ -214,7 +214,7 @@ in Waves Y–AC. A barrier "with known technology" is an Assessment about method
 **B5 = T1 — the odd-square test.** ET Prop 1.6; `PARITY_AUDIT.md` Lemma 3.2; (J)13 (T1 = Kudla's Diff-parity = Hilbert
 reciprocity for the incoherent ternary collection).
 * *Statement.* f_I(m²) = f_II(m²) = 0 for odd m, while local/genus/spinor conditions all hold; at the level of single events:
-  n = m² + … : m² + u has no divisor ≡ −1 (mod 4u), for every u (PROVED). At a prime p ≡ 1 (4), any hit f | p + u,
+  for any square n = m² and every u ≥ 1, n + u has no divisor ≡ −1 (mod 4u) (PROVED). At a prime p ≡ 1 (4), any hit f | p + u,
   f ≡ −1 (mod 4u), has a prime factor ℓ with (ℓ/p) = −1 (Lemma CT / Lemma 3.2).
 * *Rules out:* every route whose steps are all true at odd squares: "local + spinor ⇒ global", Siegel–Weil/genus averages,
   full-rank theta series, BM-type corrections alone, fibration/descent through finitely many families.
@@ -329,8 +329,9 @@ Odd k: trivial for every n by 4/n = 1/(2x) + 1/(2x) + Q^k/(nx), 4x = n + Q^k, Q 
 is ES^□ again (one Dirichlet prime; T1 intact). **No rung lies strictly between ES^□ and ES** (for solution sets). Reason
 (PROVED bits + Assessment): the relevant single-modulus index is gcd(k, g − 1) ∈ {1, 2}; ES's ladder is flat because
 ord(T1) = 2 coincides with the unavoidable 2-part of every shot index — "a coincidence of the prime 2" (over ℤ[ω], TES
-separates the two). *Rules out:* climbing from ES^□ to ES through intermediate power relaxations. *By-product:* ES with z a
-power of one fixed prime q times the rest is PROVED per q (CERTIFIED q ≤ 10⁶).
+separates the two). *Rules out:* climbing from ES^□ to ES through intermediate power relaxations. *By-product:* the variant whose third
+numerator may be a power of one fixed prime q (4/n = 1/x + 1/y + q^c/Z, "one mute prime") holds for every n prime to q, PROVED
+per q under an elementary hypothesis on q (Thm 5.1; checked for all q ≤ 10⁶; all non-square q under GRH).
 
 **The M1a/M1b/M2–M5 pattern: B2 is not any solved problem.** (J)94 (`B2_ACROSS_FIELDS.md` "The pattern", Assessment; 13
 fields surveyed). Every pointwise existence theorem surveyed uses at least one input that B2 lacks:
