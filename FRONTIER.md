@@ -293,3 +293,67 @@ class (B2) with no cross-shift leverage. *Does NOT rule out:* mechanisms that ne
 * *Does NOT rule out:* anything about ES directly — the signed relaxation SQ_± is *just as much a lottery* (Assessment):
   positivity is T1's anchor (the archimedean Hilbert factor), not the source of difficulty. Residual of Thm A: φ* reducible
   of degree ≥ 2 in every variable.
+
+**Numerator blindness; numerator models with real exceptions.** (J)41 (`SYNTHESIS_SPARKS3.md`), (J)46/(J)49, (J)86
+(`AMPLIFY_EXCEPTION.md` §5), (J)88 (`NONCONG_LIFTS.md`).
+* *Statement.* (J)41 Thm 1.1 (PROVED): for every M ≡ 0 (4) the □-relaxation M^□(n) holds at every odd non-square n prime to
+  M (one Dirichlet prime), and the M-shot mechanism keeps T1 exactly. Yet M/p fails at 278 known pairs (M ∈ {8, 12, 16, 20,
+  24}; CERTIFIED), e.g. 8/131 has no unit-fraction solution but 8/131 = 1/20 + 1/131 + 9/2620. Threshold-robust form (relative
+  to Pomerance–Weingartner Thm 1.2): for every M ≡ 0 (4) with M ≥ 6.52·10⁹ some prime p ∈ (M², 2M²) has M^□(p) and not M/p.
+  Full T1 holds for every 4 | M and fails for M = 3, 5, 6, 7, 11, 19 (certified); among failure-free numerators (3, 4, 5, 7)
+  only 4 has full T1. (J)86: numerator models k/n have genuine exceptions (8/131, 8/241) and refute every k-uniform law shape
+  tested (e.g. the square law p ∈ E_k ⇒ p² ∈ E_k fails: 8/11 is exceptional, 8/121 = 1/18 + 1/99 + 1/2178). (J)88:
+  fixed-slice separations between k = 4 and 4 | k ≥ 8 exist but fail for one-parameter polynomial families.
+* *Rules out* (Assessment): any argument whose every step — shot identities, overflow duality, T1/BM/Diff-parity, box
+  finiteness, sieves, composition, class-group pigeonhole — works uniformly in the numerator **without a threshold**; it
+  would prove 8/131.
+* *Does NOT rule out:* k-uniform arguments valid only for p > p₀(k); 4-specific inputs. The cleanest known 4-specific input:
+  **m = 4 is the unique numerator whose five HJ slices are exactly a quadratic-character fibre** S₄ = {χ = −1} ((J)32), with
+  χ = minus the 2-adic isotropy sign of the path form ((J)33); the 2-adic pigeonhole content is used up by a Fano-plane
+  argument ((J)57: forcing only for M ∈ {2, 3, 4}).
+
+**No BM obstruction / the shape of a disproof.** (J)97 (`DISPROOF_AVENUES.md`).
+* *Statement.* BL Thm 1.8 (PROVED, literature): (U_n(ℝ)₊ × ∏_p U_n(ℤ_p))^{Br} ≠ ∅ for every n ≥ 2. So a counterexample is a
+  non-BM integral failure. The "n = 1 shadow" (CONDITIONAL on Dickson/H): primes p ≡ 1 (mod Q) with prime slice cofactors
+  empty any *finite* set of ET slices. EVIDENCE: a universal zero law across the numerator ladder m = 4…24,
+  P(f = 0) ≈ exp(−0.535 μ^{0.91}) by local cell mean μ (underpredicts top-μ zeros by ×3–5); adversarial primes at 10¹⁸–10²⁵
+  stay far from failure (≥ 612 solutions on cheap slices).
+* *Assessment.* P(ES false) "well under 10⁻³", all of it model risk (a floor/mixture or a global non-congruential mechanism);
+  model-internal estimates are < 10⁻³⁰. A disproof would need a **"prime T1"**: a global invariant forcing all ≍ (log p)³
+  divisor events into the wrong class at one prime. None is known; T1 itself exists only because squares make every relevant
+  prime a residue.
+* *Does NOT rule out:* non-BM Hasse failures in principle — the Markoff precedent (§2.4) shows they occur at the same scale.
+
+**The power ladder is flat.** (J)108 (`POWER_LADDER_ES.md`). ES_(k): 4/n = 1/x + 1/y + Q^k/Z (Q odd, coprime conditions).
+Odd k: trivial for every n by 4/n = 1/(2x) + 1/(2x) + Q^k/(nx), 4x = n + Q^k, Q ∈ {1, 3} (PROVED; T1 dead). Even k: the rung
+is ES^□ again (one Dirichlet prime; T1 intact). **No rung lies strictly between ES^□ and ES** (for solution sets). Reason
+(PROVED bits + Assessment): the relevant single-modulus index is gcd(k, g − 1) ∈ {1, 2}; ES's ladder is flat because
+ord(T1) = 2 coincides with the unavoidable 2-part of every shot index — "a coincidence of the prime 2" (over ℤ[ω], TES
+separates the two). *Rules out:* climbing from ES^□ to ES through intermediate power relaxations. *By-product:* ES with z a
+power of one fixed prime q times the rest is PROVED per q (CERTIFIED q ≤ 10⁶).
+
+**The M1a/M1b/M2–M5 pattern: B2 is not any solved problem.** (J)94 (`B2_ACROSS_FIELDS.md` "The pattern", Assessment; 13
+fields surveyed). Every pointwise existence theorem surveyed uses at least one input that B2 lacks:
+
+| input | used by (examples) | B2 lacks it because |
+|---|---|---|
+| M1a power-size count of final objects | Duke, ternary forms, 290-thm, Bourgain–Gamburd–Sarnak, Shkredov/Zhang Zaremba | count ≍ (log p)²–(log p)³ |
+| M1b power-size auxiliary set + pigeonhole/volume | Thue/Minkowski (p = x² + y²), Dirichlet/Pell | target class depends on the exact height; covering needs sub-power windows ((J)85) |
+| M2 fixed-modulus character/group event | least QNR / primitive roots under GRH, Lipshitz LGP | tied modulus (fixed only in CF coordinates, where M1 fails) |
+| M3 homogeneity / group action | strong approximation for groups, BGS, one-class genera | U_n not homogeneous; finite automorphism group |
+| M5 count congruence (parity / mod-p count) | Zagier windmill, Chevalley–Warning, EGZ | T1: count is 0 at odd squares, so the congruence must see the quadratic character (finite-menu affine involutions barred, (J)2, CONDITIONAL) |
+| M4 freedom to choose objects | AGP Carmichael, Bloom/Croot, fibration methods | p and K = (p+q)/4 are forced |
+
+The sharpest test is Zaremba (2026, Shkredov; Zhang — unrefereed preprints): pointwise by M1 + M2; ES₅ keeps M2 but has only
+≍ log²p certificates (the quadratic non-residues A with HJ-length(p/A) ≤ 3). Known-in-substance: λ(p) ≤ (6/π²) log p log log p
++ O(log p) (Aistleitner–Borda–Hauke attribution, (J)105), with ES₅ ⟺ λ(p) ≤ 3; the Zaremba method reaches ES only at CF length
+≍ log p log log p, a known relaxation ((J)95). Literature check ((J)103, Assessment): **no every-n theorem exists for any natural
+problem with a polylog main term.**
+
+**Rooted constructions and bounded windows die under Dickson.** (J)106 (`LOWER_TAIL_ASTRA.md`), (J)83 (`CAP_BOUNDED.md`).
+The positive-word endpoint graph F_n (edge uv iff uv | n + u + v) is a **forest** (each v > 1 has at most one smaller
+neighbour, −n mod v; PROVED), and five-slice certificates are exactly its bichromatic edges (χ_n-colouring). Under Dickson,
+for every fixed H, infinitely many p ≡ 1 (24) have every component meeting {1,…,H} monochromatic; rooting at the least
+non-residue also fails i.o. (p = 2521 + 9240a with (p + 11)/12 prime). For every M, infinitely many p ≡ 1 (8) have no window
+certificate with m ≤ M at any cap (CONDITIONAL on Dickson). *Rules out:* fixed finite root sets and bounded windows. *Does NOT
+rule out:* growing/p-dependent roots, Pell or class-group cycle data.
