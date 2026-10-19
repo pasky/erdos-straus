@@ -478,3 +478,44 @@ SQ: for odd n, Type I ∪ Type II empty ⟺ n square [odd non-squares ≤ 10⁷]
 (exception-free companions, (J)52, (J)53); PH (full-coset covers) [3.7·10⁷]; PM-II (3361 only) [10⁸]; X_win: a_min(p) ≪ log p;
 U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [10¹¹]); López's union conjecture; CONJECTURE 0.2
 (F₃[T] sterile point x*_c); x** sterile (r = 13; certified through ES level 2.59·10¹⁰).
+
+## 6. Dead ends (one line each; do not repeat without a new ingredient)
+
+*Analytic / counting at one prime*
+* GRH character-by-character on (★) → misses by p^{1−o(1)}; GRH gives M_gen ≥ (1 − o(1)) log log p only → `CONDITIONAL_ES` §3, (J)98.
+* Two-sided asymptotic / |X| < M_gen (O260's H_X) → false i.o. by Linnik → `BM_CORRECTED_COUNT` Prop 3.1.
+* Heegner/CM small-scale equidistribution, GLH, power-scale covering conjectures → scale constraint B3 → `CONDITIONAL_ES` §4, §7.
+* Spectral/Kuznetsov/Heegner treatment of Type I at fixed p → averages over level (B6); tubes of width 1/p → (I)3, `POINTWISE_SPECTRAL.md`.
+* Weil / Selberg–Hooley / bilinear fixed-modulus savings → tied modulus; need p^{1−o(1)} saving → `PARITY_AUDIT` §2.
+* H-B, parity-breaking (Friedlander–Iwaniec) at fixed p → collapses into H-A → `PARITY_FIXED_P.md` (J)6, (J)87.
+* Fixed-p variance / Janson / level-Poisson second-moment → critical, far tail fatter than Poisson → (J)103 §3.
+* Exact positive identities (56 ES counts vs 54 classical functions; fixed-level Eisenstein identities) → none exists (T1) → (I)5, (J)7 Thm 9.1.
+* Automorphic normal form (theta quotient, weight ½, Serre–Stark) → Eisenstein-only, exact, but does not decide one integer → (J)101.
+* Dirichlet series / moments / Euler-product hardness laws → averages (B6) → `BRAINSTORM/anal_*`.
+
+*Algebraic / forcing*
+* Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS "line 2: CLOSED".
+* Reciprocity / Chebotarev / Rédei / higher power residues to force the class → parity only → (J)93, (J)96, (J)104.
+* Non-abelian Frobenius, quartic data → inert on finite witness sets → (J)96, `MODP_RECIPROCITY.md`.
+* Pigeonhole across shifts j or d → privacy of large primes → SS8 Lemma 2.3.
+* Signed solutions then "move to positive" → no signed → positive move → (J)52, (J)89 Lemma 4.1.
+* Polynomial auxiliary budgets at a general prime; ℤ[√p] windows; p − 1 divisibility data → irreducibility / never Jacobi-forced / sterile point → (J)84.
+* Class-group composition / slice-lattice walks (Astra bridge) → add reachability, never existence (3361) → (J)82.
+* Fixed roots, least-non-residue roots in the forest F_n → fail i.o. under Dickson → (J)106.
+* Bounded windows; balanced-lattice caps; GRH cap routes → bounded/slow cap is not ES; cap 0 is B2 → (J)83, (J)85, (J)91.
+* Menu ladder from thin families to primes → positive-density rungs collapse to B1/B2 → (J)76, (J)78, (J)79.
+* 2-adic / Fano pigeonhole beyond 4/p → used up (forcing only M ∈ {2,3,4}) → (J)57; no global Fano law on the 2-isogeny graph → (J)65.
+* Windmills / involutions with finite affine menus → barred (CONDITIONAL) → (J)2 Thm 6.1.
+* Fermat / binary-form certificates p = Q(u,v) → miss infinitely many primes of every square class → (J)3.
+
+*Geometry / relaxations / transfers*
+* Brauer–Manin, fibrations, descent, strong approximation → no BM obstruction; "BM only obstruction" = ES(n) → (I)7, `GEOMETRY_ES.md`.
+* Local + spinor ⇒ global, Siegel–Weil, ternary-form representation inputs → true at odd squares (T1) → (I)1, (I)4.
+* Quaternion orders / supersingular graph / Eichler orders → dictionary only (genus layer) → (I)6, (J)33, (J)35, (J)65.
+* Transport of ES^{(S)}, V_φ, ES^□ certificates into ES → no transport; ES is a finite search → (J)25, (J)28.
+* Intermediate power rungs → ladder is flat → (J)108.
+* Zaremba / thin orbits / CF length → needs density; reaches only λ ≍ log p log log p → (J)95.
+* Amplifying one exception (transport, congruence recombination, non-congruential lifts) → isolated / T1-blocked / collapse to B2 → (J)86, (J)88.
+* Cross-field net (13 fields) → no sharp transfer; pattern M1a–M5 → (J)94.
+* Boards: Davenport forcing, √−2 norm shifts, clean-side norm towers, one-child lemma, W_binom, HJ grammars (trap at 193), CEGAR, Λ-damped counts, iso-modulus packets, Fermat splitting, consecutive blocks, mod-8 escape → each refuted or a restatement → `~/.pi/boards/20261018-es-routes/memo.md` §dead, `…-es-lowertail/memo.md` §dead.
+* 51 brainstorm memos (logic, LLL/Janson, Markoff/Ghosh–Sarnak, tropical, p-adic, motivic, Maynard–Tao, entropy decrement, Kahn–Kalai, …) → none LIVE, promise ≤ 2/5 → `BRAINSTORM/README.md`.
