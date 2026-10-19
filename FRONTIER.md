@@ -415,8 +415,8 @@ all lines is necessary, not sufficient; nothing proposed in this campaign has pa
 **Minimal profile of a successful mechanism** (Assessment, distilled from the above and both boards): a single-integer
 statement at fixed p; uses the quadratic character of p (vanishes at squares); 4-specific or with an explicit threshold;
 controls the *class* of a divisor of one integer in a modulus tied to the solution; one-sided, with error below a
-(log p)² main term; not an average over any parameter attached to p. Board #2 (three labs) was unanimous that no known
-technique has this profile.
+(log p)² main term; not an average over any parameter attached to p. Board #2 (seats from three labs) was unanimous that
+no single-prime lower-tail mechanism is known.
 
 ## 5. Best partial results and conditional results
 
@@ -530,13 +530,14 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    the first class-aware single-integer input of this shape.
 2. **Size of the root component.** In the forest F_p (edge uv ⇔ uv | p + u + v), prove |comp(1)| ≫ (log p)² unconditionally
    (`LOWER_TAIL_FABLE.md` open questions). *Why:* it would isolate the χ_p-colouring as the sole remaining obstruction for ES₅.
-3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n — e.g. show
-   that some level t ≤ (log p)^{O(1)} has *two* independent genus characters forced ((J)103 Prop 2.2 is the first-character
-   case). *Why:* it is the next layer after the one already proved free.
+3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
+   BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
+   can obstruct (the (★)-failure n = 7 at t = 12; (J)103 §2 Reading). *Why:* it is the next layer after the one proved free.
 4. **A polylog lower bound for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *Why:* M_gen is the finer
    T1-exact main term; with it the one-sided target could be stated relative to the genus series.
-5. **BM-corrected Harris/FKG inequality over primes** giving a power-saving exceptional set for (★) ((J)103 §3, CONJECTURE-
-   shape). *Why:* the only variance loophole identified; would sharpen the average theory toward the tail.
+5. **BM-corrected Harris/FKG inequality over primes** ((J)103 §3; recorded there only as a
+   CONJECTURE shape, T1-consistent). *Why:* the only variance loophole identified. *Caution:* it would imply a power-saving
+   exceptional-set bound for (★), far beyond every method mapped in (D)9–(D)24 — so this item is hard, not tractable.
 6. **Full-factor-multiset realisation** (`CLASS_FORCING.md` §6): can fixed Frobenius data of p restrict the classes of *all*
    prime factors of p + 4d jointly (Thm 5.2 excludes single factors)? *Why:* the precise residue of "reciprocity forces
    parity never class".
