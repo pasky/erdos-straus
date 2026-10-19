@@ -460,3 +460,126 @@ $n_s$ or has $\leg{n_s}q=-1$; a certified finite computation).  Beyond the
 unit squares, the sterile set of the ET menu can contain non-square points;
 none is known on any of the families studied here.
 \end{remark}
+
+\section{Windows with a forced budget}\label{sec:forced}
+
+\subsection{The window lemma}
+The following is the elementary criterion for $m/N=1/y+1/z$ (Rav
+\cite{Rav}; we include the proof), specialised to the first step
+$4/n=1/x+m/(nx)$.
+
+\begin{lemma}[window lemma; \status{proved}]\label{lem:window}
+Let $n,x$ be positive integers with $m:=4x-n>0$, and put $N:=nx$.
+\begin{enumerate}
+\item[(a)] If $d_1,d_2$ are positive divisors of $N$ with
+$m\mid d_1+d_2$, then
+\[
+ y=\frac{N(d_1+d_2)}{m\,d_2},\qquad z=\frac{N(d_1+d_2)}{m\,d_1}
+\]
+are positive integers and $4/n=1/x+1/y+1/z$.  Conversely every solution
+with this $x$ arises in this way.
+\item[(b)] If $\gcd(m,x)=1$, $d\mid x^2$ and $m\mid x+d$, then
+$(x,\ n(x+d)/m,\ nx(x+d)/(md))$ is a solution in positive integers.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $N/d_2$ and $(d_1+d_2)/m$ are integers, so $y\in\N$, and likewise $z$;
+and $1/y+1/z=\frac{m(d_1+d_2)}{N(d_1+d_2)}=\frac mN=\frac4n-\frac1x$.
+Conversely, if $m/N=1/y+1/z$, let $g=\gcd(y,z)$, $y=gy'$, $z=gz'$; then
+$mgy'z'=N(y'+z')$ and $\gcd(y'z',y'+z')=1$, so $y'z'\mid N$; with
+$d_1:=y'\cdot N/(y'z')=N/z'$ and $d_2:=N/y'$ we get $d_1+d_2=N(y'+z')/(y'z')=mg$,
+and $y=N(d_1+d_2)/(md_2)$, $z=N(d_1+d_2)/(md_1)$.
+(b) $y\in\N$ since $m\mid x+d$.  For $z$ we show $d\mid x(x+d)/m$.  Let $p$
+be a prime, $\beta=v_p(x)$, $\gamma=v_p(d)\le2\beta$.  If $\gamma>0$ then
+$\beta>0$ and $p\nmid m$, so $v_p(x(x+d)/m)=\beta+v_p(x+d)$, which is
+$\ge\beta+\gamma\ge\gamma$ if $\gamma<\beta$, $\ge2\beta\ge\gamma$ if
+$\gamma=\beta$, and $=2\beta\ge\gamma$ if $\gamma>\beta$.  The identity is
+$\frac1y+\frac1z=\frac{m}{n(x+d)}\bigl(1+\frac dx\bigr)=\frac m{nx}$.
+\end{proof}
+
+We call $m$ the \emph{window} or \emph{gap} and $x+d$, resp.\ the pair
+$(d_1,d_2)$, the \emph{budget}.  For a single integer $n$ the lemma is a
+lottery: one needs divisors of $nx$ in a prescribed class modulo $m$.  On an
+exponential family it becomes a theorem on whole residue classes of $s$ as
+soon as the divisors are \emph{forced} by an algebraic identity.
+
+\subsection{Forced budgets}
+Let $\mathcal F(c_0,b,k)$ be a family and $m\equiv-k\pmod 4$ a positive
+integer.  On a residue class $s=s_0+\sigma t$ the integer $x=(n_s+m)/4$ is
+a polynomial in $Y=2^{\omega t}$ with rational coefficients, and so is
+$N=nx$.  Every factorisation of $N$ in $\Q[Y]$ gives candidate divisors
+$d_1(Y),d_2(Y)$; if $m\mid d_1(Y)+d_2(Y)$ for one $t$ in a residue class
+modulo the period of Lemma~\ref{lem:ruleperiod}, it holds for the whole
+class, and Lemma~\ref{lem:window} produces a rule.  The algebraic
+factorisations used below are:
+\begin{enumerate}
+\item[(SG)] \emph{Sophie Germain}: $4Y^4+w^4=(2Y^2+2Yw+w^2)(2Y^2-2Yw+w^2)$
+and $Y^4+4w^4=(Y^2+2Yw+2w^2)(Y^2-2Yw+2w^2)$.  For $x=c_04^{j-1}(4^r+w^4)$
+with $r=s-j$ odd one puts $Y=2^{(r-1)/2}$, $4^r=4Y^4$.
+\item[(CY)] \emph{cyclotomic}: for odd $h$,
+$Y^h+w^h=\prod_{e\mid h}w^{\varphi(2e)}\Phi_{2e}(Y/w)$; for
+$x=c_04^{j-1}(4^r+w^h)$ with $h\mid r$ one puts $Y=4^{r/h}$.
+\item[(BI)] \emph{binomial, moving gap}: for constants $a,d$, the Type~II
+identity $4abcd=cn+a+b$ is equivalent to
+\begin{equation}\label{eq:binom}
+ (4abd-n)(4acd-1)=n+4a^2d ,
+\end{equation}
+because the left side equals $4ad(4abcd-b-cn)+n$.  So every factorisation
+$n+4a^2d=f\,f'$ in $\Q[Y]$ with $b:=(f+n)/(4ad)$, $c:=(f'+1)/(4ad)$
+integer-valued and positive on a class gives a rule
+$(x,y,z)=(abd,acdn,bcdn)$.  Its gap $4x-n=f$ moves with $s$.
+\end{enumerate}
+In (SG) and (CY) the gap $m$ is constant and the budget moves; in (BI) the
+gap itself is an algebraic factor.  The pieces available in (SG), (CY) are
+the odd primes of $c_0$, the polynomial $n(Y)$ itself, and the algebraic
+factors of $x$; powers of $2$ up to $2^{v_2(c_04^{j-1})}$ may be added.
+
+\begin{remark}[no conflict with the odd-square obstruction]\label{rem:T1window}
+A rule with $D\ge2$ applies on a set of exponents $\{s\equiv u\pmod P\}$.
+This set of integers $n_s$ is contained in a residue class of $n$ (for
+instance modulo $2^P-1$), which by Theorem~\ref{thm:sterile} may well be
+square-like.  There is no contradiction: Lemma~\ref{lem:T1} concerns
+identities whose coordinates are polynomials in $n$, while a rule is
+polynomial in $Y=n_s$'s root, $Y=((n-k)/(c_0b^{s_0}))^{1/D}$, and is only
+asserted on the thin family.  If a member of the class is a square, the
+rule simply solves it.
+\end{remark}
+
+\subsection{Specialisation at a unit-square point}
+Let $c_0+k=4^J$ and consider rules through the neighbourhood
+$\{s\equiv0\pmod L\}$ of $\mu=0$ for $n_s=c_0\,2^s+k$.  After the
+substitution $Y=2^{s/D}$, such $s$ have $Y\equiv1$ modulo any fixed odd
+number and $Y\equiv0$ modulo any fixed power of $2$ once $L$ and $s$ are
+large.  This gives a convenient criterion.
+
+\begin{lemma}[specialisation; \status{proved}; {\cite[Lemma~2.1]{MenuLadder}}]\label{lem:special}
+Let $R\in\Q[Y]$ and $D\ge1$.  Then $R(2^{s/D})\in\Z$ for all $s$ in some set
+$\{s\equiv0\pmod L,\ s\ge s_1\}$ \textup{(}$D\mid L$\textup{)} if and only if
+$R(1)\in\Z[1/2]$ and $R(0)\in\Z_{(2)}$.  More precisely, for every prime
+power $p^e$: if $R(2^{s/D})\in p^e\Z_{(p)}$ for all $s$ in such a set, then
+$R(1)\in p^e\Z_p$ when $p$ is odd and $R(0)\in 2^e\Z_2$ when $p=2$.
+\end{lemma}
+
+\begin{proof}
+Write $R=R_1/N$ with $R_1\in\Z[Y]$.  For odd $p^e\,\|\,N$ we have
+$2^{s/D}\equiv1\pmod{p^e}$ once $\ord_{p^e}(2)\mid s/D$, so
+$R_1(2^{s/D})\equiv R_1(1)$; for $2^e\,\|\,N$, $2^{s/D}\equiv0\pmod{2^e}$ once
+$s/D\ge e$, so $R_1(2^{s/D})\equiv R_1(0)$.  This proves ``if''.  For the
+converse and the refinement, let $s\to0$ in $\Zh$ along the set (e.g.\
+$s=L\cdot\ord_{p^E}(2)\cdot D\cdot j$ with $E\to\infty$ and $j$ large); then
+$2^{s/D}\to1$ in $\Z_p$ for odd $p$ and $2^{s/D}\to0$ in $\Z_2$, $R$ is
+continuous on $\Q_p$, and $p^e\Z_p$ is closed.
+\end{proof}
+
+Thus a rule polynomial in $Y=2^{s/D}$ is valid near $\mu=0$ iff its
+coordinates are positive for large $Y$ and their values at the two
+specialisations $Y=1$ (the member $s=0$, $n=4^J$) and $Y=0$ (the
+$2$-adic limit, $n=k$) are $\Z[1/2]$- resp.\ $\Z_{(2)}$-integral.  Neither
+specialisation is locally obstructed; whether a rule exists is a global
+question about polynomial identities.  For example, the Sophie Germain
+rule of Theorem~\ref{thm:proth3} below specialises at $Y=X=1/2$ to
+$x=K=3(4X^4+1)\mapsto 15/4$, $f_\pm=2X^2\pm2X+1\mapsto 5/2,\,1/2$: the
+budget $K+d$ with $d=f_+^2f_-$ becomes $15/4+25/8=55/8$, divisible by
+$11$ in $\Z[1/2]$.  The odd $2$-adic valuation of $f_\pm(1/2)$ is what makes
+this possible (Lemma~\ref{lem:limitjacobi}).
