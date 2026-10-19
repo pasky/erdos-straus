@@ -380,14 +380,19 @@ rule out:* growing/p-dependent roots, Pell or class-group cycle data.
 
 ## 4. What a proof would need — a five-minute screening checklist
 
-Screen an idea against every line *before* investing in it. Each line names the barrier that kills ideas failing it. Passing
-all lines is necessary, not sufficient; nothing proposed in this campaign has passed all of them.
+Screen an idea against every line *before* investing in it. Each line names the barrier that killed earlier ideas of that
+kind. **Scope (read this):** the barriers of §3 are theorems about *specified classes of arguments* (fixed menus, bounded
+multiplicity, numerator-uniform steps, …) or Assessments about known methods; they are not necessary conditions for every
+conceivable proof, and a proof need not take the form of a lower bound for (★). Treat a failed line as "this is the step
+that must be new", not as a refutation — but then that step must be named and justified. Nothing proposed in this campaign
+has passed all lines.
 
-1. **It must fail at odd squares (T1/B5).** Name the step that is false at n = m². Equivalently the argument must use the
+1. **It must fail at odd squares (T1/B5).** Name the step that is false at n = m². In practice the argument must use the
    quadratic character of p essentially (in every solution of 4/p with p ≡ 1 (4), every denominator prime to p has a prime
    factor ℓ with (ℓ/p) = −1; Lemma CT). Local/genus/spinor/Siegel–Weil/BM-type steps are all true at m²; they cannot carry
-   the argument. (Composite-n descent must be checked separately: ES(m²) is true via ES(m).)
-2. **It must fail for numerator 8 at 131 and 241** (and 8/11, 8/17; numerator blindness (J)41, (J)86). If every step works
+   the argument. (Composite-n descent must be checked separately: a solution for m scales to one for m², so T1 does not bind arguments
+   that produce mixed or scaled solutions.)
+2. **It must fail for numerator 8 at 131 and 241** (i.e. it must not also prove 8/131, 8/241) (and 8/11, 8/17; numerator blindness (J)41, (J)86). If every step works
    for M/n with M ≡ 0 (4) uniformly and without a threshold, the argument proves false statements. Say where 4 enters
    (candidate: the χ-fibre S₄ of (J)32) or which threshold p₀(M) the argument needs.
 3. **It must not be numerator-uniform in its laws** — no k-uniform transport, square law or recombination law (all refuted
@@ -398,7 +403,8 @@ all lines is necessary, not sufficient; nothing proposed in this campaign has pa
    is known. A fixed finite menu of slices fails infinitely often (CONDITIONAL on H, (I)8), as do fixed root sets and
    bounded windows (CONDITIONAL on Dickson, (J)106, (J)83).
 5. **p must stay fixed throughout (B6/T7).** List every averaged variable in every cited estimate. Averages over p, over the
-   level/discriminant attached to p, over residues a, or over moduli q ≤ x^θ with n free do not reach one p.
+   level/discriminant attached to p, over residues a, or over moduli q ≤ x^θ with n free do not by themselves reach one p;
+   an averaged input is fine only if the step that recovers the prescribed p is identified.
 6. **Scale (B3).** If it is "main term ≥ 2·error", compute the main term: power-size main terms with ≤ p^{o(1)}-to-one
    encodings are impossible for almost all p. The live regime is polylog main term with error below it at one integer.
 7. **One-sided only.** Any claimed two-sided asymptotic R(p) = M(p)(1 + o(1)), or |R − M| ≤ (log p)^{O(1)}, is false
@@ -407,12 +413,13 @@ all lines is necessary, not sufficient; nothing proposed in this campaign has pa
    polynomials in p (even with size comparisons against p^θ), it fails at a square-mimicking point under H. You need a
    p-dependent growing family (E1) or non-quasi-polynomial primitives (E2) *and* control of their actual factorisations.
 9. **Class, not parity.** If the forcing comes from reciprocity, Chebotarev, Rédei or higher residue symbols, it delivers
-   only the quadratic layer of the divisor class (CLASS_FORCING Thm 2.1, TWO_POWER_LADDER Thms 3.1–3.2). ES needs the class
-   (−1 mod 4u, i.e. a coset of size φ(4u)/2 *inside* the BM-allowed half).
+   only the quadratic layer of the divisor class (CLASS_FORCING Thm 2.1, TWO_POWER_LADDER Thms 3.1–3.2). ES needs the class:
+   the BM-allowed half contains φ(4u)/2 residue classes mod 4u, and ES needs the single class −1 among them.
 10. **No pooling of large primes across shifts** (privacy, SS8 Lemma 2.3): a collision across jp + 1 or p + 4d involves only
     primes ≤ the shift range, i.e. congruence data.
-11. **No signed detour** ((J)52, (J)89 Lemma 4.1): there is no signed → positive move; signed slices have the wrong
-    Legendre symbol.
+11. **No signed detour by reflection** ((J)52, (J)89 Lemma 4.1, Cor 4.2): signed Type I slices have the wrong Legendre
+    symbol, so no |d|-preserving (or square-class-preserving) move reaches positive points; a class-changing transfer is a new
+    B2 problem.
 12. **No relaxation-then-transport without a transport theorem.** ES^□, ES^{(S)}, V_φ, capped ES^{(y,e)}, odd power rungs,
     and ES at CF length ≍ log p log log p are theorems (or near-theorems) *because* they have fixed-modulus shots or
     density; the power ladder is flat ((J)108) and ES is a finite O(p²) search with moving moduli ((J)25). Say how
@@ -431,7 +438,7 @@ all lines is necessary, not sufficient; nothing proposed in this campaign has pa
 16. **Thin-family wins do not transfer.** Forced-budget windows (Sophie Germain, moving-gap cubic) prove 3·2^s + 1 etc.;
     at a general prime the side numbers are irreducible in ℚ[u, p] ((J)84), so an algebraic budget needs p = φ(u).
 
-**Minimal profile of a successful mechanism** (Assessment, distilled from the above and both boards): a single-integer
+**Profile that passes all the screens** (Assessment, distilled from the above and both boards; not a theorem): a single-integer
 statement at fixed p; uses the quadratic character of p (vanishes at squares); 4-specific or with an explicit threshold;
 controls the *class* of a divisor of one integer in a modulus tied to the solution; one-sided, with error below a
 (log p)² main term; not an average over any parameter attached to p. Board #2 (seats from three labs) was unanimous that
