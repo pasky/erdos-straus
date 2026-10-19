@@ -14,6 +14,14 @@ From-scratch scripts: `scripts/review_r291_*.py` (no code shared with `c1_expfam
 applied directly to `paper/es-exponential-families.tex`, each marked `% (R291 repair mN)`; PDF rebuilt
 (22 pp, no undefined references). m9 (optional) not applied.
 
+**Round 2 — R292 repairs applied** (reviewer #2, `reviews/expfam-paper-review-2.md`, merged from
+`side-agent/review-expfam-2`): R292's D1–D3 coincide with my m5, m7 and m1. I applied them in R292's
+wording on top of my repairs, each marked `% (R292 repair Dn, applied by R291)`. D1 is the Def 2.4 wording
+"together with explicit solutions for those finitely many exceptions". D2 is the rational-to-integer
+reduction for a constant ratio, via Lemma 3.3: t4^J ∈ Z[1/2], tk ∈ Z_(2). D3 is the Problem 4 rewrite:
+the Sophie Germain neighbourhood of (0,1), with X = 3^10 named as a member not covered, and the cubic
+descent at (3,0). PDF rebuilt: 22 pp, no errors or undefined references.
+
 **Overall verdict: SOUND.** No FATAL or MAJOR defect. All main theorems (3·2^s+1, 63·2^s+1, 7·4^s+9,
 4^s+105, the nine 4^s+k) and the new Prop 5.12 (15·2^s+1, 60∤s) re-verified by from-scratch code and,
 where feasible, by hand; Lemma 2.2/Cor 2.3/Thm 2.7, the Theorem W chain, Lemma 5.13/5.14/Thm 5.15 re-derived.

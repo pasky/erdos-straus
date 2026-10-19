@@ -347,9 +347,9 @@ and of $x,y,z\in\Q[Y]$ with
 \]
 For $s=s_0+\sigma t$ ($t\ge0$) put $Y=2^{\omega t}$; then $n(Y)=n_s$.  The
 rule \emph{applies} at $s$ if $x,y,z$ take positive integer values there.
-An \emph{exponent covering} of the family is a finite list of rules such
-that all but finitely many $s\ge0$ are covered by some rule; the finitely
-many remaining $s$ are treated separately.% (R291 repair m5)
+An \emph{exponent covering} of the family is a finite list of rules covering
+all but finitely many $s\ge0$, together with explicit solutions for those
+finitely many exceptions.% (R291 repair m5; R292 repair D1, applied by R291)
 \end{definition}
 
 ET and divisor classes are rules with $s_0=0$, $\sigma=1$, $Y=b^s$ and
@@ -1064,8 +1064,10 @@ $4xyz=n(xy+yz+zx)$ identically, where $n=n(Y)=c_0Y^D+k$, such that
 $x,y,z$ take positive integer values at $Y=2^{s/D}$ for every $s\in C$.  It
 has \emph{constant gap} $m$ if $4x-n=m\in\Z$, and \emph{constant ratio} $t$
 if $x=tn$ with $t\in\N$ (in both cases up to permuting $x,y,z$).  A constant
-ratio $t\in\Q$ is automatically integral: on $C$ the odd $n$ is prime to
-any fixed odd prime, since $n\equiv4^J$ modulo it.% (R291 repair m7)
+ratio $t\in\Q_{>0}$ is automatically in $\N$: integrality of $tn$ on $C$
+gives, by Lemma~\ref{lem:special}, $t4^J\in\Z[1/2]$ and $tk\in\Z_{(2)}$, so
+the denominator of $t$ has neither an odd prime factor nor a factor $2$;
+hence the headline ``constant ratio $x/n$'' is no weaker than $t\in\N$.% (R291 repair m7; R292 repair D2, applied by R291)
 \end{definition}
 
 Every rule of Definition~\ref{def:rule} whose exponent class contains all
@@ -1485,9 +1487,13 @@ Remark~\ref{rem:EH} with the absence of sterile non-square points
 \end{problem}
 \begin{problem}
 Is ES for all $2^a3^b+1$ provable by a finite certificate?  The two
-$\{2,3\}$-unit-square boundary points are harmless (a neighbourhood of the boundary point where $n=48X^4+1$, $X\to1/2$, lies
-in the Sophie Germain window classes $X\not\equiv0,\pm1\pmod{11}$ of
-Theorem~\ref{thm:proth3}, and $8X^3+1$ factors)% (R291 repair m1)
+$\{2,3\}$-unit-square boundary points are harmless: near the boundary point $(a,b)=(0,1)$, where $n=48X^4+1$, the
+Sophie Germain window of Theorem~\ref{thm:proth3} applies because $X$ tends
+to $1/2\equiv6\pmod{11}$ (it applies whenever $X\not\equiv0,\pm1\pmod{11}$,
+not to the whole slice $X=2^t3^{t'}$; e.g.\ $X=3^{10}$ is not covered by
+the rules of Theorem~\ref{thm:proth3}); near $(3,0)$ the cubic factorisation
+$8X^3+1=(2X+1)(4X^2-2X+1)$ provides descent to a smaller Pierpont number% (R291 repair m1; R292 repair D3, applied by R291)
+
 , but a covering of the remaining two-dimensional exponent
 space was not found \cite[\S1]{Exp15}.
 \end{problem}
