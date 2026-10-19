@@ -1267,3 +1267,189 @@ $4^s+297$ ($4^3+297=19^2$) holds for windows $m$ with $19\nmid m$ and for
 constant ratio; for $19\mid m$ it is \status{open}
 \cite[Prop.~4.1]{ExpOpen}.
 \end{remark}
+
+\subsection{The family $15\cdot2^s+1$}\label{sec:fifteen}
+Here $15+1=4^2$: Theorem~\ref{thm:sterile} and Corollary~\ref{cor:nocover}
+apply, and no rule reaching $\mu=0$ is known.  Away from $\mu=0$ ET classes
+suffice.
+
+\begin{proposition}[\status{proved}, computer-assisted; new]\label{prop:15half}
+For every $s\ge1$ with $60\nmid s$, $4/(15\cdot2^s+1)$ is a sum of three unit
+fractions.
+\end{proposition}
+
+\begin{proof}
+The eleven classes of Table~\ref{tab:15} apply on the listed exponent
+classes for all $s\ge0$.  By hand: $s\not\equiv0\pmod3$ is covered by the two
+classes modulo $7$ (there $n\equiv3,5\pmod 7$); for $3\mid s$, the classes
+with $31$ cover $s\equiv1,2\pmod5$ and those with $11$, $99$ cover
+$s\equiv3,4,5,8\pmod{10}$; what remains is $3\mid s$ with
+$s\equiv0,9\pmod{10}$, i.e.\ $s\equiv0,9,30,39\pmod{60}$, and $s\equiv9\pmod
+{12}$ (class $39$), $s\equiv39$ and $s\equiv30\pmod{60}$ (the two classes with
+$287=7\cdot41$, $\ord_{287}(2)=60$) leave only $s\equiv0\pmod{60}$.  The
+identities and classes are re-checked by the script.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lll}
+\toprule
+class & condition on $n$ & exponents\\
+\midrule
+II2$(1,1,7)$ & $n\equiv3\ (7)$ & $s\equiv 1\pmod{3}$ \\
+II2$(2,1,7)$ & $n\equiv5\ (7)$ & $s\equiv 2\pmod{3}$ \\
+II2$(2,5,39)$ & $n\equiv37\ (39)$ & $s\equiv 9\pmod{12}$ \\
+D$(31)$ & $31\mid n$ & $s\equiv 1\pmod{5}$ \\
+II2$(1,8,31)$ & $n\equiv30\ (31)$ & $s\equiv 2\pmod{5}$ \\
+II2$(1,3,11)$ & $n\equiv10\ (11)$ & $s\equiv 4\pmod{10}$ \\
+II2$(1,5,99)$ & $n\equiv79\ (99)$ & $s\equiv 8\pmod{10}$ \\
+D$(11)$ & $11\mid n$ & $s\equiv 3\pmod{10}$ \\
+II2$(3,1,11)$ & $n\equiv8\ (11)$ & $s\equiv 5\pmod{10}$ \\
+II2$(1,3,287)$ & $n\equiv275\ (287)$ & $s\equiv 39\pmod{60}$ \\
+II2$(1,24,287)$ & $n\equiv191\ (287)$ & $s\equiv 30\pmod{60}$ \\
+\bottomrule
+\end{tabular}
+\caption{ET/divisor classes for $15\cdot2^s+1$, $60\nmid s$
+(Proposition~\ref{prop:15half}).}\label{tab:15}
+\end{table}
+
+Members with $s\equiv0\pmod3$ are Mordell-hard ($n\equiv121\pmod{840}$ for
+$s\ge3$), so Proposition~\ref{prop:15half} is not covered by Mordell's
+identities; but every class used is polynomial in $n$, and the remaining
+set $s\equiv0\pmod{60}$ is a neighbourhood of $\mu=0$ which, by
+Theorem~\ref{thm:sterile}, no further class polynomial in $n$ can remove
+entirely.  Corollary~\ref{cor:nocover} excludes constant-gap and
+constant-ratio rules there.  The natural next candidates are the
+moving-gap binomial menus.  We treat the menu (BI) of \S\ref{sec:forced}
+(``II-ad'': $a,d$ constant, $b,c\in\Q[Y]$), which produced
+Lemma~\ref{lem:63class} for $63\cdot2^s+1$.
+
+\begin{lemma}[limit conditions for (BI); \status{proved}; {\cite[Lemma~2.1]{Exp15}}]\label{lem:iiadlimit}
+Suppose a Type~II root family through $\mu=0$ of $n=15Y^D+1$ has $a,d\in\N$
+constant and $b,c\in\Q[Y]$, and put $f=4abd-n$, $f'=4acd-1$, so that
+$ff'=n+4a^2d$ by \eqref{eq:binom}.  If $f$ and $f'$ are both non-constant,
+then
+\begin{enumerate}
+\item[(C1)] $K:=1+4a^2d=15u^p$ for an odd prime $p\mid D$ and an integer
+$u\ge3$ with $u\equiv3\pmod 4$;
+\item[(C2)] $X:=f(1)$ and $X':=f'(1)$ are positive integers with
+$XX'=16+4a^2d=15(1+u^p)$, $X\equiv-16$ and $X'\equiv-1$ modulo $q$, the odd
+part of $ad$.
+\end{enumerate}
+If $f$ is constant, the family has constant gap; if $f'$ is constant, $c$
+is constant and the family is the ET class II2.
+\end{lemma}
+
+\begin{proof}
+If $f'$ is constant then so is $c$, and $b=(cn+a)/f'$ is a polynomial in $n$:
+an ET class of type II2, excluded at $\mu=0$ by Theorem~\ref{thm:sterile}.
+If $f$ is constant the gap $4x-n=f$ is constant (Theorem~\ref{thm:W}).
+Otherwise $n+4a^2d=15(Y^D+K/15)$ is reducible, and by Capelli's theorem
+$-K/15$ is a $p$-th power for a prime $p\mid D$ or lies in $-4\Q^4$ with
+$4\mid D$.  The second needs $K$ even, but $K$ is odd; $p=2$ is impossible as
+$-K/15<0$.  So $K/15=u^p$ with $p$ odd and $u=r/v\in\Q_{>0}$ in lowest terms;
+$Kv^p=15r^p$ forces $v^p\mid15$, so $v=1$.  $K$ is odd, so $u$ is odd;
+$u=1$ would give $4a^2d=14$; so $u\ge3$.  From $K\equiv1\pmod4$ and
+$u^p\equiv u\pmod 8$ we get $-u\equiv1\pmod4$.  For (C2): $f,f'$ are positive
+on $C$, so they have positive leading coefficients, and since $n+4a^2d$ has
+no root in $[0,\infty)$ neither factor has; so $X,X'>0$.  By
+Lemma~\ref{lem:special} applied to $b=(f+n)/(4ad)$ and $c=(f'+1)/(4ad)$, for
+every odd prime $\ell$, $b(1),c(1)\in\Z_{(\ell)}$, hence $X=4ad\,b(1)-16$ and
+$X'=4ad\,c(1)-1$ lie in $\Z_{(\ell)}$, with $\ell^{v_\ell(ad)}\mid X+16$ and
+$\ell^{v_\ell(ad)}\mid X'+1$.  At $2$: $f(0)=4ad\,b(0)-1\in\Z_{(2)}$, and
+$f=\kappa P$ with $P$ monic whose roots $\alpha$ are roots of $n+4a^2d$, hence
+$2$-adic units ($\alpha^D=-K/15$); so $v_2(P(1))\ge0=v_2(P(0))$ and
+$v_2(X)\ge v_2(f(0))\ge0$.  Likewise for $X'$.  Finally
+$XX'=(n+4a^2d)(1)=16+4a^2d=15+K$.
+\end{proof}
+
+\begin{lemma}[\status{proved} + exhaustive check; cf.\ {\cite[Lemma~2.2$'$]{Exp15}}]\label{lem:boxed}
+The equation $a(m_1m_2d-4)=m_1+16m_2$ has exactly $39$ solutions in positive
+integers.  All have $a\le81$, $m_1\le100$ and $m_1d\le120$; $31$ of them have
+$a$ and $d$ odd, and among these $15\mid4a^2d+1$ only for $(a,d)=(1,11)$,
+where $(4a^2d+1)/15=3$.
+\end{lemma}
+
+\begin{proof}
+The equation is equivalent to $m_2(aP-16)=m_1+4a$ with $P:=m_1d$, so $aP>16$.
+If $m_2=1$: $a(P-4)=m_1+16\le P+16$, so $P\ge5$ and $a\le(P+16)/(P-4)\le21$;
+also $m_1(ad-1)=4a+16$, so $ad\ge2$, $m_1\le4a+16\le100$ and
+$P=4+(m_1+16)/a\le120$.  If $m_2\ge2$: $2(aP-16)\le m_1+4a\le P+4a$, i.e.\
+$(2a-1)P\le32+4a$.  For $P\ge5$ this gives $a\le6$ and $P\le36$.  For
+$P\le4$ (so $m_1,d\le4$) we use $aP>16$:
+$P=1$: $m_2=(1+4a)/(a-16)=4+65/(a-16)$, so $a-16\mid65$ and $a\le81$;
+$P=2$: $m_2=2+(m_1+32)/(2a-16)$, so $2a-16\le34$, $a\le25$;
+$P=3$: $3m_2=4+(3m_1+64)/(3a-16)$, so $3a-16\le73$, $a\le29$;
+$P=4$: $m_2=1+(m_1+16)/(4a-16)$, so $4a-16\le20$, $a\le9$.
+In all cases $a\le81$, $m_1\le100$, $P\le120$, and $m_2$ is determined; the
+script enumerates this range.
+\end{proof}
+
+\begin{theorem}[\status{proved}; {\cite[Thm.~2.2]{Exp15}}]\label{thm:iiad3}
+Every family as in Lemma~\ref{lem:iiadlimit} with $f,f'$ non-constant has
+$u\equiv7\pmod8$; equivalently, $a$ or $d$ is even.  In particular the
+branch $u\equiv3\pmod8$ is empty, for every root degree $D$ and every
+factorisation of $n+4a^2d$.
+\end{theorem}
+
+\begin{proof}
+$4a^2d=15u^p-1\equiv-u-1\pmod8$.  If $u\equiv3\pmod8$ this is $\equiv4\pmod
+8$, so $a$ and $d$ are odd and $q=ad$.  By (C2), $X=m_1ad-16$ and
+$X'=m_2ad-1$ with integers $m_1,m_2\ge1$, and
+$(m_1ad-16)(m_2ad-1)=16+4a^2d$; dividing by $ad$ after expanding gives
+$a(m_1m_2d-4)=m_1+16m_2$.  By Lemma~\ref{lem:boxed}, $15\mid4a^2d+1$ forces
+$(a,d)=(1,11)$ and $K/15=3$, which is not a $p$-th power with $p\ge3$.  This
+contradicts (C1).
+\end{proof}
+
+\begin{remark}[what remains open for $15\cdot2^s+1$]\label{rem:15open}
+(i) The branch $u\equiv7\pmod8$ of (BI) is \status{open}.  Writing
+$4a^2d=2^Ea_1^2d_1$ ($a_1d_1$ odd), $E\ge3$, a solution needs $15u^p-1$ to
+have an unusually large part $2^Ea_1^2$; for $a=1$ this is a $2$-adic
+approximation of $15^{-1/p}$ by integers $u$, which by Ridout's theorem has
+only finitely many (ineffective) solutions with $a_1\le u^{p/2-1-\epsilon}$
+for each $p$, while the sub-branch with large $a_1$ is of a different,
+superelliptic type \cite[\S2.4]{Exp15}.  A search found no solution of
+(C1)+(C2) for $p=3$, $u\le2\cdot10^4$, and correspondingly smaller ranges up
+to $p=23$ (\status{evidence}); the same search recovers the data
+$(u,p,a,d,X,X')=(3,3,5,17,21,84)$ of Lemma~\ref{lem:63class} for $c_0=63$.
+(ii) The other binomial menus (Type~II with $a,c$ or $c,d$ constant, Type~I
+with $a,c$ constant) reduce in the same way to limit conditions; for
+$(15,1)$ no family was found for small parameters (\status{evidence}, the
+same searches that find the cubic family of Remark~\ref{rem:proth3}(ii) for
+$3\cdot2^s+1$ and Lemma~\ref{lem:63class} for $63\cdot2^s+1$).  Searches for
+one-constant moving-gap families (II with only $d$ constant) also found
+nothing; for even $D$ such families need $\deg a\ge2$
+\cite[Lemma~3.1]{Exp15}.  (iii) So ES for $15\cdot2^s+1$, $60\mid s$, is
+\status{open}; it is the smallest family with a unit-square point for which
+no rule through $\mu=0$ is known.
+\end{remark}
+
+\subsection{Open problems}\label{sec:open}
+\begin{problem}
+Prove ES for every $15\cdot2^s+1$, i.e.\ find a rule through $\mu=0$, or prove
+that every rule polynomial in a root $2^{s/D}$ misses $\mu=0$.  The second
+alternative would need a sterility theorem for moving-gap families, beyond
+Theorem~\ref{thm:W}; the first, by Theorem~\ref{thm:iiad3}, a (BI) family on
+the branch $u\equiv7\pmod8$ or a different menu.
+\end{problem}
+\begin{problem}
+Decide $4^s+33$, $4^s+273$, $4^s+297$ and the unit-square families
+$31\cdot4^s+33$, $7\cdot4^s+57$, $47\cdot4^s+17$, $55\cdot4^s+9$,
+$23\cdot4^s+41$ (for the last a window reaches $\mu=0$ but the $2$-adic line
+through it is not covered \cite[\S2]{Exp105}).
+\end{problem}
+\begin{problem}
+Is the existence of a finite ET/divisor covering of $c_0\cdot4^s+k$
+($4\nmid c_0$, $k\equiv1\pmod8$) equivalent to $c_0+k\ne4^J$?  This is the
+conjunction of the exponential local--global statement (EH) of
+Remark~\ref{rem:EH} with the absence of sterile non-square points
+(\status{conjecture} E of the notebook \cite{ExpNearSq}).
+\end{problem}
+\begin{problem}
+Is ES for all $2^a3^b+1$ provable by a finite certificate?  The two
+$\{2,3\}$-unit-square boundary points are harmless ($48X^4+1$ with
+$X=2^t3^{t'}$ is handled by the rules of Theorem~\ref{thm:proth3}, and
+$8X^3+1$ factors), but a covering of the remaining two-dimensional exponent
+space was not found \cite[\S1]{Exp15}.
+\end{problem}
