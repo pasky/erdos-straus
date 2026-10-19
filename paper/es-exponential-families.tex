@@ -234,8 +234,8 @@ an explicit solution
  \pi^{I}(a,b,c,d)=(abdn,\ acd,\ bcd)\quad\text{(I1--I4)},\qquad
  \pi^{II}(a,b,c,d)=(abd,\ acdn,\ bcdn)\quad\text{(II1--II3)},
 \]
-where three of $a,b,c,d$ are given by $\kappa$ or by $\kappa$ alone, and the
-remaining ones are the polynomials in $n$ listed in the table.
+where two or three of $a,b,c,d$ depend on $\kappa$ alone, and the
+remaining ones are the polynomials in $n$ listed in the table.% (R291 repair m6)
 \begin{table}[ht]
 \centering\small
 \begin{tabular}{lllll}
@@ -348,7 +348,8 @@ and of $x,y,z\in\Q[Y]$ with
 For $s=s_0+\sigma t$ ($t\ge0$) put $Y=2^{\omega t}$; then $n(Y)=n_s$.  The
 rule \emph{applies} at $s$ if $x,y,z$ take positive integer values there.
 An \emph{exponent covering} of the family is a finite list of rules such
-that every $s\ge0$ at which no rule applies is treated separately.
+that all but finitely many $s\ge0$ are covered by some rule; the finitely
+many remaining $s$ are treated separately.% (R291 repair m5)
 \end{definition}
 
 ET and divisor classes are rules with $s_0=0$, $\sigma=1$, $Y=b^s$ and
@@ -665,10 +666,12 @@ do this.  The two classes $X\equiv\pm1\pmod{11}$ that Step~1 misses are the
 neighbourhoods of the integer point $X=\pm1$, where $48X^4+1=7^2$ is a
 square; those members with $12\nmid s$ are handled by the classes modulo $7$
 and $15$ of Step~2 (e.g.\ $s=4$, $n=49$, by $7\mid n$), and those with
-$12\mid s$ through $61$.  (A rule polynomial in $X$ with
-integrality depending only on $X\bmod 33$ cannot be valid on a class
-containing $X=\pm1$, by the odd-square argument applied to the integer
-$49$, \cite[\S4.3]{MenuSterility}.)
+$12\mid s$ through $61$.  (No Type~I/II family polynomial in $X$, in
+particular no rule of the window-$11$ menu $d=3^\alpha f_+^\beta f_-^\gamma$,
+whose integrality depends only on $X\bmod 33$, is valid on a class
+containing $X=\pm1$, by the odd-square argument at the integer point
+$48+1=7^2$ \cite[\S4.3]{MenuSterility}; divisor families by $7$ are, e.g.\
+the first line of Step~2.)% (R291 repair m2)
 
 (ii) A second, independent certificate was found in \cite[Thms.~2.2,
 2.3]{Exp105}: for $3\cdot4^s+1$ a tree with nine leaves (three windows
@@ -1060,7 +1063,9 @@ $C=\{s\equiv0\pmod L,\ s\ge s_1\}$ with $D\mid L$, and $x,y,z\in\Q[Y]$ with
 $4xyz=n(xy+yz+zx)$ identically, where $n=n(Y)=c_0Y^D+k$, such that
 $x,y,z$ take positive integer values at $Y=2^{s/D}$ for every $s\in C$.  It
 has \emph{constant gap} $m$ if $4x-n=m\in\Z$, and \emph{constant ratio} $t$
-if $x=tn$ with $t\in\N$ (up to permuting $x,y,z$).
+if $x=tn$ with $t\in\N$ (in both cases up to permuting $x,y,z$).  A constant
+ratio $t\in\Q$ is automatically integral: on $C$ the odd $n$ is prime to
+any fixed odd prime, since $n\equiv4^J$ modulo it.% (R291 repair m7)
 \end{definition}
 
 Every rule of Definition~\ref{def:rule} whose exponent class contains all
@@ -1250,7 +1255,8 @@ $\leg{\rho_1\rho_2}\varepsilon=1$, contradicting $\rho_1\equiv-\rho_2\pmod
 \end{proof}
 
 \begin{corollary}[\status{proved}, with Computation~\ref{comp:W}]\label{cor:nocover}
-The families $15\cdot2^s+1$, $31\cdot4^s+33$, $7\cdot4^s+57$, $63\cdot4^s+1$,
+The families $15\cdot2^s+1$, $31\cdot4^s+33$, $7\cdot4^s+57$, $63\cdot2^s+1$, $63\cdot4^s+1$,% (R291 repair m4)
+
 $47\cdot4^s+17$ and $55\cdot4^s+9$ admit no exponent covering by finitely
 many ET classes, divisor classes, and rules that are constant-gap or
 constant-ratio root families \textup{(}of any degrees $D$\textup{)}.
@@ -1270,9 +1276,9 @@ Computation~\ref{comp:W}, Corollary~\ref{cor:ratio}).
 fails for any member.  It explains why the Sophie Germain mechanism works
 for $(3,1)$ and $(7,9)$ but cannot work for $(15,1)$ or $(63,1)$, and
 \emph{moving-gap} families (\S\ref{sec:forced}, (BI)) are not covered:
-Lemma~\ref{lem:63class} is such a family, so for $63\cdot2^s+1$ the
+Lemma~\ref{lem:63class} is such a family, so for $63\cdot2^s+1$ (and its subfamily $63\cdot4^s+1$) the
 obstruction of Corollary~\ref{cor:nocover} is real but not an obstruction
-to ES.  (ii) Earlier versions of these results covered only windows with
+to ES.% (R291 repair m4)  (ii) Earlier versions of these results covered only windows with
 unsplit pieces \cite[Prop.~2.7, Cor.~2.8]{Exp105} or restricted Sophie
 Germain menus \cite[Props.~4.1, 4.3]{MenuSterility}; Theorem~\ref{thm:W}
 contains them.  (iii) An analogue at the non-unit square point of
@@ -1380,7 +1386,9 @@ $XX'=(n+4a^2d)(1)=16+4a^2d=15+K$.
 
 \begin{lemma}[\status{proved} + exhaustive check; cf.\ {\cite[Lemma~2.2$'$]{Exp15}}]\label{lem:boxed}
 The equation $a(m_1m_2d-4)=m_1+16m_2$ has exactly $39$ solutions in positive
-integers.  All have $a\le81$, $m_1\le100$ and $m_1d\le120$; $31$ of them have
+integers.  The proof gives a priori $a\le81$, $m_1\le100$, $m_1d\le120$
+(the solutions have $a\le81$, $m_1\le36$, $m_1d\le40$);% (R291 repair m10)
+ $31$ of them have
 $a$ and $d$ odd, and among these $15\mid4a^2d+1$ only for $(a,d)=(1,11)$,
 where $(4a^2d+1)/15=3$.
 \end{lemma}
@@ -1430,10 +1438,11 @@ with two constant parameters.
 \begin{remark}[what remains open for $15\cdot2^s+1$]\label{rem:15open}
 (i) The branch $u\equiv7\pmod8$ of (BI) is \status{open}.  Writing
 $4a^2d=2^Ea_1^2d_1$ ($a_1d_1$ odd), $E\ge3$, a solution needs $15u^p-1$ to
-have an unusually large part $2^Ea_1^2$; for $a=1$ this is a $2$-adic
-approximation of $15^{-1/p}$ by integers $u$, which by Ridout's theorem has
-only finitely many (ineffective) solutions with $a_1\le u^{p/2-1-\epsilon}$
-for each $p$, while the sub-branch with large $a_1$ is of a different,
+have an unusually large part $2^Ea_1^2$; if $a_1\le u^{p/2-1-\epsilon}$ this
+forces $|15u^p-1|_2\le u^{-1-\epsilon}$, a $2$-adic approximation of
+$15^{-1/p}$ by integers $u$, which by Ridout's theorem has only finitely
+many (ineffective) solutions for each $p$,% (R291 repair m3)
+ while the sub-branch with large $a_1$ is of a different,
 superelliptic type \cite[\S2.4]{Exp15}.  A search found no solution of
 (C1)+(C2) for $p=3$, $u\le2\cdot10^4$, and correspondingly smaller ranges up
 to $p=23$ (\status{evidence}); the same search recovers the data
@@ -1476,9 +1485,10 @@ Remark~\ref{rem:EH} with the absence of sterile non-square points
 \end{problem}
 \begin{problem}
 Is ES for all $2^a3^b+1$ provable by a finite certificate?  The two
-$\{2,3\}$-unit-square boundary points are harmless ($48X^4+1$ with
-$X=2^t3^{t'}$ is handled by the rules of Theorem~\ref{thm:proth3}, and
-$8X^3+1$ factors), but a covering of the remaining two-dimensional exponent
+$\{2,3\}$-unit-square boundary points are harmless (a neighbourhood of the boundary point where $n=48X^4+1$, $X\to1/2$, lies
+in the Sophie Germain window classes $X\not\equiv0,\pm1\pmod{11}$ of
+Theorem~\ref{thm:proth3}, and $8X^3+1$ factors)% (R291 repair m1)
+, but a covering of the remaining two-dimensional exponent
 space was not found \cite[\S1]{Exp15}.
 \end{problem}
 
@@ -1526,8 +1536,9 @@ Theorem~\ref{thm:c7}, \texttt{review\_r245\_cert.py} and
 \texttt{review\_r235\_cert.py} and \texttt{review\_r236\_cert.py} for
 Theorem~\ref{thm:nine}, and \texttt{review\_r257\_thmW.py},
 \texttt{review\_r258\_thmW.py} for Computation~\ref{comp:W}); the
-certificate of Proposition~\ref{prop:15half} is new and has so far been
-checked only by the script above.
+certificate of Proposition~\ref{prop:15half} is new and has been checked by
+the script above and by an independent reviewer's program
+(\texttt{review\_r291\_tables.py}).% (R291 repair m8)
 
 \fussy
 \section*{Acknowledgements and provenance}

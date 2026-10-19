@@ -8,7 +8,15 @@ Remark 5.16 = rem:iiadhyp).
 
 From-scratch scripts: `scripts/review_r291_*.py` (no code shared with `c1_expfam_verify.py`).
 
-## Status: IN PROGRESS
+## Status: COMPLETE (round 1)
+
+**Repairs applied** (author quiet; last author commit 3dbd5c00 predates this review): m1–m8 and m10
+applied directly to `paper/es-exponential-families.tex`, each marked `% (R291 repair mN)`; PDF rebuilt
+(22 pp, no undefined references). m9 (optional) not applied.
+
+**Overall verdict: SOUND.** No FATAL or MAJOR defect. All main theorems (3·2^s+1, 63·2^s+1, 7·4^s+9,
+4^s+105, the nine 4^s+k) and the new Prop 5.12 (15·2^s+1, 60∤s) re-verified by from-scratch code and,
+where feasible, by hand; Lemma 2.2/Cor 2.3/Thm 2.7, the Theorem W chain, Lemma 5.13/5.14/Thm 5.15 re-derived.
 
 ## Summary verdicts per claim
 
@@ -123,7 +131,7 @@ Theorem-W chain and of §5.2 re-derives; the new Proposition 5.12 is now indepen
 Theorem 4.1 …)" is false as written: Step 1 misses $X\equiv\pm1\pmod{11}$, and the Step-2 classes are
 classes of $n$, which need not contain these members. Counterexample: $X=3^{10}$ ($X\equiv1$ (11),
 $n\equiv4$ (7), $n\equiv4$ (15), $61\nmid n$); 224 of the pairs $t,t'<60$ are not handled
-(`/tmp`-style check reproduced in the review log; trivial to rerun). The source (EXP_15 Lemma 1.1)
+(`review_r291_misc.py`, last block). The source (EXP_15 Lemma 1.1)
 says only that ES holds for $X\not\equiv0,\pm1\pmod{11}$ and that a *neighbourhood* of the boundary
 point $(a,b)=(0,1)$ lies in the window classes ($X\to1/2\equiv6\pmod{11}$).
 *Repair:* "(a neighbourhood of the boundary point $(0,1)$, where $n=48X^4+1$ with $X\to1/2$, lies in

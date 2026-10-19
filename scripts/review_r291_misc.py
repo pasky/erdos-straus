@@ -45,3 +45,14 @@ print('63*2^53<1e18', 63 * 2 ** 53 < 10 ** 18, '63*2^54>1e18', 63 * 2 ** 54 > 10
       '4^29+249<1e18', 4 ** 29 + 249 < 10 ** 18, '4^30>1e18', 4 ** 30 > 10 ** 18)
 # 3*2^s+1 primes listed
 print('3*2^s+1 primes s<200:', [s for s in range(200) if isprime(3 * 2 ** s + 1)])
+# Problem 4 claim (m1): 48X^4+1, X = 2^t 3^u, handled by the rules of Thm 4.1?
+bad = []
+for t in range(60):
+    for u in range(60):
+        X = 2 ** t * 3 ** u
+        n = 48 * X ** 4 + 1
+        sg = X % 11 not in (0, 1, 10)
+        st2 = n % 7 in (0, 6) or n % 15 in (7, 13) or n % 5 == 0 or n % 61 == 0
+        if not (sg or st2):
+            bad.append((t, u))
+print('Problem 4: pairs t,u<60 not handled by Thm 4.1 rules:', len(bad), bad[:6])
