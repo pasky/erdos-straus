@@ -91,3 +91,24 @@ root 2^{s/D}, constant gap or constant ratio).
 ## Defects
 
 (numbered; FATAL / MAJOR / MINOR)
+
+### E. Section 5.2: the family 15·2^s+1 beyond Prop 5.12
+
+| claim | verdict | notes |
+|---|---|---|
+| Lemma 5.13 (limit conditions for (BI)) | **SOUND** | f′ constant ⇒ c constant ⇒ b=(cn+a)/f′ is exactly II2(a,d,f′) (f′+1=4acd, and f′ | cn+a ⇔ f′ | n+4a²d since gcd(4ad,f′)=1) ⇒ excluded by Thm 2.7; f constant ⇒ constant gap ⇒ Thm W/Comp 5.8. Capelli step, v=1, u≥3, u≡3 (4) (15≡−1 (8), u^p≡u (8)) re-derived. (C2): X=4ad·b(1)−16 ∈ Z_(ℓ) with ℓ^{v_ℓ(ad)} | X+16; 2-adic: roots of n+4a²d are 2-adic units so v₂(X)≥v₂(f(0))≥0; XX′=16+4a²d. All correct. |
+| Lemma 5.14 (boxed equation) | **SOUND** | the new bounds re-derived case by case (m₂=1: a≤21, m₁≤100, P≤120; m₂≥2, P≥5: a≤6, P≤36; P=1,2,3,4: a≤81,25,29,9). Own enumeration in the box a,m₁<3000 (d bounded by m₂≥1): exactly **39** solutions; 31 with a,d odd; 15 | 4a²d+1 only at (1,11), quotient 3. Actual maxima: a=81, m₁=36, m₁d=40 (the stated 100/120 are a-priori bounds, true). |
+| Thm 5.15 | **SOUND** (as a statement about the menu (BI) with b, c themselves integer-valued) | u≡3 (8) ⇒ 4a²d≡4 (8) ⇒ a,d odd, q=ad; X=m₁ad−16, X′=m₂ad−1, m_i≥1; expansion to a(m₁m₂d−4)=m₁+16m₂ checked. Sanity: for c₀=63 the u≡3 (8) branch is inhabited by Lemma 4.3 (u=3, a=5, d=17 odd, X=21, X′=84), consistent. |
+| Rem 5.16 (integrality hypothesis) | SOUND | (a,b,c,d)↦(a/h,b/h,c/h,h²d) preserves x,y,z and the Type II identity (both sides scale by 1/h); h=5 on Lemma 4.3 gives a=1, d=425, b(1)=c(1)=1/20 — checked. The scope caveat is stated honestly in the lemma, the theorem and the abstract ("one branch of the moving-gap binomial menu"). |
+| Rem 5.17 (open branch) | EVIDENCE/Assessment — OK, but see m3 | |
+
+### F. Side claims (Remarks), checked by `review_r291_misc.py`
+
+All correct: Rem 4.2(iii) (3·2^s+1 Mordell-hard iff 12|s, then 529 mod 840; prime list s=1,…,189);
+Rem 4.5 (63·2^s+1 Mordell-hard iff 4|s; only squares s=0,8 — also re-derived by hand); 7·4^s+9 even s≥2
+≡121; 15·2^s+1, 3|s ⇒ ≡121; Rem 4.11 (k≡9 (24) list; k∈{9,81,129,201,249} never Mordell-hard for s≥2;
+k=153 Mordell-hard exactly at s≡2 (6), covered by D₁₃); 4^s+105 square points; Rem 4.10(i) (q=18837001
+prime, ord_q(4)=45, (n_s/q)=−1 on s≡34 (45)); 10^18 thresholds (s≤53, s≤29).
+ET p. 6 quote ("a finite set of covering congruence strategies") verified in the arXiv PDF.
+Not accessed by me: Mihnea–Dumitru (arXiv:2509.00128), Salez, Yamamoto, Lang (Capelli statement checked
+from memory of the standard statement), Izotov/FFK.
