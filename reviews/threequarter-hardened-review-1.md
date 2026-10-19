@@ -259,6 +259,15 @@ term is written Λτ(k)log z/H; the derivation gives Λτ(k)log H/H (sum of
 d/(d²H) over d ≤ H). Since log H ≤ log z this is a valid (looser) bound;
 no repair needed beyond optionally writing log H.
 
+## Comparison with earlier reviews (read after the above was written)
+
+`reviews/es-threequarter-note-review.md` and
+`reviews/es-threequarter-blind-audit.md` (both on v1) also found no
+load-bearing gap. My m7 coincides with blind-audit B3. Their other items
+concern material deleted in C2 (pruned route, ordered-atom replay, D) or were
+fixed in C2 (B4 = M8). m1–m6 are new. This review, like the earlier ones, is
+internal; it does not substitute for an external referee.
+
 ## Bottom line
 
 Headline 3/4 claim: **SOUND** as an internally proved result. Recommended
