@@ -417,3 +417,64 @@ statement at fixed p; uses the quadratic character of p (vanishes at squares); 4
 controls the *class* of a divisor of one integer in a modulus tied to the solution; one-sided, with error below a
 (log p)² main term; not an average over any parameter attached to p. Board #2 (three labs) was unanimous that no known
 technique has this profile.
+
+## 5. Best partial results and conditional results
+
+*All internal; none externally refereed. "PROVED rel. X" = proved relative to the published theorems X.*
+
+**5.1 Unconditional, on average / almost all** (B6 applies to every item).
+* E(N) ≪ N exp(−c(log N)^{3/4}) (INTERNALLY PROVED; `paper/es-threequarter-note`), shift-uniform in short intervals and
+  progressions ((D)30), uniform in the numerator m ((D)31); 3/4 sharp for CRT architectures ((D)24, (D)27, (D)28).
+* Σ_{p≤N} f_I(p) ≪ N log²N (PROVED rel. Kuznetsov/Petersson, Weil, twisted Weil, Selberg 3/16, λ₁ > 1/4; (D)32b;
+  *needs expert scrutiny*).
+* m/n density transition at log N ≍ m^{1/3}: upper half Thm U (PROVED rel. BV, Shiu; ineffective), lower half Thm L′
+  (PROVED rel. ET Thm 7.1, BT, Shiu, PV); sharp order CONDITIONAL on SEL_m ((D)31 follow-ups).
+* Moving windows (board #2 slate, (J)105; PROVED rel. Henriot's erratum, Siegel–Walfisz, Mertens): for 0 < α < 1/6, all but
+  O(X/L^{4/3−2α−ε}) primes p ≡ 1 (8) in [X, 2X] have a Type II solution at *every* forced prime window q ≡ 3 (8) in
+  [L^α, 2L^α] (L = log X). Witness-location information; says nothing about hard primes.
+* Almost-all caps: #{p ≤ X : e*(p) > (log X)^A/4} ≤ X^{2/A+o(1)} (PROVED rel. Montgomery's large sieve, PNT in APs; (J)83).
+
+**5.2 Unconditional, pointwise — for relaxations or thin families, not ES.**
+* The BM main term: M_BM(p) ≥ (3/(16π²) − o(1))(log p)² (Burgess) for every large prime; five-slice analogue
+  ≥ (45/(32π²) − o(1))L² ((J)100, (J)105). Main terms only.
+* The BM layer is pointwise free: for odd n, some t ≡ 0 (4), t ≤ 4ℓ(n), has M_t^lev(n) > 0 iff n is not a square ((J)103).
+* **Self-generated mute set** ((J)64, `CAP_POINTWISE.md`): for a prime window q = 4x − n with q ≡ 4 − n (8) and (q/n) = −1,
+  reciprocity forces −1 ∈ ⟨primes of x⟩ mod q, giving 4/n = 1/x + 1/y + 1/z with z of square denominator and exponent cap
+  e < q. Hence e*(n) ≪ rad(n)^5 for every odd n > 1 (PROVED, effective) and e*(n) ≤ (16 log n + 70)² for odd non-squares
+  (CONDITIONAL on GRH). Improved: e*(n) ≪_ε n₀^{1/4+ε} for n ≡ 1 (8) (rel. Pollack, ineffective), e*(p) ≤ (p − 5)/8 for primes
+  p ≡ 1 (8) (effective) ((J)66). ES is cap 0; cap 0 at a window is exactly the B2 event. The first genuinely pointwise
+  positive mechanism of the campaign — for a relaxation.
+* Provable T1-bearing cousins: ES^{(S)} (|S| ≥ 4, unconditional), ES^□ (elementary), V_φ (GRH; unconditional with a
+  power-saving exceptional set), ES_(k) for all k ((J)108), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
+  transfer.
+* Thin families: all 3·2^s + 1, 7·4^s + 9, 63·2^s + 1, 4^s + 105, 4^s + k (nine k) (PROVED, computer-assisted; §1). The
+  II-ad u ≡ 3 (8) branch of 15·2^s + 1 is sterile for every root degree ((J)102).
+* Function fields: one mute place makes the ES variant over F_q[T] a theorem at every P, unconditionally and effectively
+  (Bilharz/Weil; (J)30) — even where ES_q itself has no finite covering. ES over F_q[T] is a theorem in several
+  small-characteristic cases ((J)4).
+
+**5.3 Obstruction-side theorems** (useful because they bound what coverings can do).
+* Sterile Mordell points exist on the r-generic line for every prime r ≥ 2^{21.44} ≈ 2.8·10⁶: no finite ET covering handles
+  all primes with least QNR r (PROVED, computer-assisted; (J)70). r ≤ 13 is covered at level 1; r = 17 is open.
+* Function fields: ES_q(T^k) has no finite linear covering for q = 3^r, r ≥ 2; ES_q(T) none for q = 3^r, r ≥ 2, via a Weil-
+  reciprocity root-product law ((J)51, (J)56, (J)67; ET-type coverings included by (J)73). Only q = 3 (CONJECTURE 0.2) is open.
+* W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4}) for infinitely many Mordell-hard primes (`POINTWISE_OMEGA13.md`; rel. Gallagher,
+  Nair–Tenenbaum, energy bound); the Haar avoider exponent and the tail exponent of W over primes are both 3.
+* Infinitely many 3·2^s + 1 etc. lie outside every finite ET covering ((J)22 Cor 1.5, (J)68).
+
+**5.4 Conditional implications toward ES** (each hypothesis is ES-strength or non-standard).
+* **H⁻_BM(ε, p₀) ⟹ ES** (§2.4; PROVED implication; no standard conjecture known to imply H⁻_BM).
+* Conjecture X_slice (∃ c, f: cf | p + c + f, f(p + c + f)/(cf) ≡ 1 (4)) ⟹ ES(p) (`CONDITIONAL_ES.md` Thm 6.1; X_slice is
+  ES-strength, single-slice; EVIDENCE: solves every prime < 3000 and every Mordell-hard prime < 2·10⁶).
+* Caps, not ES: Hypothesis W (balanced lattice) ⟹ e*(p) ≤ (log log p)^{2+o(1)}; GRH + EQ ⟹ (log₂p)^{13/2+o(1)}; GRH + S ⟹
+  (log₂p)^{9/2+o(1)} ((J)85, (J)91; EQ, S non-standard; GRH alone does not reach (log₂p)^{O(1)} this way).
+* Amplification criteria ((J)86, PROVED): an exceptional family F ⊆ E with F(N) ≥ N e^{−o((log N)^{2/3})} infinitely often
+  contradicts Vaughan (exponent 3/4 with the internal note); one successor in (p, p + f(p)] with f = e^{o((log p)^{2/3})}
+  suffices for linear-scale branching. These are sharp "would suffice" targets for a disproof-by-propagation or a
+  proof-by-contradiction; no propagation law is known.
+
+**5.5 Standing conjectures with evidence** (CONJECTURE; EVIDENCE ranges in brackets).
+SQ: for odd n, Type I ∪ Type II empty ⟺ n square [odd non-squares ≤ 10⁷]; SQ₅ (five slices; n ≠ 105) [10⁶]; SQ_± and 3SQ
+(exception-free companions, (J)52, (J)53); PH (full-coset covers) [3.7·10⁷]; PM-II (3361 only) [10⁸]; X_win: a_min(p) ≪ log p;
+U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [10¹¹]); López's union conjecture; CONJECTURE 0.2
+(F₃[T] sterile point x*_c); x** sterile (r = 13; certified through ES level 2.59·10¹⁰).
