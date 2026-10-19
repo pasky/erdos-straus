@@ -281,8 +281,10 @@ def check_h():
         tot = 0.0
         for k1 in range(1, K + 1):
             for k2 in range(1, K + 1):
-                l = k1 * k2 // math.gcd(k1, k2)
-                tot += phi(l) / l**2 if l <= Kmax else 0
+                g = math.gcd(k1, k2)
+                l = k1 * k2 // g
+                # phi([a,b]) = phi(a)phi(b)/phi((a,b)); complete sum, no truncation
+                tot += ph[k1] * ph[k2] / ph[g] / l**2
         rat.append(tot / (1 + math.log(K)) ** 3)
     check("G sum phi([k,k'])/[k,k']^2 / (1+log K)^3 bounded", max(rat) < 1, f"({[round(r, 4) for r in rat]})")
 

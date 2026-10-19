@@ -36,8 +36,10 @@ together with a \emph{multiplier} $k\leq X^\kappa$, giving classes modulo
 $k\ell$.  Conditionally on $n\bmod\lcm(k)$ the hits at different primes are
 independent, and Bombieri--Vinogradov, Shiu's theorem and a Cauchy--Schwarz
 argument show that the expected number of hits is $\ll(\log X)^3$ in
-every conditional fibre and $\gg(\log X)^3$ in all but an exponentially
-rare set of fibres, against $(\log X)^2$ for Vaughan's classes.  Instead of
+every conditional fibre.  After conditioning on $n$ having no small prime
+factors, it is $\gg(\log X)^3$ outside an exponentially rare set of
+fibres.  For Vaughan's classes the corresponding count is
+$\asymp(\log X)^2$.  Instead of
 the large sieve we count on $[1,N]$ an explicit nonnegative majorant made
 of congruence classes, namely a small-prime selector times an even
 Bonferroni truncation.  Its coefficient ledger costs
@@ -107,7 +109,8 @@ up to $K=X^\kappa$, factorizations of $(k\ell+1)/4$ force classes modulo
 $k\ell$ (Lemma~\ref{lem:identity}).  Conditionally on $n\bmod k$, such a
 class is a class modulo $\ell$.  Summed over $k$, the extra mass is the
 factor $\sum_k\varphi(k)/k^2\asymp\log K\asymp t$
-(Theorem~\ref{thm:supply}).  There is a difficulty: $L_K=\lcm\{k\leq K\}$
+(Theorem~\ref{thm:supply}).  There is a difficulty: $L_K=\lcm\{k\leq K:
+k\equiv1\ (4)\}$
 satisfies $\log L_K\asymp K$.  Thus $L_K$ is far larger than $N$, and one
 cannot split $[1,N]$ into progressions modulo $L_K$ as \cite{LL} does.  We avoid any such
 splitting.  The majorant of Section~\ref{sec:assembly} is a fixed finite
@@ -125,10 +128,10 @@ family of forced classes (the classes
 $\mathcal R(M)=\{-4D\bmod M:D\mid((M+1)/4)^2\}$ of
 Remark~\ref{rem:supply}, and the $(a,D)$ and Case~A classes in the
 notation of \cite{KA3}) and of selector classes $0\bmod p$, with all
-primes involved $\leq N^{O(1)}$ and no condition on the moduli, and that
-is used through $N\E\nu+\sum|{\rm coefficients}|$ with coefficient sum
-$<N$.  Every such
-majorant saves at most $C(\log N)^{3/4}$; see \cite[Cor.~4.2]{KA3} and
+primes involved $\leq N^{A}$ for a fixed $A$ and no condition on the
+moduli, and that is used through $N\E\nu+\sum|{\rm coefficients}|$ with
+coefficient sum $<N$.  Every such majorant saves at most
+$C_A(\log N)^{3/4}$; see \cite[Cor.~4.2]{KA3} and
 \cite[Thm.~10.14]{SL}; the Case~A part uses \cite[Prop.~1.4, \S7]{ET}.
 The majorant of Theorem~\ref{thm:assembly} is of this form, since its
 atoms are classes in $\mathcal R(k\ell)$.  These results do not cover large sieves of super-polynomial
@@ -583,9 +586,13 @@ including fibres where $c$ is not reduced modulo $L_K$.  No Poisson
 approximation is involved.
 
 \section{An exponentially small conditioned void}\label{sec:void}
-The fibres $c$ with $(c,L_K)>1$ have a smaller multiplier set $\J_c$, and
-for them the lower bound in \eqref{eq:fibremass} can be weak.  A
-small-prime selector makes such fibres exponentially rare.  Put
+If $c$ is divisible by many primes dividing $L_K$, the multiplier set
+$\J_c$ is small, and then the lower bound in \eqref{eq:fibremass} is weak.
+Under the uniform measure such fibres have positive density.  For
+example, $Q\mid c$ for a fixed odd squarefree $Q$ has probability $1/Q$.
+A small-prime selector makes the \emph{low-mass} fibres exponentially rare.
+Fibres with $(c,L_K)>1$ caused by a few large primes remain common, but
+they are harmless.  Put
 \begin{equation}\label{eq:selector}
  y=Bt^3,\qquad S_y(n)=\ind_{(n,P_y)=1}.
 \end{equation}
@@ -619,8 +626,8 @@ using $\sum_{n>y}n^{-2}\leq1/\lfloor y\rfloor\leq2/y$.  Therefore
 $\Prob(Z>\eta\mid S_y=1)\leq\e^{4-\eta y}$ for every $\eta>0$.
 
 By \eqref{eq:hfull} there are absolute $a_0>0$ and $K_1$ with
-$h(\K(K))\geq a_0\log K$ for $K\geq K_1$.  On $S_y=1$ no prime $p\leq y$
-divides $c$.  A multiplier $k\notin\J_c$ therefore has a prime factor $p$
+$h(\K(K))\geq a_0\log K$ for $K\geq K_1$.  On $S_y=1$ no prime $p\leq y$ with
+$p\mid L_K$ divides $c$.  A multiplier $k\notin\J_c$ therefore has a prime factor $p$
 with $y<p\leq K$, $p\mid L_K$ and $p\mid c$.  By \eqref{eq:hremove},
 \[
  h(\J_c)\geq h(\K(K))-\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}
@@ -639,7 +646,7 @@ $\Prob(H_X=0\mid S_y=1)\leq\e^{-a_vt^3}+\e^{4-2a_vt^3}\leq\e^{-a_vt^3/2}$
 for large $X$.  Take $c_v=a_v/2$.
 \end{proof}
 A Markov bound for $Z$ would be far too weak here.  The exponential moment
-at parameter $y\asymp t^3$ makes the bad fibres as rare as the required
+at parameter $y\asymp t^3$ makes the bad fibres ($Z(c)>\eta$) as rare as the required
 saving.  The price is the expansion of $S_y$ into $2^{\pi(y)}$ classes,
 which is affordable.  Revealing $c$ is an operation inside the CRT
 computation only.  It does not expand anything into the $L_K$ progressions
@@ -759,7 +766,7 @@ $E_{\rm pr}(x)\leq x\e^{-c_0(\log x)^{3/4}}$ for $x\geq x_0$.  Fix
 $0<\eta_0<c_0$, put $L=\log x$ and $\delta=\eta_0L^{-1/4}$, and assume $x$
 is so large that $\delta<1/4$.  Rankin's trick gives
 \begin{equation}\label{eq:Rankin}
- E(x)\leq\sum_{\substack{n\ \text{non-repr.}}}\Bigl(\frac xn\Bigr)^{1-\delta}
+ E(x)\leq\sum_{\substack{n\leq x\\n\ \text{non-repr.}}}\Bigl(\frac xn\Bigr)^{1-\delta}
  \leq x^{1-\delta}\prod_{\substack{p\leq x\\p\ \text{non-repr.}}}
  (1-p^{-1+\delta})^{-1}.
 \end{equation}

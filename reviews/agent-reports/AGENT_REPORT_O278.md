@@ -165,7 +165,7 @@ finishes in about 2 minutes. **ALL PASS (19 checks).**
 | F | lattice sums at toy H=30, z=2500 | lower ratio 0.61–0.72 ≥ 1/4; upper ratio ≤ 1.51 |
 | G | `h(K) − (2/π²)log K` | → 0.7548 |
 | G | removal bound | holds |
-| G | pair-lcm sum `/(1+log K)³` | 0.14 → 0.11 |
+| G | pair-lcm sum `/(1+log K)³`, complete sum | 0.137, 0.122, 0.112 (K = 50, 200, 800) |
 | K | `exp(−Σ2/(p−1))/(φ(d)/d)²` for d ≤ 3·10⁴ | in [0.41, 1] |
 | L | `φ(4uv) ≥ 2φ(u)φ(v)` | holds |
 | M | identity classes mod M equal `{−4D : D|A²}`, and `(τ−1)/2 ≤ F ≤ τ` | M < 1600 |
@@ -188,18 +188,21 @@ PDFs were rebuilt.
 
 ### 3.1 Changes flagged for the hostile reviewers
 
-Each of the following changes the mathematical presentation. **None
-changes a statement, exponent or parameter.**
+Each of the following changes the mathematical presentation. **The main
+theorem, the exponent and the asymptotic parameter scales are unchanged.**
+Intermediate statements are reformulated, the selector range is narrowed,
+auxiliary parameters (D, T_X, C_0) are removed, and the assembly theorem
+now covers every non-representable n with (n,P_y)=1.
 
 | # | change | what to check |
 |---|---|---|
-| M1 | **The atom family no longer has the cutoff `ω(uv) ≤ D log log X`** (it is the old `𝒜′_X` of Cor 5.3 in v1). D, T_X, low-ω Lemma 3.3, congestion Lemma 4.1, pruned Thm 4.2 and the unused hypothesis (4.2) H_kBV are deleted. | Every statement still used holds for the uncut family. v1 Cor 5.3 already asserted this. Check the inventory, distinctness and supply in particular. |
+| M1 | **The atom family no longer has the cutoff `ω(uv) ≤ D log log X`** (it is the old `𝒜′_X` of Cor 5.3 in v1). D, T_X, low-ω Lemma 3.3, congestion Lemma 4.1, pruned Thm 4.2 and the unused hypothesis H_kBV (v1 display (21)) are deleted. | Every statement still used holds for the uncut family. v1 Cor 5.3 already asserted this. Check the inventory, distinctness and supply in particular. |
 | M2 | **The residue-profile Lemma 6.1, the Euler Lemma 6.2 and the ordered-atom replay are deleted.** Thm 5.1 (moments) has only the conditional-independence proof. | v1 itself said these were not load-bearing (checkpoint 1). Check that nothing else used them, e.g. `μ_X ≍ t³` (not used). |
 | M3 | Old Thm 5.2 (unpruned supply) is now **Thm 4.2**, stated for the general data `1∈J`, `(c,L_J)=1`. Its upper half is proved inline (BT + Lemma 3.1) and no longer by reference to the pruned theorem. | The upper bound `(x/log x)·Σ_k φ(k)k^{−2}(log z)² ≪ x log x h(J)`. |
 | M4 | Cor 4.3 now states and proves the **exact identity `f_c = f_{c;J_c}`** (both directions). v1 proved containment plus an upper bound. | Both inclusions. |
-| M5 | **Void lemma:** the exponential-moment constant `C_Z` is made explicit as `e^4`, using `Σ_{n>y}n^{−2} ≤ 2/y`. In my draft I had first written `e^e`, which is false for small y; this is now fixed. | Arithmetic. |
+| M5 | **Void lemma:** the exponential-moment constant `C_Z` is made explicit as `e^4`, using `Σ_{n>y}n^{−2} ≤ 2/y`. (A draft had `e^e`, which is also valid for y ≥ 2: `(e−1)y/⌊y⌋ < e`. `e^4` is just looser.) | Arithmetic. |
 | M6 | **Lemma 4.1 (weighted moment):** the comparison `exp(−Σ_{p|d}2/(p−1)) ≤ (φ(d)/d)²` is now an exact inequality (from `log(1−1/p) ≥ −1/(p−1)`) instead of `≍`. | Direction of the inequality (only the upper bound is needed). |
-| M7 | Selector range: v1 had `2 ≤ y < X^{1/2}`; now `2 ≤ y < K`. This is needed so that `ℓ > K > y` in Lemma 2.2(2). It is harmless because `y = Bt³ < K` eventually. | Consistency. |
+| M7 | Selector range: v1 had `2 ≤ y < X^{1/2}`; now `2 ≤ y < K`. This is not necessary (`y, K < X^{1/2}` already separate the coordinates); it was done for simplicity, and it is harmless because `y = Bt³ < K` eventually. | Consistency. |
 | M8 | The prime count uses `+y` and no longer `+K+y`: only `(p,P_y)=1` is needed (blind audit B4). | — |
 | M9 | Assembly: the ledger constant `C_0` is merged into `C_L` (`α` chosen with `C_Lα⁴ ≤ 1/2`). The `q_max ≤ N^{1/2}` remark is dropped, since it was never needed. | — |
 | M10 | BV: one sentence now says how the π/li two-endpoint form follows from Davenport's ψ-form. | Standard. |
@@ -227,3 +230,31 @@ the ineffectivity.
     note. These are now v1 numbering; in C2 they are Lemma 4.1, Thm 4.2,
     and (absorbed into) §4.
   * CAMPAIGN_SUMMARY l. 1354 says "§5"; this should be §4 in C2.
+
+## 5. Self-review (reviewer subagent, deep) and repairs
+
+A fresh reviewer re-derived all the lemmas of C2. It found no
+load-bearing gap, confirmed that the deletions are justified by the
+actual argument, and found no downstream numbering break. It raised three
+medium and three low points. All were applied in commit "O278: apply
+self-review":
+
+1. **Medium — abstract overclaim.** The abstract said "≫ (log X)³
+   outside an exponentially rare set of fibres". Under the *unconditioned*
+   measure this is false: for a fixed odd squarefree Q, the event `Q|c` has
+   density 1/Q, and on it `h(J_c)` drops by a factor `φ(Q)/Q`. *Fixed:*
+   the abstract now says "after conditioning on no small prime factors".
+   §6 now explains that the selector makes the *low-mass* fibres rare, not
+   the nonreduced fibres (which stay common and are harmless).
+2. **Medium — Rankin display.** The middle sum ran over all
+   non-representable n, unrestricted. *Fixed:* it now has `n ≤ x`.
+3. **Medium — script.** The lcm-sum check silently dropped pairs with
+   `[k,k'] > 20000`. *Fixed:* it now computes the complete sum via
+   `φ([a,b]) = φ(a)φ(b)/φ((a,b))`. The new values are 0.137, 0.122, 0.112,
+   and the check still passes.
+4. **Low.** The phrase "no prime p≤y divides c" is now restricted to
+   `p | L_K`.
+5. **Low.** The definition of `L_K` in the intro is now consistent
+   (k ≡ 1 mod 4).
+6. **Low.** Changelog wording: corrected above (M-preamble, M1, M5, M7).
+   Remark 1.2 now says "primes ≤ N^A, saving ≤ C_A(log N)^{3/4}".
