@@ -50,3 +50,21 @@ force for all 3 ≤ n < 403).** Windows [N, N+2·10⁵), L = log(midpoint):
 does not reconcile the constants … nothing below depends on the constant" and §7 item 16 should be replaced by the resolution
 above. Additionally PARITY_AUDIT (not FRONTIER's responsibility, but cited by it) should get a note on Lemma 2.1's parenthetical
 and on its E2 table row ("heuristic size (log p)²/8"): 1/8 is the all-integer density; the prime heuristic is 3/(2π²).
+
+## Task (3): "PH: EVIDENCE to 3.7·10⁷" (STATUS) vs LONGSHOT_PIGEONHOLE Conj 5.1 — RESOLVED
+
+Source of truth: `LONGSHOT_PIGEONHOLE.md` §3 Table 3.1, reading 5, and Conj 5.1; input list `data/lsa/hard.txt`.
+* The evidence for PH (cover with φ(e) ≥ 40, i.e. P20 ≥ 1) consists of three different samples: (a) **all** 2 370 Mordell-hard
+  primes < 10⁶ with e ≤ 2000 — exactly two failures, 3529 and 110881 (failures *at E = 2000*; larger e not searched);
+  (b) 300 consecutive Mordell-hard primes after 10^k, k = 4…8, e ≤ 5000 (only failure 110881, in the 10⁴ block);
+  (c) 14 distinct hand-picked hard primes (`data/lsa/hard.txt`: 2521 … 37 117 609; 5101441 listed twice, hence "15"), e ≤ 20000.
+* "3.7·10⁷" is simply the largest prime of sample (c) (37 117 609). STATUS's "(EVIDENCE to 3.7·10⁷)" reads as an exhaustive
+  range and is wrong in both directions: nothing is exhaustive above 10⁶, while sampled evidence reaches 10⁸. DISCOVERIES.md:513
+  ("all hard primes up to 3.7·10⁷ have one") has the same defect (it is the 14 selected hard primes, not all hard primes).
+  AGENT_REPORT_O135:32 / O137:17 are the origin of the phrase.
+* **Which file to correct:** STATUS.md:170 and DISCOVERIES.md:513 (not LONGSHOT_PIGEONHOLE, whose Conj 5.1 wording is accurate).
+  Suggested text: "EVIDENCE: all Mordell-hard primes < 10⁶ except 3529, 110881 (e ≤ 2000); 300 consecutive Mordell-hard primes
+  after 10^k, k = 4…8 (e ≤ 5000); 14 selected hard primes ≤ 3.7·10⁷ (e ≤ 20000)."
+* FRONTIER (§3 B4, §5.5) says "EVIDENCE on *sampled* Mordell-hard primes ≥ 10⁶, exceptions below 10⁶: 3529, 110881": faithful
+  to the source but undersells that the < 10⁶ range is exhaustive and should say the exceptions are relative to e ≤ 2000.
+  MINOR (defect m-PH below).
