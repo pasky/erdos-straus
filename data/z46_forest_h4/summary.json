@@ -1,5 +1,6 @@
 {
   "rows": 522253,
+  "hit_rows": 522253,
   "distinct_primes": 517362,
   "larger_endpoint_QR": 8196,
   "groups": {
@@ -1707,5 +1708,51 @@
     "999999924924961": 15,
     "1010824870255201": 15
   },
-  "audit": "All rows: sympy primality, distinct Legendre/mutual-divisibility minimum, least QNR, integer fraction identity."
+  "audit": "All rows: SymPy primality and least QNR. Hits: independent Legendre/mutual-divisibility minimum and fraction identity. Censored: independent absence through cap. All retained-row counts reconciled against aggregate logs; low hunt tails require the separate full replay.",
+  "censored_rows": 0,
+  "censored_primes": [],
+  "saved_max_complete": true,
+  "count_audit": {
+    "census": {
+      "evaluated": "521933",
+      "censored": "0",
+      "cap": "1000000",
+      "interval_count": "100000",
+      "seed": "460419"
+    },
+    "hunt": [
+      {
+        "band": "0",
+        "primes": "2000000",
+        "kept": "139",
+        "censored": "0",
+        "cap": "1000000",
+        "maxH": "975",
+        "maxH_complete": "1",
+        "seed": "460419",
+        "tails_exact_through": "18446744073709551615",
+        "tails16,32,64,128,256,512,1024": "270440,58004,12511,1473,139,17,0"
+      },
+      {
+        "band": "1",
+        "primes": "2000000",
+        "kept": "155",
+        "censored": "0",
+        "cap": "1000000",
+        "maxH": "951",
+        "maxH_complete": "1",
+        "seed": "460419",
+        "tails_exact_through": "18446744073709551615",
+        "tails16,32,64,128,256,512,1024": "269198,56976,12490,1522,155,9,0"
+      }
+    ],
+    "qnr": {
+      "candidates": "2000000",
+      "prime_hits": "26",
+      "evaluated": "26",
+      "censored": "0",
+      "cap": "1000000",
+      "seed": "460419"
+    }
+  }
 }

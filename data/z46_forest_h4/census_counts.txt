@@ -1,0 +1,1 @@
+census evaluated=521933 censored=0 cap=1000000 interval_count=100000 seed=460419

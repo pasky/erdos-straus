@@ -379,3 +379,97 @@ timeout 180 uv run python scripts/z46_forest_h4_toys.py
 ```
 
 No existing file was edited. No new claim about ES truth or its global verification range is made.
+
+## R-z46 follow-up: censored hunt fixed and rerun
+
+**CERTIFIED — the censoring caveat in §3.4 is now resolved.** The original census,
+random hunt and QR-through-97 hunt were rerun with unchanged seed `460419`, original
+parameters and endpoint cap `10⁶`. There are **zero censored draws** in all three
+runs. All 522,253 saved rows, covering 517,362 distinct saved primes, reproduce
+exactly in their original six fields. The true maximum over the complete rerun,
+including the previously unsaved random draws, is still
+
+```
+max H₄(p)/(log p)² = 1.6121202376353774
+p = 1002125860849, H₄ = 1231, edge = {64,1231}, t = 12719916, r = 31.
+```
+
+Here the integer minimum and maximizing prime are certified; the displayed ratio
+is a floating-point evaluation using natural logarithms. This updates the summary
+and §3.4, rather than claiming an all-prime bound.
+
+### Implementation and count reconciliation
+
+**CERTIFIED (code and exercised regressions).** `h4()` now returns an explicit
+`HIT`/`CENSORED` result. Every censored prime is retained in CSV with blank `H`,
+zero witness coordinates, and explicit `status,cap` fields. Every aggregate log
+reports `censored`; the census also has its own count log. In the random hunt,
+censored draws count toward every tail threshold at or below the cap.
+`maxH_complete=0` marks an incomplete maximum, and `tails_exact_through` distinguishes
+exact tails from lower bounds when a deliberately small cap is used. No missing
+minimum is interpreted as zero or discarded by the retention filter.
+
+The Python saved-row audit checks statuses, caps, prime counts versus retained
+rows, censor counts, strict-tail counts versus the `H≥256` retention rule, maxima,
+and the original independent minimum/fraction certificates. It records censored
+rows separately and refuses to mark the saved maximum complete if any remain.
+Tail counts below the retention threshold cannot be independently reconstructed
+from saved rows alone; the following full replay supplies that missing check.
+
+**CERTIFIED (independent full replay).** `scripts/z47_h4fix_audit.py --full-hunt`
+regenerates the complete xorshift stream in Python, uses SymPy primality testing,
+and scans mutual divisibility plus Legendre colours, not the C five-slot test.
+It checks **all four million prime draws**, including those never written to CSV,
+and exactly reproduces both aggregate tail vectors and every retained draw.
+There are 18,675,023 candidate integers in band 0 and 21,757,947 in band 1; the
+RNG stream continues between bands, exactly as in the original C program.
+
+| run | prime evaluations (with repetitions) | retained rows | censored | max H₄ | max H₄/log²p |
+|---|---:|---:|---:|---:|---:|
+| complete census, original `100000` parameter | 521,933 | 521,933 | 0 | 1231 | 1.6121202376 |
+| random band 0, near 10¹² | 2,000,000 | 139 | 0 | 975 | 1.2298106726 |
+| random band 1, near 10¹⁴ | 2,000,000 | 155 | 0 | 951 | 0.8913404269 |
+| QR-through-97, 2,000,000 CRT candidates | 26 | 26 | 0 | 906 | 0.779395… |
+| total | **4,521,959** | **522,253** | **0** | **1231** | **1.6121202376** |
+
+The tail counts in §5 are therefore now **CERTIFIED finite counts**, not merely
+single-engine EVIDENCE. Their interpretation as a survival law remains EVIDENCE.
+The distinct-prime figure 517,362 refers only to the saved union, not to the four
+million random draws.
+
+**CERTIFIED censor recovery tests.** No production prime requires larger-cap
+recomputation: none exceeded 10⁶. To exercise the formerly broken branch, a separate
+100,000-prime regression hunt uses cap 256 and retains six censored draws. C reruns
+with cap 10⁸ and independent Python scans recover the exact pairs
+`(1302621214801,524)`, `(1162141432321,299)`, `(1001541586081,339)`,
+`(1093360461649,326)`, `(1787098613689,524)`, `(155852021622361,322)`.
+These are test-cap exceedances, **not** million-cap failures. Tests also exercise
+cap-boundary inclusivity, all-censored tiny-cap draws, and rejection of a dropped
+row, a hidden censor count, a wrong retained count, and a wrong tail vector.
+
+### Reproduction and scope
+
+**CERTIFIED execution record.** All runs use `ulimit -v 8000000`, explicit timeouts,
+and streaming/bounded storage. The final generation and two audits take about
+255 CPU seconds in total; the largest measured peak RSS is 102,392 KiB. Including
+development reruns, CPU use remains below nine minutes. `data/z47_h4fix/` contains
+regression/replay results and timing logs; updated raw rows, aggregate counts and
+saved-row summaries remain in `data/z46_forest_h4/`. Original-row comparison uses
+the pre-fix git revision `4cbcd32c`. The following supersedes the earlier commands
+where census stderr was not saved:
+
+```sh
+set -euo pipefail
+ulimit -v 8000000
+gcc -O3 -Wall -Wextra -Werror scripts/z46_forest_h4_scan.c -o /tmp/z46_forest_h4_scan_fixed
+timeout 600 /tmp/z46_forest_h4_scan_fixed 100000 2> data/z46_forest_h4/census_counts.txt | gzip -n > data/z46_forest_h4/census.csv.gz
+timeout 1200 /tmp/z46_forest_h4_scan_fixed hunt 2> data/z46_forest_h4/hunt_counts.txt | gzip -n > data/z46_forest_h4/hunt.csv.gz
+timeout 300 /tmp/z46_forest_h4_scan_fixed qnr 2> data/z46_forest_h4/qnr_counts.txt | gzip -n > data/z46_forest_h4/qnr.csv.gz
+timeout 950 uv run python scripts/z46_forest_h4_analyze.py > data/z46_forest_h4/analysis.txt
+timeout 1900 uv run python scripts/z47_h4fix_audit.py /tmp/z46_forest_h4_scan_fixed --full-hunt > data/z47_h4fix/full_audit.txt
+```
+
+**Assessment — PARTIAL, promise 1/5, unchanged.** This repairs certification, not
+the existence mechanism. There is no new-theory claim; §5's endpoint-survival
+framework remains conjectural. Checklist failures 4, 5 (pointwise use), 8 (forcing),
+and 9 remain: the tied divisor class is not forced. ES remains open.

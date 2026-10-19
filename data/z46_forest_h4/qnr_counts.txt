@@ -1,1 +1,1 @@
-qnr97 candidates=2000000 prime_hits=26
+qnr97 candidates=2000000 prime_hits=26 evaluated=26 censored=0 cap=1000000 seed=460419

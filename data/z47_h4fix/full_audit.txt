@@ -1,0 +1,119 @@
+independent band=0 draws=250000
+independent band=0 draws=500000
+independent band=0 draws=750000
+independent band=0 draws=1000000
+independent band=0 draws=1250000
+independent band=0 draws=1500000
+independent band=0 draws=1750000
+independent band=0 draws=2000000
+independent band=1 draws=250000
+independent band=1 draws=500000
+independent band=1 draws=750000
+independent band=1 draws=1000000
+independent band=1 draws=1250000
+independent band=1 draws=1500000
+independent band=1 draws=1750000
+independent band=1 draws=2000000
+{
+  "baseline": "4cbcd32c",
+  "unchanged_original_rows": {
+    "census": 521933,
+    "hunt": 294,
+    "qnr": 26
+  },
+  "regressions": {
+    "boundary_test": "passed",
+    "low_cap_draws": 6,
+    "cap256_recoveries": [
+      {
+        "family": "hunt_0",
+        "p": 1302621214801,
+        "cap": 256,
+        "exact_H": 524
+      },
+      {
+        "family": "hunt_0",
+        "p": 1162141432321,
+        "cap": 256,
+        "exact_H": 299
+      },
+      {
+        "family": "hunt_0",
+        "p": 1001541586081,
+        "cap": 256,
+        "exact_H": 339
+      },
+      {
+        "family": "hunt_0",
+        "p": 1093360461649,
+        "cap": 256,
+        "exact_H": 326
+      },
+      {
+        "family": "hunt_0",
+        "p": 1787098613689,
+        "cap": 256,
+        "exact_H": 524
+      },
+      {
+        "family": "hunt_1",
+        "p": 155852021622361,
+        "cap": 256,
+        "exact_H": 322
+      }
+    ],
+    "rejected_corruptions": [
+      "dropped_row",
+      "hidden_censor",
+      "wrong_kept",
+      "wrong_tail"
+    ]
+  },
+  "independent_full_hunt": [
+    {
+      "band": 0,
+      "candidates": 18675023,
+      "prime_draws": 2000000,
+      "kept": 139,
+      "censored": 0,
+      "max_H": 975,
+      "tails": [
+        270440,
+        58004,
+        12511,
+        1473,
+        139,
+        17,
+        0
+      ],
+      "max_ratio_record": {
+        "ratio": 1.2298106725795874,
+        "p": 1691763201241,
+        "H": 975
+      }
+    },
+    {
+      "band": 1,
+      "candidates": 21757947,
+      "prime_draws": 2000000,
+      "kept": 155,
+      "censored": 0,
+      "max_H": 951,
+      "tails": [
+        269198,
+        56976,
+        12490,
+        1522,
+        155,
+        9,
+        0
+      ],
+      "max_ratio_record": {
+        "ratio": 0.8913404269286928,
+        "p": 153378755692369,
+        "H": 951
+      }
+    }
+  ],
+  "python_cpu_seconds": 217.12517728699999
+}
