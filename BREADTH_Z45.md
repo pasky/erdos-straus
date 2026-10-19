@@ -120,3 +120,23 @@ dichotomy, ultraproduct transfer, and larger program-synthesis runs.
   (`/tmp/q3chk/chk.py`, not kept), which also reaches targets at 1321 and 409. ES holds at both primes, which lie
   below the verified bound 10¹⁷. Fixed-q pivot rewriting is therefore non-universal for q = 2, 3 and 5 (q = 5:
   board #3 data). Correction to the board: some spine exits are Type I, not exclusively Type II.
+
+## 7. Board #4: propagation laws / non-counting global positivity (`~/.pi/boards/20261019-es-propagation/memo.md`)
+
+There were 14 items, tagged (P) for a propagation law and (G) for a global object, with seats fable, astra and
+argon, over 3 rounds. **No route survives.** Every (P) law fails in one of two ways. Either it is already ES(p) at
+every tested prime: AMPLIFY Thm 2.4 descent, where every Mordell-forced source coordinate in {a, b, a ± b} is
+known soluble at 273/273 Mordell-hard p < 10⁵. Or it is gated by a witness-level divisor event. Every (G) object
+either restates ES or lands only through a divisor event. Retained as documentation only:
+* external-2 odd-t dyadic folding, which extends DELTA_TRANSPORT's move graph from 99 to 131 of 143 primes;
+  its targets are existing a = 1 Type II certificates;
+* Lemma D, checked on 1 096 solutions: a mixed solution of 4/p² through a window m ≡ 3 (mod 4) with p ∤ m
+  requires (p/m) = −1;
+* a 4-vertex trapped U_{3p} component through (2p, 2p, 3p) at 1321, 6121, 12241 and 14281 (vertices re-checked
+  by the parent at 1321).
+Formally open but unconstructed, and championed by no seat: astra-1 (norm-diagonal descent through a non-ET-form
+step) and astra-2 (integral Y–Δ network reduction). The dissent (astra) stands: the failed constructions do not
+show that B2 is *necessary*. The open crux, which no seat could settle: is there a rule Λ, uniform over an
+infinite family of prime pairs (q, p), with Λ(W(q)) ⊆ W(p) whose validity is not a congruence or divisor condition
+on the witness? Cheapest verdict-changing experiment: one non-ET-form step from the witnesses at the coordinates
+of m² = a² + b² that produces a mixed or scaled solution at an odd square.
