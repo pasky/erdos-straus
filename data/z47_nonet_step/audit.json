@@ -1,0 +1,400 @@
+{
+  "cohorts": {
+    "all_primes": {
+      "hit": {
+        "baseline": 6,
+        "core": 382,
+        "greedy": 175,
+        "ratio": 528,
+        "repair": 43,
+        "split": 425
+      },
+      "nonscaling_hit": {
+        "baseline": 6,
+        "core": 382,
+        "greedy": 175,
+        "ratio": 528,
+        "repair": 43,
+        "split": 425
+      },
+      "primitive_target_hit": {
+        "baseline": 6,
+        "core": 382,
+        "greedy": 175,
+        "ratio": 528,
+        "repair": 43,
+        "split": 425
+      },
+      "size": 542,
+      "source_hits": {
+        "core": 3547,
+        "greedy": 1466,
+        "ratio": 9798,
+        "repair": 84,
+        "split": 5593
+      },
+      "source_witnesses": 243192,
+      "union_hit": 536
+    },
+    "mordell_under_100000": {
+      "hit": {
+        "baseline": 0,
+        "core": 139,
+        "greedy": 69,
+        "ratio": 259,
+        "repair": 6,
+        "split": 169
+      },
+      "nonscaling_hit": {
+        "baseline": 0,
+        "core": 139,
+        "greedy": 69,
+        "ratio": 259,
+        "repair": 6,
+        "split": 169
+      },
+      "primitive_target_hit": {
+        "baseline": 0,
+        "core": 139,
+        "greedy": 69,
+        "ratio": 259,
+        "repair": 6,
+        "split": 169
+      },
+      "size": 273,
+      "source_hits": {
+        "core": 567,
+        "greedy": 428,
+        "ratio": 3263,
+        "repair": 7,
+        "split": 917
+      },
+      "source_witnesses": 187776,
+      "union_hit": 267
+    },
+    "near_square_gap_le16": {
+      "hit": {
+        "baseline": 4,
+        "core": 51,
+        "greedy": 27,
+        "ratio": 56,
+        "repair": 17,
+        "split": 52
+      },
+      "nonscaling_hit": {
+        "baseline": 4,
+        "core": 51,
+        "greedy": 27,
+        "ratio": 56,
+        "repair": 17,
+        "split": 52
+      },
+      "primitive_target_hit": {
+        "baseline": 4,
+        "core": 51,
+        "greedy": 27,
+        "ratio": 56,
+        "repair": 17,
+        "split": 52
+      },
+      "size": 56,
+      "source_hits": {
+        "core": 604,
+        "greedy": 238,
+        "ratio": 999,
+        "repair": 49,
+        "split": 899
+      },
+      "source_witnesses": 13358,
+      "union_hit": 56
+    },
+    "prime_squares": {
+      "hit": {
+        "baseline": 1,
+        "core": 8,
+        "greedy": 1,
+        "ratio": 21,
+        "repair": 13,
+        "split": 11
+      },
+      "nonscaling_hit": {
+        "baseline": 1,
+        "core": 5,
+        "greedy": 1,
+        "ratio": 7,
+        "repair": 0,
+        "split": 5
+      },
+      "primitive_target_hit": {
+        "baseline": 1,
+        "core": 5,
+        "greedy": 1,
+        "ratio": 7,
+        "repair": 0,
+        "split": 5
+      },
+      "size": 21,
+      "source_hits": {
+        "core": 18,
+        "greedy": 1,
+        "ratio": 942,
+        "repair": 36,
+        "split": 49
+      },
+      "source_witnesses": 7666,
+      "union_hit": 21
+    },
+    "primes_under_10000": {
+      "hit": {
+        "baseline": 6,
+        "core": 260,
+        "greedy": 113,
+        "ratio": 290,
+        "repair": 38,
+        "split": 277
+      },
+      "nonscaling_hit": {
+        "baseline": 6,
+        "core": 260,
+        "greedy": 113,
+        "ratio": 290,
+        "repair": 38,
+        "split": 277
+      },
+      "primitive_target_hit": {
+        "baseline": 6,
+        "core": 260,
+        "greedy": 113,
+        "ratio": 290,
+        "repair": 38,
+        "split": 277
+      },
+      "size": 295,
+      "source_hits": {
+        "core": 3071,
+        "greedy": 1067,
+        "ratio": 6734,
+        "repair": 78,
+        "split": 4860
+      },
+      "source_witnesses": 61856,
+      "union_hit": 293
+    },
+    "square_representations": {
+      "hit": {
+        "baseline": 2,
+        "core": 19,
+        "greedy": 11,
+        "ratio": 32,
+        "repair": 20,
+        "split": 22
+      },
+      "nonscaling_hit": {
+        "baseline": 2,
+        "core": 16,
+        "greedy": 11,
+        "ratio": 18,
+        "repair": 6,
+        "split": 16
+      },
+      "primitive_target_hit": {
+        "baseline": 2,
+        "core": 15,
+        "greedy": 11,
+        "ratio": 18,
+        "repair": 2,
+        "split": 15
+      },
+      "size": 32,
+      "source_hits": {
+        "core": 487,
+        "greedy": 114,
+        "ratio": 2747,
+        "repair": 50,
+        "split": 662
+      },
+      "source_witnesses": 12213,
+      "union_hit": 32
+    }
+  },
+  "cpu_seconds_search": 113.126,
+  "examples_rechecked": 4952,
+  "family_toy_cases": 667,
+  "independent_image_audits": [
+    {
+      "image_counts": {
+        "core": 7,
+        "greedy": 0,
+        "ratio": 2,
+        "split": 9
+      },
+      "n": 25,
+      "target_solutions": 10
+    },
+    {
+      "image_counts": {
+        "core": 3,
+        "greedy": 0,
+        "ratio": 4,
+        "split": 6
+      },
+      "n": 169,
+      "target_solutions": 24
+    },
+    {
+      "image_counts": {
+        "core": 3,
+        "greedy": 0,
+        "ratio": 2,
+        "split": 5
+      },
+      "n": 193,
+      "target_solutions": 6
+    },
+    {
+      "image_counts": {
+        "core": 7,
+        "greedy": 1,
+        "ratio": 6,
+        "split": 11
+      },
+      "n": 289,
+      "target_solutions": 27
+    },
+    {
+      "image_counts": {
+        "core": 7,
+        "greedy": 0,
+        "ratio": 1,
+        "split": 8
+      },
+      "n": 409,
+      "target_solutions": 15
+    },
+    {
+      "image_counts": {
+        "core": 1,
+        "greedy": 2,
+        "ratio": 5,
+        "split": 2
+      },
+      "n": 577,
+      "target_solutions": 18
+    },
+    {
+      "image_counts": {
+        "core": 0,
+        "greedy": 0,
+        "ratio": 0,
+        "split": 0
+      },
+      "n": 2521,
+      "target_solutions": 9
+    },
+    {
+      "image_counts": {
+        "core": 0,
+        "greedy": 1,
+        "ratio": 2,
+        "split": 0
+      },
+      "n": 3361,
+      "target_solutions": 15
+    },
+    {
+      "image_counts": {
+        "core": 0,
+        "greedy": 0,
+        "ratio": 1,
+        "split": 0
+      },
+      "n": 5569,
+      "target_solutions": 27
+    },
+    {
+      "image_counts": {
+        "core": 0,
+        "greedy": 0,
+        "ratio": 0,
+        "split": 0
+      },
+      "n": 9601,
+      "target_solutions": 23
+    }
+  ],
+  "maxpool": 481,
+  "numerator8": {
+    "11": 0,
+    "131": 0,
+    "17": 0,
+    "241": 0
+  },
+  "operations": {
+    "held_pairs": 83141586,
+    "ratio_fibres": 394182,
+    "repair_trials": 123172020,
+    "source_witnesses": 255476
+  },
+  "replacement_witness_gate": "464134/63",
+  "rows": 578,
+  "union_failures": [
+    2521,
+    9601,
+    53881,
+    54121,
+    88321,
+    94441
+  ],
+  "valuation_exposure": [
+    {
+      "exposed": [
+        [
+          1,
+          39
+        ],
+        [
+          4,
+          13
+        ]
+      ],
+      "n": 169,
+      "ratio_count": 42
+    },
+    {
+      "exposed": [
+        [
+          1,
+          17
+        ],
+        [
+          1,
+          51
+        ],
+        [
+          2,
+          255
+        ],
+        [
+          4,
+          85
+        ]
+      ],
+      "n": 289,
+      "ratio_count": 127
+    },
+    {
+      "exposed": [
+        [
+          2,
+          259
+        ],
+        [
+          5,
+          37
+        ]
+      ],
+      "n": 1369,
+      "ratio_count": 245
+    }
+  ]
+}
