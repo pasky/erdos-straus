@@ -1,0 +1,5 @@
+Source: https://github.com/sushaan-k/erdos-straus-lean/blob/main/FORMALIZATION.md (accessed 2026-10-21)
+
+Exact scope: `erdos_straus_exceptional_set_bound : IsMainBound exceptionalCount` is the “closed main theorem.” It depends on nine project axioms corresponding to named analytic inputs: reciprocal Brun–Titchmarsh; Suen correlation; two squarefree progression estimates; linear-sieve fundamental lemma; Mertens estimates; weighted reciprocal Bombieri–Vinogradov; and Selberg upper-bound sieve. Several are stated directly in the manuscript-specialized form consumed by the proof. They are explicit dependency interfaces, not derived from Mathlib primitives. Fixed-numerator, growing-numerator and quartic modules are conditional reductions; the fixed-numerator theorem is not a closed Lean result.
+
+The document reports the build commands `lake build` and `lake build EscAnalytic.TrustBoundary`; latter pins theorem dependency closure against the foundational axioms plus nine named inputs. Therefore formalization verifies the deductions from those analytic inputs, not those inputs themselves, and does not close the conjecture.

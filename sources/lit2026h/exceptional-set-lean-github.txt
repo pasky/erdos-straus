@@ -1,0 +1,5 @@
+Source: https://github.com/sushaan-k/erdos-straus-lean (accessed 2026-10-21)
+
+Repository title: “Lean 4 formalization of an exceptional-set bound for the Erdos-Straus equation.” README says public entry point EscAnalytic/Paper.lean; theorem `erdos_straus_exceptional_set_bound : IsMainBound exceptionalCount` is asserted with no caller-supplied hypotheses. It says Lean checks every subsequent step from nine named statements (cited theorems and exact manuscript specializations). The repo has one commit, dated 30 July 2026; latest release v2.1 also 30 July 2026. Build pinned Lean/Mathlib v4.14.0.
+
+Scope qualifier in README: exceptional-set bound only; not a proof of Erdős–Straus. See accompanying FORMALIZATION.md excerpt for the trust boundary.

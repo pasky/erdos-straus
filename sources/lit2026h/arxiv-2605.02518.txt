@@ -1,0 +1,3 @@
+Source: https://arxiv.org/abs/2605.02518 (accessed 2026-10-21)
+
+Xin Zhang, “Expansion in SL₂(Z/qZ) and Zaremba's conjecture,” math.NT. Submitted 2026-05-04; v2 2026-05-08. Abstract: establishes an expansion theory for SL₂(Z/qZ), incorporates it into Shkredov's framework, and “confirm[s] Zaremba's conjecture.” v2 notes only typos corrected. No later revision/refutation surfaced. Unrelated to Erdős–Straus/Sierpiński/Schinzel unit fractions.

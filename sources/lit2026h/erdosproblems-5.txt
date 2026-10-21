@@ -1,0 +1,3 @@
+Source: https://erdosproblems.com/5 (accessed 2026-10-21)
+
+The page titled “5” concerns the liminf of prime gaps, with Westzynthius/GPY/etc.; it is NOT the Sierpiński 5/n three-unit-fraction conjecture. Do not cite it as the unit-fraction problem. Erdős–Straus and its generalization are on #242.

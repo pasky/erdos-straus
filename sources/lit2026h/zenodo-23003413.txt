@@ -1,0 +1,5 @@
+Source: https://zenodo.org/records/23003413 (published 2026-09-27; accessed 2026-10-21)
+
+Record title: “Erdős–Straus Project Archive: exact bounded congruence transport and auxiliary-torus interfaces.” Description says its 2026-09-28 version includes a paper “The Erdős–Straus equation through residual shells” (v4), written by Claude (Anthropic, Claude Opus 5.5) and published at the author's request ahead of author's review; author may revise/withdraw. Record explicitly states: “These results do not prove or disprove the Erdős–Straus conjecture.”
+
+It claims a 72-statement set of written proofs on bounded congruence gluing, arithmetic successor domains, witness correspondences, plus unrelated auxiliary-torus calculations. Machine verification comprises 39 project-owned Lean theorem/lemma declarations with Lean 4.32/Mathlib 4.32. This is a new AI-assisted partial-work archive, not a proof claim; authorship and author-review caveat are explicit.

@@ -1,0 +1,3 @@
+Source: https://erdosproblems.com/242 (accessed 2026-10-21)
+
+Current page states Erdős–Straus and Schinzel generalization: for each fixed k, sufficiently large n should have a representation by distinct unit fractions. It says it suffices to prove for prime n and cites verification for all primes through Mihnea–Dumitru [MiDu25]. Listed partial results include Vaughan's exceptional-set bound, Bright–Loughran no Brauer–Manin obstruction, Elsholtz–Tao solution counts, and Elsholtz–Planitzer almost-all-n result. Page contains no new resolution/progress note dated after the campaign audit. This is the relevant Erdosproblems item for both ES and generalized Sierpiński/Schinzel; #5 is unrelated (see saved page).
