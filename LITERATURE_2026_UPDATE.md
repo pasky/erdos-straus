@@ -66,12 +66,15 @@ Nothing has been posted there.
 1. **Quantifier error.** The negation of ES is "∃ n ≥ 2 ∀ x, y, z: n(xy+xz+yz) ≠ 4xyz". The proof instead
    ranges over "for some n ≥ 2". Its set A := {n(xy+xz+yz) : x, y, z ∈ ℕ, n ≥ 2} lets n vary, and the final
    sentence concludes that the equation "holds true for some integers x, y, z **and n ≥ 2**". That is trivially
-   true (n = 4, x = y = z = 3) and is not ES.
+   true (n = 4, x = y = z = 3, or (2, 3, 6)) and is not ES.
 2. **Ill-defined supremum.** "sup(A) = α = 4xyz" equates the supremum of a set with an expression in the bound
    variables x, y, z. A is unbounded above in any case, and the dichotomy "either < for all x, y, z or > for all
    x, y, z" does not follow from the failure of equality.
-3. **Broken inequality chain.** The displayed chain asserts 4m³ + 4m(·) − … < 4m³·(·) + 4m(·), then rewrites the
-   right side as 4m³ + 4m·(·) (the product sign silently becomes a sum) and calls it "N·(mq+pm+pq) ∈ A".
+3. **The constructed element is not below α (correction 2026-10-21).** An earlier version of this audit said a
+   product silently becomes a sum. That was a pdftotext artifact: the PDF's factorisation 4m³S + 4mS = (4m³+4m)S,
+   with S = mq + pm + pq, is correct. The real defect is that the proof needs an element of A strictly between
+   α − (xy+xz+yz) and α, and the candidate (4m³+4m)S exceeds α. For example m = 1, p = 1, q = 2 gives 40 > α = 24.
+   (Found while drafting the plasma-ai/erdos claim-page audit.)
 4. **Numerator-blind, hence proves false statements (FRONTIER §4 line 2).** The author states that the argument
    works for every fixed numerator m. Read as a proof of "∀ n ≥ 2", it would give 8/11, 8/17, 8/131 and 8/241 as
    sums of three unit fractions. Exhaustive search (re-run 2026-10-21) confirms that none of these has such a
