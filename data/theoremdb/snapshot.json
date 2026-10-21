@@ -1,0 +1,104 @@
+{
+ "fetched": "2026-10-21T14:26:18Z",
+ "records": {
+  "tdbr1:921cbdd7e7dc7e6055a31233ed21b462baa1e64b5cbc229de0aab947369c854b": {
+   "source": "problem:erdos-straus-conjecture",
+   "ref": "R1515",
+   "type": "claim",
+   "title": "Dated status and exact unresolved remainder",
+   "summary": "Unresolved in this packet after the dated source check. Strongest checked result: Xu reduces attention to primes congruent to 1 modulo 24, parameterizes tame solution classes, and covers almost all tested tame primes in a stated finite range. The universal decomposition remains open. Exact unresolved remainder: Prove a positive three-unit-fraction decomposition for every integer n at least 2, or g",
+   "url": "https://theoremdb.org/records/erdos-straus-conjecture-status-packet-quality-20260801",
+   "digest": "b102b7814f798616"
+  },
+  "tdbr1:918d72334f385847049b26d8bd2694822cbc13f2f29bdde2a65bf1d747b7fa1d": {
+   "source": "problem:erdos-straus-conjecture",
+   "ref": "R953",
+   "type": "attempt",
+   "title": "Resolve the stated acceptance condition",
+   "summary": "Give a proof that a positive-integer decomposition exists for every n at least 2, or exhibit an n and prove that no positive integers x, y, and z satisfy the equation.",
+   "url": "https://theoremdb.org/records/erdos-straus-conjecture-attempt-resolution-route",
+   "digest": "117a6d9799f3bce0"
+  },
+  "tdbr1:6b5dc91f3e165c8cdfd85372e66f2a87bf9b050a4eb2c947e347965fa4f1cd59": {
+   "source": "problem:erdos-problem-242",
+   "ref": "R2339",
+   "type": "attempt",
+   "title": "Dated source and duplicate audit",
+   "summary": "The exact numbered record, its pinned falsifiable status metadata, the linked living-page bibliography, the pinned formal declaration, and the controlled TheoremDB corpus were checked on 2026-08-11. The maintained database may lag later literature, so contributors should repeat the search before claiming a resolution. The unresolved remainder is the complete displayed statement.",
+   "url": "https://theoremdb.org/records/erdos-problem-242-attempt-source-audit-20260811",
+   "digest": "5c64648bb02429a0"
+  },
+  "tdbr1:5a28b25e05dab3d2a2abb9c5a9a0f5ea295003614317415cfac2904e9222846b": {
+   "source": "problem:erdos-problem-242",
+   "ref": "R2338",
+   "type": "claim",
+   "title": "Current status and exact unresolved remainder",
+   "summary": "OPEN as checked on 2026-08-11. The pinned Erdős Problems database classifies Problem 242 as falsifiable; the full displayed statement remains unresolved in that maintained record. Exact unresolved remainder: the full displayed statement.",
+   "url": "https://theoremdb.org/records/erdos-problem-242-claim-status-20260811",
+   "digest": "2207d8903d70065a"
+  },
+  "tdbr1:11655f65b79bcad9b7bea1d6257d985ea5de1662c39cc466f4a967f29f11ddfd": {
+   "source": "problem:erdos-problem-242",
+   "ref": "R2340",
+   "type": "attempt",
+   "title": "Search systematically for a certified counterexample",
+   "summary": "For Erdős's Egyptian Fraction Decomposition for Four-Nths, derive necessary conditions for the smallest counterexample, enumerate candidates with explicit bounds, and retain a directly checkable witness if one appears. Record exhausted ranges separately from the universal claim.",
+   "url": "https://theoremdb.org/records/erdos-problem-242-attempt-next-route",
+   "digest": "571af8513da989f1"
+  },
+  "tdbr1:2a0ff2a14a55e0269c022010a66899f905cde8e29a7dec65bfd9e3da63204df9": {
+   "source": "search:Erdős–Straus",
+   "ref": "R2599",
+   "type": "attempt",
+   "title": "[erdos-problem-252-source-review] Compute the associated sequence and isolate a stable finite obstruction",
+   "summary": "",
+   "url": null,
+   "digest": "f2b8d44b2eabddb9"
+  },
+  "tdbr1:25c4e3ac85a4ec31bfd090662f77bcf2709fbfff32821067ba075ec9399e2909": {
+   "source": "search:Erdős–Straus",
+   "ref": "R2598",
+   "type": "attempt",
+   "title": "[erdos-problem-252-source-review] Dated source and duplicate audit",
+   "summary": "",
+   "url": null,
+   "digest": "c34c00151656a23e"
+  },
+  "tdbr1:bbe22c226167417d6e2a6137774e1dbffbf70b1dce943e732982cd237ff6d2f8": {
+   "source": "search:Erdos-Straus",
+   "ref": "R8064",
+   "type": "claim",
+   "title": "[central-binomial-least-odd-prime-source-audit] Boundedness of the least odd prime factor remains open",
+   "summary": "",
+   "url": null,
+   "digest": "b7c045d51c1ba71c"
+  },
+  "tdbr1:465b37cb409c3d2876fbd0c05b25f76433b1fb4ee9a5647c17115bc24747968e": {
+   "source": "search:Egyptian fraction",
+   "ref": "R8999",
+   "type": "claim",
+   "title": "[oeis-a006487-source-audit] Double-exponential growth in the greedy expansion of square root two",
+   "summary": "",
+   "url": null,
+   "digest": "bba6425c41c7f38a"
+  },
+  "tdbr1:caf224021bb8a4935901c1d09c567dfab19eca124048ce06aad5a511dde2b129": {
+   "source": "search:unit fractions",
+   "ref": "R8958",
+   "type": "claim",
+   "title": "[oeis-a001043-source-audit] Egyptian fractions from sums of consecutive primes",
+   "summary": "",
+   "url": null,
+   "digest": "f1bd29a13b56486b"
+  },
+  "tdbr1:293c3dccadbaadbd015ee8b6c72dd9f8cf419a3c1452fea111bb4ab3e0230c6c": {
+   "source": "search:unit fractions",
+   "ref": "R8253",
+   "type": "claim",
+   "title": "[minimum-squarefree-semiprime-egyptian-fraction-length-source-audit] Dated 46-term threshold status and exact reciprocal certificates",
+   "summary": "",
+   "url": null,
+   "digest": "b722e58f3a13d502"
+  }
+ }
+}

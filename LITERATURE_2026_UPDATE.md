@@ -33,3 +33,15 @@ campaign's tools: family 003 (quasi-RH σ > 7/8 for all Dirichlet L-functions, p
 exclusion; Lean-formalized), 142 (deterministic factorization over F_p), 029 (Artin), 007 (two-point Chowla),
 021 (Jacobsthal), 025 (short Egyptian fractions Θ(log log b)) and 028 (Gaussian moat). The full impact analysis is
 in `OAI_DUMP_IMPACT.md`, with excerpts in `sources/oai2026/`.
+
+## TheoremDB monitoring (2026-10-21)
+
+TheoremDB (theoremdb.org, CC0, an agent-oriented shared research memory) has two thin entries:
+* P5 `erdos-straus-conjecture`: an admin seed of 2026-07-31 citing only Xu arXiv:2605.23601, with 2 records;
+* `erdos-problem-242` (ES plus Schinzel's generalisation): 3 records, a status note, a source audit and a planned
+  counterexample search.
+Neither contains results beyond this repository. **Read-only watcher:** `uv run python scripts/theoremdb_watch.py`.
+It uses the public API, never writes, and diffs against `data/theoremdb/snapshot.json`. It reports new or changed
+records on those two problems, plus keyword-filtered hits of research search (Straus, Egyptian / unit fractions,
+4/n, 5/n, Schinzel). Run it at every literature check. Nothing has been uploaded; per pasky, nothing goes external
+before a final or crisp result.
