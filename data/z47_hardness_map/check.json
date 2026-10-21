@@ -1,0 +1,117 @@
+{
+  "prime_count": 83,
+  "solutions_by_type": {
+    "I": 1421,
+    "II": 692
+  },
+  "factor_free_pair_checks": 2113,
+  "violations": 0,
+  "QR_pfree_example": {
+    "p": 5,
+    "solution": [
+      2,
+      4,
+      20
+    ],
+    "QR_pfree": 4,
+    "extracted_QNR": 2
+  },
+  "fixtures": {
+    "193": {
+      "solutions": 6,
+      "minimum_max_denominator": 4825,
+      "solution": [
+        50,
+        1930,
+        4825
+      ],
+      "extracted_QNR": 5,
+      "parameters": [
+        2,
+        5,
+        5,
+        1
+      ]
+    },
+    "409": {
+      "solutions": 15,
+      "minimum_max_denominator": 12270,
+      "solution": [
+        105,
+        5726,
+        12270
+      ],
+      "extracted_QNR": 7,
+      "parameters": [
+        7,
+        15,
+        1,
+        2
+      ]
+    },
+    "577": {
+      "solutions": 18,
+      "minimum_max_denominator": 167330,
+      "solution": [
+        145,
+        33466,
+        167330
+      ],
+      "extracted_QNR": 5,
+      "parameters": [
+        1,
+        5,
+        29,
+        2
+      ]
+    },
+    "1201": {
+      "solutions": 11,
+      "minimum_max_denominator": 46839,
+      "solution": [
+        312,
+        9608,
+        46839
+      ],
+      "extracted_QNR": 39,
+      "parameters": [
+        8,
+        39,
+        1,
+        1
+      ]
+    },
+    "2521": {
+      "solutions": 9,
+      "minimum_max_denominator": 804199,
+      "solution": [
+        638,
+        55462,
+        804199
+      ],
+      "extracted_QNR": 29,
+      "parameters": [
+        2,
+        29,
+        11,
+        1
+      ]
+    },
+    "3361": {
+      "solutions": 15,
+      "minimum_max_denominator": 571370,
+      "solution": [
+        850,
+        84025,
+        571370
+      ],
+      "extracted_QNR": 34,
+      "parameters": [
+        5,
+        34,
+        5,
+        1
+      ]
+    }
+  }
+}
