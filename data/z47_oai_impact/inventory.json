@@ -1,0 +1,527 @@
+{
+  "003": {
+    "catalogue": "**003. The quasi-Riemann hypothesis.** Proves that every Dirichlet <i>L</i>-function, including $`\\zeta(s)`$, is zero-free in $`\\Re s\\gt 7/8`$, resolving the quasi-Riemann hypothesis. The same half-plane is zero-free for every finite-order Hecke <i>L</i>-function over $`\\mathbb Q(\\sqrt{-3})`$. A companion gives a different proof of the zero-free half-plane $`\\Re s\\gt 11/12`$. ([Lean](lean/docs/003.md))",
+    "papers": [
+      {
+        "pdf": "preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf",
+        "tex": [
+          "preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex"
+        ],
+        "catalogued_formalization": true
+      },
+      {
+        "pdf": "preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf",
+        "tex": [
+          "preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/build/paper2.tex"
+        ],
+        "catalogued_formalization": false
+      },
+      {
+        "pdf": "preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf",
+        "tex": [
+          "preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/build/paper.tex"
+        ],
+        "catalogued_formalization": true
+      }
+    ],
+    "lean_docs": [
+      "QuasiRiemannHypothesis.lean",
+      "DirichletSevenEighths.lean",
+      "HeckeSevenEighths.lean",
+      "SiegelZeros.lean"
+    ]
+  },
+  "007": {
+    "catalogue": "**007. Ordinary two-point correlations and the corrected Elliott conjecture.** Proves the ordinary two-point Chowla conjecture, with a bound $`O(X/(\\log X)^c)`$ for Liouville correlation sums along fixed nonproportional affine forms, where <i>c</i> &gt; 0 is absolute. More generally, proves the binary corrected Elliott conjecture for complex multiplicative functions bounded by one when one factor is uniformly nonpretentious against each fixed Dirichlet character times $`n^{it}`$ for $`|t|\\le X`$. ([Lean](lean/docs/007.md))",
+    "papers": [
+      {
+        "pdf": "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/final.pdf",
+        "tex": [
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/introduction.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/main.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/qualitative/affine-corollaries.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/qualitative/analytic-transfer.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/qualitative/cylinder-sieve.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/qualitative/graph-setup.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/qualitative/localization.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/qualitative/paths.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/qualitative/thinning.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/qualitative/trace-count.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/01-setup.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/02-finite-law.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/03-analytic.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/04-paths-trace.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/05-rank-witness.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/06-forest.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/07-spectral.tex",
+          "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/08-affine.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": [
+      "OrdinaryElliott.lean",
+      "OrdinaryTwoPointCorrelations.lean"
+    ]
+  },
+  "011": {
+    "catalogue": "**011. Prime-factor statistics of $`p-1`$.** Proves that the normalized ordered logarithms of the prime factors of $`p-1`$, counted with multiplicity, converge jointly to the Poisson–Dirichlet law $`\\mathrm{PD}(1)`$ as <i>p</i> ranges uniformly over primes up to <i>x</i> and $`x\\to\\infty`$. This resolves the Ford–Konyagin–Luca conjecture. It also proves that infinitely many integers <i>n</i> have more than $`n^{1-\\varepsilon}`$ totient preimages, for every <i>ε</i> &gt; 0.",
+    "papers": [
+      {
+        "pdf": "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/paper.pdf",
+        "tex": [
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/paper.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/preamble.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/sections/00-introduction.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/sections/01-preliminaries.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/sections/02-transference.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/sections/03-ideal-kernels.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/sections/04-shifted-correlations.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/sections/05-type-ii.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/sections/06-prime-extraction.tex",
+          "preprints/Weighted-Dilation-Graphs-Smooth-Shifted-Primes-and-Totient-Fibers-September-24-2026/build/sections/07-totient-conclusion.tex"
+        ],
+        "catalogued_formalization": false
+      },
+      {
+        "pdf": "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/paper.pdf",
+        "tex": [
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/figures/lifespan.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/figures/proof-map.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/paper.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/preamble.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/01-introduction.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/02-preliminaries.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/03-determinant.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/04-memory.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/05-major-arcs.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/06-correlations.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/07-extraction.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/08-poisson-dirichlet.tex",
+          "preprints/The-Poisson-Dirichlet-Law-for-Prime-Predecessors-September-24-2026/build/sections/09-long-prime-appendix.tex"
+        ],
+        "catalogued_formalization": false
+      },
+      {
+        "pdf": "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/paper.pdf",
+        "tex": [
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/main.tex",
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/references.tex",
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/sections/01-preliminaries.tex",
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/sections/02-long-prime.tex",
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/sections/03-shifted.tex",
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/sections/04-weights.tex",
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/sections/05-type-ii.tex",
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/sections/06-congruences.tex",
+          "preprints/Prime-Predecessors-with-an-Even-Number-of-Prime-Factors-September-17-2026/build/sections/07-extraction.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": []
+  },
+  "012": {
+    "catalogue": "**012. Independent largest prime factors of consecutive integers.** Resolves the Erdős–Pomerance joint Dickman conjecture: the logarithmic sizes of the largest prime factors of <i>n</i> and $`n+1`$ are asymptotically independent in ordinary natural density. In particular, the integers satisfying $`P^+(n)\\lt P^+(n+1)`$ have density 1/2. ([Lean](lean/docs/012.md))",
+    "papers": [
+      {
+        "pdf": "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/paper.pdf",
+        "tex": [
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/main.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/preamble.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/amplification.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/arithmetic.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/channels.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/conclusion.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/distribution.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/graph.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/introduction.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/kernel.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/labels.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/moments.tex",
+          "preprints/The-joint-Dickman-law-for-consecutive-integers-September-24-2026/build/sections/sampling.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": [
+      "JointDickman.lean"
+    ]
+  },
+  "015": {
+    "catalogue": "**015. Torus-packet equidistribution in prime, quartic, and sextic degrees.** Proves Haar equidistribution without escape of mass for complete volume-weighted torus packets from totally real fields: arbitrary lattices and prescribed local types in fixed prime degree at least five, arbitrary-order Picard packets in primitive quartic fields, and maximal-order ideal-class packets in primitive sextic fields. Here primitive means having no proper intermediate field; the relevant order or field discriminant tends to infinity. ([Lean](lean/docs/015.md))",
+    "papers": [
+      {
+        "pdf": "preprints/Equidistribution-of-Prime-Degree-Torus-Packets-with-Arbitrary-Local-Type-September-24-2026/paper.pdf",
+        "tex": [
+          "preprints/Equidistribution-of-Prime-Degree-Torus-Packets-with-Arbitrary-Local-Type-September-24-2026/build/adelic.tex",
+          "preprints/Equidistribution-of-Prime-Degree-Torus-Packets-with-Arbitrary-Local-Type-September-24-2026/build/analytic.tex",
+          "preprints/Equidistribution-of-Prime-Degree-Torus-Packets-with-Arbitrary-Local-Type-September-24-2026/build/entropy.tex",
+          "preprints/Equidistribution-of-Prime-Degree-Torus-Packets-with-Arbitrary-Local-Type-September-24-2026/build/geometry.tex",
+          "preprints/Equidistribution-of-Prime-Degree-Torus-Packets-with-Arbitrary-Local-Type-September-24-2026/build/local.tex",
+          "preprints/Equidistribution-of-Prime-Degree-Torus-Packets-with-Arbitrary-Local-Type-September-24-2026/build/packets.tex",
+          "preprints/Equidistribution-of-Prime-Degree-Torus-Packets-with-Arbitrary-Local-Type-September-24-2026/build/paper.tex"
+        ],
+        "catalogued_formalization": false
+      },
+      {
+        "pdf": "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/quartic-torus-packets.pdf",
+        "tex": [
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/additive.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/conclusion.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/exterior.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/introduction.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/local-fourier.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/macros.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/main.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/ordinary.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/packets.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/rigidity.tex",
+          "preprints/Equidistribution-of-Primitive-Quartic-Torus-Packets-for-Arbitrary-Orders-October-5-2026/build/manuscript/sieve.tex"
+        ],
+        "catalogued_formalization": false
+      },
+      {
+        "pdf": "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/primitive-sextic-torus-packets.pdf",
+        "tex": [
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/figures/product-mechanism.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/main.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/activity.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/arithmetic.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/assembly.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/combination.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/conditioning.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/entropy.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/homogeneous.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/introduction.tex",
+          "preprints/Equidistribution-of-Primitive-Sextic-Torus-Packets-October-5-2026/build/sections/product.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": [
+      "DukePrimeDegree.lean"
+    ]
+  },
+  "020": {
+    "catalogue": "**020. Squarefree quartics and power-free polynomial values.** Proves the squarefree-values conjecture for irreducible integer quartics with no fixed prime-square divisor: squarefree values on positive integers have the predicted positive Euler-product density. More generally, establishes the $`(d-2)`$-power-free density for irreducible integer polynomials of degrees four through eight under the necessary local condition; together with Browning's higher-degree theorem, this covers every <i>d</i> ≥ 4. ([Lean](lean/docs/020.md))",
+    "papers": [
+      {
+        "pdf": "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/manuscript.pdf",
+        "tex": [
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/figures/proof-flow.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/main.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/01-introduction.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/02-sieve.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/03-affine-counting.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/04-arithmetic-boxes.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/05-determinant-cuts.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/06-lattice-boxes.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/07-hilbert-bounds.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/08-quartic-geometry.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/09-curves.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/10-parameters.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/11-tail-proof.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/12-certificate.tex",
+          "preprints/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/sections/13-cyclotomic.tex"
+        ],
+        "catalogued_formalization": true
+      }
+    ],
+    "lean_docs": [
+      "PowerFreeValues.lean"
+    ]
+  },
+  "021": {
+    "catalogue": "**021. A quadratic bound for Jacobsthal’s function.** Answers Jacobsthal's quadratic-bound question: every interval of $`Ck^2`$ consecutive integers contains an integer coprime to any prescribed positive integer with at most <i>k</i> distinct prime divisors, for an absolute constant <i>C</i>. The bound is uniform over prime sets and interval positions and removes the classical logarithmic loss. ([Lean](lean/docs/021.md))",
+    "papers": [
+      {
+        "pdf": "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/paper.pdf",
+        "tex": [
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/figures/proof-route.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/main.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/assembly.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/boxes.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/elementary-inputs.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/functions.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/hyperbola.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/inputs.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/introduction.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/inverse.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/prime-paths.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/reference.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/stops.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/tree.tex",
+          "preprints/A-quadratic-bound-for-Jacobsthals-function-September-25-2026/build/sections/variance.tex"
+        ],
+        "catalogued_formalization": true
+      }
+    ],
+    "lean_docs": [
+      "Jacobsthal.lean",
+      "JacobsthalImproved.lean"
+    ]
+  },
+  "023": {
+    "catalogue": "**023. Patterson's first moment for cubic Gauss sums.** Proves unconditionally the all-primary-prime form of Patterson’s first-moment asymptotic: normalized cubic Gauss sums over primary Eisenstein primes of norm at most <i>X</i>, including both conjugates, have an explicit positive main term of order $`X^{5/6}/\\log X`$. Every fixed nonzero prime-angle Fourier mode has smaller order. ([Lean](lean/docs/023.md))",
+    "papers": [
+      {
+        "pdf": "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/paper.pdf",
+        "tex": [
+          "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/figures/proof-map.tex",
+          "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/paper.tex",
+          "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/angular.tex",
+          "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/background-type1.tex",
+          "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/decomposition.tex",
+          "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/dispersion.tex",
+          "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/dual.tex",
+          "preprints/An-unconditional-first-moment-for-cubic-Gauss-sums-September-25-2026/build/sections/perron.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": [
+      "PattersonFirstMoment.lean"
+    ]
+  },
+  "025": {
+    "catalogue": "**025. Short Egyptian fractions.** Every rational $`a/b`$ with $`1\\le a\\lt b`$ is a sum of $`O(\\log\\log b)`$ distinct positive unit fractions. The worst-case minimum number of terms has the same order, resolving Erdős’s conjecture on short Egyptian fractions. ([Lean](lean/docs/025.md))",
+    "papers": [
+      {
+        "pdf": "preprints/Short-Egyptian-fractions-September-25-2026/Short-Egyptian-fractions-September-25-2026.pdf",
+        "tex": [
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/counting.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/descent.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/divisors.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/elementary.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/introduction.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/main.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/prescribed.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/random.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/residues.tex",
+          "preprints/Short-Egyptian-fractions-September-25-2026/build/unicode-mappings.tex"
+        ],
+        "catalogued_formalization": true
+      }
+    ],
+    "lean_docs": [
+      "EgyptianFractions.lean",
+      "ShortEgyptianFractions.lean"
+    ]
+  },
+  "026": {
+    "catalogue": "**026. Positive lower density of large prime gaps.** For every fixed <i>C</i> &gt; 0, a positive proportion of consecutive prime gaps exceed $`C\\log p_n`$, throughout every sufficiently large initial segment of the primes. The proportion may depend on <i>C</i>. Consequently, the indices where $`p_n/n`$ increases have positive lower density, answering Erdős and Prachar. ([Lean](lean/docs/026.md))",
+    "papers": [
+      {
+        "pdf": "preprints/Positive-lower-density-of-large-prime-gaps-September-25-2026/main.pdf",
+        "tex": [
+          "preprints/Positive-lower-density-of-large-prime-gaps-September-25-2026/build/main.tex",
+          "preprints/Positive-lower-density-of-large-prime-gaps-September-25-2026/build/sections/01-introduction.tex",
+          "preprints/Positive-lower-density-of-large-prime-gaps-September-25-2026/build/sections/02-counting.tex",
+          "preprints/Positive-lower-density-of-large-prime-gaps-September-25-2026/build/sections/03-moments.tex",
+          "preprints/Positive-lower-density-of-large-prime-gaps-September-25-2026/build/sections/04-weights.tex",
+          "preprints/Positive-lower-density-of-large-prime-gaps-September-25-2026/build/sections/05-cancellation.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": [
+      "PrimeGaps.lean"
+    ]
+  },
+  "027": {
+    "catalogue": "**027. Potential integral density on curve character varieties.** Resolves the determinant-one curve case of Litt's integral-density question. For every smooth connected complex algebraic curve and every rank, integral points become Zariski dense in every component of its SL<sub><i>r</i></sub> character variety over the full ring of integers of one number field. Prescribed quasi-unipotent boundary conjugacy classes are allowed, including nonsemisimple classes. ([Lean](lean/docs/027.md))",
+    "papers": [
+      {
+        "pdf": "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/paper.pdf",
+        "tex": [
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/figures/diagram-band.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/figures/diagram-swap.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/main.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/sections/arithmetic.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/sections/descent.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/sections/diagrams.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/sections/dynamics.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/sections/introduction.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/sections/model.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/sections/reduction.tex",
+          "preprints/Integral-points-on-character-varieties-of-curves-September-25-2026/build/sections/surfaces.tex"
+        ],
+        "catalogued_formalization": true
+      }
+    ],
+    "lean_docs": [
+      "CharacterVarietiesAllSeamsSupport.lean"
+    ]
+  },
+  "028": {
+    "catalogue": "**028. Uniformly bounded components of Gaussian-prime graphs.** Proves the Gaussian moat conjecture: no infinite walk through distinct Gaussian primes can have uniformly bounded steps. More strongly, for every distance bound <i>D</i>, the graph joining Gaussian primes at distance at most <i>D</i> has uniformly bounded finite component sizes, depending only on <i>D</i>, including primes on the coordinate axes. ([Lean](lean/docs/028.md))",
+    "papers": [
+      {
+        "pdf": "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/paper.pdf",
+        "tex": [
+          "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/coverage-transfer.tex",
+          "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/geometry.tex",
+          "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/information.tex",
+          "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/main.tex",
+          "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/periodicity.tex",
+          "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/preliminaries.tex",
+          "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/references.tex",
+          "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/schedule.tex"
+        ],
+        "catalogued_formalization": true
+      }
+    ],
+    "lean_docs": [
+      "GaussianMoat.lean"
+    ]
+  },
+  "029": {
+    "catalogue": "**029. Primitive roots for every admissible integer base.** Proves the infinitude assertion in Artin's primitive root conjecture for every integer <i>a</i> that is neither −1 nor a square. For each such base, at least $`c_a x/(\\log x)^2`$ primes in every sufficiently large interval $`(x,2x)`$ have primitive root <i>a</i>, with $`c_a\\gt 0`$.",
+    "papers": [
+      {
+        "pdf": "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/primitive-roots-all-integer-bases.pdf",
+        "tex": [
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/main.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/references.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/00-abstract.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/01-introduction.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/01a-reduction.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/02-arithmetic.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/02a-coefficient-family.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/03-theta.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/04-reflection.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/05-poisson.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/06-zero-free.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/07-splitting.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/08-type-ii.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/10-whittaker-calculation.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/11-sieve.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/12-construction.tex",
+          "preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/vendor/texmf/tex/plain/rsfs/scrload.tex"
+        ],
+        "catalogued_formalization": false
+      },
+      {
+        "pdf": "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/simultaneous-primitive-roots-conditional-lower-bound-prime-bases.pdf",
+        "tex": [
+          "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/paper.tex",
+          "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/references.tex",
+          "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/sections/00-abstract.tex",
+          "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/sections/01-introduction.tex",
+          "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/sections/02-reduction.tex",
+          "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/sections/03-splitting.tex",
+          "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/sections/04-marked-family.tex",
+          "preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/sections/05-prime-reservoir.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": []
+  },
+  "142": {
+    "catalogue": "**142. Deterministic polynomial factorization over prime fields.** Gives a uniform deterministic algorithm that completely factors every nonzero dense degree-<i>n</i> polynomial over a prime field 𝔽<sub><i>p</i></sub>, including multiplicities, in bit complexity polynomial in $`(n+1)\\log p`$. The prime is supplied in binary. No randomness, integer-factorization or primitive-root oracle, or GRH assumption is required.",
+    "papers": [
+      {
+        "pdf": "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/Deterministic-Polynomial-Factorization-over-Prime-Fields.pdf",
+        "tex": [
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/main.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/references.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/00-introduction.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/01-table.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/02-finite-fields.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/03-norms.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/04-divisors.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/05-geometry.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/06-division.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/07-odd-split.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/08-driver.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/09-complexity.tex",
+          "preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/build/sections/10-analytic.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": []
+  },
+  "182": {
+    "catalogue": "**182. Power savings for intersective polynomial differences and prime arguments.** For every fixed intersective integer polynomial <i>h</i> of degree <i>k</i> ≥ 2 with positive leading coefficient, proves that a subset of $`\\{1,\\ldots,N\\}`$ avoiding nonzero values $`h(1),h(2),\\ldots`$ as differences has size $`O_h(N^{1-c_k})`$, with $`c_k\\gt 0`$ depending only on degree. Here intersective means having a root modulo every modulus. For prime arguments, a power saving also holds when <i>h</i> has a unit root modulo every modulus, with exponent allowed to depend on <i>h</i>. ([Lean](lean/docs/182.md))",
+    "papers": [
+      {
+        "pdf": "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/power-saving-intersective-polynomial-differences.pdf",
+        "tex": [
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/figures/list-regrouping.tex",
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/main.tex",
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/sections/induction.tex",
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/sections/introduction.tex",
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/sections/kernel.tex",
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/sections/lifts.tex",
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/sections/local.tex",
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/sections/transfer.tex",
+          "preprints/A-power-saving-for-intersective-polynomial-differences-with-an-exponent-depending-only-on-the-degree-October-5-2026/build/manuscript/sections/tuples.tex"
+        ],
+        "catalogued_formalization": false
+      },
+      {
+        "pdf": "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/prime-argument-polynomial-differences.pdf",
+        "tex": [
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/figures/list-concatenation.tex",
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/main.tex",
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/sections/descent.tex",
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/sections/introduction.tex",
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/sections/kernel.tex",
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/sections/lifts.tex",
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/sections/local.tex",
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/sections/primes.tex",
+          "preprints/A-Power-Saving-for-Polynomial-Differences-at-Prime-Arguments-October-5-2026/build/sections/tuples.tex"
+        ],
+        "catalogued_formalization": false
+      },
+      {
+        "pdf": "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/paper.pdf",
+        "tex": [
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/figures/list-regrouping.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/figures/parameter-roles.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/figures/proof-map.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/main.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/contraction.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/functional.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/graph.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/induction.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/introduction.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/kernel.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/lifts.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/transfer.tex",
+          "preprints/A-power-saving-for-square-difference-free-sets-September-24-2026/build/sections/tuples.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": [
+      "SquareDifference.lean"
+    ]
+  },
+  "279": {
+    "catalogue": "**279. Exact quantum factoring over a fixed finite gate set.** Gives a polynomial-time uniform quantum circuit family that outputs the complete prime factorization of every integer with probability one. Both gate count and qubit count are polynomial in the input length, and one fixed finite gate set suffices. ([Lean](lean/docs/279.md))",
+    "papers": [
+      {
+        "pdf": "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/main.pdf",
+        "tex": [
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/figures/same-history-events.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/main.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/sections/01-introduction.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/sections/02-model.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/sections/03-order-transform.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/sections/04-dyadic-order.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/sections/05-factor-process.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/sections/06-exactness.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/sections/appendix-primality.tex",
+          "preprints/Exact-quantum-factoring-over-a-fixed-finite-gate-set-September-25-2026/build/sections/bibliography.tex"
+        ],
+        "catalogued_formalization": false
+      }
+    ],
+    "lean_docs": [
+      "ExactQuantumFactoring.lean"
+    ]
+  }
+}
