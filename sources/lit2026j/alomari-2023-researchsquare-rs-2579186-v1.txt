@@ -1,0 +1,172 @@
+A simple direct proof of the Erd\"{o}s--Straus
+conjecture
+M. W. Alomari
+
+
+
+ Irbid National University
+
+
+
+Research Article
+
+Keywords: Erd¨os–Straus conjecture, Rational numbers as sums of fractions, Open problem
+
+Posted Date: February 15th, 2023
+
+DOI: https://doi.org/10.21203/rs.3.rs-2579186/v1
+
+License:   This work is licensed under a Creative Commons Attribution 4.0 International License.
+Read Full License
+
+Additional Declarations: No competing interests reported.
+          A SIMPLE DIRECT PROOF OF THE ERDÖS–STRAUS CONJECTURE
+
+
+                                                      M.W. ALOMARI
+
+
+         Abstract. In this note, we give full complete positive proof of the celebrated unsolved Erdös–Straus con-
+         jecture. Similarly, the Sierpinski conjecture follows. A relaxed extension of the restricted Hagedorn equation
+         is presented.
+
+
+
+
+                                        1. The Erdös–Straus conjecture
+   The Erdös–Straus conjecture is one of the celebrated unsolved open problem in number theory. The
+conjecture states that, for every positive integer n ≥ 2, there exist positive integers x, y, z, for which
+                                                4    1    1 1
+(1.1)                                             = + + .
+                                                n    x y z
+Similarly, Sierpinski conjectured that the fraction n5 could be written as the sum of three unit fractions.
+These conjectures are verified for several high order integer. For example, Swett [7] has established the
+validity of (1.1) for all n ≤ 1014 and Salez [8] for all n ≤ 1017 . But the question about the proof of these
+celebrated conjectures are still unsolved open problem, cf. [4].
+
+   There are many attempts to solve this conjecture. As of writing this note, no complete proof of this con-
+jecture has been provided and the problem is still an unsolved open problem. We have even read some glossy
+headlines claiming to have solved this conjecture, but in fact, no one has yet. Some researchers claimed to
+refute the Erdös–Straus conjecture but this is also, not true.
+
+   Most of the published attempts are based on Modular Arithmetic and all such attempts offer a partial
+solution for some exceptional cases of the original conjecture.
+
+   No one presented any full completed proof of the original conjecture as it was characterized by Erdös–
+Straus; which was argue the existence of integer solution of (1.1) for n ≥ 2. This is the original problem
+nothing else.
+
+   Hagedorn [5], solved a very special interesting problem concerning n3 under Modular Arithmetic. Namely,
+Hagedorn proved that for n > 3 odd integer not divisible by 3. Then there exist distinct odd, positive
+integers a, b, and c such that
+                                                3    1 1 1
+(1.2)                                             = + + .
+                                                n    a b     c
+There are a lot of extensive works about this and similar problems, cf. [1], [2], [3], [6], and [9].
+   In this note, we give a full complete positive proof of the celebrated unsolved Erdös–Straus conjecture.
+Our presented proof based on very simple tools of analysis. Similar conjectures are also discussed.
+
+                              2. The Proof of the Erdös–Straus conjecture
+   Let us observe first that, if n = 1 then (1.1) fails. This is obvious since
+                                                      1    1 1
+(2.1)                                            4= + +
+                                                      x y z
+does not hold whence x, y, z ∈ N.
+
+Date: February 12, 2023.
+2010 Mathematics Subject Classification. Primary: 11D68, Secondary: 11D99.
+Key words and phrases. Erdös–Straus conjecture, Rational numbers as sums of fractions, Open problem.
+                                                               1
+2                                               M.W. ALOMARI
+
+
+Proof. For n ≥ 2, our proof is carried by contradiction. Suppose there is no integers x, y, z, such that
+n (xy + xz + yz) = 4xyz. Consider the set
+                           A := {n (xy + xz + yz) : ∀x, y, z ∈ N, for some n ≥ 2} .
+By our assumption, either n (xy + xz + yz) < 4xyz, or n (xy + xz + yz) > 4xyz, for all x, y, z ∈ N and
+n ≥ 2.
+  Let us assume n (xy + xz + yz) < 4xyz. Therefore, the set A is bounded above, and by the least upper
+bound property the sup (A) := α, exists and in this case, α = 4xyz. This implies that
+                                           α − xy − xz − yz < α,
+with the properties
+    (1) α − xy − xz − yz is not an upper bound of A.
+    (2) α − xy − xz − yz ∈ N.
+This suggests that there exists an integer k such that α − xy − xz − yz < k < α, with the property that
+k = n (xy + xz + yz), for some n ≥ 2. Thus,
+                                 α − xy − xz − yz < n (xy + xz + yz) < α,
+and this implies that
+                    α < n (xy + xz + yz) + xy + xz + yz = (n + 1) (xy + xz + yz) ∈ A,
+which contradicts the assumption that α is the least upper bound of A. Our proof is finished once we prove
+such k ∈ A exists, i.e; there exists an integer k has the form n (xy + xz + yz), for some integers x, y, z and
+n ≥ 2 with the property that α − xy − xz − yz < k.
+
+   To obtain that, assume x, y, z ∈ N and without loss of generality assume x < y < z. Setting x = m,
+y = m + p, z = m + q; such that p, q ∈ N.
+              α − xy − xz − yz = 4xyz − xy − xz − yz
+                                 = 4m3 + 4m2 q + 4pm2 + 4mpq − 3m2 − 2pm − 2mq − pq
+                                 = 4m3 + 4m (mq + pm + pq) − 2m2 − 2pm − 2mq − m2 − pq
+                                 < 4m3 · (mq + pm + pq) + 4m (mq + pm + pq)
+                                 = 4m3 + 4m · (mq + pm + pq)
+                                             
+
+                                 = N · (mq + pm + pq) ∈ A,
+which proves such k exists.
+   A similar contradiction occurred, when we assume n (xy + xz + yz) > 4xyz. So that, there exist x, y, z ∈ N
+such that n (xy + xz + yz) = 4xyz, for some n ≥ 2, which completes the proof. Thus, the Erdös–Straus
+conjecture n4 = x1 + y1 + z1 , holds true for some integers x, y, z and n ≥ 2.
+                                                                                                            □
+   In the previous presented proof, nothing special about 4/n. Replacing, 4/n by 5/n, then the Sierpinski
+conjecture holds true using the same proposed argument. Furthermore, the restricted Hagedorn equation
+(1.2) requires that n odd and it is not divisible by 3. For example, the following two cases are not guaranteed
+by Hagedorn assumptions. Take n = 8 and a = b = c = 18 , we note that
+                                3      1 1 1       3   1  1  1
+                                    = + + , (or)     =   + + .
+                                8      8 8 8       8   16 4 16
+Also, take n = 9 and a = b = c = 19 , we note that
+                                3    1   1 1 1             1      1    1 1
+                                  = = + + , (or)             =      + + .
+                                9    3   9 9 9             3     18 9 6
+In fact, these cases (when n is not odd and/or divisible by 3) together with the other assumptions treated
+by Hagedorn himself could be very obvious if one follows the same approach of proving the Erdös–Straus
+conjecture above. Indeed, our approach could be very useful for refining and relaxing the original problem of
+Hagedorn [5], and in the meanwhile covers the remaining cases all together without any further restrictions
+as proposed in [5].
+                         A SIMPLE DIRECT PROOF OF THE ERDÖS–STRAUS CONJECTURE                                           3
+
+
+   Roughly, and in general, for a fixed positive integer m, the Diophantine equation n (xy + xz + yz) = mxyz,
+                   1    1   1
+or we write m n = x + y + z , has a solution for some positive integers x, y, z and n ≥ 2, as long as m is a
+fixed positive integer.
+
+   Finally, we reformulate (refine) and restrict the original conjecture of Erdös–Straus, to be as in the
+following form.
+Problem 1. Prove the Erdös–Straus conjecture using Modular Arithmetic only.
+
+
+
+
+  Data Availability. The data used to support the findings of this study are included within the article.
+
+  Conflicts of Interest. The author declares that he has no conflicts of interest.
+
+  Funding. This research received no external funding.
+
+                                                     References
+[1] Bernstein, L. Zur Lösung der diophantischen Gleichung m n
+                                                                = x1 + y1 + z1 insbesondere im Falle m = 4, J. reine angew.
+    Math., 211 1962, 1–10.
+[2] A.B. Chace. The Rhind Mathematical Papyn1s, NCTM, 1979.
+[3] R. K. Guy, Nothing’s New in Number Theory, AMM, 105 (1998), 951–953.
+[4] 4. R. K. Guy, Unsolved Problems in Number Theory, Springer, 1994.
+[5] T.R. Hagedorn, A Proof of a Conjecture on Egyptian Fractions, 62-63, AMM, 107 (1)(2000), 62–63.
+[6] 5. B. M. Stewart, Sums of distinct divisors, Amer. J. Math., 76 (1954), 779–785.
+[7] A. Swett, The Erdös–Straus Conjecture, Rev.10/28/99.
+[8] S.E. Salez,The Erdös–Straus conjecture: New modular equations and checking up to n = 1017 , arXiv 1406.6307, (2014).
+                                                   4
+[9] 6. K. Yamamoto, On the diophantine equation n    = x1 + y1 + z1 , Mem. Fac. Sci. Kyushu Univ. Ser. A, 19 (1965), 37–47.
+
+  Department of Mathematics, Faculty of Science and Information Technology, Irbid National University, P.O.
+Box 2600, Irbid, P.C. 21110, Jordan.
+  Email address: mwomath@gmail.com
+

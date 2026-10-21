@@ -55,8 +55,24 @@ source-level literature summary. Status "claimed": that rests on three pending f
 2023, Dyachenko arXiv:2511.07465, Bradford arXiv:2602.11774). Accepted partial results: Obláth 1950 and Terzi
 1971. The 10¹⁸ verification is recorded as pending. Compared against this repository, the only item we had not
 recorded is **Alomari, "A simple direct proof of the Erdős–Straus conjecture" (Feb 2023; Authorea
-10.22541/au.167569747.72416313, OSF gecwa, Research Square rs-2579186)**. It is an elementary full-proof claim
-that has not been examined here. Everything else (Akaka Zenodo, Bello-Hernández et al., Dahan, Jiang 2609.09204
+10.22541/au.167569747.72416313, OSF gecwa, Research Square rs-2579186)**. It is an elementary full-proof claim; **audited below: fatally flawed**. Everything else (Akaka Zenodo, Bello-Hernández et al., Dahan, Jiang 2609.09204
 (withdrawn), the leochlon/erdstrau Lean repository, PW25, MiDu25) is already in LITERATURE_2026.md. The watcher
 `scripts/theoremdb_watch.py` now also reports new commits to `wiki/problems/unit_fractions/E0242` in that repo.
 Nothing has been posted there.
+
+### Alomari 2023: audit (2026-10-21; text in `sources/lit2026j/`)
+
+**Verdict: not a proof (fatal).** The 4-page note argues by contradiction with a least-upper-bound argument.
+1. **Quantifier error.** The negation of ES is "∃ n ≥ 2 ∀ x, y, z: n(xy+xz+yz) ≠ 4xyz". The proof instead
+   ranges over "for some n ≥ 2". Its set A := {n(xy+xz+yz) : x, y, z ∈ ℕ, n ≥ 2} lets n vary, and the final
+   sentence concludes that the equation "holds true for some integers x, y, z **and n ≥ 2**". That is trivially
+   true (n = 4, x = y = z = 3) and is not ES.
+2. **Ill-defined supremum.** "sup(A) = α = 4xyz" equates the supremum of a set with an expression in the bound
+   variables x, y, z. A is unbounded above in any case, and the dichotomy "either < for all x, y, z or > for all
+   x, y, z" does not follow from the failure of equality.
+3. **Broken inequality chain.** The displayed chain asserts 4m³ + 4m(·) − … < 4m³·(·) + 4m(·), then rewrites the
+   right side as 4m³ + 4m·(·) (the product sign silently becomes a sum) and calls it "N·(mq+pm+pq) ∈ A".
+4. **Numerator-blind, hence proves false statements (FRONTIER §4 line 2).** The author states that the argument
+   works for every fixed numerator m. Read as a proof of "∀ n ≥ 2", it would give 8/11, 8/17, 8/131 and 8/241 as
+   sums of three unit fractions. Exhaustive search (re-run 2026-10-21) confirms that none of these has such a
+   representation.
