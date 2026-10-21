@@ -257,3 +257,32 @@ The other occurring coordinates are the *ports*: their complete fibres decide wh
 **Assessment / promise:** 0/5 as a proof of ES via Q3; **1/5** for finite-component classification and prevention of rediscovery. No general no-go for other q, enlarged move sets, or global ES arguments follows.
 
 **Concrete next steps:** independently review the small static certificates; update the parent campaign's Q3 status from open to refuted; only then consider a narrowly scoped symbolic trap-family classification. No further open-ended Q3 success search is warranted, and none of the 11 timeouts needs resolution to establish the counterexamples.
+
+## 7. The board's smaller seed island (board #4 addendum, 2026-10-19)
+
+**Attribution / CERTIFIED.** Board #4 argon-5, corrected independently by Astra and Fable, identifies the same four-vertex template as §5 at **p=1321,6121,12241,14281**. A fresh static complete-fibre audit in `scripts/z48_closure_verify.py` confirms that the component through (2p,2p,3p) consists exactly of
+
+    V₀ = (2p,2p,3p),
+    V₁ = (p+1,3p,p(p+1)),
+    V₂ = (2p,(6p+4)/5,3p(3p+2)/5),
+    V₃ = (2p,3(2p+3)/5,2p(2p+3)/5),
+
+with triples understood up to permutation. There is no all-3-divisible vertex. This corrects Argon's board list, not the already-correct list in §5. At 1321 the sorted vertices are (2642,2642,3963), (1322,3963,1746362), (1586,2642,3142659), (1587,2642,1397618).
+
+**Proposition 7.1 (PROVED, exact symbolic closure criterion).** For a prime p>5 the displayed list is integral iff p≡1 (5). Under this condition it consists of four distinct points of U₃ₚ, connected through V₀; it is target-free iff p≡1 (3). Write
+
+    P(p) = {p+1, p(p+1), (6p+4)/5, 3p(3p+2)/5,
+            3(2p+3)/5, 2p(2p+3)/5}.
+
+For each port x∈P(p), reduce (4x−3p)/(3px)=Aₓ/Bₓ, and let (x,yₓ,zₓ) be its unique listed vertex with yₓ≤zₓ. Then the list is **closed iff**, for every port x,
+
+    {d : d | Bₓ², d≤Bₓ, d≡−Bₓ (mod Aₓ)}
+       = {Aₓyₓ−Bₓ}.                                      (C)
+
+This is a finite factor-class criterion, not a congruence-only classification or an assertion that every p≡1 (15) is trapped.
+
+*Proof.* Integrality of (6p+4)/5 forces p≡1 (5), which also makes every other coordinate integral. Substitution verifies the cubic. As in §5, holding 3p gives exactly V₀,V₁: the residual is 1/p and the smaller factor divides p². Holding 2p gives exactly V₀,V₂,V₃: the reduced residual is 5/(6p); among d=c pʲ with c|36, j∈{0,1,2}, the required residue is c≡4 (5), hence c=4 or 9, giving three complementary pairs. The other six coordinates are distinct and private to their listed vertex for p>5. Lemma 1 therefore makes (C) necessary and sufficient for all their fibres to stay in the list. This proves closure and exactness of the connected component whenever (C) holds. Three vertices contain 2p; V₁ is all-3-divisible precisely when 3|p+1. ∎
+
+**CERTIFIED closure, not a denominator cutoff.** At each of the four primes all six port tests (C) are singletons; the 2p and 3p fibres have respectively three and two vertices. The verifier records reduced Aₓ,Bₓ, checked prime factorizations of Bₓ, and *all* eligible divisors in `data/z48_closure/traps.json` (32 complete coordinate fibres). It does not import a board script or BFS explorer. As a negative control, p=61≡1 (15) is **not** closed: holding 74 in V₂ reaches (74,120,90280), outside the template. Thus the integrality congruence alone cannot establish trapping.
+
+**Assessment.** This is a trapped *single seed component*, not the entire seed union: Q3 succeeds at these four smaller fixtures through other seeds. Board #4's two-coordinate bridges from the old q=2 trap lead into this island; its successful ratio-bridge paths instead reset to the other q=3 spine. Neither observation supplies universal reachability. The full-union Q3 counterexamples in §3 remain the stronger negative result. See `PROPAGATION_CLOSURE.md` for the (P)/(G) scope and replay command.

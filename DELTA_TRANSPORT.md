@@ -295,3 +295,53 @@ timeout 300 uv run --with python-flint python scripts/z47_delta_transport_verify
 ```
 
 Own files: `DELTA_TRANSPORT.md`; `scripts/z47_delta_transport_{scan,verify}.py`; `data/z47_delta_transport/{fibres.jsonl.gz,scan.json,verify.json}`. No pre-existing file is changed.
+
+## 7. External-2 folding (board #4 addendum, 2026-10-19)
+
+**Attribution / scope.** Board `20261019-es-propagation`, argon-2, with Astra's terminology and Type-II identification and Fable's filter audit (round 3). This adds moves, not a new certificate family. At **odd K**, 2 is absent from K's support: adjoining it is an **external-2 mark**, NOT an internal δ=2 mark. In particular it does **not correct §3.3**: that section correctly describes moves restricted to primes already dividing K. Nor does testing the absence of δ=0 establish exact distance two.
+
+**Proposition 7.1 (PROVED).** Let positive integers satisfy
+
+    k ≡ 0 (4), m = kK−n > 0, gcd(m,n)=1,
+    s ∈ {2,4}, K = huv/s, gcd(u,v)=1, hv odd,
+    k | u, u+v = am, a ≥ 1.
+
+Put t=kh/s and qₐ=n−(a−1)m=tuv−u−v. If qₐ>0, then
+
+    X = (u/k)(tv−1), Y = qₐtu/k, Z = qₐtu(tv−1)/k
+
+are positive integers representing k/qₐ, with zero-distance target window v. At a=1 this is a fixed-n fold and v<m.
+
+*Proof.* qₐ+v=u(tv−1)>0, and direct addition gives
+
+    1/X + 1/Y + 1/Z = k/[u(tv−1)] + kv/[qₐu(tv−1)] = k/qₐ.
+
+Also gcd(v,qₐ)=gcd(v,u)=1. The divisor tv−1 of X is −1 modulo v, giving a zero-window ratio certificate; explicitly D=X(tv−1) divides X² and D≡−X (mod v). At a=1, v<u+v=m. ∎
+
+**PROVED, the additional odd-t case.** For k=s=4, t=h is odd and v₂(u)=v₂(K)+2, so 4|u is automatic, including odd K. The marked integer D₀=Ku/v=hu²/4 satisfies D₀|4K² and D₀≡−K (mod m). When K is odd it introduces the external prime 2. When K is even its 2-exponent exceeds that in K² by two, but the *minimum* internal distance need not be two. The old s=2 case has t=2h and v₂(u)=v₂(K)+1, with even K. For p≡1 (8), odd K means m≡3 (8).
+
+**PROVED numerator-8 control.** With k=8,s=4 and K odd, u has exactly two factors of 2, whereas t=2h and tv−1 is odd; X is a half-integer. A genuine control is n=241, m=39, K=35, (u,v,h,a)=(4,35,1,1): D₀=4 is an external mark, but X=(241+35)/8=69/2. Thus this automatic folding fails at 8/241. The earlier internal-overflow failure at 8/131 remains unchanged. At numerator 4, an a=1 source cannot occur at an odd square: its folded output has gcd(n,X)=1 and n|Y,Z, contradicting T1.
+
+**PROVED quotient behaviour, not exceptional-set propagation.** At a>1 the *unscaled* construction solves qₐ, provided it is positive, not n. Alternatively multiplying the original equation by a gives an=(at)uv−u−v, hence a fold for an; its first denominator (u/4)(atv−1) is coprime to a, so cannot be divided by a when a>1. Neither operation repairs fixed-n descent. At the old source (n,m,K)=(193,39,58), (s,u,v,h,a)=(2,116,1,1,3), the unscaled word is 115=2·116·1−116−1 and
+
+    4/115 = 1/29 + 1/6670 + 1/6670.
+
+This coexists with §3.3's different fold for 4/579; it is not a solution transport back to 193.
+
+**CERTIFIED independent census.** `scripts/z48_closure_verify.py` enumerates words by u and divisors of p+u, rather than either seat's m- or K-loop. For all 143 primes p≡1 (24), p≤10⁴, m≤p, it checks the absence of a source zero and verifies all **542** marked identities:
+
+| move | source fibres | primes covered |
+|---|---:|---:|
+| old s=2, t≡2 (4) | 250 | 99 |
+| added s=4, t odd (either parity of K) | 281 | 111 |
+| union | — | **131** |
+| added case restricted to odd K | — | **93** |
+
+The union gains 32 primes, but still misses 193,313,1009,1201,1321,1873,2161,2521,2833,3313,4513,5689. Dropping the no-zero exclusion filter gives **137/143** for the union word family. The filter is not a source-forcing mechanism. Examples include 433 at (m,K,u,v,t)=(27,115,4,23,5), and 2113 at (167,570,152,15,1). These counts concern folding alone, not the old folding-plus-repartition count 108.
+
+**PROVED dictionary / Assessment.** At numerator 4 every folded target for N=qₐ has the existing ET-II parameters
+
+    (a,b,c,d,e) = (1,tv−1,t,u/4,v),
+    a+b=ce, 4abd=N+e, (X,Y,Z)=(abd,Nacd,Nbcd).
+
+Thus the output belongs to the **a=1 Type II** family (the a here is an ET parameter, not the source quotient). Global availability is still a B2 divisor-class problem. **Verdict: PARTIAL, promise 1/5; no new (P)/(G) route.** Replay and data: `PROPAGATION_CLOSURE.md`, `data/z48_closure/{folds,summary}.json`.

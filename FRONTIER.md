@@ -543,6 +543,7 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   identities remain open ((J)10: the T1-respecting W(n) identity exists, positivity is the spin event).
 * Automorphic normal form (theta quotient, weight ½, Serre–Stark) → Eisenstein-only, exact, but does not decide one integer → (J)101.
 * Dirichlet series / moments / Euler-product hardness laws → averages (B6) → `BRAINSTORM/anal_*`.
+* Spectral/interlacing, faithful Euler systems, single-character Siegel dichotomy, ultraproduct transfer → displayed mechanisms fail, not universal no-go theorems (Assessment) → `BREADTH_Z45.md` §§1–4 (board #4 addendum, 2026-10-19).
 
 *Algebraic / forcing*
 * Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS "line 2: CLOSED".
@@ -561,6 +562,9 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 
 *Geometry / relaxations / transfers*
 * Brauer–Manin, fibrations, descent, strong approximation → no BM obstruction; "BM only obstruction" = ES(n) → (I)7, `GEOMETRY_ES.md`.
+* Finite descent–Brauer on covers with image-integrality → nonempty at every n≥2, including numerator-8 failures (PROVED, specified smooth-locus scope) → `BRAUER_TWISTS.md` (board #4 addendum, 2026-10-19).
+* Fixed-q positive pivot rewriting → q=2,3 trapped despite ES (CERTIFIED); Q3 refuted; q=5 traps board-reported, not all move sets excluded → `Q3_PIVOT.md` (board #4 addendum, 2026-10-19).
+* Propagation / global-positivity shapes → supplied mechanisms are restatements or divisor-gated; unrestricted norm descent, integral Y–Δ and rule Λ remain open (Assessment) → `PROPAGATION_CLOSURE.md` (board #4 addendum, 2026-10-19).
 * Local + spinor ⇒ global, Siegel–Weil, ternary-form representation inputs → true at odd squares (T1) → (I)1, (I)4.
 * Quaternion orders / supersingular graph / Eichler orders → dictionary only (genus layer) → (I)6, (J)33, (J)35, (J)65.
 * Transport of ES^{(S)}, V_φ, ES^□ certificates into ES → no transport; ES is a finite search → (J)25, (J)28.
