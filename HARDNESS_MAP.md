@@ -155,6 +155,8 @@ At each of those primes **every** Type-I c and every p-free denominator's larges
 
 ### A5. Efficient unrestricted ES → deterministic QNR finding
 
+> **Status note (2026-10-21, OAI_DUMP_IMPACT.md).** If the OpenAI-release claim 003 (Lean-formalized, unrefereed; all Dirichlet L-functions zero-free for Re s > 7/8) holds, then r(p) ≪ (log p)^8 and deterministic QNR finding is in P (trial search). Claim 142 would give the same independently. A5 then stays a valid reduction but loses its hardness content: it no longer shows that efficient ES would solve an open problem.
+
 **PROVED; novelty: new explicit unrestricted extension of a repo-known five-slice arrow.** There is a deterministic polynomial-time witness transformation
 
 ```

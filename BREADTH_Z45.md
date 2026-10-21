@@ -178,3 +178,18 @@ Pruning corollaries: an efficient constructive proof of ES derandomises QNR find
 least-QNR bounds of the same size. A finite-menu proof refutes Schinzel H / Dickson. A two-sided count contradicts
 Linnik. Not implied, either way: no arrow from QNR bounds back to ES, none from any relaxation to ES, and none
 between ES and Sierpiński 5/n or three cubes. An equivalence to a named open problem was not found.
+
+## 10. External: the OpenAI math release (`OAI_DUMP_IMPACT.md`, 2026-10-21)
+
+`github.com/openai/math` (2026-10-06) contains 719 unrefereed AI manuscripts. Nothing in it is on Erdős–Straus.
+**CLAIMED and Lean-formalized:** quasi-RH, i.e. every Dirichlet L-function is zero-free for Re s > 7/8, with a
+uniform Siegel-zero exclusion. *If accepted*, these become unconditional:
+* least QNR r(p) ≪ (log p)⁸ (parent re-derived the exponent: 1/(1−θ) with smoothing), hence deterministic QNR
+  finding in P, so HARDNESS_MAP A5 loses its hardness content;
+* the exponent cap e*(n) ≪ log⁸ n effectively (previously GRH-conditional (16 log n + 70)²);
+* M_BM(p) ∼ (3/(2π²))(log p)² (previously GRH-only);
+* M_gen ≥ log₂p − log₃p − O(1);
+* effective versions of the ineffective Thm U and the moving-window bound.
+Family 029's technical propositions (Artin; not formalized) would make the one-fixed-mute-prime relaxation
+unconditional. **None of this touches B2, and ES remains open.** GRH itself is not known to imply ES, and the
+memo confirms that every transfer still fails checklist lines 4, 8, 9, 12 and 17.

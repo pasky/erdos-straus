@@ -24,3 +24,12 @@ Searches for post-August 2026 work, new exceptional-set estimates, Elsholtz–Ta
 ## Bottom line
 
 As of 2026-10-21, nothing relevant has been proven in the sense of resolving Erdős–Straus, Sierpiński 5/n, or Schinzel's general conjecture. The genuinely new item located is a Lean formalization of an exceptional-set bound, with nine substantial analytic assumptions exposed at the trust boundary; it does not establish the conjecture or demonstrate improvement over Vaughan. The conspicuous September AI-produced archive explicitly disclaims proving or disproving the conjecture. No verified disproof, better verification bound, or new partial-result advance emerged.
+## Addendum (2026-10-21): the OpenAI `openai/math` release (missed above)
+
+The audit above missed `github.com/openai/math`, released 2026-10-06 (HEAD 1581d4cb). It holds 719 unrefereed
+AI-produced manuscripts in 372 families, about 42% with Lean formalizations, three withdrawn on 2026-10-07. None
+concerns Erdős–Straus, and the list of attempted problems is not published. Several claimed results bear on the
+campaign's tools: family 003 (quasi-RH σ > 7/8 for all Dirichlet L-functions, plus a uniform Siegel-zero
+exclusion; Lean-formalized), 142 (deterministic factorization over F_p), 029 (Artin), 007 (two-point Chowla),
+021 (Jacobsthal), 025 (short Egyptian fractions Θ(log log b)) and 028 (Gaussian moat). The full impact analysis is
+in `OAI_DUMP_IMPACT.md`, with excerpts in `sources/oai2026/`.
