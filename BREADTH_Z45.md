@@ -140,3 +140,19 @@ show that B2 is *necessary*. The open crux, which no seat could settle: is there
 infinite family of prime pairs (q, p), with Λ(W(q)) ⊆ W(p) whose validity is not a congruence or divisor condition
 on the witness? Cheapest verdict-changing experiment: one non-ET-form step from the witnesses at the coordinates
 of m² = a² + b² that produces a mixed or scaled solution at an odd square.
+
+## 8. Board #4 follow-ups (2026-10-21)
+
+* **Closure slate written (`PROPAGATION_CLOSURE.md`; addenda in DELTA_TRANSPORT.md and Q3_PIVOT.md; FRONTIER §6 dead
+  ends updated).** Every board count was independently re-verified. **PROVED:** Lemma D (Jacobi obstruction),
+  checked on all 1 096 mixed solutions.
+* **Verdict-changing experiment (`NONET_STEP.md`; PARTIAL, 1/5).** The square-survival condition is met: a non-ET
+  "ratio transplant" step reads the reduced ratio r:s of two denominators of a coordinate witness and outputs
+  (X, Hr, Hs) with X = (n+3)/4 and H = n(n+3)(r+s)/(12rs), rejecting when H is not an integer. **PROVED example:**
+  from (4, 68, 510) ∈ W₄(15) at 289 = 15² + 8² it gives 4/289 = 1/73 + 1/7446 + 1/126582. This is a mixed solution,
+  not scaled from 4/17 (parent re-checked). The same step at 3361 recovers the known solution (841, 3361·290,
+  3361·8410). **CERTIFIED:** the full grammar reaches 536 of 542 primes but fails completely at six, including 2521
+  and 9601. So the (P) descent shape is not killed by T1, but it is not a law: the source witness only proposes a
+  ratio, and the integrality of H is a divisor event, B2 again. With this, the board's drop-condition is resolved
+  and direction (P) is closed for the campaign, except for a genuinely norm-compatible forcing theorem (open; no
+  candidate).
