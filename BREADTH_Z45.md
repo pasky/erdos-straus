@@ -156,3 +156,25 @@ of m² = a² + b² that produces a mixed or scaled solution at an odd square.
   ratio, and the integrality of H is a divisor event, B2 again. With this, the board's drop-condition is resolved
   and direction (P) is closed for the campaign, except for a genuinely norm-compatible forcing theorem (open; no
   candidate).
+
+## 9. Relative-hardness map (`HARDNESS_MAP.md`, 2026-10-21)
+
+The map has 19 arrows. Most are repo-known or folklore and are consolidated with exact scope. New arrows:
+* **A5 (PROVED, crisp).** QNR-SEARCH ≤ ES-PRIME-SEARCH: one oracle call, deterministic polynomial time, no
+  factoring. In every solution of 4/p (p ≡ 1 mod 4), exactly two denominators have equal p-adic valuation, and
+  the product of their p-free parts is a quadratic non-residue mod p. So a deterministic polynomial-time ES
+  solver at primes would solve deterministic QNR finding, which is open without GRH. The parent re-checked the
+  identity independently on all 8 334 solutions of 4/p, p ≡ 1 (4), p < 3000: zero violations, and always exactly
+  one equal-valuation pair.
+* **A2/A3 (PROVED).** Reduced witness parameters a, b, c ≤ f(p) imply r(p) ≤ f(p). Polylog-height *denominators*
+  are impossible: max denominator ≥ p(p+1)/4 for Type I and > p^{3/2}/2 for Type II. So "polylog ES" must mean
+  reduced-parameter height.
+* **A4 (PROVED, rel. Graham–Ringrose / Lau–Wu Prop 5.1).** For infinitely many Mordell-hard primes, every reduced
+  witness parameter, H₄ and the largest prime factor of every p-free denominator are ≥ c·log p·log log log p.
+  O(log p) witness bounds are therefore false unconditionally.
+* **A15 (PROVED implication).** Elliott–Halberstam ⟹ two fixed mute primes suffice. This applies to the mute
+  relaxation only.
+Pruning corollaries: an efficient constructive proof of ES derandomises QNR finding. A small-parameter proof proves
+least-QNR bounds of the same size. A finite-menu proof refutes Schinzel H / Dickson. A two-sided count contradicts
+Linnik. Not implied, either way: no arrow from QNR bounds back to ES, none from any relaxation to ES, and none
+between ES and Sierpiński 5/n or three cubes. An equivalence to a named open problem was not found.
