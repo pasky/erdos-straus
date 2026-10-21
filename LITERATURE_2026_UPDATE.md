@@ -45,3 +45,18 @@ It uses the public API, never writes, and diffs against `data/theoremdb/snapshot
 records on those two problems, plus keyword-filtered hits of research search (Straus, Egyptian / unit fractions,
 4/n, 5/n, Schinzel). Run it at every literature check. Nothing has been uploaded; per pasky, nothing goes external
 before a final or crisp result.
+
+## erdosproblems.ai (Plasma AI), checked 2026-10-21
+
+erdosproblems.ai is an independent proof-claim and status site operated by Plasma AI and not endorsed by Bloom.
+It started after erdosproblems.com paused claims in October 2026. It is built from the open repo
+`github.com/plasma-ai/erdos` (Apache-2.0, plus CC-BY-4.0). Its problem-242 page and wiki give a careful,
+source-level literature summary. Status "claimed": that rests on three pending full-proof manuscripts (Alomari
+2023, Dyachenko arXiv:2511.07465, Bradford arXiv:2602.11774). Accepted partial results: Obláth 1950 and Terzi
+1971. The 10¹⁸ verification is recorded as pending. Compared against this repository, the only item we had not
+recorded is **Alomari, "A simple direct proof of the Erdős–Straus conjecture" (Feb 2023; Authorea
+10.22541/au.167569747.72416313, OSF gecwa, Research Square rs-2579186)**. It is an elementary full-proof claim
+that has not been examined here. Everything else (Akaka Zenodo, Bello-Hernández et al., Dahan, Jiang 2609.09204
+(withdrawn), the leochlon/erdstrau Lean repository, PW25, MiDu25) is already in LITERATURE_2026.md. The watcher
+`scripts/theoremdb_watch.py` now also reports new commits to `wiki/problems/unit_fractions/E0242` in that repo.
+Nothing has been posted there.

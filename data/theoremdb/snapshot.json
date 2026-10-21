@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-21T14:26:18Z",
+ "fetched": "2026-10-21T20:14:40Z",
  "records": {
   "tdbr1:921cbdd7e7dc7e6055a31233ed21b462baa1e64b5cbc229de0aab947369c854b": {
    "source": "problem:erdos-straus-conjecture",
@@ -99,6 +99,96 @@
    "summary": "",
    "url": null,
    "digest": "b722e58f3a13d502"
+  },
+  "gh:plasma-ai/erdos:25b595f7e90f50b789e06e9e3871307f0b913526": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "25b595f7e9",
+   "type": "commit",
+   "title": "Give every claim page its published date from the file name",
+   "summary": "2026-10-17T21:49:34Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/25b595f7e90f50b789e06e9e3871307f0b913526",
+   "digest": "25b595f7e90f50b789e06e9e3871307f0b913526"
+  },
+  "gh:plasma-ai/erdos:2092633f8702013fb979724e9e0962c080a6964a": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "2092633f87",
+   "type": "commit",
+   "title": "Name erdosproblems.com and Conjectures.io where pages said \"the site\"",
+   "summary": "2026-10-14T01:26:25Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/2092633f8702013fb979724e9e0962c080a6964a",
+   "digest": "2092633f8702013fb979724e9e0962c080a6964a"
+  },
+  "gh:plasma-ai/erdos:019bc0bddbbcf585964f64e4c2fa0d4771ce9e72": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "019bc0bddb",
+   "type": "commit",
+   "title": "Link the arXiv version each page names as the one it read",
+   "summary": "2026-10-14T00:25:14Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/019bc0bddbbcf585964f64e4c2fa0d4771ce9e72",
+   "digest": "019bc0bddbbcf585964f64e4c2fa0d4771ce9e72"
+  },
+  "gh:plasma-ai/erdos:731fbe04088428d5f342dd15d45e649e22c40c62": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "731fbe0408",
+   "type": "commit",
+   "title": "Restore the snapshot dates the pass removed outside the tagged sentences",
+   "summary": "2026-10-13T20:05:59Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/731fbe04088428d5f342dd15d45e649e22c40c62",
+   "digest": "731fbe04088428d5f342dd15d45e649e22c40c62"
+  },
+  "gh:plasma-ai/erdos:467558d0ed757221ff53640a00474fc837f2918e": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "467558d0ed",
+   "type": "commit",
+   "title": "Restore the snapshot and record dates the pre-release pass removed",
+   "summary": "2026-10-13T19:27:58Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/467558d0ed757221ff53640a00474fc837f2918e",
+   "digest": "467558d0ed757221ff53640a00474fc837f2918e"
+  },
+  "gh:plasma-ai/erdos:4e4895c8cd36ea909120855cdd1ad386f83f20d4": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "4e4895c8cd",
+   "type": "commit",
+   "title": "Put the corpus's statements of the site's labels into the past tense",
+   "summary": "2026-10-13T11:36:00Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/4e4895c8cd36ea909120855cdd1ad386f83f20d4",
+   "digest": "4e4895c8cd36ea909120855cdd1ad386f83f20d4"
+  },
+  "gh:plasma-ai/erdos:040c91102c5ef21411965a6735b3ceed828f7c61": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "040c91102c",
+   "type": "commit",
+   "title": "Name living people instead of calling them he or his",
+   "summary": "2026-10-12T23:34:22Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/040c91102c5ef21411965a6735b3ceed828f7c61",
+   "digest": "040c91102c5ef21411965a6735b3ceed828f7c61"
+  },
+  "gh:plasma-ai/erdos:d804fa679765e0de1681e6074422fb66bffb6363": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "d804fa6797",
+   "type": "commit",
+   "title": "Fix what the second review of the rewording found",
+   "summary": "2026-10-12T00:11:59Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/d804fa679765e0de1681e6074422fb66bffb6363",
+   "digest": "d804fa679765e0de1681e6074422fb66bffb6363"
+  },
+  "gh:plasma-ai/erdos:7a79c05da848f69caa6bf039e9578f475992727a": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "7a79c05da8",
+   "type": "commit",
+   "title": "Reword the descs and the Status and Acceptance paragraphs for readers",
+   "summary": "2026-10-11T22:29:30Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/7a79c05da848f69caa6bf039e9578f475992727a",
+   "digest": "7a79c05da848f69caa6bf039e9578f475992727a"
+  },
+  "gh:plasma-ai/erdos:e96a5f34013632614e5c90834dd85b954ab29778": {
+   "source": "github:plasma-ai/erdos/wiki/problems/unit_fractions/E0242",
+   "ref": "e96a5f3401",
+   "type": "commit",
+   "title": "Initial public release",
+   "summary": "2026-10-08T21:38:08Z",
+   "url": "https://github.com/plasma-ai/erdos/commit/e96a5f34013632614e5c90834dd85b954ab29778",
+   "digest": "e96a5f34013632614e5c90834dd85b954ab29778"
   }
  }
 }

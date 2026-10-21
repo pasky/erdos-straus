@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only TheoremDB watcher for Erdős–Straus-related records.
+"""Read-only watcher for Erdős–Straus-related records on TheoremDB and erdosproblems.ai.
 
 Uses only the public, unauthenticated API (https://api.theoremdb.org, see /openapi.json).
 Never writes to TheoremDB. Keeps a local snapshot and reports records that are new or changed
@@ -31,6 +31,10 @@ def get(path, **params):
             return json.load(r)
     except urllib.error.HTTPError as e:
         return {"error": {"message": f"HTTP {e.code} for {url}"}}
+
+
+# erdosproblems.ai (Plasma AI) is built from this open repo; we watch commits touching the ES wiki pages.
+GITHUB_WATCH = [("plasma-ai/erdos", "wiki/problems/unit_fractions/E0242")]
 
 
 def digest(obj):
@@ -67,6 +71,20 @@ def collect():
                                   "title": f"[{proj}] " + (o.get("title") or "")[:200], "summary": "",
                                   "url": None, "digest": digest(o)})
         time.sleep(1)
+    for repo, path in GITHUB_WATCH:
+        url = f"https://api.github.com/repos/{repo}/commits?" + urllib.parse.urlencode({"path": path, "per_page": 30})
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "es-campaign-watch/1 (read-only)"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                commits = json.load(r)
+        except urllib.error.HTTPError as e:
+            print(f"WARN github {repo}:{path}: HTTP {e.code}", file=sys.stderr)
+            continue
+        for c in commits:
+            recs[f"gh:{repo}:{c['sha']}"] = {"source": f"github:{repo}/{path}", "ref": c["sha"][:10], "type": "commit",
+                                            "title": c["commit"]["message"].splitlines()[0][:200],
+                                            "summary": c["commit"]["author"]["date"], "url": c.get("html_url"),
+                                            "digest": c["sha"]}
     return recs
 
 
