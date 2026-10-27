@@ -193,3 +193,17 @@ uniform Siegel-zero exclusion. *If accepted*, these become unconditional:
 Family 029's technical propositions (Artin; not formalized) would make the one-fixed-mute-prime relaxation
 unconditional. **None of this touches B2, and ES remains open.** GRH itself is not known to imply ES, and the
 memo confirms that every transfer still fails checklist lines 4, 8, 9, 12 and 17.
+
+## 11. Local contribution drafts for plasma-ai/erdos (erdosproblems.ai), 2026-10-27; NOT submitted
+
+These are local clones and branches only; nothing is pushed.
+* `~/projects/math/plasma-erdos-prA` (branch `es242-claim-audits`; text in `plasma-erdos-prA.PR.md`). It rejects
+  the three claimed full proofs (Alomari, Dyachenko, Bradford) as "proof defective; statement unresolved", with
+  defects checked against the PDFs. Dyachenko's Lemma 9.24 is false (g = 1 gives the orbit {(j, j)} ≠ ℤ²).
+  E0242 becomes open / none.
+* `~/projects/math/plasma-erdos-prB` (branch `es242-research-map`; issue and PR texts in `plasma-erdos-prB.*.md`).
+  It adds the research map `wiki/research/erdos_242/` (main note, two supplements, 35-check evidence) plus three
+  Lean claims, with kernel-only proofs and 0 compiler axioms; the audit passes. Placeholder IDs:
+  * L9901: 8/n is not a sum of three unit fractions for n = 11, 17, 131, 241;
+  * L9902: the exact first-denominator divisor test;
+  * L9903: 4abcd ≠ a + b + m²c for all positive a, b, c, d, with no gcd or parity conditions.
