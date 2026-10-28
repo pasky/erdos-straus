@@ -494,7 +494,14 @@ Mellin inversion of (21), shifted from Re s>0 to Re s=−κ, gives uniformly in 
        +O(p^{-\kappa\beta+o(1)}).                             \tag{23}
 \]
 
-The Mellin multiplier is Γ(s)(p^{γs}−p^{βs}). At s=0 it has value (γ−β)log p; hence the pole residue in (23). Estimate (18), the uniform bound on H, and the exponential Γ-tail justify the error. This is a sum over a **free variable w**, where the L-function estimate really does apply—not an attempted estimate of ψ(p) at one point.
+Explicitly, the integral before shifting is
+
+\[
+ \frac1{2\pi i}\int_{(c)}\Gamma(s)(p^{\gamma s}-p^{\beta s})
+                          B_{u,\eta}(1+s)\,ds,\qquad c>0.
+\]
+
+The two L-functions in (21) have moduli at most 4up≤4p^{1+α₁}; on the shifted line their real argument is σ₀. The multiplier Γ(s)(p^{γs}−p^{βs}) has value (γ−β)log p at s=0, giving the residue in (23). Estimate (18), the uniform bound on H, and the exponential Γ-tail justify the error. This is a sum over a **free variable w**, where the L-function estimate really does apply—not an attempted estimate of ψ(p) at one point.
 
 Only w≤p/(8u) is needed to ensure the certificate height cutoff. The omitted tail of f_p is exponentially small, uniformly in u, since
 
@@ -568,9 +575,16 @@ Combining (24), (25), and (28) proves
 
 Let α₀ and β tend to zero and α₁,γ tend to 1/2 from below, always choosing fixed exponents before taking p→∞. This proves (G). ∎
 
-**T1 audit.** For an odd square input, the conductor of χ_{−4up} can lose the p-part. Then ηχ_D can be principal for a **nonprincipal** η in (20), producing an additional pole with the cancelling sign. Thus the “sole pole” step is false on the square locus, exactly where it must fail. The proof has not manufactured a genus lower bound for squares.
+**T1 audit.** For an odd square input p=m², coprime to u, the character χ_D is induced by η₀=χ_{−4u}, a character modulo 4u. On its split-prime support η₀(w)=1, so B_{u,η₀}=B_{u,1}. But the target signs (19) give
 
-**CERTIFIED identity checks / EVIDENCE for the asymptotic.** `z48_ltastra_genusproof.py` checks (19) and the entire projector (20) against the existing square-unit test, including primes p≡5 (mod 8). It independently checks the normalization L(1,χ_D)=πh(D)/√|D| by reduced binary quadratic forms versus exact character sums. All 106 prime inputs in `detail.csv` satisfy M_gen/log²p≥0.0778293, above 2/π⁴≈0.020532. These samples do not certify an eventual threshold. The recorded small-p smoothed subcounts can be below their pole expressions; no finite-point error constant is asserted.
+\[
+ \epsilon_{\eta_0}=\bigl[-\chi_8(u)\bigr](-2/u)=-1
+                         \qquad(u\equiv1\pmod4).
+\]
+
+Thus the two contributions cancel, including their equal poles: η₀χ_D now is principal up to omitted Euler factors. The “sole pole” step fails on the square locus exactly where it must. The proof has not manufactured a genus lower bound for squares.
+
+**CERTIFIED identity checks / EVIDENCE for the asymptotic.** `z48_ltastra_genusproof.py` checks (19) and the entire projector (20) against the existing square-unit test, including primes p≡5 (mod 8) and the cancelling character on odd-square controls. It independently checks the normalization L(1,χ_D)=πh(D)/√|D| by reduced binary quadratic forms versus exact character sums. All 106 prime inputs in `detail.csv` satisfy M_gen/log²p≥0.0778293, above 2/π⁴≈0.020532. These samples do not certify an eventual threshold. The recorded small-p smoothed subcounts can be below their pole expressions; no finite-point error constant is asserted.
 
 **What this changes, and what it does not.** Under a fixed strip, a one-sided estimate
 

@@ -9,4 +9,4 @@ This has been deprecated since SymPy version 1.13. It
 will be removed in a future version of SymPy.
 
   if jacobi_symbol(x % l, l) != 1: return False
-PASS: 5336 genus/projector identities, class-number cross-checks, 106 sample genus bounds
+PASS: 7310 genus/projector identities, class-number cross-checks, 106 sample genus bounds

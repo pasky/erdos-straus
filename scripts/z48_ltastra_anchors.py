@@ -97,8 +97,9 @@ def main():
                 ra.setdefault(bits,n)
             if not T[n]:
                 ta.setdefault(bits,n)
-    # Certify every anchor found; missing fibres are NOT asserted covered.
-    assert not (set(ta)-set(range(0,64,4))), sorted(ta)
+    # All sixteen union fibres are theorem-critical; missing star-only fibres
+    # are reported, not asserted covered.
+    assert set(ta) == set(range(0,64,4)), sorted(ta)
     def smooth(q):
         for prime in PRIMES:
             while q%prime == 0:
@@ -107,8 +108,10 @@ def main():
     for mask,n in ra.items():
         r,b = direct_hits(n,values)
         assert not r, (mask,n,r)
-        # Existing (u,C) enumeration, independent of the smooth-pair/AP engine.
-        assert all(not smooth(4*u*v) for u,v,c in c1_solutions(n)), (mask,n)
+    # Existing (u,C) enumeration, independent of the smooth-pair/AP engine.
+    # Include union anchors as well: their first witnesses differ from ra's.
+    for n in sorted(set(ra.values()) | set(ta.values())):
+        assert all(not smooth(4*u*v) for u,v,c in c1_solutions(n)), n
     for mask,n in ta.items():
         r,b = direct_hits(n,values)
         assert not r and not b, (mask,n,r,b)

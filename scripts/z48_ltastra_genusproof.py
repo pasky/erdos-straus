@@ -4,7 +4,7 @@ by reduced forms versus the exact odd-character class-number sum.
 No numerical verification of a zero-free hypothesis is claimed.
 """
 from fractions import Fraction
-from math import gcd, isqrt, log, pi, sqrt, exp
+from math import gcd, isqrt, log, pi, sqrt, exp, prod
 from pathlib import Path
 import csv
 import json
@@ -51,19 +51,25 @@ def class_number_character(p,u):
 
 def main():
     tests = 0
-    ps = (5,13,29,101,193,409,577,5569,9601)
+    ps = (5,13,29,101,193,409,577,5569,9601,9,25,49,121)
     for p in ps:
         for u in (1,5,13,17,21,29):
             if gcd(p,u)>1:
                 continue
             ls = list(factorint(u))
             s = 2**(len(ls)+1)
+            is_square = isqrt(p)**2 == p
+            if is_square:
+                eps_eta0 = -char(2,p)*char(2,u)*prod(char(-2*p,l) for l in ls)
+                assert eps_eta0 == -1
             for w in range(1,301,2):
                 if gcd(w,p*u)>1 or not squarefree(w):
                     continue
                 profile = chi4(w) == -char(2,p)*char(2,u)
                 profile &= all(char(w,l)==char(-2*p,l) for l in ls)
                 split = all(char(-4*u*p,l)==1 for l in factorint(w))
+                if is_square and split:
+                    assert chi4(w)*char(w,u) == 1  # B_eta0 = B_principal.
                 q = 8*u*w
                 a = -u-2*w
                 actual = is_sq_unit(p*a%q,q)
