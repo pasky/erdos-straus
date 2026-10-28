@@ -36,27 +36,30 @@ density main term (= ½ log²n + O(log n); M₀(10⁶) = 59.4, M₀(1560²) = 69
 3. **A prime-Haar CRT simulator for I3 conditioned on n's local data (CERTIFIED code; EVIDENCE for its predictions)**
    reproduces the census means (27.09 vs 27.15 words with larger endpoint ≤ 256 at odd n; 13.62 vs 13.63 at odd squares;
    6.77 vs 6.73 at even squares), the square cell tables, and the census survival P(no interior word with larger
-   endpoint ≤ X) at every X ≤ 1024 to three digits (§3.2). Its zero probabilities fit −log P(I3(n) = 0) ≈ c_T (log n)²
+   endpoint ≤ X) within 2–7 % at every X ≤ 1024 in a matched window (§3.2). Its zero probabilities fit −log P(I3(n) = 0) ≈ c_T (log n)²
    with c_T = 0.033–0.040 (even squares, measured 10⁴ ≤ N ≤ 10⁹), 0.055–0.059 (2m², to 3·10⁷), 0.077–0.080 (odd
    squares, to 3·10⁶), 0.085–0.090 (even non-squares, to 3·10⁶), 0.13–0.16 (odd non-squares, to 3·10⁴) — in each class
    about one third of the Poisson exponent for the same mean (clumping). Integrated over n (with stated interpolation
    and extrapolation rules) it gives 32 zeros beyond 10³ (census 19), 7.9 beyond 10⁴ (3), 3.1 beyond 36 078 (1), 1.5
    beyond 10⁵ (1), 0.33 beyond 10⁶ (1), 0.16 beyond 1560², 0.05 beyond 10⁷, ≈ 6·10⁻⁴ in (10⁹, 10¹³]: the model
-   over-predicts the census by a factor 1.5–2.6 (the even-square channel by ≈ 2.5), consistent with Poisson noise in the
-   census and with the replicate spread of the simulator at large N (§3.3). **The zero at 1560² is accounted for by the
+   over-predicts the census by a factor 1.7–2.8 (the even-square channel by ≈ 2.8); this is more than Poisson noise
+   (P(Pois(31.7) ≤ 19) ≈ 0.01), so the model has a systematic over-prediction of order 2, located by the census P₁/P₂
+   check in the tail factor (§3.3). **The zero at 1560² is accounted for by the
    model (Assessment, §3.4):** an even square (S_gen = ½, u = 3, 4 empty) with m divisible by 2³·3·5·13 (S_div = 0.48;
    every tn + 1 is coprime to 2·3·5·13 and, being t·1560² + 1, has all its odd prime factors in ker(−t/·)); for its exact
    local type the model gives P(I3 = 0) = 3.5·10⁻³ against 2.6·10⁻⁴ for a generic even square of that size; the expected
    number of zeros among the 13 squares m² with 120 | m ≤ 1560 is 0.34. The levels 3 ≤ t ≤ 40 of 1560² carry no
    divisor ≡ −1 (mod t) at all except the free ones at t = 18 (u = 1) and t = 38 (u = 1). **Zeros cluster at n ∈ {m²,
    2m²} and at highly divisible n** (the model's own zero-survivors have 3 | n in 83 %, 5 | n in 59 %); multiplicative
-   near-squares with k ≥ 3 (6336 = 11·24², 5850 = 26·15²) are zeros because of S_div, not k.
+   near-squares with k ≥ 3 (6336 = 11·24², 5850 = 26·15²) are, in the model's reading, zeros because of S_div (0.58, 0.48)
+   and small-residue luck rather than because of k.
 4. **New theorems.** ⟨R⟩ **Theorem 5.5 (PROVED, computer-assisted, hand-checkable):** I3(2^k − 1) ≥ 1 for all k ≥ 6,
    by the eight word congruences with endpoint pairs (3,3), (3,5), (3,6), (4,5), (3,9), (4,13), (3,18), (26,37), whose
-   exponent classes partition ℤ/36; likewise I3(2^k + 1) ≥ 1 (k ≥ 6, six pairs), I3(2^k + 3) ≥ 1 (k ≥ 6), I3(2^k − 3) ≥ 1
-   (k ≥ 5, two pairs), I3(7·2^k − 1) ≥ 1 (k ≥ 8). This is the first proof of I3 on an infinite non-congruence family; it
-   is a Sierpiński-type exponent covering, available because 2^k mod w is periodic, and it is exactly what polynomial
-   families cannot have: **Prop 4.1 (CONDITIONAL on Schinzel H for the quadratics (m² + u)/(1 + u)):** for every H there
+   exponent classes cover ℤ/36; likewise I3(2^k + 1) ≥ 1 (k ≥ 6, six pairs), I3(2^k + 3) ≥ 1 (k ≥ 6), I3(2^k − 3) ≥ 1
+   (k ≥ 5, two pairs), I3(7·2^k − 1) ≥ 1 (k ≥ 8). This is the campaign's first I3 result on one of the brief's
+   "non-congruence families" (2^k − 1 is named there); the mechanism itself is a finite set of ordinary congruence words
+   whose exponent classes cover ℤ — a Sierpiński-type covering, available because 2^k mod w is periodic — and it is exactly
+   what the families of Props 4.1/4.2 cannot have: **Prop 4.1 (CONDITIONAL on Schinzel H for the quadratics (m² + u)/(1 + u)):** for every H there
    are infinitely many m such that every interior word of m² has min(u, v) > H (the square analogue of Prop 4.2), so no
    finite covering exists for squares; the same construction works for 2m² and m² + 1. **Prop 4.3 (PROVED):** W2 ⟺ I3 on
    {2n + 1 prime, n + 2 ∈ {2^a} ∪ ℙ}, MP ⟺ I3 on {n + 1 prime, 2n + 1 ∈ ℙ ∪ 3ℙ ∪ {9, 27}}: the free-line weakenings of
@@ -84,8 +87,9 @@ density main term (= ½ log²n + O(log n); M₀(10⁶) = 59.4, M₀(1560²) = 69
    twisted sum are the genus main terms, which are already free (Astra Thm 5.4).
 
 **Promise (Assessment): 0/5 as a mechanism for I3 or ES; 2/5 as a calibrated target.** The local theory and the
-simulator turn Conjecture I3 into a quantitatively calibrated statement (expected number of further zeros ≈ 0.16, i.e.
-the conjecture as stated holds with probability ≈ 0.85 under a Poisson approximation across n, and ≈ 10⁻³ beyond 10⁹),
+simulator turn Conjecture I3 into a quantitatively calibrated statement (the model's retrospective expectation of zeros
+beyond 1560² was 0.16, almost all of it below 10⁹ where the census found none; beyond the verified range the model
+expects ≈ 6·10⁻⁴ zeros under the quadratic-law extrapolation),
 Theorem 5.5 settles it on the Mersenne-type families, and Prop 4.4 pins the gap to a pure class-equidistribution
 statement at one integer.
 
@@ -165,10 +169,10 @@ has −t₁k₁ a square modulo A = tu − 1 (Lemma 2.0; gcd(A, g) = 1 as A ≡ 
 (b) if k₁ = 2 (k even, k | 2t, k ∤ t): A is odd (tn + 1 odd) and (−2t₁/A) = +1 with A ≡ −1 (mod t₁), which holds exactly
     when: t₁ odd and A ≡ 1, 3 (mod 8) if t₁ ≡ 1 (mod 4), A ≡ 3, 5 (mod 8) if t₁ ≡ 3 (mod 4); t₁ ≡ 2 (mod 8) and A ≡ 1 (mod
     4); t₁ ≡ 4 (mod 8) and A ≡ 3 (mod 8); t₁ ≡ 0, 6 (mod 8): no odd A at all;
-(c) if k₁ has an odd prime factor q: the symbol (−t₁k₁/A) takes both values equally often as A runs over any class
-    modulo 8t coprime to 2k₁ (its factor (q/A) = ±(A/q) is a non-principal character in A mod q, and q ∤ t), so the Jacobi
-    condition excludes no cell. The remaining exclusions at such levels are the 2-adic local ones shared by every n in the
-    same class mod 8 (2^{v₂(A)} ∤ n + u), not a square effect.
+(c) if k₁ has an odd prime factor q: for the odd part A′ of A, the symbol (−t₁k₁/A′) takes both values equally often as
+    A′ runs over any class modulo 8t coprime to 2k₁ (its factor (q/A′) = ±(A′/q) is a non-principal character in A′ mod q,
+    and q ∤ t), so the character part of Lemma 2.0 excludes no cell (t mod 8, A mod 8), in contrast to (a), (b). The 2-adic
+    part of Lemma 2.0 (−t₁k₁ a square modulo 2^{v₂(A)}) still applies; it depends only on t₁k₁ mod 8 and v₂(A).
 For n = 2m² (k = 2) the two cases (a) (t even, t₁ = t/2) and (b) (t odd, t₁ = t) combine into: **t odd: u ≡ 2, 4 (mod 8);
 t ≡ 2, 4 (mod 8): u odd; t ≡ 0, 6 (mod 8): empty** — 16 of the 48 even-n cells, first-order factor ⅔.
 *Proof.* (a) is Lemma 2.0 with −tk = −g²t₁k₁. (b): (−2t₁/A) = ω_A(−t₁/A) and (2.1) with t₁ = 2^a t′ give ε_Aω_A^{a+1}
@@ -180,7 +184,7 @@ follows by writing A = tu − 1: t ≡ 1 (8): A ≡ 1, 3 (8) ⟺ u ≡ 2, 4 (8);
 in Thm 2.1 the allowed odd A at t₁ ≡ 2, 6 (mod 8) are A ≡ 1, 3 resp. 3, 5 (mod 8), and A = tu − 1 ≡ 4u − 1 gives A ≡ 3 (8)
 iff u odd); t ≡ 6 (8) (t₁ ≡ 3 (4), odd A impossible) and t ≡ 0 (8) (4 | t₁) empty. (c) as stated. ∎
 CERTIFIED (`cells_squares.txt`): at n = 3m² and 5m² (m ≤ 240) the levels t ≡ 0 (mod k) show the sparse square table,
-and at the other levels every cell not excluded by the n mod 8 local condition is populated; the k = 2 table is populated
+and at the other levels every cell not excluded by the 2-adic part of Lemma 2.0 is populated; the k = 2 table is populated
 exactly as stated for both parities of m.
 
 **Corollary 2.2a (first-order S_gen; model statement).** Let M₀^{(t)}(n) := Σ_{u ≥ 3, u(3t−1) ≤ n+3} 1/(tu − 1) be the
@@ -228,7 +232,7 @@ confirmed numerically by the simulator (§3.2), not a theorem about the finite c
 | 2m² | 1 529 | 40.8 | 0.750 | 0.718 | ⅔ |
 | km², k = 3 / 5 / 7 / 11 / 13 | 1248 / 967 / 818 / 652 / 600 | | | 0.841 / 0.966 / 0.954 / 1.026 / 1.027 | 1 − ½w_k times the n mod 8 second-order factor (±0.03): 0.84 / 0.97 / 0.93 / 0.98 / 1.04 |
 
-The divisibility factor is exact to 1–2 % for even n at every level of divisibility tested (30 | n, 2310 | n); the
+The divisibility factor agrees within 1–2 % for even n at every level of divisibility tested (30 | n, 2310 | n); the
 genus factors ½, ⅔ are confirmed; the k ≥ 3 rows agree with the "k | 2t" rule once the n mod 8 second-order factor
 (n = km² ≡ k (mod 8) for odd m) is included.
 
@@ -258,15 +262,19 @@ m ∈ [10³, 10⁴)): odd n 27.09 / 27.15; even n 15.61 / 15.62; n ≡ 5 (8) 29.
 same within-row proportions as the census (e.g. odd m, t ≡ 2: cells u ≡ 1, 2, 5, 6 in the ratio 1 : 1 : 2.2 : 2.2 in the
 model, 1 : 1 : 2.6 : 2.6 in the census — a finite-range effect: the pair (u, v) ≡ (5, 6) (mod 8) starts at (5, 6), the pair
 (1, 2) at (9, 10)).
-Survival P(minV(n) > X), census over n ∈ [10⁶, 10⁸] vs model at N = 2.4·10⁶ (M = 2·10⁴; X ≤ 1024 ≪ √N, so the cut-off
-is irrelevant here):
+Survival P(minV(n) > X), census over n ∈ [10⁶, 10⁸] vs model at the matched nominal size N = 3·10⁷ (log-middle of
+the window; two seeds, M = 2·10⁴ each; archived in `crt_special.txt`). For n ≥ 10⁶ the interior cut-off cannot bind at
+X ≤ 512 (3·512² < 10⁶) and binds at X = 1024 only for n < 3.2·10⁶, a small part of the window:
 
 | X | 16 | 32 | 64 | 128 | 256 | 512 | 1024 |
 |---|---|---|---|---|---|---|---|
 | even squares, census (4 501) | .592 | .309 | .167 | .075 | .028 | .011 | .0040 |
-| even squares, model | .591 | .310 | .166 | .076 | .028 | .011 | .0039 |
+| even squares, model (2 seeds) | .586 / .584 | .305 / .299 | .162 / .163 | .078 / .077 | .029 / .029 | .0117 / .0120 | .0039 / .0043 |
 | even non-sq, census (4.9·10⁷) | .148 | .039 | .0084 | .0016 | .0003 | < 10⁻⁴ | — |
-| even non-sq, model | .147 | .039 | .0080 | .0015 | .00027 | .00005 | .000007 |
+| even non-sq, model (2 seeds) | .146 / .149 | .038 / .040 | .0089 / .0090 | .0018 / .0017 | .00032 / .00025 | .00004 / .00003 | .000004 / .000005 |
+
+The agreement is within 2–7 % at every X ≤ 512 (the census standard errors are ≈ 1–3 % for the squares at X ≤ 128), i.e.
+within the combined sampling errors; it is not a three-digit agreement.
 
 Census tail factor (`crt_special.txt`, `z49_i3fable_p2.py`): among even squares with no interior word of larger endpoint
 ≤ √n + 2 there are 3, 2, 2, 2 in [10⁴, 10⁵], …, [10⁷, 10⁸] (model expectation ≈ 5, 3, 2, 1), of which 1, 0, 1, 0 are zeros;
@@ -275,23 +283,24 @@ among even non-squares 32, 22, 10 in [10³, 10⁴], [10⁴, 10⁵], [10⁵, 10�
 
 ### 3.3 Zero probabilities, the decay law, and the expected number of zeros (`crt_grid/`, `expected_zeros.txt`) ⟨R⟩
 
-P(I3(n) = 0) by type and nominal N (M = 2·10⁴, one run per cell; "≤" = tail pass found no survivor, only the bound P ≤ P₁):
+P(I3(n) = 0) by type and nominal N (M = 2·10⁴, one run per cell; "≤" = tail pass found no survivor, so only the estimated
+P₁ is available as an upper proxy — an estimate, not a confidence bound):
 
 | N | even squares | 2m² | odd squares | even non-sq | odd non-sq |
 |---|---|---|---|---|---|
 | 10³ | 0.32 | 0.055 | 0.039 | 0.025 | 1.7·10⁻³ |
 | 10⁴ | 0.062 | 9.0·10⁻³ | 1.3·10⁻³ | 6.9·10⁻⁴ | 8.4·10⁻⁶ |
-| 10⁵ | 7.3·10⁻³ | 4.1·10⁻⁴ | 3.5·10⁻⁵ | 6.3·10⁻⁶ | ≤ 10⁻⁷ |
+| 10⁵ | 7.3·10⁻³ | 4.1·10⁻⁴ | 3.5·10⁻⁵ | 6.3·10⁻⁶ | ≤ 1.0·10⁻⁷ |
 | 10⁶ | 7.6·10⁻⁴ | 1.7·10⁻⁵ | 4.5·10⁻⁷ | 9.4·10⁻⁸ | — |
-| 10⁷ | 4.6·10⁻⁵ | 4.4·10⁻⁷ | ≤ 3·10⁻⁷ | ≤ 3·10⁻⁸ | — |
-| 10⁸ | 2.0·10⁻⁶ | ≤ 4·10⁻⁶ | ≤ 3·10⁻⁹ | ≤ 2·10⁻⁹ | — |
-| 10⁹ | 7·10⁻⁸ | ≤ 2·10⁻⁷ | — | — | — |
+| 10⁷ | 4.6·10⁻⁵ | 4.4·10⁻⁷ | ≤ 3.1·10⁻⁷ | ≤ 2.2·10⁻⁷ | — |
+| 10⁸ | 2.0·10⁻⁶ | ≤ 2.2·10⁻⁶ | ≤ 5.1·10⁻⁹ | ≤ 1.4·10⁻⁹ | — |
+| 10⁹ | 7·10⁻⁸ | ≤ 1.0·10⁻⁷ | — | — | — |
 
 **Replicate spread (four extra seeds each).** Even squares: N = 10⁴: P = 0.060–0.062; N = 10⁶: 7.4–7.8·10⁻⁴ (±3 %);
 N = 10⁸: 0.56–4.8·10⁻⁶ (a factor 8: the tail pass at large N runs on genealogically correlated survivors and P₂ is
 ≈ 0.01–0.06 there). 2m² at 10⁶: 1.7–2.5·10⁻⁵ (main run and four replicates). Even non-squares at 10⁵: 0.53–1.2·10⁻⁵ (factor 2.3). So the estimates are
-reliable to ±5 % where P₂ ≳ 0.1 (N ≤ 10⁶ for even squares) and to a factor 2–8 where P₂ ≲ 0.05; the extinct entries
-("≤") are bounds only.
+reproducible to ±5 % between seeds where P₂ ≳ 0.1 (N ≤ 10⁶ for even squares) and only to a factor 2–8 where P₂ ≲ 0.05;
+the extinct entries ("≤") are estimated proxies only, and the large-N anchors of the extrapolation carry that spread.
 **Decay law (EVIDENCE).** −ln P(I3(n) = 0) / (ln n)² over the measured range is 0.033–0.040 (even squares, 10⁴ ≤ N ≤ 10⁹),
 0.055–0.059 (2m², to 3·10⁷), 0.077–0.080 (odd squares, to 3·10⁶), 0.085–0.090 (even non-squares, to 3·10⁶), 0.13–0.16
 (odd non-squares, to 3·10⁴) — a slow upward drift of ≈ 0.001 per decade for even squares, otherwise flat. The Poisson
@@ -301,20 +310,24 @@ carries several at once — which is what the per-level structure of §5.3 predi
 not a derived clump size.) The companion law for the larger-endpoint survival is −ln P₁(X) ≈ c′(ln X)² with c′ = 0.027 …
 0.12 (same shape as the H₄ calibration 0.32 for the signed prime problem).
 **Expected zeros (model).** Integrating ρ_T(n)·P_T(n) over n with log-linear interpolation between measured points and,
-beyond the last measured point of a type, the quadratic law anchored there with the *smallest* measured c_T (which
-over-counts): beyond 10³: 31.7 [census 19]; beyond 3·10³: 17.1 [9]; beyond 10⁴: 7.9 [3]; beyond 36 078: 3.1 [1]; beyond
-10⁵: 1.5 [1]; beyond 10⁶: 0.33 [1]; beyond 2 433 600: 0.16 [0]; beyond 10⁷: 0.05 [0]; beyond 10⁸: 0.005 [0]; in (10⁹,
-10¹³]: 6·10⁻⁴ (even squares) + 4·10⁻⁷ (2m²) + 10⁻⁸ (even non-squares). By channel the model gives 8.4 even-square zeros
-beyond 10³ against 3, 1.5 for 2m² against 0, 20.8 even non-squares against 15, 0.4 odd squares against 1, 0.6 odd
-non-squares against 0: an over-prediction by ≈ 1.7 overall and ≈ 2.5 on the even-square channel, which the census P₁/P₂
-check of §3.2 locates (if it is not Poisson noise) in the tail factor P₂. The model's last zeros would be at ≈ 10⁵–10⁶
+beyond the last measured point of a type, the quadratic law anchored there with the *smallest* measured c_T (the most
+conservative of the quadratic extrapolations, not a proven upper prediction): beyond 10³: 31.7 [census 19]; beyond 3·10³:
+17.1 [9]; beyond 10⁴: 7.9 [3]; beyond 36 078: 3.1 [1]; beyond 10⁵: 1.5 [1]; beyond 10⁶: 0.33 [1]; beyond 2 433 600: 0.16
+[0]; beyond 10⁷: 0.05 [0]; beyond 10⁸: 0.005 [0]; in (10⁹, 10¹³]: 6·10⁻⁴ (even squares) + 4·10⁻⁷ (2m²) + 10⁻⁸ (even
+non-squares). By channel the model gives 8.4 even-square zeros beyond 10³ against 3, 1.5 for 2m² against 0, 20.8 even
+non-squares against 15, 0.4 odd squares against 1, 0.6 odd non-squares against 0: an over-prediction by ≈ 1.7 overall and
+≈ 2.8 on the even-square channel. This is beyond Poisson noise (P(Pois(31.7) ≤ 19) ≈ 0.01, P(Pois(8.4) ≤ 3) ≈ 0.03), so
+the model has a systematic over-prediction of order 2, which the census P₁/P₂ check of §3.2 locates in the tail factor P₂
+(the P₁ counts agree) — presumably the nominal-size treatment of the words with v > √n. The model's last zeros would be at ≈ 10⁵–10⁶
 for even squares (½ ln x = 0.038 ln²x), ≈ 6·10⁴ for even non-squares (ln x ≈ 1/0.09), ≈ 10³ for odd n — the census pattern
 (last zeros 2 433 600 = 1560², 36 078, 175 = 5²·7 among odd non-squares, 1225 = 35² among odd n). **Reading
-(Assessment).** Under a Poisson approximation across n, Conjecture I3 as stated holds with model probability e^{−0.16} ≈
-0.85 (≈ 0.9 if the factor-2 over-prediction is real), and the residual risk is concentrated on even squares m² ≤ 10⁸ with m
-divisible by 2²·3·5 and a prime ≤ 13.
+(Assessment).** Retrospectively — before conditioning on the census — the model gave, under a Poisson approximation
+across n, probability e^{−0.16} ≈ 0.85 (≈ 0.92 after the factor-2 correction) that no zero follows 1560²; the census has
+since verified (1560², 10⁹], which carried 0.155 of the 0.16, so the model's remaining expectation beyond the verified
+range is ≈ 6·10⁻⁴ (quadratic-law extrapolation, dominated by even squares in (10⁹, 10¹¹]) — i.e. the model regards
+Conjecture I3 as true with probability ≈ 1 − 10⁻³, conditional on its own extrapolation rule.
 
-### 3.4 Anatomy of 1560² and 140² (CERTIFIED, `anatomy_1560sq.txt`, `crt_special.txt`) ⟨R⟩
+### 3.4 Anatomy of 1560² and 140² (deterministic part CERTIFIED, `anatomy_1560sq.txt`; model probabilities EVIDENCE, `crt_special.txt`) ⟨R⟩
 
 n = 1560² = 2⁶·3²·5²·13². S_div = 0.476, S_gen = ½, M₀ = 69.4, first-order expectation 16.5; with the exact residues of n
 modulo all primes ≤ 50 and the local-square model beyond, E_loc = 14.0. Of the 38 levels 3 ≤ t ≤ 40, 20 are
@@ -356,8 +369,8 @@ both free. By u ↔ v symmetry, every interior word has min(u, v) > H. ∎
 Schinzel H is the correct hypothesis. (ii) The same proof with Q divisible by u(u + 2) for all u ≤ H handles n = 2m²
 (m = 1 + Qs, n + u = (2 + u)F_u, F_u = 1 + (2Q/(2 + u))s(2 + Qs) ≡ 1 (mod u); a divisor d ≡ −1 (mod u) of u + 2 exists only
 for u ∈ {3, 4}, where it gives the free words t ≤ 2 or v ≤ 2), and with m = Qs it handles n = m² + 1 (n + u = (1 + u)(1 +
-Q²s²/(1 + u))). Each such family is sterile for bounded endpoints on a class 1, 2 or 0 (mod Q); the free-word counts at
-these n are not controlled by the construction. (iii) Combined with Thm 2.1, at these squares the words also avoid half
+Q²s²/(1 + u))). Each such family is sterile for bounded endpoints on the parameter class m ≡ 1, 1, 0 (mod Q)
+respectively; the free-word counts at these n are not controlled by the construction. (iii) Combined with Thm 2.1, at these squares the words also avoid half
 of the levels for even m and ⅜ of them (plus half of the level class 3 (mod 8)) for odd m. (iv) **Consequence for
 coverings:** a finite set of word congruences covering all large m² (or 2m², or m² + 1) would give bounded endpoints at
 every large member, contradicting the proposition; so, CONDITIONAL on Schinzel H, no such covering exists — the contrast
@@ -370,9 +383,10 @@ Elsholtz–Tao coverings is the residue −1 (n = −1 has no word with u, v ≥
 
 **Proposition 4.3 (PROVED).** ⟨R⟩ (a) W2(n) = 0 ⟺ I3(n) = 0, 2n + 1 is prime, and n + 2 ∈ {2^a : a ≥ 1} ∪ {odd primes}.
 (b) MP(n) = 0 ⟺ I3(n) = 0, n + 1 is prime, and 2n + 1 ∈ ℙ ∪ 3ℙ ∪ {9, 27}. (c) More generally, adding to the interior
-words any union of the free lines {t = 1}, {t = 2}, {u = 2}, {v = 2} changes the failure set only by explicit conditions
-"n + 1 (resp. n + 2, 2n + 1) is prime, a power of 2, three times a prime, or 9, 27" (the lines {u = 1}, {v = 1} contain
-words for every n and are excluded). Consequently each such weakening of Conjecture I3 is equivalent to I3 restricted
+words any union of the boundary pieces {t = 1, u, v ≥ 3}, {t = 2, u, v ≥ 3}, {t = 2, u, v ≥ 2}, {u = 2, t, v ≥ 2} (and the
+mirror v = 2) changes the failure set only by the explicit conditions "n + 1 is prime", "2n + 1 ∈ ℙ ∪ 3ℙ ∪ {9, 27}",
+"2n + 1 prime", "n + 2 ∈ {2^a} ∪ ℙ" respectively (pieces containing u = 1 or v = 1, or t = 1 with u = 2, have words for
+every n and are not weakenings). Consequently each such weakening of Conjecture I3 is equivalent to I3 restricted
 to a thin set that is infinite under Dickson (pairs (q, 2q − 3), (p, 2p − 1), (p, (2p − 1)/3) of primes).
 *Proof.* Words with t = 2 and u, v ≥ 2 ⟺ 2n + 1 = (2u − 1)(2v − 1) with both factors ≥ 3 ⟺ 2n + 1 composite; with
 u, v ≥ 3 ⟺ both factors ≥ 5 ⟺ 2n + 1 ∉ ℙ ∪ 3ℙ ∪ {9, 27} (for 2n + 1 = 9p or 25·(…) take (9, p) or (5, 5·…)). Words with
@@ -438,7 +452,8 @@ tu − 1), defined when u | v + 1, is an involution on the words of n with endpo
 n + u, both ≡ −1 (mod u)) and is a step in the forest F_n. From the free words it yields: from (1, u, v), (u − 1)(v − 1) =
 n + 1, the word ((v + 1)/u, u, u − 1) — interior iff u ≥ 4 and v ≥ 3u − 1 — i.e. **I3(n) ≥ 1 whenever some d ≥ 3 divides
 n + 1 with d + 1 | n − 1 and (n + 1)/d ≥ 3d + 1** (the consecutive-endpoint family (d, d + 1)); from (2, u, v) the word
-((v + 1)/u, u, 2u − 1), i.e. a divisor 2u − 1 ≥ 5 of 2n + 1 with u | (2n + 1)/(2u − 1) + 1 — the family (u, 2u − 1). Both
+((v + 1)/u, u, 2u − 1), i.e. a divisor 2u − 1 ≥ 5 of 2n + 1 whose cofactor B = 2v − 1 satisfies 2u | B + 3 and B ≥ 6u − 3
+(the conditions u | v + 1 and v ≥ 3u − 1) — the family (u, 2u − 1). Both
 are tied-class statements about the pair (n + 1, n − 1), resp. (2n + 1, n + u), with the divisor d unbounded; they are not
 excluded by Props 4.1/4.2 (which bound min(u, v)), and nothing is known about them at a general n. Longer walks stay in
 the component of the free word; the z48 results on comp(1) (tiny i.o. under Dickson) apply to that component only.
@@ -450,9 +465,9 @@ the component of the free word; the z48 results on comp(1) (tiny i.o. under Dick
  (3,3): k ≡ 2 (6); (3,5): k ≡ 3 (4); (3,6): k ≡ 0 (6); (4,5): k ≡ 1 (4); (3,9): k ≡ 4 (18); (4,13): k ≡ 10 (12); (3,18):
  k ≡ 16 (18); (26,37): k ≡ 28 (36),
 one has uv | 2^k − 1 + u + v exactly for k in the class (e.g. 9 | 2^k + 5 ⟺ 2^k ≡ 4 (mod 9) ⟺ k ≡ 2 (mod 6); 962 | 2^k + 62
-⟺ 2^k ≡ 3 (mod 13) and 2^k ≡ 12 (mod 37) ⟺ k ≡ 4 (mod 12) and k ≡ 28 (mod 36)), the eight classes **partition** ℤ/36
-(6 + 9 + 6 + 9 + 2 + 2 + 1 + 1 = 36 residues), and the level t = (2^k − 1 + u + v)/(uv) is ≥ 3 for k ≥ 6 (checked; k ≤ 5 are
-the zeros 3, 7, 15, 31).
+⟺ 2^k ≡ 3 (mod 13) and 2^k ≡ 12 (mod 37) ⟺ k ≡ 4 (mod 12) and k ≡ 28 (mod 36)), the eight classes **cover** ℤ/36 (sizes
+6, 9, 6, 9, 2, 3, 2, 1; the residues 22 and 34 are covered twice), and the level t = (2^k − 1 + u + v)/(uv) is ≥ 3 for k ≥ 6
+(checked; k ≤ 5 are the zeros 3, 7, 15, 31).
 (b) I3(2^k + 1) ≥ 1 for k ≥ 6 with the pairs (3,3), (3,4), (3,6), (3,9), (3,18), (9,21) (L = 18); I3(2^k + 3) ≥ 1 for k ≥ 6
 with (3,5), (4,5), (3,7), (5,6), (4,9), (4,13) (L = 12); I3(2^k − 3) ≥ 1 for k ≥ 5 with (3,4) (k odd) and (3,8) (k even);
 I3(7·2^k − 1) ≥ 1 for k ≥ 8 with twelve pairs (L = 60).
@@ -466,8 +481,10 @@ re-verifies each family by direct division for 1 ≤ k ≤ 2000 and lists exactl
 **Reading.** This is the sign-free analogue of the campaign's thin-family theorems (3·2^s + 1, 7·4^s + 9, …, FRONTIER
 §5.2), and it is cheap for the same reason those were hard: without a sign, any residue class of k works, and 2^k mod w
 is periodic. It is a genuine (if modest) partial result in the sense of the brief — I3 proved on infinite non-congruence
-families — and it transfers nothing to general n: by Prop 4.1(iv), polynomial families (all n, primes, squares, m² + 1)
-admit no finite covering, CONDITIONAL on Schinzel H, so for them every word must be found arithmetically.
+families — and it transfers nothing to general n: by Prop 4.1(iv) and Prop 4.2, the families m², 2m², m² + 1 (CONDITIONAL
+on Schinzel H), the primes (CONDITIONAL on Dickson) and all n (Lemma 4.2) admit no finite covering, so for them every
+word must be found arithmetically. (Other polynomial families can of course be covered trivially, e.g. n = 9m² − 6 by
+the single word (m², 3, 3); the families named in the brief are the hard ones.)
 
 **Polynomial identities (PROVED, elementary).** ⟨R⟩ Call (t, u, v) ∈ ℚ[x]³ an *identity word* of f ∈ ℤ[x] if tuv − u − v = f
 and t, u, v are integer-valued on ℤ with t, u, v ≥ 3 for all large integers x. (Without integer-valuedness there are
@@ -489,7 +506,8 @@ positive uniform statement about interior words of a general n is proved.
 
 **6.1 Proved barriers.** Bounded endpoints fail i.o. at primes (Prop 4.2, CONDITIONAL on Dickson), at squares, 2m² and
 m² + 1 (Prop 4.1, CONDITIONAL on Schinzel H); finite congruence systems never cover all n (Lemma 4.2) and cannot cover
-polynomial families (Prop 4.1(iv), CONDITIONAL); free-line weakenings reduce to I3 on shifted primes (Prop 4.3). At the
+the families m², 2m², m² + 1 (Prop 4.1(iv), CONDITIONAL) or the primes (Prop 4.2, CONDITIONAL); free-line weakenings
+reduce to I3 on shifted primes (Prop 4.3). At the
 sterile primes the divisor residues of p + u, u ≤ H, coincide with those of 1 + u, so any proof of I3 must use, at those
 p, a divisor of some p + u with u > H in the class −1 (mod u). ⟨R⟩ These are fixed-H statements with no bound on the
 location of the sterile n. The z49 calibration (heuristic; and the parallel lane's target) concerns words with *both*
@@ -537,8 +555,9 @@ is a certificate — and excludes about half of the interior words): (i) it must
 (Astra Thm 5.4, CONDITIONAL) and T1-exact; the remainder is the single-integer deficiency; (ii) the census statement
 "squares are essentially the only n ≡ 1 (4) where 𝒢 is empty" (U(n) fails at squares + six n ≤ 978 145) is the
 sign-restricted twin of "I3 = 0 only at 112 n", and by §3 both tails are governed by the same clumpy local mechanism —
-the sign restriction removes the levels 0 (4), 7 (8) at squares *exactly* (Thm 2.1) and about half of the words
-elsewhere, which shifts the decay constant but not its (log n)² shape. What lane (d) could use: by Lemma 7.1 the
+at squares the levels 0 (4), 7 (8) are empty of all words already (Thm 2.1) and the sign restriction then removes every
+remaining word (T1), while at non-squares it removes about half of the words, which shifts the decay constant but not
+its (log n)² shape. What lane (d) could use: by Lemma 7.1 the
 shape-equidistribution statement at one p is Σ_{odd-A words}(−t/A) < #(odd-A words); a proof that this character sum over
 the words of p is not maximal is the same B2 event with the colour as a weight (LOWERTAIL_DEEP_FABLE Lemma 2.1 with
 w = colour).
@@ -582,7 +601,18 @@ reciprocity-empty levels, 2 primes among the 18 others, u = 1 at t = 38, 0.34 ex
 (15) the Vieta closure claim withdrawn, the two unbounded families stated as tied-class statements; (16) §6.1 no longer
 imports a growing-minimum-endpoint barrier from the H₄ calibration; (17) the n = p − j restatement now has the correct
 shift range; (18) w_d defined with the level main terms, the Pólya–Vinogradov range stated, Lemma 4.2's parenthesis
-corrected, the §7 count identity written out. Label changes: "the local theory is exact" → "the local layer is exact, the
+corrected, the §7 count identity written out. A second review round (on the revised draft; it re-verified the
+coverings of Thm 5.5 to k = 3000, the 2m² cells to m = 240, Prop 4.3 to n = 500 and the expected-zero integrals) found
+and I repaired: Prop 4.3(c) now names the boundary pieces with their coordinate restrictions; Lemma 5.4's second family
+had the wrong congruence (u | B + 1 → 2u | B + 3, with B ≥ 6u − 3); Thm 5.5's classes *cover* ℤ/36 (sizes sum to 38,
+residues 22 and 34 twice), they do not partition it; Thm 2.2(c) now separates the character part (excludes nothing) from
+the 2-adic part of Lemma 2.0 and covers even A via A′; the "0.85" is labelled retrospective and the post-census
+expectation (≈ 6·10⁻⁴) stated instead; the "≤" entries now carry the actual estimated P₁ values and are called proxies;
+the survival validation is redone in a matched window with two seeds and claimed at 2–7 %, not three digits; the
+over-prediction (factor 1.7–2.8) is reported as beyond Poisson noise, hence systematic; "polynomial families admit no
+covering" is restricted to the families where Props 4.1/4.2 apply; §7's sentence on the levels 0 (4), 7 (8) is corrected;
+Prop 4.1(ii) states the parameter classes; "first proof on a non-congruence family" is scoped to the campaign and the
+brief's list. Label changes: "the local theory is exact" → "the local layer is exact, the
 expectation is a model"; "CERTIFIED" for the simulator refers to the code and the recorded numbers, the statistical and
 extrapolative statements are EVIDENCE/Assessment; "explained" → "accounted for by the model (Assessment)".
 The reviewer's list of proof-step candidates — Thm 2.1, the correctly scoped Thm 2.2, Prop 4.1, Prop 4.4 (lower bound),

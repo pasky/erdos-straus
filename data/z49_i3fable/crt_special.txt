@@ -111,3 +111,79 @@ even squares [10000000,100000000]: count 3419, P1(census: no word with v<=sqrt n
 even non-sq [1000,10000]: count 4418, P1(census: no word with v<=sqrt n +2) = 7.2431e-03 (32), zeros 14, P2 = 0.438
 even non-sq [10000,100000]: count 44738, P1(census: no word with v<=sqrt n +2) = 4.9175e-04 (22), zeros 1, P2 = 0.045
 even non-sq [100000,1000000]: count 449175, P1(census: no word with v<=sqrt n +2) = 2.2263e-05 (10), zeros 0, P2 = 0.000
+
+## validation runs for the §3.2 survival table (corrected binary), N = 2433600
+# mode=split N=2433600 M=20000 type=sq X0=1562 NP=248 constraints: 2:0
+X=8  stage-survival=1.00000  P1(no word with v<=X)=1.0000e+00  survivors=20000
+X=16  stage-survival=0.59820  P1(no word with v<=X)=5.9820e-01  survivors=11964
+X=32  stage-survival=0.53100  P1(no word with v<=X)=3.1764e-01  survivors=10620
+X=64  stage-survival=0.54070  P1(no word with v<=X)=1.7175e-01  survivors=10814
+X=128  stage-survival=0.48030  P1(no word with v<=X)=8.2492e-02  survivors=9606
+X=256  stage-survival=0.38925  P1(no word with v<=X)=3.2110e-02  survivors=7785
+X=512  stage-survival=0.39320  P1(no word with v<=X)=1.2626e-02  survivors=7864
+X=1024  stage-survival=0.35105  P1(no word with v<=X)=4.4322e-03  survivors=7021
+X=1562  stage-survival=0.62080  P1(no word with v<=X)=2.7515e-03  survivors=12416
+P1(X0=1562)=2.7515e-03  tail: 1649 of 12416 survivors have no word with v>X0 -> P2=0.1328 (+-0.0030)  P(I3=0)=3.6544e-04
+zero-survivors: frac 4|n=1.000 8|n=0.440 3|n=0.924 9|n=0.924 5|n=0.759 7|n=0.343
+# mode=split N=2433600 M=20000 type=gen X0=1562 NP=248 constraints: 2:0
+X=8  stage-survival=0.42200  P1(no word with v<=X)=4.2200e-01  survivors=8440
+X=16  stage-survival=0.35105  P1(no word with v<=X)=1.4814e-01  survivors=7021
+X=32  stage-survival=0.26330  P1(no word with v<=X)=3.9006e-02  survivors=5266
+X=64  stage-survival=0.22275  P1(no word with v<=X)=8.6886e-03  survivors=4455
+X=128  stage-survival=0.16615  P1(no word with v<=X)=1.4436e-03  survivors=3323
+X=256  stage-survival=0.20260  P1(no word with v<=X)=2.9248e-04  survivors=4052
+X=512  stage-survival=0.14380  P1(no word with v<=X)=4.2058e-05  survivors=2876
+X=1024  stage-survival=0.10845  P1(no word with v<=X)=4.5612e-06  survivors=2169
+X=1562  stage-survival=0.19800  P1(no word with v<=X)=9.0312e-07  survivors=3960
+P1(X0=1562)=9.0312e-07  tail: 0 of 3960 survivors have no word with v>X0 -> P2=0.0000 (+-0.0000)  P(I3=0)=0.0000e+00
+
+## matched-window validation: N = 3e7 (log-middle of the census window [1e6, 1e8]), two seeds each
+X=8  stage-survival=1.00000  P1(no word with v<=X)=1.0000e+00  survivors=20000
+X=16  stage-survival=0.58575  P1(no word with v<=X)=5.8575e-01  survivors=11715
+X=32  stage-survival=0.52005  P1(no word with v<=X)=3.0462e-01  survivors=10401
+X=64  stage-survival=0.53035  P1(no word with v<=X)=1.6155e-01  survivors=10607
+X=128  stage-survival=0.48095  P1(no word with v<=X)=7.7700e-02  survivors=9619
+X=256  stage-survival=0.37585  P1(no word with v<=X)=2.9203e-02  survivors=7517
+X=512  stage-survival=0.39980  P1(no word with v<=X)=1.1676e-02  survivors=7996
+X=1024  stage-survival=0.33420  P1(no word with v<=X)=3.9020e-03  survivors=6684
+X=2048  stage-survival=0.32760  P1(no word with v<=X)=1.2783e-03  survivors=6552
+X=4096  stage-survival=0.32970  P1(no word with v<=X)=4.2145e-04  survivors=6594
+X=5479  stage-survival=0.56885  P1(no word with v<=X)=2.3974e-04  survivors=11377
+P1(X0=5479)=2.3974e-04  tail: 654 of 11377 survivors have no word with v>X0 -> P2=0.0575 (+-0.0022)  P(I3=0)=1.3781e-05
+zero-survivors: frac 4|n=1.000 8|n=0.598 3|n=0.980 9|n=0.980 5|n=0.916 7|n=0.379
+X=8  stage-survival=1.00000  P1(no word with v<=X)=1.0000e+00  survivors=20000
+X=16  stage-survival=0.58365  P1(no word with v<=X)=5.8365e-01  survivors=11673
+X=32  stage-survival=0.51185  P1(no word with v<=X)=2.9874e-01  survivors=10237
+X=64  stage-survival=0.54425  P1(no word with v<=X)=1.6259e-01  survivors=10885
+X=128  stage-survival=0.47270  P1(no word with v<=X)=7.6856e-02  survivors=9454
+X=256  stage-survival=0.37695  P1(no word with v<=X)=2.8971e-02  survivors=7539
+X=512  stage-survival=0.41340  P1(no word with v<=X)=1.1977e-02  survivors=8268
+X=1024  stage-survival=0.35490  P1(no word with v<=X)=4.2505e-03  survivors=7098
+X=2048  stage-survival=0.32805  P1(no word with v<=X)=1.3944e-03  survivors=6561
+X=4096  stage-survival=0.29710  P1(no word with v<=X)=4.1427e-04  survivors=5942
+X=5479  stage-survival=0.68635  P1(no word with v<=X)=2.8433e-04  survivors=13727
+P1(X0=5479)=2.8433e-04  tail: 857 of 13727 survivors have no word with v>X0 -> P2=0.0624 (+-0.0021)  P(I3=0)=1.7751e-05
+zero-survivors: frac 4|n=1.000 8|n=0.441 3|n=0.973 9|n=0.973 5|n=0.760 7|n=0.469
+X=8  stage-survival=0.42420  P1(no word with v<=X)=4.2420e-01  survivors=8484
+X=16  stage-survival=0.34505  P1(no word with v<=X)=1.4637e-01  survivors=6901
+X=32  stage-survival=0.25660  P1(no word with v<=X)=3.7559e-02  survivors=5132
+X=64  stage-survival=0.23650  P1(no word with v<=X)=8.8826e-03  survivors=4730
+X=128  stage-survival=0.20305  P1(no word with v<=X)=1.8036e-03  survivors=4061
+X=256  stage-survival=0.17670  P1(no word with v<=X)=3.1870e-04  survivors=3534
+X=512  stage-survival=0.12525  P1(no word with v<=X)=3.9917e-05  survivors=2505
+X=1024  stage-survival=0.09115  P1(no word with v<=X)=3.6384e-06  survivors=1823
+X=2048  stage-survival=0.05580  P1(no word with v<=X)=2.0302e-07  survivors=1116
+X=4096  stage-survival=0.24110  P1(no word with v<=X)=4.8949e-08  survivors=4822
+X=5479  stage-survival=0.29565  P1(no word with v<=X)=1.4472e-08  survivors=5913
+P1(X0=5479)=1.4472e-08  tail: 0 of 5913 survivors have no word with v>X0 -> P2=0.0000 (+-0.0000)  P(I3=0)=0.0000e+00
+X=8  stage-survival=0.42970  P1(no word with v<=X)=4.2970e-01  survivors=8594
+X=16  stage-survival=0.34565  P1(no word with v<=X)=1.4853e-01  survivors=6913
+X=32  stage-survival=0.26700  P1(no word with v<=X)=3.9656e-02  survivors=5340
+X=64  stage-survival=0.22720  P1(no word with v<=X)=9.0099e-03  survivors=4544
+X=128  stage-survival=0.18840  P1(no word with v<=X)=1.6975e-03  survivors=3768
+X=256  stage-survival=0.14975  P1(no word with v<=X)=2.5420e-04  survivors=2995
+X=512  stage-survival=0.12110  P1(no word with v<=X)=3.0783e-05  survivors=2422
+X=1024  stage-survival=0.15350  P1(no word with v<=X)=4.7252e-06  survivors=3070
+X=2048  stage-survival=0.05700  P1(no word with v<=X)=2.6934e-07  survivors=1140
+X=4096  stage-survival=0.00000  P1(no word with v<=X)=0.0000e+00  survivors=0
+P1=0 (population died); increase M
