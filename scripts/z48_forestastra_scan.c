@@ -63,7 +63,7 @@ int main(int argc,char **argv) {
    int t=(int)((p+(int64_t)u+v)/((int64_t)u*v));
    int s=jac(u,p)*jac(v,p);
    assert(u==(v-p%v)%v);assert(qrformula(t,u,v)==s);assert(slots(t,u,v,4)==(s==-1));
-   assert(euler(u,p)*euler(v,p)==s);assert(jac(t*u-1,p)==s);
+   assert(euler(u,p)==jac(u,p)&&euler(v,p)==jac(v,p));assert(jac(t*u-1,p)==s);
    if(s==-1){gc++;if(v<H){H=v;hu=u;ht=t;}if(u<minu)minu=u;}
    ec++;
   }

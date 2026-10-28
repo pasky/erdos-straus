@@ -1,1 +1,1 @@
-elapsed=27.72 cpu_user=27.09 cpu_system=0.26 max_rss_kib=284304
+elapsed=13.38 cpu_user=13.31 cpu_system=0.06 max_rss_kib=286252

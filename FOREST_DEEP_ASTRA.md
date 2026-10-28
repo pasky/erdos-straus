@@ -289,7 +289,7 @@ The first seven virtual split roots are
 
 none has an opposite-coloured actual neighbour. Root 22 finally has the certificate {22,31}, t=6507. The factorization and divisor lists for all eight fibres are retained in `analysis.json`. Thus “the next split fibre”, or even “one of the first seven”, is not a universal escape rule. Here C=2r; an actual certificate need not have its smaller endpoint below the least nonresidue.
 
-At p=1726201, B=6 but C=22, with six virtual split fibres before the first hit. At p=4962049, B=16 fails and C=17 succeeds, while H₄=247 is achieved at a different root, 181.
+At p=1726201, B=6 but C=22, with six virtual split fibres through the first hit (five failures, then success). At p=4962049, B=16 fails and C=17 succeeds, while H₄=247 is achieved at a different root, 181.
 
 ### Theorem 6.1 — finite root-incidence patterns repeat (CONDITIONAL on Dickson)
 
@@ -301,7 +301,7 @@ Fix a prime p₀≡1 (4) and 1≤h≤p₀−2. There are infinitely many primes 
 
 One may additionally require r(p)=r(p₀).
 
-**Proof.** Let L=lcm(1,…,h), c_i=p₀+i, and take M divisible by 8L·lcm(c₁,…,c_h). To preserve r as well, multiply M by lcm(1,…,r(p₀)); this does not introduce the prime p₀. We have gcd(M,p₀)=1. Apply Dickson to
+**Proof.** Let L=lcm(1,…,h), c_i=p₀+i, and initially set M=8L·lcm(c₁,…,c_h). To preserve r as well, multiply M by lcm(1,…,r(p₀)); this does not introduce the prime p₀. We have gcd(M,p₀)=1. Apply Dickson to
 
     p=p₀+Mk,         L_i=1+(M/c_i)k,       1≤i≤h.
 
@@ -435,7 +435,7 @@ The empty +8 row is a congruence exclusion, not a successful test. **Assessment:
 
 ### 9.5 Reproduction and resource bounds
 
-**CERTIFIED execution.** The complete 10⁷ C census with the independent full-divisor audit takes 27.72 seconds elapsed, peak RSS 284304 KiB on this machine. All commands run under an 8000000-KiB virtual-memory limit and explicit timeouts. Data are streamed or stored in O(N + selected edges) space, with a separate edge-allocation ceiling of 2 GB. No Cartesian product arrays are used. Retained data are under 20 MB.
+**CERTIFIED execution.** The complete 10⁷ C census with the independent full-divisor audit takes 13.38 seconds elapsed, peak RSS 286252 KiB on the final rerun on this machine. All commands run under an 8000000-KiB virtual-memory limit and explicit timeouts. Data are streamed or stored in O(N + selected edges) space, with a separate edge-allocation ceiling of 2 GB. No Cartesian product arrays are used. Retained data are under 20 MB.
 
 ```sh
 set -euo pipefail
@@ -470,5 +470,7 @@ These are exact statements about the actual integers, not average statements. Eq
 **Assessment: what would genuinely advance this route.** One needs a fixed-p retention theorem using relations between *different* quotient blocks or split fibres, strong enough to force a divisor in the single residue class in (10.2). A proof that only finds more nonresidues, more virtual cuts, a longer actual path, or a positive character main term does not provide this. Even a theorem C(p)≪polylog(p) would not by itself control the larger endpoint H₄.
 
 **Screen audit (Assessment).** T1 is respected by the unit character; numerator 8 fails exactly at the character-to-slot bridge; no thin-family result or average is promoted to pointwise existence; no two-sided asymptotic, large-prime pooling, signed reflection, or relaxation transport is used. The candidate uses growing roots, so the fixed-menu no-go does not refute it. It still fails the key screens: the tied divisor class is not forced, and the available quadratic information does not locate a divisor within that class. The explicit hard-prime and near-square tests pass only as finite computations.
+
+**Internal review.** A fresh deep reviewer found no blocking mathematical defect and independently reproduced the complete audited census and both Python suites. Three minor repairs were applied: an inclusive K-count wording, explicitly choosing a p₀-coprime M in Theorem 6.1, and strengthening the C assertion from Euler/Jacobi product agreement to agreement at each endpoint separately. The final census remains unchanged.
 
 **Honest verdict: PARTIAL, promise 1/5.** The required converse and the discrete-IVT bridge are now elementary and boundary-complete. The main forcing assertion remains unproved, with or without either permitted analytic hypothesis. The sustained remainder-descent attempt isolates the missing retention step and gives exact infinite-family obstructions to two tempting repairs. There is no claimed proof of ES, of eventual ES₅, or of a polylogarithmic H₄ bound.
