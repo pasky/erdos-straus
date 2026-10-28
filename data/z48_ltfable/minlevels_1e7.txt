@@ -1,0 +1,65 @@
+# N=10000000; per dyadic range [2^k,2^(k+1)) over primes p=1(4): count, max STu, max STu/log^2p, max STt/4 (=C_min), max C_min/log^2 p, max ANu, max ANt, max I3t; (*)-failures excluded from STu/STt maxima
+k= 2 [4,7] n=1 maxSTu=1(@5) maxSTu/L2=0.386 maxCmin=1(@5) maxCmin/L2=0.386 maxANu=1(@5) maxANt=1(@5) maxI3t=0(@0)
+k= 3 [8,15] n=1 maxSTu=1(@13) maxSTu/L2=0.152 maxCmin=2(@13) maxCmin/L2=0.304 maxANu=1(@13) maxANt=1(@13) maxI3t=0(@0)
+k= 4 [16,31] n=2 maxSTu=1(@17) maxSTu/L2=0.125 maxCmin=1(@17) maxCmin/L2=0.125 maxANu=1(@17) maxANt=1(@17) maxI3t=3(@29)
+k= 5 [32,63] n=4 maxSTu=1(@37) maxSTu/L2=0.077 maxCmin=5(@37) maxCmin/L2=0.383 maxANu=1(@37) maxANt=1(@37) maxI3t=4(@41)
+k= 6 [64,127] n=6 maxSTu=2(@73) maxSTu/L2=0.109 maxCmin=2(@73) maxCmin/L2=0.109 maxANu=2(@73) maxANt=2(@73) maxI3t=8(@89)
+k= 7 [128,255] n=10 maxSTu=2(@193) maxSTu/L2=0.072 maxCmin=20(@157) maxCmin/L2=0.782 maxANu=2(@193) maxANt=3(@193) maxI3t=9(@241)
+k= 8 [256,511] n=21 maxSTu=4(@337) maxSTu/L2=0.118 maxCmin=6(@421) maxCmin/L2=0.164 maxANu=4(@409) maxANt=3(@313) maxI3t=14(@409)
+k= 9 [512,1023] n=38 maxSTu=3(@1009) maxSTu/L2=0.063 maxCmin=9(@997) maxCmin/L2=0.189 maxANu=3(@577) maxANt=4(@1009) maxI3t=6(@617)
+k=10 [1024,2047] n=66 maxSTu=6(@1201) maxSTu/L2=0.119 maxCmin=17(@1621) maxCmin/L2=0.311 maxANu=6(@1201) maxANt=4(@1321) maxI3t=7(@1049)
+k=11 [2048,4095] n=127 maxSTu=6(@3049) maxSTu/L2=0.093 maxCmin=23(@3109) maxCmin/L2=0.356 maxANu=5(@3529) maxANt=15(@2521) maxI3t=7(@3361)
+k=12 [4096,8191] n=233 maxSTu=19(@6337) maxSTu/L2=0.248 maxCmin=40(@4789) maxCmin/L2=0.557 maxANu=7(@5569) maxANt=4(@6361) maxI3t=8(@6481)
+k=13 [8192,16383] n=432 maxSTu=12(@10657) maxSTu/L2=0.140 maxCmin=35(@12301) maxCmin/L2=0.395 maxANu=9(@9601) maxANt=11(@14281) maxI3t=11(@14281)
+k=14 [16384,32767] n=805 maxSTu=26(@19441) maxSTu/L2=0.267 maxCmin=149(@26209) maxCmin/L2=1.450 maxANu=12(@19009) maxANt=7(@24481) maxI3t=14(@21841)
+k=15 [32768,65535] n=1511 maxSTu=78(@57457) maxSTu/L2=0.649 maxCmin=251(@60217) maxCmin/L2=2.072 maxANu=14(@59929) maxANt=7(@33049) maxI3t=11(@41809)
+k=16 [65536,131071] n=2837 maxSTu=35(@114601) maxSTu/L2=0.258 maxCmin=557(@98017) maxCmin/L2=4.217 maxANu=11(@83449) maxANt=11(@95089) maxI3t=9(@76441)
+k=17 [131072,262143] n=5378 maxSTu=25(@258337) maxSTu/L2=0.172 maxCmin=16383.8(@184837) maxCmin/L2=111.401 maxANu=17(@196561) maxANt=10(@164089) maxI3t=12(@202201)
+k=18 [262144,524287] n=10186 maxSTu=131(@427249) maxSTu/L2=0.779 maxCmin=3879(@434437) maxCmin/L2=23.017 maxANu=12(@361321) maxANt=15(@351289) maxI3t=9(@430769)
+k=19 [524288,1048575] n=19294 maxSTu=126(@966409) maxSTu/L2=0.663 maxCmin=4016(@706801) maxCmin/L2=22.139 maxANu=14(@944329) maxANt=16(@679681) maxI3t=9(@532801)
+k=20 [1048576,2097151] n=36827 maxSTu=42(@1336729) maxSTu/L2=0.211 maxCmin=380(@2094481) maxCmin/L2=1.894 maxANu=23(@1769329) maxANt=20(@1708009) maxI3t=11(@1541209)
+k=21 [2097152,4194303] n=70157 maxSTu=410(@4160641) maxSTu/L2=1.765 maxCmin=1281(@2551501) maxCmin/L2=5.886 maxANu=19(@2479129) maxANt=27(@3581041) maxI3t=17(@2949049)
+k=22 [4194304,8388607] n=133975 maxSTu=116(@6416329) maxSTu/L2=0.472 maxCmin=974(@6116401) maxCmin/L2=3.989 maxANu=22(@4437721) maxANt=27(@7502881) maxI3t=21(@7502881)
+k=23 [8388608,10000000] n=50269 maxSTu=39(@9744001) maxSTu/L2=0.151 maxCmin=507(@8639149) maxCmin/L2=1.987 maxANu=13(@8633641) maxANt=19(@9164401) maxI3t=12(@9792529)
+# primes p=1(4) with STu > (log p)^2 or C_min > (log p)^2, or ANu > log p + 5 (five-slice least endpoint):
+BIG 19141 STu=1 Cmin=141 ANu=1 ANt=1
+BIG 23041 STu=4 Cmin=131 ANu=4 ANt=3
+BIG 26209 STu=4 Cmin=149 ANu=4 ANt=2
+BIG 60217 STu=3 Cmin=251 ANu=3 ANt=2
+BIG 98017 STu=4 Cmin=557 ANu=3 ANt=2
+BIG 118429 STu=1 Cmin=228 ANu=1 ANt=1
+BIG 184837 STu=1 Cmin=16383 ANu=1 ANt=1
+BIG 257077 STu=1 Cmin=160 ANu=1 ANt=1
+BIG 434437 STu=1 Cmin=3879 ANu=1 ANt=1
+BIG 435037 STu=1 Cmin=412 ANu=1 ANt=1
+BIG 571741 STu=1 Cmin=1489 ANu=1 ANt=1
+BIG 593869 STu=1 Cmin=198 ANu=1 ANt=1
+BIG 597577 STu=3 Cmin=203 ANu=3 ANt=2
+BIG 629449 STu=10 Cmin=258 ANu=4 ANt=3
+BIG 706801 STu=4 Cmin=4016 ANu=4 ANt=2
+BIG 723661 STu=1 Cmin=208 ANu=1 ANt=1
+BIG 810049 STu=8 Cmin=291 ANu=3 ANt=2
+BIG 881269 STu=1 Cmin=1695 ANu=1 ANt=1
+BIG 1151221 STu=1 Cmin=369 ANu=1 ANt=1
+BIG 1265617 STu=8 Cmin=293 ANu=3 ANt=2
+BIG 1426489 STu=3 Cmin=334 ANu=3 ANt=6
+BIG 1501501 STu=1 Cmin=218 ANu=1 ANt=1
+ANUBIG 1726201 ANu=22 ANt=2 STu=65535
+ANUBIG 1769329 ANu=23 ANt=3 STu=26
+BIG 2094481 STu=26 Cmin=380 ANu=11 ANt=2
+BIG 2551501 STu=1 Cmin=1281 ANu=1 ANt=1
+BIG 2619457 STu=17 Cmin=222 ANu=3 ANt=2
+BIG 2637001 STu=4 Cmin=272 ANu=4 ANt=2
+BIG 3964381 STu=1 Cmin=360 ANu=1 ANt=1
+BIG 4076881 STu=5 Cmin=286 ANu=5 ANt=17
+BIG 4160641 STu=410 Cmin=2 ANu=7 ANt=3
+ANUBIG 4437721 ANu=22 ANt=5 STu=24
+BIG 4617649 STu=35 Cmin=380 ANu=7 ANt=6
+BIG 4892941 STu=1 Cmin=830 ANu=1 ANt=1
+BIG 4922509 STu=1 Cmin=318 ANu=1 ANt=1
+BIG 5446897 STu=4 Cmin=328 ANu=3 ANt=2
+BIG 6116401 STu=5 Cmin=974 ANu=5 ANt=2
+BIG 6231529 STu=11 Cmin=319 ANu=4 ANt=2
+BIG 6448381 STu=1 Cmin=381 ANu=1 ANt=1
+BIG 7684429 STu=1 Cmin=939 ANu=1 ANt=1
+BIG 8639149 STu=1 Cmin=507 ANu=1 ANt=1
