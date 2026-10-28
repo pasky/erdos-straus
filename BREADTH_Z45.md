@@ -214,3 +214,13 @@ These are local clones and branches only; nothing is pushed.
   * Round 2, two Claude Fable reviews: PR A OK. They also found that Dyachenko's Prop 9.25 is false as stated
     (g = 9, b′ = 1, c′ = 2). PR B NEEDS FIXES: the B2 moduli for constant rows and minor wording; fixed.
   * The Lean claims were refactored into named parts. Re-audited: 3833 constants, 7 claims, 0 compiler axioms, PASS.
+
+## 12. Follow-ups once plasma-ai/erdos#65 (PR A) shows how the project responds
+
+* **F4: post sharp sub-problems where agents work** (TheoremDB, erdosproblems.ai): the one-sided bound (∗), forest
+  height H₄ / certificate-edge existence, δ-transport (δ ≤ 1 ⟹ δ = 0 for numerator 4, failing for 8), and
+  cancellation on the height-dependent modular hyperbola. Goal: draw outside compute onto B2.
+* **F5: public screening kit for claimed proofs.** A script plus the Lean claims (L9901 numerator-8 controls,
+  L9903 no Type II at squares) that tests a claimed construction against 8/11, 8/17, 8/131, 8/241, odd squares
+  and fixed-congruence coverage (B1). This replaces the long barrier map as PR B's core. The two theorems (3/4
+  exceptional set; exponential families) go as a separate PR.
