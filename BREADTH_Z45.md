@@ -224,3 +224,32 @@ These are local clones and branches only; nothing is pushed.
   L9903 no Type II at squares) that tests a claimed construction against 8/11, 8/17, 8/131, 8/241, odd squares
   and fixed-congruence coverage (B1). This replaces the long barrier map as PR B's core. The two theorems (3/4
   exceptional set; exponential families) go as a separate PR.
+
+## 13. Wave z48: dump methods, long single-target attempts, forest connectivity (2026-10-28)
+
+Eight side agents ran (Claude Fable, GPT-6 Astra, Claude Opus). All merged; ES remains open.
+* **Methods of the OpenAI release** (all promise ≤ 1/5 for ES):
+  * `OAI_METHOD_003.md`: quasi-RH comes from a cubic-theta reflection/Poisson recursion on special sextic
+    families plus an amplified zero detector. It is not a generic large-sieve gain, and no B2 transfer was found.
+  * `OAI_METHOD_007.md`: two-point Chowla, read conditionally on 007's proof, gives only an O(p) implied constant for
+    Σ λ(4pC+1)λ(C), trivial at ES scales. The lost factor is identified (progression density).
+  * `OAI_METHOD_142.md`: the derandomisation either uses positive-density Chebotarev events or finds objects that
+    exist a priori; ES has no such object. Clean negative (0/5).
+* **Forest** (`FOREST_DEEP_ASTRA.md`, `FOREST_DEEP_FABLE.md`, `FOREST_CONNECTIVITY.md`):
+  * PROVED, three times independently by elementary reciprocity: for p ≡ 1 (mod 4), an edge is a certificate
+    ⟺ it is bichromatic, for every edge (10 M edges checked). So ES₅(p) ⟺ the forest has a bichromatic edge.
+  * Connectivity routes fail: comp(1) and comp(r(p)) fail i.o. under Dickson. At 59929 and 4962049 no vertex ≤ 12
+    has a certifying child. The first certificate usually hangs off an unrelated root.
+  * Exact remaining gap (Fable): some v < w ≤ (log p)^C with w | p + v, w ≡ −p (mod v) and opposite colours. That is
+    B2 verbatim, with the colour layer removed. Promise 1/5.
+* **Lower tail** (`LOWERTAIL_DEEP_ASTRA.md`, `LOWERTAIL_DEEP_FABLE.md`):
+  * **CONDITIONAL positive (Astra Thm 5.4):** any fixed Dirichlet zero-free strip (OAI-003 or GRH) ⟹
+    M_gen(p) ≥ (2/π⁴ − o(1)) log²p. This settles FRONTIER §7 item 4 conditionally; previously GRH gave only
+    log log p. It is a statement about the main term, not R(p).
+  * **CERTIFIED:** R + B ≥ M_BM/16 for all p ≡ 1 (mod 4) ≤ 10⁷.
+  * Fable: an independent (★) census to 10⁹ finds exactly the 14 known failures.
+  * **Conjecture I3** (Fable): a sign-free, prime-free model of the blocking step. I3(n) counts words tuv − u − v = n
+    with t, u, v ≥ 3; it has main term ½ log²n. CERTIFIED to 10⁹: I3(n) = 0 at exactly 112 integers, the last being
+    2 433 600 = 1560². No method gives I3(n) ≥ 1 for large n. This is the cleanest public sub-problem candidate (F4).
+  * Remaining gap (Astra): one-sided control of the non-real character remainder at a single p. Neither GRH nor a
+    zero-free strip supplies a signed zero correlation at that p.
