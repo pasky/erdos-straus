@@ -1,0 +1,10 @@
+# mode=split N=100000 M=20000 type=gen X0=318 NP=66 constraints: 2:0
+X=8  stage-survival=0.42160  P1(no word with v<=X)=4.2160e-01  survivors=8432
+X=16  stage-survival=0.35210  P1(no word with v<=X)=1.4845e-01  survivors=7042
+X=32  stage-survival=0.27085  P1(no word with v<=X)=4.0206e-02  survivors=5417
+X=64  stage-survival=0.22560  P1(no word with v<=X)=9.0706e-03  survivors=4512
+X=128  stage-survival=0.19440  P1(no word with v<=X)=1.7633e-03  survivors=3888
+X=256  stage-survival=0.15380  P1(no word with v<=X)=2.7120e-04  survivors=3076
+X=318  stage-survival=0.62325  P1(no word with v<=X)=1.6902e-04  survivors=12465
+P1(X0=318)=1.6902e-04  tail: 696 of 12465 survivors have no word with v>X0 -> P2=0.0558 (+-0.0021)  P(I3=0)=9.4377e-06
+zero-survivors: frac 4|n=0.418 8|n=0.095 3|n=0.921 9|n=0.651 5|n=0.596 7|n=0.328

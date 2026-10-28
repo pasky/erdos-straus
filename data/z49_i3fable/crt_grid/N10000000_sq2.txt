@@ -1,13 +1,13 @@
 # mode=split N=10000000 M=20000 type=sq2 X0=3164 NP=449 constraints:
-X=8  stage-survival=0.52065  P1(no word with v<=X)=5.2065e-01  survivors=10413
-X=16  stage-survival=0.42370  P1(no word with v<=X)=2.2060e-01  survivors=8474
-X=32  stage-survival=0.57350  P1(no word with v<=X)=1.2651e-01  survivors=11470
-X=64  stage-survival=0.46285  P1(no word with v<=X)=5.8557e-02  survivors=9257
-X=128  stage-survival=0.34035  P1(no word with v<=X)=1.9930e-02  survivors=6807
-X=256  stage-survival=0.29530  P1(no word with v<=X)=5.8853e-03  survivors=5906
-X=512  stage-survival=0.27795  P1(no word with v<=X)=1.6358e-03  survivors=5559
-X=1024  stage-survival=0.24630  P1(no word with v<=X)=4.0290e-04  survivors=4926
-X=2048  stage-survival=0.24885  P1(no word with v<=X)=1.0026e-04  survivors=4977
-X=3164  stage-survival=0.41700  P1(no word with v<=X)=4.1809e-05  survivors=8340
-P1(X0=3164)=4.1809e-05  tail: 153 of 8340 survivors have no word with v>X0 -> P2=0.0183 (+-0.0015)  P(I3=0)=7.6700e-07
-zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=1.000 9|n=1.000 5|n=0.869 7|n=0.569
+X=8  stage-survival=0.52190  P1(no word with v<=X)=5.2190e-01  survivors=10438
+X=16  stage-survival=0.41725  P1(no word with v<=X)=2.1776e-01  survivors=8345
+X=32  stage-survival=0.56350  P1(no word with v<=X)=1.2271e-01  survivors=11270
+X=64  stage-survival=0.44080  P1(no word with v<=X)=5.4090e-02  survivors=8816
+X=128  stage-survival=0.34665  P1(no word with v<=X)=1.8750e-02  survivors=6933
+X=256  stage-survival=0.28125  P1(no word with v<=X)=5.2735e-03  survivors=5625
+X=512  stage-survival=0.25955  P1(no word with v<=X)=1.3687e-03  survivors=5191
+X=1024  stage-survival=0.27825  P1(no word with v<=X)=3.8085e-04  survivors=5565
+X=2048  stage-survival=0.24630  P1(no word with v<=X)=9.3804e-05  survivors=4926
+X=3164  stage-survival=0.38535  P1(no word with v<=X)=3.6148e-05  survivors=7707
+P1(X0=3164)=3.6148e-05  tail: 93 of 7707 survivors have no word with v>X0 -> P2=0.0121 (+-0.0012)  P(I3=0)=4.3619e-07
+zero-survivors: frac 4|n=0.527 8|n=0.527 3|n=1.000 9|n=1.000 5|n=0.849 7|n=0.290

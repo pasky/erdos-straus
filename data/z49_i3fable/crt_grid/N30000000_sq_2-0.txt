@@ -1,14 +1,14 @@
 # mode=split N=30000000 M=20000 type=sq X0=5479 NP=725 constraints: 2:0
 X=8  stage-survival=1.00000  P1(no word with v<=X)=1.0000e+00  survivors=20000
-X=16  stage-survival=0.59645  P1(no word with v<=X)=5.9645e-01  survivors=11929
-X=32  stage-survival=0.51735  P1(no word with v<=X)=3.0857e-01  survivors=10347
-X=64  stage-survival=0.53505  P1(no word with v<=X)=1.6510e-01  survivors=10701
-X=128  stage-survival=0.47360  P1(no word with v<=X)=7.8192e-02  survivors=9472
-X=256  stage-survival=0.38715  P1(no word with v<=X)=3.0272e-02  survivors=7743
-X=512  stage-survival=0.38215  P1(no word with v<=X)=1.1569e-02  survivors=7643
-X=1024  stage-survival=0.34405  P1(no word with v<=X)=3.9801e-03  survivors=6881
-X=2048  stage-survival=0.31795  P1(no word with v<=X)=1.2655e-03  survivors=6359
-X=4096  stage-survival=0.29695  P1(no word with v<=X)=3.7579e-04  survivors=5939
-X=5479  stage-survival=0.59420  P1(no word with v<=X)=2.2329e-04  survivors=11884
-P1(X0=5479)=2.2329e-04  tail: 504 of 11884 survivors have no word with v>X0 -> P2=0.0424 (+-0.0018)  P(I3=0)=9.4698e-06
-zero-survivors: frac 4|n=1.000 8|n=0.425 3|n=0.980 9|n=0.980 5|n=0.857 7|n=0.387
+X=16  stage-survival=0.59180  P1(no word with v<=X)=5.9180e-01  survivors=11836
+X=32  stage-survival=0.52270  P1(no word with v<=X)=3.0933e-01  survivors=10454
+X=64  stage-survival=0.54045  P1(no word with v<=X)=1.6718e-01  survivors=10809
+X=128  stage-survival=0.47160  P1(no word with v<=X)=7.8842e-02  survivors=9432
+X=256  stage-survival=0.38665  P1(no word with v<=X)=3.0484e-02  survivors=7733
+X=512  stage-survival=0.42130  P1(no word with v<=X)=1.2843e-02  survivors=8426
+X=1024  stage-survival=0.35435  P1(no word with v<=X)=4.5509e-03  survivors=7087
+X=2048  stage-survival=0.32395  P1(no word with v<=X)=1.4743e-03  survivors=6479
+X=4096  stage-survival=0.34760  P1(no word with v<=X)=5.1246e-04  survivors=6952
+X=5479  stage-survival=0.63145  P1(no word with v<=X)=3.2359e-04  survivors=12629
+P1(X0=5479)=3.2359e-04  tail: 576 of 12629 survivors have no word with v>X0 -> P2=0.0456 (+-0.0019)  P(I3=0)=1.4759e-05
+zero-survivors: frac 4|n=1.000 8|n=0.319 3|n=0.938 9|n=0.938 5|n=0.715 7|n=0.469

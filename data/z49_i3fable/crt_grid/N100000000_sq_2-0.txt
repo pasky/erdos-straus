@@ -1,15 +1,15 @@
 # mode=split N=100000000 M=20000 type=sq X0=10002 NP=1231 constraints: 2:0
 X=8  stage-survival=1.00000  P1(no word with v<=X)=1.0000e+00  survivors=20000
-X=16  stage-survival=0.58980  P1(no word with v<=X)=5.8980e-01  survivors=11796
-X=32  stage-survival=0.52775  P1(no word with v<=X)=3.1127e-01  survivors=10555
-X=64  stage-survival=0.53070  P1(no word with v<=X)=1.6519e-01  survivors=10614
-X=128  stage-survival=0.47240  P1(no word with v<=X)=7.8035e-02  survivors=9448
-X=256  stage-survival=0.38935  P1(no word with v<=X)=3.0383e-02  survivors=7787
-X=512  stage-survival=0.40385  P1(no word with v<=X)=1.2270e-02  survivors=8077
-X=1024  stage-survival=0.34690  P1(no word with v<=X)=4.2565e-03  survivors=6938
-X=2048  stage-survival=0.32200  P1(no word with v<=X)=1.3706e-03  survivors=6440
-X=4096  stage-survival=0.28080  P1(no word with v<=X)=3.8487e-04  survivors=5616
-X=8192  stage-survival=0.25555  P1(no word with v<=X)=9.8353e-05  survivors=5111
-X=10002  stage-survival=0.74610  P1(no word with v<=X)=7.3381e-05  survivors=14922
-P1(X0=10002)=7.3381e-05  tail: 335 of 14922 survivors have no word with v>X0 -> P2=0.0225 (+-0.0012)  P(I3=0)=1.6474e-06
-zero-survivors: frac 4|n=1.000 8|n=0.546 3|n=0.952 9|n=0.952 5|n=0.916 7|n=0.319
+X=16  stage-survival=0.58735  P1(no word with v<=X)=5.8735e-01  survivors=11747
+X=32  stage-survival=0.52400  P1(no word with v<=X)=3.0777e-01  survivors=10480
+X=64  stage-survival=0.52015  P1(no word with v<=X)=1.6009e-01  survivors=10403
+X=128  stage-survival=0.44760  P1(no word with v<=X)=7.1655e-02  survivors=8952
+X=256  stage-survival=0.38305  P1(no word with v<=X)=2.7447e-02  survivors=7661
+X=512  stage-survival=0.39035  P1(no word with v<=X)=1.0714e-02  survivors=7807
+X=1024  stage-survival=0.36745  P1(no word with v<=X)=3.9369e-03  survivors=7349
+X=2048  stage-survival=0.31940  P1(no word with v<=X)=1.2574e-03  survivors=6388
+X=4096  stage-survival=0.28545  P1(no word with v<=X)=3.5894e-04  survivors=5709
+X=8192  stage-survival=0.29970  P1(no word with v<=X)=1.0757e-04  survivors=5994
+X=10002  stage-survival=0.66650  P1(no word with v<=X)=7.1698e-05  survivors=13330
+P1(X0=10002)=7.1698e-05  tail: 370 of 13330 survivors have no word with v>X0 -> P2=0.0278 (+-0.0014)  P(I3=0)=1.9901e-06
+zero-survivors: frac 4|n=1.000 8|n=0.311 3|n=0.943 9|n=0.943 5|n=0.765 7|n=0.419

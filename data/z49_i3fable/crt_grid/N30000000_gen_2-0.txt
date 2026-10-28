@@ -1,13 +1,13 @@
 # mode=split N=30000000 M=20000 type=gen X0=5479 NP=725 constraints: 2:0
-X=8  stage-survival=0.42190  P1(no word with v<=X)=4.2190e-01  survivors=8438
-X=16  stage-survival=0.35785  P1(no word with v<=X)=1.5098e-01  survivors=7157
-X=32  stage-survival=0.25965  P1(no word with v<=X)=3.9201e-02  survivors=5193
-X=64  stage-survival=0.22970  P1(no word with v<=X)=9.0045e-03  survivors=4594
-X=128  stage-survival=0.18155  P1(no word with v<=X)=1.6348e-03  survivors=3631
-X=256  stage-survival=0.16900  P1(no word with v<=X)=2.7628e-04  survivors=3380
-X=512  stage-survival=0.13480  P1(no word with v<=X)=3.7242e-05  survivors=2696
-X=1024  stage-survival=0.10440  P1(no word with v<=X)=3.8881e-06  survivors=2088
-X=2048  stage-survival=0.13810  P1(no word with v<=X)=5.3694e-07  survivors=2762
-X=4096  stage-survival=0.05215  P1(no word with v<=X)=2.8001e-08  survivors=1043
-X=5479  stage-survival=0.51385  P1(no word with v<=X)=1.4389e-08  survivors=10277
-P1(X0=5479)=1.4389e-08  tail: 0 of 10277 survivors have no word with v>X0 -> P2=0.0000 (+-0.0000)  P(I3=0)=0.0000e+00
+X=8  stage-survival=0.42080  P1(no word with v<=X)=4.2080e-01  survivors=8416
+X=16  stage-survival=0.34260  P1(no word with v<=X)=1.4417e-01  survivors=6852
+X=32  stage-survival=0.27000  P1(no word with v<=X)=3.8925e-02  survivors=5400
+X=64  stage-survival=0.20770  P1(no word with v<=X)=8.0847e-03  survivors=4154
+X=128  stage-survival=0.20045  P1(no word with v<=X)=1.6206e-03  survivors=4009
+X=256  stage-survival=0.15080  P1(no word with v<=X)=2.4438e-04  survivors=3016
+X=512  stage-survival=0.19685  P1(no word with v<=X)=4.8107e-05  survivors=3937
+X=1024  stage-survival=0.10195  P1(no word with v<=X)=4.9045e-06  survivors=2039
+X=2048  stage-survival=0.12575  P1(no word with v<=X)=6.1674e-07  survivors=2515
+X=4096  stage-survival=0.06215  P1(no word with v<=X)=3.8330e-08  survivors=1243
+X=5479  stage-survival=0.37620  P1(no word with v<=X)=1.4420e-08  survivors=7524
+P1(X0=5479)=1.4420e-08  tail: 0 of 7524 survivors have no word with v>X0 -> P2=0.0000 (+-0.0000)  P(I3=0)=0.0000e+00

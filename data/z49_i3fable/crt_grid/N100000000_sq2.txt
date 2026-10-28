@@ -1,14 +1,14 @@
 # mode=split N=100000000 M=20000 type=sq2 X0=10002 NP=1231 constraints:
-X=8  stage-survival=0.51800  P1(no word with v<=X)=5.1800e-01  survivors=10360
-X=16  stage-survival=0.41715  P1(no word with v<=X)=2.1608e-01  survivors=8343
-X=32  stage-survival=0.56015  P1(no word with v<=X)=1.2104e-01  survivors=11203
-X=64  stage-survival=0.47340  P1(no word with v<=X)=5.7300e-02  survivors=9468
-X=128  stage-survival=0.37180  P1(no word with v<=X)=2.1304e-02  survivors=7436
-X=256  stage-survival=0.30895  P1(no word with v<=X)=6.5819e-03  survivors=6179
-X=512  stage-survival=0.26765  P1(no word with v<=X)=1.7616e-03  survivors=5353
-X=1024  stage-survival=0.28555  P1(no word with v<=X)=5.0304e-04  survivors=5711
-X=2048  stage-survival=0.27710  P1(no word with v<=X)=1.3939e-04  survivors=5542
-X=4096  stage-survival=0.21085  P1(no word with v<=X)=2.9391e-05  survivors=4217
-X=8192  stage-survival=0.26535  P1(no word with v<=X)=7.7989e-06  survivors=5307
-X=10002  stage-survival=0.54905  P1(no word with v<=X)=4.2820e-06  survivors=10981
-P1(X0=10002)=4.2820e-06  tail: 0 of 10981 survivors have no word with v>X0 -> P2=0.0000 (+-0.0000)  P(I3=0)=0.0000e+00
+X=8  stage-survival=0.51615  P1(no word with v<=X)=5.1615e-01  survivors=10323
+X=16  stage-survival=0.42215  P1(no word with v<=X)=2.1789e-01  survivors=8443
+X=32  stage-survival=0.57145  P1(no word with v<=X)=1.2451e-01  survivors=11429
+X=64  stage-survival=0.46315  P1(no word with v<=X)=5.7669e-02  survivors=9263
+X=128  stage-survival=0.36805  P1(no word with v<=X)=2.1225e-02  survivors=7361
+X=256  stage-survival=0.29725  P1(no word with v<=X)=6.3092e-03  survivors=5945
+X=512  stage-survival=0.25545  P1(no word with v<=X)=1.6117e-03  survivors=5109
+X=1024  stage-survival=0.24990  P1(no word with v<=X)=4.0276e-04  survivors=4998
+X=2048  stage-survival=0.25210  P1(no word with v<=X)=1.0154e-04  survivors=5042
+X=4096  stage-survival=0.17085  P1(no word with v<=X)=1.7347e-05  survivors=3417
+X=8192  stage-survival=0.20970  P1(no word with v<=X)=3.6377e-06  survivors=4194
+X=10002  stage-survival=0.60100  P1(no word with v<=X)=2.1863e-06  survivors=12020
+P1(X0=10002)=2.1863e-06  tail: 0 of 12020 survivors have no word with v>X0 -> P2=0.0000 (+-0.0000)  P(I3=0)=0.0000e+00

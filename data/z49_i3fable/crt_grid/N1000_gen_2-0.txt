@@ -1,7 +1,7 @@
-# mode=split N=1000 M=40000 type=gen X0=33 NP=14 constraints: 2:0
-X=8  stage-survival=0.42242  P1(no word with v<=X)=4.2242e-01  survivors=16897
-X=16  stage-survival=0.35318  P1(no word with v<=X)=1.4919e-01  survivors=14127
-X=32  stage-survival=0.26780  P1(no word with v<=X)=3.9953e-02  survivors=10712
-X=33  stage-survival=0.95750  P1(no word with v<=X)=3.8255e-02  survivors=38300
-P1(X0=33)=3.8255e-02  tail: 19322 of 38300 survivors have no word with v>X0 -> P2=0.5045 (+-0.0026)  P(I3=0)=1.9299e-02
-zero-survivors: frac 4|n=0.348 8|n=0.107 3|n=0.413 9|n=0.244 5|n=0.270 7|n=0.177
+# mode=split N=1000 M=20000 type=gen X0=33 NP=14 constraints: 2:0
+X=8  stage-survival=0.42635  P1(no word with v<=X)=4.2635e-01  survivors=8527
+X=16  stage-survival=0.34805  P1(no word with v<=X)=1.4839e-01  survivors=6961
+X=32  stage-survival=0.35235  P1(no word with v<=X)=5.2286e-02  survivors=7047
+X=33  stage-survival=0.97830  P1(no word with v<=X)=5.1151e-02  survivors=19566
+P1(X0=33)=5.1151e-02  tail: 9652 of 19566 survivors have no word with v>X0 -> P2=0.4933 (+-0.0036)  P(I3=0)=2.5233e-02
+zero-survivors: frac 4|n=0.358 8|n=0.115 3|n=0.364 9|n=0.218 5|n=0.265 7|n=0.214

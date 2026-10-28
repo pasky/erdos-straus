@@ -1,68 +1,72 @@
-# model P(I3(n)=0) by type and nominal N  (P1 = no word with larger endpoint <= sqrt N; P2 = tail; * = P2 borrowed from last nonzero tail)
-even squares       N=       1000  P1=2.992e-01  tail=33731/38346  P=2.632e-01
-even squares       N=       3000  P1=1.857e-01  tail=18855/24093  P=1.453e-01
-even squares       N=      10000  P1=9.830e-02  tail=6511/11991  P=5.337e-02
-even squares       N=      30000  P1=5.167e-02  tail=5835/13165  P=2.290e-02
-even squares       N=     100000  P1=2.197e-02  tail=4769/14812  P=7.073e-03
-even squares       N=     300000  P1=1.072e-02  tail=4320/17996  P=2.573e-03
-even squares       N=    1000000  P1=3.661e-03  tail=975/6629  P=5.385e-04
-even squares       N=    3000000  P1=1.437e-03  tail=1053/8301  P=1.823e-04
-even squares       N=   10000000  P1=7.627e-04  tail=847/10815  P=5.973e-05
-even squares       N=   30000000  P1=2.233e-04  tail=504/11884  P=9.470e-06
-even squares       N=  100000000  P1=7.338e-05  tail=335/14922  P=1.647e-06
-even squares       N=  300000000  P1=2.371e-05  tail=426/18274  P=5.528e-07
-even squares       N= 1000000000  P1=4.757e-06  tail=16/4748  P=1.603e-08
-odd squares        N=       1000  P1=5.365e-02  tail=24704/39575  P=3.349e-02
-odd squares        N=       3000  P1=1.710e-02  tail=7252/13131  P=9.442e-03
-odd squares        N=      10000  P1=2.399e-03  tail=1541/3703  P=9.983e-04
-odd squares        N=      30000  P1=8.951e-04  tail=2652/9261  P=2.563e-04
-odd squares        N=     100000  P1=1.847e-04  tail=1778/11835  P=2.774e-05
-odd squares        N=     300000  P1=5.095e-05  tail=1529/16612  P=4.689e-06
-odd squares        N=    1000000  P1=8.189e-06  tail=160/2845  P=4.605e-07
-odd squares        N=    3000000  P1=1.947e-06  tail=60/3986  P=2.931e-08
-odd squares        N=   10000000  P1=3.440e-07  tail=0/4778  P=5.179e-09*
-odd squares        N=   30000000  P1=5.347e-08  tail=0/6993  P=8.049e-10*
-odd squares        N=  100000000  P1=3.454e-09  tail=0/11018  P=5.200e-11*
-2*square           N=       1000  P1=1.069e-01  tail=16197/34480  P=5.022e-02
-2*square           N=       3000  P1=6.442e-02  tail=8046/20453  P=2.534e-02
-2*square           N=      10000  P1=2.594e-02  tail=2635/9443  P=7.239e-03
-2*square           N=      30000  P1=1.113e-02  tail=2188/11774  P=2.069e-03
-2*square           N=     100000  P1=3.942e-03  tail=1472/12665  P=4.582e-04
-2*square           N=     300000  P1=1.378e-03  tail=1108/17548  P=8.699e-05
-2*square           N=    1000000  P1=3.957e-04  tail=172/5637  P=1.207e-05
-2*square           N=    3000000  P1=1.625e-04  tail=107/6826  P=2.547e-06
-2*square           N=   10000000  P1=4.181e-05  tail=153/8340  P=7.670e-07
-2*square           N=   30000000  P1=5.047e-06  tail=108/7767  P=7.017e-08
-2*square           N=  100000000  P1=4.282e-06  tail=0/10981  P=5.954e-08*
-2*square           N=  300000000  P1=8.724e-07  tail=0/17071  P=1.213e-08*
-2*square           N= 1000000000  P1=2.124e-07  tail=0/4125  P=2.953e-09*
-even non-square    N=       1000  P1=3.825e-02  tail=19322/38300  P=1.930e-02
-even non-square    N=       3000  P1=1.165e-02  tail=3502/11702  P=3.487e-03
-even non-square    N=      10000  P1=2.977e-03  tail=1159/6520  P=5.292e-04
-even non-square    N=      30000  P1=8.146e-04  tail=919/9382  P=7.979e-05
-even non-square    N=     100000  P1=1.364e-04  tail=500/9636  P=7.076e-06
-even non-square    N=     300000  P1=2.913e-05  tail=282/17222  P=4.770e-07
-even non-square    N=    1000000  P1=4.852e-06  tail=19/2757  P=3.344e-08
-even non-square    N=    3000000  P1=1.661e-08  tail=0/111  P=1.145e-10*
-even non-square    N=   10000000  P1=3.189e-08  tail=0/4878  P=2.197e-10*
-even non-square    N=   30000000  P1=1.439e-08  tail=0/10277  P=9.916e-11*
-even non-square    N=  100000000  P1=2.385e-09  tail=0/11022  P=1.643e-11*
-odd non-square     N=       1000  P1=2.894e-03  tail=10898/34580  P=9.120e-04
-odd non-square     N=       3000  P1=4.555e-04  tail=726/5049  P=6.549e-05
-odd non-square     N=      10000  P1=3.811e-05  tail=224/2265  P=3.769e-06
-odd non-square     N=      30000  P1=2.469e-06  tail=280/4871  P=1.419e-07
-odd non-square     N=     100000  P1=9.714e-08  tail=404/10594  P=3.704e-09
-odd non-square     N=     300000  P1=4.125e-09  tail=2283/13792  P=6.829e-10
+# model P(I3(n)=0) by type and nominal N  (P1 = no word with larger endpoint <= sqrt N; P2 = tail; '-' = empty tail, only the bound P <= P1)
+even squares       N=       1000  P1=3.572e-01  tail=17732/20000  P=3.167e-01  c=-lnP/ln^2N=0.0241
+even squares       N=       3000  P1=2.077e-01  tail=10555/13431  P=1.632e-01  c=-lnP/ln^2N=0.0283
+even squares       N=      10000  P1=1.091e-01  tail=7450/13093  P=6.206e-02  c=-lnP/ln^2N=0.0328
+even squares       N=      30000  P1=5.450e-02  tail=6465/14382  P=2.450e-02  c=-lnP/ln^2N=0.0349
+even squares       N=     100000  P1=2.401e-02  tail=4803/15825  P=7.286e-03  c=-lnP/ln^2N=0.0371
+even squares       N=     300000  P1=1.167e-02  tail=4577/18404  P=2.902e-03  c=-lnP/ln^2N=0.0367
+even squares       N=    1000000  P1=4.907e-03  tail=1260/8092  P=7.640e-04  c=-lnP/ln^2N=0.0376
+even squares       N=    3000000  P1=1.987e-03  tail=1307/9631  P=2.697e-04  c=-lnP/ln^2N=0.0369
+even squares       N=   10000000  P1=6.782e-04  tail=681/10027  P=4.606e-05  c=-lnP/ln^2N=0.0384
+even squares       N=   30000000  P1=3.236e-04  tail=576/12629  P=1.476e-05  c=-lnP/ln^2N=0.0375
+even squares       N=  100000000  P1=7.170e-05  tail=370/13330  P=1.990e-06  c=-lnP/ln^2N=0.0387
+even squares       N=  300000000  P1=2.852e-05  tail=157/17848  P=2.509e-07  c=-lnP/ln^2N=0.0399
+even squares       N= 1000000000  P1=8.843e-06  tail=49/6082  P=7.124e-08  c=-lnP/ln^2N=0.0383
+odd squares        N=       1000  P1=6.023e-02  tail=12874/20000  P=3.877e-02  c=-lnP/ln^2N=0.0681
+odd squares        N=       3000  P1=2.218e-02  tail=4755/8264  P=1.276e-02  c=-lnP/ln^2N=0.0680
+odd squares        N=      10000  P1=2.922e-03  tail=2003/4516  P=1.296e-03  c=-lnP/ln^2N=0.0784
+odd squares        N=      30000  P1=1.085e-03  tail=2711/11377  P=2.585e-04  c=-lnP/ln^2N=0.0777
+odd squares        N=     100000  P1=3.201e-04  tail=1501/13904  P=3.455e-05  c=-lnP/ln^2N=0.0775
+odd squares        N=     300000  P1=6.070e-05  tail=1342/16492  P=4.940e-06  c=-lnP/ln^2N=0.0768
+odd squares        N=    1000000  P1=1.512e-05  tail=131/4393  P=4.507e-07  c=-lnP/ln^2N=0.0766
+odd squares        N=    3000000  P1=1.776e-06  tail=43/4046  P=1.887e-08  c=-lnP/ln^2N=0.0800
+odd squares        N=   10000000  P1=3.118e-07  tail=0/4473  P<=P1 (empty tail)
+odd squares        N=   30000000  P1=4.960e-08  tail=0/9699  P<=P1 (empty tail)
+odd squares        N=  100000000  P1=5.102e-09  tail=0/9340  P<=P1 (empty tail)
+odd squares        N=  300000000  P1=4.425e-10  tail=0/18144  P<=P1 (empty tail)
+2*square           N=       1000  P1=1.204e-01  tail=7895/17295  P=5.496e-02  c=-lnP/ln^2N=0.0608
+2*square           N=       3000  P1=7.250e-02  tail=4617/11723  P=2.855e-02  c=-lnP/ln^2N=0.0555
+2*square           N=      10000  P1=3.157e-02  tail=3114/10885  P=9.033e-03  c=-lnP/ln^2N=0.0555
+2*square           N=      30000  P1=1.209e-02  tail=1877/12442  P=1.824e-03  c=-lnP/ln^2N=0.0593
+2*square           N=     100000  P1=4.472e-03  tail=1261/13644  P=4.133e-04  c=-lnP/ln^2N=0.0588
+2*square           N=     300000  P1=1.417e-03  tail=1194/17739  P=9.536e-05  c=-lnP/ln^2N=0.0582
+2*square           N=    1000000  P1=4.620e-04  tail=218/6041  P=1.667e-05  c=-lnP/ln^2N=0.0576
+2*square           N=    3000000  P1=1.697e-04  tail=230/8582  P=4.549e-06  c=-lnP/ln^2N=0.0553
+2*square           N=   10000000  P1=3.615e-05  tail=93/7707  P=4.362e-07  c=-lnP/ln^2N=0.0564
+2*square           N=   30000000  P1=1.140e-05  tail=71/9097  P=8.894e-08  c=-lnP/ln^2N=0.0548
+2*square           N=  100000000  P1=2.186e-06  tail=0/12020  P<=P1 (empty tail)
+2*square           N=  300000000  P1=9.308e-07  tail=0/18995  P<=P1 (empty tail)
+2*square           N= 1000000000  P1=9.879e-08  tail=0/2279  P<=P1 (empty tail)
+even non-square    N=       1000  P1=5.115e-02  tail=9652/19566  P=2.523e-02  c=-lnP/ln^2N=0.0771
+even non-square    N=       3000  P1=1.610e-02  tail=2488/8192  P=4.889e-03  c=-lnP/ln^2N=0.0830
+even non-square    N=      10000  P1=3.765e-03  tail=1532/8335  P=6.920e-04  c=-lnP/ln^2N=0.0858
+even non-square    N=      30000  P1=9.677e-04  tail=1186/10766  P=1.066e-04  c=-lnP/ln^2N=0.0861
+even non-square    N=     100000  P1=1.701e-04  tail=417/11308  P=6.272e-06  c=-lnP/ln^2N=0.0904
+even non-square    N=     300000  P1=3.054e-05  tail=370/16088  P=7.024e-07  c=-lnP/ln^2N=0.0891
+even non-square    N=    1000000  P1=7.871e-06  tail=39/3269  P=9.391e-08  c=-lnP/ln^2N=0.0848
+even non-square    N=    3000000  P1=3.529e-07  tail=34/3846  P=3.120e-09  c=-lnP/ln^2N=0.0881
+even non-square    N=   10000000  P1=2.222e-07  tail=0/9970  P<=P1 (empty tail)
+even non-square    N=   30000000  P1=1.442e-08  tail=0/7524  P<=P1 (empty tail)
+even non-square    N=  100000000  P1=1.446e-09  tail=0/3326  P<=P1 (empty tail)
+even non-square    N=  300000000  P1=3.138e-09  tail=0/15355  P<=P1 (empty tail)
+odd non-square     N=       1000  P1=5.267e-03  tail=5722/18013  P=1.673e-03  c=-lnP/ln^2N=0.1340
+odd non-square     N=       3000  P1=7.034e-04  tail=703/3691  P=1.340e-04  c=-lnP/ln^2N=0.1391
+odd non-square     N=      10000  P1=5.887e-05  tail=573/4040  P=8.350e-06  c=-lnP/ln^2N=0.1378
+odd non-square     N=      30000  P1=5.003e-06  tail=53/6150  P=4.312e-08  c=-lnP/ln^2N=0.1596
+odd non-square     N=     100000  P1=9.997e-08  tail=0/4919  P<=P1 (empty tail)
+odd non-square     N=     300000  P1=6.033e-09  tail=0/17687  P<=P1 (empty tail)
 
-# expected number of zeros in (X, 1e9] (model) vs census, by type; last column: model expectation beyond 1e9 (extrapolated)
-X=      1000: total model 24.96 vs census  19 | even squares: 7.38 (census 3); odd squares: 0.31 (census 1); 2*square: 1.36 (census 0); even non-square: 15.58 (census 15); odd non-square: 0.32 (census 0)
-X=      3000: total model 13.76 vs census   9 | even squares: 5.15 (census 2); odd squares: 0.10 (census 0); 2*square: 0.79 (census 0); even non-square: 7.65 (census 7); odd non-square: 0.07 (census 0)
-X=     10000: total model 6.65 vs census   3 | even squares: 3.17 (census 2); odd squares: 0.03 (census 0); 2*square: 0.35 (census 0); even non-square: 3.09 (census 1); odd non-square: 0.01 (census 0)
-X=     36078: total model 2.75 vs census   1 | even squares: 1.73 (census 1); odd squares: 0.01 (census 0); 2*square: 0.13 (census 0); even non-square: 0.88 (census 0); odd non-square: 0.00 (census 0)
-X=    100000: total model 1.30 vs census   1 | even squares: 1.00 (census 1); odd squares: 0.00 (census 0); 2*square: 0.05 (census 0); even non-square: 0.25 (census 0); odd non-square: 0.00 (census 0)
-X=   1000000: total model 0.25 vs census   1 | even squares: 0.23 (census 1); odd squares: 0.00 (census 0); 2*square: 0.01 (census 0); even non-square: 0.01 (census 0); odd non-square: 0.00 (census 0)
-X=   2433600: total model 0.14 vs census   0 | even squares: 0.13 (census 0); odd squares: 0.00 (census 0); 2*square: 0.00 (census 0); even non-square: 0.00 (census 0); odd non-square: 0.00 (census 0)
-X=  10000000: total model 0.05 vs census   0 | even squares: 0.04 (census 0); odd squares: 0.00 (census 0); 2*square: 0.00 (census 0); even non-square: 0.00 (census 0); odd non-square: 0.00 (census 0)
-X= 100000000: total model 0.01 vs census   0 | even squares: 0.00 (census 0); odd squares: 0.00 (census 0); 2*square: 0.00 (census 0); even non-square: 0.00 (census 0); odd non-square: 0.00 (census 0)
+# smallest measured c_T used for extrapolation: {'even squares': 0.0328, 'odd squares': 0.0766, '2*square': 0.0548, 'even non-square': 0.0848, 'odd non-square': 0.1378}
 
-# model expectation of zeros in (1e9, 1e13]: even squares 5.19e-05, odd squares 1.23e-09, 2*square 4.89e-05, even non-square 5.30e-04, odd non-square 2.38e-06
+# expected number of zeros in (X, 1e9] (model) vs census, by type
+X=      1000: total model 31.74 vs census  19 | even squares: 8.39 (census 3); odd squares: 0.39 (census 1); 2*square: 1.51 (census 0); even non-square: 20.82 (census 15); odd non-square: 0.62 (census 0)
+X=      3000: total model 17.06 vs census   9 | even squares: 5.79 (census 2); odd squares: 0.13 (census 0); 2*square: 0.87 (census 0); even non-square: 10.13 (census 7); odd non-square: 0.13 (census 0)
+X=     10000: total model 7.86 vs census   3 | even squares: 3.54 (census 2); odd squares: 0.03 (census 0); 2*square: 0.36 (census 0); even non-square: 3.92 (census 1); odd non-square: 0.01 (census 0)
+X=     36078: total model 3.07 vs census   1 | even squares: 1.93 (census 1); odd squares: 0.01 (census 0); 2*square: 0.12 (census 0); even non-square: 1.01 (census 0); odd non-square: 0.00 (census 0)
+X=    100000: total model 1.54 vs census   1 | even squares: 1.16 (census 1); odd squares: 0.00 (census 0); 2*square: 0.05 (census 0); even non-square: 0.32 (census 0); odd non-square: 0.00 (census 0)
+X=   1000000: total model 0.33 vs census   1 | even squares: 0.30 (census 1); odd squares: 0.00 (census 0); 2*square: 0.01 (census 0); even non-square: 0.02 (census 0); odd non-square: 0.00 (census 0)
+X=   2433600: total model 0.16 vs census   0 | even squares: 0.16 (census 0); odd squares: 0.00 (census 0); 2*square: 0.00 (census 0); even non-square: 0.00 (census 0); odd non-square: 0.00 (census 0)
+X=  10000000: total model 0.05 vs census   0 | even squares: 0.05 (census 0); odd squares: 0.00 (census 0); 2*square: 0.00 (census 0); even non-square: 0.00 (census 0); odd non-square: 0.00 (census 0)
+X= 100000000: total model 0.00 vs census   0 | even squares: 0.00 (census 0); odd squares: 0.00 (census 0); 2*square: 0.00 (census 0); even non-square: 0.00 (census 0); odd non-square: 0.00 (census 0)
+
+# model expectation of zeros in (1e9, 1e13] (quadratic-law extrapolation): even squares 6.09e-04, odd squares 7.16e-12, 2*square 3.72e-07, even non-square 1.44e-08, odd non-square 2.03e-19

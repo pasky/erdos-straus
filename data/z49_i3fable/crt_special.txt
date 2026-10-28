@@ -1,4 +1,4 @@
-## 1560^2-type: m ≡ 8 (16), 3 (9), 10 (25), 39 (169), square
+## 1560^2-type: m ≡ 8 (16), 3 (9), 10 (25), 39 (169), square (binary with the interior cut-off)
 # mode=split N=2433600 M=20000 type=sq X0=1562 NP=248 constraints: 16:8 9:3 25:10 169:39
 X=8  stage-survival=1.00000  P1(no word with v<=X)=1.0000e+00  survivors=20000
 X=16  stage-survival=0.66070  P1(no word with v<=X)=6.6070e-01  survivors=13214
@@ -7,23 +7,27 @@ X=64  stage-survival=0.70250  P1(no word with v<=X)=4.6414e-01  survivors=14050
 X=128  stage-survival=0.64715  P1(no word with v<=X)=3.0037e-01  survivors=12943
 X=256  stage-survival=0.55675  P1(no word with v<=X)=1.6723e-01  survivors=11135
 X=512  stage-survival=0.50575  P1(no word with v<=X)=8.4577e-02  survivors=10115
-X=1024  stage-survival=0.38820  P1(no word with v<=X)=3.2833e-02  survivors=7764
-X=1562  stage-survival=0.64615  P1(no word with v<=X)=2.1215e-02  survivors=12923
-P1(X0=1562)=2.1215e-02  tail: 1953 of 12923 survivors have no word with v>X0 -> P2=0.1511 (+-0.0032)  P(I3=0)=3.2061e-03
-zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=1.000 9|n=1.000 5|n=1.000 7|n=0.232
+X=1024  stage-survival=0.38875  P1(no word with v<=X)=3.2879e-02  survivors=7775
+X=1562  stage-survival=0.68435  P1(no word with v<=X)=2.2501e-02  survivors=13687
+P1(X0=1562)=2.2501e-02  tail: 2117 of 13687 survivors have no word with v>X0 -> P2=0.1547 (+-0.0031)  P(I3=0)=3.4803e-03
+zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=1.000 9|n=1.000 5|n=1.000 7|n=0.237
 ## m ≡ 0 mod 120, square, N=2433600
-X=1562  stage-survival=0.59035  P1(no word with v<=X)=1.4303e-02  survivors=11807
-P1(X0=1562)=1.4303e-02  tail: 1737 of 11807 survivors have no word with v>X0 -> P2=0.1471 (+-0.0033)  P(I3=0)=2.1042e-03
-zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=1.000 9|n=1.000 5|n=1.000 7|n=0.249
+X=1562  stage-survival=0.62865  P1(no word with v<=X)=1.5291e-02  survivors=12573
+P1(X0=1562)=1.5291e-02  tail: 1949 of 12573 survivors have no word with v>X0 -> P2=0.1550 (+-0.0032)  P(I3=0)=2.3703e-03
+zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=1.000 9|n=1.000 5|n=1.000 7|n=0.239
+## generic even square N=2433600
+X=1562  stage-survival=0.57000  P1(no word with v<=X)=2.2565e-03  survivors=11400
+P1(X0=1562)=2.2565e-03  tail: 1311 of 11400 survivors have no word with v>X0 -> P2=0.1150 (+-0.0030)  P(I3=0)=2.5950e-04
+zero-survivors: frac 4|n=1.000 8|n=0.548 3|n=0.832 9|n=0.832 5|n=0.591 7|n=0.338
 ## 140^2-type
-X=142  stage-survival=0.93500  P1(no word with v<=X)=2.6460e-01  survivors=18700
-P1(X0=142)=2.6460e-01  tail: 9175 of 18700 survivors have no word with v>X0 -> P2=0.4906 (+-0.0037)  P(I3=0)=1.2983e-01
-zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=0.543 9|n=0.543 5|n=1.000 7|n=1.000
+X=142  stage-survival=0.95735  P1(no word with v<=X)=2.9889e-01  survivors=19147
+P1(X0=142)=2.9889e-01  tail: 9146 of 19147 survivors have no word with v>X0 -> P2=0.4777 (+-0.0036)  P(I3=0)=1.4277e-01
+zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=0.507 9|n=0.507 5|n=1.000 7|n=1.000
 ## generic even square N=19600
-X=142  stage-survival=0.88295  P1(no word with v<=X)=6.6501e-02  survivors=17659
-P1(X0=142)=6.6501e-02  tail: 8370 of 17659 survivors have no word with v>X0 -> P2=0.4740 (+-0.0038)  P(I3=0)=3.1520e-02
-zero-survivors: frac 4|n=1.000 8|n=0.482 3|n=0.553 9|n=0.553 5|n=0.448 7|n=0.325
-## count-mode means (words with larger endpoint <= 256) vs exact census means (z49_i3fable_meancheck.py)
+X=142  stage-survival=0.91705  P1(no word with v<=X)=7.4507e-02  survivors=18341
+P1(X0=142)=7.4507e-02  tail: 8621 of 18341 survivors have no word with v>X0 -> P2=0.4700 (+-0.0037)  P(I3=0)=3.5021e-02
+zero-survivors: frac 4|n=1.000 8|n=0.477 3|n=0.550 9|n=0.550 5|n=0.449 7|n=0.315
+## count-mode means (words with larger endpoint <= 256; no cut-off) vs exact census means (z49_i3fable_meancheck.py)
 == gen 2:1
 b= 7  mean=7.4737  cum=27.0885
 == gen 2:0
@@ -45,7 +49,7 @@ n=5 mod 8 mean words v<=256: 29.154
 n=7 mod 8 mean words v<=256: 25.57
 odd squares m in [1000,10000): mean words v<=256: 13.63 count 4500
 even squares m in [1000,10000): mean words v<=256: 6.734 count 4500
-## count-mode cell tables
+## count-mode cell tables (sq odd m, sq even m)
 # cell table (t mod 8 rows, endpoint mod 8 cols), ordered words with larger endpoint <= 256
        0       0       0       0       0       0       0       0
        0       0   11972   31786       0       0   19814       0
@@ -64,3 +68,46 @@ even squares m in [1000,10000): mean words v<=256: 6.734 count 4500
        0       0    9017       0       0       0   13484       0
        0   10812    7614       0       0   13442   13784       0
        0       0       0       0       0       0       0       0
+## replicate runs (seeds 101-104; main grid seed differs): P1(X0), P
+rep_N100000000_sq_2-0_s101.txt: P1(X0=10002)=5.8822e-05 P(I3=0)=1.4804e-06
+rep_N100000000_sq_2-0_s102.txt: P1(X0=10002)=8.1103e-05 P(I3=0)=4.7460e-06
+rep_N100000000_sq_2-0_s103.txt: P1(X0=10002)=6.3454e-05 P(I3=0)=5.5833e-07
+rep_N100000000_sq_2-0_s104.txt: P1(X0=10002)=7.5056e-05 P(I3=0)=2.9039e-06
+rep_N1000000_sq2_s101.txt: P1(X0=1002)=5.9199e-04 P(I3=0)=1.8790e-05
+rep_N1000000_sq2_s102.txt: P1(X0=1002)=5.0949e-04 P(I3=0)=1.9946e-05
+rep_N1000000_sq2_s103.txt: P1(X0=1002)=3.9780e-04 P(I3=0)=1.9535e-05
+rep_N1000000_sq2_s104.txt: P1(X0=1002)=4.6080e-04 P(I3=0)=2.4608e-05
+rep_N1000000_sq_2-0_s101.txt: P1(X0=1002)=4.5862e-03 P(I3=0)=7.5311e-04
+rep_N1000000_sq_2-0_s102.txt: P1(X0=1002)=3.9602e-03 P(I3=0)=7.6675e-04
+rep_N1000000_sq_2-0_s103.txt: P1(X0=1002)=4.2669e-03 P(I3=0)=7.3894e-04
+rep_N1000000_sq_2-0_s104.txt: P1(X0=1002)=5.0572e-03 P(I3=0)=7.7779e-04
+rep_N100000_gen_2-0_s101.txt: P1(X0=318)=1.8393e-04 P(I3=0)=5.2786e-06
+rep_N100000_gen_2-0_s102.txt: P1(X0=318)=1.7895e-04 P(I3=0)=1.2327e-05
+rep_N100000_gen_2-0_s103.txt: P1(X0=318)=2.0778e-04 P(I3=0)=7.9149e-06
+rep_N100000_gen_2-0_s104.txt: P1(X0=318)=1.6902e-04 P(I3=0)=9.4377e-06
+rep_N10000_sq_2-0_s101.txt: P1(X0=102)=1.0908e-01 P(I3=0)=6.0498e-02
+rep_N10000_sq_2-0_s102.txt: P1(X0=102)=1.0643e-01 P(I3=0)=5.9758e-02
+rep_N10000_sq_2-0_s103.txt: P1(X0=102)=1.0997e-01 P(I3=0)=6.0996e-02
+rep_N10000_sq_2-0_s104.txt: P1(X0=102)=1.0560e-01 P(I3=0)=6.1841e-02
+## local type 120 | m at N = m^2 (sum = expected zeros among the 13 such m <= 1560)
+m=120: P(I3=0)=1.5884e-01
+m=240: P(I3=0)=6.3996e-02
+m=360: P(I3=0)=3.5359e-02
+m=480: P(I3=0)=2.3316e-02
+m=600: P(I3=0)=1.4479e-02
+m=720: P(I3=0)=1.2296e-02
+m=840: P(I3=0)=9.2094e-03
+m=960: P(I3=0)=5.6300e-03
+m=1080: P(I3=0)=4.3518e-03
+m=1200: P(I3=0)=3.5573e-03
+m=1320: P(I3=0)=3.1376e-03
+m=1440: P(I3=0)=2.6932e-03
+m=1560: P(I3=0)=2.7665e-03
+## census P2 check (z49_i3fable_p2.py)
+even squares [10000,100000]: count 108, P1(census: no word with v<=sqrt n +2) = 2.7778e-02 (3), zeros 1, P2 = 0.333
+even squares [100000,1000000]: count 342, P1(census: no word with v<=sqrt n +2) = 5.8480e-03 (2), zeros 0, P2 = 0.000
+even squares [1000000,10000000]: count 1081, P1(census: no word with v<=sqrt n +2) = 1.8501e-03 (2), zeros 1, P2 = 0.500
+even squares [10000000,100000000]: count 3419, P1(census: no word with v<=sqrt n +2) = 5.8497e-04 (2), zeros 0, P2 = 0.000
+even non-sq [1000,10000]: count 4418, P1(census: no word with v<=sqrt n +2) = 7.2431e-03 (32), zeros 14, P2 = 0.438
+even non-sq [10000,100000]: count 44738, P1(census: no word with v<=sqrt n +2) = 4.9175e-04 (22), zeros 1, P2 = 0.045
+even non-sq [100000,1000000]: count 449175, P1(census: no word with v<=sqrt n +2) = 2.2263e-05 (10), zeros 0, P2 = 0.000

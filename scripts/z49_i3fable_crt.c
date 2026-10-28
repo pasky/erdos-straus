@@ -7,7 +7,8 @@
  * A word (t,u,v) with u <= v is detected either by the larger endpoint v (a := -n mod v is the smaller endpoint;
  * word iff 3 <= a and a v | n + a + v, or a = 0 and v^2 | n + 2v), or — for v > X0 ~ sqrt(N) — by the pair
  * (u, A) with A = tu - 1 <= (N+u)/X0, u | A+1, 3 <= u <= (A+1)/3 and A | n + u (then v = (n+u)/A > X0).
- * N is the nominal size of n (the size enters only through the cut-offs 3uv <= N + u + v).
+ * N is the nominal size of n (the size enters only through the cut-offs 3uv <= N + u + v, enforced in both passes;
+ * in count mode no cut-off is applied, i.e. n is treated as >> CAP^2).
  *
  * mode split: fixed-effort splitting over dyadic blocks of v up to X0 (fresh residues for untouched primes at
  *   each resampling), then a plain pass over the (u,A) pairs on the distinct survivors.  Prints the survival
@@ -52,11 +53,13 @@ static int merge(const u64 *p1, const int *e1, int k1, const u64 *p2, const int 
 }
 /* is there an interior word with larger endpoint v?  returns 1 and sets *tmod8,*umod8 if so */
 static u64 PR_v[64]; static int EX_v[64]; static int K_v;      /* cached factorization of current v */
+static u64 NOMN;   /* nominal size of n: interior needs 3uv <= n + u + v */
 static int test_v(const u64 *R, u64 v, int *t8, int *u8) {
     u64 nv = crt_mod(R, PR_v, EX_v, K_v);
     u64 a = (v - nv % v) % v;
     u64 pr[64]; int ex[64]; int k;
     if (a == 0) { /* u = v: v^2 | n + 2v */
+        if (3 * v * v > NOMN + 2 * v) return 0;
         for (int i = 0; i < K_v; i++) { pr[i] = PR_v[i]; ex[i] = 2 * EX_v[i]; } k = K_v;
         /* append 2^3 for t mod 8 */
         u64 pr2[64]; int ex2[64]; int k2 = k; for (int i = 0; i < k; i++) { pr2[i] = pr[i]; ex2[i] = ex[i]; }
@@ -65,6 +68,7 @@ static int test_v(const u64 *R, u64 v, int *t8, int *u8) {
         if (s % m) return 0; *t8 = (int)((s / m) & 7); *u8 = (int)(v & 7); return 2;
     }
     if (a < 3) return 0;
+    if (3 * a * v > NOMN + a + v) return 0;   /* level t would be < 3: a free word, not interior */
     u64 pa[64]; int ea[64]; int ka = fac(a, pa, ea);
     k = merge(PR_v, EX_v, K_v, pa, ea, ka, pr, ex);
     { int f = 0; for (int i = 0; i < k; i++) if (pr[i] == 2) { ex[i] += 3; f = 1; } if (!f) { pr[k] = 2; ex[k] = 3; k++; } }
@@ -98,7 +102,7 @@ int main(int argc, char **argv) {
     int mode = strcmp(argv[1], "count") == 0; u64 N = strtoull(argv[2], 0, 10); long M = atol(argv[3]); S[0] ^= strtoull(argv[4], 0, 10) * 0x9E3779B97F4A7C15ULL; for (int i = 0; i < 20; i++) rnd();
     TYPE = strcmp(argv[5], "sq") == 0 ? 1 : strcmp(argv[5], "sq2") == 0 ? 2 : 0;
     NC = 0; for (int i = 6; i < argc; i++) { u64 q, r; if (sscanf(argv[i], "%llu:%llu", (unsigned long long *)&q, (unsigned long long *)&r) == 2) { CQ[NC] = q; CR[NC] = r; u64 l = q; for (u64 d = 2; d <= l; d++) if (l % d == 0) { CL[NC] = d; break; } NC++; } }
-    u64 X0 = mode ? N : (u64)floor(sqrt((double)N)) + 2;
+    u64 X0 = mode ? N : (u64)floor(sqrt((double)N)) + 2; NOMN = mode ? ~0ULL / 8 : N;
     long Pmax = (long)X0 + 10; Lspf = Pmax;
     spf = calloc(Lspf + 1, sizeof(int)); for (long i = 2; i <= Lspf; i++) if (!spf[i]) for (long j = i; j <= Lspf; j += i) if (!spf[j]) spf[j] = i;
     pw = calloc(Lspf + 1, 8); pidx = calloc(Lspf + 1, sizeof(int)); plist = calloc(Lspf + 1, 8); NP = 0;
