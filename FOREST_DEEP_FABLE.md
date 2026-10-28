@@ -156,8 +156,8 @@ numerator class A ≡ 7 (8) of Lemma P(iii) is T1-exact (same script, 0 countere
 u = 1: (p+1)/2 has a prime factor ≡ 3 (mod 4); u = 2: p + 2 has a prime factor ≡ 5 or 7 (mod 8); u = 3: (p+3)/4 has a prime
 factor ≡ 2 (mod 3); u = 4: p + 4 has a prime factor ≡ 3 (mod 4); u = 7: the odd part of p + 7 has a prime factor that is a
 quadratic non-residue mod 7; u = 15: the odd part of p + 15 has a prime factor ℓ with (ℓ/3)(ℓ/5) = −1.
-*Proof.* For u ≤ 4 every incident edge is a child edge (the parent edges {1,2}, {2,3} are monochromatic and {3,4} needs
-p ≡ 5 (mod 12)); for u = 7, 15 every incident edge is a certificate by Theorem B, in either orientation. u = 1, 2, 3: the
+*Proof.* For u ≤ 4 the parent edges ({1,2} and {2,3} are monochromatic; {3,4} would need p ≡ 5 (mod 12)) are never
+certificates, so only child edges matter; for u = 7, 15 every incident edge is a certificate by Theorem B, in either orientation. u = 1, 2, 3: the
 children of u are the divisors v of p + u in the class −p (mod u); by Theorem B the edge is a certificate iff v mod 8 ∉
 {1, 5, 2} (u = 1), ∉ {1, 3} (u = 2), ∉ {2, 6} (u = 3). Writing p + 1 = 2m, p + 3 = 4m″ (m, m″ odd), the admissible v are d, 2d
 (d | m), resp. the odd divisors of p + 2, resp. d, 2d, 4d (d | m″, d ≡ 2 (3) for d, 4d and d ≡ 1 (3) for 2d), and the
@@ -172,7 +172,7 @@ ord₁₅(2) = 4); so a divisor ≡ −1 exists iff some d | odd part has χ_{�
 {4, 7}); the scan's child-only flags `Lp7`, `Lp15` are therefore stricter than the vertex statement (flags `V7`, `V15`).
 So each of these vertices fails exactly when a shifted integer has **no prime factor inert** in the imaginary quadratic field of
 discriminant −4, −8, −3, −4, −7, −15 respectively (a condition stronger than "is a norm": p = 97 has (p+1)/2 = 49 = 7², a
-Gaussian norm, yet {1, 7} certifies); CERTIFIED failure rates 23–45 % each (§4.2). Vertices u ≥ 5 in the classes
+Gaussian norm, yet {1, 7} certifies); CERTIFIED failure rates 21–45 % each (§4.2, flags Lp1–Lp4, V7, V15). Vertices u ≥ 5 in the classes
 1, 2, 3, 5, 6 (mod 8), and the López/twin vertices with ord_u(2) < φ(u)/2, impose genuine residue-class conditions.
 
 *Numerator-8 control.* The analogue of López's line for 8/n is "some vertex ≡ 0 (mod 8) is non-isolated" (SYNTHESIS_SPARKS9
