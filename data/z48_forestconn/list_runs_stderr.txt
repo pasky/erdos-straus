@@ -1,0 +1,2 @@
+list VCAP=10000000 primes=1255 slot_failures=0
+list VCAP=1000000 primes=6000 slot_failures=0

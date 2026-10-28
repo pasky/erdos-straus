@@ -1,0 +1,5 @@
+prime-mode HI=1000000 primes(1 mod 4)=39175 edges=3028437 negative=1964805 slotted=1964805 failures=0
+
+real	0m9.070s
+user	2m24.706s
+sys	0m0.016s

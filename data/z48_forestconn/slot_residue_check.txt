@@ -1,0 +1,3 @@
+residue cells (n==1 mod 4): 544, formula -1 cells: 472, all agree with slot predicate
+random integer triples, formula == Jacobi == slot: 200000
+sympy divisor-enumerated edges, primes p==1 mod 4 below 20000: 1125 primes, 46074 edges, 0 failures

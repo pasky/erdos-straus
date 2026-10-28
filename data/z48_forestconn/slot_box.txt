@@ -1,0 +1,5 @@
+box-mode T=200 UV=1500 triples=57006250 negative=42754900 failures=0 square_n=10475 square_n_with_slot=0
+
+real	0m0.659s
+user	0m9.781s
+sys	0m0.000s
