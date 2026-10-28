@@ -70,9 +70,13 @@ def main():
         for n in range(a, 5000, a + 1):         # all n ≡ −1 (mod a+1): the same word with v = (n+1)/(a+1) + 1
             if (a + 2) * ((n + 1) // (a + 1) + 1) - (a + 2) - ((n + 1) // (a + 1) + 1) != n: bad6 += 1
     print(f"L6 relation family a ≡ 5 (8), (a+1) | (b−1): {cnt} words checked, {bad6} failures; the word depends on n only through (a+1) | (n+1)")
+    total = sum(bad.values()) + bad6
     for n in (17, 241):
         W8 = [(t, u, v) for (t, u, v) in all_words(n) if u % 8 == 0 or v % 8 == 0]
         print(f"numerator-8 control n={n}: words with an endpoint ≡ 0 (mod 8): {W8}")
+        total += len(W8)
+    print("ALL CHECKS PASSED" if total == 0 else f"FAILURES: {total}")
+    sys.exit(0 if total == 0 else 1)
 
 if __name__ == "__main__":
     main()

@@ -111,7 +111,7 @@ def main():
                 A = t * vv - 1
                 if A <= 2: small.add((A, vv, n % 8))
     print(f"(5c) witnesses with A ∈ {{1,2}}: {sorted(small)[:5]}{'...' if len(small) > 5 else ''} (expected: only A=2, v=3, n ≡ 5 (8))")
-    bad5c = any(not (A == 2 and vv == 3 and r == 5) for (A, vv, r) in small)
+    bad5c = (small != {(2, 3, 5)})
     bad5b += bad5c
     # (4.3) τ(A+1) ≥ φ(A)/2 exceptions
     from sympy import divisor_count, totient

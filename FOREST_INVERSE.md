@@ -5,7 +5,8 @@ composites.** Labels: PROVED / CONDITIONAL (on what) / CERTIFIED (exact finite c
 Assessment. Scripts `scripts/z49_forestinv_*`, data `data/z49_forestinv/`. Inherits FOREST_DEEP_FABLE (FDF),
 FOREST_DEEP_ASTRA (FDA), FOREST_CONNECTIVITY (FC), LOWER_TAIL_ASTRA (LTA), DEDEKIND_ES (DK), the z48/z49 CONTEXT files and
 the parent's z49 census (`data/z49_main/`). Two hostile deep-mode review passes (`reviews/z49-forestinv-review.md`, 27
-findings; `reviews/z49-forestinv-review2.md`, 13 residual findings) were folded in; §9 lists what they changed.
+findings; `reviews/z49-forestinv-review2.md`, 13 residual findings) and a cross-model review (Astra,
+`reviews/z49-forestinv-xreview.md`, SOUND with four minors) were folded in; §9 lists what they changed.
 
 ## 0. Verdict first
 
@@ -27,7 +28,8 @@ route tried here: 1/5.** What is retained, with labels:
    Theorem 2.6 (a classification, not a non-existence statement): in two *free* variables (a, b), the nonzero
    polynomial solutions of TUV − U − V = ab are exactly the two shapes with both endpoints constant, or one endpoint and
    the level constant — with positive integer constants, congruence families in n = ab; this completes the partial
-   coefficient comparison of DK §9.2 to all polynomial shapes. Props 4.2–4.3: for a fixed odd non-square modulus
+   coefficient comparison of DK §9.2 to all polynomial shapes and corrects its assertion that the constant-endpoint
+   shape is impossible ((T, U, V) = (ab + 2, 1, 1) is one). Props 4.2–4.3: for a fixed odd non-square modulus
    A ≥ 17 the set of n witnessed by A is ≤ τ(A+1) − 1 classes mod A inside the φ(A)/2 QNR classes, so some QNR class mod A
    is never witnessed by A.
 2. **PROVED, trivial, on request of the brief.** U holds on explicit divisibility-relation families of composites
@@ -137,7 +139,8 @@ b + 1 ≡ 0 (mod 8), and with m = A/8, 8/n = 1/(ma) + 1/(maA) + 1/(nmA) (e.g. 32
 For n ≡ 5 (mod 8) only 4 ∣ A is available. Also on {n = ab : (ta−1) ∣ b+1, 4 ∣ (b+1)/(ta−1)} and
 {n = ab : (ta−1) ∣ b+1, a(b+1)/(ta−1) ≡ 7 (8)} (endpoint a·s ∈ V).
 
-**2.6 Theorem (polynomial words in a free factorisation; PROVED; extends DK §9.2's coefficient comparison).** Let
+**2.6 Theorem (polynomial words in a free factorisation; PROVED; completes DK §9.2's coefficient comparison and
+corrects its claim that "u, v constant" is impossible).** Let
 T, U, V ∈ ℚ[a, b] be *nonzero* polynomials with T·U·V − U − V = ab identically. Then, up to swapping U and V, either
 (i) U = c₁, V = c₂ are constants and T = (ab + c₁ + c₂)/(c₁c₂), or (ii) V = c and T = c′ are constants with cc′ ≠ 1 and
 U = (ab + c)/(cc′ − 1).
@@ -194,13 +197,13 @@ is the independent check at the listed n.
 | primes | 1 439 970 | 0 | 0 | 0 |
 | odd squares | 4 999 | 4 999 | 4 999 | 0 |
 | composite non-squares, gcd(n, 105) = 1 | 4 272 030 | 0 | 0 | 0 |
-| composite, 7 ∣ n only | 952 000 | 0 | 0 | 0 |
-| composite, 5 ∣ n only | 1 428 000 | 1 (3985) | 5 | 4 |
-| composite, 3 ∣ n only | 2 856 000 | 1 (111969) | 46 | 45 |
-| composite, 5·7 ∣ n, 3 ∤ n | 238 000 | 1 (978145) | 4 | 3 |
-| composite, 3·5 ∣ n, 7 ∤ n | 714 000 | 0 | 94 | 94 |
-| composite, 3·7 ∣ n, 5 ∤ n | 476 000 | 1 (2961) | 90 | 89 |
-| composite, 105 ∣ n | 119 000 | 2 (105, 25305) | 197 | 195 |
+| composite non-square, 7 ∣ n only | 952 000 | 0 | 0 | 0 |
+| composite non-square, 5 ∣ n only | 1 428 000 | 1 (3985) | 5 | 4 |
+| composite non-square, 3 ∣ n only | 2 856 000 | 1 (111969) | 46 | 45 |
+| composite non-square, 5·7 ∣ n, 3 ∤ n | 238 000 | 1 (978145) | 4 | 3 |
+| composite non-square, 3·5 ∣ n, 7 ∤ n | 714 000 | 0 | 94 | 94 |
+| composite non-square, 3·7 ∣ n, 5 ∤ n | 476 000 | 1 (2961) | 90 | 89 |
+| composite non-square, 105 ∣ n | 119 000 | 2 (105, 25305) | 197 | 195 |
 
 Primes: this extends FDF §4.2's "the union never fails" from p ≡ 1 (24) to all p ≡ 1 (8) ≤ 10⁸; the least V-line is ≤ 116
 (at 3361) over all of them.
@@ -287,7 +290,8 @@ hypothesis that supplies QNRs (GRH, OAI-003) supplies no *attachment* statement 
 search for A among the QNR moduli — is a heuristic, and Props 4.2–4.3 measure how little of the QNR coset any one modulus
 covers. This is weaker than "QNR information is unusable": no such impossibility is proved.
 
-**4.2 Proposition (what a single modulus witnesses; PROVED).** Let A = 2^a A′ with A′ odd, not a square, and put
+**4.2 Proposition (what a single modulus witnesses; PROVED).** Throughout 4.2–4.3, n ≡ 1 (mod 8) and
+V = 4ℤ ∪ (8ℤ+7). Let A = 2^a A′ with A′ odd, not a square, and put
 S_A := {−v mod A : v ∣ A + 1, v ∈ V}. Then (a) A is a U-witness for n iff n mod A ∈ S_A (v ≤ A + 1 and v ≡ −n (mod A)
 determine v; the only possible collision in [1, A+1] is {1, A+1}, and 1 ∉ V); (b) S_A lies in the QNR coset
 {r : (r/A′) = −1} (Theorem E′); (c) |S_A| ≤ τ(A+1) − 1; and the set {n : some A with odd part A′ witnesses n} has a natural density, which is
@@ -315,8 +319,10 @@ and the ES status of the word (BRAINSTORM/bsA_fricke_vieta F2); Ptolemy relation
 pentagon and encode its 2-adic depth (y5_transport_is_ptolemy Lemma 1); the full remainder tree keeps at most two arrows
 per quotient block (FDA Prop 4.2), its least-QNR block is deleted on an infinite progression (FDA Prop 4.3), and its first
 split fibre fails i.o. under Dickson (FDA Thm 5.3). Astra's (10.1), "a virtual cut survives pruning", remains the statement
-to be proved. The z49 calibration (H₄ > (log p)^C i.o., heuristically) constrains certificates with *both* endpoints small;
-it does not constrain the least V-line, and nothing here does either.
+to be proved. H4_NOT_POLYLOG (PROVED on main, relative to its energy lemma): infinitely many primes p ≡ 1 (mod 840) have
+no edge with larger endpoint in (3, exp((log p)^κ)] for every fixed κ < 1/12 (κ < 1/6 with (G) or GRH); this constrains
+certificates with *both* endpoints small — in particular U-witnesses with both v and the cofactor u = (p+v)/A below
+exp((log p)^κ) fail i.o. — and does not constrain the least V-line alone; nothing here does either.
 
 ## 5. Global identities over all q
 
@@ -339,8 +345,8 @@ length 3 it is the colour-twisted word series of FRONTIER §2.3 (Thm K). ∎
 negative-CF Gauss map), i.e. an interval of q with endpoints in p·ℚ. Hence for any j ≥ 1 and any weight w on digit patterns of length
 j supported on a *fixed finite set* of patterns (with w(q) := 0 when the expansion of p/q has fewer than j digits),
 Σ_q w(q)(q/p) is a finite combination of interval character sums
-Σ_{q ∈ I} (q/p), I ⊂ (0, p) with endpoints in p·ℚ, i.e. of generalised Bernoulli numbers B_{1, χ_pψ} with ψ of bounded
-conductor. Example: first digit 3 or 4 ⟺ p/4 < q < p/2, and Σ_{p/4<q<p/2} (q/p) = −h(−4p)/2, first digit 2 contributes 0
+Σ_{q ∈ I} (q/p), I ⊂ (0, p) with endpoints in p·ℚ (explicitly, the cylinder of a prefix with HJ convergents P_j/Q_j,
+P_{j−1}/Q_{j−1} is q/p ∈ [Q_j/P_j, (Q_j − Q_{j−1})/(P_j − P_{j−1})), cross-reviewer's formula). Example: first digit 3 or 4 ⟺ p/4 < q < p/2, and Σ_{p/4<q<p/2} (q/p) = −h(−4p)/2, first digit 2 contributes 0
 (p ≡ 1 (mod 4)). ∎ So **QNRs outnumber QRs by h(−4p)/2 among the q with first digit 3 or 4**, and h(−4p) = p^{1/2+o(1)}
 (Siegel). The first digit is the endpoint u of the word (when the length is 3), not necessarily the smaller one; the
 length-3 q in (p/4, p/2) number at most τ(p+3) + τ(p+4) = p^{o(1)}, so for large p the excess is carried by expansions of
@@ -349,7 +355,7 @@ length ≥ 4.
 **5.4 Theorem (cylinder-type identities and length 3).** Let j ≥ 1, let w be a weight on HJ digit patterns of length j,
 supported on a fixed finite set of patterns independent of p, extended by w(q) := 0 when p/q has fewer than j digits, and
 let W_sgn(p) := Σ_q w(q)(q/p) and W₃(p) its restriction to q of length ≤ 3.
-(a) (PROVED) W_sgn(p) is a finite combination of interval character sums as in 5.3.
+(a) (PROVED) W_sgn(p) is a finite combination of interval character sums over intervals with endpoints in p·ℚ, as in 5.3.
 (b) (PROVED) W₃(p) is a weighted signed count of interior words of p with endpoint u = b₁ in a fixed finite set (j = 1),
 with (u, t) in a fixed finite set (j = 2), or of finitely many fixed words (j ≥ 3), plus boundary words with fixed divisor of
 p + 1.
@@ -390,7 +396,10 @@ worse. So nothing in this document suggests that primes are the hard case *becau
 with no lifted lines and no small-factor handicap.
 
 **Exact remaining gap, for the U-route.** For a prime p ≡ 1 (mod 8): some v ∈ 4ℤ ∪ (8ℤ+7) such that p + v has a divisor
-≡ −1 (mod v) (any scale). U is a *sufficient* sub-family of ES₅ (FDF §6 calls it the sign-free sufficient form); the
+≡ −1 (mod v), **at any scale** — and necessarily so: by H4_NOT_POLYLOG (main), for every fixed κ < 1/12 infinitely many
+primes p ≡ 1 (mod 840) have no edge with larger endpoint in (3, exp((log p)^κ)], so at those primes every U-witness has
+max(v, (p+v)/A) > exp((log p)^κ); the version of this gap with both v and the cofactor polylog (FDF §6) is false. U is a
+*sufficient* sub-family of ES₅ (FDF §6 calls it the sign-free sufficient form); the
 unrestricted target, a bichromatic edge of F_p at any scale (FDA (10.1)), is weaker and is not reduced to U here. For a
 non-square composite n the gap is the same statement on the coprime lines plus "n/g + v/g has a divisor ≡ −1 (mod v)" on
 the lines with gcd(v, n) = g > 1. The composite data (§3.2: 0 failures of U in the hardest class to 10¹⁰) support the
@@ -458,3 +467,11 @@ short-word count, with the reviewer's counterexample p = 12721 recorded (34); th
 "not on primality" softened (37); the census domain stated as 9 ≤ n (38); `verify.py` (5) now rejects A_odd = 1 and its
 docstring matches the interior dictionary (39); §0's cross-references corrected to Prop 5.3 / Thm 5.4 (40); 4.1(a) now
 gives the slot algebra instead of citing a prime-only statement (reviewer's item 46).
+**Cross-model review (Astra, `reviews/z49-forestinv-xreview.md` on main; verdict SOUND, four minors, independent census
+engine to 10⁶ and boundary/sign checker to 4000 agreeing byte-for-byte; novelty grades 0–2/5 with Theorem 2.6 at 2/5).**
+Minors applied: (1) 2.6 "completes and corrects" DK §9.2's constant-endpoint assertion; (2) `lemmas.py` now exits non-zero
+on any L1–L6 failure or non-empty numerator-8 control, and `verify.py` (5c) tests equality with the expected singleton;
+(3) the unused Bernoulli-number gloss in 5.3/5.4(a) replaced by the explicit cylinder interval; (4) n ≡ 1 (mod 8) stated
+locally in 4.2–4.3 and "composite non-square" written in every §3.1 row. Also updated after H4_NOT_POLYLOG landed on main:
+§4.4 and the gap statement in §6 now cite the proved super-polylog lower bound on both endpoints instead of the heuristic
+calibration.
