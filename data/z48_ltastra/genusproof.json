@@ -1,0 +1,67 @@
+{
+  "genus_projection_checks": 5336,
+  "sample_prime_count": 106,
+  "minimum_sample_Mgen_over_log2": [
+    0.07782938741930015,
+    193
+  ],
+  "conditional_asymptotic_constant": 0.020531964509368675,
+  "small_p_diagnostics": [
+    {
+      "p": 193,
+      "u_values": [
+        5
+      ],
+      "harmonic_L1_sum": 0.444978361475522,
+      "first_square_asymptotic": 0.22217583295115045,
+      "smoothed_admissible_subcount": 0.16586497376380516,
+      "pole_expression": 0.2458845818875002
+    },
+    {
+      "p": 409,
+      "u_values": [
+        5
+      ],
+      "harmonic_L1_sum": 0.3334605436651635,
+      "first_square_asymptotic": 0.2538819740408844,
+      "smoothed_admissible_subcount": 0.0,
+      "pole_expression": 0.21113283552437456
+    },
+    {
+      "p": 577,
+      "u_values": [
+        5
+      ],
+      "harmonic_L1_sum": 0.21056174190387433,
+      "first_square_asymptotic": 0.2684100432724517,
+      "smoothed_admissible_subcount": 0.14379080154645751,
+      "pole_expression": 0.14104776543978537
+    },
+    {
+      "p": 5569,
+      "u_values": [
+        5,
+        13,
+        17
+      ],
+      "harmonic_L1_sum": 0.5625759705521562,
+      "first_square_asymptotic": 0.36412177028078613,
+      "smoothed_admissible_subcount": 0.505161536861682,
+      "pole_expression": 0.5064538187435974
+    },
+    {
+      "p": 9601,
+      "u_values": [
+        5,
+        13,
+        17,
+        21
+      ],
+      "harmonic_L1_sum": 0.5031626708206355,
+      "first_square_asymptotic": 0.3871154204892922,
+      "smoothed_admissible_subcount": 0.3571421440030774,
+      "pole_expression": 0.48968140548568295
+    }
+  ],
+  "warning": "finite asymptotic expressions can overestimate subcounts; no finite threshold or zero-free hypothesis is certified"
+}

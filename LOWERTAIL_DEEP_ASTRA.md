@@ -3,7 +3,7 @@
 **Status: PARTIAL / NEGATIVE for the proposed mechanism. Assessment: promise 1/5 as an ES proof route.**
 **ES remains open. No implication GRH ⇒ ES, or OAI-003 ⇒ ES, is established here.**
 
-This is one focused attempt at the fixed-prime lower tail, not a survey of other ES approaches. The successive objects are the same certificate indicator: a local character minorant, its genus quotient, a compressed positive square, the dual large sieve, and finally a kernel coupling the different moduli. The attempt produces elementary, scoped obstruction lemmas and a precise sufficient **nonstandard** moment hypothesis. It does not produce the required arithmetic inequality.
+This is one focused attempt at the fixed-prime lower tail, not a survey of other ES approaches. The successive objects are the same certificate indicator: a local character minorant, its genus quotient, a compressed positive square, the dual large sieve, and finally a kernel coupling the different moduli. The attempt produces elementary, scoped obstruction lemmas, a precise sufficient **nonstandard** moment hypothesis, and a conditional positive result: **any fixed zero-free strip gives M_gen(p)≥(2/π⁴−o(1))log²p** (§5.4). It does not produce the required lower bound for the actual certificate count.
 
 Labels: **PROVED** means a proof is supplied below, or an explicitly named existing result is used; **CONDITIONAL** names its hypothesis; **CERTIFIED** refers only to the specified finite computations; **EVIDENCE** is numerical extrapolation; **Assessment** is a judgement. No literature-priority claim is made for the elementary Fourier lemmas.
 
@@ -80,7 +80,7 @@ Removing only 1 and χ_{−4uv} leaves **other real characters as well as non-re
 
 For B the same expansion uses a=−4x−y, q=4xy and its finite pair domain. Let \(M_{\rm gen}^T\) be the sum of the two genus contributions. Then \(T=M_{\rm gen}^T+X_{\rm nr}^T\) exactly.
 
-**Assessment.** A theorem controlling only \(X_{\rm nr}^T\) relative to M is not automatically enough: the remaining real contribution must also be accounted for. Conversely a relative lower bound against \(M_{\rm gen}^T\), together with its divergence, would suffice for positivity. The existing OAI-003/GRH lower bound for the star genus term is only of log-log size. I do not silently replace it by the proved log-square BM bound.
+**Assessment.** A theorem controlling only \(X_{\rm nr}^T\) relative to M is not automatically enough: the remaining real contribution must also be accounted for. Conversely a relative lower bound against \(M_{\rm gen}^T\), together with its divergence, would suffice for positivity. The previously available OAI-003/GRH lower bound for the star genus term is only of log-log size. Section 5.4 below supplies a separate fixed-strip proof of a log-square genus lower bound; this is **not** obtained by silently substituting the BM main term.
 
 ## 2. First attempt: optimize a local Fourier minorant
 
@@ -360,6 +360,226 @@ rather than an error smaller than log p. Indeed the \(\Delta p^{\theta-1}\) tran
 
 **Assessment / exact missing step.** Averaging these zero sums with the ES character coefficients might conceivably improve (12). Neither GRH nor the zero-free strip asserts the required *signed correlation of zeros with those coefficients at this p*. Calling the character average “dual” does not supply such a correlation. No such theorem was proved in this attempt.
 
+### 5.4 A genuine conditional gain: the full genus main term is log-square
+
+The prime-only genus witnesses leave a log-log lower bound. Passing to **squarefree products** permits a two-L-function Euler product. This does not estimate the non-real remainder, but it upgrades the correctly defined main term in (1).
+
+### Theorem 5.4 — a fixed zero-free strip gives a log-square genus lower bound
+
+**CONDITIONAL on H_θ; PROVED implication.** Assume that for some fixed 1/2≤θ<1, every primitive nonprincipal Dirichlet L-function is zero-free in Re s>θ. Then, as p tends to infinity through primes p≡1 (mod 4),
+
+\[
+             M_{\rm gen}(p)\ge\left(\frac{2}{\pi^4}-o(1)\right)\log^2p.
+                                                               \tag{G}
+\]
+
+In particular OAI-003 with θ=7/8, or GRH, suffices. This is a theorem about **M_gen, not R or T**. The proof uses only a fixed strip; it does not assume conductor-aspect Lindelöf throughout the critical strip.
+
+#### Step A: the limited uniform L-bound actually needed
+
+**CONDITIONAL on H_θ.** Put κ=(1−θ)/8 and σ₀=1−κ. For fixed A,K and q≤p^A,
+
+\[
+       L(\sigma_0+it,\chi)=p^{o(1)}\qquad (|t|\le K\log p)    \tag{18}
+\]
+
+uniformly in nonprincipal characters modulo q. Principal characters satisfy the same upper bound on this line.
+
+*Proof.* The standard explicit formula under H_θ gives
+
+\[
+ \sum_{\ell\le x}\chi(\ell)\log\ell
+                       \ll_\theta x^\theta\log^2(qx)
+\]
+
+for nonprincipal χ; passing from prime powers to primes costs no larger order. Imprimitive characters add only omitted ramified Euler factors. Hence the prime series for log L converges for Re s>θ. Split it at
+
+\[
+                  Y=(\log p)^{4/(1-\theta)}.
+\]
+
+The initial segment is bounded absolutely by O(Y^{1−σ₀})=O(√log p). Partial summation bounds the tail by
+
+\[
+ O\bigl((1+|t|)Y^{\theta-\sigma_0}\log^2(qY)\bigr)
+                         =O((\log p)^{-1/2})
+\]
+
+in the stated height range. Prime powers of exponent at least two contribute O_θ(1), since σ₀>1/2. Thus log|L|=O_{θ,A,K}(√log p), which proves (18). For a principal character use ζ(s) times its omitted Euler factors; ζ on this fixed line has polynomial height growth and the omitted factors are q^{o(1)}. ∎
+
+For Mellin integrals below, the tails |t|>K log p are negligible: Γ(s) decays exponentially and ordinary polynomial bounds for Dirichlet L-functions suffice, with K chosen large enough. Thus no unsupported all-height uniformity is hidden in (18).
+
+#### Step B: an exactly genus-allowed multiplicative subfamily
+
+Choose fixed positive exponents
+
+\[
+ 0<\alpha_0<\alpha_1,\qquad 0<\beta<\gamma,\qquad\alpha_1+\gamma<1.
+\]
+
+Take squarefree u≡1 (mod 4) in U₀=p^{α₀}<u≤U₁=p^{α₁}, and odd squarefree w coprime to pu. Use the two ordered pairs (u,2w) and (2w,u). Put D=−4up, a negative fundamental discriminant. Their genus permission is **exactly**:
+
+\[
+ \chi_D(\ell)=+1\quad(\ell\mid w),\qquad
+ (w/\ell)=(-2p/\ell)\quad(\ell\mid u),\qquad
+ \chi_{-4}(w)=-\chi_8(pu).                                  \tag{19}
+\]
+
+Indeed the odd-prime conditions are p/(−u−2w) square at each prime dividing uw. The 2-adic condition is p+u+2w≡0 (mod 8), giving the last equality. The genus weight of the **two ordered pairs** is
+
+\[
+                         \frac{2\,2^{\omega(u)+\omega(w)}}{\varphi(u)\varphi(w)}.
+\]
+
+The conditions on w modulo 4u form one quadratic-sign coset. Its indicator has the expansion
+
+\[
+ \frac1{2^{\omega(u)+1}}\sum_{\eta^2=1\bmod4u}\epsilon_\eta\eta(w),
+ \qquad \epsilon_1=1,\quad |\epsilon_\eta|=1.                  \tag{20}
+\]
+
+All these statements are exact; no random-sign assumption enters.
+
+#### Step C: the Euler product and its sole pole
+
+For η in (20), let
+
+\[
+ B_{u,\eta}(s)=
+ \sum_{\substack{w\ge1\ \mathrm{squarefree}\\
+                 \chi_D(\ell)=1\ (\ell\mid w)}}
+        \frac{2^{\omega(w)}w}{\varphi(w)}\frac{\eta(w)}{w^s}.
+\]
+
+The split-prime condition automatically excludes primes dividing 2up. Direct multiplication of local factors gives
+
+\[
+ B_{u,\eta}(s)=L(s,\eta)L(s,\eta\chi_D)H_{u,\eta}(s),          \tag{21}
+\]
+
+where H is holomorphic and uniformly bounded on each half-plane Re s≥1/2+ε. At a split unramified prime ℓ its factor is
+
+\[
+ \left(1+\frac{2\ell}{\ell-1}\eta(\ell)\ell^{-s}\right)
+                 (1-\eta(\ell)\ell^{-s})^2,
+\]
+
+and at an inert prime it is 1−η(ℓ)²ℓ^{-2s}. These are 1+O(ℓ^{-1−Re s}+ℓ^{-2Re s}); the ramified factor at p is 1−η(p)p^{-s}, and primes dividing 2u contribute 1.
+
+**Crucial prime-input fact:** ηχ_D is never principal, because its conductor retains p whereas η has modulus 4u and p∤4u. Thus only η=1 has a pole at s=1. Its residue is
+
+\[
+ A_{u,p}=\frac1{\zeta(2)}\prod_{\ell\mid2up}\frac{\ell}{\ell+1}
+                    L(1,\chi_D)
+ =\frac4{\pi^2}\frac p{p+1}
+       \prod_{\ell\mid u}\frac{\ell}{\ell+1}L(1,\chi_D).       \tag{22}
+\]
+
+For clarity, at s=1 both the split and inert unramified H-factors equal 1−ℓ^{-2}; this is why the residue has a uniform positive Euler factor rather than an uncontrolled product of splitting probabilities.
+
+#### Step D: smooth the w-range without losing positivity
+
+Use the nonnegative weight
+
+\[
+ f_p(w)=e^{-w/p^\gamma}-e^{-w/p^\beta},\qquad 0\le f_p(w)\le1.
+\]
+
+Mellin inversion of (21), shifted from Re s>0 to Re s=−κ, gives uniformly in the chosen u and η
+
+\[
+ \sum_{w\ \mathrm{squarefree}}\frac{2^{\omega(w)}}{\varphi(w)}\eta(w)
+       1[\chi_D(\ell)=1\ \forall\ell\mid w]f_p(w)
+ =1[\eta=1]A_{u,p}(\gamma-\beta)\log p
+       +O(p^{-\kappa\beta+o(1)}).                             \tag{23}
+\]
+
+The Mellin multiplier is Γ(s)(p^{γs}−p^{βs}). At s=0 it has value (γ−β)log p; hence the pole residue in (23). Estimate (18), the uniform bound on H, and the exponential Γ-tail justify the error. This is a sum over a **free variable w**, where the L-function estimate really does apply—not an attempted estimate of ψ(p) at one point.
+
+Only w≤p/(8u) is needed to ensure the certificate height cutoff. The omitted tail of f_p is exponentially small, uniformly in u, since
+
+\[
+ \frac{p/(8u)}{p^\gamma}\ge\tfrac18p^{1-\alpha_1-\gamma}\longrightarrow\infty.
+\]
+
+The elementary divisor bounds on 2^{ω(w)}/φ(w) make the total tail negligible. Apply (20) and multiply by the two-pair weight. The factor 2^{ω(u)+1} **cancels** the projector denominator. Summing the errors costs only p^{o(1)}, because Σ_{u≤U₁}2^{ω(u)}/φ(u)=p^{o(1)}. Therefore
+
+\[
+ M_{\rm gen}(p)\ge(\gamma-\beta)\log p
+                     \sum_u\frac{A_{u,p}}{\varphi(u)}-o(1).   \tag{24}
+\]
+
+Since u is squarefree, (22) gives the exact simplification
+
+\[
+ \frac{A_{u,p}}{\varphi(u)}
+ =\frac4{\pi^2}\frac p{p+1}\frac{L(1,\chi_{-4up})}{u}
+                      \prod_{\ell\mid u}(1-\ell^{-2})^{-1}
+ \ge\frac4{\pi^2}\frac p{p+1}\frac{L(1,\chi_{-4up})}{u}.      \tag{25}
+\]
+
+Here L(1,χ_D)>0, the usual positivity for a real nonprincipal quadratic character.
+
+#### Step E: average L(1), rather than use its worst-case lower bound
+
+Uniformly in these u, another Mellin shift using (18) yields, for any fixed ν>0 and Y=p^ν,
+
+\[
+ L(1,\chi_{-4up})=
+       \sum_{n\ge1}\frac{\chi_{-4up}(n)}n e^{-n/Y}
+                     +O(p^{-\kappa\nu+o(1)}).                \tag{26}
+\]
+
+Choose ν<α₀. For odd n,
+
+\[
+                 \chi_{-4up}(n)=\chi_{-4p}(n)(u/n).
+\]
+
+If n is not a square, elementary periodic cancellation and μ²(u)=Σ_{d²|u}μ(d) give
+
+\[
+ \sum_{u\le V\atop u\equiv1\ (4)}\mu^2(u)(u/n)\ll\sqrt{nV}.
+\]
+
+To see this without invoking any extra character-sum hypothesis, split d at √(V/n). Each inner sum along 1 (mod 4) has zero complete-period mean and is O(n); the remaining d use the trivial V/d² bound. This also gives the stated bound when n>V. Partial summation then gives
+
+\[
+ \sum_{U_0<u\le U_1\atop u\equiv1\ (4)}
+          \frac{\mu^2(u)}u(u/n)\ll\sqrt{n/U_0}.               \tag{27}
+\]
+
+Summing the nonsquare terms of (26) with (27) costs O(√(Y/U₀))=o(1). All square terms are nonnegative, and the n=1 term alone yields
+
+\[
+ \sum_{U_0<u\le U_1\atop \mu^2(u)=1,\ u\equiv1\ (4)}
+             \frac{L(1,\chi_{-4up})}{u}
+ \ge\left(\frac2{\pi^2}+o(1)\right)\log(U_1/U_0).            \tag{28}
+\]
+
+The density 2/π² of squarefree integers in 1 (mod 4) follows directly from the same μ² expansion. The error in (26), summed with 1/u, remains o(1). No distribution assertion about the Euler coefficient at the fixed p has been used.
+
+Combining (24), (25), and (28) proves
+
+\[
+ M_{\rm gen}(p)\ge
+ \left(\frac8{\pi^4}(\gamma-\beta)(\alpha_1-\alpha_0)-o(1)\right)\log^2p.
+\]
+
+Let α₀ and β tend to zero and α₁,γ tend to 1/2 from below, always choosing fixed exponents before taking p→∞. This proves (G). ∎
+
+**T1 audit.** For an odd square input, the conductor of χ_{−4up} can lose the p-part. Then ηχ_D can be principal for a **nonprincipal** η in (20), producing an additional pole with the cancelling sign. Thus the “sole pole” step is false on the square locus, exactly where it must fail. The proof has not manufactured a genus lower bound for squares.
+
+**CERTIFIED identity checks / EVIDENCE for the asymptotic.** `z48_ltastra_genusproof.py` checks (19) and the entire projector (20) against the existing square-unit test, including primes p≡5 (mod 8). It independently checks the normalization L(1,χ_D)=πh(D)/√|D| by reduced binary quadratic forms versus exact character sums. All 106 prime inputs in `detail.csv` satisfy M_gen/log²p≥0.0778293, above 2/π⁴≈0.020532. These samples do not certify an eventual threshold. The recorded small-p smoothed subcounts can be below their pole expressions; no finite-point error constant is asserted.
+
+**What this changes, and what it does not.** Under a fixed strip, a one-sided estimate
+
+\[
+ X_{\rm nr}^T(p)\ge-(1-\varepsilon)M_{\rm gen}^T(p)
+\]
+
+would now imply the requested log-square lower bound for T using a separately proved main-term bound. The missing estimate is **still this non-real remainder bound**. Equations (23) and (26) average genuinely free multiplicative variables to estimate a quadratic projector; they do not estimate the singleton certificate or its non-real phases. Thus (G) is real conditional progress on the main-term bookkeeping, not a conditional ES proof.
+
 ## 6. Fifth attempt: couple the moduli before taking a minorant
 
 The local obstruction does not apply to the Fourier transform of a **sum** of target classes. This is the most important surviving loophole in §§2–5, and was tested exactly.
@@ -402,20 +622,52 @@ For a concrete non-square genus fibre, Q=120120, r=3361 has negative signs at 11
 
 **PROVED consequence of each certified zero residue.** Since gcd(r,Q)=1, Dirichlet supplies infinitely many primes p≡r (mod Q), p>Q, with exactly that genus profile and no certificate from this finite q|Q menu. Thus even *global* quadratic conditioning cannot turn that menu's positive conditional mean into a lower bound on that fibre.
 
-**Exact remaining possibility.** A genuinely p-dependent growing menu may have a different lower envelope, or a kernel using non-real information across moduli may be better. Nothing in Theorem 6.1 or the finite tables excludes it. Proving that it is positive at each prescribed p is the unfilled step; OAI-003's small nonresidue does not prove it.
+### 6.3 Follow-up: remove the prime-power cutoff from this experiment
+
+**PROVED, computer-assisted using the certified anchors below.** Let S={2,3,5,7,11,13,17,19}. Let Q be **any** multiple of 24 supported on S, with arbitrarily large exponents. For every unit r≡1 (mod 24) whose signs at 5 and 7 are positive, the genus lower envelope of C_Q is zero. The same conclusion holds for any nonnegative weighting or subfamily of these certificate classes.
+
+Consequently, even allowing Q to depend on p and grow arbitrarily fast, a genus-only pointwise minorant using only moduli supported on S cannot be positive on these Mordell-hard inputs. This statement does not cover non-real frequencies or adding primes outside S.
+
+*Proof.* A finite anchor n with no S-smooth-modulus certificate has C_Q(n)=0 for **every** such Q. At either line, the least positive residue a is its onset: q−u−v for R, or q−4x−y for B. These lie strictly between 0 and q. Thus n≡a (mod q), n>0, would give an actual positive certificate at n, not a spurious negative-C congruence. A star certificate at n has q≤4(n+1)/3. A B certificate has q≤3(n+3)/2, since
+
+\[
+ \tfrac32\bigl((4xy-4x-y)+3\bigr)-4xy
+                    =(y-3)(2x-\tfrac32)\ge0.
+\]
+
+So absence of *all* S-smooth certificates at a fixed anchor is a finite check.
+
+The following anchors, all units at S and ≡1 (mod 24), realize every allowed sign pattern. A mask records negative signs at (5,7,11,13,17,19) in bits 0,…,5. No anchor has a certificate on either line with S-smooth modulus.
+
+| mask | anchor n | mask | anchor n |
+|---:|---:|---:|---:|
+| 0 | 1 | 32 | 59929 |
+| 4 | 12601 | 36 | 28921 |
+| 8 | 111841 | 40 | 122761 |
+| 12 | 57481 | 44 | 243601 |
+| 16 | 48049 | 48 | 55969 |
+| 20 | 88321 | 52 | 2521 |
+| 24 | 36961 | 56 | 184321 |
+| 28 | 520801 | 60 | 555601 |
+
+Choose an anchor matching r's signs at primes dividing Q; signs at unused primes can be completed arbitrarily, with the 5 and 7 signs positive. Then r/n is a square unit modulo every prime power dividing Q: the 2-adic condition is equality modulo 8; the odd-prime conditions are equality of Legendre signs. Thus r and n lie in the same square coset modulo Q. Theorem 6.1 gives lower envelope zero. Nonnegative weights still vanish at the same anchor. ∎
+
+**CERTIFIED audit.** `z48_ltastra_anchors.py` first marks every smooth-modulus pair onset through n≤10⁶, with no imposed exponent cap. It then checks the selected anchors by direct smooth-pair divisibility and by the **existing independent** `(u,C)` / ET-line enumerators, rejecting any witness whose modulus is S-smooth. The same search finds star-only anchors for 63 of 64 sign patterns; mask 63 has no anchor in this search and is **not** claimed impossible or covered. The union theorem needs only the 16 displayed patterns, all found.
+
+**Exact remaining possibility.** A growing prime alphabet or a kernel using non-real information across moduli may have a different lower envelope. Neither the finite tables nor the bounded-alphabet theorem excludes it. Proving positivity at each prescribed p remains unfilled; OAI-003's small nonresidue does not do so. In particular, identifying a nonresidue among 11,13,17,19 cannot by itself repair this genus-only construction even when all powers of those primes are allowed.
 
 ## 7. A precise sufficient hypothesis, and why it is not a standard one
 
 No clean standard hypothesis was found to supply (LT). The following isolates how much **one-sided**, growing-order information would suffice without confusing a density result with a pointwise theorem.
 
-Fix constants c>0, C>0, δ>0. Put L=log X,
+Fix constants c>0 and C>0. Put L=log X,
 
 \[
- m_X=cL^2,\qquad k_X=\left\lceil\frac{(1+\delta)L}{\log L}\right\rceil,
+ m_X=cL^2,\qquad k_X=\left\lceil\frac{L}{\log L}\right\rceil,
  \qquad D_X(p)=(m_X-T(p))_+.
 \]
 
-### Hypothesis H⁻mom(c,C,δ)
+### Hypothesis H⁻mom(c,C)
 
 **CONJECTURE / nonstandard, not derived from GRH or OAI-003.** For every sufficiently large X,
 
@@ -428,7 +680,7 @@ The centre m_X is just a fixed small log-square scale; it need not be the exact 
 
 ### Theorem 7.1 — H⁻mom implies the requested eventual lower bound
 
-**CONDITIONAL on H⁻mom only; PROVED implication.** For every fixed 0<η<1, all sufficiently large primes satisfy T(p)≥ηm_X in their dyadic block. Consequently T(p)≥εM(p) for some ε>0, and ES holds for all sufficiently large p≡1 (mod 4).
+**CONDITIONAL on H⁻mom only; PROVED implication.** For every fixed 0<η<1, all sufficiently large primes p≡1 (mod 4) satisfy T(p)≥ηm_X in their dyadic block. Consequently T(p)≥εM(p) for some ε>0, and ES holds for all sufficiently large p≡1 (mod 4).
 
 *Proof.* The number of primes in a block with T(p)<ηm_X is at most
 
@@ -442,9 +694,15 @@ The logarithm of the parenthesized factor is
  -\log L-\log\log L+O(1).
 \]
 
-Using π(2X)≤2X and k_X=(1+δ)L/log L+O(1), the logarithm of (15) is at most −δL+o(L). Thus (15)<1 eventually. Its integer-valued counting function is then zero. Finally M(p)≪log²p and log p∼L on the block convert this to (LT). ∎
+Using π(2X)≤2X and k_X=L/log L+O(1), the logarithm of (15) is at most
 
-**Assessment / weakest order in this stated mechanism.** With m_X≈L² and the right side in (14), orders k=aL/log L give an exponent −aL+o(L) in the Markov factor. The elementary π(2X)≤2X step needs a>1 for a fixed power margin. Fixed-order moments cannot eliminate one exceptional prime. This is a calibration of the sufficient *moment mechanism*, not a claim that (14) is the weakest possible hypothesis implying ES.
+\[
+ -\frac{L\log\log L}{\log L}+O\!\left(\frac L{\log L}\right),
+\]
+
+which tends to −∞. Thus (15)<1 eventually. Its integer-valued counting function is then zero. Finally M(p)≪log²p and log p∼L on the block convert this to (LT). ∎
+
+**Assessment / refinement to the weakest leading order of this mechanism.** Orders k=aL/log L give a leading exponent −aL in the Markov factor. A fixed a>1 gives a power margin, but the extra −log log L term shows that **a=1 already suffices**, independently of the fixed constants c,C. This weakens the initial (1+δ)L/log L formulation. Proposition 7.3 shows that no fixed leading constant a<1 suffices on the moment information alone; no claim of an absolutely weakest hypothesis implying ES is made.
 
 ### Proposition 7.2 — replacing the negative part by an absolute moment is false
 
@@ -466,7 +724,20 @@ The logarithm of the proposed upper bound π(2X)(Ck_Xm_X)^{k_X} is only O(log X)
 
 **Assessment / attempted derivation of (14).** Expanding ordinary moments gives correlations of congruence events at products/lcms of many moving moduli. At k≈L/log L, even moduli of a fixed power size produce products of size exp(Θ(L²/log L)); GRH estimates for individual progression sums do not give the required errors. Lcms can be smaller for overlapping events, so this product observation is not an impossibility theorem. It identifies the missing correlation estimate, not a proof of it. Using absolute moments to simplify that estimate is ruled out by Proposition 7.2. Using a bounded number of moments leaves the integer-count bound above 1. No route from a standard zero-free hypothesis to the required negative-part moments was found.
 
-**EVIDENCE / finite moment calibration, not verification of the hypothesis.** A second census includes all p≡1 (mod 4) through 10⁷. On the 15 complete dyadic blocks X=2⁸,…,2²², take c=0.15 and δ=1/4, and normalize each moment by the number of these primes *in the block*, which is smaller than π(2X). The empirical constants needed in (14) range from 0.00884 to 0.60605; their absolute-moment counterparts range from 7.07539 to 41.17095. On the last block there are 133,975 primes, k=7, m_X=34.88089, and 1,137 positive deficits; the constants are 0.52162 and 41.17094 respectively. This illustrates why a two-sided norm is a poor surrogate. A bounded finite list of fitted constants says nothing about their eventual boundedness, and supplies no standard-conjecture implication.
+### Proposition 7.3 — sharpness of the leading order for this moment criterion
+
+**PROVED, mechanism scope.** Replace k_X in (14) by ⌈aL/log L⌉ with any fixed 0<a<1. The resulting moment condition, on its own, permits infinitely many zero counts.
+
+*Proof.* Construct an abstract nonnegative integer-valued function on primes. Choose primes p_j≡1 (mod 4) with p_{j+1}>4p_j, set F(p_j)=0, and set F(p)=⌈c(log p)²⌉ at all other primes. A dyadic block contains at most one p_j, and its negative-part moment is at most m_X^{2k_X}. By the PNT,
+
+\[
+ \log\frac{\pi(2X)(Ck_Xm_X)^{k_X}}{m_X^{2k_X}}
+                         =(1-a)L+o(L)>0
+\]
+
+for every fixed C>0 and all sufficiently large X. Thus F obeys the weaker moment condition while having infinitely many zeros. This F is not asserted to be an ES count; the result identifies what the moment inequality itself can exclude. ∎
+
+**EVIDENCE / finite moment calibration, not verification of the hypothesis.** A second census includes all p≡1 (mod 4) through 10⁷. On the 15 complete dyadic blocks X=2⁸,…,2²², take c=0.15 and the critical k_X of (14), and normalize each moment by the number of these primes *in the block*, which is smaller than π(2X). The empirical constants needed in (14) range from 0.00949 to 0.57091; their absolute-moment counterparts range from 8.05965 to 40.65180. On the last block there are 133,975 primes, k=6, m_X=34.88089, and 1,137 positive deficits; the constants are 0.48763 and 40.65180 respectively. This illustrates why a two-sided norm is a poor surrogate. A bounded finite list of fitted constants says nothing about their eventual boundedness, and supplies no standard-conjecture implication.
 
 ## 8. Numerical tests of the actual lower-tail target
 
@@ -570,21 +841,23 @@ The first eight are m²+24 with odd m; the last is the campaign's hard forest-he
 
 ## 9. Exact gap and verdict
 
+**CONDITIONAL positive result:** Theorem 5.4 proves M_gen(p)≥(2/π⁴−o(1))log²p from any fixed Dirichlet zero-free strip, including the explicitly conditional OAI-003. The sole-pole argument, Euler residue, conductor-uniform smoothing, and averaged L(1) lower bound are supplied in full. This removes the previously log-log-sized main-term bottleneck for the exclusively non-real remainder formulation. It does **not** control that remainder.
+
 **PROVED scope of the negative results.**
 
 - A positive-average **local singleton minorant** cannot omit a Fourier frequency or improve the ℓ¹/mean budget below the group size.
 - BM/genus conditioning changes the group to an allowed coset; it does not remove the singleton problem inside it.
 - A compressed positive square can represent the full indicator, but its strict excess over the pedestal remains the certificate count.
 - A generic dual large sieve at one integer has a sharp diagonal norm. It does not supply a lower bound for the ES coefficient vector.
-- For the tested finite global menus, the optimal quadratic-character minorant has exact zeros in all Mordell-hard genus fibres.
+- For the tested finite global menus, the optimal quadratic-character minorant has exact zeros in all Mordell-hard genus fibres. The anchor argument extends this to **all powers** of the fixed prime alphabet through 19, including p-dependent cutoffs.
 
 **Not proved:** that every positive-kernel argument fails, that every use of GRH fails, that B2 is necessary for every ES proof, or that the growing global lower envelope is always zero. None of those claims follows from this work.
 
 **The exact unfilled assertion:** control the *negative* part of the coherent, target-dependent character sum at the single prescribed p, after keeping all necessary real information, with an improvement over the tautological bound \(X\ge-M\). Equivalently for a compressed-square construction, show a strict excess over the summed pedestals. The local kernel lemmas do not provide cross-modulus arithmetic; the dual large sieve supplies no such sign; the zero-free strip does not supply the needed coefficient/zero correlation.
 
-**CONDITIONAL conclusion actually obtained:** H⁻mom(c,C,δ), as explicitly quantified in (14), implies eventual (LT) and eventual ES. This is a sufficient new hypothesis formulation, **not** a proof from a clean standard hypothesis and not claimed easier than ES. It cannot be replaced by the analogous two-sided moment bound.
+**CONDITIONAL conclusion actually obtained:** H⁻mom(c,C), as explicitly quantified in (14), implies eventual (LT) and eventual ES. This is a sufficient new hypothesis formulation, **not** a proof from a clean standard hypothesis and not claimed easier than ES. It cannot be replaced by the analogous two-sided moment bound.
 
-**Assessment / honest verdict: PARTIAL, promise 1/5.** The useful output is the sharper local Fourier obstruction, the compressed-kernel pedestal audit, the exact one-point norm analysis, and the distinction between a genus average and its optimal global lower envelope. The finite bound T≥M/16 is a substantial numerical check of the intended target, but no infinite lower-tail estimate is proved. OAI-003 changes the available quadratic tools, not the remaining class-sensitive step.
+**Assessment / honest verdict: PARTIAL, promise 1/5.** The useful output is the conditional log-square genus theorem, the sharper local Fourier obstruction, the compressed-kernel pedestal audit, the exact one-point norm analysis, and the distinction between a genus average and its optimal global lower envelope. The finite bound T≥M/16 is a substantial numerical check of the intended target, but no infinite lower-tail estimate is proved. OAI-003 changes the available quadratic tools, not the remaining class-sensitive step.
 
 ## 10. Reproduction and audit boundaries
 
@@ -615,6 +888,8 @@ timeout 1800 /tmp/z48_ltastra_existing_count countlist 1003000000000 \
   < data/z48_ltastra/large_inputs.txt > data/z48_ltastra/large_counts.txt
 timeout 90 uv run python scripts/z48_ltastra_analyze.py
 OPENBLAS_NUM_THREADS=1 timeout 600 uv run python scripts/z48_ltastra_checks.py
+timeout 900 uv run python scripts/z48_ltastra_anchors.py
+timeout 900 uv run python scripts/z48_ltastra_genusproof.py
 ```
 
 The corpus census is exact integer arithmetic. Main-term tables use floating sums and are labelled as such; only the explicitly outward-rounded U bound is used for the complete finite inequality. The C programs are compiled without fast-math. The finite Fourier tests do not replace the proofs in §§2–7.

@@ -80,7 +80,7 @@ def main():
                     continue
                 L = j*math.log(2)
                 m = .15*L*L
-                k = math.ceil(1.25*L/math.log(L))
+                k = math.ceil(L/math.log(L))
                 block = blocks.setdefault(j, {'X':2**j,'count':0,'k':k,'m':m,
                     'neg_sum':0.0,'abs_sum':0.0,'deficits':0})
                 block['count'] += 1
@@ -94,7 +94,7 @@ def main():
                 'empirical_C_negative':(b['neg_sum']/n)**(1/k)/(k*m),
                 'empirical_C_absolute':(b['abs_sum']/n)**(1/k)/(k*m)})
         result['full_mod4_count'] = full_count
-        result['moment_diagnostic'] = {'c':.15,'delta':.25,
+        result['moment_diagnostic'] = {'c':.15,'leading_order_constant':1.0,
             'normalization':'number of p=1 mod4 in block, smaller than pi(2X)',
             'rows':moment_rows}
     (DATA / 'summary.json').write_text(json.dumps(result, indent=2) + '\n')

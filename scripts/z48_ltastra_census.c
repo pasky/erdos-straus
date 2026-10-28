@@ -69,5 +69,5 @@ int main(int argc,char **argv){
  if(fclose(out)!=0){perror("fclose");return 2;}
  fprintf(stderr,"primes=%ld Rzeros=%ld Bzeros=%ld unionzeros=%ld odd_squares=%ld minT/log^2=%.12g at %ld\n",count,zr,zb,zt,squares,min,arg);
  fprintf(stderr,"outward_upper: minT/MBM_upper=%.12g at %ld; failures of T>=MBM_upper/16: %ld\n",minbm,argbm,fail16);
- free(R);free(B);free(composite);free(phi);free(omega);free(upper);return 0;
+ free(R);free(B);free(composite);free(phi);free(omega);free(upper);return fail16?1:0;
 }

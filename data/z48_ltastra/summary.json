@@ -576,143 +576,143 @@
   "full_mod4_count": 332180,
   "moment_diagnostic": {
     "c": 0.15,
-    "delta": 0.25,
+    "leading_order_constant": 1.0,
     "normalization": "number of p=1 mod4 in block, smaller than pi(2X)",
     "rows": [
       {
         "X": 256,
         "count": 21,
-        "k": 5,
+        "k": 4,
         "m": 4.612348933614734,
         "deficits": 1,
-        "empirical_C_negative": 0.008844268390620375,
-        "empirical_C_absolute": 7.075391521697734
+        "empirical_C_negative": 0.00949425652215327,
+        "empirical_C_absolute": 8.05964723516013
       },
       {
         "X": 512,
         "count": 38,
-        "k": 5,
+        "k": 4,
         "m": 5.837504119106146,
         "deficits": 1,
-        "empirical_C_negative": 0.011609672792447288,
-        "empirical_C_absolute": 9.179382556833698
+        "empirical_C_negative": 0.012098758637393061,
+        "empirical_C_absolute": 10.027440401774117
       },
       {
         "X": 1024,
         "count": 66,
-        "k": 5,
+        "k": 4,
         "m": 7.206795208773021,
         "deficits": 3,
-        "empirical_C_negative": 0.05852178857362899,
-        "empirical_C_absolute": 9.872057890616253
+        "empirical_C_negative": 0.05950574164341032,
+        "empirical_C_absolute": 10.79538721749875
       },
       {
         "X": 2048,
         "count": 127,
-        "k": 5,
+        "k": 4,
         "m": 8.720222202615355,
         "deficits": 5,
-        "empirical_C_negative": 0.4078728151113425,
-        "empirical_C_absolute": 9.152094073433657
+        "empirical_C_negative": 0.410644138069647,
+        "empirical_C_absolute": 10.462776916257923
       },
       {
         "X": 4096,
         "count": 233,
-        "k": 5,
+        "k": 4,
         "m": 10.37778510063315,
         "deficits": 1,
-        "empirical_C_negative": 0.07391254724559303,
-        "empirical_C_absolute": 10.979978361845271
+        "empirical_C_negative": 0.07034939818871903,
+        "empirical_C_absolute": 12.234564991126792
       },
       {
         "X": 8192,
         "count": 432,
-        "k": 6,
+        "k": 5,
         "m": 12.179483902826405,
         "deficits": 14,
-        "empirical_C_negative": 0.5157858902423784,
-        "empirical_C_absolute": 13.392363236964357
+        "empirical_C_negative": 0.5057909918126631,
+        "empirical_C_absolute": 14.259951380066177
       },
       {
         "X": 16384,
         "count": 805,
-        "k": 6,
+        "k": 5,
         "m": 14.125318609195121,
         "deficits": 25,
-        "empirical_C_negative": 0.17870117901182322,
-        "empirical_C_absolute": 15.079046005408976
+        "empirical_C_negative": 0.18106743388694183,
+        "empirical_C_absolute": 16.02245071106533
       },
       {
         "X": 32768,
         "count": 1511,
-        "k": 6,
+        "k": 5,
         "m": 16.215289219739297,
         "deficits": 35,
-        "empirical_C_negative": 0.14289984897451535,
-        "empirical_C_absolute": 14.641824365247796
+        "empirical_C_negative": 0.1410603678817498,
+        "empirical_C_absolute": 15.597154010942393
       },
       {
         "X": 65536,
         "count": 2837,
-        "k": 6,
+        "k": 5,
         "m": 18.449395734458935,
         "deficits": 78,
-        "empirical_C_negative": 0.5229860056132342,
-        "empirical_C_absolute": 20.556666226496866
+        "empirical_C_negative": 0.49737221102268403,
+        "empirical_C_absolute": 21.029498477163003
       },
       {
         "X": 131072,
         "count": 5378,
-        "k": 6,
+        "k": 5,
         "m": 20.82763815335403,
         "deficits": 107,
-        "empirical_C_negative": 0.48474513184335627,
-        "empirical_C_absolute": 20.607514744503906
+        "empirical_C_negative": 0.4626412210745687,
+        "empirical_C_absolute": 21.54887255603307
       },
       {
         "X": 262144,
         "count": 10186,
-        "k": 7,
+        "k": 5,
         "m": 23.350016476424585,
         "deficits": 194,
-        "empirical_C_negative": 0.50005920404031,
-        "empirical_C_absolute": 23.40513714578912
+        "empirical_C_negative": 0.4358801539417019,
+        "empirical_C_absolute": 24.459225887423354
       },
       {
         "X": 524288,
         "count": 19294,
-        "k": 7,
+        "k": 6,
         "m": 26.016530703670604,
         "deficits": 332,
-        "empirical_C_negative": 0.6060429450832409,
-        "empirical_C_absolute": 27.174615817911707
+        "empirical_C_negative": 0.5709061413565324,
+        "empirical_C_absolute": 27.58330262920765
       },
       {
         "X": 1048576,
         "count": 36827,
-        "k": 7,
+        "k": 6,
         "m": 28.827180835092083,
         "deficits": 431,
-        "empirical_C_negative": 0.5684387163962903,
-        "empirical_C_absolute": 33.664064816379344
+        "empirical_C_negative": 0.5406741629608061,
+        "empirical_C_absolute": 33.16261603229162
       },
       {
         "X": 2097152,
         "count": 70157,
-        "k": 7,
+        "k": 6,
         "m": 31.781966870689022,
         "deficits": 716,
-        "empirical_C_negative": 0.4947615653247827,
-        "empirical_C_absolute": 36.46251807108564
+        "empirical_C_negative": 0.46003671658569023,
+        "empirical_C_absolute": 36.202976311074956
       },
       {
         "X": 4194304,
         "count": 133975,
-        "k": 7,
+        "k": 6,
         "m": 34.88088881046142,
         "deficits": 1137,
-        "empirical_C_negative": 0.5216166879327157,
-        "empirical_C_absolute": 41.1709444640609
+        "empirical_C_negative": 0.48763129393094823,
+        "empirical_C_absolute": 40.6518003751044
       }
     ]
   }
