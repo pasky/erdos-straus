@@ -379,9 +379,13 @@ CERTIFIED (`scripts/z49_ltfable2_dickson.py a 8 3000000`): for (a) with X = 8 (�
 first three values s = 58 422, 953 478, 2 586 090 give primes p = 147 223 441, 2 402 764 561, 6 516 946 801 with HC(p) = 15,
 12, 15 (brute force over all words), all > 8 as predicted. Note that HC(p) > 8 does *not* mean that every word with a
 coordinate ≤ 8 is monochromatic — at p = 147 223 441 the word (5, 324, 90 935) is a certificate with t = 5 (its 𝒞-coordinate
-is 324): that stronger property is (b), which needs the larger family. For (b) with X = 4, k = 1 (8 forms, M = 29 811 600)
-see `data/z49_ltfable2/dickson_b_X4_k1.txt` (search over s ≤ 4·10⁶; the instance, if found, is re-checked by brute force
-— see §8).
+is 324): that stronger property is (b), which needs the larger family. For (b) with X = 4, k = 1 (ℓ₁ = 13, Q₀ = 840,
+Q₁ = 176 400, M = 29 811 600, p₀ = 28 929 601; eight forms) the search `scripts/z49_ltfable2_dickson_b.c` (deterministic
+Miller–Rabin, 8 s) finds s = 1 230 505, 6 081 703, 11 577 829, i.e. p = 36 683 351 787 601, 181 305 326 084 401,
+345 153 635 946 001, and `scripts/z49_ltfable2_dickson_b_check.py` verifies at each of them (exact enumeration of all words
+with a coordinate ≤ 4 through the divisors of p + u, u ≤ 4, and of tp + 1, t ≤ 4) that all 27 such words are free and
+monochromatic and that there are exactly 8 = 2^{k+2} words (t, 1, v) (p + 1 = 2·13·F₁ with F₁ prime)
+(`data/z49_ltfable2/dickson_b_X4_k1_{search,check}.txt`).
 
 *Reading.* Every one-coordinate bounded-window form of every hypothesis in §4 fails infinitely often (CONDITIONAL on
 Dickson), including shape balance restricted to the words with a coordinate ≤ X (the window carries ≥ K words, all
@@ -598,5 +602,7 @@ uv run python scripts/z49_ltfable2_lemmas.py                                    
 gcc -O2 -o /tmp/z49mgen scripts/z49_ltfable2_mgen.c -lm
 timeout 3600 /tmp/z49mgen 100000 23929 83449 102001 329617 712321 1134241 1724209 1726201 5212561 8813281 > data/z49_ltfable2/mgen_1e5.txt   # 2 min
 uv run python scripts/z49_ltfable2_dickson.py a 8 3000000                       # 25 s; Prop 3.3(a) instances (exit 1 on a violated claim)
-timeout 5400 uv run python scripts/z49_ltfable2_dickson.py b 4 1 4000000 > data/z49_ltfable2/dickson_b_X4_k1.txt   # Prop 3.3(b), X=4, k=1
+uv run python scripts/z49_ltfable2_dickson.py b 4 1 10                           # prints the eight forms of Prop 3.3(b), X=4, k=1 (its own search is too slow)
+gcc -O2 -o /tmp/dickb scripts/z49_ltfable2_dickson_b.c && timeout 1500 /tmp/dickb 30000000 > data/z49_ltfable2/dickson_b_X4_k1_search.txt   # 8 s
+uv run python scripts/z49_ltfable2_dickson_b_check.py > data/z49_ltfable2/dickson_b_X4_k1_check.txt   # 0.3 s; exit 1 on failure
 ```

@@ -1,0 +1,4 @@
+p=36683351787601: p+1 = {2: 1, 13: 1, 1410898145677: 1}; words with a coordinate <= 4: 27, all free: True, all monochromatic: True, words (t,1,v): 8 (>= 8: True)
+p=181305326084401: p+1 = {2: 1, 13: 1, 6973281772477: 1}; words with a coordinate <= 4: 27, all free: True, all monochromatic: True, words (t,1,v): 8 (>= 8: True)
+p=345153635946001: p+1 = {2: 1, 13: 1, 13275139844077: 1}; words with a coordinate <= 4: 27, all free: True, all monochromatic: True, words (t,1,v): 8 (>= 8: True)
+Prop 3.3(b) instances verified
