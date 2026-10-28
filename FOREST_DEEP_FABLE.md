@@ -205,12 +205,12 @@ disjoint from ∪_{A ≤ X} {p : p mod A ∈ G_A}; thus no finite part of the co
 every X there are primes p ≡ 1 (24) with A_min(p) > X and H₄(p) > X, and by Linnik's theorem such p exist below
 lcm(1..X)^{L} ≤ e^{C X}; hence A_min(p) ≥ c log p and H₄(p) ≥ c log p for infinitely many p, unconditionally. (The
 Graham–Ringrose transfer in FOREST_H4 gives the stronger H₄ ≫ log p log log log p i.o.; (b) is only elementary.)
-*Proof.* (a) p ≡ 1 (mod A) lies in G_A iff −d ≡ 1 (mod A) for some d | A + 1, d < A, i.e. d = A − 1 | A + 1, i.e. A ∈ {2, 3};
+*Proof.* (a) p ≡ 1 (mod A) lies in G_A only if −d ≡ 1 (mod A) for some d | A + 1, d < A, i.e. d = A − 1 | A + 1, i.e. A ∈ {2, 3};
 G₂ = ∅ and G₃ = {2} ∌ 1. (b) For p ≡ 1 (mod lcm(1..X)) and u < v ≤ X: v | p + u ⟺ v = u + 1, and then u | p + v
 ⟺ u | 2, so the only edges inside [1, X] are {1, 2}, {2, 3}, both monochromatic. ∎
 
 **What the hypotheses can see.** Write G_A = S_A ∩ Q_A with S_A := {−d : d | A+1, d < A} (the *shadow*, p-independent and
-sign-free) and Q_A := {r : (r/A_odd)(2/p)^{v₂(A)} = −1} (the *colour*, half of (ℤ/A)^×). GRH and OAI-003 are statements about
+sign-free) and Q_A := {r : (r/A_odd)(2/p)^{v₂(A)} = −1} (the *colour*: half of (ℤ/A)^× unless A_odd is a square, when it is empty). GRH and OAI-003 are statements about
 characters: they locate A with p mod A ∈ Q_A (a QNR modulus A ≤ (log p)² resp. (log p)⁸), and even a prime A ≡ 7 (8) that
 is a QNR mod p (fixed-density detector). They say nothing about p mod A ∈ S_A, which is the statement "A | p + d for some
 d | A + 1", i.e. a divisor of the single integer p + d in the class −1 (mod d). For the sign-free lines of Corollary C the
@@ -219,10 +219,10 @@ checklist line 9 ("class, not parity") in its sharpest form: the quadratic layer
 
 **EVIDENCE (survival density of the covering; `z48_forestfable_cover.py`, `cover.txt`).** Let δ_A(X) be the density of
 classes p mod lcm(8, 1..X), p ≡ 1 (24), coprime to lcm, not covered by any A ≤ X (exact enumeration for X ≤ 18; 10⁵ classes
-drawn uniformly modulo lcm(8, 1..400) beyond). Then
-  X = 8, 16, 32, 64, 128, 256, 400:  −log δ_A(X) = 1.40, 1.95, 2.97, 4.12, 5.71, 7.24, 8.57;  (log X)²/4 = 1.08, 1.92, 3.00, 4.32, 5.89, 7.69, 8.97,
-while the first moment s(X) = Σ_{A ≤ X} P(p mod A ∈ G_A) is larger: 1.0, 2.1, 4.0, 6.2, 9.1, 12.4, 14.8 (strong positive
-dependence between A and its multiples, e.g. the hit sets of A = 5 and A = 20 coincide). So the *survival* probability of the
+drawn uniformly modulo lcm(8, 1..400) beyond). Then (exact for X ≤ 18, sampled beyond)
+  X = 8, 16, 32, 64, 128, 256, 400:  −log δ_A(X) = 1.386, 1.925, 2.97, 4.12, 5.71, 7.24, 8.57;  (log X)²/4 = 1.08, 1.92, 3.00, 4.32, 5.89, 7.69, 8.97,
+while the first moment s(X) = Σ_{A ≤ X} P(p mod A ∈ G_A) is 1.0, 2.1, 4.0, 6.2, 9.1, 12.4, 14.8 — larger than −log δ for
+X ≥ 16 (strong positive dependence between A and its multiples, e.g. the hit sets of A = 5 and A = 20 coincide). So the *survival* probability of the
 random-class model decays like exp(−(log X)²/4) — faster than any power of X, with the first moment ≈ 1.6× larger; the random-class
 heuristic then predicts P(A_min(p) > X) ≈ exp(−(log X)²/4), i.e. an extreme scale A_min ≲ exp(2√log p). CERTIFIED to 10⁸ (p ≡ 1
 (24)): max A_min = 1451 at p = 72 639 961 and max A_min/(log p)² = 5.04 at p = 5 516 281 (A_min = 1214) — far below
@@ -268,13 +268,13 @@ the one-residue-class families fail rarely; the unions in bold never fail in ran
 whose expected number of *independent* units (lines or levels carrying a word) grows like c (log p)² has failure probability
 ≈ exp(−c′(log p)²), summable, so only finitely many failures are expected — this is why López, (★), the twin and the Legendre
 levels each have a short finite failure list and their pairwise unions have none; the prime-numerator family has ≍ log p
-units (its CRT-model survival exponent is ≈ 1.3, §5 M7 — supercritical but only just): EVIDENCE at p ≡ 1 (24) ≤ 10⁸,
+units (its CRT-model survival exponent is ≈ 1.35, §5 M7 — supercritical but only just): EVIDENCE at p ≡ 1 (24) ≤ 10⁸,
 P(ℓ_min > X) = 2.5·10⁻², 4.4·10⁻³, 8.9·10⁻⁴, 8.5·10⁻⁵, 1.1·10⁻⁵ for X = 64, 256, 10³, 10⁴, 10⁵ (local exponent 1.25 → 0.9;
 max ℓ_min = 1 386 179 at p = 98 418 601); whether it fails infinitely often is open. None of this is a mechanism; it is the (★)-type lottery bookkeeping of SYNTHESIS_SPARKS9 §3 in new coordinates.
 
 **4.3 Minima.** Over p ≡ 1 (24) ≤ 10⁸: max H₄/(log p)² = 1.3914 (p = 27 344 521, H₄ = 408, r = 11); max u_min = 25
 (p = 78 168 721); max t_min = 36 (p = 26 017 489); max v07min = 116, attained at p = 3361 and p = 76 441 (P(v07min > 64) =
-2.6·10⁻⁵, 19 primes, none above 116); u_min ≤ 3 for 93 % and ≤ 16 for 99.99 % of primes. The hard primes:
+2.6·10⁻⁵, 19 primes, none above 116); u_min ≤ 3 for 94.6 % and ≤ 16 for 99.99 % of primes. The hard primes:
 
 | p | r | W | B | H₄ | u_min | t_min | A_min | ≡0(4) | ≡7(8) | comp(1) bichromatic | #components (bichromatic) |
 |---:|---:|---:|---:|---:|---:|---:|---:|:-:|:-:|:-:|---:|
@@ -362,14 +362,15 @@ one integer; no theorem controls it.
 **M7 — the prime-numerator sub-family.** ES₅(p) ⟸ ∃ prime ℓ with p mod ℓ ∈ G_ℓ, i.e. (−p mod ℓ) | ℓ + 1 and (p/ℓ) = −1
 (PROVED from Prop 3.1). This is the cleanest *sieve* statement: for each prime ℓ a set G_ℓ of forbidden residues (all of the
 τ(ℓ+1) − 1 shadow residues when ℓ ≡ 7 (8), about 0.45–0.65 of them otherwise, `primecover.txt`); the question is whether a
-prime p can avoid them all for ℓ up to p. For distinct prime moduli the CRT model is exactly independent, with survival
-probability Π_{ℓ ≤ X}(1 − |G_ℓ|/(ℓ−1)); CERTIFIED: −log Π = 4.20, 7.04, 10.01, 13.06 at X = 10², 10³, 10⁴, 10⁵, local slope
-1.23 → 1.33 per unit log X, i.e. the model predicts P(ℓ_min > X) ≈ X^{−1.3} — *supercritical* (Σ_p p^{−1.3} < ∞), so finitely
-many failures are expected in the model (an earlier draft called this family "critical" after halving the Titchmarsh constant;
-that was unjustified and is withdrawn). The empirical tail at p ≤ 10⁸ (§4.2) has local exponent 1.25 → 0.9, below the
-model's, on 8–640 events; the discrepancy is unexplained (dependence on p's size, or small numbers). Either way, proving the
-statement would require the residues p mod ℓ to avoid a growing family of divisor-shadows — again the factorisation of
-p + d for small d. Blocking step: B1 for ℓ ≤ log p/log log p, B2 beyond.
+prime p can avoid them all for ℓ up to p. For distinct prime moduli the CRT model (p ≡ 1 (24) fixed, p mod ℓ uniform and
+independent for ℓ ≥ 5) is exactly a product, with survival probability Π_{5 ≤ ℓ ≤ X}(1 − |G_ℓ|/(ℓ−1)); CERTIFIED
+(`primecover.txt`): −log Π = 4.15, 7.04, 10.00, 13.06, 16.17 at X = 10², …, 10⁶, local slope 1.25 → 1.35 per unit log X, i.e.
+the model predicts P(ℓ_min > X) ≈ X^{−1.35} — *supercritical* (Σ_p p^{−1.35} < ∞), so finitely many failures are expected
+in the model (an earlier draft called this family "critical" after halving the Titchmarsh constant; that was unjustified and
+is withdrawn). The empirical tail at p ≤ 10⁸ (§4.2) has local exponent 1.25 → 0.9, below the model's, on 8–640 events; the
+discrepancy is unexplained (dependence on p's size, or small numbers). Either way, proving the statement would require
+showing that no prime p can avoid a growing family of divisor-shadows — again the factorisation of p + d for small d.
+Blocking step: B1 for ℓ ≤ log p/log log p, B2 beyond.
 
 **M8 — Pell / class-group / cycle data, non-abelian Frobenius.** Not pursued beyond the repo's verdicts ((J)84 Prop 4.2:
 Pell windows are never Jacobi-forced; (J)93/(J)96/(J)104: reciprocity forces parity, never class); in covering language
@@ -395,8 +396,9 @@ with H₄ ≤ polylog; nothing more. The upper bound H₄(p) ≤ (log p)^{C} is,
 
 (Bounding only the vertex v would bound u_min or v07min, not H₄; the partner w = (p+v)/A must be small too.) This is one
 integer (p + v), one residue class (−1 mod v), a modulus tied to the integer, a size condition on the cofactor, and a
-polylog family of shifts — the B2 event verbatim, with the colour layer removed. EVIDENCE for the gap statement with
-C = 2: all p ≡ 1 (24) ≤ 10⁸ (H₄ ≤ 1.392 (log p)²). CONDITIONAL on Dickson (ASTRA Thms 3.2, 5.1): the witness v cannot be
+polylog family of shifts — the B2 event verbatim, with the colour layer removed. EVIDENCE for the gap statement in the
+form H₄ ≪ (log p)²: all p ≡ 1 (24) ≤ 10⁸ have H₄ ≤ 1.392 (log p)² (eleven of them exceed (log p)², so the literal C = 2
+bound needs a constant). CONDITIONAL on Dickson (ASTRA Thms 3.2, 5.1): the witness v cannot be
 bounded, and cannot be the least QNR. Unconditionally (Prop 3.2): H₄ ≥ c log p i.o. No standard hypothesis is known to
 imply the attachment statement, and this document does not change that.
 
@@ -411,7 +413,7 @@ imply the attachment statement, and this document does not change that.
 | 5 | PASS as stated | Nothing is averaged; the CRT densities of §3/§5 are explicitly labelled heuristics. |
 | 6 | PASS | Expected count 0.20 (log p)² words, no power-size main term. |
 | 7 | PASS | No two-sided claim. |
-| 8 | PASS as target / FAIL as method | The family is p-dependent and growing (all v ≥ 4 in the two classes); its members below log p/ log log p are blocked by shadows (Prop 3.2, ASTRA Thm 3.2). |
+| 8 | PASS as target / FAIL as method | The family is p-dependent and growing (all v ≥ 4 in the two classes); any fixed initial segment of it is blocked i.o. (ASTRA Thm 3.2, CONDITIONAL on Dickson), and pairs of endpoints ≤ X are blocked unconditionally (Prop 3.2). |
 | 9 | **FAIL at existence** | The quadratic layer of G_A is free (Prop 3.1); the class layer (shadow) is the whole problem. |
 | 10 | PASS | No pooling across shifts (each v is its own integer p + v). |
 | 11–13 | N.A. / PASS | No signed detour, no relaxation transport, no BM shortcut. |
@@ -432,9 +434,9 @@ imply the attachment statement, and this document does not change that.
   failure lists of the sign-free families (López: 193, 2521, 66529; twin: 3361; Legendre levels: 10 primes ≤ 10⁸; union of
   López and twin: none ≤ 10⁸); the minima u_min ≤ 25, v07min ≤ 116, H₄ ≤ 1.3914 (log p)² to 10⁸; the controls.
 * EVIDENCE: the covering's random-class survival decays like exp(−(log X)²/4); the prime-numerator family has CRT-model
-  exponent ≈ 1.3 (supercritical) but a lower empirical local exponent (0.9–1.25) at p ≤ 10⁸.
+  exponent ≈ 1.35 (supercritical) but a lower empirical local exponent (0.9–1.25) at p ≤ 10⁸.
 * CONJECTURE (new coordinates for old conjectures, not new conjectures): u_min(p) ≪ log p; v07min(p) ≪ log p;
-  the attachment statement of §6 with C = 2.
+  the attachment statement of §6 in the form H₄ ≪ (log p)².
 * Not achieved: any pointwise mechanism; any use of GRH/003 beyond locating QNR vertices; any bound on H₄ at a prescribed p.
 
 **Reproduction** (from the repository root; total CPU ≈ 16 min, peak RSS 0.4 GB):
