@@ -1,0 +1,185 @@
+{
+  "ET_identity_checks": 1080,
+  "finite_fibres": [
+    {
+      "r": 7,
+      "e": 1,
+      "Q": 168,
+      "size": 3,
+      "mean": "2",
+      "minimum": 1,
+      "argmin": 73
+    },
+    {
+      "r": 7,
+      "e": 2,
+      "Q": 1176,
+      "size": 21,
+      "mean": "2",
+      "minimum": 1,
+      "argmin": 73
+    },
+    {
+      "r": 11,
+      "e": 1,
+      "Q": 264,
+      "size": 5,
+      "mean": "1",
+      "minimum": 0,
+      "argmin": 145
+    },
+    {
+      "r": 11,
+      "e": 2,
+      "Q": 2904,
+      "size": 55,
+      "mean": "1",
+      "minimum": 0,
+      "argmin": 145
+    },
+    {
+      "r": 19,
+      "e": 1,
+      "Q": 456,
+      "size": 9,
+      "mean": "1/3",
+      "minimum": 0,
+      "argmin": 97
+    },
+    {
+      "r": 19,
+      "e": 2,
+      "Q": 8664,
+      "size": 171,
+      "mean": "1/3",
+      "minimum": 0,
+      "argmin": 97
+    },
+    {
+      "r": 23,
+      "e": 1,
+      "Q": 552,
+      "size": 11,
+      "mean": "9/11",
+      "minimum": 0,
+      "argmin": 97
+    },
+    {
+      "r": 23,
+      "e": 2,
+      "Q": 12696,
+      "size": 253,
+      "mean": "9/11",
+      "minimum": 0,
+      "argmin": 97
+    },
+    {
+      "r": 31,
+      "e": 1,
+      "Q": 744,
+      "size": 15,
+      "mean": "2/5",
+      "minimum": 0,
+      "argmin": 73
+    },
+    {
+      "r": 31,
+      "e": 2,
+      "Q": 23064,
+      "size": 465,
+      "mean": "2/5",
+      "minimum": 0,
+      "argmin": 73
+    },
+    {
+      "r": 43,
+      "e": 1,
+      "Q": 1032,
+      "size": 21,
+      "mean": "1/7",
+      "minimum": 0,
+      "argmin": 73
+    },
+    {
+      "r": 43,
+      "e": 2,
+      "Q": 44376,
+      "size": 903,
+      "mean": "1/7",
+      "minimum": 0,
+      "argmin": 73
+    }
+  ],
+  "prime_power_checks": 96,
+  "moment_exhaustions": 243,
+  "moment_boundary": [
+    {
+      "L": 100.0,
+      "logE_weaker": 20.762110836567814,
+      "logE_stronger": -17.278361198729087
+    },
+    {
+      "L": 1000.0,
+      "logE_weaker": 135.58706885217157,
+      "logE_stronger": -141.77156007966948
+    },
+    {
+      "L": 10000.0,
+      "logE_weaker": 999.4042730597339,
+      "logE_stronger": -1070.524546124243
+    },
+    {
+      "L": 1000000.0,
+      "logE_weaker": 65031.89054334769,
+      "logE_stronger": -72048.10216232529
+    }
+  ],
+  "perturbations": {
+    "weighted_l1": "11021/150",
+    "weighted_l2_squared": "76416/625",
+    "D": "157/75",
+    "tuple_cases": 3
+  },
+  "controls": {
+    "squares": {
+      "9": [
+        0,
+        0
+      ],
+      "25": [
+        0,
+        0
+      ],
+      "49": [
+        0,
+        0
+      ],
+      "121": [
+        0,
+        0
+      ],
+      "289": [
+        0,
+        0
+      ],
+      "961": [
+        0,
+        0
+      ],
+      "2601": [
+        0,
+        0
+      ]
+    },
+    "numerator8": {
+      "17": [
+        0,
+        0
+      ],
+      "241": [
+        0,
+        0
+      ]
+    }
+  }
+}
