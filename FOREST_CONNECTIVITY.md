@@ -236,8 +236,9 @@ one of the 82,887 primes (`data/z48_forestconn/stars.txt`). The u = 6 criterion 
 mismatch was caught by this check and the criterion re-derived as stated.
 
 **Assessment (why this matters).** For u | 24, the "class" −1 (mod u) is visible to quadratic characters, so the star
-at u certifies unless p+u avoids a fixed index-2 subgroup class. This is Landau-type, and the expected failure density
-is ≍ (log p)^{−1/2}. For u ∤ 24, the group (ℤ/u)^* has elements of order > 2. Then the existence of a divisor
+at u certifies unless all prime factors of p+u (or of its odd part) lie in one of finitely many index-2 subgroups
+avoiding the target element. This is Landau-type, and the expected failure density is ≍ (log p)^{−1/2}. For u ∤ 24,
+the group (ℤ/u)^* has elements of order > 2. Then the existence of a divisor
 ≡ −1 (mod u) depends on multiplicities, not just on the generated subgroup. Example: at u = 5, a single prime factor
 q ≡ 2 (mod 5) supplies the classes {1, 2} but not 4. This is the class layer, i.e. FRONTIER line 9 ("class, not
 parity") seen inside the forest. Theorem 3.2 of LOWER_TAIL_ASTRA (CONDITIONAL on Dickson) kills every fixed set of
