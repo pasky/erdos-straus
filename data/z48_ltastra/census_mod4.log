@@ -1,0 +1,2 @@
+primes=332180 Rzeros=14 Bzeros=3 unionzeros=0 odd_squares=1580 minT/log^2=0.0237863102107 at 9601
+outward_upper: minT/MBM_upper=0.0774393489208 at 9601; failures of T>=MBM_upper/16: 0

@@ -1,0 +1,6 @@
+# Q=840 star_ordered_pairs=54 B_pairs=24 character_primes=5,7
+mask,units,minR,minT,meanR,meanB,maxT,argminT
+0,6,0,0,0,0,0,1
+1,6,0,2,1.33333333333,1.66666666667,6,193
+2,6,0,1,1.66666666667,1,6,409
+3,6,0,3,2.33333333333,1.66666666667,5,73

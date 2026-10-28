@@ -1,0 +1,14 @@
+82887 census rows, 114 selected inputs; summary.json updated
+82887 census rows, 114 selected inputs; summary.json updated
+/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0045/scripts/z30_check_forms.py:57: SymPyDeprecationWarning:
+
+The `sympy.ntheory.residue_ntheory.jacobi_symbol` has been moved to `sympy.functions.combinatorial.numbers.jacobi_symbol`.
+
+See https://docs.sympy.org/latest/explanation/active-deprecations.html#deprecated-ntheory-symbolic-functions
+for details.
+
+This has been deprecated since SymPy version 1.13. It
+will be removed in a future version of SymPy.
+
+  if jacobi_symbol(x % l, l) != 1: return False
+PASS: 10541 Fourier checks; 17 hard-prime B counts; 99 global zero-envelope witnesses
