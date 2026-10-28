@@ -1,0 +1,28 @@
+Small audit: 160 cells; 21954 positive words; 4758 odd-numerator negative words; PASS
+control 17 W 19 N- 8 HC 4
+control 241 W 31 N- 12 HC 4
+control 193 W 29 N- 10 HC 7
+control 409 W 39 N- 8 HC 4
+control 577 W 45 N- 18 HC 4
+control 2521 W 37 N- 4 HC 15
+control 3361 W 47 N- 8 HC 7
+control 5569 W 55 N- 16 HC 7
+control 9601 W 53 N- 8 HC 7
+control 66529 W 69 N- 18 HC 8
+control 8813281 W 127 N- 46 HC 8
+Counterexample to unqualified square divisor wording: n=49, u=v=7, v|n+u and v=-n (mod u), but no word.
+Independent rank 1 mod 8: 42 mod 1000003 ; pivot primes: [17, 41, 73, 89, 97, 113, 137, 193, 233, 241, 257, 281, 313, 337, 353, 401, 409, 433, 449, 457, 521, 569, 577, 593, 601, 617, 641, 673, 761, 769, 809, 857, 881, 929, 937, 953, 977, 1009, 1033, 1049, 1097, 1129]
+Independent rank 5 mod 8: 42 mod 1000003 ; pivot primes: [5, 13, 29, 37, 53, 61, 101, 109, 149, 157, 173, 181, 197, 229, 269, 277, 293, 317, 349, 373, 389, 397, 421, 461, 509, 541, 557, 613, 653, 661, 677, 701, 709, 733, 757, 773, 797, 821, 829, 853, 877, 941]
+Combined rank 84 by the two disjoint 42-column blocks; PASS
+CRT admissibility checks: X 4 K 1 forms 8 PASS
+CRT instance 36683351787601 : 27 free monochromatic window words; PASS
+CRT instance 181305326084401 : 27 free monochromatic window words; PASS
+CRT instance 345153635946001 : 27 free monochromatic window words; PASS
+CRT admissibility checks: X 5 K 3 forms 10 PASS
+CRT admissibility checks: X 8 K 8 forms 16 PASS
+CRT admissibility checks: X 12 K 16 forms 24 PASS
+Direct square-twist enumeration 17 R 2 genus pairs 2 Mgen 2.0 exact 2
+Direct square-twist enumeration 193 R 4 genus pairs 10 Mgen 2.1555555555555554 exact 97/45
+Direct square-twist enumeration 409 R 0 genus pairs 34 Mgen 3.999067782126253 exact 18484931/4622310
+Direct square-twist enumeration 577 R 0 genus pairs 40 Mgen 5.352387026194025 exact 75785224/14159145
+ALL INDEPENDENT CHECKS PASSED
