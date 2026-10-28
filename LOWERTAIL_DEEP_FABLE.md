@@ -40,7 +40,8 @@ for large p, under any hypothesis. What the attempt adds:
    (A/p) = (−t/A) = −(−1)^{(A+1)(t+1)/4} for odd t. Consequences: every word with t ≡ 3 (mod 4) and uv even is an ES certificate;
    for t ≡ 1 (mod 4) exactly the words with 4 | uv are. These level-class lines L₃, L₁ are sister lines of (★) (= 4 | t) with
    comparable means; their lower tails are *fatter* than (★)'s (128 and 783 failures ≤ 10⁷ against 14; CERTIFIED), because
-   their small levels are clumpier (level 3 of L₃ is Mordell's all-or-nothing class, contributing ≍ log p words at once or none).
+   (Assessment) their small levels are clumpier (level 3 of L₃ is Mordell's all-or-nothing class, contributing τ(M) − σ_{χ₃}(M)
+   words at once — ≍ log p on average, as few as 2 — or none; M the odd part of 3p + 1).
 5. **Conditional landscape (§6).** GRH or OAI-003 give the main term M_BM(p) ∼ (3/(2π²)) log²p, a least non-residue ≤ C log⁸p,
    and exponent caps ≪ log⁸p — all *sign-layer* or *main-term* facts. The exact gap (§7) is untouched by them: a lower bound
    for a sum of ≍ p log p divisor indicators 1[(tu − 1) | n + u] at one integer n, with mean ≍ log²n. The cleanest sufficient
