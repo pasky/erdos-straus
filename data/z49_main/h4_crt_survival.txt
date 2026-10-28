@@ -1,0 +1,16 @@
+# Prime-Haar CRT model of H4 (scripts/z49_main_h4crt.c): residues of n mod high powers of each prime are
+# independent uniform units, n ≡ 1 (mod 24). H = least larger endpoint of a slot (= bichromatic) edge.
+# Command: ./h4crt 1000000000 100000 5   (11.6 min).  P(H >= X):
+X=16    0.1349   count=134949073
+X=32    0.02901  count=29006789
+X=64    0.006326 count=6326140
+X=128   0.000792 count=791956
+X=256   7.321e-05 count=73209
+X=512   4.532e-06 count=4532
+X=1024  2e-07    count=200
+X=2048  3e-09    count=3
+X=4096  0        count=0
+# Validation against real primes (FOREST_H4 §5, 2,000,000 random primes near 1e12, counts of H4 > B):
+#   B=16: 270440 vs model(2M) 270287; 32: 58004 vs 58100; 64: 12511 vs 12660; 128: 1473 vs 1603; 256: 139 vs 150; 512: 17 vs 17.
+# -ln P: 2.00, 3.54, 5.06, 7.14, 9.52, 12.30, 15.42, (19.6); increments per doubling grow ~linearly in ln X
+# (≈0.465·ln X), i.e. -ln P ≈ 0.32 (ln X)^2 (local exponent of ln X ≈ 2.2) — supports FOREST_H4 Conjecture S, not H2.
