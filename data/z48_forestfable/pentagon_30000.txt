@@ -1,0 +1,36 @@
+(1, 'A', 0) edges 901 bichromatic 901 ALL-CERT
+(1, 'A', 3) edges 5719 bichromatic 3960 
+(1, 'A', 4) edges 1931 bichromatic 1931 ALL-CERT
+(1, 'A', 7) edges 5602 bichromatic 5602 ALL-CERT
+(1, 'A*', 0) edges 2525 bichromatic 2525 ALL-CERT
+(1, 'A*', 3) edges 6387 bichromatic 2291 
+(1, 'A*', 4) edges 3329 bichromatic 3329 ALL-CERT
+(1, 'A*', 7) edges 7156 bichromatic 7156 ALL-CERT
+(1, 't', 3) edges 6249 bichromatic 3076 
+(1, 't', 7) edges 6191 bichromatic 6191 ALL-CERT
+(1, 'u', 0) edges 1469 bichromatic 1469 ALL-CERT
+(1, 'u', 3) edges 5451 bichromatic 2939 
+(1, 'u', 4) edges 2913 bichromatic 2913 ALL-CERT
+(1, 'u', 7) edges 3886 bichromatic 3886 ALL-CERT
+(1, 'v', 0) edges 1774 bichromatic 1774 ALL-CERT
+(1, 'v', 3) edges 6143 bichromatic 2993 
+(1, 'v', 4) edges 2846 bichromatic 2846 ALL-CERT
+(1, 'v', 7) edges 6384 bichromatic 6384 ALL-CERT
+(5, 'A', 0) edges 3330 bichromatic 3330 ALL-CERT
+(5, 'A', 3) edges 5979 bichromatic 4038 
+(5, 'A', 4) edges 1892 bichromatic 1892 ALL-CERT
+(5, 'A', 7) edges 5924 bichromatic 5924 ALL-CERT
+(5, 'A*', 0) edges 3986 bichromatic 3986 ALL-CERT
+(5, 'A*', 3) edges 7056 bichromatic 3475 
+(5, 'A*', 4) edges 3263 bichromatic 3263 ALL-CERT
+(5, 'A*', 7) edges 8449 bichromatic 8449 ALL-CERT
+(5, 't', 3) edges 10018 bichromatic 10018 ALL-CERT
+(5, 't', 7) edges 5069 bichromatic 2715 
+(5, 'u', 0) edges 1552 bichromatic 1552 ALL-CERT
+(5, 'u', 3) edges 8786 bichromatic 8786 ALL-CERT
+(5, 'u', 4) edges 2858 bichromatic 2858 ALL-CERT
+(5, 'u', 7) edges 2851 bichromatic 1430 
+(5, 'v', 0) edges 3567 bichromatic 3567 ALL-CERT
+(5, 'v', 3) edges 7413 bichromatic 7413 ALL-CERT
+(5, 'v', 4) edges 2945 bichromatic 2945 ALL-CERT
+(5, 'v', 7) edges 6441 bichromatic 3474 
