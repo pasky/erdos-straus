@@ -1,0 +1,7 @@
+p ≡ 1 (24) prime             fire rate by v mod 3: 0: 0.170 (9600 lines)  1: 0.156 (10400 lines)  2: 0.261 (10000 lines)   P(some coprime line ≤ 200 fires) = 1.0000
+p ≡ 17 (24) prime            fire rate by v mod 3: 0: 0.203 (9600 lines)  1: 0.317 (10400 lines)  2: 0.141 (10000 lines)   P(some coprime line ≤ 200 fires) = 1.0000
+n ≡ 1 (24) composite ⊥ 35    fire rate by v mod 3: 0: 0.167 (9394 lines)  1: 0.144 (10058 lines)  2: 0.253 (9486 lines)   P(some coprime line ≤ 200 fires) = 0.9925
+n ≡ 17 (24) composite ⊥ 35   fire rate by v mod 3: 0: 0.202 (9392 lines)  1: 0.311 (10051 lines)  2: 0.136 (9484 lines)   P(some coprime line ≤ 200 fires) = 1.0000
+n ≡ 9 (24) [3|n] ⊥ 35        fire rate by v mod 3: 1: 0.145 (10169 lines)  2: 0.135 (9653 lines)   P(some coprime line ≤ 200 fires) = 0.9950
+n ≡ 1 (24), 5|n, ⊥ 7         fire rate by v mod 3: 0: 0.126 (7464 lines)  1: 0.140 (8211 lines)  2: 0.213 (7679 lines)   P(some coprime line ≤ 200 fires) = 0.9975
+n ≡ 9 (24), 105|n            fire rate by v mod 3: 1: 0.098 (6607 lines)  2: 0.100 (6899 lines)   P(some coprime line ≤ 200 fires) = 0.9525

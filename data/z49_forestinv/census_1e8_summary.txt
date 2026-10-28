@@ -1,0 +1,23 @@
+N=100000000
+prime                n: 1439970  U_cop: 1439970  U_any: 1439970  U only via non-coprime words: 0  FAIL: 0
+composite nonsquare  n: 11055030  U_cop: 11054594  U_any: 11055024  U only via non-coprime words: 430  FAIL: 6
+square               n: 4999  U_cop: 0  U_any: 0  U only via non-coprime words: 0  FAIL: 4999
+composites with 3|n:0 5|n:0 7|n:0  count 4272030  U_cop failures 0
+composites with 3|n:1 5|n:0 7|n:0  count 2856000  U_cop failures 46
+composites with 3|n:0 5|n:1 7|n:0  count 1428000  U_cop failures 5
+composites with 3|n:1 5|n:1 7|n:0  count 714000  U_cop failures 94
+composites with 3|n:0 5|n:0 7|n:1  count 952000  U_cop failures 0
+composites with 3|n:1 5|n:0 7|n:1  count 476000  U_cop failures 90
+composites with 3|n:0 5|n:1 7|n:1  count 238000  U_cop failures 4
+composites with 3|n:1 5|n:1 7|n:1  count 119000  U_cop failures 197
+# histogram: row = class (bits 3|n,5|n,7|n; P = primes), columns = bitlength of least coprime V-line 2..24, then >2^24, none
+C000 0 4026909 210039 32610 2322 136 13 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | 0 0
+C100 0 2530026 112108 189800 16281 6249 1070 264 79 30 19 10 12 3 1 2 0 0 0 0 0 0 0 | 0 46
+C010 0 1321778 68680 31461 5449 552 61 11 2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 | 0 5
+C110 0 607508 30851 58153 8757 5833 1561 678 238 124 68 55 26 14 15 8 5 4 1 4 2 1 0 | 0 94
+C001 0 697647 224463 27064 2538 268 19 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | 0 0
+C101 0 221600 83523 139577 20290 7902 1876 639 264 98 44 29 17 16 10 5 6 4 3 2 3 1 1 | 0 90
+C011 0 175348 38798 18179 4738 780 117 29 4 2 0 1 0 0 0 0 0 0 0 0 0 0 0 | 0 4
+C111 0 56232 18149 30757 5839 4715 1639 707 281 167 92 67 50 30 24 20 14 6 5 2 4 3 0 | 0 197
+P    0 1360631 68506 10188 626 19 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | 0 0
+max least coprime V-endpoint: composites 11610199 at 58050993; primes 116 at 3361
