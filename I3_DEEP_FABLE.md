@@ -69,7 +69,7 @@ density main term (= ½ log²n + O(log n); M₀(10⁶) = 59.4, M₀(1560²) = 69
    norm form" hint is an obstruction, not a mechanism.
 5. **Main attack (§5): every candidate mechanism is pushed to its blocking step, and each step is the single-integer
    tied class.** ⟨R⟩ n's divisors: u | n ⟹ a word with endpoint u ⟺ n/u + 1 has a divisor A ≡ −1 (mod u) with A ≥ 3u − 1
-   (for n = k!: the word (t, k − 2, k − 2) exists iff (k − 2) is prime or sporadically); the AP/semigroup {tn + 1}
+   (for n = k!: the word (t, k − 2, k − 2) exists whenever k − 2 is prime, otherwise only sporadically); the AP/semigroup {tn + 1}
    (products of levels leave the interior range, Lemma 5.2); the Vieta/Ptolemy move (Lemma 5.4: an involution within the
    endpoint-u words; from the free words it reaches exactly the consecutive-endpoint family d | n + 1, d + 1 | n − 1 and
    the family (u, 2u − 1) — tied-class statements about (n + 1, n − 1) and (2n + 1, n + u)); polynomial identities
