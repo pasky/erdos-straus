@@ -150,3 +150,79 @@ Reproduction (each run under `ulimit -v 8000000`):
 timeout 900 uv run --with numpy python scripts/z49_revh4_check.py > data/z49_revh4/checks.json      # ~10 s
 timeout 600 uv run --with sympy python scripts/z49_revh4_encoding.py 20 30000000 > data/z49_revh4/encoding.json
 ```
+
+---
+
+## Follow-up review of commit fb71a959 (Gallagher transfer, Lemma 7b, and the effectivity repair)
+
+Scope: only the diff `git show fb71a959`, i.e. the new Lemma 7b, the effectivity claims, the citation repairs and the
+new headline κ < 1/6.
+
+### Verdict: **SOUND**, relative to (G) and the internal energy lemma. Minor wording items only.
+
+### What I checked
+
+**1. (G0)/(G1) against the archived source.** I extracted MV III Theorem 28.19 from
+`sources/omega9/montgomery-mnt3.pdf` (pp. 229–230) with pdftotext.
+- The non-exceptional right side matches the source verbatim:
+  x·exp(−log x/(κ log Q)) + (log x/log Q)²·x/Q.
+- The exceptional form also matches:
+  - the summand ϑ(x;χ₁) + x^{β₁}/β₁;
+  - the right side (1−β₁)(log x)·x·[exp(−log x/log Q) + log x/(Q log Q)];
+  - the prefactor multiplies both terms;
+  - the second term carries no κ in the exponent.
+- The draft's parameter-range slip and its missing height restriction are handled by fixing κ_G as in POINTWISE_OMEGA9
+  §1, which was reviewed earlier.
+
+**2. Parameter choice in 7b.** The source requires U^{6c} ≤ x and U ≥ Z. With U = x^{1/(κ_G B₀)} and x = Z^C:
+- U^{6c} ≤ x holds iff κ_G B₀ ≥ 6c;
+- U ≥ Z holds iff C ≥ κ_G B₀;
+- the (G0) error is then C_G·𝒜·μx/φ(Q′)·[e^{−B₀} + (κ_G B₀)²/U], which is below 1/100 of the main term for a
+  fixed large B₀.
+
+All error terms are relative to μ because |c(χ)| ≤ E|B|/φ(Q′) = 𝒜μ/φ(Q′), with 𝒜 ≤ 1 + 2/99 by B⁻ ≤ F−B. So neither
+S nor K enters log x. That is why (16b) has no S or K term and is linear in log Z, which is correct.
+
+**3. Exceptional case.**
+- In the (G1) regime, 1−β₁ < 1/(κ_G log U), so u = (1−β)log x < B₀. Then max(u,1) ≤ B₀ gives (23).
+- **Case A** (f | Q′):
+  - ψ ≡ 1 on the fibre, because odd real primitive conductors are squarefree and 8 | Q′. So c(χ) = μ/φ(Q′) exactly.
+  - λ ≥ min(u,1)/2 is the bound from OMEGA9; my earlier numerical minimum for the ratio was 0.509.
+  - By (15) and f ≤ Q′ ≤ Z, min(u,1) ≫ Z^{−1/2}(log Z)^{−2}, and the induced-to-primitive correction is
+    R₁ ≪ Z³𝒜μ/φ(Q′). So x = Z^C with C ≥ 4 (and ≥ κ_G B₀) already beats R₁, and the document's "C > 5" suffices.
+- **Case B** (f ∤ Q′): Lemma 6 gives |c(χ)| ≤ μ/(4φ(Q′)), so the depleted main term is at least μx/(2φ(Q′)).
+- An exceptional character that does not appear in the expansion is harmless.
+
+**4. Interfaces.**
+- Overlapping moduli. A cell combined with n ≡ 1 (mod Q′) is a coset modulo lcm(Q′,d_i) ≤ Z, so c(χ) ≠ 0 forces
+  cond χ ≤ Z.
+- The map χ ↦ χ* is injective, so at most Z² coefficients are nonzero.
+- log ℕ ≤ log Q′ + 1.04D ≪ Z.
+- Every counted prime is ≡ 1 (mod r), hence exceeds T, so it avoids all cell primes and B(p) ≤ F(p) holds there.
+
+**5. Effectivity, ordinary-PNT route.** I fetched the author-hosted MV I chapter 11 and checked the cited statements:
+- Cor 11.10 (Page, p. 369) and Cor 11.12 (p. 370), which gives 1−β₁ ≥ c/(q^{1/2}(log q)²).
+- Theorem 11.16 and Cor 11.20, equations (11.32) and (11.34), p. 381.
+- The statement on p. 380 that the constants in Thms 11.3, 11.4, 11.16 and Cor 11.17 are effectively computable.
+
+Cor 11.12 is stated only for an "exceptional" zero in MV's per-modulus sense. The added sentence is right that any
+other real zero obeys the stronger zero-free-region bound 1−β ≫ 1/log f, so (15) holds for every real zero. Combined
+with my earlier global-exception derivation, the κ < 1/12 route is effective as claimed.
+
+**6. Effectivity, Gallagher route.** I believe this claim is correct: Gallagher's theorem is the engine of the
+effective Linnik theorem, and its proof uses only the log-free density estimate and Deuring–Heilbronn, both effective.
+However, the document asserts that "all constants used in (G) … are effective" with no source line, and MV III does
+not state effectivity next to Thm 28.19.
+
+### Minor items (no repair is blocking)
+- **n1.** Add one sentence and a reference for the effectivity of (G). For example: the Linnik exponent is effectively
+  computable (Heath-Brown 1992; Xylouris), and those proofs use exactly this log-free density plus
+  Deuring–Heilbronn input.
+- **n2.** "Thus even the worst Siegel-zero class…" in Lemma 7 should now read "exceptional-zero class". The document no
+  longer uses Siegel's theorem, and the term invites the misreading that it does.
+- **n3. Labelling for downstream citation.** The headline κ < 1/6 rests on (G), checked only in the MV III draft
+  formulation, and on the internal OMEGA10 energy lemma. FRONTIER and BREADTH should record both results:
+  - κ < 1/12, relying only on published MV I statements plus the energy lemma;
+  - κ < 1/6, relative to (G) plus the energy lemma.
+
+  The document already does this; downstream summaries should not collapse the two.
