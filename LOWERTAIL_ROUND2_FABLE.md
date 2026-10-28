@@ -51,8 +51,8 @@ non-identity theorem, one new witness statistic with a different (Landau-type) h
    Dickson. No implication from a standard conjecture to it is known (§4).
 4. **Hierarchy (work item 2, §4).** Shape balance SB(c): N₋(p) ≥ c·W(p) implies ES₅ for large p *without any sign-free
    lower tail* (W(p) ≥ 15 is PROVED); every quantitative member of the hierarchy is ES₅ plus a size statement, every
-   positivity member stated "for all n" is false at squares (PROVED), every one-coordinate bounded-window member is false
-   i.o. under Dickson (Prop 3.3(b), with the window words arbitrarily many and all monochromatic), and after the
+   positivity member stated "for all n" is false at squares (PROVED), every one-coordinate bounded-window certificate-positivity member is
+   false i.o. under Dickson (Prop 3.3(b), with the window words arbitrarily many and all monochromatic), and after the
    coordinate form the ES₅ covering is **character-free** (Prop 4.2, PROVED), so the known consequences of GRH/OAI-003
    (least QNR, main terms) act on layers the covering no longer has (Assessment). The boundary: the weakest clean member
    is ES₅ itself; the weakest *natural* member is HC(p) ≪ log p; no implication from a standard conjecture to any member
