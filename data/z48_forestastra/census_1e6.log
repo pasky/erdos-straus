@@ -1,0 +1,19 @@
+N=1000000 primes=39175 p1mod24=9732 edges=3028437 good=1964805 first_split_fail=37 least_QNR_parent_fail=1078 root1_fail=285
+maxH=167 at=944329 maxB=12 at=19009 max_min_good_smaller_minus_B=8 at=196561 stored=3028437 capacity_bytes=50331648
+B=1 primes=34162 first_split_fail=0
+B=2 primes=3034 first_split_fail=0
+B=3 primes=1165 first_split_fail=0
+B=4 primes=473 first_split_fail=0
+B=5 primes=169 first_split_fail=9
+B=6 primes=70 first_split_fail=15
+B=7 primes=40 first_split_fail=0
+B=8 primes=31 first_split_fail=0
+B=9 primes=17 first_split_fail=11
+B=10 primes=5 first_split_fail=1
+B=11 primes=6 first_split_fail=0
+B=12 primes=3 first_split_fail=1
+max_split_fibres_to_hit=4 at=196561
+K=1 primes=39138
+K=2 primes=24
+K=3 primes=11
+K=4 primes=2
