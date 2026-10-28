@@ -1,0 +1,126 @@
+{
+  "oai_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+  "audit_kind": "static local OAI import closure, not compiler/kernel audit",
+  "closures": {
+    "DirichletSevenEighths": {
+      "config": {
+        "challenge_module": "ComparatorChallenges.DirichletSevenEighths",
+        "solution_module": "OAI.NumberTheory.DirichletL.Nonvanishing",
+        "theorem_names": [
+          "OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re"
+        ],
+        "definition_names": [],
+        "permitted_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "enable_nanoda": false
+      },
+      "modules": 2924,
+      "missing": [],
+      "lexical_hits": []
+    },
+    "QuasiRiemannHypothesis": {
+      "config": {
+        "challenge_module": "ComparatorChallenges.QuasiRiemannHypothesis",
+        "solution_module": "OAI.NumberTheory.DirichletL.Nonvanishing",
+        "theorem_names": [
+          "OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re"
+        ],
+        "definition_names": [],
+        "permitted_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "enable_nanoda": false
+      },
+      "modules": 2924,
+      "missing": [],
+      "lexical_hits": []
+    },
+    "HeckeSevenEighths": {
+      "config": {
+        "challenge_module": "ComparatorChallenges.HeckeSevenEighths",
+        "solution_module": "OAI.NumberTheory.DirichletL.Hecke.Nonvanishing",
+        "theorem_names": [
+          "OAI.SevenEighths.HeckeFamily.LFunction_ne_zero_of_seven_eighths_lt_re"
+        ],
+        "definition_names": [],
+        "permitted_axioms": [
+          "propext",
+          "Quot.sound",
+          "Classical.choice"
+        ],
+        "enable_nanoda": false
+      },
+      "modules": 2925,
+      "missing": [],
+      "lexical_hits": []
+    },
+    "SiegelZeros": {
+      "config": {
+        "challenge_module": "ComparatorChallenges.SiegelZeros",
+        "solution_module": "OAI.NumberTheory.SiegelZeros.Main",
+        "theorem_names": [
+          "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+          "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+        ],
+        "definition_names": [],
+        "permitted_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "enable_nanoda": false
+      },
+      "modules": 306,
+      "missing": [],
+      "lexical_hits": []
+    }
+  },
+  "endpoint_polynomial_identity": true,
+  "endpoint_margin": "49/440640",
+  "other_real_counterexample": {
+    "p": 61,
+    "u": 2,
+    "v": 3,
+    "q": 24,
+    "BM": "1/4",
+    "nonreal": 0,
+    "other_real": "-1/4"
+  },
+  "finite_lower_tail_control": {
+    "p": 409,
+    "R": 0,
+    "M_BM_exact": "6918053/2311155",
+    "M_BM": 2.9933314727917426
+  },
+  "sources": {
+    "preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf": {
+      "sha256": "8fe93046f8cf5ef1ba5969c89addc02d76311adc4ee907509ff9cd96f7ec99e7",
+      "bytes": 1588969
+    },
+    "preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex": {
+      "sha256": "42a5ee0febca59fd1def55cfd6c6808c322ef4237d7726303ea52f711deac6a3",
+      "bytes": 766316
+    },
+    "preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf": {
+      "sha256": "f919b57829b178c8e60e7c17b018cf773e7907cf642ef5a3347d8a826e8dbf18",
+      "bytes": 784503
+    },
+    "preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/build/paper2.tex": {
+      "sha256": "d9a8f15aa770cf883d0eabd2b775fad694ce20b44cba7928f5c0c9a6d8750d4d",
+      "bytes": 169005
+    },
+    "preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf": {
+      "sha256": "fab9f6e84ece2a37d834b2c031d8eb14e81413d9f6270791e7b5468b295214ef",
+      "bytes": 404812
+    },
+    "preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/build/paper.tex": {
+      "sha256": "b011ba9c1f55ee2164292492c55e0c6d75c458eb30d4808808f9953823b8ded4",
+      "bytes": 31166
+    }
+  }
+}
