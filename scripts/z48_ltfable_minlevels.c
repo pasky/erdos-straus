@@ -1,6 +1,6 @@
 /* z48_ltfable_minlevels.c — for every n <= N record the least level t and least endpoint min(u,v)
  * among (a) (*) words (4 | t) and (b) five-slice certificate words (any slot), and the least level among
- * interior words (t,u,v >= 3).  uint16 saturating (65535 = none/too large).
+ * interior words (t,u,v >= 3).  Endpoints: uint16 saturating (65535 = none); levels: uint32 (0xFFFFFFFF = none).
  * Then print, for primes p = 1 (mod 4): max of each statistic per dyadic range, normalised by log p and log^2 p,
  * and the full list of primes where the (*) least endpoint exceeds (log p)^2 or the least level exceeds 8 log^2 p.
  * Usage: z48_ltfable_minlevels N outprefix
@@ -10,10 +10,12 @@
 #include <stdint.h>
 #include <math.h>
 static inline void mn(uint16_t *a, uint64_t i, int64_t x) { uint16_t y = x > 65535 ? 65535 : (uint16_t)x; if (y < a[i]) a[i] = y; }
+static inline void mn32(uint32_t *a, uint64_t i, int64_t x) { uint32_t y = x > 0xFFFFFFFEll ? 0xFFFFFFFEu : (uint32_t)x; if (y < a[i]) a[i] = y; }
 int main(int argc, char **argv) {
     uint64_t N = strtoull(argv[1], 0, 10);
-    uint16_t *STt = malloc(2 * (N + 1)), *STu = malloc(2 * (N + 1)), *ANt = malloc(2 * (N + 1)), *ANu = malloc(2 * (N + 1)), *I3t = malloc(2 * (N + 1));
-    for (uint64_t i = 0; i <= N; i++) STt[i] = STu[i] = ANt[i] = ANu[i] = I3t[i] = 65535;
+    uint32_t *STt = malloc(4 * (N + 1)), *ANt = malloc(4 * (N + 1)), *I3t = malloc(4 * (N + 1));
+    uint16_t *STu = malloc(2 * (N + 1)), *ANu = malloc(2 * (N + 1));
+    for (uint64_t i = 0; i <= N; i++) { STt[i] = ANt[i] = I3t[i] = 0xFFFFFFFFu; STu[i] = ANu[i] = 65535; }
     for (int64_t u = 1; ; u++) {
         if (u * u - 2 * u > (int64_t)N) break;
         for (int64_t v = u; ; v++) {
@@ -25,9 +27,9 @@ int main(int argc, char **argv) {
                 if (n > (int64_t)N) break;
                 int st = (t % 4 == 0);
                 int any = st || (u % 4 == 0) || (v % 4 == 0) || ((t * u - 1) % 4 == 0) || ((t * v - 1) % 4 == 0);
-                if (st) { mn(STt, n, t); mn(STu, n, u); }
-                if (any) { mn(ANt, n, t); mn(ANu, n, u); }
-                if (u >= 3 && t >= 3) mn(I3t, n, t);
+                if (st) { mn32(STt, n, t); mn(STu, n, u); }
+                if (any) { mn32(ANt, n, t); mn(ANu, n, u); }
+                if (u >= 3 && t >= 3) mn32(I3t, n, t);
             }
         }
     }
@@ -45,7 +47,7 @@ int main(int argc, char **argv) {
             if (STu[p] != 65535) { if (STu[p] > mSTu) { mSTu = STu[p]; aSTu = p; } if (STu[p] / (L * L) > mSTur) mSTur = STu[p] / (L * L);
                                    double C = STt[p] / 4.0; if (C > mC) { mC = C; aC = p; } if (C / (L * L) > mCr) mCr = C / (L * L); }
             if (ANu[p] > mANu) { mANu = ANu[p]; aANu = p; } if (ANt[p] > mANt) { mANt = ANt[p]; aANt = p; }
-            if (I3t[p] != 65535 && I3t[p] > mI3) { mI3 = I3t[p]; aI3 = p; }
+            if (I3t[p] != 0xFFFFFFFFu && I3t[p] > mI3) { mI3 = I3t[p]; aI3 = p; }
         }
         fprintf(g, "k=%2d [%llu,%llu] n=%llu maxSTu=%g(@%llu) maxSTu/L2=%.3f maxCmin=%g(@%llu) maxCmin/L2=%.3f maxANu=%g(@%llu) maxANt=%g(@%llu) maxI3t=%g(@%llu)\n",
                 k, (unsigned long long)lo, (unsigned long long)hi, (unsigned long long)cnt, mSTu, (unsigned long long)aSTu, mSTur, mC, (unsigned long long)aC, mCr, mANu, (unsigned long long)aANu, mANt, (unsigned long long)aANt, mI3, (unsigned long long)aI3);

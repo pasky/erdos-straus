@@ -17,43 +17,47 @@ assumed if labelled.
 **Outcome: NEGATIVE, with the blocking step isolated more sharply than before.** Nothing below proves (∗), R(p) ≥ 1, or ES(p)
 for large p, under any hypothesis. What the attempt adds:
 
-1. **The obstruction is sign-free, prime-free and 4-free (§4).** Strip from (★) the condition 4 | t, the Legendre sign, and
-   primality: the remaining statement is the *interior word problem* I3(n): "n = tuv − u − v with t, u, v ≥ 3". Its main term is
-   ≍ ½ log²n by a one-line density count (no character, no BM correction), yet no method gives I3(n) ≥ 1 for all large n. The
-   only words a theorem can produce are the *free* words (some coordinate ≤ 2), whose count is an explicit function of
-   τ(n+1), τ(n+2), τ(2n+1) (Theorem 4.1, PROVED) and is bounded infinitely often under Dickson (Prop 4.2, CONDITIONAL). So
-   every known tool reaches exactly the class-free levels; the first class-restricted level is already B2. CERTIFIED to 10⁸
-   (and to 10⁹ for I3 and (★), §4.4): I3(n) = 0 at 112 integers, the last non-square one 36 078, the last one 2 433 600 = 1560².
+1. **A sign-free, prime-free, 4-free model of the blocking step (§4).** Words (t, u, v) of n (tuv − u − v = n) split into *free*
+   words (some coordinate ≤ 2: the divisor condition is vacuous or 2-adic) and *interior* words (t, u, v ≥ 3: a genuine tied-class
+   divisor event). The free count is an explicit function of τ(n+1), τ(n+2), τ(2n+1) (Theorem 4.1, PROVED), equal to 15 on an
+   infinite set of primes under Dickson (Prop 4.2, CONDITIONAL), and it is the only lower bound for the word count of a general
+   prime that any known argument gives (congruence families add interior words on fixed progressions, B1). The interior count
+   I3(n) has main term ½ log²n by a one-line density count (no character, no BM correction, no square obstruction), yet no method
+   gives I3(n) ≥ 1 for all large n. Interior (★)-words are interior words, so I3 is the boundary-trimmed, sign-free relative of
+   (★). CERTIFIED to 10⁹ (§4.4): I3(n) = 0 at exactly 112 integers, the last non-square one 36 078, the last one 2 433 600 = 1560².
 2. **T1 has a sign-free shadow (Lemma 4.3, PROVED).** At n = m² the levels t ≡ 0 (mod 4) *and* t ≡ 7 (mod 8) carry no words at
-   all, and t ≡ 3 (mod 8) only words with tu − 1 even — pure reciprocity. The interior count at odd squares is ≈ 0.39 × the
-   prime mean (EVIDENCE), and the lower tail of I3 bites exactly there (7 of the 10 largest failures are squares). The ES
-   obstruction at squares (all five-slice counts vanish) is the same mechanism pushed to every level.
-3. **Positivity, signed weights, Selberg-in-reverse, fixed-p second moments, the monoid structure of {4Cp + 1}: each reduces to the
-   same single-integer count (§§2–3, PROVED where stated).** The one genuinely one-sided device — any signed weighting of the
-   hits certifies R(p) ≥ 1 as soon as it is non-zero (Lemma 2.1) — needs a non-vanishing theorem for a function supported on the
-   (★)-set; no such function is an Eisenstein coefficient of bounded level (it vanishes at every odd square and is not a
-   function of p mod Q), and no non-vanishing theorem of the required single-point type exists for the growing-level sum.
+   all, and t ≡ 3 (mod 8) only words with tu − 1 even (none at all for even m) — pure reciprocity. The interior count at odd
+   squares is ≈ 0.5 × the odd non-square mean (EVIDENCE), and 18 of the 112 failures of I3 are squares, including both failures
+   above 20 000 (19 600 = 140², 2 433 600 = 1560²). The ES obstruction at squares (all five-slice counts vanish) is the same
+   mechanism pushed to every level.
+3. **Positivity, signed weights, Selberg-in-reverse, fixed-p second moments, the semigroup structure of {4Cp + 1}: each reduces to the
+   same single-integer count (§§2–3, PROVED where stated, Assessment otherwise).** The one genuinely one-sided device — any signed
+   weighting of the hits certifies R(p) ≥ 1 as soon as it is non-zero (Lemma 2.1) — needs a non-vanishing theorem for one value
+   of a function supported on the (★)-set. Bounded-level weightings give congruence functions (Mordell classes, B1); a weighting
+   non-vanishing at every large prime must use unboundedly many levels, where no non-vanishing theorem for a single coefficient
+   exists (Assessment).
 4. **A closed-form sign law by level (Lemma 1.2, PROVED)** replaces the mod-8 cell table of `DEDEKIND_ES` Thm 4.5 on odd-A words:
    (A/p) = (−t/A) = −(−1)^{(A+1)(t+1)/4} for odd t. Consequences: every word with t ≡ 3 (mod 4) and uv even is an ES certificate;
    for t ≡ 1 (mod 4) exactly the words with 4 | uv are. These level-class lines L₃, L₁ are sister lines of (★) (= 4 | t) with
    comparable means; their lower tails are *fatter* than (★)'s (128 and 783 failures ≤ 10⁷ against 14; CERTIFIED), because
-   their mass sits on fewer, clumpier levels (level 3 alone carries a constant fraction of L₃).
+   their small levels are clumpier (level 3 of L₃ is Mordell's all-or-nothing class, contributing ≍ log p words at once or none).
 5. **Conditional landscape (§6).** GRH or OAI-003 give the main term M_BM(p) ∼ (3/(2π²)) log²p, a least non-residue ≤ C log⁸p,
    and exponent caps ≪ log⁸p — all *sign-layer* or *main-term* facts. The exact gap (§7) is untouched by them: a lower bound
    for a sum of ≍ p log p divisor indicators 1[(tu − 1) | n + u] at one integer n, with mean ≍ log²n. The cleanest sufficient
-   hypothesis is still (★) itself for p > 8 813 281, or its five-slice version with least endpoint ≤ 23 (EVIDENCE to 10⁷); no
+   hypothesis is still (★) itself for p > 8 813 281, or its five-slice version with least endpoint ≤ 2 log p (EVIDENCE to 10⁷); no
    standard conjecture implies either, and the closest named analogue is "every N ≢ ±4 (mod 9) is a sum of three cubes"
    (Heath-Brown's polylog single-integer heuristic), which is likewise open.
 
-**Promise that this line leads to a proof of ES: 0/5 as a mechanism; 1/5 as a target statement** (the model problem I3 is the
-right first test for any future single-integer tied-class method: if a method cannot prove I3(n) ≥ 1 it cannot prove (★)).
+**Promise that this line leads to a proof of ES: 0/5 as a mechanism; 1/5 as a target statement** (Assessment: the model problem
+I3 is a natural first test for any future single-integer tied-class method — it carries the tied-class event and nothing else —
+but no implication between I3 and (★) is proved in either direction).
 
 ## 1. The object and its lines
 
 ### 1.1 Words, levels, slots (PROVED; notation of `METAPLECTIC_ES`, `DEDEKIND_ES`, FRONTIER §2)
 
-A *word* of n is (t, u, v) ∈ ℕ³ with tuv − u − v = n; then (tu − 1)(tv − 1) = tn + 1, A := tu − 1, A* := tv − 1, and the pair
-(u, v) is an edge of the forest F_n (uv | n + u + v). W(n) := #words (ordered). For 4 | t = 4C the word is a (★)-triple
+A *word* of n is (t, u, v) ∈ ℕ³ with tuv − u − v = n; then (tu − 1)(tv − 1) = tn + 1, A := tu − 1, A* := tv − 1, and for u ≠ v the
+pair (u, v) is an edge of the forest F_n (uv | n + u + v). W(n) := #words (ordered). For 4 | t = 4C the word is a (★)-triple
 (u, v, C), so R(n) = #{words : 4 | t}. For prime p ≡ 1 (mod 4) the five-slice certificate count is
 N₋(p) = #{words : one of t, u, v, tu − 1, tv − 1 is ≡ 0 (mod 4)} = #{words : (A/p) = −1} (`DEDEKIND_ES` Thm 4.5), and each
 such word gives an explicit ES solution (FRONTIER forest table). The three campaign lines are the three *slot lines*:
@@ -112,16 +116,16 @@ changes the certificate set.
 *Proof.* An empty sum is 0. ∎
 So (∗)-type positivity is not needed: *any* non-vanishing of a weighted hit sum certifies ES(p). The weights may oscillate;
 F_w(n) := Σ_{hits of n} w is then an arbitrary function supported on the (★)-set 𝒮 = {n : R(n) ≥ 1}. What would be needed is a
-**non-vanishing theorem for one value F_w(p)**. The constraints on such an F_w:
-* F_w(m²) = 0 for every odd square (T1: 𝒮 contains no odd square, `PARITY_AUDIT` Lemma 3.2): any candidate identity must be
-  square-sensitive, which bounded-level Eisenstein data are not ((J)7 Thm 9.1 excludes finite fixed-level divisor-sum identities
-  for the Type I/II counts themselves, by T1).
-* For a fixed finite set of levels t = 4C ≤ T, the hits are divisor events of the finitely many linear polynomials 4Cp + 1, and
+**non-vanishing theorem for F_w(p) at every large prime p**. The constraints on such an F_w (Assessment, with the PROVED parts cited):
+* F_w(m²) = 0 for every odd square (T1: 𝒮 contains no odd square, `PARITY_AUDIT` Lemma 3.2), so F_w is square-sensitive.
+* Weightings supported on boundary words are congruence functions: w = 1 exactly on (u, C) = (1, 1) gives F_w(n) = 1[n ≡ 2 (mod 3)]
+  (the word (4, 1, (n+1)/3)) — Mordell's class, square-sensitive and a function of n mod 3. More generally, a weighting supported
+  on finitely many levels t = 4C ≤ T is a sum of divisor-class events of the finitely many polynomials 4Cp + 1, and
   `reviews/redteam-automorphic-2.md` Thm 2.2(iii) (CONDITIONAL on H) gives infinitely many primes at which none of them has a
-  certificate divisor, so F_w vanishes there. So F_w must involve unboundedly many levels, and at each level the hit indicator is the coefficient of a Kronecker theta quotient at a torsion
-  point (`METAPLECTIC_ES` Thm K): Σ_C w_C·[q^p](level-4C series). No modular structure in C is known (Thm K reading, §4 there),
-  and no non-vanishing theorem for a single coefficient of such a growing-level sum exists. The device is sound and empty
-  (Assessment).
+  certificate divisor, so F_w vanishes there. Hence a weighting non-vanishing at every large prime must involve unboundedly many
+  levels; at each level the hit indicator is a coefficient of a Kronecker theta quotient at a torsion point (`METAPLECTIC_ES`
+  Thm K), Σ_C w_C·[q^p](level-4C series), with no modular structure in C (Thm K reading, §4 there), and no non-vanishing theorem
+  for a single coefficient of such a growing-level sum is known. The device is sound and, with present tools, empty.
 
 ### 2.2 Theta-quotient positivity gives majorants, never minorants (PROVED bookkeeping)
 
@@ -138,13 +142,13 @@ D_t^− − D_t^+ = −(2/φ(t))[Σ_{real odd χ} σ_χ(N) + 2 Σ_{non-real odd 
 R_t(n) ≤ (genus majorants); the inequality that would help, R_t(n) ≥ 1 for some t, needs the full character group at the single
 integer tn + 1. The ≥ direction is where every positivity argument stops, and it stops before the first non-trivial level.
 
-### 2.3 "Selberg sieve in reverse" (Assessment, with the exact identity)
+### 2.3 "Selberg sieve in reverse" (Assessment)
 
-An upper-bound sieve bounds #{(u, C) ∈ 𝓡 : (4uC − 1) ∤ p + u} = |𝓡| − R(p). Any bound of the form |𝓡| − M(p) + E with |E| < M(p)
-is literally the asymptotic R(p) = M(p) + O(E), i.e. the two-sided statement that is false infinitely often by Linnik
-(`BM_CORRECTED_COUNT` Prop 3.1) and in any case the full problem. There is no reversal: the complement of a tied-class
-divisibility event in a family of ≍ p log p trials is not a sifted set of integers (the moduli move with the trial), and the
-sieve's main term is the count itself.
+An upper-bound sieve for the non-hits, #{(u, C) ∈ 𝓡 : (4uC − 1) ∤ p + u} ≤ |𝓡| − M(p) + E, gives the one-sided bound
+R(p) ≥ M(p) − E, which is exactly what is wanted and is useful iff E < M(p). But |𝓡| ≍ p log p while M(p) ≍ log²p: the sieve
+would have to count the non-hits with relative error below (log p)/p, and the non-hits are not a sifted set (the "primes"
+sieved out are the moving moduli 4uC − 1 applied to the moving integers p + u). Any sieve main term for the non-hits is
+|𝓡| − (the hit main term), so the sieve's error term *is* the problem; no reversal of a known upper-bound sieve produces it.
 
 ## 3. Averaging at a fixed prime
 
@@ -155,27 +159,28 @@ sieve's main term is the count itself.
 So the family {4k/p}_k, or any sub-event "k | x" etc., re-weights the fixed solution set Sol(p); its "moments over k" are
 moments of a function of Sol(p), and a second-moment inequality over k says nothing not already in Sol(p).
 
-### 3.2 There is no probability space at one prime (Assessment, with a precise negative)
+### 3.2 Second moments over a family that includes p (Assessment, with the exact requirement)
 
-A second-moment (Chebyshev/Turán/Janson) argument needs a family {n_α} with a count X_α and E X ≥ 1, Var X = o((E X)²); its
-conclusion is #{α : X_α ≥ 1} ≥ (1 − o(1))·#family. If the family consists of other integers (an AP class, an interval, a
-level/discriminant attached to p), the conclusion is about *some* member — B6 — and transfers to p only if X is constant on the
-family, which for (★) means: the hits have moduli 4uv dividing the class modulus Q, i.e. a congruence certificate (B1). If the
-family is {p} × (auxiliary), then by §3.1-type identities X_α is a function of the fixed hit set, Var is a deterministic number
-with no probabilistic content, and the inequality P(X = 0) ≤ Var/E² has no meaning. **Every "family that includes p" tried here
-is of one of these two kinds**; a third kind — a family of *different* problems at the same p whose certificates are
-independent as arithmetic events — would need certificates that are not divisor events of integers determined by p, and
-none is known (the relaxations ES^□, ES^{(S)}, caps > 0 have such families — free primes — and are theorems, FRONTIER B-fin).
+A second-moment argument over a finite family {n_α}_{α ≤ K} with counts X_α (uniform measure) gives #{α : X_α = 0} ≤ K·Var X/(E X)²;
+to conclude X_p ≥ 1 for the *specific* member p one needs Var X < (E X)²/K, i.e. a variance bound at relative precision 1/K. If
+the family consists of other integers (an AP class, an interval, a level/discriminant attached to p), K ≥ 2 and this is a fixed-p
+variance bound of the kind `SYNTHESIS_SPARKS9` (J)103 §3 found "critical" (the empirical variance is ≍ E X, not o((E X)²/K)); with
+K = 1 it is the statement itself. If the family is {p} × (auxiliary), then by §3.1-type identities every X_α is a function of the
+fixed hit set Sol(p): E and Var are then exact finite computations in the unknown set Sol(p), and the inequality is a tautology
+about that set, not an input. **Every "family that includes p" considered here is of one of these two kinds**; a third kind — a
+family of *different* problems at the same p whose certificates are independent as arithmetic events — would need certificates
+that are not divisor events of integers determined by p, and none is known (the relaxations ES^□, ES^{(S)}, caps > 0 have such
+families — free primes — and are theorems, FRONTIER B-fin).
 
-### 3.3 The monoid {4Cp + 1} (PROVED, closes the "multiplicative structure across C" hint)
+### 3.3 The semigroup {4Cp + 1} (PROVED, closes the "multiplicative structure across C" hint)
 
-**Lemma 3.3.** The set {4Cp + 1 : C ≥ 1} = {n ≡ 1 (mod 4p)} is a monoid under multiplication, (4Cp+1)(4C′p+1) = 4(C∘C′)p + 1 with
+**Lemma 3.3.** The set {4Cp + 1 : C ≥ 1} = {n > 1 : n ≡ 1 (mod 4p)} is a semigroup under multiplication, (4Cp+1)(4C′p+1) = 4(C∘C′)p + 1 with
 C ∘ C′ = C + C′ + 4pCC′. If d ≡ −1 (mod 4C) and d′ ≡ −1 (mod 4C′), then dd′ ≡ +1 (mod 4 gcd(C, C′)); in particular dd′ is never
 ≡ −1 modulo 4(C ∘ C′) (which exceeds 4C, 4C′). *Proof.* Direct. ∎ (`z48_ltfable_lemmas.py` L5.)
 So certificates at two levels never combine into a certificate at the product level: the class flips to +1 and the required
-modulus grows. The monoid gives the multiplicative structure of the *integers* 4Cp + 1, not of the certificate divisors. Combined
-with privacy (`SYNTHESIS_SPARKS8` Lemma 2.3: a prime ℓ > J divides at most one of 4Cp + 1, C ≤ J), the levels are independent
-lottery tickets with shared small-prime data only.
+modulus grows. The semigroup gives the multiplicative structure of the *integers* 4Cp + 1, not of the certificate divisors. By
+privacy (`SYNTHESIS_SPARKS8` Lemma 2.3: a prime ℓ > J divides at most one of 4Cp + 1, C ≤ J) the levels share only small-prime
+data (Assessment: no cross-level structure usable for existence).
 
 ## 4. The sign-free core: free words, interior words, and the model problem
 
@@ -194,8 +199,9 @@ one for each v | n + 2 (all divisors are odd, so t is integral; τ(n+2)); with v
 factors ≥ 2: τ(n+1) − 2. Words with t = 2 and u, v ≥ 3: (2u−1)(2v−1) = 2n + 1 with both factors ≥ 5: τ(2n+1) − 2 − 2·1[3 | 2n+1].
 These last two families are disjoint from the first four. ∎ (Checked for all odd n < 3000.)
 
-*Consequences.* (a) The only lower bound for W(p) available from class-free data is F(p) ≥ 3·4 + 2·2 + 2 − 9 = 9 for p ≡ 1 (mod 4)
-(τ(p+1) ≥ 4 since p + 1 = 2·(odd ≥ 3), τ(p+2) ≥ 2, τ(2p+1) ≥ 2), and nothing better is provable from the free words (Prop 4.2). (b) Every word that is not free is a tied-class
+*Consequences.* (a) For p ≡ 1 (mod 4), p > 5: F(p) ≥ 15 (p ≡ 1 (mod 12): 3 | p + 2 and 3 | 2p + 1, so τ(p+1), τ(p+2), τ(2p+1) ≥ 4;
+p ≡ 5 (mod 12): 6 | p + 1 gives τ(p+1) ≥ 8 and F ≥ 24 + 4 + 2 − 7 = 23), and the value 15 is attained infinitely often under Dickson
+(Prop 4.2). This is the only lower bound for W(p) valid at every large prime that known arguments give (Assessment). (b) Every word that is not free is a tied-class
 divisor event: v | n + u with v ≡ −n (mod u), u ≥ 3, i.e. the B2 event with the sign and the 4 removed.
 
 **Proposition 4.2 (CONDITIONAL on Dickson's conjecture).** For every H ≥ 3 there are infinitely many primes p ≡ 1 (mod 24) such
@@ -209,30 +215,30 @@ with v ≡ −p ≡ −1 (mod u). A divisor of 1 + u in the class −1 (mod u) i
 for 4 ≤ u ≤ H there is none; for u = 3 the divisor 2 ≡ −1 (mod 3) gives only (1, 3, (p+3)/2) and ((2F₃+1)/3, 3, 2), both free. By
 the symmetry u ↔ v the same holds for v ≤ H. Finally τ(p+1) = τ(2F₁) = 4, τ(p+2) = τ(3F₂) = 4, τ(2p+1) = τ(3G) = 4 and 3 | 2p+1,
 so Theorem 4.1 gives F(p) = 12 + 8 + 4 − 7 − 2 = 15. ∎
-This is `LOWER_TAIL_ASTRA` Thm 3.1 ("rooted constructions fail i.o.") in the sign-free setting; it says that a proof of I3(p) ≥ 1
-cannot use bounded endpoints, exactly as a proof of (★) cannot.
+This is the mechanism of `LOWER_TAIL_ASTRA` Thm 3.2 ("rooted constructions fail i.o.") in the sign-free setting; it says that a
+proof of I3(p) ≥ 1 cannot use bounded endpoints, exactly as a proof of (★) cannot.
 
 ### 4.2 The model problems (CONJECTURE, CERTIFIED census)
 
-Three sign-free statements, nested by strength:
+Three sign-free statements (I3 implies the other two; MP and W2 are incomparable: MP(3) ≥ 1 > W2(3), W2(4) ≥ 1 > MP(4)):
 * **W2(n) ≥ 1**: a word with t, u, v ≥ 2 (`DEDEKIND_ES`'s proper length-3 HJ fractions L₃(n)).
 * **MP(n) ≥ 1**: a word with u, v ≥ 3 (any t).
 * **I3(n) ≥ 1**: an interior word (t, u, v ≥ 3) — the *model problem*: every large integer is tuv − u − v with t, u, v ≥ 3.
-Equivalent covering form (PROVED, elementary): I3(n) ≥ 1 ⟺ ∃ w ≥ 8 with (−n mod w) ∈ {u : u | w + 1, 3 ≤ u ≤ (w+1)/3} and
-(n + u)/w ≥ 3; i.e. the residue of −n modulo some w is a non-trivial divisor of w + 1. Main term Σ_{t,u ≥ 3} 1/(tu − 1)·[v ≥ 3]
-= ½ log²n + O(log n) (density count, no arithmetic of n).
+Equivalent covering form (PROVED, elementary): I3(n) ≥ 1 ⟺ ∃ w ≥ 8 such that u := (−n mod w) satisfies u | w + 1,
+3 ≤ u ≤ (w+1)/3, and (n + u)/w ≥ 3 (then (t, u, v) = ((w+1)/u, u, (n+u)/w)); i.e. the residue of −n modulo some w is a divisor of
+w + 1 with both cofactors ≥ 3. Main term Σ_{t,u ≥ 3} 1/(tu − 1)·[v ≥ 3] = ½ log²n + O(log n) (density count, no arithmetic of n).
 
-**Census (CERTIFIED; `scripts/z48_ltfable_lines.c` to 10⁸, `scripts/z48_ltfable_lines_big.c` to 10⁹; outputs
-`data/z48_ltfable/lines_1e{6,7,8}.txt`, `big_1e9.txt`).** Over all n ∈ [3, N]:
+**Census (CERTIFIED; `scripts/z48_ltfable_lines.c` to 10⁸ with all ten lines, `scripts/z48_ltfable_lines_big.c` to 10⁹ for
+I3, W2, (★); outputs `data/z48_ltfable/lines_1e{6,7,8}.txt`, `big_1e9.txt`).** Over all n ∈ [3, N]:
 
-| statement | failures ≤ 10⁸ | largest failure | structure of the failures |
+| statement | failures ≤ 10⁹ | largest failure | structure of the failures |
 |---|---|---|---|
 | W2(n) ≥ 1 | 10 | 510 | {14, 15, 35, 105, 510, …} |
-| MP(n) ≥ 1 | 17 | 5 850 | **all of the form p − 1, p prime** (if n + 1 = de with d, e ≥ 2 then (1, d+1, e+1) is a word with u, v ≥ 3) |
-| I3(n) ≥ 1 | 112 | 2 433 600 = 1560² | 18 squares (4, 9, …, 1600, 19600, 2433600); largest non-square 36 078; 30 odd failures, largest odd 1225 = 35²; no failure in (10⁷, 10⁸] |
-| (★) at primes p ≡ 1 (4) | 14 | 8 813 281 | 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201, 5212561, 8813281 — reproduces `B1_LINE` §3.6 / (J)89 by an independent engine (third engine ≤ 10⁸) |
+| MP(n) ≥ 1 | 17 (≤ 10⁸) | 5 850 | **all of the form p − 1, p prime** (if n + 1 = de with d, e ≥ 2 then (1, d+1, e+1) is a word with u, v ≥ 3) |
+| I3(n) ≥ 1 | 112 | 2 433 600 = 1560² | 18 squares (4, 9, …, 1600, 19600, 2433600); largest non-square 36 078; 30 odd failures, largest odd 1225 = 35²; no failure in (2 433 600, 10⁹]; at primes only 5, 13, 17 |
+| (★) at primes p ≡ 1 (4) | 14 | 8 813 281 | 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201, 5212561, 8813281 among the 25 423 491 primes p ≡ 1 (4) ≤ 10⁹ — reproduces `B1_LINE` §3.6 / (J)89 (which reach 10¹⁰) by an independent engine |
 
-The 10⁹ run (I3, W2, (★)) is reported in §4.4. **Reading (Assessment).** MP is "trivially" true for composite n + 1, so its
+**Reading (Assessment).** MP is "trivially" true for composite n + 1, so its
 failures are at shifted primes and MP is a disguised statement about primes; I3 has no free level at all and is the honest model.
 Its failure set is finite in the census, sparse, and dominated by squares — see §4.3 for why.
 
@@ -254,11 +260,11 @@ all even u, so again (−t/d) = −1. Hence d must be even, which forces tm² + 
 Numerical check (enumeration of all words at m² for m < 120, both parities): words occur only at levels t ≡ 1, 2, 5, 6 (mod 8)
 for even m and t ≡ 1, 2, 3, 5, 6 (mod 8) for odd m, with t ≡ 3 (mod 8) only for even tu − 1; at primes all eight classes occur.
 
-**Square depletion (EVIDENCE; `data/z48_ltfable/stats_1e7.txt`, n ∈ [10⁶, 10⁷]).** Mean I3(n)/log²n: primes p ≡ 1 (4) 0.536;
-odd non-squares 0.429; odd squares 0.213; even non-squares 0.245; even squares 0.106. Minima: primes 30, odd squares 14, even
-squares 0 (the single failure 1560²). All five-slice counts (L_t, L_u, L_A, N₋) are identically 0 at the 1081 odd squares in the
-window (T1, exact), while the interior sign-free count is depleted by ≈ 60 % at odd squares and ≈ 57 % at even squares relative
-to the parity-matched non-squares. **Reading (Assessment).** T1 is the extreme point of a reciprocity depletion that exists with
+**Square depletion (EVIDENCE; `data/z48_ltfable/stats_1e7.txt`, n ∈ [10⁶, 10⁷]; clipped means, see §4.4).** Mean I3(n)/log²n:
+primes p ≡ 1 (4) 0.536; odd non-squares 0.429; odd squares 0.213; even non-squares 0.245; even squares 0.106. Minima: primes 30,
+odd squares 14, even squares 0 (the single failure 1560²). All five-slice counts (L_t, L_u, L_A, N₋) are identically 0 at the 1081
+odd squares in the window (T1, exact), while the interior sign-free count is depleted by ≈ 50 % at odd squares and ≈ 57 % at even
+squares relative to the parity-matched non-squares. **Reading (Assessment).** T1 is the extreme point of a reciprocity depletion that exists with
 no sign at all: Lemma 4.3 kills the levels 0 (mod 4) and 7 (mod 8) and halves the level 3 (mod 8); the ES sign kills all the
 rest. The lower tail of a polylog count is governed by its clumpy small levels, and depletion of the small levels is what
 produces failures (1560² for I3; the 14 primes for (★) are the primes whose small levels happen to be empty, cf. `SINGLE_P_COUNT`
@@ -266,7 +272,12 @@ produces failures (1560² for I3; the 14 primes for (★) are the primes whose s
 
 ### 4.4 Ten-to-the-nine (CERTIFIED by `scripts/z48_ltfable_lines_big.c`; `data/z48_ltfable/big_1e9.txt`)
 
-[filled in from the run; see the end of this section]
+The lean engine (three saturating byte arrays, 3.1 GB, 41 CPU-minutes) at N = 10⁹: I3 failures 112 (identical list to 10⁷,
+none in (2 433 600, 10⁹]); W2 failures 10 (none beyond 510); primes p ≡ 1 (mod 4) in [5, 10⁹]: 25 423 491, of which exactly 14
+have R(p) = 0 — the known list; their interior counts are I3 = 4, 12, 20, 18, 46, 26, 50, 36, 56, 68, 84, 46, 80, 84. The 10⁷ output
+of the same engine agrees line by line with the full engine's. Caveat on all counts in this document: the counters saturate at 255,
+so minima and zero counts are exact but the quoted means are clipped (saturation fractions are listed in `stats_1e7.txt`; e.g.
+0.07 % of primes in [10⁶, 10⁷] saturate I3).
 
 ## 5. Larger unions of one-parameter lines (CERTIFIED census, EVIDENCE on tails)
 
@@ -284,16 +295,17 @@ All primes p ≡ 1 (mod 4), p ≤ 10⁸ (2 880 504 primes; `data/z48_ltfable/lin
 | L_t ∪ L₃ | 3 (577, 5569, 9601) | — | 9 601 | ≤ 0.303 (sum) | — |
 | L₃ ∪ L₁ | 10 | — | — | ≤ 0.235 (sum) | — |
 | N₋ = L_t ∪ L_u ∪ L_A (five-slice) | 0 | 0 | — | 0.604 | 18 |
-| I3 (sign-free interior) | 0 (at primes) | 0 | — | 0.536 | 30 |
-| W2 (all coordinates ≥ 2) | 0 (at primes) | 0 | — | 0.649 | 34 |
+| I3 (sign-free interior) | 3 (5, 13, 17) | 3 | 17 | 0.536 | 30 |
+| W2 (all coordinates ≥ 2) | 1 (5) | 1 | 5 | 0.649 | 34 |
 
 Observations (EVIDENCE). (i) Lines with comparable means have very different tails: L₃ (mean 0.137) fails 9× more often than
-(★) (0.166), L₁ (0.098) 56× more often. The level-3 member of L₃ is Mordell's class and carries a constant fraction of L₃'s mass
-in one all-or-nothing clump ("3p + 1 has a prime factor ≡ 2 (mod 3)", probability ≈ 1 − c/√log p); its complement is where the
-mass is spread thinly. Clumpiness, not the mean, governs the lower tail. (ii) The least endpoint of a five-slice certificate is ≤ 23
-for every p ≤ 10⁷ (max at 1 769 329; `data/z48_ltfable/minlevels_1e7.txt`), against (★)'s least endpoint up to 410 (p = 4 160 641,
-1.77·log²p). The least *level* of a (★) word is not polylog in general (u = 1 words have level (p+1)/v + 1, up to p/4 when p + 1 =
-2·prime), so the natural window statistic is the endpoint, not the level. (iii) No union of two slot lines fails ≤ 10⁸; the five-slice
+(★) (0.166), L₁ (0.098) 56× more often. The level-3 member of L₃ is Mordell's class, present iff 3p + 1 has an odd prime factor
+≡ 2 (mod 3) (probability ≈ 1 − c/√log p) and then contributing ≈ τ(3p+1)/4 ≍ log p words at once; a single level is a vanishing
+fraction of the log²p mean but an all-or-nothing clump, and clumpiness of the small levels, not the mean, governs the lower tail
+(Assessment). (ii) The least endpoint of a five-slice certificate is ≤ 23 for every p ≤ 10⁷ (max at 1 769 329;
+`data/z48_ltfable/minlevels_1e7.txt`), against (★)'s least endpoint up to 410 (p = 4 160 641, 1.77·log²p). The least *level* of a
+(★) word can be of size p: at p = 184 837 the only (★)-words are (92420, 1, 2) and its mirror, so the least level is (p+3)/2; the
+natural window statistic is therefore the endpoint, not the level. (iii) No union of two slot lines fails ≤ 10⁸; the five-slice
 union has min count 18 on [10⁶, 10⁷].
 
 **Hypotheses that imply ES for large p (PROVED implications; all ES-strength).**
@@ -301,7 +313,8 @@ union has min count 18 on [10⁶, 10⁷].
   already fails at p = 4 160 641 (least endpoint 410 > log²p = 232; the least endpoint exceeds log²p at exactly one prime ≤ 10⁷
   outside the 14 failures), while A = 3 holds for every p ≤ 10⁷ other than the 14 (★)-failures. So even the window exponent is
   not settled by the data (compare `FOREST_H4`: H₄/log²p ≤ 1.61 to 10¹²).
-* H₅(c, p₀): some five-slice certificate has least endpoint ≤ c·log p. EVIDENCE: c = 2 suffices for all p ≤ 10⁷.
+* H₅(c, p₀): some five-slice certificate has least endpoint ≤ c·log p. EVIDENCE: c = 2 suffices for all p ≤ 10⁷ (a growing bound;
+  a *fixed* endpoint bound is excluded i.o. under Dickson by `LOWER_TAIL_ASTRA` Thm 3.2 and Prop 4.2 above).
 * The interior model: I3(p) ≥ 1 is *not* sufficient for ES (it lacks the sign); it is the necessary first step of any method.
 No standard conjecture implies any of these; §6.
 
@@ -318,17 +331,18 @@ CONDITIONAL on GRH, or on OAI-003 (quasi-RH 7/8 with uniform Siegel exclusion; `
 What would a sufficient hypothesis look like? It must bound, at one integer, the deficit of a sum of ≍ p log p tied-class divisor
 indicators below its polylog mean. In the language of §4 the hypothesis need not mention ES at all:
 
-**Conjecture I3 (CONJECTURE).** I3(n) ≥ 1 for every n > 2 433 600; indeed I3(n) ≥ c log²n for n large (c = 0.05 is consistent
-with the census: min I3 = 30 on primes in [10⁶, 10⁷], i.e. I3/log²p ≥ 0.11 there; min 14 at odd squares; min 3 at even
-non-squares, i.e. ≥ 0.01 log²n).
+**Conjecture I3 (CONJECTURE).** I3(n) ≥ 1 for every n > 2 433 600; indeed I3(n) ≥ c log²n for n large and some c > 0 (the
+census gives, on [10⁶, 10⁷], min I3/log²n = 0.141 at primes (p = 5 516 281), 0.066 at odd squares, 0.071 at odd non-squares,
+0.016 at even non-squares (n = 1 048 476, I3 = 3) and 0 at the even square 1560², so any such c is at most ≈ 0.01 in range).
 Conjecture I3 does not imply ES (the sign is missing) and ES does not imply it (I3 is about all n); it is the sign-free *twin* of
 (∗). (Assessment.) One expects a method proving (∗) to prove Conjecture I3 after deleting the sign bookkeeping, since the
 latter only removes a 2-adic constraint on the words; conversely a method for I3 would leave exactly the sign layer, which under
 GRH/003 is the free layer (M_BM ∼ M₀, r(p) small). Neither implication is a theorem. **So the cleanest formulation of the missing input is: a single-integer lower bound for the
 number of representations n = tuv − u − v with t, u, v ≥ 3.** This is of the same type as Heath-Brown's single-integer
-polylog main term for sums of three cubes (the expected number of representations of N ≢ ±4 (mod 9) of height ≤ B is
-≍ c_N log B, Heath-Brown 1992): open there too, for the same reason — no analytic method produces a lower bound for a
-representation count whose main term is a power of a logarithm at one integer.
+polylog heuristic for sums of three cubes (Heath-Brown 1992: for N ≢ ±4 (mod 9) not covered by the trivial parametric
+families, the expected number of representations of height ≤ B is ≍ c_N log B — a heuristic, not a theorem): the representation
+problem is open there too, and the analogy (Assessment) is only that the expected count at one integer is logarithmic, so that
+no main-term-versus-error argument can reach a single N; there the height B is a free parameter, here the witness box is finite.
 
 **Does anything in OAI-003 bear on Conjecture I3?** No: I3 involves no character of p at all; 003's content is zero-free strips
 of Dirichlet L-functions, i.e. equidistribution of primes in progressions, which enters only through the free primes of the
@@ -337,8 +351,9 @@ non-residue among the prime factors of p + u when (u/p) = −1), which is a sign
 
 ## 7. The exact remaining gap (one paragraph, three equivalent forms)
 
-For a single integer n (prime or not), prove that some w ≥ 8 has (−n mod w) ∈ D(w+1) ∖ {1, 2} (with (n + u)/w ≥ 3); equivalently,
-that some u ≥ 3 has a divisor v ≥ 3 of n + u with v ≡ −n (mod u); equivalently, that n = tuv − u − v is solvable with t, u, v ≥ 3.
+For a single integer n (prime or not), prove that some w ≥ 8 has u := (−n mod w) dividing w + 1 with 3 ≤ u ≤ (w+1)/3 and
+(n + u)/w ≥ 3; equivalently, that there are coprime u, v ≥ 3 with uv | n + u + v and (n + u + v)/(uv) ≥ 3; equivalently, that
+n = tuv − u − v is solvable with t, u, v ≥ 3.
 The expected number of solutions is ½ log²n + O(log n) (PROVED density count), the known pointwise bounds are the trivial
 I3(n) ≥ 0 and I3(n) ≤ 2Σ_{u ≤ √n+2} τ(n+u) ≪ n^{1/2+o(1)} (every word has min(u, v) ≤ √(n+1) + 1), and no class-aware cancellation is known for the sum
 Σ_{u ≥ 3} Σ_{v | n+u} 1[v ≡ −n (mod u)] at one n (PARITY_AUDIT §2 ledger applies verbatim with the 4 removed). With the sign:
@@ -349,7 +364,7 @@ below. The step that must be new is a lower bound for a tied-class divisor count
 
 ## 8. Screening checklist (FRONTIER §4) applied to this document's own proposals
 
-| line | signed weights (§2.1) | positivity (§2.2) | fixed-p moments (§3) | monoid (§3.3) | model problem I3 (§4) | level-class lines (§1.2, §5) |
+| line | signed weights (§2.1) | positivity (§2.2) | fixed-p moments (§3) | semigroup (§3.3) | model problem I3 (§4) | level-class lines (§1.2, §5) |
 |---|---|---|---|---|---|---|
 | 1 odd squares | passes vacuously (F_w(m²) = 0) | passes | — | — | **I3 is sign-free: fails at squares only by depletion, not identically; it is not an ES route** | passes (Cor 1.3 uses p ≡ 1 (4)) |
 | 2 numerator 8 | the device is numerator-blind; no threshold | — | — | — | numerator-free | numerator-free sign law: Cor 1.3 would read "(A/p) = −1" for 8/p too — it is a sign, not a solution; no claim |
@@ -369,7 +384,7 @@ Nothing passes line 4. Line 14 is passed by the data but that is the lottery's t
   no-go for bounded endpoints (Prop 4.2), its reciprocity depletion at squares (Lemma 4.3), and its census to 10⁹; (ii) the
   closed-form level sign law (Lemma 1.2, Cor 1.3) and the level-class lines L₃, L₁ with their fat tails; (iii) three small
   PROVED closures (Lemmas 2.1/2.2/3.1/3.3) of the hints "positivity", "fixed-p averaging", "multiplicativity across C";
-  (iv) an independent third-engine certification of the (★) census to 10⁸ (fourth statement: 10⁹ in §4.4).
+  (iv) an independent certification of the (★) census to 10⁹ (the campaign's engine reaches 10¹⁰; two engines agreed to 10⁸).
 * **Promise 0/5 for a proof mechanism; 1/5 for the target statement I3 as the right first test.** A clean negative: the exact
   blocking step is the single-integer lower bound of §7, which is already blocking in the sign-free, prime-free problem.
   Recommended use: post Conjecture I3 (every n > 2 433 600 is tuv − u − v with t, u, v ≥ 3) alongside (★) as the screening
@@ -383,7 +398,7 @@ gcc -O2 -o /tmp/z48_lines scripts/z48_ltfable_lines.c
 ulimit -v 8000000; /tmp/z48_lines 10000000 data/z48_ltfable/lines_1e7      # 36 s; writes lines_1e7.{txt,bin}
 /tmp/z48_lines 100000000 data/z48_ltfable/lines_1e8                         # 7 min, 1 GB
 gcc -O2 -o /tmp/z48_big scripts/z48_ltfable_lines_big.c -lm
-/tmp/z48_big 1000000000 data/z48_ltfable/big_1e9                            # ~1 h, 3.1 GB
+/tmp/z48_big 1000000000 data/z48_ltfable/big_1e9                            # 41 min, 3.1 GB
 gcc -O2 -o /tmp/z48_minl scripts/z48_ltfable_minlevels.c -lm
 /tmp/z48_minl 10000000 data/z48_ltfable/minlevels_1e7                       # 13 s
 uv run python scripts/z48_ltfable_lemmas.py                                  # 1 s: Lemmas 1.2/1.3, forms 1.3, 3.1, 3.3
