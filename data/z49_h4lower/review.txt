@@ -1,0 +1,20 @@
+H4_NOT_POLYLOG: internal mathematical review provenance
+
+Proof-design audit (deep, fresh subagent):
+/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0025--/2026-10-28T21-45-09-576Z_01a18479-60c8-746a-8a1a-a0c0980d977d.jsonl
+Finding: energy/BRW core valid; derive unweighted coefficient norm rather than use old weighted norm. Required explicit even-prime conditioning, all-Q-consistent extension of truncated functions, and paying both exceptional deficit and 1/phi(Q). All included in first complete draft.
+
+Final hostile audit (deep, separate fresh subagent):
+/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0025--/2026-10-28T21-57-48-364Z_01a18484-f4cc-746a-8a1a-a0c60a42de66.jsonl
+Verdict: SOUND — no blocking mathematical defect found.
+
+The reviewer read the full main document, checker and four then-existing data files, and rechecked POINTWISE_OMEGA10 Lemmas 3.1–3.3/Theorem 3.4 plus POINTWISE_OMEGA11 Lemma 1.1. It verified the inflated-mass estimates, safe point, 2-adic extension, coefficient representation, twist, global exceptional zero, prime-support auxiliary-prime argument, and theorem/corollary scopes. It reproduced checks.json exactly and ran 20 fresh-seed existing BRW trials (maximum identity discrepancy 1.78e-15), with uv, timeouts and the memory limit.
+
+Minor requested repairs, applied:
+1. Define A_min=∞ when its defining set is empty.
+2. Replace the validation placeholder with actual execution results.
+3. Strengthen the chapter-level citation for uniform PNT: added a derivation explaining Landau–Page global selection, explicit-formula truncation, character averaging, and removal of prime powers, plus an accessible precise reference for Siegel's theorem.
+
+Reviewer caveat retained: the small quarantine fixtures have no residual live events, so their computations do not exercise the nonempty residual LLL regime; its justification is mathematical.
+
+Review is internal and unrefereed, not an external validation or a proof of ES. No conjectural hypothesis is used in the unconditional result; GRH is separately labelled. Conjecture S and the predicted sharp exponent remain open.

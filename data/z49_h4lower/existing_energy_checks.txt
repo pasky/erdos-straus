@@ -1,0 +1,3 @@
+mode=rho2: 100 systems, max G' = 0.995593
+mode=cond: 75 systems, max G' = 1.000000
+mode=rho1: 100 systems, max G' = 0.976823

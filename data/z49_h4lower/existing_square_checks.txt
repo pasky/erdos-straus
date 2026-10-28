@@ -1,0 +1,4 @@
+independent small complete checks: n,edges,rational_certificates = [999, 24389, 21135]
+square control: 499 squares, edges = 17372
+four-form fixtures (k,p,edges,least_mixed_root): [(530, 12721, 27, 5), (705, 16921, 20, 5), (810, 19441, 20, 7), (1020, 24481, 29, 4), (2070, 49681, 32, 4), (2565, 61561, 38, 4), (4340, 104161, 29, 4), (9555, 229321, 48, 5)]
+two-form least-QNR isolated fixtures: [2521, 30241, 104161, 196561, 252001, 298201, 446041, 464521]

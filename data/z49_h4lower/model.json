@@ -1,0 +1,139 @@
+{
+  "model_evidence": [
+    {
+      "H": 64,
+      "Y_forced_to_1": 0,
+      "samples": 10000,
+      "no_nontrivial_edge": 0,
+      "H4_gt_H": 56,
+      "A_min_gt_H": 153,
+      "joint_shadow_survival": 0
+    },
+    {
+      "H": 64,
+      "Y_forced_to_1": 3,
+      "samples": 10000,
+      "no_nontrivial_edge": 1,
+      "H4_gt_H": 74,
+      "A_min_gt_H": 172,
+      "joint_shadow_survival": 1
+    },
+    {
+      "H": 64,
+      "Y_forced_to_1": 5,
+      "samples": 10000,
+      "no_nontrivial_edge": 11,
+      "H4_gt_H": 205,
+      "A_min_gt_H": 369,
+      "joint_shadow_survival": 10
+    },
+    {
+      "H": 64,
+      "Y_forced_to_1": 7,
+      "samples": 10000,
+      "no_nontrivial_edge": 60,
+      "H4_gt_H": 453,
+      "A_min_gt_H": 629,
+      "joint_shadow_survival": 53
+    },
+    {
+      "H": 64,
+      "Y_forced_to_1": 13,
+      "samples": 10000,
+      "no_nontrivial_edge": 396,
+      "H4_gt_H": 1335,
+      "A_min_gt_H": 1413,
+      "joint_shadow_survival": 384
+    },
+    {
+      "H": 128,
+      "Y_forced_to_1": 0,
+      "samples": 10000,
+      "no_nontrivial_edge": 0,
+      "H4_gt_H": 12,
+      "A_min_gt_H": 40,
+      "joint_shadow_survival": 0
+    },
+    {
+      "H": 128,
+      "Y_forced_to_1": 3,
+      "samples": 10000,
+      "no_nontrivial_edge": 0,
+      "H4_gt_H": 11,
+      "A_min_gt_H": 43,
+      "joint_shadow_survival": 0
+    },
+    {
+      "H": 128,
+      "Y_forced_to_1": 5,
+      "samples": 10000,
+      "no_nontrivial_edge": 0,
+      "H4_gt_H": 39,
+      "A_min_gt_H": 94,
+      "joint_shadow_survival": 0
+    },
+    {
+      "H": 128,
+      "Y_forced_to_1": 7,
+      "samples": 10000,
+      "no_nontrivial_edge": 6,
+      "H4_gt_H": 108,
+      "A_min_gt_H": 183,
+      "joint_shadow_survival": 3
+    },
+    {
+      "H": 128,
+      "Y_forced_to_1": 13,
+      "samples": 10000,
+      "no_nontrivial_edge": 36,
+      "H4_gt_H": 296,
+      "A_min_gt_H": 425,
+      "joint_shadow_survival": 30
+    },
+    {
+      "H": 256,
+      "Y_forced_to_1": 0,
+      "samples": 10000,
+      "no_nontrivial_edge": 0,
+      "H4_gt_H": 0,
+      "A_min_gt_H": 4,
+      "joint_shadow_survival": 0
+    },
+    {
+      "H": 256,
+      "Y_forced_to_1": 3,
+      "samples": 10000,
+      "no_nontrivial_edge": 0,
+      "H4_gt_H": 0,
+      "A_min_gt_H": 6,
+      "joint_shadow_survival": 0
+    },
+    {
+      "H": 256,
+      "Y_forced_to_1": 5,
+      "samples": 10000,
+      "no_nontrivial_edge": 0,
+      "H4_gt_H": 2,
+      "A_min_gt_H": 22,
+      "joint_shadow_survival": 0
+    },
+    {
+      "H": 256,
+      "Y_forced_to_1": 7,
+      "samples": 10000,
+      "no_nontrivial_edge": 0,
+      "H4_gt_H": 15,
+      "A_min_gt_H": 57,
+      "joint_shadow_survival": 0
+    },
+    {
+      "H": 256,
+      "Y_forced_to_1": 13,
+      "samples": 10000,
+      "no_nontrivial_edge": 1,
+      "H4_gt_H": 54,
+      "A_min_gt_H": 91,
+      "joint_shadow_survival": 0
+    }
+  ]
+}
