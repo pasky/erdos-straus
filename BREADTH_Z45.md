@@ -197,7 +197,7 @@ memo confirms that every transfer still fails checklist lines 4, 8, 9, 12 and 17
 ## 11. Local contribution drafts for plasma-ai/erdos (erdosproblems.ai), 2026-10-27; NOT submitted
 
 These are local clones and branches only; nothing is pushed.
-* `~/projects/math/plasma-erdos-prA` (branch `es242-claim-audits`; text in `plasma-erdos-prA.PR.md`). It rejects
+* **PR A OPENED 2026-10-28: https://github.com/plasma-ai/erdos/pull/65** (fork pasky/erdos, branch es242-claim-audits, squashed onto upstream main 17c86a0d4). Local: `~/projects/math/plasma-erdos-prA` (branch `es242-claim-audits`; text in `plasma-erdos-prA.PR.md`). It rejects
   the three claimed full proofs (Alomari, Dyachenko, Bradford) as "proof defective; statement unresolved", with
   defects checked against the PDFs. Dyachenko's Lemma 9.24 is false (g = 1 gives the orbit {(j, j)} ≠ ℤ²).
   E0242 becomes open / none.
