@@ -13,9 +13,10 @@ Jacobians for an odd number. That second step detects an object, a factorisation
 
 For ES, the analogous candidate set is the primes ℓ = 4uC − 1 with success ℓ | p + u. It transfers only through its
 **bounded-index layers**. Index-m Frobenius information at ℓ proves the m-th-power-numerator relaxation
-4/p = g^m/(uBC) + 1/(pBC) + 1/(puC) (Prop 2.1). At a prime (★) modulus the only non-trivial bounded layer is index 2,
-the quadratic/BM layer, which is already free. Cap 0 needs index ℓ^{1−o(1)} at the certified prime ℓ, and the
-zero-free-strip calculus certifies index at most about ℓ^{δ/4}, which is ≤ ℓ^{1/8} even under GRH (§2.3). That missing step
+4/p = g^m/(uBC) + 1/(pBC) + 1/(puC) (Prop 2.1). At prime (★) moduli the only layer that cannot be avoided by choosing
+the candidate is index 2, the quadratic/BM layer, which is already free. Odd-index layers exist, but they are
+avoidable: pick ℓ with gcd(m, ℓ−1) = 1. Cap 0 needs index ℓ^{1−o(1)} at the certified prime ℓ. The standard
+explicit-formula calculus certifies index only up to about ℓ^{δ/2}, which is ℓ^{1/4} under GRH (§2.3, Assessment). That missing step
 is exactly B2, in the form already isolated in `FROBENIUS_FIRING.md` Remark 2.5. 142's algebraic forcing has no ES
 analogue, because ES has no a-priori object whose existence is guaranteed (§2.4). The A5 converse closes only up to that
 same layer: ES → QNR → square-numerator ES, with the class inside the BM coset lost (§3).
@@ -70,7 +71,8 @@ powers, higher residue degree and the ramified primes over 2, 3, p, q together g
 prime exists in (x, 2x] once x = T·B^{2·10⁷}. Three features matter for §2:
 
 1. The success event is a **Frobenius condition on the candidate ℓ in one fixed field M**, determined by p. Its density
-   is 1 − 1/q, so there are infinitely many successes, of positive density.
+   is 1 − 1/q among degree-one primes of K, i.e. (1 − 1/q)/φ(12q) among rational primes. So there are infinitely
+   many successes, of positive density.
 2. **Reciprocity is what makes the sum over candidates an L-function sum.** The q-th power residue symbol (p/𝔩)_q is the
    Artin symbol of 𝔩 in M/K. So Σ_ℓ χ_ℓ(p), a sum over moduli at the fixed point p, becomes a prime sum of a fixed Hecke
    character of K. This works only because the order q is the same for all ℓ.
@@ -80,7 +82,8 @@ prime exists in (x, 2x] once x = T·B^{2·10⁷}. Three features matter for §2:
 
 * 142 imports **only** 029 Thm 1.2: for every cyclotomic K ⊇ μ₁₂ and every finite-order Hecke χ of K, L_K(s, χ) ≠ 0 for
   Re s > 1 − 10⁻⁶, with no conductor or height restriction. The *uniformity of δ across the growing family* ℚ(μ_{12q}),
-  q ≤ n, is essential: a width shrinking with the field would give a quasi-polynomial bound (cf. Evdokimov under GRH).
+  q ≤ n, is essential: the paper stresses that a width deteriorating with the discriminant or height "would not give
+  the bound below by the same calculation".
   142 does not use 029's Artin headline or its reservoir and splitting propositions. Those are what give the
   one-mute-prime consequence in `OAI_DUMP_IMPACT.md` §4.
 * For q = 2, Dirichlet L-functions suffice, so 003 (claimed, Lean-formalized) is enough (Fact 1.3). For q ≥ 3 the field
@@ -115,34 +118,45 @@ The condition is solvable in g exactly when −u/p ∈ (𝔽_ℓ^*)^{m′}, with
 *Proof.* B(4uC−1) − u = pg^m; multiply the (★) identity for n = pg^m by g^m. The solvability claim holds because 𝔽_ℓ^* is
 cyclic. ∎
 
-*Novelty:* this is the A13 / `FIXED_MODULUS_SHOTS` shot shape written in (★) coordinates, so it is repo-known in
-substance. What is new is its use as the dictionary "Frobenius index at ℓ ↔ numerator power".
+*Novelty:* this is the A13 / `FIXED_MODULUS_SHOTS` shot shape written in (★) coordinates, and the gcd-index is
+`POWER_LADDER_ES`'s i_k(g) = gcd(k, g−1). So it is repo-known in substance. The only new element is reading it as
+"Frobenius index at the candidate ℓ ↔ numerator power", which is how 142's auxiliary condition maps onto ES.
+*Lowest terms.* The displayed fraction need not be in lowest terms with a square numerator. Example: p = 9601,
+ℓ = 23, g = 4 gives g²/(BC) = 8/20037. Theorem 2.2 below therefore chooses the lift of g.
 
 **Consequences of m′ = gcd(m, ℓ−1).** Every (★) modulus has ℓ ≡ 3 (mod 4), so v₂(ℓ − 1) = 1.
-* For odd m the relaxation is trivially solvable at every ℓ with gcd(m, ℓ−1) = 1. This is `POWER_LADDER_ES` Thm 2.1
-  again: odd rungs are free.
+* For odd m and a candidate with gcd(m, ℓ−1) = 1, the relaxation is solvable with no condition on p at all. Odd-index
+  layers do exist when q | ℓ−1 for an odd prime q | m (e.g. ℓ = 7, m = 3, p = 5, u = 1: −u/p ≡ 4 is not a cube mod 7),
+  but they can be avoided by choosing the candidate. This is `POWER_LADDER_ES` Thm 2.1 again: odd rungs are free.
 * For m = 2 it is the condition (−up/ℓ) = 1. At u = 1 this reads (ℓ/p) = −1, using reciprocity and p ≡ 1 (mod 4).
-* **So at prime (★) moduli the only non-trivial bounded-index layer is index 2, the quadratic/BM layer.** All of 029's
-  Kummer generality (q ≥ 3) is invisible there. Composite moduli 4uC − 1 have non-cyclic unit groups and admit
+* **So at prime (★) moduli the only bounded-index layer that cannot be avoided is index 2, the quadratic/BM layer.**
+  029's Kummer generality (q ≥ 3) is not needed for any relaxation in this family. Composite moduli 4uC − 1 have non-cyclic unit groups and admit
   odd-order characters, but by `CLASS_FORCING.md` Thm 2.1 and `TWO_POWER_LADDER.md` those layers still force only
   character data, never the class.
 
 **Thm 2.2 (deterministic square-numerator witness; CONDITIONAL on OAI-003 (quasi-RH 7/8), or on 142's own analytic input,
 or on GRH).** (029 Thm 1.2 suffices because ζ of the abelian field ℚ(μ₁₂, √p) is a product of Hecke L-functions over
-ℚ(μ₁₂) and also of the Dirichlet L-functions used below; a zero-free product of factors holomorphic in the strip (apart from the pole of ζ at 1) has zero-free factors.) For every prime p ≡ 1 (mod 4) there is a prime ℓ ≡ 3 (mod 4), ℓ ≪ (log p)⁸, with (ℓ/p) = −1. Upward
-search finds it in deterministic poly(log p) time, and with C = (ℓ+1)/4, g a root of pg² ≡ −1 (mod ℓ) and
-B = (pg² + 1)/ℓ it gives
+ℚ(μ₁₂) and also of the Dirichlet L-functions used below; a zero-free product of factors holomorphic in the strip (apart
+from the pole of ζ at 1) has zero-free factors. This transfers the width 10⁻⁶ strip only, not a wider one.)
+For every prime p ≡ 1 (mod 4) there is a prime ℓ ≡ 3 (mod 4) with (ℓ/p) = −1 and ℓ ≪ (log p)^{1/(1−θ)}. That is
+(log p)⁸ under 003 (θ = 7/8), (log p)^{10⁶} under 029 Thm 1.2 alone (θ = 1 − 10⁻⁶), and (log p)² under GRH. Upward search finds it in
+deterministic poly(log p) time. Put C = (ℓ+1)/4, and let g be the least positive integer that is odd, coprime to pC,
+and satisfies pg² ≡ −1 (mod ℓ); g exists by CRT and g < 2ℓC·p. With B = (pg² + 1)/ℓ,
 
-  4/p = g²/(BC) + 1/(pBC) + 1/(pC).
+  4/p = g²/(BC) + 1/(pBC) + 1/(pC),   gcd(g, BC) = 1,
 
-*Proof.* The detector (1 − χ_{−4})(1 − χ_p)/4 has density 1/4 and conductor 4p. Apply `OAI_DUMP_IMPACT.md` (2.2)–(2.3)
-with θ = 7/8, then Prop 2.1 with u = 1, m = 2. ∎
+so the first term is in lowest terms with odd square numerator g², an ES^□-type witness.
+*Proof.* The detector (1 − χ_{−4})(1 − χ_p)/4 has density 1/4 and conductor 4p. Apply `OAI_DUMP_IMPACT.md` (2.2)–(2.3),
+whose exponent is A(θ) = 1/(1−θ), then Prop 2.1 with u = 1, m = 2. For lowest terms: a prime r | g with r | B divides
+ℓB − pg² = 1, so gcd(g, B) = 1, and gcd(g, C) = 1 by choice. ∎
 
 *Scope:* this is a relaxation of the ES^□ / A13 type, already a theorem by one Dirichlet prime. The only new feature is
 the deterministic polylog bound. **CERTIFIED (Part B/D):** across 18 506 primes p ≡ 1 (24) up to 2·10⁶, the least such ℓ is
 ≤ 0.70(log p)². At every (★)-failure prime tested (409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321,
-8813281), ℓ ≤ 31, and the explicit square-numerator solution was verified exactly (Part D; Part B covers the other
-three R(p) = 0 primes ≤ 2·10⁶ inside its 0.70(log p)² maximum), e.g. 4/409 = 9/1052 + 1/430268 + 1/818.
+8813281), ℓ ≤ 31, and the lowest-terms odd-square-numerator solution of Thm 2.2 was verified exactly, including gcd(g, BC) = 1
+(Part D). Part B covers ℓ for the other three R(p) = 0 primes ≤ 2·10⁶, inside its 0.70(log p)² maximum; there the lift
+is guaranteed by the proof but not separately computed. Examples: 4/409 = 9/1052 + 1/430268 + 1/818, and
+4/9601 = 361/904164 + 1/8680878564 + 1/57606 with g = 19 (the even lift g = 4 is rejected).
 The full scans found **no (★) hit at any modulus** at those primes, so the relaxation lives where cap 0 is empty.
 
 ### 2.2 The needed non-vanishing statement
@@ -174,11 +188,15 @@ In 142 the success set is infinite with positive density. This is the categorica
   in 𝔽_ℓ^*/(𝔽_ℓ^*)^m, by Kummer theory. A set S ⊆ 𝔽_ℓ^* is a union of cosets of (𝔽_ℓ^*)^m only if it is empty or
   |S| ≥ (ℓ−1)/m. So detecting E_p(ℓ) exactly from M_m forces m ≥ (ℓ−1)/τ((ℓ+1)/4) = ℓ^{1−o(1)}. Then
   [M_m:ℚ] ≥ mφ(m)/2 = ℓ^{2−o(1)}. (The τ divisor classes of S_ℓ are unions of single classes.)
-* *Scale (Assessment; arithmetic of 142's own Prop analytic:auxiliary).* With a strip of width δ, certifying one class
-  of density ≍ 1/[M_m:ℚ] needs x^δ ≫ [M_m:ℚ](log D_{M_m} + [M_m:ℚ]) ≈ m⁴ log p. At the certified prime ℓ ≤ 2x, the
-  certified index is therefore m ≲ ℓ^{δ/4}. ES needs m ≳ ℓ^{1−o(1)}. Under GRH (δ = 1/2) the gap is ℓ^{1/8} against ℓ;
-  at 029's δ = 10⁻⁶ it is ℓ^{2.5·10⁻⁷} against ℓ. **A strip-forced Frobenius datum is always coarse at the prime it
-  certifies.** This is the analytic face of M1a/B3: the expected number of exact successes with ℓ ≤ X is about log X,
+* *Scale (Assessment; the standard explicit-formula estimate, as in 142's Prop analytic:auxiliary).* Expand the class
+  indicator over the characters of the abelian M_m/ℚ(μ_m). Both the main term and the summed error then carry the
+  factor 1/[M_m:ℚ], so the strip certifies a single class once x^δ ≫ log D_{M_m} + [M_m:ℚ] ≈ m² log(mp). At the
+  certified prime ℓ ≤ 2x the certified index is therefore m ≲ ℓ^{δ/2}. That is ℓ^{1/4} under GRH (the familiar
+  (log D)² Chebotarev scale) and ℓ^{5·10⁻⁷} at 029's δ = 10⁻⁶. ES needs m ≳ ℓ^{1−o(1)}. Even δ = 1 would give only
+  ℓ^{1/2}, the trivial counting scale: a class of a group of order ≍ m² needs ≳ m² primes. **With this method a
+  strip-forced Frobenius datum is coarse at the prime it certifies.** This is a statement about the method, not a
+  universal ceiling: a cleverer argument could in principle certify a small ℓ in a fine class. It is the analytic face
+  of M1a/B3: the expected number of exact successes with ℓ ≤ X is about log X,
   a logarithmic main term, while strip methods beat errors only against main terms ≫ X^{1−δ}. (No unconditional upper
   bound on #{ℓ ∈ (x, 2x] : E_p(ℓ)} below x^{1−δ} is proved here, so this is not a theorem about all arguments.)
 * **EVIDENCE/CERTIFIED (Part C).** At p = 1 000 121, the moduli ≤ X with 142-type successes (aux, q = 2) number 9, 71,
@@ -203,8 +221,9 @@ on that set give only parity: `CLASS_FORCING.md` Thm 2.1, "reciprocity forces pa
   an even count may consist only of trivial members.
 * **Lattice valuation (odd case).** 142's contradiction ("all labels equal ⇒ Ne ∈ λ^mΛ") uses only v_q(N) of a
   *given* non-trivially split algebra. ES "total failure" is consistent at odd squares (T1), and a symmetric labelling
-  of the forest is cheap: many vertices are isolated and all components can be monochromatic, as happens i.o. under
-  Dickson ((J)106). An ES analogue would need an identity that a uniform failure violates, and that identity must be
+  of the forest is cheap: many vertices are isolated, and under Dickson, for every fixed H, infinitely many p have every
+  component meeting {1, …, H} monochromatic ((J)106, `LOWER_TAIL_ASTRA.md`; a statement about components meeting a fixed
+  finite root set, not about all components). An ES analogue would need an identity that a uniform failure violates, and that identity must be
   false at m² and at 8/131 (checklist lines 1–2). 142 supplies no such identity. Its obstruction is about the size and
   valuation of an object set known to be non-trivial, not about primality versus squareness.
 * **Meta-reason (Assessment).** 142 never proves that something exists. Factorisations exist trivially, and the
@@ -277,19 +296,20 @@ method.
 **Verdict.** No mechanism in 142 or its 029 dependency gives a provable deterministic search for an ES witness.
 142's arithmetic input is a positive-density Frobenius event in a Kummer field over ℚ(μ_{12q}), forced by a uniform
 Hecke strip. Its algebraic forcing locates objects that exist a priori. Transferred to ES, this proves exactly the
-bounded-index relaxations (Prop 2.1, Thm 2.2), and only index 2 is non-trivial at prime (★) moduli. Cap 0 fails at one
-named step: the class of p modulo the candidate ℓ at resolution ℓ^{1−o(1)}, against index ℓ^{δ/4} at most from strip
-methods. That step is B2 (F1–F3), and it is the step `FROBENIUS_FIRING.md` Remark 2.5 identified. The A5 converse closes only
+bounded-index relaxations (Prop 2.1, Thm 2.2), and at prime (★) moduli only index 2 cannot be avoided. Cap 0 fails at
+one named step: the class of p modulo the candidate ℓ at resolution ℓ^{1−o(1)}, against about ℓ^{δ/2} (ℓ^{1/4} under
+GRH) from the standard strip calculus (Assessment). That step is B2 (F1–F3), and it is the step `FROBENIUS_FIRING.md` Remark 2.5 identified. The A5 converse closes only
 to ES^□.
 
 **Promise: 0/5** for an ES route. As documentation, 1/5.
 
 **What is new here versus repo-known.**
-* New: the 142 anatomy (§1); the index dictionary m′ = gcd(m, ℓ−1) at prime (★) moduli, showing that 029's q ≥ 3 Kummer
-  layers are invisible there; the quantitative coarseness bound "certified index ≲ ℓ^{δ/4}" (Assessment); the ramified
-  reading (F3); the tournament and lattice non-transfer (§2.4); and the A5 round trip ES → QNR → ES^□.
-* Repo-known: F1 (`FROBENIUS_FIRING` Prop 1.2, Thm 1.4); Remark 2.5 (moving-order Artin problem); A13 shots;
-  POWER_LADDER; one mute prime from 029 (`OAI_DUMP_IMPACT` §4).
+* New: the 142 anatomy (§1); reading 142's auxiliary condition as a Frobenius index at the ES candidate, so that 029's
+  q ≥ 3 Kummer layers are avoidable for ES; the method-level coarseness estimate "certified index ≲ ℓ^{δ/2}"
+  (Assessment); the ramified reading (F3); the tournament and lattice non-transfer (§2.4); and the A5 round trip
+  ES → QNR → ES^□ with a deterministic polylog lowest-terms witness.
+* Repo-known: F1 (`FROBENIUS_FIRING` Prop 1.2, Thm 1.4); Remark 2.5 (moving-order Artin problem); A13 shots and the
+  gcd index (`POWER_LADDER_ES` i_k(g) = gcd(k, g−1)); one mute prime from 029 (`OAI_DUMP_IMPACT` §4).
 
 **Next steps (ranked; none expected to change ES's status).**
 1. Record a single line in HARDNESS_MAP A5 / A6: "142 ⇒ 𝔽_p-ALG ∈ FP (CLAIMED, via 029); round trip ES → QNR → ES^□

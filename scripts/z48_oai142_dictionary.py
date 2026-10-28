@@ -38,10 +38,11 @@ IS_P = sieve(SIEVE)
 
 def primes_in_class(mod, res, start=2):
     x = start + ((res - start) % mod)
-    while True:
-        if x <= SIEVE and IS_P[x]:
+    while x <= SIEVE:
+        if IS_P[x]:
             yield x
         x += mod
+    raise RuntimeError(f"sieve exhausted (bound {SIEVE}) in class {res} mod {mod}")
 
 
 def aux_q(p, q):
@@ -139,6 +140,9 @@ def part_b(out):
     n = len(rows)
     out.append(f"[B] primes p = 1 (24), 97 <= p <= {PMAX}: {n} (maxima over p >= 10^4)")
     for name in ("aux2", "aux3", "sq", "starPrime", "starAny", "starPrime_fin", "starAny_fin"):
+        if name not in worst:
+            out.append(f"    max {name}: no data (need p >= 10^4)")
+            continue
         r, p, v = worst[name]
         out.append(f"    max {name:9s}/log^2 p = {r:8.3f}  at p = {p} (value {v})")
     none_prime = [r[0] for r in rows if r[4] is None]
@@ -163,15 +167,16 @@ def part_c(out, samples):
 def part_d(out):
     fails = [409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 8813281]
     out.append("[D] (*)-failure primes (p = 1 (8)): full scan of all moduli m <= (4p+1)/3")
-    out.append("    p         aux2  aux3  sq-relax(u=1, ell)  explicit square-numerator solution checked  (*) hits")
+    out.append("    p         aux2  aux3  sq-relax(u=1, ell)  lowest-terms odd-square-numerator solution checked  (*) hits")
     for p in fails:
         a2, a3, s2 = aux_q(p, 2), aux_q(p, 3), sq_relax(p)
         mA, _ = least_star(p, False, (4 * p + 1) // 3)
         # explicit relaxed solution 4/p = g^2/(BC) + 1/(pBC) + 1/(pC), ell = s2
         C = (s2 + 1) // 4
-        g = next(g for g in range(1, s2) if (p * g * g + 1) % s2 == 0)
+        # Thm 2.2 lift: least g odd, gcd(g, pC) = 1, p g^2 = -1 (mod ell); then gcd(g, BC) = 1 automatically
+        g = next(g for g in range(1, 2 * s2 * C * p) if g % 2 == 1 and math.gcd(g, p * C) == 1 and (p * g * g + 1) % s2 == 0)
         B = (p * g * g + 1) // s2
-        ok = check_solution(p, 1, B, C, g * g)
+        ok = check_solution(p, 1, B, C, g * g) and math.gcd(g, B * C) == 1
         out.append(f"    {p:<9d} {a2:>5d} {a3:>5d} {s2:>10d} (g={g}, B={B}, C={C})  {ok}   {'none' if mA is None else mA}")
 
 

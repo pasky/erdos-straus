@@ -24,14 +24,14 @@
     409          100000          601            2423               0              0
     409         1000000         4877           19655               0              0
 [D] (*)-failure primes (p = 1 (8)): full scan of all moduli m <= (4p+1)/3
-    p         aux2  aux3  sq-relax(u=1, ell)  explicit square-numerator solution checked  (*) hits
+    p         aux2  aux3  sq-relax(u=1, ell)  lowest-terms odd-square-numerator solution checked  (*) hits
     409          73    37          7 (g=3, B=526, C=2)  True   none
     577          73    37          7 (g=3, B=742, C=2)  True   none
     5569         73    37         19 (g=3, B=2638, C=5)  True   none
-    9601        241    37         23 (g=4, B=6679, C=6)  True   none
+    9601        241    37         23 (g=19, B=150694, C=6)  True   none
     23929        73    73          7 (g=3, B=30766, C=2)  True   none
-    83449        73   397         23 (g=3, B=32654, C=6)  True   none
+    83449        73   397         23 (g=43, B=6708574, C=6)  True   none
     102001       73    73         23 (g=11, B=536614, C=6)  True   none
-    329617       73    37         11 (g=4, B=479443, C=3)  True   none
+    329617       73    37         11 (g=7, B=1468294, C=3)  True   none
     712321       73    37         23 (g=5, B=774262, C=6)  True   none
     8813281      97   397         31 (g=7, B=13930670, C=8)  True   none
