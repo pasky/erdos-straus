@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Bounded static audit and exact arithmetic checks; NOT a Lean verification."""
+import argparse
 from collections import Counter
 from fractions import Fraction as F
 from hashlib import sha256
@@ -9,7 +10,9 @@ from pathlib import Path
 import re
 import subprocess
 
-ROOT = Path('/home/pasky/projects/math/oai-math')
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--oai-root', type=Path, default=Path('/home/pasky/projects/math/oai-math'))
+ROOT = parser.parse_args().oai_root
 OUT = Path('data/z48_oai003')
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -36,7 +39,7 @@ def uncomment(s):
 
 
 def closure(module):
-    todo, seen, missing, hits = [module], set(), [], []
+    todo, seen, missing, hits, external = [module], set(), [], [], set()
     while todo:
         mod = todo.pop()
         if mod in seen:
@@ -52,8 +55,13 @@ def closure(module):
                 hits.append([mod, n, line.strip()])
         for line in text.splitlines():
             if line.startswith('import '):
-                todo.extend(x for x in line.split()[1:] if x.startswith('OAI.'))
-    return {'modules': len(seen), 'missing': missing, 'lexical_hits': hits}
+                for imported in line.split()[1:]:
+                    if imported.startswith('OAI.'):
+                        todo.append(imported)
+                    else:
+                        external.add(imported)
+    return {'modules': len(seen), 'missing': missing, 'lexical_hits': hits,
+            'unscanned_external_imports': sorted(external)}
 
 
 def add(*ps):
@@ -92,6 +100,18 @@ rhs = add(mul(add(c(3), scale(5, y)), add(mul(a, a), c(49))),
           scale(4, mul(y, add(scale(4, mul(mul(v, d),
               add(mul(mul(add(c(1), scale(3, y)), add(c(15), scale(32, y))), d),
                   c(9), scale(-13, y)))), c(265), scale(3485, y)))))
+# Derive that same quadratic from E(h), R_* and J, rather than only
+# checking the sum-of-squares expansion copied from the source.
+x = add(c(F(1, 2)), scale(-1, y))
+Dx = add(c(3), scale(F(-17, 9), x))
+Px = add(c(2), scale(F(-26, 9), x), scale(F(8, 9), mul(x, x)))
+alpha_minus_d = add(c(F(5, 6)), scale(-1, d))
+J = add(mul(alpha_minus_d, Dx), mul(d, Px))
+h = F(13, 16)
+negative_E_times_J = add(scale(F(1, 48), J),
+    mul(mul(J, d), add(c(h-F(2, 3)), scale(F(-1, 6), x))),
+    scale(-h/2, mul(mul(alpha_minus_d, d), Px)))
+assert scale(10368, negative_E_times_J) == poly
 assert mul(v, poly) == rhs
 assert F(49, 440640) > F(1, 10000)
 assert F(17, 48)/2 + F(1, 8)/12 == F(3, 16)
@@ -102,8 +122,13 @@ q, a = 4*u*w, -(u+w)
 assert gcd(u, w) == 1 and (u+w) % 2 and q-u-w <= p
 assert pow((-q) % p, (p-1)//2, p) == p-1
 assert p % q != a % q
-assert all(x*x % q == 1 for x in range(q) if gcd(x, q) == 1)
-# Hence all characters mod 24 are real; other-real contribution is -1/4.
+units = [x for x in range(q) if gcd(x, q) == 1]
+assert all(x*x % q == 1 for x in units)
+# All character values have square 1, so all characters are real.
+nonreal = 0
+pair_bm = F(2, len(units))
+other_real = F(int(p % q == a % q)) - pair_bm
+assert other_real == -F(1, 4)
 
 # Finite one-sided counterexample: ordered pair count R(409)=0.
 p0 = 409
@@ -122,7 +147,7 @@ report = {'oai_commit': subprocess.check_output(['git', '-C', str(ROOT), 'rev-pa
           'audit_kind': 'static local OAI import closure, not compiler/kernel audit',
           'closures': {}, 'endpoint_polynomial_identity': True,
           'endpoint_margin': str(F(49, 440640)),
-          'other_real_counterexample': {'p': 61, 'u': 2, 'v': 3, 'q': 24, 'BM': '1/4', 'nonreal': 0, 'other_real': '-1/4'},
+          'other_real_counterexample': {'p': 61, 'u': 2, 'v': 3, 'q': 24, 'BM': str(pair_bm), 'nonreal': nonreal, 'other_real': str(other_real)},
           'finite_lower_tail_control': {'p': p0, 'R': hits, 'M_BM_exact': str(bm), 'M_BM': float(bm)},
           'sources': {}}
 for name in ['DirichletSevenEighths', 'QuasiRiemannHypothesis', 'HeckeSevenEighths', 'SiegelZeros']:
