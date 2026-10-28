@@ -1,15 +1,19 @@
 # H4_NOT_POLYLOG — simultaneous super-polylogarithmic forest and covering gaps
 
-**PROVED, effective, relative to classical Gallagher input (G) stated in §5 and the internally proved energy lemma (OMEGA10 Theorem 3.4 / OMEGA11 Lemma 1.1):** there are infinitely many primes p ≡ 1 (mod 840) for which
+**Two separate unconditional results, both PROVED relative to the internally proved energy lemma (OMEGA10 Theorem 3.4 / OMEGA11 Lemma 1.1):**
 
-    H₄(p) > exp((log p)^(1/7)),
-    A_min(p) > exp((log p)^(1/7)).
+* **κ < 1/12, effective:** the analytic inputs are the published Montgomery–Vaughan I statements cited in §5; no Gallagher input is needed.
+* **κ < 1/6, additionally relative to (G):** the exact Gallagher formulation is checked only against the archived Montgomery–Vaughan III draft, with the provenance and parameter qualifications in §5. Effectivity of this extension is an **Assessment**, not a separately source-verified claim here.
 
-In fact any fixed exponent κ < 1/6 works. The same primes have **no edge whatsoever** with larger endpoint between 4 and exp((log p)^κ). The only edges in this initial box are {1,2} and {2,3}. The original ordinary-PNT proof, retained below independently of (G), gives κ < 1/12 (in particular 1/13); **GRH** gives κ < 1/6 without (G). These exponents are deliberately not optimized. The exact archived formulation and provenance caveat for (G) are given in §5; the internal energy dependency remains unrefereed.
+For each fixed κ in the respective range, there are infinitely many primes p ≡ 1 (mod 840) satisfying simultaneously
+
+    H₄(p) > exp((log p)^κ),       A_min(p) > exp((log p)^κ).
+
+The same primes have **no edge whatsoever** with larger endpoint between 4 and exp((log p)^κ). The only edges in this initial box are {1,2} and {2,3}. In particular κ=1/13 works by the first route and κ=1/7 by the second. **GRH** gives κ < 1/6 without (G). These exponents are deliberately not optimized; the internal energy dependency remains unrefereed.
 
 **Scope:** this refutes FOREST_H4 Conjecture H₂ and every fixed-polylogarithmic bound on both forest endpoints or on the covering coordinate. It says nothing about ES existence, eventual ES₅, or bounds on only one endpoint. ES remains open. Proofs and their review are internal and unrefereed.
 
-The main new arithmetic input is an elementary bound on the *class-of-one inflated mass*. It replaces the proposed smooth/rough analysis. The transfer uses a low-modulus one-sided approximation, **not** an unproved Poisson bound for high intersections. The possible exceptional real zero is retained throughout. The effective Page–Landau bound suffices, so both unconditional versions are effective: their absolute constants and sufficiently-large thresholds are computable, though not numerically evaluated here. Siegel's ineffective theorem is not used.
+The main new arithmetic input is an elementary bound on the *class-of-one inflated mass*. It replaces the proposed smooth/rough analysis. The transfer uses a low-modulus one-sided approximation, **not** an unproved Poisson bound for high intersections. The possible exceptional real zero is retained throughout. The effective Page–Landau bound suffices for the ordinary-PNT route: its absolute constants and sufficiently-large thresholds are computable, though not numerically evaluated here. Effectivity of the Gallagher extension is assessed separately in Lemma 7b. Siegel's ineffective theorem is not used.
 
 ## 1. Precise statement and coordinates
 
@@ -31,7 +35,7 @@ with both properties:
 * the induced forest on [1,H] has exactly the two edges {1,2}, {2,3};
 * p mod A ∉ G_A for every 2 ≤ A ≤ H.
 
-**Stronger unconditional version, PROVED relative to classical (G):** the upper bound in (1) improves effectively to exp(C L^6 log L). **CONDITIONAL on GRH:** the same improvement follows without (G).
+**Stronger unconditional version, PROVED relative to classical (G):** the upper bound in (1) improves to exp(C L^6 log L); its effectivity is the Assessment in Lemma 7b. **CONDITIONAL on GRH:** the same improvement follows effectively without (G).
 
 Consequently the ordinary-PNT route gives every κ < 1/12, and the Gallagher route gives every κ < 1/6, unconditionally, with both minima greater than exp((log p)^κ) at infinitely many such primes. GRH gives the latter range independently of (G). The constants in the cutoff do not matter because these are strict inequalities below the limiting exponents. Distinctness is guaranteed by p > H², not by assuming either minimum finite.
 
@@ -267,7 +271,7 @@ If f|Q', then ψ≡1 on our fibre, so ν=μ **exactly**. The numerator is
       ≫ xμ min(1,(1−β)log x)
       ≫ xμ exp(−C log Q')                                       (18)
 
-for x sufficiently large, by (15). The bracket estimate uses log x≥4 and β>1/2; it is capped at 1. Thus even the worst Siegel-zero class keeps a positive main term. The factor 1/φ(Q') in (17) must also be paid for.
+for x sufficiently large, by (15). The bracket estimate uses log x≥4 and β>1/2; it is capped at 1. Thus even the worst exceptional-zero class keeps a positive main term. The factor 1/φ(Q') in (17) must also be paid for.
 
 Choose
 
@@ -277,7 +281,7 @@ with a sufficiently large effectively computable absolute constant and threshold
 
 Under GRH the absolute error is O(K sqrt(x) log²(Q'Dx)); choosing log x a sufficiently large constant times the displayed budget gives the same positivity without (18). This proves (16) and its GRH version. ∎
 
-### Lemma 7b (PROVED relative to classical (G), effective: linear transfer)
+### Lemma 7b (PROVED relative to classical (G): linear transfer)
 
 For the same system there is a prime p>T avoiding the original events, p≡1 (mod Q), such that
 
@@ -285,7 +289,7 @@ For the same system there is a prime p>T avoiding the original events, p≡1 (mo
 
 This removes the square in (16) **without GRH**. It imports POINTWISE_OMEGA9 Theorem 1.1 through POINTWISE_OMEGA11 Lemma 3.1, not a new unproved prime-distribution conjecture. We state the exact analytic input and verify the overlap and character interfaces here.
 
-**Input (G), exact form used.** Write ϑ(x;χ)=Σ_(p≤x)χ(p)log p. For absolute effective constants c≥1, C_G and one fixed sufficiently large admissible κ_G, whenever 1<U^(6c)≤x,
+**Input (G), exact form used.** Write ϑ(x;χ)=Σ_(p≤x)χ(p)log p. For absolute constants c≥1, C_G and one fixed sufficiently large admissible κ_G, whenever 1<U^(6c)≤x,
 
     Σ_(q≤U) Σ*_(χ mod q) |ϑ(x;χ)−1_(q=1)x|
       ≤ C_G x [exp(−log x/(κ_G log U))+(log x/log U)²/U].         (G0)
@@ -328,9 +332,11 @@ after choosing B₀ and C. If the exceptional character occurs with conductor di
 
 Moreover (15) and f≤Q'≤Z give min(u,1)≫Z^(−1/2)(log Z)^(−2). Thus (22) is also smaller than this main term for x=Z^C with C sufficiently large (C>5 suffices for this correction). If the exceptional conductor does not divide Q', Lemma 6 leaves at least μx/(2φ(Q')) instead; an exceptional character absent from the expansion contributes nothing. The prime sum is positive in every case.
 
-Every counted prime is 1 modulo r, hence exceeds r>T. The cell prime support is ≤T, so B(p)≤F(p) is valid there. Some prime therefore avoids the original events. Finally log x=C log Z≪log Q+log D+log T+1, proving (16b). All constants used in (G), (15), the finite algebra, and these choices are effective. ∎
+Every counted prime is 1 modulo r, hence exceeds r>T. The cell prime support is ≤T, so B(p)≤F(p) is valid there. Some prime therefore avoids the original events. Finally log x=C log Z≪log Q+log D+log T+1, proving (16b). All choices after importing (G) are effective in its constants and the effective constant in (15). ∎
 
-### Proof of Theorem 1 (PROVED, effective)
+**Assessment — effectivity of the Gallagher extension.** The log-free density and Deuring–Heilbronn proof underlying (G) is the usual effective Linnik machinery, so we expect its constants, and hence those of (16b), to be effectively computable. However, the checked MV III Theorem 28.19 does not explicitly state effectivity, and this task has not independently verified that assertion against a published source. We therefore label effectivity of this extension as an Assessment. This qualification does not affect the PROVED implication from the stated (G), nor the independently source-verified effectivity of the ordinary-PNT route.
+
+### Proof of Theorem 1 (PROVED; effectivity qualified as above)
 
 Apply Lemma 3 to the joint family in Lemma 2. Lemma 4 gives
 
@@ -384,7 +390,7 @@ The all-edge target is visibly stronger than certificate avoidance. A zero sampl
 
 **Hostile internal review:** a fresh deep reviewer read the complete proof, its internal energy dependencies, checker and outputs, independently reproduced checks.json, and returned **SOUND, no blocking mathematical defect**. It specifically rechecked inflated mass, the even-prime extension, absolute digit weights, the unweighted coefficient budget, the free-character twist, and both exceptional-zero cases. Its two presentation repairs (the ∞ convention for A_min and replacing this pending validation paragraph) are applied; its request for a more precise explanation of the global PNT exception is addressed by the derivation in §5. A separate earlier deep proof-design audit supplied the even-prime and coefficient-extension repairs already incorporated in the first full draft. Review provenance is retained in data/z49_h4lower/review.txt.
 
-**Cross-model review and follow-up:** the Opus review at `reviews/z49-h4lower-review.md` on branch `side-agent/z49-rev-h4lower` returned **SOUND** for the original theorem, with the minor repairs now applied: effective Page–Landau input, precise published citations, s≤2v, visible internal-energy dependency, and explicit normalization of δ(H). The published analytic statements and the archived (G) formulation were checked directly; details are in `data/z49_h4lower/analytic_inputs.md`. After adding Lemma 7b, a separate fresh deep reviewer audited only the new transfer and effectivity changes and returned **SOUND relative to the explicitly stated (G) and internal energy lemma**. It rechecked overlapping moduli, the bounded L¹/mean ratio, auxiliary-prime support, both exceptional terms, the primitive-character correction and the effective parameter choices. The κ<1/6 extension is therefore not silently covered by the earlier reviews of κ<1/12.
+**Cross-model review and follow-up:** the Opus review at `reviews/z49-h4lower-review.md` on branch `side-agent/z49-rev-h4lower` returned **SOUND** for the original theorem, with the minor repairs now applied: effective Page–Landau input, precise published citations, s≤2v, visible internal-energy dependency, and explicit normalization of δ(H). The published analytic statements and the archived (G) formulation were checked directly; details are in `data/z49_h4lower/analytic_inputs.md`. After adding Lemma 7b, a separate fresh deep reviewer audited only the new transfer and effectivity changes and returned **SOUND relative to the explicitly stated (G) and internal energy lemma**. It rechecked overlapping moduli, the bounded L¹/mean ratio, auxiliary-prime support, both exceptional terms, the primitive-character correction and the effective parameter choices. The κ<1/6 extension is therefore not silently covered by the earlier reviews of κ<1/12. The subsequent Opus follow-up review also returned **SOUND relative to (G) and the internal energy lemma**. Its final wording requests are applied: the headline separates the two unconditional dependency chains, Lemma 7 says “exceptional-zero class”, and Gallagher-route effectivity is explicitly labelled Assessment because the checked draft does not state it.
 
 **Reproduction:**
 
