@@ -10,6 +10,10 @@ FAM = {
     "2^k+3": (lambda k: 2**k + 3, [(3, 5), (4, 5), (3, 7), (5, 6), (4, 9), (4, 13)]),
     "2^k-3": (lambda k: 2**k - 3, [(3, 4), (3, 8)]),
     "7*2^k-1": (lambda k: 7 * 2**k - 1, [(3, 3), (3, 6), (4, 5), (3, 11), (5, 10), (4, 13), (5, 12), (8, 9), (5, 15), (5, 20), (8, 65), (15, 65)]),
+    # the two families the first search missed (gcd(c, w) > 1 pairs); certificates from the cross-model review and from the repaired search
+    "5*2^k-1 (reviewer)": (lambda k: 5 * 2**k - 1, [(5, 6), (3, 3), (3, 6), (6, 15)]),
+    "3*2^k+1 (reviewer, L=360)": (lambda k: 3 * 2**k + 1, [(3, 14), (7, 8), (3, 5), (5, 6), (5, 27), (6, 17), (9, 38), (5, 5), (4, 11), (5, 10), (5, 15), (5, 195)]),
+    "3*2^k+1 (repaired search, L=60)": (lambda k: 3 * 2**k + 1, [(3, 5), (3, 11), (3, 14), (4, 11), (5, 10), (7, 8), (5, 15), (3, 26), (5, 27), (5, 195)]),
 }
 KMAX = 2000
 for name, (f, pairs) in FAM.items():

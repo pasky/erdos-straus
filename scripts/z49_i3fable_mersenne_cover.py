@@ -2,7 +2,11 @@
 A pair (u,v), 3 <= u <= v, gives the word (t,u,v) of n = c*2^k + d iff uv | n + u + v, i.e. c*2^k ≡ -(d+u+v) (mod uv).
 Write uv = 2^a * w (w odd).  For k >= a the 2-part condition is 2^a | d+u+v (if c is odd); modulo w the condition is
 2^k ≡ -(d+u+v)/c (mod w), solvable iff that residue lies in <2> ⊂ (Z/w)^*, and then k ≡ r (mod ord_w(2)).
-We collect all such classes with uv <= B and ord_w(2) | L for a list of smooth L, and test whether they cover Z/L.
+(When g = gcd(c, w) > 1 the congruence is reduced by g: it needs g | d+u+v and then (c/g) 2^k ≡ -(d+u+v)/g mod w/g —
+the first version of this script discarded these pairs, which is why it missed the coverings for 3*2^k+1 and 5*2^k-1;
+the cross-model reviewer (reviews/z49-i3fable-xreview.md) found them.)  We collect all such classes with uv <= B and
+ord_w(2) | L for the smooth L listed in main() (a selected menu, so a negative outcome is not exhaustive), and test
+whether they cover Z/L.
 A covering with all words interior for k >= k0 (t = (n+u+v)/(uv) >= 3 once n >= 3uv) PROVES I3(c*2^k+d) >= 1 for k >= k0.
 Usage: uv run python scripts/z49_i3fable_mersenne_cover.py [c=1] [d=-1] [B=4000] [base=2]
 """
@@ -24,9 +28,14 @@ def classes(c, d, B, base=2):
                 w = m; a = 0   # odd base: treat the full modulus multiplicatively (requires gcd(base, m) = 1 below)
                 if gcd(base, w) != 1: continue
             if w == 1: continue
-            r = (-s) % w
-            if gcd(r, w) != 1 or gcd(c, w) != 1: continue
-            r = r * pow(c, -1, w) % w
+            # reduce c*b^k ≡ -s (mod w) by g = gcd(c, w): need g | s, then (c/g) b^k ≡ -s/g (mod w/g)
+            g = gcd(c, w)
+            if s % g: continue
+            w //= g; c1 = c // g; s1 = s // g
+            if w == 1: continue
+            r = (-s1) % w
+            if gcd(r, w) != 1: continue
+            r = r * pow(c1, -1, w) % w
             M = n_order(base, w)
             # find k0 with 2^k0 ≡ r (mod w)
             x = 1; k0 = None
