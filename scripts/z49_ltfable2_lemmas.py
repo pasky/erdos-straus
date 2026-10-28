@@ -11,7 +11,11 @@ L4  Numerator-8 control at n = 17, 241: no word has any pentagon quantity = 0 (m
 L5  Hard primes: which of the six lines fire, HC(p).
 L6  Inclusion-exclusion bookkeeping and the overlap lemma (u = v = -n (8)  =>  t = -n (8)).
 """
+import sys
 from itertools import product
+FAIL = []
+def expect(cond, msg):
+    if not cond: FAIL.append(msg)
 from math import gcd, isqrt
 from sympy import jacobi_symbol, isprime, divisors, factorint
 
@@ -58,6 +62,7 @@ def L1():
         if s != c: bad.append((t, u, v))
         A, As = (t*u-1) % 8, (t*v-1) % 8
         if s and not (A in (0, 4, 7) or As in (0, 4, 7)): numer_only_miss += 1
+    expect(cells == 160 and cert == 120 and not bad and numer_only_miss == 8, "L1 cells")
     print(f"L1 cells: admissible {cells}, certificate {cert}, mismatches slot/coord {len(bad)}; "
           f"certificate cells with no numerator in {{0(4),7(8)}}: {numer_only_miss}")
     tot = mism = 0
@@ -67,7 +72,7 @@ def L1():
             tot += 1
             if (jacobi_symbol(u*v, n) == -1) != (inC(t, n) or inC(u, n) or inC(v, n)):
                 mism += 1
-    print(f"L1 words: n = 1 (4) <= 4000, {tot} coprime words, {mism} mismatches")
+    expect(mism == 0, "L1 words"); print(f"L1 words: n = 1 (4) <= 4000, {tot} coprime words, {mism} mismatches")
 
 def L2():
     # sign of a negative word: (d/n) with d = t r + 1 (the numerator), n = 1 (4); table by (t mod 8, d mod 8)
@@ -96,7 +101,7 @@ def L2():
             if tp % 4 == 1: pred = -1 if dm in (5, 7) else 1   # (-2/d)
             else: pred = -1 if dm in (3, 5) else 1            # (2/d)
         if v != {pred}: bad += 1
-    print(f"   odd-d classes disagreeing with Lemma 1.4: {bad}")
+    expect(bad == 0 and all(k[1] % 2 == 0 for k in amb), "L2"); print(f"   odd-d classes disagreeing with Lemma 1.4: {bad}")
 
 def free_cert_formula(n):
     """Theorem 2.1: certificate count among free words, from class-restricted divisor counts."""
@@ -131,7 +136,7 @@ def L3():
     bad = 0
     for n in range(5, 3001, 4):
         if free_cert_formula(n) != free_cert_closed(n): bad += 1
-    print(f"L3 free certificate count, enumeration vs closed form, n = 1 (4) <= 3000: {bad} mismatches")
+    expect(bad == 0, "L3 closed form"); print(f"L3 free certificate count, enumeration vs closed form, n = 1 (4) <= 3000: {bad} mismatches")
     # the spin reading: u=1 free certificates <=> (n+1)/2's odd part has a divisor = 3 (mod 4) when n = 1 (8)
     bad = 0
     for p in range(17, 20001, 8):
@@ -140,13 +145,14 @@ def L3():
         have = any((t, 1, v) for (t, u, v) in words(p) if u == 1 and (inC(t, p) or inC(v, p)))
         pred = any(d % 4 == 3 for d in divisors(m))
         if have != pred: bad += 1
-    print(f"   u=1 spin reading at primes p = 1 (8) <= 20000: {bad} mismatches")
+    expect(bad == 0, "L3 spin"); print(f"   u=1 spin reading at primes p = 1 (8) <= 20000: {bad} mismatches")
 
 def L4():
     for n in (17, 241):
         W = words(n)
         pent8 = [w for w in W if any(x % 8 == 0 for x in (w[0], w[1], w[2], w[0]*w[1]-1, w[0]*w[2]-1))]
         certs = [w for w in W if inC(w[0], n) or inC(w[1], n) or inC(w[2], n)]
+        expect(len(pent8) == 0 and len(certs) > 0, f"L4 n={n}")
         print(f"L4 n={n}: words {len(W)}, 4/n certificates (coordinate in C) {len(certs)}, "
               f"words with a pentagon quantity = 0 (mod 8) [8/n slots]: {len(pent8)}")
     # Theorem 1's would-be numerator-8 analogue is false as a sign law: coordinate = 0 (8) or = -n (16) vs (uv/n)
@@ -178,7 +184,9 @@ def L6():
         if n % 4 != 1: continue
         if u == (-n) % 8 and v == (-n) % 8 and t != (-n) % 8: bad += 1
         if u % 4 == 0 and v % 4 == 0: bad += 1
-    print(f"L6 overlap lemma violations on cells: {bad}")
+    expect(bad == 0, "L6"); print(f"L6 overlap lemma violations on cells: {bad}")
 
 if __name__ == "__main__":
     L1(); L2(); L3(); L4(); L5(); L6()
+    if FAIL: print("FAILED:", FAIL); sys.exit(1)
+    print("all checks passed")

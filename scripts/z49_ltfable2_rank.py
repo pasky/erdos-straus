@@ -56,9 +56,11 @@ def main(path):
         orbits = set()
         for c in occupied: orbits.add(frozenset((c, swap(c))))
         n_orbits = len(orbits)
+        ok = (rk == n_orbits)
         print(f"{label}: {len(ns)} primes, {len(occupied)} occupied cells, {n_orbits} involution orbits, "
               f"rank = {rk}; relation space dim = {len(occupied) - rk}; involution relations = {len(occupied) - n_orbits}"
-              + ("  => relations = involution only" if len(occupied) - rk == len(occupied) - n_orbits else "  => EXTRA RELATIONS"))
+              + ("  => relations = involution only" if ok else "  => EXTRA RELATIONS"))
+        if not ok: sys.exit(1)
 
 if __name__ == "__main__":
     main(sys.argv[1] if len(sys.argv) > 1 else "data/z49_ltfable2/cells_3e5.txt")
