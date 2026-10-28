@@ -17,7 +17,7 @@ comp(1) monochromatic: c1size distribution [(8, 176), (10, 137), (11, 23), (12, 
 comp(1) monochromatic: max c1size 75
 
 ### B. Thresholds V = c·log²p: fraction of primes with the property inside F_p|[1,V]
-| c | H4 ≤ V (some comp. bichromatic) | comp(1) bichromatic | 1~r (root(r)=1, r ≤ V) | r ≤ V and comp(r) has QR ≤ V | mean #comp/V | mean |comp(1)| | mean largest | mean max depth | mean #isolated/V |
+| c | H4 ≤ V (some comp. bichromatic) | comp(1) bichromatic | 1~r (root(r)=1, r ≤ V) | r ≤ V and comp(r) has QR ≤ V | mean #comp/V | mean ∣comp(1)∣ | mean largest | mean max depth | mean #isolated/V |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 0.25 | 82276/82887 (99.26%) | 75828/82887 (91.48%) | 63330/82887 (76.41%) | 74958/82887 (90.43%) | 0.766 | 10.7 | 10.7 | 3.17 | 0.700 |
 | 0.5 | 82816/82887 (99.91%) | 78111/82887 (94.24%) | 63331/82887 (76.41%) | 75213/82887 (90.74%) | 0.841 | 13.1 | 13.1 | 3.36 | 0.794 |
@@ -27,7 +27,7 @@ comp(1) monochromatic: max c1size 75
 | 8 | 82884/82884 (100.00%) | 80844/82884 (97.54%) | 63328/82884 (76.41%) | 76025/82884 (91.72%) | 0.976 | 22.8 | 22.9 | 3.74 | 0.966 |
 
 ### B'. c = 1 by range (fraction failing)
-| range | primes | no bichromatic comp ≤ log²p | comp(1) mono ≤ log²p | comp(1) mono in FULL F_p | mean |comp(1)∩[1,log²p]| | mean #comp ≤ log²p / log²p |
+| range | primes | no bichromatic comp ≤ log²p | comp(1) mono ≤ log²p | comp(1) mono in FULL F_p | mean ∣comp(1)∩[1,log²p]∣ | mean #comp ≤ log²p / log²p |
 |---|---:|---:|---:|---:|---:|---:|
 | (0e+00,1e+04] | 143 | 0/143 (0.00%) | 7/143 (4.90%) | 6/143 (4.20%) | 11.37 | 0.782 |
 | (1e+04,1e+05] | 1038 | 1/1038 (0.10%) | 56/1038 (5.39%) | 43/1038 (4.14%) | 13.23 | 0.843 |
@@ -57,7 +57,7 @@ Br (least QR in comp(r))/log²p over 76746 primes where finite: median 0.004, 90
 top B1/log²p: [(909.3773409457282, 4479121), (961.365594771286, 4774801), (966.2191708476366, 4802521), (1298.683124343008, 6742921), (1377.5813208551197, 7214161), (1533.611064717256, 8156641), (1535.129552661167, 8165881), (1763.8100265772064, 9570361)]
 
 ### G. Named hard primes (full forest)
-| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | |comp(1)| | |comp(r)| | #bichrom. comps | K | Ksize | maxdepth |
+| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | ∣comp(1)∣ | ∣comp(r)∣ | #bichrom. comps | K | Ksize | maxdepth |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 193 | 5 | 5 | (2,5,20) | 1 | 5 | 1 | 1 | 14 | 14 | 2 | 10 | 2 | 3 |
 | 409 | 7 | 7 | (4,7,15) | 4 | ∅ | 4 | 4 | 15 | 4 | 2 | 42 | 3 | 3 |
@@ -69,7 +69,7 @@ top B1/log²p: [(909.3773409457282, 4479121), (961.365594771286, 4774801), (966.
 | 66529 | 13 | 26 | (5,26,512) | 1 | 26 | 13 | 343 | 26 | 2 | 5 | 343 | 2 | 3 |
 
 ### G'. The 14 primes with R(p)=0 (full forest)
-| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | |comp(1)| | |comp(r)| | #bichrom. comps | K | Ksize | maxdepth |
+| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | ∣comp(1)∣ | ∣comp(r)∣ | #bichrom. comps | K | Ksize | maxdepth |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 409 | 7 | 7 | (4,7,15) | 4 | ∅ | 4 | 4 | 15 | 4 | 2 | 42 | 3 | 3 |
 | 577 | 5 | 5 | (3,5,39) | 1 | 5 | 1 | 1 | 16 | 16 | 4 | 39 | 3 | 3 |
@@ -124,7 +124,7 @@ feature counts over all 3: {'q3 absent': 3, 'r root': 3, 'comp1 mono(full)': 2, 
 feature counts over all 9: {'q3 absent': 6, 'r root': 9, 'comp1 mixed(full)': 8, 'q3 present': 3, 'comp1 mono(full)': 1}
 
 ### named/adversarial (vertex-capped)
-| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | |comp(1)| | |comp(r)| | #bichrom. comps | K | Ksize | maxdepth |
+| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | ∣comp(1)∣ | ∣comp(r)∣ | #bichrom. comps | K | Ksize | maxdepth |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 25862761 | 13 | 19 | (1,19,1361199) | 1 | 19 | 13 | ∅ | 46 | 1 | 24 | 1239 | 2 | 4 |
 | 837476641 | 17 | 17 | (3,17,16421111) | 1 | 17 | 1 | 1 | 43 | 43 | 29 | 159 | 2 | 5 |
@@ -143,7 +143,7 @@ feature counts over all 9: {'q3 absent': 6, 'r root': 9, 'comp1 mixed(full)': 8,
 feature counts over all 0: {}
 
 ### named/adversarial (vertex-capped)
-| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | |comp(1)| | |comp(r)| | #bichrom. comps | K | Ksize | maxdepth |
+| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | ∣comp(1)∣ | ∣comp(r)∣ | #bichrom. comps | K | Ksize | maxdepth |
 |---:|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 
 ### H. The minimal certificate edge (u, H4, t)

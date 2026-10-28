@@ -66,7 +66,7 @@ def census(rows):
 
     # B1 vs log^2
     P("\n### B. Thresholds V = c·log²p: fraction of primes with the property inside F_p|[1,V]")
-    P("| c | H4 ≤ V (some comp. bichromatic) | comp(1) bichromatic | 1~r (root(r)=1, r ≤ V) | r ≤ V and comp(r) has QR ≤ V | mean #comp/V | mean |comp(1)| | mean largest | mean max depth | mean #isolated/V |")
+    P("| c | H4 ≤ V (some comp. bichromatic) | comp(1) bichromatic | 1~r (root(r)=1, r ≤ V) | r ≤ V and comp(r) has QR ≤ V | mean #comp/V | mean ∣comp(1)∣ | mean largest | mean max depth | mean #isolated/V |")
     P("|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
     for c in CS:
         cc = float(c)
@@ -79,7 +79,7 @@ def census(rows):
           f"{st.mean(r['maxdepth' + c] for r in S):.2f} | {st.mean(r['nsingle' + c] / V(r) for r in S):.3f} |")
     # by range at c=1
     P("\n### B'. c = 1 by range (fraction failing)")
-    P("| range | primes | no bichromatic comp ≤ log²p | comp(1) mono ≤ log²p | comp(1) mono in FULL F_p | mean |comp(1)∩[1,log²p]| | mean #comp ≤ log²p / log²p |")
+    P("| range | primes | no bichromatic comp ≤ log²p | comp(1) mono ≤ log²p | comp(1) mono in FULL F_p | mean ∣comp(1)∩[1,log²p]∣ | mean #comp ≤ log²p / log²p |")
     P("|---|---:|---:|---:|---:|---:|---:|")
     for lo, hi in zip(edges, edges[1:]):
         S = [r for r in rows if lo < r["p"] <= hi]
@@ -120,7 +120,7 @@ def census(rows):
 def hard_table(rows, title, plist):
     by = {r["p"]: r for r in rows}
     print(f"\n### {title}")
-    print("| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | |comp(1)| | |comp(r)| | #bichrom. comps | K | Ksize | maxdepth |")
+    print("| p | r | H4 | edge (u,H4,t) | rho* | B1 | root(r) | Br | ∣comp(1)∣ | ∣comp(r)∣ | #bichrom. comps | K | Ksize | maxdepth |")
     print("|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
     for p in plist:
         r = by.get(p)

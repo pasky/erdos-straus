@@ -90,7 +90,7 @@ static void analyze(U p,U VCAP,Work*w,Row*R,int doagg){
   int ci=0; while(ci<NC&&Vc[ci]<2){R->ncompc[ci]=0;ci++;} /* too small: marked unavailable */
   for(U v=2;v<=N;v++){
     U a=(v-p%v)%v; int has=0; U t=0;
-    if(a&&v!=p&&(p+v)%a==0){has=1;t=(U)(((unsigned __int128)p+a+v)/((unsigned __int128)a*v));}
+    if(a&&v!=p&&(U)(((unsigned __int128)p+v)%a)==0){has=1;t=(U)(((unsigned __int128)p+a+v)/((unsigned __int128)a*v));}
     if(has){
       U rho=root[a]; root[v]=rho; dep[v]=dep[a]+1; if(dep[v]>maxdepth)maxdepth=dep[v];
       if(size[rho]==1)nsingle--;
