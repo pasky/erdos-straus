@@ -1,0 +1,14 @@
+# mode=split N=300000000 M=20000 type=sq X0=17322 NP=1992 constraints: 2:1
+X=8  stage-survival=0.39615  P1(no word with v<=X)=3.9615e-01  survivors=7923
+X=16  stage-survival=0.31945  P1(no word with v<=X)=1.2655e-01  survivors=6389
+X=32  stage-survival=0.41230  P1(no word with v<=X)=5.2177e-02  survivors=8246
+X=64  stage-survival=0.26115  P1(no word with v<=X)=1.3626e-02  survivors=5223
+X=128  stage-survival=0.11170  P1(no word with v<=X)=1.5220e-03  survivors=2234
+X=256  stage-survival=0.21180  P1(no word with v<=X)=3.2236e-04  survivors=4236
+X=512  stage-survival=0.16205  P1(no word with v<=X)=5.2239e-05  survivors=3241
+X=1024  stage-survival=0.18670  P1(no word with v<=X)=9.7530e-06  survivors=3734
+X=2048  stage-survival=0.10485  P1(no word with v<=X)=1.0226e-06  survivors=2097
+X=4096  stage-survival=0.06005  P1(no word with v<=X)=6.1407e-08  survivors=1201
+X=8192  stage-survival=0.06640  P1(no word with v<=X)=4.0774e-09  survivors=1328
+X=16384  stage-survival=0.00000  P1(no word with v<=X)=0.0000e+00  survivors=0
+P1=0 (population died); increase M

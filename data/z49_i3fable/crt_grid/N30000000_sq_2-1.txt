@@ -1,0 +1,13 @@
+# mode=split N=30000000 M=20000 type=sq X0=5479 NP=725 constraints: 2:1
+X=8  stage-survival=0.40430  P1(no word with v<=X)=4.0430e-01  survivors=8086
+X=16  stage-survival=0.31790  P1(no word with v<=X)=1.2853e-01  survivors=6358
+X=32  stage-survival=0.41995  P1(no word with v<=X)=5.3975e-02  survivors=8399
+X=64  stage-survival=0.25000  P1(no word with v<=X)=1.3494e-02  survivors=5000
+X=128  stage-survival=0.13430  P1(no word with v<=X)=1.8122e-03  survivors=2686
+X=256  stage-survival=0.21445  P1(no word with v<=X)=3.8863e-04  survivors=4289
+X=512  stage-survival=0.15450  P1(no word with v<=X)=6.0043e-05  survivors=3090
+X=1024  stage-survival=0.14550  P1(no word with v<=X)=8.7363e-06  survivors=2910
+X=2048  stage-survival=0.16360  P1(no word with v<=X)=1.4293e-06  survivors=3272
+X=4096  stage-survival=0.10700  P1(no word with v<=X)=1.5293e-07  survivors=2140
+X=5479  stage-survival=0.34965  P1(no word with v<=X)=5.3472e-08  survivors=6993
+P1(X0=5479)=5.3472e-08  tail: 0 of 6993 survivors have no word with v>X0 -> P2=0.0000 (+-0.0000)  P(I3=0)=0.0000e+00

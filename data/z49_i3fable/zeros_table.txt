@@ -1,0 +1,113 @@
+# n, factorisation, k, S_div, S_gen(1st order), M0, S_div*S_gen*M0, E_loc(B=50)
+       3 {3: 1}                       k=3       S_div=1.064 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+       4 {2: 2}                       k=1       S_div=0.912 S_gen=0.50 M0=   0.00 1st-order=  0.00 E_loc=0.00
+       5 {5: 1}                       k=5       S_div=1.228 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+       6 {2: 1, 3: 1}                 k=6       S_div=0.638 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+       7 {7: 1}                       k=7       S_div=1.307 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+       8 {2: 3}                       k=2       S_div=0.912 S_gen=0.67 M0=   0.00 1st-order=  0.00 E_loc=0.00
+       9 {3: 2}                       k=1       S_div=1.064 S_gen=0.50 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      10 {2: 1, 5: 1}                 k=10      S_div=0.737 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      11 {11: 1}                      k=11      S_div=1.383 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      12 {2: 2, 3: 1}                 k=3       S_div=0.638 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      13 {13: 1}                      k=13      S_div=1.404 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      14 {2: 1, 7: 1}                 k=14      S_div=0.784 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      15 {3: 1, 5: 1}                 k=15      S_div=0.859 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      16 {2: 4}                       k=1       S_div=0.912 S_gen=0.50 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      17 {17: 1}                      k=17      S_div=1.431 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      18 {2: 1, 3: 2}                 k=2       S_div=0.638 S_gen=0.67 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      19 {19: 1}                      k=19      S_div=1.440 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      20 {2: 2, 5: 1}                 k=5       S_div=0.737 S_gen=1.00 M0=   0.00 1st-order=  0.00 E_loc=0.00
+      22 {2: 1, 11: 1}                k=22      S_div=0.830 S_gen=1.00 M0=   0.12 1st-order=  0.10 E_loc=0.00
+      23 {23: 1}                      k=23      S_div=1.454 S_gen=1.00 M0=   0.12 1st-order=  0.18 E_loc=0.00
+      24 {2: 3, 3: 1}                 k=6       S_div=0.638 S_gen=1.00 M0=   0.12 1st-order=  0.08 E_loc=0.00
+      25 {5: 2}                       k=1       S_div=1.228 S_gen=0.50 M0=   0.12 1st-order=  0.08 E_loc=0.00
+      26 {2: 1, 13: 1}                k=26      S_div=0.842 S_gen=1.00 M0=   0.12 1st-order=  0.11 E_loc=0.00
+      27 {3: 3}                       k=3       S_div=1.064 S_gen=1.00 M0=   0.12 1st-order=  0.13 E_loc=0.00
+      28 {2: 2, 7: 1}                 k=7       S_div=0.784 S_gen=1.00 M0=   0.12 1st-order=  0.10 E_loc=0.00
+      31 {31: 1}                      k=31      S_div=1.471 S_gen=1.00 M0=   0.31 1st-order=  0.45 E_loc=0.00
+      32 {2: 5}                       k=2       S_div=0.912 S_gen=0.67 M0=   0.31 1st-order=  0.19 E_loc=0.00
+      33 {3: 1, 11: 1}                k=33      S_div=0.968 S_gen=1.00 M0=   0.31 1st-order=  0.30 E_loc=0.00
+      34 {2: 1, 17: 1}                k=34      S_div=0.858 S_gen=1.00 M0=   0.31 1st-order=  0.26 E_loc=0.00
+      35 {5: 1, 7: 1}                 k=35      S_div=1.056 S_gen=1.00 M0=   0.31 1st-order=  0.32 E_loc=0.00
+      36 {2: 2, 3: 2}                 k=1       S_div=0.638 S_gen=0.50 M0=   0.31 1st-order=  0.10 E_loc=0.00
+      38 {2: 1, 19: 1}                k=38      S_div=0.864 S_gen=1.00 M0=   0.38 1st-order=  0.33 E_loc=0.00
+      42 {2: 1, 3: 1, 7: 1}           k=42      S_div=0.549 S_gen=1.00 M0=   0.52 1st-order=  0.28 E_loc=0.00
+      43 {43: 1}                      k=43      S_div=1.484 S_gen=1.00 M0=   0.52 1st-order=  0.77 E_loc=0.00
+      44 {2: 2, 11: 1}                k=11      S_div=0.830 S_gen=1.00 M0=   0.52 1st-order=  0.43 E_loc=0.00
+      46 {2: 1, 23: 1}                k=46      S_div=0.872 S_gen=1.00 M0=   0.58 1st-order=  0.50 E_loc=0.00
+      47 {47: 1}                      k=47      S_div=1.487 S_gen=1.00 M0=   0.58 1st-order=  0.86 E_loc=0.00
+      49 {7: 2}                       k=1       S_div=1.307 S_gen=0.50 M0=   0.63 1st-order=  0.41 E_loc=0.00
+      50 {2: 1, 5: 2}                 k=2       S_div=0.737 S_gen=0.67 M0=   0.63 1st-order=  0.31 E_loc=0.00
+      54 {2: 1, 3: 3}                 k=6       S_div=0.638 S_gen=1.00 M0=   0.79 1st-order=  0.50 E_loc=0.00
+      55 {5: 1, 11: 1}                k=55      S_div=1.117 S_gen=1.00 M0=   0.79 1st-order=  0.88 E_loc=0.00
+      58 {2: 1, 29: 1}                k=58      S_div=0.880 S_gen=1.00 M0=   0.84 1st-order=  0.74 E_loc=0.00
+      59 {59: 1}                      k=59      S_div=1.494 S_gen=1.00 M0=   0.84 1st-order=  1.25 E_loc=0.00
+      60 {2: 2, 3: 1, 5: 1}           k=15      S_div=0.516 S_gen=1.00 M0=   0.84 1st-order=  0.43 E_loc=0.00
+      64 {2: 6}                       k=1       S_div=0.912 S_gen=0.50 M0=   0.93 1st-order=  0.42 E_loc=0.00
+      68 {2: 2, 17: 1}                k=17      S_div=0.858 S_gen=1.00 M0=   1.05 1st-order=  0.91 E_loc=0.00
+      70 {2: 1, 5: 1, 7: 1}           k=70      S_div=0.633 S_gen=1.00 M0=   1.09 1st-order=  0.69 E_loc=0.00
+      76 {2: 2, 19: 1}                k=19      S_div=0.864 S_gen=1.00 M0=   1.17 1st-order=  1.01 E_loc=0.00
+      78 {2: 1, 3: 1, 13: 1}          k=78      S_div=0.590 S_gen=1.00 M0=   1.24 1st-order=  0.73 E_loc=0.00
+      80 {2: 4, 5: 1}                 k=5       S_div=0.737 S_gen=1.00 M0=   1.24 1st-order=  0.91 E_loc=0.00
+      83 {83: 1}                      k=83      S_div=1.502 S_gen=1.00 M0=   1.31 1st-order=  1.97 E_loc=0.00
+      87 {3: 1, 29: 1}                k=87      S_div=1.027 S_gen=1.00 M0=   1.41 1st-order=  1.45 E_loc=0.00
+      92 {2: 2, 23: 1}                k=23      S_div=0.872 S_gen=1.00 M0=   1.44 1st-order=  1.26 E_loc=0.00
+      94 {2: 1, 47: 1}                k=94      S_div=0.892 S_gen=1.00 M0=   1.50 1st-order=  1.34 E_loc=0.00
+      98 {2: 1, 7: 2}                 k=2       S_div=0.784 S_gen=0.67 M0=   1.59 1st-order=  0.83 E_loc=0.00
+     100 {2: 2, 5: 2}                 k=1       S_div=0.737 S_gen=0.50 M0=   1.62 1st-order=  0.59 E_loc=0.00
+     103 {103: 1}                     k=103     S_div=1.505 S_gen=1.00 M0=   1.70 1st-order=  2.56 E_loc=0.00
+     105 {3: 1, 5: 1, 7: 1}           k=105     S_div=0.739 S_gen=1.00 M0=   1.70 1st-order=  1.26 E_loc=0.00
+     108 {2: 2, 3: 3}                 k=3       S_div=0.638 S_gen=1.00 M0=   1.72 1st-order=  1.10 E_loc=0.00
+     114 {2: 1, 3: 1, 19: 1}          k=114     S_div=0.605 S_gen=1.00 M0=   1.85 1st-order=  1.12 E_loc=0.00
+     119 {7: 1, 17: 1}                k=119     S_div=1.230 S_gen=1.00 M0=   1.95 1st-order=  2.40 E_loc=0.00
+     122 {2: 1, 61: 1}                k=122     S_div=0.897 S_gen=1.00 M0=   1.97 1st-order=  1.77 E_loc=0.00
+     124 {2: 2, 31: 1}                k=31      S_div=0.883 S_gen=1.00 M0=   1.99 1st-order=  1.76 E_loc=0.00
+     126 {2: 1, 3: 2, 7: 1}           k=14      S_div=0.549 S_gen=1.00 M0=   2.04 1st-order=  1.12 E_loc=0.00
+     143 {11: 1, 13: 1}               k=143     S_div=1.277 S_gen=1.00 M0=   2.31 1st-order=  2.95 E_loc=0.00
+     144 {2: 4, 3: 2}                 k=1       S_div=0.638 S_gen=0.50 M0=   2.31 1st-order=  0.74 E_loc=0.00
+     145 {5: 1, 29: 1}                k=145     S_div=1.185 S_gen=1.00 M0=   2.31 1st-order=  2.74 E_loc=0.04
+     154 {2: 1, 7: 1, 11: 1}          k=154     S_div=0.714 S_gen=1.00 M0=   2.44 1st-order=  1.74 E_loc=0.04
+     159 {3: 1, 53: 1}                k=159     S_div=1.044 S_gen=1.00 M0=   2.53 1st-order=  2.64 E_loc=0.00
+     160 {2: 5, 5: 1}                 k=10      S_div=0.737 S_gen=1.00 M0=   2.53 1st-order=  1.87 E_loc=0.11
+     170 {2: 1, 5: 1, 17: 1}          k=170     S_div=0.693 S_gen=1.00 M0=   2.64 1st-order=  1.83 E_loc=0.18
+     175 {5: 2, 7: 1}                 k=7       S_div=1.056 S_gen=1.00 M0=   2.74 1st-order=  2.89 E_loc=0.14
+     188 {2: 2, 47: 1}                k=47      S_div=0.892 S_gen=1.00 M0=   2.89 1st-order=  2.58 E_loc=0.28
+     196 {2: 2, 7: 2}                 k=1       S_div=0.784 S_gen=0.50 M0=   2.96 1st-order=  1.16 E_loc=0.14
+     208 {2: 4, 13: 1}                k=13      S_div=0.842 S_gen=1.00 M0=   3.15 1st-order=  2.65 E_loc=0.51
+     214 {2: 1, 107: 1}               k=214     S_div=0.903 S_gen=1.00 M0=   3.19 1st-order=  2.88 E_loc=0.34
+     220 {2: 2, 5: 1, 11: 1}          k=55      S_div=0.670 S_gen=1.00 M0=   3.25 1st-order=  2.18 E_loc=0.50
+     234 {2: 1, 3: 2, 13: 1}          k=26      S_div=0.590 S_gen=1.00 M0=   3.42 1st-order=  2.02 E_loc=0.37
+     288 {2: 5, 3: 2}                 k=2       S_div=0.638 S_gen=0.67 M0=   3.98 1st-order=  1.69 E_loc=0.61
+     298 {2: 1, 149: 1}               k=298     S_div=0.906 S_gen=1.00 M0=   4.06 1st-order=  3.68 E_loc=0.84
+     310 {2: 1, 5: 1, 31: 1}          k=310     S_div=0.713 S_gen=1.00 M0=   4.18 1st-order=  2.98 E_loc=0.72
+     324 {2: 2, 3: 4}                 k=1       S_div=0.638 S_gen=0.50 M0=   4.29 1st-order=  1.37 E_loc=0.40
+     330 {2: 1, 3: 1, 5: 1, 11: 1}    k=330     S_div=0.469 S_gen=1.00 M0=   4.35 1st-order=  2.04 E_loc=0.89
+     332 {2: 2, 83: 1}                k=83      S_div=0.901 S_gen=1.00 M0=   4.35 1st-order=  3.92 E_loc=0.52
+     358 {2: 1, 179: 1}               k=358     S_div=0.907 S_gen=1.00 M0=   4.59 1st-order=  4.16 E_loc=0.52
+     438 {2: 1, 3: 1, 73: 1}          k=438     S_div=0.630 S_gen=1.00 M0=   5.20 1st-order=  3.27 E_loc=0.81
+     450 {2: 1, 3: 2, 5: 2}           k=2       S_div=0.516 S_gen=0.67 M0=   5.29 1st-order=  1.82 E_loc=1.01
+     510 {2: 1, 3: 1, 5: 1, 17: 1}    k=510     S_div=0.485 S_gen=1.00 M0=   5.69 1st-order=  2.76 E_loc=1.23
+     576 {2: 6, 3: 2}                 k=1       S_div=0.638 S_gen=0.50 M0=   6.10 1st-order=  1.95 E_loc=0.62
+     670 {2: 1, 5: 1, 67: 1}          k=670     S_div=0.726 S_gen=1.00 M0=   6.64 1st-order=  4.82 E_loc=1.63
+     738 {2: 1, 3: 2, 41: 1}          k=82      S_div=0.623 S_gen=1.00 M0=   6.97 1st-order=  4.34 E_loc=2.23
+     784 {2: 4, 7: 2}                 k=1       S_div=0.784 S_gen=0.50 M0=   7.20 1st-order=  2.82 E_loc=0.86
+     900 {2: 2, 3: 2, 5: 2}           k=1       S_div=0.516 S_gen=0.50 M0=   7.73 1st-order=  1.99 E_loc=0.82
+    1225 {5: 2, 7: 2}                 k=1       S_div=1.056 S_gen=0.50 M0=   8.96 1st-order=  4.73 E_loc=2.08
+    1276 {2: 2, 11: 1, 29: 1}         k=319     S_div=0.801 S_gen=1.00 M0=   9.13 1st-order=  7.31 E_loc=3.21
+    1348 {2: 2, 337: 1}               k=337     S_div=0.909 S_gen=1.00 M0=   9.36 1st-order=  8.51 E_loc=3.19
+    1518 {2: 1, 3: 1, 11: 1, 23: 1}   k=1518    S_div=0.556 S_gen=1.00 M0=   9.89 1st-order=  5.49 E_loc=2.63
+    1600 {2: 6, 5: 2}                 k=1       S_div=0.737 S_gen=0.50 M0=  10.11 1st-order=  3.72 E_loc=1.40
+    1726 {2: 1, 863: 1}               k=1726    S_div=0.911 S_gen=1.00 M0=  10.45 1st-order=  9.52 E_loc=4.27
+    1806 {2: 1, 3: 1, 7: 1, 43: 1}    k=1806    S_div=0.536 S_gen=1.00 M0=  10.66 1st-order=  5.72 E_loc=3.22
+    1818 {2: 1, 3: 2, 101: 1}         k=202     S_div=0.632 S_gen=1.00 M0=  10.69 1st-order=  6.76 E_loc=3.43
+    1870 {2: 1, 5: 1, 11: 1, 17: 1}   k=1870    S_div=0.631 S_gen=1.00 M0=  10.82 1st-order=  6.82 E_loc=3.16
+    2022 {2: 1, 3: 1, 337: 1}         k=2022    S_div=0.636 S_gen=1.00 M0=  11.18 1st-order=  7.12 E_loc=3.29
+    3276 {2: 2, 3: 2, 7: 1, 13: 1}    k=91      S_div=0.507 S_gen=1.00 M0=  13.54 1st-order=  6.87 E_loc=4.25
+    5110 {2: 1, 5: 1, 7: 1, 73: 1}    k=5110    S_div=0.625 S_gen=1.00 M0=  15.94 1st-order=  9.96 E_loc=5.48
+    5850 {2: 1, 3: 2, 5: 2, 13: 1}    k=26      S_div=0.476 S_gen=1.00 M0=  16.70 1st-order=  7.95 E_loc=5.34
+    6336 {2: 6, 3: 2, 11: 1}          k=11      S_div=0.581 S_gen=1.00 M0=  17.16 1st-order=  9.97 E_loc=6.12
+    7966 {2: 1, 7: 1, 569: 1}         k=7966    S_div=0.783 S_gen=1.00 M0=  18.52 1st-order= 14.50 E_loc=8.33
+    8430 {2: 1, 3: 1, 5: 1, 281: 1}   k=8430    S_div=0.514 S_gen=1.00 M0=  18.86 1st-order=  9.69 E_loc=6.40
+   19600 {2: 4, 5: 2, 7: 2}           k=1       S_div=0.633 S_gen=0.50 M0=  24.36 1st-order=  7.72 E_loc=4.57
+   36078 {2: 1, 3: 1, 7: 1, 859: 1}   k=36078   S_div=0.548 S_gen=1.00 M0=  28.78 1st-order= 15.78 E_loc=11.50
+ 2433600 {2: 6, 3: 2, 5: 2, 13: 2}    k=1       S_div=0.476 S_gen=0.50 M0=  69.44 1st-order= 16.53 E_loc=14.05 (anatomy run)

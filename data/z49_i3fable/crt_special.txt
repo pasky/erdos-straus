@@ -1,0 +1,66 @@
+## 1560^2-type: m ≡ 8 (16), 3 (9), 10 (25), 39 (169), square
+# mode=split N=2433600 M=20000 type=sq X0=1562 NP=248 constraints: 16:8 9:3 25:10 169:39
+X=8  stage-survival=1.00000  P1(no word with v<=X)=1.0000e+00  survivors=20000
+X=16  stage-survival=0.66070  P1(no word with v<=X)=6.6070e-01  survivors=13214
+X=32  stage-survival=1.00000  P1(no word with v<=X)=6.6070e-01  survivors=20000
+X=64  stage-survival=0.70250  P1(no word with v<=X)=4.6414e-01  survivors=14050
+X=128  stage-survival=0.64715  P1(no word with v<=X)=3.0037e-01  survivors=12943
+X=256  stage-survival=0.55675  P1(no word with v<=X)=1.6723e-01  survivors=11135
+X=512  stage-survival=0.50575  P1(no word with v<=X)=8.4577e-02  survivors=10115
+X=1024  stage-survival=0.38820  P1(no word with v<=X)=3.2833e-02  survivors=7764
+X=1562  stage-survival=0.64615  P1(no word with v<=X)=2.1215e-02  survivors=12923
+P1(X0=1562)=2.1215e-02  tail: 1953 of 12923 survivors have no word with v>X0 -> P2=0.1511 (+-0.0032)  P(I3=0)=3.2061e-03
+zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=1.000 9|n=1.000 5|n=1.000 7|n=0.232
+## m ≡ 0 mod 120, square, N=2433600
+X=1562  stage-survival=0.59035  P1(no word with v<=X)=1.4303e-02  survivors=11807
+P1(X0=1562)=1.4303e-02  tail: 1737 of 11807 survivors have no word with v>X0 -> P2=0.1471 (+-0.0033)  P(I3=0)=2.1042e-03
+zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=1.000 9|n=1.000 5|n=1.000 7|n=0.249
+## 140^2-type
+X=142  stage-survival=0.93500  P1(no word with v<=X)=2.6460e-01  survivors=18700
+P1(X0=142)=2.6460e-01  tail: 9175 of 18700 survivors have no word with v>X0 -> P2=0.4906 (+-0.0037)  P(I3=0)=1.2983e-01
+zero-survivors: frac 4|n=1.000 8|n=1.000 3|n=0.543 9|n=0.543 5|n=1.000 7|n=1.000
+## generic even square N=19600
+X=142  stage-survival=0.88295  P1(no word with v<=X)=6.6501e-02  survivors=17659
+P1(X0=142)=6.6501e-02  tail: 8370 of 17659 survivors have no word with v>X0 -> P2=0.4740 (+-0.0038)  P(I3=0)=3.1520e-02
+zero-survivors: frac 4|n=1.000 8|n=0.482 3|n=0.553 9|n=0.553 5|n=0.448 7|n=0.325
+## count-mode means (words with larger endpoint <= 256) vs exact census means (z49_i3fable_meancheck.py)
+== gen 2:1
+b= 7  mean=7.4737  cum=27.0885
+== gen 2:0
+b= 7  mean=4.4094  cum=15.6079
+== sq 2:1
+b= 7  mean=3.7048  cum=13.6223
+== sq 2:0
+b= 7  mean=2.1429  cum=6.7735
+== sq2 2:1
+b= 7  mean=3.1155  cum=10.7456
+== gen 8:5
+b= 7  mean=7.7693  cum=29.0429
+== gen 8:7
+b= 7  mean=7.2530  cum=25.5376
+odd mean words v<=256: 27.145
+even mean words v<=256: 15.624
+n=1 mod 8 mean words v<=256: 27.191
+n=5 mod 8 mean words v<=256: 29.154
+n=7 mod 8 mean words v<=256: 25.57
+odd squares m in [1000,10000): mean words v<=256: 13.63 count 4500
+even squares m in [1000,10000): mean words v<=256: 6.734 count 4500
+## count-mode cell tables
+# cell table (t mod 8 rows, endpoint mod 8 cols), ordered words with larger endpoint <= 256
+       0       0       0       0       0       0       0       0
+       0       0   11972   31786       0       0   19814       0
+       0    7598    7598       0       0   16566   16566       0
+       0   21840       0       0       0   27211       0       0
+       0       0       0       0       0       0       0       0
+       0       0   12017   31731       0       0   19714       0
+       0    7598    7598       0       0   16576   16576       0
+       0       0       0       0       0       0       0       0
+# cell table (t mod 8 rows, endpoint mod 8 cols), ordered words with larger endpoint <= 256
+       0       0       0       0       0       0       0       0
+       0       0    8200       0       0       0   12724       0
+       0   11028    9220       0       0   13769   12535       0
+       0       0       0       0       0       0       0       0
+       0       0       0       0       0       0       0       0
+       0       0    9017       0       0       0   13484       0
+       0   10812    7614       0       0   13442   13784       0
+       0       0       0       0       0       0       0       0

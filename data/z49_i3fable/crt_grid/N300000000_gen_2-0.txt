@@ -1,0 +1,14 @@
+# mode=split N=300000000 M=20000 type=gen X0=17322 NP=1992 constraints: 2:0
+X=8  stage-survival=0.41870  P1(no word with v<=X)=4.1870e-01  survivors=8374
+X=16  stage-survival=0.35135  P1(no word with v<=X)=1.4711e-01  survivors=7027
+X=32  stage-survival=0.25905  P1(no word with v<=X)=3.8109e-02  survivors=5181
+X=64  stage-survival=0.22455  P1(no word with v<=X)=8.5574e-03  survivors=4491
+X=128  stage-survival=0.18115  P1(no word with v<=X)=1.5502e-03  survivors=3623
+X=256  stage-survival=0.14650  P1(no word with v<=X)=2.2710e-04  survivors=2930
+X=512  stage-survival=0.06920  P1(no word with v<=X)=1.5715e-05  survivors=1384
+X=1024  stage-survival=0.14290  P1(no word with v<=X)=2.2457e-06  survivors=2858
+X=2048  stage-survival=0.03770  P1(no word with v<=X)=8.4663e-08  survivors=754
+X=4096  stage-survival=0.08250  P1(no word with v<=X)=6.9847e-09  survivors=1650
+X=8192  stage-survival=0.10035  P1(no word with v<=X)=7.0092e-10  survivors=2007
+X=16384  stage-survival=0.00000  P1(no word with v<=X)=0.0000e+00  survivors=0
+P1=0 (population died); increase M

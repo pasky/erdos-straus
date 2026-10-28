@@ -1,0 +1,15 @@
+# mode=split N=1000000000 M=20000 type=sq2 X0=31624 NP=3402 constraints:
+X=8  stage-survival=0.52335  P1(no word with v<=X)=5.2335e-01  survivors=10467
+X=16  stage-survival=0.41860  P1(no word with v<=X)=2.1907e-01  survivors=8372
+X=32  stage-survival=0.56565  P1(no word with v<=X)=1.2392e-01  survivors=11313
+X=64  stage-survival=0.45370  P1(no word with v<=X)=5.6222e-02  survivors=9074
+X=128  stage-survival=0.35225  P1(no word with v<=X)=1.9804e-02  survivors=7045
+X=256  stage-survival=0.30545  P1(no word with v<=X)=6.0492e-03  survivors=6109
+X=512  stage-survival=0.26345  P1(no word with v<=X)=1.5937e-03  survivors=5269
+X=1024  stage-survival=0.24385  P1(no word with v<=X)=3.8862e-04  survivors=4877
+X=2048  stage-survival=0.27325  P1(no word with v<=X)=1.0619e-04  survivors=5465
+X=4096  stage-survival=0.26385  P1(no word with v<=X)=2.8018e-05  survivors=5277
+X=8192  stage-survival=0.19590  P1(no word with v<=X)=5.4887e-06  survivors=3918
+X=16384  stage-survival=0.18760  P1(no word with v<=X)=1.0297e-06  survivors=3752
+X=31624  stage-survival=0.20625  P1(no word with v<=X)=2.1237e-07  survivors=4125
+P1(X0=31624)=2.1237e-07  tail: 0 of 4125 survivors have no word with v>X0 -> P2=0.0000 (+-0.0000)  P(I3=0)=0.0000e+00
