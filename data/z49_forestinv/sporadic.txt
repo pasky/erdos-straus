@@ -1,0 +1,13 @@
+n | factorisation | r(n) | nearest square | n mod 24
+105 | {3: 1, 5: 1, 7: 1} | 11 | 10² + 5 | 9
+2961 | {3: 2, 7: 1, 47: 1} | 11 | 54² + 45 | 9
+3985 | {5: 1, 797: 1} | 13 | 63² + 16 | 1
+25305 | {3: 1, 5: 1, 7: 1, 241: 1} | 13 | 159² + 24 | 9
+111969 | {3: 3, 11: 1, 13: 1, 29: 1} | 17 | 335² − 256 | 9
+978145 | {5: 1, 7: 1, 27947: 1} | 37 | 989² + 24 | 1
+
+436 U_cop failures ≤ 1e8; divisible by 3: 427, by 5: 300, by 7: 291, coprime to 105: 0
+r(n) histogram: [(5, 21), (11, 111), (13, 101), (17, 90), (19, 37), (23, 27), (29, 26), (31, 9), (37, 5), (41, 3), (43, 5), (53, 1)]
+relative distance to nearest square: median 0.227 (uniform reference 0.250), fraction < 0.05: 0.119 (uniform reference 0.100)
+baseline n ≡ 9 (24), ⊥35, composite non-square, 13690 values: P(r ≥ 11) = 0.249 (expected 1/4), P(r ≥ 13) = 0.135 (expected 1/8)
+the 46 failures with 3 | n, ⊥35: P(r ≥ 11) = 0.804, P(r ≥ 13) = 0.478

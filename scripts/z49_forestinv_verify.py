@@ -49,17 +49,21 @@ def class_number_neg4p(p):
 def main():
     P = [p for p in primerange(5, 400) if p % 4 == 1]
     # (1) HJ dictionary
-    bad = 0
+    bad = badb = 0
     for p in P:
-        words = set()
+        interior = {}
         for v in range(1, p + 3):
             for (t, u, vv) in words_at_vertex(p, v):
-                words.add((t * vv - 1) % p)   # q = tv−1 = A* (numerator opposite u)
-                words.add((t * u - 1) % p)
-        short = set(q for q in range(1, p) if len(hj(p, q)) <= 3)
-        if short != words - {0}:
-            bad += 1; print("HJ mismatch", p, sorted(short ^ (words - {0}))[:10])
-    print(f"(1) HJ length≤3 ⟺ word numerator: {len(P)} primes, {bad} mismatches")
+                if min(t, u, vv) >= 2:
+                    interior[t * vv - 1] = u          # q = tv−1 (no reduction mod p), first digit should be u
+        len3 = {q: hj(p, q)[0] for q in range(1, p) if len(hj(p, q)) == 3}
+        if set(interior) != set(len3):
+            bad += 1; print("HJ mismatch", p, sorted(set(interior) ^ set(len3))[:10])
+        badb += sum(1 for q in interior if q in len3 and len3[q] != interior[q])
+        # boundary: length ≤ 2 ⟺ q | p+1 (q = 1 is length 1)
+        short2 = set(q for q in range(1, p) if len(hj(p, q)) <= 2)
+        if short2 != set(q for q in range(1, p) if (p + 1) % q == 0): bad += 1; print("boundary mismatch", p)
+    print(f"(1) HJ: interior words (t,u,v ≥ 2) ⟷ q = tv−1 ∈ [1,p−1] of length exactly 3 with first digit u: {len(P)} primes, {bad} set mismatches, {badb} first-digit mismatches; length ≤ 2 ⟺ q | p+1")
     # (2) BHK, (3) Rademacher
     bad2 = bad3 = 0; cnt = 0
     for p in P[:25]:
@@ -96,6 +100,28 @@ def main():
                 A = t * vv - 1; tot5b += 1
                 if gcd(A, n) != 1 or jacobi_symbol(A, n) != -1: bad5b += 1
     print(f"(5b) U-witnesses at n ≡ 1 (4), n ≤ 2000: {tot5b} witnesses, {bad5b} with gcd(A,n)>1 or Jacobi (A/n) ≠ −1")
+    small = set()
+    for n in range(5, 2001, 4):
+        for v in range(1, n + 3):
+            if not inV(v, n): continue
+            for (t, u, vv) in words_at_vertex(n, v):
+                A = t * vv - 1
+                if A <= 2: small.add((A, vv, n % 8))
+    print(f"(5c) witnesses with A ∈ {{1,2}}: {sorted(small)[:5]}{'...' if len(small) > 5 else ''} (expected: only A=2, v=3, n ≡ 5 (8))")
+    bad5c = any(not (A == 2 and vv == 3 and r == 5) for (A, vv, r) in small)
+    bad5b += bad5c
+    # (4.3) τ(A+1) ≥ φ(A)/2 exceptions
+    from sympy import divisor_count, totient
+    exc = [A for A in range(3, 100001) if divisor_count(A + 1) >= totient(A) / 2]
+    print(f"(7) A ≤ 10⁵ with τ(A+1) ≥ φ(A)/2 (Prop 4.3 exceptions): {exc}")
+    bad7 = exc != [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 20]
+    # (8) two-cylinder signed sums: Σ_{p/4<q<p/2} (q/p) = −h(−4p)/2 and Σ_{p/2<q<p} (q/p) = 0
+    bad8 = 0
+    for p in P:
+        s34 = sum(int(jacobi_symbol(q, p)) for q in range(1, p) if 4 * q > p and 2 * q < p)
+        s2 = sum(int(jacobi_symbol(q, p)) for q in range(1, p) if 2 * q > p)
+        if 2 * s34 != -class_number_neg4p(p) or s2 != 0: bad8 += 1
+    print(f"(8) Σ_(p/4<q<p/2)(q/p) = −h(−4p)/2 and Σ_(p/2<q<p)(q/p) = 0: {len(P)} primes, {bad8} failures")
     # (6) n ≡ 5 (mod 8)
     bad6 = 0
     for n in range(5, 4001, 8):
@@ -104,6 +130,9 @@ def main():
         x = ((n + 3) // 8)
         if F(1, 2 * x) + F(1, n * x) + F(1, 2 * n * x) != F(4, n): bad6 += 1
     print(f"(6) n ≡ 5 (8): word (1,(n+3)/2,3) and 4/n = 1/(2d)+1/(nd)+1/(2nd), d=(n+3)/8: {bad6} failures")
+    total_bad = bad + badb + bad2 + bad3 + bad4 + bad5 + bad5b + bad6 + bad7 + bad8
+    print("ALL CHECKS PASSED" if total_bad == 0 else f"FAILURES: {total_bad}")
+    sys.exit(0 if total_bad == 0 else 1)
 
 if __name__ == "__main__":
     main()

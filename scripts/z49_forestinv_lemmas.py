@@ -57,6 +57,19 @@ def main():
             if lvl: break
         if lvl != U(n): bad["L5"] += 1
     print("n ≡ 1 (mod 8), 9 ≤ n ≤ 1201:", bad)
+    # L6 (relation family, from the hostile review): a ≡ 5 (8), b = c(a+1)+1 with c ≡ 2 (4), n = ab  ⟹  n ≡ 1 (8) and
+    # (1, a+2, a(b−1)/(a+1)+2) is a word with endpoint a+2 ≡ 7 (8) (coprime endpoints when c = 2, the family a(2a+3));
+    # the same word exists for every n with (a+1) | (n+1), whether or not a | n.
+    bad6 = 0; cnt = 0
+    for a in range(5, 200, 8):
+        for c in range(2, 60, 4):                # c ≡ 2 (4) makes n ≡ 1 (8)
+            b = c * (a + 1) + 1; n = a * b
+            u, v = a + 2, a * (b - 1) // (a + 1) + 2
+            if 1 * u * v - u - v != n or u % 8 != 7 or n % 8 != 1 or (c == 2 and gcd(u, v) != 1): bad6 += 1
+            cnt += 1
+        for n in range(a, 5000, a + 1):         # all n ≡ −1 (mod a+1): the same word with v = (n+1)/(a+1) + 1
+            if (a + 2) * ((n + 1) // (a + 1) + 1) - (a + 2) - ((n + 1) // (a + 1) + 1) != n: bad6 += 1
+    print(f"L6 relation family a ≡ 5 (8), (a+1) | (b−1): {cnt} words checked, {bad6} failures; the word depends on n only through (a+1) | (n+1)")
     for n in (17, 241):
         W8 = [(t, u, v) for (t, u, v) in all_words(n) if u % 8 == 0 or v % 8 == 0]
         print(f"numerator-8 control n={n}: words with an endpoint ≡ 0 (mod 8): {W8}")
