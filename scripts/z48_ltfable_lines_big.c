@@ -1,7 +1,7 @@
 /* z48_ltfable_lines_big.c — lean version of z48_ltfable_lines.c for N up to ~2e9:
  * keeps only three saturating uint8 arrays: ST (= R(n), words with 4 | t), I3 (words with t,u,v >= 3),
  * W2 (words with t,u,v >= 2).  Reports: all n with I3 = 0 or W2 = 0; primes p = 1 (mod 4) with ST = 0.
- * Usage: z48_ltfable_lines_big N outprefix.   Memory: 3N + N/16 bytes.
+ * Usage: z48_ltfable_lines_big N outprefix.   Memory: 3N bytes of counters + N/2 bytes of prime sieve.
  */
 #include <stdio.h>
 #include <stdlib.h>

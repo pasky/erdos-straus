@@ -12,9 +12,11 @@
 static inline void mn(uint16_t *a, uint64_t i, int64_t x) { uint16_t y = x > 65535 ? 65535 : (uint16_t)x; if (y < a[i]) a[i] = y; }
 static inline void mn32(uint32_t *a, uint64_t i, int64_t x) { uint32_t y = x > 0xFFFFFFFEll ? 0xFFFFFFFEu : (uint32_t)x; if (y < a[i]) a[i] = y; }
 int main(int argc, char **argv) {
+    if (argc < 3) { fprintf(stderr, "usage: %s N outprefix\n", argv[0]); return 1; }
     uint64_t N = strtoull(argv[1], 0, 10);
     uint32_t *STt = malloc(4 * (N + 1)), *ANt = malloc(4 * (N + 1)), *I3t = malloc(4 * (N + 1));
     uint16_t *STu = malloc(2 * (N + 1)), *ANu = malloc(2 * (N + 1));
+    if (!STt || !ANt || !I3t || !STu || !ANu) { fprintf(stderr, "alloc failed\n"); return 2; }
     for (uint64_t i = 0; i <= N; i++) { STt[i] = ANt[i] = I3t[i] = 0xFFFFFFFFu; STu[i] = ANu[i] = 65535; }
     for (int64_t u = 1; ; u++) {
         if (u * u - 2 * u > (int64_t)N) break;
@@ -37,12 +39,14 @@ int main(int argc, char **argv) {
     for (uint64_t i = 1; (2 * i + 1) * (2 * i + 1) <= N; i++) { if (comp[i]) continue; uint64_t p = 2 * i + 1; for (uint64_t j = (p * p - 1) / 2; j <= N / 2; j += p) comp[j] = 1; }
     char fn[512]; snprintf(fn, sizeof fn, "%s.txt", argv[2]);
     FILE *g = fopen(fn, "w");
+    if (!g) { fprintf(stderr, "cannot open %s\n", fn); return 3; }
     fprintf(g, "# N=%llu; per dyadic range [2^k,2^(k+1)) over primes p=1(4): count, max STu, max STu/log^2p, max STt/4 (=C_min), max C_min/log^2 p, max ANu, max ANt, max I3t; (*)-failures excluded from STu/STt maxima\n", (unsigned long long)N);
     for (int k = 2; (1ULL << k) <= N; k++) {
         uint64_t lo = 1ULL << k, hi = (1ULL << (k + 1)) - 1; if (hi > N) hi = N;
         uint64_t cnt = 0; double mSTu = 0, mSTur = 0, mC = 0, mCr = 0, mANu = 0, mANt = 0, mI3 = 0; uint64_t aSTu = 0, aC = 0, aANu = 0, aANt = 0, aI3 = 0;
         for (uint64_t p = lo + ((lo % 4 == 1) ? 0 : (4 - (lo % 4) + 1) % 4); p <= hi; p += 4) {
-            if (p % 4 != 1 || p < 5 || comp[p / 2]) continue; cnt++;
+            if (p % 4 != 1 || p < 5 || comp[p / 2]) continue;
+            cnt++;
             double L = log((double)p);
             if (STu[p] != 65535) { if (STu[p] > mSTu) { mSTu = STu[p]; aSTu = p; } if (STu[p] / (L * L) > mSTur) mSTur = STu[p] / (L * L);
                                    double C = STt[p] / 4.0; if (C > mC) { mC = C; aC = p; } if (C / (L * L) > mCr) mCr = C / (L * L); }
@@ -54,7 +58,8 @@ int main(int argc, char **argv) {
     }
     fprintf(g, "# primes p=1(4) with STu > (log p)^2 or C_min > (log p)^2, or ANu > log p + 5 (five-slice least endpoint):\n");
     for (uint64_t p = 5; p <= N; p += 4) {
-        if (comp[p / 2]) continue; double L = log((double)p);
+        if (comp[p / 2]) continue;
+        double L = log((double)p);
         if (STu[p] != 65535 && (STu[p] > L * L || STt[p] / 4.0 > L * L)) fprintf(g, "BIG %llu STu=%u Cmin=%u ANu=%u ANt=%u\n", (unsigned long long)p, STu[p], STt[p] / 4, ANu[p], ANt[p]);
         if (ANu[p] > L + 5) fprintf(g, "ANUBIG %llu ANu=%u ANt=%u STu=%u\n", (unsigned long long)p, ANu[p], ANt[p], STu[p]);
     }
