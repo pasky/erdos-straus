@@ -120,7 +120,7 @@ identity valid for every n; no coprimality is needed because both halves of Theo
   ES₅(n) ⟺ ∃ u ∈ 𝒞_n, ∃ v ≥ 1 with uv | n + u + v,  or  ∃ t ∈ 𝒞_n, ∃ d | tn + 1 with d ≡ −1 (mod t).
 In the first case the word is (t, u, v) with t = (n+u+v)/(uv); in the second (t, (d+1)/t, ((tn+1)/d + 1)/t) (for t ≥ 3 the
 cofactor is automatically ≡ −1 (mod t), and 𝒞_n ∌ 1, 2). Each case yields an explicit 4/n identity through the slot produced
-in the proof of Theorem 1 (the five slot formulas of the PR-B note; e.g. u ≡ −n (8) gives 4 | v or 4 | A*, FOREST_DEEP_FABLE
+in the proof of Theorem 1 (the five slot formulas of the PR-B note; e.g. u ≡ −n (8) gives 4 | v or 4 | A, FOREST_DEEP_FABLE
 Cor C). ∎
 
 *Reading.* This is Prop 3.1's covering form (ES₅(p) ⟺ p mod A ∈ G_A = S_A ∩ Q_A, shadow ∩ colour) **with the colour half
@@ -297,16 +297,19 @@ All primes p ≡ 1 (mod 4) ≤ 10⁸ (2 880 504 primes; 15 CPU-minutes, 0.5 GB):
 ### 3.3 HC is Landau-type, H₄ is congruence-type (Theorem 3.2, PROVED rel. the sieve; Assessment for the contrast)
 
 **Theorem 3.2.** #{p ≤ x prime, p ≡ 1 (mod 8), HC(p) > 4} ≪ x/(log x)².
-*Proof.* By §3.1, HC(p) > 4 forces both p + 4 and 4p + 1 to be free of prime factors ≡ 3 (mod 4). Sift the integers
-n ≤ x, n ≡ 1 (mod 8), by the set 𝒫 of primes consisting of all primes ℓ ≤ x^{1/3} (to isolate the primes n = p among them,
-up to O(x^{1/3}) small n) and of the roots of (n+4)(4n+1) modulo the primes ℓ ≡ 3 (mod 4), ℓ ≠ 3, ℓ ≤ x^{1/3}: for such ℓ
-the two roots −4 and −4⁻¹ are distinct (they coincide only for ℓ | 15). The sifting density is 1/ℓ at every prime plus
-2/ℓ at the primes ≡ 3 (4) — dimension 1 + 1 = 2 — and the sequence of integers in a progression has level of distribution
-x^{1−ε} trivially, so the elementary upper-bound sieve of dimension 2 (Halberstam–Richert, *Sieve Methods*, Thm 2.2, or
-the fundamental lemma) gives ≪ x·∏_{ℓ ≤ x^{1/3}}(1 − 1/ℓ)·∏_{ℓ ≡ 3 (4), 3 < ℓ ≤ x^{1/3}}(1 − 2/ℓ) ≍ x/(log x)². ∎
-(Alternatively: a dimension-1 sieve on the sequence {(p+4)(4p+1) : p ≤ x} with Bombieri–Vinogradov supplying the level
-x^{1/2−ε} — in the divisor-weighted form Σ_{q ≤ x^{1/2−ε}} 3^{ω(q)} max_a |E(x; q, a)| ≪ x/(log x)^A, which follows from BV by
-Cauchy–Schwarz — gives the same bound; the elementary route above needs no input on primes in progressions.)
+*Proof.* By §3.1, HC(p) > 4 forces both p + 4 and 4p + 1 to be free of prime factors ≡ 3 (mod 4). Consider the integers
+n ≤ x with n ≡ 1 (mod 8) and sift them by the residue classes n ≡ 0 (mod ℓ) for all odd primes ℓ ≤ z, and n ≡ −4,
+n ≡ −4⁻¹ (mod ℓ) for the primes ℓ ≡ 3 (mod 4), 3 < ℓ ≤ z (for such ℓ the two roots of (n+4)(4n+1) are distinct and non-zero;
+they coincide only for ℓ | 15). The survivors contain every prime p ∈ (z, x] with HC(p) > 4 (they also contain integers
+with all prime factors > z, which is harmless for an upper bound). The number ρ(ℓ) of sifted classes is ρ(2) = 0 (the
+progression), ρ(3) = 1, ρ(ℓ) = 3 for ℓ ≡ 3 (4), ℓ > 3, and ρ(ℓ) = 1 otherwise, so for odd squarefree d the sifted
+subsequence has |A_d| = xρ(d)/(8d) + O(ρ(d)): level of distribution x^{1−ε} with remainders ≪ 3^{ω(d)}, and sieve
+dimension Σ_ℓ ρ(ℓ)/ℓ ~ 2 log log z. The standard upper-bound sieve of dimension 2 (Halberstam–Richert, *Sieve Methods*,
+Thm 2.2, with z = x^{1/4}) gives
+  #{survivors} ≪ x·∏_{ℓ ≤ z}(1 − ρ(ℓ)/ℓ) ≍ x·∏_{ℓ ≤ z}(1 − 1/ℓ)·∏_{ℓ ≡ 3 (4), 3 < ℓ ≤ z}(1 − 2/ℓ)·(1 + O(1/ℓ²)-factors) ≍ x/(log z)² ≍ x/(log x)²,
+and the O(z) primes ≤ z are negligible. ∎ (Alternatively a dimension-1 sieve on {(p+4)(4p+1) : p ≤ x} with
+Bombieri–Vinogradov supplying level x^{1/2−ε} in the divisor-weighted form Σ_{q ≤ x^{1/2−ε}} 3^{ω(q)} max_a |E(x; q, a)|
+≪ x/(log x)^A gives the same bound; the elementary route needs no input on primes in progressions.)
 
 So for every fixed X ≥ 4 the primes with HC(p) > X have relative density 0. The saving should grow with X (each further
 line u ∈ 𝒞 or t ∈ 𝒞 below X adds a sifting condition), but only the X = 4 case is proved here; the product heuristic below
@@ -340,16 +343,16 @@ v ≡ −p ≡ −1 (mod x); e ≡ −1 (mod x) with e | x + 1 forces e ≥ 2x �
 Levels x ∈ 𝒞_X: the divisors of xp + 1 = (x+1)G_x are e, eG_x with G_x ≡ 1 (mod x); a word at level x needs a divisor ≡ −1
 (mod x), excluded in the same way. Hence no word has a coordinate in 𝒞_X, i.e. HC(p) > X. ∎
 
-*Proof of (b).* Let ℓ₁ < … < ℓ_k be primes ≡ 1 (mod 4) with ℓ₁ > X + 1 and k = ⌈log₂ K⌉, L = ∏ℓ_i; let Q₀ = lcm(24, u(u+1)
+*Proof of (b).* Let k = max(1, ⌈log₂ K⌉), let ℓ₁ < … < ℓ_k be primes ≡ 1 (mod 4) with ℓ₁ > 2X + 2 (so gcd(L, Q₀) = 1 below), L = ∏ℓ_i; let Q₀ = lcm(24, u(u+1)
 (2 ≤ u ≤ X), all primes ≤ 2X + 2), Q₁ = Q₀·rad(Q₀), M = Q₁L², and let p₀ be the residue mod M with p₀ ≡ 1 (mod Q₁),
-p₀ ≡ L − 1 (mod L²). Consider the 2X − 1 linear forms in s (all with integer coefficients, as the stated congruences
+p₀ ≡ L − 1 (mod L²). Consider the 2X linear forms in s (all with integer coefficients, as the stated congruences
 ensure):
   p = p₀ + Ms;  F₁ = (p₀+1)/(2L) + (M/2L)s  [p + 1 = 2L·F₁];  F_u = (p₀+u)/(u+1) + (M/(u+1))s, 2 ≤ u ≤ X  [p + u = (u+1)F_u];
   G_t = (tp₀+1)/(t+1) + (tM/(t+1))s, 3 ≤ t ≤ X  [tp + 1 = (t+1)G_t];  G₁ = (2p₀+1)/3 + (2M/3)s  [2p + 1 = 3G₁].
 *Admissibility.* For a prime ℓ | Q₀ every form is constant mod ℓ, with constant ≡ 1 (p, F_u, G_t, G₁: e.g. F_u(0) =
 1 + (Q₁/(u+1))·m with ℓ | Q₁/(u+1) = (Q₀/(u+1))·rad(Q₀)) or ≡ L⁻¹ (F₁(0) = (1 + (Q₁/2)m)/L), all non-zero. For ℓ = ℓ_i the
 constants are p₀ ≡ −1, F_u(0) ≡ (u−1)/(u+1), G_t(0) ≡ (1−t)/(t+1), G₁(0) ≡ −1/3, F₁(0) = ((p₀+1)/L)/2 ≡ 1/2, all non-zero
-because ℓ_i > X + 1. For ℓ ∤ Q₀L all slopes are non-zero mod ℓ, each form has one root, and ℓ > 2X + 2 > 2X − 1 = number of
+because ℓ_i > 2X + 2. For ℓ ∤ Q₀L all slopes are non-zero mod ℓ, each form has one root, and ℓ > 2X + 2 > 2X = number of
 forms, so some s is a non-root of all. *Distinct slopes:* M/(u+1), M/(2L), tM/(t+1), 2M/3, M are pairwise distinct
 (u + 1 = 2L is impossible as 2L > X + 1; t + 1 = t(u+1), 3t = 2t + 2, 4L = 3, etc. have no solutions in range).
 Dickson gives infinitely many s with all forms prime (and > every fixed bound). For such p, p ≡ 1 (mod 24) and p ≡ 1 (mod 8).
@@ -387,9 +390,9 @@ with a coordinate ≤ 4 through the divisors of p + u, u ≤ 4, and of tp + 1, t
 monochromatic and that there are exactly 8 = 2^{k+2} words (t, 1, v) (p + 1 = 2·13·F₁ with F₁ prime)
 (`data/z49_ltfable2/dickson_b_X4_k1_{search,check}.txt`).
 
-*Reading.* Every one-coordinate bounded-window form of every hypothesis in §4 fails infinitely often (CONDITIONAL on
-Dickson), including shape balance restricted to the words with a coordinate ≤ X (the window carries ≥ K words, all
-monochromatic). This strengthens LOWERTAIL_DEEP_FABLE Prop 4.2 / LOWER_TAIL_ASTRA Thm 3.2 (bounded endpoints) by adding
+*Reading.* Every one-coordinate bounded-window certificate-positivity form of the hypotheses in §4 fails infinitely often
+(CONDITIONAL on Dickson), including shape balance restricted to the words with a coordinate ≤ X (the window carries ≥ K
+words, all monochromatic; statements whose both sides vanish on the window are emptied, not refuted). This strengthens LOWERTAIL_DEEP_FABLE Prop 4.2 / LOWER_TAIL_ASTRA Thm 3.2 (bounded endpoints) by adding
 the levels and the unbounded monochromatic window count.
 
 ### 3.5 The conjecture and its status (CONJECTURE; Assessment)
@@ -439,14 +442,17 @@ because the free layer supplies W ≥ 15 unconditionally. The tail is needed onl
   (or non-squares) and must be square-sensitive — in the coordinate form through the choice of 𝒞_n by n mod 8, the only
   place the quadratic character of n enters (this is a description of the present formulation, not a theorem that every
   formulation must display a character).
-* (CONDITIONAL on Dickson, Prop 3.3(b)) Every one-coordinate bounded-window version — "some certificate with a coordinate
-  ≤ X", "the words with a coordinate ≤ X are shape-balanced", "a certificate among the free words", "(★) or any line at
-  levels ≤ X or endpoints ≤ X" — fails for infinitely many primes, with the window containing arbitrarily many
-  (monochromatic) words. So no member of the hierarchy can be reduced to a statement about bounded coordinates.
+* (CONDITIONAL on Dickson, Prop 3.3(b)) Every one-coordinate bounded-window *certificate-positivity* version — "some
+  certificate with a coordinate ≤ X", "N₋ restricted to words with a coordinate ≤ X is ≥ c·(number of such words)", "a
+  certificate among the free words", "(★) or any line at levels ≤ X or endpoints ≤ X" — fails for infinitely many primes,
+  with the window containing arbitrarily many (monochromatic) words. Windowed statements whose both sides vanish there
+  (e.g. interior balance SB_int on the window, where the window has no interior words; relative inequalities against a
+  windowed main term that may vanish) are not refuted by this, only emptied. So no positivity member of the hierarchy can
+  be reduced to a statement about bounded coordinates.
 * (PROVED, Prop 4.2 below) the covering is character-free; (Assessment) no derivation of any member from GRH/OAI-003 is
   known or supplied here.
 * (Assessment) No implication between SB_any and (★)-ev in either direction is established (different lines); ES₅ does not
-  formally give SB_any (ES₅ gives N₋ ≥ 1 only); I3 and ES₅ are formally independent (LOWERTAIL_DEEP_FABLE §6). None of
+  formally give SB_any (ES₅ gives N₋ ≥ 1 only); between I3 and ES₅ neither implication is established (LOWERTAIL_DEEP_FABLE §6). None of
   these are proved non-implications — there is no construction either way; they record that the implication is not
   established.
 
@@ -501,9 +507,9 @@ Let (SE_κ) be sign-free shape equidistribution at p: every admissible cell c of
   PROVED; no sign-free tail is used.
 * (SE_κ) ∧ (W_log: W(p) ≥ c log²p) ⟹ (∗)_BM(ε) (PROVED, §4) and ⟹ (G_ε) provided M_gen(p) ≪ log²p (an upper bound not
   proved unconditionally; M_gen ≤ Σ_𝒫 s(q)/φ(q) ≪ log⁴p trivially; EVIDENCE M_gen ≈ M_BM, §5.3).
-* (SE_κ) alone is not shown to imply (G_ε) (or (∗)_BM): (G_ε) requires R(p) ≫ log²p while (SE_κ) bounds R only by κW(p),
+* (SE_κ) alone is not shown to imply (G_ε) (or (∗)_BM): (∗)_BM requires R(p) ≫ log²p (and so does (G_ε) under H_θ) while (SE_κ) bounds R only by κW(p),
   and no theorem gives W(p) → ∞ pointwise (W(p) ≥ 15 is all that is known; under Dickson F(p) = 15 i.o. with I3
-  unconstrained). So the step from (SE) to (∗) is *exactly* the sign-free lower tail W_log — equivalently, under (SE_κ),
+  unconstrained). So the step from (SE) to (∗)_BM is *exactly* the sign-free lower tail W_log (for (G_ε) add the upper bound M_gen ≪ log²p) — equivalently, under (SE_κ),
   I3_log: any admissible cell whose three residues avoid 1 and 2 mod 8 contains only interior words, so I3 ≥ κW. This is
   "not established", not a proved non-implication. Conversely (G_ε) says nothing about cells other than t ≡ 0 (4), so no
   implication (G_ε) ⟹ (SE) is available either.
@@ -512,12 +518,15 @@ Let (SE_κ) be sign-free shape equidistribution at p: every admissible cell c of
   weighted count. Shape equidistribution speaks about actual words only (the x² = 1 pairs) and about their 2-adic residues;
   the twists x live at the odd primes of uB. The two statements are about disjoint data; the only bridge is the size of
   W(p), i.e. the tail.
-* *Calibration (heuristic, parent's z49 data).* Restricting (G_ε) to the pairs with modulus 4uB ≤ Y = (log p)^C gives a
-  window whose count vanishes i.o. (a (★)-word with 4uB ≤ Y has both endpoints ≤ Y, so H₄ > Y i.o. in the prime-Haar model
-  empties it), while its genus main term Σ_{4uB ≤ Y} 1/|G²| ≍ Σ_{uB ≤ Y/4} 1/φ(uB)·(1/|G²|-corrections) ≪ (log Y)² ≍
-  (log log p)² is small but positive; so (G_ε) is false on polylog-modulus windows and any proof of it must use pairs with
-  4uB ≥ exp((log p)^{1/2−o(1)}) at some primes. Theorem 3.2's Landau-type lines are a different truncation (one
-  coordinate bounded, the other free; not a bounded-modulus window), and they are not star-line pairs in general.
+* *Calibration (heuristic throughout).* Restrict (G_ε) to the pairs with modulus 4uB ≤ Y = (log p)^C: the windowed
+  count R_Y(p) = Σ_{4uB ≤ Y} 1[p ≡ a (q)] and the windowed genus term M_gen,Y(p) = Σ_{(u,B) ∈ 𝒫_gen(p), 4uB ≤ Y} s(q)/φ(q).
+  A (★)-word with 4uB ≤ Y has both endpoints ≤ Y, so in the prime-Haar model R_Y(p) = 0 for infinitely many p (H₄ > Y
+  i.o., z49 calibration). Whether the windowed inequality R_Y ≥ ε M_gen,Y then *fails* at those primes depends on
+  M_gen,Y(p) > 0 there, which is a separate genus statement on the same sequence (its average size is polylog(Y) =
+  polylog(log p), its pointwise value can be 0 on square-mimicking progressions — Astra Thm 6.1/§6.3). So the correct
+  reading is: (G_ε) cannot be *proved* on polylog-modulus windows by the lottery heuristic, and any proof of it must use
+  pairs with 4uB ≥ exp((log p)^{1/2−o(1)}) at some primes. Theorem 3.2's Landau-type lines are a different truncation
+  (one coordinate bounded, the other free; not a bounded-modulus window), and they are not star-line pairs in general.
 
 ### 5.3 Census of the genus decomposition (CERTIFIED; `scripts/z49_ltfable2_mgen.c`, `data/z49_ltfable2/mgen_1e5.txt`)
 
@@ -545,14 +554,14 @@ divisible by some v ≡ −p (mod u) with gcd(u, v) = 1, or that some t ≡ 0 (4
 single integer in a single tied class with no character condition at all. What is known about the quantifiers: at the
 Dickson primes of Prop 3.3(b) no witness has a coordinate ≤ X, so for every X a proof must at some primes produce a
 witness with all coordinates > X; the *two-endpoint* window (both endpoints ≤ (log p)^C) is empty i.o. (heuristically, the
-z49 calibration), while the *one-coordinate* window (HC ≤ X) has survival probability → 0 at every fixed X (Thm 3.2) and
+z49 calibration), while the *one-coordinate* window is non-empty for almost all primes at every fixed X (P(HC > X) → 0, Thm 3.2) and
 is conjecturally ≤ C log p (Conj. 3.4); the only proved pointwise facts are the free-layer counts (Thm 2.1), the emptiness
 at squares (§1.3) and the majorants (Prop 2.2 of LOWERTAIL_DEEP_FABLE). **What is barred by this round (PROVED/CONDITIONAL as stated):**
 (a) exact linear cell identities beyond the involution (Thm 2.3); (b) identities "N_𝒢 − (≥ 0) = f" with f the count on
 finitely many fixed lines or slices (fails i.o.; CONDITIONAL on Dickson / H), the only explicit f ≤ N_𝒢 known (§2.3);
-(c) one-coordinate bounded-window versions of every hypothesis in §4, including shape balance on windows with arbitrarily
-many words (Prop 3.3(b) under Dickson); (d) any use of GRH/003 through a character condition *on the certificate* (Prop
-4.2: there is none; indirect uses are not excluded); (e) a derivation of (∗) from (SE) without the sign-free tail (§5.2). **What is not barred:** a
+(c) one-coordinate bounded-window certificate-positivity versions of the hypotheses in §4, including shape balance on
+windows with arbitrarily many words (Prop 3.3(b) under Dickson); (d) any use of GRH/003 through a character condition *on the certificate* (Prop
+4.2: there is none; indirect uses are not excluded). **Not established (not barred):** a derivation of (∗) from (SE) without the sign-free tail (§5.2). **What is not barred:** a
 single-integer lower bound for the sign-free count on the union of six coordinate lines at growing coordinates; an
 unconditional or conditional proof of Conjecture 3.4; a Landau-type argument that reaches HC ≤ X(p) with X(p) → ∞ for
 *all* large p rather than almost all (this would be a new kind of sieve statement: a lower bound for a sifted shifted-prime

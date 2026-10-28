@@ -46,16 +46,18 @@ def crt(r1, m1, r2, m2):
     return (r1 + m1 * ((r2 - r1) * pow(m1, -1, m2) % m2)) % (m1 * m2)
 
 def family_b(X, k):
+    k = max(1, k)
     ls = []
-    for q in primerange(X + 2, 10 ** 6):
+    for q in primerange(2 * X + 3, 10 ** 6):   # l_1 > 2X + 2 keeps L coprime to Q0
         if q % 4 == 1: ls.append(q)
         if len(ls) == k: break
     L = 1
     for q in ls: L *= q
     Q0 = lcm(24, *[u * (u + 1) for u in range(2, X + 1)], *primerange(2, 2 * X + 3))
     rad = 1
-    for q in primerange(2, Q0 + 1):
+    for q in primerange(2, 2 * X + 3):
         if Q0 % q == 0: rad *= q
+    # every prime factor of Q0 is <= 2X+2 (u(u+1) <= X(X+1)), so rad(Q0) is the product above
     Q1 = Q0 * rad
     assert gcd(Q1, L) == 1
     M = Q1 * L * L
