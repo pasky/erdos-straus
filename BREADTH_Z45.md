@@ -207,3 +207,10 @@ These are local clones and branches only; nothing is pushed.
   * L9901: 8/n is not a sum of three unit fractions for n = 11, 17, 131, 241;
   * L9902: the exact first-denominator divisor test;
   * L9903: 4abcd ≠ a + b + m²c for all positive a, b, c, d, with no gcd or parity conditions.
+* Reviews, 2026-10-28; files in `~/projects/math/review*-pr{A,B}*.md`:
+  * Round 1, three fresh-context GPT-6 Astra reviews: PR A NEEDS FIXES (wording), PR B BLOCKING. The blocking
+    items were M(49) ≠ 0 without coprimality, the Type I (c,d) row needing gcd(p, cd) = 1, the B2 family, the
+    forest→ES bridge (now explicit five-slot certificate formulas) and overbroad barrier wording. All were fixed.
+  * Round 2, two Claude Fable reviews: PR A OK. They also found that Dyachenko's Prop 9.25 is false as stated
+    (g = 9, b′ = 1, c′ = 2). PR B NEEDS FIXES: the B2 moduli for constant rows and minor wording; fixed.
+  * The Lean claims were refactored into named parts. Re-audited: 3833 constants, 7 claims, 0 compiler axioms, PASS.
