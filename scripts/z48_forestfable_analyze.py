@@ -41,7 +41,8 @@ def main():
                       ("L3", "... endpoint ≡ 3 (8)"),
                       ("Lodd", "... both endpoints odd"),
                       ("Lp1", "line u=1 (QNR divisor of p+1; λ=2)"), ("Lp2", "line u=2"), ("Lp3", "line u=3"),
-                      ("Lp4", "line u=4"), ("Lp7", "line u=7"), ("Lp15", "line u=15"),
+                      ("Lp4", "line u=4"), ("Lp7", "line u=7 (children of 7 only)"), ("Lp15", "line u=15 (children only)"),
+                      ("V7", "vertex 7 non-isolated (any orientation)"), ("V15", "vertex 15 non-isolated (any orientation)"),
                       ("Lt2", "level t=2"), ("Lt3", "level t=3"), ("Lt4", "level t=4 ((★) C=1)"), ("Lt7", "level t=7"),
                       ("Lt15", "level t=15"),
                       ("LprimeA", "some bichromatic edge has a prime numerator A or A*"),
@@ -60,6 +61,7 @@ def main():
     for keys in [("L0", "L7"), ("L0", "L7", "L3"), ("Lp1", "Lp2", "Lp3", "Lp4", "Lp7", "Lp15"),
                  ("Lt2", "Lt3", "Lt4", "Lt7", "Lt15"),
                  ("Lp1", "Lp2", "Lp3", "Lp4", "Lp7", "Lp15", "Lt2", "Lt3", "Lt4", "Lt7", "Lt15"),
+                 ("Lp1", "Lp2", "Lp3", "Lp4", "V7", "V15"), ("Lp1", "Lp2", "Lp3", "Lp4", "V7", "V15", "Lt2", "Lt3", "Lt4", "Lt7", "Lt15"),
                  ("L0", "Lp1", "Lp2", "Lp3", "Lt2", "Lt3"), ("c1bi", "L0"), ("c1bi", "L0", "L7")]:
         f = union_fail(keys)
         print(f"  {'+'.join(keys):55s} fails {len(f):6d}  first: {f[:10]}")
@@ -81,7 +83,7 @@ def main():
     for key in ["H4", "umin", "tmin", "Amin", "r"]:
         mx = max(rows, key=lambda r: r[key] / math.log(r["p"]) ** 2)
         print(f"  max {key}/log^2 p = {mx[key]/math.log(mx['p'])**2:.4f} at p={mx['p']} ({key}={mx[key]}, r={mx['r']}, H4={mx['H4']})")
-    for key in ["umin", "tmin"]:
+    for key in ["umin", "tmin", "Amin", "H4"]:
         mx = max(rows, key=lambda r: r[key])
         print(f"  max {key} = {mx[key]} at p={mx['p']} (log p = {math.log(mx['p']):.2f})")
     mn = min(rows, key=lambda r: r["W"] / math.log(r["p"]) ** 2)

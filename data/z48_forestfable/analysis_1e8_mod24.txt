@@ -1,4 +1,4 @@
-file data/z48_forestfable/scan_1e8_mod24.txt.gz: 719781 primes p≡1(4); restricting to p≡1 (mod 24): 719781 primes, max p = 99999721
+file /tmp/scan_1e8_mod24.txt.gz: 719781 primes p≡1(4); restricting to p≡1 (mod 24): 719781 primes, max p = 99999721
 total edges 87575674, bichromatic 54604504, viol_slot 0, viol_classB 0
 primes with B=0 (ES5 failures): 0
 
@@ -11,8 +11,10 @@ primes with B=0 (ES5 failures): 0
   Lp2      fails 253948/719781  (0.3528)  first: [97, 241, 337, 409, 457, 577, 601, 769]   line u=2
   Lp3      fails 289372/719781  (0.4020)  first: [73, 193, 241, 313, 409, 433, 601, 673]   line u=3
   Lp4      fails 315395/719781  (0.4382)  first: [97, 193, 313, 457, 673, 769, 937, 1009]   line u=4
-  Lp7      fails 182514/719781  (0.2536)  first: [73, 241, 337, 457, 577, 1009, 1129, 1201]   line u=7
-  Lp15     fails 237054/719781  (0.3293)  first: [73, 97, 193, 241, 313, 337, 409, 457]   line u=15
+  Lp7      fails 182514/719781  (0.2536)  first: [73, 241, 337, 457, 577, 1009, 1129, 1201]   line u=7 (children of 7 only)
+  Lp15     fails 237054/719781  (0.3293)  first: [73, 97, 193, 241, 313, 337, 409, 457]   line u=15 (children only)
+  V7       fails 150850/719781  (0.2096)  first: [337, 457, 1009, 1129, 1201, 1297, 1801, 2017]   vertex 7 non-isolated (any orientation)
+  V15      fails 164841/719781  (0.2290)  first: [241, 409, 1009, 1201, 1249, 1321, 1489, 1801]   vertex 15 non-isolated (any orientation)
   Lt2      fails 248735/719781  (0.3456)  first: [193, 313, 433, 601, 673, 769, 1009, 1129]   level t=2
   Lt3      fails 280764/719781  (0.3901)  first: [97, 241, 409, 457, 577, 769, 937, 1009]   level t=3
   Lt4      fails 304082/719781  (0.4225)  first: [73, 97, 193, 241, 409, 433, 577, 601]   level t=4 ((★) C=1)
@@ -32,6 +34,8 @@ primes with B=0 (ES5 failures): 0
   Lp1+Lp2+Lp3+Lp4+Lp7+Lp15                                fails   5281  first: [1201, 3889, 5209, 9601, 12721, 15241, 21529, 29401, 31249, 33961]
   Lt2+Lt3+Lt4+Lt7+Lt15                                    fails   8135  first: [3049, 4729, 8689, 14281, 14401, 20521, 21121, 21169, 21841, 21961]
   Lp1+Lp2+Lp3+Lp4+Lp7+Lp15+Lt2+Lt3+Lt4+Lt7+Lt15           fails    332  first: [83449, 121081, 174241, 264961, 415969, 514201, 539401, 575401, 857929, 940921]
+  Lp1+Lp2+Lp3+Lp4+V7+V15                                  fails   5281  first: [1201, 3889, 5209, 9601, 12721, 15241, 21529, 29401, 31249, 33961]
+  Lp1+Lp2+Lp3+Lp4+V7+V15+Lt2+Lt3+Lt4+Lt7+Lt15             fails    332  first: [83449, 121081, 174241, 264961, 415969, 514201, 539401, 575401, 857929, 940921]
   L0+Lp1+Lp2+Lp3+Lt2+Lt3                                  fails      0  first: []
   c1bi+L0                                                 fails      0  first: []
   c1bi+L0+L7                                              fails      0  first: []
@@ -72,6 +76,8 @@ primes with B=0 (ES5 failures): 0
   max r/log^2 p = 0.2716 at p=73 (r=5, r=5, H4=5)
   max umin = 25 at p=78168721 (log p = 18.17)
   max tmin = 36 at p=26017489 (log p = 17.07)
+  max Amin = 1451 at p=72639961 (log p = 18.10)
+  max H4 = 408 at p=27344521 (log p = 17.12)
   min W/log^2 p = 0.1043 at p=2031121 (W=22, B=11)
   min B/log^2 p = 0.0326 at p=2521 (W=18, B=2)
   min B over p>1e5: 7 at p=174241 (W=32)

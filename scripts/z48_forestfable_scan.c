@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
     if (!spf) { fprintf(stderr, "alloc\n"); return 1; }
     for (u64 i = 2; i <= S; i++) if (!spf[i]) { for (u64 j = i; j <= S; j += i) if (!spf[j]) spf[j] = (uint32_t)i; }
 
-    printf("p r W B H4 umin tmin Amin viol_slot viol_classB L0 L7 L3 Lodd Lp1 Lp2 Lp3 Lp4 Lp7 Lp15 Lt2 Lt3 Lt4 Lt7 Lt15 LprimeA ncomp maxc maxbi c1size c1bi nbicomp bi_in_big nonisol m_i m_ii m_iii E0 E7 E08 Lleg Ltuv4 LA7 n07 nleg ntuv4 nA7 v07min lmin\n");
+    printf("p r W B H4 umin tmin Amin viol_slot viol_classB L0 L7 L3 Lodd Lp1 Lp2 Lp3 Lp4 Lp7 Lp15 Lt2 Lt3 Lt4 Lt7 Lt15 LprimeA ncomp maxc maxbi c1size c1bi nbicomp bi_in_big nonisol m_i m_ii m_iii E0 E7 E08 Lleg Ltuv4 LA7 n07 nleg ntuv4 nA7 v07min lmin V7 V15\n");
 
     int nlist = argc > 4 ? argc - 4 : 0;
     u64 *list = 0; if (nlist) { list = malloc(nlist * sizeof(u64)); for (int i = 0; i < nlist; i++) list[i] = strtoull(argv[4 + i], 0, 10); }
@@ -126,6 +126,7 @@ int main(int argc, char **argv) {
         u64 n07 = 0, nleg = 0, ntuv4 = 0, nA7 = 0; /* word counts per sign-free family */
         u64 v07min = 0; /* least vertex ≡ 0 (4) or 7 (8) that is non-isolated */
         u64 lmin = 0;   /* least prime numerator (A or A*) of a bichromatic edge */
+        int V7 = 0, V15 = 0; /* vertex 7 / 15 is non-isolated (any orientation; all its edges are certificates by Thm B) */
         u64 m_i = 0, m_ii = 0, m_iii = 0;
         for (int i = 0; i < ne; i++) {
             u64 u = EU[i], v = EV[i];
@@ -139,6 +140,8 @@ int main(int argc, char **argv) {
             if (u % 4 == 0 || v % 4 == 0) E0 = 1;
             if (u % 8 == 7 || v % 8 == 7) E7 = 1;
             if (u % 8 == 0 || v % 8 == 0) E08 = 1;
+            if (u == 7 || v == 7) V7 = 1;
+            if (u == 15 || v == 15) V15 = 1;
             { u64 tt = t; while (tt % 4 == 0) tt /= 4; int leg = (tt % 8 == 7); /* Legendre level (p ≡ 1 mod 8) */
               int f07 = (u % 4 == 0 || v % 4 == 0 || u % 8 == 7 || v % 8 == 7);
               int f4 = (t % 4 == 0 || u % 4 == 0 || v % 4 == 0);
@@ -199,13 +202,13 @@ int main(int argc, char **argv) {
         int i1 = findv(VERTS, nu, 1);
         int c1size = i1 >= 0 ? SZ[uf_find(i1)] : 1;
         int c1bi = i1 >= 0 ? CB[uf_find(i1)] : 0;
-        printf("%llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %llu %llu %llu %d %d %d %d %d %d %llu %llu %llu %llu %llu %llu\n",
+        printf("%llu %llu %llu %llu %llu %llu %llu %llu %llu %llu %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %llu %llu %llu %d %d %d %d %d %d %llu %llu %llu %llu %llu %llu %d %d\n",
                (unsigned long long)p, (unsigned long long)r, (unsigned long long)W, (unsigned long long)B, (unsigned long long)H4,
                (unsigned long long)umin, (unsigned long long)tmin, (unsigned long long)Amin, (unsigned long long)viol_slot, (unsigned long long)viol_cB,
                L0, L7, L3, Lodd, Lp[1], Lp[2], Lp[3], Lp[4], Lp[7], Lp[15], Lt[2], Lt[3], Lt[4], Lt[7], Lt[15], LprimeA,
                ncomp, maxc, maxbi, c1size, c1bi, nbicomp, bi_in_big, nu,
                (unsigned long long)m_i, (unsigned long long)m_ii, (unsigned long long)m_iii, E0, E7, E08, Lleg, Ltuv4, LA7,
-               (unsigned long long)n07, (unsigned long long)nleg, (unsigned long long)ntuv4, (unsigned long long)nA7, (unsigned long long)v07min, (unsigned long long)lmin);
+               (unsigned long long)n07, (unsigned long long)nleg, (unsigned long long)ntuv4, (unsigned long long)nA7, (unsigned long long)v07min, (unsigned long long)lmin, V7, V15);
     }
     return 0;
 }

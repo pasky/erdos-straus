@@ -50,41 +50,41 @@ exact uncovered density over p ≡ 1 (mod 24), gcd(p, lcm)=1:
   X= 18: classes    276480 uncovered    35280  delta=0.127604  -log delta=2.059
 
 sampled (100000 random classes) uncovered density by numerator bound X, and sieve sum s(X)=Σ_(A≤X) P(hit A):
-  X=   8: delta=0.25145  -log delta= 1.381   s(X)= 0.998   (log X)^2/4= 1.081
-  X=  12: delta=0.17555  -log delta= 1.740   s(X)= 1.299   (log X)^2/4= 1.544
-  X=  16: delta=0.14623  -log delta= 1.923   s(X)= 2.129   (log X)^2/4= 1.922
-  X=  24: delta=0.07355  -log delta= 2.610   s(X)= 3.668   (log X)^2/4= 2.525
-  X=  32: delta=0.05294  -log delta= 2.939   s(X)= 3.976   (log X)^2/4= 3.003
-  X=  48: delta=0.02277  -log delta= 3.782   s(X)= 5.537   (log X)^2/4= 3.747
-  X=  64: delta=0.01650  -log delta= 4.104   s(X)= 6.209   (log X)^2/4= 4.324
-  X=  96: delta=0.00662  -log delta= 5.018   s(X)= 7.796   (log X)^2/4= 5.208
-  X= 128: delta=0.00355  -log delta= 5.641   s(X)= 9.028   (log X)^2/4= 5.886
-  X= 192: delta=0.00126  -log delta= 6.677   s(X)=10.931   (log X)^2/4= 6.910
-  X= 256: delta=0.00071  -log delta= 7.250   s(X)=12.356   (log X)^2/4= 7.687
-  X= 300: delta=0.00050  -log delta= 7.601   s(X)=13.187   (log X)^2/4= 8.133
-  X= 400: delta=0.00019  -log delta= 8.568   s(X)=14.765   (log X)^2/4= 8.974
+  X=   8: delta=0.24659  -log delta= 1.400   s(X)= 1.003   (log X)^2/4= 1.081
+  X=  12: delta=0.17165  -log delta= 1.762   s(X)= 1.302   (log X)^2/4= 1.544
+  X=  16: delta=0.14286  -log delta= 1.946   s(X)= 2.134   (log X)^2/4= 1.922
+  X=  24: delta=0.07164  -log delta= 2.636   s(X)= 3.684   (log X)^2/4= 2.525
+  X=  32: delta=0.05129  -log delta= 2.970   s(X)= 3.994   (log X)^2/4= 3.003
+  X=  48: delta=0.02279  -log delta= 3.781   s(X)= 5.548   (log X)^2/4= 3.747
+  X=  64: delta=0.01620  -log delta= 4.123   s(X)= 6.222   (log X)^2/4= 4.324
+  X=  96: delta=0.00603  -log delta= 5.111   s(X)= 7.814   (log X)^2/4= 5.208
+  X= 128: delta=0.00333  -log delta= 5.705   s(X)= 9.052   (log X)^2/4= 5.886
+  X= 192: delta=0.00132  -log delta= 6.630   s(X)=10.950   (log X)^2/4= 6.910
+  X= 256: delta=0.00072  -log delta= 7.236   s(X)=12.371   (log X)^2/4= 7.687
+  X= 300: delta=0.00046  -log delta= 7.684   s(X)=13.200   (log X)^2/4= 8.133
+  X= 400: delta=0.00019  -log delta= 8.568   s(X)=14.781   (log X)^2/4= 8.974
 
 per-A hit probabilities P(p mod A ∈ G_A) for A ≤ 24:
   A=  2: 0.0000  (|G_A|=0, phi(A)=1)
   A=  3: 0.0000  (|G_A|=1, phi(A)=2)
   A=  4: 0.0000  (|G_A|=0, phi(A)=2)
-  A=  5: 0.4981  (|G_A|=2, phi(A)=4)
+  A=  5: 0.4990  (|G_A|=2, phi(A)=4)
   A=  6: 0.0000  (|G_A|=1, phi(A)=2)
-  A=  7: 0.4999  (|G_A|=3, phi(A)=6)
+  A=  7: 0.5039  (|G_A|=3, phi(A)=6)
   A=  8: 0.0000  (|G_A|=0, phi(A)=4)
   A=  9: 0.0000  (|G_A|=0, phi(A)=6)
   A= 10: 0.0000  (|G_A|=0, phi(A)=4)
-  A= 11: 0.3010  (|G_A|=3, phi(A)=10)
+  A= 11: 0.2994  (|G_A|=3, phi(A)=10)
   A= 12: 0.0000  (|G_A|=1, phi(A)=4)
-  A= 13: 0.1647  (|G_A|=2, phi(A)=12)
-  A= 14: 0.1674  (|G_A|=1, phi(A)=6)
-  A= 15: 0.4981  (|G_A|=4, phi(A)=8)
+  A= 13: 0.1665  (|G_A|=2, phi(A)=12)
+  A= 14: 0.1657  (|G_A|=1, phi(A)=6)
+  A= 15: 0.4990  (|G_A|=4, phi(A)=8)
   A= 16: 0.0000  (|G_A|=0, phi(A)=8)
-  A= 17: 0.1237  (|G_A|=2, phi(A)=16)
+  A= 17: 0.1260  (|G_A|=2, phi(A)=16)
   A= 18: 0.0000  (|G_A|=0, phi(A)=6)
-  A= 19: 0.1663  (|G_A|=3, phi(A)=18)
-  A= 20: 0.4981  (|G_A|=2, phi(A)=8)
-  A= 21: 0.3326  (|G_A|=2, phi(A)=12)
-  A= 22: 0.1002  (|G_A|=1, phi(A)=10)
-  A= 23: 0.3182  (|G_A|=7, phi(A)=22)
+  A= 19: 0.1669  (|G_A|=3, phi(A)=18)
+  A= 20: 0.4990  (|G_A|=2, phi(A)=8)
+  A= 21: 0.3381  (|G_A|=2, phi(A)=12)
+  A= 22: 0.0992  (|G_A|=1, phi(A)=10)
+  A= 23: 0.3211  (|G_A|=7, phi(A)=22)
   A= 24: 0.0000  (|G_A|=1, phi(A)=8)

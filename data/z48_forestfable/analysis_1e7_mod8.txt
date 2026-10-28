@@ -11,8 +11,10 @@ primes with B=0 (ES5 failures): 0
   Lp2      fails  61293/165976  (0.3693)  first: [17, 41, 97, 137, 241, 281, 337, 409]   line u=2
   Lp3      fails  35750/165976  (0.2154)  first: [73, 193, 241, 313, 409, 433, 601, 673]   line u=3
   Lp4      fails  38696/165976  (0.2331)  first: [97, 193, 313, 457, 673, 769, 937, 1009]   line u=4
-  Lp7      fails  23160/165976  (0.1395)  first: [17, 73, 241, 337, 457, 577, 1009, 1129]   line u=7
-  Lp15     fails  59001/165976  (0.3555)  first: [17, 41, 73, 89, 97, 113, 137, 193]   line u=15
+  Lp7      fails  23160/165976  (0.1395)  first: [17, 73, 241, 337, 457, 577, 1009, 1129]   line u=7 (children of 7 only)
+  Lp15     fails  59001/165976  (0.3555)  first: [17, 41, 73, 89, 97, 113, 137, 193]   line u=15 (children only)
+  V7       fails  18732/165976  (0.1129)  first: [337, 457, 1009, 1129, 1201, 1297, 1801, 2017]   vertex 7 non-isolated (any orientation)
+  V15      fails  41048/165976  (0.2473)  first: [17, 113, 137, 233, 241, 257, 353, 409]   vertex 15 non-isolated (any orientation)
   Lt2      fails  59836/165976  (0.3605)  first: [41, 89, 113, 193, 233, 281, 313, 401]   level t=2
   Lt3      fails  69356/165976  (0.4179)  first: [17, 41, 89, 97, 137, 241, 257, 281]   level t=3
   Lt4      fails  37142/165976  (0.2238)  first: [73, 97, 193, 241, 409, 433, 577, 601]   level t=4 ((★) C=1)
@@ -32,6 +34,8 @@ primes with B=0 (ES5 failures): 0
   Lp1+Lp2+Lp3+Lp4+Lp7+Lp15                                fails    898  first: [1201, 3889, 5209, 9601, 12721, 15241, 21529, 29401, 31249, 33961]
   Lt2+Lt3+Lt4+Lt7+Lt15                                    fails   1232  first: [3049, 4729, 8689, 14281, 14401, 20521, 21121, 21169, 21841, 21961]
   Lp1+Lp2+Lp3+Lp4+Lp7+Lp15+Lt2+Lt3+Lt4+Lt7+Lt15           fails     59  first: [83449, 121081, 174241, 264961, 415969, 514201, 539401, 575401, 857929, 940921]
+  Lp1+Lp2+Lp3+Lp4+V7+V15                                  fails    898  first: [1201, 3889, 5209, 9601, 12721, 15241, 21529, 29401, 31249, 33961]
+  Lp1+Lp2+Lp3+Lp4+V7+V15+Lt2+Lt3+Lt4+Lt7+Lt15             fails     59  first: [83449, 121081, 174241, 264961, 415969, 514201, 539401, 575401, 857929, 940921]
   L0+Lp1+Lp2+Lp3+Lt2+Lt3                                  fails      0  first: []
   c1bi+L0                                                 fails      0  first: []
   c1bi+L0+L7                                              fails      0  first: []
@@ -72,6 +76,8 @@ primes with B=0 (ES5 failures): 0
   max r/log^2 p = 0.3737 at p=17 (r=3, r=3, H4=3)
   max umin = 23 at p=1769329 (log p = 14.39)
   max tmin = 27 at p=3581041 (log p = 15.09)
+  max Amin = 1214 at p=5516281 (log p = 15.52)
+  max H4 = 251 at p=7449289 (log p = 15.82)
   min W/log^2 p = 0.1043 at p=2031121 (W=22, B=11)
   min B/log^2 p = 0.0326 at p=2521 (W=18, B=2)
   min B over p>1e5: 7 at p=174241 (W=32)

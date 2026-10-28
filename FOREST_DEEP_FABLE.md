@@ -27,7 +27,7 @@ ideally with H₄(p) ≤ polylog(p), allowing OAI-003 (quasi-RH 7/8) or GRH as l
 4. **Covering form (PROVED, §3).** ES₅(p) ⟺ p mod A ∈ G_A for some A ≥ 2, where G_A ⊂ ℤ/A is the explicit p-independent set
    {−d : d | A+1, d < A, (−d/A_odd) = −1}. The least QNR, GRH, quasi-RH enter only through the *colour half* of G_A; the
    *shadow half* {−d : d | A+1} is where B1 lives: p ≡ 1 (mod lcm(1..X)) is uncovered by every A ≤ X (so A_min, H₄ ≫ log p
-   i.o. by Linnik, elementary). EVIDENCE: the uncovered density decays like exp(−(log X)²/4) (sieve dimension ≍ log X).
+   i.o. by Linnik, elementary). EVIDENCE: the uncovered density of the random-class model decays like exp(−(log X)²/4).
 5. **No mechanism forcing a bichromatic component was found, and §5 says exactly why each candidate stops.** The discrete
    IVT needs two opposite-coloured vertices in one component; every pair of candidate vertices (1 and a QNR; two small
    vertices; the largest component; a QNR vertex v ≡ 7 (8) found by GRH/003) is joined only through divisor events of
@@ -35,7 +35,7 @@ ideally with H₄(p) ≤ polylog(p), allowing OAI-003 (quasi-RH 7/8) or GRH as l
    QNR *vertex*; it attaches to a parent with CRT density (log r)/r, and 2521-type primes (r isolated) exist i.o. under
    Dickson (ASTRA Thm 5.1). Nothing in 003/GRH controls the divisors of p + v. The exact gap is stated in §6.
 6. **Verdict: PARTIAL (clean negative with structural by-products). Promise for the stated target: 1/5.** The target
-   "H₄(p) ≤ polylog(p) for all p" remains CONJECTURE (EVIDENCE to 10⁸: H₄ ≤ 1.40 (log p)²; u_min ≤ 25; the least vertex of
+   "H₄(p) ≤ polylog(p) for all p" remains CONJECTURE (EVIDENCE to 10⁸: H₄ ≤ 1.392 (log p)²; u_min ≤ 25; the least vertex of
    the sign-free union ≤ 116). Everything new here is dictionary and census; the lower tail is untouched.
 
 ## 1. Setting and the exact dictionary
@@ -109,8 +109,8 @@ t′ for t with all factors 4 removed. The edge is a certificate whenever
  (ii) u, v or t′ is ≡ −p (mod 8);
  (iii) A or A* is ≡ 7 (mod 8).
 *Proof.* (i) is the definition. (ii) for u, v is Theorem B; for t′ it is BRAINSTORM/z1_legendre_levels Prop 1 (Legendre
-levels), and also follows from (A/p) = (−t/A) for odd A (since A | tp + 1 gives p ≡ −t⁻¹ (mod A)) by the computation in
-(iii) with t in place of u; for even A the factor (2/p)^{v₂(A)} is why the condition is t′ ≡ −p rather than 7 (mod 8).
+levels), whose direct argument is: if t = 4^a t′ with a ≥ 1 then 4 | t; if a = 0 then AA* = tp + 1 ≡ −p² + 1 ≡ 0 (mod 8),
+so v₂(A) + v₂(A*) ≥ 3 and one of A, A* is ≡ 0 (mod 4) — a numerator slot.
 (iii) A ≡ 7 (mod 8) is odd, A ≡ −1 (mod u), A | p + u. So (A/p) = (p/A) = (−u/A) = −(u/A) (as (−1/A) = −1), and with
 u = 2^a u′: (u/A) = (2/A)^a (u′/A) = (u′/A) = (A/u′)(−1)^{(A−1)(u′−1)/4} = (−1/u′)(−1/u′) = 1 (using (2/A) = 1, A ≡ −1
 (mod u′), A ≡ 3 (mod 4)). Hence (A/p) = −1, and Theorem A gives a slot. Same for A* with v. ∎
@@ -130,38 +130,50 @@ Theorem B makes it a certificate; the slot bookkeeping is as stated (for v ≡ 7
 v₂(y) ≤ 1 then v₂(A) ≥ 2). The three identities are the standard slot formulas; e.g. 1/(dA) + 1/(ptd) + 1/(ptdA) =
 (pt + A + 1)/(ptdA) = t(p + v)/(ptdA) = y/(pd) = 4/p. ∎
 (For p ≡ 5 (mod 8) replace 7 by 3.) The first bullet is López's Type-A line "p + 4d has a divisor ≡ −1 (mod 4d)"
-(SYNTHESIS_SPARKS8, B1_LINE); the second is new as a stated line, although it is contained in y5's position P_c.
+(SYNTHESIS_SPARKS8, B1_LINE); the second is new as a stated line; it is an instance of y5's general parity law
+(y5_transport_is_ptolemy Cor 2: certificate ⟺ the vertex opposite the even edge is ≡ 7 (8)), of which y5's position P_c
+(both A and y even, opposite vertex v) is the even/even sub-case — e.g. p = 97, v = 7, A = 13, y = 8 is in the twin line
+but not in P_c.
 
-**Theorem E (the twin line is T1-exact; PROVED, elementary).** Let m be odd, v ≡ 7 (mod 8) or v ≡ 0 (mod 4), gcd(v, m) = 1.
-Then m² + v has no divisor A ≡ −1 (mod v) with A > 1.
-*Proof.* Suppose A | m² + v, A ≡ −1 (mod v), A = 2^a A′ with A′ odd. If A′ = 1 then 2^a ≡ −1 (mod v), so (2/v)^a = (−1/v);
-for v ≡ 7 (8) this is 1 = −1, and for 4 | v it is impossible (−1 is odd). So A′ > 1, and gcd(A′, m) = 1 (a common prime
-would divide v). From A′ | m² + v: (−v/A′) = (m²/A′) = +1. From A′ ≡ −2^{−a} (mod v) and reciprocity (v ≡ 3 (mod 4) when
-v ≡ 7 (8)): (−v/A′) = (−1/A′)(A′/v)(−1)^{(A′−1)(v−1)/4} = (A′/v) = (−1/v)(2/v)^{−a} = −1, contradiction. For 4 | v the known
-argument (FRONTIER B5: m² + u has no divisor ≡ −1 (mod 4u)) applies. ∎
-CERTIFIED: at the 499 odd squares 9 ≤ m² ≤ 10⁶ (17 372 edges, as in the Astra census), no vertex ≡ 0 (4) or ≡ 7 (8) is
-non-isolated in F_{m²} (`scan_squares_1e6.txt`, columns E0, E7; this covers non-coprime v as well, which Theorem E does not
-claim); directly (`z48_forestfable_thmE.py`), 0 counterexamples over all odd m ≤ 1001, v ≤ 3000. The same proof with u in
-place of v shows that the numerator class A ≡ 7 (8) of Lemma P(iii) is T1-exact (same script, 0 counterexamples).
+**Theorem E (the twin line is T1-exact; PROVED, elementary).** Let m be odd and v ≡ 7 (mod 8) or v ≡ 0 (mod 4). Then
+m² + v has no divisor A ≡ −1 (mod v) with A > 1.
+*Proof.* Suppose A | m² + v, A ≡ −1 (mod v), A > 1. First, gcd(A, m) = 1: a prime ℓ dividing A and m divides m² + v, hence v,
+hence A + 1 (as v | A + 1), hence 1. Write A = 2^a A′ with A′ odd.
+*v ≡ 7 (mod 8).* If A′ = 1 then 2^a ≡ −1 (mod v), so (2/v)^a = (−1/v), i.e. 1 = −1. So A′ > 1, and A′ | m² + v with
+gcd(A′, m) = 1 gives (−v/A′) = (m²/A′) = +1. But A′ ≡ −2^{−a} (mod v), and reciprocity (v ≡ 3 (mod 4)) gives
+(−v/A′) = (−1/A′)(A′/v)(−1)^{(A′−1)(v−1)/4} = (A′/v) = (−1/v)(2/v)^{−a} = −1, a contradiction.
+*4 | v.* Write v = 2^b w, b ≥ 2, w odd. A ≡ −1 (mod 2^b) makes A odd with A ≡ 3 (mod 4), and A ≡ 7 (mod 8) if b ≥ 3. Then
+(−v/A) = (−1/A)(2/A)^b (w/A) = −(2/A)^b (A/w)(−1)^{(A−1)(w−1)/4} = −(2/A)^b (−1/w)(−1/w) = −(2/A)^b = −1 (for b = 2 the square,
+for b ≥ 3 the value (2/A) = 1). But A | m² + v and gcd(A, m) = 1 give (−v/A) = (m²/A) = +1, a contradiction. (This branch is
+the classical T1 for López's line, cf. FRONTIER B5, re-proved here because B5 is stated modulo 4u rather than modulo v.) ∎
+So at every odd square no vertex ≡ 0 (4) or ≡ 7 (8) is non-isolated in F_{m²} (PROVED, no coprimality needed: a neighbour w
+of v gives the divisor A = (m² + v)/w ≡ −1 (mod v)). CERTIFIED: at the 499 odd squares 9 ≤ m² ≤ 10⁶ (17 372 edges, as in the
+Astra census) the scan finds no such vertex (`scan_squares_1e6.txt`, columns E0, E7); directly (`z48_forestfable_thmE.py`),
+0 counterexamples over all odd m ≤ 1001, v ≤ 3000 with gcd(v, m) = 1. The same proof with u in place of v shows that the
+numerator class A ≡ 7 (8) of Lemma P(iii) is T1-exact (same script, 0 counterexamples).
 
-**Lemma 2.3 (pure-character lines; PROVED).** For prime p ≡ 1 (mod 24), the line u (edges with smaller endpoint u) carries a
-certificate iff: u = 1: (p+1)/2 has a prime factor ≡ 3 (mod 4); u = 2: p + 2 has a prime factor ≡ 5 or 7 (mod 8); u = 3:
-(p+3)/4 has a prime factor ≡ 2 (mod 3); u = 4: p + 4 has a prime factor ≡ 3 (mod 4); u = 7: the odd part of p + 7 has a
-prime factor that is a quadratic non-residue mod 7; u = 15: the odd part of p + 15 has a prime factor ℓ with (ℓ/3)(ℓ/5) = −1.
-*Proof.* u = 1, 2, 3: the children of u are the divisors v of p + u in the class −p (mod u); by Theorem B the edge is a
-certificate iff v mod 8 ∉ {1, 5, 2} (u = 1), ∉ {1, 3} (u = 2), ∉ {2, 6} (u = 3). Writing p + 1 = 2m, p + 2 = 3m′ (odd),
-p + 3 = 4m″ (m″ odd), the admissible v are d, 2d (d | m), resp. odd divisors of p + 2, resp. d, 2d, 4d (d | m″, d ≡ 2 (3) for
-d, 4d and d ≡ 1 (3) for 2d), and the condition becomes "some divisor of m is ≡ 3 (mod 4)", "some divisor of p + 2 is ≡ 5, 7
-(mod 8)", "some divisor of m″ is ≡ 2 (mod 3)"; since the complementary classes {1 (4)}, {1, 3 (8)}, {1 (3)} are closed under
-multiplication, this holds iff a prime factor lies in the forbidden class. u = 4, 7, 15: by Corollary C the line certifies iff
-p + u has a divisor ≡ −1 (mod u); for u = 4 this is a divisor ≡ 3 (mod 4) of the odd number p + 4; for u = 7, 15 the divisors
-are 2^a d with d | odd part and 0 ≤ a ≤ v₂(p + u) ≥ 3, and since ord_u(2) ≤ 4 the classes 2^{−a} exhaust ⟨2⟩, which is the
-kernel of the Kronecker character χ_{−u} (index 2, as ord₇(2) = 3, ord₁₅(2) = 4); so a divisor ≡ −1 exists iff some d | odd
-part has χ_{−u}(d) = −1 iff some prime factor has. ∎
-So each of these lines fails exactly when a shifted integer is (up to a fixed small factor) a norm from an imaginary quadratic
-order of discriminant −4, −8, −3, −4, −7, −15 — a character condition on one integer, with failure "probability"
-≍ (log p)^{−1/2}; CERTIFIED failure rates 25–45 % each (§4.2). Lines u ≥ 5 in the classes 1, 2, 3, 5, 6 (mod 8) and the
-López/twin lines with ord_u(2) < φ(u)/2 are genuine residue-class (not character) conditions.
+**Lemma 2.3 (pure-character vertices; PROVED).** For prime p ≡ 1 (mod 24), the vertex u is incident to a certificate edge iff:
+u = 1: (p+1)/2 has a prime factor ≡ 3 (mod 4); u = 2: p + 2 has a prime factor ≡ 5 or 7 (mod 8); u = 3: (p+3)/4 has a prime
+factor ≡ 2 (mod 3); u = 4: p + 4 has a prime factor ≡ 3 (mod 4); u = 7: the odd part of p + 7 has a prime factor that is a
+quadratic non-residue mod 7; u = 15: the odd part of p + 15 has a prime factor ℓ with (ℓ/3)(ℓ/5) = −1.
+*Proof.* For u ≤ 4 every incident edge is a child edge (the parent edges {1,2}, {2,3} are monochromatic and {3,4} needs
+p ≡ 5 (mod 12)); for u = 7, 15 every incident edge is a certificate by Theorem B, in either orientation. u = 1, 2, 3: the
+children of u are the divisors v of p + u in the class −p (mod u); by Theorem B the edge is a certificate iff v mod 8 ∉
+{1, 5, 2} (u = 1), ∉ {1, 3} (u = 2), ∉ {2, 6} (u = 3). Writing p + 1 = 2m, p + 3 = 4m″ (m, m″ odd), the admissible v are d, 2d
+(d | m), resp. the odd divisors of p + 2, resp. d, 2d, 4d (d | m″, d ≡ 2 (3) for d, 4d and d ≡ 1 (3) for 2d), and the
+condition becomes "some divisor of m is ≡ 3 (mod 4)", "some divisor of p + 2 is ≡ 5, 7 (mod 8)", "some divisor of m″ is
+≡ 2 (mod 3)"; since the complementary classes {1 (4)}, {1, 3 (8)}, {1 (3)} are closed under multiplication, this holds iff a
+prime factor lies in the forbidden class (such a prime factor is > u, so it is a child). u = 4, 7, 15: by Corollary C (either
+orientation) u is incident to a certificate iff p + u has a divisor ≡ −1 (mod u), A > 1; for u = 4 this is a divisor ≡ 3 (mod 4)
+of the odd number p + 4; for u = 7, 15 the divisors are 2^a d with d | odd part and 0 ≤ a ≤ v₂(p + u), where v₂(p + u) ≥ 3 and
+ord_u(2) ≤ 4, so the classes 2^{−a} exhaust ⟨2⟩, which is the kernel of the Kronecker character χ_{−u} (index 2: ord₇(2) = 3,
+ord₁₅(2) = 4); so a divisor ≡ −1 exists iff some d | odd part has χ_{−u}(d) = −1 iff some prime factor has. ∎
+*Caution (R-z48 review):* for u = 7, 15 the certificate edge may be the *parent* edge (e.g. p = 73: p + 7 = 80 = 20·4, edge
+{4, 7}); the scan's child-only flags `Lp7`, `Lp15` are therefore stricter than the vertex statement (flags `V7`, `V15`).
+So each of these vertices fails exactly when a shifted integer has **no prime factor inert** in the imaginary quadratic field of
+discriminant −4, −8, −3, −4, −7, −15 respectively (a condition stronger than "is a norm": p = 97 has (p+1)/2 = 49 = 7², a
+Gaussian norm, yet {1, 7} certifies); CERTIFIED failure rates 23–45 % each (§4.2). Vertices u ≥ 5 in the classes
+1, 2, 3, 5, 6 (mod 8), and the López/twin vertices with ord_u(2) < φ(u)/2, impose genuine residue-class conditions.
 
 *Numerator-8 control.* The analogue of López's line for 8/n is "some vertex ≡ 0 (mod 8) is non-isolated" (SYNTHESIS_SPARKS9
 Cor 1.2, b = 1 line); CERTIFIED: at n = 17, 241 (8/n unsolvable, Lean L9901) no vertex ≡ 0 (8) is non-isolated, while the
@@ -183,8 +195,9 @@ Conversely p ≡ −d (mod A) with d | A + 1, d < A, gives the edge {d, (p+d)/A}
 This is LOWER_TAIL_FABLE §2.8 (the Legendre/HJ form) made p-independent on the modulus side: the sets G_A do not depend
 on p. Explicitly (PROVED by the computation in Lemma P): for odd A ≡ 7 (mod 8), G_A = {−d : d | A+1, d < A} is the
 *full* divisor shadow; for odd A ≡ 3 (mod 8) it is the sub-shadow with v₂(d) even; for odd A ≡ 1 (mod 4) it is the d with
-(2/A)^{v₂(d)}(−1/d_odd) = −1; for even A the symbol (−d/A_odd) with d odd. Small cases: G₂ = G₃ = G₄ = ∅ at p ≡ 1 (24),
-G₅ = {2, 3}, G₇ = {3, 5, 6}, G₉ = ∅ (squares never certify), G₁₁ = {7, 8, 10}, G₁₃ = {7, 11}, G₁₅ = {7, 11, 13, 14}:
+(2/A)^{v₂(d)}(−1/d_odd) = −1; for even A the symbol (−d/A_odd) with d odd. Small cases: G₂ = G₄ = G₈ = ∅,
+G₅ = {2, 3}, G₇ = {3, 5, 6}, G₉ = ∅ (squares never certify), G₁₁ = {7, 8, 10}, G₁₃ = {6, 11}, G₁₅ = {7, 11, 13, 14}
+(G₃ = {2}, G₆ = {5}, G₁₂ = {11} are never met by p ≡ 1 (mod 3)):
 Mordell's classes mod 5 and 7 are exactly A = 5, 7 (`cover.txt` lists G_A for A ≤ 40).
 
 **Proposition 3.2 (B1 and Linnik in covering language; PROVED).** (a) For every X, the class p ≡ 1 (mod lcm(8, 1, …, X)) is
@@ -192,8 +205,8 @@ disjoint from ∪_{A ≤ X} {p : p mod A ∈ G_A}; thus no finite part of the co
 every X there are primes p ≡ 1 (24) with A_min(p) > X and H₄(p) > X, and by Linnik's theorem such p exist below
 lcm(1..X)^{L} ≤ e^{C X}; hence A_min(p) ≥ c log p and H₄(p) ≥ c log p for infinitely many p, unconditionally. (The
 Graham–Ringrose transfer in FOREST_H4 gives the stronger H₄ ≫ log p log log log p i.o.; (b) is only elementary.)
-*Proof.* (a) p ≡ 1 (mod A) lies in G_A iff −d ≡ 1 (mod A) for some d | A + 1, d < A, i.e. d = A − 1 | A + 1, i.e. A ∈ {2, 3},
-and G₂ = G₃ = ∅ for p ≡ 1 (24). (b) For p ≡ 1 (mod lcm(1..X)) and u < v ≤ X: v | p + u ⟺ v = u + 1, and then u | p + v
+*Proof.* (a) p ≡ 1 (mod A) lies in G_A iff −d ≡ 1 (mod A) for some d | A + 1, d < A, i.e. d = A − 1 | A + 1, i.e. A ∈ {2, 3};
+G₂ = ∅ and G₃ = {2} ∌ 1. (b) For p ≡ 1 (mod lcm(1..X)) and u < v ≤ X: v | p + u ⟺ v = u + 1, and then u | p + v
 ⟺ u | 2, so the only edges inside [1, X] are {1, 2}, {2, 3}, both monochromatic. ∎
 
 **What the hypotheses can see.** Write G_A = S_A ∩ Q_A with S_A := {−d : d | A+1, d < A} (the *shadow*, p-independent and
@@ -204,16 +217,17 @@ d | A + 1", i.e. a divisor of the single integer p + d in the class −1 (mod d)
 colour half is *automatic* (G_A ⊇ S_A ∩ {A ≡ 7 (8)} etc.), so there the hypotheses contribute nothing at all. This is
 checklist line 9 ("class, not parity") in its sharpest form: the quadratic layer of every G_A is free, the shadow layer is B2.
 
-**EVIDENCE (the sieve dimension of the covering; `z48_forestfable_cover.py`, `cover.txt`).** Let δ_A(X) be the density of
-classes p mod lcm(8, 1..X), p ≡ 1 (24), coprime to lcm, not covered by any A ≤ X (exact enumeration for X ≤ 18, 10⁵ random
-classes beyond). Then
-  X = 8, 16, 32, 64, 128, 256, 400:  −log δ_A(X) = 1.38, 1.92, 2.94, 4.10, 5.64, 7.25, 8.57;  (log X)²/4 = 1.08, 1.92, 3.00, 4.32, 5.89, 7.69, 8.97,
-while the first-moment sieve sum s(X) = Σ_{A ≤ X} P(p mod A ∈ G_A) is 1.0, 2.1, 4.0, 6.2, 9.0, 12.4, 14.8 (strong positive
-dependence between A and its multiples). So the covering has *superlinear sieve dimension* — the expected number of hits
-below X grows like (log X)²/4 — and the random-class heuristic predicts P(A_min(p) > X) ≈ exp(−(log X)²/4), i.e. an extreme
-scale A_min ≲ exp(2√log p). CERTIFIED to 10⁸ (p ≡ 1 (24)): max A_min = 1214 at p = 5 516 281, max A_min/(log p)² = 5.04 (so A_min is far below exp(2√log p) ≈ 5·10³
-at that height, consistent with the heuristic but not a test of it).
-For comparison the endpoint truncation (FOREST_H4 Prop 5.1) has δ(16) = 0.135 and the H₄ extremes are ≤ 1.40 (log p)².
+**EVIDENCE (survival density of the covering; `z48_forestfable_cover.py`, `cover.txt`).** Let δ_A(X) be the density of
+classes p mod lcm(8, 1..X), p ≡ 1 (24), coprime to lcm, not covered by any A ≤ X (exact enumeration for X ≤ 18; 10⁵ classes
+drawn uniformly modulo lcm(8, 1..400) beyond). Then
+  X = 8, 16, 32, 64, 128, 256, 400:  −log δ_A(X) = 1.40, 1.95, 2.97, 4.12, 5.71, 7.24, 8.57;  (log X)²/4 = 1.08, 1.92, 3.00, 4.32, 5.89, 7.69, 8.97,
+while the first moment s(X) = Σ_{A ≤ X} P(p mod A ∈ G_A) is larger: 1.0, 2.1, 4.0, 6.2, 9.1, 12.4, 14.8 (strong positive
+dependence between A and its multiples, e.g. the hit sets of A = 5 and A = 20 coincide). So the *survival* probability of the
+random-class model decays like exp(−(log X)²/4) — faster than any power of X, with the first moment ≈ 1.6× larger; the random-class
+heuristic then predicts P(A_min(p) > X) ≈ exp(−(log X)²/4), i.e. an extreme scale A_min ≲ exp(2√log p). CERTIFIED to 10⁸ (p ≡ 1
+(24)): max A_min = 1451 at p = 72 639 961 and max A_min/(log p)² = 5.04 at p = 5 516 281 (A_min = 1214) — far below
+exp(2√log p) ≈ 5·10³, consistent with the heuristic but not a test of it.
+For comparison the endpoint truncation (FOREST_H4 Prop 5.1) has δ(16) = 0.135 and the H₄ extremes are ≤ 1.392 (log p)².
 Assessment: the two truncations are different coordinates of one lottery; neither law is a theorem, and the (log X)²/4
 fit is a fit, not a derivation.
 
@@ -243,7 +257,7 @@ numerator of a bichromatic edge), family flags and word counts, component data. 
 | numerator A or A* ≡ 0 (4) or 7 (8) [y5 P_h + Type I] | 0 | 0 | — | 0.24 |
 | endpoint ≡ 3 (8) with partner ≢ 2 (4) | 54 | 59 | 193, 313, 1201, … | — |
 | both endpoints odd, not both ≡ 1 (4) | 147 | 177 | 73, 193, 313, 409, … | — |
-| the six pure-character lines u ∈ {1,2,3,4,7,15} together | 898 | 5 281 | 1201, 3889, 5209, 9601, … | — |
+| the six pure-character vertices u ∈ {1,2,3,4,7,15} (Lemma 2.3; child-only or incident flags give the same union) | 898 | 5 281 | 1201, 3889, 5209, 9601, … | — |
 | … plus the pure levels t ∈ {2,3,4,7,15} | 59 | 332 | 83449, 121081, … | — |
 | prime numerator (ℓ_min < ∞) | 0 | 0 | — | — |
 | all bichromatic edges | 0 | 0 | — | 0.25–0.28 |
@@ -254,11 +268,11 @@ the one-residue-class families fail rarely; the unions in bold never fail in ran
 whose expected number of *independent* units (lines or levels carrying a word) grows like c (log p)² has failure probability
 ≈ exp(−c′(log p)²), summable, so only finitely many failures are expected — this is why López, (★), the twin and the Legendre
 levels each have a short finite failure list and their pairwise unions have none; the prime-numerator family has ≍ log p
-units (Titchmarsh: Σ_{ℓ ≤ X} τ(ℓ+1) ~ 1.94 X, so its sieve sum is ≈ 0.97 log X) and is *critical*: EVIDENCE at p ≡ 1 (24)
-≤ 10⁸, P(ℓ_min > X) = 2.5·10⁻², 4.4·10⁻³, 8.9·10⁻⁴, 8.5·10⁻⁵, 1.1·10⁻⁵ for X = 64, 256, 10³, 10⁴, 10⁵ (local exponent
-1.25 → 0.9, i.e. ≈ X⁻¹; max ℓ_min = 1 386 179 at p = 98 418 601), so it should fail infinitely often but has not yet. None of this is a mechanism; it is the (★)-type lottery bookkeeping of SYNTHESIS_SPARKS9 §3 in new coordinates.
+units (its CRT-model survival exponent is ≈ 1.3, §5 M7 — supercritical but only just): EVIDENCE at p ≡ 1 (24) ≤ 10⁸,
+P(ℓ_min > X) = 2.5·10⁻², 4.4·10⁻³, 8.9·10⁻⁴, 8.5·10⁻⁵, 1.1·10⁻⁵ for X = 64, 256, 10³, 10⁴, 10⁵ (local exponent 1.25 → 0.9;
+max ℓ_min = 1 386 179 at p = 98 418 601); whether it fails infinitely often is open. None of this is a mechanism; it is the (★)-type lottery bookkeeping of SYNTHESIS_SPARKS9 §3 in new coordinates.
 
-**4.3 Minima.** Over p ≡ 1 (24) ≤ 10⁸: max H₄/(log p)² = 1.391 (p = 27 344 521, H₄ = 408, r = 11); max u_min = 25
+**4.3 Minima.** Over p ≡ 1 (24) ≤ 10⁸: max H₄/(log p)² = 1.3914 (p = 27 344 521, H₄ = 408, r = 11); max u_min = 25
 (p = 78 168 721); max t_min = 36 (p = 26 017 489); max v07min = 116, attained at p = 3361 and p = 76 441 (P(v07min > 64) =
 2.6·10⁻⁵, 19 primes, none above 116); u_min ≤ 3 for 93 % and ≤ 16 for 99.99 % of primes. The hard primes:
 
@@ -317,19 +331,22 @@ integers; the forest has no cycles, so no holonomy/parity argument exists (LOWER
 **M4 — counting bichromatic edges with the forest structure (lead (b)).** Each non-root vertex v contributes exactly its
 parent edge, so W(p) = #{v ≥ 2 : a_v | p + v} and B(p) = #{v : a_v | p + v, χ(a_v) ≠ χ(v)}. Grouping by the smaller
 endpoint u, B(p) = Σ_u ½ Σ_{A | p+u, A ≡ −1 (u), A < (p+u)/u} (1 − (A/p)), with (A/p) given by the explicit 2-adic rules of Lemma P; on the
-pure lines u ∈ {1, 2, 3, 4, 7, 15} the inner sum is a divisor sum twisted by a Kronecker character, i.e. a weight-one
-Eisenstein coefficient at the shifted argument p + u (r₂((p+1)/2)/4 for u = 1, etc.). A lower bound B(p) ≥ 1 at a single p
-is a positivity statement for a sum of Eisenstein coefficients along the shifts of one prime — B6/B2. Even the *sign-free*
-W(p) ≫ (log p)² at every p is open: by Prop 3.2 the lines u ≤ X contribute 2 at shadow primes, so a proof must count
-divisors of p + u in a tied class for u up to p^{ε} at least; no such pointwise count is known (PARITY_AUDIT Remark 3.1). No
+pure lines the twisted part is a divisor sum twisted by a Kronecker character, e.g. the line-1 count is exactly
+B₁(p) = τ(m) − r₂(m)/4 with m = (p+1)/2 (two children per divisor d ≡ 3 (mod 4) of m), a difference of a divisor function and a
+representation number at one shifted argument. A lower bound B(p) ≥ 1 at a single p is a positivity statement for a sum of
+such coefficients along the shifts of one prime — B6/B2. Even the *sign-free* W(p) ≫ (log p)² at every p is open: at
+Dickson-shadow primes (ASTRA Thm 3.2, CONDITIONAL on Dickson) the vertices 4, …, X are isolated, so the lines u ≤ X contribute
+O(1) edges and a proof must count divisors of p + u in a tied class for u beyond any fixed bound; no such pointwise count is
+known (PARITY_AUDIT Remark 3.1). No
 identity constrains the cell counts of Theorem B: all three monochromatic classes and all certificate classes are
 populated at comparable rates (§2), and the only exact relation is the telescoping of edge signs along paths.
 
 **M5 — the covering system (Prop 3.1) as a sieve problem.** "Every large prime meets some G_A" is a covering statement with
-p-independent residue sets of superlinear sieve dimension (§3). Finite sub-coverings fail (Prop 3.2(a)); an infinite one
-needs, at each p, an A ≤ X(p) with p mod A ∈ G_A, which for A > log p/ log log p means a divisor of p + d in the class
-−1 (mod d) with a prime factor above X — the lottery. The heuristic exponent (log X)²/4 says the lottery is comfortably
-supercritical; the Dickson shadow says nothing below X ≈ log p/log log p can be forced. Blocking step: the class of a
+p-independent residue sets whose random-class survival decays like exp(−(log X)²/4) (§3). Finite sub-coverings fail
+(Prop 3.2(a)); an infinite one needs, at each p, an A ≤ X(p) with p mod A ∈ G_A, which at a Dickson-shadow prime with
+A > log p/ log log p means a divisor of p + d in the class −1 (mod d) with a prime factor above the shadow range — the
+lottery. The heuristic survival exponent says the lottery is comfortably supercritical; the Dickson shadow says nothing
+below X ≈ log p/log log p can be forced. Blocking step: the class of a
 divisor of ONE integer (B2), now with the two halves separated: the colour half is free (even under nothing), the shadow
 half is everything.
 
@@ -337,16 +354,22 @@ half is everything.
 v ≡ 7 (8)" is implied by nothing weaker than itself; it is López's conjecture (B1_LINE: only 193, 2521, 66529 fail to 10¹¹)
 with the twin line added, and the twin removes exactly those three. It is the forest-side analogue of the (★) ∪ López
 union (SYNTHESIS_SPARKS9 Cor 1.2), with the advantage that both halves are conditions of the same shape on the same family
-of integers p + v, v ≤ √p + 2 — so the whole of ES₅ restricted to these lines is: *among the integers p + 4, p + 7, p + 8,
-p + 12, p + 15, p + 16, …, one has a divisor ≡ −1 modulo its own shift.* The witness is small in practice (v07min ≤ 116 to
-10⁸). It is still a divisor-class event at one integer; no theorem controls it.
+of integers p + v — so the whole of ES₅ restricted to these lines is: *among the integers p + 4, p + 7, p + 8, p + 12, p + 15,
+p + 16, …, one has a divisor ≡ −1 modulo its own shift.* The qualifying vertex may be the larger endpoint (at 3361 it is 116 >
+√p + 2), so v is not a priori bounded by √p; in practice it is small (v07min ≤ 116 to 10⁸). It is still a divisor-class event at
+one integer; no theorem controls it.
 
 **M7 — the prime-numerator sub-family.** ES₅(p) ⟸ ∃ prime ℓ with p mod ℓ ∈ G_ℓ, i.e. (−p mod ℓ) | ℓ + 1 and (p/ℓ) = −1
-(PROVED from Prop 3.1). This is the cleanest *sieve* statement: for each prime ℓ a set of ≈ τ(ℓ+1)/2 forbidden residues;
-the question is whether a prime p can avoid them all for ℓ up to p. Its sieve sum is ≈ 0.97 log X (Titchmarsh constant
-ζ(2)ζ(3)/ζ(6) ≈ 1.94 halved), so it is critical and presumably fails i.o. (EVIDENCE: P(ℓ_min > X) ≈ X⁻¹, §4.2; no failure to
-10⁸). Even if it never failed, proving it would require the residues p mod ℓ to avoid a growing family of divisor-shadows —
-again the factorisation of p + d for small d. Blocking step: B1 for ℓ ≤ log p/log log p, B2 beyond.
+(PROVED from Prop 3.1). This is the cleanest *sieve* statement: for each prime ℓ a set G_ℓ of forbidden residues (all of the
+τ(ℓ+1) − 1 shadow residues when ℓ ≡ 7 (8), about 0.45–0.65 of them otherwise, `primecover.txt`); the question is whether a
+prime p can avoid them all for ℓ up to p. For distinct prime moduli the CRT model is exactly independent, with survival
+probability Π_{ℓ ≤ X}(1 − |G_ℓ|/(ℓ−1)); CERTIFIED: −log Π = 4.20, 7.04, 10.01, 13.06 at X = 10², 10³, 10⁴, 10⁵, local slope
+1.23 → 1.33 per unit log X, i.e. the model predicts P(ℓ_min > X) ≈ X^{−1.3} — *supercritical* (Σ_p p^{−1.3} < ∞), so finitely
+many failures are expected in the model (an earlier draft called this family "critical" after halving the Titchmarsh constant;
+that was unjustified and is withdrawn). The empirical tail at p ≤ 10⁸ (§4.2) has local exponent 1.25 → 0.9, below the
+model's, on 8–640 events; the discrepancy is unexplained (dependence on p's size, or small numbers). Either way, proving the
+statement would require the residues p mod ℓ to avoid a growing family of divisor-shadows — again the factorisation of
+p + d for small d. Blocking step: B1 for ℓ ≤ log p/log log p, B2 beyond.
 
 **M8 — Pell / class-group / cycle data, non-abelian Frobenius.** Not pursued beyond the repo's verdicts ((J)84 Prop 4.2:
 Pell windows are never Jacobi-forced; (J)93/(J)96/(J)104: reciprocity forces parity, never class); in covering language
@@ -362,17 +385,18 @@ have to force a connection, i.e. a divisor of a prescribed shifted integer in a 
 CONDITIONAL on OAI-003 (quasi-RH 7/8), from OAI_DUMP_IMPACT §2: r(p) ≪ (log p)⁸; the least prime ℓ ≡ 7 (mod 8) with
 (ℓ/p) = −1 is ≪ (log p)⁸; M_BM(p) ∼ (3/(2π²)) log²p. CONDITIONAL on GRH: the same with exponent 2 (Ankeny/Bach). Consequences
 for the forest (PROVED implications): a QNR vertex and a QNR vertex ≡ 7 (8) exist at polylog height; H₄ ≥ r is consistent
-with H₄ ≤ polylog; nothing more. The upper bound H₄(p) ≤ polylog(p) is equivalent (PROVED, trivial from Theorem A and the
-definitions) to the following *attachment* statement, which is the exact remaining gap:
+with H₄ ≤ polylog; nothing more. The upper bound H₄(p) ≤ (log p)^{C} is, by definition and Theorem A, the following
+*attachment* statement, which is the exact remaining gap:
 
-> **Gap (attachment).** For every sufficiently large prime p ≡ 1 (mod 8) there is a vertex v ≤ (log p)^{C} such that p + v has a
-> divisor w ≡ −p (mod v), w ≠ v, with χ(w) ≠ χ(v) — equivalently (Theorem A) with 4 dividing one of t, v, w, (p+v)/w, (p+w)/v.
-> A sign-free sufficient form (Corollary C): some v ≤ (log p)^{C} with v ≡ 0 (4) or v ≡ 7 (8) such that p + v has a divisor
-> ≡ −1 (mod v).
+> **Gap (attachment).** For every sufficiently large prime p ≡ 1 (mod 8) there are vertices v < w ≤ (log p)^{C} with w | p + v,
+> w ≡ −p (mod v) and χ(w) ≠ χ(v) — equivalently (Theorem A) with 4 dividing one of t, v, w, (p+v)/w, (p+w)/v.
+> A sign-free sufficient form (Corollary C): some v ≡ 0 (4) or v ≡ 7 (8) such that p + v has a divisor A ≡ −1 (mod v) with
+> both v and (p + v)/A at most (log p)^{C}.
 
-This is one integer (p + v), one residue class (−1 mod v), a modulus tied to the integer, and a polylog family of shifts — the
-B2 event verbatim, with the colour layer removed. EVIDENCE for the gap statement with C = 2: all p ≡ 1 (24) ≤ 10⁸ (H₄ ≤ 1.40
-(log p)², least sign-free witness ≤ 116). CONDITIONAL on Dickson (ASTRA Thms 3.2, 5.1): the witness v cannot be
+(Bounding only the vertex v would bound u_min or v07min, not H₄; the partner w = (p+v)/A must be small too.) This is one
+integer (p + v), one residue class (−1 mod v), a modulus tied to the integer, a size condition on the cofactor, and a
+polylog family of shifts — the B2 event verbatim, with the colour layer removed. EVIDENCE for the gap statement with
+C = 2: all p ≡ 1 (24) ≤ 10⁸ (H₄ ≤ 1.392 (log p)²). CONDITIONAL on Dickson (ASTRA Thms 3.2, 5.1): the witness v cannot be
 bounded, and cannot be the least QNR. Unconditionally (Prop 3.2): H₄ ≥ c log p i.o. No standard hypothesis is known to
 imply the attachment statement, and this document does not change that.
 
@@ -380,14 +404,14 @@ imply the attachment statement, and this document does not change that.
 
 | line | status | reason |
 |---:|---|---|
-| 1 | PASS | T1-exact (Theorem E): at odd squares no vertex ≡ 0 (4) or 7 (8) is non-isolated; verified at all 499 squares ≤ 10⁶. |
+| 1 | PASS | T1-exact (Theorem E, no coprimality needed): at odd squares no vertex ≡ 0 (4) or 7 (8) is non-isolated; verified at all 499 squares ≤ 10⁶. |
 | 2 | PASS | 4-specific: the twin line uses (2/v) = (2/p) inside (v/p); no numerator-8 analogue; at 17, 241 the 8-analogue (vertex ≡ 0 (8)) fails while the 4-lines fire. |
 | 3 | PASS | No numerator-uniform law. |
 | 4 | **FAIL** | "p + v has a divisor ≡ −1 (mod v)" is the tied-modulus divisor event; no theorem controls it at one p. |
 | 5 | PASS as stated | Nothing is averaged; the CRT densities of §3/§5 are explicitly labelled heuristics. |
 | 6 | PASS | Expected count 0.20 (log p)² words, no power-size main term. |
 | 7 | PASS | No two-sided claim. |
-| 8 | PASS as target / FAIL as method | The family is p-dependent and growing (v up to √p); its first log p/ log log p members are blocked by shadows (Prop 3.2). |
+| 8 | PASS as target / FAIL as method | The family is p-dependent and growing (all v ≥ 4 in the two classes); its members below log p/ log log p are blocked by shadows (Prop 3.2, ASTRA Thm 3.2). |
 | 9 | **FAIL at existence** | The quadratic layer of G_A is free (Prop 3.1); the class layer (shadow) is the whole problem. |
 | 10 | PASS | No pooling across shifts (each v is its own integer p + v). |
 | 11–13 | N.A. / PASS | No signed detour, no relaxation transport, no BM shortcut. |
@@ -406,8 +430,9 @@ imply the attachment statement, and this document does not change that.
   form with explicit G_A); Prop 3.2 (B1/Linnik in that form).
 * CERTIFIED: independent reproduction of the forest census to 10⁶; dictionary checks on 122 million edges to 10⁷/10⁸; the
   failure lists of the sign-free families (López: 193, 2521, 66529; twin: 3361; Legendre levels: 10 primes ≤ 10⁸; union of
-  López and twin: none ≤ 10⁸); the minima u_min ≤ 25, v07min ≤ 116, H₄ ≤ 1.391 (log p)² to 10⁸; the controls.
-* EVIDENCE: sieve dimension of the covering ≈ (log X)²/4; the prime-numerator family is critical (P(ℓ_min > X) ≈ X⁻¹).
+  López and twin: none ≤ 10⁸); the minima u_min ≤ 25, v07min ≤ 116, H₄ ≤ 1.3914 (log p)² to 10⁸; the controls.
+* EVIDENCE: the covering's random-class survival decays like exp(−(log X)²/4); the prime-numerator family has CRT-model
+  exponent ≈ 1.3 (supercritical) but a lower empirical local exponent (0.9–1.25) at p ≤ 10⁸.
 * CONJECTURE (new coordinates for old conjectures, not new conjectures): u_min(p) ≪ log p; v07min(p) ≪ log p;
   the attachment statement of §6 with C = 2.
 * Not achieved: any pointwise mechanism; any use of GRH/003 beyond locating QNR vertices; any bound on H₄ at a prescribed p.
@@ -423,10 +448,16 @@ timeout 300 /tmp/z48scan 1000000 9 0 > data/z48_forestfable/scan_squares_1e6.txt
 timeout 600 uv run python scripts/z48_forestfable_converse.py 5000
 timeout 900 uv run python scripts/z48_forestfable_analyze.py data/z48_forestfable/scan_1e8_mod24.txt.gz 24
 timeout 1500 uv run python scripts/z48_forestfable_cover.py 18 400 100000
+timeout 1500 uv run python scripts/z48_forestfable_primecover.py 1000000
+timeout 600 uv run python scripts/z48_forestfable_pentagon.py 30000
+timeout 900 uv run python scripts/z48_forestfable_thmE.py 1001 3000
 uv run python scripts/z48_forestfable_show.py 2521
 ```
-Data kept under `data/z48_forestfable/` (14 MB): `scan_1e6.txt.gz` (all 49 columns, all p ≡ 1 (4) ≤ 10⁶),
+Data kept under `data/z48_forestfable/` (14 MB): `scan_1e6.txt.gz` (all 51 columns, all p ≡ 1 (4) ≤ 10⁶),
 `scan_1e7_reduced.txt.gz` and `scan_1e8_mod24_reduced.txt.gz` (per-prime summary: p r W B H₄ u_min t_min A_min v07min ℓ_min,
-component data, and an 11-bit flag string L0 L7 L3 Lodd LprimeA Lleg Ltuv4 LA7 c1bi maxbi bi_in_big), `scan_1e8_mod24_special.txt.gz`
+component data, and a 13-bit flag string L0 L7 L3 Lodd LprimeA Lleg Ltuv4 LA7 c1bi maxbi bi_in_big V7 V15), `scan_1e8_mod24_special.txt.gz`
 (full rows of the 56 primes ≤ 10⁸ where López, the twin or the Legendre family fails or B < 10), `scan_squares_1e6.txt`,
-`cover.txt`, and the `analysis_*.txt` outputs (the full-column 10⁷/10⁸ scans are regenerated by the commands above).
+`cover.txt`, `primecover.txt`, `pentagon_30000.txt`, and the `analysis_*.txt` outputs (the full-column 10⁷/10⁸ scans are
+regenerated by the commands above). Hostile review of the first draft: `reviews/`-style notes are folded in as "R-z48 review"
+(the reviewer found the H₄-gap misstatement, the child/neighbour conflation for u = 7, 15, the unjustified "critical"
+claim, the non-uniform sampler, and the numerical slips corrected above).

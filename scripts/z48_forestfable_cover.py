@@ -8,8 +8,9 @@ For p ≡ 1 (mod 8) prime:   ES5(p)  ⟺  ∃ A ≥ 2 :  p mod A ∈ G_A,
 (1) Tabulate G_A for A ≤ 40.
 (2) Exact uncovered density delta_A(X) for X ≤ XEXACT over the classes
     p mod lcm(8,1..X), p ≡ 1 (mod 24), gcd(p, lcm) = 1 (enumeration).
-(3) Sampled delta_A(X) for X up to XSAMPLE from random residue classes
-    (random 200-bit integers n ≡ 1 mod 24 coprime to lcm(1..XSAMPLE)).
+(3) Sampled delta_A(X) for X up to XSAMPLE from residue classes drawn
+    uniformly modulo lcm(8,1..XSAMPLE), restricted to n ≡ 1 (mod 24) and
+    gcd(n, lcm) = 1 (exactly the CRT distribution).
 (4) The sieve sums s(X) = Σ_{A≤X} P(n mod A ∈ G_A) (sampled) for comparison
     with -log delta_A(X).
 """
@@ -71,9 +72,12 @@ def main():
     hit = {A: 0 for A in Gs}
     tot = 0
     amin_hist = {}
+    # uniform on the classes n mod L8 := lcm(8, 1..XSAMPLE) with n ≡ 1 (mod 24) and gcd(n, L8) = 1
+    L8 = L * 8 // gcd(L, 8)
+    assert L8 % 24 == 0
     while tot < NS:
-        n = random.getrandbits(200) * 24 + 1
-        if gcd(n, L) != 1:
+        n = random.randrange(L8 // 24) * 24 + 1
+        if gcd(n, L8) != 1:
             continue
         tot += 1
         amin = None
