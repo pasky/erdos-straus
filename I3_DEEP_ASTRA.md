@@ -1,26 +1,23 @@
-# I3_DEEP_ASTRA — a prime-modulus sieve and three short-interval wedges
+# I3_DEEP_ASTRA — Haar survival, integer avoiders, and an exceptional-set sieve
 
 **Status: PARTIAL. Conjecture I3 and Erdős–Straus remain open.** All proofs here are internal and unrefereed. PROVED means proved below, relative to explicitly named classical theorems where indicated; CERTIFIED denotes only finite checks; Assessment denotes interpretation. No OAI manuscript hypothesis is used.
 
-**Round-2 update:** §8 strengthens both Haar bounds, proves growing-endpoint avoiders among actual integers, and improves the all-integer exceptional estimate to a log-loss 2/3 exponent. Sections 0–7 retain the first-round record; their bounds are superseded where §8 says so.
+**Round-2 update:** §8 strengthens both Haar bounds, proves growing-endpoint avoiders among actual integers, and improves the all-integer exceptional estimate to a log-loss 2/3 exponent. Section 0 reports the current results; §§1–7 retain the first-round arguments, with superseded bounds marked inline.
 
 ## 0. Results and limits
 
 Let `I3(n)=#{(t,u,v)∈Z³ : t,u,v≥3, tuv−u−v=n}`, counting ordered endpoints.
 
-* **PROVED, relative to Bombieri–Vinogradov, Brun–Titchmarsh and the large sieve (§3):**
-  `#{3≤n≤N : I3(n)=0} ≪ N exp(−c√log N)` for an absolute c>0.
-  This is an I3 result, not a new improvement to Vaughan's ES exponent 2/3. The direct prime-modulus detector has only log X aggregate class mass, versus Vaughan's log²X.
-* **PROVED, elementary (§4):** uniformly for integers H≥3 and n≥H²,
-  `Σ_{n<m≤n+H} I3(m) ≥ (3/2)H log²H − O(H log H)`.
-  Thus arbitrarily slowly growing H is allowed, with log H, **not log n**, in the main term. At H=n^θ, 0<θ≤1/2, this gives `(3θ²/2−o(1))H log²n`. No pointwise lower bound follows.
-* **PROVED, elementary (§2):** a single balanced cube `[B,2B)³` misses at least `(3/4−O(1/B))` of the integers in `[2B³,4B³)`, despite real solvability throughout that central range. A positive per-cube lower bound at every n is therefore false, not merely beyond Kloosterman technology. Also `I3(n)≪ε n^{1/3+ε}`, improving the elementary `n^{1/2+o(1)}` upper bound recorded in z48; this is divisor enumeration, not cancellation.
-* **PROVED (§5):** for all-integer Haar density δ₃(H) of no word with both endpoints in [3,H],
-  `exp(−(2+o(1))H) ≤ δ₃(H) ≪ exp(−c√log log H)`.
-  The upper bound uses Siegel–Walfisz and is ineffective. An explicit finite Euler-product upper bound is also given. These bounds are far from proving the proposed `exp(−(log H)^{2+o(1)})` survival law.
+* **PROVED, relative to the classical asymmetric LLL and the internally proved atomic Janson lemma (§§8.3–8.4):** for `L=log H`,
+  `cL²/(log L)² ≤ −log δ₃(H) ≤ CL⁶/log L`,
+  where δ₃(H) is the all-integer Haar density of no interior word with both endpoints ≤H. This supersedes the elementary bounds in §5; the comparison `−log δ₃(H)≍L²` remains open.
+* **PROVED, relative to the internally proved product-space energy lemma and BRW identity (§8.6):** if `log x≥C(log H)⁶/log log H`, at least `x exp(−C(log H)⁶/log log H)` integers in `(x/2,x]` avoid every bounded-endpoint word. In particular this permits `H=exp((log x)^κ)` for every fixed `0<κ≤1/6`. These are bounded-endpoint avoiders, not necessarily I3 zeros.
+* **PROVED, relative to Bombieri–Vinogradov, Brun–Titchmarsh and Mertens (§8.8):**
+  `#{3≤n≤N:I3(n)=0} ≪ N exp(−c(log N)^{2/3}/(log log N)^{1/3})`.
+  The prime-input refinement has exponent 2/3 without the log loss. This supersedes §3's square-root-log estimate. Neither result is an ES or ES₅ exceptional-set theorem.
 * **CERTIFIED (§6):** independent factorization-based enumeration at every 3≤n≤100,000 reproduces all 111 zeros in that range; it also verifies I3(2,433,600)=0 separately. It does **not** recertify the entire 10⁹ census. All nine hard-prime controls have interior words.
 
-**Assessment / novelty scope.** The infinite conclusions above strengthen the z48 I3 record (which supplies the main term, a census, and a trivial pointwise upper bound but no quantitative exceptional estimate or short-interval bound). They are modest applications of classical counting and sieving, not new general sieve technology or literature-priority claims. The missing pointwise step is still positivity of the full tied-class count at a prescribed n. The stronger uniform `c log²n` lower bound off a thin set is not proved; the short-interval alternative in the brief is obtained instead.
+**Assessment / novelty scope, after cross-model review.** The substantive campaign contributions are §§8.3, 8.4, 8.6 and 8.8. The adaptive gcd-envelope argument and its integer transfer are new within the campaign; no literature-priority claim is made. The upper bound on δ₃ adapts the existing atomic-Janson architecture, with an I3-specific equal-sum estimate obtained by endpoint separation. The exceptional estimate adapts the existing conditional-CRT/Bonferroni architecture to a new I3 atom family. Sections 2 and 4 are elementary observations: pigeonhole, smallest-coordinate divisor enumeration, and arithmetic-progression counting with disjoint wedges. Section 5 is elementary and superseded. The raw-moment counterexample in §8.5 is a caution about a proposed premise, not a refuted campaign conjecture or a proof-step deliverable. Pointwise positivity and a uniform `c log²n` lower bound off a thin set remain open; none of these results supplies a bichromatic forest edge or proves ES₅.
 
 **Prior work not repeated.** `LOWERTAIL_DEEP_FABLE` §§4–7 supplies the free/interior split, main term `½log²n+O(log n)`, Dickson obstruction for bounded least endpoint, square-level depletion, and the 112-zero census. `LOWERTAIL_DEEP_ASTRA` §§2–4 supplies the exact local Fourier budget, pedestal and one-point large-sieve obstructions. `PARITY_AUDIT` §2 and `SINGLE_P_COUNT` supply the single-integer analytic ledger. Those results are cited, not re-proved here.
 
@@ -38,7 +35,7 @@ The principal additive-frequency sum in these coordinates is `½log²n+O(log n)`
 
 ## 2. Pointwise attempt: balanced cubes, then the level average
 
-### Theorem 2.1 — a balanced cube cannot cover every central integer
+### Observation 2.1 — pigeonhole noncoverage of a balanced cube
 
 **PROVED.** Let B≥3 be an integer. Among integers `2B³≤n<4B³`, at most `B²(B+1)/2` have a word with all three coordinates in `[B,2B)`. In particular at least `(3/4−1/(4B))` of these integers have no such word.
 
@@ -50,9 +47,9 @@ The principal additive-frequency sum in these coordinates is `½log²n+O(log n)`
 
 `C_B(n)=Σ_{(t,u)∈D_n} [1/m + (1/m)Σ_{h=1}^{m−1} e(h(n+u)/m)]`,
 
-where `D_n={(t,u)∈[B,2B)² : B≤(n+u)/(tu−1)<2B}`. Its positive zero-frequency sum is O(1), since |D_n|≤B² and m≥B²−1. On the empty-box inputs of Theorem 2.1 the nonzero frequencies cancel it **exactly**. Thus dispersion cannot establish positivity uniformly for this box. To use many boxes one needs a joint one-sided estimate for their exact remainders, not a per-box estimate followed by summation. This is a sharper negative target test than merely noting that a power error exceeds a constant main term.
+where `D_n={(t,u)∈[B,2B)² : B≤(n+u)/(tu−1)<2B}`. Its positive zero-frequency sum is O(1), since |D_n|≤B² and m≥B²−1. On the empty-box inputs of Observation 2.1 the nonzero frequencies cancel it **exactly**. Thus dispersion cannot establish positivity uniformly for this box. To use many boxes one needs a joint one-sided estimate for their exact remainders, not a per-box estimate followed by summation. This is a sharper negative target test than merely noting that a power error exceeds a constant main term.
 
-### Theorem 2.2 — the elementary pointwise upper bound improves
+### Lemma 2.2 — the standard smallest-coordinate divisor bound
 
 **PROVED.** For every ε>0, `I3(n)≪ε n^{1/3+ε}`.
 
@@ -74,7 +71,7 @@ The cofactor automatically has the same class, but the class cannot be dropped. 
 
 **Assessment / stopping point.** Keeping the restriction produces exactly the coupled class average above. Removing it produces many non-certifying divisors. Neither step supplies a bilinear form with independent modulus and class variables to which the cited fixed-modulus bounds apply. The earlier kernel lemmas already exclude the termwise Fourier-shortening repair. No new pointwise estimate is claimed from this round. We therefore change the quantified target to exceptions in n, where prime-modulus sieve averaging is legitimate.
 
-## 3. Exceptional integers: a direct I3 sieve
+## 3. Exceptional integers: a direct I3 sieve (superseded by §8.8)
 
 ### Lemma 3.1 — prime-modulus interior classes
 
@@ -152,14 +149,14 @@ The sieve bound is then as claimed. The discarded `3X` is negligible compared to
 
 ## 4. Uniform short-interval lower bound: keep three disjoint wedges
 
-This is an alternative to a pointwise `c log²n` lower bound outside a thin set. It uses no sieve or character cancellation.
+**Assessment / scope.** This is elementary congruence-family counting, not a new single-integer or almost-all mechanism. Each pair fixes an arithmetic progression of modulus ≤H; the only extra ingredient is the one-line disjointness of three wedges. The resulting bound is recorded for completeness, not counted as a substantive proof-step deliverable. At polylogarithmic H it gives only `(log log n)²` per integer on average, not `log²n`.
 
 Define, for real Y≥3,
 
 `P(Y)={(a,b):a,b≥3, ab≤Y}`, `K(Y)=|P(Y)|`,
 `S₀(Y)=Σ_{P(Y)}1/(ab)`, `S₁(Y)=Σ_{P(Y)}1/(ab−1)`.
 
-### Theorem 4.1 — an exact finite inequality
+### Lemma 4.1 — an exact arithmetic-progression inequality
 
 **PROVED.** For positive integers H,n and Y≥3 satisfying `n≥3Y` and `n>Y²/3`,
 
@@ -169,7 +166,7 @@ Define, for real Y≥3,
 
 These sets are pairwise disjoint over this interval. If, for example, tu≤Y and uv≤Y, then `tuv≤Y²/u≤Y²/3`, whence `m=tuv−u−v<Y²/3<n`. The other two overlaps have the identical product bound with the shared coordinate t or v. Sum the three AP lower bounds. ∎
 
-### Corollary 4.2 — arbitrarily short growing intervals
+### Observation 4.2 — the three-wedge progression count
 
 **PROVED.** Uniformly for integers H≥3 and n≥H²,
 
@@ -179,11 +176,11 @@ These sets are pairwise disjoint over this interval. If, for example, tu≤Y and
 `K(Y)=O(Y log Y)` and `S₀(Y)=½log²Y+O(log Y)`.
 Moreover
 `0≤S₁(Y)−S₀(Y)=Σ_{P(Y)}1/[ab(ab−1)]=O(1)`
-by comparison with `Σ_{a,b≥3}a^{−2}b^{−2}`. Insert these into Theorem 4.1. ∎
+by comparison with `Σ_{a,b≥3}a^{−2}b^{−2}`. Insert these into Lemma 4.1. ∎
 
 **Assessment / scope.** The factor 3 is not double counting: the three pairs of small coordinates cannot coexist at n≥H². This improves the one-wedge `½H log²H` lower bound. The statement is useful quantitatively for large H; positivity somewhere in a fixed-length interval is already trivial from the AP with u=v=3, so that is not claimed as progress. For polylog H the conclusion involves `(log log n)²`, not `log²n`. It gives no almost-all individual `c log²n` lower bound: the sum can be concentrated on a few integers. Nor does it prove either endpoint is small at a given n; two of the three wedges allow one endpoint to be very large.
 
-## 5. CRT/sieve model with both endpoints bounded
+## 5. Elementary CRT bounds (superseded by §§8.3–8.4)
 
 Use **all-integer Haar**, not the prime-unit Haar model for H₄. The distinction matters at noncoprime endpoints and at diagonals.
 
@@ -193,7 +190,7 @@ For integer H≥3 let `L_H=lcm(1,…,H)`, `Q_H=L_H²`. For n≥3H², an interior
 
 Thus avoidance is eventually periodic, and its ordinary natural density δ₃(H) is exactly the avoiding fraction modulo Q_H. Independent uniform prime-power residues give precisely this same probability; independence of the *word events* is not asserted.
 
-### Proposition 5.1 — finite bounds and mean
+### Observation 5.1 — finite bounds and mean
 
 **PROVED.** For every H≥3,
 
@@ -217,7 +214,7 @@ Condition on n≡a mod P_y. When r=r(a) exists, restrict to pairs (r,q) with q>y
 
 In particular δ₃(H)→0: first send H→∞ and then y→∞. The lower bound and the prime number theorem give `δ₃(H)≥exp(−(2+o(1))H)`.
 
-### Proposition 5.2 — a weak uniform decay rate
+### Observation 5.2 — a superseded weak uniform decay rate
 
 **PROVED relative to Siegel–Walfisz and PNT; ineffective.** For some c>0,
 
@@ -227,7 +224,7 @@ In particular δ₃(H)→0: first send H→∞ and then y→∞. The lower bound
 
 `Σ_{z<q≤H, q≡b mod r}1/q = (log log H−log log z)/(r−1)+o(1)`.
 
-Here one can use its usual error `O(x exp(−c₀√log x))` for moduli ≤log x: r≤y≤log z, and the integrated error above z tends to zero uniformly. Since `log log z=4log y=2log L`, the main term is at least `(1−o(1))√L`. Every product in Proposition 5.1 is consequently at most `exp(−(1−o(1))√L)`, even using only primes q>z. Also `log P_y=(1+o(1))y` by PNT. Insert these two bounds; no enumeration of the exponentially many classes a is needed. ∎
+Here one can use its usual error `O(x exp(−c₀√log x))` for moduli ≤log x: r≤y≤log z, and the integrated error above z tends to zero uniformly. Since `log log z=4log y=2log L`, the main term is at least `(1−o(1))√L`. Every product in Observation 5.1 is consequently at most `exp(−(1−o(1))√L)`, even using only primes q>z. Also `log P_y=(1+o(1))y` by PNT. Insert these two bounds; no enumeration of the exponentially many classes a is needed. ∎
 
 **Assessment / exact missing survival-law step.** These upper and lower bounds are enormously separated. The mean `μ_H∼½log²H` does not prove `−log δ₃(H)∼μ_H`, nor its exponent 2. Pair events sharing a prime divisor of an endpoint are dependent; pairs sharing an endpoint are especially correlated. The proof uses only independent auxiliary primes after conditioning on a small endpoint. Reaching log-square decay would require a quantitative joint avoidance estimate for the full overlapping family, not another mean calculation. No Janson/Poisson assumption is used, and the parent's prime-Haar calibration is not promoted to an all-integer theorem.
 
@@ -268,7 +265,7 @@ timeout 120 uv run python scripts/z49_i3astra_verify.py
 
 **Assessment.** The full pointwise target survives every partial result: force a class hit in at least one of the growing family of levels or endpoint slices at one specified n. Balanced cubes individually cannot do this uniformly; combining them needs a joint one-sided estimate. The sieve averages over n and leaves an infinite-size allowable exceptional set. The short-interval theorem averages over m and cannot identify its successful members. The CRT estimate concerns eventual periodic densities, not a growing-H theorem at each n. No finite-check reduction of I3, ES, or ES₅ is obtained.
 
-**Hostile internal review completed (fresh deep-mode subagent).** The reviewer independently inspected all five infinite results, the classical-input hypotheses, endpoint multiplicities, the ES/8 transfers, and the scripts/data. Verdict: **no fatal or major mathematical defect**. Its sole minor finding was that the balanced-box script asserted only the weaker ordered-triple bound; the existing assertion now checks the exact `B²(B+1)/2` bound of Theorem 2.1. Verification passes after this repair. Review session: `2026-10-28T21-52-52-051Z_01a18480-6f53-70b7-bfc8-e0d0e942bd82` (parent harness session archive). This remains internal review, not external refereeing.
+**Hostile internal review completed (fresh deep-mode subagent).** The reviewer independently inspected all five infinite results, the classical-input hypotheses, endpoint multiplicities, the ES/8 transfers, and the scripts/data. Verdict: **no fatal or major mathematical defect**. Its sole minor finding was that the balanced-box script asserted only the weaker ordered-triple bound; the existing assertion now checks the exact `B²(B+1)/2` bound of Observation 2.1. Verification passes after this repair. Review session: `2026-10-28T21-52-52-051Z_01a18480-6f53-70b7-bfc8-e0d0e942bd82` (parent harness session archive). This remains internal review, not external refereeing.
 
 ## 8. Round 2 — quantitative survival, integer avoiders, and a stronger exceptional sieve
 
@@ -276,16 +273,16 @@ timeout 120 uv run python scripts/z49_i3astra_verify.py
 
 Write `L=log H`. The following replace the first-round bounds, for sufficiently large H or N and absolute positive constants c,C:
 
-* **PROVED (Haar):**
+* **PROVED relative to the classical LLL and the internally proved atomic Janson lemma (Haar):**
   `c L²/(log L)² ≤ −log δ₃(H) ≤ C L⁶/log L`.
-  The lower estimate for `−log δ₃` uses a separated-endpoint atomic Janson argument; the upper estimate uses an adaptive asymmetric local lemma. The desired comparison with L² remains open.
+  The upper bound on δ₃ uses a separated-endpoint atomic Janson argument; the lower bound on δ₃ uses an adaptive asymmetric local lemma. The desired comparison with L² remains open.
 * **PROVED (actual integers):** if `log x≥C L⁶/log L`, at least `x exp(−C L⁶/log L)` integers in `(x/2,x]` avoid every bounded-endpoint congruence. In particular, for each fixed `0<κ≤1/6`, this holds with `H=⌊exp((log x)^κ)⌋` for all sufficiently large x. These integers have **no interior word with both endpoints ≤H**, not necessarily no interior word at all.
 * **PROVED (exceptional set):**
   `E₃(N) ≪ N exp(−c (log N)^{2/3}/(log log N)^{1/3})`.
   On prime inputs, the same construction gives `#{p≤N:I3(p)=0}≪N exp(−c(log N)^{2/3})`. No 3/4 exponent, or exact all-integer 2/3 exponent without the log loss, is established.
-* **PROVED (a proposed transfer premise is false):** the raw factorial-moment bound `E binom(Z,j)≤(C E Z)^j/j!` does not hold uniformly for the bounded-endpoint events, even after fixing n=1 at all primes ≤`(log H)^A`, for fixed A>1. Explicit compatible divisor clusters violate it at `j=O(log log H)`. The actual-integer lower bound therefore uses an Efron–Stein/BRW minorant instead of this invalid Bonferroni premise.
+* **CAUTION (proved counterexample, not a novelty claim or proof-step deliverable):** the raw factorial-moment bound `E binom(Z,j)≤(C E Z)^j/j!` does not hold uniformly for the bounded-endpoint events, even after fixing n=1 at all primes ≤`(log H)^A`, for fixed A>1. Explicit compatible divisor clusters violate it at `j=O(log log H)`. The actual-integer lower bound therefore uses an Efron–Stein/BRW minorant instead of this invalid Bonferroni premise.
 
-**Dependencies.** The lower Haar argument is elementary apart from the classical asymmetric LLL. The integer lower bound uses the general product-space energy lemma proved in `POINTWISE_OMEGA10.md`, Corollaries 3.5/4.1, and the elementary BRW identity in `POINTWISE_OMEGA8.md`, Lemma 3.1; their proofs were inspected, and their general hypotheses are checked below. The upper Haar argument uses the atomic Janson lemma proved in `paper/es-subexp-note.tex`, Theorem “Janson-type inequality for atomic events”, not its ES-specific pair estimate. The exceptional bound uses BV, Brun–Titchmarsh and Mertens, adapting the conditional-CRT architecture of `paper/es-threequarter-note.tex` to a new, explicitly verified I3 atom family. These are internal proofs, not externally refereed theorems or literature-priority claims.
+**Dependencies.** The lower bound on δ₃ is elementary apart from the classical asymmetric LLL. The integer lower bound uses the general product-space energy lemma proved in `POINTWISE_OMEGA10.md`, Corollaries 3.5/4.1, and the elementary BRW identity in `POINTWISE_OMEGA8.md`, Lemma 3.1; their proofs were inspected, and their general hypotheses are checked below. The upper bound on δ₃ uses the atomic Janson lemma proved in `paper/es-subexp-note.tex`, Theorem “Janson-type inequality for atomic events”, not its ES-specific pair estimate. The exceptional bound uses BV, Brun–Titchmarsh and Mertens, adapting the conditional-CRT architecture of `paper/es-threequarter-note.tex` to a new, explicitly verified I3 atom family. These are internal proofs, not externally refereed theorems or literature-priority claims.
 
 ### 8.2 A uniform envelope for conditioning on the class of one
 
@@ -379,7 +376,7 @@ This argument allows adaptive extra primes and partial prime powers beyond Y. It
 
 ### 8.4 Almost log-square decay: the opposite Haar bound
 
-**Theorem 8.4 (PROVED).** `δ₃(H)≤exp(−c L²/(log L)²)`.
+**Theorem 8.4 (PROVED relative to the internally proved atomic Janson lemma cited in §8.1).** `δ₃(H)≤exp(−c L²/(log L)²)`.
 
 *Proof.* Set `Y=L⁸`. Retain only endpoint pairs in
 
@@ -447,7 +444,7 @@ The atomic Janson inequality gives `−log P(Av(F))≥μ−KΔ≫L²/(log L)²`.
 
 Let Z count all the unordered endpoint events, or all their surviving restrictions after n=1 mod Q_Y. Write `S_j=E binom(Z,j)` and `μ=EZ`.
 
-**Proposition 8.5 (PROVED).** Fix A>1 and `Y=(log H)^A`. There is no absolute constant C (even depending on A) making
+**Caution 8.5 (PROVED; standard divisor-cluster phenomenon, not a campaign-conjecture refutation).** No cited campaign document proves or relies on (8.8) for this family. The example below only rejects the raw-moment premise suggested for this attempt; it is not counted as a proof-step deliverable. Fix A>1 and `Y=(log H)^A`. There is no absolute constant C (even depending on A) making
 
 `S_j≤(Cμ)^j/j!`                                                (8.8)
 
@@ -605,7 +602,7 @@ On Z≤1/2, (8.11) gives `μ_c≫M₀`; for every c it gives `μ_c≪M₀`. The 
 `P(Z_X=0)≤exp(−cM₀)`,
 `E (Z_X)_j≤(CM₀)^j` for every j≥1.                            (8.13)
 
-Unlike the full endpoint family in Proposition 8.5, these specially constructed atoms have mutually exclusive same-q classes and independent different-q indicators after conditioning. Thus (8.13) is proved, not a Poisson assumption.
+Unlike the full endpoint family in Caution 8.5, these specially constructed atoms have mutually exclusive same-q classes and independent different-q indicators after conditioning. Thus (8.13) is proved, not a Poisson assumption.
 
 Take the even Bonferroni polynomial `Q_r(z)=Σ_{j=0}^r(−1)^j binom(z,j)`, with even `r=O(M₀)` chosen sufficiently large. It is a nonnegative majorant of `1[z=0]`, and
 
@@ -639,3 +636,5 @@ timeout 120 uv run python scripts/z49_i3astra_round2.py
 ```
 
 **Round-2 hostile review completed (fresh deep-mode subagent).** Verdict: **no fatal or major flaw**, one minor proof-writing repair. The reviewer independently checked the envelope and adaptive conditioning, both cases of the Janson shared-modulus bound, the raw-moment counterexample, the full proof chain of the generic energy lemma and BRW coefficient accounting, and every uniformity/Bonferroni step in the multiplier sieve. It also replayed the round-2 script read-only and independently checked the 42/6336 counterexamples. The sole repair clarifies that squarefreeness establishes atomicity, while equal product and residue establish distinctness of the upper-bound event family; this justification is now explicit in §8.4. Review session: `2026-10-28T22-34-20-799Z_01a184a6-68ff-70b7-bfc8-e0e244ed9fea`. The results retain their stated internal, unrefereed status.
+
+**Cross-model review (Opus): SOUND, no fatal or major error.** Record: `reviews/z49-i3astra-review.md` on branch `side-agent/z49-rev-i3astra`, reviewing commit `6aeb18a9`. Its editorial repairs are incorporated: §0 now leads with the substantive round-2 results; §§2, 4 and 5 are explicitly elementary or superseded and relabelled as observations/lemmas; Caution 8.5 carries no campaign-conjecture or proof-step novelty claim; dependency labels and the convention “upper/lower bound on δ₃” are explicit. The reviewer independently re-derived the main proofs and checked the imported atomic-Janson and energy lemmas. Its suggested improvement to the weighted quarantine cost is unverified and is not claimed here. The review artifacts are managed separately and are not copied into this lane's commits.
