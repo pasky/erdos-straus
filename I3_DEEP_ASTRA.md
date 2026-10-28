@@ -2,6 +2,8 @@
 
 **Status: PARTIAL. Conjecture I3 and Erdős–Straus remain open.** All proofs here are internal and unrefereed. PROVED means proved below, relative to explicitly named classical theorems where indicated; CERTIFIED denotes only finite checks; Assessment denotes interpretation. No OAI manuscript hypothesis is used.
 
+**Round-2 update:** §8 strengthens both Haar bounds, proves growing-endpoint avoiders among actual integers, and improves the all-integer exceptional estimate to a log-loss 2/3 exponent. Sections 0–7 retain the first-round record; their bounds are superseded where §8 says so.
+
 ## 0. Results and limits
 
 Let `I3(n)=#{(t,u,v)∈Z³ : t,u,v≥3, tuv−u−v=n}`, counting ordered endpoints.
@@ -267,3 +269,373 @@ timeout 120 uv run python scripts/z49_i3astra_verify.py
 **Assessment.** The full pointwise target survives every partial result: force a class hit in at least one of the growing family of levels or endpoint slices at one specified n. Balanced cubes individually cannot do this uniformly; combining them needs a joint one-sided estimate. The sieve averages over n and leaves an infinite-size allowable exceptional set. The short-interval theorem averages over m and cannot identify its successful members. The CRT estimate concerns eventual periodic densities, not a growing-H theorem at each n. No finite-check reduction of I3, ES, or ES₅ is obtained.
 
 **Hostile internal review completed (fresh deep-mode subagent).** The reviewer independently inspected all five infinite results, the classical-input hypotheses, endpoint multiplicities, the ES/8 transfers, and the scripts/data. Verdict: **no fatal or major mathematical defect**. Its sole minor finding was that the balanced-box script asserted only the weaker ordered-triple bound; the existing assertion now checks the exact `B²(B+1)/2` bound of Theorem 2.1. Verification passes after this repair. Review session: `2026-10-28T21-52-52-051Z_01a18480-6f53-70b7-bfc8-e0d0e942bd82` (parent harness session archive). This remains internal review, not external refereeing.
+
+## 8. Round 2 — quantitative survival, integer avoiders, and a stronger exceptional sieve
+
+### 8.1 Outcomes and scope
+
+Write `L=log H`. The following replace the first-round bounds, for sufficiently large H or N and absolute positive constants c,C:
+
+* **PROVED (Haar):**
+  `c L²/(log L)² ≤ −log δ₃(H) ≤ C L⁶/log L`.
+  The lower estimate for `−log δ₃` uses a separated-endpoint atomic Janson argument; the upper estimate uses an adaptive asymmetric local lemma. The desired comparison with L² remains open.
+* **PROVED (actual integers):** if `log x≥C L⁶/log L`, at least `x exp(−C L⁶/log L)` integers in `(x/2,x]` avoid every bounded-endpoint congruence. In particular, for each fixed `0<κ≤1/6`, this holds with `H=⌊exp((log x)^κ)⌋` for all sufficiently large x. These integers have **no interior word with both endpoints ≤H**, not necessarily no interior word at all.
+* **PROVED (exceptional set):**
+  `E₃(N) ≪ N exp(−c (log N)^{2/3}/(log log N)^{1/3})`.
+  On prime inputs, the same construction gives `#{p≤N:I3(p)=0}≪N exp(−c(log N)^{2/3})`. No 3/4 exponent, or exact all-integer 2/3 exponent without the log loss, is established.
+* **PROVED (a proposed transfer premise is false):** the raw factorial-moment bound `E binom(Z,j)≤(C E Z)^j/j!` does not hold uniformly for the bounded-endpoint events, even after fixing n=1 at all primes ≤`(log H)^A`, for fixed A>1. Explicit compatible divisor clusters violate it at `j=O(log log H)`. The actual-integer lower bound therefore uses an Efron–Stein/BRW minorant instead of this invalid Bonferroni premise.
+
+**Dependencies.** The lower Haar argument is elementary apart from the classical asymmetric LLL. The integer lower bound uses the general product-space energy lemma proved in `POINTWISE_OMEGA10.md`, Corollaries 3.5/4.1, and the elementary BRW identity in `POINTWISE_OMEGA8.md`, Lemma 3.1; their proofs were inspected, and their general hypotheses are checked below. The upper Haar argument uses the atomic Janson lemma proved in `paper/es-subexp-note.tex`, Theorem “Janson-type inequality for atomic events”, not its ES-specific pair estimate. The exceptional bound uses BV, Brun–Titchmarsh and Mertens, adapting the conditional-CRT architecture of `paper/es-threequarter-note.tex` to a new, explicitly verified I3 atom family. These are internal proofs, not externally refereed theorems or literature-priority claims.
+
+### 8.2 A uniform envelope for conditioning on the class of one
+
+For `3≤u≤v≤H`, put `M=uv`, `a_E=−u−v`,
+
+`g(u,v)=gcd(uv,u+v+1)`, `s_uv=g(u,v)/(uv)`.
+
+Let Q divide `Q_H=lcm(1,…,H)²`, and condition on `n≡1 mod Q`. Put `D=gcd(M,Q)`. The event E survives iff `D|u+v+1`, and then its conditional probability is exactly `D/M`. Therefore, at **every stage** of further conditioning on the class of one,
+
+`P_Q(E)≤s_uv`.                                                   (8.1)
+
+This envelope controls the inflation caused by conditioning; the unconditional mean `½log²H` cannot simply be reused.
+
+**Lemma 8.1 (PROVED).**
+
+`S♯:=Σ_{3≤u≤v≤H}s_uv ≪ L⁴`.                                   (8.2)
+
+*Proof.* The elementary valuation identity is
+
+`g(u,v)=gcd(u,v+1) gcd(v,u+1)`.
+
+A prime common to u,v divides neither side; a prime dividing only one endpoint gives the identity directly, including its exponent. Expanding `gcd(a,b)=Σ_{d|a,d|b}φ(d)`, fix `a|u`, `b|u+1`. Then `(a,b)=1`, and the eligible v satisfy `v≡−1 mod a`, `v≡0 mod b`. These form one progression modulo m=ab. Crucially, `m|u+v+1`. For its first member v_*≥u, this implies `m≤2v_*+1`. Hence, whenever the progression is nonempty,
+
+`m Σ_{u≤v≤H, v≡−1(a), v≡0(b)}1/v ≤ m/v_*+log(H/v_*) ≤3+log(H/u)`.
+
+Since `φ(a)φ(b)≤ab`,
+
+`S♯ ≤ Σ_{u=3}^H [τ(u)τ(u+1)/u] [3+log(H/u)]`.
+
+The elementary bound `Σ_{u≤X}τ(u)τ(u+1)≪X log²(2X)` follows by applying the divisor hyperbola inequality to both factors: small divisors d≤√X,e≤√(X+1) must be coprime, and their simultaneous congruences have at most `X/(de)+1` solutions. Sum these bounds, then use partial summation twice in the preceding display. ∎
+
+**Lemma 8.2 (PROVED; fixed smooth conditioning).** If Q_Y contains the full powers from Q_H at every prime ≤Y, then the surviving conditional event mass satisfies
+
+`S_Y≪L² log(2Y)`.                                               (8.3)
+
+*Proof.* Write the exact Y-smooth parts of u,v as a,b. A surviving event requires `(a,b)=1`, `a|v+1`, `b|u+1`, and its probability is `ab/(uv)`. Fix u, hence a; sum over Y-smooth divisors b of u+1, dropping the requirement that b be the exact smooth part of v. The progression estimate in Lemma 8.1 gives
+
+`S_Y≤Σ_{u=3}^H [τ_Y(u+1)/u][3+log(H/u)]`.
+
+Here `τ_Y(m)` counts Y-smooth divisors. Writing u+1=kb and using `1/u≤2/(u+1)`,
+
+`Σ_{u≤H}τ_Y(u+1)/u ≪ L Σ_{P⁺(b)≤Y}1/b ≪ L log(2Y)`
+
+by Mertens' product theorem. ∎
+
+**Assessment / the fixed-cutoff stopping point.** Equation (8.3) is not a per-prime bound. It does not show that every remaining prime has sufficiently small incident mass. The adaptive step below supplies exactly that missing inequality, rather than assuming it or invoking an unspecified distortion theorem.
+
+### 8.3 Adaptive quarantine and the Haar lower bound
+
+**Theorem 8.3 (PROVED).** `δ₃(H)≥exp(−C L⁶/log L)`.
+
+*Proof.* Let `f_p=2⌊log H/log p⌋`. Start with `Q=Q_Y`, `Y=L²`, and subsequently write `Q=Π_{p≤H}p^{a_p}`, `0≤a_p≤f_p`. The initial cost is `log Q_Y≤2YL=O(L³)`. On the fibre n=1 mod Q, the independent remaining coordinates are the unrevealed p-adic digits. A surviving event has free support
+
+`supp_Q(E)={p:v_p(uv)>a_p}`.
+
+It never has empty support: otherwise `uv|u+v+1`, whereas `0<u+v+1<uv` for u,v≥3. Define
+
+`w_p(Q)=Σ_{E surviving, p∈supp_Q(E)}P_Q(E)`.
+
+Fix `c₀=1/16`. Whenever
+
+`w_p(Q)>c₀(a_p+1)log p/(2L)`,                                (8.4)
+
+increase a_p by one, fixing the next digit to that of 1. There are finitely many digits, so this terminates. At termination every surviving E satisfies
+
+`Σ_{p∈supp_Q(E)}w_p(Q) ≤ [c₀/(2L)]Σ_{p|uv}v_p(uv)log p ≤c₀`.   (8.5)
+
+To bound the cost, a step from a_p=j−1 to j obeys, by (8.1),
+
+`log p < [2L/(c₀j)]w_p(Q) ≤ [2L/(c₀j)]Σ_{p^j|uv}s_uv`.
+
+Each (p,j) is used at most once. With `h(m)=Σ_{p|m}H_{v_p(m)}`, this gives
+
+`log Q≤log Q_Y+(2L/c₀)Σ_E s_E h(uv)`.
+
+Uniformly for m≤H², `h(m)≪L/log L`: primes ≤√L contribute `O(√L log L)`; for larger primes use `H_e≤e` and `Σ e log p≤2L`. Lemma 8.1 now gives
+
+`log Q≪L⁶/log L`.                                             (8.6)
+
+Apply the ordinary dependency-graph LLL to the remaining cylinder events, joining events sharing a free prime. Set `x_E=2P_Q(E)`. Since each event has nonempty support, (8.5) implies `P_Q(E)≤c₀`, and its total neighbor x-mass is at most 2c₀. Thus
+
+`Π_{E'∼E}(1−x_E') ≥ exp(−2c₀/(1−2c₀)) >1/2`,
+
+which verifies the LLL inequalities. Writing `S=ΣP_Q(E)≤S♯`, its quantitative lower bound gives
+
+`P_Q(no event)≥Π_E(1−2P_Q(E))≥exp(−3S)`.
+
+The unconditional fibre has probability 1/Q. Combine this with (8.2) and (8.6). ∎
+
+This argument allows adaptive extra primes and partial prime powers beyond Y. It does **not** prove that the original fixed smooth cutoff alone satisfies the LLL. The role of the class of one is structural: it is outside every event, so no pinning step can create an unavoidable event.
+
+### 8.4 Almost log-square decay: the opposite Haar bound
+
+**Theorem 8.4 (PROVED).** `δ₃(H)≤exp(−c L²/(log L)²)`.
+
+*Proof.* Set `Y=L⁸`. Retain only endpoint pairs in
+
+`H^{1/16}≤u≤H^{1/8}`, `H^{1/2}≤v≤H`,
+
+with u,v squarefree, Y-rough, and coprime. Squarefreeness makes these atomic events on the coordinates n mod p. They are distinct: identical events would have the same modulus uv and residue, hence the same integer sum u+v because `0<u+v<uv`; the product and sum determine the unordered pair, and the separated ranges fix its orientation. Denote this family by F and its mean by μ.
+
+**Mass.** In any fixed logarithmic interval `[H^α,H^β]`, α<β,
+
+`Σ_{m squarefree, P⁻(m)>Y}1/m ≫ L/log Y`.
+
+One may use the fundamental lemma. Alternatively, on each dyadic interval of length X≥H^α, truncate inclusion–exclusion over primes ≤Y at odd order `k=C log L`. The factorial tail `Σ_{j>k}(Σ_{p≤Y}1/p)^j/j!` is negligible relative to `1/log Y`, whereas the progression errors number at most `Y^{k+1}=exp(O((log L)²))=H^{o(1)}`. This gives ≫X/log Y rough integers. Removing multiples of p² for p>Y costs `O(X/Y+√X)`, which is negligible. Sum reciprocals over the dyadic intervals. The harmonic mass of pairs sharing a prime is at most
+
+`Σ_{p>Y}[(1+L)/p]²≪L²/Y`.
+
+It follows that `μ≫L²/(log Y)²`.
+
+**Local loads.** For p>Y,
+
+`w_p:=Σ_{E∈F, p|uv}1/(uv)≤2(1+L)²/p`.
+
+Every event meets at most `2L/log Y` primes. Thus its total conflict-neighbor mass is `O(L³/(Y log Y))=o(1)`. The atomic Janson lemma cited above applies with `x_E=2P(E)` and inflation factor `K≤e^{1/3}`. It remains to bound the compatible-pair sum Δ; the following calculation is I3-specific.
+
+**Shared modulus.** For a distinct compatible pair (u,v),(u',v'), define
+
+`g=(u,u')`, `h=(v,v')`, `j=(u,v')`, `k=(v,u')`.
+
+Squarefreeness and within-pair coprimality make these four numbers pairwise coprime. Write
+
+`u=gja`, `v=hkb`, `u'=gkc`, `v'=hjd`, `D=(uv,u'v')=ghjk`.
+
+Put the endpoints into dyadic intervals u≈U,v≈V,u'≈U',v'≈V', and orient the pair so V'≥V. If the sums differ, compatibility implies `D|u+v−u'−v'`, hence `D≤4V'`. If the sums agree, distinctness implies u≠u', and `h|u−u'`; consequently
+
+`D=(gj)(gk)h/g≤uu'|u−u'|≤H^{3/8}≤V'`.
+
+Thus in both cases `1<D≤4V'`. Endpoint separation is essential for this equal-sum case.
+
+**Pair sum.** The four compatibility congruences are
+
+`kb≡jd (g)`, `ja≡kc (h)`, `gc≡hb (j)`, `ga≡hd (k)`.
+
+For fixed g,h,j,k,a,b, CRT puts c in one class modulo hj and d in one class modulo gk. Their dyadic harmonic sums are at most
+
+`O(1/(hj)+gk/U')`, `O(1/(gk)+hj/V')`,
+
+respectively. The harmonic sums over a,b in their dyadic ranges are O(1). Since the joint probability is `1/(Dabcd)`, a fixed quadruple g,h,j,k contributes at most
+
+`O(1/D²+1/(DU')+1/(DV')+1/(U'V'))`.
+
+There are `4^{ω(D)}` assignments of the prime factors of squarefree D to the quadruple. Use
+
+`Σ_{D>1, squarefree, Y-rough}4^{ω(D)}/D²≪1/Y`,
+`Σ_{D≤z}4^{ω(D)}/D≪(1+log z)⁴`,
+`Σ_{D≤z}4^{ω(D)}≪z(1+log z)³`.
+
+The last two follow from `4^{ω(D)}≤τ₄(D)`; the first follows from its convergent Euler product. Retaining the crucial cutoff D≤4V', each dyadic box contributes `O(Y^{-1}+L⁴H^{-1/16})`. There are O(L⁴) boxes, so
+
+`Δ≪L⁴/Y+L⁸H^{-1/16}=o(1)`.                                  (8.7)
+
+The atomic Janson inequality gives `−log P(Av(F))≥μ−KΔ≫L²/(log L)²`. Avoiding all interior pairs implies avoiding F, proving the theorem. ∎
+
+**Assessment.** This obtains the requested upper-tail exponent `2−o(1)`, not a constant-factor comparison with L². Roughness removes a factor log Y from each endpoint harmonic sum; recovering those two factors while preserving the pair control is still open here. Ordinary monotone-event Janson cannot simply be cited for these categorical prime residues: incompatible assignments are negatively correlated. The explicitly checked atomic variant handles this through its conflict graph and the small local loads.
+
+### 8.5 Why raw Bonferroni cluster bounds fail, even after smooth pinning
+
+Let Z count all the unordered endpoint events, or all their surviving restrictions after n=1 mod Q_Y. Write `S_j=E binom(Z,j)` and `μ=EZ`.
+
+**Proposition 8.5 (PROVED).** Fix A>1 and `Y=(log H)^A`. There is no absolute constant C (even depending on A) making
+
+`S_j≤(Cμ)^j/j!`                                                (8.8)
+
+hold for all sufficiently large H and all j, in the product law conditioned on n=1 mod Q_Y. It fails already at some `j=O(log log H)`.
+
+*Proof.* Choose `k=⌊L/(2log(2Y))⌋` distinct primes `q_i∈(Y,2Y]`, all 2 mod3; PNT in this fixed progression supplies them. Put `P=Πq_i≤√H`, with `log P=(1/2+o(1))L`. Among its divisors, exactly `2^{k−1}` are 2 mod3. All are ≥3 and ≤H. For each such divisor v, the event with endpoints (3,v) is, on our fibre, exactly `n≡−3 mod v`: its mod-3 requirement n=1 is already satisfied. All these events occur simultaneously on `n≡−3 mod P`, of conditional probability 1/P. Put `M=2^{k−1}`. Then
+
+`S_j≥P^{-1} binom(M,j)`.
+
+Take `j=⌈4log P/(k log2)⌉=O(log L)`. Since j≪M,
+
+`log S_j≥−log P+j(log M−log(2j))≥(3−o(1))log P`.
+
+But Lemma 8.2 gives `μ≪L²log Y`, so the logarithm of the proposed right side of (8.8) is at most `O((log L)²)`, a contradiction. The family uses only rough primes beyond Y in its free support, so smooth pinning does not remove this cluster. ∎
+
+**Assessment.** This disproves the stated **raw event** cluster hypothesis, not every cluster expansion with cancellations, resummed connected components, or pruning of logically redundant events. In particular, many large-divisor events in this cluster imply a smaller-divisor event; a carefully pruned Bonferroni approach is not ruled out. Nor does it contradict LLL: LLL controls avoidance, not high positive moments on extremely rare, densely occupied fibres. A direct raw Bonferroni transfer at degree comparable with μ cannot be justified using (8.8). The next subsection avoids that premise altogether.
+
+### 8.6 Transfer of the lower bound to actual integers
+
+**Theorem 8.6 (PROVED relative to the general energy lemma cited in §8.1).** For sufficiently large H, if `log x≥C L⁶/log L`, then
+
+`#{x/2<n≤x: n∉E_uv for all 3≤u≤v≤H} ≥ x exp(−C L⁶/log L)`.
+
+*Proof.* Work on the final fibre n=1 mod Q of Theorem 8.3. Its product coordinates are the unrevealed prime-power digits, grouped by prime; each alphabet has at most H² elements, and there are at most H coordinates. Every event has width
+
+`k≤2L/log Y=O(L/log L)`,
+
+since all primes ≤Y=L² are already fully pinned. Split each remaining cylinder into assignments of the **full** coordinate values on its support. This preserves F=`1[no event]`, the widths, and total mass `S≤CL⁴`. The number m of split events satisfies `m≤H²(H²)^k`, hence `log m=O(L²/log L)`. If m=0 the fibre itself gives the result directly.
+
+The general energy lemma says that a good-indicator f of a width-k single-value system on any finite product probability space obeys
+
+`Σ_{|U|>d} ||f^{=U}||₂² ≤2^{−(d+1)/k}`.                        (8.9)
+
+It also applies to every prefix system after pinning an event. This is `POINTWISE_OMEGA10`, Corollary 4.1: the stronger generating-function inequality `Σ_U 2^{|U|/k}||f^{=U}||₂²≤1` follows there by polarization and the deletion–contraction bound for weighted hypergraphs. No ES parameters, unit-residue hypothesis, local loads, or alphabet-size bound enter that lemma.
+
+For an ordering A₁,…,A_m of the split event indicators, let u_j be the degree-d Efron–Stein truncation of `Π_{i<j}(1−A_i)` after pinning A_j. The BRW polynomial is
+
+`B=1−Σ_i A_i(1−Σ_{j<i}A_j u_j)²≤F` pointwise,
+
+and its elementary sum-of-squares identity gives
+
+`E(F−B)≤m² Σ_j P(A_j)2^{−(d+1)/k}`.
+
+Choose
+
+`d=O(k[S+log m+log(S+1)])=O(L⁵/log L)`
+
+with a sufficiently large absolute constant. Since Theorem 8.3 gives `EF≥e^{−3S}`, this yields `EB≥0.99EF≥0.99e^{−3S}`.
+
+We need **unweighted** absolute coefficients for integer counting. Expanding
+
+`f^{=U}=Σ_{W⊆U}(−1)^{|U\W|}E(f|X_W)`
+
+and each conditional expectation into coordinate cells gives an absolute coefficient sum `exp(O(dL))` for a truncation: there are at most H coordinates, each with at most H² values, and each cell coefficient has absolute value ≤1 before summing the truncations. Products of cells are empty or cells, so the BRW polynomial has a cell expansion with
+
+`A(B):=Σ_i|b_i|≤exp(O(dL+log m))≤exp(O(L⁶/log L))`.             (8.10)
+
+Intersect each cell with n=1 mod Q. It is one ordinary congruence class, with Haar density equal to `(1/Q)` times its conditional cell probability. Counting each class in `(x/2,x]` has error O(1), irrespective of its modulus. Therefore
+
+`Σ_{x/2<n≤x, n≡1(Q)}B(n)=x(EB)/(2Q)+O(A(B))`.
+
+Equations (8.6), (8.10) and the positive mean make the main term exceed twice the error when `log x≥C L⁶/log L` with C large enough. Since B≤F, the assertion follows after enlarging C. ∎
+
+**PROVED corollary.** For each fixed `0<κ≤1/6`, put `H=⌊exp((log x)^κ)⌋`. Then `L⁶/log L=o(log x)`, so the theorem applies and supplies `x^{1−o(1)}` avoiders in `(x/2,x]`. Here n≥3H² eventually, so congruence avoidance is exactly absence of interior words with both endpoints ≤H. Thus infinitely many actual integers require a larger endpoint than `exp((log n)^κ)` in every interior word, if they have a word at all. This is an unconditional all-integer conclusion relative to the proved general product-space lemma, **not** a conclusion about primes or about I3 zeros.
+
+### 8.7 Auditing Vaughan and the 3/4 note: a failed map and a working replacement
+
+The note's basic certificate has
+
+`M=4abw−1`, `nb+a=Ms`.
+
+**PROVED obstruction to direct transfer.** Its immediate word is
+
+`bn=(4bw)as−a−s`,
+
+a word of **bn**, not n. Dividing by b would require the rational endpoints a/b and s/b at level `4b²w`. For the reduced pairs `(a,b)=1`, `s≡−a mod b`, so neither endpoint is integral when b>1. Taking b=1 restores words but loses the second factor-ratio parameter.
+
+**CERTIFIED counterexample to the unrestricted witness map.** At
+
+`n=6336`, `(a,b,w,M,s)=(3,5,3,179,177)`,
+
+we have `180=4·3·5·3` and `5·6336+3=179·177`; this is a valid Vaughan identity, but I3(6336)=0 in the independently verified first-round census. The word is of 31680, not 6336. The residue needed for a same-modulus I3 endpoint is `−6336≡108 mod179`, and 108 does not divide 180. This tests the algebraic identity, not the note's later asymptotic atom cutoffs.
+
+**PROVED obstruction to its all-denominator scaling step.** I3 is not upward-closed under multiplication: `21=3·3·3−3−3`, while I3(42)=0 (independent census). Thus the note's ES scaling/semigroup argument cannot promote an I3 prime-exception theorem to all integers. Both gaps must be repaired, not omitted.
+
+Here is a replacement which keeps the conditional-CRT machinery but changes the atoms.
+
+**Lemma 8.7 (PROVED relative to BV and Brun–Titchmarsh; uniform direct supply).** Put `T=log X`, `K=⌊X^{1/480}⌋`, `U₀=K^{10}`. In each dyadic prime block `(x,2x]⊂(√X,X]`, put `z=x^{1/6}`. For an arbitrary multiplier family `1∈B⊂[1,K]`, take atoms
+
+`(k,q,u): k∈B, q∈(x,2x] prime, U₀<u≤z, u|(kq+1)`,
+
+with event `n≡−u mod kq`. Every hit at n≥3KX gives the interior word
+
+`((kq+1)/u, u, (n+u)/(kq))`.
+
+Condition on c=n mod `L_B=lcm_{k∈B}k`, put `J_c={k∈B:(k,c)=1}`, and write `h(J)=Σ_{k∈J}1/k`. If f_c(q) counts active atoms at q, then
+
+`μ_c:=Σ_q f_c(q)/q ≍ T h(J_c)`                                (8.11)
+
+uniformly in B and c. Moreover the active residues at each q are distinct, so conditionally on c the number Z_X of atom hits is a sum of independent Bernoulli variables.
+
+*Proof.* An atom is active iff `u≡−c mod k`. Since `u|(kq+1)`, `(u,k)=1`, so activity forces `(c,k)=1`. Conversely those conditions suffice. Distinct same-q classes force equal u because u<q; then u divides k−k', and u>U₀>K forces k=k'. Also `f_c(q)≤Kz=o(q)` uniformly, so the Bernoulli probabilities are <1/2 for large X.
+
+For `d≤K²`, `(c,d)=1`, and `Λ=log(z/U₀)≍T`, elementary progression summation gives
+
+`Σ_{U₀<u≤z, u≡−c(d)}1/u=Λ/d+O(U₀^{-1})`,
+`Σ_{U₀<u≤z, u≡−c(d)}1/φ(u)≪Λ/d`.
+
+For the second estimate expand `u/φ(u)=Σ_{a|u}μ²(a)/φ(a)`; the error is `O(log U₀/U₀+Λ/√U₀)`, absorbed uniformly since d≤K² and U₀=K^{10}. For `r(u)=#{k∈J:k|u+c}`, expand the square to obtain
+
+`Σ_{U₀<u≤z}r(u)²/φ(u) ≪ T Σ_{k,k'≤K}1/[k,k'] ≪T(log K)³≪T⁴`.
+
+The final estimate follows by writing k=ga,k'=gb and dropping `(a,b)=1`.
+
+Count primes in the reduced classes `q≡−k^{-1} mod u`. Brun–Titchmarsh and the progression sums give an upper block count `O(xh(J))`; the principal terms give a lower block count `≫xh(J)`. For the error let E_x^*(u) be the maximum dyadic π-discrepancy over reduced classes. Then BT bounds `E_x^*(u)≪x/(φ(u)log x)`, and BV, at moduli u≤x^{1/6}, gives `Σ_uE_x^*(u)≪_R xT^{−R}`. Cauchy–Schwarz bounds the total weighted error by
+
+`(Σ_u r(u)² E_x^*(u))^{1/2}(Σ_u E_x^*(u))^{1/2} ≪ (xT³)^{1/2}(xT^{−30})^{1/2}=o(x)`.
+
+Since 1∈J_c, h(J_c)≥1. Divide by q≈x and sum over the ≍T full blocks; an incomplete last block is harmless for the upper bound. This proves (8.11). Conditional independence is CRT, because q>√X>K, hence q∤L_B. ∎
+
+### 8.8 A log-loss 2/3 exceptional bound for all integers
+
+**Theorem 8.8 (PROVED relative to Lemma 8.7 and Mertens).**
+
+`E₃(N) ≪ N exp(−c (log N)^{2/3}/(log log N)^{1/3})`.
+
+*Proof.* In Lemma 8.7 choose
+
+`y=T²/log T`, `B={k≤K:(k,P_y)=1}`, `M₀=T²/log T`,
+
+where `P_y=Π_{p≤y}p`. The multiplier harmonic sum satisfies
+
+`h(B)≍log K/log y≍T/log T`.                                   (8.12)
+
+The upper bound follows from the Euler product over y<p≤K. For a lower bound restrict prime factors to y<p≤K^η with a sufficiently small fixed η>0. Its harmonic Euler product is ≍`log(K^η)/log y`; a Rankin tail at exponent `1/log(K^η)` shows that terms k>K contribute at most half this product. Indeed the tail/product ratio is at most `exp(−1/η+O(1))`, using `Σ_{p≤z}log p/p=log z+O(1)`. This proves (8.12).
+
+For uniform Haar c mod L_B put
+
+`Z(c)=Σ_{p>y, p|L_B, p|c}1/p`.
+
+CRT makes these divisibility indicators independent with probabilities 1/p. Since y/p<1,
+
+`E exp(y Z)≤Π_{p>y}(1+(exp(y/p)−1)/p)≤e⁴`,
+
+so `P(Z>1/2)≤e^{4−y/2}`. Furthermore
+
+`Σ_{k∈B,p|k}1/k≤h(B)/p`
+
+because k/p belongs to B when p>y. By the union bound on removed multipliers,
+
+`h(J_c)≥h(B)(1−Z(c))`.
+
+On Z≤1/2, (8.11) gives `μ_c≫M₀`; for every c it gives `μ_c≪M₀`. The conditional Bernoulli product therefore yields
+
+`P(Z_X=0)≤exp(−cM₀)`,
+`E (Z_X)_j≤(CM₀)^j` for every j≥1.                            (8.13)
+
+Unlike the full endpoint family in Proposition 8.5, these specially constructed atoms have mutually exclusive same-q classes and independent different-q indicators after conditioning. Thus (8.13) is proved, not a Poisson assumption.
+
+Take the even Bonferroni polynomial `Q_r(z)=Σ_{j=0}^r(−1)^j binom(z,j)`, with even `r=O(M₀)` chosen sufficiently large. It is a nonnegative majorant of `1[z=0]`, and
+
+`Q_r(z)≤1[z=0]+binom(z,r+1)`.
+
+Equation (8.13) and Stirling's elementary factorial bound give `E Q_r(Z_X)≤e^{−c'M₀}`. There are at most `KX·X^{1/6}=exp(O(T))` atoms. Expanding Q_r into intersections consequently has unweighted absolute coefficient sum at most `exp(O(rT))=exp(O(T³/log T))`. Each intersection is empty or one congruence class. Thus ordinary integer counting gives
+
+`E₃(N)≪N exp(−c'T²/log T)+exp(CT³/log T)+O(KX)`.
+
+The last term removes n<3KX. There is **no** expansion into all L_B fibres, and no multiplicative closure of I3 is used. Choose
+
+`T=α(log N log log N)^{1/3}`
+
+with fixed α>0 sufficiently small. The second term is at most N^{1/2}, the last is N^{o(1)}, and the first has the claimed exponent. ∎
+
+**PROVED prime/rough-input refinement.** With B=[1,K], condition instead on `(n,P_y)=1`, `y=B₀T²` for a sufficiently large fixed B₀. Then h(B)≈log K≈T; the identical exponential-moment argument gives a conditioned void `exp(−cT²)` and uniform factorial moments `(CT²)^j`. The selector has an exact inclusion–exclusion expansion with `2^{π(y)}` terms. The Bonferroni coefficient ledger is therefore `exp(O(T³))`, including the selector. Taking `T=α(log N)^{1/3}` bounds I3 exceptions among these rough inputs, in particular primes above the small cutoff, by `≪N exp(−c(log N)^{2/3})`. The onset n≥3KX only adds N^{o(1)}. It cannot be extended to all integers by ES scaling, as §8.7 proves.
+
+**Assessment / remaining exponent losses.** The direct I3 atom supply is `T h(J)`, whereas the ES ratio family has `T² h(J)`. That lost factor T is precisely the missing second factor-ratio parameter. For all integers, selecting only y-rough multipliers avoids the zero fibres but loses another factor log y in h(B); optimizing the coefficient ledger yields the `(log log N)^{1/3}` loss above. Removing that loss requires a better treatment of the nonunit fibres, not an unjustified prime-to-composite step. Recovering 3/4 requires additional class supply or a different architecture; no universal impossibility theorem is claimed.
+
+### 8.9 Checks, controls, and round-2 review
+
+**CERTIFIED finite checks.** `scripts/z49_i3astra_round2.py` checks the gcd envelope identity, exact conditioning probabilities, and terminal LLL neighborhood masses at H=12,24,48,80; all terminal mass inequalities are checked as rational inequalities, independent of the floating-point choice of pinning order. It streams compatible pairs in separated endpoint ranges, checking the four gcd factors, all CRT congruences, the joint-density formula, and both equal/unequal-sum modulus bounds. It constructs an explicit divisor cluster surviving small-prime pinning, verifies direct multiplier words and the exact average of their fibre means, and reuses the independent first-round census for 6336 and 42. It also checks the Vaughan Egyptian-fraction identity at 6336. Data: `data/z49_i3astra/round2_checks.json`. No dense pair-product array is allocated.
+
+**Controls and quantifiers.** Square inputs are permitted in every all-integer theorem; neither I3 nor its avoidance density is claimed square-exact. The numerator-free multiplier hit is an interior word, not an ES certificate. Neither the 6336 ES witness nor the known interior words at 241 imply 8/241; no numerator-8 representation is asserted. The hard-prime counts in §6 remain unchanged. The new integer avoiders are allowed to have words beyond H, and the improved exceptional estimate still allows infinitely many total I3 zeros. Neither I3 nor ES is reduced to a finite computation.
+
+Reproduce the new checks with:
+
+```sh
+ulimit -v 8000000
+timeout 120 uv run python scripts/z49_i3astra_round2.py
+```
+
+**Round-2 hostile review completed (fresh deep-mode subagent).** Verdict: **no fatal or major flaw**, one minor proof-writing repair. The reviewer independently checked the envelope and adaptive conditioning, both cases of the Janson shared-modulus bound, the raw-moment counterexample, the full proof chain of the generic energy lemma and BRW coefficient accounting, and every uniformity/Bonferroni step in the multiplier sieve. It also replayed the round-2 script read-only and independently checked the 42/6336 counterexamples. The sole repair clarifies that squarefreeness establishes atomicity, while equal product and residue establish distinctness of the upper-bound event family; this justification is now explicit in §8.4. Review session: `2026-10-28T22-34-20-799Z_01a184a6-68ff-70b7-bfc8-e0e244ed9fea`. The results retain their stated internal, unrefereed status.

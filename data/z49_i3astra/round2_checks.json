@@ -1,0 +1,54 @@
+{
+  "adaptive": [
+    {
+      "H": 12,
+      "steps": 2,
+      "Q": "9979200",
+      "envelope": "3989174641/768398400",
+      "final_mass": "0",
+      "max_event_neighborhood_mass": "0"
+    },
+    {
+      "H": 24,
+      "steps": 5,
+      "Q": "26985313555200",
+      "envelope": "23645087911946863/2022417417948928",
+      "final_mass": "0",
+      "max_event_neighborhood_mass": "0"
+    },
+    {
+      "H": 48,
+      "steps": 9,
+      "Q": "9572328664715034626728320000",
+      "envelope": "4185345643548072152117393131934681615852989/196001568148924806081684849607339751040000",
+      "final_mass": "0",
+      "max_event_neighborhood_mass": "0"
+    },
+    {
+      "H": 80,
+      "steps": 13,
+      "Q": "43440433879086809492178437618033114472960000",
+      "envelope": "1234057567157190412560495012084466227371283474697010860967907430994329/38961304672584640612145875713635552064631861433661074235094126080000",
+      "final_mass": "147/5329",
+      "max_event_neighborhood_mass": "147/5329"
+    }
+  ],
+  "pair_family_size": 233,
+  "compatible_dependent_pairs": 2866,
+  "equal_sum_pairs": 181,
+  "cluster": {
+    "rough_primes": [
+      11,
+      17,
+      23,
+      29,
+      41
+    ],
+    "P": 5113889,
+    "events": 16,
+    "all_survive_small_pinning": true
+  },
+  "multiplier_atoms": 257,
+  "fibre_mean_identity": true,
+  "Vaughan_counterexample": 6336
+}
