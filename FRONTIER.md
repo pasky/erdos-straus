@@ -592,7 +592,7 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
    BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
    can obstruct (the (★)-failure n = 7 at t = 12; (J)103 §2 Reading). *Why:* it is the next layer after the one proved free.
-4. **A polylog lower bound for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *Why:* M_gen is the finer
+4. **A polylog lower bound for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *(z48 update: `LOWERTAIL_DEEP_ASTRA.md` Thm 5.4 gives M_gen(p) ≥ (2/π⁴ − o(1)) log²p from **any fixed Dirichlet zero-free strip**, hence CONDITIONAL on OAI-003 or GRH; an unconditional version and any transfer to R(p) remain open.)* *Why:* M_gen is the finer
    T1-exact main term; with it the one-sided target could be stated relative to the genus series.
 5. **BM-corrected Harris/FKG inequality over primes** ((J)103 §3; recorded there only as a
    CONJECTURE shape, T1-consistent). *Why:* the only variance loophole identified. *Caution:* it would imply a power-saving
