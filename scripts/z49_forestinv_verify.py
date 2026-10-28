@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """z49 forestinv — independent numerical checks of the identities used in FOREST_INVERSE.md.
 
-(1) HJ dictionary: for prime p, q ∈ [1,p−1] has negative-CF (HJ) length ≤ 3  ⟺  q = tv−1 for a word (t,u,v) of p.
+(1) HJ dictionary: for prime p, the interior words (t,u,v ≥ 2) of p correspond bijectively to q = tv−1 ∈ [1,p−1] with
+    negative-CF (HJ) length exactly 3 and first digit u; length ≤ 2 ⟺ q | p+1.
 (2) Barkan–Hickerson–Knuth: 12 s(q,p) = Σ(b_i − 3) + (q + q*)/p,  q q* ≡ 1 (mod p).
 (3) Rademacher: for odd k, 12 k s(h,k) ≡ k + 1 − 2 (h/k) (mod 8).
 (4) Σ_{0<a<p/4} (a/p) = h(−4p)/2 for primes p ≡ 1 (mod 4).
-(5) Generalised Theorem E: every U-witness A at any n ≡ 1 (mod 8) has gcd(A,n)=1 and (n/A_odd) = −1.
+(5) Theorem E′ at n ≡ 1 (mod 8): every U-witness A has gcd(A,n)=1, A_odd > 1 and (n/A_odd) = −1; (5b) at n ≡ 1 (mod 4):
+    Jacobi (A/n) = −1 with the 2-part; (5c) the witnesses with A ≤ 2 are exactly A = 2, v = 3, n ≡ 5 (mod 8).
+(7) Prop 4.3 exceptions: A ≤ 10⁵ with τ(A+1) ≥ φ(A)/2.  (8) Σ_(p/4<q<p/2)(q/p) = −h(−4p)/2, Σ_(p/2<q<p)(q/p) = 0.
 (6) n ≡ 5 (mod 8): the word (1,(n+3)/2,3) always exists and has endpoint 3 ∈ V.
 """
 import sys
@@ -88,9 +91,9 @@ def main():
             for (t, u, vv) in words_at_vertex(n, v):
                 A = t * vv - 1; tot += 1
                 Ao = A >> ((A & -A).bit_length() - 1)
-                if gcd(A, n) != 1 or (Ao > 1 and jacobi_symbol(n, Ao) != -1) or isqrt(n) ** 2 == n:
+                if gcd(A, n) != 1 or Ao == 1 or jacobi_symbol(n, Ao) != -1 or isqrt(n) ** 2 == n:
                     bad5 += 1
-    print(f"(5) U-witnesses at n ≡ 1 (8), n ≤ 4000: {tot} witnesses, {bad5} with gcd(A,n)>1 or (n/A_odd) ≠ −1 or n square")
+    print(f"(5) U-witnesses at n ≡ 1 (8), n ≤ 4000: {tot} witnesses, {bad5} with gcd(A,n)>1 or A_odd = 1 or (n/A_odd) ≠ −1 or n square")
     # (5b) Theorem E′ in Jacobi form, both classes mod 8: (A/n) = −1 with the 2-part included
     bad5b = tot5b = 0
     for n in range(5, 2001, 4):

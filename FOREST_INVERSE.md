@@ -4,8 +4,8 @@
 composites.** Labels: PROVED / CONDITIONAL (on what) / CERTIFIED (exact finite computation) / EVIDENCE / CONJECTURE /
 Assessment. Scripts `scripts/z49_forestinv_*`, data `data/z49_forestinv/`. Inherits FOREST_DEEP_FABLE (FDF),
 FOREST_DEEP_ASTRA (FDA), FOREST_CONNECTIVITY (FC), LOWER_TAIL_ASTRA (LTA), DEDEKIND_ES (DK), the z48/z49 CONTEXT files and
-the parent's z49 census (`data/z49_main/`). A hostile deep-mode review (`reviews/z49-forestinv-review.md`, 27 findings) was
-folded in; §9 lists what it changed.
+the parent's z49 census (`data/z49_main/`). Two hostile deep-mode review passes (`reviews/z49-forestinv-review.md`, 27
+findings; `reviews/z49-forestinv-review2.md`, 13 residual findings) were folded in; §9 lists what they changed.
 
 ## 0. Verdict first
 
@@ -24,38 +24,46 @@ route tried here: 1/5.** What is retained, with labels:
    form of FDF Theorem E at composite n. Lemma 2.3: the words of n are the disjoint union, over g | n, of the lifts
    (t′/g, gu′, gv′) of the coprime-endpoint words (t′, u′, v′) of n/g with g | t′ (the gcd-indexed form of DK §8.3's
    scaling map). Lemma 2.4: a vertex v with g = gcd(v, n) is word-incident iff n/g + v/g has a divisor ≡ −1 (mod v).
-   Theorem 2.6: in two *free* variables (a, b), the only nonzero polynomial solutions of TUV − U − V = ab are the two
-   fixed-endpoint shapes (U, V constant) and (V, T constant), i.e. congruence families in n = ab; this completes the
-   partial coefficient comparison of DK §9.2 to all polynomial shapes. Props 4.2–4.3: for a fixed odd non-square modulus
+   Theorem 2.6 (a classification, not a non-existence statement): in two *free* variables (a, b), the nonzero
+   polynomial solutions of TUV − U − V = ab are exactly the two shapes with both endpoints constant, or one endpoint and
+   the level constant — with positive integer constants, congruence families in n = ab; this completes the partial
+   coefficient comparison of DK §9.2 to all polynomial shapes. Props 4.2–4.3: for a fixed odd non-square modulus
    A ≥ 17 the set of n witnessed by A is ≤ τ(A+1) − 1 classes mod A inside the φ(A)/2 QNR classes, so some QNR class mod A
    is never witnessed by A.
 2. **PROVED, trivial, on request of the brief.** U holds on explicit divisibility-relation families of composites
-   (Lemma 2.5, Prop 2.8), e.g. n = ab with a ≡ 7 (8), a ∣ b + 2 (diagonal word, which even gives 8/n), or a ≡ 5 (8),
-   (a+1) ∣ (b−1) (the review's family a(2a+3), a coprime word). Every such family is a word family: its word depends on
-   n only (Prop 2.8), so these are lines of the forest in factor coordinates, not a composite-specific mechanism.
-3. **CERTIFIED (§3).** All n ≡ 1 (mod 8) ≤ 10⁸: U holds at all 1 439 970 primes, fails at all 4 999 odd squares and at
+   n ≡ 1 (mod 8) (Lemma 2.5, Prop 2.8), e.g. n = ab with a ≡ 7 (8), a ∣ b + 2 (diagonal word, which even gives 8/n), or
+   a ≡ 5 (8), b = 2a + 3 (the review's family a(2a+3), a coprime word; more generally (a+1) ∣ (b−1) with
+   (b−1)/(a+1) ≡ 2 (mod 4)). In each case the word can also be written in terms of a divisor of n + v alone (Prop 2.8);
+   whether a factor relation can force an incidence that the shifted-divisor description does not make visible is not
+   decided here.
+3. **CERTIFIED (§3).** All 9 ≤ n ≡ 1 (mod 8) ≤ 10⁸: U holds at all 1 439 970 primes, fails at all 4 999 odd squares > 1 and at
    exactly the six composites. The coprime union U_cop fails at 0 primes, 0 of the 4 272 030 composites coprime to 105,
    and 436 composites, all divisible by 3 or 5 (427 by 3). In [10⁹, 10¹⁰], over the 10 713 960 non-square n with 105 ∣ n,
    U_cop fails 119 times and U never; 89 of the 119 are rescued by the line v = 7 (a lifted word of n/7).
-4. **EVIDENCE (§3.3–3.4), model not theorem.** Per-line fire rates depend on n mod 24 and on which small primes divide n,
-   not on primality (primes and composites in the same class agree to ±0.01); a prime q ∣ n removes q from every n + v on
-   the coprime lines and removes the lines q ∣ v. The six sporadic failures are all divisible by 3 or 5 and have least QNR
-   r(n) ∈ {11, 11, 13, 13, 17, 37}; among the 436 U_cop failures, P(r ≥ 11) = 0.80 against a baseline 0.25. Near-squareness
-   is only weakly enriched (median relative distance 0.227 vs 0.250). Assessment: the sporadics are consistent with a
-   loaded lottery (fewer tickets, worse odds), not with a Linnik/Dickson shadow, which blocks only finitely many lines.
+4. **EVIDENCE (§3.3–3.4), model not theorem.** In samples of 400, per-line fire rates vary with n mod 24 and with the
+   small primes dividing n, with no visible dependence on primality (primes and composites in the same class differ by at
+   most ≈ 0.012); the elementary fact behind this is that a prime q ∣ n never divides n + v on a coprime line and removes
+   the lines q ∣ v from the coprime union. The six sporadic failures are all divisible by 3 or 5 and have least QNR
+   r(n) ∈ {11, 11, 13, 13, 17, 37}; among the 46 U_cop failures with 3 ∣ n and gcd(n, 35) = 1, P(r ≥ 11) = 0.80 against a
+   baseline 0.25 for that class. Near-squareness is only weakly enriched (median relative distance 0.227 vs 0.250).
+   Assessment: the data are consistent with a loaded lottery (fewer tickets, worse odds) and do not single out a
+   near-square or Linnik/Dickson-shadow mechanism; this is a correlation, not an exclusion.
 5. **No mechanism from the QNR witness (§4).** U's definition contains no character; Theorem E′ makes the character a
-   consequence at every witness. What remains is the shadow condition n mod A ∈ S_A = {−v : v ∣ A+1, v ∈ V}, of relative
-   density ≪ A^{ε−1} in the QNR coset. This does not prove that QNR information is useless for *finding* a witness; it
+   consequence at every witness. What remains is the shadow condition n mod A ∈ S_A = {−v : v ∣ A+1, v ∈ V}; the n
+   witnessed by moduli with a given odd part A′ have natural density ≪ A′^{ε−1} (≪ A′^{ε−1+o(1)} relative to the QNR
+   population). This does not prove that QNR information is useless for *finding* a witness; it
    says that no attachment implication is available from it here, and that the fixed-modulus converse of E′ is false.
    Forest moves (Vieta, Ptolemy, full remainder tree) are cited dead.
 6. **Global identities (§5).** The HJ dictionary, BHK, Rademacher and Σ_{a<p/4}(a/p) = h(−4p)/2 are verified. The colour
    is digit-local (DK Cor 4.1); cylinder (initial-digit) conditions are intervals of q, so every cylinder-weighted identity
-   is an interval character sum (Prop 5.2), e.g. QNRs outnumber QRs by h(−4p)/2 among q with first digit 3 or 4; the
-   length-3 part of any finitely-supported cylinder weight is a fixed finite root set (Thm 5.3), which fails infinitely
-   often CONDITIONAL on Dickson (LTA Thm 3.2). This is a corollary of the fixed-root theorem, not a new obstruction.
-7. **Barrier (§6).** The only barrier *proved* here is Theorem 2.6 (no identity in free factors) plus Props 4.2–4.3 (no
-   fixed-modulus converse). The statement "any factorisation-driven mechanism must go through the lifted lines", which an
-   earlier draft announced, is **false** (the review's coprime family a(2a+3)); it is withdrawn.
+   is an interval character sum (Prop 5.3), e.g. QNRs outnumber QRs by h(−4p)/2 among q with first digit 3 or 4; the
+   length-3 part of any finitely-supported cylinder weight is a fixed finite root set (Thm 5.4), whose bichromatic part
+   vanishes infinitely often CONDITIONAL on Dickson (LTA Thm 3.2). This is a corollary of the fixed-root theorem, not a
+   new obstruction, and it says nothing about the signed (monochromatic) short-word mass.
+7. **Barrier (§6).** The only barrier-type results *proved* here are Theorem 2.6 (every polynomial identity in free
+   factors has one of two constant-coordinate shapes) and Props 4.2–4.3 (no fixed-modulus converse). The statement "any
+   factorisation-driven mechanism must go through the lifted lines", which an earlier draft announced, is **false** (the
+   review's coprime family a(2a+3)); it is withdrawn.
 
 ## 1. Setting
 
@@ -90,13 +98,15 @@ A = 2^a A′ with A′ odd. Since n ≡ −v (mod A′), (n/A′) = (−v/A′).
 (mod v), and FDF Theorem E's computation gives (−v/A′) = (A′/v) = (−1/v)(2/v)^{−a} = −1 (so A′ > 1), and (A/n) =
 (2/n)^a (A′/n) = (n/A′) = −1 by reciprocity, n ≡ 1 (mod 4). *Case v ≡ 3 (mod 8)* (n ≡ 5 (mod 8)): v ≡ 3 (mod 4), so
 (−v/A′) = (A′/v) = (−2^{−a}/v) = (−1/v)(2/v)^a = −(−1)^a, while (2/n)^a = (−1)^a; hence (A/n) = (−1)^a·(−(−1)^a) = −1,
-including A′ = 1 (a = 1, v = 3). *Case 4 ∣ v*, v = 2^b w, b ≥ 2, w odd: A is odd, A ≡ 3 (mod 4), and FDF's computation
+including A′ = 1 (then 2^a ≡ −1 (mod v) forces a odd; e.g. n = 5, v = 3, A = 8, word (3, 1, 3)). *Case 4 ∣ v*, v = 2^b w, b ≥ 2, w odd: A is odd, A ≡ 3 (mod 4), and FDF's computation
 gives (−v/A) = −(2/A)^b = −1 (b = 2: square; b ≥ 3: A ≡ 7 (mod 8)), whence (A/n) = (n/A) = (−v/A) = −1, in both
 classes of n mod 8. ∎
-CERTIFIED: 6 187 witnesses at n ≡ 1 (mod 4), n ≤ 2000, and 5 602 at n ≡ 1 (mod 8), n ≤ 4000, all with gcd(A, n) = 1 and
-(A/n) = −1; the witnesses with A ≤ 2 are exactly {A = 2, v = 3, n ≡ 5 (8)} (`verify.py` (5), (5b), (5c)).
-*Relation to prior work.* FDF Theorem E proves (for v ∈ V, A ≡ −1 (mod v)) that (−v/A′) = −1 and that at n = m² this is
-contradictory; it already establishes the coprimality it needs. E′ only records the Jacobi value at arbitrary n ≡ 1
+CERTIFIED (`verify.py`): (5b) all 6 187 witnesses at n ≡ 1 (mod 4), n ≤ 2000 have gcd(A, n) = 1 and Jacobi (A/n) = −1;
+(5) all 5 602 witnesses at n ≡ 1 (mod 8), n ≤ 4000 have gcd(A, n) = 1, A_odd > 1 and (n/A_odd) = −1; (5c) the witnesses
+with A ≤ 2 at n ≡ 1 (mod 4), n ≤ 2000 are exactly {A = 2, v = 3, n ≡ 5 (8)}.
+*Relation to prior work.* FDF Theorem E proves, for v ≡ 7 (mod 8) or 4 ∣ v and A ≡ −1 (mod v), that (−v/A′) = −1 and
+that at n = m² this is contradictory (in the v ≡ 3 (mod 8) branch the symbol is −(−1)^a); it already establishes the
+coprimality it needs. E′ only records the Jacobi value at arbitrary n ≡ 1
 (mod 4), including the n ≡ 5 (mod 8) branch and the boundary. DK §9.1 states the n ≡ 1 (8) case for the length-2 line.
 
 **2.2 Proposition (level form; PROVED; prior: INVOLUTION_ES, z45_interlacing_stable §1.1).** U(n) ⟺ ∃ t ≥ 1 and A ∣ tn + 1
@@ -138,15 +148,17 @@ divides it; (0,1,1) is symmetric; in (1,1,0): T = c′ ≠ 0 and (c′U − 1)(c
 for linear factors. If max(d_U, d_V) ≥ 2, say d_U ≥ d_V and d_U ≥ 2: the right side has degree ≤ max(2, d_U) = d_U, so d_T + d_V ≤ 0, i.e. T = c′,
 V = c constants, and U(cc′ − 1) = ab + c; cc′ = 1 would force ab + c = 0, so cc′ ≠ 1 and U = (ab + c)/(cc′ − 1), of degree 2
 (this covers d_U ≥ 3 as well: the equation forces d_U = 2). ∎
-*What it says and does not say.* The words (i) have fixed endpoints (c₁, c₂) and exist iff c₁c₂ ∣ n + c₁ + c₂ (for positive
-integers c₁, c₂): one congruence class of n, numerators varying with n (e.g. U = V = 1, T = n + 2, numerators n + 1).
-The words (ii) have a fixed endpoint c and fixed level c′, partner (n + c)/(cc′ − 1): one congruence class
-n ≡ −c (mod cc′ − 1), fixed numerator A = cc′ − 1 — the covering words of FDF Prop 3.1. Whether such a word *certifies*
-is a separate condition (e.g. c = 116, c′ = 3 certifies at 3361 ≡ 1 (mod 840)); FRONTIER B1 says that no *finite* set of
-congruence families covers all primes, not that a congruence family avoids the square classes mod 840. The theorem is
-about polynomials in two free variables only: rational functions (T = 1, U = a, V = a(b+1)/(a−1)), polynomial relations
-between the factors (b = 2a + 3), divisibility loci ((a+1) ∣ (b−1)) and arithmetic procedures are outside its scope and
-*do* produce words (2.5, 2.8). It excludes exactly one thing: an identity in a and b.
+*What it says and does not say.* The theorem allows rational and negative constants; positive words arise from
+positive integer constants. With c₁, c₂ ∈ ℕ the words (i) have fixed endpoints (c₁, c₂) and exist iff c₁c₂ ∣ n + c₁ + c₂:
+one congruence class of n, numerators varying with n (e.g. U = V = 1, T = n + 2, numerators n + 1, a word at every n that
+never certifies). With c, c′ ∈ ℕ, cc′ > 1, the words (ii) have a fixed endpoint c and fixed level c′, partner
+(n + c)/(cc′ − 1): one congruence class n ≡ −c (mod cc′ − 1), fixed numerator A = cc′ − 1 — the covering words of FDF
+Prop 3.1. Whether such a word *certifies* is a separate condition on (c, c′) (e.g. c = 116, c′ = 10, partner 3, certifies at
+3361 ≡ 1 (mod 840)); FRONTIER B1 says that no *finite* set of certifying congruence families covers all primes, not that a
+congruence family avoids the square classes mod 840. The theorem is about polynomials in two free variables only:
+rational functions (T = 1, U = a, V = a(b+1)/(a−1)), polynomial relations between the factors (b = 2a + 3), divisibility
+loci ((a+1) ∣ (b−1)) and arithmetic procedures are outside its scope and *do* produce words (2.5, 2.8). It is a
+classification of polynomial identities in a and b, nothing more.
 
 **2.7 Proposition (coprime lines see n + v only; PROVED).** For v ⊥ n, v is word-incident iff −1 lies in the set of
 sub-products of the multiset {ℓ mod v : ℓ ∣ n + v, with multiplicity}; and for a prime q ∣ n with q ∤ v, q ∤ n + v. ∎
@@ -155,19 +167,21 @@ of divisors in the class −1 (mod v) (3 ≡ 3 (mod 4) serves v = 4; 3·5 ≡ 7 
 serves v = 7, …); §3.3 measures the effect of removing them. No pointwise ordering of difficulty between primes and
 composites follows from 2.7; the census (§3) is the only evidence for one.
 
-**2.8 Proposition (relation families are lines; PROVED, trivial).** Let n = ab with a ≡ 5 (mod 8) and (a+1) ∣ (b−1). Then
-(1, a + 2, a(b−1)/(a+1) + 2) is a word of n with endpoint a + 2 ≡ 7 (mod 8), coprime endpoints when b = 2a + 3 (the
-review's family a(2a+3): 65, 377, 945, 1769, 2849, …; n ≡ 1 (mod 8) iff (b−1)/(a+1) ≡ 2 (mod 4)). More generally the same
-word (1, a + 2, (n+1)/(a+1) + 1) exists for every n with (a + 1) ∣ (n + 1), whether or not a ∣ n: it is the t = 1 line
-"n + 1 has a divisor ≡ 6 (mod 8)" (⟺ (n+1)/2 has a prime factor ≡ 3 (mod 4), FDF Lemma 2.3, u = 1), read through the
-divisor a + 1. *Proof.* (a+2)(v) − (a+2) − v = (a+1)v − (a+2) with v = (n+1)/(a+1) + 1 equals n. ∎ CERTIFIED
-(`lemmas.py` L6). *Reading.* A relation between the factors that forces a coprime word does so by making some n + v
-reducible with a factor in the right class; the hypothesis a ∣ n is then not used by the word. I found no relation family
-whose word uses a ∣ n in an essential way other than the lifted families of 2.3/2.5, but 2.6 does not exclude one.
+**2.8 Proposition (a relation family with coprime words; PROVED, trivial).** Let n = ab with a ≡ 5 (mod 8) and
+b = k(a+1) + 1. Then (1, a + 2, ak + 2) is a word of n; n ≡ 1 (mod 8) iff k ≡ 2 (mod 4), and then the endpoint a + 2 ≡ 7
+(mod 8) lies in V(n), so U(n) holds; for k = 2 the endpoints are coprime (the review's family a(2a+3): 65, 377, 945, 1769,
+2849, …). The same word (1, a + 2, (n+1)/(a+1) + 1) exists for every n with (a + 1) ∣ (n + 1), whether or not a ∣ n; for
+n ≡ 1 (mod 8) it is an instance of the t = 1 line "n + 1 has a divisor ≡ 6 (mod 8)", which holds iff (n+1)/2 has a prime
+factor ≡ 3 (mod 4) (elementary: n + 1 = 2m with m ≡ 1 (4), and 2d ≡ 6 (8) for d ∣ m iff d ≡ 3 (4); cf. FDF Lemma 2.3 for
+primes ≡ 1 (24)). *Proof.* (a+2)v − (a+2) − v = (a+1)v − (a+2) with v = (n+1)/(a+1) + 1 equals n. ∎ CERTIFIED
+(`lemmas.py` L6). *Reading (Assessment).* Here the relation between the factors produces the word by making n + 1
+reducible with the factor a + 1 ≡ 6 (mod 8); the word is then expressible through that divisor of n + 1 alone. This
+does not show that factor information is immaterial for finding or forcing such a divisor in general, and 2.6 does not
+exclude relation families of other shapes; I found none that is not of this "algebraic divisor of n + v" type.
 
 ## 3. Census (CERTIFIED computations; interpretations labelled)
 
-**3.1 All n ≡ 1 (mod 8) up to 10⁸** (`z49_forestinv_census.c`, 40 s, 0.5 GB; the three nested loops over
+**3.1 All 9 ≤ n ≡ 1 (mod 8) ≤ 10⁸** (`z49_forestinv_census.c`, 40 s, 0.5 GB; the three nested loops over
 u ≥ 1, t ≥ 1, v ≥ 1 enumerate every word with n ≤ N — every endpoint is ≤ n + 2 and A = tu − 1 ≤ N + u — and record per n
 whether a V-endpoint word with gcd(u, v) = 1 exists, whether one with gcd(u, v) > 1 exists, and the least coprime V-endpoint;
 `census_1e8_summary.txt`, `ucop_failures_1e8.txt`). The reviewer re-ran the program to 10⁷ and matched the failure list.
@@ -227,8 +241,8 @@ population at or above 10⁶ in the stated class; lines v ∈ V, 4 ≤ v ≤ 200
 | 105 ∣ n | — | 0.098 | 0.100 | 0.953 |
 
 CERTIFIED numbers (samples of 400; the quoted rates are means over ≈ 7 000–10 000 lines each); EVIDENCE for the reading:
-the fire rate of a line is governed by n mod 24 and by the small primes dividing n, with primes and composites in the same
-class agreeing to ±0.01; lines with 3 ∣ n + v (v ≡ −n (mod 3)) fire at 0.26–0.32, the others at 0.14–0.20; for 3 ∣ n the
+the fire rate of a line varies with n mod 24 and with the small primes dividing n, with primes and composites in the
+same class differing by at most ≈ 0.012 in these samples; lines with 3 ∣ n + v (v ≡ −n (mod 3)) fire at 0.26–0.32, the others at 0.14–0.20; for 3 ∣ n the
 lines v ≡ 0 (3) are not coprime and no remaining line gets the prime 3, and all fire at ≈ 0.14; with 105 ∣ n all fire at
 ≈ 0.10 and 4.7 % of such n have no coprime line ≤ 200. Assessment (a model, untested beyond these samples): a composite
 with small factors behaves on its coprime lines like a prime in the Mordell-hard class with the small-prime "class
@@ -250,13 +264,13 @@ adjusters" removed from every shifted integer. Nothing in this section is a theo
 3 ∣ n and gcd(n, 35) = 1, P(r ≥ 11) = 0.80 and P(r ≥ 13) = 0.48, against 0.249 and 0.135 for composite non-squares ≡ 9
 (mod 24) coprime to 35 near 10⁶ (13 690 values; without the coprimality conditioning the reference is 12/35); (iii) near-
 squareness is weakly enriched at most: median relative distance δ = 0.227 (uniform reference 0.250), P(δ < 0.05) = 0.119
-(reference 0.100). Both (i) and (ii) lower every per-line fire rate (§3.3; a line v = 4 needs a prime factor ≡ 3 (mod 4) of
-n + 4, and such a factor is a QNR, hence ≥ r(n)). Assessment: the data are consistent with a loaded lottery and do not
+(reference 0.100). Both (i) and (ii) are expected to lower per-line fire rates (§3.3 for (i); for (ii), a line v = 4 needs a prime factor
+≡ 3 (mod 4) of n + 4, and such a factor is a QNR, hence ≥ r(n)). Assessment: the data are consistent with a loaded lottery and do not
 single out a near-square or Linnik/Dickson-shadow mechanism; a shadow in the sense of FDA Thm 6.1 blocks a fixed finite
 set of lines, whereas here every line is blocked, which no construction in the campaign produces. This is an
 interpretation, not an exclusion theorem.
 
-**3.5 Controls.** Odd squares: U and U_cop fail at all 4 999 odd squares ≤ 10⁸ (Theorem E; the census prints a
+**3.5 Controls.** Odd squares: U and U_cop fail at all 4 999 odd squares 9 ≤ m² ≤ 10⁸ (Theorem E; the census prints a
 `SQUARE-VIOLATION` line otherwise, and never did) and at 9, 25, …, 225 by the single-n tool. Numerator 8: at n = 17 and 241
 no word has an endpoint ≡ 0 (mod 8) (`lemmas.py`), as Lean L9901 requires; the only 8/n statement made (2.5) needs a
 divisor a ≡ 7 (mod 8) of n ≡ 1 (mod 8), a > 1, and never applies to a prime. Hard primes (`controls.txt`): U holds with
@@ -265,8 +279,9 @@ primes is derived from composite-only facts anywhere in this document.
 
 ## 4. The non-squareness witness: no converse mechanism found
 
-**4.1 Proposition (PROVED).** Let n ≡ 1 (mod 8). (a) Every word at a vertex v ∈ V is a certificate, whatever the colours
-(FDF Thm B, 2-adic). (b) Every U-witness numerator A satisfies (A/n) = −1 (Theorem E′). ∎
+**4.1 Proposition (PROVED).** Let n ≡ 1 (mod 8). (a) Every word at a vertex v ∈ V has a slot divisible by 4, whatever
+the colours: 4 ∣ v is a slot, and for v ≡ 7 (mod 8), n + v ≡ 0 (mod 8) = (tv−1)·u forces 4 ∣ tv − 1 or 4 ∣ u (FDF Thm B /
+Cor C, whose slot algebra does not use primality). (b) Every U-witness numerator A satisfies (A/n) = −1 (Theorem E′). ∎
 *Reading (Assessment).* U is defined without the character, and the character is forced at every witness. So a
 hypothesis that supplies QNRs (GRH, OAI-003) supplies no *attachment* statement here; what it could still do — guide a
 search for A among the QNR moduli — is a heuristic, and Props 4.2–4.3 measure how little of the QNR coset any one modulus
@@ -275,11 +290,14 @@ covers. This is weaker than "QNR information is unusable": no such impossibility
 **4.2 Proposition (what a single modulus witnesses; PROVED).** Let A = 2^a A′ with A′ odd, not a square, and put
 S_A := {−v mod A : v ∣ A + 1, v ∈ V}. Then (a) A is a U-witness for n iff n mod A ∈ S_A (v ≤ A + 1 and v ≡ −n (mod A)
 determine v; the only possible collision in [1, A+1] is {1, A+1}, and 1 ∉ V); (b) S_A lies in the QNR coset
-{r : (r/A′) = −1} (Theorem E′); (c) |S_A| ≤ τ(A+1) − 1; and the natural density of {n ≡ 1 (mod 8) : some A with odd part A′
-witnesses n} is ≪_ε A′^{ε−1} for every 0 < ε < 1.
+{r : (r/A′) = −1} (Theorem E′); (c) |S_A| ≤ τ(A+1) − 1; and the set {n : some A with odd part A′ witnesses n} has a natural density, which is
+≪_ε A′^{ε−1} for every 0 < ε < 1 (relative to the population n ≡ 1 (mod 8), (n/A′) = −1, of density φ(A′)/(16A′), this
+is ≪ A′^{ε−1+o(1)}).
 *Proof of (c).* A witness at n ≤ X has A ≤ 2X + 1 (t = 1 gives A = v − 1 ≤ n + 1; t ≥ 2 gives v ≤ (A+1)/2 and
 A ≤ n + v). So the count of witnessed n ≤ X is at most Σ_{a : 2^a A′ ≤ 2X+1} (τ(2^a A′ + 1) − 1)·(X/(2^a A′) + 1) ≤
-X·Σ_a τ(2^a A′ + 1)/(2^a A′) + o(X); with τ(m) ≪_ε m^ε the sum is ≪ A′^{ε−1} Σ_a 2^{a(ε−1)} ≪ A′^{ε−1}. ∎
+X·Σ_a τ(2^a A′ + 1)/(2^a A′) + O(X^ε); with τ(m) ≪_ε m^ε the sum is ≪ A′^{ε−1} Σ_a 2^{a(ε−1)} ≪ A′^{ε−1}. This is an
+upper-density bound; the density exists because the union over a ≤ K is periodic and the tail a > K has upper density
+≤ Σ_{a>K} τ(2^a A′ + 1)/(2^a A′) → 0 as K → ∞. ∎
 *Heuristic (Assessment, cf. FDF §5 M7).* A prime line ℓ ≡ 7 (mod 8) is witnessed with model probability ≍ (log ℓ)/ℓ, and
 Σ_{ℓ ≤ X prime} (log ℓ)/ℓ ≍ log X: the family of QNR prime lines has ≍ log X expected hits, like any family of prime lines,
 and far fewer than the ≍ log² X of all lines; the QNR property adds nothing to the count.
@@ -318,8 +336,9 @@ length 3 it is the colour-twisted word series of FRONTIER §2.3 (Thm K). ∎
 
 **5.3 Proposition (cylinders are intervals; PROVED).** Fix digits β = (β₁, …, β_j). The q whose expansion of p/q begins with
 β form the set {q : p/q ∈ J(β)} for an interval J(β) ⊂ ℝ with rational endpoints independent of p (a cylinder of the
-negative-CF Gauss map), i.e. an interval of q with endpoints in p·ℚ. Hence for any weight w on digit patterns of length
-j supported on a *fixed finite set* of patterns, Σ_q w(q)(q/p) is a finite combination of interval character sums
+negative-CF Gauss map), i.e. an interval of q with endpoints in p·ℚ. Hence for any j ≥ 1 and any weight w on digit patterns of length
+j supported on a *fixed finite set* of patterns (with w(q) := 0 when the expansion of p/q has fewer than j digits),
+Σ_q w(q)(q/p) is a finite combination of interval character sums
 Σ_{q ∈ I} (q/p), I ⊂ (0, p) with endpoints in p·ℚ, i.e. of generalised Bernoulli numbers B_{1, χ_pψ} with ψ of bounded
 conductor. Example: first digit 3 or 4 ⟺ p/4 < q < p/2, and Σ_{p/4<q<p/2} (q/p) = −h(−4p)/2, first digit 2 contributes 0
 (p ≡ 1 (mod 4)). ∎ So **QNRs outnumber QRs by h(−4p)/2 among the q with first digit 3 or 4**, and h(−4p) = p^{1/2+o(1)}
@@ -327,18 +346,19 @@ conductor. Example: first digit 3 or 4 ⟺ p/4 < q < p/2, and Σ_{p/4<q<p/2} (q/
 length-3 q in (p/4, p/2) number at most τ(p+3) + τ(p+4) = p^{o(1)}, so for large p the excess is carried by expansions of
 length ≥ 4.
 
-**5.4 Theorem (cylinder-type identities and length 3).** Let w be a weight on HJ digit patterns of a fixed length j,
-supported on a fixed finite set of patterns independent of p, and let W_sgn(p) := Σ_q w(q)(q/p) and W₃(p) its restriction to
-q of length ≤ 3.
+**5.4 Theorem (cylinder-type identities and length 3).** Let j ≥ 1, let w be a weight on HJ digit patterns of length j,
+supported on a fixed finite set of patterns independent of p, extended by w(q) := 0 when p/q has fewer than j digits, and
+let W_sgn(p) := Σ_q w(q)(q/p) and W₃(p) its restriction to q of length ≤ 3.
 (a) (PROVED) W_sgn(p) is a finite combination of interval character sums as in 5.3.
 (b) (PROVED) W₃(p) is a weighted signed count of interior words of p with endpoint u = b₁ in a fixed finite set (j = 1),
 with (u, t) in a fixed finite set (j = 2), or of finitely many fixed words (j ≥ 3), plus boundary words with fixed divisor of
 p + 1.
 (c) (CONDITIONAL on Dickson; LTA Thm 3.2) For every finite set of vertices there are infinitely many primes p ≡ 1 (24) at
 which every component meeting the set is monochromatic; at those primes every word in (b) is monochromatic, so the
-bichromatic part of W₃ vanishes, while (for the example of 5.3) the signed excess −h(−4p)/2 is non-zero. Hence no identity
-in this class has a bichromatic length-3 part that is positive at every prime; whatever positivity it has is carried by
-expansions of length ≥ 4.
+bichromatic part of W₃ vanishes. Hence no identity in this class forces a non-zero bichromatic short-word count at every
+prime. (The monochromatic short words can still carry signed mass: at p = 12721, with w(2) = 2, w(3) = −1, one has
+W₃ = 5 while the bichromatic part is 0 — reviewer's example. For the specific two-cylinder excess of 5.3 the long
+expansions carry −h(−4p)/2 + O(τ(p+1) + τ(p+3) + τ(p+4)), hence essentially all of it, unconditionally.)
 *Proof.* (a) is 5.3. (b) is the dictionary 5.1 (interior words have b₁ = u; depth-2 cylinders fix (u, t), depth-3 fix the
 word and hence p). (c) is the cited theorem. ∎ This is a corollary of the fixed-root theorem, recorded because the brief
 asked for the barrier in theorem form; it does not bar identities whose weights have p-dependent support (e.g. w ≡ 1),
@@ -352,7 +372,7 @@ finite-dictionary certification of (I)5 is its computational shadow.
 ## 6. What is proved, what is not, and the gap
 
 **Proved here (all narrow).** Theorem E′; Lemmas 2.3–2.5 (decomposition, non-coprime incidence, factor-endpoint words);
-Theorem 2.6 (no identity in free factors); Props 2.7–2.8; Props 4.2–4.3 (fixed-modulus counting); Props 5.2–5.3 and
+Theorem 2.6 (classification of polynomial identities in free factors); Props 2.7–2.8; Props 4.2–4.3 (fixed-modulus counting); Props 5.2–5.3 and
 Theorem 5.4(a),(b); Theorem 5.4(c) CONDITIONAL on Dickson. Of these, 2.3, 2.5, 5.2 are bookkeeping refinements of DK §§8.3,
 9.2, Cor 4.1, and 5.4(c) is a corollary of LTA Thm 3.2.
 
@@ -361,12 +381,13 @@ factor ≡ 3 (mod 4) as in DK §9.2 — all reduce to a divisor of n/g + v/g in 
 any mechanism from a QNR witness; any identity with a positive length-3 term; any barrier beyond 2.6 and 4.3. The claim
 of an earlier draft that every factorisation-driven mechanism must pass through the lifted lines is withdrawn (2.8).
 
-**Where a factorisation is needed and whether a prime is harder (Assessment on PROVED bookkeeping).** A factorisation of
-n enters the word set only through the lifted lines (2.3), which are B2 events for a divisor of n with an enlarged
-modulus (2.4), and through the character (E′), which is forced at every witness. On the coprime lines the problem is
-literally a problem about n + v (2.7). The census (§3) finds composites coprime to 105 behaving like primes and composites
-with small factors behaving worse. So nothing suggests that primes are the hard case *because* they are prime; they are
-the case with no lifted lines and no handicap.
+**Where a factorisation is needed and whether a prime is harder (Assessment on PROVED bookkeeping).** The gcd
+decomposition (2.3) locates the non-coprime words as lifted words of divisors of n, which are B2 events for a divisor of
+n with an enlarged modulus (2.4); coprime incidence has the shifted-divisor description (2.7); the character is forced at
+every witness (E′). Neither description restricts what information may be used to force an incidence (2.8 is a case in
+point). The census (§3) finds composites coprime to 105 behaving like primes and composites with small factors behaving
+worse. So nothing in this document suggests that primes are the hard case *because* they are prime; they are the case
+with no lifted lines and no small-factor handicap.
 
 **Exact remaining gap, for the U-route.** For a prime p ≡ 1 (mod 8): some v ∈ 4ℤ ∪ (8ℤ+7) such that p + v has a divisor
 ≡ −1 (mod v) (any scale). U is a *sufficient* sub-family of ES₅ (FDF §6 calls it the sign-free sufficient form); the
@@ -385,7 +406,7 @@ U-form inverse conjecture at composites and say nothing about primes beyond FDF 
 | 4 | FAIL for the inverse theorem: the tied-modulus divisor event of one integer, 2.4/2.7. |
 | 5 | PASS: every statement is at fixed n; §3.3 rates are labelled EVIDENCE. |
 | 6–7 | N.A. |
-| 8 | 2.5/2.8 are word families (B1-type) and are labelled so; 2.6 says no identity in free factors exists. |
+| 8 | 2.5/2.8 are word families (B1-type) and are labelled so; 2.6 classifies the polynomial identities in free factors (two constant-coordinate shapes). |
 | 9 | The class layer is the whole problem; the character layer is forced at witnesses (E′). |
 | 10–13 | N.A. |
 | 14 | PASS (finite): all listed hard primes, §3.5. |
@@ -407,7 +428,7 @@ timeout 900 uv run python scripts/z49_forestinv_sporadic.py > data/z49_forestinv
 uv run python scripts/z49_forestinv_words.py 105               # the U-words (none) of any n, with ES identities
 ```
 
-## 9. Hostile review (deep mode, `reviews/z49-forestinv-review.md`) and what it changed
+## 9. Hostile reviews (deep mode, `reviews/z49-forestinv-review.md`, `reviews/z49-forestinv-review2.md`) and what they changed
 
 The reviewer re-ran the 10⁷ census (exact match), the verifier, the hard primes and the sporadic list, and found no
 computational defect; the defects were in the prose and in two theorems. Repairs made: (1) Theorem E′ boundary (A = 2 at
@@ -426,3 +447,14 @@ line-death parenthetical removed; (23) "only sense" removed, exception check scr
 prose and made to fail loudly; (25) the gap stated for the U-route with the unrestricted target separate; (26) §0 and §6
 rewritten as an unsuccessful search with narrow results; (27) table bars escaped. Not changed: the census, the
 hard-prime and square controls, Props 4.2–4.3, the fire-rate measurements.
+**Second pass** (13 residual findings, 28–40): the "no identity in free factors" slogan replaced by "classification" in
+§§0, 2.6, 6, 7 (28); the surviving exclusivity sentence in §6 and the "not a composite-specific mechanism" reading of 2.8
+removed (29); 2.6's integrality/positivity restrictions and the certifying example (c, c′) = (116, 10) corrected (30);
+the A′ = 1 parenthetical in E′ corrected (a odd, e.g. (3, 1, 3) at n = 5) and the FDF attribution delimited (31); n ≡ 1 (8)
+put on both families in §0 and the certifying branch k ≡ 2 (4) stated in 2.8 (32); 4.2(c) stated as an existing natural
+density with the truncation/tail argument and the relative normalisation (33); 5.4(c) restricted to the bichromatic
+short-word count, with the reviewer's counterexample p = 12721 recorded (34); the convention w(q) = 0 for short expansions
+(35); §0's QNR statistic attached to the conditioned 46-element population (36); "±0.01" → "≈ 0.012", "every" and
+"not on primality" softened (37); the census domain stated as 9 ≤ n (38); `verify.py` (5) now rejects A_odd = 1 and its
+docstring matches the interior dictionary (39); §0's cross-references corrected to Prop 5.3 / Thm 5.4 (40); 4.1(a) now
+gives the slot algebra instead of citing a prime-only statement (reviewer's item 46).
