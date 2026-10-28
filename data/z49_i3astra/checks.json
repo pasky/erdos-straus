@@ -1,0 +1,87 @@
+{
+  "census_bound": 100000,
+  "census_zeros": 111,
+  "last_subrange_zero": 36078,
+  "reference_matches": true,
+  "direct_count_checks": 498,
+  "interval_checks": 152,
+  "prime_class_witnesses": 2566,
+  "crt": [
+    {
+      "H": 3,
+      "period": 36,
+      "avoiders": 32,
+      "density": "8/9",
+      "unordered_mean": "1/9"
+    },
+    {
+      "H": 4,
+      "period": 144,
+      "avoiders": 108,
+      "density": "3/4",
+      "unordered_mean": "37/144"
+    },
+    {
+      "H": 5,
+      "period": 3600,
+      "avoiders": 2207,
+      "density": "2207/3600",
+      "unordered_mean": "1489/3600"
+    },
+    {
+      "H": 6,
+      "period": 3600,
+      "avoiders": 1699,
+      "density": "1699/3600",
+      "unordered_mean": "2059/3600"
+    },
+    {
+      "H": 7,
+      "period": 176400,
+      "avoiders": 70807,
+      "density": "70807/176400",
+      "unordered_mean": "128431/176400"
+    }
+  ],
+  "balanced_boxes": [
+    {
+      "B": 5,
+      "central_integers": 250,
+      "covered": 46
+    },
+    {
+      "B": 10,
+      "central_integers": 2000,
+      "covered": 335
+    },
+    {
+      "B": 20,
+      "central_integers": 16000,
+      "covered": 2547
+    },
+    {
+      "B": 40,
+      "central_integers": 128000,
+      "covered": 19621
+    }
+  ],
+  "controls": [
+    "CONTROL 17 0",
+    "CONTROL 241 2",
+    "CONTROL 193 4",
+    "CONTROL 409 4",
+    "CONTROL 577 12",
+    "CONTROL 2521 4",
+    "CONTROL 3361 12",
+    "CONTROL 5569 20",
+    "CONTROL 9601 18",
+    "CONTROL 66529 30",
+    "CONTROL 8813281 84",
+    "CONTROL 49 0",
+    "CONTROL 121 2",
+    "CONTROL 1225 0",
+    "CONTROL 1600 0",
+    "CONTROL 19600 0",
+    "CONTROL 2433600 0"
+  ]
+}
