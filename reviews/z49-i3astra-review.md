@@ -1,7 +1,7 @@
 # Hostile review of I3_DEEP_ASTRA.md (branch side-agent/z49-i3astra, commit 6aeb18a9)
 
 Reviewer: cross-model hostile review, wave z49. Independent checks:
-`scripts/z49_revi3astra_check.py` and an inline census/shared-modulus script (contents recorded below). Both ran under
+`scripts/z49_revi3astra_check.py` and `scripts/z49_revi3astra_census.py`. Both ran under
 `ulimit -v 8000000`, each in under 3 s.
 
 ## Verdict: **SOUND** (no fatal or major error found), with minor repairs and a sharp novelty downgrade for §§2, 4, 5 and 8.5.
@@ -163,7 +163,7 @@ The round-2 results (Thms 8.3, 8.4, 8.6, 8.8) are SOUND as stated. What they sho
 The first-round §§2, 4 and 5 are correct but trivial or superseded; the short-interval bound is a congruence-family
 count. Required repairs are editorial: m1 (relabel), m2 (rewrite §0), m3 (downgrade Prop 8.5).
 
-## Inline script used (census to 10⁵ and separated equal-sum check)
+## `z49_revi3astra_census.py` (census to 10⁵ and separated equal-sum check)
 The census enumerates the AP n ≡ −u (mod tu−1), starting at 3(tu−1) − u, for every (t, u) with 3(tu−1) − u ≤ 10⁵.
 The large-n counts use divisor enumeration over the coordinate ≤ (9n/7)^{1/3}. The equal-sum check uses u ∈ [5, 10],
 v ∈ [1000, 4000], squarefree and coprime.
