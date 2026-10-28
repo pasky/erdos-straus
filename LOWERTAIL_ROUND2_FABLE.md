@@ -42,7 +42,7 @@ non-identity theorem, one new witness statistic with a different (Landau-type) h
    alone never fail ≤ 10⁸. **Theorem 3.2 (PROVED rel. the elementary upper-bound sieve):** HC(p) = 4 for all
    but O(x/(log x)²) primes p ≡ 1 (8) up to x. So, unlike H₄ (least larger endpoint; a pure congruence event whose survival
    probability at fixed X is a positive constant), HC is a **Landau-type** statistic: P(HC > X) → 0 as p → ∞ for every fixed
-   X (EVIDENCE: P(HC > 8) = 7.8, 6.7, 5.8, 3.7 ‰ per decade 10³…10⁷). This is the kind of one-coordinate statement the z49
+   X ≥ 4 (EVIDENCE: P(HC > 8) = 7.8, 6.7, 5.8, 3.7 ‰ per decade 10³…10⁷). This is the kind of one-coordinate statement the z49
    calibration leaves open. **Prop 3.3 (CONDITIONAL on Dickson):** (a) HC(p) > X for infinitely many p ≡ 1 (24), for every
    X — CERTIFIED instances (p = 147 223 441, HC = 15 > 8); (b) for every X, K there are infinitely many p ≡ 1 (24) at which
    every word with a coordinate ≤ X is free and monochromatic while there are ≥ K such words (a CRT-corrected family; the
@@ -50,12 +50,13 @@ non-identity theorem, one new witness statistic with a different (Landau-type) h
    hypothesis found that is (i) one-coordinate, (ii) not refuted by the polylog-window calibration, (iii) consistent with
    Dickson. No implication from a standard conjecture to it is known (§4).
 4. **Hierarchy (work item 2, §4).** Shape balance SB(c): N₋(p) ≥ c·W(p) implies ES₅ for large p *without any sign-free
-   lower tail* (W(p) ≥ 15 is PROVED); every quantitative member of the hierarchy is ES₅ plus a size statement, every
+   lower tail* (W(p) ≥ 15 is PROVED); every ES-sufficient quantitative member of the hierarchy is ES₅ plus a size statement, every
    positivity member stated "for all n" is false at squares (PROVED), every one-coordinate bounded-window certificate-positivity member is
    false i.o. under Dickson (Prop 3.3(b), with the window words arbitrarily many and all monochromatic), and after the
    coordinate form the ES₅ covering is **character-free** (Prop 4.2, PROVED), so the known consequences of GRH/OAI-003
    (least QNR, main terms) act on layers the covering no longer has (Assessment). The boundary: the weakest clean member
-   is ES₅ itself; the weakest *natural* member is HC(p) ≪ log p; no implication from a standard conjecture to any member
+   is ES₅ itself; Conjecture 3.4 (HC(p) ≪ log p) is a *candidate* one-coordinate member, with HC(p) ≤ (log p)^A (A > 1)
+   a weaker one; no implication from a standard conjecture to any member
    is known or supplied here (Assessment, with the exact blocking step in §6).
 5. **M_gen (work item 3, §5).** The statement that closes (∗) given Astra's Thm 5.4 is (G_ε): among the genus-admissible
    pairs (u, B) — those with p ≡ −(u+B)x² (mod 4uB) for some x — the exact class x² = 1 is hit at ≥ ε of its a-priori rate
@@ -63,8 +64,9 @@ non-identity theorem, one new witness statistic with a different (Landau-type) h
    p = 8 813 281 there are 564 872 genus-admissible pairs of total weight M_gen = 29.08 and R = 0. PROVED: sign-free shape
    equidistribution (SE) implies (★) and ES₅ eventually; SE together with the sign-free tail W(p) ≫ log²p implies (∗)_BM,
    and (G_ε) as well if M_gen ≪ log²p (not proved; EVIDENCE M_gen ≈ M_BM); SE alone yields no log²-size lower bound, so no
-   implication SE ⟹ (G_ε) is established. (G_ε) restricted to moduli ≤ (log p)^C is heuristically false (the two-endpoint
-   window vanishes i.o.).
+   implication SE ⟹ (G_ε) is established. The two-endpoint calibration obstructs a polylog-modulus-window *certificate-positivity*
+   argument for the (★) line (R_Y = 0 i.o. heuristically); a windowed relative inequality R_Y ≥ ε M_gen,Y needs a separate
+   positive-main-term statement before that obstruction applies (§5.2).
 
 **Promise: 0/5 as a proof mechanism; 2/5 for the reformulation** (Theorem 1 and HC are the cleanest statement of ES₅ so far:
 a character-free covering, one-coordinate witnesses, Landau-type heuristics). The exact blocking step is unchanged and is
@@ -84,7 +86,10 @@ Theorem A (FOREST_DEEP_FABLE) says this is #{words : (uv/n) = −1} (Jacobi symb
 Equivalently (for any n ≡ 1 (4), without the coprimality): 4 | t or 4 | u or 4 | v or 4 | A or 4 | A*  ⟺  some coordinate
 lies in 𝒞_n.
 
-*Proof.* By Theorem A it suffices to prove the second equivalence. (⇐) If 4 divides a coordinate it is a slot. If
+*Proof.* Theorem A gives the first equivalence from the second (its hypothesis gcd(u, v) = 1 is automatic: gcd(u, v) | n
+and gcd(uv, n) = 1; the only coprime word with u = v is (n+2, 1, 1), which is in neither set; alternatively cite
+FOREST_CONNECTIVITY Thm 2.1 / FOREST_DEEP_ASTRA Thm 2.1, stated for words directly). So it suffices to prove the second
+equivalence. (⇐) If 4 divides a coordinate it is a slot. If
 u ≡ −n (mod 8): n + u ≡ 0 (mod 8) and vA = n + u, so v₂(v) + v₂(A) ≥ 3 and one of v, A is ≡ 0 (mod 4) — a slot. The same
 for v (with uA* = n + v). If t ≡ −n (mod 8) (t odd): AA* = tn + 1 ≡ 1 − n² ≡ 0 (mod 8), so one of A, A* is ≡ 0 (mod 4). (⇒) Suppose 4 | A = tu − 1
 and none of t, u, v is ≡ 0 (mod 4); then t, u are odd and n = vA − u. If A ≡ 0 (mod 8) then u ≡ −n (mod 8). If A ≡ 4 (mod 8)
@@ -139,8 +144,10 @@ Let m be odd. By Theorem E (FOREST_DEEP_FABLE) no word of m² has an endpoint �
 of m² has a coordinate in 𝒞_{m²}, and Theorem 1 gives N₋(m²) = 0 (the five-slice T1 of DEDEKIND_ES / PARITY_AUDIT Lemma
 3.2). Conversely, N₋(m²) = 0 together with Theorem 1 *is* the statement that all six coordinate lines are empty at m². So the
 odd-square obstruction for ES₅ is **exactly** the six single-coordinate reciprocity facts, each of the form "an integer of
-the shape m² + u (u ∈ 𝒞) or tm² + 1 (t ∈ 𝒞) has no divisor in the class −m² (mod u), resp. −1 (mod t)", proved by
-(−u/A) = +1 for A | m² + u versus the forced value (−u/A) = −1 in that class. CERTIFIED: `z49_ltfable2_scan.c sq` on all
+the shape m² + u (u ∈ 𝒞) has no divisor A ≡ −1 (mod u), A > 1 (Theorem E, numerator form, no coprimality needed), resp.
+tm² + 1 (t ∈ 𝒞) has no divisor ≡ −1 (mod t) (Lemma 4.3)", proved by (−u/A) = +1 for A | m² + u versus the forced value
+(−u/A) = −1 in that class. (The endpoint-divisor form "no v ≡ −m² (mod u) with v | m² + u" is false without gcd(u, v) = 1:
+m = u = v = 7 has 7 | 56, but 7·7 ∤ 49 + 7 + 7, so it is not a word; the numerator form is the correct one.) CERTIFIED: `z49_ltfable2_scan.c sq` on all
 odd squares ≤ 10⁷ reports every line empty (N₋ = Nt = Ne = 0 at all 1 580 odd squares, no coprimality assumed).
 
 *Consequence for screening line 1 (Assessment).* A proof of ES₅ via the covering of §1.2 must use that the integers
@@ -158,9 +165,10 @@ odd and agrees with the table; the classes with sign −1 are (t, d) mod 8 ∈ {
 (6,5)}.
 
 *Reading (answers the (J)10 question "what is the spin event").* Let 𝒟(n) be the sign-blind set of all signed words
-(positive and negative, all levels). Then (·/n) is identically +1 on 𝒟(m²) (principal character), while on 𝒟(n) for
-non-square n the character is non-trivial and ES₅(n) ⟺ it takes the value −1 on the **positive** part — Theorem 1 says
-exactly on the positive words with a coordinate in 𝒞_n. The identity W = (S − O)/2 of GROWING_IDENTITIES Prop 4.1 (level
+(positive and negative, all levels). The character is evaluated at the numerator d (resp. A), which is a unit mod n. It is identically +1 on
+𝒟(m²) (principal character); for non-square n it is non-principal on the *ambient* group (ℤ/n)^×, but whether its −1 set
+meets the numerators of the signed words of n, and in particular the **positive** words, is not established by this —
+the latter is exactly ES₅(n), and by Theorem 1 it is the statement that a positive word has a coordinate in 𝒞_n. The identity W = (S − O)/2 of GROWING_IDENTITIES Prop 4.1 (level
 t ≡ 3 (4), odd numerators) is the special case where negative words carry sign +1; at levels t ≡ 1 (4), 2 (4) and at even
 numerators the negative words can carry sign −1 (Lemma 1.4), so on the *full* sign-blind set the event "(·/n) ≢ +1" is
 strictly weaker than ES₅ (it holds at n = 105, where ES₅ fails: the negative word (11, −3, −3) of 105 has numerator
@@ -239,7 +247,8 @@ independent involution relations. For p ≡ 1 (8) and p ≡ 5 (8) separately: 80
 shape cells at a single n. Among cells, with constant coefficients: none beyond the symmetry. Not covered: relations with
 coefficients depending on n, non-linear relations, relations involving other arithmetic functions (the free layer has
 them, Thm 2.1, but at the level of vertices u ≤ 2 and levels t ≤ 2, which are not unions of cells), and relations among
-interior-only cell counts (not tested separately). The Kronecker identities of Thm K relate, at each fixed level t, the
+interior-only cell counts (not tested separately). In particular Thm 2.3 does not exclude interior-word transports
+or explain why none is known; it only shows that none is forced on constant-coefficient cell counts. The Kronecker identities of Thm K relate, at each fixed level t, the
 positive-word count D⁻_t(tn+1) to the negative-word count D⁺_t(tn+1) through Σ_{χ odd} σ_χ(tn+1); but
 Σ_{χ odd mod t} χ(d) = (φ(t)/2)(1[d ≡ 1 (t)] − 1[d ≡ −1 (t)]) by orthogonality, so at the level of counts (K1′) reads
 D⁻ − D⁺ = D⁻ − D⁺. Its content is the identity of q-series in n (a theta quotient), i.e. information on average over n,
@@ -398,7 +407,7 @@ the levels and the unbounded monochromatic window count.
 ### 3.5 The conjecture and its status (CONJECTURE; Assessment)
 
 **Conjecture 3.4.** HC(p) ≤ C log p for all primes p ≡ 1 (mod 4) and some absolute C (EVIDENCE: C = 4.2 suffices for
-10⁵ < p ≤ 10⁸, C = 2.6 for 10⁷ < p ≤ 10⁸; C = 6.5 for all p ≤ 10⁸). Other forms: HC(p) ≤ (log p)^A (weaker); HC(p) ≤ f(p)
+10⁵ < p ≤ 10⁸, C = 2.6 for 10⁷ < p ≤ 10⁸; C = 6.5 for all p ≤ 10⁸). Other forms: HC(p) ≤ (log p)^A with A > 1 (weaker, equally one-coordinate); HC(p) ≤ f(p)
 for a prescribed f → ∞ (weaker or stronger according to f).
 Each form implies ES₅ hence ES for all large p (PROVED: HC < ∞ ⟺ ES₅). No implication from GRH, OAI-003, EH, Dickson/BH
 or H⁻mom to any form is known or supplied here (Assessment; §4). Its heuristic status: the lines u, t ∈ 𝒞_p ∩ [4, X] are
@@ -418,8 +427,8 @@ I3 = interior words (t, u, v ≥ 3), R = (★) = words with 4 | t, M_BM, M_gen a
 |---|---|---|
 | ES₅ | N₋(p) ≥ 1 | yes (definition) |
 | H_C(f) | HC(p) ≤ f(p) | yes: ⟹ ES₅ |
-| SB_any(c) | N₋(p) ≥ c·W(p) | yes: W(p) ≥ 15 (Thm 4.1, PROVED) so N₋ ≥ 15c > 0 ⟹ N₋ ≥ 1 |
-| SB_all(κ) | W_c(p) ≥ κ·W(p) for every certificate cell c | yes: ⟹ SB_any; also ⟹ (★)-eventual (the (★) cells are certificate cells) |
+| SB_any(c) | N₋(p) ≥ c·W(p) | yes: W(p) ≥ 15 for p > 5 (Thm 4.1, PROVED; W(5) = 11) so N₋ ≥ 15c > 0 ⟹ N₋ ≥ 1 |
+| SB_all(κ) | W_c(p) ≥ κ·W(p) for every certificate cell c admissible for p mod 8 (60 of the 80 cells of that class) | yes: ⟹ SB_any; also ⟹ (★)-eventual (the (★) cells are certificate cells) |
 | SB_int(c) | N₋^{int}(p) ≥ c·I3(p) | **only together with I3 ≥ 1**; alone it is vacuous when I3(p) = 0 |
 | I3, I3_log | I3(p) ≥ 1, resp. ≥ c log²p | **no** (sign-free; holds at squares in the census, where ES₅ fails) |
 | W_log | W(p) ≥ c log²p | no (sign-free) |
@@ -429,7 +438,7 @@ I3 = interior words (t, u, v ≥ 3), R = (★) = words with 4 | t, M_BM, M_gen a
 | H⁻mom | Astra (14) | yes (Astra Thm 7.1) |
 
 **Implications (PROVED).** SB_all ⟹ SB_any ⟹ ES₅; SB_all ⟹ (★)-ev; (∗)_BM ⟹ (★)-ev ⟹ ES₅; SB_int ∧ I3 ⟹ ES₅;
-SB_all(κ) ∧ W_log ⟹ (∗)_BM(ε) with ε = κc/(3/π² + o(1)) (M_BM ≤ 2M₀ and M₀ = (3/(2π²) + o(1)) log²p, FRONTIER §2.2);
+SB_all(κ) ∧ W_log ⟹ (∗)_BM(ε) for every fixed 0 < ε < κcπ²/3 (M_BM ≤ 2M₀ and M₀ = (3/(2π²) + o(1)) log²p, FRONTIER §2.2);
 H_C(f) ⟹ ES₅ for every f. **Key point:** the sign-free lower tail (I3, W_log) is *not needed* for ES — SB_any alone suffices,
 because the free layer supplies W ≥ 15 unconditionally. The tail is needed only to convert a shape statement into a
 (∗)-type statement (§5.2).
@@ -439,9 +448,9 @@ because the free layer supplies W ≥ 15 unconditionally. The tail is needed onl
   squares N₋ = R = 0 while W(m²) ≥ τ(m²+1) + … ≥ 3. The relative members (∗)_BM, (∗)_gen are *not* refuted by squares:
   with the convention gcd(n, 4uB) = 1 of BM_CORRECTED_COUNT, M_BM(m²) = M_gen(m²) = 0 (T1 lives in the genus layer,
   FRONTIER §2.1) and the inequality reads 0 ≥ 0. So a positivity hypothesis in this family must be stated for primes
-  (or non-squares) and must be square-sensitive — in the coordinate form through the choice of 𝒞_n by n mod 8, the only
-  place the quadratic character of n enters (this is a description of the present formulation, not a theorem that every
-  formulation must display a character).
+  (or non-squares) and must be square-sensitive. In the coordinate form the only *explicit* character datum is the choice
+  of 𝒞_n by n mod 8 (syntactic bookkeeping); the arithmetic square-sensitivity sits in the divisor structure of the tied
+  integers n + u, tn + 1, which distinguishes squares from primes in the same class mod 8.
 * (CONDITIONAL on Dickson, Prop 3.3(b)) Every one-coordinate bounded-window *certificate-positivity* version — "some
   certificate with a coordinate ≤ X", "N₋ restricted to words with a coordinate ≤ X is ≥ c·(number of such words)", "a
   certificate among the free words", "(★) or any line at levels ≤ X or endpoints ≤ X" — fails for infinitely many primes,
@@ -470,8 +479,9 @@ whole of G_A, the shadow layer is everything.
 **The boundary (Assessment).** The proved arrows among the ES-sufficient members are (∗)_BM ⟹ (★)-ev ⟹ ES₅, SB_all ⟹
 SB_any ⟹ ES₅, SB_all ⟹ (★)-ev, and H_C(f) ⟹ ES₅ (no arrow between H_C and SB is established); the weakest member is ES₅
 itself. Every positivity member is false at squares, false on one-coordinate bounded windows (CONDITIONAL), and
-character-free in the coordinate form. The weakest member with a *mechanism-independent* heuristic that survives the
-calibration is H_C(C log p) (Conjecture 3.4). No standard conjecture is known to reach any of them, for the reason stated
+character-free in the coordinate form. Conjecture 3.4 (H_C(C log p)) is a candidate one-coordinate member not killed by
+the two-endpoint calibration — a candidate, not a derived scale: H_C((log p)^A), A > 1, is weaker and equally
+one-coordinate, and compatibility with the calibration is not evidence for the specific scale log p. No standard conjecture is known to reach any of them, for the reason stated
 in §6: at the Dickson primes of Prop 3.3(b) every member asks for a divisor of one of the integers p + u (u ∈ 𝒞_p,
 u > X) or tp + 1 (t ∈ 𝒞_p, t > X) in a prescribed class modulo u resp. t, and no conjecture about L-functions, primes in
 progressions, or prime values of polynomials is known to constrain the joint divisor structure of these integers at one p
@@ -501,7 +511,7 @@ the right side is ≥ ε(2/π⁴ − o(1)) log²p, so (G_ε) ⟹ R(p) → ∞ �
 
 ### 5.2 Shape equidistribution versus (G_ε) (PROVED implications, Assessment for the rest)
 
-Let (SE_κ) be sign-free shape equidistribution at p: every admissible cell c of (t, u, v) mod 8 satisfies W_c(p) ≥ κ W(p)
+Let (SE_κ) be sign-free shape equidistribution at p: every cell c of (t, u, v) mod 8 admissible for p mod 8 (80 cells) satisfies W_c(p) ≥ κ W(p)
 (κ > 0 fixed; the cells have positive local densities, so this is the weakest form of "no cell is starved").
 * (SE_κ) ⟹ (★)-eventual and ES₅: every admissible cell with t ≡ 0 (mod 4) is a certificate cell, so R(p) ≥ κ W(p) ≥ 15κ > 0.
   PROVED; no sign-free tail is used.
@@ -524,8 +534,9 @@ Let (SE_κ) be sign-free shape equidistribution at p: every admissible cell c of
   i.o., z49 calibration). Whether the windowed inequality R_Y ≥ ε M_gen,Y then *fails* at those primes depends on
   M_gen,Y(p) > 0 there, which is a separate genus statement on the same sequence (its average size is polylog(Y) =
   polylog(log p), its pointwise value can be 0 on square-mimicking progressions — Astra Thm 6.1/§6.3). So the correct
-  reading is: (G_ε) cannot be *proved* on polylog-modulus windows by the lottery heuristic, and any proof of it must use
-  pairs with 4uB ≥ exp((log p)^{1/2−o(1)}) at some primes. Theorem 3.2's Landau-type lines are a different truncation
+  reading is: the calibration obstructs a polylog-window certificate-positivity argument for the (★) line; for the full
+  inequality with Astra's conditional log-square genus lower bound, actual witnesses are forced and then (CONDITIONAL on
+  that bound and on the heuristic) must have 4uB ≥ exp((log p)^{1/2−o(1)}) at some primes. Theorem 3.2's Landau-type lines are a different truncation
   (one coordinate bounded, the other free; not a bounded-modulus window), and they are not star-line pairs in general.
 
 ### 5.3 Census of the genus decomposition (CERTIFIED; `scripts/z49_ltfable2_mgen.c`, `data/z49_ltfable2/mgen_1e5.txt`)
@@ -560,8 +571,8 @@ at squares (§1.3) and the majorants (Prop 2.2 of LOWERTAIL_DEEP_FABLE). **What 
 (a) exact linear cell identities beyond the involution (Thm 2.3); (b) identities "N_𝒢 − (≥ 0) = f" with f the count on
 finitely many fixed lines or slices (fails i.o.; CONDITIONAL on Dickson / H), the only explicit f ≤ N_𝒢 known (§2.3);
 (c) one-coordinate bounded-window certificate-positivity versions of the hypotheses in §4, including shape balance on
-windows with arbitrarily many words (Prop 3.3(b) under Dickson); (d) any use of GRH/003 through a character condition *on the certificate* (Prop
-4.2: there is none; indirect uses are not excluded). **Not established (not barred):** a derivation of (∗) from (SE) without the sign-free tail (§5.2). **What is not barred:** a
+windows with arbitrarily many words (Prop 3.3(b) under Dickson); **Not established (not barred):** a transfer from the known consequences of GRH/OAI-003 to
+covering positivity (Prop 4.2 is a presentation fact, not a no-go theorem for character methods); a derivation of (∗) from (SE) without the sign-free tail (§5.2). **What is not barred:** a
 single-integer lower bound for the sign-free count on the union of six coordinate lines at growing coordinates; an
 unconditional or conditional proof of Conjecture 3.4; a Landau-type argument that reaches HC ≤ X(p) with X(p) → ∞ for
 *all* large p rather than almost all (this would be a new kind of sieve statement: a lower bound for a sifted shifted-prime
@@ -579,8 +590,9 @@ Nothing passes line 4.
 ## 7. Verdict and promise (Assessment)
 
 * **(∗) and every ES-sufficient statement remain open**; no standard conjecture is shown to imply any member of §4, and
-  Prop 4.2 shows the certificate condition itself presents no character for the L-function hypotheses to act on
-  (indirect uses are not excluded).
+  Prop 4.2 is a presentation fact (the covering contains no explicit character test), not a no-go theorem for
+  character methods. Cross-model review (reviews/z49-ltfable2-review.md, Astra): SOUND-AFTER-REPAIRS; novelty grades
+  ≤ 2/5 throughout (Thm 2.3 and Prop 3.3(b) at 2/5).
 * **Durable content:** Theorem 1 (certificate ⟺ a coordinate in 𝒞_n; numerator slots redundant) with its corollaries
   (character-free covering; T1 = six reciprocity statements; the spin event is a mod-8 coordinate condition); Lemma 1.4
   (signs of negative words; the sign-blind spin event is weaker than ES₅); Theorem 2.1 (sign-aware free layer); Theorem
