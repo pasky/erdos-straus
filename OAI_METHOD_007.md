@@ -63,7 +63,7 @@ Here h,l≥1 are fixed and b is any residue, including zero or a nonunit. The no
 **CONDITIONAL on OAI-007, Theorem 1.2 and Corollary 1.3.** Let f₁,f₂:N→C be multiplicative and |fᵢ|≤1. At least one original factor must satisfy, for every fixed Dirichlet character χ,
 
 \[
- \inf_{|t|\le N}\sum_{q\le N,\ q\ {m prime}}
+ \inf_{|t|\le N}\sum_{q\le N,\ q\ \mathrm{prime}}
  \frac{1-\Re(f(q)\overline{\chi(q)q^{it}})}q\longrightarrow\infty.
                                                                     \tag{2.2}
 \]
@@ -289,4 +289,4 @@ The graph estimate does allow arbitrary bounded **vertex test functions once the
 3. **Assessment — separate transfer obligation:** only after that, specify a class-aware bounded/truncated model for (5.1), quantify its discarded mass at a single p, and prove a one-sided error below log²p. This is a stronger and different task from two-point Chowla. Do not call an assumption giving that error “a consequence of 007.”
 4. **Assessment — stop condition:** without a new density-relative estimate or an exact divisor-weight transfer, park the H-B proposal. OAI-003, even if separately assumed, improves character nonpretentiousness and BM main terms but does not restore either missing factor or the tied class.
 
-**Validation record.** Primary TeX labels and PDF theorem numbers were cross-checked; the affine identity and both cases in the proof of (U) were checked algebraically. No numerical experiment would establish the asserted analytic uniformity, so none is substituted for the proof. This deliverable changes only this document; the release and campaign source files remain untouched.
+**Validation record.** Primary TeX labels and PDF theorem numbers were cross-checked; the affine identity and both cases in the proof of (U) were checked algebraically. A separate fresh-context deep reviewer inspected all eight quantitative TeX files, challenged the uniform-threshold deduction and the density-loss diagnosis, and found no substantive defect; its one TeX control-character finding was repaired. This is review of the conditional extraction, not independent verification of OAI-007's underlying graph theorems. No numerical experiment would establish the asserted analytic uniformity, so none is substituted for the proof. This deliverable changes only this document; the release and campaign source files remain untouched.
