@@ -1,15 +1,15 @@
 # H4_NOT_POLYLOG — simultaneous super-polylogarithmic forest and covering gaps
 
-**PROVED, relative to classical prime distribution and the internally proved energy lemma stated in §4:** there are infinitely many primes p ≡ 1 (mod 840) for which
+**PROVED, effective, relative to classical Gallagher input (G) stated in §5 and the internally proved energy lemma (OMEGA10 Theorem 3.4 / OMEGA11 Lemma 1.1):** there are infinitely many primes p ≡ 1 (mod 840) for which
 
-    H₄(p) > exp((log p)^(1/13)),
-    A_min(p) > exp((log p)^(1/13)).
+    H₄(p) > exp((log p)^(1/7)),
+    A_min(p) > exp((log p)^(1/7)).
 
-In fact the same primes have **no edge whatsoever** with larger endpoint between 4 and exp((log p)^(1/13)). The only edges in this initial box are {1,2} and {2,3}. Under **GRH**, 1/13 can be replaced by 1/7. These exponents are deliberately not optimized.
+In fact any fixed exponent κ < 1/6 works. The same primes have **no edge whatsoever** with larger endpoint between 4 and exp((log p)^κ). The only edges in this initial box are {1,2} and {2,3}. The original ordinary-PNT proof, retained below independently of (G), gives κ < 1/12 (in particular 1/13); **GRH** gives κ < 1/6 without (G). These exponents are deliberately not optimized. The exact archived formulation and provenance caveat for (G) are given in §5; the internal energy dependency remains unrefereed.
 
 **Scope:** this refutes FOREST_H4 Conjecture H₂ and every fixed-polylogarithmic bound on both forest endpoints or on the covering coordinate. It says nothing about ES existence, eventual ES₅, or bounds on only one endpoint. ES remains open. Proofs and their review are internal and unrefereed.
 
-The main new arithmetic input is an elementary bound on the *class-of-one inflated mass*. It replaces the proposed smooth/rough analysis. The transfer uses a low-modulus one-sided approximation, **not** an unproved Poisson bound for high intersections. The possible exceptional real zero is retained throughout; the unconditional result is ineffective.
+The main new arithmetic input is an elementary bound on the *class-of-one inflated mass*. It replaces the proposed smooth/rough analysis. The transfer uses a low-modulus one-sided approximation, **not** an unproved Poisson bound for high intersections. The possible exceptional real zero is retained throughout. The effective Page–Landau bound suffices, so both unconditional versions are effective: their absolute constants and sufficiently-large thresholds are computable, though not numerically evaluated here. Siegel's ineffective theorem is not used.
 
 ## 1. Precise statement and coordinates
 
@@ -20,9 +20,9 @@ Throughout, logs are natural; H is an integer tending to infinity and L = log(3H
 
 Set A_min(p)=∞ if this set is empty. This is not the window minimum a_min or the least smaller endpoint u_min.
 
-### Theorem 1 (PROVED)
+### Theorem 1 (PROVED, effective)
 
-There is an absolute C such that for every sufficiently large H there is a prime
+There is an effectively computable absolute C and an effective threshold such that for every sufficiently large H there is a prime
 
     H² < p ≤ exp(C L^12 (log L)^2),       p ≡ 1 (mod 840),             (1)
 
@@ -31,11 +31,11 @@ with both properties:
 * the induced forest on [1,H] has exactly the two edges {1,2}, {2,3};
 * p mod A ∉ G_A for every 2 ≤ A ≤ H.
 
-**CONDITIONAL on GRH:** the upper bound in (1) improves to exp(C L^6 log L).
+**Stronger unconditional version, PROVED relative to classical (G):** the upper bound in (1) improves effectively to exp(C L^6 log L). **CONDITIONAL on GRH:** the same improvement follows without (G).
 
-Consequently, unconditionally, for every κ < 1/12 there are infinitely many such primes with both minima greater than exp((log p)^κ). Under GRH any κ < 1/6 works. Choosing κ = 1/13 and 1/7 gives the opening statements. The constants in the cutoff do not matter because these are strict inequalities below the limiting exponents. Distinctness is guaranteed by p > H², not by assuming either minimum finite.
+Consequently the ordinary-PNT route gives every κ < 1/12, and the Gallagher route gives every κ < 1/6, unconditionally, with both minima greater than exp((log p)^κ) at infinitely many such primes. GRH gives the latter range independently of (G). The constants in the cutoff do not matter because these are strict inequalities below the limiting exponents. Distinctness is guaranteed by p > H², not by assuming either minimum finite.
 
-**Novelty / dependency audit (Assessment).** The fixed-H avoidance and logarithmic Linnik lower bound are already in FOREST_H4 §3.1 and FOREST_DEEP_FABLE §3.2. The local-lemma/energy/prime-transfer architecture appears in POINTWISE_OMEGA8–13 for a different Type-II witness modulus W. No inequality transferring that W-bound to H₄ or A_min is assumed here. We instead verify a new pair of event families, prove their inflated-mass bound, extend the graded argument to the prime 2, and give a coefficient-norm transfer using ordinary uniform PNT in progressions. This avoids importing the stronger Gallagher transfer or its interfaces.
+**Novelty / dependency audit (Assessment).** The fixed-H avoidance and logarithmic Linnik lower bound are already in FOREST_H4 §3.1 and FOREST_DEEP_FABLE §3.2. The local-lemma/energy/prime-transfer architecture appears in POINTWISE_OMEGA8–13 for a different Type-II witness modulus W. No inequality transferring that W-bound to H₄ or A_min is assumed here. We instead verify a new pair of event families, prove their inflated-mass bound, extend the graded argument to the prime 2, and give a coefficient-norm transfer using ordinary uniform PNT in progressions. The original proof avoids the stronger Gallagher transfer. The review follow-up additionally verifies its interfaces explicitly in Lemma 7b below, using POINTWISE_OMEGA9 Theorem 1.1 and the overlapping-modulus extension in POINTWISE_OMEGA11 Lemma 3.1. No additional divisor estimate or hypothesis about ES is used.
 
 ## 2. The two congruence families and their safe point
 
@@ -88,13 +88,13 @@ Consequently the sum S♯ of (2) over the combined family is
 
 *Proof of (3).* Coprimality may be dropped for this upper bound. Put s=a+v+1. Then
 
-    gcd(av,s)=gcd(a(a+1),s),     s≤3v.
+    gcd(av,s)=gcd(a(a+1),s),     s≤2v  (since a<v).
 
 Using gcd(k,s)=Σ_(d|k,d|s) φ(d), positivity, and enlarging the s-range,
 
     Σ_(a<v≤H) gcd(av,a+v+1)/(av)
-      ≤ 3 Σ_(a≤H) (1/a) Σ_(s≤2H+1) gcd(a(a+1),s)/s
-      ≤ 3(1+log(2H+1)) Σ_(a≤H) τ(a)τ(a+1)/a.                  (6)
+      ≤ 2 Σ_(a≤H) (1/a) Σ_(s≤2H+1) gcd(a(a+1),s)/s
+      ≤ 2(1+log(2H+1)) Σ_(a≤H) τ(a)τ(a+1)/a.                  (6)
 
 Here Σ_(s≤X,d|s) 1/s≤(1+log X)/d and φ(d)/d≤1.
 
@@ -230,21 +230,21 @@ Together with E|F−B|≤δ/100 and μ≥0.99δ, this proves (13) with ample sla
     θ(x;q,a)=x/φ(q)−1_(f|q) ψ(a)x^β/(βφ(q))
                          +O(x exp(−c₁ sqrt(log x))).             (14)
 
-Here one single primitive real exceptional pair (ψ,β), if present, is chosen uniformly for the entire modulus range, with β close to 1; otherwise the second term is absent. This is the classical zero-free-region/PNT-with-exception formulation (e.g. Davenport, *Multiplicative Number Theory*, 3rd ed., chapters 14 and 20).
+Here one single primitive real exceptional pair (ψ,β), if present, is chosen uniformly for the entire modulus range, with β close to 1; otherwise the second term is absent. **Precise published citation:** Montgomery–Vaughan, *Multiplicative Number Theory I: Classical Theory*, Cambridge Studies in Advanced Mathematics 97 (2007), **Corollary 11.20, equations (11.32) and (11.34), p. 381**, combined with **Corollary 11.10 (Page), p. 369**. The former is the per-modulus θ formula; the latter makes its exception global after absorbing zeros below the common threshold, as derived next. Effectivity of the underlying constants is explicitly stated on p. 380 following Corollary 11.17. These statements were checked directly in the [author-hosted chapter 11](https://personal.science.psu.edu/rcv4/personal/Publications/MNTI/15.0_pp_358_396_Primes_in_arithmetic_progressions_II.pdf), DOI [10.1017/CBO9780511618314.013](https://doi.org/10.1017/CBO9780511618314.013).
 
 **Derivation of the required uniformity.** Put U=exp(c₀ sqrt(log x)). Landau–Page gives at most one primitive character of conductor ≤U with a real zero β>1−c/log U. Truncate each primitive-character explicit formula at height exp(a sqrt(log x)), for a fixed small a>0. The standard region Re s≤1−c'/log(q(|Im s|+2)) bounds all nonexceptional zeros in this range; any other real zero is bounded by the Landau–Page threshold instead. Their total contribution is O(x exp(−c₁ sqrt(log x))), after absorbing powers of log x. Character orthogonality averages, rather than sums, these individual errors over the φ(q) characters. The unique primitive exception induces exactly one character modulo each q divisible by its conductor f and none otherwise, giving (14). Removing prime powers costs O(sqrt(x) log²x), inside the same error. Thus the exception is **global**, not a potentially different character for every q. The usual paired treatment of a real zero near 0 and the explicit-formula constant avoids any spurious 1/(1−β) error.
 
-We also use Siegel's theorem (for an accessible exact statement, [Kedlaya, Theorem 10.9](https://kskedlaya.org/ant/chap-errorbounds2.html#T-Siegel), visited during this task) in its deliberately weak, ineffective consequence
+We use the **effective Page–Landau bound**, verified in the same published source, **Corollary 11.12, p. 370**:
 
-    1−β ≥ c₂/f                                                   (15)
+    1−β ≥ c₂ / (sqrt(f) (log f)²),        f≥3,                   (15)
 
-for real primitive conductors f (take ε=1 in 1−β≫_ε f^(−ε)). No effective value of c₂ is claimed. This is enough; deleting the exception or applying Siegel–Walfisz outside its range would not be enough.
+with an effectively computable absolute c₂>0 for an exceptional real zero of a primitive quadratic character of conductor f. Nonexceptional real zeros already have the stronger zero-free-region bound. In particular (15) implies 1−β≥c₃/f with an effective c₃, since (log f)²/sqrt(f) is bounded on f≥3. The original use of Siegel's ineffective theorem was unnecessary. Deleting the exception or applying Siegel–Walfisz outside its range would still be invalid.
 
 Under GRH replace (14) by θ(x;q,a)=x/φ(q)+O(sqrt(x) log²(qx)), uniformly in reduced classes, with no exceptional term. Bertrand's postulate supplies an auxiliary prime below.
 
-### Lemma 7 (PROVED: transfer with polynomial logarithmic budget)
+### Lemma 7 (PROVED, effective: ordinary-PNT transfer)
 
-For the system of §§4–6 there is a prime avoiding the original events, congruent to 1 modulo Q, exceeding T, with
+For the system of Lemmas 4–6 there is a prime avoiding the original events, congruent to 1 modulo Q, exceeding T, with
 
     log p ≪ [log Q + log D + log(2+K) + S + log T + 1]².           (16)
 
@@ -273,17 +273,70 @@ Choose
 
     sqrt(log x)=C₃[log Q' + log D + log(2+K) + S + log T + 1]
 
-with a sufficiently large absolute constant, and then a sufficiently large threshold if necessary for the ineffective constant in (15). This puts every q_i in the range of (14) and makes the absolute error in (17) smaller than half the lower bound (18)/φ(Q'). Hence the sum is positive. Since B≤F and every prime in the progression is a unit for all the original moduli, some prime has F(p)=1.
+with a sufficiently large effectively computable absolute constant and threshold, using the effective constant in (15). This puts every q_i in the range of (14) and makes the absolute error in (17) smaller than half the lower bound (18)/φ(Q'). Hence the sum is positive. Since B≤F and every prime in the progression is a unit for all the original moduli, some prime has F(p)=1.
 
 Under GRH the absolute error is O(K sqrt(x) log²(Q'Dx)); choosing log x a sufficiently large constant times the displayed budget gives the same positivity without (18). This proves (16) and its GRH version. ∎
 
-### Proof of Theorem 1 (PROVED)
+### Lemma 7b (PROVED relative to classical (G), effective: linear transfer)
+
+For the same system there is a prime p>T avoiding the original events, p≡1 (mod Q), such that
+
+    log p ≪ log Q + log D + log T + 1.                           (16b)
+
+This removes the square in (16) **without GRH**. It imports POINTWISE_OMEGA9 Theorem 1.1 through POINTWISE_OMEGA11 Lemma 3.1, not a new unproved prime-distribution conjecture. We state the exact analytic input and verify the overlap and character interfaces here.
+
+**Input (G), exact form used.** Write ϑ(x;χ)=Σ_(p≤x)χ(p)log p. For absolute effective constants c≥1, C_G and one fixed sufficiently large admissible κ_G, whenever 1<U^(6c)≤x,
+
+    Σ_(q≤U) Σ*_(χ mod q) |ϑ(x;χ)−1_(q=1)x|
+      ≤ C_G x [exp(−log x/(κ_G log U))+(log x/log U)²/U].         (G0)
+
+If there is an exceptional real primitive character ψ with zero β satisfying 1−β<1/(κ_G log U), replace its summand by |ϑ(x;ψ)+x^β/β| and replace the right side by
+
+    C_G (1−β)(log x) x [exp(−log x/log U)+log x/(U log U)].       (G1)
+
+The star means primitive characters, including the trivial character of conductor 1. Crucially the factor (1−β)log x multiplies **both** terms in (G1). Page's uniqueness theorem is used with κ_G sufficiently large and its height restriction respected.
+
+**Provenance and qualification.** This is Gallagher's classical large-sieve/Linnik theorem in the formulation **Montgomery–Vaughan, Multiplicative Number Theory III (draft), Theorem 28.19, pp. 229–232**, in the already archived `sources/omega9/montgomery-mnt3.pdf`; those pages were rechecked for this follow-up. The attribution is Gallagher, “A large sieve density estimate near σ=1”, *Invent. Math.* 11 (1970), 329–339. The original paper and its theorem numbering have not been independently checked here. We use exactly the fixed sufficiently large κ_G justified in POINTWISE_OMEGA9 §1, including its repair of the draft's parameter-range slip and omitted height qualifier. Thus this stronger version is **PROVED relative to the stated classical input (G)** and the internal energy lemma, not a claim that this task re-proves Gallagher or audits the whole draft. The ordinary-PNT version of Theorem 1 does not depend on (G).
+
+*Proof and interface audit.* Append r∈(T,2T] and put Q'=Qr as in Lemma 7. Let ℕ=lcm(Q',d₁,d₂,…) and Z=Q'D, enlarging D to 1 if necessary. All expectations below are on the unit fibre n≡1 (mod Q'). Since B≤F and E(F−B)≤δ/100,
+
+    B⁻≤F−B,       𝒜:=E|B|/μ≤1+2/99<1.03.                     (20)
+
+Unlike the original coprime-modulus statement of OMEGA9 Theorem 1.1, our d_i can share primes and powers with Q'. The extension of OMEGA11 Lemma 3.1 applies: each cell is consistent with 1 modulo gcd(d_i,Q'), 8|Q', and the Haar mean is taken on the fibre. Explicitly, extend B·1_(n≡1 mod Q') to the unit group modulo ℕ and expand in characters. Its coefficients satisfy
+
+    c(χ)=E[Bχ̄]/φ(Q'),       |c(χ)|≤𝒜μ/φ(Q'),
+    c(χ₀)=μ/φ(Q'),         c(χ)≠0 ⇒ cond(χ)≤Z.                  (21)
+
+The conductor assertion follows term by term: a cell, combined with Q', is a coset modulo lcm(Q',d_i)≤Z. A fixed primitive character induces at most one character modulo ℕ; thus the number of nonzero coefficients is ≤Σ_(q≤Z)φ(q)≤Z². No coprimality between Q' and d_i is needed.
+
+For a real character with conductor f|Q', its coefficient is exactly μ/φ(Q'). If f∤Q', the coefficient is at most μ/(4φ(Q')) in absolute value by Lemma 6, which remains valid after appending r. Alternatively split its primitive conductor into its Q'-supported part and its coprime part: the former divides Q' because 8|Q' and odd real primitive conductors are squarefree; its value on the fibre is 1. This is precisely the exceptional-character dichotomy required by OMEGA9.
+
+The prime sum omitting p|ℕ equals the character sum with coefficients (21). Passing from induced to primitive prime sums costs at most
+
+    R₁ ≪ Z² (𝒜μ/φ(Q')) log ℕ ≪ Z³𝒜μ/φ(Q'),                   (22)
+
+since log ℕ≤log Q'+log lcm(1,…,floor D)≪Z. This harmless finite-support correction is the only place the number of characters enters.
+
+To see explicitly why (G) gives a linear logarithmic budget, choose a sufficiently large fixed B₀, set x=Z^C and U=x^(1/(κ_G B₀)), and take C sufficiently large effectively. Then U≥Z, U^(6c)≤x, and (G0), multiplied by the coefficient bound in (21), is less than μx/(100φ(Q')). In the exceptional case put u=(1−β)log x<B₀. Formula (G1) instead bounds the error by
+
+    C_G 𝒜 u (μx/φ(Q')) [exp(−κ_G B₀)+κ_G B₀/U]
+       ≤ (μx/(100φ(Q'))) min(u,1),                              (23)
+
+after choosing B₀ and C. If the exceptional character occurs with conductor dividing Q', the main term is
+
+    (μx/φ(Q')) [1−x^(β−1)/β] ≥ (μx/(2φ(Q'))) min(u,1).
+
+Moreover (15) and f≤Q'≤Z give min(u,1)≫Z^(−1/2)(log Z)^(−2). Thus (22) is also smaller than this main term for x=Z^C with C sufficiently large (C>5 suffices for this correction). If the exceptional conductor does not divide Q', Lemma 6 leaves at least μx/(2φ(Q')) instead; an exceptional character absent from the expansion contributes nothing. The prime sum is positive in every case.
+
+Every counted prime is 1 modulo r, hence exceeds r>T. The cell prime support is ≤T, so B(p)≤F(p) is valid there. Some prime therefore avoids the original events. Finally log x=C log Z≪log Q+log D+log T+1, proving (16b). All constants used in (G), (15), the finite algebra, and these choices are effective. ∎
+
+### Proof of Theorem 1 (PROVED, effective)
 
 Apply Lemma 3 to the joint family in Lemma 2. Lemma 4 gives
 
     S≪L^4 log L,          log Q≪L^6 log L.
 
-Lemma 5 gives log D+log(2+K)≪L^5 log L. The largest term in (16) is therefore O(L^6 log L). This proves (1), and its GRH variant, simultaneously for the edge and covering families. Q is a multiple of 840. Lemma 2 supplies the forest and covering conclusions. ∎
+Lemma 5 gives log D+log(2+K)≪L^5 log L. The largest term in (16) is therefore O(L^6 log L). Lemma 7 proves (1), and its GRH variant, simultaneously for the edge and covering families. Independently of GRH, Lemma 7b gives log p≪L^6 log L relative to (G), proving the stronger unconditional version. Q is a multiple of 840. Lemma 2 supplies the forest and covering conclusions. ∎
 
 ## 6. Exact consequences and non-consequences
 
@@ -301,7 +354,7 @@ Let δ_joint(H) be the probability, under prime-Haar with n≡1 (mod 24), of avo
 
     δ_joint(H) ≥ exp(−C L^6 log L).                              (19)
 
-Indeed the subfibre n≡1 (mod Q) has relative mass φ(24)/φ(Q), and (8) applies within it. This also lower-bounds the ordinary certificate-survival probability δ(H).
+Indeed the subfibre n≡1 (mod Q) has relative mass φ(24)/φ(Q), and (8) applies within it. This also lower-bounds the ordinary certificate-survival probability δ(H), defined under prime-Haar with n≡1 (mod 24).
 
 The same *conditional* bound exp(−C L^6 log L) holds after fixing n≡1 (mod L_Y) for any Y≥3: begin the graded procedure at lcm(840,L_Y). Only the *additional* conditioning cost is charged, still O(ℒ²S♯); the extra fixed 5,7 residues cost at most a constant. Equation (2) remains uniform. This provides a rigorous replacement for the brief's unproved exp(−C log²H) conditional survival claim, with a weaker exponent.
 
@@ -330,6 +383,8 @@ The same *conditional* bound exp(−C L^6 log L) holds after fixing n≡1 (mod L
 The all-edge target is visibly stronger than certificate avoidance. A zero sampled count is not zero probability. The unconditioned H₄ counts at H=64,128,256 are 56,12,0; the parent's much larger simulation remains the informative source for the unconditioned tail. No fitted constant or model independence across actual primes enters Theorem 1.
 
 **Hostile internal review:** a fresh deep reviewer read the complete proof, its internal energy dependencies, checker and outputs, independently reproduced checks.json, and returned **SOUND, no blocking mathematical defect**. It specifically rechecked inflated mass, the even-prime extension, absolute digit weights, the unweighted coefficient budget, the free-character twist, and both exceptional-zero cases. Its two presentation repairs (the ∞ convention for A_min and replacing this pending validation paragraph) are applied; its request for a more precise explanation of the global PNT exception is addressed by the derivation in §5. A separate earlier deep proof-design audit supplied the even-prime and coefficient-extension repairs already incorporated in the first full draft. Review provenance is retained in data/z49_h4lower/review.txt.
+
+**Cross-model review and follow-up:** the Opus review at `reviews/z49-h4lower-review.md` on branch `side-agent/z49-rev-h4lower` returned **SOUND** for the original theorem, with the minor repairs now applied: effective Page–Landau input, precise published citations, s≤2v, visible internal-energy dependency, and explicit normalization of δ(H). The published analytic statements and the archived (G) formulation were checked directly; details are in `data/z49_h4lower/analytic_inputs.md`. After adding Lemma 7b, a separate fresh deep reviewer audited only the new transfer and effectivity changes and returned **SOUND relative to the explicitly stated (G) and internal energy lemma**. It rechecked overlapping moduli, the bounded L¹/mean ratio, auxiliary-prime support, both exceptional terms, the primitive-character correction and the effective parameter choices. The κ<1/6 extension is therefore not silently covered by the earlier reviews of κ<1/12.
 
 **Reproduction:**
 

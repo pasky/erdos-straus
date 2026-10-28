@@ -18,3 +18,13 @@ Minor requested repairs, applied:
 Reviewer caveat retained: the small quarantine fixtures have no residual live events, so their computations do not exercise the nonempty residual LLL regime; its justification is mathematical.
 
 Review is internal and unrefereed, not an external validation or a proof of ES. No conjectural hypothesis is used in the unconditional result; GRH is separately labelled. Conjecture S and the predicted sharp exponent remain open.
+
+Cross-model review follow-up (parent-requested):
+Opus report on branch side-agent/z49-rev-h4lower:
+/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0047/reviews/z49-h4lower-review.md
+Verdict: SOUND; minor repairs only. Applied: effective Page–Landau zero gap instead of Siegel; exact published PNT citations; s≤2v with factor 2 in (6); preserved headline internal-energy qualifier; explicit prime-Haar n≡1 (24) normalization for δ(H). Precise published and draft analytic sources were checked and recorded in analytic_inputs.md.
+
+Stronger-transfer follow-up review (deep, fresh subagent):
+/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0025--/2026-10-28T22-18-04-432Z_01a18497-8310-746a-8a1a-a0cdfa411f79.jsonl
+Verdict: SOUND, relative to explicitly stated (G) and the internal energy lemma. No blocking repair found.
+Audited Lemma 7b and changed headline: the fibre extension for overlapping moduli, E|B|/μ≤1+2/99, r>T outside cell support, Gallagher parameter choices, exceptional prefactor on both error terms, depleted main term, primitive-character correction, and published citation/page accuracy. It found the upgrade to κ<1/6 clean under the exact analytic dependency as stated, while requiring the source caveat to remain: the exact (G) formulation is checked in the archived MV III draft, not independently against Gallagher's original published paper. This qualifier remains in the document. No redundant numerical tests were added for the new analytic implication.
