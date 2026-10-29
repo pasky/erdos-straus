@@ -461,7 +461,7 @@ in z49 CONTEXT.)
 and the error term is o(√N). This is Target 2 for U, conditionally.
 
 *Proof.* An exception is either an odd square, or a non-square n ≡ 1 (8) that avoids every U class, in
-particular 𝓕_{N^{1/s}}. Since Σ w(ℓ)²/ℓ² < ∞ (w(ℓ) ≤ τ(ℓ+1)), ∏_{ℓ≤z}(1 − w(ℓ)/ℓ) = z^{−C_V+o(1)}. \u220e
+particular 𝓕_{N^{1/s}}. Since Σ w(ℓ)²/ℓ² < ∞ (w(ℓ) ≤ τ(ℓ+1)), ∏_{ℓ≤z}(1 − w(ℓ)/ℓ) = z^{−C_V+o(1)}. ∎
 
 The asymptotic for Σ w(ℓ)/ℓ is a Titchmarsh-divisor problem with divisors restricted to V. The standard
 BV + Brun–Titchmarsh argument should give it (Assessment); only the value C_V ≈ 0.74 is empirical. The
@@ -495,7 +495,78 @@ stronger. Any proof of it must use the anti-square structure only through the er
 
 ## 7. Numerics
 
-TBD.
+All runs used `ulimit -v 8000000` and timeouts. The C sources are in `scripts/`; the outputs are in
+`data/z50_ajopus/`.
+
+### 7.1 Prime-modulus chain, exact (`scripts/z50_ajopus_chain.c`)
+
+Usage: `chain N mode seed Lmax`. The program runs over I = {n ≤ N : n ≡ 1 (8)} with a byte array of size N/8.
+
+* Primes ℓ ≤ Lmax are processed in increasing order, all classes at one prime forming one step; this is a Δ = 0
+  chain.
+* Classes are −v (mod ℓ) for v | ℓ+1 with v ≡ 0 (4) or v ≡ 7 (8). The proper-divisor condition is enforced: the
+  element n = ℓ − v is skipped.
+* Modes: 0 = U classes; 1 = random classes; 2 = random quadratic non-residues; 3 = shift-aligned classes with
+  v ≡ 1 (4) or 3 (8). Modes 1 and 2 use the same w(ℓ).
+* Output per checkpoint: alive count, squares alive, model mass Σw/ℓ, Σρ_ℓ, the deficit, log model density
+  Σlog(1−w/ℓ), log actual density, and D_ns.
+
+Runs at N = 10⁷, 10⁸, 10⁹ with Lmax = N/2 (mode 0 at N = 10⁷ used Lmax = 5·10⁶), each in seconds. The files
+are `chain_U_N*.txt`, `chain_R_N*.txt`, `chain_M2_N1000000000.txt` and `chain_M3_N1000000000.txt`.
+
+CERTIFIED facts:
+
+* No square is ever hit by a U class (mode 0, all N; the program reports any hit).
+* End states at N = 10⁹, ℓ ≤ 4.5·10⁸:
+  - U: 20 742 survivors, of which 15 810 are squares. Model mass 12.95, Σρ = 8.48.
+  - Random control: 221 survivors, mass 12.95, Σρ = 13.02.
+  - QNR-random: 16 149 survivors, the square count plus O(10²); D_ns = 0.015.
+
+EVIDENCE (the s-scaling table of §2.3):
+
+* the non-square deficit is a function of s = log N/log ℓ alone, to ±0.02;
+* it is ≤ 0.01 for s ≥ 2.8;
+* it is bounded in N at each fixed s.
+
+The model mass grows with slope C_V ≈ 0.74 in log ℓ: mass(1361) = 3.56, mass(1.17·10⁵) = 6.75,
+mass(1.02·10⁷) = 10.07, mass(4.5·10⁸) = 12.95.
+
+### 7.2 Composite moduli, model Monte Carlo, Janson bound (`scripts/z50_ajopus_janson.c`)
+
+Usage: `janson N Amin Amax pmin samples seed`. Events are all U classes with modulus A ∈ [Amin, Amax] whose prime
+factors are all ≥ pmin, ordered by (A, v). The integer chain runs on n ≡ 1 (8), n ≤ 10⁹. The model chain uses
+Monte Carlo over independent prime-power coordinates, recording the first-hit index of each sample. μ, Δ (pairs
+that share a bit and are compatible), max P and the maximal conflict sum are computed exactly. Files:
+`janson_A*_p*.txt`.
+
+| (Amin, Amax, pmin) | μ | Δ | max conflict | integer survival | model (MC) | exp(−μ) | exp(−μ+Δ) |
+|---|---|---|---|---|---|---|---|
+| (3, 3000, 3) | 9.07 | 12.10 | 4.09 | 2.15e−3 | 1.9e−3 (375 alive of 2e5) | 1.1e−4 | 20.5 |
+| (11, 20000, 11) | 7.26 | 1.84 | 1.47 | 1.80e−3 | 1.6e−3 (635 of 4e5) | 7.0e−4 | 4.5e−3 |
+| (29, 200000, 29) | 8.12 | 1.01 | 0.77 | 8.2e−4 | 5.3e−4 (105 of 2e5) | 3.0e−4 | 8.2e−4 |
+| (3, 30000, 3) | 15.33 | 32.38 | 7.17 | 2.10e−4 | 6e−5 (25 of 4e5) | 2.2e−7 | 2.5e7 |
+
+Reading (EVIDENCE):
+
+* With composite moduli, Janson's Δ is large unless the moduli are rough, as the S-model and es-subexp families
+  arrange. exp(−μ+Δ) is then trivial.
+* The local-lemma hypothesis (conflict sum ≤ 1/8) fails in all these unrestricted U families, because of the
+  residue hubs (class −4 mod every A ≡ 3 (4); cf. (D)27).
+* Integer and model chains agree to within 2.5% in −log survival while max A ≤ N^{0.4}, i.e. s ≥ 2.5.
+  Integer survival exceeds the model by a factor 1.5–3.5 once A reaches N^{0.5}–N^{0.6}, matching §2.3.
+
+### 7.3 Survivor structure (`/tmp` one-off, recorded here)
+
+The U survivors at N = 10⁸, ℓ ≤ 10⁴ (s = 2) were factored, 20 000 sampled.
+
+| fraction with squarefree kernel ≤ K | K = 1 | 10² | 10⁴ | 10⁶ |
+|---|---|---|---|---|
+| U survivors | 5.69% | 5.73% | 6.45% | 15.35% |
+| random control | 0.02% | 0.07% | 0.92% | 9.79% |
+| uniform baseline | 0.03% | 0.10% | 0.82% | 8.07% |
+
+Beyond the squares themselves, small-kernel near-squares km² are not enriched. The non-square deficit is not a
+"soft square floor" of this kind.
 
 ## 8. Reviews
 
