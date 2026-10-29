@@ -18,7 +18,7 @@ Work in progress. ES and Conjecture I3 remain open. No improvement claimed at in
 
 **Assessment / audit.** The binding z48, z49 and z50 context files were read in order (z50 twice). Source inspection includes FRONTIER §§2–4,6–7; BREADTH_Z45 §§1–14; the PR-B main note and both supplements; OAI_DUMP_IMPACT; I3_DEEP_ASTRA in full; summaries of the six z48 forest/lower-tail notes; DISCOVERIES (D)17–(D)31; and the actual KARY2/KARY3 base, moment and cap proofs. The 3/4 note's atom identity and assembly are audited rather than accepted as an I3 witness map. No OAI hypothesis is used.
 
-**PROVED previously, not re-claimed.** Write E₃(N)=#{3≤n≤N:I3(n)=0}. I3_DEEP_ASTRA §8.8 proves
+**PROVED previously relative to BV, Brun–Titchmarsh and Mertens, not re-claimed.** Write E₃(N)=#{3≤n≤N:I3(n)=0}. I3_DEEP_ASTRA §8.8 proves
 
 `E₃(N) ≪ N exp(−c(log N)^{2/3}/(log log N)^{1/3})`.
 
@@ -30,7 +30,7 @@ Its §8.7 proves that the Vaughan ratio identity gives a word of bn, not n, and 
 
 Each class is reduced: gcd(u,M)=1. Above n≥3M it supplies v=(n+u)/M≥3. At a fixed M its labels are the distinct divisors `3≤u≤(M+1)/3` of M+1. A family means a finite subset of these classes, with no restriction on factorisation or size of its moduli. Its avoider set means all integers avoiding all those congruences, not merely actual I3 zeros.
 
-**Assessment / barrier scope.** D is not an ES forced-class subfamily: the class n≡−3 (mod 8), from t=u=3, contains the odd square 121. KARY2's unit-square base therefore fails. This does not refute its arithmetic-free comparison theorem. A replacement base is possible because every D-class is reduced: pin n≡0 mod every small prime, killing every native class with such a prime in its modulus. Sections 2–3 examine the resulting quadratic-mass rather than cubic-mass architecture. A cap on D alone will not automatically cover endpoint classes n≡−u−v (mod uv), selectors imposing roughness, or interval-only majorants; those scopes are kept separate.
+**Assessment / barrier scope.** D is not an ES forced-class subfamily: the class n≡−5≡9 (mod 14), from t=3,u=5, contains the odd square 121=3·5·9−5−9. KARY2's unit-square base therefore fails. This does not refute its arithmetic-free comparison theorem. A replacement base is possible because every D-class is reduced: pin n≡0 mod every small prime, killing every native class with such a prime in its modulus. Sections 2–3 examine the resulting quadratic-mass rather than cubic-mass architecture. This base fails for nonunit endpoint classes n≡−u−v (mod uv) (u=v=3 gives 3 mod 9, meeting 0 mod 3), and is incompatible with selectors 0 mod p for p≤W (it lies inside them). A cap on D alone does not cover these classes, prime/rough-only majorants, or interval-only majorants.
 
 **Assessment / novelty standard.** Dictionary identities and the mass calculation alone are not counted as exceptional-set progress. A genuinely new cap would have to check a new base, the smooth first moment, the leak uniformly in the cutoff, and the coefficient-sum projection. No numerical experiment or standard conjecture is promoted to a pointwise I3 result.
 
@@ -50,7 +50,7 @@ Each class is reduced: gcd(u,M)=1. Above n≥3M it supplies v=(n+u)/M≥3. At a 
 
 **Assessment / candidate, not yet a theorem here.** Replace the failed cubic supply by an audit of the full D-universe. For fixed W, pin n≡0 modulo `P_W=∏_{p≤W}p`. All native classes with a prime ≤W in their modulus disappear. The remaining prime coordinates are independent initially, and their capped sequential laws have inflation factors `(1−p^{−1/2})^{−1}`. If the first moment is O(log²y), the KARY block balance is `s²≈λ/s`, giving a 2/3 cap rather than 3/4. This demands a new smooth shifted-divisor estimate and a leak bound uniform in W; they are supplied, or rejected, in Round 2. The abstract comparison theorem is not by itself an arithmetic cap.
 
-**Review status:** hostile cross-model review requested after this section; verdict to be recorded in §6.
+**Hostile review R1 (Opus): SOUND after a minor witness correction.** The initial square example in §1 incorrectly put 121 in 5 mod 8; it is replaced by the correct word 121=3·5·9−5−9 and class 9 mod 14. The reviewer confirmed the quadratic-supply obstruction and zero base, and required the explicit selector/endpoint exclusions now stated. The stronger selector estimate suggested by the reviewer is not needed here; no unproved extension is imported. Model availability and review provenance are recorded in §6.
 
 ## 3. Round 2 — the surviving transfer gap
 
