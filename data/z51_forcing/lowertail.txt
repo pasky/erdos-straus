@@ -1,0 +1,36 @@
+p~1e6, q<=R=100, 17564 primes: mean #successful forced windows obs 3.876 model 3.876; var obs 2.163 model 2.461
+  P(#succ <= 0): obs 3.9854e-03  model 6.7054e-03
+  P(#succ <= 1): obs 4.1448e-02  model 5.4667e-02
+  P(#succ <= 2): obs 1.7462e-01  model 1.9272e-01
+  P(#succ <= 3): obs 4.1562e-01  model 4.2106e-01
+  P(#succ <= 4): obs 6.7371e-01  model 6.6621e-01
+  P(#succ <= 5): obs 8.6546e-01  model 8.5003e-01
+  P(#succ <= 6): obs 9.5895e-01  model 9.4866e-01
+  P(#succ <= 7): obs 9.9146e-01  model 9.8695e-01
+p~1e6, q<=R=400, 17564 primes: mean #successful forced windows obs 6.460 model 6.460; var obs 4.000 model 4.679
+  P(#succ <= 0): obs 1.1387e-04  model 3.7794e-04
+  P(#succ <= 1): obs 1.7080e-03  model 4.2978e-03
+  P(#succ <= 2): obs 1.4689e-02  model 2.2851e-02
+  P(#succ <= 3): obs 5.8757e-02  model 7.6475e-02
+  P(#succ <= 4): obs 1.5964e-01  model 1.8361e-01
+  P(#succ <= 5): obs 3.2857e-01  model 3.4256e-01
+  P(#succ <= 6): obs 5.2801e-01  model 5.2624e-01
+  P(#succ <= 7): obs 7.1379e-01  model 6.9744e-01
+p~1e12, q<=R=100, 20000 primes: mean #successful forced windows obs 4.637 model 4.637; var obs 2.591 model 2.833
+  P(#succ <= 0): obs 1.8500e-03  model 2.8112e-03
+  P(#succ <= 1): obs 1.7750e-02  model 2.3796e-02
+  P(#succ <= 2): obs 8.8800e-02  model 9.7619e-02
+  P(#succ <= 3): obs 2.4590e-01  model 2.5499e-01
+  P(#succ <= 4): obs 4.7165e-01  model 4.7753e-01
+  P(#succ <= 5): obs 7.0895e-01  model 7.0167e-01
+  P(#succ <= 6): obs 8.7720e-01  model 8.6554e-01
+  P(#succ <= 7): obs 9.6030e-01  model 9.5340e-01
+p~1e12, q<=R=400, 20000 primes: mean #successful forced windows obs 9.177 model 9.177; var obs 5.709 model 6.499
+  P(#succ <= 0): obs 0.0000e+00  model 1.7066e-05
+  P(#succ <= 1): obs 1.0000e-04  model 2.5161e-04
+  P(#succ <= 2): obs 9.0000e-04  model 1.7710e-03
+  P(#succ <= 3): obs 5.2500e-03  model 8.0325e-03
+  P(#succ <= 4): obs 1.9450e-02  model 2.6567e-02
+  P(#succ <= 5): obs 5.5950e-02  model 6.8718e-02
+  P(#succ <= 6): obs 1.2760e-01  model 1.4551e-01
+  P(#succ <= 7): obs 2.4430e-01  model 2.6076e-01

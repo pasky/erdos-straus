@@ -209,7 +209,66 @@ G4: "per-window failure probability is ≪ (log X)^{−1/2} only for q ≤ (log 
 
 ## 4. Many windows: what joint bounds can and cannot give (gate G2)
 
-(pending)
+### 4.1 Fixed number of windows
+
+**Proposition 4.1 (PROVED modulo Henriot New Thm 5 with k + 1 linear forms; constants depend on k and the q_i).**
+Fix distinct primes q₁, …, q_k ≡ 3 (mod 4), all ≥ 7. Then
+`  #{p ≤ X : p ≡ 1 (4), and for every i: (q_i/p) = −1 and −1 ∉ R((p+q_i)/4) mod q_i}`
+`      ≪ (X/log X) ∏_i (log X)^{−(1 − 1/(2ℓ_{q_i}))} (log log X)^{ℓ_{q_i} − 1}.`
+*Proof.* Write p = 4m + 1 and use the forms Q₀(m) = 4m + 1 (weight 1[P⁻(Q₀) > √x], as in FORCED_WINDOW Lemma 8.3) and
+Q_i(m) = m + (1 + q_i)/4 = (p + q_i)/4. For each choice (d₁, …, d_k) of indices from Cor 2.3, the product of the
+Rankin weights y_i^{ω_{d_i}(Q_i(m))} is in Henriot's class M_{k+1}(1, 1, ε). For a prime ℓ > max(k + 1, q_i) not
+dividing the pairwise differences, the k + 1 forms have distinct roots, and the local factor is
+1 − Σ_i (1 − f_i(ℓ))/ℓ + O(k²/ℓ²). The finitely many remaining primes cost O_{k,q}(1). Optimise each y_i as in
+Thm 3.1 and sum over the finitely many (d_i). ∎
+
+For fixed k this is a product of the single-window rates. The k-dependence of the constants is not controlled, and
+that is the G2 issue: with k growing, both the number of local exceptions and Henriot's implied constants grow.
+
+### 4.2 Growing number of windows: an explicit cap on the window route
+
+**Proposition 4.2 (Assessment with exact arithmetic; the cap holds even if the k-form bound were loss-free).** Assume,
+beyond what is known, that Prop 4.1 held uniformly in k with constant C^k. Then the two per-window majorants available
+(§3.2) give at best:
+(a) Kneser–Rankin: only windows with q ≲ 2 log log X are usable, at most ≍ log log X/log₃X of them, each saving
+(log X)^{5/6}. The total is ≥ exp(−C (log log X)²/log₃X).
+(b) Fourier L¹: window q contributes the factor min(1, C q (log X)^{−1/3+ε}). The product over all q ≤ T := (log X)^{1/3−ε}
+is ≥ exp(−Σ_{q≤T} log(T/q)) = exp(−(1 + o(1)) T/log T). So this route is capped at
+exp(−c (log X)^{1/3−ε}/log log X).
+In particular the parent's "exp(−(log X)^ε)" holds with ε ≤ 1/3 for every argument that multiplies these majorants,
+k-tuple losses aside. That is far below Vaughan's exponent 2/3 and the internal 3/4. Such an argument cannot
+contribute to a power saving, and not even to the existing exceptional-set bounds.
+
+**Why the per-window majorants must stop (Assessment).** A window q ≥ (log X)^{1.1+ε} succeeds with probability → 0
+(the box has ≈ 3^{ω(x)} = (log X)^{1.1+o(1)} elements for typical x; on average the success probability is
+≈ E 3^{ω(x)}/q ≍ (log X)²/q). So every majorant of the failure indicator of a single window has mean ≥ 1 − o(1)
+there. Windows beyond (log X)^{1.1} help only *collectively*: about (log X)^{A}/log log X weak divisor events, each of
+probability ≈ min(1, (log X)^{1.1}/q), with total mean ≍ (log X)^{1.1} log(A/1.1). The heuristic joint failure is
+exp(−(log X)^{1.1−o(1)}), which is super-polynomially small. Proving it is a lower-tail (Janson) statement for many
+low-probability divisor events across the shifts p + q, i.e. the RLD problem of z50 C1 transplanted to prime shifts
+(door (vii)). It is not a sieve statement, and G2 applies to every sieve route to it.
+
+### 4.3 Numerics: the joint failure is at or below independence (EVIDENCE)
+
+`scripts/z51_forcing_joint.py`, `scripts/z51_forcing_lowertail.py`, `data/z51_forcing/joint_summary.txt`,
+`lowertail.txt`. "All forced windows q ≤ R fail" (vacuous if there is none), observed fraction against the model
+mean_p ∏_{forced q ≤ R} f_q, with f_q the empirical per-q rate:
+
+| p ≈ | R = 50 obs / model | R = 128 obs / model | R = 200 obs / model | R = 400 obs / model |
+|---|---|---|---|---|
+| 10⁶ | 1.53e-2 / 2.01e-2 | 2.39e-3 / 3.72e-3 | 2.85e-4 / 1.32e-3 | 1.1e-4 (2 primes) / 3.8e-4 |
+| 10⁸ | 1.38e-2 / 1.70e-2 | 1.74e-3 / 2.36e-3 | 3.97e-4 / 6.48e-4 | 5.0e-5 (1) / 1.1e-4 |
+| 10¹⁰ | 1.11e-2 / 1.51e-2 | 8.5e-4 / 1.63e-3 | 2.5e-4 / 3.4e-4 | 0 / 4.1e-5 |
+| 10¹² | 1.08e-2 / 1.27e-2 | 8.5e-4 / 1.20e-3 | 0 / 2.0e-4 | 0 / 1.7e-5 |
+
+With full windows (−1 ∉ R(px)) there are no all-fail primes at R = 400 at any scale. The number of successful
+forced windows q ≤ 400 has mean 6.46 at 10⁶ and 9.18 at 10¹². Its variance is below the Poisson-binomial model
+(4.00 vs 4.68; 5.71 vs 6.50), and its lower tail is thinner (P(≤ 2) = 9.0e-4 vs 1.8e-3 at 10¹²). So the windows are, if
+anything, negatively correlated: an independence heuristic is conservative here. Hard primes (controls), forced windows q ≤ 400, number
+forced / Type-II successes / full successes: 193: 18/0/0; 409: 22/3/4; 577: 18/2/3; 2521: 23/1/1; 3361: 20/0/1;
+5569: 19/4/6; 9601: 24/3/6; 66529: 19/1/4; 8813281: 21/6/7. So at p = 193 *every* forced window up to 400 fails even in
+full form (ES(193) uses other x), and at 3361 every forced window fails at Type II level. The hard primes are exactly
+where forced windows are thin; the windows give no pointwise guarantee even at tiny p.
 
 ## 5. Robust Linnik confinement
 
