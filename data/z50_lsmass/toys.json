@@ -1,0 +1,224 @@
+[
+ {
+  "family": "A",
+  "params": {
+   "kappa": 1,
+   "z": 100
+  },
+  "N": 1000,
+  "full_mass": 1.0190106496900708,
+  "true_saving": 1.016111067156366,
+  "haar_saving": 1.0190106496900708,
+  "montgomery_saving": -0.06774189494647763,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 0.990839814177814,
+  "true_count": 362
+ },
+ {
+  "family": "A",
+  "params": {
+   "kappa": 1,
+   "z": 3000
+  },
+  "N": 1000,
+  "full_mass": 1.5611370009811154,
+  "true_saving": 1.5558971455060706,
+  "haar_saving": 1.561137000981117,
+  "montgomery_saving": -0.06774189494647763,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 1.515699503157028,
+  "true_count": 211
+ },
+ {
+  "family": "A",
+  "params": {
+   "kappa": 2,
+   "z": 100
+  },
+  "N": 1000,
+  "full_mass": 1.31647249246547,
+  "true_saving": 1.3093333199837622,
+  "haar_saving": 1.31647249246547,
+  "montgomery_saving": -0.03513401031647858,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 1.2673989172334468,
+  "true_count": 270
+ },
+ {
+  "family": "A",
+  "params": {
+   "kappa": 2,
+   "z": 3000
+  },
+  "N": 1000,
+  "full_mass": 2.4025272909050863,
+  "true_saving": 2.3538783873815965,
+  "haar_saving": 2.402527290905088,
+  "montgomery_saving": -0.03513401031647858,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 2.181116078463708,
+  "true_count": 95
+ },
+ {
+  "family": "A",
+  "params": {
+   "kappa": 4,
+   "z": 100
+  },
+  "N": 1000,
+  "full_mass": 1.967774456345606,
+  "true_saving": 1.9173226922034008,
+  "haar_saving": 1.9677744563456063,
+  "montgomery_saving": 0.06515987237458887,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 1.8371850446004039,
+  "true_count": 147
+ },
+ {
+  "family": "A",
+  "params": {
+   "kappa": 4,
+   "z": 3000
+  },
+  "N": 1000,
+  "full_mass": 4.1471766614900245,
+  "true_saving": 4.017383521085972,
+  "haar_saving": 4.147176661490023,
+  "montgomery_saving": 0.06515987237458887,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 2.9295651664303266,
+  "true_count": 18
+ },
+ {
+  "family": "B",
+  "params": {
+   "a": 0.5,
+   "z": 100
+  },
+  "N": 1000,
+  "full_mass": 1.3796978959819621,
+  "true_saving": 1.3547956940605195,
+  "haar_saving": 1.3796978959819615,
+  "montgomery_saving": -0.002382620936330208,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 1.331642872893962,
+  "true_count": 258
+ },
+ {
+  "family": "B",
+  "params": {
+   "a": 0.5,
+   "z": 3000
+  },
+  "N": 1000,
+  "full_mass": 3.064739443307399,
+  "true_saving": 3.079113882493042,
+  "haar_saving": 3.0647394433073987,
+  "montgomery_saving": -0.002382620936330208,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 2.5373821558254033,
+  "true_count": 46
+ },
+ {
+  "family": "B",
+  "params": {
+   "a": 1.0,
+   "z": 100
+  },
+  "N": 1000,
+  "full_mass": 2.5533864185179325,
+  "true_saving": 2.631089159966082,
+  "haar_saving": 2.553386418517933,
+  "montgomery_saving": 0.3246749679136444,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 2.3708562167906533,
+  "true_count": 72
+ },
+ {
+  "family": "B",
+  "params": {
+   "a": 1.0,
+   "z": 3000
+  },
+  "N": 1000,
+  "full_mass": 5.918310298711455,
+  "true_saving": 5.809142990314028,
+  "haar_saving": 5.918310298711456,
+  "montgomery_saving": 0.3246749679136444,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 3.533216894847344,
+  "true_count": 3
+ },
+ {
+  "family": "B",
+  "params": {
+   "a": 2.0,
+   "z": 100
+  },
+  "N": 1000,
+  "full_mass": 4.19557348233124,
+  "true_saving": 4.422848629194137,
+  "haar_saving": 4.195573482331241,
+  "montgomery_saving": 0.5505779472097643,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 3.325370088874306,
+  "true_count": 12
+ },
+ {
+  "family": "B",
+  "params": {
+   "a": 2.0,
+   "z": 3000
+  },
+  "N": 1000,
+  "full_mass": 10.949986787438348,
+  "true_saving": 6.907755278982137,
+  "haar_saving": 10.949986787438348,
+  "montgomery_saving": 0.5505779472097643,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 4.364521809972583,
+  "true_count": 0
+ },
+ {
+  "family": "C",
+  "params": {
+   "rho": 0.002
+  },
+  "N": 1000,
+  "full_mass": 0.556528315596925,
+  "true_saving": 0.5499130124740375,
+  "haar_saving": 0.5565283155969247,
+  "montgomery_saving": -0.21441219887305105,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 0.5600576558581841,
+  "true_count": 577
+ },
+ {
+  "family": "C",
+  "params": {
+   "rho": 0.01
+  },
+  "N": 1000,
+  "full_mass": 0.556528315596925,
+  "true_saving": 0.5603660693261269,
+  "haar_saving": 0.5565283155969247,
+  "montgomery_saving": -0.21441219887305105,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 0.5600576558581841,
+  "true_count": 571
+ },
+ {
+  "family": "C",
+  "params": {
+   "rho": 0.03
+  },
+  "N": 1000,
+  "full_mass": 0.556528315596925,
+  "true_saving": 0.5499130124740375,
+  "haar_saving": 0.5565283155969247,
+  "montgomery_saving": -0.21441219887305105,
+  "achievable_lemma22": 0.0,
+  "rankin_Psi_at_logN": 0.5600576558581841,
+  "true_count": 577
+ }
+]
