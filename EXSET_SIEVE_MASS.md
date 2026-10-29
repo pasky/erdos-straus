@@ -590,6 +590,32 @@ reproduces the z49 census to 2·10⁷ with the strict definition (CERTIFIED). Re
 The reviewer's independent enumeration found no unit square in 2,496 refined U/ES₅ classes with pivot ≤ 150. These
 cover 150 u = 1 cases and 116 non-coprime W2 entries.
 
+**R2 (Astra, deep; §§4–5, §0, §7, and a check of the R1 repairs).** Verdicts and repairs:
+* *Theorem 5.2:* SOUND-WITH-MINOR for the inequality. The avoider must be defined inside n ≡ 1 (8); the complementary
+  fibre classes are now added. MAJOR on the interpretation: "cannot come from congruence data" is narrowed to "from
+  avoidance of these word classes, certified uniformly", and dense depletion is now called sufficient, not necessary.
+  Not a new method class, since the ES analogue follows from LS Thm 3.1; this is now recorded.
+* *Proposition 4.2 (Linnik = periodic Bessel system):* **FATAL**. The Bessel inequality is false for arbitrary labels
+  (counterexample 𝒜′ = {1, 4}), the admissibility step reversed Cauchy–Schwarz, and Heath-Brown's sieve is not
+  translation-invariant. The claimed Ψ computation for CAP_BOUNDED was wrong. A decisive control: for A > 4,
+  CAP_BOUNDED's X^{2/A} is below the √X/log y squares in the corresponding integer avoider. **Withdrawn.** §4.2 is
+  rewritten: Linnik duality is a genuine non-CRT door.
+* *Proposition 4.1:* local parts SOUND-WITH-MINOR (the coset claim now rests on cardinality, and multiplicities are
+  counted by pivot). The global "no free data" claim was a MAJOR gap and is withdrawn. In §4.3 the relaxation
+  direction was reversed and the cap result overstated (it holds for growing caps only), and the FMS exclusions, Type I
+  affine shots among them, were missing; all three are repaired.
+* *§5.3 numerics:* reproduced independently at 2·10⁶ (pivots ≤ 10⁴: exactly odd squares plus the six). The counts are
+  for 1 < n ≤ N, now stated. The square-dominance transition is now labelled heuristic.
+* *§5.1 inverse sieve:* the Green–Harper-type conclusion was unsupported. It is replaced by an explicit check of
+  Croot–Mao–Pohoata–Yip (arXiv:2607.15311v2, statement from the abstract; unrefereed).
+* *§0/§7:* label inflation fixed. Prop 4.2 removed from the PROVED entries, and "one must" changed to "one
+  sufficient route".
+* *R1 repairs:* confirmed, except (c)(iii) (three primes, not two, fit near e^{λ/4}; the constant is 76, not 38).
+  Both are fixed.
+
+**Lane E fold (parent FYI).** §3 is repositioned as a complement to `EXSET_I3.md` Cor 7.1/§7.3 (on main). Overlapping
+claims are cited, not re-proved.
+
 ## 7. Remaining gap (precise)
 
 1. **U, square floor (target 2).** Lemma 5.1 gives one sufficient route: dense, or merely ℓ/log ℓ-sized, depletion of
