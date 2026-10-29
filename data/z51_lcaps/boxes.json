@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "rational_checks": 600,
+  "rows": [
+    {
+      "S": [
+        3
+      ],
+      "E": 4,
+      "B": 5,
+      "primes": 4489,
+      "good": 4489,
+      "bad": 0,
+      "pair_collision_count": 0,
+      "overflow": 102
+    },
+    {
+      "S": [
+        3,
+        5
+      ],
+      "E": 3,
+      "B": 16,
+      "primes": 1127,
+      "good": 1127,
+      "bad": 0,
+      "pair_collision_count": 0,
+      "overflow": 139
+    },
+    {
+      "S": [
+        3,
+        5,
+        7
+      ],
+      "E": 2,
+      "B": 27,
+      "primes": 191,
+      "good": 191,
+      "bad": 0,
+      "pair_collision_count": 0,
+      "overflow": 123
+    }
+  ],
+  "sieve": {
+    "X": 2000,
+    "Q": 44,
+    "actual": 1264,
+    "L": "61/40",
+    "bound": 2580.9836065573772
+  }
+}

@@ -215,8 +215,135 @@ admissible pair is sharp. The exact q-by-q restriction is part of the theorem.
 
 ## 4. Round 3: intermediate relaxations and further attacks
 
-PENDING. State precise implications to/from ES and cap relaxations; do not label an incomparable
-window restriction as an unconditional improvement of ES.
+The smooth-character amplifier stops at §3.1, but the cap problem need not. We now
+change methods: keep the **untruncated** classes of CAP_INTERPOLATION Proposition 5.1,
+and use a growing, common set of small mute primes. This is a cap-specific class sieve,
+not Linnik confinement; the class supply exceeds the cap-zero ES supply. Therefore
+there is no conflict with z50's CRT barrier for ES.
+
+### Lemma 4.1 — a collision-free exponent box at many primes (PROVED relative to G)
+
+Let k≥1 and E≥1, let P₀ be the product of the first k+1 odd primes, and B=(E+1)^k.
+There is an absolute sufficiently large integer D such that, with
+
+    T=⌈[4P₀ B²(E+1) log(4P₀)]^D⌉,                           (4.1)
+
+one can select k of these k+1 primes, with product P, so that at least
+
+    M ≥ c T/[φ(4P)log T]                                    (4.2)
+
+primes ℓ∈(T,2T], ℓ≡−1 (4P), have the B numbers
+
+    Q_a² mod ℓ,  Q_a=∏_{s|P}s^{a_s},  0≤a_s≤E,
+
+pairwise distinct. This is asserted for the growing parameters below; finitely many
+small parameter cases can instead use fixed-modulus PNT and a larger constant T.
+The required range is log(4P₀)≥√log(2T), which those growing parameters satisfy.
+
+**Proof.** Use the Gallagher input (G) recorded and source-audited in
+CAP_INTERPOLATION §1, at x=T, modulus cutoff 4P₀. It gives relative PNT in this
+progression with error <1/4 if D is sufficiently large, except when the exceptional
+primitive real conductor f divides 4P. If f has an odd prime divisor in P₀, omit that
+prime; otherwise omit any prime. Then f∤4P. A pure 2-power primitive real conductor
+is 4 or 8 and is not exceptional for sufficiently large cutoff. Thus the progression
+has ≥c₀T/[φ(4P)log T] primes. This uses the same exceptional-prime deletion as
+CAP_INTERPOLATION Proposition 1.2; P is common to all input primes p at a given X.
+
+If Q_a²≡Q_b² (ℓ) for a≠b, ℓ divides the nonzero integer Q_a²−Q_b². Unique factorization
+ensures it is nonzero and log|Q_a²−Q_b²|≤2E log P. Hence the number of bad primes in
+(T,2T] is at most
+
+    B(B−1)E log P/log T.
+
+By (4.1), this is o(T/[φ(4P)log T]) in the growing regime (and can be made less than
+half the main term by enlarging the absolute constant). Subtract them to get (4.2). ∎
+
+**Certificate check (inherited dictionary).** Each of these B distinct classes
+p≡−4Q_a² (ℓ) certifies cap ≤E, with all denominator primes among the k primes of P.
+Indeed write A_ℓ=(ℓ+1)/4, D_a=Q_a², V=(p+4D_a)/ℓ, and
+
+    x=(p+V)/4,  y=pA_ℓ,  z=pxA_ℓ/D_a.                        (4.3)
+
+Since P|A_ℓ, v_s(D_a)=2a_s≤2v_s(A_ℓ)+2E, exactly the condition of
+CAP_INTERPOLATION Proposition 5.1. Exclude the finitely many p|P; a hit automatically
+has p≠ℓ. All classes are nonresidues mod ℓ, so odd squares are never hit.
+**No bound D_a<ℓ/4 is imposed.** That truncation would destroy the argument.
+
+### Theorem 4.2 — cap (log log X)^{1+ε} with a power-saving exceptional set (PROVED
+### relative to G and Montgomery's arithmetic large sieve)
+
+For every fixed ε>0 there exists c_ε>0 such that, for large X,
+
+    #{p≤X:e*(p)>⌈(log log X)^{1+ε}⌉} ≪_ε X^{1−c_ε}.          (4.4)
+
+More strongly, one common set S_X of
+
+    k=⌊(2/ε) log log X / log log log X⌋
+
+odd primes, each O_ε(log log X), suffices for all the nonexceptional p. Their solutions
+(4.3) have rad(den z)⊆S_X, exponent cap E=⌈(log log X)^{1+ε}⌉, and
+ℓ≤(log X)^{O_ε(1)}. Constants are not evaluated; the theorem is asymptotic.
+
+**Proof.** Put L=log X, λ=log L, a=2/ε, k=⌊aλ/log λ⌋ and E=⌈λ^{1+ε}⌉.
+Prime-number estimates for the first k+1 primes give
+
+    log P₀=(a+o(1))λ,  log B=(a(1+ε)+o(1))λ,
+    log T=(H+o(1))λ,  H=D a(3+2ε).                           (4.5)
+
+Consequently the Gallagher range required in Lemma 4.1 holds. There are M good primes,
+each with B forbidden classes. Set r=⌊L/(2log(2T))⌋. Then every product of r distinct
+good primes is ≤√X, and M≫r, since log M=(H−a+o(1))λ while log r=(1+o(1))λ;
+take D large enough that H−a>1.
+
+Montgomery's sieve for the exceptional inputs p∤P gives |E_bad|≤2X/𝓛, where
+
+    𝓛≥binom(M,r)(B/(2T))^r
+      ≥[cB/(rφ(4P)log T)]^r.                                (4.6)
+
+Here B/(ℓ−B)≥B/ℓ≥B/(2T), and binom(M,r)≥(M/r)^r. No independence assumption or
+repeated-prime approximation is hidden in this step. Because φ(4P)≤4P₀,
+
+    log[cB/(rφ(4P)log T)] ≥ (aε−1+o(1))λ=(1+o(1))λ.
+
+It follows that log𝓛≥(1/(2H)+o(1))L. Thus any fixed c_ε<1/(2H), for example
+1/(4H), works after absorbing the p|P exceptions and constants. Primes not ≡1 (8)
+already have cap zero. All representatives Q_a and the sieving primes are independent
+of the input p; the exact dictionary supplies genuine solutions at every class hit. ∎
+
+**What is new (Assessment).** CAP_INTERPOLATION Remark 3.2(b) used one fixed base and
+sketched a power saving at E≥log^{1+ε}X. A fixed k-base version already gives the
+threshold E≥log^{(1+ε)/k}X. The growing box and exceptional-prime deletion here lower
+it further to E≥(log log X)^{1+ε}, while keeping a fixed power saving. This statement
+is not claimed in the inherited CAP documents. It is a CRT theorem for a relaxation,
+not a depth-breaking ES theorem; its novelty is the untruncated growing-rank count.
+
+### Relationship of the relaxations (PROVED inclusions; Assessment of distance)
+
+Let R_{S,E}(p) mean ES^{(y,E)} with the additional restriction rad(den z)⊆S (no window
+or y restriction in its definition). Then
+
+    ES(p) ⇒ R_{S,E}(p) ⇒ ES^{(y,E)}(p),  R_{S,0}(p) ⇔ ES(p).
+
+Thus (4.4) proves an actual intermediate relaxation, not just a differently restricted
+search: a common extremely small alphabet of mute primes suffices with a small cap.
+The theorem also supplies the optional shot shape (4.3). Imposing that shape in the
+*definition* would make its cap-zero version only PM-II, not all ES; we do not conflate them.
+
+Separately define R^{one}_{E}(p) by allowing den z=1 or s^{2h}, one arbitrary odd prime
+s, h≤E, s|y, s∤p. It too lies between ES and the cap relaxation. Corollary 2.3 proves
+a power saving for R^{one}_{(log X)^A/4}, A>1, plus a short window. The two positive
+results trade a smaller cap against a smaller mute support: (4.4) does **not** guarantee
+one mute prime, and (2.3) does **not** guarantee a common mute prime. At E=0 both become
+ES and neither proof survives. In the growing-box proof B=1 at E=0; the supply gain
+is precisely non-integrality, not an extra hidden ES dimension.
+
+**Further attack (Assessment, not a universal barrier).** Keeping this particular
+collision-free box proof, a fixed power saving needs log B−log P−log log X to be a
+positive fraction of log T, with log T≥2log B+log P. For E=λ^{1+o(1)} and
+k log(E+1)=O(λ), log B−log P=o(λ) (or negative) in the useful k range, so these
+parameters cannot reach E=λ or bounded E with fixed power saving. This is bookkeeping
+for this construction, not a theorem that the full untruncated class sieve stops there.
+Joint character confinement is not needed for (4.4), so §3.1 does not contradict it.
 
 ## 5. Computation and controls
 
