@@ -2,14 +2,15 @@
 
 ## 0. Status and summary
 
-Work in progress after Round 2. ES and Conjecture I3 remain open. A native-class architectural cap is proved and cross-reviewed; no improved exceptional-set upper bound is claimed.
+**Outcome: new scoped barrier, not an improved exceptional-set upper bound.** ES and Conjecture I3 remain open. The known log-loss 2/3 I3 bound is optimal in the native whole-avoider coefficient-sum CRT architecture, up to constants. Three rounds of cross-model review found no fatal or major defect; minor repairs are incorporated.
 
 | Item | Status | Result / exact gap |
 |---|---|---|
 | Prior-work and barrier audit | COMPLETE | Native classes are not ES forced classes; zero base replaces square base. |
 | Round 1: native multiplier atoms | PROVED / reviewed | Quadratic mass rules out cubic supply, including the standard selector. |
-| Round 2: transfer / I3 cap | PROVED / reviewed | Native whole-avoider CRT methods save at most C(log N)^{2/3}. |
-| Round 3: beyond CRT / port | PENDING | Test another route and state ES colour requirements. |
+| Round 2: transfer / I3 cap | PROVED / reviewed | Native whole-avoider CRT cap C(log N)^{2/3}, superseded by Round 3. |
+| Round 3: optimal cap | PROVED / reviewed | Cap C(log N)^{2/3}/(log log N)^{1/3}, matching the known native upper bound. |
+| Beyond CRT / ES port | OPEN / scoped negative | Noncoprime endpoint events escape the base; interval error and colour-compatible transport remain missing. |
 | Independent numerical checks | PENDING | Zero sub-range, truncated avoiders, controls. |
 | Literature after 2025 | PENDING | Search and verify sources. |
 | Hostile reviews | PENDING | Opus after each claimed advance. |
@@ -66,7 +67,7 @@ with ν≥1 on the entire congruence avoider set A(F), and with
 
 one has `log(1/Eν) ≤ C λ^{2/3}` for λ≥λ₀. Mean means uniform Haar mean over a common finite period. The moduli of F are arbitrary: prime powers, balanced moduli, arbitrarily many large primes, and arbitrarily large cofactors are allowed.
 
-**Corollary 3.2 (PROVED relative to the same inputs).** Suppose every prime dividing a family modulus is ≤N^A, with A fixed. Every bound of the form `B=N Eν+Σ|a_i|`, with ν as above and Σ|a_i|<N, satisfies
+**Corollary 3.2 (PROVED relative to the same inputs; sharpened by (4.1)).** Suppose every prime dividing a family modulus is ≤N^A, with A fixed. Every bound of the form `B=N Eν+Σ|a_i|`, with ν as above and Σ|a_i|<N, satisfies
 
 `log(N/B) ≤ C_A (log N)^{2/3}`.
 
@@ -198,7 +199,7 @@ If S≤(A+1)log N this is the asserted bound; otherwise the inequality bounds S 
 
 **Imported-proof ledger.** The comparison uses KARY Lemma 2.1, Theorem 2.5, Corollary 2.6 and Theorem 4.1, together with EXCEPTIONAL_TWIN Theorem 2.3′, its singleton step and Lemma 2.1′. The elementary Euler/Rankin and cofactor reductions are KARY2 Lemmas 3.1 and 4.1; the local-moment identity is KARY3 Lemma 2.2. These are internally proved inputs, not externally refereed results. Opus R2 traced these proofs and found no fatal or major defect. Its minor repair retaining smoothness in the squarefull term is applied above. Finite checks in §5 do not certify the infinite proof.
 
-**Scope and remaining gap.** This cap includes arbitrary balanced and prime-power native moduli, arbitrary real coefficients, Bonferroni, Selberg squares and CRT-evaluated moments, provided the final majorant covers the whole congruence avoider set. It does not include a rough-selector majorant that vanishes on the zero base, nor endpoint events with noncoprime endpoints, nor signed/position-sensitive rounding. It leaves the log-log factor between the existing all-integer upper bound and the 2/3 architectural cap unresolved. Removing that factor and proving 3/4 are distinct tasks; the latter now requires an exit from this native whole-avoider architecture.
+**Scope and remaining gap.** This cap includes arbitrary balanced and prime-power native moduli, arbitrary real coefficients, Bonferroni, Selberg squares and CRT-evaluated moments, provided the final majorant covers the whole congruence avoider set. It does not include a rough-selector majorant that vanishes on the zero base, nor endpoint events with noncoprime endpoints, nor signed/position-sensitive rounding. At the end of Round 2 it left the log-log factor unresolved. Round 3 closes that architectural gap: both removing the factor and proving 3/4 require an exit from this native whole-avoider architecture.
 
 ## 4. Round 3 — the log-log loss is also intrinsic to this architecture
 
@@ -206,7 +207,7 @@ If S≤(A+1)log N this is the asserted bound; otherwise the inequality bounds S 
 
 Round 2 threw away a useful restriction: on the zero base every surviving modulus is W-rough. Let W grow with the level. The base costs O(W), but a one-dimensional upper-bound sieve now saves 1/log W in the shifted-divisor first moment. This yields a matching cap, including the log-log loss in the known I3 theorem.
 
-**Theorem 4.1 (PROVED relative to the inputs of Theorem 3.1 and the classical fundamental lemma of the upper-bound sieve; pending hostile review).** Under the hypotheses of Theorem 3.1,
+**Theorem 4.1 (PROVED relative to the inputs of Theorem 3.1 and the classical fundamental lemma of the upper-bound sieve; Opus review SOUND).** Under the hypotheses of Theorem 3.1,
 
 `log(1/Eν) ≤ C λ^{2/3}/(log λ)^{1/3}`.
 
@@ -226,11 +227,11 @@ with an absolute constant. If gcd(q,P_W)>1 the sum is zero.
 
 *Proof.* Pair divisors of m+1 to bound τ(m+1) by twice the number of divisors d≤√(2K+1). Only gcd(d,q)=1 contributes. For each such d, solve `m≡0 mod q, m≡−1 mod d`; the solutions form one progression modulo qd, of length H=K/(qd)≥cK^{1/4}. For p≤W dividing d there is no forbidden residue, because m≡−1 mod p. For p≤W not dividing d there is exactly one forbidden residue of the progression index, because q is W-rough.
 
-The upper fundamental lemma with fixed sieve parameter 20 gives coefficients of absolute value ≤1 supported on r≤W^{20}, with upper main term at most C times
+Use the standard upper-bound β-sieve fundamental lemma, in its dimension-one form (Halberstam–Richert, *Sieve Methods*, 1974, fundamental lemma; equivalently Friedlander–Iwaniec, *Opera de Cribro*, 2010). With fixed sieve parameter 20 it gives coefficients of absolute value ≤1 supported on squarefree r≤W^{20} dividing `∏_{p≤W,p∤d}p`, with upper main term at most C times
 
 `V_d(W)=∏_{p≤W,p∤d}(1−1/p)`.
 
-Its hypotheses are uniform in d: deleting primes only decreases the dimension-one product bound. Counting a residue of the progression index costs H/r+O(1), so the sifted count is at most `C H V_d(W)+O(W^{20})`. Since V_d(W)≥c/log W and H≥cW^{250}, the error is absorbed uniformly. Mertens gives
+Its hypotheses are uniform in d: deleting primes only decreases the dimension-one product bound. Counting a residue of the progression index costs H/r with remainder of absolute value at most 1, so the sifted count is at most `C H V_d(W)+O(W^{20})`. Since V_d(W)≥c/log W and H≥cW^{250}, the error is absorbed uniformly. Mertens gives
 
 `V_d(W) ≪ (log W)^{−1} ∏_{p|d,p≤W}(1−1/p)^{−1}`.
 
@@ -250,7 +251,7 @@ uniformly in W: expand the product as `Σ_{a|d,P⁺(a)≤W} μ²(a)/φ(a)` and u
 
 uniformly in W and y.
 
-*Proof.* First, for K≥W^{1000}, expand Γ=1*h and split e at K^{1/8}. For the small e, Lemma 4.2 applies to q=e and gives total O(K log K/log W), since Σh(e)/e is bounded. The large e tail is O(K^{1+ε−1/32}), by the same Rankin bound as §3.3 with cutoff K^{1/8}; it is absorbed uniformly since log W≤log K/1000. Thus the weighted rough ordinary mean on a dyadic block is O(K log K/log W).
+*Proof.* The ordinary-mean and local-moment constants from §3.3 are uniform: Γ_W≤Γ_16 pointwise, and their Euler-product estimates use only h(p)≤2p^{−1/2}. First, for K≥W^{1000}, expand Γ=1*h and split e at K^{1/8}. For the small e, Lemma 4.2 applies to q=e and gives total O(K log K/log W), since Σh(e)/e is bounded. The large e tail is O(K^{1+ε−1/32}), by the same Rankin bound as §3.3 with cutoff K^{1/8}; it is absorbed uniformly since log W≤log K/1000. Thus the weighted rough ordinary mean on a dyadic block is O(K log K/log W).
 
 For smooth blocks K≥y^{48}, repeat §3.3 retaining gcd(m,P_W)=1. In the local third moment D≤K^{1/16}. If D has a prime ≤W its term is zero. Otherwise expand Γ and split e at K^{1/8}. For small e, `[D,e]≤K^{3/16}≤K^{1/4}`, so Lemma 4.2 replaces the Shiu estimate and supplies 1/log W. The large-e sum is bounded by `C 2^3 K^{−1/32}` after extracting 1/D; the local-moment summation is unchanged. The squarefull term is still O(K^{4/5}), and all these power errors are absorbed into
 
@@ -262,7 +263,7 @@ For the body m≤2y^{48}, use the ordinary estimate of §3.3 below a cutoff 2W^{
 
 ### 4.4 Matching cap and why this does not prove many exceptions
 
-*Proof of Theorem 4.1.* In the base of §3.2 take `W=max(W₀,⌊λ^{1/2}⌋)` and pin all primes ≤W to zero modulo p. This costs O(W). The level still charges every prime >W₀: conditioning on the extra small coordinates can only reduce the remaining locality of the test, so the comparisons remain valid. Lemma 3.4 is uniform in W; the leak remains ≤1/2. Set
+*Proof of Theorem 4.1.* In the base of §3.2 take `W=max(W₀,⌊λ^{1/2}⌋)` and pin all primes ≤W to zero modulo p. This costs O(W). The level still charges every prime >W₀: conditioning on the extra small coordinates can only reduce the remaining locality of the test. Explicitly, the ETw level measured over primes above the current W is at most λ, so the comparisons remain valid. Lemma 3.4 is uniform in W; the leak remains ≤1/2. Set
 
 `s₀=(λ log W)^{1/3}`.
 
@@ -292,7 +293,7 @@ The coefficient-sum statement follows from the same projection/coarsening as §3
 
 ### 4.6 ES₅/U port audit
 
-**PROVED scope restriction / existing slot identities.** A native I3 hit is an ES₅ certificate only when one of t,u,v,tu−1,tv−1 is divisible by 4 (at odd unit inputs, equivalently the endpoint Jacobi product is −1). The unrestricted square word 121=3·5·9−5−9 has slots 3,5,9,14,26, none divisible by 4. Hence neither its class nor a sign-free I3 positivity theorem may be transported to U or ES₅ without a colour-compatible witness theorem. Restricting to 4|t makes the native detector a certificate family, but cannot increase its mass or defeat a cap already valid for the whole D-universe.
+**PROVED scope restriction / existing slot identities.** A native I3 hit is an ES₅ certificate only when one of t,u,v,tu−1,tv−1 is divisible by 4 (for n≡1 mod4 and gcd(n,uv)=1, equivalently the endpoint Jacobi product is −1; FOREST_DEEP_ASTRA Theorem 2.1 and LOWERTAIL_DEEP_FABLE §1.1–1.3). The unrestricted square word 121=3·5·9−5−9 has slots 3,5,9,14,26, none divisible by 4. Hence neither its class nor a sign-free I3 positivity theorem may be transported to U or ES₅ without a colour-compatible witness theorem. Restricting to 4|t makes the native detector a certificate family, but cannot increase its mass or defeat a cap already valid for the whole D-universe.
 
 **Assessment.** No improved upper bound is available to port. The zero-base cap applies to that native certificate subfamily over all integers, not automatically to the full six-coordinate union U or to prime-only ES₅ sieves. The ES square floor survives those certificate restrictions, whereas I3 itself has both successful and unsuccessful squares. Numerator 8 requires its own divisibility condition (e.g. 8|t for the level identity); the I3 word of 241 has t=9 and is not an 8/241 certificate. No step here proves a false numerator-8 assertion.
 
