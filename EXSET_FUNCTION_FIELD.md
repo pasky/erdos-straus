@@ -307,6 +307,45 @@ n dimensions, i.e. cohomology concentrated in the middle degree) for the joint i
 complexity C^{O(n)} *independent of the number of events*. Purity alone does not suffice: with complexity \u220f D_\u03c3 the
 budget (n/2) log q affords only \u2248 log q/(2 log 3) events per degree \u2014 bounded at fixed q (\u00a74.3).
 
+### 3.8 What CRT gives in the function-field world (calibration: the integer exponents reappear)
+
+Over F_q[T] the CRT is *exact*: for f uniform in M_n and deg M \u2264 n, f mod M is uniform. So inclusion\u2013exclusion is
+exact to depth n/(modulus degree), and Bonferroni gives clean bounds with no error terms. The exponents are the
+integer ones.
+
+**Proposition 3.7 (PROVED).** Let q \u2261 3 (mod 4), \u03bc(z) := \u03a3_{deg A \u2264 z} w(A)/|A| (prime family, Def 1.4).
+(a) *Prime family, every q.* For 1 \u2264 z \u2264 n \u2212 1 and every L \u2265 0 with 2Lz \u2264 n,
+  #{f \u2208 M_n : f mod A \u2209 F(A) for all primes A, deg A \u2264 z} \u2264 q^n (\u220f_{deg A \u2264 z}(1 \u2212 w(A)/|A|) + \u03bc(z)^{2L+1}/(2L+1)!).
+Moreover \u03bc(z) \u2265 z/16 \u2212 O(log z) uniformly in q. Hence \u03b4_q(n) \u2264 2 exp(\u2212c\u221an) for an absolute c > 0, all q, n.
+(b) *U, large-q limit.* limsup_{q\u2192\u221e} \u03b4_q(n) \u2264 2 exp(\u2212c n^{2/3}) for an absolute c > 0.
+
+*Proof.* (a) For distinct primes A_1, \u2026, A_i with \u03a3 deg A_k \u2264 n the residues f mod A_k are independent and
+uniform; classes at the same prime are disjoint. So the i-th Bonferroni sum is exactly e_i(x), x_A = w(A)/|A|, for
+iz \u2264 n, and P(avoid) \u2264 \u03a3_{i\u22642L}(\u22121)^i e_i(x) \u2264 \u220f(1 \u2212 x_A) + e_{2L+1}(x) (Bonferroni for the independent model).
+Lower bound for \u03bc: for deg A = d odd, w(A) \u2265 #{monic v | A + 1 : deg v \u2264 k\u2080}, k\u2080 := \u230ad/2 \u2212 log_q(2d + 2)\u230b; by
+the Riemann hypothesis for Dirichlet L-functions of F_q[T] (Weil; Rosen Thm 4.8),
+|#{A prime, deg A = d, A \u2261 \u22121 (v)} \u2212 \u03c0_q(d)/\u03a6(v)| \u2264 (deg v + 1)q^{d/2}/d, and \u03a3_{deg v = k} 1/\u03a6(v) \u2265 1, so
+\u03a3_{deg A = d} w(A)/q^d \u2265 (1/(2d))(k\u2080 + 1) \u2265 1/8 for d \u2265 d\u2080; for d even use odd deg v only (\u2265 1/16). Take
+z \u2248 \u221a(n/(16e\u00b2)), 2L + 1 \u2248 n/z; U-failure implies avoidance (Def 1.4).
+(b) Use only the small-modulus words: pairs (u, v) with a = deg u \u2265 1, b = deg v \u2265 1, a + b \u2264 D, s := n \u2212 a \u2212 b
+with s or b odd; each gives the class f \u2261 \u2212u \u2212 v (mod uv), and a hit is a U-witness (t := (f + u + v)/(uv)).
+Distinct unordered pairs give distinct classes (u + v and uv determine {u, v}). For j \u2264 n/D the j-th Bonferroni
+sum S_j(q) is computed exactly by CRT: q^{\u2212deg lcm} for compatible classes, 0 for incompatible ones. Tuples with
+pairwise coprime moduli contribute e_j(q^{\u2212deg M_c}); a pair sharing a prime g of degree e is compatible only if
+v\u2032 (or u\u2032) lies in a prescribed class mod g, which costs a factor \u2264 max(q^{\u2212e}, q^{\u2212b\u2032}) \u2264 q^{\u22121} (here b\u2032 \u2265 1 is used;
+the v = 1 classes, which are the divisors of f + 1, are exactly the ones excluded because they are not Poisson);
+summing over g gives O(D\u2075/q). So S_j(q) \u2192 \u03bc_D^j/j!, \u03bc_D = \u03a3 over admissible unordered types {a, b} of (1 if a \u2260 b,
+1/2 if a = b) \u2265 D\u00b2/16 \u2212 O(D). Bonferroni at 2L \u2264 n/D and D \u2248 c\u2080 n^{1/3} give the bound. \u220e
+
+So in the q = \u221e model: **CRT (exact) gives exp(\u2212c n^{2/3}) for U and exp(\u2212c\u221an) for the prime family; the
+limit densities (EVIDENCE, \u00a73.6) are exp(\u2212\u0398(n\u00b2)) and, for the prime family, exp(\u2212\u0398(n)) (Poisson).** These are
+exactly the integer pictures (2/3 for U, G1's \u221a for the prime family) with log N \u21a6 n. The gap is closed in the
+q = \u221e model by one object: the monodromy group G_n of the word covers (Thm 3.3), whose derangement proportion is
+the true density. So the brief's question "which input supplies independence of many divisor events at one
+polynomial" has a precise answer in F_q[T] at large q: **Chebotarev in the compositum of the word covers (RH for
+varieties over F_q) plus the size of G_n (big monodromy, Conjecture 3.6)**. CRT sees only the abelian quotient
+information of bounded conductor; G_n is non-abelian and of size \u2265 e^{\u03bc} (Thm 3.5).
+
 ## 4. Fixed q, n → ∞
 
 (placeholder)
