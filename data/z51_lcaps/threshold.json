@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "cases": 850,
+  "cap_zero": 74,
+  "cap_positive": 776,
+  "rows": [
+    {
+      "q": 11,
+      "cases": 159,
+      "exceptional_zero": 40
+    },
+    {
+      "q": 19,
+      "cases": 128,
+      "exceptional_zero": 17
+    },
+    {
+      "q": 43,
+      "cases": 102,
+      "exceptional_zero": 0
+    },
+    {
+      "q": 59,
+      "cases": 179,
+      "exceptional_zero": 6
+    },
+    {
+      "q": 67,
+      "cases": 100,
+      "exceptional_zero": 6
+    },
+    {
+      "q": 83,
+      "cases": 182,
+      "exceptional_zero": 5
+    }
+  ],
+  "energy": 8049,
+  "kernels": 92
+}

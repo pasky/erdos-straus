@@ -125,7 +125,84 @@ method. Neither the existing sketch nor (2.2) establishes a power saving at A=1.
 
 ## 3. Round 2: the forcing threshold and its exact scope
 
-PENDING. Separate a sharp single-window algebraic threshold from any unproved global ES barrier.
+### Theorem 3.1 — exact square-class budget of the amplifier (PROVED)
+
+Let S⊆{primes≤Y}. Allow arbitrary nonnegative coefficients c_n supported on integers
+n≤N whose squarefree kernels belong to the multiplicative squareclass span of S;
+arbitrary square multipliers and repeated prime factors are allowed. Put
+
+    H=Σ_n c_n,   J=Σ_{ab=square}c_a c_b.
+
+Then H²/J≤B_S(N), where B_S(N) counts squarefree kernels ≤N supported on S. Equality
+is attainable by assigning equal total weight to every available kernel. Consequently
+HB Corollary 2 with a guaranteed sum H cannot improve the bound (X+N)/B_S(N), apart
+from its (XN)^η factor, by adding prime powers, squares or nonnegative weights.
+
+**Proof.** Group coefficients by kernel d: w_d=Σ_{n=dv²}c_n. Then J=Σ_d w_d² and
+H=Σ_d w_d. Cauchy gives H²≤#{d:w_d≠0}J≤B_S(N)J; take only n=d with equal weights
+for equality. If some row has a common factor with a square multiplier, its sum may
+be smaller than H, never larger; this cannot improve a guaranteed lower bound. ∎
+
+If Y=(log X)^{1+o(1)}, then **uniformly for every N≥1**,
+
+    (X+N)/B_S(N) ≥ X^{1−o(1)}.                               (3.1)
+
+Thus this common-positive smooth-squareclass amplifier cannot prove a fixed power
+saving at Y=log X·(log log X)^C for any fixed C, even using *all* primes ≤Y, arbitrary
+lengths, square multipliers and optimized weights. This is a limitation of this
+specific HB estimate, not a lower bound on the exceptional set.
+
+**Proof of (3.1).** For any fixed 0<t<1, Rankin gives
+
+    B_S(N)≤N^t ∏_{q≤Y}(1+q^{−t})
+           ≤N^t exp(O_t(Y^{1−t})) =N^t X^{o(1)}.
+
+The minimum of (X+N)/N^t over real N>0 is c_t X^{1−t}; the product bound is independent
+of N. Take any fixed t arbitrarily small. Conversely, for Y=(log X)^A, A>1, §2 gives
+a power saving. In the fixed logarithmic-exponent scale the boundary of this
+amplifier is therefore exactly A=1. No claim is made about arbitrary signed amplifiers,
+Elliott-type estimates, or profiles not confined to a common smooth squareclass span.
+The known condition (2/p)=1 adds at most a factor two to the kernel budget.
+
+### Theorem 3.2 — full-window sharpness, not just the Type II slice (PROVED algebra;
+### infinitude CONDITIONAL on Dickson)
+
+Fix a prime q≡3 (8), q≥11. Let s be an odd prime primitive modulo q, put p=4s−q,
+and suppose p is prime, p>q. Let c_q(p) be the least cap of **any** ES^{(y,e)}(p)
+solution with x=s, including the δ_p=±1 families of CAP_DOWN Lemma 3.1. Then
+
+    c_q(p)=0                if p≡−1 (mod q),
+    c_q(p)=(q−3)/4         otherwise.                         (3.2)
+
+For each such q, Dickson implies infinitely many primes p in the second case.
+This extends CAP_DOWN Proposition 4.1(a), whose sharpness statement excludes δ_p≠0.
+
+**Proof.** The full fixed-x dictionary permits precisely
+
+    s^δ p^ε ≡−1 (mod q),  ε∈{−1,0,1},
+    δ∈{−1,0,1}∪{3,5,…,2e+1}.
+
+There is no 2-coordinate since x=s is odd; p and s are distinct. Write q−1=2h,
+h odd, and 4=s^a mod q, where a is even. Then
+δ+ε≡h−aε (mod 2h). If ε=±1, δ must be even, hence δ=0, and this case works exactly
+when p≡−1 mod q. If ε=0, δ≡h mod 2h: since h≥5 its first permitted representative
+is h, giving e=(h−1)/2=(q−3)/4. This also proves the first case via δ=0, ε=1.
+
+Choose a primitive residue g≠−4^{−1} mod q (there are at least four primitive residues).
+Choose an odd positive a₀≡g mod q and consider s=a₀+2qt, p=4a₀−q+8qt.
+The two distinct linear forms are admissible: modulo 2 and q they never vanish;
+modulo any other prime ℓ≥3 at most two residues are roots. Dickson supplies infinitely
+many simultaneous primes. They have p≡1 (8), p≢−1 (q), so (3.2) applies. ∎
+
+**Exact interpretation.** With only a nonresidue bit at a single q and no factorization
+information, cap (q−3)/4 is genuinely needed for some full fixed-x problems. At lower
+caps the bit (q/p)=−1 need not force a solution **at that q**. Globally, however,
+(1.2) remains true at *every* e≥0; it never “ceases to be pointwise-forced”. Its
+confinement cutoff simply shrinks to 4e+3. A theorem that it fails globally beyond
+that cutoff would require an actual cap/ES counterexample and is not claimed.
+An exact universal global stopping threshold, as literally asked in the brief, is
+therefore not established. Other windows may solve p with cap zero (and do in our
+entire census). This local theorem must not be advertised as a barrier for global ES.
 
 ## 4. Round 3: intermediate relaxations and further attacks
 
