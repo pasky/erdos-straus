@@ -7,8 +7,8 @@ This lane follows z48–z51 CONTEXT, with z51 binding. No merge without parent a
 
 | Round | Target | Status | Hostile Opus review |
 |---|---|---|---|
-| 1 | Quadratic large sieve for confined squarefree products; cap threshold | PENDING | PENDING |
-| 2 | Exact scope and endpoint of pointwise confinement | PENDING | PENDING |
+| 1 | Quadratic large sieve: cap log^A X, exceptional exponent 1/A, A>1 | PROVED (known analytic technique, new cap application) | SOUND; minors repaired |
+| 2 | Weighted squareclass endpoint; full fixed-window sharpness | PROVED; infinitude uses Dickson | SOUND; scope/terminology repaired |
 | 3 | Restricted-window / restricted-mute relaxations | PENDING | PENDING |
 | 4 | Prime census through 10⁸ and independent controls | PENDING | PENDING |
 
@@ -128,12 +128,12 @@ method. Neither the existing sketch nor (2.2) establishes a power saving at A=1.
 ### Theorem 3.1 — exact square-class budget of the amplifier (PROVED)
 
 Let S⊆{primes≤Y}. Allow arbitrary nonnegative coefficients c_n supported on integers
-n≤N whose squarefree kernels belong to the multiplicative squareclass span of S;
+n≤N whose squarefree parts (cores d in n=dv²) belong to the multiplicative squareclass span of S;
 arbitrary square multipliers and repeated prime factors are allowed. Put
 
     H=Σ_n c_n,   J=Σ_{ab=square}c_a c_b.
 
-Then H²/J≤B_S(N), where B_S(N) counts squarefree kernels ≤N supported on S. Equality
+Then H²/J≤B_S(N), where B_S(N) counts squarefree kernels ≤N supported on S (here and below “kernel” means this core, not rad(n)). Equality
 is attainable by assigning equal total weight to every available kernel. Consequently
 HB Corollary 2 with a guaranteed sum H cannot improve the bound (X+N)/B_S(N), apart
 from its (XN)^η factor, by adding prime powers, squares or nonnegative weights.
@@ -200,9 +200,18 @@ caps the bit (q/p)=−1 need not force a solution **at that q**. Globally, howev
 (1.2) remains true at *every* e≥0; it never “ceases to be pointwise-forced”. Its
 confinement cutoff simply shrinks to 4e+3. A theorem that it fails globally beyond
 that cutoff would require an actual cap/ES counterexample and is not claimed.
+Local sharpness is proved only for q≡3 (8), q≥11; even-K windows q≡7 (8) are not addressed.
 An exact universal global stopping threshold, as literally asked in the brief, is
 therefore not established. Other windows may solve p with cap zero (and do in our
 entire census). This local theorem must not be advertised as a barrier for global ES.
+
+**Round-2 Opus verdict: SOUND, minor terminology/scope repairs applied.** The retained
+script enumerates the known fixed-x dictionary and rebuilds exact rationals; it does
+not independently prove that dictionary. 850 cases pass (74 cap-zero, 776 sharp-positive).
+Opus independently tested the definition with extra 2- and p-powers on 1350 cases,
+all matching (3.2). Session: `2026-10-29T22-46-32-054Z_01a189d7-ed76-70d6-863f-0be3a0a4cd2b.jsonl`.
+The cap-zero branch is possible only if −4^{−1} is primitive modulo q; otherwise every
+admissible pair is sharp. The exact q-by-q restriction is part of the theorem.
 
 ## 4. Round 3: intermediate relaxations and further attacks
 
