@@ -8,7 +8,7 @@ ES remains OPEN. Internal research note; no external refereeing.
 |---|---|---|---|
 | 1 | Exact large-dimension literature and independent G1 audit | Completed within stated source-access limits; no advance claimed | Opus R1: no fatal issue; repairs recorded §6 |
 | 2 | Named hypothesis ⇒ RLD-U or T1-min | No implication; full-law replacement is impossible (Thm 3.1) | Opus R2 PASS, no fatal/major issues |
-| 3 | RLD-U ⇒ recognised open statement | Pending | Pending |
+| 3 | RLD-U ⇒ recognised open statement | Not established; local affine tuple encoding has degree cost Ω(log N) | Opus R3 PASS; Thms 4.1–4.2 sound |
 | 4 | Non-Selberg weights and enumerable controls | Pending | Pending |
 
 Labels: PROVED (internal proof), CONDITIONAL (explicit hypothesis), CERTIFIED (finite exact check), EVIDENCE, CONJECTURE, Assessment. A restatement of G1–G5 does not count as an advance. Every claimed advance receives hostile Opus review (`anthropic/claude-opus-5-5:high`, deep).
@@ -17,7 +17,7 @@ Labels: PROVED (internal proof), CONDITIONAL (explicit hypothesis), CERTIFIED (f
 
 **Scope audit (PROVED definitions; no advance claimed).** Write I_N={1≤n≤N:n≡1 (8)}, S=4ℕ∪(8ℕ+7), and
 
-    F_l={−u mod l : u|(l+1), u∈S},  p_l=|F_l|/l,
+    F_l={−u mod l : u|(l+1), u∈S},  w(l)=|F_l|,  p_l=w(l)/l,
     V(z)=∏_{3≤l≤z, l prime}(1−p_l),
     A_z(N)={n∈I_N : n mod l∉F_l for every l≤z}.
 
@@ -42,7 +42,7 @@ Primary PDFs were downloaded, converted with `pdftotext`, and the relevant state
 | Source actually read | Precise usable statement | Limitation here |
 |---|---|---|
 | Richert, *Lectures on Sieve Methods*, Ch. 11, Thm 11.4, pp. 134–136 | Under Ω₁, Ω₂(κ,L), and |R_d|≤ω(d), S≤Γ(κ+1)·singular product·X/(log z)^κ·[1+O((log log(3z)+L)/log z)], z≤√X. Constants depend on κ,A₁,A₂. | For fixed k this gives (2^k k!+o(1))𝔖(H)X/log^k X. It does **not** supply uniformity when k grows. |
-| Richert, Ch. 12, pp. 159–160, discussion of Ankeny–Onishi | AO replace Kuhn's constant prime-divisor weight by a logarithmic smoothing weight. | Original AO paper not obtained; no numerical AO large-dimension constant is used. |
+| Ankeny–Onishi, *The general sieve*, pp. 31–35, Thm 1; original scan now read | Upper bound B_a(N)N(log N)^{−a}λ^{−a}/J_a(β/(2λ))·(1+o(1)) under (A)–(C); parameters a,β,δ,C₁,C₂ explicitly independent of N. Lower positivity at β/λ>2ξ_a; ξ_a/a→1.22… stated. | Fixed-dimension N-asymptotic is not uniform for a→∞ with N. Chapter I is explicitly Selberg's quadratic construction. Exact formulas and primary URL in source notes. |
 | Franze, arXiv:1012.3809, Thm 1 and Table 1, p. 2 | Explicit positive lower-sieve thresholds for integer κ=2,…,10 under (2)–(4). Introduction reports DHR βκ≲2.44κ and Selberg βκ≲2κ+19/36 for large κ. | βκ is where a **lower** bound becomes positive, not the prime-tuple upper constant. Original DHR large-κ calculation not verified; no βκ∼cκ formula used. |
 | GKM, arXiv:1606.06781, Thm 1.3, p. 9 | For fixed k,A, M_{f_A,2k}(R)=c_{k,A}(log R)^{max{binom(2k,k)−2k(A+1),−1}}+O((log R)^{E−1}). | Constants depend on k,A. These are moments of smoothed Möbius divisor sums, not a growing-k tuple upper theorem. |
 | GKM, Thm 1.4 | If f∈C^A, A≥2, derivatives bounded, support (−∞,1], and A>binom(2k,k)/(2k), then Σ_{n≤x,∃p|n:p≤R^η} M_f(n;R)^{2k}≪ηx/log R, x≥R≥2 and log2/logR≤η≤1. | A fixed-moment weight theorem. Remark 1.4 explicitly says they study Selberg-style, not combinatorial-style, weights. |
@@ -50,7 +50,7 @@ Primary PDFs were downloaded, converted with `pdftotext`, and the relevant state
 | Banks–Ford–Tao, arXiv:1908.08613v3, Thm 1.5, p. 7 | Uniform HL with error O(x^{1−κ}) for H⊂[0,(log x)²], |H|≤2κlog x/log₂x, 2log₂x/log x≤κ≤1/2, implies G_A(x)≫κ(log x)²/log₂x. | A genuine named growing-tuple hypothesis, but no U transfer is in the statement. |
 | Ford, arXiv:2408.03803, Thm 1, p. 3 | Under Z(γ), fixed a≠0,A>0,α<γ: d_TV(W_y,U_{x,y})≪exp(−αu log u)+(log x)^{-A}, u=log x/log y. W_q has P(W_q=0)=1−1/(q−1), P(W_q=v)=q^{-v} for q∤a,v≥1; W_q=0 if q|a. | One shifted prime p+a, not many shifts; at fixed u the displayed error is not a decaying relative error for a power-small avoidance event. Z(1) follows from EH, but this limitation remains. |
 
-**Access/coverage limit.** *Opera de Cribro* book text and the original AO/DHR large-dimension calculation were not accessible in this pass. We do not present secondary snippets as verified exact theorems. Ford's uniform factor-count bound concerns ω(p+a)=k, not prime k-tuples. No verified theorem with an e^{O(k)} all-prime tuple upper constant in the requested growing range was located. This is a search-limited negative, not a claim to have established the current optimum. In particular 2^k k! is the classical general benchmark, not claimed optimal for each k (already k=2 has improvements).
+**Access/coverage limit.** *Opera de Cribro* book text and the original DHR large-dimension calculation were not accessible in this pass. AO's original introductory theorem was obtained in the follow-up (17 double-page scans, printed pp. 31–35 read); its full Chapter II proof is not independently audited. We do not present secondary snippets as verified exact theorems. Ford's uniform factor-count bound concerns ω(p+a)=k, not prime k-tuples. No verified theorem with an e^{O(k)} all-prime tuple upper constant in the requested growing range was located. This is a search-limited negative, not a claim to have established the current optimum. In particular 2^k k! is the classical general benchmark, not claimed optimal for each k (already k=2 has improvements).
 
 ### 2.2 Independent saddle calculation (PROVED calculation; rederivation, not advance)
 
@@ -170,15 +170,15 @@ Take y=z^η with η=c₁/(2c₂) as in Thm 3.1. The left side is ≥(c₁/2)log 
 
 under the stated height and power-level assumptions. Mertens gives Σ_{y<l≤z}1/l=log(1/η)+o(1), proving the result. ∎
 
-**Scope.** This rules out the most direct proposed reverse reduction in the brief, at its stated k scale, even if the tuple upper bound itself had constant 1. It is not a proof that RLD-U cannot imply a recognised open problem. It leaves larger tuples, nonlinear encodings n=f(t), many adaptive pieces, and global/interval arithmetic implications outside local root coverage open. It also does not say Dickson's conjecture supplies uniform points below N. No RLD-U⇒improved-Selberg-constant implication is established.
+**Scope.** This rules out the most direct proposed reverse reduction in the brief, at its stated k scale, even if the tuple upper bound itself had constant 1. It is not a proof that RLD-U cannot imply a recognised open problem. It leaves larger tuples, nonlinear encodings n=f(t), many adaptive pieces, and global/interval arithmetic implications outside local root coverage open. It also does not say Dickson's conjecture supplies uniform points below N. The height restriction is essential: choosing A=8∏_{l≤z}l and B=1 makes At+B a unit-square residue at every sieving prime, so zero forms suffice for (4.1), but log A≍z, far beyond polynomial height at z=N^{1/s}. No RLD-U⇒improved-Selberg-constant implication is established.
 
-**Toy realization, CERTIFIED.** At z=13, the active primes are 3,7,11,13 and max w(l)=2. The two forms t+3589,t+79, with n=8t+1, have exactly the required forbidden preimage roots at all four primes; 132 simultaneous prime-value points with 14≤t≤2013 were checked and their encoded n avoid every direct U class≤13. The CRT period used to choose the intercepts is 6006. This validates the *direction* of the construction, not a favourable height bound as z grows. One form cannot cover the two forbidden classes modulo 7. The script also computes the exact product-law and actual-interval avoidance on enumerable cubes.
+**Toy realization, CERTIFIED.** At z=13, the active primes are 3,7,11,13 and max w(l)=2. The two forms t+3589,t+79, with n=8t+1, have exactly the required forbidden preimage roots at all four primes; 132 simultaneous prime-value points with 14≤t≤2013 were checked and their encoded n avoid every direct U class≤13. The CRT period used to choose the intercepts is 6006. Six encoded values are squares (225,961,1521,2401,3025,5041), leaving 126 nonsquare images; thus the untrimmed toy does not itself land in RLD-U's nonsquare target. It validates the *direction* of the full-avoider construction, not a favourable height bound or square-removal cost as z grows. One form cannot cover the two forbidden classes modulo 7. The script also computes the exact product-law and actual-interval avoidance on enumerable cubes.
 
 ### 4.3 Second attack on the surviving full-law gap: arbitrary thinning (PROVED)
 
 Could one retain only a judicious subfamily, approximate its full law, and collect more than √log N saving? The obstruction is controlled by **retained mass**, not just the largest prime.
 
-**Theorem 4.2 (mass version).** Let 0≤q_l≤p_l be any finite deterministic thinning of the direct U local densities, let m=Σq_l, and let ν_q be the independent Bernoulli(q_l) law. Uniformly over all such thinnings, for sufficiently large m there are absolute c,C>0 such that
+**Theorem 4.2 (mass version).** Let 0≤q_l≤p_l be any finite deterministic thinning of the direct U local densities, let m=Σq_l, and let ν_q be the independent Bernoulli(q_l) law. Uniformly over all such thinnings, for sufficiently large m there are fixed-family constants c,C>0 (depending on C₀ below) such that
 
     log M≤c m²  ⇒  d_TV(μ,ν_q)≥1−exp(−Cm)
 
@@ -191,11 +191,61 @@ for every μ supported on at most M bit-vectors.
 
 Use log M≤bm²/2 as before. ∎
 
-**Consequence and limit.** Any deterministic subfamily whose product saving −log∏(1−q_l)≫√log N has m≫√log N (since q_l≤1/2), so full-law small-TV approximation is impossible, even if its retained primes are very sparse. This strictly widens Thm 3.1's local application, but remains a support/entropy obstruction, not a cap on direct one-event methods. Random adaptive thinnings with changed conditional densities are not covered by simply invoking the theorem.
+**Consequence and limit.** Any deterministic subfamily whose product saving satisfies [−log∏(1−q_l)]/√log N→∞ has m/√log N→∞ (since q_l≤1/2), so full-law small-TV approximation is impossible, even if its retained primes are very sparse. This strictly widens Thm 3.1's local application, but remains a support/entropy obstruction, not a cap on direct one-event methods. Random adaptive thinnings with changed conditional densities are not covered by simply invoking the theorem.
 
 ## 5. Round 4 — numerical controls and further attacks
 
-Pending. Scripts `scripts/z51_hidim_*`; data `data/z51_hidim/` (<20 MB). All commands bounded in time and memory. Include odd squares, the hard primes and 14 R-zeros; numerator 8 controls wherever a mechanism transfers.
+### 5.1 Final positive-route attempt: use only short HL shifts
+
+The named Banks–Ford–Tao hypothesis is uniform for shifts up to (log x)². Could it at least transfer the prime-divisor avoidance of a growing but short shift menu, avoiding the impossible full law?
+
+**Proposition 5.1 (PROVED supply bound; not a target advance).** Retain only direct endpoint labels u≤H, and write V_H(z) for their product survival and m_H(z) for their mass. Uniformly for H,z≥2,
+
+    −log V_H(z) ≍ m_H(z) ≪ log(2H)·[1+log log(3z)].                 (5.1)
+
+In particular for H≤(log N)^B and z≤N, the model saving is O_B((log log N)²), not a depth-breaking saving. Even granting perfect transfer of this product does not give T1-min. This concerns **prime-divisor certificates** at these endpoints, not whole composite-divisor shift events.
+
+*Proof.* Local classes remain distinct and their density is≤1/2, giving m_H≤−log V_H≤2m_H. Primes l≤H² contribute at most the full-family mass μ(H²)≪log(2H). For l>H² and u≤H, Brun–Titchmarsh gives π(t;u,−1)≪t/[φ(u)log t] for t≥H² (since log(t/u)≥(log t)/2). Partial summation therefore gives
+
+    Σ_{H²<l≤z,l≡−1 (u)}1/l ≪ [1+log log(3z)]/φ(u).
+
+Sum over u≤H. The elementary bound Σ_{u≤H}1/φ(u)≪log(2H) follows from
+
+    1/φ(u)=(1/u)Σ_{d|u} μ²(d)/φ(d)
+
+and convergence of Σ_d μ²(d)/(dφ(d)). If z≤H² the first part already proves the claim. ∎
+
+**Assessment.** This closes only the literal short-shift/product attempt. One cannot infer that the BFT hypothesis has no subtler implication. Allowing composite divisors recovers the separate whole-shift problem, and the fixed-u Landau exponent from `EXSET_SHIFT_DIVISORS` is not uniform enough in u to fill the gap. Allowing the endpoint height to grow well beyond polylog N leaves the named short-shift HL range. Coarse-graining the entire hit vector to the scalar total hit count also avoids the support obstruction, but a scalar Poisson approximation with ordinary o(1) error still does not bound a zero event of probability V(z); an error O(V(z)) or a one-sided Laplace estimate is missing. No established named hypothesis has been proved to provide it.
+
+### 5.2 Exact toy checks and model profiles
+
+**CERTIFIED (finite exact checks, not asymptotics).** `scripts/z51_hidim_checks.py` is a stdlib-only independent implementation of the direct family. Existing z50 censuses were inspected first; the new checks target the Hölder/support formula and root encoding, not a claimed new census. The enumeration uses at most 2^14 probability atoms (actual largest cube: 2^10), with rational probabilities. Large-z profiles use only single-prime sums and an SPF array through 10⁶+1.
+
+| z | N | nonsquare avoiders | ratio to |I_N|V(z) | exact TV from product law |
+|---:|---:|---:|---:|---:|
+| 13 | 1001 | 33 | 0.72824 | 0.09194 |
+| 31 | 1001 | 22 | 0.78109 | 0.23982 |
+| 43 | 1001 | 21 | 0.80150 | 0.30691 |
+| 43 | 10001 | 221 | 0.84956 | 0.09474 |
+
+These small cubes verify exact product factorisation, actual support mass≤top-M product mass, TV≥1−product-support-mass, and the exact rational a=1 Hölder inequality. The optimised support-only bound can be trivial on these toys; they are consistency checks, not asymptotic evidence. The two-form encoding and its 132 points are independently reproduced by Opus R3 (126 after square removal).
+
+**EVIDENCE (floating model arithmetic, not certified analytic constants).** At z=10⁶, full mass is 8.332178, −log V=8.557288, Λ=65.515336, and product entropy is 56.082256. Formula (3.1), using a=0.2, gives TV≥0.96785 for any law supported on at most z patterns. This z=N profile is a support diagnostic, not the s>1 RLD-U regime. `checks.json` also reports M=z^s for s=1.5,2,3. No actual interval of length z^s is enumerated for those profiles. The local mass slope from 10⁵ to 10⁶ is about 0.7385, not a claimed limiting constant.
+
+### 5.3 Controls and reproducibility
+
+- **Odd squares:** every square in each toy survives; 6,868 direct residue classes at primes≤10⁴ independently pass Euler's nonresidue criterion. The root-encoding toy explicitly reports its six square images rather than hiding them. The support theorem remains true on the nonsquare population.
+- **Hard primes and all 14 R-zeros:** the bounded direct-prime search through modulus 10⁴ supplies words for all listed controls except 193,2521,3361,66529. For the latter four it reports only 'no witness within this cutoff', never full U failure. The 14 R-zeros are all hit by other word types. Each recorded hit checks n=tuv−u−v and proper divisibility exactly.
+- **Numerator 8:** the mechanisms prove no pointwise identity and are not transferred to 8/n. For a finite regression control the exact sorted-denominator search returns zero solutions for 8/17 and 8/241, consistent with L9901. No asymptotic exceptional-set bound would exclude these finite exceptions anyway.
+- **No two-sided solution-count assertion or fixed finite cover** is claimed. Root coverage is a deliberately scoped embedding criterion, not a proposed universal ES mechanism.
+
+Reproduce:
+
+    ulimit -v 8000000
+    timeout 180 uv run python scripts/z51_hidim_checks.py
+    timeout 20 git diff --check
+
+Data: `data/z51_hidim/checks.json` plus the two small source audits, well below 20 MB. Primary PDFs/OCR intermediates are temporary files outside the repository. No dense prime×integer array is allocated.
 
 ## 6. Reviews and exact remaining gap
 

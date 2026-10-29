@@ -136,13 +136,17 @@ def embedding_toy(z, spf):
         assert bad == roots
         assert len(bad) <= k
     prime_tuples = 0
+    square_images = []
     for t in range(z+1, z+2001):
         if all(is_prime(t+b) for b in bs):
             prime_tuples += 1
+            if isqrt(8*t+1)**2 == 8*t+1:
+                square_images.append(8*t+1)
             assert all((8*t+1) % p not in f for p, f in local)
     assert prime_tuples > 0
     return {'z': z, 'k': k, 'shifts': bs, 'period': q,
-            'prime_tuples_checked': prime_tuples}
+            'prime_tuples_checked': prime_tuples, 'square_images': square_images,
+            'nonsquare_tuple_images': prime_tuples-len(square_images)}
 
 
 def controls(spf):
@@ -189,7 +193,8 @@ def main():
     rows = []
     profiles = []
     points = {100,1000,10000,100000,1000000}
-    mass = logv = lam = h = 0.0
+    mass = logv = lam = 0.0
+    small_mass = dict.fromkeys([4,16,64,256], 0.0)
     qnr_checks = 0
     for p in range(3,maxz+1):
         if spf[p] == p:
@@ -200,6 +205,8 @@ def main():
                 for r in f:
                     assert pow(r,(p-1)//2,p) == p-1
                     qnr_checks += 1
+            for cutoff in small_mass:
+                small_mass[cutoff] += sum(u <= cutoff for u in ds)/p
             if f:
                 rho = len(f)/p
                 rows.append((p,rho))
@@ -208,7 +215,12 @@ def main():
                 lam += rho*log(p)
         if p in points:
             # No full product cube for large z: sums over one prime at a time.
+            # These are model computations, not enumeration of N=z^s integers.
             profiles.append({'z':p,'mass':mass,'log_V':logv,'Lambda':lam,
+                             'direct_shift_mass':dict(small_mass),
+                             'support_bounds_by_s':{
+                                 str(s):entropy_and_support(rows, p**s)
+                                 for s in [1,1.5,2,3]},
                              **entropy_and_support(rows, p)})
     assert classes(13,spf) == {6}
     broad13 = {(-u)%13 for u in divisors(14,spf)

@@ -4,13 +4,13 @@ Source research only; statements below are paraphrases with hypotheses retained.
 
 ## Granville–Koukoulopoulos–Maynard: title and smoothed sieve weights
 
-**Correct title:** Andrew Granville, Dimitris Koukoulopoulos, James Maynard, “Sieve weights and their smoothings” (not “Sieve weights and their smoothings” with different authors or a singular “smoothing”). *Ann. Sci. Éc. Norm. Supér.* (4) 54 (2021), no. 5, 1089–1177; arXiv:1606.06781v4 (8 Apr 2020).
+Andrew Granville, Dimitris Koukoulopoulos, James Maynard, “Sieve weights and their smoothings”, arXiv:1606.06781v4 (8 Apr 2020). The primary arXiv PDF supplies the theorem/page references here; journal pagination is not used.
 
 - The abstract’s actual subject is asymptotic formulas for the **2k-th moments of partially smoothed divisor sums of μ**. It states the threshold phenomenon: for smoothing level A large compared with 2k the main contribution comes from integers with only large prime factors; past a threshold it instead comes from integers with many prime factors. This is an analysis of candidate sieve weights, not a prime-tuple counting theorem.
-- Theorem 1.3, p. 9 of the arXiv PDF (journal pagination approximately pp. 1097–98): for fixed integers k≥1 and A≥0,
+- Theorem 1.3, p. 9 of the arXiv PDF: for fixed integers k≥1 and A≥0,
   `M_{f_A,2k}(R) = c_{k,A}(log R)^{E_{k,A}} + O((log R)^{E_{k,A}-1})`,
   where `E_{k,A}=max{ binom(2k,k)-2k(A+1), -1 }`. In particular `E_{k,0}=binom(2k,k)-2k`. For `R^{2k}≤x`, formula (1.15) specifically treats the 2kth power of `Σ_{d|n,R/2<d≤R} μ(d)` (not arbitrary smoothing). Implied constants depend at most on k,A: **fixed dimension/ moment order**, not uniform growing k.
-- Theorem 1.4: for k≥1, ε∈(0,1), f supported on (-∞,1], and f∈C^A for an integer `A≥2` with f and derivatives through order A bounded, if `A > binom(2k,k)/(2k)=E_{k,0}/(2k)+1`, then the corresponding general smoothed weight `M_f(n;R)^{2k}` behaves like a sieve weight. This is the smoothing threshold highlighted by the authors; the theorem is not a uniform-in-k claim.
+- Theorem 1.4: for k≥1, ε∈(0,1), f supported on (-∞,1], and f∈C^A for an integer `A≥2` with f and derivatives through order A bounded, if `A > binom(2k,k)/(2k)=E_{k,0}/(2k)+1`, then the corresponding general smoothed weight `M_f(n;R)^{2k}` behaves like a sieve weight. This is the smoothing threshold highlighted by the authors; the theorem is not a uniform-in-k claim. The mean-value asymptotic in 1.4(a) additionally requires f(0)≠0 and x≥R^{2k}(log R)^2.
 
 Primary URLs: [arXiv abstract/version](https://arxiv.org/abs/1606.06781), [full HTML](https://arxiv.org/html/1606.06781), [PDF](https://arxiv.org/pdf/1606.06781), [journal landing page](https://smf.emath.fr/publications/poids-de-crible-et-leurs-lissages).
 
@@ -28,15 +28,13 @@ Primary URLs: [arXiv abstract](https://arxiv.org/abs/1405.2593), [full HTML v2](
 
 ## Ford: uniform shifted-prime factor-count upper bound (clarifying scope)
 
-The primary Ford result located is Kevin Ford, “A Hardy–Ramanujan type inequality for shifted primes and sifted sets,” *Lithuanian Math. J.* 61 (2021), no. 3, 323–329 (with corrigendum in vol. 62 (2022), no. 1, 133). Ford’s Theorem 6.2 is reproduced in his 2023 sieve lecture notes (citing this paper): for fixed nonzero integer a, **uniformly for x≥4|a| and every k∈N**,
+Kevin Ford, “A Hardy–Ramanujan type inequality for shifted primes and sifted sets,” author PDF, Corollary 1 (pp. 1–2), directly downloaded and checked by parent:
 
-`#{2+|a|<p≤x : ω(p+a)=k} ≪_a (x/log x) (log_2 x + O(1))^{k-1}/(k-1)!`,
+For a≠0, put s=2 if a is odd and s=1 otherwise. Uniformly for k∈ℕ, x≥2|a|, and all a≠0,
 
-and likewise
+`#{−a<p≤x : ω((p+a)/s)=k} ≪ [|a|/φ(|a|)]·[π(x)/log x]·(log log x+O(1))^{k−1}/(k−1)!`.
 
-`#{2+|a|<p≤x : ω((p+a)/2)=k} ≪_a (x/log x) (log_2 x + O(1))^{k-1}/(k-1)!`.
-
-Here `ω(n)` counts distinct prime factors, `log_2 x=log log x`; the bound is uniform over all k (not merely k≤constant·log log x), with implied constant depending on a. This is an upper-tail / factorization statistic along shifted primes, **not** a uniform upper bound for the number of prime k-tuples. I found no distinct Ford theorem matching “uniform k-tuple upper bound” literally; do not conflate the above result with Selberg-sieve tuple bounds.
+The initial research transcription omitted one factor 1/log x and incorrectly treated ω(p+a) and ω((p+a)/2) as interchangeable. Those statements are withdrawn. The paper explicitly explains the need to divide by 2 when a is odd. This is a factor-count statistic along shifted primes, **not** a uniform upper bound for prime k-tuples. No distinct Ford theorem matching 'uniform k-tuple upper bound' literally was identified.
 
 Primary URLs: [Ford paper, arXiv](https://arxiv.org/abs/2101.03440), [author PDF](https://www.ford126.web.illinois.edu/wwwpapers/HR_shift.pdf), and [Ford sieve lecture notes, §6.1 / Theorem 6.2](https://ford126.web.illinois.edu/sieve2023.pdf).
 
@@ -47,7 +45,7 @@ William Banks, Kevin Ford, Terence Tao, “Large prime gaps and probabilistic mo
 - Theorem 1.5 (“Hardy–Littlewood implies large gaps”), arXiv PDF pp. 7–8: assume `2 log_2 x/log x ≤ κ ≤ 1/2`, and a set A⊂N satisfies
   `#{n≤x : n+h∈A for every h∈H} = S(H) ∫_2^x dt/(log t)^{|H|} + O(x^{1−κ})`
   uniformly over all tuples `H⊂[0, (log x)^2]` with `|H|≤2κ log x/log_2 x` (notation in source uses `log_2 x=log log x`; S(H) is the singular series). Parent correction: the shift range is log SQUARED, not iterated log. Then the maximal A-gap obeys `G_A(x) ≫ κ (log x)^2/log_2 x` for all large x, absolute implied constant. The allowed cardinality grows up to order `log x/(log log x)` when κ is a fixed positive constant ≤1/2, while the uniform error is `O(x^{1−κ})`.
-- Theorem 1.6 (“Averaged Hardy–Littlewood implies large gaps”) instead assumes an averaged version summed over tuple families and sizes as large as `k≤C y/log x`, with `log x≤y≤(log x)^2 log_2 x`;  its conclusion is `G_A(x)≥g((cξ−o(1))log_2 x)`, using the paper’s covering function g. This is an averaged conjectural hypothesis, not pointwise uniformity for each tuple.
+- Theorem 1.6 (“Averaged Hardy–Littlewood implies large gaps”) instead assumes an averaged version summed over tuple families and sizes as large as `k≤C y/log x`, with `log x≤y≤(log x)^2 log_2 x`;  its conclusion is `G_A(x)≥g((cξ−o(1))(log x)^2)` (parent/reviewer correction: this is log squared, not log log), using the paper’s covering function g. This is an averaged conjectural hypothesis, not pointwise uniformity for each tuple.
 - Theorem 1.3 concerns the paper’s **random model R**, not actual primes: for fixed `c∈[1/2,1)` and ε>0, almost surely an HL-type formula with error `O(x^{1−(1−c)/(8c²−2c)+ε})` holds uniformly for admissible `H` with `|H|≤(log x)^c` and `H⊂[0, exp((log x)^{1−c}/log_2 x)]` (parent checked v3, Theorem 1.3; the original note incorrectly squared the iterated logarithm). This is model evidence, not a theorem about primes.
 
 A distinct earlier fixed-k uniformity is Gallagher’s theorem, quoted by Banks–Ford–Tao: if for every fixed k and every c>1 the HL conjecture holds uniformly for admissible `H⊂[0,c log x]`, then normalized prime gaps have an exponential distribution. That condition keeps k fixed first and is not the growing-k theorem 1.5.
