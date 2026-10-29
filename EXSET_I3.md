@@ -2,13 +2,13 @@
 
 ## 0. Status and summary
 
-Work in progress. ES and Conjecture I3 remain open. No improvement claimed at initialization.
+Work in progress after Round 2. ES and Conjecture I3 remain open. A native-class architectural cap is proved and cross-reviewed; no improved exceptional-set upper bound is claimed.
 
 | Item | Status | Result / exact gap |
 |---|---|---|
-| Prior-work and barrier audit | PENDING | Read source proofs, distinguish words of n from words of bn. |
-| Round 1: native multiplier atoms | PENDING | Seek cubic supply, selector and coefficient ledger. |
-| Round 2: transfer / I3 cap | PENDING | Audit KARY transfer; attack surviving gap. |
+| Prior-work and barrier audit | COMPLETE | Native classes are not ES forced classes; zero base replaces square base. |
+| Round 1: native multiplier atoms | PROVED / reviewed | Quadratic mass rules out cubic supply, including the standard selector. |
+| Round 2: transfer / I3 cap | PROVED / reviewed | Native whole-avoider CRT methods save at most C(log N)^{2/3}. |
 | Round 3: beyond CRT / port | PENDING | Test another route and state ES colour requirements. |
 | Independent numerical checks | PENDING | Zero sub-range, truncated avoiders, controls. |
 | Literature after 2025 | PENDING | Search and verify sources. |
@@ -56,7 +56,7 @@ Each class is reduced: gcd(u,M)=1. Above n≥3M it supplies v=(n+u)/M≥3. At a 
 
 ### 3.1 Statement and precise architectural scope
 
-**Theorem 3.1 (PROVED relative to Shiu's theorem and the internally proved arithmetic-free KARY comparison, pending hostile review).** There are absolute W₀,C,λ₀ such that, for every finite family F⊂D and every finite congruence expansion
+**Theorem 3.1 (PROVED relative to Shiu's theorem and the internally proved arithmetic-free KARY comparison; Opus review SOUND).** There are absolute W₀,C,λ₀ such that, for every finite family F⊂D and every finite congruence expansion
 
 `ν(n)=Σ_i a_i 1[n≡b_i (mod d_i)] ≥0` on all integers,
 
@@ -118,7 +118,7 @@ using `Σ h(e)e^{−3/4}<∞`. Choose ε<1/32 and sum blocks.
 
 and let S_y(m) be the product of the full prime powers p^{v_p(m)}>y in m. If m is y-smooth, S_y(m) is squarefull, and for K<m≤2K, u=log K/log y,
 
-`1[P⁺(m)≤y] ≤ 1[S_y(m)>K^{1/2}] +(2Z_y(m)/u)^k`.
+`1[P⁺(m)≤y] ≤ 1[P⁺(m)≤y]1[S_y(m)>K^{1/2}] +(2Z_y(m)/u)^k`.
 
 Fix k=3 and K≥y^{16k}. The squarefull contribution weighted by τ(m+1)Γ(m) is O(K^{4/5}), since the number of integers with a squarefull divisor >K^{1/2} is O(K^{3/4}). For the other term expand Z_y^k. Each tuple of prime powers has lcm D≤y^k≤K^{1/16}, ω(D)≤k. Put
 
@@ -195,6 +195,8 @@ By Lemma 3.3, E M_V≪s². Since d≥λ/(2s), the logarithm is O(1+i), and the b
 `S≤log 2+C((A+1)log N+S)^{2/3}`.
 
 If S≤(A+1)log N this is the asserted bound; otherwise the inequality bounds S absolutely. Since log(N/B)≤S, the corollary follows. For bounded/small λ enlarge the absolute constants. ∎
+
+**Imported-proof ledger.** The comparison uses KARY Lemma 2.1, Theorem 2.5, Corollary 2.6 and Theorem 4.1, together with EXCEPTIONAL_TWIN Theorem 2.3′, its singleton step and Lemma 2.1′. The elementary Euler/Rankin and cofactor reductions are KARY2 Lemmas 3.1 and 4.1; the local-moment identity is KARY3 Lemma 2.2. These are internally proved inputs, not externally refereed results. Opus R2 traced these proofs and found no fatal or major defect. Its minor repair retaining smoothness in the squarefull term is applied above. Finite checks in §5 do not certify the infinite proof.
 
 **Scope and remaining gap.** This cap includes arbitrary balanced and prime-power native moduli, arbitrary real coefficients, Bonferroni, Selberg squares and CRT-evaluated moments, provided the final majorant covers the whole congruence avoider set. It does not include a rough-selector majorant that vanishes on the zero base, nor endpoint events with noncoprime endpoints, nor signed/position-sensitive rounding. It leaves the log-log factor between the existing all-integer upper bound and the 2/3 architectural cap unresolved. Removing that factor and proving 3/4 are distinct tasks; the latter now requires an exit from this native whole-avoider architecture.
 
