@@ -349,7 +349,84 @@ any non-CRT input (§7).
 
 ## 4. Work item 3 — Linnik duality
 
-(pending)
+### 4.1 (i) ES-type exceptionality forces no free character data
+
+**Proposition 4.1 (PROVED; a precise form of the CONTEXT's Assessment).** Let 𝔊 be a finite family of word classes
+(𝔘, 𝔉₅) or of ES forced classes (ℛ(M), (a,D), Case A), and let L be the lcm of its moduli.
+(a) *Coprime characters.* 𝒜(𝔊) is a union of classes mod L. For every m coprime to L and every character χ mod m, the
+    χ-values are exactly equidistributed on 𝒜(𝔊): n ↦ (n mod L, n mod m) is onto, and membership depends on n mod L
+    only. So no constraint on χ_n at any modulus coprime to the class moduli.
+(b) *Characters at a class modulus.* Let h be a modulus of 𝔊 and F_h ⊂ ℤ/h the union of the classes of 𝔊 at h. Then
+    |F_h| ≤ 8τ(h+1) + 4τ(h) for word classes, and ≤ τ₃((h+1)/4)-type counts for ES classes (FIXED_MODULUS_SHOTS
+    Thm 6.2(ii)). F_h contains no unit square, by §1.1 and K2 Lemmas 2.1–2.2. Hence F_h contains no coset of a subgroup
+    of index ≤ 2 except when |F_h| ≥ φ(h)/2, which happens for only finitely many h. For every nontrivial χ mod h,
+    |E_U[1_{F_h} χ]| ≤ |F_h|/h = h^{−1+o(1)}.
+(c) *What a "free datum" would be.* A datum such as "(n/q) = +1 forced by exceptionality" is a forbidden set of
+    density 1/2 at the modulus q. By (b) this happens only at the finitely many h with τ(h+1) ≍ h. These are the
+    Mordell-type moduli 3, 5, 7, …, B1 territory: for U on n ≡ 1 (8), the classes at 3 and 5 forbid all non-residues
+    mod 3 and mod 5, and 2 of the 3 non-residues mod 7.
+
+So (i) of the brief holds in the precise form (a)–(b): exceptionality is a CRT event, and the character content of the
+forbidden set at modulus h has size h^{−1+o(1)}.
+
+*Proof.* (a) CRT. (b) The counts are §1.1. A coset of index ≤ 2 inside (ℤ/h)^× either contains 1 (the trivial
+subgroup) or is the non-square half, of size ≥ φ(h)/2 > |F_h| for h ≥ h₀. The character bound is the triangle
+inequality. The examples in (c) were checked in the fibre n ≡ 1 (8); see `scripts/z50_lsmass_primelocal.py`,
+`forbidden()`. ∎
+
+**EVIDENCE (`scripts/z50_lsmass_chars.py`, `data/z50_lsmass/chars.json`): exceptional points are QR-biased at small
+primes.** All six non-square U-exceptions have least quadratic non-residue ≥ 11. The values are 11, 11, 13, 13, 17, 37;
+978145 is a residue mod 92% of the primes ≤ 47. The baseline for n ≡ 1 (8) near 10⁶ is P(lqnr ≥ 11) = 0.23, so six of
+six has chance ≈ 1.4·10⁻⁴. Of the ten listed (★)-failure primes, seven have lqnr ≥ 11, against a baseline of 0.125 for
+primes ≡ 1 (4). This is the BM-main-term mechanism: M(p) is small when the small primes are residues. Per
+Proposition 4.1(c), the forced part of this bias sits at the bounded moduli of B1. Beyond them the bias is
+statistical: it comes from the joint structure of many sparse classes, not from forbidden half-cosets.
+
+### 4.2 Linnik's dual sieve is a periodic Bessel system, hence capped
+
+**Proposition 4.2 (PROVED; LS2 Thm 2.4 applied to Linnik's inequality).** Let E ⊂ [1, x] be contained in the avoider
+set 𝒜(𝔊) of a forced-class mixture (ES: (D)24/KARY3) or of a word-class family (U/ES₅: Theorem 3.2). Take a finite
+𝒜′ ⊂ [1, M] (M ≤ x^A) and real c_a. Any bound of the form
+
+  |E| ≤ Δ·‖c‖² / min_{m∈E} |Σ_{a∈𝒜′} c_a χ_a(m)|²,
+
+with χ_a(m) = (a/m) a Kronecker/Jacobi symbol and Δ from the dual multiplicative large sieve or Heath-Brown's quadratic
+large sieve, saves at most S(λ) with λ ≪_A log x, provided the lower bound for the minimum is CRT-admissible (i.e.
+justified for every point of 𝒜(𝔊)). Here S(λ) = Cλ^{3/4} for ES and Cλ^{2/3}(log λ)^{2/3} for U/ES₅.
+
+*Proof.* As a function of m, χ_a has period 4a ≤ 4x^A. Linnik's inequality is the adjoint Bessel form
+Σ_{m∈I} |Σ_a c_aχ_a(m)|² ≤ Δ‖c‖², valid for every interval I of length x (Montgomery: Δ = x + 16M²; Heath-Brown:
+Δ ≪ (xM)^ε(x + M) on squarefree m). With rows φ_a = χ_a and L = min_{𝒜(𝔊)}|Σc_aχ_a|²/‖c‖² ≤ R̃(π) for every probability
+π on 𝒜(𝔊) (Cauchy–Schwarz), the bound is LS2's type (i) with ψ ≡ 1. Then LS2 Theorem 2.4/Cor 2.5 applies, with the
+comparison measure of LS2 Lemma 1.1 built from the relevant cap. ∎
+
+**Why CAP_BOUNDED Thm 3.2 escapes (Assessment, with the exact computation).** Its exceptional set {p : q₃(p) > y} is
+the avoider set of the *dense* family {n : (n/q) = −1}, for q ≡ 3 (4) and q ≤ y = (log X)^A. Here p_q = 1/2 at every
+such q, so THETA's hypothesis p_ℓ ≤ 1/4 fails and no cap applies. The Rankin functional is Ψ(λ) ≍ π(y; 4, 3)·log 2,
+which beats λ = 2 log X once A > 1. So Linnik's power saving is the primal large sieve on a dense profile, written
+dually. It is not a separate door, and it is unavailable to every family covered by Prop 4.1(b).
+
+### 4.3 (ii) Relaxations that force free character data
+
+A relaxation R of ES (R-failure ⇐ ES-failure) whose failure forces (q/p) = +1 for every q ≤ y in a fixed set is
+equivalent to the pointwise implication "(q/p) = −1 for some q ≤ y ⟹ R(p)": a family of **fixed-modulus shots** with
+firing conditions (q/p) = −1.
+* For caps e ≥ 1 these shots exist: CAP_POINTWISE's self-generated mute set gives a capped solution at every prime
+  window q with (q/p) = −1, hence CAP_BOUNDED's power saving. The same holds for ES^{(S)}, ES^□ and V_φ.
+* For ES itself (cap 0), FIXED_MODULUS_SHOTS Thm 6.2 (PROVED, scope stated there) rules out an infinite family of
+  fixed-coefficient affine Type II shots with a common Chebotarev firing condition. Per modulus h, the certified
+  residues form a divisor box of size h^{o(1)} containing no coset of a large subgroup. This is Prop 4.1(b) again,
+  from the shot side.
+* *Type I/II slices whose colour is not determined* do not exist. Every Type II point P_{u,B} has BM character
+  χ_{−4uB}(p) = −1 forced by its class (BM_CORRECTED_COUNT Thm 1.1), and every ES₅ edge's colour is a function of its
+  word (Theorem A, Lemma 1.2 of LOWERTAIL_DEEP_FABLE).
+
+**Assessment (the answer to (ii)).** Inside the single-affine-shot framework there is no ES-type relaxation that keeps
+cap 0 and forces dense character data. The ones that do (caps, ES^□, ES^{(S)}, V_φ) are exactly B-fin's T1-bearing
+cousins, and they have power-saving exceptional sets because their profiles are dense. Pushing them through Linnik or
+Heath-Brown gives power savings *for the relaxation* (known: CAP_BOUNDED Thm 3.2, V_φ X^{3/4}). It does not give them
+for a genuine ES/U/ES₅ exceptional set, by Prop 4.2. Not excluded: joint multi-prime firing conditions (B4 territory),
+p-dependent shots, and non-affine shots (the scope gaps of FMS Thm 6.2).
 
 ## 5. Work item 4 — the square floor
 
@@ -357,7 +434,37 @@ any non-CRT input (§7).
 
 ## 6. Hostile reviews
 
-(pending)
+**Model note.** The brief asks for `openai-codex/gpt-6-astra:high`. The subagent tool rejected the `:high` suffix
+("could not resolve model"), so all reviews use `openai-codex/gpt-6-astra` in `deep` mode.
+
+**R1 (Astra, deep; §§1–3, round 1).** Verdict per claim, and what was repaired:
+* *Square base:* SOUND-WITH-MINOR. The ES₅ coprimality step and the W2 mod-8 bookkeeping were missing; both added
+  in §1.1.
+* *Prop 3.1(b):* SOUND-WITH-MINOR. The tail with u₀ = 6 log log y actually diverges like (log log y)^{3/2}. It is now
+  u₀ = 8 log log y, which gives o(1). The large-e tail now cites h(e) ≪ e^{−1/2+ε}; the lower bound in (a) and the C < 1
+  in (c) were added.
+* *Theorem 3.2:* SOUND-WITH-MINOR. The reviewer found no hidden dependence on the four ES types and confirmed the block
+  arithmetic. The blocks are now truncated at e^{λ/2}, and the zero-cost singleton steps above e^λ are made explicit.
+* *Theorem 3.5:* SOUND-WITH-MINOR. h(B ∩ odd) ≍ h(B) holds only for the B actually used. Theorem B is unnecessary
+  there. The explicit majorant ν = 1[n≡1(8)]·1[(n,P_y)=1]·Q_r(H) was written out, which places it inside Theorem 3.2's
+  scope.
+* *Cor 3.4:* SOUND-WITH-MINOR. The coarsening now uses S = log(1/Eν) via K2 Cor 6.1's two-case argument, and the
+  hypotheses of the large-sieve and Bessel results are retained.
+* *Cor 3.6:* MAJOR (overstated scope). "Any CRT method" was replaced by "within the architectures of Cor 3.4", with
+  the exclusions listed.
+* *Prop 1.3, Lemma 1.1, Lemma 2.1:* SOUND.
+* *Theorem 2.2:* MAJOR, three defects, all repaired.
+  * (b) lacked THETA's mass hypothesis for its remainder.
+  * (c)(i)'s deduction from (b) was invalid. It is now proved from the new visible-mass bound (b′).
+  * (c)(ii) needs cumulative asymptotics (counterexample p_ℓ = ⌊b log ℓ⌋/ℓ); under comparability only Θ(√λ) is
+    claimed.
+  * (c)(iii)'s band (e^{λ/2}, e^λ] is the *linear* regime (saving ≤ log(4/3)). The 1/μ regime is the quadratic band
+    (e^{λ/4}, e^{λ/2}]; the statement is now split accordingly. The toy family C was already in the quadratic band.
+* *Prop 2.3:* SOUND-WITH-MINOR. The bounds are cumulative, not pointwise; the conclusion now speaks of the "best
+  saving".
+
+The reviewer's independent enumeration found no unit square in 2,496 refined U/ES₅ classes with pivot ≤ 150. These
+cover 150 u = 1 cases and 116 non-coprime W2 entries.
 
 ## 7. Remaining gap
 
