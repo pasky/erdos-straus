@@ -420,7 +420,59 @@ has an odd-degree divisor").
 
 ## 5. Transfer to ℤ
 
-(placeholder)
+### 5.1 Ingredient by ingredient
+
+| Ingredient (F_q[T]) | What it gives here | Integer analogue | Status over ℤ | Gives RLD-U / T1-min over ℤ? |
+|---|---|---|---|---|
+| Colour layer at ∞: degree parity, q ≡ 3 (4) (Lemma 1.1) | T1 for U_q (Thm 1.3) | 2-adic layer 4ℤ ∪ (8ℤ − n) (Thm B/E of z48) | PROVED | T1 only (obstruction, not existence) |
+| Unit shifts with free leading coefficient (Prop 1.7(ii)) | exceptional set = squares exactly for q > (n+1)², by one Weil sum | none: units {±1}, positivity | — | no (the mechanism does not exist over ℤ) |
+| Exact CRT up to degree n (§3.8) | √n (prime family), n^{2/3} (U, q = ∞) | level of distribution 1 for all moduli ≤ N (stronger than EH) | conjectural (EH) | no: Prop 3.7 is the integer CRT exponent; CRT caps G1/(D)17 |
+| RH for Dirichlet L-functions (Weil) | least inert prime ≤ 2 log_q n + O(1); equidistribution in progressions; μ(z) ≍ z | GRH | conjecture | no: in F_q[T] RH holds and RLD-U is still open and numerically true (Table 4.1); (D)15/22 |
+| Lang–Weil / Chebotarev for the word covers φ_σ (Thm 3.3) | exact large-q limit; q^d shifts of degree d integrated into one cover; positive-proportion failure (Thm 3.5) | none: needs n to be a point of a variety over a finite field with q → ∞ at fixed "degree" | — | no: fixed mass (no depth); error q^{n−1/2} = N^{1−1/(2n)} (§3.7(b)) |
+| Monodromy of the word covers G_n (Conj 3.6) | the true density p_f(n)e^{−M_g(n)} = e^{−Θ(n²)} at q = ∞ | the Poisson word model ("independent shapes") | heuristic | would give finitely many non-square exceptions, but over ℤ it is not a separate input: it *is* the conclusion |
+| Purity / middle-dimensional cohomology (Sawin; Sawin–Shusterman) | k-point Chowla for k < √q/(pe) | uniform k-point Chowla / Elliott with √N error | open (k = 2 log-averaged only) | for rank-one events only; U-events are high-rank (§4.3) |
+| Pellet's formula + (s^p)′ = 0 | makes μ(r + s^p) a character in s | none (no Frobenius-linear structure in ℤ) | — | no |
+
+### 5.2 The three questions of the brief, answered
+
+**RH for curves vs GRH.** Present in F_q[T] as a theorem; it does not decide FF-RLD-U (open, numerically true) and
+does not move the CRT exponents (Prop 3.7 attains exactly the integer CRT exponents, √ for the prime family and 2/3
+for U). So GRH is not the missing input over ℤ either (Assessment, consistent with (D)15/22).
+
+**Monodromy vs nothing.** The large-q depth breaker in F_q[T] is Chebotarev in the compositum of the word covers
+plus the size of G_n. It acts on a fixed number m(n) ≈ 3n²/8 of shape events, each integrating q^{s+b} shifts
+geometrically. Over ℤ there is no family of finite fields over which the integers vary, hence no G_n. Over ℤ the
+analogue of "Frob_f ∈ G_n" is the profinite residue vector of n, and its information is exactly the CRT information.
+The non-abelian, non-CRT part of G_n has no integer counterpart. (Lemma 3.4: G_n contains the boundary S_n, which
+already is non-abelian; CRT corresponds to abelian quotients of bounded conductor.)
+
+**Number of shifts vs degree.** In the large-q regime the number of shifts is irrelevant; the number of *shapes*
+(≈ n²) is the mass, and it does not grow with q. That is why Goal 1 fails (Thm 3.5). In the fixed-q regime the depth
+needed is ≍ n² (U) or ≍ n (prime family) events. The geometric methods available at fixed q control a number of
+events bounded in terms of q (Sawin–Shusterman: k < √q/(pe), rank one). The relevant ratio is depth × log(rank) vs
+(n/2) log q.
+
+### 5.3 Conditional integer statements: tested
+
+(a) *GRH (⇔ Weil) + level-1 distribution (⇔ exact CRT).* Both hold in F_q[T]. With them, the best provable FF bound
+is the CRT one (Prop 3.7). No implication "GRH + EH ⇒ T1-min" can be proved by an argument that transfers to F_q[T]
+unless the same argument proves FF-T1-min, and no such argument is known there either. FF-T1-min is presumably true
+(Table 2.1, Table 4.1), so the FF world cannot *refute* such an implication. The test is negative only in this
+weak sense (Assessment).
+(b) *Katz–Sarnak-type statements for the quadratic family* L(s, χ_n) ⇔ the hyperelliptic ensemble y² = f. They
+govern the colour data (f/A), i.e. rank-one information: least non-residue, inert-prime statistics. These separate
+squares from non-squares but are not U-witnesses. Their integer versions (n-level densities) bear on the
+Linnik-confinement door T2, not on T1-min. Their FF versions are theorems at large q, and do not decide U_q (Thm 3.5
+holds regardless). So: no.
+(c) *A Poisson/independence hypothesis for word statistics over ℤ* (the analogue of Conj 3.6) would give a finite
+non-square exceptional set. But over ℤ it is a restatement of the conclusion (H⁻mom-type, LOWERTAIL_DEEP_ASTRA
+Thm 7.1). In F_q[T] at large q it is a statement about a finite group at each n, checkable in principle. That is the
+only genuinely new feature of the function-field model, and it does not transfer.
+
+**Verdict on transfer (Assessment).** No ingredient that is a theorem in F_q[T] and has a standard integer analogue
+(GRH, level-1 distribution, Katz–Sarnak for the quadratic family) yields RLD-U or T1-min, even in F_q[T]. The
+ingredient that does carry the true densities in F_q[T] (monodromy of the word covers, at large q) has no integer
+analogue, and it acts only in a fixed-mass regime.
 
 ## 6. Hostile reviews
 
