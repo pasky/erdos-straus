@@ -306,39 +306,44 @@ fixed weights c_i. What the chain computes is the interval sum of one function �
 
 ### 3.2 Consequences: the caps apply to certified chains
 
-**Corollary 3.2 (CRT-certified chains; PROVED given (D)20 and (D)24).** Let 𝓕 be a finite mixture of forced ES
-classes (ℛ(M), (a,D), Case-A, selector), and let I = [1,N]. Suppose a chain or Janson argument certifies each step
-by (3.1), with g_i a CRT function of level ≤ λ. That is, g_i is a finite real combination of indicators of residue
-classes whose moduli divide one period of log-size ≤ λ. Then the bound it proves satisfies
+**Corollary 3.2 (CRT-certified chains; PROVED given (D)20, (D)24 and EXSET_I3 Cor 7.1).** Let 𝓕 be a finite
+mixture of forced ES classes (ℛ(M), (a,D), Case-A, selector), and let I = [1,N]. Suppose a chain or Janson argument
+certifies each step by (3.1), with g_i a CRT function of level ≤ λ. Level is meant in the ledger's sense: g_i is a
+finite real combination of residue-class indicators, *each* of rough logarithmic level ≤ λ. No common small period
+is required; a sum of terms with separate small moduli need not have one. Then:
 
-    (a) if every modulus occurring in the g_i is ≤ D ≤ N/2:   #I·∏(1 − r_j) − Σ c_i G_i  ≥  (N − D)·e^{−Cλ^{3/4}};
-    (b) if the moduli are ≤ N^A and each interval value G_i is evaluated as N·Eg_i plus at most the sum of the
-        absolute coefficients of g_i (coefficient-sum evaluation): saving ≤ C_A (log N)^{3/4}.
+* (a) If every modulus occurring in the g_i is ≤ D ≤ N/2, the bound proved satisfies
+  #I·∏(1 − r_j) − Σ c_i G_i ≥ (N − D)·e^{−Cλ^{3/4}}.
+* (b) Suppose instead the moduli are ≤ N^A and each interval value is evaluated with worst-case positive error
+  accounting, G_i ≥ N·Eg_i − T_i with T_i the sum of absolute coefficients of g_i. If the chain's bound charges
+  +Σc_iT_i, then that bound is ≥ N·Eν* ≥ N e^{−C_A(log N)^{3/4}}.
+* For the native U/ES₅ class universe on n ≡ 1 (4) (EXSET_I3 Cor 7.1, lane E), the same two statements hold with
+  the stronger cap Cλ^{2/3}/(log λ)^{1/3} in place of Cλ^{3/4}. This is the case for the U families of §§2, 5–7.
 
-In case (c), where moduli exceed N/2 and the G_i are evaluated exactly, the chain is a hybrid in the sense of
-(D)26. There it is capped under weak SPW, which remains open.
+If the moduli exceed N/2 and the G_i are evaluated exactly, nothing is claimed. (Review repair: this case is not the
+position-blind hybrid of (D)26, so the conditional weak-SPW cap does not cover it.)
 
-*Proof.* By Theorem 3.1, ν* is a nonnegative CRT function of level ≤ λ, and ν* ≥ 1 on every integer that avoids
-𝓕. By KARY3 (D)24, Eν* ≥ e^{−Cλ^{3/4}}. (a) By (D)20 (Selberg minorant + Poisson; nonzero frequencies with
-denominator ≤ D), Σ_{n≤N} ν* ≥ (N − D)Eν*. (b) The chain's bound is then N·Eν* plus a coefficient sum. This is
-the setting of (D)24 Cor 4.2 / (D)18. ∎
+*Proof.* By Theorem 3.1, ν* is a nonnegative CRT function of level ≤ λ, and ν* ≥ 1 on every integer that avoids 𝓕.
+By KARY3 (D)24, Eν* ≥ e^{−Cλ^{3/4}}; for native U/ES₅ classes, EXSET_I3 Cor 7.1 gives the stronger bound. (a) By
+(D)20 (Selberg minorant + Poisson; nonzero frequencies with denominator ≤ D), Σ_{n≤N} ν* ≥ (N − D)Eν*. (b) The
+chain's bound is #I·∏(1−r) − Σc_i(N·Eg_i − T_i) = N·Eν* + Σc_iT_i, using #I = N. ∎
 
-**Corollary 3.3 (prime-supported certificates; PROVED given (D)22).** Let I be the primes ≤ N, and suppose (3.1)
-holds only at primes, with g_i CRT of level ≤ λ. Then ν* ≥ 1_S at primes and ν* ≥ 0 at primes, so ν* is an
-admissible prime-law majorant. The cap of (D)22 applies: saving ≤ Cλ^{3/4}(log λ)^{3/4}, or C_Bλ^{3/4} under
-bounded B. This includes per-step inputs at BV/BDH/EH/GRH level, provided they are used through pointwise
-minorant/majorant certificates (Selberg weights, Bonferroni, β-sieve) at any polynomial level.
+**Corollary 3.3 (prime-supported certificates; PROVED given (D)22, scoped).** Let I be the primes ≤ N and 𝓕 a
+forced-class mixture. Suppose (3.1) holds at **all** primes (not only those ≤ N), with g_i CRT of level ≤ λ. Then
+ν* ≥ 1_S ≥ 0 at all primes, so ν* is an admissible prime-law majorant, and its unit-Haar mean obeys the cap of
+(D)22: log(1/E*ν*) ≤ Cλ^{3/4}(log λ)^{3/4}, or C_Bλ^{3/4} under bounded B. The chain's interval bound inherits this
+only under the prime-law evaluation hypotheses of (D)22 (bound = π(N)E*ν* + Err). (D)22 does not bound arbitrary
+exact prime sums.
 
-**Remark 3.4 (what the collapse covers).** Everything below is a special case of (3.1).
+**Remark 3.4 (what the collapse covers).** The following are special cases of (3.1).
 
 * *Ratio of two certified bounds.* If ν(E_i ∩ B_i) ≥ Σ_I m_i with m_i ≤ 1_{E_i}1_{B_i} and ν(B_i) ≤ Σ_I M_i with
   M_i ≥ 1_{B_i}, then r_i = Σm_i/ΣM_i is certified by g_i = m_i − r_iM_i, with G_i = 0.
-* *Absolute-error level of distribution with a dichotomy* ("either B_i is small and we are done, or the error is
-  relatively small"). The iteration ν(B_{i+1}) ≤ (1−r_i)ν(B_i) + err_i is linear, so it is covered with G_i = −err_i.
+* *Absolute-error inputs*, ν(B_{i+1}) ≤ (1−r_i)ν(B_i) + err_i. These are covered **only if** the input itself
+  comes with a pointwise certificate g_i ≤ (1_{E_i} − r_i)1_{B_i} and Σ_I g_i ≥ −err_i. A bare analytic error term
+  need not have one.
 * *The Janson step itself.* Lemma 1.2 is pointwise. So if (R1) and (R2) are certified by 𝒞-functions, the
-  composite certificate for ρ_i ≥ (1−η_i)P(E_i) − KΣP(E_i∩E_j) lies in 𝒞.
-* *Density increment on progressions, and entropy chains (Shearer).* Both are dominated by the trivial CRT sieve
-  with period ≤ N, i.e. level ≤ log N; the derivation is in §5.1.
+  composite certificate lies in 𝒞.
 
 ### 3.3 What escapes the collapse, and LP duality
 
@@ -352,15 +357,20 @@ The collapse needs (3.1) on **all of ℤ** with g_i ∈ 𝒞. Two kinds of per-s
   Cauchy–Schwarz/dispersion, Bombieri–Vinogradov proved for the specific sequence 1_{B_i}, or Halász-type bounds.
   These are not of the form (3.1). §4 shows that the *structure-blind* ones certify nothing.
 
-*LP duality check (brief item 2).* The caps (D)17–(D)25 are proved through a comparison measure σ on the
-model space. σ lives on the avoiders and is within e^{S(λ)} of uniform on every nonnegative level-λ test function
-(EXCEPTIONAL_LARGESIEVE2 Lemma 1.1). So σ *violates* (R1) at every step: σ(E_i ∩ B_i) = 0. It therefore bounds a
-chain argument exactly when the per-step inputs are statements that σ would also have to satisfy, namely
-nonnegative level-λ tests. These are the certified chains of Theorem 3.1. For (E-I)/(E-II) inputs the comparison
-measure gives no bound, and nothing in (D)17–(D)29 bounds them "secretly". **Assessment:** a chain-rule proof
-beyond 3/4 must contain at least one per-step input of type (E-I) or (E-II) that carries information at level
-> λ about the specific sifted set B_i ∩ I. Door (vii) is therefore not a separate door: certified chains are
-capped like majorants, and every uncapped chain step is a door-(i) input.
+*LP duality check (brief item 2).* The caps (D)17–(D)25 are proved through a comparison measure σ on the model
+space. σ lives on the avoiders and is within e^{S(λ)} of uniform on every nonnegative level-λ test function
+(EXCEPTIONAL_LARGESIEVE2 Lemma 1.1). Lane C2 (EXSET_ARITH_JANSON_ASTRA §4.1, (4.2)) states the same duality in
+moment form: the maximal avoidance over all laws with *exactly* the CRT moments on level-λ tests equals the
+CRT-majorant value. σ violates (R1) at every step, since σ(E_i ∩ B_i) = 0. So it bounds a chain exactly when the
+chain's per-step inputs are statements that σ would also have to satisfy. Theorem 3.1 shows that pointwise level-λ
+certificates are such statements. For (E-I)/(E-II) inputs neither the comparison measure nor the moment LP gives
+a bound. Nothing in (D)17–(D)29 bounds them "secretly".
+
+*Scope (review repair).* Theorem 3.1 covers chains with fixed scalars r_i and pointwise linear certificates. It is
+not a classification of all nonlinear, adaptive or entropy arguments. **Assessment:** a chain-rule proof beyond the
+caps must contain some per-step input that is not a pointwise level-λ certificate, and that carries information
+about the specific set B_i^d ∩ I beyond its low-level statistics (§4). That is the content of door (i). Whether
+every such input "is" a door-(i) input is a matter of definition, not a theorem.
 
 ## 4. Structure-blind inputs certify no ratio
 
