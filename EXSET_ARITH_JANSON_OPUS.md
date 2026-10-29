@@ -502,7 +502,7 @@ I = {n ≤ N : n ≡ 1 (8)} with ℓ ≤ z. For every fixed s > 1 there is C(s) 
 Moreover C(s) → 0 as s → ∞.
 
 Evidence: e^{C(s)} = e^{D_ns(s)} up to second-order terms. D_ns(s) does not grow over N = 10⁷, 10⁸, 10⁹ at any
-tabulated s ∈ [1.25, 3] (§2.3; spread ≤ 0.08). Three scales are evidence, not proof, and its values at s = 3, 2, 1.5, 1.25 are ≈ 0.005, 0.18, 0.68, 1.2. Falsifier: growth
+tabulated s ∈ [1.25, 3] (§2.3; spread ≤ 0.08). Three scales are evidence, not proof. The values at s = 3, 2, 1.5, 1.25 are ≈ 0.005, 0.18, 0.68, 1.2. Falsifier: growth
 of D_ns in N at fixed s, for instance at N = 10¹⁰, 10¹¹.
 
 *Assessment of its status.* RLD-U is a clean, falsifiable, numerically tested statement. It is a sieve asymptotic
@@ -520,34 +520,44 @@ n ≡ 1 (mod 8), which is where every exception in the z49 census lies. That is 
 I = {n ≡ 1 (8)}. (The 4/n identity attached to this degenerate word was not examined; U is used here as defined
 in z49 CONTEXT.)
 
-**Corollary 6.1 (CONDITIONAL on Conjecture RLD-U at one s < 2C_V ≈ 1.48, and on the Titchmarsh-type asymptotic
-Σ_{ℓ≤z} w(ℓ)/ℓ = (C_V + o(1)) log z).**
+**Corollary 6.1 (CONDITIONAL on Conjecture RLD-U at one s with 1 < s < 2C_V, and on the Titchmarsh-type
+asymptotic Σ_{ℓ≤z} w(ℓ)/ℓ = (C_V + o(1)) log z).** Over U's domain n ≡ 1 (mod 4),
 
-    #{n ≤ N : U(n) fails}  =  #{odd squares ≤ N} + O(N^{1 − C_V/s + o(1)}),
+    #{n ≤ N : n ≡ 1 (4), U(n) fails}  =  #{odd squares ≤ N} + O(N^{1 − C_V/s + o(1)}).
 
-and the error term is o(√N). This is Target 2 for U, conditionally.
+The strict inequality s < 2C_V is exactly what makes the error term o(√N). This is Target 2 for U, conditionally.
+With the empirical C_V ≈ 0.74 the admissible range is 1 < s < 1.48.
 
-*Proof.* An exception is either an odd square, or a non-square n ≡ 1 (8) that avoids every U class, in
-particular 𝓕_{N^{1/s}}. Since Σ w(ℓ)²/ℓ² < ∞ (w(ℓ) ≤ τ(ℓ+1)), ∏_{ℓ≤z}(1 − w(ℓ)/ℓ) = z^{−C_V+o(1)}. ∎
+*Proof.* By Observation 6.0, an exception is either an odd square, or a non-square n ≡ 1 (8) that avoids every U
+class, and in particular 𝓕_{N^{1/s}}. Since Σ w(ℓ)²/ℓ² < ∞ (w(ℓ) ≤ τ(ℓ+1)), the asymptotic gives
+∏_{ℓ≤z}(1 − w(ℓ)/ℓ) = z^{−C_V+o(1)}. Apply RLD-U with z = N^{1/s}. ∎
 
 The asymptotic for Σ w(ℓ)/ℓ is a Titchmarsh-divisor problem with divisors restricted to V. The standard
-BV + Brun–Titchmarsh argument should give it (Assessment); only the value C_V ≈ 0.74 is empirical. The
-conditional statement uses only the prime-modulus subfamily. The composite U classes, which carry much more
-mass, are not needed.
+BV + Brun–Titchmarsh argument should give it (Assessment). The value C_V ≈ 0.74 is empirical, not a proved
+constant. The conditional statement uses only the prime-modulus subfamily. The composite U classes, which carry
+much more mass, are not needed. For comparison, the unconditional state of the art for U is
+E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}), proved in lane E (EXSET_I3 §7.3). That is optimal for CRT
+majorants over the native class universe (EXSET_I3 Cor 7.1).
 
-**Corollary 6.2 (CONDITIONAL on (RLD) with Σ η_i P(E_i) ≤ μ/2 and K ≤ 2, up to H = exp((log N)^α)).** By Theorem
-1.3 and the cited model bounds for families with Δ = O(μ^{1−ε}):
+**Corollary 6.2 (CONDITIONAL on (RLD) with Σ η_i P(E_i) ≤ μ/2 and K ≤ 2, up to H = exp((log N)^α), α < 1).** Use
+Theorem 1.3 and the cited model bounds. Δ is small in both cited families: the rough-edge family has Δ = o(1), and
+the es-subexp Type II family has Δ ≪ L² = o(μ). Its moduli are rough, so its unit-Haar bound transfers to
+ordinary Haar on [1,N].
 
-| family (on I) | model −log P(Av) | exceptional set from RLD to α | power saving at | beats 3/4 iff | square floor (Cor 2.4) |
-|---|---|---|---|---|---|
-| prime U family, n ≡ 1 (8) | C_V log z | N exp(−(C_V/2)(log N)^α) | α = 1 (that is RLD-U) | α > 3/4 | at mass ½ log N |
-| ES₅/U edge family, rough endpoints (I3 §8.4 route), n ≡ 1 (24) | ≥ cL²/(log L)² | N exp(−c(log N)^{2α}/(log log N)²) | α = ½ (up to logs) | α > 3/8 | α = ½ + o(1) |
-| ES Type II rough family (es-subexp `thm:haarlower`), [1,N] | ≥ cL³/log L | N exp(−c(log N)^{3α}/log log N) | α = ⅓ (up to logs) | α > ¼ | α = ⅓ + o(1) |
+| family (on I) | model −log P(Av) | exceptional set from RLD to α | beats current record iff | square floor forces RLD failure at (Cor 2.4) |
+|---|---|---|---|---|
+| prime U family, n ≡ 1 (8) | (C_V+o(1)) log z | N exp(−(C_V/2 + o(1))(log N)^α) | α > 2/3 (U record, lane E) | mass ½ log N, i.e. α → 1 |
+| ES₅/U edge family, rough endpoints (I3 §8.4 route), n ≡ 1 (24) | ≥ cL²/(log L)² | N exp(−c(log N)^{2α}/(log log N)²) | α > 1/3 (U/ES₅ record 2/3) | log H ≍ √log N·log log N |
+| ES Type II rough family (es-subexp `thm:haarlower`), [1,N] | ≥ cL³/log L | N exp(−c(log N)^{3α}/log log N) | α > 1/4 (ES record 3/4) | L ≍ (log N log log N)^{1/3} |
 
-Note that the column "square floor" coincides with the column "power saving" in every row. By Theorem 2.2,
-(RLD) cannot hold beyond the depth at which it would give a power saving larger than ½ (U, ES₅) or than the
-forced-class square floor (ES). *Assessment:* so (RLD) is exactly as strong as needed for Targets 1–3 and no
-stronger. Any proof of it must use the anti-square structure only through the error term.
+At the floor depths the logarithmic losses mean that the transferred bound is N^{1−c/(log log N)^{O(1)}}, not a
+fixed power saving. Stepwise (RLD) for the prime U family with half-mass error at α = 1 is *not* the same
+statement as the terminal Conjecture RLD-U, nor implied by it (review repair).
+
+*Assessment.* For U/ES₅ the square floor sits where the transferred bound would reach N^{1/2+o(1)}; for ES it sits
+where the forced-class family would reach the forced-class square floor. So (RLD) for these families can only be
+asked up to the power-saving depth. Whether it holds there is open; nothing here shows it is "exactly as strong
+as needed".
 
 *Controls.*
 
