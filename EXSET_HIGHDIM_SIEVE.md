@@ -2,14 +2,16 @@
 
 ES remains OPEN. Internal research note; no external refereeing.
 
-## 0. Outcome ledger (skeleton)
+## 0. Outcome ledger
 
 | Round | Question | Status | Review |
 |---|---|---|---|
 | 1 | Exact large-dimension literature and independent G1 audit | Completed within stated source-access limits; no advance claimed | Opus R1: no fatal issue; repairs recorded §6 |
 | 2 | Named hypothesis ⇒ RLD-U or T1-min | No implication; full-law replacement is impossible (Thm 3.1) | Opus R2 PASS, no fatal/major issues |
-| 3 | RLD-U ⇒ recognised open statement | Not established; local affine tuple encoding has degree cost Ω(log N) | Opus R3 PASS; Thms 4.1–4.2 sound |
-| 4 | Non-Selberg weights and enumerable controls | Pending | Pending |
+| 3 | RLD-U ⇒ recognised open statement | Not established; root-certified affine encoding at polynomial slope height and fixed s costs Ω(log N) degree | Opus R3 PASS; Thms 4.1–4.2 sound |
+| 4 | Non-Selberg weights, short shifts, enumerable controls | No weight escape found; short-endpoint prime supply only O((log log N)²) | Opus R4 PASS, no fatal/major issues |
+
+**Final verdict: T1-cond NOT REACHED; T1-min NOT REACHED.** Retained: elementary, rigorously scoped obstructions to full-law coupling (including arbitrary thinning), local root-certified reverse encodings, and the literal short-shift/product route. No recognised-open-problem reduction or named-hypothesis upper implication is proved. ES remains open.
 
 Labels: PROVED (internal proof), CONDITIONAL (explicit hypothesis), CERTIFIED (finite exact check), EVIDENCE, CONJECTURE, Assessment. A restatement of G1–G5 does not count as an advance. Every claimed advance receives hostile Opus review (`anthropic/claude-opus-5-5:high`, deep).
 
@@ -41,8 +43,8 @@ Primary PDFs were downloaded, converted with `pdftotext`, and the relevant state
 
 | Source actually read | Precise usable statement | Limitation here |
 |---|---|---|
-| Richert, *Lectures on Sieve Methods*, Ch. 11, Thm 11.4, pp. 134–136 | Under Ω₁, Ω₂(κ,L), and |R_d|≤ω(d), S≤Γ(κ+1)·singular product·X/(log z)^κ·[1+O((log log(3z)+L)/log z)], z≤√X. Constants depend on κ,A₁,A₂. | For fixed k this gives (2^k k!+o(1))𝔖(H)X/log^k X. It does **not** supply uniformity when k grows. |
-| Ankeny–Onishi, *The general sieve*, pp. 31–35, Thm 1; original scan now read | Upper bound B_a(N)N(log N)^{−a}λ^{−a}/J_a(β/(2λ))·(1+o(1)) under (A)–(C); parameters a,β,δ,C₁,C₂ explicitly independent of N. Lower positivity at β/λ>2ξ_a; ξ_a/a→1.22… stated. | Fixed-dimension N-asymptotic is not uniform for a→∞ with N. Chapter I is explicitly Selberg's quadratic construction. Exact formulas and primary URL in source notes. |
+| Richert, *Lectures on Sieve Methods*, Ch. 11, Thm 11.4, pp. 134–136 | Under Ω₁, Ω₂(κ,L), and abs(R_d)≤ω(d), S≤Γ(κ+1)·singular product·X/(log z)^κ·[1+O((log log(3z)+L)/log z)], z≤√X. Constants depend on κ,A₁,A₂. | For fixed k this gives (2^k k!+o(1))𝔖(H)X/log^k X. It does **not** supply uniformity when k grows. |
+| Ankeny–Onishi, *The general sieve*, pp. 31–35, Thm 1; original scan now read | Upper bound B_a(N)N(log N)^{−a}λ^{−a}/J_a(β/(2λ))·(1+o(1)) under (A)–(C); parameters a,β,δ,C₁,C₂ explicitly independent of N. Lower positivity at β/λ>2ζ_a; ζ_a/a→1.22… stated. | Fixed-dimension N-asymptotic is not asserted uniform for a→∞ with N. Chapter I is explicitly Selberg's quadratic construction. Exact formulas and primary URL in source notes. |
 | Franze, arXiv:1012.3809, Thm 1 and Table 1, p. 2 | Explicit positive lower-sieve thresholds for integer κ=2,…,10 under (2)–(4). Introduction reports DHR βκ≲2.44κ and Selberg βκ≲2κ+19/36 for large κ. | βκ is where a **lower** bound becomes positive, not the prime-tuple upper constant. Original DHR large-κ calculation not verified; no βκ∼cκ formula used. |
 | GKM, arXiv:1606.06781, Thm 1.3, p. 9 | For fixed k,A, M_{f_A,2k}(R)=c_{k,A}(log R)^{max{binom(2k,k)−2k(A+1),−1}}+O((log R)^{E−1}). | Constants depend on k,A. These are moments of smoothed Möbius divisor sums, not a growing-k tuple upper theorem. |
 | GKM, Thm 1.4 | If f∈C^A, A≥2, derivatives bounded, support (−∞,1], and A>binom(2k,k)/(2k), then Σ_{n≤x,∃p|n:p≤R^η} M_f(n;R)^{2k}≪ηx/log R, x≥R≥2 and log2/logR≤η≤1. | A fixed-moment weight theorem. Remark 1.4 explicitly says they study Selberg-style, not combinatorial-style, weights. |
@@ -50,7 +52,7 @@ Primary PDFs were downloaded, converted with `pdftotext`, and the relevant state
 | Banks–Ford–Tao, arXiv:1908.08613v3, Thm 1.5, p. 7 | Uniform HL with error O(x^{1−κ}) for H⊂[0,(log x)²], |H|≤2κlog x/log₂x, 2log₂x/log x≤κ≤1/2, implies G_A(x)≫κ(log x)²/log₂x. | A genuine named growing-tuple hypothesis, but no U transfer is in the statement. |
 | Ford, arXiv:2408.03803, Thm 1, p. 3 | Under Z(γ), fixed a≠0,A>0,α<γ: d_TV(W_y,U_{x,y})≪exp(−αu log u)+(log x)^{-A}, u=log x/log y. W_q has P(W_q=0)=1−1/(q−1), P(W_q=v)=q^{-v} for q∤a,v≥1; W_q=0 if q|a. | One shifted prime p+a, not many shifts; at fixed u the displayed error is not a decaying relative error for a power-small avoidance event. Z(1) follows from EH, but this limitation remains. |
 
-**Access/coverage limit.** *Opera de Cribro* book text and the original DHR large-dimension calculation were not accessible in this pass. AO's original introductory theorem was obtained in the follow-up (17 double-page scans, printed pp. 31–35 read); its full Chapter II proof is not independently audited. We do not present secondary snippets as verified exact theorems. Ford's uniform factor-count bound concerns ω(p+a)=k, not prime k-tuples. No verified theorem with an e^{O(k)} all-prime tuple upper constant in the requested growing range was located. This is a search-limited negative, not a claim to have established the current optimum. In particular 2^k k! is the classical general benchmark, not claimed optimal for each k (already k=2 has improvements).
+**Access/coverage limit.** *Opera de Cribro* book text and the original DHR large-dimension calculation were not accessible in this pass. AO's original introductory theorem was obtained in the follow-up (17 double-page scans, printed pp. 31–35 read); its full Chapter II proof is not independently audited. We do not present secondary snippets as verified exact theorems. Ford's uniform factor-count bound concerns ω((p+a)/s)=k, with s=2 for odd a and s=1 for even a, not prime k-tuples. No verified theorem with an e^{O(k)} all-prime tuple upper constant in the requested growing range was located. This is a search-limited negative, not a claim to have established the current optimum. In particular 2^k k! is the classical general benchmark, not claimed optimal for each k (already k=2 has improvements).
 
 ### 2.2 Independent saddle calculation (PROVED calculation; rederivation, not advance)
 
@@ -221,7 +223,9 @@ and convergence of Σ_d μ²(d)/(dφ(d)). If z≤H² the first part already prov
 
 **CERTIFIED (finite exact checks, not asymptotics).** `scripts/z51_hidim_checks.py` is a stdlib-only independent implementation of the direct family. Existing z50 censuses were inspected first; the new checks target the Hölder/support formula and root encoding, not a claimed new census. The enumeration uses at most 2^14 probability atoms (actual largest cube: 2^10), with rational probabilities. Large-z profiles use only single-prime sums and an SPF array through 10⁶+1.
 
-| z | N | nonsquare avoiders | ratio to |I_N|V(z) | exact TV from product law |
+Both the avoider count and the actual probability law in the TV column are on the nonsquare population; the ratio denominator is the original full-fibre #I_N times V(z).
+
+| z | N | nonsquare avoiders | ratio to (#I_N)V(z) | exact TV from product law |
 |---:|---:|---:|---:|---:|
 | 13 | 1001 | 33 | 0.72824 | 0.09194 |
 | 31 | 1001 | 22 | 0.78109 | 0.23982 |
@@ -230,12 +234,12 @@ and convergence of Σ_d μ²(d)/(dφ(d)). If z≤H² the first part already prov
 
 These small cubes verify exact product factorisation, actual support mass≤top-M product mass, TV≥1−product-support-mass, and the exact rational a=1 Hölder inequality. The optimised support-only bound can be trivial on these toys; they are consistency checks, not asymptotic evidence. The two-form encoding and its 132 points are independently reproduced by Opus R3 (126 after square removal).
 
-**EVIDENCE (floating model arithmetic, not certified analytic constants).** At z=10⁶, full mass is 8.332178, −log V=8.557288, Λ=65.515336, and product entropy is 56.082256. Formula (3.1), using a=0.2, gives TV≥0.96785 for any law supported on at most z patterns. This z=N profile is a support diagnostic, not the s>1 RLD-U regime. `checks.json` also reports M=z^s for s=1.5,2,3. No actual interval of length z^s is enumerated for those profiles. The local mass slope from 10⁵ to 10⁶ is about 0.7385, not a claimed limiting constant.
+**EVIDENCE (floating model arithmetic, not certified analytic constants).** At z=10⁶, full mass is 8.332178, −log V=8.557288, Λ=65.515336, and product entropy is 56.082256. Formula (3.1), using a=0.2, gives TV≥0.96785 for any law supported on at most z patterns. This z=N profile is a support diagnostic, not the s>1 RLD-U regime. `checks.json` also reports M=z^s for s=1.5,2,3. No actual interval of length z^s is enumerated for those profiles. At z=10⁶ the s=1.5,2,3 support-only bounds are approximately TV≥0.898,0.745,0.285, respectively; some smaller-z bounds are trivial. The local mass slope from 10⁵ to 10⁶ is about 0.7385, not a claimed limiting constant. At this finite z, labels u≤256 still carry about 68% of full mass (5.67/8.33); Proposition 5.1 is an asymptotic obstruction, not a claim that short shifts are numerically negligible here.
 
 ### 5.3 Controls and reproducibility
 
 - **Odd squares:** every square in each toy survives; 6,868 direct residue classes at primes≤10⁴ independently pass Euler's nonresidue criterion. The root-encoding toy explicitly reports its six square images rather than hiding them. The support theorem remains true on the nonsquare population.
-- **Hard primes and all 14 R-zeros:** the bounded direct-prime search through modulus 10⁴ supplies words for all listed controls except 193,2521,3361,66529. For the latter four it reports only 'no witness within this cutoff', never full U failure. The 14 R-zeros are all hit by other word types. Each recorded hit checks n=tuv−u−v and proper divisibility exactly.
+- **Hard primes and all 14 R-zeros:** the bounded direct-prime search through modulus 10⁴ supplies words for all listed controls except 193,2521,3361,66529. For the latter four it reports only 'no witness within this cutoff', never full U failure. The classification of the 14 R-zeros is inherited from the campaign; the present computation finds a direct-prime word at each of them, not a (★)-word. Each recorded hit checks n=tuv−u−v and proper divisibility exactly.
 - **Numerator 8:** the mechanisms prove no pointwise identity and are not transferred to 8/n. For a finite regression control the exact sorted-denominator search returns zero solutions for 8/17 and 8/241, consistent with L9901. No asymptotic exceptional-set bound would exclude these finite exceptions anyway.
 - **No two-sided solution-count assertion or fixed finite cover** is claimed. Root coverage is a deliberately scoped embedding criterion, not a proposed universal ES mechanism.
 
@@ -249,4 +253,34 @@ Data: `data/z51_hidim/checks.json` plus the two small source audits, well below 
 
 ## 6. Reviews and exact remaining gap
 
-Pending. Commit after each completed section. Do not merge without parent instruction.
+### 6.1 Cross-model hostile reviews
+
+All four successful reviews ran via `subagent`, model `anthropic/claude-opus-5-5`, mode `deep`. The literal requested model string with `:high` was initially rejected as an unknown model. **The saved session headers independently confirm `thinkingLevel: high` in every successful review**, so these were the requested Opus 5.5/high reviews, with the tool's separate mode syntax rather than its unsupported suffix.
+
+| Round | Verdict | Repairs / independent checks |
+|---|---|---|
+| R1, §§1–2 | No fatal issue; one applicable major hypothesis repair, plus source/wording issues | Absorbed primes≤100 into the fixed CRT base, explicitly required whole-integer positivity and checked the comparison theorem's parameters. Repaired BFT log-square transcription. Reviewer suggested a different asymptotic mass constant; this was **not adopted as a theorem**. Local slope and V(z) are kept distinct. |
+| R2, Thm 3.1 | PASS; no fatal/major issue | Added approximate-support form and precise all-y mass hypothesis; softened novelty to an internal application of standard support/Hölder facts. Reviewer independently recomputed local densities by a multiples-of-u sieve and verified exact small-cube Hölder bounds. |
+| R3, Thms 4.1–4.2 | PASS; no fatal/major issue | Made coefficient-height scope explicit; recorded six square images; replaced ambiguous ≫ by ratio→∞; stated constant dependence. Reviewer reproduced 132 toy points and checked random thinnings on rational cubes. |
+| R4, whole note + Prop 5.1 | PASS; no fatal/major issue | Fixed remaining Ford statistic wording, AO 'not asserted uniform', and numerical-population labels. Reviewer independently verified the short-shift mass sums through 10⁶ and rechecked all proofs; confirmed neither T1 target is reached. |
+
+Review transcripts are persisted under the session directory for this worktree, with IDs:
+
+- R1: `01a189d8-4fe7-714c-9153-b9182291b74f` (2026-10-29 22:46:57).
+- R2: `01a189e2-a12b-714c-9153-b91d9f7075ba` (22:58:13).
+- R3: `01a189e9-f383-714c-9153-b92105879479` (23:06:13).
+- R4: `01a189f2-ffdd-714c-9153-b925af1bdfb2` (23:16:06).
+
+### 6.2 Exact remaining gap and retained claims
+
+**PROVED (internal, Opus-reviewed):** a full independent hit-vector law cannot approximate integer-supported laws in TV when log z/√log N→∞, or after arbitrary deterministic thinning when retained mass/√log N→∞. This reaches beyond CRT-majorant architecture, but not beyond the standard finite-support principle. Root-certified polynomial-prime encodings through n=At+B, with polynomial slope height at a fixed power level, require total degree Ω(log N). Short endpoint prime-divisor menus have only O((log log N)²) product saving at polylog endpoint height.
+
+**CERTIFIED:** enumerable-cube probability identities, the two-form reverse-direction toy (126 nonsquare images after removing six squares), local nonresidue tests, and stated finite controls. Floating-point large-z support bounds are EVIDENCE, not exact certified constants.
+
+**Assessment / target failure:** none of GRH, EH/GEH, the verified growing-tuple HL hypothesis, or published Kubilius approximation has been shown to imply RLD-U/T1-min. No reverse implication to an improved prime-tuple constant or another recognised open problem was proved. These nonimplications are *not* logical independence theorems. The cited classical weights remain inside G1 only under the explicit majorisation/evaluation conditions of §2.3.
+
+**Precise missing input:** a one-sided, square-excluded bound on the **all-zero event** at mass beyond √log N, with error measured relative to its tiny model probability, using interval/factorisation information beyond polynomial-level CRT. Full-law independence is too strong (false); ordinary o(1) distribution errors are too weak. A successful reverse reduction instead needs an interval-valid, square-excluded map into the full avoider set, with controlled scale, outside the local root-budget obstruction. Neither object is supplied here.
+
+**Literature limitation:** exact original DHR large-dimension formulas and the requested *Opera de Cribro* chapter were not obtained; no unverified formula from them enters a proof. The note does not claim a definitive best-known k-tuple constant survey.
+
+All sections were committed after writing, starting with the skeleton. No merge or push has been performed. Await parent instructions.

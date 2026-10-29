@@ -33,7 +33,7 @@ M(S_N,T_{N^λ}) ≤ B_a(N) N(log N)^{−a} λ^{−a} J_a(β/(2λ))^{−1}(1+o(1)
 
 where B_a(N)=Γ(a)∏_{p∈T,p<N^λ}(1−f(p)^{−1})(1−p^{−1})^{−a}. Its lower estimate multiplies the same N(logN)^{−a}λ^{−a}B_a(N) by [Γ(a)e^{aγ}]^{−1}[1−G_a(β/(2λ))](1+o(1)). The text explicitly requires a,β,δ,C₁,C₂ independent of N, although f_N can change. Thus one cannot substitute a=a(N)→∞ without proving uniformity.
 
-Printed p. 33: the zero ξ_a of 1−G_a has ξ_a/a→1.22… as a→∞ (the paper states and proves this in Chapter II), and positivity requires λ^{−1}>2β^{−1}ξ_a. This is a lower-sieve threshold at effective level β/λ. It is not an e^{O(k)} prime-tuple upper constant. We use neither the decimal nor an unverified identification with a different sieve's β_κ. Chapter I explicitly derives its weights from Selberg's quadratic transformation; it is not an architecture outside congruence-majorant sieves.
+Printed p. 33: the zero ζ_a of 1−G_a has ζ_a/a→1.22… as a→∞ (the paper states and proves this in Chapter II), and positivity requires λ^{−1}>2β^{−1}ζ_a. This is a lower-sieve threshold at effective level β/λ. It is not an e^{O(k)} prime-tuple upper constant. We use neither the decimal nor an unverified identification with a different sieve's β_κ. Chapter I explicitly derives its weights from Selberg's quadratic transformation; it is not an architecture outside congruence-majorant sieves.
 
 ## Opera de Cribro / DHR originals — access limits
 
