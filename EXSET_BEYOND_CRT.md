@@ -609,4 +609,5 @@ model counted atoms instead of distinct classes mod l and was off by a factor 2;
    could help is not excluded unconditionally (NC Cor 8.7 needs H_node); interval-only certificates remain open.
 4. **Door D7** (primes): no prime-specific input found that is not already inside (P), (L) or the moment caps.
 5. **For lane-level bookkeeping:** for U and ES5 the honest Target 3 is "beat 2/3", which needs a non-CRT input of
-   one of the open types D2-D6, or a cubic-supply forcing universe (item 2).
+   one of the open types D1-D7 (including interval-only and prime-only architectures, which are not capped here), or a
+   cubic-supply forcing universe (item 2). This list is not claimed to be exhaustive.
