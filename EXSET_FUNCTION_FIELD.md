@@ -43,8 +43,9 @@ Let f be monic of degree n ≥ 2. A *word* of f is a triple (t, u, v) of monic p
 
   f + v = u·A,  f + u = v·A′,  tf + 1 = A·A′,  where A := tv − 1, A′ := tu − 1.                       (1.1)
 
-Conversely, if v is monic and A is a monic divisor of f + v of degree ≥ 1 with A ≡ −1 (mod v), then
-t := (A + 1)/v and u := (f + v)/A are monic and (t, u, v) is a word; deg t = deg A − deg v.
+Conversely, if v is monic and A is a monic divisor of f + v with 1 ≤ deg A < n and A ≡ −1 (mod v), then
+deg v ≤ deg A < n, t := (A + 1)/v and u := (f + v)/A are monic, and (t, u, v) is a word; deg t = deg A − deg v.
+(The degree bound matters: v = f + 2, A = f + 1 satisfies the other conditions but gives u = 2, not monic; R1 repair.)
 
 **Lemma 1.1 (colour at ∞; PROVED).** Let v be monic, A monic of degree ≥ 1, A ≡ −1 (mod v). Then
 (−v/A) = ε^{(deg A + 1)(deg v + 1) − 1}. In particular, for q ≡ 3 (mod 4): (−v/A) = −1 ⟺ deg A or deg v is odd ⟺
@@ -75,20 +76,27 @@ exactly as over ℤ ("all forbidden classes are QNRs mod ℓ").
 f mod A ∈ F(A), then U_q(f) (the word (t, u, v) with t = (A+1)/v, u = (f+v)/A has deg u ≥ 1). Distinct v | A + 1
 give distinct residues except v = 1 and v = A + 1 (both give −1, admissible iff deg A is odd), so
 w(A) = τ(A+1) − 1 for deg A odd and w(A) = #{v | A+1 monic, deg v odd} for deg A even.
-Large-q mass: as q → ∞, for each k ≤ a the average over primes A of degree a of the number of monic degree-k
-divisors of A + 1 tends to 1, so the average of w(A) tends to a (a odd) resp. a/2 (a even), and Σ_{deg A = a} w(A)/q^a → 1 (a odd), 1/2 (a even), so
-Σ_{deg A ≤ z} w(A)/|A| → (3/4) z + O(1): the analogue of Σ_{ℓ≤z} w(ℓ)/ℓ ~ C_V log z has C_V^{FF} = 3/4 per unit
-of degree (Assessment for fixed q: the F_q[T] Titchmarsh divisor sum changes the constant, not the shape).
+Large-q mass (fixed a and z, then q → ∞): for A generic monic of degree a the pair (A, A + 1) has Galois group
+S_a × S_a over F_q(coefficients) (Chebotarev for the joint factorisation, as in the large-q Titchmarsh divisor
+problem of Andrade–Bary-Soroker–Rudnick, Phil. Trans. R. Soc. A 373 (2015), App. A), so among primes A of degree a
+the average number of monic degree-k divisors of A + 1 tends to 1 for each 0 ≤ k ≤ a. Hence the average of w(A)
+tends to a (a odd) resp. a/2 (a even), Σ_{deg A = a} w(A)/q^a → 1 (a odd), 1/2 (a even), and
+Σ_{deg A ≤ z} w(A)/|A| → (3/4) z + O(1) for each fixed z: the analogue of Σ_{ℓ≤z} w(ℓ)/ℓ ~ C_V log z has
+C_V^{FF} = 3/4 per unit of degree. At fixed q the constant changes (q = 3: ≈ 1.03, §4.2; Assessment).
 
 **Definition 1.5 (ES₅-analogue).** A word with gcd(u, v) = 1 is *bichromatic* if (uv/f) = −1; ES₅,q(f) holds if f
 has a bichromatic word. **Lemma 1.6 (PROVED).** For a word of shape (s, a, b) with gcd(u, v) = 1,
 (uv/f) = ε^{s(a+b) + ab}. *Proof.* gcd(u, f) = gcd(u, v) = 1 since f ≡ −v (mod u). By (R1),
 (u/f) = ε^{an}(f/u) = ε^{an}(−v/u) = ε^{an + a}(v/u), similarly (v/f) = ε^{bn + b}(u/v), and (v/u)(u/v) = ε^{ab}.
 The exponent (a + b)(n + 1) + ab with n = s + a + b is ≡ s(a + b) + ab (mod 2). ∎
-Squares have no bichromatic word ((uv/g²) = 1). *Difference from ℤ.* Over ℤ, Theorem A makes "U-witness" a
-sub-case of "bichromatic" (both symbols are −1 on certificate words). Over F_q[T] the two symbols (f/A) and (uv/f)
-are different functions of the shape: e.g. shape (0, 2, 1) is a U-witness but (uv/f) = +1. Both unions are
-T1-obstructed; they are no longer nested. This document studies U_q.
+Squares have no bichromatic word ((uv/g²) = 1).
+**Corollary 1.6′ (PROVED; R1 repair of a false non-nesting claim).** ES₅,q(f) ⇒ U_q(f). *Proof.* If s(a+b) + ab is
+odd: for s even, a and b are both odd, so (t, u, v) is a U-witness (a ≥ 1, b odd); for s odd, one of a, b is odd,
+hence ≥ 1, and (t, u, v) or (t, v, u) is a U-witness (s odd). ∎ The inclusion is strict (q = 3, n = 3: 5 U-failures
+against 18 ES₅-failures). *Difference from ℤ.* Over ℤ the nesting goes the other way: Theorem A makes every U-witness
+bichromatic, so U ⇒ ES₅. Over F_q[T] a single U-witness need not be bichromatic (shape (0, 2, 1) has (uv/f) = +1 when
+gcd(u, v) = 1), because the two symbols (f/A) and (uv/f) are different functions of the shape. Both unions are
+T1-obstructed. This document studies U_q.
 
 ### 1.3 Why monic and q ≡ 3 (mod 4): the two degenerate normalisations
 
@@ -97,8 +105,9 @@ analogue of U is empty and T1 has no content.
 (ii) *Leading coefficients free.* Let q be odd and allow the shift v to be any nonzero polynomial (A still monic),
 with the colour condition (−v/A) = −1 read off at ∞, i.e. χ(−lc v)^{deg A} ε^{deg v (deg A + 1)} = −1 (the same
 computation as Lemma 1.1, now with (R2) for lc v). Call this U′_q. Squares still fail U′_q (same proof as Thm 1.3).
-But if q > (n + 1)², every monic non-square f of degree n ≥ 2 satisfies U′_q. Hence the exceptional set of U′_q is
-*exactly* the squares, for every n < √q − 1.
+U′_q keeps the degree bounds of Definition 1.2 (1 ≤ deg A < n, deg v < n). If q > (n + 1)², every monic non-square f
+of degree n ≥ 2 satisfies U′_q. Hence the exceptional set of U′_q is *exactly* the squares whenever n < √q − 1 (a
+sufficient condition, not a necessary one).
 
 *Proof of (ii).* f is not a constant times a square (a monic f = c·h² forces c square). Weil:
 |Σ_{y∈F_q} χ(f(y))| ≤ (n − 1)√q. With at most n zeros, #{y : χ(f(y)) = −1} ≥ (q − n − (n−1)√q)/2 > 0 for
@@ -106,11 +115,11 @@ q > (n+1)². Take such y, A := T − y, v := −f(y) ∈ F_q^*. Then A | f + v, 
 deg((f+v)/A) = n − 1 ≥ 1, and the colour is χ(−lc v)^1 = χ(f(y)) = −1. ∎
 
 *Reading.* The q − 1 unit shifts carry free quadratic-character data at ∞ ("Frobenius firing", FF_MUTE §§5, 7), and
-one Weil sum turns them into a witness. Over ℤ the unit group is {±1} and positivity leaves no unit shift, so U′ has no
-integer analogue; a result proved through U′ says nothing about ℤ. With monic shifts (positivity), there is a
+one Weil sum turns them into a witness. Over ℤ the unit group is {±1} and positivity leaves only the single unit 1 (which
+carries no square-class data), so U′ has no integer analogue; a result proved through U′ says nothing about ℤ. With monic shifts (positivity), there is a
 single unit shift v = 1, and the mass per shape becomes q-independent (§3.1). **We therefore fix: q ≡ 3 (mod 4), all
-of t, u, v, A monic** — the only normalisation among these with a nonempty colour layer, T1, and an integer-like
-mass. (Assessment: this restores the T1 obstruction that BRAINSTORM/ff_erdos_straus.md §5 found absent for
+of t, u, v, A monic** — among the normalisations compared here, the only one with a nonempty colour layer, T1, and
+an integer-like mass. (Assessment: this restores the T1 obstruction that BRAINSTORM/ff_erdos_straus.md §5 found absent for
 ES_q(A, P) with a polynomial numerator; there the 2-adic layer was mapped to a finite place.)
 
 ## 2. Numerics and controls
@@ -118,7 +127,11 @@ ES_q(A, P) with a polynomial numerator; there the 2-adic layer was mapped to a f
 Engine `scripts/z51_ffield_enum.c` (C; p prime ≡ 3 mod 4): enumerates, for every shape, all q^n monic triples
 (t, u, v), forms f = tuv − u − v, and counts W_U(f) for all q^n monic f of degree n (optionally the ES₅-analogue,
 with a gcd test). It also enumerates all squares. Raw output `data/z51_ffield/enum.txt`, `es5_q3.txt`; the failing
-non-squares at q = 3 are listed in `data/z51_ffield/fail_q3_n*.txt`.
+non-squares at q = 3 are listed in `data/z51_ffield/fail_q3_n*.txt`. Every entry of Table 2.1 is reproduced by a
+line of `enum.txt` (re-run after R1 flagged missing provenance). Independent re-implementations: the Python word
+enumerator `scripts/z51_ffield_check.py`, and the R1 reviewer's divisor-table brute force
+`reviews/z51_ffield_r1_brute.py` (different algorithm: for each f and each shift v it tests the actual divisors of
+f + v), which agree with the C engine for q = 3, 7 and n = 2..5.
 
 **Controls (CERTIFIED for the listed (q, n)).**
 * T1: every square fails U_q in every run (sqfailU = #squares, e.g. 2187/2187 at (3, 14), 6859/6859 at (19, 6)).
@@ -131,28 +144,34 @@ non-squares at q = 3 are listed in `data/z51_ffield/fail_q3_n*.txt`.
 | q \\ n | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 3 | 0 | 5 | 6 | 6 | 21 | 3 | 21 | **0** | 12 | **0** | 7 | **0** | 3 | **0** |
-| 7 | .286 | .184 | .0787 | .0179 | .0098 | 6.5e−4 | 5.4e−4 | | | | | | | |
+| 7 | .286* | .184 | .0787 | .0179 | .0098 | 6.5e−4 | 5.4e−4 | | | | | | | |
 | 11 | | .174 | .0751 | .0119 | .0062 | 2.6e−4 | | | | | | | | |
 | 19 | | .175 | .0776 | .0103 | .0044 | | | | | | | | | |
 | 31 | | .181 | .0778 | .0101 | | | | | | | | | | |
 | 59 | | .195 | .0805 | | | | | | | | | | | |
 | 191 | | .2007 | | | | | | | | | | | | |
 
-(q = 3 row: counts; other rows: fractions. Number of U-shapes m(n) = 2, 3, 7, 9, 15, 18, 26, 30, 40, 45, 57, 63, 77,
-84 for n = 2..15; m(n) = 3n²/8 + O(n).)
+(q = 3 row: counts; other rows: fractions. *n = 2 exactly: U_q(f) ⟺ f + 1 has a root, so the non-square failure
+fraction is (q − 3)/(2q), limit 1/2. Number of U-shapes m(n) = 2, 3, 7, 9, 15, 18, 26, 30, 40, 45, 57, 63, 77, 84
+for n = 2..15.)
 
 Two regimes are visible, and they behave oppositely.
 
 1. **Fixed n, q → ∞: the exceptional fraction converges to a positive constant.** n = 3: 0.1745 (q = 19), 0.1911
-   (43), 0.2006 (179), 0.2007 (191); the limit is 29/144 = 0.20139 (§3.3). n = 5: 0.0103, 0.0104, 0.0101 at
-   q = 19, 23, 31. The fixed-n large-q exceptional set is a *positive proportion* of all f, not O(q^{n−c}).
-2. **Fixed q = 3, n → ∞: the non-square exceptional set dies out**, exactly as over ℤ (where U fails only at the odd
+   (43), 0.2001 (163), 0.2006 (179), 0.2007 (191). The value 29/144 = 0.20139 is the prediction of §3.6 *if* the
+   n = 3 monodromy is the full product S₃ × (C₂ ≀ S₃) (not proved). n = 5: 0.0103, 0.0104, 0.0101 at q = 19, 23, 31.
+   Theorem 3.5 proves that the fixed-n large-q exceptional set is a *positive proportion* of all f, not O(q^{n−c}).
+2. **Fixed q = 3, n growing: the non-square exceptional set thins out** (EVIDENCE to n = 15; that it is eventually
+   empty is a conjecture suggested by the data, not a consequence of it), as over ℤ (where U fails only at the odd
    squares and six integers ≤ 978145 up to 10⁹): 0 non-square failures at n = 9, 11, 13, 15 (out of 3^n), and
-   12, 7, 3 at n = 10, 12, 14, against 243, 729, 2187 squares. The failing non-squares are not ∞-adically close to
-   squares: the polynomial part g of √f has deg(f − g²) = n/2 − 1 or n/2 − 2 for all of them (n = 6..14).
+   12, 7, 3 at n = 10, 12, 14, against 243, 729, 2187 squares. For the even-degree failures, the polynomial part g
+   of √f has deg(f − g²) = 1 (6×), 2 (15×) at n = 6; 2 (6×), 3 (15×) at n = 8; 3 (9×), 4 (3×) at n = 10;
+   3 (7×) at n = 12; 6 (3×) at n = 14 (R1 corrected table). Since deg(f − g²) ≤ n/2 − 1 holds for every monic f
+   of even degree, these values show no special ∞-adic proximity to squares.
 
-ES₅-analogue (q = 3, n = 5..12): non-square failures 114, 75, 660, 321, 3872, 1368, 21903, 5974 — far more than U_q
-at odd n, where only ≈ n²/8 shapes are bichromatic; squares fail in all runs. Not pursued further.
+ES₅-analogue (q = 3, n = 5..12): non-square failures 114, 75, 660, 321, 3872, 1368, 21903, 5974. These contain the
+U_q failures (Cor 1.6′) and are far more numerous at odd n, where only ≈ n²/8 shapes are bichromatic. Squares fail
+in all runs. Not pursued further.
 
 The point of the two regimes: the large-q limit keeps the *mass* fixed (m(n) ≈ 3n²/8 expected witnesses, independent of
 q, §3.1), so it cannot be a depth breaker in the sense of the brief; the fixed-q limit grows the mass like n² =
@@ -170,8 +189,9 @@ W_σ(f) := #φ_σ^{−1}(f)(F_q), so W_U = Σ_{σ ∈ Σ_n} W_σ; δ_q(n) := #{f
 **Proposition 3.1 (PROVED).** For every q ≡ 3 (mod 4) and n ≥ 2, q^{−n} Σ_f W_U(f) = m(n) exactly, and
 m(n) = 3n²/8 + O(n) (m(n) = 2, 3, 7, 9, 15, 18, 26, 30, 40, 45 for n = 2..11).
 
-*Proof.* The domain of φ_σ has q^s q^a q^b = q^n points and every point maps into M_n, so Σ_f W_σ(f) = q^n. Counting
-shapes: among pairs (s, b) with s + b ≤ n − 1, (s, b) ≠ (0, 0), a fraction 3/4 + O(1/n) has s or b odd. ∎
+*Proof.* The domain of φ_σ has q^s q^a q^b = q^n points and every point maps into M_n, so Σ_f W_σ(f) = q^n.
+Shapes ↔ pairs (s, b) with s + b ≤ n − 1, minus those with s and b both even (including (0, 0)):
+m(n) = n(n+1)/2 − (k+1)(k+2)/2 with k = ⌊(n−1)/2⌋ (exact formula from R1). ∎
 
 This is the exact analogue of "mass ≍ log² N" for U over ℤ, with log N replaced by n = log_q N. It does not grow
 with q. The large-q limit is therefore a *fixed-mass* limit.
