@@ -134,3 +134,11 @@ H 36 15 0
 H 37 8 0
 H 38 6 0
 H 39 8 0
+H 40 4 0
+H 41 1 0
+S histogram_total=499968377 (bin 255 = saturated count >= 255)
+BIG n=2409263993 R_large=40 small_hit=1
+BIG n=2478453113 R_large=40 small_hit=1
+BIG n=2730499193 R_large=40 small_hit=1
+BIG n=2816985593 R_large=40 small_hit=1
+BIG n=2895235193 R_large=41 small_hit=1

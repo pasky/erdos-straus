@@ -85,7 +85,9 @@ int main(int argc, char **argv){
   printf("S nonsq=%lld alive_small_nonsq=%lld alive_small_sq=%lld alive_all_nonsq=%lld alive_all_sq=%lld\n", nAll, aliveS, aliveSsq, aliveAll, aliveAllSq);
   printf("S meanR_large_all=%.6f meanR_large_given_small_alive=%.6f\n", sumAll/nAll, nS? sumS/nS:0);
   printf("H r count_all count_given_small_alive\n");
-  for(int r=0;r<40;r++) if(hAll[r]||hS[r]) printf("H %d %lld %lld\n", r, hAll[r], hS[r]);
+  for(int r=0;r<256;r++) if(hAll[r]||hS[r]) printf("H %d %lld %lld\n", r, hAll[r], hS[r]);
+  { long long hs=0; for(int r=0;r<256;r++) hs+=hAll[r]; printf("S histogram_total=%lld (bin 255 = saturated count >= 255)\n", hs); }
+  for(long long k=1;k<K;k++) if(!issq[k] && cntL[k]>=40) printf("BIG n=%lld R_large=%d small_hit=%d\n", 8*k+1, (int)cntL[k], (int)small[k]);
   if(getenv("DUMP")){ FILE*f=fopen(getenv("DUMP"),"w"); for(long long k=1;k<K;k++) if(!small[k]&&cntL[k]==0) fprintf(f,"%lld %d\n",8*k+1,(int)issq[k]); fclose(f); }
   return 0;
 }
