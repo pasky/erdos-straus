@@ -286,6 +286,25 @@ factors of f + 1 of even degree (n even), probabilities p_f(n) = 1/n resp. binom
 | model | 0.5 | 0.2022 | 0.0837 | 0.00996 | 0.00347 | 7.9e−5 |
 | largest q run | 0.5 (exact) | 0.2007 (q=191) | 0.0805 (q=59, rising) | 0.0101 (q=31) | 0.0044 (q=19, falling) | 2.6e−4 (q=11, falling) |
 
+**Independence test (CERTIFIED; `scripts/z51_ffield_joint.c`, `data/z51_ffield/joint.txt`).** Group the genuine
+shapes into unordered classes c = {(s, a, b), (s, b, a)} (identical fibres) and record W_c(f) for all f. Ratio of
+P(all W_c = 0) to ∏_c P(W_c = 0), and of P(all W_c = 0 and the f + 1 condition) to the product with P(f + 1 cond):
+
+| n (classes) | q | ratio (genuine) | ratio (with f + 1) | (ratio − 1)·q |
+|---|---|---|---|---|
+| 4 (2) | 11 / 43 / 59 | 1.078 / 0.999 / 1.003 | 1.228 / 0.998 / 1.002 | 0.9 / −0.04 / 0.15 |
+| 5 (4) | 11 / 23 / 31 | 1.215 / 1.098 / 1.064 | 1.454 / 1.157 / 1.094 | 2.4 / 2.3 / 2.0 |
+| 6 (6) | 11 / 19 | 1.769 / 1.329 | 2.427 / 1.488 | 8.5 / 6.3 |
+
+The defect decays like C(n)/q, and pairwise E[W_c W_d] → E[W_c]E[W_d] (e.g. 2.0021 vs 2 at (43, 4)). So the
+compositum behaves like a direct product of the class groups and the S_n of f + 1, up to lower-dimensional
+corrections. *Why CRT cannot prove this and what exactly is missing.* For two classes with moduli A, A′ (the smaller
+of the two divisors in (1.1), degree ≤ (n+1)/2) and deg A + deg A′ ≤ n, the fibre product X_c ×_Y X_d is birational
+to {(word data, coprime)} × A^{n − deg A − deg A′}, which is irreducible (non-coprime data give dimension ≤ n − 1);
+this is the CRT computation. For k events of total modulus degree > n the class intersection holds at most one f,
+and the k-fold fibre product is a codimension-(Σ deg − n) subvariety of the parameter space whose irreducibility is
+exactly the missing statement.
+
 **Conjecture 3.6 (big monodromy for word maps; CONJECTURE, EVIDENCE above).** For p > p₀(n), G_n is large enough
 that |Der_n|/|G_n| = p_f(n) e^{−M_g(n)}(1 + o(1)), in particular δ_∞(n) = exp(−(c + o(1))n²) with c = 1/4 (n odd),
 3/16 (n even).

@@ -1,0 +1,105 @@
+p=11 n=4 classes=2
+  class (s=1,{1,2}): mean=2.0000 P0=0.3494
+  class (s=2,{1,1}): mean=1.0000 P0=0.5507
+  P(all genuine 0)=0.20736  product=0.19240  ratio=1.0778
+  P(f+1 cond)=0.35312  P(all0 & f+1)=0.08340  product=0.06794  ratio=1.2275
+  E[W0 W1]=2.0301 vs 2.0000
+p=43 n=4 classes=2
+  class (s=1,{1,2}): mean=2.0000 P0=0.3618
+  class (s=2,{1,1}): mean=1.0000 P0=0.5925
+  P(all genuine 0)=0.21416  product=0.21438  ratio=0.9990
+  P(f+1 cond)=0.36925  P(all0 & f+1)=0.07901  product=0.07916  ratio=0.9981
+  E[W0 W1]=2.0021 vs 2.0000
+p=59 n=4 classes=2
+  class (s=1,{1,2}): mean=2.0000 P0=0.3643
+  class (s=2,{1,1}): mean=1.0000 P0=0.5964
+  P(all genuine 0)=0.21788  product=0.21731  ratio=1.0026
+  P(f+1 cond)=0.37080  P(all0 & f+1)=0.08074  product=0.08058  ratio=1.0021
+  E[W0 W1]=2.0011 vs 2.0000
+p=11 n=5 classes=4
+  class (s=1,{1,3}): mean=2.0000 P0=0.3567
+  class (s=1,{2,2}): mean=1.0000 P0=0.5890
+  class (s=2,{1,2}): mean=2.0000 P0=0.3524
+  class (s=3,{1,1}): mean=1.0000 P0=0.5521
+  P(all genuine 0)=0.04966  product=0.04087  ratio=1.2149
+  P(f+1 cond)=0.19999  P(all0 & f+1)=0.01188  product=0.00817  ratio=1.4539
+  E[W0 W1]=2.1789 vs 2.0000
+  E[W0 W2]=4.3579 vs 4.0000
+  E[W0 W3]=2.0301 vs 2.0000
+  E[W1 W2]=1.9891 vs 2.0000
+  E[W1 W3]=1.0016 vs 1.0000
+  E[W2 W3]=2.0273 vs 2.0000
+p=23 n=5 classes=4
+  class (s=1,{1,3}): mean=2.0000 P0=0.3608
+  class (s=1,{2,2}): mean=1.0000 P0=0.5990
+  class (s=2,{1,2}): mean=2.0000 P0=0.3594
+  class (s=3,{1,1}): mean=1.0000 P0=0.5803
+  P(all genuine 0)=0.04951  product=0.04508  ratio=1.0982
+  P(f+1 cond)=0.20000  P(all0 & f+1)=0.01043  product=0.00902  ratio=1.1570
+  E[W0 W1]=2.0866 vs 2.0000
+  E[W0 W2]=4.1733 vs 4.0000
+  E[W0 W3]=2.0072 vs 2.0000
+  E[W1 W2]=1.9960 vs 2.0000
+  E[W1 W3]=1.0040 vs 1.0000
+  E[W2 W3]=2.0069 vs 2.0000
+p=31 n=5 classes=4
+  class (s=1,{1,3}): mean=2.0000 P0=0.3626
+  class (s=1,{2,2}): mean=1.0000 P0=0.6013
+  class (s=2,{1,2}): mean=2.0000 P0=0.3611
+  class (s=3,{1,1}): mean=1.0000 P0=0.5874
+  P(all genuine 0)=0.04920  product=0.04625  ratio=1.0638
+  P(f+1 cond)=0.20000  P(all0 & f+1)=0.01011  product=0.00925  ratio=1.0935
+  E[W0 W1]=2.0644 vs 2.0000
+  E[W0 W2]=4.1288 vs 4.0000
+  E[W0 W3]=2.0040 vs 2.0000
+  E[W1 W2]=1.9920 vs 2.0000
+  E[W1 W3]=1.0022 vs 1.0000
+  E[W2 W3]=2.0039 vs 2.0000
+p=11 n=6 classes=6
+  class (s=1,{1,4}): mean=2.0000 P0=0.3521
+  class (s=1,{2,3}): mean=2.0000 P0=0.3695
+  class (s=2,{1,3}): mean=2.0000 P0=0.3698
+  class (s=2,{2,2}): mean=1.0000 P0=0.5982
+  class (s=3,{1,2}): mean=2.0000 P0=0.3519
+  class (s=4,{1,1}): mean=1.0000 P0=0.5511
+  P(all genuine 0)=0.00987  product=0.00558  ratio=1.7686
+  P(f+1 cond)=0.29574  P(all0 & f+1)=0.00400  product=0.00165  ratio=2.4274
+  E[W0 W1]=4.3579 vs 4.0000
+  E[W0 W2]=4.3579 vs 4.0000
+  E[W0 W3]=2.0152 vs 2.0000
+  E[W0 W4]=4.3579 vs 4.0000
+  E[W0 W5]=2.0301 vs 2.0000
+  E[W1 W2]=4.0299 vs 4.0000
+  E[W1 W3]=1.9930 vs 2.0000
+  E[W1 W4]=4.0592 vs 4.0000
+  E[W1 W5]=2.0033 vs 2.0000
+  E[W2 W3]=1.9975 vs 2.0000
+  E[W2 W4]=4.3277 vs 4.0000
+  E[W2 W5]=2.0273 vs 2.0000
+  E[W3 W4]=1.9855 vs 2.0000
+  E[W3 W5]=1.0076 vs 1.0000
+  E[W4 W5]=2.0273 vs 2.0000
+p=19 n=6 classes=6
+  class (s=1,{1,4}): mean=2.0000 P0=0.3586
+  class (s=1,{2,3}): mean=2.0000 P0=0.3684
+  class (s=2,{1,3}): mean=2.0000 P0=0.3687
+  class (s=2,{2,2}): mean=1.0000 P0=0.6035
+  class (s=3,{1,2}): mean=2.0000 P0=0.3584
+  class (s=4,{1,1}): mean=1.0000 P0=0.5745
+  P(all genuine 0)=0.00804  product=0.00605  ratio=1.3290
+  P(f+1 cond)=0.30276  P(all0 & f+1)=0.00273  product=0.00183  ratio=1.4878
+  E[W0 W1]=4.2094 vs 4.0000
+  E[W0 W2]=4.2094 vs 4.0000
+  E[W0 W3]=2.0053 vs 2.0000
+  E[W0 W4]=4.2094 vs 4.0000
+  E[W0 W5]=2.0105 vs 2.0000
+  E[W1 W2]=4.0102 vs 4.0000
+  E[W1 W3]=1.9968 vs 2.0000
+  E[W1 W4]=4.0211 vs 4.0000
+  E[W1 W5]=2.0006 vs 2.0000
+  E[W2 W3]=2.0016 vs 2.0000
+  E[W2 W4]=4.1991 vs 4.0000
+  E[W2 W5]=2.0099 vs 2.0000
+  E[W3 W4]=1.9950 vs 2.0000
+  E[W3 W5]=1.0026 vs 1.0000
+  E[W4 W5]=2.0099 vs 2.0000
