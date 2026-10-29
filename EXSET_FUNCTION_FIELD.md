@@ -432,7 +432,7 @@ q = ∞ model by one object: the monodromy group G_n of the word covers (Thm 3.3
 the true density. So the brief's question "which input supplies independence of many divisor events at one
 polynomial" has a precise answer in F_q[T] at large q: **Chebotarev in the compositum of the word covers (RH for
 varieties over F_q) plus the size of G_n (big monodromy, Conjecture 3.6)**. CRT sees only the abelian quotient
-information of bounded conductor; G_n is non-abelian and of size ≥ e^{μ} (Thm 3.5).
+information of bounded conductor; G_n is non-abelian, and |G_n| ≥ 1/ρ_n ≥ c·e^{√n/16} (Thm 3.5 with Prop 3.7(a)).
 
 ## 4. Fixed q, n → ∞
 
@@ -473,7 +473,7 @@ one f of degree n, so RH cannot extend the exact level n of §3.8 for the class 
 
 ### 4.3 What can be proved at fixed q
 
-* Prop 3.7(a) (PROVED, every q): δ_q(n) ≤ 2 exp(−c√n). This is the G1 value with log N ↦ n.
+* Prop 3.7(a) (PROVED, every q ≡ 3 mod 4): δ_q(n) ≤ C exp(−√n/16). This is the G1 value with log N ↦ n.
 * (PROVED, trivial) U-failure forces all irreducible factors of f + 1 to have even degree (n even; shapes (0, a, b)
   with b odd) resp. f + 1 irreducible (n odd), so δ_q(n) ≪ n^{−1/2} resp. ≤ 1/n + O(q^{−n/2}) — one Landau-type event.
 * That is the strongest fixed-q statement this lane proves. A U_q-analogue of the 2/3 bound (Vaughan / I3 §8.8 type)
@@ -507,7 +507,7 @@ has an odd-degree divisor").
 |---|---|---|---|---|
 | Colour layer at ∞: degree parity, q ≡ 3 (4) (Lemma 1.1) | T1 for U_q (Thm 1.3) | 2-adic layer 4ℤ ∪ (8ℤ − n) (Thm B/E of z48) | PROVED | T1 only (obstruction, not existence) |
 | Unit shifts with free leading coefficient (Prop 1.7(ii)) | exceptional set = squares exactly for q > (n+1)², by one Weil sum | none: units {±1}, positivity | — | no (the mechanism does not exist over ℤ) |
-| Exact CRT up to degree n (§3.8) | √n (prime family), n^{2/3} (U, q = ∞) | level of distribution 1 for all moduli ≤ N (stronger than EH) | conjectural (EH) | no: Prop 3.7 is the integer CRT exponent; CRT caps G1/(D)17 |
+| Exact CRT up to degree n (§3.8) | √n (prime family, PROVED), n^{2/3} (U, q = ∞, given Lemma C2) | level of distribution 1 for all moduli ≤ N (stronger than EH) | conjectural (EH) | no: Prop 3.7 is the integer CRT exponent; CRT caps G1/(D)17 |
 | RH for Dirichlet L-functions (Weil) | least inert prime ≤ 2 log_q n + O(1); equidistribution in progressions; μ(z) ≍ z | GRH | conjecture | no: in F_q[T] RH holds and RLD-U is still open and numerically true (Table 4.1); (D)15/22 |
 | Lang–Weil / Chebotarev for the word covers φ_σ (Thm 3.3) | exact large-q limit; q^d shifts of degree d integrated into one cover; positive-proportion failure (Thm 3.5) | none: needs n to be a point of a variety over a finite field with q → ∞ at fixed "degree" | — | no: fixed mass (no depth); error q^{n−1/2} = N^{1−1/(2n)} (§3.7(b)) |
 | Monodromy of the word covers G_n (Conj 3.6) | the true density p_f(n)e^{−M_g(n)} = e^{−Θ(n²)} at q = ∞ | the Poisson word model ("independent shapes") | heuristic | would give finitely many non-square exceptions, but over ℤ it is not a separate input: it *is* the conclusion |
