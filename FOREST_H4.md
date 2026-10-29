@@ -259,7 +259,9 @@ The largest r in the saved set is 113, at `p=130679098667329`, whose first good 
 
 ### 3.5 What can honestly be conjectured about the exponent?
 
-**CONJECTURE H₂ (inherited, still open).** `H₄(p)≪(log p)²` for all primes p≡1 (24). The new computation supports no larger required constant than 1.613 on its sample. It supplies no all-prime theorem.
+**(z49 update: H₂ is REFUTED.** `H4_NOT_POLYLOG.md` proves H₄(p) > exp((log p)^κ) for infinitely many p (κ < 1/12 effective; κ < 1/6 rel. Gallagher or GRH), relative to the internal OMEGA10/11 energy lemma. `CONJECTURE_S_MODEL.md` proves the model bound −log δ(H) ≥ c(log H)². The paragraph below is kept as the historical record.)
+
+**CONJECTURE H₂ (inherited; refuted in z49).** `H₄(p)≪(log p)²` for all primes p≡1 (24). The new computation supports no larger required constant than 1.613 on its sample. It supplies no all-prime theorem.
 
 **PROVED limitation on any logarithmic-power claim.** The transferred Graham–Ringrose lower bound excludes `H₄=O(log p)` and hence every `O((log p)^α)` with α≤1. It does **not** force α≥2. All exponents strictly between 1 and 2 remain compatible with this lower bound. No “sharp exponent 2” conclusion follows from least-QNR theory.
 
