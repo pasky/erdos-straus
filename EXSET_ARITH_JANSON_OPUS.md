@@ -677,4 +677,39 @@ Beyond the squares themselves, small-kernel near-squares km² are not enriched. 
 
 ## 8. Reviews
 
-TBD.
+### 8.1 Round 1: cross-model hostile review (Astra, `openai-codex/gpt-6-astra`, deep mode)
+
+The identifier `openai-codex/gpt-6-astra:high` was rejected by the tool as unavailable, so the review ran as
+`openai-codex/gpt-6-astra` in deep mode. Session:
+`/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0042--/2026-10-29T15-21-14-156Z_01a18840-3eac-7142-a757-62a25ff27c65.jsonl`.
+
+**Overall verdict: MAJOR, substantial repairs required.** No FATAL item. The reviewer recompiled the chain
+program, reproduced the N = 10⁷ outputs byte-for-byte, and matched an independent direct-divisor implementation at
+N = 10⁴.
+
+Sound as written: Lemma 1.2, Theorem 1.3, Theorem 3.1, Lemma 2.1 (all three items), Theorem 2.2, Observation 6.0,
+and the logic of Corollary 6.1.
+
+Repairs, all applied:
+
+| item | defect | repair |
+|---|---|---|
+| Lemma 1.4 | equivalence needs ρ_max < 1; the absolute survival bound is not the same as the ratio bound | ρ_max ≤ ½ added; ratio form stated |
+| Prop 2.3 | localization ("O(1) before the floor") did not follow from the identity | identity kept; localization proved under a model-like decay hypothesis |
+| Cor 2.4 | S-model Thm 2.1 bounds are fibrewise (conditioned on small primes); unconditioned, Δ ≫ L⁴/(log L)⁴ via the s₁ = 7 subfamily | replaced by the rough-endpoint family (log H ≍ √log N·log log N); K = O(1) made explicit |
+| Cor 3.2 | level is per term, not one common period; (b) needs worst-case positive error accounting; (c) wrongly assimilated to the (D)26 hybrids | definition fixed; (b) restated with +Σc_iT_i; (c) withdrawn |
+| Cor 3.3 | needs a forced mixture, certificates at all primes, and prime-law evaluation hypotheses | scoped |
+| door (vii) | the collapse does not classify all nonlinear or adaptive arguments; absolute-error inputs need their own pointwise certificate | claims scoped to pointwise-certified chains |
+| Prop 4.1 | stated for B_i, but (R1) concerns B_i^d; counterexample I = [1,30], residues 0 and 1 mod 3. "Room after the first few steps" was unproved. Cor 4.2 did not follow. The BV/BDH assessment overstated. | restated for B_i^d; room is a hypothesis; per-step only; Cor 4.2 deleted; assessment downgraded |
+| Prop 5.1 | missing denominator control | new proof, bound 4P_i/N for N ≥ 2P_i |
+| §5.2 | fixed-dimension FL cited for growing dimension | relabelled standard/Assessment |
+| §5.3 | entropy claim "useless for Q > N" false (N = 5 example) | corrected: the entropy bound is ≥ N·Eν for a CRT majorant ν; Shearer not analysed |
+| §5.4 | bounded-factor agreement impossible with squares; model density of B_ℓ assumed | FL∞ restated off the squares; model versus actual density distinguished |
+| Cor 6.1 | domain n ≡ 1 (4); threshold 1 < s < 2C_V; C_V empirical | applied |
+| Cor 6.2 | "α = 1 is RLD-U" false; logarithmic losses at the floor; "exactly as strong as needed" unproved; Δ comparisons missing | table rebuilt against current records (lane E 2/3 for U/ES₅); claims removed |
+| §2.3 / §7 | precision overstated (±0.02 versus a 0.074 spread); QNR and mode-3 numbers misquoted; column 9 meaningless in modes 1 and 3; mode 1 uses distinct nonzero residues; program warns rather than aborts; ordering within A unsorted; (3,3000,3) file missing; cores experiment not reproducible; "needs both alignment and U structure" not established | all corrected; missing file and script added; mechanism claim replaced by the controls plus the per-shift decomposition |
+
+### 8.2 Round 2
+
+Round 2 consisted of the repairs above, the N = 10¹⁰ falsification run (D_ns does not grow), and the per-shift
+decomposition, which explains ~40% of the deficit. The round-2 cross-model review is recorded below.
