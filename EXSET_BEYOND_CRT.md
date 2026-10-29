@@ -616,7 +616,55 @@ model counted atoms instead of distinct classes mod l and was off by a factor 2;
 
 ### 8.0 Summary (pending)
 ### 8.1 Certification mechanisms: definitions
+
+P denotes U or ES5 (on n = 1 mod 4). Write W_P for the certificate word classes of Section 1.3 (all three
+groupings, non-reduced pair classes, certificate/U refinements; structurally degenerate U groupings removed).
+
+**Lemma R4.0 (PROVED, by definition).** Every certificate of P(n) is a word of n: P(n) is *defined* as the
+existence of a word (t,u,v) of n with a slot condition. In particular an Egyptian-fraction identity for 4/n that is
+not a word of n certifies ES(n) but never P(n). For comparison: a Type II solution `4abcd = a+b+cn` is the word
+(4cd, a, b) of **cn** (since cn = 4cd*ab - a - b); it is a word of n itself only when a = 1, b = 1 or c = 1
+(Section 1.3 table).
+
+A progression C = a mod M is *P-forcing* if P(n) holds for every n in C with n >= n0(C). It is certified:
+* by an **exact covering** if C is contained, for n >= n0, in a finite union of classes of W_P (any moduli, any
+  number of classes, obtained by any finite chain of sub-coverings: a covering of a covering is a covering);
+* by an **approximate covering with remainder R** if C is contained in a finite union of classes of W_P together
+  with a finite set R(C) of residue classes (the remainder); delta_R := sum of the densities of the remainder
+  classes, lambda_R := the largest level (Section 1, K2 level) of a remainder class.
+
+Two-level coverings (split C by n mod q for a product q of small primes, cover each piece), multiplier coverings
+(a class mod k*l covered by word classes whose moduli involve the primes of k), and coverings using several shifts
+are all exact coverings in this sense.
+
 ### 8.2 Theorem R4.1: covering certificates add no supply
+
+**Theorem R4.1 (PROVED given Corollary 2.5).** Let F be a finite family of P-forcing progressions and selector
+classes, each progression certified by an approximate covering, with total remainder R (density delta_R, level
+lambda_R; R = empty for exact coverings). Let nu be a majorant of the whole avoider set A(F) of level lambda. Then
+
+    E nu + delta_R >= exp( - C L^{2/3} (log L)^{2/3} ),   L = max(lambda, lambda_R).
+
+In particular, for exact coverings the cap of Corollary 2.5 holds **whatever the moduli, depth, number of pieces
+or level ratio of the coverings**: log(1/E nu) <= C lambda^{2/3}(log lambda)^{2/3}.
+
+*Proof.* Let F' be the finite family of all covering word classes together with the selector classes of F, and
+put nu' = nu + sum over remainder classes rho of 1_rho. Then nu' >= 0, and nu' >= 1 on A(F'): if x is in no member
+of F, then x is in A(F) and nu(x) >= 1; if x lies in a progression C of F but in no covering word class, then x is
+in R(C). The level of a sum is the maximum of the levels of its terms, so level(nu') <= L, and
+E nu' <= E nu + delta_R. Corollary 2.5 applied to (F', nu') gives the claim. (The classes of F' may have arbitrarily
+large moduli: Corollary 2.5, like K2 Thm 5.1, puts no condition on family moduli.) QED
+
+**Corollary R4.2 (exceptional-set reading).** Coefficient-sum methods (M1) built on such F, with family primes
+<= N^A and remainders with delta_R <= e^{-S}/2 at the claimed saving S, save <= C_A (log N)^{2/3}(log log N)^{2/3};
+likewise M2 (all moduli of nu' <= N/2), L1, C. *Proof:* run K2 Cor 6.1's projection/coarsening on nu'. QED
+
+**Why the parent's level-lowering mechanism does not help.** A covering lets a method use the cheap class a mod M
+(level log M) instead of the covering classes (level log lcm M_i). But the cap is a statement about the level of
+the *majorant*, for an avoider set of arbitrary complexity: the comparison measure of LS2 Lemma 1.1 is supported
+on A(F') and tests every nonnegative function of level lambda at once, including functions built from cheap
+forcing classes. Since A(F') is contained in A(F), lowering the level of the classes is already priced in. The
+supply exponent per unit level is therefore that of W_P, namely beta = 2, for every covering-certified universe.
 ### 8.3 Compactness: which progressions are finitely coverable
 ### 8.4 Vaughan ratio classes are not coverings
 ### 8.5 Landau-type (archimedean) forcing at bounded shifts
