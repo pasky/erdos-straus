@@ -177,8 +177,7 @@ over all n ≡ 1 (4). I do not re-prove that. What §§2–3 add, and why they a
 
 By the operational definition of §1.2, a door is a true property of [1,N] (or of the primes) that fails for N·π.
 
-* **D1 Archimedean truncation.** On [1,N] a class of modulus > N holds ≤ 1 integer, words with u = 1 or t = 1
-  are single points, and a k-fold intersection of lcm > N is empty unless its CRT residue lies in [1,N]. π knows
+* **D1 Archimedean truncation.** On [1,N] a class of modulus > N holds ≤ 1 integer, and a k-fold intersection of lcm > N is empty unless its CRT residue lies in [1,N]. π knows
   none of this. (CONTEXT doors (i), (ii); IF2 hybrids / weak SPW.)
 * **D2 True high-order correlations.** Exact k-fold witness counts on [1,N] for k ≥ (log N)^θ/log log N
   (TC^alt_θ). Bounded k is useless whatever its precision (TU Thm 3.1; NC Cor 8.7).
@@ -186,8 +185,9 @@ By the operational definition of §1.2, a door is a true property of [1,N] (or o
   ((A*), (DCC), (RD′)).
 * **D4 Shift-uniform avoider count** (W_𝔊) (per-frequency weights < 1).
 * **D5 Primes of the family beyond N^{O(1)}.** Multiplicative (Landau-type) events such as "tn+1 has a prime
-  factor q ≡ −1 (mod 4t)" are unions of classes over all primes q ≤ tN+1, i.e. not of bounded level; their
-  densities come from Selberg–Delange, not from CRT. (This is lane D's object; I do not work it.)
+  factor q ≡ −1 (mod 4t)" are unions of classes over all primes q ≤ tN+1. For t ≤ N^{O(1)} these primes are still
+  polynomial in N, so this is not a super-polynomial-prime family; the door is the *evaluation*: their densities
+  come from Selberg–Delange (multiplicative), not from CRT (review D13). (This is lane D's object; I do not work it.)
 * **D6 Global multiplicative structure of the exceptional set**: E(ES) is divisor-closed (a fact about integers,
   false for π); semigroup/Rankin; density increment; entropy.
 * **D7 Prime-specific bilinear structure** (Vaughan/Heath-Brown, Harman, zero-density): only through (P) so far.
@@ -211,9 +211,11 @@ such that
 * (i) no class of 𝔘 contains a perfect square `y² ≥ 1` (so no W-smooth class contains a unit square);
 * (ii)_β,γ `𝔐_𝔘(y) := Σ_{C∈𝔘, W<P(G_C)≤y} Γ(G_C)/G_C ≤ K(log y)^β(log log y)^γ` for `y ≥ y₀`, with β ≥ 1, γ ≥ 0;
 * (iii) for every κ ∈ (0,1], every prime ℓ > W and v ≥ 1:
-  `Σ_{P(q)<ℓ} μ_{ℓ,v}(q)² τ(q)Γ(q)/q ≤ C_κ(v+1)^c[(log ℓ)^c + ℓ^{κv}]`.
+  `Σ_{P(q)<ℓ} μ_{ℓ,v}(q)² τ(q)Γ(q)/q ≤ C_κ(W)(v+1)^c[(log ℓ)^c + ℓ^{κv}]`, **for every W ≥ W₁, with
+  `C_κ(W) ≤ A_κ(log W)^d`** (fixed d; review D4: K2 Lemma 4.3 chooses W large, which needs this uniformity; the
+  constants K, y₀ in (ii) may depend on the finally fixed W).
 
-Then there are W, λ₀, C (depending on K, β, γ, c, C_κ only) such that for every finite family 𝔊 of classes of
+Then there are W, λ₀, C (depending on K, β, γ, c, d, A_κ only) such that for every finite family 𝔊 of classes of
 𝔘 and selector classes `0 mod p`, mixed arbitrarily, arbitrary moduli, and every majorant ν of 𝒜(𝔊) of level
 λ ≥ λ₀,
 
@@ -225,7 +227,10 @@ If every modulus of 𝔊 satisfies `G ≤ P(G)^{1+B}` and (ii) holds with γ = 0
 *Proof.* K2 Thm 5.1's proof uses exactly the three listed inputs (K2 §6 item 2; checked line by line: the base
 Lemma 2.3 uses only (i); the chain-rule density `Q'(n ≡ b (m)) ≤ Γ(m)/m`, EK Thm 4.1/Cor 2.6 and the leak mechanism
 are arithmetic-free; first moments enter only through 𝔐; second moments only through Lemma 4.1, whose proof is
-family-free, fed by (iii); Lemma 4.3 then gives `E p_ℓ² ≤ C(W)ℓ^{−7/4}(log ℓ)^c` and leak ≤ 1/2). Only the cost
+family-free, fed by (iii); Lemma 4.3 then gives `E p_ℓ² ≤ C(W)ℓ^{−7/4}(log ℓ)^c` with `C(W) ≤ C(log W)^{d+c}`, so
+`leak ≤ Σ_{ℓ>W} ℓ^{1/2}E p_ℓ² ≪ W^{−1/4}(log W)^{C}` and an absolute W gives leak ≤ 1/2). Selector classes are
+handled as in K2 (no unit square; first moment O(log log y); cofactor sum 1). The independence of EK/ETw from
+the class types and from cubic supply was re-checked by the reviewer (review 1, §2). Only the cost
 bookkeeping changes. Take `s₁ = λ^{1/(β+1)}(log λ)^{−γ/(β+1)}`, singletons `W < ℓ ≤ e^{s₁}`, blocks
 `V_i = {2^i s₁ < log ℓ ≤ 2^{i+1}s₁}` below `e^{λ/2}`, one linear block, as in K2.
 * Singletons cost `≤ (8/3)𝔐(e^{s₁}) ≤ C s₁^β(log λ)^γ = Cλ^{β/(β+1)}(log λ)^{γ/(β+1)}`.
@@ -246,8 +251,9 @@ or U refinement) contains a perfect square `y² ≥ 1`.
 
 *Proof.* Every n ≥ 1 in a word class has the class's certificate word, hence (table of §1.3) a Type II solution
 `4abcd = a+b+cn` or a Type I solution lying in a Case-A class (rows 3 and 5: m'' = t, d = (tv−1)/4 resp.
-(tu−1)/4, since `t | 4d+1` and `nt + 1 = (tu−1)(tv−1) ≡ 0 (mod 4d)`). A Type II solution at `n = y²` is
-excluded by Lean L9903 (`4abcd ≠ a+b+m²c` for all positive integers; re-checked by brute force for m < 60,
+(tu−1)/4, since `t | 4d+1` and `nt + 1 = (tu−1)(tv−1) ≡ 0 (mod 4d)`). A Type II solution puts n in the
+ℛ(M)-class `−4D`, `M = 4bcd−1`, `D = b²d | (bcd)²` (mod M, `4bcd ≡ 1` gives `cn ≡ −b` and `−4b²d ≡ −b/c`), so
+K2 Lemma 2.1(1) excludes squares; independently, Type II at `n = y²` is excluded by Lean L9903 (`4abcd ≠ a+b+m²c` for all positive integers; re-checked by brute force for m < 60,
 a ≤ b < 60, c < 40). A Type I solution puts n in a Case-A class, which contains no square (K2 Lemma 2.2). ∎
 
 **Lemma 2.3 (word first moment, β = 2; PROVED).** `𝔐_W(y) ≤ K(W)(log y)²(log log y)²`, and over moduli
@@ -262,7 +268,7 @@ The pair part is `≤ C(log y)²` by K2 Lemma 3.1 (F = τΓ, `F(p) ≤ 2 + 4p^{�
 part, first `Σ_{A≤x} τ(A+1)Γ(A) ≤ C(W)x log x`: write `Γ = 1 ∗ h`, h squarefree-supported, `h(p) = γ'(p) − 1`
 (≤ 7 for p ≤ W, ≤ 2p^{−1/2} for p > W). For `s ≤ x^{1/2}`,
 `Σ_{A≤x, s|A} τ(A+1) = Σ_{m≤x+1, m≡1 (s)} τ(m) ≤ 2Σ_{d≤√(x+1)}((x+1)/(ds) + 1) ≪ (x/s)log x`; for `s > x^{1/2}`
-use `τ ≤ x^{ε}`. So the sum is `≤ x log x Σ_s h(s)/s + x^{1+ε}x^{−1/4}Σ_s h(s)s^{−3/4} ≤ C(W)x log x` (both Euler
+use `τ ≤ x^{ε}`. So the sum is `≤ x log x Σ_s h(s)/s + x^{1+ε}x^{−1/8}Σ_s h(s)s^{−3/4} ≤ C(W)x log x` (ε = 1/16; review D6) (both Euler
 products converge). By partial summation the *body* `A ≤ X := y^{u₀}`, `u₀ = 12 log log y`, contributes
 `≤ C(log X)² = C·144(log y)²(log log y)²`. *Tail:* for a block `K < A ≤ 2K`, `K ≥ X/2`, `u = log K/log y`,
 Cauchy–Schwarz gives `≤ (Σ_{P(A)≤y, A~K} Γ(A)²/A)^{1/2}(Σ_{A~K} τ(A+1)²/A)^{1/2} ≤ Ce^{−u/2}(log y)^{1/2}·C(u log y)^{3/2}`
@@ -274,15 +280,20 @@ is `≤ C(log y)^3u₀^{3/2}e^{−u₀/2} ≤ C`. Under bounded B the body with 
 *Proof.* Mirror of K2 Lemma 4.2. *Pair part:* `μ(q) ≤ 8Σ_{i≤3}τ(qℓ^v/2^i) ≤ 32(v+1)τ(q)`, so the sum is
 `≤ C(v+1)²Σ_{P(q)<ℓ}τ(q)³Γ(q)/q ≤ C(v+1)²(log ℓ)^8` (K2 Lemma 3.1, κ = 8). *Endpoint part:*
 `μ(q) ≤ 8Σ_{i≤3}τ(qℓ^v/2^i + 1)` (terms with `2^i ∤ qℓ^v` omitted), so `μ² ≤ 256Σ_iτ(A_i+1)²`, `A_i = qℓ^v/2^i`.
-Long blocks `K < q ≤ 2K`, `K ≥ 4ℓ^{v/3}`: Cauchy–Schwarz gives
+Long blocks `K < q ≤ 2K`, `K ≥ 16ℓ^{v/3}` (review D7: then the m-interval length `Y ≥ Kℓ^v/8 ≥ 2ℓ^{4v/3}` and
+`ℓ^v < Y^{3/4}`; q = 1 is a short block): Cauchy–Schwarz gives
 `(Σ_{block,P(q)<ℓ}τ(q)²Γ(q)²/q)^{1/2}(Σ_{block}τ(A_i+1)⁴/q)^{1/2}`; the first factor is `≤ Ce^{−u/2}(log ℓ)²`
 (κ = 4, u = log K/log ℓ); in the second, `m = A_i + 1 ≡ 1 (mod ℓ^v)` runs over an interval of length `≍ Kℓ^v`
 with `ℓ^v < (Kℓ^v)^{3/4}`, so Shiu (F = τ⁴, F(p) = 16) gives `≪ (Kℓ^v/φ(ℓ^v))(log Kℓ^v)^{15}` and the factor is
-`≤ C((u+v+1)log ℓ)^{15/2}`. Summing over blocks: `≤ C(v+1)^c(log ℓ)^c`. Short blocks `K < 4ℓ^{v/3}`: `m ≤ ℓ^{2v}`,
-so `τ(m)²τ(q)Γ(q) ≤ C_κℓ^{κv/2}` and `Σ_{q≤8ℓ^{v/3}}1/q ≤ C_κℓ^{κv/2}`. ∎
+`≤ C((u+v+1)log ℓ)^{15/2}`. Summing over blocks: `≤ C(v+1)^c(log ℓ)^c`. Short blocks `K < 16ℓ^{v/3}`: `m ≤ ℓ^{2v}`,
+so `τ(m)²τ(q)Γ(q) ≤ C_κℓ^{κv/2}` (using `Γ(q) ≤ 8·3^{ω(q)}`, uniform in W) and `Σ_{q≤32ℓ^{v/3}}1/q ≤ C_κℓ^{κv/2}`.
+*W-uniformity (review D4):* W enters only through Euler factors at p ≤ W in K2 Lemma 3.1 (each `1 + O(1/p)`, product
+`≤ C(log W)^d`) and through the pointwise `Γ ≤ 8·3^ω`; Shiu's constant is W-free. So (iii) holds with
+`C_κ(W) ≤ A_κ(log W)^d`. ∎
 
-**Corollary 2.5 (the ES₅/U ceiling is 2/3; PROVED given K2/EK, Lemmas 2.2–2.4).** For every finite mixture 𝔊 of
-word classes (any grouping, certificate or U refinement) and selector classes, every majorant of 𝒜(𝔊) of level λ
+**Corollary 2.5 (the ES₅/U word-class architecture has ceiling 2/3; PROVED given K2/EK, Lemmas 2.2–2.4).** For every finite
+mixture 𝔊 of certificate word classes (any grouping, including non-reduced pair classes; certificate or eventual-U
+refinements) and selector classes, every majorant of 𝒜(𝔊) of level λ
 has `log(1/Eν) ≤ Cλ^{2/3}(log λ)^{2/3}`, and `≤ C_Bλ^{2/3}` if all moduli satisfy `G ≤ P(G)^{1+B}`. Consequently
 (the reductions below use the family cap only as a black box):
 * (M1) coefficient-sum methods (`N·Eν + Σ|a_i|`, family primes ≤ N^A) for E_{ES₅}, E_U, at primes or over all n,
@@ -295,18 +306,28 @@ has `log(1/Eν) ≤ Cλ^{2/3}(log λ)^{2/3}`, and `≤ C_Bλ^{2/3}` if all modul
 
 The prime-law version (P) needs PL's unit-group rerun; I expect it verbatim but have not checked it (Assessment).
 
-**Reading.** For U and ES₅ every CRT method in the barred union is limited to the **Vaughan exponent 2/3**, not
-3/4. The 3/4 note's extra factor comes from `τ₃`-type classes (`D | A²`), which certify ES but not ES₅ or U.
-So for U and ES₅, Target 3 ("beat 3/4") already needs a non-CRT input to beat **2/3**. Mixtures of K2 types and
-word classes have β = 3 (the maximum), so Theorem 1.1's list extends verbatim to the union of the K2 universe and
-the word universe: this is a barrier for a class strictly larger than (D)17–(D)29.
+**Reading.** For U and ES₅ every CRT method of the word-class architecture (whole-avoider majorants of word-class
+families plus selectors, with the transferred evaluations M1, M2, L1, C above) is limited to the **Vaughan exponent
+2/3**, not 3/4. The 3/4 note's extra factor comes from `τ₃`-type classes (`D | A²`), which certify ES but not ES₅ or U.
+So for U and ES₅, Target 3 ("beat 3/4") is, for these architectures, a target beyond the ceiling at 2/3 already.
+**Scope (review D8).** This caps majorants of the whole periodic avoider set of a finite *word-class* family. It
+does **not** cap every method for U/ES₅: a method may use any progression separately proved to force the target
+(coverings by different words in different residue subcases, non-word classes with a separate forcing argument),
+and such a universe needs its own supply estimate. No universe-exhaustion theorem is claimed; whether a larger
+U/ES₅-forcing class universe has cubic supply is OPEN. **Mixtures** of K2 types and word classes satisfy (i)–(iii)
+with β = 3 (sum of the two universes' moments), so M1 and M2 hold for them at 3/4: a barrier for a class strictly
+larger than (D)17–(D)29; the other items of Theorem 1.1 are not claimed for the mixture without their own
+transfer (review D9). **Sharpness (review D10):** exponent sharpness for the unrestricted word architecture (a
+`(log log N)^{2/3}` gain is not excluded), order sharpness only within bounded-B families.
 
-**Remark 2.6 (I3; Assessment, flagged for lane E).** I3 words are words with t,u,v ≥ 3, so their (ii)/(iii) are
+**Remark 2.6 (I3; original Assessment, now superseded by lane E).** I3 words are words with t,u,v ≥ 3, so their (ii)/(iii) are
 those of Lemmas 2.3–2.4 (β = 2). Condition (i) fails: I3 holds at squares. Theorem 2.1's base needs only *some* set
 `R ⊆ ℤ/Q₀` avoiding the W-smooth classes with `log(Q₀/|R|) = O_W(1)` uniformly in the 2,3,…,W-exponents of Q₀ (K2
 uses unit squares). If such an R exists for I3, the CRT ceiling for I3 is also 2/3, and **"reach 3/4 for I3 by
-multiplier atoms" (lane E goal 1) is impossible by CRT majorants**: multipliers do not change β. I have not proved
-the I3 base lemma.
+multiplier atoms" (lane E goal 1) is impossible by CRT majorants**: multipliers do not change β. I had not proved
+the I3 base lemma. **Update:** lane E proved it with a zero base (pin n = 0 mod every p up to W) and obtained the
+I3 cap `C lambda^{2/3}/(log lambda)^{1/3}`, matching the known I3 upper bound (EXSET_I3 Thms 3.1, 4.1). So the
+prediction above is now a theorem of lane E, not of this document.
 
 ## §3 The ceiling is attained: a Vaughan-exponent theorem for U and ES₅
 
