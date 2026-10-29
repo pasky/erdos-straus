@@ -17,7 +17,7 @@ ES_q(A, P) with a polynomial numerator A; this document studies the numerator-fr
 | 5 | **Word maps** (t,u,v) ↦ tuv − u − v are finite flat of degree n!/(s!a!b!), generically étale, any characteristic; the large-q exceptional density in characteristic p is a Chebotarev statistic ρ_{n,p} of a finite group G_{n,p} = G^geo, error O_n(q^{−1/2}). | PROVED (given Chebotarev for covers of A^n) | §§3.2–3.3 |
 | 6 | **Boundary S_n:** degenerating to tuv gives a copy of S_n in G_n acting on ordered set partitions; the boundary n-cycle deranges every nontrivial word shape. Hence **the brief's Goal 1 is false:** for fixed n and q ≥ q₀(n), at least c_n qⁿ polynomials (and c′_n qⁿ irreducible ones) have no nontrivial word at all; the non-square U_q-exceptional set is a positive proportion. | PROVED (same input) | §§3.4–3.5 |
 | 7 | **q = ∞ model:** the limit densities match p_f(n)·e^{−M_g(n)} (independent Poisson shapes × the S_n of f + 1), e.g. n = 5: 0.00996 vs 0.0101; joint/product ratios → 1 like C(n)/q for n = 4, 5, 6. Conjecture 3.6: ρ_n = exp(−Θ(n²)) (big monodromy). | EVIDENCE / CONJECTURE | §3.6 |
-| 8 | **CRT in F_q[T] is exact** (deg M ≤ n), and gives exactly the integer CRT exponents: the prime family exp(−√n/16) at every q (G1 value), and U exp(−c n^{2/3}) at q = ∞. The gap to the true exp(−Θ(n²)) is the non-abelian monodromy G_n: in the FF large-q model, *the* depth-breaking input is Chebotarev in the word covers plus big monodromy. | PROVED (prime family); CONDITIONAL on Lemma C2 (U) | §3.8 |
+| 8 | **CRT in F_q[T] is exact** (deg M ≤ n), and gives exactly the integer CRT exponents: the prime family exp(−√n/16) at every q (G1 value), and U exp(−c n^{2/3}) at q = ∞. The gap to the true exp(−Θ(n²)) is the non-abelian monodromy G_n: in the FF large-q model, *the* depth-breaking input is Chebotarev in the word covers plus big monodromy. | PROVED (Lemma C2 proved in round 2) | §3.8 |
 | 9 | **Large q cannot give depth in N:** the error is q^{n−1/2} = N^{1−1/(2n)}; hybrid-regime budgets reproduce (log N)^{1/2} or (log N)^{2/3} under explicit cost models. | PROVED (b) / Assessment (c, d) | §3.7 |
 | 10 | **Fixed q = 3 looks like ℤ:** non-square failures 0 at n = 9, 11, 13, 15; 12, 7, 3 at n = 10, 12, 14; no irreducible failure beyond n = 8. FF-RLD-U holds numerically (ratio ≈ 1.2–1.5 at s = 2, ≈ 3 at s = 1.5). | CERTIFIED (data) / CONJECTURE | §§2, 4.1–4.2 |
 | 11 | **Fixed q: nothing beyond CRT is proved.** RH (Weil) and exact level n hold in F_q[T] and FF-RLD-U is still open; "Weil for products of many characters with O(k) loss" works only for rank-one events and k < √q/(pe) (Sawin–Shusterman); U-events have rank n!/(s!a!b!). | PROVED baseline; Assessment | §4.3 |
@@ -392,8 +392,8 @@ integer ones.
 total mass μ_𝒞 := Σ_{c ∈ 𝒞} q^{−deg M_c}, and every L ≥ 0 with 2Lz ≤ n,
   #{f ∈ M_n : f in no class of 𝒞} ≤ q^n (∏_{A}(1 − x_A) + μ_𝒞^{2L+1}/(2L+1)!),  x_A := mass of 𝒞 at the prime A.
 Moreover μ(z) ≥ z/16 − O(1) uniformly in q. Hence δ_q(n) ≤ C exp(−√n/16) for an absolute C, all q ≡ 3 (mod 4), n.
-(b) *U, large-q limit (CONDITIONAL on Lemma C2 below; the reduction is PROVED).* limsup_{q→∞} δ_q(n) ≤
-2 exp(−c n^{2/3}) for an absolute c > 0.
+(b) *U, large-q limit (PROVED; Lemma C2 below was added in round 2).* limsup_{q→∞} δ_q(n) ≤ 2 exp(−c n^{2/3}) for
+an absolute c > 0.
 
 *Proof.* (a) For distinct primes A_1, …, A_i with Σ deg A_k ≤ n the residues f mod A_k are independent and
 uniform; classes at the same prime are disjoint. So the i-th Bonferroni sum is exactly e_i(x) for iz ≤ n, and
@@ -418,20 +418,34 @@ non-coprime tuples; the latter is ≤ binom(j, 2) μ_D^{j−2} Σ_P (Σ_{c : P |
 *Non-coprime part (reduction, PROVED).* Every f has at most B(n) := Σ_σ D_σ words (fibres of finite flat maps of
 degree D_σ), so the non-coprime compatible j-tuples contribute at most B(n)^j·P_f(E_2), where E_2 = "f has two
 distinct small-modulus witness words whose moduli have a common root".
-**Lemma C2 (CONDITIONAL input; Assessment that it holds).** For fixed n and D with 2D ≤ n, P_f(E_2) → 0 as q → ∞.
-Equivalently (finite flat maps, bounded complexity): for each pair of small shapes, the locus of pairs of distinct
-words with a common root of their moduli has dimension ≤ n − 1 in the fibre product. *Why it should hold:* on a
-stratum where uv and u′v′ share a factor g, compatibility requires g | (u + v − u′ − v′); with b, b′ ≥ 1 the free
-cofactors make this a nontrivial condition, which costs a factor ≤ max(q^{−deg g}, q^{−b′}) ≤ q^{−1} when the shared
-factor involves only part of uv; the remaining case u′v′ | uv needs a polynomial identity among complementary
-divisors which fails unless {u′, v′} = {u, v}. The case analysis was checked for the patterns listed, not for all
-overlap patterns (R1: "supply a cluster/overlap-counting lemma"); the v = 1 classes (divisors of f + 1) are excluded
-precisely because for them compatibility is automatic (r ≡ −1 always).
-Given Lemma C2, S_j(q) → μ_D^j/j!, μ_D = Σ over admissible unordered types {a, b} of (1 if a ≠ b, 1/2 if a = b) ≥
+**Lemma C2 (pair overlaps; PROVED, round 2).** For fixed D and all q,
+  Σ q^{−deg lcm(M_c, M_c′)} ≤ C(D)/q,
+the sum over ordered pairs of distinct classes c = {u, v} ≠ c′ = {u′, v′} (all four degrees ≥ 1, a + b ≤ D,
+a′ + b′ ≤ D) with gcd(M_c, M_c′) ≠ 1 and compatible residues. Hence P_f(E_2) ≤ C(D)/q when 2D ≤ n.
+*Proof.* Fix the degrees and γ := deg h, h := gcd(uv, u′v′) ≥ 1; then deg lcm = (a + b) + (a′ + b′) − γ, so it
+suffices to show that the number N_γ of compatible ordered pairs is ≤ C(D) q^{(a+b)+(a′+b′)−γ−1}. Note that
+#{(u, v) : h | uv} ≤ τ(h) q^{a+b−γ} (split h = h₁h₂ with h₁ | u, h₂ | v).
+(i) h not squarefree: at most q^{γ−1} such h; dropping compatibility, N_γ ≤ q^{γ−1}·τ(h)²q^{a+b−γ}q^{a′+b′−γ}.
+(ii) h squarefree and γ < a′ + b′: choose h (q^γ), then (u, v) (≤ τ(h)q^{a+b−γ}), then a splitting h = h₁′h₂′
+with h₁′ | u′ = h₁′x′, h₂′ | v′ = h₂′y′ (coprime pieces). Compatibility h | (u + v − u′ − v′) gives
+h₂′y′ ≡ u + v (mod h₁′) and h₁′x′ ≡ u + v (mod h₂′): y′ (degree b′ − deg h₂′) lies in one class mod h₁′ and x′
+(degree a′ − deg h₁′) in one class mod h₂′; so #(u′, v′) ≤ τ(h) max(1, q^{a′−γ}) max(1, q^{b′−γ}). Hence
+N_γ ≤ 4^γ q^{a+b} max(1, q^{a′−γ}) max(1, q^{b′−γ}) ≤ 4^γ q^{(a+b)+(a′+b′)−γ−1}, checking the four cases of
+(a′ ≷ γ, b′ ≷ γ) with a′, b′ ≥ 1 and γ ≤ a′ + b′ − 1.
+(iii) h squarefree and γ = a′ + b′, i.e. u′v′ | uv (the case uv | u′v′ is symmetric; if both, uv = u′v′, and
+compatibility uv | (u + v − u′ − v′) with deg(u + v − u′ − v′) < a + b forces u + v = u′ + v′, hence {u, v} = {u′, v′},
+excluded). Write u′ = α₁β₁, v′ = α₂β₂, u = α₁α₂x, v = β₁β₂y, the four pieces pairwise coprime (h squarefree).
+Compatibility modulo α₁, α₂, β₁, β₂ reads β₁y ≡ α₂ (α₁), β₂y ≡ α₁ (α₂), α₁x ≡ β₂ (β₁), α₂x ≡ β₁ (β₂): y lies in one
+class mod α₁α₂ and x in one class mod β₁β₂. So N_γ ≤ C q^γ max(1, q^{a−γ}) max(1, q^{b−γ}) ≤ C q^{a+b−1} (four cases,
+using a, b ≥ 1 and γ < a + b), which is the required bound since a′ + b′ = γ. ∎
+Numerical check (`scripts/z51_ffield_c2check.py`, D = 3, all classes): q·Σ = 2.19, 2.83, 3.05 for q = 3, 7, 11.
+b, b′ ≥ 1 is essential: for v = 1 the residue is −1 for every u, compatibility is automatic, and the f + 1 divisor
+classes are genuinely dependent (they are the S_n of f + 1); that is why they are excluded from the small family.
+With Lemma C2, S_j(q) → μ_D^j/j!, μ_D = Σ over admissible unordered types {a, b} of (1 if a ≠ b, 1/2 if a = b) ≥
 D²/16 − O(D), and Bonferroni at 2L ≤ n/D with D ≈ c₀ n^{1/3} gives the bound. ∎
 
 So in the q = ∞ model: **CRT (exact) gives exp(−c√n) for the prime family (PROVED, every q) and exp(−c n^{2/3}) for
-U (given Lemma C2); the limit densities are, by the Poisson heuristic and the data of §3.6, exp(−Θ(n²)) and, for the
+U (PROVED); the limit densities are, by the Poisson heuristic and the data of §3.6, exp(−Θ(n²)) and, for the
 prime family, exp(−Θ(n)).** These are
 exactly the integer pictures (2/3 for U, G1's √ for the prime family) with log N ↦ n. The gap is closed in the
 q = ∞ model by one object: the monodromy group G_n of the word covers (Thm 3.3), whose derangement proportion is
@@ -519,7 +533,7 @@ has an odd-degree divisor").
 |---|---|---|---|---|
 | Colour layer at ∞: degree parity, q ≡ 3 (4) (Lemma 1.1) | T1 for U_q (Thm 1.3) | 2-adic layer 4ℤ ∪ (8ℤ − n) (Thm B/E of z48) | PROVED | T1 only (obstruction, not existence) |
 | Unit shifts with free leading coefficient (Prop 1.7(ii)) | exceptional set = squares exactly for q > (n+1)², by one Weil sum | none: units {±1}, positivity | — | no (the mechanism does not exist over ℤ) |
-| Exact CRT up to degree n (§3.8) | √n (prime family, PROVED), n^{2/3} (U, q = ∞, given Lemma C2) | level of distribution 1 for all moduli ≤ N (stronger than EH) | conjectural (EH) | no: Prop 3.7 is the integer CRT exponent; CRT caps G1/(D)17 |
+| Exact CRT up to degree n (§3.8) | √n (prime family), n^{2/3} (U, q = ∞); both PROVED | level of distribution 1 for all moduli ≤ N (stronger than EH) | conjectural (EH) | no: Prop 3.7 is the integer CRT exponent; CRT caps G1/(D)17 |
 | RH for Dirichlet L-functions (Weil) | least inert prime ≤ 2 log_q n + O(1); equidistribution in progressions; μ(z) ≍ z | GRH | conjecture | no: in F_q[T] RH holds and RLD-U is still open and numerically true (Table 4.1); (D)15/22 |
 | Lang–Weil / Chebotarev for the word covers φ_σ (Thm 3.3) | exact large-q limit; q^d shifts of degree d integrated into one cover; positive-proportion failure (Thm 3.5) | none: needs n to be a point of a variety over a finite field with q → ∞ at fixed "degree" | — | no: fixed mass (no depth); error q^{n−1/2} = N^{1−1/(2n)} (§3.7(b)) |
 | Monodromy of the word covers G_n (Conj 3.6) | the true density p_f(n)e^{−M_g(n)} = e^{−Θ(n²)} at q = ∞ | the Poisson word model ("independent shapes") | heuristic | would give finitely many non-square exceptions, but over ℤ it is not a separate input: it *is* the conclusion |
@@ -589,5 +603,8 @@ divisor-table brute force agrees with the engine (q = 3, 7; n = 2..5). Repairs a
 * Prop 3.7(a): trimming to a subfamily of mass Θ(z), explicit constants and small degrees. Prop 3.7(b): now
   CONDITIONAL on the explicit pair lemma C2; the reduction from j-tuples to pairs is proved.
 * Provenance: all Table 2.1 runs were re-run into `enum.txt`; the q = 163 value was corrected (0.2001); n = 2 is exact.
+
+**Round 2 (author).** Lemma C2 proved by a stratified count (overlap degree γ costs γ; compatibility costs one more
+unless u′v′ = uv, which forces the same class); Prop 3.7(b) upgraded to PROVED; numerical check of the O(1/q) pair sum.
 
 **R2 (Astra):** pending.
