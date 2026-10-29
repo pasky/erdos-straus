@@ -15,15 +15,15 @@ marginal laws with heavy avoidance together with a moment-LP dual of KARY3.
 | # | statement | label | § |
 |---|---|---|---|
 | A | Integer Janson: −log ν(Av 𝓕) ≥ μ − Σ η_i P(E_i) − KΔ under one hypothesis (RLD). (RLD) consists of (R1), a lower bound for a class independent of B_i^d inside B_i^d ∩ I, and (R2), a K-upper bound for compatible pair classes. Independence enters only through (R1). The Harris substitute (Lemma "compatible events" / lopsided LLL) enters only through (R2). | PROVED (elementary) | §1 |
-| A′ | With ρ_max ≤ ½, block-averaged RLD ⇔ the relative (ratio) survival bound for the block | PROVED (trivial) | §1.4 |
+| A′ | With ρ_max ≤ ½, block-averaged RLD and the relative (ratio) survival bound for the block imply each other up to constant factors in the exponent | PROVED (trivial) | §1.4 |
 | B | Square floor: for anti-square families (U at n ≡ 1 (8); certificate edges at n ≡ 1 (24); forced ES classes) the RLD error is ≥ μ − KΔ − ½log N + O(1). Square share σ_i gives η_i = σ_i exactly when the non-squares are equidistributed. Localization to the last O(1) units of mass holds under model-like decay. | PROVED (localization CONDITIONAL) | §2.1 |
-| B′ | Off the squares, the U prime family deviates from the Haar model at moduli ≥ N^{0.4} by e^{D_ns(s)}, s = log N/log ℓ. D_ns is non-growing in N over 10⁷–10¹⁰ and absent for unaligned controls. About 40% of it is single-shift Landau/Buchstab correction (mostly v = 4); the rest is unexplained cross-shift correlation. | EVIDENCE | §2.3, §7 |
+| B′ | Off the squares, the U prime family deviates from the Haar model at moduli ≥ N^{0.4} by e^{D_ns(s)}, s = log N/log ℓ. D_ns is non-growing in N over 10⁷–10¹⁰ and absent for unaligned controls. Single-shift corrections (mostly v = 4) are of the same order and sign, but are not a decomposition of it (conflicts between shifts). The cause is not established. | EVIDENCE | §2.3, §7 |
 | C | **Collapse theorem:** a chain with fixed ratios r_i whose steps are certified pointwise on ℤ by functions in a linear class 𝒞 is one 𝒞-majorant ν* ≥ 1_S. Hence CRT-certified chains are capped at C(log N)^{3/4} (moduli ≤ N/2, or worst-case coefficient accounting), and at λ^{2/3}/(log λ)^{1/3} for native U/ES₅ classes (lane E). Prime-certified chains obey (D)22 under its evaluation hypotheses. The progression density increment and the plain entropy chain rule are CRT majorants. | PROVED (scoped) | §3, §5.3 |
 | C′ | LP duality: the comparison measure and the moment LP violate (R1) at every step and bound exactly the pointwise-certified chains. Other nonlinear arguments are not classified. | PROVED (C) + Assessment | §3.3 |
-| D | Blindness (per step): (R1) is not derivable from an oracle for all level-D statistics of B_i^d, plus inclusion in a level-D set, plus any inequality valid for all [0,1]-sequences (large sieve, Cauchy–Schwarz, general-sequence BDH), under a room hypothesis. Together with lane C2's r-wise laws: (RLD) needs archimedean information about the actual set B_i^d ∩ I. | PROVED (elementary) | §4 |
-| E | Positive ranges: exact CRT range (η_i ≤ 4P_iq_i/N); fundamental-lemma range log ℓ ≤ c√log N (standard, not re-proved in growing dimension). The blocking step beyond is FL∞, a fundamental lemma in dimension κ ≍ log z at level s ≪ κ, off the squares. | PROVED / standard / Assessment | §5 |
+| D | Blindness (per step): (R1) is not derivable from an oracle for all level-D statistics of B_i^d, plus inclusion in a level-D set, plus any inequality valid for all [0,1]-sequences (large sieve, Cauchy–Schwarz, general-sequence BDH), under a room hypothesis. Lane C2 separately excludes r-wise residue marginals; no common countermodel is claimed. | PROVED (elementary) + Assessment | §4 |
+| E | Positive ranges: exact CRT range (η_i ≤ 4P_iq_i/N; PROVED); fundamental-lemma range log ℓ ≤ c√log N (would follow from a uniform growing-dimension fundamental lemma, which is not proved here). The blocking step beyond is FL∞, a fundamental lemma in dimension κ ≍ log z at level s ≪ κ, off the squares. | PROVED / standard / Assessment | §5 |
 | E′ | Conjecture RLD-U: off the squares, the prime-modulus U sieve at z = N^{1/s} is within e^{C(s)} of its Mertens product, for every fixed s > 1 | CONJECTURE (EVIDENCE: four decades, N ≤ 10¹⁰) | §5.5 |
-| F | RLD-U at one s ∈ (1, 2C_V), C_V ≈ 0.74 empirical, plus the Titchmarsh-type asymptotic ⇒ #{n ≤ N, n ≡ 1 (4): U fails} = #odd squares + o(√N), i.e. Target 2 for U. Exponent table for RLD to depth exp((log N)^α): record beaten iff α > 2/3 (prime U), α > 1/3 (ES₅ edges), α > 1/4 (ES Type II); the square floor sits at the power-saving depth. | CONDITIONAL | §6 |
+| F | RLD-U at one s ∈ (1, 2C_V), C_V ≈ 0.74 empirical, plus the Titchmarsh-type asymptotic ⇒ #{n ≤ N, n ≡ 1 (4): U fails} = #odd squares + o(√N), i.e. Target 2 for U. Exponent table for RLD to depth exp((log N)^α): record beaten iff α ≥ 2/3 (prime U), α > 1/3 (ES₅ edges), α > 1/4 (ES Type II); the square floor forces RLD failure only at mass ≍ log N. | CONDITIONAL | §6 |
 | G | U holds trivially at every n ≡ 5 (8) (v = 3, A = 2) | PROVED (trivial) | §6 |
 
 **Exact remaining gap.** No instance of (R1) beyond the fundamental-lemma range (log ℓ ≍ √log N) was proved.
@@ -185,9 +185,10 @@ Write T = log(1/ν(□_I)). Then σ_i ≤ c^{−1}e^{−(T−μ_i)}, and with P(
 
     Σ_{i: μ_i ≤ T−t} σ_i P(E_i) ≤ c^{−1}∫_0^{T−t+1/8} e^{−(T−m)} dm ≤ 2c^{−1}e^{−t}.
 
-So the square error accumulated before the last t units of mass ahead of the floor is O(e^{−t}). Under that
-decay, the square-forced failure sits in the final O(1) units of mass before the sifted set reaches O(√N)
-elements. Without the decay hypothesis only the identity is proved.
+So, for 0 ≤ t ≤ T, the square-share contribution Σσ_iP(E_i) accumulated over the steps with μ_i ≤ T − t is
+O(e^{−t}). That prefix bound is all that is claimed. It does not locate other RLD errors, and a lower survival bound
+alone does not say when the actual set reaches O(√N) elements. Without the decay hypothesis only the identity is
+proved.
 
 CERTIFIED illustration (§7, prime-modulus U family, N = 10⁹): σ ≤ 0.0055 up to ℓ = 1361, where the total
 deficit is 0.0146. Of that, 0.0052 is the square part; the rest (0.0095) is §2.3.
@@ -249,8 +250,8 @@ residues. It has **no** deficit at any depth: |Σ(w/ℓ − ρ_ℓ)| ≤ 0.07 do
 ℓ ≤ N/2.
 
 Two features matter (EVIDENCE, four scales). First, at fixed s the deficit does not grow with N over
-N = 10⁷, …, 10¹⁰: the rows agree to ±0.02 for s ≥ 1.75 and to within 0.05 at s ≤ 1.5 (at s ≈ 1.25: 1.205, 1.279,
-1.211, 1.168; the checkpoints are matched to nearest s, not interpolated). The N = 10¹⁰ row was computed after the
+N = 10⁷, …, 10¹⁰: the rows agree to within 0.02 for s ≥ 1.75 (0.009 at s ≈ 2.25 apart from N = 10⁷), within 0.05
+at s ≈ 1.5, and within 0.11 at s ≈ 1.25 (1.205, 1.279, 1.211, 1.168; the checkpoints are matched to nearest s, not interpolated). The N = 10¹⁰ row was computed after the
 first review, as a falsification test, and does not grow. Meanwhile the model mass at fixed s grows like 0.74·log N/s.
 Four scales cannot establish boundedness in N. They are consistent with it, in which case the relative error
 D_ns/mass → 0 at every fixed s > 1. Second, the deficit switches on near s ≈ 2.5 and grows as s → 1. It is
@@ -276,20 +277,31 @@ alignment: all events at shift v are divisibility conditions on the single integ
 prime factors ≥ N^{1/s}. That is the familiar failure of Mertens products for high-dimensional sieves near s ≈ 1
 (prime k-tuples: a factor (e^γ ω(s))^k).
 
-*Partial decomposition (EVIDENCE, `scripts/z50_ajopus_pershift.c`).* Sieve I by each shift v *separately*,
-using the events ℓ | n+v with ℓ ≡ −1 (v) prime, ℓ ≤ z, and the proper-divisor condition. Sum
-log(actual/Haar) over v. This "independent-shift" prediction gives:
+*Heuristic diagnostic (EVIDENCE, `scripts/z50_ajopus_pershift.c`; reinterpreted after the round-2 review).*
+Sieve I by each shift v *separately*, using the events ℓ | n+v with ℓ ≡ −1 (v) prime, ℓ ≤ z, ℓ < n+v. Then sum
+log(actual_v/Haar_v) over v ∈ V, v ≤ v_max. The commands were `pershift N z v_max` with (N, z, v_max) =
+(10⁷, 1000, 1000), (10⁷, 3162, 3162), (10⁸, 10⁴, 2000) and (10⁷, 46416, 2000). The reviewer reran these, and the
+full-shift version of the last gives 0.257.
 
 | s (N = 10⁷ unless noted) | 2.33 | 2.0 | 2.0 (N = 10⁸) | 1.5 |
 |---|---|---|---|---|
-| per-shift total | 0.025 | 0.075 | 0.075 | 0.256 |
+| Σ_v log(actual_v/Haar_v) | 0.025 | 0.075 | 0.075 | 0.256 |
 | measured D_ns | ≈ 0.05 | 0.178 | 0.184 | 0.666 |
 
-At s = 2 the per-shift total is dominated by v = 4, contributing 0.061. That is the half-dimensional Landau sieve
-"n+4 has no proper prime factor ≡ 3 (4)", whose integer count exceeds its Mertens product (Landau–Selberg–Delange
-constant versus Mertens; primes ≡ 3 (4) escape via properness). So about 40% of the deficit is explained by
-single-shift Landau/Buchstab corrections, scale-invariant in s as they should be. The remaining ~60% comes from
-correlations between shifts and is not explained.
+At s = 2 the per-shift total is dominated by v = 4 (0.061). That is the half-dimensional sieve "n+4 ≡ 5 (8) has
+no prime factor ≡ 3 (4) below √N", whose integer count exceeds its Mertens product, as small-dimension sieves do at
+small s. The proper-divisor condition never activates for these events on n ≡ 1 (8). The round-1 wording that
+"primes ≡ 3 (4) escape via properness" was false and is withdrawn.
+
+*Caveat.* This is **not** a decomposition of D_ns into explained and unexplained parts. Shifts conflict at a
+common prime, so the joint Haar product ∏_ℓ(1−w(ℓ)/ℓ) differs from ∏_v Haar_v; at z = 3162 the logs differ by
+0.099. The exact identity is
+
+    log(actual_joint/Haar_joint) = Σ_v log(actual_v/Haar_v) + [integer cross-shift correlation − Haar cross-shift correlation],
+
+and D_ns is moreover a linear chain sum with the squares removed. So the table says only this: single-shift
+corrections are of the same order as D_ns, have the same sign and the same s-dependence, and are not the whole of
+it. The cause is not established.
 
 ## 3. The collapse theorem: a chain of certified ratios is a majorant
 
@@ -341,6 +353,10 @@ is required; a sum of terms with separate small moduli need not have one. Then:
   +Σc_iT_i, then that bound is ≥ N·Eν* ≥ N e^{−C_A(log N)^{3/4}}.
 * For the native U/ES₅ class universe on n ≡ 1 (4) (EXSET_I3 Cor 7.1, lane E), the same two statements hold with
   the stronger cap Cλ^{2/3}/(log λ)^{1/3} in place of Cλ^{3/4}. This is the case for the U families of §§2, 5–7.
+  EXSET_I3 Cor 7.1 covers any finite native subfamily, including the prime-modulus one, for whole-avoider
+  majorants; restricting to n ≡ 1 (8) is legitimate. On a progression the interval formula in (a) must be
+  rewritten with the progression length and the transformed denominators in place of N − D. It is not a cap for
+  prime inputs or for arbitrary endpoint presentations.
 
 If the moduli exceed N/2 and the G_i are evaluated exactly, nothing is claimed. (Review repair: this case is not the
 position-blind hybrid of (D)26, so the conditional weak-SPW cap does not cover it.)
@@ -433,10 +449,10 @@ yet ν(E_i ∩ X) = 0. ∎
    supported on an interval, that have exactly independent uniform r-coordinate marginals for any prescribed
    sparse forbidden sets (including ES labels), yet avoid far more often than e^{−μ}. Proposition 4.1 is the
    interval-supported counterpart: the fake X is an honest subset of I, but it matches only level-D statistics.
-   Together they show the following. (RLD) cannot follow from (r-wise residue marginals) ∪ (level-D statistics of
-   the set on I) ∪ (inequalities valid for all sequences). It needs information about the specific set
-   B_i^d ∩ I that is *archimedean*: it uses that I is an interval of integers and that B_i^d is the actual sifted
-   set.
+   They show *separately* that (R1) does not follow from r-wise residue marginals alone (C2), nor from level-D
+   statistics of the set on I plus universal inequalities alone (Prop 4.1). No common countermodel satisfying
+   both sets of premises at once is constructed, so no impossibility is claimed for their union (round-2 repair).
+   *Assessment:* a proof of (RLD) will need archimedean information about the actual set B_i^d ∩ I.
 
 *Assessment (consequence for the brief's item 3; downgraded after review).* "Relative BV/BDH for sifted sets" can
 enter the chain usefully only as a **sequence-specific** statement: an equidistribution theorem for the particular
@@ -456,8 +472,10 @@ gcd(q_i, P_i) = 1, and let N ≥ 2P_i. Then
 
     | ν(E_i ∩ B_i^d)/ν(B_i^d) − 1/q_i |  ≤  4P_i/N,
 
-so (R1) holds with η_i ≤ 4P_iq_i/N. For I a progression mod 8 (or 24) with gcd(P_i, 8) = 1, the same bound holds
-with N replaced by #I.
+so (R1) holds with η_i ≤ 4P_iq_i/N. For I a progression r mod m (m = 8 or 24), assume gcd(P_iq_i, m) = 1 and
+#I ≥ 2P_i. Write n = r + mt, so that I becomes an interval in t on which B_i^d and E_i are again periodic with
+periods P_i and q_i. Then the same bound holds with N replaced by #I. Coprimality with m is needed: with q_i = 3,
+m = 24 and E_i = {0 mod 3}, E_i is empty on I.
 
 *Proof.* Let r = #(B_i^d mod P_i) and A = #(E_i ∩ B_i^d ∩ I), B = #(B_i^d ∩ I). Each residue class b mod P_i in
 B_i^d meets E_i in a single class mod P_iq_i, which contains N/(P_iq_i) + θ elements of [1,N] with |θ| ≤ 1. Hence
@@ -475,9 +493,9 @@ is C_V ≈ 0.74 (EVIDENCE; the constant was not derived in closed form). The sie
 so a fundamental lemma needs s = log N/log z ≫ log z. In that range both counts in (R1) should be asymptotic to
 their model values with relative error e^{−s/C}. *Label: Assessment / standard.* FI Lemma 6.3 and Cor 6.10 are
 stated for fixed dimension. The uniform version in dimension κ ≍ log z needs the quantitative Bonferroni/β-sieve
-bookkeeping, which is not re-done here. So the whole chain, and with it the
-exceptional-set bound N exp(−c√log N), holds for log z ≤ c√log N. No chain is needed for this: the
-fundamental lemma bounds the count directly. Note (a) of z50 CONTEXT is confirmed. Selberg's Λ² and the large
+bookkeeping, which is not re-done here. *Granted* such a uniform fundamental lemma, the whole chain, and with it
+the exceptional-set bound N exp(−c√log N), would hold for log z ≤ c√log N. This range is therefore **not proved
+here**. Even if proved, no chain would be needed: the fundamental lemma bounds the count directly. Note (a) of z50 CONTEXT is confirmed. Selberg's Λ² and the large
 sieve stop at the same point. The reason is a Rankin truncation: the Euler product ∏(1 + g(p)) is carried by
 d of size exp(c(log z)²).
 
@@ -566,14 +584,16 @@ Theorem 1.3 and the cited model bounds. Δ is small in both cited families: the 
 the es-subexp Type II family has Δ ≪ L² = o(μ). Its moduli are rough, so its unit-Haar bound transfers to
 ordinary Haar on [1,N].
 
-| family (on I) | model −log P(Av) | exceptional set from RLD to α | beats current record iff | square floor forces RLD failure at (Cor 2.4) |
+| family (on I) | model −log P(Av) | exceptional set from RLD to α | beats current record iff | square floor forces failure of RLD with η ≤ ½ at (Cor 2.4) |
 |---|---|---|---|---|
-| prime U family, n ≡ 1 (8) | (C_V+o(1)) log z | N exp(−(C_V/2 + o(1))(log N)^α) | α > 2/3 (U record, lane E) | mass ½ log N, i.e. α → 1 |
+| prime U family, n ≡ 1 (8) | (C_V+o(1)) log z | N exp(−(C_V/2 + o(1))(log N)^α) | α ≥ 2/3 (U record (log N)^{2/3}(log log N)^{−1/3}, lane E) | never for z ≤ N, since C_V < 1 needs μ > 2·½log N |
 | ES₅/U edge family, rough endpoints (I3 §8.4 route), n ≡ 1 (24) | ≥ cL²/(log L)² | N exp(−c(log N)^{2α}/(log log N)²) | α > 1/3 (U/ES₅ record 2/3) | log H ≍ √log N·log log N |
 | ES Type II rough family (es-subexp `thm:haarlower`), [1,N] | ≥ cL³/log L | N exp(−c(log N)^{3α}/log log N) | α > 1/4 (ES record 3/4) | L ≍ (log N log log N)^{1/3} |
 
-At the floor depths the logarithmic losses mean that the transferred bound is N^{1−c/(log log N)^{O(1)}}, not a
-fixed power saving. Stepwise (RLD) for the prime U family with half-mass error at α = 1 is *not* the same
+At the floor depths of rows 2–3 the masses are ≍ log N, so the transferred bound is a fixed power saving N^{1−c}.
+At the unadjusted depths L = (log N)^{1/2} or (log N)^{1/3} it falls short of a fixed power by the displayed
+logarithmic factors (round-2 repair). With an error of half the mass, the square floor forces failure of (RLD)
+only when μ > 2·½ log N, i.e. at mass ≍ log N; the zero-error model hits the floor at half that mass. Stepwise (RLD) for the prime U family with half-mass error at α = 1 is *not* the same
 statement as the terminal Conjecture RLD-U, nor implied by it (review repair).
 
 *Assessment.* For U/ES₅ the square floor sits where the transferred bound would reach N^{1/2+o(1)}; for ES it sits
@@ -627,7 +647,8 @@ CERTIFIED facts:
 
 EVIDENCE (the s-scaling table of §2.3):
 
-* the non-square deficit is a function of s = log N/log ℓ alone, to ±0.02;
+* the non-square deficit shows no evident growth in N at fixed s = log N/log ℓ (spread ≤ 0.02 for s ≥ 1.75 and
+  ≤ 0.11 at s ≈ 1.25, over N = 10⁷–10¹⁰);
 * it is ≤ 0.01 for s ≥ 2.8;
 * it is bounded in N at each fixed s.
 
@@ -713,3 +734,23 @@ Repairs, all applied:
 
 Round 2 consisted of the repairs above, the N = 10¹⁰ falsification run (D_ns does not grow), and the per-shift
 decomposition, which explains ~40% of the deficit. The round-2 cross-model review is recorded below.
+
+**Round-2 cross-model review (Astra, deep).** Session
+`/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0042--/2026-10-29T15-39-40-800Z_01a18851-2180-7142-a757-62a6647a2701.jsonl`.
+**Verdict: MAJOR (incomplete repairs); no FATAL.**
+
+Confirmed SOUND: Lemma 1.4; the localization integral; the rough-family depth; the unconditioned S-model
+Δ ≫ L⁴/(log L)⁴; Cor 3.2(a)/(b) and the scope of the lane-E import; Cor 3.3; the door-(vii) scoping; Prop 4.1 for
+B_i^d; Prop 5.1 on intervals; §5.3; FL∞; Cor 6.1. The N = 10¹⁰ row and the per-shift program were reproduced.
+
+Repairs applied after round 2:
+
+* the combined-oracle impossibility in Prop 4.1 Remark 3 is withdrawn (separate countermodels only);
+* Prop 5.1 on progressions now requires coprimality with the progression modulus;
+* the §5.2 range is made explicitly conditional on a uniform fundamental lemma;
+* Cor 6.2: the prime-U threshold is now α ≥ 2/3; the square-floor column accounts for the allowed half-mass error;
+  the sentence on logarithmic losses is corrected (fixed power savings at the adjusted floor depths);
+* precision statements are made exact (spread 0.11 at s ≈ 1.25);
+* the per-shift "40% explained" is withdrawn and reinterpreted as a diagnostic (shift conflicts make it a
+  non-decomposition), and the false properness explanation for v = 4 is removed;
+* A′, D, E and F in the summary are aligned with the body.
