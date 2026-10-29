@@ -1,0 +1,16 @@
+p=3 n=5 N=243 shapesU=9 meanWU=9.000000 squares=0 sqfailU=0 failU_nonsq=6 frac=0.024691
+ES5: shapesE=3 sqfailE=0 failE_nonsq=114 frac=0.469136
+p=3 n=6 N=729 shapesU=15 meanWU=15.000000 squares=27 sqfailU=27 failU_nonsq=21 frac=0.028807
+ES5: shapesE=18 sqfailE=27 failE_nonsq=75 frac=0.102881
+p=3 n=7 N=2187 shapesU=18 meanWU=18.000000 squares=0 sqfailU=0 failU_nonsq=3 frac=0.001372
+ES5: shapesE=6 sqfailE=0 failE_nonsq=660 frac=0.301783
+p=3 n=8 N=6561 shapesU=26 meanWU=26.000000 squares=81 sqfailU=81 failU_nonsq=21 frac=0.003201
+ES5: shapesE=30 sqfailE=81 failE_nonsq=321 frac=0.048925
+p=3 n=9 N=19683 shapesU=30 meanWU=30.000000 squares=0 sqfailU=0 failU_nonsq=0 frac=0.000000
+ES5: shapesE=10 sqfailE=0 failE_nonsq=3872 frac=0.196718
+p=3 n=10 N=59049 shapesU=40 meanWU=40.000000 squares=243 sqfailU=243 failU_nonsq=12 frac=0.000203
+ES5: shapesE=45 sqfailE=243 failE_nonsq=1368 frac=0.023167
+p=3 n=11 N=177147 shapesU=45 meanWU=45.000000 squares=0 sqfailU=0 failU_nonsq=0 frac=0.000000
+ES5: shapesE=15 sqfailE=0 failE_nonsq=21903 frac=0.123643
+p=3 n=12 N=531441 shapesU=57 meanWU=57.000000 squares=729 sqfailU=729 failU_nonsq=7 frac=0.000013
+ES5: shapesE=63 sqfailE=729 failE_nonsq=5974 frac=0.011241
