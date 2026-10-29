@@ -551,6 +551,8 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Weil / Selberg–Hooley / bilinear fixed-modulus savings → tied modulus; need p^{1−o(1)} saving → `PARITY_AUDIT` §2.
 * H-B, parity-breaking (Friedlander–Iwaniec) at fixed p → collapses into H-A → `PARITY_FIXED_P.md` (J)6, (J)87.
 * Fixed-p variance / Janson / level-Poisson second-moment → critical, far tail fatter than Poisson → (J)103 §3.
+* Exceptional set beyond 3/4 (ES) or 2/3 (U/ES₅/I3) by any CRT architecture, covering-certified forcing, divisor switching,
+  CRT-certified Janson chains, r-wise-marginal transfers, or constant-loss shift products → capped/blind → `BREADTH_Z45.md` §15 (z50).
 * Exact identities: no linear relation between 56 ES counts and 54 classical functions (CERTIFIED, that finite dictionary); no
   finite fixed-level Eisenstein-type identity certifies Type I/II counts (PROVED via T1) → (I)5, (J)7 Thm 9.1. Growing-level
   identities remain open ((J)10: the T1-respecting W(n) identity exists, positivity is the spin event).
