@@ -2,14 +2,16 @@
 
 ## 0. Summary and status
 
-**Scope.** Long, adversarial exceptional-set attempt. ES remains open. No new exceptional-set estimate is claimed at initialization.
+**Outcome: PARTIAL / negative for the intended exceptional-set advance.** ES remains open. Four rounds were written, tested, committed and cross-reviewed. No new exceptional-set estimate is proved. The universal constant-square-root-error Janson bound is false; a true one-big-prime hybrid retains a costly truncation probability. Exact low-order distribution, even for prescribed ES labels, does not itself justify a nonlinear transfer.
+
+**Novelty boundary.** The translated-square refinement is a modest generic counterexample. The large-sieve formula, pairwise/r-wise constructions and LP duality are classical tools or consequences of the existing ledger. None is presented as a new ES-specific barrier strictly stronger than (D)17–(D)29.
 
 | Round | Target | Status | Review |
 |---|---|---|---|
 | 1 | Universal AJ with O(√N) remainder | Refuted; √N log log N required in a generic family | Opus SOUND, minors repaired |
 | 2 | One-big-prime truncated hybrid | Classical exact formula; no exponent gain | Opus SOUND, minors repaired |
-| 3 | ES-specific rescue or enlarged barrier | Pending | Pending |
-| Final | Exponents, controls, exact surviving gap | Pending | Pending |
+| 3 | Nonlinear marginal-only inference; fixed ES labels | Refuted for abstract distributed sequences; no actual-interval cap | Opus SOUND in two reviews |
+| Final | Exponents, controls, exact surviving gap | No new ES/ES₅/U exponent; controls pass | Final audit pending |
 
 Labels used: PROVED, CONDITIONAL (named hypothesis), CERTIFIED (finite computation), EVIDENCE, CONJECTURE, Assessment. All advances require hostile cross-model review before acceptance.
 
@@ -191,7 +193,7 @@ The required arithmetic controls are replayed from existing `z43_astra_check` he
 
 ### 4.5 Follow-up: label-independent coupling, including ES fibres
 
-**Proposition 4.3 (PROVED, elementary coupling; review pending).** Let p_1,…,p_m be any distinct primes and let U_i be either all residues mod p_i or all units mod p_i. Let Ω_i⊂U_i be prescribed forbidden sets with densities δ_i. Fix a prime q≥m, distinct indices x_i∈F_q, and an integer 1≤b<q with max δ_i≤β=b/q. For 2≤r≤m there is a law ρ on ∏U_i which has EXACTLY independent uniform marginals on every r coordinates, but
+**Proposition 4.3 (PROVED, elementary coupling; Opus SOUND).** Let p_1,…,p_m be any distinct primes and let U_i be either all residues mod p_i or all units mod p_i. Let Ω_i⊂U_i be prescribed forbidden sets with densities δ_i. Fix a prime q≥m, distinct indices x_i∈F_q, and an integer 1≤b<q with max δ_i≤β=b/q. For 2≤r≤m there is a law ρ on ∏U_i which has EXACTLY independent uniform marginals on every r coordinates, but
 
     ρ(no Ω_i hit) ≥ (1−β)q^{−(r−1)}.                   (4.3)
 
@@ -205,13 +207,63 @@ For maxδ_i≤1/16 and m≥17, Bertrand's postulate permits q∈[m,2m] and b=⌊
 
 **Normalization and modulus cutoff.** This proposition treats the integer model (U_i=ℤ/p_i) and prime-unit model separately and exactly. It therefore fixes the model distinction between §1 and Theorem 4.1 without pretending that the two distributions coincide. If P=min p_i, the same independent-digit lift as in Theorem 4.1 yields exact unit marginals (or all-residue marginals, in the integer version) for every modulus d<P^{r+1}. Again the enlarged period/interval endpoint is enormous; no uniform-interval law is constructed.
 
-**Assessment / what this adds.** Coordinate pinning cannot, by itself, supplement r-coordinate distribution data: (4.3) works for fixed labels. It does not show ES-specific interval structure is useless. With m≈e^L and μ≈L³ it forces only r≳L², not r≳L³. Thus it does NOT re-prove or strengthen the 3/4 cap at the desired growing correlation depth. In particular it leaves room for a genuinely interval-specific nonlinear proof. This is an explicit sharper scope statement, not a claimed ES exceptional-set advance.
+**Assessment / what this adds.** Coordinate pinning cannot, by itself, supplement r-coordinate distribution data: (4.3) works for fixed labels. It does not show ES-specific interval structure is useless. With m≈e^L and μ≈L³ it forces only r≳L², not r≳L³. Thus it does NOT re-prove or strengthen the 3/4 cap at the desired growing correlation depth. Indeed the ES-specific LP consequence (4.2) is stronger: μ≈L³ requires logarithmic test level λ≳μ^{4/3}≈L⁴, corresponding to r≳L³ in an L-cost band. Proposition 4.3 does not leave the L²–L³ window open to purely distribution-only arguments; its advantage is applicability to arbitrary prescribed labels. Only a genuinely interval-specific nonlinear proof escapes both scoped obstructions. This is an explicit sharper scope statement, not a claimed ES exceptional-set advance.
 
 **CERTIFIED.** `coupling.json` tests the full one-coordinate residue kernels and all polynomial evaluations on the first r coordinates for r=2,3, q=17, five unequal primes 19,23,29,31,37 and forbidden-set sizes 1,1,2,1,3, both on all residues and on units. It computes the conditional-product avoidance probability exactly as a rational and verifies (4.3). Four cases pass. These small-density tests verify the coupling identities, not an asymptotic separation from e^{−μ}.
 
+**Opus follow-up review: SOUND, no FATAL/MAJOR.** Session `/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0046--/2026-10-29T15-13-39-035Z_01a18839-4cdb-76dd-89bf-636328a426d4.jsonl`. The reviewer tested twelve random rational-kernel systems (including empty Ω, arbitrary T and indices, and mixed unit/all-residue coordinates), every r-coordinate residue marginal in them, and 39 lifted divisors in one prime-power example. Minor repairs incorporated: comparison with the stronger inherited ES LP cap; cutoff d<P^{r+1} is a sufficient threshold, not an optimal one (the product of the r+1 smallest selected primes is sharper). The suggested global fibre extension is not needed or claimed as a new result here.
+
 ## 5. Exceptional-set consequences and controls
 
-Pending: E(N), ES₅, U and prime variants; squares, numerator 8, hard primes, R-zeros.
+### 5.1 What bound is actually obtained?
+
+**PROVED / existing baseline.** For E(N), the internal, unrefereed `paper/es-threequarter-note.tex` remains E(N)≪N exp(−c(log N)^{3/4}); the prime exceptional count is bounded by the same quantity by inclusion. This attempt improves neither. Theorem 3.1 supplies a true bound for arbitrary one-big-prime families with an affordable common smooth period, but its application with the existing ES supply recovers older sieve ranges only. It does not transfer the cubic CRT mass to L=(log N)^{1/3}.
+
+**Scope for ES₅ and U.** Do not infer their exceptional counts from E(N): ES₅⇒ES, U⇒ES₅, so the exception inclusions go in the opposite direction. A Type-II identity used in the 3/4 note is not automatically a U certificate. Theorem 3.1 bounds any explicitly specified certificate subfamily through its actual μ_c, Λ_c and s; this document proves no new uniform mass theorem for affordable U or ES₅ fibres. Hence it reports **no new numerical exponent for E_ES₅(N), E_U(N), or their prime variants**, rather than relabelling the ES 3/4 result.
+
+**Elementary fully periodic version (PROVED, standard, not an advance).** For arbitrary composite event moduli with common period M, a proved CRT avoidance bound δ≤exp(−μ+KΔ) gives
+
+    S_N ≤ (N+M) exp(−μ+KΔ).                            (5.1)
+
+Indeed there are Mδ surviving residue classes, each met at most N/M+1 times. In the unit model, Brun–Titchmarsh gives for N>M
+
+    S_pr(N) ≤ [2N/log(N/M)] δ_unit + ω(M),              (5.2)
+
+where primes dividing M are handled separately. Thus a common polynomial period is enough; a bound on EACH event modulus alone is not. The available full endpoint period grows exponentially in H, not polynomially in H. This direct transfer therefore does not approach the proposed H=exp((log N)^α) range.
+
+### 5.2 Requested exponent arithmetic — explicitly NOT a conditional advance
+
+**Bookkeeping only.** Suppose one already had a valid arithmetic transfer for the exact certificate family under discussion with an error N^{1/2+o(1)}, and model saving cL^d at L=a(log N)^α. Then
+
+    E_family(N) ≪ N exp(−c a^d(log N)^{dα}) + N^{1/2+o(1)}.  (5.3)
+
+For dα<1 the stretched-exponential exponent is θ=dα. At dα=1 the power exponent is max(1−c a^d,1/2)+o(1). For dα>1 the proposed error dominates, giving only N^{1/2+o(1)}. A leading π(N) instead of N on prime inputs changes logarithmic factors, not these power exponents.
+
+| Family input | d | Transfer range to beat θ=3/4 | Transfer range for a power saving | Status here |
+|---|---:|---:|---:|---|
+| Full Type-II cubic family, hence ES | 3 | α>1/4 | α=1/3 | Not proved |
+| CONJECTURE_S_MODEL endpoint certificates, hence ES₅ on its prime model | 2 | α>3/8 | α=1/2 | Not proved |
+| U certificate subfamily | 2 **if** its uniform mass/transfer are separately supplied | α>3/8 | α=1/2 | No such new theorem claimed |
+
+For all-integer ES₅/U one must additionally supply the correct all-integer model, not substitute the unit model. Formula (5.3) is a calculation of the requested exponents, not a new hypothesis promoted as progress, and no claim that it is weaker than the conclusion is made. At U/ES₅ squares an N^{1/2+o(1)} floor is necessary; ES itself need not have that floor, but an inequality with that error cannot do better.
+
+### 5.3 Controls, with their exact scope
+
+**CERTIFIED.** `scripts/z50_ajastra_controls.py` reuses existing exact divisor-edge and certificate helpers, after checking existing tests already covered these behaviours. It is a replay for this audit, not a new census.
+
+- All 18 distinct primes from the hard list and the 14 R-zeros have an ES₅ and a U certificate; all 14 specified R-zeros have no t≡0 (4) word. There are 251 positive rational identities checked exactly with fractions.
+- The 14 R-zeros are 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201, 5212561, 8813281.
+- Fifty odd squares m², 3≤m≤101, have no five-slot or U word. Theorem 2.1 instead intentionally PLANTS translated squares as avoiders and checks every planted integer against its forbidden classes.
+- Numerator 8 at n=17,241 has no eight-divisible-slot certificate in the complete word list. This is a slot check only; the stronger absence of all three-unit-fraction representations is the existing Lean L9901 control, not reproved here.
+- The abstract laws of §4 are not mechanisms producing unit fractions. The controls do not validate those laws; their exact finite-field tests do. No numerator-uniform pointwise claim, two-sided count asymptotic or fixed-menu existence claim is made.
+
+Reproduce under a memory cap and timeouts:
+
+    ulimit -v 8000000
+    timeout 180 uv run python scripts/z50_ajastra_toys.py
+    PYTHONPATH=scripts timeout 180 uv run --with sympy python scripts/z50_ajastra_controls.py
+
+Outputs are in `data/z50_ajastra/` (well below 20 MB).
 
 ## 6. Final review and remaining gap
 
