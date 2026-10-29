@@ -1,0 +1,86 @@
+[
+  {
+    "model": "integers",
+    "r": 2,
+    "mu": "4047014/14535931",
+    "actual_survival": "21698897/29071862",
+    "lower_bound": "15/289",
+    "primes": [
+      19,
+      23,
+      29,
+      31,
+      37
+    ],
+    "forbidden_sizes": [
+      1,
+      1,
+      2,
+      1,
+      3
+    ]
+  },
+  {
+    "model": "integers",
+    "r": 3,
+    "mu": "4047014/14535931",
+    "actual_survival": "87255967/116287448",
+    "lower_bound": "15/4913",
+    "primes": [
+      19,
+      23,
+      29,
+      31,
+      37
+    ],
+    "forbidden_sizes": [
+      1,
+      1,
+      2,
+      1,
+      3
+    ]
+  },
+  {
+    "model": "units",
+    "r": 2,
+    "mu": "4007/13860",
+    "actual_survival": "713647/967680",
+    "lower_bound": "15/289",
+    "primes": [
+      19,
+      23,
+      29,
+      31,
+      37
+    ],
+    "forbidden_sizes": [
+      1,
+      1,
+      2,
+      1,
+      3
+    ]
+  },
+  {
+    "model": "units",
+    "r": 3,
+    "mu": "4007/13860",
+    "actual_survival": "4738123/6386688",
+    "lower_bound": "15/4913",
+    "primes": [
+      19,
+      23,
+      29,
+      31,
+      37
+    ],
+    "forbidden_sizes": [
+      1,
+      1,
+      2,
+      1,
+      3
+    ]
+  }
+]

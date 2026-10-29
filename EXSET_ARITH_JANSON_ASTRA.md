@@ -132,7 +132,7 @@ Choose t=log(μ/k), multiply by e^ν, and use the identity in Theorem 3.1. Equat
 
 ### 4.1 Exact pair distribution does not supply product independence
 
-**Theorem 4.1 (PROVED, finite-field construction; hostile review pending).** For arbitrarily large prime q, put b=⌊q/9⌋ and β=b/q<1/8. There is a squarefree modulus M and a probability law ρ on its reduced residues with all of the following properties:
+**Theorem 4.1 (PROVED, finite-field construction; Opus SOUND).** For every prime q≥11, put b=⌊q/9⌋ and β=b/q<1/8. There is a squarefree modulus M and a probability law ρ on its reduced residues with all of the following properties:
 
 1. Every one- and two-prime-coordinate marginal of ρ is EXACTLY uniform product measure on units.
 2. There are congruence atoms at q distinct prime moduli, with μ=b, Δ=0, atom probability ≤1/8 and conflict load <1/8.
@@ -152,7 +152,7 @@ If A≠0, the q labels run over all of F_q and hit T. If A=0, avoidance holds ex
 
 For the extra level assertion put D=⌈P³⌉−1 (P may be integral) and L=lcm(M,1,…,D). Lift each selected residue independently and uniformly to its higher prime-power digits in L; choose every other prime-power coordinate uniformly on units. Each d≤D involves at most two distinct selected primes because each is ≥P. Its entire reduced residue marginal is therefore uniform by the proved two-coordinate property and independence of the additional digits. ∎
 
-**Scope / novelty (Assessment).** Pairwise-independent affine codes are standard. This is an explicit arithmetic realization of their lower-tail obstruction with *all* AP marginals through a level, not a claim to invent pairwise independence. The inference-class exclusion is wider than Bessel proofs: it rules out an arbitrary nonlinear “first/second moments plus level D” theorem for arbitrary distributed sequences. But L is enormous relative to D, and no claim of polynomial level D≥L^θ is made. Consequently this is NOT a new 3/4 barrier for the actual interval sequence, and it must not be advertised as satisfying z50's strongest fallback. The missing ingredient is exactly interval/prime information not encoded in the stated marginals.
+**Scope / novelty (Assessment).** Pairwise-independent affine codes are standard. This is an explicit arithmetic realization of their lower-tail obstruction with *all* AP marginals through a level, not a claim to invent pairwise independence. The inference-class exclusion is wider than Bessel proofs: it rules out an arbitrary nonlinear “first/second moments plus level D” theorem for arbitrary distributed sequences. But L is enormous relative to D, and no claim of polynomial level D≥L^θ is made. Consequently this is NOT a new 3/4 barrier for the actual interval sequence, and it must not be advertised as satisfying z50's strongest fallback. The missing ingredient is exactly interval/prime information not encoded in the stated marginals. With selected primes in [P,2P], log M≈q log P and D=P³ corresponds to M^{3/q+o(1)} (P→∞ for fixed q). Thus “all AP marginals through D” is still pairwise independence in arithmetic form, not a fixed polynomial distribution level in the endpoint L. Chebyshev gives a general upper bound (1−β)/(qβ) for this pairwise-independent count's zero probability; our (1−β)/q is within a constant factor when β≈1/9. This is the classical sharpness scale of second-moment information.
 
 ### 4.2 Can ES labels supply the missing ingredient?
 
@@ -160,11 +160,11 @@ For the extra level assertion put D=⌈P³⌉−1 (P may be integral) and L=lcm(
 
     u=−av,   t=−1/(4av²)  (mod p).
 
-Thus a residue pins two coordinates once the third is chosen. This controls collision sums and removes many arbitrary residue families, including the full freedom used in Theorems 2.1 and 4.1. Neither counterexample is claimed to have this ES triple structure.
+Thus a residue pins two coordinates once the third is chosen. This controls collision sums and excludes the arbitrary translated-square family of Theorem 2.1 from being automatically an ES example. It does NOT rescue a pair-marginal-only inference: the extension below works for any prescribed sparse prime-local residue sets, regardless of their labels. This corrects an overstatement in the pre-review draft.
 
 **Attempt and exact failed step (Assessment).** Conditional on a smooth fibre, one-big-prime ES events become forbidden subsets Ω_p(c) at independent model coordinates. Their exact pair collision information is already as good as Δ=0 after merging each prime's residues. Yet Theorem 3.1 still has Pr(D≤R) in its denominator. Coordinate pinning is a statement about WHICH residues are in Ω_p, not about how [1,N] meets a long intersection of their complements. To use it nonlinearly one needs a signed count of interval representatives of simultaneous rational-label constraints when their modulus product exceeds N. The unconditional LS7 residue-dispersion estimates do not give that count: their conclusion concerns one-prime load distribution; the multi-prime height-cut version is explicitly false (LS7 Prop. 4.1), and RD′ remains open. No implication from GRH, EH, or OAI-003 to the missing count is proved here.
 
-**No hidden escape by optimization (PROVED consequence of existing caps, not a new advance).** Let V_λ be the real span of all residue indicators of level≤λ dividing a common family period M, including constants. Finite linear-programming duality says
+**No hidden escape by optimization (PROVED consequence of existing caps, not a new advance).** Let V_λ be the real span of all residue indicators with modulus d|M and KARY rough logarithmic level Σ_{p|d,p>W}log p≤λ, including constants; assume λ≥λ₀ from KARY3. This logarithmic level is different from the modulus cutoff D in Theorem 4.1. Finite linear-programming duality says
 
     max{ρ(avoid): ρ≥0, Eρ f=E_CRT f for every f∈V_λ}
       = min{E_CRT ν: ν∈V_λ, ν≥1_avoid everywhere}.       (4.2)
@@ -185,7 +185,29 @@ The original source https://people.maths.ox.ac.uk/greenbj/papers/open-problems.p
 
 **CERTIFIED.** `data/z50_ajastra/round3.json` enumerates every affine polynomial for q=17,31,101. Three distinct-coordinate pairs per q have exactly uniform joint bucket distributions; the first and factorial-second moments match the independent model exactly. At q=101, μ=11, Δ=0 and the actual zero probability is 90/10201≈0.00882266, versus the CRT value 0.00000875054 and e^{−μ}≈0.0000167017. This verifies the finite-code ingredient, not the huge arithmetic lift or an actual interval claim. The script uses only O(q²) counters.
 
-The required arithmetic controls are replayed from existing `z43_astra_check` helpers (not a duplicate census): 18 distinct hard/R-zero primes, 251 rational certificates, 50 odd squares, and numerator-8 slot checks at 17 and 241. Details and scope in §5 and `data/z50_ajastra/controls.json`. Hostile review pending.
+The required arithmetic controls are replayed from existing `z43_astra_check` helpers (not a duplicate census): 18 distinct hard/R-zero primes, 251 rational certificates, 50 odd squares, and numerator-8 slot checks at 17 and 241. Details and scope in §5 and `data/z50_ajastra/controls.json`.
+
+**Opus round-3 review: SOUND, no FATAL/MAJOR.** Session `/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0046--/2026-10-29T15-03-22-628Z_01a1882f-e504-76dd-89bf-635ea05104f6.jsonl`. Both files reproduced byte-for-byte; the reviewer independently realized the construction at eleven actual primes and checked two entire residue-pair laws. Repairs: explicit q≥11, model normalization, rough-logarithmic level definition, period-versus-cutoff warning, and Chebyshev attribution. The reviewer flagged that arbitrary label sets can also be coupled; §4.5 attacks that remaining gap explicitly and receives its own review.
+
+### 4.5 Follow-up: label-independent coupling, including ES fibres
+
+**Proposition 4.3 (PROVED, elementary coupling; review pending).** Let p_1,…,p_m be any distinct primes and let U_i be either all residues mod p_i or all units mod p_i. Let Ω_i⊂U_i be prescribed forbidden sets with densities δ_i. Fix a prime q≥m, distinct indices x_i∈F_q, and an integer 1≤b<q with max δ_i≤β=b/q. For 2≤r≤m there is a law ρ on ∏U_i which has EXACTLY independent uniform marginals on every r coordinates, but
+
+    ρ(no Ω_i hit) ≥ (1−β)q^{−(r−1)}.                   (4.3)
+
+Hence if an alleged distribution-only Janson theorem gives ρ(avoid)≤Ce^{−cμ}, μ=Σδ_i, it necessarily requires
+
+    (r−1)log q ≥ cμ + log(1−β) − log C.               (4.4)
+
+For maxδ_i≤1/16 and m≥17, Bertrand's postulate permits q∈[m,2m] and b=⌊q/8⌋, so β≤1/8, and the r=2 floor is at least 7/(16m). These statements are valid for the specific Ω_i of any conditioned one-big-prime ES family satisfying that density bound; no freedom to change its labels is used.
+
+*Proof.* Choose a uniform polynomial f∈F_q[X] of degree<r. Its values at any r distinct x_i are independent uniform, by the Vandermonde determinant. Fix T⊂F_q of size b. Conditional on Z_i=f(x_i), draw the residue at coordinate i independently as follows. If Z_i∉T, choose uniformly in U_i\Ω_i. If Z_i∈T, choose in Ω_i with probability δ_i/β and otherwise in its complement, uniformly inside the chosen part. Empty Ω_i is interpreted as always choosing the complement. Since Pr(Z_i∈T)=β, the unconditional residue is uniform in U_i. The same reasoning at r coordinates proves exact joint uniformity. There are q−b constant polynomials with value outside T, each of probability q^{−r}; each forces avoidance, proving (4.3). Rearranging against Ce^{−cμ} gives (4.4). ∎
+
+**Normalization and modulus cutoff.** This proposition treats the integer model (U_i=ℤ/p_i) and prime-unit model separately and exactly. It therefore fixes the model distinction between §1 and Theorem 4.1 without pretending that the two distributions coincide. If P=min p_i, the same independent-digit lift as in Theorem 4.1 yields exact unit marginals (or all-residue marginals, in the integer version) for every modulus d<P^{r+1}. Again the enlarged period/interval endpoint is enormous; no uniform-interval law is constructed.
+
+**Assessment / what this adds.** Coordinate pinning cannot, by itself, supplement r-coordinate distribution data: (4.3) works for fixed labels. It does not show ES-specific interval structure is useless. With m≈e^L and μ≈L³ it forces only r≳L², not r≳L³. Thus it does NOT re-prove or strengthen the 3/4 cap at the desired growing correlation depth. In particular it leaves room for a genuinely interval-specific nonlinear proof. This is an explicit sharper scope statement, not a claimed ES exceptional-set advance.
+
+**CERTIFIED.** `coupling.json` tests the full one-coordinate residue kernels and all polynomial evaluations on the first r coordinates for r=2,3, q=17, five unequal primes 19,23,29,31,37 and forbidden-set sizes 1,1,2,1,3, both on all residues and on units. It computes the conditional-product avoidance probability exactly as a rational and verifies (4.3). Four cases pass. These small-density tests verify the coupling identities, not an asymptotic separation from e^{−μ}.
 
 ## 5. Exceptional-set consequences and controls
 

@@ -6,6 +6,7 @@ No dense Cartesian-product arrays; bytearrays are at most N+1 bytes.
 import json
 import math
 from fractions import Fraction
+from itertools import product
 from pathlib import Path
 
 
@@ -125,6 +126,45 @@ def affine_tests():
     return rows
 
 
+def coupling_tests():
+    rows = []
+    q, b = 17, 2
+    beta = Fraction(b, q)
+    ps, sizes = [19, 23, 29, 31, 37], [1, 1, 2, 1, 3]
+    for units in [False, True]:
+        us = [p-1 if units else p for p in ps]
+        ds = [Fraction(w, u) for w, u in zip(sizes, us)]
+        assert max(ds) <= beta
+        # Entire one-coordinate residue marginals of the coupling kernel.
+        for u, w, delta in zip(us, sizes, ds):
+            for a in range(u):
+                marginal = Fraction(0)
+                for z in range(q):
+                    if z < b:
+                        pr = delta/beta/w if a < w else (1-delta/beta)/(u-w)
+                    else:
+                        pr = Fraction(0) if a < w else Fraction(1, u-w)
+                    marginal += pr/q
+                assert marginal == Fraction(1, u)
+        for r in [2, 3]:
+            counts = [0]*(q**r)
+            survival = Fraction(0)
+            for coeffs in product(range(q), repeat=r):
+                zs = [sum(a*pow(i, j, q) for j, a in enumerate(coeffs)) % q for i in range(len(ps))]
+                index = sum(z*q**j for j, z in enumerate(zs[:r]))
+                counts[index] += 1
+                survival += math.prod(1-delta/beta if z < b else Fraction(1)
+                                      for delta, z in zip(ds, zs))
+            assert all(v == 1 for v in counts)
+            survival /= q**r
+            lower = (1-beta)/q**(r-1)
+            assert survival >= lower
+            rows.append(dict(model='units' if units else 'integers', r=r,
+                             mu=str(sum(ds)), actual_survival=str(survival),
+                             lower_bound=str(lower), primes=ps, forbidden_sizes=sizes))
+    return rows
+
+
 def main():
     result = dict(atomic_counts=atomic_counts(), translated_squares=[
         translated_squares(1_000_000, Q, 4) for Q in [1000, 2000, 4000]
@@ -139,6 +179,9 @@ def main():
     third = affine_tests()
     (out/'round3.json').write_text(json.dumps(third, indent=2)+'\n')
     print(json.dumps(third, indent=2))
+    fourth = coupling_tests()
+    (out/'coupling.json').write_text(json.dumps(fourth, indent=2)+'\n')
+    print(f'Follow-up: {len(fourth)} arbitrary-label coupling checks passed.')
 
 
 if __name__ == '__main__':
