@@ -139,8 +139,9 @@ methods, λ ≍ log N by THETA Lemma 2.9.
    (ii) *Log-growing dimension* (mass(y) = a log y + o(log y) and Λ(y) = (a/2 + o(1))log²y, a fixed; then
        κ(y) ∼ (a/2)log y): (1 − o(1))√(aλ) ≤ S(λ) ≤ C√(aλ). The available mass up to e^{λ} is ≍ aλ, so the sieve
        gets only its square root. Under mere comparability p_ℓ ≍ log ℓ/ℓ, only S(λ) = Θ(√λ) is claimed.
-   (iii) *Single band* of total mass μ. Band (e^{λ/4}, e^{λ/2}] (two band primes fit in a term, three do not):
-       log(1 + μ) − O(1) ≤ S(λ) ≤ 38 log(2 + μ) + C. Here Montgomery/Selberg at Q = e^{λ/2} see each band prime singly,
+   (iii) *Single band* of total mass μ. Band (e^{λ/4}, e^{λ/2}] (up to three band primes fit in a term of level λ,
+       four do not): log(1 + μ) − O(1) ≤ S(λ) ≤ C log(2 + μ) + C + E(λ). Here Montgomery/Selberg at Q = e^{λ/2} see each
+       band prime singly,
        L(Q) = 1 + Σ g_ℓ, and the bound is ≈ 1/μ, not e^{−μ}. Band (e^{λ/2}, e^{λ}]: a level-λ majorant is *linear* in the
        hit indicators. Nonnegativity then forces Eν ≥ 1 − max p_ℓ ≥ 3/4, so S(λ) ≤ log(4/3), and L(e^{λ/2}) = 1. Above
        e^{λ}: invisible, S = 0.
@@ -152,7 +153,7 @@ methods, λ ≍ log N by THETA Lemma 2.9.
 mass*(y) = κ log log y + O_κ(1) with log y ≍ λ/κ. (ii) Σ a log ℓ·ℓ^{−1−α} ≤ C a/α, and μ̄_λ ≪ λ, so E(λ) = O(log²λ).
 Optimising 19αλ + Ca/α gives C′√(aλ). In (a), Λ(y) = (a/2 + o(1))log²y and √(2V) = O((log y)^{3/2}), so
 log y = (1 − o(1))√(λ/a) and mass* = (1 − o(1))√(aλ). (iii) Quadratic band: the upper bound takes α = (4/λ)log(2 + μ)
-in (b). For the lower bound, L(e^{λ/2}) = 1 + Σ_ℓ p_ℓ/(1 − p_ℓ) ≥ 1 + μ. Linear band: after conditioning on the
+in (b), giving 76 log(2 + μ) + C₄ + E(λ) (review R2 corrected the constant 38). For the lower bound, L(e^{λ/2}) = 1 + Σ_ℓ p_ℓ/(1 − p_ℓ) ≥ 1 + μ. Linear band: after conditioning on the
 indicators, ν = c₀ + Σ_ℓ a_ℓx_ℓ with c₀ = ν(0) ≥ 1, and ν ≥ 0 at every 0/1 point forces Σ_ℓ a_ℓ⁻ ≤ c₀. So
 Eν = c₀ + Σ a_ℓp_ℓ ≥ c₀(1 − max p_ℓ). ∎
 
@@ -208,6 +209,29 @@ exactly as in I3_DEEP_ASTRA Lemma 3.2. Then use Theorem 2.2(a), (b) with the cum
 
 ## 3. Work item 2 — nearly prime-local families, and the exact CRT exponent of U and ES₅
 
+### 3.0 Relation to lane (E), merged to main while this lane ran
+
+`EXSET_I3.md` on main (lane E; z50 CONTEXT §6) proves two results (Opus-reviewed SOUND).
+* *Cor 7.1, cap.* Every nonnegative CRT majorant of level λ for the **native W1 presentation** of U/ES₅ (pivot tu − 1,
+  refined mod 8A, on n ≡ 1 (4)) saves ≤ Cλ^{2/3}/(log λ)^{1/3}. It uses a 2-adic square base plus a zero base at
+  odd p ≤ W, with W = √λ growing.
+* *§7.3, attainment.* E_ES₅(N) ≤ E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}).
+
+Together these give the exact order for that presentation over all n ≡ 1 (4). Those results are cited here, not
+re-proved. This section was written in parallel and overlaps them. What it adds is limited to the two scopes that lane
+(E) states it does *not* cover:
+1. **Endpoint-pair (W2) presentations, including non-reduced ones.** Lane E's example is u = 12, v = 3, i.e.
+   n ≡ 21 (mod 36), which is "outside Cor 7.1" because it meets the zero base. Theorem 3.2 below uses the unit-square
+   base, which kills every W2 class with a W-small common factor (its residue is a non-unit there). So W2 classes
+   (any gcd) are covered.
+2. **Selector (rough-/prime-input) majorants.** The zero base lies inside every selector class 0 (mod p), p ≤ W, so
+   Cor 7.1 does not cap methods that restrict to (n, P_y) = 1. Theorem 3.2's square base is compatible with selectors.
+   The architecture that attains the prime/rough-input bound (log N)^{2/3} *without* the log log loss (Theorem 3.5(a),
+   (b)) is exactly of this kind.
+
+The price is a weaker log factor: (log λ)^{+2/3}, versus lane E's (log λ)^{−1/3}. The growing-W zero-base gain is
+unavailable with a fixed square base.
+
 ### 3.1 How much mass, at what log-level (the question of the brief)
 
 The cost of a class in a CRT majorant is the log of its modulus. Every prime above the fixed W is charged, as in KARY2.
@@ -259,8 +283,8 @@ larger y. The untruncated W1 mass Σ_{M≤X} τ(M+1)/M equals (0.60–0.75)(log 
 
 ### 3.2 The cap
 
-**Theorem 3.2 (the 2/3 cap for U and ES₅; PROVED given the KARY/KARY2 framework as reviewed — the same proviso as
-KARY3 — and Shiu's theorem).** There are absolute W, C and λ₀ such that the following holds. Let 𝔊 be any finite family
+**Theorem 3.2 (the 2/3 cap for U and ES₅ word families with W2 classes and selectors; PROVED given the KARY/KARY2
+framework as reviewed — the same proviso as KARY3 — and Shiu's theorem; complements lane E's Cor 7.1, §3.0).** There are absolute W, C and λ₀ such that the following holds. Let 𝔊 be any finite family
 of classes from 𝔘 ∪ 𝔉₅, together with any selector classes 0 (mod p) and any of the classes n ≢ 1 (mod 8). The
 moduli are arbitrary: balanced, prime powers, any number of large primes. Let ν = Σ a_i 1[n ≡ b_i (mod d_i)] be ≥ 0 on
 ℤ and ≥ 1 on the whole avoider set 𝒜(𝔊), with Σ_{ℓ | d_i, ℓ > W} log ℓ ≤ λ for every i. Then, for λ ≥ λ₀,
@@ -296,8 +320,10 @@ the four inputs below depend on the family.
    * Total: log(1/Eν) ≤ 2W + log 2 + Cλ^{2/3}(log λ)^{2/3}. ∎
 
 **Remark 3.3 (removing the log).** The (log log y)² in Prop 3.1(b) is K2's Rankin loss. KARY3's local-moment device
-(KARY3 §2) removes it. The sibling lane z50-i3ex (`EXSET_I3.md` Lemma 3.3, on its branch) carries out exactly this
-computation for Σ_{P(m)≤y} τ(m+1)Γ(m)/m. With it the cap is Cλ^{2/3}. We do not need this, and do not claim it here.
+(KARY3 §2) removes it; `EXSET_I3.md` Lemma 3.3 (on main) carries out exactly this computation for
+Σ_{P(m)≤y} τ(m+1)Γ(m)/m, uniformly in W. Its constants survive bounded small-prime Γ-factors, so with it the cap of
+Theorem 3.2 becomes Cλ^{2/3}. Lane E's further gain (log λ)^{−1/3} needs the growing zero base, which is incompatible
+with selectors. The selector-compatible exact log power is open.
 
 **Corollary 3.4 (PROVED, same proviso).** Let all primes of the family be ≤ N^A.
 (a) *Coefficient-sum CRT methods* (Bonferroni, Selberg Λ², β/Rosser, CRT-evaluated moments) with bound
@@ -315,7 +341,8 @@ computation for Σ_{P(m)≤y} τ(m+1)Γ(m)/m. With it the cap is Cλ^{2/3}. We d
 ### 3.3 The cap is attained: the exact CRT exponent of U and ES₅ is 2/3
 
 **Theorem 3.5 (PROVED relative to Bombieri–Vinogradov, Brun–Titchmarsh and Mertens, by I3_DEEP_ASTRA §8.7–8.8 with
-one restriction; no new method).**
+one restriction; no new method). Part (c) is lane E's `EXSET_I3.md` §7.3 (on main) and is cited from there. Parts (a)
+and (b) are the rough-input refinement (I3_DEEP_ASTRA §8.8, last paragraph) under the same restriction.**
 (a) #{p ≤ N : ES₅(p) fails} ≤ #{p ≤ N : U(p) fails} ≪ N exp(−c(log N)^{2/3}).
 (b) The same bound holds for #{n ≤ N : (n, P_y) = 1, U(n) fails} with y = B₀(log N)^{2/3}.
 (c) E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}).
@@ -337,8 +364,9 @@ restricted to **u ≡ 0 (mod 4)** and odd multipliers k.
   coefficient sum is exp(O(T³)). The conditioning on n mod L_B is an analysis device only; it is not expanded. ∎
 
 **Corollary 3.6 (the exact CRT exponent; PROVED as the conjunction of Theorems 3.2 and 3.5).** *Within the architectures
-of Corollary 3.4*, the best exceptional-set exponent for U and for ES₅ at primes is exactly 2/3, up to the
-(log log N)^{2/3} of the cap. Those architectures are:
+of Corollary 3.4*, the best exceptional-set exponent for U and for ES₅ at primes (rough inputs, selector majorants) is
+exactly 2/3, up to the (log log N)^{2/3} of the cap, or Cλ^{2/3} with Remark 3.3. For all n with the native W1
+presentation, lane E's Cor 7.1 and §7.3 give the exact order (log N)^{2/3}(log log N)^{−1/3}. Those architectures are:
 * nonnegative-on-ℤ CRT majorants that are ≥ 1 on the whole avoider set of a family of U/ES₅ word classes plus
   selectors, with coefficient-sum rounding and family primes ≤ N^A;
 * or CRT-admissible large sieves and periodic Bessel/hybrid systems at polynomial level.
@@ -354,8 +382,8 @@ any non-CRT input (§7).
 * The CONTEXT's "α = 1/2 needed for a power saving with the ES₅ two-endpoint family" is now a theorem in its CRT
   form: CRT methods transfer only α ≤ 1/3 (L ≤ (log N)^{1/3}).
 * The cap is a property of the class profile, not of ES₅'s colour. It holds verbatim for any union of word families
-  with the square base: the (★) line, the b = 1 line, U, ES₅. The sibling result for I3 (z50-i3ex, zero base) is the
-  same phenomenon.
+  with the square base: the (★) line, the b = 1 line, U, ES₅. Lane E's I3 and native-U/ES₅ results (zero base) are the same
+  phenomenon, and lane E reached it first on main.
 * *Controls.* Odd squares coprime to the selector primes lie in 𝒜(𝔊) for every 𝔊, which is exactly the square base. So Theorem 3.2 is T1-consistent,
   and Theorem 3.5(c) is consistent with |E_U(N)| ≥ √N/2. Numerator 8: replacing 4ℤ by 8ℤ in Theorem 3.5 gives the
   analogous weak bound for the 8 | endpoint family. It asserts nothing at n = 17 or 241, so no false statement follows
@@ -364,84 +392,81 @@ any non-CRT input (§7).
 
 ## 4. Work item 3 — Linnik duality
 
-### 4.1 (i) ES-type exceptionality forces no free character data
+### 4.1 (i) What ES-type exceptionality forces about characters
 
-**Proposition 4.1 (PROVED; a precise form of the CONTEXT's Assessment).** Let 𝔊 be a finite family of word classes
-(𝔘, 𝔉₅) or of ES forced classes (ℛ(M), (a,D), Case A), and let L be the lcm of its moduli.
-(a) *Coprime characters.* 𝒜(𝔊) is a union of classes mod L. For every m coprime to L and every character χ mod m, the
-    χ-values are exactly equidistributed on 𝒜(𝔊): n ↦ (n mod L, n mod m) is onto, and membership depends on n mod L
-    only. So no constraint on χ_n at any modulus coprime to the class moduli.
-(b) *Characters at a class modulus.* Let h be a modulus of 𝔊 and F_h ⊂ ℤ/h the union of the classes of 𝔊 at h. Then
-    |F_h| ≤ 8τ(h+1) + 4τ(h) for word classes, and ≤ τ₃((h+1)/4)-type counts for ES classes (FIXED_MODULUS_SHOTS
-    Thm 6.2(ii)). F_h contains no unit square, by §1.1 and K2 Lemmas 2.1–2.2. Hence F_h contains no coset of a subgroup
-    of index ≤ 2 except when |F_h| ≥ φ(h)/2, which happens for only finitely many h. For every nontrivial χ mod h,
-    |E_U[1_{F_h} χ]| ≤ |F_h|/h = h^{−1+o(1)}.
-(c) *What a "free datum" would be.* A datum such as "(n/q) = +1 forced by exceptionality" is a forbidden set of
-    density 1/2 at the modulus q. By (b) this happens only at the finitely many h with τ(h+1) ≍ h. These are the
-    Mordell-type moduli 3, 5, 7, …, B1 territory: for U on n ≡ 1 (8), the classes at 3 and 5 forbid all non-residues
-    mod 3 and mod 5, and 2 of the 3 non-residues mod 7.
+**Proposition 4.1 (PROVED; local form; repaired after R2).** Let 𝔊 be a finite family of word classes (𝔘, 𝔉₅) or of
+ES forced classes, and let L be the lcm of its moduli.
+(a) *Coprime characters.* 𝒜(𝔊) is a union of classes mod L. For every m coprime to L and every character χ mod m, χ is
+    exactly equidistributed on 𝒜(𝔊) under the Haar/periodic measure, by CRT. (This is a statement about the periodic
+    avoider set, not about the actual exceptional integers in a finite interval.)
+(b) *One modulus.* Let F_h ⊂ ℤ/h be the union of the classes of 𝔊 *of modulus h*. Their number is h^{o(1)}: at most
+    8τ(M + 1) for refined W1 classes of modulus h = 8M, at most 4τ(m) for W2 classes of pivot m, and h^{o(1)} for the
+    ES types (FMS Thm 6.2(ii), K2 Def 2.0). F_h has no unit square. By cardinality alone, F_h contains no coset of an
+    index-≤ 2 subgroup of (ℤ/h)^× once h ≥ h₀, since such a coset has φ(h)/2 elements. For nontrivial χ mod h,
+    |E_U[1_{F_h}χ]| ≤ h^{−1+o(1)}.
+(c) *Examples at bounded moduli (CERTIFIED; independently re-checked in R2).* In the fibre n ≡ 1 (8), the
+    prime-pivot U classes forbid {2} mod 3, {2, 3} mod 5 (all non-residues) and {3, 6} mod 7 (two of the three).
 
-So (i) of the brief holds in the precise form (a)–(b): exceptionality is a CRT event, and the character content of the
-forbidden set at modulus h has size h^{−1+o(1)}.
-
-*Proof.* (a) CRT. (b) The counts are §1.1. A coset of index ≤ 2 inside (ℤ/h)^× either contains 1 (the trivial
-subgroup) or is the non-square half, of size ≥ φ(h)/2 > |F_h| for h ≥ h₀. The character bound is the triangle
-inequality. The examples in (c) were checked in the fibre n ≡ 1 (8); see `scripts/z50_lsmass_primelocal.py`,
-`forbidden()`. ∎
+(b) is only local. It does **not** control character constraints produced jointly by classes at many composite moduli
+(R2: MAJOR on the earlier global wording, now withdrawn). Whether exceptionality forces dense character data jointly is
+open. Theorem 5.2 bounds how often it can be *certified* by CRT, but that is a summability statement, not finiteness.
 
 **EVIDENCE (`scripts/z50_lsmass_chars.py`, `data/z50_lsmass/chars.json`): exceptional points are QR-biased at small
 primes.** All six non-square U-exceptions have least quadratic non-residue ≥ 11. The values are 11, 11, 13, 13, 17, 37;
 978145 is a residue mod 92% of the primes ≤ 47. The baseline for n ≡ 1 (8) near 10⁶ is P(lqnr ≥ 11) = 0.23, so six of
 six has chance ≈ 1.4·10⁻⁴. Of the ten listed (★)-failure primes, seven have lqnr ≥ 11, against a baseline of 0.125 for
-primes ≡ 1 (4). This is the BM-main-term mechanism: M(p) is small when the small primes are residues. Per
-Proposition 4.1(c), the forced part of this bias sits at the bounded moduli of B1. Beyond them the bias is
-statistical: it comes from the joint structure of many sparse classes, not from forbidden half-cosets.
+primes ≡ 1 (4). This is the BM-main-term mechanism (M(p) is small when the small primes are residues). It is a joint,
+statistical effect of many sparse classes.
 
-### 4.2 Linnik's dual sieve is a periodic Bessel system, hence capped
+### 4.2 Linnik duality is *not* inside the CRT caps (R2: the earlier Proposition 4.2 is WITHDRAWN)
 
-**Proposition 4.2 (PROVED; LS2 Thm 2.4 applied to Linnik's inequality).** Let E ⊂ [1, x] be contained in the avoider
-set 𝒜(𝔊) of a forced-class mixture (ES: (D)24/KARY3) or of a word-class family (U/ES₅: Theorem 3.2). Take a finite
-𝒜′ ⊂ [1, M] (M ≤ x^A) and real c_a. Any bound of the form
+Round 1 claimed that Linnik's dual sieve applied to an ES-type exceptional set is a periodic Bessel system of LS2
+type (i), hence capped. Review R2 found this **FATAL**, and it is withdrawn, for three reasons.
+1. The displayed Bessel inequality is false for arbitrary integer labels. With 𝒜′ = {1, 4} the two rows coincide on
+   odd m.
+2. "Pointwise ≥ K on 𝒜" does not imply "|E_π f|² ≥ K" for every π. The admissibility step reversed Cauchy–Schwarz.
+3. Heath-Brown's quadratic large sieve is restricted to squarefree variables, which is not a translation-invariant
+   system.
 
-  |E| ≤ Δ·‖c‖² / min_{m∈E} |Σ_{a∈𝒜′} c_a χ_a(m)|²,
+**Corrected statement (Assessment, with one PROVED control).** In CAP_BOUNDED Thm 3.2 the exceptional objects are
+**primes used as moduli**. The CRT data are dense: (p/q) = +1, i.e. p avoids the (q−1)/2 non-residue classes, for every
+q ≡ 3 (4), q ≤ y = (log X)^A. As a congruence family over *integers*, its avoider set contains ≫ √X/log y odd squares
+coprime to the small primes (PROVED, trivial). Linnik's bound X^{2/A+o(1)} is o(√X) for A > 4. So Linnik's sieve
+*beats every integer CRT bound for the same congruence family*. It uses an input that integer sieves do not have: the
+exceptional objects are primes, and each one, acting as a modulus, confines a fixed dense sequence 𝒜 to half the
+residues. Linnik duality is therefore a **genuine non-CRT door**: the square floor is broken by primality, not by
+congruences. It requires, however, **dense forced character data**: exceptionality must imply (a/p) = +1 for all a in
+a fixed set 𝒜 ⊂ [1, X²] with |𝒜| ≥ X^{c}. For prime power-saving this means: for all primes q ≤ (log X)^{2+δ} in a
+set of positive density.
 
-with χ_a(m) = (a/m) a Kronecker/Jacobi symbol and Δ from the dual multiplicative large sieve or Heath-Brown's quadratic
-large sieve, saves at most S(λ) with λ ≪_A log x, provided the lower bound for the minimum is CRT-admissible (i.e.
-justified for every point of 𝒜(𝔊)). Here S(λ) = Cλ^{3/4} for ES and Cλ^{2/3}(log λ)^{2/3} for U/ES₅.
-
-*Proof.* As a function of m, χ_a has period 4a ≤ 4x^A. Linnik's inequality is the adjoint Bessel form
-Σ_{m∈I} |Σ_a c_aχ_a(m)|² ≤ Δ‖c‖², valid for every interval I of length x (Montgomery: Δ = x + 16M²; Heath-Brown:
-Δ ≪ (xM)^ε(x + M) on squarefree m). With rows φ_a = χ_a and L = min_{𝒜(𝔊)}|Σc_aχ_a|²/‖c‖² ≤ R̃(π) for every probability
-π on 𝒜(𝔊) (Cauchy–Schwarz), the bound is LS2's type (i) with ψ ≡ 1. Then LS2 Theorem 2.4/Cor 2.5 applies, with the
-comparison measure of LS2 Lemma 1.1 built from the relevant cap. ∎
-
-**Why CAP_BOUNDED Thm 3.2 escapes (Assessment, with the exact computation).** Its exceptional set {p : q₃(p) > y} is
-the avoider set of the *dense* family {n : (n/q) = −1}, for q ≡ 3 (4) and q ≤ y = (log X)^A. Here p_q = 1/2 at every
-such q, so THETA's hypothesis p_ℓ ≤ 1/4 fails and no cap applies. The Rankin functional is Ψ(λ) ≍ π(y; 4, 3)·log 2,
-which beats λ = 2 log X once A > 1. So Linnik's power saving is the primal large sieve on a dense profile, written
-dually. It is not a separate door, and it is unavailable to every family covered by Prop 4.1(b).
+**Assessment (how far the forcing can reach for U/ES₅).** For one prime p, a composite pivot qm with
+u ≡ −p (mod m) and u | qm + 1 forbids the residue −u mod q. Over m ≤ M these give ≍ log q·log M residues mod q, of
+roughly random position. Covering all (q−1)/2 non-residues needs ≈ q log q of them (coupon collector), so
+log M ≍ q, and the pivot is ≈ q·e^{q} ≤ p. So even heuristically the per-prime forcing of (p/q) = +1 reaches only
+q ≲ log p. Linnik needs q up to (log p)^{2+δ}. The gap is the exponent 1 versus 2+. Moreover Theorem 5.2 shows that the
+*CRT-certified* (uniform over the avoider set) dense depletion occurs at only Q^{o(1)} primes q ≤ Q. Any Linnik-type
+proof for ES₅/U must therefore establish character confinement of the actual exceptional primes beyond what congruence
+data certify. The door is open; nothing here enters it.
 
 ### 4.3 (ii) Relaxations that force free character data
 
-A relaxation R of ES (R-failure ⇐ ES-failure) whose failure forces (q/p) = +1 for every q ≤ y in a fixed set is
-equivalent to the pointwise implication "(q/p) = −1 for some q ≤ y ⟹ R(p)": a family of **fixed-modulus shots** with
-firing conditions (q/p) = −1.
-* For caps e ≥ 1 these shots exist: CAP_POINTWISE's self-generated mute set gives a capped solution at every prime
-  window q with (q/p) = −1, hence CAP_BOUNDED's power saving. The same holds for ES^{(S)}, ES^□ and V_φ.
-* For ES itself (cap 0), FIXED_MODULUS_SHOTS Thm 6.2 (PROVED, scope stated there) rules out an infinite family of
-  fixed-coefficient affine Type II shots with a common Chebotarev firing condition. Per modulus h, the certified
-  residues form a divisor box of size h^{o(1)} containing no coset of a large subgroup. This is Prop 4.1(b) again,
-  from the shot side.
-* *Type I/II slices whose colour is not determined* do not exist. Every Type II point P_{u,B} has BM character
-  χ_{−4uB}(p) = −1 forced by its class (BM_CORRECTED_COUNT Thm 1.1), and every ES₅ edge's colour is a function of its
-  word (Theorem A, Lemma 1.2 of LOWERTAIL_DEEP_FABLE).
+Direction: a relaxation R satisfies ES ⇒ R, hence R-failure ⇒ ES-failure. We want the reverse kind of statement:
+some R′ with ES-failure ⇒ R′-failure and with R′-failure ⇒ dense character data. That is a pointwise implication
+"(q/p) = −1 for some q ≤ y ⟹ R′(p) ⟹ ES(p)", i.e. a family of fixed-modulus shots for ES with firing conditions
+(q/p) = −1.
+* For caps the shots exist, and CAP_BOUNDED gives power savings for **growing** cap thresholds e > (log X)^A/4 (not for
+  every fixed cap). The same holds for the T1-bearing cousins ES^{(S)}, ES^□ and V_φ.
+* For ES itself, FIXED_MODULUS_SHOTS Thm 6.2(i) (PROVED) rules out an infinite family of fixed-coefficient affine
+  Type II shots with a common Chebotarev firing condition. Its exclusions are not covered by any statement here: Type I
+  affine shots (no analogue of Thm 2.1 proved), p-dependent coefficients, polynomial shots of degree ≥ 2, and joint
+  multi-prime conditions.
+* That each ES certificate's BM character is forced by its class (BM_CORRECTED_COUNT Thm 1.1, Theorem A) does *not*
+  imply that exceptionality has no further character consequences (R2). The QR bias of §4.1 is exactly such a
+  consequence, statistically.
 
-**Assessment (the answer to (ii)).** Inside the single-affine-shot framework there is no ES-type relaxation that keeps
-cap 0 and forces dense character data. The ones that do (caps, ES^□, ES^{(S)}, V_φ) are exactly B-fin's T1-bearing
-cousins, and they have power-saving exceptional sets because their profiles are dense. Pushing them through Linnik or
-Heath-Brown gives power savings *for the relaxation* (known: CAP_BOUNDED Thm 3.2, V_φ X^{3/4}). It does not give them
-for a genuine ES/U/ES₅ exceptional set, by Prop 4.2. Not excluded: joint multi-prime firing conditions (B4 territory),
-p-dependent shots, and non-affine shots (the scope gaps of FMS Thm 6.2).
+**Assessment.** Within the fixed-coefficient affine Type II framework there is no cap-0 relaxation with dense
+character data. The open avenues for Linnik duality on ES₅/U are joint, multi-modulus forcing of characters and the
+FMS exclusions.
 
 ## 5. Work item 4 — the square floor and the (inverse) large sieve
 
