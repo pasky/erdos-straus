@@ -469,6 +469,12 @@ no single-prime lower-tail mechanism is known.
 * E(N) ≪ N exp(−c(log N)^{3/4}) (INTERNALLY PROVED; `paper/es-threequarter-note`), shift-uniform in every interval of length H
   and in progressions n ≡ b (mod q) for q ≤ exp(c′(log(H/q))^{3/4}) or q with all prime factors large ((D)30; large smooth q
   open), uniform in the numerator m ((D)31); 3/4 sharp for CRT architectures ((D)24, (D)27, (D)28).
+* *(z50, `BREADTH_Z45.md` §15.)* ES₅ and U: E_ES₅(N) ≤ E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}) over n ≡ 1 (4)
+  (`EXSET_I3.md` §7.3), and #{p ≤ N : U(p) fails} ≪ N exp(−c(log N)^{2/3}) at primes (`EXSET_BEYOND_CRT.md` Thm 3.1;
+  `EXSET_SIEVE_MASS.md` 3.5). INTERNALLY PROVED, Vaughan-type. **2/3 is sharp for every CRT architecture over U/ES₅/I3
+  classes** (native, endpoint-pair, selector, large-sieve, and covering-certified forcing families), by the supply law
+  cap λ^{d/(d+1)} with d = 2 (ES ratio classes: d = 3). Nothing beyond 3/4 (ES) or 2/3 (U/ES₅/I3) is known, even
+  conditionally on a standard hypothesis.
 * Σ_{p≤N} f_I(p) ≪ N log²N (PROVED rel. Kuznetsov/Petersson, Weil, twisted Weil, Selberg 3/16, λ₁ > 1/4; (D)32b;
   *needs expert scrutiny*).
 * m/n density transition at log N ≍ m^{1/3}: upper half Thm U (PROVED rel. BV, Shiu; ineffective), lower half Thm L′
@@ -633,6 +639,14 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
 12. **Exceptional-set exponent θ > 3/4**: weak SPW (log(K/η) = O((log N)^{3/4})), the shift-uniform avoider count (W_𝔊),
     TC^alt_θ, residue dispersion (RD′) (STATUS "Exceptional-set exponent"). *Why:* the sharpest averaged statement; each
     is reduced to a precise open estimate.
+    *(z50 update, `BREADTH_Z45.md` §15.)* All CRT doors are now capped at their supply exponent (3/4 ES, 2/3 U/ES₅/I3).
+    The two concrete non-CRT statements left: (i) **RLD-U / FL∞**, a fundamental lemma in dimension ≍ log z at level
+    s ≪ dimension, off the squares, for the prime-modulus U sieve (EVIDENCE to 10¹⁰); with a Titchmarsh-type asymptotic
+    it gives #{U fails} = #odd squares + o(√N) (`EXSET_ARITH_JANSON_OPUS.md` Cor 6.1, CONDITIONAL); (ii) **Linnik
+    confinement**: exceptional primes are residues modulo a common set of (log X)^{2+δ} small primes, which would give a
+    power saving at primes (`EXSET_SIEVE_MASS.md` §4.2). Assessment: both look as hard as the pointwise problem.
+    Not available: universal arithmetic Janson with O(√N) error (false), r-wise-marginal transfers (blind),
+    constant-loss product bounds over shift events (θ ≤ log 2).
 13. **Cap 0 / bounded cap pointwise** (R200 M1): a bounded cap for every prime under a standard hypothesis, or replacing
     Hypothesis W by a standard one ((J)85, (J)91). *Why:* the only pointwise positive mechanism; its last step is B2.
 14. **ES ⇒ ES₅?** Is every ES prime a five-slice prime (λ(p) ≤ 3)? (56 % of solutions below 3000 lie outside the five-slice
