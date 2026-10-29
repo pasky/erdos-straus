@@ -6,28 +6,32 @@ Scripts: `scripts/z50_ajopus_*`. Data: `data/z50_ajopus/`.
 
 ## 0. Summary table
 
-**Status: ROUND 1 COMPLETE (round-1 cross-model review pending; §8).**
+**Status: ROUNDS 1–2 COMPLETE.** The round-1 cross-model review (Astra) gave MAJOR; its repairs are folded in
+(§8). The round-2 review is recorded in §8. Imported, not re-proved: lane E (EXSET_I3 §§3–4, 7) proves that native
+U/ES₅ CRT majorants cap at λ^{2/3}/(log λ)^{1/3}, and that E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}). Lane
+C2 (EXSET_ARITH_JANSON_ASTRA §§2–4) shows that the universal AJ with an O(√N) error is false, and gives r-wise
+marginal laws with heavy avoidance together with a moment-LP dual of KARY3.
 
 | # | statement | label | § |
 |---|---|---|---|
-| A | Integer Janson: −log ν(Av 𝓕) ≥ μ − Σ η_i P(E_i) − KΔ under one relative-level hypothesis (RLD) = (R1) lower bound for independent classes in avoidance sets + (R2) K-upper bound for compatible pair classes. Harris enters only through (R2); independence through (R1). | PROVED (elementary) | §1 |
-| A′ | Block-averaged RLD ⇔ the relative exceptional-set bound itself (no leverage without step-wise proofs) | PROVED (trivial) | §1.4 |
-| B | Square floor located: for anti-square families (U at n≡1 (8), ES₅/S-model edges at n≡1 (24), forced ES classes) RLD error ≥ μ − KΔ − ½log N + O(1); the failure sits in the steps where B_i^d is within O(1) of the squares (η_i = σ_i, the square share) | PROVED | §2.1 |
-| B′ | (R1) relative to the Haar model also fails, off the squares, for the U prime family at moduli ≥ N^{0.4}: a non-square deficit D_ns(s), s = log N/log ℓ, scale-invariant and bounded in N for fixed s; absent for random and for random-QNR classes; mechanism not identified | EVIDENCE (N = 10⁷–10⁹) | §2.3, §7 |
-| C | **Collapse theorem:** any chain/Janson/conditioning argument whose steps are certified pointwise on ℤ by functions of a linear class 𝒞 is literally one 𝒞-majorant; hence CRT-certified chains save ≤ C(log N)^{3/4} (moduli ≤ N/2, or coefficient-sum evaluation, (D)20/(D)24) and prime-certified chains obey (D)22. Density-increment and entropy chains are CRT of level ≤ log N. | PROVED | §3, §5.3 |
-| C′ | LP-duality check: the comparison measure of (D)17–(D)25 violates (R1) at every step, so it bounds exactly the certified chains; door (vii) reduces to door (i) | PROVED (C) + Assessment | §3.3 |
-| D | Blindness: (R1) at a step is not derivable from an oracle for all level-D statistics of B_i^d + inclusion in a level-D set + any inequality valid for all [0,1]-sequences (large sieve, BDH, Cauchy–Schwarz), whenever a room condition holds (a hypothesis); with lane C2's r-wise-marginal laws, (RLD) needs genuinely archimedean information about B_i^d ∩ I | PROVED (elementary), per step | §4 |
-| E | Positive ranges: exact CRT range (η_i ≤ 2P_iq_i/(Nβ_i)); fundamental-lemma range log ℓ ≤ c√log N (nothing new); blocking step beyond = a fundamental lemma in dimension κ ≍ log z at level s ≪ κ (FL∞) | PROVED / standard / Assessment | §5 |
-| E′ | Conjecture RLD-U: off the squares, the prime-modulus U sieve at z = N^{1/s} is within e^{C(s)} of its Mertens product, C(s) < ∞ for every s > 1 | CONJECTURE (EVIDENCE: three decades, flat in N) | §5.5 |
-| F | RLD-U at one s < 2C_V ≈ 1.48 ⇒ #{n ≤ N : U(n) fails} = #odd squares + O(N^{1−C_V/s+o(1)}) = #□ + o(√N) (Target 2 for U); exponent table for RLD to depth exp((log N)^α): θ = α (prime U), 2α (ES₅ edges), 3α (ES Type II); square floor sits exactly at the power-saving depth | CONDITIONAL | §6 |
+| A | Integer Janson: −log ν(Av 𝓕) ≥ μ − Σ η_i P(E_i) − KΔ under one hypothesis (RLD). (RLD) consists of (R1), a lower bound for a class independent of B_i^d inside B_i^d ∩ I, and (R2), a K-upper bound for compatible pair classes. Independence enters only through (R1). The Harris substitute (Lemma "compatible events" / lopsided LLL) enters only through (R2). | PROVED (elementary) | §1 |
+| A′ | With ρ_max ≤ ½, block-averaged RLD ⇔ the relative (ratio) survival bound for the block | PROVED (trivial) | §1.4 |
+| B | Square floor: for anti-square families (U at n ≡ 1 (8); certificate edges at n ≡ 1 (24); forced ES classes) the RLD error is ≥ μ − KΔ − ½log N + O(1). Square share σ_i gives η_i = σ_i exactly when the non-squares are equidistributed. Localization to the last O(1) units of mass holds under model-like decay. | PROVED (localization CONDITIONAL) | §2.1 |
+| B′ | Off the squares, the U prime family deviates from the Haar model at moduli ≥ N^{0.4} by e^{D_ns(s)}, s = log N/log ℓ. D_ns is non-growing in N over 10⁷–10¹⁰ and absent for unaligned controls. About 40% of it is single-shift Landau/Buchstab correction (mostly v = 4); the rest is unexplained cross-shift correlation. | EVIDENCE | §2.3, §7 |
+| C | **Collapse theorem:** a chain with fixed ratios r_i whose steps are certified pointwise on ℤ by functions in a linear class 𝒞 is one 𝒞-majorant ν* ≥ 1_S. Hence CRT-certified chains are capped at C(log N)^{3/4} (moduli ≤ N/2, or worst-case coefficient accounting), and at λ^{2/3}/(log λ)^{1/3} for native U/ES₅ classes (lane E). Prime-certified chains obey (D)22 under its evaluation hypotheses. The progression density increment and the plain entropy chain rule are CRT majorants. | PROVED (scoped) | §3, §5.3 |
+| C′ | LP duality: the comparison measure and the moment LP violate (R1) at every step and bound exactly the pointwise-certified chains. Other nonlinear arguments are not classified. | PROVED (C) + Assessment | §3.3 |
+| D | Blindness (per step): (R1) is not derivable from an oracle for all level-D statistics of B_i^d, plus inclusion in a level-D set, plus any inequality valid for all [0,1]-sequences (large sieve, Cauchy–Schwarz, general-sequence BDH), under a room hypothesis. Together with lane C2's r-wise laws: (RLD) needs archimedean information about the actual set B_i^d ∩ I. | PROVED (elementary) | §4 |
+| E | Positive ranges: exact CRT range (η_i ≤ 4P_iq_i/N); fundamental-lemma range log ℓ ≤ c√log N (standard, not re-proved in growing dimension). The blocking step beyond is FL∞, a fundamental lemma in dimension κ ≍ log z at level s ≪ κ, off the squares. | PROVED / standard / Assessment | §5 |
+| E′ | Conjecture RLD-U: off the squares, the prime-modulus U sieve at z = N^{1/s} is within e^{C(s)} of its Mertens product, for every fixed s > 1 | CONJECTURE (EVIDENCE: four decades, N ≤ 10¹⁰) | §5.5 |
+| F | RLD-U at one s ∈ (1, 2C_V), C_V ≈ 0.74 empirical, plus the Titchmarsh-type asymptotic ⇒ #{n ≤ N, n ≡ 1 (4): U fails} = #odd squares + o(√N), i.e. Target 2 for U. Exponent table for RLD to depth exp((log N)^α): record beaten iff α > 2/3 (prime U), α > 1/3 (ES₅ edges), α > 1/4 (ES Type II); the square floor sits at the power-saving depth. | CONDITIONAL | §6 |
 | G | U holds trivially at every n ≡ 5 (8) (v = 3, A = 2) | PROVED (trivial) | §6 |
-| H | Cross-model hostile review | see §8 | §8 |
 
-**Exact remaining gap.** Beyond log ℓ ≍ √log N every proof of a single chain step (R1) must be a
-sequence-specific, non-pointwise statement about the high-period sifted set B_i ∩ I (door (i)); certified
-inputs collapse (C) and blind inputs certify nothing (D). For the prime U family this is the open problem FL∞
-(a fundamental lemma beyond the sieve dimension), which numerically holds up to a bounded factor (E′) and would
-give Target 2 for U (F). No instance of (R1) beyond the fundamental-lemma range was proved.
+**Exact remaining gap.** No instance of (R1) beyond the fundamental-lemma range (log ℓ ≍ √log N) was proved.
+Pointwise-certified per-step inputs collapse to capped majorants (C). Inputs that use only low-level statistics,
+universal inequalities or r-wise residue marginals cannot certify a step (D; lane C2). A proof of (R1) therefore
+needs a sequence-specific, archimedean statement about the actual sifted set B_i^d ∩ I. For the prime U family the
+minimal such statement is FL∞ (off the squares). Numerically it holds up to a bounded factor (E′), and it would give
+Target 2 for U (F).
 
 ## 1. Janson's proof as a product of ratios; the one hypothesis (RLD)
 
@@ -36,7 +40,9 @@ give Target 2 for U (F). No instance of (R1) beyond the fundamental-lemma range 
 * **Integers.** I ⊂ ℤ is a finite set of integers. Typical choices: I = [1,N]; I = {n ≤ N : n ≡ 1 (mod 8)} (the
   U / ES₅ setting); or the primes ≤ N. ν is the uniform probability on I. For X ⊆ ℤ write ν(X) = #(X ∩ I)/#I.
 * **Model.** P is the profinite Haar probability, conditioned on the same 2-adic (and, if wanted, 3-adic) class as
-  I. The coordinates X_p = n mod p^∞ are independent.
+  I. The coordinates X_p = n mod p^∞ are independent. For the atomic-event argument in the model, take as
+  coordinates the individual p-adic digits: a class mod p^a fixes the first a digits of X_p, not the whole
+  coordinate. The conditioned 2-adic digits are dropped. This affects only the model proof, not Theorem 1.3.
 * **Events.** 𝓕 = (E_1, …, E_m) is an ordered family of residue classes E_i = {n ≡ a_i (mod q_i)}. Each E_i is read both
   as a subset of ℤ and as an event in the model. supp(E_i) is the set of primes p | q_i. For p = 2, count p only if
   the class fixes n beyond the conditioned 2-adic class.
