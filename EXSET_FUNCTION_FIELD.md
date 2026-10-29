@@ -1,6 +1,6 @@
 # EXSET_FUNCTION_FIELD — the U exceptional set over F_q[T]: large q, fixed q, and what transfers (wave z51, lane 1c)
 
-Status: in progress (z51 lane 1c, Opus). ES is OPEN; nothing here proves or disproves ES or any infinite case of it.
+Status: round 2 (z51 lane 1c, Opus); Astra reviews R1 (applied), R2 and R3 (see §6). ES is OPEN; nothing here proves or disproves ES or any infinite case of it.
 Labels as in DISCOVERIES.md (PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment).
 Brief: `../z51briefs/1c_opus_ffield.md`; context `../z5{0,1}briefs/CONTEXT.md`. Scripts `scripts/z51_ffield_*`,
 data `data/z51_ffield/`. Prior function-field work: FUNCTIONFIELD_ES*.md, FF_*.md, DRINFELD_ES.md (they study
@@ -681,6 +681,8 @@ divisor-table brute force agrees with the engine (q = 3, 7; n = 2..5). Repairs a
 * Provenance: all Table 2.1 runs were re-run into `enum.txt`; the q = 163 value was corrected (0.2001); n = 2 is exact.
 
 **Round 2 (author).** Lemma C2 proved by a stratified count (overlap degree γ costs γ; compatibility costs one more
-unless u′v′ = uv, which forces the same class); Prop 3.7(b) upgraded to PROVED; numerical check of the O(1/q) pair sum.
+unless u′v′ = uv, which forces the same class); Prop 3.7(b) upgraded to PROVED; numerical check of the O(1/q) pair sum. New §3.9: Prop 3.8 (k-transitivity of small-class word covers from
+exact CRT + Lemma C2) and Theorem 3.9 (CFSG + Goursat: ∏ Alt ⊆ G_n, hence ρ_{n,p} ≤ exp(−0.0043 n²)); factorial-moment
+check of high transitivity beyond the CRT range.
 
 **R2 (Astra):** pending.
