@@ -11,8 +11,8 @@ Scripts: `scripts/z50_ncrt_*`; data: `data/z50_ncrt/`.
 | 0.2a | Word-class certificate families are not K2 families as parametrised families (Prop 1.2); set containment undecided (EVIDENCE for small moduli) | PROVED / EVIDENCE | 1.3 | review 1: SOUND-WITH-REPAIRS (D1-D3 applied) |
 | 0.2b | Theorem 2.1: supply exponent beta gives cap lambda^{beta/(beta+1)}; Cor 2.5: word-class architecture for U/ES5 (all groupings, non-reduced pair classes, selectors) capped at lambda^{2/3}(log lambda)^{2/3}, M1/M2/L1/C transferred | PROVED given K2/EK (after repairs D4-D10) | 2 | review 1: MAJOR, repaired (scope narrowed); review 2 below |
 | 0.2c | Theorem 3.1: #{p <= N : U(p) fails} and #{p <= N : ES5(p) fails} << N exp(-c(log N)^{2/3}), no log log loss; also y-rough n, short intervals | PROVED rel. BV, BT (adaptation of I3_DEEP_ASTRA 8.8 / lane E 7.3) | 3 | review 1: SOUND-WITH-REPAIRS |
-| 0.4 | Divisor switching: min modulus <= (2n+4)^{2/3} (Prop 4.1), bounded mass factor (Prop 4.2), switched detectors capped (Thm 4.3); residual of door D1 = door D2 | PROVED / Assessment | 4 | review 2 |
-| 0.5 | Primes (door D7) | Assessment, no new barrier | 4.3 | review 2 |
+| 0.4 | Divisor switching: min modulus <= (2n+4)^{2/3} (Prop 4.1), bounded mass factor (Prop 4.2), switched detectors (with certificate refinements) capped (Thm 4.3); the high-lcm Bonferroni terms are a D2-type correlation problem, no unconditional depth threshold | PROVED / Assessment | 4 | review 2: MAJOR items repaired (R2-5, R2-6) |
+| 0.5 | Primes (door D7): no applicable prime-specific input found | Assessment, no barrier claimed | 4.3 | review 2: overclaim removed (R2-8) |
 | 0.3 | Open doors D1-D8 in my words; chosen: D8 (class universe) and D1 (divisor switching) | Assessment | §1.4 | — |
 
 ## §1 Round 1 — exact audit
@@ -496,12 +496,15 @@ A <= T of tau(A+1)/A, each endpoint), and w_max(T) <= w_min(T) <= w_pair(T) + 2 
 [20000, 21000): EVIDENCE, same data file. For certificate-restricted counts only the inherited upper bound is
 asserted.)
 
-**Theorem 4.3 (divisor-switching detectors are capped; PROVED given Cor 2.5 and K2).** Let a detector assign to
-each word any one of its three classes (switching freely, word by word, even depending on sizes), and let nu be
-any majorant of the avoider set of the resulting finite family, possibly mixed with K2 classes and selectors.
-Then nu is a majorant of a word-class (plus K2) family, so Corollary 2.5 (word classes: 2/3) and K2 Thm 5.1 /
-KARY3 (mixtures: 3/4) apply, with the evaluations M1, M2, L1, C. *Proof.* Each chosen class is a word class (all
-three groupings are in the universe, including non-reduced pair classes). QED
+**Theorem 4.3 (divisor-switching detectors are capped; PROVED given Cor 2.5 and K2).** Let a detector choose, for
+each word, any one of its three groupings (switching freely, word by word, even depending on sizes) **together with
+the certificate-preserving refinement** of that grouping by the free coordinate mod 4 (mod 8 for U; structurally
+degenerate U groupings discarded), and let nu be a globally nonnegative majorant of the **whole** avoider set of the
+resulting finite family, possibly with selectors. Then Corollary 2.5 applies (2/3, evaluations M1, M2, L1, C). If
+K2 classes are mixed in, M1 and M2 hold at 3/4 (Section 2, Scope); L1 and C for the mixture are not claimed.
+*Proof.* Each chosen class is a certificate word class (all three groupings are in the universe, including
+non-reduced pair classes). QED Without the refinement the statement is false: the raw class P(1,1) = Z covers
+every integer (review 2, R2-5).
 
 This answers the brief's question "do the moduli products above N become countable, and what depth does that
 buy": switching lowers each single modulus to <= N^{2/3+o(1)} and changes the mass profile by a factor <= 3; the
@@ -519,17 +522,20 @@ S_r(N) = sum over n <= N of binom(H(n), r), i.e. a count of lattice points on th
 **Blocking step (Assessment, with the proved parts cited).** (1) r = 1 is the Dirichlet hyperbola: exact, with
 power-saving error, and already equal to the CRT mean (IF Thm 2.2). (2) r = 2 is a shifted-convolution problem with
 power-saving asymptotics (Kloosterman/spectral; DI-type), for each fixed pair of shifts. (3) r = 3: no individual
-asymptotic is known (z50 CONTEXT note (d)); only shift-averaged forms. (4) Bounded-order exact moment data are
-useless for theta > 0 beyond O(r log log N): NC Prop 8.6 / Cor 8.7 (hit-count polynomials; the general
-hit-pattern case is NC's open item), TU Thm 3.1 (CRT main terms). So the non-regrouping part of door D1 **is**
-door D2 (order >= (log N)^theta / log log N true correlations), and divisor switching adds nothing to it.
+asymptotic is known (z50 CONTEXT note (d)); only shift-averaged forms. (4) The existing caps on
+bounded-order moment data concern CRT-evaluated moments (NC Props 4.1-4.2, TU Thm 3.1); for exact interval
+moments NC Cor 8.7 is CONDITIONAL on its unproved node hypothesis H_node, and favourable exact-interval deviations
+from CRT are not excluded (review 2, R2-6). So: for Bonferroni/hit-pattern implementations, counting the
+high-lcm terms is a correlation problem of the D2 type, and divisor switching does not simplify it; **no
+unconditional depth threshold is proved here**, and interval-only or position-sensitive certificates are not
+reduced to D2.
 
 ### 4.3 Door D7 (primes): Assessment
 
 * Prime structure enters a counting argument as sum over p <= N of nu(p). Vaughan/Heath-Brown split Lambda into
-  Type I sums (nu on progressions dZ: CRT evaluations, covered by PL's prime-law cap at moduli <= N^A) and Type II
+  Type I sums (nu on progressions dZ: CRT evaluations; PL caps these for K2 families, for word families this is unchecked) and Type II
   sums sum a_m b_k nu(mk). For nu periodic of period Q >> N, a Type II bound for nu is a large-sieve/character-sum
-  statement at level Q (LS1/LS2 caps) unless nu has extra multiplicative structure; word-class majorants have none
+  statement at level Q (heuristically the LS1/LS2 regime) unless nu has extra multiplicative structure; word-class majorants have none
   (nu(mk) is not a function of nu(m), nu(k)).
 * Harman's sieve turns Type I/II information about a set S into LOWER bounds for primes in S; an UPPER bound for
   exceptional primes gains nothing over #(S cap [1,N]) without information about S itself.
@@ -538,8 +544,8 @@ door D2 (order >= (log N)^theta / log log N true correlations), and divisor swit
   normalised variance is not o(1/polylog) (Linnik-type fluctuation; NC Props 4.1-4.2: degree-k moment methods save
   O(k log log N)). No reformulation with an L^2-small error term was found.
 
-Verdict for D7: no prime-specific input applies to a log^2-mass covering system in a way not already covered by
-(P), (L) or the moment caps (Assessment; no barrier theorem claimed beyond those cited).
+Outcome for D7: **no applicable prime-specific estimate or L^2-small reformulation was found.** The bullets are
+heuristic reasons, not reductions (review 2, R2-6/R2-8); no barrier theorem for prime-specific methods is claimed.
 
 ### 4.4 Sanity checks
 
@@ -577,7 +583,15 @@ model counted atoms instead of distinct classes mod l and was off by a factor 2;
   D11 prefix terms, ES5 at p = 3 (4) (added); D12 prior work (I3_DEEP_ASTRA 8.7-8.8, line 146; lane E 7.3 cited;
   novelty reduced to the removal of the log log loss at primes); D13 door examples (fixed); D14 labels, script
   description, title (fixed).
-* **Review 2**: see below (requested after the repairs and Section 4).
+* **Review 2** (same model, deep; `reviews/z50-ncrt-review-2.md`). Overall MAJOR, confined to the new scope and
+  door-closing claims; **no fatal flaw in Sections 2-3**; D4 repair, selector-augmented cap, non-reduced pair
+  classes, Theorem 3.1 and Prop 4.1 SOUND. Repairs applied: R2-1 ("covers all three" narrowed: prime-only methods
+  stay outside), R2-2 (log-log attribution made architectural), R2-3 (certificate modulus <= 8(2N+4)^{2/3}; IF Thm
+  2.2 needs the expansion's denominators), R2-4 (averaging convention, numerics labelled), R2-5 (Thm 4.3 needs
+  certificate-preserving refinements; raw P(1,1) = Z would falsify it), R2-6 (D1 = D2 and the depth threshold
+  retracted; NC Cor 8.7 is conditional on H_node), R2-7 (fixed degenerate U groupings discarded), R2-8 (D7
+  reductions downgraded to heuristics), plus a0 defined, heading and script description fixed, Remark 3.8 marked
+  superseded. Notation: C_II(a,b,e) means `n = -e (mod 4ab)` with e = (a+b)/c, so C_II(1, tv-1, v) has c = t.
 
 ## §7 Remaining gap (exact)
 
@@ -589,8 +603,10 @@ model counted atoms instead of distinct classes mod l and was off by a factor 2;
    with cubic supply? If yes, CRT methods could reach 3/4 for U/ES5; if every U/ES5-forcing progression is covered
    by finitely many word classes of polynomially related modulus, the 2/3 ceiling is the ceiling for all CRT
    methods for U/ES5. The K2-containment census (Section 1.3) is the kind of computation that would test this.
-3. **Door D1** reduces to door D2: exact r-point correlations of restricted divisor functions along shifts, for
-   r of order (log N)^theta / log log N. Hyperbola / Type I-II technology stops at r = 2 (r = 3 on average).
+3. **Door D1.** Regrouping (divisor switching) is capped (Thm 4.3). For Bonferroni-type implementations the
+   high-lcm terms are exact r-point correlations of restricted divisor functions along shifts; hyperbola / Type
+   I-II technology gives r = 1, 2 (r = 3 on average). Whether favourable exact-interval deviations at bounded order
+   could help is not excluded unconditionally (NC Cor 8.7 needs H_node); interval-only certificates remain open.
 4. **Door D7** (primes): no prime-specific input found that is not already inside (P), (L) or the moment caps.
 5. **For lane-level bookkeeping:** for U and ES5 the honest Target 3 is "beat 2/3", which needs a non-CRT input of
    one of the open types D2-D6, or a cubic-supply forcing universe (item 2).
