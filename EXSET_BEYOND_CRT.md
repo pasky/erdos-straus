@@ -709,8 +709,8 @@ bound: a certificate class has modulus at most 8 times the grouping modulus, so 
 <= (2n+4)^{2/3} by Prop 4.1. QED
 
 So every progression is covered *up to Haar density tending to 0*; what a covering cannot do is make the remainder
-cheap. The remainder C minus (word classes of modulus <= T) has small density but no low-level description, and a
-low-level majorant of small mean for it is exactly the original problem.
+cheap. The remainder C minus (word classes of modulus <= T) has small density but need not have a low-level description
+(review 3), and when it does not, a low-level majorant of small mean for it is the original problem again.
 
 ### 8.4 Vaughan ratio classes are not coverings
 
@@ -736,9 +736,11 @@ for a bounded set of shifts.
 **Proposition R4.5 (single-shift forcing is an approximate covering with cheap remainder; PROVED, uses only
 Dirichlet's theorem).** Let v >= 1, let C = a mod M, and suppose every large n in C has a P-word with endpoint v.
 For every J >= 1, C is covered by finitely many word classes together with a remainder consisting of at most
-omega(8v) classes {n in C : p^{J+1} | (n+v)/D} (p | 8v, D = gcd(a+v, M)), of total density <= omega(8v) 2^{-J}/M
-and level <= log(M D) + (J+1) log(8v). Hence Theorem R4.1 applies with lambda_R = O(lambda) after taking
-J = lambda.
+omega(8v) classes {n in C : p^{J+1} | (n+v)/D} (p | 8v, D = gcd(a+v, M)), of total density <= omega(8v) 2^{-J-1}/M.
+Under the K2 level (distinct primes > W) each remainder class has level <= level(M) + max_{p | 8v, p > W} log p,
+**independent of J** (review 3, R3-6). For a family of such progressions, R4.1 therefore applies as soon as
+max_C (level(M_C) + max_{p | 8v_C} log p) = O(lambda) (resp. O(log N + S) for R4.2(b)) and J is chosen so that the
+*total* remainder density over the family is <= E nu; this uniformity is a hypothesis on the family, not automatic.
 
 *Proof.* Put V = 8v and m = (n+v)/D. As shown p-adically (one of v_p(a+v) - min, v_p(M) - min is 0), m runs over
 a reduced residue r' modulo M' = M/D. Split C, by the exact valuations j_p = v_p(m) <= J at the primes p | V, into
@@ -746,23 +748,27 @@ finitely many sub-progressions C_j, and put D_j = D * prod p^{j_p}, m_j = m / pr
 gcd(m_j, V) = 1 on C_j; the n with some j_p > J form the stated remainder. Fix j. By Dirichlet, for every unit
 rho mod V compatible with C_j there are infinitely many primes q, q not dividing D_j, with n := D_j q - v in C_j and
 m_j = q = rho (mod V). For such n the divisors of n + v = D_j q are delta and delta q (delta | D_j), so the forced
-word has A = tv - 1 equal either to some delta > 1 dividing D_j, or to delta q with delta < D_j. Its slot data
+word has A = tv - 1 equal either to some delta > 1 dividing D_j, or to delta q with delta | D_j. For U (z49
+definition, 1 < A < n+v) delta < D_j; for ES5 words with u = 1 are allowed and delta = D_j (A = n + v) must be
+included (review 3, R3-5: e.g. 5 mod 8 with v = 2 is ES5-forced only through A = n+2). Its slot data
 (t, u, v, tu-1, tv-1 mod 4, and n, v mod 8 for U) depend only on rho and the fixed data: for A = delta,
 t = (delta+1)/v is fixed and u = (D_j/delta) m_j; for A = delta q, u = D_j/delta is fixed and
 t = (delta m_j + 1)/v mod 4 is determined by m_j mod 4v. Hence the same choice of delta gives a certificate word for
 **every** n in C_j with m_j = rho (mod V), prime or not: A = delta (resp. delta m_j) divides n + v = D_j m_j, is
-= -1 mod v, and is proper. These n form a word class: for A = delta, a refinement of the endpoint class
+= -1 mod v, and is proper when the target requires it. These n form a word class: for A = delta, a refinement of the endpoint class
 E((delta+1)/v, v); for A = delta m_j, a refinement of the pair class P(D_j/delta, v). Finitely many rho, finitely many
 j. QED
 
-**Proposition R4.6 (bounded-shift forcing; CONDITIONAL on Dickson's prime k-tuple conjecture with congruence
-conditions; proof sketched).** If every large n in C has a P-word with endpoint in a fixed finite set V of shifts,
-then C is an approximate covering with cheap remainder as in R4.5.
-*Sketch.* Split by valuations at the primes dividing prod_{v in V} 8v and by the residues of n modulo the primes
-<= |V|+1 (to remove fixed prime divisors of the product of the linear forms m_v = (n+v)/D_v in the progression
-index). On each piece the forms are admissible, and Dickson gives n with every m_v prime and with prescribed
-residues rho_v mod 8v. Forcing gives, for each realised pattern (rho_v), a shift v and a divisor choice as in R4.5
-whose word depends only on rho_v; it is then a certificate for every n of that pattern. QED (sketch)
+**R4.6 (bounded-shift forcing: a CONDITIONAL strategy, not a proved proposition; review 3, R3-7).** If every large n
+in C has a P-word with endpoint in a fixed finite set V of shifts, one would like to show that C is an approximate
+covering with cheap remainder. Strategy: extract the exact valuations of every normalised linear form
+m_v = (n+v)/D_v (in the progression index) at all primes dividing prod 8v **and at all primes <= |V| + 1**, paying
+the high-valuation tails as remainders; on each remaining piece the residual forms should be admissible, Dickson's
+conjecture (with congruence conditions) would give n with all residual forms prime and prescribed residues, and
+the R4.5 transport would turn each realised pattern into a word class. Residue splitting of n alone does not give
+admissibility (review 3: C = 1 mod 12 with V = {8, 20, 32} gives forms 4k+3, 4k+7, 4k+11, whose product is always
+divisible by 3). The valuation-extraction argument is not written out; the bounded-shift case is open even
+conditionally.
 
 Unconditionally, for |V| >= 2 one only has almost-primes (bounded number of prime factors), and the divisor
 patterns are no longer determined by finitely many residues; I have not closed that case.
@@ -771,31 +777,40 @@ patterns are no longer determined by finitely many residues; I have not closed t
 Combining 8.2-8.5, the certification mechanisms that are **capped at 2/3** (exponent beta = 2 per unit level) are:
 1. exact coverings by U/ES5 word classes, of any depth, moduli, number of pieces and level ratio, including
    two-level coverings through n mod small primes and multiplier (k*l) coverings (Thm R4.1, PROVED);
-2. approximate coverings whose remainder is a finite union of classes of level O(lambda) and density at most
-   E nu (Thm R4.1, PROVED);
-3. single-shift Landau (finite-factorisation) forcing (Prop R4.5 + R4.1, PROVED);
-4. bounded-shift Landau forcing (Prop R4.6 + R4.1, CONDITIONAL on Dickson).
+2. approximate coverings whose total remainder has level O(lambda) (resp. O(log N + S)) and density at most
+   E nu (resp. e^{-S}/2) (Thm R4.1, Cor R4.2(b), PROVED);
+3. single-shift Landau (finite-factorisation) forcing, for families with uniformly bounded progression levels and
+   shift primes (Prop R4.5 + R4.1, PROVED).
+Bounded-shift forcing is only a conditional strategy (R4.6). All of this is within the periodic whole-avoider
+architecture; interval-only, prime-only and non-CRT evaluations (doors D1-D7) are untouched.
 
-Identities that are not words of n are excluded by definition (Lemma R4.0). So **no U/ES5 forcing universe with
-cubic supply at unit cost exists among these mechanisms**, and alternative (b1) of the brief (a 3/4 theorem for
-U/ES5) is unavailable by any of them. The ES 3/4 mechanism (words of cn) is provably not of this kind (Cor R4.4).
+**What is excluded and what is not (review 3, R3-8).** The mean cap does not bound the raw class inventory: all
+subdivisions of one word class already have divergent inventory. What is excluded is an *effective* cubic-supply
+construction among mechanisms 1-3, i.e. one producing a small-mean, low-level majorant beyond lambda^{2/3}. So
+alternative (b1) of the brief (a 3/4 theorem for U/ES5) is unavailable through mechanisms 1-3, and alternative (b2)
+holds for them in a strong form (no depth or level-ratio bound). The ES 3/4 mechanism provably does not reduce to
+mechanism 1 (Cor R4.4, which concerns the atom family collectively, not each atom).
 
-**The only possible escape** is a P-forcing progression C that is not an approximate covering with cheap remainder,
-in particular (Prop R4.3(a)) one with cl(C) meeting A_inf. Proving such a C forcing means proving P for integers
-that lie in no word class of modulus <= T, for every T (Prop R4.3(d)), using an argument over unboundedly many
-shifts. That is a pointwise statement of the campaign's B2 type, not a sieve input (Assessment). No such
+**Remaining possibilities within the architecture.** A P-forcing progression family that admits no cheap-remainder
+covering. Its members may be non-compact (Prop R4.3(a); necessary, not sufficient, for escaping mechanism 1).
+Proving such a progression forcing requires P for integers that lie in no word class of modulus <= T, for every T
+(Prop R4.3(d)). Bounded shifts are not known to be insufficient for this (R4.6 is incomplete). Reading it as
+pointwise B2-type input is an Assessment, not a classification of possible proofs. No such
 progression is known. Numerically, a generic non-square progression such as 305 mod 808 (n = 1 mod 8, n = 2 mod
 101, a non-residue mod 101) shows a cheapest U-word modulus that keeps growing with n (8.7). Consistently with
 Prop R4.3(a), this suggests that its closure meets A_inf, so it is forced, if at all, only non-compactly. A
-progression like 17 mod 24 is finitely covered (cheapest modulus <= 3 throughout; it is single-shift forced at v = 4
-and v = 7 by the R4.5 procedure).
+progression like 17 mod 24 is finitely covered: it lies in the single word class E(1,4) = {n = 2 mod 3} (U-endpoint 4,
+partner u = (n+4)/3 >= 2), PROVED; cheapest modulus 3 throughout, as observed.
 
 ### 8.7 Numerics
 
-* `scripts/z50_ncrt_r4.py 100000 60000` (`data/z50_ncrt/r4.txt`): Prop R4.5 run as a decision procedure on 1830
+* `scripts/z50_ncrt_r4.py 100000 60000` (`data/z50_ncrt/r4.txt`): Prop R4.5's witness rule run as a *sufficient-certificate census* (review 3: the census code uses the U
+proper-divisor rule and is not a complete decision procedure for ES5) on 1830
   pairs (C, v), with M in {8, 24, 40, 56, 72, 120, 168} and U-admissible v <= 40; 182 are single-shift forced up
   to depth J = 5. Brute force over all n <= 10^5 in those (C, v), outside the depth-J tail and n >= 50: 209 190
-  integers, **0 without a U-word at that shift** (CERTIFIED for that range; it confirms the witness rule).
+  integers, **0 without a U-word at that shift** (CERTIFIED for that range; it confirms the transport direction of the rule, not its necessity).
+* The dyadic maxima for 305 mod 808 are maxima over disjoint bins, not a cumulative maximum; compatible with
+  non-compactness, not a proof of it or of forcing (EVIDENCE, heuristic).
 * `scripts/z50_ncrt_r4b.py` (`data/z50_ncrt/r4b.txt`): exact cheapest U-word grouping modulus, by direct
   enumeration of moduli <= 3000, maximised over dyadic ranges up to 5.12*10^5. For 17 mod 24 it is 3 in every range.
   For 305 mod 808 it is 7, 5, 37, 11, 39, 49, 111, 90, 450 (EVIDENCE of non-compactness; a maximum over a growing
