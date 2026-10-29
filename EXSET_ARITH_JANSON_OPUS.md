@@ -1,23 +1,33 @@
 # EXSET_ARITH_JANSON_OPUS — an arithmetic Janson inequality via conditional ratios (wave z50, lane C1, slug `ajopus`)
 
-**Status: IN PROGRESS (skeleton).** ES is OPEN. Nothing here proves or disproves it.
+ES is OPEN. Nothing here proves or disproves it.
 Labels: PROVED / CONDITIONAL (on what) / CERTIFIED / EVIDENCE / CONJECTURE / Assessment.
 Scripts: `scripts/z50_ajopus_*`. Data: `data/z50_ajopus/`.
 
 ## 0. Summary table
 
-| # | statement | label | section |
-|---|---|---|---|
-| A | integer Janson from one relative-level hypothesis (RLD) | TBD | §1 |
-| B | square floor: where RLD must fail | TBD | §2 |
-| C | collapse: chains of certified ratios are majorants | TBD | §3 |
-| D | structure-blind inputs certify no ratio | TBD | §4 |
-| E | positive range for RLD | TBD | §5 |
-| F | exponents if RLD held to depth L | TBD | §6 |
-| G | numerics | TBD | §7 |
-| H | hostile reviews | TBD | §8 |
+**Status: ROUND 1 COMPLETE (round-1 cross-model review pending; §8).**
 
-**Exact remaining gap:** TBD.
+| # | statement | label | § |
+|---|---|---|---|
+| A | Integer Janson: −log ν(Av 𝓕) ≥ μ − Σ η_i P(E_i) − KΔ under one relative-level hypothesis (RLD) = (R1) lower bound for independent classes in avoidance sets + (R2) K-upper bound for compatible pair classes. Harris enters only through (R2); independence through (R1). | PROVED (elementary) | §1 |
+| A′ | Block-averaged RLD ⇔ the relative exceptional-set bound itself (no leverage without step-wise proofs) | PROVED (trivial) | §1.4 |
+| B | Square floor located: for anti-square families (U at n≡1 (8), ES₅/S-model edges at n≡1 (24), forced ES classes) RLD error ≥ μ − KΔ − ½log N + O(1); the failure sits in the steps where B_i^d is within O(1) of the squares (η_i = σ_i, the square share) | PROVED | §2.1 |
+| B′ | (R1) relative to the Haar model also fails, off the squares, for the U prime family at moduli ≥ N^{0.4}: a non-square deficit D_ns(s), s = log N/log ℓ, scale-invariant and bounded in N for fixed s; absent for random and for random-QNR classes; mechanism not identified | EVIDENCE (N = 10⁷–10⁹) | §2.3, §7 |
+| C | **Collapse theorem:** any chain/Janson/conditioning argument whose steps are certified pointwise on ℤ by functions of a linear class 𝒞 is literally one 𝒞-majorant; hence CRT-certified chains save ≤ C(log N)^{3/4} (moduli ≤ N/2, or coefficient-sum evaluation, (D)20/(D)24) and prime-certified chains obey (D)22. Density-increment and entropy chains are CRT of level ≤ log N. | PROVED | §3, §5.3 |
+| C′ | LP-duality check: the comparison measure of (D)17–(D)25 violates (R1) at every step, so it bounds exactly the certified chains; door (vii) reduces to door (i) | PROVED (C) + Assessment | §3.3 |
+| D | Blindness: (R1) at a step is not derivable from an oracle for all level-D statistics of B_i + inclusion in a level-D set + any inequality valid for all [0,1]-sequences (large sieve, BDH, dispersion, Cauchy–Schwarz), as soon as a room condition holds | PROVED (elementary) | §4 |
+| E | Positive ranges: exact CRT range (η_i ≤ 2P_iq_i/(Nβ_i)); fundamental-lemma range log ℓ ≤ c√log N (nothing new); blocking step beyond = a fundamental lemma in dimension κ ≍ log z at level s ≪ κ (FL∞) | PROVED / standard / Assessment | §5 |
+| E′ | Conjecture RLD-U: off the squares, the prime-modulus U sieve at z = N^{1/s} is within e^{C(s)} of its Mertens product, C(s) < ∞ for every s > 1 | CONJECTURE (EVIDENCE: three decades, flat in N) | §5.5 |
+| F | RLD-U at one s < 2C_V ≈ 1.48 ⇒ #{n ≤ N : U(n) fails} = #odd squares + O(N^{1−C_V/s+o(1)}) = #□ + o(√N) (Target 2 for U); exponent table for RLD to depth exp((log N)^α): θ = α (prime U), 2α (ES₅ edges), 3α (ES Type II); square floor sits exactly at the power-saving depth | CONDITIONAL | §6 |
+| G | U holds trivially at every n ≡ 5 (8) (v = 3, A = 2) | PROVED (trivial) | §6 |
+| H | Cross-model hostile review | see §8 | §8 |
+
+**Exact remaining gap.** Beyond log ℓ ≍ √log N every proof of a single chain step (R1) must be a
+sequence-specific, non-pointwise statement about the high-period sifted set B_i ∩ I (door (i)); certified
+inputs collapse (C) and blind inputs certify nothing (D). For the prime U family this is the open problem FL∞
+(a fundamental lemma beyond the sieve dimension), which numerically holds up to a bounded factor (E′) and would
+give Target 2 for U (F). No instance of (R1) beyond the fundamental-lemma range was proved.
 
 ## 1. Janson's proof as a product of ratios; the one hypothesis (RLD)
 
