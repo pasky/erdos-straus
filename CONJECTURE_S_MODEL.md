@@ -5,9 +5,11 @@ Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / Assessment.
 
 ## 0. Summary (to be updated)
 
-* §2 (target): **PROVED modulo the fundamental lemma of sieve theory**, δ(H) ≤ exp(−c L²). This is the sharp order
-  and improves the L²/(log L)² of the rough-pair route. The method conditions on all small-prime coordinates and
-  keeps endpoints with bounded smooth part.
+* §2: **PROVED modulo the fundamental lemma of sieve theory.**
+  * δ(H) ≤ exp(−c L²), the sharp order (Thm 2.1). This improves the L²/(log L)² of the rough-pair route. The method
+    conditions on all small-prime coordinates and keeps endpoints with a bounded smooth part. The conditional mass is
+    then ≍ L² **uniformly in the small residues**.
+  * For the covering coordinate, P(A_min > H) ≤ exp(−c L²/log L) (Thm 2.6).
 * §3 (target): the reverse direction δ(H) ≥ exp(−L^{2+o(1)}) via non-adaptive class-of-one conditioning plus a
   β-weighted local lemma, reduced to a pointwise load hypothesis.
 
@@ -230,7 +232,67 @@ Average over z. ∎
    ≍ L² for every z. A lower bound on δ has to exhibit one z of probability exp(−L^{2+o(1)}) whose conditional
    system satisfies a local lemma **pointwise in every large prime** (§3).
 
-### 2.8 Checks for §2 (CERTIFIED finite checks / EVIDENCE)
+### 2.8 The covering coordinate A_min
+
+Use the H4_NOT_POLYLOG definitions:
+
+    G_A = {−d mod A : d | A+1, d < A, (−d/A_odd) = −1},     A_min(p) = min{A : p mod A ∈ G_A}.
+
+The event is C_{A,d} = {n ≡ −d (mod A)}.
+
+**Lemma 2.5 (PROVED).** Let A ≡ 3 (mod 4), let d be odd, and let d | A+1. Then (−d/A) = −1.
+
+*Proof.*
+
+* (−1/A) = −1.
+* (d/A) = (A/d)(−1)^{(d−1)(A−1)/4} = (A/d)(−1)^{(d−1)/2}, since (A−1)/2 is odd.
+* (A/d) = (−1/d) = (−1)^{(d−1)/2}, since A ≡ −1 (mod d).
+
+The product is −1. ∎
+
+**Theorem 2.6 (PROVED modulo the fundamental lemma).** In the prime-Haar model,
+
+    −log P(A_min > H) ≥ c L²/log L.
+
+*Proof.* Take Y = L⁹ and N₀ = L². The family consists of the pairs (A,d) with:
+
+* A squarefree and Y-rough, H^{1/2} ≤ A ≤ H, A ≡ 3 (mod 4);
+* d odd, N₀ ≤ d ≤ H^{1/10}, d | A+1.
+
+By Lemma 2.5 each −d mod A lies in G_A. The events are atomic on x_p (p | A), with P = 1/φ(A). They are pairwise
+distinct because d < A/2, and they are independent of n mod 24. Here **d need not be rough**, so only one factor
+log Y is lost.
+
+*Mass.* By the fundamental lemma in the class A ≡ −1 (mod 4d), one gets Σ_A 1/A ≥ c L V(Y)/d. Hence
+μ ≥ c L² V(Y) ≫ L²/log L.
+
+*Loads.* Write A = px with x in a class mod d.
+
+* If p ≤ H^{0.4}, then x ≥ H^{1/10} ≥ d, so (F2) gives w_p ≤ (2/p)(2+L)Σ_d 1/d ≪ L²/p.
+* If p > H^{0.4}, then w_p ≤ (2/p)(1+L)H^{1/10} ≤ H^{−0.29}.
+
+The conflict sum is ≤ (L/log Y)(CL²/Y + H^{−0.29}) = o(1).
+
+*Pair sum.* Write g = (A,A') > 1, A = gv, A' = gv'. Compatibility means g | d − d'. P(C∩C') ≤ 2/(gvv').
+
+* **(a) d = d'.** Here v ≡ v' ≡ −g^{−1} (mod d) and v ≠ v'. Orient v < v', so v' ≥ v + d ≥ d. For fixed (v,d)
+  the variable g runs over one class mod d with g > Y. Hence
+
+      Δ_a ≤ Σ_d 2[1/Y + (1+L)/d](1+L)(2+L)/d ≪ L³/Y + L³/N₀ = O(L).
+
+  This is the hub term. The cutoff d ≥ N₀ is exactly the device of paper/es-subexp-note.tex Lemma "Pair sum"(a).
+* **(b) d ≠ d'.** Here Y < g ≤ H^{1/10}, so v ≥ H^{0.4} ≥ d, and the v- and v'-sums are ≤ (2+L)/d and (2+L)/d'.
+  Orient d' > d, so d' ≥ d+g ≥ g. Then Σ_{d'≡d (g)} 1/d' ≤ (2+L)/g, and Δ_b ≪ L⁴ Σ_{g>Y} 1/g² ≪ L⁴/Y.
+
+Thus μ − e^{1/3}Δ ≥ cL²/log L − O(L). ∎
+
+**Assessment (the gap for A_min).** The z-conditioning of §2.3 would remove the remaining log L. It does not go
+through as written because of the same-d hubs. With A = sGy and A' = s'Gy', the pairs C, C' with d = d' have no
+saving in the larger smooth part s'. A crude bound gives Δ ≫ S₀·L²/Y. Only the edge family has this solved, because
+the two endpoints carry independent congruences. Since δ_joint ≤ min(δ(H), P(A_min > H)), Theorem 2.1 already gives
+the joint bound with exponent L².
+
+### 2.9 Checks for §2 (CERTIFIED finite checks / EVIDENCE)
 
 The independent scripts are `scripts/z49_sexp_janson_check.py` and `scripts/z49_sexp_muz.c`. Their output is in
 `data/z49_sexp/janson_check.txt` and `muz.txt`.
@@ -239,6 +301,8 @@ The independent scripts are `scripts/z49_sexp_janson_check.py` and `scripts/z49_
   * Lemma 1.1 against the five-slot test and against Legendre colours: all 16,751 odd edges with v ≤ 2000 at primes
     p ≡ 1 (24) below 2·10⁵, with 0 failures (`colour_check.txt`).
   * (F2): 40,000 brute-force progression sums, 0 violations.
+  * Lemma 2.5: 291,689 instances (A,d) with A ≤ 200,001, 0 failures (`cover_colour.txt`, script
+    `z49_sexp_cover_colour.py`).
   * The (g,h,j,k) decomposition: pairwise coprimality, lcm(R,R') = D·abcd, compatibility ⇒ D | sum difference, and
     the equal-sum bound. 5,506 configurations, 0 violations.
   * Liveness and atomicity: exact CRT enumeration of P(E | z) = [live]/φ(R) on 3,200 (pair, z) instances, with

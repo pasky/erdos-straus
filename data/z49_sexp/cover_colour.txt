@@ -1,0 +1,1 @@
+Lemma 2.5: 291689 (A,d) instances with A<=200001, failures=0
