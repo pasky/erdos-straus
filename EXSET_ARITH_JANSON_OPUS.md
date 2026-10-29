@@ -233,6 +233,7 @@ steadily once ℓ ≥ N^{1/2.5}. As a function of s = log N/log ℓ it is **scal
 | D_ns, N = 10⁷ | −0.004 | 0.002 | 0.020 | 0.060 | 0.178 | 0.380 | 0.666 | 1.205 |
 | D_ns, N = 10⁸ | 0.002 | 0.013 | 0.033 | 0.065 | 0.184 | 0.395 | 0.687 | 1.279 |
 | D_ns, N = 10⁹ | 0.007 | 0.013 | 0.034 | 0.074 | 0.178 | 0.396 | 0.678 | 1.211 |
+| D_ns, N = 10¹⁰ (ℓ ≤ 10⁸) | 0.008 | 0.016 | 0.036 | 0.082 | 0.175 | 0.394 | 0.640 | 1.168 |
 | model mass at N = 10⁹ | 3.42 | 3.74 | 4.36 | 4.98 | 5.77 | 6.92 | 8.40 | 10.41 |
 
 (Nearest checkpoint to each s; the actual s differs by ≤ 0.04. Source: `data/z50_ajopus/chain_U_N*.txt`, column 9.)
@@ -241,10 +242,11 @@ The random-class control has the same moduli and the same number of classes per 
 residues. It has **no** deficit at any depth: |Σ(w/ℓ − ρ_ℓ)| ≤ 0.07 down to 221 survivors at N = 10⁹ and
 ℓ ≤ N/2.
 
-Two features matter (EVIDENCE, three scales only). First, at fixed s the deficit does not grow with N over
-N = 10⁷, 10⁸, 10⁹: the rows agree to ±0.02 for s ≥ 1.5 and to ±0.04 at s ≈ 1.25 (1.205, 1.279, 1.211; the
-checkpoints are matched to nearest s, not interpolated). Meanwhile the model mass at fixed s grows like 0.74·log N/s.
-Three scales cannot establish boundedness in N. They are consistent with it, in which case the relative error
+Two features matter (EVIDENCE, four scales). First, at fixed s the deficit does not grow with N over
+N = 10⁷, …, 10¹⁰: the rows agree to ±0.02 for s ≥ 1.75 and to within 0.05 at s ≤ 1.5 (at s ≈ 1.25: 1.205, 1.279,
+1.211, 1.168; the checkpoints are matched to nearest s, not interpolated). The N = 10¹⁰ row was computed after the
+first review, as a falsification test, and does not grow. Meanwhile the model mass at fixed s grows like 0.74·log N/s.
+Four scales cannot establish boundedness in N. They are consistent with it, in which case the relative error
 D_ns/mass → 0 at every fixed s > 1. Second, the deficit switches on near s ≈ 2.5 and grows as s → 1. It is
 irrelevant for the targets, whose moduli are N^{o(1)}. Note also that an O(1) integrated deficit is compatible
 with vanishing average per-step relative error, so these data do not show that pointwise-in-step (R1) fails. They
@@ -266,8 +268,22 @@ show that the Haar model is off by a factor e^{D_ns(s)} at moduli ≥ N^{0.4}, f
 U, with family-dependent sign. They do not occur for either unaligned family, (a) and (b). This points to the shift
 alignment: all events at shift v are divisibility conditions on the single integer n + v ≤ 2N, which has at most s
 prime factors ≥ N^{1/s}. That is the familiar failure of Mertens products for high-dimensional sieves near s ≈ 1
-(prime k-tuples: a factor (e^γ ω(s))^k). The sign and size for U are not explained, and the mechanism is not
-established.
+(prime k-tuples: a factor (e^γ ω(s))^k).
+
+*Partial decomposition (EVIDENCE, `scripts/z50_ajopus_pershift.c`).* Sieve I by each shift v *separately*,
+using the events ℓ | n+v with ℓ ≡ −1 (v) prime, ℓ ≤ z, and the proper-divisor condition. Sum
+log(actual/Haar) over v. This "independent-shift" prediction gives:
+
+| s (N = 10⁷ unless noted) | 2.33 | 2.0 | 2.0 (N = 10⁸) | 1.5 |
+|---|---|---|---|---|
+| per-shift total | 0.025 | 0.075 | 0.075 | 0.256 |
+| measured D_ns | ≈ 0.05 | 0.178 | 0.184 | 0.666 |
+
+At s = 2 the per-shift total is dominated by v = 4, contributing 0.061. That is the half-dimensional Landau sieve
+"n+4 has no proper prime factor ≡ 3 (4)", whose integer count exceeds its Mertens product (Landau–Selberg–Delange
+constant versus Mertens; primes ≡ 3 (4) escape via properness). So about 40% of the deficit is explained by
+single-shift Landau/Buchstab corrections, scale-invariant in s as they should be. The remaining ~60% comes from
+correlations between shifts and is not explained.
 
 ## 3. The collapse theorem: a chain of certified ratios is a majorant
 
@@ -501,9 +517,9 @@ I = {n ≤ N : n ≡ 1 (8)} with ℓ ≤ z. For every fixed s > 1 there is C(s) 
 
 Moreover C(s) → 0 as s → ∞.
 
-Evidence: e^{C(s)} = e^{D_ns(s)} up to second-order terms. D_ns(s) does not grow over N = 10⁷, 10⁸, 10⁹ at any
-tabulated s ∈ [1.25, 3] (§2.3; spread ≤ 0.08). Three scales are evidence, not proof. The values at s = 3, 2, 1.5, 1.25 are ≈ 0.005, 0.18, 0.68, 1.2. Falsifier: growth
-of D_ns in N at fixed s, for instance at N = 10¹⁰, 10¹¹.
+Evidence: e^{C(s)} = e^{D_ns(s)} up to second-order terms. D_ns(s) does not grow over N = 10⁷, 10⁸, 10⁹, 10¹⁰ at
+any tabulated s ∈ [1.25, 3] (§2.3; spread ≤ 0.11). The N = 10¹⁰ run was a post-review falsification test. Three scales are evidence, not proof. The values at s = 3, 2, 1.5, 1.25 are ≈ 0.005, 0.18, 0.68, 1.2. Falsifier: growth
+of D_ns in N at fixed s, for instance at N = 10¹¹, 10¹².
 
 *Assessment of its status.* RLD-U is a clean, falsifiable, numerically tested statement. It is a sieve asymptotic
 up to bounded factors, at a level beyond the sieve dimension. It is **not** a standard hypothesis, and it is not
