@@ -36,7 +36,21 @@ Each class is reduced: gcd(u,M)=1. Above n≥3M it supplies v=(n+u)/M≥3. At a 
 
 ## 2. Round 1 — I3-native multiplier atoms
 
-Pending.
+### 2.1 Quadratic supply rules out the requested cubic-supply lemma
+
+**PROVED (elementary scope obstruction; not itself a new exceptional-set bound).** For Y≥8 the sum of Haar probabilities of all distinct D-classes of modulus ≤Y is O(log²Y). Consequently, if K≤X^κ with fixed κ<1/2, q∈(√X,X] is prime, and atoms are any distinct classes `n≡−u mod kq`, with `u|(kq+1)` and t=(kq+1)/u≥3, their total mass is O_κ(log²X). There cannot be conditional mass ≥c(log X)³ on a set of fibres of Haar probability bounded below, or even of probability ≫1/log log X.
+
+*Proof.* The number of labels at M is at most τ(M+1). Divisor hyperbola counting gives `Σ_{M≤z}τ(M+1)≪z log(2z)`; partial summation gives `Σ_{M≤Y}τ(M+1)/M≪log²Y`. A modulus kq≤KX has only one prime factor in (√X,X], since k<√X, so different multiplier labels do not duplicate its q. Summing probabilities gives the assertion. For any conditioning, the average conditional hit count is the original mean. If mass ≥cT³ on a fibre set of probability b, then `b cT³≤CT²`, hence b≪1/T. ∎
+
+**PROVED consequence for the proposed selector.** The standard selector `S_y=1[(n,P_y)=1]`, with y a fixed power of T=log X, has Haar probability `∏_{p≤y}(1−1/p)≍1/log T` (Mertens). Conditional on S_y=1, the mean of the native count is at most `O(T² log T)=o(T³)`. Thus cubic supply on all but an exponentially small proportion of these selector fibres is impossible. This does not exclude another I3 atom family or a non-CRT argument.
+
+**Assessment / exact failure.** Splitting u or t into extra factors produces multiple labels for the same residue, not additional distinct classes. A count with duplicated labels cannot be fed into the independent-Bernoulli Bonferroni argument as though the labels were separate shots. The extra factor in the ES note comes from distinct ratio labels; §8.7 of I3_DEEP_ASTRA explains why those ratios give words of bn instead of n.
+
+### 2.2 First attack on the surviving gap
+
+**Assessment / candidate, not yet a theorem here.** Replace the failed cubic supply by an audit of the full D-universe. For fixed W, pin n≡0 modulo `P_W=∏_{p≤W}p`. All native classes with a prime ≤W in their modulus disappear. The remaining prime coordinates are independent initially, and their capped sequential laws have inflation factors `(1−p^{−1/2})^{−1}`. If the first moment is O(log²y), the KARY block balance is `s²≈λ/s`, giving a 2/3 cap rather than 3/4. This demands a new smooth shifted-divisor estimate and a leak bound uniform in W; they are supplied, or rejected, in Round 2. The abstract comparison theorem is not by itself an arithmetic cap.
+
+**Review status:** hostile cross-model review requested after this section; verdict to be recorded in §6.
 
 ## 3. Round 2 — the surviving transfer gap
 
