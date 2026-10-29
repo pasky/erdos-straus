@@ -391,109 +391,110 @@ conditioning) is the right way to use them.
 
 ## 4. Approach 3: anatomy and the bilinear (e, m) incidence
 
-Verdict: the bilinear (e, m) form is the PD system of \u00a72 summed over n; every L\u00b2 method on it (dispersion, large sieve
-in (e, m), Cauchy\u2013Schwarz) is a second-moment method and stops at N/\u03bc; anatomy controls the *candidates* (divisors of
+Verdict: the bilinear (e, m) form is the PD system of §2 summed over n; every L² method on it (dispersion, large sieve
+in (e, m), Cauchy–Schwarz) is a second-moment method and stops at N/μ; anatomy controls the *candidates* (divisors of
 one integer (n + m)/4 per cofactor m), not their primality or their joint law.
 
-### 4.1 The incidence form and its L\u00b2 ceiling
+### 4.1 The incidence form and its L² ceiling
 
-By Lemma 1.1(b),(e), X(n) = #{words (t, 4e, m) of n with 4et \u2212 1 prime \u2264 N}: each n has C(n) := #{4\u2124-line words of n}
-candidates (mean \u224d c(log N)\u00b2; C(x\u00b2) = 0 by Theorem E), and X(n) counts those whose pivot tu \u2212 1 is prime. Double counting,
-\u03a3_n X(n) = \u03a3_{e,m} #E^{PD}_{e,m}, and \u03a3_n X(n)\u00b2 = \u03a3_{(e,m),(e\u2032,m\u2032)} #(E^{PD}_{e,m} \u2229 E^{PD}_{e\u2032,m\u2032}), where each pair is the binary
-prime problem m p \u2212 m\u2032p\u2032 = 4(e \u2212 e\u2032), p \u2261 \u22121 (4e), p\u2032 \u2261 \u22121 (4e\u2032) (twin-prime type for fixed coefficients, but averaged over
-(e, m, e\u2032, m\u2032), the setting where circle-method/dispersion asymptotics are plausible).
+By Lemma 1.1(b),(e), X(n) = #{words (t, 4e, m) of n with 4et − 1 prime ≤ N}: each n has C(n) := #{4ℤ-line words of n}
+candidates (mean ≍ c(log N)²; C(x²) = 0 by Theorem E), and X(n) counts those whose pivot tu − 1 is prime. Double counting,
+Σ_n X(n) = Σ_{e,m} #E^{PD}_{e,m}, and Σ_n X(n)² = Σ_{(e,m),(e′,m′)} #(E^{PD}_{e,m} ∩ E^{PD}_{e′,m′}), where each pair is the binary
+prime problem m p − m′p′ = 4(e − e′), p ≡ −1 (4e), p′ ≡ −1 (4e′). For fixed coefficients this is of twin-prime type; averaged
+over (e, m, e′, m′) it is the setting where circle-method or dispersion asymptotics are plausible.
 
-**Proposition 4.1 (L\u00b2 ceiling; PROVED for the Haar model, EVIDENCE for integers).** Any bound of the form
-#{X = 0} \u2264 \u03a3_n (X(n) \u2212 \u03bc(n))\u00b2/min_n \u03bc(n)\u00b2 (dispersion; large sieve in (e, m); Tur\u00e1n\u2013Kubilius) is at best \u224d N\u00b7Var X/(E X)\u00b2.
-In the Haar model Var X = \u03a3_\u2113 (w(\u2113)/\u2113)(1 \u2212 w(\u2113)/\u2113) \u2265 E X/2 (classes at one prime are disjoint, classes at distinct primes
-independent), so these bounds are \u226b N/log N. On the integers Var X/E X = 1.05\u20131.12 (\u00a76.2). *Proof.* Var of a sum of
-indicators with the stated covariance structure. \u220e
-So L\u00b2 information on the incidence (exact, even with an asymptotic for the averaged binary problem) gives a
-polylogarithmic saving only. Combined with one-sided higher correlations it gains at most log(K\u2082/(K\u2082 \u2212 1)) (Thm 2.3,
+**Proposition 4.1 (L² ceiling; PROVED for the Haar model, EVIDENCE for integers).** Any bound of the form
+#{X = 0} ≤ Σ_n (X(n) − μ(n))²/min_n μ(n)² (dispersion; large sieve in (e, m); Turán–Kubilius) is at best ≍ N·Var X/(E X)².
+In the Haar model Var X = Σ_ℓ (w(ℓ)/ℓ)(1 − w(ℓ)/ℓ) ≥ E X/2 (classes at one prime are disjoint, classes at distinct primes
+are independent), so these bounds are ≫ N/log N. On the integers Var X/E X = 1.05–1.12 (§6.2). *Proof.* Variance of a sum
+of indicators with the stated covariance structure. ∎
+So L² information on the incidence (exact, even with an asymptotic for the averaged binary problem) gives a
+polylogarithmic saving only. Combined with one-sided higher correlations it gains at most log(K₂/(K₂ − 1)) more (Thm 2.3,
 Prop 2.4).
 
 ### 4.2 Anatomy: candidates versus primes
 
 The m-view (Lemma 1.1(e)) makes the candidates of cofactor m the divisors e of the single integer (n + m)/4 in one class
-mod m. Hall\u2013Tenenbaum/Ford anatomy and Erd\u0151s\u2013Hall (divisors in residue classes) control these divisor sets for one
+mod m. Hall–Tenenbaum/Ford anatomy and Erdős–Hall (divisors in residue classes) control these divisor sets for one
 integer at a time; they are the right tools for C(n), not for X(n). One can split
 
-    P(X = 0) \u2264 P(C(n) \u2264 K) + P(X = 0, C(n) > K),
+    P(X = 0) ≤ P(C(n) ≤ K) + P(X = 0, C(n) > K),
 
-with K = (log N)^{3/2+\u03b4} so that "K candidates, each prime with probability \u224d 1/log N" would give e^{\u2212(log N)^{1/2+\u03b4}} in a
+with K = (log N)^{3/2+δ}, so that "K candidates, each prime with probability ≍ 1/log N" would give e^{−(log N)^{1/2+δ}} in a
 Poisson model. *Blocking (Assessment, with a PROVED count).* (i) The first term is a lower-tail statement for the full
-(composite-pivot) word count. CRT methods see only words with all moduli \u2264 T, log T \u2264 (log N)^{1/3} (the 2/3 exponent of
-lane E), i.e. \u226a (log T)\u00b2 \u2264 (log N)^{2/3} visible words per n, far below K; so (i) also needs depth beyond CRT. (ii) The
+(composite-pivot) word count. CRT methods see only words with all moduli ≤ T, log T ≤ (log N)^{1/3} (the 2/3 exponent of
+lane E), i.e. ≪ (log T)² ≤ (log N)^{2/3} visible words per n, far below K; so (i) also needs depth beyond CRT. (ii) The
 second term is the PD problem with K candidates and falls under Thm 2.3 for one-sided inputs. Anatomy therefore moves
 the difficulty between the two factors without removing it.
 
-**Blocking statement for approach 3 (exact).** The bilinear incidence is the PD system; L\u00b2 methods stop at N/\u03bc
-(Prop 4.1) and one-sided higher information at a constant (Thm 2.3). *Step that fails at squares:* none in the L\u00b2
-bound (squares are a null set). In the anatomy split, squares sit in the first term (C(x\u00b2) = 0), which is why that term,
-unlike the second, must use non-residue information.
+**Blocking statement for approach 3 (exact).** The bilinear incidence is the PD system; L² methods stop at N/μ
+(Prop 4.1), one-sided higher information at a constant (Thm 2.3), two-sided information below the level cap at
+exponent 1/2 (Thm 2.6). *Step that fails at squares:* none in the L² bound (squares are a null set). In the anatomy
+split, squares sit in the first term (C(x²) = 0), which is why that term, unlike the second, must use non-residue
+information.
 
 ## 5. Approach 4: entropy decrement and averaged independence
 
-**Lemma 5.1 (additive-error floor; PROVED, trivial).** If an argument shows |P(X_B = 0) \u2212 P_model(X_B = 0)| \u2264 \u03b7 for some layer
-B, it certifies a saving of at most log(1/\u03b7).
+**Lemma 5.1 (additive-error floor; PROVED, trivial).** If an argument shows |P(X_B = 0) − P_model(X_B = 0)| ≤ η for some layer
+B, it certifies a saving of at most log(1/η).
 
 The averaged-independence technology produces additive errors that are o(1), not exponentially small: the
-Matom\u00e4ki\u2013Radziwi\u0142\u0142 short-interval theorem and the Matom\u00e4ki\u2013Radziwi\u0142\u0142\u2013Tao averaged Elliott bound have errors that are
-powers of log h or log X (or worse), Tao's entropy decrement and Tao\u2013Ter\u00e4v\u00e4inen's odd-order Chowla are qualitative or
-doubly-logarithmic, and all treat a bounded number k of shifts (or averages over one shift). By Lemma 5.1 they certify at
+Matomäki–Radziwiłł short-interval theorem and the Matomäki–Radziwiłł–Tao averaged Elliott bound have errors that are
+powers of log h or log X (or worse), Tao's entropy decrement and Tao–Teräväinen's odd-order Chowla are qualitative or
+doubly logarithmic, and all treat a bounded number k of shifts (or averages over one shift). By Lemma 5.1 they certify at
 most O(log log N) here. Averaging over e is not a substitute for joint control either: by Lemma 3.2 the target is the lower
-tail of one sum X_B, and "independence on average over pairs (e, e\u2032)" is second-moment information (Prop 4.1, N/\u03bc);
-averaged k-wise independence gives the k-th moment, and the moment problem needs k \u2273 M with relative precision e^{\u2212M}
-(\u00a72.3(a)).
+tail of one sum X_B, and "independence on average over pairs (e, e′)" is second-moment information (Prop 4.1, N/μ);
+averaged k-wise independence gives the k-th moment, and the moment problem needs k ≳ M with relative precision e^{−M}
+(§2.3(a)).
 
 **Blocking statement for approach 4 (exact).** Entropy/averaging methods would need (i) a number of simultaneous shifts
-exp((log N)^{1/2+\u03b4}) (the shifts e carrying the top-band mass (log N)^{1/2+\u03b4} in \u00a73.2) and (ii) additive precision
-exp(\u2212(log N)^{1/2+\u03b4}). Present results give k = 2 (or bounded k) and o(1). Nothing in this route is specific to squares;
-the square step is the same as in \u00a72.
+exp((log N)^{1/2+δ}) (the shifts e carrying the top-band mass (log N)^{1/2+δ} in §3.2) and (ii) additive precision
+exp(−(log N)^{1/2+δ}). Present results give k = 2 (or bounded k) and o(1). Nothing in this route is specific to squares;
+the square step is the same as in §2.
 
 ## 6. Numerics and controls
 
 All runs with `ulimit -v 8000000` and timeouts; C source `scripts/z51_dbreak_sieve4.c` (usage `sieve4 N Y`, optional
 `DUMP=file`), Python `scripts/z51_dbreak_controls.py`, `scripts/z51_dbreak_xcheck.py`.
 
-### 6.1 Census of the 4\u2124-line prime family (CERTIFIED)
+### 6.1 Census of the 4ℤ-line prime family (CERTIFIED)
 
-* Independent cross-check: the brute-force e-view enumeration (factor n + 4e for e \u2264 (n + 3)/8) and the sieve agree
-  exactly on A_N at N = 2\u00b710\u2074 (160 avoiders, 70 of them squares; `data/z51_dbreak/xcheck_alive_N20000.txt`). The
-  t-view (\u2113 | tn + 1, \u2113 \u2261 \u22121 (4t)) agrees with the e-view on every control below 3000 (Lemma 1.1(c)).
-* No square was ever hit (the sieve reports any square hit on stderr; none occurred at N = 10\u2077, 10\u2078, 10\u2079).
-* #(A_N \u2216 \u25a1) = 2 457, 6 836, 17 886 at N = 10\u2077, 10\u2078, 10\u2079 (squares 1 580, 4 999, 15 810), i.e. density
-  1.97\u00b710\u207b\u00b3, 5.47\u00b710\u207b\u2074, 1.43\u00b710\u207b\u2074 of I: slope \u22120.57 in log N.
+* Independent cross-check: the brute-force e-view enumeration (factor n + 4e for e ≤ (n + 3)/8) and the sieve agree
+  exactly on A_N at N = 2·10⁴ (160 avoiders, 70 of them squares; `data/z51_dbreak/xcheck_alive_N20000.txt`). The
+  t-view (ℓ | tn + 1, ℓ ≡ −1 (4t)) agrees with the e-view on every control below 3000 (Lemma 1.1(c)).
+* No square was ever hit (the sieve reports any square hit on stderr; none occurred at N = 10⁷, 10⁸, 10⁹).
+* #(A_N ∖ □) = 2 457, 6 836, 17 886 at N = 10⁷, 10⁸, 10⁹ (squares 1 580, 4 999, 15 810), i.e. density
+  1.97·10⁻³, 5.47·10⁻⁴, 1.43·10⁻⁴ of I: slope −0.57 in log N.
 
 ### 6.2 Poisson behaviour of the large layers (EVIDENCE)
 
-Variance/mean of the number of events with \u2113 > Y, over non-squares:
+Variance/mean of the number of events with ℓ > Y, over non-squares:
 
 | N | Y | mean | var/mean (all) | mean, var/mean (small layer avoided) |
 |---:|---:|---:|---:|---:|
-| 10\u2079 | 10\u00b3 | 7.17 | 1.05 | 6.48, 1.19 |
-| 10\u2078 | \u221a(2N) | 4.25 | 1.12 | 3.47, 1.20 |
-| 10\u2079 | \u221a(2N) | 4.99 | 1.12 | 4.20, 1.20 |
+| 10⁹ | 10³ | 7.17 | 1.05 | 6.48, 1.19 |
+| 10⁸ | √(2N) | 4.25 | 1.12 | 3.47, 1.20 |
+| 10⁹ | √(2N) | 4.99 | 1.12 | 4.20, 1.20 |
 
 The large layers are close to Poisson, mildly over-dispersed; conditioning on the small layer lowers the mean and raises
-the dispersion (positive dependence through the quadratic profile). The top-band lower tail is tabulated in \u00a73.2.
+the dispersion (positive dependence through the quadratic profile). The top-band lower tail is tabulated in §3.2.
 
 ### 6.3 Controls (`data/z51_dbreak/controls.json`)
 
-| n | events R(n) | top-band events | least event prime | n \u2208 A_N |
+| n | events R(n) | top-band events | least event prime | n ∈ A_N |
 |---|---:|---:|---:|---|
-| odd squares 9 \u2026 998001 | 0 | 0 | \u2014 | yes (Lemma 1.2) |
-| 105, 2961, 3985, 25305, 111969, 978145 (the U failures) | 0 | 0 | \u2014 | yes |
-| 193, 2521, 3361, 9601, 66529 (hard primes) | 0 | 0 | \u2014 | yes |
+| odd squares 9 … 998001 | 0 | 0 | — | yes (Lemma 1.2) |
+| 105, 2961, 3985, 25305, 111969, 978145 (the U failures) | 0 | 0 | — | yes |
+| 193, 2521, 3361, 9601, 66529 (hard primes) | 0 | 0 | — | yes |
 | 409, 577, 5569, 8813281 (hard primes) | 2, 3, 2, 5 | 1, 2, 0, 2 | 7, 7, 47, 191 | no |
 | R-zeros 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201, 5212561 | 4, 2, 3, 2, 2, 7, 2, 1, 4 | 1, 2, 2, 1, 1, 3, 2, 1, 3 | 7, 7591, 23, 71, 23, 7, 5147, 5279, 503 | no |
 | 17, 241 (numerator 8) | 2, 3 | 1, 1 | 3, 7 | no |
 
-Readings. Five of the nine hard primes avoid the whole 4\u2124-line prime family; an exceptional-set statement must allow
+Readings. Five of the nine hard primes avoid the whole 4ℤ-line prime family; an exceptional-set statement must allow
 such survivors, and nothing here is pointwise. Several R-zeros are hit only in the top band (83449, 1724209, 1726201),
 which is the layer of Cor 3.3. Numerator 8: none of the statements here is pointwise or transfers to 8/n; the barrier
 theorems are family-agnostic upper-bound statements, and Cor 3.3 is an inclusion of avoider sets, so there is nothing to
-falsify at 17 or 241 (both are in fact hit by 4\u2124-line prime events for 4/n).
+falsify at 17 or 241 (both are in fact hit by 4ℤ-line prime events for 4/n).
 
 ## 7. Hostile reviews
 
