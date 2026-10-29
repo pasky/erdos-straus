@@ -1,17 +1,19 @@
-# EXSET_BEYOND_CRT — breaking the CRT-architecture barrier for the ES / ES₅ exceptional set
+# EXSET_BEYOND_CRT — the CRT-architecture barrier (audit; word-class ceiling 2/3 and its attainment at primes; no barrier broken) for the ES / ES₅ exceptional set
 
 Wave z50, lane (A), slug `ncrt`. ES is OPEN; nothing here claims otherwise.
 Scripts: `scripts/z50_ncrt_*`; data: `data/z50_ncrt/`.
 
-## §0 Summary table (filled in as sections land)
+## §0 Summary table (one-line verdict: no CRT barrier is broken; the U/ES5 word-class architecture is capped at 2/3 and attained at primes)
 
 | # | Claim | Label | Section | Hostile review |
 |---|-------|-------|---------|----------------|
-| 0.1 | Round-1 audit: union of barred method classes | (pending) | §1 | (pending) |
-| 0.2 | ES₅ / U certificate classes ⊂ KARY2 mixture? | (pending) | §1.3 | (pending) |
-| 0.3 | Open doors, two chosen | (pending) | §1.4 | — |
-| 0.4 | Round-2 attack | (pending) | §2 | (pending) |
-| 0.5 | Round-3 attack / barrier theorem | (pending) | §3 | (pending) |
+| 0.1 | Round-1 audit: union of barred method classes (Thm 1.1) and the comparison-measure definition of "non-CRT" | conjunction of PROVED internal results; Assessment for the operational definition | §1 | (pending) |
+| 0.2a | Word-class certificate families are not K2 families as parametrised families (Prop 1.2); set containment undecided (EVIDENCE for small moduli) | PROVED / EVIDENCE | 1.3 | review 1: SOUND-WITH-REPAIRS (D1-D3 applied) |
+| 0.2b | Theorem 2.1: supply exponent beta gives cap lambda^{beta/(beta+1)}; Cor 2.5: word-class architecture for U/ES5 (all groupings, non-reduced pair classes, selectors) capped at lambda^{2/3}(log lambda)^{2/3}, M1/M2/L1/C transferred | PROVED given K2/EK (after repairs D4-D10) | 2 | review 1: MAJOR, repaired (scope narrowed); review 2 below |
+| 0.2c | Theorem 3.1: #{p <= N : U(p) fails} and #{p <= N : ES5(p) fails} << N exp(-c(log N)^{2/3}), no log log loss; also y-rough n, short intervals | PROVED rel. BV, BT (adaptation of I3_DEEP_ASTRA 8.8 / lane E 7.3) | 3 | review 1: SOUND-WITH-REPAIRS |
+| 0.4 | Divisor switching: min modulus <= (2n+4)^{2/3} (Prop 4.1), bounded mass factor (Prop 4.2), switched detectors capped (Thm 4.3); residual of door D1 = door D2 | PROVED / Assessment | 4 | review 2 |
+| 0.5 | Primes (door D7) | Assessment, no new barrier | 4.3 | review 2 |
+| 0.3 | Open doors D1-D8 in my words; chosen: D8 (class universe) and D1 (divisor switching) | Assessment | §1.4 | — |
 
 ## §1 Round 1 — exact audit
 
@@ -538,8 +540,47 @@ Verdict for D7: no prime-specific input applies to a log^2-mass covering system 
 * **Numerator 8.** The word identities need 4 | slot; the m/n analogue changes the slot condition, and finitely many
   8/n exceptions (11, 17, 131, 241) are consistent with any density statement.
 
-## §4 Numerics and controls
+## §5 Numerics and controls (all EVIDENCE/CERTIFIED, finite scope)
 
-## §5 Hostile reviews (verdicts)
+| script | what | result |
+|---|---|---|
+| `z50_ncrt_identities.py` | five certificate identities + ET parameters on 200 000 random words; R-class and Case-A memberships; U-atom word identity | 0 failures (algebraic checks; the U predicate itself is not checked there) |
+| `z50_ncrt_k2contain.py 400 400 100000` | endpoint 4\|u, 4\|tu-1 subclasses vs K2 classes | 392 instances / 318 classes; 299 inside one K2 class; rest covered below 10^5 |
+| `z50_ncrt_uatoms.py 2e7 X 21 1e6`, X = 300, 1000, 3000 | toy U-atoms: actual avoid fraction of primes p = 1 (4) vs prime-Haar CRT prediction | 0.0952/0.0958, 0.0738/0.0726, 0.0397/0.0382; 0 odd squares hit |
+| `z50_ncrt_switch.py 20000 21000` | Prop 4.1, 4.2 | max ratio 0.616; switching ratio 1.25-1.51 |
+| reviewer's independent script | identities for all t,u,v <= 24, K2 coincidences, exact toy CRT void 765/1463 | agrees |
 
-## §6 Remaining gap
+The toy comparison is a check that the CRT computation in Theorem 3.1's proof models actual primes at small depth; it
+does not test the asymptotic supply theorem (relaxed toy parameters: w >= 1, K = 21). An earlier version of the toy
+model counted atoms instead of distinct classes mod l and was off by a factor 2; fixed before any claim was made.
+
+## §6 Hostile reviews (verdicts)
+
+* **Review 1** (Astra, `openai-codex/gpt-6-astra`, deep; the `:high` suffix was not resolvable, same model without
+  suffix used; `reviews/z50-ncrt-review-1.md`). Overall MAJOR revision, *not* rejection: the quadratic-supply
+  construction and the prime U/ES5 bound survive; the problem-wide reading of the cap and the W-uniformity
+  interface did not. Defects D1-D14 and their repairs: D1 exclusivity wording (fixed, coincidences listed); D2
+  census counting (fixed); D3 U definitions, even endpoint branch, finite prefix (fixed); D4 W-uniformity of (iii)
+  (hypothesis added to Thm 2.1 and verified for words in Lemma 2.4); D5 selectors vs (i) (separated); D6, D7
+  elementary slips in Lemmas 2.3, 2.4 (fixed); D8 cap for one universe promoted to a problem (re-scoped: word-class
+  architecture only, universe exhaustion OPEN); D9 transfers (only M1, M2, L1, C claimed); D10 sharpness (qualified);
+  D11 prefix terms, ES5 at p = 3 (4) (added); D12 prior work (I3_DEEP_ASTRA 8.7-8.8, line 146; lane E 7.3 cited;
+  novelty reduced to the removal of the log log loss at primes); D13 door examples (fixed); D14 labels, script
+  description, title (fixed).
+* **Review 2**: see below (requested after the repairs and Section 4).
+
+## §7 Remaining gap (exact)
+
+1. **No CRT barrier was broken.** Targets 1-3 are not reached for ES, ES5 or U. What is new: a supply-exponent
+   cap (Thm 2.1) whose application to the full word universe (all groupings, non-reduced pair classes, with
+   selectors) gives the 2/3 ceiling of the word-class architecture (Cor 2.5), complementing lane E's zero-base cap;
+   and its attainment at primes without the log log loss (Thm 3.1).
+2. **Universe exhaustion (open).** Is there a U- or ES5-forcing class universe (coverings, alternative identities)
+   with cubic supply? If yes, CRT methods could reach 3/4 for U/ES5; if every U/ES5-forcing progression is covered
+   by finitely many word classes of polynomially related modulus, the 2/3 ceiling is the ceiling for all CRT
+   methods for U/ES5. The K2-containment census (Section 1.3) is the kind of computation that would test this.
+3. **Door D1** reduces to door D2: exact r-point correlations of restricted divisor functions along shifts, for
+   r of order (log N)^theta / log log N. Hyperbola / Type I-II technology stops at r = 2 (r = 3 on average).
+4. **Door D7** (primes): no prime-specific input found that is not already inside (P), (L) or the moment caps.
+5. **For lane-level bookkeeping:** for U and ES5 the honest Target 3 is "beat 2/3", which needs a non-CRT input of
+   one of the open types D2-D6, or a cubic-supply forcing universe (item 2).
