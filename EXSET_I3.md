@@ -2,7 +2,7 @@
 
 ## 0. Status and summary
 
-**Outcome: new scoped barrier, not an improved exceptional-set upper bound.** ES and Conjecture I3 remain open. The known log-loss 2/3 I3 bound is optimal in the native whole-avoider coefficient-sum CRT architecture, up to constants. Three rounds of cross-model review found no fatal or major defect; minor repairs are incorporated.
+**Outcome: new scoped barrier and U/ES₅ transfer; no improved I3 exceptional-set bound.** ES and Conjecture I3 remain open. The known log-loss 2/3 I3 bound is optimal in the native whole-avoider coefficient-sum CRT architecture, up to constants. Section 7 transfers both the cap and that upper-bound order to the native U/ES₅ presentation on n≡1 mod4. Four cross-model reviews found no fatal or major defect; minor repairs are incorporated.
 
 | Item | Status | Result / exact gap |
 |---|---|---|
@@ -10,10 +10,11 @@
 | Round 1: native multiplier atoms | PROVED / reviewed | Quadratic mass rules out cubic supply, including the standard selector. |
 | Round 2: transfer / I3 cap | PROVED / reviewed | Native whole-avoider CRT cap C(log N)^{2/3}, superseded by Round 3. |
 | Round 3: optimal cap | PROVED / reviewed | Cap C(log N)^{2/3}/(log log N)^{1/3}, matching the known native upper bound. |
-| Beyond CRT / ES port | OPEN / scoped negative | Noncoprime endpoint events escape the base; interval error and colour-compatible transport remain missing. |
+| U/ES₅ follow-up (§7) | PROVED / reviewed | Matching native log-loss 2/3 cap and exceptional upper bound; boundary levels and colour handled. |
+| Beyond native CRT | OPEN | Noncoprime endpoint-pair presentations and non-CRT interval information remain outside the cap. |
 | Independent numerical checks | CERTIFIED, finite scope | 104 zeros through 5,000; largest zero separately; controls and truncated avoiders. |
 | Literature after 2025 | CHECKED, limited search | PW v2 / Pomerance 2026 slides retain 2/3; September 2026 candidate is withdrawn. |
-| Hostile reviews | SOUND after minor repairs | Three Opus deep reviews; exact `:high` identifier unavailable, same model without suffix used. |
+| Hostile reviews | SOUND after minor repairs | Four Opus deep reviews; exact `:high` identifier unavailable, same model without suffix used. |
 
 ## 1. Source audit and scope
 
@@ -383,7 +384,7 @@ R2 re-derived the cited KARY/ETw comparison inputs and the Shiu moment bounds. R
 
 **PROVED, relative to the named classical and internally proved inputs:** every native whole-avoider coefficient-sum CRT method has saving at most `C_A(log N)^{2/3}/(log log N)^{1/3}`. The previous native I3 exceptional-set proof attains that order. This is a new I3 barrier theorem for a family not covered by the ES forced-class caps; it does not claim a cap for the full union of the ES and I3 class universes. The crucial new arithmetic is the zero base and rough shifted-divisor mass. The arithmetic-free comparison is inherited.
 
-**NOT ACHIEVED:** no new exceptional-set upper bound, no 3/4 exponent, no power saving, no removal of the log-log loss for actual I3 exceptions, and no positive ES₅/U port.
+**NOT ACHIEVED:** no improved I3 exceptional-set upper bound, no 3/4 exponent, no power saving, and no removal of the log-log loss for actual exceptions. The original negative ES₅/U port assessment is superseded by §7, which transfers the existing upper-bound order.
 
 **OPEN, exact gap:** use noncoprime endpoint events or another non-native class family with a proved transfer, prove genuinely non-CRT signed interval information beyond coefficient-wise O(1) errors, or handle smooth inputs without the false I3 scaling rule. For ES₅/U, additionally enforce the colour/slot restriction; an unrestricted interior word is insufficient. The cap rules out none of these doors.
 
@@ -393,13 +394,13 @@ R2 re-derived the cited KARY/ETw comparison inputs and the Shiu moment bounds. R
 
 ### 7.1 Boundary levels, colour and the relevant class universe
 
-**PROVED dictionary / scope.** Work on n≡1 (mod4). Define ES₅ at composite inputs by existence of a positive word with a 4-divisible slot, equivalently a coordinate in 𝒞_n; no coprimality is needed for this slot/coordinate equivalence (LOWERTAIL_ROUND2_FABLE Theorem 1). The Jacobi interpretation additionally requires gcd(n,uv)=1. U uses an endpoint in 𝒞_n and its proper-divisor convention. For fixed t,u≥1 put A=tu−1. When A≥2, every possible word lies in `n≡−u mod A`, where u|A+1 and gcd(u,A)=1. There are at most τ(A+1) labels, including t=1,2 and u=1,2; duplicate residues are discarded. The case A=0 gives n=−1. If A=1, (t,u) is (1,2) or (2,1); at n≡1 mod4 neither word has a certificate slot. Thus no certificate is lost by A≥2.
+**PROVED dictionary / scope.** Work on n≡1 (mod4). Define ES₅ at composite inputs by existence of a positive word with a 4-divisible slot, equivalently a coordinate in 𝒞_n; no coprimality is needed for this slot/coordinate equivalence (LOWERTAIL_ROUND2_FABLE Theorem 1). The Jacobi interpretation additionally requires gcd(n,uv)=1. Precisely, U means that some endpoint u∈𝒞_n has a divisor A of n+u with A≡−1 mod u and `1<A<n+u`; its partner v=(n+u)/A is then >1. For fixed t,u≥1 put A=tu−1. When A≥2, every possible word lies in `n≡−u mod A`, where u|A+1 and gcd(u,A)=1. There are at most τ(A+1) labels, including t=1,2 and u=1,2; duplicate residues are discarded. The case A=0 gives n=−1. If A=1, (t,u) is (1,2) or (2,1); at n≡1 mod4 neither word has a certificate slot. Thus no certificate is lost by A≥2.
 
 The endpoint/coordinate predicates are determined by n mod 8A: v=(n+u)/A mod8 is determined there. Retain exactly those of the at most eight refinements of each native class which have n≡1 mod4 and satisfy the U or ES₅ predicate. Positivity and U's proper-divisor requirement hold sufficiently far along each retained class; finite initial points are not used as certificates. Every genuine U/ES₅ word is represented in this universe. In particular the family has at most 8τ(A+1) classes of modulus 8A, and each retained class is reduced at every odd prime dividing A. This is a statement about the native congruence presentation; it does not identify every possible sufficient congruence for U or ES₅ with this presentation.
 
 ### 7.2 Corollary — the matching cap transfers on n≡1 mod4
 
-**Corollary 7.1 (PROVED relative to the inputs of Theorem 4.1; pending hostile review).** Let F be any finite family of the U or ES₅ refinements just defined, or any mixture of them. Let ν be a finite congruence combination, nonnegative on n≡1 mod4 and ≥1 on the entire F-avoider set in that progression. Measure its level above the same fixed W₀ as before. Then
+**Corollary 7.1 (PROVED relative to the inputs of Theorem 4.1; Opus review SOUND).** Let F be any finite family of the U or ES₅ refinements just defined, or any mixture of them. Let ν be a finite congruence combination, nonnegative on n≡1 mod4 and ≥1 on the entire F-avoider set in that progression. Measure its level above the same fixed W₀ as before. Then
 
 `log(1/E₁ν) ≪ λ^{2/3}/(log λ)^{1/3}`,
 
@@ -409,7 +410,7 @@ where E₁ is Haar mean conditional on n≡1 mod4. Consequently the same coeffic
 
 In §§3–4 use Γ(2^a)=8, Γ(p^a)=1 for odd p≤W, and the previous capped factor above W. The single fixed Euler factor at 2 changes only absolute constants: h(2)=7, while h(p)≤2p^{−1/2} for p>2. In the local-moment tail bound, its factor `1+7·2^{1/4}` replaces at most one factor bounded by 2. Refining modulus A to 8A and taking at most eight labels per divisor likewise costs only constants in the first and second moments. The cofactor sums are the same sums with the fixed factor 8 removed from the cofactor. Lemma 4.2 now sieves only odd primes ≤W; q may be even, and its proof is unchanged since q is coprime to all the sieved primes. Hence the smooth first moment remains `O(log²W+log²y/log W)`, and the leak bound stays uniform in W. Take W=⌊√λ⌋ and repeat §4.4. Extending ν by zero off n≡1 mod4 multiplies it by a fixed modulus-4 selector and changes neither its charged level nor its coefficient-sum order; Eν=E₁ν/4. The projection/coarsening argument then proves the integer-count version. ∎
 
-**Contrast and qualification.** This is a 2/3 cap for native U/ES₅ whole-avoider CRT methods, even allowing t=1,2, arbitrary balanced moduli, and the colour refinements. ES's internal 3/4 upper bound uses the larger Vaughan **ratio** family and a rough-input selector followed by multiplicative scaling; neither is included in this corollary. There is no contradiction. Nor does Corollary 7.1 cap methods restricted only to prime inputs: its odd-prime zero base is not a unit base. A square base is available for a separate prime-law audit, but that stronger scope is not claimed here.
+**Contrast and qualification.** This is a 2/3 cap for native U/ES₅ whole-avoider CRT methods, even allowing t=1,2, arbitrary balanced moduli, and the colour refinements. ES's internal 3/4 upper bound uses the larger Vaughan **ratio** family and a rough-input selector followed by multiplicative scaling; neither is included in this corollary. There is no contradiction. Nor does Corollary 7.1 cap methods restricted only to prime inputs: its odd-prime zero base is not a unit base. A square base is available for a separate prime-law audit, but that stronger scope is not claimed here. Nor are all endpoint-pair presentations covered: u=12,v=3 gives n≡21 mod36, and its refinement n≡57 mod72 meets the new base (n≡1 mod8, n≡0 mod3). These are U certificates for all sufficiently large n in that progression, but their non-reduced endpoint modulus is outside Corollary 7.1. Thus the §4.5 alternative-presentation door remains open for U/ES₅ too.
 
 ### 7.3 The §8.8 upper bound transfers as well
 
@@ -420,3 +421,5 @@ In §§3–4 use Γ(2^a)=8, Γ(p^a)=1 for odd p≤W, and the previous capped fac
 *Proof sketch with exact change.* In I3_DEEP_ASTRA Lemma 8.7 and Theorem 8.8 retain only atoms with u≡0 mod4. The multiplier set B consists of y-rough k≤K (including 1), hence all k are odd. On the fibre c, active labels satisfy u≡−c mod k and u≡0 mod4. For (c,k)=1 this is one progression modulo 4k, so its harmonic mass is `log(z/U₀)/(4k)+O(U₀^{−1})`; the reciprocal-totient upper sum is bounded by the old unrestricted one. The lower BV main term is therefore still ≫x h(J_c) per prime block, up to an absolute factor, and the BV error is at most the original weighted error because the incidence function is only reduced. The prime progression q≡−k^{-1} mod u is reduced, since the active u is coprime to the odd k. Same-q distinctness and conditional independence are unchanged. Thus μ_c≍T h(J_c), with the same exceptional-fibre estimate, factorial-moment bound, even Bonferroni majorant and coefficient ledger `exp(O(T³/log T))` as §8.8. Every hit above n≥3KX has t,u,v≥3 and 4|u, hence is a U and ES₅ certificate at n≡1 mod4. Discarding the N^{o(1)} onset and choosing `T=α(log N log log N)^{1/3}` proves the estimate. No I3 scaling or arbitrary-word colour transfer is used.
 
 **Assessment.** This is a transfer of the existing upper-bound architecture, not an exponent improvement. Together with Corollary 7.1 it identifies the optimal order for that native presentation of U/ES₅, up to constants. Squares remain exceptions but √N is smaller than this upper bound. The previous blanket statement in §4.6 that no U/ES₅ upper bound was available to port was too pessimistic: forcing the endpoint 4|u preserves the needed supply.
+
+**Follow-up checks and review.** The saved script now enumerates the boundary labels and all eight partner-residue refinements for A≤128, checks persistence under n↦n+8A, checks elimination of pure-2-power certificate classes by the square base, and verifies toy 4|u multiplier witnesses. This extends the tests rather than repeating the existing mod-8 slot-equivalence census. Opus R4 reviewed commit `75ae2abe` and returned SOUND with no fatal/major issue; its two minor requests (define U's proper-divisor convention and make the alternative endpoint presentation explicit) are incorporated. Review session: `2026-10-29T15-18-29-967Z_01a1883d-bd4f-7257-8abe-3306daaaf3ed.jsonl`, same model/deep-mode convention as §6.2. All changes remain committed on `side-agent/z50-i3ex`; await the parent, do not merge without instruction.

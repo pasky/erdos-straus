@@ -240,6 +240,9 @@ for k, q, u in atoms:
         assert n % 4 == 1 and u % 4 == 0
         port_checks["endpoint4_atoms"] += 1
 assert port_checks["t1"] and port_checks["t2"] and port_checks["endpoint4_atoms"]
+# The endpoint-pair presentation is genuinely outside the zero-base check.
+assert 2 * 12 * 3 - 12 - 3 == 57
+assert 57 % 8 == 1 and 57 % 3 == 0 and 57 % 36 == 21
 
 result = {"port_checks": port_checks, "mass_profile": profile, "smooth_partial_sums_to_Y": smooth,
           "rough_native_mass_to_Y": rough_mass, "rough_progressions_toy": rough_progressions,
