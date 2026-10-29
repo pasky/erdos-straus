@@ -4,14 +4,14 @@
 
 **Outcome: PARTIAL / negative for the intended exceptional-set advance.** ES remains open. Four rounds were written, tested, committed and cross-reviewed. No new exceptional-set estimate is proved. The universal constant-square-root-error Janson bound is false; a true one-big-prime hybrid retains a costly truncation probability. Exact low-order distribution, even for prescribed ES labels, does not itself justify a nonlinear transfer.
 
-**Novelty boundary.** The translated-square refinement is a modest generic counterexample. The large-sieve formula, pairwise/r-wise constructions and LP duality are classical tools or consequences of the existing ledger. None is presented as a new ES-specific barrier strictly stronger than (D)17–(D)29.
+**Novelty boundary.** The translated-square refinement is a modest generic counterexample. The large-sieve formula, pairwise/r-wise constructions and LP duality are classical tools or consequences of the existing ledger. None is presented as a new ES-specific barrier strictly stronger than (D)17–(D)29. **Late parent update imported, not re-proved:** lane E's `EXSET_I3.md` establishes the native U/ES₅/I3 cap λ^{2/3}/(log λ)^{1/3} and the matching U/ES₅ exceptional bound; see §§1,5 below.
 
 | Round | Target | Status | Review |
 |---|---|---|---|
 | 1 | Universal AJ with O(√N) remainder | Refuted; √N log log N required in a generic family | Opus SOUND, minors repaired |
 | 2 | One-big-prime truncated hybrid | Classical exact formula; no exponent gain | Opus SOUND, minors repaired |
 | 3 | Nonlinear marginal-only inference; fixed ES labels | Refuted for abstract distributed sequences; no actual-interval cap | Opus SOUND in two reviews |
-| Final | Exponents, controls, exact surviving gap | No new ES/ES₅/U exponent; controls pass | Final audit pending |
+| Final | Exponents, controls, exact surviving gap | No new ES/ES₅/U exponent; controls pass | Opus SOUND; five reviews total |
 
 Labels used: PROVED, CONDITIONAL (named hypothesis), CERTIFIED (finite computation), EVIDENCE, CONJECTURE, Assessment. All advances require hostile cross-model review before acceptance.
 
@@ -30,6 +30,8 @@ Here C,K are absolute and a useful proposed error is R=N^{1/2+o(1)}; first test 
 **Certificate-class audit.** In covering coordinates n=(tu−1)v−u, put A=tu−1. If 4|t, then A≡3 (4), u|(A+1)/4, and −u is an ℛ(A) label (take reduced ratio u/1 in LS7 Lemma 1.1). If 4|u, write u=4d: A=4td−1 and −u=−4d is an ℛ(A) class because d|((A+1)/4)². If 4|A, write A=4m: −u mod4m, u|4m+1, refines a Type-I Case-A class with d=m at its actual modulus 4g(m), g(m)=∏p^{⌈v_p(m)/2⌉}; use the complementary divisor (4m+1)/u to write the Case-A inverse label. Swap u,v for the other two slots. Thus every five-slot (ES₅) certificate has a forced-class encoding of one of the capped types. This is an encoding of witnesses, NOT a claim that every endpoint event is literally the same atom at the same modulus: refinements/unions and positivity ranges must be retained. In particular, a cap for a re-encoded family must be applied at its actual level. The one-big-prime Type-II family is directly in the ledger; no unverified transfer of its exponent to U will be made.
 
 **Literature check (Assessment, 2026-10-29).** A live search for “Erdos Straus exceptional set 2026 Vaughan Pomerance Weingartner” located Pomerance–Weingartner, *Exceptions to the Erdős–Straus–Schinzel conjecture*, Ramanujan J. 69, 31 (2026), https://arxiv.org/abs/2511.16817, and the March 2026 Pomerance talk slides https://math.dartmouth.edu/~carlp/esconjfl.pdf (search hit only). Visited https://arxiv.org/html/2511.16817v2: §4 proves the 2/3 bound by the truncated large-sieve Euler product, with mass ≍log²X for the full Vaughan prime classes. No newer stronger published exceptional-set estimate was located. This limited search is not an exhaustive literature certification. Note the distinction from the *prime-coordinate forest subfamily*, whose mass is only ≍log X; the full Vaughan ℛ(ℓ) family has log²X mass. No OAI-003 hypothesis is used here.
+
+**Late z50 audit update (PROVED in lane E, imported).** After the fifth review, the parent supplied binding CONTEXT §6 and `EXSET_I3.md` §§3–4,7 on main; these were read. Its native classes n≡−u (mod tu−1), including t=1,2 and the U/ES₅ mod-8 refinements, have only quadratic supply. Corollary 7.1 caps their whole-avoider CRT majorants at Cλ^{2/3}/(log λ)^{1/3}. Section 7.3 proves E_ES₅(N)≤E_U(N)≪N exp(−c(log N)^{2/3}/(log log N)^{1/3}) on n≡1 (4). The sources are internal, Opus-reviewed SOUND, relative to the inputs named there; this lane neither re-proves nor claims them. The cap does not cover prime-only laws (its odd zero base is nonunit), rough selectors excluded by its hypotheses, or every non-reduced endpoint-pair presentation. The example u=12,v=3, n≡21 mod36, with refinement n≡57 mod72, is an explicit uncovered presentation. Accordingly the native benchmark is 2/3, not 3/4; ES obtains 3/4 via the larger Vaughan ratio class family.
 
 ## 2. Round 1: universal hybrid
 
@@ -173,6 +175,8 @@ Thus a residue pins two coordinates once the third is chosen. This controls coll
 
 The right side is exactly the CRT-majorant problem, since ν≥1_avoid includes global nonnegativity. KARY3 Theorem 4.1 therefore supplies an EXACT-marginal law on the left with avoidance ≥exp(−Cλ^{3/4}) for its forced families. This explains why arbitrary nonlinear manipulation of ONLY these residue moments cannot escape. It is dual packaging of an existing result (compare INTERFREQ §3.1's moment LP), not a new independent barrier theorem. Interval support is absent on the left; imposing it is precisely the unproved extra input, not a technicality.
 
+**Imported sharper native-family update.** In precisely the whole-avoider/progression scope of EXSET_I3 Corollary 7.1, the same LP dual packaging uses the stronger cap Cλ^{2/3}/(log λ)^{1/3}, with E_CRT replaced by conditional Haar mean on n≡1 mod4. This supersedes the 3/4 comparison for that native U/ES₅ presentation. It is not a prime-unit cap and does not include the non-reduced endpoint-pair example recorded in §1.
+
 ### 4.3 Fresh literature check and a possible but insufficient nonlinear tool
 
 **CLAIMED external result, not used as an input.** A second live search located Croot–Mao–Pohoata–Yip, *A sharp inverse theorem for the quadratic large sieve*, arXiv:2607.15311v2 (September 2026), https://arxiv.org/html/2607.15311v2, whose full displayed argument was inspected. It uses positive quadratic-character mixtures and Jensen without assuming independence of the set's residues. Theorem 1.7 states that |A mod p|<(p+1)/2 for odd p≤(log N)^3 forces a quadratic intersection of size at least
@@ -219,9 +223,15 @@ For maxδ_i≤1/16 and m≥17, Bertrand's postulate permits q∈[m,2m] and b=⌊
 
 **PROVED / existing baseline.** For E(N), the internal, unrefereed `paper/es-threequarter-note.tex` remains E(N)≪N exp(−c(log N)^{3/4}); the prime exceptional count is bounded by the same quantity by inclusion. This attempt improves neither. Theorem 3.1 supplies a true bound for arbitrary one-big-prime families with an affordable common smooth period, but its application with the existing ES supply recovers older sieve ranges only. It does not transfer the cubic CRT mass to L=(log N)^{1/3}.
 
-**Scope for ES₅ and U.** Do not infer their exceptional counts from E(N): ES₅⇒ES, U⇒ES₅, so the exception inclusions go in the opposite direction. A Type-II identity used in the 3/4 note is not automatically a U certificate. Theorem 3.1 bounds any explicitly specified certificate subfamily through its actual μ_c, Λ_c and s; this document proves no new uniform mass theorem for affordable U or ES₅ fibres. Hence it reports **no new numerical exponent for E_ES₅(N), E_U(N), or their prime variants**, rather than relabelling the ES 3/4 result.
+**Scope for ES₅ and U.** Do not infer their exceptional counts from E(N): ES₅⇒ES, U⇒ES₅, so the exception inclusions go in the opposite direction. A Type-II identity used in the 3/4 note is not automatically a U certificate. Theorem 3.1 bounds any explicitly specified certificate subfamily through its actual μ_c, Λ_c and s; this document proves no new uniform mass theorem for affordable U or ES₅ fibres. Hence it proves **no new numerical exponent for E_ES₅(N), E_U(N), or their prime variants**, rather than relabelling the ES 3/4 result.
 
-**Elementary fully periodic version (PROVED, standard, not an advance).** For arbitrary composite event moduli with common period M, a proved CRT avoidance bound δ≤exp(−μ+KΔ) gives
+**PROVED / newly imported baseline from lane E.** EXSET_I3 §7.3 now supplies, on n≡1 mod4,
+
+    E_ES₅(N) ≤ E_U(N) ≪ N exp(−c(log N)^{2/3}/(log log N)^{1/3}).
+
+The corresponding prime counts satisfy the same upper bound by inclusion. By Corollary 7.1 this is optimal up to constants for the stated native whole-avoider CRT presentation, not for all possible presentations or prime-only proofs. Thus θ>2/3 is already a genuine target for U/ES₅/I3 in that setting. The unknown transfer here is not needed to recover this baseline, and the result is credited entirely to lane E.
+
+**Elementary fully periodic version (PROVED, standard, not an advance).** For arbitrary composite or prime-power event moduli with common period M, SUPPOSE a CRT avoidance bound δ≤exp(−μ+KΔ) has been proved under the appropriate model hypotheses (it is not automatic from first/second moments). Then
 
     S_N ≤ (N+M) exp(−μ+KΔ).                            (5.1)
 
@@ -229,7 +239,7 @@ Indeed there are Mδ surviving residue classes, each met at most N/M+1 times. In
 
     S_pr(N) ≤ [2N/log(N/M)] δ_unit + ω(M),              (5.2)
 
-where primes dividing M are handled separately. Thus a common polynomial period is enough; a bound on EACH event modulus alone is not. The available full endpoint period grows exponentially in H, not polynomially in H. This direct transfer therefore does not approach the proposed H=exp((log N)^α) range.
+where primes dividing M are handled separately. Thus a common period polynomial in H is affordable when H=N^{o(1)}; a bound on EACH event modulus alone is not. The available full endpoint period grows exponentially in H, not polynomially in H. This direct transfer therefore does not approach the proposed H=exp((log N)^α) range.
 
 ### 5.2 Requested exponent arithmetic — explicitly NOT a conditional advance
 
@@ -239,13 +249,13 @@ where primes dividing M are handled separately. Thus a common polynomial period 
 
 For dα<1 the stretched-exponential exponent is θ=dα. At dα=1 the power exponent is max(1−c a^d,1/2)+o(1). For dα>1 the proposed error dominates, giving only N^{1/2+o(1)}. A leading π(N) instead of N on prime inputs changes logarithmic factors, not these power exponents.
 
-| Family input | d | Transfer range to beat θ=3/4 | Transfer range for a power saving | Status here |
+| Family input | d | Transfer range to beat its benchmark | Transfer range for a power saving | Status here |
 |---|---:|---:|---:|---|
-| Full Type-II cubic family, hence ES | 3 | α>1/4 | α=1/3 | Not proved |
-| CONJECTURE_S_MODEL endpoint certificates, hence ES₅ on its prime model | 2 | α>3/8 | α=1/2 | Not proved |
-| U certificate subfamily | 2 **if** its uniform mass/transfer are separately supplied | α>3/8 | α=1/2 | No such new theorem claimed |
+| Full Type-II/Vaughan cubic family, hence ES | 3 | α>1/4 beats 3/4 | α≥1/3 | Not proved |
+| CONJECTURE_S_MODEL endpoint certificates, hence ES₅ on its prime model p≡1 (24) | 2 | α>1/3 beats 2/3; α>3/8 beats 3/4 | α≥1/2 | Not proved |
+| U certificate subfamily | 2 **if** its uniform mass/transfer are separately supplied | α>1/3 beats 2/3; α>3/8 beats 3/4 | α≥1/2 | No such transfer theorem claimed |
 
-For all-integer ES₅/U one must additionally supply the correct all-integer model, not substitute the unit model. Formula (5.3) is a calculation of the requested exponents, not a new hypothesis promoted as progress, and no claim that it is weaker than the conclusion is made. At U/ES₅ squares an N^{1/2+o(1)} floor is necessary; ES itself need not have that floor, but an inequality with that error cannot do better.
+For all-integer ES₅/U one must additionally supply the correct all-integer model, not substitute the unit model. Formula (5.3) is only a calculation of the requested exponents. The unproved transfer premise is not offered as a new, weaker conditional route. The native benchmark in the last two rows comes from lane E; its log-log loss and exact scope are not replaced by this schematic L^d calculation. At U/ES₅ odd squares the classical T1 theorem (FRONTIER §1; FOREST_DEEP_FABLE Theorem E for U) requires at least order √N error; an N^{1/2+o(1)} error accommodates it; ES itself need not have that floor, but an inequality with that error cannot do better.
 
 ### 5.3 Controls, with their exact scope
 
@@ -267,4 +277,15 @@ Outputs are in `data/z50_ajastra/` (well below 20 MB).
 
 ## 6. Final review and remaining gap
 
-Pending. Do not merge without parent instruction.
+**Final verdict: PARTIAL / no new exceptional-set theorem.**
+
+- **PROVED, generic negative:** Theorem 2.1 refutes (AJ) with R=C₀√N, even for tiny prime moduli, Δ=0, vanishing conflict loads, and first/pair CRT count errors <1. Its necessary error is ≫√N log log N. This does not refute R=N^{1/2+o(1)}.
+- **PROVED, classical positive:** Theorem 3.1 is the true one-big-prime hybrid, including the exact random-product truncation denominator. It does not escape the ledger and does not deliver the requested transfer range.
+- **PROVED, scoped information obstruction:** Theorem 4.1 and Proposition 4.3 give exact marginal laws with much heavier avoidance than e^{−μ}, including any prescribed sparse ES fibre labels. They forbid a distribution-only inference for arbitrary laws; they are not laws of uniform intervals or ordinary primes. The ES-specific stronger LP obstruction is inherited from KARY3, and the sharper native U/ES₅/I3 version from lane E, not new.
+- **CERTIFIED:** all retained scripts pass; all five hostile Opus reviews return SOUND with no FATAL/MAJOR. Reviews independently reproduce the finite data and check additional randomized/rational examples. The tool rejected the literal `:high` suffix; all reviews use the same Opus model without that suffix in deep mode, as recorded in §2.3.
+
+**Final hostile audit.** Session `/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0046--/2026-10-29T15-19-59-544Z_01a1883f-1b38-76dd-89bf-636788628123.jsonl`. It re-derived every decisive inequality, reproduced both scripts and independently recomputed the three actual integer sieve counts. Final minor repairs incorporated: threshold α≥ rather than α= in the bookkeeping table; explicit p≡1 (24) model scope; T1 citation; CRT Janson as a hypothesis in (5.1); precise meaning of an affordable common period.
+
+**Exact remaining gap.** Prove an interval-specific upper tail for simultaneous avoidance of the ES rational-label congruences, with modulus products beyond N and signed cancellation strong enough to replace the truncation denominator, while retaining the square floor. LS7 coordinate pinning and ordinary (unconditional) progression statistics do not currently supply this information. A first/second-moment argument alone cannot replace it; an actual nonlinear interval theorem might. After the lane-E update, the targets are θ>2/3 for native U/ES₅/I3 and θ>3/4 for Vaughan-ratio ES. The non-reduced endpoint-pair presentation remains an explicitly uncapped alternative; no assertion here closes it. No implication from a standard hypothesis, no refutation of the useful N^{1/2+o(1)}-error ES-specific transfer, and no new 3/4 barrier for actual intervals is established here.
+
+**Parent handback.** Main document `EXSET_ARITH_JANSON_ASTRA.md`; scripts/data `z50_ajastra`. All work committed on `side-agent/z50-ajastra`. Await parent instruction; do not merge.
