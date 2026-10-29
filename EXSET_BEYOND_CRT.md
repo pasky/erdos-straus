@@ -620,14 +620,14 @@ model counted atoms instead of distinct classes mod l and was off by a factor 2;
 
 | item | statement | label |
 |---|---|---|
-| R4.0 | every U/ES5 certificate is a word of n; identities that are not words of n (Type II with a, b, c >= 2 = words of cn) certify only ES | PROVED (definition) |
+| R4.0 | the final witness of U/ES5 is a word of n; Type II with a, b, c >= 2 are words of cn, with no automatic implication to U/ES5 (but no exclusion either: example 269 mod 444) | PROVED (definition) |
 | R4.1, R4.2 | exact or cheap-remainder coverings by word classes, of any depth/moduli/level ratio, add no supply: every majorant of the avoider set of such a forcing family has log(1/E nu) <= C lambda^{2/3}(log lambda)^{2/3}; so M1/M2/L1/C methods using them cap at (log N)^{2/3+o(1)} | PROVED given Cor 2.5 |
 | R4.3 | compactness: finitely coverable iff cl(C) misses the profinite avoider set A_inf; A_inf is Haar-null; square-compatible C are never forcing; a forcing non-coverable C needs P at integers avoiding all word classes of modulus <= T, for every T | PROVED |
 | R4.4 | the 3/4 note's ratio atoms are not finitely covered by ES5 word classes (else Cor 2.5 would contradict the note) | PROVED rel. 3/4 note |
 | R4.5 | single-shift Landau forcing is a cheap-remainder covering (hence capped) | PROVED (Dirichlet) |
-| R4.6 | bounded-shift Landau forcing likewise | CONDITIONAL (Dickson), sketch |
-| answer | brief alternative (b1), a cubic-supply forcing universe for U/ES5, does not exist among covering and bounded-shift mechanisms; alternative (b2) holds in a strong form (no depth or level-ratio bound needed); the only escape is non-compact forcing, i.e. pointwise B2-type input | PROVED / Assessment |
-| 8.7 | the R4.5 decision procedure is confirmed by brute force (209 190 integers, 0 failures); a generic non-residue class shows growing cheapest modulus | CERTIFIED / EVIDENCE |
+| R4.6 | bounded-shift Landau forcing | conditional strategy only (Dickson + an unwritten admissibility step); open |
+| answer | (b1), an effective cubic-supply forcing universe for U/ES5, is unavailable through exact coverings, cheap-remainder coverings and (uniform) single-shift forcing; (b2) holds for these in a strong form (no depth or level-ratio bound); open: forcing families without cheap-remainder coverings (necessarily involving non-compact progressions or unbounded costs), bounded-shift forcing, and all non-periodic architectures | PROVED / Assessment |
+| 8.7 | R4.5's witness rule (U form) confirmed in the transport direction (209 190 integers, 0 failures); a generic non-residue class shows growing cheapest modulus | CERTIFIED / EVIDENCE |
 ### 8.1 Certification mechanisms: definitions
 
 P denotes U or ES5 (on n = 1 mod 4). Write W_P for the certificate word classes of Section 1.3 (all three
@@ -724,7 +724,8 @@ with R empty gives c_a t^3 <= C (C t^4)^{2/3}(log t)^{2/3} = O(t^{8/3}(log t)^{2
 
 So ES's third exponent does **not** come from lowering the level of word coverings. It comes from a different
 forcing mechanism, the Type II identities with a, b, c >= 2, which are words of cn (Lemma R4.0). They certify ES
-but cannot certify U or ES5. This is the precise sense in which "Vaughan ratio classes" have no U/ES5 analogue.
+and do not by themselves certify U or ES5 (Lemma R4.0). Cor R4.4 is the precise sense in which the note's ratio
+family, taken as a whole, has no word-covering analogue.
 
 ### 8.5 Landau-type (archimedean) forcing at bounded shifts
 
@@ -819,3 +820,15 @@ proper-divisor rule and is not a complete decision procedure for ES5) on 1830
   a U-word found there were exactly the odd squares (201^2, 203^2, 81^2, 121^2, 283^2, 323^2, 485^2), as Lemma 2.2
   requires.
 ### 8.8 Hostile review
+
+**Review 3** (Astra, same model, deep; `reviews/z50-ncrt-review-3.md`): overall MAJOR, "the exact-covering
+obstruction survives; the claimed exhaustion of certification mechanisms does not". SOUND: R4.1 (arbitrary finite
+coverings, level bookkeeping, periodic containment), R4.4 (selectors and levels check), R4.3 (with a wording
+repair). Repairs applied: R3-1 (R4.0 "never/only" removed; counterexample 269 mod 444 recorded); R3-2 (R4.2:
+project on F's period first; remainder level hypothesis added); R3-5 (R4.5: ES5 needs delta = D_j, u = 1 words;
+for U the reviewer's counterexample 89 mod 120 uses A = n + v, which the z49 definition of U excludes, so the
+proper-divisor rule is correct for U; the document's U definition was aligned with z49); R3-6 (J-independent
+remainder level; uniformity made a hypothesis); R3-7 (R4.6 downgraded to a strategy, admissibility counterexample
+recorded); R3-8 (conclusions rescoped: no classification of proofs, raw inventory not bounded, other doors
+retained); numerics relabelled. The reviewer's independent check transported 6 890 U and 10 853 ES5 witnesses with
+zero failures (with delta = D_j included) and verified the Haar avoider fraction 720/1463 for q = 3, 7, 11, 19.
