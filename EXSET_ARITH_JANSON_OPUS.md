@@ -510,14 +510,15 @@ Hence the block-averaged relative error of (R1) is ≤ (2/(δμ_b))^{1/2}, which
 
 *Proof.* Write B(q,a) = #{n ∈ B : n ≡ a (q)}. By Cauchy–Schwarz the left side is
 #B^{−1} Σ|B(q,a) − #B/q| ≤ #B^{−1}(Σ_{q,a∈Ω_q} 1/q)^{1/2}(Σ_q q Σ_{a mod q}|B(q,a) − #B/q|²)^{1/2}. The arithmetic large
-sieve (Montgomery; e.g. Iwaniec–Kowalski Thm 7.14 in the form Σ_{q≤R prime} q Σ_a |Z(q,a) − Z/q|² ≤ (N + R²)Σ|z_n|²)
+sieve (Montgomery; see Iwaniec–Kowalski §7.4), in the form Σ_{q≤R prime} q Σ_a |Z(q,a) − Z/q|² ≤ (N + R²)Σ|z_n|²,
 with R = 2Q bounds the last factor by ((N + 4Q²)#B)^{1/2}. ∎
 
 *Reading.* This is the most a universal (structure-blind) inequality gives in the brief's item 3. It certifies the
-block average, not individual steps, and only for sifted densities δ ≫ 1/μ_b. Prime-modulus blocks have
-μ_b = O(1) per dyadic range of q (for the U family μ_b ≈ 0.74 log 2), so this needs δ ≫ 1: only polynomially many
-(in μ) steps beyond the start of the chain. The chain cannot be continued by this input below density ≍ 1/μ,
-which recovers the classical polynomial large-sieve saving and nothing more (z50 CONTEXT §4(c)). It is also not
+block average, not individual steps, and only for sifted densities δ ≫ 1/μ_b. (The same proof works for any
+block of primes ≤ √N, not only a dyadic one.) A dyadic block of the prime U family has μ_b ≈ 0.74 log 2 = O(1).
+Taking all primes ≤ √N as one block gives μ_b ≍ log N and requires δ ≫ 1/log N. Either way the input stops being
+useful once the density is ≍ 1/μ, i.e. after a saving of O(log μ). That recovers the classical polynomial
+large-sieve saving and nothing more (z50 CONTEXT §4(c)). It is also not
 step-wise. By Prop 4.1, no blind input certifies a single step that has room.
 
 ### 5.3 Density increment and entropy chains (PROVED, short)
