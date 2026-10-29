@@ -6,8 +6,8 @@ Scripts: `scripts/z50_ajopus_*`. Data: `data/z50_ajopus/`.
 
 ## 0. Summary table
 
-**Status: ROUNDS 1–2 COMPLETE.** The round-1 cross-model review (Astra) gave MAJOR; its repairs are folded in
-(§8). The round-2 review is recorded in §8. Imported, not re-proved: lane E (EXSET_I3 §§3–4, 7) proves that native
+**Status: THREE ROUNDS COMPLETE (finished).** Cross-model reviews (Astra, deep) gave MAJOR in rounds 1–3, never
+FATAL. All repairs are folded in (§8). Imported, not re-proved: lane E (EXSET_I3 §§3–4, 7) proves that native
 U/ES₅ CRT majorants cap at λ^{2/3}/(log λ)^{1/3}, and that E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}). Lane
 C2 (EXSET_ARITH_JANSON_ASTRA §§2–4) shows that the universal AJ with an O(√N) error is false, and gives r-wise
 marginal laws with heavy avoidance together with a moment-LP dual of KARY3.
@@ -17,7 +17,7 @@ marginal laws with heavy avoidance together with a moment-LP dual of KARY3.
 | A | Integer Janson: −log ν(Av 𝓕) ≥ μ − Σ η_i P(E_i) − KΔ under one hypothesis (RLD). (RLD) consists of (R1), a lower bound for a class independent of B_i^d inside B_i^d ∩ I, and (R2), a K-upper bound for compatible pair classes. Independence enters only through (R1). The Harris substitute (Lemma "compatible events" / lopsided LLL) enters only through (R2). | PROVED (elementary) | §1 |
 | A′ | With ρ_max ≤ ½, block-averaged RLD and the relative (ratio) survival bound for the block imply each other up to constant factors in the exponent | PROVED (trivial) | §1.4 |
 | B | Square floor: for anti-square families (U at n ≡ 1 (8); certificate edges at n ≡ 1 (24); forced ES classes) the RLD error is ≥ μ − KΔ − ½log N + O(1). Square share σ_i gives η_i = σ_i exactly when the non-squares are equidistributed. Localization to the last O(1) units of mass holds under model-like decay. | PROVED (localization CONDITIONAL) | §2.1 |
-| B′ | Off the squares, the U prime family deviates from the Haar model at moduli ≥ N^{0.4} by e^{D_ns(s)}, s = log N/log ℓ. D_ns is non-growing in N over 10⁷–10¹⁰ and absent for unaligned controls. Single-shift corrections (mostly v = 4) are of the same order and sign, but are not a decomposition of it (conflicts between shifts). The cause is not established. | EVIDENCE | §2.3, §7 |
+| B′ | Off the squares, the U prime family deviates from the Haar model at moduli ≥ N^{0.4} by about e^{D_ns(s)} (up to the log-versus-linear-chain correction), s = log N/log ℓ. D_ns is non-growing in N over 10⁷–10¹⁰ and absent for unaligned controls. Single-shift corrections (mostly v = 4) are of the same order and sign, but are not a decomposition of it (conflicts between shifts). The cause is not established. | EVIDENCE | §2.3, §7 |
 | C | **Collapse theorem:** a chain with fixed ratios r_i whose steps are certified pointwise on ℤ by functions in a linear class 𝒞 is one 𝒞-majorant ν* ≥ 1_S. Hence CRT-certified chains are capped at C(log N)^{3/4} (moduli ≤ N/2, or worst-case coefficient accounting), and at λ^{2/3}/(log λ)^{1/3} for native U/ES₅ classes (lane E). Prime-certified chains obey (D)22 under its evaluation hypotheses. The progression density increment and the plain entropy chain rule are CRT majorants. | PROVED (scoped) | §3, §5.3 |
 | C′ | LP duality: the comparison measure and the moment LP violate (R1) at every step and bound exactly the pointwise-certified chains. Other nonlinear arguments are not classified. | PROVED (C) + Assessment | §3.3 |
 | D | Blindness (per step): (R1) is not derivable from an oracle for all level-D statistics of B_i^d, plus inclusion in a level-D set, plus any inequality valid for all [0,1]-sequences (large sieve, Cauchy–Schwarz, general-sequence BDH), under a room hypothesis. Lane C2 separately excludes r-wise residue marginals; no common countermodel is claimed. | PROVED (elementary) + Assessment | §4 |
@@ -250,8 +250,8 @@ residues. It has **no** deficit at any depth: |Σ(w/ℓ − ρ_ℓ)| ≤ 0.07 do
 ℓ ≤ N/2.
 
 Two features matter (EVIDENCE, four scales). First, at fixed s the deficit does not grow with N over
-N = 10⁷, …, 10¹⁰: the rows agree to within 0.02 for s ≥ 1.75 (0.009 at s ≈ 2.25 apart from N = 10⁷), within 0.05
-at s ≈ 1.5, and within 0.11 at s ≈ 1.25 (1.205, 1.279, 1.211, 1.168; the checkpoints are matched to nearest s, not interpolated). The N = 10¹⁰ row was computed after the
+N = 10⁷, …, 10¹⁰: the displayed values spread by ≈ 0.02 for s ≥ 1.75 (0.022 at s ≈ 2.25), ≈ 0.05
+at s ≈ 1.5, and ≈ 0.11 at s ≈ 1.25 (1.205, 1.279, 1.211, 1.168; the checkpoints are matched to nearest s, not interpolated). The N = 10¹⁰ row was computed after the
 first review, as a falsification test, and does not grow. Meanwhile the model mass at fixed s grows like 0.74·log N/s.
 Four scales cannot establish boundedness in N. They are consistent with it, in which case the relative error
 D_ns/mass → 0 at every fixed s > 1. Second, the deficit switches on near s ≈ 2.5 and grows as s → 1. It is
@@ -475,7 +475,7 @@ gcd(q_i, P_i) = 1, and let N ≥ 2P_i. Then
 so (R1) holds with η_i ≤ 4P_iq_i/N. For I a progression r mod m (m = 8 or 24), assume gcd(P_iq_i, m) = 1 and
 #I ≥ 2P_i. Write n = r + mt, so that I becomes an interval in t on which B_i^d and E_i are again periodic with
 periods P_i and q_i. Then the same bound holds with N replaced by #I. Coprimality with m is needed: with q_i = 3,
-m = 24 and E_i = {0 mod 3}, E_i is empty on I.
+m = 24, r = 1 and E_i = {0 mod 3}, E_i is empty on I.
 
 *Proof.* Let r = #(B_i^d mod P_i) and A = #(E_i ∩ B_i^d ∩ I), B = #(B_i^d ∩ I). Each residue class b mod P_i in
 B_i^d meets E_i in a single class mod P_iq_i, which contains N/(P_iq_i) + θ elements of [1,N] with |θ| ≤ 1. Hence
@@ -513,8 +513,9 @@ Hence the block-averaged relative error of (R1) is ≤ (2/(δμ_b))^{1/2}, which
 sieve (Montgomery; see Iwaniec–Kowalski §7.4), in the form Σ_{q≤R prime} q Σ_a |Z(q,a) − Z/q|² ≤ (N + R²)Σ|z_n|²,
 with R = 2Q bounds the last factor by ((N + 4Q²)#B)^{1/2}. ∎
 
-*Reading.* This is the most a universal (structure-blind) inequality gives in the brief's item 3. It certifies the
-block average, not individual steps, and only for sifted densities δ ≫ 1/μ_b. (The same proof works for any
+*Reading (scoped after the round-3 review).* This estimate controls many classes against **one fixed set B**. It is
+not the averaged chain bound of Lemma 1.4, whose terms involve different sets B_i^d, and no optimality among
+universal methods is claimed. It certifies the block average, not individual steps, and only for sifted densities δ ≫ 1/μ_b. (The same proof works for any
 block of primes ≤ √N, not only a dyadic one.) A dyadic block of the prime U family has μ_b ≈ 0.74 log 2 = O(1).
 Taking all primes ≤ √N as one block gives μ_b ≍ log N and requires δ ≫ 1/log N. Either way the input stops being
 useful once the density is ≍ 1/μ, i.e. after a saving of O(log μ). That recovers the classical polynomial
@@ -564,7 +565,7 @@ I = {n ≤ N : n ≡ 1 (8)} with ℓ ≤ z. For every fixed s > 1 there is C(s) 
 Moreover C(s) → 0 as s → ∞.
 
 Evidence: e^{C(s)} = e^{D_ns(s)} up to second-order terms. D_ns(s) does not grow over N = 10⁷, 10⁸, 10⁹, 10¹⁰ at
-any tabulated s ∈ [1.25, 3] (§2.3; spread ≤ 0.11). The N = 10¹⁰ run was a post-review falsification test. Three scales are evidence, not proof. The values at s = 3, 2, 1.5, 1.25 are ≈ 0.005, 0.18, 0.68, 1.2. Falsifier: growth
+any tabulated s ∈ [1.25, 3] (§2.3; spread ≈ 0.11 at most). The N = 10¹⁰ run was a post-review falsification test. Four scales are evidence, not proof. The values at s = 3, 2, 1.5, 1.25 are ≈ 0.005, 0.18, 0.68, 1.2. Falsifier: growth
 of D_ns in N at fixed s, for instance at N = 10¹¹, 10¹².
 
 *Assessment of its status.* RLD-U is a clean, falsifiable, numerically tested statement. It is a sieve asymptotic
@@ -608,7 +609,7 @@ ordinary Haar on [1,N].
 
 | family (on I) | model −log P(Av) | exceptional set from RLD to α | beats current record iff | square floor forces failure of RLD with η ≤ ½ at (Cor 2.4) |
 |---|---|---|---|---|
-| prime U family, n ≡ 1 (8) | (C_V+o(1)) log z | N exp(−(C_V/2 + o(1))(log N)^α) | α ≥ 2/3 (U record (log N)^{2/3}(log log N)^{−1/3}, lane E) | never for z ≤ N, since C_V < 1 needs μ > 2·½log N |
+| prime U family, n ≡ 1 (8) | (C_V+o(1)) log z | N exp(−(C_V/2 + o(1))(log N)^α) | α ≥ 2/3 (U record (log N)^{2/3}(log log N)^{−1/3}, lane E) | never for z ≤ N, if C_V < 1 (empirical) and given the Titchmarsh asymptotic: it needs μ > 2·½log N |
 | ES₅/U edge family, rough endpoints (I3 §8.4 route), n ≡ 1 (24) | ≥ cL²/(log L)² | N exp(−c(log N)^{2α}/(log log N)²) | α > 1/3 (U/ES₅ record 2/3) | log H ≍ √log N·log log N |
 | ES Type II rough family (es-subexp `thm:haarlower`), [1,N] | ≥ cL³/log L | N exp(−c(log N)^{3α}/log log N) | α > 1/4 (ES record 3/4) | L ≍ (log N log log N)^{1/3} |
 
@@ -670,9 +671,9 @@ CERTIFIED facts:
 EVIDENCE (the s-scaling table of §2.3):
 
 * the non-square deficit shows no evident growth in N at fixed s = log N/log ℓ (spread ≤ 0.02 for s ≥ 1.75 and
-  ≤ 0.11 at s ≈ 1.25, over N = 10⁷–10¹⁰);
+  ≈ 0.11 at s ≈ 1.25, over N = 10⁷–10¹⁰);
 * it is ≤ 0.01 for s ≥ 2.8;
-* it is bounded in N at each fixed s.
+* it does not grow in N at any fixed s over the tested scales.
 
 The model mass grows with slope C_V ≈ 0.74 in log ℓ: mass(1361) = 3.56, mass(1.17·10⁵) = 6.75,
 mass(1.02·10⁷) = 10.07, mass(4.5·10⁸) = 12.95.
@@ -776,3 +777,19 @@ Repairs applied after round 2:
 * the per-shift "40% explained" is withdrawn and reinterpreted as a diagnostic (shift conflicts make it a
   non-decomposition), and the false properness explanation for v = 4 is removed;
 * A′, D, E and F in the summary are aligned with the body.
+
+### 8.3 Round 3 (Astra, deep)
+
+Session `/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0042--/2026-10-29T15-47-24-140Z_01a18858-336c-7142-a757-62ab4eeba4af.jsonl`.
+**Verdict: MAJOR (one interpretation paragraph); no FATAL.**
+
+* Prop 5.2 itself is SOUND: Parseval plus the additive large sieve over R^{−2}-separated fractions gives exactly
+  (N + R²)#B.
+* Its "Reading" overclaimed. It identified a one-set estimate with the chain average, and it called the estimate
+  the most a universal inequality can give. Both are rescoped.
+* The round-2 repairs were all confirmed present.
+* Minor wording fixes were applied: the r = 1 counterexample, precision values written as approximate,
+  "four scales", the dependence of the prime-U row on C_V < 1 and on the Titchmarsh asymptotic, and the
+  log-versus-linear qualification in B′.
+
+No further mathematical defect was found in the elementary PROVED claims.
