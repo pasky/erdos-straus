@@ -471,10 +471,11 @@ no single-prime lower-tail mechanism is known.
   open), uniform in the numerator m ((D)31); 3/4 sharp for CRT architectures ((D)24, (D)27, (D)28).
 * *(z50, `BREADTH_Z45.md` §15.)* ES₅ and U: E_ES₅(N) ≤ E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}) over n ≡ 1 (4)
   (`EXSET_I3.md` §7.3), and #{p ≤ N : U(p) fails} ≪ N exp(−c(log N)^{2/3}) at primes (`EXSET_BEYOND_CRT.md` Thm 3.1;
-  `EXSET_SIEVE_MASS.md` 3.5). INTERNALLY PROVED, Vaughan-type. **2/3 is sharp for every CRT architecture over U/ES₅/I3
-  classes** (native, endpoint-pair, selector, large-sieve, and covering-certified forcing families), by the supply law
-  cap λ^{d/(d+1)} with d = 2 (ES ratio classes: d = 3). Nothing beyond 3/4 (ES) or 2/3 (U/ES₅/I3) is known, even
-  conditionally on a standard hypothesis.
+  `EXSET_SIEVE_MASS.md` 3.5). INTERNALLY PROVED, Vaughan-type. **2/3 is sharp for the audited whole-avoider CRT
+  architectures over U/ES₅ classes** (native, endpoint-pair, selector, coefficient-sum and CRT-admissible large-sieve
+  evaluations, exactly-covered forcing families; not arbitrary prime-law majorants), and for native I3 classes, by the
+  supply-law cap λ^{d/(d+1)} (up to log factors) with d = 2 (ES ratio classes: d = 3). Nothing beyond 3/4 (ES) or 2/3
+  (U/ES₅/I3) is known, even conditionally on a standard hypothesis.
 * Σ_{p≤N} f_I(p) ≪ N log²N (PROVED rel. Kuznetsov/Petersson, Weil, twisted Weil, Selberg 3/16, λ₁ > 1/4; (D)32b;
   *needs expert scrutiny*).
 * m/n density transition at log N ≍ m^{1/3}: upper half Thm U (PROVED rel. BV, Shiu; ineffective), lower half Thm L′
@@ -551,8 +552,9 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Weil / Selberg–Hooley / bilinear fixed-modulus savings → tied modulus; need p^{1−o(1)} saving → `PARITY_AUDIT` §2.
 * H-B, parity-breaking (Friedlander–Iwaniec) at fixed p → collapses into H-A → `PARITY_FIXED_P.md` (J)6, (J)87.
 * Fixed-p variance / Janson / level-Poisson second-moment → critical, far tail fatter than Poisson → (J)103 §3.
-* Exceptional set beyond 3/4 (ES) or 2/3 (U/ES₅/I3) by any CRT architecture, covering-certified forcing, divisor switching,
-  CRT-certified Janson chains, r-wise-marginal transfers, or constant-loss shift products → capped/blind → `BREADTH_Z45.md` §15 (z50).
+* Exceptional set via the audited CRT architectures (caps 3/4 ES, 2/3 U/ES₅, native-only for I3), exactly-covered forcing,
+  divisor switching or CRT-certified Janson chains → capped; constant-loss whole-shift products → θ ≤ log 2; marginal-only
+  transfers → scoped blindness → `BREADTH_Z45.md` §15 (z50).
 * Exact identities: no linear relation between 56 ES counts and 54 classical functions (CERTIFIED, that finite dictionary); no
   finite fixed-level Eisenstein-type identity certifies Type I/II counts (PROVED via T1) → (I)5, (J)7 Thm 9.1. Growing-level
   identities remain open ((J)10: the T1-respecting W(n) identity exists, positivity is the spin event).
@@ -641,14 +643,18 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
 12. **Exceptional-set exponent θ > 3/4**: weak SPW (log(K/η) = O((log N)^{3/4})), the shift-uniform avoider count (W_𝔊),
     TC^alt_θ, residue dispersion (RD′) (STATUS "Exceptional-set exponent"). *Why:* the sharpest averaged statement; each
     is reduced to a precise open estimate.
-    *(z50 update, `BREADTH_Z45.md` §15.)* All CRT doors are now capped at their supply exponent (3/4 ES, 2/3 U/ES₅/I3).
-    The two concrete non-CRT statements left: (i) **RLD-U / FL∞**, a fundamental lemma in dimension ≍ log z at level
-    s ≪ dimension, off the squares, for the prime-modulus U sieve (EVIDENCE to 10¹⁰); with a Titchmarsh-type asymptotic
-    it gives #{U fails} = #odd squares + o(√N) (`EXSET_ARITH_JANSON_OPUS.md` Cor 6.1, CONDITIONAL); (ii) **Linnik
-    confinement**: exceptional primes are residues modulo a common set of (log X)^{2+δ} small primes, which would give a
-    power saving at primes (`EXSET_SIEVE_MASS.md` §4.2). Assessment: both look as hard as the pointwise problem.
-    Not available: universal arithmetic Janson with O(√N) error (false), r-wise-marginal transfers (blind),
-    constant-loss product bounds over shift events (θ ≤ log 2).
+    *(z50 update, `BREADTH_Z45.md` §15.)* The audited whole-avoider CRT architectures are capped at their supply exponent
+    (3/4 ES, 2/3 U/ES₅; I3 native classes 2/3). Two concrete proposed non-CRT statements: (i) **RLD-U / FL∞**, an upper
+    bound e^{C(s)}·(Mertens product) for the prime-modulus U sieve at z = N^{1/s}, off the squares — a fundamental lemma in
+    dimension ≍ log z at level s ≪ dimension (EVIDENCE to 10¹⁰). With the Titchmarsh-type asymptotic Σ_{ℓ≤z} w(ℓ)/ℓ ~
+    C_V log z, C_V > 1/2, and some 1 < s < 2C_V, it gives #{n ≤ N, n ≡ 1 (4): U fails} = #odd squares + o(√N)
+    (`EXSET_ARITH_JANSON_OPUS.md` Cor 6.1, CONDITIONAL; C_V ≈ 0.74 empirical). (ii) **Linnik confinement** (one sufficient
+    route): a common set of primes q ≤ (log X)^{2+δ}, quadratic residues modulo every exceptional prime, generating
+    ≥ X^{1+c} integers below X²; this would give a power saving at primes (`EXSET_SIEVE_MASS.md` §4.2). Other routes
+    stay formally open (signed interval information, alternative I3 presentations, bounded-shift forcing, prime-only
+    positivity). Assessment: (i) and (ii) look as hard as the pointwise problem. Not available: universal arithmetic
+    Janson with O(√N) error (false), marginal-only transfers (scoped blindness), constant-loss whole-shift product bounds
+    (θ ≤ log 2).
 13. **Cap 0 / bounded cap pointwise** (R200 M1): a bounded cap for every prime under a standard hypothesis, or replacing
     Hypothesis W by a standard one ((J)85, (J)91). *Why:* the only pointwise positive mechanism; its last step is B2.
 14. **ES ⇒ ES₅?** Is every ES prime a five-slice prime (λ(p) ≤ 3)? (56 % of solutions below 3000 lie outside the five-slice
