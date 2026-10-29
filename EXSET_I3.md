@@ -12,8 +12,8 @@
 | Round 3: optimal cap | PROVED / reviewed | Cap C(log N)^{2/3}/(log log N)^{1/3}, matching the known native upper bound. |
 | Beyond CRT / ES port | OPEN / scoped negative | Noncoprime endpoint events escape the base; interval error and colour-compatible transport remain missing. |
 | Independent numerical checks | CERTIFIED, finite scope | 104 zeros through 5,000; largest zero separately; controls and truncated avoiders. |
-| Literature after 2025 | PENDING | Search and verify sources. |
-| Hostile reviews | PENDING | Opus after each claimed advance. |
+| Literature after 2025 | CHECKED, limited search | PW v2 / Pomerance 2026 slides retain 2/3; September 2026 candidate is withdrawn. |
+| Hostile reviews | SOUND after minor repairs | Three Opus deep reviews; exact `:high` identifier unavailable, same model without suffix used. |
 
 ## 1. Source audit and scope
 
@@ -351,4 +351,40 @@ The exact arithmetic, count and identity checks are CERTIFIED; floating-point ma
 
 ## 6. Literature and final hostile-review ledger
 
-Pending.
+### 6.1 Fresh literature check, 2026-10-29
+
+**Verified source statements, not a priority claim.** Searches used the phrases `Erdos Straus exceptional set 2026 Vaughan Pomerance Weingartner` and `"Erdos Straus" "exceptional" "2026" bound improvement`. The attempted exact I3 numeric-string query returned HTTP 422 and is not counted as a successful search. The following pages were actually visited, rather than inferred from snippets:
+
+1. Pomerance–Weingartner, [arXiv:2511.16817v2](https://arxiv.org/html/2511.16817v2), revised 2026-01-15. Introduction: the exception count “has been strongly improved, though not recently”, immediately followed by Vaughan's 1970 `N exp(−c(log N)^{2/3})` estimate. Theorem 1.3 gives `N exp(−C(log N)^{2/3}/φ(m)^{1/3})` uniformly for 4≤m≤(log N)². This verifies the supplied benchmark, not an I3 witness map.
+2. Carl Pomerance, [*The Erdős–Straus Conjecture*, Alladi 70 conference, March 20, 2026](https://math.dartmouth.edu/~carlp/esconjfl.pdf). Slide 16 still states Vaughan's 2/3 estimate; slides 13–14 display the ratio identity that certifies Egyptian fractions but does not give an interior word of n.
+3. Xinyang Jiang, [arXiv:2609.09204](https://arxiv.org/abs/2609.09204), *Counting Type I and Type II solutions of the Erdos-Straus equation: concentration, local obstructions, and a pointwise comparison*. The search surfaced it as a September 2026 candidate. The abstract page explicitly says **withdrawn**, with comment “some errors”; v2 withdrawal dated 2026-09-13. The HTML route returned 404/withdrawn. It is not used as a theorem or evidence of an exceptional-exponent improvement.
+
+**Assessment.** This fresh search found no verified post-2025 improvement applicable to I3. It is not an exhaustive literature survey or a novelty claim beyond the repository. The original Vaughan proof was not freshly accessed; the published benchmark is verified through the sources above. The internal ES 3/4 note remains separately labelled internal/unrefereed and does not transfer to I3. Shiu and the standard dimension-one upper sieve are the classical analytic inputs; no GRH, EH, Dickson or OAI hypothesis is assumed.
+
+### 6.2 Cross-model review ledger
+
+All three reviews were fresh `subagent` calls in **deep mode** to **anthropic/claude-opus-5-5**. The exact requested identifier `anthropic/claude-opus-5-5:high` failed resolution (“not available”); the same model without the suffix succeeded. No review is falsely attributed to the unavailable identifier or to a particular unverified reasoning-effort setting. Each review was requested immediately after its claimed proof section was committed.
+
+| Review | Commit reviewed | Verdict | Repairs incorporated |
+|---|---|---|---|
+| R1, native supply | 556de953 | SOUND; no fatal/major | Corrected square witness to 121=3·5·9−5−9; made zero-base failures for selectors/endpoints explicit. |
+| R2, 2/3 cap | edb2a757 | SOUND; no fatal/major | Retained smoothness in squarefull error; expanded imported-proof dependency ledger. |
+| R3, matching log-loss cap | 04219ba3 | SOUND; no fatal/major | Stated upper-sieve support/remainders and uniformity; clarified current-W level; restricted Jacobi equivalence to n≡1 mod4. |
+
+Review sessions (under this worktree's pi archive):
+
+* R1: `2026-10-29T14-32-27-801Z_01a18813-9799-7257-8abe-32f8cb2374b7.jsonl`.
+* R2: `2026-10-29T14-42-56-868Z_01a1881d-30e4-7257-8abe-32fccaa05477.jsonl`.
+* R3: `2026-10-29T14-57-14-059Z_01a1882a-454b-7257-8abe-33013f2c523f.jsonl`.
+
+R2 re-derived the cited KARY/ETw comparison inputs and the Shiu moment bounds. R3 independently checked the rough shifted-divisor sieve, growing base and optimization, and reran the saved script byte-for-byte. Suggested statements beyond the proved scope were not silently adopted. All results remain internal and unrefereed.
+
+### 6.3 Final labelled outcome and exact gap
+
+**PROVED, relative to the named classical and internally proved inputs:** every native whole-avoider coefficient-sum CRT method has saving at most `C_A(log N)^{2/3}/(log log N)^{1/3}`. The previous native I3 exceptional-set proof attains that order. This is a new I3 barrier theorem for a family not covered by the ES forced-class caps; it does not claim a cap for the full union of the ES and I3 class universes. The crucial new arithmetic is the zero base and rough shifted-divisor mass. The arithmetic-free comparison is inherited.
+
+**NOT ACHIEVED:** no new exceptional-set upper bound, no 3/4 exponent, no power saving, no removal of the log-log loss for actual I3 exceptions, and no positive ES₅/U port.
+
+**OPEN, exact gap:** use noncoprime endpoint events or another non-native class family with a proved transfer, prove genuinely non-CRT signed interval information beyond coefficient-wise O(1) errors, or handle smooth inputs without the false I3 scaling rule. For ES₅/U, additionally enforce the colour/slot restriction; an unrestricted interior word is insufficient. The cap rules out none of these doors.
+
+**CERTIFIED:** the finite checks in §5 pass. **Review verdict:** SOUND after minor repairs, three cross-model rounds. Work is committed on `side-agent/z50-i3ex`; await the parent, do not merge without instruction.
