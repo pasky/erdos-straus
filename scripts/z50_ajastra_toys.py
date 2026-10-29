@@ -99,6 +99,32 @@ def fibre_tests():
     return rows
 
 
+def affine_tests():
+    rows = []
+    for q in [17, 31, 101]:
+        b = q//9
+        avoidance = first = factorial_second = 0
+        pairs = [(0, 1), (3, 7), (q-2, q-1)]
+        tables = [[0]*(q*q) for _ in pairs]
+        for A in range(q):
+            for B in range(q):
+                hits = sum((A*i+B) % q < b for i in range(q))
+                first += hits
+                factorial_second += hits*(hits-1)
+                avoidance += hits == 0
+                for tab, (i, j) in zip(tables, pairs):
+                    tab[((A*i+B) % q)*q + (A*j+B) % q] += 1
+        assert all(all(v == 1 for v in tab) for tab in tables)
+        assert avoidance == q-b
+        assert Fraction(first, q*q) == b
+        assert Fraction(factorial_second, q*q) == Fraction(q*(q-1)*b*b, q*q)
+        rows.append(dict(q=q, b=b, mu=b, delta=0,
+                         actual_survival=str(Fraction(avoidance, q*q)),
+                         crt_survival=float((1-Fraction(b, q))**q),
+                         janson_exp=math.exp(-b), pairs_checked=pairs))
+    return rows
+
+
 def main():
     result = dict(atomic_counts=atomic_counts(), translated_squares=[
         translated_squares(1_000_000, Q, 4) for Q in [1000, 2000, 4000]
@@ -110,6 +136,9 @@ def main():
     (out/'round2.json').write_text(json.dumps(second, indent=2)+'\n')
     print(json.dumps(result, indent=2))
     print(f'Round 2: {len(second)} exact denominator/fibre checks passed.')
+    third = affine_tests()
+    (out/'round3.json').write_text(json.dumps(third, indent=2)+'\n')
+    print(json.dumps(third, indent=2))
 
 
 if __name__ == '__main__':

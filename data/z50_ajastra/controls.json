@@ -1,0 +1,217 @@
+{
+  "primes": [
+    {
+      "n": 193,
+      "edges": 14,
+      "star_unordered": 2,
+      "ES5": 5,
+      "U": 3,
+      "U_example": [
+        2,
+        15
+      ]
+    },
+    {
+      "n": 409,
+      "edges": 19,
+      "star_unordered": 0,
+      "ES5": 4,
+      "U": 4,
+      "U_example": [
+        4,
+        7
+      ]
+    },
+    {
+      "n": 577,
+      "edges": 22,
+      "star_unordered": 0,
+      "ES5": 9,
+      "U": 7,
+      "U_example": [
+        3,
+        20
+      ]
+    },
+    {
+      "n": 2521,
+      "edges": 18,
+      "star_unordered": 1,
+      "ES5": 2,
+      "U": 1,
+      "U_example": [
+        2,
+        87
+      ]
+    },
+    {
+      "n": 3361,
+      "edges": 23,
+      "star_unordered": 1,
+      "ES5": 4,
+      "U": 1,
+      "U_example": [
+        3,
+        116
+      ]
+    },
+    {
+      "n": 5569,
+      "edges": 27,
+      "star_unordered": 0,
+      "ES5": 8,
+      "U": 8,
+      "U_example": [
+        7,
+        17
+      ]
+    },
+    {
+      "n": 9601,
+      "edges": 26,
+      "star_unordered": 0,
+      "ES5": 4,
+      "U": 2,
+      "U_example": [
+        19,
+        260
+      ]
+    },
+    {
+      "n": 23929,
+      "edges": 44,
+      "star_unordered": 0,
+      "ES5": 21,
+      "U": 20,
+      "U_example": [
+        4,
+        7
+      ]
+    },
+    {
+      "n": 66529,
+      "edges": 34,
+      "star_unordered": 4,
+      "ES5": 9,
+      "U": 4,
+      "U_example": [
+        13,
+        343
+      ]
+    },
+    {
+      "n": 83449,
+      "edges": 32,
+      "star_unordered": 0,
+      "ES5": 7,
+      "U": 5,
+      "U_example": [
+        11,
+        52
+      ]
+    },
+    {
+      "n": 102001,
+      "edges": 44,
+      "star_unordered": 0,
+      "ES5": 13,
+      "U": 13,
+      "U_example": [
+        4,
+        23
+      ]
+    },
+    {
+      "n": 329617,
+      "edges": 31,
+      "star_unordered": 0,
+      "ES5": 20,
+      "U": 16,
+      "U_example": [
+        3,
+        20
+      ]
+    },
+    {
+      "n": 712321,
+      "edges": 49,
+      "star_unordered": 0,
+      "ES5": 11,
+      "U": 9,
+      "U_example": [
+        12,
+        23
+      ]
+    },
+    {
+      "n": 1134241,
+      "edges": 79,
+      "star_unordered": 0,
+      "ES5": 26,
+      "U": 22,
+      "U_example": [
+        3,
+        932
+      ]
+    },
+    {
+      "n": 1724209,
+      "edges": 63,
+      "star_unordered": 0,
+      "ES5": 18,
+      "U": 18,
+      "U_example": [
+        7,
+        52
+      ]
+    },
+    {
+      "n": 1726201,
+      "edges": 38,
+      "star_unordered": 0,
+      "ES5": 11,
+      "U": 11,
+      "U_example": [
+        22,
+        2911
+      ]
+    },
+    {
+      "n": 5212561,
+      "edges": 57,
+      "star_unordered": 0,
+      "ES5": 26,
+      "U": 25,
+      "U_example": [
+        15,
+        29
+      ]
+    },
+    {
+      "n": 8813281,
+      "edges": 63,
+      "star_unordered": 0,
+      "ES5": 23,
+      "U": 18,
+      "U_example": [
+        3,
+        1124
+      ]
+    }
+  ],
+  "rational_certificates_checked": 251,
+  "odd_squares_checked": 50,
+  "numerator8": [
+    {
+      "n": 17,
+      "edges": 9,
+      "numerator8_slot_certificates": 0
+    },
+    {
+      "n": 241,
+      "edges": 15,
+      "numerator8_slot_certificates": 0
+    }
+  ],
+  "scope": "Existing helpers replayed; numerator-8 check concerns slots only, not a fresh exhaustive ES8 solver."
+}

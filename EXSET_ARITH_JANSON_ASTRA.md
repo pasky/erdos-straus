@@ -6,8 +6,8 @@
 
 | Round | Target | Status | Review |
 |---|---|---|---|
-| 1 | Audit and universal arithmetic Janson | Pending | Pending |
-| 2 | One-big-prime families and corrected bounds | Pending | Pending |
+| 1 | Universal AJ with O(√N) remainder | Refuted; √N log log N required in a generic family | Opus SOUND, minors repaired |
+| 2 | One-big-prime truncated hybrid | Classical exact formula; no exponent gain | Opus SOUND, minors repaired |
 | 3 | ES-specific rescue or enlarged barrier | Pending | Pending |
 | Final | Exponents, controls, exact surviving gap | Pending | Pending |
 
@@ -81,7 +81,7 @@ Each system contains all 3996 distinct positive translated squares x²+j≤10^6.
 
 ### 3.1 Exact corrected hybrid for a common smooth modulus
 
-**Theorem 3.1 (PROVED, classical large sieve with exact probability bookkeeping; no novelty claimed; review pending).** Let every event modulus divide sp for some p in a finite set of primes coprime to s. In the fibre n=c mod s, combine the active atoms into a forbidden set Ω_p(c) of residues mod p, with β_p(c)=|Ω_p(c)|/p<1. Let N_c be the number of n∈[1,N] in the fibre; omit empty fibres. For each nonempty fibre choose a frequency cutoff R_c≥1. With independent Bernoulli variables Y_p of parameters β_p(c), put
+**Theorem 3.1 (PROVED, classical large sieve with exact probability bookkeeping; no novelty claimed; Opus SOUND).** Let every event modulus divide sp for some p in a finite set of primes coprime to s. In the fibre n=c mod s, combine the active atoms into a forbidden set Ω_p(c) of residues mod p, with β_p(c)=|Ω_p(c)|/p<1. Let N_c be the number of n∈[1,N] in the fibre; omit empty fibres and fibres where an active event depends only on s (these are entirely forbidden). For each remaining nonempty fibre choose a frequency cutoff R_c≥1. With independent Bernoulli variables Y_p of parameters β_p(c), put
 
     D_c=∏_p p^{Y_p},    ν_c=Σ_p −log(1−β_p(c)).
 
@@ -99,9 +99,9 @@ In particular if Λ_c≤¼log N_c and μ_c≥m in every nonempty fibre, choose R
 
     S_c(R)=Σ_{d≤R,d|∏p} ∏_{p|d} β_p/(1−β_p).
 
-The complete sum is Z_c=∏(1−β_p)^{−1}=e^{ν_c}. Dividing every summand by Z_c gives exactly Pr(D_c=d), proving (3.1). Markov applied to log D_c, whose expectation is Λ_c, gives Pr(D_c>R_c)≤Λ_c/log R_c for R_c>1. The endpoint N_c=1 with Λ_c=0 has no events and is trivial. Finally ν_c≥μ_c. ∎
+The complete sum is Z_c=∏(1−β_p)^{−1}=e^{ν_c}. Dividing every summand by Z_c gives exactly Pr(D_c=d), proving (3.1). Markov applied to log D_c, whose expectation is Λ_c, gives Pr(D_c>R_c)≤Λ_c/log R_c for R_c>1. At the endpoint R_c=1 the sufficient condition forces Λ_c=0, so there are no forbidden residues and the bound is trivial; empty prime sets are interpreted by empty products. Finally ν_c≥μ_c. ∎
 
-**Scope.** This handles a bounded smooth part when its common period s is affordable, not merely when each separate smooth multiplier is small. For moduli kℓ with k≤K, s=lcm(1,…,K) may have log s≍K. In the internal 3/4 family K=X^κ and s is much larger than N at the useful scale. Enumerating its actual fibres then gives mostly N_c=1, not (3.2). The 3/4 note avoids this loss by keeping the fibres inside a CRT model and transferring a truncated majorant. Formula (3.1) is a genuine interval theorem but remains a classical periodic Bessel argument and does not escape (D)19/25/27.
+**Scope.** This handles a bounded smooth part when its common period s is affordable, not merely when each separate smooth multiplier is small. For moduli kℓ with k≤K, s=lcm(1,…,K) may have log s≍K. In the internal 3/4 family K=X^κ and s is much larger than N at the useful scale. Once s≥N, every actual fibre has N_c≤1, so this enumeration cannot exploit a positive mass in (3.2). The 3/4 note avoids this loss by keeping the fibres inside a CRT model and transferring a truncated majorant. Formula (3.1) is a genuine interval theorem but remains a classical periodic Bessel argument and does not escape (D)19/25/27.
 
 ### 3.2 Why the missing denominator is exponentially expensive
 
@@ -120,15 +120,72 @@ If k=0, S(R)=1. Moreover, for b=maxβ_p<1,
 
 Choose t=log(μ/k), multiply by e^ν, and use the identity in Theorem 3.1. Equation (3.4) follows by summing −log(1−x)−x=Σ_{j≥2}x^j/j≤x²/(2(1−b)). ∎
 
-**Assessment / critical scale.** If the useful top primes have log p≍L, their mass is μ≍L³, and Σβ_p²=o(μ), then the cheap sufficient condition in (3.2) requires L⁴≲log N_c. If L=(log N)^α with α>1/4, (3.3) shows that the complete Euler product's saving μ is largely cancelled by the small probability Pr(D≤R). At α=1/3 and R≤√N, k=O((log N)^{2/3}), so log S(R)≤O((log N)^{2/3}log log N)+o(μ), rather than μ≍log N. For an actual negligible Σβ², this explicitly loses the desired power saving. These are calculations within the established large-sieve cap, not a new impossibility theorem for arbitrary interval methods.
+**Assessment / critical scale.** The cubic mass in this paragraph is the CRT-model mass of `paper/es-threequarter-note.tex`, Theorem supply, not a mass obtained with an affordable actual fibre period. If the useful top primes have log p≍L, their mass is μ≍L³, and Σβ_p²=o(μ), then the cheap sufficient condition in (3.2) requires L⁴≲log N_c. If L=(log N)^α with α>1/4, (3.3) shows that the complete Euler product's saving μ is largely cancelled by the small probability Pr(D≤R). At α=1/3 and R≤√N, k=O((log N)^{2/3}), so log S(R)≤O((log N)^{2/3}log log N)+o(μ), rather than μ≍log N. For an actual negligible Σβ², this explicitly loses the desired power saving. For a whole prime range, splitting off the lower primes gives S(R)≤Z_low·S_top(R); one must optimize that split, not apply the single-band estimate blindly to all primes. These are calculations within the established large-sieve cap, not a new impossibility theorem for arbitrary interval methods. The affordable-period version with K≲log N instead has supply ≍L²log K and recovers the existing 2/3 bound with a log-log gain. See `paper/vaughan-loglog-note.tex` for the fibrewise argument (using a stronger Rankin tail), and KARY3 Theorem 5.1 for the stronger general truncated-majorant cap.
 
 ### 3.3 Round-2 review and numerical check
 
-**CERTIFIED.** The same script checks 30 (fibre,cutoff) instances with N=10000, s=6, primes 5,7,11,13 and cutoffs 1,5,10,30,100. It enumerates the 16 subsets one at a time, verifies S(R)=e^ν Pr(D≤R) with exact rational arithmetic, compares the actual fibre avoider count with (3.1), and checks (3.3) whenever 0<k<μ. All pass; `data/z50_ajastra/round2.json`. Hostile review pending.
+**CERTIFIED.** The same script checks 30 (fibre,cutoff) instances with N=10000, s=6, primes 5,7,11,13 and cutoffs 1,5,10,30,100. It enumerates the 16 subsets one at a time, verifies S(R)=e^ν Pr(D≤R) with exact rational arithmetic, compares the actual fibre avoider count with (3.1), and checks (3.3) whenever 0<k<μ. All pass; `data/z50_ajastra/round2.json`. These are small sanity checks: the Chernoff test exercises only k=1 in eight instances, and the interval bounds are loose.
+
+**Opus hostile review: SOUND, no FATAL/MAJOR.** Session `/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0046--/2026-10-29T14-51-46-415Z_01a18825-456f-76dd-89bf-635a879c4b75.jsonl`. It reproduced the files byte-for-byte and independently tested 596 random fibre systems and 2000 Chernoff instances. Minor repairs incorporated: R=1 and smooth-only events; common-period wording; explicit distinction between affordable and cubic-mass regimes; citations to existing stronger results; full-range/top-band distinction. The review confirms no new exceptional-set exponent.
 
 ## 4. Round 3: ES-specific structure and transfer
 
-Pending: rational labels/coordinate pinning, nonlinear obstruction or surviving route, hostile review.
+### 4.1 Exact pair distribution does not supply product independence
+
+**Theorem 4.1 (PROVED, finite-field construction; hostile review pending).** For arbitrarily large prime q, put b=⌊q/9⌋ and β=b/q<1/8. There is a squarefree modulus M and a probability law ρ on its reduced residues with all of the following properties:
+
+1. Every one- and two-prime-coordinate marginal of ρ is EXACTLY uniform product measure on units.
+2. There are congruence atoms at q distinct prime moduli, with μ=b, Δ=0, atom probability ≤1/8 and conflict load <1/8.
+3. Their avoidance probability under ρ is exactly (q−b)/q², whereas the unit-CRT avoidance probability is (1−β)^q≤e^{−b}.
+
+Moreover, for any prescribed P₀, the selected primes can be taken in [P,2P] with P>P₀. With an enlarged period L, ρ extends to a law whose marginal mod EVERY d<P³ is exactly uniform on (ℤ/d)×. The normalized lower-tail error needed for a conclusion ρ(avoid)≤Ce^{−μ}+ε is therefore at least
+
+    ε ≥ (q−b)/q² − Ce^{−b}.                             (4.1)
+
+This obstruction applies to any inference, linear or nonlinear, asserted for all laws from only these exact marginals. It is NOT a counterexample to the uniform law on [1,N] or to the ordinary primes ≤N.
+
+*Proof.* Choose q distinct primes p_i≡1 (mod q), indexed by i∈F_q. For fixed q, the prime number theorem in this progression permits choosing all of them in [P,2P] for sufficiently large P. Partition (ℤ/p_i)× into q equal buckets, labelled by F_q. Draw A,B uniformly in F_q and, independently conditional on these, choose n mod p_i uniformly from bucket Ai+B. CRT gives ρ.
+
+For i≠j, the linear map (A,B)↦(Ai+B,Aj+B) is invertible. Thus any two bucket labels are independent uniform, and conditional uniform sampling within the buckets makes the entire two-coordinate residue distribution uniform, not just the hit indicators. Forbid all residues whose bucket label lies in a fixed set T⊂F_q of size b. Singleton atom probabilities are 1/(p_i−1), μ=qβ=b, and at a given prime the conflict load is β−1/(p_i−1)<1/8. Distinct atoms at the same prime are incompatible, and distinct primes are coprime, so Δ=0.
+
+If A≠0, the q labels run over all of F_q and hit T. If A=0, avoidance holds exactly for B∉T. This proves the probability formula. Distinct affine polynomials give distinct label vectors, and every vector has the same number of unit-residue realizations, so ρ is also uniform on an explicit SUBSET of (ℤ/M)×, M=∏p_i.
+
+For the extra level assertion put D=⌈P³⌉−1 (P may be integral) and L=lcm(M,1,…,D). Lift each selected residue independently and uniformly to its higher prime-power digits in L; choose every other prime-power coordinate uniformly on units. Each d≤D involves at most two distinct selected primes because each is ≥P. Its entire reduced residue marginal is therefore uniform by the proved two-coordinate property and independence of the additional digits. ∎
+
+**Scope / novelty (Assessment).** Pairwise-independent affine codes are standard. This is an explicit arithmetic realization of their lower-tail obstruction with *all* AP marginals through a level, not a claim to invent pairwise independence. The inference-class exclusion is wider than Bessel proofs: it rules out an arbitrary nonlinear “first/second moments plus level D” theorem for arbitrary distributed sequences. But L is enormous relative to D, and no claim of polynomial level D≥L^θ is made. Consequently this is NOT a new 3/4 barrier for the actual interval sequence, and it must not be advertised as satisfying z50's strongest fallback. The missing ingredient is exactly interval/prime information not encoded in the stated marginals.
+
+### 4.2 Can ES labels supply the missing ingredient?
+
+**Existing PROVED structure.** LS7 Lemmas 1.1–1.2 give ℛ(M) labels −u/v with 4uvt=M+1 and, at p|M, a fixed residue a pins
+
+    u=−av,   t=−1/(4av²)  (mod p).
+
+Thus a residue pins two coordinates once the third is chosen. This controls collision sums and removes many arbitrary residue families, including the full freedom used in Theorems 2.1 and 4.1. Neither counterexample is claimed to have this ES triple structure.
+
+**Attempt and exact failed step (Assessment).** Conditional on a smooth fibre, one-big-prime ES events become forbidden subsets Ω_p(c) at independent model coordinates. Their exact pair collision information is already as good as Δ=0 after merging each prime's residues. Yet Theorem 3.1 still has Pr(D≤R) in its denominator. Coordinate pinning is a statement about WHICH residues are in Ω_p, not about how [1,N] meets a long intersection of their complements. To use it nonlinearly one needs a signed count of interval representatives of simultaneous rational-label constraints when their modulus product exceeds N. The unconditional LS7 residue-dispersion estimates do not give that count: their conclusion concerns one-prime load distribution; the multi-prime height-cut version is explicitly false (LS7 Prop. 4.1), and RD′ remains open. No implication from GRH, EH, or OAI-003 to the missing count is proved here.
+
+**No hidden escape by optimization (PROVED consequence of existing caps, not a new advance).** Let V_λ be the real span of all residue indicators of level≤λ dividing a common family period M, including constants. Finite linear-programming duality says
+
+    max{ρ(avoid): ρ≥0, Eρ f=E_CRT f for every f∈V_λ}
+      = min{E_CRT ν: ν∈V_λ, ν≥1_avoid everywhere}.       (4.2)
+
+The right side is exactly the CRT-majorant problem, since ν≥1_avoid includes global nonnegativity. KARY3 Theorem 4.1 therefore supplies an EXACT-marginal law on the left with avoidance ≥exp(−Cλ^{3/4}) for its forced families. This explains why arbitrary nonlinear manipulation of ONLY these residue moments cannot escape. It is dual packaging of an existing result (compare INTERFREQ §3.1's moment LP), not a new independent barrier theorem. Interval support is absent on the left; imposing it is precisely the unproved extra input, not a technicality.
+
+### 4.3 Fresh literature check and a possible but insufficient nonlinear tool
+
+**CLAIMED external result, not used as an input.** A second live search located Croot–Mao–Pohoata–Yip, *A sharp inverse theorem for the quadratic large sieve*, arXiv:2607.15311v2 (September 2026), https://arxiv.org/html/2607.15311v2, whose full displayed argument was inspected. It uses positive quadratic-character mixtures and Jensen without assuming independence of the set's residues. Theorem 1.7 states that |A mod p|<(p+1)/2 for odd p≤(log N)^3 forces a quadratic intersection of size at least
+
+    C |A|/√N · exp(c√(log N/log log N)).
+
+This is a useful non-product tool, but not a bound |A|≤N^{1/2+o(1)}. Its transfer still truncates a Selberg-type weight to polynomial period. In ES, the currently available prime-local depletion is sparse, not half the residues; no hypothesis of that theorem is supplied by ES₅ or U failure. Its quantitative intersection can also be far smaller than |A|. No exceptional-set consequence follows. The Green–Harper inverse-sieve conjectures remain explicitly conjectures in that paper; I do NOT claim that (AJ) implies their quadratic-structure conclusions.
+
+The original source https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf was also visited (§6, Problems 43–48). A search aggregator labelled a different entry “GREEN-086”; its page did not expose a precise problem statement, so it is not used as a source or as a claimed known-open reduction.
+
+### 4.4 Round-3 numerical check and review
+
+**CERTIFIED.** `data/z50_ajastra/round3.json` enumerates every affine polynomial for q=17,31,101. Three distinct-coordinate pairs per q have exactly uniform joint bucket distributions; the first and factorial-second moments match the independent model exactly. At q=101, μ=11, Δ=0 and the actual zero probability is 90/10201≈0.00882266, versus the CRT value 0.00000875054 and e^{−μ}≈0.0000167017. This verifies the finite-code ingredient, not the huge arithmetic lift or an actual interval claim. The script uses only O(q²) counters.
+
+The required arithmetic controls are replayed from existing `z43_astra_check` helpers (not a duplicate census): 18 distinct hard/R-zero primes, 251 rational certificates, 50 odd squares, and numerator-8 slot checks at 17 and 241. Details and scope in §5 and `data/z50_ajastra/controls.json`. Hostile review pending.
 
 ## 5. Exceptional-set consequences and controls
 
