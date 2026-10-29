@@ -11,7 +11,7 @@
 | Round 2: transfer / I3 cap | PROVED / reviewed | Native whole-avoider CRT cap C(log N)^{2/3}, superseded by Round 3. |
 | Round 3: optimal cap | PROVED / reviewed | Cap C(log N)^{2/3}/(log log N)^{1/3}, matching the known native upper bound. |
 | Beyond CRT / ES port | OPEN / scoped negative | Noncoprime endpoint events escape the base; interval error and colour-compatible transport remain missing. |
-| Independent numerical checks | PENDING | Zero sub-range, truncated avoiders, controls. |
+| Independent numerical checks | CERTIFIED, finite scope | 104 zeros through 5,000; largest zero separately; controls and truncated avoiders. |
 | Literature after 2025 | PENDING | Search and verify sources. |
 | Hostile reviews | PENDING | Opus after each claimed advance. |
 
@@ -299,7 +299,55 @@ The coefficient-sum statement follows from the same projection/coarsening as §3
 
 ## 5. Independent computations and calibration
 
-Pending.
+**CERTIFIED finite scope.** `scripts/z50_i3ex_check.py`, output `data/z50_i3ex/checks.json`, passes under an 8 GB virtual-memory limit and 180-second timeout. Its memory is O(Y+N), Y=100,000 and N=1,000,000; it never constructs a Cartesian-product array. The source uses the existing 10⁹ zero list only for comparison, not for constructing witnesses or detecting the independently checked zeros. Existing z49 tests were inspected; they already cover the basic word/factor identities. The new checks target the native mass, zero-base elimination, exact conditional averaging, rough progression sums and the requested independent zero sub-range.
+
+* Direct triple enumeration through 5,000 reproduces exactly 104 zeros (last 3,276), matching the restriction of the certified z48 list.
+* Independent trial-divisor enumeration checks I3(2,433,600)=0, the square controls, and all 14 R-zero primes. It does not re-certify the full interval from 5,000 to 10⁹.
+* All nine hard-prime controls have ordered counts 4,4,12,4,12,20,18,30,84 in the order 193,409,577,2521,3361,5569,9601,66529,8813281. All 14 R-zeros have interior words, including those not in this nine-prime list.
+* At the square controls 49,1225,1600,19600,2433600, I3=0; at 121, I3=2 with word (3,5,9) and its swap. No tested square word has 4|t. Thus the mechanism neither assumes nor produces an I3 square floor.
+* At 17, I3=0; at 241, I3=2, the words (9,4,7) and (9,7,4). Neither has 8|t. These checks are not a fresh proof of the independently certified failure of 8/n; no arbitrary I3 word is treated as a numerator-8 certificate.
+
+**CERTIFIED class/fibre checks.** All native labels at every M≤100,000 are distinct and coprime to M; the program verifies their word reconstruction above onset and 730,684 small-prime incompatibilities with the zero base. A toy family with k≤4 and 13≤q≤101 has 176 atoms. On all 12 fibres modulo lcm(1,2,3,4), active same-q residues are distinct, and exact rational arithmetic verifies that the average conditional mass equals Σ1/(kq). Its fibre means range from 1.038 to 2.822. Complete CRT-period avoidance is checked for native cutoffs B=8,12,16:
+
+| B | Period | Avoiding residues |
+|---:|---:|---:|
+| 8 | 8 | 7 |
+| 12 | 88 | 63 |
+| 16 | 9,240 | 5,418 |
+
+**EVIDENCE, not asymptotic certification.** Native total mass divided by log²Y is 0.187, 0.272, 0.321, 0.354 at Y=10²,10³,10⁴,10⁵. At Y=10⁵ the total mass is 46.879; restricting moduli to have no prime ≤W gives masses 22.516,17.969,13.305,10.242 for W=5,11,31,101. This supports rough depletion, but these values do not test Lemma 4.2's astronomical K≥W^{1000} range or establish its constant. Toy rough progression sums at K=4096 check the divisor-switching inequality exactly and give normalized sizes; forbidden q sharing a prime with P_W give exactly zero. Smooth partial sums are also saved, but are lower bounds on the infinite smooth sum, not numerical verifications of its asymptotic upper bound.
+
+**CERTIFIED truncated avoiders versus actual exceptions.** To avoid false positives below witness onset, compare only n∈[3B,10⁶], using all native moduli ≤B. The true-zero column comes from the previously certified 10⁹ list, with the limited fresh rechecks stated above.
+
+| B | Lower endpoint | Native congruence avoiders | Actual I3 zeros |
+|---:|---:|---:|---:|
+| 32 | 96 | 250,411 | 57 |
+| 128 | 384 | 23,943 | 26 |
+| 512 | 1,536 | 1,492 | 14 |
+| 2,048 | 6,144 | 81 | 5 |
+
+The shrinking avoider set remains larger than the true exceptional set. No finite cutoff or observed absence of zeros establishes eventual positivity.
+
+**Comparison of all exponent scales with empirical E₃.** Let L=log N. The last three columns are only the scales in the existing upper bound / matching cap, the weaker Round-2 cap, and the requested 3/4 target. Their unknown constants and thresholds prevent numerical testing of the asymptotic inequalities. In particular the cap is not an assertion that log(N/E₃(N)) is bounded by these scales.
+
+| N | Certified E₃(N) | log(N/E₃(N)) | L^{2/3}/(log L)^{1/3} | L^{2/3} | L^{3/4} |
+|---:|---:|---:|---:|---:|---:|
+| 10³ | 93 | 2.375 | 2.912 | 3.627 | 4.261 |
+| 10⁴ | 109 | 4.519 | 3.368 | 4.394 | 5.287 |
+| 10⁵ | 111 | 6.803 | 3.785 | 5.099 | 6.250 |
+| 10⁶ | 111 | 9.106 | 4.173 | 5.758 | 7.166 |
+| 10⁷ | 112 | 11.400 | 4.538 | 6.381 | 8.044 |
+| 10⁹ | 112 | 16.005 | 5.213 | 7.545 | 9.713 |
+
+Reproduction:
+
+```sh
+ulimit -v 8000000
+timeout 180 uv run python scripts/z50_i3ex_check.py
+git diff --check
+```
+
+The exact arithmetic, count and identity checks are CERTIFIED; floating-point mass profiles and the interpretation of trends are EVIDENCE. None of this replaces the proof or hostile review of the cap.
 
 ## 6. Literature and final hostile-review ledger
 
