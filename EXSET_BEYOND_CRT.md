@@ -103,7 +103,9 @@ non-CRT (true) values (TC^alt_θ, open); **any family of classes that is not a K
 **Words.** A word of n is (t,u,v) ∈ ℕ³ with `n = tuv − u − v`, equivalently `(tu−1)(tv−1) = tn+1`. It is a
 *certificate* if one of t, u, v, tu−1, tv−1 is ≡ 0 (mod 4); ES₅(n) := n has a certificate word (at primes this is
 the z48 ES₅, Theorem A). U(n) := n has a word with an endpoint ≡ 0 (4) or ≡ −n (8) and both `tu−1, tv−1 > 1`
-(z49 definition). Every U-word is a certificate: if v ≡ −n (8) is odd, then 8 | n+v = u(tv−1), so 4 | u or
+[corrected in Round 4, review 3: the z49 definition is a word whose U-endpoint v has A = tv-1 with
+1 < A < n+v, i.e. tv-1 > 1 and partner u >= 2; all U-words constructed in this document (Section 3 atoms,
+R4.5) satisfy both this and tu-1 > 1]. Every U-word is a certificate: if v ≡ −n (8) is odd, then 8 | n+v = u(tv−1), so 4 | u or
 4 | tv−1; if v ≡ −n (8) is even then tv−1 is odd and 8 | u (review D3). Endpoint moduli tv−1 = 0 are excluded. Each word lies in three classes, one per **grouping**:
 
     pair class      P(u,v) = {n ≡ −(u+v) (mod uv)}        (t free),
@@ -631,11 +633,13 @@ model counted atoms instead of distinct classes mod l and was off by a factor 2;
 P denotes U or ES5 (on n = 1 mod 4). Write W_P for the certificate word classes of Section 1.3 (all three
 groupings, non-reduced pair classes, certificate/U refinements; structurally degenerate U groupings removed).
 
-**Lemma R4.0 (PROVED, by definition).** Every certificate of P(n) is a word of n: P(n) is *defined* as the
-existence of a word (t,u,v) of n with a slot condition. In particular an Egyptian-fraction identity for 4/n that is
-not a word of n certifies ES(n) but never P(n). For comparison: a Type II solution `4abcd = a+b+cn` is the word
-(4cd, a, b) of **cn** (since cn = 4cd*ab - a - b); it is a word of n itself only when a = 1, b = 1 or c = 1
-(Section 1.3 table).
+**Lemma R4.0 (PROVED, by definition; scope corrected after review 3, R3-1).** The final witness of P(n) is always a
+word of n: P(n) is *defined* as the existence of a word (t,u,v) of n with a slot condition. A Type II solution
+`4abcd = a+b+cn` is the word (4cd, a, b) of **cn** (cn = 4cd*ab - a - b); the Section 1.3 table transforms it into a
+word of n when c = 1, a = 1 or b = 1. Otherwise there is **no automatic implication**, but also no exclusion: a
+progression of Type II solutions with a, b, c >= 2 can be uniformly U-forced through *other* words. Example
+(review 3): n = 269 + 444j has (a,b,c,d) = (17+28j, 4, 7, 1) and also the U-word (1, 91+148j, 4). The point used
+below is only that every proof of P(n) must end with a word of n; how the proof finds it is not restricted.
 
 A progression C = a mod M is *P-forcing* if P(n) holds for every n in C with n >= n0(C). It is certified:
 * by an **exact covering** if C is contained, for n >= n0, in a finite union of classes of W_P (any moduli, any
@@ -667,9 +671,14 @@ in R(C). The level of a sum is the maximum of the levels of its terms, so level(
 E nu' <= E nu + delta_R. Corollary 2.5 applied to (F', nu') gives the claim. (The classes of F' may have arbitrarily
 large moduli: Corollary 2.5, like K2 Thm 5.1, puts no condition on family moduli.) QED
 
-**Corollary R4.2 (exceptional-set reading).** Coefficient-sum methods (M1) built on such F, with family primes
-<= N^A and remainders with delta_R <= e^{-S}/2 at the claimed saving S, save <= C_A (log N)^{2/3}(log log N)^{2/3};
-likewise M2 (all moduli of nu' <= N/2), L1, C. *Proof:* run K2 Cor 6.1's projection/coarsening on nu'. QED
+**Corollary R4.2 (exceptional-set reading).** (a) *Exact covers.* Coefficient-sum methods (M1) with a
+majorant nu of A(F), F a finite family of exactly covered forcing progressions with family primes <= N^A, save
+<= C_A (log N)^{2/3}(log log N)^{2/3}. *Proof (repaired, review 3 R3-2):* first project/coarsen nu on the period
+of F as in K2 Cor 6.1 (this uses only F's prime bound and keeps nu >= 1 on A(F)); then apply R4.1 to the coarsened
+majorant, whose level is <= (A+1)log N + S. The covering family F' may have arbitrarily large primes. QED
+(b) *Approximate covers.* The same holds if, uniformly at the claimed saving S, the total remainder satisfies
+delta_R <= e^{-S}/2 **and** lambda_R <= C0(log N + S); small density alone is not enough, since every progression
+has remainders of arbitrarily small density (R4.3(c)) but not of bounded level.
 
 **Why the parent's level-lowering mechanism does not help.** A covering lets a method use the cheap class a mod M
 (level log M) instead of the covering classes (level log lcm M_i). But the cap is a statement about the level of
