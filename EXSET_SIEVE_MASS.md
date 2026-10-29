@@ -349,8 +349,8 @@ n ≡ 1 (mod 4) the attained exponent loses (log log N)^{1/3}. Not excluded: int
 any non-CRT input (§7).
 
 **Reading (Assessment).**
-* z50 target 3 for ES₅/U ("beat 3/4") is two steps beyond CRT, not one. Even reaching 3/4 for U or ES₅ requires a
-  non-CRT ingredient. 3/4 for ES comes from the third divisor parameter, which these families lack.
+* z50 target 3 for ES₅/U ("beat 3/4") is two steps beyond CRT, not one. Even reaching 3/4 for U or ES₅ requires an
+  ingredient outside the architectures of Cor 3.4. 3/4 for ES comes from the third divisor parameter, which these families lack.
 * The CONTEXT's "α = 1/2 needed for a power saving with the ES₅ two-endpoint family" is now a theorem in its CRT
   form: CRT methods transfer only α ≤ 1/3 (L ≤ (log N)^{1/3}).
 * The cap is a property of the class profile, not of ES₅'s colour. It holds verbatim for any union of word families
