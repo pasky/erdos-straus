@@ -19,8 +19,8 @@ Assessment. Scripts `scripts/z50_lsmass_*`, data `data/z50_lsmass/`.*
 | 3.5 | #{p ≤ N : ES₅(p) fails} ≤ #{p ≤ N : U(p) fails} ≪ N e^{−c(log N)^{2/3}} (rough-input refinement, no log log loss); all-n version = lane E §7.3 | PROVED (I3_DEEP_ASTRA §8 with 4 \| u; no new method) | R1: SOUND-WITH-MINOR |
 | **3.6** | **exact CRT exponent of U/ES₅ at primes / rough inputs is 2/3, within the architectures of Cor 3.4**; θ ≥ 3/4 for U/ES₅ needs input outside them | PROVED (conjunction) | R1: scope repaired |
 | 4.1 | local: class sets at one modulus h have character content h^{−1+o(1)}; coprime characters equidistributed on the periodic avoider. Joint (multi-modulus) forcing is OPEN; EVIDENCE of strong QR-bias of exceptional points | PROVED (local) / EVIDENCE | R2: global claim withdrawn |
-| 4.2 | ~~Linnik dual = periodic Bessel system, capped~~ **WITHDRAWN** (R2 FATAL). Corrected: Linnik duality is a genuine non-CRT door (primality of the exceptional moduli breaks the square floor), but it needs dense forced character data up to (log p)^{2+δ}; heuristic per-prime forcing reaches only q ≲ log p | Assessment (+ trivial PROVED control) | R2 |
-| 4.3 | cap-0 relaxations with dense character data would be fixed-modulus shot families; barred in the affine Type II framework (FMS Thm 6.2); exclusions listed | Assessment on PROVED inputs | R2: repaired |
+| 4.2 | ~~Linnik dual = periodic Bessel system, capped~~ **WITHDRAWN** (R2 FATAL). Corrected: Linnik duality is a genuine non-CRT door (primality of the exceptional moduli breaks the square floor). One sufficient route needs a common set of small primes that are residues mod every exceptional prime (CAP-type: q up to (log X)^{2+δ}); the per-prime forcing heuristic reach ≈ (log p)²/log log p is borderline; numerics inconclusive | Assessment (+ trivial PROVED control) | R2, R3 |
+| 4.3 | no infinite cap-0 fixed-coefficient affine Type II shot family with a fixed common firing condition (FMS Thm 6.2); other affine relaxations with dense character data are not excluded | Assessment on PROVED inputs | R2, R3: scope repaired |
 | 5.1 | the square floor is the large-sieve limit; the CMPY inverse theorem (arXiv:2607.15311) is trivial on E_U, and on E_U ∖ □ needs non-CRT depletion plus an ES-specific near-total saving on quadratics | PROVED (trivial) + Assessment | R2: repaired |
 | **5.2** | **word-class-certified depletion is thin: Σ_{ℓ≤Q} ω_𝔊(ℓ)/ℓ ≤ e^{O((log Q)^{2/3+o(1)})}; Montgomery fed by it has L(Q) ≤ Q^{o(1)}** (not a new method class; new U/ES₅ coverage) | PROVED (Thm 3.2 + LS Thm 2.1) | R2: SOUND-WITH-MINOR, reading narrowed |
 | 5.3 | actual E_U ∩ (1, N] is depleted in ≈ ℓ/2 classes (contrary to CONTEXT §4(c) for the actual set, in the tested range); census reproduced to 2·10⁷ with the strict definition | CERTIFIED / EVIDENCE | R2: reproduced at 2·10⁶ |
@@ -33,8 +33,8 @@ Assessment. Scripts `scripts/z50_lsmass_*`, data `data/z50_lsmass/`.*
 * It verifies the orchestrator note §4(a). It refutes §4(c) for the actual exceptional set, while proving it (Thm 5.2)
   for congruence-certified depletion.
 * It corrects a first-round error: Linnik duality is **not** capped by the CRT ledger. It is a genuine non-CRT door,
-  because primality breaks the square floor. It needs dense character data at the exceptional primes, which nothing
-  provides for ES₅/U.
+  because primality breaks the square floor. Its CAP-type route needs a common set of residue primes at the
+  exceptional primes, which nothing provides for ES₅/U. The forcing heuristic is borderline.
 
 ## 1. Audit
 
@@ -97,8 +97,8 @@ Theorem 3.2 below replaces it by a cap that is literal for all of 𝔘 and 𝔉�
 ### 1.3 Which barrier, which door
 
 **Assessment.** This lane escapes no barrier. Its outputs are of three kinds. First, sharper barrier theorems for exactly
-the families the z50 targets name (U, ES₅): §3, the exact CRT exponent 2/3. Second, a placement theorem: Linnik/dual
-large sieves lie inside (D)25 (§4). Third, verification or refutation of the orchestrator notes §4(a) and §4(c) (§§2, 5).
+the families the z50 targets name (U, ES₅): §3, the exact CRT exponent 2/3. Second, an analysis of Linnik duality (§4).
+A first-round "placement inside (D)25" was withdrawn after R2: Linnik duality is a genuine non-CRT door. Third, verification or refutation of the orchestrator notes §4(a) and §4(c) (§§2, 5).
 §7 lists the doors that remain open for U, stated precisely.
 
 ### 1.4 Literature (checked 2026-10-29, web search)
@@ -327,8 +327,8 @@ the four inputs below depend on the family.
 
 **Remark 3.3 (removing the log).** The (log log y)² in Prop 3.1(b) is K2's Rankin loss. KARY3's local-moment device
 (KARY3 §2) removes it; `EXSET_I3.md` Lemma 3.3 (on main) carries out exactly this computation for
-Σ_{P(m)≤y} τ(m+1)Γ(m)/m, uniformly in W. Its constants survive bounded small-prime Γ-factors, so with it the cap of
-Theorem 3.2 becomes Cλ^{2/3}. Lane E's further gain (log λ)^{−1/3} needs the growing zero base, which is incompatible
+Σ_{P(m)≤y} τ(m+1)Γ(m)/m, uniformly in W. Its constants survive bounded small-prime Γ-factors *for fixed W*
+(W-dependent constants, not uniform in growing W; R3). Since Theorem 3.2 fixes W, with it the cap becomes Cλ^{2/3}. Lane E's further gain (log λ)^{−1/3} needs the growing zero base, which is incompatible
 with selectors. The selector-compatible exact log power is open.
 
 **Corollary 3.4 (PROVED, same proviso).** Let all primes of the family be ≤ N^A.
@@ -341,8 +341,8 @@ with selectors. The selector-compatible exact log power is open.
 (c) *Every periodic Bessel / hybrid system* of LS2 Thm 2.4 (additive, multiplicative, Gauss-sum or Kloosterman rows,
     periodic twists, fibrewise mixtures) with row periods ≤ N^A obeys the same bound. LS2's full hypotheses are retained:
     CRT-admissibility, Q₀ ≤ min(N^A, N/2), and λ(Q₀) charged. LS2 Lemma 1.1 is pure LP duality
-    and holds with any cap S(λ), here S(λ) = Cλ^{2/3}(log λ)^{2/3}. Its §2 proof uses nothing else. §4 shows that
-    Linnik's dual sieve is such a system.
+    and holds with any cap S(λ), here S(λ) = Cλ^{2/3}(log λ)^{2/3}. Its §2 proof uses nothing else. (Linnik's dual sieve is *not* such a system;
+    see §4.2.)
 
 ### 3.3 The cap is attained: the exact CRT exponent of U and ES₅ is 2/3
 
@@ -441,22 +441,27 @@ coprime to the small primes (PROVED, trivial). Linnik's bound X^{2/A+o(1)} is o(
 *beats every integer CRT bound for the same congruence family*. It uses an input that integer sieves do not have: the
 exceptional objects are primes, and each one, acting as a modulus, confines a fixed dense sequence 𝒜 to half the
 residues. Linnik duality is therefore a **genuine non-CRT door**: the square floor is broken by primality, not by
-congruences. It requires, however, **dense forced character data**: exceptionality must imply (a/p) = +1 for all a in
-a fixed set 𝒜 ⊂ [1, X²] with |𝒜| ≥ X^{c}. For prime power-saving this means: for all primes q ≤ (log X)^{2+δ} in a
-set of positive density.
+congruences. The route it uses is *one sufficient route* (R3): a **common** fixed set 𝒜 ⊂ [1, X²] with
+|𝒜| ≥ X^{1+c}, confined to the quadratic residues mod every exceptional prime. Its size must exceed X^{1+c}, not
+merely X^{c}: the bound is (X² + Q²)/|𝒜|. In CAP_BOUNDED, 𝒜 is generated by a *common* set of primes
+q ≡ 3 (4), q ≤ (log X)^A, with A > 2 for a power saving and A > 4 to beat √X. For ES₅/U the analogous input would be
+a common set of small primes q that are residues mod every exceptional prime. Other Linnik-type configurations are not
+excluded.
 
-**Assessment (how far the forcing can reach for U/ES₅).** For one prime p, a composite pivot qm with
-u ≡ −p (mod m) and u | qm + 1 forbids the residue −u mod q. Over m ≤ M these give ≍ log q·log M residues mod q, of
-roughly random position. Covering all (q−1)/2 non-residues needs ≈ q log q of them (coupon collector), so
-log M ≍ q, and the pivot is ≈ q·e^{q} ≤ p. So even heuristically the per-prime forcing of (p/q) = +1 reaches only
-q ≲ log p. Linnik needs q up to (log p)^{2+δ}. The gap is the exponent 1 versus 2+. Moreover Theorem 5.2 shows that the
+**Heuristic (Assessment; corrected in R3).** Work with p's profinite coordinates: fix p mod m for m coprime to q and
+vary only the q-coordinate. A composite pivot qm with u ≡ −p (mod m) and u | qm + 1 forbids the residue −u mod q. The
+number of such labels over m ≤ M is ≈ Σ_{m≤M} τ(qm+1)/m ≍ log q·log M + (log M)². (Round 1 omitted the (log M)²
+term.) Covering all (q−1)/2 non-residues needs ≈ q log q labels (coupon collector), so (log M)² ≍ q log q, with pivot
+q·M ≤ p. This suggests a per-prime reach q ≈ (log p)²/log log p. That is *just short* of Linnik's (log p)^{2+δ}, and
+the margin is only logarithmic, so the heuristic is inconclusive. It also concerns a p-dependent set of q, whereas the
+route needs a common one. Moreover Theorem 5.2 shows that the
 *CRT-certified* (uniform over the avoider set) dense depletion occurs at only Q^{o(1)} primes q ≤ Q. Any Linnik-type
 proof for ES₅/U must therefore establish character confinement of the actual exceptional primes beyond what congruence
 data certify. The door is open; nothing here enters it.
 
-**EVIDENCE for the reach (`scripts/z50_lsmass_forcing.c`, `data/z50_lsmass/forcing.txt`).** Fix p ≡ 1 (8) and a small
-prime q. We ask, for each non-residue a mod q, whether the integer that agrees with p modulo every m coprime to q but
-is ≡ a mod q carries a U word with pivot qm ≤ p/2. Only W1 words with u ∈ S are used, which gives a lower bound on the
+**EVIDENCE for the reach (`scripts/z50_lsmass_forcing.c`, `data/z50_lsmass/forcing.txt`,
+`forcing_coverage.txt`).** Fix p ≡ 1 (8) and a small prime q. In profinite coordinates (p's residues mod every
+q-coprime m kept, the q-coordinate set to a non-residue a), we ask whether a U word with pivot qm ≤ p/2 exists. Only W1 words with u ∈ S are used, which gives a lower bound on the
 forcing. Let q* be the first q at which some non-residue is unreached. Six primes near each of 10⁵, 10⁶, 10⁷ (exact,
 u ≤ p) and 10⁸ (u ≤ 3·10⁷) give:
 
@@ -467,7 +472,12 @@ u ≤ p) and 10⁸ (u ≤ 3·10⁷) give:
 | 10⁷ | 16.1 | 11, 19, 11, 13, 13, 13 |
 | 10⁸ | 18.4 | 23, 17, 23, 29, 29, 19 |
 
-So q* ≍ log p in this range, consistent with the coupon-collector heuristic, and nowhere near (log p)^{2+δ}.
+q* is a *first-hole* statistic and a lower-bound search. It does not measure density coverage: for p = 1000033 the
+first hole is at q = 11, yet q = 17 is fully covered (R3 reproduced this with an independent pivot-first Python
+enumeration). The fraction of non-residues reached grows with p in every q-band. For q ∈ [25, 50) it is 0.47, 0.57,
+0.70, 0.79 at p ≈ 10⁵…10⁸, and for q ∈ [100, 125) it is 0.18, 0.25, 0.33, 0.40. Full coverage is so far seen only for
+q < 25. The data cannot separate the log p and (log p)²/log log p heuristics. **No conclusion about the Linnik
+threshold is drawn.**
 
 ### 4.3 (ii) Relaxations that force free character data
 
@@ -485,15 +495,17 @@ some R′ with ES-failure ⇒ R′-failure and with R′-failure ⇒ dense chara
   imply that exceptionality has no further character consequences (R2). The QR bias of §4.1 is exactly such a
   consequence, statistically.
 
-**Assessment.** Within the fixed-coefficient affine Type II framework there is no cap-0 relaxation with dense
-character data. The open avenues for Linnik duality on ES₅/U are joint, multi-modulus forcing of characters and the
+**Assessment.** Within fixed-coefficient affine Type II shots with a *fixed common Chebotarev firing condition*, there
+is no infinite cap-0 shot family. That is FMS Thm 6.2's exact scope. It does not exclude every affine relaxation with
+dense character consequences (R3). The open avenues for Linnik duality on ES₅/U are joint, multi-modulus forcing of characters and the
 FMS exclusions.
 
 ## 5. Work item 4 — the square floor and the (inverse) large sieve
 
 ### 5.1 The square floor is the large-sieve limit; what an inverse theorem would need
 
-**Lemma 5.1 (PROVED, trivial).** For every odd prime ℓ and N ≥ ℓ², E_U ∩ (1, N] meets every nonzero quadratic-residue
+**Lemma 5.1 (PROVED, trivial).** For every odd prime ℓ and N ≥ (2ℓ − 1)² (so that each nonzero residue class has an
+odd square root m with 3 ≤ m ≤ 2ℓ − 1; R3), E_U ∩ (1, N] meets every nonzero quadratic-residue
 class mod ℓ, because odd squares lie in E_U (Theorem E). So any true depletion input has ω(ℓ) ≤ (ℓ − 1)/2, and the
 large sieve (or Gallagher's larger sieve) fed with it gives at best ≫ N^{1/2}/log N. Conversely, Montgomery reaches
 N^{1/2+o(1)} as soon as L(√N) ≥ N^{1/2−o(1)}. Dense depletion ω(ℓ) ≥ (1/2 − o(1))ℓ at almost all ℓ ≤ √N is
@@ -628,6 +640,21 @@ cover 150 u = 1 cases and 116 non-coprime W2 entries.
 * *R1 repairs:* confirmed, except (c)(iii) (three primes, not two, fit near e^{λ/4}; the constant is 76, not 38).
   Both are fixed.
 
+**R3 (Astra, deep; §3.0, §4.2 rewrite, §5, §0/§7 consistency).**
+* *§3 (W2 and selector extension):* SOUND-WITH-MINOR. The reviewer confirmed that non-reduced W2 classes cause no
+  leak, that the square base is selector-compatible, and that Theorem 3.5's majorant lies inside Theorem 3.2. Remark
+  3.3 is now restricted to fixed W.
+* *§4.2 replacement heuristic:* MAJOR. The label supply omitted the (log M)² term, so the claimed "reach ≲ log p"
+  (exponent 1 versus 2+) is withdrawn; the corrected heuristic gives ≈ (log p)²/log log p, borderline. The
+  "integer agreeing with p mod every m" is now phrased profinitely. The first-hole statistic does not measure
+  coverage; coverage fractions were added. The Linnik route is restated as a sufficient common-generator route with
+  |𝒜| ≥ X^{1+c}. §4.3 now keeps FMS's exact scope.
+* *§5:* SOUND-WITH-MINOR. Lemma 5.1 now needs N ≥ (2ℓ−1)² (counterexample ℓ = 3, N = 9). The CMPY use was confirmed
+  against the abstract.
+* *§0/§7 consistency:* MAJOR (an incomplete R2 withdrawal). Stale Linnik-placement sentences in §1.3 and Cor 3.4(c)
+  are removed, and Remark 3.3 is reconciled with §7.
+* *Independent check:* a pivot-first Python enumeration reproduced the forcing output for p = 1000033, q ≤ 31.
+
 **Lane E fold (parent FYI).** §3 is repositioned as a complement to `EXSET_I3.md` Cor 7.1/§7.3 (on main). Overlapping
 claims are cited, not re-proved.
 
@@ -643,9 +670,10 @@ claims are cited, not re-proved.
    cancellation, classes that are not word classes, and non-CRT input. A third free divisor parameter would raise B to
    3, but U/ES₅ words have only two (Prop 3.1(c)); ES gets 3/4 only through Vaughan ratio classes (words of bn).
 3. **Linnik duality (target 1 at primes).** This is a genuine non-CRT door (§4.2). It needs: ES₅/U-exceptional primes
-   p satisfy (q/p) = +1 for a positive-density set of primes q ≤ (log p)^{2+δ}. The per-prime forcing heuristic reaches
-   q ≲ log p; the gap is the exponent 1 versus 2+. Joint multi-modulus forcing of characters is the open question, and
+   p are quadratic residues for a *common* set of small primes generating ≥ X^{1+c} integers below X² (one sufficient
+   route; CAP-type needs q up to (log X)^{2+δ}). The per-prime forcing heuristic suggests a reach of
+   ≈ (log p)²/log log p, borderline and inconclusive, and the numerics do not decide it (§4.2). Joint multi-modulus forcing of characters is the open question, and
    the QR bias of the known exceptions (§4.1) is its only evidence.
-4. **Not done here.** (a) A selector-compatible removal of (log λ)^{2/3} in Theorem 3.2 (with Remark 3.3, Cλ^{2/3};
-   lane E's (log λ)^{−1/3} needs the zero base). (b) A PRIMELAW-type version of Theorem 3.2. (c) The analogue of
+4. **Not done here.** (a) The selector-compatible exact log power. Remark 3.3 gives Cλ^{2/3} at fixed W; lane E's
+   (log λ)^{−1/3} needs the growing zero base. (b) A PRIMELAW-type version of Theorem 3.2. (c) The analogue of
    LS2 Thm 4.3 (Gallagher's larger sieve) for U.
