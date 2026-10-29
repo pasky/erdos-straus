@@ -14,7 +14,7 @@ Write L = log H. δ(H) is the prime-Haar certificate survival, n ≡ 1 (24) (FOR
 | −log δ(H) ≤ C L³(log L)^C (Thm 3.4) | **CONDITIONAL** on the first-term hypothesis FT (§3.4) |
 | −log δ(H) ≤ C L²(log L)^C (Thm 3.5), hence **Conjecture S in the model** | **CONDITIONAL** on FT_β (§3.6) |
 | −log δ(H) ≤ C L⁶ log L | unconditional status quo (H4_NOT_POLYLOG), unchanged |
-| H₄(p) > exp((log p)^κ) i.o. for κ < 1/3 (Cor 5.1) | **CONDITIONAL** on FT, relative to (G) and the internal energy lemma; this route cannot exceed 1/3 |
+| H₄(p) > exp((log p)^κ) i.o. for κ < 1/3 (Cor 5.1) | **CONDITIONAL** on FT, relative to (G) and the internal energy lemma; the present budget does not go past 1/3 |
 | −ln δ ≈ 0.64·E N_H, with E N_H ≍ L² (§4) | **EVIDENCE** |
 
 **New ideas.**
@@ -34,8 +34,9 @@ H₄(p) > H is ≤ exp(−c(log H)²). This replaces the (log H)^{−1/2} of FOR
 growing with p.
 
 **Exact remaining gap.** FT is a pointwise-in-ℓ first-term bound on the larger-endpoint loads. In its hardest
-instance it is the equidistribution mod ℓ of A − (B^{−1} mod A) over smooth A, B. It is numerically comfortable:
-the non-adaptive LLL certificate holds at H = 10⁵ with Y ≈ L³. It is unproved. FT_β additionally needs shifted
+instance it is the equidistribution mod ℓ of A − (B^{−1} mod A) over smooth A, B. The actual loads it controls are numerically
+comfortable: the non-adaptive LLL certificate holds at H = 10⁵ with Y ≈ L³. FT itself is unproved and was not
+enumerated. FT_β additionally needs shifted
 multiplicative weights β^{ω(v)}.
 
 ## 1. Model, events, and the colour
@@ -139,7 +140,7 @@ Y^s = H^{o(1)}. The fundamental lemma gives at least
     (X/q) ∏_{p≤Y, p∤q}(1−1/p) (1 − o(1)) = (X/φ(q)) V(Y) (1 − o(1))
 
 Y-rough elements, because every prime factor of q is ≤ Y. Multiples of p² with p > Y number at most
-2X/(qY) + √(2X) = o(X V(Y)/q), since X/q ≥ H^{1/20−1/400}/4 is much larger than √X. Coprimality to a fixed rough
+2X/(qY) + √(2X) = o(X V(Y)/q). The point is that √X/q ≥ H^{1/40−1/400}/4 → ∞. (Repair of review item 6.) Coprimality to a fixed rough
 m ≤ H² removes at most ω(m)(2X/(qY) + 1) = o(X V(Y)/q). So the count of admissible r is at least
 (X/(2φ(q)))V(Y).
 
@@ -175,7 +176,7 @@ s₁, so by (F2) it is ≤ (2+L)/s₁.
 * If p ≤ H^{1/16}/S₀², then x ≥ S₀ ≥ s₂ and the x-sum is ≤ (2+L)/s₂. Summing over s₁, s₂ with (F3) gives
   ≤ 2(2+L)²(C log Y)²/p.
 * If p > H^{1/16}/S₀², bound the x-sum by 1 + L and sum s₂ trivially (≤ S₀ terms). This gives
-  ≤ 2(1+L)(2+L) C log Y · S₀ / p ≤ H^{−1/16+3/400}.
+  ≤ 2(1+L)(2+L) C log Y · S₀ / p ≤ H^{−1/16+3/400+o(1)}.
 
 Case p | r₂ is the same with the roles swapped. The r₁-range starts at H^{1/16}/S₀ ≥ s₂. The threshold is
 p ≤ H^{1/2}/S₀². ∎
@@ -192,11 +193,12 @@ By squarefreeness and r₁ ⊥ r₂, r₁' ⊥ r₂', these are pairwise coprime
 
     r₁ = gja,  r₂ = hkb,  r₁' = gkc,  r₂' = hjd,
 
-so that lcm(R,R') = D·abcd and P(E∩E'|z) ≤ 2/(D·abcd).
+so that lcm(R,R') = D·abcd and P(E∩E'|z) ≤ 2/(D·abcd). The bound φ(m) ≥ m/2 of (F1) applies equally to the rough
+lcm ≤ H⁴.
 
 *Shared modulus.* Compatibility means D | (u+v) − (u'+v').
 
-* If the sums differ, D ≤ 2v' + 2H^{1/8} ≤ 4V', where v' ∈ [V', 2V'].
+* If the sums differ, D ≤ |u+v−u'−v'| ≤ max(u+v, u'+v') ≤ H^{1/8} + 2V' ≤ 3V', where v' ∈ [V', 2V'] and v ≤ v'.
 * If the sums agree, then u ≠ u' (else E = E'). h divides both v and v', so h divides v−v' = u'−u, and
   h ≤ H^{1/8}. Also gjk ≤ uu' ≤ H^{1/4}. Hence D ≤ H^{3/8} ≤ V'.
 
@@ -313,7 +315,8 @@ Thus μ − e^{1/3}Δ ≥ cL²/log L − O(L). ∎
 
 **Assessment (the gap for A_min).** The z-conditioning of §2.3 would remove the remaining log L. It does not go
 through as written because of the same-d hubs. With A = sGy and A' = s'Gy', the pairs C, C' with d = d' have no
-saving in the larger smooth part s'. A crude bound gives Δ ≫ S₀·L²/Y. Only the edge family has this solved, because
+saving in the larger smooth part s'. The crude *upper* bound obtained this way is of size S₀·L²/Y, which is too
+large. No lower bound on Δ is claimed. Only the edge family has this solved, because
 the two endpoints carry independent congruences. Since δ_joint ≤ min(δ(H), P(A_min > H)), Theorem 2.1 already gives
 the joint bound with exponent L².
 
@@ -359,13 +362,17 @@ Condition on n ≡ 1 (mod Q). This costs φ(24)/φ(Q) relative to n ≡ 1 (24). 
 
 So every free coordinate has m_c ≥ Y.
 
+**Family.** Throughout §3 and §5 the bad family is all coprime edges (a,v), a < v ≤ H, **except (1,2) and (2,3)**,
+exactly as in H4_NOT_POLYLOG Lemma 2. On the class of one these two edges are certain, and they are
+non-certifying. Avoiding the family therefore implies avoiding all certificates. (Repair of review item 1.)
+
 **Lemma 3.1 (PROVED; exact form).** Let a < v be coprime, and write A = gcd(a,Q), B = gcd(v,Q), and
 φ_Q(m) := φ(m)/φ(gcd(m,Q)).
 
 * E_{a,v} is compatible with n ≡ 1 (Q) iff A | v+1 and B | a+1 ("live").
 * If live, P_Q(E_{a,v}) = 1/(φ_Q(a)φ_Q(v)) ≤ (C log L)² AB/(av).
-* Its support is the set of coordinates c with m_c | av, which is nonempty unless (a,v) ∈ {(1,2),(2,3)}. These two
-  edges are not certificates.
+* Its support is the set of coordinates c with m_c | av. It is nonempty unless (a,v) ∈ {(1,2),(2,3)}, the two
+  excluded edges.
 
 *Proof.* By CRT, n ≡ −a (mod v) and n ≡ −v (mod a) are independent. Given n ≡ 1 (mod B), the first holds with
 conditional probability [B | a+1]·φ(B)/φ(v), and similarly for the second. Use m/φ(m) ≪ log log m. The last claim
@@ -409,22 +416,40 @@ On n ≡ 1 (mod q), with n in dyadic blocks (qX'/2, qX'+1] and X' > 2q, Shiu giv
 
     Σ τ_Q(n) ≪ (X'q/φ(q))(log x)^{−1} exp(Σ_{p≤x} F(p)/p) ≪ X'(log Y)²(log x/log Y)/log x = X' log Y.
 
-Blocks with X' ≤ 2q have n ≤ 2q²+1 and contribute ≪_ε q^{3ε}. If q > √H, every x is in such a block, and
-τ_Q(n) ≪ H^ε ≤ q^{2ε}. Combine. ∎
+We use Shiu's hypotheses with α = β = 1/4: 0 < α, β < 1/2, q < y^{1−α}, x^β < y ≤ x. For X' > 2q, the block length
+y ≍ qX' exceeds q². The progression is reduced, and q/φ(q) ≤ 2. Dropping Euler factors only weakens the upper bound.
+If x < Y, use log min(Y,x) ≤ log Y.
+
+Blocks with X' ≤ 2q have n ≤ 2q²+1 and contribute ≪_ε q^{3ε} in total. Hence T(q) ≪ L log Y + O_ε(q^{3ε}). Take
+ε = 1/48.
+
+* If q ≤ L³, the second term is absorbed by L log Y.
+* If q > L³, then (C log L)²L·q^{3ε}/q = O(q^{−1/2}).
+
+This also covers q > √H, where every block is short. ∎ (Bookkeeping per review item 7.)
 
 ### 3.4 Loads from the larger endpoint: the one unproved input
 
-The same calculation for q | v sums first over v with a fixed. Now v ≡ 0 (mod lcm(B,q)) and v ≡ −1 (A). In terms
-of s = a+v+1 this is s ≡ 0 (AB) and s ≡ a+1 (lcm(B,q)), a class modulo AB·p_c, where p_c is the prime of c. When
-q = ℓ^{k+1} is a prime power, also ℓ^k | B | a+1. The harmonic sum over this class splits into two parts.
+Let c be a coordinate with modulus q, and let p = p_c be its prime. Write q = p^{k+1}: k = k_p if p ≤ Y, and k = 0
+if p > Y. A live event with q | v has p ∤ a, B | gcd(a+1,Q), and, if p ≤ Y, v_p(B) = k **exactly** (B contains the
+full power p^k of Q). Call such (a,B) **admissible**. (Repair of review item 2.)
 
-* The **long part** is ≪ L/(ABp_c) times AB. Summed over a and B it gives ≪ (log L)² L² log Y/q. For prime powers
-  this uses Σ_{a ≡ −1 (ℓ^k)} τ_Q(a+1)/a ≪ k L log Y/ℓ^k.
-* The **first term** is AB/s_*, where s_* = s_*(a,B;q) is the least s in the class with s ≥ a+q+1.
+For admissible (a,B), the conditions on v are v ≡ 0 (mod Bp) and v ≡ −1 (mod A). In s = a+v+1 they read
+s ≡ 0 (AB) and s ≡ a+1 (mod Bp). Both hold mod B since B | a+1, so this is **one** class modulo ABp. Let s_*(a,B;q)
+be its least member with s ≥ a+q+1. This cutoff is ≤ the actual one when q ≤ v. Lowering it only enlarges a positive
+upper bound, and 1/v ≤ 2/s is used only on actual events. The harmonic sum over the class splits into two parts.
+
+* The **long part** is ≪ L/(ABp) times the weight AB. For p > Y, sum over a and B as in Lemma 3.2: ≪ L² log Y/p.
+  For p ≤ Y, write B = p^kB' with B' | Q/p^k. Then a ≡ −1 (mod p^kB'), and
+
+      Σ_{B'} Σ_{a ≡ −1 (p^kB')} 1/a ≪ (L/p^k) Σ_{B' | Q/p^k} 1/B' ≪ L log Y/p^k.
+
+  After multiplying by L/p, this gives L² log Y/q.
+* The **first term** is AB/s_*.
 
 So, PROVED,
 
-    w_c^{(v)} ≪ (log L)² [L² log Y/q + FT(q)],      FT(q) := Σ_{a≤H} a^{−1} Σ_{B | gcd(a+1,Q)} AB/s_*(a,B;q).
+    w_c^{(v)} ≪ (log L)² [L² log Y/q + FT(q)],      FT(q) := Σ_{(a,B) admissible, a≤H} a^{−1} AB/s_*(a,B;q).
 
 **Hypothesis FT(Y).** For every free coordinate c of Q(Y), with q = m_c,
 
@@ -432,8 +457,8 @@ So, PROVED,
 
 *What FT says.* For fixed (a,B), the class of s modulo p_c is determined by a, B and q. The term AB/s_* is large only
 when that class happens to have a small representative above the cutoff. FT asserts that this coincidence is rare
-**at every single prime**. It is an equidistribution statement for the residues (a+1)(AB)^{−1} mod ℓ, pointwise in
-ℓ. This is the same "first-term" obstruction as in POINTWISE_OMEGA11 §4 and the LPL hypothesis of
+**at every single prime**. For p > Y it is an equidistribution statement for the residues (a+1)(AB)^{−1} mod p, pointwise in p. For residual
+coordinates the same holds after dividing the forced factor p^k out of the congruence. This is the same "first-term" obstruction as in POINTWISE_OMEGA11 §4 and the LPL hypothesis of
 POINTWISE_OMEGA13 §1, now in its simplest instance.
 
 The known extreme case is benign. The events (d, ℓ) with d | ℓ+1 and d smooth contribute τ_Q(ℓ+1)/(ℓ−1), which is
@@ -441,13 +466,14 @@ The known extreme case is benign. The events (d, ℓ) with d | ℓ+1 and d smoot
 
 ### 3.5 Exponent 3 + o(1) from FT
 
-**Theorem 3.4 (CONDITIONAL on FT(Y) with Y = L³(log L)^{C}, C = C(C₀)).**
+**Theorem 3.4 (CONDITIONAL on FT(Y) with Y = L³(log L)^{C}, for a fixed C > C₀ + 3).**
 
     −log δ(H) ≤ C' L³ (log L)^{C}.
 
 *Proof.* Take x_E = 2P_Q(E) in the asymmetric local lemma, with the dependency graph "shares a free coordinate".
 
-Lemmas 3.3–3.4 and FT give w_c ≤ log m_c/(16L) for every coordinate, since m_c ≥ Y. Every live E has
+Lemmas 3.3–3.4 and FT bound w_c by (log L)^{C₀+2}L² log L/m_c + O(m_c^{−1/2}). Since m_c ≥ Y and C > C₀+3, this is
+o(log m_c/L), and in particular ≤ log m_c/(16L) for large H. Every live E has
 Σ_{c∈supp E} log m_c ≤ log(av) ≤ 2L. Hence the neighbourhood x-mass is ≤ Σ_{c∈supp E} 2w_c ≤ 1/4. Each x_E ≤ 1/4,
 so ∏_{E'∼E}(1−x_{E'}) ≥ e^{−1/3} > 1/2 and P(E) ≤ x_E∏(1−x_{E'}).
 
@@ -469,9 +495,9 @@ remaining extra L comes from the log-weighted threshold, which forces m_c ≳ L�
 POINTWISE_OMEGA13 Lemma 1.1 replaces the log-weighted threshold by a constant per-coordinate threshold
 η = (3/4)log β. The weights are x_E = β^{s(E)}P(E), with s(E) = |supp E| and β = 1 + 1/log L, so η ≍ 1/log L. A
 coordinate then only needs w̃_c := Σ_{E∋c} β^{s(E)}P_Q(E) ≤ η. Under a load bound of the shape of Lemma 3.3, this
-holds once m_c ≥ L²(log L)^{C}.
+holds once m_c ≥ L²(log L)^{C} with C > C₀ + 1. Then the load is o(1/log L) < η.
 
-**Hypothesis FT_β(Y).** For Y = L²(log L)^{C}:
+**Hypothesis FT_β(Y).** For Y = L²(log L)^{C} with C > C₀ + 1 fixed:
 
 * w̃_c ≤ L²(log L)^{C₀}/m_c + m_c^{−1/2} for every free coordinate c;
 * S_β(Y) := Σ_E β^{s(E)}P_Q(E) ≤ L²(log L)^{C₀}.
@@ -504,15 +530,21 @@ Output is in `data/z49_sexp/loads.txt` and `lllcheck.txt`.
 * **Non-adaptive LLL verified at finite H.** At H = 10⁵ and Y = 1500 (≈ L³), max_E Σ_{c∈supp E} 2w_c = 0.239 ≤ 1/4,
   with log Q = 1509 and S = 19.6. That is a finite instance of Theorem 3.4's local-lemma condition, holding for
   every live event. At Y = 600 (≈ 4.5L²), the β-weighted per-coordinate condition holds:
-  max_c w̃_c = 0.219 ≤ η = 0.257, with S_β = 40.5. At Y ≈ L² (130) both fail (5.05 and 1.20). This matches the
+  max_c w̃_c = 0.219 ≤ η = 0.257, with S_β = 40.5. Here β = 1 + 1/log L ≈ 1.409 lies outside the range
+  β ≤ e^{1/3} of OMEGA13 Lemma 1.1 as stated. The finite check is nevertheless valid directly: every
+  x_E ≤ 0.219 < 1/4, which is all that is needed for −log(1−x_E) ≤ (4/3)x_E, and all loads are below η
+  (review item 5). At Y ≈ L² (130) both fail (5.05 and 1.20). This matches the
   predicted thresholds Y ≍ L³ and Y ≍ L²·polylog.
 * **Mass.** S(Y)/L² ≈ 0.15–0.33, decreasing in Y. This is consistent with Lemma 3.2 (the log Y factor is an upper
   bound; heavier conditioning removes events).
 
-**Assessment.** At these sizes every hypothesis is numerically comfortable. FT is an arithmetic equidistribution
+**Assessment.** These programs check the actual loads and the finite LLL conditions. They do **not** enumerate the
+enlarged first-term sum FT(q) itself, which is an upper bound for part of the actual v-side load. The actual loads are
+numerically comfortable. FT is an arithmetic equidistribution
 statement of a kind that is usually true, but it is not proved here, and pointwise-in-ℓ bounds of this type have
 resisted earlier waves (OMEGA11 §4, OMEGA13 LPL). The **unconditional** lower bound remains H4_NOT_POLYLOG's
-exp(−C L⁶ log L), or exp(−C L⁶/log L) with the I3 §8.3 refinement.
+exp(−C L⁶ log L). The I3 §8.3 refinement L⁶/log L was proved for a different (integer-Haar) model and is not
+claimed here (review item 4).
 
 ## 4. Reality check against the simulation
 
@@ -535,15 +567,16 @@ Jacobi rule (`data/z49_sexp/firstmoment.txt`). It reproduces FOREST_H4's exact-C
 
 1. The survival exponent tracks the first moment with a **stable ratio ≈ 0.64**, and E N_H/(ln H)² rises slowly
    (0.36 → 0.52 by H = 16383). This is the picture −log δ ≍ E N_H ≍ L² that Theorems 2.1 and 3.5 bracket. It is
-   "sub-Poisson" by a constant factor: positive dependence between events sharing small primes makes survival
-   e^{0.36 μ} times likelier than independence would.
+   "sub-Poisson" by a constant factor: survival is e^{0.36 μ} times likelier than under the Poisson benchmark e^{−μ}.
+   Dependence is the reason, but these data do not separate the roles of positively correlated (compatible) and
+   disjoint (conflicting) pairs. The last row rests on 200 survivors, so 0.640 is not a precision constant.
 2. The proven constant in Theorem 2.1 is far smaller than 0.64 E N_H. Only a separated sub-box is used. Within it
    the Janson bound is asymptotically Poisson (Δ = o(1)). So the true loss is the restriction to the box, not
    dependence.
 3. The conditional upper bounds of §3 are wasteful by large constants and polylogs. At H = 10⁵ the finite LLL
    certificate of §3.7 gives −ln δ ≤ 1509 + 3·19.6 ≈ 1568, while extrapolation gives ≈ 42. The class of one is a
-   costly survival strategy. Typical survivors do not condition at all; they are the sub-Poisson fluctuation of
-   item 1.
+   costly survival strategy. The small-coordinate distribution of typical survivors has not been measured; nothing
+   here says how survivors actually arise.
 4. The local exponent 2.2 of ln X in the simulation is compatible with L² times a slowly varying factor, e.g. the
    rising E N_H/L². It does not suggest exponent 3.
 
@@ -565,7 +598,7 @@ H4_NOT_POLYLOG Lemmas 5–7b turn a Haar lower bound into primes p ≡ 1 (mod Q)
 graded-LLL output (Q, S) with:
 
 * log Q ≪ the Haar exponent;
-* coordinate loads ≤ c = 1/64;
+* the event-support condition (7): Σ_{ℓ∈supp E} w_ℓ ≤ c = 1/64 for every live E;
 * 840 | Q.
 
 The cost is log p ≪ log Q + log D + log T (Lemma 7b, relative to (G)), with log D + log(2+K) ≪ ℒ(S+ℒ) (Lemma 5).
@@ -578,18 +611,49 @@ route (Lemma 7) the exponent is κ < 1/6. Under GRH it is κ < 1/3 without (G).
 *Proof sketch, interface check.*
 
 * Use Q = Q(Y) of §3.1. It is divisible by 840, since Y > 7.
-* Shrink the constant in FT/Lemma 3.3 so that Σ_{c∈supp E} w_c ≤ 1/64 for every E. Then (7) of H4_NOT_POLYLOG
-  holds, with the coordinates c in place of its digits. Coordinates are again independent prime-power digit blocks.
-  The energy lemma is prime-agnostic and needs absolute moduli m_c, which is what Q(Y) provides.
+* Choose C > C₀ + 3 in Y = L³(log L)^C. The loads are then o(log m_c/L), so Σ_{c∈supp E} w_c ≤ 1/64 for every E
+  once H is large. That is (7) of H4_NOT_POLYLOG, with the lumped-by-prime coordinates c in place of its digits.
+* **Energy/BRW on actual digits (review item 3).** A lumped coordinate at p ≤ Y carries all digits beyond p^{k_p}.
+  Its first-free modulus m_c is *not* its arithmetic resolution: the event (31,64) with Y = 10 depends on
+  n mod 64, not on n mod m_2 = 16. So the lumped coordinates are used **only** for the LLL and for Lemma 6. The
+  energy lemma (10) and the BRW minorant of Lemma 5 are applied on the space of individual prime-power digits, with
+  H4_NOT_POLYLOG's absolute weights m_U = ∏_p p^{1+max digit index used at p}. On that space the original events are
+  prime-power prefix cylinders of modulus av ≤ H². Conditioning on the fixed class n ≡ 1 (mod Q) moves the first
+  free index exactly as the imported lemma allows. Nothing in it requires Q to have been chosen adaptively.
 * Lemma 4's conclusions (8)–(9) follow verbatim from the LLL.
-* Lemma 6 needs w_{ℓ₀} ≤ c at a free odd prime ℓ₀ ∤ Q, which is again the coordinate bound.
+* Lemma 6 needs w_{ℓ₀} ≤ c at a free odd prime ℓ₀ ∤ Q. Such a prime is a whole LLL coordinate, so this is again the
+  coordinate bound. Removing ℓ₀ from an event leaves a cylinder with no larger neighbourhood. Lemmas 7/7b allow Q and
+  cell moduli to overlap. The auxiliary prime r ∈ (T,2T] gives p > H².
 * Then log Q ≈ Y ≈ L³ polylog and S ≪ L² polylog. Lemma 5 gives log D + log K ≪ ℒ(S+ℒ) ≈ L³ polylog. Lemma 7b
   gives log p ≪ L³ polylog, i.e. H = exp((log p)^{1/3−o(1)}). Lemma 7 squares this.
 
 The A_min half of H4_NOT_POLYLOG Theorem 1 is not covered: §3 treats only the edge family.
 
-**Assessment: the transfer cannot reach 1/2 by this route even if FT_β holds.** Under FT_β, log Q and S drop to
-L^{2+o(1)}. But the BRW/energy minorant still costs log D ≈ ℒ·S ≈ L³, the junta term. So κ → 1/3 is the ceiling of
-the present transfer. This is the same bottleneck as POINTWISE_OMEGA13 Prop 1.3(b). Reaching the heuristic 1/2 needs
+**Assessment: the present budget stops at 1/3 even under FT_β.** Under FT_β, log Q and S drop to L^{2+o(1)}. But the
+quantified BRW/energy budget of Lemma 5 is log D ≪ ℒ(S+ℒ) ≈ L³, the junta term. This is an *upper* bound on the
+cost, not a proved lower bound for every minorant. So these estimates deliver only κ < 1/3, and no impossibility
+theorem is claimed (review item 8). This is the same bottleneck as POINTWISE_OMEGA13 Prop 1.3(b). Reaching the heuristic 1/2 needs
 a junta/minorant whose degree is ≪ S rather than ℒ·S.
 
+## 6. Internal review
+
+A fresh deep-mode hostile referee read the whole note and its imported lemmas (report: `data/z49_sexp/review.md`).
+It checked Shiu's original Theorem 1 and reran independent partial-power CRT and compatibility checks.
+
+**Verdicts.**
+
+* Theorems 2.1 and 2.6: **SOUND**, relative to the fundamental lemma and the internal atomic Janson proof.
+* Theorems 3.4, 3.5 and Corollary 5.1: **SOUND-AFTER-REPAIRS**, still conditional.
+
+No fatal issue was found. All nine issues are repaired in the text above:
+
+* the two certain edges are excluded (item 1);
+* FT is restricted to admissible (a,B), with the correct period ABp and the corrected long-part bound for residual
+  prime-power coordinates (item 2);
+* energy/BRW is applied on individual digits rather than lumped coordinates (item 3);
+* the unsupported I3 L⁶/log L import is withdrawn (item 4);
+* the β cutoff C > C₀+1 is made explicit, with a direct finite-H LLL check (item 5);
+* the §2 slack constants are fixed (item 6);
+* the Shiu small-block bookkeeping is completed (item 7);
+* "ceiling" is downgraded to "budget" (item 8);
+* the interpretations in §§2.8, 3.7 and 4 are softened (item 9).
