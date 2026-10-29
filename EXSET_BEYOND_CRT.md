@@ -98,7 +98,7 @@ shift-uniform avoider count (W_𝔊), WT Cor 2.2, open); right-signed large-clas
 above `exp((log N)^{1/4})` ((A*)/(DCC)/(RD′), open); correlation input of order `≥ (log N)^{θ}/log log N` with
 non-CRT (true) values (TC^alt_θ, open); **any family of classes that is not a K2 mixture** (decided for ES₅/U/I3 in
 §1.3 — this turns out to matter).
-### §1.3 Are ES₅ and U subfamilies of the KARY2 mixture? (decided: no as families; yes-but-irrelevant as sets)
+### §1.3 Are ES₅ and U subfamilies of the KARY2 mixture? (decided: no as families; set containment undecided)
 
 **Words.** A word of n is (t,u,v) ∈ ℕ³ with `n = tuv − u − v`, equivalently `(tu−1)(tv−1) = tn+1`. It is a
 *certificate* if one of t, u, v, tu−1, tv−1 is ≡ 0 (mod 4); ES₅(n) := n has a certificate word (at primes this is
@@ -115,9 +115,10 @@ modulus `4·(modulus)`; U adds n mod 8. Call these *word classes*; 𝔘_W is the
 classes, in all three groupings, **including non-reduced pair classes** (e.g. u = 12, v = 3: `n ≡ 21 mod 36`).
 Selector classes `0 mod p` are kept separate (they contain squares; review D5). U's inequalities `tu−1, tv−1 > 1`
 are not congruence conditions: a U-refined class is a certificate-word class whose finitely many initial members
-may fail U; that prefix is paid separately wherever U itself is counted (review D3; e.g. (t,u,v) = (1,2,4)).
+may fail U; that prefix is paid separately wherever U itself is counted (review D3; e.g. (t,u,v) = (1,2,4)). Endpoint groupings with a *fixed* adjacent factor tv-1 <= 1 are discarded for U: they
+never supply U-words (e.g. E(1,2)); this is not a finite-prefix issue (review 2, R2-7).
 
-**The identity behind each certificate** (verified symbolically and numerically, `scripts/z50_ncrt_identities.py`):
+**The identity behind each certificate** (proved by clearing denominators as in Prop 1.2's proof; exact-arithmetic checks in `scripts/z50_ncrt_identities.py`):
 
 | slot | identity 4/n = … | ET type | class it gives, as a set |
 |---|---|---|---|
@@ -170,11 +171,14 @@ over all n ≡ 1 (4). I do not re-prove that. What §§2–3 add, and why they a
 * lane E's zero base pins n ≡ 0 mod every odd p ≤ W, so its cap **does not cover** families containing selector
   classes `0 mod p` (the architecture actually used at primes and in the 3/4 note), nor prime-only methods
   (EXSET_I3 §7.2, "Contrast and qualification"), nor the **non-reduced pair presentations** such as
-  `n ≡ 21 mod 36` (its open door, §§4.5, 7.2). Corollary 2.5 below uses the unit-square base and covers all three,
+  `n ≡ 21 mod 36` (its open door, §§4.5, 7.2). Corollary 2.5 below uses the unit-square base and covers selector-augmented whole-avoider families (including
+  their use for prime bounds) and non-reduced certificate pair classes; genuinely prime-only majorants (P) remain
+  outside its proved scope (review 2, R2-1). It does so
   at exponent 2/3 (with a `(log λ)^{2/3}` factor instead of lane E's `(log λ)^{−1/3}`);
 * at primes and rough n, Theorem 3.1 attains `N exp(−c(log N)^{2/3})` **without** the log-log loss, which lane E's
   Thm 4.1 shows is intrinsic only for all-integer whole-avoider methods. The two results together locate the
-  (log log N)^{1/3}: it is the price of inputs with many small prime factors, not of the word architecture.
+  (log log N)^{1/3}: the native whole-avoider obstruction is witnessed on small-prime-divisible fibres, which the rough-input
+  construction excludes (review 2, R2-2). Lane E's intrinsic-loss statement is for the native architecture only.
 ### §1.4 Open doors (my words) and the two chosen
 
 By the operational definition of §1.2, a door is a true property of [1,N] (or of the primes) that fails for N·π.
@@ -421,7 +425,8 @@ Shiu input is needed here, because a single divisor w carries no τ-weight.
 
 **Corollary 3.5 (fibre masses).** With `J_c = {k ∈ K(K) : (k,c) = 1}` and `μ_c = Σ_ℓ f_c(ℓ)/ℓ`:
 `f_c = f_{c;J_c}`, and `a t g(J_c) ≤ μ_c ≤ A t g(J_c) ≤ C_u t²` (as `g(K(K)) = ¼log K + O(1) ≤ κt`). *Proof.* As the
-note's Cor 4.3: an active atom has k | c + 4w with (w,k) = 1, so (c,k) = 1. ∎
+note's Cor 4.3: an active atom has k | c + 4w with (w,k) = 1, so (c,k) = 1. (Throughout, a0 := 1/8; then
+g(K(K)) >= a0 log K for large K, since g(K(K)) = (1/4)log K + O(1).) ∎
 
 **Lemma 3.6 (moments, void; PROVED).** (a) For every m ≥ 1, `E((H_X)_m | S_y = 1) ≤ (C_u t²)^m`. (b) With
 `y = Bt²`, B ≥ B₀: `P(H_X = 0 | S_y = 1) ≤ e^{−c_v t²}`.
@@ -446,7 +451,8 @@ statement is the same computation. For an interval (x, x+H], ν is a combination
 **Remark 3.8 (all n ≡ 1 (4); Assessment, not claimed).** U is not divisor-closed, so the note's semigroup/Rankin
 step is unavailable. A local decomposition n = d·m (d the y-smooth part) should give
 `E_U(N) ≪ N exp(−c(log N)^{2/3}/log log N)` (fibres with many small primes dividing c lose a factor `φ(d)/d` in
-g(J_c), and `#{d : φ(d)/d < δ}` decays doubly exponentially in 1/δ). I have not written this out. The square floor
+g(J_c), and `#{d : φ(d)/d < δ}` decays doubly exponentially in 1/δ). I have not written this out. **Superseded:** lane E (EXSET_I3 Section 7.3) proves the all-n bound with
+`(log log N)^{-1/3}`. The square floor
 (E_U(N) ≥ √N/2) is far below either bound.
 
 **Remark 3.9 (controls).** Odd squares lie in no atom class (Lemma 2.2; CERTIFIED for the toy family below, 0 of
@@ -466,25 +472,29 @@ uv, tv-1, tu-1, and
     min(uv, tv-1, tu-1) <= (n+u+v)^{2/3} <= (2n+4)^{2/3}.
 
 *Proof.* (uv)(tv)(tu) = (tuv)^2 = (n+u+v)^2 and tv-1 < tv. For the second inequality: if u = 1 then t >= 2 and
-v = (n+1)/(t-1) <= n+1; if u, v >= 2 then (u-1)(v-1) <= n+1 gives u+v <= n+4. (Modulus 1 occurs only for the free
-words tu-1 = 1, i.e. (t,u) = (1,2), (2,1), counted by tau(n+1), tau(2n+1); LOWERTAIL_DEEP_FABLE Thm 4.1.) QED
+v = (n+1)/(t-1) <= n+1; if u, v >= 2 then (u-1)(v-1) <= n+1 gives u+v <= n+4. (Modulus 1 occurs only for tu-1 = 1, i.e.
+(t,u) = (1,2), (2,1); these lie in the level-1/2 free word families counted by tau(n+1), tau(2n+1),
+LOWERTAIL_DEEP_FABLE Thm 4.1.) QED
 
 CERTIFIED for all words of all n in [20000, 21000): max of min-modulus/(2n+4)^{2/3} is 0.616
 (`scripts/z50_ncrt_switch.py`, `data/z50_ncrt/switch.txt`).
 
 So *divisor switching* (replacing the class mod A = tv-1 by the class of the complementary divisor) is the passage
-between the groupings of one word. In particular: (a) for n <= N every word is visible at modulus
-<= (2N+4)^{2/3} < N/2, so single classes of modulus > N are never needed, and **a switched detector built from
-single classes has all moduli <= N/2**, where IF Thm 2.2 makes every evaluation (exact, hyperbola, dispersion)
-equivalent to the CRT mean up to a factor (1 - D/N); (b) for the Type II R(M)-classes, switching M to the
+between the groupings of one word. In particular: (a) for n <= N every certificate word is visible in a certificate class (refined by the free coordinate mod 4,
+or mod 8 for U) of modulus <= 8(2N+4)^{2/3} < N/2 for large N (review 2, R2-3: the raw cheapest class need not be a
+certificate class, e.g. n = 5, word (1,3,4), raw class 1 mod 2 vs certificate class 5 mod 8), so single classes of
+modulus > N are never needed; IF Thm 2.2 then applies to a majorant **whose own expansion** has all denominators
+<= N/2 (products of such classes may still have lcm > N, see 4.2); (b) for the Type II R(M)-classes, switching M to the
 cofactor j = (n+4D)/M is exactly K2's (a,D) grouping (ET-file Lemma 3.2), already in the K2 universe.
 
-**Proposition 4.2 (switching buys a bounded factor of mass; PROVED).** Let w_g(T) be the average over n of the
-number of words of n whose grouping-g modulus is <= T, and w_min(T) the same for the cheapest grouping. Then
+**Proposition 4.2 (switching buys a bounded factor of mass; PROVED).** Let w_g(T) = lim_N N^{-1} sum_{n<=N} of the
+number of unordered, unrestricted (not certificate-restricted) words of n whose grouping-g modulus is <= T, and w_min(T) the same for the cheapest grouping. Then
 w_g(T) = (1/2 + o(1))(log T)^2 for g = pair (sum over uv <= T of 1/uv) and for the endpoint groupings (sum over
 A <= T of tau(A+1)/A, each endpoint), and w_max(T) <= w_min(T) <= w_pair(T) + 2 w_end(T) = O((log T)^2).
 *Proof.* A word whose cheapest modulus is <= T is counted in at least one grouping; densities are 1/modulus. QED
-(Numerically the ratio cheapest/endpoint is 1.25-1.51 for T in [10, 1000], same data file.)
+(Numerically the ratio cheapest/either-endpoint is 1.25-1.51 for T in [10, 1000], unordered words, n in
+[20000, 21000): EVIDENCE, same data file. For certificate-restricted counts only the inherited upper bound is
+asserted.)
 
 **Theorem 4.3 (divisor-switching detectors are capped; PROVED given Cor 2.5 and K2).** Let a detector assign to
 each word any one of its three classes (switching freely, word by word, even depending on sizes), and let nu be
