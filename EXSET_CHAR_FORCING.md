@@ -115,11 +115,97 @@ Consequences.
 (resp. 3) logs in ℤ/2u for odd u ≤ 15 (resp. ≤ 41); in the 468 185 cases with −1 ∉ B, (i)–(iii) hold, and sharpness
 holds. `scripts/z51_forcing_windows.c` verifies Cor 2.3 on every failing forced window of 77 724 primes p ≡ 1 (8)
 (all p ∈ [10⁶, 2·10⁶] and 20 000-prime samples in [10^k, 1.1·10^k] for k = 8, 10, 12; forced windows q ≡ 3 (4),
-q ≤ 400): 936 503 Kneser checks, 0 violations. q = 3 and q = 7 never fail, as proved.
+q ≤ 400): 936 643 Kneser checks, 0 violations. q = 3 and q = 7 never fail, as proved.
 
 ## 3. Per-window failure: the exact exponent for fixed q, and G4
 
-(pending)
+### 3.1 Fixed q: the exponent 1 − 1/(2ℓ_q)
+
+**Theorem 3.1 (PROVED modulo Henriot's uniform Nair–Tenenbaum bound, New Thm 5 of the 2014 erratum, exactly as used
+in FORCED_WINDOW Lemma 8.3; plus Mertens in progressions).** Fix a prime q ≡ 3 (mod 4), q ≥ 7, put u = (q−1)/2 and
+let ℓ_q be the least prime factor of u. Then
+`  #{p ≤ X : p ≡ 1 (4), −1 ∉ R((p+q)/4) mod q, (q/p) = −1}  ≪_q  (X/log X)·(log X)^{−(1 − 1/(2ℓ_q))}·(log log X)^{ℓ_q − 1}.`
+The same bound holds a fortiori for full-window failure (−1 ∉ R(px), Lemma 2.1).
+*Proof.* For d | u, d > 1, let H_d ≤ U be the subgroup of index d and ω_d(n) := #{primes s | n : s ∤ 2q, s ∉ H_d}.
+By Cor 2.3 a failing forced window has, for some such d, ω_d(x) ≤ Ω_out(x) ≤ d − 1 (excluding 2 only lowers the count).
+For 0 < y ≤ 1, 1[ω_d(x) ≤ d − 1] ≤ y^{ω_d(x) − (d−1)}. The function f(n) = y^{ω_d(n)} is multiplicative with
+0 ≤ f ≤ 1 and f(ℓ^a) = f(ℓ). FORCED_WINDOW Lemma 8.3 (proved there for f(ℓ^a) = g_χ(ℓ); its proof uses only these two
+properties, the factor at 2 is bounded because 4n − q is odd, and dropping the conditions p ≡ 1 (8), q ≡ 3 (8) only
+enlarges the left side) gives, after summing dyadic ranges,
+`  Σ_{p ≤ X} f((p+q)/4) ≪ (X/log X)·exp(−Σ_{ℓ ≤ X, ℓ ∤ 2q} (1 − f(ℓ))/ℓ).`
+Primes are equidistributed among the q − 1 classes and H_d is a union of u/d of them, so
+Σ_{ℓ≤X, ℓ∉H_d} 1/ℓ = (1 − 1/(2d)) log log X + O_q(1). Hence the d-part of the failure count is
+≪_q y^{−(d−1)} (X/log X)(log X)^{−(1−y)(1−1/(2d))}. Take y = (d−1)/((1 − 1/(2d)) log log X) to get
+≪_q (X/log X)(log X)^{−(1−1/(2d))}(log log X)^{d−1}. Summing over the finitely many d | u, d > 1, the term d = ℓ_q
+dominates. ∎
+
+**Proposition 3.2 (the exponent is sharp for integers; PROVED, Wirsing).** For fixed q as above,
+#{n ≤ Y : (n/q) = −1, −1 ∉ R(n)} ≫_q Y (log Y)^{−(1 − 1/(2ℓ_q))} log log Y.
+*Proof.* With d = ℓ_q and H = H_d, count n = s·h with s ≤ Y^{1/2} a prime in a non-residue class outside −H (such
+classes exist because |−H| = u/d < u) and h ≤ Y/s composed of primes in H. Wirsing's theorem gives
+#{h ≤ Z} ≍_q Z (log Z)^{1/(2d) − 1}, and summing over s gives the claim. The representation is unique (s is the only
+prime factor of n outside H), n is a non-residue, and n fails by Cor 2.3 (converse part). ∎
+
+For shifted primes x = (p+q)/4 the matching lower bound is a lower-bound sieve of dimension 1 − 1/(2ℓ_q) for primes
+with all but one prime factor of p + q in H. We do not prove it; the numerics below are consistent with it
+(EVIDENCE only, see the caveat on scales).
+
+**Reading.** Forcing buys exactly the removal of the index-2 failure mode. An unforced window fails with probability
+≍ (log X)^{−1/2} (all prime factors of x in U, a Landau-type event), and this is the "(log X)^{−1/2}" of G4. A
+forced window at fixed q fails with probability (log X)^{−1 + 1/(2ℓ_q) + o(1)} ≤ (log X)^{−5/6 + o(1)}. For example
+q = 19, 31, 43, 67, 79, … (3 | u) give 5/6; q = 11, 71, 131 give 9/10; q with u prime (11, 23, 47, 59, 83, 107, …)
+give 1 − 1/(q−1).
+
+### 3.2 Growing q: what can be proved, and the random-box regime
+
+* **Kneser–Rankin (deterministic covering).** The proof of Thm 3.1 is uniform as long as every d | u, d > 1, has
+  d − 1 < (1 − 1/(2d)) log log X; since d = u is always a divisor, this means q ≲ 2 log log X. Beyond that the H = {1}
+  term is trivial (§2 (d)).
+* **Fourier L¹ majorant** (FORCED_WINDOW §8, Lemmas 8.1–8.4): failure ⟹ Σ_{χ ≠ 1} G_χ(x) ≥ 1, and
+  E G_χ ≪ (log X)^{−1/3+ε} uniformly for q ≤ (log X)^α. So the per-window failure is ≪ q (log X)^{−1/3+ε}: non-trivial
+  only for q ≤ (log X)^{1/3−ε}. These two are the only per-window bounds with multiplicative-function majorants that we
+  know; both feed sieve/multiplicative machinery (Henriot), so both are CRT-type in the sense of G1.
+* **Random box (heuristic; Assessment).** For q = (log X)^β the box R(x) has about 3^{ω(x)} elements, about half of
+  them in the coset −U (the parity is free at a forced window), so success needs roughly 3^{ω(x)} ≳ q. With the
+  Sathe–Selberg large-deviation law P(ω ≤ α log log X) = (log X)^{−Q(α)+o(1)}, Q(α) = 1 − α + α log α, this gives
+  P(fail) ≈ (log X)^{−Q(β/log 3)} for β < log 3 ≈ 1.10, a failure probability of order 1 near β ≈ 1.1, and success
+  ≈ (log X)²/q for β > 2 (E 3^{ω((p+q)/4)} ≍ (log X)²). In particular P(fail) ≪ (log X)^{−1/2} needs β ≲ 0.205.
+
+### 3.3 Numerics (EVIDENCE; `scripts/z51_forcing_windows.c`, `data/z51_forcing/win_1e{6,8,10,12}_perq.txt`)
+
+Forced Type-II failure rate (−1 ∉ R(x)) per window, at four scales (all p ≡ 1 (8) in [10⁶, 2·10⁶]; 20 000-prime samples
+near 10⁸, 10¹⁰, 10¹²); "slope" is −Δlog(rate)/Δlog log p between the first and last scale; "asym" is 1 − 1/(2ℓ_q):
+
+| q | q mod 8 | ℓ_q | 10⁶ | 10⁸ | 10¹⁰ | 10¹² | slope | asym | unforced 10⁶ → 10¹² |
+|---|---|---|---|---|---|---|---|---|---|
+| 11 | 3 | 5 | 0.261 | 0.221 | 0.188 | 0.165 | 0.69 | 0.900 | 0.642 → 0.468 |
+| 19 | 3 | 3 | 0.443 | 0.385 | 0.312 | 0.293 | 0.62 | 0.833 | 0.654 → 0.470 |
+| 23 | 7 | 11 | 0.144 | 0.116 | 0.106 | 0.092 | 0.67 | 0.955 | 0.483 → 0.341 |
+| 31 | 7 | 3 | 0.234 | 0.135 | 0.140 | 0.125 | 0.94 | 0.833 | 0.475 → 0.318 |
+| 43 | 3 | 3 | 0.681 | 0.624 | 0.557 | 0.502 | 0.46 | 0.833 | 0.768 → 0.600 |
+| 47 | 7 | 23 | 0.308 | 0.250 | 0.219 | 0.197 | 0.67 | 0.978 | 0.611 → 0.450 |
+| 71 | 7 | 5 | 0.411 | 0.350 | 0.318 | 0.272 | 0.62 | 0.900 | 0.711 → 0.517 |
+| 103 | 7 | 3 | 0.552 | 0.485 | 0.440 | 0.403 | 0.47 | 0.833 | 0.686 → 0.494 |
+| 131 | 3 | 5 | 0.843 | 0.791 | 0.738 | 0.697 | 0.28 | 0.900 | 0.956 → 0.832 |
+| 199 | 7 | 3 | 0.700 | 0.623 | 0.557 | 0.514 | 0.46 | 0.833 | 0.823 → 0.630 |
+| 383 | 7 | 191 | 0.814 | 0.760 | 0.678 | 0.637 | 0.37 | 0.997 | 0.919 → 0.759 |
+
+* q = 3 and q = 7 never fail, as proved. q ≡ 7 (mod 8) windows fail less: x is even, and 2 is a forced extra generator.
+* Forced windows always fail less than unforced ones at the same q, by a factor that grows with p.
+* The rates decay slowly (local exponents 0.3–0.9 in log p). The asymptotic regime of Thm 3.1, where the
+  (log log X)^{ℓ_q−1} factor is negligible, is not visible below 10¹²; mean Ω(x) is only 3.6 (q ≡ 3 (8)) or 5.6
+  (q ≡ 7 (8)) at 10¹². Numerics cannot confirm an exponent here; they confirm the ordering forced < unforced and the
+  slow decay.
+
+### 3.4 Verdict on the parent estimate in G4
+
+G4: "per-window failure probability is ≪ (log X)^{−1/2} only for q ≤ (log X)^ε, which with G2 gives exp(−(log X)^ε)".
+* *Refined, partly refuted.* At fixed q the forced failure probability is (log X)^{−1+1/(2ℓ_q)+o(1)} (Thm 3.1, upper
+  bound PROVED; sharp for integers, Prop 3.2), so it is much smaller than (log X)^{−1/2}. The (log X)^{−1/2} rate
+  belongs to *unforced* windows (Landau mode). The heuristic threshold for ≪ (log X)^{−1/2} at growing q is
+  q ≤ (log X)^{0.205} (random box, §3.2).
+* *Confirmed in its consequence.* The per-window bounds that a proof can use stop at q ≲ 2 log log X (Kneser–Rankin)
+  or q ≤ (log X)^{1/3−ε} (Fourier majorant). §4 turns this into an explicit cap on the joint route.
 
 ## 4. Many windows: what joint bounds can and cannot give (gate G2)
 
