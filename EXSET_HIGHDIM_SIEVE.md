@@ -7,7 +7,7 @@ ES remains OPEN. Internal research note; no external refereeing.
 | Round | Question | Status | Review |
 |---|---|---|---|
 | 1 | Exact large-dimension literature and independent G1 audit | Completed within stated source-access limits; no advance claimed | Opus R1: no fatal issue; repairs recorded §6 |
-| 2 | Named hypothesis ⇒ RLD-U or T1-min | Pending | Pending |
+| 2 | Named hypothesis ⇒ RLD-U or T1-min | No implication; full-law replacement is impossible (Thm 3.1) | Opus R2 PASS, no fatal/major issues |
 | 3 | RLD-U ⇒ recognised open statement | Pending | Pending |
 | 4 | Non-Selberg weights and enumerable controls | Pending | Pending |
 
@@ -104,11 +104,11 @@ for any probability distribution on at most M integers, after removing any speci
     d_TV(μ,ν_z) ≥ 1−min{1, exp(B_a)},
     B_a = [a log M + Σ_{l≤z}log((1−p_l)^{1+a}+p_l^{1+a})]/(1+a).       (3.1)
 
-If μ(z)=Σp_l≍log z and p_l≤l^{-1+o(1)}, there are c,C>0 such that, for all sufficiently large z,
+If c₁log y≤Σ_{l≤y}p_l≤c₂log y for every sufficiently large y, and p_l≤l^{-1+o(1)}, there are c,C>0 such that, for all sufficiently large z,
 
     log M ≤ c (log z)²  ⇒  d_TV(μ,ν_z) ≥ 1−exp(−C log z).             (3.2)
 
-In particular, for any fixed δ>0 and z=exp((log N)^{1/2+δ}), every law of at most N integers has d_TV→1. This holds a fortiori at z=N^{1/s}, fixed s>1, and still holds after removing all squares.
+In particular, for any fixed δ>0 and z=exp((log N)^{1/2+δ}), every law supported on at most N integers has d_TV→1. This holds a fortiori at z=N^{1/s}, fixed s>1, and still holds after removing all squares.
 
 *Proof.* Let T be the support of μ. Then d_TV≥μ(T)−ν_z(T)=1−ν_z(T). Hölder gives
 
@@ -126,9 +126,11 @@ All outside-band logarithmic terms are nonpositive. Thus
 
 If log M≤bL²/2, then B_a≤−bL/4 for L≥1. Take c=b/2,C=b/4. ∎
 
-**Why this exceeds G1's scope.** No majorant, congruence level, coefficient bound, or algorithmic restriction is assumed. It rules out *every* small-error total-variation coupling of the full hit vector to the independent model in the depth-breaking range, including hypothetical non-CRT couplings. Its elementary Hölder/support principle is standard information theory; the application identifies a specific impossible strengthening of RLD-U. It does **not** bound a single-event relative error: ν_z({0})=V(z) is tiny, and TV near 1 can coexist with a correct zero-event probability. It therefore neither refutes RLD-U nor asserts it is as hard as an independent recognised conjecture.
+**Approximate-support variant (PROVED).** If μ(T)≥1−ε rather than μ(T)=1 for some |T|≤M, the same argument gives d_TV≥1−ε−exp(B_a). Thus small tails outside an interval do not fix the obstruction.
 
-**Square floor and private primes.** The proof holds for arbitrary supports and uses neither squares nor large-prime sharing. For shifts u≠v, l|n+u and l|n+v force l|u−v; if l exceeds the shift diameter, it is private to one shift. This gives exclusivity *within* a prime coordinate, not independence *between* primes for an integer drawn from [1,N]. The finite-support restriction survives after conditioning away every square. A full factorisation-law coupling would imply a hit-vector coupling by deterministic projection, and hence is ruled out too whenever its independent-prime model projects to ν_z.
+**Why this exceeds G1's scope (project-internal application, not a novelty claim for Hölder or entropy).** No majorant, congruence level, coefficient bound, or algorithmic restriction is assumed. It rules out *every* small-error total-variation coupling of the full hit vector to the independent model in the depth-breaking range, including hypothetical non-CRT couplings. Its elementary Hölder/support principle is standard information theory; the application identifies a specific impossible strengthening of RLD-U. It does **not** bound a single-event relative error: ν_z({0})=V(z) is tiny, and TV near 1 can coexist with a correct zero-event probability. It therefore neither refutes RLD-U nor asserts it is as hard as an independent recognised conjecture.
+
+**Square floor and private primes.** The proof holds for arbitrary supports and uses neither squares nor large-prime sharing. For any bounded shift set, l|n+u and l|n+v force l|u−v; a prime larger than the diameter is private. In our specific local U family the classes are already distinct by §1, without that diameter assumption. Either observation concerns exclusivity *within* a prime coordinate, not independence *between* primes for an integer drawn from [1,N]. The finite-support restriction survives after conditioning away every square. A full factorisation-law coupling would imply a hit-vector coupling by deterministic projection, and hence is ruled out too whenever its independent-prime model projects to ν_z.
 
 ### 3.3 Attempt to weaken the impossible input
 
@@ -136,7 +138,60 @@ If log M≤bL²/2, then B_a≤−bL/4 for L≥1. Take c=b/2,C=b/4. ∎
 
 ## 4. Round 3 — implication down
 
-Pending. An upper bound for a full avoider set is not automatically an upper bound for a larger subfamily avoider set. Require an explicit inclusion/reduction and quantitative scales.
+### 4.1 The direction problem (PROVED elementary inclusion; no advance)
+
+For a subfamily G⊂F, A_F⊂A_G. An upper bound on A_F does not bound A_G. Thus RLD-U cannot be applied to a convenient prime-tuple sieve merely because that sieve uses some of the U classes. A reverse reduction requires an injection or bounded-fibre map **from prime tuples into the full U avoider set**, with input scale and density losses controlled. Removing squares in the target is a further condition, not automatic.
+
+Conversely, a prime-tuple upper bound does not bound U avoiders unless these avoiders are covered by tuples (or a positive combination of factorisation patterns) with controlled total weight. Merely selecting prime cofactors describes a subset of the avoiders, the wrong direction for an upper bound. Private large primes do not supply such a covering.
+
+### 4.2 Root-budget obstruction to the direct reverse encoding (PROVED; scoped barrier)
+
+Fix z, an affine encoding n=At+B with A≠0, and primitive nonconstant integer polynomials L_1(t),…,L_k(t), of total degree D. 'Primitive' means the gcd of each polynomial's coefficients is 1. Assume the proposed inclusion is certified by local primality alone: for every prime l≤z and residue t mod l,
+
+    all L_i(t)≠0 mod l  ⇒  At+B mod l∉F_l.                        (4.1)
+
+This is a finite and checkable requirement. It is exactly what permits 'all polynomial values are primes >z' to imply U-sieve avoidance without using interval-specific or other arithmetic information. It does not assert that every imaginable reduction must satisfy (4.1).
+
+**Theorem 4.1.** If (4.1) holds, then for every l≤z with l∤A,
+
+    w(l)≤D.                                                       (4.2)
+
+Consequently, for any y<z,
+
+    Σ_{y<l≤z}p_l ≤ D Σ_{y<l≤z}1/l + Σ_{l|A,y<l≤z}p_l.              (4.3)
+
+If z=N^{1/s} with s>1 fixed and 1≤|A|≤N^{B₀} with B₀ fixed, then D≳_{s,B₀} log z. In particular, **k=O(log N/log log N) linear forms cannot provide a root-certified encoding of this type**, at any fixed power level. The statement allows polynomially large coefficients and arbitrary intercept B.
+
+*Proof.* For l∤A, the preimage of F_l under t↦At+B has w(l) elements. By (4.1) these must be covered by zeros of ∏L_i mod l. Each primitive L_i remains a nonzero polynomial mod l, hence has at most deg L_i roots; union bound proves (4.2). Sum after separating primes dividing A to obtain (4.3).
+
+Take y=z^η with η=c₁/(2c₂) as in Thm 3.1. The left side is ≥(c₁/2)log z. For large y, p_l≤l^{-1/2}; the number of prime divisors of A exceeding y is ≤log|A|/log y. Thus the final term in (4.3) is at most
+
+    (log|A|/log y)y^{-1/2}=o(1)
+
+under the stated height and power-level assumptions. Mertens gives Σ_{y<l≤z}1/l=log(1/η)+o(1), proving the result. ∎
+
+**Scope.** This rules out the most direct proposed reverse reduction in the brief, at its stated k scale, even if the tuple upper bound itself had constant 1. It is not a proof that RLD-U cannot imply a recognised open problem. It leaves larger tuples, nonlinear encodings n=f(t), many adaptive pieces, and global/interval arithmetic implications outside local root coverage open. It also does not say Dickson's conjecture supplies uniform points below N. No RLD-U⇒improved-Selberg-constant implication is established.
+
+**Toy realization, CERTIFIED.** At z=13, the active primes are 3,7,11,13 and max w(l)=2. The two forms t+3589,t+79, with n=8t+1, have exactly the required forbidden preimage roots at all four primes; 132 simultaneous prime-value points with 14≤t≤2013 were checked and their encoded n avoid every direct U class≤13. The CRT period used to choose the intercepts is 6006. This validates the *direction* of the construction, not a favourable height bound as z grows. One form cannot cover the two forbidden classes modulo 7. The script also computes the exact product-law and actual-interval avoidance on enumerable cubes.
+
+### 4.3 Second attack on the surviving full-law gap: arbitrary thinning (PROVED)
+
+Could one retain only a judicious subfamily, approximate its full law, and collect more than √log N saving? The obstruction is controlled by **retained mass**, not just the largest prime.
+
+**Theorem 4.2 (mass version).** Let 0≤q_l≤p_l be any finite deterministic thinning of the direct U local densities, let m=Σq_l, and let ν_q be the independent Bernoulli(q_l) law. Uniformly over all such thinnings, for sufficiently large m there are absolute c,C>0 such that
+
+    log M≤c m²  ⇒  d_TV(μ,ν_q)≥1−exp(−Cm)
+
+for every μ supported on at most M bit-vectors.
+
+*Proof.* Fix C₀ with Σ_{l≤y}p_l≤C₀log y+C₀ for all y≥2. Set y=exp(m/(4C₀)); for m≥4C₀, mass below y is at most m/2. Above y, q_l≤p_l≤l^{-1/2} for large m. Put a=1/m in (3.1), replacing p by q. On this tail q_l^a≤exp(−1/(8C₀)), hence
+
+    B_a≤[log M/m−b m]/(1+1/m),
+    b=(1−exp(−1/(8C₀)))/2>0.
+
+Use log M≤bm²/2 as before. ∎
+
+**Consequence and limit.** Any deterministic subfamily whose product saving −log∏(1−q_l)≫√log N has m≫√log N (since q_l≤1/2), so full-law small-TV approximation is impossible, even if its retained primes are very sparse. This strictly widens Thm 3.1's local application, but remains a support/entropy obstruction, not a cap on direct one-event methods. Random adaptive thinnings with changed conditional densities are not covered by simply invoking the theorem.
 
 ## 5. Round 4 — numerical controls and further attacks
 
