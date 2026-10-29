@@ -117,7 +117,8 @@ modulus `4·(modulus)`; U adds n mod 8. Call these *word classes*; 𝔘_W is the
 classes, in all three groupings, **including non-reduced pair classes** (e.g. u = 12, v = 3: `n ≡ 21 mod 36`).
 Selector classes `0 mod p` are kept separate (they contain squares; review D5). U's inequalities `tu−1, tv−1 > 1`
 are not congruence conditions: a U-refined class is a certificate-word class whose finitely many initial members
-may fail U; that prefix is paid separately wherever U itself is counted (review D3; e.g. (t,u,v) = (1,2,4)). Endpoint groupings with a *fixed* adjacent factor tv-1 <= 1 are discarded for U: they
+may fail U; that prefix is paid separately wherever U itself is counted (review D3; under the earlier stricter reading tu-1 > 1 the word (1,2,4) of n = 2 was such a case; under z49 it is a U-word).
+Endpoint groupings with a *fixed* adjacent factor tv-1 <= 1 are discarded for U: they
 never supply U-words (e.g. E(1,2)); this is not a finite-prefix issue (review 2, R2-7).
 
 **The identity behind each certificate** (proved by clearing denominators as in Prop 1.2's proof; exact-arithmetic checks in `scripts/z50_ncrt_identities.py`):
