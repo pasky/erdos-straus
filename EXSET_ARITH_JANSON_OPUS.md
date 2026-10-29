@@ -204,7 +204,7 @@ steadily once ℓ ≥ N^{1/2.5}. As a function of s = log N/log ℓ it is **scal
 | D_ns, N = 10⁷ | −0.004 | 0.002 | 0.020 | 0.060 | 0.178 | 0.380 | 0.666 | 1.205 |
 | D_ns, N = 10⁸ | 0.002 | 0.013 | 0.033 | 0.065 | 0.184 | 0.395 | 0.687 | 1.279 |
 | D_ns, N = 10⁹ | 0.007 | 0.013 | 0.034 | 0.074 | 0.178 | 0.396 | 0.678 | 1.211 |
-| model mass at N = 10⁹ | 5.0 | 5.5 | 6.1 | 6.8 | 7.6 | 8.7 | 10.1 | 12.1 |
+| model mass at N = 10⁹ | 3.42 | 3.74 | 4.36 | 4.98 | 5.77 | 6.92 | 8.40 | 10.41 |
 
 (Nearest checkpoint to each s; the actual s differs by ≤ 0.04. Source: `data/z50_ajopus/chain_U_N*.txt`, column 9.)
 
@@ -370,7 +370,80 @@ correlation statement for multiplicative indicator functions at many shifts. Thi
 
 ## 5. Attempts at RLD in a nontrivial range
 
-TBD.
+### 5.1 The exact CRT range (PROVED)
+
+**Proposition 5.1.** Let I = [1,N]; a progression mod 8 or 24 is handled the same way. Let B_i^d be periodic with
+period P_i, and let gcd(q_i, P_i) = 1. Then
+
+    | ν(E_i ∩ B_i^d)/ν(B_i^d) − 1/q_i |  ≤  2 P_i/(N β_i),
+
+where β_i = #(B_i^d mod P_i)/P_i is the model density of B_i^d. Hence (R1) holds with η_i ≤ 2P_iq_i/Nβ_i.
+
+*Proof.* Each full period of length P_iq_i contains exactly #(B_i^d mod P_i) elements of E_i ∩ B_i^d, by CRT.
+There are ⌊N/(P_iq_i)⌋ full periods; the remainder contributes at most #(B_i^d mod P_i). The same argument gives
+ν(B_i^d) with an error of at most #(B_i^d mod P_i)/N. ∎
+
+The chain stays in this range while the lcm of all moduli used is ≤ N^{1−ε}. For the prime U family that means
+ℓ ≤ (1−ε)log N, so mass ≈ 0.74 log log N. This is the trivial range.
+
+### 5.2 The fundamental-lemma range (standard; z50 CONTEXT §4(a))
+
+For the prime U family the local density is w(ℓ)/ℓ, with w(ℓ) = #{v | ℓ+1 : v ≡ 0 (4) or v ≡ 7 (8)}. The
+mass is Σ_{ℓ≤z} w(ℓ)/ℓ = (C_V + o(1)) log z, a Titchmarsh-divisor-type asymptotic. The empirical slope from §7
+is C_V ≈ 0.74 (EVIDENCE; the constant was not derived in closed form). The sieve dimension on [w, z) is ≍ log z,
+so the fundamental lemma (FI Lemma 6.3 / Cor 6.10) needs s = log N/log z ≫ log z. In that range both counts
+in (R1) are asymptotic to their model values with relative error e^{−s/C}. So the whole chain, and with it the
+exceptional-set bound N exp(−c√log N), holds for log z ≤ c√log N. No chain is needed for this: the
+fundamental lemma bounds the count directly. Note (a) of z50 CONTEXT is confirmed. Selberg's Λ² and the large
+sieve stop at the same point. The reason is a Rankin truncation: the Euler product ∏(1 + g(p)) is carried by
+d of size exp(c(log z)²).
+
+### 5.3 Density increment and entropy chains (PROVED, short)
+
+* *Density increment on progressions.* Suppose S ∩ I avoids the classes Ω_q mod q. Then some class mod q outside
+  Ω_q carries S-density ≥ δq/(q − |Ω_q|). Iterating along coprime moduli q_1, …, q_k with product Q gives
+  δ ≤ ∏_j(1 − |Ω_{q_j}|/q_j) + O(Q/N). The certificate is the indicator of a union of classes mod Q, a CRT
+  majorant of level log Q ≤ log N. It is weaker than the caps.
+* *Entropy (chain rule / Shearer).* Write X_j = n mod q_j for n uniform on S ∩ I. Then
+  log #S = H(X_1, …, X_k) + H(n | X) ≤ Σ log(q_j − |Ω_{q_j}|) + log⌈N/Q⌉. This saves Σ|Ω|/q only while
+  Q ≤ N. For Q > N the bound exceeds log N. Shearer's inequality with a t-fold cover by blocks of product ≤ N
+  gives log#S ≤ log P − μ, which is useless once P > N.
+
+So the entropy and density-increment versions of door (vii) are CRT arguments of level ≤ log N.
+
+### 5.4 The blocking step, precisely
+
+Beyond §5.2 the chain needs (R1) for the prime U family at ℓ with log ℓ ∈ [c√log N, (log N)/s_0]. There
+B_ℓ is a sifted set of density ℓ^{−C_V + o(1)} and period e^{(1+o(1))ℓ} ≫ N. By §§3–4, the input has to be
+**(E-I)/(E-II) and sequence-specific**. Concretely it is the statement
+
+> **(FL∞)** a fundamental lemma in sieve dimension κ ≍ log z at sifting level s = log N/log z ≪ κ, for the
+> specific shift-aligned family. That is, the sifted count is within a factor e^{O_s(1)} of its Mertens product.
+
+This is a known kind of open problem. No sieve method gives the order of magnitude when the dimension exceeds the
+sifting level by a growing factor. Selberg's upper bound for prime k-tuples loses 2^k k!, i.e. e^{O(k log k)},
+and here k ≍ log z. That loss alone is z^{O(log log z)}, which swamps the saving z^{C_V}. *Assessment:* not provable
+with present technology. No route in this lane produced a proof of any instance of (R1) beyond §5.2.
+
+### 5.5 What is true numerically: Conjecture RLD-U
+
+**Conjecture RLD-U (CONJECTURE; EVIDENCE in §2.3 and §7).** Let 𝓕_z be the prime-modulus U family on
+I = {n ≤ N : n ≡ 1 (8)} with ℓ ≤ z. For every fixed s > 1 there is C(s) < ∞ such that for all N, with z = N^{1/s},
+
+    #{n ∈ I : n ∉ □, n avoids 𝓕_z}  ≤  e^{C(s)} · #I · ∏_{ℓ≤z} (1 − w(ℓ)/ℓ).
+
+Moreover C(s) → 0 as s → ∞.
+
+Evidence: e^{C(s)} = e^{D_ns(s)} up to second-order terms. D_ns(s) is flat in N over N = 10⁷, 10⁸, 10⁹ at every
+tabulated s ∈ [1.25, 3] (§2.3), and its values at s = 3, 2, 1.5, 1.25 are ≈ 0.005, 0.18, 0.68, 1.2. Falsifier: growth
+of D_ns in N at fixed s, for instance at N = 10¹⁰, 10¹¹.
+
+*Assessment of its status.* RLD-U is a clean, falsifiable, numerically tested statement. It is a sieve asymptotic
+up to bounded factors, at a level beyond the sieve dimension. It is **not** a standard hypothesis, and it is not
+visibly weaker than its consequence (§6). By z50 CONTEXT §1 it therefore counts as a conjecture, not as
+progress. Its value is calibration. Off the squares, the integer chain tracks the Haar model up to a bounded factor
+at every power level z = N^{1/s}, s > 1, far beyond what any sieve proves. The only failure that grows with N is
+the square floor of §2.1.
 
 ## 6. Consequences and exponents (conditional)
 
