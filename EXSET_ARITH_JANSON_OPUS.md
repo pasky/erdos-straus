@@ -123,9 +123,11 @@ of it are automatically capped (§§3–4). Then comes what is true numerically 
 
     Σ_{a≤i<b} ρ_i ≤ log(ν(B_a)/ν(B_b)) ≤ Σ_{a≤i<b} ρ_i/(1 − ρ_i).
 
-So the *block-averaged* lower bound Σ_{block} ρ_i ≥ (1−η)μ_block is equivalent, up to second-order terms
-Σρ_i², to the relative survival bound ν(B_b) ≤ ν(B_a) e^{−(1−η)μ_block}. That is a relative exceptional-set
-statement of the same kind as the target.
+So, if ρ_max := max_{block} ρ_i ≤ 1/2, the *block-averaged* lower bound Σ_{block} ρ_i ≥ (1−η)μ_block implies the
+relative survival bound ν(B_b) ≤ ν(B_a) e^{−(1−η)μ_block}. Conversely, the relative bound
+ν(B_b) ≤ ν(B_a)e^{−X} implies Σ_{block} ρ_i ≥ (1−ρ_max)X. (Review repair: the remainder is Σρ_i²/(1−ρ_i), which
+needs ρ_max bounded away from 1. The *ratio* bound is what is equivalent; an absolute survival bound alone does
+not give it.) Both sides are relative exceptional-set statements of the same kind as the target.
 
 *Consequence (Assessment, but forced by Lemma 1.4).* The chain rule gains leverage over a direct count only if
 (R1) can be proved **step by step** by an argument that does not, in effect, count B_i ∩ I. The rest of this
@@ -141,14 +143,16 @@ Call 𝓕 a family *anti-square on I* if no event of 𝓕 contains a square of I
 
 1. *U certificate classes on I = {n ≡ 1 (8)}.* The events are {n ≡ −v (mod A)}, with A ≡ −1 (mod v),
    v ∈ 4ℤ ∪ (8ℤ+7), and 1 < A < n+v. They are anti-square: this is Theorem E (z48). It is also CERTIFIED for the
-   prime-modulus subfamily up to N = 10⁹ (§7: the chain program aborts on a square hit, and none occurred).
+   prime-modulus subfamily up to N = 10⁹. The chain program of §7 checks every killed element and warns on a square
+hit; no warning occurred. (Theorem E in fact excludes every divisor A > 1, proper or not.)
 2. *The CONJECTURE_S_MODEL Thm 2.1 family on I = {n ≡ 1 (24)}.* The events are E_{u,v} = {n ≡ −u−v (mod uv)},
    with u, v odd and coprime and u ≡ 3 (mod 4). Squares m² with gcd(m, 6) = 1 avoid every E_{u,v}.
    *Proof.* Suppose m² ∈ E_{u,v}. If a prime p divides gcd(m, u), then p | m² + u + v − m², so p | u + v, hence p | v,
    contradicting gcd(u, v) = 1. The same argument applies to v. So gcd(m, uv) = 1, and (uv/m²) = +1. But Lemma 1.1 of
    CONJECTURE_S_MODEL gives (uv/n) = −1 for every n ≡ 1 (8) in E_{u,v} when u ≡ 3 (4). ∎
 3. *Forced ES classes on I = [1,N].* These are ℛ(M), the (a,D) classes and the Case-A classes. None contains a
-   square (EXCEPTIONAL_KARY2, "Key new inputs"; Mordell/Jacobi).
+   square (EXCEPTIONAL_KARY2, "Key new inputs"; Mordell/Jacobi). Selector classes 0 mod p are excluded from this
+   statement.
 
 **Theorem 2.2 (square floor for the chain; PROVED).** Let 𝓕 be anti-square on I, and suppose (RLD) holds for some
 ordering with parameters (η_i, K). Then
@@ -166,23 +170,38 @@ never in E_i, so
     ν(E_i | B_i^d) = (1 − σ_i) · ν(E_i | B_i^d ∖ □).
 
 Hence (R1) at step i holds with η_i < σ_i only if the non-square part of B_i^d *over*-represents E_i by the factor
-(1−η_i)/(1−σ_i). If the non-squares satisfy (R1) with η = 0 and no excess, then exactly η_i = σ_i. Summed, the
-error is then Σ_i σ_i P(E_i). This is O(1) while ν(B_i^d) ≫ ν(□_I)e^{C}, and it becomes the whole mass once
-ν(B_i^d) is within a constant factor of ν(□_I). So the failure is not spread over the chain. It sits in the
-steps after the sifted set has come down to O(√N) elements, as the square floor requires. ∎
+(1−η_i)/(1−σ_i). If the non-squares satisfy (R1) with η = 0 and no excess, then exactly η_i = σ_i, and the summed
+error is Σ_i σ_i P(E_i). ∎
 
-CERTIFIED illustration (§7, prime-modulus U family, N = 10⁹): σ ≤ 0.012 up to ℓ ≈ 1400, where the total deficit
-is 0.0146. Of that, 0.0051 is the square part Σσ_ℓ w(ℓ)/ℓ; the rest is §2.3.
+*Localization (CONDITIONAL on model-like decay; review repair).* The identity alone does not localize the
+failure. Suppose additionally that ν(B_i^d) ≥ c·e^{−μ_i}, where μ_i = Σ_{j<i}P(E_j) is the mass already sifted.
+Write T = log(1/ν(□_I)). Then σ_i ≤ c^{−1}e^{−(T−μ_i)}, and with P(E_i) ≤ 1/8,
+
+    Σ_{i: μ_i ≤ T−t} σ_i P(E_i) ≤ c^{−1}∫_0^{T−t+1/8} e^{−(T−m)} dm ≤ 2c^{−1}e^{−t}.
+
+So the square error accumulated before the last t units of mass ahead of the floor is O(e^{−t}). Under that
+decay, the square-forced failure sits in the final O(1) units of mass before the sifted set reaches O(√N)
+elements. Without the decay hypothesis only the identity is proved.
+
+CERTIFIED illustration (§7, prime-modulus U family, N = 10⁹): σ ≤ 0.0055 up to ℓ = 1361, where the total
+deficit is 0.0146. Of that, 0.0052 is the square part; the rest (0.0095) is §2.3.
 
 **Corollary 2.4 (maximal RLD depth for the three anti-square families; PROVED from Thm 2.2 and the cited model
 lower bounds on μ − KΔ).** RLD with total error ≤ ημ (η < 1 fixed) is false:
 
-* for the CONJECTURE_S_MODEL family truncated at H once c(log H)² > (½ log N)/(1−η), i.e. at
-  H ≥ exp(C√log N), on I = {n ≡ 1 (24)};
+* for the rough-endpoint certificate edge family (the I3_DEEP_ASTRA §8.4 route transferred to certificates by
+  Lemma 1.1 of CONJECTURE_S_MODEL; model −log survival ≥ cL²/(log L)², Δ = o(1)) truncated at H once
+  cL²/(log L)² > (½ log N)/(1−η) + KΔ, i.e. at log H ≍ √log N·log log N, on I = {n ≡ 1 (24)};
 * for the es-subexp-note rough Type II family (mass ≥ cL³/log L, Δ ≪ L²) once
   L³/log L ≫ log N, i.e. at T ≥ exp(C(log N log log N)^{1/3}), on I = [1,N].
 
-These are exactly the depths at which a transferred model bound would give a power saving. *Assessment:* so the
+K = O(1) is assumed throughout; a growing K defeats the deduction. *Review repair:* an earlier draft used the
+CONJECTURE_S_MODEL Thm 2.1 family itself. That is not legitimate, because Thm 2.1 bounds μ and Δ only *after
+conditioning on all small-prime coordinates*. Unconditioned, the family contains, e.g., the subfamily with
+s₁ = 7, s₂ = 1, whose events all share the prime 7, and there Δ ≫ L⁴/(log L)⁴. A fibrewise integer transfer,
+on progressions mod Q_Y with Q_Y = e^{O(L⁹)}, would need L ≤ (log N)^{1/9}.
+
+These are exactly the depths at which a transferred model bound would give a power saving (up to logarithms). *Assessment:* so the
 square floor caps any RLD-based Janson transfer at a power saving, never more. This is consistent with Target 2
 and gives no reason by itself to abandon the route below that depth.
 
