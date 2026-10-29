@@ -27,6 +27,134 @@
     "31": 8.069776673113715,
     "101": 15.84392016955011
   },
+  "rough_native_mass_to_Y": {
+    "5": 22.516039296309312,
+    "11": 17.968822107130876,
+    "31": 13.304989475229064,
+    "101": 10.24244533147258
+  },
+  "rough_progressions_toy": [
+    {
+      "W": 5,
+      "K": 4096,
+      "q": 1,
+      "sum_tau": 17971,
+      "hyperbola_upper": 17974,
+      "normalized": 0.848945511743587
+    },
+    {
+      "W": 5,
+      "K": 4096,
+      "q": 2,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 5,
+      "K": 4096,
+      "q": 3,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 5,
+      "K": 4096,
+      "q": 5,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 5,
+      "K": 4096,
+      "q": 7,
+      "sum_tau": 2372,
+      "hyperbola_upper": 2374,
+      "normalized": 0.7843687761944532
+    },
+    {
+      "W": 11,
+      "K": 4096,
+      "q": 1,
+      "sum_tau": 14219,
+      "hyperbola_upper": 14220,
+      "normalized": 1.0007661577434028
+    },
+    {
+      "W": 11,
+      "K": 4096,
+      "q": 2,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 11,
+      "K": 4096,
+      "q": 3,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 11,
+      "K": 4096,
+      "q": 5,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 11,
+      "K": 4096,
+      "q": 7,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 31,
+      "K": 4096,
+      "q": 1,
+      "sum_tau": 10433,
+      "hyperbola_upper": 10434,
+      "normalized": 1.0515773540500137
+    },
+    {
+      "W": 31,
+      "K": 4096,
+      "q": 2,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 31,
+      "K": 4096,
+      "q": 3,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 31,
+      "K": 4096,
+      "q": 5,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    },
+    {
+      "W": 31,
+      "K": 4096,
+      "q": 7,
+      "sum_tau": 0,
+      "hyperbola_upper": 0,
+      "normalized": 0.0
+    }
+  ],
   "base_elimination_checks": 730684,
   "fibre_L": 12,
   "atoms": 176,

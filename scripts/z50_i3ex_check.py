@@ -53,6 +53,7 @@ profile = []
 mass = 0.0
 smooth = {y: 0.0 for y in (5, 11, 31, 101)}
 base_checks = 0
+rough_mass = {w: 0.0 for w in (5, 11, 31, 101)}
 for m in range(8, Y + 1):
     us = native(m)
     assert len({(-u) % m for u in us}) == len(us)
@@ -70,6 +71,8 @@ for m in range(8, Y + 1):
     for y in smooth:
         if max(ps) <= y:
             smooth[y] += len(us) / m
+        if min(ps) > y:
+            rough_mass[y] += len(us) / m
     if m in (100, 1000, 10000, Y):
         profile.append({"Y": m, "mass": mass, "mass_over_log2": mass / log(m) ** 2})
 
@@ -175,7 +178,29 @@ for B in (32, 128, 512, 2048):
     assert all(not hit[n] for n in old_zeros if lo <= n <= N)
     interval_rows.append({"B": B, "lo": lo, "N": N, "native_avoiders": avoid, "certified_I3_zeros": actual})
 
+# New rough-shift calibration: the small ranges are deliberately NOT said
+# to meet K>=W^1000. Check the divisor-switching inequality exactly.
+rough_progressions = []
+for w in (5, 11, 31):
+    pw = prod(p for p in range(2, w + 1) if spf[p] == p)
+    k = 4096
+    for q in (1, 2, 3, 5, 7):
+        total = 0
+        hyperbola = 0
+        for m in range(k + 1, 2 * k + 1):
+            if m % q == 0 and gcd(m, pw) == 1:
+                ds = divisors(m + 1)
+                total += len(ds)
+                hyperbola += 2 * sum(d <= isqrt(m + 1) for d in ds)
+        assert total <= hyperbola
+        if gcd(q, pw) > 1:
+            assert total == 0
+        rough_progressions.append({"W": w, "K": k, "q": q, "sum_tau": total,
+                                   "hyperbola_upper": hyperbola,
+                                   "normalized": total * q * log(w) / (k * log(k))})
+
 result = {"mass_profile": profile, "smooth_partial_sums_to_Y": smooth,
+          "rough_native_mass_to_Y": rough_mass, "rough_progressions_toy": rough_progressions,
           "base_elimination_checks": base_checks, "fibre_L": LK, "atoms": len(atoms),
           "fibres": fibres, "exact_periods": period_rows,
           "independent_census": {"N": 5000, "zeros": len(zeros), "last": zeros[-1]},

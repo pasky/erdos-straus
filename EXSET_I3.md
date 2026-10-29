@@ -200,9 +200,101 @@ If S≤(A+1)log N this is the asserted bound; otherwise the inequality bounds S 
 
 **Scope and remaining gap.** This cap includes arbitrary balanced and prime-power native moduli, arbitrary real coefficients, Bonferroni, Selberg squares and CRT-evaluated moments, provided the final majorant covers the whole congruence avoider set. It does not include a rough-selector majorant that vanishes on the zero base, nor endpoint events with noncoprime endpoints, nor signed/position-sensitive rounding. It leaves the log-log factor between the existing all-integer upper bound and the 2/3 architectural cap unresolved. Removing that factor and proving 3/4 are distinct tasks; the latter now requires an exit from this native whole-avoider architecture.
 
-## 4. Round 3 — further attack and ES port
+## 4. Round 3 — the log-log loss is also intrinsic to this architecture
 
-Pending.
+### 4.1 Attack: retain roughness instead of discarding it
+
+Round 2 threw away a useful restriction: on the zero base every surviving modulus is W-rough. Let W grow with the level. The base costs O(W), but a one-dimensional upper-bound sieve now saves 1/log W in the shifted-divisor first moment. This yields a matching cap, including the log-log loss in the known I3 theorem.
+
+**Theorem 4.1 (PROVED relative to the inputs of Theorem 3.1 and the classical fundamental lemma of the upper-bound sieve; pending hostile review).** Under the hypotheses of Theorem 3.1,
+
+`log(1/Eν) ≤ C λ^{2/3}/(log λ)^{1/3}`.
+
+Under the hypotheses of Corollary 3.2,
+
+`log(N/(N Eν+Σ|a_i|)) ≤ C_A (log N)^{2/3}/(log log N)^{1/3}`.       (4.1)
+
+**Assessment / consequence.** The existing I3_DEEP_ASTRA §8.8 bound attains this order within the native whole-avoider coefficient-sum architecture. Neither the 3/4 target nor removal of the log-log loss is possible **inside that architecture**. This is not a claim that either improvement is false for actual I3 exceptions.
+
+### 4.2 Rough shifted-divisor bound with a uniform progression parameter
+
+**Lemma 4.2 (PROVED relative to the classical dimension-one upper-bound sieve).** For W≥16, K≥W^{1000}, q≤K^{1/4}, and gcd(q,P_W)=1,
+
+`T_W(q;K):=Σ_{K<m≤2K, q|m, gcd(m,P_W)=1}τ(m+1) ≪ K log K/(q log W)`,       (4.2)
+
+with an absolute constant. If gcd(q,P_W)>1 the sum is zero.
+
+*Proof.* Pair divisors of m+1 to bound τ(m+1) by twice the number of divisors d≤√(2K+1). Only gcd(d,q)=1 contributes. For each such d, solve `m≡0 mod q, m≡−1 mod d`; the solutions form one progression modulo qd, of length H=K/(qd)≥cK^{1/4}. For p≤W dividing d there is no forbidden residue, because m≡−1 mod p. For p≤W not dividing d there is exactly one forbidden residue of the progression index, because q is W-rough.
+
+The upper fundamental lemma with fixed sieve parameter 20 gives coefficients of absolute value ≤1 supported on r≤W^{20}, with upper main term at most C times
+
+`V_d(W)=∏_{p≤W,p∤d}(1−1/p)`.
+
+Its hypotheses are uniform in d: deleting primes only decreases the dimension-one product bound. Counting a residue of the progression index costs H/r+O(1), so the sifted count is at most `C H V_d(W)+O(W^{20})`. Since V_d(W)≥c/log W and H≥cW^{250}, the error is absorbed uniformly. Mertens gives
+
+`V_d(W) ≪ (log W)^{−1} ∏_{p|d,p≤W}(1−1/p)^{−1}`.
+
+Finally
+
+`Σ_{d≤z} (1/d)∏_{p|d,p≤W}(1−1/p)^{−1} ≪ log(2z)`
+
+uniformly in W: expand the product as `Σ_{a|d,P⁺(a)≤W} μ²(a)/φ(a)` and use convergence of `Σ μ²(a)/(aφ(a))`. Summing C H V_d(W) over d proves (4.2). No distribution theorem for primes in a progression is used here. ∎
+
+### 4.3 The improved smooth first moment
+
+**Lemma 4.3 (PROVED relative to Lemma 4.2).** For W≥16 and y≥W^{1000}, with Γ as in §3.2,
+
+`M_{D,W}(y):=Σ_{P⁺(m)≤y, gcd(m,P_W)=1}τ(m+1)Γ(m)/m`
+
+`                 ≪ (log W)² +(log y)²/log W`,       (4.3)
+
+uniformly in W and y.
+
+*Proof.* First, for K≥W^{1000}, expand Γ=1*h and split e at K^{1/8}. For the small e, Lemma 4.2 applies to q=e and gives total O(K log K/log W), since Σh(e)/e is bounded. The large e tail is O(K^{1+ε−1/32}), by the same Rankin bound as §3.3 with cutoff K^{1/8}; it is absorbed uniformly since log W≤log K/1000. Thus the weighted rough ordinary mean on a dyadic block is O(K log K/log W).
+
+For smooth blocks K≥y^{48}, repeat §3.3 retaining gcd(m,P_W)=1. In the local third moment D≤K^{1/16}. If D has a prime ≤W its term is zero. Otherwise expand Γ and split e at K^{1/8}. For small e, `[D,e]≤K^{3/16}≤K^{1/4}`, so Lemma 4.2 replaces the Shiu estimate and supplies 1/log W. The large-e sum is bounded by `C 2^3 K^{−1/32}` after extracting 1/D; the local-moment summation is unchanged. The squarefull term is still O(K^{4/5}), and all these power errors are absorbed into
+
+`K log K/(log W) · (log K/log y)^{−3}`.
+
+Uniform absorption follows from log W≤log K/1000 and u=log K/log y≤log K/log 2. Thus every smooth tail block has the old bound divided by log W.
+
+For the body m≤2y^{48}, use the ordinary estimate of §3.3 below a cutoff 2W^{1000}, costing O(log²W); above it use the rough ordinary block mean just proved and partial summation, costing O(log²y/log W). Summing the smooth dyadic tail as in §3.3 costs O(log²y/log W). This proves (4.3). ∎
+
+### 4.4 Matching cap and why this does not prove many exceptions
+
+*Proof of Theorem 4.1.* In the base of §3.2 take `W=max(W₀,⌊λ^{1/2}⌋)` and pin all primes ≤W to zero modulo p. This costs O(W). The level still charges every prime >W₀: conditioning on the extra small coordinates can only reduce the remaining locality of the test, so the comparisons remain valid. Lemma 3.4 is uniform in W; the leak remains ≤1/2. Set
+
+`s₀=(λ log W)^{1/3}`.
+
+For sufficiently large λ, exp(s₀)≥W^{1000}, so Lemma 4.3 applies to every block used. Singleton costs are
+
+`O(s₀²/log W+log²W)`.
+
+For s=2^i s₀, d=⌊λ/s⌋, the block ratio in KARY Corollary 2.6 is at most
+
+`C[1+s³/(λ log W)+s(log W)²/λ] ≤ C′(1+8^i)`.
+
+The last inequality uses s₀³=λ log W and `s₀(log W)²/λ=o(1)`. The total block cost is O(λ/s₀+log²λ). Add the base O(λ^{1/2}), negligible compared with the claimed bound, to obtain
+
+`log(1/Eν) ≪ λ^{2/3}/(log W)^{1/3} ≍ λ^{2/3}/(log λ)^{1/3}`.
+
+The coefficient-sum statement follows from the same projection/coarsening as §3.5, now using the increasing sublinear function `f(x)=x^{2/3}/(log x)^{1/3}` in `S≤log 2+C f((A+1)log N+S)`. The two-case argument is unchanged. ∎
+
+**Assessment / calibration.** The proof places mass on integers divisible by many small primes to demonstrate the unavoidable cost of a *globally valid majorant*. It does not assert that its comparison distribution is the distribution of integers in [1,N], nor that this fibre actually contains many total I3 zeros. Indeed the native congruence avoider set can be much larger than the set of genuine zeros: words with larger moduli remain available. The finite table in §5 makes that distinction visible.
+
+### 4.5 Next attack: noncoprime endpoint events and actual interval information
+
+**PROVED exact identity, not a new theorem.** Fix endpoints u,v≥3. The event `n≡−u−v mod uv` supplies a word once n≥3uv−u−v. Unlike native divisor classes, this event can be non-reduced: with u=v=3 it is n≡3 mod9. Thus it escapes the zero-base elimination. This is an actual door, not a claim that KARY is an impossibility theorem for I3.
+
+**Assessment / attempt and exact stopping point.** Add all endpoint events with uv≤Y to the native events. Their unconditioned mass is still O(log²Y), but the needed low-cost base avoiding them is not furnished by §3.2. Pinning zero modulo p² removes u=v=p for odd p, but larger p-adic endpoint valuations introduce further classes; there is no uniform bound on required exponents in this attempt. Alternatively count simultaneous endpoint and divisor events directly in [1,N]. For any compatible tuple this is one progression of modulus `lcm(uv, t′u′−1, …)`, with count N/lcm+O(1). Paying those O(1)'s returns to the coefficient ledger. Reaching beyond it needs a signed aggregate error estimate when the combined modulus exceeds N, or another non-CRT interval theorem. Neither is established by a two-point divisor estimate, by the mean count, or by treating the atoms as independent. No untested hypothesis equivalent to the desired exceptional bound is proposed as progress.
+
+**Assessment / log-loss removal outside the cap.** The rough-input 2/3 theorem in I3_DEEP_ASTRA §8.8 is not contradicted: its selector vanishes on the zero base. Recovering the all-integer estimate from it would require control of the inputs with many small factors without scaling I3 witnesses. I3(21)>0 but I3(42)=0 forbids the ES semigroup argument. A decomposition by smooth part does not fix this: substituting n=dm into a word requires divisibility conditions on endpoints or a level multiple of d, not just a word of m. That missing witness transport is left open.
+
+### 4.6 ES₅/U port audit
+
+**PROVED scope restriction / existing slot identities.** A native I3 hit is an ES₅ certificate only when one of t,u,v,tu−1,tv−1 is divisible by 4 (at odd unit inputs, equivalently the endpoint Jacobi product is −1). The unrestricted square word 121=3·5·9−5−9 has slots 3,5,9,14,26, none divisible by 4. Hence neither its class nor a sign-free I3 positivity theorem may be transported to U or ES₅ without a colour-compatible witness theorem. Restricting to 4|t makes the native detector a certificate family, but cannot increase its mass or defeat a cap already valid for the whole D-universe.
+
+**Assessment.** No improved upper bound is available to port. The zero-base cap applies to that native certificate subfamily over all integers, not automatically to the full six-coordinate union U or to prime-only ES₅ sieves. The ES square floor survives those certificate restrictions, whereas I3 itself has both successful and unsuccessful squares. Numerator 8 requires its own divisibility condition (e.g. 8|t for the level identity); the I3 word of 241 has t=9 and is not an 8/241 certificate. No step here proves a false numerator-8 assertion.
 
 ## 5. Independent computations and calibration
 
