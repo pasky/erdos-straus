@@ -470,49 +470,67 @@ FMS exclusions.
 
 ## 5. Work item 4 — the square floor and the (inverse) large sieve
 
-### 5.1 The square floor is the large-sieve limit, for any depletion input
+### 5.1 The square floor is the large-sieve limit; what an inverse theorem would need
 
-**Lemma 5.1 (PROVED, trivial).** For every odd prime ℓ and N ≥ ℓ², E_U ∩ [1, N] meets every nonzero quadratic-residue
-class mod ℓ, because odd squares lie in E_U (Theorem E). So any depletion input satisfies ω(ℓ) ≤ (ℓ − 1)/2, and the
-large sieve (and Gallagher's larger sieve) with any true depletion data gives at best ≫ N^{1/2}/log N. Conversely,
-depletion ω(ℓ) ≥ (1/2 − o(1))ℓ at almost all ℓ ≤ √N would give the square floor N^{1/2+o(1)} (Montgomery), and
-inverse large-sieve theorems (Green–Harper, Helfgott–Venkatesh, Walsh) would then describe E_U. Their hypothesis is
-exactly this dense depletion.
+**Lemma 5.1 (PROVED, trivial).** For every odd prime ℓ and N ≥ ℓ², E_U ∩ (1, N] meets every nonzero quadratic-residue
+class mod ℓ, because odd squares lie in E_U (Theorem E). So any true depletion input has ω(ℓ) ≤ (ℓ − 1)/2, and the
+large sieve (or Gallagher's larger sieve) fed with it gives at best ≫ N^{1/2}/log N. Conversely, Montgomery reaches
+N^{1/2+o(1)} as soon as L(√N) ≥ N^{1/2−o(1)}. Dense depletion ω(ℓ) ≥ (1/2 − o(1))ℓ at almost all ℓ ≤ √N is
+sufficient but not necessary: ω(ℓ) ≍ ℓ/log ℓ already gives the exponent (R2).
 
-### 5.2 CRT information forces only thin depletion (the barrier)
+**Inverse large sieve (checked against the abstract; the paper is unrefereed).** Croot–Mao–Pohoata–Yip,
+arXiv:2607.15311v2 (Sept 2026), prove the following. Let A ⊆ [N] with |A| ≫ √N and |A mod p| ≤ p/2 + O(1) for every
+prime p ≪ log N. Then A contains ≥ exp(c√(log N)/log log N) elements of a single quadratic m ± x². With the restriction
+up to (log N)³ the bound improves to exp(c√(log N/log log N)). For E_U this has two consequences.
+* E_U itself plausibly satisfies the hypothesis (squares plus finitely many points), but the conclusion is then
+  trivially true (E_U ⊇ squares). It gives nothing.
+* Applied to the non-square part A = E_U ∖ □, a square-floor proof would need two inputs. (a) Depletion of A mod
+  every p ≪ log N to ≤ p/2 + O(1); this is finite-interval information, see 5.2. (b) An ES-specific bound showing that
+  every translated quadratic m ± x² contains fewer than exp(c√log N/log log N) points of A. That is an exceptional-set
+  bound with near-total saving on a sequence of size √N, far beyond every method mapped here. Lane C2's results
+  (translated squares planted against non-residue families; marginal data cannot force avoidance below e^{−μ}) say
+  that (b) must be ES-specific.
 
-For a finite family 𝔊 ⊂ 𝔘 (any pivots, any size), call a ∈ ℤ/ℓ **CRT-depleted** if the profinite avoider set 𝒜(𝔊)
-misses the class a mod ℓ entirely, and let ω_𝔊(ℓ) be the number of such a. These are exactly the depletions that a
-CRT method can certify for every point of the avoider set.
+### 5.2 CRT-certified depletion is thin (the barrier)
 
-**Theorem 5.2 (CRT-forced depletion is thin; PROVED from Theorem 3.2 and LS Thm 2.1).** For every finite 𝔊 ⊂ 𝔘 and
-every Q ≥ Q₀,
+Let 𝔊 ⊂ 𝔘 be finite (any pivots, W1 and W2), together with the seven classes n ≢ 1 (mod 8), so that the avoider set
+lies in the fibre n ≡ 1 (mod 8). Without them, every U class lies in that fibre, the avoider set contains the other
+seven fibres, and the depletion at odd primes is trivially zero (R2). Call a ∈ ℤ/ℓ **CRT-depleted** if the profinite
+avoider 𝒜(𝔊) misses the class a mod ℓ entirely, and let ω_𝔊(ℓ) be the number of such a. These are exactly the
+depletions that hold at every point of the avoider set.
+
+**Theorem 5.2 (CRT-certified depletion is thin; PROVED from Theorem 3.2 and LS Thm 2.1/Cor 2.2, with Theorem 3.2's
+proviso).** For every such 𝔊 and every Q ≥ Q₀,
 
   Σ_{W<ℓ≤Q} ω_𝔊(ℓ)/(ℓ − ω_𝔊(ℓ)) ≤ L_𝔊(Q) ≤ 2·exp(C(2 log Q)^{2/3}(log log Q)^{2/3}),
 
-where L_𝔊(Q) is Montgomery's sum built from the ω_𝔊(ℓ), ℓ > W. In particular ω_𝔊(ℓ) ≥ ℓ/4 holds for at most
-exp(O((log Q)^{2/3+o(1)})) = Q^{o(1)} primes ℓ ≤ Q. The same holds with the U-family replaced by 𝔉₅.
+where L_𝔊(Q) is Montgomery's sum built from the ω_𝔊(ℓ), ℓ > W. In particular ω_𝔊(ℓ) ≥ ℓ/4 at no more than
+exp(O((log Q)^{2/3+o(1)})) = Q^{o(1)} primes ℓ ≤ Q. The same holds for 𝔉₅.
 
-*Proof.* Take an interval I of length N = Q². 𝒜(𝔊) ∩ I misses ω_𝔊(ℓ) classes mod each ℓ. The depletion holds at
-every point of 𝒜(𝔊), so Montgomery's bound (N + Q²)/L_𝔊(Q) is a CRT-admissible large-sieve bound in the sense of LS
-§1. By LS Thm 2.1 it is ≥ N·E|g*|², where |g*|² is ≥ 0 on ℤ, ≥ 1 on 𝒜(𝔊), and has moduli lcm(q₁, q₂) with
-q_i ≤ Q, hence level ≤ 2 log Q (all primes > W charged). Theorem 3.2 gives E|g*|² ≥ exp(−C(2 log Q)^{2/3}(log log Q)^{2/3}).
-Hence L_𝔊(Q) ≤ (1 + Q²/N)exp(+…) = 2exp(…). The left inequality keeps only the prime moduli q = ℓ in L. ∎
+*Proof.* Take an interval I of length N = ⌈Q²⌉. Montgomery's bound (N + Q²)/L_𝔊(Q) holds for every set supported in
+the permitted classes, so it is admissible for every probability measure on 𝒜(𝔊) (LS §1). LS Thm 2.1/Cor 2.2 then
+give a majorant |g*|² ≥ 0 on ℤ, ≥ 1 on all of 𝒜(𝔊), with moduli dividing lcm(q₁, q₂) for q_i ≤ Q (charged level
+≤ 2 log Q), and the bound is ≥ N·E|g*|². Theorem 3.2, applied with the classes n ≢ 1 (8) included, gives
+E|g*|² ≥ exp(−C(2 log Q)^{2/3}(log log Q)^{2/3}). So L_𝔊(Q) ≤ (1 + Q²/N)·exp(…). The left inequality keeps only the
+prime moduli in L. Primes ≤ W are a fixed finite set. ∎
 
-**Reading.** The large-sieve route to the square floor needs ω(ℓ) ≍ ℓ at ≫ Q/log Q primes ℓ ≤ Q = √N. CRT
-information, from word classes of any size, supplies it at Q^{o(1)} primes. So the depletion that inverse large-sieve
-theorems would need must come from **finite-interval information about E_U ∩ [1, N]**: door (i) of CONTEXT §3. It
-cannot come from congruence data. This is a barrier for a class of methods not covered by (D)17–(D)29, namely
-"large sieve / inverse large sieve fed with CRT-certified depletion". It is a corollary of Theorem 3.2, not an
-independent mechanism.
+**Status (R2).** This is not a new method class. For ES mixtures the same N = Q² argument runs from LS Thm 3.1. The
+new content is the U/ES₅ coverage (W2 classes and selectors included) and the exponent 2/3.
+
+**Reading (narrowed after R2).** Montgomery's sieve fed with depletion that is certified *uniformly over the
+congruence avoider of these word classes* has L(Q) ≤ Q^{o(1)}. The floor needs L(√N) ≥ N^{1/2−o(1)}, and the CMPY
+route needs dense depletion at every prime ≤ log N, which exceeds Q^{o(1)} primes at Q = C log N. So the depletion must
+come from information beyond avoidance of word classes. That means finite-interval information about E_U ∩ (1, N]
+(door (i) of CONTEXT §3), or other congruence or interval inputs not covered here. Nothing here excludes those.
 
 ### 5.3 What CONTEXT §4(c) gets right and wrong (numerics; `scripts/z50_lsmass_depletion.c`,
 `data/z50_lsmass/depletion_N2e7.txt`)
 
-The C program sieves the fibre n ≡ 1 (8), n ≤ N, by every U word class (W1 and W2, strict CONTEXT definition: the
-partner endpoint is ≥ 2) with pivot ≤ D. It reports the survivors and their occupancy mod ℓ.
+The C program sieves the fibre n ≡ 1 (8), 1 < n ≤ N, by every U word class (W1 and W2, strict CONTEXT definition:
+partner endpoint ≥ 2) with pivot ≤ D. It reports the survivors and their occupancy mod ℓ. Including n = 1 would add one
+survivor and the residue 1 mod 1009 (R2).
 
-| N | D (max pivot) | survivors | occupied classes mod 101 | occupied mod 1009 |
+| N | D (max pivot) | survivors in (1, N] | occupied classes mod 101 | occupied mod 1009 |
 |---:|---:|---:|---:|---:|
 | 2·10⁷ | 10² | 23 514 | 101 | 1009 |
 | 2·10⁷ | 10³ | 2 319 | 77 | 544 |
@@ -520,21 +538,17 @@ partner endpoint is ≥ 2) with pivot ≤ D. It reports the survivors and their 
 | 2·10⁶ | 10³ | 721 | 57 | 514 |
 | 2·10⁶ | 10⁴ … 2·10⁶ | 712 | 55 | 507 |
 
-At full level the survivors are exactly the odd squares plus 105, 2961, 3985, 25305, 111969, 978145. This
-independently reproduces the z49 census to 2·10⁷ with the strict definition (CERTIFIED). Pivots ≤ 10⁴ already
-suffice for every n ≤ 2·10⁷.
-* **Wrong, for the actual set (EVIDENCE):** E_U ∩ [1, N] is depleted in ≈ ℓ/2 classes, not ≈ log N. Mod 101 it
-  occupies 55 = 51 + 4 classes; mod 1009 it occupies 508 = 505 + 3. The finite set is depleted densely as soon as
-  N·δ(D) ≪ √N, which happens at modest pivot levels.
-* **Right, for what CRT can certify (PROVED, Theorem 5.2):** the profinite depletion is thin. At pivot level D < ℓ,
-  CRT forces no depletion at ℓ at all (the D = 10² row mod 1009). At any level the forced depletion is summably sparse
-  in the sense of Theorem 5.2.
+At full level the survivors are exactly the odd squares plus 105, 2961, 3985, 25305, 111969 and 978145. This
+reproduces the z49 census to 2·10⁷ with the strict definition (CERTIFIED). Review R2 reproduced it independently at
+2·10⁶ with pivots ≤ 10⁴. Pivots ≤ 10⁴ already suffice for every n ≤ 2·10⁷.
+* **Wrong, for the actual set in the tested range (EVIDENCE):** E_U ∩ (1, N] is depleted in ≈ ℓ/2 classes, not ≈ log N.
+  Mod 101 it occupies 55 = 51 + 4 classes, and mod 1009 it occupies 508 = 505 + 3. (Heuristic, not proved: the finite
+  set becomes square-dominated once N·δ(D) ≪ √N.)
+* **Right, for what word-class CRT data certify (PROVED, Theorem 5.2):** that depletion is thin. At pivot level D < ℓ
+  nothing at ℓ is certified (the D = 10² row mod 1009 is full).
 * **Too pessimistic, in its consequence:** "at best N/(log N)^{O(1)} from the classical large sieve" understates it.
   Prime-pivot depletion alone gives exp(Θ(√log N)) (Prop 2.3), and CRT architectures reach exp(c(log N)^{2/3})
   (Theorem 3.5).
-
-So the gap between E_U and its CRT shadow is precisely the gap between the finite depletion (≈ ℓ/2, which would give
-the floor) and the certified one (Q^{o(1)} dense primes, which gives at most (log N)^{2/3+o(1)}).
 
 ## 6. Hostile reviews
 
