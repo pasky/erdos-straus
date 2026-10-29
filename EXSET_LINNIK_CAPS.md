@@ -59,7 +59,56 @@ from that preprint is needed. Retrieved text is in `data/z51_lcaps/literature_*.
 
 ## 2. Round 1: confinement and the quadratic large sieve
 
-PENDING. Audit squarefreeness, diagonal loss, length optimization and smooth-number counting.
+### Theorem 2.1 — quadratic Linnik confinement (PROVED relative to HB)
+
+Let S be any set of odd primes, all ≤Y, and let E be primes p≤X, p∉S, such that
+(q/p)=1 for every q∈S. Let B_S(N) be the number of squarefree positive integers ≤N
+supported on S (including 1). For every η>0,
+
+    |E| ≪_η (XN)^η (X+N)/B_S(N).                              (2.1)
+
+**Proof.** Take c_a=1 on these squarefree integers and zero elsewhere in HB. Each row
+p∈E has inner sum exactly B_S(N), since every factor is a unit quadratic residue.
+Its squared contribution is B_S(N)², while the coefficient norm is B_S(N). Drop every
+other nonnegative row and divide. ∎
+
+### Corollary 2.2 — cap threshold log^{1+ε}, exponent 1/A (PROVED)
+
+For every fixed A>1,
+
+    #E(X,(log X)^A) ≤ X^{1/A+o(1)},
+    #{p≤X:e*(p)>(log X)^A/4} ≤ X^{1/A+o(1)}.                  (2.2)
+
+The meaning of o(1) is: for every δ>0 the bound is O_{A,δ}(X^{1/A+δ}).
+No effective uniform dependence of the HB constant on δ is asserted.
+
+**Proof.** Let L=log X, Y=L^A, k=π(Y;4,3) and r=⌊L/log Y⌋. The products of r distinct
+primes q≤Y, q≡3 (4), are ≤X and distinct. By the fixed-modulus PNT,
+
+    B_S(X) ≥ binom(k,r) ≥ (k/r)^r,
+    log(k/r)=(A−1)log L+O_A(1),
+    log B_S(X) ≥ (1−1/A)L−o(L).
+
+Apply (2.1) with N=X, then take any fixed η arbitrarily small. Equation (1.2) transfers
+the result to caps. This halves the old exponent 2/A and gives a fixed power saving
+for every A>1, not just A>2. No improvement in the pointwise cap identity is required. ∎
+
+### Corollary 2.3 — one overflowing prime and a short window (PROVED)
+
+Outside at most X^{1/A+o(1)} primes p≡1 (8), a solution exists with
+
+    x=(p+q)/4,  q≤(log X)^A prime, q≡3 (4),
+    den(z)=s^{2h},  s odd prime dividing x,  0≤h≤(q−3)/4.
+
+Allow den(z)=1 when h=0. This is the actual witness (1.1), not merely a statement
+about e*. Thus the improvement still holds after simultaneously imposing a polylog
+window and **at most one p-dependent mute prime**. Its relation to ES is discussed
+in §4; s is not a fixed prime independent of p.
+
+**Independent checks.** `scripts/z51_lcaps_toy.py` compares the squarefree-product set
+with an independent factorization enumeration, checks every confined character sum,
+and checks the binomial construction. The analytic constant in HB is unspecified;
+a finite calculation cannot certify its asymptotic inequality. Hostile review pending.
 
 ## 3. Round 2: the forcing threshold and its exact scope
 

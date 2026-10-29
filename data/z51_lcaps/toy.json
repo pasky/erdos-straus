@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "N": 100,
+      "Y": 7,
+      "primes": 2,
+      "squarefree_products": 4,
+      "confined_primes": 0,
+      "r": 2
+    },
+    {
+      "N": 1000,
+      "Y": 19,
+      "primes": 4,
+      "squarefree_products": 14,
+      "confined_primes": 0,
+      "r": 2
+    },
+    {
+      "N": 10000,
+      "Y": 43,
+      "primes": 7,
+      "squarefree_products": 63,
+      "confined_primes": 0,
+      "r": 2
+    },
+    {
+      "N": 100000,
+      "Y": 71,
+      "primes": 11,
+      "squarefree_products": 294,
+      "confined_primes": 0,
+      "r": 2
+    }
+  ]
+}
