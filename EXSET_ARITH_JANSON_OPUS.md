@@ -199,24 +199,38 @@ This is the chain deficit after the square part has been removed exactly. D_ns i
 steadily once ℓ ≥ N^{1/2.5}. As a function of s = log N/log ℓ it is **scale-invariant** across N = 10⁷, 10⁸,
 10⁹:
 
-| s | 2.9 | 2.3 | 2.2 | 1.95 | 1.75 |
-|---|---|---|---|---|---|
-| D_ns (N = 10⁸) | — | 0.024 (s=2.42) | 0.083 (s=2.21) | 0.217 (s=1.95) | 0.395 (s=1.74) |
-| D_ns (N = 10⁹) | 0.009 (s=2.87) | 0.034 (s=2.48) | 0.088 (s=2.19) | 0.210 (s=1.96) | 0.364 (s=1.77) |
+| s ≈ | 3.0 | 2.75 | 2.5 | 2.25 | 2.0 | 1.75 | 1.5 | 1.25 |
+|---|---|---|---|---|---|---|---|---|
+| D_ns, N = 10⁷ | −0.004 | 0.002 | 0.020 | 0.060 | 0.178 | 0.380 | 0.666 | 1.205 |
+| D_ns, N = 10⁸ | 0.002 | 0.013 | 0.033 | 0.065 | 0.184 | 0.395 | 0.687 | 1.279 |
+| D_ns, N = 10⁹ | 0.007 | 0.013 | 0.034 | 0.074 | 0.178 | 0.396 | 0.678 | 1.211 |
+| model mass at N = 10⁹ | 5.0 | 5.5 | 6.1 | 6.8 | 7.6 | 8.7 | 10.1 | 12.1 |
+
+(Nearest checkpoint to each s; the actual s differs by ≤ 0.04. Source: `data/z50_ajopus/chain_U_N*.txt`, column 9.)
 
 The random-class control has the same moduli and the same number of classes per prime, but uniformly random
 residues. It has **no** deficit at any depth: |Σ(w/ℓ − ρ_ℓ)| ≤ 0.07 down to 221 survivors at N = 10⁹ and
 ℓ ≤ N/2.
 
-*Assessment (mechanism).* The U classes are **shift-aligned**. At every prime the classes are −v (mod ℓ) for the
-shifts v | ℓ+1, so all events with a fixed shift v are divisibility conditions on the single integer n + v. At
-integers, n + v ≤ 2N has at most s prime factors ≥ N^{1/s}. The Haar model treats divisibility by large primes
-as independent, and this fails exactly as the Mertens product fails to predict sifted counts of high-dimensional
-sieves near s ≈ 1. Compare the prime k-tuple count with its Mertens product, which differ by e^{γk} at
-z = N. The data agree with the predicted features: the deficit depends on s only, it switches on near
-s ≈ 2.5, and it is absent for unaligned classes. It is irrelevant for the targets, whose moduli are N^{o(1)}
-(s → ∞). But it shows that (R1) relative to the Haar model is **false** at moduli ≥ N^{0.4}, for reasons that have
-nothing to do with squares. Any proof of (R1) must therefore use that the moduli are ≤ N^{1/s_0}.
+Two features matter. First, the deficit is **bounded in N for fixed s**: the rows agree to ±0.02 while the model
+mass at fixed s grows like 0.74·log N/s. So the relative error D_ns/mass → 0 at every fixed s > 1, and the
+deficit costs only a factor e^{D_ns(s)} in the survivor count. Second, it switches on near s ≈ 2.5 and grows as
+s → 1. It is irrelevant for the targets, whose moduli are N^{o(1)}, i.e. s → ∞. It does show that (R1) relative to
+the Haar model, with η → 0 *pointwise in the step*, is false at moduli ≥ N^{0.4} for reasons unrelated to squares.
+
+*Controls on the mechanism (EVIDENCE, N = 10⁹; §7).*
+
+* (a) Random classes, same w(ℓ): no deficit.
+* (b) Random **quadratic non-residue** classes, same w(ℓ): the deficit is exactly the square part; the non-square
+  deficit stays within ±0.03 down to ℓ = N/2.
+* (c) Shift-aligned classes −v (mod ℓ) for v | ℓ+1 with v ≡ 1 (4) or 3 (8), which are not anti-square: a smaller
+  total deviation of changing sign (≤ 0.48).
+* (d) Small-core near-squares km² (k ≤ 10⁴) are **not** enriched among the U survivors at s = 2 (0.76% versus a
+  baseline of 0.79%).
+
+So the effect needs both the shift alignment and the specific U residue structure. The mechanism is **not
+identified**. A Mertens/Buchstab-type failure of Haar independence for shift-aligned divisibility events was the
+first guess; control (c) shows that alignment alone gives a much smaller effect.
 
 ## 3. The collapse theorem: a chain of certified ratios is a majorant
 
@@ -334,7 +348,7 @@ derivation proves ν(E_i ∩ B_i) > 0. In particular it proves no instance of (R
 *Proof.* In each class C mod D choose X ∩ C ⊆ (C ∩ I ∩ W) ∖ E_i with #(X ∩ C) = #(C ∩ I ∩ B_i). This is possible
 by the room condition. Then x = 1_X has the same level-D statistics as B_i, since every class whose modulus
 divides D is a union of such classes. Also X ⊆ W, and x satisfies every inequality of type (iii). Every premise
-holds for X, yet ν(E_i ∩ X) = 0. \u220e
+holds for X, yet ν(E_i ∩ X) = 0. ∎
 
 The room condition fails only if B_i fills W ∖ E_i in some class mod D. That cannot happen once a single event
 at a modulus coprime to D has removed more than a 1/q_i share of some class. So it holds at every step after the

@@ -46,12 +46,17 @@ int main(int argc, char **argv){
       while(t>1){ long long p=spf[t]; int e=0; while(t%p==0){t/=p;e++;} ps[np]=p; es[np]=e; np++; }
       static long long all[1<<16]; int na=1; all[0]=1;
       for(int i=0;i<np;i++){ int cur=na; long long pw=1; for(int e=1;e<=es[i];e++){ pw*=ps[i]; for(int j=0;j<cur;j++) all[na++]=all[j]*pw; } }
-      for(int j=0;j<na;j++){ long long d=all[j]; if(d%4==0 || d%8==7) divs[nd++]=d; }
+      for(int j=0;j<na;j++){ long long d=all[j]; if(mode==3){ if(d%4==1 || d%8==3) divs[nd++]=d; } else { if(d%4==0 || d%8==7) divs[nd++]=d; } }
     }
     if(nd==0){ goto ck; }
     {
     long long cls[4096];
-    if(mode==0){ for(int i=0;i<nd;i++){ long long c=((-divs[i])%l+l)%l; cls[i]=c; } }
+    if(mode==0 || mode==3){ for(int i=0;i<nd;i++){ long long c=((-divs[i])%l+l)%l; cls[i]=c; } }
+    else if(mode==2){ // random distinct quadratic non-residues
+      for(int i=0;i<nd;i++){ long long c; int ok; do{ c = 1 + (long long)(xr()%(uint64_t)(l-1)); ok=1; 
+          { long long b=c%l, e=(l-1)/2, r=1; while(e){ if(e&1) r=r*b%l; b=b*b%l; e>>=1;} if(r!=l-1) ok=0; }
+          for(int j=0;j<i;j++) if(cls[j]==c) ok=0; }while(!ok); cls[i]=c; }
+    }
     else { // random distinct nonzero classes
       for(int i=0;i<nd;i++){ long long c; int ok; do{ c = 1 + (long long)(xr()%(uint64_t)(l-1)); ok=1; for(int j=0;j<i;j++) if(cls[j]==c) ok=0; }while(!ok); cls[i]=c; }
     }
@@ -62,8 +67,8 @@ int main(int argc, char **argv){
       long long c=cls[i];               // n ≡ c (mod l); n = 8k+1 -> k ≡ (c-1)*inv8
       long long k0 = ((c-1)%l+l)%l * inv8 % l;
       long long excl = -1;
-      if(mode==0 && divs[i] <= l){ long long n0 = l - divs[i]; if(n0>=1 && (n0-1)%8==0) excl=(n0-1)/8; }
-      for(long long k=k0;k<K;k+=l){ if(k==excl) continue; if(alive[k]){ alive[k]=0; hits++; if(issq[k]) { fprintf(stderr,"square hit! l=%lld\n",l); } } }
+      if((mode==0||mode==3) && divs[i] <= l){ long long n0 = l - divs[i]; if(n0>=1 && (n0-1)%8==0) excl=(n0-1)/8; }
+      for(long long k=k0;k<K;k+=l){ if(k==excl) continue; if(alive[k]){ alive[k]=0; hits++; if(issq[k] && mode==0) { fprintf(stderr,"square hit! l=%lld\n",l); } } }
     }
     nal -= hits;
     double w = (double)nd/(double)l, rho = before? (double)hits/(double)before : 0;
