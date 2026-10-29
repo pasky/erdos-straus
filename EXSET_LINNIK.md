@@ -334,7 +334,33 @@ large there.
 
 ## 4. Escape (b): p-dependent sequences
 
-(placeholder)
+A p-dependent Linnik argument uses a vector a^{(p)} for each p ∈ E. With no structure there is no large sieve at all:
+a^{(p)} := conj χ_p restricted to [1, N] gives |⟨a^{(p)}, χ_p⟩|² = N‖a^{(p)}‖² for every p. The usable structure is
+low dimension.
+
+**Lemma 4.1 (dimension loss; PROVED).** Let V be a K-dimensional space of coefficient vectors and suppose
+β_p(a^{(p)}) ≥ T with a^{(p)} ∈ V ∖ {0} for every p ∈ E. Then #E ≤ KΔ/T, where Δ is the large-sieve constant valid on V.
+*Proof.* Take an orthonormal basis f₁, …, f_K of V. Cauchy–Schwarz gives |⟨a^{(p)}, χ⟩|² ≤ ‖a^{(p)}‖²Σ_k|⟨f_k, χ⟩|², so
+T ≤ Σ_k β_p(f_k). Summing over p ∈ E and using Σ_p β_p(f_k) ≤ Δ for each k gives T·#E ≤ KΔ. ∎
+The loss K is sharp in general (V spanned by K vectors each concentrated on one Linnik set). Hybrid large sieves are
+the same mechanism with a continuous family: Gallagher's Σ_q Σ_χ ∫_{−T₀}^{T₀}|Σ a_n χ(n) n^{it}|² dt ≪ (N + Q²T₀)‖a‖²
+charges archimedean twists n^{it}, |t| ≤ T₀, by a factor ≍ T₀ (Sobolev: max_{|t|≤T₀} is controlled by the integral of
+the function and its derivative).
+
+**Proposition 4.2 (the three kinds of p-dependence; PROVED).**
+(i) *Dependence through p mod L, L ≤ X^K.* Then K ≤ φ(L) and the argument is a fibred datum: on the fibre p ≡ c (mod L)
+    one uses a^{(c)}. If the a^{(c)} are supported on squarefree Π-numbers with Π as in Theorem 2.5, Corollary 2.6 applies
+    to the fibre of the sterile plane point z (all Π-free coordinates of z are 1), with the threshold T replaced by
+    2·2^{ω_Π(L)} (the conditional second moment of Prop 2.8's proof). So fibring does not escape §2.
+(ii) *Archimedean twists a_n n^{it_p}, |t_p| ≤ T₀.* The Haar computation (1.1) is unchanged for each fixed t;
+    E_Haar max_{|t|≤T₀}|Σ a_n (x/n) n^{it}|² ≪ (1 + T₀ log N)‖a‖² (Sobolev in t), so Corollary 2.6 holds with T > C T₀ log N,
+    while the hybrid sieve's Δ grows by the same factor T₀.
+(iii) *Dependence through the word data of p* (e.g. 𝒜_p := values or divisors of the word forms n + u that p "sees").
+    Such maps are injective on primes up to bounded multiplicity (p + 1 ∈ 𝒜_p, or the divisor set of p + 1 and p + 2,
+    determines p up to O(1) choices), so K ≥ c·#E and Lemma 4.1 gives #E ≤ CΔ#E/T: nothing unless T > CΔ ≥ X; but for
+    quadratic tests T ≤ #supp(a) ≤ N, and Δ ≥ N. ∎
+*Exact blocking lemma for (b).* A p-dependent datum helps only if its dependence has ≤ X^{c} states (Lemma 4.1); such a
+datum is a fibred datum, covered by §2 (Prop 4.2(i)). The word-form sequences have ≍ #E states and give nothing.
 
 ## 5. Escape (c): supersets E′ ⊇ E_ES
 
