@@ -454,6 +454,21 @@ q ≲ log p. Linnik needs q up to (log p)^{2+δ}. The gap is the exponent 1 vers
 proof for ES₅/U must therefore establish character confinement of the actual exceptional primes beyond what congruence
 data certify. The door is open; nothing here enters it.
 
+**EVIDENCE for the reach (`scripts/z50_lsmass_forcing.c`, `data/z50_lsmass/forcing.txt`).** Fix p ≡ 1 (8) and a small
+prime q. We ask, for each non-residue a mod q, whether the integer that agrees with p modulo every m coprime to q but
+is ≡ a mod q carries a U word with pivot qm ≤ p/2. Only W1 words with u ∈ S are used, which gives a lower bound on the
+forcing. Let q* be the first q at which some non-residue is unreached. Six primes near each of 10⁵, 10⁶, 10⁷ (exact,
+u ≤ p) and 10⁸ (u ≤ 3·10⁷) give:
+
+| p ≈ | log p | q* for the six primes |
+|---|---:|---|
+| 10⁵ | 11.5 | 11, 11, 11, 11, 11, 17 |
+| 10⁶ | 13.8 | 11, 17, 17, 11, 19, 17 |
+| 10⁷ | 16.1 | 11, 19, 11, 13, 13, 13 |
+| 10⁸ | 18.4 | 23, 17, 23, 29, 29, 19 |
+
+So q* ≍ log p in this range, consistent with the coupon-collector heuristic, and nowhere near (log p)^{2+δ}.
+
 ### 4.3 (ii) Relaxations that force free character data
 
 Direction: a relaxation R satisfies ES ⇒ R, hence R-failure ⇒ ES-failure. We want the reverse kind of statement:
