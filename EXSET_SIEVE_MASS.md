@@ -8,27 +8,33 @@ Assessment. Scripts `scripts/z50_lsmass_*`, data `data/z50_lsmass/`.*
 
 | # | claim | label | review |
 |---|---|---|---|
-| 1.1 | E_U ⊂ {5} ∪ {n ≡ 1 (8)}; U/ES₅ word classes (W1, W2, refined) contain no unit square (square base) | PROVED; CERTIFIED small moduli | R1: SOUND after coprimality repair |
-| 1.3 | which U/ES₅ classes are literally ℛ(M)/Case-A/(a,D) classes; the (D) caps apply a fortiori only to those shapes | PROVED | R1: SOUND |
-| 2.2 | mass criterion. Selberg/Montgomery/any level-λ CRT majorant gets exp(−mass(y)) iff dimension(y)·log y ≲ λ. Regimes: fixed dimension (full mass), log-growing (√λ), quadratic band (≈1/μ), linear band (nothing) | PROVED (standard + THETA) | R1: MAJOR → repaired |
-| 2.3 | prime-local U/ES₅/I3 family: log L(Q) = Θ(√log Q), best saving Θ(√log N). **Confirms CONTEXT §4(a)**; numerics a ≈ 1.07 | PROVED (BV, BT); EVIDENCE constant | R1: SOUND-WITH-MINOR |
-| 3.1 | mass per log-level of every U/ES₅ subfamily is O(log Q); smooth first moment 𝔐(y) ≪ (log y)²(log log y)²; nearly-prime-local families have B = 1 (bounded multiplier) or B = 2 | PROVED | R1: repaired tail |
-| **3.2** | **2/3 cap: every CRT majorant of any U/ES₅ word-class family (+ selectors) saves ≤ Cλ^{2/3}(log λ)^{2/3}** | PROVED given the KARY framework (KARY3 proviso) | R1: SOUND-WITH-MINOR |
+| 1.1 | E_U ⊂ {5} ∪ {n ≡ 1 (8)}; U/ES₅ word classes (W1, W2, refined, any gcd) contain no unit square (square base) | PROVED; CERTIFIED for small moduli | R1: SOUND after coprimality repair |
+| 1.3 | which U/ES₅ classes are literally ℛ(M), Case-A or (a,D) classes; the (D) caps apply a fortiori only to those shapes | PROVED | R1: SOUND |
+| 2.2 | mass criterion: a level-λ CRT majorant / Selberg / Montgomery sieve gets exp(−mass(y)) iff dimension(y)·log y ≲ λ. Regimes: fixed dimension (full mass), log-growing (Θ(√λ)), band (e^{λ/4}, e^{λ/2}] (≈ 1/μ), band (e^{λ/2}, e^λ] (≤ log 4/3) | PROVED (standard + THETA) | R1 MAJOR → repaired; R2 minor constants fixed |
+| 2.3 | prime-local U/ES₅/I3 family: log L(Q) = Θ(√log Q), best saving Θ(√log N). **Confirms CONTEXT §4(a)**; numerically a ≈ 1.07 | PROVED (BV, BT); EVIDENCE for the constant | R1: SOUND-WITH-MINOR |
+| 3.0 | lane E (on main): native W1 U/ES₅ cap λ^{2/3}/(log λ)^{1/3} and E_U(N) ≪ N e^{−c(log N)^{2/3}(log log N)^{−1/3}}, exact for that presentation | cited, not re-proved | Opus-reviewed there |
+| 3.1 | mass per log-level of every U/ES₅ subfamily is O(log Q); smooth first moment ≪ (log y)²(log log y)²; nearly-prime-local families have B = 1 (bounded multiplier) or B = 2 | PROVED | R1: tail repaired |
+| **3.2** | **2/3 cap with the square base: covers endpoint-pair W2 classes (incl. non-reduced, e.g. 21 mod 36) and selector (rough/prime-input) majorants — the two scopes lane E's Cor 7.1 excludes**; saving ≤ Cλ^{2/3}(log λ)^{2/3} | PROVED given the KARY framework (KARY3 proviso) | R1: SOUND-WITH-MINOR |
 | 3.4 | same cap for coefficient-sum sieves, CRT-admissible large sieves, periodic Bessel/hybrid systems | PROVED, same proviso | R1: repaired |
-| 3.5 | #{p ≤ N : ES₅(p) fails} ≤ #{p ≤ N : U(p) fails} ≪ N e^{−c(log N)^{2/3}}; E_U(N) ≪ N e^{−c(log N)^{2/3}(log log N)^{−1/3}} | PROVED (I3_DEEP_ASTRA §8 with u ∈ 4ℤ; no new method) | R1: SOUND-WITH-MINOR |
-| **3.6** | **exact CRT exponent of U and ES₅ (primes) is 2/3, within the architectures of Cor 3.4**; 3/4 for U/ES₅ already needs non-CRT input | PROVED (conjunction) | R1: scope repaired |
-| 4.1 | ES/U/ES₅ exceptionality forces no free character data: coprime characters are exactly equidistributed; class sets at h have character content h^{−1+o(1)} | PROVED | R2 |
-| 4.2 | Linnik's dual sieve (and Heath-Brown's quadratic large sieve) applied to an ES/U/ES₅ exceptional set is a periodic Bessel system, hence capped (3/4 resp. 2/3); CAP_BOUNDED escapes only via a dense profile | PROVED (LS2 Thm 2.4) + Assessment | R2 |
-| 4.3 | relaxations that force free character data = fixed-modulus shot families; barred for cap 0 in the affine single-shot framework (FMS Thm 6.2) | Assessment on PROVED inputs | R2 |
-| 5.1 | the square floor is the large-sieve limit for any depletion input | PROVED (trivial) | R2 |
-| **5.2** | **CRT-certified depletion is thin: Σ_{ℓ≤Q} ω_𝔊(ℓ)/ℓ ≤ exp(O((log Q)^{2/3+o(1)})), so dense depletion is certified at only Q^{o(1)} primes**. The inverse large sieve cannot be fed by congruence data | PROVED (Thm 3.2 + LS Thm 2.1) | R2 |
-| 5.3 | the actual E_U ∩ [1, N] is depleted in ≈ ℓ/2 classes (contradicting CONTEXT §4(c) for the actual set); census reproduced to 2·10⁷ with the strict definition; pivots ≤ 10⁴ suffice there | CERTIFIED / EVIDENCE | R2 |
-| 7 | remaining gap: finite-interval depletion of E_U (door (i)); nothing here reaches any z50 target 1–4 | Assessment | — |
+| 3.5 | #{p ≤ N : ES₅(p) fails} ≤ #{p ≤ N : U(p) fails} ≪ N e^{−c(log N)^{2/3}} (rough-input refinement, no log log loss); all-n version = lane E §7.3 | PROVED (I3_DEEP_ASTRA §8 with 4 \| u; no new method) | R1: SOUND-WITH-MINOR |
+| **3.6** | **exact CRT exponent of U/ES₅ at primes / rough inputs is 2/3, within the architectures of Cor 3.4**; θ ≥ 3/4 for U/ES₅ needs input outside them | PROVED (conjunction) | R1: scope repaired |
+| 4.1 | local: class sets at one modulus h have character content h^{−1+o(1)}; coprime characters equidistributed on the periodic avoider. Joint (multi-modulus) forcing is OPEN; EVIDENCE of strong QR-bias of exceptional points | PROVED (local) / EVIDENCE | R2: global claim withdrawn |
+| 4.2 | ~~Linnik dual = periodic Bessel system, capped~~ **WITHDRAWN** (R2 FATAL). Corrected: Linnik duality is a genuine non-CRT door (primality of the exceptional moduli breaks the square floor), but it needs dense forced character data up to (log p)^{2+δ}; heuristic per-prime forcing reaches only q ≲ log p | Assessment (+ trivial PROVED control) | R2 |
+| 4.3 | cap-0 relaxations with dense character data would be fixed-modulus shot families; barred in the affine Type II framework (FMS Thm 6.2); exclusions listed | Assessment on PROVED inputs | R2: repaired |
+| 5.1 | the square floor is the large-sieve limit; the CMPY inverse theorem (arXiv:2607.15311) is trivial on E_U, and on E_U ∖ □ needs non-CRT depletion plus an ES-specific near-total saving on quadratics | PROVED (trivial) + Assessment | R2: repaired |
+| **5.2** | **word-class-certified depletion is thin: Σ_{ℓ≤Q} ω_𝔊(ℓ)/ℓ ≤ e^{O((log Q)^{2/3+o(1)})}; Montgomery fed by it has L(Q) ≤ Q^{o(1)}** (not a new method class; new U/ES₅ coverage) | PROVED (Thm 3.2 + LS Thm 2.1) | R2: SOUND-WITH-MINOR, reading narrowed |
+| 5.3 | actual E_U ∩ (1, N] is depleted in ≈ ℓ/2 classes (contrary to CONTEXT §4(c) for the actual set, in the tested range); census reproduced to 2·10⁷ with the strict definition | CERTIFIED / EVIDENCE | R2: reproduced at 2·10⁶ |
+| 7 | remaining gap; nothing here reaches any z50 target 1–4 | Assessment | — |
 
-**Bottom line (Assessment).** No z50 target is reached. The lane proves a sharper barrier: for U and ES₅, the families
-the wave targets, CRT methods top out at exponent 2/3, and this is attained. Linnik duality and inverse large sieves
-add nothing unless they are fed non-CRT, finite-interval depletion of the exceptional set. That depletion is
-numerically dense (≈ ℓ/2), and it is exactly what would give the square floor.
+**Bottom line (Assessment).**
+* No z50 target is reached.
+* The lane confirms and extends lane E's finding that CRT methods for U/ES₅ top out at exponent 2/3, attained. It
+  covers endpoint-pair presentations and prime-/rough-input selector methods, which lane E left open.
+* It verifies the orchestrator note §4(a). It refutes §4(c) for the actual exceptional set, while proving it (Thm 5.2)
+  for congruence-certified depletion.
+* It corrects a first-round error: Linnik duality is **not** capped by the CRT ledger. It is a genuine non-CRT door,
+  because primality breaks the square floor. It needs dense character data at the exceptional primes, which nothing
+  provides for ES₅/U.
 
 ## 1. Audit
 
@@ -586,19 +592,19 @@ cover 150 u = 1 cases and 116 non-coprime W2 entries.
 
 ## 7. Remaining gap (precise)
 
-1. **For U (square floor, target 2).** One must prove dense depletion of the *finite* set E_U ∩ [1, N]: for almost all
-   primes ℓ ≤ √N, all but o(ℓ) non-residue classes mod ℓ contain no U-exception ≤ N. Theorem 5.2 shows this cannot be
-   certified by congruence data (word classes of any size). Lemma 5.1 shows it would suffice, via Montgomery, up to
-   N^{o(1)}. The data (§5.3) say it is true with room to spare. The input would be an interval statement of the form
-   "#{n ≤ N : n ≡ a (ℓ), U(n) fails} = 0 for most non-residues a": a class-restricted exceptional-set bound with saving
-   ≥ log(N/ℓ). This is door (i) of CONTEXT §3, and the lane found no route into it.
-2. **For ES₅/U at primes, θ > 2/3 (and target 3, θ > 3/4).** One must leave the architectures of Cor 3.4. The open
-   relaxations are: positivity only at primes ≤ N (the PRIMELAW door, not covered here for U), signed rounding
+1. **U, square floor (target 2).** Lemma 5.1 gives one sufficient route: dense, or merely ℓ/log ℓ-sized, depletion of
+   the *finite* set E_U ∩ (1, N] at almost all primes ℓ ≤ √N. Theorem 5.2 shows that avoidance of word classes,
+   certified uniformly over the congruence avoider, cannot supply it. The data (§5.3) say the depletion is true with
+   room to spare. Via the CMPY inverse theorem, depletion only at p ≪ log N would suffice, but it needs an ES-specific
+   bound on E_U along translated quadratics m ± x². Lane C2's results say any route must be ES-specific.
+2. **ES₅/U at primes, θ > 2/3 (and target 3).** One must leave the architectures of Cor 3.4 and of lane E's Cor 7.1.
+   The open relaxations are: positivity only at primes ≤ N (the PRIMELAW door, not covered for U), signed rounding
    cancellation, classes that are not word classes, and non-CRT input. A third free divisor parameter would raise B to
-   3, but U/ES₅ words do not have one (Prop 3.1(c)).
-3. **For Linnik duality (target 1 at primes).** It needs dense character data, i.e. an infinite family of
-   fixed-modulus shots at cap 0. FMS Thm 6.2 bars this for fixed-coefficient affine Type II shots. Joint multi-prime
-   firing conditions and p-dependent or non-affine shots remain outside every proved statement (§4.3).
-4. **Not done here.** (a) The KARY3 local-moment removal of the (log λ)^{2/3} in Theorem 3.2 (Remark 3.3). (b) A
-   PRIMELAW-type (unit-measure) version of Theorem 3.2 for majorants nonnegative only at primes. (c) The analogue of
-   LS2 Thm 4.3 (Gallagher's larger sieve) for U, which by Theorem 5.2 can only use thin depletion.
+   3, but U/ES₅ words have only two (Prop 3.1(c)); ES gets 3/4 only through Vaughan ratio classes (words of bn).
+3. **Linnik duality (target 1 at primes).** This is a genuine non-CRT door (§4.2). It needs: ES₅/U-exceptional primes
+   p satisfy (q/p) = +1 for a positive-density set of primes q ≤ (log p)^{2+δ}. The per-prime forcing heuristic reaches
+   q ≲ log p; the gap is the exponent 1 versus 2+. Joint multi-modulus forcing of characters is the open question, and
+   the QR bias of the known exceptions (§4.1) is its only evidence.
+4. **Not done here.** (a) A selector-compatible removal of (log λ)^{2/3} in Theorem 3.2 (with Remark 3.3, Cλ^{2/3};
+   lane E's (log λ)^{−1/3} needs the zero base). (b) A PRIMELAW-type version of Theorem 3.2. (c) The analogue of
+   LS2 Thm 4.3 (Gallagher's larger sieve) for U.
