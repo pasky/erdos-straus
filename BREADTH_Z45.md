@@ -329,65 +329,79 @@ Six long attempts on one direction: a power-saving, or at least beyond-3/4, exce
 / I3. Briefs: `../z50briefs/` (CONTEXT §§0–6). Lanes: (A) beyond CRT `EXSET_BEYOND_CRT.md` (Opus, 4 rounds);
 (B) sieve mass and Linnik duality `EXSET_SIEVE_MASS.md` (Opus); (C1) arithmetic Janson via conditional ratios
 `EXSET_ARITH_JANSON_OPUS.md` (Opus); (C2) Janson–large-sieve hybrid `EXSET_ARITH_JANSON_ASTRA.md` (Astra);
-(D) divisor classes across shifts `EXSET_SHIFT_DIVISORS.md` (Opus); (E) I3 `EXSET_I3.md` (Astra). Every claim below
-passed at least one hostile review by the other model family (verdicts in each document; `reviews/z50-*`). ES remains
-open. **None of targets 1–4 was reached: there is no power saving, no θ > 3/4 for ES, and no θ > 2/3 for U/ES₅/I3.**
-What moved is the exact map of the CRT world, and two modest new upper bounds for U/ES₅.
+(D) divisor classes across shifts `EXSET_SHIFT_DIVISORS.md` (Opus); (E) I3 `EXSET_I3.md` (Astra). The lane results
+received cross-model hostile reviews (verdicts in each document; `reviews/z50-*`); this synthesis and the parent
+Assessments below were reviewed once more (Astra) for faithfulness to the sources. ES remains open. **None of targets
+1–4 was reached: there is no power saving, no θ > 3/4 for ES, and no θ > 2/3 for U/ES₅/I3.** What moved is the map
+of the audited CRT architectures, and two modest new upper bounds for U/ES₅.
 
 * **New upper bounds (PROVED, internal; Vaughan-type, no new method).**
   * E_ES₅(N) ≤ E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}) over n ≡ 1 (mod 4) (E §7.3: I3_DEEP_ASTRA §8.8 with
     4 | u). Previously the best ES₅/U statement was N exp(−c√log N).
   * #{p ≤ N : ES₅(p) fails} ≤ #{p ≤ N : U(p) fails} ≪ N exp(−c(log N)^{2/3}), with no log-log loss; also for y-rough n
-    and short intervals (A Thm 3.1; B 3.5 independently). Parent check: the U-atom identity
-    4/n = 1/(w(tu−1)) + 1/(ntw) + 1/(ntw(tu−1)) on 2·10⁵ random instances.
+    and short intervals (A Thm 3.1; B 3.5 independently). Parent check of the atom identity: for n = tuv − u − v with
+    v = 4w, 4/n = 1/(w(tu−1)) + 1/(ntw) + 1/(ntw(tu−1)), on 2·10⁵ (atom, n) pairs (`scripts/z50_main_uatom_check.py`).
   * For ES itself nothing changes: 3/4 (internal note) stands.
-* **The d/(d+1) law, now proved family by family.** A class universe with supply (mass at modulus scale e^L) ≍ L^d at
-  cost L per event caps every CRT majorant of level λ at λ^{d/(d+1)} (A Thm 2.1, given K2/EK). ES Type II ratio
-  classes have d = 3 (hence 3/4); native U/ES₅/I3 classes have d = 2 (hence 2/3); prime-local classes have d = 1
-  (hence √log N, B 2.3, confirming CONTEXT §4(a)).
-  * I3: native-class CRT majorants save ≤ Cλ^{2/3}(log λ)^{−1/3}, matching the known I3 bound (E Thm 3.1/(4.1); zero
-    base replaces the square base, since I3 classes meet odd squares).
-  * U/ES₅: the same cap on n ≡ 1 (4) (E Cor 7.1); extended to all groupings, non-reduced endpoint-pair classes (e.g.
-    21 mod 36), selectors and rough/prime inputs, large sieves and Bessel systems, at λ^{2/3}(log λ)^{2/3} (B Thm 3.2,
-    Cor 3.4/3.6; A Cor 2.5).
-  * Coverings add no supply (A Thm R4.1): progressions certified U/ES₅-forcing by exact or cheap-remainder coverings by
-    word classes, of any depth, moduli or level ratio, do not lift the cap; single-shift Landau forcing is such a
-    covering (R4.5). Vaughan ratio atoms are not finitely covered by ES₅ word classes (R4.4). So within CRT, θ > 2/3
-    for U/ES₅ needs non-compact forcing, i.e. U at integers in no word class of modulus ≤ T for every T (Assessment:
-    pointwise B2-type input).
+* **The supply law, proved family by family.** A Thm 2.1 (given K2/EK; hypotheses: square exclusion, a Γ-weighted
+  smooth-modulus first moment O((log y)^d (log log y)^γ), W-uniform cofactor second moments) caps every whole-avoider
+  CRT majorant of level λ at Cλ^{d/(d+1)}(log λ)^{γ/(d+1)}. ES Type II ratio classes have d = 3 (hence 3/4); native
+  U/ES₅/I3 classes have d = 2 (hence 2/3); prime-local classes have d = 1 (hence Θ(√log N), B 2.3, confirming
+  CONTEXT §4(a)).
+  * I3 (native classes only): CRT majorants save ≤ Cλ^{2/3}(log λ)^{−1/3}, matching the known I3 bound (E Thm 4.1,
+    eq. (4.1); a zero base replaces the square base, since I3 classes meet odd squares). Non-coprime endpoint
+    presentations and rough/prime-only majorants are outside E's scope for I3.
+  * U/ES₅: the same cap on n ≡ 1 (4) (E Cor 7.1); extended at λ^{2/3}(log λ)^{2/3} to all groupings, non-reduced
+    endpoint-pair classes (e.g. 21 mod 36) and selectors (A Cor 2.5; B Thm 3.2), and, through the globally nonnegative
+    whole-avoider evaluations of B Cor 3.4, to coefficient-sum sieves and CRT-admissible large sieves/Bessel systems at
+    polynomial level. Not covered: arbitrary prime-law majorants (positivity only at primes) and signed rounding
+    cancellation (B Cor 3.6).
+  * Coverings (A Thm R4.1, Cor R4.2): progressions certified U/ES₅-forcing by **exact** coverings by word classes, of
+    any depth, moduli or level ratio, add no supply; approximate coverings do the same when their total remainder
+    density is small and its level bounded. Single-shift Landau forcing is such a covering under R4.5's uniform
+    level bound. The sufficiently large Vaughan ratio-atom family is not collectively finitely covered by ES₅ word
+    classes (R4.4). Within this whole-avoider architecture, escape needs forcing families without cheap-remainder
+    coverings; a non-finitely-coverable forcing progression contains, for every T, infinitely many U-integers in no
+    word class of modulus ≤ T (Assessment: pointwise B2-type input).
 * **Non-CRT doors, examined and not opened.**
-  * Arithmetic Janson. The chain of ratios is exact (C1 Lemma 1.1); it isolates one relative level-of-distribution
-    hypothesis (RLD). Collapse theorem (C1, PROVED, scoped): a chain whose steps are certified pointwise by a linear
-    class is a single majorant of that class, so CRT-certified chains inherit the caps. Blindness (C1 §4; C2 Thm 4.1,
-    Prop 4.3, PROVED): no oracle for low-level statistics, universal inequality, or exact r-wise residue marginals can
-    certify an RLD step. A universal Janson inequality with error C√N is false (C2 Thm 2.1: planted translated squares
-    x² + j against non-residue-of-shift families give ≫ √N log log N avoiders); error N^{1/2+o(1)} is not refuted.
-  * Shifts (D). PROVED: for each fixed v ∈ 𝒞, P(n + v has no divisor ≡ −1 mod v) ~ C_v(log x)^{−1/2} (Thm 2.2; the
-    subset-product effect only matters for growing v, so CONTEXT §4(b) was too strong); a uniform large-v bound
-    (Thm 2.3). Barrier (Thm 5.1, Cor 5.2): product-form bounds over whole shift events with a constant loss per event
-    reach at most θ = log 2; θ = 3/4 needs per-event loss 1 + (log N)^{−0.0037} over ≥ (log N)^{0.75} events
-    (Thm 5.3, conditional part labelled). Chains and single-divisor refinements are not covered.
-  * Linnik duality (B §4.2). Primality of the exceptional objects can break the square floor, so this door is genuinely
-    outside the CRT caps (the round-1 claim that it is capped was withdrawn after a FATAL review). It needs every
-    exceptional prime to be a quadratic residue modulo a common set of (log X)^{2+δ} small primes. CRT-certified
-    depletion supplies this only at Q^{o(1)} primes (B Thm 5.2). Parent Assessment: forcing "q is a non-residue mod p ⟹
-    ES₅(p) or ES(p)" for each exceptional p is itself a pointwise statement, so this door reduces to B2.
+  * Arithmetic Janson. The chain of ratios is exact (C1 Lemma 1.1) and isolates one relative level-of-distribution
+    hypothesis (RLD). Collapse theorem (C1 §3, PROVED, scoped): a chain with fixed ratios whose steps are certified on
+    all of ℤ by functions of a linear class is one majorant of that class, so CRT-certified chains inherit the caps
+    under the cited evaluation hypotheses (exact high-modulus interval sums are not capped by it). Blindness: under C1
+    Prop 4.1's room condition, a per-step oracle for low-level statistics plus universal inequalities cannot certify an
+    RLD step; C2 (Thm 4.1, Prop 4.3) separately gives laws with exact r-wise residue marginals and much heavier
+    avoidance (not laws of intervals or primes). A universal Janson inequality with error C√N is false (C2 Thm 2.1:
+    planted translated squares x² + j against non-residue-of-shift families give ≫ √N log log N avoiders); error
+    N^{1/2+o(1)} is not refuted.
+  * Shifts (D). PROVED: for fixed admissible v and unrestricted m ≤ x, P(m has no divisor ≡ −1 mod v) ~ C_v(log x)^{−1/2}
+    (Thm 2.2; not transferred to n in the U progression; the subset-product effect bites only for growing v, so
+    CONTEXT §4(b) was too strong); a uniform large-v bound (Thm 2.3). Barrier (Thm 5.1, Cor 5.2; whole V/W shift events,
+    each used once, unconditional marginals, nonnegative remainder, paid loss C_e ≥ C > 1): θ ≤ log 2 ≈ 0.693. For
+    θ = 3/4 a uniform excess loss must satisfy ε ≤ (log N)^{−0.0037+o(1)} over ≥ (log N)^{0.75−o(1)} events (Thm 5.3;
+    the T-event versions are conditional). Chains and single-divisor refinements are not covered. This barrier is
+    weaker than log 2 > 2/3 would suggest for U: it does not exclude 2/3 < θ ≤ log 2.
+  * Linnik duality (B §4.2). Primality of the exceptional objects can break the square floor, so this door is outside
+    the CRT caps (the round-1 claim that it is capped was withdrawn after a FATAL review). One sufficient CAP-type route
+    needs a common set of primes q ≤ (log X)^{2+δ} that are quadratic residues modulo every exceptional prime and
+    generate ≥ X^{1+c} integers below X²; other Linnik configurations are open. CRT-certified depletion supplies dense
+    confinement only at Q^{o(1)} primes (B Thm 5.2). Parent Assessment: the route requires a new pointwise
+    character-confinement statement ("q a non-residue mod p ⟹ a certificate"), of B2 type.
   * Divisor switching (A §4): regrouping only; every word has a grouping of modulus ≤ (2n + 4)^{2/3}, and switched
     detectors are capped. Prime-specific inputs (Harman, zero density, Deuring–Heilbronn): no applicable input found
     (Assessment).
-* **Conditional Target 2 (C1 Cor 6.1).** CONDITIONAL on Conjecture RLD-U and a Titchmarsh-type asymptotic: #{n ≤ N,
-  n ≡ 1 (4) : U fails} = #{odd squares ≤ N} + O(N^{1−C_V/s+o(1)}), with 1 < s < 2C_V and C_V ≈ 0.74 empirical (parent
-  check: the slope of Σ_{ℓ≤z} w(ℓ)/ℓ against log z is 0.74 on [10⁵, 10⁶]). RLD-U says that, off the squares, the
-  prime-modulus U sieve at z = N^{1/s} is within e^{C(s)} of its Mertens product (EVIDENCE to N = 10¹⁰). It is a
-  fundamental lemma in dimension ≍ log z at level s ≪ dimension, beyond every known sieve; Selberg's k-tuple upper bound
-  loses k! in the analogous regime. It is a sieve reformulation of the target, not a weaker standard hypothesis.
+* **Conditional Target 2 (C1 Cor 6.1).** CONDITIONAL on Conjecture RLD-U at one s with 1 < s < 2C_V, and on the
+  Titchmarsh-type asymptotic Σ_{ℓ≤z} w(ℓ)/ℓ = (C_V + o(1)) log z with C_V > 1/2: #{n ≤ N, n ≡ 1 (4) : U fails} =
+  #{odd squares ≤ N} + O(N^{1−C_V/s+o(1)}). C_V ≈ 0.74 is empirical (parent check: the slope of Σ w(ℓ)/ℓ against
+  log z is 0.74 on [10⁵, 10⁶]). RLD-U is an upper bound: off the squares, the prime-modulus U sieve at z = N^{1/s} is at
+  most e^{C(s)} times its Mertens product (EVIDENCE to N = 10¹⁰). It is a fundamental lemma in dimension ≍ log z at
+  level s ≪ dimension, beyond every known sieve; Selberg's k-tuple upper bound loses k! in the analogous regime. It is a
+  nonstandard conjecture, not shown to be weaker than its consequence.
 * **Literature.** Pomerance–Weingartner (arXiv:2511.16817 v2) and Pomerance's 2026 slides still cite Vaughan's 2/3 as
   the published record. Croot–Mao–Pohoata–Yip, arXiv:2607.15311 (inverse quadratic large sieve) was found; on E_U it is
   trivial (B 5.1).
-* **Exact remaining gap after z50.** Every CRT architecture is now capped at its supply exponent, and the caps are
-  attained: 3/4 for ES, 2/3 for U/ES₅/I3. Passing them needs depth: control of ≍ log N simultaneous divisor events at
-  one integer, which known sieves (dimension), moment methods (k ≥ 3 shifted divisor correlations) and correlation
-  theorems (fixed shift count) do not supply. The two concrete open statements are (i) RLD-U / FL∞, a high-dimensional
-  fundamental lemma off the squares, which would give the square floor for U; and (ii) Linnik confinement, residue
-  status of exceptional primes modulo a common set of (log X)^{2+δ} small primes, which would give a power saving at
-  primes. Both are, as far as we can tell, as hard as the pointwise problem in disguise.
+* **Exact remaining gap after z50.** The audited whole-avoider CRT architectures are capped at their supply exponent,
+  and the caps are attained: 3/4 for ES, 2/3 for U/ES₅ (I3: native classes). A power saving through the examined
+  Janson transfers needs model mass of order log N, i.e. control of that many simultaneous divisor events at one
+  integer; smaller exponent gains need less, but still beyond the CRT depth. Two concrete proposed non-CRT statements
+  are (i) RLD-U / FL∞, which would give the square floor for U, and (ii) Linnik confinement, which would give a power
+  saving at primes. Other routes remain formally open (signed interval information, alternative I3 presentations,
+  bounded-shift forcing, prime-only positivity). Assessment: (i) and (ii) look as hard as the pointwise problem.
