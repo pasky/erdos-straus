@@ -2,6 +2,8 @@
 
 **Status: PARTIAL (z49 round 3, slug `sexp`).** Conjecture S is PROVED on the upper side; on the lower side it is CONDITIONAL. ES is open; nothing here bears on ES existence directly.
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / Assessment.
+**Prior work:** the odd-pair colour rule (Lemma 1.1) was already explicit in z48 (FOREST_CONNECTIVITY §2.3(C1)).
+It is restated here and is not claimed as new. Cross-model review (Astra): SOUND-AFTER-REPAIRS; minors applied (§6).
 
 ## 0. Summary
 
@@ -23,8 +25,9 @@ Write L = log H. δ(H) is the prime-Haar certificate survival, n ≡ 1 (24) (FOR
   conditional mass of rough-supported certificate events is ≍ L² **uniformly in the small residues**, including
   the class of one. So no small-prime conditioning can buy survival cheaply, and Janson applies fibrewise. This
   removes the (log L)² roughness loss of the I3 §8.4 route.
-* **Colour.** For n ≡ 1 (8), an odd pair is a certificate iff its endpoints are not both ≡ 1 (4) (Lemma 1.1). The
-  2-adic coordinate drops out.
+* **Colour (not new).** An odd pair is a certificate iff its endpoints are not both ≡ 1 (4). This is already explicit
+  in z48 (FOREST_CONNECTIVITY §2.3(C1)). Lemma 1.1 restates it only for self-containment, and it gets no novelty
+  credit. It is what makes the 2-adic coordinate drop out.
 * **Lower bound.** A *non-adaptive* class of one Q(Y) = ∏_{ℓ≤Y} ℓ^{k_ℓ}, with every free modulus ≥ Y, costs ≈ Y
   instead of ℒ²S♯. The residual mass is PROVED ≪ L² polylog. Loads from the smaller endpoint are PROVED pointwise via
   Shiu's theorem.
@@ -49,7 +52,7 @@ For coprime 1 ≤ a < v ≤ H, the edge event is E_{a,v} = {n ≡ −a−v (mod 
 (av/n) = −1 (Theorem A). δ(H) = P(no certificate edge with v ≤ H), as in FOREST_H4 Prop 5.1 (prime-Haar,
 n ≡ 1 (24)).
 
-**Lemma 1.1 (PROVED; colour is p-independent for odd pairs).** Let a, v be odd and coprime, and let n ≡ 1 (mod 8)
+**Lemma 1.1 (PROVED; already explicit in z48, FOREST_CONNECTIVITY §2.3(C1); restated for self-containment).** Let a, v be odd and coprime, and let n ≡ 1 (mod 8)
 lie in E_{a,v}. Then (av/n) = −1 iff a and v are not both ≡ 1 (mod 4).
 
 *Proof.* (2/n) = 1, and reciprocity for n ≡ 1 (4) gives (av/n) = (n/av) = ((−a−v)/a)((−a−v)/v) = ((−v)/a)((−a)/v).
@@ -472,8 +475,10 @@ The known extreme case is benign. The events (d, ℓ) with d | ℓ+1 and d smoot
 
 *Proof.* Take x_E = 2P_Q(E) in the asymmetric local lemma, with the dependency graph "shares a free coordinate".
 
-Lemmas 3.3–3.4 and FT bound w_c by (log L)^{C₀+2}L² log L/m_c + O(m_c^{−1/2}). Since m_c ≥ Y and C > C₀+3, this is
-o(log m_c/L), and in particular ≤ log m_c/(16L) for large H. Every live E has
+Lemmas 3.3–3.4 and FT bound w_c by (log L)^{C₀+2}L² log L/m_c + O((log L)² m_c^{−1/2}). The (log L)² factor on the
+second term comes from the prefactor in §3.4 and was dropped in an earlier version (cross-review minor 1). Since
+m_c ≥ Y and C > C₀+3, the first term is o(log m_c/L). So is the second, because
+L(log L)²/(√m_c log m_c) ≤ L(log L)²/(√Y log Y) = o(1). Hence w_c is o(log m_c/L), and in particular ≤ log m_c/(16L) for large H. Every live E has
 Σ_{c∈supp E} log m_c ≤ log(av) ≤ 2L. Hence the neighbourhood x-mass is ≤ Σ_{c∈supp E} 2w_c ≤ 1/4. Each x_E ≤ 1/4,
 so ∏_{E'∼E}(1−x_{E'}) ≥ e^{−1/3} > 1/2 and P(E) ≤ x_E∏(1−x_{E'}).
 
@@ -485,7 +490,8 @@ Then
 
     −log δ(H) ≤ log φ(Q) − log 8 + 3S(Y) ≤ (1+o(1))Y + O((log L)² L² log L).
 
-Since all edges are avoided, all certificates are avoided. ∎
+Since all nontrivial edges in the bad family are avoided, and (1,2), (2,3) are non-certifying, all certificates are
+avoided. ∎
 
 This improves the exponent 6 of H4_NOT_POLYLOG (19), and of I3 Thm 8.3, to 3. It is conditional only on FT. The
 remaining extra L comes from the log-weighted threshold, which forces m_c ≳ L·(load·m_c) ≈ L³.
@@ -611,7 +617,8 @@ route (Lemma 7) the exponent is κ < 1/6. Under GRH it is κ < 1/3 without (G).
 *Proof sketch, interface check.*
 
 * Use Q = Q(Y) of §3.1. It is divisible by 840, since Y > 7.
-* Choose C > C₀ + 3 in Y = L³(log L)^C. The loads are then o(log m_c/L), so Σ_{c∈supp E} w_c ≤ 1/64 for every E
+* Choose C > C₀ + 3 in Y = L³(log L)^C. The loads are then o(log m_c/L), including the error term
+  O((log L)² m_c^{−1/2}) (cross-review minor 1), so Σ_{c∈supp E} w_c ≤ 1/64 for every E
   once H is large. That is (7) of H4_NOT_POLYLOG, with the lumped-by-prime coordinates c in place of its digits.
 * **Energy/BRW on actual digits (review item 3).** A lumped coordinate at p ≤ Y carries all digits beyond p^{k_p}.
   Its first-free modulus m_c is *not* its arithmetic resolution: the event (31,64) with Y = 10 depends on
@@ -657,3 +664,14 @@ No fatal issue was found. All nine issues are repaired in the text above:
 * the Shiu small-block bookkeeping is completed (item 7);
 * "ceiling" is downgraded to "budget" (item 8);
 * the interpretations in §§2.8, 3.7 and 4 are softened (item 9).
+
+**Cross-model review (Astra).** The report is `reviews/z49-sexp-xreview.md` in worktree 0025. Verdict:
+SOUND-AFTER-REPAIRS, with minor repairs only. It rates Theorem 2.1, Theorem 2.6 and the fixed-H prime consequence
+SOUND. Its minor repairs are applied:
+
+* the (log L)² factor on the m_c^{−1/2} error is restored in Theorem 3.4 and §5;
+* the odd-pair colour carries no novelty claim, since it is explicit in z48 (FOREST_CONNECTIVITY §2.3(C1));
+* the checker boundary bug at a prime cutoff Y is fixed, see `phiQinv` in `scripts/z49_sexp_lllcheck.c`. It now
+  gives S = 0.5 at H = Y = 11, matching exact CRT. The archived runs at Y = 100, 130, 400, 600 and 1500 are not
+  prime cutoffs and are unaffected;
+* "all edges" is corrected to "all nontrivial edges".

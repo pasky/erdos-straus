@@ -13,7 +13,7 @@
 static int *spf; static int Y; static long *kpow; /* kpow[l] = l^{k_l} for l<=Y */
 static long gQ(long m){ long g=1; while(m>1){int p=spf[m]; long pk=1; while(m%p==0){m/=p;pk*=p;} if(p<=Y){ long t=kpow[p]; g*= (pk<t?pk:t);} } return g; }
 static double phiQinv(long m){ double ph=1; long mm=m; while(mm>1){int p=spf[mm]; long pk=1; while(mm%p==0){mm/=p;pk*=p;}
-    if(p>Y) ph*=(double)(pk/p)*(p-1); else { long t=kpow[p]; if(pk>t) ph*=(double)pk/t; } } return 1.0/ph; }
+    if(p>Y) ph*=(double)(pk/p)*(p-1); else { long t=kpow[p]; if(t==1) ph*=(double)(pk/p)*(p-1); /* prime cutoff p=Y: unconditioned */ else if(pk>t) ph*=(double)pk/t; } } return 1.0/ph; }
 /* coordinate id: for p>Y use p; for p<=Y use -p (residual digits) when l^{k+1} | m */
 int main(int argc,char**argv){ long H=atol(argv[1]); Y=atoi(argv[2]);
   spf=calloc(H+2,sizeof(int)); for(long i=2;i<=H+1;i++) if(!spf[i]) for(long j=i;j<=H+1;j+=i) if(!spf[j]) spf[j]=i;
