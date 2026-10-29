@@ -499,6 +499,27 @@ here**. Even if proved, no chain would be needed: the fundamental lemma bounds t
 sieve stop at the same point. The reason is a Rankin truncation: the Euler product ∏(1 + g(p)) is carried by
 d of size exp(c(log z)²).
 
+### 5.2a How far a universal input reaches: the large-sieve range (PROVED, classical ingredients; round 3)
+
+**Proposition 5.2.** Let B ⊆ [1,N] with #B = δN > 0. Consider a block of events at primes q ∈ (Q, 2Q], with
+2Q ≤ √N: classes a ∈ Ω_q mod q, of block mass μ_b = Σ_q |Ω_q|/q. Then
+
+    Σ_q Σ_{a∈Ω_q} | ν(E_{q,a} | B) − 1/q |  ≤  ( μ_b (1 + 4Q²/N) / δ )^{1/2} ≤ (2μ_b/δ)^{1/2}.
+
+Hence the block-averaged relative error of (R1) is ≤ (2/(δμ_b))^{1/2}, which is o(1) once δμ_b → ∞.
+
+*Proof.* Write B(q,a) = #{n ∈ B : n ≡ a (q)}. By Cauchy–Schwarz the left side is
+#B^{−1} Σ|B(q,a) − #B/q| ≤ #B^{−1}(Σ_{q,a∈Ω_q} 1/q)^{1/2}(Σ_q q Σ_{a mod q}|B(q,a) − #B/q|²)^{1/2}. The arithmetic large
+sieve (Montgomery; e.g. Iwaniec–Kowalski Thm 7.14 in the form Σ_{q≤R prime} q Σ_a |Z(q,a) − Z/q|² ≤ (N + R²)Σ|z_n|²)
+with R = 2Q bounds the last factor by ((N + 4Q²)#B)^{1/2}. ∎
+
+*Reading.* This is the most a universal (structure-blind) inequality gives in the brief's item 3. It certifies the
+block average, not individual steps, and only for sifted densities δ ≫ 1/μ_b. Prime-modulus blocks have
+μ_b = O(1) per dyadic range of q (for the U family μ_b ≈ 0.74 log 2), so this needs δ ≫ 1: only polynomially many
+(in μ) steps beyond the start of the chain. The chain cannot be continued by this input below density ≍ 1/μ,
+which recovers the classical polynomial large-sieve saving and nothing more (z50 CONTEXT §4(c)). It is also not
+step-wise. By Prop 4.1, no blind input certifies a single step that has room.
+
 ### 5.3 Density increment and entropy chains (PROVED, short)
 
 * *Density increment on progressions.* Suppose S ∩ I avoids the classes Ω_q mod q. Then some class mod q outside
@@ -733,7 +754,7 @@ Repairs, all applied:
 ### 8.2 Round 2
 
 Round 2 consisted of the repairs above, the N = 10¹⁰ falsification run (D_ns does not grow), and the per-shift
-decomposition, which explains ~40% of the deficit. The round-2 cross-model review is recorded below.
+diagnostic. The round-2 cross-model review is recorded below.
 
 **Round-2 cross-model review (Astra, deep).** Session
 `/home/pasky/.pi/agent/sessions/--home-pasky-projects-math-erdos-straus-claude-agent-worktree-0042--/2026-10-29T15-39-40-800Z_01a18851-2180-7142-a757-62a6647a2701.jsonl`.
