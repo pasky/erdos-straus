@@ -288,7 +288,118 @@ uses unit squares). If such an R exists for I3, the CRT ceiling for I3 is also 2
 multiplier atoms" (lane E goal 1) is impossible by CRT majorants**: multipliers do not change β. I have not proved
 the I3 base lemma.
 
-## §3 Round 3
+## §3 The ceiling is attained: a Vaughan-exponent theorem for U and ES₅
+
+**Theorem 3.1 (PROVED, relative to Bombieri–Vinogradov, Brun–Titchmarsh (Montgomery–Vaughan form) and the
+elementary lemmas below; ineffective constants).** There are absolute constants c, C > 0 such that for N ≥ 3
+
+    #{p ≤ N prime, p ≡ 1 (mod 4) : U(p) fails} ≤ C N exp(−c(log N)^{2/3}),
+
+and hence the same bound holds for #{p ≤ N : ES₅(p) fails} (U(p) ⟹ ES₅(p), §1.3). More generally, with
+`y = B₀(log N)^{2/3}`, the bound holds for #{n ≤ N : n ≡ 1 (4), (n, P_y) = 1, U(n) fails}, and in every interval
+(x, x+H] with H ≥ 2 in place of [1,N] with N replaced by H (shift-uniformity, as in EXCEPTIONAL_SHORT Thm 1).
+
+By Corollary 2.5 (bounded-B case: the atoms below have modulus kℓ ≤ ℓ^{1+2κ}) no CRT method over word classes
+can improve the exponent 2/3; Theorem 3.1 is sharp for that architecture, up to the constant c.
+
+Within the campaign, the strongest previous statement for U or ES₅ at primes was qualitative:
+`H₄ ≤ h(p)` for almost all p (FOREST_H4 Thm 3.5, rate ≍ (log Y)^{−1/2} at fixed Y), and, for each fixed H, density
+≤ exp(−c log²H) (CONJECTURE_S_MODEL). Neither has N-dependence beyond what PNT in fixed APs gives. (git grep; U and
+ES₅ are campaign-internal notions, so no literature comparison applies.)
+
+### §3.1 Atoms (the only new design choice)
+Keep the note's parameters: κ = 1/480, t = log X, K = ⌊X^κ⌋, H = K¹⁰, K(K) = {k ≤ K : k ≡ 1 (4)},
+L_K = lcm K(K), blocks I_j = (x_j, min(2x_j, X)], x_j = 2^j X^{1/2}, z_j = x_j^{1/6}. A **U-atom** is a triple
+
+    A = (k, ℓ, w):  k ∈ K(K),  ℓ ∈ I_j prime,  H < w ≤ z_j,  4w | kℓ + 1;   class  E_A = {n ≡ −4w (mod kℓ)}.
+
+(Then gcd(w,k) = 1 and ℓ ≡ 3 (4).) *U-certificate:* if n ∈ E_A and n > kℓ − 4w, then (t, u, v) = ((kℓ+1)/(4w),
+(n+4w)/(kℓ), 4w) is a word of n with endpoint v ≡ 0 (4), u ≥ 2, `tv − 1 = kℓ > 1`, `tu − 1 ≥ 2t − 1 > 1`; so
+U(n) holds, with the identity 4/n = 1/(w(tu−1)) + 1/(ntw) + 1/(ntw(tu−1)) (row 2 of §1.3; checked in
+`scripts/z50_ncrt_identities.py`, 25 230 atom words, 0 failures). Compared with the note: the note's two free
+divisors u, v of (kℓ+1)/4 become one free divisor w. That single change is β = 3 → β = 2.
+
+### §3.2 The note's lemmas, changed where needed
+
+**Lemma 3.2 (distinctness, conditional independence; PROVED).** For X large: (1) distinct atoms with the same ℓ
+have distinct classes mod ℓ; (2) given c = n mod L_K and any event determined by n mod P_y, the residues n mod ℓ
+(ℓ ∈ (X^{1/2}, X]) are independent and uniform; (3) A meets the fibre of c iff k | c + 4w, and then
+E_A ∩ fibre = {n ≡ c (L_K), n ≡ −4w (ℓ)}.
+*Proof.* (1) −4w ≡ −4w' (mod ℓ) with 4w, 4w' ≤ 4z_j < ℓ gives w = w'; then kℓ ≡ k'ℓ ≡ −1 (mod 4w) and
+gcd(ℓ, 4w) = 1 give k ≡ k' (mod 4w), and 4w > 4H > K forces k = k'. (2) CRT (ℓ > K > y). (3) k | L_K. ∎
+
+So in each fibre `H_X = Σ_ℓ I_ℓ` with independent Bernoulli `I_ℓ`, `P(I_ℓ = 1 | c) = f_c(ℓ)/ℓ`,
+`f_c(ℓ) = #{active atoms at ℓ}`, exactly as in the note.
+
+**Lemma 3.3 (one-variable lattice sums; PROVED).** For k ≤ K, (a,k) = 1, d | K²-bounded with (a,d) = 1,
+Λ = log(z/H), z ≥ H²:
+(a) `Σ_{H<w≤z, w≡a (k)} 1/w = Λ/k + O(1/H)`;
+(b) `Σ_{H<w≤z, w≡a (d)} 1/φ(4w) ≤ C Λ/d` for every d ≤ K².
+*Proof.* (a) comparison with an integral. (b) `φ(4w) ≥ 2φ(w)` and `1/φ(w) = w^{−1}Σ_{e|w}μ²(e)/φ(e)`; a divisor e
+with (e,d) > 1 contributes nothing (w ≡ a, (a,d) = 1); for e ≤ H use (a) on (H/e, z/e] (length ratio Λ), for e > H
+the bound 1 + log z; so the sum is `≤ (Λ/d)Σ_e μ²(e)/(eφ(e)) + O(log H/H + (log z)H^{−1/2})`, and the error is
+`≪ Λ/K² ≤ Λ/d` because H = K¹⁰ and Λ ≥ ½ log z ≥ 5 log K. ∎
+
+**Theorem 3.4 (quadratic supply in every fibre; PROVED given BV, BT).** For 1 ∈ J ⊆ K(K), (c, L_J) = 1, put
+`g(J) = Σ_{k∈J} 1/k` and `f_{c;J}(ℓ) = #{(k,w) : k ∈ J, H < w ≤ z_j, w ≡ −c·4^{−1} (mod k), 4w | kℓ+1}`. Then
+
+    a t g(J) ≤ Σ_{X^{1/2}<ℓ≤X} f_{c;J}(ℓ)/ℓ ≤ A t g(J)
+
+with absolute a, A > 0, for X ≥ X₀, uniformly in c and J.
+*Proof.* Fix a block (x, 2x], z = x^{1/6}, so 4w ≤ 4x^{1/6}. For k ∈ J and w ≡ −c/4 (mod k), (k, 4w) = 1 and
+4w | kℓ+1 is ℓ ≡ −k^{−1} (mod 4w), a reduced class. So
+`Σ_{x<ℓ≤2x} f_{c;J}(ℓ) = Σ_{k∈J}Σ_{w} [π(2x;4w,−k^{−1}) − π(x;4w,−k^{−1})]`.
+*Upper.* BT (q = 4w ≤ 4x^{1/3}) gives ≤ (4x/log x)Σ_kΣ_w 1/φ(4w) ≤ (4x/log x)·CΛ g(J) ≤ C'x g(J) by Lemma 3.3(b) with
+d = k. Divide by x; sum over O(t) blocks.
+*Lower* (full blocks). Main terms: `(li 2x − li x)/φ(4w) ≥ x/(2w log 2x)` (φ(4w) ≤ 2w), and Lemma 3.3(a) gives
+`≥ (x/(2 log 2x))Σ_k(Λ/k − O(1/H)) ≥ xΛg(J)/(4 log 2x) ≥ c₀ x g(J)` (Λ ≥ log x/12; K/H negligible).
+Errors: group by q = 4w with multiplicity `W(q) = r(w) = #{k ∈ J : k | c + 4w}`. By BT, `E*_x(q) ≤ 4x/(φ(q) log x)`,
+and `Σ_w r(w)²/φ(4w) = Σ_{k,k'∈J}Σ_{w≡−c/4 ([k,k'])} 1/φ(4w) ≤ CΛΣ_{k,k'≤K}1/[k,k'] ≤ CΛ(1+log K)³` (Lemma 3.3(b),
+d = [k,k'] ≤ K²; the same sum appears in the note's Lemma 4.1). So `Σ_q W(q)²E*(q) ≪ x t³`. Cauchy–Schwarz with BV
+(R = 10) gives `|Σ E| ≤ (x t³)^{1/2}(x t^{−10})^{1/2} = x t^{−7/2} = o(x g(J))` since g(J) ≥ 1. Divide by 2x and sum
+over ≍ t full blocks. No constant depends on c, J or x. ∎
+
+The BV input is used through E*(q) = max over reduced classes, so the supply holds for every c and J, including
+data-dependent ones, with no averaging over c (as in the note). The multiplicity r(w) is paid in mean square; no
+Shiu input is needed here, because a single divisor w carries no τ-weight.
+
+**Corollary 3.5 (fibre masses).** With `J_c = {k ∈ K(K) : (k,c) = 1}` and `μ_c = Σ_ℓ f_c(ℓ)/ℓ`:
+`f_c = f_{c;J_c}`, and `a t g(J_c) ≤ μ_c ≤ A t g(J_c) ≤ C_u t²` (as `g(K(K)) = ¼log K + O(1) ≤ κt`). *Proof.* As the
+note's Cor 4.3: an active atom has k | c + 4w with (w,k) = 1, so (c,k) = 1. ∎
+
+**Lemma 3.6 (moments, void; PROVED).** (a) For every m ≥ 1, `E((H_X)_m | S_y = 1) ≤ (C_u t²)^m`. (b) With
+`y = Bt²`, B ≥ B₀: `P(H_X = 0 | S_y = 1) ≤ e^{−c_v t²}`.
+*Proof.* (a) verbatim note Thm 5.1. (b) Note Lemma 6.1 with h replaced by g and `t³` by `t²`: `Σ_{k≤K, p|k}1/k ≤
+(1+log K)/p` gives `g(J_c) ≥ (a₀ − 2Z(c))log K`, `Z(c) = Σ_{y<p≤K, p|L_K, p|c}1/p`; `E(e^{yZ} | S_y = 1) ≤ e⁴`, so
+`P(Z > a₀/4 | S_y=1) ≤ e^{4 − a₀Bt²/4}`; on `Z ≤ a₀/4`, `μ_c ≥ a t·(a₀κ/2)t`. Take B₀ = 8a a₀κ/a₀ … i.e. B₀ with
+`a₀B₀/4 ≥ 2a_v`, `a_v = a a₀ κ/2`. ∎
+
+**Theorem 3.7 (assembly; PROVED).** `ν = S_y·Q_r(H_X)`, r the least even integer ≥ D_B t², satisfies ν ≥ 0,
+ν ≥ 1 on every n coprime to P_y in no atom class, `Eν ≤ e^{−c_a t²}`, and
+`Σ_{n≤N}ν(n) ≤ N e^{−c_a t²} + e^{C_L t³}` for every N.
+*Proof.* Note Thm 7.2 verbatim with t³ → t² in the mean, and `|A_X| ≤ K·X·X^{1/6}`, so
+`log T_abs ≤ Bt² log 2 + log(r+1) + r(7/6 + κ)t ≤ C_L t³`. ∎
+
+*Proof of Theorem 3.1.* Take t = α(log N)^{1/3} with C_Lα³ ≤ 1/2. A prime p ≡ 1 (4), p > max(y, KX), with U(p)
+failing lies in no atom class (U-certificate of §3.1), so ν(p) ≥ 1. Hence the count is
+`≤ y + KX + N e^{−c_aα²(log N)^{2/3}} + N^{1/2} ≪ N exp(−c(log N)^{2/3})` (KX = e^{(1+κ)t} = N^{o(1)}). The rough-n
+statement is the same computation. For an interval (x, x+H], ν is a combination of classes counted class by class
+(each with error ≤ 1), so `Σ_{x<n≤x+H}ν ≤ H e^{−c_a t²} + e^{C_L t³}`; take t = α(log H)^{1/3}. ∎
+
+**Remark 3.8 (all n ≡ 1 (4); Assessment, not claimed).** U is not divisor-closed, so the note's semigroup/Rankin
+step is unavailable. A local decomposition n = d·m (d the y-smooth part) should give
+`E_U(N) ≪ N exp(−c(log N)^{2/3}/log log N)` (fibres with many small primes dividing c lose a factor `φ(d)/d` in
+g(J_c), and `#{d : φ(d)/d < δ}` decays doubly exponentially in 1/δ). I have not written this out. The square floor
+(E_U(N) ≥ √N/2) is far below either bound.
+
+**Remark 3.9 (controls).** Odd squares lie in no atom class (Lemma 2.2; CERTIFIED for the toy family below, 0 of
+≈2 100 squares hit). The hard primes 193, 2521, 3361, 9601, 66529 are hit by no toy atom (X ≤ 3000, K = 21), while
+409, 577, 5569, 8813281 are; this is consistent with a density statement and says nothing pointwise. Numerator 8:
+the atom identity is specific to 4 (it needs 4w | kℓ+1); the m/n analogue (mw | kℓ+1) would give a density
+statement for m/n, which is consistent with the finitely many 8/n exceptions (11, 17, 131, 241). Linnik: the theorem
+is one-sided (an upper bound for a lower-tail event); no two-sided asymptotic is asserted.
+
+## §3b Round 3 (pending)
 
 ## §4 Numerics and controls
 

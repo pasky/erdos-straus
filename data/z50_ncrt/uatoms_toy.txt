@@ -1,0 +1,15 @@
+N 20000000 X 300 K 21 W0 1000000 atoms 1111
+primes p=1 mod 4 in (KX, N]: 634770
+actual avoid fraction 0.09519 | CRT prime-Haar model 0.09576 | E exp(-mu_c) 0.11544
+E mu_c 2.173, min mu_c 1.811, (log X)^2 = 32.53, E mu/(log X)^2 = 0.0668
+odd squares in (KX,N] hit by an atom: 0 of 2196
+N 20000000 X 1000 K 21 W0 1000000 atoms 3680
+primes p=1 mod 4 in (KX, N]: 633998
+actual avoid fraction 0.07383 | CRT prime-Haar model 0.07261 | E exp(-mu_c) 0.07983
+E mu_c 2.539, min mu_c 2.216, (log X)^2 = 47.72, E mu/(log X)^2 = 0.0532
+odd squares in (KX,N] hit by an atom: 0 of 2164
+N 20000000 X 3000 K 21 W0 1000000 atoms 10922
+primes p=1 mod 4 in (KX, N]: 632023
+actual avoid fraction 0.03965 | CRT prime-Haar model 0.03815 | E exp(-mu_c) 0.04114
+E mu_c 3.204, min mu_c 2.853, (log X)^2 = 64.10, E mu/(log X)^2 = 0.0500
+odd squares in (KX,N] hit by an atom: 0 of 2111
