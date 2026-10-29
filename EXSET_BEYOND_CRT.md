@@ -611,3 +611,15 @@ model counted atoms instead of distinct classes mod l and was off by a factor 2;
 5. **For lane-level bookkeeping:** for U and ES5 the honest Target 3 is "beat 2/3", which needs a non-CRT input of
    one of the open types D1-D7 (including interval-only and prime-only architectures, which are not capped here), or a
    cubic-supply forcing universe (item 2). This list is not claimed to be exhaustive.
+
+## §8 Round 4 — universe exhaustion for U / ES₅ (skeleton; filled section by section)
+
+### 8.0 Summary (pending)
+### 8.1 Certification mechanisms: definitions
+### 8.2 Theorem R4.1: covering certificates add no supply
+### 8.3 Compactness: which progressions are finitely coverable
+### 8.4 Vaughan ratio classes are not coverings
+### 8.5 Landau-type (archimedean) forcing at bounded shifts
+### 8.6 What remains: non-compact forcing
+### 8.7 Numerics
+### 8.8 Hostile review
