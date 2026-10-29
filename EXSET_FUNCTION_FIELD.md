@@ -16,7 +16,8 @@ ES_q(A, P) with a polynomial numerator A; this document studies the numerator-fr
 | 4 | **Mass = shape count:** E[W_U] = m(n) = n(n+1)/2 − (k+1)(k+2)/2 exactly for every q; the large-q limit is a fixed-mass limit. | PROVED | §3.1 |
 | 5 | **Word maps** (t,u,v) ↦ tuv − u − v are finite flat of degree n!/(s!a!b!), generically étale, any characteristic; the large-q exceptional density in characteristic p is a Chebotarev statistic ρ_{n,p} of a finite group G_{n,p} = G^geo, error O_n(q^{−1/2}). | PROVED (given Chebotarev for covers of A^n) | §§3.2–3.3 |
 | 6 | **Boundary S_n:** degenerating to tuv gives a copy of S_n in G_n acting on ordered set partitions; the boundary n-cycle deranges every nontrivial word shape. Hence **the brief's Goal 1 is false:** for fixed n and q ≥ q₀(n), at least c_n qⁿ polynomials (and c′_n qⁿ irreducible ones) have no nontrivial word at all; the non-square U_q-exceptional set is a positive proportion. | PROVED (same input) | §§3.4–3.5 |
-| 7 | **q = ∞ model:** the limit densities match p_f(n)·e^{−M_g(n)} (independent Poisson shapes × the S_n of f + 1), e.g. n = 5: 0.00996 vs 0.0101; joint/product ratios → 1 like C(n)/q for n = 4, 5, 6. Conjecture 3.6: ρ_n = exp(−Θ(n²)) (big monodromy). | EVIDENCE / CONJECTURE | §3.6 |
+| 7 | **q = ∞ model:** the limit densities match p_f(n)·e^{−M_g(n)} (independent Poisson shapes × the S_n of f + 1), e.g. n = 5: 0.00996 vs 0.0101; joint/product ratios → 1 like C(n)/q for n = 4, 5, 6. Conjecture 3.6: ρ_n = exp(−(c+o(1))n²) with c = 1/4 resp. 3/16. | EVIDENCE / CONJECTURE | §3.6 |
+| 7′ | **Depth n² at q = ∞ (round 2):** for each small class (u, v of degrees a ≠ b, 4(a+b) ≤ n) exact CRT makes the word cover 4-transitive; CFSG then gives Alt ⊆ G_σ; pairwise transitivity plus Goursat gives ∏ Alt ⊆ G_n. Hence ρ_{n,p} ≤ exp(−0.0043 n²) for n ≥ 12 (≈ exp(−0.0103 n²) for n ≥ 100), in every characteristic: the q = ∞ density is exp(−Θ(n²)) from above, against exp(−c n^{2/3}) from CRT alone. Moments of a single shape match a highly transitive group far beyond the CRT range (n = 5, k ≤ 8). | PROVED (CFSG + Chebotarev); CERTIFIED (moments) | §3.9 |
 | 8 | **CRT in F_q[T] is exact** (deg M ≤ n), and gives exactly the integer CRT exponents: the prime family exp(−√n/16) at every q (G1 value), and U exp(−c n^{2/3}) at q = ∞. The gap to the true exp(−Θ(n²)) is the non-abelian monodromy G_n: in the FF large-q model, *the* depth-breaking input is Chebotarev in the word covers plus big monodromy. | PROVED (Lemma C2 proved in round 2) | §3.8 |
 | 9 | **Large q cannot give depth in N:** the error is q^{n−1/2} = N^{1−1/(2n)}; hybrid-regime budgets reproduce (log N)^{1/2} or (log N)^{2/3} under explicit cost models. | PROVED (b) / Assessment (c, d) | §3.7 |
 | 10 | **Fixed q = 3 looks like ℤ:** non-square failures 0 at n = 9, 11, 13, 15; 12, 7, 3 at n = 10, 12, 14; no irreducible failure beyond n = 8. FF-RLD-U holds numerically (ratio ≈ 1.2–1.5 at s = 2, ≈ 3 at s = 1.5). | CERTIFIED (data) / CONJECTURE | §§2, 4.1–4.2 |
@@ -453,6 +454,74 @@ the true density. So the brief's question "which input supplies independence of 
 polynomial" has a precise answer in F_q[T] at large q: **Chebotarev in the compositum of the word covers (RH for
 varieties over F_q) plus the size of G_n (big monodromy, Conjecture 3.6)**. CRT sees only the abelian quotient
 information of bounded conductor; G_n is non-abelian, and |G_n| ≥ 1/ρ_n ≥ c·e^{√n/16} (Thm 3.5 with Prop 3.7(a)).
+§3.9 now proves that this input really does close the gap, up to the constant in the exponent.
+
+### 3.9 Depth n² in the q = ∞ model: 4-wise CRT plus CFSG gives big monodromy (round 2)
+
+For a shape σ = (s, a, b) with a, b ≥ 1 call d_σ := a + b its *small modulus degree* (the word is the class
+f ≡ −u − v mod uv, deg uv = d_σ). Let G_σ ≤ Sym(X_σ) be the monodromy group of φ_σ (the image of G_{n,p}).
+
+**Proposition 3.8 (k-transitivity from exact CRT; PROVED).** Let p be odd, σ = (s, a, b) with a ≠ b, a, b ≥ 1, and
+k ≥ 1 with k·d_σ ≤ n. Then G_σ acts k-transitively on X_σ (|X_σ| = D_σ = n!/(s!a!b!)). If σ, τ are two such shapes
+in different classes ({a, b} ≠ {a′, b′}) with d_σ + d_τ ≤ n, then G_{n,p} acts transitively on X_σ × X_τ.
+
+*Proof.* Let X^{(k)} be the closure of the locus of k-tuples of pairwise distinct points in the k-fold fibre product
+X_σ ×_Y ⋯ ×_Y X_σ over the étale locus of φ_σ. Its geometric irreducible components of dimension n correspond to the
+G^geo-orbits on ordered k-tuples of distinct points of the generic fibre, and all are defined over F_q, because
+G^arith = G^geo (Lemma 3.4: Frobenius acts through G^geo and preserves each orbit). So by Lang–Weil it suffices to
+show #X^{(k)}(F_q) = q^n + O(q^{n−1}) for q = p^r, r → ∞. Points over the branch locus contribute O(q^{n−1})
+(bounded fibres over a proper closed subset). Over the rest, a point is a monic f with k distinct rational words of
+shape σ; distinct words have distinct (u_i, v_i) (for fixed shape, (u, v, f) determines t, and a ≠ b excludes the
+swap). If the moduli u_iv_i are pairwise coprime, f runs over exactly q^{n−kd_σ} polynomials (one class modulo a
+product of degree kd_σ ≤ n). The number of such k-tuples (u_i, v_i) is q^{kd_σ}(1 − O(1/q)), which contributes
+q^n(1 − O(1/q)). k-tuples with two non-coprime moduli contribute at most B(n)^k·#{f : E_2(f)} = O(q^{n−1}), by
+Lemma C2 (2d_σ ≤ n) and the bound B(n) = Σ D_σ on the number of words of any f. So exactly one geometric component:
+G_σ is k-transitive. The same count for pairs (w, w′) ∈ X_σ × X_τ (one class mod uv, one mod u′v′, coprime with
+probability 1 − O(1/q), degree d_σ + d_τ ≤ n) gives a single component, i.e. transitivity on X_σ × X_τ. ∎
+
+**Theorem 3.9 (big monodromy for the small classes; PROVED, using CFSG and Chebotarev as in Thm 3.3).** Let n ≥ 12
+and let 𝒞*_n be the set of unordered pairs {a, b}, 1 ≤ a < b, a + b ≤ n/4, for which some ordering is a U-shape
+(i.e. not all of n − a − b, a, b are even); for each, fix the U-admissible shape σ_c = (n − a − b, a, b) (or its
+swap). Then for every odd p:
+(i) G_{σ_c} ⊇ Alt(X_{σ_c}) for each c ∈ 𝒞*_n;
+(ii) the image of G_{n,p} in ∏_{c ∈ 𝒞*_n} Sym(X_{σ_c}) contains ∏_c Alt(X_{σ_c});
+(iii) ρ_{n,p} ≤ 0.38^{|𝒞*_n|}, where |𝒞*_n| = (3/256 + o(1))n² (n even), (1/64 + o(1))n² (n odd). Numerically
+|𝒞*_n| ≥ n²/225 for 12 ≤ n ≤ 1200 (minimum at n = 15), so ρ_{n,p} ≤ exp(−0.0043 n²) for n ≥ 12, and
+ρ_{n,p} ≤ exp(−0.0103 n²) for 100 ≤ n ≤ 1200 (the o(1) is O(1/n)).
+Hence, for every fixed n ≥ 12, δ_q(n) ≤ exp(−0.0043 n²) + O_n(q^{−1/2}) for all q ≡ 3 (mod 4).
+
+*Proof.* (i) By Prop 3.8 with k = 4 (4d_σ ≤ n), G_σ is 4-transitive of degree D_σ ≥ n(n − 1) > 24. By the
+classification of finite 4-transitive groups (a consequence of CFSG: S_D, A_D, M₁₁, M₁₂, M₂₃, M₂₄), G_σ ⊇ A_{D_σ}.
+(ii) Let G* be the image and H := (G*)^{(∞)} its perfect core; H ≤ ∏ A_{D_c}, and H projects onto each A_{D_c}.
+For c ≠ c′ the projection of G* to G_c × G_{c′} is a subdirect product. By Goursat it is the fibre product over
+isomorphic quotients G_c/N ≅ G_{c′}/N′. The normal subgroups of A_D, S_D (D ≥ 5) are 1, A_D, S_D. If N ⊇ A_{D_c} and
+N′ ⊇ A_{D_{c′}}, the projection contains A × A. Otherwise N = N′ = 1, the projection is the graph of an isomorphism
+G_c ≅ G_{c′}; for D ≠ 6 it is induced by a bijection X_c → X_{c′}, whose graph is then a G*-orbit of size D_c on
+X_c × X_{c′}. That contradicts the transitivity in Prop 3.8 (d_c + d_{c′} ≤ n/2). So each pair projection of H is
+onto A_{D_c} × A_{D_{c′}}, and the standard lemma (a subgroup of a product of nonabelian simple groups that is onto
+every pair of factors is the whole product; e.g. Ribet, Invent. Math. 1975, Lemma 3.3) gives H = ∏ A_{D_c}.
+(iii) U-failure of f (outside the branch locus) forces Frob_f to have no fixed point on any X_{σ_c}, since σ_c is a
+U-shape. Condition the uniform measure on G* on a coset of N := ∏ A_{D_c} ⊴ G*: the components are then independent
+and uniform on cosets of A_{D_c}. The number of derangements in either coset of A_D in S_D is (d_D ± (D − 1))/2,
+d_D = #derangements of S_D; so each factor is ≤ (d_D + D)/D! ≤ 0.38 for D ≥ 6. The count of 𝒞*_n is elementary:
+inadmissible pairs are those with n − a − b, a, b all even, which is 1/4 of the pairs when n is even and none when n
+is odd. The last sentence is Theorem 3.3. ∎
+
+**Numerical check of the mechanism (CERTIFIED; `scripts/z51_ffield_moments.c`).** For σ = (2, 1, 2), n = 5
+(D_σ = 30), the factorial moments E[(W_σ)_k] at q = 31 are 1, 0.966, 0.903, 0.816, 0.700, 0.530, 0.300, 0.087 for
+k = 1..8, i.e. ≈ 1 − binom(k, 2)/q (prediction for a k-transitive group plus O(1/q) collisions: 1, 0.968, 0.903,
+0.806, 0.677, 0.516, 0.323, 0.097). At q = 7, 11, 19, 23, 31 the defect 1 − m_k scales like binom(k, 2)/q. Here
+exact CRT proves only k·3 ≤ 5, i.e. nothing beyond k = 1. So the moments are those of a highly transitive group
+far beyond the CRT range, as Theorem 3.9 asserts for larger n. P(W_σ = 0) = 0.361 at q = 31 (→ 1/e for S_30).
+
+*What this means for the brief.* In the F_q[T] large-q model the depth barrier is broken, and the input is
+identified: **exact low-order independence (4-wise CRT, a level-n statement) is upgraded to full independence by the
+rigidity of highly transitive finite groups (CFSG) and Goursat's lemma.** The q = ∞ exceptional density is
+exp(−Θ(n²)) from above (Thm 3.9), against exp(−c n^{2/3}) from CRT alone (Prop 3.7(b)). The lower bound ρ_n > 0 is
+Thm 3.5; a lower bound exp(−Cn²) is not proved. Conjecture 3.6 is thereby proved in the weak form
+ρ_n ≤ exp(−c n²) with c ≥ 0.0043, asymptotically c ≥ 0.0103 (conjectured c = 1/4 resp. 3/16). The mechanism needs the events to be
+*Frobenius fixed-point events in a finite Galois group* whose low-order joint statistics are exactly computable. Over
+ℤ nothing plays this role (§5).
 
 ## 4. Fixed q, n → ∞
 
@@ -536,7 +605,7 @@ has an odd-degree divisor").
 | Exact CRT up to degree n (§3.8) | √n (prime family), n^{2/3} (U, q = ∞); both PROVED | level of distribution 1 for all moduli ≤ N (stronger than EH) | conjectural (EH) | no: Prop 3.7 is the integer CRT exponent; CRT caps G1/(D)17 |
 | RH for Dirichlet L-functions (Weil) | least inert prime ≤ 2 log_q n + O(1); equidistribution in progressions; μ(z) ≍ z | GRH | conjecture | no: in F_q[T] RH holds and RLD-U is still open and numerically true (Table 4.1); (D)15/22 |
 | Lang–Weil / Chebotarev for the word covers φ_σ (Thm 3.3) | exact large-q limit; q^d shifts of degree d integrated into one cover; positive-proportion failure (Thm 3.5) | none: needs n to be a point of a variety over a finite field with q → ∞ at fixed "degree" | — | no: fixed mass (no depth); error q^{n−1/2} = N^{1−1/(2n)} (§3.7(b)) |
-| Monodromy of the word covers G_n (Conj 3.6) | the true density p_f(n)e^{−M_g(n)} = e^{−Θ(n²)} at q = ∞ | the Poisson word model ("independent shapes") | heuristic | would give finitely many non-square exceptions, but over ℤ it is not a separate input: it *is* the conclusion |
+| Monodromy of the word covers G_n (Thm 3.9; Conj 3.6) | ρ_n ≤ e^{−cn²} PROVED via 4-wise CRT + CFSG + Goursat; conjecturally p_f(n)e^{−M_g(n)} | the Poisson word model ("independent shapes") | heuristic | would give finitely many non-square exceptions, but over ℤ it is not a separate input: it *is* the conclusion |
 | Purity / middle-dimensional cohomology (Sawin; Sawin–Shusterman) | k-point Chowla for k < √q/(pe) | uniform k-point Chowla / Elliott with √N error | open (k = 2 log-averaged only) | for rank-one events only; U-events are high-rank (§4.3) |
 | Pellet's formula + (s^p)′ = 0 | makes μ(r + s^p) a character in s | none (no Frobenius-linear structure in ℤ) | — | no |
 
