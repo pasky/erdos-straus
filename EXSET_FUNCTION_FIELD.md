@@ -1,6 +1,6 @@
 # EXSET_FUNCTION_FIELD — the U exceptional set over F_q[T]: large q, fixed q, and what transfers (wave z51, lane 1c)
 
-Status: round 2 (z51 lane 1c, Opus); Astra reviews R1 (applied), R2 and R3 (see §6). ES is OPEN; nothing here proves or disproves ES or any infinite case of it.
+Status: round 2 complete (z51 lane 1c, Opus); Astra reviews R1, R2, R3 applied (§6). ES is OPEN; nothing here proves or disproves ES or any infinite case of it.
 Labels as in DISCOVERIES.md (PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment).
 Brief: `../z51briefs/1c_opus_ffield.md`; context `../z5{0,1}briefs/CONTEXT.md`. Scripts `scripts/z51_ffield_*`,
 data `data/z51_ffield/`. Prior function-field work: FUNCTIONFIELD_ES*.md, FF_*.md, DRINFELD_ES.md (they study
@@ -10,20 +10,20 @@ ES_q(A, P) with a polynomial numerator A; this document studies the numerator-fr
 
 | # | Claim | Label | § |
 |---|---|---|---|
-| 1 | **Analogue.** q ≡ 3 (mod 4), everything monic; the 2-adic layer of U becomes the ∞-adic layer (degree parity): U_q(f) ⟺ some monic word f = tuv − u − v has deg u ≥ 1 and (deg t or deg v odd) ⟺ some monic v has a divisor A ≡ −1 (mod v) of f + v, 1 ≤ deg A < n, deg A or deg v odd. The colour (−v/A) = −1 is forced at ∞ (Lemma 1.1). | PROVED | §1.2 |
-| 2 | **T1:** squares fail U_q (Thm 1.3); all forbidden classes are non-residues. ES₅,q ⇒ U_q (Cor 1.6′; over ℤ the nesting is reversed). | PROVED | §1.2 |
-| 3 | **Degenerate normalisations:** q ≡ 1 (4): no colour layer. Leading coefficients free: the exceptional set is *exactly* the squares once q > (n+1)², by one Weil sum over the q − 1 unit shifts (free character data with no integer analogue). | PROVED | §1.3 |
-| 4 | **Mass = shape count:** E[W_U] = m(n) = n(n+1)/2 − (k+1)(k+2)/2 exactly for every q; the large-q limit is a fixed-mass limit. | PROVED | §3.1 |
-| 5 | **Word maps** (t,u,v) ↦ tuv − u − v are finite flat of degree n!/(s!a!b!), generically étale, any characteristic; the large-q exceptional density in characteristic p is a Chebotarev statistic ρ_{n,p} of a finite group G_{n,p} = G^geo, error O_n(q^{−1/2}). | PROVED (given Chebotarev for covers of A^n) | §§3.2–3.3 |
-| 6 | **Boundary S_n:** degenerating to tuv gives a copy of S_n in G_n acting on ordered set partitions; the boundary n-cycle deranges every nontrivial word shape. Hence **the brief's Goal 1 is false:** for fixed n and q ≥ q₀(n), at least c_n qⁿ polynomials (and c′_n qⁿ irreducible ones) have no nontrivial word at all; the non-square U_q-exceptional set is a positive proportion. | PROVED (same input) | §§3.4–3.5 |
-| 7 | **q = ∞ model:** the limit densities match p_f(n)·e^{−M_g(n)} (independent Poisson shapes × the S_n of f + 1), e.g. n = 5: 0.00996 vs 0.0101; joint/product ratios → 1 like C(n)/q for n = 4, 5, 6. Conjecture 3.6: ρ_n = exp(−(c+o(1))n²) with c = 1/4 resp. 3/16. | EVIDENCE / CONJECTURE | §3.6 |
-| 7′ | **Depth n² at q = ∞ (round 2):** for each small class (u, v of degrees a ≠ b, 4(a+b) ≤ n) exact CRT makes the word cover 4-transitive; CFSG then gives Alt ⊆ G_σ; pairwise transitivity plus Goursat gives ∏ Alt ⊆ G_n. Hence ρ_{n,p} ≤ exp(−0.0043 n²) for n ≥ 12 (≈ exp(−0.0103 n²) for n ≥ 100), in every characteristic: the q = ∞ density is exp(−Θ(n²)) from above, against exp(−c n^{2/3}) from CRT alone. Moments of a single shape match a highly transitive group far beyond the CRT range (n = 5, k ≤ 8). | PROVED (CFSG + Chebotarev); CERTIFIED (moments) | §3.9 |
-| 8 | **CRT in F_q[T] is exact** (deg M ≤ n), and gives exactly the integer CRT exponents: the prime family exp(−√n/16) at every q (G1 value), and U exp(−c n^{2/3}) at q = ∞. The gap to the true exp(−Θ(n²)) is the non-abelian monodromy G_n: in the FF large-q model, *the* depth-breaking input is Chebotarev in the word covers plus big monodromy. | PROVED (Lemma C2 proved in round 2) | §3.8 |
-| 9 | **Large q cannot give depth in N:** the error is q^{n−1/2} = N^{1−1/(2n)}; hybrid-regime budgets reproduce (log N)^{1/2} or (log N)^{2/3} under explicit cost models. | PROVED (b) / Assessment (c, d) | §3.7 |
-| 10 | **Fixed q = 3 looks like ℤ:** non-square failures 0 at n = 9, 11, 13, 15; 12, 7, 3 at n = 10, 12, 14; no irreducible failure beyond n = 8. FF-RLD-U holds numerically (ratio ≈ 1.2–1.5 at s = 2, ≈ 3 at s = 1.5). | CERTIFIED (data) / CONJECTURE | §§2, 4.1–4.2 |
-| 11 | **Fixed q: nothing beyond CRT is proved.** RH (Weil) and exact level n hold in F_q[T] and FF-RLD-U is still open; "Weil for products of many characters with O(k) loss" works only for rank-one events and k < √q/(pe) (Sawin–Shusterman); U-events have rank n!/(s!a!b!). | PROVED baseline; Assessment | §4.3 |
-| 12 | **Transfer:** no ingredient that is a theorem in F_q[T] and has a standard integer analogue (GRH, level-1, Katz–Sarnak for the quadratic family) gives RLD-U or T1-min, even in F_q[T]; the one that carries the true densities (monodromy of word covers, large q) has no integer analogue and acts at fixed mass. | Assessment | §5 |
-| 13 | Reviews: Astra R1 (MAJOR, no FATAL; all repairs applied), Astra R2 (see §6). | — | §6 |
+| 1 | **Analogue.** Take q ≡ 3 (mod 4) and everything monic; the 2-adic layer of U becomes the ∞-adic layer (degree parity). Then U_q(f) ⟺ some monic word f = tuv − u − v has deg u ≥ 1 and (deg t or deg v odd) ⟺ some monic v has a divisor A ≡ −1 (mod v) of f + v with 1 ≤ deg A < n and (deg A or deg v odd). The colour (−v/A) = −1 is forced at ∞ (Lemma 1.1). | PROVED | §1.2 |
+| 2 | **T1:** squares fail U_q (Thm 1.3), and all forbidden classes are non-residues. ES₅,q ⇒ U_q (Cor 1.6′); over ℤ the nesting is reversed. | PROVED | §1.2 |
+| 3 | **Degenerate normalisations.** q ≡ 1 (4): no colour layer. Leading coefficients free: the exceptional set is *exactly* the squares once q > (n+1)², by one Weil sum over the q − 1 unit shifts (free character data with no integer analogue). | PROVED | §1.3 |
+| 4 | **Mass = shape count:** E[W_U] = m(n) = n(n+1)/2 − (k+1)(k+2)/2, k = ⌊(n−1)/2⌋, exactly for every q. The large-q limit is a fixed-mass limit. | PROVED | §3.1 |
+| 5 | **Word maps** (t,u,v) ↦ tuv − u − v (non-degenerate shapes) are finite flat of degree n!/(s!a!b!) and generically étale, in any characteristic. In characteristic p the large-q exceptional density is a Chebotarev statistic ρ_{n,p} of a finite group G_{n,p} = G^geo, with error O_n(q^{−1/2}). | PROVED (given Chebotarev for covers of A^n) | §§3.2–3.3 |
+| 6 | **Boundary S_n:** degenerating to tuv gives a copy of S_n in G_n acting on ordered set partitions, and the boundary n-cycle deranges every nontrivial word shape. Hence **the brief's Goal 1 is false for U_q:** for fixed n and q ≥ q₀(n), at least c_n qⁿ polynomials (c′_n qⁿ irreducible ones) have no nontrivial word, and the non-square U_q-exceptional set is a positive proportion. | PROVED (same input) | §§3.4–3.5 |
+| 7 | **Poisson heuristic:** the sampled large-q densities are consistent with p_f(n)·e^{−M_g(n)} (independent Poisson shapes × the S_n of f + 1), e.g. n = 5: model 0.00996 vs 0.0101 at q = 31. Sampled joint/product ratios approach 1 (n = 4, 5, 6). Conjecture 3.6: ρ_n = exp(−(c+o(1))n²) with c = 1/4 resp. 3/16. | EVIDENCE / CONJECTURE | §3.6 |
+| 7′ | **exp(−Ω(n²)) upper bound for the limiting large-q densities (round 2).** For each small class (deg u = a ≠ b = deg v, 4(a+b) ≤ n), exact CRT plus the overlap Lemma C2 make the word cover 4-transitive. CFSG then gives Alt ⊆ G_σ, and mixed transitivity plus Goursat give ∏ Alt ⊆ G_n. Hence ρ_{n,p} ≤ exp(−0.0043 n²) for all n ≥ 12 (≤ exp(−0.0103 n²) for n ≥ 100), in every odd characteristic, against exp(−c n^{2/3}) from CRT alone. This is the upper-bound half of Conj 3.6 in the iterated large-q model; no lower bound exp(−Cn²), no fixed-q or N-uniform statement. | PROVED (CFSG, Lang–Weil/Chebotarev) | §3.9 |
+| 8 | **Exact CRT in F_q[T]** (deg M ≤ n) gives the same exponents as the integer CRT results: exp(−√n/16) for the prime family at every q ≡ 3 (4) (G1 value), and exp(−c n^{2/3}) for U at q = ∞ (Lemma C2 on class overlaps). | PROVED | §3.8 |
+| 9 | **Large q cannot give depth in N:** the error q^{n−1/2} = N^{1−1/(2n)}. Hybrid-regime budgets give (log N)^{1/2} or (log N)^{2/3} under explicit, unproved cost models. | PROVED (b) / Assessment (c, d) | §3.7 |
+| 10 | **Fixed q = 3 resembles ℤ in the tested range n ≤ 15:** non-square failures are 0 at n = 9, 11, 13, 15 and 12, 7, 3 at n = 10, 12, 14; no irreducible failure beyond n = 8. FF-RLD-U ratios ≈ 1.2–1.5 (s = 2), ≈ 3 (s = 1.5) for n ≤ 15. | CERTIFIED (data) / CONJECTURE | §§2, 4.1–4.2 |
+| 11 | **Fixed q: the strongest result here is the CRT baseline exp(−√n/16).** RH (Weil) and exact level n hold in F_q[T], and FF-RLD-U is still open. The cited loss-O(k) character-product theorems concern rank-one events and, for Sawin–Shusterman's Chowla theorem, k < √q/(pe) shifts; U-witness counts have rank n!/(s!a!b!). | PROVED baseline; Assessment | §4.3 |
+| 12 | **Transfer:** this document derives RLD-U or T1-min from no F_q[T] theorem with a standard integer analogue (GRH, elementary CRT, Katz–Sarnak for the quadratic family). The ingredient behind 7′ (monodromy of word covers, large q) has no known integer analogue and acts at fixed mass. | Assessment | §5 |
+| 13 | Reviews: Astra R1, R2 (whole document) and R3 (§3.9, C2): all MAJOR, none FATAL; repairs applied, residual caveats listed in §6. | — | §6 |
 
 ## 1. The analogue
 
@@ -730,4 +730,39 @@ unless u′v′ = uv, which forces the same class); Prop 3.7(b) upgraded to PROV
 exact CRT + Lemma C2) and Theorem 3.9 (CFSG + Goursat: ∏ Alt ⊆ G_n, hence ρ_{n,p} ≤ exp(−0.0043 n²)); factorial-moment
 check of high transitivity beyond the CRT range.
 
-**R2 (Astra):** pending.
+**R2 (Astra, `reviews/z51-ffield-review-r2.md`; whole document at commit 98a86b72, before §3.9).** Verdict MAJOR, no
+FATAL. SOUND: all R1 repairs except residual wording; Thm 3.5/Cor 3.5′ (it explicitly tried to break "Goal 1 is
+false"); Prop 3.7(a) including the exponent 1/16; the three cases of the C2 class sum; all numerical reruns (RLD,
+joint, irreducible, C2). Repairs applied:
+* E₂ was defined with distinct *words*. With that definition the claimed O(1/q) is false (swap counterexample,
+  proportion ≥ (1 − 1/q)/12 at n = 4). E₂ is now class-based throughout.
+* The C2 script sums unordered pairs; this is now labelled as such.
+* Odd degrees alone now give the μ lower bound; finite-q mass μ_D(q) is distinguished from its limit; an unordered
+  type is admitted if some orientation is a U-shape.
+* §3.6: "consistent with" replaces convergence claims; the (2, 2, 2) class scope and the W_c normalisation are noted;
+  a false modulus-degree claim was removed.
+* §3.7: absolute error, "sufficient condition", and an explicit m_n ≍ n² hypothesis.
+* §4.2: the consequence is now stated through μ, and κ = 1.03 is labelled an extrapolation.
+* §4.3: Weil nondegeneracy added; counts versus indicators distinguished; rank does not bound Betti numbers; "enough"
+  deleted; the Sawin–Shusterman range is stated as that theorem's range.
+* §5: exact CRT is not EH; arrows are analogies; "open" is not "impossible"; integer non-abelian Chebotarev exists, and
+  only this family of covers is missing; the Chowla row is corrected; the Poisson statement is phrased as a sufficient
+  lower-tail hypothesis.
+* Squares exist only in even degree (§4.1); "no nontrivial word" throughout; summary rows rewritten.
+
+**R3 (Astra, `reviews/z51-ffield-review-r3.md`; focused on Lemma C2, Prop 3.8, Thm 3.9).** Verdict MAJOR repairs, no
+FATAL: "the substantive chain C2 → high transitivity → product of alternating groups → an exp(−c n²) upper bound
+survives". SOUND: the C2 count, all three cases, with an independent ordered check split by case; Prop 3.8
+(components ↔ orbits, descent via G^arith = G^geo, small p allowed, Lang–Weil comparison); the CFSG step; Goursat,
+perfect core and the pair-surjective product lemma; the coset derangement bound 0.38. Repairs applied:
+* The same E₂ error as R2.
+* Prop 3.8: the k = 1 case and the mixed-shape lcm are clarified.
+* Citations: Dixon–Mortimer GTM 163 p. 218, Cameron p. 110, the full Ribet reference.
+* An exact formula for |𝒞*_n| and an analytic all-n completion of the constants (0.0043 for n ≥ 12, 0.0103 for
+  n ≥ 100).
+* ρ_{n,p} is defined for all odd p.
+* The moment data are relabelled EVIDENCE (the 1 − binom(k,2)/q correction is an empirical fit).
+* No "Θ(n²)" and no "full independence": sign correlations may remain, and an index-2 example has positive covariance.
+* The integer analogy was rephrased (CRT has an O(1) error; non-abelian Chebotarev exists over ℤ, and what is missing
+  is this family of covers).
+* The scope is now explicitly the iterated large-q model.
