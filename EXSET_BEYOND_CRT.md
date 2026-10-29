@@ -338,15 +338,27 @@ elementary lemmas below; ineffective constants).** There are absolute constants 
 
 and hence the same bound holds for #{p ≤ N : ES₅(p) fails} (U(p) ⟹ ES₅(p), §1.3). More generally, with
 `y = Bt²` as in Lemma 3.6 (so `y ≍ (log N)^{2/3}`), the bound holds for #{n ≤ N : n ≡ 1 (4), (n, P_y) = 1, U(n) fails}, and in every interval
-(x, x+H] with H ≥ 2 in place of [1,N] with N replaced by H (shift-uniformity, as in EXCEPTIONAL_SHORT Thm 1).
+(x, x+H] with H ≥ 2 in place of [1,N] with N replaced by H (shift-uniformity, as in EXCEPTIONAL_SHORT Thm 1), for intervals in the positive integers, after adding the
+prefix terms O(y + KX) (review D11). For ES5 at *all* primes: p = 3 (mod 4) always has the certificate
+(t,u,v) = (p+2, 1, 1) (tu-1 = tv-1 = p+1 = 0 mod 4), and p = 2 is trivial, so only p = 1 (mod 4) counts.
 
 By Corollary 2.5 (bounded-B case: the atoms below have modulus kℓ ≤ ℓ^{1+2κ}) no CRT method over word classes
-can improve the exponent 2/3; Theorem 3.1 is sharp for that architecture, up to the constant c.
+can improve the exponent 2/3; within fixed bounded-B word families (which contain Theorem 3.1's atoms) it is sharp
+up to the constant c; for unrestricted word families a (log log N)^{2/3} gain is not excluded (review D10).
 
-Within the campaign, the strongest previous statement for U or ES₅ at primes was qualitative:
+**Prior work (corrected after review D12 and lane E).** I3_DEEP_ASTRA (line 146) already proves an
+`N exp(-c sqrt(log N))` bound for the 4|t interior-star subfamily, hence a quantitative ES5 bound; and I3_DEEP_ASTRA
+Lemma 8.7 / Thm 8.8 contain the one-divisor multiplier atoms, same-prime distinctness, fibre supply t*Sum 1/k,
+mean-square incidence, exponential Z-moment and t^3 ledger used below. Lane E (EXSET_I3 §7.3) transferred that
+construction with 4|u to `E_U(N) << N exp(-c(log N)^{2/3}(log log N)^{-1/3})` over all n = 1 (mod 4). Theorem 3.1 is
+therefore the certificate/U-restricted adaptation of that construction (with the 3/4 note's selector); its only new
+content is the **removal of the (log log N)^{1/3} at primes and rough n**. No external priority claim; equivalent
+arithmetic formulations have not been literature-audited. [Superseded original text, kept for the record: "Within
+the campaign, the strongest previous statement for U or ES₅ at primes was qualitative:
 `H₄ ≤ h(p)` for almost all p (FOREST_H4 Thm 3.5, rate ≍ (log Y)^{−1/2} at fixed Y), and, for each fixed H, density
 ≤ exp(−c log²H) (CONJECTURE_S_MODEL). Neither has N-dependence beyond what PNT in fixed APs gives. (git grep; U and
-ES₅ are campaign-internal notions, so no literature comparison applies.)
+ES₅ are campaign-internal notions, so no literature comparison applies.)" 
+That claim was false.]
 
 ### §3.1 Atoms (the only new design choice)
 Keep the note's parameters: κ = 1/480, t = log X, K = ⌊X^κ⌋, H = K¹⁰, K(K) = {k ≤ K : k ≡ 1 (4)},
@@ -357,7 +369,8 @@ L_K = lcm K(K), blocks I_j = (x_j, min(2x_j, X)], x_j = 2^j X^{1/2}, z_j = x_j^{
 (Then gcd(w,k) = 1 and ℓ ≡ 3 (4).) *U-certificate:* if n ∈ E_A and n > kℓ − 4w, then (t, u, v) = ((kℓ+1)/(4w),
 (n+4w)/(kℓ), 4w) is a word of n with endpoint v ≡ 0 (4), u ≥ 2, `tv − 1 = kℓ > 1`, `tu − 1 ≥ 2t − 1 > 1`; so
 U(n) holds, with the identity 4/n = 1/(w(tu−1)) + 1/(ntw) + 1/(ntw(tu−1)) (row 2 of §1.3; checked in
-`scripts/z50_ncrt_identities.py`, 25 230 atom words, 0 failures). Compared with the note: the note's two free
+`scripts/z50_ncrt_identities.py`, 25 230 atom words, 0 failures; these are algebraic checks of the word equation and the identity, not of the full U
+predicate, review D14). Compared with the note: the note's two free
 divisors u, v of (kℓ+1)/4 become one free divisor w. That single change is β = 3 → β = 2.
 
 ### §3.2 The note's lemmas, changed where needed
