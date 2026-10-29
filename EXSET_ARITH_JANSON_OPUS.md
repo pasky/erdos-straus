@@ -241,25 +241,33 @@ The random-class control has the same moduli and the same number of classes per 
 residues. It has **no** deficit at any depth: |Σ(w/ℓ − ρ_ℓ)| ≤ 0.07 down to 221 survivors at N = 10⁹ and
 ℓ ≤ N/2.
 
-Two features matter. First, the deficit is **bounded in N for fixed s**: the rows agree to ±0.02 while the model
-mass at fixed s grows like 0.74·log N/s. So the relative error D_ns/mass → 0 at every fixed s > 1, and the
-deficit costs only a factor e^{D_ns(s)} in the survivor count. Second, it switches on near s ≈ 2.5 and grows as
-s → 1. It is irrelevant for the targets, whose moduli are N^{o(1)}, i.e. s → ∞. It does show that (R1) relative to
-the Haar model, with η → 0 *pointwise in the step*, is false at moduli ≥ N^{0.4} for reasons unrelated to squares.
+Two features matter (EVIDENCE, three scales only). First, at fixed s the deficit does not grow with N over
+N = 10⁷, 10⁸, 10⁹: the rows agree to ±0.02 for s ≥ 1.5 and to ±0.04 at s ≈ 1.25 (1.205, 1.279, 1.211; the
+checkpoints are matched to nearest s, not interpolated). Meanwhile the model mass at fixed s grows like 0.74·log N/s.
+Three scales cannot establish boundedness in N. They are consistent with it, in which case the relative error
+D_ns/mass → 0 at every fixed s > 1. Second, the deficit switches on near s ≈ 2.5 and grows as s → 1. It is
+irrelevant for the targets, whose moduli are N^{o(1)}. Note also that an O(1) integrated deficit is compatible
+with vanishing average per-step relative error, so these data do not show that pointwise-in-step (R1) fails. They
+show that the Haar model is off by a factor e^{D_ns(s)} at moduli ≥ N^{0.4}, for a reason unrelated to squares.
 
-*Controls on the mechanism (EVIDENCE, N = 10⁹; §7).*
+*Controls (EVIDENCE, N = 10⁹; §7).*
 
-* (a) Random classes, same w(ℓ): no deficit.
-* (b) Random **quadratic non-residue** classes, same w(ℓ): the deficit is exactly the square part; the non-square
-  deficit stays within ±0.03 down to ℓ = N/2.
-* (c) Shift-aligned classes −v (mod ℓ) for v | ℓ+1 with v ≡ 1 (4) or 3 (8), which are not anti-square: a smaller
-  total deviation of changing sign (≤ 0.48).
-* (d) Small-core near-squares km² (k ≤ 10⁴) are **not** enriched among the U survivors at s = 2 (0.76% versus a
-  baseline of 0.79%).
+* (a) Random classes (distinct nonzero residues), same w(ℓ): total deviation within ±0.07 to the end (221
+  survivors).
+* (b) Random **quadratic non-residue** classes, same w(ℓ): the deviation is the square part; the non-square
+  deficit stays within [−0.017, 0.050] down to ℓ = N/2.
+* (c) Shift-aligned classes −v (mod ℓ), v | ℓ+1, v ≡ 1 (4) or 3 (8) (not anti-square; includes the full shift
+  v = 1): the total deviation from the model is large and of both signs. It reaches +0.49 near s ≈ 1.6 and −1.54
+  at the end (597 survivors).
+* (d) Small-core near-squares km² (1 < k ≤ 10⁴) are **not** enriched among the U survivors at s = 2: 0.76%,
+  against a baseline of 0.79%.
 
-So the effect needs both the shift alignment and the specific U residue structure. The mechanism is **not
-identified**. A Mertens/Buchstab-type failure of Haar independence for shift-aligned divisibility events was the
-first guess; control (c) shows that alignment alone gives a much smaller effect.
+*Assessment (mechanism).* Deviations from the Haar model at small s occur for both shift-aligned families, (c) and
+U, with family-dependent sign. They do not occur for either unaligned family, (a) and (b). This points to the shift
+alignment: all events at shift v are divisibility conditions on the single integer n + v ≤ 2N, which has at most s
+prime factors ≥ N^{1/s}. That is the familiar failure of Mertens products for high-dimensional sieves near s ≈ 1
+(prime k-tuples: a factor (e^γ ω(s))^k). The sign and size for U are not explained, and the mechanism is not
+established.
 
 ## 3. The collapse theorem: a chain of certified ratios is a majorant
 
