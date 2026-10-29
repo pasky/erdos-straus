@@ -52,9 +52,151 @@ Each class is reduced: gcd(u,M)=1. Above n≥3M it supplies v=(n+u)/M≥3. At a 
 
 **Hostile review R1 (Opus): SOUND after a minor witness correction.** The initial square example in §1 incorrectly put 121 in 5 mod 8; it is replaced by the correct word 121=3·5·9−5−9 and class 9 mod 14. The reviewer confirmed the quadratic-supply obstruction and zero base, and required the explicit selector/endpoint exclusions now stated. The stronger selector estimate suggested by the reviewer is not needed here; no unproved extension is imported. Model availability and review provenance are recorded in §6.
 
-## 3. Round 2 — the surviving transfer gap
+## 3. Round 2 — a native I3 cap, stronger than 3/4
 
-Pending.
+### 3.1 Statement and precise architectural scope
+
+**Theorem 3.1 (PROVED relative to Shiu's theorem and the internally proved arithmetic-free KARY comparison, pending hostile review).** There are absolute W₀,C,λ₀ such that, for every finite family F⊂D and every finite congruence expansion
+
+`ν(n)=Σ_i a_i 1[n≡b_i (mod d_i)] ≥0` on all integers,
+
+with ν≥1 on the entire congruence avoider set A(F), and with
+
+`Σ_{p|d_i, p>W₀} log p ≤ λ` for every term,
+
+one has `log(1/Eν) ≤ C λ^{2/3}` for λ≥λ₀. Mean means uniform Haar mean over a common finite period. The moduli of F are arbitrary: prime powers, balanced moduli, arbitrarily many large primes, and arbitrarily large cofactors are allowed.
+
+**Corollary 3.2 (PROVED relative to the same inputs).** Suppose every prime dividing a family modulus is ≤N^A, with A fixed. Every bound of the form `B=N Eν+Σ|a_i|`, with ν as above and Σ|a_i|<N, satisfies
+
+`log(N/B) ≤ C_A (log N)^{2/3}`.
+
+Thus no such native-class method proves a 3/4 I3 exceptional estimate, even after replacing Bonferroni by an arbitrary globally nonnegative congruence majorant. This does **not** assert a lower bound for E₃(N), or for the actual number of avoiders in [1,N]. A numerical E₃(N)=112 is entirely consistent with the theorem.
+
+**Assessment / novelty.** D contains classes meeting odd unit squares and was not covered by (D)17–(D)29. The theorem supplies an I3-specific base and quadratic profile; it is not a substitution of the word I3 into an ES theorem. It extends the cap machinery to a new family, but is not yet a cap for the union of every ES class type with every I3 class type. The broader-union question is revisited in Round 3.
+
+### 3.2 A base with no small-prime inflation
+
+Fix W≥16, to be chosen absolutely after the leak estimate. Let Q₀ contain the full small-prime parts of the family and test periods and also P_W. On the base use the uniform law on
+
+`R₀={n mod Q₀ : n≡0 mod p for every p≤W}`.
+
+Its density is 1/P_W, so the base cost is `log P_W=O(W)`, independent of the exponents in Q₀. Every D-class whose modulus has any prime ≤W is killed outright: its target residue is a unit at that prime. Delete these classes. All remaining moduli and all their cofactors have prime factors >W. Subsequent coordinates are independent uniform prime-power residues before the KARY sequential modification.
+
+Use light thresholds δ_p=p^{−1/2}. Define Γ multiplicatively by
+
+`Γ(p^a)=1 (p≤W),   Γ(p^a)=(1−p^{−1/2})^{−1} (p>W), a≥1`.
+
+For an active cofactor q (necessarily W-rough), the capped sequential law Q′ satisfies `Q′(n≡b mod q)≤Γ(q)/q`, by the arithmetic-free chain-rule bound KARY Lemma 2.1. Γ is **not** claimed to bound classes involving pinned small primes. None of the remaining patterns involves those primes, which is why this distinction causes no gap.
+
+Write Γ=1*h, with h squarefree-supported and `0≤h(p)≤2p^{−1/2}` for every p. All Euler-product constants in the next two subsections are uniform in W. This is stronger bookkeeping than assigning a large inflation factor p to each pinned coordinate and then trying to send W→∞.
+
+### 3.3 Smooth shifted-divisor mass of order two
+
+**Lemma 3.3 (PROVED relative to Shiu).** Uniformly in W≥16,
+
+`Σ_{m≤x} τ(m+1)Γ(m) ≪ x log(2x)`,
+
+and, for y sufficiently large,
+
+`M_D(y):=Σ_{P⁺(m)≤y} τ(m+1)Γ(m)/m ≪ (log y)²`.       (3.1)
+
+The sums may include m=1; this changes only a constant. Dropping the W-rough restriction only enlarges them.
+
+*Proof of the ordinary mean.* Work in dyadic m-blocks K<m≤2K. Expand Γ=1*h. For e≤K^{1/4}, Shiu for τ in the reduced progression m+1≡1 mod e gives
+
+`Σ_{K<m≤2K,e|m}τ(m+1) ≪ (K/e)log K`.
+
+Indeed the Shiu factor `(e/φ(e))∏_{p|e}exp(−2/p)` is ≤1. The case e=1 is the elementary divisor bound on average. Sum h(e)/e, whose Euler product converges absolutely. For e>K^{1/4}, the pointwise divisor bound and the fact that e≤2K give a contribution at most
+
+`C_ε K^{1+ε} Σ_{e>K^{1/4}}h(e)/e ≪ K^{1+ε−1/16}`,
+
+using `Σ h(e)e^{−3/4}<∞`. Choose ε<1/32 and sum blocks.
+
+*Proof of the smooth mean without a log-log loss.* This is the local-moment device of KARY3 §2, checked with τ(m+1), whose prime value is 2 rather than 3. Put
+
+`Z_y(m)=(log y)^{−1}Σ_{p^a|m,p^a≤y}log p`,
+
+and let S_y(m) be the product of the full prime powers p^{v_p(m)}>y in m. If m is y-smooth, S_y(m) is squarefull, and for K<m≤2K, u=log K/log y,
+
+`1[P⁺(m)≤y] ≤ 1[S_y(m)>K^{1/2}] +(2Z_y(m)/u)^k`.
+
+Fix k=3 and K≥y^{16k}. The squarefull contribution weighted by τ(m+1)Γ(m) is O(K^{4/5}), since the number of integers with a squarefull divisor >K^{1/2} is O(K^{3/4}). For the other term expand Z_y^k. Each tuple of prime powers has lcm D≤y^k≤K^{1/16}, ω(D)≤k. Put
+
+`T(q)=Σ_{K<m≤2K,q|m}τ(m+1)`.
+
+Shiu gives `T(q)≪(K/q)log K` for q≤K^{1/2}, and the trivial bound gives `T(q)≪_ε K^{1+ε}/q` for q≤2K (T(q)=0 for q>2K). Expanding Γ, the e≤K^{1/4} part satisfies
+
+`Σ_e h(e)/[D,e] ≤ C Γ(D)/D`.
+
+The e>K^{1/4} part satisfies
+
+`Σ_{e>K^{1/4}} h(e)gcd(D,e)/e ≤ C 2^k K^{−1/16}`,
+
+because its Rankin Euler factors at p|D are `1+h(p)p^{1/4}≤2`, and those elsewhere are `1+h(p)p^{−3/4}`. Thus
+
+`Σ_e h(e)T([D,e]) ≪ [K log K Γ(D)+2^k K^{1−1/16+ε}]/D`.
+
+The local moment identity KARY3 Lemma 2.2 applies with uniform constants:
+
+`Σ_{d₁,…,d_k prime powers≤y} Λ(d₁)…Λ(d_k) Γ(lcm(d_i))/lcm(d_i) ≪_k (log y)^k`.
+
+Its proof groups equal underlying primes and uses `Σ_{p≤y}Γ(p)log p/p≪log y`; it uses neither ES classes nor a square base. It also bounds the error term since Γ≥1. We obtain
+
+`Σ_{K<m≤2K,P⁺(m)≤y}τ(m+1)Γ(m) ≪ K log K · u^{−3}`.       (3.2)
+
+Power errors are absorbed for K≥y^{48}, since u≤log K/log 2. For m≤2y^{48}, the ordinary mean and partial summation give O(log²y). Beyond this body, each dyadic block contributes `O(log y·u^{−2})` to M_D(y), and the spacing of u is log 2/log y. Summing the convergent u^{−2} tail gives O(log²y). ∎
+
+### 3.4 Cofactor second moment and uniform leak
+
+**Lemma 3.4 (PROVED relative to Shiu).** For the remaining native classes and the capped sequential law,
+
+`E_{Q′} p_ℓ² ≪ ℓ^{−7/4}(log ℓ)^c` for ℓ>W,       (3.3)
+
+with an absolute exponent c and absolute implied constant independent of W and the finite family. Consequently the probability of hitting any heavy-top class is ≤1/2 when W is a sufficiently large absolute constant.
+
+*Proof.* For top prime ℓ and exponent v write a modulus as m=qℓ^v, P⁺(q)<ℓ. There are at most `μ_v(q)=τ(qℓ^v+1)` labels. If N_{ℓ,v} counts active labels, `p_ℓ≤Σ_{v≥1}ℓ^{−v}N_{ℓ,v}`. Expanding a square and dropping incompatible pairs, the chain-rule estimate gives KARY2 Lemma 4.1's arithmetic-free bound
+
+`E N_{ℓ,v}² ≪ log ℓ · Σ_{P⁺(q)<ℓ} μ_v(q)² τ(q)Γ(q)/q`.
+
+Only W-rough q actually occur; enlarging to all q is harmless. The Euler-product factor `Σ_{P⁺(q)<ℓ}Γ(q)/q≪log ℓ` has an absolute constant here.
+
+For completeness the shifted cofactor sum obeys, for any fixed η>0,
+
+`Σ_{P⁺(q)<ℓ}τ(qℓ^v+1)²τ(q)Γ(q)/q ≪_η (v+1)^c[(log ℓ)^c+ℓ^{ηv}]`.       (3.4)
+
+To verify it, split q into dyadic blocks K<q≤2K. For K≥4ℓ^{v/3}, apply Cauchy–Schwarz. The first factor, involving τ(q)²Γ(q)²/q over ℓ-smooth q, is at most `C exp(−u/2)(log ℓ)²`, u=log K/log ℓ. This is Rankin with exponent 1/log ℓ and the multiplicative prime value 4. The second factor is
+
+`(Σ_{K<q≤2K}τ(qℓ^v+1)^4/q)^{1/2} ≪ ((v+u+1)log ℓ)^8`.
+
+Here Shiu applies to τ⁴ in the reduced progression 1 mod ℓ^v: the interval has length Kℓ^v, modulus ℓ^v below a fixed 3/4 power of its scale, and τ⁴(p)=16. The harmless power 8 rounds up 15/2. Summing exp(−u/2)(v+u+1)^8 over dyadic u gives a polynomial in v+1 and log ℓ. In the short blocks K<4ℓ^{v/3}, qℓ^v+1≤Cℓ^{2v}; the divisor bound on the entire numerator, followed by Σ1/q≪v log ℓ, gives O_η(ℓ^{ηv}). This proves (3.4), including q=1 separately.
+
+Take η=1/4. Minkowski over v gives `(E p_ℓ²)^{1/2}≪Σ_v ℓ^{−7v/8}(v+1)^c(log ℓ)^c≪ℓ^{−7/8}(log ℓ)^c`. All constants are uniform in W because h(p)≤2p^{−1/2} uniformly and no pinned small-prime cofactor survives. The heavy-top union bound is
+
+`Σ_{ℓ>W} E[p_ℓ 1(p_ℓ>ℓ^{−1/2})] ≤ Σ_{ℓ>W}ℓ^{1/2} E p_ℓ² ≪ Σ_{ℓ>W}ℓ^{−5/4}(log ℓ)^c →0`.
+
+Choose W=W₀ so this is ≤1/2. ∎
+
+### 3.5 Comparison and coefficient ledger
+
+*Proof of Theorem 3.1.* Use KARY Theorem 4.1 with the base in §3.2, the plain sequential process and thresholds above. Its hypotheses are purely product-space statements, not square-class statements: block conditional comparison for nonnegative low-locality functions, and leak ≤1/2. The latter is Lemma 3.4.
+
+Set s₀=λ^{1/3}. Treat primes W₀<p≤exp(s₀) singly; their total comparison cost is O(M_D(exp s₀))=O(s₀²). On each successive block
+
+`exp(s)<p≤min(exp(2s),exp λ),  s=2^i s₀<λ`,
+
+a level-λ function is d-local, d=⌊λ/s⌋. KARY Corollary 2.6 supplies expected comparison cost
+
+`≤ d log(C(E M_V+4d)/d)+O(d+log(d+1))`.
+
+By Lemma 3.3, E M_V≪s². Since d≥λ/(2s), the logarithm is O(1+i), and the block cost is at most `C λ(1+i)/(2^i s₀)+O(log λ)`. Summing gives O(λ/s₀+log²λ)=O(λ^{2/3}). For primes >exp λ every test function is independent of that coordinate, so the same process has comparison cost zero; its possible heavy hits are already included in the leak bound. No linear-block lemma is needed. KARY Theorem 4.1 adds the fixed base cost log P_W₀ and log 2, and doubles the summed costs. This proves the claim. ∎
+
+*Proof of Corollary 3.2.* Project ν onto the common family period Q. Each class d becomes its class modulo d′=gcd(d,Q) with coefficient multiplied by d′/d. Positivity, majorisation and mean are preserved; coefficient sum does not increase, and every remaining prime is ≤N^A. Put T=Σ|a_i| and S=log(1/Eν). The arithmetic-free coarsening in EXCEPTIONAL_THETA Lemma 2.9 yields a majorant ν′ of level `λ=A log N+log T+S`, with Eν′≤2Eν: drop negative high-level terms and enlarge positive ones by retaining a prefix of primes whose log product is in (λ−A log N,λ]. Thus
+
+`S≤log 2+C((A+1)log N+S)^{2/3}`.
+
+If S≤(A+1)log N this is the asserted bound; otherwise the inequality bounds S absolutely. Since log(N/B)≤S, the corollary follows. For bounded/small λ enlarge the absolute constants. ∎
+
+**Scope and remaining gap.** This cap includes arbitrary balanced and prime-power native moduli, arbitrary real coefficients, Bonferroni, Selberg squares and CRT-evaluated moments, provided the final majorant covers the whole congruence avoider set. It does not include a rough-selector majorant that vanishes on the zero base, nor endpoint events with noncoprime endpoints, nor signed/position-sensitive rounding. It leaves the log-log factor between the existing all-integer upper bound and the 2/3 architectural cap unresolved. Removing that factor and proving 3/4 are distinct tasks; the latter now requires an exit from this native whole-avoider architecture.
 
 ## 4. Round 3 — further attack and ES port
 
