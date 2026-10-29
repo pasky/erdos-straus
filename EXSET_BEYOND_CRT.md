@@ -180,7 +180,113 @@ of the word universe (2/3, Theorem 2.1, a barrier for a class not covered by (D)
 (brief candidate 1): decide what switching to the complementary divisor can and cannot buy (§4). Candidate 2
 (transfer range) is lane C's chain-rule object and candidate 3 (primes) is assessed briefly in §4.4.
 
-## §2 Round 2
+## §2 The CRT ceiling of a class universe, and the word universe (door D8; a new barrier theorem)
+
+Notation as in K2 §§2–4: W absolute; `Γ(m) = Π_{p|m} γ'(p)` with `γ'(p) = γ(p)` (= 2p/(p−1), γ(2) = 8) for p ≤ W
+and `γ'(ℓ) = (1 − ℓ^{−1/2})^{−1}` for ℓ > W; P(G) the largest prime factor; for a class with modulus G = qℓ^v,
+P(q) < ℓ, `μ_{ℓ,v}(q)` is the number of classes of the universe with that modulus.
+
+**Theorem 2.1 (supply-exponent cap; PROVED given the K2/EK machinery as reviewed).** Let 𝔘 be a universe of classes
+such that
+* (i) no class of 𝔘 contains a perfect square `y² ≥ 1` (so no W-smooth class contains a unit square);
+* (ii)_β,γ `𝔐_𝔘(y) := Σ_{C∈𝔘, W<P(G_C)≤y} Γ(G_C)/G_C ≤ K(log y)^β(log log y)^γ` for `y ≥ y₀`, with β ≥ 1, γ ≥ 0;
+* (iii) for every κ ∈ (0,1], every prime ℓ > W and v ≥ 1:
+  `Σ_{P(q)<ℓ} μ_{ℓ,v}(q)² τ(q)Γ(q)/q ≤ C_κ(v+1)^c[(log ℓ)^c + ℓ^{κv}]`.
+
+Then there are W, λ₀, C (depending on K, β, γ, c, C_κ only) such that for every finite family 𝔊 of classes of
+𝔘 and selector classes `0 mod p`, mixed arbitrarily, arbitrary moduli, and every majorant ν of 𝒜(𝔊) of level
+λ ≥ λ₀,
+
+    log(1/Eν) ≤ C λ^{β/(β+1)} (log λ)^{γ/(β+1)}.
+
+If every modulus of 𝔊 satisfies `G ≤ P(G)^{1+B}` and (ii) holds with γ = 0 for such classes, the bound is
+`C_B λ^{β/(β+1)}`.
+
+*Proof.* K2 Thm 5.1's proof uses exactly the three listed inputs (K2 §6 item 2; checked line by line: the base
+Lemma 2.3 uses only (i); the chain-rule density `Q'(n ≡ b (m)) ≤ Γ(m)/m`, EK Thm 4.1/Cor 2.6 and the leak mechanism
+are arithmetic-free; first moments enter only through 𝔐; second moments only through Lemma 4.1, whose proof is
+family-free, fed by (iii); Lemma 4.3 then gives `E p_ℓ² ≤ C(W)ℓ^{−7/4}(log ℓ)^c` and leak ≤ 1/2). Only the cost
+bookkeeping changes. Take `s₁ = λ^{1/(β+1)}(log λ)^{−γ/(β+1)}`, singletons `W < ℓ ≤ e^{s₁}`, blocks
+`V_i = {2^i s₁ < log ℓ ≤ 2^{i+1}s₁}` below `e^{λ/2}`, one linear block, as in K2.
+* Singletons cost `≤ (8/3)𝔐(e^{s₁}) ≤ C s₁^β(log λ)^γ = Cλ^{β/(β+1)}(log λ)^{γ/(β+1)}`.
+* Block i, `s = 2^i s₁`, `d_i = ⌊λ/s⌋`: `E M_{V_i} ≤ 𝔐(e^{2s}) ≤ K(2s)^β(log λ)^γ`, so
+  `(E M_{V_i} + 4d_i)/d_i ≤ 2^{β+1}K s^{β+1}(log λ)^γ/λ + 4 = 2^{β+1}K·2^{i(β+1)} + 4`, and
+  `E Φ_i ≤ (λ/(2^i s₁))(c₁ + i(β+1)log 2) + O(log λ)`. Summing, `Cλ/s₁ + O(log²λ)`.
+* Linear block `O(e^{−λ/4})`; base `2W + log 2`.
+
+Both main terms are `Cλ^{β/(β+1)}(log λ)^{γ/(β+1)}`. Under bounded B, drop the smoothness: 𝔐 over `G ≤ y^{1+B}` is
+`≤ C_B(log y)^β`, and EK Thm 4.5's bookkeeping with `s₁ = λ^{1/(β+1)}` gives `C_Bλ^{β/(β+1)}`. ∎
+
+β = 3, γ = 3 is K2 Thm 5.1; KARY3 removes γ for the K2 types. The exponent of the cap is the supply exponent
+alone: `β/(β+1)`. The relevant question for any problem is therefore: **what is β for the class universe the
+problem can use?**
+
+**Lemma 2.2 (the word universe satisfies (i); PROVED).** No word class (§1.3: endpoint or pair class, certificate
+or U refinement) contains a perfect square `y² ≥ 1`.
+
+*Proof.* Every n ≥ 1 in a word class has the class's certificate word, hence (table of §1.3) a Type II solution
+`4abcd = a+b+cn` or a Type I solution lying in a Case-A class (rows 3 and 5: m'' = t, d = (tv−1)/4 resp.
+(tu−1)/4, since `t | 4d+1` and `nt + 1 = (tu−1)(tv−1) ≡ 0 (mod 4d)`). A Type II solution at `n = y²` is
+excluded by Lean L9903 (`4abcd ≠ a+b+m²c` for all positive integers; re-checked by brute force for m < 60,
+a ≤ b < 60, c < 40). A Type I solution puts n in a Case-A class, which contains no square (K2 Lemma 2.2). ∎
+
+**Lemma 2.3 (word first moment, β = 2; PROVED).** `𝔐_W(y) ≤ K(W)(log y)²(log log y)²`, and over moduli
+`G ≤ y^{1+B}` the sum is `≤ K_B(log y)²`.
+
+*Proof.* A word class has modulus G with `A | G | 8A` (endpoint class of modulus A = tx−1) or `uv | G | 8uv`
+(pair class); each endpoint (pair) class has at most 8 refinements. As `Γ(G)/G ≤ Γ(8)Γ(A)/A` for `A | G | 8A`,
+
+    𝔐_W(y) ≤ C[ Σ_{P(A)≤y} τ(A+1)Γ(A)/A + Σ_{P(m)≤y} τ(m)Γ(m)/m ].
+
+The pair part is `≤ C(log y)²` by K2 Lemma 3.1 (F = τΓ, `F(p) ≤ 2 + 4p^{−1/2}` for p > W, κ = 2). For the endpoint
+part, first `Σ_{A≤x} τ(A+1)Γ(A) ≤ C(W)x log x`: write `Γ = 1 ∗ h`, h squarefree-supported, `h(p) = γ'(p) − 1`
+(≤ 7 for p ≤ W, ≤ 2p^{−1/2} for p > W). For `s ≤ x^{1/2}`,
+`Σ_{A≤x, s|A} τ(A+1) = Σ_{m≤x+1, m≡1 (s)} τ(m) ≤ 2Σ_{d≤√(x+1)}((x+1)/(ds) + 1) ≪ (x/s)log x`; for `s > x^{1/2}`
+use `τ ≤ x^{ε}`. So the sum is `≤ x log x Σ_s h(s)/s + x^{1+ε}x^{−1/4}Σ_s h(s)s^{−3/4} ≤ C(W)x log x` (both Euler
+products converge). By partial summation the *body* `A ≤ X := y^{u₀}`, `u₀ = 12 log log y`, contributes
+`≤ C(log X)² = C·144(log y)²(log log y)²`. *Tail:* for a block `K < A ≤ 2K`, `K ≥ X/2`, `u = log K/log y`,
+Cauchy–Schwarz gives `≤ (Σ_{P(A)≤y, A~K} Γ(A)²/A)^{1/2}(Σ_{A~K} τ(A+1)²/A)^{1/2} ≤ Ce^{−u/2}(log y)^{1/2}·C(u log y)^{3/2}`
+(K2 Lemma 3.1 with F = Γ², κ = 1; `Σ_{m≤x}τ(m)² ≪ x log³x`). Summing over blocks (u-spacing log 2/log y) the tail
+is `≤ C(log y)^3u₀^{3/2}e^{−u₀/2} ≤ C`. Under bounded B the body with `X = 8y^{1+B}` is the whole sum. ∎
+
+**Lemma 2.4 (word cofactor sums; PROVED).** The word universe satisfies (iii).
+
+*Proof.* Mirror of K2 Lemma 4.2. *Pair part:* `μ(q) ≤ 8Σ_{i≤3}τ(qℓ^v/2^i) ≤ 32(v+1)τ(q)`, so the sum is
+`≤ C(v+1)²Σ_{P(q)<ℓ}τ(q)³Γ(q)/q ≤ C(v+1)²(log ℓ)^8` (K2 Lemma 3.1, κ = 8). *Endpoint part:*
+`μ(q) ≤ 8Σ_{i≤3}τ(qℓ^v/2^i + 1)` (terms with `2^i ∤ qℓ^v` omitted), so `μ² ≤ 256Σ_iτ(A_i+1)²`, `A_i = qℓ^v/2^i`.
+Long blocks `K < q ≤ 2K`, `K ≥ 4ℓ^{v/3}`: Cauchy–Schwarz gives
+`(Σ_{block,P(q)<ℓ}τ(q)²Γ(q)²/q)^{1/2}(Σ_{block}τ(A_i+1)⁴/q)^{1/2}`; the first factor is `≤ Ce^{−u/2}(log ℓ)²`
+(κ = 4, u = log K/log ℓ); in the second, `m = A_i + 1 ≡ 1 (mod ℓ^v)` runs over an interval of length `≍ Kℓ^v`
+with `ℓ^v < (Kℓ^v)^{3/4}`, so Shiu (F = τ⁴, F(p) = 16) gives `≪ (Kℓ^v/φ(ℓ^v))(log Kℓ^v)^{15}` and the factor is
+`≤ C((u+v+1)log ℓ)^{15/2}`. Summing over blocks: `≤ C(v+1)^c(log ℓ)^c`. Short blocks `K < 4ℓ^{v/3}`: `m ≤ ℓ^{2v}`,
+so `τ(m)²τ(q)Γ(q) ≤ C_κℓ^{κv/2}` and `Σ_{q≤8ℓ^{v/3}}1/q ≤ C_κℓ^{κv/2}`. ∎
+
+**Corollary 2.5 (the ES₅/U ceiling is 2/3; PROVED given K2/EK, Lemmas 2.2–2.4).** For every finite mixture 𝔊 of
+word classes (any grouping, certificate or U refinement) and selector classes, every majorant of 𝒜(𝔊) of level λ
+has `log(1/Eν) ≤ Cλ^{2/3}(log λ)^{2/3}`, and `≤ C_Bλ^{2/3}` if all moduli satisfy `G ≤ P(G)^{1+B}`. Consequently
+(the reductions below use the family cap only as a black box):
+* (M1) coefficient-sum methods (`N·Eν + Σ|a_i|`, family primes ≤ N^A) for E_{ES₅}, E_U, at primes or over all n,
+  save `≤ C_A(log N)^{2/3}(log log N)^{2/3}` (K2 Cor 6.1's projection + ET-file Lemma 2.9, family-free);
+* (M2) any evaluation of a majorant whose classes all have modulus ≤ N/2 is capped at the same order (IF Thm 2.2:
+  `Σ_{n≤N}ν ≥ (N−D)Eν`, family-free);
+* (L1) every CRT-admissible large sieve with polynomial-period rows (LS1 Thm 2.1 duality to a Selberg-square
+  majorant, family-free);
+* (C) order-k majorants save `≤ C(k log N)^{2/3}(log(k log N))^{2/3}`.
+
+The prime-law version (P) needs PL's unit-group rerun; I expect it verbatim but have not checked it (Assessment).
+
+**Reading.** For U and ES₅ every CRT method in the barred union is limited to the **Vaughan exponent 2/3**, not
+3/4. The 3/4 note's extra factor comes from `τ₃`-type classes (`D | A²`), which certify ES but not ES₅ or U.
+So for U and ES₅, Target 3 ("beat 3/4") already needs a non-CRT input to beat **2/3**. Mixtures of K2 types and
+word classes have β = 3 (the maximum), so Theorem 1.1's list extends verbatim to the union of the K2 universe and
+the word universe: this is a barrier for a class strictly larger than (D)17–(D)29.
+
+**Remark 2.6 (I3; Assessment, flagged for lane E).** I3 words are words with t,u,v ≥ 3, so their (ii)/(iii) are
+those of Lemmas 2.3–2.4 (β = 2). Condition (i) fails: I3 holds at squares. Theorem 2.1's base needs only *some* set
+`R ⊆ ℤ/Q₀` avoiding the W-smooth classes with `log(Q₀/|R|) = O_W(1)` uniformly in the 2,3,…,W-exponents of Q₀ (K2
+uses unit squares). If such an R exists for I3, the CRT ceiling for I3 is also 2/3, and **"reach 3/4 for I3 by
+multiplier atoms" (lane E goal 1) is impossible by CRT majorants**: multipliers do not change β. I have not proved
+the I3 base lemma.
 
 ## §3 Round 3
 
