@@ -120,7 +120,7 @@ modulus `4·(modulus)`; U adds n mod 8. Call these *word classes*; 𝔘_W is the
 | 4 \| v, v = 4w | 1/(w(tu−1)) + 1/(ntw) + 1/(ntw(tu−1)) | Type II, (1, tu−1, t, w) | E(t,v): `−4w mod 4wt−1` is the ℛ-class with D = w \| (wt)² |
 | 4 \| tv−1 = 4m | 1/(mu) + 1/(mu(tu−1)) + 1/(nm(tu−1)) | Type I, (1, tu−1, u, m) | E(t,v) ⊂ Case-A class `−t^{−1} mod 4g(m)` (m' = t, d = m, 4g(m) \| 4m) |
 | 4 \| u (in E(t,v)) | 1/(d(tv−1)) + 1/(ntd) + 1/(ntd(tv−1)), u = 4d | Type II, (1, tv−1, t, d) | subclass `−v mod 4(tv−1)` of E(t,v): ET's Type II with **d free** |
-| 4 \| tu−1 (in E(t,v)) | as row 3 with u ↔ v | Type I, c = u... free | subclass of E(t,v) mod 4(tv−1): Type I with a free coordinate |
+| 4 \| tu−1 (in E(t,v)) | 1/(m'v) + 1/(m'v(tv−1)) + 1/(nm'(tv−1)), tu−1 = 4m' | Type I, (1, tv−1, v, m') | subclass of E(t,v) mod 4(tv−1): Type I with **d = m' free** |
 
 **Proposition 1.2 (PROVED).** (a) The rows 4|t, 4|v (each read in the grouping where the slot is fixed) are literally
 ℛ(M)-classes; the row 4|tv−1 is a subset of a single Case-A class of modulus dividing the word-class modulus.
@@ -153,7 +153,32 @@ Lemma 2.2 via row 3) and (iii), and satisfies (ii) with **β = 2, not 3**: a wor
 `D | A²` has two (`τ(A+1)` versus `τ(A²)`). Hence the caps apply to ES₅/U not at 3/4 but at **2/3**. The
 CONTEXT's reading "Target 3: beat 3/4 for ES₅ or U" mis-states the barrier for those two problems: for ES₅ and U
 the CRT ceiling is (log N)^{2/3+o(1)}, and it is attained (§3, Theorem 3.1).
-### §1.4 Open doors
+### §1.4 Open doors (my words) and the two chosen
+
+By the operational definition of §1.2, a door is a true property of [1,N] (or of the primes) that fails for N·π.
+
+* **D1 Archimedean truncation.** On [1,N] a class of modulus > N holds ≤ 1 integer, words with u = 1 or t = 1
+  are single points, and a k-fold intersection of lcm > N is empty unless its CRT residue lies in [1,N]. π knows
+  none of this. (CONTEXT doors (i), (ii); IF2 hybrids / weak SPW.)
+* **D2 True high-order correlations.** Exact k-fold witness counts on [1,N] for k ≥ (log N)^θ/log log N
+  (TC^alt_θ). Bounded k is useless whatever its precision (TU Thm 3.1; NC Cor 8.7).
+* **D3 Super-polynomial frequency level** against residue-DENSE classes with ≥ 2 primes above exp((log N)^{1/4})
+  ((A*), (DCC), (RD′)).
+* **D4 Shift-uniform avoider count** (W_𝔊) (per-frequency weights < 1).
+* **D5 Primes of the family beyond N^{O(1)}.** Multiplicative (Landau-type) events such as "tn+1 has a prime
+  factor q ≡ −1 (mod 4t)" are unions of classes over all primes q ≤ tN+1, i.e. not of bounded level; their
+  densities come from Selberg–Delange, not from CRT. (This is lane D's object; I do not work it.)
+* **D6 Global multiplicative structure of the exceptional set**: E(ES) is divisor-closed (a fact about integers,
+  false for π); semigroup/Rankin; density increment; entropy.
+* **D7 Prime-specific bilinear structure** (Vaughan/Heath-Brown, Harman, zero-density): only through (P) so far.
+* **D8 (new, from §1.3) Other class families.** A cap is a statement about one class universe. The universe is
+  part of the method. Before asking for a non-CRT input one must know the CRT ceiling **of the universe at hand**.
+
+**Chosen.** (A) **Door D8 first**, because §1.3 shows the barrier for ES₅/U was mis-stated: prove the CRT ceiling
+of the word universe (2/3, Theorem 2.1, a barrier for a class not covered by (D)17–(D)29) and show it is attained
+(Theorem 3.1, a new exceptional-set theorem for U and ES₅ at primes). (B) **Door D1 via divisor switching**
+(brief candidate 1): decide what switching to the complementary divisor can and cannot buy (§4). Candidate 2
+(transfer range) is lane C's chain-rule object and candidate 3 (primes) is assessed briefly in §4.4.
 
 ## §2 Round 2
 
