@@ -115,7 +115,48 @@ ES_q(A, P) with a polynomial numerator; there the 2-adic layer was mapped to a f
 
 ## 2. Numerics and controls
 
-(placeholder)
+Engine `scripts/z51_ffield_enum.c` (C; p prime \u2261 3 mod 4): enumerates, for every shape, all q^n monic triples
+(t, u, v), forms f = tuv \u2212 u \u2212 v, and counts W_U(f) for all q^n monic f of degree n (optionally the ES\u2085-analogue,
+with a gcd test). It also enumerates all squares. Raw output `data/z51_ffield/enum.txt`, `es5_q3.txt`; the failing
+non-squares at q = 3 are listed in `data/z51_ffield/fail_q3_n*.txt`.
+
+**Controls (CERTIFIED for the listed (q, n)).**
+* T1: every square fails U_q in every run (sqfailU = #squares, e.g. 2187/2187 at (3, 14), 6859/6859 at (19, 6)).
+* Mass identity: the mean of W_U is exactly the number of U-shapes in every run (\u00a73.1, Prop 3.1 below).
+* Numerator-8 / hard-prime / R-zero controls: not applicable (no integer n is an input here); the transfer
+  question for them is addressed in \u00a75.
+
+**Table 2.1 (CERTIFIED). Non-square exceptional set of U_q, # and fraction of all q^n monic f of degree n.**
+
+| q \\ n | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 3 | 0 | 5 | 6 | 6 | 21 | 3 | 21 | **0** | 12 | **0** | 7 | **0** | 3 | **0** |
+| 7 | .286 | .184 | .0787 | .0179 | .0098 | 6.5e\u22124 | 5.4e\u22124 | | | | | | | |
+| 11 | | .174 | .0751 | .0119 | .0062 | 2.6e\u22124 | | | | | | | | |
+| 19 | | .175 | .0776 | .0103 | .0044 | | | | | | | | | |
+| 31 | | .181 | .0778 | .0101 | | | | | | | | | | |
+| 59 | | .195 | .0805 | | | | | | | | | | | |
+| 191 | | .2007 | | | | | | | | | | | | |
+
+(q = 3 row: counts; other rows: fractions. Number of U-shapes m(n) = 2, 3, 7, 9, 15, 18, 26, 30, 40, 45, 57, 63, 77,
+84 for n = 2..15; m(n) = 3n\u00b2/8 + O(n).)
+
+Two regimes are visible, and they behave oppositely.
+
+1. **Fixed n, q \u2192 \u221e: the exceptional fraction converges to a positive constant.** n = 3: 0.1745 (q = 19), 0.1911
+   (43), 0.2006 (179), 0.2007 (191); the limit is 29/144 = 0.20139 (\u00a73.3). n = 5: 0.0103, 0.0104, 0.0101 at
+   q = 19, 23, 31. The fixed-n large-q exceptional set is a *positive proportion* of all f, not O(q^{n\u2212c}).
+2. **Fixed q = 3, n \u2192 \u221e: the non-square exceptional set dies out**, exactly as over \u2124 (where U fails only at the odd
+   squares and six integers \u2264 978145 up to 10\u2079): 0 non-square failures at n = 9, 11, 13, 15 (out of 3^n), and
+   12, 7, 3 at n = 10, 12, 14, against 243, 729, 2187 squares. The failing non-squares are not \u221e-adically close to
+   squares: the polynomial part g of \u221af has deg(f \u2212 g\u00b2) = n/2 \u2212 1 or n/2 \u2212 2 for all of them (n = 6..14).
+
+ES\u2085-analogue (q = 3, n = 5..12): non-square failures 114, 75, 660, 321, 3872, 1368, 21903, 5974 \u2014 far more than U_q
+at odd n, where only \u2248 n\u00b2/8 shapes are bichromatic; squares fail in all runs. Not pursued further.
+
+The point of the two regimes: the large-q limit keeps the *mass* fixed (m(n) \u2248 3n\u00b2/8 expected witnesses, independent of
+q, \u00a73.1), so it cannot be a depth breaker in the sense of the brief; the fixed-q limit grows the mass like n\u00b2 =
+(log_q N)\u00b2, as over \u2124 (log\u00b2 N), and there the exceptional set behaves like the integer one.
 
 ## 3. Large q, fixed n
 
