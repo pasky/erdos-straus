@@ -96,7 +96,63 @@ shift-uniform avoider count (W_𝔊), WT Cor 2.2, open); right-signed large-clas
 above `exp((log N)^{1/4})` ((A*)/(DCC)/(RD′), open); correlation input of order `≥ (log N)^{θ}/log log N` with
 non-CRT (true) values (TC^alt_θ, open); **any family of classes that is not a K2 mixture** (decided for ES₅/U/I3 in
 §1.3 — this turns out to matter).
-### §1.3 Are ES₅ and U subfamilies of the KARY2 mixture?
+### §1.3 Are ES₅ and U subfamilies of the KARY2 mixture? (decided: no as families; yes-but-irrelevant as sets)
+
+**Words.** A word of n is (t,u,v) ∈ ℕ³ with `n = tuv − u − v`, equivalently `(tu−1)(tv−1) = tn+1`. It is a
+*certificate* if one of t, u, v, tu−1, tv−1 is ≡ 0 (mod 4); ES₅(n) := n has a certificate word (at primes this is
+the z48 ES₅, Theorem A). U(n) := n has a word with an endpoint ≡ 0 (4) or ≡ −n (8) and both `tu−1, tv−1 > 1`
+(z49 definition). Every U-word is a certificate: if v ≡ −n (8) is odd, then 8 | n+v = u(tv−1), so 4 | u or
+4 | tv−1. Each word lies in three classes, one per **grouping**:
+
+    pair class      P(u,v) = {n ≡ −(u+v) (mod uv)}        (t free),
+    endpoint class  E(t,v) = {n ≡ −v (mod tv−1)}          (u free),   and E(t,u) symmetrically (v free).
+
+Every n ≥ 1 in such a class has the word (the free coordinate is automatically a positive integer). The
+certificate condition is a condition on the free coordinate mod 4, i.e. it cuts the class into subclasses of
+modulus `4·(modulus)`; U adds n mod 8. Call these *word classes*; 𝔘_W is the set of all word classes
+(certificate or U-refined) together with the selector classes `0 mod p`.
+
+**The identity behind each certificate** (verified symbolically and numerically, `scripts/z50_ncrt_identities.py`):
+
+| slot | identity 4/n = … | ET type | class it gives, as a set |
+|---|---|---|---|
+| 4 \| t, t = 4C | 1/(uvC) + 1/(nvC) + 1/(nuC) | Type II, (a,b,c,d) = (v,u,1,C) | E(t,v): `−v mod 4Cv−1` is the ℛ(4Cv−1)-class `−4D`, D = Cv² \| (Cv)² |
+| 4 \| v, v = 4w | 1/(w(tu−1)) + 1/(ntw) + 1/(ntw(tu−1)) | Type II, (1, tu−1, t, w) | E(t,v): `−4w mod 4wt−1` is the ℛ-class with D = w \| (wt)² |
+| 4 \| tv−1 = 4m | 1/(mu) + 1/(mu(tu−1)) + 1/(nm(tu−1)) | Type I, (1, tu−1, u, m) | E(t,v) ⊂ Case-A class `−t^{−1} mod 4g(m)` (m' = t, d = m, 4g(m) \| 4m) |
+| 4 \| u (in E(t,v)) | 1/(d(tv−1)) + 1/(ntd) + 1/(ntd(tv−1)), u = 4d | Type II, (1, tv−1, t, d) | subclass `−v mod 4(tv−1)` of E(t,v): ET's Type II with **d free** |
+| 4 \| tu−1 (in E(t,v)) | as row 3 with u ↔ v | Type I, c = u... free | subclass of E(t,v) mod 4(tv−1): Type I with a free coordinate |
+
+**Proposition 1.2 (PROVED).** (a) The rows 4|t, 4|v (each read in the grouping where the slot is fixed) are literally
+ℛ(M)-classes; the row 4|tv−1 is a subset of a single Case-A class of modulus dividing the word-class modulus.
+(b) The rows 4|u and 4|tu−1 read in E(t,v), and every refinement of a pair class P(u,v) by t mod 4, are classes of
+a grouping that is **not** one of the four K2 types: K2's types are the Type II groupings with the ET parameter
+a free (ℛ(M)), (q,δ) = ((a+b)/c, a²d) fixed ((a,D)), and the Type I grouping of Case A; the class `−v mod 4(tv−1)`
+is the Type II grouping C_II(1, tv−1, v) = `{n ≡ −e (mod 4ab)}` with (a,b,c) = (1, tv−1, t) fixed and d free.
+Its members lie in ℛ- and (a,D)-classes only through moduli `4td−1` and `4v·g(d)` that grow with d.
+(c) So ES₅ and U certificate families are **not** subfamilies of the K2 mixture *as parametrised families*, and
+the "a fortiori" argument of z50 CONTEXT §3 does not apply verbatim.
+
+*Proof.* (a) is the table (each identity checked by clearing denominators: e.g. row 2 sums to
+`(nt + tu − 1 + 1)/(ntw(tu−1)) = t(n+u)/(ntw(tu−1))` and `n+u = 4w(tu−1)`). For row 3, Case A (ET-file §3) is
+`n ≡ −m'^{−1} (mod 4g(d))` with `m' | 4d+1`; take m' = t, d = m: `4m+1 = tv` so t | 4d+1, and `tv ≡ 1 (mod 4m)` gives
+`−t^{−1} ≡ −v (mod 4m)`, hence mod `4g(m)` since `g(m) | m`. (b) Read off (a,b,c,d) from the identity: row 4 has
+b = tv−1, c = t fixed and d = u/4 varying; the ℛ-grouping fixes (b,c,d) and the (a,D)-grouping fixes
+(q,δ) = (v, d); both vary along the class. ∎
+
+**But as sets the difference is small (CERTIFIED, `scripts/z50_ncrt_k2contain.py`, `data/z50_ncrt/k2contain_400.txt`).**
+For every endpoint subclass of type 4|u or 4|tu−1 with modulus 4A ≤ 400 (392 classes), 299 are contained in a
+*single* K2 class of modulus dividing 4A (typically Case A; e.g. the U-class `97 mod 104` (t=2, v=7) is the Case-A
+class (r,h,m) = (26,1,15), and `5 mod 8` is Case A (2,1,3)). The other 93 have all their members n ≤ 10⁵ covered by
+K2 classes of modulus ≤ 400 (largest least modulus 328). Whether every word class is a finite union of K2 classes
+of polynomially related modulus is **undecided** (EVIDENCE for yes at small moduli). **It does not matter:**
+
+**The decision that matters (§2, Theorem 2.1).** K2's proof uses only (i) no W-smooth class contains a unit square,
+(ii) first moments `𝔐(y) ≪ (log y)^{β}·polylog`, (iii) cofactor second moments `≪ ℓ^{o(1)}` (K2 §6 item 2). The word
+universe 𝔘_W satisfies (i) (no word certificate exists at an odd square: Type II by Lean L9903, Type I by K2
+Lemma 2.2 via row 3) and (iii), and satisfies (ii) with **β = 2, not 3**: a word has one free divisor, an ℛ-class
+`D | A²` has two (`τ(A+1)` versus `τ(A²)`). Hence the caps apply to ES₅/U not at 3/4 but at **2/3**. The
+CONTEXT's reading "Target 3: beat 3/4 for ES₅ or U" mis-states the barrier for those two problems: for ES₅ and U
+the CRT ceiling is (log N)^{2/3+o(1)}, and it is attained (§3, Theorem 3.1).
 ### §1.4 Open doors
 
 ## §2 Round 2

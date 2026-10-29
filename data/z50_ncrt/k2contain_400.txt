@@ -1,0 +1,43 @@
+QMAX 400 GMAX 400 NMAX 100000
+subclasses tested: 392  contained in a single K2 class: 299
+  NOT single: t=2 v=2 A=3 4|u class 10 mod 12 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=3 v=2 A=5 4|u class 18 mod 20 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=1 v=6 A=5 4|u class 14 mod 20 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=5 v=2 A=9 4|u class 34 mod 36 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=6 v=2 A=11 4|u class 42 mod 44 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=2 v=6 A=11 4|u class 38 mod 44 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=7 v=2 A=13 4|u class 50 mod 52 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=7 v=2 A=13 4|tu-1 class 37 mod 52 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 104
+  NOT single: t=2 v=7 A=13 4|u class 45 mod 52 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 104
+  NOT single: t=1 v=14 A=13 4|u class 38 mod 52 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=9 v=2 A=17 4|u class 66 mod 68 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=3 v=6 A=17 4|u class 62 mod 68 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=1 v=18 A=17 4|u class 50 mod 68 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=10 v=2 A=19 4|u class 74 mod 76 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=2 v=10 A=19 4|u class 66 mod 76 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=13 v=2 A=25 4|u class 98 mod 100 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=1 v=26 A=25 4|u class 74 mod 100 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=14 v=2 A=27 4|u class 106 mod 108 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=2 v=14 A=27 4|u class 94 mod 108 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=15 v=2 A=29 4|u class 114 mod 116 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=15 v=2 A=29 4|tu-1 class 85 mod 116 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 151
+  NOT single: t=5 v=6 A=29 4|u class 110 mod 116 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=3 v=10 A=29 4|u class 106 mod 116 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=2 v=15 A=29 4|u class 101 mod 116 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 87
+  NOT single: t=1 v=30 A=29 4|u class 86 mod 116 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=17 v=2 A=33 4|u class 130 mod 132 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=6 v=6 A=35 4|u class 134 mod 140 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=19 v=2 A=37 4|u class 146 mod 148 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=19 v=2 A=37 4|tu-1 class 109 mod 148 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 103
+  NOT single: t=2 v=19 A=37 4|u class 129 mod 148 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 111
+  NOT single: t=1 v=38 A=37 4|u class 110 mod 148 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=21 v=2 A=41 4|u class 162 mod 164 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=7 v=6 A=41 4|u class 158 mod 164 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=7 v=6 A=41 4|tu-1 class 117 mod 164 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 328
+  NOT single: t=6 v=7 A=41 4|u class 157 mod 164 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 136
+  NOT single: t=3 v=14 A=41 4|u class 150 mod 164 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=1 v=42 A=41 4|u class 122 mod 164 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=22 v=2 A=43 4|u class 170 mod 172 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=2 v=22 A=43 4|u class 150 mod 172 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+  NOT single: t=5 v=10 A=49 4|u class 186 mod 196 | members<=NMAX uncovered by K2 mod<=GMAX: 0, max least modulus 16
+not-single total: 93
