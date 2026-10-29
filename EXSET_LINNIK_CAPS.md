@@ -123,6 +123,43 @@ the cap exponent 1/A, and the simultaneous one-mute/short-window conclusion. Thi
 strengthens CAP_BOUNDED; CAP_INTERPOLATION already sketched the A>1 range by a different
 method. Neither the existing sketch nor (2.2) establishes a power saving at A=1.
 
+### Proposition 2.4 — Elliott–Montgomery–Vaughan at the logarithmic endpoint (PROVED)
+
+For an absolute c>0,
+
+    #E(X,2log X) ≪ X exp(−c log X/log log X).                   (2.3)
+
+Consequently the one-mute-prime, short-window conclusion of Corollary 2.3 holds with
+q≤2log X, cap≤(log X)/2, outside this **subpower**, not power-saving, exceptional set.
+This is weaker than Theorem 4.2 for global caps but uses only one mute prime.
+
+**Input and adaptation.** Lau–Wu, “On the least quadratic non-residue”, IJNT 4 (2008),
+pp. 423–435, Lemma 2.1, https://hkumath.hku.hk/~yklau/p/34.pdf, prove from the
+Elliott–Montgomery–Vaughan large sieve that, for every subset V of primes in (P,2P],
+
+    Σ_{d fundamental, |d|≤X}|Σ_{q∈V}χ_d(q)/q|^{2j}
+       ≪ X[6j/(P log P)]^j + [6P/(log P)²]^j.                (EMV)
+
+Their statement uses all primes; the identical proof permits a subset: coefficients
+of (Σ_{q∈V}χ_d(q)/q)^j remain nonnegative, and both sums Σq^{−2} and Σq^{−1/2} in
+their proof only decrease. The absolute implied constant is uniform in j,P,X.
+This citation-level analytic input, not a new large-sieve theorem, is essential.
+
+**Proof.** Put P=log X, V={q∈(P,2P]:q≡3 (4)}. For p∈E(X,2P), p>√X, none of these q
+ramifies and their sum is Σ_{q∈V}1/q≥1/(4log P) by the fixed-AP PNT. Here χ_p(q)=(q/p)
+since p≡1 (4), and p is a fundamental discriminant. Thus (EMV) gives
+
+    #E(X,2P) ≤√X+O(X[96j log P/P]^j+(96P)^j).
+
+Take j=⌊log X/(384log P)⌋. The first bracket is ≤1/4 and the second term is ≤X^{1/192}
+for sufficiently large X. This proves (2.3). Equation (1.1) gives the witness claim. ∎
+
+**Literature audit correction.** The Lau–Wu introduction explicitly credits Baier's
+HB improvement from exponent 2+ε to 1+ε and distinguishes the logarithmic endpoint.
+Their bound is subpower. We inspected their actual moment proof rather than assuming
+their all-prime confinement hypothesis contained our restricted q≡3 (4) event.
+The subset adaptation above is the needed additional step.
+
 ## 3. Round 2: the forcing threshold and its exact scope
 
 ### Theorem 3.1 — exact square-class budget of the amplifier (PROVED)
@@ -164,8 +201,9 @@ amplifier is therefore exactly A=1. No claim is made about arbitrary signed ampl
 Elliott-type estimates, or profiles not confined to a common smooth squareclass span.
 The known condition (2/p)=1 adds at most a factor two to the kernel budget.
 
-### Theorem 3.2 — full-window sharpness, not just the Type II slice (PROVED algebra;
-### infinitude CONDITIONAL on Dickson)
+### Theorem 3.2 — full-window sharpness
+
+**PROVED algebra; infinitude CONDITIONAL on Dickson.**
 
 Fix a prime q≡3 (8), q≥11. Let s be an odd prime primitive modulo q, put p=4s−q,
 and suppose p is prime, p>q. Let c_q(p) be the least cap of **any** ES^{(y,e)}(p)
@@ -272,8 +310,9 @@ CAP_INTERPOLATION Proposition 5.1. Exclude the finitely many p|P; a hit automati
 has p≠ℓ. All classes are nonresidues mod ℓ, so odd squares are never hit.
 **No bound D_a<ℓ/4 is imposed.** That truncation would destroy the argument.
 
-### Theorem 4.2 — cap (log log X)^{1+ε} with a power-saving exceptional set (PROVED
-### relative to G and Montgomery's arithmetic large sieve)
+### Theorem 4.2 — cap (log log X)^{1+ε} with a power-saving exceptional set
+
+**PROVED relative to G and Montgomery's arithmetic large sieve.**
 
 For every fixed ε>0 there exists c_ε>0 such that, for large X,
 

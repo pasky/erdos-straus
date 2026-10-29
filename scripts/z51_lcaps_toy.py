@@ -3,6 +3,7 @@
 import json
 from itertools import combinations
 from math import comb, isqrt, prod
+from fractions import Fraction
 
 
 def primes(n):
@@ -50,7 +51,30 @@ def main():
             assert len(low) == comb(len(S), r) and low <= B
         rows.append(dict(N=N, Y=Y, primes=len(S), squarefree_products=len(B),
                          confined_primes=len(E), r=r))
-    print(json.dumps(dict(status='PASS', rows=rows), indent=2))
+    # EMV subset-moment diagonal: independent tuple coefficients and square-pair energy.
+    moments = []
+    for V in [[11, 19], [23, 31, 43]]:
+        for j in range(1, 5):
+            coeff = {1: 1}
+            for _ in range(j):
+                nxt = {}
+                for n, c in coeff.items():
+                    for q in V:
+                        nxt[n*q] = nxt.get(n*q, 0)+c
+                coeff = nxt
+            energy = sum(Fraction(a*b, n*m) for n,a in coeff.items() for m,b in coeff.items()
+                         if isqrt(n*m)**2 == n*m)
+            diagonal_bound = j**j * sum(Fraction(1,q*q) for q in V)**j
+            assert energy <= diagonal_bound
+            for p in [101, 193, 409]:
+                def chi(n):
+                    t = pow(n, (p-1)//2, p)
+                    return -1 if t == p-1 else t
+                lhs = sum(Fraction(chi(q),q) for q in V)**j
+                rhs = sum(Fraction(c*chi(n),n) for n,c in coeff.items())
+                assert lhs == rhs
+            moments.append(dict(V=V,j=j,energy=str(energy),upper=str(diagonal_bound)))
+    print(json.dumps(dict(status='PASS', rows=rows, subset_moments=moments), indent=2))
 
 
 if __name__ == '__main__':
