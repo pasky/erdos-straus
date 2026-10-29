@@ -103,11 +103,30 @@ int main(int argc, char **argv) {
             if (!sq[idx]) { sq[idx] = 1; nsq++; }
         }
     }
+    // optional: irreducible f of degree n (sieve of products), report irreducible U-failures (env Z51_IRR=1)
+    char *red = NULL;
+    if (getenv("Z51_IRR")) {
+        red = calloc(N, 1);
+        int g[64], h[64], r[64];
+        for (int i = 1; 2 * i <= n; i++)
+            for (long long gi = 0; gi < pw[i]; gi++) {
+                long long x = gi; for (int k = 0; k < i; k++) { g[k] = x % p; x /= p; } g[i] = 1;
+                for (long long hi = 0; hi < pw[n - i]; hi++) {
+                    long long y = hi; for (int k = 0; k < n - i; k++) { h[k] = y % p; y /= p; } h[n - i] = 1;
+                    memset(r, 0, sizeof(int) * (n + 1));
+                    for (int a = 0; a <= i; a++) for (int b = 0; b <= n - i; b++) r[a + b] = (r[a + b] + g[a] * h[b]) % p;
+                    long long idx = 0; for (int k = 0; k < n; k++) idx += r[k] * pw[k];
+                    red[idx] = 1;
+                }
+            }
+    }
+    long long nirr = 0, irrfail = 0;
     long long failU = 0, failU_ns = 0, sqfailU = 0, failE = 0, failE_ns = 0, sqfailE = 0, sumW = 0;
     long long hist[64] = {0};
     FILE *df = dump ? fopen(dump, "w") : NULL;
     for (long long i = 0; i < N; i++) {
         sumW += WU[i];
+        if (red && !red[i]) { nirr++; if (WU[i] == 0) irrfail++; }
         hist[WU[i] < 63 ? WU[i] : 63]++;
         if (WU[i] == 0) { failU++; if (sq[i]) sqfailU++; else { failU_ns++; if (df) { long long x = i; for (int k = 0; k < n; k++) { fprintf(df, "%lld ", x % p); x /= p; } fprintf(df, "\n"); } } }
         if (do_es5 && WE[i] == 0) { failE++; if (sq[i]) sqfailE++; else failE_ns++; }
@@ -116,6 +135,7 @@ int main(int argc, char **argv) {
     printf("p=%d n=%d N=%lld shapesU=%lld meanWU=%.6f squares=%lld sqfailU=%lld failU_nonsq=%lld frac=%.6f\n",
            p, n, N, nshapesU, (double)sumW / N, nsq, sqfailU, failU_ns, (double)failU_ns / N);
     if (do_es5) printf("ES5: shapesE=%lld sqfailE=%lld failE_nonsq=%lld frac=%.6f\n", nshapesE, sqfailE, failE_ns, (double)failE_ns / N);
+    if (red) printf("irreducible: %lld, irreducible U-failures: %lld (fraction %.6f of irreducibles)\n", nirr, irrfail, nirr ? (double)irrfail / nirr : 0.0);
     printf("histWU:"); for (int k = 0; k < 20; k++) printf(" %lld", hist[k]); printf("\n");
     return 0;
 }

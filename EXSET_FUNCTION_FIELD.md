@@ -10,13 +10,19 @@ ES_q(A, P) with a polynomial numerator A; this document studies the numerator-fr
 
 | # | Claim | Label | § |
 |---|---|---|---|
-| 1 | Normalisation: (placeholder) | | §1 |
-| 2 | T1 over F_q[T]: (placeholder) | | §1 |
-| 3 | Numerics / controls: (placeholder) | | §2 |
-| 4 | Large q, fixed n: (placeholder) | | §3 |
-| 5 | Fixed q, n → ∞: (placeholder) | | §4 |
-| 6 | Transfer to ℤ: (placeholder) | | §5 |
-| 7 | Reviews: (placeholder) | | §6 |
+| 1 | **Analogue.** q ≡ 3 (mod 4), everything monic; the 2-adic layer of U becomes the ∞-adic layer (degree parity): U_q(f) ⟺ some monic word f = tuv − u − v has deg u ≥ 1 and (deg t or deg v odd) ⟺ some monic v has a divisor A ≡ −1 (mod v) of f + v, 1 ≤ deg A < n, deg A or deg v odd. The colour (−v/A) = −1 is forced at ∞ (Lemma 1.1). | PROVED | §1.2 |
+| 2 | **T1:** squares fail U_q (Thm 1.3); all forbidden classes are non-residues. ES₅,q ⇒ U_q (Cor 1.6′; over ℤ the nesting is reversed). | PROVED | §1.2 |
+| 3 | **Degenerate normalisations:** q ≡ 1 (4): no colour layer. Leading coefficients free: the exceptional set is *exactly* the squares once q > (n+1)², by one Weil sum over the q − 1 unit shifts (free character data with no integer analogue). | PROVED | §1.3 |
+| 4 | **Mass = shape count:** E[W_U] = m(n) = n(n+1)/2 − (k+1)(k+2)/2 exactly for every q; the large-q limit is a fixed-mass limit. | PROVED | §3.1 |
+| 5 | **Word maps** (t,u,v) ↦ tuv − u − v are finite flat of degree n!/(s!a!b!), generically étale, any characteristic; the large-q exceptional density in characteristic p is a Chebotarev statistic ρ_{n,p} of a finite group G_{n,p} = G^geo, error O_n(q^{−1/2}). | PROVED (given Chebotarev for covers of A^n) | §§3.2–3.3 |
+| 6 | **Boundary S_n:** degenerating to tuv gives a copy of S_n in G_n acting on ordered set partitions; the boundary n-cycle deranges every nontrivial word shape. Hence **the brief's Goal 1 is false:** for fixed n and q ≥ q₀(n), at least c_n qⁿ polynomials (and c′_n qⁿ irreducible ones) have no nontrivial word at all; the non-square U_q-exceptional set is a positive proportion. | PROVED (same input) | §§3.4–3.5 |
+| 7 | **q = ∞ model:** the limit densities match p_f(n)·e^{−M_g(n)} (independent Poisson shapes × the S_n of f + 1), e.g. n = 5: 0.00996 vs 0.0101; joint/product ratios → 1 like C(n)/q for n = 4, 5, 6. Conjecture 3.6: ρ_n = exp(−Θ(n²)) (big monodromy). | EVIDENCE / CONJECTURE | §3.6 |
+| 8 | **CRT in F_q[T] is exact** (deg M ≤ n), and gives exactly the integer CRT exponents: the prime family exp(−√n/16) at every q (G1 value), and U exp(−c n^{2/3}) at q = ∞. The gap to the true exp(−Θ(n²)) is the non-abelian monodromy G_n: in the FF large-q model, *the* depth-breaking input is Chebotarev in the word covers plus big monodromy. | PROVED (prime family); CONDITIONAL on Lemma C2 (U) | §3.8 |
+| 9 | **Large q cannot give depth in N:** the error is q^{n−1/2} = N^{1−1/(2n)}; hybrid-regime budgets reproduce (log N)^{1/2} or (log N)^{2/3} under explicit cost models. | PROVED (b) / Assessment (c, d) | §3.7 |
+| 10 | **Fixed q = 3 looks like ℤ:** non-square failures 0 at n = 9, 11, 13, 15; 12, 7, 3 at n = 10, 12, 14; no irreducible failure beyond n = 8. FF-RLD-U holds numerically (ratio ≈ 1.2–1.5 at s = 2, ≈ 3 at s = 1.5). | CERTIFIED (data) / CONJECTURE | §§2, 4.1–4.2 |
+| 11 | **Fixed q: nothing beyond CRT is proved.** RH (Weil) and exact level n hold in F_q[T] and FF-RLD-U is still open; "Weil for products of many characters with O(k) loss" works only for rank-one events and k < √q/(pe) (Sawin–Shusterman); U-events have rank n!/(s!a!b!). | PROVED baseline; Assessment | §4.3 |
+| 12 | **Transfer:** no ingredient that is a theorem in F_q[T] and has a standard integer analogue (GRH, level-1, Katz–Sarnak for the quadratic family) gives RLD-U or T1-min, even in F_q[T]; the one that carries the true densities (monodromy of word covers, large q) has no integer analogue and acts at fixed mass. | Assessment | §5 |
+| 13 | Reviews: Astra R1 (MAJOR, no FATAL; all repairs applied), Astra R2 (see §6). | — | §6 |
 
 ## 1. The analogue
 
@@ -445,6 +451,12 @@ value p_f(n)e^{−M_g(n)} of §3.6: at (q, n) = (3, 10) it predicts 0.004 except
 *more* sporadic failures at even n than the Poisson model, and none at odd n ≥ 9. Some have no word at all
 (q = 3: 15 wordless f at n = 8, 3 at n = 10; `scripts/z51_ffield_check.py`).
 
+*Primes (T2 face; CERTIFIED, `data/z51_ffield/irr.txt`, engine with `Z51_IRR=1`).* Irreducible U_q-failures at q = 3:
+3, 3, 0, 3, 0, 0, 0 at n = 5, 6, 7, 8, 10, 12, 14 (among 48 … 341484 irreducibles) — none beyond n = 8, as over ℤ
+(no prime among the six non-square integer exceptions). At large q, by contrast, a positive proportion of
+irreducibles fail, as Cor 3.5′ predicts: 0.0733 (q = 43, n = 4), 0.0089 / 0.0087 (q = 23 / 31, n = 5),
+0.0046 (q = 11, n = 6).
+
 ### 4.2 RLD-U over F_q[T]: numerically as plausible as over ℤ
 
 **Conjecture 4.1 (FF-RLD-U; CONJECTURE).** For fixed q ≡ 3 (mod 4) and s > 1, with z = n/s,
@@ -557,4 +569,25 @@ analogue, and it acts only in a fixed-mass regime.
 
 ## 6. Hostile reviews
 
-(placeholder)
+**R1 (Astra, gpt-6-astra high, `reviews/z51-ffield-review-r1.md`; scope "§§0–3.7, addendum on 3.5′ and 3.8").**
+Verdict MAJOR, no FATAL. SOUND: Lemma 1.1, Thm 1.3, Prop 1.7, Prop 3.1, Lemma 3.2 (with a weight-wording fix),
+Lemma 3.4 (with the henselian explanation now added), the error-bearing lower bound of Thm 3.5; independent
+divisor-table brute force agrees with the engine (q = 3, 7; n = 2..5). Repairs applied:
+* "U_q and ES₅,q are not nested" was false: ES₅,q ⇒ U_q (now Cor 1.6′).
+* The converse after (1.1) needed 1 ≤ deg A < n (counterexample v = f + 2, A = f + 1).
+* A single limit over all q was not proved: Theorem 3.3 is now per characteristic, with the stable value for
+  p > p₀(n); the reference was replaced by Andrade–Bary-Soroker–Rudnick App. A.
+* Thm 3.5: "every class occurs for every q" became "arithmetically permitted, realised for q ≥ q₀(n)". "Every union"
+  now excludes (n, 0, 0); "no word" became "no nontrivial word"; the square count is given by parity. Cor 3.5′: roots
+  scale by μ^{−1}.
+* 29/144 is now conditional on the n = 3 monodromy. §3.6 was retitled. Conjecture 3.6 is stated as n → ∞ per parity
+  in stable characteristic. The linear-disjointness criterion was corrected (Galois closures, codimension-one branch
+  components).
+* The square-defect claim was wrong and is replaced by the actual table. "Dies out" was relabelled EVIDENCE.
+* §3.7 was rewritten as conditional budget analogies with the general condition (1/2) log q − log E_n − m_n → ∞.
+  The event bound is total, not per degree.
+* Prop 3.7(a): trimming to a subfamily of mass Θ(z), explicit constants and small degrees. Prop 3.7(b): now
+  CONDITIONAL on the explicit pair lemma C2; the reduction from j-tuples to pairs is proved.
+* Provenance: all Table 2.1 runs were re-run into `enum.txt`; the q = 163 value was corrected (0.2001); n = 2 is exact.
+
+**R2 (Astra):** pending.
