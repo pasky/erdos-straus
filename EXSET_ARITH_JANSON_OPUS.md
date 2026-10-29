@@ -260,14 +260,17 @@ classes (ℛ(M), (a,D), Case-A, selector), and let I = [1,N]. Suppose a chain or
 by (3.1), with g_i a CRT function of level ≤ λ. That is, g_i is a finite real combination of indicators of residue
 classes whose moduli divide one period of log-size ≤ λ. Then the bound it proves satisfies
 
-    #I·∏(1 − r_j) − Σ c_i G_i  ≥  (N − D)·e^{−Cλ^{3/4}},
+    (a) if every modulus occurring in the g_i is ≤ D ≤ N/2:   #I·∏(1 − r_j) − Σ c_i G_i  ≥  (N − D)·e^{−Cλ^{3/4}};
+    (b) if the moduli are ≤ N^A and each interval value G_i is evaluated as N·Eg_i plus at most the sum of the
+        absolute coefficients of g_i (coefficient-sum evaluation): saving ≤ C_A (log N)^{3/4}.
 
-where D < N bounds the denominators of ν*. When λ ≤ A log N and all moduli are ≤ N/2, the saving is therefore
-≤ C_A(log N)^{3/4}.
+In case (c), where moduli exceed N/2 and the G_i are evaluated exactly, the chain is a hybrid in the sense of
+(D)26. There it is capped under weak SPW, which remains open.
 
 *Proof.* By Theorem 3.1, ν* is a nonnegative CRT function of level ≤ λ, and ν* ≥ 1 on every integer that avoids
-𝓕. By KARY3 (D)24, Eν* ≥ e^{−Cλ^{3/4}}. By (D)20 (Selberg minorant + Poisson; nonzero frequencies with
-denominator ≤ D), Σ_{n≤N} ν* ≥ (N − D)Eν*. ∎
+𝓕. By KARY3 (D)24, Eν* ≥ e^{−Cλ^{3/4}}. (a) By (D)20 (Selberg minorant + Poisson; nonzero frequencies with
+denominator ≤ D), Σ_{n≤N} ν* ≥ (N − D)Eν*. (b) The chain's bound is then N·Eν* plus a coefficient sum. This is
+the setting of (D)24 Cor 4.2 / (D)18. ∎
 
 **Corollary 3.3 (prime-supported certificates; PROVED given (D)22).** Let I be the primes ≤ N, and suppose (3.1)
 holds only at primes, with g_i CRT of level ≤ λ. Then ν* ≥ 1_S at primes and ν* ≥ 0 at primes, so ν* is an
@@ -308,9 +311,48 @@ beyond 3/4 must contain at least one per-step input of type (E-I) or (E-II) that
 > λ about the specific sifted set B_i ∩ I. Door (vii) is therefore not a separate door: certified chains are
 capped like majorants, and every uncapped chain step is a door-(i) input.
 
-## 4. Structure-blind inputs
+## 4. Structure-blind inputs certify no ratio
 
-TBD.
+Type (E-II) inputs include the large sieve, Barban/Davenport/Halberstam variance bounds, Cauchy–Schwarz and
+dispersion with arbitrary coefficients. They are inequalities valid for every sequence on I. The brief asks for
+RLD from "BV/BDH for sifted sets". This section shows that such inputs, even combined with an oracle for all
+low-level statistics of B_i, cannot certify a single step of (R1).
+
+**Proposition 4.1 (blindness; PROVED, elementary).** Fix a step i, a modulus D with gcd(q_i, D) = 1, and a set
+W ⊇ B_i that is a union of classes mod D. For example, W can be the avoidance set of the events whose moduli
+divide D. A *blind derivation* of (R1) at step i may use:
+
+* (i) the exact values ν(B_i ∩ C) for every class C mod D (an oracle for all level-D statistics of B_i);
+* (ii) the inclusion B_i ⊆ W;
+* (iii) any inequality Φ(x) ≥ 0 that holds for every x ∈ [0,1]^I. Examples are the large sieve
+  Σ_{q≤Q} Σ_{a prim} |x̂(a/q)|² ≤ (N+Q²) Σ x_n², BDH with its Siegel–Walfisz hypothesis read off from (i), and
+  Cauchy–Schwarz.
+
+Suppose the **room condition** holds: in every class C mod D, #(C ∩ I ∩ W ∖ E_i) ≥ #(C ∩ I ∩ B_i). Then no blind
+derivation proves ν(E_i ∩ B_i) > 0. In particular it proves no instance of (R1) with η_i < 1.
+
+*Proof.* In each class C mod D choose X ∩ C ⊆ (C ∩ I ∩ W) ∖ E_i with #(X ∩ C) = #(C ∩ I ∩ B_i). This is possible
+by the room condition. Then x = 1_X has the same level-D statistics as B_i, since every class whose modulus
+divides D is a union of such classes. Also X ⊆ W, and x satisfies every inequality of type (iii). Every premise
+holds for X, yet ν(E_i ∩ X) = 0. \u220e
+
+The room condition fails only if B_i fills W ∖ E_i in some class mod D. That cannot happen once a single event
+at a modulus coprime to D has removed more than a 1/q_i share of some class. So it holds at every step after the
+first few.
+
+**Corollary 4.2.** A chain argument in which every step uses only blind inputs certifies no positive ratio at
+any step past that point. Its output is then at most what the level-D information gives directly: the CRT count
+of W ∩ I, i.e. the saving of the level-D sieve.
+
+*Assessment (consequence for the brief's item 3).* "Relative BV/BDH for sifted sets" can enter the chain only
+as a **sequence-specific** statement: an equidistribution theorem proved for the particular sequence 1_{B_i},
+from its own structure (bilinear, multiplicative or spectral), and controlling the specific class a_i mod q_i.
+The classical general-sequence theorems (BDH, the large sieve, Barban's theorem) are blind. Bombieri–Vinogradov in
+max-over-a form needs a Type I/II decomposition of the sequence. For the shift-aligned U family such a
+decomposition exists one shift at a time: {n : n + v has no prime factor ≡ −1 (v) below z} is multiplicative in
+n + v. It does not exist for the intersection over many shifts. Equidistribution of that intersection is a
+correlation statement for multiplicative indicator functions at many shifts. This is Elliott/Chowla territory
+(lane D), at a depth (number of shifts ≍ log z) far beyond anything known.
 
 ## 5. Attempts at RLD in a nontrivial range
 
