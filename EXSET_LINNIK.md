@@ -236,7 +236,7 @@ Theorem 2.5 needs σ_ε(Π) small because Lemma 2.3(c) is a pointwise bound. On 
 | 1600 | 112 | 1.11 | 0.98 | 0.393 (1000) |
 
 (U instead of ES₅ at y = 200: pair mass 0.88, sterile fraction 0.43.) The pair mass is flat in y, as predicted by
-"boxes ≈ 1.1(log h)²" and Mertens: per block it is ≈ 1.1·(2 log y)²·(Σ_{q∈block} 1/q)²/2·4 ≈ constant. Squares h = q² carry
+"boxes ≈ 1.1(log h)²" and Mertens: per block it is ≈ 1.1·(2 log y)²·(Σ_{q∈block} 1/q)²/2 ≈ 2.2(log 2)² ≈ 1.05. Squares h = q² carry
 no box (Lemma 2.4). Triple boxes have mass O(1/log y).
 
 **CONJECTURE 2.9 (dense planes).** There are c₀, C₀ > 0 such that for every set Π of primes ≥ 11,
@@ -256,9 +256,10 @@ Linnik-type argument (L1)–(L5) give #E_X ≤ X^{1−c} for ES₅ (or U) except
 3. for quadratic tests with a supported on squarefree Π-numbers, σ_ε(Π) ≤ η₀ (this includes power-saving data, Remark
    2.7), P(a, T) cannot follow from avoidance of any finite family of ES₅/U word classes, of any level (Cor 2.6);
 4. a CRT majorant of level ≤ K log X cannot replace it on the unbiased part (Prop 2.8).
-Hence the input must use information about the primes p ≤ X that is not periodic: near each sterile plane point z, the
-primes p ≡ z (mod L) with L ≤ X exist and avoid every class whose modulus divides L, so their certificates must come from
-pivots whose Π-free part does not divide L. This is a statement about individual primes ≤ X (B2-type).
+Hence the input must use information about the primes p ≤ X that is not periodic. Near each sterile, unbiased plane
+point z, the primes p ≡ z (mod L) exist below X once L ≤ cX^{1/5} (Linnik's theorem, Xylouris' exponent), lie outside
+B(a, T), and avoid every 𝔉₅ ∪ 𝔘 class whose modulus divides L; so a proof of P(a, T) must find their certificates among
+pivots whose modulus does not divide L. This is a statement about individual primes ≤ X (B2-type).
 
 *Comparison with z50.* G3 was an Assessment; z50 B Thm 5.2 bounded certified depletion of the *integer* avoider mod
 ℓ (marginal, U/ES₅); (J)70 gave sterile points with one non-residue for the ET classes. Theorem 2.10 is new in scope:
@@ -266,9 +267,70 @@ it covers every Linnik-type inequality of the brief (order ≥ 3 entirely; quadr
 well as confinement; the hybrid with CRT majorants). It does not cover: dense or multi-scale Π (Conjecture 2.9), ES
 with the ET/Vaughan ratio classes for |Π| ≥ 2 (planes not computed for those families), and finite-range derivations.
 
-## 3. Escape (a): partial / weighted confinement
+## 3. Escape (a): partial / weighted confinement, and a Heath-Brown upgrade
 
-(placeholder)
+### 3.1 Bias suffices
+
+For a prime p and a finite set S of primes not containing p put σ_S(p) := Σ_{q∈S} (q/p).
+
+**Theorem 3.1 (bias version of the Linnik bound; PROVED relative to Heath-Brown's quadratic large sieve).** Let A > 1,
+0 ≤ κ < (A − 1)/2, y := (log X)^A, and S a set of s ≥ y/(5 log y) primes in (y/2, y]. Then
+
+  #{p ≤ X prime : |σ_S(p)| ≥ 2(log X)^{−κ} s} ≤ X^{(1+2κ)/A + o(1)}.
+
+*Proof.* r := ⌊log X/log y⌋. For an r-tuple of elements of S let n₀ be the squarefree kernel of its product, and
+b_{n₀} := #{ordered r-tuples with kernel n₀}. Then b is supported on odd squarefree n₀ ≤ y^r ≤ X, and for p ∉ S,
+Σ b_{n₀}(n₀/p) = σ_S(p)^r (squares contribute 1). By orthogonality of the sign characters on {±1}^S,
+‖b‖² = E_ε(Σ_q ε_q)^{2r} ≤ (2r − 1)!! s^r ≤ (2rs)^r. Heath-Brown's Theorem 1 with M = N = X gives
+Σ_{p≤X} |σ_S(p)|^{2r} ≤ C_ε X^{1+2ε}(2rs)^r. Primes with |σ_S(p)| ≥ 2ηs, η := (log X)^{−κ}, number at most
+C_ε X^{1+2ε}(2rs)^r/(2ηs)^{2r} = C_ε X^{1+2ε}(r/(2η²s))^r. Here log(s/r) = (A − 1 + o(1)) log log X and
+r = (1 + o(1)) log X/(A log log X), so (r/(2η²s))^r = X^{−(A−1−2κ)/A + o(1)}. ∎
+*Check* (`scripts/z51_linnik_bias_check.py`, `data/z51_linnik/bias_check.txt`): the identity Σ b(n₀/p) = σ^r, the formula
+‖b‖² = Eσ^{2r} and the (2r−1)!!s^r bound hold exactly for S = primes in (30, 60), r ≤ 4; the empirical large-sieve sums
+are ≤ 0.05·(Q + N)‖b‖² for Q ≤ 10⁵.
+
+*Reading.* Full confinement (σ_S = s) is not needed. A non-residue fraction θ_p ≤ 1/2 − (log X)^{−κ} on one dyadic block
+suffices, for any κ < (A − 1)/2. Under Haar measure σ_S/s has standard deviation s^{−1/2} = (log X)^{−A/2+o(1)}, so the
+required bias is (log X)^{1/2+δ} standard deviations: the Linnik set is still a superpolynomially rare set of profiles
+(Haar density ≤ exp(−(log X)^{1+2δ'})), and §2's barrier applies to it unchanged (Cor 2.6 needs only T > 2).
+
+### 3.2 T2-lite: the cap threshold of CAP_BOUNDED Thm 3.2 drops from A > 2 to A > 1
+
+**Corollary 3.2 (PROVED relative to Heath-Brown's Theorem 1, the PNT for primes ≡ 3 (mod 4), CAP_DOWN Thm 1.2/Prop 1.3
+via CAP_BOUNDED Lemma 3.1).** For every A > 1,
+
+  #{p ≤ X prime : e*(p) > (log X)^A/4} ≤ X^{1/A + o(1)}.
+
+This improves CAP_BOUNDED Thm 3.2(a) (X^{2/A+o(1)}, non-trivial only for A > 2) in both range and exponent.
+*Proof.* By CAP_BOUNDED Lemma 3.1, e*(p) > (log X)^A/4 implies p ≡ 1 (mod 8) and q₃(p) > (log X)^A =: y, i.e. (q/p) = +1
+for every prime q ≡ 3 (mod 4), q ≤ y; and such p exceed y. Take S := the primes q ≡ 3 (mod 4) in (y/2, y]
+(s ≥ y/(5 log y) for large X by the PNT in progressions). Then σ_S(p) = s, and Theorem 3.1 with κ = 0 gives the bound. ∎
+
+*Remarks.* (1) The argument is Baier's least-non-residue argument (§1.5) transplanted to q₃(p); the novelty is only the
+application to the exponent cap. (2) The route through q₃ cannot go below A = 1: 𝒫((log X)^A) (all q ≡ 3 (4) up to
+(log X)^A residues) has relative Haar density 2^{−π(y;4,3)} = X^{−o(1)} for A < 1, and CONDITIONALLY on GRH it contains
+2^{−π(y;4,3)}π(X) + O(√X log²X) = X^{1−o(1)} primes (expand ∏(1 + (q/p))/2 into characters). Lau–Wu Thm 1.2
+(Graham–Ringrose) shows the analogous least-non-residue statement is sharp at y ≍ log X unconditionally along a
+sequence. Going below A = 1 needs a forcing mechanism other than the least forced window.
+(3) Part (b) of CAP_BOUNDED Thm 3.2 (polylog exceptions above p^ε) is not improved: Heath-Brown's X^ε loss is too
+large there.
+
+### 3.3 Can a bias be forced without pointwise forcing?
+
+* **Not by CRT certification.** Corollary 2.6 needs only T > 2, so it rules out exact certification of any bias, and
+  Proposition 2.8 any approximate certification at level O(log X), for data on sparse prime sets.
+* **Heuristically yes, with room — a change from z50.** With Heath-Brown, the Linnik route needs (bias on) primes
+  q ≈ (log X)^{1+δ}, not (log X)^{2+δ}. Lane B's per-prime forcing heuristic (EXSET_SIEVE_MASS §4.2) covers all
+  non-residues mod q at a *generic* profile once (log p)² ≳ q log q, i.e. up to q ≈ (log p)²/log log p. So in the Haar
+  model an exceptional p would have to avoid ≍ (log p)²/q labels at each non-residue q ≤ (log p)^{2−δ}, and its
+  conditional profile is tilted towards residues by a factor e^{−c(log p)^{δ}} per such q: far more bias than Theorem 3.1
+  needs. z50 called the Linnik route "just short" (reach (log p)²/log log p against (log X)^{2+δ}); with Theorem 3.1 the
+  heuristic reach exceeds the requirement by (log X)^{1−δ}. (Assessment.)
+* **Where the heuristic fails: exactly at the planes.** On 𝒫_Π the labels at a non-residue q are the words of q alone
+  (Lemma 2.3: m = Π-free part), about 1.1(log q)² of them, against (log M)² + log q·log M at a generic profile. So the
+  per-prime forcing reach is zero at plane points. This is why sterile planes exist (Thm 2.5) and why the forcing must be
+  pointwise: it needs the Π-free coordinates of p to be generic, which is a property of the actual prime, not of a
+  congruence class.
 
 ## 4. Escape (b): p-dependent sequences
 
