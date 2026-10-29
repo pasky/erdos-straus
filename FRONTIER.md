@@ -508,6 +508,13 @@ no single-prime lower-tail mechanism is known.
 * W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4}) for infinitely many Mordell-hard primes (`POINTWISE_OMEGA13.md`; rel. Gallagher,
   Nair–Tenenbaum, energy bound); the Haar avoider exponent and the tail exponent of W over primes are both 3.
 * Infinitely many 3·2^s + 1 etc. lie outside every finite ET covering ((J)22 Cor 1.5, (J)68).
+* **Forest witnesses are not polylog** (`H4_NOT_POLYLOG.md`, z49; cross-reviewed SOUND).
+  * PROVED, relative to the internal OMEGA10/11 energy lemma: infinitely many primes p have no forest edge with larger
+    endpoint in [4, exp((log p)^κ)], and A_min(p) > exp((log p)^κ).
+  * Ranges: κ < 1/12 effective; κ < 1/6 relative to Gallagher's theorem, or under GRH.
+  * Refutes FOREST_H4 Conjecture H₂, and every target that bounds both endpoints, or the covering modulus, by a polylog.
+  * Prime-Haar model (`CONJECTURE_S_MODEL.md`): −log δ(H) ≥ c(log H)² is PROVED. The matching upper bound
+    −log δ(H) ≤ C(log H)^{2+o(1)} is CONDITIONAL on a first-term hypothesis FT_β; unconditionally L⁶ log L stands.
 
 **5.4 Conditional implications toward ES** (each hypothesis is ES-strength or non-standard).
 * **H⁻_BM(ε, p₀) ⟹ ES(p) for all sufficiently large primes p**; ES for all n then additionally needs a finite census below
@@ -554,6 +561,8 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Polynomial auxiliary budgets at a general prime; near-square / CF-norm / A² − pB² windows (coprime cases); p − 1 divisibility data → irreducibility / never Jacobi-forced / sterile point → (J)84 (Props 4.2–4.3).
 * Class-group composition / slice-lattice walks (Astra bridge) → add reachability, never existence (3361) → (J)82.
 * Fixed roots, least-non-residue roots in the forest F_n → fail i.o. under Dickson → (J)106.
+* Witness windows bounding *both* forest endpoints, or the covering modulus A, by (log p)^C → false i.o., unconditionally
+  (`H4_NOT_POLYLOG.md`, z49). Only one-coordinate windows (u_min, HC, the least López vertex) remain open.
 * Bounded windows; balanced-lattice caps; GRH cap routes → bounded/slow cap is not ES; cap 0 is B2 → (J)83, (J)85, (J)91.
 * Menu ladder from thin families to primes → positive-density rungs collapse to B1/B2 → (J)76, (J)78, (J)79.
 * 2-adic / Fano pigeonhole beyond 4/p → used up (forcing only M ∈ {2,3,4}) → (J)57; no global Fano law on the 2-isogeny graph → (J)65.
@@ -589,6 +598,13 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    retracted (`LOWER_TAIL_FABLE.md` §2, R286 repair D5). Open: can p-dependent roots, or full reduction-cycle / Pell / class-group data,
    force a bichromatic edge (Astra's open questions)? An almost-all size bound for comp(1) is a different, open question.
    *Why:* the forest is the cleanest combinatorial form of ES₅.
+   *(z49 update.)*
+   * Certificate ⟺ bichromatic is proved three times. The coordinate form is also proved: some coordinate of some word
+     lies in 4ℤ ∪ (8ℤ − p) (`LOWERTAIL_ROUND2_FABLE.md` Thm 1).
+   * The polylog form of the attachment gap is **false** i.o. (`H4_NOT_POLYLOG.md`). Any forest proof must reach
+     witnesses whose larger endpoint exceeds exp((log p)^κ).
+   * The open target is one-coordinate: HC(p) ≪ (log p)^A, with HC(p) ≤ 64 CERTIFIED to 10⁸ and Landau-type.
+   * Inverse-problem and global-identity searches were negative (`FOREST_INVERSE.md`).
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
    BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
    can obstruct (the (★)-failure n = 7 at t = 12; (J)103 §2 Reading). *Why:* it is the next layer after the one proved free.
@@ -625,6 +641,15 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     class — or a proof that none exists beyond squares. *Why:* the only conceivable disproof shape.
 16. *(Housekeeping item resolved, R290 repair:* the (★) constants (log p)²/8 and 3/(2π²)(log p)² are the all-integer and the
     prime densities of the same ordered count; see §2.2 and `reviews/frontier-review.md` task (2).)
+17. **Conjecture I3** (z48/z49): every n > 2 433 600 is tuv − u − v with t, u, v ≥ 3. It is sign-free, prime-free and
+    character-free; the class-free count is ≥ c log²n at every n (PROVED), and I3 is its single-class restriction.
+    What is known (`I3_DEEP_ASTRA.md`, `I3_DEEP_FABLE.md`):
+    * Haar survival with both endpoints ≤ H: c L²/(log L)² ≤ −log δ₃ ≤ C L⁶/log L.
+    * The exceptional set is ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}).
+    * I3 holds on 2^k ± 1, 2^k ± 3, 7·2^k − 1, 5·2^k − 1 and 3·2^k + 1, by exponent coverings.
+    * The zero at 1560² is explained by the local model (square depletion plus 2³·3·5·13 | m).
+    *Why:* it is the minimal test problem for any single-integer tied-class method. No standard conjecture is known to
+    imply it.
 
 ## 8. Pointers into the repository
 
