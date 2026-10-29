@@ -31,7 +31,49 @@ Here C,K are absolute and a useful proposed error is R=N^{1/2+o(1)}; first test 
 
 ## 2. Round 1: universal hybrid
 
-Pending: statement, adversarial families, proof or counterexample, enumerable toy tests, hostile review.
+### 2.1 Translated-square obstruction
+
+**Theorem 2.1 (PROVED relative to the standard Weil bound for quadratic character sums; hostile review pending).** There are prime-modulus families with Q=(log N)^4, Δ=0, all atomic probabilities and all conflict loads ≤1/8, and μ≫(log N)^3/log log N, whose actual integer avoider count satisfies
+
+    S_N ≫ √N log log N.
+
+Consequently (AJ) is false for R=0 and for R=C₀√N for any fixed constants C,C₀,K. More generally, this example forces R(N,(log N)^4)≫√N log log N whenever the exponential term is negligible. This is a statement about the proposed numerical inequality, including nonlinear proofs; it is not merely a cap on Bessel/majorant proofs. It does NOT refute an error N^{1/2+o(1)}, and its forbidden classes are not claimed to be ES classes.
+
+*Proof.* Put k=⌊log Q/(4 log 2)⌋. For each odd prime Q/2<p≤Q, forbid every residue a satisfying
+
+    ( (a−j)/p ) = −1  for all 0≤j<k.                     (2.1)
+
+Write Ω_p for this residue set and use the singleton classes a mod p as the atomic events. Since p>k, the k roots j are distinct. Expand 2^{−k}∏_{j<k}(1−χ_p(a−j)) and sum over a. Away from these roots it is the indicator of Ω_p; at the roots its total correction is O(k). For every nonempty subset J, ∏_{j∈J}(X−j) is squarefree, and Weil gives absolute character sum ≤(|J|−1)√p (the singleton sum is zero). Therefore
+
+    |Ω_p| = 2^{−k}p + O(k√p+k), uniformly in p,k.        (2.2)
+
+Since 2^k≤Q^{1/4}, the relative error is O(kQ^{−1/4})=o(1). The prime number theorem on (Q/2,Q] now gives μ=Σ_p|Ω_p|/p≍Q^{3/4}/log Q. At one modulus distinct atoms conflict; at distinct moduli they share no coordinate, so Δ=0. The conflict load of a fixed atom is (|Ω_p|−1)/p=o(1), and atom probabilities are 1/p=o(1).
+
+Every n=x²+j, 0≤j<k, avoids all classes: at the jth shift the symbol is 0 or +1. For k≤x<y the gap y²−x²>k, so the intervals [x²,x²+k−1] are pairwise disjoint. Hence
+
+    S_N ≥ k(⌊√(N−k)⌋−k+1) ≍ k√N.
+
+The asserted scale follows; (N+Q²)e^{−μ}=o(1). ∎
+
+**Corollary 2.2 (PROVED, elementary).** Even nearly perfect first/second CRT statistics on the actual interval do not repair this estimate with an O(√N) error. If m is the number of atoms, then m≤Q². Every individual atom and compatible pair intersection differs from its CRT expected COUNT by <1, and an incompatible intersection is identically zero. The sum of absolute normalized errors over all singletons and pairs is at most (m+m²)/N≤2Q⁴/N. Here N times this error is O((log N)^16)=o(√N), whereas the necessary remainder is ≫√N log log N. This does not rule out an error functional that magnifies low-order errors without bound; it rules out treating their raw aggregate as an admissible remainder in (AJ).
+
+**Assessment / next attack.** The generic square floor is not a universal constant-times-√N floor: even a slowly growing union of translated squares survives. This sharpens the brief's elementary square control, but is not an ES-specific obstruction and gives no new exceptional-set exponent. Next retain the exact truncation term rather than replace the large-sieve denominator by its complete Euler product.
+
+### 2.2 Finite verification
+
+**CERTIFIED.** `scripts/z50_ajastra_toys.py`, `data/z50_ajastra/round1.json`; memory bounded, timeout 180 s. At N=10^6, k=4:
+
+| Q | μ | Δ | maximum conflict load | actual avoiders | (N+Q²)e^{−μ} |
+|---:|---:|---:|---:|---:|---:|
+| 1000 | 4.45816 | 0 | 0.07333 | 13469 | 23167.31 |
+| 2000 | 8.42779 | 0 | 0.07546 | 4164 | 1093.52 |
+| 4000 | 15.38999 | 0 | 0.07257 | 3998 | 3.521 |
+
+Each system contains all 3996 distinct positive translated squares x²+j≤10^6. Thus the last two rows refute the finite C=C₀=1 version too. These toys are not in the asymptotic Q=(log N)^4 regime; the theorem, not the finite rows, supplies that quantification. An independent exhaustive CRT/intersection check covers 225 pairs at moduli 3,5,7 and N=137.
+
+### 2.3 Hostile review
+
+Pending Opus review of Theorem 2.1, Corollary 2.2 and the audit's encoding claims.
 
 ## 3. Round 2: one-big-prime structure
 

@@ -1,0 +1,46 @@
+{
+  "atomic_counts": {
+    "checked_intersections": 225
+  },
+  "translated_squares": [
+    {
+      "N": 1000000,
+      "Q": 1000,
+      "k": 4,
+      "mu": 4.45816005782467,
+      "delta": 0,
+      "max_conflict_load": 0.07332293291731669,
+      "atoms": 3343,
+      "avoiders": 13469,
+      "planted": 3996,
+      "AJ_C1_no_error": 23167.313901750098,
+      "square_floor": 1000.0
+    },
+    {
+      "N": 1000000,
+      "Q": 2000,
+      "k": 4,
+      "mu": 8.427793654809767,
+      "delta": 0,
+      "max_conflict_load": 0.07545533391153512,
+      "atoms": 12538,
+      "avoiders": 4164,
+      "planted": 3996,
+      "AJ_C1_no_error": 1093.5174693179372,
+      "square_floor": 1000.0
+    },
+    {
+      "N": 1000000,
+      "Q": 4000,
+      "k": 4,
+      "mu": 15.389991010447059,
+      "delta": 0,
+      "max_conflict_load": 0.07256126862085535,
+      "atoms": 45876,
+      "avoiders": 3998,
+      "planted": 3996,
+      "AJ_C1_no_error": 3.520957225041046,
+      "square_floor": 1000.0
+    }
+  ]
+}
