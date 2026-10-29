@@ -253,3 +253,72 @@ Eight side agents ran (Claude Fable, GPT-6 Astra, Claude Opus). All merged; ES r
     2 433 600 = 1560². No method gives I3(n) ≥ 1 for large n. This is the cleanest public sub-problem candidate (F4).
   * Remaining gap (Astra): one-sided control of the non-real character remainder at a single p. Neither GRH nor a
     zero-free strip supplies a signed zero correlation at that p.
+
+## 14. Wave z49: rounds 2–3 of the long single-target attempts (2026-10-28/29)
+
+Eight long attempts and six cross-model reviews were run. The attempts were three lanes (forest, I3, lower tail),
+each worked by both Fable and Astra, plus two round-3 follow-ups. Every claim below survived a hostile review by the
+other model family (`reviews/z49-*`). ES remains open. **No lane produced a positive mechanism for a fixed prime.**
+The durable gain is recalibration: one campaign conjecture is refuted, and it is now known exactly which shape a
+witness theorem can have.
+
+* **Calibration (parent session; `data/z49_main/`).**
+  * CERTIFIED: among n ≡ 1 (mod 4), n ≤ 10⁹, the sign-free two-line union U(n) fails exactly at the odd squares and
+    at six non-squares: 105, 2961, 3985, 25305, 111969, 978145. Here U(n) means some v ∈ 4ℤ ∪ (8ℤ − n) has a divisor
+    of n+v that is ≡ −1 (mod v). U holds at every prime p ≡ 1 (mod 4) up to 10⁹.
+  * EVIDENCE: a 10⁹-sample prime-Haar simulation, validated against 2·10⁶ real primes near 10¹², gives
+    −ln P(H₄ ≥ X) ≈ 0.32 (ln X)².
+* **H₄ is not polylogarithmic** (`H4_NOT_POLYLOG.md`, Astra; Opus review SOUND, twice).
+  * PROVED, relative to the internal energy lemma (OMEGA10/11): infinitely many primes p ≡ 1 (mod 840) have no forest
+    edge with larger endpoint in [4, exp((log p)^κ)], and also have A_min(p) > exp((log p)^κ).
+  * The range of κ depends on the analytic input: κ < 1/12 effective (Montgomery–Vaughan I), κ < 1/6 relative to
+    Gallagher's theorem, and κ < 1/6 under GRH.
+  * This **refutes Conjecture H₂** (H₄ ≪ log²p) and the z48 "colour-free gap" with both endpoints polylog. It also
+    shows that Fable's covering form needs moduli beyond every polylog.
+  * Untouched: bounds on a single coordinate (u_min, the least López vertex, HC below, H_(★)). Those events are
+    Landau-type, not congruences.
+* **Conjecture S in the prime-Haar model** (`CONJECTURE_S_MODEL.md`, Opus; Astra review SOUND-AFTER-REPAIRS, minors).
+  * PROVED: −log δ(H) ≥ c(log H)². The proof conditions on small-prime coordinates, then applies an atomic Janson
+    inequality and the fundamental lemma.
+  * Consequence for actual primes: for each fixed large H, the density of primes with H₄(p) > H is
+    ≤ exp(−c log²H). This replaces the (log H)^{−1/2} of FOREST_H4 Thm 3.5.
+  * The matching side, −log δ(H) ≤ C L² polylog (which would be Conjecture S in the model), is CONDITIONAL on a new
+    first-term equidistribution hypothesis FT_β. The bound with L³ is conditional on FT; unconditionally L⁶ log L
+    stands.
+  * Conditional on FT, κ < 1/3 would follow in the theorem above. Heuristically the truth is κ → 1/2.
+* **Conjecture I3, analytic side** (`I3_DEEP_ASTRA.md`, Astra; Opus review SOUND).
+  * PROVED: for the all-integer Haar survival of "no interior word with both endpoints ≤ H", with L = log H,
+    c L²/(log L)² ≤ −log δ₃(H) ≤ C L⁶/log L.
+  * PROVED: integers with no such word for H = exp((log x)^κ), κ ≤ 1/6, exist in every large dyadic range.
+  * PROVED: #{n ≤ N : I3(n) = 0} ≪ N exp(−c(log N)^{2/3}/(log log N)^{1/3}), a Vaughan-type exponent for I3. This is
+    not an ES exceptional-set theorem.
+* **Conjecture I3, local theory** (`I3_DEEP_FABLE.md`, Fable; Astra review SOUND-AFTER-REPAIRS; the reviewer found
+  two extra coverings).
+  * PROVED: the exact (t, u) cell table at squares, the square depletion ½, and the depletion at km².
+  * Explained: 1560² is an even square with 2³·3·5·13 | m. The model's expected number of zeros beyond it is 0.16.
+    Zeros cluster at m², 2m² and highly divisible n.
+  * PROVED, computer-assisted: I3 ≥ 1 on 2^k ± 1, 2^k ± 3, 7·2^k − 1, 5·2^k − 1 and 3·2^k + 1, by
+    Sierpiński-type exponent coverings.
+  * PROVED: the class-free count is ≥ (1/(72 log 2) − o(1)) log²n at every n. So I3 is exactly its restriction to a
+    single class.
+* **Lower tail, reformulation** (`LOWERTAIL_ROUND2_FABLE.md`, Fable; Astra review SOUND-AFTER-REPAIRS).
+  * PROVED, and parent-verified on 136k words: for n ≡ 1 (mod 4), (uv/n) = −1 iff some coordinate t, u, v lies in
+    𝒞_n = 4ℤ ∪ (8ℤ − n). So ES₅ is a character-free covering by six single-coordinate residue lines. This is a
+    packaging of Theorems A/B, not a new mechanism.
+  * PROVED by exact computation: the 160 shape-cell counts satisfy no linear identity beyond u ↔ v.
+  * HC(p), the least 𝒞-coordinate over all words of p:
+    - CERTIFIED: HC(p) ≤ 64 for p ≤ 10⁸;
+    - PROVED: HC(p) = 4 for all but O(x/log²x) primes p ≡ 1 (mod 8);
+    - CONDITIONAL on Dickson: HC is unbounded;
+    - CONJECTURE (candidate): HC(p) ≪ (log p)^A.
+* **Forest inverse problem** (`FOREST_INVERSE.md`, Fable; Astra review SOUND): no mechanism found.
+  * Retained: Theorem E′ (Jacobi form of Theorem E), a complete classification of polynomial words in two free
+    factors, and the result that no fixed modulus has a converse to E′.
+* **Lower tail, analytic** (`LOWERTAIL_ROUND2_ASTRA.md`, Astra; Opus review: correct, but **no new proof step**).
+  * Retained: an all-alphabet zero envelope (a corollary of the sterile-point theorem), sparse-insertion stability
+    (T1 in sequence language), and the second-order H⁻crit threshold.
+* **Exact remaining gap after z49.** For a prime p ≡ 1 (mod 8), some word of p must have a coordinate in 𝒞_p. The
+  witness can be small in one coordinate only; in any two-coordinate or modulus form it must exceed exp((log p)^κ)
+  infinitely often. So a proof must control a Landau-type event at a single integer, such as "p + u has a divisor
+  ≡ −p (mod u) for some small u ∈ 𝒞_p", among growingly many shifts. This is B2 with all character and sign layers
+  removed.
