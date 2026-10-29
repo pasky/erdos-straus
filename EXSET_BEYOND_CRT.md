@@ -296,7 +296,7 @@ elementary lemmas below; ineffective constants).** There are absolute constants 
     #{p ≤ N prime, p ≡ 1 (mod 4) : U(p) fails} ≤ C N exp(−c(log N)^{2/3}),
 
 and hence the same bound holds for #{p ≤ N : ES₅(p) fails} (U(p) ⟹ ES₅(p), §1.3). More generally, with
-`y = B₀(log N)^{2/3}`, the bound holds for #{n ≤ N : n ≡ 1 (4), (n, P_y) = 1, U(n) fails}, and in every interval
+`y = Bt²` as in Lemma 3.6 (so `y ≍ (log N)^{2/3}`), the bound holds for #{n ≤ N : n ≡ 1 (4), (n, P_y) = 1, U(n) fails}, and in every interval
 (x, x+H] with H ≥ 2 in place of [1,N] with N replaced by H (shift-uniformity, as in EXCEPTIONAL_SHORT Thm 1).
 
 By Corollary 2.5 (bounded-B case: the atoms below have modulus kℓ ≤ ℓ^{1+2κ}) no CRT method over word classes
@@ -331,7 +331,7 @@ gcd(ℓ, 4w) = 1 give k ≡ k' (mod 4w), and 4w > 4H > K forces k = k'. (2) CRT 
 So in each fibre `H_X = Σ_ℓ I_ℓ` with independent Bernoulli `I_ℓ`, `P(I_ℓ = 1 | c) = f_c(ℓ)/ℓ`,
 `f_c(ℓ) = #{active atoms at ℓ}`, exactly as in the note.
 
-**Lemma 3.3 (one-variable lattice sums; PROVED).** For k ≤ K, (a,k) = 1, d | K²-bounded with (a,d) = 1,
+**Lemma 3.3 (one-variable lattice sums; PROVED).** For k ≤ K with (a,k) = 1, and every d ≤ K² with (a,d) = 1,
 Λ = log(z/H), z ≥ H²:
 (a) `Σ_{H<w≤z, w≡a (k)} 1/w = Λ/k + O(1/H)`;
 (b) `Σ_{H<w≤z, w≡a (d)} 1/φ(4w) ≤ C Λ/d` for every d ≤ K².
@@ -371,8 +371,9 @@ note's Cor 4.3: an active atom has k | c + 4w with (w,k) = 1, so (c,k) = 1. ∎
 `y = Bt²`, B ≥ B₀: `P(H_X = 0 | S_y = 1) ≤ e^{−c_v t²}`.
 *Proof.* (a) verbatim note Thm 5.1. (b) Note Lemma 6.1 with h replaced by g and `t³` by `t²`: `Σ_{k≤K, p|k}1/k ≤
 (1+log K)/p` gives `g(J_c) ≥ (a₀ − 2Z(c))log K`, `Z(c) = Σ_{y<p≤K, p|L_K, p|c}1/p`; `E(e^{yZ} | S_y = 1) ≤ e⁴`, so
-`P(Z > a₀/4 | S_y=1) ≤ e^{4 − a₀Bt²/4}`; on `Z ≤ a₀/4`, `μ_c ≥ a t·(a₀κ/2)t`. Take B₀ = 8a a₀κ/a₀ … i.e. B₀ with
-`a₀B₀/4 ≥ 2a_v`, `a_v = a a₀ κ/2`. ∎
+`P(Z > a₀/4 | S_y=1) ≤ e^{4 − a₀Bt²/4}`; on `Z ≤ a₀/4` (no prime ≤ y divides c on S_y = 1), `g(J_c) ≥ (a₀/2)log K`, so
+`μ_c ≥ a_v t²` with `a_v = a a₀ κ/3` for large X. Take `B₀ = 8a_v/a₀ + 1`: then `P(Z > a₀/4 | S_y = 1) ≤ e^{4−2a_v t²}`
+and `P(H_X = 0 | S_y = 1) ≤ e^{−a_v t²} + e^{4−2a_v t²} ≤ e^{−a_v t²/2}`; `c_v = a_v/2`. ∎
 
 **Theorem 3.7 (assembly; PROVED).** `ν = S_y·Q_r(H_X)`, r the least even integer ≥ D_B t², satisfies ν ≥ 0,
 ν ≥ 1 on every n coprime to P_y in no atom class, `Eν ≤ e^{−c_a t²}`, and
