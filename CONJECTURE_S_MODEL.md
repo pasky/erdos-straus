@@ -314,6 +314,179 @@ The independent scripts are `scripts/z49_sexp_janson_check.py` and `scripts/z49_
   * This is the uniformity mechanism of Lemma 2.2/2.3. The asymptotic parameters (Y = L⁹, S₀ = H^{1/400}) cannot be
     reached numerically.
 
-## 3. Lower bound on survival — see below
+## 3. Lower bound on survival: non-adaptive class of one
+
+The aim is to replace the adaptive quarantine of H4_NOT_POLYLOG Lemma 4, with its cost log Q ≪ ℒ²S♯ and S♯ ≍ L³–L⁴,
+by a **fixed** class of one whose cost is ≈ Y. Large primes are never conditioned, so the only inflation is
+Y-smooth. The price is that the local lemma must hold **pointwise** at every free coordinate.
+
+### 3.1 The conditioning and its exact probabilities
+
+For Y ≥ 9 and each prime ℓ ≤ Y, let ℓ^{k_ℓ} be the largest power of ℓ below Y. Raise k₂ to at least 3 and k₃ to at
+least 1. Put
+
+    Q = Q(Y) = ∏_{ℓ≤Y} ℓ^{k_ℓ},       log Q ≤ π(Y) log Y + 3 = (1+o(1)) Y.
+
+Condition on n ≡ 1 (mod Q). This costs φ(24)/φ(Q) relative to n ≡ 1 (24). The free coordinates c are:
+
+* X_ℓ for each prime ℓ > Y, with modulus m_c = ℓ;
+* for each ℓ ≤ Y, the block of digits of n beyond ℓ^{k_ℓ}, with modulus m_c = ℓ^{k_ℓ+1} ≥ Y.
+
+So every free coordinate has m_c ≥ Y.
+
+**Lemma 3.1 (PROVED; exact form).** Let a < v be coprime, and write A = gcd(a,Q), B = gcd(v,Q), and
+φ_Q(m) := φ(m)/φ(gcd(m,Q)).
+
+* E_{a,v} is compatible with n ≡ 1 (Q) iff A | v+1 and B | a+1 ("live").
+* If live, P_Q(E_{a,v}) = 1/(φ_Q(a)φ_Q(v)) ≤ (C log L)² AB/(av).
+* Its support is the set of coordinates c with m_c | av, which is nonempty unless (a,v) ∈ {(1,2),(2,3)}. These two
+  edges are not certificates.
+
+*Proof.* By CRT, n ≡ −a (mod v) and n ≡ −v (mod a) are independent. Given n ≡ 1 (mod B), the first holds with
+conditional probability [B | a+1]·φ(B)/φ(v), and similarly for the second. Use m/φ(m) ≪ log log m. The last claim
+is H4_NOT_POLYLOG Lemma 2, since an empty support means av | Q and av | 1+a+v. ∎
+
+### 3.2 Residual mass (PROVED)
+
+**Lemma 3.2.** S(Y) := Σ_{live E} P_Q(E) ≪ (log L)² L² log Y.
+
+*Proof.* This is the I3 Lemma 8.2 argument. Fix a. For each B | gcd(a+1, Q), the live v satisfy v ≡ 0 (B) and
+v ≡ −1 (A). That is one class mod m = AB, and m | a+v+1.
+
+The first member v_* > a therefore satisfies m ≤ a + v_* + 1 ≤ 2v_*. So
+
+    m Σ_v 1/v ≤ m/v_* + log(H/a) ≤ 2 + L.
+
+Hence Σ_v AB/(av) ≤ (2+L)τ_Q(a+1)/a, where τ_Q(n) := #{d | n : d | Q}. Finally
+
+    Σ_{a≤H} τ_Q(a+1)/a ≤ Σ_{B Y-smooth} Σ_{a≡−1 (B)} 1/a ≪ L log Y,
+
+since a ≡ −1 (B) forces a ≥ B−1. ∎
+
+### 3.3 Loads from the smaller endpoint (PROVED relative to Shiu's theorem)
+
+For a coordinate c with modulus q = m_c, write w_c = w_c^{(a)} + w_c^{(v)}. The first part sums P_Q(E) over live E
+with q | a. The second sums over live E with q | v.
+
+**Lemma 3.3.** Uniformly in c,
+
+    w_c^{(a)} ≪ (log L)² L² log Y / q + q^{−1/2}.
+
+*Proof.* Write a = qx. The argument of Lemma 3.2 (sum over v first) gives
+
+    w_c^{(a)} ≤ (C log L)² (2+L) q^{−1} T(q),       T(q) := Σ_{x≤H/q} τ_Q(qx+1)/x.
+
+Apply Shiu's Brun–Titchmarsh theorem for multiplicative functions (P. Shiu, *J. reine angew. Math.* 313 (1980),
+161–170, Theorem 1) to F = τ_Q. This F satisfies F(p^j) ≤ j+1 and F(n) ≪_ε n^ε, with F(p) = 2 for p ≤ Y and 1
+otherwise. The implied constant depends only on these bounds.
+
+On n ≡ 1 (mod q), with n in dyadic blocks (qX'/2, qX'+1] and X' > 2q, Shiu gives
+
+    Σ τ_Q(n) ≪ (X'q/φ(q))(log x)^{−1} exp(Σ_{p≤x} F(p)/p) ≪ X'(log Y)²(log x/log Y)/log x = X' log Y.
+
+Blocks with X' ≤ 2q have n ≤ 2q²+1 and contribute ≪_ε q^{3ε}. If q > √H, every x is in such a block, and
+τ_Q(n) ≪ H^ε ≤ q^{2ε}. Combine. ∎
+
+### 3.4 Loads from the larger endpoint: the one unproved input
+
+The same calculation for q | v sums first over v with a fixed. Now v ≡ 0 (mod lcm(B,q)) and v ≡ −1 (A). In terms
+of s = a+v+1 this is s ≡ 0 (AB) and s ≡ a+1 (lcm(B,q)), a class modulo AB·p_c, where p_c is the prime of c. When
+q = ℓ^{k+1} is a prime power, also ℓ^k | B | a+1. The harmonic sum over this class splits into two parts.
+
+* The **long part** is ≪ L/(ABp_c) times AB. Summed over a and B it gives ≪ (log L)² L² log Y/q. For prime powers
+  this uses Σ_{a ≡ −1 (ℓ^k)} τ_Q(a+1)/a ≪ k L log Y/ℓ^k.
+* The **first term** is AB/s_*, where s_* = s_*(a,B;q) is the least s in the class with s ≥ a+q+1.
+
+So, PROVED,
+
+    w_c^{(v)} ≪ (log L)² [L² log Y/q + FT(q)],      FT(q) := Σ_{a≤H} a^{−1} Σ_{B | gcd(a+1,Q)} AB/s_*(a,B;q).
+
+**Hypothesis FT(Y).** For every free coordinate c of Q(Y), with q = m_c,
+
+    FT(q) ≤ L² (log L)^{C₀}/q + q^{−1/2}.
+
+*What FT says.* For fixed (a,B), the class of s modulo p_c is determined by a, B and q. The term AB/s_* is large only
+when that class happens to have a small representative above the cutoff. FT asserts that this coincidence is rare
+**at every single prime**. It is an equidistribution statement for the residues (a+1)(AB)^{−1} mod ℓ, pointwise in
+ℓ. This is the same "first-term" obstruction as in POINTWISE_OMEGA11 §4 and the LPL hypothesis of
+POINTWISE_OMEGA13 §1, now in its simplest instance.
+
+The known extreme case is benign. The events (d, ℓ) with d | ℓ+1 and d smooth contribute τ_Q(ℓ+1)/(ℓ−1), which is
+ℓ^{−1+o(1)}. This is exactly what the data show at ℓ = 5039, 10079, 55439, 92399 (§3.7). FT allows such terms.
+
+### 3.5 Exponent 3 + o(1) from FT
+
+**Theorem 3.4 (CONDITIONAL on FT(Y) with Y = L³(log L)^{C}, C = C(C₀)).**
+
+    −log δ(H) ≤ C' L³ (log L)^{C}.
+
+*Proof.* Take x_E = 2P_Q(E) in the asymmetric local lemma, with the dependency graph "shares a free coordinate".
+
+Lemmas 3.3–3.4 and FT give w_c ≤ log m_c/(16L) for every coordinate, since m_c ≥ Y. Every live E has
+Σ_{c∈supp E} log m_c ≤ log(av) ≤ 2L. Hence the neighbourhood x-mass is ≤ Σ_{c∈supp E} 2w_c ≤ 1/4. Each x_E ≤ 1/4,
+so ∏_{E'∼E}(1−x_{E'}) ≥ e^{−1/3} > 1/2 and P(E) ≤ x_E∏(1−x_{E'}).
+
+The asymmetric LLL, as in the last paragraph of H4_NOT_POLYLOG Lemma 4, gives
+
+    P(no event | Q) ≥ exp(−3S(Y)).
+
+Then
+
+    −log δ(H) ≤ log φ(Q) − log 8 + 3S(Y) ≤ (1+o(1))Y + O((log L)² L² log L).
+
+Since all edges are avoided, all certificates are avoided. ∎
+
+This improves the exponent 6 of H4_NOT_POLYLOG (19), and of I3 Thm 8.3, to 3. It is conditional only on FT. The
+remaining extra L comes from the log-weighted threshold, which forces m_c ≳ L·(load·m_c) ≈ L³.
+
+### 3.6 Exponent 2 + o(1): what the β-weighted local lemma needs
+
+POINTWISE_OMEGA13 Lemma 1.1 replaces the log-weighted threshold by a constant per-coordinate threshold
+η = (3/4)log β. The weights are x_E = β^{s(E)}P(E), with s(E) = |supp E| and β = 1 + 1/log L, so η ≍ 1/log L. A
+coordinate then only needs w̃_c := Σ_{E∋c} β^{s(E)}P_Q(E) ≤ η. Under a load bound of the shape of Lemma 3.3, this
+holds once m_c ≥ L²(log L)^{C}.
+
+**Hypothesis FT_β(Y).** For Y = L²(log L)^{C}:
+
+* w̃_c ≤ L²(log L)^{C₀}/m_c + m_c^{−1/2} for every free coordinate c;
+* S_β(Y) := Σ_E β^{s(E)}P_Q(E) ≤ L²(log L)^{C₀}.
+
+**Theorem 3.5 (CONDITIONAL on FT_β(Y)).**
+
+    −log δ(H) ≤ log φ(Q) + (4/3)S_β(Y) ≤ C L²(log L)^{C}.
+
+Together with Theorem 2.1, this gives −log δ(H) = L^{2+o(1)}. That is **Conjecture S in the prime-Haar model,
+CONDITIONAL on FT_β**.
+
+*Why FT_β is more than FT.* The weight β^{s(E)} factors as β^{ω(a'')}β^{ω(v'')} over the free parts. In Lemmas
+3.2–3.3 the variable summed through s = a+v+1 is v. A multiplicative weight on v then appears at a shifted argument
+β^{ω(s−a−1)}, and its pointwise size can be exp(L/(log L)²). On average it costs only e^{O(1)}, since
+Σ_n β^{ω(n)}/n ≈ L^{β}. A proof would need a Shiu/Nair–Tenenbaum bound for the pair (n, n−a−1) in a progression,
+uniform in the shift. That is standard in form but not supplied here, so S_β is included in the hypothesis.
+
+### 3.7 Evidence for FT and FT_β (EVIDENCE, finite H)
+
+`scripts/z49_sexp_loads.c` uses full class-of-one powers; `scripts/z49_sexp_lllcheck.c` uses the exact Q(Y) of
+§3.1. Both enumerate **all** live coprime edges with v ≤ H, which is an upper bound for the certificate subfamily.
+Output is in `data/z49_sexp/loads.txt` and `lllcheck.txt`.
+
+* **Loads.** Uniformly over all primes ℓ > Y, and over the residual-digit coordinates:
+  * max_c m_c·w_c^{(a)}/L² ≤ 0.23;
+  * max_c m_c·w_c^{(v)}/L² ≤ 1.11.
+
+  The v-side maxima sit at ℓ with ℓ+1 highly composite (18899, 65519, 92399). These are the benign τ(ℓ+1) terms of
+  §3.4. Dyadic bulk values of ℓ·V(ℓ) are flat in ℓ, at ≈ 0.9–1.6 L².
+* **Non-adaptive LLL verified at finite H.** At H = 10⁵ and Y = 1500 (≈ L³), max_E Σ_{c∈supp E} 2w_c = 0.239 ≤ 1/4,
+  with log Q = 1509 and S = 19.6. That is a finite instance of Theorem 3.4's local-lemma condition, holding for
+  every live event. At Y = 600 (≈ 4.5L²), the β-weighted per-coordinate condition holds:
+  max_c w̃_c = 0.219 ≤ η = 0.257, with S_β = 40.5. At Y ≈ L² (130) both fail (5.05 and 1.20). This matches the
+  predicted thresholds Y ≍ L³ and Y ≍ L²·polylog.
+* **Mass.** S(Y)/L² ≈ 0.15–0.33, decreasing in Y. This is consistent with Lemma 3.2 (the log Y factor is an upper
+  bound; heavier conditioning removes events).
+
+**Assessment.** At these sizes every hypothesis is numerically comfortable. FT is an arithmetic equidistribution
+statement of a kind that is usually true, but it is not proved here, and pointwise-in-ℓ bounds of this type have
+resisted earlier waves (OMEGA11 §4, OMEGA13 LPL). The **unconditional** lower bound remains H4_NOT_POLYLOG's
+exp(−C L⁶ log L), or exp(−C L⁶/log L) with the I3 §8.3 refinement.
 
 ## 4. Reality check against the simulation — see below

@@ -1,0 +1,20 @@
+H=20000 Y=100 L=9.90 logQ=94.0  S=30.036 (S/L^2=0.306)  S_beta=47.408
+  primes l>Y: max l*w_a/L^2=0.200 (l=107)  max l*w_v/L^2=0.899 (l=18899)  max beta-load=1.0985 (l=103) [eta=0.2715]
+  residual digits l<=Y: max m*w_a/L^2=0.156 (l=5)  max m*w_v/L^2=0.102 (l=29)  max beta-load=0.4042 (l=5)
+  LLL (x=2P): max_E sum_{c in supp E} 2 w_c = 4.7354 at (a,v)=(11009,11021)  [need <= 1/4 for H4 Lemma 4 form]
+H=20000 Y=400 L=9.90 logQ=397.8  S=17.610 (S/L^2=0.180)  S_beta=26.243
+  primes l>Y: max l*w_a/L^2=0.095 (l=479)  max l*w_v/L^2=0.769 (l=18899)  max beta-load=0.2453 (l=419) [eta=0.2715]
+  residual digits l<=Y: max m*w_a/L^2=0.051 (l=2)  max m*w_v/L^2=0.044 (l=97)  max beta-load=0.0309 (l=23)
+  LLL (x=2P): max_E sum_{c in supp E} 2 w_c = 0.6240 at (a,v)=(419,479)  [need <= 1/4 for H4 Lemma 4 form]
+H=100000 Y=130 L=11.51 logQ=126.9  S=43.815 (S/L^2=0.331)  S_beta=68.930
+  primes l>Y: max l*w_a/L^2=0.226 (l=139)  max l*w_v/L^2=1.111 (l=65519)  max beta-load=1.2037 (l=131) [eta=0.2573]
+  residual digits l<=Y: max m*w_a/L^2=0.181 (l=13)  max m*w_v/L^2=0.124 (l=47)  max beta-load=0.4880 (l=13)
+  LLL (x=2P): max_E sum_{c in supp E} 2 w_c = 5.0516 at (a,v)=(20413,36418)  [need <= 1/4 for H4 Lemma 4 form]
+H=100000 Y=600 L=11.51 logQ=593.9  S=27.374 (S/L^2=0.207)  S_beta=40.467
+  primes l>Y: max l*w_a/L^2=0.120 (l=839)  max l*w_v/L^2=0.974 (l=92399)  max beta-load=0.2194 (l=719) [eta=0.2573]
+  residual digits l<=Y: max m*w_a/L^2=0.075 (l=5)  max m*w_v/L^2=0.053 (l=97)  max beta-load=0.0489 (l=5)
+  LLL (x=2P): max_E sum_{c in supp E} 2 w_c = 0.5625 at (a,v)=(659,719)  [need <= 1/4 for H4 Lemma 4 form]
+H=100000 Y=1500 L=11.51 logQ=1509.3  S=19.586 (S/L^2=0.148)  S_beta=28.374
+  primes l>Y: max l*w_a/L^2=0.072 (l=1979)  max l*w_v/L^2=0.935 (l=92399)  max beta-load=0.0912 (l=1511) [eta=0.2573]
+  residual digits l<=Y: max m*w_a/L^2=0.044 (l=43)  max m*w_v/L^2=0.041 (l=97)  max beta-load=0.0108 (l=41)
+  LLL (x=2P): max_E sum_{c in supp E} 2 w_c = 0.2390 at (a,v)=(1511,1559)  [need <= 1/4 for H4 Lemma 4 form]
