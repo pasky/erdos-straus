@@ -15,7 +15,21 @@ Labels: PROVED (internal proof), CONDITIONAL (explicit hypothesis), CERTIFIED (f
 
 ## 1. Definitions, scope, and source audit
 
-Pending. Required context: z48, z49, z50, z51 CONTEXT; z51 binds. Target T1-cond; prime-modulus U family, with squares removed. Distinguish this sieve from the complete U certificate family.
+**Scope audit (PROVED definitions; no advance claimed).** Write I_N={1≤n≤N:n≡1 (8)}, S=4ℕ∪(8ℕ+7), and
+
+    F_l={−u mod l : u|(l+1), u∈S},  p_l=|F_l|/l,
+    V(z)=∏_{3≤l≤z, l prime}(1−p_l),
+    A_z(N)={n∈I_N : n mod l∉F_l for every l≤z}.
+
+This is the **direct-endpoint family** actually computed by `scripts/z50_ajopus_chain.c`, and the one with empirical mass slope C_V≈0.74 in z51 CONTEXT. RLD-U here means |A_{N^{1/s}}(N)∖□|≤C_s |I_N| V(N^{1/s}) for fixed s>1. We do not require the additional C_s→1 assertion to discuss T1-cond.
+
+The broader prime-word family in `EXSET_SIEVE_MASS.md` Prop. 2.3 also allows the *other* endpoint v=(n+u)/l to lie in S. It is different: at l=13 the direct set is {6}, while u=2 gives v≡7 (8), hence adds residue 11 to the broader set. Its reported slope ≈1.07 must not be substituted for 0.74. The bound for one family does not automatically imply the corresponding product-normalised bound for the other. Both have cumulative mass Θ(log z) by the same BV/Brun–Titchmarsh argument, keeping the 4ℕ line for the lower bound.
+
+Every direct class is a nonzero quadratic nonresidue modulo l (Theorem E/reciprocity), so all odd squares survive. Class labels are distinct: divisors of l+1 lie in [1,l+1], and the only potential collision is {1,l+1}; 1∉S. The proper-divisor exclusion in the census causes no change on I_N: l=n+u would imply n≡−u (8); for u∈S this is incompatible with l≡−1 (u). Explicitly, u=0 (4) gives l=3 (4) but n+u=1 (4); u=7 (8) gives l=n+u=0 (8). Thus a hit always supplies the proper prime divisor on this fibre.
+
+**Inputs used, not re-proved:** z48–z51 CONTEXT (z51 binds); FRONTIER §§2–4,6–7; BREADTH_Z45 through §15; PR-B index/arithmetic/covers; OAI_DUMP_IMPACT; z48 forest/lower-tail summaries; DISCOVERIES (D)17–31; EXSET_SIEVE_MASS §2; EXSET_ARITH_JANSON_OPUS §§5.5–6. Quasi-RH, if discussed, remains CONDITIONAL on OAI-003. No claim concerns a proof or disproof of ES.
+
+**Research plan after audit.** Test standard named inputs before inventing a new one. Three distinct statements must not be conflated: (a) a prime-tuple upper bound; (b) total-variation approximation of factor/hit vectors; (c) a one-sided estimate only for the all-zero event. Only (c) is RLD-U. We will also test necessary conditions for the reverse inclusion from prime tuples into A_z(N).
 
 ## 2. Round 1 — literature and independent G1 derivation
 
