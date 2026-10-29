@@ -1,0 +1,8 @@
+D=100 survivors(n>1)=23514  occ mod 101 = 101  occ mod 1009 = 1009
+D=1000 survivors(n>1)=2319  occ mod 101 = 77  occ mod 1009 = 544
+D=10000 survivors(n>1)=2241  occ mod 101 = 55  occ mod 1009 = 508
+D=100000 survivors(n>1)=2241  occ mod 101 = 55  occ mod 1009 = 508
+D=1000000 survivors(n>1)=2241  occ mod 101 = 55  occ mod 1009 = 508
+D=10000000 survivors(n>1)=2241  occ mod 101 = 55  occ mod 1009 = 508
+D=20000000 survivors(n>1)=2241  occ mod 101 = 55  occ mod 1009 = 508
+non-square survivors: 105 2961 3985 25305 111969 978145
