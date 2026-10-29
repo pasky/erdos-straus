@@ -19,13 +19,13 @@
         3,
         5
       ],
-      "E": 3,
-      "B": 16,
+      "E": 6,
+      "B": 49,
       "primes": 1127,
-      "good": 1127,
-      "bad": 0,
-      "pair_collision_count": 0,
-      "overflow": 139
+      "good": 1123,
+      "bad": 4,
+      "pair_collision_count": 30,
+      "overflow": 178
     },
     {
       "S": [

@@ -9,7 +9,7 @@ This lane follows z48–z51 CONTEXT, with z51 binding. No merge without parent a
 |---|---|---|---|
 | 1 | Quadratic large sieve: cap log^A X, exceptional exponent 1/A, A>1 | PROVED (known analytic technique, new cap application) | SOUND; minors repaired |
 | 2 | Weighted squareclass endpoint; full fixed-window sharpness | PROVED; infinitude uses Dickson | SOUND; scope/terminology repaired |
-| 3 | Restricted-window / restricted-mute relaxations | PENDING | PENDING |
+| 3 | Cap (log log X)^{1+ε}, common small mute support, power saving | PROVED relative to Gallagher + arithmetic large sieve | SOUND; minors repaired |
 | 4 | Prime census through 10⁸ and independent controls | PENDING | PENDING |
 
 ## 1. Definitions, inherited facts, and non-CRT input
@@ -224,7 +224,8 @@ there is no conflict with z50's CRT barrier for ES.
 ### Lemma 4.1 — a collision-free exponent box at many primes (PROVED relative to G)
 
 Let k≥1 and E≥1, let P₀ be the product of the first k+1 odd primes, and B=(E+1)^k.
-There is an absolute sufficiently large integer D such that, with
+Fix an absolute sufficiently large integer D (including D≥1/b for Gallagher's range).
+For parameters with P₀ sufficiently large and log(4P₀)≥√log(2T), where
 
     T=⌈[4P₀ B²(E+1) log(4P₀)]^D⌉,                           (4.1)
 
@@ -236,9 +237,10 @@ primes ℓ∈(T,2T], ℓ≡−1 (4P), have the B numbers
 
     Q_a² mod ℓ,  Q_a=∏_{s|P}s^{a_s},  0≤a_s≤E,
 
-pairwise distinct. This is asserted for the growing parameters below; finitely many
-small parameter cases can instead use fixed-modulus PNT and a larger constant T.
-The required range is log(4P₀)≥√log(2T), which those growing parameters satisfy.
+pairwise distinct. The growing parameters in Theorem 4.2 satisfy these hypotheses.
+No uniform statement for fixed k and arbitrarily large E is asserted by this lemma.
+Here T is the prime scale, and Q_G=4P₀ is the modulus cutoff (called T in the inherited
+statement of G); Gallagher's exceptional zero is defined relative to Q_G.
 
 **Proof.** Use the Gallagher input (G) recorded and source-audited in
 CAP_INTERPOLATION §1, at x=T, modulus cutoff 4P₀. It gives relative PNT in this
@@ -259,7 +261,8 @@ By (4.1), this is o(T/[φ(4P)log T]) in the growing regime (and can be made less
 half the main term by enlarging the absolute constant). Subtract them to get (4.2). ∎
 
 **Certificate check (inherited dictionary).** Each of these B distinct classes
-p≡−4Q_a² (ℓ) certifies cap ≤E, with all denominator primes among the k primes of P.
+p≡−4Q_a² (ℓ) certifies cap max_s(0,a_s−v_s(A_ℓ))≤E−1, hence certainly ≤E, with all denominator
+primes among the k primes of P.
 Indeed write A_ℓ=(ℓ+1)/4, D_a=Q_a², V=(p+4D_a)/ℓ, and
 
     x=(p+V)/4,  y=pA_ℓ,  z=pxA_ℓ/D_a.                        (4.3)
@@ -344,6 +347,15 @@ k log(E+1)=O(λ), log B−log P=o(λ) (or negative) in the useful k range, so th
 parameters cannot reach E=λ or bounded E with fixed power saving. This is bookkeeping
 for this construction, not a theorem that the full untruncated class sieve stops there.
 Joint character confinement is not needed for (4.4), so §3.1 does not contradict it.
+
+**Round-3 Opus verdict: SOUND.** The reviewer checked Gallagher's primary theorem OCR
+(`data/r237/gallagher1970_thm7_ocr.txt`), the omission order, all asymptotic exponents,
+and the exact dictionary. Quantifier and notation minors are repaired above. Its
+independent checks rebuilt 3000 certificates (D/ℓ up to 9·10³⁷), found five genuine
+collision primes, checked a toy Montgomery bound and tested parameter convergence.
+The latter is slow: no practical numerical threshold for (4.4) is claimed.
+Session: `2026-10-29T22-53-41-000Z_01a189de-7908-70d6-863f-0be64ee208ec.jsonl`.
+Our retained test now includes actual collisions, rather than only collision-free rows.
 
 ## 5. Computation and controls
 

@@ -12,7 +12,7 @@ def main():
     prime_set = set(ps)
     checks = 0
     rows = []
-    for S, E in [([3], 4), ([3, 5], 3), ([3, 5, 7], 2)]:
+    for S, E in [([3], 4), ([3, 5], 6), ([3, 5, 7], 2)]:
         P = prod(S)
         qs = [prod(s**a for s, a in zip(S, aa))
               for aa in product(range(E+1), repeat=len(S))]
@@ -57,6 +57,7 @@ def main():
         assert bad <= pair_counts
         rows.append(dict(S=S, E=E, B=B, primes=len(ell_list), good=good,
                          bad=bad, pair_collision_count=pair_counts, overflow=overflow))
+    assert any(row['bad'] > 0 for row in rows), 'collision checks must not be vacuous'
     # Actual Montgomery bound with an exactly summed denominator, toy scale.
     X, Qlevel, E = 2000, 44, 2
     ell_list = [ell for ell in ps if ell <= Qlevel and ell % 12 == 11]
