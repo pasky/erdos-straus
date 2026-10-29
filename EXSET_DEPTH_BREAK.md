@@ -381,13 +381,18 @@ Non-squares n ∈ I, top band ℓ > √(2N):
 | 10⁷ | 3.534 | 0.03844 | 0.02919 | 1.32 | 0.0841 |
 | 10⁸ | 4.251 | 0.01975 | 0.01425 | 1.39 | 0.0461 |
 | 10⁹ | 4.989 | 0.00981 | 0.00681 | 1.44 | 0.0236 |
+| 2·10⁹ | 5.209 | 0.00795 | 0.00547 | 1.45 | 0.0193 |
+| 4·10⁹ | 5.429 | 0.00644 | 0.00439 | 1.47 | 0.0158 |
 
-log P(X_top = 0) falls with slope −0.297 in log N, so the top band alone already shows N^{−0.30} (EVIDENCE for TB_pow,
-three decades). The ratio to the Poisson value grows slowly (log ratio 0.28, 0.33, 0.36): mild positive dependence,
-consistent with the quadratic-profile mechanism (squares and near-squares are QR-rich; z50 lane D). The histogram of
-X_top is close to Poisson at every N (§6). Conditioning on the small layer (ℓ ≤ √(2N)) lowers E X_top (4.99 → 4.20 at
-N = 10⁹) and raises P(X_top = 0) by a factor 2.4: the layers are positively dependent, which is why Lemma 3.2 (no
-conditioning) is the right way to use them.
+log P(X_top = 0) falls with slope −0.30 in log N (−0.297 over 10⁷–10⁹, −0.304 over 10⁹–4·10⁹), so the top band alone
+already shows N^{−0.30} (EVIDENCE for TB_pow, 2.6 decades). The ratio to the Poisson value grows slowly and
+decelerates (log ratio 0.28, 0.33, 0.36, 0.37, 0.38; increments per decade 0.051, 0.038, 0.032): mild positive
+dependence, consistent with the quadratic-profile mechanism (squares and near-squares are QR-rich; z50 lane D). The
+histogram of X_top is close to Poisson at every N (§6). Conditioning on the small layer (ℓ ≤ √(2N)) lowers E X_top
+(4.99 → 4.20 at N = 10⁹) and raises P(X_top = 0) by a factor 2.4: the layers are positively dependent, which is why
+Lemma 3.2 (no conditioning) is the right way to use them. For the record, the whole 4ℤ-line family leaves 23 727 and
+31 612 non-squares at N = 2·10⁹ and 4·10⁹ (squares: 22 360 and 31 622), so at 4·10⁹ the non-square avoiders are as
+many as the squares.
 
 ## 4. Approach 3: anatomy and the bilinear (e, m) incidence
 
