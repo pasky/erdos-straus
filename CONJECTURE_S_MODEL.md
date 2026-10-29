@@ -489,4 +489,82 @@ statement of a kind that is usually true, but it is not proved here, and pointwi
 resisted earlier waves (OMEGA11 §4, OMEGA13 LPL). The **unconditional** lower bound remains H4_NOT_POLYLOG's
 exp(−C L⁶ log L), or exp(−C L⁶/log L) with the I3 §8.3 refinement.
 
-## 4. Reality check against the simulation — see below
+## 4. Reality check against the simulation
+
+The parent's 10⁹-sample run (`data/z49_main/h4_crt_survival.txt`) measures P(H₄ ≥ X) = δ(X−1). The table below
+puts it next to the exact model first moment E N_H. `scripts/z49_sexp_firstmoment.c` computes E N_H with the
+Jacobi rule (`data/z49_sexp/firstmoment.txt`). It reproduces FOREST_H4's exact-CRT values at H = 8 and 16
+(1.208333, 2.723611), which were obtained by an independent slot-test enumeration.
+
+| H = X−1 | −ln δ(H) (sim.) | E N_H (exact) | −ln δ / E N_H | −ln δ/(ln H)² |
+|---:|---:|---:|---:|---:|
+| 15 | 2.00 | 2.640 | 0.76 | 0.27 |
+| 31 | 3.54 | 4.840 | 0.73 | 0.30 |
+| 63 | 5.06 | 7.657 | 0.66 | 0.29 |
+| 127 | 7.14 | 10.901 | 0.655 | 0.30 |
+| 255 | 9.52 | 14.769 | 0.645 | 0.31 |
+| 511 | 12.30 | 19.147 | 0.642 | 0.32 |
+| 1023 | 15.42 | 24.089 | 0.640 | 0.32 |
+
+**EVIDENCE / Assessment.**
+
+1. The survival exponent tracks the first moment with a **stable ratio ≈ 0.64**, and E N_H/(ln H)² rises slowly
+   (0.36 → 0.52 by H = 16383). This is the picture −log δ ≍ E N_H ≍ L² that Theorems 2.1 and 3.5 bracket. It is
+   "sub-Poisson" by a constant factor: positive dependence between events sharing small primes makes survival
+   e^{0.36 μ} times likelier than independence would.
+2. The proven constant in Theorem 2.1 is far smaller than 0.64 E N_H. Only a separated sub-box is used. Within it
+   the Janson bound is asymptotically Poisson (Δ = o(1)). So the true loss is the restriction to the box, not
+   dependence.
+3. The conditional upper bounds of §3 are wasteful by large constants and polylogs. At H = 10⁵ the finite LLL
+   certificate of §3.7 gives −ln δ ≤ 1509 + 3·19.6 ≈ 1568, while extrapolation gives ≈ 42. The class of one is a
+   costly survival strategy. Typical survivors do not condition at all; they are the sub-Poisson fluctuation of
+   item 1.
+4. The local exponent 2.2 of ln X in the simulation is compatible with L² times a slowly varying factor, e.g. the
+   rising E N_H/L². It does not suggest exponent 3.
+
+**What the model does and does not say about actual primes (Assessment).**
+
+* PROVED (FOREST_H4 Prop 5.1): for each fixed H, δ(H) is the exact density of primes p ≡ 1 (24) with no
+  certificate edge below H. Theorem 2.1 is therefore a statement about actual primes: for every fixed large H,
+  the density of primes with H₄(p) > H is ≤ exp(−c log²H).
+* What does **not** follow is any statement with H growing with p. That is a uniformity question about primes in
+  progressions to modulus ≈ e^{O(H)}. The transfer of lower bounds needs the energy/BRW machinery (§5). Upper
+  bounds on the frequency of large H₄ at growing H would need an upper-bound sieve for the class of p modulo
+  lcm(1..H). That is far beyond present technology at the needed uniformity.
+* The predicted extreme law, log max_{p≤x} H₄(p) ≍ (log x)^{1/2}, needs both directions uniformly in H ≈
+  exp((log x)^{1/2}). Even a full proof of Conjecture S in the model would not prove it.
+
+## 5. Transfer to primes (stretch goal)
+
+H4_NOT_POLYLOG Lemmas 5–7b turn a Haar lower bound into primes p ≡ 1 (mod Q) avoiding all events. The input is a
+graded-LLL output (Q, S) with:
+
+* log Q ≪ the Haar exponent;
+* coordinate loads ≤ c = 1/64;
+* 840 | Q.
+
+The cost is log p ≪ log Q + log D + log T (Lemma 7b, relative to (G)), with log D + log(2+K) ≪ ℒ(S+ℒ) (Lemma 5).
+
+**Corollary 5.1 (CONDITIONAL on FT(Y), Y = L³(log L)^C; relative to (G) and the internal energy lemma, as in
+H4_NOT_POLYLOG).** For every κ < 1/3 there are infinitely many primes p ≡ 1 (mod 840) with no edge
+{a,v} ≠ {1,2},{2,3} with 4 ≤ v ≤ exp((log p)^κ). In particular H₄(p) > exp((log p)^κ). Via the ordinary-PNT
+route (Lemma 7) the exponent is κ < 1/6. Under GRH it is κ < 1/3 without (G).
+
+*Proof sketch, interface check.*
+
+* Use Q = Q(Y) of §3.1. It is divisible by 840, since Y > 7.
+* Shrink the constant in FT/Lemma 3.3 so that Σ_{c∈supp E} w_c ≤ 1/64 for every E. Then (7) of H4_NOT_POLYLOG
+  holds, with the coordinates c in place of its digits. Coordinates are again independent prime-power digit blocks.
+  The energy lemma is prime-agnostic and needs absolute moduli m_c, which is what Q(Y) provides.
+* Lemma 4's conclusions (8)–(9) follow verbatim from the LLL.
+* Lemma 6 needs w_{ℓ₀} ≤ c at a free odd prime ℓ₀ ∤ Q, which is again the coordinate bound.
+* Then log Q ≈ Y ≈ L³ polylog and S ≪ L² polylog. Lemma 5 gives log D + log K ≪ ℒ(S+ℒ) ≈ L³ polylog. Lemma 7b
+  gives log p ≪ L³ polylog, i.e. H = exp((log p)^{1/3−o(1)}). Lemma 7 squares this.
+
+The A_min half of H4_NOT_POLYLOG Theorem 1 is not covered: §3 treats only the edge family.
+
+**Assessment: the transfer cannot reach 1/2 by this route even if FT_β holds.** Under FT_β, log Q and S drop to
+L^{2+o(1)}. But the BRW/energy minorant still costs log D ≈ ℒ·S ≈ L³, the junta term. So κ → 1/3 is the ceiling of
+the present transfer. This is the same bottleneck as POINTWISE_OMEGA13 Prop 1.3(b). Reaching the heuristic 1/2 needs
+a junta/minorant whose degree is ≪ S rather than ℒ·S.
+
