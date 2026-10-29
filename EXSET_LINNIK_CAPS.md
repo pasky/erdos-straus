@@ -1,7 +1,15 @@
 # EXSET_LINNIK_CAPS — wave z51, lane 2b (`lcaps`)
 
-**Status: working skeleton. ES remains OPEN.** All proofs here are internal and unrefereed.
-This lane follows z48–z51 CONTEXT, with z51 binding. No merge without parent approval.
+**Status: COMPLETE — T2-lite reached; T2-full not reached. ES remains OPEN.**
+All proofs here are internal and unrefereed. Four hostile Opus rounds returned SOUND
+with minor repairs, all incorporated. This lane follows z48–z51 CONTEXT, with z51 binding.
+Committed on `side-agent/z51-lcaps`; WAITING for parent approval, no merge.
+
+**Main result (PROVED relative to Gallagher and Montgomery).** For every ε>0,
+cap ⌈(log log X)^{1+ε}⌉ suffices outside O_ε(X^{1−c_ε}) primes, with c_ε>0 (§4.2).
+It uses a common set of O_ε(log log X/log log log X) mute primes, each O_ε(log log X).
+The cap-zero case is not proved. The strict Linnik route separately improves the old
+X^{2/A+o(1)} bound to X^{1/A+o(1)} at cap (log X)^A/4, A>1 (§2).
 
 ## 0. Outcome and review ledger
 
@@ -488,4 +496,48 @@ timeout 60 uv run scripts/z51_lcaps_boxes.py > data/z51_lcaps/boxes.json
 
 ## 6. Final assessment and exact remaining gap
 
-PENDING. Labelled summary, review verdicts, then WAIT; no merge.
+**PROVED — T2-lite, strongest retained theorem.** Theorem 4.2 gives
+
+    #{p≤X:e*(p)>⌈(log log X)^{1+ε}⌉} ≪_ε X^{1−c_ε},  c_ε>0,
+
+with a common tiny mute-prime alphabet. This goes well below both CAP_BOUNDED's
+log^{2+ε} threshold and CAP_INTERPOLATION's log^{1+ε} sketch. Its ingredients are the
+untruncated cap dictionary, elementary collision counting, Gallagher's exceptional
+conductor deletion, and the arithmetic large sieve. No GRH, OAI-003, or new conjecture
+is used. **This is a cap-relaxation theorem, not an ES exceptional-set improvement.**
+
+**PROVED — strict Linnik route.** Squarefree products and HB give exceptional exponent
+1/A at cap log^A X/4, A>1, including a one-mute-prime polylog-window witness. At cap
+(log X)/2 the EMV adaptation gives the subpower exceptional bound (2.3). These are
+routine adaptations of established least-nonresidue methods, not new analytic theorems.
+
+**PROVED — scoped stopping results.** The common positive smooth-squareclass HB
+amplifier cannot give a fixed power saving at Y=(log X)^{1+o(1)}, even with optimized
+length, arbitrary prime classes up to Y, weights or square multipliers. Full fixed-x
+sharpness at prime K extends the old Type II-only statement, with the exact cap-zero
+exception p≡−1 (q). **CONDITIONAL on Dickson:** those sharp positive-cap windows recur
+infinitely often. Neither statement forbids other windows or other cap methods.
+
+**CERTIFIED — numerical controls.** Two retained independent engines agree through
+10⁸ on all five cap/character/window histograms; the exact rational and control checks
+pass. All primes in the nonclassical class have a Type II cap-zero window ≤107. Thus
+these computations test the proof identities and restricted quantities, not hypothetical
+ES exceptions. They do not validate the asymptotic constants numerically.
+
+**Reviews.** Round 1 HB and witness: SOUND. Round 2 endpoint and full-window sharpness:
+SOUND. Round 3 growing-rank loglog cap: SOUND. Round 4 EMV endpoint and full census:
+SOUND. All minor repairs are recorded at the affected claims. The specified model
+family was used throughout: `anthropic/claude-opus-5-5`, deep mode; the tool would not
+resolve a model ID containing the requested `:high` suffix. No other model substituted.
+
+**Exact remaining gap.** A fixed or zero cap needs a pointwise divisor-box hit or a
+stronger average supply/transfer theorem. The loglog cap proof gains its power from
+nonintegral exponents and loses that gain at e=0. The Linnik implication confines only
+q≤4e+3; no stronger pointwise implication from a generic character profile to ES was
+proved. We do **not** establish the brief's literal global threshold at which such an
+implication becomes impossible: that would overstate both our local sharpness theorem
+and current knowledge of ES. No power saving for ES/ES₅/U itself, and no transport to
+cap zero, follows from these results.
+
+**Disposition:** all sections committed; deliver this labelled report and WAIT.
+Do not merge until explicitly told.
