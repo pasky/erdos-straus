@@ -388,7 +388,7 @@ unforced ones (CAP_BOUNDED §5). `scripts/z51_linnik_windows.py` tests the lotte
 
 | block | windows | cap-0 rate forced / unforced (mean) | P(no forced window fires \| k) observed vs ∏(1 − ρ_q) | mean pair corr. | non-residue fraction: all / E′-type failures |
 |---|---:|---|---|---:|---|
-| (100, 200] | 11 | 0.46 / 0.22 | k = 2: 0.279/0.289; k = 4: 0.068/0.074; k = 6: 0.0165/0.0186; k = 8: 0.0054/0.0044 | −0.006 | 0.501 / 0.339 |
+| (100, 200] | 11 | 0.47 / 0.23 | k = 2: 0.279/0.289; k = 4: 0.068/0.074; k = 6: 0.0165/0.0186; k = 8: 0.0054/0.0044 | −0.006 | 0.501 / 0.339 |
 | (200, 400] | 16 | 0.34 / 0.17 | k = 4: 0.168/0.176; k = 7: 0.044/0.045; k = 10: 0.0082/0.0105; k = 12: 0.0046/0.0039 | −0.004 | 0.501 / 0.382 |
 
 (Failures here = no forced window fires; the unforced ones are ignored.) The cap-0 events at different windows are
