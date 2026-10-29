@@ -363,13 +363,108 @@ the function and its derivative).
 *Exact blocking lemma for (b).* A p-dependent datum helps only if its dependence has ≤ X^{c} states (Lemma 4.1); such a
 datum is a fibred datum, covered by §2 (Prop 4.2(i)). The word-form sequences have ≍ #E states and give nothing.
 
-## 5. Escape (c): supersets E′ ⊇ E_ES
+## 5. Escape (c): supersets E′ ⊇ E_ES defined by free character data
 
-(placeholder)
+**Lemma 5.1 (orientation; PROVED, trivial).** Every relaxation in the zoo (capped ES^{(y,e)}, ES^{(S)}, ES^□, V_φ, odd
+power rungs, window certificates with a cap) satisfies ES(p) ⟹ R(p), so its failure set E_R is a *subset* of E_ES. The
+free character data these relaxations force (CAP_BOUNDED Lemma 3.1: E_{ES^{(y,e)}} ⊂ 𝒫(4e + 3); ES^□'s one Dirichlet
+prime; V_φ's fixed-modulus shots) are properties of E_R. They pass to E_ES only if E_ES ⊂ E_R, i.e. only if R ⟺ ES at
+primes. A superset E′ ⊇ E_ES is the failure set of a *strengthening* R′ ⟹ ES, and "E′ ⊂ B" is again a forcing statement
+for ES itself: (q/p) = −1 (or an unbiased profile) ⟹ R′(p) ⟹ ES(p). ∎
 
-## 6. Escape (d): reverse roles
+**Lemma 5.2 (word colour is not free; PROVED by citation).** For a strengthening defined by a sub-menu 𝔊 of ES₅
+certificate classes, E′ = E_X ∩ Ω(𝔊)-type avoider and every certificate condition is a congruence: the colour of a word
+is a function of its shape (Theorem A; LOWERTAIL_DEEP_FABLE Lemma 1.2; FOREST_DEEP_FABLE Prop 3.1: the sets
+G_A = {−d : d | A + 1, (−d/A_odd) = −1} are p-independent). So "Type II slices with undetermined colour" do not exist at
+the level of classes: character data of p enter only through the *shadow* (whether p ≡ −d mod A for some d | A + 1).
+Hence Corollary 2.6 and Proposition 2.8 apply verbatim to every ES₅-defined E′. ∎
 
-(placeholder)
+**The window strengthening (EVIDENCE + Assessment).** The one natural strengthening with character content is
+R′_y(p): *some prime window q ≡ 3 (mod 4) in (y/2, y] carries an ES solution with x = (p + q)/4* (CAP_DOWN Lemma 3.1 at
+cap 0; equivalently q | d₁ + d₂ for two divisors d₁, d₂ of p(p + q)/4). E′_y ⊇ E_ES. Windows with (q/p) = −1 are
+*forced* (CAP_DOWN Thm 1.2: they always carry some capped certificate), and they fire at cap 0 about twice as often as
+unforced ones (CAP_BOUNDED §5). `scripts/z51_linnik_windows.py` tests the lottery on all 33 663 Mordell-hard primes in
+[10⁸, 1.2·10⁸] (`data/z51_linnik/windows_1e8_y{200,400}.json`):
+
+| block | windows | cap-0 rate forced / unforced (mean) | P(no forced window fires \| k) observed vs ∏(1 − ρ_q) | mean pair corr. | non-residue fraction: all / E′-type failures |
+|---|---:|---|---|---:|---|
+| (100, 200] | 11 | 0.46 / 0.22 | k = 2: 0.279/0.289; k = 4: 0.068/0.074; k = 6: 0.0165/0.0186; k = 8: 0.0054/0.0044 | −0.006 | 0.501 / 0.339 |
+| (200, 400] | 16 | 0.34 / 0.17 | k = 4: 0.168/0.176; k = 7: 0.044/0.045; k = 10: 0.0082/0.0105; k = 12: 0.0046/0.0039 | −0.004 | 0.501 / 0.382 |
+
+(Failures here = no forced window fires; the unforced ones are ignored.) The cap-0 events at different windows are
+uncorrelated to within ±0.1 and multiply to within ~10–20%, and the failures are strongly residue-biased (non-residue
+fraction 0.34–0.38 against 0.50). *Model consequence (Assessment).* If the lottery were independent with rates
+ρ_forced ≈ 2ρ_unforced, the profile of E′_y would be tilted by a fixed factor (1 − ρ_f)/(1 − ρ_u) < 1 per non-residue
+window: a *constant* bias, far more than Theorem 3.1 needs ((log X)^{−κ}). The pointwise statement that would make this
+rigorous is
+
+  **(WL_A)** every prime p ∈ (X/2, X] whose non-residue fraction on the primes ≡ 3 (4) in (y/2, y], y = (log X)^A,
+  lies in [1/2 − η, 1/2 + η], η = (log X)^{−κ}, has a window in that block carrying an ES solution.
+
+**Corollary 5.3 (CONDITIONAL on (WL_A) for some A > 1, κ < (A − 1)/2).** #{p ≤ X : ES(p) fails} ≤ X^{(1+2κ)/A + o(1)}.
+*Proof.* E_X ⊂ E′_y ⊂ {biased profiles} by (WL_A); Theorem 3.1. ∎
+*Reading.* (WL_A) is the cleanest form of the escape: one window among ≈ (log X)^A/(2A log log X) must fire at every
+*unbiased* prime; the biased primes are left to Heath-Brown. It is pointwise (gate G4: −1 in the divisor ratio set of
+p(p + q)/4 mod q at one window), and under the model it fails with probability exp(−c(log X)^{A−o(1)}) per prime, so it
+is heuristically true for every A > 1. It is not a CRT consequence: at a plane point (p ≡ 1 to high order at every prime
+outside the block) x = (p + q)/4 has the fixed small-prime part of (1 + q)/4, and the window lottery loses its
+randomness exactly as the word labels do (Lemma 2.3); a proof of the analogue of Corollary 2.6 for ES Type II window
+classes was not attempted. *Exact blocking lemma for (c):* Lemmas 5.1–5.2: no zoo relaxation has the right orientation;
+ES₅-defined supersets are covered by §2; the window strengthening needs (WL_A), a pointwise statement.
+
+## 6. Escape (d): reverse roles (small primes q as moduli, exceptional primes as the sequence)
+
+### 6.1 The forcing reach with the full ES Type II classes (EVIDENCE)
+
+Classes: ℛ(M) = {n ≡ −4D (mod M) : M ≡ 3 (4), A = (M + 1)/4, D | A²} (CAP_INTERPOLATION Prop 5.1 at e = 0: every prime
+p ≡ −4D (mod M), p ∤ DM, satisfies ES); these are the Type II ratio classes carrying the cubic supply of the 3/4 note.
+Profinite forcing as in z50 B §4.2: fix p, a prime q ∤ p; a residue a mod q is *forced away* if the point that agrees
+with p at every m prime to q and equals a at q lies in some ℛ(qm) with (m, q) = 1, qm ≤ p; i.e. m | p + 4D and
+a ≡ −4D (mod q). `scripts/z51_linnik_forcing_es.c` + `z51_linnik_forcing_run.py` (Mordell-hard p near 10^k; mode 0 = at
+p; mode 1 = at the plane point, x ≡ 1 at every m), `data/z51_linnik/forcing_es_*.json`. Means over the primes:
+
+| p ≈ | labels per q (q ≥ 25) | labels/(log p)³ | non-residues reached: q ∈ [25,50) | [50,100) | [100,150) | [150,200) | [200,300) | first hole q* |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| 10⁵ (6 p) | 55 | 0.036 | 0.77 | 0.53 | 0.36 | 0.32 | — | 17–29 |
+| 10⁶ (6 p) | 96 | 0.036 | 0.89 | 0.66 | 0.50 | 0.42 | — | 17–37 |
+| 10⁷ (4 p) | 141 | 0.034 | 0.95 | 0.80 | 0.64 | 0.55 | 0.41 | 29–41 |
+| 10⁸ (4 p) | 208 | 0.033 | 1.00 | 0.90 | 0.77 | 0.67 | 0.52 | 37–53 |
+| plane point, any p ≥ 10⁷ | 40 (saturated) | → 0 | 0.57 | 0.40 | 0.32 | 0.31 | 0.26 | 17 |
+
+(Lane B's U-word numbers at the same p: [25,50) 0.47, 0.57, 0.70, 0.79; [100,125) 0.18, 0.25, 0.33, 0.40.)
+* **The cubic supply is real at the label level:** labels per q ≈ 0.034 (log p)³ over four decades, against
+  (log p)² + log q log p for U words. Coupon-collector coverage of the (q − 1)/2 non-residues then predicts a reach
+  q log q ≈ 0.07(log p)³, i.e. q ≈ (log p)³/(15 log log p), which is (log p)^{3−o(1)} as the brief anticipated, and well
+  beyond Heath-Brown's requirement (log X)^{1+δ} (§3). (EVIDENCE for the label count; Assessment for the extrapolation.)
+* **At the plane point the reach collapses:** the labels saturate at ≈ 40 per q (they are the finitely many solutions of
+  (km − 1)(k′m − 1) = (qm + 1)², the ℛ-analogue of the words of q in Lemma 2.3), and coverage is frozen at the same
+  values for every p. Residue classes mod q are never hit there (plane parity), while at an actual p the ℛ classes also
+  hit residues (the m-part carries the other sign).
+
+### 6.2 CRT-certified reverse-role sieves are capped
+
+**Proposition 6.1 (PROVED given EXCEPTIONAL_LARGESIEVE Thm 2.1/Cor 2.2 and EXSET_SIEVE_MASS Thm 3.2).** Let 𝔊 ⊂ 𝔉₅ ∪ 𝔘
+be finite, L ≤ X^K, and for each unit class c mod L let ω_c(q) (q ≤ Q ≤ X, q ∤ L) be the number of classes mod q missed
+by the whole avoider Ω(𝔊) ∩ {n ≡ c (mod L)} (fibrewise CRT-certified depletion). Then the fibrewise Montgomery bound
+Σ_c (X/L + Q²)/L_c(Q) for #(E_X) is ≥ X·exp(−C(log X)^{2/3+o(1)}).
+*Proof.* On each fibre the bound is CRT-admissible for the fibre avoider (reparametrise n = c + Lk; the moduli q are
+prime to L), so by EXCEPTIONAL_LARGESIEVE Cor 2.2 it is ≥ (X/L)·E ν_c with ν_c = |g_c*|² ≥ 0, ≥ 1 on the fibre avoider,
+periodic with moduli dividing L·lcm(q₁, q₂). Then ν := Σ_c 1[n ≡ c (L)]ν_c is a nonnegative congruence combination,
+≥ 1 on all of Ω(𝔊), of level ≤ log L + 2 log Q ≤ (K + 2) log X, and Σ_c (X/L)E ν_c = X·E ν. EXSET_SIEVE_MASS Thm 3.2
+gives E ν ≥ exp(−C λ^{2/3}(log λ)^{2/3}). ∎
+*Why the cubic reach does not enter.* The reach of §6.1 uses the residues of p modulo **every** m ≤ p/q, i.e. the
+integer p itself. A fibre fixes p only mod L ≤ X^K; the classes ℛ(qm) whose m | L are certified on the fibre, and they
+number ≈ Σ_{m | L} τ(A_m²)/m ≈ (log log X)^{3} per q (the 1/m-weighted divisors m of L have log m ≈ log z, not log X),
+so certified fibrewise depletion stops at q ≈ (log log X)³ (Assessment; consistent with Prop 6.1). At the plane fibres it
+is the saturated plane count.
+
+### 6.3 Decision
+
+The brief asks whether the reverse-role reach is CRT-certified (then capped) or needs pointwise input. **Answer:** the
+(log p)³ reach is a property of the individual integer p (its residues modulo all m ≤ p/q). Its CRT-certified part is
+capped by Proposition 6.1, and at the sterile plane points it is zero. Used as a Linnik input (q as residues of the
+exceptional primes) it is exactly the forcing of §3.3, which needs the pointwise statement P(a, T) or (WL_A). It needs
+pointwise input.
 
 ## 7. Hostile reviews
 
