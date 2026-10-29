@@ -10,7 +10,7 @@ This lane follows z48–z51 CONTEXT, with z51 binding. No merge without parent a
 | 1 | Quadratic large sieve: cap log^A X, exceptional exponent 1/A, A>1 | PROVED (known analytic technique, new cap application) | SOUND; minors repaired |
 | 2 | Weighted squareclass endpoint; full fixed-window sharpness | PROVED; infinitude uses Dickson | SOUND; scope/terminology repaired |
 | 3 | Cap (log log X)^{1+ε}, common small mute support, power saving | PROVED relative to Gallagher + arithmetic large sieve | SOUND; minors repaired |
-| 4 | Prime census through 10⁸ and independent controls | PENDING | PENDING |
+| 4 | EMV logarithmic endpoint (subpower); prime census through 10⁸ | PROVED relative to MV; CERTIFIED census | SOUND; source constant repaired |
 
 ## 1. Definitions, inherited facts, and non-CRT input
 
@@ -123,7 +123,9 @@ the cap exponent 1/A, and the simultaneous one-mute/short-window conclusion. Thi
 strengthens CAP_BOUNDED; CAP_INTERPOLATION already sketched the A>1 range by a different
 method. Neither the existing sketch nor (2.2) establishes a power saving at A=1.
 
-### Proposition 2.4 — Elliott–Montgomery–Vaughan at the logarithmic endpoint (PROVED)
+### Proposition 2.4 — Elliott–Montgomery–Vaughan at the logarithmic endpoint
+
+**PROVED relative to Montgomery–Vaughan Lemma 2, via Lau–Wu's reproduced proof.**
 
 For an absolute c>0,
 
@@ -138,18 +140,23 @@ pp. 423–435, Lemma 2.1, https://hkumath.hku.hk/~yklau/p/34.pdf, prove from the
 Elliott–Montgomery–Vaughan large sieve that, for every subset V of primes in (P,2P],
 
     Σ_{d fundamental, |d|≤X}|Σ_{q∈V}χ_d(q)/q|^{2j}
-       ≪ X[6j/(P log P)]^j + [6P/(log P)²]^j.                (EMV)
+       ≪ X[6j/(P log P)]^j + [36P/(log P)²]^j.                (EMV)
 
 Their statement uses all primes; the identical proof permits a subset: coefficients
 of (Σ_{q∈V}χ_d(q)/q)^j remain nonnegative, and both sums Σq^{−2} and Σq^{−1/2} in
-their proof only decrease. The absolute implied constant is uniform in j,P,X.
+their proof only decrease. More explicitly, the convolution over m₁m₂=n² equals
+b_{2j}(n²), where b_j counts ordered V-prime products; for a V-supported n,
+b_{2j}(n²)≤j^j b_j(n), exactly as in their proof. The absolute implied constant is
+uniform in j,P,X. We use 36, not the printed 6, in the second term: squaring their
+bound Σq^{−1/2}≤6√P/log P requires 36. This harmless source arithmetic typo was found
+by the round-4 reviewer.
 This citation-level analytic input, not a new large-sieve theorem, is essential.
 
 **Proof.** Put P=log X, V={q∈(P,2P]:q≡3 (4)}. For p∈E(X,2P), p>√X, none of these q
 ramifies and their sum is Σ_{q∈V}1/q≥1/(4log P) by the fixed-AP PNT. Here χ_p(q)=(q/p)
 since p≡1 (4), and p is a fundamental discriminant. Thus (EMV) gives
 
-    #E(X,2P) ≤√X+O(X[96j log P/P]^j+(96P)^j).
+    #E(X,2P) ≤√X+O(X[96j log P/P]^j+(576P)^j).
 
 Take j=⌊log X/(384log P)⌋. The first bracket is ≤1/4 and the second term is ≤X^{1/192}
 for sufficiently large X. This proves (2.3). Equation (1.1) gives the witness claim. ∎
@@ -158,7 +165,12 @@ for sufficiently large X. This proves (2.3). Equation (1.1) gives the witness cl
 HB improvement from exponent 2+ε to 1+ε and distinguishes the logarithmic endpoint.
 Their bound is subpower. We inspected their actual moment proof rather than assuming
 their all-prime confinement hypothesis contained our restricted q≡3 (4) event.
-The subset adaptation above is the needed additional step.
+The subset adaptation above is the needed additional step. The retrieved text is the
+authors' preprint; published bibliographic data are IJNT 4(3), 423–435 (2008), but the
+published typeset proof and the original MV Lemma 2 were not independently retrieved.
+
+**Round-4 Opus verdict on Proposition 2.4: SOUND, minor repairs applied.** The constant
+36/576 and the subset convolution detail above incorporate its corrections.
 
 ## 3. Round 2: the forcing threshold and its exact scope
 
@@ -398,9 +410,81 @@ Our retained test now includes actual collisions, rather than only collision-fre
 
 ## 5. Computation and controls
 
-PENDING. Scripts `scripts/z51_lcaps_*`; data `data/z51_lcaps/` (<20 MB).
-Every run has a timeout and an 8 GB virtual-memory ceiling; no Cartesian-product arrays.
-Hard-prime and 14 R-zero controls, odd squares, numerator 8 where applicable.
+### Full census (CERTIFIED finite computation)
+
+The range contains 5,761,455 primes, 2,880,504 in 1 mod 4, and **1,439,970 in 1 mod 8**.
+The nonclassical statistics below concern the latter set. All other primes are handled
+by the inherited classical ES identities; no artificial q₃ forcing at p≡5 (8) is used.
+
+| Statistic on p≡1 (8), p≤10⁸ | Result | A maximizing prime |
+|---|---:|---:|
+| Least prime q₃≡3 (4), (q₃/p)=−1 | max 151 | 52,373,017 |
+| Best explicit one-prime cap (1.1) at q₃ | max 37 | 52,373,017 |
+| Exact Type II cap at the q₃ window | max 24 | 51,760,129 (q₃=103) |
+| Exact full fixed-x cap at q₃, δ_p=±1 included | max 24 | 51,760,129 |
+| Least cap-zero Type II window m≡3 (4), m≤255 | max 107 | 8,803,369 |
+| Primes censored by the window cutoff 255 | **0** | — |
+
+At the least q₃ window, 1,366,823 Type II caps and 1,383,310 full caps are zero.
+The explicit one-prime witness has cap zero at 892,207 primes. The q₃ distribution
+starts 720,189 at 3; 360,313 at 7; 180,095 at 11; 90,141 at 19, and has one prime at 151.
+Complete histograms and record/sample rows are in `census_1e8.json` and `sample_1e8.csv`.
+The all-window result certifies e*(p)=0 for these primes; **no positive restricted cap
+is evidence for a positive global cap or an ES failure**.
+
+### Independent checks and controls (CERTIFIED)
+
+- `z51_lcaps_census.cpp`: byte sieve, SPF factorization, min–max residue convolution
+  over all admissible local exponents; full fixed-x targets include p^{±1}.
+- `z51_lcaps_independent.cpp`: retained Opus implementation, trial division, direct
+  Jacobi q₃ tests, reachable-residue sets recomputed successively for e=0,1,….
+  All five histograms match at **every prime through 10⁸**, not merely a sample.
+- `z51_lcaps_verify.py`: a third full prime/q₃ census in Python; compares both engines'
+  complete histograms; independently checks 583 retained cap rows and exact one-prime
+  rational witnesses, and enumerates actual divisors for the least-window checks.
+  Its cap search uses the inherited dictionary; it does not independently prove it.
+- The Opus reviewer additionally enumerated unrestricted local exponents, including
+  forbidden 2- and p-overflows, on these 583 rows: 1166 minimum-cap checks, no skips.
+- All nine requested hard primes and all 14 R-zeros appear exactly once (18 distinct
+  primes after overlap); the retained verifier asserts their presence. In particular
+  3361 has q₃=11, restricted cap 1, but cap zero at m=3; 66529 has Type II cap 1 versus
+  full cap 0 at q₃=19. The R-zero 8813281 has cap zero at m=3.
+- Fifty odd squares ≤10201 have no admissible cap-zero Type II window m≤255 and no
+  nonresidue forcing prime q≤151 coprime to the square. The all-cap exclusion is the
+  inherited T1 theorem, not inferred from this finite test.
+- Exhaustive sorted-denominator tests recheck **8/17 and 8/241 fail**, while 4/17 and
+  4/241 succeed. Our claims concern capped numerator 4 and average exceptional sets;
+  neither the 4-specific identity nor an average bound proves ES for numerator 8.
+
+`toy.json` verifies nonempty confined rows, squarefree product counts and EMV subset
+moment expansion/diagonal bounds. `threshold.json` has 850 exact full-window checks.
+`boxes.json` rebuilds 600 untruncated certificates and includes four genuinely bad
+collision primes (30 colliding pairs), plus an exact toy Montgomery denominator.
+The asymptotic constants in HB/G/EMV are not numerically certified by these tests.
+
+**Round-4 Opus census verdict: SOUND.** It reproduced both the entire character
+histogram and all cap/window histograms independently, checked the exponent rules,
+and verified the exact definition on the sample. Its session is
+`2026-10-29T23-08-06-004Z_01a189eb-abf4-70d6-863f-0beb56a0bc76.jsonl`.
+The independent full-range code is now retained rather than only living in /tmp.
+
+### Reproduction and resource bounds
+
+All scripts/data are under `scripts/z51_lcaps_*` and `data/z51_lcaps/` (well below 20 MB).
+Peak measured memory: original census about 201 MB, Python verification about 213 MB;
+no unbounded pair-product arrays. The displayed commands include explicit timeouts.
+
+```sh
+ulimit -v 8000000
+timeout 30 g++ -O3 -std=c++17 -Wall -Wextra -Werror scripts/z51_lcaps_census.cpp -o /tmp/z51_lcaps_census
+timeout 30 g++ -O3 -std=c++17 -Wall -Wextra -Werror scripts/z51_lcaps_independent.cpp -o /tmp/z51_lcaps_independent
+timeout 360 /tmp/z51_lcaps_census 100000000 data/z51_lcaps/sample_1e8.csv > data/z51_lcaps/census_1e8.json
+timeout 240 /tmp/z51_lcaps_independent 100000000 > data/z51_lcaps/independent_1e8.txt
+timeout 180 uv run scripts/z51_lcaps_verify.py > data/z51_lcaps/verify_1e8.json
+timeout 60 uv run scripts/z51_lcaps_toy.py > data/z51_lcaps/toy.json
+timeout 120 uv run scripts/z51_lcaps_threshold.py > data/z51_lcaps/threshold.json
+timeout 60 uv run scripts/z51_lcaps_boxes.py > data/z51_lcaps/boxes.json
+```
 
 ## 6. Final assessment and exact remaining gap
 

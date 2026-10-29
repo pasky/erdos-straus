@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "full_character_census": 1000000,
+  "full_independent_cap_histograms": true,
+  "exact_cap_rows": 572,
+  "odd_squares": 50,
+  "numerator_eight_controls": [
+    17,
+    241
+  ]
+}
