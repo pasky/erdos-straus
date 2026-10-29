@@ -1,17 +1,42 @@
 # CONJECTURE_S_MODEL — bracketing certificate survival in the prime-Haar model
 
-**Status: IN PROGRESS (z49 round 3, slug `sexp`).** ES is open; nothing here bears on ES existence directly.
+**Status: PARTIAL (z49 round 3, slug `sexp`).** Conjecture S is PROVED on the upper side; on the lower side it is CONDITIONAL. ES is open; nothing here bears on ES existence directly.
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / Assessment.
 
-## 0. Summary (to be updated)
+## 0. Summary
 
-* §2: **PROVED modulo the fundamental lemma of sieve theory.**
-  * δ(H) ≤ exp(−c L²), the sharp order (Thm 2.1). This improves the L²/(log L)² of the rough-pair route. The method
-    conditions on all small-prime coordinates and keeps endpoints with a bounded smooth part. The conditional mass is
-    then ≍ L² **uniformly in the small residues**.
-  * For the covering coordinate, P(A_min > H) ≤ exp(−c L²/log L) (Thm 2.6).
-* §3 (target): the reverse direction δ(H) ≥ exp(−L^{2+o(1)}) via non-adaptive class-of-one conditioning plus a
-  β-weighted local lemma, reduced to a pointwise load hypothesis.
+Write L = log H. δ(H) is the prime-Haar certificate survival, n ≡ 1 (24) (FOREST_H4 Prop 5.1).
+
+| statement | label |
+|---|---|
+| −log δ(H) ≥ c L² (Thm 2.1) | **PROVED** modulo the fundamental lemma; uses the internally proved atomic Janson inequality |
+| −log P(A_min > H) ≥ c L²/log L (Thm 2.6) | **PROVED** modulo the fundamental lemma |
+| −log δ(H) ≤ C L³(log L)^C (Thm 3.4) | **CONDITIONAL** on the first-term hypothesis FT (§3.4) |
+| −log δ(H) ≤ C L²(log L)^C (Thm 3.5), hence **Conjecture S in the model** | **CONDITIONAL** on FT_β (§3.6) |
+| −log δ(H) ≤ C L⁶ log L | unconditional status quo (H4_NOT_POLYLOG), unchanged |
+| H₄(p) > exp((log p)^κ) i.o. for κ < 1/3 (Cor 5.1) | **CONDITIONAL** on FT, relative to (G) and the internal energy lemma; this route cannot exceed 1/3 |
+| −ln δ ≈ 0.64·E N_H, with E N_H ≍ L² (§4) | **EVIDENCE** |
+
+**New ideas.**
+
+* **Upper bound.** Condition on *all* small-prime coordinates, and allow endpoints with a bounded smooth part. The
+  conditional mass of rough-supported certificate events is ≍ L² **uniformly in the small residues**, including
+  the class of one. So no small-prime conditioning can buy survival cheaply, and Janson applies fibrewise. This
+  removes the (log L)² roughness loss of the I3 §8.4 route.
+* **Colour.** For n ≡ 1 (8), an odd pair is a certificate iff its endpoints are not both ≡ 1 (4) (Lemma 1.1). The
+  2-adic coordinate drops out.
+* **Lower bound.** A *non-adaptive* class of one Q(Y) = ∏_{ℓ≤Y} ℓ^{k_ℓ}, with every free modulus ≥ Y, costs ≈ Y
+  instead of ℒ²S♯. The residual mass is PROVED ≪ L² polylog. Loads from the smaller endpoint are PROVED pointwise via
+  Shiu's theorem.
+
+**Consequence for actual primes (PROVED).** For each fixed large H, the density of primes p ≡ 1 (24) with
+H₄(p) > H is ≤ exp(−c(log H)²). This replaces the (log H)^{−1/2} of FOREST_H4 Thm 3.5. It says nothing about H
+growing with p.
+
+**Exact remaining gap.** FT is a pointwise-in-ℓ first-term bound on the larger-endpoint loads. In its hardest
+instance it is the equidistribution mod ℓ of A − (B^{−1} mod A) over smooth A, B. It is numerically comfortable:
+the non-adaptive LLL certificate holds at H = 10⁵ with Y ≈ L³. It is unproved. FT_β additionally needs shifted
+multiplicative weights β^{ω(v)}.
 
 ## 1. Model, events, and the colour
 
