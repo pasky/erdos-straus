@@ -1,0 +1,312 @@
+{
+ "9": {
+  "n": 9,
+  "mod8": 1,
+  "square": true,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "17": {
+  "n": 17,
+  "mod8": 1,
+  "square": false,
+  "R": 2,
+  "R_top": 1,
+  "min_l": 3,
+  "in_A": false,
+  "tview_agrees": true
+ },
+ "25": {
+  "n": 25,
+  "mod8": 1,
+  "square": true,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "49": {
+  "n": 49,
+  "mod8": 1,
+  "square": true,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "81": {
+  "n": 81,
+  "mod8": 1,
+  "square": true,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "105": {
+  "n": 105,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "121": {
+  "n": 121,
+  "mod8": 1,
+  "square": true,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "193": {
+  "n": 193,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "241": {
+  "n": 241,
+  "mod8": 1,
+  "square": false,
+  "R": 3,
+  "R_top": 1,
+  "min_l": 7,
+  "in_A": false,
+  "tview_agrees": true
+ },
+ "409": {
+  "n": 409,
+  "mod8": 1,
+  "square": false,
+  "R": 2,
+  "R_top": 1,
+  "min_l": 7,
+  "in_A": false,
+  "tview_agrees": true
+ },
+ "577": {
+  "n": 577,
+  "mod8": 1,
+  "square": false,
+  "R": 3,
+  "R_top": 2,
+  "min_l": 7,
+  "in_A": false,
+  "tview_agrees": true
+ },
+ "2521": {
+  "n": 2521,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "2961": {
+  "n": 2961,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true,
+  "tview_agrees": true
+ },
+ "3361": {
+  "n": 3361,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "3985": {
+  "n": 3985,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "5569": {
+  "n": 5569,
+  "mod8": 1,
+  "square": false,
+  "R": 2,
+  "R_top": 0,
+  "min_l": 47,
+  "in_A": false
+ },
+ "9601": {
+  "n": 9601,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "10201": {
+  "n": 10201,
+  "mod8": 1,
+  "square": true,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "23929": {
+  "n": 23929,
+  "mod8": 1,
+  "square": false,
+  "R": 4,
+  "R_top": 1,
+  "min_l": 7,
+  "in_A": false
+ },
+ "25305": {
+  "n": 25305,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "66529": {
+  "n": 66529,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "83449": {
+  "n": 83449,
+  "mod8": 1,
+  "square": false,
+  "R": 2,
+  "R_top": 2,
+  "min_l": 7591,
+  "in_A": false
+ },
+ "102001": {
+  "n": 102001,
+  "mod8": 1,
+  "square": false,
+  "R": 3,
+  "R_top": 2,
+  "min_l": 23,
+  "in_A": false
+ },
+ "111969": {
+  "n": 111969,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "329617": {
+  "n": 329617,
+  "mod8": 1,
+  "square": false,
+  "R": 2,
+  "R_top": 1,
+  "min_l": 71,
+  "in_A": false
+ },
+ "712321": {
+  "n": 712321,
+  "mod8": 1,
+  "square": false,
+  "R": 2,
+  "R_top": 1,
+  "min_l": 23,
+  "in_A": false
+ },
+ "978145": {
+  "n": 978145,
+  "mod8": 1,
+  "square": false,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "998001": {
+  "n": 998001,
+  "mod8": 1,
+  "square": true,
+  "R": 0,
+  "R_top": 0,
+  "min_l": null,
+  "in_A": true
+ },
+ "1134241": {
+  "n": 1134241,
+  "mod8": 1,
+  "square": false,
+  "R": 7,
+  "R_top": 3,
+  "min_l": 7,
+  "in_A": false
+ },
+ "1724209": {
+  "n": 1724209,
+  "mod8": 1,
+  "square": false,
+  "R": 2,
+  "R_top": 2,
+  "min_l": 5147,
+  "in_A": false
+ },
+ "1726201": {
+  "n": 1726201,
+  "mod8": 1,
+  "square": false,
+  "R": 1,
+  "R_top": 1,
+  "min_l": 5279,
+  "in_A": false
+ },
+ "5212561": {
+  "n": 5212561,
+  "mod8": 1,
+  "square": false,
+  "R": 4,
+  "R_top": 3,
+  "min_l": 503,
+  "in_A": false
+ },
+ "8813281": {
+  "n": 8813281,
+  "mod8": 1,
+  "square": false,
+  "R": 5,
+  "R_top": 2,
+  "min_l": 191,
+  "in_A": false
+ }
+}
