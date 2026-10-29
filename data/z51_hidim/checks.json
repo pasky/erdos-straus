@@ -1,0 +1,244 @@
+{
+  "profiles_support_bound_M_equals_z": [
+    {
+      "z": 100,
+      "mass": 1.8922741003322998,
+      "log_V": -2.0935326652642416,
+      "Lambda": 5.3212720907997495,
+      "entropy": 5.411016185078134,
+      "support_log_upper": -0.045590344771549385,
+      "tv_lower": 0.04456671972880788,
+      "holder_a": 0.1
+    },
+    {
+      "z": 1000,
+      "mass": 3.3674952560114333,
+      "log_V": -3.588047831420193,
+      "Lambda": 13.844758104997755,
+      "entropy": 12.669370064688215,
+      "support_log_upper": -0.5679302336721141,
+      "tv_lower": 0.4333028436172731,
+      "holder_a": 0.2
+    },
+    {
+      "z": 10000,
+      "mass": 4.968048698469578,
+      "log_V": -5.192449051482724,
+      "Lambda": 26.7407678563805,
+      "entropy": 23.436151809831554,
+      "support_log_upper": -1.3542274938550558,
+      "tv_lower": 0.741853362691261,
+      "holder_a": 0.2
+    },
+    {
+      "z": 100000,
+      "mass": 6.631733792682783,
+      "log_V": -6.85675390542372,
+      "Lambda": 43.97784252567962,
+      "entropy": 37.88114006556735,
+      "support_log_upper": -2.329566324008798,
+      "tv_lower": 0.9026620489301433,
+      "holder_a": 0.2
+    },
+    {
+      "z": 1000000,
+      "mass": 8.332178019978006,
+      "log_V": -8.55728847965093,
+      "Lambda": 65.51533621839036,
+      "entropy": 56.08225551992764,
+      "support_log_upper": -3.4375786208315526,
+      "tv_lower": 0.9678575798362679,
+      "holder_a": 0.2
+    }
+  ],
+  "qnr_checks": 6868,
+  "toys": [
+    {
+      "z": 13,
+      "N": 1001,
+      "active_primes": 4,
+      "squares": 16,
+      "nonsquares": 110,
+      "avoiders": 49,
+      "nonsquare_avoiders": 33,
+      "nonsquare_ratio_to_I_V": 0.7282407407407407,
+      "actual_tv": 0.09194139194139195,
+      "support_size": 12,
+      "product_mass_of_actual_support": 0.9866799866799867,
+      "top_support_mass": 0.9866799866799867,
+      "entropy": 1.9801124429797516,
+      "support_log_upper": 0.0,
+      "tv_lower": 0.0,
+      "holder_a": null
+    },
+    {
+      "z": 31,
+      "N": 1001,
+      "active_primes": 8,
+      "squares": 16,
+      "nonsquares": 110,
+      "avoiders": 38,
+      "nonsquare_avoiders": 22,
+      "nonsquare_ratio_to_I_V": 0.7810890028164901,
+      "actual_tv": 0.2398237996517804,
+      "support_size": 40,
+      "product_mass_of_actual_support": 0.8508972490513129,
+      "top_support_mass": 0.9192840438338232,
+      "entropy": 3.3131829533963684,
+      "support_log_upper": 0.0,
+      "tv_lower": 0.0,
+      "holder_a": null
+    },
+    {
+      "z": 43,
+      "N": 1001,
+      "active_primes": 10,
+      "squares": 16,
+      "nonsquares": 110,
+      "avoiders": 37,
+      "nonsquare_avoiders": 21,
+      "nonsquare_ratio_to_I_V": 0.8015038290264666,
+      "actual_tv": 0.30691144631964656,
+      "support_size": 47,
+      "product_mass_of_actual_support": 0.803370286892407,
+      "top_support_mass": 0.8875309196406931,
+      "entropy": 3.6159611630138486,
+      "support_log_upper": 0.0,
+      "tv_lower": 0.0,
+      "holder_a": null
+    },
+    {
+      "z": 43,
+      "N": 10001,
+      "active_primes": 10,
+      "squares": 50,
+      "nonsquares": 1201,
+      "avoiders": 271,
+      "nonsquare_avoiders": 221,
+      "nonsquare_ratio_to_I_V": 0.8495556173374058,
+      "actual_tv": 0.09474169077816952,
+      "support_size": 133,
+      "product_mass_of_actual_support": 0.9561667448518235,
+      "top_support_mass": 0.9734811335574657,
+      "entropy": 3.6159611630138486,
+      "support_log_upper": 0.0,
+      "tv_lower": 0.0,
+      "holder_a": null
+    }
+  ],
+  "root_embedding": {
+    "z": 13,
+    "k": 2,
+    "shifts": [
+      3589,
+      79
+    ],
+    "period": 6006,
+    "prime_tuples_checked": 132
+  },
+  "family13": {
+    "direct": [
+      6
+    ],
+    "broader": [
+      6,
+      11
+    ]
+  },
+  "controls": {
+    "prime_U_witnesses_modulus_at_most_10000": {
+      "193": null,
+      "409": [
+        7,
+        4,
+        2,
+        59
+      ],
+      "577": [
+        7,
+        4,
+        2,
+        83
+      ],
+      "2521": null,
+      "3361": null,
+      "5569": [
+        41,
+        7,
+        6,
+        136
+      ],
+      "9601": [
+        173,
+        87,
+        2,
+        56
+      ],
+      "23929": [
+        7,
+        4,
+        2,
+        3419
+      ],
+      "66529": null,
+      "83449": [
+        7591,
+        52,
+        146,
+        11
+      ],
+      "102001": [
+        23,
+        4,
+        6,
+        4435
+      ],
+      "329617": [
+        71,
+        36,
+        2,
+        4643
+      ],
+      "712321": [
+        23,
+        12,
+        2,
+        30971
+      ],
+      "1134241": [
+        7,
+        4,
+        2,
+        162035
+      ],
+      "1724209": [
+        13,
+        7,
+        2,
+        132632
+      ],
+      "1726201": [
+        1741,
+        871,
+        2,
+        992
+      ],
+      "5212561": [
+        29,
+        15,
+        2,
+        179744
+      ],
+      "8813281": [
+        191,
+        32,
+        6,
+        46143
+      ]
+    },
+    "numerator_8_sorted_solutions": {
+      "17": 0,
+      "241": 0
+    }
+  }
+}
