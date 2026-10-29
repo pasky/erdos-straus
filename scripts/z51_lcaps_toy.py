@@ -29,7 +29,7 @@ def factor(n):
 
 def main():
     rows = []
-    for N, Y in [(100, 7), (1000, 19), (10000, 43), (100000, 71)]:
+    for N, Y in [(100, 3), (1000, 7), (10000, 19), (100000, 31)]:
         S = [q for q in primes(Y) if q % 4 == 3]
         B = {1}
         for q in S:
@@ -39,6 +39,7 @@ def main():
         assert B == independent
         E = [p for p in primes(N) if p % 8 == 1
              and all(pow(q, (p-1)//2, p) == 1 for q in S)]
+        assert E, 'character-sum checks must not be vacuous'
         for p in E:
             assert all(pow(a, (p-1)//2, p) == 1 for a in B)
         r = 0

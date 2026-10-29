@@ -3,35 +3,35 @@
   "rows": [
     {
       "N": 100,
-      "Y": 7,
-      "primes": 2,
-      "squarefree_products": 4,
-      "confined_primes": 0,
-      "r": 2
+      "Y": 3,
+      "primes": 1,
+      "squarefree_products": 2,
+      "confined_primes": 2,
+      "r": 4
     },
     {
       "N": 1000,
-      "Y": 19,
-      "primes": 4,
-      "squarefree_products": 14,
-      "confined_primes": 0,
-      "r": 2
+      "Y": 7,
+      "primes": 2,
+      "squarefree_products": 4,
+      "confined_primes": 4,
+      "r": 3
     },
     {
       "N": 10000,
-      "Y": 43,
-      "primes": 7,
-      "squarefree_products": 63,
-      "confined_primes": 0,
-      "r": 2
+      "Y": 19,
+      "primes": 4,
+      "squarefree_products": 16,
+      "confined_primes": 11,
+      "r": 3
     },
     {
       "N": 100000,
-      "Y": 71,
-      "primes": 11,
-      "squarefree_products": 294,
-      "confined_primes": 0,
-      "r": 2
+      "Y": 31,
+      "primes": 6,
+      "squarefree_products": 56,
+      "confined_primes": 21,
+      "r": 3
     }
   ]
 }

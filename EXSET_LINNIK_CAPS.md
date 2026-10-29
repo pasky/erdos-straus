@@ -61,7 +61,7 @@ from that preprint is needed. Retrieved text is in `data/z51_lcaps/literature_*.
 
 ### Theorem 2.1 — quadratic Linnik confinement (PROVED relative to HB)
 
-Let S be any set of odd primes, all ≤Y, and let E be primes p≤X, p∉S, such that
+Let S be any set of odd primes, all ≤Y, and let E be odd primes p≤X, p∉S, such that
 (q/p)=1 for every q∈S. Let B_S(N) be the number of squarefree positive integers ≤N
 supported on S (including 1). For every η>0,
 
@@ -108,7 +108,20 @@ in §4; s is not a fixed prime independent of p.
 **Independent checks.** `scripts/z51_lcaps_toy.py` compares the squarefree-product set
 with an independent factorization enumeration, checks every confined character sum,
 and checks the binomial construction. The analytic constant in HB is unspecified;
-a finite calculation cannot certify its asymptotic inequality. Hostile review pending.
+a finite calculation cannot certify its asymptotic inequality. The first toy rows had no
+confined primes; Opus identified this vacuity, and the retained rows now assert nonempty E.
+
+**Round-1 Opus verdict: SOUND, minor repairs applied.** Reviewer independently rebuilt
+4466 exact rational witnesses for p≡1 (8), p≤200000, with zero violations. The tool rejects
+`:high` as part of a model ID; the actual review used `anthropic/claude-opus-5-5`, `mode=deep`.
+Session: `2026-10-29T22-39-32-614Z_01a189d1-8706-70d6-863f-0bde7e771866.jsonl`.
+
+**Novelty qualification (Assessment).** HB smooth-product amplification is a known
+least-nonresidue technique (Baier 2006, also discussed by Lau–Wu 2008); the analytic
+argument is not new. What is added here is its complete restricted-prime adaptation,
+the cap exponent 1/A, and the simultaneous one-mute/short-window conclusion. This
+strengthens CAP_BOUNDED; CAP_INTERPOLATION already sketched the A>1 range by a different
+method. Neither the existing sketch nor (2.2) establishes a power saving at A=1.
 
 ## 3. Round 2: the forcing threshold and its exact scope
 
