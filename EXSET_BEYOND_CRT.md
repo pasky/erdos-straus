@@ -614,7 +614,18 @@ model counted atoms instead of distinct classes mod l and was off by a factor 2;
 
 ## §8 Round 4 — universe exhaustion for U / ES₅ (skeleton; filled section by section)
 
-### 8.0 Summary (pending)
+### 8.0 Summary
+
+| item | statement | label |
+|---|---|---|
+| R4.0 | every U/ES5 certificate is a word of n; identities that are not words of n (Type II with a, b, c >= 2 = words of cn) certify only ES | PROVED (definition) |
+| R4.1, R4.2 | exact or cheap-remainder coverings by word classes, of any depth/moduli/level ratio, add no supply: every majorant of the avoider set of such a forcing family has log(1/E nu) <= C lambda^{2/3}(log lambda)^{2/3}; so M1/M2/L1/C methods using them cap at (log N)^{2/3+o(1)} | PROVED given Cor 2.5 |
+| R4.3 | compactness: finitely coverable iff cl(C) misses the profinite avoider set A_inf; A_inf is Haar-null; square-compatible C are never forcing; a forcing non-coverable C needs P at integers avoiding all word classes of modulus <= T, for every T | PROVED |
+| R4.4 | the 3/4 note's ratio atoms are not finitely covered by ES5 word classes (else Cor 2.5 would contradict the note) | PROVED rel. 3/4 note |
+| R4.5 | single-shift Landau forcing is a cheap-remainder covering (hence capped) | PROVED (Dirichlet) |
+| R4.6 | bounded-shift Landau forcing likewise | CONDITIONAL (Dickson), sketch |
+| answer | brief alternative (b1), a cubic-supply forcing universe for U/ES5, does not exist among covering and bounded-shift mechanisms; alternative (b2) holds in a strong form (no depth or level-ratio bound needed); the only escape is non-compact forcing, i.e. pointwise B2-type input | PROVED / Assessment |
+| 8.7 | the R4.5 decision procedure is confirmed by brute force (209 190 integers, 0 failures); a generic non-residue class shows growing cheapest modulus | CERTIFIED / EVIDENCE |
 ### 8.1 Certification mechanisms: definitions
 
 P denotes U or ES5 (on n = 1 mod 4). Write W_P for the certificate word classes of Section 1.3 (all three
@@ -747,5 +758,40 @@ whose word depends only on rho_v; it is then a certificate for every n of that p
 Unconditionally, for |V| >= 2 one only has almost-primes (bounded number of prime factors), and the divisor
 patterns are no longer determined by finitely many residues; I have not closed that case.
 ### 8.6 What remains: non-compact forcing
+
+Combining 8.2-8.5, the certification mechanisms that are **capped at 2/3** (exponent beta = 2 per unit level) are:
+1. exact coverings by U/ES5 word classes, of any depth, moduli, number of pieces and level ratio, including
+   two-level coverings through n mod small primes and multiplier (k*l) coverings (Thm R4.1, PROVED);
+2. approximate coverings whose remainder is a finite union of classes of level O(lambda) and density at most
+   E nu (Thm R4.1, PROVED);
+3. single-shift Landau (finite-factorisation) forcing (Prop R4.5 + R4.1, PROVED);
+4. bounded-shift Landau forcing (Prop R4.6 + R4.1, CONDITIONAL on Dickson).
+
+Identities that are not words of n are excluded by definition (Lemma R4.0). So **no U/ES5 forcing universe with
+cubic supply at unit cost exists among these mechanisms**, and alternative (b1) of the brief (a 3/4 theorem for
+U/ES5) is unavailable by any of them. The ES 3/4 mechanism (words of cn) is provably not of this kind (Cor R4.4).
+
+**The only possible escape** is a P-forcing progression C that is not an approximate covering with cheap remainder,
+in particular (Prop R4.3(a)) one with cl(C) meeting A_inf. Proving such a C forcing means proving P for integers
+that lie in no word class of modulus <= T, for every T (Prop R4.3(d)), using an argument over unboundedly many
+shifts. That is a pointwise statement of the campaign's B2 type, not a sieve input (Assessment). No such
+progression is known. Numerically, a generic non-square progression such as 305 mod 808 (n = 1 mod 8, n = 2 mod
+101, a non-residue mod 101) shows a cheapest U-word modulus that keeps growing with n (8.7). Consistently with
+Prop R4.3(a), this suggests that its closure meets A_inf, so it is forced, if at all, only non-compactly. A
+progression like 17 mod 24 is finitely covered (cheapest modulus <= 3 throughout; it is single-shift forced at v = 4
+and v = 7 by the R4.5 procedure).
+
 ### 8.7 Numerics
+
+* `scripts/z50_ncrt_r4.py 100000 60000` (`data/z50_ncrt/r4.txt`): Prop R4.5 run as a decision procedure on 1830
+  pairs (C, v), with M in {8, 24, 40, 56, 72, 120, 168} and U-admissible v <= 40; 182 are single-shift forced up
+  to depth J = 5. Brute force over all n <= 10^5 in those (C, v), outside the depth-J tail and n >= 50: 209 190
+  integers, **0 without a U-word at that shift** (CERTIFIED for that range; it confirms the witness rule).
+* `scripts/z50_ncrt_r4b.py` (`data/z50_ncrt/r4b.txt`): exact cheapest U-word grouping modulus, by direct
+  enumeration of moduli <= 3000, maximised over dyadic ranges up to 5.12*10^5. For 17 mod 24 it is 3 in every range.
+  For 305 mod 808 it is 7, 5, 37, 11, 39, 49, 111, 90, 450 (EVIDENCE of non-compactness; a maximum over a growing
+  sample, not a proof).
+* A first run of the second test mistakenly used 1 and 97 mod 808, which are squares mod 101; the integers without
+  a U-word found there were exactly the odd squares (201^2, 203^2, 81^2, 121^2, 283^2, 323^2, 485^2), as Lemma 2.2
+  requires.
 ### 8.8 Hostile review
