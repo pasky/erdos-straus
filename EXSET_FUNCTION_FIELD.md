@@ -252,6 +252,13 @@ non-empty blocks. So g₀ is fixed-point-free on every such X_σ. Its conjugacy 
 1/∏ D_σ!, and Chebotarev (G_n = G_n^geo, so every class occurs for every q) gives #{f ∉ B_n : Frob_f ∈ C} ≥
 (|C|/|G_n|)q^n − C_n q^{n−1/2}; such f have no rational point in any fibre. Squares number q^{n/2}. ∎
 
+**Corollary 3.5′ (primes; PROVED, same hypotheses).** Adjoin the splitting field of f to Ω_n. Under the scaling of
+Lemma 3.4 it is unchanged (y′ = S^{(n)}_{1/μ}y has roots μ·(roots of y)), so the boundary copy S ≅ S_n acts on the
+roots of f itself, and g₀ acts on them as an n-cycle. Hence a positive proportion c′_n q^n of all f — all of them
+irreducible — have no word: **at fixed n and large q, a positive proportion of prime polynomials fail U_q** (and
+ES₅,q). Primality does not help in the large-q regime (contrast the Linnik-confinement door T2 over ℤ, where
+primality is what escapes the square floor).
+
 *Reading.* The forest of a typical f is empty with probability bounded below in the large-q limit; the frozen
 element is the boundary n-cycle ("f irreducible at the cusp"). Nothing like this happens over ℤ, where the mass
 log² N grows. The brief's Goal 1 ("O(q^{n−c}) at fixed n") is false for U_q; in the lc-free normalisation U′_q it
@@ -348,7 +355,68 @@ information of bounded conductor; G_n is non-abelian and of size ≥ e^{μ} (Thm
 
 ## 4. Fixed q, n → ∞
 
-(placeholder)
+### 4.1 The data look like ℤ
+
+Table 2.1, q = 3: the non-square exceptional set is 5, 6, 6, 21, 3, 21, 0, 12, 0, 7, 0, 3, 0 for n = 3..15, against
+3^{⌊n/2⌋} squares. Odd n ≥ 9: none (EVIDENCE to n = 15, N = 3^15 ≈ 1.4·10^7). Even n: decreasing. This is the
+integer census pattern (squares plus six sporadic exceptions ≤ 978145 up to 10^9). Contrast with the q = ∞ model
+value p_f(n)e^{−M_g(n)} of §3.6: at (q, n) = (3, 10) it predicts 0.004 exceptions, but there are 12; small q has
+*more* sporadic failures at even n than the Poisson model, and none at odd n ≥ 9. Some have no word at all
+(q = 3: 15 wordless f at n = 8, 3 at n = 10; `scripts/z51_ffield_check.py`).
+
+### 4.2 RLD-U over F_q[T]: numerically as plausible as over ℤ
+
+**Conjecture 4.1 (FF-RLD-U; CONJECTURE).** For fixed q ≡ 3 (mod 4) and s > 1, with z = n/s,
+#{f ∈ M_n non-square avoiding F(A) for all primes A, deg A ≤ z} ≤ e^{C(q,s)} q^n ∏_{deg A ≤ z}(1 − w(A)/|A|).
+
+**Table 4.1 (CERTIFIED; `scripts/z51_ffield_rld.c`, `data/z51_ffield/rld.txt`). Ratio sifted/(q^n·Mertens), q = 3.**
+
+| n | z ≈ n/2 | z ≈ n/1.5 | z = n − 1 |
+|---|---|---|---|
+| 10 | 1.43 (z=5) | 6.52 (z=8; s = 1.25) / 2.13 (z=6) | 23.2 |
+| 12 | 1.31 (z=6) | 3.17 (z=8) | 34.1 |
+| 14 | 1.51 (z=7) | 3.19 (z=9) | 53.5 |
+| 15 | 1.15 / 1.46 (z=7 / 8) | 2.64 (z=10) | 10.7 |
+
+At fixed s the ratio stays O(1) (≈ 1.2–1.5 at s = 2, ≈ 2.6–3.2 at s = 1.5) and grows as s → 1: the same shape as
+the integer RLD-U evidence (EXSET_ARITH_JANSON_OPUS §5.5). The prime-family mass at q = 3 is μ(z) = 1.00, 1.67,
+2.85, 3.59, 5.02, 5.77, 7.27, 8.06, 9.61, 10.41, 11.98, 12.79, 14.38, 15.19 (z = 1..14): ≈ 1.03 per degree (odd
+degrees ≈ 1.4, even ≈ 0.75). Consequence (CONDITIONAL on Conj 4.1, as C1 Cor 6.1): #{non-square failures} ≤
+e^{C} 3^{n(1 − 1.03/(s log 3)) + o(n)}, below the square floor 3^{n/2} for s < 1.87.
+
+So in a world where the Riemann hypothesis for every Dirichlet L-function is a theorem (Weil) and the CRT is exact
+up to level n, RLD-U is still open and still numerically true. **Assessment: neither RH nor level-1 distribution is
+the missing input for RLD-U.** This is the F_q[T] face of (D)15/22: termwise RH for a character expansion of the sieve
+pays the ℓ¹ mass of the expansion, ∏_A(1 + w(A)); and a single residue class modulo M with deg M > n contains at most
+one f of degree n, so RH cannot extend the exact level n of §3.8 for the class events themselves.
+
+### 4.3 What can be proved at fixed q
+
+* Prop 3.7(a) (PROVED, every q): δ_q(n) ≤ 2 exp(−c√n). This is the G1 value with log N ↦ n.
+* (PROVED, trivial) U-failure forces all irreducible factors of f + 1 to have even degree (n even; shapes (0, a, b)
+  with b odd) resp. f + 1 irreducible (n odd), so δ_q(n) ≪ n^{−1/2} resp. ≤ 1/n + O(q^{−n/2}) — one Landau-type event.
+* That is the strongest fixed-q statement this lane proves. A U_q-analogue of the 2/3 bound (Vaughan / I3 §8.8 type)
+  should transfer with the large sieve over F_q[T], but at fixed q the non-coprime terms of §3.8(b) are O(1), not
+  O(1/q), and need the integer machinery; not attempted (it would re-derive the CRT exponent).
+
+**Why "Weil bounds for products of many characters with loss O(k)" do not give FF-RLD-U (Assessment; the proved
+ingredients are named).**
+(i) *Rank one vs high rank.* Square-root cancellation with loss linear in k exists for products of rank-one trace
+functions: Σ_{c∈F_q} ∏_{i≤k} χ(P_i(c)) ≤ (Σ deg P_i)√q (Weil). This is the engine of Carmon–Rudnick (Chowla, large q)
+and of Sawin–Shusterman, who turn μ(r + s^p) into a quadratic character in s via Pellet's formula
+μ(g) = (−1)^{deg g}χ(disc g) (in characteristic p, (s^p)′ = 0). Their k-point Chowla (Ann. Math. 196 (2022),
+Thm 1.3) needs q > p²k²e², i.e. k < √q/(pe): **at fixed q the number of controlled shifts is bounded, and at q = p
+prime it is zero.** The U data that are rank one are exactly the colours (f/A) = χ(Res(A, f)): they detect
+non-squareness (every non-square f has an inert prime of degree ≤ 2 log_q n + O(1), by RH for y² = f) but not
+witnesses. A U-event of shape σ is the trace function of φ_{σ*}Q̄_ℓ, of generic rank D_σ = n!/(s!a!b!) (Lemma 3.2),
+and a joint indicator of k shape events has rank up to ∏ D_σ: complexity multiplies.
+(ii) *Budget.* A sum over M_n whose cohomology is concentrated in the middle degree has error ≲ (rank)·C^n·q^{n/2}.
+To stay below the main term q^n e^{−μ} with rank ≈ 3^{nk} for k shape events needs k ≲ log q/(2 log 3) — bounded
+at fixed q, while RLD-U at level z = n/s needs ≈ μ(z) ≍ n events. So **depth × log(rank per event) ≤ (n/2) log q**:
+the F_q[T] form of G2 ("per-event saving must beat per-event loss"). Rank-one events would cost ≈ log n each and
+allow ≈ n log q / log n events — enough. The U-events are not rank one, and no reduction of them to rank-one events is
+known; the only U-events that are factorisation-type functions of a single polynomial are the v = 1 events ("f + 1
+has an odd-degree divisor").
 
 ## 5. Transfer to ℤ
 
