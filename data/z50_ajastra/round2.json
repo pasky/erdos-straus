@@ -1,0 +1,272 @@
+[
+  {
+    "c": 0,
+    "R": 1,
+    "Nc": 1666,
+    "actual": 958,
+    "denominator": "1",
+    "tail_probability": "576/1001",
+    "bound": 1667.0
+  },
+  {
+    "c": 0,
+    "R": 5,
+    "Nc": 1666,
+    "actual": 958,
+    "denominator": "5/4",
+    "tail_probability": "720/1001",
+    "bound": 1352.8
+  },
+  {
+    "c": 0,
+    "R": 10,
+    "Nc": 1666,
+    "actual": 958,
+    "denominator": "17/12",
+    "tail_probability": "816/1001",
+    "bound": 1246.5882352941176
+  },
+  {
+    "c": 0,
+    "R": 30,
+    "Nc": 1666,
+    "actual": 958,
+    "denominator": "8/5",
+    "tail_probability": "4608/5005",
+    "bound": 1603.75
+  },
+  {
+    "c": 0,
+    "R": 100,
+    "Nc": 1666,
+    "actual": 958,
+    "denominator": "1237/720",
+    "tail_probability": "4948/5005",
+    "bound": 6790.234438156831
+  },
+  {
+    "c": 1,
+    "R": 1,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "1",
+    "tail_probability": "27/91",
+    "bound": 1668.0
+  },
+  {
+    "c": 1,
+    "R": 5,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "5/3",
+    "tail_probability": "45/91",
+    "bound": 1015.2
+  },
+  {
+    "c": 1,
+    "R": 10,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "31/15",
+    "tail_probability": "279/455",
+    "bound": 855.0
+  },
+  {
+    "c": 1,
+    "R": 30,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "1223/495",
+    "tail_probability": "3669/5005",
+    "bound": 1038.9738348323795
+  },
+  {
+    "c": 1,
+    "R": 100,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "941/297",
+    "tail_probability": "941/1001",
+    "bound": 3682.3581296493094
+  },
+  {
+    "c": 2,
+    "R": 1,
+    "Nc": 1667,
+    "actual": 213,
+    "denominator": "1",
+    "tail_probability": "128/1001",
+    "bound": 1668.0
+  },
+  {
+    "c": 2,
+    "R": 5,
+    "Nc": 1667,
+    "actual": 213,
+    "denominator": "5/2",
+    "tail_probability": "320/1001",
+    "bound": 676.8
+  },
+  {
+    "c": 2,
+    "R": 10,
+    "Nc": 1667,
+    "actual": 213,
+    "denominator": "13/4",
+    "tail_probability": "32/77",
+    "bound": 543.6923076923077
+  },
+  {
+    "c": 2,
+    "R": 30,
+    "Nc": 1667,
+    "actual": 213,
+    "denominator": "157/40",
+    "tail_probability": "2512/5005",
+    "bound": 654.0127388535032
+  },
+  {
+    "c": 2,
+    "R": 100,
+    "Nc": 1667,
+    "actual": 213,
+    "denominator": "1051/160",
+    "tail_probability": "4204/5005",
+    "bound": 1776.1370123691722
+  },
+  {
+    "c": 3,
+    "R": 1,
+    "Nc": 1667,
+    "actual": 958,
+    "denominator": "1",
+    "tail_probability": "576/1001",
+    "bound": 1668.0
+  },
+  {
+    "c": 3,
+    "R": 5,
+    "Nc": 1667,
+    "actual": 958,
+    "denominator": "5/4",
+    "tail_probability": "720/1001",
+    "bound": 1353.6
+  },
+  {
+    "c": 3,
+    "R": 10,
+    "Nc": 1667,
+    "actual": 958,
+    "denominator": "17/12",
+    "tail_probability": "816/1001",
+    "bound": 1247.2941176470588
+  },
+  {
+    "c": 3,
+    "R": 30,
+    "Nc": 1667,
+    "actual": 958,
+    "denominator": "8/5",
+    "tail_probability": "4608/5005",
+    "bound": 1604.375
+  },
+  {
+    "c": 3,
+    "R": 100,
+    "Nc": 1667,
+    "actual": 958,
+    "denominator": "1237/720",
+    "tail_probability": "4948/5005",
+    "bound": 6790.816491511722
+  },
+  {
+    "c": 4,
+    "R": 1,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "1",
+    "tail_probability": "27/91",
+    "bound": 1668.0
+  },
+  {
+    "c": 4,
+    "R": 5,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "5/3",
+    "tail_probability": "45/91",
+    "bound": 1015.2
+  },
+  {
+    "c": 4,
+    "R": 10,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "31/15",
+    "tail_probability": "279/455",
+    "bound": 855.0
+  },
+  {
+    "c": 4,
+    "R": 30,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "1223/495",
+    "tail_probability": "3669/5005",
+    "bound": 1038.9738348323795
+  },
+  {
+    "c": 4,
+    "R": 100,
+    "Nc": 1667,
+    "actual": 494,
+    "denominator": "941/297",
+    "tail_probability": "941/1001",
+    "bound": 3682.3581296493094
+  },
+  {
+    "c": 5,
+    "R": 1,
+    "Nc": 1666,
+    "actual": 213,
+    "denominator": "1",
+    "tail_probability": "128/1001",
+    "bound": 1667.0
+  },
+  {
+    "c": 5,
+    "R": 5,
+    "Nc": 1666,
+    "actual": 213,
+    "denominator": "5/2",
+    "tail_probability": "320/1001",
+    "bound": 676.4
+  },
+  {
+    "c": 5,
+    "R": 10,
+    "Nc": 1666,
+    "actual": 213,
+    "denominator": "13/4",
+    "tail_probability": "32/77",
+    "bound": 543.3846153846154
+  },
+  {
+    "c": 5,
+    "R": 30,
+    "Nc": 1666,
+    "actual": 213,
+    "denominator": "157/40",
+    "tail_probability": "2512/5005",
+    "bound": 653.7579617834394
+  },
+  {
+    "c": 5,
+    "R": 100,
+    "Nc": 1666,
+    "actual": 213,
+    "denominator": "1051/160",
+    "tail_probability": "4204/5005",
+    "bound": 1775.9847764034253
+  }
+]

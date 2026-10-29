@@ -5,6 +5,7 @@ No dense Cartesian-product arrays; bytearrays are at most N+1 bytes.
 """
 import json
 import math
+from fractions import Fraction
 from pathlib import Path
 
 
@@ -65,6 +66,39 @@ def atomic_counts():
     return dict(checked_intersections=cases)
 
 
+def fibre_tests():
+    ps = [5, 7, 11, 13]
+    N, s = 10000, 6
+    rows = []
+    for c in range(s):
+        omega = {p: {(c+j) % p for j in range(1+c % 3)} for p in ps}
+        beta = {p: Fraction(len(omega[p]), p) for p in ps}
+        Z = math.prod(1/(1-beta[p]) for p in ps)
+        mu = sum(beta.values())
+        nu = math.log(float(Z))
+        actual = sum(all(n % p not in omega[p] for p in ps)
+                     for n in range(1, N+1) if n % s == c)
+        Nc = sum(n % s == c for n in range(1, N+1))
+        for R in [1, 5, 10, 30, 100]:
+            denom, prob = Fraction(0), Fraction(0)
+            for mask in range(1 << len(ps)):
+                chosen = [p for i, p in enumerate(ps) if mask >> i & 1]
+                d = math.prod(chosen)
+                if d <= R:
+                    denom += math.prod(beta[p]/(1-beta[p]) for p in chosen)
+                    prob += math.prod(beta[p] if p in chosen else 1-beta[p] for p in ps)
+            assert denom == Z*prob
+            bound = Fraction(Nc+R*R)/denom
+            assert actual <= bound
+            k = int(math.log(R)/math.log(min(ps)))
+            if 0 < k < mu:
+                chernoff = nu-float(mu)+k+k*math.log(float(mu)/k)
+                assert math.log(float(denom)) <= chernoff+1e-12
+            rows.append(dict(c=c, R=R, Nc=Nc, actual=actual,
+                             denominator=str(denom), tail_probability=str(prob), bound=float(bound)))
+    return rows
+
+
 def main():
     result = dict(atomic_counts=atomic_counts(), translated_squares=[
         translated_squares(1_000_000, Q, 4) for Q in [1000, 2000, 4000]
@@ -72,7 +106,10 @@ def main():
     out = Path('data/z50_ajastra')
     out.mkdir(parents=True, exist_ok=True)
     (out/'round1.json').write_text(json.dumps(result, indent=2)+'\n')
+    second = fibre_tests()
+    (out/'round2.json').write_text(json.dumps(second, indent=2)+'\n')
     print(json.dumps(result, indent=2))
+    print(f'Round 2: {len(second)} exact denominator/fibre checks passed.')
 
 
 if __name__ == '__main__':
