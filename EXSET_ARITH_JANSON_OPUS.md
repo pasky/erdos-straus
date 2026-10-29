@@ -121,9 +121,102 @@ statement of the same kind as the target.
 (R1) can be proved **step by step** by an argument that does not, in effect, count B_i ∩ I. The rest of this
 document classifies such per-step arguments.
 
-## 2. Obstructions: squares, Linnik, small sets
+## 2. Obstructions: squares, one-sidedness, and a Buchstab-type deficit
 
-TBD.
+### 2.1 The square floor, located
+
+Call 𝓕 a family *anti-square on I* if no event of 𝓕 contains a square of I.
+
+**Lemma 2.1 (which families are anti-square; PROVED or cited).**
+
+1. *U certificate classes on I = {n ≡ 1 (8)}.* The events are {n ≡ −v (mod A)}, with A ≡ −1 (mod v),
+   v ∈ 4ℤ ∪ (8ℤ+7), and 1 < A < n+v. They are anti-square: this is Theorem E (z48). It is also CERTIFIED for the
+   prime-modulus subfamily up to N = 10⁹ (§7: the chain program aborts on a square hit, and none occurred).
+2. *The CONJECTURE_S_MODEL Thm 2.1 family on I = {n ≡ 1 (24)}.* The events are E_{u,v} = {n ≡ −u−v (mod uv)},
+   with u, v odd and coprime and u ≡ 3 (mod 4). Squares m² with gcd(m, 6) = 1 avoid every E_{u,v}.
+   *Proof.* Suppose m² ∈ E_{u,v}. If a prime p divides gcd(m, u), then p | m² + u + v − m², so p | u + v, hence p | v,
+   contradicting gcd(u, v) = 1. The same argument applies to v. So gcd(m, uv) = 1, and (uv/m²) = +1. But Lemma 1.1 of
+   CONJECTURE_S_MODEL gives (uv/n) = −1 for every n ≡ 1 (8) in E_{u,v} when u ≡ 3 (4). ∎
+3. *Forced ES classes on I = [1,N].* These are ℛ(M), the (a,D) classes and the Case-A classes. None contains a
+   square (EXCEPTIONAL_KARY2, "Key new inputs"; Mordell/Jacobi).
+
+**Theorem 2.2 (square floor for the chain; PROVED).** Let 𝓕 be anti-square on I, and suppose (RLD) holds for some
+ordering with parameters (η_i, K). Then
+
+    Σ_i η_i P(E_i)  ≥  μ − KΔ − log(1/ν(□_I)),      □_I = squares in I.
+
+For I = {n ≤ N : n ≡ 1 (8)} one has ν(□_I) = (4+o(1))/√N, so log(1/ν(□_I)) = ½ log N − log 4 + o(1). Thus
+every unit of net model mass μ − KΔ beyond ½ log N must be paid for by RLD error.
+
+*Proof.* □_I ⊆ Av(𝓕) ∩ I, so −log ν(Av 𝓕) ≤ log(1/ν(□_I)). Compare with Theorem 1.3. ∎
+
+**Proposition 2.3 (where (R1) fails; PROVED).** Put σ_i = ν(□_I)/ν(B_i^d), the square share of B_i^d. Squares are
+never in E_i, so
+
+    ν(E_i | B_i^d) = (1 − σ_i) · ν(E_i | B_i^d ∖ □).
+
+Hence (R1) at step i holds with η_i < σ_i only if the non-square part of B_i^d *over*-represents E_i by the factor
+(1−η_i)/(1−σ_i). If the non-squares satisfy (R1) with η = 0 and no excess, then exactly η_i = σ_i. Summed, the
+error is then Σ_i σ_i P(E_i). This is O(1) while ν(B_i^d) ≫ ν(□_I)e^{C}, and it becomes the whole mass once
+ν(B_i^d) is within a constant factor of ν(□_I). So the failure is not spread over the chain. It sits in the
+steps after the sifted set has come down to O(√N) elements, as the square floor requires. ∎
+
+CERTIFIED illustration (§7, prime-modulus U family, N = 10⁹): σ ≤ 0.012 up to ℓ ≈ 1400, where the total deficit
+is 0.0146. Of that, 0.0051 is the square part Σσ_ℓ w(ℓ)/ℓ; the rest is §2.3.
+
+**Corollary 2.4 (maximal RLD depth for the three anti-square families; PROVED from Thm 2.2 and the cited model
+lower bounds on μ − KΔ).** RLD with total error ≤ ημ (η < 1 fixed) is false:
+
+* for the CONJECTURE_S_MODEL family truncated at H once c(log H)² > (½ log N)/(1−η), i.e. at
+  H ≥ exp(C√log N), on I = {n ≡ 1 (24)};
+* for the es-subexp-note rough Type II family (mass ≥ cL³/log L, Δ ≪ L²) once
+  L³/log L ≫ log N, i.e. at T ≥ exp(C(log N log log N)^{1/3}), on I = [1,N].
+
+These are exactly the depths at which a transferred model bound would give a power saving. *Assessment:* so the
+square floor caps any RLD-based Janson transfer at a power saving, never more. This is consistent with Target 2
+and gives no reason by itself to abandon the route below that depth.
+
+### 2.2 One-sidedness (the Linnik control)
+
+The chain uses (R1) only as a *lower* bound on hits of an independent class, and (R2) only as an upper bound up
+to a constant K. No two-sided asymptotic is needed, so the method is consistent with FRONTIER §4 item 7.
+Two-sided per-step statements are in fact false:
+
+* Even in the model, ρ_i^model = P(E_i | B_i) is typically far below P(E_i) when Δ > 0. The events are positively
+  correlated through shared bits. In the composite-modulus U family at A ≤ 3000 (§7), Σ P(E_i) = 9.07 while
+  Σ ρ_i^model = 6.14.
+* At integers, the square floor (Prop 2.3) and the deficit of §2.3 are one-sided failures of the *lower* bound.
+  They are the failures that matter.
+
+### 2.3 A third obstruction: a scale-invariant non-square deficit at moduli ≥ N^{1/2.5} (EVIDENCE + Assessment)
+
+The numerics of §7 show something not predicted in the brief. For the prime-modulus U family, define the
+*non-square deficit*
+
+    D_ns(ℓ) = Σ_{ℓ' ≤ ℓ} [w(ℓ')/ℓ' − ρ_{ℓ'} · ν(B_{ℓ'})/ν(B_{ℓ'} ∖ □)].
+
+This is the chain deficit after the square part has been removed exactly. D_ns is small for small ℓ but grows
+steadily once ℓ ≥ N^{1/2.5}. As a function of s = log N/log ℓ it is **scale-invariant** across N = 10⁷, 10⁸,
+10⁹:
+
+| s | 2.9 | 2.3 | 2.2 | 1.95 | 1.75 |
+|---|---|---|---|---|---|
+| D_ns (N = 10⁸) | — | 0.024 (s=2.42) | 0.083 (s=2.21) | 0.217 (s=1.95) | 0.395 (s=1.74) |
+| D_ns (N = 10⁹) | 0.009 (s=2.87) | 0.034 (s=2.48) | 0.088 (s=2.19) | 0.210 (s=1.96) | 0.364 (s=1.77) |
+
+The random-class control has the same moduli and the same number of classes per prime, but uniformly random
+residues. It has **no** deficit at any depth: |Σ(w/ℓ − ρ_ℓ)| ≤ 0.07 down to 221 survivors at N = 10⁹ and
+ℓ ≤ N/2.
+
+*Assessment (mechanism).* The U classes are **shift-aligned**. At every prime the classes are −v (mod ℓ) for the
+shifts v | ℓ+1, so all events with a fixed shift v are divisibility conditions on the single integer n + v. At
+integers, n + v ≤ 2N has at most s prime factors ≥ N^{1/s}. The Haar model treats divisibility by large primes
+as independent, and this fails exactly as the Mertens product fails to predict sifted counts of high-dimensional
+sieves near s ≈ 1. Compare the prime k-tuple count with its Mertens product, which differ by e^{γk} at
+z = N. The data agree with the predicted features: the deficit depends on s only, it switches on near
+s ≈ 2.5, and it is absent for unaligned classes. It is irrelevant for the targets, whose moduli are N^{o(1)}
+(s → ∞). But it shows that (R1) relative to the Haar model is **false** at moduli ≥ N^{0.4}, for reasons that have
+nothing to do with squares. Any proof of (R1) must therefore use that the moduli are ≤ N^{1/s_0}.
 
 ## 3. The collapse theorem: why a chain of ratios is not automatically non-linear
 
