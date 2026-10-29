@@ -583,21 +583,25 @@ Usage: `chain N mode seed Lmax`. The program runs over I = {n ≤ N : n ≡ 1 (8
   chain.
 * Classes are −v (mod ℓ) for v | ℓ+1 with v ≡ 0 (4) or v ≡ 7 (8). The proper-divisor condition is enforced: the
   element n = ℓ − v is skipped.
-* Modes: 0 = U classes; 1 = random classes; 2 = random quadratic non-residues; 3 = shift-aligned classes with
+* Modes: 0 = U classes; 1 = random distinct nonzero classes; 2 = random quadratic non-residues; 3 = shift-aligned classes with
   v ≡ 1 (4) or 3 (8). Modes 1 and 2 use the same w(ℓ).
 * Output per checkpoint: alive count, squares alive, model mass Σw/ℓ, Σρ_ℓ, the deficit, log model density
-  Σlog(1−w/ℓ), log actual density, and D_ns.
+  Σlog(1−w/ℓ), log actual density, and D_ns (column 9). Column 9 subtracts the initial square count, so it is the
+  non-square deficit only in modes 0 and 2, where squares are never killed. In modes 1 and 3 it is meaningless.
 
 Runs at N = 10⁷, 10⁸, 10⁹ with Lmax = N/2 (mode 0 at N = 10⁷ used Lmax = 5·10⁶), each in seconds. The files
 are `chain_U_N*.txt`, `chain_R_N*.txt`, `chain_M2_N1000000000.txt` and `chain_M3_N1000000000.txt`.
 
 CERTIFIED facts:
 
-* No square is ever hit by a U class (mode 0, all N; the program reports any hit).
+* No square is ever hit by a U class (mode 0, all N). The program prints a warning on stderr for any such hit;
+  none occurred.
 * End states at N = 10⁹, ℓ ≤ 4.5·10⁸:
   - U: 20 742 survivors, of which 15 810 are squares. Model mass 12.95, Σρ = 8.48.
   - Random control: 221 survivors, mass 12.95, Σρ = 13.02.
-  - QNR-random: 16 149 survivors, the square count plus O(10²); D_ns = 0.015.
+  - QNR-random: 16 050 survivors (15 810 squares); final D_ns = 0.011, and max |D_ns| over checkpoints is 0.050.
+  - Aligned non-U control (mode 3): total deviation from the model ranges over [−1.54, +0.49]; 597 survivors at
+    the end.
 
 EVIDENCE (the s-scaling table of §2.3):
 
@@ -611,7 +615,7 @@ mass(1.02·10⁷) = 10.07, mass(4.5·10⁸) = 12.95.
 ### 7.2 Composite moduli, model Monte Carlo, Janson bound (`scripts/z50_ajopus_janson.c`)
 
 Usage: `janson N Amin Amax pmin samples seed`. Events are all U classes with modulus A ∈ [Amin, Amax] whose prime
-factors are all ≥ pmin, ordered by (A, v). The integer chain runs on n ≡ 1 (8), n ≤ 10⁹. The model chain uses
+factors are all ≥ pmin, ordered by A; for fixed A the divisors v come in enumeration order, not sorted. The integer chain runs on n ≡ 1 (8), n ≤ 10⁹. The model chain uses
 Monte Carlo over independent prime-power coordinates, recording the first-hit index of each sample. μ, Δ (pairs
 that share a bit and are compatible), max P and the maximal conflict sum are computed exactly. Files:
 `janson_A*_p*.txt`.
@@ -623,6 +627,9 @@ that share a bit and are compatible), max P and the maximal conflict sum are com
 | (29, 200000, 29) | 8.12 | 1.01 | 0.77 | 8.2e−4 | 5.3e−4 (105 of 2e5) | 3.0e−4 | 8.2e−4 |
 | (3, 30000, 3) | 15.33 | 32.38 | 7.17 | 2.10e−4 | 6e−5 (25 of 4e5) | 2.2e−7 | 2.5e7 |
 
+Monte Carlo relative standard error is ≈ 1/√(alive samples): about 5%, 4%, 10% and 20% in the four rows. The
+(3, 3000, 3) row is `janson_A3_3000_p3.txt`.
+
 Reading (EVIDENCE):
 
 * With composite moduli, Janson's Δ is large unless the moduli are rough, as the S-model and es-subexp families
@@ -632,9 +639,10 @@ Reading (EVIDENCE):
 * Integer and model chains agree to within 2.5% in −log survival while max A ≤ N^{0.4}, i.e. s ≥ 2.5.
   Integer survival exceeds the model by a factor 1.5–3.5 once A reaches N^{0.5}–N^{0.6}, matching §2.3.
 
-### 7.3 Survivor structure (`/tmp` one-off, recorded here)
+### 7.3 Survivor structure (`scripts/z50_ajopus_cores.py`)
 
-The U survivors at N = 10⁸, ℓ ≤ 10⁴ (s = 2) were factored, 20 000 sampled.
+The U survivors at N = 10⁸, ℓ ≤ 10⁴ (s = 2) were dumped with `DUMP=file chain 100000000 0 1 10000` (mode 1 for the
+control) and factored on a sample of 20 000.
 
 | fraction with squarefree kernel ≤ K | K = 1 | 10² | 10⁴ | 10⁶ |
 |---|---|---|---|---|
