@@ -6,7 +6,7 @@ Scripts: `scripts/z51_dbreak_*`. Data: `data/z51_dbreak/`. Brief: `../z51briefs/
 
 ## 0. Summary table
 
-**Status: round 1 in progress (§1 written).**
+**Status: rounds 1–2 written; round-1 hostile review pending.**
 
 | # | statement | label | § | review |
 |---|---|---|---|---|
@@ -14,7 +14,8 @@ Scripts: `scripts/z51_dbreak_*`. Data: `data/z51_dbreak/`. Brief: `../z51briefs/
 | 2a | exchange rate: PD events with modulus 4em ≤ e^λ carry mass ≪ λ²/log N, against ≍ λ for CRT events | PROVED (Brun–Titchmarsh) | §2.2 | — |
 | 2b | **one-sided PD barrier:** CRT data at level λ + exact PD first moments at every level + PD k-point upper bounds with constants K_k ≥ C^{k−1} cannot prove #A_N ≤ (1 − 1/C)e^{−C₁√λ−C₂log²λ}#I; with all known sieve constants (C = 2) PD adds at most a factor 2 | PROVED (mixture + LP duality + THETA Thm 2.5) | §2.3 | — |
 | 2c | sharpness: without CRT, Cauchy–Schwarz with pair constant K₂ gives P(no PD event) → 1 − 1/K₂, attained by the mixture | PROVED | §2.3 | — |
-| 2d | the k-th factorial moment visible at level N is ≤ (C log N/k²)^k, ≤ e^{−k} for k ≳ √log N; PD representations add a lower-order Rankin term | PROVED (CRT part); Assessment (PD part) | §2.4 | — |
+| 2d | the k-th factorial moment visible at level N is ≤ (C log N/k²)^k, ≤ e^{−k} for k ≳ √log N; PD representations add a lower-order Rankin term | PROVED (CRT part) | §2.4 | — |
+| 2e | **two-sided PD barrier below the level cap:** CRT data at level λ + exact (Cramér–Haar) PD correlations of every order at total level ≤ λ cannot prove #A_N ≤ ½e^{−C√λ}#I (random subfamily + LP duality + the Thm 3.2 sieve-limit run with supply exponent 1) | PROVED given the KARY/EK framework (EXSET_SIEVE_MASS Thm 3.2 proviso) | §2.4 | — |
 | 3a | cost profile of shifts; product-form shift bounds (Nair–Tenenbaum/Henriot/Shiu shape) with loss C > 1 per shift save ≪ (log log N)² log log log N; loss 1 + ε needs ε ≤ exp(−M/(C log log N)) to save M | PROVED (BT, PNT mod 8) | §3.1 | — |
 | 3b | decoupling: upper bounds need one layer only (no RLD between layers); T1-min ⟸ (TB_δ), and a power saving for E_U off squares ⟸ (TB_pow), for the CRT-invisible top band ℓ > √(2N) | PROVED (trivial) | §3.2 | — |
 | 3c | top band: P(X_top = 0) ≈ 1.4·e^{−E X_top}, slope −0.30 in log N over 10⁷–10⁹ | CERTIFIED counts / EVIDENCE | §3.2 | — |
@@ -229,11 +230,53 @@ For k ≥ C′√(log N) the part of the k-th moment visible at level N is ≤ e
 and use k! ≥ (k/e)^k. ∎
 
 With PD representations (cost log(4em) instead of log ℓ) the Rankin sum gains Σ_{e,m} P(E^{PD}_{e,m})(4em)^{−α}
-≪ 1/(α² log N) by Prop 2.2, i.e. ≪ log N/k² at α = k/log N. That is below the CRT term C log N/k. (Assessment: rigorous
-in the Cramér–Haar model with HL main terms; for integers it presupposes the HL evaluation.) So even an exact
-Hardy–Littlewood oracle for PD tuples *at total modulus ≤ N* leaves the exponent at 1/2. The needed objects are the full
-factorial moments, i.e. k-point correlations Σ_n ∏_i ω_{e_i}(n + 4e_i) of restricted prime-factor counts at k ≳ √(log N)
-shifts with total modulus above N. Already k = 3 of this type (Σ τ(n)τ(n+h₁)τ(n+h₂)) has no proved asymptotic.
+≪ 1/(α² log N) by Prop 2.2, i.e. ≪ log N/k² at α = k/log N, below the CRT term C log N/k. The following theorem makes
+this rigorous at the level of what any argument can extract from such data.
+
+**Theorem 2.6 (two-sided PD information below the level cap adds nothing to the exponent; PROVED given the KARY/EK
+framework of EXSET_SIEVE_MASS Thm 3.2, run with supply exponent 1).** Let W be the absolute constant of that theorem,
+1 ≤ λ ≤ (log N)/2, and let 𝒥 be a finite family of PD events j = (e_j, m_j). Give j the level
+s_j = Σ_{ℓ | 4e_jm_j, ℓ > W} log ℓ and assume s_j ≤ λ. The *Cramér–Haar model* CH draws x ~ ℋ and independent coins
+κ_j ~ Bernoulli(ρ_j), and sets π_j = 1[x ∈ class_j]κ_j, where class_j is the class −4e_j − m_j (mod 4e_jm_j) (refined
+mod 8 to lie in 1 + 8Ẑ) and 0 ≤ ρ_j ≤ C₀(4e_j/φ(4e_j))/(log N − λ) (the Brun–Titchmarsh size of the true conditional
+prime density). A *mixed monomial* 1_S(x)∏_{j∈J}π_j has level (level of S) + Σ_{j∈J} s_j. Then there is a joint law of
+(x, π) that agrees with CH on every mixed monomial of level ≤ λ (so every two-sided Hardy–Littlewood-type statistic
+of PD tuples and every CRT statistic at level λ is reproduced exactly), and in which
+
+    P(x ∈ A^{CRT}_λ, π ≡ 0) ≥ ½ exp(−C√λ),   C absolute.
+
+So an argument whose inputs are CRT data at level λ plus *exact* PD correlations of every order at total level ≤ λ
+cannot prove #A_N ≤ ½e^{−C√λ}#I. With λ ≍ log N this is the exponent 1/2 again.
+
+*Proof.* (1) *Random subfamily.* Let 𝒥′ ⊆ 𝒥 contain each j independently with probability ρ_j.
+(2) *Its supply is linear.* With Γ, G and 𝔐 as in EXSET_BEYOND_CRT §2 / EXSET_SIEVE_MASS §3, let
+𝔐_{𝒥′}(y) = Σ_{j∈𝒥′, W<P(G_j)≤y} Γ(G_j)/G_j, G_j ≍ 4e_jm_j the modulus of class_j. Then
+E𝔐_{𝒥′}(y) ≤ (C/(log N − λ)) Σ_{P(em)≤y} Γ(4em)(4e/φ(4e))/(4em) ≤ C′(log y)²/(log N − λ), which is ≤ C′ log y for
+y ≤ e^λ (as log y ≤ λ ≤ log N − λ); for y > e^λ, 𝔐_{𝒥′}(y) = 𝔐_{𝒥′}(e^λ). Each summand is ≤ Γ(G)/G ≤ C″, so Bernstein's
+inequality and a union bound over y = e^{2^i} give, with probability ≥ ½, 𝔐_{𝒥′}(y) ≤ K log y for all y ≥ y₀, with K,
+y₀ absolute (monotonicity in y covers intermediate y). The prime-local classes −4e (mod ℓ), ℓ ≤ e^λ, have supply
+≤ K log y by Brun–Titchmarsh (EXSET_SIEVE_MASS Prop 2.3).
+(3) *The cap for the realised family.* Let 𝔊(𝒥′) be the prime-local classes at ℓ ≤ e^λ, the classes of 𝒥′, and the
+classes n ≢ 1 (mod 8). All are classes of the U-family 𝔘 of EXSET_SIEVE_MASS §1.1 (word classes with an endpoint
+u = 4e ∈ S, or the excluded residues mod 8), so they contain no unit square (base), and the cofactor sums (iii) hold
+because they hold for 𝔘 and only decrease for subfamilies. Run the proof of EXSET_SIEVE_MASS Thm 3.2 with the first
+moment K log y in place of K(log y)²(log log y)²: take s₁ = √λ; singletons cost ≤ (8/3)K√λ; block i (s = 2^i s₁,
+d_i = ⌊λ/s⌋) has (E M_{V_i} + 4d_i)/d_i ≤ 2K·4^i + 4, so Σ_i EΦ_i ≤ Cλ/s₁ + O(log²λ). Hence, on the event of (2), every
+level-λ majorant ν ≥ 0 of 𝒜(𝔊(𝒥′)) has Eν ≥ e^{−2W−log 2−C√λ}.
+(4) *Fake laws.* As in Thm 2.3(i) (finite LP duality plus weak-* compactness), on the event of (2) there is a
+probability ρ_{𝒥′} on Ẑ with Haar marginals on every level-λ class and ρ_{𝒥′}(𝒜(𝔊(𝒥′))) ≥ e^{−2W−log 2−C√λ}. Off that
+event put ρ_{𝒥′} = ℋ.
+(5) *The model.* Draw 𝒥′, then x ~ ρ_{𝒥′}, and set π_j = 1[j ∈ 𝒥′, x ∈ class_j]. For a mixed monomial of level ≤ λ,
+1_S ∏_{j∈J} 1_{class_j} is a class indicator of level ≤ λ, so E[1_S ∏_J π_j | 𝒥′] = 1[J ⊆ 𝒥′]·ℋ(S ∩ ⋂_J class_j) for every
+𝒥′, and averaging over 𝒥′ gives ∏_J ρ_j·ℋ(S ∩ ⋂_J class_j), the CH value. If x ∈ 𝒜(𝔊(𝒥′)) then x ∈ A^{CRT}_λ and every
+π_j = 0. So P(x ∈ A^{CRT}_λ, π ≡ 0) ≥ ½e^{−2W−log 2−C√λ}. ∎
+
+*Scope.* Theorem 2.6 covers two-sided PD information whose total level is ≤ λ; Theorem 2.3 covers one-sided PD
+information at every level. Neither covers two-sided PD correlations at total level above log N, i.e. the full factorial
+moments of R: the k-point correlations Σ_n ∏_i ω_{e_i}(n + 4e_i) of restricted prime-factor counts at k ≳ √(log N) shifts
+with total modulus above N. Already k = 3 of this type (Σ τ(n)τ(n+h₁)τ(n+h₂)) has no proved asymptotic. Local
+(Cramér–Granville) factors in ρ_j can be included by refining class_j modulo a fixed W-smooth modulus; this changes only
+the constants (Assessment).
 
 **Blocking statement for approach 1 (exact).** PD helps only through (a) or (b) of §2.3. Beyond level N, (a) is the
 k-point correlation problem for k ≳ √(log N), and (b) is the target. *Step that fails at squares:* none at the level of
