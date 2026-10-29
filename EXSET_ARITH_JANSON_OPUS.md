@@ -447,7 +447,51 @@ the square floor of §2.1.
 
 ## 6. Consequences and exponents (conditional)
 
-TBD.
+**Observation 6.0 (PROVED, trivial).** U holds at every n ≡ 5 (mod 8), n ≥ 5. Indeed c = 3 there, and the pair
+v = 3 ∈ 8ℤ+3, A = 2 ≡ −1 (mod 3) satisfies A | n+3 and 1 < A < n+3. So all of U's content sits in the class
+n ≡ 1 (mod 8), which is where every exception in the z49 census lies. That is why §§2, 7 work on
+I = {n ≡ 1 (8)}. (The 4/n identity attached to this degenerate word was not examined; U is used here as defined
+in z49 CONTEXT.)
+
+**Corollary 6.1 (CONDITIONAL on Conjecture RLD-U at one s < 2C_V ≈ 1.48, and on the Titchmarsh-type asymptotic
+Σ_{ℓ≤z} w(ℓ)/ℓ = (C_V + o(1)) log z).**
+
+    #{n ≤ N : U(n) fails}  =  #{odd squares ≤ N} + O(N^{1 − C_V/s + o(1)}),
+
+and the error term is o(√N). This is Target 2 for U, conditionally.
+
+*Proof.* An exception is either an odd square, or a non-square n ≡ 1 (8) that avoids every U class, in
+particular 𝓕_{N^{1/s}}. Since Σ w(ℓ)²/ℓ² < ∞ (w(ℓ) ≤ τ(ℓ+1)), ∏_{ℓ≤z}(1 − w(ℓ)/ℓ) = z^{−C_V+o(1)}. \u220e
+
+The asymptotic for Σ w(ℓ)/ℓ is a Titchmarsh-divisor problem with divisors restricted to V. The standard
+BV + Brun–Titchmarsh argument should give it (Assessment); only the value C_V ≈ 0.74 is empirical. The
+conditional statement uses only the prime-modulus subfamily. The composite U classes, which carry much more
+mass, are not needed.
+
+**Corollary 6.2 (CONDITIONAL on (RLD) with Σ η_i P(E_i) ≤ μ/2 and K ≤ 2, up to H = exp((log N)^α)).** By Theorem
+1.3 and the cited model bounds for families with Δ = O(μ^{1−ε}):
+
+| family (on I) | model −log P(Av) | exceptional set from RLD to α | power saving at | beats 3/4 iff | square floor (Cor 2.4) |
+|---|---|---|---|---|---|
+| prime U family, n ≡ 1 (8) | C_V log z | N exp(−(C_V/2)(log N)^α) | α = 1 (that is RLD-U) | α > 3/4 | at mass ½ log N |
+| ES₅/U edge family, rough endpoints (I3 §8.4 route), n ≡ 1 (24) | ≥ cL²/(log L)² | N exp(−c(log N)^{2α}/(log log N)²) | α = ½ (up to logs) | α > 3/8 | α = ½ + o(1) |
+| ES Type II rough family (es-subexp `thm:haarlower`), [1,N] | ≥ cL³/log L | N exp(−c(log N)^{3α}/log log N) | α = ⅓ (up to logs) | α > ¼ | α = ⅓ + o(1) |
+
+Note that the column "square floor" coincides with the column "power saving" in every row. By Theorem 2.2,
+(RLD) cannot hold beyond the depth at which it would give a power saving larger than ½ (U, ES₅) or than the
+forced-class square floor (ES). *Assessment:* so (RLD) is exactly as strong as needed for Targets 1–3 and no
+stronger. Any proof of it must use the anti-square structure only through the error term.
+
+*Controls.*
+
+* Odd squares: (RLD) fails there by Theorem 2.2. That is the T1 control, and the method passes it.
+* Numerator 8: Theorem 1.3 is family-agnostic and only bounds survivors from above. For 8/n the exceptions
+  11, 17, 131, 241 are finitely many, so no density statement is contradicted. The method proves nothing false
+  for numerator 8. It also gives no pointwise statement, so FRONTIER §4 items 2–5 do not bind it.
+* Hard primes (§7): 193, 2521, 3361, 66529 survive the whole prime-modulus U family at N = 10⁷ (ℓ ≤ 5·10⁶). The
+  primes 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 8813281 are hit. So the prime-modulus
+  family alone does not cover the known hard cases. That is consistent with an exceptional-set statement, which
+  must allow survivors.
 
 ## 7. Numerics
 
