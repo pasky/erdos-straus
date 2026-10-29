@@ -621,6 +621,13 @@ geometrically. Over ℤ there is no family of finite fields over which the integ
 analogue of "Frob_f ∈ G_n" is the profinite residue vector of n, and its information is exactly the CRT information.
 The non-abelian, non-CRT part of G_n has no integer counterpart. (Lemma 3.4: G_n contains the boundary S_n, which
 already is non-abelian; CRT corresponds to abelian quotients of bounded conductor.)
+Theorem 3.9 makes the mechanism precise. Exact CRT supplies only *4-wise* independence of the small-class events
+(a level-n statement, available over ℤ too). The upgrade to full independence of ≍ n² events comes from the fact that
+the events are fixed-point events of one finite group acting on sets of size D_σ, and 4-transitive groups of large
+degree contain the alternating group (CFSG). Over ℤ the events "n has a word of shape σ" are not fixed-point events
+of any finite group action: there is no fibre X_σ, no G_σ, and so nothing for 4-wise independence to bootstrap. The
+integer analogue of Proposition 3.8 (4-wise independence of class events with moduli ≤ N^{1/4}) is just CRT and is
+true; the integer analogue of Theorem 3.9(i) does not even have a statement.
 
 **Number of shifts vs degree.** In the large-q regime the number of shifts is irrelevant; the number of *shapes*
 (≈ n²) is the mass, and it does not grow with q. That is why Goal 1 fails (Thm 3.5). In the fixed-q regime the depth
