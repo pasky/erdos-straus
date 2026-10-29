@@ -16,7 +16,7 @@ Scripts: `scripts/z50_ajopus_*`. Data: `data/z50_ajopus/`.
 | B′ | (R1) relative to the Haar model also fails, off the squares, for the U prime family at moduli ≥ N^{0.4}: a non-square deficit D_ns(s), s = log N/log ℓ, scale-invariant and bounded in N for fixed s; absent for random and for random-QNR classes; mechanism not identified | EVIDENCE (N = 10⁷–10⁹) | §2.3, §7 |
 | C | **Collapse theorem:** any chain/Janson/conditioning argument whose steps are certified pointwise on ℤ by functions of a linear class 𝒞 is literally one 𝒞-majorant; hence CRT-certified chains save ≤ C(log N)^{3/4} (moduli ≤ N/2, or coefficient-sum evaluation, (D)20/(D)24) and prime-certified chains obey (D)22. Density-increment and entropy chains are CRT of level ≤ log N. | PROVED | §3, §5.3 |
 | C′ | LP-duality check: the comparison measure of (D)17–(D)25 violates (R1) at every step, so it bounds exactly the certified chains; door (vii) reduces to door (i) | PROVED (C) + Assessment | §3.3 |
-| D | Blindness: (R1) at a step is not derivable from an oracle for all level-D statistics of B_i + inclusion in a level-D set + any inequality valid for all [0,1]-sequences (large sieve, BDH, dispersion, Cauchy–Schwarz), as soon as a room condition holds | PROVED (elementary) | §4 |
+| D | Blindness: (R1) at a step is not derivable from an oracle for all level-D statistics of B_i^d + inclusion in a level-D set + any inequality valid for all [0,1]-sequences (large sieve, BDH, Cauchy–Schwarz), whenever a room condition holds (a hypothesis); with lane C2's r-wise-marginal laws, (RLD) needs genuinely archimedean information about B_i^d ∩ I | PROVED (elementary), per step | §4 |
 | E | Positive ranges: exact CRT range (η_i ≤ 2P_iq_i/(Nβ_i)); fundamental-lemma range log ℓ ≤ c√log N (nothing new); blocking step beyond = a fundamental lemma in dimension κ ≍ log z at level s ≪ κ (FL∞) | PROVED / standard / Assessment | §5 |
 | E′ | Conjecture RLD-U: off the squares, the prime-modulus U sieve at z = N^{1/s} is within e^{C(s)} of its Mertens product, C(s) < ∞ for every s > 1 | CONJECTURE (EVIDENCE: three decades, flat in N) | §5.5 |
 | F | RLD-U at one s < 2C_V ≈ 1.48 ⇒ #{n ≤ N : U(n) fails} = #odd squares + O(N^{1−C_V/s+o(1)}) = #□ + o(√N) (Target 2 for U); exponent table for RLD to depth exp((log N)^α): θ = α (prime U), 2α (ES₅ edges), 3α (ES Type II); square floor sits exactly at the power-saving depth | CONDITIONAL | §6 |
@@ -376,44 +376,54 @@ every such input "is" a door-(i) input is a matter of definition, not a theorem.
 
 Type (E-II) inputs include the large sieve, Barban/Davenport/Halberstam variance bounds, Cauchy–Schwarz and
 dispersion with arbitrary coefficients. They are inequalities valid for every sequence on I. The brief asks for
-RLD from "BV/BDH for sifted sets". This section shows that such inputs, even combined with an oracle for all
-low-level statistics of B_i, cannot certify a single step of (R1).
+RLD from "BV/BDH for sifted sets". This section shows that such inputs cannot certify a step of (R1) once the
+step has any room. That holds even when they are combined with an oracle for all level-D statistics of the set
+in (R1).
 
-**Proposition 4.1 (blindness; PROVED, elementary).** Fix a step i, a modulus D with gcd(q_i, D) = 1, and a set
-W ⊇ B_i that is a union of classes mod D. For example, W can be the avoidance set of the events whose moduli
-divide D. A *blind derivation* of (R1) at step i may use:
+**Proposition 4.1 (blindness; PROVED, elementary; repaired after review).** Fix a step i and write B = B_i^d, the
+set occurring in (R1). Fix a modulus D with gcd(q_i, D) = 1, and a set W ⊇ B that is a union of classes mod D. A
+*blind derivation* of a lower bound for ν(E_i ∩ B) may use:
 
-* (i) the exact values ν(B_i ∩ C) for every class C mod D (an oracle for all level-D statistics of B_i);
-* (ii) the inclusion B_i ⊆ W;
+* (i) the exact values ν(B ∩ C) for every class C mod D (an oracle for all level-D statistics of B);
+* (ii) the inclusion B ⊆ W;
 * (iii) any inequality Φ(x) ≥ 0 that holds for every x ∈ [0,1]^I. Examples are the large sieve
-  Σ_{q≤Q} Σ_{a prim} |x̂(a/q)|² ≤ (N+Q²) Σ x_n², BDH with its Siegel–Walfisz hypothesis read off from (i), and
-  Cauchy–Schwarz.
+  Σ_{q≤Q} Σ_{a prim} |x̂(a/q)|² ≤ (N+Q²) Σ x_n² and Cauchy–Schwarz. General-sequence BDH counts too, provided its
+  hypotheses are verified only through (i).
 
-Suppose the **room condition** holds: in every class C mod D, #(C ∩ I ∩ W ∖ E_i) ≥ #(C ∩ I ∩ B_i). Then no blind
-derivation proves ν(E_i ∩ B_i) > 0. In particular it proves no instance of (R1) with η_i < 1.
+Suppose the **room condition** holds: in every class C mod D, #(C ∩ I ∩ W ∖ E_i) ≥ #(C ∩ I ∩ B). Then no blind
+derivation proves ν(E_i ∩ B) > 0, and in particular none proves (R1) at step i with η_i < 1.
 
-*Proof.* In each class C mod D choose X ∩ C ⊆ (C ∩ I ∩ W) ∖ E_i with #(X ∩ C) = #(C ∩ I ∩ B_i). This is possible
-by the room condition. Then x = 1_X has the same level-D statistics as B_i, since every class whose modulus
-divides D is a union of such classes. Also X ⊆ W, and x satisfies every inequality of type (iii). Every premise
-holds for X, yet ν(E_i ∩ X) = 0. ∎
+*Proof.* In each class C mod D choose X ∩ C ⊆ (C ∩ I ∩ W) ∖ E_i with #(X ∩ C) = #(C ∩ I ∩ B). This is possible by
+the room condition. Then 1_X has the same level-D statistics as B, since every class of modulus dividing D is a
+union of such classes. Also X ⊆ W, and 1_X satisfies every inequality of type (iii). Every premise holds for X,
+yet ν(E_i ∩ X) = 0. ∎
 
-The room condition fails only if B_i fills W ∖ E_i in some class mod D. That cannot happen once a single event
-at a modulus coprime to D has removed more than a 1/q_i share of some class. So it holds at every step after the
-first few.
+*Remarks.*
 
-**Corollary 4.2.** A chain argument in which every step uses only blind inputs certifies no positive ratio at
-any step past that point. Its output is then at most what the level-D information gives directly: the CRT count
-of W ∩ I, i.e. the saving of the level-D sieve.
+1. **Room is a hypothesis, not automatic.** It fails, for instance, when B fills I. Take I = [1,30], E_1 = 0 mod 3,
+   E_2 = 1 mod 3, D = 1: then B_2^d = I and (R1) holds exactly (review counterexample to the pre-repair version,
+   which used B_i instead of B_i^d). Room holds when, in every class C mod D, B occupies at most a
+   (1 − 1/q_i)-fraction of C ∩ I ∩ W. This needs B to be genuinely sifted inside W *in every cell*, and cells of
+   length ≥ q_i, so D ≤ N/q_i.
+2. **Per-step only.** The oracle reveals |B ∩ I|. So Proposition 4.1 says nothing about what a sequence of
+   oracles at different steps could deliver; no chain-level corollary is claimed.
+3. **Relation to lane C2.** EXSET_ARITH_JANSON_ASTRA Prop 4.3 / Thm 4.1 construct laws on the residue space, *not*
+   supported on an interval, that have exactly independent uniform r-coordinate marginals for any prescribed
+   sparse forbidden sets (including ES labels), yet avoid far more often than e^{−μ}. Proposition 4.1 is the
+   interval-supported counterpart: the fake X is an honest subset of I, but it matches only level-D statistics.
+   Together they show the following. (RLD) cannot follow from (r-wise residue marginals) ∪ (level-D statistics of
+   the set on I) ∪ (inequalities valid for all sequences). It needs information about the specific set
+   B_i^d ∩ I that is *archimedean*: it uses that I is an interval of integers and that B_i^d is the actual sifted
+   set.
 
-*Assessment (consequence for the brief's item 3).* "Relative BV/BDH for sifted sets" can enter the chain only
-as a **sequence-specific** statement: an equidistribution theorem proved for the particular sequence 1_{B_i},
-from its own structure (bilinear, multiplicative or spectral), and controlling the specific class a_i mod q_i.
-The classical general-sequence theorems (BDH, the large sieve, Barban's theorem) are blind. Bombieri–Vinogradov in
-max-over-a form needs a Type I/II decomposition of the sequence. For the shift-aligned U family such a
-decomposition exists one shift at a time: {n : n + v has no prime factor ≡ −1 (v) below z} is multiplicative in
-n + v. It does not exist for the intersection over many shifts. Equidistribution of that intersection is a
-correlation statement for multiplicative indicator functions at many shifts. This is Elliott/Chowla territory
-(lane D), at a depth (number of shifts ≍ log z) far beyond anything known.
+*Assessment (consequence for the brief's item 3; downgraded after review).* "Relative BV/BDH for sifted sets" can
+enter the chain usefully only as a **sequence-specific** statement: an equidistribution theorem for the particular
+sequence 1_{B_i^d}, proved from its own structure and controlling the specific class a_i mod q_i. BV in
+max-over-a form is not a general-sequence theorem; it needs a Type I/II decomposition. For the shift-aligned U
+family such structure exists one shift at a time: {n : n + v has no prime factor ≡ −1 (v) below z} is
+multiplicative in n + v. I know of no usable decomposition of the intersection over many shifts, but its
+nonexistence is not proved. Equidistribution of that intersection is a correlation statement for multiplicative
+indicator functions at ≍ log z shifts. This is Elliott/Chowla territory (lane D).
 
 ## 5. Attempts at RLD in a nontrivial range
 
