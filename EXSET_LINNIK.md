@@ -355,10 +355,11 @@ the function and its derivative).
 (ii) *Archimedean twists a_n n^{it_p}, |t_p| ≤ T₀.* The Haar computation (1.1) is unchanged for each fixed t;
     E_Haar max_{|t|≤T₀}|Σ a_n (x/n) n^{it}|² ≪ (1 + T₀ log N)‖a‖² (Sobolev in t), so Corollary 2.6 holds with T > C T₀ log N,
     while the hybrid sieve's Δ grows by the same factor T₀.
-(iii) *Dependence through the word data of p* (e.g. 𝒜_p := values or divisors of the word forms n + u that p "sees").
-    Such maps are injective on primes up to bounded multiplicity (p + 1 ∈ 𝒜_p, or the divisor set of p + 1 and p + 2,
-    determines p up to O(1) choices), so K ≥ c·#E and Lemma 4.1 gives #E ≤ CΔ#E/T: nothing unless T > CΔ ≥ X; but for
-    quadratic tests T ≤ #supp(a) ≤ N, and Δ ≥ N. ∎
+(iii) *Dependence through the word data of p* (e.g. 𝒜_p := the divisors of p + 1, or the values of the word forms
+    n + u that p "sees"). Such maps are injective (the divisor set of p + 1 determines p), and for generic data the
+    vectors a^{(p)} are linearly independent, so K = dim V = #E and Lemma 4.1 reads #E ≤ #E·Δ/T. This is void, because
+    T ≤ β_p(a) ≤ Δ for every single vector (Parseval: β_p(a) ≤ N + p for additive tests; |⟨a, χ_p⟩|²/‖a‖² ≤ #supp(a) ≤ N
+    for quadratic tests; and Δ ≥ N + X resp. Δ ≥ N). ∎
 *Exact blocking lemma for (b).* A p-dependent datum helps only if its dependence has ≤ X^{c} states (Lemma 4.1); such a
 datum is a fibred datum, covered by §2 (Prop 4.2(i)). The word-form sequences have ≍ #E states and give nothing.
 
