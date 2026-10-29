@@ -43,7 +43,10 @@ pivot M, at most 4τ(m) refined W2 classes per pivot m.
 **No unit squares (PROVED; CERTIFIED for small moduli).** No class of 𝔘 or 𝔉₅ contains a unit square modulo its
 modulus. If c ≡ x² (mod G) with gcd(x, G) = 1, CRT gives an odd m ≡ x (mod G) as large as we like, and m² lies in the
 class above its threshold. For 𝔘 this contradicts Theorem E (at an odd square no vertex of S is non-isolated). For 𝔉₅
-it contradicts Theorem A, since (uv/m²) = +1 when gcd(uv, m) = 1. `scripts/z50_lsmass_profile.py` confirms this by
+it contradicts Theorem A, since (uv/m²) = +1 when gcd(uv, m) = 1. Coprimality (review R1): for W1, gcd(u, M) = 1, so
+we may also take m coprime to u; then Mv = m² + u forces gcd(v, m) = 1. For W2, uv | G, so a unit square already
+gives gcd(m, uv) = 1. A W2 class with gcd(u, v) > 1 contains no unit at all. Bookkeeping: intersecting a refined W2 class
+(mod 4uv) with n ≡ 1 (mod 8) may need modulus 8uv; this only changes the multiplicity constants. `scripts/z50_lsmass_profile.py` confirms this by
 brute force for all 525 U-classes of pivot ≤ 200 and every refined ES₅ W1 class of pivot ≤ 200 (0 exceptions;
 `data/z50_lsmass/profile.json`). Control: the same test finds a unit square in 251 of 956 unrestricted W1 classes. This is the KARY2 square base (K2 Lemma 2.3) for these families.
 
@@ -108,36 +111,49 @@ on (a)–(b)).** Let S(λ) be the best saving of a level-λ method. This covers 
 (Selberg, Bonferroni, β/Rosser, CRT-evaluated moments) and Montgomery's large sieve with Q = e^{λ/2}. For coefficient-sum
 methods, λ ≍ log N by THETA Lemma 2.9.
 (a) S(λ) ≥ max{mass*(y) : Λ(y) + √(2V(y)) ≤ λ/2} − log 4.
-(b) For every α > 0, S(λ) ≤ log(Q₀/|R|) + 19αλ + C₄ Σ_ℓ p̄_ℓ ℓ^{−α} + O(log²λ).
-(c) Three regimes follow.
-   (i) *Fixed dimension* κ (p_ℓ ≈ κ/ℓ): S(λ) = κ log λ + O_κ(1). This is the full Euler mass up to e^{cλ/κ}, so the sieve
-       gets exp(−mass) up to a constant factor (the classical Γ(κ+1)e^{γκ} loss).
-   (ii) *Log-growing dimension* (p_ℓ ≍ a log ℓ/ℓ, so mass(y) ≍ a log y and κ(y) ≍ (a/2)log y):
-       (1 − o(1))√(aλ) ≤ S(λ) ≤ C√(aλ). The available mass up to e^{λ} is ≍ aλ, so the sieve gets only its square root.
-   (iii) *Single band* (all p_ℓ on (e^{λ/2}, e^{λ}], total mass μ): S(λ) ≤ 38 log(2 + μ) + C. Only one prime per term
-       fits, and the bound is ≈ 1/μ, not e^{−μ}.
+(b) For every α > 0, S(λ) ≤ log(Q₀/|R|) + 19αλ + C₄ Σ_ℓ p̄_ℓ ℓ^{−α} + E(λ), where E(λ) is THETA's explicit remainder
+    (the last two terms of THETA (2.4)). It is O(log²λ) when the truncated mass is μ̄_λ ≤ λ^{O(1)} and s_* ≫ 1.
+(b′) (visible-mass bound) S(λ) ≤ log(Q₀/|R|) + mass*(e^λ). *Proof.* A level-λ majorant ν does not depend on n mod ℓ
+    for slice primes ℓ > e^λ. Every residue vector avoiding the classes at ℓ ≤ e^λ extends to a point of 𝒜, because
+    each p_ℓ < 1 and the slices are independent. So ν ≥ 1 on that event, which has probability
+    (|R|/Q₀)e^{−mass*(e^λ)}. ∎
+(c) Regimes. Assume the stated cumulative asymptotics for the slice primes ≤ e^λ.
+   (i) *Fixed dimension* κ (Σ_{ℓ≤y} p_ℓ log ℓ = κ log y + O(1) and mass*(y) = κ log log y + O(1)):
+       S(λ) = κ log λ + O_κ(1). This is the full Euler mass up to e^{λ}, so the sieve gets exp(−mass) up to a
+       constant factor (the classical Γ(κ+1)e^{γκ}-type loss).
+   (ii) *Log-growing dimension* (mass(y) = a log y + o(log y) and Λ(y) = (a/2 + o(1))log²y, a fixed; then
+       κ(y) ∼ (a/2)log y): (1 − o(1))√(aλ) ≤ S(λ) ≤ C√(aλ). The available mass up to e^{λ} is ≍ aλ, so the sieve
+       gets only its square root. Under mere comparability p_ℓ ≍ log ℓ/ℓ, only S(λ) = Θ(√λ) is claimed.
+   (iii) *Single band* of total mass μ. Band (e^{λ/4}, e^{λ/2}] (two band primes fit in a term, three do not):
+       log(1 + μ) − O(1) ≤ S(λ) ≤ 38 log(2 + μ) + C. Here Montgomery/Selberg at Q = e^{λ/2} see each band prime singly,
+       L(Q) = 1 + Σ g_ℓ, and the bound is ≈ 1/μ, not e^{−μ}. Band (e^{λ/2}, e^{λ}]: a level-λ majorant is *linear* in the
+       hit indicators. Nonnegativity then forces Eν ≥ 1 − max p_ℓ ≥ 3/4, so S(λ) ≤ log(4/3), and L(e^{λ/2}) = 1. Above
+       e^{λ}: invisible, S = 0.
    In words: a sieve of level λ collects exp(−mass(y)) exactly up to the y at which *(dimension at y) × (log y)*, the
    log of the typical Euler-product modulus, reaches λ. Beyond that it collects only the Rankin functional
    Ψ(λ) = inf_α[αλ + Σ p_ℓ ℓ^{−α}].
 
-*Proof of (c).* (i) Take α = 1/λ in (b): Σ (κ/ℓ)ℓ^{−1/λ} = κ log λ + O(κ). In (a), Λ(y) + √(2V) = (κ + √κ)log y + O(1),
-so mass*(y) = κ log log y + O_κ(1) with log y ≍ λ/κ. (ii) Σ a log ℓ·ℓ^{−1−α} ≤ C a/α. Optimising 19αλ + Ca/α gives
-C′√(aλ). In (a), Λ(y) = (a/2 + o(1))log²y and √(2V) = O((log y)^{3/2}), so log y = (1 − o(1))√(λ/a) and
-mass* = (1 − o(1))√(aλ). (iii) α = (2/λ)log(2 + μ) gives 38 log(2 + μ) + C₄μ/(2 + μ). ∎
+*Proof of (c).* (i) The upper bound is (b′). For the lower bound, in (a) Λ(y) + √(2V) = (κ + √κ)log y + O(1), so
+mass*(y) = κ log log y + O_κ(1) with log y ≍ λ/κ. (ii) Σ a log ℓ·ℓ^{−1−α} ≤ C a/α, and μ̄_λ ≪ λ, so E(λ) = O(log²λ).
+Optimising 19αλ + Ca/α gives C′√(aλ). In (a), Λ(y) = (a/2 + o(1))log²y and √(2V) = O((log y)^{3/2}), so
+log y = (1 − o(1))√(λ/a) and mass* = (1 − o(1))√(aλ). (iii) Quadratic band: the upper bound takes α = (4/λ)log(2 + μ)
+in (b). For the lower bound, L(e^{λ/2}) = 1 + Σ_ℓ p_ℓ/(1 − p_ℓ) ≥ 1 + μ. Linear band: after conditioning on the
+indicators, ν = c₀ + Σ_ℓ a_ℓx_ℓ with c₀ = ν(0) ≥ 1, and ν ≥ 0 at every 0/1 point forces Σ_ℓ a_ℓ⁻ ≤ c₀. So
+Eν = c₀ + Σ a_ℓp_ℓ ≥ c₀(1 − max p_ℓ). ∎
 
 Novelty: none claimed for the criterion as such. (a) is textbook, (b) is THETA's, and (c) is bookkeeping. It is
 recorded because the brief asks for the criterion in exactly this form, and because §3 uses it.
 
 **Proposition 2.3 (the prime-local U family; PROVED relative to Bombieri–Vinogradov and Brun–Titchmarsh).** Work in
 the fibre n ≡ 1 (mod 8). Let ω_U(ℓ) be the number of distinct residues −u (mod ℓ), u | ℓ + 1, such that the word has an
-endpoint in S (u ∈ S, or v ≡ (1+u)ℓ⁻¹ (mod 8) ∈ S). Then c₁ log y ≤ mass_U(y) ≤ c₂ log y. So regime (ii) holds: every
-level-λ method that uses only prime-modulus U classes saves ≍ √λ ≍ √(log N), and Montgomery's
-L(Q) = exp(Θ(√(log Q))). *This confirms orchestrator note §4(a)*, and the same holds verbatim for ES₅'s and I3's
+endpoint in S (u ∈ S, or v ≡ (1+u)ℓ⁻¹ (mod 8) ∈ S). Then c₁ log y ≤ mass_U(y) ≤ c₂ log y and Λ_U(y) ≍ log²y (cumulatively; not
+pointwise in ℓ). So, by (a), (b) and partial summation, the *best* saving of a level-λ method that uses only
+prime-modulus U classes is Θ(√λ) = Θ(√(log N)), and Montgomery's L(Q) = exp(Θ(√(log Q))). *This confirms orchestrator note §4(a)*, and the same holds verbatim for ES₅'s and I3's
 prime-local classes (I3_DEEP_ASTRA Lemma 3.2).
 
 *Proof.* Upper: ω_U(ℓ) ≤ τ(ℓ + 1), and Σ_{x<ℓ≤2x} τ(ℓ + 1) ≪ x by divisor pairing and Brun–Titchmarsh. Lower: keep
 u ∈ 4ℤ with u ≤ x^{1/4}. These are U-endpoints for every ℓ ≡ −1 (mod u), and Bombieri–Vinogradov counts those primes
-exactly as in I3_DEEP_ASTRA Lemma 3.2. Then Theorem 2.2(c)(ii). ∎
+exactly as in I3_DEEP_ASTRA Lemma 3.2. Then use Theorem 2.2(a), (b) with the cumulative bounds. ∎
 
 **Numerics (CERTIFIED counts, EVIDENCE for trends; `scripts/z50_lsmass_primelocal.py`,
 `data/z50_lsmass/primelocal.json`).**
@@ -172,7 +188,8 @@ exactly as in I3_DEEP_ASTRA Lemma 3.2. Then Theorem 2.2(c)(ii). ∎
 * Toy families (`scripts/z50_lsmass_toys.py`, `data/z50_lsmass/toys*.json`; random residues, so the Haar model is
   exact) show the three regimes. Deficit = full mass − log L(Q), at Q = 10³…10⁷: fixed κ = 1: 0.32→0.46
   (→ γ = 0.577); κ = 2: 0.79→1.30 (→ log 2 + 2γ ≈ 1.85); log-growing a = 1: 2.5→9.3; a = 2: 5.0→20.3 (linear in log Q).
-  Single band, ρ = 0.03 (mass 13.5): the true saving is 13.9, but Montgomery saves only 2.0 ≈ log(1 + μ) − log 2.
+  Single band in (N^{1/4}, N^{1/2}] (the quadratic band of (c)(iii) at λ = log N), ρ = 0.03 (mass 13.5): the true
+  saving is 13.9, but Montgomery saves only 2.0 ≈ log(1 + μ) − log 2.
 
 ## 3. Work item 2 — nearly prime-local families, and the exact CRT exponent of U and ES₅
 
@@ -188,14 +205,15 @@ where Γ is the KARY2 inflation weight: Γ(m) = Π_{p|m} γ′(p), with γ′(p)
 ES forced mixture gives 3/4.
 
 **Proposition 3.1 (mass per log-level of U and ES₅; PROVED, elementary plus Shiu).**
-(a) *Per unit of log-level.* The classes of 𝔘 ∪ 𝔉₅ whose pivot lies in (Q, eQ] have total Haar mass O(log Q). The
+(a) *Per unit of log-level.* The classes of 𝔘 ∪ 𝔉₅ whose pivot lies in (Q, eQ] have total Haar mass O(log Q), and
+    ≫ log Q (keep the W1 labels u = 4d, M = 4dt − 1). The
     prime-pivot classes there have mass O(1). So no subfamily carries mass ≫ log Q per unit of log-level. Over all pivots
     up to Q the mass is ≍ (log Q)².
 (b) *Smooth first moment.* 𝔐_{𝔘∪𝔉₅∪selectors}(y) ≤ K(W)(log y)²(log log y)².
 (c) *Nearly prime-local subfamilies.* Take classes whose pivot is kℓ, with ℓ the largest prime and smooth part k.
     If k ≤ K₀ is bounded, the profile is Σ_ℓ p̄_ℓ ℓ^{−α} ≪ (log 2K₀)/α. This is regime (ii) of Theorem 2.2, and the cap
-    is C√((log 2K₀)λ). If k ≤ ℓ^{C} (a dominant prime), the profile is ≪ α^{−2}, and THETA Thm 2.7 gives the cap
-    Cλ^{2/3}. The multiplier k is exactly what raises B from 1 to 2. Nothing raises it to 3: a third free divisor
+    is C√((log 2K₀)λ). If k ≤ ℓ^{C} with fixed C < 1 (a dominant prime), the profile is ≪ α^{−2}, and THETA Thm 2.7 gives the cap
+    Cλ^{2/3}. For C ≥ 1, use Theorem 3.2 instead. The multiplier k is exactly what raises B from 1 to 2. Nothing raises it to 3: a third free divisor
     parameter is what U and ES₅ lack, and the full ES family has it (the 3/4 note's ratio labels −u/v, 4uv | kℓ + 1).
 
 *Proof.* (a) A pivot M carries ≤ 8τ(M+1) refined W1 classes of modulus ≥ M, and a pivot m carries ≤ 4τ(m) refined W2
@@ -206,11 +224,12 @@ and Σ_{Q<ℓ≤eQ} τ(ℓ+1)/ℓ ≪ 1 by Brun–Titchmarsh (Prop 2.3).
   * *Ordinary mean.* Write Γ = 1 ∗ h, with h(p) ≤ 7 for p ≤ W and h(p) ≤ 2p^{−1/2} for p > W. For e ≤ x^{1/2}, Shiu
     (τ in the class 1 mod e) gives Σ_{m≤x/e} τ(em + 1) ≪ (x/φ(e))log x. The terms e > x^{1/2} contribute O(x^{3/4+ε}).
     Σ_e h(e)/φ(e) < ∞, so Σ_{M≤x} τ(M+1)Γ(M) ≪_W x log x, and partial summation gives Σ_{M≤X} τ(M+1)Γ(M)/M ≪ (log X)².
-  * *Body.* Take M ≤ X := y^{u₀} with u₀ = 6 log log y, and drop smoothness: the body is ≪ 36(log y)²(log log y)².
+  * *Body.* Take M ≤ X := y^{u₀} with u₀ = 8 log log y, and drop smoothness: the body is ≪ 64(log y)²(log log y)².
   * *Tail.* Split into dyadic blocks (K, 2K] with u = log K/log y ≥ u₀ and use Cauchy–Schwarz. The factor
     (Σ_{P(M)≤y, M∼K} Γ(M)²/M)^{1/2} is ≤ Ce^{−u/2}(log y)^{1/2} (K2 Lemma 3.1, κ = 1). The factor
     (Σ_{M∼K} τ(M+1)²/M)^{1/2} is ≪ (u log y)^{3/2}. Summing over blocks (u-spacing log 2/log y) gives
-    ≪ (log y)³u₀^{3/2}e^{−u₀/2} = O(1).
+    ≪ (log y)³u₀^{3/2}e^{−u₀/2} = O((log log y)^{3/2}/log y) = o(1). (Review R1 corrected u₀ = 6 log log y, which
+    leaves a divergent (log log y)^{3/2}.) For e > x^{1/2} in the ordinary mean use h(e) ≪_{W,ε} e^{−1/2+ε}.
   For W2, Γ is submultiplicative, so the classes contribute ≤ 32(Σ_{P(m)≤y} Γ(m)/m)² ≪ (log y)² (K2 Lemma 3.1,
   κ = 1). Selectors contribute log log y + O(1) (K2 Lemma 3.3′).
 (c) Use THETA's profile p̄_ℓ ≤ Σ_{k} μ(kℓ)(kℓ/φ(kℓ))/(kℓ). Bounded k gives p̄_ℓ ≪ log(2K₀)·τ(ℓ+1)/ℓ (on average), hence
@@ -251,7 +270,9 @@ the four inputs below depend on the family.
    Then K2 Lemma 4.3 gives E p_ℓ² ≤ C(W)ℓ^{−7/4}(log ℓ)^c, and leak 𝔏 ≤ 1/2 for W ≥ W₀. Every class is decided at its
    top prime.
 4. *Assembly.* Use singletons W < ℓ ≤ e^{s₁} with s₁ = λ^{1/3}(log λ)^{−2/3}; sequential blocks
-   V_i = (e^{2^i s₁}, e^{2^{i+1}s₁}]; a linear block (e^{λ/2}, e^λ]; and nothing above e^λ.
+   V_i = (e^{2^i s₁}, e^{2^{i+1}s₁}] truncated at e^{λ/2}; a linear block (e^{λ/2}, e^λ]; and zero-cost sequential
+   singleton steps above e^λ. Those primes are invisible to ν, but their classes are still processed, so that the
+   avoidance and leak argument covers them.
    * Singletons cost ≤ (8/3)𝔐(e^{s₁}) ≤ Cs₁²(log λ)² = Cλ^{2/3}(log λ)^{2/3}.
    * Block V_i (s = 2^i s₁, d_i = ⌊λ/s⌋): EK Cor 2.6 gives E Φ_i ≤ d_i log(C₀(E M_{V_i} + 4d_i)/d_i) + O(d_i). Here
      E M_{V_i} ≤ 𝔐(e^{2s}) ≤ 4Ks²(log λ)², so (E M + 4d)/d ≤ 8K·8^i + 4 because s₁³(log λ)² = λ. Hence
@@ -265,12 +286,14 @@ computation for Σ_{P(m)≤y} τ(m+1)Γ(m)/m. With it the cap is Cλ^{2/3}. We d
 
 **Corollary 3.4 (PROVED, same proviso).** Let all primes of the family be ≤ N^A.
 (a) *Coefficient-sum CRT methods* (Bonferroni, Selberg Λ², β/Rosser, CRT-evaluated moments) with bound
-    N·Eν + Σ|a_i| < N save ≤ C_A(log N)^{2/3}(log log N)^{2/3}. Use THETA Lemma 2.9 / K2 Cor 6.1 to reach level
-    λ ≤ (A+1)log N + saving.
+    N·Eν + Σ|a_i| < N save ≤ C_A(log N)^{2/3}(log log N)^{2/3}. Use K2 Cor 6.1's projection and two-case argument:
+    the coarsened level is λ ≤ (A+1)log N + S with S = log(1/Eν), not the realised saving s ≤ S. Then
+    S ≤ log 2 + C((A+1)log N + S)^{2/3}(log ·)^{2/3} forces S ≪ (log N)^{2/3}(log log N)^{2/3}.
 (b) *CRT-admissible large sieves* (Montgomery, Montgomery–Vaughan, any Farey frequencies, fibrewise) at polynomial
-    frequency level obey the same bound. This is LS Thm 2.1: the bound is ≥ N·E|g*|², with |g*|² a level-2λ_Φ majorant.
+    frequency level obey the same bound, with the full hypotheses of LS Thm 3.1 retained. This is LS Thm 2.1: the bound is ≥ N·E|g*|², with |g*|² a level-2λ_Φ majorant.
 (c) *Every periodic Bessel / hybrid system* of LS2 Thm 2.4 (additive, multiplicative, Gauss-sum or Kloosterman rows,
-    periodic twists, fibrewise mixtures) with row periods ≤ N^A obeys the same bound. LS2 Lemma 1.1 is pure LP duality
+    periodic twists, fibrewise mixtures) with row periods ≤ N^A obeys the same bound. LS2's full hypotheses are retained:
+    CRT-admissibility, Q₀ ≤ min(N^A, N/2), and λ(Q₀) charged. LS2 Lemma 1.1 is pure LP duality
     and holds with any cap S(λ), here S(λ) = Cλ^{2/3}(log λ)^{2/3}. Its §2 proof uses nothing else. §4 shows that
     Linnik's dual sieve is such a system.
 
@@ -285,20 +308,30 @@ one restriction; no new method).**
 *Proof.* Use I3_DEEP_ASTRA Lemma 8.7 and Theorem 8.8 (with its prime/rough-input refinement), with the atoms (k, q, u)
 restricted to **u ≡ 0 (mod 4)** and odd multipliers k.
 * The atom event n ≡ −u (mod kq) gives the word ((kq+1)/u, u, (n+u)/(kq)). Its endpoint u lies in 4ℤ ⊂ S, so it is a
-  U-certificate, and by Theorem B an ES₅ certificate at primes. The other endpoint is ≥ 2 for n ≥ 3KX.
+  U-certificate, and 4 | u is directly an ES₅ slot. The other endpoint is ≥ 2 for n ≥ 3KX.
 * The restriction changes only constants in (8.11). Since u | kq + 1 forces gcd(u, k) = 1, the multipliers are odd, and
-  h(B ∩ odd) ≍ h(B). The elementary progression sums Σ_{U₀<u≤z, u≡0 (4), u≡−c (k)} 1/u are Λ/(4k) + O(U₀^{−1}). Primes
+  h(B ∩ odd) ≍ h(B) for the two choices actually used (B = [1, K], and B = the y-rough multipliers). It is false for
+  arbitrary B, e.g. B = {1} ∪ 2ℤ. The elementary progression sums Σ_{U₀<u≤z, u≡0 (4), u≡−c (k)} 1/u are Λ/(4k) + O(U₀^{−1}). Primes
   q ≡ −k⁻¹ (mod u) are counted by BV at moduli u ≤ x^{1/6}, as there. Distinctness, conditional independence and the
   coefficient ledger are unchanged.
 * For (a): p ≡ 5 (mod 8) satisfies U (Lemma 1.1) and ES₅ (endpoint 3 ≡ −p mod 8, Theorem B), and a prime p > y is
-  y-rough. ∎
+  y-rough.
+* *Architecture (for Cor 3.6).* The majorant is ν(n) = 1[n ≡ 1 (8)]·1[(n, P_y) = 1]·Q_r(H(n)), with r even and H the atom
+  count. It is ≥ 0 on all of ℤ and ≥ 1 on the whole avoider set of (atoms ∪ selectors ∪ {n ≢ 1 (8)}). Every atom
+  intersected with the fibre is a refined W1 class of 𝔘. Its level is ≪ r log(KX) + log P_y = O(T³), and its
+  coefficient sum is exp(O(T³)). The conditioning on n mod L_B is an analysis device only; it is not expanded. ∎
 
-**Corollary 3.6 (the exact CRT exponent; PROVED as the conjunction of Theorems 3.2 and 3.5).** For U and ES₅ at primes
-(equivalently, at y-rough inputs), the best exceptional-set exponent θ obtainable by any CRT method is exactly 2/3. Such
-methods include nonnegative CRT majorants with coefficient-sum rounding, large sieves, and periodic Bessel/hybrid systems
-at polynomial level, using any word classes of U/ES₅ and any selectors. Theorem 3.5's architecture lies inside Theorem
-3.2's scope (its atoms are 𝔘-classes and its selector is allowed), and it attains (log N)^{2/3}. No CRT method reaches
-(log N)^{2/3+ε}. For all n ≡ 1 (mod 4), the attained exponent loses (log log N)^{1/3}.
+**Corollary 3.6 (the exact CRT exponent; PROVED as the conjunction of Theorems 3.2 and 3.5).** *Within the architectures
+of Corollary 3.4*, the best exceptional-set exponent for U and for ES₅ at primes is exactly 2/3, up to the
+(log log N)^{2/3} of the cap. Those architectures are:
+* nonnegative-on-ℤ CRT majorants that are ≥ 1 on the whole avoider set of a family of U/ES₅ word classes plus
+  selectors, with coefficient-sum rounding and family primes ≤ N^A;
+* or CRT-admissible large sieves and periodic Bessel/hybrid systems at polynomial level.
+
+Theorem 3.5's majorant lies in this class, and it attains (log N)^{2/3} (for primes and y-rough inputs). For all
+n ≡ 1 (mod 4) the attained exponent loses (log log N)^{1/3}. Not excluded: interval-only or prime-only positivity
+(majorants ≥ 0 only at primes ≤ N), signed cancellation in the rounding errors, classes that are not word classes, and
+any non-CRT input (§7).
 
 **Reading (Assessment).**
 * z50 target 3 for ES₅/U ("beat 3/4") is two steps beyond CRT, not one. Even reaching 3/4 for U or ES₅ requires a
@@ -308,7 +341,7 @@ at polynomial level, using any word classes of U/ES₅ and any selectors. Theore
 * The cap is a property of the class profile, not of ES₅'s colour. It holds verbatim for any union of word families
   with the square base: the (★) line, the b = 1 line, U, ES₅. The sibling result for I3 (z50-i3ex, zero base) is the
   same phenomenon.
-* *Controls.* Odd squares lie in 𝒜(𝔊) for every 𝔊, which is exactly the square base. So Theorem 3.2 is T1-consistent,
+* *Controls.* Odd squares coprime to the selector primes lie in 𝒜(𝔊) for every 𝔊, which is exactly the square base. So Theorem 3.2 is T1-consistent,
   and Theorem 3.5(c) is consistent with |E_U(N)| ≥ √N/2. Numerator 8: replacing 4ℤ by 8ℤ in Theorem 3.5 gives the
   analogous weak bound for the 8 | endpoint family. It asserts nothing at n = 17 or 241, so no false statement follows
   (cf. I3_DEEP_ASTRA §3). The hard primes 193, …, 8 813 281 are irrelevant to an exceptional-set count: U holds at
