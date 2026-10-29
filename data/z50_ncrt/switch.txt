@@ -1,0 +1,6 @@
+n in [20000,21000): max over words of min-modulus/(2n+4)^(2/3) = 0.6159
+T=   10  per-n words: cheapest<=T 10.908 | endpoint(either)<=T 7.226 | pair<=T 3.682 | (log T)^2/2 = 2.651 | ratio cheapest/endpoint 1.51
+T=   30  per-n words: cheapest<=T 17.589 | endpoint(either)<=T 11.690 | pair<=T 5.899 | (log T)^2/2 = 5.784 | ratio cheapest/endpoint 1.50
+T=  100  per-n words: cheapest<=T 26.922 | endpoint(either)<=T 17.907 | pair<=T 9.015 | (log T)^2/2 = 10.604 | ratio cheapest/endpoint 1.50
+T=  300  per-n words: cheapest<=T 34.303 | endpoint(either)<=T 23.857 | pair<=T 12.491 | (log T)^2/2 = 16.267 | ratio cheapest/endpoint 1.44
+T= 1000  per-n words: cheapest<=T 36.156 | endpoint(either)<=T 28.883 | pair<=T 16.956 | (log T)^2/2 = 23.859 | ratio cheapest/endpoint 1.25

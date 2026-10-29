@@ -454,7 +454,89 @@ the atom identity is specific to 4 (it needs 4w | kℓ+1); the m/n analogue (mw 
 statement for m/n, which is consistent with the finitely many 8/n exceptions (11, 17, 131, 241). Linnik: the theorem
 is one-sided (an upper bound for a lower-tail event); no two-sided asymptotic is asserted.
 
-## §3b Round 3 (pending)
+## §4 Round 3: divisor switching (door D1, brief candidate 1) and primes (door D7)
+
+### 4.1 Switching is regrouping, and every word has a cheap grouping
+
+**Proposition 4.1 (PROVED).** Every word (t,u,v) of n lies in its three classes P(u,v), E(t,v), E(t,u), of moduli
+uv, tv-1, tu-1, and
+
+    min(uv, tv-1, tu-1) <= (n+u+v)^{2/3} <= (2n+4)^{2/3}.
+
+*Proof.* (uv)(tv)(tu) = (tuv)^2 = (n+u+v)^2 and tv-1 < tv. For the second inequality: if u = 1 then t >= 2 and
+v = (n+1)/(t-1) <= n+1; if u, v >= 2 then (u-1)(v-1) <= n+1 gives u+v <= n+4. (Modulus 1 occurs only for the free
+words tu-1 = 1, i.e. (t,u) = (1,2), (2,1), counted by tau(n+1), tau(2n+1); LOWERTAIL_DEEP_FABLE Thm 4.1.) QED
+
+CERTIFIED for all words of all n in [20000, 21000): max of min-modulus/(2n+4)^{2/3} is 0.616
+(`scripts/z50_ncrt_switch.py`, `data/z50_ncrt/switch.txt`).
+
+So *divisor switching* (replacing the class mod A = tv-1 by the class of the complementary divisor) is the passage
+between the groupings of one word. In particular: (a) for n <= N every word is visible at modulus
+<= (2N+4)^{2/3} < N/2, so single classes of modulus > N are never needed, and **a switched detector built from
+single classes has all moduli <= N/2**, where IF Thm 2.2 makes every evaluation (exact, hyperbola, dispersion)
+equivalent to the CRT mean up to a factor (1 - D/N); (b) for the Type II R(M)-classes, switching M to the
+cofactor j = (n+4D)/M is exactly K2's (a,D) grouping (ET-file Lemma 3.2), already in the K2 universe.
+
+**Proposition 4.2 (switching buys a bounded factor of mass; PROVED).** Let w_g(T) be the average over n of the
+number of words of n whose grouping-g modulus is <= T, and w_min(T) the same for the cheapest grouping. Then
+w_g(T) = (1/2 + o(1))(log T)^2 for g = pair (sum over uv <= T of 1/uv) and for the endpoint groupings (sum over
+A <= T of tau(A+1)/A, each endpoint), and w_max(T) <= w_min(T) <= w_pair(T) + 2 w_end(T) = O((log T)^2).
+*Proof.* A word whose cheapest modulus is <= T is counted in at least one grouping; densities are 1/modulus. QED
+(Numerically the ratio cheapest/endpoint is 1.25-1.51 for T in [10, 1000], same data file.)
+
+**Theorem 4.3 (divisor-switching detectors are capped; PROVED given Cor 2.5 and K2).** Let a detector assign to
+each word any one of its three classes (switching freely, word by word, even depending on sizes), and let nu be
+any majorant of the avoider set of the resulting finite family, possibly mixed with K2 classes and selectors.
+Then nu is a majorant of a word-class (plus K2) family, so Corollary 2.5 (word classes: 2/3) and K2 Thm 5.1 /
+KARY3 (mixtures: 3/4) apply, with the evaluations M1, M2, L1, C. *Proof.* Each chosen class is a word class (all
+three groupings are in the universe, including non-reduced pair classes). QED
+
+This answers the brief's question "do the moduli products above N become countable, and what depth does that
+buy": switching lowers each single modulus to <= N^{2/3+o(1)} and changes the mass profile by a factor <= 3; the
+CRT ledger (depth ~ mass, cost ~ log modulus per event) changes by a constant. **Depth bought: O(1) factor; exponent
+unchanged.**
+
+### 4.2 What is left of door D1: exact counts of products above N
+
+A Bonferroni/hit-pattern majorant still contains r-fold products of (switched) classes with lcm L > N. On [1,N] such
+a product holds floor(N/L) or ceil(N/L), i.e. 0 or 1, integers: one bit, the position of its CRT residue.
+Summing those bits over all r-tuples of a family is exactly the r-th factorial moment
+S_r(N) = sum over n <= N of binom(H(n), r), i.e. a count of lattice points on the variety
+{u_j A_j = n + v_j, j <= r, n <= N}: an r-point correlation of restricted divisor functions along the shifts v_j.
+
+**Blocking step (Assessment, with the proved parts cited).** (1) r = 1 is the Dirichlet hyperbola: exact, with
+power-saving error, and already equal to the CRT mean (IF Thm 2.2). (2) r = 2 is a shifted-convolution problem with
+power-saving asymptotics (Kloosterman/spectral; DI-type), for each fixed pair of shifts. (3) r = 3: no individual
+asymptotic is known (z50 CONTEXT note (d)); only shift-averaged forms. (4) Bounded-order exact moment data are
+useless for theta > 0 beyond O(r log log N): NC Prop 8.6 / Cor 8.7 (hit-count polynomials; the general
+hit-pattern case is NC's open item), TU Thm 3.1 (CRT main terms). So the non-regrouping part of door D1 **is**
+door D2 (order >= (log N)^theta / log log N true correlations), and divisor switching adds nothing to it.
+
+### 4.3 Door D7 (primes): Assessment
+
+* Prime structure enters a counting argument as sum over p <= N of nu(p). Vaughan/Heath-Brown split Lambda into
+  Type I sums (nu on progressions dZ: CRT evaluations, covered by PL's prime-law cap at moduli <= N^A) and Type II
+  sums sum a_m b_k nu(mk). For nu periodic of period Q >> N, a Type II bound for nu is a large-sieve/character-sum
+  statement at level Q (LS1/LS2 caps) unless nu has extra multiplicative structure; word-class majorants have none
+  (nu(mk) is not a function of nu(m), nu(k)).
+* Harman's sieve turns Type I/II information about a set S into LOWER bounds for primes in S; an UPPER bound for
+  exceptional primes gains nothing over #(S cap [1,N]) without information about S itself.
+* Montgomery-Vaughan's power-saving Goldbach exceptional set uses a main term with singular series bounded below and
+  an L^2 minor-arc bound. The ES/U representation count f(n) is a sum of shifted restricted divisor functions; its
+  normalised variance is not o(1/polylog) (Linnik-type fluctuation; NC Props 4.1-4.2: degree-k moment methods save
+  O(k log log N)). No reformulation with an L^2-small error term was found.
+
+Verdict for D7: no prime-specific input applies to a log^2-mass covering system in a way not already covered by
+(P), (L) or the moment caps (Assessment; no barrier theorem claimed beyond those cited).
+
+### 4.4 Sanity checks
+
+* **Square floor.** Corollary 2.5 and Theorem 3.1 are consistent with E_U(N) >= sqrt(N)/2: the cap is a lower bound
+  for the *method's* bound, sqrt(N) is far below N exp(-c(log N)^{2/3}), and odd squares are in no word class
+  (Lemma 2.2). Any argument beating 2/3 for U over all n must still stop at sqrt(N).
+* **Linnik.** All statements are one-sided; no two-sided asymptotic for f(n) is used or claimed.
+* **Numerator 8.** The word identities need 4 | slot; the m/n analogue changes the slot condition, and finitely many
+  8/n exceptions (11, 17, 131, 241) are consistent with any density statement.
 
 ## §4 Numerics and controls
 
