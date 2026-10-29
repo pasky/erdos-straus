@@ -635,7 +635,8 @@ A progression C = a mod M is *P-forcing* if P(n) holds for every n in C with n >
 
 Two-level coverings (split C by n mod q for a product q of small primes, cover each piece), multiplier coverings
 (a class mod k*l covered by word classes whose moduli involve the primes of k), and coverings using several shifts
-are all exact coverings in this sense.
+are all exact coverings in this sense. (Containment "for n >= n0" by finitely many classes is the same as
+containment of periodic sets: every residue modulo the common period has arbitrarily large representatives.)
 
 ### 8.2 Theorem R4.1: covering certificates add no supply
 
@@ -666,8 +667,85 @@ on A(F') and tests every nonnegative function of level lambda at once, including
 forcing classes. Since A(F') is contained in A(F), lowering the level of the classes is already priced in. The
 supply exponent per unit level is therefore that of W_P, namely beta = 2, for every covering-certified universe.
 ### 8.3 Compactness: which progressions are finitely coverable
+
+Work in the profinite integers Z^ (restricted to the clopen set n = 1 mod 4). Classes are clopen. Put
+A_inf := {x : x lies in no class of W_P}, a closed set (the profinite avoider set of the whole word universe).
+
+**Proposition R4.3 (PROVED).** (a) C = a mod M is exactly covered by finitely many word classes iff
+cl(C) and A_inf are disjoint. (b) If a is a unit square modulo M and compatible with n = 1 (mod 8), C is not
+P-forcing (it contains odd squares m^2 = 1 mod 8, which have no certificate word: Lemma 2.2). (c) A_inf has Haar
+measure 0. (d) If C is P-forcing but not finitely covered, then for every T there are infinitely many integers
+n in C that lie in no word class of modulus <= T; each of them has P-words, but only with certificate-class modulus
+> T, hence grouping modulus > T/8 and n > ((T/8)^{3/2} - 4)/2 (Proposition 4.1).
+
+*Proof.* (a) If cl(C) misses A_inf, the word classes form an open cover of the compact set cl(C); take a finite
+subcover. Conversely a finite union of clopen classes containing C contains cl(C). (b) is Lemma 2.2 (and Theorem E
+of z48 for U). (c) For each prime q = 3 (mod 4) the class n = -4 (mod q) is the U-certificate endpoint class
+E((q+1)/4, 4) (endpoint 4 = 0 mod 4). Under Haar measure the residues mod distinct q are independent, so the
+measure of points avoiding all of them with q <= Q is the product of (1 - 1/q) over those q, which tends to 0.
+(d) C minus the union of word classes of modulus <= T is a nonempty periodic set by (a) (otherwise C would be
+finitely covered), so it contains infinitely many integers; they are P-solvable because C is forcing. The last
+bound: a certificate class has modulus at most 8 times the grouping modulus, so T/8 < min grouping modulus
+<= (2n+4)^{2/3} by Prop 4.1. QED
+
+So every progression is covered *up to Haar density tending to 0*; what a covering cannot do is make the remainder
+cheap. The remainder C minus (word classes of modulus <= T) has small density but no low-level description, and a
+low-level majorant of small mean for it is exactly the original problem.
+
 ### 8.4 Vaughan ratio classes are not coverings
+
+**Corollary R4.4 (PROVED relative to the 3/4 note and Corollary 2.5).** For all sufficiently large X, the atom
+family A_X of the 3/4 note (classes -u v^{-1} mod k*l, 4uv | k*l + 1) is **not** exactly covered by finitely many
+ES5-certificate word classes (a fortiori not by U classes).
+
+*Proof.* Suppose it were. The note's nu_X = S_y Q_r(H_X) is a majorant of A(A_X together with the selectors
+0 mod p, p <= y), of level <= log P_y + r log(KX) <= C t^4, with E nu_X <= exp(-c_a t^3) (note Thm 7.2). Theorem R4.1
+with R empty gives c_a t^3 <= C (C t^4)^{2/3}(log t)^{2/3} = O(t^{8/3}(log t)^{2/3}), false for large t. QED
+
+So ES's third exponent does **not** come from lowering the level of word coverings. It comes from a different
+forcing mechanism, the Type II identities with a, b, c >= 2, which are words of cn (Lemma R4.0). They certify ES
+but cannot certify U or ES5. This is the precise sense in which "Vaughan ratio classes" have no U/ES5 analogue.
+
 ### 8.5 Landau-type (archimedean) forcing at bounded shifts
+
+The one genuinely archimedean forcing principle available is finiteness of factorisation: an integer m = r (mod v)
+with r outside a subgroup H of (Z/v)^* has a prime factor outside H (Landau). Such arguments certify a
+progression by infinitely many word classes (one per prime factor), so they are not obviously coverings. They are
+for a bounded set of shifts.
+
+**Proposition R4.5 (single-shift forcing is an approximate covering with cheap remainder; PROVED, uses only
+Dirichlet's theorem).** Let v >= 1, let C = a mod M, and suppose every large n in C has a P-word with endpoint v.
+For every J >= 1, C is covered by finitely many word classes together with a remainder consisting of at most
+omega(8v) classes {n in C : p^{J+1} | (n+v)/D} (p | 8v, D = gcd(a+v, M)), of total density <= omega(8v) 2^{-J}/M
+and level <= log(M D) + (J+1) log(8v). Hence Theorem R4.1 applies with lambda_R = O(lambda) after taking
+J = lambda.
+
+*Proof.* Put V = 8v and m = (n+v)/D. As shown p-adically (one of v_p(a+v) - min, v_p(M) - min is 0), m runs over
+a reduced residue r' modulo M' = M/D. Split C, by the exact valuations j_p = v_p(m) <= J at the primes p | V, into
+finitely many sub-progressions C_j, and put D_j = D * prod p^{j_p}, m_j = m / prod p^{j_p}, so that
+gcd(m_j, V) = 1 on C_j; the n with some j_p > J form the stated remainder. Fix j. By Dirichlet, for every unit
+rho mod V compatible with C_j there are infinitely many primes q, q not dividing D_j, with n := D_j q - v in C_j and
+m_j = q = rho (mod V). For such n the divisors of n + v = D_j q are delta and delta q (delta | D_j), so the forced
+word has A = tv - 1 equal either to some delta > 1 dividing D_j, or to delta q with delta < D_j. Its slot data
+(t, u, v, tu-1, tv-1 mod 4, and n, v mod 8 for U) depend only on rho and the fixed data: for A = delta,
+t = (delta+1)/v is fixed and u = (D_j/delta) m_j; for A = delta q, u = D_j/delta is fixed and
+t = (delta m_j + 1)/v mod 4 is determined by m_j mod 4v. Hence the same choice of delta gives a certificate word for
+**every** n in C_j with m_j = rho (mod V), prime or not: A = delta (resp. delta m_j) divides n + v = D_j m_j, is
+= -1 mod v, and is proper. These n form a word class: for A = delta, a refinement of the endpoint class
+E((delta+1)/v, v); for A = delta m_j, a refinement of the pair class P(D_j/delta, v). Finitely many rho, finitely many
+j. QED
+
+**Proposition R4.6 (bounded-shift forcing; CONDITIONAL on Dickson's prime k-tuple conjecture with congruence
+conditions; proof sketched).** If every large n in C has a P-word with endpoint in a fixed finite set V of shifts,
+then C is an approximate covering with cheap remainder as in R4.5.
+*Sketch.* Split by valuations at the primes dividing prod_{v in V} 8v and by the residues of n modulo the primes
+<= |V|+1 (to remove fixed prime divisors of the product of the linear forms m_v = (n+v)/D_v in the progression
+index). On each piece the forms are admissible, and Dickson gives n with every m_v prime and with prescribed
+residues rho_v mod 8v. Forcing gives, for each realised pattern (rho_v), a shift v and a divisor choice as in R4.5
+whose word depends only on rho_v; it is then a certificate for every n of that pattern. QED (sketch)
+
+Unconditionally, for |V| >= 2 one only has almost-primes (bounded number of prime factors), and the divisor
+patterns are no longer determined by finitely many residues; I have not closed that case.
 ### 8.6 What remains: non-compact forcing
 ### 8.7 Numerics
 ### 8.8 Hostile review
