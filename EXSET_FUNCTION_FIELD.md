@@ -297,7 +297,7 @@ polynomials f — all of them irreducible — have no nontrivial word: **at fixe
 ES₅,q). Primality does not help in the large-q regime (contrast the Linnik-confinement door T2 over ℤ, where
 primality is what escapes the square floor).
 
-*Reading.* The forest of a typical f is empty with probability bounded below in the large-q limit; the frozen
+*Reading.* A typical f has no nontrivial word with probability bounded below in the large-q limit; the frozen
 element is the boundary n-cycle ("f irreducible at the cusp"). Nothing like this happens over ℤ, where the mass
 log² N grows. The brief's Goal 1 ("O(q^{n−c}) at fixed n") is false for U_q; in the lc-free normalisation U′_q it
 is true for a trivial reason (Prop 1.7(ii)). Neither is a depth statement.
@@ -336,14 +336,16 @@ P(all W_c = 0) to ∏_c P(W_c = 0), and of P(all W_c = 0 and the f + 1 condition
 | 5 (4) | 11 / 23 / 31 | 1.215 / 1.098 / 1.064 | 1.454 / 1.157 / 1.094 | 2.4 / 2.3 / 2.0 |
 | 6 (6) | 11 / 19 | 1.769 / 1.329 | 2.427 / 1.488 | 8.5 / 6.3 |
 
-The defect decays like C(n)/q, and pairwise E[W_c W_d] → E[W_c]E[W_d] (e.g. 2.0021 vs 2 at (43, 4)). So the
-compositum behaves like a direct product of the class groups and the S_n of f + 1, up to lower-dimensional
-corrections. *Why CRT cannot prove this and what exactly is missing.* For two classes with moduli A, A′ (the smaller
-of the two divisors in (1.1), degree ≤ (n+1)/2) and deg A + deg A′ ≤ n, the fibre product X_c ×_Y X_d is birational
-to {(word data, coprime)} × A^{n − deg A − deg A′}, which is irreducible (non-coprime data give dimension ≤ n − 1);
-this is the CRT computation. For k events of total modulus degree > n the class intersection holds at most one f,
-and the k-fold fibre product is a codimension-(Σ deg − n) subvariety of the parameter space whose irreducibility is
-exactly the missing statement.
+The sampled defects are consistent with decay like C(n)/q (at n = 4 the sign changes), and the sampled pairwise
+moments E[W_c W_d] are close to E[W_c]E[W_d] (e.g. 2.0021 vs 2 at (43, 4)). This is EVIDENCE for a product-like
+compositum, not a convergence theorem. Scope notes (R2): the code includes every genuine class, also (2, 2, 2) at
+n = 6, which has no U-admissible orientation, so the n = 6 row tests a stronger avoidance event than U-failure; and
+W_c adds both orientations (mean 2 for a ≠ b, 1 for a = b), which leaves the zero-probabilities and hence the ratios
+unchanged but must be halved before comparing with the Poisson means 1 and 1/2. *What exact CRT gives here and what
+it does not.* Use the modulus uv of degree d_c = a + b (not the divisors A, A′ of (1.1)). When d_c + d_{c′} ≤ n, the
+pairs of words over a common f are counted exactly by CRT and form one top-dimensional component (Prop 3.8 in §3.9,
+with Lemma C2 for the non-coprime pairs). For k classes whose lcm of moduli has degree > n, a class intersection holds
+at most one f, and CRT gives nothing; this is where the group theory of §3.9 takes over.
 
 **Conjecture 3.6 (big monodromy for word maps; CONJECTURE, EVIDENCE above).** In stable characteristic
 (p > p₀(n)), ρ_n = exp(−(c + o(1))n²) as n → ∞ through each parity, with c = 1/4 (n odd), 3/16 (n even). (Stronger
@@ -352,12 +354,11 @@ q = 11 value is still 3× the model.)
 
 Conjecture 3.6 is the precise sense in which "monodromy supplies independence of many divisor events at one
 polynomial": all q^d shifts of degree d live in *one* cover φ_σ (so no uniformity in the number of shifts is needed
-— the shifts are integrated into the geometry), and independence *between* shapes is the statement that G_n is
-close to a product. Proving it needs ramification data of the φ_σ. A sufficient criterion for the product structure:
-the sets of codimension-one branch components of the *Galois closures* of the classes (and of f + 1) are pairwise
-disjoint (then, by Zariski–Nagata purity and simple connectivity of A^n over ℂ, each closure meets the compositum of
-the others in K). Merely distinct branch divisors do not suffice (R1: K(√x, √y) and K(√x, √z) share K(√x)). Not
-attempted beyond the computations above.
+— the shifts are integrated into the geometry), and approximate independence *between* shapes is the statement that
+G_n is close to a product. Theorem 3.9 below proves the upper-bound half ρ_{n,p} ≤ exp(−c n²) with a smaller constant,
+by group theory rather than ramification. (A ramification route would need: the sets of codimension-one branch
+components of the *Galois closures* of the classes are pairwise disjoint; merely distinct branch divisors do not
+suffice, R1: K(√x, √y) and K(√x, √z) share K(√x).)
 
 ### 3.7 What large q can and cannot give in terms of N = q^n (depth accounting)
 
@@ -366,8 +367,10 @@ attempted beyond the computations above.
 O_n(q^{n−1/2}) = O_n(N^{1−1/(2n)}). Even if the main term vanished, this input saves q^{1/2} = N^{1/(2n)}: never a
 fixed power of N once n grows, and for even n ≥ 2 it cannot resolve the square floor q^{n/2} (G5).
 (c) **Hybrid regime n → ∞, q ≥ q₀(n): conditional budget analogies (Assessment, not theorems).** Suppose the main
-density is ρ_n = e^{−m_n} and an effective Chebotarev bound has relative error E_n q^{−1/2}. The large-q route
-certifies ρ_n at size q only if (1/2) log q − log E_n − m_n → +∞. (Note ρ_n ≥ 1/|G_n| holds for the limiting group
+density is ρ_n = e^{−m_n} with m_n ≍ n² (an explicit hypothesis; Theorem 3.9 gives m_n ≥ c n², the matching upper
+bound on m_n is conjectural), and an effective Chebotarev bound gives the absolute density error
+|δ_q(n) − ρ_n| ≤ E_n q^{−1/2}. That error is o(ρ_n) as soon as (1/2) log q − log E_n − m_n → +∞ (a sufficient
+condition; the true error may be smaller). (Note ρ_n ≥ 1/|G_n| holds for the limiting group
 density, not for δ_q(n): (q, n) = (3, 9) has δ = 0.) Two illustrative cost models, at the least admissible q:
   * log E_n = O(n²) (O(1) cost per shape; an *additional* assumption — log |G_n| ≥ m_n gives only a lower bound):
     log q ≍ n², log N = n log q ≍ n³, saving m_n ≍ (log N)^{2/3} at best;
@@ -389,7 +392,7 @@ exact to depth n/(modulus degree), and Bonferroni gives clean bounds with no err
 integer ones.
 
 **Proposition 3.7.** Let q ≡ 3 (mod 4), μ(z) := Σ_{deg A ≤ z} w(A)/|A| (prime family, Def 1.4).
-(a) *Prime family, every q (PROVED).* For any set 𝒞 of prime-family classes with moduli of degree ≤ z ≤ n − 1, of
+(a) *Prime family, every q ≡ 3 (mod 4), including prime powers (PROVED).* For any set 𝒞 of prime-family classes with moduli of degree ≤ z ≤ n − 1, of
 total mass μ_𝒞 := Σ_{c ∈ 𝒞} q^{−deg M_c}, and every L ≥ 0 with 2Lz ≤ n,
   #{f ∈ M_n : f in no class of 𝒞} ≤ q^n (∏_{A}(1 − x_A) + μ_𝒞^{2L+1}/(2L+1)!),  x_A := mass of 𝒞 at the prime A.
 Moreover μ(z) ≥ z/16 − O(1) uniformly in q. Hence δ_q(n) ≤ C exp(−√n/16) for an absolute C, all q ≡ 3 (mod 4), n.
@@ -404,21 +407,25 @@ deg v ≤ k₀} with k₀ := ⌊d/2 − log_q(2C₀(d + 1))⌋ (these residues �
 in the Riemann-hypothesis bound for primes in progressions (Weil; Rosen Thm 4.8):
 |#{A prime, deg A = d, A ≡ −1 (v)} − π_q(d)/Φ(v)| ≤ C₀(deg v + 1)q^{d/2}/d. With Σ_{deg v = k} 1/Φ(v) ≥ 1 and
 π_q(d) ≥ (q^d − 2q^{d/2})/d this gives Σ_{deg v = k} #{A : v | A+1} ≥ q^d/(2d) for 0 ≤ k ≤ k₀ and d ≥ d₀ (absolute),
-hence Σ_{deg A = d} w(A)/q^d ≥ (k₀ + 1)/(2d) ≥ 1/8; for d even use odd deg v ≤ k₀ only (≥ 1/16 − o(1)). Degrees
-d < d₀ are dropped (k₀ < 0 is possible there). So μ(z) ≥ z/16 − O(1). *Trimming (R1 repair):* every single class has
-mass ≤ q^{−1}, so we can choose 𝒞 ⊂ prime family (degrees ≤ z) with z/16 − O(1) ≤ μ_𝒞 ≤ z/16. Take z := ⌊√n⌋,
+hence Σ_{deg A = d} w(A)/q^d ≥ (k₀ + 1)/(2d) ≥ 1/8 for odd d ≥ d₀ (k₀ + 1 ≥ d/4). Odd degrees alone give
+μ(z) ≥ z/16 − O(1) (even degrees and d < d₀, where k₀ < 0 is possible, are simply not used; R2 simplification).
+*Trimming (R1 repair):* every single class has mass ≤ q^{−1}; if μ(z) ≤ z/16 keep everything, otherwise take a maximal
+subfamily of mass < z/16, which misses z/16 by at most q^{−1}. So z/16 − O(1) ≤ μ_𝒞 ≤ z/16. Take z := ⌊√n⌋,
 2L + 1 := largest odd number ≤ n/z: then e·μ_𝒞/(2L + 1) ≤ 1/2 for n ≥ n₀, so the remainder is ≤ 2^{−(2L+1)} ≤
 2^{−√n + 2}, and ∏(1 − x_A) ≤ e^{−μ_𝒞} ≤ C e^{−√n/16}. U-failure implies avoidance (Def 1.4).
-(b) Use only the small-modulus words: pairs (u, v) with a = deg u ≥ 1, b = deg v ≥ 1, a + b ≤ D, s := n − a − b
-with s or b odd; each gives the class f ≡ −u − v (mod uv), and a hit is a U-witness (t := (f + u + v)/(uv)).
+(b) Use only the small-modulus words: unordered pairs {u, v} with a = deg u ≥ 1, b = deg v ≥ 1, a + b ≤ D, s := n −
+a − b, admitted if some orientation is a U-shape (s or a or b odd); each gives the class f ≡ −u − v (mod uv), and a hit
+is a U-witness (t := (f + u + v)/(uv), in the admissible orientation).
 Distinct unordered pairs give distinct classes (u + v and uv determine {u, v}). For j ≤ n/D the j-th Bonferroni
 sum S_j(q) is computed exactly by CRT: q^{−deg lcm} for compatible classes, 0 for incompatible ones.
 *Coprime part.* Tuples with pairwise coprime moduli contribute e_j(q^{−deg M_c}) minus the product mass of
 non-coprime tuples; the latter is ≤ binom(j, 2) μ_D^{j−2} Σ_P (Σ_{c : P | M_c} q^{−deg M_c})² ≤ binom(j,2) μ_D^{j−2}
 Σ_{e ≤ D} (q^e/e)(2D² q^{−e})² = O_{D,j}(1/q). So the coprime part tends to μ_D^j/j!.
 *Non-coprime part (reduction, PROVED).* Every f has at most B(n) := Σ_σ D_σ words (fibres of finite flat maps of
-degree D_σ), so the non-coprime compatible j-tuples contribute at most B(n)^j·P_f(E_2), where E_2 = "f has two
-distinct small-modulus witness words whose moduli have a common root".
+degree D_σ), so the non-coprime compatible j-tuples contribute at most B(n)^j·P_f(E_2), where (R2/R3 repair)
+E_2 := "f lies in two *distinct unordered classes* {u, v} ≠ {u′, v′} whose moduli uv, u′v′ have a common root". (With
+"two distinct words" instead, the statement below is false: (t, u, v) and (t, v, u) are distinct words with the same
+modulus, and for shape (n − 2, 1, 1) they occur for a proportion ≥ (1 − 1/q)/(n(n − 1)) of all f.)
 **Lemma C2 (pair overlaps; PROVED, round 2).** For fixed D and all q,
   Σ q^{−deg lcm(M_c, M_c′)} ≤ C(D)/q,
 the sum over ordered pairs of distinct classes c = {u, v} ≠ c′ = {u′, v′} (all four degrees ≥ 1, a + b ≤ D,
@@ -439,27 +446,31 @@ excluded). Write u′ = α₁β₁, v′ = α₂β₂, u = α₁α₂x, v = β�
 Compatibility modulo α₁, α₂, β₁, β₂ reads β₁y ≡ α₂ (α₁), β₂y ≡ α₁ (α₂), α₁x ≡ β₂ (β₁), α₂x ≡ β₁ (β₂): y lies in one
 class mod α₁α₂ and x in one class mod β₁β₂. So N_γ ≤ C q^γ max(1, q^{a−γ}) max(1, q^{b−γ}) ≤ C q^{a+b−1} (four cases,
 using a, b ≥ 1 and γ < a + b), which is the required bound since a′ + b′ = γ. ∎
-Numerical check (`scripts/z51_ffield_c2check.py`, D = 3, all classes): q·Σ = 2.19, 2.83, 3.05 for q = 3, 7, 11.
+Numerical check (`scripts/z51_ffield_c2check.py`, D = 3, all classes; it sums *unordered* pairs, half the ordered
+sum of the lemma): q·Σ_unordered = 2.19, 2.83, 3.05 for q = 3, 7, 11; R3's independent check (ordered, split by the three
+cases) gives q·Σ = 4.37, 5.65, 6.09, and 21.2, 25.7 for D = 4, q = 3, 5.
 b, b′ ≥ 1 is essential: for v = 1 the residue is −1 for every u, compatibility is automatic, and the f + 1 divisor
 classes are genuinely dependent (they are the S_n of f + 1); that is why they are excluded from the small family.
-With Lemma C2, S_j(q) → μ_D^j/j!, μ_D = Σ over admissible unordered types {a, b} of (1 if a ≠ b, 1/2 if a = b) ≥
-D²/16 − O(D), and Bonferroni at 2L ≤ n/D with D ≈ c₀ n^{1/3} gives the bound. ∎
+With Lemma C2, S_j(q) → μ_D^j/j!, where μ_D := lim_q μ_D(q) and μ_D(q) := Σ_c q^{−deg M_c} (an equal-degree type
+has finite-q mass 1/2 + 1/(2q^a)); μ_D = Σ over admitted unordered types {a, b} of (1 if a ≠ b, 1/2 if a = b), and
+D²/16 − O(D) ≤ μ_D ≤ D². Bonferroni at 2L ≤ n/D with D ≈ c₀ n^{1/3} (c₀ small) gives the bound. ∎
 
-So in the q = ∞ model: **CRT (exact) gives exp(−c√n) for the prime family (PROVED, every q) and exp(−c n^{2/3}) for
-U (PROVED); the limit densities are, by the Poisson heuristic and the data of §3.6, exp(−Θ(n²)) and, for the
-prime family, exp(−Θ(n)).** These are
-exactly the integer pictures (2/3 for U, G1's √ for the prime family) with log N ↦ n. The gap is closed in the
-q = ∞ model by one object: the monodromy group G_n of the word covers (Thm 3.3), whose derangement proportion is
-the true density. So the brief's question "which input supplies independence of many divisor events at one
-polynomial" has a precise answer in F_q[T] at large q: **Chebotarev in the compositum of the word covers (RH for
-varieties over F_q) plus the size of G_n (big monodromy, Conjecture 3.6)**. CRT sees only the abelian quotient
-information of bounded conductor; G_n is non-abelian, and |G_n| ≥ 1/ρ_n ≥ c·e^{√n/16} (Thm 3.5 with Prop 3.7(a)).
-§3.9 now proves that this input really does close the gap, up to the constant in the exponent.
+So in the q = ∞ model the exact-CRT arguments give **exp(−c√n) for the prime family (PROVED, every q) and
+exp(−c n^{2/3}) for U (PROVED)**. By the Poisson heuristic and the data of §3.6 the limit densities are conjecturally
+exp(−Θ(n²)) and, for the prime family, exp(−Θ(n)). The exponents obtained are the same powers as the integer CRT
+results (2/3 for U, G1's √ for the prime family) with log N ↦ n. This is a calibration: it is not shown here that they
+are the optimum of every exact-CRT argument. Beyond these bounds the relevant object is the monodromy group G_n of the
+word covers (Thm 3.3), whose derangement proportion is the density. Exact CRT computes the intersections of boundedly
+many classes of total degree ≤ n; Chebotarev describes the full joint Frobenius action. Moreover |G_n| ≥ 1/ρ_n ≥
+c·e^{√n/16} (Thm 3.5 with Prop 3.7(a)). §3.9 shows that this input yields an upper bound exp(−c n²), with a smaller c
+than conjectured.
 
-### 3.9 Depth n² in the q = ∞ model: 4-wise CRT plus CFSG gives big monodromy (round 2)
+### 3.9 An exp(−c n²) upper bound for the limiting large-q densities: 4-wise CRT plus CFSG (round 2)
 
 For a shape σ = (s, a, b) with a, b ≥ 1 call d_σ := a + b its *small modulus degree* (the word is the class
-f ≡ −u − v mod uv, deg uv = d_σ). Let G_σ ≤ Sym(X_σ) be the monodromy group of φ_σ (the image of G_{n,p}).
+f ≡ −u − v mod uv, deg uv = d_σ). Let G_σ ≤ Sym(X_σ) be the monodromy group of φ_σ (the image of G_{n,p}). Here G_{n,p} and ρ_{n,p} are defined for
+every odd p with the same formal set Σ_n of U-shapes (the group statements below do not use q ≡ 3 mod 4; only the
+interpretation of ρ_{n,p} as the U-failure density needs it).
 
 **Proposition 3.8 (k-transitivity from exact CRT; PROVED).** Let p be odd, σ = (s, a, b) with a ≠ b, a, b ≥ 1, and
 k ≥ 1 with k·d_σ ≤ n. Then G_σ acts k-transitively on X_σ (|X_σ| = D_σ = n!/(s!a!b!)). If σ, τ are two such shapes
@@ -471,13 +482,16 @@ G^geo-orbits on ordered k-tuples of distinct points of the generic fibre, and al
 G^arith = G^geo (Lemma 3.4: Frobenius acts through G^geo and preserves each orbit). So by Lang–Weil it suffices to
 show #X^{(k)}(F_q) = q^n + O(q^{n−1}) for q = p^r, r → ∞. Points over the branch locus contribute O(q^{n−1})
 (bounded fibres over a proper closed subset). Over the rest, a point is a monic f with k distinct rational words of
-shape σ; distinct words have distinct (u_i, v_i) (for fixed shape, (u, v, f) determines t, and a ≠ b excludes the
-swap). If the moduli u_iv_i are pairwise coprime, f runs over exactly q^{n−kd_σ} polynomials (one class modulo a
+shape σ; distinct words have distinct (u_i, v_i) (for fixed shape, (u, v, f) determines t), and since a ≠ b they
+also have distinct *unordered classes* {u_i, v_i} (a swap would change the shape) — this is what the class-based E_2
+of Lemma C2 needs. If the moduli u_iv_i are pairwise coprime, f runs over exactly q^{n−kd_σ} polynomials (one class modulo a
 product of degree kd_σ ≤ n). The number of such k-tuples (u_i, v_i) is q^{kd_σ}(1 − O(1/q)), which contributes
-q^n(1 − O(1/q)). k-tuples with two non-coprime moduli contribute at most B(n)^k·#{f : E_2(f)} = O(q^{n−1}), by
-Lemma C2 (2d_σ ≤ n) and the bound B(n) = Σ D_σ on the number of words of any f. So exactly one geometric component:
-G_σ is k-transitive. The same count for pairs (w, w′) ∈ X_σ × X_τ (one class mod uv, one mod u′v′, coprime with
-probability 1 − O(1/q), degree d_σ + d_τ ≤ n) gives a single component, i.e. transitivity on X_σ × X_τ. ∎
+q^n(1 − O(1/q)). For k ≥ 2, k-tuples with two non-coprime moduli contribute at most B(n)^k·#{f : E_2(f)} = O(q^{n−1}), by Lemma C2
+(2d_σ ≤ kd_σ ≤ n) and the bound B(n) = Σ D_σ on the number of words of any f (for k = 1 there is nothing to remove).
+If there were r geometric components, all over F_q, Lang–Weil would give r q^n + O(q^{n−1/2}); so r = 1 and G_σ is
+k-transitive. For pairs (w, w′) ∈ X_σ × X_τ: one class mod uv, one mod u′v′, coprime except for a set bounded by the
+fixed-degree pair sum of Lemma C2 (every lcm there has degree ≤ d_σ + d_τ ≤ n; R3 clarification), so there is a
+single component, i.e. transitivity on X_σ × X_τ. ∎
 
 **Theorem 3.9 (big monodromy for the small classes; PROVED, using CFSG and Chebotarev as in Thm 3.3).** Let n ≥ 12
 and let 𝒞*_n be the set of unordered pairs {a, b}, 1 ≤ a < b, a + b ≤ n/4, for which some ordering is a U-shape
@@ -485,13 +499,17 @@ and let 𝒞*_n be the set of unordered pairs {a, b}, 1 ≤ a < b, a + b ≤ n/4
 swap). Then for every odd p:
 (i) G_{σ_c} ⊇ Alt(X_{σ_c}) for each c ∈ 𝒞*_n;
 (ii) the image of G_{n,p} in ∏_{c ∈ 𝒞*_n} Sym(X_{σ_c}) contains ∏_c Alt(X_{σ_c});
-(iii) ρ_{n,p} ≤ 0.38^{|𝒞*_n|}, where |𝒞*_n| = (3/256 + o(1))n² (n even), (1/64 + o(1))n² (n odd). Numerically
-|𝒞*_n| ≥ n²/225 for 12 ≤ n ≤ 1200 (minimum at n = 15), so ρ_{n,p} ≤ exp(−0.0043 n²) for n ≥ 12, and
-ρ_{n,p} ≤ exp(−0.0103 n²) for 100 ≤ n ≤ 1200 (the o(1) is O(1/n)).
+(iii) ρ_{n,p} ≤ 0.38^{|𝒞*_n|}, where |𝒞*_n| = (3/256 + o(1))n² (n even), (1/64 + o(1))n² (n odd). Exactly (R3):
+with m := ⌊n/4⌋ and F(m) := ⌊(m − 1)²/4⌋, |𝒞*_n| = F(m) for n odd and F(m) − F(⌊m/2⌋) for n even. Hence
+|𝒞*_n| ≥ 3m²/16 − m/2 ≥ 3n²/256 − 7n/32 for n ≥ 12, which with a direct check for 12 ≤ n ≤ 1200 (minimum ratio
+1/225 at n = 15; for n ≥ 100 minimum 30/2809 at n = 106) gives **ρ_{n,p} ≤ exp(−0.0043 n²) for all n ≥ 12 and
+ρ_{n,p} ≤ exp(−0.0103 n²) for all n ≥ 100**, in every odd characteristic p. The asymptotic coefficients are 0.01134
+(n even), 0.01512 (n odd).
 Hence, for every fixed n ≥ 12, δ_q(n) ≤ exp(−0.0043 n²) + O_n(q^{−1/2}) for all q ≡ 3 (mod 4).
 
 *Proof.* (i) By Prop 3.8 with k = 4 (4d_σ ≤ n), G_σ is 4-transitive of degree D_σ ≥ n(n − 1) > 24. By the
-classification of finite 4-transitive groups (a consequence of CFSG: S_D, A_D, M₁₁, M₁₂, M₂₃, M₂₄), G_σ ⊇ A_{D_σ}.
+classification of finite 4-transitive groups (a consequence of CFSG: S_D, A_D, M₁₁, M₁₂, M₂₃, M₂₄; Dixon–Mortimer,
+*Permutation Groups*, GTM 163 (1996), p. 218; Cameron, *Permutation Groups* (1999), p. 110), G_σ ⊇ A_{D_σ}.
 (ii) Let G* be the image and H := (G*)^{(∞)} its perfect core; H ≤ ∏ A_{D_c}, and H projects onto each A_{D_c}.
 For c ≠ c′ the projection of G* to G_c × G_{c′} is a subdirect product. By Goursat it is the fibre product over
 isomorphic quotients G_c/N ≅ G_{c′}/N′. The normal subgroups of A_D, S_D (D ≥ 5) are 1, A_D, S_D. If N ⊇ A_{D_c} and
@@ -499,29 +517,41 @@ N′ ⊇ A_{D_{c′}}, the projection contains A × A. Otherwise N = N′ = 1, t
 G_c ≅ G_{c′}; for D ≠ 6 it is induced by a bijection X_c → X_{c′}, whose graph is then a G*-orbit of size D_c on
 X_c × X_{c′}. That contradicts the transitivity in Prop 3.8 (d_c + d_{c′} ≤ n/2). So each pair projection of H is
 onto A_{D_c} × A_{D_{c′}}, and the standard lemma (a subgroup of a product of nonabelian simple groups that is onto
-every pair of factors is the whole product; e.g. Ribet, Invent. Math. 1975, Lemma 3.3) gives H = ∏ A_{D_c}.
+every pair of factors is the whole product; Ribet, "On ℓ-adic representations attached to modular forms", Invent. Math. 28 (1975), 245–275, Lemma 3.3) gives
+H = ∏ A_{D_c}. Note: this gives ∏ A ⊆ G*, not G* = ∏ G_c; sign relations between the classes may remain, which is
+why (iii) conditions on cosets.
 (iii) U-failure of f (outside the branch locus) forces Frob_f to have no fixed point on any X_{σ_c}, since σ_c is a
 U-shape. Condition the uniform measure on G* on a coset of N := ∏ A_{D_c} ⊴ G*: the components are then independent
 and uniform on cosets of A_{D_c}. The number of derangements in either coset of A_D in S_D is (d_D ± (D − 1))/2,
-d_D = #derangements of S_D; so each factor is ≤ (d_D + D)/D! ≤ 0.38 for D ≥ 6. The count of 𝒞*_n is elementary:
+d_D = #derangements of S_D (the even-minus-odd derangement count is (−1)^{D−1}(D − 1)); so in every coset each
+factor is ≤ (d_D + D)/D! ≤ 0.38 for D ≥ 6 (271/720 at D = 6), whatever the sign correlations. The count of 𝒞*_n is elementary:
 inadmissible pairs are those with n − a − b, a, b all even, which is 1/4 of the pairs when n is even and none when n
 is odd. The last sentence is Theorem 3.3. ∎
 
-**Numerical check of the mechanism (CERTIFIED; `scripts/z51_ffield_moments.c`).** For σ = (2, 1, 2), n = 5
-(D_σ = 30), the factorial moments E[(W_σ)_k] at q = 31 are 1, 0.966, 0.903, 0.816, 0.700, 0.530, 0.300, 0.087 for
-k = 1..8, i.e. ≈ 1 − binom(k, 2)/q (prediction for a k-transitive group plus O(1/q) collisions: 1, 0.968, 0.903,
-0.806, 0.677, 0.516, 0.323, 0.097). At q = 7, 11, 19, 23, 31 the defect 1 − m_k scales like binom(k, 2)/q. Here
-exact CRT proves only k·3 ≤ 5, i.e. nothing beyond k = 1. So the moments are those of a highly transitive group
-far beyond the CRT range, as Theorem 3.9 asserts for larger n. P(W_σ = 0) = 0.361 at q = 31 (→ 1/e for S_30).
+**Numerical illustration (CERTIFIED computations, EVIDENCE as interpretation; `scripts/z51_ffield_moments.c`,
+`data/z51_ffield/moments.txt`).** For σ = (2, 1, 2), n = 5 (D_σ = 30; outside the range of Theorem 3.9), the
+factorial moments E[(W_σ)_k] at q = 31 are 1, 0.966, 0.903, 0.816, 0.700, 0.530, 0.300, 0.087 for k = 1..8, and at
+q = 43: 1, 0.977, 0.933, 0.869, 0.791, 0.714, 0.634, 0.484. At q = 31 they are consistent with a heuristic first-order
+correction 1 − binom(k, 2)/q to limiting moments 1 (1, 0.968, 0.903, 0.806, 0.677, 0.516, 0.323, 0.097). The
+correction coefficient is an empirical fit, not a consequence of transitivity, and it fails badly for high moments at
+small q. Exact CRT proves only k·3 ≤ 5 here, i.e. nothing beyond k = 1. So the data are consistent with high
+transitivity of this n = 5 cover far beyond the CRT range, but they do not certify it. P(W_σ = 0) = 0.361 (q = 31),
+0.364 (q = 43); the S_30 prediction would be d_30/30! ≈ 1/e. Other shapes behave alike, e.g. (3, 1, 2) at (23, 6) and
+(2, 1, 3) at (19, 6).
 
-*What this means for the brief.* In the F_q[T] large-q model the depth barrier is broken, and the input is
-identified: **exact low-order independence (4-wise CRT, a level-n statement) is upgraded to full independence by the
-rigidity of highly transitive finite groups (CFSG) and Goursat's lemma.** The q = ∞ exceptional density is
-exp(−Θ(n²)) from above (Thm 3.9), against exp(−c n^{2/3}) from CRT alone (Prop 3.7(b)). The lower bound ρ_n > 0 is
-Thm 3.5; a lower bound exp(−Cn²) is not proved. Conjecture 3.6 is thereby proved in the weak form
-ρ_n ≤ exp(−c n²) with c ≥ 0.0043, asymptotically c ≥ 0.0103 (conjectured c = 1/4 resp. 3/16). The mechanism needs the events to be
-*Frobenius fixed-point events in a finite Galois group* whose low-order joint statistics are exactly computable. Over
-ℤ nothing plays this role (§5).
+*What this means for the brief (scope: the iterated large-q model — fix n and p, let q = p^r → ∞, then vary n).*
+In this model the √/2/3 depth barrier of the CRT method is beaten, and the input is identified. Low-order CRT counts
+prove high transitivity of the word covers, once an O(1/q) overlap contribution is removed (Lemma C2). CFSG and the
+mixed transitivity then force the joint monodromy to contain a product of alternating groups. That gives independent
+coordinates conditional on the remaining sign-coset data, and a uniform derangement bound in every coset. **The result
+is an upper bound ρ_{n,p} ≤ exp(−c n²), i.e. exp(−Ω(n²)), against exp(−c n^{2/3}) from CRT alone (Prop 3.7(b)).**
+Unconditional independence across shapes is not asserted: sign correlations may remain (R3 gives an index-2 example
+with positive covariance). The lower bound ρ_n > 0 is Thm 3.5; no lower bound exp(−Cn²) is proved, and exp(−Θ(n²))
+remains Conjecture 3.6. This is the upper-bound half of that conjecture, with c ≥ 0.0043 (≥ 0.0103 for n ≥ 100)
+against the conjectured 1/4 resp. 3/16. Nothing here bears on the fixed-q regime or gives a bound uniform in N = q^n:
+the O_n(q^{−1/2}) error is not controlled relative to exp(−c n²) as n grows (§3.7). The mechanism uses that the
+events are *Frobenius fixed-point events in a finite Galois group* whose low-order joint statistics are computable by
+exact counting. For the integer U problem no such family of covers and fixed-point correspondence is known (§5).
 
 ## 4. Fixed q, n → ∞
 
