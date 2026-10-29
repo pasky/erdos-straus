@@ -218,9 +218,95 @@ s ≈ 2.5, and it is absent for unaligned classes. It is irrelevant for the targ
 (s → ∞). But it shows that (R1) relative to the Haar model is **false** at moduli ≥ N^{0.4}, for reasons that have
 nothing to do with squares. Any proof of (R1) must therefore use that the moduli are ≤ N^{1/s_0}.
 
-## 3. The collapse theorem: why a chain of ratios is not automatically non-linear
+## 3. The collapse theorem: a chain of certified ratios is a majorant
 
-TBD.
+The brief and z50 CONTEXT §4(e) list chain-rule / conditioning arguments as door (vii): "not of the form
+N·Eν + error". This section shows that the door is open only for **per-step inputs that are not pointwise
+certificates**. Every chain whose steps are certified pointwise by functions from a linear class 𝒞 is literally a
+single 𝒞-majorant, and so inherits every cap proved for 𝒞.
+
+### 3.1 The theorem
+
+Keep the notation of §1: E_i ⊆ ℤ, B_1 = ℤ, B_{i+1} = B_i ∖ E_i, S = B_{m+1}. A **per-step certificate** for step i
+is a pair (r_i, g_i), with r_i ∈ [0,1) and g_i : ℤ → ℝ, such that
+
+    (1_{E_i} − r_i) 1_{B_i}  ≥  g_i      pointwise on ℤ,                                       (3.1)
+
+with interval value G_i := Σ_{n∈I} g_i(n). Then Σ_I (1_{E_i} − r_i)1_{B_i} ≥ G_i. If G_i ≥ 0 this is the step bound
+ρ_i ≥ r_i. More generally it gives ν(B_{i+1}) ≤ (1 − r_i)ν(B_i) − G_i/#I, which covers absolute-error inputs.
+
+**Theorem 3.1 (collapse; PROVED).** Put c_i = ∏_{j>i}(1 − r_j) and
+
+    ν* := ∏_{j=1}^m (1 − r_j) − Σ_i c_i g_i.
+
+Then ν* ≥ 1_S pointwise on ℤ; in particular ν* ≥ 0 on ℤ. Moreover
+
+    Σ_{n∈I} ν*(n) = #I·∏_j (1 − r_j) − Σ_i c_i G_i,
+
+which is exactly the bound on #(S ∩ I) that the chain argument produces. If every g_i lies in a linear space 𝒞 of
+functions containing the constants, then ν* ∈ 𝒞.
+
+*Proof.* Pointwise, 1_{B_{i+1}} = 1_{B_i} − 1_{E_i}1_{B_i} = (1 − r_i)1_{B_i} − (1_{E_i} − r_i)1_{B_i}. By (3.1) this is
+≤ (1 − r_i)1_{B_i} − g_i. Induction on i gives 1_{B_{k+1}} ≤ ∏_{j≤k}(1−r_j) − Σ_{i≤k} ∏_{i<j≤k}(1−r_j) g_i, using
+1_{B_1} = 1 and 1 − r_j > 0. Take k = m. The interval identity is linearity. ∎
+
+The chain looks multiplicative because the ratios multiply. The certificates, however, enter linearly, with the
+fixed weights c_i. What the chain computes is the interval sum of one function ν* that dominates 1_S on all of ℤ.
+
+### 3.2 Consequences: the caps apply to certified chains
+
+**Corollary 3.2 (CRT-certified chains; PROVED given (D)20 and (D)24).** Let 𝓕 be a finite mixture of forced ES
+classes (ℛ(M), (a,D), Case-A, selector), and let I = [1,N]. Suppose a chain or Janson argument certifies each step
+by (3.1), with g_i a CRT function of level ≤ λ. That is, g_i is a finite real combination of indicators of residue
+classes whose moduli divide one period of log-size ≤ λ. Then the bound it proves satisfies
+
+    #I·∏(1 − r_j) − Σ c_i G_i  ≥  (N − D)·e^{−Cλ^{3/4}},
+
+where D < N bounds the denominators of ν*. When λ ≤ A log N and all moduli are ≤ N/2, the saving is therefore
+≤ C_A(log N)^{3/4}.
+
+*Proof.* By Theorem 3.1, ν* is a nonnegative CRT function of level ≤ λ, and ν* ≥ 1 on every integer that avoids
+𝓕. By KARY3 (D)24, Eν* ≥ e^{−Cλ^{3/4}}. By (D)20 (Selberg minorant + Poisson; nonzero frequencies with
+denominator ≤ D), Σ_{n≤N} ν* ≥ (N − D)Eν*. ∎
+
+**Corollary 3.3 (prime-supported certificates; PROVED given (D)22).** Let I be the primes ≤ N, and suppose (3.1)
+holds only at primes, with g_i CRT of level ≤ λ. Then ν* ≥ 1_S at primes and ν* ≥ 0 at primes, so ν* is an
+admissible prime-law majorant. The cap of (D)22 applies: saving ≤ Cλ^{3/4}(log λ)^{3/4}, or C_Bλ^{3/4} under
+bounded B. This includes per-step inputs at BV/BDH/EH/GRH level, provided they are used through pointwise
+minorant/majorant certificates (Selberg weights, Bonferroni, β-sieve) at any polynomial level.
+
+**Remark 3.4 (what the collapse covers).** Everything below is a special case of (3.1).
+
+* *Ratio of two certified bounds.* If ν(E_i ∩ B_i) ≥ Σ_I m_i with m_i ≤ 1_{E_i}1_{B_i} and ν(B_i) ≤ Σ_I M_i with
+  M_i ≥ 1_{B_i}, then r_i = Σm_i/ΣM_i is certified by g_i = m_i − r_iM_i, with G_i = 0.
+* *Absolute-error level of distribution with a dichotomy* ("either B_i is small and we are done, or the error is
+  relatively small"). The iteration ν(B_{i+1}) ≤ (1−r_i)ν(B_i) + err_i is linear, so it is covered with G_i = −err_i.
+* *The Janson step itself.* Lemma 1.2 is pointwise. So if (R1) and (R2) are certified by 𝒞-functions, the
+  composite certificate for ρ_i ≥ (1−η_i)P(E_i) − KΣP(E_i∩E_j) lies in 𝒞.
+* *Density increment on progressions, and entropy chains (Shearer).* Both are dominated by the trivial CRT sieve
+  with period ≤ N, i.e. level ≤ log N; the derivation is in §5.1.
+
+### 3.3 What escapes the collapse, and LP duality
+
+The collapse needs (3.1) on **all of ℤ** with g_i ∈ 𝒞. Two kinds of per-step input escape it.
+
+* **(E-I) Certificates valid only on I.** If (3.1) holds only for n ∈ I, then ν* ≥ 1_S only on I. For this
+  relaxation no cap can hold: already at level log 2N the LP value equals the true count (EXCEPTIONAL_LARGESIEVE2
+  Prop 6.1). But a pointwise inequality on I involving the high-period set B_i is itself non-CRT interval
+  information about B_i ∩ I. This is door (i).
+* **(E-II) Non-pointwise inequalities about sums over I.** Examples: the large sieve applied to the set B_i,
+  Cauchy–Schwarz/dispersion, Bombieri–Vinogradov proved for the specific sequence 1_{B_i}, or Halász-type bounds.
+  These are not of the form (3.1). §4 shows that the *structure-blind* ones certify nothing.
+
+*LP duality check (brief item 2).* The caps (D)17–(D)25 are proved through a comparison measure σ on the
+model space. σ lives on the avoiders and is within e^{S(λ)} of uniform on every nonnegative level-λ test function
+(EXCEPTIONAL_LARGESIEVE2 Lemma 1.1). So σ *violates* (R1) at every step: σ(E_i ∩ B_i) = 0. It therefore bounds a
+chain argument exactly when the per-step inputs are statements that σ would also have to satisfy, namely
+nonnegative level-λ tests. These are the certified chains of Theorem 3.1. For (E-I)/(E-II) inputs the comparison
+measure gives no bound, and nothing in (D)17–(D)29 bounds them "secretly". **Assessment:** a chain-rule proof
+beyond 3/4 must contain at least one per-step input of type (E-I) or (E-II) that carries information at level
+> λ about the specific sifted set B_i ∩ I. Door (vii) is therefore not a separate door: certified chains are
+capped like majorants, and every uncapped chain step is a door-(i) input.
 
 ## 4. Structure-blind inputs
 
