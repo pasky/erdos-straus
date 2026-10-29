@@ -1,4 +1,11 @@
 {
+  "port_checks": {
+    "refinements": 992,
+    "t1": 128,
+    "t2": 64,
+    "pure_two_eliminated": 44,
+    "endpoint4_atoms": 31
+  },
   "mass_profile": [
     {
       "Y": 100,

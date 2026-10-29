@@ -387,4 +387,36 @@ R2 re-derived the cited KARY/ETw comparison inputs and the Shiu moment bounds. R
 
 **OPEN, exact gap:** use noncoprime endpoint events or another non-native class family with a proved transfer, prove genuinely non-CRT signed interval information beyond coefficient-wise O(1) errors, or handle smooth inputs without the false I3 scaling rule. For ES₅/U, additionally enforce the colour/slot restriction; an unrestricted interior word is insufficient. The cap rules out none of these doors.
 
-**CERTIFIED:** the finite checks in §5 pass. **Review verdict:** SOUND after minor repairs, three cross-model rounds. Work is committed on `side-agent/z50-i3ex`; await the parent, do not merge without instruction.
+**CERTIFIED:** the finite checks in §5 pass. **Review verdict:** SOUND after minor repairs, three cross-model rounds. The original wrap-up above is supplemented and its U/ES₅ port limitation corrected by §7.
+
+## 7. Parent follow-up — U and ES₅ are also quadratic-profile families
+
+### 7.1 Boundary levels, colour and the relevant class universe
+
+**PROVED dictionary / scope.** Work on n≡1 (mod4). Define ES₅ at composite inputs by existence of a positive word with a 4-divisible slot, equivalently a coordinate in 𝒞_n; no coprimality is needed for this slot/coordinate equivalence (LOWERTAIL_ROUND2_FABLE Theorem 1). The Jacobi interpretation additionally requires gcd(n,uv)=1. U uses an endpoint in 𝒞_n and its proper-divisor convention. For fixed t,u≥1 put A=tu−1. When A≥2, every possible word lies in `n≡−u mod A`, where u|A+1 and gcd(u,A)=1. There are at most τ(A+1) labels, including t=1,2 and u=1,2; duplicate residues are discarded. The case A=0 gives n=−1. If A=1, (t,u) is (1,2) or (2,1); at n≡1 mod4 neither word has a certificate slot. Thus no certificate is lost by A≥2.
+
+The endpoint/coordinate predicates are determined by n mod 8A: v=(n+u)/A mod8 is determined there. Retain exactly those of the at most eight refinements of each native class which have n≡1 mod4 and satisfy the U or ES₅ predicate. Positivity and U's proper-divisor requirement hold sufficiently far along each retained class; finite initial points are not used as certificates. Every genuine U/ES₅ word is represented in this universe. In particular the family has at most 8τ(A+1) classes of modulus 8A, and each retained class is reduced at every odd prime dividing A. This is a statement about the native congruence presentation; it does not identify every possible sufficient congruence for U or ES₅ with this presentation.
+
+### 7.2 Corollary — the matching cap transfers on n≡1 mod4
+
+**Corollary 7.1 (PROVED relative to the inputs of Theorem 4.1; pending hostile review).** Let F be any finite family of the U or ES₅ refinements just defined, or any mixture of them. Let ν be a finite congruence combination, nonnegative on n≡1 mod4 and ≥1 on the entire F-avoider set in that progression. Measure its level above the same fixed W₀ as before. Then
+
+`log(1/E₁ν) ≪ λ^{2/3}/(log λ)^{1/3}`,
+
+where E₁ is Haar mean conditional on n≡1 mod4. Consequently the same coefficient-sum architecture, with family primes ≤N^A, cannot save more than `C_A(log N)^{2/3}/(log log N)^{1/3}`. In particular its exponent cannot exceed 2/3. The weaker cap of Theorem 3.1 also follows.
+
+*Proof.* A literal zero base would be wrong here because it pins n even. Instead, at 2 choose uniformly the unit-square residues modulo the full 2-power of the common period (include 8); this has density 1/8 and lies in n≡1 mod8. At each odd p≤W pin n≡0 mod p. The base costs O(W), lies inside n≡1 mod4, and has bounded 2-adic inflation: probability of a specified residue mod2^a is at most 8/2^a. All classes with an odd p≤W dividing A are killed by reducedness. The remaining classes supported only at 2 are killed by the 2-adic square base: if one contained a unit-square residue, it would contain arbitrarily large odd integer squares, contradicting the known square obstruction for U/ES₅. Thus every surviving class is decided at an odd top prime >W.
+
+In §§3–4 use Γ(2^a)=8, Γ(p^a)=1 for odd p≤W, and the previous capped factor above W. The single fixed Euler factor at 2 changes only absolute constants: h(2)=7, while h(p)≤2p^{−1/2} for p>2. In the local-moment tail bound, its factor `1+7·2^{1/4}` replaces at most one factor bounded by 2. Refining modulus A to 8A and taking at most eight labels per divisor likewise costs only constants in the first and second moments. The cofactor sums are the same sums with the fixed factor 8 removed from the cofactor. Lemma 4.2 now sieves only odd primes ≤W; q may be even, and its proof is unchanged since q is coprime to all the sieved primes. Hence the smooth first moment remains `O(log²W+log²y/log W)`, and the leak bound stays uniform in W. Take W=⌊√λ⌋ and repeat §4.4. Extending ν by zero off n≡1 mod4 multiplies it by a fixed modulus-4 selector and changes neither its charged level nor its coefficient-sum order; Eν=E₁ν/4. The projection/coarsening argument then proves the integer-count version. ∎
+
+**Contrast and qualification.** This is a 2/3 cap for native U/ES₅ whole-avoider CRT methods, even allowing t=1,2, arbitrary balanced moduli, and the colour refinements. ES's internal 3/4 upper bound uses the larger Vaughan **ratio** family and a rough-input selector followed by multiplicative scaling; neither is included in this corollary. There is no contradiction. Nor does Corollary 7.1 cap methods restricted only to prime inputs: its odd-prime zero base is not a unit base. A square base is available for a separate prime-law audit, but that stronger scope is not claimed here.
+
+### 7.3 The §8.8 upper bound transfers as well
+
+**PROVED relative to BV, Brun–Titchmarsh and Mertens.** For failures among n≡1 mod4,
+
+`E_ES₅(N) ≤ E_U(N) ≪ N exp(−c(log N)^{2/3}/(log log N)^{1/3})`.
+
+*Proof sketch with exact change.* In I3_DEEP_ASTRA Lemma 8.7 and Theorem 8.8 retain only atoms with u≡0 mod4. The multiplier set B consists of y-rough k≤K (including 1), hence all k are odd. On the fibre c, active labels satisfy u≡−c mod k and u≡0 mod4. For (c,k)=1 this is one progression modulo 4k, so its harmonic mass is `log(z/U₀)/(4k)+O(U₀^{−1})`; the reciprocal-totient upper sum is bounded by the old unrestricted one. The lower BV main term is therefore still ≫x h(J_c) per prime block, up to an absolute factor, and the BV error is at most the original weighted error because the incidence function is only reduced. The prime progression q≡−k^{-1} mod u is reduced, since the active u is coprime to the odd k. Same-q distinctness and conditional independence are unchanged. Thus μ_c≍T h(J_c), with the same exceptional-fibre estimate, factorial-moment bound, even Bonferroni majorant and coefficient ledger `exp(O(T³/log T))` as §8.8. Every hit above n≥3KX has t,u,v≥3 and 4|u, hence is a U and ES₅ certificate at n≡1 mod4. Discarding the N^{o(1)} onset and choosing `T=α(log N log log N)^{1/3}` proves the estimate. No I3 scaling or arbitrary-word colour transfer is used.
+
+**Assessment.** This is a transfer of the existing upper-bound architecture, not an exponent improvement. Together with Corollary 7.1 it identifies the optimal order for that native presentation of U/ES₅, up to constants. Squares remain exceptions but √N is smaller than this upper bound. The previous blanket statement in §4.6 that no U/ES₅ upper bound was available to port was too pessimistic: forcing the endpoint 4|u preserves the needed supply.

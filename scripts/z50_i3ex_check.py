@@ -199,7 +199,49 @@ for w in (5, 11, 31):
                                    "hyperbola_upper": hyperbola,
                                    "normalized": total * q * log(w) / (k * log(k))})
 
-result = {"mass_profile": profile, "smooth_partial_sums_to_Y": smooth,
+# Follow-up: boundary labels and modulus-8 refinements, not another test
+# of the already-covered abstract slot/coordinate equivalence.
+port_checks = {"refinements": 0, "t1": 0, "t2": 0, "pure_two_eliminated": 0,
+               "endpoint4_atoms": 0}
+for a in range(1, 129):
+    modulus = 8 * a
+    two_squares = {r * r % modulus for r in range(1, modulus, 2)} if a & (a - 1) == 0 else set()
+    for u in divisors(a + 1):
+        t = (a + 1) // u
+        assert gcd(u, a) == 1
+        for v in range(16, 24):
+            n = a * v - u
+            if n % 4 != 1:
+                continue
+            slot = any(x % 4 == 0 for x in (t, u, v, a, t * v - 1))
+            if not slot:
+                continue
+            assert a >= 2  # A=1 carries no certificate on this progression.
+            n2 = n + modulus
+            v2 = (n2 + u) // a
+            assert v2 == v + 8 and t * u * v2 - u - v2 == n2
+            assert any(x % 4 == 0 for x in (t, u, v2, a, t * v2 - 1))
+            port_checks["refinements"] += 1
+            port_checks["t1"] += t == 1
+            port_checks["t2"] += t == 2
+            if a & (a - 1) == 0:
+                assert n % modulus not in two_squares
+                port_checks["pure_two_eliminated"] += 1
+            for p in (3, 5, 7, 11):
+                if a % p == 0:
+                    assert n % p != 0
+for k, q, u in atoms:
+    if k % 2 and u % 4 == 0:
+        a = k * q
+        v = next(v for v in range(3, 7) if (a * v - u) % 4 == 1)
+        n = a * v - u
+        t = (a + 1) // u
+        assert min(t, u, v) >= 3 and t * u * v - u - v == n
+        assert n % 4 == 1 and u % 4 == 0
+        port_checks["endpoint4_atoms"] += 1
+assert port_checks["t1"] and port_checks["t2"] and port_checks["endpoint4_atoms"]
+
+result = {"port_checks": port_checks, "mass_profile": profile, "smooth_partial_sums_to_Y": smooth,
           "rough_native_mass_to_Y": rough_mass, "rough_progressions_toy": rough_progressions,
           "base_elimination_checks": base_checks, "fibre_L": LK, "atoms": len(atoms),
           "fibres": fibres, "exact_periods": period_rows,
