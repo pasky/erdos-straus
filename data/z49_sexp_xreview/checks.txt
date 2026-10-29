@@ -1,0 +1,29 @@
+pair-check allocation: 180 endpoints, 1040 events; pairs streamed
+pair fibre z=1: live=197 mu=0.00358071 Delta=0.00000551
+pair fibre z=2: live=224 mu=0.00198783 Delta=0.00000132
+pair fibre z=3: live=215 mu=0.00201750 Delta=0.00000349
+pair fibre z=4: live=236 mu=0.00897386 Delta=0.00009805
+pair fibre z=6: live=202 mu=0.00241185 Delta=0.00000134
+pair fibre z=8: live=193 mu=0.00218240 Delta=0.00000191
+pair fibre z=9: live=238 mu=0.00436692 Delta=0.00001865
+pair fibre z=11: live=204 mu=0.00412419 Delta=0.00000931
+pair fibre z=13: live=214 mu=0.00271264 Delta=0.00000649
+pair fibre z=17: live=221 mu=0.00247466 Delta=0.00000219
+pair CRT assertions: 1069; equal sums=47; repeated atoms=0; smooth=1019
+FT H=1000 Y=10: 168 coordinates, 98840 live edges; max q*FT/L^2=1.77888468 at q=839; max actual/enlarged_bound=0.10100573
+FT H=1000 Y=30: 168 coordinates, 52057 live edges; max q*FT/L^2=2.35829102 at q=719; max actual/enlarged_bound=0.05457931
+FT H=1000 Y=100: 154 coordinates, 32405 live edges; max q*FT/L^2=3.18541450 at q=881; max actual/enlarged_bound=0.04050459
+prime-cutoff exact CRT H=Y=11: S=1/2; live=[(1, 11, Fraction(1, 10)), (2, 11, Fraction(1, 10)), (3, 11, Fraction(1, 10)), (4, 11, Fraction(1, 10)), (6, 11, Fraction(1, 10))]
+control prime 193: H4=5, odd edges checked=1
+control prime 409: H4=7, odd edges checked=3
+control prime 577: H4=5, odd edges checked=4
+control prime 2521: H4=29, odd edges checked=4
+control prime 3361: H4=29, odd edges checked=5
+control prime 5569: H4=17, odd edges checked=4
+control prime 9601: H4=19, odd edges checked=5
+control prime 66529: H4=26, odd edges checked=5
+control prime 8813281: H4=51, odd edges checked=8
+49 odd-square controls: no coprime certificate edges
+numerator-8 full three-term check n=17: 0 representations
+numerator-8 full three-term check n=241: 0 representations
+PASS: all independent finite assertions

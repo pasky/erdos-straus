@@ -1,0 +1,4 @@
+H=11 Y=11 L=2.40 logQ=7.8  S=0.455 (S/L^2=0.079)  S_beta=0.974
+  primes l>Y: max l*w_a/L^2=0.000 (l=0)  max l*w_v/L^2=0.000 (l=0)  max beta-load=0.0000 (l=0) [eta=0.5718]
+  residual digits l<=Y: max m*w_a/L^2=0.000 (l=0)  max m*w_v/L^2=0.870 (l=11)  max beta-load=0.9743 (l=11)
+  LLL (x=2P): max_E sum_{c in supp E} 2 w_c = 0.9091 at (a,v)=(1,11)  [need <= 1/4 for H4 Lemma 4 form]

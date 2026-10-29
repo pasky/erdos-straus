@@ -1,0 +1,1 @@
+stats {'lll': 3, 'nolll': 17, 'zeroav': 0, 'tightest': -0.015770469952306243} fails 0
