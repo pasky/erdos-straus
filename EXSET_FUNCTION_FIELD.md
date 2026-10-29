@@ -160,7 +160,152 @@ q, \u00a73.1), so it cannot be a depth breaker in the sense of the brief; the fi
 
 ## 3. Large q, fixed n
 
-(placeholder)
+Notation: M_d = monic polynomials of degree d (an affine space A^d over F_q via the non-leading coefficients);
+\u03a3_n = set of U-shapes (s, a, b): s + a + b = n, a \u2265 1, s + b \u2265 1, (s or b odd); m(n) := |\u03a3_n|;
+for a shape \u03c3 = (s, a, b) the *word map* \u03c6_\u03c3 : M_s \u00d7 M_a \u00d7 M_b \u2192 M_n, (t, u, v) \u21a6 tuv \u2212 u \u2212 v;
+W_\u03c3(f) := #\u03c6_\u03c3^{\u22121}(f)(F_q), so W_U = \u03a3_{\u03c3 \u2208 \u03a3_n} W_\u03c3; \u03b4_q(n) := #{f \u2208 M_n(F_q) : W_U(f) = 0}/q^n.
+
+### 3.1 The mass is a shape count, independent of q
+
+**Proposition 3.1 (PROVED).** For every q \u2261 3 (mod 4) and n \u2265 2, q^{\u2212n} \u03a3_f W_U(f) = m(n) exactly, and
+m(n) = 3n\u00b2/8 + O(n) (m(n) = 2, 3, 7, 9, 15, 18, 26, 30, 40, 45 for n = 2..11).
+
+*Proof.* The domain of \u03c6_\u03c3 has q^s q^a q^b = q^n points and every point maps into M_n, so \u03a3_f W_\u03c3(f) = q^n. Counting
+shapes: among pairs (s, b) with s + b \u2264 n \u2212 1, (s, b) \u2260 (0, 0), a fraction 3/4 + O(1/n) has s or b odd. \u220e
+
+This is the exact analogue of "mass \u224d log\u00b2 N" for U over \u2124, with log N replaced by n = log_q N. It does not grow
+with q. The large-q limit is therefore a *fixed-mass* limit.
+
+### 3.2 The word maps are finite, flat, generically \u00e9tale, of degree n!/(s!a!b!)
+
+**Lemma 3.2 (PROVED; any characteristic).** For every shape (s, a, b) with s + a + b = n, s + b \u2265 1, s + a \u2265 1,
+\u03c6_\u03c3 : A^n \u2192 A^n is finite and flat of degree D_\u03c3 = n!/(s! a! b!), and generically \u00e9tale.
+
+*Proof.* Give the coefficient of T^{d\u2212i} of a monic polynomial of degree d the weight i. The coefficient y_i of T^{n\u2212i}
+of tuv is weighted-homogeneous of weight i in the coefficients x of (t, u, v); the coefficient of T^{n\u2212i} in u + v has
+weight \u2264 i \u2212 min(s + b, s + a) < i (the leading 1 of u sits at weight n \u2212 a = s + b \u2265 1). So \u03c6_\u03c3 = h + l with
+h(t, u, v) = tuv weighted-homogeneous and l of lower weight in each component. The common zero set of h is {0}
+(tuv = T^n forces t = T^s, u = T^a, v = T^b by unique factorisation). Hence h is a homogeneous system of parameters,
+k[x] is free over k[h] of rank \u220f_i i / \u220f_j wt(x_j) = n!/(s!a!b!) (Hilbert series), and by the weight filtration
+(gr k[\u03c6] = k[h]) a homogeneous k[h]-basis of k[x] lifts to a k[\u03c6]-basis: \u03c6 is finite and flat of degree D_\u03c3. The
+Jacobian determinant of \u03c6 has top-weight part the Jacobian of h, and h is \u00e9tale at any (t, u, v) with t, u, v
+pairwise coprime (if \u03b4t\u00b7uv + t\u00b7\u03b4u\u00b7v + tu\u00b7\u03b4v = 0 with deg \u03b4t < s etc., reduce mod t, u, v: \u03b4t = \u03b4u = \u03b4v = 0).
+So the Jacobian of \u03c6 is not identically zero and \u03c6 is generically \u00e9tale (separable) in every characteristic. \u220e
+
+So the generic fibre X_\u03c3 of \u03c6_\u03c3 is a set of D_\u03c3 geometric points. Let L_n be the compositum of the function fields
+of all word maps of degree n (all non-degenerate shapes, U or not) over K = F_q(y_1, \u2026, y_n), \u03a9_n its Galois
+closure, G_n = Gal(\u03a9_n/K) and G_n^geo = Gal(\u03a9_n F\u0304_q / F\u0304_q(y)). G_n acts on \u2294_\u03c3 X_\u03c3. Let B_n \u2282 A^n be the union
+of the branch loci (a proper closed subset of degree bounded in terms of n). For f \u2208 (A^n \u2216 B_n)(F_q), W_\u03c3(f) is the
+number of fixed points of Frob_f on X_\u03c3 (\u03c6_\u03c3 is finite \u00e9tale over f and its source is normal).
+
+### 3.3 The large-q limit exists and is a Chebotarev statistic
+
+**Theorem 3.3 (PROVED, given the Chebotarev density theorem for finite \u00e9tale Galois covers of open subsets of
+A^n_{F_q}, with error O(q^{n\u22121/2}) and implied constant depending only on the complexity of the cover \u2014 Lang\u2013Weil;
+e.g. Fried\u2013Jarden, *Field Arithmetic*, Prop. 6.4.8 and \u00a76.4; Serre, *Lectures on N_X(p)*, \u00a79).** Let
+Der_n := {g \u2208 G_n : g has no fixed point on X_\u03c3 for every \u03c3 \u2208 \u03a3_n}. Then
+
+  \u03b4_q(n) = |Der_n \u2229 Frob_q G_n^geo| / |G_n^geo| + O_n(q^{\u22121/2}),
+
+with the O_n-constant independent of q. By Lemma 3.4 below, G_n = G_n^geo, so the main term is |Der_n|/|G_n|.
+
+*Proof.* Chebotarev applied to \u03a9_n over A^n \u2216 B_n, summed over the conjugacy classes contained in Der_n; the points of
+B_n(F_q) number O_n(q^{n\u22121}). The complexity of \u03a9_n (degree \u2264 \u220f D_\u03c3!, equations of degree bounded in n with integer
+coefficients) is bounded in terms of n only. \u220e
+
+G_n may depend on p = char F_q (for p \u2264 some p\u2080(n)); for p > p\u2080(n) it equals the characteristic-0 monodromy group.
+
+### 3.4 The boundary of the word maps: a copy of S_n, and no constant field extension
+
+**Lemma 3.4 (PROVED; any odd q).** G_n = G_n^geo, and G_n contains a subgroup S \u2245 S_n acting on each X_\u03c3
+(\u03c3 = (s, a, b)) as S_n acts on ordered set partitions of {1, \u2026, n} into blocks of sizes s, a, b.
+
+*Proof.* (Degeneration to the top-weight map.) For c \u2208 F_q(\u03bc)^*, c = 1/\u03bc, let S_c act on monic polynomials of degree
+d by (S_c g)(T) = c^d g(T/c), and S_c^{(n)} on polynomials of degree \u2264 n by g \u21a6 c^n g(T/c). Then
+\u03c6_\u03c3(S_c t, S_c u, S_c v) = S_c^{(n)}(\u03c6^\u03bc_\u03c3(t, u, v)) with \u03c6^\u03bc_\u03c3(t, u, v) := tuv \u2212 \u03bc^{s+b} u \u2212 \u03bc^{s+a} v.
+So over F_q(\u03bc, y) the cover {\u03c6^\u03bc_\u03c3 = y} is the base change of {\u03c6_\u03c3 = y\u2032} along the purely transcendental extension
+F_q(y\u2032) \u2282 F_q(y\u2032, \u03bc) = F_q(\u03bc, y), y\u2032 = S^{(n)}_{1/\u03bc} y; the Galois group of the compositum and its constant field are
+unchanged. The family \u03a6_\u03c3 = {(\u03bc, w) \u21a6 (\u03bc, \u03c6^\u03bc_\u03c3(w))} is finite flat over A^1 \u00d7 A^n (the proof of Lemma 3.2 with
+\u03bc of weight 0), and its fibre at \u03bc = 0 is the top map (t, u, v) \u21a6 tuv, which is \u00e9tale over {y : disc y \u2260 0}. So
+the generic point \u03be of the divisor {\u03bc = 0} (residue field F_q(y)) is unramified in every K(X_\u03c3), hence in \u03a9_n. For a
+place \ud835\udd13 | \u03be of \u03a9_n the decomposition group D_\ud835\udd13 \u2245 Gal(\u03ba(\ud835\udd13)/F_q(y)), and its action on X_\u03c3 is the Galois action on
+the special fibre {tuv = y} = ordered (s, a, b)-partitions of the roots of y. \u03ba(\ud835\udd13) is generated by the residue
+fields of these special fibres; the U-shape (0, n \u2212 1, 1) contributes F_q(y)(one root of y), so \u03ba(\ud835\udd13) is the
+splitting field of the generic polynomial, with group S_n and constant field F_q. Hence D_\ud835\udd13 \u2245 S_n acts as stated.
+Constants of \u03a9_n inject into \u03ba(\ud835\udd13), whose constant field is F_q; so \u03a9_n \u2229 F\u0304_q = F_q and G_n = G_n^geo. \u220e
+
+### 3.5 The fixed-n target of the brief is false: a positive proportion of non-squares fail
+
+**Theorem 3.5 (PROVED, given Chebotarev as in Thm 3.3).** For every n \u2265 2 there are c_n > 0 and C_n such that for
+every odd q,
+
+  #{f \u2208 M_n(F_q) : f has no word of any shape other than (n, 0, 0)} \u2265 c_n q^n \u2212 C_n q^{n\u22121/2},
+
+with c_n \u2265 1/\u220f_\u03c3 D_\u03c3! (product over all non-degenerate shapes). In particular, for q \u2261 3 (mod 4),
+#{f non-square : U_q(f) fails} \u2265 c_n q^n \u2212 C_n q^{n\u22121/2} \u2212 q^{n/2}: **for fixed n the non-square exceptional set
+of U_q is a positive proportion of all f as q \u2192 \u221e, so no bound O(q^{n\u2212c}) (nor o(q^n)) holds.** The same holds for
+the ES\u2085-analogue and for every union of word shapes.
+
+*Proof.* Let g\u2080 \u2208 S \u2264 G_n be the element acting as an n-cycle on the roots (Lemma 3.4). An n-cycle fixes no ordered
+set partition with at least two non-empty blocks, and every non-degenerate shape other than (n, 0, 0) has at least two
+non-empty blocks. So g\u2080 is fixed-point-free on every such X_\u03c3. Its conjugacy class C has |C|/|G_n| \u2265 1/|G_n| \u2265
+1/\u220f D_\u03c3!, and Chebotarev (G_n = G_n^geo, so every class occurs for every q) gives #{f \u2209 B_n : Frob_f \u2208 C} \u2265
+(|C|/|G_n|)q^n \u2212 C_n q^{n\u22121/2}; such f have no rational point in any fibre. Squares number q^{n/2}. \u220e
+
+*Reading.* The forest of a typical f is empty with probability bounded below in the large-q limit; the frozen
+element is the boundary n-cycle ("f irreducible at the cusp"). Nothing like this happens over \u2124, where the mass
+log\u00b2 N grows. The brief's Goal 1 ("O(q^{n\u2212c}) at fixed n") is false for U_q; in the lc-free normalisation U\u2032_q it
+is true for a trivial reason (Prop 1.7(ii)). Neither is a depth statement.
+
+### 3.6 The q = \u221e model: the limit densities match independent Poisson shapes
+
+**n = 3 (EVIDENCE + computation).** U-shapes: (0, 2, 1), (1, 2, 0) (both: "f + 1 has a root") and (1, 1, 1). For
+(1, 1, 1), t = T \u2212 x, u = T \u2212 \u03b1, v = T \u2212 \u03b2: matching coefficients gives
+x\u00b3 + c\u2082x\u00b2 + (c\u2081 + 3)x + c\u2080 + c\u2082 = 0, i.e. f(x) + 3x + c\u2082 = 0, and then \u03b1, \u03b2 are the roots of
+Z\u00b2 + (c\u2082 + x)Z + c\u2081 + 2 + x(c\u2082 + x), discriminant \u0394(x) = \u22123x\u00b2 \u2212 2c\u2082x + c\u2082\u00b2 \u2212 4c\u2081 \u2212 8. So W_{(1,1,1)}(f) =
+\u03a3_{x: f(x)+3x+c\u2082=0} (1 + \u03c7(\u0394(x))), the monodromy of (1,1,1) is inside C\u2082 \u2240 S\u2083 (order 48, derangement proportion
+29/48), and if it is all of C\u2082 \u2240 S\u2083 and linearly disjoint from the S\u2083 of f + 1 (derangement proportion 1/3), then
+\u03b4_\u221e(3) = 29/144 = 0.20139. Observed (Table 2.1): 0.2004, 0.2006, 0.2007, 0.2014 at q = 163, 179, 191, 167.
+
+**General n (EVIDENCE).** Model: shapes with s = 0, a = 0 or b = 0 are governed by the factorisation of f + 1
+(f + 1 = (u\u22121)(v\u22121), resp. u(t\u22121), resp. v(t\u22121)); U-failure forces f + 1 irreducible (n odd) resp. all irreducible
+factors of f + 1 of even degree (n even), probabilities p_f(n) = 1/n resp. binom(n, n/2)/2^n. Genuine shapes
+(s, a, b \u2265 1), grouped in u \u2194 v pairs, are treated as independent Poisson variables of mean 1 (a \u2260 b) or 1/2
+(a = b); total mean M_g(n) = 0, .5, 1.5, 3, 4.5, 7.5, 9, 14, 15, 22.5 for n = 2..11, M_g(n) \u2248 n\u00b2/4 (n odd),
+3n\u00b2/16 (n even). Prediction \u03b4_\u221e(n) \u2248 p_f(n) e^{\u2212M_g(n)}:
+
+| n | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|
+| model | 0.5 | 0.2022 | 0.0837 | 0.00996 | 0.00347 | 7.9e\u22125 |
+| largest q run | 0.5 (exact) | 0.2007 (q=191) | 0.0805 (q=59, rising) | 0.0101 (q=31) | 0.0044 (q=19, falling) | 2.6e\u22124 (q=11, falling) |
+
+**Conjecture 3.6 (big monodromy for word maps; CONJECTURE, EVIDENCE above).** For p > p\u2080(n), G_n is large enough
+that |Der_n|/|G_n| = p_f(n) e^{\u2212M_g(n)}(1 + o(1)), in particular \u03b4_\u221e(n) = exp(\u2212(c + o(1))n\u00b2) with c = 1/4 (n odd),
+3/16 (n even).
+
+Conjecture 3.6 is the precise sense in which "monodromy supplies independence of many divisor events at one
+polynomial": all q^d shifts of degree d live in *one* cover \u03c6_\u03c3 (so no uniformity in the number of shifts is needed
+\u2014 the shifts are integrated into the geometry), and independence *between* shapes is the statement that G_n is
+close to a product. Proving it needs ramification data of the \u03c6_\u03c3 (e.g. pairwise distinct branch divisors \u21d2 linear
+disjointness, by purity and simple connectivity of A^n in characteristic 0); not attempted beyond n = 3.
+
+### 3.7 What large q can and cannot give in terms of N = q^n (depth accounting)
+
+(a) **Fixed n (PROVED by Thm 3.5).** No saving at all: the exceptional set is \u2265 c_n N.
+(b) **The error term is a half-power of q, not of N.** Theorem 3.3 has error O_n(q^{n\u22121/2}) = O_n(N^{1\u22121/(2n)}).
+Even if the main term vanished, Lang\u2013Weil-type input saves q^{1/2} = N^{1/(2n)}: never a fixed power of N once n
+grows, and it cannot see the square floor q^{n/2} (G5) for n \u2265 2.
+(c) **Hybrid regime n \u2192 \u221e, q \u2265 q\u2080(n) (Assessment).** Suppose Conjecture 3.6 and an effective Chebotarev with
+error \u2264 E_n q^{n\u22121/2}. Resolving \u03b4 \u2248 e^{\u2212m}, m \u2248 n\u00b2/4, needs q^{1/2} \u2265 E_n e^{m}. Since \u03b4 \u2265 1/|G_n| (Thm 3.5),
+|G_n| \u2265 e^m. If E_n is as small as poly(|G_n|), i.e. log E_n \u224d m (cost O(1) per event), then log q \u226b m \u224d n\u00b2,
+log N = n log q \u226b n\u00b3, and the saving is m \u224d (log N)^{2/3}. If the cost per shape is its fibre degree, log E_n \u224d
+\u03a3_\u03c3 log D_\u03c3 \u224d n\u00b7m (D_\u03c3 \u2248 3^n), then log q \u226b n\u00b3, log N \u226b n\u2074, and the saving is m \u224d (log N)^{1/2}: **exactly the
+\u221a(log N) depth barrier of G1, re-encoded as "number of events \u00d7 log(complexity per event) \u2264 log q"** (over \u2124:
+"number of events \u00d7 log(modulus per event) \u2264 level log N"). Either way: no power saving from the large-q route.
+(d) **What would break depth (Assessment).** An estimate with error C^{n\u00b7O(1)} q^{n/2} (square-root cancellation in all
+n dimensions, i.e. cohomology concentrated in the middle degree) for the joint indicator of \u224d n\u00b2 shape events, with
+complexity C^{O(n)} *independent of the number of events*. Purity alone does not suffice: with complexity \u220f D_\u03c3 the
+budget (n/2) log q affords only \u2248 log q/(2 log 3) events per degree \u2014 bounded at fixed q (\u00a74.3).
 
 ## 4. Fixed q, n → ∞
 
