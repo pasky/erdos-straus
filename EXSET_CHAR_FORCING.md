@@ -496,33 +496,47 @@ uniform) gives Σ_{T<t≤2T, t≡r} τ(t) ≪ (T/q) log 2T, hence ≪ L²/q for 
 contributes ≪_ε q^{ε−1} log q; and A_0 ≤ (2/q)Σ_{v≤X/q} τ(v)/v ≪ L²/q. So H_q ≪ L³ + L² log q + q^{ε}(log q)², and with
 ε = min(½, 1/C) (so q^ε ≤ L) H_q ≪_C L³. The "+1" terms are ≤ (X/(4q))·H_q. ∎
 
-**Proposition 6.3′ (primes; PROVED modulo Shiu's theorem and Brun–Titchmarsh π(x; k, a) ≤ 2x/(φ(k) log(x/k))).**
-Uniformly for primes 3 ≤ q ≤ L^C, with μ_q the Haar mass of the covered non-residue units (Def 6.1\*),
+**Proposition 6.3′ (primes; PROVED modulo Shiu's theorem and Brun–Titchmarsh π(x; k, a) ≤ 2x/(φ(k) log(x/k));
+proof completed with R3's all-level argument).** Uniformly for primes 3 ≤ q ≤ L^C (L = log X), with μ_q the Haar mass
+of the covered non-residue units (Def 6.1\*),
 `  Σ_{p ≤ X} #{r mod q : r reached at (p, q)} ≪_C π(X) L³ (log L)²,    Σ_{p ≤ X} μ_q(covered) ≪_C π(X) L³ (log L)²/q.`
-*Proof.* Level 1: Σ_p #reached ≤ Σ_tuples π(X; 4uv, c) ≤ 2X Σ_tuples 1/(φ(4uv) log(X/(4uv))), since 4uv ≤ X/q < X.
-Split uv dyadically, uv ∈ (T, 2T], and use 1/φ(4uv) ≪ (log L)/T. Claim: V(T) := Σ_{uv∈(T,2T], q∤v} τ(qu + v) ≪ T L²
-for X^{3ε} ≤ T ≤ X (ε fixed small). For u ≤ T X^{−ε} the v-range (T/u, 2T/u] has length ≥ X^{ε}, a fixed power of
-the size of qu + v, and Shiu's short-interval bound gives ≪ (T/u)L, summing to ≪ T L log T. For u > T X^{−ε} we have
-v < 2X^{ε}; for fixed v the values qu + v run over a progression mod q (coprime residue v) in a dyadic range of
-length ≍ qT/v ≥ X^{2ε} > q², and Shiu's progression bound gives ≪ (T/v)L, summing over v < 2X^{ε} to ≪ εTL².
-So a block contributes ≪ X (log L) L²/log(X/(8T)), and Σ_{T=2^j ≤ X/(4q)} 1/log(X/(8T)) ≪ log L (the values
-log(X/(8T)) ≥ log(q/2) are spaced by log 2). Blocks with T < X^{3ε} are bounded by Prop 6.3's argument at height
-X^{3ε}: ≪ (X/L)(log L)(εL)³. Total ≪ X L² (log L)² ≍ π(X) L³ (log L)². Type I tuples are counted identically. Level k:
-the same argument with Q = q^k (keeping q ∤ uv, so t = Qu + v is prime to Q; Shiu applies in progressions mod Q for
-t > Q², and the range Q < t ≤ Q² contributes ≪ Q^{ε}L² before weighting) gives ≪ π(X)(L³(log L)² + Q^{ε}L²(log L));
-weighting by Q^{−1} = q^{−k} and summing over k gives ≪ π(X)(L³(log L)²/q + L² q^{−1+ε}) ≪_C π(X) L³(log L)²/q
-(R2 repair of Remark 6.5's per-level error). ∎
+*Proof.* *Tuples and Brun–Titchmarsh.* Write u = a₁ (or b₁), v = b (or c), Q = q^k the q-power at level k. A prime p
+counted by a Type II tuple satisfies 4Quv ≤ p and p ≡ −e (mod 4uv); if d = gcd(e, 4uv) > 1 then d | p with
+d ≤ 4uv < p, impossible, so such tuples contribute nothing (this uses the height before it is dropped). For Type I,
+ep ≡ −1 (mod 4uv) forces gcd(e, 4uv) = 1. The surviving tuples are bounded by τ(Qu + v) per pair (u, v), and each
+contributes ≤ π(X; 4uv, c) ≤ 2X/(φ(4uv) log(X/(4uv))).
+*Level one (Q = q).* Fix θ = 1/12. Split uv dyadically, uv ∈ (T, 2T], use 1/φ(4uv) ≪ (log L)/T, and bound
+V(T) := Σ_{uv∈(T,2T], q∤v} τ(qu + v) for T ≥ X^{3θ}: (i) for u ≤ TX^{−θ} the v-interval has length T/u ≥ X^θ and its
+endpoint is a fixed power of X, so Shiu (modulus 1) gives ≪ (T/u)L, summing to ≪ TL²; (ii) for u > TX^{−θ}, v < 2X^θ;
+for fixed v enlarge u to the full interval (T/v, 2T/v] (the cutoff could leave a short interval), so t = qu + v runs
+over a progression with coprime residue v mod q, of length qT/v comparable to its endpoint, and Shiu gives
+≪ (T/v)L, summing to ≪ TL². So the block contributes ≪ X L²(log L)/log(X/(8T)); the denominators are ≥ log(q/2) ≥
+log(3/2) and spaced by log 2, so the dyadic sum is ≪ X L² (log L)². Products uv < X^{3θ}: apply Prop 6.3's harmonic
+argument with t ≤ 2qX^{3θ} + 1 (height Y = 8qX^{3θ}); the BT denominator is ≫ L there, giving ≪_C X L²(log L).
+*All levels.* For Q = q^k the harmonic argument gives, for fixed δ ∈ (0, 1), H_Q := Σ_{uv≤X/(4Q), q∤uv} τ(Qu+v)/(uv)
+≪_δ L³ + Q^δ L² uniformly for Q ≤ X/4 (t = Qu + v is prime to Q; Shiu dyadically mod Q above Q², Q/φ(Q) ≤ 3/2;
+τ(t) ≪ t^{δ/2} below Q²). If Q > X^θ, every admissible pair has log(X/(4uv)) ≥ log Q > θL, and BT gives incidence
+count ≪ X[L²(log L) + Q^δ L(log L)]. If Q ≤ X^θ, repeat the level-one dyadic proof: in case (ii) the progression has
+length QT/v ≥ (Q/2)X^{2θ} > Q², within Shiu's range, so V_Q(T) ≪ TL². Hence per level
+F_Q(X) ≪_δ π(X)[L³(log L)² + Q^δ L² log L]. Each level-Q box has Haar mass Q^{−1}; summing masses (subadditively,
+overlaps allowed) over k gives Σ_p μ_q ≪_δ π(X)[L³(log L)²/q + L²(log L)·q^{−1+δ}], and with δ = min(½, 1/C)
+(q^δ ≤ L) the second term is absorbed. ∎ (R3: the earlier "same argument with q^k" did not check Shiu's range at
+large levels and dropped a log L; both repaired here.)
 
 **Corollary 6.4 (PROVED from Prop 6.3′).** Uniformly for 3 ≤ q ≤ L^C:
-(a) #{p ≤ X : Reach\*(p, q)} ≪ π(X) L³ (log L)²/q. So reach at a *fixed* q ≥ L³(log L)³ fails for almost all p.
-(b) For A > 3 and η > 0, #{p ≤ X : Reach\*(p, q) for at least η·π(L^A) primes q ≤ L^A} ≪ π(X) L^{3−A+o(1)}/η. So
-MR(A, η) is false for A > 3 (for almost all p in any fixed progression).
-*Proof.* (a) Reach\* needs μ_q(covered) ≥ (q − 1)/(2q); Markov. (b) Sum (a) over q ≤ L^A (Σ 1/q ≪ log L), Markov
-at η·π(L^A); handle the p-dependent scale (log p)^A dyadically as in Cor 5.4. ∎
+(a) #{p ≤ X : Reach\*(p, q)} ≪ π(X) L³ (log L)²/q. So for any prescribed q = q(X) in this range with
+q ≥ L³(log L)³, reach at q fails for almost all p ≤ X.
+(b) For A ∈ (3, C] and η > 0 fixed, #{p ≤ X : Reach\*(p, q) for at least η·π(L^A) primes q ≤ L^A} ≪
+π(X) L^{3−A+o(1)}/η. So MR(A, η) is false for A > 3 (for almost all p, in any fixed progression), for these two
+subfamilies at height ≤ p.
+*Proof.* (a) Reach\* needs μ_q(covered) ≥ (q − 1)/(2q) ≥ 1/3; Markov. (b) Sum (a) over q ≤ L^A (Σ 1/q ≪ log L),
+Markov at η·π(L^A); the p-dependent scale (log p)^A is handled dyadically as in Cor 5.4. ∎
+These are *average* statements: they do not say that no prime has a reached q above (log p)³, nor that the reached
+q form an initial segment (R3).
 
-*What this does and does not say (Assessment; R2-repaired).* For a fixed q the counterfactual reach of these families
-is available only on a ≪ L³(log L)²/q fraction of primes, so on average a prime has reach at ≪ L^{3+o(1)} moduli, and
-MR is false above (log p)^3. This is a statement about these two subfamilies at height ≤ p and level structure; it
+*What this does and does not say (Assessment; R2/R3-repaired).* For a prescribed q ≤ L^C the counterfactual reach of
+these families is available only on a ≪ L³(log L)²/q fraction of primes, so on average a prime has reach at
+≪ L^{3+o(1)} moduli q ≤ L^C, and MR(A) is false for A > 3. This is a statement about these two subfamilies at height ≤ p and level structure; it
 says nothing about the selected population of exceptional primes, about other ES families, or about the best large
 sieve. In particular it is **not** a barrier for Linnik-type arguments: with Heath-Brown's sieve (Prop 5.1′) the reach
 needed is only at scale (log p)^{1+δ}, and with Prop 5.2 at scale C log p, far below (log p)³. (The round-1/round-2
