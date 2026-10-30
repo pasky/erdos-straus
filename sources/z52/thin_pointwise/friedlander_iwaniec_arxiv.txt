@@ -1,0 +1,4 @@
+Source: https://arxiv.org/abs/math/9811185 (accessed 2026-10-30)
+John Friedlander and Henryk Iwaniec, “The polynomial X^2+Y^4 captures its primes,” arXiv:math/9811185 v1 (submitted 1998-11-01), published Ann. of Math. 148 (1998), no. 3, 945–1040.
+Abstract theorem: infinitely many primes a^2+b^4, with weighted asymptotic Σ_{a²+b⁴≤x}Λ(a²+b⁴)=4π^{-1}κx^{3/4}(1+O(loglog x/log x)), a,b positive integers.
+This is a family count, not a fixed prescribed-n theorem.

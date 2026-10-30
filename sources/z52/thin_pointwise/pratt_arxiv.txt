@@ -1,0 +1,4 @@
+Source: https://arxiv.org/abs/1806.02699 (accessed 2026-10-30)
+Kyle Pratt, “Primes from sums of two squares and missing digits,” arXiv:1806.02699 v1, submitted 2018-06-07; related DOI 10.1112/plms.12307.
+Abstract: with A' the integers omitting any three fixed decimal digits, proves an asymptotic for primes p=m²+ℓ² with ℓ∈A'. The proof combines ideas from Friedlander–Iwaniec and Maynard restricted digits.
+Family-count result, not pointwise representation for every n.

@@ -1,0 +1,3 @@
+Source: https://ora.ox.ac.uk/objects/uuid:e1fc87e1-42f5-4827-9b1e-acbc13c8bc99 (record and linked 258.6KB PDF opened 2026-10-30; `morozcub.pdf`).
+D. R. Heath-Brown and B. Z. Moroz, “Primes represented by cubic forms” (2002). Theorem 1.1: every admissible integral binary cubic form (irreducible over Q; no prime divides all coefficients) represents infinitely many primes. The paper generalizes Heath-Brown's x^3+2y^3 result. Note: source PDF's theorem header/body was checked; details such as the full definition of admissible are stated in the paper's introduction.
+Family-level infinitude; no prescribed target n.

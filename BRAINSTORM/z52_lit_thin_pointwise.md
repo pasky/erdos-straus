@@ -16,6 +16,22 @@ Ben Green and Mehtaab Sawhney, “Primes of the form p²+nq²,” arXiv:2410.041
 
 Jori Merikoski, “On the largest prime factor of n²+1,” arXiv:1908.08816 v3 (2 November 2020; submitted 23 August 2019). Abstract, accessed 2026-10-30: infinitely often the largest prime factor of n²+1 exceeds n^1.279; under Selberg's eigenvalue conjecture, exponent 1.312. It highlights Type II estimates, Harman's sieve, and Kloosterman-sum bounds. Status: preprint v3. Excerpt: `sources/z52/thin_pointwise/merikoski_arxiv.txt`. Relation: `BRAINSTORM/z45_recent_pointwise_tools.md` and `BRAINSTORM/z31_small_count_pointwise.md`; subsequence large-factor result, not every-n prime/witness result.
 
+### Friedlander–Iwaniec: primes x²+y⁴
+
+John Friedlander and Henryk Iwaniec, “The polynomial X²+Y⁴ captures its primes,” arXiv:math/9811185 v1 (1 November 1998), published *Annals of Mathematics* 148 (1998), no. 3, 945–1040. Abstract, accessed 2026-10-30: infinitely many primes a²+b⁴; moreover a weighted asymptotic of order x^(3/4). Status: published. Excerpt: `sources/z52/thin_pointwise/friedlander_iwaniec_arxiv.txt`. Relation: `BRAINSTORM/technique_transfer_list.md`, `BRAINSTORM/s8_volume_dfi.md`, `BRAINSTORM/z45_recent_pointwise_tools.md`; the volume/counting theorem has no prescribed-target conclusion (B6).
+
+### Heath-Brown: primes x³+2y³
+
+D. R. Heath-Brown, “Primes represented by x³+2y³,” *Acta Mathematica* 186 (2001), 1–84. Oxford repository record and linked article opened 2026-10-30; Theorem 1: infinitely many primes of this form, x,y integers. Status: published. Excerpt: `sources/z52/thin_pointwise/heath_brown_cubic_ora.txt`. Relation: `BRAINSTORM/technique_transfer_list.md` and `BRAINSTORM/z45_recent_pointwise_tools.md`; family-level infinitude does not force an individual n.
+
+### Heath-Brown–Moroz: primes represented by cubic forms
+
+D. R. Heath-Brown and B. Z. Moroz, “Primes represented by cubic forms,” 2002. Oxford repository record and linked paper PDF opened 2026-10-30. Theorem 1.1: every admissible integral binary cubic form represents infinitely many primes. Status: published paper. Excerpt: `sources/z52/thin_pointwise/heath_brown_moroz_ora.txt`. Relation: `BRAINSTORM/technique_transfer_list.md` and `BRAINSTORM/z45_recent_pointwise_tools.md`; again an infinitude over the form's values, not every target integer.
+
+### Pratt: primes from two squares with missing digits
+
+Kyle Pratt, “Primes from sums of two squares and missing digits,” arXiv:1806.02699 v1 (7 June 2018), related DOI 10.1112/plms.12307. Abstract, accessed 2026-10-30: asymptotic count of primes p=m²+ℓ² where ℓ omits any three fixed decimal digits. Status: published journal article (DOI metadata) and arXiv preprint. Excerpt: `sources/z52/thin_pointwise/pratt_arxiv.txt`. Relation: `BRAINSTORM/technique_transfer_list.md`, `BRAINSTORM/z45_recent_pointwise_tools.md`; thin-family count, no B6 pointwise implication.
+
 ### Maynard: primes omitting a fixed decimal digit
 
 James Maynard, “Primes with restricted digits,” arXiv:1604.01041, v2 (28 October 2019; submitted 4 April 2016). Abstract, accessed 2026-10-30: for each decimal digit, infinitely many primes omit that digit. The paper describes this as a Hardy–Littlewood circle-method binary problem; the abstract points to Type I/II information for Harman's sieve and decorrelation of the Fourier-large conditions for primes and restricted-digit numbers. Status: preprint (arXiv page; abstract verified), no individual prescribed integer is represented. Excerpt: `sources/z52/thin_pointwise/maynard_restricted_digits_arxiv.txt`. Relation: `BRAINSTORM/technique_transfer_list.md`, `BRAINSTORM/z45_recent_pointwise_tools.md`, and `BRAINSTORM/z31_small_count_pointwise.md` found by `git grep`; the theorem is family-level, so its minor-arc machinery does not supply B6's single-p main-term dominance.
