@@ -529,8 +529,59 @@ pointwise input.
 
 ## 7. Hostile reviews
 
-(placeholder)
+**Model note.** The `subagent` tool failed (module error) in this session; reviews were run with the `pi` CLI,
+`--model openai-codex/gpt-6-astra:high`, as non-interactive sessions in this worktree.
 
-## 8. Remaining gap
+**R1 (Astra, high; §§1–3 of the first draft; `reviews/z51-linnik-review-1.md`, independent check script
+`reviews/z51-linnik-review-1-check.py`).** Overall MAJOR revision; the first-draft Theorem 2.10 (universal circularity)
+FATAL as stated. Per claim, and the repair made:
+* Lemma 1.2: MINOR/MAJOR — the approximate form does not force the pointwise P(a, T). *Repaired:* exact and approximate
+  forms separated; a ≠ 0; support statement conditioned on a required prime.
+* (1.1): SOUND; interpretation MAJOR — CRT level is per summand, not total period; squares lie in B only for coherent
+  non-negative data. *Repaired* (§1.2).
+* Prop 2.2: MAJOR — Frobenius lies in a coset, not in Gal(K/F); compatibility of the class with p ≡ 1 (k) needed;
+  consequences (larger sieve, full Montgomery/Elliott, "order ≥ 3 entirely") FATAL: wrong Parseval sign, variable-order
+  aggregates have trivial baselines, squarefree support essential (counterexample with q_i²), the larger sieve does not
+  need index ≥ p^δ in its primal use. *Repaired:* coset computation, elementary Kummer step replacing the Schinzel
+  citation, fixed-order and squarefree scope; consequences withdrawn; (L5) described correctly.
+* Lemma 2.3: (a) SOUND; (b) MINOR — D ≤ h + 1 false (u = 1, v = h gives D = h + 2). *Repaired* (D ≤ h + 2,
+  f₁f₂ ≤ 2h + 2, sum over splittings, refinement remark).
+* Lemma 2.4: SOUND after coprimality selection and a direct U-slot argument (Theorem B is for primes). *Repaired.*
+* Theorem 2.5: SOUND (needs h = 1 excluded by Lemma 2.4; added). The "every sign pattern" sentence was unsupported:
+  *repaired* by Theorem 2.5(b) (4^{ω(h)} union bound).
+* Cor 2.6: SOUND in its exact, infinite-range scope. *Repaired:* B_J, refined moduli in L, no claim about (X/2, X].
+* Remark 2.7: MAJOR qualification — ε must satisfy ε < 1/2 − 1/A. *Repaired.*
+* Prop 2.8: MAJOR — the cited cap charges per-summand level, the proof needs whole-period level; nonunit residues need
+  additive Haar. *Repaired and rescoped* (bounded whole-period hybrid lemma; per-summand hybrids open; ES/ET
+  parenthetical withdrawn).
+* §2.5/Conj 2.9: MAJOR evidentiary — "mass_trip = 0" meant "not computed"; local lemma not justified. *Repaired:* triple
+  mass computed at y = 200 (0.21; 28% of points avoid all checked boxes), checked boxes listed, heuristic labelled.
+* Theorem 2.10: FATAL as a universal theorem. *Withdrawn;* replaced by the scoped conjunction (A)–(D) with an explicit
+  "not covered" list and the finite-range caveat (the Π-profile modulus is superpolynomial in X).
+* Theorem 3.1: kernel collapse and norm SOUND; Heath-Brown's statement verified against the original (odd squarefree
+  variables); threshold 2ηs made κ = 0 vacuous. *Repaired* (threshold ηs; p ∈ S and p = 2 discarded; δ-form).
+* Cor 3.2: MAJOR proof error (vacuous κ = 0), exponent recoverable. *Repaired;* Pollack dependency removed; earlier
+  reviewer sketch credited; "large-cap primes, not ES" stated.
+* Remark (2): MINOR normalisation (𝒫(y) includes p ≡ 1 (mod 8)). *Repaired.*
+* §3.3: MAJOR scope — "barrier applies unchanged" to dense S false; "forcing reach zero at plane points" false as a
+  universal statement; approximate option omitted. *Repaired.*
+R1 reproduced: the plane self-check (8/8), the planemass run at y = 200 (pair mass 1.0176; 100/300 pair-sterile), the
+bias identities, and an independent W1/parity verification.
 
-(placeholder)
+## 8. Remaining gap (precise)
+
+1. **T2-full (Linnik confinement for ES₅/ES).** Needed: E_X ⊂ B(a, T) (or up to X^{1−c}) for some datum with T ≥ X^c.
+   With Theorem 3.1 a bias of size (log X)^{−κ} on one dyadic block at (log X)^{1+δ} suffices. The lane shows this cannot
+   come from (A) fixed higher-order characters, (B) native ES₅/U word-class avoidance on sparse prime sets (any level),
+   (C) bounded-level hybrids, (D) fibred reverse-role sieves. Open routes: dense or multi-scale blocks (CRT-certified
+   bias is excluded there only CONDITIONALLY on Conjecture 2.9); hybrids with per-summand level only; ES with the
+   ET/Vaughan ratio classes on planes; and non-CRT inputs: pointwise forcing (e.g. (WL_A), §5) or an approximate
+   argument controlling the non-generic exceptional primes.
+2. **T2-lite** is reached for the cap relaxation (Corollary 3.2, A > 1). Below A = 1 the confinement set 𝒫(y) is too large
+   (GRH); a different forcing mechanism would be needed.
+3. **Heuristic status.** Heath-Brown puts the requirement (log X)^{1+δ} inside the forcing reach ((log p)² for U words,
+   ≈ (log p)³/(15 log log p) for the ES ratio classes, §6.1); the window lottery is near-independent with residue-biased
+   failures (§5). So the Linnik route is heuristically consistent with room. The obstruction is the non-generic profiles
+   (sterile planes), where both the word labels and the ratio-class labels collapse to finitely many per q.
+4. **Not done.** A proof of Conjecture 2.9 (needs an averaged form of Lemma 2.3(c) and a local-lemma argument); planes
+   for the ET/Vaughan families; a per-summand-level version of Proposition 2.8.
