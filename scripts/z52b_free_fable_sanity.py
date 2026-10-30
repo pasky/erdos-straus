@@ -66,3 +66,9 @@ for p in primerange(5,3000):
         tot+=1
         if a!=b: dis+=1
 print("G4 disagreements (subgroup has -1 but subset-products don't):",dis,"of",tot)
+
+# --- later additions (run separately; see BRAINSTORM/z52b_free_fable.md header) ---
+# (a) C-form exceptions below 20000: 409, 577, 5569, 9601 (no certificate for C <= 60000)
+# (b) every C-form divisor a has jacobi(a,p) = -1 (1798 certificates, p<3000, C<80)
+# (c) rich failures (Omega>=5, p<6000, C<150): 4182 total, 1651 subgroup-type (39%)
+# (d) Type I c=1 exceptions below 20000 (d<1500): [2521]; 409,577,5569,9601 certified by (d,f)=(11,75),(5,3),(17,7),(67,851)
