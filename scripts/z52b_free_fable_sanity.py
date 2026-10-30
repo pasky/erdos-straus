@@ -72,3 +72,5 @@ print("G4 disagreements (subgroup has -1 but subset-products don't):",dis,"of",t
 # (b) every C-form divisor a has jacobi(a,p) = -1 (1798 certificates, p<3000, C<80)
 # (c) rich failures (Omega>=5, p<6000, C<150): 4182 total, 1651 subgroup-type (39%)
 # (d) Type I c=1 exceptions below 20000 (d<1500): [2521]; 409,577,5569,9601 certified by (d,f)=(11,75),(5,3),(17,7),(67,851)
+# (e) reparametrisation verified: C-form certificate (C,a=4Cu-1) <-> a | p+u, a = -1 mod 4u  (p<800 existence; p=1009 bijection)
+# (f) 409: no u<=60000 with a divisor of 409+u congruent to -1 mod 4u; expected count sum tau(4*409*C+1)/phi(4C), C<=60000 = 51.8
