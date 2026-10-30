@@ -9,7 +9,7 @@ Assessment. Scripts `scripts/z51_linnik_*`, data `data/z51_linnik/`.*
 | # | claim | label | review |
 |---|---|---|---|
 | 1.2 | Linnik transfer: the input of every (L1)–(L4) argument is the containment E ⊂ B(a, T) (exact: the pointwise implication P(a, T); approximate: up to a remainder); B is periodic for quadratic tests, Haar(B) ≤ 1/T; Linnik is a level-free transfer | PROVED (trivial) | R1: MINOR, repaired |
-| 2.2 | fixed-order (k ≥ 3) character biases of squarefree-supported data have mean exactly φ(k) over the primes of any unit class: a lower bound T > φ(k) is never CRT-certified (Chebotarev + Kummer) | PROVED | R1: MAJOR (coset), repaired; consequences for the larger sieve / full Montgomery withdrawn; R2: SOUND |
+| 2.2 | fixed-order (k ≥ 3) character biases of squarefree-supported data have mean exactly φ(k) over the primes of any unit class: over the primes of a compatible unit class, so a lower bound T > φ(k) is never CRT-certified (Chebotarev + Kummer) | PROVED | R1: MAJOR (coset), repaired; consequences for the larger sieve / full Montgomery withdrawn; R2: SOUND |
 | 2.3–2.4 | **plane lemma**: the native ES₅/U word classes meeting the Π-plane (x = 1 off Π) are the words of the Π-part h (W1) and an explicit W2 family; **plane parity law**: their boxes c mod h have (c/h) = −1 | PROVED; CERTIFIED (brute force, two independent scripts) | R1: SOUND after D ≤ h + 2 and coprimality repairs |
 | **2.5–2.6** | **sterile sparse planes**: for Σ_{q∈Π} q^{−1/2+ε} ≤ η₀, Haar-half of the Π-plane, and half of every sign cell, avoids every ES₅/U class; hence **no avoidance-of-word-classes argument, at any level, certifies quadratic Linnik confinement or bias (T > 2) on sparse Π** — though such data would give a power saving (Rem 2.7) | PROVED | R1: SOUND (exact, infinite-range scope); per-cell version added |
 | 2.8 | hybrid "Linnik for biased + CRT majorant for the rest" with bounded whole-period level is capped at the U/ES₅ CRT exponent | PROVED (given EXSET_SIEVE_MASS Thm 3.2) | R1: MAJOR (level definition), rescoped to whole-period level |
@@ -18,20 +18,22 @@ Assessment. Scripts `scripts/z51_linnik_*`, data `data/z51_linnik/`.*
 | **3.1** | **bias suffices**: #{p ≤ X : \|Σ_{q∈S}(q/p)\| ≥ (log X)^{−κ}s} ≪ X^{(1+2κ)/A+δ} for a block S at (log X)^A, A > 1, κ < (A−1)/2 | PROVED rel. Heath-Brown (1995) | R1: kernel/norm SOUND; threshold repaired |
 | **3.2** | **T2-lite**: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+δ} for every A > 1 (CAP_BOUNDED Thm 3.2(a): X^{2/A}, A > 2); the q₃-route cannot go below A = 1 (GRH) | PROVED rel. Heath-Brown; CONDITIONAL (GRH) for the limit | R1: proof repaired, exponent confirmed |
 | 3.3 | with Heath-Brown the Linnik requirement (log X)^{1+δ} lies inside the heuristic forcing reach (z50: "just short") | Assessment | R1: wording repaired |
-| 4.1–4.2 | p-dependent data cost their linear dimension; fibred (CRT) data, archimedean twists and full-rank families are covered; structured low-rank families are open | PROVED | R2: general "blocking lemma" FATAL → withdrawn; rest SOUND after repair |
+| 4.1–4.2 | p-dependent data cost their linear dimension; fibred (CRT) data (threshold 2^{t+1}), archimedean twists (T > 2(1 + 4T₀ log N)) and full-rank families are covered on sparse Π; structured low-rank families are open | PROVED | R2: general "blocking lemma" FATAL → withdrawn; rest SOUND after repair |
 | 5.1–5.2 | genuine relaxations have the wrong orientation (E_R ⊂ E_ES); ES₅-defined supersets are CRT avoiders (colour is not free) | PROVED | R2: example list and failure set corrected |
 | 5.3 | window criterion (PROVED); window lottery near-independent in the tested range, forced-only failures residue-biased (0.34–0.38 vs 0.50, 33 663 primes near 10⁸); power saving for ES CONDITIONAL on the pointwise (WL_{A,κ}) at Mordell-hard primes | PROVED / EVIDENCE / CONDITIONAL | R2: first (WL_A) FATAL (included p ≡ 3 (4)) → restricted; criterion verified (273 cases) |
 | 6.1 | ES ratio classes: forcing labels per q ≈ 0.034(log p)³ (finite fit, p = 10⁵…10⁸); at the one-coordinate plane point finitely many labels (mean 39.8 for 25 ≤ q ≤ 300) | EVIDENCE; PROVED/CERTIFIED (plane finiteness) | R2: reproduced, plane table certified |
-| 6.2 | fibred CRT-admissible reverse-role sieves are capped: 3/4 for the ES ratio family (EXCEPTIONAL_LARGESIEVE Thm 3.1), 2/3 for native U/ES₅ (Prop 6.1(b)) | PROVED (cited / given LS Cor 2.2 + EXSET_SIEVE_MASS Thm 3.2) | R2: MAJOR (nonunit fibres, family scope) → repaired |
-| 8 | remaining gap; T2-full not reached; the open per-summand hybrid ("fibre cap") door | Assessment | R2: item 5 wording repaired |
+| 6.2 | fibred CRT-admissible reverse-role sieves on [1, X] with L ≤ X/2 and level O(log X) are capped: 3/4 for the ES ratio family (EXCEPTIONAL_LARGESIEVE Thm 3.1), 2/3 for native U/ES₅ (Prop 6.1(b)) | PROVED (cited / given LS Cor 2.2 + EXSET_SIEVE_MASS Thm 3.2) | R2: MAJOR (nonunit fibres, family scope) → repaired |
+| 8 | remaining gap; T2-full not reached; the open per-summand hybrid ("fibre cap") door, with its sufficient conditions (unit domain, mean target + finite-interval evaluation) | Assessment | R2/R3: item 5 repaired |
 
 **Bottom line (Assessment).** T2-full is not reached. T2-lite is reached in the form the CONTEXT names (cap threshold
 A > 2 → A > 1, exponent 2/A → 1/A). For T2-barrier the lane proves scoped obstructions, strictly beyond z50's G3
-Assessment: fixed-order higher characters are never CRT-certified; quadratic confinement or bias on sparse prime sets
+Assessment: fixed-order higher-character biases T > φ(k) of squarefree data are never CRT-certified; quadratic confinement or bias on sparse prime sets
 cannot be certified by native ES₅/U word classes at any level (multi-coordinate sterile planes with every sign pattern);
 hybrids of bounded whole-period level and fibred reverse-role sieves inherit the CRT caps. Heath-Brown moves the Linnik requirement from
-(log X)^{2+δ} to (log X)^{1+δ}, inside the heuristic forcing reach, so the route is heuristically consistent with room;
-what is missing is a non-CRT input that handles the non-generic (plane-like) primes.
+(log X)^{2+δ} to (log X)^{1+δ}, inside the heuristic forcing reach, so the route is heuristically consistent with room.
+What is missing is input outside the proved certification mechanisms: possibly a still-open CRT hybrid (per-summand
+level, §8 item 5; plausible only for ES's cubic ratio supply), dense-support or structured-data routes, or pointwise /
+approximate non-CRT control of the non-generic (plane-like) primes.
 
 ## 1. Audit
 
@@ -290,7 +292,8 @@ pattern, the sterile part of the cell has relative measure ≥ c₀ exp(−C₀(
 all higher boxes and a local-lemma argument with suitable dependency bounds.
 *Consequence (CONDITIONAL on 2.9).* Corollary 2.6 would extend to every datum supported on squarefree Π-numbers with
 Σ_{q∈Π} log q/q = o(√log X), in particular to all dense dyadic blocks and all polylog-smooth squarefree data
-(Σ_{q≤(log X)^A} log q/q ≍ log log X), with |Σ|² ≤ X^{o(1)}‖a‖² at a sterile point.
+(Σ_{q≤(log X)^A} log q/q ≍ log log X), with |Σ|² ≤ X^{o(1)}‖a‖² at a sterile point (the finitely many primes < 11,
+which the plane does not randomise, cost a fixed factor by Cauchy–Schwarz over n = n₀n₁).
 
 ### 2.7 Summary of the obstructions, and what is left
 
@@ -302,16 +305,17 @@ first-draft "universal circularity" is withdrawn).** For ES₅/U exceptional pri
     from avoidance of any finite family of native ES₅/U word classes as a statement valid for all large primes (Cor 2.6),
     although such data would give a power saving (Remark 2.7);
 (C) a hybrid with a CRT majorant of bounded whole-period level is capped at the U/ES₅ CRT exponent (Prop 2.8);
-(D) the reverse-role (fibred Montgomery) sieve with CRT-certified depletion is capped at the family's exponent
-    (Prop 6.1: 2/3 for native U/ES₅; 3/4 for the ES ratio family, EXCEPTIONAL_LARGESIEVE Thm 3.1).
+(D) the reverse-role (fibred Montgomery) sieve with CRT-certified depletion is capped at the family's exponent, under
+    Prop 6.1's fibre and level hypotheses (2/3 for native U/ES₅; 3/4 for the ES ratio family, EXCEPTIONAL_LARGESIEVE
+    Thm 3.1).
 *Not covered:* dense or multi-scale Π (Conjecture 2.9); structured low-rank p-dependent data (§4); variable-order aggregates, full Montgomery/Elliott tests and the
 larger sieve; hybrids with per-summand level only; the ET/Vaughan ratio families of ES on planes (one-coordinate
 analogue: DEPTH_ASPECT Thm 3.1; numerics for ℛ(M) at plane points in §6.1); and finite-range arguments, i.e. statements
 about the primes in (X/2, X] only, whose relevant moduli exceed X (for Remark 2.7's data the modulus encoding the Π-profile
 is exp(y^{1/2−ε} log y), already superpolynomial in X).
-*Reading (Assessment).* What remains for a Linnik proof is input outside these certification mechanisms: either
-pointwise forcing at the individual primes ≤ X (B2-type), or an approximate statement that controls the non-generic
-exceptional primes by some non-CRT means. *Comparison with z50:* G3 was an Assessment; z50 B Thm 5.2 bounded certified
+*Reading (Assessment).* What remains for a Linnik proof is input outside these proved certification mechanisms: a
+still-open CRT hybrid with per-summand level only (§8 item 5), dense-support or structured-data routes, pointwise forcing at
+the individual primes ≤ X (B2-type), or an approximate statement controlling the non-generic exceptional primes. *Comparison with z50:* G3 was an Assessment; z50 B Thm 5.2 bounded certified
 marginal depletion of the integer avoider; (J)70/DEPTH_ASPECT Thm 3.1 gave one-coordinate sterile points for the ET
 classes. New here: (A); the multi-coordinate sterile planes with every sign pattern for native ES₅/U classes and the
 low-bias witness (B); the whole-period hybrid lemma (C); (D).
@@ -411,7 +415,7 @@ The loss d is sharp for abstract orthogonal test systems.
     ≤ 2^t (orthogonality at the unfixed primes, Cauchy–Schwarz at the fixed ones), hence so is the plane average; the
     sterile set has measure ≥ 1/2, so it contains a point whose own fibre's bias is ≤ 2^{t+1}. So no implication
     "avoid 𝔊 ⟹ bias ≥ T" holds for all large primes once T > 2^{t+1}.
-(ii) *Archimedean twists a_n n^{it_p}, |t_p| ≤ T₀.* With F_x(t) := Σ a_n (x/n) n^{it},
+(ii) *Archimedean twists a_n n^{it_p}, |t_p| ≤ T₀ (under Corollary 2.6's support and sparsity hypotheses).* With F_x(t) := Σ a_n (x/n) n^{it},
     sup_{|t|≤T₀}|F_x(t)|² ≤ |F_x(0)|² + 2∫_{−T₀}^{T₀}|F_x F_x′| dt, and orthogonality gives
     E_Haar sup_{|t|≤T₀}|F_x(t)|² ≤ (1 + 4T₀ log N)‖a‖². So Corollary 2.6 holds with T > 2(1 + 4T₀ log N).
 (iii) *Full-rank families.* If the vectors a^{(p)}, p ∈ E, are linearly independent (e.g. a^{(p)} := 1 on the divisors of
@@ -461,11 +465,14 @@ run on [10⁸, 1.03·10⁸]: 5051 primes, same rates and bias):
 | (200, 400] | 16 | 0.34 / 0.17 | k = 4: 0.168/0.176; k = 7: 0.044/0.045; k = 10: 0.0082/0.0105; k = 12: 0.0046/0.0039 | −0.004 [−0.08, 0.07] | 0.501 / 0.382 |
 
 "Forced-only failures" = no *forced* window fires (unforced windows ignored), a superset of the E′_y-failures. Pairwise
-correlations are small and the products of marginals match within ≈ 25% in the populated bins; this is not a proof of
+correlations are small and the products of marginals match within ≈ 25% in the displayed bins (bins with few expected
+failures, e.g. y = 200, k = 9: 0.0011 vs 0.0021, are too small for a relative comparison); this is not a proof of
 independence, and the mean forced rate drops from 0.47 to 0.34 when the block doubles, so a large-X firing rate is an
-extra assumption. *Model consequence (Assessment).* If the windows fired independently with rates bounded below by
-(log X)^{−o(1)} and ρ_forced ≥ (1 + c)ρ_unforced, the profile of E′_y would be tilted by a fixed factor per non-residue
-window, a bias far beyond what Theorem 3.1 needs. The pointwise statement that would make this rigorous is
+extra assumption. *Model consequence (Assessment; corrected after R3).* If the windows fired independently with forced/unforced rates f, u,
+the failure-conditioned non-residue probability per window would be θ_fail = (1 − f)/(2 − f − u), a bias
+1/2 − θ_fail = (f − u)/(2(2 − f − u)). With a gap f − u bounded below by a constant (as in the data, f ≈ 2u ≈ 0.3–0.5)
+this is a fixed bias, far beyond what Theorem 3.1 needs; if the rates decay the bias decays with them, and it still
+exceeds (log X)^{−κ} (κ > 0) as long as f − u ≥ (log X)^{−o(1)}. The pointwise statement that would make this rigorous is
 
   **(WL_{A,κ})** for every sufficiently large X: every Mordell-hard prime p ∈ (X/2, X] whose non-residue fraction θ_p on
   the primes q ≡ 3 (4) in (y/2, y], y = (log X)^A, satisfies |θ_p − 1/2| < η/2, η := (log X)^{−κ}, has a window q in that
@@ -522,7 +529,7 @@ p; mode 1 = at the plane point, x ≡ 1 at every m), `data/z51_linnik/forcing_es
 
 ### 6.2 CRT-certified reverse-role sieves are capped
 
-**Proposition 6.1 (fibred reverse-role sieves; repaired after R2).** Let L ≤ X/2 and run Montgomery's sieve on each fibre
+**Proposition 6.1 (fibred reverse-role sieves; repaired after R2).** Let L ≤ X/2 and run Montgomery's sieve on [1, X] (which also bounds the dyadic exceptional subset), on each fibre
 n ≡ c (mod L) (all residues c, units or not) with moduli d ≤ Q, (d, L) = 1, fed by the classes mod d missed by the whole
 fibre avoider (fibrewise CRT-certified depletion), using the trivial bound on fibres where no sieve is run.
 (a) *ES ratio classes.* For 𝔊 any finite mixture of ℛ(M), (a, D), Case-A and selector classes this is
@@ -536,7 +543,7 @@ fibre avoider (fibrewise CRT-certified depletion), using the trivial bound on fi
     fibres with the trivial bound, ν_c ≡ 0 on empty ones), and the total bound is ≥ ⌊X/L⌋LEν ≥ (X/2)Eν. Hence it is
     ≥ (X/2)exp(−Cλ^{2/3}(log λ)^{2/3}).
 *Reading.* Certifying fibre depletion with any CRT-admissible large sieve buys nothing beyond the family's cap, whatever
-the fibring modulus L ≤ X/2.
+the fibring modulus L ≤ X/2; for a no-fixed-power-saving reading take λ(L) + 2 log Q = O(log X) (e.g. Q ≤ X^K).
 *Why the cubic reach does not enter (Assessment, model).* The §6.1 reach uses p's residues modulo every m ≤ p/q, i.e. the
 integer p. A fibre fixes p only mod L; averaging over c, the ℛ(qm)-labels with m | L certified on a fibre number about
 Σ_{m | L} τ(A_m²)/m ≈ (log log X)³ per q (the 1/m-weighted divisors of L have log m ≈ log z), so certified fibrewise
@@ -549,7 +556,7 @@ The brief asks whether the reverse-role reach is CRT-certified (then capped) or 
 all m ≤ p/q). Every fibred, CRT-admissible implementation of it as a reverse-role sieve is capped at the family's
 exponent: 3/4 for the ES ratio family (EXCEPTIONAL_LARGESIEVE Thm 3.1), 2/3 for the native U/ES₅ family (Prop 6.1(b)).
 Used as a Linnik input (q as residues of the exceptional primes) it is the forcing of §3.3. So it needs input outside
-these CRT mechanisms: pointwise forcing (P(a, T), (WL_{A,κ})) or an approximate non-CRT control of the non-generic
+these particular CRT mechanisms (the per-summand hybrid of §8 item 5 remains an open CRT route): pointwise forcing (P(a, T), (WL_{A,κ})) or an approximate non-CRT control of the non-generic
 exceptional primes; neither is excluded or supplied here.
 
 ## 7. Hostile reviews
@@ -637,26 +644,35 @@ independent direct check of the window criterion.
    multi-coordinate planes are proved for the native family on sparse Π only.
 4. **Not done.** A proof of Conjecture 2.9 (needs an averaged form of Lemma 2.3(c) and a local-lemma argument); planes
    for the ET/Vaughan families; a per-summand-level version of Proposition 2.8.
-5. **The remaining CRT-hybrid door (Assessment; the sharpest open question this lane can name).** Proposition 2.8 does not
-   cover hybrids whose summands have small level but jointly involve many block primes. The natural one is
-   ν := ((1/2 − η/2)s)^{−1}Σ_{q∈S} ν_q (0 < η < 1, the threshold of Theorem 3.1), with Ω_λ the avoider of the native or
-   ES classes of level ≤ λ and ν_q ≥ 0 on ℤ a level-λ congruence combination that is ≥ 1 on the *fibre avoider*
-   Ω_λ ∩ {(x/q) = −1}: every avoider point outside B_J has ≥ (1/2 − η/2)s non-residue coordinates in S, so ν ≥ 1 there,
-   and Linnik/Heath-Brown counts B_J. The z50 caps do not directly apply to this weakened domination set (they rest on
-   the square base, which lies in B_J for coherent data). The hybrid saves a power iff the **average**
-   s^{−1}Σ_q Eν_q is ≤ X^{−c}; heuristically this is governed by the *conditional non-residue probability* ρ_q(λ) of the
-   avoider, but the normalisation by the avoider's density and the existence of majorants attaining it are exactly the
-   missing input. In the label model ρ_q(λ) ≈ exp(−(labels at q)/(q/2)) at a generic profile, with
-   labels ≈ cλ² for U/ES₅ words and ≈ 0.034λ³ for the ES ratio classes (§6.1), λ ≤ K log X. Hence:
-   * **U/ES₅: dead by one log-power (heuristic).** ρ_q ≤ X^{−c} needs q ≲ K² log X, while Linnik needs bias on primes
-     q ≥ (log X)^{1+δ} (on primes ≤ C log X the squarefree products below X number X^{o(1)}).
-   * **ES with the ratio classes: open.** ρ_q ≤ X^{−c} for q ≲ K³(log X)²/log log X, which overlaps Linnik's range
-     (log X)^{1+δ}. The decisive unknown is a **fibre cap**: the least mean of a non-negative level-λ congruence
-     combination that is ≥ 1 on Ω_λ ∩ {(x/q) = −1}. If it is ≈ μ(Ω_λ)ρ_q(λ)·e^{O(λ^{3/4})}, the hybrid gives a power
-     saving for ES at primes; if a positive-measure "twisted base" of unbiased avoider points exists at level λ, it caps
-     the hybrid. Neither is known; the sterile planes (measure zero) do not decide it. (Only single-coordinate summands
-     are analysed here; summands exploiting several block primes jointly are not.) A small experiment
-     (`scripts/z51_linnik_tilt.c`, `data/z51_linnik/tilt_N1e8.txt`: primes p ≡ 1 (24) below 10⁸ sieved by all ℛ(M),
-     M ≤ H) shows the tilt only where the level already covers q: at H = 99 / 199 / 399 (5620 / 891 / 98 survivors) the
-     non-residue fraction is 0.13 / 0.11 / 0.11 at q = 11 and 0.16 / 0.15 / 0.12 at q = 23, but ≈ 0.45–0.55 for q ≥ 50;
-     by H = 3199 no prime survives. The relevant regime (q ≈ (log X)^{1+δ}, λ ≈ log X) is far out of numerical reach.
+5. **The remaining CRT-hybrid door (Assessment; the sharpest open question this lane can name; repaired after R3).**
+   Proposition 2.8 does not cover hybrids whose summands have small level but jointly involve many block primes. The
+   natural one: fix A > 1, 0 < κ < (A − 1)/2, η := (log X)^{−κ}, S the primes ≡ 3 (4) in (y/2, y], y = (log X)^A, and a
+   finite, threshold-handled menu 𝔊_λ of native (or ES ratio) classes of level ≤ λ ≤ K log X; work on the **unit domain**
+   U_S := Ω(𝔊_λ) ∩ {(x, ∏S) = 1} ∩ {hard classes} (the zero-symbol locus must be removed: x = 4∏S avoids every native
+   class and has no non-residue coordinate; exceptional primes dividing ∏S are absent for large X). Put
+   B_sign := {x : |Σ_{q∈S}(x/q)| ≥ ηs}, which on U_S is the Linnik set of the parity-kernel datum b of Theorem 3.1 at
+   T = (ηs)^{2r}/‖b‖², and is counted by Theorem 3.1 with a power saving. Let ν_q ≥ 0 on ℤ be level-λ congruence
+   combinations with ν_q ≥ 1 on U_S ∩ {(x/q) = −1}, and ν := ((1 − η)s/2)^{−1}Σ_{q∈S} ν_q. Every x ∈ U_S ∖ B_sign has
+   ≥ (1 − η)s/2 non-residue coordinates, so ν ≥ 1 on U_S ∖ B_sign, and Eν = (2/(1 − η))·s^{−1}Σ_q Eν_q. The z50 caps do
+   not directly apply to this weakened domination set (they rest on the square base, which lies in B_sign). A
+   power-small **average** s^{−1}Σ_q Eν_q ≤ X^{−c} is the *mean-saving target*; to turn it into a prime count one also
+   needs a finite-interval evaluation, e.g. Σ_i |c_i| ≤ X^{1−c} for ν = Σ_i c_i 1[n ≡ b_i (d_i)] (low radical level and
+   low mean alone do not suffice: spikes at large powers of 2 have level 0), and then
+   #E_X ≤ #(B_sign ∩ primes) + Σ_{n≤X} ν(n). Heuristically the mean target is governed by the *conditional non-residue
+   probability* ρ_q(λ) of the avoider, but the normalisation by the avoider's density and the existence of majorants
+   attaining it are exactly the missing input. In the label model ρ_q(λ) ≈ exp(−(labels at q)/(q/2)) at a generic
+   profile, with labels ≈ cλ² for U/ES₅ words and ≈ 0.034λ³ for the ES ratio classes (§6.1). Hence:
+   * **U/ES₅: dead by one log-power in this model (heuristic, single-coordinate summands).** ρ_q ≤ X^{−c} needs
+     q ≲ K² log X, while Linnik needs bias on primes q ≥ (log X)^{1+δ} (on primes ≤ C log X the squarefree products below
+     X number X^{o(1)}).
+   * **ES with the ratio classes: open.** ρ_q ≤ X^{−c} for q ≲ K³(log X)²/log log X in the model, which overlaps
+     Linnik's range (log X)^{1+δ}. The decisive unknown is a **fibre cap**: the least mean (and coefficient sum) of a
+     non-negative level-λ congruence combination that is ≥ 1 on U_S ∩ {(x/q) = −1}, on average over q ∈ S. If it is
+     ≈ μ(U_S)ρ_q(λ)·e^{O(λ^{3/4})} with an admissible coefficient sum, the hybrid gives a power saving for ES at primes;
+     a "twisted base" of unbiased avoider points of level λ with mass ≥ X^{−o(1)} (and the matching projection argument)
+     would cap it. Neither is known; the sterile planes (measure zero) do not decide it. (Summands exploiting several
+     block primes jointly are not analysed.) A small experiment (`scripts/z51_linnik_tilt.c`,
+     `data/z51_linnik/tilt_N1e8.txt`: primes p ≡ 1 (24) below 10⁸ sieved by all ℛ(M), M ≤ H) shows the tilt only where
+     the level already covers q: at H = 99 / 199 / 399 (5620 / 891 / 98 survivors) the non-residue fraction is
+     0.13 / 0.11 / 0.11 at q = 11 and 0.16 / 0.15 / 0.12 at q = 23, but ≈ 0.45–0.55 for q ≥ 50; by H = 3199 no prime
+     survives. The relevant regime (q ≈ (log X)^{1+δ}, λ ≈ log X) is far out of numerical reach.
