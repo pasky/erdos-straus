@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/AtSUuGy9U6VOxBhrbJDIIBasFaE</id>
+  <title>arXiv Query: search_query=&amp;id_list=2610.32302,2609.29250,2411.02629&amp;start=0&amp;max_results=10</title>
+  <updated>2026-10-30T15:07:01Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2610.32302,2609.29250,2411.02629" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.29250v1</id>
+    <title>Congruence Classes of Supporting the Erdös-Straus Conjecture II: Wild Solutions</title>
+    <updated>2026-09-24T08:55:09Z</updated>
+    <link href="https://arxiv.org/abs/2609.29250v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.29250v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In 1948, Erdös and Straus formulated a conjecture : for any positive integer $n&gt;2$, there exist positive integers $n_1,n_2$ and $n_3$ such that \begin{equation}\frac{4}{n}=\frac{1}{n_1}+\frac{1}{n_2}+\frac{1}{n_3},\nonumber\end{equation} which is still open. It is known that the conjecture holds if one can prove it for any prime $n\equiv 1\;(\mbox{mod}\;24)$. If $n=24m+1$ and $n_1\leq n_2,n_3$, then $n_1=6m+k$ with $1\leq k\leq 12m$. A solution $(n_1,n_2,n_3)$ of the above equation is called a {\it tame solution} if $n_2$ and $n_3$ are factors of $(6m+k)(24m+1)$. We call $n=24m+1$ {\it wild} if it does not have any tame solution. Based on the information in our earlier work on tame solutions posed in arXiv, Howerton found that there are only fourteen wild primes of the form $n=24m+1\leq 2.4\times 10^{11}$. In this paper, we derive thirty-four families of wild solutions of the above equation, which contain the solvability of the fourteen wild primes. Together with our earlier tame polynomial solutions, numeric test shows that they cover all the primes of the form $24m+1$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-24T08:55:09Z</published>
+    <arxiv:comment>32pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Xiaoping Xu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.32302v1</id>
+    <title>Prime Numbers of the Form $24m+1$ and Erdös-Straus Conjecture</title>
+    <updated>2026-10-23T07:57:41Z</updated>
+    <link href="https://arxiv.org/abs/2610.32302v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.32302v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In 1948, Erdös and Straus formulated a conjecture on Egyptian fractions. One only needs to prove the conjecture for any prime number $n$ such that $n\equiv 1\;(\mbox{mod}\;24)$. In this article, we give a necessary and sufficient polynomial condition for a number of the form $24m+1$ to be a prime number. Then we present 56 solvability polynomials consisting of our earlier tame solutions, wild solutions and the polynomials for composite numbers of the form $24m+1$. Numeric test shows that they imply the conjecture. Moreover, we give a list of 36 exponential-polynomial functions consisting of our earlier 28 tame solutions and the polynomials for composite numbers, whose numeric test shows that Howerton's conjecture on fourteen wild primes holds. Furthermore, we find a version of Goldbach conjecture modulo 24.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T07:57:41Z</published>
+    <arxiv:comment>13pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Yichuan Cao</name>
+    </author>
+    <author>
+      <name>Xiaoping Xu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2411.02629v3</id>
+    <title>Local-global principles for semi-integral points on Markoff orbifold pairs</title>
+    <updated>2025-11-05T20:32:56Z</updated>
+    <link href="https://arxiv.org/abs/2411.02629v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2411.02629v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study local-global principles for semi-integral points on orbifold pairs of Markoff type. In particular, we analyse when these orbifold pairs satisfy weak weak approximation, weak approximation and strong approximation off a finite set of places. We show that Markoff orbifold pairs satisfy the semi-integral Hasse principle and we measure how often such orbifold pairs have strict semi-integral points but the corresponding Markoff surface lacks integral points.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-11-04T21:42:03Z</published>
+    <arxiv:comment>28 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Vladimir Mitankin</name>
+    </author>
+    <author>
+      <name>Justin Uhlemann</name>
+    </author>
+    <arxiv:doi>10.1112/jlms.70363</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/jlms.70363" title="doi"/>
+  </entry>
+</feed>
