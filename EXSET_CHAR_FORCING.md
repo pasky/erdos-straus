@@ -19,7 +19,7 @@ Assessment. Scripts `scripts/z51_forcing_*`, data `data/z51_forcing/`, reviews `
 | 4.3 | joint failure of forced windows below the independence model in samples to 10¹²; hard primes have few or no successful forced windows (193: 0 of 18) | EVIDENCE | R1: wording repaired |
 | 5.1–5.2 | **biased characters are rare**: #{p ≤ X : Σ_{q≤y}(q/p) ≥ 2ηπ(y)} ≤ X^{2/A+o(1)} (classical), ≤ X^{1/A+o(1)} for y = (log X)^A, any A > 0 (Heath-Brown); at scale P = C log X, ≪ X exp(−c log X/log log X) (Montgomery–Vaughan moments) | PROVED (mod HB 1995 / Lau–Wu Lemma 1) | R2: SOUND (5.1); 5.1′ is R2's; 5.2 new after R2 |
 | 5.3–5.4 | robust reduction: ES power saving ⟸ *bias* of exceptional primes at scale (log p)^{1+δ} (MF); near-power bound X e^{−c log X/log log X} ⟸ bias at scale C log p (MF₁); both implied by majority reach (MR, MR₁). No GRH-equivalence with ES is known for MF₁ or MF(A ≤ 2) (MF(A > 2) is GRH-equivalent) | PROVED reduction; consequences CONDITIONAL on new, unproved sufficient hypotheses (not a counted T2-cond) | R2, R3: SOUND-WITH-MINOR after relabelling |
-| **5.5** | **T2-lite: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+o(1)} for every A > 1** (CAP_BOUNDED had A > 2, X^{2/A}); **#{p ≤ X : e*(p) > (C/2) log X} ≪ X e^{−c log X/log log X}** — transfers of Heath-Brown/Baier and Montgomery–Vaughan/Lau–Wu technology | PROVED mod Heath-Brown / Lau–Wu Lemma 1 (+ CAP_BOUNDED Lemma 3.1) | R3: SOUND / SOUND-WITH-MINOR; "T2-lite reached" fair |
+| **5.5** | **T2-lite: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+o(1)} for every A > 1** (CAP_BOUNDED had A > 2, X^{2/A}); **#{p ≤ X : e*(p) > (C/2) log X} ≪ X e^{−c log X/log log X}** — transfers of Heath-Brown/Baier and Montgomery–Vaughan/Lau–Wu technology; (a) also in EXSET_LINNIK_CAPS Cor 2.2 / EXSET_LINNIK Thm 3.2, (b) also in EXSET_LINNIK_CAPS Prop 2.4 (dominated by its Thm 4.2) | PROVED mod Heath-Brown / Lau–Wu Lemma 1 (+ CAP_BOUNDED Lemma 3.1) | R3: SOUND / SOUND-WITH-MINOR; "T2-lite reached" fair |
 | 6.1–6.2 | counterfactual reach for two ET subfamilies (height ≤ p, level 1 / all levels); Reach + (q/p) = −1 ⟹ ES | definitions; PROVED | R2: scope repaired |
 | **6.3–6.4** | **reach is polylogarithmic on average**: for q ≤ (log X)^C, Σ_{p≤X} #reached ≪ π(X)(log X)³(log log X)², so Reach(p, q) holds for a ≪ (log X)^{3+o(1)}/q fraction of p; MR(A) false for A > 3 (two ET subfamilies, height ≤ p, all levels) | PROVED mod Shiu + Brun–Titchmarsh | R2 (6.3: SOUND); R3 (6.3′: MAJOR → completed with R3's argument) |
 | 6.3num | reach numerics, 36 primes 10⁵–10¹⁰, q ≤ 1000: supply S_e ≈ 0.033 (log p)³ (fit 3.15); coupon comparison; q* ≈ 0.02–0.03 (log p)³/log log p; MR₁(½) at all 36 sampled primes, MR₁(1, η = 0.2) at all sampled p ≥ 10⁶; 2 682 witnesses exact | EVIDENCE / CERTIFIED (witnesses) | R2: reproduced |
@@ -30,7 +30,9 @@ Assessment. Scripts `scripts/z51_forcing_*`, data `data/z51_forcing/`, reviews `
 * No z51 target T1/T2-full is reached; ES remains open. There is no proved pointwise reach at the growing scales needed here (beyond classical fixed-q forcing and the
   certified finite computations), no Linnik
   confinement and no unconditional power saving for ES.
-* **T2-lite reached (PROVED modulo Heath-Brown's quadratic large sieve):** the cap relaxation e*(p) ≤ (log p)^{A}/4
+* **T2-lite reached (PROVED modulo Heath-Brown's quadratic large sieve; derived independently of, and in parallel with,
+  EXSET_LINNIK_CAPS Cor 2.2 / EXSET_LINNIK Thm 3.2; part (b) duplicates EXSET_LINNIK_CAPS Prop 2.4 and is dominated by
+  its Thm 4.2, see the cross-reference after Cor 5.5):** the cap relaxation e*(p) ≤ (log p)^{A}/4
   holds outside X^{1/A+o(1)} primes for every A > 1 (CAP_BOUNDED needed A > 2), and e*(p) ≤ C log p outside
   X exp(−c log X/log log X) primes (Montgomery–Vaughan moments; this improves the cap exceptional-set bound at caps of
   order log p, a range CAP_INTERPOLATION Remark 3.2(c) lists as open for its own architecture). These are transfers of
@@ -57,7 +59,8 @@ reciprocity. n₂(p) is the least quadratic non-residue (odd prime here). ES(p) 
 **Observation 1.1 (PROVED, standard inputs; this is G3 made exact).**
 (a) ES ⟹ F(R) for every R (trivially).
 (b) F(R) with R(p) ≥ (log p)^A, A > 2, ⟹ #{p ≤ X : ES(p) fails} ≤ X^{2/A+o(1)}. (With Heath-Brown's quadratic large
-sieve, Prop 5.1′, A > 1 suffices and gives X^{1/A+o(1)}; with Prop 5.2, R(p) ≥ 2C log p gives X exp(−c log X/log log X).)
+sieve, Prop 5.1′, A > 1 suffices and gives X^{1/A+o(1)}; with Prop 5.2 applied on dyadic ranges with a parameter ≤ min(C, 1), R(p) ≥ 2C log p gives
+X exp(−c log X/log log X).)
 (c) Under GRH, F(R) with R(p) ≥ 2 log²p ⟹ ES(p) for all large p.
 *Proof.* (b) Work on dyadic ranges (Z, 2Z]. If ES(p) fails there, then (q/p) = +1 for all q ≤ y := (log Z)^A.
 Linnik's large sieve in the form of CAP_BOUNDED Thm 3.2, with 𝒜 = squarefree products of primes q ≤ y (no
@@ -364,7 +367,7 @@ For the least non-residue itself this is Baier's improvement of Linnik's A > 2 t
 
 **Proposition 5.2 (scale C log X; PROVED modulo the Montgomery–Vaughan moment large sieve for real characters, in the
 form of Lau–Wu 2008, Lemma 1; R3-quantified).** Lau–Wu Lemma 1 (checked against the HAL manuscript by R3):
-Σ_{d ∈ D(Q)} |Σ_{P<ℓ≤2P} χ_d(ℓ)/ℓ|^{2j} ≪ Q(6j/(P log P))^j + (6P/(log P)²)^j, uniformly for 2 ≤ P ≤ Q and integers
+Σ_{d ∈ D(Q)} |Σ_{P<ℓ≤2P} χ_d(ℓ)/ℓ|^{2j} ≪ Q(6j/(P log P))^j + (36P/(log P)²)^j, uniformly for 2 ≤ P ≤ Q and integers
 j ≥ 1, absolute constant, over fundamental discriminants of either sign with |d| ≤ Q. For every odd prime p,
 d = p* := (−1)^{(p−1)/2} p ∈ D(Q) represents the Legendre character: χ_{p*}(ℓ) = (ℓ/p) for odd ℓ. Restricting ℓ to a
 fixed subset 𝒮 of the primes is legitimate by rerunning the coefficient argument (the restricted tuple counts satisfy
@@ -375,7 +378,8 @@ for fixed η ∈ (0, 1], fixed C > 0, P = C log X and X large,
 `  #{p ≤ X : Σ_{ℓ∈𝒮, P<ℓ≤2P} (ℓ/p)/ℓ ≥ η σ_𝒮}  ≪  X exp(−κη²C log X/log log X) + X^{κη²C(1+o(1))}.`
 κ = (log 2)²/(12e) ≈ 0.0147 for all primes, κ = (log 2)²/(48e) ≈ 0.0037 for 𝒮 = {q ≡ 3 (mod 4)}; for C ≤ 1 the second
 term is ≤ X^{0.015} and is absorbed.
-*Proof.* Divide the moment bound by (ησ_𝒮)^{2j}: count ≪ X[6j log P/(η²a²P)·(1 + o(1))]^j + [6P/(η²a²)·(1 + o(1))]^j.
+*Proof.* Divide the moment bound by (ησ_𝒮)^{2j}: count ≪ X[6j log P/(η²a²P)·(1 + o(1))]^j + [36P/(η²a²)·(1 + o(1))]^j. (The printed Lau–Wu constant 6 in the second
+term should be 36, as noted in EXSET_LINNIK_CAPS Prop 2.4; it changes nothing here.)
 With j = ⌊κη²P/log P⌋ the first base tends to 1/(2e) < e^{−1}, giving X e^{−j}; the second is exp(j(log P + O(1))) =
 X^{κη²C(1+o(1))}. ∎ (R3: the earlier endpoint constant c₀ = (log 2)²/(6e) is replaced by κ with slack.)
 
@@ -451,6 +455,16 @@ which already proves the near-power shape for n_χ with P ≥ C₀ log Q — to 
 ES-specific input beyond CAP_BOUNDED Lemma 3.1. This is the brief's T2-lite
 target ("lowering its cap threshold … toward A > 1 or below"); it is a statement about the relaxation ES^{(y,e)},
 not about ES.
+
+*Cross-reference (added at merge).* The A > 1 / X^{1/A+o(1)} cap bound of Cor 5.5(a) was also derived independently in
+EXSET_LINNIK_CAPS.md Cor 2.2 and EXSET_LINNIK.md Thm 3.2 (Cor 3.2), by the same Heath-Brown argument; EXSET_LINNIK.md
+Thm 3.1 likewise already has the bias form of the Linnik bound at (log X)^A, A > 1 (our Prop 5.1′/Thm 5.3(a)). Cor 5.5(b)
+is **not** new relative to them: EXSET_LINNIK_CAPS.md Prop 2.4 proves the same statement — the q ≡ 3 (mod 4) subset
+adaptation of Lau–Wu's Montgomery–Vaughan moment lemma at P = log X, giving cap ≤ (log X)/2 outside
+X exp(−c log X/log log X) primes — and its Theorem 4.2 dominates both parts at small caps: a power saving
+X^{1−c_ε} already for e*(p) > ⌈(log log X)^{1+ε}⌉. What is not in those documents is only the *bias* version at the
+logarithmic scale (η < 1 in Prop 5.2, Thm 5.3(b), Cor 5.4(b): MF₁/MR₁), a routine extension of the same moment
+computation.
 
 ## 6. Forcing reach for two Elsholtz–Tao subfamilies (work item 2)
 
