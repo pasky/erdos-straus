@@ -20,6 +20,8 @@ The arXiv API entries checked included version and update timestamps. None of th
 
 | Problem | Structural feature that made it solvable | Does ES share it? | Transfer verdict |
 |---|---|---|---|
+| Composite test for n=24m+1 (Cao–Xu, §2) | Exact factorization of composite n into two factors in residue classes mod 24 converts compositeness into finitely many divisor-residue exclusions. | Partial: same residue reduction isolates primes p≡1 mod 24, but this only identifies candidate denominators; it does not produce an Egyptian-fraction witness. FRONTIER §3 B2 / §4 fixed-divisor issue remains. | None; elementary reduction, not a proof mechanism for ES. Related reduction already in `LITERATURE_2026.md`. |
+| Proposed 56-family cover (Cao–Xu, §3) | Claimed cover of all m by explicit polynomial images, tested computationally only through 10¹¹; the authors say they failed to prove the cover. | No demonstrated share: the needed universal covering is precisely the missing theorem. It would have to handle the B1 finite-menu barrier and odd squares (T1); checking a finite range cannot bridge this. | None; unproved covering conjecture, no structural feature yet shown to solve it. |
 
 ## §3 New candidates
 
