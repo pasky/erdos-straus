@@ -1,9 +1,9 @@
 # L4 — Integral and rational points; automorphic forms
 
 ## §0 Summary
-- **New since 2026-09-28:** pending source verification.
-- **Transferable structural features:** pending.
-- **Campaign verdict changes:** pending.
+- **New since 2026-09-28:** none verified in this lane; source-checked results are older audited work.
+- **Transferable structural features:** explicit Brauer-class/local-invariant analysis (already used in campaign); density-of-prime signs identify an Eisenstein newform, but do not certify one prescribed coefficient.
+- **Campaign verdict changes:** none. No verified result supplies a pointwise lower bound at a prescribed ES prime; B2/B6 remain.
 
 ## §1 Verified entries
 
