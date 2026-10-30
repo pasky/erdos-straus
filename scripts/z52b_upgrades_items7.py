@@ -5,8 +5,8 @@ I("HLSQ", "Power-size main terms are not enough: p + m² is open with a √n mai
   "Self-correction for the power-main-term items: specifies the extra requirement (dimension) any lift must meet.",
   "For each proposed lift V_p of ES, count the number of free variables after fixing p and compare with the Kloosterman/circle-method thresholds (≥ 4 for quadratic-type, more for cubic).",
   ["main-term-size", "binary-problem", "self-critique"], "high", "cheap")
-I("HLSQ", "Two square obstructions: algebraic factorisation (p + m²) vs reciprocity (ES Type I/II)",
-  "p + m² fails at squares because n − m² factors algebraically; T1 makes Type I/II fail at odd squares through a reciprocity cancellation. Compare: exceptional-set technology for p + m² (power-saving bounds, check) is more advanced; can ES's T1 be rewritten as an algebraic factorisation in some model (e.g. 4Cm² + 1 or (p + e)/4 at squares)?",
+I("HLSQ", "Two square degeneracies: algebraic factorisation (p + m²) vs reciprocity (ES Type I/II)",
+  "p + m² degenerates at squares because n − m² = (a − m)(a + m) allows at most one representation (m = a − 1); T1 makes Type I/II fail at odd squares through a reciprocity cancellation. Compare: exceptional-set technology for p + m² (power-saving bounds, check) is more advanced; can ES's T1 be rewritten as an algebraic factorisation in some model (e.g. 4Cm² + 1 or (p + e)/4 at squares)?",
   "If T1 becomes algebraic in some coordinates, Hardy–Littlewood-type machinery for 'non-square n' transfers more directly.",
   "At n = m², examine 4Cm² + 1 and (m² + e)/4 for algebraic factorisations that explain the absence of certificates (e.g. Sophie Germain-type identities).",
   ["T1", "square-obstruction", "factorisation"], "med", "cheap")
@@ -128,7 +128,7 @@ I("OPP", "Unipotent flows and ES words: the horocycle parametrisation of minus-c
 I("RATNER", "Effective equidistribution scale vs the required cusp depth (quantify the B2 gap)",
   "Every-orbit equidistribution theorems come with effective rates (Strömbergsson, Venkatesh). ES₅/word formulations require hitting regions of measure ≈ (log p)²/p-ish; compute the smallest measure of target region that current effective rates for closed horocycles of length p can resolve.",
   "Turns 'B2' into a number in the dynamics language: the exponent gap between the required and available resolution.",
-  "From Strömbergsson's effective rate for closed horocycles (check exponent), compute the minimal region measure resolvable at length p and compare with the ES₅ target measure.",
+  "From Strömbergsson's effective rate (Duke Math. J. 123 (2004): subsegments longer than ℓ^{1/2+ε} of a closed horocycle of length ℓ equidistribute; verified), compute the minimal region measure resolvable at length p and compare with the ES₅ target measure.",
   ["effective-rates", "B2", "gap-analysis"], "med", "cheap")
 I("WEYL", "Equidistribution of (−(4p)⁻¹ mod d)/d as d varies: the trial-form sequence",
   "Weyl-type equidistribution of sequences {f(d)} mod 1. In the trial form, R(p)/2 = #{d : 4c_d | d + 1} with c_d = −(4p)⁻¹ mod d; the normalised residues c_d/d equidistribute in [0,1] as d varies (Kloosterman-type, Hooley/Duke–Friedlander–Iwaniec for modular inverses). ES needs the finer event 4c_d | d + 1, i.e. c_d/d near 0 with a divisibility condition.",

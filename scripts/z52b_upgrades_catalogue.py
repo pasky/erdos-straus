@@ -696,3 +696,26 @@ for i, c in enumerate(CAT):
             c[f] = v
         CAT[i] = tuple(c)
 VSTATUS = {}  # filled from verify files by builder
+
+# ---- second verification pass (data/z52b/upgrades_verify_out_4.md, _5.md) ----
+FIX2 = {
+ "POINC": {4: "Ricci flow with surgery (Hamilton's program) + Perelman's monotone quantities (entropy, reduced volume) + finite extinction time for simply connected manifolds (separate paper).",
+           5: ["arXiv:math/0211159 (Perelman, The entropy formula for the Ricci flow)", "arXiv:math/0303109 (Perelman, Ricci flow with surgery on three-manifolds)", "arXiv:math/0307245 (Perelman, Finite extinction time)"]},
+ "REINGOLD": {4: "Iteratively power a regularised input graph and reduce the degree with zig-zag/replacement products: connectivity is preserved while the spectral gap is amplified, until short walks can be enumerated deterministically."},
+ "MSS": {5: ["arXiv:1304.4132 (Marcus-Spielman-Srivastava, Interlacing families I: all degrees)", "arXiv:1306.3969 (MSS, Interlacing families II: Kadison-Singer)", "MSS, Interlacing families IV: bipartite Ramanujan graphs of all sizes (FOCS 2015 / SIAM J. Comput.)"]},
+ "YOCCOZ": {5: ["Yoccoz, Asterisque 231 (1995) 1-88 (result from 1988)"]},
+ "ELKIES": {5: ["Elkies, Invent. Math. 89 (1987) 561-568"]},
+ "RADEM": {3: "Rademacher 1937: a convergent exact series for p(n) for every n; extended to coefficients of weakly holomorphic modular forms of non-positive weight, and (Bringmann-Manschot 2013) to certain mixed mock modular generating functions of sheaf invariants on P^2",
+           5: ["Rademacher, Proc. London Math. Soc. (2) 43 (1937) 241-254", "arXiv:1006.0915 (Bringmann-Manschot, From sheaves on P^2 to a generalization of the Rademacher expansion, Amer. J. Math. 135 (2013) 1039-1065)"]},
+ "AXKOCHEN": {5: ["Ax-Kochen, Amer. J. Math. 87 (1965) 605-630", "Terjanian, C. R. Acad. Sci. Paris Ser. A-B 262 (1966) A612"]},
+ "HLSQ": {2: "Almost all n (Davenport-Heilbronn-type exceptional-set results); best located power saving E(X) << X^0.982 (H. Li, Acta Math. Hungar. 99 (2003))",
+          3: "STILL OPEN for every large non-square n; squares are excluded because n = a^2 has at most one representation (n - m^2 = (a-m)(a+m) is prime only for m = a-1, needing 2a-1 prime), so the asymptotic count fails there",
+          5: ["Hardy-Littlewood, Partitio Numerorum III, Acta Math. 44 (1923) (Conjecture H)", "H. Li, The exceptional set for the sum of a prime and a square, Acta Math. Hungar. 99 (2003) 123-142"]},
+ "LEHMER": {3: "STILL OPEN for every p; Ramanujan-type congruences (tau(n) = sigma_11(n) mod 691, and others mod 2^k, 3^k, 5^k, 7, 23) prove tau(p) != 0 on all p outside a thin set of residue classes, and computations extend verification (verifier suggested a different mod-691 form; rejected: the classical congruence is tau(n) = sigma_11(n) mod 691)"},
+}
+for i, c in enumerate(CAT):
+    if c[0] in FIX2:
+        c = list(c)
+        for f, v in FIX2[c[0]].items():
+            c[f] = v
+        CAT[i] = tuple(c)

@@ -16,9 +16,9 @@ I("TART", "Is M_BM a Siegel–Weil mass? A genus/class decomposition of certific
   "Express M_BM as Π of local densities (singular series) for the (★) variety and compare with the BL Brauer-corrected Siegel–Weil heuristics; look for the 'classes' whose average it is.",
   ["siegel-weil", "mass-formula", "BM-main-term"], "med", "medium", seen=["BM_CORRECTED_COUNT.md"])
 I("TWOSQ", "Liouville/Mordell class-number formulas for xy + yz + zx = n meet ES",
-  "Liouville-type elementary identities relate the number of positive solutions of xy + yz + zx = n to class numbers (check the exact classical formula). ES reads σ₂(x,y,z)/σ₃(x,y,z) = 4/p, i.e. xy + yz + zx = 4xyz/p: solutions with prescribed σ₂ = m and σ₃ = pm/4 are a sub-count of a class-number-sized count.",
+  "Mordell (Amer. J. Math. 45 (1923) 1–4; verified) gives, for prime n, the number of positive solutions of yz + zx + xy = n as 3G(n) − 3 with G a class-number quantity — exactly the prime case ES needs. ES reads σ₂(x,y,z)/σ₃(x,y,z) = 4/p, i.e. xy + yz + zx = 4xyz/p: solutions with prescribed σ₂ = m and σ₃ = pm/4 are a sub-count of a class-number-sized count.",
   "Connects ES directly to a classical every-n identity with class-number size (power-size) counts; the extra σ₃ condition is the cost.",
-  "Check the classical formula for #{x,y,z ≥ 1 : xy+yz+zx = n}; then for ES solutions of small p tabulate m = xy+yz+zx and the class-number formula's prediction at n = m.",
+  "Take Mordell's prime-n formula; then for ES solutions of small p tabulate m = xy+yz+zx and the class-number formula's prediction at n = m.",
   ["class-numbers", "symmetric-functions", "liouville"], "med", "cheap")
 I("BV-EH", "τ₃ in progressions beyond 1/2 (Type III / Kloosterman–Deligne) for the shifted-d₃ reading",
   "Zhang/Polymath used Type III estimates: the ternary divisor function in APs to moduli beyond √x via Deligne's bounds (Friedlander–Iwaniec, Heath-Brown, Fouvry–Kowalski–Michel). ES words count (u,B,C) with 4uBC = p + u + B — a shifted d₃-type count; METAPLECTIC notes a shifted-d₃/GL(3)-Eisenstein reading.",

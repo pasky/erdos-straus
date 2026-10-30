@@ -61,9 +61,9 @@ I("HEIL", "Heilbronn case split: ES under GRH-type regularity, and ES under its 
   "Formulate R as the minimal statement H⁻_BM needs (BM_CORRECTED §3.3 says no standard conjecture implies it — find the weakest one that does), then analyse what ¬R gives for the window/b=1 families.",
   ["case-split", "dichotomy", "conditional-to-unconditional"], "med", "big")
 I("SIEGELZ", "ES (or (★)) assuming infinitely many Siegel zeros",
-  "Heath-Brown: Siegel zeros ⇒ twin primes; Friedlander–Iwaniec: Siegel zeros ⇒ primes in APs beyond level 1/2 (check). If exceptional characters exist, primes behave like integers with χ(p) = −1, which might make ES certificates (whose density depends on χ_{−4uB}(p)) more abundant at all large p.",
+  "Heath-Brown: Siegel zeros ⇒ twin primes; Friedlander–Iwaniec (IMRN 2003): under a strong Siegel-zero hypothesis, asymptotics for primes in APs in ranges beyond GRH-type reach. If exceptional characters exist, primes behave like integers with χ(p) = −1, which might make ES certificates (whose density depends on χ_{−4uB}(p)) more abundant at all large p.",
   "One half of a Heilbronn-type split; also a test of whether ES's difficulty is 'parity-like'.",
-  "Check Friedlander–Iwaniec 'Exceptional characters and prime numbers in arithmetic progressions' (IMRN 2003?) statement; model ES counts when (·/p) agrees with a fixed χ_D at all small primes.",
+  "Friedlander–Iwaniec, 'Exceptional characters and prime numbers in arithmetic progressions', IMRN 2003 no. 37 (verified: conditional on an exceptionally strong Siegel-zero hypothesis); then model ES counts when (·/p) agrees with a fixed χ_D at all small primes.",
   ["siegel-zeros", "conditional", "dichotomy"], "med", "medium", kw=["Siegel zero"])
 I("ARTIN", "Heath-Brown's 'one of three' for ES windows",
   "Heath-Brown: among any three multiplicatively independent integers, one is a primitive root for infinitely many p. ES windows: failure at window e requires the divisor classes of N_e = (p+e)/4 to avoid −1 in their ratio set (often: lie in an index-2 subgroup without −1). Show three suitably independent windows cannot all fail.",
@@ -118,7 +118,7 @@ I("TITCH", "Bombieri–Friedlander–Iwaniec well-factorable weights for the 'se
 I("GTZ", "Linear correlations of restricted divisor functions (Matthiesen-type) with p as a coefficient",
   "Matthiesen proved asymptotics for Σ_t Π_i f(L_i(t)) for divisor-type f via the Green–Tao machinery. R(p) is Σ_C of a restricted divisor function of the linear form 4pC + 1; with more structure (several levels) it becomes a correlation.",
   "Gives asymptotics with uniformity questions in the coefficient p — the precise point to check.",
-  "Check Matthiesen, 'Linear correlations of multiplicative functions' (Proc. LMS 2020?) for uniformity in coefficients of size ~ the range; test whether p ~ X is allowed.",
+  "Matthiesen, 'Linear correlations of multiplicative functions', Proc. LMS 121 (2020), arXiv:1606.04482 — verified: fixed linear forms only, coefficients may NOT grow with the range; so the needed input is a uniform-in-coefficients version — state it precisely and look for partial results (e.g. for τ-type functions via Kloosterman methods).",
   ["correlations", "divisor-functions", "uniformity"], "med", "medium")
 I("GTZ", "Transference principle: dense subsets of ES certificates relative to a pseudorandom majorant",
   "Green–Tao: a dense subset of a pseudorandom set inherits linear patterns. ES certificate sets for varying p sit inside the majorant {all factorizations of 4Cp+1}; transference could show a positive-density subset of p's certificate data forces patterns that are certificates for other p's.",

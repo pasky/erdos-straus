@@ -76,7 +76,7 @@ I("WEIL", "Lower bound by upper bounds on complements (Stepanov/Weil principle)"
   "Quantify at small levels (C ≤ 8, where φ(4C) ≤ 16): total τ-sum asymptotic vs. best upper bounds for each wrong class; how sharp must the upper bounds be for R(p) > 0 to follow?",
   ["complement-counting", "upper-bounds", "lower-bounds"], "high", "medium")
 I("WEIL", "Lenstra/Coppersmith: divisors in residue classes via lattice reduction for large levels",
-  "Lenstra (1984): N has ≤ 11 divisors ≡ r (mod s) when s > N^{1/3}, all found in polynomial time; Coppersmith-type lattice methods push to s > N^{1/4}. For C ≳ p^{1/2}, the modulus 4C exceeds (4Cp+1)^{1/3}, so each level has O(1) candidates computable by lattice reduction.",
+  "Lenstra (Math. Comp. 42 (1984)): N has ≤ 11 divisors ≡ r (mod s) when s > N^{1/3}, gcd(r,s) = 1, all found in polynomial time; Coppersmith–Howgrave-Graham–Nagaraj (Math. Comp. 77 (2008)) enumerate constructively for s ≥ N^α, any fixed α > 1/4. For C ≳ p^{1/2}, the modulus 4C exceeds (4Cp+1)^{1/3}, so each level has O(1) candidates computable by lattice reduction.",
   "Turns the large-C part of R(p) into a count of short vectors in an explicit family of lattices — a geometry-of-numbers object where Minkowski-type existence arguments live.",
   "Implement Lenstra's algorithm for (N, r, s) = (4Cp+1, −1, 4C) and test the fraction of certificates with C > p^{1/2}; analyse the lattices as C varies.",
   ["lattice-reduction", "divisors-in-classes", "geometry-of-numbers"], "high", "medium", kw=["Coppersmith"])
@@ -196,9 +196,9 @@ I("RATNER", "Closed horocycle at height 1/p: equidistribution of (a + i)/p and c
   "Translate λ(p) ≤ 3 into a statement on the cusp depth/shape of some (a + i)/p and compare with the scales reachable by effective equidistribution.",
   ["horocycles", "equidistribution", "ES5"], "med", "medium", seen=["LENGTH_THREE.md"])
 I("RATNER", "Shrinking-target property for every closed horocycle",
-  "Logarithm laws (Kleinbock–Margulis) give deep excursions for almost every orbit; ES would need them for the specific closed horocycle of length p and depth ~ p^{θ}. Check whether 'every closed horocycle has a point of depth ≥ f(length)' is known (Kelmer, Kontorovich, Strömbergsson).",
+  "Logarithm laws (Kleinbock–Margulis) give deep excursions for almost every orbit; ES would need them for the specific closed horocycle of length p and depth ~ p^{θ}. Tseng (Math. Z. 2022) proves shrinking-cusp-target equidistribution for long closed horocycles (effective version included).",
   "If a deep-excursion theorem for every closed horocycle exists at depth p^{θ}, the CF-length formulation might follow for a range of shapes.",
-  "Search: 'shrinking targets closed horocycles', 'deep cusp excursions of closed horocycles', 'sparse equidistribution horocycle primes'.",
+  "Read Tseng, 'Shrinking target equidistribution of horocycles in cusps', Math. Z. 302 (2022), arXiv:2106.00836, and Kelmer, Israel J. Math. 229 (2019), arXiv:1708.08953 (both verified to exist); extract the deepest cusp target reachable for a closed horocycle of length p.",
   ["shrinking-targets", "horocycles", "literature"], "med", "cheap")
 I("WEYL", "Weyl/van der Corput differencing on the exponential-sum form of R(p)",
   "Weyl upgraded to every irrational polynomial by differencing. R(p) = Σ_{u,B} (4uB)⁻¹ Σ_{h mod 4uB} e(h(p+u+B)/(4uB)); apply van der Corput differencing in u (or B) to the nonzero frequencies to extract cancellation for fixed p in smoothed ranges.",

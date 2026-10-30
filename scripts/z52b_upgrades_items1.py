@@ -8,7 +8,7 @@ I("TG", "Helfgott meet-in-the-middle: an explicit 'all p > X' theorem for any ES
 I("TG", "Explicit Burgess constants (Treviño-type) for the Legendre-sum T(p) in M_BM",
   "Helfgott needed fully explicit major arcs; the ES analogue is an explicit version of Thm 2.2 (M_BM(p) ≥ (3/16π² − o(1)) log²p), whose o(1) comes from Burgess on Σ(−m/p)w(m).",
   "An explicit M_BM ≥ c·log²p for all p ≥ p₁ is a prerequisite of every H⁻_BM-type route and is purely a bookkeeping task with existing explicit Burgess inequalities.",
-  "Check whether Treviño's explicit Burgess bound (IJNT 2015, 'The Burgess inequality and the least kth power non-residue') covers the weighted hyperbolic sum T(p); compute the resulting explicit p₁.",
+  "Treviño, 'The Burgess inequality and the least kth power non-residue', IJNT 11 (2015) 1653–1678, arXiv:1412.3062 gives explicit Burgess estimates (verified, data/z52b/upgrades_leads_check.md); check that its ranges cover the weighted hyperbolic sum T(p) and compute the resulting explicit p₁.",
   ["explicit-constants", "burgess", "BM-main-term"], "high", "medium", kw=["Treviño"])
 I("TG", "Smoothing as a decisive ingredient: smooth weights on (u,B,C) for a weighted R_w(p)",
   "Helfgott's minor arcs only closed after choosing smoothing functions optimally. ES: replace R(p) by R_w(p) = Σ w(u,B,C)1[4uBC−u−B=p] with smooth nonnegative w; R_w(p) > 0 ⇒ ES(p).",
@@ -73,7 +73,7 @@ I("WAR", "Universal-form reduction: a map from representations by a universal qu
 I("WAR", "Smooth-number restriction (Vaughan–Wooley) with smooth moduli in APs (Drappeau/Harper)",
   "Smooth numbers drove progress on G(k). ES: restrict certificates to smooth (u,B) or smooth 4C, where distribution in progressions to large moduli is better (friable Bombieri–Vinogradov beyond 1/2).",
   "Smooth moduli are where the strongest level-of-distribution results live; ES certificates are numerically often smooth.",
-  "Check whether Drappeau's friable 'Fouvry–Iwaniec-type' theorems apply to sums Σ_{C smooth} #{d | 4Cp+1, d ≡ −1 (4C)}; measure numerically the fraction of (★) solutions with y-smooth C for y = p^{0.1}.",
+  "Drappeau, 'Théorèmes de type Fouvry–Iwaniec pour les entiers friables', Compositio 151 (2015), arXiv:1307.7554 (verified) gives beyond-√ distribution for friable integers; check whether it applies to sums Σ_{C smooth} #{d | 4Cp+1, d ≡ −1 (4C)}; measure numerically the fraction of (★) solutions with y-smooth C for y = p^{0.1}.",
   ["smooth-numbers", "level-of-distribution"], "med", "medium", kw=["friable", "smooth moduli"])
 I("WAR", "g(4)=19 descent: analytic threshold + greedy reduction to the verified range",
   "BDD reduced every n below 10³⁶⁷ to the verified range by subtracting biquadrates. ES has no subtraction structure, but the e-slice form reduces ES(p) to a property of N = (p+e)/4 < p; formalize a 'descent' that moves a hard instance to a smaller one.",
@@ -231,7 +231,7 @@ I("BHS", "A certificate scheme whose only hard condition is primality of linear 
   "Enumerate ES certificate shapes where a denominator or factor is a free prime (e.g. Type I f prime, window prime q) and check whether remaining conditions can be made linear in auxiliary variables.",
   ["linear-forms-in-primes", "green-tao", "conditional-to-unconditional"], "med", "big", kw=["Hypothesis H"])
 I("BHS", "Integral-point fibration on U_n by the curves x = const (two-term problems)",
-  "Fibration method for rational points; integral versions exist for some log K3 surfaces (check Harpaz, 'Integral points on conic log K3 surfaces', JEMS 2019). Fixing x makes ES a two-term problem 1/y + 1/z = 4/n − 1/x, a divisor problem.",
+  "Fibration method for rational points; integral versions exist for some schemes fibred into affine conics (Harpaz, JEMS 2019, conditional on stated hypotheses). Fixing x makes ES a two-term problem 1/y + 1/z = 4/n − 1/x, a divisor problem.",
   "U_n is a log K3-type affine cubic surface (check); an integral fibration method with a BM-type local condition would be a structural every-n mechanism.",
-  "Check whether U_n fits the 'conic log K3' framework of Harpaz and what his theorem requires (Schinzel-type hypotheses?).",
+  "Harpaz, 'Integral points on conic log K3 surfaces', JEMS 21 (2019), arXiv:1511.04876 (verified: sufficient conditions under stated arithmetic/geometric hypotheses, not unconditional); check whether U_n fits the framework and which hypotheses fail.",
   ["fibration-method", "integral-points", "log-K3"], "med", "medium", kw=["log K3"])
