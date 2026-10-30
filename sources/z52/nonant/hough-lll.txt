@@ -1,0 +1,3 @@
+Opened/accessed 2026-10-30.
+
+Bob Hough, “Solution of the minimum modulus problem for covering systems,” arXiv:1307.0874v3, https://arxiv.org/abs/1307.0874. Abstract: proves the minimum modulus of any distinct covering system is less than 10^16. Paper proof overview: for covering systems with large minimum modulus, prove a positive proportion of integers are left uncovered using a staged sieve and Lovász Local Lemma; a relative LLL is used to obtain the lower bound. Published in Annals of Mathematics 181 (2015). This result concerns finite systems of congruence classes and does not establish an ES decomposition or a fixed-prime divisor witness.
