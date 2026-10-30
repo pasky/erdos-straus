@@ -88,6 +88,16 @@ int main(int argc, char **argv){
   for(int r=0;r<256;r++) if(hAll[r]||hS[r]) printf("H %d %lld %lld\n", r, hAll[r], hS[r]);
   { long long hs=0; for(int r=0;r<256;r++) hs+=hAll[r]; printf("S histogram_total=%lld (bin 255 = saturated count >= 255)\n", hs); }
   for(long long k=1;k<K;k++) if(!issq[k] && cntL[k]>=40) printf("BIG n=%lld R_large=%d small_hit=%d\n", 8*k+1, (int)cntL[k], (int)small[k]);
+  if(getenv("PROFILE")){
+    // Quadratic profile of n at the primes 3..29: bit i = 1 iff n is a nonzero QR mod q_i (0 or non-residue -> 0).
+    // For each of the 512 profiles: number of non-squares, sum of R_large, number with R_large = 0.
+    static const int qs[9]={3,5,7,11,13,17,19,23,29};
+    static long long pc[512], ps[512], pz[512];
+    for(long long k=1;k<K;k++){ if(issq[k]) continue; long long n=8*k+1; int b=0;
+      for(int i=0;i<9;i++){ int r=(int)(n%qs[i]); int isq=0; if(r){ for(int y=1;y<qs[i];y++) if((y*y)%qs[i]==r){isq=1;break;} } if(isq) b|=1<<i; }
+      pc[b]++; ps[b]+=cntL[k]; if(cntL[k]==0) pz[b]++; }
+    for(int b=0;b<512;b++) if(pc[b]) printf("P %d %lld %lld %lld\n", b, pc[b], ps[b], pz[b]);
+  }
   if(getenv("DUMP")){ FILE*f=fopen(getenv("DUMP"),"w"); for(long long k=1;k<K;k++) if(!small[k]&&cntL[k]==0) fprintf(f,"%lld %d\n",8*k+1,(int)issq[k]); fclose(f); }
   return 0;
 }
