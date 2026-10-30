@@ -1,6 +1,118 @@
 # z52b lane `analogues` — analogue-world mining for Erdős–Straus (ES is OPEN)
 
-(Summary to be filled in at the end.)
+Data: `data/z52b/analogues.jsonl`. This file is generated from the jsonl by `scripts/z52b_analogues_build.py`, which reads the
+batch files `scripts/z52b_analogues_b01.py … b09.py`. Nothing here proves ES or any infinite case of it. Per the brief this is a
+breadth-first list. The only filter is an obvious-nonsense filter, and items were not graded against the barrier checklist.
+
+## Summary
+
+* **362 items** in 9 worlds (sections A–I below). Confidence-not-nonsense: high 131, med 160, low 71. Effort: cheap 294,
+  medium 67, big 1. 717 distinct free-form tags; 51 items carry a `seen:<file>` tag.
+* **Tag histogram (top 30):** function-field 53, constraint-world 29, literature 25, data 22, new-world 21, sibling-problem 19,
+  computation 18, real-quadratic 15, T1 14, Gaussian 14, reformulation 14, polynomial-ring 13, boundary-marker 12, S-integers 12,
+  calibration 8, topology 8, context 8, closed 8, numerator-spectrum 7, units 7, 2-adic 7, logic 7, finite-field 6,
+  classification 6, quaternion 6, matrices 6, k-terms 6, signed-ES 5, dictionary 5, squares 5. The full histogram is in the
+  auto-generated statistics below.
+* **New small computations (all cheap, scripts committed):**
+  - The *constraint-world census*. For every prime p ≡ 1 (mod 4) below 2·10⁴ (1125 primes), all solutions were enumerated
+    (`scripts/z52b_analogues_constraints*.py`; failure lists in `data/z52b/analogues_constraints_fails_20000.json`,
+    `…constraints4_fails_8000.json`).
+  - The Z[1/ℓ] unit-mechanism check (`scripts/z52b_analogues_zl.py`).
+  - A weighted-ES check (`scripts/z52b_analogues_weighted.py`).
+* **Corrections made during generation.** These are the obvious-nonsense filter at work. They are recorded as items so that
+  nobody repeats the mistakes:
+  - S-integer relaxations collapse. Denominators in (1/ℓ)ℕ make ES trivial whenever ES(ℓ) holds. One non-integral denominator
+    always suffices: 4/p = 1/(p/3) + 1/(2p) + 1/(2p). So the "ℓ-depth" and "smooth-numerator" hierarchies I first wrote down are
+    empty (items 0053, 0074, 0055, 0096). The only S-integer content that does not depend on ES itself is the unit-sum
+    *mechanism*.
+  - Two guesses about the failure sets of constrained worlds were checked against the data. The guess for the norm world was
+    refuted (0217). The guess for the chain world was confirmed, with a sharper statement (0218).
+
+### The 10 items I find most exciting
+
+1. **0109 / 0110 / 0214 — a 2-adic coincidence.** Restrict to solutions with all denominators even (⇔ 8/p is a 3-term sum), or
+   to solutions with some denominator ≡ 0 (mod 4). Each constrained world fails at **exactly {17, 241}** among the 1125 primes
+   p ≡ 1 (mod 4) below 2·10⁴. Possible structural content: a 2-adic bijection, and a Schinzel m = 8 strengthening of ES that
+   appears to have only finitely many exceptions.
+2. **0113 — near-complete sub-world.** Solutions with z = lcm(x, y, z) exist for every such prime below 2·10⁴ except
+   **2521 = lcm(1..10) + 1**. This is a rich sub-family and a candidate proof target.
+3. **0218 — miniature Mordell/T1 model.** Restrict to chain solutions x | y | z. Every one of the 161 failures is ≡ 1 (mod 24),
+   the square class mod 24. Inside that class, 161 of the 267 primes fail. Proving that chain identities cover
+   p ≢ 1 (mod 24) is a finite-covering exercise. The residual class is a lottery world with real, observable failures.
+4. **0107 — numerator-spectrum reformulation.** M(p) = {m : m/p is a 3-term sum} is closed under divisors. So ES ⇔ M(p) contains
+   *some* multiple of 4. The literature gives |M(p)| ≍ polylog on average (Luca–Pappalardi; Mond–Portier). A forced large
+   numerator ≡ 0 (mod 4) would prove ES.
+5. **0201 / 0358 — hard primes look like squares.** The constrained-world failures cluster at p with very smooth p − 1
+   (241, 601, 1801, 2521). Such p are square-like modulo many M, which is exactly where T1 empties the certificate lines. The
+   proposal is a T1-depth invariant D(p), to be correlated with #ES(p).
+6. **0258 — a proved world attached to p.** For p ≡ 1 (mod 4), Q(√p) has a unit of norm −1. So positive ES for 4/p holds over
+   O_{Q(√p)} by the N(ε) = −1 mechanism, with a unit built from Pell solutions. Trace descent of this solution is an explicit
+   integer experiment.
+7. **0052 / 0074 — the S-integer picture, finished.** Positive ES over Z[1/ℓ] holds for every odd prime ℓ checked (ℓ < 3000),
+   via e | 1 + ℓ^k with k ≤ 7. The relaxations themselves collapse, which isolates the integer target: a p-tied surrogate η(p)
+   for the unit (0338).
+8. **0219 — Borwein–Choi.** N = xy + yz + zx, the same symmetric form as ES's pretzel determinant 4xyz/n, is a sibling solved
+   with class numbers (complete up to one possible GRH exception). Their form correspondence might be extended to track xyz.
+9. **0155 / 0156 — singularity theory as a host world.** ES ⇔ 4/n is the log canonical threshold of a Brieskorn–Pham polynomial
+   x^a + y^b + z^c. The other quasi-homogeneous (Arnold / Orlik–Wagreich) types give a family of geometrically natural
+   "generalized Egyptian" relaxations to test.
+10. **0337 / 0017 / 0191 — transfer and negative transfer.**
+    - From the FF density-zero theorem: under GRH, the ES exceptional set should have a power saving. A conditional result of
+      this shape was not found in the literature.
+    - From Mordell–Schinzel: ES is false over Z[T] with eventual positivity. Hence ES may be unprovable in open induction, and
+      every proof must be non-uniform in n.
+
+### Per-world map: step that works → integer-side replacement → nearest literature
+
+| World | Status there | Step that works | Integer statement that would replace it | Nearest literature / repo |
+|---|---|---|---|---|
+| F₂[T] (A = T²), F₄[T] (A = T) | PROVED (finite covering) | char-2 cancellation, no square-class obstruction | finite *signed* covering plus a positivity-repair lemma (0002, 0339) | FUNCTIONFIELD_ES §6 |
+| F₉, F₂₇ … | no finite linear covering (PROVED) | — (behaves like Z) | Mordell (known) | FF_ODD_ABSENCE |
+| fixed q, deg P → ∞ | density-zero failures (PROVED) | one-prime identity + RH in F_q[T] | GRH ⇒ power-saving exceptional set (0003, 0337) | FUNCTIONFIELD_ES §5; Vaughan |
+| q → ∞, fixed degree | FALSE for most P | — | large numerators fail (A₃(p) polylog) (0004) | Luca–Pappalardi; Mond–Portier |
+| F_q[T] with free leading coefficients | exceptions = squares exactly (q large) | Weil sum over q − 1 unit shifts | cancellation over a p-tied family of shifts (0300) | EXSET_FUNCTION_FIELD §1.3 |
+| one mute place (FF) | PROVED for all P | Bilharz (FF Artin) | Z[1/ℓ] unit mechanism (elementary) (0299, 0052) | FF_MUTE Thm 3.5 |
+| Z[1/ℓ], Z[1/p] | PROVED (trivially, and also via units) | e \| 1 + ℓ^k; or depth-1 identity | p-tied surrogate η(p) with e \| 1 + η(p) (0338); relaxations collapse (0053, 0074, 0096) | other_rings Prop 3.2 |
+| O_K, N(ε) = −1; Q(√p) | PROVED | η ≡ −1 mod an inert ℓ ≡ 3 (4) | same surrogate; trace descent to numerator 8 (0056, 0057, 0258) | other_rings Prop 3.3 |
+| Gaussian / imaginary-quadratic cones | OPEN | — | twin of ES; ladder (1+i)^k (0059, 0332) | Bradford–Ionascu |
+| Z[T] (lc > 0) | FALSE at square classes | — | non-uniformity filter (0017, 0340) | Mordell–Schinzel |
+| constrained ℕ-worlds | some FALSE, some apparently complete | — | strengthenings: 8/p, lcm = z, pure Type II (0109, 0113, 0204) | this lane's data |
+| k ≥ 4 terms, signed, weighted | easy / trivial | extra term, sign, or numerator | merging lemma (0312); signed + repair (0310, 0339) | Elsholtz–Planitzer |
+| matrices, quaternions | relaxations / reformulations | non-diagonal freedom | projection gives weighted ES (easy) (0069, 0315) | QUATERNION_ES |
+| triangle orbifolds, Seifert, LCT, Dynkin T_{x,y,z}, resistors, AP packings | reformulations | — | invariants of solutions (H₁, det, Dedekind sums) | this lane, items D |
+
+## Method and coverage
+
+* **Generation.** I took the worlds named in the brief one at a time (F_q[T], other rings, numerators, k terms, signed,
+  p-adic/adelic, matrices, Z[T], Gaussian/Eisenstein, quaternions, finite fields, ultraproducts, tropical, S-integers,
+  constrained ES, other numerators). For each world I wrote down three things: what is proved there, the step that does the
+  work, and the integer statement that would replace that step. I then invented further host worlds where 1/x + 1/y + 1/z
+  appears natively:
+  - geometry and topology: triangle orbifolds, Seifert spaces, pretzel links, Brieskorn singularities and lcts, Dynkin stars,
+    dessins;
+  - combinatorics and physics: resistor networks, tilings, perfectly periodic schedules and AP packings, codes;
+  - logic and probability: weak arithmetic, Beurling integers, random thinning;
+  - deformations: q-deformations, dual numbers, categorified N[T], cone families inside Z[√2].
+
+  Two further sources of items:
+  - Sibling Diophantine problems with known status, mined for "the step that works there".
+  - The repo's FF memos (FF_MUTE, EXSET_FUNCTION_FIELD, FF_ODD_ABSENCE), mined as transfer seeds.
+* **Literature.** Every cited arXiv id was checked against the arXiv API: 1405.4025, 1107.1010, 1908.02526, 1905.06151,
+  2201.11805, 1111.2574, 2303.15685, 2305.16518, 2112.03726, math/0311421, 2404.07113, 2404.16016, math/0411305, 1606.02117,
+  1108.6118, 2507.03727, 2012.05984, 1805.02945, 2305.02689, 2606.15159, 2412.09728, 2410.24165, 1412.3263, 1012.0814,
+  2605.23011, 2606.27104, and others in refs. The following were checked by web search: Guerrieri–Loper–Oman; Borwein–Choi
+  (Exp. Math. 2000); Haag–Kertzer–Rickards–Stange (Annals 2024); Graham 1964 (PJM); Erdős problem #242; Pomerance's notes
+  stating Sierpiński 5/n was verified to 10¹⁸. Unverified leads appear only as "check whether …" in `first_step`. Examples are
+  Niederreiter's FF Zaremba, Bourgain–Garaev, Keating–Rudnick, Bank–Bary-Soroker–Rosenzweig, Sawin–Shusterman, W. Chen, and
+  Breusch/Stewart.
+* **Not done.**
+  - No item was graded against the barrier checklist (as the brief instructs).
+  - The `seen:` tags are incomplete: only memos I knew of or grepped quickly are tagged.
+  - The constraint census stops at 2·10⁴ (8·10³ for the second batch of constraints).
+  - The FF experiments proposed in sections A and H (sign-subgroup cones, A irreducible vs reducible, 4-term FF coverings) were
+    not run.
+  - The Z[√2] four-cone experiment, the Gaussian (1+i)^k ladder and the trace descent in Q(√p) were not run.
+  - The Borwein–Choi correspondence and the quasi-homogeneous lct relaxations were not worked out.
 
 ## Statistics (auto-generated)
 
@@ -129,11 +241,11 @@ Tag histogram (tags used ≥ 4 times): `function-field` 53, `constraint-world` 2
 
 107. **The numerator set M(p) is divisor-closed, so ES ⇔ M(p) contains a multiple of 4** [`analogues-0107`; high/cheap] — Let M(p) = {m : m/p is a sum of three unit fractions}. If m/p = Σ 1/x_i and d | m then (m/d)/p = Σ 1/(d x_i), so M(p) is closed under divisors. Hence ES(p) ⇔ 4k ∈ M(p) for some k ≥ 1. — *First step:* For p ≤ 10^5 compute M(p) (from all 3-term representations with any numerator) and record which element divisible by 4 appears first; look for a large-m element that is forced (like p + 1 ∈ M(p) always).
 108. **Forced elements of M(p): p + 1, p + 2, 2p + ... — which large numerators are always available?** [`analogues-0108`; high/cheap] — (p+1)/p = 1 + 1/(2p) + 1/(2p) shows p + 1 ∈ M(p); similarly (p+2)/p = 1 + 1/p + 1/p and 3 ∈ M(p). A large forced element divisible by 4 would prove ES via divisor-closure. — *First step:* Enumerate polynomial families m(p) = ap + b with uniform identities (b small) and list their m mod 4 for p ≡ 1 mod 4; check whether all forced ones are ≢ 0 mod 4 (T1-type).
-109. **All-even ES ⇔ 8/p is a sum of three unit fractions: fails at p = 17, 241 (p < 4000)** [`analogues-0109`; high/cheap] — Denominators all even ⇔ 8/p = Σ 1/(x_i/2). In the computation, 'all even' fails only at p = 17 and 241 among 269 primes p ≡ 1 mod 4 below 4000. Schinzel's conjecture for m = 8 predicts finitely many failures. — *First step:* Done to 2·10^4 (data/z52b/analogues_constraints_20000.txt: still only 17, 241 among 1125 primes). Extend to 10^6 with a faster search and compare with known Schinzel m = 8 data.
+109. **All-even ES ⇔ 8/p is a sum of three unit fractions: fails only at p = 17, 241 (p < 2·10^4)** [`analogues-0109`; high/cheap] — Denominators all even ⇔ 8/p = Σ 1/(x_i/2). In the computation, 'all even' fails only at p = 17 and 241 among 269 primes p ≡ 1 mod 4 below 4000. Schinzel's conjecture for m = 8 predicts finitely many failures. — *First step:* Done to 2·10^4 (data/z52b/analogues_constraints_20000.txt: still only 17, 241 among 1125 primes). Extend to 10^6 with a faster search and compare with known Schinzel m = 8 data.
 110. **'Some denominator ≡ 0 mod 4' fails at exactly the same primes 17, 241 as m = 8** [`analogues-0110`; high/cheap] — Among p < 4000 the solutions with a denominator divisible by 4 are missing exactly at p = 17 and 241, the same primes where 8/p fails. A structural equivalence (e.g. a bijection of solution types) may lie behind this. — *First step:* Failure sets coincide (= {17, 241}) up to 2·10^4 as well (data/z52b/analogues_constraints_20000.txt). Try to prove: if 4 | x in 4/p = Σ 1/x_i, then a solution of 8/p can be produced (and conversely).
 111. **Norm denominators: all x, y, z sums of two squares — fails at 16 primes below 4000** [`analogues-0111`; med/cheap] — Requiring every denominator to be a norm from Z[i] (sum of two squares) fails at p = 41, 137, 233, 241, 601, 769, … (16 of 269). This is the 'Gaussian-norm' constrained world. — *First step:* Up to 2·10^4: 40 failures among 1125 primes (data/z52b/analogues_constraints_20000.txt). Test whether failures are density-zero, and check whether a local obstruction (e.g. mod 8 or mod 3) explains them.
 112. **Chain constraint x | y | z: fails at 38 of 269 primes below 4000** [`analogues-0112`; med/cheap] — 4/p = (1/x)(1 + 1/a + 1/(ab)) with y = ax, z = abx. The chain world is a 3-parameter subfamily; failures start at p = 73, 193, 313, 337. — *First step:* (161 failures among 1125 primes below 2·10^4.) Characterize: x | y | z ⇔ p·(ab + b + 1) = 4abx; derive the congruence conditions on p and compare with the failure list.
-113. **z is a common multiple of x and y: fails only at p = 2521 below 4000** [`analogues-0113`; high/cheap] — Solutions with x | z and y | z exist for every p ≡ 1 mod 4 below 4000 except 2521. This sub-world is almost as rich as ES. — *First step:* Still only 2521 below 2·10^4 (data/z52b/analogues_constraints_20000.txt). Parametrize lcm-solutions (z = lcm) explicitly and run to 10^6 to see if exceptions stay sparse; inspect 2521 = 2521 (prime) for special structure.
+113. **z is a common multiple of x and y: fails only at p = 2521 below 2·10^4** [`analogues-0113`; high/cheap] — Solutions with x | z and y | z exist for every p ≡ 1 mod 4 below 4000 except 2521. This sub-world is almost as rich as ES. — *First step:* Still only 2521 below 2·10^4 (data/z52b/analogues_constraints_20000.txt). Parametrize lcm-solutions (z = lcm) explicitly and run to 10^6 to see if exceptions stay sparse; inspect 2521 = 2521 (prime) for special structure.
 114. **Odd-denominator ES is impossible (2-adic): the archetype of a constrained-world local obstruction** [`analogues-0114`; high/cheap] — If x, y, z are odd, xy + yz + zx is odd and xyz odd, so the reduced fraction has odd numerator, while 4/n (n odd) has numerator 4. So no solution. Likewise exactly one even denominator is impossible by 2-adic valuations (the computation confirms). — *First step:* Generalize: for which multiplicative sets H ⊂ (Z/ℓ^k)^* of allowed denominator classes is there a local obstruction? Tabulate for ℓ ≤ 7.
 115. **Denominators ≡ 1 (mod 3) is impossible when 3 ∤ n: a 3-adic obstruction** [`analogues-0115`; high/cheap] — If x, y, z ≡ 1 mod 3 then 1/x + 1/y + 1/z ≡ 3 ≡ 0 in Z_(3), while 4/n is a 3-adic unit when 3 ∤ n. More generally, with k terms and denominators ≡ 1 mod ℓ, one needs 4/n ≡ k (mod ℓ). — *First step:* Tabulate for ℓ ∈ {3,5,7}, H = subgroup of (Z/ℓ)^*, the classes of n for which ES_H is locally obstructed.
 116. **Pairwise coprime denominators: impossible for n ≥ 2** [`analogues-0116`; high/cheap] — If gcd(x,y) = gcd(y,z) = gcd(x,z) = 1, the fraction (xy+yz+zx)/xyz is already reduced, so xyz = n·t and xy + yz + zx = 4t with t = 1, impossible for positive integers. All solutions need shared factors among denominators. — *First step:* Count, for p < 4000, solutions with exactly one coprime pair vs none (the computation shows 'all pairs share a factor' never fails).
