@@ -1,9 +1,10 @@
 # z52 literature lane L5 — thin pointwise existence
 
 ## §0 Summary
-- **NEW since 2026-09-28:** Research in progress; no newly verified item yet.
-- **Transferable features:** pending source verification.
-- **Campaign verdict change:** none identified.
+- **NEW since 2026-09-28:** None identified. Source checks confirm earlier-known Maynard (family-level) and Heath-Brown–Puchta (two primes plus powers of two) results.
+- **Transferable features:** (1) Fourier/Type I–II decorrelation can find primes in an infinite thin family; (2) bounded sparse summands can be absorbed when a power-size Goldbach supply is present.
+- **Does ES share them?** No: ES is a prescribed-prime, ≍ log²p tied-modulus problem (B2/B6), not a family average or power-sized reservoir.
+- **Campaign verdict change:** None. No new pointwise, polylog-count theorem transferable to ES found; unverified leads are explicitly listed in §4.
 
 ## §1 Verified entries
 
