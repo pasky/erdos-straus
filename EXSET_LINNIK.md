@@ -585,3 +585,18 @@ bias identities, and an independent W1/parity verification.
    (sterile planes), where both the word labels and the ratio-class labels collapse to finitely many per q.
 4. **Not done.** A proof of Conjecture 2.9 (needs an averaged form of Lemma 2.3(c) and a local-lemma argument); planes
    for the ET/Vaughan families; a per-summand-level version of Proposition 2.8.
+5. **The remaining CRT-hybrid door (Assessment; the sharpest open question this lane can name).** Proposition 2.8 does not
+   cover hybrids whose summands have small level but jointly involve many block primes. The natural one is
+   ν := ((1/2 − η)s)^{−1}Σ_{q∈S} ν_q with ν_q a level-λ CRT majorant of the *fibre avoider* Ω_λ ∩ {(x/q) = −1}: every
+   unbiased avoider point has ≥ (1/2 − η)s non-residue coordinates, so ν ≥ 1 off B_J, and Linnik/Heath-Brown counts B_J.
+   The z50 caps do not apply: they rest on the square base, and Linnik removes exactly the square-like points. The hybrid
+   saves a power iff Eν_q ≤ X^{−c} for most q ∈ S, i.e. iff level-λ majorants can see the *conditional non-residue
+   probability* ρ_q(λ) of the avoider. In the label model ρ_q(λ) ≈ exp(−(labels at q)/(q/2)) at a generic profile, with
+   labels ≈ cλ² for U/ES₅ words and ≈ 0.034λ³ for the ES ratio classes (§6.1), λ ≤ K log X. Hence:
+   * **U/ES₅: dead by one log-power (heuristic).** ρ_q ≤ X^{−c} needs q ≲ K² log X, while Linnik needs bias on primes
+     q ≥ (log X)^{1+δ} (on primes ≤ C log X the squarefree products below X number X^{o(1)}).
+   * **ES with the ratio classes: open.** ρ_q ≤ X^{−c} for q ≲ K³(log X)²/log log X, which overlaps Linnik's range
+     (log X)^{1+δ}. The decisive unknown is a **fibre cap**: the least mean of a non-negative level-λ congruence
+     combination that is ≥ 1 on Ω_λ ∩ {(x/q) = −1}. If it is ≈ μ(Ω_λ)ρ_q(λ)·e^{O(λ^{3/4})}, the hybrid gives a power
+     saving for ES at primes; if a positive-measure "twisted base" of unbiased avoider points exists at level λ, it caps
+     the hybrid. Neither is known; the sterile planes (measure zero) do not decide it.
