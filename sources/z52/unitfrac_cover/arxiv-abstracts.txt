@@ -1,0 +1,19 @@
+Accessed 2026-10-30 via arXiv API (export.arxiv.org/api/query).
+
+Bloom, “On a density conjecture about unit fractions,” arXiv:2112.03726v2 (updated 2023-10-12), abstract: “any set A⊂N of positive upper density contains a finite S⊂A such that sum_{n∈S}1/n=1.”
+
+Liu–Sawhney, “On further questions regarding unit fractions,” arXiv:2404.07113v1 (2024-04-10), abstract: A⊂[1,N] with sum_A 1/n ≥ (log N)^{4/5+o(1)} contains B with sum_B 1/n=1; techniques refine Croot and Bloom.
+
+Conlon–Fox–He–Mubayi–Pham–Suk–Verstraëte, “A question of Erdős and Graham on Egyptian fractions,” arXiv:2404.16016v2 (updated 2025-12-17), published Discrete Analysis 2025:28: for each fixed positive rational x, number of distinct-denominator representations with denominators ≤n is 2^{(c_x+o(1))n}, explicit c_x increasing with x.
+
+Bloom, “Unit fractions with shifted prime denominators,” arXiv:2305.02689v1 (2023-05-04), DOI 10.1017/prm.2024.42, Proc. R. Soc. Edinburgh A 155 (2025): any positive rational is a sum of distinct unit fractions with denominators p−1; corresponding p−h result subject to necessary congruence condition; also subsets of primes of positive relative density subject to that condition.
+
+Sawin, “Sets of unit fractions without two members whose average is a unit fraction,” arXiv:2607.15419v1 (2026-07-16), abstract: for large N there is A⊂{1,…,N}, |A|>cN, where averages of reciprocals of distinct a,b are not unit fractions; also best known lower bound for unit-fraction AP-free sets.
+
+Korsky, “Approximating 1 by Sums of Unit Fractions,” arXiv:2607.04157v2 (updated 2026-10-08): if a finite multiset of unit fractions has sum >K, some sub-sum is within exp(−c sqrt(K log K)) below 1, for large K.
+
+Kovač–Tang, “Eventually greedy best Egyptian underapproximations of rational numbers via optimal control,” arXiv:2607.28387v2 (updated 2026-08-04): every positive rational has eventually greedy best Egyptian underapproximations, with repetitions allowed or denominators distinct.
+
+Balister–Bollobás–Morris–Sahasrabudhe–Tiba, “On the Erdős Covering Problem: the density of the uncovered set,” arXiv:1811.03547v1 (2018-11-08), published Invent. Math. 228 (2022) 377–414. Abstract verifies Schinzel conjecture and progress on Erdős–Selfridge, and states a sufficient near-best-possible condition for positive uncovered density under large distinct moduli and reciprocal-weight assumptions.
+
+Filaseta–Kalogirou–Klein, “Results for distinct covering systems with a prime minimum modulus q≥11,” arXiv:2610.34541v1 (2026-10-25): reciprocal-modulus sum ≥1+10^{-28}; no covering system can use distinct multiples of q as moduli. Abstract does not claim any infinite/growing-modulus pointwise theorem.
