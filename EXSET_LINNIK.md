@@ -84,8 +84,8 @@ a **level-free transfer**: it counts the primes in a periodic set of arbitrary p
 sets of the special shape B(a, T). The z50 CRT caps charge the level log d of each summand modulus d and are evaluated at
 level ≤ K log N (R1: per-term level, not total period). This is why z50 B §4.2 found that Linnik duality breaks the square
 floor: for coherent non-negative data (e.g. a = 1_𝒜) the odd squares coprime to supp(a) have all symbols +1 and lie in B,
-yet Linnik counts B correctly. (For signed data squares need not lie in B.) Tests of order ≥ 3 are not periodic at all
-(§2.2).
+yet Linnik counts B correctly. (For signed data squares need not lie in B.) Tests of order ≥ 3 are not Dirichlet
+characters in the prime variable; Proposition 2.2 states the resulting obstruction.
 
 ### 1.3 What is known about the exceptional primes ("CRT information")
 
@@ -239,7 +239,7 @@ Dirichlet's theorem gives infinitely many primes p ≡ z (mod L). ∎
 (ii) is a statement about all large primes. It does not produce primes in (X/2, X] when the data grow with X (R1); see
 §2.6.
 
-**Remark 2.7 (the scope contains power-saving data).** Let A > 2, then 0 < ε < 1/2 − 1/A, y := (log X)^A,
+**Remark 2.7 (the scope contains power-saving data).** Let A > 2, then 0 < ε < min(1/8, 1/2 − 1/A), y := (log X)^A,
 Π := any ⌊η₀(ε)(y/2)^{1/2−ε}⌋ primes in (y/2, y], 𝒜 := the products of r := ⌊log X/log y⌋ distinct elements of Π,
 a := 1_𝒜. Then |𝒜| ≥ (|Π|/r)^r = X^{1/2−ε−1/A−o(1)}, and if every exceptional p were a residue of every q ∈ Π, then
 β_p = |𝒜| and Heath-Brown (L3) with N = X would give #E_X ≪ X^{1/2+1/A+ε+2ε′+o(1)}, a power saving once
@@ -259,8 +259,8 @@ mod L in Ω(𝔊) (unit or not). Write n = n₁n₂ with n₁ | rad L, (n₂, L)
 x ≡ r (mod L), the symbols (x/n₂) are orthogonal with E(x/n₂)² = φ(n₂)/n₂, so
 E[|Σ a_n (x/n)|² | r] = Σ_{n₂} (φ(n₂)/n₂)|Σ_{n₁} a_{n₁n₂}(r/n₁)|² ≤ 2^{ω_Π(L)}‖a‖² < T‖a‖² (Cauchy–Schwarz: at most
 2^{ω_Π(L)} terms n₁). So the fibre contains points (and integers) outside B_J; ν, being L-periodic, is ≥ 1 on the whole
-fibre. EXSET_SIEVE_MASS Thm 3.2 needs per-summand level ≤ λ, which holds after rewriting ν with residue indicators
-mod L. ∎
+fibre. EXSET_SIEVE_MASS Thm 3.2 (applied with λ := max(λ₀, λ(L))) needs per-summand level ≤ λ, which holds after rewriting ν
+with residue indicators mod L. ∎
 *Scope (R1).* The standard cap charges each summand's modulus separately; here the whole period is charged. A hybrid
 whose summands have small levels but whose periods jointly involve most of Π is **not** covered (open). The parenthetical
 ES/ET extension of the first draft is withdrawn.
@@ -296,14 +296,15 @@ all higher boxes and a local-lemma argument with suitable dependency bounds.
 
 **Theorem 2.10 (scoped conjunction; PROVED as Prop 2.2 + Cor 2.6 + Prop 2.8 + Prop 6.1; rescoped after R1, the
 first-draft "universal circularity" is withdrawn).** For ES₅/U exceptional primes:
-(A) a fixed-order (k ≥ 3) character bias of a squarefree-supported datum cannot follow from any statement valid for all
-    large primes of a unit class (Prop 2.2);
+(A) a fixed-order (k ≥ 3) character bias β^{(k)} ≥ T > φ(k) of a squarefree-supported datum cannot follow from any
+    statement valid for all large primes of a unit class (Prop 2.2);
 (B) a quadratic confinement or bias (T > 2) of a datum on squarefree Π-numbers, Π sparse (σ_ε(Π) ≤ η₀), cannot follow
     from avoidance of any finite family of native ES₅/U word classes as a statement valid for all large primes (Cor 2.6),
     although such data would give a power saving (Remark 2.7);
 (C) a hybrid with a CRT majorant of bounded whole-period level is capped at the U/ES₅ CRT exponent (Prop 2.8);
-(D) the reverse-role (fibred Montgomery) sieve with CRT-certified depletion is capped likewise (Prop 6.1).
-*Not covered:* dense or multi-scale Π (Conjecture 2.9); variable-order aggregates, full Montgomery/Elliott tests and the
+(D) the reverse-role (fibred Montgomery) sieve with CRT-certified depletion is capped at the family's exponent
+    (Prop 6.1: 2/3 for native U/ES₅; 3/4 for the ES ratio family, EXCEPTIONAL_LARGESIEVE Thm 3.1).
+*Not covered:* dense or multi-scale Π (Conjecture 2.9); structured low-rank p-dependent data (§4); variable-order aggregates, full Montgomery/Elliott tests and the
 larger sieve; hybrids with per-summand level only; the ET/Vaughan ratio families of ES on planes (one-coordinate
 analogue: DEPTH_ASPECT Thm 3.1; numerics for ℛ(M) at plane points in §6.1); and finite-range arguments, i.e. statements
 about the primes in (X/2, X] only, whose relevant moduli exceed X (for Remark 2.7's data the modulus encoding the Π-profile
@@ -596,26 +597,33 @@ bias identities, and an independent W1/parity verification.
 
 1. **T2-full (Linnik confinement for ES₅/ES).** Needed: E_X ⊂ B(a, T) (or up to X^{1−c}) for some datum with T ≥ X^c.
    With Theorem 3.1 a bias of size (log X)^{−κ} on one dyadic block at (log X)^{1+δ} suffices. The lane shows this cannot
-   come from (A) fixed higher-order characters, (B) native ES₅/U word-class avoidance on sparse prime sets (any level),
-   (C) bounded-level hybrids, (D) fibred reverse-role sieves. Open routes: dense or multi-scale blocks (CRT-certified
-   bias is excluded there only CONDITIONALLY on Conjecture 2.9); hybrids with per-summand level only; ES with the
-   ET/Vaughan ratio classes on planes; and non-CRT inputs: pointwise forcing (e.g. (WL_A), §5) or an approximate
-   argument controlling the non-generic exceptional primes.
+   come from (A) fixed higher-order characters (T > φ(k)), (B) native ES₅/U word-class avoidance on sparse prime sets
+   (statements for all large primes, any level), (C) hybrids with bounded *whole-period* level, (D) fibred CRT-admissible
+   reverse-role sieves (native family 2/3; ES ratio family 3/4). Open routes: dense or multi-scale blocks (CRT-certified
+   bias is excluded there only CONDITIONALLY on Conjecture 2.9); hybrids with per-summand level only (item 5);
+   structured low-rank p-dependent data; ES with the ET/Vaughan ratio classes on multi-coordinate planes; and non-CRT
+   inputs: pointwise forcing (e.g. (WL_{A,κ}), §5) or an approximate argument controlling the non-generic exceptional
+   primes.
 2. **T2-lite** is reached for the cap relaxation (Corollary 3.2, A > 1). Below A = 1 the confinement set 𝒫(y) is too large
    (GRH); a different forcing mechanism would be needed.
 3. **Heuristic status.** Heath-Brown puts the requirement (log X)^{1+δ} inside the forcing reach ((log p)² for U words,
-   ≈ (log p)³/(15 log log p) for the ES ratio classes, §6.1); the window lottery is near-independent with residue-biased
-   failures (§5). So the Linnik route is heuristically consistent with room. The obstruction is the non-generic profiles
-   (sterile planes), where both the word labels and the ratio-class labels collapse to finitely many per q.
+   ≈ (log p)³/(15 log log p) for the ES ratio classes, a model extrapolation of §6.1's finite fit); the window lottery is
+   near-independent in the tested range with residue-biased forced-only failures (§5). So the Linnik route is
+   heuristically consistent with room. The obstruction is the non-generic profiles: at one-coordinate plane points both
+   the word labels and the ratio-class labels at q are finitely many (≈ 10–35 resp. ≈ 40 for q ≤ 300); sterile
+   multi-coordinate planes are proved for the native family on sparse Π only.
 4. **Not done.** A proof of Conjecture 2.9 (needs an averaged form of Lemma 2.3(c) and a local-lemma argument); planes
    for the ET/Vaughan families; a per-summand-level version of Proposition 2.8.
 5. **The remaining CRT-hybrid door (Assessment; the sharpest open question this lane can name).** Proposition 2.8 does not
    cover hybrids whose summands have small level but jointly involve many block primes. The natural one is
-   ν := ((1/2 − η)s)^{−1}Σ_{q∈S} ν_q with ν_q a level-λ CRT majorant of the *fibre avoider* Ω_λ ∩ {(x/q) = −1}: every
-   unbiased avoider point has ≥ (1/2 − η)s non-residue coordinates, so ν ≥ 1 off B_J, and Linnik/Heath-Brown counts B_J.
-   The z50 caps do not apply: they rest on the square base, and Linnik removes exactly the square-like points. The hybrid
-   saves a power iff Eν_q ≤ X^{−c} for most q ∈ S, i.e. iff level-λ majorants can see the *conditional non-residue
-   probability* ρ_q(λ) of the avoider. In the label model ρ_q(λ) ≈ exp(−(labels at q)/(q/2)) at a generic profile, with
+   ν := ((1/2 − η/2)s)^{−1}Σ_{q∈S} ν_q (0 < η < 1, the threshold of Theorem 3.1), with Ω_λ the avoider of the native or
+   ES classes of level ≤ λ and ν_q ≥ 0 on ℤ a level-λ congruence combination that is ≥ 1 on the *fibre avoider*
+   Ω_λ ∩ {(x/q) = −1}: every avoider point outside B_J has ≥ (1/2 − η/2)s non-residue coordinates in S, so ν ≥ 1 there,
+   and Linnik/Heath-Brown counts B_J. The z50 caps do not directly apply to this weakened domination set (they rest on
+   the square base, which lies in B_J for coherent data). The hybrid saves a power iff the **average**
+   s^{−1}Σ_q Eν_q is ≤ X^{−c}; heuristically this is governed by the *conditional non-residue probability* ρ_q(λ) of the
+   avoider, but the normalisation by the avoider's density and the existence of majorants attaining it are exactly the
+   missing input. In the label model ρ_q(λ) ≈ exp(−(labels at q)/(q/2)) at a generic profile, with
    labels ≈ cλ² for U/ES₅ words and ≈ 0.034λ³ for the ES ratio classes (§6.1), λ ≤ K log X. Hence:
    * **U/ES₅: dead by one log-power (heuristic).** ρ_q ≤ X^{−c} needs q ≲ K² log X, while Linnik needs bias on primes
      q ≥ (log X)^{1+δ} (on primes ≤ C log X the squarefree products below X number X^{o(1)}).
