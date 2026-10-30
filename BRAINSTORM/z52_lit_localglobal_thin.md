@@ -25,3 +25,12 @@
 ### 5. Markoff integral Hasse principle is not pointwise
 **Citation:** A. Ghosh, P. Sarnak, “Integral points on Markoff type cubic surfaces,” arXiv:1706.06712; *Inventiones Mathematicae* 229 (2022); arXiv abstract excerpt accessed 2026-10-18. **Statement:** Abstract says the Hasse principle holds for almost all parameters k, and fails for infinitely many k. **Status:** Published; the precise quantitative failure bound and theorem numbering were not verified from the primary source in this lane. **Relation:** `LITERATURE_AUTOMORPHIC`, `BRAINSTORM/z31_markoff_chen.md`, `BRAINSTORM/markoff_hasse_failures_vs_es.md`; supports the existing warning that varying-family integral existence is distinct from Chen's fixed-fibre connectivity.
 
+## §2 Structural-feature table
+
+| Problem | Structural feature that made it solvable | Does ES share it? | Transfer verdict |
+|---|---|---|---|
+| Apollonian packing missed families | A reciprocity character is constant along an infinite thin-group orbit; density-one theorem leaves a power-sized exceptional set. | **Partial:** T1 is a reciprocity obstruction, but ES has no corresponding infinite Vieta/tangency orbit; see `FRONTIER` §3 and `BRAINSTORM/apollonian_reciprocity.md`. | **Known-dead** as a positive route; cited file explains absent orbit and that the obstruction kills no infinite prime family. |
+| Finite-alphabet CF/Zaremba | Large alphabet/dimension provides power-sized sets; expansion/gluing gives a pointwise denominator claim in 2026 preprints. BK's published result is only almost-all. | **Partial/no:** ES₅ has the CF length-≤3 dictionary but fixed short-word/character constraints, expected ≍log²p rather than a tunable power count; `FRONTIER` §3 B2, §4. | **Known-dead at present scale**; `BRAINSTORM/z31_zaremba_thin_orbits.md` already identifies the power-count mismatch. |
+| Markoff mod-p connectivity | Giant component plus orbit sizes divisible by p forces a single orbit; ambient fibre has ≍p² points. | **No:** ES asks for a certificate on each varying prime, not connectivity of a large finite fibre; its available count is polylogarithmic (`FRONTIER` §3 B2/B6). | **Known-dead** for direct transfer; see `BRAINSTORM/z31_markoff_chen.md`. |
+| Markoff integral points on varying cubics | Almost-all parameter Hasse principle, with infinitely many failures; no pointwise dominance. | **No useful positive feature:** the analogous every-parameter claim fails in the Markoff family; see `FRONTIER` §3 B6. | **Known-dead** as a pointwise precedent; `BRAINSTORM/markoff_hasse_failures_vs_es.md`. |
+
