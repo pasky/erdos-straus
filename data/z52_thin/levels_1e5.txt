@@ -1,0 +1,2 @@
+exp2   pairs=536  SUB=0.433  GEN=0.433  HIT=0.433  GEN&!HIT=0.000
+other  pairs=7504  SUB=0.320  GEN=0.347  HIT=0.062  GEN&!HIT=0.286

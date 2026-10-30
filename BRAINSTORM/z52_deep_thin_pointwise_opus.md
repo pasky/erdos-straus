@@ -147,7 +147,221 @@ solutions on cheap slices at 10¹⁸–10²⁵) is a property of ES, not of the 
 
 ## §2 Most promising untried mechanisms
 
-(skeleton: 3–6 items, each: what it says for ES; first lemma; why §3/§4/§6 doesn't kill it; how it fails; numerics)
+**Bottom line first** (Assessment). Among the classes of §0 I found no untried mechanism with a credible route to ES.
+The generator matrix (§2.0) shows that every cell is either screened by an earlier file or already one of the repo's
+known open loopholes. §2.1–§2.4 work the four cells that had not been screened to a first lemma with a numerical check.
+All four close, with precise reasons. Promise ratings are honest, and all are low.
+
+### §2.0 Generator matrix: thick objects at a fixed prime p × extraction rules
+
+A (T)-type proof needs a thick deterministic object built from p, an exact local extraction rule, and a step that is
+false at odd squares (§4 line 1). Rows are the thick objects available at p; columns are the rules. Each cell names the
+file that screened it, "§2.x" for cells worked here, or **open**.
+
+| thick object at p (size) | collision | parity / count congruence | descent | spectral / interlacing | exact identity / charge | inhomogeneous covering | orbit / expansion | squeeze |
+|---|---|---|---|---|---|---|---|---|
+| O1 trial pairs 𝓡 = {(u,C)} (≍ p log p) | PARITY_AUDIT (tied modulus) | §2.1 | — | PARITY_AUDIT §2 (Weil error p^{1/2}) | SINGLE_P_COUNT genus split; BM_CORRECTED | — | — | — |
+| O2 divisor sets of N_C = 4Cp+1, C ≤ p (each τ(N_C) small; union thick, but large primes are private) | LONGSHOT_PIGEONHOLE (signed only) | §2.1 | — | z45_interlacing_stable (stability lost) | **open** at growing level ((J)10) | z31_zero_sum, EXSET_CHAR_FORCING L2.2, §2.2 | — | PRIMITIVE_INTERSECTION, §0 μ |
+| O3 hyperbola 𝓗: xy ≡ 1 (4p) (≍ p) | SYNTHESIS_SPARKS8 §1.7 (Thue wall) | — | — | PARITY_AUDIT (Kloosterman) | — | (J)85 (sub-power windows needed) | — | — |
+| O4 HJ / CF data {p/a} with χ_p (p) | bsA_farey_lnr_pigeonhole | WINDMILL_REDUCTION (windmill = Conway-river symmetry) | LOWER_TAIL_ASTRA (forest; fixed roots fail under Dickson) | §2.4 | DEDEKIND_ES §2, §2.3 | — | ZAREMBA_TRANSFER (critical count) | — |
+| O5 class groups / forms of disc −4p, p; p = ππ̄ in ℤ[i] (≍ √p) | DETERMINISTIC_EXISTENCE §4 (Pell) | — | noncounting_shapes (Fermat descent: shape constraint) | — | DETERMINISTIC_EXISTENCE row 7 (genus) | — | QUATERNION_ES, (J)33 | PROPAGATION_CLOSURE (Gaussian coordinates: visibility, not class) |
+| O6 lattices L_ρ(g) (ASTRA_BRIDGE) | z31_geometry_topology | — | — | — | — | (J)85 | — | — |
+| O7 Zagier-type sets with an ES-shaped windmill (X(p) of O152) | — | INVOLUTION_ES(2): finite affine menus barred; **open** for non-affine or infinite menus | — | — | — | — | — | — |
+| O8 SL₂ words / theta multiplier (Question R) | — | — | — | — | METAPLECTIC_ES | — | thin_group_orbits, QUESTION_R | — |
+
+Reading (Assessment): the only **open** cells are the two the repository already lists as loopholes. One is growing-level
+exact identities ((J)10: the positivity is the spin event). The other is non-affine windmills (INVOLUTION_ES2). No new open
+cell turned up. Two uses as a generator:
+1. Any new thick object at p (a row) should be run against all eight columns before anything else.
+2. Any new extraction rule (a column) should be run against O1–O8.
+
+The matrix is the deliverable of goal (b) of this wave for lane D.
+
+### §2.1 Count congruences: Chevalley–Warning, Ax–Katz, restricted variables, Zagier-type parity (class ζ)
+
+*What it would say.* Some count attached to p is ≢ 0 modulo a prime q, and the count is over a set whose non-trivial
+elements are certificates. That forces a certificate with no main term at all: count ≥ 1, as in Zagier, Chevalley's
+"#Z ≠ 1", and Chen's "orbit size ≡ 0 mod p".
+
+*The brief's question* is whether ES has a polynomial formulation with #vars > degree, and what would lift a mod-p
+solution to a positive integer one. Two answers.
+
+**Lemma 2.1 (PROVED, elementary).** Let n be odd, t ≡ 0 (mod 4), N = tn + 1 = ∏ ℓ_i^{a_i}, G = (ℤ/t)^× = G₂ × G_odd
+(2-part and odd part), and let
+E_t(n) = {e ∈ ∏[0, a_i] : ∏ ℓ_i^{e_i} ≡ −1 (mod t)} (the level-t (★) certificates).
+* (a) *Complement pairing.* e ↦ a − e is a fixed-point-free involution of E_t(n). Hence #E_t(n) = D_t(n) is even, and so
+  is R(n) = Σ_C D_{4C}(n).
+* (b) *−1 lives in G₂.* The odd-part condition π_odd(∏ ℓ^e) = π_odd(−1) = 1 is homogeneous: e = 0 solves it. Hence a
+  q-adic count congruence for odd q (Chevalley–Warning over F_q, Olson or Davenport in q-groups) can force non-trivial
+  solutions of the *odd-part* condition only. Whether the class is −1 rather than +1 is decided entirely in the 2-group
+  G₂.
+* (c) *No lift is needed in the divisor encoding; the lift fails in the cubic encoding.* A certificate e gives a positive
+  integral (★) triple directly: d = ∏ ℓ^e, u = (d+1)/t, B = (N/d + 1)/t, C = t/4, as in FRONTIER §2.1. In the raw
+  equation F = 4uBC − u − B − p (3 variables, degree 3) Chevalley–Warning does not apply. A "restricted variables + size"
+  lift is also impossible. To lift a zero mod M from a box [1, X]³ one needs M > max|F| ≥ 4X³ − 2X − p. The restricted
+  variable theorem (Bishnoi–Clark Thm 1.3b) needs (M − 1)·3 < 3(X − 1), i.e. M < X. These are incompatible for X ≥ 2 and
+  p ≥ 1.
+
+*Proof.* (a) A fixed point has 2e = a, so d² = N with d ≡ −1 (t). Then d = tu − 1 and t²u² − 2tu + 1 = tn + 1, so
+n = tu² − 2u is even, a contradiction. (b) −1 has order 2, so π_odd(−1) = 1. (c) As stated; the bound uses
+max|F| ≥ F(X, X, X) = 4X³ − 2X − p. ∎
+
+*Consequence (Assessment).* By (a) and (b), a count congruence on the full exponent box is either odd-q, which is blind
+to ±1, or mod 2, where (a) makes it vacuous. Restricted variables can break the complement symmetry: restrict to
+d < √N, which gives D_t/2 at each level and R/2 in total. Then a mod-2 law would need R(p)/2, or some level-wise half
+count, to have forced parity at primes p ≡ 1 (4); it is 0 at odd squares.
+
+*Numerical check* (EVIDENCE; `scripts/z52_thin_parity.c`, outputs in `data/z52_thin/parity_*.txt`). Over n ≡ 1 (4):
+* (a) holds with no exception: every D_C(n) is even, n ≤ 20001 and n ∈ [10⁶, 1.04·10⁶].
+* R(p)/2 is odd for 561/1125 primes ≤ 20001 (0.499) and for 751/1473 primes in [10⁶, 1.04·10⁶] (0.510). For composite
+  non-squares the rate is 0.48–0.50.
+* v₂(R(p)) is spread over 1–6, roughly geometrically (window 10⁶: counts 751, 383, 158, 56, 122, 3 for v₂ = 1…6).
+* So no parity or 2-adic law holds at the (★) layer, consistent with the exact failures (R = 0 at 409, 577, 5569, 9601,
+  all reproduced).
+
+*Why §3/§4/§6 do not kill the class outright.* Line 1 is passable, because Zagier's prime-sensitive step is a
+uniqueness-of-fixed-point step, which is false at squares. The (J)2 / INVOLUTION_ES2 barrier covers finite affine
+menus only.
+
+*How it fails here.* By Lemma 2.1 and the data, the congruence cannot live on certificate sets or their natural halves.
+It must live on a **thick superset** S(p) ⊋ certificates (Zagier's S has \|S\| ≫ √p) with a second involution whose
+unique fixed point exists only at primes. That is exactly INVOLUTION_ES's open non-affine case. This section adds
+nothing that makes that case more likely.
+
+*First problem if someone insists:* exhibit any thick S(p), with an explicit involution σ, such that \|Fix σ\| is odd
+for all primes p ≡ 1 (4) below 10⁴ and Fix(τ) ⊆ ES certificates for a second involution τ. A computer search over
+piecewise-linear involutions with p-dependent breakpoints on the O152 set is the cheapest test.
+
+**Promise: 1/10.**
+
+### §2.2 Zero-sum with a chosen level: Davenport/Olson with AGP freedom, gate G4 (classes ε′, ζ)
+
+*What it would say.* Alford–Granville–Pomerance get subset products ≡ 1 by choosing a modulus whose unit group has small
+exponent, so that the Davenport constant is small. ES can choose its level t = 4C freely (p is forced; t is not). So:
+choose t such that the prime factors of N_t = tp + 1 must contain a subset with product ≡ −1 (mod t).
+
+**Lemma 2.2 (PROVED, elementary).**
+* (a) For every L, the set of t with exp((ℤ/t)^×) \| L is finite: every prime power q^e \| t needs λ(q^e) \| L. So any
+  zero-sum certificate at bounded exponent uses a **fixed finite menu** of levels. Such menus fail for infinitely many
+  p ≡ 1 (24) under Hypothesis H (B2, Thm 2.2(iii); (I)8). Exponent 2 means exactly t \| 24, i.e. Mordell's levels.
+* (b) At an exponent-2 level the divisor-residue set equals the subgroup ⟨ℓ_i⟩, which equals the F₂-span of the ℓ_i
+  (DETERMINISTIC_EXISTENCE Prop 3.3(b)). So linear algebra over F₂ decides the event exactly. At every level,
+  HIT ⇒ SUB ⇒ GEN, where:
+  * HIT: some d \| N_t with d ≡ −1;
+  * SUB: −1 ∈ ⟨ℓ_i⟩;
+  * GEN: −1 ∈ F₂-span of the ℓ_i in G/G² (the genus layer).
+
+*Proof.* (a) λ(q^e) ≥ q − 1 bounds q, and q^{e−1} \| λ(q^e) bounds e. (b) A divisor ≡ −1 is a product of the ℓ_i; reduce
+modulo G². ∎
+
+*Numerical check* (EVIDENCE; `scripts/z52_thin_levels.py`, `data/z52_thin/levels_1e5.txt`; all p ≡ 1 (4) in
+[10⁵, 1.03·10⁵], C ≤ 60):
+
+| levels | (p, C) pairs | SUB | GEN | HIT |
+|---|---|---|---|---|
+| exponent-2 levels | 536 | 0.433 | 0.433 | 0.433 (as (b) forces) |
+| all other levels | 7504 | 0.320 | 0.347 | 0.062 |
+
+So off the exponent-2 levels the genus layer, which is all that F₂ zero-sum arguments see, passes 5.6× more often than
+the true event. 28.6 % of (p, C) pairs are genus-passing misses.
+
+*Why §3/§4 do not kill it outright.* At *unbounded* exponent the menu grows with p, so this is hatch H-A or E1.
+
+*How it fails* (Assessment). Growing the exponent grows the 2-rank of G, which is ω(t) + O(1). The certificate then needs
+the ≈ log log p prime factors of one N_t to reach −1 inside an F₂-space of growing dimension, then the class inside the
+genus coset (factor 5.6 above). Privacy (SYNTHESIS_SPARKS8 L2.3) forbids pooling across levels. The only zero-sum
+theorem with an arbitrary target in the catalogue is Ramaré–Walker (row 18), and it needs the generating set to be *all*
+primes up to q^{16/3}.
+
+*Answer for gate G4.* Davenport, Olson and EGZ certify the identity. With the target −1 they see the F₂-span, and that is
+exact only at t \| 24. This sharpens z33_target_davenport (η(G) = 0 only at exponent 2) with a measured gap.
+
+**Promise: 1/30.**
+
+### §2.3 Discharging: an exact charge identity inside one prime (class θ′, not screened before)
+
+*What it would say.* In the four-colour theorem, an exact Euler identity holds at every planar graph, and local
+redistribution forces a configuration from a finite list. For ES the analogue would be an exact identity over the thick
+object O4 (all a mod p), Σ_a w(a) = W(p) with W(p) > 0 at primes and = 0 at squares, and with w(a) > 0 only when a is a
+certificate (a QNR with HJ-length(p/a) ≤ 3; DEDEKIND_ES Cor 4.6).
+
+**Lemma 2.3 (PROVED relative to the Hirzebruch–Zagier/Barkan–Hickerson–Knuth formula, stated in DEDEKIND_ES §2 and
+re-checked numerically here).** Let p ≡ 1 (4) be prime, p/a = [[b₁, …, b_r]] the minus continued fraction, and
+c(a) = Σ_i (b_i − 3) the HJ charge. Then
+  Σ_{a QNR} c(a) = Σ_{a QR} c(a) = −(p − 1)/2.
+More generally, for any function c on (ℤ/p)^×, Σ_a χ_p(a) c(a) = Σ_a χ_p(a) c⁺(a), where c⁺(a) = (c(a) + c(p − a))/2.
+
+*Proof.*
+* 12 s(a,p) = c(a) + (a + a*)/p, where a·a* ≡ 1 (mod p).
+* s(p − a, p) = −s(a,p) and χ_p(−1) = 1 for p ≡ 1 (4), so Σ_{a QNR} s(a,p) = 0, and likewise over the QRs.
+* The QNRs are closed under a ↦ p − a and a ↦ a*, so Σ_{a QNR} (a + a*)/p = 2 · (p(p−1)/4)/p = (p − 1)/2.
+* The QR case is identical.
+* The general statement is the pairing a ↔ p − a.
+∎
+
+*Numerical check* (EVIDENCE; `scripts/z52_thin_dedekind.py`, `data/z52_thin/dedekind_le700.txt`): the BHKZ identity
+holds for every a and every prime p ≡ 1 (4) with p ≤ 700, with zero violations. Σ_{QNR} 12 s = 0 and both charge sums
+equal −(p−1)/2, as proved. For orientation, the ES₅ certificate counts E5(p) are 2 to 26 in this range.
+
+*How it fails* (Assessment).
+* The natural charge is χ-blind: its odd part cancels.
+* Even charges are character sums Σ χ(a) c⁺(a). Their exact evaluation is the BM / T(p) layer, already free pointwise
+  ((J)103 Prop 2.2, Burgess).
+* A positive χ-weighted total does not localise onto the length-≤ 3 set. Discharging also needs a *local* move: a rule
+  sending charge from a non-certificate a to a neighbour, with "positive final charge ⇒ certificate". The HJ/Stern–Brocot
+  neighbourhoods do not see χ (Lemma 2.3 is the simplest instance).
+* Finite configuration lists would be a fixed menu (B2(iii)).
+
+**Promise: 1/30.** Not new in ingredients (DEDEKIND_ES); new only as a closed mechanism class.
+
+### §2.4 Exact-spectrum interlacing (Huang) and Hoffman–Delsarte forcing (class ν)
+
+*What it would say.* Huang fixes the whole spectrum of a thick signed matrix by an exact identity (A_n² = nI), and Cauchy
+interlacing forces every principal submatrix on more than half the vertices to have a large eigenvalue, hence a vertex
+of high degree. The Paley analogue: the Hoffman bound says a set of residues all of whose differences are QRs has
+size ≤ √p. An ES version would force a χ-sign change, i.e. a certificate (Theorem A: certificate ⟺ (uv/p) = −1), inside
+any sufficiently large p-dependent set.
+
+**Lemma 2.4 (PROVED, elementary).**
+* (a) A ⊆ F_p^× satisfies χ_p(ab) = 1 for all a, b ∈ A iff A lies in one coset of the QR subgroup. Such A can have size
+  (p − 1)/2, so no Hoffman/Delsarte or interlacing bound forces a *product-type* sign change.
+* (b) Additive form of the words: p = tuv − u − v gives ū + v̄ ≡ t (mod p), and the certificate condition is
+  χ_p(ū v̄) = −1. For fixed t the relation x ~ t − x is a perfect matching, with trivial spectrum. For the additive Paley
+  structure, Hoffman needs sets of size > √p.
+
+*Proof.* (a) Fix a₀ ∈ A. Then χ(a) = χ(a₀) for all a ∈ A. (b) From tuv = p + u + v ≡ u + v (mod p). ∎
+
+*Numerical check* (EVIDENCE; `scripts/z52_thin_words.py`, `data/z52_thin/words.txt`). All words p = tuv − u − v
+(t, u, v ≥ 1) were enumerated, and ū + v̄ ≡ t was asserted for each.
+
+| p | words | words with (uv/p) = −1 | max words at one level t | √p |
+|---|---|---|---|---|
+| 409 | 39 | 8 | 12 | 20 |
+| 2521 | 37 | 4 | 8 | 50 |
+| 66529 | 69 | 18 | 8 | 258 |
+| 1000033 | 175 | 116 | 16 | 1000 |
+
+So the word sets are far below the √p scale at which Hoffman-type forcing starts. (The count includes t = 1, 2 words.
+Theorem A's certificate criterion is quoted, not re-proved, and the column is illustrative.)
+
+*How it fails.* The ES sign condition is multiplicative, so (a) applies. The forest signing is gauge-trivial
+(z45_interlacing_stable). The additive reformulation has polylog-size fibres. A Huang-type proof would need a thick
+matrix with an exact spectral identity *and* certificates as its large-degree witnesses. No candidate is known, and
+§2.0 row O4 lists the thick χ-objects that exist.
+
+**Promise: 1/50.**
+
+### §2.5 What a successful mechanism would have to look like (Assessment, distilled from §0–§2.4)
+
+Any proof must combine three things:
+1. A *thick* deterministic object built from p, of size ≥ p^c.
+2. An *exact* extraction rule that outputs a tied-modulus certificate (§4 line 4), not an identity-target collision and
+   not a subgroup or genus statement.
+3. A step that is false at odd squares and true at primes, as Zagier's "exactly one fixed point" is.
+
+The catalogue contains no theorem that delivers item 2 for a target outside a small subgroup, except via a dense
+generating set (Ramaré–Walker) or an orbit structure (Chen). ES has neither. Absent a new extraction rule, the honest
+forecast is that a proof will not come from transplanting a known thin-regime mechanism.
 
 ## §3 Hostile review record
 

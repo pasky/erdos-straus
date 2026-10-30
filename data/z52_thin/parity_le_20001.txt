@@ -1,0 +1,4 @@
+range [5,20001], n≡1 (4); violations of 'every D_C even': 0
+prime                count=1125  R=0:4  R/2 odd:561 (0.499)  #levels with D_C/2 odd is odd:561  v2(R) hist[0..6,zero]: 0 561 290 131 134 5 0 4
+composite-nonsquare  count=3805  R=0:48  R/2 odd:1832 (0.481)  #levels with D_C/2 odd is odd:1832  v2(R) hist[0..6,zero]: 0 1832 990 662 269 4 0 48
+odd-square           count=70  R=0:70  R/2 odd:0 (0.000)  #levels with D_C/2 odd is odd:0  v2(R) hist[0..6,zero]: 0 0 0 0 0 0 0 70

@@ -1,0 +1,19 @@
+BHKZ identity violations: 0
+p=5  sum_QNR 12s=0  charge QNR=-2 QR=-2  (-(p-1)/2=-2)  L3=3  E5=2
+p=13  sum_QNR 12s=0  charge QNR=-6 QR=-6  (-(p-1)/2=-6)  L3=7  E5=4
+p=17  sum_QNR 12s=0  charge QNR=-8 QR=-8  (-(p-1)/2=-8)  L3=7  E5=4
+p=29  sum_QNR 12s=0  charge QNR=-14 QR=-14  (-(p-1)/2=-14)  L3=9  E5=6
+p=37  sum_QNR 12s=0  charge QNR=-18 QR=-18  (-(p-1)/2=-18)  L3=11  E5=8
+p=41  sum_QNR 12s=0  charge QNR=-20 QR=-20  (-(p-1)/2=-20)  L3=9  E5=6
+p=53  sum_QNR 12s=0  charge QNR=-26 QR=-26  (-(p-1)/2=-26)  L3=15  E5=10
+p=61  sum_QNR 12s=0  charge QNR=-30 QR=-30  (-(p-1)/2=-30)  L3=13  E5=8
+p=73  sum_QNR 12s=0  charge QNR=-36 QR=-36  (-(p-1)/2=-36)  L3=15  E5=8
+p=89  sum_QNR 12s=0  charge QNR=-44 QR=-44  (-(p-1)/2=-44)  L3=17  E5=10
+p=97  sum_QNR 12s=0  charge QNR=-48 QR=-48  (-(p-1)/2=-48)  L3=19  E5=8
+p=101  sum_QNR 12s=0  charge QNR=-50 QR=-50  (-(p-1)/2=-50)  L3=15  E5=12
+p=641  sum_QNR 12s=0  charge QNR=-320 QR=-320  (-(p-1)/2=-320)  L3=27  E5=20
+p=653  sum_QNR 12s=0  charge QNR=-326 QR=-326  (-(p-1)/2=-326)  L3=29  E5=24
+p=661  sum_QNR 12s=0  charge QNR=-330 QR=-330  (-(p-1)/2=-330)  L3=41  E5=26
+p=673  sum_QNR 12s=0  charge QNR=-336 QR=-336  (-(p-1)/2=-336)  L3=31  E5=14
+p=677  sum_QNR 12s=0  charge QNR=-338 QR=-338  (-(p-1)/2=-338)  L3=27  E5=22
+all sum_QNR 12s == 0: True  all charge_QNR == -(p-1)/2: True

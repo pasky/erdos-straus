@@ -1,0 +1,7 @@
+p=409  #words=39  #cert(uv QNR)=8  max_t #words=12  sqrt(p)=20
+p=577  #words=45  #cert(uv QNR)=18  max_t #words=16  sqrt(p)=24
+p=2521  #words=37  #cert(uv QNR)=4  max_t #words=8  sqrt(p)=50
+p=3361  #words=47  #cert(uv QNR)=8  max_t #words=10  sqrt(p)=58
+p=9601  #words=53  #cert(uv QNR)=8  max_t #words=8  sqrt(p)=98
+p=66529  #words=69  #cert(uv QNR)=18  max_t #words=8  sqrt(p)=258
+p=1000033  #words=175  #cert(uv QNR)=116  max_t #words=16  sqrt(p)=1000
