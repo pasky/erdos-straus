@@ -599,4 +599,9 @@ bias identities, and an independent W1/parity verification.
      (log X)^{1+δ}. The decisive unknown is a **fibre cap**: the least mean of a non-negative level-λ congruence
      combination that is ≥ 1 on Ω_λ ∩ {(x/q) = −1}. If it is ≈ μ(Ω_λ)ρ_q(λ)·e^{O(λ^{3/4})}, the hybrid gives a power
      saving for ES at primes; if a positive-measure "twisted base" of unbiased avoider points exists at level λ, it caps
-     the hybrid. Neither is known; the sterile planes (measure zero) do not decide it.
+     the hybrid. Neither is known; the sterile planes (measure zero) do not decide it. (Only single-coordinate summands
+     are analysed here; summands exploiting several block primes jointly are not.) A small experiment
+     (`scripts/z51_linnik_tilt.c`, `data/z51_linnik/tilt_N1e8.txt`: primes p ≡ 1 (24) below 10⁸ sieved by all ℛ(M),
+     M ≤ H) shows the tilt only where the level already covers q: at H = 99 / 199 / 399 (5620 / 891 / 98 survivors) the
+     non-residue fraction is 0.13 / 0.11 / 0.11 at q = 11 and 0.16 / 0.15 / 0.12 at q = 23, but ≈ 0.45–0.55 for q ≥ 50;
+     by H = 3199 no prime survives. The relevant regime (q ≈ (log X)^{1+δ}, λ ≈ log X) is far out of numerical reach.
