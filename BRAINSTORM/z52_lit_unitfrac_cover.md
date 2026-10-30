@@ -1,9 +1,11 @@
 # z52 L2 — Unit fractions, covering systems, and multiplicative combinatorics
 
 ## §0 Summary
-- **New since 2026-09-28:** Research in progress; no novelty claim yet.
-- **Transferable features:** To be assessed from source-verified entries.
-- **Campaign verdict changes:** None identified yet.
+- **New since 2026-09-28:** Filaseta–Kalogirou–Klein (arXiv:2610.34541, 2026-10-25) prove a reciprocal-modulus lower bound for distinct covering systems with prime minimum modulus; this is still finite-system control.
+- **Transferable features:** density/mass or many freely chosen terms; aggregate uncovered-density control; subset-product forcing given sufficient length/spread.
+- **ES overlap:** Partial algebraic analogy only. No source-verified result yields pointwise coverage or forces the needed divisor ratio; B2/B3/B6 remain unchanged.
+- **Campaign verdict changes:** None. The detailed distortion and zero-sum verdicts were already screened in `BRAINSTORM/covering_distortion_dual.md`, `BRAINSTORM/addcomb_unit_fraction_density.md`, and `BRAINSTORM/z31_zero_sum.md`.
+- **Status note:** This dossier verifies abstract-level claims from arXiv API records; it does not assert proof-level verification of unaccessed theorem details (listed in §4).
 
 ## §1 Verified entries
 
