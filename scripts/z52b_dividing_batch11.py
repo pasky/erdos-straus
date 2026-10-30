@@ -19,10 +19,11 @@ I("Prediction: under GRH the 'sign layer' reaches n(p) ≤ 2 log² p, so if s(p)
   "Bach's bound makes character patterns of p escape square-like behaviour by ℓ ≈ 2 log² p. If ES-hardness were controlled only by n(p) (plus bounded noise), a GRH-conditional pointwise argument would exist. The observed n(p) = 17 record with s = 2814 shows extra (class-layer) difficulty — consistent with the campaign's 'class, not parity' gap.",
   "Separates how much of ES's tail is explained by the sign layer (characters) vs the class layer; quantitative version of FRONTIER's F6/G4 split.",
   "Quantify: fraction of variance of log s(p) explained by the quadratic-character vector of p modulo ℓ ≤ 100 (linear/tree model).", ["BRAINSTORM/z31_small_count_pointwise.md"], ["least-witness", "gate-G4", "computation"], "med", "cheap")
-I("Connection: Type I families carry quadratic-character conditions via f | (2a)²d + 1",
-  "Every prime factor r of f satisfies (−d/r) = 1, so f lies in the kernel of the genus character attached to Q(√−d) and −f mod 4d lies in a fixed coset. Hence a Type I family at (a,d) only touches primes p with a prescribed value of χ_{−4d}(−p)·… — exactly the mechanism making families correlated and squares (all characters +1 pattern) hard.",
-  "Explains both the correlation result and T1 in one line; suggests organising families by the character they test.", "Verify the coset claim symbolically for small d and list, for each d ≤ 30, which sign of (p/q), q | d, the Type I families require.",
-  [], ["mech:genus", "T1-analogue", "correlation"], "med", "cheap")
+I("Connection: Type I families carry a quadratic-character condition: Type I at (a,d) needs (d/p) = −1",
+  "Elementary: every prime r | f | (2a)²d + 1 has (−d/r) = 1, so the Kronecker character χ = (−4d/·) has χ(f) = 1; p ≡ −f (mod 4d) then gives (−4d/p) = χ(−1) = −1, i.e. (d/p) = −1 for p ≡ 1 mod 4. Hence a Type I solution at (a,d) exists only if d is a non-residue pattern for p, so the least Type I parameter has d ≥ n(p)-type size, and Type I is dead at squares (T1 for Type I).",
+  "Explains the correlation result (families sharing d share the character condition) and the n(p) trend in one line. Almost certainly the campaign's 'sign layer' (F6) in different notation.",
+  "Check the analogous condition for Type II (e | a+b, 4ab | p+e) and confirm against T1_TEMPLATE.md; then re-run the correlation test within fixed-d groups.",
+  ["T1_TEMPLATE.md"], ["mech:genus", "T1-analogue", "correlation", "sign-layer", "seen:T1_TEMPLATE.md"], "high", "cheap")
 I("Feature: character-sorted family covering — ES as a covering of the 'character cube' {±1}^ℓ",
   "Group certificate families by the quadratic-character pattern they require. ES then needs: for every pattern realised by a prime p (all patterns except 'all +1' for squares), some family compatible with that pattern also hits p's finer class. The coarse layer is a covering of the Boolean cube minus the all-ones corner.",
   "Makes T1 (all-ones corner uncovered) and ES (every other corner eventually covered) two parts of one combinatorial statement; the coarse layer may be provable by finite combinatorics.",
