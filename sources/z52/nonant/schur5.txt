@@ -1,0 +1,3 @@
+Source: Marijn J.H. Heule, “Schur Number Five,” arXiv:1711.08076v1, submitted 21 Nov 2017; accessed 30 Oct 2026 at https://arxiv.org/abs/1711.08076.
+
+Abstract excerpt: “We obtained the solution, n=160, by encoding the problem into propositional logic and applying massively parallel satisfiability solving techniques on the resulting formula.” A two-petabyte proof was certified using a formally verified proof checker. This is a finite extremal coloring problem; the source does not reduce an infinite arithmetic theorem to finite SAT.
