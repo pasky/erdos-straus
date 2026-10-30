@@ -507,16 +507,18 @@ exceptional set.)
 
 ### 6.3 Numerics (EVIDENCE; `scripts/z51_forcing_reach.c`, `…_reach_batch.sh`, `…_reach_summary.py`)
 
-36 primes p ≡ 1 (mod 8): eight each near 10⁵, 10⁶, 10⁷ ("exact": E₂ = p/4, E₁ = p/12, see Def 6.1), four near 10⁸ (exact), four
-near 10⁹ (e ≤ 2·10⁷) and four near 10¹⁰ (e ≤ 10⁷); all odd primes q ≤ 1000. The truncation at e ≤ 10⁷ loses ≈ 3 % of
-the supply (at p = 10⁸: 42 %, 72 %, 89 %, 97 %, 99.97 % of the exact supply from e ≤ 10³, 10⁴, 10⁵, 10⁶, 10⁷). 2 682
-randomly sampled witnesses (1 274 Type I, 1 408 Type II) were rebuilt into explicit 4/n identities and checked with
-exact rationals: 0 failures. Per-prime table: `data/z51_forcing/reach_summary.txt`; raw per-q data:
-`data/z51_forcing/reach/`.
+36 primes p ≡ 1 (mod 8): eight each near 10⁵, 10⁶, 10⁷ and four near 10⁸ (cutoffs E₂ = p/4, E₁ = p/12, Def 6.1), four
+near 10⁹ (e ≤ 2·10⁷) and four near 10¹⁰ (e ≤ 10⁷); all odd primes q ≤ 1000; level-1 reach of the two subfamilies of
+Def 6.1 only (lower bounds). Truncation calibration at p = 10⁸: e ≤ 10³, 10⁴, 10⁵, 10⁶, 10⁷ capture 42 %, 72 %, 89 %,
+97 %, 99.97 % of the supply with the standard cutoffs. If the loss scales with the absolute cutoff, the 10⁹/10¹⁰ runs
+miss < 1 %; if it scales with e/p, they miss up to ≈ 3 % (10⁹) and ≈ 11 % (10¹⁰) (R2: not a certified error
+estimate; a small supply loss can move a first hole). 2 682 randomly sampled witnesses (1 274 Type I, 1 408 Type II)
+were rebuilt into explicit 4/n identities and checked with exact rationals: 0 failures (independently re-checked by
+R2). Per-prime table: `data/z51_forcing/reach_summary.txt`; raw per-q data: `data/z51_forcing/reach/`.
 
 Statistics: q* = least q with an unreached non-residue class; S_e = supply, the mean over q ∈ [11, 300] of q times
 the mean number of distinct productive (type, e) per non-residue class (each (type, e) feeds exactly one class mod q);
-R_maj = largest R ≤ 1000 such that reach holds at ≥ 60 % of the odd primes q ≤ R.
+R_maj = largest prime R ≤ 1000 such that reach holds at ≥ 60 % of the odd primes q ≤ R.
 
 | p ≈ | log p | median q* | median S_e | S_e/(log p)³ | median R_maj | q*/(log p)² | q*/((log p)³/log log p) |
 |---|---|---|---|---|---|---|---|
@@ -527,38 +529,41 @@ R_maj = largest R ≤ 1000 such that reach holds at ≥ 60 % of the odd primes q
 | 10⁹ | 20.7 | 60 | 318 | 0.036 | 141 | 0.14 | 0.020 |
 | 10¹⁰ | 23.0 | 93 | 422 | 0.035 | 186 | 0.18 | 0.024 |
 
-* **Supply is cubic.** S_e/(log p)³ stays in [0.027, 0.044] for all 36 primes; the least-squares exponent of the
-  medians is 3.15. This confirms the brief's "cubic supply" for the full ET Type I/II families with modulus ≤ p.
-* **The coupon model fits.** In dyadic q-bands the unreached fraction of non-residue classes matches the Poisson
-  prediction exp(−λ_q), λ_q = (distinct productive e per class), within 10–20 % relative (e.g. p ≈ 10¹⁰,
-  q ∈ [128, 256): 0.142 observed vs 0.123; q ∈ [256, 512): 0.387 vs 0.361).
-* **Fits of the reach.** The first-hole statistic q* grows with exponent 2.29 in log p; q*/(log p)² drifts up
-  (0.13 → 0.18) and q*/((log p)³/log log p) stays at 0.020–0.029. The range 10⁵–10¹⁰ (log p ratio 2) cannot separate
-  the two laws by the first-hole statistic alone; the supply law plus the validated coupon model favour
-  R(p) ≈ c·(log p)³/log log p with c ≈ 0.02–0.03 (heuristic, Assessment).
-* **Majority reach is far below (log p)^{2+δ} at accessible p.** R_maj ≈ 0.35 (log p)² at 10¹⁰. In the coupon model
-  with S_e ≈ 0.033 (log p)³, reach at q ≈ (log p)^{2+δ} needs 0.033 (log p)^{1−δ} ≳ log q; for δ = 0.1 this happens only
-  for log p ≳ 200 (p ≳ 10⁸⁷). So MR(2 + δ, η) — the input Cor 5.3 needs — is numerically false at every accessible p
-  and heuristically true only for astronomically large p. MR(A) for A > 3 fails heuristically for all large p, and for
-  A > 4 provably for almost all p (Cor 6.4).
-* Lane B (z50) measured q* ≈ 11–29 with W1 words only; with all ET Type I/II classes q* is 17–37 at 10⁶–10⁷, 43–83
-  at 10⁸–10⁹ and 83–101 at 10¹⁰.
-* **Controls** (`data/z51_forcing/reach_controls/`, exact): hard primes 193, 409, 577, 2521, 3361 have q* = 11 (the
-  size bound modulus ≤ p leaves few classes); 5569: 17; 9601: 13; 66529: 23; 8813281: 29. The odd squares
+(R2 reproduced all medians and the fitted slopes 3.147 and 2.286 from the raw files.)
+* **Supply consistent with cubic growth.** S_e/(log p)³ stays in [0.027, 0.044] for all 36 primes; the least-squares
+  exponent of the medians is 3.15. This is a fit over a factor 2 in log p for the two searched subfamilies, consistent
+  with the brief's "cubic supply" and with the upper bound of Prop 6.3′; it is not an asymptotic law.
+* **Coupon comparison.** In dyadic q-bands the unreached fraction of non-residue classes is close to the Poisson
+  prediction exp(−λ_q), λ_q the number of distinct productive e per class, averaged over the classes of each q: for the
+  single prime p = 10 000 000 033, q ∈ [128, 256): 0.142 observed vs 0.123; [256, 512): 0.387 vs 0.361 (R2's
+  cell-weighted average over the four 10¹⁰ primes: 0.136 vs 0.122 and 0.379 vs 0.356). Evidence of fit in the measured
+  bands, not of the extreme tail.
+* **Fits of the reach.** q* grows with exponent 2.29 in log p; q*/(log p)² drifts up (0.13 → 0.18) and
+  q*/((log p)³/log log p) stays at 0.020–0.029. The range cannot separate the two laws; the supply fit plus the coupon
+  comparison favour R(p) ≈ c(log p)³/log log p, c ≈ 0.02–0.03 (Assessment), consistent with Cor 6.4 (MR false above
+  (log p)³).
+* **Majority reach at the scales §5 needs.** R_maj ≈ 0.35 (log p)² at 10¹⁰, i.e. above (log p)^{1.6}. MR₁(1/2, η)
+  holds at all 36 primes and MR₁(1, η) at all sampled p ≥ 10⁶ (§5). For the classical-sieve scale (log p)^{2+δ} the
+  coupon model needs 0.033 (log p)^{1−δ} ≳ (2 + δ) log log p, i.e. log p ≈ 840 for δ = 0.1 (R2's correction of an
+  earlier arithmetic slip); with Props 5.1′/5.2 that scale is no longer needed.
+* Lane B (z50) measured q* ≈ 11–29 with W1 words only; with the two ET subfamilies q* is 17–37 at 10⁶–10⁷, 43–83 at
+  10⁸–10⁹ and 83–101 at 10¹⁰.
+* **Controls** (`data/z51_forcing/reach_controls/`, standard cutoffs): hard primes 193, 409, 577, 2521, 3361 have q* =
+  11 (the height bound modulus ≤ p leaves few classes); 5569: 17; 9601: 13; 66529: 23; 8813281: 29. The odd squares
   1002001 = 1001² and 9018009 = 3003² give q* = 31 and 29, like primes of that size: reach is congruence data and is
   blind to T1 (at a square every q is a residue, so Lemma 6.2 never fires there, consistent with T1). Numerator 8:
   Def 6.1 uses the 4/n identities only; nothing here transfers to 8/n.
 
-### 6.4 "A reach for all p outside a set you can bound" (Assessment)
+### 6.4 "A reach for all p outside a set you can bound" (Assessment; R2-revised)
 
-For each q and non-residue r, the set {n : r unreached at (n, q)} is a congruence-avoidance set over n's residues off q,
-with supply ≈ S_e/q ≍ (log n)³/q. Any bound for its size obtained by CRT methods is subject to the supply law of
-z50 A Thm 2.1 for that reduced family, so it is weaker than the corresponding bound for ES itself. Moreover
-{p : Reach(p, q) fails} ⊇ {p : ES(p) fails, (q/p) = −1} (Lemma 6.2). So "Reach for all p outside a bounded set", fed
-into Linnik, returns an exceptional-set bound no better than the bound already needed for the reach-failure set: the
-route is circular unless reach is proved pointwise, as G3 says. What §§5–6 add is quantitative: the pointwise input
-can be weakened to a majority (Cor 5.3), but the majority input is false for A > 4 and heuristically needs p ≳ 10⁸⁷
-for A slightly above 2.
+For each q and non-residue r, {n : r unreached at (n, q)} is a congruence-avoidance set in n's residues off q, with
+supply ≈ S_e/q per class. We have no nontrivial upper bound for it, and a bound proved by CRT majorants would be
+subject to the supply law of z50 A Thm 2.1 for that reduced family (an Assessment: its hypotheses were not verified
+here). Since {p : Reach(p, q) fails} ⊇ {p : ES(p) fails, (q/p) = −1}, a bound for the reach-failure sets is at least as
+strong as the corresponding statement for ES on the line (q/p) = −1. A power-small bound for reach failures at a
+majority of q ≤ C log p would, through Cor 5.4, give the near-power ES bound; it would be genuine progress, and we do
+not have it. The quantitative content of §§5–6 is: the needed reach scale drops to C log p (Prop 5.2), where reach is
+numerically ubiquitous, while above (log p)³ reach provably disappears (Cor 6.4).
 
 ## 7. Least-QNR lines (work item 3)
 
