@@ -1,4 +1,4 @@
 Source: https://arxiv.org/abs/math/0311421 (accessed 2026-10-30)
 Ernest S. Croot III, “On a coloring conjecture about unit fractions,” arXiv:math/0311421 v1 (submitted 2003-11-24), published Ann. Math. 157 (2003), no. 2, 545–556.
-Abstract/theorem: there is b>0 such that for every r-coloring of the integers in [2,br], some monochromatic set S satisfies Σ_{n∈S}1/n=1. This proves the Erdős–Graham coloring conjecture.
+Abstract/theorem: there is b>0 such that for every r-coloring of the integers in [2,b^r], some monochromatic set S satisfies Σ_{n∈S}1/n=1. This proves the Erdős–Graham coloring conjecture.
 This is a coloring-forcing theorem, not representation of each prescribed integer n by sparse witnesses.
