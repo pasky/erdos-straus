@@ -1,0 +1,755 @@
+{
+  "scope": "Exact bounded windows only; no universal ES claim.",
+  "independent_exponent_checks": 331,
+  "prime_count": 1125,
+  "census_no_hit": [],
+  "census_no_odd": [
+    37,
+    19333
+  ],
+  "census_no_spare": [
+    241,
+    769,
+    1129,
+    1201,
+    2161,
+    2521,
+    2689,
+    2833,
+    3169,
+    4513,
+    4561,
+    4801,
+    5521,
+    5881,
+    6481,
+    7489,
+    7561,
+    8161,
+    8761,
+    9601,
+    9649,
+    10369,
+    12241,
+    12721,
+    13441,
+    14401,
+    14449,
+    15241,
+    16921,
+    17041,
+    17761,
+    18481,
+    19009,
+    19681
+  ],
+  "controls": [
+    {
+      "n": 193,
+      "bound": 192,
+      "hit_windows": 2,
+      "odd_index_windows": 2,
+      "spare_windows": 1,
+      "first_hit": [
+        7,
+        50,
+        1
+      ],
+      "first_odd": [
+        7,
+        50,
+        1
+      ],
+      "first_spare": [
+        7,
+        50,
+        5
+      ]
+    },
+    {
+      "n": 409,
+      "bound": 408,
+      "hit_windows": 3,
+      "odd_index_windows": 2,
+      "spare_windows": 1,
+      "first_hit": [
+        7,
+        104,
+        3
+      ],
+      "first_odd": [
+        7,
+        104,
+        3
+      ],
+      "first_spare": [
+        7,
+        104,
+        13
+      ]
+    },
+    {
+      "n": 577,
+      "bound": 576,
+      "hit_windows": 6,
+      "odd_index_windows": 5,
+      "spare_windows": 1,
+      "first_hit": [
+        3,
+        145,
+        2
+      ],
+      "first_odd": [
+        7,
+        146,
+        1
+      ],
+      "first_spare": [
+        3,
+        145,
+        5
+      ]
+    },
+    {
+      "n": 2521,
+      "bound": 2047,
+      "hit_windows": 3,
+      "odd_index_windows": 3,
+      "spare_windows": 0,
+      "first_hit": [
+        23,
+        636,
+        1
+      ],
+      "first_odd": [
+        23,
+        636,
+        1
+      ],
+      "first_spare": null
+    },
+    {
+      "n": 3361,
+      "bound": 2047,
+      "hit_windows": 2,
+      "odd_index_windows": 2,
+      "spare_windows": 1,
+      "first_hit": [
+        3,
+        841,
+        1
+      ],
+      "first_odd": [
+        3,
+        841,
+        1
+      ],
+      "first_spare": [
+        3,
+        841,
+        29
+      ]
+    },
+    {
+      "n": 5569,
+      "bound": 2047,
+      "hit_windows": 9,
+      "odd_index_windows": 8,
+      "spare_windows": 1,
+      "first_hit": [
+        7,
+        1394,
+        2
+      ],
+      "first_odd": [
+        39,
+        1402,
+        1
+      ],
+      "first_spare": [
+        7,
+        1394,
+        41
+      ]
+    },
+    {
+      "n": 9601,
+      "bound": 2047,
+      "hit_windows": 6,
+      "odd_index_windows": 6,
+      "spare_windows": 0,
+      "first_hit": [
+        19,
+        2405,
+        1
+      ],
+      "first_odd": [
+        19,
+        2405,
+        1
+      ],
+      "first_spare": null
+    },
+    {
+      "n": 23929,
+      "bound": 2047,
+      "hit_windows": 12,
+      "odd_index_windows": 11,
+      "spare_windows": 2,
+      "first_hit": [
+        7,
+        5984,
+        11
+      ],
+      "first_odd": [
+        7,
+        5984,
+        11
+      ],
+      "first_spare": [
+        7,
+        5984,
+        17
+      ]
+    },
+    {
+      "n": 66529,
+      "bound": 2047,
+      "hit_windows": 8,
+      "odd_index_windows": 8,
+      "spare_windows": 0,
+      "first_hit": [
+        31,
+        16640,
+        3
+      ],
+      "first_odd": [
+        31,
+        16640,
+        3
+      ],
+      "first_spare": null
+    },
+    {
+      "n": 83449,
+      "bound": 2047,
+      "hit_windows": 10,
+      "odd_index_windows": 9,
+      "spare_windows": 1,
+      "first_hit": [
+        11,
+        20865,
+        4
+      ],
+      "first_odd": [
+        23,
+        20868,
+        3
+      ],
+      "first_spare": [
+        11,
+        20865,
+        13
+      ]
+    },
+    {
+      "n": 102001,
+      "bound": 2047,
+      "hit_windows": 14,
+      "odd_index_windows": 12,
+      "spare_windows": 1,
+      "first_hit": [
+        7,
+        25502,
+        2
+      ],
+      "first_odd": [
+        31,
+        25508,
+        1
+      ],
+      "first_spare": [
+        7,
+        25502,
+        41
+      ]
+    },
+    {
+      "n": 329617,
+      "bound": 2047,
+      "hit_windows": 16,
+      "odd_index_windows": 11,
+      "spare_windows": 2,
+      "first_hit": [
+        3,
+        82405,
+        2
+      ],
+      "first_odd": [
+        83,
+        82425,
+        1
+      ],
+      "first_spare": [
+        3,
+        82405,
+        5
+      ]
+    },
+    {
+      "n": 712321,
+      "bound": 2047,
+      "hit_windows": 18,
+      "odd_index_windows": 17,
+      "spare_windows": 0,
+      "first_hit": [
+        23,
+        178086,
+        3
+      ],
+      "first_odd": [
+        23,
+        178086,
+        3
+      ],
+      "first_spare": null
+    },
+    {
+      "n": 1134241,
+      "bound": 2047,
+      "hit_windows": 25,
+      "odd_index_windows": 20,
+      "spare_windows": 2,
+      "first_hit": [
+        3,
+        283561,
+        2
+      ],
+      "first_odd": [
+        7,
+        283562,
+        3
+      ],
+      "first_spare": [
+        3,
+        283561,
+        233
+      ]
+    },
+    {
+      "n": 1724209,
+      "bound": 2047,
+      "hit_windows": 18,
+      "odd_index_windows": 15,
+      "spare_windows": 1,
+      "first_hit": [
+        7,
+        431054,
+        6
+      ],
+      "first_odd": [
+        59,
+        431067,
+        1
+      ],
+      "first_spare": [
+        7,
+        431054,
+        13
+      ]
+    },
+    {
+      "n": 1726201,
+      "bound": 2047,
+      "hit_windows": 23,
+      "odd_index_windows": 20,
+      "spare_windows": 0,
+      "first_hit": [
+        23,
+        431556,
+        1
+      ],
+      "first_odd": [
+        23,
+        431556,
+        1
+      ],
+      "first_spare": null
+    },
+    {
+      "n": 5212561,
+      "bound": 2047,
+      "hit_windows": 28,
+      "odd_index_windows": 25,
+      "spare_windows": 0,
+      "first_hit": [
+        11,
+        1303143,
+        1
+      ],
+      "first_odd": [
+        11,
+        1303143,
+        1
+      ],
+      "first_spare": null
+    },
+    {
+      "n": 8813281,
+      "bound": 2047,
+      "hit_windows": 22,
+      "odd_index_windows": 17,
+      "spare_windows": 1,
+      "first_hit": [
+        3,
+        2203321,
+        2
+      ],
+      "first_odd": [
+        11,
+        2203323,
+        1
+      ],
+      "first_spare": [
+        3,
+        2203321,
+        281
+      ]
+    }
+  ],
+  "complete_diagnostics": [
+    {
+      "n": 37,
+      "bound": 13,
+      "hit_windows": 1,
+      "odd_index_windows": 0,
+      "spare_windows": 1,
+      "first_hit": [
+        3,
+        10,
+        2
+      ],
+      "first_odd": null,
+      "first_spare": [
+        3,
+        10,
+        2
+      ]
+    },
+    {
+      "n": 2521,
+      "bound": 841,
+      "hit_windows": 3,
+      "odd_index_windows": 3,
+      "spare_windows": 0,
+      "first_hit": [
+        23,
+        636,
+        1
+      ],
+      "first_odd": [
+        23,
+        636,
+        1
+      ],
+      "first_spare": null
+    },
+    {
+      "n": 9601,
+      "bound": 3201,
+      "hit_windows": 6,
+      "odd_index_windows": 6,
+      "spare_windows": 0,
+      "first_hit": [
+        19,
+        2405,
+        1
+      ],
+      "first_odd": [
+        19,
+        2405,
+        1
+      ],
+      "first_spare": null
+    },
+    {
+      "n": 19333,
+      "bound": 6445,
+      "hit_windows": 7,
+      "odd_index_windows": 4,
+      "spare_windows": 2,
+      "first_hit": [
+        3,
+        4834,
+        2
+      ],
+      "first_odd": [
+        307,
+        4910,
+        1
+      ],
+      "first_spare": [
+        3,
+        4834,
+        2
+      ]
+    },
+    {
+      "n": 66529,
+      "bound": 22177,
+      "hit_windows": 8,
+      "odd_index_windows": 8,
+      "spare_windows": 0,
+      "first_hit": [
+        31,
+        16640,
+        3
+      ],
+      "first_odd": [
+        31,
+        16640,
+        3
+      ],
+      "first_spare": null
+    }
+  ],
+  "squares": [
+    {
+      "n": 9,
+      "bound": 255,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    },
+    {
+      "n": 25,
+      "bound": 255,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    },
+    {
+      "n": 49,
+      "bound": 255,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    },
+    {
+      "n": 81,
+      "bound": 255,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    },
+    {
+      "n": 121,
+      "bound": 255,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    },
+    {
+      "n": 169,
+      "bound": 255,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    },
+    {
+      "n": 225,
+      "bound": 255,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    }
+  ],
+  "numerator8": [
+    {
+      "n": 17,
+      "bound": 1023,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    },
+    {
+      "n": 131,
+      "bound": 1023,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    },
+    {
+      "n": 241,
+      "bound": 1023,
+      "hit_windows": 0,
+      "odd_index_windows": 0,
+      "spare_windows": 0,
+      "first_hit": null,
+      "first_odd": null,
+      "first_spare": null
+    }
+  ],
+  "homogeneous": [
+    {
+      "n": 193,
+      "k": 4,
+      "ell": 3,
+      "interior": 3,
+      "boundary": 16
+    },
+    {
+      "n": 193,
+      "k": 4,
+      "ell": 5,
+      "interior": 13,
+      "boundary": 28
+    },
+    {
+      "n": 193,
+      "k": 4,
+      "ell": 7,
+      "interior": 31,
+      "boundary": 40
+    },
+    {
+      "n": 193,
+      "k": 4,
+      "ell": 11,
+      "interior": 91,
+      "boundary": 64
+    },
+    {
+      "n": 9,
+      "k": 4,
+      "ell": 5,
+      "interior": 13,
+      "boundary": 28
+    },
+    {
+      "n": 9,
+      "k": 4,
+      "ell": 7,
+      "interior": 31,
+      "boundary": 40
+    },
+    {
+      "n": 9,
+      "k": 4,
+      "ell": 11,
+      "interior": 91,
+      "boundary": 64
+    },
+    {
+      "n": 17,
+      "k": 8,
+      "ell": 3,
+      "interior": 3,
+      "boundary": 16
+    },
+    {
+      "n": 17,
+      "k": 8,
+      "ell": 5,
+      "interior": 13,
+      "boundary": 28
+    },
+    {
+      "n": 17,
+      "k": 8,
+      "ell": 7,
+      "interior": 31,
+      "boundary": 40
+    },
+    {
+      "n": 17,
+      "k": 8,
+      "ell": 11,
+      "interior": 91,
+      "boundary": 64
+    },
+    {
+      "n": 131,
+      "k": 8,
+      "ell": 3,
+      "interior": 3,
+      "boundary": 16
+    },
+    {
+      "n": 131,
+      "k": 8,
+      "ell": 5,
+      "interior": 13,
+      "boundary": 28
+    },
+    {
+      "n": 131,
+      "k": 8,
+      "ell": 7,
+      "interior": 31,
+      "boundary": 40
+    },
+    {
+      "n": 131,
+      "k": 8,
+      "ell": 11,
+      "interior": 91,
+      "boundary": 64
+    },
+    {
+      "n": 241,
+      "k": 8,
+      "ell": 3,
+      "interior": 3,
+      "boundary": 16
+    },
+    {
+      "n": 241,
+      "k": 8,
+      "ell": 5,
+      "interior": 13,
+      "boundary": 28
+    },
+    {
+      "n": 241,
+      "k": 8,
+      "ell": 7,
+      "interior": 31,
+      "boundary": 40
+    },
+    {
+      "n": 241,
+      "k": 8,
+      "ell": 11,
+      "interior": 91,
+      "boundary": 64
+    }
+  ]
+}

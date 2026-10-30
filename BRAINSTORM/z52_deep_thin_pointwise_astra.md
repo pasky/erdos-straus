@@ -81,7 +81,79 @@ Pending source verification and hostile review. All proposed ES transfers are co
 
 ## §2. Candidate mechanisms and falsifiable first lemmas
 
-Pending. Three to six candidate refinements, not recycled claims of solving B2; include numerical controls and hostile review.
+**Assessment / honest ranking.** I did not find three genuinely promising unscreened *broad* mechanisms. The three least-disqualified **new first tests** below sharpen old open residues. In priority order they are: target-specific quotient index; polynomial existence with boundary removed and height controlled; spare-factor/odd-quotient forcing. Their elementary first lemmas are proved here, but their universal ES upgrades are unproved or refuted. Calling these three new ES methods would overstate the work. Exact finite results come from `scripts/z52_thin_astra_checks.py`, output `data/z52_thin_astra/checks.json`.
+
+### §2.1 Target-specific inversion index, not full-coset coverage
+
+**Definition / prior dictionary.** Fix p≡1 (4) prime, e≡3 (4), gcd(e,p)=1, N=(p+e)/4=∏ℓ_i^{k_i}. Put
+
+`V_e(N)={γ∈∏[-k_i,k_i]∩Z^r : ∏ℓ_i^{γ_i}≡−1 (mod e)}`.
+
+This is the exact ratio-box event of `DETERMINISTIC_EXISTENCE.md` Prop6.1, not new. For γ take coprime a,b with a/b=∏ℓ_i^{γ_i}, let c=N/(ab), d=(a+b)/e. Then
+
+`4/p = 1/N + 1/(p c a d) + 1/(p c b d)`.
+
+**PROVED (first lemma: quotient-index normalization).** γ↦−γ acts freely on V_e(N), because its only fixed integer vector is0, which has residue+1, not−1. Thus `J_e(N)=|V_e(N)|/2` is an integer and J_e>0 gives ES(p). An odd J_e can be certified by counting V_e **mod4**, although its mod2 count is always0. For N=ℓ^k, if −1∈⟨ℓ mod e⟩ and d=ord_eℓ, then
+
+`J_e(ℓ^k)=floor((k+d/2)/d)`;
+
+otherwise it is0. Proof: positive exponents giving −1 are d/2,d/2+d,…; each pairs with its negative. This is a count of exponent vectors, not labelled copies of prime factors (binomial weights would change the index).
+
+**What a new mechanism would need (CONJECTURE / research target, not endorsed).** Construct an arithmetic-dependent finite auxiliary complex/set and a computable relative index I(p) such that I(p)≠0 forces some J_e(N)>0, with e in a growing range. The first proposed implementation is simply I_e=J_e mod2; test it before designing a sophisticated involution. A successful replacement must evaluate its index independently of already enumerating the desired divisors. “I=J” by itself is only a detector, not an existence proof.
+
+**CERTIFIED / decisive failure of that first implementation.** Every target ratio has `e≤(p+4)/3`: a+b≤ab+1≤N+1, while e|a+b. For p=37 the complete range is e=3,7,11. Only e=3 works, N=10, |V|=4, J=2; the other windows have J=0. Hence “for every p some J_e is odd” is **false**, even though ES(37) holds. Among all 1,125 primes p≡1 (4) below20,000, windows e≤min(255,p−1) contain a hit at every p; odd-index hits fail at37 and19333. Extending19333 to its complete range finds an odd index at e=307,N=4910,J=1. A cutoff failure is not promoted to a global failure.
+
+**Why the old screens do not wholly kill the remainder (Assessment).** A growing, non-affine index using actual factor residues is outside `INVOLUTION_ES2.md`'s finite-menu theorem. It is one-sided and fixed-p, so no Linnik/two-sided or B6 conflict. B4's full-covering theorem does not prohibit a target-only index. T1 is automatic for these coprime Type-II ratios, but must appear in an independently evaluated index; the numerator-8 formula uses N=(p+e)/8 and must not have the same forced nonzero index. The explicit new cost is a nonvanishing theorem, not more computation of J.
+
+**Failure modes / Assessment.** Generic parity already vanished before taking the quotient, and quotient parity still cancels at37. Weighting or refining J without an independent identity merely re-encodes B2. No uniform finite dictionary of congruence/factorization indices is proposed. **Rank1, low promise:** retain only if a concrete index identity appears; do not start an unrestricted involution search.
+
+### §2.2 Chevalley–Warning after homogenization: exact boundary and lifting budget
+
+**Candidate.** Homogenize `kxyz=n(xy+xz+yz)` to
+
+`F_{k,n}(X,Y,Z,W)=kXYZ−nW(XY+XZ+YZ)=0`.
+
+There are four variables and degree3, so CW really does apply over F_ℓ. This fixes the superficial “three variables versus cubic” problem, but not the integral problem.
+
+**PROVED (first lemma: exact modular inventory).** For ℓ∤kn, the number of projective F_ℓ points is `ℓ²+3ℓ+1`; the part with XYZW≠0 has `ℓ²−3ℓ+3` points; the boundary has `6ℓ−2` points.
+
+Proof: W=1 with XYZ≠0 is equivalent under a=1/X,b=1/Y,c=1/Z to a+b+c=k/n with a,b,c≠0. There are (ℓ−1)² choices of a,b, of which ℓ−2 give a+b=k/n; this gives the interior count. At W=1 with XYZ=0, at least two coordinates vanish, giving three axes, `3ℓ−2` points. At W=0, XYZ=0 is three projective lines with pairwise-distinct intersection points, hence `3ℓ` points. Add. The affine homogeneous zero count is `1+(ℓ−1)(ℓ²+3ℓ+1)=ℓ³+2ℓ²−2ℓ`, divisible byℓ as CW predicts. ∎
+
+**Consequences (PROVED / Assessment separated).** The fourth variable yields real modular points, not merely the origin, but all good-prime counts are independent of n and k. They are identical for (k,n)=(4,193),(4,9),(8,17),(8,131),(8,241). At ℓ|kn this calculation is not applicable; in particular modulo the denominator prime, needed ES points lie on the boundary. Removing that boundary globally would discard actual certificates. Full ES at odd squares is not false—T1 concerns the Type-I/II marking, absent from this homogenized inventory.
+
+**PROVED (height-to-equality lemma).** If positive x,y,z≤H satisfy the affine equation modulo an integer L and `L>kH³+3nH²`, then they satisfy it in Z, because the absolute residual is <L. This is the precise pigeonhole/size gate, analogous to the useful final step for two squares. It supplies no such small modular zero.
+
+**First genuinely missing lemma (CONJECTURE / specification only).** For each hard prime p, find H(p), L(p)>4H(p)³+3pH(p)² and a solution modulo L(p) with representatives 1≤x,y,z≤H(p), with the necessary p-adic denominator pattern. That statement implies ES immediately; it is **not shown easier than ES**, and is not claimed as a useful standalone conjecture. A viable new CW variant would need to force this *small positive marked box*, not just all of F_ℓ^4. Appending a variable with `TXYZ−1=0` adds degree4; adding dummy variables only multiplies zero counts and gives no primitive or height information. Grynkiewicz's weighted prime-power theorem explicitly charges the degrees and prime-power moduli (P1), rather than providing this lemma for free.
+
+**CERTIFIED.** Exhaustive projective enumeration verifies the inventory for ℓ=3,5,7,11 and each of the five (k,n) pairs above (all are good primes here). The bound is a few thousand tuples per instance, streamed, not a huge Cartesian array. Existing numerator-8/odd-square integral tests are not re-proved by this experiment.
+
+**Scope / failure (Assessment).** `BRAINSTORM/polynomial_method.md` screened finite-field zero-sums; this explicit four-variable compactification and boundary subtraction were not found in the grep audit. That is the limited novelty. B5/checklist2,11–13 kill a numerator-blind or unmarked lift; B3 is not a theorem forbidding an exact index proof, and B1 does not exclude a growing marked-box construction. **Rank2, diagnostic value only:** no lift supplied, no ES progress; the bare CW proposal is closed by the exact inventory.
+
+### §2.3 A spare-factor criterion in the odd quotient
+
+**Motivation / new refinement.** EGZ/CW often leave a distinguished variable available to force a prescribed target, rather than merely produce an identity relation. Here the natural distinguished item is one actual prime occurrence in N. This is not a generic zero-sum claim or a claim of logarithmic Davenport constant. The new test makes the cost of reserving that occurrence explicit.
+
+**PROVED (first lemma: deletion-cover criterion).** Let q≡3 (4) be prime, gcd(N,q)=1, H=(F_q^×)² of odd order m=(q−1)/2. Suppose a prime factor ℓ|N is a quadratic nonresidue modq and
+
+`{d² mod q : d | N/ℓ}=H`.
+
+Then `−1∈{a/b mod q : ab|N}`.
+
+Proof: assume no such target ratio. If divisors d₁,d₂|N have equal squares modq, their residues differ by±1; the minus case gives a forbidden ratio after cancelling gcd(d₁,d₂), since the resulting a,b are coprime and ab|N. Therefore the Legendre sign of a divisor is a well-defined function f on its squared residue. By the covering hypothesis this defines f:H→{±1}. For every h∈H choose d|N/ℓ with d²=h. Both d and ℓd divide N, so `f(ℓ²h)=−f(h)`. Iterating the translation by ℓ² an odd number ord_q(ℓ²) of times gives f(h)=−f(h), contradiction. ∎
+
+The hypothesis is stronger than mere −1 subgroup membership, uses the **actual occurrence budget**, and allows large prime factors. It forces one target by an odd-cycle contradiction. It is not claimed to avoid a coverage cost: necessarily τ(N/ℓ)≥(q−1)/2. Thus “polylog-length zero-sum” has not been manufactured.
+
+**What it would say for ES (CONDITIONAL on a new coverage hypothesis).** If every sufficiently large p≡1 (4) had q≡3 (4), q≤(p+4)/3, q≠p and ℓ|N=(p+q)/4 satisfying the lemma, then every such p would have a Type-II ES certificate. The new hypothesis is substantially stronger than ES, not a standard conjecture. For odd squares n with gcd(n,q)=1 the conclusion is ruled out by T1, so the deletion-cover hypothesis necessarily fails. Numerator8 has the same abstract group lemma but no guarantee that one of its windows satisfies the hypothesis.
+
+**CERTIFIED / failure of the universal first guess.** In the 1,125-prime sample with q≤255, 34 primes have no spare-factor certificate, despite all having ordinary ratio hits. The **complete** window ranges at2521,9601,66529 have respectively3,6,8 ordinary hit windows and zero spare-factor windows. These refute an all-prime deletion-cover theorem; an eventual version would at least need threshold>66529, and the data do not support treating it as a promising replacement for B2. At37, in contrast, q=3,N=10,ℓ=2 gives the spare-factor certificate while §2.1's parity index is even: the two tests are genuinely different sufficient conditions.
+
+**Scope and likely failure (Assessment).** The broad class was already screened by `LONGSHOT_PIGEONHOLE.md`, `BRAINSTORM/z33_target_davenport.md`, and `EXSET_CHAR_FORCING.md`. No identical deletion-cover lemma was found; its purpose is to expose the reserved-factor cost, not claim a new additive-combinatorial principle. With only small factors this is still a transparent covering certificate under B4. Using all actual large factors is outside that specific no-go, but the coverage becomes the same single-integer B2 difficulty. **Rank3, do not pursue as a universal ES route without a weaker target-specific hypothesis.**
+
+### §2.4 Joint controls and what survives
+
+**CERTIFIED (new diagnostics only).** All14 R-zeros and193,2521,3361,66529 have a ratio hit and an odd-index hit in e≤min(2047,p−1). These are full Type-II window tests, **not** the (★) line, so there is no contradiction with R=0. At3361, e=3,N=29² is a hit; the repo's “prime-modulus Type-II” exception uses a different shot modulus, not this e. Seven odd squares 9,…,225 have no coprime ratio hit through255. The numerator8 versions at17,131,241 have no hit through1023. These bounded checks are controls, not new global impossibility proofs; the existing z43/z45 suites already supply the stronger integral control tests.
+
+**Assessment / all-screen accounting.** p stays fixed; no averaged theorem is specialized to it (line5). No two-sided count estimate is proposed (line7). Indices, factors, and moduli may grow; no finite identity menu is claimed (line8). No large factors are pooled across shifts (line10), no signed reflection is used (line11), and no relaxation is silently transported (line12). The unproved steps are exactly **independent target-index nonvanishing**, **a positive small-box integral lift**, and **actual divisor quotient coverage**. They fail lines4/9/13/17 until new arithmetic is supplied. Thin-family identities and near-square exclusions do not repair them (lines15–16). Thus none currently passes the checklist as an ES proof.
 
 ## §3. Sources, checks, and limitations
 
