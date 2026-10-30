@@ -1,0 +1,4 @@
+X=1000 nodes=10903 distinct_s=973 avg_mult=11.21 missing_nonsquare_int_areas=[5, 29, 80, 99, 179] squares_hit=[] odd_s_missing=[]
+X=10000 nodes=238256 distinct_s=9925 avg_mult=24.01 missing_nonsquare_int_areas=[5, 29, 80, 99, 179] squares_hit=[] odd_s_missing=[]
+X=100000 nodes=4995602 distinct_s=99772 avg_mult=50.07 missing_nonsquare_int_areas=[5, 29, 80, 99, 179] squares_hit=[] odd_s_missing=[]
+X=1000000 nodes=102794328 distinct_s=999288 avg_mult=102.87 missing_nonsquare_int_areas=[5, 29, 80, 99, 179] squares_hit=[] odd_s_missing=[]

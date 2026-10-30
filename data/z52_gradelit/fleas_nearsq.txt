@@ -1,0 +1,17 @@
+X 1000000 A in (125000, 500000) class means mod 8: {0: 113.6, 1: 114.01, 2: 114.46, 3: 114.05, 4: 113.59, 5: 114.04, 6: 114.46, 7: 114.01}
+K=-4 n=353 mean_ratio=1.029 sd/sqrt(n)=0.016
+K=-3 n=353 mean_ratio=1.157 sd/sqrt(n)=0.017
+K=-2 n=353 mean_ratio=0.981 sd/sqrt(n)=0.013
+K=-1 n=353 mean_ratio=1.046 sd/sqrt(n)=0.016
+K=+1 n=353 mean_ratio=0.802 sd/sqrt(n)=0.011
+K=+2 n=353 mean_ratio=1.223 sd/sqrt(n)=0.019
+K=+3 n=353 mean_ratio=1.186 sd/sqrt(n)=0.018
+K=+4 n=353 mean_ratio=0.810 sd/sqrt(n)=0.011
+K=+5 n=353 mean_ratio=1.005 sd/sqrt(n)=0.014
+K=+6 n=353 mean_ratio=1.044 sd/sqrt(n)=0.014
+K=+7 n=353 mean_ratio=0.945 sd/sqrt(n)=0.011
+K=+8 n=353 mean_ratio=1.217 sd/sqrt(n)=0.017
+K=+9 n=353 mean_ratio=0.901 sd/sqrt(n)=0.015
+K=+12 n=353 mean_ratio=1.060 sd/sqrt(n)=0.015
+K=+16 n=353 mean_ratio=0.826 sd/sqrt(n)=0.012
+K=+25 n=353 mean_ratio=0.755 sd/sqrt(n)=0.009

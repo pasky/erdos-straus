@@ -1,0 +1,17 @@
+X 1000000 A in (125000, 500000) MOD 9240 class-mean range 75.85 191.2
+K=-4 n=353 mean_ratio=0.929 sd/sqrt(n)=0.010
+K=-3 n=353 mean_ratio=1.094 sd/sqrt(n)=0.012
+K=-2 n=353 mean_ratio=1.015 sd/sqrt(n)=0.011
+K=-1 n=353 mean_ratio=0.946 sd/sqrt(n)=0.010
+K=+1 n=353 mean_ratio=0.932 sd/sqrt(n)=0.010
+K=+2 n=353 mean_ratio=1.052 sd/sqrt(n)=0.011
+K=+3 n=353 mean_ratio=1.096 sd/sqrt(n)=0.012
+K=+4 n=353 mean_ratio=0.940 sd/sqrt(n)=0.011
+K=+5 n=353 mean_ratio=0.996 sd/sqrt(n)=0.011
+K=+6 n=353 mean_ratio=1.039 sd/sqrt(n)=0.010
+K=+7 n=353 mean_ratio=0.982 sd/sqrt(n)=0.010
+K=+8 n=353 mean_ratio=1.048 sd/sqrt(n)=0.011
+K=+9 n=353 mean_ratio=0.940 sd/sqrt(n)=0.011
+K=+12 n=353 mean_ratio=0.988 sd/sqrt(n)=0.011
+K=+16 n=353 mean_ratio=0.956 sd/sqrt(n)=0.011
+K=+25 n=353 mean_ratio=0.943 sd/sqrt(n)=0.011

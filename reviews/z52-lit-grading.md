@@ -166,8 +166,140 @@ scope. The errors run the other way: two cases of **under-scoped enthusiasm** (L
 | Hough + LLL | no | AGREE | Positive uncovered density per finite system. Wrong direction and wrong target |
 | §3 "none" | — | AGREE | |
 
-## 3. Cross-lane synthesis
-(TODO)
+## 3. Cross-lane synthesis: what the z52 literature says about ES itself
+
+**Bottom line (Assessment).** The seven dossiers contain **no** result that changes the ES map. Every result that is
+solved and pointwise has one of these features: (i) a power-size witness reservoir (Goldbach pairs, q^{2w_M−1}
+Zaremba numerators, ≍ p² Markoff fibres, Apollonian X^{0.3} multiplicity); (ii) an arithmetic progression of length
+≍ n inside the fibre (Rickards–Stange's fat case); (iii) free choice of the witnesses (unit-fraction denominators,
+small primes for subset products); or (iv) averaging (almost all q, density one, an interval of m). ES at one prime
+has none of the four: its count is ≍ log²p, its witnesses are divisors of p-tied integers (B2), and p is fixed (B6).
+That sentence already describes `FRONTIER.md` §§3–4. The findings below are the items where z52 adds a fact, a
+calibration or a correction.
+
+**F1. Zaremba is now claimed in full (CLAIMED, unrefereed; not new to the repository).**
+* *Sources.* Zhang 2605.02518v2 Thm 1.2 ("Zaremba's conjecture holds"; M absolute, large, effective). Shkredov
+  2603.14116v2 Thm 8 (∀q, ≥ q^{2w_M−1−o(1)} numerators with digits ≤ 100M) and Remark 9 (full generality via
+  Zhang–Tang general-modulus expansion). Both already in `LITERATURE_2026.md:721`.
+* *What made it solvable.* Expansion and gluing in SL₂(ℤ/q) on Cantor-type digit sets, with a count that can be
+  **tuned** to near q¹ by enlarging the alphabet. The method itself certifies q^{1−O(1/M)} numerators, so the count
+  is power-size.
+* *Does ES share it?* **No.** ES₅'s word length is fixed at 3, so its count ≍ log²n cannot be tuned (B3). Its
+  matrices are self-levelled, with the congruence modulus equal to the entry c (B2; `QUESTION_R.md` Prop 1.1). And
+  expansion holds at n = m² too, so it cannot see T1 (`QUESTION_R.md` Prop 2.2).
+* *First problem.* None new. Question R / Hypothesis TG (`QUESTION_R.md` §2) remains the hinge, and Zhang's
+  expansion does not touch TG.
+
+**F2. "Squares + finitely many sporadic": four instances. Is ES₅/U(n) literally one of them?**
+
+| Instance | Obstructed set | Sporadic set | Status | Fibre size |
+|---|---|---|---|---|
+| Rickards–Stange Thm 2.8, Ψ-orbit of 2/3 (Duke 2025) | squares | 15 explicit values | **PROVED** (effective cofinite) | fat: an arithmetic progression of length ≍ n/(8xy) on each line; Pólya–Vinogradov finishes |
+| HKRS Apollonian packings (Annals 2024) | u·m², u·m⁴ families | finite? (Conj 1.5) | OPEN; Bourgain–Kontorovich density one | power, ≍ N^{δ−1}, δ ≈ 1.31 |
+| Alkauskas flea areas, 2508.05347v3 (2026-09-09) | squares (Thm 2(ii), PROVED via an HKRS-type character) | {5, 29, 80, 99, 179} up to 10¹² (CERTIFIED); completeness "still unproved" | OPEN | power; see below |
+| U(n), n ≡ 1 (4) (campaign) | odd squares (T1, PROVED) | {105, 2961, 3985, 25305, 111969, 978145} up to 10⁹ (CERTIFIED) | CONJECTURE | ≍ log² n |
+
+* *Literal instance? No, for three exact reasons.*
+  * (a) Both RS and HKRS sets are orbits of a finitely generated semigroup or group. The sign is carried along the
+    orbit by a homomorphism (RS: σ on Γ₁(4)_{≥0}, the theta multiplier; `QUESTION_R.md` Thm 1.5). ES₅/U(n)
+    certificates are self-levelled matrices [[A, n], [t, A*]] with A ≡ A* ≡ −1 (mod t) (`QUESTION_R.md` Prop 1.1),
+    and the slice numerator sets meet RS Def 2.4 but are not semigroup orbits (R276).
+  * (b) Elementary sharpening (PROVED, two lines): the (A)3 certificate matrices have 4 | c and a ≡ d ≡ 3 (mod 4)
+    (`QUESTION_R.md` Prop 1.4). Any product of two such matrices has a ≡ d ≡ 1 (mod 4) and 4 | c (since
+    a₁a₂ + b₁c₂ ≡ 9 and c₁b₂ + d₁d₂ ≡ 9 mod 4), i.e. it lies in Γ₁(4)_{≥0}, where RS's unflipped law (a/b) = (c/d)
+    holds. So no nontrivial semigroup has all its elements in the certificate coset. An orbit model would have to
+    alternate cosets, and −I, which repairs the coset, leaves the positive cone. This is the "place at infinity" of
+    `QUESTION_R.md` Thm 1.5 again.
+  * (c) Scale: fat ≍ n, Question R ≍ n^{2δ−1}, U(n) ≍ log²n.
+  HKRS's revised conjecture (admissible, non-obstructed values occur with finitely many exceptions) is OPEN for
+  every packing type. It is proved only in RS's fat case. Nothing in 2024–26 proves it for a thin orbit, which agrees
+  with `QUESTION_R.md` §5. The Shi–Shi–Whitehead–Williams-Tracy–Zhang and Alkauskas papers add obstructions, not
+  local-global theorems.
+* *What made RS Thm 2.8 solvable.* Fatness: lines inside the orbit turn the reciprocity question into a character
+  sum over an interval. Alkauskas's *proved* half (every half-integer area) comes from the same feature: the linear
+  family s(U^t G) = 1 + 2t. In every known instance, the obstructed part is proved only when the fibre contains an
+  arithmetic progression of length ≍ n. **ES does not share this** (B3).
+* *New calibration (EVIDENCE, my computation).*
+  * `scripts/z52_gradelit_fleas.py` (geometric simulation of outward-square jumps from G and its three
+    negative-jump neighbours) reproduces Alkauskas's sporadic list {5, 29, 80, 99, 179} and finds no square area up
+    to doubled area 10⁶.
+  * The orbit has 1.03·10⁸ nodes against 0.999·10⁶ attained values, so the average multiplicity is 102.9. This
+    multiplicity grows by ×2.1 per decade, ≈ X^{0.32}, which matches the Apollonian exponent δ − 1 ≈ 0.31 (the flea
+    states lie in a Descartes-quadruple orbit, Alkauskas eq. (8)). Data: `data/z52_gradelit/fleas_counts.txt`.
+  * So the flea problem is a power-count model, like RS and HKRS, and **not** a polylog model of U(n).
+  * By-product (`fleas_nearsq*.txt`): after normalising by A mod 9240, areas A = m² + K show deficits of 5–7 %
+    (each ≈ 5–7σ) at K ∈ {±1, ±4, 9, 16, 25} and excesses at K ∈ {±3, 2, 6, 8}. That mirrors the near-square deficits
+    of the ES five-slice count (`QUESTION_R.md` §3.2) at K = 1, 4, 16, 25 and the non-deficit at K = −3, but not at
+    K = 8 (deficit for ES, excess here). This is crude, since densities at primes > 11 are not normalised. It suggests,
+    as Assessment only, that near-square deficits are generic to reciprocity-obstructed sets rather than specific to
+    ES.
+* *First problem.* None at the ES scale. The only polylog member of the table is U(n) itself.
+
+**F3. The natural "prime + powers of 2" ladder (Li–Liu 2610.15784, NEW; Crocker 1971 and Pan 2011, already in the repository).**
+* *Sources.* Two primes + K powers: K = 6 unconditional, K = 5 under GRH (Li–Liu Thms 1.1–1.2; the previous record
+  was Johnston–Trudgian 2026, K = 7/6). One prime + one power: fails on an arithmetic progression (Erdős 1950
+  covering). One prime + two powers, with ≍ log n expected witnesses: **fails infinitely often** (Crocker Thm I, via
+  the Fermat factorisation of 2^{2^n} − 1), and ≫ x^{1−ε} times by Pan 2011 (per `s9_lower_tail_literature.md`).
+* *What made the top rung solvable.* The Goldbach pair main term N/log²N, a power, carried by the circle method.
+* *Does ES share it?* **No.** ES's ≍ log²p sits at the rung where every *natural* example has an infinite structured
+  exceptional set. That is the existing lesson of `s9_lower_tail_literature.md`, and L5 missed it.
+* *One structural difference (PROVED, elementary).* ES failures cannot contain an arithmetic progression of n
+  coprime to its modulus. Such a progression contains qr with q, r ≡ 3 (mod 4) primes, and ES(qr) follows from
+  ES(q). So the Erdős mechanism is excluded for ES; the Crocker and reciprocity (T1) mechanisms act on structured
+  composite n.
+* *First problem.* None new.
+
+**F4. Subset-product generation (Klurman–Shparlinski–Teräväinen 2609.25393, new to the repository; Pilatte 2404.16450v3; LLS).**
+* *What made it solvable.* Freely and randomly chosen small primes, plus character-sum control *on average over q*.
+* *Does ES share it?* **No.** In gate G4 (`EXSET_CHAR_FORCING.md` §2) the generators are the prime factors of
+  x = (p + q)/4, so there are only ω(x) of them and they are tied to p (B2, §4.17). KST §1.2 adds a calibration: even
+  for *free* primes, removing the almost-all restriction requires Vinogradov's least-QNR conjecture, while the
+  GRH pointwise version is easy (orthogonality). In ES the QNR layer is supplied by forcing ((q/p) = −1). What
+  remains open is the *class* layer (the target −1 itself), which is §4.9's "class, not parity". No literature
+  item touches it.
+* *First problem.* None.
+
+**F5. Li's #306 and the 2025–26 AI/Lean crop (#283, #306, #728, #729, #401, #90).**
+* *What made them solvable.* Abundance: Fourier counts over exponentially many configurations (#306, building on
+  Tang's earlier Lean proof), counting a good m inside an interval (#728, #729, #401), random or algebraic
+  constructions (#38, #90), or complete-sequence switching with unbounded term count (#283).
+* *Does ES share it?* **No.** None of these problems has ES's quantifier shape ("every n, with a polylog witness
+  count").
+* *Calibration (Assessment).* The current AI+Lean pipelines resolve exactly the problem types that the campaign's
+  barriers say are reachable (B6, §4.12). No 2025–26 AI-assisted result breaks that pattern.
+* *First problem.* None. L1's two "candidates" do not survive (§2).
+
+**F6. Direct ES literature since 2026-09-28: one item, conditionally false.**
+* Cao–Xu 2610.32302 proposes a 56-family polynomial "cover", tested to m ≤ 10¹¹ and unproved by the authors' own
+  account. By B1 Thm C it fails for infinitely many p ≡ 1 (24), CONDITIONAL on Hypothesis H (Assessment, since I did
+  not check that the families are polynomial).
+* Status of the field: ES OPEN; record verification 10¹⁸ (Mihnea–Dumitru); Bradford's claim unaccepted.
+
+**F7. Markoff connectivity, now with general parameters.**
+* *Sources.* Kingsbury-Neuschotz 2603.04096v3: density-one primes for any nondegenerate (A, B, C, D). Chen's
+  all-large-p theorem: "every orbit has size divisible by p" + BGS giant component.
+* *What made Chen's case pointwise.* A divisibility invariant of orbit sizes.
+* *Does ES share it?* **No.** It has no infinite group on the fibre and no divisibility pattern in its graph orbits
+  (`z31_markoff_chen.md` (c)).
+* *First problem.* None.
+
+**F8. Covering systems (Filaseta–Kalogirou–Klein NEW; Hashimoto; Harrington–Klein–Lowrance–Trifonov).** Structure
+theory of finite systems. B1 says finite congruence menus cannot prove ES, so these results cannot bear on it.
+Irrelevant.
+
+**Answer to the brief's specific question (Assessment).** ES₅/U(n) is *not* literally an instance of a
+Rickards–Stange semigroup orbit or of an HKRS packing, by (a)–(c) of F2. It matches their *exception shape*
+exactly: a quadratic family, plus finitely many sporadic values in every computed range. Where that shape is
+*proved* (RS fat orbits), the proof runs on a feature U(n) provably lacks at its scale: an arithmetic progression
+of length ≍ n in the fibre. The literature therefore offers U(n) a *model of the statement*, not a *method*. Nothing
+of this changes since `QUESTION_R.md` and `z36_reciprocity_obstruction_home.md`; z52 adds Alkauskas (a fourth
+instance, power-count) and the Fuchs correction.
+
+**Weak points / first problems ranked (Assessment).** No literature-derived first problem survives the screen. The
+best candidates are already in `FRONTIER.md` §7: Question R/TG (item 11), Conjecture I3 (item 17), and RLD-U. z52
+confirms rather than reorders them. One cheap follow-up is optional. If someone pursues the reciprocity singular
+series of `QUESTION_R.md` §3, the flea orbit gives a decidable, obstructed control set on which to test whether
+M_R-type corrections predict near-square deficits. My crude by-product suggests they exist there too.
 
 ## 4. Draft LITERATURE_2026.md additions
 See `LIT_Z52_ADDITIONS.md`. (TODO)
