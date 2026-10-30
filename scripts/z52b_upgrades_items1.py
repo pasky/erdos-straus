@@ -51,7 +51,7 @@ I("SCHN", "Schnirelmann/Mann in the space of fractions: ES as U + (U+U) ∋ 4/n"
   "Formalize U+U as {a/b : b has a divisor pair (d,e) with d+e ≡ 0 mod a}; study the measure/density of 4/n − U ∩ (U+U) for n in a dyadic range.",
   ["additive-basis", "sumset", "egyptian-fractions"], "low", "medium")
 I("SCHN", "Diophantine approximation spectrum of 4/p by three unit fractions",
-  "Schnirelmann-type arguments start from approximate representations. Define δ(p) = min_{x,y,z} |4/p − 1/x − 1/y − 1/z| over x,y,z ≤ p^A; ES(p) ⟺ δ(p) = 0. Study the gap structure of the set of values near 4/p.",
+  "Schnirelmann-type arguments start from approximate representations. Define δ(p) = min_{x,y,z} |4/p − 1/x − 1/y − 1/z| over x,y,z ≤ p^A (A large enough that all solutions are included); ES(p) ⟺ δ(p) = 0. Study the gap structure of the set of values near 4/p.",
   "If near-solutions are abundant at scale p^{−k} and the set of 3-term sums has a 'no isolated gap' property near 4/p, existence might follow by a continuity/pigeonhole step.",
   "Compute the k smallest nonzero |4/p − Σ| for p ≤ 10⁵ and look for universal patterns in the residual numerators.",
   ["approximation", "numerics", "egyptian-fractions"], "low", "cheap")
@@ -208,7 +208,7 @@ I("FIFTEEN", "Escalation of certificate menus: the ES 'truant' tree",
 I("FIFTEEN", "Per-level explicit thresholds: R_t(n) is exactly a divisor count — make each level's failure set explicit",
   "290 theorem: explicit per-form cusp bounds + finite checks. ES levels have no cusp part (METAPLECTIC Thm K: R_t = D_t^− − β_t), so each level's failure set is an explicit multiplicative condition on tn+1. Compose them escalator-style.",
   "Explicit per-level failure sets turn the menu escalation into a computation on multiplicative sets (thin sets S_t).",
-  "For t ≤ 64 describe {n : D_t^−(tn+1) = 0} as 'tn+1 has all prime factors in a subgroup avoiding −1 mod t' and compute the densities of intersections.",
+  "For t ≤ 64 describe {n : D_t^−(tn+1) = 0} as 'no sub-multiset product of the prime factors of tn+1 is ≡ −1 mod t' (prime factors in a subgroup avoiding −1 is sufficient but not necessary — e.g. t = 28, N = 141 = 3·47) and compute the densities of intersections.",
   ["explicit", "multiplicative-sets", "levels"], "high", "cheap", seen=["METAPLECTIC_ES.md"])
 I("RAMTERN", "Waldspurger-type formula: is some ES deviation a central L-value?",
   "Ono–Soundararajan proved Ramanujan's form under GRH because coefficient² ∝ L(1/2, f⊗χ_n) (Waldspurger), which GRH bounds. ES: look for an ES generating function with a cuspidal component whose p-th coefficient² is a twisted central value.",

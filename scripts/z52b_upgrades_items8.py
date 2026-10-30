@@ -6,7 +6,7 @@ I("TG", "No minor arcs: positivity lets ES discard all but the smallest levels",
   "For p in the hard lists, find the least K(p) such that some level ≤ K(p) carries a certificate, and fit K(p) against (log p)^A.",
   ["positivity", "major-levels", "reframing"], "high", "cheap")
 I("BERT", "Baseline: a single level already gives density one",
-  "Level C = 1 works for p iff 4p + 1 has a prime factor ≡ 3 (mod 4) (it then automatically has two, so both cofactors are ≥ 3); the primes p for which 4p + 1 has only prime factors ≡ 1 (mod 4) have density zero (≍ X/(log X)^{3/2}). So 'almost all p' is cheap; all information sits in how fast the exceptional set of K levels decays.",
+  "Level C = 1 works for p iff 4p + 1 has a prime factor ≡ 3 (mod 4) (it then automatically has two, so both cofactors are ≥ 3); the primes p for which 4p + 1 has only prime factors ≡ 1 (mod 4) have density zero (an upper-bound sieve gives ≪ X/(log X)^{3/2}; the matching order is the heuristic — check a source for the asymptotic). So 'almost all p' is cheap; all information sits in how fast the exceptional set of K levels decays.",
   "A sanity baseline for every almost-all statement in this list: improvements must be measured in exceptional-set decay, not in 'density one'.",
   "Compute the counting function of primes failing all levels C ≤ K for K = 1..10 up to 10⁹ and fit X/(log X)^{α_K}; compare α_K with Σ_{C≤K} δ_C from Landau–Ramanujan-type densities.",
   ["baseline", "exceptional-set", "multiplicative-sets"], "high", "cheap")
@@ -26,7 +26,7 @@ I("BGEXP", "Affine-sieve strengthening: certificates with prime or almost-prime 
   "For p ≤ 10⁸ compute the least r such that a certificate with Ω(4uC − 1) ≤ r and Ω(4BC − 1) ≤ r exists; find primes needing large r.",
   ["affine-sieve", "almost-primes", "strengthening"], "med", "cheap", seen=["BRAINSTORM/thin_group_orbits.md"])
 I("ELKIES", "Supersingular points and maximal orders: ≈ p/12 objects attached to every p",
-  "Every prime p has ≈ p/12 supersingular j-invariants, in bijection (Deuring) with maximal-order types of the quaternion algebra ramified at p and ∞. These always exist, like Elkies's CM values; map them (or their small-norm elements, Eichler orientations) to ES certificate data.",
+  "Every prime p has ≈ p/12 supersingular j-invariants, in bijection (Deuring) with left ideal classes of a fixed maximal order of the quaternion algebra ramified at p and ∞ (maximal-order types correspond to j up to Frobenius conjugation). These always exist, like Elkies's CM values; map them (or their small-norm elements, Eichler orientations) to ES certificate data.",
   "Supplies power-many canonical objects for every p; if any natural map lands in certificates with positive probability, existence follows from their number.",
   "Read the repo's supersingular/Eichler memos; for small p compute the maximal orders' reduced norms forms and test whether ES certificates appear as small vectors.",
   ["supersingular", "quaternion-orders", "canonical-objects"], "med", "medium", kw=["supersingular"])
@@ -36,9 +36,9 @@ I("SATO", "ES over imaginary quadratic rings (ℤ[i], ℤ[ω]): does unit freedo
   "Search the literature ('Erdős–Straus number field', 'Gaussian integers Egyptian fractions'); experimentally find identities for 4/π over ℤ[i] covering all Gaussian primes up to norm 10⁶.",
   ["number-fields", "positivity", "archimedean"], "med", "cheap")
 I("ZAREMBA", "Large deviations of Euclid's algorithm at a fixed denominator (Hensley, Baladi–Vallée)",
-  "The CF length of a/p, a mod p, is asymptotically Gaussian with mean ≍ log p (Heilbronn, Hensley, Baladi–Vallée via transfer operators, with power-saving errors for fixed denominators). ES₅ (λ(p) ≤ 3) asks for an extreme left-tail event (length 3, prescribed shape). Large-deviation estimates for fixed p from the dynamical analysis of Euclid's algorithm would give lower bounds in exactly this quantifier order.",
+  "The CF length of a/v is asymptotically Gaussian with mean ≍ log v (Heilbronn for the mean at fixed denominators; Hensley, Baladi–Vallée via transfer operators — reviewer repair: Baladi–Vallée average over denominators v ≤ N with rate O(1/√log N), not a fixed denominator). ES₅ (λ(p) ≤ 3) asks for an extreme left-tail event (length 3, prescribed shape). Large-deviation estimates for fixed p from the dynamical analysis of Euclid's algorithm would give lower bounds in exactly this quantifier order.",
   "The dynamical analysis of Euclid's algorithm is 'every p' by construction (it averages over a, not p); the question is how far into the tail its estimates reach.",
-  "Read Baladi–Vallée ('Euclidean algorithms are Gaussian', J. Number Theory 2005; check) for fixed-denominator large-deviation statements and the error terms; compare the reachable tail with length-3 events (count ≍ log²p out of p).",
+  "Find fixed-denominator large-deviation statements (Hensley's work on fixed-denominator Euclid statistics; check) beyond Baladi–Vallée's denominator-averaged ones; compare the reachable tail with length-3 events (count ≍ log²p out of p).",
   ["transfer-operators", "large-deviations", "ES5"], "med", "medium", seen=["BRAINSTORM/farey_ford_cf.md"], kw=["Hensley"])
 I("GSMARKOFF", "Why do Markoff-type surfaces have infinitely many integral Hasse failures, and does ES escape the mechanism?",
   "Ghosh–Sarnak: the integral Hasse principle for x² + y² + z² − xyz = k holds for almost all k but fails for infinitely many, via reduction theory of the Vieta-group action (all orbit representatives in a fundamental set excluded by congruences). ES shares the (log)²-scale counts and BM picture (FRONTIER §2.4 caution) but has no group action. Pin down whether 'no group action' removes the failure mechanism or merely hides it.",

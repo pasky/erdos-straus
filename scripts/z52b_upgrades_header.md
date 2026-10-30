@@ -18,10 +18,14 @@ this header `scripts/z52b_upgrades_header.md`). Regenerate with `python3 scripts
 * {{TAGS}}
 * {{NSEEN}} items carry a `seen:<file>` tag (a quick keyword grep or my own
   knowledge of the repo — not an exhaustive novelty check).
-* Every catalogue entry's "last step" was checked by research subagents (`data/z52b/upgrades_verify_out_{0..5}.md`); ~60 corrections
+* Every catalogue entry except `GSMARKOFF` (added last; citations as in FRONTIER §2.4) had its "last step" checked by research subagents (`data/z52b/upgrades_verify_out_{0..5}.md`); ~60 corrections
   were applied as overrides (two verifier "corrections" were rejected and say so: Dirichlet's Pell proof, Ramanujan's τ ≡ σ₁₁ (mod
   691)). Item-level literature leads were checked separately (`data/z52b/upgrades_leads_check.md`); unverified leads are phrased
   "check whether …".
+* A hostile self-review (reviewer subagent over the whole lane) found 20 concrete errors (e.g. a window-equivalence missing the −p
+  branch, (★) conflated with ES in two items, a false fixed-p equidistribution claim, a missing size condition in the trial form,
+  an over-strong zero-sum claim, a wrong arXiv id, a degenerate quadric called a ternary form); all were repaired in place and are
+  marked "reviewer repair" where the text changed substantively.
 
 ### Template taxonomy (how upgrades actually happened) → ES status in one line each
 
@@ -79,8 +83,8 @@ or might not apply to ES), 0222 (an every-n bound must save in log x, not log H)
 ## Method
 
 1. Catalogued historical upgrades (brief's list + ~70 more), each with *before*, *after*, and the **last-step ingredient** — the
-   thing that actually crossed from "almost all" to "every". 99 entries were checked by four research subagents, 24 later ones by
-   two more; corrections are applied in the catalogue file as `FIX`/`FIX2` overrides and the raw reports kept in `data/z52b/`.
+   thing that actually crossed from "almost all" to "every". 99 entries were checked by four research subagents, 23 later ones by
+   two more (GSMARKOFF unchecked); corrections are applied in the catalogue file as `FIX`/`FIX2` overrides and the raw reports kept in `data/z52b/`.
 2. For each upgrade, generated items by asking: (a) can the last-step ingredient be **imported** literally (same tool on an ES
    count)? (b) **imitated** (same proof shape with ES objects)? (c) **analogised** (dictionary between the objects)? (d) what is the
    **intermediate statement** that would be ES's analogue of the historical intermediate step? (e) what does the upgrade's

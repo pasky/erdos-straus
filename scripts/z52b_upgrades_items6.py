@@ -15,9 +15,9 @@ I("LINNIK", "Extreme-value statistics of the least certificate parameter",
   "Calibrates which quantitative statements are plausible (e.g. C(p) ≤ (log p)^A for all p?) before trying to prove any.",
   "From the repo's census (and adversarial primes at 10¹⁸–10²⁵) tabulate max over p ≤ X of least C and least e versus log X.",
   ["least-certificate", "extreme-values", "numerics"], "high", "cheap", seen=["DISPROOF_AVENUES.md"])
-I("HASSE", "Integral Brauer–Manin for the (u,B,C) threefold as a family of affine conics over the C-line",
+I("HASSE", "Integral Brauer–Manin for the fixed-p (u,B,C) surface as a family of affine conics over the C-line",
   "For fixed C, (★) is the hyperbola (4uC − 1)(4BC − 1) = 4Cp + 1, an affine conic. Integral Hasse/BM results for families of affine quadrics (Colliot-Thélène–Xu, strong approximation with BM) treat such fibrations; analyse the total space over the C-line.",
-  "BL computed Br for the ES surface; the (u,B,C) threefold is a different model where fibrewise integral BM is classical.",
+  "BL computed Br for the ES surface; the fixed-p (u,B,C) surface (a threefold when p varies) is a different model where fibrewise integral BM is classical.",
   "Compute the Brauer group of the generic fibre (a split conic? then trivial) and the integral obstruction for the total space; compare with BL's ℤ/2.",
   ["integral-points", "brauer-manin", "conic-bundles"], "med", "medium")
 I("BURGESS", "Vinogradov's smooth-number trick for divisor classes",
@@ -46,7 +46,7 @@ I("MARKOFF", "ES as an orbifold Euler-characteristic realisation problem (triang
   "Work out what Riemann–Hurwitz says for covers of S²(x,y,z) with χ = (4 − p)/p (index must be divisible by p); look for a moduli space whose nonemptiness is equivalent to ES(p).",
   ["triangle-groups", "orbifolds", "hurwitz-spaces"], "med", "medium", kw=["triangle group"])
 I("CFT", "Prime-capture problems: every prime is caught by an infinite family of Chebotarev conditions",
-  "Chebotarev forbids any finite family of splitting conditions from catching every prime; ES Type II (abelian conditions p ≡ −(u+B) mod 4uB) and Type I (dihedral conditions via ring class fields) are infinite families with conductors up to ≍ p. List known 'every prime is captured by a family with conductor ≤ f(p)' theorems (e.g. least non-residue: some ℓ ≤ p^{0.152} has (p/ℓ) = −1) and place ES among them.",
+  "A finite family of congruence conditions catches every large prime only if it contains all coprime classes modulo some M (Dirichlet), and finite families of splitting conditions can catch all primes only in special configurations (e.g. ℚ(√2), ℚ(√3), ℚ(√6) — reviewer example); bounded-modulus ES congruence families provably miss the square classes; ES Type II (abelian conditions p ≡ −(u+B) mod 4uB) and Type I (dihedral conditions via ring class fields) are infinite families with conductors up to ≍ p. List known 'every prime is captured by a family with conductor ≤ f(p)' theorems (e.g. least non-residue: some ℓ ≤ p^{0.152} has (p/ℓ) = −1) and place ES among them.",
   "Identifies the closest proven 'prime-capture' statements and how their conductor bounds compare with what ES needs.",
   "Write the conductor/size of the capturing family for ES sub-routes and for known capture theorems (Burgess, Linnik, Vinogradov) in one table.",
   ["prime-capture", "chebotarev", "conductors"], "med", "cheap")
@@ -83,7 +83,7 @@ I("ERDSELF", "Erdős–Selfridge distinct-small-parts mechanism for consecutive 
 I("REINGOLD", "Instance transformation that preserves certificate existence but amplifies counts",
   "Reingold transformed every graph into an expander while preserving connectivity. ES: find a transformation p ↦ (structured object with power-many 'attempts') such that ES(p) ⟺ the object has a 'connected/nonzero' property that is robustly detectable (e.g. a spectral quantity), amplifying the polylog main term.",
   "If the count can be amplified while preserving the zero/nonzero status, the polylog-main-term barrier (B2) changes character.",
-  "Look at natural equivalences ES(p) ⟺ ∃e (window) and ES(p) ⟺ ∃C (level); build a graph on (e, divisors of N_e) whose connectivity property is equivalent to ES(p), and compute its spectral gap for small p.",
+  "Look at the equivalence ES(p) ⟺ ∃e (e-slice form, Type I and Type II N's) and the implication (★)-level certificate ⇒ ES(p); build a graph on (e, divisors of N_e) whose connectivity property is equivalent to ES(p), and compute its spectral gap for small p.",
   ["amplification", "derandomization", "graphs"], "low", "medium")
 I("REINGOLD", "Randomized certificate search with provable success → derandomize",
   "Before Reingold, connectivity was in randomized logspace. ES certificates are found by trying random e or C; a proof that a random attempt succeeds with probability ≥ 1/poly(log p) for every p would already be ES; the derandomization view asks for an explicit small 'hitting set' of attempts for every p.",

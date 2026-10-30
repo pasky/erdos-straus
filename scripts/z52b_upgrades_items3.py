@@ -181,12 +181,12 @@ I("ZAREMBA", "Niederreiter's recursive constructions for prime powers → ES exp
   "For 15·2^s + 1, list known certificates for s ≤ 60 and look for a recursion (u,B,C)_s → (u,B,C)_{s+k}.",
   ["recursive-construction", "exponential-families"], "med", "cheap")
 I("OPP", "Counting integral points on the quadric ad − pc = 1 (Duke–Rudnick–Sarnak / Eskin–McMullen)",
-  "Oppenheim/Margulis and DRS/EM count integral points on affine homogeneous varieties via dynamics. The SL₂ form of ES: integer points of the indefinite ternary quadric ad − pc = 1 with a ≡ d ≡ −1 (mod c), c ∈ 4ℕ, a, d ≥ 1. Decompose by c into congruence-subgroup cosets and count each via mixing.",
+  "Oppenheim/Margulis and DRS/EM count integral points on affine homogeneous varieties via dynamics. The SL₂ form of ES: integer points of the affine quadric ad − pc = 1 (degenerate as a ternary quadratic polynomial: quadratic part ad of rank 2, linear in c — a family of hyperbolas ad = 1 + pc) with a ≡ d ≡ −1 (mod c), c ∈ 4ℕ, a, d ≥ 1. Decompose by c into congruence-subgroup cosets and count each via mixing.",
   "Homogeneous-dynamics counts are pointwise in the variety (here: in p), unlike sieve averages.",
   "For fixed c, the conditions define a coset of a congruence subgroup; compute the expected count Σ_c vol(coset ∩ region) and compare with R(p).",
   ["homogeneous-dynamics", "quadrics", "counting"], "med", "medium")
-I("OPP", "Values of a rational ternary form near 0 with congruence: the exceptional rational case of EMM",
-  "Eskin–Margulis–Mozes: for irrational forms counts are asymptotic, while rational forms of signature (2,1)/(2,2) have exceptional logarithmic behaviour. ES's quadric ad − pc is rational; locate it within the EMM exceptional regime and see whether the log-excess explains the log²p main term.",
+I("OPP", "Values of rational quadratic forms with congruence: does ES's (degenerate) quadric relate to the exceptional rational case of EMM?",
+  "Eskin–Margulis–Mozes: for irrational forms counts are asymptotic, while rational forms of signature (2,1)/(2,2) have exceptional logarithmic behaviour. ES's quadric ad − pc is rational but degenerate (rank-2 quadratic part, linear in c), so EMM does not apply directly; ask whether a nondegenerate model (e.g. after eliminating c via a ≡ d ≡ −1 mod c) falls in the EMM exceptional regime and whether the log-excess there mirrors the log²p main term.",
   "A dictionary between ES's polylog main term and the known exceptional counts of rational quadrics could import their methods.",
   "Read EMM's treatment of rational forms (Annals 1998) and compute the predicted count for ad − pc ∈ {1} with |a|,|d| ≤ T, c ≤ T.",
   ["oppenheim", "rational-forms", "main-term"], "low", "medium")

@@ -51,7 +51,7 @@ I("FIFTEEN", "Universality classification for the family a·tuv − b·u − c·
   "Compute exception sets up to 10⁸ for small (a, b, c, d) and bounds; record which appear finite.",
   ["universality", "classification", "numerics"], "med", "cheap", seen=["EXSET_I3.md"])
 I("GTZ", "Uniformity obstruction for linear-forms-in-primes certificate schemes at fixed p",
-  "For fixed p, every ES certificate has bounded size (denominators ≤ O(p²)), so any 'auxiliary primes' scheme needs prime tuples of linear forms in a box of size ≍ p whose coefficients depend on p. Green–Tao–Ziegler asymptotics are not uniform in coefficients comparable to the box, so they do not apply directly (correcting the BHS item).",
+  "For fixed p, ES has finitely many solutions with denominators bounded polynomially in p (not O(p²): z can be ≍ p⁴, reviewer example x = (p+3)/4, y = (px+2)/3, z = pxy/2 for p ≡ 5 mod 24), and a fixed certificate parametrisation with auxiliary primes typically needs prime tuples of linear forms in a box polynomial in p with coefficients depending on p (many-to-one parametrisations need separate care). Green–Tao–Ziegler asymptotics are not uniform in coefficients comparable to the box, so they do not apply directly (correcting the BHS item).",
   "Records precisely why the conditional→unconditional (Harpaz–Skorobogatov–Wittenberg) move does not transfer to ES as stated, and what uniformity would be needed.",
   "State the needed uniform version: count of t ≤ T with L_i(t) all prime for forms with coefficients ≤ T^{1+ε}; compare with known uniform results (e.g. for a single form: Brun–Titchmarsh / Siegel–Walfisz ranges).",
   ["uniformity", "linear-forms-in-primes", "self-critique"], "high", "cheap")
@@ -86,7 +86,7 @@ I("TWOSQ", "Elsholtz's windmill framework for sums of two squares and related pr
   "Read the paper; list the equations handled (x² + ky², etc.) and try its windmill construction on the (★) set or on {(u,B,C) : 4uBC − u − B = p}.",
   ["parity", "windmills", "literature"], "med", "cheap", seen=["WINDMILL.md"])
 I("DIR", "Non-vanishing on the line Re s = 1 analogue: a level Dirichlet series that cannot vanish",
-  "PNT/Dirichlet need L(1 + it, χ) ≠ 0 via the 3-4-1 positivity trick (Mertens). For fixed p consider F_p(s) = Σ_C D_C(p) C^{−s} (finite sum): ES ⟺ F_p ≢ 0. A '3-4-1'-type positivity combination of F_p, its twists, and F at related p might force non-vanishing.",
+  "PNT/Dirichlet need L(1 + it, χ) ≠ 0 via the 3-4-1 positivity trick (Mertens). For fixed p consider F_p(s) = Σ_C D_C(p) C^{−s} (finite sum): (★)(p) ⟺ F_p ≢ 0, and (★)(p) ⇒ ES(p) (not conversely: p = 409 fails (★) but satisfies ES). A '3-4-1'-type positivity combination of F_p, its twists, and F at related p might force non-vanishing.",
   "Odd, but 3-4-1 is the archetype of extracting non-vanishing from positivity of a trigonometric polynomial.",
   "Look for nonnegative trigonometric polynomials in a 'twist' variable (characters mod 4C) such that the combination of twisted level counts is ≥ c·(untwisted total) − (controlled).",
   ["positivity", "3-4-1", "odd"], "low", "medium")
@@ -130,10 +130,10 @@ I("RATNER", "Effective equidistribution scale vs the required cusp depth (quanti
   "Turns 'B2' into a number in the dynamics language: the exponent gap between the required and available resolution.",
   "From Strömbergsson's effective rate (Duke Math. J. 123 (2004): subsegments longer than ℓ^{1/2+ε} of a closed horocycle of length ℓ equidistribute; verified), compute the minimal region measure resolvable at length p and compare with the ES₅ target measure.",
   ["effective-rates", "B2", "gap-analysis"], "med", "cheap")
-I("WEYL", "Equidistribution of (−(4p)⁻¹ mod d)/d as d varies: the trial-form sequence",
-  "Weyl-type equidistribution of sequences {f(d)} mod 1. In the trial form, R(p)/2 = #{d : 4c_d | d + 1} with c_d = −(4p)⁻¹ mod d; the normalised residues c_d/d equidistribute in [0,1] as d varies (Kloosterman-type, Hooley/Duke–Friedlander–Iwaniec for modular inverses). ES needs the finer event 4c_d | d + 1, i.e. c_d/d near 0 with a divisibility condition.",
-  "Equidistribution of modular inverses is a proven every-p theorem (for each fixed p as d varies); the certificate event is a thin, arithmetic refinement of it.",
-  "Measure the discrepancy of {c_d/d : d ≤ D} for fixed p, and the hit rate of 4c_d | d + 1 among d with c_d/d < 1/(4·k).",
+I("WEYL", "The trial-form sequence c_d/d at fixed p clusters at k/(4p): reparametrise by k",
+  "Weyl-type equidistribution of sequences {f(d)} mod 1. In the trial form, R(p)/2 = #{d : 4c_d | d + 1, d² ≤ 4c_d p + 1} with c_d = −(4p)⁻¹ mod d. Reviewer repair: at fixed p these residues do NOT equidistribute — from 4p·c_d + 1 = k_d·d one gets c_d/d = k_d/(4p) − 1/(4pd) with k_d ∈ [1, 4p], so c_d/d clusters at the points k/(4p). The useful structure is the reparametrisation by k_d (equidistribution theorems for modular inverses average over both moduli and residues, not a fixed p).",
+  "The k-reparametrisation turns the trial form into a two-parameter divisibility problem (k_d·d = 4p·c_d + 1 with 4c_d | d + 1), a normal form in which the certificate event is explicit.",
+  "Tabulate, for fixed p, the pairs (k_d, d) and the certificate hits; check how the hit rate depends on k.",
   ["equidistribution", "modular-inverses", "trial-form"], "high", "cheap", seen=["PARITY_AUDIT.md"])
 I("FURST", "Non-lacunary semigroups of levels: multiplicative closure of 'working levels'",
   "Furstenberg's ×2×3 rigidity uses non-lacunarity of {2^a 3^b}. If level C works for p, does level C·k work for p for many k? (If d | 4Cp + 1 with d ≡ −1 mod 4C, then nothing obvious at level Ck.) Study whether the set of working levels for p is close to a multiplicative semigroup.",
@@ -141,7 +141,7 @@ I("FURST", "Non-lacunary semigroups of levels: multiplicative closure of 'workin
   "For p ≤ 10⁷ compute the set of working levels and test closure under multiplication by small k.",
   ["semigroups", "levels", "odd"], "low", "cheap")
 I("SENS", "Huang-type degree bound on the 'divisor-class hypercube' for windows with ω(N_e) = k",
-  "Huang: any 2^{k−1}+1 vertices of Q_k induce max degree ≥ √k. For N_e squarefree with k prime factors, label each subset S by its class g(S) mod e; ES at window e ⟺ two disjoint subsets with g(S)/g(T) ≡ −1. Bound the largest family of subsets with no such pair; if it is ≤ 2^{k−1}, a signed-hypercube argument forces a certificate whenever 'many' subsets share a structure.",
+  "Huang: any 2^{k−1}+1 vertices of Q_k induce max degree ≥ √k. For N_e squarefree with k prime factors, label each subset S by its class g(S) mod e; a (−1-branch) window certificate at e ⟺ two disjoint subsets with g(S)/g(T) ≡ −1 (the −p branch is analogous). Bound the largest family of subsets with no such pair; if it is ≤ 2^{k−1}, a signed-hypercube argument forces a certificate whenever 'many' subsets share a structure.",
   "A precise extremal question about labelled hypercubes that directly encodes window certificates.",
   "Compute by brute force, for e ≤ 50 and k ≤ 12 with random labels, the maximum certificate-free subset family size.",
   ["hypercube", "extremal-combinatorics", "windows"], "low", "cheap")
@@ -241,7 +241,7 @@ I("TITCH", "Divisor sum over shifted primes reversed: Σ_{q prime} 1[q | p + m] 
   "Count, for fixed p, pairs (u, q) with q | p + u, q ≡ −1 (mod 4u), q prime; compare with heuristic Σ_u τ*/φ(4u).",
   ["titchmarsh", "single-prime-certificates", "numerics"], "med", "cheap")
 I("TART", "Siegel–Weil for indefinite ternary forms with congruence: ES's SL₂ quadric",
-  "For indefinite forms in ≥ 3 variables representing a number, Siegel–Weil and strong approximation (spin groups) give local-global with spinor exceptions. The SL₂ form ad − pc = 1 is an indefinite ternary quadric; the ES congruence a ≡ d ≡ −1 (mod c) is not a lattice coset condition (modulus = coordinate), so classical theory does not apply directly. Find a reformulation where the congruence becomes a fixed-modulus coset condition.",
+  "For indefinite forms in ≥ 3 variables representing a number, Siegel–Weil and strong approximation (spin groups) give local-global with spinor exceptions. The SL₂ form ad − pc = 1 is an affine quadric with degenerate quadratic part (rank 2, linear in c), so spin-group strong approximation does not apply as is; the ES congruence a ≡ d ≡ −1 (mod c) is not a lattice coset condition (modulus = coordinate), so classical theory does not apply directly. Find a reformulation where the congruence becomes a fixed-modulus coset condition.",
   "If achieved, strong approximation for spin groups (no spinor obstruction ⇒ every locally represented integer is represented) would be the closing theorem.",
   "Try substitutions a = ck − 1, d = cl − 1 and fix c's residue class; examine whether the resulting variety in (k, l, c) is homogeneous for a group with strong approximation.",
   ["strong-approximation", "indefinite-forms", "reformulation"], "med", "medium")

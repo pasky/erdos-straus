@@ -61,7 +61,7 @@ I("SNIRBOUND", "8/n exceptions as a built-in falsification test",
   "For each template here (complementary methods, pigeonhole + group law, Hecke relations, …) check whether its ES version would also apply verbatim to 8/131.",
   ["falsification-test", "numerator-uniformity", "8/n"], "high", "cheap", seen=["AMPLIFY_EXCEPTION.md"])
 I("DAV", "Group-ring/Fourier formula for the window certificate count",
-  "Olson's method works in group rings. For window e and N = Π q_i^{a_i} (coprime to e), the number of coprime divisor pairs (a, b) with ab | N and a ≡ −b (mod e) equals (1/φ(e)) Σ_{χ mod e} χ(−1) Π_i (1 + Σ_{1≤j≤a_i} (χ(q_i)^j + χ̄(q_i)^j)). ES at window e ⟺ this is > 0.",
+  "Olson's method works in group rings. For window e and N = Π q_i^{a_i} (coprime to e), the number of coprime divisor pairs (a, b) with ab | N and a ≡ −b (mod e) (the −1 branch; the full window condition also allows the target −p, PARITY_AUDIT §0 — reviewer repair) equals (1/φ(e)) Σ_{χ mod e} χ(−1) Π_i (1 + Σ_{1≤j≤a_i} (χ(q_i)^j + χ̄(q_i)^j)). A positive value gives an ES certificate at window e; the analogous formula with χ(−p) in place of χ(−1) handles the −p branch.",
   "An exact character-sum formula for each window; non-vanishing is a statement about one finite character sum, open to zero-sum/Fourier techniques.",
   "Implement the formula, verify against brute force, then study which characters dominate when the count is 0 for hard (p, e) pairs.",
   ["group-ring", "character-sums", "exact-formula"], "high", "cheap")
@@ -96,7 +96,7 @@ I("COLLATZ", "Logarithmic density as an intermediate notion for ES-type sub-rout
   "Estimate Σ_{p ≤ X, (★) fails} 1/p numerically and check whether log-averaged tools give a finite bound.",
   ["log-density", "sub-routes", "exceptional-set"], "med", "cheap")
 I("AXKOCHEN", "Ultraproduct transfer between F_q[T]-ES and ℤ-ES statements",
-  "Ax–Kochen: first-order statements true for F_p((t)) for almost all p transfer to Q_p for almost all p. ES over F_q[T] has proved variants; ES itself is not first-order in the needed way (it quantifies over integers of unbounded size), but bounded-complexity sub-statements (certificates of bounded 'shape') are. Identify which transfer.",
+  "Ax–Kochen: first-order statements true for F_p((t)) for almost all p transfer to Q_p for almost all p. ES over F_q[T] has proved variants; ES is first-order over (ℤ, +, ·) (∀n ∃x,y,z), but Ax–Kochen transfers statements about valued fields (ℚ_p vs F_p((t))), not about ℤ with positivity; identify which ES-adjacent statements are about local/valued-field structures (and hence transferable) — reviewer repair.",
   "Clarifies precisely which ES-type statements a model-theoretic transfer could ever reach (and that the full statement likely cannot).",
   "Formulate ES sub-statements with bounded quantifier complexity (e.g. 'a certificate with C dividing a fixed polynomial in p') and check whether they are decidable/transferable.",
   ["model-theory", "transfer", "function-fields"], "low", "medium")
