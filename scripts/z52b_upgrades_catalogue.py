@@ -594,6 +594,29 @@ CAT += [
   ["arXiv:1304.4132 (Marcus-Spielman-Srivastava, Interlacing families I)", "arXiv:1306.3969 (MSS, Interlacing families II)"]),
 ]
 
+CAT += [
+ ("HLSQ", "Hardy-Littlewood: every large non-square n = p + m^2 (stuck mirror with a square obstruction)",
+  "Almost all n (exceptional set results of Davenport-Heilbronn type; power-saving bounds later, check)",
+  "STILL OPEN for every large non-square n; squares fail by the algebraic factorisation n - m^2 = (sqrt n - m)(sqrt n + m)",
+  "Not achieved: main term ~ sqrt(n)/log n is a power, yet it is a binary problem (one prime variable, one square) with no pointwise minor-arc control.",
+  ["Hardy-Littlewood, Partitio Numerorum III, Acta Math. 44 (1923) (Conjecture H)"]),
+ ("YOCCOZ", "Siegel/Brjuno/Yoccoz: from almost-every to an exact characterisation",
+  "Siegel 1942: linearisation for Diophantine rotation numbers (full measure)",
+  "Brjuno 1971: every Brjuno number suffices; Yoccoz 1988: for the quadratic family the Brjuno condition is also necessary (exact characterisation of the exceptional set)",
+  "KAM/Newton iteration with small-divisor control (Brjuno sum of log q_{n+1}/q_n); renormalisation and a sharp construction of non-linearisable examples for non-Brjuno numbers.",
+  ["Yoccoz, Asterisque 231 (1995) (Theoreme de Siegel, nombres de Bruno et polynomes quadratiques)"]),
+ ("LEHMER", "Lehmer's conjecture tau(n) != 0 (stuck mirror; congruences give non-vanishing on classes)",
+  "Lehmer 1947: tau(n) != 0 for n below a bound, reduction to primes; Serre: density of p with tau(p) = 0 is 0",
+  "STILL OPEN for every p; congruences (e.g. tau(p) = 1 + p^11 mod 691 and others mod 2^k, 3^k, 5, 7, 23) prove tau(p) != 0 on all p outside a thin set of residue classes, and computations extend verification",
+  "Congruences for Fourier coefficients modulo small primes (Swinnerton-Dyer's mod-l Galois images) exclude vanishing on most classes; the remaining classes need a different input.",
+  ["Lehmer, Duke Math. J. 14 (1947) 429-433", "Serre, Publ. IHES 54 (1981) (Chebotarev applications)"]),
+ ("ELKIES", "Elkies: every elliptic curve over Q has infinitely many supersingular primes",
+  "Serre: density zero of supersingular primes for non-CM curves; infinitude unknown",
+  "Elkies 1987: infinitely many supersingular primes for every elliptic curve over Q",
+  "Supersingular primes divide values of Hilbert class polynomials H_D(j(E)) and must be inert in Q(sqrt -D); a sign/size argument on H_D(j(E)) plus Jacobi-symbol parity forces a prime factor in the inert class outside any given finite set.",
+  ["Elkies, Invent. Math. 89 (1987) 561-567"]),
+]
+
 # ---- corrections from the verification pass (data/z52b/upgrades_verify_out_*.md), applied as overrides ----
 # fields: 1 name, 2 before, 3 after, 4 last_step, 5 refs
 FIX = {
