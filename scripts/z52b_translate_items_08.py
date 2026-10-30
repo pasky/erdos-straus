@@ -121,7 +121,7 @@ dict(t="Lattice-point counting in −Γ₁(c) with fixed upper-right entry p (Kl
  f="Write the c-summed count as a sum over Γ₁(c) Kloosterman sums S(0, p; c)-type and record the main term size; check with METAPLECTIC_ES.",
  r=["METAPLECTIC_ES.md", "Proskurin, half-integral weight Kuznetsov (2005; check)"], g=["form:sl2","field:spectral-theory","kuznetsov"], k="high", e="medium", kw=["Kuznetsov"]),
 dict(t="Integral points on the 'word variety' as an affine homogeneous space under a unipotent group",
- c="{γ ∈ SL₂ : b = p} is a homogeneous space for the action of pairs of upper unipotents (left/right translations shift a, d by multiples of p). Words are the integral points with level-structure congruences in a bounded region.",
+ c="{γ ∈ SL₂ : b = p} is preserved by left and right multiplication by lower unipotents [[1,0],[k,1]] (left multiplication shifts d by kp, right multiplication shifts a by kp). Words are the integral points with level-structure congruences in a bounded region.",
  w="Homogeneous-space integral points with congruence conditions are governed by strong approximation (here for a unipotent group, which is trivial) and by the box. This explains why only the archimedean box matters.",
  f="Record: strong approximation for the unipotent group is automatic, so all ES₅ content is in the archimedean box (positivity, sizes). Use as a calibration item for future 'group-action' proposals.",
  r=[], g=["form:sl2","field:algebraic-groups","calibration"], k="high", e="cheap"),

@@ -86,7 +86,7 @@ dict(t="Lattice of ES solutions under scaling: the 'primitive' solution poset an
  f="Compute g(d) for d < 10⁵ and its Dirichlet series behaviour; check the size of g at primes vs composites.",
  r=["GEOMETRY_ES.md §4"], g=["form:cubic-surface","field:multiplicative-NT","mobius-inversion"], k="high", e="cheap", kw=["m(s)"]),
 dict(t="Frobenius number analogue for three generators: n = tuv − u − v as a three-generator semigroup statistic?",
- c="uv − u − v is the Frobenius number of ⟨u,v⟩. For three generators there are formulas (e.g. for ⟨u, v, w⟩ with structure, Rødseth). Is tuv − u − v the Frobenius number of a natural 3-generated semigroup (for instance ⟨u, v, tuv⟩ is trivial)? If so, I3 becomes 'every large n is a Frobenius number of a semigroup of a given shape'.",
+ c="For coprime u, v, uv − u − v is the Frobenius number of ⟨u,v⟩. For three generators there are formulas (e.g. for ⟨u, v, w⟩ with structure, Rødseth). Is tuv − u − v the Frobenius number of a natural 3-generated semigroup (for instance ⟨u, v, tuv⟩ is trivial)? If so, I3 becomes 'every large n is a Frobenius number of a semigroup of a given shape'.",
  w="'Which integers are Frobenius numbers of 3-generated semigroups' is a studied question; a match would bring that literature in.",
  f="Search small cases: for given n = tuv − u − v, compute Frobenius numbers of ⟨a,b,c⟩ with a,b,c ≤ 50 and test whether some natural family reproduces tuv − u − v.",
  r=["Ramírez Alfonsín 2005"], g=["form:I3/U","field:numerical-semigroups","speculative"], k="low", e="cheap"),

@@ -92,7 +92,7 @@ dict(t="Large-q limit (Katz–Sarnak) of the ES_q certificate count distribution
  f="Identify the monodromy group of the certificate-counting sheaf (divisor-in-class conditions) and compute the limiting P(count = 0) for small degrees.",
  r=["Katz–Sarnak, Random Matrices, Frobenius Eigenvalues, and Monodromy (1999)"], g=["form:function-field","field:arithmetic-statistics","monodromy"], k="med", e="medium"),
 dict(t="Power ladder ES_(k): cubic and higher rungs collapse to finite coverings",
- c="POWER_LADDER_ES: for odd k, ES_(k) (third denominator a k-th power) is a finite congruence covering mod 4, while even k returns to ES^□. The native field is power-residue symbols and Waring-type coverings.",
+ c="POWER_LADDER_ES: for odd k, ES_(k) (x, y integers; the third term 1/z with z RATIONAL whose reduced denominator is Q^k, Q odd, gcd(Q,n) = 1; equivalently a third term Q^k/Z) is a finite congruence covering mod 4, while even k returns to ES^□. The native field is power-residue symbols and Waring-type coverings.",
  w="Calibration item: it shows exactly which relaxations are trivially true. A new rung (e.g. denominators in a norm group of a cyclic field) can be tested the same way.",
  f="Generalise: third denominator in N(K^×) for an abelian field K; find the index condition that makes the rung a finite covering.",
  r=["POWER_LADDER_ES.md"], g=["form:power-ladder","field:class-field-theory","relaxation-ladder"], k="high", e="cheap", kw=["POWER_LADDER_ES"]),

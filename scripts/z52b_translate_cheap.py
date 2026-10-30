@@ -8,13 +8,13 @@ import sys
 from sympy import primerange, divisors, legendre_symbol
 P_A, P_B, P_C = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
 
-def two_term(a, b):
+def two_term(a, b, ymin=0):
     """is a/b = 1/y + 1/z (y<=z positive ints)?  (ay-b)(az-b)=b^2 with ay-b>0: need divisor d of b^2, d<=b, d ≡ -b mod a."""
     from math import gcd
     g = gcd(a, b); a //= g; b //= g
     for d in divisors(b * b):
         if d > b: break
-        if (d + b) % a == 0:
+        if (d + b) % a == 0 and (d + b) // a >= ymin:
             return True
     return False
 
@@ -24,7 +24,7 @@ for p in primerange(5, P_A):
     if p % 4 != 1: continue
     ok = False
     for x in range(p // 2 + 1, 3 * p // 4 + 1):
-        if two_term(4 * x - p, p * x):
+        if two_term(4 * x - p, p * x, ymin=x):  # x is the smallest denominator (review fix)
             ok = True; break
     if not ok: fails_alt.append(p)
 print('(a) primes p≡1(4) <', P_A, 'with no ES solution having p/2 < x <= 3p/4:', len(fails_alt), fails_alt[:40])
