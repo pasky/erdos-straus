@@ -1,10 +1,11 @@
 # L1 — Erdős–Straus and Egyptian fractions directly
 
 ## §0 Summary
-- Status: research in progress.
-- Genuinely new since 2026-09-28: pending source sweep.
-- Transferable structural features: pending verification.
-- Campaign verdict changes: pending verification.
+- **Assessment (2026-11-01):** ES remains open; no newly verified proof or disproof.
+- **Genuinely new:** Cao–Xu, arXiv:2610.32302v1, presents 56 polynomial families; its purported cover is explicitly only tested to 10¹¹ and unproved by its authors.
+- **Transferable features:** exact residue-class factorization classifies composites in 24m+1, but yields no unit-fraction witness; no new ES approach candidate.
+- **Verdict change:** none. The 2026-10-21 literature update remains consistent; #242 is still open.
+- **Structural test:** proposed polynomial cover lacks proof and does not clear FRONTIER B1/B2 or odd-square control T1.
 
 ## §1 Verified entries
 
@@ -25,7 +26,13 @@ The arXiv API entries checked included version and update timestamps. None of th
 
 ## §3 New candidates
 
-Pending review; distinguish genuinely new candidates from known-dead transfers.
+None. The only newly found ES-direct item offers a finite-family covering whose authors explicitly say they cannot prove it. It supplies no proved pointwise mechanism or non-obvious input that survives the B1/B2 tests. Promoting its computational claim to a candidate would merely restate the missing proof obligation.
 
 ## §4 Not accessed / could not verify / incorrect leads
 
+- The arXiv API sweep (accessed 2026-11-01) searched the brief's keyword families across the general arXiv index and returned one clearly relevant post-2026-09-28 item, Cao–Xu 2610.32302. Other broad terms returned many irrelevant hits; a mathematically exhaustive search across every specified category/subfield cannot be guaranteed. The new item was opened as full HTML and its critical §3 paragraph verified.
+- For older tracked claims, this pass checked arXiv API metadata and abstracts, not full PDFs. In particular, no page/line-level error audit was attempted for Bradford, Dyachenko, Xu, Ghermoul, Ventas, Dahan, Jiang, Akaka Zenodo 22754703, or Zenodo 23003413; see the existing, dated audits in `LITERATURE_2026.md` and `LITERATURE_2026_UPDATE.md`. Pomerance–Weingartner's newest arXiv version is v2 dated 2026-01-15; Mihnea–Dumitru is v1 dated 2025-08-29.
+- The current erdosproblems.com #242 page was opened on 2026-11-01 and continues to label the problems open with the known partial results. Its rendered text drops formulas. The prior repo audit `LITERATURE_2026_UPDATE.md` (2026-10-21) reports the status of erdosproblems.ai/Plasma AI and the teorth successor repository. This pass did not independently inspect every forum thread, all 2025–26 solved Egyptian-fraction problems, or the current GitHub wiki history, so makes no claim that none exist.
+- The DeepMind formal-conjectures repo, mathlib, sushaan-k/erdos-straus-lean, and local `/home/pasky/projects/math/oai-math` were not independently searched in this pass. Prior audits in `LITERATURE_2026_UPDATE.md` establish an exceptional-set Lean formalization and no ES item in OpenAI family 025 beyond the short Egyptian-fraction work; those are not fresh source checks here.
+- Salez 1406.6307 and Mihnea–Dumitru computational algorithm details, hardest-prime certificates, and denominator-size statistics were not newly verified from their papers. The current repository literature cites the 10¹⁷ / 10¹⁸ verification bounds, but this lane does not infer a provable deterministic complexity bound from finite verification. No fresh computation was done.
+- Not an ES result: Dyachenko 2511.17716 and Ghermoul 2508.07367 concern the 5/P analogue. The checked abstracts do not resolve that generalized conjecture. No new standalone proof of ES was verified; Bradford's abstract is a claim only, and Ventas describes heuristic probability modeling.

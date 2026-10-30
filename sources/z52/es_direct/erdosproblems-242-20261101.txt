@@ -1,0 +1,2 @@
+Accessed 2026-11-01: https://www.erdosproblems.com/242
+Current page #242 continues to present Erdős–Straus and Schinzel's generalization as open, cites the standard partial results including Vaughan, and says prime verification is due to MiDu25. No new resolution/status note appears in the rendered page. The Jina-rendered page omits mathematical formulas, so this excerpt is used only for status, not theorem details.
