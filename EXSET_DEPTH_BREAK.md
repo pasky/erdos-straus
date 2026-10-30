@@ -684,67 +684,83 @@ Thm 2.6's quotient and fibre stated; §8 wording; the cross-check harness harden
 
 ## 9. Round 4: the board's astra-5 programme (quadratic-orthogonal residual) — drop-screen and cumulants
 
-*Requested after the board memo `/home/pasky/.pi/boards/20261029-depth-break/memo.md` (finalist 3: astra-5 ⊕ fable-3).*
+*Requested after the board memo `/home/pasky/.pi/boards/20261029-depth-break/memo.md` (finalist 3: astra-5 ⊕ fable-3).
+Reviewed by Astra (`reviews/z51-dbreak-review-4.md`); repairs folded in (§9.7).*
 
 ### 9.0 Summary (round 4)
 
-**Status: round 4 written; Astra review pending. No target reached.** The drop-screen does not drop the route: the
-normalised log-mgf of the residual tracks the independent model within 0.02, with no growth in μ, at β = 0.6, 0.75, 0.9
-(N ≤ 10¹⁰) and on the top band (N ≤ 10¹¹). The cumulant lemma is proved exactly in the CRT range j ≤ (log N)^{1−β}; the
-lemma needs j up to (log N)^{1/2+δ}, and that window is depth.
+**Status: round 4 complete, one Astra review folded in. No target reached.** Over the tested range (μ ≤ 5 on the
+subexponential bands, μ ≤ 6.9 on the top band) the centred residual's normalised log-mgf stays within ≈ 0.02 of the
+independent-model value, with no unbounded growth detected; this is a finite-range observation, not a pass of the route.
+Proved: the algebra and reductions, the top-band quadratic piece is negligible off N^{3/4+ε} integers, the second cumulant
+in the CRT range and by the large sieve for all z, and a uniform comparison of all cumulants with the independent model
+whose useful range is j ≤ (1 − o(1))(log N)^{1−β}. A cumulant-moment route to T1-min would need comparable control for
+orders up to ≍ (log N)^{1/2+δ}/log log N; that extension is not proved, and no necessity or equivalence is claimed.
 
 | # | statement | label | § | review |
 |---|---|---|---|---|
-| 9a | algebra of R (zero on residues, orthogonal to 1 and to (·/ℓ)); avoiders have R = −μ + Q + o(1); T1-min ⟸ (L_C) for β > 1/2 | PROVED (elementary; quadratic-piece rarity as on the board) | §9.1 | — |
-| 9b | drop-screen: (1/(μt²))log E e^{−t(R−ER)} within 0.02 of the independent model, excess decreasing in N (β = 0.6, 0.75) or negative (β = 0.9; Var R 4–5% below model); no growth with μ | CERTIFIED (exact rows) / EVIDENCE | §9.2 | — |
-| 9c | negative tail follows the exact independent law (slightly below it); most negative n have typical profile and no kernel enrichment: no coherent residual component found | EVIDENCE | §9.3 | — |
-| 9d | top band: the quadratic piece is negligible off N^{3/4+ε} integers, so the top-band (L_C) ⟹ TB_pow (power saving off squares, ES₅ at primes); its normalised mgf is flat and near Poisson (N ≤ 10¹¹); band and disjoint large layers nearly independent (corr −0.02, −0.04) | PROVED (Heath-Brown QLS) / EVIDENCE | §9.4 | — |
-| 9e | κ₂(R) = Σσ² + O(N^{−1+o(1)}) in the subexponential band; E_I R² ≤ (1 + 8z²/N)Σσ² for every z (large sieve); beyond √N the excess is fable-3's Kloosterman-fraction sum, numerically negative for the residual | PROVED / EVIDENCE | §9.5 | — |
-| 9f | |κ_j(R)| ≤ 1.44 j!Σσ² + j!(6W_B)^j/|I| for all j, so |κ_j| ≤ 3j!Σσ² for j ≤ (1−o(1))(log N)^{1−β}; via moments, (L_C)'s conclusion needs j up to (log N)^{1/2+δ}; the gap (log N)^{1−β} < j ≤ (log N)^{1/2+δ} is exactly the beyond-level window (cumulant form of G1) | PROVED | §9.6 | — |
+| 9a | algebra of R (zero on residues, orthogonal to 1 and (·/ℓ)); R = X_B − μ + Q + D for all n; for 1/2 < β < 1, T1-min ⟸ the centred lemma (L_C) | PROVED (band mass via I3_DEEP_ASTRA Lemma 3.2) | §9.1 | R4 SOUND-WITH-MINOR → repaired |
+| 9b | screen: excess of the centred normalised log-mgf over the independent model ≤ 0.023 in absolute value, decreasing with N at β = 0.6, 0.75, negative at β = 0.9 (Var R 4–5% below model) | full floating-point census / EVIDENCE (corrected SEs) | §9.2 | R4 MAJOR (wording, SEs) → repaired |
+| 9c | lower tail at matched thresholds: census within +0–2% of the Monte Carlo model law at β = 0.6, 0.75; 2–5% below it at β = 0.9 except one threshold; no coherent component detected by the profile and small-kernel checks on the 200 most negative n | EVIDENCE | §9.3 | R4 MAJOR (Gaussian "exact law", unmatched thresholds) → redone |
+| 9d | Prop 9.2: Σ Q_top² ≪ N^{3/4+ε}, so the top-band quadratic piece is negligible off N^{3/4+ε} integers; centred top-band (L_C) ⟹ TB_pow (one-way) | PROVED (Heath-Brown 1995, Thm 1) | §9.4 | R4: PROVED part SOUND-WITH-MINOR → repaired |
+| 9d′ | top-band X_top normalised mgf 0.471–0.485 at t = 0.25 (Poisson 0.461), N = 10⁸–10¹¹; disjoint band/large layers weakly negatively correlated; the +0.50 overlap correlation is fully accounted for by shared hits (verified independently by the reviewer) | EVIDENCE | §9.4 | R4 MAJOR (wording) → repaired |
+| 9e | κ₂(R) = Σσ² up to O(W_B²/|I|) (CRT range); E_I R² ≤ (1 + 8z²/N)Σσ² for every z (large sieve); beyond √N: fable-3's Kloosterman-fraction sum, numerically net negative for the residual | PROVED / EVIDENCE | §9.5 | R4 SOUND-WITH-MINOR → repaired |
+| 9f | |κ_j(R) − κ_j^{model}| ≤ j!(6W_B)^j/|I| and |κ_j^{model}| ≤ 1.44 j!Σσ² for all j; so |κ_j| ≤ 3j!Σσ² for j ≤ (1 − o(1))(log N)^{1−β}. Moment route (Lemma 9.5, C ≥ 1): control to order ≍ (log N)^{1/2+δ}/log log N would suffice for T1-min | PROVED (Thm 9.4, Lemma 9.5); sufficiency only | §9.6 | R4 MAJOR (overclaim) → repaired |
 
 ### 9.1 Setup and the algebra of the residual
 
-Band: B = {ℓ prime, ℓ ≡ 3 (mod 4), y < ℓ ≤ z}, z = exp((log N)^β), y = √z. (On the 4ℤ line only ℓ ≡ 3 (4) carry
-classes.) F_ℓ(n) = 1[n ≡ −4e (mod ℓ) for some e with 4e | ℓ + 1], w(ℓ) = τ((ℓ+1)/4), c_ℓ = w(ℓ)/(ℓ − 1), μ = Σ_B c_ℓ,
-and, as in the board's astra-5,
+Band: B = {ℓ prime, ℓ ≡ 3 (mod 4), y < ℓ ≤ z}, z = exp((log N)^β), y = √z, 1/2 < β < 1. (On the 4ℤ line only ℓ ≡ 3 (4)
+carry classes.) F_ℓ(n) = 1[n ≡ −4e (mod ℓ) for some e with 4e | ℓ + 1], w(ℓ) = τ((ℓ+1)/4), c_ℓ = w(ℓ)/(ℓ − 1) ≤ ½,
+μ = Σ_B c_ℓ, and, as in the board's astra-5,
 
-    R_ℓ(n) = F_ℓ(n) − c_ℓ[1_{ℓ∤n} − (n/ℓ)],    R(n) = Σ_{ℓ∈B} R_ℓ(n),    Q(n) = Σ_{ℓ∈B} c_ℓ (n/ℓ).
+    R_ℓ(n) = F_ℓ(n) − c_ℓ[1_{ℓ∤n} − (n/ℓ)],    R = Σ_{ℓ∈B} R_ℓ,    Q = Σ_{ℓ∈B} c_ℓ(n/ℓ),    X_B = Σ_{ℓ∈B} F_ℓ,    D(n) = Σ_{ℓ∈B, ℓ|n} c_ℓ.
 
 **Lemma 9.1 (PROVED, elementary).**
-(a) R_ℓ(n) = 0 if ℓ | n or (n/ℓ) = 1; R_ℓ(n) = F_ℓ(n) − 2c_ℓ if (n/ℓ) = −1. In particular |R_ℓ| ≤ 1 and R(x²) = 0.
+(a) R_ℓ(n) = 0 if ℓ | n or (n/ℓ) = 1; R_ℓ(n) = F_ℓ(n) − 2c_ℓ if (n/ℓ) = −1. So |R_ℓ| ≤ 1 and R(x²) = 0.
 (b) Σ_{a mod ℓ} R_ℓ(a) = 0 and Σ_{a mod ℓ} R_ℓ(a)(a/ℓ) = 0.
-(c) If n avoids every class of B, then R(n) = −μ + Q(n) + Σ_{ℓ∈B, ℓ|n} c_ℓ.
-(d) In the independent (Haar) model, R_ℓ has mean 0, variance σ_ℓ² = (w/ℓ)(1 − 2c_ℓ)² + ((ℓ−1)/(2ℓ) − w/ℓ)·4c_ℓ², and
+(c) For every n: R(n) = X_B(n) − μ + Q(n) + D(n). In particular, if n avoids B then R(n) = −μ + Q(n) + D(n).
+(d) In the independent (Haar) model R_ℓ has mean 0, variance σ_ℓ² = ((ℓ−1)/ℓ)c_ℓ(1 − 2c_ℓ) ≤ 1/8, and
     E e^{−tR_ℓ} = (ℓ+1)/(2ℓ) + (w/ℓ)e^{−t(1−2c_ℓ)} + ((ℓ−1)/(2ℓ) − w/ℓ)e^{2tc_ℓ}.
-(e) #{n ∈ I : n avoids B} ≤ #{n ∈ I : Q(n) ≥ μ/2 − Σ_{ℓ|n}c_ℓ} + #{n ∈ I : R(n) ≤ −μ/2}.
-*Proof.* (a) Every forbidden class is a non-residue (Lemma 1.2); on non-residues 1_{ℓ∤n} − (n/ℓ) = 2. (b) Σ_a F_ℓ = w =
-c_ℓ(ℓ − 1) = Σ_a c_ℓ(1_{a≠0} − (a/ℓ)); Σ_a F_ℓ(a)(a/ℓ) = −w = Σ_a c_ℓ(1_{a≠0} − (a/ℓ))(a/ℓ). (c) Sum (a) with F ≡ 0.
-(d) Direct. (e) From (c). ∎
+(e) #{n ∈ I : n avoids B} ≤ #{n ∈ I : Q(n) ≥ μ/2 − D(n)} + #{n ∈ I : R(n) ≤ −μ/2}.
+*Proof.* (a) Every forbidden class is a nonzero non-residue and they are distinct (Lemma 1.2); on non-residues
+1_{ℓ∤n} − (n/ℓ) = 2. (b) Σ_a F_ℓ = w = Σ_a c_ℓ(1_{a≠0} − (a/ℓ)); Σ_a F_ℓ(a)(a/ℓ) = −w = Σ_a c_ℓ(1_{a≠0} − (a/ℓ))(a/ℓ).
+(c) Sum the definition. (d), (e) Direct. ∎
 
-The quadratic piece is rare (board, PROVED there; recorded): Σ_{n∈I} Q(n)² ≤ |I|Σ_B c_ℓ² + Σ_{ℓ≠ℓ′} c_ℓc_ℓ′·O(√(ℓℓ′) log ℓℓ′)
-(Pólya–Vinogradov for the character (·/ℓℓ′) on an AP mod 8), so #{n ∈ I : Q(n) ≥ μ/4} ≪ μ^{−2}(N y^{−1+o(1)} + z(log z)^{O(1)}),
-which is ≤ N exp(−(½ − o(1))(log N)^β). And Σ_{ℓ|n} c_ℓ ≤ ω(n) max_B c_ℓ ≤ (log N)y^{−1+o(1)} = o(1). So T1-min(4ℤ) for
-β > 1/2 follows from #{R ≤ −μ/2} ≤ N exp(−(log N)^{1/2+δ}), in particular from the board's lemma
+*Band mass.* μ ≍ log z: each dyadic block (x, 2x] ⊆ B contributes mass ≍ 1 (lower bound: keep divisors e ≤ x^{1/4} and apply
+Bombieri–Vinogradov to the moduli 4e; upper bound: divisor pairing and Brun–Titchmarsh), exactly as in I3_DEEP_ASTRA
+Lemma 3.2. Likewise μ_top ≍ log N for the top band of §9.4.
 
-> **(L_C)** E_{n∈I} exp(−tR(n)) ≤ exp(Ct²μ) for some fixed C and all 0 < t ≤ t₀,
+*Quadratic piece (board, PROVED there; recorded with the constants).* On n = 8k + 1 the character (·/ℓℓ′) (ℓ ≠ ℓ′) becomes an
+ordinary character sum of conductor ℓℓ′, so Pólya–Vinogradov and the diagonal give
+Σ_{n∈I} Q(n)² ≤ |I|Σ_B c_ℓ² + O(Σ_{ℓ≠ℓ′} c_ℓc_ℓ′√(ℓℓ′) log ℓℓ′) ≤ |I|y^{−1+o(1)} + O(z(log z)³). For fixed β < 1 the second term is
+negligible, and #{n ∈ I : Q(n) ≥ μ/4} ≪ N exp(−(½ − o(1))(log N)^β). Uniformly D(n) ≤ (log N)y^{−1+o(1)} = o(1) ≤ μ/4.
 
-via Markov at t = min(t₀, 1/(4C)): P(R ≤ −μ/2) ≤ exp(−tμ/4).
+**The lemma, centred.** For finite N the first cumulant E_I R is a rounding term (|E_I R| ≤ 2W_B/|I|, Prop 9.3(a), and it
+can be negative: exact rational values at N = 10⁷ are −1.67·10⁻⁵ (β = 0.6) and −3.05·10⁻⁴ (β = 0.75), R4), so the
+uncentred inequality cannot hold uniformly as t → 0. The meaningful form is
 
-The independent model satisfies (L_C) with C ≈ ½: (1/(μt²)) log E e^{−tR} = (e^{−t} − 1 + t)/t² + O(max c_ℓ) (by (d)).
+> **(L_C)** log E_{n∈I} exp(−t(R − E_I R)) ≤ Ct²μ for some fixed C ≥ 1 and all 0 < t ≤ t₀.
+
+*Conditional reduction (PROVED).* For 1/2 < β < 1 and 0 < δ < β − 1/2, (L_C) implies T1-min(4ℤ): by (e) and the two bounds
+above, #Av(B) ≤ N exp(−(½ − o(1))(log N)^β) + #{R − E_I R ≤ −μ/2 + o(1)}, and Markov at t = min(t₀, 1/(4C)) bounds the last set
+by |I|exp(−cμ), μ ≍ (log N)^β.
+
+The independent model satisfies (L_C): (1/(μt²))·log E e^{−tR} = (e^{−t} − 1 + t)/t² + O(max c_ℓ), uniformly for t in a bounded range.
 
 ### 9.2 Drop-screen along z = exp((log N)^β)
 
-**Method (CERTIFIED for exact rows, EVIDENCE for sampled rows).** `scripts/z51_dbreak_resid.c`: `exact` mode computes R(n)
-for every n ∈ I ∖ □ (table of R_ℓ per prime, accumulated along the progression); `sample` mode computes R(n) by
-Jacobi symbols for random n ∈ I ∖ □. Both print the independent-model value Σ_ℓ log E e^{−tR_ℓ} (Lemma 9.1(d)).
-`scripts/z51_dbreak_resid_analyze.py` reports, for the *centred* residual (the first cumulant E_I R is a rounding
-artefact of size ≤ 2W_B/|I| by Prop 9.3(a); it is 10⁻²–10⁻⁸ here),
+**Method.** `scripts/z51_dbreak_resid.c`: `exact` mode computes R(n) for every n ∈ I ∖ □ (one table per prime, accumulated
+in single precision along the progression); `sample` mode computes R(n) by Jacobi symbols for random n ∈ I ∖ □. Both print
+the independent-model value Σ_ℓ log E e^{−tR_ℓ}. `scripts/z51_dbreak_resid_analyze.py` reports, for the centred residual,
 
-    A(t) = (1/(μt²))·log E_{I∖□} e^{−t(R − E R)},     A_mod(t) = (1/(μt²))·Σ_ℓ log E e^{−tR_ℓ},     excess = A − A_mod.
+    A(t) = (1/(μt²))·log E_{I∖□} e^{−t(R − E R)},     A_mod(t) = (1/(μt²))·Σ_ℓ log E e^{−tR_ℓ},     excess = A − A_mod,
 
-Checks: the sampler reproduces the exact β = 0.9, N = 10⁸ row (excess −0.0170 ± 0.009 vs −0.0173); an earlier version of
-the hit test missed the class n ≡ −1 (4e = ℓ + 1) and gave a spurious mean −0.32, found because the mean must vanish
-(Lemma 9.1(b)) and fixed before any row below was produced.
+with delta-method standard errors that include the fitted centring (the first version omitted that term and overstated
+the SEs by a factor ≈ 3; R4). "Exact" rows are full censuses in floating point (single-precision accumulation, logs printed
+to six decimals), not interval-certified. Checks: the reviewer recomputed the β = 0.6 and 0.75 rows at N = 10⁷ with an
+independent implementation (Euler's criterion, divisor enumeration) and matched every printed digit; the sampler
+reproduces the exact β = 0.9, N = 10⁸ row; a first version of the hit test missed the class n ≡ −1 (4e = ℓ + 1) and gave a
+mean −0.32, caught because Lemma 9.1(b) forces mean 0, and was fixed before any row below.
 
 | β | N | z | primes in B | μ | Var_I R/Σσ² | A(0.25) (model) | excess(0.25) | A(1) (model) | excess(1) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -755,165 +771,181 @@ the hit test missed the class n ≡ −1 (4e = ℓ + 1) and gave a spurious mean
 | 0.75 | 10⁷ | 3 116 | 216 | 2.190 | 1.020 | 0.4473 (0.4380) | +0.0093 | 0.3637 (0.3569) | +0.0068 |
 | 0.75 | 10⁸ | 7 271 | 459 | 2.374 | 1.007 | 0.4510 (0.4471) | +0.0039 | 0.3647 (0.3615) | +0.0032 |
 | 0.75 | 10⁹ | 16 528 | 948 | 2.718 | 1.002 | 0.4522 (0.4503) | +0.0018 | 0.3650 (0.3630) | +0.0020 |
-| 0.75 | 10¹⁰ (80 000 samples) | 36 733 | 1 937 | 2.946 | 1.004 | 0.4555 (0.4536) | +0.0019 ± 0.0075 | 0.3660 (0.3646) | +0.0014 ± 0.0018 |
+| 0.75 | 10¹⁰ (80 000 samples) | 36 733 | 1 937 | 2.946 | 1.004 | 0.4555 (0.4536) | +0.0019 ± 0.0022 | 0.3660 (0.3646) | +0.0014 ± 0.0015 |
 | 0.9 | 10⁷ | 2.0·10⁵ | 8 964 | 3.500 | 0.950 | 0.4380 (0.4576) | −0.0196 | 0.3565 (0.3664) | −0.0100 |
 | 0.9 | 10⁸ | 9.5·10⁵ | 37 456 | 4.025 | 0.956 | 0.4419 (0.4593) | −0.0173 | 0.3582 (0.3672) | −0.0090 |
-| 0.9 | 10⁹ (120 000 samples) | 4.4·10⁶ | 155 593 | 4.508 | 0.959 | 0.4442 (0.4601) | −0.0158 ± 0.0050 | 0.3598 (0.3675) | −0.0077 ± 0.0015 |
-| 0.9 | 10¹⁰ (120 000 samples) | 2.0·10⁷ | 644 321 | 5.018 | 0.964 | 0.4468 (0.4604) | −0.0137 ± 0.0048 | 0.3609 (0.3677) | −0.0068 ± 0.0015 |
+| 0.9 | 10⁹ (120 000 samples) | 4.4·10⁶ | 155 593 | 4.508 | 0.959 | 0.4442 (0.4601) | −0.0158 ± 0.0017 | 0.3598 (0.3675) | −0.0077 ± 0.0013 |
+| 0.9 | 10¹⁰ (120 000 samples) | 2.0·10⁷ | 644 321 | 5.018 | 0.964 | 0.4468 (0.4604) | −0.0137 ± 0.0017 | 0.3609 (0.3677) | −0.0068 ± 0.0013 |
 
-(t = 0.1 and 0.5 behave the same way; all values in `data/z51_dbreak/resid_exact_*`, `samp_*`.)
+(t = 0.1 and 0.5 behave alike; the largest |excess| is 0.0226, at β = 0.9, N = 10⁷, t = 0.1. Data:
+`data/z51_dbreak/resid_exact_*`, `samp_*.txt.gz`.)
 
-**Verdict of the screen (EVIDENCE).** The board's drop condition, "the normalised quantity grows with μ along fixed β",
-is **not met** at any β. A(t) stays within 0.02 of the independent-model value A_mod(t) ≈ (e^{−t} − 1 + t)/t² (≈ 0.46 at
-t = 0.25, 0.37 at t = 1), and the excess decreases in |·| as N grows: to 2·10⁻⁵ at β = 0.6, to 0.002 at β = 0.75. At
-β = 0.9, where z² > N and pairs of band primes are already beyond level, the excess is **negative** (the residual is
-4–5% less dispersed than independent) and drifts towards 0. The range of μ is small (1.3–5.0); the screen can falsify,
-not confirm, and it cannot see the cumulant orders j ≍ (log N)^{1/2+δ} that the lemma needs (§9.6).
+**Reading (EVIDENCE, finite range).** A(t) itself rises with μ at fixed β, because the model value does (c_ℓ shrinks); the
+relevant quantity is the excess. Over the tested range it is at most 0.023 in absolute value; it decreases with N at
+β = 0.6 (to 2·10⁻⁵) and β = 0.75 (to ≈ 0.002), and at β = 0.9, where z² > N and pairs of band primes are beyond level, it is
+negative (the residual is 4–5% less dispersed than independent) and moves towards 0. No unbounded growth with μ is
+detected. The range μ ≤ 5 is small: the screen could have falsified the route and did not; it cannot certify it, and it
+does not see cumulant orders of size (log N)^{1/2+δ}.
 
 ### 9.3 The negative tail
 
-`scripts/z51_dbreak_resid_tail.py` compares the empirical histogram of an exact run with the exact independent-model law
-(R = H − D: dynamic programme in the hit count H with the conditional mean and variance of the drift D = 2Σ_{nonres}c_ℓ;
-a grid convolution is useless here because it rounds the drifts −2c_ℓ ~ 10⁻⁵ to 0), and inspects the 200 most negative n.
+`scripts/z51_dbreak_resid_modelmc.c` samples the independent-model law of R (4·10⁶ draws per run) with the census binning, and
+`scripts/z51_dbreak_tail_compare.py` compares P(R < x) at the *same* histogram edges x. (The first version used a
+Gaussian approximation to the drift given the hit count and compared unmatched thresholds; its apparent tail deficit
+largely disappears at matched thresholds, R4. The Monte Carlo law at β = 0.6, x = −0.84 agrees with the reviewer's
+interval-controlled grid bracket [0.25317, 0.25336].)
 
-| β, N | P(R ≤ −μ/2): emp / model | P(R ≤ −3μ/4): emp / model | P(R ≤ −μ): emp / model |
+| β, N | x ≈ −μ/2: census / model | x ≈ −3μ/4 | x ≈ −μ |
 |---|---|---|---|
-| 0.6, 10¹⁰ | 0.2535 / 0.2547 | 0.1575 / 0.1609 | 0.0604 / 0.0647 |
-| 0.75, 10⁹ | 0.2396 / 0.2380 | 0.0717 / 0.0705 | 0.0272 / 0.0271 |
-| 0.9, 10⁷ | 0.1324 / 0.1380 | 0.0379 / 0.0428 | 0.0140 / 0.0135 |
-| 0.9, 10⁸ | 0.1599 / 0.1673 | 0.0520 / 0.0537 | 0.0068 / 0.0082 |
+| 0.6, 10¹⁰ | 0.25347 / 0.25306 ± 0.00022 | 0.16145 / 0.16118 ± 0.00018 | 0.06482 / 0.06487 ± 0.00012 |
+| 0.75, 10⁹ | 0.23964 / 0.23810 ± 0.00021 | 0.07171 / 0.07044 ± 0.00013 | 0.02721 / 0.02693 ± 0.00008 |
+| 0.9, 10⁷ | 0.13330 / 0.13833 ± 0.00017 | 0.04154 / 0.04368 ± 0.00010 | 0.01397 / 0.01346 ± 0.00006 |
+| 0.9, 10⁸ | 0.15988 / 0.16276 ± 0.00018 | 0.05198 / 0.05363 ± 0.00011 | 0.00844 / 0.00874 ± 0.00005 |
 
-(thresholds rounded to the 0.02 histogram bins; at β = 0.75 the far tail R ≤ −1.25μ has 1.9·10⁻⁶ emp. vs 3.2·10⁻⁶ model.)
-The lower tail follows the independent law, slightly *below* it where the screen sees a difference. The most negative
-n: at β = 0.75, 0.9 they are band avoiders (H = 0) with a typical quadratic profile (non-residue fraction 0.50–0.53, as for
-random n) and no small-kernel enrichment (squarefree kernel ≤ 10⁴: 0–1.5%, random 0–3%; 6.5% vs 3% at the smallest run);
-at β = 0.6 (μ = 1.7) they are profile-driven (non-residue fraction 0.74), which the independent law also predicts at that μ.
-**No coherent residual component was found**, in contrast with the raw count, where the squares and the quadratic
-profile are coherent (squares have R = 0 by Lemma 9.1(a)).
+At β = 0.6, 0.75 the census lower tail lies on or slightly above the model law (by up to 1.8%); at β = 0.9 it lies 2–5%
+below it, except at x ≈ −μ for N = 10⁷ (+3.8%). These are finite-range comparisons. The 200 most negative n of each census:
+at β = 0.75, 0.9 they are band avoiders with an unweighted non-residue fraction 0.50–0.53 on B (random n: 0.50) and no
+small-kernel enrichment (squarefree kernel ≤ 10⁴: 0–1.5% against 0–3% for random n; 6.5% vs 3% in the smallest run); at
+β = 0.6 (μ = 1.7) they have non-residue fraction 0.74, which the independent law also favours at that μ. **No coherent
+residual component was detected by these particular checks** (unweighted profile and small kernels of the 200 most
+negative points); other mechanisms were not searched. For the raw count the squares and the quadratic profile are
+coherent components; squares have R = 0 by Lemma 9.1(a).
 
 ### 9.4 The top band
 
-**Proposition 9.2 (the top-band quadratic piece is negligible; PROVED given Heath-Brown's quadratic large sieve).** Let
-B_top = {ℓ ≡ 3 (4) prime : √(2N) < ℓ ≤ N} and Q_top(n) = Σ_{B_top} c_ℓ(n/ℓ). For every ε > 0 and η > 0,
+**Proposition 9.2 (the top-band quadratic piece is negligible; PROVED given Heath-Brown, Acta Arith. 72 (1995), Theorem 1).**
+Let B_top = {ℓ ≡ 3 (4) prime : √(2N) < ℓ ≤ N} and Q_top(n) = Σ_{B_top} c_ℓ(n/ℓ). For every ε > 0,
 
-    #{n ≤ N odd : |Q_top(n)| ≥ η} ≪_ε N^{3/4+ε}η^{−2}.
+    Σ_{n≤N odd} Q_top(n)² ≪_ε N^{3/4+ε},   hence   #{n ≤ N odd : |Q_top(n)| ≥ η} ≪_ε N^{3/4+ε}η^{−2} for all η > 0.
 
-*Proof.* Σ_{B_top} c_ℓ² ≪ Σ_{ℓ>√N} ℓ^{−2+ε} ≪ N^{−1/2+ε} (w(ℓ) ≤ ℓ^{o(1)}). Write n = n₁n₂², n₁ squarefree. Since every
-ℓ ∈ B_top exceeds n₂ ≤ √N, (n/ℓ) = (n₁/ℓ), and by reciprocity (n₁/ℓ) = ±(ℓ/n₁) with a sign depending only on n₁ mod 4.
-Heath-Brown's bound Σ*_{m≤M}|Σ*_{ℓ≤L} a_ℓ(ℓ/m)|² ≪ (ML)^ε(M + L)Σ|a_ℓ|² (odd squarefree m, ℓ), with M = N/n₂², L = N, gives
-Σ_{n₁}|Q_top(n₁n₂²)|² ≪ N^{1/2+2ε} for each n₂. So the count is ≤ #{n : n₂ > Z} + Σ_{n₂≤Z} N^{1/2+2ε}η^{−2} ≪ N/Z + ZN^{1/2+2ε}η^{−2};
-take Z = N^{1/4}. ∎
+*Proof.* Heath-Brown: Σ*_{m≤M}|Σ*_{r≤L} a_r(r/m)|² ≪_ε (ML)^ε(M + L)Σ*|a_r|², both variables over odd squarefree integers. For
+odd n = n₁n₂² (n₁ squarefree) every ℓ ∈ B_top exceeds n₂, so (n/ℓ) = (n₁/ℓ) = (−1)^{(n₁−1)/2}(ℓ/n₁) (ℓ ≡ 3 (4)); the sign is
+constant in the inner sum. With M = N/n₂², L = N and Σ_{B_top}c_ℓ² ≪ N^{−1/2+ε}, each fixed n₂ contributes O(N^{1/2+ε}) to
+the second moment. For n₂ > Z use |Q_top| ≤ μ_top ≪ log N: total ≪ ZN^{1/2+ε} + (N/Z)log²N; take Z = N^{1/4}. Chebyshev. ∎
 
-So on the top band the board's projection costs nothing: off a set of N^{3/4+ε} integers R_top = X_top − μ_top + o(1) in
-the regime that matters (if X_top(n) = 0 then R_top(n) = −μ_top + Q_top(n) + O(N^{−1/2+ε})), with μ_top = Σ_{B_top}c_ℓ ≍ log N.
-Hence **the top-band version of (L_C) — E_I e^{−t(R_top − E R_top)} ≤ e^{Ct²μ_top} for small fixed t — implies TB_pow
-(Cor 3.3), i.e. a power saving for E_U off the squares and for ES₅ at primes**, stronger than T1-min. (E_I R_top is a
-bounded negative constant: the Haar densities w/ℓ overstate the hit rate for ℓ > (n + 4e)/3, Lemma 1.1(d).) In the top
-band no cumulant is CRT-accessible (all band primes exceed √N), so Theorem 9.4 gives nothing there; it is the band where
-the depth problem is purest.
+Taking η = 1/log N: off O(N^{3/4+ε}) integers, |Q_top| ≤ 1/log N. Since an integer n ≤ N has at most one prime factor in
+B_top, Lemma 9.1(c) on the top band reads R_top = X_top − μ_top + Q_top + O(N^{−1/2+ε}) for every n, and |E_I R_top| ≪ 1 by
+the rounding bound (its sign is not determined). Hence, off the exceptional set, X_top(n) = 0 implies
+R_top − E_I R_top ≤ −μ_top/2 for large N, and **the centred top-band (L_C) implies #{X_top = 0} ≪ N exp(−cμ_top) + N^{3/4+ε},
+i.e. TB_pow (Cor 3.3): a power saving for E_U off the squares and for ES₅ at primes.** The implication is one-way: TB_pow
+does not imply (L_C). On the top band all primes exceed √N, so first moments and repeated-prime blocks are still
+CRT-evaluable, but mixed distinct-prime pairs (κ₂ included) are beyond level, and Theorem 9.4 gives no useful range.
 
-*Numerics (EVIDENCE, fixed scale n ∈ [N/2, N], data of §3.3; Q_top neglected per Prop 9.2):*
-(1/(μt²))·log E e^{−t(X_top − E X_top)} with μ = E X_top:
+*Numerics (EVIDENCE; fixed scale n ∈ [N/2, N], data of §3.3).* These measure the centred **X_top** normalised by its
+empirical mean, not R_top (Q_top was not computed; Prop 9.2 is asymptotic and does not quantify its effect on these finite
+mgfs). (1/(μt²))·log E e^{−t(X_top − μ)}, μ = E X_top, with SEs that include both fitted quantities:
 
 | N | μ | t = 0.25 (Poisson 0.4608) | t = 1 (Poisson 0.3679) |
 |---:|---:|---:|---:|
-| 10⁸ | 4.67 | 0.4710 ± 0.0055 | 0.3713 ± 0.0016 |
-| 10⁹ | 5.42 | 0.4747 ± 0.0052 | 0.3716 ± 0.0016 |
-| 10¹⁰ | 6.16 | 0.4743 ± 0.0049 | 0.3697 ± 0.0016 |
-| 10¹¹ | 6.87 | 0.4853 ± 0.0086 | 0.3760 ± 0.0032 |
+| 10⁸ | 4.67 | 0.4710 ± 0.0019 | 0.3713 ± 0.0013 |
+| 10⁹ | 5.42 | 0.4747 ± 0.0019 | 0.3716 ± 0.0014 |
+| 10¹⁰ | 6.16 | 0.4743 ± 0.0019 | 0.3697 ± 0.0014 |
+| 10¹¹ | 6.87 | 0.4853 ± 0.0036 | 0.3760 ± 0.0029 |
 
-Flat in μ, within 0.025 of the Poisson value: the drop condition is not met on the top band either.
+The values are within 0.025 of the Poisson value but statistically distinguishable from it, and at t = 0.25 they rise
+from 0.471 to 0.485 (≈ 3.5 SE): no divergence is visible, but "flat" would overstate the data.
 
-*Joint behaviour of the two layers (EVIDENCE; `scripts/z51_dbreak_joint.py`, `data/z51_dbreak/joint_*`).* Is the band
-residual's lower tail governed by the top band? No. With disjoint layers, the band residual R and the large-prime layer X
-are nearly independent and slightly negatively correlated:
+*Joint behaviour of two layers (EVIDENCE; `scripts/z51_dbreak_joint.py`, `data/z51_dbreak/joint_*.txt.gz`; 20 000 sampled n).*
 
 | layers | corr(R, X) | P(X = 0) | P(X = 0 \| R ≤ −μ/2) | P(both)/product |
 |---|---:|---:|---:|---:|
-| β = 0.75, N = 10¹⁰: band (192, 3.7·10⁴] vs top ℓ > √(2N) | −0.022 ± 0.007 | 0.00515 | 0.00533 | 1.03 |
-| β = 0.9, N = 10⁹: band (2.1·10³, 4.4·10⁶] vs layer ℓ > 4.5·10⁶ | −0.044 ± 0.007 | 0.158 | 0.141 | 0.89 |
+| β = 0.75, N = 10¹⁰: band (192, 36 733] vs top ℓ > √(2N) | −0.022 | 0.00515 | 0.00533 (22 joint zeros) | 1.03 |
+| β = 0.9, N = 10⁹: band (2 105, 4.43·10⁶] vs layer ℓ > 4 527 000 | −0.044 | 0.158 | 0.141 | 0.89 |
 
-(20 000 sampled n each.) The naive comparison at β = 0.9 with the top band ℓ > √(2N) gives corr +0.50, but there the two
-bands overlap on (√(2N), z]; that is an artefact, recorded in `joint_Xtop_overlap_b0.9_N1e9.txt.gz`. The negative sign
-for disjoint layers has the same archimedean source as in §9.5: one shifted integer n + 4e cannot carry two large
-event primes whose product exceeds it. So the layers can be combined (Lemma 3.2 does not even need this), and neither
-explains the other's tail.
+With disjoint layers the band residual's lower tail is not driven by the large layer (weak negative correlation; the
+second row shows a modest, ≈ 3 SE, lower-tail dependence below independence). A naive comparison at β = 0.9 with the top
+band ℓ > √(2N) gives corr +0.50, but the two bands then overlap on (√(2N), z]; the reviewer counted the shared hits
+independently for all 20 000 rows and found that removing them turns the correlation into −0.044, so the overlap fully
+accounts for it. (The layer cutoff 4 527 000 is the exact `TOP` value used; it differs slightly from z = 4 431 557, so the
+second row omits a small gap (z, 4 527 000], 260 hits in total.) Small correlations do not establish independence of the
+laws or of deeper tails. That the negative sign comes from the archimedean exclusion (one shifted integer cannot carry
+two large event primes whose product exceeds it) is an Assessment, not identified by these data.
 
 ### 9.5 The second cumulant
 
-Write Σσ² := Σ_B σ_ℓ² (≈ μ: σ_ℓ² = c_ℓ(1 + O(c_ℓ)) by Lemma 9.1(d)) and W_B := Σ_B w(ℓ) ≤ C_T z (divisor pairing and
-Brun–Titchmarsh). E_I is the average over I = {n ≤ N : n ≡ 1 (8)}; removing the √N squares (where R = 0) multiplies all
+Write Σσ² := Σ_B σ_ℓ² and W_B := Σ_B w(ℓ) ≤ C_T z. E_I averages over I; removing the squares (R = 0 there) multiplies all
 moments by 1 + O(N^{−1/2}).
 
 **Proposition 9.3 (PROVED).**
-(a) |E_I R| ≤ 2W_B/|I| ≪ z/N.
-(b) (CRT range) |E_I R² − Σσ²| ≤ 2(6W_B)²/|I| + (2W_B/|I|)² (the case j = 2 of Theorem 9.4); in the subexponential band
-    this is N^{−1+o(1)}, so κ₂(R) = Σσ² + O(N^{−1+o(1)}): the j = 2 cumulant is *exactly* the independent-model value.
-(c) (all z, large sieve) E_I R² ≤ (1 + 8z²/N + O(N^{−1}))·Σσ². So κ₂(R) ≤ (1 + o(1))Σσ² for z = o(√N), and κ₂ = O(μ) for
-    z ≤ C√N, with no arithmetic input beyond Lemma 9.1(b).
-*Proof.* (a) For a function g periodic mod q (q odd), each class mod q contains |I|/q + θ elements of I, |θ| ≤ 1, so
-|E_I g − E g| ≤ |I|^{−1}Σ_{a mod q}|g(a)|; and Σ_a|R_ℓ(a)| = w|1 − 2c| + ((ℓ−1)/2 − w)·2c ≤ 2w. (c) As a function of
-k (n = 8k + 1), R_ℓ has period ℓ and mean 0, so R(8k+1) = Σ_ℓ Σ_{h≢0 (ℓ)} b_ℓ(h)e(hk/ℓ) with Σ_h|b_ℓ(h)|² = σ_ℓ²
-(Parseval). The frequencies h/ℓ (ℓ ∈ B prime) are 1/z²-spaced, and the Montgomery–Vaughan large sieve gives
-Σ_{k≤|I|} R(8k+1)² ≤ (|I| + z²)Σσ². ∎
+(a) |E_I R| ≤ 2W_B/|I|.
+(b) |E_I R² − Σσ²| ≤ 4W_B²/|I|; so in the subexponential band κ₂(R) = Σσ² up to O(z²(log z)^{O(1)}/N) = O(N^{−1+o(1)}).
+(c) For every z, E_I R² ≤ (1 + z²/|I|)Σσ² ≤ (1 + 8z²/N)Σσ²; so κ₂ = O(μ) for z ≤ C√N with no arithmetic input beyond Lemma 9.1(b).
+*Proof.* (a) For g periodic modulo an odd q, each class contains |I|/q + θ elements of I (|θ| ≤ 1), so
+|E_I g − E g| ≤ |I|^{−1}Σ_{a mod q}|g(a)|; and Σ_a|R_ℓ(a)| = 2w(1 − 2c_ℓ) ≤ 2w. (b) Expand R² over pairs; the L¹ norm of a
+distinct-prime product factors, and |R_ℓ|² ≤ |R_ℓ|. (c) As a function of k (n = 8k + 1) R_ℓ has period ℓ and mean 0, so
+R(8k+1) = Σ_ℓ Σ_{h≢0} b_ℓ(h)e(hk/ℓ) with Σ_h|b_ℓ(h)|² = σ_ℓ²; the frequencies h/ℓ are z^{−2}-spaced, and the dual large sieve
+(Montgomery–Vaughan) gives Σ_k R(8k+1)² ≤ (|I| + z²)Σσ². ∎
 
-*Beyond √N (fable-3).* For z > √N, E_I R² − Σσ² = Σ_{ℓ≠ℓ′} Cov_I(R_ℓ, R_ℓ′) + O(W_B/|I|), and the pairs with ℓℓ′ ≤ N^{1−ε}
-contribute O(N^{−ε}(log)^{O(1)}) by (a) applied to g = R_ℓR_ℓ′. The pairs with ℓℓ′ > N are fable-3's Kloosterman-fraction
-sum; (c) bounds them by 8z²/N·Σσ², which is not O(μ) once z ≫ √N. No better unconditional bound is proved here.
-Numerically (§9.2) the beyond-level covariance of the *residual* is **negative**: Var_I R/Σσ² = 0.95–0.96 at β = 0.9
-(z = N^{0.76…0.68}, N = 10⁷–10⁹). A mechanism (Assessment): two hits ℓ, ℓ′ on the same shift e need ℓℓ′ | n + 4e, which
-is impossible when ℓℓ′ > n + 4e; the independent model counts such pairs, the integers do not (an archimedean exact zero,
-§2.3(d)). This sign is the favourable one for (L_C), and it is the opposite of the raw count X, whose excess variance
-(fable-3, positive) comes from the quadratic profile that R removes.
+*Beyond √N (fable-3).* In general Var_I R − Σσ² = Σ_{ℓ≠ℓ′}Cov_I(R_ℓ, R_ℓ′) + O(W_B/|I|). The large sieve bounds this *total*
+from above by (z²/|I|)Σσ²; it does not bound the beyond-level pairs (ℓℓ′ > N) separately, whose sum is fable-3's
+Kloosterman-fraction problem (with the transition N^{1−ε} < ℓℓ′ ≤ N to be handled as well). No better unconditional bound is
+proved here. Numerically the total is **negative** at β = 0.9 (Var_I R/Σσ² = 0.950–0.964 for z = N^{0.76…0.73}, N = 10⁷–10¹⁰),
+the opposite sign to the raw count X (fable-3), whose excess comes in part from the quadratic profile that R removes.
+A possible contributor (Assessment): two hits ℓ, ℓ′ on the same shift need ℓℓ′ | n + 4e, impossible when ℓℓ′ > n + 4e; the
+residual covariance also has hit–character, character–character and cross-shift terms, so this does not identify the sign.
 
-### 9.6 Higher cumulants: the range proved and the range needed
+### 9.6 Higher cumulants: the proved range, and what a moment route would need
 
-**Theorem 9.4 (PROVED).** For every j ≥ 2,
+**Theorem 9.4 (PROVED).** For every j ≥ 2, with κ_j the j-th cumulant of R(n), n uniform on I,
 
-    |κ_j(R)| ≤ 1.44·j!·Σσ² + j!·(6W_B)^j/|I|,
+    |κ_j(R) − κ_j^{model}(R)| ≤ j!(6W_B)^j/|I|,    |κ_j^{model}(R)| ≤ 1.44·j!·Σσ².
 
-where κ_j is the j-th cumulant of R(n), n uniform on I. Consequently |κ_j(R)| ≤ 3·j!·Σσ² for all
-2 ≤ j ≤ J₀ := log(|I|Σσ²)/log(6C_T z) = (1 + o(1))(log N)^{1−β}.
+Consequently |κ_j(R)| ≤ 3·j!·Σσ² for 2 ≤ j ≤ J₀ := log(|I|Σσ²)/log(6C_T z) = (1 + o(1))(log N)^{1−β}.
 
-*Proof.* (Model.) The R_ℓ are independent, mean 0, |R_ℓ| ≤ 1, σ_ℓ² ≤ 0.69. For complex |s| ≤ 1,
-|E e^{sR_ℓ} − 1| = |E(e^{sR_ℓ} − 1 − sR_ℓ)| ≤ σ_ℓ²(e − 2) ≤ ½, so |log E e^{sR_ℓ}| ≤ 1.44σ_ℓ², and Cauchy's estimate on |s| = 1
-gives |κ_j(R_ℓ)| ≤ 1.44·j!·σ_ℓ²; sum over ℓ. (Integers.) By multilinearity κ_j(R) = Σ_{(ℓ₁,…,ℓ_j)∈B^j} κ(R_{ℓ₁}, …, R_{ℓ_j}),
-and in the model the joint cumulant vanishes unless ℓ₁ = ⋯ = ℓ_j. A joint cumulant is Σ_π (−1)^{|π|−1}(|π| − 1)!∏_{b∈π} m_b
-over set partitions π of [j], m_b the joint moment of the block. Each block function ∏_{i∈b}R_{ℓ_i} is periodic modulo the
-product q_b of its distinct primes, so by the argument of Prop 9.3(a) its I-moment differs from the model moment by
-δ_b ≤ |I|^{−1}∏_{distinct ℓ ∈ b}(ℓ E|R_ℓ|) ≤ |I|^{−1}∏_{i∈b}2w(ℓ_i), while |m_b^{mod}| ≤ 1. Hence the product over blocks changes by
-≤ Σ_{∅≠S⊆π}∏_{b∈S}δ_b ≤ 2^{|π|}|I|^{−1}∏_i 2w(ℓ_i), and the joint cumulant by ≤ |I|^{−1}∏_i 2w(ℓ_i)·Σ_π(|π| − 1)!2^{|π|}
-≤ j!3^j|I|^{−1}∏_i 2w(ℓ_i) (Σ_k S(j, k)(k − 1)!2^k ≤ j!3^j, checked to j = 40 and asymptotically ≈ j!·2.47^j). Sum over
-B^j. ∎
+*Proof.* (Model.) The R_ℓ are independent, mean 0, |R_ℓ| ≤ 1, σ_ℓ² ≤ 1/8. For complex |s| ≤ 1,
+|E e^{sR_ℓ} − 1| = |E(e^{sR_ℓ} − 1 − sR_ℓ)| ≤ σ_ℓ²(e − 2) < ½, so the principal logarithm satisfies |log E e^{sR_ℓ}| ≤ 1.44σ_ℓ², and
+Cauchy's estimate on |s| = 1 gives |κ_j(R_ℓ)| ≤ 1.44·j!·σ_ℓ²; sum over ℓ. (Integers.) By multilinearity
+κ_j(R) = Σ_{(ℓ₁,…,ℓ_j)∈B^j} κ(R_{ℓ₁}, …, R_{ℓ_j}); in the model a joint cumulant vanishes as soon as two different primes occur
+(the arguments split into independent groups), so the model sum is Σ_ℓ κ_j(R_ℓ). A joint cumulant is
+Σ_π(−1)^{|π|−1}(|π| − 1)!∏_{b∈π}m_b over set partitions π of [j]. Each block function is periodic modulo the product of its
+distinct primes, so by (a) of Prop 9.3 its I-moment differs from the model moment by δ_b ≤ |I|^{−1}∏_{distinct ℓ∈b}(ℓE|R_ℓ|)
+≤ |I|^{−1}∏_{i∈b}2w(ℓ_i), while |m_b^{model}| ≤ 1. Expanding the product over blocks, the change is
+≤ Σ_{∅≠S⊆π}∏_{b∈S}δ_b ≤ 2^{|π|}|I|^{−1}∏_i 2w(ℓ_i). Finally Σ_π(|π| − 1)!2^{|π|} = Σ_k S(j, k)(k − 1)!2^k ≤ j!Σ_k C(j−1, k−1)2^k/k
+= (j − 1)!(3^j − 1) ≤ j!3^j, using k!S(j, k) ≤ j!C(j−1, k−1) (each ordered set partition is a permutation cut into k
+nonempty runs). Sum over B^j. ∎
 
-**What (L_C) needs.** Let μ′ = Σσ² ≤ μ(1 + o(1)).
-*Lemma 9.5 (PROVED, standard).* If |κ₁| ≤ 1 and |κ_j(R)| ≤ j!C^jμ′ for 2 ≤ j ≤ 2k, with k ≤ μ′/4, then
-E R^{2k} ≤ O(√k)(4eC²kμ′)^k, hence P(R ≤ −μ/2) ≤ O(√k)(16eC²kμ′/μ²)^k ≤ O(√k)(C′k/μ)^k.
-*Proof.* E R^{2k} depends only on κ₁, …, κ_{2k}, and E R^{2k} = (2k)![s^{2k}]exp(Σ_{j≤2k}κ_j s^j/j!) ≤ (2k)! r^{−2k}
-exp(r + μ′C²r²/(1 − Cr)) for 0 < r < 1/C. Take r² = k/(C²μ′) (so Cr ≤ ½) and (2k)! ≤ O(√k)(2k/e)^{2k}. Markov. ∎
-So, with μ ≍ (log N)^β: cumulant control up to order 2k = 2(log N)^γ gives P(R ≤ −μ/2) ≤ exp(−(β − γ − o(1))(log N)^γ log log N).
-* **Needed** for T1-min (saving (log N)^{1/2+δ}, with β > 1/2 + δ so that the quadratic piece and μ are large enough):
-  cumulant bounds |κ_j| ≤ j!C^jμ for **2 ≤ j ≤ (log N)^{1/2+δ}** (any γ ≥ 1/2 + δ); the full mgf form (L_C) asks for every j,
-  but beyond j ≍ μ the moment route needs nothing more.
-* **Proved** (Theorem 9.4): **2 ≤ j ≤ (1 − o(1))(log N)^{1−β}**, i.e. γ ≤ 1 − β < 1/2 − δ.
-* The missing window (log N)^{1−β} < j ≤ (log N)^{1/2+δ} is nonempty exactly because β > 1/2: it consists of the cumulants
-  whose prime tuples have product > N, i.e. depth. With the proved range alone, Lemma 9.5 gives
-  P(R ≤ −μ/2) ≤ exp(−c(2β − 1)(log N)^{1−β}log log N), and the overall bound is optimised near β = ½, where it is the CRT
-  exponent ½ (G1) again. So Theorem 9.4 is the cumulant form of G1, and (L_C) beyond it is equivalent in strength to
-  depth breaking.
-* At polynomial z = N^{1/s} (s < 2) the proved range is only j ≤ s: already κ₂ is beyond level (§9.5).
+**Lemma 9.5 (PROVED, standard; C ≥ 1).** If |κ₁| ≤ 1 and |κ_j(R)| ≤ j!C^jμ′ for 2 ≤ j ≤ 2k, with k ≤ μ′/4, then
+E R^{2k} ≤ O(√k)(4eC²kμ′)^k, hence P(|R| ≥ μ/2) ≤ O(√k)(16eC²kμ′/μ²)^k.
+*Proof.* E R^{2k} depends only on κ₁, …, κ_{2k}, and is bounded coefficientwise by (2k)![s^{2k}]exp(Σ_{j≤2k}|κ_j|s^j/j!)
+≤ (2k)!r^{−2k}exp(r + μ′C²r²/(1 − Cr)) for 0 < r < 1/C. Take r² = k/(C²μ′) (so Cr ≤ ½, r ≤ 1 as C ≥ 1) and
+(2k)! ≤ O(√k)(2k/e)^{2k}. Markov. ∎ (Without C ≥ 1 the absolute constant cannot be uniform in C; R4.)
+
+**What the moment route would need (sufficiency, not necessity).** Put L = log N, μ ≍ L^β, μ′ = Σσ² ≤ μ(1 + o(1)), and a target
+saving L^a with a = 1/2 + δ < β.
+* By Lemma 9.5, control |κ_j| ≤ j!C^jμ for 2 ≤ j ≤ 2k with **k = A·L^a/log L** (A large) suffices for #{R − E R ≤ −μ/2} ≤ N e^{−L^a},
+  hence for T1-min with the quadratic piece of §9.1.
+* Theorem 9.4 provides this only for j ≤ (1 − o(1))L^{1−β}, and L^{1−β} < L^{1/2} < L^a/log L for β > 1/2 and large N. With the proved
+  range alone, Lemma 9.5 gives exp(−c(2β − 1)L^{1−β}log L), and the overall bound is best near β = ½, at the CRT exponent ½: the
+  comparison of Theorem 9.4 is consistent with G1 (an analogy, not a proof that the missing orders are equivalent to depth).
+* The orders beyond J₀ are where the uniform error j!(6W_B)^j/|I| exceeds μ; most of their prime tuples have product of
+  distinct primes above N, but repeated-prime tuples stay small, and a bound on the total cumulant could use cancellation
+  without controlling each joint cumulant. Absolute cumulant bounds are sufficient for (L_C)-type tails, not necessary: a
+  one-sided mgf bound can coexist with large absolute cumulants (R4: R = A(B − p), B Bernoulli(p), p = A^{−2}, has
+  log E e^{−tR} ≤ t²/2 but κ₃ ∼ A).
+* At polynomial z = N^{1/s} (s < 2) the uniform comparison is useful only for j < s; already κ₂ needs §9.5.
 
 ### 9.7 Review and remaining gap
 
-**Review.** Pending (Astra, round 4).
+**R4 (Astra, `openai-codex/gpt-6-astra:high` via the `pi` CLI; `reviews/z51-dbreak-review-4.md`).** 9a, 9e SOUND-WITH-MINOR;
+9b, 9c, 9d, 9f MAJOR; no fatal defect in the conditional reductions or in Theorem 9.4. The reviewer independently recomputed
+two census rows (all digits match), the overlap decomposition (shared hits account for the +0.50 correlation), exact
+rational first moments, and an interval-controlled model bracket. Repairs: β restricted to (1/2, 1) and the band mass cited;
+(L_C) stated centred (finite-N first cumulants are negative); SEs corrected for the fitted centring (factor ≈ 3 too large
+before); "within 0.02" corrected to 0.023 and the excess, not A, described as decreasing; the tail section redone with a
+Monte Carlo model law at matched thresholds (the Gaussian-conditioned "exact law" and the unmatched thresholds removed);
+"no coherent component" restricted to the checks performed; Prop 9.2 proved as a second-moment bound with η = 1/log N; the
+top-band mean's sign claim dropped; "coincide" replaced by the one-way implication; the top-band mgf table labelled as X_top;
+the exact layer cutoff recorded; the covariance identity and the large-sieve reading corrected; the partition bound proved
+for all j; Lemma 9.5 with C ≥ 1; "needed", "every j", "exactly" and "equivalent in strength" replaced by a sufficiency
+statement with the log L refinement. Not accepted: none.
 
 **Remaining gap after round 4.**
-* astra-5's lemma (L_C) is consistent with all data: no growth of the normalised log-mgf with μ, no coherent residual
-  component, beyond-level correlations of the residual negative. The data cover μ ≤ 5 (band) and μ ≤ 6.9 (top band); they
-  cannot reach the cumulant orders that matter.
-* Proved: every cumulant of order j ≤ (1 − o(1))(log N)^{1−β} equals its independent-model value up to j!(6W_B)^j/|I|,
-  and satisfies |κ_j| ≤ 3j!Σσ². Needed for T1-min: the same bound for (log N)^{1−β} < j ≤ (log N)^{1/2+δ}, i.e. for joint
-  cumulants of prime tuples with product above N. That is depth in cumulant form; nothing here reaches it.
-* On the top band, astra-5 and TB coincide: the projection is free (Prop 9.2), and (L_C) there would give a power saving.
-  There no cumulant at all is CRT-accessible; even κ₂ is fable-3's Kloosterman-fraction problem, for which only the large
-  sieve bound (1 + 8z²/N)Σσ² is proved.
+* astra-5's centred lemma (L_C) is consistent with the data over the small tested range: no detected growth of the
+  excess with μ, lower tails close to (and at β = 0.9 mostly below) the independent law, and net negative beyond-level
+  covariance at β = 0.9. Nothing asymptotic is established.
+* Proved: all cumulants are compared with the independent model up to j!(6W_B)^j/|I|, which is useful for
+  j ≤ (1 − o(1))(log N)^{1−β}. A cumulant-moment proof of T1-min would need comparable control up to order ≍ (log N)^{1/2+δ}/log log N,
+  which involves prime tuples with product above N; this is not proved, and other routes (one-sided or signed aggregate
+  information) are not excluded.
+* On the top band the projection is free (Prop 9.2) and the centred (L_C) there would give a power saving (one-way). Its
+  second cumulant is already fable-3's Kloosterman-fraction problem, for which only the large-sieve bound is proved.

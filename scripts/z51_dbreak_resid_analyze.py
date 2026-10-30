@@ -40,8 +40,11 @@ def sample(paths):
     n = len(R); m = sum(R) / n; var = sum((r - m) ** 2 for r in R) / n
     out = []
     for t in sorted(model):
-        e = [math.exp(-t * (r - m)) for r in R]; E = sum(e) / n; sd = math.sqrt(sum((x - E) ** 2 for x in e) / n)
-        c = math.log(E); se = sd / (E * math.sqrt(n)) / (mu * t * t)
+        e = [math.exp(-t * (r - m)) for r in R]; E = sum(e) / n
+        # delta-method SE including the fitted centring m (influence term + t(R - m)); R4 review repair
+        psi = [(x / E - 1 + t * (r - m)) / (mu * t * t) for x, r in zip(e, R)]
+        mp = sum(psi) / n; se = math.sqrt(sum((p - mp) ** 2 for p in psi) / n) / math.sqrt(n)
+        c = math.log(E)
         out.append((t, c / (mu * t * t), model[t] / (mu * t * t), (c - model[t]) / (mu * t * t), se))
     return hdr, mu, s2, m, var, n, out
 

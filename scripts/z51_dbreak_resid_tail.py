@@ -1,4 +1,7 @@
-# z51 dbreak round 4: negative tail of the residual R. (1) Exact independent-model law of R by convolution on a grid,
+# NOTE (R4 review): part (1) below is SUPERSEDED. It conditions the drift D on the hit count with a Gaussian
+# approximation (not an exact law) and was compared at unmatched thresholds; use z51_dbreak_resid_modelmc.c +
+# z51_dbreak_tail_compare.py instead. Part (2) (structure of the most negative n) is what EXSET_DEPTH_BREAK §9.3 uses.
+# z51 dbreak round 4: negative tail of the residual R. (1) Independent-model law of R (Gaussian-conditioned, see note),
 # compared with the empirical histogram of an exact run. (2) Structure of the most negative n (NEG lines): squarefree
 # kernel, quadratic profile on the band, number of hits; compared with random n from the same range.
 # Usage: uv run --with numpy --with sympy python scripts/z51_dbreak_resid_tail.py data/z51_dbreak/resid_exact_bX_NY.txt
