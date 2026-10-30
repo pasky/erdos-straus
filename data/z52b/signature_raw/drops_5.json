@@ -1,0 +1,9 @@
+{
+ "drop": {},
+ "fix": {
+  "OWN-001": {
+   "connection": "Johnson/Brauer–Shockley gluing gives g(⟨tu, tv, u+v⟩) = t·g(u,v) + (t−1)(u+v) = tuv − u − v when gcd(u,v) = gcd(t,u+v) = 1 (checked by brute force on 488 triples, scripts/z52b_signature_frob_check.py). So the (★) line (words p = 4C·u·B − u − B, which implies ES but itself fails at 14 primes ≤ 10¹⁰) ⟺ p is the Frobenius number of a 3-generated numerical semigroup ⟨4Cu, 4CB, u+B⟩; for (★) words gcd(4C, u+B) = gcd(4C, p) = 1 automatically. The other ES word slices (coordinate in 8ℤ − p, or the 4ℤ coordinate not in the t slot) need a different semigroup family.",
+   "why": "Rosales–García-Sánchez–García-García–Jiménez Madrid proved every positive integer is the Frobenius number of SOME 3-generated semigroup: the (★) slice of ES is a restriction of a solved universality theorem to a structured sub-family (complete intersections glued from a 2-generated piece); finding semigroup families for the other ES slices would give a full semigroup reformulation of ES."
+  }
+ }
+}
