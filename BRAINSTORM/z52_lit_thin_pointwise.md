@@ -40,6 +40,14 @@ James Maynard, “Primes with restricted digits,” arXiv:1604.01041, v2 (28 Oct
 
 D. R. Heath-Brown and J.-C. Puchta, “Integers Represented as a Sum of Primes and Powers of Two,” arXiv:math/0201299, v2 (2 April 2002; submitted 30 January 2002), published in *Asian Journal of Mathematics* 6(3) (2002), 535–565. arXiv abstract, accessed 2026-10-30: every sufficiently large even integer is a sum of two primes and exactly 13 powers of 2; under GRH, 13 can be replaced by 7. Source identifies the key analytic input as bounding the measure of the set where the powers-of-two exponential sum is large. Status: published; source excerpt in `sources/z52/thin_pointwise/heath_brown_puchta_arxiv.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md` already records the theorem; this source check confirms it, without changing the verdict that the Goldbach component supplies a power-size count (barrier B6 / FRONTIER §3), unlike ES's polylog count.
 
+### Pintz–Ruzsa: Linnik–Goldbach with eight powers of two
+
+J. Pintz and I. Z. Ruzsa, “On Linnik’s approximation to Goldbach’s problem. II,” DOI 10.1007/s10474-020-01077-8, *Acta Mathematica Hungarica* 161 (2020), 569–582 (published 22 July 2020). Abstract, accessed 2026-10-30: every sufficiently large even integer is a sum of two primes and K=8 powers of two, unconditionally. Status: published. Excerpt `sources/z52/thin_pointwise/pintz_ruzsa_2020.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; this is pointwise but has a power-sized two-prime supply, not a polylog-only mechanism.
+
+### Erdős and Cohen–Selfridge: covering obstructions around powers of two
+
+Theorem/claim checked via Tao, “A remark on primality testing and decimal expansions,” arXiv:0802.3361v4 (accessed 2026-10-30), which cites Erdős (1950) and Cohen–Selfridge (1975). Tao records Erdős's AP of odd m for which |m−2^i| is always composite and Cohen–Selfridge's strengthening making both |m−2^i| and m+2^i composite. This is a secondary-source verification of those claims; it does not justify the stronger unqualified claim that the AP contains no p+2^k representations. Status: original publications cited, secondary source checked. Excerpt `sources/z52/thin_pointwise/erdos_covering_tao_arxiv.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; finite congruence covering of an exponential orbit produces failures, illustrating B1, but no direct ES transfer.
+
 ## §2 Structural-feature table
 
 | Problem | Structural feature that made it solvable | Does ES share it? | Transfer verdict |
