@@ -1,0 +1,3 @@
+Source: https://math.stanford.edu/~vakil/files/290-Theorem-preprint.pdf (authors' preprint PDF, 16 pages, accessed 2026-10-30).
+Manjul Bhargava and Jonathan Hanke, “Universal quadratic forms and the 290-Theorem.” Theorem 1: if a positive-definite integer-coefficient quadratic form represents the 29 listed critical integers up to 290, it represents every positive integer. Theorem 2: each critical integer is necessary. The proof combines escalation, local density / modular-form estimates and finite computation; the paper explains Theorem 3: representing every positive integer below 290 forces all above 290.
+This is a criterion for universality of a form, not a theorem giving a small number of representations of each n.

@@ -1,0 +1,3 @@
+Source: Valentin Blomer author-hosted abstract PDF, http://www.math.uni-bonn.de/people/blomer/abstract19.pdf (accessed 2026-10-30).
+Valentin Blomer, “Ternary quadratic forms, and sums of three squares with restricted variables,” in The Anatomy of Integers, CRM Proc. Lecture Notes 46 (2008). Abstract describes a survey on representations by positive integral ternary forms, improved uniform asymptotic formulas for representation numbers, and applications to Gauss-type three-square theorems with almost-prime, squarefree, or smooth numbers.
+Abstract alone does not state precise theorem hypotheses or per-target universality; do not elevate this to a pointwise all-n theorem.

@@ -1,0 +1,4 @@
+Source: https://arxiv.org/abs/2607.03662 (accessed 2026-10-30)
+Yuchen Ding, Huixi Li, Junfeng Li, “A Romanoff-type theorem for P₂+{a^a:a≥1},” arXiv:2607.03662 v1, submitted 2026-07-04.
+Abstract: P₂={m: Ω(m)≤2}; P₂+{a^a:a≥1} has positive lower density. The proof uses a Romanoff second-moment method and a new average bound for a singular factor controlling arithmetic correlations among shifts a^a.
+This is a positive-density family theorem, not every-n. An individual n's expected witness count is not specified as polylogarithmic by the abstract and may not be inferred from positive density.
