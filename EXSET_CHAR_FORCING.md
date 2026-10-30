@@ -31,9 +31,10 @@ Assessment. Scripts `scripts/z51_forcing_*`, data `data/z51_forcing/`, reviews `
   confinement and no unconditional power saving for ES.
 * **T2-lite reached (PROVED modulo Heath-Brown's quadratic large sieve):** the cap relaxation e*(p) ≤ (log p)^{A}/4
   holds outside X^{1/A+o(1)} primes for every A > 1 (CAP_BOUNDED needed A > 2), and e*(p) ≤ C log p outside
-  X exp(−c log X/log log X) primes (Montgomery–Vaughan moments; caps of order log p were OPEN in CAP_INTERPOLATION
-  Remark 3.2(c), here with a near-power saving). These are transfers of known least-non-residue technology to the
-  forced-window cap mechanism, found with the R2 referee.
+  X exp(−c log X/log log X) primes (Montgomery–Vaughan moments; this improves the cap exceptional-set bound at caps of
+  order log p, a range CAP_INTERPOLATION Remark 3.2(c) lists as open for its own architecture). These are transfers of
+  established least-non-residue technology (Heath-Brown/Baier, Montgomery–Vaughan/Lau–Wu) to the forced-window cap
+  mechanism, found with the R2 referee.
 * **A proved reduction with new conjectural inputs (not a counted T2-cond, R3):** if ES-exceptional primes are
   QR-biased on the primes in (C log p, 2C log p] (MF₁), then E_ES(X) ≪ X exp(−c log X/log log X), beyond the 3/4 CRT
   cap. MF₁ follows from a pointwise majority-reach hypothesis MR₁, which holds on every sampled prime (C = ½) and is
@@ -54,7 +55,8 @@ reciprocity. n₂(p) is the least quadratic non-residue (odd prime here). ES(p) 
 
 **Observation 1.1 (PROVED, standard inputs; this is G3 made exact).**
 (a) ES ⟹ F(R) for every R (trivially).
-(b) F(R) with R(p) ≥ (log p)^A, A > 2, ⟹ #{p ≤ X : ES(p) fails} ≤ X^{2/A+o(1)}.
+(b) F(R) with R(p) ≥ (log p)^A, A > 2, ⟹ #{p ≤ X : ES(p) fails} ≤ X^{2/A+o(1)}. (With Heath-Brown's quadratic large
+sieve, Prop 5.1′, A > 1 suffices and gives X^{1/A+o(1)}; with Prop 5.2, R(p) ≥ 2C log p gives X exp(−c log X/log log X).)
 (c) Under GRH, F(R) with R(p) ≥ 2 log²p ⟹ ES(p) for all large p.
 *Proof.* (b) Work on dyadic ranges (Z, 2Z]. If ES(p) fails there, then (q/p) = +1 for all q ≤ y := (log Z)^A.
 Linnik's large sieve in the form of CAP_BOUNDED Thm 3.2, with 𝒜 = squarefree products of primes q ≤ y (no
