@@ -22,6 +22,9 @@
   4. Residual-duplicate check: a sample just below the thresholds (embedding cosine 0.83–0.85) had about 1 duplicate
      in 20. So the list may still hold a few dozen unmerged near-duplicates. That is the intended bias, since breadth
      beats over-merging.
+- **Representative wording and first step:** the title and connection shown come from the clearest member. The
+  heuristic prefers higher confidence, readable text over template rows and some refs; one manual choice is recorded in
+  `rep_overrides.tsv`. The shown first step is picked separately as the most concrete one among the members.
 - **Areas and flags** come from regexes over the tags and wording. They are approximate and meant for navigation
   only. The `computational`, `literature-check` and `proof-attempt` flags read the wording of the first step.
   `multi-lane` is exact.

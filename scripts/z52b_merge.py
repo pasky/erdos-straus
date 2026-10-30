@@ -48,7 +48,7 @@ def _clean_list(x):
     return out
 
 
-def load(report=False):
+def load(report=False, strict=False):
     """Load + validate + normalise all lane items. Returns list of dicts (with 'lane' and 'extra')."""
     items, problems = [], []
     for lane in LANES:
@@ -89,6 +89,8 @@ def load(report=False):
     for k, v in ids.items():
         if v > 1:
             problems.append(f"duplicate id {k} x{v}")
+    if strict and problems:
+        raise SystemExit("input validation failed (run `validate`):\n" + "\n".join(problems))
     if report:
         for p in problems:
             print("PROBLEM", p)
@@ -333,12 +335,43 @@ def _rep_score(it):
     return s
 
 
+RX_WEAKSTEP = re.compile(r"^(none\b|context\b|pointer\b|pointer only|see \S+\.md\W*$|already in repo)", re.I)
+
+
+def _step_score(it):
+    """Concreteness of a first step, used to pick the shown first step independently of the shown wording."""
+    fs = it["first_step"]
+    s = 4 * CONF_ORDER[it["confidence_not_nonsense"]] - 2 * EFF_ORDER[it["effort"]]
+    if RX_NOSTEP.match(fs):
+        s -= 30
+    elif RX_WEAKSTEP.match(fs) or len(fs) < 40:
+        s -= 12
+    s += min(len(fs), 300) / 60
+    s += 2 * bool(RX_COMP.search(fs)) + 2 * bool(RX_PROOF.search(fs)) + bool(RX_LIT.search(fs))
+    return s
+
+
+def _rep_overrides():
+    path = os.path.join(MERGE_DIR, "rep_overrides.tsv")
+    out = set()
+    if os.path.exists(path):
+        for row in _read_tsv(path):
+            out.add(row[0])
+    return out
+
+
 def merge_items(items, cl):
     by = {it["id"]: it for it in items}
+    forced = _rep_overrides()
+    for x in forced:
+        assert x in by, f"rep override: unknown id {x}"
     out = []
     for n, g in enumerate(cl, 1):
         mem = [by[x] for x in g]
-        rep = max(mem, key=_rep_score)
+        f = [m for m in mem if m["id"] in forced]
+        assert len(f) <= 1, f"two rep overrides in one cluster: {g}"
+        rep = f[0] if f else max(mem, key=_rep_score)
+        step = rep if _step_score(rep) >= max(_step_score(m) for m in mem) - 1e-9 else max(mem, key=_step_score)
         tags, refs, alt, alt_titles = [], [], [], []
         for it in [rep] + [m for m in mem if m is not rep]:
             for t in it["tags"]:
@@ -347,43 +380,42 @@ def merge_items(items, cl):
             for r in it["refs"]:
                 if r.lower() not in (x.lower() for x in refs):
                     refs.append(r)
+            if it is not step and it["first_step"] != step["first_step"]:
+                alt.append(f"[{it['id']}] {it['first_step']}")
             if it is not rep:
-                if it["first_step"] != rep["first_step"]:
-                    alt.append(f"[{it['id']}] {it['first_step']}")
                 alt_titles.append(f"[{it['id']}] {it['title']}")
         lanes = sorted(set(m["lane"] for m in mem), key=LANES.index)
         conf = max((m["confidence_not_nonsense"] for m in mem), key=CONF_ORDER.get)
         areas = areas_for(tags, rep["title"] + " " + " ".join(m["title"] for m in mem if m is not rep),
                           rep["connection"] + " " + rep["why"])
         flags = []
-        if rep["effort"] == "cheap":
+        fs = step["first_step"]
+        if step["effort"] == "cheap":
             flags.append("cheap")
-        fs_all = " ".join(m["first_step"] for m in mem)
-        if RX_COMP.search(rep["first_step"]) or any(t.lower() in ("computation", "compute-and-check", "numerics",
+        if RX_COMP.search(fs) or any(t.lower() in ("computation", "compute-and-check", "numerics",
                                                                     "experimental", "experiments") for t in tags):
             flags.append("computational")
-        if RX_LIT.search(rep["first_step"]):
+        if RX_LIT.search(fs):
             flags.append("literature-check")
-        if RX_PROOF.search(rep["first_step"]):
+        if RX_PROOF.search(fs):
             flags.append("proof-attempt")
         if len(lanes) >= 2:
             flags.append("multi-lane")
-        if RX_NOSTEP.match(rep["first_step"]):
+        if RX_NOSTEP.match(fs):
             flags.append("reference-only")
         if any(t.startswith("seen:") for t in tags):
             flags.append("seen")
         extra = {m["id"]: m["extra"] for m in mem if m["extra"]}
         rec = {
             "mid": f"Z{n:04d}", "title": rep["title"], "connection": rep["connection"], "why": rep["why"],
-            "first_step": rep["first_step"], "alt_first_steps": alt, "refs": refs, "tags": tags, "areas": areas,
+            "first_step": fs, "first_step_source": step["id"], "alt_first_steps": alt, "refs": refs, "tags": tags, "areas": areas,
             "flags": flags, "sources": [m["id"] for m in [rep] + [m for m in mem if m is not rep]],
-            "lanes": lanes, "confidence_not_nonsense": conf, "effort": rep["effort"],
+            "lanes": lanes, "confidence_not_nonsense": conf, "effort": step["effort"],
         }
         if alt_titles:
             rec["alt_titles"] = alt_titles
         if extra:
             rec["lane_extra"] = extra
-        del fs_all
         out.append(rec)
     return out
 
@@ -409,10 +441,11 @@ def _rank_key(r):
 def _item_md(r, conn_len=260, fs_len=230, show_areas=False):
     src = ", ".join(r["sources"])
     meta = f"{r['confidence_not_nonsense']}/{r['effort']}"
+    fsrc = f" [{r['first_step_source']}]" if r["first_step_source"] != r["sources"][0] else ""
     fl = " ".join("`" + f + "`" for f in r["flags"] if f != "cheap")
     ar = (" \u00b7 also: " + "; ".join(r["areas"][1:])) if show_areas and len(r["areas"]) > 1 else ""
     return (f"- [ ] **{r['mid']} {_md_escape(r['title'])}** \u2014 {_md_escape(_trunc(r['connection'], conn_len))}\n"
-            f"  *First step:* {_md_escape(_trunc(r['first_step'], fs_len))} ({src}; {meta}) {fl}{ar}\n")
+            f"  *First step{fsrc}:* {_md_escape(_trunc(r['first_step'], fs_len))} ({src}; {meta}) {fl}{ar}\n")
 
 
 INTRO_PATH = os.path.join(MERGE_DIR, "todo_intro.md")
@@ -457,7 +490,9 @@ def write_outputs(items, merged):
       + ".\n\n")
     w("## How to use\n\n")
     w("- Each item: `- [ ] **Zxxxx title** \u2014 connection` then *First step* (cheap concrete action), sources (lane ids; "
-      "the first is the representative whose wording is shown), `confidence/effort` (confidence that it is not nonsense), "
+      "the first is the representative whose wording is shown; the first step may come from another member, shown as "
+      "*First step [id]*), `confidence/effort` (max confidence over members that it is not nonsense / effort of the "
+      "shown first step), "
       "flags. Long texts are truncated here; the full record (why, refs, all tags, alternative first steps from merged "
       "duplicates, lane-specific fields) is in `data/z52b/master.jsonl` (grep the `mid`).\n")
     w("- Flags: `cheap` = first step \u2264 ~1 h (lane's effort=cheap); `computational` / `literature-check` / "
@@ -506,10 +541,14 @@ def write_outputs(items, merged):
             tagidx[t].append(r["mid"])
     multi = sorted([t for t in tagidx if len(tagidx[t]) >= 2], key=lambda t: (-len(tagidx[t]), t.lower()))
     single = len(tagidx) - len(multi)
-    w(f"{len(tagidx)} distinct tags; the {len(multi)} tags used by \u2265 2 items are indexed below (by frequency); "
-      f"{single} single-use tags are searchable in `data/z52b/master.jsonl`.\n\n")
+    w(f"{len(tagidx)} distinct tags: {len(multi)} used by \u2265 2 items (by frequency), then {single} single-use tags "
+      f"(alphabetical).\n\n")
+    w("### Tags used by \u2265 2 items\n\n")
     for t in multi:
         w(f"- `{t}` ({len(tagidx[t])}): {', '.join(tagidx[t])}\n")
+    w("\n### Single-use tags (tag \u2192 item)\n\n")
+    singles = sorted([t for t in tagidx if len(tagidx[t]) == 1], key=str.lower)
+    w("; ".join(f"`{t}` {tagidx[t][0]}" for t in singles) + "\n")
     with open(os.path.join(ROOT, "ES_CONNECTIONS_TODO.md"), "w", encoding="utf-8") as fh:
         fh.write("".join(L))
     print(f"{len(items)} raw -> {len(merged)} distinct; multi-lane {nmulti}; sec1 {len(sec1)}; flags {dict(flags)}")
@@ -517,7 +556,7 @@ def write_outputs(items, merged):
 
 
 def build():
-    items = load()
+    items = load(strict=True)
     cl = clusters(items)
     merged = merge_items(items, cl)
     write_outputs(items, merged)
