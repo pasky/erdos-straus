@@ -28,7 +28,7 @@ Access dates below are 2026-10-30. Primary-source excerpts are saved under `sour
 
 ## §3 NEW candidates
 
-(Research pending.)
+None. No verified result located gives a lower bound or existence theorem for a divisor of one prescribed integer `N` in an arbitrary prescribed reduced residue class under the B2-size modulus regime. The potentially relevant Carella claim is not usable as written; interval results count a population, while divisor-class algorithms are upper bounds.
 
 ## §4 Not accessed / could not verify
 
