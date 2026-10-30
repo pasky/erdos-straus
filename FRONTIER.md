@@ -485,7 +485,10 @@ no single-prime lower-tail mechanism is known.
   [L^α, 2L^α] (L = log X). Witness-location information; says nothing about hard primes.
 * Almost-all caps: for A > 1, #{p ≤ X : e*(p) > (log X)^A/4} ≤ X^{2/A+o(1)} — a power saving for A > 2; and
   #{p ≤ X : e*(p) > p^ε} ≪_ε (log X)^{⌈4/ε⌉} (`CAP_BOUNDED.md` Thm 3.2; PROVED rel. Montgomery's large sieve, PNT in APs;
-  (J)83).
+  (J)83). *(z51, `BREADTH_Z45.md` §16; PROVED, internal.)* Much stronger now: #{p ≤ X : e*(p) > ⌈(log log X)^{1+ε}⌉} ≪_ε X^{1−c_ε}
+  (`EXSET_LINNIK_CAPS.md` Thm 4.2; Gallagher + Montgomery, untruncated growing exponent box), the same for all odd n ≡ 1 (8)
+  (Thm 4.5), and X^{1/A+o(1)} at cap (log X)^A/4 for every A > 1 (Heath-Brown). These concern the cap relaxation only;
+  cap 0 (ES) lacks the power-dense class supply that drives them.
 
 **5.2 Unconditional, pointwise — for relaxations or thin families, not ES.**
 * The BM main term: M_BM(p) ≥ (3/(16π²) − o(1))(log p)² (Burgess) for every large prime; five-slice analogue
@@ -655,6 +658,14 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     positivity). Assessment: (i) and (ii) look as hard as the pointwise problem. Not available: universal arithmetic
     Janson with O(√N) error (false), marginal-only transfers (scoped blindness), constant-loss whole-shift product bounds
     (θ ≤ log 2).
+    *(z51 update, `BREADTH_Z45.md` §16.)* Both statements were attacked by six lanes and a board; neither moved. New: a
+    CONDITIONAL route beyond 3/4 — QR bias of ES-exceptional primes on the primes in (C log p, 2C log p] (MF₁) gives
+    E_ES(X) ≪ X exp(−c log X/log log X) (`EXSET_CHAR_FORCING.md` 5.3–5.4; MF₁ follows from a pointwise majority-reach
+    statement seen at all sampled primes); Heath-Brown lowers Linnik's requirement to (log X)^{1+δ}. Barriers: sterile
+    sparse planes (word-class avoidance never certifies confinement/bias, `EXSET_LINNIK.md` 2.5–2.6), prime-detection
+    first moments plus C^{k−1} k-point bounds (`EXSET_DEPTH_BREAK.md` Thm 2.3), no named hypothesis ⟹ RLD-U
+    (`EXSET_HIGHDIM_SIEVE.md`). Function-field analogue: large-q monodromy breaks depth (ρ_n ≤ exp(−0.0043n²)), no integer
+    analogue (`EXSET_FUNCTION_FIELD.md`). Evidence: the top band ℓ > √(2N) of the prime U family is Poisson at fixed scale.
 13. **Cap 0 / bounded cap pointwise** (R200 M1): a bounded cap for every prime under a standard hypothesis, or replacing
     Hypothesis W by a standard one ((J)85, (J)91). *Why:* the only pointwise positive mechanism; its last step is B2.
 14. **ES ⇒ ES₅?** Is every ES prime a five-slice prime (λ(p) ≤ 3)? (56 % of solutions below 3000 lie outside the five-slice
