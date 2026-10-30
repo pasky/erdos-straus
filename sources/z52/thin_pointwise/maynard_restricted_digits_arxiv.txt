@@ -1,0 +1,4 @@
+Source: https://arxiv.org/abs/1604.01041 (accessed 2026-10-30)
+James Maynard, “Primes with restricted digits,” arXiv:1604.01041 v2 (last revised 2019-10-28; submitted 2016-04-04).
+Abstract excerpt: For every decimal digit a0, there are infinitely many primes whose decimal expansion omits a0. The abstract describes a Hardy–Littlewood circle-method binary problem; Type I/II estimates for Harman's sieve, decorrelation of prime-Fourier and digital-Fourier large-spectrum conditions, and geometry of numbers, large sieve, and Markov-process moment estimates.
+Scope: this is infinitely-many/counting-family existence, not a theorem for each prescribed integer.
