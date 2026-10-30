@@ -87,11 +87,14 @@ def write_md(rows):
     tagc = Counter(t for r in rows for t in r["tags"] if not t.startswith(("from:", "seen:")))
     fromc = Counter(t[5:] for r in rows for t in r["tags"] if t.startswith("from:"))
     seenc = sum(1 for r in rows if any(t.startswith("seen:") for t in r["tags"]))
+    hist = ("Confidence-not-nonsense: " + ", ".join(f"{k} {v}" for k, v in Counter(r['confidence_not_nonsense'] for r in rows).most_common())
+            + "; effort: " + ", ".join(f"{k} {v}" for k, v in Counter(r['effort'] for r in rows).most_common())
+            + f". {len(tagc)} distinct free-form tags; top 40: " + ", ".join(f"`{t}` {c}" for t, c in tagc.most_common(40)) + ".")
+    header = header.replace("{{TAGS}}", hist)
     out = [header.replace("{{N}}", str(len(rows))).replace("{{NCAT}}", str(len(CAT))).replace("{{NSEEN}}", str(seenc))]
-    out.append("\n## Tag histogram (free-form tags; `from:` and `seen:` excluded)\n")
+    out.append("\n## Full tag histogram (free-form tags; `from:` and `seen:` excluded)\n")
     out.append(", ".join(f"`{t}` {c}" for t, c in tagc.most_common()) + "\n")
-    out.append(f"\nConfidence-not-nonsense: " + ", ".join(f"{k} {v}" for k, v in Counter(r['confidence_not_nonsense'] for r in rows).most_common()))
-    out.append("; effort: " + ", ".join(f"{k} {v}" for k, v in Counter(r['effort'] for r in rows).most_common()) + "\n")
+    out.append("Items per catalogued upgrade (`from:` tags): " + ", ".join(f"{k} {v}" for k, v in fromc.most_common()) + "\n")
     out.append("\n## Catalogue of historical upgrades (before → after; the last-step ingredient)\n")
     out.append("Verification status from `data/z52b/upgrades_verify_out_*.md` (research subagents; corrections applied as overrides in "
                "`scripts/z52b_upgrades_catalogue.py`). Items per upgrade in brackets.\n")

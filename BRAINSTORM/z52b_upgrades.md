@@ -1,13 +1,112 @@
-# z52b lane `upgrades`
+# z52b lane `upgrades` — almost-all → every upgrades in history, and what each could mean for Erdős–Straus
+
+**ES is OPEN.** Nothing here proves or claims to prove it. This is a breadth-first list of candidate connections; the only filter
+was "drop obvious nonsense" (false, meaningless, category error, literal duplicate). Items were **not** screened against the
+barrier checklist (B1–B6 etc.), on purpose. Data: `data/z52b/upgrades.jsonl` (one JSON object per item); generator:
+`scripts/z52b_upgrades_build.py` (catalogue `scripts/z52b_upgrades_catalogue.py`, items `scripts/z52b_upgrades_items*.py`,
+this header `scripts/z52b_upgrades_header.md`). Regenerate with `python3 scripts/z52b_upgrades_build.py`.
+
+## Summary
+
+* **344 items** from **123 catalogued historical upgrades** (almost-all / density-one / infinitely-many / conditional /
+  randomized / case-by-case → every or all-sufficiently-large), across additive and multiplicative number theory, quadratic forms,
+  Diophantine equations, automorphic forms, homogeneous dynamics, additive combinatorics, extremal/probabilistic
+  combinatorics, Egyptian fractions, function fields, model theory, complexity theory and topology. Also catalogued: **failed or
+  stuck upgrades** (binary Goldbach, Apollonian local–global [false], Goldbach's other conjecture [false], Erdős's p + 2^k
+  covering obstruction, Ghosh–Sarnak Markoff Hasse failures, Zaremba, Collatz, Lehmer τ(n) ≠ 0, Littlewood, p + m², three
+  cubes) because they show where the step can fail.
+* Confidence-not-nonsense: med 135, low 106, high 103; effort: cheap 193, medium 129, big 22. 553 distinct free-form tags; top 40: `numerics` 65, `odd` 25, `windows` 11, `levels` 11, `pigeonhole` 9, `parity` 9, `exceptional-set` 8, `egyptian-fractions` 8, `T1` 8, `identities` 7, `positivity` 7, `exponential-families` 7, `congruences` 7, `meta-strategy` 6, `BM-main-term` 6, `strengthening` 6, `sub-routes` 6, `verification` 5, `descent` 5, `e-slice` 5, `CRT` 5, `short-intervals` 5, `square-classes` 5, `entropy` 5, `induction` 5, `disproof-hygiene` 5, `literature` 5, `least-nonresidue` 4, `ineffective` 4, `circle-method` 4, `class-numbers` 4, `equidistribution` 4, `explicit` 4, `multiplicative-sets` 4, `profinite` 4, `B1` 4, `speculative` 4, `polynomial-method` 4, `zero-sum` 4, `closure-operations` 4.
+* 109 items carry a `seen:<file>` tag (a quick keyword grep or my own
+  knowledge of the repo — not an exhaustive novelty check).
+* Every catalogue entry's "last step" was checked by research subagents (`data/z52b/upgrades_verify_out_{0..5}.md`); ~60 corrections
+  were applied as overrides (two verifier "corrections" were rejected and say so: Dirichlet's Pell proof, Ramanujan's τ ≡ σ₁₁ (mod
+  691)). Item-level literature leads were checked separately (`data/z52b/upgrades_leads_check.md`); unverified leads are phrased
+  "check whether …".
+
+### Template taxonomy (how upgrades actually happened) → ES status in one line each
+
+1. **Explicit threshold + verification** (Helfgott, BDD g(4), Bertrand, BHV): ES has no all-large-p theorem at all, so the first
+   gap is any effective statement (items 0001, 0002, 0217, 0222).
+2. **Complementary methods / pick one of several** (Holowinsky–Soundararajan, Heath-Brown's Artin, Heilbronn's case split): the
+   (★) and b=1 lines never fail together ≤ 10⁸ — the most concrete data-backed template (items 0095, 0096, 0059, 0061, 0284, 0327).
+3. **Pigeonhole + group law** (Pell/Dirichlet, Lagrange, Spencer): needs a combination law on near-certificates; the SL₂ form is
+   the candidate (items 0084, 0023, 0025, 0168, 0205).
+4. **Local–global via one class / equidistribution of always-existing objects** (Gauss three squares, Duke, Linnik): needs an
+   ES encoding with class number one or canonical objects attached to every p (items 0031, 0036, 0039, 0040, 0319).
+5. **Congruence / divisibility forcing** (Chen's Markoff theorem, Ono, Lehmer's τ, Wielandt, Mihăilescu): find a nonzero
+   congruence for a certificate count (items 0105, 0154, 0228, 0239, 0269).
+6. **Parity / involution / topology** (Zagier, Kneser, Galois parity): finite sets with forced odd size or nontrivial ℤ/2-index
+   (items 0026, 0027, 0099, 0155, 0257).
+7. **Hecke/multiplicative rigidity** (QUE, Soundararajan): relations between counts at p, pℓ, pℓ² (items 0092, 0285).
+8. **Amplification / complement counting** (Friedlander–Iwaniec, Stepanov–Weil): items 0097, 0090, 0331.
+9. **Closure / recursion / absorption** (Wilson, Graham, Keevash, Bose–Shrikhande–Parker): ES is closed only under n → kn;
+   items 0136, 0138, 0148, 0255.
+10. **Exact formulas / identities outside Schinzel's reach** (Rademacher, Mordell's 3G(n) − 3, identities in (a, b) or m):
+    items 0176, 0232, 0276, 0328.
+11. **Characterise the exceptional set exactly** (Yoccoz/Brjuno, Apollonian corrected conjecture): items 0267, 0213, 0107.
+12. **Failed upgrades as hygiene** (Apollonian, Ghosh–Sarnak, Erdős covering, 8/n, fake models): items 0108, 0322, 0323, 0171,
+    0190, 0118.
+13. **Self-corrections** found while generating: 0265 (power-size main terms are not sufficient: p + m² is open), 0275
+    (Green–Tao–Ziegler is not uniform in coefficients at fixed p), 0315 (a single level already gives density one — the
+    information is all in exceptional-set decay).
+
+### Ten items I find most exciting (cheap first steps, and either new to the repo or sharper than what I found there)
+
+1. **upgrades-0151** — ES as an infinite congruence "covering" of the non-squares (Hough / Balister et al. distortion method): the
+   (★) congruences p ≡ −(u+B) (mod 4uB) never cover odd squares (T1); study the uncovered set as moduli grow.
+2. **upgrades-0095 / 0096** — Holowinsky–Soundararajan template: find one statistic (e.g. L(1,(·/p)) or the BM correction T(p))
+   such that (★) failure and b=1 failure push it in opposite directions.
+3. **upgrades-0105** — Chen's Markoff mechanism: look for a congruence R(p)/2 ≡ g(p) ≢ 0 (mod m) on residue classes (cheap mining;
+   cf. Lehmer's τ, items 0269–0270, and Ono-type mod-ℓ structure, 0154 and 0228).
+4. **upgrades-0084** — Dirichlet's Pell proof (fails exactly at squares, like T1): pigeonhole two near-certificates in M₂(ℤ) with
+   the same defect and take a quotient.
+5. **upgrades-0092** — Soundararajan's no-escape-of-mass: Hecke-type relations between ES counts at p, pℓ, pℓ².
+6. **upgrades-0090** — Stepanov/Weil "lower bound from upper bounds on the complements": the total over all divisor classes is
+   known pointwise in p; only upper bounds on wrong classes are needed.
+7. **upgrades-0328** — Mordell (1923): for prime n the number of positive solutions of yz + zx + xy = n is 3G(n) − 3, an exact
+   class-number-sized count; look for maps from these to ES solutions.
+8. **upgrades-0232 / 0276** — identity searches outside Mordell–Schinzel's scope: polynomial in the Gaussian coordinates (a, b)
+   of p = a² + b², or in m for n = m² + k.
+9. **upgrades-0201** — Linnik with a fixed split prime: prove ES for all p with (p/ℓ) = −1 for one fixed ℓ (BM layer guaranteed):
+   the first possible infinite every-p family of Mordell-hard primes.
+10. **upgrades-0314 + 0316** — positivity means there are no minor arcs: ES ⟸ a certificate at levels C ≤ (log p)^A, i.e. a sieve of
+    growing dimension over the thin multiplicative sets S_C (failures of single levels have density 0 already at C = 1, item 0315).
+
+Honourable mentions: 0191 (exact group-ring formula for window counts), 0097 (amplified short-family moment), 0241 (LPS → MSS:
+arithmetic constructions stop at a class barrier, existence methods cross it), 0322 (why Ghosh–Sarnak's failure mechanism might
+or might not apply to ES), 0222 (an every-n bound must save in log x, not log H).
+
+## Method
+
+1. Catalogued historical upgrades (brief's list + ~70 more), each with *before*, *after*, and the **last-step ingredient** — the
+   thing that actually crossed from "almost all" to "every". 99 entries were checked by four research subagents, 24 later ones by
+   two more; corrections are applied in the catalogue file as `FIX`/`FIX2` overrides and the raw reports kept in `data/z52b/`.
+2. For each upgrade, generated items by asking: (a) can the last-step ingredient be **imported** literally (same tool on an ES
+   count)? (b) **imitated** (same proof shape with ES objects)? (c) **analogised** (dictionary between the objects)? (d) what is the
+   **intermediate statement** that would be ES's analogue of the historical intermediate step? (e) what does the upgrade's
+   *failure* (if it failed) warn about? Several odd items are included on purpose (marked `odd`).
+3. Eight generation passes; later passes deliberately revisited the strongest templates and filled upgrades with ≤ 1 item.
+   Two self-corrections were added as items when verification showed a template does not transfer as stated
+   (Green–Tao–Ziegler uniformity at fixed p: item 0275; power-size main terms are not sufficient, p + m² is open: item 0265).
+4. `seen:` tags come from specific-keyword `git grep` over `*.md` (and my knowledge of the repo); they mean "related material
+   exists there", not "this exact item was done".
+
+## Coverage notes / what I did NOT get to
+
+* Not done: any of the computations proposed (all first steps are untested); no deep reading of the primary sources beyond
+  abstracts and the verifiers' checks; no systematic novelty check against the ~470 brainstorm memos beyond keyword greps.
+* Under-covered fields: PDE/analysis "almost sure → deterministic" (only Kolmogorov/Carleson as a warning), mathematical physics
+  beyond Lee–Yang, logic beyond Ax–Kochen, computational complexity beyond AKS/Reingold, algebraic topology beyond Kneser/Perelman.
+* Not catalogued (considered, skipped as too far or redundant): Kepler, Hadamard matrices (open), Szemerédi/van der Waerden
+  (colouring → density is the reverse direction), Hindman, Poincaré beyond one odd item, uniform Mordell.
+* Several historical "before/after" summaries are compressed; for anything load-bearing, read the source named in the catalogue.
 
 
-## Tag histogram (free-form tags; `from:` and `seen:` excluded)
+## Full tag histogram (free-form tags; `from:` and `seen:` excluded)
 
 `numerics` 65, `odd` 25, `windows` 11, `levels` 11, `pigeonhole` 9, `parity` 9, `exceptional-set` 8, `egyptian-fractions` 8, `T1` 8, `identities` 7, `positivity` 7, `exponential-families` 7, `congruences` 7, `meta-strategy` 6, `BM-main-term` 6, `strengthening` 6, `sub-routes` 6, `verification` 5, `descent` 5, `e-slice` 5, `CRT` 5, `short-intervals` 5, `square-classes` 5, `entropy` 5, `induction` 5, `disproof-hygiene` 5, `literature` 5, `least-nonresidue` 4, `ineffective` 4, `circle-method` 4, `class-numbers` 4, `equidistribution` 4, `explicit` 4, `multiplicative-sets` 4, `profinite` 4, `B1` 4, `speculative` 4, `polynomial-method` 4, `zero-sum` 4, `closure-operations` 4, `case-analysis` 4, `genus-theory` 4, `function-fields` 4, `intermediate-target` 4, `exact-formula` 4, `burgess` 3, `switching` 3, `almost-primes` 3, `independence` 3, `ternary-forms` 3, `second-moment` 3, `pointwise` 3, `SL2` 3, `quaternion-orders` 3, `class-number-one` 3, `geometry-of-numbers` 3, `local-global` 3, `siegel` 3, `hecke-operators` 3, `GRH` 3, `conditional-to-unconditional` 3, `integral-points` 3, `dichotomy` 3, `size-argument` 3, `classification` 3, `uniformity` 3, `divisibility` 3, `ES5` 3, `multiplicativity` 3, `complementary-methods` 3, `transfer` 3, `SL2-words` 3, `product-sets` 3, `recursive-construction` 3, `horocycles` 3, `random-models` 3, `two-step` 3, `structure` 3, `algorithms` 3, `covering-systems` 3, `heuristics` 3, `derandomization` 3, `brauer-manin` 3, `modular-forms` 3, `numerator-family` 3, `data-mining` 3, `refinements` 3, `gap-analysis` 3, `weights` 2, `bilinear-forms` 2, `type-I-II` 2, `binary-problem` 2, `reformulation` 2, `sieve` 2, `lacunary` 2, `reduction` 2, `smooth-numbers` 2, `level-of-distribution` 2, `dispersion` 2, `composition-law` 2, `geometry` 2, `lattices` 2, `auxiliary-prime` 2, `main-term-size` 2, `kuznetsov` 2, `correlation` 2, `homogeneous-dynamics` 2, `sporadic-exceptions` 2, `reciprocity` 2, `linear-forms-in-primes` 2, `least-certificate` 2, `zero-density` 2, `L-functions` 2, `generating-functions` 2, `comparison` 2, `milestone` 2, `forcing` 2, `conditional` 2, `subgroups` 2, `smooth-moduli` 2, `audit` 2, `multiple-families` 2, `quasi-independence` 2, `overlap` 2, `gaussian-integers` 2, `liouville` 2, `trial-form` 2, `divisor-functions` 2, `group-ring` 2, `cyclotomic` 2, `primitive-divisors` 2, `heegner` 2, `hard-classes` 2, `distribution` 2, `special-values` 2, `deligne` 2, `union-of-routes` 2, `character-bias` 2, `amplification` 2, `variance` 2, `number-fields` 2, `level-lowering` 2, `growth` 2, `markoff` 2, `sum-product` 2, `graphs` 2, `reciprocity-obstructions` 2, `zaremba` 2, `counting` 2, `compactness` 2, `pretentiousness` 2, `hypercube` 2, `multiscale` 2, `slice-rank` 2, `chevalley-warning` 2, `existence` 2, `double-counting` 2, `product-covering` 2, `rescue-family` 2, `nonabelian-fourier` 2, `encoding` 2, `absorption` 2, `search` 2, `thresholds` 2, `criticality` 2, `left-tail` 2, `topological-method` 2, `dictionary` 2, `ladder` 2, `redei-symbols` 2, `complexity` 2, `combination-law` 2, `covering-obstruction` 2, `periodicity` 2, `measure-rigidity` 2, `averaging` 2, `symmetric-functions` 2, `thin-orbits` 2, `stuck-mirror` 2, `BM-layer` 2, `moments` 2, `chebotarev` 2, `mordell-schinzel` 2, `residue-classes` 2, `elementary` 2, `interlacing` 2, `self-critique` 2, `universality` 2, `automation` 2, `strong-approximation` 2, `effective-threshold` 1, `explicit-constants` 1, `smoothing` 1, `decomposition` 1, `large-sieve` 1, `power-saving` 1, `exceptional-character` 1, `chen-sieve` 1, `additive-basis` 1, `sumset` 1, `approximation` 1, `explicit-family` 1, `quadratic-forms` 1, `theta-series` 1, `lattice-cosets` 1, `split-form` 1, `decoupling` 1, `energy` 1, `congruencing` 1, `divisor-sums` 1, `divisor-in-AP` 1, `voronoi` 1, `cubic-surface` 1, `divisor-classes` 1, `involution` 1, `proof-from-the-book` 1, `lemma` 1, `negative-result` 1, `norm-form` 1, `minkowski` 1, `cubic` 1, `simultaneous-representation` 1, `norm-trace` 1, `fibration` 1, `kloosterman` 1, `level-sum` 1, `spinor-genus` 1, `ergodic-method` 1, `CM-points` 1, `escalation` 1, `certificate-menu` 1, `waldspurger` 1, `L-values` 1, `many-variables` 1, `relaxation` 1, `green-tao` 1, `fibration-method` 1, `log-K3` 1, `architecture` 1, `deuring-heilbronn` 1, `class-number-formula` 1, `L(1,chi)` 1, `harman-sieve` 1, `large-values` 1, `corollary` 1, `short-sums` 1, `case-split` 1, `siegel-zeros` 1, `maynard-sieve` 1, `auxiliary-variable` 1, `zero-one-law` 1, `well-factorable` 1, `correlations` 1, `transference` 1, `patterns` 1, `polynomial-families` 1, `two-objects` 1, `frey-curve` 1, `counterexample-structure` 1, `rigidity` 1, `finiteness` 1, `faltings` 1, `curves` 1, `forced-congruences` 1, `lucas-sequences` 1, `residue-class` 1, `subspace-theorem` 1, `repulsion` 1, `pell` 1, `continued-fractions` 1, `explicit-construction` 1, `selmer-like` 1, `trace-functions` 1, `cancellation` 1, `complement-counting` 1, `upper-bounds` 1, `lower-bounds` 1, `lattice-reduction` 1, `divisors-in-classes` 1, `hecke-relations` 1, `measure-classification` 1, `limits` 1, `main-terms` 1, `mollifier` 1, `birational-maps` 1, `incompatibility` 1, `solutions-structure` 1, `apollonian` 1, `exceptional-families` 1, `adversarial-search` 1, `analogue` 1, `quadrics` 1, `oppenheim` 1, `rational-forms` 1, `main-term` 1, `shrinking-targets` 1, `exponential-sums` 1, `differencing` 1, `topological-dynamics` 1, `model-counterexamples` 1, `barriers` 1, `nonstandard-analysis` 1, `limit-objects` 1, `regime-split` 1, `fourier-reduction` 1, `characters` 1, `obstruction-structure` 1, `entropy-decrement` 1, `SAT` 1, `computation` 1, `spectral` 1, `avoidance` 1, `davenport-constant` 1, `kneser` 1, `nullstellensatz` 1, `composition` 1, `quasirandom-groups` 1, `size-check` 1, `character-ratios` 1, `randomized-algebraic` 1, `extremal-split` 1, `regimes` 1, `discharging` 1, `minimal-counterexample` 1, `families` 1, `janson` 1, `dependency` 1, `zero-law` 1, `additive-combinatorics` 1, `ramsey` 1, `fourier-analysis` 1, `affine-maps` 1, `greedy` 1, `restricted-denominators` 1, `distortion-method` 1, `borel-cantelli` 1, `modular-forms-mod-l` 1, `borsuk-ulam` 1, `quaternions` 1, `side-conditions` 1, `norm-forms` 1, `class-field-theory` 1, `type-I` 1, `composition-laws` 1, `bhargava-cubes` 1, `lang-weil` 1, `large-q` 1, `densities` 1, `embedding-problems` 1, `towers` 1, `restricted-families` 1, `group-size` 1, `certificates` 1, `history` 1, `growth-rate` 1, `p-adic` 1, `dual-certificates` 1, `proof-complexity` 1, `duality` 1, `jacobi-forms` 1, `rademacher` 1, `tail-bounds` 1, `flows` 1, `monovariant` 1, `near-solutions` 1, `scales` 1, `siegel-weil` 1, `mass-formula` 1, `type-III` 1, `weak-subconvexity` 1, `trivial-bound` 1, `zeta-functions` 1, `p-powers` 1, `critical-exponent` 1, `rotations` 1, `fibrations` 1, `effectivity` 1, `goldfeld` 1, `CM-values` 1, `modular-functions` 1, `falsification-test` 1, `numerator-uniformity` 1, `8/n` 1, `character-sums` 1, `residue-sets` 1, `special-functions` 1, `log-density` 1, `model-theory` 1, `exceptions` 1, `threshold` 1, `splitting-condition` 1, `non-residue-profile` 1, `escape-of-mass` 1, `shape-distribution` 1, `exception-set` 1, `conjecture` 1, `affine-group` 1, `merging` 1, `order-of-basis` 1, `euclidean` 1, `local-obstruction` 1, `explicit-exceptions` 1, `corrected-conjecture` 1, `large-parameter` 1, `single-target` 1, `explicit-inequalities` 1, `modularity` 1, `q-aspect` 1, `character-twists` 1, `local-counts` 1, `dyadic-ranges` 1, `quantifiers` 1, `extreme-values` 1, `conic-bundles` 1, `vinogradov-trick` 1, `regular-primes` 1, `invariants` 1, `limiting-distribution` 1, `modular-structure` 1, `triangle-groups` 1, `orbifolds` 1, `hurwitz-spaces` 1, `prime-capture` 1, `conductors` 1, `parametrisation` 1, `large-prime-factors` 1, `legendre-formula` 1, `consecutive-levels` 1, `hitting-sets` 1, `orbit-counting` 1, `group-actions` 1, `counting-identities` 1, `existence-method` 1, `real-stable-polynomials` 1, `finite-description` 1, `density-decay` 1, `exact-classification` 1, `euler-systems` 1, `obstruction-group` 1, `incidences` 1, `furstenberg-sets` 1, `local` 1, `set-systems` 1, `harmonic-sums` 1, `Z2-index` 1, `symmetry` 1, `multiplicative-functions` 1, `halasz` 1, `auxiliary-primes` 1, `normalisation` 1, `attempt-sets` 1, `positive-proportion` 1, `higher-rank` 1, `fourier-interpolation` 1, `square-obstruction` 1, `factorisation` 1, `exact-characterisation` 1, `failure-mechanism` 1, `difficulty-index` 1, `small-divisors` 1, `non-vanishing` 1, `galois-representations` 1, `jacobi-symbol` 1, `parity-forcing` 1, `I3` 1, `polygonal` 1, `quadratic-families` 1, `trivial-bounds` 1, `non-genus` 1, `fixed-p` 1, `sporadic-failures` 1, `calibration` 1, `universal-torsors` 1, `windmills` 1, `3-4-1` 1, `chebyshev` 1, `joint-failures` 1, `level-aspect` 1, `expanders` 1, `spectral-gap` 1, `multiplicative-energy` 1, `unipotent-dynamics` 1, `effective-rates` 1, `B2` 1, `modular-inverses` 1, `semigroups` 1, `extremal-combinatorics` 1, `bounded-length` 1, `algebraic-existence` 1, `approximate-groups` 1, `extremal-statistics` 1, `algorithms-vs-existence` 1, `cautionary` 1, `conjecture-generation` 1, `sperner` 1, `topological-combinatorics` 1, `covering` 1, `surgery` 1, `move-graphs` 1, `templates` 1, `set-cover` 1, `exceptional-characters` 1, `landau-siegel` 1, `polynomial-identities` 1, `algebraic-characterisation` 1, `local-obstructions` 1, `restricted-versions` 1, `titchmarsh` 1, `single-prime-certificates` 1, `indefinite-forms` 1, `major-levels` 1, `reframing` 1, `baseline` 1, `sieve-dimension` 1, `thin-sets` 1, `affine-sieve` 1, `supersingular` 1, `canonical-objects` 1, `archimedean` 1, `transfer-operators` 1, `large-deviations` 1, `failed-upgrade` 1, `integral-hasse` 1, `reduction-theory` 1, `congruence-obstructions` 1, `counterexample-search` 1, `small-q` 1, `bounded-shapes` 1, `coverage` 1, `stable-polynomials` 1, `lee-yang` 1, `exact-counts` 1, `sharpness` 1, `schinzel` 1, `locating-the-gap` 1, `twists` 1, `character-expansion` 1, `level-counts` 1, `bijections` 1, `small-levels` 1, `conspiracy` 1, `ramanujan-sums` 1, `singular-series` 1, `2-adic` 1, `grunwald-wang` 1, `cayley-graphs` 1, `diameter` 1, `criteria` 1, `p-adic-distribution` 1, `mixing` 1, `recurrences` 1, `stickiness` 1, `limit-measures` 1
 
-
-Confidence-not-nonsense: med 135, low 106, high 103
-; effort: cheap 193, medium 129, big 22
+Items per catalogued upgrade (`from:` tags): TG 7, TWOSQ 6, BERT 6, ZAREMBA 6, DUKE 5, SHORT 5, QUE 5, MARKOFF 5, CHEN 4, LAG 4, THREESQ 4, TART 4, RAMTERN 4, LINNIK 4, DS 4, FLT 4, WEIL 4, HQUE 4, SUBCONV 4, BGEXP 4, APOLLO 4, SENDOV 4, EDP 4, BG 3, SCHN 3, GL 3, WAR 3, HLP 3, THUE 3, LINNIK-ERG 3, FIFTEEN 3, HASSE 3, DIR 3, BURGESS 3, ARTIN 3, BV-EH 3, FI 3, TITCH 3, GTZ 3, SKSO 3, SIEGEL 3, CAT 3, ZSIG 3, PELL 3, SATO 3, OPP 3, RATNER 3, SNIRBOUND 3, KAKEYA3 3, GOWERS 3, ORE 3, FOURCOL 3, GRAHAM77 3, HOUGH 3, ONO 3, KNESER 3, CFT 3, FFGOLD 3, SHAF 3, AKS 3, RINGEL 3, SML 3, VIAZ 3, RADEM 3, COLLATZ 3, MSS 3, ELKIES 3, LIN7 2, VMVT 2, CAUCHY 2, BHS 2, HEIL 2, BAKER 2, CONG 2, GZK 2, RAM 2, SERREMOD 2, SUMPROD 2, WEYL 2, FURST 2, SENS 2, CAPSET 2, DAV 2, CAUDAV 2, CHEVW 2, EGZ 2, KEMNITZ 2, DESIGNS 2, WILSON 2, EFL 2, PARK 2, UNIONCL 2, LLL 2, PFR 2, CROOT 2, BLOOM 2, FIBSYL 2, BREUSCH 2, GOLDOTHER 2, THOM 2, SUN135 2, MR 2, NEGPELL 2, HARDYZ 2, SPENCER 2, MOLS 2, ERDCOV 2, LITTLE 2, POINC 2, BIEB 2, AXKOCHEN 2, SYLV 2, REINGOLD 2, WEDD 2, HLSQ 2, YOCCOZ 2, LEHMER 2, GSMARKOFF 2, SIEGELZ 1, ROTH 1, THREECUBES 1, KAKEYA-FF 1, ERDSELF 1
 
 
 ## Catalogue of historical upgrades (before → after; the last-step ingredient)
