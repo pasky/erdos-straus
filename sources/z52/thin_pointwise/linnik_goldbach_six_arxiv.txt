@@ -1,0 +1,4 @@
+Source: https://arxiv.org/abs/2610.15784 and https://arxiv.org/html/2610.15784v1 (accessed 2026-10-30)
+Huixi Li and Zhixin Liu, “6 powers of 2 in the Linnik–Goldbach problem,” arXiv:2610.15784 v1, submitted 2026-10-11.
+Abstract: every sufficiently large even integer is a sum of two primes and six powers of 2, unconditionally; five powers suffice under GRH. The full paper's Theorems 1.1 and 1.2 state these results. Proof combines circle method, major/minor arcs, a large-deviation bound for dyadic exponential sums, and quadratic forms in the count of representations.
+New since 2026-09-28 and lane-relevant, but not a polylog-only witness theorem: the two-prime summand is the dominant reservoir.
