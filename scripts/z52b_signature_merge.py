@@ -55,7 +55,7 @@ top = [(t, c) for t, c in tagc.most_common() if not re.fullmatch(r'F\d\d[wpc]?',
 conf = collections.Counter(e['confidence_not_nonsense'] for e in items)
 eff = collections.Counter(e['effort'] for e in items)
 hist = (f"**Item count: {len(items)}** (dropped {sum(1 for l in log if l[1]=='drop')} raw items; drop log in "
-        f"`data/z52b/signature_raw/drops.json` + literal-duplicate filter).\n\n"
+        f"`data/z52b/signature_raw/drops_*.json` + literal-duplicate filter).\n\n"
         f"Confidence-not-nonsense: {dict(conf)}; effort: {dict(eff)}.\n\n"
         f"Generators: " + ', '.join(f'{t} {c}' for t, c in gen) + "\n\n"
         f"Feature-tag histogram (features in `data/z52b/signature_features.md`): " + ', '.join(f'{t} {c}' for t, c in feat) + "\n\n"
