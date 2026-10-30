@@ -303,66 +303,76 @@ low-bias witness (B); the whole-period hybrid lemma (C); (D).
 
 ### 3.1 Bias suffices
 
-For a prime p and a finite set S of primes not containing p put σ_S(p) := Σ_{q∈S} (q/p).
+For an odd prime p and a finite set S of primes with p ∉ S put σ_S(p) := Σ_{q∈S} (q/p).
 
-**Theorem 3.1 (bias version of the Linnik bound; PROVED relative to Heath-Brown's quadratic large sieve).** Let A > 1,
-0 ≤ κ < (A − 1)/2, y := (log X)^A, and S a set of s ≥ y/(5 log y) primes in (y/2, y]. Then
+**Theorem 3.1 (bias version of the Linnik bound; PROVED relative to Heath-Brown's quadratic large sieve; threshold
+repaired after R1).** Let A > 1, 0 ≤ κ < (A − 1)/2, η := (log X)^{−κ}, y := (log X)^A, and S a set of s ≥ y/(5 log y)
+primes in (y/2, y]. Then for every δ > 0,
 
-  #{p ≤ X prime : |σ_S(p)| ≥ 2(log X)^{−κ} s} ≤ X^{(1+2κ)/A + o(1)}.
+  #{p ≤ X prime : |σ_S(p)| ≥ ηs} ≪_{A,κ,δ} X^{(1+2κ)/A + δ}.
 
-*Proof.* r := ⌊log X/log y⌋. For an r-tuple of elements of S let n₀ be the squarefree kernel of its product, and
-b_{n₀} := #{ordered r-tuples with kernel n₀}. Then b is supported on odd squarefree n₀ ≤ y^r ≤ X, and for p ∉ S,
-Σ b_{n₀}(n₀/p) = σ_S(p)^r (squares contribute 1). By orthogonality of the sign characters on {±1}^S,
-‖b‖² = E_ε(Σ_q ε_q)^{2r} ≤ (2r − 1)!! s^r ≤ (2rs)^r. Heath-Brown's Theorem 1 with M = N = X gives
-Σ_{p≤X} |σ_S(p)|^{2r} ≤ C_ε X^{1+2ε}(2rs)^r. Primes with |σ_S(p)| ≥ 2ηs, η := (log X)^{−κ}, number at most
-C_ε X^{1+2ε}(2rs)^r/(2ηs)^{2r} = C_ε X^{1+2ε}(r/(2η²s))^r. Here log(s/r) = (A − 1 + o(1)) log log X and
-r = (1 + o(1)) log X/(A log log X), so (r/(2η²s))^r = X^{−(A−1−2κ)/A + o(1)}. ∎
-*Check* (`scripts/z51_linnik_bias_check.py`, `data/z51_linnik/bias_check.txt`): the identity Σ b(n₀/p) = σ^r, the formula
-‖b‖² = Eσ^{2r} and the (2r−1)!!s^r bound hold exactly for S = primes in (30, 60), r ≤ 4; the empirical large-sieve sums
-are ≤ 0.05·(Q + N)‖b‖² for Q ≤ 10⁵.
+*Proof.* Discard p = 2 and the ≤ s + 1 = X^{o(1)} primes in S. r := ⌊log X/log y⌋. For an r-tuple of elements of S let n₀
+be the parity kernel of its product (the product of the q occurring an odd number of times), and b_{n₀} := #{ordered
+r-tuples with kernel n₀}. Then b is supported on odd squarefree n₀ ≤ y^r ≤ X, and for odd p ∉ S,
+Σ b_{n₀}(n₀/p) = σ_S(p)^r. By orthogonality of the sign characters on {±1}^S, ‖b‖² = E_ε(Σ_q ε_q)^{2r} ≤ (2r − 1)!! s^r
+≤ (2rs)^r. Heath-Brown's Theorem 1 (Acta Arith. 72 (1995), p. 237: both variables odd squarefree, bound
+≪_ε (MN)^ε(M + N)Σ|a_n|²) with M = N = X, restricted to odd primes, gives Σ_p |σ_S(p)|^{2r} ≪_ε X^{1+2ε}(2rs)^r. Primes
+with |σ_S(p)| ≥ ηs number ≪_ε X^{1+2ε}(2r/(η²s))^r. Here log(s/r) = (A − 1 + o(1)) log log X and
+r = (1 + o(1)) log X/(A log log X), so (2r/(η²s))^r = X^{−(A−1−2κ)/A + o(1)}; take ε = δ/3. ∎
+*Check* (`scripts/z51_linnik_bias_check.py`, `data/z51_linnik/bias_check.txt`; reproduced by R1): the identity
+Σ b(n₀/p) = σ^r, the formula ‖b‖² = Eσ^{2r} and the (2r−1)!!s^r bound hold exactly for S = primes in (30, 60), r ≤ 4; the
+empirical large-sieve sums are ≤ 0.05·(Q + N)‖b‖² for Q ≤ 10⁵.
 
-*Reading.* Full confinement (σ_S = s) is not needed. A non-residue fraction θ_p ≤ 1/2 − (log X)^{−κ} on one dyadic block
+*Reading.* Full confinement (σ_S = s) is not needed: a non-residue fraction θ_p ≤ 1/2 − η/2 on one dyadic block
 suffices, for any κ < (A − 1)/2. Under Haar measure σ_S/s has standard deviation s^{−1/2} = (log X)^{−A/2+o(1)}, so the
-required bias is (log X)^{1/2+δ} standard deviations: the Linnik set is still a superpolynomially rare set of profiles
-(Haar density ≤ exp(−(log X)^{1+2δ'})), and §2's barrier applies to it unchanged (Cor 2.6 needs only T > 2).
+Linnik set is still superpolynomially rare among profiles (Hoeffding: exp(−cη²s) = exp(−(log X)^{A−2κ−o(1)}), and
+A − 2κ > 1). *Scope (R1):* the dense block S here has σ_ε(S) → ∞, so it is **outside** Corollary 2.6; the sparse
+sub-blocks of Remark 2.7 are inside it (they need A > 2), and Conjecture 2.9 would cover the dense block.
 
 ### 3.2 T2-lite: the cap threshold of CAP_BOUNDED Thm 3.2 drops from A > 2 to A > 1
 
-**Corollary 3.2 (PROVED relative to Heath-Brown's Theorem 1, the PNT for primes ≡ 3 (mod 4), CAP_DOWN Thm 1.2/Prop 1.3
-via CAP_BOUNDED Lemma 3.1).** For every A > 1,
+**Corollary 3.2 (PROVED relative to Heath-Brown's Theorem 1, the PNT for primes ≡ 3 (mod 4), and CAP_DOWN Thm 1.2/Prop 1.3
+via CAP_BOUNDED Lemma 3.1).** For every A > 1 and δ > 0,
 
-  #{p ≤ X prime : e*(p) > (log X)^A/4} ≤ X^{1/A + o(1)}.
+  #{p ≤ X prime : e*(p) > (log X)^A/4} ≪_{A,δ} X^{1/A + δ}.
 
-This improves CAP_BOUNDED Thm 3.2(a) (X^{2/A+o(1)}, non-trivial only for A > 2) in both range and exponent.
+This improves CAP_BOUNDED Thm 3.2(a) (X^{2/A+o(1)}, non-trivial only for A > 2) in range and exponent. It counts
+large-cap primes; it says nothing about ES-exceptional primes.
 *Proof.* By CAP_BOUNDED Lemma 3.1, e*(p) > (log X)^A/4 implies p ≡ 1 (mod 8) and q₃(p) > (log X)^A =: y, i.e. (q/p) = +1
-for every prime q ≡ 3 (mod 4), q ≤ y; and such p exceed y. Take S := the primes q ≡ 3 (mod 4) in (y/2, y]
-(s ≥ y/(5 log y) for large X by the PNT in progressions). Then σ_S(p) = s, and Theorem 3.1 with κ = 0 gives the bound. ∎
+for every prime q ≡ 3 (mod 4), q ≤ y. Take S := the primes q ≡ 3 (mod 4) in (y/2, y] (s ∼ y/(4 log y) by the PNT in
+progressions); p ∉ S since p ≡ 1 (mod 8). Then σ_S(p) = s, and Theorem 3.1 with κ = 0 (η = 1) gives the bound. ∎
 
 *Remarks.* (1) The argument is Baier's least-non-residue argument (§1.5) transplanted to q₃(p); the novelty is only the
-application to the exponent cap. (2) The route through q₃ cannot go below A = 1: 𝒫((log X)^A) (all q ≡ 3 (4) up to
-(log X)^A residues) has relative Haar density 2^{−π(y;4,3)} = X^{−o(1)} for A < 1, and CONDITIONALLY on GRH it contains
-2^{−π(y;4,3)}π(X) + O(√X log²X) = X^{1−o(1)} primes (expand ∏(1 + (q/p))/2 into characters). Lau–Wu Thm 1.2
-(Graham–Ringrose) shows the analogous least-non-residue statement is sharp at y ≍ log X unconditionally along a
-sequence. Going below A = 1 needs a forcing mechanism other than the least forced window.
+complete application to the exponent cap (CAP_BOUNDED Rem. (3) records an earlier reviewer sketch, CAP_INTERPOLATION
+Rem. 3.2(b), of a power saving for e ≥ (log N)^{1+ε} by a different class large sieve). Pollack's bound is not needed.
+(2) The route through q₃ cannot give a fixed power saving for A ≤ 1: with k := π(y; 4, 3), CONDITIONALLY on GRH,
+#(𝒫(y) ∩ [1, X]) = 2^{−k}π(X; 8, 1) + O(√X log²X) (expand 1[p ≡ 1 (8)]·∏(1 + (q/p))/2 into characters of conductor
+≤ 8∏q = e^{O(y)}; the coefficients have ℓ¹-norm 1), which is X^{1−o(1)} for y = (log X)^A, A ≤ 1. Lau–Wu Thm 1.2
+(Graham–Ringrose) is the unconditional analogue for the least non-residue along a sequence. Going below A = 1 needs a
+mechanism other than counting the confinement set 𝒫(y).
 (3) Part (b) of CAP_BOUNDED Thm 3.2 (polylog exceptions above p^ε) is not improved: Heath-Brown's X^ε loss is too
 large there.
 
 ### 3.3 Can a bias be forced without pointwise forcing?
 
-* **Not by CRT certification.** Corollary 2.6 needs only T > 2, so it rules out exact certification of any bias, and
-  Proposition 2.8 any approximate certification at level O(log X), for data on sparse prime sets.
-* **Heuristically yes, with room — a change from z50.** With Heath-Brown, the Linnik route needs (bias on) primes
-  q ≈ (log X)^{1+δ}, not (log X)^{2+δ}. Lane B's per-prime forcing heuristic (EXSET_SIEVE_MASS §4.2) covers all
-  non-residues mod q at a *generic* profile once (log p)² ≳ q log q, i.e. up to q ≈ (log p)²/log log p. So in the Haar
-  model an exceptional p would have to avoid ≍ (log p)²/q labels at each non-residue q ≤ (log p)^{2−δ}, and its
-  conditional profile is tilted towards residues by a factor e^{−c(log p)^{δ}} per such q: far more bias than Theorem 3.1
-  needs. z50 called the Linnik route "just short" (reach (log p)²/log log p against (log X)^{2+δ}); with Theorem 3.1 the
-  heuristic reach exceeds the requirement by (log X)^{1−δ}. (Assessment.)
-* **Where the heuristic fails: exactly at the planes.** On 𝒫_Π the labels at a non-residue q are the words of q alone
-  (Lemma 2.3: m = Π-free part), about 1.1(log q)² of them, against (log M)² + log q·log M at a generic profile. So the
-  per-prime forcing reach is zero at plane points. This is why sterile planes exist (Thm 2.5) and why the forcing must be
-  pointwise: it needs the Π-free coordinates of p to be generic, which is a property of the actual prime, not of a
-  congruence class.
+* **Not by the certification mechanisms of §2, where they apply.** Corollary 2.6 needs T > 2, so it excludes exact
+  certification of any bias for data on sparse prime sets; Proposition 2.8 excludes hybrids of bounded whole-period
+  level. Dense blocks are not covered (Conjecture 2.9).
+* **Heuristically yes, with room — a change from z50 (Assessment).** With Heath-Brown the Linnik route needs bias on
+  primes q ≈ (log X)^{1+δ}, not (log X)^{2+δ}. Lane B's per-prime forcing heuristic (EXSET_SIEVE_MASS §4.2) covers all
+  non-residues mod q at a *generic* profile once (log p)² ≳ q log q, i.e. up to q ≈ (log p)²/log log p; with the full
+  ES Type II classes the label supply is cubic (§6.1). In a model where labels fall independently, an exceptional p must
+  avoid ≍ (log p)²/q labels at each non-residue q, so its conditional profile is tilted towards residues by a factor
+  e^{−c(log p)²/q} per such q: far more bias than Theorem 3.1 needs. z50 called the route "just short" (reach
+  (log p)²/log log p against (log X)^{2+δ}); against (log X)^{1+δ} the heuristic reach has room (log X)^{1−δ}/log log X.
+  No conditional distribution of actual exceptional primes is established.
+* **Where the heuristic fails: at the sterile plane points.** On 𝒫_Π the h = q slice of labels at a non-residue q
+  consists of the words of q (Lemma 2.3), ≈ 10–35 of them for q ≤ 1600 (and ≈ 40 for the ℛ(M) classes, §6.1), against
+  (log M)² + log q·log M (U words) or ≈ 0.034(log p)³ (ℛ(M)) at a generic profile; boxes at h = qq′, … add a bounded
+  mass. The sterile plane points of Theorem 2.5 are explicit non-generic profiles at which the forcing does not happen.
+  A proof must therefore either force at the individual primes (using that their Π-free coordinates are generic, a
+  property of the integer p rather than of a bounded-level class), or control the non-generic exceptional primes
+  approximately by non-CRT means (Lemma 1.2, approximate form).
 
 ## 4. Escape (b): p-dependent sequences
 
