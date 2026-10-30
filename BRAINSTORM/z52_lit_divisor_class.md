@@ -1,9 +1,9 @@
 # z52 L6 — Pointwise divisor-in-class results at one integer
 
 ## §0 Summary
-- **Genuinely new since 2026-09-28:** Research pending; no verified novelty claim yet.
-- **Transferable structural features:** Pending source audit.
-- **Campaign verdict change:** None established; ES remains open.
+- **Genuinely new since 2026-09-28:** No verified new pointwise divisor-in-class existence result found. Carella’s 2025 v9 QNR claim is not a valid input as written (gap: §7 Lemma 7.2, (7.6)).
+- **Transferable structural features:** Lenstra—large-modulus divisor sparsity; Ford—ambient factorization averages/log-divisor clustering; Munsch—Burgess witnesses aggregated to generate a whole group. None yields B2’s prescribed divisor at one integer.
+- **Campaign verdict change:** None. ES remains open; no verified theorem supplies the B2 lower-bound/forcing step.
 
 ## §1 Verified entries
 
