@@ -1,0 +1,14 @@
+# uv run python scripts/z52b_dividing_avoid.py 3000 2000000   (seed 1; 2e6 random residues in Mordell hard classes mod 840, coprime to primes 11..199)
+samples 2000000; families 36771
+X=    10 survivors= 2000000 delta=1.000e+00
+X=    18 survivors= 1283599 delta=6.418e-01
+X=    32 survivors=  736766 delta=3.684e-01
+X=    56 survivors=  400791 delta=2.004e-01
+X=   100 survivors=  155275 delta=7.764e-02
+X=   178 survivors=   31832 delta=1.592e-02
+X=   316 survivors=    7640 delta=3.820e-03
+X=   562 survivors=    1544 delta=7.720e-04
+X=  1000 survivors=     232 delta=1.160e-04
+X=  1778 survivors=      18 delta=9.000e-06
+X=  3000 survivors=       1 delta=5.000e-07
+# fit: ln(delta)/(ln X)^3 = 0.0246 0.0263 0.0298 0.0292 0.0283 0.0275 0.0277 (X=56..1778): delta ≈ exp(-0.028 (ln X)^3)

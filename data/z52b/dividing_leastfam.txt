@@ -1,0 +1,19 @@
+# uv run python scripts/z52b_dividing_leastfam.py 10000000 3000
+hard primes: 20513
+unsolved within X_MAX: [] 0
+quantile 0.5: 22
+quantile 0.9: 85
+quantile 0.99: 187
+quantile 0.999: 509
+quantile 1.0: 1133
+hardest primes (p, least s): [(7183201, 1133), (7976809, 979), (7155121, 939), (830041, 817), (4681609, 785), (9000721, 715), (4889641, 705), (8803369, 677), (7287361, 657), (7921489, 649)]
+records: 1009:11 1201:17 2521:58 3049:85 21169:260 118801:382 345601:527 830041:817 7155121:939 7183201:1133
+# model prediction (n·delta(X)=1 with n=20513, interpolating the avoid table): X ≈ 1210; observed max 1133.
+
+# uv run python scripts/z52b_dividing_leastfam.py 100000000 4000   (42 s)
+hard primes: 179468
+unsolved within X_MAX: [] 0
+quantile 0.5: 22   0.9: 86   0.99: 209   0.999: 471   1.0: 2814
+hardest primes (p, least s): (53049049, 2814), (58080961, 1467), (99762601, 1326), (64267009, 1293), (64384849, 1229), ...
+new record: 53049049:2814
+# model prediction (n=179468): X ≈ 1990; observed max 2814, second 1467.
