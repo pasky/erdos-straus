@@ -405,3 +405,63 @@ of the audited CRT architectures, and two modest new upper bounds for U/ES₅.
   are (i) RLD-U / FL∞, which would give the square floor for U, and (ii) Linnik confinement, which would give a power
   saving at primes. Other routes remain formally open (signed interval information, alternative I3 presentations,
   bounded-shift forcing, prime-only positivity). Assessment: (i) and (ii) look as hard as the pointwise problem.
+
+## 16. Wave z51: all-out attack on RLD-U and Linnik confinement (2026-10-29/30)
+
+Six long lanes, one banking lane and an advisory board (Fable/Astra/Argon, 5 rounds; memo
+`~/.pi/boards/20261029-depth-break/memo.md`). Briefs `../z51briefs/` (CONTEXT gates G1–G5). Documents:
+`EXSET_DEPTH_BREAK.md` (1a, Opus, 4 rounds), `EXSET_HIGHDIM_SIEVE.md` (1b, Astra), `EXSET_FUNCTION_FIELD.md` (1c, Opus),
+`EXSET_LINNIK.md` (2a, Opus), `EXSET_LINNIK_CAPS.md` (2b, Astra; §4A by lane lcaps2, Opus), `EXSET_CHAR_FORCING.md`
+(2c, Opus). Every lane result had cross-model hostile reviews (`reviews/z51-*`). ES remains open.
+**Neither target statement was proved: no depth-breaking bound for the prime U family, no RLD-U, no Linnik confinement,
+no power saving for ES, ES₅ or U.** The real gains are on the cap relaxation e* (Linnik-type power savings far closer to
+cap 0 than before), one conditional route beyond 3/4, and sharper barriers.
+
+* **Cap relaxation (PROVED, internal; CRT/Linnik sieves for a relaxation, not ES).** e*(n) = 0 is ES.
+  * #{p ≤ X : e*(p) > ⌈(log log X)^{1+ε}⌉} ≪_ε X^{1−c_ε}, with solutions whose square denominators use a common set of
+    O(log log X/log log log X) mute primes (EXSET_LINNIK_CAPS Thm 4.2; Gallagher + Montgomery; growing exponent box of
+    B = (E+1)^k untruncated classes −4Q_a² mod ℓ). Previously: e* > (log X)^{2+} (CAP_BOUNDED Thm 3.2).
+  * All odd integers: #{n ≤ N, n ≡ 1 (8) : e*(n) > ⌈(log log N)^{1+ε}⌉} ≪_ε N^{1−c_ε} (Thm 4.5; board item astra-7;
+    mute alphabet of primes ≡ 3 (4), composite certificate Lemma 4.4 — parent check on 4 088 instances).
+  * e*(p) > (log X)^A/4 for ≪ X^{1/A+o(1)} primes, every A > 1 (Heath-Brown's quadratic large sieve; found three times
+    independently: EXSET_LINNIK_CAPS Cor 2.2, EXSET_LINNIK Thm 3.2, EXSET_CHAR_FORCING 5.5).
+  * Why this is not ES: the cap supplies power-dense forbidden sets (B ≈ ℓ^θ classes mod polylog primes ℓ) — the
+    known depth breaker — while cap 0 has τ((ℓ+1)/4) classes.
+* **Conditional route beyond 3/4 (CONDITIONAL, nonstandard).** EXSET_CHAR_FORCING 5.3–5.4: if ES-exceptional primes are
+  QR-biased on the primes in (C log p, 2C log p] (MF₁), then E_ES(X) ≪ X exp(−c log X/log log X); a bias at scale
+  (log p)^{1+δ} (MF) would give a power saving. MF₁ follows from a pointwise majority-reach hypothesis MR₁ that holds at
+  all 36 sampled primes 10⁵–10¹⁰ (EVIDENCE). Proving MR₁ is a B2 statement. Linnik's requirement drops from (log X)^{2+δ}
+  to (log X)^{1+δ} with Heath-Brown (EXSET_LINNIK 3.1–3.3), i.e. inside the heuristic forcing reach.
+* **Forcing (PROVED).** Window criterion: ES at x ⟺ −1 lies in the ratio set of divisors of px mod 4x − p. Kneser covering
+  lemma (sharp) and the anatomy of a failing forced window; at fixed q a forced window fails with probability
+  ≤ (log X)^{−5/6+o(1)}, against (log X)^{−1/2} for unforced windows. Reach is polylogarithmic: Reach(p, q) holds for a
+  ≪ (log X)^{3+o(1)}/q fraction of p, so majority reach MR(A) is false for A > 3 (EXSET_CHAR_FORCING 6.3). Numerically
+  q* ≈ 0.02–0.03 (log p)³/log log p with full Type I/II classes.
+* **Barriers (PROVED, scoped).**
+  * Sterile sparse planes (EXSET_LINNIK 2.5–2.6): for sparse prime sets Π, half of the Π-plane and of every sign cell
+    avoids all ES₅/U word classes, so no word-class-avoidance argument at any level certifies quadratic confinement or
+    bias on sparse Π; fixed-order (k ≥ 3) character biases are never CRT-certified (2.2); bounded-level hybrids and fibred
+    reverse-role sieves inherit the CRT caps (2.8, 6.2). Genuine relaxations have the wrong orientation (5.1–5.2).
+  * Prime-detection information (EXSET_DEPTH_BREAK Thm 2.3): CRT data plus prime-detection first moments plus k-point
+    upper bounds with constants ≥ C^{k−1} cannot prove avoidance below (1 − 1/C)β_λ; product-form shift bounds with loss
+    C > 1 per factor save only (log log N)² log log log N.
+  * High-dimensional sieves (EXSET_HIGHDIM_SIEVE): no named hypothesis implying RLD-U found; full-law couplings are
+    impossible (Thm 3.1); root-certified affine encodings at fixed s cost Ω(log N) degree (Thms 4.1–4.2); no
+    non-Selberg weight escapes G1. Literature audit: no e^{O(k)} k-tuple upper constant in the needed growing range.
+* **Function fields (EXSET_FUNCTION_FIELD, PROVED given Chebotarev for covers / CFSG).** For q ≡ 3 (4) the analogue U_q has
+  T1 and its 2-adic layer becomes the degree-parity layer. Large q, fixed n: the exceptional density is a Chebotarev
+  statistic ρ_n; the boundary n-cycle makes the non-square exceptional set a **positive proportion** (so the naive large-q
+  goal is false), but monodromy (4-transitive word covers, ∏Alt ⊆ G*) gives ρ_n ≤ exp(−0.0043 n²), against
+  exp(−c n^{2/3}) from CRT — a depth breaker in the iterated large-q limit, with no integer analogue. Fixed q: only the
+  CRT baseline; q = 3 data up to degree 15 resemble ℤ.
+* **Evidence for the targets.** RLD-U-type statistics track the independent model: the top band ℓ > √(2N) is Poisson at a
+  fixed scale with mean ≈ 0.32 log N (N = 10⁸…10¹¹), so it alone would give N^{−0.3}, and T1-min/TB_pow reduce to that
+  layer (EXSET_DEPTH_BREAK Cor 3.3). The board's quadratic-orthogonal residual (astra-5) has normalised log-mgf within
+  0.02 of the model (μ ≤ 5–7, N ≤ 10¹⁰); cumulants are proved model-like only for orders j ≤ (log N)^{1−β}, whereas
+  T1-min would need order ≍ (log N)^{1/2+δ}/log log N (EXSET_DEPTH_BREAK §9).
+* **Exact remaining gap after z51.** Both doors need information about actual integers or primes at depth that no
+  certification mechanism supplies: (i) a lower-tail/cumulant bound for the prime U family at order ≍ (log N)^{1/2+δ}
+  (or the top-band Poisson law TB_pow); (ii) an actual-integer QR bias of the ES-exceptional primes at scale
+  C log p…(log p)^{1+δ} (MF₁/MF), equivalently a pointwise majority-reach statement. The only proved depth breakers in
+  this setting are power-dense forbidden sets (caps) and large-q monodromy (function fields); neither exists for cap 0
+  over ℤ.
