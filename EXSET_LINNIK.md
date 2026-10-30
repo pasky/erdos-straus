@@ -393,35 +393,34 @@ large there.
 ## 4. Escape (b): p-dependent sequences
 
 A p-dependent Linnik argument uses a vector a^{(p)} for each p ∈ E. With no structure there is no large sieve at all:
-a^{(p)} := conj χ_p restricted to [1, N] gives |⟨a^{(p)}, χ_p⟩|² = N‖a^{(p)}‖² for every p. The usable structure is
-low dimension.
+a^{(p)} := conj χ_p restricted to [1, N] gives |⟨a^{(p)}, χ_p⟩|² = N‖a^{(p)}‖² for every p. The usable structure is low
+*linear dimension* (R2: not the number of states).
 
-**Lemma 4.1 (dimension loss; PROVED).** Let V be a K-dimensional space of coefficient vectors and suppose
-β_p(a^{(p)}) ≥ T with a^{(p)} ∈ V ∖ {0} for every p ∈ E. Then #E ≤ KΔ/T, where Δ is the large-sieve constant valid on V.
-*Proof.* Take an orthonormal basis f₁, …, f_K of V. Cauchy–Schwarz gives |⟨a^{(p)}, χ⟩|² ≤ ‖a^{(p)}‖²Σ_k|⟨f_k, χ⟩|², so
-T ≤ Σ_k β_p(f_k). Summing over p ∈ E and using Σ_p β_p(f_k) ≤ Δ for each k gives T·#E ≤ KΔ. ∎
-The loss K is sharp in general (V spanned by K vectors each concentrated on one Linnik set). Hybrid large sieves are
-the same mechanism with a continuous family: Gallagher's Σ_q Σ_χ ∫_{−T₀}^{T₀}|Σ a_n χ(n) n^{it}|² dt ≪ (N + Q²T₀)‖a‖²
-charges archimedean twists n^{it}, |t| ≤ T₀, by a factor ≍ T₀ (Sobolev: max_{|t|≤T₀} is controlled by the integral of
-the function and its derivative).
+**Lemma 4.1 (dimension loss; PROVED).** Let V be a d-dimensional space of coefficient vectors and suppose
+β_p(a^{(p)}) ≥ T with a^{(p)} ∈ V ∖ {0} for every p ∈ E. Then #E ≤ dΔ/T, where Δ is the large-sieve constant valid on V.
+*Proof.* Take an orthonormal basis f₁, …, f_d of V. Cauchy–Schwarz gives |⟨a^{(p)}, χ⟩|² ≤ ‖a^{(p)}‖²Σ_k|⟨f_k, χ⟩|², so
+T ≤ Σ_k β_p(f_k). Summing over p ∈ E and using Σ_p β_p(f_k) ≤ Δ for each k gives T·#E ≤ dΔ. ∎
+The loss d is sharp for abstract orthogonal test systems.
 
-**Proposition 4.2 (the three kinds of p-dependence; PROVED).**
-(i) *Dependence through p mod L, L ≤ X^K.* Then K ≤ φ(L) and the argument is a fibred datum: on the fibre p ≡ c (mod L)
-    one uses a^{(c)}. If the a^{(c)} are supported on squarefree Π-numbers with Π as in Theorem 2.5 and Π ∩ supp(L) = ∅,
-    the sterile plane point z of Corollary 2.6 for a^{(c₀)}, c₀ := z mod L (≡ 1 at the Π-free part of L), gives
-    infinitely many primes in that fibre avoiding 𝔊 and outside the Linnik set. (If L shares primes with Π, condition on
-    them as in Prop 2.8's proof; this costs a factor 2^{ω_Π(L)} in T and needs a sterile point in the corresponding
-    sub-cell, which Theorem 2.5(b) provides.) So fibring does not escape §2 within its scope.
-(ii) *Archimedean twists a_n n^{it_p}, |t_p| ≤ T₀.* The Haar computation (1.1) is unchanged for each fixed t;
-    E_Haar max_{|t|≤T₀}|Σ a_n (x/n) n^{it}|² ≪ (1 + T₀ log N)‖a‖² (Sobolev in t), so Corollary 2.6 holds with T > C T₀ log N,
-    while the hybrid sieve's Δ grows by the same factor T₀.
-(iii) *Dependence through the word data of p* (e.g. 𝒜_p := the divisors of p + 1, or the values of the word forms
-    n + u that p "sees"). Such maps are injective (the divisor set of p + 1 determines p), and for generic data the
-    vectors a^{(p)} are linearly independent, so K = dim V = #E and Lemma 4.1 reads #E ≤ #E·Δ/T. This is void, because
-    T ≤ β_p(a) ≤ Δ for every single vector (Parseval: β_p(a) ≤ N + p for additive tests; |⟨a, χ_p⟩|²/‖a‖² ≤ #supp(a) ≤ N
-    for quadratic tests; and Δ ≥ N + X resp. Δ ≥ N). ∎
-*Exact blocking lemma for (b).* A p-dependent datum helps only if its dependence has ≤ X^{c} states (Lemma 4.1); such a
-datum is a fibred datum, covered by §2 (Prop 4.2(i)). The word-form sequences have ≍ #E states and give nothing.
+**Proposition 4.2 (three classes of p-dependence; PROVED; repaired after R2).**
+(i) *Dependence through p mod L (fibred data).* On the fibre p ≡ c (mod L) one uses a^{(c)} (normalise ‖a^{(c)}‖ = 1),
+    supported on squarefree Π-numbers, Π as in Theorem 2.5. If Π ∩ supp(L) = ∅, every plane point is ≡ 1 (mod L); apply
+    Corollary 2.6 to a^{(1)}: infinitely many primes in the fibre of 1 avoid 𝔊 and have bias < T for every T > 2. If
+    t := #(Π ∩ supp L) > 0: on each plane fibre mod L the conditional mean of the selected bias |Σ a^{(c)}_n (x/n)|² is
+    ≤ 2^t (orthogonality at the unfixed primes, Cauchy–Schwarz at the fixed ones), hence so is the plane average; the
+    sterile set has measure ≥ 1/2, so it contains a point whose own fibre's bias is ≤ 2^{t+1}. So no implication
+    "avoid 𝔊 ⟹ bias ≥ T" holds for all large primes once T > 2^{t+1}.
+(ii) *Archimedean twists a_n n^{it_p}, |t_p| ≤ T₀.* With F_x(t) := Σ a_n (x/n) n^{it},
+    sup_{|t|≤T₀}|F_x(t)|² ≤ |F_x(0)|² + 2∫_{−T₀}^{T₀}|F_x F_x′| dt, and orthogonality gives
+    E_Haar sup_{|t|≤T₀}|F_x(t)|² ≤ (1 + 4T₀ log N)‖a‖². So Corollary 2.6 holds with T > 2(1 + 4T₀ log N).
+(iii) *Full-rank families.* If the vectors a^{(p)}, p ∈ E, are linearly independent (e.g. a^{(p)} := 1 on the divisors of
+    p + 1, independent by a largest-coordinate argument), Lemma 4.1 reads #E ≤ #E·Δ/T, which is void because a valid Δ
+    already bounds the bias of every single vector (Parseval: β_p(a) ≤ N + p for additive tests; ≤ #supp(a) ≤ N for
+    quadratic tests). ∎
+*Scope (R2: the first draft's "exact blocking lemma" is withdrawn).* Injectivity of p ↦ a^{(p)} is not linear
+independence (a^{(p)} := f + (p + 1)g is injective of rank 2), and a rule with few states need not be a congruence rule.
+So §4 excludes only the fibred (CRT) subclass (i), archimedean twists (ii) and full-rank families (iii); other structured
+p-dependent families of low rank are **open**.
 
 ## 5. Escape (c): supersets E′ ⊇ E_ES defined by free character data
 
