@@ -1,0 +1,110 @@
+{
+ "all solutions U": {
+  "mean": 143.69158460161145,
+  "median": 142.0,
+  "last": 1,
+  "n_exc": 0
+ },
+ "all even (8/p)": {
+  "mean": 70.52820053715308,
+  "median": 68.0,
+  "last": 241,
+  "n_exc": 4
+ },
+ "x|z (lcm-closed)": {
+  "mean": 49.97269471799463,
+  "median": 50.0,
+  "last": 2521,
+  "n_exc": 1
+ },
+ "all squarefree": {
+  "mean": 19.82408236347359,
+  "median": 18.0,
+  "last": 21169,
+  "n_exc": 3
+ },
+ "no 3 | xyz": {
+  "mean": 49.51253357206804,
+  "median": 44.0,
+  "last": 241,
+  "n_exc": 1
+ },
+ "some 4 | denominator": {
+  "mean": 102.68084153983885,
+  "median": 100.0,
+  "last": 241,
+  "n_exc": 2
+ },
+ "primitive": {
+  "mean": 10.352282900626678,
+  "median": 9.0,
+  "last": 98713,
+  "n_exc": 110
+ },
+ "chain x|y|z": {
+  "mean": 3.6136974037600718,
+  "median": 3.0,
+  "last": 99817,
+  "n_exc": 670
+ },
+ "z<=p^1.75": {
+  "mean": 6.556848701880035,
+  "median": 6.0,
+  "last": 95327,
+  "n_exc": 50
+ },
+ "12/p (k=3 divides all)": {
+  "mean": 34.34646374216652,
+  "median": 32.0,
+  "last": 12241,
+  "n_exc": 19
+ },
+ "16/p (k=4 divides all)": {
+  "mean": 27.269919427036704,
+  "median": 24.0,
+  "last": 83449,
+  "n_exc": 35
+ },
+ "20/p (k=5 divides all)": {
+  "mean": 26.356759176365266,
+  "median": 23.0,
+  "last": 90001,
+  "n_exc": 60
+ },
+ "24/p (k=6 divides all)": {
+  "mean": 15.866606982990152,
+  "median": 14.0,
+  "last": 97777,
+  "n_exc": 143
+ },
+ "28/p (k=7 divides all)": {
+  "mean": 14.955237242614144,
+  "median": 13.0,
+  "last": 92401,
+  "n_exc": 130
+ },
+ "32/p (k=8 divides all)": {
+  "mean": 13.486123545210384,
+  "median": 11.0,
+  "last": 97561,
+  "n_exc": 219
+ },
+ "36/p (k=9 divides all)": {
+  "mean": 7.670546105640107,
+  "median": 6.0,
+  "last": 98737,
+  "n_exc": 380
+ },
+ "40/p (k=10 divides all)": {
+  "mean": 11.151745747538047,
+  "median": 9.0,
+  "last": 99961,
+  "n_exc": 396
+ },
+ "(\u2605) R(p)": {
+  "mean": 21.554162936436885,
+  "median": 22.0,
+  "last": 8813281,
+  "n_exc": 20
+ }
+}

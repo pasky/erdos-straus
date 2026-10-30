@@ -57,7 +57,7 @@ ITEMS = [
  "Separate inherited (scaled from 4/p or 4/q) and non-inherited solutions at pq.",
  [M], ["composites", "multiplicativity", "counting"], "high", "cheap"),
 ("Easy primes: U(p) records eventually all ≡ −1 (mod 840)",
- "U(p) record primes: 2,3,7,11,19,23,47,71,167,191,239,359,479,719,839,1319,1439,2399,…,5039,6719,9239,10079,…,191519; all ≡ 23 (mod 24) from 23 on, and ≡ 839 (mod 840) from 3359 on except 18719 (≡ 239).",
+ "U(p) record primes: 2,3,7,11,19,23,47,71,167,191,239,359,479,719,839,1319,1439,2399,…,5039,6719,9239,10079,…,110879,166319; all ≡ 23 (mod 24) from 23 on, and ≡ 839 (mod 840) from 3359 on except 18719 (≡ 239).",
  "Mirror of the hard primes (≡ 1 mod 840): ES-easiest primes are ≡ −1 modulo highly composite numbers (5039 = 7! − 1 = 2·2520 − 1). The count is a function of p's position relative to smooth numbers.",
  "Note 55439 = 2·27720 − 1 and 5039 = 2·2520 − 1 are records; test the next candidates 2·lcm(1..k) − 1 and lcm(1..k) − 1 when prime; OEIS search of the record list gave no match.",
  ["data/z52b/seqs.json"], ["easy-primes", "records", "840", "mirror"], "high", "cheap"),
