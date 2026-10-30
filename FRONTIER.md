@@ -659,13 +659,16 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     Janson with O(√N) error (false), marginal-only transfers (scoped blindness), constant-loss whole-shift product bounds
     (θ ≤ log 2).
     *(z51 update, `BREADTH_Z45.md` §16.)* Both statements were attacked by six lanes and a board; neither moved. New: a
-    CONDITIONAL route beyond 3/4 — QR bias of ES-exceptional primes on the primes in (C log p, 2C log p] (MF₁) gives
-    E_ES(X) ≪ X exp(−c log X/log log X) (`EXSET_CHAR_FORCING.md` 5.3–5.4; MF₁ follows from a pointwise majority-reach
-    statement seen at all sampled primes); Heath-Brown lowers Linnik's requirement to (log X)^{1+δ}. Barriers: sterile
-    sparse planes (word-class avoidance never certifies confinement/bias, `EXSET_LINNIK.md` 2.5–2.6), prime-detection
-    first moments plus C^{k−1} k-point bounds (`EXSET_DEPTH_BREAK.md` Thm 2.3), no named hypothesis ⟹ RLD-U
-    (`EXSET_HIGHDIM_SIEVE.md`). Function-field analogue: large-q monodromy breaks depth (ρ_n ≤ exp(−0.0043n²)), no integer
-    analogue (`EXSET_FUNCTION_FIELD.md`). Evidence: the top band ℓ > √(2N) of the prime U family is Poisson at fixed scale.
+    route beyond 3/4 CONDITIONAL on a new nonstandard hypothesis MF₁ — a fixed positive reciprocal-weighted QR bias of
+    ES-exceptional primes on the primes in (C log p, 2C log p] — gives E_ES(X) ≪ X exp(−c log X/log log X)
+    (`EXSET_CHAR_FORCING.md` Cor 5.4; MF₁ is implied by a stronger pointwise majority-reach statement observed at all 36
+    sampled primes for C = 1/2); Heath-Brown lowers Linnik's requirement to (log X)^{1+δ}. Scoped barriers: sparse-plane
+    sterility (no finite native ES₅/U word-class family certifies a sparse squarefree quadratic bias, `EXSET_LINNIK.md`
+    Thm 2.5/Cor 2.6), an axiomatic prime-detection barrier on the 4ℤ line (`EXSET_DEPTH_BREAK.md` Thm 2.3), no
+    implication from an audited named hypothesis to RLD-U (`EXSET_HIGHDIM_SIEVE.md`). Function fields: in the iterated
+    large-q model, monodromy breaks depth (ρ_{n,p} ≤ exp(−0.0043n²), n ≥ 12; CFSG + Chebotarev), with no known integer
+    transfer (`EXSET_FUNCTION_FIELD.md`). Evidence: the top band ℓ > √(2N) of the prime U family has zero probability close
+    to exp(−mean) at fixed scale (N ≤ 10¹¹), suggesting but not proving TB_pow.
 13. **Cap 0 / bounded cap pointwise** (R200 M1): a bounded cap for every prime under a standard hypothesis, or replacing
     Hypothesis W by a standard one ((J)85, (J)91). *Why:* the only pointwise positive mechanism; its last step is B2.
 14. **ES ⇒ ES₅?** Is every ES prime a five-slice prime (λ(p) ≤ 3)? (56 % of solutions below 3000 lie outside the five-slice
