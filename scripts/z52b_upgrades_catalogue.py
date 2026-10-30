@@ -567,6 +567,33 @@ CAT += [
   ["Ax-Kochen, Amer. J. Math. 87 (1965) 605-630", "Terjanian, C. R. Acad. Sci. 262 (1966)"]),
 ]
 
+CAT += [
+ ("SYLV", "Sylvester-Schur (prime factors of products of consecutive integers / AP terms)",
+  "Bertrand (k = n case); Sylvester 1892",
+  "Sylvester 1892 / Schur 1929 / Erdos 1934: for n >= k, the product (n+1)...(n+k) has a prime factor > k; Shorey-Tijdeman: analogues for products of terms of arithmetic progressions",
+  "Compare the size of the product with the maximal contribution of primes <= k (Legendre's formula / binomial-coefficient bounds).",
+  ["Erdos, J. London Math. Soc. 9 (1934) 282-288 (A theorem of Sylvester and Schur)"]),
+ ("ERDSELF", "Erdos-Selfridge: a product of consecutive integers is never a perfect power",
+  "Many special cases (Liouville, Rigge, Erdos 1939 for large k)",
+  "Erdos-Selfridge 1975: the product of two or more consecutive positive integers is never a perfect power",
+  "Write each factor as a_i * (power); the a_i are distinct and small, and an elementary combinatorial counting of the a_i (plus Sylvester-type prime factors) gives a contradiction.",
+  ["Erdos-Selfridge, Illinois J. Math. 19 (1975) 292-301"]),
+ ("REINGOLD", "Undirected connectivity in logspace (randomized -> deterministic for every graph)",
+  "Aleliunas-Karp-Lipton-Lovasz-Rackoff 1979: randomized logspace via random walks",
+  "Reingold 2005/2008: deterministic logspace for every undirected graph (SL = L)",
+  "Transform any graph, preserving connectivity, into a constant-degree expander via iterated zig-zag/replacement products; on expanders short walks can be enumerated deterministically.",
+  ["Reingold, J. ACM 55 (2008) Art. 17 (Undirected connectivity in log-space)"]),
+ ("WEDD", "Counting modulo p via group actions (Wedderburn/Witt, Wielandt's Sylow proof)",
+  "-", "Wedderburn 1905 (Witt 1931 proof): every finite division ring is commutative; Sylow existence for every group (Wielandt 1959 proof)",
+  "Orbit counting: class equation with cyclotomic divisibility (Witt); Wielandt: C(p^a m, p^a) is not divisible by p, so some orbit on p^a-subsets has size prime to p and its stabiliser is a Sylow subgroup.",
+  ["Wielandt, Arch. Math. 10 (1959) 401-402", "Witt, Abh. Math. Sem. Hamburg 8 (1931) 413"]),
+ ("MSS", "Interlacing families: Ramanujan graphs of every degree; Kadison-Singer",
+  "Lubotzky-Phillips-Sarnak / Margulis 1988 (arithmetic constructions for d-1 prime), Morgenstern (prime powers); Kadison-Singer reduced to Weaver's conjecture",
+  "Marcus-Spielman-Srivastava 2013/2015: bipartite Ramanujan graphs of every degree d >= 3 (and every number of vertices, 2015); Kadison-Singer resolved",
+  "Method of interlacing families: the expected characteristic polynomial of a random signing/lift is real-rooted and its largest root bounds that of some realisation (mixed characteristic polynomials, real stability).",
+  ["arXiv:1304.4132 (Marcus-Spielman-Srivastava, Interlacing families I)", "arXiv:1306.3969 (MSS, Interlacing families II)"]),
+]
+
 # ---- corrections from the verification pass (data/z52b/upgrades_verify_out_*.md), applied as overrides ----
 # fields: 1 name, 2 before, 3 after, 4 last_step, 5 refs
 FIX = {
