@@ -1,0 +1,447 @@
+{
+ "certificates": {
+  "rows": [
+   {
+    "alphabet": [
+     3,
+     7
+    ],
+    "E": 3,
+    "B": 16,
+    "ells": 33,
+    "checks": 13373,
+    "composite": 9326,
+    "prime": 4047,
+    "positive_cap": 9420,
+    "max_cap": 2,
+    "zero_as_s_divides_V": 2279
+   },
+   {
+    "alphabet": [
+     3,
+     7
+    ],
+    "E": 5,
+    "B": 36,
+    "ells": 33,
+    "checks": 30148,
+    "composite": 20908,
+    "prime": 9240,
+    "positive_cap": 26176,
+    "max_cap": 4,
+    "zero_as_s_divides_V": 3399
+   },
+   {
+    "alphabet": [
+     3,
+     7,
+     11
+    ],
+    "E": 2,
+    "B": 27,
+    "ells": 8,
+    "checks": 1808,
+    "composite": 1273,
+    "prime": 535,
+    "positive_cap": 1205,
+    "max_cap": 1,
+    "zero_as_s_divides_V": 501
+   },
+   {
+    "alphabet": [
+     3,
+     11,
+     19
+    ],
+    "E": 2,
+    "B": 27,
+    "ells": 9,
+    "checks": 2095,
+    "composite": 1538,
+    "prime": 557,
+    "positive_cap": 1331,
+    "max_cap": 1,
+    "zero_as_s_divides_V": 504
+   },
+   {
+    "alphabet": [
+     7,
+     23
+    ],
+    "E": 3,
+    "B": 16,
+    "ells": 6,
+    "checks": 2931,
+    "composite": 2350,
+    "prime": 581,
+    "positive_cap": 2173,
+    "max_cap": 2,
+    "zero_as_s_divides_V": 163
+   },
+   {
+    "alphabet": [
+     3,
+     7,
+     11,
+     19
+    ],
+    "E": 1,
+    "B": 16,
+    "ells": 9,
+    "checks": 1560,
+    "composite": 1164,
+    "prime": 396,
+    "positive_cap": 0,
+    "max_cap": 0,
+    "zero_as_s_divides_V": 689
+   }
+  ],
+  "totals": {
+   "checks": 51915,
+   "composite": 36559,
+   "prime": 15356,
+   "positive_cap": 40305,
+   "zero_as_s_divides_V": 7535
+  },
+  "random_big_composite": 3000,
+  "astra_examples": [
+   {
+    "n": 985,
+    "V": 47,
+    "x": 258,
+    "y": 20685,
+    "z": "592970/81",
+    "cap": 2,
+    "seven_divides_V": false
+   },
+   {
+    "n": 6961,
+    "V": 119,
+    "x": 1770,
+    "y": 146181,
+    "z": "28748930/81",
+    "cap": 2,
+    "seven_divides_V": true
+   }
+  ]
+ },
+ "classical": {
+  "range": 300000,
+  "integral_triples_checked": 136216
+ },
+ "squares": {
+  "box_classes_checked": 5424,
+  "square_hits": 0
+ },
+ "collisions": [
+  {
+   "P0": [
+    3,
+    7,
+    11
+   ],
+   "alphabet": [
+    3,
+    7
+   ],
+   "E": 10,
+   "B": 121,
+   "T": 1000,
+   "progression_primes": 6,
+   "bad": 1,
+   "pair_incidences": 61,
+   "bound": 63995.4
+  },
+  {
+   "P0": [
+    3,
+    7,
+    11
+   ],
+   "alphabet": [
+    3,
+    7
+   ],
+   "E": 15,
+   "B": 256,
+   "T": 10000,
+   "progression_primes": 45,
+   "bad": 2,
+   "pair_incidences": 60,
+   "bound": 323679.3
+  },
+  {
+   "P0": [
+    3,
+    7,
+    11
+   ],
+   "alphabet": [
+    3,
+    11
+   ],
+   "E": 10,
+   "B": 121,
+   "T": 10000,
+   "progression_primes": 28,
+   "bad": 3,
+   "pair_incidences": 93,
+   "bound": 55122.1
+  },
+  {
+   "P0": [
+    3,
+    7
+   ],
+   "alphabet": [
+    3
+   ],
+   "E": 20,
+   "B": 21,
+   "T": 1000,
+   "progression_primes": 34,
+   "bad": 1,
+   "pair_incidences": 4,
+   "bound": 1335.9
+  },
+  {
+   "P0": [
+    3,
+    7,
+    11,
+    19
+   ],
+   "alphabet": [
+    7,
+    11,
+    19
+   ],
+   "E": 4,
+   "B": 125,
+   "T": 100000,
+   "progression_primes": 5,
+   "bad": 0,
+   "pair_incidences": 0,
+   "bound": 39249.0
+  },
+  {
+   "P0": [
+    3,
+    7,
+    11
+   ],
+   "alphabet": [
+    7,
+    11
+   ],
+   "E": 10,
+   "B": 121,
+   "T": 100000,
+   "progression_primes": 75,
+   "bad": 1,
+   "pair_incidences": 20,
+   "bound": 54783.7
+  }
+ ],
+ "montgomery_toy": {
+  "N": 2000000,
+  "alphabet": [
+   3,
+   7
+  ],
+  "E": 3,
+  "good_primes": 8,
+  "sifted": 373365,
+  "montgomery_bound": 844746.1028061737,
+  "L": 4.734435573853909
+ },
+ "window_witness": {
+  "witness_checks": 33288,
+  "composite_inputs": 25465,
+  "positive_cap": 27567,
+  "class_inclusion_checks": 5170
+ },
+ "controls": [
+  {
+   "p": 193,
+   "ell": 2485727,
+   "a": [
+    1,
+    5
+   ],
+   "cap": 4,
+   "x": 1071
+  },
+  {
+   "p": 409,
+   "ell": 1096451,
+   "a": [
+    6,
+    1
+   ],
+   "cap": 4,
+   "x": 126
+  },
+  {
+   "p": 577,
+   "ell": 83,
+   "a": [
+    0,
+    0
+   ],
+   "cap": 0,
+   "x": 146
+  },
+  {
+   "p": 2521,
+   "ell": 251,
+   "a": [
+    4,
+    3
+   ],
+   "cap": 2,
+   "x": 3075912
+  },
+  {
+   "p": 3361,
+   "ell": 251,
+   "a": [
+    5,
+    6
+   ],
+   "cap": 5,
+   "x": 3256231745592
+  },
+  {
+   "p": 5569,
+   "ell": 83,
+   "a": [
+    2,
+    0
+   ],
+   "cap": 1,
+   "x": 1410
+  },
+  {
+   "p": 9601,
+   "ell": 419,
+   "a": [
+    1,
+    0
+   ],
+   "cap": 0,
+   "x": 2406
+  },
+  {
+   "p": 66529,
+   "ell": 83,
+   "a": [
+    4,
+    1
+   ],
+   "cap": 3,
+   "x": 20706
+  },
+  {
+   "p": 8813281,
+   "ell": 2099,
+   "a": [
+    0,
+    3
+   ],
+   "cap": 2,
+   "x": 2204426
+  },
+  {
+   "p": 23929,
+   "ell": 419,
+   "a": [
+    2,
+    1
+   ],
+   "cap": 1,
+   "x": 6006
+  },
+  {
+   "p": 83449,
+   "ell": 14361227,
+   "a": [
+    4,
+    3
+   ],
+   "cap": 2,
+   "x": 20916
+  },
+  {
+   "p": 102001,
+   "ell": 167,
+   "a": [
+    1,
+    0
+   ],
+   "cap": 0,
+   "x": 25653
+  },
+  {
+   "p": 329617,
+   "ell": 83,
+   "a": [
+    0,
+    2
+   ],
+   "cap": 1,
+   "x": 83426
+  },
+  {
+   "p": 712321,
+   "ell": 1091,
+   "a": [
+    1,
+    3
+   ],
+   "cap": 2,
+   "x": 179214
+  },
+  {
+   "p": 1134241,
+   "ell": 83,
+   "a": [
+    4,
+    1
+   ],
+   "cap": 3,
+   "x": 290850
+  },
+  {
+   "p": 1724209,
+   "ell": 83,
+   "a": [
+    1,
+    2
+   ],
+   "cap": 1,
+   "x": 436506
+  },
+  {
+   "p": 1726201,
+   "ell": 83,
+   "a": [
+    1,
+    2
+   ],
+   "cap": 1,
+   "x": 437010
+  },
+  {
+   "p": 5212561,
+   "ell": 503,
+   "a": [
+    4,
+    2
+   ],
+   "cap": 2,
+   "x": 1337049
+  }
+ ],
+ "status": "ALL CHECKS PASSED"
+}

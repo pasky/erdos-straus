@@ -1,6 +1,9 @@
 # EXSET_LINNIK_CAPS — wave z51, lane 2b (`lcaps`)
 
 **Status: COMPLETE — T2-lite reached; T2-full not reached. ES remains OPEN.**
+**Addendum (lane `lcaps2`, §4A):** Theorem 4.5 extends the loglog-cap power saving to **all odd
+integers** by taking the mute alphabet among primes ≡3 (4). Proposition 4.6 is the scope-patched
+short-window witness sieve. Both are cap-relaxation results only.
 All proofs here are internal and unrefereed. Four hostile Opus rounds returned SOUND
 with minor repairs, all incorporated. This lane follows z48–z51 CONTEXT, with z51 binding.
 Committed on `side-agent/z51-lcaps`; WAITING for parent approval, no merge.
@@ -19,6 +22,7 @@ X^{2/A+o(1)} bound to X^{1/A+o(1)} at cap (log X)^A/4, A>1 (§2).
 | 2 | Weighted squareclass endpoint; full fixed-window sharpness | PROVED; infinitude uses Dickson | SOUND; scope/terminology repaired |
 | 3 | Cap (log log X)^{1+ε}, common small mute support, power saving | PROVED relative to Gallagher + arithmetic large sieve | SOUND; minors repaired |
 | 4 | EMV logarithmic endpoint (subpower); prime census through 10⁸ | PROVED relative to MV; CERTIFIED census | SOUND; source constant repaired |
+| 4A (`lcaps2`) | All-integer loglog cap (Thm 4.5); window-witness sieve (Prop 4.6) | PROVED relative to G + Montgomery / SW + Selberg | Astra review: see §4A |
 
 ## 1. Definitions, inherited facts, and non-CRT input
 
@@ -416,6 +420,253 @@ The latter is slow: no practical numerical threshold for (4.4) is claimed.
 Session: `2026-10-29T22-53-41-000Z_01a189de-7908-70d6-863f-0be64ee208ec.jsonl`.
 Our retained test now includes actual collisions, rather than only collision-free rows.
 
+## 4A. All-integer corollaries (wave z51, lane `lcaps2`)
+
+Source: advisory board `20261029-depth-break`, memo finalists astra-7 and argon-7 (board audits by
+fable/argon/astra). This section is the lane formalisation, with its own independent checks
+(`scripts/z51_lcaps2_check.py`) and its own cross-lab hostile review. Throughout n>1 is **odd** and
+e*(n) is the cap of §1; the CAP_POINTWISE/EXPONENT_CAP normalisation is stated for every odd n>1,
+not only primes, and ES(n)⟺e*(n)=0. **Neither result below concerns ES, ES₅ or U:** both are CRT
+sieves for the cap relaxation, whose untruncated class supply exceeds that of cap zero.
+
+### Lemma 4.3 — classical cap-zero inputs (PROVED, classical identities)
+
+Let n>1 be odd. If n≡5 (8), or n has a prime factor q≡3 (4), then ES(n) holds, so e*(n)=0.
+In particular {n odd: e*(n)>0} consists of n≡1 (8) all of whose prime factors are ≡1 (4).
+
+**Proof.** For n=8k+5: 4/n=1/(2k+2)+1/(n(k+1))+1/(2n(k+1)), since 4/n−1/(2k+2)=3/(2n(k+1)).
+For q|n, q≡3 (4), m=n/q: 4/q=1/((q+1)/4)+2/(q(q+1)/2), so
+4/n=1/(m(q+1)/4)+1/(mq(q+1)/2)+1/(mq(q+1)/2), all denominators integral (CAP_POINTWISE
+Cor 1.2(a)). Repeated denominators are allowed in ES and in Def 1.1. An n≡3 (4) has a prime
+factor ≡3 (4). Integral z means den z=1, i.e. cap 0. ∎
+
+### Lemma 4.4 — the box certificate for composite inputs (PROVED, elementary)
+
+Let S be a finite set of odd primes, P=∏S, E≥1, and Q_a=∏_{s∈S}s^{a_s} with 0≤a_s≤E.
+Let ℓ be a prime with ℓ≡−1 (mod 4P), A=(ℓ+1)/4, D=Q_a². Let n>1 be odd, **gcd(n,P)=1**,
+and n≡−4D (mod ℓ). Put V=(n+4D)/ℓ and
+
+    x=(n+V)/4,  y=nA,  z=nxA/D.                                   (4.7)
+
+Then x,y∈ℤ_{>0}, 4/n=1/x+1/y+1/z, and den z=r² with
+
+    r=∏_{s∈S} s^{max(0, a_s−v_s(A))}.                              (4.8)
+
+Hence r is odd, gcd(r,n)=1, rad r⊆S, rad r|A|y and v_s(r)≤a_s−1≤E−1: **e*(n)≤E−1.**
+
+**Proof.** Since ℓ≡3 (4) and ℓV=n+4D≡n (mod 4), V≡−n (mod 4); so x∈ℤ, and x>0.
+Also AV=(ℓV+V)/4=(n+4D+V)/4=x+D, hence
+1/y+1/z=(x+D)/(nxA)=V/(nx)=(4x−n)/(nx)=4/n−1/x. The primes of D lie in S, so
+gcd(D,n)=1 and den z=D/gcd(D,xA). Fix s∈S and put σ=v_s(A); σ≥1 because 4P|ℓ+1.
+
+*If a_s=0*, then s∤D and s contributes nothing to den z. **No valuation statement about V is
+needed or true here** (astra's round-4 narrowing): e.g. P=21, ℓ=83, Q=27, n=6961 gives V=119,
+so 7|V although a₇=0.
+
+*If a_s>0*, then s|D and s∤n, so ℓV=n+4D≢0 (mod s); hence v_s(V)=0 and v_s(AV)=σ.
+If σ<2a_s, then v_s(x)=v_s(AV−D)=σ, v_s(xA)=2σ, and the s-part of den z is s^{2(a_s−σ)}.
+If σ≥2a_s, then v_s(x)≥2a_s, so v_s(xA)≥2a_s and s∤den z. In both cases the exponent is
+2·max(0,a_s−σ), proving (4.8). The remaining assertions follow from σ≥1 and gcd(n,P)=1. ∎
+
+Primality of n is never used: this is CAP_INTERPOLATION Proposition 5.1 with M=ℓ, whose proof
+uses its prime p only through p∤DM, read for odd composite n. The classes −4D are quadratic
+nonresidues mod ℓ (−1 is one, ℓ≡3 (4)), so **no square is ever certified** (T1).
+The two worked examples of the board (n=985, 6961; P=21, ℓ=83, Q=27, cap 2) are rechecked.
+
+### Lemma 4.1′ — Lemma 4.1 for an arbitrary odd alphabet (PROVED relative to G)
+
+Lemma 4.1 holds verbatim with “the first k+1 odd primes” replaced by **any** set 𝒮₀ of k+1
+distinct odd primes, with P₀=∏𝒮₀ subject to the same hypotheses (P₀ sufficiently large,
+log(4P₀)≥√log(2T), T as in (4.1)).
+
+**Proof (audit of the four steps of Lemma 4.1).**
+(i) *Prime supply.* (G) is applied at x=T with modulus cutoff Q_G=4P₀ to the progression
+ℓ≡−1 (mod 4P), P|P₀. This needs only 4P≤4P₀ and gcd(−1,4P)=1; the residue classes of the
+alphabet primes play no role.
+(ii) *Exceptional-conductor deletion.* If a Gallagher-exceptional real primitive character χ₁
+exists, its conductor is f=2^j f′ with f′ odd squarefree and 2^j∈{1,4,8}. If f′ has a prime
+factor in 𝒮₀, omit that prime; otherwise omit any prime. If f′>1, then f∤4P: either the omitted
+prime divides f′ but not P, or f′ has a prime factor outside 𝒮₀. If f′=1, then f∈{4,8}. Since P is
+odd, 8∤4P. The fixed character χ₋₄ has no real zero in Gallagher's exceptional range once Q_G
+is large. Every case avoids f|4P. None of this depends on the alphabet primes being consecutive
+or lying in a particular class.
+(iii) *Collisions.* The Q_a are distinct integers by unique factorisation. Every Q_a²−Q_b²≠0 has
+modulus <P^{2E}, so it has at most 2E log P/log T prime factors exceeding T. The number of bad
+ℓ∈(T,2T] is therefore ≤B(B−1)E log P/log T, as before.
+(iv) *Main term.* Only φ(4P)≤4P₀ is used. ∎
+
+For the first k+1 primes ≡3 (4), the PNT for the progression 3 mod 4 (θ(x;4,3)∼x/2) shows that
+the (k+1)-st such prime is (2+o(1))k log k and log P₀=(1+o(1))k log k. This is the same
+first-order size as for the first k+1 odd primes, which is all that the parameter bookkeeping
+(4.5) uses.
+
+### Theorem 4.5 — all-integer power saving at loglog caps
+
+**PROVED relative to G and Montgomery's arithmetic large sieve.** For every fixed ε>0 there is
+c_ε>0 such that for large N
+
+    #{1<n≤N : n odd, e*(n)>⌈(log log N)^{1+ε}⌉} ≪_ε N^{1−c_ε}.          (4.9)
+
+All counted n satisfy n≡1 (8) (Lemma 4.3), so (4.9) is the board's statement for n≡1 (8).
+More precisely, let 𝒮_N be the alphabet chosen by Lemma 4.1′ from the first k+1 primes ≡3 (4),
+where k=⌊(2/ε)log log N/log log log N⌋. Each of its primes is O_ε(log log N). Every odd n≤N
+outside the exceptional set falls into one of two cases. Either n has a prime factor in 𝒮_N,
+hence a classical ES solution, or it has the certificate (4.7). That certificate has
+rad(den z)⊆𝒮_N, cap ≤E−1 and ℓ≤(log N)^{O_ε(1)}.
+
+**Proof.** Take the parameters of Theorem 4.2 with X=N: L=log N, λ=log L, a=2/ε,
+k=⌊aλ/log λ⌋, E=⌈λ^{1+ε}⌉, and 𝒮₀ = the first k+1 primes ≡3 (4). By the size remark after
+Lemma 4.1′, (4.5) holds unchanged: log P₀=(a+o(1))λ, log B=(a(1+ε)+o(1))λ,
+log T=(H+o(1))λ, H=Da(3+2ε), and the Gallagher range of Lemma 4.1′ holds for large N.
+Lemma 4.1′ yields P (k primes, all ≡3 (4)) and M≥cT/[φ(4P)log T] primes ℓ∈(T,2T],
+ℓ≡−1 (4P), each with B distinct classes −4Q_a² mod ℓ.
+
+Let 𝒮={1<n≤N: n odd, e*(n)>E}. By Lemma 4.3 every n∈𝒮 is coprime to P, because each prime
+of P is ≡3 (4). If some n∈𝒮 lay in a class −4Q_a² modulo a good ℓ, Lemma 4.4 would give
+e*(n)≤E−1. Hence 𝒮 avoids B residue classes modulo every good ℓ. Montgomery's arithmetic large
+sieve holds for an arbitrary set of integers in an interval of length N; its inputs need not be
+prime. It gives |𝒮|≤(N+Q²)/𝓛(Q). With Q=√N, the lower bound (4.6) for 𝓛 and its evaluation
+are unchanged: log𝓛≥(1/(2H)+o(1))L. Hence |𝒮|≤N^{1−1/(2H)+o(1)}, and c_ε=1/(4H) works. ∎
+
+**What changed from Theorem 4.2, and why the alphabet must be ≡3 (4).** For prime inputs, the
+finitely many p|P were simply discarded. For integers, the multiples of an alphabet prime have
+positive density and cannot be discarded; Lemma 4.4 does not apply to them (gcd(n,P)=1 is used).
+With the first k+1 odd primes, the n divisible by 5 (or by any alphabet prime ≡1 (4)) would
+need another argument. Primes ≡3 (4) make every such n classically solvable (Lemma 4.3). The
+cost is nothing: the alphabet size and log P₀ are unchanged to first order.
+
+**Remarks (Assessment).** (a) *T1 consistency.* Odd squares are never in the box classes. The
+theorem is consistent with them only because c_ε≤1/(4H)<1/2: it says nothing about the caps of
+squares beyond the trivial count √N. (b) *Comparison.* The all-integer ES bound
+N exp(−c(log N)^{3/4}) (`paper/es-threequarter-note.tex`, which counts all n) bounds every
+{e*>0}; (4.9) is a power saving, but only above cap ⌈(log log N)^{1+ε}⌉. (c) *Classification.*
+This is a CRT class sieve with power-dense forbidden sets, B=ℓ^{θ+o(1)},
+θ=(1+ε)/(D(3+2ε)), at polylog primes. It does not breach the G1 cap for the sparse prime-family
+classes. At e=0 one has B=1, and the untruncated classes D_a>ℓ/4, which carry the whole gain,
+disappear. **No transfer to ES/ES₅/U follows.** (d) *Novelty.* The board checked main at
+3f502fd4 and found only the prime-input Theorem 4.2. This lane's `git grep` of main, still at
+3f502fd4 when this section was written, found no all-integer cap-count statement in the
+CAP/EXSET documents. CAP_POINTWISE and CAP_DOWN give pointwise caps for odd n; counts are over
+primes.
+
+### Proposition 4.6 — short-window, one-prime witness sieve (argon-7, scope-patched)
+
+**PROVED relative to Siegel–Walfisz and Selberg's Λ² sieve.** Fix 0<α<1. Put L=log N,
+y=L^α, 𝒬={q≤y prime: q≡3 (4)}, K=#𝒬 and Π_y=∏𝒬. Say that n≡1 (4) has a
+**y-window witness** (q,s) if q∈𝒬, q∤n, s is an odd prime with v_s(n+q) odd, and (s/q)=−1.
+
+(a) *Certificate.* If (q,s) is a y-window witness for n, put K_n=(n+q)/4, b=v_s(n+q),
+o=ord_q(s), d=K_n s^{o/2} and A=(K_n+d)/q. Then
+
+    (x,y,z)=(K_n, nA, nK_nA/d)
+
+is an ES^{(y,e)}(n) solution with den z=s^{2h}, h=max(0,(o/2−b)/2)≤(q−3)/4≤(y−3)/4.
+It has a **window** x=(n+q)/4 with q≤y and **one** overflowing prime s.
+
+(b) *Sieve.* For every δ>0 and N≥N₀(α,δ),
+
+    #{n≤N: n≡1 (8), gcd(n,Π_y)=1, n has no y-window witness}
+        ≤ N exp(−((1−α)/(4α)−δ)L^α).                             (4.10)
+
+(c) *Scope (astra's patch).* Hence every n≤N, n≡1 (8), outside a set of size (4.10) either has a
+prime factor q≤y, q≡3 (4), and thus a classical ES solution (Lemma 4.3), **or** has a y-window
+witness. We do **not** claim a window witness for n sharing a prime with Π_y: the sieve uses
+q∤n for every q∈𝒬.
+
+**Proof of (a).** This is CAP_DOWN Lemma 1.1 and Proposition 1.3 with m=q. Their hypotheses
+are m≡−n (mod 4), gcd(m,n)=1 and gcd(K_n,n)=1, and neither uses primality of n. The last
+holds because a prime t|K_n, t|n divides 4K_n−n=q, so t=q|n, which is excluded. As q≡3 (4) and
+(s/q)=−1, the order o has v₂(o)=1 and s^{o/2}≡−1 (mod q). Thus d≡−K_n (mod q) and A∈ℤ.
+Furthermore s≠q and s∤n (s|n would give s|q). Since s is odd, v_s(K_n)=b is odd. The exponent
+of s in d is b+o/2, which is even; the other exponents are those of K_n. Lemma 1.1 gives den z=s^{2h}
+with the stated h, and o≤q−1 gives h≤((q−1)/2−1)/2. ∎
+
+**Proof of (b).** Fix A₀>max(α/(1−α),1/δ) and put log z₀=y^{1/A₀}, log z=L/(100K), and
+𝒫={s prime: z₀<s≤z}. For large N, y<z₀<z, since K=(1+o(1))L^α/(2α log L) and
+α/A₀<1−α. For s∈𝒫 let w(s)=#{q∈𝒬:(s/q)=−1} and
+
+    Ω_s={−q+js mod s² : q∈𝒬, (s/q)=−1, 1≤j≤s−1}.
+
+These w(s)(s−1) residues are distinct, since s>y separates the q modulo s. Put
+ρ_s=w(s)(s−1)/s²≤K/s<1.
+
+*Inclusion.* Let n be counted in (4.10) and s∈𝒫. If n≡−q+js (mod s²), then v_s(n+q)=1 is odd,
+(s/q)=−1 and q∤n, so (q,s) is a witness. Hence n mod s²∉Ω_s for every s∈𝒫.
+
+*Selberg.* Let 𝒜={n≤N: n≡1 (8)}, and for squarefree d|∏𝒫 let 𝒜_d be the n∈𝒜 with
+n mod s²∈Ω_s for all s|d. The moduli 8 and s² are pairwise coprime, so CRT gives
+|𝒜_d|=(N/8)ρ(d)+r_d, ρ(d)=∏_{s|d}ρ_s and |r_d|≤∏_{s|d}#Ω_s≤d². For each n write
+𝒟(n)=∏{s∈𝒫: n mod s²∈Ω_s}; then d|𝒟(n) and e|𝒟(n) iff [d,e]|𝒟(n). For any real λ_d with
+λ₁=1, supported on d≤Q, we have 1_{𝒟(n)=1}≤(Σ_{d|𝒟(n)}λ_d)². Summation gives the usual
+quadratic form. With g(s)=ρ_s/(1−ρ_s) and G(Q)=Σ_{d|∏𝒫, d≤Q}g(d), Selberg's choice yields
+
+    #(counted set) ≤ (N/8)/G(Q) + Σ_{d,e≤Q}|λ_dλ_e||r_{[d,e]}|.
+
+The minimisation uses only the multiplicativity of ρ with 0<ρ_s<1. The standard axiomatic Λ²
+sieve applies to such events at pairwise coprime moduli; see Friedlander–Iwaniec, *Opera de
+Cribro*, Ch. 7, and Halberstam–Richert, *Sieve Methods*, Ch. 3. The optimal weights satisfy
+|λ_d|≤1. Indeed λ_d=μ(d)∏_{s|d}(1−ρ_s)^{−1}·G_d(Q/d)/G(Q), where G_d sums g over m coprime
+to d, and G(Q)≥Σ_{e|d}g(e)G_d(Q/d)=∏_{s|d}(1−ρ_s)^{−1}G_d(Q/d). Take Q=N^{1/20}. The
+remainder is then ≤Σ_{d,e≤Q}[d,e]²≤Q⁶=N^{3/10}.
+
+*Lower bound for G.* Let Π=∏_{s∈𝒫}(1−ρ_s)^{−1}=Σ_{d|∏𝒫}g(d). Differentiating the Euler product,
+Σ_d g(d)log d=Π Σ_s ρ_s log s. Hence the tail d>Q has g-mass ≤Π Σ_sρ_s log s/log Q. By
+ρ_s≤K/s and Mertens, Σ_sρ_s log s≤K(log z+O(1))=L/100+O(K). Since log Q=L/20,
+G(Q)≥(4/5−o(1))Π≥(3/4)exp(Σ_{s∈𝒫}ρ_s).
+
+*Mass.* Σρ_s≥Σ_{q∈𝒬}Σ_{z₀<s≤z,(s/q)=−1}1/s−K/z₀. For t≥z₀ and q≤y we have
+q≤(log t)^{A₀}. Siegel–Walfisz therefore gives #{s≤t:(s/q)=−1}=li(t)/2+O_{A₀}(q t e^{−c√log t}),
+summing over the (q−1)/2 nonresidue classes. By partial summation the inner sum is
+(1/2)log(log z/log z₀)+O_{A₀}(q·log z₀·e^{−c√log z₀}). Here log z₀=y^{1/A₀}, so the error summed
+over K≤y primes q is o(1). Also
+
+    log(log z/log z₀)=log L−log(100K)−(α/A₀)log L ≥ (1−α−α/A₀)log L.
+
+With K=(1+o(1))L^α/(2α log L) this gives
+Σρ_s≥(1+o(1))((1−α)/(4α)−1/(4A₀))L^α>((1−α)/(4α)−δ/2)L^α.
+Therefore the count is ≤(N/6)e^{−((1−α)/(4α)−δ/2)L^α}+N^{3/10}. This implies (4.10), since L^α=o(L). ∎
+
+**Scope (Assessment).** The unrestricted count {e*>(y−3)/4} is dominated by Theorem 4.5 for
+every α, and by the 3/4 note for α≤3/4. At primes, CAP_INTERPOLATION Theorem 2.1 is stronger.
+Only the **restricted witness reading** is new: a window x=(n+q)/4 with q≤(log N)^α and a single
+overflowing prime, for all integers coprime to Π_y. The sieve dimension grows (K≍y/log y), but
+every window can fail only in Landau mode at the moduli s², so a classical sieve collects the
+full mass. Nothing transfers to U/ES₅. For a shift v≥(log N)^{0.129}, U's subset-product failure
+is dominated by n+v with few prime factors, not by Landau mode (board item fable-1, scoped).
+
+### Checks for §4A (CERTIFIED finite computation; independent code)
+
+`scripts/z51_lcaps2_check.py` shares no code with the board scripts or `z51_lcaps_*`. It uses
+exact rationals and checks Def 1.1 directly, including a full factorisation of den z. Results
+are in `data/z51_lcaps2/check.json`; the run takes 4 s and a few MB.
+
+- **Lemma 4.4, exhaustive:** six alphabets of primes ≡3 (4), namely {3,7} (E=3,5), {3,7,11},
+  {3,11,19}, {7,23} and {3,7,11,19}. For each, every prime ℓ≡−1 (4P) in a range and every box
+  class were checked against every n≡1 (8) coprime to P in a range. This gives
+  **51,915 certificates, 36,559 with composite n**, and 0 failures. Each check verifies
+  the identity, the den z conditions and the exact formula (4.8). The cap reaches E−1 in every
+  row with E≥2, and 40,305 certificates have positive cap. For every a_s>0, s∤V. In 7,535 cases
+  a_s=0 and s|V: the narrowed sentence is necessary. Also 3000 random composite n of size
+  ≈10²⁷ with ℓ<10⁷ pass, and the board's two worked examples are reproduced exactly.
+- **Lemma 4.3:** integral triples verified for all 136,216 odd n<3·10⁵ with a prime factor ≡3 (4)
+  or n≡5 (8). Every other odd n in range is ≡1 (8) with all prime factors ≡1 (4).
+- **T1:** 5,424 box classes are all quadratic nonresidues, and no square residue lies in a class.
+  In the toy sieve every odd square coprime to 2P survives.
+- **Lemma 4.1′ collisions:** alphabets drawn from the first primes ≡3 (4), with one prime omitted.
+  Bad ℓ ≤ pair incidences ≤ B(B−1)E log P/log T in all six rows; four rows contain genuine
+  collisions (non-vacuous).
+- **Montgomery on integers (toy):** N=2·10⁶, P=21, E=3, eight collision-free ℓ≤√N. The sifted
+  set has 373,365 elements, below the exact bound (N+Q²)/𝓛=844,746.
+- **Proposition 4.6(a):** 33,288 window witnesses (25,465 composite n≤6·10⁴, 27,567 with positive
+  cap), checked exactly with den z a power of s and 4h≤q−3. The class inclusion
+  “n≡−q+js (mod s²) ⇒ witness” was checked on 5,170 classes.
+- **Controls:** all 18 hard primes/R-zeros receive an exact (4.7) certificate with P=21 and E=6.
+  The search factors p+4Q_a²; the best caps are 0–5. Numerator 8 (n=17, 241) is outside
+  scope: (4.7) uses 4|n+V and is numerator-4 specific; nothing here transfers to 8/n.
+
+The asymptotic constants (D, c_ε, the Siegel–Walfisz error) are not numerically certified; the
+toy rows test the identities and inequalities, not the asymptotic regime.
+
 ## 5. Computation and controls
 
 ### Full census (CERTIFIED finite computation)
@@ -492,6 +743,7 @@ timeout 180 uv run scripts/z51_lcaps_verify.py > data/z51_lcaps/verify_1e8.json
 timeout 60 uv run scripts/z51_lcaps_toy.py > data/z51_lcaps/toy.json
 timeout 120 uv run scripts/z51_lcaps_threshold.py > data/z51_lcaps/threshold.json
 timeout 60 uv run scripts/z51_lcaps_boxes.py > data/z51_lcaps/boxes.json
+timeout 600 uv run scripts/z51_lcaps2_check.py > data/z51_lcaps2/check.json   # §4A
 ```
 
 ## 6. Final assessment and exact remaining gap
@@ -505,6 +757,13 @@ log^{2+ε} threshold and CAP_INTERPOLATION's log^{1+ε} sketch. Its ingredients 
 untruncated cap dictionary, elementary collision counting, Gallagher's exceptional
 conductor deletion, and the arithmetic large sieve. No GRH, OAI-003, or new conjecture
 is used. **This is a cap-relaxation theorem, not an ES exceptional-set improvement.**
+
+**PROVED (§4A, lane `lcaps2`) — all-integer version.** Theorem 4.5 gives
+#{1<n≤N odd: e*(n)>⌈(log log N)^{1+ε}⌉} ≪_ε N^{1−c_ε}, relative to the same inputs, with the
+mute alphabet restricted to primes ≡3 (4). Proposition 4.6, relative to Siegel–Walfisz and Selberg,
+shows the following for n≡1 (8) outside N exp(−((1−α)/(4α)−δ)(log N)^α) exceptions. Each such n either
+has a classical solution through a prime q≤(log N)^α, q≡3 (4), dividing n, or has a window witness
+with q≤(log N)^α and one overflow prime. Neither moves ES/ES₅/U or cap zero.
 
 **PROVED — strict Linnik route.** Squarefree products and HB give exceptional exponent
 1/A at cap log^A X/4, A>1, including a one-mute-prime polylog-window witness. At cap
