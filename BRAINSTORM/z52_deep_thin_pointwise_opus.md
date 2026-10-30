@@ -84,7 +84,66 @@ pairing.
 
 ## §1 Catalogue (verified from sources)
 
-(skeleton: per theorem — statement + theorem number, expected count at one n, mechanism class, ES admits it?)
+Verification key. **V** = statement read by me in the source; the excerpt file is in `sources/z52/thin_pointwise/`,
+accessed 2026-10-30. **V2** = read by me in a later paper that restates it; that paper is named. **Vs** = read by a
+subagent and saved to the excerpt file, with spot checks by me. **R** = verified earlier in the repository (file named).
+**NA** = NOT ACCESSED, classical statement given for orientation only. "Count" is the expected or exact number of
+witnesses at one n. "Class" refers to §0.
+
+| # | statement (source, theorem no.) | ver. | count at one n | class | does ES admit the mechanism? |
+|---|---|---|---|---|---|
+| 1 | Every prime p ≡ 1 (4) is x² + y². Zagier, AMM 97 (1990) 144: an involution on the finite set S = {(x,y,z) ∈ ℕ³ : x² + 4yz = p} has exactly one fixed point, (1,1,k), so \|S\| is odd and (x,y,z) ↦ (x,z,y) has a fixed point. "Only the last [assertion] requires that p be a prime of the form 4k+1." | V (`01-zagier.txt`) | 1 unordered rep.; \|S\| is thick | ζ (T) | Only via a thick superset with one prime-sensitive local step. On (★) sets the parity is uninformative (§2.1). INVOLUTION_ES Prop 2.3: \|X(q²)\| is odd for the O152 set |
+| 2 | Thue's lemma ⇒ two squares (Brillhart, Math. Comp. 26 (1972) 1011) | NA (`02-thue-brillhart.txt`) | O(1) | ε | Needs a definite form; ES's quadratic pieces are split (DETERMINISTIC_EXISTENCE row 1) |
+| 3 | Lagrange four squares; Cauchy–Davenport was "applied … to give a new proof to a lemma of Lagrange" (Alon, CN, after Thm 3.2) | V2 (`alon_cn.txt`) for the CD link; Jacobi's r₄ NA | 8σ(n) for odd n (NA) | α+β, ε′ | not thin |
+| 4 | Gauss: n = x² + y² + z² ⟺ n ≠ 4^a(8k+7) (Choi–Kumchev–Osburn §1) | Vs (`04-three-squares.txt`) | ≍ n^{1/2±ε} (class-number formula NA) | β | not thin (B3) |
+| 5 | Duke–Schulze-Pillot, Invent. Math. 99 (1990): large n represented by the spinor genus are represented by the form; ineffective (Siegel) | V2 (`dsp_via_6cores.txt`; the original theorem text was not opened) | ≍ n^{1/2} | β | not thin; spinor/genus steps are true at squares (T1, §4 line 1) |
+| 6 | Ono–Soundararajan, Invent. Math. 130 (1997): x² + y² + 10z² under GRH | NA (`06-ono-soundararajan.txt`) | ≍ n^{1/2} | β | not thin |
+| 7 | Bhargava–Hanke 290-theorem, Thm 1 (29 critical integers); §4.2–4.3: Eisenstein lower bounds vs cusp upper bounds, then a finite check | Vs (`07-fifteen-290.txt`) | power | β+θ | not thin |
+| 8 | Pell existence; negative Pell for primes p ≡ 1 (4) (Legendre) | NA (`08-pell.txt`) | one fundamental solution | ε (+ genus for −1) | DETERMINISTIC_EXISTENCE §4: the Pell splitting factors the discriminant, not N_θ(p) |
+| 9 | p = x² + ny² ⟺ p splits completely in the ring class field (Cox, Thm 9.4) | NA (`10-cox.txt`) | O(1) | κ (R) | ES is not a Frobenius condition (B1; CLASS_FORCING Thm 2.1) |
+| 10 | Hasse–Minkowski; Meyer (rank ≥ 5 indefinite isotropic) | NA | rational points, infinite | κ | rational ES points are trivial; integrality is the whole content (GEOMETRY_ES §1) |
+| 11 | GRH: the least prime outside a subgroup H of (ℤ/q)^×, index h, is < (α(h)+o(1)) log²q, α(2) = 0.8 (Lamzouri–Li–Soundararajan, arXiv:1309.3595v3, Thm 1.2); Ankeny O(log²q), Bach < 2 log²q (as stated in LLS §1.1) | V (`lls_least_qnr.txt`) | ≍ log²q window, polylog | κ | yields the QNR / subgroup layer only. Under GRH, "(q/p) = −1 for some prime q ≤ 2 log²p ⇒ ES(p)" is *equivalent* to ES for large p (CONTEXT) |
+| 12 | Linnik: P(a,q) ≪ q^L, L = 5.5 (Heath-Brown), L = 5.2 (Xylouris, Acta Arith. 150 (2011) 65–91), as stated in LLS §1.2; GRH (Bach–Sorenson): P(a,q) ≤ (1+o(1))(φ(q) log q)² | V2 (`lls_least_qnr.txt`); the L = 5 thesis claim NA | power window | ξ / κ | F3: ES's modulus is tied (§4 line 4) |
+| 13 | Least prime ideal in Chebotarev: N𝔭 ≪ d_L^{40}, effective (Zaman, arXiv:1508.00287v3 abstract); LMO79 NA | V (`zaman_chebotarev.txt`) | power | κ / ξ | as 12 |
+| 14 | Least primitive root: Burgess g(p) = O(p^{1/4+ε}); GRH (Shoup): g(p) ≪ ω(p−1)⁴(log ω(p−1)+1)⁴ log²p; i.o. g(p) > c log p log₃p (Moree survey, arXiv:math/0412262v2 §27) | V2 (`moree_artin.txt`) | polylog under GRH | κ | as 11 |
+| 15 | Heath-Brown 1986: at most two primes q for which P(q) (primes with primitive root q) is finite; g(p) ≤ 7 for infinitely many p (Moree, §§ on Heath-Brown) | V2 (`moree_artin.txt`) | n/a | infinitude, **not pointwise** | B6: a statement about infinitely many p. The "one of three" disjunction is a fixed finite menu (B2(iii)) |
+| 16 | Heath-Brown–Puchta, Asian J. Math. 6 (2002), Thm 1: every large even n is a sum of two primes and exactly 13 powers of 2 (7 under GRH, Thm 2) | Vs (`hb_puchta_2002.txt`) | power (Goldbach part) | ξ | F2 (B3) |
+| 17 | Ternary Goldbach, Helfgott arXiv:1501.05438 (book; supersedes 1312.7748) | V (`helfgott_ternary.txt`, abstract) | ≍ n²/log³n | ξ | not thin |
+| 18 | Ramaré–Walker, arXiv:1610.05804, Thm 1.1: for q ≤ x^{1/16}, every invertible class mod q contains a product of three primes < x^{1/3}. Proof: Brun–Titchmarsh + additive combinatorics, no parity barrier | V (`ramare_walker.txt`) | power | ε′ / ξ | **closest inhomogeneous-target analogue of gate G4**: any target class, modulus arbitrary, but the generating set is *all* primes up to q^{16/3}. ES's generating set is the ≤ log₂N prime factors of one integer (§2.2) |
+| 19 | Chevalley–Warning: Σd_i < n ⇒ #Z ≠ 1, p \| #Z, and Z ≠ ∅ ⇒ #Z ≥ q^{n−d} (Bishnoi–Clark arXiv:2201.11236v1 Thm 1.1; Alon CN Thm 3.1). Ax–Katz NA | V | count ≡ 0 mod p, so ≥ p once one zero is known | ζ | §2.1 |
+| 20 | Restricted-variable Chevalley (Schauz 2008, Brink 2011): (q−1)Σdeg f_j < Σ(\|X_i\|−1) ⇒ #Z_X ≠ 1 (Bishnoi–Clark Thm 1.3b) | V | ≥ 2 | ζ | §2.1 |
+| 21 | Combinatorial Nullstellensatz Thm 1.2; Cauchy–Davenport Thm 3.2; Alon–Friedland–Kalai: average degree > 2p−2 and max degree ≤ 2p−1 ⇒ p-regular subgraph (Alon, CPC 8 (1999), Thm 6.1) | V (`alon_cn.txt`) | ≥ 1 | ζ / ε′ | §2.1, §2.2 |
+| 22 | Erdős–Ginzburg–Ziv; Olson D(G) for p-groups; ±-weighted Davenport ⌊log₂n⌋+1 (ACFKP) | NA (the repo copy `sources/lit2026g/acfkp.txt` also records non-verification) | ≥ 1 | ζ + ι | zero-sum gives the identity, not −1 (z33_target_davenport; EXSET_CHAR_FORCING Lemma 2.2) |
+| 23 | Huang, Ann. of Math. 190 (2019), arXiv:1907.00847v2, Thm 1.1 (every induced subgraph of Qⁿ on 2^{n−1}+1 vertices has max degree ≥ √n) via Lemma 2.2 (A_n² = nI) + Cauchy interlacing | V (`huang_sensitivity.txt`) | ≥ 1 vertex | ν (T) | §2.4 |
+| 24 | Spencer 1985: any n sets on n points have a colouring of discrepancy ≤ 6√n; original proof existential (Lovett–Meka arXiv:1203.5747v2, abstract and Thm 1) | V2 (`lovett_meka_spencer.txt`) | exponentially many colourings | ε (entropy pigeonhole) / λ | M4: the colouring is free; target symmetric |
+| 25 | Cilleruelo–Luca–Baxter, arXiv:1602.06208v2, Thm 1.2: every positive integer is a sum of three base-g palindromes, g ≥ 5; "The proof of Theorem 1.2 is algorithmic" | V (`clb_palindromes.txt`) | ≍ n^{1/2} (≍ n^{1/2} palindromes ≤ n, triples ≍ n^{3/2}) | α | not thin; digit-carry algorithms are inside B1 Thm M |
+| 26 | Croot 2003 (colouring version) and Bloom (positive upper density ⇒ finite S with Σ1/n = 1), Bloom arXiv:2112.03726v2, Thms 1–2 | V (`bloom_croot.txt`) | many | λ / M4 | M4 (z31_unit_fractions) |
+| 27 | Bang–Zsigmondy; Bilu–Hanrot–Voutier (Lucas/Lehmer terms of index > 30 have primitive divisors) | R (`BRAINSTORM/z45_recent_pointwise_tools.md` §B, via Voutier/Stewart) | ≥ 1 | μ / κ (R) | wrong integer and wrong class (+1 or ±1 mod t); PRIMITIVE_INTERSECTION |
+| 28 | Sylvester–Schur; Erdős–Selfridge | NA | ≥ 1 / non-existence | μ | §0 μ row |
+| 29 | Four-colour theorem (RSST 1997: unavoidable set + discharging) | NA (Gonthier's Notices article could not be fetched) | ≥ 1 colouring | θ′ | §2.3 |
+| 30 | Ore conjecture (LOST 2010): every element of a finite non-abelian simple group is a commutator | NA | ≈ \|G\| | β (Frobenius formula) | not thin |
+| 31 | Lenstra–Schoof 1987, primitive normal bases exist for every E/F (Cohen–Huczynska arXiv:math/0610400v2, abstract) | V2 (`cohen_huczynska_lenstra_schoof.txt`) | power | ξ (+ computation) | not thin |
+| 32 | Zaremba. Bourgain–Kontorovich Thm 1.2 (almost every q, arXiv:1107.3776); Shkredov Cor 1 (every prime / squarefree q), arXiv:2603.14116v2 (24 Jun 2026); X. Zhang Thm 1.2 (all q), arXiv:2605.02518v2 (8 May 2026), unrefereed | V (BK); R + version check (`zaremba_2026_versions.txt`, repo `sources/lit2026g/shkredov_zaremba2026.txt`) | q^{2w_M−1}, a power | γ | F2: ES₅ is critical, ≍ log²p ((J)94, ZAREMBA_TRANSFER) |
+| 33 | Markoff mod p. Chen, Ann. of Math. 199 (2024), arXiv:2011.12940v2, Thm 1.2.5: every Γ-orbit on X*(p) has size divisible by p. Thm 1.2.6: the BGS exceptional set is finite, and strong approximation holds at all other p. BGS arXiv:1607.01530 Thm 1: a giant orbit, with \|X*(p) − C(p)\| ≤ p^ε | V (`chen_markoff.txt`, `bgs_markoff.txt`) | \|X*(p)\| ∼ p² | γ + ζ | wrong axis: this is the connectivity of one surface mod p, not existence over a family (B2_ACROSS row 2) |
+| 34 | Ghosh–Sarnak, arXiv:1706.06712v3, (1.6): Σ_{\|k\|≤K} h_M(k) ∼ C± K (log K)². Thm 1.2(i): ≥ √K (log K)^{−1/2} Hasse failures. (1.7): numerically ≈ C₀K^{0.8875}. Remark 1.3(a): the failures of Prop 8.1(iii) use reciprocity + Markoff descent and are not explained by integral BM | V (`ghosh_sarnak.txt`) | (log k)² on average, the same scale as ES | failure side | ES's precedent at its own scale: polylog count, no BM explanation, power-many failures. ES has none to 10¹⁸ (z38_markoff_precedent) |
+| 35 | Harpaz, arXiv:1511.04876v2, Thm 1.0.1: for the pencil (c₁t+d₁s)(c₂t+d₂s)x² + (c₃t+d₃s)(c₄t+d₄s)y² = 1 over ℤ_S (S ∋ 2, ∞), if seven explicit square classes are F₂-independent, then Y has an S-integral point | V (`harpaz_conic_logk3.txt`) | — | κ + descent–fibration | the only verified existence theorem for a log K3 family. It is S-integral with hypotheses on coefficient square classes; ES's U_n is log K3 (Bright–Loughran, `bright_loughran_logk3.txt`) but not of this shape (B2_ACROSS row 6) |
+| 36 | Margulis/EMM: for Q of signature (p,q), p ≥ 3, q ≥ 1, not proportional to a rational form, N_Q(a,b,T) ∼ λ(b−a)T^{n−2} (EMM98 Thm 2.1, as restated in Margulis–Mohammadi arXiv:1001.2756v1 Thm 1.1) | V2 (`margulis_mohammadi_oppenheim.txt`) | T^{n−2} | δ | not thin; no group |
+| 37 | Erdős 1950: an AP of odd n with no n = 2^k + p (covering congruences); Crocker 1971 (p + 2^a + 2^b, infinitely many odd exceptions); Pan 2011 (≫ x^{1−ε} exceptions) | R (s9 ✓-marks, R282; `sources/lit2026g/erdos_2kp.txt`, secondary) | ≍ 1 and ≍ log n | failure side | coverings act on the fixed orbit k ↦ 2^k; ES's sets move with n (B2) |
+| 38 | Goldbach's other conjecture: the odd numbers not of the form p + 2k² (k > 0) are 1, 3, 17, 137, 227, 977, 1187, 1493, 5777, 5993; next > 10⁹ if it exists (OEIS A060003, citing Hodges 1993) | V (`oeis_A060003_goldbach_other.txt`); Hodges' paper NA | ≍ √n/log n, a **power** | failure side | calibration: even a power-size expected count without a covering obstruction does not guarantee every n. Only finitely many failures are known; nothing structured |
+| 39 | Sierpiński numbers (k·2ⁿ + 1 composite for all n; 78557) | NA | — | failure side (covering) | B1-type |
+| 40 | Erdős–Tetali 1990 (bases with r(n) ≍ log n) | R (s9) | log n | λ / M4 | designed set |
+
+**Reading of the catalogue** (Assessment). Rows with a *thin* count *and* a proof are 1, 2, 8, 9, 11, 14, 19–24 and 27.
+Every one of them is (T) or (R). The (T) rows (1, 2, 8, 19–24) all run on a thick object: S(p), a √p-box, F_q^n, 2^{n−1}+1
+vertices, n sets. The (R) rows (9, 11, 14, 27) all have a fixed modulus or a cyclotomic integer. Rows 34, 37 and 38 show
+the default outcome for thin counts without (T) or (R): exceptions, sometimes power-many (34) and sometimes with no
+visible structure (38). Rows 18 and 33 are the nearest structural cousins of ES's two forms. Row 18 is the inhomogeneous
+subset-product target of gate G4, solved only because the generating set is dense. Row 33 is "every orbit is large",
+solved by a count congruence (orbit size ≡ 0 mod p) on a thick set. ES has neither a dense generating set nor an orbit
+structure. Since (J)103 this adds one fact: the Markoff precedent (row 34) has *power-many* failures at ES's own
+log²-scale, numerically ≈ K^{0.8875}, of which only O(√K) are explained algebraically (GS Remark 1.3(a)). The
+problem class therefore does not guarantee existence; ES's empirical robustness (no failure to 10¹⁸, minimum 612
+solutions on cheap slices at 10¹⁸–10²⁵) is a property of ES, not of the class.
 
 ## §2 Most promising untried mechanisms
 
