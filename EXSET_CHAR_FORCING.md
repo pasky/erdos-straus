@@ -420,84 +420,90 @@ the forced-window cap mechanism; no ES-specific input beyond CAP_BOUNDED Lemma 3
 target ("lowering its cap threshold … toward A > 1 or below"); it is a statement about the relaxation ES^{(y,e)},
 not about ES.
 
-## 6. Full Type I/II forcing reach (work item 2)
+## 6. Forcing reach for two Elsholtz–Tao subfamilies (work item 2)
 
 ### 6.1 Definition and the forcing implication
 
-Elsholtz–Tao classes (checked identities, `scripts/z51_forcing_reach_verify.py`):
+Elsholtz–Tao classes used (identities checked, `scripts/z51_forcing_reach_verify.py`):
 * Type II (a, b, e), e | a + b: every n ≡ −e (mod 4ab) has 4/n = 1/(abd) + 1/(acdn) + 1/(bcdn), c = (a+b)/e,
   d = (n+e)/(4ab).
 * Type I (b, c, e), e | b + c: every n ≡ −e⁻¹ (mod 4bc) has 4/n = 1/(nbck) + 1/(gb) + 1/(gc), k = (en+1)/(4bc),
   g = k(b+c)/e.
-These are cubic families (three free parameters); they are subfamilies of all ES certificates.
+These are two cubic subfamilies of the ES certificates (the U and U⁻¹ box types of POINTWISE_MORDELL17 Lemma 1.1;
+the P, Q, Q⁻¹ types and the general Type I family e | k(b+c) are *not* included — R2).
 
-**Definition 6.1 (counterfactual reach).** Let n ≡ 1 (mod 4) and q an odd prime, q ∤ n. A unit residue r mod q is
-*reached at (n, q)* if some Type II class (a, b, e) with a = q·a₁, q ∤ a₁be, or some Type I class (b, c, e) with
-b = q·b₁, q ∤ b₁ce, has class modulus 4q·a₁b (resp. 4q·b₁c) ≤ n, contains n modulo 4a₁b (resp. 4b₁c), and has residue
-r at q (r ≡ −e, resp. −e⁻¹). In words: the profinite point "n at every modulus prime to q, r at q" lies in a
-certificate class of modulus ≤ n. *Reach(n, q)* holds if every quadratic non-residue r mod q is reached.
-(The modulus bound makes the notion finite: it forces e ≤ n/4 + 1 for both types. Our runs use E₂ = n/4, exact
-for Type II, and E₁ = n/12 for Type I; the Type I tail e ∈ (n/12, n/4] needs b₁ = 1 or c = 1 and carries a negligible
-part of the supply — at p = 10⁸ all e > 10⁷ together carry < 0.1 %.)
+**Definition 6.1 (counterfactual reach, level 1, height n).** Let n ≡ 1 (mod 4) and q an odd prime, q ∤ n. A unit
+residue r mod q is *reached at (n, q)* if some Type II class (a, b, e) with a = q·a₁, q ∤ a₁be, or some Type I class
+(b, c, e) with b = q·b₁, q ∤ b₁ce, has class modulus 4q·a₁b (resp. 4q·b₁c) ≤ n, contains n modulo 4a₁b (resp. 4b₁c),
+and has residue r at q (r ≡ −e, resp. −e⁻¹). *Reach(n, q)* holds if every quadratic non-residue r mod q is reached.
+The modulus bound (the height) makes the notion finite: it forces e ≤ qu + v ≤ quv + 1 ≤ n/4 + 1. (R2 repair:) the
+runs below use E₂ = n/4 for Type II (missing only e ∈ (n/4, n/4 + 1]; e.g. p = 89, q = 11, e = 23 > 89/4) and
+E₁ = n/12 for Type I, which is a genuine truncation (e.g. p = 100049, q = 23, b₁ = 499, c = 2, e = 11479 > p/12; the
+earlier claim that the tail needs b₁ = 1 or c = 1 is false). R2's independent complete search at p = 100049 found 21
+valid tuples beyond these cutoffs (q ≤ 60) and no additional reached non-residue cell. All runs therefore give lower
+bounds for reach; "exact" below means "with these cutoffs".
 
 **Lemma 6.2 (reach forces; PROVED, trivial).** If Reach(p, q) and (q/p) = −1 then ES(p).
 *Proof.* p ≡ 1 (4), so (p/q) = (q/p) = −1 and r := p mod q is a reached non-residue: the class contains p itself. ∎
 
-Reach is *not* implied by ES (it is a statement about counterfactual points), and Lemma 6.2 is the only way it is
-used. It is the natural formalisation of "congruence-certified forcing at q": any forcing statement for the line
-(q/p) = −1 proved from certificate congruence classes that see p only through its residues at moduli prime to q is a
-reach statement. (Classes with q ∤ modulus certify p whatever its residue at q; they are certificates of p itself and
-irrelevant for forcing, since an exceptional p has none.)
+Reach is not implied by ES (it concerns counterfactual points), it is sufficient and not necessary for ES on a line
+(a certificate only has to hit p's actual cell; see p = 1 240 009 in §7), and it formalises *one* kind of
+congruence-certified forcing: this class menu, this height, level 1. (R2 repair: the earlier claim that every
+congruence-certified forcing statement is a reach statement is withdrawn.) Classes with q ∤ modulus certify p
+directly and are irrelevant once p is assumed exceptional.
 
-*Definition 6.1\* (all levels; R2-proofing).* Def 6.1 uses level-1 classes (q exactly once in the modulus). Let
-Reach\*(n, q) mean: every q-adic unit u with (u/q) = −1 is covered, i.e. the profinite point "n off q, u at q" lies in
-an ET class of Def 6.1's shape with q^k ∥ modulus for some k ≥ 1 (box u ≡ r (mod q^k), Haar measure q^{−k}). Then
-Reach ⟹ Reach\*, Lemma 6.2 holds for Reach\*, and Prop 6.3/Cor 6.4 below hold for Reach\* (Remark 6.5). The numerics
-use level 1 only, a lower bound for Reach\*.
+*Definition 6.1\* (all levels).* Reach\*(n, q): every q-adic unit u with (u/q) = −1 lies in some class of Def 6.1's
+shape with a = q^k a₁, q ∤ a₁be (resp. b = q^k b₁), any k ≥ 1, modulus 4q^k a₁b ≤ n, containing n modulo 4a₁b; such a
+class covers the box u ≡ r (mod q^k), of additive Haar mass q^{−k}. Reach ⟹ Reach\*, and Lemma 6.2 holds for Reach\*.
+The numerics use level 1 only.
 
-### 6.2 An upper bound for reach: reach is at most polylogarithmic (PROVED)
+### 6.2 Upper bounds for reach (PROVED)
 
-**Proposition 6.3 (PROVED modulo Shiu's Brun–Titchmarsh theorem for multiplicative functions).** Uniformly for primes
-3 ≤ q ≤ (log X)^C,
+**Proposition 6.3 (integers; PROVED modulo Shiu's theorem).** Uniformly for primes 3 ≤ q ≤ (log X)^C,
 `  Σ_{n ≤ X, n ≡ 1 (4)} #{r mod q : r reached at (n, q)}  ≪_C  X (log X)³.`
-*Proof.* Each reached residue comes from a tuple (type, a₁, b, e) with a₁b ≤ X/(4q), e | qa₁ + b, and n in one class
-modulo 4a₁b; so the sum is ≤ 2Σ_{a₁,b} τ(qa₁ + b)(X/(4a₁b) + 1). Group by n′ = qa₁ + b:
-Σ_{a₁<n′/q} 1/(a₁(n′ − qa₁)) = (1/n′)Σ (1/a₁ + q/(n′ − qa₁)) ≤ (1/n′)(2 + 2 log n′ + q/r₀(n′)), where
-r₀(n′) ∈ [1, q] is the least positive value of n′ − qa₁. Hence Σ_{a₁,b} τ(qa₁+b)/(a₁b) ≤ Σ_{n′≤X} τ(n′)(2 + 2 log n′)/n′
-+ Σ_{r=1}^{q} (q/r) Σ_{n′ ≡ r (q), q < n′ ≤ X} τ(n′)/n′. The first sum is ≪ (log X)³. In the second, Shiu's theorem
-(q < (n′)^{1/2}) gives Σ_{n′≡r (q), q² < n′ ≤ X} τ(n′)/n′ ≪ (log X)²/q for r ≢ 0, the range q < n′ ≤ q² contributes
-≪ q^{ε−1} log q, and r = q (n′ ≡ 0) contributes ≪ (log X)²; so the second sum is ≪ (log X)² log q. The "+1" terms
-give Σ_{a₁b≤X/(4q)} τ(qa₁ + b) ≤ (X/(4q))·Σ τ/(a₁b) ≪ X(log X)³/q. ∎
+*Proof (with R2's bookkeeping).* Each reached residue comes from a tuple (type, u = a₁, v = b, e) with uv ≤ X/(4q),
+e | qu + v, and n in one class modulo 4uv (for Type I, no class or one class). So the sum is ≤ 2Σ_{uv≤X/(4q)}
+τ(qu + v)(X/(4uv) + 1). Put t = qu + v ≤ X. From 1/(u(t − qu)) = (1/t)(1/u + q/(t − qu)),
+Σ_{u<t/q} 1/(u(t−qu)) ≤ (1/t)(2 + 2 log t + q/r₀(t)), r₀(t) ∈ [1, q] the least positive value of t − qu. Hence
+H_q := Σ τ(qu+v)/(uv) ≤ Σ_{t≤X} τ(t)(2 + 2 log t)/t + Σ_{r=1}^{q} (q/r) A_r, A_r := Σ_{q<t≤X, t≡r (q)} τ(t)/t. The first
+sum is ≪ L³ (L = log X). For r ≢ 0 and t > q², Shiu's theorem on dyadic blocks (T, 2T] (modulus q ≤ T^{1/2}, constants
+uniform) gives Σ_{T<t≤2T, t≡r} τ(t) ≪ (T/q) log 2T, hence ≪ L²/q for that part of A_r; the range q < t ≤ q²
+contributes ≪_ε q^{ε−1} log q; and A_0 ≤ (2/q)Σ_{v≤X/q} τ(v)/v ≪ L²/q. So H_q ≪ L³ + L² log q + q^{ε}(log q)², and with
+ε = min(½, 1/C) (so q^ε ≤ L) H_q ≪_C L³. The "+1" terms are ≤ (X/(4q))·H_q. ∎
 
-**Corollary 6.4 (PROVED from Prop 6.3).** Uniformly for 3 ≤ q ≤ (log X)^C:
-(a) #{p ≤ X prime : Reach(p, q)} ≪ π(X)(log X)⁴/q. So for q ≥ (log X)^{4+ε}, reach at q fails for almost all p.
-(b) For A > 4 and η > 0, the number of p ≤ X with Reach(p, q) for at least η·π((log X)^A) primes q ≤ (log X)^A is
-≪ π(X)(log X)^{4−A+o(1)}/η. So MR(A, η) of Cor 5.3 is *false* (for almost all p) when A > 4.
-(c) If S is a set of primes q ≤ (log X)^C such that Reach(p, q) holds for every q ∈ S for at least half of the
-primes p ≤ X, then |S| ≪ (log X)⁴ log log X. For such S, the integers ≤ X² composed of primes from S number at most
-Ψ(X², π⁻¹(|S|)) = X^{3/2+o(1)} (the count is largest for the first |S| primes), so Linnik's bound
-(X² + X²)/|𝒜| for confinement to S cannot beat X^{1/2−o(1)}.
-*Proof.* (a) A reach at q needs all (q−1)/2 non-residues reached; Markov over n ≤ X with Prop 6.3, and
-π(X) ≍ X/log X. (b) Sum (a) over q ≤ (log X)^A (Σ 1/q ≪ log log X) and divide by η·π((log X)^A). (c) Sum (a) over
-q ∈ S: |S|π(X)/2 ≤ Cπ(X)(log X)⁴ Σ_{q∈S} 1/q ≤ Cπ(X)(log X)⁴·O(log log X). For any coefficients a_n supported on
-S-smooth n ≤ N, Cauchy–Schwarz gives |Σ a_n χ(n)|² ≤ #supp(a)·Σ|a_n|², so the dual large sieve bound is
-≥ (N + X²)/#supp(a) ≥ X²/Ψ(max(N, X²), π⁻¹(|S|)) ≥ X^{1/2−o(1)}; this covers the robust form of §5 as well. ∎
+**Proposition 6.3′ (primes; PROVED modulo Shiu's theorem and Brun–Titchmarsh π(x; k, a) ≤ 2x/(φ(k) log(x/k))).**
+Uniformly for primes 3 ≤ q ≤ L^C, with μ_q the Haar mass of the covered non-residue units (Def 6.1\*),
+`  Σ_{p ≤ X} #{r mod q : r reached at (p, q)} ≪_C π(X) L³ (log L)²,    Σ_{p ≤ X} μ_q(covered) ≪_C π(X) L³ (log L)²/q.`
+*Proof.* Level 1: Σ_p #reached ≤ Σ_tuples π(X; 4uv, c) ≤ 2X Σ_tuples 1/(φ(4uv) log(X/(4uv))), since 4uv ≤ X/q < X.
+Split uv dyadically, uv ∈ (T, 2T], and use 1/φ(4uv) ≪ (log L)/T. Claim: V(T) := Σ_{uv∈(T,2T], q∤v} τ(qu + v) ≪ T L²
+for X^{3ε} ≤ T ≤ X (ε fixed small). For u ≤ T X^{−ε} the v-range (T/u, 2T/u] has length ≥ X^{ε}, a fixed power of
+the size of qu + v, and Shiu's short-interval bound gives ≪ (T/u)L, summing to ≪ T L log T. For u > T X^{−ε} we have
+v < 2X^{ε}; for fixed v the values qu + v run over a progression mod q (coprime residue v) in a dyadic range of
+length ≍ qT/v ≥ X^{2ε} > q², and Shiu's progression bound gives ≪ (T/v)L, summing over v < 2X^{ε} to ≪ εTL².
+So a block contributes ≪ X (log L) L²/log(X/(8T)), and Σ_{T=2^j ≤ X/(4q)} 1/log(X/(8T)) ≪ log L (the values
+log(X/(8T)) ≥ log(q/2) are spaced by log 2). Blocks with T < X^{3ε} are bounded by Prop 6.3's argument at height
+X^{3ε}: ≪ (X/L)(log L)(εL)³. Total ≪ X L² (log L)² ≍ π(X) L³ (log L)². Type I tuples are counted identically. Level k:
+the same argument with Q = q^k (keeping q ∤ uv, so t = Qu + v is prime to Q; Shiu applies in progressions mod Q for
+t > Q², and the range Q < t ≤ Q² contributes ≪ Q^{ε}L² before weighting) gives ≪ π(X)(L³(log L)² + Q^{ε}L²(log L));
+weighting by Q^{−1} = q^{−k} and summing over k gives ≪ π(X)(L³(log L)²/q + L² q^{−1+ε}) ≪_C π(X) L³(log L)²/q
+(R2 repair of Remark 6.5's per-level error). ∎
 
-**Remark 6.5 (all levels).** For Reach\*, replace "number of reached residues" by the Haar measure μ_q of the covered
-non-residue units. A level-k tuple (a = q^k a₁) contributes measure q^{−k} and occurs for n in one class modulo
-4a₁b; the level-k analogue of the sum in Prop 6.3 (q^k in place of q) is ≪ X(log X)³ + X q^{k(ε−1)}(log X)², so
-E_n μ_q(covered) ≪ Σ_k q^{−k}(log X)³ ≪ (log X)³/q. Reach\* needs μ_q(covered) ≥ (1 − 1/q)/2; Markov gives
-Cor 6.4 verbatim for Reach\*. Scope: the ET cubic families of Def 6.1 (e | a + b, e | b + c). The general Type I
-family (e | k(b + c)) is also of cubic average size (Elsholtz–Tao); we expect the same bound but did not prove it.
+**Corollary 6.4 (PROVED from Prop 6.3′).** Uniformly for 3 ≤ q ≤ L^C:
+(a) #{p ≤ X : Reach\*(p, q)} ≪ π(X) L³ (log L)²/q. So reach at a *fixed* q ≥ L³(log L)³ fails for almost all p.
+(b) For A > 3 and η > 0, #{p ≤ X : Reach\*(p, q) for at least η·π(L^A) primes q ≤ L^A} ≪ π(X) L^{3−A+o(1)}/η. So
+MR(A, η) is false for A > 3 (for almost all p in any fixed progression).
+*Proof.* (a) Reach\* needs μ_q(covered) ≥ (q − 1)/(2q); Markov. (b) Sum (a) over q ≤ L^A (Σ 1/q ≪ log L), Markov
+at η·π(L^A); handle the p-dependent scale (log p)^A dyadically as in Cor 5.4. ∎
 
-**Reading (T2-barrier, exact scope; Assessment on PROVED inputs).** Linnik confinement fed by *congruence-certified*
-forcing (reach in the sense of Def 6.1 or 6.1\*: ET Type I/II classes of modulus ≤ p, any level) has, for most p, at most (log X)^{4+o(1)}
-moduli q to work with. With the multiplicative large sieve over S-smooth sequences it therefore cannot give a bound
-better than X^{1/2+o(1)} for the exceptional set (Cor 6.4(c)), and the robust form (Thm 5.2, Cor 5.3(b)) is limited to
-A ≤ 4 in the same way. This does not prevent a power saving (X^{1/2} would be a power saving); it says that
-congruence-certified forcing plus Linnik is capped at the square-root level, and, by the numerics below
-(reach ≈ c(log p)³/log log p), heuristically at X^{2/3}. The cap concerns the method; the true forcing statement F(R)
-holds for every R if ES is true.
+*What this does and does not say (Assessment; R2-repaired).* For a fixed q the counterfactual reach of these families
+is available only on a ≪ L³(log L)²/q fraction of primes, so on average a prime has reach at ≪ L^{3+o(1)} moduli, and
+MR is false above (log p)^3. This is a statement about these two subfamilies at height ≤ p and level structure; it
+says nothing about the selected population of exceptional primes, about other ES families, or about the best large
+sieve. In particular it is **not** a barrier for Linnik-type arguments: with Heath-Brown's sieve (Prop 5.1′) the reach
+needed is only at scale (log p)^{1+δ}, and with Prop 5.2 at scale C log p, far below (log p)³. (The round-1/round-2
+draft's "X^{1/2} cap for Linnik fed by congruence-certified forcing" is **withdrawn** — R2 rated it FATAL as an
+unrestricted claim: it froze the classical large-sieve constant and transferred a positive-density hypothesis to the
+exceptional set.)
 
 ### 6.3 Numerics (EVIDENCE; `scripts/z51_forcing_reach.c`, `…_reach_batch.sh`, `…_reach_summary.py`)
 
