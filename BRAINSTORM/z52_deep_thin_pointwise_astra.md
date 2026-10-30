@@ -1,10 +1,17 @@
 # z52 deep lane D (Astra): pointwise existence in thin regimes
 
-**Status: WORK IN PROGRESS. ES is OPEN.**
+**Status: COMPLETE — reviewed negative audit; waiting, not merged. ES is OPEN.**
 
 ## Summary
 
-Pending source verification and hostile review. All proposed ES transfers are conjectural unless explicitly proved.
+- **Assessment:** 13-class taxonomy and 23 catalogue entries distinguish thin final counts from short certificates and large auxiliary reservoirs.
+- **PROVED / literature:** two squares, Dirichlet–Minkowski, Pell, and parity/degree give genuine non-counting precedents, with essential scope differences from ES.
+- **Assessment:** no promising untried ES mechanism survived; all three attempted refinements return to existing screens.
+- **PROVED / elementary:** the quotient index is an ordinary Type-II count; the spare-factor condition is subsumed by the existing divisor pigeonhole lemma.
+- **CERTIFIED:** 1,125-prime diagnostic; ordinary odd-index forcing fails globally at37; spare-factor forcing fails at2521,9601,66529 but the old criterion succeeds there.
+- **PROVED / elementary:** homogenized modular counts are numerator-blind; the proposed small-box lift is ES-equivalent, not a new lemma toward ES.
+- **EVIDENCE / literature status:** 2026 full Zaremba claims were accessed, not independently proof-certified; inaccessible leads remain explicitly marked.
+- **Assessment / review:** Opus hostile review completed via the available base model in deep mode; novelty and bibliography defects repaired. No ES progress claimed.
 
 ## §0. Taxonomy and novelty audit
 
