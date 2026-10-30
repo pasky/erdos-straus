@@ -1,0 +1,95 @@
+{
+  "drop": {
+    "RAW-B-039": "duplicate of RAW-B-025 (Problem 320 smooth/rough split transplanted to the ES count R(p))",
+    "RAW-B-046": "duplicate of RAW-B-033 (Problem 305: check whether the prime-case argument distinguishes p mod 4)",
+    "RAW-B-049": "duplicate of RAW-B-036 (Tang's 311 bound applied to the ES residual after fixing x → divisor interval)",
+    "RAW-B-054": "duplicate of RAW-B-037 (Larsen's 318 square proof compared with ES certificate families failing on squares)",
+    "RAW-B-056": "duplicate of RAW-B-028 (Larsen 825 divisor-selection lemma tested on a divisor of 4Cp+1 in the class mod 4C)",
+    "RAW-B-061": "duplicate of RAW-B-018 (derive divisibility conditions from the 313 identity, compare with ES denominator identity)",
+    "RAW-B-069": "false premise: Problem 320 (counting distinct reciprocal subset sums S(N)) has no almost-all theorem or exceptional-set estimate; the rest duplicates RAW-B-055",
+    "RAW-C-003": "duplicate of RAW-C-001 (specialise Harpaz arXiv:1511.04876 hypotheses to the ES fixed-coordinate conic fibration)",
+    "RAW-C-015": "duplicate of RAW-C-013 (put an ES quadratic-form reduction into a lattice coset and run the arXiv:2104.08798 genus/spinor-genus analysis)",
+    "RAW-C-036": "duplicate of RAW-C-038 (Markoff-style Vieta root swap for ES; same false 'quadratic in one denominator' premise, corrected in RAW-C-038)",
+    "RAW-C-044": "duplicate of RAW-C-043 (arXiv:2404.08380 Fourier majorants used to bound ES parameters excluded by a quadratic character)",
+    "RAW-C-049": "duplicate of RAW-C-017 (compare arXiv:2104.08798 exceptional classes with ES square classes)",
+    "RAW-C-053": "duplicate of RAW-C-027 (arXiv:2001.06213 periodic continuants evaluated mod 840 for ES residue coverage)",
+    "RAW-C-055": "duplicate of RAW-C-024 (arXiv:1112.4535 polynomial two-square continuant algorithm applied to ES over F_q[T])",
+    "RAW-a-008": "generic duplicate of RAW-B-052/RAW-B-067 (greedy first term for 4/p, then check the two-term completion)",
+    "RAW-a-017": "generic duplicate of RAW-C-038 (Vieta/involution height descent on ES solutions)",
+    "RAW-a-047": "generic duplicate of RAW-C-029 (write the ES word as an SL2(Z) product and impose congruences on its entries)",
+    "RAW-a-048": "generic duplicate of RAW-C-050 (matrix generators for ES words, connectivity/semigroup modulo small moduli)",
+    "RAW-a-062": "duplicate of RAW-a-009 (audit the function-field ES proof for steps that fail over the integers)",
+    "RAW-a-069": "duplicate of RAW-a-040 (moments of R(p) by residue class vs a random/Poisson model)"
+  },
+  "fix": {
+    "RAW-B-010": {
+      "why": "The page records the upper bounds of Bleicher–Erdős, Yokota and Liu–Sawhney for general b. For prime b it records only the lower bound D(p) ≫ p log p, so it has no prime-specific construction. Check whether the upper-bound constructions behave differently at prime denominators.",
+      "first_step": "Read Yokota [Yo88] and Liu–Sawhney [LiSa24] from the page; check whether their constructions treat prime b specially, and test the construction at targets 4/p."
+    },
+    "RAW-B-012": {
+      "why": "Problem 307 asks for finite prime sets P,Q with (Σ1/p)(Σ1/q)=1. Cambie's examples exist only for the weakened, relatively-coprime version. The coprimality and product constraints may suggest parametrizations or obstructions for ES denominators."
+    },
+    "RAW-B-016": {
+      "why": "The page reports Tang's upper bound δ(N) ≤ exp(−cN/(log N·log log N)³), i.e. very close near-misses to 1 exist; the trivial lower bound is 1/lcm(1..N). This calibrates how close reciprocal subset sums can come to a target, which is relevant to near-miss ES searches."
+    },
+    "RAW-B-018": {
+      "why": "Problem 313 asks about 1/p_1+…+1/p_k = 1 − 1/m with distinct primes p_i (forcing m = p_1⋯p_k; primary pseudoperfect numbers). This is a close arithmetic cousin of fixed-term Egyptian fractions and may suggest product/divisor identities."
+    },
+    "RAW-B-019": {
+      "why": "Lim–Steinerberger show that consecutive harmonic sums Σ_{n≤k≤m}1/k can exceed 1 by as little as ≪ n^{-2}(log n)^{-5/4+δ} for infinitely many n. This calibrates how closely structured reciprocal sums can approach a target, which bears on ES's fixed three-term constraint."
+    },
+    "RAW-B-022": {
+      "connection": "Problem 317 ↔ ES F04, F12, F21, F27 (flip): small nonzero signed sums Σδ_k/k with δ_k∈{−1,0,1}, contrasted with ES's positive three-term sums.",
+      "why": "Problem 317 asks how small a nonzero signed reciprocal sum can be, and whether it always exceeds 1/lcm(1..n) for large n. Such bounds may help rule out near-miss ES rational identities or control denominator sizes."
+    },
+    "RAW-B-033": {
+      "why": "The page records upper bounds for D(b) for general b and the lower bound D(p) ≫ p log p at primes. Check whether any step of the constructions separates prime residue classes, since p≡1 mod 4 is the hard ES case.",
+      "first_step": "Check whether the Bleicher–Erdős lower-bound argument for primes or the Yokota/Liu–Sawhney upper bounds distinguish p mod 4; if so, try adapting the hardest residue case to 4/p."
+    },
+    "RAW-B-034": {
+      "why": "Croot's result shows that for large N every integer up to about H_N − (9/2+o(1))(log log N)²/log N is a sum of distinct 1/n with n ≤ N, and that this fails a little below H_N. Isolating this threshold mechanism may suggest how to handle finite exceptional sets in ES."
+    },
+    "RAW-B-036": {
+      "why": "Tang's result is an upper bound for δ(N): it shows that very close near-misses exist, and the only lower bound is the trivial 1/lcm(1..N). Comparing this with ES near-misses (partial sums close to 4/p) may convert near-miss structure into divisor constraints.",
+      "first_step": "After choosing x in ES, compare the size of the nonzero residual 4/p−1/x−1/y (trivially ≥ 1/(pxy)) with Tang's near-miss scale; derive the induced interval for the divisor parameter in the two-term completion."
+    },
+    "RAW-B-045": {
+      "why": "The page records Vose's improvement N(b) ≪ √(log b) for the number of terms (not denominator size). The contrast between term-count bounds and ES's fixed three terms can benchmark certificate-size questions.",
+      "first_step": "Read Vose [Vo85] and identify how denominators grow in his construction; compare with the polynomial-in-p size of any three-term ES certificate."
+    },
+    "RAW-B-059": {
+      "why": "The page notes that the prime version of 307 forces |P∪Q| ≥ 60 and that only the relatively-coprime weakened version has known examples (Cambie). These exact reciprocal relations may expose congruence-covering patterns for selecting ES denominators.",
+      "first_step": "Check Cambie's coprime examples on the page modulo 4 and 8; formulate a finite congruence-covering search for an ES denominator triple."
+    },
+    "RAW-C-001": {
+      "title": "Harpaz (adapting Swinnerton-Dyer) conic-fibration integral-point criterion"
+    },
+    "RAW-C-009": {
+      "why": "It is a verified explicit warning that rational density and local solubility do not settle an integral-point problem on a surface. The obstruction there is Brauer–Manin, which Bright–Loughran (arXiv:1908.02526) show is absent for ES, so look for non-BM ingredients.",
+      "refs": ["https://arxiv.org/abs/2504.10992", "https://arxiv.org/abs/1908.02526"]
+    },
+    "RAW-C-032": {
+      "first_step": "Extract its parity rules and check whether one rewrite preserves the 2-adic valuation pattern of the denominators in known ES triples (e.g. 4/7 = 1/2+1/21+1/42 has no denominator divisible by 4)."
+    },
+    "RAW-C-035": {
+      "connection": "The two-for-two rewriting operator of arXiv:2003.13229 acts on unit-fraction decompositions, matching ES F12/F14/F27; it can be used to probe the term-count transition (two terms fail, three conjecturally suffice).",
+      "why": "The paper itself proves no two-term obstruction theorem. Applying its rewrite to ES pairs may still show which arithmetic freedom the third ES denominator supplies."
+    },
+    "RAW-C-038": {
+      "why": "A descent involution is a concrete way to reduce an infinite search to canonical roots. The ES equation (4x−p)yz = px(y+z) is degree 1 in each denominator, so there is no literal Vieta root swap. The available involutions are y↔z and the fibrewise divisor swap d↔p²x²/d on (ay−b)(az−b)=b² with a=4x−p, b=px.",
+      "first_step": "Write the fixed-x fibre as (ay−b)(az−b)=b² with a=4x−p, b=px. Compose the divisor swap with the coordinate permutations and check integrality and positivity. Then check whether some height decreases outside a finite base set, as in the Markoff tree."
+    },
+    "RAW-C-047": {
+      "connection": "Soundararajan's theorem (arXiv:0707.0299) shows that y-smooth integers below x are equidistributed in reduced residue classes mod q for q < y^{4√e−ε}. This matches ES F10/F20/F21, while ES needs a pointwise tied divisor."
+    },
+    "RAW-a-006": {
+      "connection": "The divisor-sum formulation shares F10, F15, F21, F29: an ES witness exists iff a p-tied integer has a divisor in a prescribed residue class (this sub-problem is open, not solved)."
+    },
+    "RAW-a-011": {
+      "refs": ["https://arxiv.org/abs/1908.02526"]
+    },
+    "RAW-a-012": {
+      "refs": ["https://arxiv.org/abs/1908.02526"]
+    }
+  }
+}

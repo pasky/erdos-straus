@@ -1,0 +1,373 @@
+{
+ "drop": {
+  "RAW-E-052": "duplicate of RAW-E-025 (same matrix-semigroup source, same action: modular reachability automaton for ES generator words)",
+  "RAW-E-054": "duplicate of RAW-E-029 (same greedy-Egyptian problem, same action: find residue classes where (odd) greedy on 4/p ends in ≤3 terms)",
+  "RAW-F-048": "duplicate of OWN-032 (Helfgott template; same action: compute the explicit R(p) lower-bound constant needed for a cutoff inside the ES verification range)",
+  "RAW-F-055": "duplicate of RAW-F-037 (same divisor-moment template, same action: first/second moments of R(p) over p ≤ X vs divisor-function moments)"
+ },
+ "fix": {
+  "RAW-D-008": {
+   "connection": "The MathOverflow question asks whether the set of n failing ES (4/n) is known, under standard conjectures, to have a power-saving bound such as ≤ n^{0.99}. This matches F05/F21/F22/F36: almost-all versus pointwise existence, thin exceptional sets, and limits of equidistribution heuristics."
+  },
+  "RAW-D-009": {
+   "first_step": "For several small k, exhaustively find all n up to a modest cutoff with no three-term decomposition and plot the maximum against k; compare with the k^(8/7) growth suggested in the MO question and with Pomerance–Weingartner's proven lower bound n_k ≥ exp(k^{1/3+o(1)}) (arXiv:2511.16817).",
+   "refs": [
+    "https://mathoverflow.net/questions/80690/state-of-ignorance-concerning-erdos-straus",
+    "https://arxiv.org/abs/2511.16817"
+   ]
+  },
+  "RAW-D-010": {
+   "connection": "MO 212865 asks whether a/n (a > 4) is a sum of k < a unit fractions, e.g. 5/n with four terms; comments note this is open in general (citing Elsholtz, Trans. AMS 353 (2001)) while k ≥ a terms is easy by greedy. Matches F11/F12 and flips the term-count threshold relative to the numerator.",
+   "first_step": "Read MO 212865 and the Elsholtz (2001) paper it cites; compare the easy k ≥ a regime with the k < a regime for a/n and isolate the algebraic step that fails when one term is removed."
+  },
+  "RAW-D-015": {
+   "connection": "A005097's comments cite Kohen–Sadofschi: a prescribed-distance seating problem on 2n+1 seats is solvable for every distance list iff 2n+1 is prime, proved using the Combinatorial Nullstellensatz. It shares F01/F03/F29/F31: universal finite-field conditions, prime residue structure, and an algebraic certificate.",
+   "refs": [
+    "https://oeis.org/A005097",
+    "https://arxiv.org/abs/1006.2571"
+   ]
+  },
+  "RAW-D-025": {
+   "connection": "A055745 lists the squarefree integers not represented by xy+yz+zx (a finite-looking list; an OEIS comment says at most 17 terms); Le's note on positive solutions is cited in the companion entry A025052. It matches F05/F08w/F25/F40: isolate a sparse algebraic locus, study its exceptional tail, and distinguish an observed finite list from a theorem.",
+   "refs": [
+    "https://oeis.org/A055745",
+    "https://oeis.org/A025052",
+    "Maohua Le, A note on positive integer solutions of the equation xy+yz+zx=n, Publ. Math. Debrecen 52 (1998) 159–165"
+   ]
+  },
+  "RAW-E-007": {
+   "refs": [
+    "https://en.wikipedia.org/wiki/Lonely_runner_conjecture",
+    "https://arxiv.org/abs/2409.20160 (Perarnau–Serra, The Lonely Runner Conjecture turns 60)"
+   ]
+  },
+  "RAW-E-010": {
+   "connection": "EFL shares F01, F05w, F23: a universal finite-structure assertion proved (Kang–Kelly–Kühn–Methuku–Osthus, arXiv:2101.04698) for all sufficiently large n; small n are not covered by that proof. Its absorption proof is a candidate pattern for ES's infinite family of thin certificate lines (F34).",
+   "tags": [
+    "F01",
+    "F05w",
+    "F23",
+    "F34",
+    "src:EFL",
+    "solved-large-n",
+    "absorption"
+   ]
+  },
+  "RAW-E-011": {
+   "tags": [
+    "F01",
+    "F03",
+    "F05w",
+    "F08",
+    "src:EFL",
+    "solved-large-n",
+    "absorption"
+   ]
+  },
+  "RAW-E-012": {
+   "tags": [
+    "F01",
+    "F03",
+    "F34",
+    "F33",
+    "src:EFL",
+    "solved-large-n",
+    "feature-flip"
+   ]
+  },
+  "RAW-E-038": {
+   "tags": [
+    "F01",
+    "F03",
+    "F34",
+    "src:EFL",
+    "solved-large-n",
+    "covering"
+   ]
+  },
+  "RAW-E-046": {
+   "tags": [
+    "F01",
+    "F03",
+    "F23",
+    "src:EFL",
+    "solved-large-n",
+    "feature-flip"
+   ]
+  },
+  "RAW-E-013": {
+   "refs": [
+    "https://arxiv.org/abs/1205.4416 (Bourgain–Kontorovich, On the local-global conjecture for integral Apollonian gaskets: density one)",
+    "https://annals.math.princeton.edu/2024/200-2/p06"
+   ],
+   "first_step": "Read Bourgain–Kontorovich's density-one theorem (arXiv:1205.4416) and isolate its sieve/expansion step; then read the 2024 Annals counterexample paper and ask whether ES's p-tied divisor parametrization can supply an analogous orbit."
+  },
+  "RAW-E-040": {
+   "refs": [
+    "https://arxiv.org/abs/1205.4416",
+    "https://annals.math.princeton.edu/2024/200-2/p06"
+   ]
+  },
+  "RAW-E-024": {
+   "first_step": "The ref (Moreno-Frías–Rosales 2025) concerns numerical semigroups with a given Frobenius number and fixed gaps; check whether its parameter stratification (or that in Robles-Pérez–Rosales, dimension three) offers an exceptional-parameter template for ES square classes."
+  },
+  "RAW-E-034": {
+   "connection": "Ringel's conjecture (proved for large n by Montgomery–Pokrovskiy–Sudakov and Keevash–Staden) and the open graceful-tree problem share F01,F23,F34: universal finite-structure coverage, computation, and families whose union must cover all edges/labels. ES similarly unions thin prime-covering families.",
+   "tags": [
+    "F01",
+    "F23",
+    "F34",
+    "src:Ringel",
+    "solved-large-n",
+    "covering"
+   ]
+  },
+  "RAW-E-036": {
+   "refs": [
+    "https://en.wikipedia.org/wiki/Altitude_(triangle) (Inradius theorems: 1/r = 1/h_a+1/h_b+1/h_c)"
+   ]
+  },
+  "RAW-E-053": {
+   "refs": [
+    "https://en.wikipedia.org/wiki/Altitude_(triangle) (Inradius theorems: 1/r = 1/h_a+1/h_b+1/h_c)"
+   ]
+  },
+  "RAW-E-004": {
+   "refs": [
+    "https://mathoverflow.net/questions/394553/summary-of-almost-all-orbits-of-the-collatz-map-attain-almost-bounded-values",
+    "https://arxiv.org/abs/1909.03562"
+   ]
+  },
+  "RAW-F-001": {
+   "refs": [
+    "D. A. Burgess, The distribution of quadratic residues and non-residues, Mathematika 4 (1957) 106–112",
+    "unverified: D. A. Burgess, On character sums and primitive roots, Proc. London Math. Soc. (3) 12 (1962)"
+   ]
+  },
+  "RAW-F-047": {
+   "refs": [
+    "D. A. Burgess, The distribution of quadratic residues and non-residues, Mathematika 4 (1957) 106–112"
+   ]
+  },
+  "RAW-F-002": {
+   "refs": [
+    "N. C. Ankeny, The least quadratic non residue, Ann. of Math. 55 (1952) 65–72"
+   ]
+  },
+  "RAW-F-003": {
+   "title": "Bach–Sorenson explicit GRH least-prime bounds",
+   "refs": [
+    "E. Bach, J. Sorenson, Explicit bounds for primes in residue classes, Math. Comp. 65 (1996) 1717–1735 (https://www.jstor.org/stable/2153734)"
+   ],
+   "first_step": "Read Bach–Sorenson's explicit GRH bounds and identify the exact zero-sum inequality; test its analogue on the finite character expansion defining R(p)."
+  },
+  "RAW-F-004": {
+   "refs": [
+    "C. Hooley, On Artin's conjecture, J. reine angew. Math. 225 (1967) 209–220 (http://eudml.org/doc/150785)"
+   ]
+  },
+  "RAW-F-046": {
+   "refs": [
+    "C. Hooley, On Artin's conjecture, J. reine angew. Math. 225 (1967) 209–220 (http://eudml.org/doc/150785)"
+   ]
+  },
+  "RAW-F-007": {
+   "refs": [
+    "J. M. Borwein, K.-K. S. Choi, On the representations of xy+yz+zx, Experiment. Math. 9 (2000) 153–158",
+    "https://oeis.org/A025052"
+   ]
+  },
+  "RAW-F-008": {
+   "connection": "Weinberger's class-group results imply at most two idoneal numbers beyond Euler's list exist, and none under GRH: a universal representation theorem with a possible tiny ineffective exceptional set matches ES's ∀n-with-exceptions shape (F01,F21) and the possibility that ineffective class-number bounds leave unresolved cases (F36).",
+   "refs": [
+    "P. J. Weinberger, Exponents of the class groups of complex quadratic fields, Acta Arith. 22 (1973) 117–124",
+    "https://en.wikipedia.org/wiki/Idoneal_number"
+   ]
+  },
+  "RAW-F-010": {
+   "connection": "Representability by x²+y²+10z² is reduced to local eligibility plus an analytic pointwise argument; under GRH Ono–Soundararajan show the only odd non-represented integers are 18 explicit ones (largest 2719) (F06,F21,F25).",
+   "refs": [
+    "K. Ono, K. Soundararajan, Ramanujan's ternary quadratic form, Invent. Math. 130 (1997) 415–454"
+   ]
+  },
+  "RAW-F-012": {
+   "refs": [
+    "Yu. V. Linnik, The Dispersion Method in Binary Additive Problems (AMS Transl. Math. Monographs 4, 1963) — includes n = p + x² + y²"
+   ]
+  },
+  "RAW-F-052": {
+   "refs": [
+    "Yu. V. Linnik, The Dispersion Method in Binary Additive Problems (AMS Transl. Math. Monographs 4, 1963)"
+   ]
+  },
+  "RAW-F-013": {
+   "title": "Heath-Brown–Puchta: Goldbach–Linnik with powers of two",
+   "connection": "Every large even integer is a sum of two primes and a bounded number K of powers of 2 (Heath-Brown–Puchta: K = 13), matching F01w,F21,F33; the powers-of-two summands form a thin structured family (F30).",
+   "refs": [
+    "D. R. Heath-Brown, J.-C. Puchta, Integers represented as a sum of primes and powers of two, Asian J. Math. 6 (2002) 535–565"
+   ]
+  },
+  "RAW-F-014": {
+   "title": "Pintz–Ruzsa: two primes plus K = 8 powers of two",
+   "connection": "Pointwise additive representation of every large even integer by two primes plus a few elements of a highly sparse set (powers of 2; Pintz–Ruzsa K = 8) (F01w,F30,F33), with circle-method estimates bridging density to all sufficiently large inputs (F21).",
+   "refs": [
+    "J. Pintz, I. Z. Ruzsa, On Linnik's approximation to Goldbach's problem, I, Acta Arith. 109 (2003) 169–194 (http://eudml.org/doc/278396)"
+   ]
+  },
+  "RAW-F-015": {
+   "connection": "Every odd integer > 5 is a sum of three primes (Helfgott), an additive three-witness pointwise theorem (F01,F12,F21,F33); the proof combines circle method for n ≥ N₀ with explicit finite verification below (F23)."
+  },
+  "RAW-F-017": {
+   "refs": [
+    "P. Erdős, On integers of the form 2^k + p and some related problems, Summa Brasil. Math. 2 (1950) 113–123"
+   ]
+  },
+  "RAW-F-018": {
+   "refs": [
+    "R. Crocker, On the sum of a prime and of two powers of two, Pacific J. Math. 36 (1971) 103–107"
+   ],
+   "first_step": "Read Crocker's construction (check whether his non-represented integers form a sparse family like 2^{2^m}−1 rather than residue classes) and compare its mechanism with the ES residue cover modulo 840 and the failed (★) primes."
+  },
+  "RAW-F-023": {
+   "connection": "Tunnell gives a computable ternary quadratic-form criterion for a rational-point question (necessary; sufficient assuming BSD), matching ES's quadratic-form reformulations and theta-series coefficient lens (F19,F31).",
+   "refs": [
+    "J. B. Tunnell, A classical Diophantine problem and modular forms of weight 3/2, Invent. Math. 72 (1983) 323–334"
+   ]
+  },
+  "RAW-F-024": {
+   "refs": [
+    "Y. Tian, Congruent numbers and Heegner points, Camb. J. Math. 2 (2014) 117–161 (arXiv:1210.8231)"
+   ]
+  },
+  "RAW-F-025": {
+   "refs": [
+    "https://arxiv.org/abs/1603.08479 (A. Smith, The congruent numbers have positive natural density)"
+   ]
+  },
+  "RAW-F-026": {
+   "refs": [
+    "D. Zagier, A one-sentence proof that every prime p ≡ 1 (mod 4) is a sum of two squares, Amer. Math. Monthly 97 (1990) 144"
+   ]
+  },
+  "RAW-F-028": {
+   "refs": [
+    "L. E. Dickson, All integers except 23 and 239 are sums of eight cubes, Bull. Amer. Math. Soc. 45 (1939) 588–591"
+   ]
+  },
+  "RAW-F-030": {
+   "refs": [
+    "https://arxiv.org/abs/1901.10886 (Chen Wang, An analytic proof of the Borwein Conjecture)"
+   ]
+  },
+  "RAW-F-033": {
+   "refs": [
+    "R. L. Graham, A theorem on partitions, J. Austral. Math. Soc. 3 (1963) 435–441"
+   ]
+  },
+  "RAW-F-034": {
+   "refs": [
+    "H. W. Lenstra Jr., Divisors in residue classes, Math. Comp. 42 (1984) 331–340 (at most 11 divisors ≡ r mod s when s > N^{1/3})"
+   ]
+  },
+  "RAW-F-051": {
+   "refs": [
+    "H. W. Lenstra Jr., Divisors in residue classes, Math. Comp. 42 (1984) 331–340"
+   ]
+  },
+  "RAW-F-038": {
+   "refs": [
+    "unverified: T. Tatuzawa, On a theorem of Siegel, Japan. J. Math. 21 (1951)"
+   ]
+  },
+  "RAW-F-039": {
+   "refs": [
+    "https://arxiv.org/abs/1511.04876 (Y. Harpaz, Integral points on conic log K3 surfaces)"
+   ]
+  },
+  "RAW-F-040": {
+   "refs": [
+    "https://arxiv.org/abs/0911.3539 (Colliot-Thélène–Wittenberg, Groupe de Brauer et points entiers de deux familles de surfaces cubiques affines)"
+   ]
+  },
+  "RAW-F-041": {
+   "refs": [
+    "https://arxiv.org/abs/1706.06712 (Ghosh–Sarnak, Integral points on Markoff type cubic surfaces)"
+   ]
+  },
+  "RAW-F-042": {
+   "refs": [
+    "https://arxiv.org/abs/1807.10223 (Loughran–Mitankin, Integral Hasse principle and strong approximation for Markoff surfaces)"
+   ]
+  },
+  "RAW-F-043": {
+   "refs": [
+    "https://arxiv.org/abs/2307.02749 (Haag–Kertzer–Rickards–Stange, The local-global conjecture for Apollonian circle packings is false; Annals 200 (2024))"
+   ]
+  },
+  "RAW-F-050": {
+   "refs": [
+    "https://mathoverflow.net/questions/105786/erd%C5%91s-straus-with-4-terms (greedy gives ≤ k terms for k/n)"
+   ]
+  },
+  "OWN-001": {
+   "refs": [
+    "J. C. Rosales, P. A. García-Sánchez, J. I. García-García, J. M. Jiménez Madrid, Every positive integer is the Frobenius number of a numerical semigroup with three generators, Math. Scand. 94 (2004) 5–12 (https://journals.msp.org/mscand/article/view/792)",
+    "scripts/z52b_signature_frob_check.py"
+   ]
+  },
+  "OWN-004": {
+   "title": "Feature flip: fixed small t — t ≤ 3 is trivially universal on odd n, fixed t = 4 has a primality-type failure set",
+   "connection": "The word tuv − u − v with u = 1 gives (t−1)v − 1, so t = 2 or 3 (and t = 1, = Frobenius numbers g(u,v) = uv−u−v, e.g. g(2,n+2) = n) represents every odd n trivially. Fixed t = 4 gives n = 4uv − u − v ⟺ 4n+1 = (4u−1)(4v−1), which fails e.g. whenever 4n+1 is prime. ES needs the union over t ∈ 4ℤ (plus the glued third generator u+v in the semigroup picture).",
+   "why": "Shows precisely which features (t restricted to 4ℤ, union over levels) turn a trivial or primality-type single-level statement into a plausible universality statement.",
+   "first_step": "Tabulate which odd n (and primes) fail to be 4Cuv − u − v for each fixed C = 1,2,3,… separately (each level has its own divisor-type failure set) and for unions over C ≤ K."
+  },
+  "OWN-008": {
+   "connection": "Weinberger's work implies at most two idoneal numbers beyond Euler's list (none under GRH), ineffectively. Tatuzawa: L(1,χ_D) ≫_ε D^{−ε} for all D but at most one.",
+   "refs": [
+    "P. J. Weinberger, Exponents of the class groups of complex quadratic fields, Acta Arith. 22 (1973) 117–124",
+    "unverified: Tatuzawa 1951, On a theorem of Siegel (Japan. J. Math.)"
+   ]
+  },
+  "OWN-013": {
+   "refs": [
+    "https://www.sciencedirect.com/science/article/abs/pii/S0022314X26000776",
+    "https://arxiv.org/abs/2510.21702 (H. Shi; octahedral, cubic, square, triangular packings)"
+   ]
+  },
+  "OWN-023": {
+   "connection": "Heath-Brown (Quart. J. Math. 37 (1986)): among any three multiplicatively independent candidates, at least one is a primitive root for infinitely many p (so at most two are exceptional). Squares can never be primitive roots (F08-like obstruction). Shares F08w, F22 (Chen/Fouvry–Iwaniec sieve)."
+  },
+  "OWN-038": {
+   "connection": "A ∀p-in-a-class existence theorem proved by explicit construction: primes p ≡ 5, 7 mod 8 are congruent numbers, and 2p is congruent for p ≡ 3, 7 mod 8 (Heegner points / Monsky's mock Heegner points). Shares F01p, F29 (residue class of p matters)."
+  },
+  "OWN-042": {
+   "connection": "m/n = (m−4)·(1/n) + 4/n, so ES gives m − 1 terms (with repeats). Flip: m/n in m − 2 terms is Sierpiński's 5/n problem for m = 5 (3 terms); for general m it trivially fails at small n (e.g. n = 1), and whether it holds for all large n is to be checked (for fixed 3 terms, Schinzel exceptions grow like exp(m^{1/3+o(1)}), Pomerance–Weingartner). F11, F12."
+  },
+  "OWN-048": {
+   "connection": "8/n has genuine exceptions (11, 17, 131, 241 among primes > 3; recomputed by brute force for p < 400) while satisfying the same local/BM features (needs check). Any ES argument must visibly use a property false for 8."
+  },
+  "OWN-049": {
+   "refs": [
+    "https://arxiv.org/abs/2511.16817 (Pomerance–Weingartner, Exceptions to the Erdős–Straus–Schinzel conjecture)"
+   ]
+  },
+  "OWN-056": {
+   "connection": "ES fixes the linear part to 4/n; rationality of the Soddy curvature additionally needs (x+y+z)/(xyz) to be a rational square. Links ES to Apollonian-type curvature questions (F08 via HKRS)."
+  },
+  "OWN-078": {
+   "connection": "Solved universal unit-fraction statement under a parity restriction; ES fixed-length with no parity constraint. Note: for odd n, 4/n with all three denominators odd is impossible (4xyz is even but n(xy+yz+zx) is odd), so ES at odd n always uses an even denominator."
+  },
+  "OWN-082": {
+   "title": "Elsholtz–Planitzer lower bounds for f(n) — the 'typical count' sibling",
+   "connection": "Lower bounds for the number of solutions for almost all n / for primes in residue classes (F04, F05) via multiplicative structure; check whether the bound f(n) ≥ (log n)^{log 6 + o(1)} for almost all n is the one stated there (the abstract states a lower bound exp((5 log 2/(12 lcm(m,f)) + o(1)) log p/log log p) for infinitely many primes p in each class).",
+   "first_step": "Check how the almost-all lower-bound exponent arises and whether a 'prime-shifted' version (using factors of 4Cp+1 instead of n) gives a lower bound for most C.",
+   "refs": [
+    "https://arxiv.org/abs/1805.02945 (Elsholtz–Planitzer, The number of solutions of the Erdős–Straus equation and sums of k unit fractions)"
+   ]
+  },
+  "OWN-102": {
+   "title": "Hardy–Littlewood Conjecture H (large non-square n = p + k²) / Bateman–Horn: singular series with Legendre-symbol factors",
+   "connection": "Representation counts whose singular series involve (n/ℓ) — e.g. HL Conjecture H, where squares n are excluded (n − k² factors). ES's main term M_BM has the same Legendre-symbol structure and also degenerates at squares (F20, F08)."
+  }
+ }
+}

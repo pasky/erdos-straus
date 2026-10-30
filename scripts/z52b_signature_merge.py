@@ -9,9 +9,10 @@ SRC_TAG = {'OWN': 'gen:integrator', 'RAW-F': 'gen:sub-classical', 'RAW-C': 'gen:
            'RAW-D': 'gen:sub-oeis-mo-guy', 'RAW-E': 'gen:sub-other-fields', 'generic0': 'gen:sub-generic', 'OWN2': 'gen:integrator'}
 DROP = {}   # raw id -> reason
 FIX = {}    # raw id -> dict of field overrides
-dp = os.path.join(RAW, 'drops.json')
-if os.path.exists(dp):
-    j = json.load(open(dp)); DROP = j.get('drop', {}); FIX = j.get('fix', {})
+import glob
+for dp in sorted(glob.glob(os.path.join(RAW, 'drops*.json'))):
+    j = json.load(open(dp)); DROP.update(j.get('drop', {}))
+    for k, v in j.get('fix', {}).items(): FIX.setdefault(k, {}).update(v)
 FIELDS = ['title', 'connection', 'why', 'first_step', 'refs', 'tags', 'confidence_not_nonsense', 'effort']
 
 def norm(s): return re.sub(r'[^a-z0-9]+', ' ', s.lower()).strip()

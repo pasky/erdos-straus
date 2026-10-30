@@ -1,0 +1,9 @@
+{"drop": {},
+ "fix": {
+  "OWN-008": {"title": "Weinberger 'at most two more idoneal numbers' / Siegel–Tatuzawa: an 'all but O(1) exceptions' target shape for ES",
+              "why": "A realistic intermediate goal for ES: 'ES holds for all primes except possibly those attached to a single exceptional real character'. ES's BM main term is a sum of Kronecker characters χ_{−4uB}(p) (F20), exactly where a Siegel-type dichotomy acts."},
+  "OWN-011": {"why": "Vieta-jumping proofs give a dynamical (descent) proof of non-existence; reversing the descent (ascent) is a way to generate witnesses — F38. Note the ES word itself is multilinear (degree 1 in each variable), so the Vieta involution lives on an auxiliary quadratic, as in the IMO solution.",
+              "first_step": "Identify the auxiliary quadratic in the IMO solution ((4a²−1)² = k(4ab−1), quadratic in a) whose Vieta involution proves the level-4 statement, and write its analogue for level 4C divisors d ≡ −1 (mod 4C) of 4Cm²+1."},
+  "OWN-085": {"connection": "Hurwitz equations Σx_i² = a·Πx_i have finitely many fundamental solutions per (n,a) generating trees under Vieta moves; ES's word set has a forest structure (F39). Counting fundamental solutions vs. n is a solved problem type. Caveat: tuv − u − v and the ES cubic are multilinear, so classical Vieta root swaps do not exist on them; the analogue must use other involutions/birational moves.",
+              "first_step": "Search for involutions or birational moves on (t,u,v) preserving tuv − u − v = p (e.g. moves through the divisor pairing d ↔ (4Cp+1)/d, swaps across levels) and compute orbit structure for p ≤ 10⁴."}
+ }}
