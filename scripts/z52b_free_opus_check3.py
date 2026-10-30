@@ -13,3 +13,12 @@ for u in range(2,12):
             # also: t*u*v-u-v has exactly t-1 reps
             if reps(t*u*v-u-v,u,v)!=t-1: bad+=1; print('exact',u,v,t)
 print('mismatches',bad)
+# symmetry check: N(n) + N(g_t - n) constant for 0<=n<=g_t ?
+vals=set()
+for u in range(2,9):
+    for v in range(2,9):
+        if gcd(u,v)!=1: continue
+        for t in range(1,5):
+            g=t*u*v-u-v
+            vals.add((t,frozenset(reps(n,u,v)+reps(g-n,u,v) for n in range(0,g+1))))
+print(sorted((t,sorted(s)) for t,s in vals))
