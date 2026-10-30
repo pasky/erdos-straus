@@ -1,8 +1,8 @@
 FC = "data/z52b/final_checks.json"
 ITEMS = [
-("Effective height: minz(p) ≤ p²/2 for every prime 100 < p ≤ 2·10⁵, extremal at the R-zero 577",
+("Effective height: minz(p) ≤ 0.503·p² for every prime 100 < p ≤ 2·10⁵, extremal at the R-zero 577",
  "max minz(p)/p² = 0.5026 at p = 577 (an R-zero); for p > 1000 the largest log minz/log p is 1.84 (at 6271).",
- "An explicit effective-height ES (z ≤ p²/2) holds in range; the extremal prime is again a campaign hard prime, so the height of the cheapest certificate is a hardness detector.",
+ "An explicit effective-height ES (z ≤ 0.503 p²; minz(577) = 167 330 = 0.50260·577²) holds in range; the extremal prime is again a campaign hard prime, so the height of the cheapest certificate is a hardness detector.",
  "Track max minz(p)/p² in windows at 10⁶, 10⁷ (count program already outputs minz).",
  [FC], ["height", "effective", "R-zero", "577"], "high", "cheap"),
 ("Lag-840 correlation at primes: residual log U(p) vs U(p+840) = 0.64 (3 425 pairs); lag 5880: 0.58",
@@ -11,7 +11,7 @@ ITEMS = [
  "Decompose the remaining 40% by p mod 11, 13 and by the χ_p Euler product over q ≥ 11.",
  [FC], ["periodicity", "840", "variance-decomposition"], "high", "cheap"),
 ("Hardest composites are prime squares: lowest U(n)/log³n among composites ≤ 30 000 are 97², 113², 163², 109², 37², 67², 2·71², 173², 103², 61², 73², 89²",
- "Eleven of the twelve lowest composites are squares of primes ≡ 1 (4) (and one is 2·71²).",
+ "Eleven of the twelve are prime squares (eight of them squares of primes ≡ 1 (4); 163, 67, 103 are ≡ 3 (4)) and one is 2·71².",
  "Count-level shadow of T1: certificate lines vanish at odd squares and the total count at p² is the lowest among composites — squares are the hard composites, as the reciprocity obstruction predicts.",
  "Compare U(p²) with U(p)² and with the number of solutions inherited from 4/p by scaling.",
  [FC, "T1_TEMPLATE.md"], ["T1", "squares", "composites", "hard-composites"], "high", "cheap"),
@@ -30,7 +30,7 @@ ITEMS = [
  "Most of this is the common size trend; the residual correlation (after log n terms on both sides) would show whether difficulty propagates along the greedy map p ↦ (p+3)/4.",
  "Recompute on residuals; if positive, ES-hardness is 'inherited' along the greedy forest (FOREST_*.md).",
  [FC, "FOREST_CONNECTIVITY.md"], ["propagation", "p-tied-integers", "size-confound"], "med", "cheap"),
-("Hard-prime fingerprints are consistent across seven independent detectors",
+("Hard-prime fingerprints recur across seven distinct (not statistically independent) detectors",
  "193, 241, 577, 1201, 2521, 3361, 21169 recur among: U/log³ minima, m/p failures (12, 16, 20, 24), greedy-depth records (A400619), min-k records (A392469), height extremes, variant exceptions (lcm-closed, squarefree, no-3, 4|·), R-zeros/Type-A.",
  "A small 'hall of fame' of test primes captures most distinct hardness mechanisms; any new idea can be screened in seconds on it.",
  "Publish the hall of fame with per-detector membership as a table in the campaign (data/z52b/hard_profile.json + variants).",

@@ -403,8 +403,8 @@
   "oeis_counts_primes": []
  },
  "x prime": {
-  "n_fail_primes": 4598,
-  "last_fail_prime": 100003,
+  "n_fail_primes": 4597,
+  "last_fail_prime": 99991,
   "fail_primes_head": [
    2,
    31,
@@ -438,6 +438,7 @@
    379
   ],
   "fail_primes_tail": [
+   99761,
    99787,
    99793,
    99817,
@@ -446,8 +447,7 @@
    99833,
    99877,
    99929,
-   99991,
-   100003
+   99991
   ],
   "n_fail_all3000": 283,
   "fail_all_head": [
@@ -699,8 +699,8 @@
   "oeis_counts_primes": []
  },
  "only x div by n": {
-  "n_fail_primes": 9593,
-  "last_fail_prime": 100003,
+  "n_fail_primes": 9592,
+  "last_fail_prime": 99991,
   "fail_primes_head": [
    2,
    3,
@@ -734,6 +734,7 @@
    113
   ],
   "fail_primes_tail": [
+   99877,
    99881,
    99901,
    99907,
@@ -742,8 +743,7 @@
    99961,
    99971,
    99989,
-   99991,
-   100003
+   99991
   ],
   "n_fail_all3000": 2999,
   "fail_all_head": [

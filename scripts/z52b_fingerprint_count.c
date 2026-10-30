@@ -8,6 +8,10 @@
 typedef unsigned long long u64; typedef __int128 i128;
 static int *spf; static int SPFN;
 static u64 gcd(u64 a,u64 b){while(b){u64 t=a%b;a=b;b=t;}return a;}
+typedef unsigned __int128 u128;
+static u64 mod128(u128 z,u64 m){ return (u64)(z%m); }
+static u64 gcdz(u128 z,u64 m){ return gcd(m, mod128(z,m)); }
+
 static int np; static u64 pr[64]; static int ex[64];
 static void addf(u64 v){ // factor v (<=SPFN) and add exponents
   while(v>1){int p=spf[v];int e=0;while(v%p==0){v/=p;e++;}
@@ -15,20 +19,17 @@ static void addf(u64 v){ // factor v (<=SPFN) and add exponents
 static void subf(u64 v){ while(v>1){int p=spf[v];int e=0;while(v%p==0){v/=p;e++;}
     for(int i=0;i<np;i++)if(pr[i]==(u64)p){ex[i]-=e;break;}}}
 static u64 A,B,X,N; static long long U,D,O,K[4],nx_cur; static u64 minz,mzx,mzy,maxx,minx; static u64 minlcm; static int gotx;
-static void sol(u64 x,u64 y,u64 z){
+static void sol(u64 x,u64 y,u128 z){
   U++; if(x<y&&y<z)D++; if(x<y&&y<z)O+=6; else if(x==y&&y==z)O+=1; else O+=3;
-  int k=(x%N==0)+(y%N==0)+(z%N==0); K[k]++;
-  if(z<minz||(z==minz&&x<mzx)){minz=z;mzx=x;mzy=y;}
+  int k=(x%N==0)+(y%N==0)+(mod128(z,N)==0); K[k]++;
+  if(z<=(u128)(~0ULL)){ u64 zl=(u64)z;
+    if(zl<minz||(zl==minz&&x<mzx)){minz=zl;mzx=x;mzy=y;}
+    u64 g=gcd(x,y); u128 l=(u128)(x/g)*y; u64 gg=gcd(zl,(u64)(l%zl)); u128 L2=l/gg*zl;
+    if(L2<(u128)(~0ULL) && (u64)L2<minlcm) minlcm=(u64)L2; }
   if(x>maxx)maxx=x; if(x<minx)minx=x; gotx=1;
-  u64 g=gcd(x,y); i128 l=(i128)x/g*y; u64 g2=gcd((u64)(l%z==0?z:gcd((u64)(l%((i128)z)) ,z)),z);
-  // compute lcm(l,z) safely
-  { i128 L=l; u64 zz=z; u64 gg; { // gcd(L,z)
-      u64 r=(u64)(L%zz); gg=gcd(zz,r); }
-    i128 L2=L/gg*zz; if(L2<(i128)(~0ULL)){ if((u64)L2<minlcm)minlcm=(u64)L2; } }
-  (void)g2;
 }
 static void rec(int i,u64 d){ // enumerate divisors d of B^2 with d<=B
-  if(i==np){ if((d+B)%A==0){u64 y=(d+B)/A; if(y>=X){ i128 e=(i128)B*B/d; u64 z=(u64)((e+B)/A); sol(X,y,z);} } return; }
+  if(i==np){ if((d+B)%A==0){u64 y=(d+B)/A; if(y>=X){ i128 e=(i128)B*B/d; u128 zz=(u128)((e+B)/A); sol(X,y,zz);} } return; }
   u64 p=pr[i]; u64 dd=d; for(int e=0;e<=2*ex[i];e++){ if(dd>B)break; rec(i+1,dd); if(dd>B/p+1 && e<2*ex[i]){ if((i128)dd*p>B)break;} dd*=p; }
 }
 int main(int argc,char**argv){

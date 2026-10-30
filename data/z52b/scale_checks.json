@@ -2,18 +2,18 @@
  "pr_1e6_window.txt": {
   "n": 156,
   "spearman_U_logL": -0.6231797359425432,
-  "spearman_k1_logL": -0.6296037554379166,
+  "spearman_k1_logL": -0.656771139438374,
   "spearman_k2_logL": -0.37962879698685953,
   "median_ratio": 1.3303411303246984,
-  "median_k1_over_k2": 2.3004854368932035
+  "median_k1_over_k2": 2.457107843137255
  },
  "pr_1e7_window.txt": {
   "n": 113,
   "spearman_U_logL": -0.6942545227938224,
-  "spearman_k1_logL": -0.7172344386021233,
-  "spearman_k2_logL": -0.35734401038652297,
+  "spearman_k1_logL": -0.7498393609607132,
+  "spearman_k2_logL": -0.36451327632418445,
   "median_ratio": 1.535829395280656,
-  "median_k1_over_k2": 1.875
+  "median_k1_over_k2": 2.560344827586207
  },
  "U residual by h(-4p) mod 16 (p\u22611 mod 8)": {
   "0": 0.0103,

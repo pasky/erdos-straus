@@ -1,7 +1,7 @@
 {
  "0 even": {
-  "n_fail_primes": 9593,
-  "last_fail_prime": 100003,
+  "n_fail_primes": 9592,
+  "last_fail_prime": 99991,
   "fail_primes_head": [
    2,
    3,
@@ -35,6 +35,7 @@
    113
   ],
   "fail_primes_tail": [
+   99877,
    99881,
    99901,
    99907,
@@ -43,8 +44,7 @@
    99961,
    99971,
    99989,
-   99991,
-   100003
+   99991
   ],
   "n_fail_all3000": 2624,
   "fail_all_head": [
@@ -117,8 +117,8 @@
   ]
  },
  "1 even": {
-  "n_fail_primes": 9593,
-  "last_fail_prime": 100003,
+  "n_fail_primes": 9592,
+  "last_fail_prime": 99991,
   "fail_primes_head": [
    2,
    3,
@@ -152,6 +152,7 @@
    113
   ],
   "fail_primes_tail": [
+   99877,
    99881,
    99901,
    99907,
@@ -160,8 +161,7 @@
    99961,
    99971,
    99989,
-   99991,
-   100003
+   99991
   ],
   "n_fail_all3000": 2624,
   "fail_all_head": [
@@ -628,8 +628,8 @@
   "oeis_counts_primes": []
  },
  "some power of 2": {
-  "n_fail_primes": 9484,
-  "last_fail_prime": 100003,
+  "n_fail_primes": 9483,
+  "last_fail_prime": 99991,
   "fail_primes_head": [
    17,
    41,
@@ -663,6 +663,7 @@
    277
   ],
   "fail_primes_tail": [
+   99877,
    99881,
    99901,
    99907,
@@ -671,8 +672,7 @@
    99961,
    99971,
    99989,
-   99991,
-   100003
+   99991
   ],
   "n_fail_all3000": 1918,
   "fail_all_head": [
@@ -712,8 +712,8 @@
   "oeis_counts_primes": []
  },
  "x or y prime": {
-  "n_fail_primes": 2940,
-  "last_fail_prime": 100003,
+  "n_fail_primes": 2939,
+  "last_fail_prime": 99991,
   "fail_primes_head": [
    31,
    37,
@@ -747,6 +747,7 @@
    727
   ],
   "fail_primes_tail": [
+   99607,
    99643,
    99709,
    99733,
@@ -755,8 +756,7 @@
    99823,
    99829,
    99877,
-   99991,
-   100003
+   99991
   ],
   "n_fail_all3000": 179,
   "fail_all_head": [

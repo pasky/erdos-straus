@@ -18,6 +18,11 @@ hdr = open('data/z52b/items_src/header.md').read()
 tagc = collections.Counter(t for it in items for t in it['tags'])
 hist = ', '.join(f'{t} {c}' for t, c in tagc.most_common(45))
 hdr = hdr.replace('{{COUNT}}', str(len(items))).replace('{{TAGS}}', hist)
+import re
+def _rid(m):
+    pre = m.group(1); hits = [i for i, it in enumerate(items, 1) if it['title'].startswith(pre)]
+    assert len(hits) == 1, ('ID ref', pre, hits); return '%04d' % hits[0]
+hdr = re.sub(r'\{\{ID:([^}]*)\}\}', _rid, hdr)
 lines = [hdr, '\n## Items\n']
 for i, it in enumerate(items, 1):
     lines.append(f"{i}. **{it['title']}** — {it['connection']} — *First step:* {it['first_step']} "

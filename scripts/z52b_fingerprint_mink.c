@@ -10,6 +10,10 @@
 typedef unsigned long long u64; typedef __int128 i128;
 static int *spf; static int SPFN;
 static u64 gcd(u64 a,u64 b){while(b){u64 t=a%b;a=b;b=t;}return a;}
+typedef unsigned __int128 u128;
+static u64 mod128(u128 z,u64 m){ return (u64)(z%m); }
+static u64 gcdz(u128 z,u64 m){ return gcd(m, mod128(z,m)); }
+
 static int np; static u64 pr[64]; static int ex[64];
 static void addf(u64 v){ // factor v (<=SPFN) and add exponents
   while(v>1){int p=spf[v];int e=0;while(v%p==0){v/=p;e++;}
@@ -22,15 +26,15 @@ static int issqf(u64 v){ for(u64 p=2;p*p<=v;p++){ if(v%(p*p)==0) return 0; if(v%
 static int ispow2(u64 v){ return v && !(v&(v-1)); }
 static int isprm(u64 v){ if(v<2) return 0; for(u64 p=2;p*p<=v;p++) if(v%p==0) return 0; return 1; }
 static int issq(u64 v){ u64 r=(u64)sqrtl((long double)v); while(r*r>v) r--; while((r+1)*(r+1)<=v) r++; return r*r==v; }
-static void sol(u64 x,u64 y,u64 z){
+static void sol(u64 x,u64 y,u128 z){
   U++;
-  if(y%N==0){ u64 k=y/N; if(!V[0]||(long long)k<V[0]) V[0]=k; }   // min k with y = k*n (A392469 convention?)
-  if(z%N==0 && y%N!=0){ u64 k=z/N; if(!V[1]||(long long)k<V[1]) V[1]=k; } // min z/n among k1-type
-  { long long t=4*(long long)x-(long long)N; if(!V[2]||t<V[2]) V[2]=t; } // min 4x-n (A400619)
-  { u64 k=z/N; if(z%N==0){ if(!V[3]||(long long)k<V[3]) V[3]=k; } }   // min z/n overall
+  if(y%N==0){ u64 k=y/N; if(!V[0]||(long long)k<V[0]) V[0]=k; }
+  if(mod128(z,N)==0 && y%N!=0 && z/N<(u128)(1ULL<<62)){ u64 k=(u64)(z/N); if(!V[1]||(long long)k<V[1]) V[1]=k; }
+  { long long t=4*(long long)x-(long long)N; if(!V[2]||t<V[2]) V[2]=t; }
+  if(mod128(z,N)==0 && z/N<(u128)(1ULL<<62)){ u64 k=(u64)(z/N); if(!V[3]||(long long)k<V[3]) V[3]=k; }
 }
 static void rec(int i,u64 d){ // enumerate divisors d of B^2 with d<=B
-  if(i==np){ if((d+B)%A==0){u64 y=(d+B)/A; if(y>=X){ i128 e=(i128)B*B/d; u64 z=(u64)((e+B)/A); sol(X,y,z);} } return; }
+  if(i==np){ if((d+B)%A==0){u64 y=(d+B)/A; if(y>=X){ i128 e=(i128)B*B/d; u128 zz=(u128)((e+B)/A); sol(X,y,zz);} } return; }
   u64 p=pr[i]; u64 dd=d; for(int e=0;e<=2*ex[i];e++){ if(dd>B)break; rec(i+1,dd); if(dd>B/p+1 && e<2*ex[i]){ if((i128)dd*p>B)break;} dd*=p; }
 }
 int main(int argc,char**argv){

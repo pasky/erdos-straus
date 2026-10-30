@@ -10,6 +10,10 @@
 typedef unsigned long long u64; typedef __int128 i128;
 static int *spf; static int SPFN;
 static u64 gcd(u64 a,u64 b){while(b){u64 t=a%b;a=b;b=t;}return a;}
+typedef unsigned __int128 u128;
+static u64 mod128(u128 z,u64 m){ return (u64)(z%m); }
+static u64 gcdz(u128 z,u64 m){ return gcd(m, mod128(z,m)); }
+
 static int np; static u64 pr[64]; static int ex[64];
 static void addf(u64 v){ // factor v (<=SPFN) and add exponents
   while(v>1){int p=spf[v];int e=0;while(v%p==0){v/=p;e++;}
@@ -21,28 +25,28 @@ static long long V[16];
 static int issqf(u64 v){ for(u64 p=2;p*p<=v;p++){ if(v%(p*p)==0) return 0; if(v%p==0) v/=p; } return 1; }
 static int ispow2(u64 v){ return v && !(v&(v-1)); }
 static int isprm(u64 v){ if(v<2) return 0; for(u64 p=2;p*p<=v;p++) if(v%p==0) return 0; return 1; }
-static int issq(u64 v){ u64 r=(u64)sqrtl((long double)v); while(r*r>v) r--; while((r+1)*(r+1)<=v) r++; return r*r==v; }
-static void sol(u64 x,u64 y,u64 z){
+static int issq128(u128 v){ long double r=sqrtl((long double)v); u128 t=(u128)r; while(t*t>v) t--; while((t+1)*(t+1)<=v) t++; return t*t==v; }
+static void sol(u64 x,u64 y,u128 z){
   U++;
-  if(y%x==0 && z%y==0) V[0]++;               // chain x|y|z
-  if(x%5&&y%5&&z%5) V[1]++;                  // no denominator div by 5
-  if(x%7&&y%7&&z%7) V[2]++;                  // no denominator div by 7
-  if(z%x==0) V[3]++;                         // x|z
-  if(z%y==0) V[4]++;                         // y|z
-  if(z%N==0 && x%N && y%N) V[5]++;           // only z divisible by n
-  if((double)z <= pow((double)N,1.75)) V[6]++;
-  if(issqf(x)) V[7]++;                       // x squarefree
-  if(gcd(x,y)==1) V[8]++;                    // x,y coprime
-  if(isprm(x)) V[9]++;                       // x prime
-  if(x%9&&y%9&&z%9) V[10]++;                 // none div by 9
-  if(x%8&&y%8&&z%8) V[11]++;                 // none div by 8
-  if(x%4&&y%4&&z%4) V[12]++;                 // none div by 4
-  if(issq(x)||issq(y)||issq(z)) V[13]++;     // some perfect square
-  if(x%N==0 && y%N && z%N) V[14]++;          // only x divisible by n
-  if(y%N==0 && z%N==0) V[15]++;              // y,z divisible by n (ET Type II shape)
+  if(y%x==0 && mod128(z,y)==0) V[0]++;
+  if(x%5&&y%5&&mod128(z,5)) V[1]++;
+  if(x%7&&y%7&&mod128(z,7)) V[2]++;
+  if(mod128(z,x)==0) V[3]++;
+  if(mod128(z,y)==0) V[4]++;
+  if(mod128(z,N)==0 && x%N && y%N) V[5]++;
+  if((long double)z <= powl((long double)N,1.75L)) V[6]++;
+  if(issqf(x)) V[7]++;
+  if(gcd(x,y)==1) V[8]++;
+  if(isprm(x)) V[9]++;
+  if(x%9&&y%9&&mod128(z,9)) V[10]++;
+  if(x%8&&y%8&&mod128(z,8)) V[11]++;
+  if(x%4&&y%4&&mod128(z,4)) V[12]++;
+  if(issq128(x)||issq128(y)||issq128(z)) V[13]++;
+  if(x%N==0 && y%N && mod128(z,N)) V[14]++;
+  if(y%N==0 && mod128(z,N)==0) V[15]++;
 }
 static void rec(int i,u64 d){ // enumerate divisors d of B^2 with d<=B
-  if(i==np){ if((d+B)%A==0){u64 y=(d+B)/A; if(y>=X){ i128 e=(i128)B*B/d; u64 z=(u64)((e+B)/A); sol(X,y,z);} } return; }
+  if(i==np){ if((d+B)%A==0){u64 y=(d+B)/A; if(y>=X){ i128 e=(i128)B*B/d; u128 zz=(u128)((e+B)/A); sol(X,y,zz);} } return; }
   u64 p=pr[i]; u64 dd=d; for(int e=0;e<=2*ex[i];e++){ if(dd>B)break; rec(i+1,dd); if(dd>B/p+1 && e<2*ex[i]){ if((i128)dd*p>B)break;} dd*=p; }
 }
 int main(int argc,char**argv){
