@@ -1,0 +1,4 @@
+Xin Zhang, “Expansion in SL_2(Z/qZ) and Zaremba’s Conjecture,” arXiv:2605.02518v2, dated 2026-08-24.
+URL: https://arxiv.org/html/2605.02518v2
+Accessed 2026-10-30.
+Theorem 1.2: “Zaremba’s conjecture holds.” Conjecture 1.1 defines this as existence of an absolute M such that every natural q is the denominator of a reduced fraction a/q with all partial quotients <= M. Source explicitly notes M is large absolute, not the conjectured 5. This is pointwise for every q; no expected count at each q stated in the theorem.

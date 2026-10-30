@@ -1,0 +1,111 @@
+Alon, Combinatorial Nullstellensatz, Combin. Probab. Comput. 8 (1999) 7-29; author PDF https://www.tau.ac.il/~nogaa/PDFS/null2.pdf
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 45,70
+the Hermann Minkowski Minerva Center for Geometry at Tel Aviv University.
+
+
+                                                            1
+As a consequence of the above one can prove the following,
+
+Theorem 1.2 Let F be an arbitrary field, and let f = f (x1 , . . . , xn ) be a polynomial in F [x1 , . . . , xn ].
+                                         Pn
+Suppose the degree deg(f ) of f is      i=1 ti , where each ti is a nonnegative integer, and suppose the
+                 Qn    ti
+coefficient of    i=1 xi in f is nonzero. Then, if S1 , . . . , Sn are subsets of F with |Si | > ti , there are
+s1 ∈ S1 , s2 ∈ S2 , . . . , sn ∈ Sn so that
+                                                    f (s1 , . . . , sn ) 6= 0.
+
+In this paper we prove these two theorems, which may be called Combinatorial Nullstellensatz, and
+describe several combinatorial applications of them. After presenting the (simple) proofs of the above
+theorems in Section 2, we show, in Section 3 that the classical theorem of Chevalley and Warning on
+roots of systems of polynomials as well as the basic theorem of Cauchy and Davenport on the addition
+of residue classes follow as simple consequences. We proceed to describe additional applications in
+Additive Number Theory and in Graph Theory and Combinatorics in Sections 4,5,6,7 and 8. Many
+of these applications are known results, proved here in a unified way, and some are new. There
+are several known results that assert that a combinatorial structure satisfies certain combinatorial
+property if and only if an appropriate polynomial associated with it lies in a properly defined ideal.
+In Section 9 we apply our technique and obtain several new results of this form. The final Section
+10 contains some concluding remarks and open problems.
+
+---- lines 150,200
+                                                                  3
+3     Two classical applications
+The following theorem, conjectured by Artin in 1934, was proved by Chevalley in 1935 and extended
+by Warning in 1935. Here we present a very short proof using our Theorem 1.2 above. For simplicity,
+we restrict ourselves to the case of finite prime fields, though the proof easily extends to arbitrary
+finite fields.
+
+Theorem 3.1 (cf., e.g., [52]) Let p be a prime, and let
+
+                    P1 = P1 (x1 , . . . , xn ), P2 = P2 (x1 , . . . , xn ), . . . , Pm = Pm (x1 , . . . , xn )
+                                                                          Pm
+be m polynomials in the ring Zp [x1 , . . . , xn ]. If n >                   i=1 deg(Pi ) and the polynomials Pi have a
+common zero (c1 , . . . , cn ), then they have another common zero.
+
+Proof. Suppose this is false, and define
+                                               m
+                                               Y                                         n
+                                                                                         Y       Y
+                  f = f (x1 , . . . , xn ) =       (1 − Pi (x1 , . . . , xn )p−1 ) − δ                     (xj − c),
+                                               i=1                                       j=1 c∈Zp ,c6=cj
+
+where δ is chosen so that
+                                                       f (c1 , . . . , cn ) = 0.                                                   (3)
+
+Note that this determines the value of δ, and this value is nonzero. Note also that
+
+                                                       f (s1 , . . . , sn ) = 0                                                    (4)
+
+for all si ∈ Zp . Indeed, this is certainly true, by (3), if (s1 , . . . , sn ) = (c1 , . . . , cn ). For other values of
+(s1 , . . . , sn ), there is, by assumption, a polynomial Pj that does not vanish on (s1 , . . . , sn ), implying
+that 1 − Pj (s1 , . . . , sn )p−1 = 0. Similarly, since si 6= ci for some i, the product                        c∈Zp ,c6=ci (si − c) is
+                                                                                                              Q
+
+zero and hence so is the value of f (s1 , . . . , sn ).
+                                                                                   Qn       ti
+    Define ti = p − 1 for all i and note that the coefficient of                       i=1 xi in f is −δ 6= 0, since the total
+degree of
+                                                 m
+                                                 Y
+                                                     (1 − Pi (x1 , . . . , xn )p−1 )
+                                                 i=1
+             Pm
+is (p − 1)    i=1 deg(Pi ) < (p − 1)n. Therefore, by Theorem 1.2 with Si = Zp for all i we conclude that
+there are s1 , . . . , sn ∈ Zp for which f (s1 , . . . , sn ) 6= 0, contradicting (4) and completing the proof. 2
+    The Cauchy-Davenport Theorem, which has numerous applications in Additive Number Theory,
+is the following.
+
+Theorem 3.2 ([20]) If p is a prime, and A, B are two nonempty subsets of Zp , then
+
+                                          |A + B| ≥ min{p, |A| + |B| − 1}.
+
+---- lines 472,500
+6      Graphs, subgraphs and cubes
+A well known conjecture of Berge and Sauer, proved by Taśkinov [53], asserts that any simple 4-
+regular graph contains a 3-regular subgraph. This assertion is easily seen to be false for graphs with
+multiple edges, but as shown in [6] one extra edge suffices to ensure a 3-regular subgraph in this
+more general case as well. This follows from the case p = 3 in the following result, which, as shown
+below, can be derived quickly from Theorem 1.2.
+
+Theorem 6.1 ([6]) For any prime p, any loopless graph G = (V, E) with average degree bigger than
+2p − 2 and maximum degree at most 2p − 1 contains a p-regular subgraph.
+
+Proof. Let (av,e )v∈V,e∈E denote the incidence matrix of G defined by av,e = 1 if v ∈ e and av,e = 0
+otherwise. Associate each edge e of G with a variable xe and consider the polynomial
+                                     Y              X                        Y
+                               F =         [1 − (         av,e xe )p−1 ] −         (1 − xe ),
+                                     v∈V            e∈E                      e∈E
+
+over GF (p). Notice that the degree of F is |E|, since the degree of the first product is at most
+(p − 1)|V | < |E|, by the assumption on the average degree of G. Moreover, the coefficient of
+                  is (−1)|E|+1 6= 0. Therefore, by Theorem 1.2, there are values xe ∈ {0, 1} such that
+Q
+    e∈E xe in F
+F (xe : e ∈ E) 6= 0. By the definition of F , the above vector (xe : e ∈ E) is not the zero vector, since
+                                                                  P
+for this vector F = 0. In addition, for this vector,                  e∈E av,e xe is zero modulo p for every v, since
+otherwise F would vanish at this point. Therefore, in the subgraph consisting of all edges e ∈ E for
+which xe = 1 all degrees are divisible by p, and since the maximum degree is smaller than 2p all
+positive degrees are precisely p, as needed. 2
+     The assertion of Theorem 6.1 is proved in [6] for prime powers p as well, but it is not known if it
+holds for every integer p. Combining this result with some additional combinatorial arguments, one

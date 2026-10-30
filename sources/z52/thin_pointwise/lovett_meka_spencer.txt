@@ -1,0 +1,36 @@
+Lovett, Meka, Constructive discrepancy minimization by walking on the edges, arXiv:1203.5747v2
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 8,40
+
+
+                                                                                             Abstract
+                                                      Minimizing the discrepancy of a set system is a fundamental problem in combinatorics. One
+                                                  of the cornerstones in this area is the celebrated six standard deviations result of Spencer (AMS
+                                                  1985): In any system √   of n sets in a universe of size n, there always exists a coloring which
+                                                  achieves discrepancy 6 n. The original proof of Spencer was existential in nature, and did not
+                                                  give an efficient algorithm to find such a coloring. Recently, a breakthrough work of Bansal
+                                                  (FOCS 2010) gave an efficient algorithm which finds such a coloring. His algorithm was based
+                                                  on an SDP relaxation of the discrepancy problem and a clever rounding procedure. In this work
+                                                  we give a new randomized algorithm to find a coloring as in Spencer’s result based on a restricted
+                                                  random walk we call Edge-Walk. Our algorithm and its analysis use only basic linear algebra
+                                                  and is “truly” constructive in that it does not appeal to the existential arguments, giving a new
+                                                  proof of Spencer’s theorem and the partial coloring lemma.
+
+
+                                        1        Introduction
+                                        Minimizing the discrepancy of a set system is a fundamental problem in combinatorics with many
+                                        applications in computer science (see [Mat99, Cha02]). Here, we are given a collection of sets S
+                                        from a universe V = {1, . . . , n} and the goalPis to find a coloring χ : V → {1, −1} that minimizes
+                                        the maximum discrepancy χ(S) = maxS∈S | i∈S χ(i)|. We denote the minimum discrepancy of S
+                                        by disc(S).
+                                            There is by now a rich body of literature on discrepancy minimization with special focus on the
+                                        ‘discrete’ formulation described above. One of the cornerstones in this area is the celebrated six
+                                        standard deviations result of Spencer [Spe85].
+
+                                        Theorem 1. For any set system
+                                                                  p      (V, S) with |V | = n, |S| = m, there exists a coloring χ : V →
+                                        {1, −1} such that χ(S) < K n · log2 (m/n), where K is a universal constant (K can be 6 if m = n).
+
+                                            One remarkable aspect of the above theorem is that √ for m = O(n), the discrepancy is just
+                                           √
+                                        O( n), whereas a random coloring has discrepancy O( n log n). Spencer’s original proof relied

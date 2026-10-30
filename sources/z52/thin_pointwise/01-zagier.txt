@@ -1,0 +1,33 @@
+Zagier, A one-sentence proof that every prime p = 1 (mod 4) is a sum of two squares, Amer. Math. Monthly 97 (1990) 144, DOI 10.2307/2323918; PDF https://people.mpim-bonn.mpg.de/zagier/files/doi/10.2307/2323918/fulltext.pdf
+Accessed 2026-10-30 by opus lane D (pdftotext; OCR artefacts kept; 'rkJ3' = N^3). Replaces a subagent excerpt that wrongly wrote Z^3.
+                     Is a Sum of Two Squares
+
+                                    D. ZAGIER
+                     ofMathematics,
+            Departmenit          University
+                                          ofMaryland,CollegePark,MD 20742
+
+  The involutionon thefiniteset S = {(x,y,z) E rkJ3:
+                                                  X2 + 4yz = p } definedby
+
+                              ((x + 2z, z, y-x-z)        if x <y-z
+            (x,y,z)    |->4     (2y - x, y, x - y + z)   if y - z < x < 2y
+                              I(x - 2y, x -y + z, y)     if x > 2y
+
+has exactlyone fixedpoint,so ISI is odd and theinvolutiondefinedby (x,y,z) -
+(x,z,y) also has a fixedpoint.O
+   This proofis a simplificationof one due to Heath-Brown[1] (inspired,in turn,by
+a proofgivenby Liouville).The verifications  of theimplicitly
+                                                            made assertions-that
+S is finiteand that the map is well-definedand involutory(i.e., equal to its own
+inverse)and has exactlyone fixedpoint-are immediateand have been leftto the
+reader.Only thelast requiresthatp be a primeof theform4k + 1, thefixedpoint
+thenbeing (1,1,k).
+   Note thattheproofis notconstructive:   it does not givea methodto actuallyfind
+the representation of p as a sum of two squares.A similarphenomenonoccurswith
+resultsin topologyand analysisthatare provedusingfixed-pointheorems.Indeed,
+the basic principlewe used: "The cardinalitiesof a finiteset and of its fixed-point
+set under any involutionhave the same parity,"is a combinatorialanalogue and
+special case of the corresponding topologicalresult:"The Euler characteristicsof a
+topological space and of its fixed-pointset under any continuousinvolutionhave
+the same parity."

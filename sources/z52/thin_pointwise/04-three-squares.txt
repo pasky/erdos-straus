@@ -1,0 +1,5 @@
+S. K. K. Choi, A. V. Kumchev, R. Osburn, “On Sums of Three Squares” (PDF hosted by Towson University), https://tigerweb.towson.edu/akumchev/a18.pdf. Accessed 2026-10-30.
+
+Excerpt, §1: “It is a classical result of Gauss that n=x₁²+x₂²+x₃² has a solution in integers if and only if n is not of the form 4ᵃ(8k+7) ... Let r₃(n) be the number of representations ... (counting signs and order).” The paper refers to Bateman, “On the representations of a number as the sum of three squares,” Trans. AMS 71 (1951), 70–101, for the exact formula r₃(n)=4π√n S₃(n), not a class-number formula.
+
+This verifies the Legendre–Gauss criterion and representation-count convention, but is not primary for Gauss’s class-number formula. NOT ACCESSED: authoritative primary statement of r₃ in terms of class numbers (e.g. Ankeny 1957); the queried Ankeny PDF result was not text-readable. No class-number formula asserted.

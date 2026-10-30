@@ -1,0 +1,4 @@
+William Y. Chen, “Nonabelian level structures, Nielsen equivalence, and Markoff triples,” Annals of Mathematics 199 (2024), 301–443.
+URL: https://annals.math.princeton.edu/2024/199-1/p05
+Accessed 2026-10-30.
+Abstract: “for all but finitely many primes p, the group of Markoff automorphisms acts transitively on the non-zero p-points of the Markoff equation.” This is an all-but-finitely-many-primes result (not every prime); no per-prime expected count given in the abstract. This is not phrased as connectivity of every Markoff graph without qualification; it describes transitivity on nonzero points.

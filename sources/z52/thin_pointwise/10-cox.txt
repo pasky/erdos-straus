@@ -1,0 +1,3 @@
+D. A. Cox, Primes of the Form x²+ny²: Fermat, Class Field Theory, and Complex Multiplication, Wiley, 1989; 2nd ed. 2013. Author/lecturer accessible PDF copy located: https://www.math.utoronto.ca/~ila/Cox-Primes_of_the_form_x2+ny2.pdf (363 pages); related PDF https://www.maths.dur.ac.uk/users/herbert.gangl/cx.pdf. Accessed 2026-10-30.
+
+Visit tool identified these as PDFs but extracted no text. NOT ACCESSED: Theorem 9.4 statement, exact hypotheses, and whether it says p=x²+ny² iff p splits completely in the ring class field. Need distinguish congruence/ramification hypotheses and principal-form representation from just splitting in a ring class field. No theorem attributed/quoted as verified.

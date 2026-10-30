@@ -1,0 +1,32 @@
+Self-conjugate 6-cores and quadratic forms, arXiv:2211.00738v2 (restating use of Duke-Schulze-Pillot 1990, ineffective)
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 8,22
+
+                                                 Abstract. In this work, we analyze the behavior of the self-conjugate 6-core partition
+                                                 numbers sc6 (n) by utilizing the theory of quadratic and modular forms. In particular, we
+                                                 explore when sc6 (n) > 0. Positivity of sct (n) has been studied in the past, with some
+                                                 affirmative results when t > 7. The case t = 6 was analyzed by Hanusa and Nath, who
+                                                 conjectured that sc6 (n) > 0 except when n ∈ {2, 12, 13, 73}. This inspires a theorem of
+                                                 Alpoge, which uses deep results from Duke and Schulze-Pillot to show that sc6 (n) > 0 for
+                                                 n ≫ 1 using representation numbers of a particular ternary quadratic form Q.
+                                                     Approximating such representation numbers involves class numbers of imaginary qua-
+                                                 dratic fields, which are directly related to values of Dirichlet L-functions. At present, we
+                                                 can only ineffectively bound these from below. This is currently the main hurdle in obtain-
+                                                 ing more explicit approximations for representation numbers of ternary quadratic forms,
+                                                 and in particular in showing explicit positivity results for sc6 (n). However, by assuming the
+                                                 Generalized Riemann Hypothesis we are able to settle Hanusa and Nath’s conjecture.
+
+---- lines 86,98
+   This theorem is crucial because it reduces Hanusa-Nath’s positivity conjecture to the
+question of which nonnegative integers of the form 24n + 35 are represented by the quadratic
+form
+                             Q := 3x2 + 32y 2 + 32yz + 32z 2 .
+Alpoge then applies deep results of Duke and Schulze-Pillot [DSP90] to this quadratic form
+to prove that sc6 (n) > 0 for sufficiently large n, but this result is ineffective. There is
+                     SELF-CONJUGATE 6-CORES AND QUADRATIC FORMS                              3
+
+at present no unconditional way to resolve Conjecture 1; counting the representations of a
+sufficiently large integer n by Q is approximated by an expression involving a class number
+of an imaginary quadratic field and so is intimately related to the value of a Dirichlet L-
+function, which can be ineffectively bounded from below by Siegel’s theorem.
+

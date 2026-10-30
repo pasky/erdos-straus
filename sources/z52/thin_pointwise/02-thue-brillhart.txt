@@ -1,0 +1,4 @@
+J. Brillhart, “Note on representing a prime as a sum of two squares,” Mathematics of Computation 26 (1972), no. 120, 1011–1013. DOI: 10.1090/S0025-5718-1972-0314683-5. Bibliographic record/source snippet: https://www.ams.org/journals/mcom/1972-26-120/S0025-5718-1972-0314683-5/
+Accessed: 2026-10-30.
+
+Search-result excerpt: a related bibliography cites Brillhart, “Note on representing a prime as a sum of two squares,” Math. Comp. 26(120) (1972), 1011–1013. I did not access the article text or verify the theorem as called “Thue’s lemma.” NOT ACCESSED: direct article page/PDF text unavailable in visit output. The named lemma requires a distinct authoritative accessible formulation before attributing a statement to Thue (1902); no claim of verified exact lemma included.

@@ -1,0 +1,47 @@
+Moree, Artin's primitive root conjecture - a survey, arXiv:math/0412262v2 (8 Aug 2012)
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 640,656
+Waall [478]. Wiertelak [501] has established a version of this result (with a larger
+error term, however), where he made the g dependence of the error explicit.
+6.1. Unconditional results. If one asks for unconditional results, the state of
+aﬀairs is quite appalling. There is no known number g for which P(g) is known
+to be inﬁnite! In 1986, however, Heath-Brown [222] proved (improving on earlier
+fundamental work by Gupta, Ram Murty and Srinivasan [202, 379]) a result which
+implies that there are at most two primes q1 and q2 for which P(q1 ) and P(q2 ) are
+ﬁnite and at most three squarefree numbers s1 , s2 and s3 for which P(s1 ), P(s2 ) and
+P(s3 ) are ﬁnite.
+   Remember the observation that if q = 4p + 1 and p ≡ 2(mod 5), then q ∈ P(10).
+Sieve theory cannot prove presently that there are inﬁnitely many such primes.
+However, the so called lower bound sieve method combined with the Chen-Iwaniec
+switching method gave rise to ≫ x log−2 x primes p ≦ x such that either p − 1 = 2e q
+for some prime q or p − 1 = 2e q1 q2 with pα < q1 < pδ for some α > 41 and δ < 21 .
+This together with a rather elementary argument, is then enough to establish Heath-
+Brown’s result.
+   Reznikov and Moree [428] established a variant of Heath-Brown’s result and used
+---- lines 2535,2560
+27) Least primitive root modulo p. Let g(p) denote the least primitive root modulo
+p, and h(p) be the least positive primitive root modulo p2 . Using Gauss sums Vino-
+gradov [481] (see also Landau [280]) showed in 1930 that g(p) < 2ω(p−1) p1/2 log p.
+                                          √
+This was improved to g(p) < 2ω(p−1)+1 p in 1942 by Hua [243]. Erdős [139] showed
+                 √                                                                    √
+that g(p) = O( p log17 p), and Erdős and Shapiro [147] that g(p) = O(ω(p−1)c p),
+for some absolute constant c. Burgess [55] using his celebrated character sum
+estimates proved that g(p) = O(p1/4+ǫ ) and h(p) = O(p1/2+ǫ ). The former es-
+timate was achieved independently by Wang [487]. S. Cohen et al. [101] sharp-
+ened the latter estimate to h(p) = O(p1/4+ǫ ). Elliott and Murata [137] consid-
+                                           2
+ered the least primitive root mod     P 2p . They       also considered moments of g(p),
+                                   −1             δ
+that is sums of the form π(x)           p≤x  g(p)   (in  [136]); in particular they showed
+that if δ < 1/2 assuming GRH the latter sum tends to a constant depending
+on δ. Elliott [130] has shown that for all but O(X ǫ ) primes p up to X, one has
+g(p) = O(logcǫ p), with cǫ a constant depending on ǫ. In the same paper he proved
+that g(p) < 475 log1.6 p for inﬁnitely many primes p. The latter result was super-
+seded in 1984 by Gupta and Murty [202] who obtained the bound g(p) < 2250
+for inﬁnitely many primes p. Subsequently this bound was reduced to g(p) ≤ 7
+for inﬁnitely many primes p by Heath-Brown [222]. Under GRH, Wang [487] has
+shown that g(p) ≪ (log2 p)ω(p − 1)6 . Utilizing a combinatorial sieve due to Iwaniec,
+Shoup [458] improved this to g(p) ≪ ω(p − 1)4 (log(ω(p − 1)) + 1)4 log2 p. To-
+wards a lower estimate for g(p), it is known that inﬁnitely often g(p) can exceed
+c(log p)(log log log p) for a certain c > 0 [188]. This improves dramatically on a re-

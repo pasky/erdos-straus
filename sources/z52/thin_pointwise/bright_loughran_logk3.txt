@@ -1,0 +1,19 @@
+Bright, Loughran, Brauer-Manin obstruction for Erdos-Straus surfaces, arXiv:1908.02526
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 95,110
+1.2. Geometric interpretation. We now explain in more detail how to inter-
+pret our results geometrically using the Brauer–Manin obstruction. Consider the
+corresponding algebraic surface derived from (1.1)
+                Un :    4u1u2 u3 = n(u1 u2 + u1 u3 + u2 u3 ) ⊂ A3Q .            (1.2)
+          BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                        3
+
+This is an aﬃne cubic surface, and geometrically a so-called log K3 surface. Many
+interesting classical Diophantine equations turn out to concern log K3 surfaces,
+and their integer points are an active area of research [5, 6, 11, 12, 13, 17]. Note
+that Un is singular, with the unique singular point lying at the origin.
+   We let Un denote the natural model for Un given by the same equation in
+AZ . Note that U1 ∼
+  3
+                    = Un over Q for all n ∈ N, by simply rescaling the ui . The
+Erdős–Straus conjecture therefore concerns existence of certain integer points
+on diﬀerent models over Z of the same surface over Q; in particular this nicely

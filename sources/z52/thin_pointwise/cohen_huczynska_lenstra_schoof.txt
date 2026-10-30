@@ -1,0 +1,41 @@
+Cohen, Huczynska, The strong primitive normal basis theorem, arXiv:math/0610400v2 (restating Lenstra-Schoof 1987)
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 8,45
+                                                                                                          Abstract
+
+                                                       An element α of the extension E of degree n over the finite field F = GF (q) is called free
+                                                                                   n−1
+                                                   over F if {α, αq , . . . , αq         } is a (normal) basis of E/F . The primitive normal basis theorem,
+                                                   first established in full by Lenstra and Schoof (1987), asserts that for any such extension E/F ,
+                                                   there exists an element α ∈ E such that α is simultaneously primitive (i.e., generates the
+                                                   multiplicative group of E) and free over F . In this paper we prove the following strengthening
+                                                   of this theorem: aside from five specific extensions E/F , there exists an element α ∈ E such
+                                                   that both α and α−1 are simultaneously primitive and free over F . 1
+
+
+
+                                                   1     Introduction
+                                                   Given q, a power of a prime p, denote by F the finite field GF (q) of order q, and by E its
+                                                   extension GF (q n ) of degree n. A primitive element of E is a generator of the cyclic group E ∗ .
+                                                   Additively, too, the extension E is cyclic when viewed as an F G-module, G being the Galois
+                                                   group of E over F . The classical form of this result - the normal basis theorem - is stated as
+                                                   follows:
+
+                                                   Theorem 1.1 (Normal Basis Theorem). There exists an element α ∈ E (an additive genera-
+                                                                                                  n−1
+                                                   tor) whose conjugates {α, αq , . . . , αq            } form a basis of E over F .
+
+                                                       Such an element α is a free (or normal) element of E over F , and a basis of this kind is a
+                                                   normal basis over F . The key existence result linking additive and multiplicative structure is
+                                                   the primitive normal basis theorem:
+
+                                                   Theorem 1.2 (Primitive Normal Basis Theorem). For every prime power q and n ∈ N, there
+                                                   exists α ∈ E, simultaneously primitive and free over F . Equivalently, there exists a primitive
+                                                   normal basis over F , all of whose members are primitive and free.
+
+                                                       Existence of such a basis for every extension was first proved by Lenstra and Schoof [7],
+                                                   completing work by Carlitz [1], [2], and Davenport [6]. A computer-free proof of this result
+                                                   was produced by Cohen and Huczynska [5]. The key to the transition to the more theoretical
+                                             1
+                                                 AMS classification: Primary 11T30; Secondary 11T06, 12E20
+

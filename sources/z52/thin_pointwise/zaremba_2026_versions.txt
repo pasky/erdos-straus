@@ -1,0 +1,14 @@
+arXiv API records (versions) accessed 2026-10-30:
+  <id>https://arxiv.org/api/MMIHh8WDJjI3YaR0Kz8YOUoSFgY</id>
+  <title>arXiv Query: search_query=&amp;id_list=2603.14116,2605.02518&amp;start=0&amp;max_results=10</title>
+  <updated>2026-10-30T13:42:51Z</updated>
+    <id>http://arxiv.org/abs/2605.02518v2</id>
+    <title>Expansion in $\text{SL}_2(\mathbb Z/q\mathbb Z)$ and Zaremba's conjecture</title>
+    <updated>2026-05-08T15:40:58Z</updated>
+    <published>2026-05-04T12:18:19Z</published>
+    <arxiv:comment>Typos in v1 corrected</arxiv:comment>
+    <id>http://arxiv.org/abs/2603.14116v2</id>
+    <title>On some results of Korobov and Larcher and Zaremba's conjecture</title>
+    <updated>2026-06-24T17:34:59Z</updated>
+    <published>2026-03-14T21:05:48Z</published>
+    <arxiv:comment>41 pages. 1. Some minor typos have been corrected, and clarifications have been made. 2. For the reader's convenience, the proof of technical Lemma 32 has been broken down into three auxiliary lemmas, simplified, and clarified. 3. In the appendix, we provide a crude upper bound for the absolute constant $\mathcal{M}$ in the case of a prime denominator</arxiv:comment>

@@ -1,0 +1,51 @@
+Margulis, Mohammadi, Quantitative version of the Oppenheim conjecture for inhomogeneous quadratic forms, arXiv:1001.2756v1 (restating EMM98 Thm 2.1)
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 1,48
+                                           QUANTITATIVE VERSION OF THE OPPENHEIM CONJECTURE
+                                                  FOR INHOMOGENEOUS QUADRATIC FORMS
+arXiv:1001.2756v1 [math.DS] 15 Jan 2010
+
+
+
+
+                                                                   G. A. MARGULIS & A. MOHAMMADI
+
+
+
+
+                                                  Abstract. A quantitative version of the Oppenheim conjecture for inhomo-
+                                                  geneous quadratic forms is proved. We also give an application to eigenvalue
+                                                  spacing on flat 2-tori with Aharonov-Bohm flux.
+
+
+                                                                             1. Introduction
+
+                                          Let Q be a nondegenerate indefinite quadratic form on Rn . Let ξ ∈ Rn be a vector
+                                          and define the (inhomogeneous) quadratic form Qξ by
+                                          (1)                       Qξ (x) = Q(x + ξ) for all x ∈ Rn
+                                          We will refer to Q = Q0 as the homogeneous part of Qξ . We say Qξ has signature
+                                          (p, q) if Q does. Recall that a quadratic form Qξ is called irrational if it is not
+                                          scalar multiple of a form with rational coefficients. In other words Qξ is irrational
+                                          if either Q is irrational as a homogeneous form or if Q is a rational form then ξ is
+                                          an irrational vector.
+                                          Let ν be a continuous function on the sphere {v ∈ Rn : kvk = 1}. Define Ω =
+                                          {v ∈ Rn : kvk < ν(v/kvk)} and let T Ω be the dilate of Ω by T. For an indefinite
+                                          quadratic form Q in n variables and a vector ξ ∈ Rn we let
+                                          (2)         NQ,ξ,Ω (a, b, T ) = # {x ∈ Zn : x ∈ T Ω and a < Qξ (x) < b}
+                                          If ξ = 0 we let NQ,0,Ω (a, b, T ) = NQ,Ω (a, b, T ). It is easy to see that there exists a
+                                          constant λQ,Ω such that
+                                          (3)      Vol({x ∈ Rn : x ∈ T Ω and a < Qξ (x) < b}) ∼ λQ,Ω (b − a)T n−2
+
+                                          A. Eskin, G. A. Margulis and S. Mozes in [EMM98] proved
+                                          Theorem 1.1. ([EMM98, Theorem 2.1]) Let Q be a quadratic form of signature
+                                          (p, q), with p ≥ 3 and q ≥ 1. Suppose Q is not proportional to a rational form.
+                                          Then for any interval (a, b)
+                                          (4)                 NQ,Ω (a, b, T ) ∼ λQ,Ω (b − a)T n−2 as T → ∞
+                                          where n = p + q and λQ,Ω is as in (3).
+
+                                          Theorem 1.1 fails if Q has signature (2, 2) or (2, 1). Indeed there are irrational
+                                          forms for which along a sequence Tj , NQ,Ω (a, b, Tj ) > Tjn−2 (log Tj )1−ǫ . However
+                                          these irrational forms are very well approximated by split rational forms. Let us
+                                          recall the following definition from [EMM05].
+
+                                            G.M. was partially supported by NSF grant DMS-0801195.

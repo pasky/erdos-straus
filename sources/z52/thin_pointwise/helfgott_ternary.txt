@@ -1,0 +1,6 @@
+Helfgott, The ternary Goldbach problem, arXiv:1501.05438 (API record), accessed 2026-10-30
+    <id>http://arxiv.org/abs/1501.05438v2</id>
+    <updated>2015-01-27T21:20:16Z</updated>
+    <summary>The ternary Goldbach conjecture (or three-prime conjecture) states that every odd number greater than 5 can be written as the sum of three primes. The purpose of this book is to give the first proof of the conjecture, in full.</summary>
+    <published>2015-01-22T09:43:40Z</published>
+    <arxiv:comment>317(+x) pages, 3 figures. This effectively supersedes the author's earlier preprints [arXiv:1205.5252, arXiv:1305.2897, arXiv:1312.7748] giving the first version of the proof. Some typos have been corrected</arxiv:comment>

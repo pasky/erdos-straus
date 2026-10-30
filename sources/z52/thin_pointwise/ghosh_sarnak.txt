@@ -1,0 +1,83 @@
+Ghosh, Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022); Invent. Math. 229 (2022)
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 198,209
+
+
+  Some simple consequences of Theorem 1.1 are (see the discussion in Sec. 2 and also
+Secs. 7 and 8) :
+(a). V46 (Z) = ;, that is h M (46) = 0, this being the first positive Hasse failure .
+(b). h M (−2) = 1 with all solutions equivalent to the point (3, 3, 4); while k = −4 is the
+first negative Hasse failure .
+                      1
+(c). h M ( k) ¿ε | k| 3 +ε as k → ±∞. This follows from the fact that when considering the
+values taken by the corresponding indefinite quadratic form in the y and z variable,
+for each fixed x, the units are bounded in number due to the restrictions imposed by
+the fundamental sets .
+---- lines 218,247
+(d). Let h±
+          M
+            ( k) = |F±
+                     k
+                       (Z)| where ± = sgn( k), this being defined for any k. Then Theorem
+1.1 implies that for generic k, h±M
+                                    ( k) = h M ( k) while otherwise h M ( k) ≤ h±
+                                                                                M
+                                                                                  ( k). We have
+                                      h M (k) ∼ C ± K (log K )2 ,
+                                  X ±
+(1.6)
+                                  k6=4
+                                | k|≤K
+
+where C ± > 0 and K → ∞ (see Lemmas 7.2 and 7.3).
+So, as expected in this case of critical dimension 3, the numbers h M ( k) are small on
+average. On the other hand the fact that this average grows, albeit very slowly, is
+a key feature as it suggests that h M ( k) might be non-zero for many k’s. In Section
+10, we report on some numerical experiments using Theorem 1.1 to find the Hasse
+failures among the generic k’s when 0 < k < 6 × 108 . These suggest that
+                                            1 ∼ C0 K θ ,
+                                      X
+(1.7)
+                                       0< k≤K
+                                    k admissible
+                                      h M ( k)=0
+with C 0 > 0 and θ ≈ 0.8875.. . We also provide results concerning other statistics for
+the h M ( k)’s for k in this range (see Sec. 10 for the numerics concerning the numbers
+h M (k) and some conjectures that these support).
+---- lines 250,253
+Theorem 1.2.
+(i). There are infinitely many Hasse failures. More precisely, the number of 0 < k ≤ K
+                                                              p            1
+and −K ≤ k < 0 for which the Hasse Principle fails is at least K (log K )− 2 for K large.
+---- lines 262,292
+
+
+       F IGURE 4. Closeup of fundamental set for k = −3691.
+                     INTEGRAL POINTS ON MARKOFF TYPE CUBIC SURFACES                      7
+
+
+(ii). M is almost perfect, that is
+                       ©                                     ª
+                      # | k| ≤ K : k admissible, h M ( k) = 0 = o(K ) ,
+as K → ∞ and for almost all admissible k, Vk (Z) is Zariski dense in Vk .
+
+Remark 1.3.
+(a). The proof of ( i ) is based on quadratic reciprocity and a global factorization that
+arises for special k’s connected to the singular Cayley cubic V4,M . If k = 4 + βν2 , with
+β carefully chosen and ν’s having its prime factors in certain arithmetic progressions,
+we show that Vk,M (Z) = ; even though k is generic. Explicit examples are given in
+Sec. 8. Some of these obstructions to integer solutions are similar to ones found by
+Mordell [Mor53] for similar cubic equations, and also to the “Integer Brauer-Manin
+obstructions” in [CTW12]. Following our posting of an earlier version of this paper,
+[LM20] and [CTWX20] computed explicitly the Brauer groups of these affine Markoff
+surfaces, as well as the corresponding integral Brauer-Manin obstructions. They
+find that the Hasse failures in (i) and (ii) of Prop. 8.1 are accounted for by their
+obstructions. However, the analysis leading to Hasse failures in part (iii) of the
+Proposition uses both reciprocity and Markoff descent, and they are not accounted for
+by the integral Brauer-Manin obstruction alone. In anypcase, all of these algebraic
+obstructions are far fewer (they are of order of magnitude K ) than the Hasse failures
+that we found numerically, indicating that any simple description of the latter is
+perhaps not possible.
+(b). In the recent paper [GMS22], the Hasse failure (i) is exploited to give failures of
+profinite local to global principles for commutator equations in SL 2 (O) for O a ring of
+S -integers.

@@ -1,0 +1,48 @@
+Bloom, On a density conjecture about unit fractions, arXiv:2112.03726v2
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 18,45
+                                                                                1. Introduction
+                                               A classical topic in the additive  theory of unit fractions is the study of those
+                                           finite sets S ⊂ N such that n∈S n1 = 1. Erdős and Graham [3] conjectured that
+                                                                         P
+                                           if the integers are coloured by a finite number of colours then there must be such a
+                                           set which is monochromatic (aside from the trivial S = {1}). This conjecture was
+                                           proved by Croot [2].
+                                           Theorem 1 (Croot [2]). If the integers {2, 3, . . P
+                                                                                             .} are coloured in finitely many
+                                           colours there is a monochromatic set S such that n∈S n1 = 1.
+                                              Colouring statements often have a natural strengthening to a corresponding den-
+                                                                                                     1
+                                           sity statement, which Erdős and Graham also conjectured    in this case: that any
+                                                                                                     1
+                                                                                               P
+                                           set of positive density contains some finite S with n∈S n = 1. Recall that, for
+                                           any A ⊂ N, the lower and upper densities of A are defined to be
+                                                                     |A ∩ [1, N ]|                     |A ∩ [1, N ]|
+                                                      d(A) = lim inf               and d(A) = lim sup
+                                                              N →∞        N                     N →∞        N
+                                           respectively. When these limits are equal, d(A) = d(A) = d, we say that A has
+                                           density d (and say that A has positive density if d > 0).
+                                              In this paper we answer this question of Erdős and Graham in the affirmative
+                                           in a strong sense, proving the following criterion which uses only positive upper
+                                           density.
+                                           Theorem 2. If A ⊂ N has positive upper density (and      P hence certainly if A has
+                                           positive density) then there is a finite S ⊂ A such that n∈S n1 = 1.
+                                                                                                     P1
+---- lines 100,115
+Comparison to Croot’s method.
+     The main result of Croot [2] is actually a density statement for sets of P
+                                                                              sufficiently
+smooth numbers. Roughly speaking, Croot proves that if A ⊂ [2, N ] has n∈A n1 >
+6 and all n ∈ A are ‘n1/4−o(1) -smooth’ (i.e. ifP a prime power q divides n ∈ A then
+q ≤ n1/4−o(1) ) then A contains some S with n∈S n1 = 1. This suffices to deduce
+the colouring statement of Theorem 1, but is too weak to deduce an unrestricted
+density statement, since the set of n ∈ N which are not n1/4−o(1) smooth has
+positive density.
+   In [1] Croot suggests that it is possible that his method could be strengthened
+to improve this smoothness threshold to n1−o(1) , which  P would suffice to show that
+all sets with positive density contain some S with n∈S n1 = 1, since almost all
+integers n ∈ N are n1−o(1) smooth. Such an improvement is essentially what we
+provide in this paper, and our methods are a stronger form of the ideas introduced
+by Croot. Many of our lemmas are similar to those of [2], but since we require
+stronger forms of them than Croot uses, and to keep this paper self-contained, we

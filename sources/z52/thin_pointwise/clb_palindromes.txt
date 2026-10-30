@@ -1,0 +1,17 @@
+Cilleruelo, Luca, Baxter, Every positive integer is a sum of three palindromes, arXiv:1602.06208v2 (17 Jun 2017); Math. Comp. 87 (2018)
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 53,61
+Theorem 1.2. Let g ≥ 5. Then any positive integer can be written as a sum of three
+base g palindromes.
+
+   The case g = 10 of Theorem 1.2 is a folklore conjecture which has been around for
+some time [8, 9]. The paper [8] attributes a stronger conjecture to John Hoffman, namely
+that every positive integer n can be written in base g = 10 as a sum of three palindromes
+where one of them is the maximal palindrome less than or equal to n itself. This was
+refuted in [12] which provided infinitely many examples of positive integers n which are
+not a sum of two decimal palindromes.
+---- lines 96,99
+  The proof of Theorem 1.2 is algorithmic. That is, one can program the following
+proof to input a positive integer n and obtain a representation of n as a sum of three
+palindromes in base g ≥ 5. We assume throughout the proof that g ≥ 5.
+  For ease of notation, and using a convention introduced by Banks [1], we consider

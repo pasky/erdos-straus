@@ -1,0 +1,61 @@
+W. Y. Chen, Nonabelian level structures, Nielsen equivalence, and Markoff triples, arXiv:2011.12940v2 (19 Jun 2021); Ann. of Math. 199 (2024)
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 306,330
+This surface first appeared in the work of Markoff [Mar79, Mar80] where by a descent argument he showed
+Theorem 1.2.1 (Markoff [Mar79, Mar80]). The positive integer solutions to X form a single orbit under the
+action of Γ.
+In [BGS16b, BGS16a], Bourgain, Gamburd, and Sarnak studied the action of Γ on X∗ (p) (for p prime) and
+conjectured that an analogue of Markoff’s result should also hold for its Fp -points:
+Conjecture 1.2.2 (Bourgain, Gamburd, Sarnak [BGS16b]). For all primes p, Γ acts transitively on X∗ (p).
+In other words, they conjecture that X(Fp ) is the union of at most two Γ-orbits: the singleton orbit {(0, 0, 0)},
+and X∗ (p) (this is empty if and only if p = 3). Since X(Z) contains the solutions {(0, 0, 0), (3, 3, 3)} and
+X(F3 ) = {(0, 0, 0)}, a positive solution to this conjecture would imply that for any prime p, the reduction mod p
+map X(Z) → X(Fp ) is surjective, in which case, following [BGS16b], we say that X satisfies strong approximation
+at all primes p.
+To the author’s knowledge this conjecture was first posed by Baragar in his 1991 PhD thesis [Bar91, §V.3]. Since
+the conjugation action of GL2 (Fp ) on SL2 (Fp ) generates the full automorphism group Aut(SL2 (Fp )), it follows
+that this is also a special case of McCullough and Wanderley’s Conjecture 1.1.4 with (q, t) = (p, −2). However,
+the first major progress on Conjecture 1.2.2 did not come until the work of Bourgain, Gamburd, and Sarnak in
+2016 [BGS16a], where they were able to prove
+Theorem 1.2.3 (Bourgain, Gamburd, Sarnak [BGS16a]). The following are true.
+ (a) Let Ebgs denote the set of primes for which Γ does not act transitively on X∗ (p). For any ǫ > 0, we have
+
+                                                  #{p ∈ Ebgs | p ≤ x} = O(xǫ )
+
+ (b) Let C(p) be the largest orbit of Γ on X∗ (p). Then for any ǫ > 0, we have
+
+                                               |X∗ (p) − C(p)| ≤ pǫ        for large p
+   3 Typically the Markoff surface is given by M : x2 + y 2 + z 2 − 3xyz = 0.
+---- lines 341,372
+Theorem 1.2.4 (Bourgain, Gamburd, Sarnak). For t ∈ Fp , let Epi(Π, SL2 (Fp ))t denote the subset of surjections
+which satisfy tr ϕ([a, b]) = t.
+ (a) Let Ebgs denote the set of primes for which Out(Π) does not act transitively on Epi(Π, SL2 (Fp ))−2 / GL2 (Fp ).
+     For any ǫ > 0, we have
+                                              #{p ∈ Ebgs | p ≤ x} = O(xǫ )
+
+ (b) Let C(p) be the largest orbit of Out(Π) on Epi(Π, SL2 (Fp ))−2 / GL2 (Fp ). Then for any ǫ > 0, we have
+
+                                 | Epi(Π, SL2 (Fp ))−2 / GL2 (Fp ) − C(p)| ≤ pǫ      for large p
+
+By Proposition 5.1.3, forany surjection
+                                        ϕ : Π → SL2 (Fp ) satisfying tr ϕ([a, b]) = −2, ϕ([a, b]) must be conjugate
+to a matrix of the form −1    u
+                           0 −1   for u ∈ F×p . In particular if p ≥ 3 then ϕ([a, b]) has order 2p. Then Theorem
+1.1.2(a) implies
+Theorem 1.2.5 (See Theorem 5.5.4). For every p ≥ 3, every Out+ (Π)-orbit on Epi(Π, SL2 (Fp ))−2 / GL2 (Fp )
+has cardinality divisible by p. In particular, every Γ-orbit on X∗ (p) has cardinality divisible by p.
+In particular, every Γ-orbit must have size at least p, so combined with Theorem 1.2.3(b), this establishes
+Conjecture 1.2.2 for all but a finite (and in fact explictly bounded) set of primes:
+Theorem 1.2.6 (Main application; see Theorems 5.5.5, 5.5.7). The following are true.
+ (a) The “exceptional” set Ebgs is finite and explicitly bounded.
+                      / Ebgs , X satisfies strong approximation at p.
+ (b) For all primes p ∈
+Here, by explicitly bounded, we mean that it is possible to write down an explicit upper bound on the largest
+prime in Ebgs . This follows from the fact that the methods of [BGS16a] are effective, and an explicit upper bound
+was obtained by Elena Fuchs4 . In particular, we have effectively reduced the conjecture to a finite computation.
+The conjecture has been verified for all primes p < 3000 by de-Courcy-Ireland and Lee in [dCIL20], so it is
+reasonable to expect that the final computation will indeed verify Conjecture 1.2.2. If so, then it would follow
+from Proposition 5.3.3 below that there are no congruence constraints on Markoff numbers mod p other than
+the ones first noted by Frobenius in 1913 [Fro68], namely that if p ≡ 3 mod 4 and p 6= 3 then a Markoff number
+cannot be ≡ 0, ±23   mod p. Using the work of Meiri-Puder [MP+ 18], one can also deduce strong approximation
+mod n for most squarefree integers n (Theorem 5.5.8).

@@ -1,0 +1,40 @@
+Ramare, Walker, Products of primes in arithmetic progressions: a footnote in parity breaking, arXiv:1610.05804; JTNB 30 (2018)
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 20,40
+                                              Xylouris’ version of Linnik’s Theorem [15] tells us that, for every modulus q
+                                           and every invertible residue class a modulo q, one can find a prime congruent to
+                                           a modulo q that is below q 5.18 provided q be large enough. The proof relies on
+                                           intricate techniques, and though the result is indeed effective, no one has been
+                                           able to give any explicit version of it. The aim of this paper is to show that one
+                                           can easily access a fully explicit result, with respectable constants, provided one
+                                           replaces primes by products of three primes. Here is what we prove, by combining
+                                           a simple sieve technique together with classical additive combinatorics.
+                                           Theorem 1.1. Let x and q ≤ x1/16 be two parameters. Then for any invertible
+                                           residue class a modulo q, there exists a product of three primes, all below x1/3 , that
+                                           is congruent to a modulo q.
+                                              We did not try to be optimal in our treatment but sought the simplest argument.
+                                           The main surprise is that we use sieve techniques in the form of Brun-Titchmarsh
+                                           inequality but we are not blocked by the parity principle. The reader may argue
+                                           that we use a lower bound for L(1, χ), but the bound we employ is the weakest
+                                           possible and does not rely on Siegel’s Theorem. In particular, it is not strong
+                                           enough to push a possible Siegel zero away from 1, a fact known to be equivalent
+                                           to the parity phenomenom (see [8] and [11], or [12, Chapter 6] for a more complete
+                                           discussion).
+                                              Our theorem is also linked with a conjecture of Erdös that says that every in-
+                                           vertible congruence class should contain a product of two primes not more than q.
+---- lines 236,250
+
+                             3. Proof of Theorem 1.1
+   Let us first treat the case x ≥ 1016 .
+   Let X = x1/3 . Since this parameter is at least 105 , Lemma 2.7 tells us that the
+number πq (X) of primes below X which are coprime to q is at least X/ log X. The
+Brun-Titchmarsh inequality in the form given by Montgomery & Vaughan, recalled
+in Lemma 2.6, tells us that the number of primes less than X in any progression a
+                                    32
+mod q, for a prime to q, is at most 13 X/(φ(q) log X). This implies, when compared
+                                                                              13
+to the total number of primes coprime to q given by Lemma 2.7, that at least 32  φ(q)
+such residue classes contain a prime. Let us call this set of classes A and apply
+Kneser’s Theorem (Lemma 2.8) to the group G of invertible residues modulo q. Let
+H be the stabilizer of A · A . We divide into cases according to the index of H.
+   If H is equal to G then, since A · A · H = A · A , we have A · A = G and of

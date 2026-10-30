@@ -1,0 +1,3 @@
+L. Hodges, “A Lesser-Known Goldbach Conjecture,” Mathematics Magazine 66 (1993), 45–47. JSTOR record: https://www.jstor.org/stable/2690477
+Accessed 2026-10-30.
+JSTOR page-reading returned a client-challenge page rather than article text. Although search-result metadata refers to 5777 and 5993, these are NOT ACCESSED from the paper itself; no theorem/claim excerpt saved.

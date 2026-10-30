@@ -1,0 +1,33 @@
+Bourgain, Gamburd, Sarnak, arXiv:1607.01530
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 1,12
+                                                MARKOFF SURFACES AND STRONG APPROXIMATION: 1
+
+                                                    JEAN BOURGAIN, ALEXANDER GAMBURD, AND PETER SARNAK
+arXiv:1607.01530v1 [math.NT] 6 Jul 2016
+
+
+
+
+                                                                               1. Introduction
+
+                                             This is the first of three papers giving detailed proofs of the results announced in
+                                          [BGS16]. The main result here is strong approximation for Markoff triples for prime
+---- lines 56,72
+
+Theorem 1. Fix ε > 0. Then for p large there is a Γ orbit C(p) in X ∗ (p) for which
+
+                                   |X ∗ (p)\C(p)| ≤ pε
+
+(note that |X ∗ (p)| ∼ p2 ), and any Γ orbit D(p) satisfies
+                                                     1
+                                   |D(p)| ≫ (log p) 3 .
+
+  The proof of Theorem (1) establishes the strong approximation conjecture unless
+    2
+p − 1 is a very smooth number. In particular, the set of primes for which the strong
+approximation conjecture fails is very small.
+
+Theorem 2. Let E be the set of primes for which the strong approximation conjecture
+fails. For ε > 0, the number of primes p ≤ T with p ∈ E is at most T ε , for T large.
+

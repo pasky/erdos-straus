@@ -1,0 +1,7 @@
+Hao Huang, “Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture,” arXiv:1907.00847v2 (revised 29 Aug 2019); published Ann. of Math. 190 (2019), 949–955, doi:10.4007/annals.2019.190.3.6.
+Source: https://arxiv.org/html/1907.00847v2
+Accessed: 2026-10-30
+
+Theorem 1.1: For every integer n≥1 and every (2^{n−1}+1)-vertex induced subgraph H of Q^n, Δ(H)≥√n; tight for n a perfect square.
+Lemma 2.2: The recursively constructed signed adjacency matrix A_n satisfies A_n²=nI and has eigenvalues ±√n, each with multiplicity 2^{n−1}.
+Proof mechanism (proof of Theorem 1.1): Restrict A_n to the vertices of H, use Δ(H)≥ largest eigenvalue of that signed principal submatrix, then Cauchy interlacing gives its largest eigenvalue at least λ_{2^{n−1}}(A_n)=√n. Lemma 2.1 states Cauchy interlacing; Lemma 2.2 proves A_n²=nI by induction.

@@ -1,0 +1,4 @@
+D. R. Heath-Brown and J.-C. Puchta, “Integers Represented as a Sum of Primes and Powers of Two,” Asian Journal of Mathematics 6 (2002), 535–565. DOI: NOT VERIFIED. Author manuscript URL: https://ora.ox.ac.uk/objects/uuid:e9e04d90-54b1-40c0-a954-da915b18bc55/files/m6b741d269b0385526c0115f500c8158f
+Accessed 2026-10-30.
+Theorem 1 (opened manuscript): “Every sufficiently large even integer is a sum of two primes and exactly 13 powers of 2.” Theorem 2 states the same with exactly 7 powers of 2 assuming the Generalized Riemann Hypothesis. (Manuscript conclusion confirms 13 unconditional and 7 on GRH.)
+Expected witness count stated: theorem guarantees at least one representation, not an asymptotic or expected count.

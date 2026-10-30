@@ -1,0 +1,55 @@
+Lamzouri, Li, Soundararajan, Conditional bounds for the least quadratic non-residue and related problems, arXiv:1309.3595v3 (Dec 2016), Math. Comp.
+Accessed 2026-10-30 (opus lane D, pdftotext of arXiv PDF).
+---- lines 36,46
+                                         ized Riemann Hypothesis and obtain explicit as well as asymptotic bounds on these
+                                         problems. Our work improves upon previous results in this area, notably the works
+                                         of Bach [2], and Bach and Sorenson [4].
+                                         1.1. The least prime outside a subgroup. Assuming GRH, Ankeny [1] es-
+                                         tablished that the least prime lying outside a proper subgroup H of (Z/qZ)∗ is
+                                         O((log q)2 ). Ankeny’s work was refined by Bach [2], who gave explicit as well as
+                                         asymptotic bounds for the least such prime. Thus Bach showed, on GRH, that the
+                                         least prime p that does not lie in H is less than 2(log q)2 , and if the additional
+                                         natural requirement that p ∤ q is imposed then p is less than 3(log q)2 . He further
+                                           Date: December 12, 2016.
+                                           2000 Mathematics Subject Classification. Primary 11N60; Secondary 11R42.
+---- lines 86,125
+
+Theorem 1.2. Assume GRH. Let q be a large integer and let H be a subgroup of
+G = (Z/qZ)∗ with index h = [G : H] > 1. Then the least prime p not in H satisfies
+
+                               p < (α(h) + o(1))(log q)2 ,
+
+where α(2) = 0.8, α(3) = 0.7 and in general α(h) = 0.66 for all h > 3.
+
+    In particular the least quadratic non-residue is bounded by (0.8 + o(1))(log q)2 .
+Theorem 1.2 gives good bounds when h is small, but when h is very large the
+following stronger result holds, which appears to be the limit of our method.
+
+Theorem 1.3. Assume GRH. Let q be a large integer and let H be a subgroup of
+G = (Z/qZ)∗ with index h = [G : H] ≥ 4. Then the least prime p not in H satisfies
+                       1                  1 2  log(2h) 2
+                  p<        + o(1)        1−                   (log q)2 .
+                        4                    h     log(2h) − 4
+                                                2
+1.2. The least prime in a given coset. Now we turn to the second of our ques-
+tions: the problem of determining the least prime lying in a given coset of H.
+Theorem 1.4. Assume GRH. Let q ≥ 20000 and let H be a subgroup of G =
+(Z/qZ)∗ with index h = [G : H] > 1. Let p be the smallest prime lying in a given
+coset aH. Then either p ≤ 109 , or
+                                                 5            2
+                    p ≤ (h − 1) log q + 3(h + 1) + (log log q)2 .
+                                                  2
+    From the proof one may obtain more precise estimates, but the form above seems
+easiest to state.
+    We next single out the case when H is the trivial subgroup comprising of just
+the identity. Here the problem amounts to getting bounds on the least prime P (a, q)
+in the arithmetic progression a (mod q) (where we assume that (a, q) = 1). A cele-
+brated (unconditional) theorem of Linnik gives that P (a, q) ≪ q L for some absolute
+constant L. The work of Heath-Brown [10] shows that L = 5.5 is an admissible value
+for Linnik’s constant, and this has been recently improved to L = 5.2 by Xylouris
+[17].
+   Under the assumption of the Generalized Riemann Hypothesis, Bach and Soren-
+son [4] showed that
+(1.1)                     P (a, q) ≤ (1 + o(1))(φ(q) log q)2 ,
+and they also derived the explicit bound
+(1.2)                           P (a, q) ≤ 2(q log q)2 .

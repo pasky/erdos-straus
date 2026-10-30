@@ -1,0 +1,34 @@
+Zaman, Bounding the least prime ideal in the Chebotarev density theorem, arXiv:1508.00287v3 (10 Feb 2017); accessed 2026-10-30
+
+
+                                                    Abstract. Let K be a number field and suppose L/K is a finite Galois extension. We
+                                                    establish a bound for the least prime ideal occurring in the Chebotarev Density Theorem.
+                                                    Namely, for every conjugacy class C of Gal(L/K), there exists a prime ideal p of K un-
+                                                    ramified in L, for which its Artin symbol L/K    = C, for which its norm NK
+                                                                                                  
+                                                                                                 p                             Q p is a rational
+                                                    prime, and which satisfies
+                                                                                            NK       40
+                                                                                             Q p ≪ dL ,
+                                                    where dL = |disc(L/Q)|. All implicit constants are effective and absolute.
+
+
+
+
+                                                                                      1. Introduction
+                                              Let K be a number field and L/K be a finite Galois extension. For an unramified prime
+                                           ideal p of K, let L/K
+                                                                
+                                                              p
+                                                                   be its associated Artin symbol, which is a conjugacy class of G :=
+                                           Gal(L/K). For a given conjugacy class C of G and X ≥ 2, define
+                                                       n                                                                h L/K i     o
+                                            πC (X) := # p prime ideals of K of degree 1 : NKQ p ≤ X, p unramified in L,         = C   ,
+                                                                                                                           p
+                                           where NKQ is the absolute norm of K. The Chebotarev Density Theorem [Hei67, Tsc26]
+                                           states
+                                                                                         |C|
+                                                                                πC (X) ∼     Li(X),
+                                                                                         |G|
+                                                          RX
+                                           where Li(X) = 2 (log t)−1 dt, so infinitely many such prime ideals exist. One may then ask:

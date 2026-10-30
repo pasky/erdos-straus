@@ -1,0 +1,3 @@
+K. Ono and K. Soundararajan, “Ramanujan’s Ternary Quadratic Form,” Inventiones Mathematicae 130 (1997), no. 3, 415–454. Search result for author-provided hosted PDF: https://uva.theopenscholar.com/files/ken-ono/files/038_8.pdf?preview=true . Accessed 2026-10-30.
+
+The visit tool identified a 10-page PDF but extracted no text (likely scan); direct theorem/list could not be checked. NOT ACCESSED: exact theorem number, GRH hypothesis wording, and complete exceptional list, including verification whether 679 and 2719 are included. Search results indicate the conjectured exception list was extended by 679 and 2719, but no claim about exact theorem is treated as verified. The question’s proposed statement/list is unverified.

@@ -1,0 +1,3 @@
+NOT ACCESSED: Serre, A Course in Arithmetic, Ch. IV, was not available through the requested web reader. Searches found non-primary/non-authoritative snippets for Meyer and Hasse–Minkowski, but no suitable accessible lecture-note text was opened. Therefore no theorem wording/number is asserted as verified.
+
+Relevant searched source lead (not verified): PL Clark, “Quadratic forms over global fields,” https://www.math.uga.edu/~pete/quadraticforms.pdf (search result described the five-variable Meyer argument). Accessed 2026-10-30. To verify: Hasse–Minkowski says a quadratic form over a number field is isotropic over the field iff isotropic over every completion; Meyer says every indefinite rational quadratic form in at least five variables has a nonzero rational zero.
