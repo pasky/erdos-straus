@@ -700,8 +700,35 @@ Thm 2.6's quotient and fibre stated; §8 wording; the cross-check harness harden
 | 9f | higher cumulants: proved range j ≤ (1−ε)(log N)^{1−β} versus needed j ≍ (log N)^β | — | §9.6 | — |
 | 9g | review and remaining gap | — | §9.7 | — |
 
-### 9.1 Setup
-(to be written)
+### 9.1 Setup and the algebra of the residual
+
+Band: B = {ℓ prime, ℓ ≡ 3 (mod 4), y < ℓ ≤ z}, z = exp((log N)^β), y = √z. (On the 4ℤ line only ℓ ≡ 3 (4) carry
+classes.) F_ℓ(n) = 1[n ≡ −4e (mod ℓ) for some e with 4e | ℓ + 1], w(ℓ) = τ((ℓ+1)/4), c_ℓ = w(ℓ)/(ℓ − 1), μ = Σ_B c_ℓ,
+and, as in the board's astra-5,
+
+    R_ℓ(n) = F_ℓ(n) − c_ℓ[1_{ℓ∤n} − (n/ℓ)],    R(n) = Σ_{ℓ∈B} R_ℓ(n),    Q(n) = Σ_{ℓ∈B} c_ℓ (n/ℓ).
+
+**Lemma 9.1 (PROVED, elementary).**
+(a) R_ℓ(n) = 0 if ℓ | n or (n/ℓ) = 1; R_ℓ(n) = F_ℓ(n) − 2c_ℓ if (n/ℓ) = −1. In particular |R_ℓ| ≤ 1 and R(x²) = 0.
+(b) Σ_{a mod ℓ} R_ℓ(a) = 0 and Σ_{a mod ℓ} R_ℓ(a)(a/ℓ) = 0.
+(c) If n avoids every class of B, then R(n) = −μ + Q(n) + Σ_{ℓ∈B, ℓ|n} c_ℓ.
+(d) In the independent (Haar) model, R_ℓ has mean 0, variance σ_ℓ² = (w/ℓ)(1 − 2c_ℓ)² + ((ℓ−1)/(2ℓ) − w/ℓ)·4c_ℓ², and
+    E e^{−tR_ℓ} = (ℓ+1)/(2ℓ) + (w/ℓ)e^{−t(1−2c_ℓ)} + ((ℓ−1)/(2ℓ) − w/ℓ)e^{2tc_ℓ}.
+(e) #{n ∈ I : n avoids B} ≤ #{n ∈ I : Q(n) ≥ μ/2 − Σ_{ℓ|n}c_ℓ} + #{n ∈ I : R(n) ≤ −μ/2}.
+*Proof.* (a) Every forbidden class is a non-residue (Lemma 1.2); on non-residues 1_{ℓ∤n} − (n/ℓ) = 2. (b) Σ_a F_ℓ = w =
+c_ℓ(ℓ − 1) = Σ_a c_ℓ(1_{a≠0} − (a/ℓ)); Σ_a F_ℓ(a)(a/ℓ) = −w = Σ_a c_ℓ(1_{a≠0} − (a/ℓ))(a/ℓ). (c) Sum (a) with F ≡ 0.
+(d) Direct. (e) From (c). ∎
+
+The quadratic piece is rare (board, PROVED there; recorded): Σ_{n∈I} Q(n)² ≤ |I|Σ_B c_ℓ² + Σ_{ℓ≠ℓ′} c_ℓc_ℓ′·O(√(ℓℓ′) log ℓℓ′)
+(Pólya–Vinogradov for the character (·/ℓℓ′) on an AP mod 8), so #{n ∈ I : Q(n) ≥ μ/4} ≪ μ^{−2}(N y^{−1+o(1)} + z(log z)^{O(1)}),
+which is ≤ N exp(−(½ − o(1))(log N)^β). And Σ_{ℓ|n} c_ℓ ≤ ω(n) max_B c_ℓ ≤ (log N)y^{−1+o(1)} = o(1). So T1-min(4ℤ) for
+β > 1/2 follows from #{R ≤ −μ/2} ≤ N exp(−(log N)^{1/2+δ}), in particular from the board's lemma
+
+> **(L_C)** E_{n∈I} exp(−tR(n)) ≤ exp(Ct²μ) for some fixed C and all 0 < t ≤ t₀,
+
+via Markov at t = min(t₀, 1/(4C)): P(R ≤ −μ/2) ≤ exp(−tμ/4).
+
+The independent model satisfies (L_C) with C ≈ ½: (1/(μt²)) log E e^{−tR} = (e^{−t} − 1 + t)/t² + O(max c_ℓ) (by (d)).
 
 ### 9.2 Drop-screen
 (to be written)
