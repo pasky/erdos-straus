@@ -32,4 +32,7 @@ None. No verified result located gives a lower bound or existence theorem for a 
 
 ## §4 Not accessed / could not verify
 
-(Research pending.)
+- No verified pointwise lower-bound/existence theorem for a divisor of one prescribed `N` in a prescribed class was found in this lane’s searches. Leads concerning Erdős–Pomerance–Schmutz / Ford–Konyagin and “`p−1` has a divisor in every class” were not verified and are not cited as results.
+- Coppersmith–Howgrave-Graham–Nagaraj ePrint abstract was accessed, but its accessible formula transcription omits the exact hypothesis and improved numeric bound; no sharper quantitative statement is asserted here.
+- No primary source was successfully checked for all named refinements: Bernstein / recent Coppersmith bounds; Tenenbaum and Koukoulopoulos interval variants; Burgess / Vinogradov / Graham–Ringrose / Banks–Shparlinski / Xi / Kerr–Shparlinski–Wang–Xi; Bach / Lamzouri–Li–Soundararajan; or Erdős–Ruzsa / Harman subgroup generation. This dossier makes no claim about their exact statements.
+- Carella’s arXiv preprint exists and v9 was accessed. Its unconditional theorem claim is not accepted because of the explicit §5 gap documented in §1; no independent referee report was accessed.
