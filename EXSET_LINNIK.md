@@ -424,53 +424,65 @@ p-dependent families of low rank are **open**.
 
 ## 5. Escape (c): supersets E′ ⊇ E_ES defined by free character data
 
-**Lemma 5.1 (orientation; PROVED, trivial).** Every relaxation in the zoo (capped ES^{(y,e)}, ES^{(S)}, ES^□, V_φ, odd
-power rungs, window certificates with a cap) satisfies ES(p) ⟹ R(p), so its failure set E_R is a *subset* of E_ES. The
-free character data these relaxations force (CAP_BOUNDED Lemma 3.1: E_{ES^{(y,e)}} ⊂ 𝒫(4e + 3); ES^□'s one Dirichlet
-prime; V_φ's fixed-modulus shots) are properties of E_R. They pass to E_ES only if E_ES ⊂ E_R, i.e. only if R ⟺ ES at
-primes. A superset E′ ⊇ E_ES is the failure set of a *strengthening* R′ ⟹ ES, and "E′ ⊂ B" is again a forcing statement
-for ES itself: (q/p) = −1 (or an unbiased profile) ⟹ R′(p) ⟹ ES(p). ∎
+**Lemma 5.1 (orientation; PROVED, trivial; list corrected after R2).** If ES(p) ⟹ R(p) for all primes p, the failure
+set E_R is a *subset* of E_ES, and character data that R-failure forces (e.g. CAP_BOUNDED Lemma 3.1:
+E_{ES^{(y,e)}} ⊂ 𝒫(4e + 3) for the cap relaxations; similarly ES^{(S)}, ES^□ and the odd power rungs, which contain ES)
+are properties of E_R; they do not pass to E_ES by this inclusion. (R2: a *restricted menu* of certificates, e.g. "a
+prescribed window carries a cap-0 solution", is not a relaxation: 4/5 = 1/2 + 1/4 + 1/20 holds but the window q = 7,
+x = 3 fails; and V_φ, with its mixed σ₂-sign requirement (T1_TEMPLATE §1), is not tautologically implied by ES.) A
+superset E′ ⊇ E_ES is the failure set of a *strengthening* R′ ⟹ ES, and "E′ ⊂ B" is again a forcing statement for ES
+itself: an unbiased profile ⟹ R′(p) ⟹ ES(p). ∎
 
-**Lemma 5.2 (word colour is not free; PROVED by citation).** For a strengthening defined by a sub-menu 𝔊 of ES₅
-certificate classes, E′ = E_X ∩ Ω(𝔊)-type avoider and every certificate condition is a congruence: the colour of a word
-is a function of its shape (Theorem A; LOWERTAIL_DEEP_FABLE Lemma 1.2; FOREST_DEEP_FABLE Prop 3.1: the sets
-G_A = {−d : d | A + 1, (−d/A_odd) = −1} are p-independent). So "Type II slices with undetermined colour" do not exist at
-the level of classes: character data of p enter only through the *shadow* (whether p ≡ −d mod A for some d | A + 1).
-Hence Corollary 2.6 (sparse Π) and Proposition 2.8 (bounded whole-period level) apply to every ES₅-defined E′, within
-their scopes. ∎
+**Lemma 5.2 (word colour is not free; PROVED by citation; failure set corrected after R2).** For the strengthening
+"some class of a finite sub-menu 𝔊 ⊂ 𝔉₅ certifies p", the failure set is E′ = {p ∈ (X/2, X] prime : p ∈ Ω(𝔊)} (above the
+thresholds) ⊇ E_X, and every certificate condition is a congruence: the colour of a word is a function of its shape
+(Theorem A; LOWERTAIL_DEEP_FABLE Lemma 1.2; FOREST_DEEP_FABLE Prop 3.1: the sets G_A = {−d : d | A + 1, (−d/A_odd) = −1}
+are p-independent). So "Type II slices with undetermined colour" do not exist at the level of classes: character data of
+p enter only through the *shadow* (whether p ≡ −d (mod A) for some d | A + 1). Hence Corollary 2.6 (sparse Π, statements
+for all large primes) and Proposition 2.8 (bounded whole-period level) apply to these E′. ∎
 
-**The window strengthening (EVIDENCE + Assessment).** The one natural strengthening with character content is
-R′_y(p): *some prime window q ≡ 3 (mod 4) in (y/2, y] carries an ES solution with x = (p + q)/4* (CAP_DOWN Lemma 3.1 at
-cap 0; equivalently q | d₁ + d₂ for two divisors d₁, d₂ of p(p + q)/4). E′_y ⊇ E_ES. Windows with (q/p) = −1 are
-*forced* (CAP_DOWN Thm 1.2: they always carry some capped certificate), and they fire at cap 0 about twice as often as
-unforced ones (CAP_BOUNDED §5). `scripts/z51_linnik_windows.py` tests the lottery on all 33 663 Mordell-hard primes in
-[10⁸, 1.2·10⁸] (`data/z51_linnik/windows_1e8_y{200,400}.json`):
+**The window criterion (PROVED; R2 supplied the necessity argument).** Let p ≡ 1 (4), q ≡ 3 (4) prime, q ≠ p,
+x := (p + q)/4, B := px. Then 4/p = 1/x + 1/y + 1/z has a solution with this x iff q | d₁ + d₂ for some divisors d₁, d₂ of
+B. (If y = gu, z = gv, gcd(u, v) = 1, then qguv = B(u + v), so uv | B; writing B = huv, qg = h(u + v), and q ∤ h since
+gcd(q, B) = 1. Conversely y := (B/d₁)(d₁ + d₂)/q, z := (B/d₂)(d₁ + d₂)/q.) R2 checked it against a direct search in 273
+cases (p ≤ 200, q ≤ 100; 86 live windows, 0 disagreements).
 
-| block | windows | cap-0 rate forced / unforced (mean) | P(no forced window fires \| k) observed vs ∏(1 − ρ_q) | mean pair corr. | non-residue fraction: all / E′-type failures |
-|---|---:|---|---|---:|---|
-| (100, 200] | 11 | 0.47 / 0.23 | k = 2: 0.279/0.289; k = 4: 0.068/0.074; k = 6: 0.0165/0.0186; k = 8: 0.0054/0.0044 | −0.006 | 0.501 / 0.339 |
-| (200, 400] | 16 | 0.34 / 0.17 | k = 4: 0.168/0.176; k = 7: 0.044/0.045; k = 10: 0.0082/0.0105; k = 12: 0.0046/0.0039 | −0.004 | 0.501 / 0.382 |
+**The window strengthening (EVIDENCE + Assessment; wording repaired after R2).** R′_y(p): *some prime window
+q ≡ 3 (mod 4) in (y/2, y] carries an ES solution with x = (p + q)/4*. Its failure set E′_y contains the ES-exceptional
+Mordell-hard primes. For p ≡ 1 (8) the windows with (q/p) = −1 are *forced* (CAP_DOWN Thm 1.2: they always carry some
+capped certificate), and they fire at cap 0 about twice as often as unforced ones. `scripts/z51_linnik_windows.py` on all
+33 663 Mordell-hard primes in [10⁸, 1.2·10⁸] (`data/z51_linnik/windows_1e8_y{200,400}.json`; R2 reproduced the y = 200
+run on [10⁸, 1.03·10⁸]: 5051 primes, same rates and bias):
 
-(Failures here = no forced window fires; the unforced ones are ignored.) The cap-0 events at different windows are
-uncorrelated to within ±0.1 and multiply to within ~10–20%, and the failures are strongly residue-biased (non-residue
-fraction 0.34–0.38 against 0.50). *Model consequence (Assessment).* If the lottery were independent with rates
-ρ_forced ≈ 2ρ_unforced, the profile of E′_y would be tilted by a fixed factor (1 − ρ_f)/(1 − ρ_u) < 1 per non-residue
-window: a *constant* bias, far more than Theorem 3.1 needs ((log X)^{−κ}). The pointwise statement that would make this
-rigorous is
+| block | windows | cap-0 rate forced / unforced (mean) | P(no forced window fires \| k) observed vs ∏(1 − ρ_q) | pair corr. mean [range] | non-residue fraction: all / forced-only failures |
+|---|---:|---|---|---|---|
+| (100, 200] | 11 | 0.47 / 0.23 | k = 2: 0.279/0.289; k = 4: 0.068/0.074; k = 6: 0.0165/0.0186; k = 8: 0.0054/0.0044 | −0.006 [−0.09, 0.11] | 0.501 / 0.339 |
+| (200, 400] | 16 | 0.34 / 0.17 | k = 4: 0.168/0.176; k = 7: 0.044/0.045; k = 10: 0.0082/0.0105; k = 12: 0.0046/0.0039 | −0.004 [−0.08, 0.07] | 0.501 / 0.382 |
 
-  **(WL_A)** every prime p ∈ (X/2, X] whose non-residue fraction θ_p on the primes ≡ 3 (4) in (y/2, y],
-  y = (log X)^A, satisfies |θ_p − 1/2| < η/2, η = (log X)^{−κ}, has a window in that block carrying an ES solution.
+"Forced-only failures" = no *forced* window fires (unforced windows ignored), a superset of the E′_y-failures. Pairwise
+correlations are small and the products of marginals match within ≈ 25% in the populated bins; this is not a proof of
+independence, and the mean forced rate drops from 0.47 to 0.34 when the block doubles, so a large-X firing rate is an
+extra assumption. *Model consequence (Assessment).* If the windows fired independently with rates bounded below by
+(log X)^{−o(1)} and ρ_forced ≥ (1 + c)ρ_unforced, the profile of E′_y would be tilted by a fixed factor per non-residue
+window, a bias far beyond what Theorem 3.1 needs. The pointwise statement that would make this rigorous is
 
-**Corollary 5.3 (CONDITIONAL on (WL_A) for some A > 1, κ < (A − 1)/2).** #{p ≤ X : ES(p) fails} ≤ X^{(1+2κ)/A + o(1)}.
-*Proof.* E_X ⊂ E′_y ⊂ {biased profiles} by (WL_A); Theorem 3.1. ∎
-*Reading.* (WL_A) is the cleanest form of the escape: one window among ≈ (log X)^A/(2A log log X) must fire at every
-*unbiased* prime; the biased primes are left to Heath-Brown. It is pointwise (gate G4: −1 in the divisor ratio set of
-p(p + q)/4 mod q at one window), and under the model it fails with probability exp(−c(log X)^{A−o(1)}) per prime, so it
-is heuristically true for every A > 1. It is not a CRT consequence: at a plane point (p ≡ 1 to high order at every prime
-outside the block) x = (p + q)/4 has the fixed small-prime part of (1 + q)/4, and the window lottery loses its
-randomness exactly as the word labels do (Lemma 2.3); a proof of the analogue of Corollary 2.6 for ES Type II window
-classes was not attempted. *Exact blocking lemma for (c):* Lemmas 5.1–5.2: no zoo relaxation has the right orientation;
-ES₅-defined supersets are covered by §2; the window strengthening needs (WL_A), a pointwise statement.
+  **(WL_{A,κ})** for every sufficiently large X: every Mordell-hard prime p ∈ (X/2, X] whose non-residue fraction θ_p on
+  the primes q ≡ 3 (4) in (y/2, y], y = (log X)^A, satisfies |θ_p − 1/2| < η/2, η := (log X)^{−κ}, has a window q in that
+  block carrying an ES solution with x = (p + q)/4.
+
+**Corollary 5.3 (CONDITIONAL on (WL_{A,κ}) for some fixed A > 1, 0 ≤ κ < (A − 1)/2).** For every δ > 0,
+#{p ≤ X : ES(p) fails} ≪_{A,κ,δ} X^{(1+2κ)/A + δ}.
+*Proof.* Non-Mordell-hard primes satisfy ES classically. In each dyadic interval (X′/2, X′], X′ large, (WL_{A,κ}) puts
+the exceptional primes among those with |σ_S(p)| ≥ ηs (S the primes ≡ 3 (4) in the block, s ∼ y/(4 log y)); Theorem 3.1;
+sum over dyadic intervals. ∎
+*Reading.* One window among ≈ (log X)^A/(4A log log X) must fire at every *unbiased* hard prime; the biased ones are left
+to Heath-Brown. (WL) is pointwise (gate G4: −1 in the divisor-ratio set of p(p + q)/4 mod q at one window). In the
+independence model it fails with probability exp(−c(log X)^{A−o(1)}) per prime, so it is heuristically true for A > 1;
+the experiment does not establish that model. Whether (WL) could follow from CRT information was not settled: at an
+r-generic or plane point x = (p + q)/4 has the fixed small-prime part of (1 + q)/4, suggesting the same collapse as in
+Lemma 2.3, but no analogue of Corollary 2.6 for ES window classes is proved. *Blocking statement for (c):* Lemmas 5.1–5.2
+(orientation; ES₅-defined supersets fall under §2 in its scope); the window strengthening reduces T2-full for ES to the
+pointwise (WL_{A,κ}).
 
 ## 6. Escape (d): reverse roles (small primes q as moduli, exceptional primes as the sequence)
 
