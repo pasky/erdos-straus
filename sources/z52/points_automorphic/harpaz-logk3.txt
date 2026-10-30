@@ -1,0 +1,3 @@
+Source: https://arxiv.org/html/1511.04876v2 (accessed 2026-10-30)
+Yonatan Harpaz, “Integral points on conic log K3 surfaces,” arXiv:1511.04876v2 (15 Mar 2017); JEMS 21 (2019), no. 3, 627–664, DOI 10.4171/JEMS/847.
+Theorem 3.1.12: For the specified pencil of affine conics over Z_{S0}, assuming Condition (D), a suitable everywhere S0-integral adelic point with local valuation/splitness conditions and orthogonality to the vertical Brauer group implies existence of an S0-integral point. The proof adapts Swinnerton-Dyer descent-fibration and uses Green–Tao–Ziegler to obtain admissible fibers unconditionally over Q. It is conditional on the theorem's explicit hypotheses; not a statement for all log K3 surfaces.

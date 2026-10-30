@@ -1,0 +1,3 @@
+Source: https://arxiv.org/html/2005.14013v1 (accessed 2026-10-30)
+Julian Lyczak, “Order 5 Brauer–Manin obstructions to the integral Hasse principle on log K3 surfaces,” arXiv:2005.14013v1 (28 May 2020); journal publication metadata not identified in source record.
+Theorem 4.6 constructs a particular complement U of a hyperplane section in a degree-5 del Pezzo surface over Z that has points over Q and every Z_l but has an order-5 Brauer–Manin obstruction to integral points. Theorem 4.7 counts 228 out of 11^6−1 hyperplane reductions producing such obstruction in its family. These are explicit counterexamples and family-frequency results, not universal pointwise existence.
