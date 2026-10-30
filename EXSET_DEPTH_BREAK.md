@@ -740,10 +740,68 @@ The independent model satisfies (L_C) with C ≈ ½: (1/(μt²)) log E e^{−tR}
 (to be written)
 
 ### 9.5 The second cumulant
-(to be written)
 
-### 9.6 Higher cumulants: proved versus needed range
-(to be written)
+Write Σσ² := Σ_B σ_ℓ² (≈ μ: σ_ℓ² = c_ℓ(1 + O(c_ℓ)) by Lemma 9.1(d)) and W_B := Σ_B w(ℓ) ≤ C_T z (divisor pairing and
+Brun–Titchmarsh). E_I is the average over I = {n ≤ N : n ≡ 1 (8)}; removing the √N squares (where R = 0) multiplies all
+moments by 1 + O(N^{−1/2}).
+
+**Proposition 9.3 (PROVED).**
+(a) |E_I R| ≤ 2W_B/|I| ≪ z/N.
+(b) (CRT range) |E_I R² − Σσ² − (E_I R)²·0| ≤ 3·2!·(6W_B)²/|I| (the case j = 2 of Theorem 9.4); in the subexponential band
+    this is N^{−1+o(1)}, so κ₂(R) = Σσ² + O(N^{−1+o(1)}): the j = 2 cumulant is *exactly* the independent-model value.
+(c) (all z, large sieve) E_I R² ≤ (1 + 8z²/N + O(N^{−1}))·Σσ². So κ₂(R) ≤ (1 + o(1))Σσ² for z = o(√N), and κ₂ = O(μ) for
+    z ≤ C√N, with no arithmetic input beyond Lemma 9.1(b).
+*Proof.* (a) For a function g periodic mod q (q odd), each class mod q contains |I|/q + θ elements of I, |θ| ≤ 1, so
+|E_I g − E g| ≤ |I|^{−1}Σ_{a mod q}|g(a)|; and Σ_a|R_ℓ(a)| = w|1 − 2c| + ((ℓ−1)/2 − w)·2c ≤ 2w. (c) As a function of
+k (n = 8k + 1), R_ℓ has period ℓ and mean 0, so R(8k+1) = Σ_ℓ Σ_{h≢0 (ℓ)} b_ℓ(h)e(hk/ℓ) with Σ_h|b_ℓ(h)|² = σ_ℓ²
+(Parseval). The frequencies h/ℓ (ℓ ∈ B prime) are 1/z²-spaced, and the Montgomery–Vaughan large sieve gives
+Σ_{k≤|I|} R(8k+1)² ≤ (|I| + z²)Σσ². ∎
+
+*Beyond √N (fable-3).* For z > √N, E_I R² − Σσ² = Σ_{ℓ≠ℓ′} Cov_I(R_ℓ, R_ℓ′) + O(W_B/|I|), and the pairs with ℓℓ′ ≤ N^{1−ε}
+contribute O(N^{−ε}(log)^{O(1)}) by (a) applied to g = R_ℓR_ℓ′. The pairs with ℓℓ′ > N are fable-3's Kloosterman-fraction
+sum; (c) bounds them by 8z²/N·Σσ², which is not O(μ) once z ≫ √N. No better unconditional bound is proved here.
+Numerically (§9.2) the beyond-level covariance of the *residual* is **negative**: Var_I R/Σσ² = 0.95–0.96 at β = 0.9
+(z = N^{0.76…0.68}, N = 10⁷–10⁹). A mechanism (Assessment): two hits ℓ, ℓ′ on the same shift e need ℓℓ′ | n + 4e, which
+is impossible when ℓℓ′ > n + 4e; the independent model counts such pairs, the integers do not (an archimedean exact zero,
+§2.3(d)). This sign is the favourable one for (L_C), and it is the opposite of the raw count X, whose excess variance
+(fable-3, positive) comes from the quadratic profile that R removes.
+
+### 9.6 Higher cumulants: the range proved and the range needed
+
+**Theorem 9.4 (PROVED).** For every j ≥ 2,
+
+    |κ_j(R)| ≤ 1.44·j!·Σσ² + j!·(6W_B)^j/|I|,
+
+where κ_j is the j-th cumulant of R(n), n uniform on I. Consequently |κ_j(R)| ≤ 3·j!·Σσ² for all
+2 ≤ j ≤ J₀ := log(|I|Σσ²)/log(6C_T z) = (1 + o(1))(log N)^{1−β}.
+
+*Proof.* (Model.) The R_ℓ are independent, mean 0, |R_ℓ| ≤ 1, σ_ℓ² ≤ 0.69. For complex |s| ≤ 1,
+|E e^{sR_ℓ} − 1| = |E(e^{sR_ℓ} − 1 − sR_ℓ)| ≤ σ_ℓ²(e − 2) ≤ ½, so |log E e^{sR_ℓ}| ≤ 1.44σ_ℓ², and Cauchy's estimate on |s| = 1
+gives |κ_j(R_ℓ)| ≤ 1.44·j!·σ_ℓ²; sum over ℓ. (Integers.) By multilinearity κ_j(R) = Σ_{(ℓ₁,…,ℓ_j)∈B^j} κ(R_{ℓ₁}, …, R_{ℓ_j}),
+and in the model the joint cumulant vanishes unless ℓ₁ = ⋯ = ℓ_j. A joint cumulant is Σ_π (−1)^{|π|−1}(|π| − 1)!∏_{b∈π} m_b
+over set partitions π of [j], m_b the joint moment of the block. Each block function ∏_{i∈b}R_{ℓ_i} is periodic modulo the
+product q_b of its distinct primes, so by the argument of Prop 9.3(a) its I-moment differs from the model moment by
+δ_b ≤ |I|^{−1}∏_{distinct ℓ ∈ b}(ℓ E|R_ℓ|) ≤ |I|^{−1}∏_{i∈b}2w(ℓ_i), while |m_b^{mod}| ≤ 1. Hence the product over blocks changes by
+≤ Σ_{∅≠S⊆π}∏_{b∈S}δ_b ≤ 2^{|π|}|I|^{−1}∏_i 2w(ℓ_i), and the joint cumulant by ≤ |I|^{−1}∏_i 2w(ℓ_i)·Σ_π(|π| − 1)!2^{|π|}
+≤ j!3^j|I|^{−1}∏_i 2w(ℓ_i) (Σ_k S(j, k)(k − 1)!2^k ≤ j!3^j, checked to j = 40 and asymptotically ≈ j!·2.47^j). Sum over
+B^j. ∎
+
+**What (L_C) needs.** Let μ′ = Σσ² ≤ μ(1 + o(1)).
+*Lemma 9.5 (PROVED, standard).* If |κ₁| ≤ 1 and |κ_j(R)| ≤ j!C^jμ′ for 2 ≤ j ≤ 2k, with k ≤ μ′/4, then
+E R^{2k} ≤ O(√k)(4eC²kμ′)^k, hence P(R ≤ −μ/2) ≤ O(√k)(16eC²kμ′/μ²)^k ≤ O(√k)(C′k/μ)^k.
+*Proof.* E R^{2k} depends only on κ₁, …, κ_{2k}, and E R^{2k} = (2k)![s^{2k}]exp(Σ_{j≤2k}κ_j s^j/j!) ≤ (2k)! r^{−2k}
+exp(r + μ′C²r²/(1 − Cr)) for 0 < r < 1/C. Take r² = k/(C²μ′) (so Cr ≤ ½) and (2k)! ≤ O(√k)(2k/e)^{2k}. Markov. ∎
+So, with μ ≍ (log N)^β: cumulant control up to order 2k = 2(log N)^γ gives P(R ≤ −μ/2) ≤ exp(−(β − γ − o(1))(log N)^γ log log N).
+* **Needed** for T1-min (saving (log N)^{1/2+δ}, with β > 1/2 + δ so that the quadratic piece and μ are large enough):
+  cumulant bounds |κ_j| ≤ j!C^jμ for **2 ≤ j ≤ (log N)^{1/2+δ}** (any γ ≥ 1/2 + δ); the full mgf form (L_C) asks for every j,
+  but beyond j ≍ μ the moment route needs nothing more.
+* **Proved** (Theorem 9.4): **2 ≤ j ≤ (1 − o(1))(log N)^{1−β}**, i.e. γ ≤ 1 − β < 1/2 − δ.
+* The missing window (log N)^{1−β} < j ≤ (log N)^{1/2+δ} is nonempty exactly because β > 1/2: it consists of the cumulants
+  whose prime tuples have product > N, i.e. depth. With the proved range alone, Lemma 9.5 gives
+  P(R ≤ −μ/2) ≤ exp(−c(2β − 1)(log N)^{1−β}log log N), and the overall bound is optimised near β = ½, where it is the CRT
+  exponent ½ (G1) again. So Theorem 9.4 is the cumulant form of G1, and (L_C) beyond it is equivalent in strength to
+  depth breaking.
+* At polynomial z = N^{1/s} (s < 2) the proved range is only j ≤ s: already κ₂ is beyond level (§9.5).
 
 ### 9.7 Review and remaining gap
 (to be written)
