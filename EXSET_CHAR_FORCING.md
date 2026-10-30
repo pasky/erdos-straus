@@ -22,12 +22,13 @@ Assessment. Scripts `scripts/z51_forcing_*`, data `data/z51_forcing/`, reviews `
 | **5.5** | **T2-lite: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+o(1)} for every A > 1** (CAP_BOUNDED had A > 2, X^{2/A}); **#{p ≤ X : e*(p) > (C/2) log X} ≪ X e^{−c log X/log log X}** — transfers of Heath-Brown/Baier and Montgomery–Vaughan/Lau–Wu technology | PROVED mod Heath-Brown / Lau–Wu Lemma 1 (+ CAP_BOUNDED Lemma 3.1) | R3: SOUND / SOUND-WITH-MINOR; "T2-lite reached" fair |
 | 6.1–6.2 | counterfactual reach for two ET subfamilies (height ≤ p, level 1 / all levels); Reach + (q/p) = −1 ⟹ ES | definitions; PROVED | R2: scope repaired |
 | **6.3–6.4** | **reach is polylogarithmic on average**: for q ≤ (log X)^C, Σ_{p≤X} #reached ≪ π(X)(log X)³(log log X)², so Reach(p, q) holds for a ≪ (log X)^{3+o(1)}/q fraction of p; MR(A) false for A > 3 (two ET subfamilies, height ≤ p, all levels) | PROVED mod Shiu + Brun–Titchmarsh | R2 (6.3: SOUND); R3 (6.3′: MAJOR → completed with R3's argument) |
-| 6.3num | reach numerics, 36 primes 10⁵–10¹⁰, q ≤ 1000: supply S_e ≈ 0.033 (log p)³ (fit 3.15); coupon comparison; q* ≈ 0.02–0.03 (log p)³/log log p; MR₁(½) at all 36, MR₁(1) at all p ≥ 10⁶; 2 682 witnesses exact | EVIDENCE / CERTIFIED (witnesses) | R2: reproduced |
+| 6.3num | reach numerics, 36 primes 10⁵–10¹⁰, q ≤ 1000: supply S_e ≈ 0.033 (log p)³ (fit 3.15); coupon comparison; q* ≈ 0.02–0.03 (log p)³/log log p; MR₁(½) at all 36 sampled primes, MR₁(1, η = 0.2) at all sampled p ≥ 10⁶; 2 682 witnesses exact | EVIDENCE / CERTIFIED (witnesses) | R2: reproduced |
 | 7 | 17-line: Reach(p, 17) for 285/286 primes in [10⁶, 2·10⁶] and all 120 later samples; the failure (p = 1 240 009) misses the generic survivor cell 5, yet ES(p) holds by an actual-cell certificate; growing coverings need B2 events | EVIDENCE + Assessment | R2: dictionary corrected |
 | 9 | remaining gap | Assessment | — |
 
 **Bottom line.**
-* No z51 target T1/T2-full is reached; ES remains open. There is no proof of any forcing reach, no Linnik
+* No z51 target T1/T2-full is reached; ES remains open. There is no proved pointwise reach at the growing scales needed here (beyond classical fixed-q forcing and the
+  certified finite computations), no Linnik
   confinement and no unconditional power saving for ES.
 * **T2-lite reached (PROVED modulo Heath-Brown's quadratic large sieve):** the cap relaxation e*(p) ≤ (log p)^{A}/4
   holds outside X^{1/A+o(1)} primes for every A > 1 (CAP_BOUNDED needed A > 2), and e*(p) ≤ C log p outside
@@ -212,8 +213,9 @@ primes) by (log X)^{−1 + 1/(2ℓ_q) + o(1)} ≤ (log X)^{−5/6 + o(1)}. This 
   range, a failure rate ≪ L^{−1/3+ε} + q·L^{−a+ε}, with a := 1 − 1/√3 = 0.4226… and L = log X. This is non-trivial for
   q ≤ L^{a−2ε}, not only for q ≤ L^{1/3}.
 * **Random box (heuristic; Assessment, R1-corrected).** For q = (log X)^β the box R(x) has at most τ(x²) and
-  typically about 3^{ω(x)} elements, about half of them in the coset −U (the parity is free at a forced window). In a
-  random-target model, success needs 3^{ω(x)} ≳ q. With the Sathe–Selberg law P(ω ≈ α log log X) = (log X)^{−Q(α)+o(1)},
+  typically about 3^{ω(x)} *choices* of signed exponent vectors (not distinct residues: there are at most q − 1 of
+  those), about half of them with odd non-residue weight, i.e. landing in the coset −U (the parity is free at a forced
+  window). In a random-target model, success needs 3^{ω(x)} ≳ q (R4 repair). With the Sathe–Selberg law P(ω ≈ α log log X) = (log X)^{−Q(α)+o(1)},
   Q(α) = 1 − α + α log α, this gives: P(fail) ≈ (log X)^{−Q(β/log 3)} for β < log 3 ≈ 1.10; failure of order 1
   near β ≈ 1.1; P(success) ≈ max_α (log X)^{−Q(α)}·min(1, (log X)^{α log 3 − β}), which equals (log X)^{−Q(β/log 3)}
   for log 3 < β < 3 log 3 ≈ 3.30 and (log X)^{2−β} = (log X)²/q only for β > 3 log 3 (the first moment
@@ -337,25 +339,26 @@ Heath-Brown, or the Montgomery–Vaughan moment large sieve, lower the scale. Th
 
 **Proposition 5.1 (biased characters are rare, classical large sieve; PROVED).** Let X ≥ 3, y ≥ 17, 0 < η ≤ 1/2,
 r := ⌊2 log X/log y⌋ ≥ 1. Then
-`  #{p ≤ X : Σ_{q∈S(y), q≠p} (q/p) ≥ 2ηm}  ≤  y + 2y·(log X/(2η²))^r.`
+`  #{p ≤ X : Σ_{q∈S(y), q≠p} (q/p) ≥ 2ηm}  ≤  y + 2y·(log X/η²)^r.`
 For y = (log X)^A, A > 0 fixed, this is X^{2/A+o(1)} for fixed η (and X^{2(1+2θ)/A+o(1)} for η = (log X)^{−θ}).
 *Proof.* p ≤ y contribute ≤ y. For p > y let a_n := #{(q₁, …, q_r) ∈ S^r : q₁⋯q_r = n}; then
 Σ_n a_n χ_p(n) = (Σ_{q∈S} χ_p(q))^r ≥ (2ηm)^r on the bad set, and Σ_n a_n² ≤ r!·m^r (a tuple has at most r!
 rearrangements). All n ≤ y^r ≤ X². Keeping only the Legendre characters of primes in the multiplicative large sieve,
-Σ_{p≤X} |Σ_n a_n χ_p(n)|² ≤ 2X²·Σ a_n². With m ≥ y/log y and y^{r+1} > X², m^r ≥ X² y^{−1}(log y)^{−r}, so the bad
-p > y number ≤ 2X² r!/((2η)^{2r} m^r) ≤ 2y (r log y/(4η²))^r ≤ 2y (log X/(2η²))^r; finally (log X)^r ≤ X^{2/A}. ∎
+Σ_{p≤X} |Σ_n a_n χ_p(n)|² ≤ 2X²·Σ a_n². With m = π(y) − 1 ≥ y/log y − 1 ≥ y/(2 log y) (y ≥ 17; R4 repair: m ≥ y/log y fails at y = 17)
+and y^{r+1} > X², m^r ≥ X² y^{−1}(2 log y)^{−r}, so the bad p > y number ≤ 2X² r!/((2η)^{2r} m^r) ≤
+2y (2r log y/(4η²))^r ≤ 2y (log X/η²)^r; finally (log X)^r ≤ X^{2/A}. ∎
 (R2: verified line by line; standard moment method.)
 
 **Proposition 5.1′ (Heath-Brown's quadratic large sieve; PROVED modulo Heath-Brown, Acta Arith. 72 (1995), Thm 1 /
 Cor 2).** Same notation, with r := ⌊log X/log y⌋ ≥ 1. For every ε > 0,
-`  #{p ≤ X : Σ_{q∈S(y), q≠p} (q/p) ≥ 2ηm}  ≪_ε  y + X^{2ε}·y·(log X/(2η²))^r,`
+`  #{p ≤ X : Σ_{q∈S(y), q≠p} (q/p) ≥ 2ηm}  ≪_ε  y + X^{2ε}·y·(log X/η²)^r,`
 which is X^{1/A+o(1)} for y = (log X)^A with any fixed A > 0 and fixed η.
 *Proof (R2's argument).* Heath-Brown's inequality for real primitive characters with arbitrary coefficients reads
 Σ_{m≤M}^{*} |Σ_{n≤N} a_n (n/m)|² ≪_ε (MN)^ε (M + N) Σ_{n₁n₂ = □} |a_{n₁}a_{n₂}| (m odd squarefree). Take the same
 ordered-tuple coefficients with N = y^r ≤ X. An ordered 2r-tuple of primes with square product admits a perfect
 matching of equal primes, so Σ_{n₁n₂=□} a_{n₁}a_{n₂} ≤ (2r − 1)!!·m^r ≤ (2r)^r m^r. On the bad set the signal is
-≥ (2ηm)^r, so the bad p > y number ≪_ε X^{2ε}·2X·(2r)^r m^r/(2ηm)^{2r}; with m^r ≥ X y^{−1}(log y)^{−r} this is
-≪ X^{2ε} y (2r log y/(4η²))^r ≤ X^{2ε} y (log X/(2η²))^r = X^{1/A+2ε+o(1)}. ∎
+≥ (2ηm)^r, so the bad p > y number ≪_ε X^{2ε}·2X·(2r)^r m^r/(2ηm)^{2r}; with m^r ≥ X y^{−1}(2 log y)^{−r} this is
+≪ X^{2ε} y (4r log y/(4η²))^r ≤ X^{2ε} y (log X/η²)^r = X^{1/A+2ε+o(1)}. ∎
 For the least non-residue itself this is Baier's improvement of Linnik's A > 2 to A > 1 (as quoted by Lau–Wu, IJNT 4
 (2008), [2]; recalled).
 
@@ -424,7 +427,8 @@ where reach holds. ∎
   reach fails. `scripts/z51_forcing_mr1.py`, `data/z51_forcing/mr1_summary.txt`. In the coupon model of §6.3 the
   probability that Reach(p, q) fails for some q ≤ 2C log p is ≈ exp(−c(log p)²), summable over p, so the model
   predicts MR₁(C, η) for all large p at every fixed C (a model prediction, not a verified tail law). Proving it pointwise is still B2: for each non-residue class r mod q one
-  needs an e ≡ −r (mod q) with p + e (or ep + 1) carrying a suitable divisor pair.
+  needs a Type II e ≡ −r (mod q) with p + e, or a Type I e ≡ −r⁻¹ (mod q) with ep + 1, carrying a suitable divisor
+  pair (R4 repair).
 
 **Corollary 5.5 (T2-lite: lower cap thresholds; PROVED modulo Heath-Brown 1995, resp. Lau–Wu Lemma 1).** Let e*(p)
 be the minimal exponent cap of EXPONENT_CAP/CAP_POINTWISE (e*(p) = 0 iff ES(p)).
@@ -585,7 +589,7 @@ R_maj = largest prime R ≤ 1000 such that reach holds at ≥ 60 % of the odd pr
   comparison favour R(p) ≈ c(log p)³/log log p, c ≈ 0.02–0.03 (Assessment), consistent with Cor 6.4 (MR false above
   (log p)³).
 * **Majority reach at the scales §5 needs.** R_maj ≈ 0.35 (log p)² at 10¹⁰, i.e. above (log p)^{1.6}. MR₁(1/2, η)
-  holds at all 36 primes and MR₁(1, η) at all sampled p ≥ 10⁶ (§5). For the classical-sieve scale (log p)^{2+δ} the
+  holds at all 36 sampled primes and MR₁(1, 0.2) at all sampled p ≥ 10⁶ (§5). For the classical-sieve scale (log p)^{2+δ} the
   coupon model needs 0.033 (log p)^{1−δ} ≳ (2 + δ) log log p, i.e. log p ≈ 840 for δ = 0.1 (R2's correction of an
   earlier arithmetic slip); with Props 5.1′/5.2 that scale is no longer needed.
 * Lane B (z50) measured q* ≈ 11–29 with W1 words only; with the two ET subfamilies q* is 17–37 at 10⁶–10⁷, 43–83 at
@@ -605,7 +609,8 @@ here). Since {p : Reach(p, q) fails} ⊇ {p : ES(p) fails, (q/p) = −1}, a boun
 strong as the corresponding statement for ES on the line (q/p) = −1. A power-small bound for reach failures at a
 majority of q ≤ C log p would, through Cor 5.4, give the near-power ES bound; it would be genuine progress, and we do
 not have it. The quantitative content of §§5–6 is: the needed reach scale drops to C log p (Prop 5.2), where reach is
-numerically ubiquitous, while above (log p)³ reach provably disappears (Cor 6.4).
+numerically ubiquitous, while a prescribed q ≤ (log X)^C well above (log X)³ is reached for only a vanishing fraction
+of primes (Cor 6.4; an average statement for the two subfamilies at height ≤ p).
 
 ## 7. Least-QNR lines (work item 3)
 
@@ -701,14 +706,18 @@ third in [10⁷, 1.1·10⁷] (84) and every sixth in [10⁸, 1.01·10⁸] (36 pr
   conditional target; MF₁ tests are vacuous); Prop 5.2 made quantitative with slack constants κ and p*; Thm 5.3 domain
   (p ≡ 1 (4) for windows, subset threshold ½); novelty credited to Heath-Brown/Baier and Montgomery–Vaughan/Lau–Wu;
   MR₁ evidence stated with η = 0.2 and as lower-bound tests.
+* **R4 (Astra, final consistency check; `reviews/z51-forcing-r4-astra.md`).** Verdict: minor revisions; R3's analytic
+  and hypothesis-status repairs pass, the new Obs 1.1(b) sentence passes. Repairs applied: §6.4 cutoff wording replaced
+  by the average statement; §3.2 box "choices" vs residues; Type I cells e ≡ −r⁻¹ in §§5, 9; the finite-range bound
+  m ≥ y/(2 log y) in Props 5.1/5.1′ (constants adjusted, exponents unchanged); sampled/η qualifiers in §0 and §6.3.
 
 ## 9. Remaining gap
 
 * **Pointwise forcing is still B2.** Every route here needs, at some point, a certificate for a *given* p in a
   *given* class: reach at a majority of q ∈ (C log p, 2C log p] (MR₁), or bias of the exceptional primes (MF₁). MR₁
   holds on every sampled prime (C = ½) and the coupon model predicts it for all large p, but no argument produces,
-  for a fixed p and a fixed non-residue class r mod q, an e ≡ −r (mod q) with the needed divisor pair of p + e or
-  ep + 1.
+  for a fixed p and a fixed non-residue class r mod q, a Type II e ≡ −r (mod q) with the needed divisor pair of p + e,
+  or a Type I e ≡ −r⁻¹ (mod q) with one of ep + 1.
 * **What the reductions buy.** By Thm 5.3(b), after removing X exp(−c log X/log log X) primes (those QR-biased at scale
   C log X, and separately those QR-biased on the q ≡ 3 (mod 4) of that range), the exceptional-set problem is the
   problem for exceptional p ≡ 1 (4) that have ≫ log X/log log X forced windows q ≡ 3 (4) in (C log X, 2C log X], all
