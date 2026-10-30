@@ -8,7 +8,8 @@ free_opus-0166 translate-0075 signature-0140
 # divisors in residue classes via sign changes (arXiv:2410.05030) — specific new paper
 signature-0174
 # Markoff BGS / Chen as model for an ES group action / certificate graph
-analogues-0239 dividing-0049 dividing-0306 free_fable-0017 free_fable-0176 free_opus-0029 signature-0062 tools-0121 tools-0122 translate-0116
+dividing-0306 free_fable-0017 tools-0122
+analogues-0239 dividing-0049 free_fable-0176 free_opus-0029 signature-0062 tools-0121 translate-0116
 upgrades-0103
 upgrades-0106
 # Duke–Schulze-Pillot large-n theorem as template
@@ -36,3 +37,23 @@ free_fable-0307
 analogues-0019
 upgrades-0157
 dividing-0073
+# step-5 spot-read splits (distinct ideas fused by a DUP verdict)
+analogues-0337
+signature-0277
+free_opus-0257
+free_fable-0192
+tools-0166
+free_fable-0025
+# full-cluster audit (subagent flagged 7 of 245 merged clusters; merge lane reviewed and accepted the splits)
+analogues-0069 free_opus-0361
+analogues-0083
+upgrades-0107 free_fable-0175
+analogues-0100 translate-0198
+analogues-0178
+free_opus-0090
+free_fable-0112 free_opus-0273
+free_opus-0055
+free_fable-0113
+free_opus-0271
+translate-0208
+free_opus-0233
