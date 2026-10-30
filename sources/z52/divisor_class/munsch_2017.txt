@@ -1,0 +1,2 @@
+Marc Munsch, “On the minimal number of small elements generating prime fields,” arXiv:1703.06673v1, submitted 2017-03-20. https://arxiv.org/abs/1703.06673; HTML https://arxiv.org/html/1703.06673v1. Accessed 2026-10-30.
+Abstract: upper bound on number of elements ≤p^(1/(4 sqrt(e))+ε) needed to generate F_p. Theorem 3.2: h(p) ≪ ω_l(p−1)+(ω(p−1)−ω_l(p−1))/log l (for l→∞ with l≤log p/(1000 log_2 p)); Corollary 3.7: h(p)≪(log_3 p)^2 for almost all primes. Pointwise in each p for the theorem, but group generation, not a prescribed target in a shifted-integer factorization.

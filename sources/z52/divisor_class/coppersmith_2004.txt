@@ -1,0 +1,2 @@
+Don Coppersmith, Nick Howgrave-Graham, S. V. Nagaraj, “Divisors in Residue Classes, Constructively,” Cryptology ePrint Archive, Paper 2004/339, posted 2004-12-07; later Math. Comp. 77 (2008), 531–545. https://eprint.iacr.org/2004/339. Accessed 2026-10-30.
+Abstract: “We re-examine this problem; showing how to explicitly construct all such divisors and incidentally improve this bound to [formula omitted in accessible HTML].” This is an algorithmic/counting result, not a lower-bound existence statement.

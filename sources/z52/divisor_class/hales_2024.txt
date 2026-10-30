@@ -1,0 +1,2 @@
+Jonathon Hales, “Divisors in Residue Classes Revisited,” arXiv:2410.05030v1, submitted 2024-10-07. https://arxiv.org/abs/2410.05030. Accessed 2026-10-30.
+Abstract: generalizes Lenstra’s algorithm to a larger class of Euclidean rings and Z[x], with implementation/timing; Lenstra’s integer algorithm polynomial when s^3>N. No lower-bound/existence theorem for a divisor in a specified class.

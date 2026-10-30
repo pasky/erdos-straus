@@ -1,0 +1,2 @@
+Kevin Ford, “Integers with a divisor in (y,2y],” arXiv:math/0607473v5, revised 2013-03-17; published in Anatomy of Integers, CRM Proc. Lect. Notes 46 (2008), 65–80. https://arxiv.org/abs/math/0607473. Accessed 2026-10-30.
+Abstract / equation (1.1): H(x,y,2y) ~ x/((log y)^δ (log log y)^(3/2)), 3≤y≤sqrt(x), up to constant factors; H counts integers n≤x with some divisor in (y,2y]. This is a count of ambient integers, not a pointwise guarantee for each structured n.
