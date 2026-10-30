@@ -163,4 +163,27 @@ The hypothesis is stronger than mere −1 subgroup membership, uses the **actual
 
 ## §3. Sources, checks, and limitations
 
-Pending. Short decisive excerpts in `sources/z52/`; memory-bounded scripts under `scripts/z52_thin_*`.
+### Reproduction and validation
+
+**CERTIFIED, exact finite scope.** Run from the repo root:
+
+```sh
+ulimit -v 8000000
+timeout 180 uv run python scripts/z52_thin_astra_checks.py
+```
+
+The script streams projective representatives, factors each small N, and uses sparse residue dictionaries; no all-pairs mesh/array allocation. Working storage is O(e) residues per window plus a 20,001-byte prime sieve. It checks331 exponent-box instances by independent direct enumeration,19 projective inventories,1,125 prime-window inputs, the named hard-prime/R-zero controls, seven odd squares, and three numerator8 controls. The complete Type-II-window diagnostics at37,2521,9601,19333,66529 are distinguished from cutoff scans. After review it also compares the spare criterion to the **existing** pigeonhole criterion; that comparison, not a new test of the old theorem, is the reason for the extra counters. Output is `data/z52_thin_astra/checks.json`, well below20MB.
+
+Existing z43/z45 tests already cover the underlying ES fraction identities and integral negative controls. This lane does not duplicate those as new theorem tests; its controls validate its index/projection implementations. The reviewer reran the initial script byte-for-byte and independently checked the standard divisor-count interpretation. The author reran the repaired script and verified the stronger-old-criterion comparison (2,237 versus3,330 windows). `git diff --check` passes. No density or pointwise-asymptotic conclusion is drawn from these small counts.
+
+### Source trust and review
+
+**Assessment / source audit.** The six source ledgers distinguish original papers, authored expositions, abstracts only, and NOT ACCESSED leads. The parent directly opened the decisive CW/Ax–Katz exposition, Alon, Zagier, Lenstra, palindrome paper, Zhang claim, Minkowski note, McGown–Treviño survey, Pollack–Schorn author PDF, and arXiv version records. The catalogue's count estimates are separately marked exact, elementary deductions, or heuristics; a guarantee of one witness is never used as evidence that its expected count is small. The 2026 Zaremba papers are **claims whose statements were accessed**, not proofs certified by this lane.
+
+**Assessment / hostile-review record.** `reviews/z52-thin-astra-opus-review.md` reviews the pre-repair commit2d3f9801. The requested `anthropic/claude-opus-5-5:high` identifier failed to resolve. Retrying **`anthropic/claude-opus-5-5` in deep mode** succeeded; the child could identify itself only as Claude, so the exact model identity rests on the tool request, and the unavailable `:high` suffix is not claimed to have run. The author checked the review's key conclusions against the older files and re-derived the subsumption proof; review verdicts were not accepted blindly.
+
+Repairs: withdrew all three mechanism-novelty claims and their recommendation ranking; identified J_e as the old Type-II fibre count; cited the Cayley/W16 pre-screen; proved and measured spare-factor subsumption by s6; marked the small-box statement ES-equivalent; corrected19 versus20 modular cases; distinguished complete coprime-window scans from full ES; repaired Pollack–Schorn authors/title/DOI/pages, McGown–Treviño authors/date, and Ivanov's v2 date. The unverified group-ring suggestion in the review is **not promoted to an externally cited theorem**.
+
+### Final decision
+
+**Assessment.** The reusable deliverable is the source-linked taxonomy and the explicit count/quantifier audit. Genuine thin precedents exist—two squares, critical-volume approximation, Pell, and parity/degree—but their forcing structures are absent from the tested ES encodings. All three attempted ES refinements return to previously screened mechanisms. No new first problem is promoted as promising; no new ES case, lower-tail theorem, or conditional proof is claimed. ES remains **OPEN**. Work is committed section by section; **WAIT, do not merge**.
