@@ -17,7 +17,7 @@ def sq2(p):
         b=int(round((p-a*a)**.5))
         if b>0 and a*a+b*b==p: return a,b
 pred={'<=1e4':0,'1e4-1e6':0}
-for p in primerange(30,10**6):
+for p in primerange(29,10**6):
     if p%4!=1: continue
     a,b=sq2(p); A,B=(a,b) if a%2==0 else (b,a)
     L=math.log(p); mu=alpha((A%4,B%4),L)*L*L
@@ -26,7 +26,7 @@ print('Gaussian ES_Q1 zero-law prediction (P0=exp(-0.535 mu^0.91), mu=class mean
 # k=-4: n=1 (4) classes 3|n (alpha~0.14) and 3 not| n (alpha~0.30-0.39 depending on n mod 8)
 al={(1,0):0.131,(5,0):0.146,(1,1):0.301,(5,1):0.389}
 pr={'1000-1e5':0,'<=1000':0}
-for n in range(13,10**5+1,4):
+for n in range(9,10**5+1,4):
     L=math.log(n); k=(n%8, 0 if n%3==0 else 1); mu=al[k]*L*L
     pr['<=1000' if n<=1000 else '1000-1e5']+=P0(mu)
 print('S_{n,-4} zero-law prediction, n=1(4):',{k:round(v,2) for k,v in pr.items()},' observed: 4 (9,21,165,945) <=1000, 1 (1197) above')

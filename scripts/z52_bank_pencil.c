@@ -1,6 +1,6 @@
 /* z52_bank_pencil.c — positive integer points on the pencil S_{n,k}: 4xyz - n(xy+yz+zx) = k.
  *
- * Complete method (for n >= 9, |k| <= 64): order x <= y <= z.  Then n/4 < x <= 3n/4 (proof in Z52_BANKED.md §1(a)/T2).
+ * Complete method (for n >= 9 and k in {-4} or 1 <= k <= 319): order x <= y <= z; then n/4 < x <= floor(3n/4)+1 (Z52_BANKED.md §1(a)).
  * For fixed x put m = 4x - n >= 1; the equation is (m y - n x)(m z - n x) = N_x := (n x)^2 + k m.
  * So every solution comes from a factorisation N_x = D D' (D, D' of either common sign) with D, D' == -n x (mod m),
  * y = (D + n x)/m, z = (D' + n x)/m.  We enumerate ALL x in the range and ALL divisors D (both signs), keeping y,z >= 1

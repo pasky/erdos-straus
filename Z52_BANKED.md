@@ -52,17 +52,22 @@ constancy), while inv_∞ 𝒜 = 1/2 on the positive real locus. The adelic set 
 (PROVED: positive real point x = z = n, y = (k + n³)/(2n²); for any ℓ choose y with q a unit, then z with d ≡ 1 mod ℓ —
 z ≡ 1 + y (mod 2) when ℓ = 2 — and x = (k + nyz)/d ∈ ℤ_ℓ by (I1)). So Theorem 1(a) is a **Brauer–Manin obstruction to
 positive integral points** on a locally soluble surface, for a positive-density set of n for each square k:
-density (1/8)·∏_{ℓ | m odd} (ℓ − 1)/(2ℓ) among all n. 𝒜 is not constant (inv_∞ = 0 at (0, 1, −4/n) ∈ S_{n,4}(ℚ) for n > 4).
+density (1/8)·∏_{ℓ | m odd} (ℓ − 1)/(2ℓ) among all n. 𝒜 is not constant: at (1, 0, −k/n) ∈ S_{n,k}(ℚ), (−q, −d) = (n, −k) has inv_∞ = 0.
 The board proved the k = 4 and k = 1 cases (astra R3, argon R4); the uniform statement for all squares k is new here.
-The class is ramified for non-square k (residue k along {d = 0}), consistent with the data below.
+For non-square k the residue along {d = 0} is the class of k in the residue field ℚ(√(k(4k + n³)))(x), so 𝒜 is ramified
+exactly when neither k nor 4k + n³ is a square (e.g. k = −4: ramified unless n³ − 16 is a square); consistent with
+the absence of positive-density kills at k = −1, −4, −9 below. (Review correction: an earlier draft said "ramified for
+every non-square k", which is false, e.g. n = 5, k = 11, 4k + n³ = 13².)
 
 **Where the obstruction fails (PROVED).** For k = 4, n ≡ 5 (8): the 2-adic point (2, 4, 2(2n+1)/(16 − 3n)) has v₂(d) = 1 and
 −q ≡ 5 (8), so inv₂ 𝒜 = 1/2, and 𝒜 does not obstruct; n = 5 has the solution (2, 4, 22). The full Br S_{n,4}/Br ℚ is not
 computed (open, as on the board).
 
 **Numerical checks (CERTIFIED; `scripts/z52_bank_pencil.c`, cross-checked by the brute force `z52_bank_pencil_brute.py`
-on all 9 ≤ n ≤ 300 for k = 4, −4, 1: identical counts).** The complete search uses: with x ≤ y ≤ z, n/4 < x ≤ 3n/4 (for
-k > 0: 4/n > 1/x and 4x³ ≤ 3nx² + k; for k = −4: 4/n − 1/x = 1/y + (1/z)(1 − 4/(nxy)) > 0 and 4/n < 3/x), and for fixed x,
+on all 9 ≤ n ≤ 300 for k = 4, −4, 1: identical counts).** The complete search uses: with x ≤ y ≤ z, n/4 < x and x²(4x − 3n) ≤ k
+(for k > 0: 4/n > 1/x and 4/n ≤ 3/x + k/(nx³); for k = −4: 4/n − 1/x = 1/y + (1/z)(1 − 4/(nxy)) > 0 and 4/n < 3/x).
+The code scans n/4 < x ≤ ⌊3n/4⌋ + 1, which is complete for n ≥ 9 and k ∈ {−4} ∪ [1, 319] (x ≥ ⌊3n/4⌋ + 2 would need
+4x − 3n ≥ 5, hence k ≥ 5x² ≥ 320; review correction — "x ≤ 3n/4" alone is false for large k, e.g. (7,7,7) ∈ S_{9,49}). For fixed x,
 m = 4x − n, (my − nx)(mz − nx) = n²x² + km, so all (y, z) come from divisor pairs of one integer (both signs enumerated).
 * k = 4: S_{n,4}(ℕ) = ∅ for all 1 249 values n ≡ 1 (8), 9 ≤ n ≤ 10⁴ (complete search). For n ≡ 5 (8), 13 ≤ n ≤ 10⁵, a
   solution exists for every n **except n = 3861 = 3³·11·13** (complete search): a failure that 𝒜 does not explain
@@ -70,12 +75,12 @@ m = 4x − n, (my − nx)(mz − nx) = n²x² + km, so all (y, z) come from divi
 * k = 1: S_{n,1}(ℕ) = ∅ for all n ≡ 5 (8), 13 ≤ n ≤ 10⁴. Among n ≡ 1 (8) ≤ 10⁵ the zeros are exactly 9, 33, 81, 345, 825,
   921, 1305, 3777, 3969, 4809, 5889, 7161, 8361, 11025, 14505, 16617, 26025, 26385, 55425, 99825 (all divisible by 3).
   The board's Lemma C list "{9, 81, 345}" (n ≤ 400) omits 33 (two independent codes agree that S_{33,1}(ℕ) = ∅).
-* Other squares (n ≤ 3000, odd n, complete search; `data/z52_bank/pencil_square_k_zeros_le3000.txt`): the residue classes
+* Other squares (9 ≤ n ≤ 3000, odd n, complete search; `data/z52_bank/pencil_square_k_zeros_le3000.txt`): the residue classes
   in which *every* n fails are exactly those of Theorem 1(a): k = 9: n ≡ 13 (24); k = 16, 64: n ≡ 1 (8); k = 25:
   n ≡ 21, 29 (40); k = 36, 144: n ≡ 1 (24); k = 49: n ≡ 29, 37, 53 (56); k = 100: n ≡ 1, 9 (40). Outside them only
   sporadic zeros (e.g. k = 16: 117; k = 25: 33, 57, 133, 417).
-* Local invariants (`scripts/z52_bank_bm_check.py`): on 16 000 random rational points of S_{n,k} (k ∈ {1, 4}, 20 values of n)
-  the product formula holds on every point; at every place ℓ where the point is ℓ-integral, (−q, −d)_ℓ = +1 in all
+* Local invariants (`scripts/z52_bank_bm_check.py`): on 15 997 random rational points of S_{n,k} (16 000 attempts, 3 degenerate; k ∈ {1, 4}, 20 values
+  of n) the product formula holds on every point; at every place ℓ where the point is ℓ-integral, (−q, −d)_ℓ = +1 in all
   86 217 odd-place tests and in all 2-adic tests with the theorem's congruence (k = 4, n ≡ 1 (8): 2878; k = 1, n ≡ 5 (8):
   2927), while the other residue class gives −1 in about 20 % of 2-adic tests.
 
@@ -108,13 +113,17 @@ m = 4x − n, (my − nx)(mz − nx) = n²x² + km, so all (y, z) come from divi
    does not live on the k-pencil itself). Over the m-line, the residue computation goes through at m = 0 on the smooth
    locus: on U_n ∖ {0}, {q = 0} is the line y = n/4, x + z = 0 with −d = (n/2)², and {d = 0} is the line y = z = 0, along
    which v(d) = 2 (d = −y²(n/x)/(1 − cy), c = (4x − n)/(nx)). So 𝒜|_{U_n∖{0}} ∈ Br(U_n ∖ {0}).
-3. That limit class does not come from Br U_n (CERTIFIED by explicit points, given BL Thm 1.6). On U_5, at the place 3 the
-   symbol of 𝒜 differs from that of BL's generator at P = (30/29, −12, −12) and agrees at P′ = (120/121, −12, −8);
-   since Br U_5/Br ℚ = ⟨BL⟩, any class of Br U_5 differs from 0 or from BL by a constant algebra, whose local
-   evaluation is constant, and 𝒜's real evaluation is non-constant. So the limit is ramified at the singular point
-   (along an exceptional curve of a resolution) and gives no obstruction to anything on U_n.
-4. The k-scaling (x, y, z, n, k) ↦ (λx, λy, λz, λn, λ³k) moves away from k = 0; at fixed y, gcd(K_y(±4), K_y(0)) | 4
-   (board). No transport. Assessment: the theorem is a calibration of (J)97's "shape of a failure" — a sibling where
+3. For non-square n (in particular n = p) the limit class does not extend to Br U_n (PROVED; review computation,
+   re-checked here). Blow up the origin, (x, y, z) = λ(X, Y, Z): the exceptional curve E is the conic XY + YZ + ZX = 0
+   (a ℚ-rational curve), −q|_E = n, and d = λ(4λYZ − nY − nZ) has v_E(d) = 1; so the residue along E is the class of n
+   in ℚ(E)^×/squares, non-trivial iff n is not a square. Corroboration (CERTIFIED, explicit points, given BL Thm 1.6):
+   on U_5 at the place 3 the symbol of 𝒜 differs from that of BL's generator at P = (30/29, −12, −12) and agrees at
+   P′ = (120/121, −12, −8), impossible for 0 or BL plus a constant algebra. For square n the residue vanishes and the
+   class extends to Br U_n (so it is constant or BL's generator mod Br ℚ; not pursued). Either way it supplies no
+   Brauer–Manin obstruction on U_n beyond BL's, which Bright–Loughran show does not obstruct existence.
+4. The scaling (x, y, z, n, k) ↦ (λx, λy, λz, λn, λ³k) never moves a nonzero fibre to k = 0. At fixed y, with
+   K_y(k) = (ny)² + kq, gcd(K_y(±4), K_y(0)) = gcd((ny)², 4q), which divides 4 when gcd(n, y) = 1 (the board's "| 4"
+   needs this hypothesis: n = y = 5 gives 5). No transport. Assessment: the theorem is a calibration of (J)97's "shape of a failure" — a sibling where
    reciprocity kills a positive-density set of n — not progress on 4/p.
 
 ### 1(b) GT1: every non-square n ≡ 1 (4) has a genus-free level
@@ -137,7 +146,7 @@ genus form. Scope: finiteness only; the level 4r is Linnik-size, no bound t_G �
 of a divisor (the ES₅ event), and no ES implication. Assessment: this retires fable-4's open target; the "genus layer
 is pointwise free" sentence is correct with that scope.
 **Check (CERTIFIED, `scripts/z52_bank_gt1.py`, F₂-linear-algebra test "v(−1) ∈ span{v(s)}" over a basis of real
-characters mod t):** all 7 457 non-squares n ≡ 1 (4), n ≤ 3·10⁴: t_G(n) ≤ 116 (max at n = 12 369; 62 % have t_G = 4),
+characters mod t):** all 7 413 non-squares n ≡ 1 (4), n ≤ 3·10⁴: t_G(n) ≤ 116 (max at n = 12 369; 62 % have t_G = 4),
 and for every n the planted level 4r (least a, least r) is genus-free (max planted level 6 388); every odd square
 ≤ 3·10⁴ is obstructed at all t ≤ 40. Consistent with fable's census (max t_G = 124 below 3·10⁵, not re-run).
 
@@ -163,7 +172,7 @@ x is a non-residue, so some prime factor of x lies outside U ⊇ H; then d − 2
 (For H = Stab(R(px)) also x, p ∉ −H, as x, p ∈ R(px).) Consequence at q = 7 (u = 3 forces d = 3, H = {1}; argon):
 a failing full window has exactly one prime factor of x, with multiplicity, ≢ 1 (mod 7), call it s₀; s₀ ∉ −H = {6} and
 x ≡ s₀ is a non-residue, so s₀ ≡ 3 or 5; s₀ ≡ 5 would give p ≡ 4x ≡ 6 ∈ −H, excluded; hence p ≡ 5 (mod 7).
-**Test (CERTIFIED, `scripts/z52_bank_kneser.py`):** all primes p ≡ 1 (4) < 2·10⁵ and forced q ≤ 59: 10 035 failing full
+**Test (CERTIFIED, `scripts/z52_bank_kneser.py`):** all primes p ≡ 1 (4) < 2·10⁵ and forced q ≤ 59 with q < p: 10 035 failing full
 windows, 0 violations of any clause for either stabiliser (the 283 failures at q = 7 all have p ≡ 5 (mod 7) and exactly one
 prime factor ≢ 1 (mod 7)); the bound Ω_out = d − 2 is attained in 713 cases (so it is
 sharp in practice). Scope (board, sustained): a local inverse theorem for one window; fable's within-class test shows
@@ -244,8 +253,9 @@ coprime, and uv | p + u + v is E_(u,v), leaving (1,2), (2,3), i.e. ((p+3)/2, 1, 
 (p+3)/2 ≡ 2 (mod 4) and (p+5)/6 ≡ 1 (mod 4): non-certifying. So v > H. Finally tu = A + 1 > H + 1 gives
 max(t, u) > √(H+1), and med(t, u, v) ≥ min(max(t, u), v) > √(H+1). With H = exp((log p)^κ) and the size bound of
 Thm 1 the asymptotic statement follows. ∎
-Scope (board): this excludes only bottom-up enumeration of a small coordinate followed by trial division; it says
-nothing about existence or about other algorithms; the Lenstra/Bernstein half is prior art (`BRAINSTORM/s3_lll_lenstra.md`).
+Scope: at such p every search confined to words with two coordinates ≤ √(H+1) (or with min(A, A*, v) ≤ H) finds no
+certificate; a fixed small endpoint u is *not* excluded (H4_NOT_POLYLOG disclaims one-endpoint bounds), and nothing is
+said about existence or about other algorithms; the Lenstra/Bernstein half is prior art (`BRAINSTORM/s3_lll_lenstra.md`).
 **Check (CERTIFIED, `scripts/z52_bank_median.py`):** for all 2 212 primes p ≡ 1 (24) < 2·10⁵, with H_av(p) the largest H
 (H² < p) at which p avoids all E and C events (max H_av = 28, at p = 196 561), every certifying word satisfies
 min(A, A*, v) > H_av and med > √(H_av + 1): 0 violations. M₂(p) := least median over certifying words is 3, 3, 4, 3, 15, 7,
@@ -268,16 +278,17 @@ and argon-3's "Conditional on the 4·10⁷–10⁸ range" tag can be dropped. Ex
 (22 542 987 more primes; total 25 423 491 = π(10⁹; 4, 1)). The least certifying interior endpoint u is ≤ 39 throughout
 (≤ 3 for 91 % of primes; maximum 39 at p = 754 039 441).
 Scope: EVIDENCE for "I3_𝒞(p) ≥ 1 for all primes p ≡ 1 (4), p > 2521", which would imply ES₅(p) and ES(p) (§1(e)); it is
-not a proof of anything beyond 10⁹ and, like every finite census, cannot see the infinitely-many-failures behaviour that
-H4_NOT_POLYLOG forces for bounded endpoints.
+not a proof of anything beyond 10⁹. (H4_NOT_POLYLOG forces the larger endpoint and the covering coordinate to exceed any
+fixed polylog bound infinitely often; it does not force the least interior endpoint u to grow, and the census's
+bounded least-u ≤ 39 is compatible with it.)
 
 ### T2 S_{n,−4} census, n ≤ 10⁵
 
 Code: `scripts/z52_bank_pencil.c` (complete divisor method of §1(a); 128-bit Pollard–Brent factoring of
 N_x = n²x² − 4(4x − n) < 2⁶⁷), witnesses verified on the equation before output; brute-force cross-check on n ≤ 300.
 **Result (CERTIFIED).** For 2 ≤ n ≤ 10⁵ (every n, not only 3 ∤ n), S_{n,−4}(ℕ) = ∅ exactly for
-n ∈ {2, 9, 21, 165, 945, 1197} (n = 2, …, 8 by direct search: only n = 1, 2 fail). **No failure with 3 ∤ n**, and none
-at all above 1197. So the board's fable-1 drop-condition (b) ("a failure with 3 ∤ n would show an unexplained global
+n ∈ {2, 9, 21, 165, 945, 1197} (n = 2, …, 8 by direct search; n = 1, 2 fail trivially). **For 3 ≤ n ≤ 10⁵ no failure has 3 ∤ n**, and there is
+none above 1197 in the tested range. So the board's fable-1 drop-condition (b) ("a failure with 3 ∤ n would show an unexplained global
 obstruction") did not fire up to 10⁵. Witnesses: `data/z52_bank/pencil_km4_witness_n9_1e5.txt.gz` (30 s on 12 cores).
 **Count scale (EVIDENCE; complete counts, `data/z52_bank/pencil_km4_counts_*`).** At primes p ≡ 1 (4) the number of
 solutions with x ≤ y ≤ z has mean c/log²p = 0.385, 0.407, 0.425, ≈ 0.43 at log p ≈ 7.3, 8.6, 10.3, 11.5 (minimum 6, 14, 17,
@@ -304,30 +315,47 @@ failures, all below about 10⁷" as far as it goes.
 (1 045 primes, 10³ < N ≤ 2·10⁴, mean log N = 9.0), 0.207 (171 primes near 10⁵), 0.254 (704 primes in (9.8·10⁵, 10⁶]);
 mean count 15.7 → 27.5 → 48.4. Local exponent of log N: 2.6 (2·10⁴ → 10⁶), 3.1 (10⁵ → 10⁶); c/log³N ≈ 0.018–0.021
 throughout. So the board's "≈ 0.16 log²N, the (★) regime" (fit on N ≤ 700) is **not supported**: at these sizes the count
-grows like log³N (full-ES-like), with class-dependent constants. Minimum count above 10⁵: 6.
+grows like log³N (full-ES-like), with class-dependent constants. Minimum count in the two sampled complete-count windows above 10⁵: 6.
 
 ### T4 Shared invariants of T2/T3 failures
 
 **S_{n,−4} (T2).** The odd failures 9, 21, 165, 945, 1197 are all ≡ 1 (4) and all divisible by 3; no other residue,
 mod 5, 7 or 8, is shared. For 3 | n the equation mod 3 reads xyz ≡ −1 (mod 3), so no coordinate is divisible by 3 —
-a local depletion. Measured (n ≡ 1 (4), n ≤ 6000, complete counts): mean count/log²n is 0.131 (3 | n, n ≡ 1 (8)),
-0.146 (3 | n, n ≡ 5 (8)) against 0.301 and 0.389 for 3 ∤ n. The failures are lottery losses in the depleted cell,
-like U(105); nothing global is visible (5 zeros among 500 values of the cell; the cell is not empty).
+a local depletion (PROVED as a congruence fact). Measured (n ≡ 1 (4), n ≤ 6000, complete counts): mean count/log²n is
+0.131 (3 | n, n ≡ 1 (8)), 0.146 (3 | n, n ≡ 5 (8)) against 0.301 and 0.389 for 3 ∤ n (EVIDENCE). Assessment: the failures
+look like lottery losses in this low-count cell, like U(105); no global obstruction was identified (5 zeros among 500
+values of the cell).
 **ES_Q1 (T3).** Normalise n so that Re n is even (n or b + ai). All six failures have **Im n ≡ 1 (mod 4)**: 4+5i, 6+5i, 2+5i,
 10+13i, 2+17i, 8+73i, with Re n mod 4 = 0, 2, 2, 2, 2, 0. These two classes have the low means (count/log²N at
 N ≤ 2·10⁴: 0.118 and 0.135 for Im ≡ 1, against 0.157 and 0.346 for Im ≡ 3; the gap persists at 10⁶: 0.19, 0.18 vs 0.20,
-0.44): again a local (mod 4, i.e. 2-adic cone/unit) depletion. A quartic-character probe found 5 of 6 failures with
-[3/π]₄ = −i, but [3/π]₄ has no effect on the class means (all four values within noise at every scale), so with six
-data points and three characters tried this is not significant.
-**Zero law (Assessment).** Plugging the measured class means into (J)97's law P(0) ≈ exp(−0.535 μ^{0.91}) predicts ≈ 15
-Gaussian failures for N ≤ 10⁴ (observed 6) and ≈ 4 for 10⁴ < N ≤ 10⁶ (observed 0); for S_{n,−4} (n ≡ 1 (4)) it predicts
-≈ 12 failures ≤ 1000 (observed 4) and ≈ 24 in (1000, 10⁵] (observed 1). Both siblings fail *less* often than that law
-(which was fitted to Type II cell means, a different normalisation), so the law is not a universal sibling law.
-**"Prime T1 in a sibling" (FRONTIER §7.15): no.** In both siblings every failure sits in a cell that is locally depleted
-(3 | n; Im n ≡ 1 (4)), each such cell is mostly successful, and the failures stop (above 1197, resp. 5393) while the
-counts grow. No residue class, character value or square-like profile shared by all failures was found beyond the local
-cell. This is consistent with the board's view that these are lotteries, and gives no new disproof shape.
+0.44) (EVIDENCE: empirically lower-count cells; no mechanism is proved). A quartic-character probe
+(`scripts/z52_bank_t4_gauss_invariants.py`) found 5 of 6 failures with [3/π]₄ = −i, but no compelling effect of
+[3/π]₄ on the class means was detected at any scale, and with six data points and three characters tried this is not
+significant.
+**Zero law (Assessment).** Plugging the measured class means (extrapolated as constants below the sampled windows) into
+(J)97's law P(0) ≈ exp(−0.535 μ^{0.91}) (`scripts/z52_bank_t4_zerolaw.py`, domains matched to the observations) predicts
+≈ 16 Gaussian failures for 29 ≤ N ≤ 10⁴ (observed 6) and ≈ 4 for 10⁴ < N ≤ 10⁶ (observed 0); for S_{n,−4}, n ≡ 1 (4),
+≈ 13 for 9 ≤ n ≤ 1000 (observed 4) and ≈ 24 in (1000, 10⁵] (observed 1). Both siblings fail less often than that law
+predicts. The law was fitted to Type II cell means, a different normalisation, and no dependence/uncertainty model is
+used here, so this is a calibration mismatch, not a rejection of the law.
+**"Prime T1 in a sibling" (FRONTIER §7.15): none found (Assessment).** In both siblings every failure sits in a
+low-count cell (3 | n; Im n ≡ 1 (4)), each such cell is mostly successful, and there are no further failures in the
+tested ranges (above 1197 up to 10⁵, resp. above 5393 up to 10⁶) while the counts grow. No residue class, character value
+or square-like profile shared by all failures was found beyond the cell. A mostly successful cell does not exclude a
+finer global obstruction; the data are merely consistent with the board's lottery reading and give no new disproof
+shape.
 
 ## Review log
 
-TODO
+Cross-model hostile review (subagent, openai-codex/gpt-6-astra; the requested `:high` suffix was not resolvable, so the
+default thinking level ran), 2026-10-30, of Part 1 proofs and Part 2 conclusions, with spot re-runs. Verdict: all Part 1
+proofs sound (1(a) generalised square-k theorem incl. 2-adic cases, purity, local solubility; 1(b); both 1(c)
+stabiliser versions and q = 7; 1(d) definitions and spec_typecount convention reproduced; 1(e) slot identities and
+Prop 3.2(b); 1(f) all eight exceptional word types non-certifying). Search ranges and code complete in the stated ranges;
+all stored witnesses re-verified. Fixed after review: non-square-k ramification statement (MAJOR; wrong as first
+written); k → 0 non-extension now proved by the exceptional-divisor residue and restricted to non-square n (MAJOR);
+gcd(K_y) hypothesis (MAJOR); T1/1(f) misreading of H4_NOT_POLYLOG as forcing small endpoints (MAJOR); T2 "no failure with
+3 ∤ n" contradicted n = 2 (MAJOR); T4 interpretations relabelled Assessment, "failures stop" restricted to tested ranges
+(MAJOR); x-range justification for larger k, attempts vs accepted points, 7 413 count, q < p scope, sampled-window minimum,
+zero-law domains (MINOR). Not changed: count-scale exponents are kept as finite-range EVIDENCE (the reviewer agrees they
+reproduce but cannot decide log² vs log³ asymptotically).
