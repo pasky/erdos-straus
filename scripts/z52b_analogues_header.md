@@ -6,12 +6,12 @@ breadth-first list. The only filter is an obvious-nonsense filter, and items wer
 
 ## Summary
 
-* **362 items** in 9 worlds (sections A–I below). Confidence-not-nonsense: high 131, med 160, low 71. Effort: cheap 294,
-  medium 67, big 1. 717 distinct free-form tags; 51 items carry a `seen:<file>` tag.
+* **362 items** in 9 worlds (sections A–I below). Confidence-not-nonsense: high 132, med 160, low 70. Effort: cheap 294,
+  medium 67, big 1. 712 distinct free-form tags; 51 items carry a `seen:<file>` tag.
 * **Tag histogram (top 30):** function-field 53, constraint-world 29, literature 25, data 22, new-world 21, sibling-problem 19,
   computation 18, real-quadratic 15, T1 14, Gaussian 14, reformulation 14, polynomial-ring 13, boundary-marker 12, S-integers 12,
-  calibration 8, topology 8, context 8, closed 8, numerator-spectrum 7, units 7, 2-adic 7, logic 7, finite-field 6,
-  classification 6, quaternion 6, matrices 6, k-terms 6, signed-ES 5, dictionary 5, squares 5. The full histogram is in the
+  calibration 8, topology 8, context 8, closed 8, numerator-spectrum 7, units 7, 2-adic 7, logic 7, finite-field 6, cone 6,
+  classification 6, quaternion 6, matrices 6, local-obstruction 6, k-terms 6, signed-ES 5. The full histogram is in the
   auto-generated statistics below.
 * **New small computations (all cheap, scripts committed):**
   - The *constraint-world census*. For every prime p ≡ 1 (mod 4) below 2·10⁴ (1125 primes), all solutions were enumerated
@@ -25,6 +25,7 @@ breadth-first list. The only filter is an obvious-nonsense filter, and items wer
     always suffices: 4/p = 1/(p/3) + 1/(2p) + 1/(2p). So the "ℓ-depth" and "smooth-numerator" hierarchies I first wrote down are
     empty (items 0053, 0074, 0055, 0096). The only S-integer content that does not depend on ES itself is the unit-sum
     *mechanism*.
+  - A hostile review (codex, deep) found about 28 further errors in the first draft, all fixed in place. Among them: false local-solubility claims for unit cones; the narrow class group of F_q[T] (it is trivial); the Mason–Stothers hypothesis; the Mordell–Schinzel gcd hypothesis; the weighted-star determinant; the finite-field point count (it is q² + 1, independent of n); a lost log in A₃(p); and the direction of the Borwein–Choi GRH statement.
   - Two guesses about the failure sets of constrained worlds were checked against the data. The guess for the norm world was
     refuted (0217). The guess for the chain world was confirmed, with a sharper statement (0218).
 
@@ -52,7 +53,7 @@ breadth-first list. The only filter is an obvious-nonsense filter, and items wer
    via e | 1 + ℓ^k with k ≤ 7. The relaxations themselves collapse, which isolates the integer target: a p-tied surrogate η(p)
    for the unit (0338).
 8. **0219 — Borwein–Choi.** N = xy + yz + zx, the same symmetric form as ES's pretzel determinant 4xyz/n, is a sibling solved
-   with class numbers (complete up to one possible GRH exception). Their form correspondence might be extended to track xyz.
+   with class numbers: 18 known exceptions plus at most one more unconditionally, and none more under GRH. Their form correspondence might be extended to track xyz.
 9. **0155 / 0156 — singularity theory as a host world.** ES ⇔ 4/n is the log canonical threshold of a Brieskorn–Pham polynomial
    x^a + y^b + z^c. The other quasi-homogeneous (Arnold / Orlik–Wagreich) types give a family of geometrically natural
    "generalized Egyptian" relaxations to test.
@@ -70,7 +71,7 @@ breadth-first list. The only filter is an obvious-nonsense filter, and items wer
 | F₉, F₂₇ … | no finite linear covering (PROVED) | — (behaves like Z) | Mordell (known) | FF_ODD_ABSENCE |
 | fixed q, deg P → ∞ | density-zero failures (PROVED) | one-prime identity + RH in F_q[T] | GRH ⇒ power-saving exceptional set (0003, 0337) | FUNCTIONFIELD_ES §5; Vaughan |
 | q → ∞, fixed degree | FALSE for most P | — | large numerators fail (A₃(p) polylog) (0004) | Luca–Pappalardi; Mond–Portier |
-| F_q[T] with free leading coefficients | exceptions = squares exactly (q large) | Weil sum over q − 1 unit shifts | cancellation over a p-tied family of shifts (0300) | EXSET_FUNCTION_FIELD §1.3 |
+| F_q[T] with free leading coefficients (numerator-free U union U'_q, not ES_q) | exceptions = squares exactly (q large) | Weil sum over q − 1 unit shifts | cancellation over a p-tied family of shifts (0300) | EXSET_FUNCTION_FIELD §1.3 |
 | one mute place (FF) | PROVED for all P | Bilharz (FF Artin) | Z[1/ℓ] unit mechanism (elementary) (0299, 0052) | FF_MUTE Thm 3.5 |
 | Z[1/ℓ], Z[1/p] | PROVED (trivially, and also via units) | e \| 1 + ℓ^k; or depth-1 identity | p-tied surrogate η(p) with e \| 1 + η(p) (0338); relaxations collapse (0053, 0074, 0096) | other_rings Prop 3.2 |
 | O_K, N(ε) = −1; Q(√p) | PROVED | η ≡ −1 mod an inert ℓ ≡ 3 (4) | same surrogate; trace descent to numerator 8 (0056, 0057, 0258) | other_rings Prop 3.3 |
