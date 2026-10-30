@@ -38,3 +38,10 @@
 
 None. The strongest apparent pointwise analogues (Zhang and Shkredov) are preprint claims with power-sized, dimension-tunable denominator sets, while the pointwise Markoff theorem counts orbits in a fibre of size ≍p². None supplies an every-prime representation mechanism in a thin/polylogarithmic regime. A candidate would need to defeat B2's prescribed-divisor/residue bottleneck and pass the `FRONTIER` §4 screening checklist; no non-obvious input or cheap test emerged that is not already in `BRAINSTORM/z31_zaremba_thin_orbits.md` or `BRAINSTORM/z31_markoff_chen.md`.
 
+## §4 Not accessed / could not verify
+
+- **Kontorovich–Nakamura:** lead not verified; no specific relevant result/source established.
+- **Moshchevitin–Shkredov** (every prime has a bounded-partial-quotient denominator among multiples q=O(p³⁰)): existing dossier reports the result, but this lane did not independently reopen its primary source; not used as a pointwise theorem for exact denominator p.
+- **Eddy–Fuchs–Litman–Martin–Tripeny**, effective numerical threshold and completion details: source not reopened in this lane; not needed for the mechanism comparison.
+- **Markoff mod-p connectivity “for all p” beyond Chen's explicitly stated finite exceptional-set result:** no separate 2025–26 completion verified.
+- **Ghosh–Sarnak quantitative failure lower bound; Loughran–Mitankin and Colliot-Thélène–Wei–Xu theorem-level details:** not verified from their full primary sources here; quantitative claims omitted.
