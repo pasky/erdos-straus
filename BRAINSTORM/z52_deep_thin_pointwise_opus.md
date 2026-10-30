@@ -3,9 +3,25 @@
 **ES is OPEN.** Nothing here proves or disproves it. Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE /
 CONJECTURE / Assessment. Internal results are internally reviewed only.
 
-## Summary (to be written last)
+## Summary
 
-(skeleton)
+1. (Assessment) Verified pointwise theorems whose natural witness count at one n is O(1) or polylog get existence from
+   one of two sources. (T): a thick deterministic object (size ≥ n^c) plus an exact local extraction rule (collision,
+   fixed-point parity or count congruence, interlacing, descent). (R): rigidity (a fixed-modulus Frobenius event, a
+   cyclotomic integer, or a multiplicative count). All other pointwise theorems have power-size counts. Thin counts
+   without (T) or (R) are false or open (p + 2^k, p + 2k², Markoff, three cubes, ES). See §0.
+2. (Assessment) §1 has 40 entries with verification status. Newly source-checked here: Chen 1.2.5–1.2.6; Ghosh–Sarnak
+   (1.6), Thm 1.2 and K^{0.8875} (power-many failures at ES's log² scale); Harpaz 1.0.1; CW and restricted-variable CW;
+   Alon CN; LLS; Ramaré–Walker; Huang; CLB; OEIS A060003. About 20 items are NOT ACCESSED (§4).
+3. (Assessment) §2.0 gives a generator matrix: 8 thick objects at p × 8 extraction rules. Its open cells coincide with
+   loopholes the repo already lists ((J)10 growing-level identities; non-affine windmills).
+4. (PROVED, elementary, partly known; EVIDENCE) §2.1–§2.4 give scoped negative results:
+   * Complement pairing makes level counts even, and R(p)/2 parity behaves like a coin (49.9 %, 51.0 %). This answers
+     the Chevalley–Warning question.
+   * Bounded-exponent levels form a finite menu, and the genus layer over-passes the (★) event 5.6× elsewhere (gate G4).
+   * The Dedekind–HJ discharging charge is χ-blind, and χ-product cliques are cosets.
+5. (Assessment) No untried mechanism is promising: promise 1/10 to 1/50. ES is OPEN. The cross-model review found
+   0 FATAL and 10 MAJOR scope issues, all repaired (§3).
 
 ## Predecessors read (do not repeat)
 
@@ -99,7 +115,7 @@ witnesses at one n. "Class" refers to §0.
 
 | # | statement (source, theorem no.) | ver. | count at one n | class | does ES admit the mechanism? |
 |---|---|---|---|---|---|
-| 1 | Every prime p ≡ 1 (4) is x² + y². Zagier, AMM 97 (1990) 144: an involution on the finite set S = {(x,y,z) ∈ ℕ³ : x² + 4yz = p} has exactly one fixed point, (1,1,k), so \|S\| is odd and (x,y,z) ↦ (x,z,y) has a fixed point. "Only the last [assertion] requires that p be a prime of the form 4k+1." | V (`01-zagier.txt`) | 1 unordered rep.; \|S\| is thick | ζ (T) | Only via a thick superset with one prime-sensitive local step. On (★) sets the parity is uninformative (§2.1). INVOLUTION_ES Prop 2.3: \|X(q²)\| is odd for the O152 set |
+| 1 | Every prime p ≡ 1 (4) is x² + y². Zagier, AMM 97 (1990) 144: an involution on the finite set S = {(x,y,z) ∈ ℕ³ : x² + 4yz = p} has exactly one fixed point, (1,1,k), so \|S\| is odd and (x,y,z) ↦ (x,z,y) has a fixed point. "Only the last [assertion] requires that p be a prime of the form 4k+1." | V (`01-zagier.txt`) | 1 unordered rep.; \|S\| is thick | ζ (T) | The precedent suggests a thick superset with one prime-sensitive local step. On (★) sets, uniform parity laws fail on the samples (§2.1). INVOLUTION_ES Prop 2.3: \|X(q²)\| is odd for the O152 set |
 | 2 | Thue's lemma ⇒ two squares (Brillhart, Math. Comp. 26 (1972) 1011) | NA (`02-thue-brillhart.txt`) | O(1) | ε | Needs a definite form; ES's quadratic pieces are split (DETERMINISTIC_EXISTENCE row 1) |
 | 3 | Lagrange four squares; Cauchy–Davenport was "applied … to give a new proof to a lemma of Lagrange" (Alon, CN, after Thm 3.2) | V2 (`alon_cn.txt`) for the CD link; Jacobi's r₄ NA | 8σ(n) for odd n (NA) | α+β, ε′ | not thin |
 | 4 | Gauss: n = x² + y² + z² ⟺ n ≠ 4^a(8k+7) (Choi–Kumchev–Osburn §1) | Vs (`04-three-squares.txt`) | ≍ n^{1/2±ε} (class-number formula NA) | β | not thin (B3) |
@@ -132,7 +148,7 @@ witnesses at one n. "Class" refers to §0.
 | 31 | Lenstra–Schoof 1987, primitive normal bases exist for every E/F (Cohen–Huczynska arXiv:math/0610400v2, abstract) | V2 (`cohen_huczynska_lenstra_schoof.txt`) | power | ξ (+ computation) | not thin |
 | 32 | Zaremba. Bourgain–Kontorovich Thm 1.2 (almost every q, arXiv:1107.3776); Shkredov Cor 1 (every prime / squarefree q), arXiv:2603.14116v2 (24 Jun 2026); X. Zhang Thm 1.2 (all q), arXiv:2605.02518v2 (8 May 2026), unrefereed | V (BK); R + version check (`zaremba_2026_versions.txt`, repo `sources/lit2026g/shkredov_zaremba2026.txt`) | q^{2w_M−1}, a power | γ | F2: ES₅ is critical, ≍ log²p ((J)94, ZAREMBA_TRANSFER) |
 | 33 | Markoff mod p. Chen, Ann. of Math. 199 (2024), arXiv:2011.12940v2, Thm 1.2.5: every Γ-orbit on X*(p) has size divisible by p. Thm 1.2.6: the BGS exceptional set is finite, and strong approximation holds at all other p. BGS arXiv:1607.01530 Thm 1: a giant orbit, with \|X*(p) − C(p)\| ≤ p^ε | V (`chen_markoff.txt`, `bgs_markoff.txt`) | \|X*(p)\| ∼ p² | γ + ζ | wrong axis: this is the connectivity of one surface mod p, not existence over a family (B2_ACROSS row 2) |
-| 34 | Ghosh–Sarnak, arXiv:1706.06712v3, (1.6): Σ_{\|k\|≤K} h±_M(k) ∼ C± K (log K)²; h±_M = h_M for generic k. Thm 1.2(i): ≥ √K (log K)^{−1/2} Hasse failures. (1.7): numerically ≈ C₀K^{0.8875}. Remark 1.3(a): the failures of Prop 8.1(iii) use reciprocity + Markoff descent and are not explained by integral BM | V (`ghosh_sarnak.txt`) | (log k)² on average, the same scale as ES | failure side | ES's precedent at its own scale: polylog count, no BM explanation, power-many failures. ES has none to 10¹⁸ (z38_markoff_precedent) |
+| 34 | Ghosh–Sarnak, arXiv:1706.06712v3, (1.6): Σ_{\|k\|≤K} h±_M(k) ∼ C± K (log K)²; h±_M = h_M for generic k. Thm 1.2(i): ≥ √K (log K)^{−1/2} Hasse failures. (1.7): numerically ≈ C₀K^{0.8875}. Remark 1.3(a): the failures of Prop 8.1(iii) use reciprocity + Markoff descent and are not explained by integral BM | V (`ghosh_sarnak.txt`) | (log k)² on average, the same scale as ES | failure side | ES's precedent at its own scale: polylog count, no BM explanation, power-many failures. ES has none to 10¹⁷ (Salez; 10¹⁸ reported, unrefereed) (z38_markoff_precedent) |
 | 35 | Harpaz, arXiv:1511.04876v2, Thm 1.0.1: for the pencil (c₁t+d₁s)(c₂t+d₂s)x² + (c₃t+d₃s)(c₄t+d₄s)y² = 1 over ℤ_S (S ∋ 2, ∞), if each pair (c_i, d_i) is S-coprime, all Δ_{i,j} = c_j d_i − c_i d_j are non-zero, and the seven classes [−1], [Δ_{i,j}] are linearly independent in ℚ*/(ℚ*)², then Y has an S-integral point | V (`harpaz_conic_logk3.txt`) | — | κ + descent–fibration | the only verified existence theorem for a log K3 family. It is S-integral with hypotheses on coefficient square classes; ES's U_n is log K3 (Bright–Loughran, `bright_loughran_logk3.txt`) but not of this shape (B2_ACROSS row 6) |
 | 36 | Margulis/EMM: for Q of signature (p,q), p ≥ 3, q ≥ 1, not proportional to a rational form, N_Q(a,b,T) ∼ λ(b−a)T^{n−2} (EMM98 Thm 2.1, as restated in Margulis–Mohammadi arXiv:1001.2756v1 Thm 1.1) | V2 (`margulis_mohammadi_oppenheim.txt`) | T^{n−2} | δ | not thin; no group |
 | 37 | Erdős 1950: an AP of odd n with no n = 2^k + p (covering congruences); Crocker 1971 (p + 2^a + 2^b, infinitely many odd exceptions); Pan 2011 (≫ x^{1−ε} exceptions) | R (s9 ✓-marks, R282; `sources/lit2026g/erdos_2kp.txt`, secondary) | ≍ 1 and ≍ log n | failure side | coverings act on the fixed orbit k ↦ 2^k; ES's sets move with n (B2) |
@@ -160,7 +176,7 @@ subset-product target of gate G4, solved only because the generating set is dens
 solved by a count congruence (orbit size ≡ 0 mod p) on a thick set. ES has neither a dense generating set nor an orbit
 structure. Since (J)103 this adds one fact: the Markoff precedent (row 34) has *power-many* failures at ES's own
 log²-scale, numerically ≈ K^{0.8875}, of which only O(√K) are explained algebraically (GS Remark 1.3(a)). The
-problem class therefore does not guarantee existence; ES's empirical robustness (no failure to 10¹⁸, minimum 612
+problem class therefore does not guarantee existence; ES's empirical robustness (no failure to 10¹⁷, 10¹⁸ reported; minimum 612
 solutions on cheap slices at 10¹⁸–10²⁵) is a property of ES, not of the class.
 
 ## §2 Most promising untried mechanisms
