@@ -604,7 +604,8 @@ bias identities, and an independent W1/parity verification.
 `reviews/z51-linnik-review-2-check.py`).** Overall MAJOR revision; two claims FATAL as stated. Per item:
 * R1 repairs (Lemma 1.2, (1.1), Prop 2.2, Lemmas 2.3–2.4, Thm 2.5(a)(b), Cor 2.6, Prop 2.8, Thm 3.1, Cor 3.2, GRH remark):
   SOUND. Minor: Remark 2.7 needs ε ≤ 1/8; Prop 2.8 should quote λ = max(λ₀, λ(L)); Thm 2.10(A) must say T > φ(k);
-  "order ≥ 3 not periodic at all" too absolute; summary "28% sterile" must name the checked boxes. *All repaired.*
+  "order ≥ 3 not periodic at all" too absolute; summary "28% sterile" must name the checked boxes. *Repaired* (the
+  remaining summary qualifications were completed after R3).
 * Lemma 4.1: SOUND (dimension, not number of states). Prop 4.2(i): disjoint case SOUND, overlap case MAJOR gap →
   *repaired* by a global averaging argument (threshold 2^{t+1}). (ii): normalisation MINOR → T > 2(1 + 4T₀ log N).
   (iii)/"exact blocking lemma": FATAL as a general exclusion (injective ≠ independent; few states ≠ congruence rule) →
@@ -619,9 +620,23 @@ bias identities, and an independent W1/parity verification.
   EXCEPTIONAL_LARGESIEVE Thm 3.1, L ≤ X/2). §6.3: family scope (native 2/3 vs ratio 3/4) and "needs pointwise input" overclaimed
   → *repaired* (ratio family via EXCEPTIONAL_LARGESIEVE Thm 3.1; approximate non-CRT inputs left open).
 * §8 item 5 (fibre-cap door, added during R2): SOUND as an open direction; the "most q" criterion replaced by an average,
-  η ∈ (0, 1), "removes exactly" withdrawn. *Repaired.*
+  η ∈ (0, 1), "removes exactly" withdrawn. *Partly repaired; completed after R3.*
 R2 reproduced: forcing at p = 1 000 609 (modes 0 and 1), the y = 200 window run on [10⁸, 1.03·10⁸] (5051 primes), and an
 independent direct check of the window criterion.
+
+**R3 (Astra, high; focused on the R2 repairs; `reviews/z51-linnik-review-3.md`).** No remaining FATAL claim; MAJOR
+concentrated in §8 item 5 and summary scope. Verdicts: Lemma 4.1, Prop 4.2(i) overlap argument (threshold 2^{t+1}),
+(ii) (T > 2(1 + 4T₀ log N)), (iii) and the scope note SOUND; Lemmas 5.1–5.2, the window criterion, (WL_{A,κ}) and
+Corollary 5.3 (dyadic summation checked) SOUND; §6.1 and the ℛ plane-finiteness argument SOUND (re-certified: mean 39.83,
+max pivot 5 706 695); Prop 6.1(a) citation audit SOUND (hypotheses of EXCEPTIONAL_LARGESIEVE Thm 3.1 matched, interval
+[1, X], L ≤ X/2), Prop 6.1(b) SOUND (all-fibre assembly; per-summand level); Theorem 2.10 SOUND as a scoped conjunction.
+Repairs made after R3: (1) §8 item 5 — MAJOR: the integer avoider contains zero-symbol points (x = 4∏S avoids every
+native class and has no non-residue coordinate), so domination is now stated on the unit domain U_S with B_sign matched to
+Theorem 3.1's datum and κ > 0; (2) MAJOR: a power-small Haar mean is only a mean target, a finite-interval evaluation
+(coefficient sum) is now required explicitly; (3) MAJOR scope: the bottom line and the Theorem 2.10 Reading no longer say
+"non-CRT input is missing", they list the still-open CRT hybrid, dense and structured routes; (4) MINOR: the lottery tilt
+formula θ_fail = (1 − f)/(2 − f − u) replaces "fixed factor"; "displayed bins"; small primes < 11 in Conjecture 2.9's
+consequence; Prop 6.1 on [1, X]; level qualifier for §6.3; table qualifiers. R3 re-ran R2's independent checker (exit 0).
 
 ## 8. Remaining gap (precise)
 
