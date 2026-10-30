@@ -270,9 +270,60 @@ forced / Type-II successes / full successes: 193: 18/0/0; 409: 22/3/4; 577: 18/2
 full form (ES(193) uses other x), and at 3361 every forced window fails at Type II level. The hard primes are exactly
 where forced windows are thin; the windows give no pointwise guarantee even at tiny p.
 
-## 5. Robust Linnik confinement
+## 5. Robust Linnik confinement: a majority of q suffices
 
-(pending)
+G3 and Observation 1.1 ask for confinement at *every* q ≤ (log p)^{2+δ}. Linnik's dual sieve does not need that:
+it needs only a *bias* of the quadratic character on the small primes.
+
+**Proposition 5.1 (biased characters are rare; PROVED, multiplicative large sieve + a moment trick).** Let X ≥ 3,
+y ≥ 17, S := {primes q ≤ y}, m := |S|, 0 < η ≤ 1/2, and r := ⌊2 log X / log y⌋. Then
+`  #{p ≤ X prime : Σ_{q∈S, q≠p} (q/p) ≥ 2ηm}  ≤  y + 2y·(log X/(2η²))^r.`
+For y = (log X)^A and fixed η (or η ≥ (log X)^{−o(1)}) the right side is X^{2/A+o(1)}; for η = (log X)^{−θ} it is
+X^{2(1+2θ)/A+o(1)}. The same holds with S replaced by the primes q ≡ 3 (mod 4) up to y (constants change).
+*Proof.* Primes p ≤ y contribute ≤ y. For p > y put ε_q = (q/p). Let a_n := #{(q₁, …, q_r) ∈ S^r : q₁⋯q_r = n}.
+Then Σ_n a_n (n/p) = (Σ_{q∈S} ε_q)^r ≥ (2ηm)^r on the bad set. By unique factorisation, a pair of r-tuples with
+equal product consists of a tuple and one of its at most r! rearrangements, so Σ_n a_n² ≤ r!·m^r. All n ≤ y^r ≤ X².
+The multiplicative large sieve restricted to primes and their Legendre characters gives
+Σ_{p≤X} |Σ_n a_n (n/p)|² ≤ (X² + X²)·Σ a_n². Hence the number of bad p > y is ≤ 2X²·r!·m^r/(2ηm)^{2r}
+= 2X² r!/((2η)^{2r} m^r). Since m ≥ y/log y and y^{r+1} > X², m^r ≥ X² y^{−1} (log y)^{−r}, so the count is
+≤ 2y·r!(log y)^r/(2η)^{2r} ≤ 2y·(r log y/(4η²))^r ≤ 2y·(log X/(2η²))^r. With y = (log X)^A,
+(log X)^r ≤ exp(2 log X·log log X/log y) = X^{2/A}, and (2η²)^{−r} = X^{o(1)} for η ≥ (log X)^{−o(1)}. ∎
+
+This is the standard moment method for large character sums over primes; the point here is the consequence.
+
+**Theorem 5.2 (robust Linnik reduction; PROVED from Prop 5.1).** Fix A > 2 and η ∈ (0, 1/2]. For every set 𝔈 of
+primes,
+`  #(𝔈 ∩ [1, X]) ≤ X^{2/A+o(1)} + #{p ∈ 𝔈 ∩ [1, X] : #{q ≤ (log X)^A : (q/p) = −1} > (½ − η)·π((log X)^A)}.`
+So for 𝔈 = {p : ES(p) fails}, a power saving for ES is *equivalent* to a power saving for the exceptional primes
+whose quadratic character is balanced on the primes up to (log X)^{2+δ}. Each such prime has at least
+(½ − η)·π((log X)^A; 4, 3) − O(1) **forced windows** q ≡ 3 (mod 4), q ≤ (log X)^A (apply Prop 5.1 to that subset).
+That is ≫ (log X)^A/log log X forced windows, all of which must fail (§§2–4).
+
+**Corollary 5.3 (the weakest pointwise forcing input for Linnik; CONDITIONAL as stated).**
+(a) Hypothesis MF(A, η): every large prime p for which ES(p) fails has #{q ≤ (log p)^A : (q/p) = −1} ≤
+(½ − η)·π((log p)^A). If MF(A, η) holds for some A > 2 and η > 0, then #{p ≤ X : ES(p) fails} ≤ X^{2/A+o(1)}.
+(b) MF(A, η) follows from the *majority-reach hypothesis* MR(A, η): for every large prime p ≡ 1 (mod 8), the
+counterfactual reach (§6, Definition 6.1) holds at at least (½ + η)·π((log p)^A) primes q ≤ (log p)^A.
+*Proof.* (a) Prop 5.1 with X replaced by dyadic ranges (for p ∈ (X^{1/2}, X], (log p)^A ≍_A (log X)^A; adjust η).
+(b) Reach at q and (q/p) = −1 give ES(p) (the actual residue of p mod q is one of the reached non-residues). So an
+exceptional p is a residue at every q where reach holds, and has ≤ (½ − η)·π QNRs. ∎
+
+*How much weaker is this than G3's input (Assessment).* F(R) of §1 asks that every q ≤ (log p)^{2+δ} with
+(q/p) = −1 force a certificate; MF asks only that exceptional primes be QR-*biased* there, with any fixed bias. Under
+GRH, F at reach 2 log²p is equivalent to ES (Obs 1.1(c)). MF(A, η) with 2 < A < 4 is not known to imply ES even under
+GRH: GRH bounds Σ_{q≤y}(q/p) log q by O(√y log²p), which excludes a fixed bias only for y ≫ (log p)^4. So MF is a
+genuinely weaker input than F, and Theorem 5.2 is the exact form in which Linnik's door uses character data: it
+excludes biased primes and nothing else (for the moment polynomial (Σ_q ε_q)^r; other polynomials in the signs
+ε_q = (q/p) detect other *common* sign patterns, e.g. bias on a fixed subset of S, which is the same statement for a
+smaller S). What it cannot use is p-dependent structure: QR on a set T_p ⊂ S that varies with p and has
+|T_p| ≤ m/2.
+
+*Is MF plausible, and is it circular? (Assessment.)* Heuristically the counterfactual reach is ≈ c(log p)³/log log p
+(§6), so an exceptional prime would be QR at *every* q below that, and MF would hold with η = ½ − o(1) for any A < 3.
+But "MF for all but X^{1−c} primes" is circular in the sense of G3: the exceptions to MF are themselves ES-exceptional.
+Only a pointwise proof of MF (or of MR) breaks the circle. The gain over G3 is that the pointwise statement needed is a
+majority statement, which is a natural target for averaging over q *at fixed p* (a single prime, many moduli),
+rather than an every-q statement. §6 measures how far MR is from being true at accessible p.
 
 ## 6. Full Type I/II forcing reach (work item 2)
 
