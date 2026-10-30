@@ -317,60 +317,108 @@ forced / Type-II successes / full successes: 193: 18/0/0; 409: 22/3/4; 577: 18/2
 full form (ES(193) uses other x), and at 3361 every forced window fails at Type II level. The hard primes are exactly
 where forced windows are thin; the windows give no pointwise guarantee even at tiny p.
 
-## 5. Robust Linnik confinement: a majority of q suffices
+## 5. Robust Linnik: bias suffices, down to the scale (log p)^{1+δ} and even C·log p
 
-G3 and Observation 1.1 ask for confinement at *every* q ≤ (log p)^{2+δ}. Linnik's dual sieve does not need that:
-it needs only a *bias* of the quadratic character on the small primes.
+G3 and Observation 1.1 ask for confinement at *every* q ≤ (log p)^{2+δ}. A dual large sieve needs only a *bias* of
+the quadratic character on a set of small primes, and (R2, Astra's observation) the quadratic large sieve of
+Heath-Brown, or the Montgomery–Vaughan moment large sieve, lower the scale. Throughout, p runs over odd primes and
+χ_p(n) = (n/p) for odd n; S(y) := {odd primes q ≤ y}, m := |S(y)|.
 
-**Proposition 5.1 (biased characters are rare; PROVED, multiplicative large sieve + a moment trick).** Let X ≥ 3,
-y ≥ 17, S := {primes q ≤ y}, m := |S|, 0 < η ≤ 1/2, and r := ⌊2 log X / log y⌋. Then
-`  #{p ≤ X prime : Σ_{q∈S, q≠p} (q/p) ≥ 2ηm}  ≤  y + 2y·(log X/(2η²))^r.`
-For y = (log X)^A and fixed η (or η ≥ (log X)^{−o(1)}) the right side is X^{2/A+o(1)}; for η = (log X)^{−θ} it is
-X^{2(1+2θ)/A+o(1)}. The same holds with S replaced by the primes q ≡ 3 (mod 4) up to y (constants change).
-*Proof.* Primes p ≤ y contribute ≤ y. For p > y put ε_q = (q/p). Let a_n := #{(q₁, …, q_r) ∈ S^r : q₁⋯q_r = n}.
-Then Σ_n a_n (n/p) = (Σ_{q∈S} ε_q)^r ≥ (2ηm)^r on the bad set. By unique factorisation, a pair of r-tuples with
-equal product consists of a tuple and one of its at most r! rearrangements, so Σ_n a_n² ≤ r!·m^r. All n ≤ y^r ≤ X².
-The multiplicative large sieve restricted to primes and their Legendre characters gives
-Σ_{p≤X} |Σ_n a_n (n/p)|² ≤ (X² + X²)·Σ a_n². Hence the number of bad p > y is ≤ 2X²·r!·m^r/(2ηm)^{2r}
-= 2X² r!/((2η)^{2r} m^r). Since m ≥ y/log y and y^{r+1} > X², m^r ≥ X² y^{−1} (log y)^{−r}, so the count is
-≤ 2y·r!(log y)^r/(2η)^{2r} ≤ 2y·(r log y/(4η²))^r ≤ 2y·(log X/(2η²))^r. With y = (log X)^A,
-(log X)^r ≤ exp(2 log X·log log X/log y) = X^{2/A}, and (2η²)^{−r} = X^{o(1)} for η ≥ (log X)^{−o(1)}. ∎
+**Proposition 5.1 (biased characters are rare, classical large sieve; PROVED).** Let X ≥ 3, y ≥ 17, 0 < η ≤ 1/2,
+r := ⌊2 log X/log y⌋ ≥ 1. Then
+`  #{p ≤ X : Σ_{q∈S(y), q≠p} (q/p) ≥ 2ηm}  ≤  y + 2y·(log X/(2η²))^r.`
+For y = (log X)^A, A > 0 fixed, this is X^{2/A+o(1)} for fixed η (and X^{2(1+2θ)/A+o(1)} for η = (log X)^{−θ}).
+*Proof.* p ≤ y contribute ≤ y. For p > y let a_n := #{(q₁, …, q_r) ∈ S^r : q₁⋯q_r = n}; then
+Σ_n a_n χ_p(n) = (Σ_{q∈S} χ_p(q))^r ≥ (2ηm)^r on the bad set, and Σ_n a_n² ≤ r!·m^r (a tuple has at most r!
+rearrangements). All n ≤ y^r ≤ X². Keeping only the Legendre characters of primes in the multiplicative large sieve,
+Σ_{p≤X} |Σ_n a_n χ_p(n)|² ≤ 2X²·Σ a_n². With m ≥ y/log y and y^{r+1} > X², m^r ≥ X² y^{−1}(log y)^{−r}, so the bad
+p > y number ≤ 2X² r!/((2η)^{2r} m^r) ≤ 2y (r log y/(4η²))^r ≤ 2y (log X/(2η²))^r; finally (log X)^r ≤ X^{2/A}. ∎
+(R2: verified line by line; standard moment method.)
 
-This is the standard moment method for large character sums over primes; the point here is the consequence.
+**Proposition 5.1′ (Heath-Brown's quadratic large sieve; PROVED modulo Heath-Brown, Acta Arith. 72 (1995), Thm 1 /
+Cor 2).** Same notation, with r := ⌊log X/log y⌋ ≥ 1. For every ε > 0,
+`  #{p ≤ X : Σ_{q∈S(y), q≠p} (q/p) ≥ 2ηm}  ≪_ε  y + X^{2ε}·y·(log X/(2η²))^r,`
+which is X^{1/A+o(1)} for y = (log X)^A with any fixed A > 0 and fixed η.
+*Proof (R2's argument).* Heath-Brown's inequality for real primitive characters with arbitrary coefficients reads
+Σ_{m≤M}^{*} |Σ_{n≤N} a_n (n/m)|² ≪_ε (MN)^ε (M + N) Σ_{n₁n₂ = □} |a_{n₁}a_{n₂}| (m odd squarefree). Take the same
+ordered-tuple coefficients with N = y^r ≤ X. An ordered 2r-tuple of primes with square product admits a perfect
+matching of equal primes, so Σ_{n₁n₂=□} a_{n₁}a_{n₂} ≤ (2r − 1)!!·m^r ≤ (2r)^r m^r. On the bad set the signal is
+≥ (2ηm)^r, so the bad p > y number ≪_ε X^{2ε}·2X·(2r)^r m^r/(2ηm)^{2r}; with m^r ≥ X y^{−1}(log y)^{−r} this is
+≪ X^{2ε} y (2r log y/(4η²))^r ≤ X^{2ε} y (log X/(2η²))^r = X^{1/A+2ε+o(1)}. ∎
+For the least non-residue itself this is Baier's improvement of Linnik's A > 2 to A > 1 (as quoted by Lau–Wu, IJNT 4
+(2008), [2]; recalled).
 
-**Theorem 5.2 (robust Linnik reduction; PROVED from Prop 5.1).** Fix A > 2 and η ∈ (0, 1/2]. For every set 𝔈 of
-primes,
-`  #(𝔈 ∩ [1, X]) ≤ X^{2/A+o(1)} + #{p ∈ 𝔈 ∩ [1, X] : #{q ≤ (log X)^A : (q/p) = −1} > (½ − η)·π((log X)^A)}.`
-So for 𝔈 = {p : ES(p) fails}, a power saving for ES is *equivalent* to a power saving for the exceptional primes
-whose quadratic character is balanced on the primes up to (log X)^{2+δ}. Each such prime has at least
-(½ − η)·π((log X)^A; 4, 3) − O(1) **forced windows** q ≡ 3 (mod 4), q ≤ (log X)^A (apply Prop 5.1 to that subset).
-That is ≫ (log X)^A/log log X forced windows, all of which must fail (§§2–4).
+**Proposition 5.2 (scale C log X; PROVED modulo the Montgomery–Vaughan moment large sieve for real characters, in the
+form of Lau–Wu 2008, Lemma 1).** Lau–Wu Lemma 1: Σ_{d ∈ D(Q)} |Σ_{P<ℓ≤2P} χ_d(ℓ)/ℓ|^{2j} ≪ Q(6j/(P log P))^j +
+(6P/(log P)²)^j, uniformly for 2 ≤ P ≤ Q, j ≥ 1, over fundamental discriminants |d| ≤ Q (primes p ≡ 1 (4) are among
+them, with χ_p(ℓ) = (ℓ/p)). Its proof bounds the 2j-th power through the tuple counts a_j(m) and uses only
+a_j(m₁)a_j(m₂) ≤ a_{2j}(n²); both survive restricting ℓ to any subset 𝒮 of the primes (a′_j ≤ a_j). Put
+σ_𝒮 := Σ_{ℓ∈𝒮, P<ℓ≤2P} 1/ℓ and c₀ := (log 2)²/(6e) ≈ 0.0294. Then for P = C log X (C > 0 fixed) and 𝒮 of relative
+density δ_𝒮 > 0 in the primes,
+`  #{p ≤ X, p ≡ 1 (4) : Σ_{ℓ∈𝒮, P<ℓ≤2P} (ℓ/p)/ℓ ≥ η σ_𝒮} ≪ X exp(−c₁ η² C log X/log log X) + X^{c₂ η² C (1+o(1))},`
+with c₁, c₂ > 0 depending only on δ_𝒮 (c₁ = c₂ = c₀ for 𝒮 = all primes).
+*Proof.* σ_𝒮 ≍ δ_𝒮 log 2/log P. Divide the moment bound by (ησ_𝒮)^{2j} and take j = ⌊c η² P/log P⌋ with c chosen so
+that the first term becomes X e^{−j}; the second term is then (O(P/η²))^{j} = X^{O(η²C)}. ∎
 
-**Corollary 5.3 (the weakest pointwise forcing input for Linnik; CONDITIONAL as stated).**
-(a) Hypothesis MF(A, η): every large prime p for which ES(p) fails has #{q ≤ (log p)^A : (q/p) = −1} ≤
-(½ − η)·π((log p)^A). If MF(A, η) holds for some A > 2 and η > 0, then #{p ≤ X : ES(p) fails} ≤ X^{2/A+o(1)}.
-(b) MF(A, η) follows from the *majority-reach hypothesis* MR(A, η): for every large prime p ≡ 1 (mod 8), the
-counterfactual reach (§6, Definition 6.1) holds at at least (½ + η)·π((log p)^A) primes q ≤ (log p)^A.
-*Proof.* (a) Prop 5.1 with X replaced by dyadic ranges (for p ∈ (X^{1/2}, X], (log p)^A ≍_A (log X)^A; adjust η).
-(b) Reach at q and (q/p) = −1 give ES(p) (the actual residue of p mod q is one of the reached non-residues). So an
-exceptional p is a residue at every q where reach holds, and has ≤ (½ − η)·π QNRs. ∎
+**Theorem 5.3 (robust reduction; PROVED from Props 5.1′ and 5.2; R2-repaired).** Let 𝔈 be any set of primes.
+(a) For fixed A > 1 and 0 < η < 1/2:
+`  #(𝔈 ∩ [1, X]) ≤ X^{1/A+o(1)} + #{p ∈ 𝔈 ∩ [1, X] : #{q ∈ S((log X)^A) : (q/p) = −1} > (½ − η)·m}.`
+(b) For fixed C ∈ (0, 1] and η ∈ (0, 1]:
+`  #(𝔈 ∩ [1, X]) ≪ X exp(−c₁η²C log X/log log X) + #{p ∈ 𝔈 ∩ [1, X] : Σ_{P<q≤2P} (q/p)/q < η Σ_{P<q≤2P} 1/q},  P = C log X.`
+The remainders are the primes of 𝔈 that are *not QR-biased* (a one-sided condition; two-sided balance follows by the
+same argument with |Σ|). (R2 repair.) If in addition one removes the further X^{1/A+o(1)} (resp.
+X exp(−c log X/log log X)) primes that are QR-biased on the subset {q ≡ 3 (mod 4)}, each remaining prime has
+≫_η (log X)^A/log log X (resp. ≫ log X/log log X) **forced windows** q ≡ 3 (mod 4) in the range, all of which fail if
+p ∈ 𝔈 = {ES fails}.
 
-*How much weaker is this than G3's input (Assessment).* F(R) of §1 asks that every q ≤ (log p)^{2+δ} with
-(q/p) = −1 force a certificate; MF asks only that exceptional primes be QR-*biased* there, with any fixed bias. Under
-GRH, F at reach 2 log²p is equivalent to ES (Obs 1.1(c)). MF(A, η) with 2 < A < 4 is not known to imply ES even under
-GRH: GRH bounds Σ_{q≤y}(q/p) log q by O(√y log²p), which excludes a fixed bias only for y ≫ (log p)^4. So MF is a
-genuinely weaker input than F, and Theorem 5.2 is the exact form in which Linnik's door uses character data: it
-excludes biased primes and nothing else (for the moment polynomial (Σ_q ε_q)^r; other polynomials in the signs
-ε_q = (q/p) detect other *common* sign patterns, e.g. bias on a fixed subset of S, which is the same statement for a
-smaller S). What it cannot use is p-dependent structure: QR on a set T_p ⊂ S that varies with p and has
-|T_p| ≤ m/2.
+**Corollary 5.4 (CONDITIONAL; sufficient inputs).**
+(a) MF(A, η): every large p with ES(p) failing has #{q ≤ (log p)^A : (q/p) = −1} ≤ (½ − η)π((log p)^A). If MF(A, η)
+holds for some A > 1, η > 0, then #{p ≤ X : ES(p) fails} ≤ X^{1/A+o(1)}.
+(b) MF₁(C, η): every large p with ES(p) failing has Σ_{P<q≤2P} (q/p)/q ≥ η Σ_{P<q≤2P} 1/q, P = C log p. If MF₁(C, η)
+holds for some C ∈ (0, 1], η > 0, then #{p ≤ X : ES(p) fails} ≪ X exp(−c log X/log log X) — beyond the CRT caps
+(3/4 for ES), i.e. z50 Target 3 with θ → 1, conditionally.
+(c) MF follows from the majority-reach hypothesis MR(A, η): Reach(p, q) (Def 6.1) at ≥ (½ + η)·π((log p)^A) odd primes
+q ≤ (log p)^A, for every large p ≡ 1 (8); MF₁ follows from MR₁(C, η): the q ∈ (C log p, 2C log p] with Reach(p, q)
+carry ≥ (1 + η)/2 of Σ 1/q there.
+*Proof.* (a), (b): on each dyadic range (Z, 2Z] the scale (log p)^A (resp. C log p) equals (log Z)^A(1 + o(1)) (resp.
+C log Z + O(C)); deleting the o(m) primes between the two scales changes the bias by o(1), so the hypothesis gives
+bias ≥ η/2 at the fixed scale of the range; apply Theorem 5.3 with X = 2Z and sum over ranges (R2 repair: genuine
+dyadic ranges). (c) Reach at q and (q/p) = −1 give ES(p) (Lemma 6.2), so an exceptional p is a residue at every q
+where reach holds. ∎
 
-*Is MF plausible, and is it circular? (Assessment.)* Heuristically the counterfactual reach is ≈ c(log p)³/log log p
-(§6), so an exceptional prime would be QR at *every* q below that, and MF would hold with η = ½ − o(1) for any A < 3.
-But "MF for all but X^{1−c} primes" is circular in the sense of G3: the exceptions to MF are themselves ES-exceptional.
-Only a pointwise proof of MF (or of MR) breaks the circle. The gain over G3 is that the pointwise statement needed is a
-majority statement, which is a natural target for averaging over q *at fixed p* (a single prime, many moduli),
-rather than an every-q statement. §6 measures how far MR is from being true at accessible p.
+**Status of the hypotheses (Assessment; R2-corrected).**
+* *GRH.* For fixed A > 2, GRH (Lagarias–Odlyzko effective Chebotarev for ℚ(√p)) gives #{q ≤ (log p)^A : (q/p) = −1}
+  = (½ + o(1))π((log p)^A) uniformly, so under GRH MF(A, η) is *equivalent* to eventual ES (R2; the round-1 claim
+  that this needed A > 4 is withdrawn). For A ≤ 2, and for MF₁, GRH gives no such control (its error term
+  √y log p exceeds y = (log p)^A), so no GRH-equivalence with ES is known for MF(A) with 1 < A ≤ 2 or for MF₁.
+* *Necessity.* MF and MF₁ are *sufficient*, not necessary: a power-small infinite set of unbiased exceptional primes
+  would be compatible with the conclusion. "MF for all but a small set" is itself a sufficient exceptional-set
+  statement; whether it is as hard as the conclusion is an Assessment, not a theorem.
+* *Reach versions.* MR is a stronger, counterfactual requirement; it is *false* for A > 3 (Cor 6.4). At the small
+  scales it is numerically robust: on all 36 sampled primes (10⁵–10¹⁰, §6.3), MR₁(1/2, η) holds with weighted reach
+  fraction 1.000, and MR₁(1, η) holds (fraction ≥ 0.6) at every sampled p ≥ 10⁶ (failures only near 10⁵);
+  `scripts/z51_forcing_mr1.py`, `data/z51_forcing/mr1_summary.txt`. In the coupon model of §6.3 the probability that
+  Reach(p, q) fails for some q ≤ 2C log p is ≈ exp(−c(log p)²), summable over p, so MR₁(C, η) is heuristically
+  true for all large p at every fixed C. Proving it pointwise is still B2: for each non-residue class r mod q one
+  needs an e ≡ −r (mod q) with p + e (or ep + 1) carrying a suitable divisor pair.
+
+**Corollary 5.5 (T2-lite: lower cap thresholds; PROVED modulo Heath-Brown 1995, resp. Lau–Wu Lemma 1).** Let e*(p)
+be the minimal exponent cap of EXPONENT_CAP/CAP_POINTWISE (e*(p) = 0 iff ES(p)).
+(a) For every fixed A > 1: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+o(1)}.
+(b) For every fixed C ∈ (0, 1]: #{p ≤ X : e*(p) > (C/2) log X} ≪ X exp(−c log X/log log X), c = c(C) > 0.
+*Proof.* CAP_BOUNDED Lemma 3.1: e*(p) = 0 for p ≢ 1 (8), and e*(p) ≤ (q₃(p) − 3)/4 for p ≡ 1 (8), where q₃(p) is the
+least prime q ≡ 3 (mod 4) with (q/p) = −1. (a) e*(p) > (log X)^A/4 forces (q/p) = +1 for every q ≡ 3 (4) up to
+y = (log X)^A. Apply Heath-Brown's inequality to 𝒜 = squarefree products of r = ⌊log X/log y⌋ distinct such q
+(odd squarefree, all ≤ X, character value 1 at every such p): the count is ≪_ε X^{1+2ε}/|𝒜| and
+|𝒜| ≥ X^{1−1/A−o(1)} (as in CAP_BOUNDED Thm 3.2). (b) e*(p) > (C/2) log X forces (q/p) = +1 for all q ≡ 3 (4) in
+(P, 2P], P = C log X: full bias η = 1 on 𝒮 = {q ≡ 3 (4)}; apply Prop 5.2 (the X^{c₂C} term is X^{1−c} for C ≤ 1). ∎
+*Value.* (a) lowers CAP_BOUNDED Thm 3.2(a) (A > 2, exponent 2/A) to A > 1 with exponent 1/A, and gives a complete
+proof of the power saving at e ≥ (log N)^{1+ε} that CAP_INTERPOLATION Remark 3.2(b) only sketched. (b) reaches caps
+of order log p, inside the range CAP_INTERPOLATION Remark 3.2(c) lists as OPEN, with a near-power saving (not a
+power saving). Both are direct transfers of known least-non-residue technology (Baier; Lau–Wu/Montgomery–Vaughan) to
+the forced-window cap mechanism; no ES-specific input beyond CAP_BOUNDED Lemma 3.1. This is the brief's T2-lite
+target ("lowering its cap threshold … toward A > 1 or below"); it is a statement about the relaxation ES^{(y,e)},
+not about ES.
 
 ## 6. Full Type I/II forcing reach (work item 2)
 
