@@ -195,16 +195,15 @@ E_t(n) = {e ∈ ∏[0, a_i] : ∏ ℓ_i^{e_i} ≡ −1 (mod t)} (the level-t (�
   q-adic count congruence for odd q (Chevalley–Warning over F_q, Olson or Davenport in q-groups) can force non-trivial
   solutions of the *odd-part* condition only. Whether the class is −1 rather than +1 is decided entirely in the 2-group
   G₂.
-* (c) *No lift is needed in the divisor encoding; the lift fails in the cubic encoding.* A certificate e gives a positive
+* (c) *No lift is needed in the divisor encoding; the cubic encoding has #vars = degree.* A certificate e gives a positive
   integral (★) triple directly: d = ∏ ℓ^e, u = (d+1)/t, B = (N/d + 1)/t, C = t/4, as in FRONTIER §2.1. In the raw
-  equation F = 4uBC − u − B − p (3 variables, degree 3) Chevalley–Warning does not apply. A "restricted variables + size"
-  lift is also impossible. To lift a zero mod M from a box [1, X]³ one needs M > max|F| ≥ 4X³ − 2X − p. The restricted
-  variable theorem (Bishnoi–Clark Thm 1.3b) needs (M − 1)·3 < 3(X − 1), i.e. M < X. These are incompatible for X ≥ 2 and
-  p ≥ 1.
+  equation F = 4uBC − u − B − p (3 variables, degree 3) Chevalley–Warning needs d < n and fails. The
+  restricted-variable theorem (Bishnoi–Clark Thm 1.3b) fails too: with X_i ⊆ F_q its hypothesis
+  (q − 1)·3 < Σ(|X_i| − 1) ≤ 3(q − 1) can never hold. So every formulation with #vars > degree must add variables.
+  The natural one is the exponent/divisor encoding above, where the target is already a congruence and (a)–(b) apply.
 
 *Proof.* (a) A fixed point has 2e = a, so d² = N with d ≡ −1 (t). Then d = tu − 1 and t²u² − 2tu + 1 = tn + 1, so
-n = tu² − 2u is even, a contradiction. (b) −1 has order 2, so π_odd(−1) = 1. (c) As stated; the bound uses
-max|F| ≥ F(X, X, X) = 4X³ − 2X − p. ∎
+n = tu² − 2u is even, a contradiction. (b) −1 has order 2, so π_odd(−1) = 1. (c) |X_i| ≤ q for subsets of F_q. ∎
 
 *Consequence (Assessment).* By (a) and (b), a count congruence on the full exponent box is either odd-q, which is blind
 to ±1, or mod 2, where (a) makes it vacuous. Restricted variables can break the complement symmetry: restrict to
@@ -251,7 +250,8 @@ choose t such that the prime factors of N_t = tp + 1 must contain a subset with 
   * SUB: −1 ∈ ⟨ℓ_i⟩;
   * GEN: −1 ∈ F₂-span of the ℓ_i in G/G² (the genus layer).
 
-*Proof.* (a) λ(q^e) ≥ q − 1 bounds q, and q^{e−1} \| λ(q^e) bounds e. (b) A divisor ≡ −1 is a product of the ℓ_i; reduce
+*Proof.* (a) λ(q^e) is divisible by q − 1 and, for odd q, by q^{e−1}; λ(2^e) = 2^{e−2} for e ≥ 3. So λ(q^e) | L bounds
+both q and e. (b) A divisor ≡ −1 is a product of the ℓ_i; reduce
 modulo G². ∎
 
 *Numerical check* (EVIDENCE; `scripts/z52_thin_levels.py`, `data/z52_thin/levels_1e5.txt`; all p ≡ 1 (4) in
