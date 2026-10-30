@@ -1,0 +1,4 @@
+Source: https://arxiv.org/abs/2503.05396 (accessed 2026-10-30)
+Jori Merikoski, “On primes represented by aX^2+bY^3,” arXiv:2503.05396 v1, submitted 2025-03-07.
+Abstract: for coprime positive a,b, assuming a conjecture on Hecke eigenvalues along binary cubic forms, proves an asymptotic formula for primes ax²+by³ with x≤X^{1/2}, y≤X^{1/3}. Inputs include sieve, real quadratic/indefinite binary quadratic form theory, Weil exponential-sum bound, GL(2) spectral methods.
+Conditional family-count, not prescribed-integer pointwise theorem.
