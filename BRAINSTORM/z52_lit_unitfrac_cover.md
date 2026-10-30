@@ -22,12 +22,27 @@ Access date for all listed source records: 2026-10-30. The decisive abstract tex
 **Subset-product / zero-sum scope.** The campaign's relevant deterministic multiplicative-set claims are already screened in `BRAINSTORM/addcomb_unit_fraction_density.md` (Kneser consequence: prime factors linear in the relevant index) and `z31_zero_sum.md`; no new sharp theorem with hypotheses matching the divisor-ratio set was source-verified in this lane. No theorem is added from memory.
 ## §2 Structural-feature table
 
-Research in progress.
+| Problem/result | Feature that makes it solvable | Does ES share it? | Transfer verdict |
+|---|---|---|---|
+| Bloom positive-density unit-fraction theorem; Liu–Sawhney reciprocal-mass theorem | A large, freely varying set of denominators; many-term subset selection and Fourier/combinatorial structure (the precise proof engine is not claimed from abstract-only verification). | **No** for the needed conclusion: ES has three terms at each fixed prime, and B2 is one tied-modulus divisor event with polylogarithmic expected count; see `FRONTIER.md` §§2–3, especially B2/B3. | **Known-dead** for direct transfer: `BRAINSTORM/addcomb_unit_fraction_density.md`. |
+| Conlon et al. representation count | Exponentially many representations as the denominator ceiling grows, for a fixed rational target. | **No**: multiplicity of long representations does not dominate the fixed-p, three-term ES count; B3/B6 (`FRONTIER.md` §3). | **Known-dead** as a direct route: `BRAINSTORM/addcomb_unit_fraction_density.md`. |
+| Bloom shifted-prime denominators | Prime distribution plus an infinite allowed denominator family; exact representation of fixed rationals. | **Partial** at most: primes provide structure, but the denominator family is freely chosen and terms are unbounded; ES needs divisors of a p-determined integer. B2/B6 (`FRONTIER.md` §3). | None; no transfer lemma identified. |
+| Sawin dense avoiding sets | Positive-density construction by excluding a two-element forbidden relation. | **No**: dense-set avoidance is not pointwise existence, and no ES-specific relation is forced; B6 (`FRONTIER.md` §3). | None. |
+| Korsky approximation | Large total reciprocal mass forces a near-hit, via grouping comparable contributions (abstract statement). | **No**: near 1 is not exact, and mass/number of summands is not three; B3/B6. | None. |
+| Kovač–Tang greedy underapproximations | Infinite greedy dynamics and an optimal-control/Bellman framework yield eventual best approximants. | **No**: an approximation sequence is neither a bounded exact representation nor a divisor-class witness; B2/B3. | None. |
+| BBMST distortion; Hough minimum-modulus theory | Aggregate control of residue classes / reciprocal masses gives uncovered density or excludes certain finite coverings; method distorts measure prime-by-prime. | **Partial**: ES₅ is a character-free covering, but ES asks for an infinite or p-dependent covering and a pointwise conclusion. The existing distortion analysis reports no pointwise conclusion; B1/B6 (`BRAINSTORM/covering_distortion_dual.md`). | **Known-dead** as pointwise ES transfer: `BRAINSTORM/covering_distortion_dual.md`; Haar-side bounds already analyzed there. |
+| Filaseta–Kalogirou–Klein (2026) distinct coverings | Quantitative reciprocal-modulus lower bound under prime minimum modulus; still a finite covering statement. | **No** for B2: no p-indexed divisor event or pointwise guarantee; see `FRONTIER.md` B2 and `BRAINSTORM/covering_distortion_dual.md`. | None; no change to prior verdict. |
+| Deterministic subset-product / zero-sum methods | Group structure can force a target in product sets under length, density, or subgroup hypotheses. | **Partial algebraic match**, but hypotheses are the issue: the forced divisor box has only `ω(K)` prime generators, target coset matters, and Kneser worst cases are already screened; see `FRONTIER.md` B2/B3 and `BRAINSTORM/z31_zero_sum.md`, `BRAINSTORM/addcomb_unit_fraction_density.md`. | **Known-dead** at current hypotheses; `BRAINSTORM/z31_zero_sum.md` flags several stronger named results as not source-verified. |
+
+No newly accessed theorem establishes a pointwise conclusion for an infinite/growing-modulus covering, or forces `−1` into the ratio set of the campaign's divisor box under hypotheses known to hold for its p-dependent integers. This is a bounded literature finding, not an impossibility claim.
 
 ## §3 NEW candidates
 
-Research in progress.
+**None.** Every plausible transfer either needs a large freely chosen denominator set/reciprocal mass (unit fractions), remains an average/uncovered-density theorem (coverings), or requires subset-product length/spread not established for the forced divisor set. These collide respectively with B2/B3/B6 and the existing `z31_zero_sum.md` screening. No source-verified non-obvious input changes those hypotheses; an experiment would not be a meaningful cheapest test.
 
 ## §4 Not accessed / could not verify
 
-Research in progress.
+- The brief's lead “Conlon–Fox–He–Mubayi–Pham–Suk–Verstraëte” exists: verified as **Conlon, Fox, He, Mubayi, Pham, Suk, Verstraëte**, arXiv:2404.16016v2, not a nonexistent result. The abstract verifies a representation-count asymptotic, not a new bounded-length theorem.
+- No source was checked here for detailed theorem-number claims in Bloom's/Liu–Sawhney's full papers, BBMST's distortion inequalities, Hough's numerical minimum-modulus bound, or the finer AGP/Olson/Davenport/Kneser hypotheses. The corresponding repo memos are leads/context, not primary-source verification for this lane. In particular `z31_zero_sum.md` explicitly marks ACFKP, Erdős–Rényi, and an AGP group lemma as memory/unverified.
+- No primary source was verified for a 2025–26 advance on the Erdős–Selfridge odd-covering problem. The 2026 arXiv result checked above is on prime minimum modulus, not a resolution of that problem.
+- Search/API access did not identify a verified theorem on restricted smooth/prime-power denominator representations that changes the ES transfer verdict; this is not a claim that no such paper exists.
