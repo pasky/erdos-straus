@@ -617,6 +617,14 @@ CAT += [
   ["Elkies, Invent. Math. 89 (1987) 561-567"]),
 ]
 
+CAT += [
+ ("GSMARKOFF", "Integral Hasse principle for Markoff-type surfaces (FAILED upgrade: almost all, not every)",
+  "Ghosh-Sarnak: integral points on x^2+y^2+z^2 - xyz = k: the integral Hasse principle holds for almost all admissible k",
+  "Ghosh-Sarnak 2017/2022 and Loughran-Mitankin: infinitely many integral Hasse failures, some not explained by Brauer-Manin (cited in FRONTIER 2.4 as the main precedent for caution)",
+  "Reduction theory for the Vieta-group action: integral points have orbit representatives in a fundamental set; congruence conditions can exclude all representatives for infinitely many k.",
+  ["arXiv:1706.06712 (Ghosh-Sarnak, Integral points on Markoff type cubic surfaces, Invent. Math. 229 (2022))", "Loughran-Mitankin, Integral Hasse principle and strong approximation for Markoff surfaces (IMRN 2021; check)"]),
+]
+
 # ---- corrections from the verification pass (data/z52b/upgrades_verify_out_*.md), applied as overrides ----
 # fields: 1 name, 2 before, 3 after, 4 last_step, 5 refs
 FIX = {

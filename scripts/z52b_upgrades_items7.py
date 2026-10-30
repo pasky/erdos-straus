@@ -6,7 +6,7 @@ I("HLSQ", "Power-size main terms are not enough: p + m² is open with a √n mai
   "For each proposed lift V_p of ES, count the number of free variables after fixing p and compare with the Kloosterman/circle-method thresholds (≥ 4 for quadratic-type, more for cubic).",
   ["main-term-size", "binary-problem", "self-critique"], "high", "cheap")
 I("HLSQ", "Two square degeneracies: algebraic factorisation (p + m²) vs reciprocity (ES Type I/II)",
-  "p + m² degenerates at squares because n − m² = (a − m)(a + m) allows at most one representation (m = a − 1); T1 makes Type I/II fail at odd squares through a reciprocity cancellation. Compare: exceptional-set technology for p + m² (power-saving bounds, check) is more advanced; can ES's T1 be rewritten as an algebraic factorisation in some model (e.g. 4Cm² + 1 or (p + e)/4 at squares)?",
+  "p + m² degenerates at squares because n − m² = (a − m)(a + m) allows at most one representation (m = a − 1); T1 makes Type I/II fail at odd squares through a reciprocity cancellation. Compare: exceptional-set technology for p + m² is power-saving (H. Li 2003: E(X) ≪ X^0.982; verified), more advanced than ES's; can ES's T1 be rewritten as an algebraic factorisation in some model (e.g. 4Cm² + 1 or (p + e)/4 at squares)?",
   "If T1 becomes algebraic in some coordinates, Hardy–Littlewood-type machinery for 'non-square n' transfers more directly.",
   "At n = m², examine 4Cm² + 1 and (m² + e)/4 for algebraic factorisations that explain the absence of certificates (e.g. Sophie Germain-type identities).",
   ["T1", "square-obstruction", "factorisation"], "med", "cheap")
@@ -81,7 +81,7 @@ I("HASSE", "Descent to universal torsors: more variables for the circle method",
   "From BL's description of Pic of the compactification of U_n, write torsor equations and compare with the ET parametrisation n = 4abcd − … ; count variables per equation.",
   ["universal-torsors", "descent", "circle-method"], "med", "medium", kw=["universal torsor"])
 I("TWOSQ", "Elsholtz's windmill framework for sums of two squares and related problems",
-  "Zagier's proof was generalised combinatorially (check: Elsholtz, 'A combinatorial approach to sums of two squares and related problems', in Additive Number Theory, Springer 2010). Elsholtz is also an ES author (ET 2013); check whether the windmill framework was ever applied to ES-like equations.",
+  "Zagier's proof was generalised combinatorially (Elsholtz, 'A combinatorial approach to sums of two squares and related problems', Additive Number Theory: Festschrift for M. B. Nathanson, Springer 2010, 115–140; verified). Elsholtz is also an ES author (ET 2013); check whether the windmill framework was ever applied to ES-like equations.",
   "A direct bridge from the canonical parity proof to ES by an author who knows both problems.",
   "Read the paper; list the equations handled (x² + ky², etc.) and try its windmill construction on the (★) set or on {(u,B,C) : 4uBC − u − B = p}.",
   ["parity", "windmills", "literature"], "med", "cheap", seen=["WINDMILL.md"])
