@@ -95,7 +95,8 @@ int main(int argc,char**argv){
     for(int r=1;r<q;r++){ int leg=powmod(r,(q-1)/2,q)==1?1:-1; if(leg==-1){ nnr++; sh+=hits[i][r]; se+=hitsE[i][r]; if(hits[i][r]<mn) mn=hits[i][r]; if(!hits[i][r]) unr++; } else { if(!hits[i][r]) unq++; } }
     int lp = powmod(p%q,(q-1)/2,q)==1?1:-1;
     fprintf(fo,"%d %d %d %d %d %.2f %u %.3f\n",q,lp,nnr,unr,unq,sh/nnr,mn,se/nnr);
-    if(unr && qstar<0) qstar=q; }
+    if(unr && qstar<0) qstar=q;
+    if(q<=61 && unr){ fprintf(fo,"#   q=%d unreached QNR residues:",q); for(int r=1;r<q;r++) if(powmod(r,(q-1)/2,q)!=1 && !hits[i][r]) fprintf(fo," %d",r); fprintf(fo,"  (p mod q = %lld)\n", p%q); } }
   fprintf(fo,"# qstar %d\n",qstar); fclose(fo); if(W) fclose(wf);
   printf("p=%lld qstar=%d\n",p,qstar);
   return 0;

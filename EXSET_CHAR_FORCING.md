@@ -8,16 +8,32 @@ Assessment. Scripts `scripts/z51_forcing_*`, data `data/z51_forcing/`, reviews `
 
 | # | claim | label | review |
 |---|---|---|---|
-| 1 | audit: what the Linnik route needs, which gate (G2–G4) each item attacks | Assessment | (pending) |
-| 2 | window criterion and deterministic covering lemma | (pending) | (pending) |
-| 3 | per-window failure rates; G4 checked | (pending) | (pending) |
-| 4 | joint failure across windows; G2 loss | (pending) | (pending) |
-| 5 | robust Linnik confinement | (pending) | (pending) |
-| 6 | full Type I/II forcing reach, numerics to 10¹⁰, fits | (pending) | (pending) |
-| 7 | least-QNR lines, n₂(p) = 17 | (pending) | (pending) |
-| 8 | remaining gap | Assessment | — |
+| 1.1 | F(R) ⟺ ES on {n₂(p) ≤ R}; F((log p)^A), A > 2 ⟹ X^{2/A+o(1)} exceptions (dyadic Linnik); under GRH F(2 log²p) ⟺ ES (large p) | PROVED (standard inputs) | R1: SOUND after dyadic repair |
+| 2.1 | window criterion: ES at x ⟺ −1 ∈ R(px) mod 4x − p; Type II at x ⟺ −1 ∈ R(x) | PROVED (classical) | R1: SOUND (odd p) |
+| **2.2** | **Kneser covering lemma**: in a cyclic group of order 2u (u odd), −1 ∉ ∏{g_j^{±1}, 1} ⟹ stabiliser H ≤ U, no g_j ∈ −H, #{g_j ∉ H} ≤ [U:H] − 1; sharp | PROVED; CERTIFIED (u ≤ 45) | R1: SOUND |
+| 2.3 | anatomy of a failing forced window: all but ≤ d − 1 primes of x in an odd-order subgroup of index 2d ≥ 2ℓ_q; q = 3, and q = 7 for p ≡ 1 (8), never fail | PROVED; 936 643 checks | R1: SOUND |
+| **3.1** | **fixed q: forced-window failure rate ≤ (log X)^{−1+1/(2ℓ_q)+o(1)} ≤ (log X)^{−5/6+o(1)}**, vs (log X)^{−1/2} (Landau mode) for unforced windows; exponent sharp for integers (3.2) | PROVED mod Henriot (upper bound only) | R1: SOUND-WITH-MINOR |
+| 3.4 | G4 checked: refined at fixed q (upper bound), growing-q threshold heuristic (0.205); provable per-window range q ≤ (log X)^{0.4226} (Fourier, real/non-real split — R1's improvement) | PROVED pieces + Assessment | R1: MAJOR → repaired |
+| 4.1 | fixed number of windows: product of single-window rates | PROVED mod Henriot (k + 1 forms) | R1: SOUND-WITH-MINOR |
+| 4.2 | multiplying the known per-window envelopes saves at most exp(−c(log X)^{0.4226−ε}) even loss-free; many-window route is an RLD-*like* lower-tail problem | Assessment (exact arithmetic for specified envelopes) | R1: MAJOR (1/3 cap withdrawn) → repaired |
+| 4.3 | joint failure of forced windows below the independence model in samples to 10¹²; hard primes have few/no successful forced windows (193: 0 of 18) | EVIDENCE | R1: wording repaired |
+| **5.1–5.2** | **robust Linnik: #{p ≤ X : Σ_{q ≤ (log X)^A}(q/p) ≥ 2ηπ} ≤ X^{2/A+o(1)}; so ES power saving ⟺ power saving for exceptional primes with *balanced* character on q ≤ (log X)^{2+δ}** (≫ (log X)^{2+δ}/log log X forced windows each) | PROVED (multiplicative large sieve) | R2 |
+| 5.3 | weakest Linnik input: MF(A, η) "exceptional primes are QR-biased" (not known to follow from GRH for A < 4), implied by majority reach MR(A, η) | CONDITIONAL / Assessment | R2 |
+| 6.1–6.2 | counterfactual reach (congruence-certified forcing) and Reach + (q/p) = −1 ⟹ ES | definitions; PROVED | R2 |
+| **6.3–6.4** | **reach is polylogarithmic: Σ_{n≤X} #reached classes ≪ X(log X)³; Reach(p, q) fails for almost all p once q ≥ (log X)^{4+ε}; MR(A) false for A > 4; Linnik fed by congruence-certified forcing is capped at X^{1/2+o(1)} (heuristically X^{2/3})** | PROVED mod Shiu; cap = T2-barrier with exact scope | R2 |
+| 6.3num | full ET Type I/II reach, 36 primes 10⁵–10¹⁰, q ≤ 1000: supply S_e ≈ 0.033 (log p)³ (fit exponent 3.15); coupon model validated; q* ≈ 0.13–0.18 (log p)² ≈ 0.02–0.03 (log p)³/log log p; majority reach ≈ 0.35 (log p)² at 10¹⁰; 2 682 witnesses exact | EVIDENCE / CERTIFIED (witnesses) | R2 |
+| 7 | 17-line: Reach(p, 17) for 285/286 primes in [10⁶, 2·10⁶] and all tested primes beyond; the one failure misses exactly the sterile cell 5 of (J)70 Comp 4.1; growing coverings are B2 | EVIDENCE + Assessment | R2 |
+| 9 | remaining gap | Assessment | — |
 
-**Bottom line.** (pending)
+**Bottom line.**
+* No z51 target is reached: no Linnik confinement, no power saving, no proof of a forcing reach. ES remains open.
+* New PROVED pieces: the Kneser anatomy of failing forced windows and the fixed-q failure exponent (G4 made exact at
+  fixed q); the robust Linnik reduction (confinement can be weakened to *bias*: the exact input is "exceptional primes
+  are QR-biased at scale (log p)^{2+δ}"); and an upper bound on congruence-certified forcing (reach ≤ (log p)^{4+o(1)}
+  for almost all p), which caps "Linnik + congruence-certified forcing" at X^{1/2} — a T2-barrier with exact scope.
+* Quantitatively: the full ET supply is cubic, (0.033 ± 0.005)(log p)³ per prime; the forcing reach fits
+  c(log p)³/log log p; but majority reach at (log p)^{2+δ} — the input Linnik needs — only sets in, heuristically,
+  around p ≈ 10⁸⁷. The window route through G2 is limited to exp(−(log X)^{0.42}) by the known envelopes.
 
 ## 1. Audit
 
@@ -476,12 +492,85 @@ for A slightly above 2.
 
 ## 7. Least-QNR lines (work item 3)
 
-(pending)
+### 7.1 What is known, in reach language
+
+ES(p) is known whenever n₂(p) ≤ 13: on the r-generic line every non-residue cell mod r is covered at level 1 for
+r ≤ 13, while for r = 17 the level-1 survivors are the cells {5, 7} mod 17 ((J)70 Comp 4.1, CERTIFIED, exhaustive);
+finite ET coverings do not exist on the r-generic line for r ≥ 2.8·10⁶ ((J)70), and for r = 17 sterility is
+conditional on the uniform-multiplicity Conjecture 4.2 (POINTWISE_MORDELL17*). "Level 1" means that r divides the
+class modulus exactly once; so the level-1 analysis of the r-generic line is precisely Def 6.1's reach at q = r,
+evaluated at the profinite point x_q = 1 (q ≠ r). A *growing (p-dependent) covering* of the 17-line is exactly
+Reach(p, 17) for every prime p with n₂(p) = 17 (modulus ≤ p). By Lemma 6.2 that would prove ES on the whole line.
+
+### 7.2 Numerics on the 17-line (EVIDENCE; `scripts/z51_forcing_line17.sh`, `data/z51_forcing/line17_*.txt`)
+
+All primes p ≡ 1 (8) with (3/p) = (5/p) = (7/p) = (11/p) = (13/p) = 1, (17/p) = −1 in [10⁶, 2·10⁶] (286 primes), every
+third in [10⁷, 1.1·10⁷] (84) and every sixth in [10⁸, 1.01·10⁸] (36 primes); exact reach (E₂ = p/4, E₁ = p/12), q ≤ 61.
+
+| range | Reach(p,13) | **Reach(p,17)** | Reach(p,19) | Reach(p,23) | Reach(p,29) | Reach(p,31) |
+|---|---|---|---|---|---|---|
+| [10⁶, 2·10⁶] | 284/286 | **285/286** | 273/286 | 239/286 | 178/286 | 146/286 |
+| [10⁷, 1.1·10⁷] | 84/84 | **84/84** | 84/84 | 84/84 | 71/84 | 76/84 |
+| [10⁸, 1.01·10⁸] | 36/36 | **36/36** | 36/36 | 35/36 | 36/36 | 36/36 |
+
+* The single failure of Reach(p, 17) is p = 1 240 009, and the unreached cell is exactly r = 5 — one of the two
+  level-1 survivor cells {5, 7} of the 17-generic line. p itself is ≡ 12 (mod 17), a reached cell, so ES(p) holds
+  through reach anyway. The mechanism is visible: p − 1 = 2³·3·7·11²·61, so p is close to the 17-generic point at all
+  the small moduli that carry most of the supply, and inherits its level-1 sterility in the cell 5. (The two
+  Reach(p, 13) failures, 1 160 041 and 1 487 641, miss one cell each; ES at n₂ = 13 is known by finite coverings that use
+  classes outside Def 6.1's modulus bound or at level ≥ 2.)
+* Heuristically, the expected number of unreached cells at q = 17 is ≈ 8·exp(−S_e(p)/17) with S_e ≈ 0.033 (log p)³
+  (§6.3); Σ_p exp(−c(log p)³) converges, so the coupon model predicts that Reach(p, 17) fails for only finitely many p.
+  The data agree (1/286 at 10⁶, 0 afterwards). So "ES on the 17-line by a growing covering" is heuristically true and
+  numerically robust from 10⁷ on.
+
+### 7.3 What a proof would need, and why the two brief targets reduce to §§4–6 (Assessment)
+
+* *All p with n₂(p) = 17.* A growing covering must reach both sterile cells {5, 7} at every p on the line. At primes
+  that approximate the 17-generic point at small moduli (p ≡ 1 mod L for a large 17-free L), Comp 4.1 says that no
+  class whose 17-free modulus divides L reaches those cells; the certificate must use a class whose 17-free modulus
+  N does not divide L, i.e. a genuinely p-dependent divisor event (4N | p + e, or 4N | ep + 1, with N ∤ L). That
+  is a B2 event for each such p; no congruence argument can supply it uniformly, since the conditional sterile points
+  are exactly the limits of such p. Proposition 6.3 shows why the event is plentiful on average (supply
+  ≍ (log p)³ per prime, ≍ (log p)³/17 per cell); a pointwise lower bound for it would be a new theorem of B2 type.
+* *All p with n₂(p) ≤ R outside a power-small set.* By Lemma 6.2 and Theorem 5.2 this is the same problem as §§5–6:
+  primes with n₂(p) ≤ R are all but X^{2/A+o(1)} primes when R = (log X)^A, so the target is the full exceptional-set
+  problem restricted to an essentially full-density set. For fixed R (a finite union of least-QNR lines of positive
+  density) it is an exceptional-set problem of positive density, for which the CRT caps of z50 apply verbatim (the
+  lines are congruence-defined).
+* *Forced windows on the 17-line.* 17 ≡ 1 (mod 4), so there is no prime window at 17; the window m = 51 = 3·17 is
+  forced at 17 but not at 3 (p ≡ 1 (mod 3) on the line), and the joint target (−1, −1) in (ℤ/3)^× × (ℤ/17)^× is not
+  forced. The forced windows of 17-line primes are at q₃(p) ≥ 19, as for generic p; §3 applies unchanged.
 
 ## 8. Hostile reviews
 
-(pending)
+* **R1 (Astra, `openai-codex/gpt-6-astra:high`, §§1–4; `reviews/z51-forcing-r1-astra.md`, independent check script
+  `reviews/z51-forcing-r1-astra-check.py`).** Verdict: MAJOR revisions, no FATAL flaw; Lemma 2.2, Cor 2.3, Thm 3.1,
+  Prop 3.2 and Prop 4.1 survive (the Henriot transfer was checked against the primary PDFs); the independent numerical
+  audit matched all 7 423 window pairs. Repairs applied: dyadic Linnik in Obs 1.1(b) and the exact equivalence; odd p
+  and the Type II equivalence in Lemma 2.1; lifted sharpness (now certified by the script); "exactly" withdrawn in 2(c)
+  (with the referee's unforced example p = 353, q = 11); 2(d) recast as a limitation of the relaxed bound; all
+  "exact exponent" language replaced by upper-bound statements (q = 7 has rate 0 on p ≡ 1 (8)); growing-q uniformity
+  marked unproved; the referee's real/non-real split of the Fourier majorant (a = 1 − 1/√3) adopted and the "1/3 cap"
+  withdrawn (Calc 4.2 now concerns specified envelopes only); random-box first-moment truncation corrected
+  (β > 3 log 3); RLD link labelled an analogy; correlation language weakened.
+* **R2 (Astra, §§5–7 and the whole document).** (pending)
 
 ## 9. Remaining gap
 
-(pending)
+* **The input Linnik needs, exactly.** By Theorem 5.2 the exceptional-set problem is equivalent (up to X^{2/A+o(1)})
+  to the problem for exceptional primes with balanced quadratic character on q ≤ (log X)^A. Equivalently, the needed
+  pointwise input is MF(A, η) for some A > 2: ES-exceptional primes are QR-biased at that scale. Nothing in this lane
+  proves MF; the evidence (z50 B §4.1, reach numerics) says exceptional points would be strongly biased.
+* **Congruence-certified forcing cannot deliver more than X^{1/2}** (Cor 6.4), and heuristically not more than X^{2/3};
+  and even that requires a *pointwise* (all p) reach at a majority of q ≤ (log p)^{2+δ}, which is numerically false at
+  every accessible p (majority reach ≈ 0.35 (log p)² at 10¹⁰) and heuristically true only beyond p ≈ 10⁸⁷. Proving it
+  is B2 for every p.
+* **Non-congruence forcing (windows).** Forced windows are certificates whose success is a factorisation event of
+  (p + q)/4. The known multiplicative majorants control a single window only for q ≤ (log X)^{0.4226}; jointly they give
+  at most exp(−(log X)^{0.42}), far below 2/3. The windows that matter (q ≈ (log X)^{1.1} and beyond) succeed only
+  collectively; a proof would be a lower-tail theorem for ≍ (log X)^{2+δ}/log log X weak divisor events at prime shifts
+  of one p — an RLD-like statement (door (vii)), unproved.
+* **Least-QNR lines.** ES on the 17-line by growing coverings is Reach(p, 17) for all line primes: heuristically true
+  for all large p and numerically true for every tested p ≥ 10⁷; a proof needs p-dependent divisor events in the sterile
+  cells {5, 7}, i.e. B2.
