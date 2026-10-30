@@ -87,7 +87,7 @@ ITEMS = [
 ("(★) count R(p) correlates with h(−4p) (α ≈ +0.38, R²-gain 0.20)",
  "The c=1 Type-II line R(p) = #{4uBC−u−B=p} fits log R ≈ … + 0.38 log L_Q(1,χ_{−4p}) (gain 0.20) and only −0.17 on χ_p (gain 0.09).",
  "R(p) is the campaign's central count; a class-number dependence suggests an exact or approximate formula in terms of h(−4p)/Hurwitz numbers (theta-series origin), cf. KUDLA_ES.md.",
- "Regress R(p) (not log) on h(−4p), h(−8p), h(−3p), h(−12p) for exact linear relations at small p (integer-relation search with PSLQ on vectors).",
+ "Fit log R(p) on log L(1,χ_{dp}) for twists d ∈ {−4,−8,−3,−20,…} jointly (class numbers themselves scale like √p, R like log²p, so only L-values/Euler products can enter); identify the minimal twist set.",
  ["data/z52b/lfit.json", "KUDLA_ES.md", "THREE_SQUARES.md"], ["class-number", "star-count", "hurwitz", "theta"], "high", "cheap"),
 ("U(p) uncorrelated with a_p of non-CM elliptic curves",
  "Spearman of U(p)-residual with a_p(11a1)/2√p is +0.004, with a_p(37a1)/2√p −0.005, with |a_p(32a1)|/2√p +0.007, with Ramanujan τ(p)/p^{5.5} +0.006 (n≈9 000).",

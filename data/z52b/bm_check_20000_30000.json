@@ -1,0 +1,19 @@
+{
+ "n": 486,
+ "mean_R_over_Mbm": 1.2205479377209576,
+ "mean_R_over_M0": 1.1816572618468153,
+ "spearman_R_Mbm": 0.13760205203170614,
+ "spearman_resR_resMbm": 0.10137809860496622,
+ "spearman_resU_resMbm": 0.579335760183506,
+ "spearman_resR_T": -0.10677027429992846,
+ "pearson_R_Mbm": 0.25146194683960754,
+ "R_zero_primes": [
+  23929
+ ],
+ "Mbm_at_R_zero": [
+  11.432650191578437
+ ],
+ "Mbm_quantile_of_R_zeros": [
+  0.0720164609053498
+ ]
+}
