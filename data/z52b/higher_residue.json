@@ -1,0 +1,410 @@
+{
+ "U: 2 is 3-th power residue": {
+  "stratified_mean_diff": 0.0083,
+  "n_res": 1374,
+  "n_non": 2780,
+  "mw_p_unstratified": 0.37622382554277967
+ },
+ "k1: 2 is 3-th power residue": {
+  "stratified_mean_diff": 0.0074,
+  "n_res": 1374,
+  "n_non": 2780,
+  "mw_p_unstratified": 0.46551800642779784
+ },
+ "k2: 2 is 3-th power residue": {
+  "stratified_mean_diff": 0.0091,
+  "n_res": 1374,
+  "n_non": 2780,
+  "mw_p_unstratified": 0.21980332319627405
+ },
+ "R: 2 is 3-th power residue": {
+  "stratified_mean_diff": -0.0133,
+  "n_res": 1374,
+  "n_non": 2780,
+  "mw_p_unstratified": 0.2977712214758428
+ },
+ "U: 3 is 3-th power residue": {
+  "stratified_mean_diff": 0.007,
+  "n_res": 1351,
+  "n_non": 2803,
+  "mw_p_unstratified": 0.3630049418755542
+ },
+ "k1: 3 is 3-th power residue": {
+  "stratified_mean_diff": 0.0053,
+  "n_res": 1351,
+  "n_non": 2803,
+  "mw_p_unstratified": 0.5291390469643347
+ },
+ "k2: 3 is 3-th power residue": {
+  "stratified_mean_diff": 0.0106,
+  "n_res": 1351,
+  "n_non": 2803,
+  "mw_p_unstratified": 0.10734270502836157
+ },
+ "R: 3 is 3-th power residue": {
+  "stratified_mean_diff": 0.0035,
+  "n_res": 1351,
+  "n_non": 2803,
+  "mw_p_unstratified": 0.9065235798060522
+ },
+ "U: 5 is 3-th power residue": {
+  "stratified_mean_diff": 0.0017,
+  "n_res": 1342,
+  "n_non": 2812,
+  "mw_p_unstratified": 0.2464280476823001
+ },
+ "k1: 5 is 3-th power residue": {
+  "stratified_mean_diff": 0.0004,
+  "n_res": 1342,
+  "n_non": 2812,
+  "mw_p_unstratified": 0.2530747042308813
+ },
+ "k2: 5 is 3-th power residue": {
+  "stratified_mean_diff": 0.0051,
+  "n_res": 1342,
+  "n_non": 2812,
+  "mw_p_unstratified": 0.2717759330473183
+ },
+ "R: 5 is 3-th power residue": {
+  "stratified_mean_diff": -0.0043,
+  "n_res": 1342,
+  "n_non": 2812,
+  "mw_p_unstratified": 0.9569675076696683
+ },
+ "U: 7 is 3-th power residue": {
+  "stratified_mean_diff": 0.0046,
+  "n_res": 1371,
+  "n_non": 2783,
+  "mw_p_unstratified": 0.18556345751561154
+ },
+ "k1: 7 is 3-th power residue": {
+  "stratified_mean_diff": 0.0047,
+  "n_res": 1371,
+  "n_non": 2783,
+  "mw_p_unstratified": 0.19640004688326607
+ },
+ "k2: 7 is 3-th power residue": {
+  "stratified_mean_diff": 0.0055,
+  "n_res": 1371,
+  "n_non": 2783,
+  "mw_p_unstratified": 0.22605766327791643
+ },
+ "R: 7 is 3-th power residue": {
+  "stratified_mean_diff": -0.0117,
+  "n_res": 1371,
+  "n_non": 2783,
+  "mw_p_unstratified": 0.9556802099180438
+ },
+ "U: 2 is 4-th power residue": {
+  "stratified_mean_diff": 0.0079,
+  "n_res": 2075,
+  "n_non": 2084,
+  "mw_p_unstratified": 0.09801329385585239
+ },
+ "k1: 2 is 4-th power residue": {
+  "stratified_mean_diff": 0.0079,
+  "n_res": 2075,
+  "n_non": 2084,
+  "mw_p_unstratified": 0.12066827482848796
+ },
+ "k2: 2 is 4-th power residue": {
+  "stratified_mean_diff": 0.0077,
+  "n_res": 2075,
+  "n_non": 2084,
+  "mw_p_unstratified": 0.06731410859519676
+ },
+ "R: 2 is 4-th power residue": {
+  "stratified_mean_diff": 0.0071,
+  "n_res": 2075,
+  "n_non": 2084,
+  "mw_p_unstratified": 0.0617977065222018
+ },
+ "U: 3 is 4-th power residue": {
+  "stratified_mean_diff": 0.0014,
+  "n_res": 2057,
+  "n_non": 2097,
+  "mw_p_unstratified": 0.6762929317190751
+ },
+ "k1: 3 is 4-th power residue": {
+  "stratified_mean_diff": 0.0036,
+  "n_res": 2057,
+  "n_non": 2097,
+  "mw_p_unstratified": 0.6116070699105374
+ },
+ "k2: 3 is 4-th power residue": {
+  "stratified_mean_diff": -0.0022,
+  "n_res": 2057,
+  "n_non": 2097,
+  "mw_p_unstratified": 0.9818540277993048
+ },
+ "R: 3 is 4-th power residue": {
+  "stratified_mean_diff": -0.0067,
+  "n_res": 2057,
+  "n_non": 2097,
+  "mw_p_unstratified": 0.7708170105391773
+ },
+ "U: 5 is 4-th power residue": {
+  "stratified_mean_diff": 0.0102,
+  "n_res": 2070,
+  "n_non": 2077,
+  "mw_p_unstratified": 0.3900335253338957
+ },
+ "k1: 5 is 4-th power residue": {
+  "stratified_mean_diff": 0.0082,
+  "n_res": 2070,
+  "n_non": 2077,
+  "mw_p_unstratified": 0.41580490775988144
+ },
+ "k2: 5 is 4-th power residue": {
+  "stratified_mean_diff": 0.014,
+  "n_res": 2070,
+  "n_non": 2077,
+  "mw_p_unstratified": 0.34147544453704515
+ },
+ "R: 5 is 4-th power residue": {
+  "stratified_mean_diff": 0.0078,
+  "n_res": 2070,
+  "n_non": 2077,
+  "mw_p_unstratified": 0.9860405699762749
+ },
+ "U: 7 is 4-th power residue": {
+  "stratified_mean_diff": -0.0054,
+  "n_res": 2051,
+  "n_non": 2099,
+  "mw_p_unstratified": 0.6894046652569527
+ },
+ "k1: 7 is 4-th power residue": {
+  "stratified_mean_diff": -0.0041,
+  "n_res": 2051,
+  "n_non": 2099,
+  "mw_p_unstratified": 0.6402501769213387
+ },
+ "k2: 7 is 4-th power residue": {
+  "stratified_mean_diff": -0.0077,
+  "n_res": 2051,
+  "n_non": 2099,
+  "mw_p_unstratified": 0.8982826851862689
+ },
+ "R: 7 is 4-th power residue": {
+  "stratified_mean_diff": -0.0065,
+  "n_res": 2051,
+  "n_non": 2099,
+  "mw_p_unstratified": 0.8567701283781362
+ },
+ "U: 2 is 8-th power residue": {
+  "stratified_mean_diff": 0.0065,
+  "n_res": 1041,
+  "n_non": 3118,
+  "mw_p_unstratified": 0.5217441369327777
+ },
+ "k1: 2 is 8-th power residue": {
+  "stratified_mean_diff": 0.0076,
+  "n_res": 1041,
+  "n_non": 3118,
+  "mw_p_unstratified": 0.5308118913848994
+ },
+ "k2: 2 is 8-th power residue": {
+  "stratified_mean_diff": 0.0037,
+  "n_res": 1041,
+  "n_non": 3118,
+  "mw_p_unstratified": 0.5052785131555327
+ },
+ "R: 2 is 8-th power residue": {
+  "stratified_mean_diff": 0.0044,
+  "n_res": 1041,
+  "n_non": 3118,
+  "mw_p_unstratified": 0.4696994745283777
+ },
+ "U: 3 is 8-th power residue": {
+  "stratified_mean_diff": 0.0085,
+  "n_res": 495,
+  "n_non": 1558,
+  "mw_p_unstratified": 0.670930515086965
+ },
+ "k1: 3 is 8-th power residue": {
+  "stratified_mean_diff": 0.013,
+  "n_res": 495,
+  "n_non": 1558,
+  "mw_p_unstratified": 0.518427499799514
+ },
+ "k2: 3 is 8-th power residue": {
+  "stratified_mean_diff": -0.0012,
+  "n_res": 495,
+  "n_non": 1558,
+  "mw_p_unstratified": 0.895059731723311
+ },
+ "R: 3 is 8-th power residue": {
+  "stratified_mean_diff": -0.0093,
+  "n_res": 495,
+  "n_non": 1558,
+  "mw_p_unstratified": 0.4434873748364129
+ },
+ "U: 5 is 8-th power residue": {
+  "stratified_mean_diff": 0.0202,
+  "n_res": 500,
+  "n_non": 1557,
+  "mw_p_unstratified": 0.025716668613549733
+ },
+ "k1: 5 is 8-th power residue": {
+  "stratified_mean_diff": 0.0183,
+  "n_res": 500,
+  "n_non": 1557,
+  "mw_p_unstratified": 0.018936463925420303
+ },
+ "k2: 5 is 8-th power residue": {
+  "stratified_mean_diff": 0.0231,
+  "n_res": 500,
+  "n_non": 1557,
+  "mw_p_unstratified": 0.05958476159038748
+ },
+ "R: 5 is 8-th power residue": {
+  "stratified_mean_diff": -0.0033,
+  "n_res": 500,
+  "n_non": 1557,
+  "mw_p_unstratified": 0.980356580903233
+ },
+ "U: 7 is 8-th power residue": {
+  "stratified_mean_diff": -0.0067,
+  "n_res": 488,
+  "n_non": 1561,
+  "mw_p_unstratified": 0.40184085639182754
+ },
+ "k1: 7 is 8-th power residue": {
+  "stratified_mean_diff": -0.0003,
+  "n_res": 488,
+  "n_non": 1561,
+  "mw_p_unstratified": 0.5781614195401967
+ },
+ "k2: 7 is 8-th power residue": {
+  "stratified_mean_diff": -0.0212,
+  "n_res": 488,
+  "n_non": 1561,
+  "mw_p_unstratified": 0.09103624443573799
+ },
+ "R: 7 is 8-th power residue": {
+  "stratified_mean_diff": -0.0358,
+  "n_res": 488,
+  "n_non": 1561,
+  "mw_p_unstratified": 0.13196547877842585
+ },
+ "U: p\u22611 mod 16 vs p\u22611 mod smaller power, not mod 16": {
+  "diff": -0.094,
+  "n1": 2072,
+  "n0": 2087
+ },
+ "k1: p\u22611 mod 16 vs p\u22611 mod smaller power, not mod 16": {
+  "diff": -0.0983,
+  "n1": 2072,
+  "n0": 2087
+ },
+ "k2: p\u22611 mod 16 vs p\u22611 mod smaller power, not mod 16": {
+  "diff": -0.08,
+  "n1": 2072,
+  "n0": 2087
+ },
+ "R: p\u22611 mod 16 vs p\u22611 mod smaller power, not mod 16": {
+  "diff": -0.0514,
+  "n1": 2072,
+  "n0": 2087
+ },
+ "U: p\u22611 mod 32 vs p\u22611 mod smaller power, not mod 32": {
+  "diff": -0.0133,
+  "n1": 1030,
+  "n0": 1042
+ },
+ "k1: p\u22611 mod 32 vs p\u22611 mod smaller power, not mod 32": {
+  "diff": -0.013,
+  "n1": 1030,
+  "n0": 1042
+ },
+ "k2: p\u22611 mod 32 vs p\u22611 mod smaller power, not mod 32": {
+  "diff": -0.0137,
+  "n1": 1030,
+  "n0": 1042
+ },
+ "R: p\u22611 mod 32 vs p\u22611 mod smaller power, not mod 32": {
+  "diff": -0.0284,
+  "n1": 1030,
+  "n0": 1042
+ },
+ "U: p\u22611 mod 9 vs p\u22611 mod smaller power, not mod 9": {
+  "diff": -0.0304,
+  "n1": 1390,
+  "n0": 2764
+ },
+ "k1: p\u22611 mod 9 vs p\u22611 mod smaller power, not mod 9": {
+  "diff": -0.0357,
+  "n1": 1390,
+  "n0": 2764
+ },
+ "k2: p\u22611 mod 9 vs p\u22611 mod smaller power, not mod 9": {
+  "diff": -0.0177,
+  "n1": 1390,
+  "n0": 2764
+ },
+ "R: p\u22611 mod 9 vs p\u22611 mod smaller power, not mod 9": {
+  "diff": -0.0262,
+  "n1": 1390,
+  "n0": 2764
+ },
+ "U: p\u22611 mod 27 vs p\u22611 mod smaller power, not mod 27": {
+  "diff": -0.0159,
+  "n1": 456,
+  "n0": 934
+ },
+ "k1: p\u22611 mod 27 vs p\u22611 mod smaller power, not mod 27": {
+  "diff": -0.0119,
+  "n1": 456,
+  "n0": 934
+ },
+ "k2: p\u22611 mod 27 vs p\u22611 mod smaller power, not mod 27": {
+  "diff": -0.0256,
+  "n1": 456,
+  "n0": 934
+ },
+ "R: p\u22611 mod 27 vs p\u22611 mod smaller power, not mod 27": {
+  "diff": -0.0202,
+  "n1": 456,
+  "n0": 934
+ },
+ "U: p\u22611 mod 25 vs p\u22611 mod smaller power, not mod 25": {
+  "diff": -0.0209,
+  "n1": 422,
+  "n0": 1655
+ },
+ "k1: p\u22611 mod 25 vs p\u22611 mod smaller power, not mod 25": {
+  "diff": -0.0208,
+  "n1": 422,
+  "n0": 1655
+ },
+ "k2: p\u22611 mod 25 vs p\u22611 mod smaller power, not mod 25": {
+  "diff": -0.0207,
+  "n1": 422,
+  "n0": 1655
+ },
+ "R: p\u22611 mod 25 vs p\u22611 mod smaller power, not mod 25": {
+  "diff": -0.0152,
+  "n1": 422,
+  "n0": 1655
+ },
+ "U: p\u22611 mod 49 vs p\u22611 mod smaller power, not mod 49": {
+  "diff": -0.0136,
+  "n1": 189,
+  "n0": 1190
+ },
+ "k1: p\u22611 mod 49 vs p\u22611 mod smaller power, not mod 49": {
+  "diff": -0.0108,
+  "n1": 189,
+  "n0": 1190
+ },
+ "k2: p\u22611 mod 49 vs p\u22611 mod smaller power, not mod 49": {
+  "diff": -0.0182,
+  "n1": 189,
+  "n0": 1190
+ },
+ "R: p\u22611 mod 49 vs p\u22611 mod smaller power, not mod 49": {
+  "diff": -0.0544,
+  "n1": 189,
+  "n0": 1190
+ }
+}

@@ -29,7 +29,7 @@ nonsense; no barrier-checklist evaluation was done.
 ## Coverage notes / what I did NOT get to
 {{COVERAGE}}
 
-Item count: 111. Tag histogram (top 45): m-over-n 15, star-count 13, oeis-gap 9, hard-primes 9, divisibility-strengthened-ES 8, oeis-match 7, I3 7, anchor 5, mordell-classes 5, schinzel 5, coincidence 5, min-denominator 4, calibration 4, oeis-null 4, pseudosquares 4, BM 4, type-I 4, type-II 4, sanity 4, U-family 4, records 4, new-conjecture 4, compute-and-check 4, parity 3, small-values 3, covering 3, least-qnr 3, class-number 3, x-distribution 3, certificate-families 3, lemma-candidate 3, squares 3, multiplicativity 3, residue-classes 3, 8-over-n 3, R-zero 3, 2-adic 3, hardness-index 3, cross-numerator 3, union-conjecture 3, words 3, T1-analogue 3, smooth 3, counting 2, primes 2
+Item count: 155. Tag histogram (top 45): compute-and-check 23, m-over-n 15, star-count 13, null-result 10, oeis-gap 9, hard-primes 9, class-number 8, I3 8, divisibility-strengthened-ES 8, oeis-match 7, 2-adic 7, type-II 6, mordell-classes 6, anchor 5, calibration 5, L-function 5, type-I 5, sanity 5, certificate-families 5, schinzel 5, R-zero 5, coincidence 5, min-denominator 4, type-A 4, oeis-null 4, covering 4, pseudosquares 4, least-qnr 4, BM 4, p-minus-1 4, divisor-function 4, shifts 4, x-distribution 4, U-family 4, squares 4, multiplicativity 4, records 4, residue-classes 4, union-conjecture 4, new-conjecture 4, parity 3, small-values 3, real-quadratic 3, regression 3, local-densities 3
 
 
 ## Items
@@ -255,3 +255,91 @@ Item count: 111. Tag histogram (top 45): m-over-n 15, star-count 13, oeis-gap 9,
 110. **min over p ≤ X of R(p)/log²p: does it go to 0?** — R has 14 zeros ≤ 10¹⁰, so inf R/log²p = 0 infinitely often is possible; the empirical lower envelope of R(p)/log²p over primes with R > 0 is a separate fingerprint. — *First step:* Histogram R(p)/log²p near 0 (values 2, 4, 6) for p ≤ 3·10⁶ and compare with Poisson with the BM mean. [`fingerprint-0110`; high/cheap; star-count, lower-tail, poisson]
 
 111. **Poisson test for R(p) given M_BM(p)** — If R(p) ≈ Poisson-like with mean ∝ M_BM(p), P(R=0) ≈ exp(−c M_BM) — at M_BM ≈ 3 (p=409) this gives a few % — test against the 14 observed zeros. — *First step:* Fit P(R=0 | M_BM) by logistic regression on p ≤ 3·10⁶ (needs M_BM for all p; use the script with chunking). [`fingerprint-0111`; high/medium; star-count, poisson, model-check, BM]
+
+112. **Higher-power residue characters of 2,3,5,7 have no detectable effect on ES counts** — Within strata of fixed quadratic profile ((2/p),(3/p),(5/p),(7/p)), whether a ∈ {2,3,5,7} is a cubic/quartic/octic residue mod p shifts mean residual log U(p), k₁, k₂, R(p) by |Δ| ≤ 0.02 (all p > 0.02, multiple-testing null). — *First step:* Repeat with characters of order 3,4 of larger moduli (q ≤ 50) and with the full X(n) decomposition on (★). [`fingerprint-0112`; high/cheap; higher-characters, null-result, genus]
+
+113. **2-adic depth matters: p ≡ 1 (16) has 9% fewer ES solutions than p ≡ 9 (16)** — Among p ≡ 1 (8), residual log U(p) is lower by 0.094 when p ≡ 1 (16) (k₁ −0.098, k₂ −0.080, R −0.051); next level 32 vs 16 only −0.013; 9 vs 3: −0.030; 25 vs 5: −0.021. — *First step:* Compute the 2-adic local density of {4/p = 1/x+1/y+1/z} as a function of p mod 2^k and compare to the observed 9% gap. [`fingerprint-0113`; high/cheap; 2-adic, local-density, p-minus-1]
+
+114. **Quartic residuosity of 2 (p = x² + 64y²) is irrelevant for ES counts** — Among p ≡ 1 (8), '2 is a 4th power mod p' shifts residual log U by +0.008 (MW p = 0.10). — *First step:* None needed; record as negative fingerprint. [`fingerprint-0114`; high/cheap; quartic-residue, null-result, 2-adic]
+
+115. **Neumann–Setzer primes p = u² + 64 among hard primes?** — Elliptic curves of prime conductor with rational 2-torsion exist iff p = u² + 64 (Neumann–Setzer); check whether ES-hard primes or R-zeros are of this form (e.g. 409 − 64 = 345 is not a square; 577 − 64 = 513 not). — *First step:* Test all 14 R-zeros, 3 Type-A failures and the 40 hardest primes for p = u²+64; and correlate U(p) with #isogeny classes of conductor p in LMFDB. [`fingerprint-0115`; med/cheap; LMFDB, elliptic-curve, neumann-setzer, compute-and-check]
+
+116. **Number of elliptic curves of conductor p (or 4p, 8p, 16p) vs U(p)** — LMFDB lists curves by conductor; their number at N = p, 2p, 4p, 8p, 16p could correlate with ES counts if ES surfaces fibre into genus-1 curves (cf. GEOMETRY_ES.md) of these conductors. — *First step:* Download LMFDB conductor counts for N ≤ 500 000 (Cremona tables) and correlate with U(p) residual at p ≤ 30 000 (N=16p). [`fingerprint-0116`; med/medium; LMFDB, elliptic-curve, fibration, compute-and-check]
+
+117. **Ranks of the genus-1 fibres of the ES surface at hard primes** — Fixing one denominator turns 4/p = 1/x+1/y+1/z into a conic; fixing a linear relation gives cubic curves. Compute the Mordell–Weil rank of natural elliptic fibres for p ∈ {193, 409, 577, 2521, 66529} vs easy primes. — *First step:* Write the ES surface as an elliptic surface over P¹ (e.g. parametrise x = ty) and compute ranks with Sage/Magma at the listed p. [`fingerprint-0117`; med/medium; elliptic-surface, rank, root-number, compute-and-check]
+
+118. **U(p) residual vs Σ_{d≤8} τ(p+4d) is null (ρ = +0.02)** — The b = 1 (López Type A) line asks for a divisor of p+4d ≡ −1 (mod 4d); yet the raw divisor mass Σ_{d≤8} τ(p+4d) is uncorrelated with U(p), while τ((p+3)/4) correlates +0.59. — *First step:* Replace τ by the class-restricted count #{e | p+4d : e ≡ −1 (4d)} and recompute. [`fingerprint-0118`; high/cheap; type-A, divisor-function, null-result]
+
+119. **τ(p+1) and τ(p+4) correlate weakly (+0.12), τ(p+12) not at all** — Shifted divisor functions at shifts 1,4,12 carry little information on ES count, unlike shift 3 (+0.48 for τ(p+3)). — *First step:* Tabulate ρ(U, τ(p+s)) for s = 1..50 to find the full 'shift spectrum' and compare with which x-values carry solutions. [`fingerprint-0119`; high/cheap; shifts, divisor-function, shift-spectrum]
+
+120. **Shift spectrum ρ(U(p), τ(p+s)) for s = 1..50** — Compute-and-check: correlations of U(p) residual with τ(p+s), τ((p+s)/gcd) for each s; expect peaks at s ≡ 3 (mod 4) (x = (p+s)/4 integral). — *First step:* Run on p ≡ 1 (4) ≤ 2·10⁵ (cheap with sympy divisor_count). [`fingerprint-0120`; high/cheap; shifts, compute-and-check, certificate-families]
+
+121. **k₂ (Type II) is more sensitive to 3 than k₁: ρ((3/p)) = −0.41 vs −0.25** — Residual k₂(p) correlates −0.41 with (3/p) and −0.39 with v₃(p−1); k₁(p) correlates −0.25 and −0.25. — *First step:* Count Type II solutions by C (the c=1 parameter) and check which C carry the 3-dependence. [`fingerprint-0121`; high/cheap; type-II, local-3, character]
+
+122. **k₁ (Type I) is more sensitive to 5 than k₂: ρ((5/p)) = −0.32 for k₁** — Residual k₁ correlates −0.32 with (5/p); k₂ less (not in top list). — *First step:* Build a table ρ(type, (q/p)) for q ≤ 50 and both types. [`fingerprint-0122`; high/cheap; type-I, local-5, character]
+
+123. **k₂ correlates with spf(p+4) (−0.35)** — Smallest prime factor of p+4 anticorrelates with k₂(p): p+4 with small factors → more Type II solutions. — *First step:* Check ρ(k₂, spf(p+4C)) for C = 1..10. [`fingerprint-0123`; high/cheap; type-II, shifts, smallest-prime-factor]
+
+124. **minz(p)/p anticorrelates with h(−4p)/√p (−0.19)** — The cheapest certificate is lower (smaller height) when L(1,χ_{−4p}) is large. — *First step:* Regress log(minz(p)/p) on log L(1,χ_{−4p}) and log L(1,χ_p). [`fingerprint-0124`; med/cheap; height, L-function, class-number]
+
+125. **U(p) vs CF period of √p (ρ = −0.27)** — Longer CF period of √p (larger regulator) ⇒ fewer ES solutions. — *First step:* Partial correlation of U with CF period controlling for L(1,χ_p); if ≈ 0, the CF of √p carries nothing extra. [`fingerprint-0125`; high/cheap; continued-fraction, pell, partial-correlation]
+
+126. **Real class number h(p) is uncorrelated with U(p) (−0.04)** — Since h(p) = 1 for most p ≡ 1 (4) at this size, only the regulator carries the L-value; h(p) alone is uninformative. — *First step:* None. [`fingerprint-0126`; high/cheap; real-quadratic, null-result, class-number]
+
+127. **r₃(p) = 12 h(−4p) for p ≡ 1 (4): ES counts vs sums of three squares** — By Gauss, r₃(p) = 12h(−4p) at p ≡ 1 (mod 4); so U's weak correlation with h(−4p) (+0.08 raw, +0.14 normalised) is also its correlation with r₃(p). — *First step:* Correlate U(p) with representation numbers of other ternary forms of small discriminant (genus theory via Hurwitz numbers H(4p), H(8p), H(3p)). [`fingerprint-0127`; high/cheap; ternary-forms, three-squares, class-number]
+
+128. **Which ternary quadratic form's r_Q(p) best predicts U(p)?** — Compute-and-check: for all reduced positive ternary forms Q of discriminant ≤ 200, compute r_Q(p) at p ≡ 1 (4) ≤ 10⁵ and the Spearman with U(p) residual. — *First step:* Use pari qfrep on the Brandt–Intrau list (discriminant ≤ 200) and rank by correlation. [`fingerprint-0128`; med/medium; ternary-forms, theta, siegel-weil, compute-and-check]
+
+129. **Hurwitz class numbers H(4p), H(8p), H(3p) jointly vs ES counts** — Hurwitz numbers are coefficients of weight-3/2 Eisenstein series; a linear combination of H(dp)/√p could match the χ-twist dependence found for k₁/k₂. — *First step:* Fit log k₂ on log H(4p)/√p, log H(8p)/√p, log H(3p)/√p; inspect coefficients for rational structure. [`fingerprint-0129`; med/cheap; hurwitz, weight-3/2, eisenstein, compute-and-check]
+
+130. **Gaussian angle of p = a² + b² is irrelevant (ρ = −0.016)** — min(a,b)/√p for p = a²+b² shows no correlation with U(p). — *First step:* Also test cos(4θ_p), cos(8θ_p) for the Hecke characters of Q(i) (Kubilius) — expect null. [`fingerprint-0130`; high/cheap; hecke-character, gaussian-integers, null-result]
+
+131. **Root numbers / L-functions of quadratic twists of 32a1 by p** — Compute-and-check: the twist E^{(p)}: py² = x³ − x (congruent-number-type curve) has root number determined by p mod 8; its analytic rank at hard primes vs others. — *First step:* Use pari ellanalyticrank on twists for p ≡ 1 (8) ≤ 10⁴, correlate rank with U(p)/log²p. [`fingerprint-0131`; med/cheap; congruent-number, twist, rank, compute-and-check]
+
+132. **ord_p(2)/(p−1) correlates +0.45 with U(p)** — Higher multiplicative order of 2 mod p ⇒ more solutions; partly via (2/p) (2 is a QNR ⇒ index odd…), partly via p−1 smoothness. — *First step:* Partial correlation controlling for (2/p) and τ(p−1); compare with ord_p(3), ord_p(5). [`fingerprint-0132`; med/cheap; artin, order-of-2, partial-correlation]
+
+133. **R-zeros: least QNR and L(1,χ_p) are high (11 of 14 above the 85th percentile)** — Least QNR of the 14 R-zeros: 7,5,13,13,7,13,23,5,23,7,13,19,11,17; quantile of L(1,χ_p) among same-size primes ≡ p (mod 8): 0.72,0.61,0.98,0.98,0.86,0.99,1.00,0.70,0.99,0.90,0.97,0.99,0.99,0.99. — *First step:* Logistic model P(R(p)=0) vs log L(1,χ_p) and log L(1,χ_{−4p}) on p ≤ 3·10⁶ (12 zeros) — check both coefficients' signs. [`fingerprint-0133`; high/cheap; R-zero, least-qnr, L-function]
+
+134. **R-zeros have small h(−4p): 12 of 14 below the median (binomial p ≈ 0.006)** — Quantile of h(−4p)/√p among primes of the same size and class mod 8: 0.56,0.05,0.15,0.20,0.33,0.14,0.38,0.13,0.36,0.44,0.19,0.41,0.39,0.29 (mean 0.29). — *First step:* Extend to R-zeros beyond 10¹⁰ if the census is extended; compute the joint (h(−4p), L(1,χ_p)) quantile and see whether R-zeros are extreme in the joint distribution. [`fingerprint-0134`; high/cheap; R-zero, class-number, siegel-zero, confirmed-prediction]
+
+135. **Type-A failures: 193 has h(−4p) in the bottom 2%, 2521 and 66529 have L(1,χ_p) at the 95th percentile** — 193: least QNR 5, h(−4p) quantile 0.019, L(1,χ_p) quantile 0.56; 2521: least QNR 11, L quantile 0.95; 66529: least QNR 13, L quantile 0.95. — *First step:* Compute both quantiles for all Type-A near-failures (primes where the b=1 line has exactly 1–2 certificates) ≤ 10⁸. [`fingerprint-0135`; high/cheap; type-A, class-number, L-function]
+
+136. **Two-twist model: hardness for union (★) ∪ Type A needs both χ_p and χ_{−4p} small/large** — If (★) fails when L(1,χ_{−4p}) is small and Type A fails when L(1,χ_p) is large, both failing requires an unusual joint profile of (q/p) and (−1/q)(q/p) — i.e. (−1/q) = −1 primes q ≡ 3 (4) behaving oppositely. — *First step:* Estimate P(both lines fail) under a model where log R and log A are linear in the two log L's with fitted noise; compare with the (zero) observed count. [`fingerprint-0136`; med/medium; union-conjecture, two-twist, heuristic-model]
+
+137. **Euler-product weights per prime q for log U(p)** — Fit log U(p) residual = Σ_q β_q χ_p(q) + Σ_q γ_q χ_{−4p}(q) for q ≤ 50 (≈ 30 coefficients, 9 000 primes). — *First step:* Least squares with standard errors; compare β_q with −1/q (naive Euler factor slope). [`fingerprint-0137`; high/cheap; euler-product, local-densities, regression, compute-and-check]
+
+138. **Elsholtz–Tao mean f(p) ≍ log³p vs our counts** — ET prove Σ_{p≤N} f(p) ≍ N log²N (ordered solutions, so f(p) ≍ log³ p on average? check); our U(p)/log²p averages and drifts can test the exponent. — *First step:* Check ET's exact statement (arXiv:1107.1010) and fit mean U(p) over dyadic ranges to (log p)^a. [`fingerprint-0138`; high/cheap; elsholtz-tao, mean-value, calibration, literature-check]
+
+139. **Variance of log U(p) after removing the χ_p effect: what is left?** — After the Euler-product fit (R² gain ≈ 0.49), the remaining residual variance can be tested against τ((p+3)/4), τ(p−1), and pure noise. — *First step:* Fit the full model log U ~ log p + Euler(χ_p) + Euler(χ_{−4p}) + log τ((p+3)/4) + log τ(p−1) and report residual variance. [`fingerprint-0139`; high/cheap; variance-decomposition, local-vs-global, compute-and-check]
+
+140. **Is U(p)/log²p approximately lognormal?** — Histogram the residual; tails determine the probability of U(p)=0 under a smooth model — heavy lower tail would make finitely-many-exceptions heuristics fragile. — *First step:* Fit normal/skew-normal to the residual and compute the predicted P(U(p) ≤ 5) vs observed (only p ≤ 17). [`fingerprint-0140`; high/cheap; lower-tail, distribution, compute-and-check]
+
+141. **Least primitive root vs U: ρ = −0.57 (proxy check)** — The least primitive root g(p) is a QNR, so g(p) ≥ least QNR; its correlation is weaker than least QNR (−0.66). — *First step:* Partial correlation of U with g(p) given least QNR. [`fingerprint-0141`; high/cheap; primitive-root, proxy, partial-correlation]
+
+142. **ρ(U, I3(p)) = +0.46, ρ(U, W(p)) = +0.32** — Word counts at the same prime predict the ES count moderately; I3 more than all words. — *First step:* Check whether I3(p) also follows χ_p (it does weakly: α ≈ −0.12) and whether its residual is mostly noise. [`fingerprint-0142`; high/cheap; I3, certificate-families, correlation]
+
+143. **Ramanujan τ(p) and ES: null** — Normalised τ(p)/p^{5.5} has ρ = +0.006 with U(p) residual. — *First step:* None. [`fingerprint-0143`; high/cheap; modular-forms, null-result, ramanujan-tau]
+
+144. **ES hardness vs Wieferich-type / Fermat-quotient data** — Compute-and-check: correlation of U(p) with q_p(2) = (2^{p−1} − 1)/p mod p (Fermat quotient) — a p-adic invariant of 2. — *First step:* Compute q_p(2) mod p for p ≤ 2·10⁵, normalise to [0,1), Spearman with residual U. [`fingerprint-0144`; med/cheap; fermat-quotient, p-adic, compute-and-check, null-expected]
+
+145. **ES counts at Sophie Germain / safe primes** — Safe primes (p = 2q+1) have p−1 maximally non-smooth; predicted to be ES-easy. Compute mean U(p)/log²p over safe primes vs all primes ≡ 3 (mod 4) (safe primes > 7 are ≡ 3 (mod 4)… so compare within class). — *First step:* Compute on p ≡ 3 (4) ≤ 2·10⁵: ρ(U, P⁺(p−1)) and mean over safe primes. [`fingerprint-0145`; med/cheap; safe-primes, p-minus-1, compute-and-check]
+
+146. **Primes p with p−1 = 2^k·m, m small: Fermat-like primes as hard cases** — 65537 = 2¹⁶+1: compute U(65537)/log² and compare: Fermat primes have p ≡ 1 mod 2^16, so the 2-adic depth effect (−9% per level?) would compound. — *First step:* Run z52b_count on 65537, 257, 17 and on primes 2^k·3+1, 2^k·5+1. [`fingerprint-0146`; high/cheap; fermat-primes, 2-adic, compute-and-check]
+
+147. **Proth-type primes k·2^n + 1 with small k as an ES-hardness test bed** — Primes k·2^n+1 (k ≤ 15) have deep 2-adic structure and controllable p−1; scanning U(p)/log² over them separates 2-adic depth from other effects. — *First step:* List Proth primes ≤ 10⁸ and compute R(p), U(p) via targeted solvers. [`fingerprint-0147`; med/medium; proth-primes, test-bed, 2-adic]
+
+148. **ES hardness index vs class number of Q(ζ_p)^+? (too expensive; proxy via h(p))** — Compute-and-check (proxy): cyclotomic class-number data are unavailable at scale; the quadratic subfield Q(√p) (h(p) null) is the only cheap proxy. — *First step:* Skip unless a specific cyclotomic mechanism is proposed. [`fingerprint-0148`; low/big; cyclotomic, proxy, null-result]
+
+149. **p mod 5 and p mod 7 as integers are uninformative (|ρ| ≤ 0.07)** — Raw residues p mod 5, p mod 7 show tiny correlation; the information is in the Legendre symbols (5/p), (7/p) (and for 7 even that is null). — *First step:* None. [`fingerprint-0149`; high/cheap; sanity, residue-classes, null-result]
+
+150. **Mordell's identity classes as indicator features: which one explains most variance?** — For each classical polynomial identity (mod 3, 5, 7, 8, 11, …) define 1[p in identity class] and regress U(p) on all of them. — *First step:* Encode Mordell's and Vaughan's identity classes (cf. MODEL_SPECIFIC.md) as features and run a LASSO. [`fingerprint-0150`; high/cheap; mordell-classes, regression, compute-and-check]
+
+151. **Number of distinct x vs number of solutions per x: concentration index** — U(p)/nx(p) (solutions per first denominator) is a concentration fingerprint; Gini coefficient of the x-profile per prime. — *First step:* Compute U/nx at p ≤ 2·10⁵ (both in data) and its dependence on χ_p. [`fingerprint-0151`; high/cheap; x-distribution, concentration, compute-and-check]
+
+152. **Linear-algebra fingerprint: rank of the solution set's denominator matrix mod small primes** — For each p, collect (x,y,z) mod q (q = 3, 5, 7) of all solutions; the occupied residue patterns form a fingerprint; compare across hard and easy primes. — *First step:* Compute for p ≤ 10⁴ (needs solution lists — extend the counter to dump solutions). [`fingerprint-0152`; med/medium; local-patterns, covering, compute-and-check]
+
+153. **U(p) for p ≡ 3 (4): correlation profile mirrors p ≡ 1 (4)?** — All correlations above were computed for p ≡ 1 (4); for p ≡ 3 (4) ES is trivial but counts still fluctuate — compare the χ_p fit. — *First step:* Rerun z52b_fingerprint_lfit.py restricted to p ≡ 3 (4). [`fingerprint-0153`; high/cheap; uniformity, local-densities, compute-and-check]
+
+154. **Composite n: is U(n) multiplicative-ish? (U(pq) vs U(p), U(q))** — Compute-and-check: for n = pq ≤ 30 000, regress log U(pq) on log U(p), log U(q). — *First step:* Use f4_all_30000.txt; scatter log U(pq) − log U(p) − log U(q). [`fingerprint-0154`; high/cheap; multiplicativity, composites, compute-and-check]
+
+155. **U(p²) and U(p³): prime powers fingerprint** — Compute U at prime squares and cubes (in range: p² ≤ 30 000): odd squares kill all certificate lines (T1) but ES(p²) holds via p — how big is U(p²)? — *First step:* Extract U(m²) for odd m ≤ 173 from the data and compare with U at neighbouring non-squares. [`fingerprint-0155`; high/cheap; T1, squares, compute-and-check]
