@@ -1,0 +1,12 @@
+Source accessed 2026-10-30: https://arxiv.org/html/2610.32302v1
+
+arXiv API query used to verify existence: https://export.arxiv.org/api/query?search_query=all%3A%222610.32302%22&start=0&max_results=1&sortBy=submittedDate&sortOrder=descending
+API record identifying fields: <id>http://arxiv.org/abs/2610.32302v1</id>; <title>Prime Numbers of the Form $24m+1$ and Erdös-Straus Conjecture</title>; <published>2026-10-23T07:57:41Z</published>; <updated>2026-10-23T07:57:41Z</updated>. Authors: Yichuan Cao; Xiaoping Xu. This verifies that the arXiv record exists.
+
+Yichuan Cao and Xiaoping Xu, “Prime Numbers of the Form 24m+1 and Erdös-Straus Conjecture,” arXiv:2610.32302v1, submitted 2026-10-23.
+
+§3, paper's own statement: “Claim. Z_+ = union_{r=1}^{56} S_r. We have used AI to test the claim for m <= 10^11 and it holds. But we failed to get a logic proof.” It then says this claim implies ES.
+
+§4: the analogous claim for Howerton's fourteen wild primes was tested for m <= 10^7, but “we failed to get a logic proof.”
+
+Abstract: gives 56 solvability polynomials; numeric test indicates they imply ES. It also claims numerical evidence for the Howerton conjecture and formulates a version of Goldbach modulo 24.

@@ -1,0 +1,23 @@
+# ArXiv API keyword sweep (submittedDate descending)
+Accessed 2026-10-30; submitted-date cutoff inclusive: 2026-09-01. Queries run independently with start=0, max_results=1000, sortBy=submittedDate, sortOrder=descending. Every query had fewer than 1000 total results, so all matches were returned. Lists every result whose published date is >= cutoff; duplicates across queries intentionally retained. Source: export.arxiv.org API.
+
+## all:"Erdos Straus" — complete results: 10
+- 2026-09-05 — 2609.09204v2 — Counting Type I and Type II solutions of the Erdos-Straus equation: concentration, local obstructions, and a pointwise comparison — Xinyang Jiang
+
+## all:"Egyptian fraction" — complete results: 49
+- 2026-10-23 — 2610.32302v1 — Prime Numbers of the Form $24m+1$ and Erdös-Straus Conjecture — Yichuan Cao; Xiaoping Xu
+
+## all:"unit fractions" — complete results: 67
+- 2026-09-26 — 2609.32140v1 — Unit fractions with semiprime denominators: an elementary proof of Erdős Problem #306 — Shisheng Li
+- 2026-09-07 — 2609.07913v1 — Improved Upper Bounds for Dynamic Bin Packing of General, Unit-Fraction, and Power-Fraction Squares — Miguel A. Mini; Flávio K. Miyazawa; Gabriel M. Silva; Yoshiko Wakabayashi
+
+## ti:"4/n" — complete results: 95
+- No hits dated 2026-09-01 or later.
+
+## abs:Sierpinski AND abs:"5/n" — complete results: 0
+- No hits.
+
+## abs:Schinzel AND abs:"unit fractions" — complete results: 1
+- No hits dated 2026-09-01 or later.
+
+Four unique records meet the date cutoff across the queries: Jiang (solution-counting; not an ES proof), Cao–Xu (unproved 56-family ES covering claim), Li (#306 semiprime Egyptian fractions, not ES), Mini et al. (bin packing; unrelated). Query presence is not a claim of topic relevance.

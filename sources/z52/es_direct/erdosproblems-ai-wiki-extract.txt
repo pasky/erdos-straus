@@ -1,0 +1,18 @@
+Accessed 2026-10-30: https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems (raw wiki). Its header says frozen as of 2026-06-30 and warns it is a provisional reference, not definitive assessment.
+
+Relevant exact rows from its Lean-formalization section:
+| #206 | Kovač (2024) | Aristotle | 28 Apr 2026 | 🟢
+| #283 | van Doorn (2025) | Aristotle | 28 Mar 2026 | 🟡
+| #283 | Barreto, GPT-5.5 Pro, and Price (2026) | Claude Opus 4.7, GPT-5.5 Pro | 6 May 2026 | 🟢
+| #290 | van Doorn (2024) | Aristotle | 14 Jan 2026 | 🟢
+| #296 | Hunter and Sawhney | Aristotle | 22 Apr–26 May 2026 | 🟢
+| #303 | Brown and Rödl (1991) | Seed Prover | 21 Dec 2025 | 🟢
+| #315 | Kamio (2025) | Aristotle | 31 Jan 2026 | 🟢
+| #355 | van Doorn and Kovač (2025) (almost the entirety) | Aristotle, Gemini 3 | 30 Jan–13 Mar 2026 | 🟢
+
+Relevant exact rows from its human-AI primary-contribution section:
+| #283 | Kevin Barreto, Liam Price | GPT-5.5 Pro | 3 May 2026 | 🟢 Full solution
+| #306 | Shisheng Li | Claude, Claude Code | 17 Jun 2026 | 🟡 Partial result (Lean)
+| #306 | Yuren Tang | Unspecified | 19 Jun 2026 | ⚪ Candidate full solution (Lean)
+
+These records are AI/formalization reports, not independent mathematical adjudications. The site status page and sources control claims about whether a theorem is proved.
