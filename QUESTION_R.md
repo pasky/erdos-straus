@@ -297,7 +297,7 @@ No pointwise theorem for any ES relaxation and no theorem in thin orbits (Questi
   phenomena generally" (R278 repair: said for SL(2, ℤ[i]) and the Apollonian superpacking) — Thm 1.5 is the classical
 SL(2, ℤ) analogue for RS's Ψ.
 * Kadyrov–Kazin–Orynbassar–Shynarbek arXiv:2610.16530 (2026): cites RS; bounded CF in ℚ(√127); not relevant.
-* HKRS (Annals 2024); Kontorovich, Bull. AMS 63 (2026) survey "the rise and fall of the local-to-global conjecture";
+* HKRS (Annals 2024); Fuchs, Bull. AMS 63 (2026) survey (z52 correction: author is E. Fuchs, DOI 10.1090/bull/1874) "the rise and fall of the local-to-global conjecture";
   K. Stange's research page (reciprocity obstructions as a current programme).
 * **No paper found that proves a local–global statement (even density one beyond what BK-type theorems give, or any
   pointwise statement) for a thin orbit carrying a reciprocity obstruction**; Question R appears open and unaddressed.
