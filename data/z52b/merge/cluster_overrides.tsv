@@ -1,0 +1,38 @@
+# Manual cluster overrides (merge-lane review of transitive DUP chains).
+# Each line = one final group (space-separated ids). Every automatic DUP edge touching a listed id is ignored;
+# a single id on a line = keep that item un-merged.
+# Lenstra / CHN divisors-in-residue-classes (bound + constructive enumeration)
+free_fable-0053 free_opus-0168 signature-0014 signature-0139 signature-0155 translate-0074 upgrades-0091 tools-0194 free_fable-0051
+# Coppersmith bivariate small roots of the certificate equation
+free_opus-0166 translate-0075 signature-0140
+# divisors in residue classes via sign changes (arXiv:2410.05030) — specific new paper
+signature-0174
+# Markoff BGS / Chen as model for an ES group action / certificate graph
+analogues-0239 dividing-0049 dividing-0306 free_fable-0017 free_fable-0176 free_opus-0029 signature-0062 tools-0121 tools-0122 translate-0116
+upgrades-0103
+upgrades-0106
+# Duke–Schulze-Pillot large-n theorem as template
+analogues-0221 dividing-0035 signature-0033 signature-0114
+# spinor exceptions ↔ T1
+dividing-0036 dividing-0252 signature-0150 tools-0160 translate-0125 upgrades-0036
+# Croot colouring / Bloom density / both
+free_fable-0101 free_opus-0001 tools-0087
+free_fable-0102 free_opus-0002 signature-0207 tools-0084 translate-0167
+analogues-0226 signature-0046
+# HKRS Apollonian vs Rickards–Stange CF orbits vs generic feature item
+analogues-0237 dividing-0068 free_fable-0174 signature-0012 tools-0101 translate-0093
+dividing-0067 translate-0092 tools-0305
+dividing-0134
+# greedy: Sylvester 'one fewer term' history item kept separate
+analogues-0148 dividing-0150 free_astra-0289 free_opus-0006 translate-0179
+free_fable-0103
+# singletons split out of otherwise-good clusters
+free_fable-0105
+free_opus-0005
+upgrades-0280
+free_opus-0174
+dividing-0320
+free_fable-0307
+analogues-0019
+upgrades-0157
+dividing-0073

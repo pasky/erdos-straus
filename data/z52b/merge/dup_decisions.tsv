@@ -1,0 +1,1213 @@
+id_a	id_b	verdict	note
+analogues-0061	analogues-0089	DISTINCT	rational-n conjecture over all K vs non-rational n evidence in Z[√3]
+analogues-0203	analogues-0265	DISTINCT	different size caps (p²/8 vs p^{3/2}), different findings
+analogues-0188	analogues-0352	DUP	both: Dedekind-sum reciprocity of Seifert spaces ↔ T1
+analogues-0240	dividing-0055	DUP	both: Lehmer totient problem as Egyptian sibling
+analogues-0148	dividing-0150	DUP	both: greedy gives ≤4 terms, ES needs 3
+analogues-0148	free_fable-0095	DISTINCT	B: greedy-fixed x with any two-term remainder
+analogues-0148	free_fable-0103	DUP	both: Sylvester greedy ≤4 vs 3-term gap
+analogues-0148	free_opus-0006	DUP	both: Fibonacci–Sylvester greedy ≤4 terms on 4/p
+analogues-0148	upgrades-0149	DISTINCT	B: non-greedy look-ahead first-step rules
+free_astra-0289	free_opus-0006	DUP	both: greedy remainder dynamics on 4/p
+free_astra-0289	upgrades-0149	DISTINCT	B: look-ahead non-greedy rules
+free_fable-0095	free_opus-0006	DISTINCT	A: fixed greedy x, any 2-term remainder; B: remainder-map dynamics
+free_fable-0095	upgrades-0149	DISTINCT	A: greedy x two-term remainder; B: look-ahead rules
+free_opus-0006	translate-0179	DUP	both: greedy/Sylvester expansion as dynamical map
+free_opus-0006	upgrades-0149	DISTINCT	B: look-ahead non-greedy rules
+analogues-0233	dividing-0154	DISTINCT	A congruence-restricted Ford for ES; B plain catalog entry
+analogues-0233	tools-0032	DUP	both: Ford H(x,y,2y) with residue-class condition
+dividing-0154	tools-0032	DISTINCT	catalog entry vs congruence-restricted method
+analogues-0117	dividing-0164	DISTINCT	squarefree finding vs catalog of many restrictions
+dividing-0279	dividing-0280	DISTINCT	p + k! vs p + x³
+analogues-0235	dividing-0321	DISTINCT	distinct-product overlaps vs divisor-in-interval bound on Type II
+analogues-0202	fingerprint-0034	DISTINCT	no-1-mod-3 constraint vs Mordell x=(n+3)/4 class
+analogues-0109	fingerprint-0052	DUP	both: all-even ES ⇔ 8/p, fails 17, 241
+dividing-0058	signature-0049	DUP	both: Schinzel m/n conjecture with PW exceptions
+dividing-0060	signature-0049	DISTINCT	Vaughan almost-all vs Schinzel N(m) threshold
+dividing-0168	signature-0049	DISTINCT	A: N_m growth exponent; B: general Schinzel conjecture
+dividing-0222	fingerprint-0053	DISTINCT	PW explicit theorem vs 12/p failure set
+dividing-0222	fingerprint-0060	DISTINCT	PW theorem catalog vs our numeric reproduction m=20..48
+dividing-0222	fingerprint-0076	DISTINCT	PW theorem catalog vs our census check
+dividing-0222	signature-0049	DISTINCT	explicit (m²,2m²) theorem vs general N(m) conjecture
+dividing-0223	fingerprint-0075	DISTINCT	catalog j-term generalisation vs computed failure-set table
+dividing-0223	free_opus-0048	DISTINCT	j-term generalisation vs 3-term m/n calibration
+dividing-0223	signature-0049	DISTINCT	j-term generalisation vs Schinzel N(m)
+dividing-0278	fingerprint-0079	DISTINCT	m=4 virtual exceptions vs last failure for m=12,16
+fingerprint-0025	fingerprint-0117	DISTINCT	different shifts τ(p+3) vs τ(p+1,4,12)
+fingerprint-0118	fingerprint-0119	DISTINCT	k₂ vs 3 and k₁ vs 5: different correlations
+fingerprint-0022	fingerprint-0023	DISTINCT	least QNR vs least primitive root
+fingerprint-0023	fingerprint-0138	DUP	both: U(p) vs least primitive root ρ=−0.57
+fingerprint-0037	fingerprint-0163	DUP	both: U(p) record primes ≡ −1 mod 24/840
+analogues-0110	fingerprint-0188	DISTINCT	mod-4 denominator vs isosceles solutions
+analogues-0110	fingerprint-0194	DISTINCT	mod-4 denominator vs no-3 solutions
+analogues-0110	fingerprint-0195	DUP	both: some denominator ≡0 mod 4 fails at 17, 241
+analogues-0118	fingerprint-0195	DISTINCT	prime denominator vs 4-divisible denominator
+analogues-0118	fingerprint-0201	DISTINCT	some denominator prime vs smallest x prime / squares
+fingerprint-0012	fingerprint-0212	DUP	prediction and computed U for lcm(1..19)+1
+dividing-0331	fingerprint-0013	DUP	both: pseudosquares as hardest ES primes
+dividing-0331	fingerprint-0228	DISTINCT	integer pseudosquares vs F_q[T] analogue
+dividing-0331	free_fable-0191	DUP	both: pseudosquares as hardest ES primes
+dividing-0331	translate-0215	DUP	both: pseudosquares as hardest ES primes
+fingerprint-0013	free_fable-0191	DUP	both: pseudosquares as hardest ES primes
+fingerprint-0013	translate-0215	DUP	both: pseudosquares as hardest ES primes
+fingerprint-0090	free_fable-0191	DUP	both: pseudosquares nearly-square, ES counts vanish
+fingerprint-0090	translate-0215	DUP	both: pseudosquares approximate T1 / hardest primes
+fingerprint-0228	free_fable-0191	DISTINCT	F_q[T] pseudosquares vs integer pseudosquares
+free_fable-0191	translate-0215	DUP	both: Lehmer pseudosquares as ES-hardest primes
+fingerprint-0045	fingerprint-0242	DUP	question and answer: hardest square class mod 840
+fingerprint-0278	fingerprint-0280	DUP	question and answer: greedy depth vs Vmin
+analogues-0330	fingerprint-0299	DISTINCT	thin exponential families vs p ≡ −1 mod 840 easy
+dividing-0301	free_fable-0078	DISTINCT	Waring word maps vs automatic word-problem membership
+analogues-0182	free_fable-0098	DUP	both: tropicalisation of ES surface, valuations of solutions
+dividing-0097	free_fable-0132	DISTINCT	odd covering problem vs Erdős–Selfridge letters history
+analogues-0176	free_fable-0136	DISTINCT	no Vieta involution vs conic-bundle involutions via lines
+analogues-0176	signature-0322	DISTINCT	contrast (no Vieta) vs analogy (involution structure)
+analogues-0176	signature-0357	DISTINCT	no Vieta vs fixed-fibre hyperbola involution test
+analogues-0176	translate-0015	DISTINCT	no-Vieta contrast vs Hacking–Prokhorov twisted Markoff surface
+analogues-0067	free_fable-0142	DUP	both: ES over Z[i], rational p splits
+analogues-0184	free_fable-0148	DUP	both: BSST squared rectangles/networks for 4/n
+analogues-0184	free_opus-0292	DUP	both: BSST squared rectangles/networks for ES
+analogues-0184	translate-0031	DISTINCT	parallel-branch network vs fan graph with p spanning trees
+free_opus-0292	translate-0031	DISTINCT	generic BSST vs fan graph with p spanning trees
+analogues-0297	free_fable-0184	DISTINCT	no-isolated-prime threshold vs locally-unique template growth
+analogues-0309	free_fable-0195	DISTINCT	two negative terms vs one negative term
+dividing-0307	free_fable-0206	DISTINCT	exceptional-set infinitude vs necessary properties of counterexample
+fingerprint-0142	free_fable-0249	DISTINCT	Fermat primes U compute vs Aurifeuillean factorisations
+analogues-0329	free_fable-0262	DUP	both: MRDP Diophantine set of ES-good n
+free_fable-0284	free_fable-0300	DUP	Type I c=1 exceptional set: question and finding
+analogues-0138	free_opus-0010	DISTINCT	capped four-term vs trivial four-term
+analogues-0142	free_opus-0013	DISTINCT	3 square reciprocals world vs Graham finite-exception template
+analogues-0142	signature-0444	DUP	both: 4/n as three reciprocal squares (Graham)
+dividing-0226	free_opus-0013	DUP	both: Graham reciprocal squares theorem
+free_fable-0294	free_opus-0020	DISTINCT	Bleicher–Erdős term/denominator tradeoff vs denominators from set
+analogues-0222	free_opus-0021	DUP	both: three squares local obstruction vs ES none
+analogues-0222	signature-0090	DUP	both: three squares local obstruction vs ES none
+analogues-0222	upgrades-0031	DISTINCT	B: search one-class-genus lattice encoding ES
+dividing-0033	free_opus-0021	DUP	both: Legendre–Gauss three squares analogue
+free_opus-0021	signature-0090	DUP	both: three squares local obstruction vs ES none
+free_astra-0324	free_fable-0188	DISTINCT	generic indefinite orbits vs p = 4Cuv−u−v family
+free_fable-0188	free_opus-0031	DISTINCT	indefinite C-form family vs Ellenberg–Venkatesh
+free_fable-0254	free_opus-0042	DUP	both: Straus's own papers/history
+dividing-0276	free_opus-0043	DISTINCT	erdosproblems resolutions vs UPINT bibliography sweep
+analogues-0291	free_opus-0049	DISTINCT	analytic continuation vs MZV structure
+analogues-0291	translate-0148	DISTINCT	Dirichlet series in n vs height zeta of threefold
+free_fable-0144	free_opus-0050	DISTINCT	local density singular series vs Hensel history audit
+analogues-0042	fingerprint-0221	DUP	both: F_q point count n-independent q²+1
+analogues-0042	free_opus-0064	DISTINCT	generic ℓ∤2n count vs degenerate fibre mod p
+analogues-0320	fingerprint-0221	DUP	both: F_q point count n-independent q²+1
+free_fable-0177	free_opus-0065	DUP	both: Eichler optimal embeddings in quaternion orders
+free_astra-0341	free_opus-0078	DISTINCT	generic residue-ring sum-product vs Type I product sets
+free_fable-0251	free_opus-0106	DUP	both: cyclotomic rigidity for divisors in class
+free_fable-0003	free_opus-0119	DISTINCT	RMT of f(p) vs R(p)/M(p)
+free_fable-0006	free_opus-0124	DUP	both: QRT integrable maps preserving ES invariant
+free_fable-0010	free_opus-0126	DUP	both: sandpile group membership certificates
+free_fable-0012	free_opus-0130	DUP	both: RG coarse-graining of Mordell residue classes
+free_fable-0228	free_opus-0139	DUP	both: Benford/size distribution of certificates
+free_fable-0009	free_opus-0146	DUP	both: thin-lens equation as Egyptian fractions
+free_fable-0049	free_opus-0157	DUP	both: SOC heavy tail of hardness measure
+free_fable-0027	free_opus-0159	DUP	both: cavity method for ES as CSP
+dividing-0185	free_opus-0193	DUP	both: coverage decay of Mordell families, growing moduli
+free_fable-0079	free_opus-0207	DUP	both: constraint propagation on counterexample residues
+free_astra-0063	free_opus-0226	DISTINCT	clustering of hard primes vs lower-bound sieve
+free_fable-0246	free_opus-0226	DISTINCT	upper-bound sieve vs lower-bound count of evaders
+free_fable-0273	free_opus-0228	DISTINCT	409 forensic vs general semiprime factor condition
+free_fable-0278	free_opus-0243	DISTINCT	square-avoiding parametrisations vs rational identities with poles
+dividing-0237	free_opus-0251	DISTINCT	catalog conjecture vs forcing-line implication
+free_fable-0129	free_opus-0251	DISTINCT	Burgess analogy for certificates vs forcing-line implication
+fingerprint-0225	free_opus-0258	DISTINCT	m²+1 vs m²+4 families
+free_fable-0152	free_opus-0258	DISTINCT	C-form word representation vs m²+4 primes
+free_fable-0139	free_opus-0262	DISTINCT	run of bad C vs least I3 endpoint u
+free_fable-0219	free_opus-0288	DUP	both: Egyptian fraction subtraction games
+free_fable-0167	free_opus-0316	DISTINCT	ternary Siegel–Weil Type I vs Weil rep binary slice
+free_fable-0167	upgrades-0313	DISTINCT	ternary Type I form vs SL₂ quadric congruence
+analogues-0198	free_opus-0326	DUP	both: q-analogue ES in Q(q)
+free_fable-0157	free_opus-0328	DUP	both: decidable arithmetic fragment expressing ES
+analogues-0017	translate-0133	DISTINCT	Z[T] falsity vs Π₁ status
+analogues-0192	dividing-0287	DUP	both: ES is Π₁, independence status
+analogues-0192	free_fable-0057	DISTINCT	Π₁ independence vs bounded-arithmetic provability
+analogues-0192	free_opus-0039	DUP	both: ES Π₁, independence implies truth
+analogues-0192	signature-0070	DUP	both: ES Π₁, independence implies truth
+analogues-0192	translate-0133	DUP	both: ES Π₁, independence implies truth
+dividing-0287	translate-0133	DUP	both: ES Π₁, independence status
+free_fable-0057	free_opus-0039	DISTINCT	bounded-arithmetic fragment vs Π₁ independence
+free_fable-0057	free_opus-0331	DUP	both: which weak subsystem proves ES
+free_fable-0057	signature-0070	DISTINCT	bounded-arithmetic fragment vs Π₁ independence
+free_fable-0057	translate-0133	DISTINCT	bounded-arithmetic fragment vs Π₁ independence
+free_opus-0039	translate-0133	DUP	both: ES Π₁, independence
+signature-0070	translate-0133	DUP	both: ES Π₁, independence implies truth
+free_fable-0159	free_opus-0336	DUP	both: Furstenberg correspondence for ES
+analogues-0168	free_opus-0343	DISTINCT	dessins of type (x,y,z) vs Belyi fibration of surface
+analogues-0168	free_opus-0417	DUP	both: dessins of type (x,y,z) from ES triples
+free_fable-0270	free_opus-0349	DISTINCT	4Cp+1 slices vs p+B shifts sieve
+analogues-0069	free_opus-0361	DUP	both: matrix ES with positive-definite matrices
+analogues-0083	free_opus-0361	DUP	both: matrix ES with positivity over M₂(Z)
+analogues-0169	free_opus-0425	DUP	both: Takeuchi arithmetic triangle groups vs ES triples
+analogues-0232	dividing-0022	DUP	both: least QNR ↔ least certificate
+analogues-0232	free_opus-0188	DUP	both: least QNR Burgess ↔ least certificate
+dividing-0022	signature-0022	DISTINCT	least QNR bound vs non-square reciprocity T1 shape
+analogues-0225	dividing-0061	DUP	both: Graham n>77 theorem
+analogues-0225	signature-0041	DUP	both: Graham n>77 theorem
+dividing-0061	signature-0041	DUP	both: Graham n>77 theorem
+analogues-0120	dividing-0059	DUP	both: Sierpiński 5/n twin
+analogues-0120	signature-0047	DUP	both: Sierpiński 5/n, compare obstructions
+free_opus-0017	signature-0052	DUP	both: ES over totally real fields totally positive
+analogues-0248	signature-0081	DUP	both: Huang–Vaughan binary EF mean values
+analogues-0251	dividing-0041	DISTINCT	A quadratic slice/genus idea; B generic catalog
+analogues-0251	free_fable-0239	DISTINCT	A quadratic slices; B class-number positivity ↔ Artin surjectivity
+analogues-0251	signature-0134	DISTINCT	A quadratic slice idea; B generic Eureka analogy
+dividing-0041	signature-0098	DISTINCT	B specific linear change of variable p↦4Cp+1
+dividing-0041	signature-0134	DUP	both generic: Gauss Eureka as universal representation analogue
+free_fable-0239	signature-0134	DISTINCT	A ray-class surjectivity idea; B generic Eureka
+analogues-0034	signature-0101	DISTINCT	FF Chen-type in e-slices vs relaxed almost-ES variant
+dividing-0014	signature-0102	DISTINCT	A square obstruction ↔ T1; B singular series ↔ M_BM
+analogues-0253	free_fable-0241	DISTINCT	A order of ℓ mod e (Z[1/ℓ]); B fixed p across moduli 4cd
+analogues-0253	signature-0109	DISTINCT	A Z[1/ℓ] order condition; B Hooley divisor sieve ↔ counting
+analogues-0253	translate-0208	DISTINCT	A Z[1/ℓ] order condition; B L₃(p) 2-part order
+dividing-0023	free_opus-0233	DISTINCT	catalog vs specific −1-in-subgroup heuristic
+dividing-0023	signature-0023	DISTINCT	catalog vs quantifier flip/HB one-of-three
+dividing-0204	signature-0023	DUP	both: Heath-Brown one-of-three shape for ES families
+dividing-0204	signature-0110	DUP	both: HB one-of-three as combining witness families
+dividing-0204	tools-0228	DUP	both: HB one-of-three → several ES certificate families
+dividing-0204	upgrades-0061	DISTINCT	B specific: three windows N_e cannot all fail
+free_fable-0241	signature-0109	DUP	both: Hooley GRH pointwise fixed-base template for fixed p
+free_opus-0233	translate-0208	DUP	both: −1 in generated subgroup (max 2-part order) Artin-type
+signature-0023	tools-0228	DUP	both: HB one-of-three → ES certificate families
+signature-0023	upgrades-0061	DISTINCT	B specific windows −1 ratio-set claim
+signature-0110	tools-0228	DUP	both: HB one-of-three combining incomplete families
+signature-0110	upgrades-0061	DISTINCT	B specific windows −1 ratio-set claim
+dividing-0034	free_opus-0023	DUP	both: Ramanujan x²+y²+10z² finite exceptions under GRH
+dividing-0034	signature-0034	DUP	both: Ono–Soundararajan finite exception list analogue
+dividing-0260	free_opus-0023	DISTINCT	A minimal-pair spinor-genus comparison; B exception history
+free_opus-0023	signature-0034	DUP	both: Ono–Soundararajan Ramanujan form finite exceptions
+free_opus-0023	signature-0115	DUP	both: Ono–Soundararajan Ramanujan form finite exceptions
+analogues-0250	dividing-0025	DUP	both: Fermat two-squares proof templates (catalog vs analogue)
+analogues-0250	free_fable-0118	DISTINCT	B specific Thue applied to p²+4c²d
+analogues-0250	signature-0044	DISTINCT	A generic proofs; B Zagier parity template specifically
+analogues-0250	translate-0123	DISTINCT	B specific Thue lattice L_ρ(g)
+dividing-0095	free_fable-0118	DISTINCT	catalog vs Thue on p²+4c²d Type I
+dividing-0095	free_opus-0095	DISTINCT	catalog vs Thue ↔ Type II pair form
+dividing-0095	translate-0123	DISTINCT	catalog vs L_ρ(g) lattice short vectors
+dividing-0095	upgrades-0029	DISTINCT	catalog vs L_{p,λ} short vectors for (★)
+dividing-0292	free_fable-0118	DISTINCT	Type I (d,f) congruence lattice vs √(−4c²d) structure
+dividing-0292	free_opus-0095	DISTINCT	Type I lattice vs Type II pair form
+dividing-0292	translate-0123	DISTINCT	Type I (d,f) lattice vs L_ρ(g) lattice
+free_fable-0118	free_opus-0095	DISTINCT	Type I p²+4c²d vs Type II pair form
+free_fable-0118	translate-0123	DISTINCT	p²+4c²d square-root vs L_ρ(g) lattice
+free_opus-0026	signature-0044	DUP	both: Zagier windmill involution template for ES
+free_opus-0026	signature-0131	DUP	both: Zagier involution template for ES
+free_opus-0026	tools-0285	DISTINCT	Zagier vs Elsholtz generalised windmills
+free_opus-0026	translate-0259	DISTINCT	Zagier vs Elsholtz x²+ny² windmills
+free_opus-0095	translate-0123	DISTINCT	Type II pair form vs L_ρ(g) lattice
+free_opus-0095	upgrades-0029	DISTINCT	Type II pair form vs L_{p,λ} (★) lattice
+signature-0044	tools-0285	DISTINCT	Zagier vs Elsholtz generalisations
+signature-0044	translate-0259	DISTINCT	Zagier vs Elsholtz x²+ny² windmills
+tools-0285	translate-0259	DUP	both: Elsholtz generalised windmills for ES involutions
+tools-0285	upgrades-0281	DUP	both: Elsholtz windmill framework for ES
+translate-0123	upgrades-0029	DISTINCT	L_ρ(g) lattice vs L_{p,λ} mod-p lattice
+translate-0259	upgrades-0281	DUP	both: Elsholtz windmill framework for ES
+signature-0099	signature-0133	DUP	both: Waring cubes finite exceptional sets
+signature-0179	signature-0204	DUP	both: arXiv:1203.0347 continuant algorithms
+signature-0172	signature-0205	DUP	both: arXiv:2104.08798 ternary forms with congruences
+free_astra-0194	signature-0221	DISTINCT	mean inequalities vs Problem 310
+signature-0216	signature-0239	DUP	both: Problem 305 prime-target EF
+signature-0214	signature-0246	DUP	both: Problem 303 Brown–Rödl coloring
+signature-0208	signature-0248	DUP	both: Problem 298 density vs universal
+signature-0241	signature-0252	DUP	both: Problem 310 sharp dependence/certificate bound
+signature-0218	signature-0260	DUP	both: Problem 307 reciprocal sums
+dividing-0010	signature-0031	DUP	both: Goldbach other conjecture finite-failure sibling
+dividing-0010	signature-0274	DUP	both: Goldbach other conjecture finite exceptions
+dividing-0010	upgrades-0279	DISTINCT	B specific b=1 line failure modelling
+dividing-0179	signature-0031	DUP	both: Goldbach other 5777/5993 finite failures
+free_fable-0216	signature-0274	DISTINCT	C-form composite exceptions vs Goldbach other
+signature-0031	upgrades-0279	DISTINCT	B specific b=1 line failure modelling
+signature-0274	upgrades-0279	DISTINCT	B specific b=1 line failure modelling
+signature-0275	upgrades-0279	DISTINCT	B specific b=1 line failure modelling
+dividing-0094	free_fable-0067	DISTINCT	catalog vs CN on ES polynomial product set
+dividing-0094	signature-0284	DISTINCT	catalog vs Kohen–Sadofschi seating
+dividing-0094	tools-0070	DISTINCT	catalog vs CN for mod-m certificates
+dividing-0094	upgrades-0129	DISTINCT	catalog vs CN on R(p) trial form
+free_fable-0067	tools-0070	DISTINCT	integer ES polynomial vs mod-m local solubility
+free_fable-0067	upgrades-0129	DISTINCT	ES polynomial roots vs R(p) trial-form encoding
+free_opus-0084	tools-0070	DISTINCT	generic CN certificate vs mod-m local solubility
+free_opus-0084	upgrades-0129	DISTINCT	generic CN vs specific R(p) trial form
+signature-0284	tools-0070	DISTINCT	seating problem vs ES mod-m certificates
+tools-0070	upgrades-0129	DISTINCT	mod-m local solubility vs R(p) trial form
+analogues-0130	free_opus-0007	DISTINCT	A odd-denominator 4/n variant; B odd greedy sibling
+analogues-0130	signature-0078	DISTINCT	A odd-term 4/n neighbour; B Breusch/Stewart contrast
+analogues-0130	signature-0079	DISTINCT	A odd-term 4/n neighbour; B greedy search
+analogues-0130	translate-0168	DISTINCT	A odd-term 4/n; B general restricted-denominator variants
+analogues-0130	upgrades-0299	DISTINCT	A odd-term 4/n; B existence-vs-algorithm caution
+analogues-0131	fingerprint-0200	DISTINCT	odd-term parity count vs ES solution parity data
+analogues-0131	signature-0078	DISTINCT	k odd terms parity vs Breusch/Stewart contrast
+analogues-0141	fingerprint-0236	DISTINCT	S-unit EF vs Znám fingerprint
+analogues-0141	free_fable-0116	DUP	both: ES with S-unit/S-smooth denominators, finitely many
+analogues-0141	free_opus-0009	DISTINCT	S-unit vs Martin dense EF
+analogues-0141	free_opus-0032	DISTINCT	S-smooth vs prime denominators
+analogues-0141	signature-0298	DISTINCT	S-unit vs odd-solution count bounds
+analogues-0141	signature-0364	DUP	both: EF with restricted prime factors ↔ ES
+analogues-0141	translate-0168	DISTINCT	S-smooth vs congruence-restricted denominators
+analogues-0145	signature-0078	DUP	both: Breusch/Stewart unbounded odd vs ES length 3
+analogues-0145	translate-0168	DISTINCT	Breusch/Stewart contrast vs restricted-class variants
+analogues-0145	upgrades-0150	DISTINCT	Breusch/Stewart contrast vs classifying congruence restrictions
+analogues-0228	free_opus-0015	DUP	both: Znám problem as EF divisibility sibling
+analogues-0228	signature-0077	DUP	both: Znám/Giuga unit-fraction divisibility siblings
+analogues-0229	free_opus-0015	DISTINCT	Giuga alone vs Znám/Giuga ↔ Type II
+analogues-0243	free_opus-0032	DISTINCT	dyadic window EF vs prime denominators
+dividing-0064	free_opus-0007	DUP	both: odd greedy termination sibling
+dividing-0064	signature-0079	DUP	both: odd greedy termination sibling
+dividing-0064	upgrades-0299	DUP	both: odd greedy termination sibling
+dividing-0225	free_opus-0044	DUP	both: Breusch–Stewart odd-denominator expansions
+fingerprint-0200	signature-0078	DISTINCT	ES solution parity data vs Breusch/Stewart theorem
+fingerprint-0236	free_opus-0032	DISTINCT	Znám fingerprint vs prime denominators
+fingerprint-0236	signature-0077	DISTINCT	A fingerprint ES solutions; B Znám sibling
+fingerprint-0236	signature-0233	DISTINCT	Znám fingerprint vs Problem 327
+free_astra-0297	signature-0363	DUP	both: distinct-denominator ES variant
+free_opus-0007	signature-0079	DUP	both: odd greedy termination sibling
+free_opus-0007	signature-0333	DUP	both: greedy/odd greedy termination sibling
+free_opus-0007	upgrades-0299	DUP	both: odd greedy termination sibling
+free_opus-0015	signature-0077	DUP	both: Znám/Giuga divisibility siblings
+free_opus-0032	translate-0168	DISTINCT	prime denominators vs congruence-restricted variants
+free_opus-0044	signature-0078	DUP	both: Breusch–Stewart odd-denominator expansions
+signature-0078	upgrades-0150	DISTINCT	Breusch/Stewart vs classifying congruence restrictions
+signature-0079	upgrades-0299	DUP	both: odd greedy termination sibling
+signature-0363	translate-0168	DISTINCT	distinct denominators vs restricted classes
+translate-0168	upgrades-0150	DUP	both: ES with denominators restricted mod m variants
+analogues-0181	free_opus-0075	DUP	both: Conway–Coxeter friezes for ES₅ words
+analogues-0181	signature-0332	DUP	both: frieze/cluster positivity for ES words
+analogues-0181	tools-0283	DUP	both: friezes/positivity for ES₅ SL₂ words
+free_opus-0075	signature-0332	DUP	both: frieze Laurent positivity for ES words
+free_opus-0075	tools-0283	DUP	both: frieze/cluster positivity for ES₅ words
+signature-0332	tools-0283	DUP	both: cluster/frieze positivity for ES words
+signature-0337	signature-0338	DISTINCT	graceful tree vs Ringel packing
+free_fable-0008	free_opus-0145	DUP	both: ES as three parallel resistors
+free_fable-0008	signature-0341	DUP	both: resistor network reciprocal conductance
+free_fable-0008	translate-0296	DISTINCT	B generalises to all 3-resistor topologies rung
+dividing-0160	signature-0312	DISTINCT	catalog vs symmetry reduction angle
+dividing-0160	signature-0345	DUP	both: lonely runner via Diophantine approximation
+signature-0318	signature-0351	DUP	both: Apollonian exceptional families ↔ ES square obstruction
+free_astra-0043	signature-0352	DUP	both: Frobenius semigroup conductor analogy
+free_opus-0351	signature-0055	DISTINCT	exradii identity vs altitudes identity
+free_opus-0351	signature-0340	DISTINCT	exradii identity vs altitudes identity
+free_opus-0351	translate-0028	DUP	both: integer exradii, inradius n/4
+free_opus-0352	signature-0055	DUP	both: integer altitudes, inradius n/4
+free_opus-0352	signature-0340	DUP	both: altitudes 1/r identity ↔ ES
+free_opus-0352	translate-0029	DUP	both: integer altitudes, inradius n/4
+signature-0055	signature-0340	DUP	both: altitude/inradius identity ↔ ES
+signature-0055	translate-0029	DUP	both: integer altitudes, inradius n/4
+signature-0340	signature-0356	DUP	both: altitude/inradius identity ↔ ES
+signature-0340	translate-0029	DUP	both: altitude/inradius identity ↔ ES
+signature-0313	signature-0358	DUP	both: lonely runner continuous vs discrete witness flip
+free_astra-0342	signature-0386	DISTINCT	additive energy mod q vs sum-product reciprocals
+free_astra-0033	signature-0391	DISTINCT	A reciprocity as design; B as obstruction
+dividing-0086	free_opus-0330	DISTINCT	catalog vs definability of divisor predicate
+dividing-0199	free_fable-0119	DISTINCT	disc −4d via 4a²d+1 vs p²+4c²d forms
+dividing-0199	upgrades-0158	DISTINCT	4a²d+1 vs p²+4c²d class computation
+dividing-0320	free_fable-0319	DISTINCT	Erdős–Hall divisors vs literature search shifted
+dividing-0320	free_opus-0168	DISTINCT	Erdős–Hall divisor classes vs Lenstra ≤11 bound
+dividing-0320	free_opus-0213	DUP	both: Erdős–Hall divisors in residue classes ↔ 4Cp+1 class −1 mod 4C
+dividing-0320	translate-0084	DISTINCT	general Erdős–Hall statements vs single-N equidistribution with few factors
+free_fable-0051	tools-0193	DISTINCT	Coppersmith on 4Cp+1 vs on Type I p²+4c²d
+free_fable-0051	tools-0194	DUP	both: Coppersmith/CHN divisors in class −1 mod 4C of 4Cp+1
+free_fable-0051	translate-0074	DUP	both: Lenstra/Coppersmith lattice divisors of 4Cp+1 in class mod 4C
+free_fable-0051	translate-0075	DUP	both: Coppersmith small roots for divisor ≡ −1 mod 4C of 4Cp+1
+free_fable-0051	upgrades-0091	DUP	both: Coppersmith lattice divisors at large levels C
+free_fable-0053	free_opus-0168	DUP	both: Lenstra ≤11 divisors bound ↔ 4Cp+1 mod 4C
+free_fable-0053	signature-0014	DUP	both: Lenstra bound per ES level
+free_fable-0053	signature-0139	DUP	both: Lenstra divisors in residue classes ↔ ES divisor certificate
+free_fable-0053	signature-0174	DUP	both: Lenstra residue-class divisors (Hales revisit) ↔ ES witness
+free_fable-0053	tools-0194	DUP	both: Lenstra/CHN divisors in residue classes applied to 4Cp+1
+free_fable-0053	translate-0074	DUP	both: Lenstra bound applied to 4Cp+1
+free_fable-0053	upgrades-0091	DUP	both: Lenstra/CHN at levels C ≳ p^{1/2}
+free_fable-0076	free_opus-0166	DISTINCT	Coppersmith on fixed-x ES equation vs bilinear certificate in (C,k)
+free_fable-0076	tools-0193	DISTINCT	fixed-x 3-var equation vs Type I modular small roots
+free_fable-0076	translate-0075	DISTINCT	divisor pairs of n²x² vs dd′=4Cp+1
+free_fable-0124	free_opus-0168	DISTINCT	C=1 prime factor 3 mod 4 vs Lenstra bound
+free_fable-0124	upgrades-0053	DISTINCT	C=1 family vs CRT prime census over all C
+free_fable-0124	upgrades-0158	DISTINCT	C=1 Type II vs Type I binary forms
+free_fable-0168	free_opus-0239	DUP	both: Type I d=1 via Gaussian integers/sums of two squares
+free_fable-0168	free_opus-0240	DUP	both: Type I d=1, α | p+2ci with N(α) ≡ −p mod 4c
+free_fable-0168	upgrades-0158	DISTINCT	d=1 Gaussian vs general-d genus characters proving T1
+free_fable-0181	free_opus-0224	DISTINCT	short-range pointwise regime vs large-moduli averaged class count
+free_fable-0181	upgrades-0022	DISTINCT	short-range gap vs base asymptotic X ≥ p^{2/3} refined
+free_fable-0189	upgrades-0158	DISTINCT	Heegner h=1 explicit elements vs genus characters general d
+free_fable-0225	signature-0027	DUP	both: Hooley τ(quadratic) ↔ Type I divisors of p²+4c²d
+free_fable-0225	upgrades-0022	DISTINCT	quadratic Type I sum vs linear τ(4Cp+1) sum
+free_fable-0245	upgrades-0053	DISTINCT	Hypothesis H family vs CRT prime census
+free_fable-0261	free_opus-0025	DISTINCT	modular hyperbola vs Mihăilescu cyclotomic
+free_fable-0261	free_opus-0230	DISTINCT	modular hyperbola energy vs self-levelled small-prime certificate
+free_fable-0261	upgrades-0091	DISTINCT	modular hyperbola vs Lenstra lattice
+free_fable-0317	free_opus-0268	DISTINCT	Type I multiplicative shift analog vs Type II additive shift form
+free_fable-0317	free_opus-0276	DISTINCT	derive Type I shift form vs MathOverflow question
+free_fable-0317	upgrades-0158	DISTINCT	shift reformulation vs binary forms genus
+free_fable-0319	free_opus-0213	DISTINCT	erdosproblems literature search vs Erdős–Hall theorem
+free_opus-0025	signature-0394	DISTINCT	Mihăilescu cyclotomic rigidity vs finite certificate impossibility
+free_opus-0166	signature-0140	DUP	both: Coppersmith small roots for ES divisor certificate
+free_opus-0166	tools-0193	DISTINCT	Type II bilinear vs Type I p²+4c²d
+free_opus-0166	translate-0075	DUP	both: Coppersmith bivariate small roots for Type II certificate
+free_opus-0168	signature-0014	DUP	both: Lenstra ≤11 bound per level 4Cp+1
+free_opus-0168	signature-0139	DUP	both: Lenstra divisors in residue classes ↔ ES certificate
+free_opus-0168	signature-0155	DUP	both: Lenstra divisor-in-coset ↔ 4Cp+1 witness
+free_opus-0168	signature-0174	DUP	both: Lenstra residue-class divisors ↔ ES witness
+free_opus-0168	signature-0388	DISTINCT	Lenstra algebraic bound vs analytic divisors-in-AP
+free_opus-0168	tools-0194	DUP	both: Lenstra/CHN applied to 4Cp+1 mod 4C
+free_opus-0168	translate-0074	DUP	both: Lenstra bound applied to 4Cp+1
+free_opus-0168	upgrades-0091	DUP	both: Lenstra/CHN lattice for 4Cp+1
+free_opus-0213	translate-0084	DUP	both: Erdős–Hall divisor equidistribution applied to 4Cp+1
+free_opus-0224	signature-0388	DUP	both: analytic divisor problem in APs ↔ ES witness count
+free_opus-0224	tools-0027	DISTINCT	Fouvry–Iwaniec large moduli vs Irving smooth/prime-power moduli
+free_opus-0224	upgrades-0022	DISTINCT	class mod 4C averaged vs single modulus 4p base asymptotic
+free_opus-0224	upgrades-0091	DISTINCT	analytic AP divisor sums vs Lenstra lattice
+free_opus-0239	upgrades-0158	DISTINCT	d=1 Gaussian vs general-d genus characters
+free_opus-0330	signature-0388	DISTINCT	Diophantine definability vs analytic divisors in APs
+signature-0014	tools-0194	DUP	both: Lenstra/CHN per ES level
+signature-0014	translate-0074	DUP	both: Lenstra bound applied to 4Cp+1
+signature-0014	upgrades-0091	DUP	both: Lenstra/CHN at large levels
+signature-0139	tools-0194	DUP	both: Lenstra residue-class divisors ↔ ES certificate
+signature-0139	translate-0074	DUP	both: Lenstra bound ↔ ES divisor certificate
+signature-0140	tools-0193	DISTINCT	generic Coppersmith vs Type I-specific small roots
+signature-0155	upgrades-0091	DUP	both: Lenstra divisor-in-coset ↔ 4Cp+1
+signature-0174	tools-0194	DUP	both: Lenstra/CHN residue-class divisors ↔ ES witness
+signature-0174	translate-0074	DUP	both: Lenstra algorithm ↔ 4Cp+1 witness
+signature-0175	translate-0074	DISTINCT	Euclidean-ring generalisation vs Lenstra over ℤ
+signature-0176	translate-0074	DISTINCT	threshold-limitation flip vs applying bound
+signature-0177	translate-0074	DISTINCT	Hales sign-change method on slices vs Lenstra bound
+tools-0193	translate-0075	DISTINCT	Type I vs Type II small roots
+tools-0194	translate-0074	DUP	both: Lenstra/CHN applied to 4Cp+1
+tools-0194	upgrades-0091	DUP	both: CHN constructive divisors in classes for ES levels
+translate-0074	upgrades-0091	DUP	both: Lenstra bound applied to 4Cp+1 levels
+dividing-0193	signature-0443	DUP	both: find more Aurifeuillian algebraic-factorisation families
+free_opus-0107	signature-0395	DISTINCT	Aurifeuillean families vs prime gaps in thin sequences
+free_opus-0107	signature-0443	DUP	both: extend Aurifeuillean/Sophie Germain thin families
+free_opus-0259	signature-0443	DISTINCT	Gaussian norm-form families vs Aurifeuillean identities
+signature-0395	signature-0421	DISTINCT	primes in thin algebraic sequences vs thin congruence families
+free_astra-0170	free_opus-0187	DISTINCT	adiabatic encoding vs explicit search-bound conjecture
+free_astra-0170	signature-0255	DISTINCT	adiabatic optimisation vs greedy expansion Problem 315
+free_astra-0170	signature-0320	DISTINCT	adiabatic encoding vs addition chains analogy
+free_astra-0215	free_opus-0384	DISTINCT	Kolmogorov simplicity vs polylog Type I algorithm conjecture
+free_fable-0310	free_opus-0171	DISTINCT	certificate-table compression vs resolution proof complexity
+free_opus-0171	signature-0423	DISTINCT	uniform short proofs vs NP-witness analogy
+free_opus-0187	signature-0320	DISTINCT	search-bound conjecture vs addition chains
+free_opus-0187	signature-0423	DISTINCT	explicit search bound vs certificate-length analogy
+free_opus-0384	signature-0255	DISTINCT	Type I trial division vs greedy expansion
+free_opus-0384	translate-0136	DUP	both: constructive ES with polylog-time certificate algorithm
+dividing-0089	signature-0424	DUP	both: Erdős–Tetali thin bases ↔ polylog pointwise ES
+dividing-0090	signature-0425	DUP	both: Erdős–Turán conjecture ↔ ES counts
+free_opus-0091	signature-0446	DISTINCT	4/p tree position vs tree enumerating ES words
+free_opus-0153	signature-0449	DISTINCT	Paley–Zygmund in short intervals vs over all p ≤ X
+analogues-0234	dividing-0155	DISTINCT	Δ clumping reducing lottery tickets vs Δ bounds catalog
+analogues-0234	free_opus-0212	DISTINCT	ticket clumping vs interval/class duality via characters
+dividing-0155	free_opus-0212	DUP	both: Hooley Δ divisor concentration ↔ ES divisors
+dividing-0155	translate-0077	DUP	both: Hooley Δ / divisors in short ranges ↔ ES
+free_opus-0212	tools-0031	DUP	both: Hooley Δ adapted from intervals to residue class −1 mod 4C
+free_opus-0212	translate-0077	DUP	both: Hooley Δ concentration for p-tied N
+tools-0031	translate-0077	DUP	both: Erdős–Hooley Δ concentration for ES divisors
+free_fable-0004	tools-0033	DUP	both: DDT arcsine law for divisors of 4Cp+1
+free_opus-0323	tools-0034	DISTINCT	minimal exceptions primitive vs covered set as multiples
+analogues-0254	tools-0047	DISTINCT	p splitting in K_C vs small prime q with Frobenius
+analogues-0254	tools-0048	DISTINCT	short-range Chebotarev vs PTW families of fields
+signature-0420	tools-0051	DISTINCT	exceptional inputs of identities vs explicit zero-free regions
+dividing-0213	free_opus-0079	DUP	both: Davenport zero-sum for subproducts in (ℤ/4C)^×
+dividing-0213	tools-0062	DUP	both: Davenport-constant forcing subproduct in (ℤ/4C)^×
+free_fable-0293	free_opus-0079	DISTINCT	pooling-across-C negative vs direct zero-sum application
+free_opus-0079	tools-0062	DUP	both: zero-sum subproduct hitting −1
+free_opus-0089	tools-0096	DUP	both: Bourgain–Gamburd SL₂ expansion for ES words
+free_opus-0058	tools-0112	DISTINCT	fibration over n vs over x
+analogues-0223	dividing-0045	DUP	both: sums of three cubes analogy
+dividing-0045	signature-0061	DUP	both: sums of three cubes, BM-free, log counts
+dividing-0045	signature-0145	DUP	both: sums of three cubes / CTW no BM analogy
+signature-0145	tools-0117	DUP	both: CTW Brauer–Manin affine cubics ↔ U_n
+signature-0378	tools-0118	DUP	both: integral Hasse failures for affine cubic surfaces
+free_opus-0061	tools-0123	DISTINCT	Silverman specialisation vs Whang nonlinear descent
+free_fable-0120	tools-0137	DISTINCT	Bhargava cubes for Type II ff′ identity vs Type I x²+4dy² composition
+tools-0138	tools-0139	DISTINCT	EVW homological stability vs Landesman–Levy moments; different theorems/uses
+free_opus-0087	tools-0151	DISTINCT	motivic class of certificate variety vs of U_n
+dividing-0037	signature-0035	DUP	both: Bhargava–Hanke 290 finite-test universality ↔ ES
+signature-0035	tools-0162	DUP	both: 290 theorem finite-check template
+signature-0116	tools-0162	DUP	both: 290 theorem finite test set ↔ ES
+free_fable-0025	tools-0166	DUP	both: class-divisor counts of 4Cp+1 as Eisenstein coefficients
+free_fable-0178	tools-0170	DUP	both: Waldspurger toric periods for certificate counts
+analogues-0025	tools-0179	DISTINCT	Katz monodromy over F_q[T] vs fixed prime modulus angles
+analogues-0213	tools-0192	DUP	both: Type II modular hyperbola points via Kloosterman
+analogues-0213	translate-0076	DUP	both: Type II as modular hyperbola points in boxes
+analogues-0249	signature-0407	DUP	both: hyperbola lattice-point methods for fixed-p ES counts
+analogues-0249	signature-0461	DUP	both: Dirichlet hyperbola method at fixed n
+free_fable-0016	tools-0192	DUP	both: Kloosterman equidistribution of modular hyperbola for ES
+free_fable-0016	translate-0076	DUP	both: ES as modular hyperbola points with divisibility
+free_fable-0111	translate-0076	DISTINCT	contact Shparlinski vs mathematical reformulation
+free_opus-0082	tools-0067	DUP	both: F_p incidence bounds on modular hyperbola
+free_opus-0371	signature-0407	DISTINCT	modular hyperbola toolbox vs integral split-hyperbola lattice points
+free_opus-0371	translate-0076	DUP	both: Shparlinski modular hyperbola survey for ES slice
+signature-0407	tools-0067	DISTINCT	lattice points on hyperbolas vs F_p incidence bounds
+signature-0407	translate-0076	DISTINCT	integral hyperbola congruence counts vs modular hyperbola Kloosterman
+signature-0402	tools-0197	DUP	both: SAT/SMT search for identity families
+free_astra-0273	free_opus-0310	DISTINCT	formalise one identity vs repo thin-family proofs
+free_fable-0070	signature-0434	DISTINCT	analyse which family fired vs Salez filters as covering family
+free_opus-0033	signature-0434	DISTINCT	filter-attribution data mining vs Salez filters as covering family
+free_opus-0033	tools-0199	DISTINCT	verification history vs Lean certificate checker
+free_opus-0310	tools-0199	DISTINCT	Lean thin-family theorems vs Lean checker for hard primes
+free_opus-0203	tools-0201	DUP	both: FunSearch program evolution for ES heuristics
+free_opus-0199	tools-0205	DUP	both: PySR on minimal certificate sizes
+free_fable-0062	tools-0222	DUP	both: Charton-style transformer learnability probe for ES
+dividing-0289	tools-0249	DISTINCT	count of hitting families vs ω(4Cp+1)
+free_fable-0128	free_opus-0404	DUP	both: Erdős–Kac for ω(4Cp+1) over C at fixed p
+free_fable-0128	tools-0249	DUP	both: Erdős–Kac for ω(4Cp+1) over C
+free_opus-0404	tools-0249	DUP	both: Erdős–Kac for ω(4Cp+1) over C
+signature-0017	tools-0250	DUP	both: Maier–Tenenbaum propinquity ↔ divisors in classes
+free_opus-0215	tools-0253	DUP	both: class-restricted Titchmarsh divisor problem
+free_opus-0215	translate-0078	DUP	both: Titchmarsh divisor problem with congruence
+free_opus-0215	upgrades-0312	DISTINCT	averaged Titchmarsh vs reversed fixed-p prime count
+translate-0078	upgrades-0312	DISTINCT	averaged Titchmarsh-AP vs reversed single-p tied modulus
+signature-0082	tools-0256	DUP	both: Elsholtz–Planitzer almost-all lower bound for f(n)
+free_opus-0223	tools-0271	DISTINCT	delta method at fixed p vs total count over n≤N
+free_fable-0026	free_opus-0088	DISTINCT	Type II determinant matrices vs ES5 SL2 fixed-p form
+free_fable-0026	tools-0289	DISTINCT	SL2(Z) Type II counting vs Bianchi ES_Q1
+free_fable-0026	translate-0238	DISTINCT	Type II determinant matrices vs Γ1(c) fixed-p Kuznetsov
+free_opus-0088	tools-0289	DISTINCT	SL2(Z) fixed-p counting vs Bianchi ES_Q1
+free_opus-0088	translate-0238	DUP	both: Kuznetsov count of [[a,p],[c,d]], a≡d≡−1 mod c
+free_opus-0342	tools-0289	DUP	both: Bianchi groups SL2(Z[i]) ↔ ES_Q1
+dividing-0072	tools-0290	DUP	both: EKL measure rigidity Littlewood ↔ ES
+free_fable-0153	tools-0302	DISTINCT	character twist to force t∈4Z vs hyperbola/Kloosterman for I3
+free_opus-0264	tools-0302	DUP	both: I3 as divisor of tn+1 ≡ −1 mod t
+free_astra-0295	tools-0308	DUP	both: vary numerator k in k/n three unit fractions
+dividing-0203	translate-0079	DUP	both: Iwaniec half-dim sieve for −1-avoiding factorisations
+free_fable-0269	tools-0028	DISTINCT	Iwaniec shifted-prime count for C=1 vs general semi-linear sieve
+free_fable-0269	translate-0079	DISTINCT	Iwaniec shifted-prime count for C=1 vs general half-dim sieve
+tools-0028	tools-0317	DISTINCT	ES slice C vs I3 at t=4 target
+tools-0028	translate-0079	DUP	both: semi-linear sieve for no divisor ≡ −1 mod 4C
+tools-0317	translate-0079	DISTINCT	I3 t=4 vs ES level-C sieve
+free_opus-0152	tools-0040	DUP	both: Chen–Stein Poisson approximation for R(p)
+free_opus-0152	tools-0318	DISTINCT	R(p) vs I3 counts
+free_fable-0236	free_opus-0197	DUP	both: Lean formalisation of T1 obstruction
+free_opus-0197	tools-0321	DUP	both: Lean formalisation of T1
+analogues-0255	free_fable-0122	DUP	both: Serre thin sets for certificate-family failure sets
+analogues-0255	free_opus-0057	DUP	both: ES failure set inside a Serre thin set
+analogues-0255	free_opus-0340	DUP	both: Hilbert irreducibility/thin sets for certificate existence sets
+analogues-0255	tools-0329	DUP	both: thin-set structure of ES-failing primes
+dividing-0208	free_opus-0057	DISTINCT	solvable set as image (thin) vs failure set thin
+free_fable-0122	free_opus-0057	DUP	both: ES failure sets as Serre thin sets
+free_fable-0122	tools-0329	DUP	both: thin-set structure of failing primes
+fingerprint-0270	signature-0273	DISTINCT	840 idoneal Mordell classes vs ab+ac+bc exceptions
+fingerprint-0271	signature-0273	DISTINCT	idoneal covering moduli vs ab+ac+bc exception analogy
+signature-0273	translate-0005	DISTINCT	ab+ac+bc idoneal vs spanning-tree sporadic lists
+free_opus-0394	signature-0001	DISTINCT	generalised Frobenius g_t vs glued 3-generated semigroup
+signature-0001	translate-0019	DISTINCT	glued semigroup Frobenius vs Popoviciu denumerant in ⟨u,v⟩
+analogues-0158	free_opus-0421	DUP	both: Seifert M(0;(x,1),(y,1),(z,1)) Euler number −4/n
+analogues-0158	translate-0025	DUP	both: Seifert spaces over S²(x,y,z) with e=−4/n
+analogues-0158	translate-0286	DUP	both: Seifert e=−4/n (B adds pretzel cover)
+analogues-0159	translate-0286	DUP	both: pretzel det xy+yz+zx = 4xyz/n
+free_opus-0421	translate-0025	DUP	both: Seifert spaces Euler number −4/n
+free_opus-0421	translate-0286	DUP	both: Seifert/pretzel e=−4/n form
+analogues-0162	translate-0030	DUP	both: parallel resistors / thin lenses n/4
+free_fable-0035	translate-0033	DISTINCT	f(p) as Laplacian determinant vs sign via twisted Laplacian
+free_opus-0047	translate-0041	DUP	both: Conway topograph of word/Type II binary forms
+tools-0109	translate-0043	DUP	both: GHK theta bases on U_n log CY surface
+free_opus-0027	translate-0058	DUP	both: Heath-Brown Cayley cubic point counting for ES
+tools-0108	translate-0058	DISTINCT	Cayley identification/log CY & Markoff vs Heath-Brown counting
+signature-0051	translate-0061	DUP	both: S-integral ES relaxation
+free_opus-0354	translate-0063	DUP	both: ES as cubic with three positive integer roots
+tools-0300	translate-0070	DISTINCT	Hasse norm theorem Type I vs torus variety Type II
+free_fable-0126	translate-0080	DISTINCT	subgroup-vs-subset-product lemma vs Davenport constant zero-sum
+dividing-0021	free_fable-0131	DISTINCT	generic Linnik catalog vs 'Linnik for shifted multiples' reframe
+dividing-0021	free_opus-0232	DISTINCT	primes in AP vs prime factor in class of one integer
+dividing-0021	signature-0451	DUP	both: Linnik least prime ↔ least ES witness, zero-density mechanism
+dividing-0021	tools-0055	DISTINCT	catalog analogy vs Xylouris constant as tool for Type II primes
+dividing-0195	free_opus-0232	DISTINCT	least C in AP 1 mod 4p vs least prime factor single integer
+fingerprint-0296	signature-0451	DISTINCT	null data check vs least-witness analogy
+free_fable-0131	free_opus-0232	DUP	both: Linnik-type prime factor ≡−1 mod 4C of 4Cp+1
+free_fable-0131	tools-0055	DISTINCT	prime factors of 4Cp+1 vs least prime in AP tool
+free_opus-0232	tools-0055	DISTINCT	prime factor of integer vs prime in AP ≡ −p mod 4C
+signature-0451	translate-0082	DUP	both: Linnik constant ↔ least certificate level
+free_opus-0320	translate-0085	DUP	both: random subset products/walks in (Z/q)^× hitting −1
+tools-0094	translate-0085	DUP	both: random walk cutoff with prime-factor steps
+dividing-0071	translate-0091	DUP	both: McMullen bounded-type CF in quadratic fields
+signature-0064	translate-0103	DUP	both: Lehmer/Serre coefficient nonvanishing ↔ ES theta series
+free_opus-0068	translate-0104	DUP	both: Zwegers indefinite theta for cone-restricted ES counts
+signature-0429	translate-0105	DUP	both: Andrews–Dyson–Hickerson indefinite-form precedent
+tools-0172	translate-0108	DUP	both: Pizer supersingular isogeny graphs ↔ ES quaternion data
+dividing-0029	translate-0122	DUP	both: Legendre negative Pell sibling
+fingerprint-0255	signature-0037	DISTINCT	Tunnell counts as data predictors vs structural analogy
+fingerprint-0255	translate-0128	DISTINCT	data correlation vs Tunnell-type criterion for ES
+signature-0037	translate-0128	DUP	both: Tunnell ternary theta criterion analogue for ES
+tools-0165	translate-0130	DUP	both: Ghys modular knots Rademacher linking ↔ ES5
+free_fable-0065	free_opus-0173	DUP	both: ES search as TFNP problem
+free_fable-0065	translate-0135	DUP	both: TFNP classification of ES search
+free_opus-0174	translate-0135	DUP	both: windmill → ES-search in PPA
+free_fable-0068	tools-0198	DUP	both: Lean formalisation Type I/II equivalences
+free_fable-0237	free_opus-0196	DUP	both: Lean Mordell mod-840 reduction
+free_opus-0196	tools-0198	DUP	both: Lean formalisation of ES reductions
+tools-0198	translate-0138	DUP	both: Lean formalisation of reduction chain and T1
+free_fable-0055	translate-0139	DUP	both: SAT encoding, UNSAT cores as proof structure
+free_opus-0169	translate-0139	DUP	both: SAT encoding of no-certificate-up-to-B
+tools-0036	translate-0145	DUP	both: Harper random multiplicative functions low moments
+analogues-0219	signature-0006	DUP	both: Borwein–Choi xy+yz+zx sibling of ES σ₂
+analogues-0219	translate-0164	DISTINCT	Borwein–Choi ↔ ES surface vs ↔ I3/U(n)
+signature-0006	translate-0164	DISTINCT	Borwein–Choi ↔ ES surface vs ↔ I3/U(n)
+signature-0008	signature-0113	DUP	both: Weinberger idoneal exceptions as target shape
+signature-0113	translate-0165	DISTINCT	shape analogy vs Siegel argument for I3 finiteness
+analogues-0199	translate-0183	DISTINCT	q-ES5 positivity vs q-rationals/Jones of 2-bridge links
+free_opus-0319	translate-0191	DISTINCT	linking reciprocity for T1 vs ES5 sign linking
+fingerprint-0127	translate-0197	DUP	both: Gaussian angle of p vs ES hardness
+free_opus-0325	translate-0200	DUP	both: Khinchine flatness for certificate region
+free_opus-0183	translate-0202	DISTINCT	relation-lattice short vectors vs SIS/LWE heuristic
+free_opus-0428	translate-0211	DISTINCT	λ(4Cp+1) correlation vs sign as twisted parity
+free_fable-0172	translate-0214	DUP	both: Conway rational tangles, CF length 3
+analogues-0124	translate-0216	DUP	both: Rav two-term criterion after fixing x
+free_opus-0037	signature-0080	DUP	both: Rav 2-term criterion as base case
+signature-0080	translate-0216	DUP	both: Rav 2-term criterion on hyperbola fibres
+free_fable-0287	tools-0268	DUP	both: Kneser for divisor product sets mod 4C
+free_fable-0287	upgrades-0128	DUP	both: Kneser product-set dichotomy for divisor classes
+free_opus-0080	upgrades-0128	DISTINCT	EGZ/Olson vs Kneser
+tools-0268	translate-0217	DISTINCT	multiplicative product sets vs additive D+D mod 4x−p
+tools-0268	upgrades-0128	DUP	both: Kneser for divisor-class product sets
+translate-0217	upgrades-0128	DISTINCT	additive D+D Rav form vs multiplicative product set
+free_fable-0222	translate-0224	DUP	both: Poisson–Dirichlet failure probability model
+tools-0225	translate-0224	DISTINCT	PD for shifted primes p+e (OAI) vs 4Cp+1 coverage model
+free_opus-0333	translate-0225	DUP	both: character-orthogonality failure identity
+analogues-0334	signature-0076	DUP	both: Bourgain–Garaev modular reciprocal sums
+analogues-0334	translate-0230	DUP	both: modular Egyptian fractions with small denominators
+free_opus-0403	tools-0274	DUP	both: Barvinok counting for certificate polytopes
+free_opus-0403	translate-0234	DUP	both: Barvinok short generating functions for certificates
+tools-0274	translate-0234	DUP	both: Barvinok at fixed level C
+tools-0178	translate-0240	DUP	both: Series cutting-sequence coding of ES5
+analogues-0241	translate-0245	DUP	both: Cox x²+ny² ring class fields for certificates
+tools-0163	translate-0247	DUP	both: Li–Zhang Kudla–Rapoport for KUDLA_ES
+dividing-0182	free_opus-0054	DUP	both: Harpaz log K3 integral points for U_n
+dividing-0182	signature-0060	DUP	both: Harpaz fibration method on ES surface
+dividing-0182	signature-0144	DUP	both: Harpaz log K3 integral points
+dividing-0182	signature-0159	DUP	both: Harpaz conic-fibration criterion
+dividing-0182	signature-0373	DUP	both: log K3 integral points framework
+dividing-0182	tools-0111	DUP	both: Harpaz conic-bundle log K3
+dividing-0182	translate-0046	DUP	both: Harpaz conic log K3 fibration
+free_opus-0054	signature-0144	DUP	both: Harpaz log K3 framework
+free_opus-0054	signature-0373	DUP	both: log K3 integral points
+free_opus-0054	tools-0111	DUP	both: Harpaz log K3 for U_n
+free_opus-0054	translate-0046	DUP	both: Harpaz log K3 for U_n
+free_opus-0054	translate-0055	DISTINCT	existence framework vs (log B)^k counting conjecture
+signature-0060	tools-0111	DUP	both: Harpaz conic fibration on x-hyperbolas
+signature-0060	translate-0046	DUP	both: Harpaz on x-fibration hyperbolas
+signature-0144	signature-0373	DUP	both: log K3 integral points
+signature-0144	tools-0111	DUP	both: Harpaz log K3
+signature-0144	translate-0046	DUP	both: Harpaz conic log K3
+signature-0159	tools-0111	DUP	both: Harpaz conic-fibration criterion
+signature-0159	translate-0046	DUP	both: Harpaz conic-fibration on U_n
+signature-0160	translate-0046	DUP	both: Harpaz conic-fibre method on ES hyperbola slices
+signature-0373	tools-0111	DUP	both: log K3 integral points
+tools-0111	translate-0045	DISTINCT	conic-bundle U_n vs dP5 pentagon frieze variety
+tools-0111	translate-0046	DUP	both: Harpaz conic-bundle on x-fibration
+tools-0111	translate-0055	DISTINCT	existence/BM vs bounded-height counting
+tools-0111	translate-0250	DISTINCT	general Harpaz vs specific unexplained empty fibre
+free_fable-0214	translate-0258	DISTINCT	independence across classes at one p vs sum over p
+dividing-0297	translate-0260	DUP	both: char 2/3 function-field ES degeneracies
+free_fable-0173	free_opus-0422	DUP	both: lens space bounds ≤3-vertex linear plumbing
+free_fable-0173	translate-0007	DUP	both: lens space 3-vertex plumbing (B adds homotopy class)
+free_fable-0173	translate-0266	DISTINCT	plumbing CF length vs knot-surgery obstruction
+free_opus-0422	translate-0007	DUP	both: lens space 3-vertex plumbing form of ES5
+dividing-0328	free_fable-0231	DUP	both: large sieve on exceptional set with ES classes
+dividing-0328	tools-0255	DUP	both: (larger) large sieve exceptional set bound
+dividing-0328	translate-0275	DISTINCT	residue-class large sieve vs quadratic character large sieve
+free_fable-0130	translate-0275	DISTINCT	HB sieve over C at fixed p vs over p
+free_fable-0231	tools-0255	DUP	both: large sieve exceptional set via certificate classes
+free_fable-0231	translate-0275	DISTINCT	classical large sieve on C-classes vs real-character large sieve on S3(p)
+free_astra-0165	translate-0278	DUP	both: importance sampling for rare no-certificate primes
+free_astra-0142	free_opus-0392	DUP	both: persistent homology of certificate point cloud
+free_opus-0392	translate-0279	DUP	both: persistent homology of certificate point cloud
+free_fable-0121	translate-0282	DISTINCT	Frobenius of divisor f in ray class field vs joint Frobenius of p
+analogues-0164	translate-0298	DUP	both: pinwheel/periodic scheduling density 4/n
+analogues-0153	free_opus-0415	DUP	both: triangle orbifold χ = 4/n − 1
+analogues-0153	signature-0431	DUP	both: triangle orbifold χ = 4/n − 1
+analogues-0153	translate-0301	DISTINCT	basic dictionary vs orbifold coverings transporting n
+analogues-0153	upgrades-0229	DUP	both: triangle orbifold χ = 4/n − 1
+analogues-0187	free_opus-0424	DUP	both: hyperbolic triangle angles π/x,π/y,π/z area π(1−4/n)
+analogues-0294	free_opus-0415	DISTINCT	spectral/Selberg trace vs plain χ dictionary
+analogues-0294	signature-0431	DISTINCT	spectral/Selberg trace vs plain χ dictionary
+free_opus-0415	signature-0431	DUP	both: triangle orbifold χ = 4/n − 1
+free_opus-0415	translate-0026	DUP	both: triangle group area 2π(1−4/n)
+free_opus-0415	translate-0301	DISTINCT	basic dictionary vs orbifold coverings transporting n
+free_opus-0415	upgrades-0229	DUP	both: triangle orbifold χ = 4/n − 1
+free_opus-0424	translate-0026	DUP	both: hyperbolic triangle π/x,π/y,π/z area dictionary
+signature-0431	translate-0026	DUP	both: triangle orbifold χ = 4/n − 1
+signature-0431	upgrades-0229	DUP	both: triangle orbifold χ = 4/n − 1
+free_opus-0338	tools-0075	DISTINCT	residue configurations per prime vs global divisor-closed failure set
+free_opus-0338	translate-0309	DUP	both: containers on certificate-avoiding configurations
+tools-0075	tools-0325	DUP	both: containers counting ES failure sets
+tools-0075	translate-0309	DISTINCT	factorisation patterns of 4Cp+1 vs global failure set
+tools-0049	translate-0277	DISTINCT	explicit Burgess for least QNR line vs BM-layer ℓ(p)
+tools-0049	upgrades-0002	DISTINCT	least QNR forcing line vs explicit T(p) Legendre sum
+analogues-0337	signature-0277	DUP	both: conditional power-saving ES exceptional set
+signature-0277	upgrades-0006	DISTINCT	conditional MO question vs unconditional MV method
+signature-0447	upgrades-0006	DUP	both: Montgomery–Vaughan power saving vs ES exp(−c log^{3/4})
+free_fable-0202	free_opus-0427	DISTINCT	QNR lemma for divisors vs CM elliptic curve reading
+free_fable-0244	free_opus-0427	DUP	both: supersingular E, 4C divides #E(F_q)=q+1
+free_fable-0259	upgrades-0009	DISTINCT	difference-of-squares form vs almost-prime levels
+free_opus-0427	upgrades-0009	DISTINCT	CM curve reading vs Chen almost-prime levels
+tools-0252	upgrades-0015	DUP	both: friable BV (Harper/Drappeau) for smooth certificates
+analogues-0221	dividing-0035	DUP	both: DSP spinor exceptions ↔ T1 square classes
+analogues-0221	dividing-0036	DUP	both: spinor square-class exceptions ↔ T1
+analogues-0221	dividing-0252	DUP	both: spinor exceptions ↔ T1
+analogues-0221	signature-0033	DUP	both: DSP spinor exceptions ↔ T1
+analogues-0221	signature-0114	DUP	both: DSP square-class failure ↔ ES
+analogues-0221	signature-0150	DUP	both: spinor exceptions as T1 analogue
+analogues-0221	signature-0173	DISTINCT	T1 analogue vs arXiv:2104.08798 congruence classification
+analogues-0221	tools-0159	DISTINCT	T1 analogue vs DSP as closing tool for ternary reformulation
+analogues-0221	tools-0160	DUP	both: spinor exceptions ↔ T1
+analogues-0221	translate-0110	DISTINCT	T1 analogue vs DSP on chain lattice
+analogues-0221	translate-0125	DUP	both: spinor exceptions ↔ T1
+analogues-0221	upgrades-0036	DUP	both: spinor exceptions ↔ T1
+dividing-0035	dividing-0036	DISTINCT	DSP analytic theorem vs Kneser/SP exception classification
+dividing-0035	free_opus-0022	DISTINCT	catalog DSP vs Duke equidistribution on ES ternary surface
+dividing-0035	signature-0033	DUP	both: DSP, spinor t·m² obstruction, half-integral weight
+dividing-0035	tools-0159	DISTINCT	catalog analogue vs DSP as tool for ES reformulation
+dividing-0035	translate-0110	DISTINCT	catalog analogue vs DSP on chain lattice
+dividing-0036	signature-0033	DUP	both: spinor square classes ↔ T1 shape
+dividing-0036	signature-0173	DISTINCT	spinor classification vs arXiv:2104.08798 congruence version
+dividing-0036	tools-0159	DISTINCT	exception classification vs DSP as tool
+dividing-0036	tools-0160	DUP	both: spinor exceptions t·m² ↔ T1
+dividing-0036	translate-0125	DUP	both: spinor exceptions t·m² ↔ T1
+dividing-0252	signature-0033	DUP	both: spinor exceptions ↔ T1
+dividing-0252	signature-0150	DUP	both: spinor feature-flip / minimal pair ↔ T1
+dividing-0252	signature-0173	DISTINCT	T1 minimal pair vs arXiv:2104.08798 classes
+dividing-0252	tools-0160	DUP	both: spinor exceptions ↔ T1
+dividing-0252	translate-0125	DUP	both: spinor exceptions ↔ T1
+dividing-0252	upgrades-0036	DUP	both: spinor exceptions ↔ T1
+free_astra-0331	signature-0170	DISTINCT	vague diagnostics vs specific congruence classification paper
+free_astra-0331	signature-0173	DISTINCT	vague diagnostics vs specific congruence classification paper
+free_opus-0022	signature-0033	DISTINCT	Duke route to ES ternary surface vs T1 analogue
+free_opus-0022	tools-0159	DUP	both: DSP applied to ES ternary reformulation
+free_opus-0022	translate-0110	DISTINCT	generic ternary surface vs chain-lattice/Ellenberg–Venkatesh twist
+signature-0033	tools-0159	DISTINCT	T1 analogue vs DSP as tool
+signature-0033	translate-0110	DISTINCT	T1 analogue vs DSP on chain lattice
+signature-0033	upgrades-0036	DUP	both: spinor exceptions ↔ T1
+signature-0114	tools-0159	DISTINCT	square-class analogue vs DSP as tool
+signature-0114	translate-0110	DISTINCT	square-class analogue vs chain lattice
+signature-0114	upgrades-0017	DISTINCT	analogue vs Linnik-cubes reduction with DSP closing
+signature-0150	tools-0160	DUP	both: spinor exceptions ↔ T1
+signature-0150	translate-0125	DUP	both: spinor exceptions ↔ T1
+signature-0150	upgrades-0036	DUP	both: spinor exceptions ↔ T1
+signature-0170	signature-0173	DUP	both: arXiv:2104.08798 congruence spinor classes
+signature-0173	tools-0160	DISTINCT	congruence classification paper vs T1 analogue
+tools-0159	translate-0110	DISTINCT	generic DSP tool vs chain-lattice application
+tools-0160	translate-0125	DUP	both: spinor exceptions ↔ T1
+tools-0160	upgrades-0036	DUP	both: spinor exceptions ↔ T1
+translate-0110	upgrades-0017	DISTINCT	chain lattice DSP vs seek new ternary reduction family
+translate-0125	upgrades-0036	DUP	both: spinor exceptions ↔ T1
+tools-0105	upgrades-0019	DUP	both: BDG decoupling for ES exponential sums/energy
+tools-0106	upgrades-0020	DISTINCT	Hensel lifts mod prime powers vs multi-scale level modulus
+signature-0025	upgrades-0021	DUP	both: Linnik dispersion p+x²+y² ↔ R(p)
+dividing-0116	upgrades-0026	DUP	both: Zagier involution with unique fixed point
+free_astra-0058	signature-0408	DISTINCT	Kloosterman phases search vs bilinear Kloosterman forms
+free_opus-0216	signature-0408	DUP	both: bilinear Kloosterman (KMS) for ES counts
+free_opus-0216	tools-0023	DUP	both: KMS bilinear Kloosterman for ES counting
+free_opus-0216	tools-0309	DISTINCT	R(p)/Type II counting vs I3 count
+free_opus-0216	translate-0087	DUP	both: KMS bilinear Kloosterman for ES counts
+signature-0408	tools-0023	DUP	both: KMS bilinear Kloosterman for ES counts
+signature-0408	translate-0087	DUP	both: KMS bilinear Kloosterman for ES counts
+signature-0408	upgrades-0035	DISTINCT	bilinear forms vs Kloosterman refinement over levels
+tools-0022	translate-0087	DISTINCT	DKSZ modular square roots vs KMS
+tools-0023	translate-0087	DUP	both: KMS bilinear Kloosterman for ES counts
+tools-0024	translate-0087	DISTINCT	Bettin–Chandee trilinear vs KMS
+tools-0309	translate-0087	DISTINCT	I3 count vs level-sum R(p)
+tools-0309	upgrades-0035	DISTINCT	KMS on I3 vs Kloosterman refinement
+translate-0086	upgrades-0035	DISTINCT	Salié sign-twisted R_t vs Kloosterman refinement level sum
+translate-0087	upgrades-0035	DISTINCT	KMS bilinear bounds vs Kloosterman refinement method
+free_opus-0030	tools-0156	DUP	both: Linnik ergodic split-prime equidistribution ↔ ES
+free_opus-0030	upgrades-0201	DISTINCT	method analogy vs intermediate goal for (p/ℓ)=−1 family
+tools-0156	upgrades-0039	DISTINCT	fixed split prime vs varying auxiliary prime
+tools-0156	upgrades-0201	DISTINCT	method analogy vs intermediate goal for (p/ℓ)=−1 family
+dividing-0172	upgrades-0044	DUP	both: finiteness/structure of U(n) sporadic list
+free_opus-0360	signature-0009	DUP	both: Siegel-zero world implications for ES
+free_opus-0360	translate-0280	DUP	both: Siegel-zero world implications for ES
+free_opus-0360	upgrades-0049	DISTINCT	Siegel-zero hypothesis vs p itself QR-exceptional
+free_opus-0360	upgrades-0060	DUP	both: Siegel-zero world implications for ES
+signature-0009	translate-0280	DUP	both: Siegel-zero conditional route for ES
+signature-0009	upgrades-0060	DUP	both: Siegel-zero conditional route for ES
+translate-0280	upgrades-0049	DISTINCT	Siegel-zero hypothesis vs p itself QR-exceptional
+translate-0280	upgrades-0060	DUP	both: Siegel-zero conditional route for ES
+translate-0306	upgrades-0051	DUP	both: class number formula for BM main term L(1,χ)
+analogues-0201	fingerprint-0164	DUP	both: hard primes at p ≡ 1 mod smooth L
+analogues-0201	free_fable-0134	DISTINCT	p−1 smooth vs 4Cp+1 composite/near-prime
+free_fable-0125	free_opus-0382	DISTINCT	multiplicative-subgroup failure vs simultaneous primality
+free_fable-0125	translate-0243	DISTINCT	failure set structure vs Maynard–Tao prime levels
+free_fable-0125	upgrades-0052	DISTINCT	failure set structure vs Erdős–Bertrand size argument
+free_fable-0134	translate-0243	DISTINCT	hard primes question vs Maynard–Tao construction
+analogues-0242	free_opus-0040	DUP	both: FI thin primes as calibration for ES
+analogues-0242	tools-0015	DISTINCT	thin sets of p vs square-d Type I certificate family
+dividing-0101	free_opus-0040	DUP	both: FI x²+y⁴ as proved thin analogue
+dividing-0101	tools-0015	DISTINCT	catalog analogue vs FI sieve on square-d family
+free_opus-0040	tools-0015	DISTINCT	calibration vs FI sieve on square-d family
+tools-0015	upgrades-0067	DISTINCT	square-d family vs Gaussian p=a²+b² bilinear structure
+tools-0013	upgrades-0071	DUP	both: Matthiesen linear correlations of divisor functions
+tools-0080	upgrades-0072	DISTINCT	hard-prime dense model vs certificate-set transference
+tools-0113	upgrades-0073	DISTINCT	certificate polynomials vs ES along polynomial families n=f(m)
+tools-0113	upgrades-0330	DISTINCT	vague certificate polynomials vs Schinzel-average input to almost-all
+dividing-0082	free_opus-0105	DISTINCT	BHV catalog analogue vs divisor-in-class source
+dividing-0082	signature-0039	DISTINCT	catalog analogue vs Lucas-type ES families
+dividing-0082	signature-0126	DUP	both: BHV uniform primitive divisor as analogue
+dividing-0082	translate-0196	DISTINCT	catalog analogue vs divisor ≡ −1 mod 4C source
+dividing-0084	signature-0126	DISTINCT	elliptic divisibility sequences vs Lucas BHV
+free_fable-0250	free_opus-0105	DISTINCT	4Cp+1 as Lucas term vs primitive divisor source
+free_fable-0250	translate-0196	DISTINCT	4Cp+1 as Lucas term vs shared primitive divisor
+free_fable-0250	upgrades-0080	DISTINCT	4Cp+1 as Lucas term vs shared primitive divisor
+free_opus-0105	signature-0039	DISTINCT	divisor source for p vs exponential-family ES
+free_opus-0105	signature-0126	DISTINCT	forced-class divisor source vs uniform witness analogue
+free_opus-0105	translate-0196	DUP	both: BHV primitive divisors ≡ −1 mod 4C for 4Cp+1
+free_opus-0105	upgrades-0080	DUP	both: BHV primitive divisors ≡ −1 mod 4C for 4Cp+1
+signature-0039	translate-0196	DISTINCT	exponential-family ES vs divisor of 4Cp+1
+signature-0039	upgrades-0080	DISTINCT	exponential-family ES vs divisor of 4Cp+1
+signature-0126	translate-0196	DISTINCT	uniform witness analogue vs divisor source
+signature-0126	upgrades-0080	DISTINCT	uniform witness analogue vs divisor source
+translate-0196	upgrades-0080	DUP	both: BHV primitive divisors ≡ −1 mod 4C for 4Cp+1
+tools-0129	upgrades-0082	DISTINCT	CZ integral-point degeneracy vs subspace divisibility relations
+dividing-0075	signature-0038	DUP	both: Heegner/Monsky congruent primes analogue
+dividing-0075	signature-0127	DUP	both: Heegner/Monsky congruent primes analogue
+signature-0038	signature-0127	DUP	both: Monsky/Heegner congruent primes in classes as ∀p template
+signature-0038	upgrades-0086	DUP	both: explicit Heegner constructions for primes in a residue class
+signature-0127	upgrades-0086	DUP	both: Monsky/Heegner congruent-prime classes ↔ ES classes
+analogues-0238	dividing-0065	DISTINCT	ES₅ thin-orbit transfer vs catalog count calibration
+analogues-0238	tools-0098	DUP	both: BK Zaremba thin-orbit method vs ES₅ fixed length
+signature-0068	tools-0098	DUP	both: Zaremba bounded digits vs ES₅ bounded length
+signature-0068	translate-0090	DUP	both: dual-Zaremba bounded length ↔ ES₅
+signature-0305	translate-0090	DUP	both: Zaremba CF constraint ↔ ES₅ bounded length
+signature-0305	upgrades-0109	DISTINCT	generic Zaremba vs modular-Zaremba growth + size control
+signature-0305	upgrades-0110	DISTINCT	analogy vs tracking full-Zaremba every-q progress
+translate-0090	upgrades-0109	DISTINCT	dual Zaremba vs modular Zaremba SL₂(F_p) growth
+translate-0090	upgrades-0110	DISTINCT	dual Zaremba vs monitoring every-q Zaremba wall
+free_opus-0086	upgrades-0112	DISTINCT	Lefschetz F_q counts vs DRS integral point counting
+translate-0040	upgrades-0114	DUP	both: closed horocycle (A+i)/p cusp excursion ↔ ES₅
+tools-0219	upgrades-0118	DUP	both: fake random models matching ES stats yet failing
+analogues-0209	free_fable-0158	DUP	both: nonstandard counterexample prime, generic via density
+analogues-0209	free_opus-0255	DISTINCT	generic-prime framing vs independence from weak systems
+analogues-0209	translate-0153	DUP	both: nonstandard failing prime + density transfer
+free_fable-0158	translate-0153	DUP	both: nonstandard failing prime + Loeb measure
+free_opus-0255	translate-0153	DISTINCT	independence vs Loeb limit-object contradiction
+free_opus-0255	upgrades-0119	DISTINCT	independence vs Tao-style contradiction in ultraproduct
+tools-0009	upgrades-0122	DUP	both: Tao entropy decrement across levels C at fixed p
+tools-0071	upgrades-0124	DUP	both: Huang signed hypercube on divisor/certificate cube
+tools-0071	upgrades-0293	DUP	both: Huang sensitivity on divisor hypercube certificates
+free_fable-0215	free_opus-0117	DUP	both: LLL inverted on certificate-event dependency graph
+free_fable-0215	signature-0066	DISTINCT	LLL consistency vs Janson lower tail of R(p)
+free_fable-0215	tools-0077	DUP	both: LLL as disproof-side all-fail tool
+free_fable-0215	translate-0143	DUP	both: LLL/Shearer for all-levels-fail at p
+free_opus-0117	tools-0077	DUP	both: LLL all certificate events fail
+free_opus-0117	translate-0143	DUP	both: LLL/Shearer for all-fail
+signature-0066	tools-0039	DUP	both: Janson bound on no-certificate event
+tools-0039	translate-0144	DUP	both: Janson/dependence for certificate count at fixed p
+tools-0039	upgrades-0144	DUP	both: Janson exp(−μ+Δ/2) for no certificate
+tools-0077	translate-0143	DUP	both: Moser–Tardos LLL for all-fail
+translate-0144	upgrades-0144	DUP	both: Janson at fixed p for N(p)=0
+free_opus-0100	upgrades-0159	DUP	both: Bhargava cubes composition on ES data
+translate-0072	upgrades-0159	DISTINCT	Type II cube point vs (★) triple cube
+dividing-0111	signature-0426	DISTINCT	catalog count calibration vs FF-ES geometric route
+dividing-0111	tools-0242	DISTINCT	catalog vs SS applied to function-field ES
+dividing-0163	signature-0073	DUP	both: F_q[T] ES proved variants as sibling
+free_fable-0143	free_opus-0016	DUP	both: extract F_q[T] ES proof mechanism, translate
+free_fable-0143	signature-0073	DUP	both: compare F_q[T] ES proof mechanisms
+free_fable-0143	upgrades-0160	DUP	both: identify F_q[T] ES proof ingredient, ℤ-analogue
+free_opus-0016	signature-0073	DUP	both: F_q[T] ES proof structure transfer
+free_opus-0016	upgrades-0160	DUP	both: F_q[T] ES proof ingredient transfer
+signature-0073	upgrades-0160	DUP	both: F_q[T] ES variants mechanism comparison
+signature-0426	tools-0242	DUP	both: Sawin–Shusterman étale route for FF ES
+tools-0242	upgrades-0160	DISTINCT	SS Chowla tool vs mapping existing FF ES proofs
+free_opus-0429	tools-0243	DUP	both: large-q limit FF ES via Chebotarev/monodromy
+free_opus-0429	upgrades-0161	DUP	both: large-q fixed-degree FF ES equidistribution
+tools-0243	upgrades-0161	DUP	both: large-q limit FF ES for each P
+tools-0008	upgrades-0162	DISTINCT	MR along C at fixed p vs short-interval averages of R(n)
+tools-0008	upgrades-0258	DISTINCT	MR at fixed p vs Halász for D_t(tn+1)
+dividing-0030	tools-0141	DISTINCT	catalog vs −1-as-target analogy
+dividing-0030	upgrades-0163	DISTINCT	catalog vs Rédei/Smith densities of level failures
+dividing-0295	tools-0141	DISTINCT	exact density model vs −1-as-target analogy
+dividing-0295	upgrades-0163	DUP	both: Stevenhagen/KP-style exact densities of ES failure
+tools-0141	upgrades-0163	DISTINCT	−1 target analogy vs exact failure densities
+signature-0393	upgrades-0171	DISTINCT	infinite covering families vs covering obstruction
+translate-0195	upgrades-0174	DUP	both: Positivstellensatz proof complexity of ES failure
+analogues-0224	dividing-0011	DISTINCT	ternary/binary positioning vs binary Goldbach catalog
+analogues-0224	dividing-0012	DISTINCT	positioning vs ternary catalog entry
+analogues-0224	dividing-0257	DUP	both: binary vs ternary Goldbach minimal pair, ES position
+analogues-0224	free_opus-0024	DISTINCT	count positioning vs Helfgott verification calibration
+dividing-0012	free_opus-0024	DISTINCT	catalog vs Helfgott asymptotic+verification template
+dividing-0012	signature-0032	DISTINCT	catalog vs Helfgott template
+dividing-0012	signature-0120	DISTINCT	catalog vs Helfgott template
+dividing-0012	tools-0050	DISTINCT	catalog vs Helfgott template
+dividing-0012	upgrades-0001	DISTINCT	catalog vs effective threshold below 10¹⁸
+dividing-0012	upgrades-0179	DISTINCT	catalog vs averaging binary problem over first denominator
+dividing-0257	free_opus-0024	DISTINCT	variable-count minimal pair vs verification template
+free_opus-0024	signature-0032	DUP	both: Helfgott analytic tail + verification template
+free_opus-0024	signature-0120	DUP	both: Helfgott analytic + finite check
+free_opus-0024	tools-0050	DUP	both: Helfgott analytic + finite check
+free_opus-0024	upgrades-0001	DUP	both: Helfgott threshold meets verification
+signature-0032	signature-0120	DUP	both: Helfgott analytic + finite check
+signature-0032	tools-0050	DUP	both: Helfgott analytic + finite check
+signature-0120	tools-0050	DUP	both: Helfgott analytic + finite check
+tools-0050	upgrades-0001	DUP	both: Helfgott explicit threshold + 10¹⁸ verification
+translate-0126	upgrades-0181	DUP	both: Siegel–Weil/mass formula for BM main term
+dividing-0087	free_fable-0307	DISTINCT	catalog vs Collatz structural comparison
+dividing-0087	signature-0308	DISTINCT	catalog vs almost-all wall analogy
+dividing-0087	tools-0276	DISTINCT	catalog vs Syracuse technique for greedy algorithms
+dividing-0087	upgrades-0196	DISTINCT	catalog vs failure-point comparison
+free_fable-0307	upgrades-0196	DUP	both: Tao Collatz almost-all vs ES pointwise wall
+signature-0308	tools-0276	DISTINCT	wall analogy vs technique transfer to greedy algorithms
+signature-0308	upgrades-0196	DUP	both: Collatz almost-all vs pointwise wall
+tools-0276	upgrades-0196	DISTINCT	technique transfer vs wall comparison
+free_opus-0214	translate-0244	DUP	both: smooth 4Cp+1 divisors cover (ℤ/4C)^×
+translate-0244	upgrades-0207	DISTINCT	smoothness/general position vs Ω parity
+signature-0026	upgrades-0209	DUP	both: Hooley GRH p+x²+y² — what GRH buys ES
+signature-0151	upgrades-0209	DISTINCT	Hooley Artin vs Hooley p+x²+y²
+analogues-0132	free_opus-0003	DISTINCT	shifted-prime 4/n variant vs method test on p-tied denominators
+analogues-0132	upgrades-0147	DISTINCT	shifted-prime variant vs few-term machinery
+analogues-0135	free_opus-0309	DUP	both: Brown–Rödl/Rado partition regularity of ES equation
+analogues-0135	tools-0088	DUP	both: partition regularity of 1/x+1/y+1/z=4/n
+analogues-0135	translate-0212	DISTINCT	partition regularity vs colouring n by ES status
+analogues-0226	dividing-0063	DISTINCT	method transfer vs catalog count entry
+analogues-0226	free_fable-0101	DUP	both: Croot smooth-number method vs 3-term ES
+analogues-0226	free_fable-0102	DUP	both: Bloom Fourier unit-fraction method vs ES
+analogues-0226	free_opus-0001	DUP	both: Croot colouring theorem as template
+analogues-0226	free_opus-0002	DUP	both: Bloom density theorem vs single-target ES
+analogues-0226	signature-0046	DUP	both: Croot/Bloom unit fractions in dense sets
+analogues-0226	tools-0084	DUP	both: Bloom density method transfer
+analogues-0226	tools-0087	DUP	both: Croot smooth-denominator method
+analogues-0226	translate-0167	DUP	both: Bloom/Croot thick-set results vs thin ES
+analogues-0226	upgrades-0146	DISTINCT	method analogy vs new Ramsey–ES formulation
+analogues-0226	upgrades-0147	DISTINCT	analogy vs few-term structured-denominator application
+analogues-0226	upgrades-0216	DISTINCT	general analogy vs single-target conversion step
+dividing-0062	free_fable-0101	DISTINCT	catalog vs Croot method transfer
+dividing-0063	free_fable-0102	DISTINCT	catalog vs Bloom method
+dividing-0063	free_opus-0002	DISTINCT	catalog vs Bloom single-target question
+dividing-0063	signature-0046	DISTINCT	catalog vs Croot/Bloom analogy
+dividing-0063	signature-0207	DISTINCT	catalog count vs feature signature
+dividing-0063	tools-0084	DISTINCT	catalog vs Bloom technique transfer
+dividing-0063	tools-0333	DISTINCT	catalog vs 3-term specialisation test
+dividing-0063	translate-0167	DISTINCT	catalog vs thick-set analogy
+dividing-0063	upgrades-0147	DISTINCT	catalog vs few-term machinery
+dividing-0323	free_fable-0101	DISTINCT	Ramsey-ES variant vs Croot method
+dividing-0323	free_opus-0001	DISTINCT	Ramsey-ES variant vs Croot template
+dividing-0323	free_opus-0309	DISTINCT	Croot colouring ES vs Brown–Rödl partition regularity
+dividing-0323	tools-0087	DISTINCT	Ramsey-ES variant vs Croot method
+dividing-0323	upgrades-0146	DUP	both: Ramsey/colouring version of ES via Croot
+free_astra-0287	signature-0207	DISTINCT	density increments for divisor sets vs feature analogy
+free_fable-0101	free_opus-0001	DUP	both: Croot smooth-number colouring method
+free_fable-0101	tools-0084	DISTINCT	Croot colouring vs Bloom density theorem
+free_fable-0101	tools-0087	DUP	both: Croot smooth-denominator method
+free_fable-0101	upgrades-0146	DISTINCT	Croot method vs Ramsey–ES formulation
+free_fable-0102	free_opus-0002	DUP	both: Bloom density Fourier method vs ES
+free_fable-0102	free_opus-0271	DISTINCT	Bloom method vs Lean formalisation partner
+free_fable-0102	signature-0046	DUP	both: Bloom density theorem analogy
+free_fable-0102	signature-0207	DUP	both: Bloom positive-density theorem analogy
+free_fable-0102	tools-0084	DUP	both: Bloom density method transfer
+free_fable-0102	tools-0333	DISTINCT	general method vs 3-term structured-denominator test
+free_fable-0102	translate-0167	DUP	both: Bloom density theorem analogy
+free_fable-0102	upgrades-0147	DISTINCT	general method vs few-term structured application
+free_fable-0113	free_opus-0271	DUP	both: Bloom–Mehta Lean library for ES formalisation
+free_opus-0001	signature-0046	DUP	both: Croot colouring theorem analogy
+free_opus-0001	tools-0087	DUP	both: Croot smooth-denominator method
+free_opus-0001	translate-0167	DISTINCT	Croot colouring vs Bloom density theorem
+free_opus-0001	upgrades-0146	DISTINCT	Croot template vs Ramsey–ES formulation
+free_opus-0002	signature-0046	DUP	both: Bloom density theorem analogy
+free_opus-0002	signature-0207	DUP	both: Bloom density vs pointwise analogy
+free_opus-0002	tools-0084	DUP	both: Bloom density method transfer
+free_opus-0002	tools-0333	DISTINCT	general analogy vs 3-term structured test
+free_opus-0002	translate-0167	DUP	both: Bloom density thick vs thin ES
+free_opus-0002	upgrades-0147	DISTINCT	analogy vs few-term structured application
+free_opus-0003	tools-0333	DISTINCT	shifted-prime denominators vs smooth-denominator 3-term test
+free_opus-0309	tools-0087	DISTINCT	Brown–Rödl Rado vs Croot colouring
+free_opus-0309	tools-0088	DUP	both: Brown–Rödl partition regularity of Egyptian equations
+free_opus-0309	upgrades-0146	DISTINCT	Rado partition regularity vs fixed-p Ramsey–ES
+signature-0046	tools-0084	DUP	both: Bloom density theorem transfer
+signature-0046	tools-0087	DISTINCT	Croot+Bloom density vs Croot Ramsey/partition framing
+signature-0046	translate-0167	DUP	both: Bloom density + Croot colouring as thick-set analogue of ES
+signature-0046	upgrades-0147	DISTINCT	B: concrete k-term 4/p structured-denominator application
+signature-0207	tools-0084	DUP	both: Bloom density theorem ↔ ES 3-term analogue
+signature-0207	translate-0167	DUP	both: Bloom density theorem as dense analogue of ES
+tools-0084	translate-0167	DUP	both: Bloom density theorem ↔ ES 3-term thin version
+tools-0084	upgrades-0147	DISTINCT	general transfer vs specific k-term structured-denominator question
+tools-0087	upgrades-0146	DISTINCT	B formulates new Ramsey–ES strengthening
+tools-0088	translate-0212	DISTINCT	colour x,y,z,n vs colour n by ES status
+tools-0333	translate-0167	DISTINCT	3-term specialisation test vs thick-set analogy
+tools-0333	upgrades-0147	DUP	both: Bloom machinery for 4/p with smooth/structured denominators
+translate-0167	upgrades-0147	DISTINCT	analogy vs concrete k-term machinery application
+dividing-0190	upgrades-0223	DISTINCT	GRH bound on least witness vs empirical extreme-value fit
+dividing-0054	upgrades-0236	DISTINCT	catalog entry vs specific distinctness mechanism transfer
+tools-0173	upgrades-0241	DISTINCT	interlacing as method vs LPS→MSS meta-lesson for square classes
+signature-0028	upgrades-0243	DISTINCT	sparse absorbing set vs thin two-term exceptional set argument
+analogues-0001	upgrades-0151	DISTINCT	FF finite covering vs distortion analysis of Type II covering
+analogues-0018	free_fable-0275	DISTINCT	non-square class identities vs (u,v) Gaussian identities
+analogues-0018	free_opus-0034	DISTINCT	which classes admit identities vs Galois obstruction
+analogues-0018	free_opus-0098	DISTINCT	non-square classes vs non-abelian split-prime identities
+analogues-0018	signature-0452	DISTINCT	general-m identity existence vs feature flip
+analogues-0018	upgrades-0276	DISTINCT	non-square classes vs n=m²+k families
+analogues-0019	translate-0311	DUP	both: identities in form coordinates on non-abelian Chebotarev classes
+analogues-0035	analogues-0036	DISTINCT	B generalises T²+1 to other polynomials
+analogues-0035	free_fable-0138	DISTINCT	T²+1 identity vs algebraic-function Puiseux identities
+analogues-0035	free_fable-0275	DISTINCT	one-variable T²+1 vs two-variable (u,v) identities
+analogues-0035	free_opus-0034	DISTINCT	T²+1 identity vs Galois obstruction
+analogues-0035	free_opus-0242	DISTINCT	T²+1 vs (a,b) sum-of-two-squares identities
+analogues-0035	free_opus-0327	DISTINCT	specific T²+1 vs general polynomial ES over Z[T]
+analogues-0035	upgrades-0276	DISTINCT	T²+1 only vs which k for m²+k
+analogues-0121	signature-0276	DUP	both: Schinzel m/n conjecture, largest exception function
+analogues-0122	signature-0452	DISTINCT	general-m obstruction vs feature flip
+analogues-0122	upgrades-0276	DISTINCT	general-m obstruction vs n=m²+k identities
+analogues-0236	dividing-0291	DISTINCT	covering obstruction analogy vs asking prime covering lemma
+analogues-0236	free_opus-0005	DUP	both: Mordell coverings ↔ Hough covering-system theory
+analogues-0236	signature-0065	DISTINCT	finite identity coverings vs R_C level-set uncovered density
+analogues-0236	signature-0459	DUP	both: Hough min-modulus ↔ Mordell coverings fail at squares
+analogues-0236	tools-0107	DUP	both: Hough/BBMST ↔ ES identity coverings
+analogues-0236	translate-0170	DUP	both: Hough/BBMST explain why Mordell coverings stop
+analogues-0236	upgrades-0151	DISTINCT	finite-covering obstruction vs Type II uncovered-set program
+analogues-0303	translate-0170	DISTINCT	FF no-covering result vs Hough covering theory
+analogues-0303	upgrades-0151	DISTINCT	FF no-covering vs Type II distortion analysis
+dividing-0001	signature-0029	DUP	both: p+2^k Romanoff/Erdős covering vs ES small count
+dividing-0001	upgrades-0151	DISTINCT	p+2^k catalog vs Type II distortion analysis
+dividing-0133	signature-0452	DISTINCT	growing-level identities vs feature flip on hard classes
+dividing-0186	free_fable-0229	DISTINCT	AP covering of primes vs restricted-ES falsity via coverings
+dividing-0186	upgrades-0151	DUP	both: ES certificate APs as infinite covering, distortion analysis
+dividing-0291	free_fable-0213	DISTINCT	prime covering lemma vs C-form union density
+dividing-0291	signature-0065	DISTINCT	prime covering lemma vs R_C level-set uncovered density
+dividing-0291	signature-0459	DISTINCT	prime covering lemma vs Mordell min-modulus analogy
+dividing-0291	translate-0170	DISTINCT	prime covering lemma vs why Mordell coverings stop
+dividing-0291	upgrades-0151	DISTINCT	prime covering lemma vs Type II uncovered-set computation
+free_astra-0139	signature-0392	DISTINCT	graph refinement vs covering congruences
+free_fable-0040	translate-0170	DISTINCT	free-energy δ(M) vs why coverings stop
+free_fable-0071	free_opus-0206	DISTINCT	elimination of Type I/II simultaneity vs finding identity families
+free_fable-0105	free_opus-0004	DUP	both: Sierpiński/Schinzel m/n uniform family
+free_fable-0105	signature-0276	DUP	both: Schinzel m/n generalisation as natural family
+free_fable-0105	translate-0169	DUP	both: Schinzel m/n family, uniform-in-m tools
+free_fable-0137	free_opus-0060	DUP	both: identities = rational curves (lines) over Q(n)
+free_fable-0138	free_opus-0034	DISTINCT	algebraic-function identities vs Galois obstruction
+free_fable-0138	free_opus-0060	DISTINCT	Q(√(n+a)) identities vs rational curves over Q(n)
+free_fable-0138	upgrades-0276	DUP	both: identities polynomial in m for n=m²±k
+free_fable-0213	free_opus-0231	DISTINCT	C-form union density vs prime-modulus covering
+free_fable-0213	upgrades-0151	DISTINCT	C-form union density vs Type II distortion
+free_fable-0229	signature-0029	DISTINCT	restricted-ES falsity vs what protects ES flip
+free_fable-0229	signature-0122	DISTINCT	restricted-ES falsity via coverings vs analogy
+free_fable-0229	upgrades-0151	DISTINCT	p+2^k analogy vs Type II distortion
+free_fable-0275	free_opus-0034	DISTINCT	(u,v) identities vs Galois obstruction
+free_fable-0275	free_opus-0327	DISTINCT	two-variable (u,v) vs one-variable polynomial n(T)
+free_fable-0275	signature-0054	DUP	both: ES identities polynomial in Gaussian coords p=a²+b²
+free_fable-0275	signature-0437	DISTINCT	Gaussian identities vs sums-of-squares identity theorems
+free_fable-0275	upgrades-0232	DUP	both: certificate families polynomial in (a,b), p=a²+b²
+free_fable-0275	upgrades-0276	DISTINCT	(u,v) two-variable vs n=m²+k one-variable
+free_fable-0276	free_opus-0242	DISTINCT	other binary forms vs sum of two squares
+free_fable-0276	signature-0392	DISTINCT	binary-form identities vs covering congruences
+free_fable-0276	upgrades-0276	DISTINCT	binary-form identities vs m²+k identities
+free_opus-0004	translate-0169	DUP	both: Sierpiński/Schinzel m/n uniform family
+free_opus-0005	signature-0459	DUP	both: Mordell covering chain ↔ Hough theorem
+free_opus-0005	translate-0170	DUP	both: Mordell coverings ↔ Hough/covering theory
+free_opus-0034	signature-0377	DISTINCT	Galois obstruction vs generic identity coverings
+free_opus-0034	signature-0437	DISTINCT	Galois obstruction vs sums-of-squares analogues
+free_opus-0034	translate-0169	DISTINCT	Galois obstruction vs uniform-in-m family
+free_opus-0034	upgrades-0276	DISTINCT	Galois obstruction vs m²+k identities
+free_opus-0060	upgrades-0276	DISTINCT	rational curves over Q(n) vs m²+k identities
+free_opus-0098	translate-0311	DUP	both: identities on non-abelian Chebotarev classes
+free_opus-0098	upgrades-0232	DISTINCT	non-abelian classes vs Gaussian (a,b) families
+free_opus-0098	upgrades-0276	DISTINCT	non-abelian/thin sets vs specific m²+k
+free_opus-0206	tools-0213	DUP	both: Gröbner elimination finds bounded-degree identity families
+free_opus-0327	tools-0213	DISTINCT	polynomial n(T) solutions vs Gröbner computation
+free_opus-0327	upgrades-0276	DISTINCT	general n(T) vs specific m²+k question
+signature-0054	upgrades-0232	DUP	both: Gaussian-coordinate polynomial identities
+signature-0054	upgrades-0276	DISTINCT	Gaussian (a,b) vs m²+k
+signature-0065	tools-0107	DISTINCT	level-set covering vs identity-menu covering
+signature-0065	translate-0170	DISTINCT	level-set uncovered density vs why Mordell stops
+signature-0065	upgrades-0151	DUP	both: infinite certificate covering of primes, distortion uncovered density
+signature-0392	translate-0170	DISTINCT	generic covering congruences vs Hough obstruction
+signature-0392	upgrades-0151	DISTINCT	generic covering congruences vs Type II distortion
+signature-0437	upgrades-0276	DISTINCT	sums-of-squares theorems vs m²+k identities
+signature-0452	translate-0311	DISTINCT	feature flip vs non-abelian Chebotarev identities
+signature-0452	upgrades-0276	DISTINCT	feature flip vs m²+k identities
+signature-0459	translate-0170	DUP	both: Hough min-modulus ↔ Mordell coverings
+tools-0107	translate-0170	DUP	both: Hough/BBMST ↔ ES identity coverings
+tools-0107	upgrades-0151	DISTINCT	identity-menu coverings vs Type II infinite system
+tools-0107	upgrades-0246	DISTINCT	general distortion vs smooth-moduli δ(y) computation
+translate-0169	upgrades-0276	DISTINCT	uniform-m family vs m²+k identities
+translate-0170	upgrades-0151	DISTINCT	why coverings stop vs Type II uncovered-set program
+analogues-0252	dividing-0083	DISTINCT	Zsigmondy as unit replacement vs catalog entry
+analogues-0252	free_fable-0248	DISTINCT	lack of algebraic structure vs repunit-prime factorisation
+analogues-0252	upgrades-0248	DISTINCT	unit replacement vs new-primes-per-level count
+dividing-0083	free_fable-0248	DISTINCT	catalog vs repunit-like primes application
+dividing-0083	signature-0040	DUP	both: Zsigmondy as proved pointwise existence analogue
+free_fable-0248	signature-0040	DISTINCT	cyclotomic repunit primes vs exception-list analogy
+free_fable-0248	upgrades-0248	DISTINCT	cyclotomic factorisation vs primitive part across levels
+tools-0069	upgrades-0126	DISTINCT	ES solution tensor vs exponent-vector avoidance sets
+tools-0069	upgrades-0252	DUP	both: slice rank of ES indicator tensor mod q
+tools-0072	upgrades-0142	DUP	both: Park–Pham threshold for random ES certificate model
+tools-0072	upgrades-0254	DUP	both: Park–Pham expectation threshold of ES random model
+dividing-0262	free_opus-0052	DUP	both: universal torsor = Type I/II parametrisation
+dividing-0262	upgrades-0280	DUP	both: identify universal torsor, count points
+free_opus-0052	upgrades-0280	DUP	both: universal torsor coordinates = Type I/II
+tools-0132	upgrades-0280	DUP	both: universal torsors parametrise Type I/II
+translate-0059	upgrades-0280	DUP	both: torsor descent gives Type I/II coordinates
+tools-0182	upgrades-0286	DISTINCT	Hölder moment lower bounds vs Kuznetsov level moments
+free_opus-0236	upgrades-0288	DISTINCT	energy of divisor set vs energy across additive windows
+free_opus-0133	upgrades-0292	DISTINCT	×2×3 orbits vs semigroup of working levels
+free_fable-0066	free_opus-0085	DISTINCT	mod-q point counts vs certificate count parity
+free_fable-0066	translate-0159	DISTINCT	mod-q equation counts vs F2 parity count
+free_fable-0066	upgrades-0130	DUP	both: CW/Ax–Katz mod q counts forcing genuine solutions
+free_fable-0066	upgrades-0295	DISTINCT	equation mod q vs window exponent system mod e
+free_opus-0085	translate-0159	DUP	both: Chevalley–Warning parity of certificate counts
+translate-0159	upgrades-0130	DISTINCT	F2 parity vs auxiliary-prime with trivial solution
+translate-0159	upgrades-0295	DISTINCT	F2 parity vs window exponent system
+signature-0083	upgrades-0296	DISTINCT	generic absorption vs Mordell-identity absorbers
+free_opus-0334	tools-0060	DUP	both: PFR structure for divisor-class sets
+free_opus-0334	upgrades-0297	DUP	both: PFR approximate subgroups for failing divisor classes
+tools-0060	upgrades-0297	DUP	both: PFR coset structure of divisor class sets
+dividing-0040	signature-0427	DUP	both: Sun 1-3-5 via quaternions as ∀n∃ analogue
+dividing-0040	upgrades-0157	DISTINCT	catalog vs constrained quaternion norm transfer
+dividing-0040	upgrades-0300	DISTINCT	catalog vs computational ES refinement generation
+free_astra-0027	translate-0231	DISTINCT	quaternion composition vs metacommutation factorisation
+free_astra-0027	upgrades-0157	DISTINCT	composition of partial certificates vs constrained norms
+signature-0427	upgrades-0157	DUP	both: Machiavelo–Tsopanidis quaternions ↔ ES quaternion reformulation
+signature-0427	upgrades-0300	DISTINCT	quaternion proof analogy vs auto-generated refinements
+signature-0428	upgrades-0300	DISTINCT	Sun family analogy vs generating ES refinements
+free_opus-0313	upgrades-0302	DUP	both: Sperner boundary labelling forces certificate
+upgrades-0172	upgrades-0304	DUP	both: SML p-adic periodicity along a·b^s+c families
+dividing-0073	tools-0042	DUP	both: Koukoulopoulos–Maynard GCD graphs ↔ ES
+dividing-0073	upgrades-0065	DISTINCT	catalog vs specific level-event overlap analysis
+dividing-0073	upgrades-0311	DISTINCT	catalog vs restricted prime-level ES
+tools-0042	translate-0271	DUP	both: GCD-graph compression for certificate/level overlaps
+tools-0042	upgrades-0065	DUP	both: GCD graphs control overlaps of certificate events
+tools-0316	upgrades-0065	DISTINCT	I3 overlaps across t vs level events E_C
+translate-0271	upgrades-0065	DUP	both: KM GCD-graph analysis of coupling across levels C
+translate-0257	upgrades-0317	DISTINCT	forest-monochromatic pretentiousness vs pretentious distance as difficulty statistic
+fingerprint-0253	upgrades-0319	DISTINCT	F_p supersingular count vs Deuring maximal orders mapped to certificates
+analogues-0052	upgrades-0320	DISTINCT	Z[1/ℓ] unit mechanism vs imaginary quadratic rings
+analogues-0056	upgrades-0320	DISTINCT	real quadratic unit proof vs imaginary quadratic test bed
+translate-0232	upgrades-0320	DUP	both: ES over imaginary quadratic rings as test bed
+analogues-0082	free_fable-0112	DISTINCT	framing beyond-BM vs contacting BL about finer obstruction
+analogues-0082	free_opus-0055	DISTINCT	generic beyond-BM framing vs étale-Brauer/descent proposal
+analogues-0082	signature-0166	DISTINCT	BL no-BM vs Markoff-type K3 counterexamples paper
+analogues-0082	signature-0369	DUP	both: BL no BM; integral existence beyond local/BM tests
+analogues-0082	signature-0370	DUP	both: BL BM for ES integral points, adelic framing
+analogues-0082	upgrades-0310	DISTINCT	framing vs concrete strong-approx mod q data check
+analogues-0239	dividing-0049	DUP	both: BGS/Chen Markoff mod p transitivity as model
+analogues-0239	free_fable-0017	DUP	both: BGS/Chen; need Vieta-like action on ES points
+analogues-0239	free_fable-0176	DUP	both: Chen orbit divisibility; seek group action on ES
+analogues-0239	free_opus-0029	DUP	both: Chen orbit divisibility precedent, ES lacks action
+analogues-0239	signature-0062	DUP	both: Chen Markoff mod p divisibility theorem
+analogues-0239	tools-0121	DUP	both: Chen orbit-size forcing as ES model
+analogues-0239	tools-0122	DUP	both: BGS Markoff mod p connectivity vs ES symmetry
+analogues-0239	translate-0116	DUP	both: BGS/Chen connectivity, ES lacks group action
+analogues-0239	upgrades-0103	DUP	both: find Markoff-like group action on ES integral points
+dividing-0048	signature-0146	DUP	both: Ghosh–Sarnak Markoff integral Hasse failures
+dividing-0048	signature-0166	DISTINCT	Ghosh–Sarnak vs Markoff-type K3 paper 2504.10992
+dividing-0048	signature-0167	DISTINCT	Ghosh–Sarnak vs K3 dense rational points paper
+dividing-0048	translate-0117	DUP	both: Ghosh–Sarnak Hasse failures, (log)² counts
+dividing-0048	upgrades-0322	DUP	both: Ghosh–Sarnak failure mechanism vs ES
+dividing-0048	upgrades-0323	DISTINCT	catalog vs concrete ES reduction-theory congruence exclusion
+dividing-0049	free_fable-0017	DUP	both: BGS/Chen Markoff connectivity, Vieta action analogue
+dividing-0049	free_fable-0176	DUP	both: Chen orbit divisibility → ES group action
+dividing-0049	free_opus-0029	DUP	both: Chen orbit divisibility precedent
+dividing-0049	signature-0062	DUP	both: Chen Markoff mod p theorem
+dividing-0049	tools-0121	DUP	both: Chen orbit-size divisibility as model
+dividing-0170	signature-0146	DUP	both: Ghosh–Sarnak non-BM Hasse failures
+dividing-0170	translate-0117	DUP	both: Ghosh–Sarnak Hasse failures vs ES
+dividing-0170	upgrades-0322	DUP	both: Ghosh–Sarnak reduction-theory failure mechanism
+dividing-0170	upgrades-0323	DISTINCT	GS mechanism vs concrete ES reduced-representative congruence test
+dividing-0306	tools-0122	DUP	both: BGS strong approx/giant component for ES group/graph
+free_fable-0017	free_opus-0029	DUP	both: BGS/Chen Markoff, ES lacks Vieta action
+free_fable-0017	signature-0062	DUP	both: BGS/Chen connectivity as ES model
+free_fable-0017	signature-0165	DISTINCT	BGS Vieta vs orbifold-pair approximation and residue families
+free_fable-0017	tools-0122	DUP	both: BGS Markoff mod p connectivity ↔ ES
+free_fable-0017	translate-0116	DUP	both: BGS/Chen connectivity, ES group action
+free_fable-0017	upgrades-0103	DUP	both: Vieta-like integrality-preserving maps on U_n
+free_fable-0017	upgrades-0310	DISTINCT	group action idea vs strong-approx mod q data check
+free_fable-0112	free_opus-0055	DUP	both: étale-Brauer/descent obstruction for U_n beyond BM
+free_fable-0112	free_opus-0273	DUP	both: ask BL about finer integral obstructions on U_n
+free_fable-0176	free_opus-0029	DUP	both: Chen orbit divisibility; ES group action
+free_fable-0176	tools-0121	DUP	both: Chen orbit-size forcing model
+free_fable-0176	upgrades-0239	DISTINCT	Chen Markoff vs Wielandt Sylow orbit counting
+free_opus-0029	tools-0121	DUP	both: Chen orbit divisibility precedent
+free_opus-0055	signature-0370	DISTINCT	beyond-BM obstructions vs generic BM framing
+signature-0062	tools-0121	DUP	both: Chen Markoff divisibility theorem
+signature-0062	tools-0122	DUP	both: Markoff mod p connectivity (BGS/Chen)
+signature-0062	translate-0116	DUP	both: Chen/BGS Markoff mod p connectivity
+signature-0146	signature-0166	DISTINCT	Ghosh–Sarnak vs K3 counterexample paper
+signature-0146	translate-0117	DUP	both: Ghosh–Sarnak integral Hasse failures
+signature-0146	upgrades-0322	DUP	both: Ghosh–Sarnak integral Hasse failures
+signature-0147	tools-0119	DUP	both: Loughran–Mitankin Markoff integral HP/BM
+signature-0147	translate-0117	DISTINCT	Loughran–Mitankin thin sets vs Ghosh–Sarnak count calibration
+signature-0162	translate-0117	DISTINCT	orbifold semi-integral paper vs Ghosh–Sarnak
+signature-0162	upgrades-0322	DISTINCT	orbifold semi-integral paper vs Ghosh–Sarnak mechanism
+signature-0165	upgrades-0310	DISTINCT	orbifold approximation residue families vs BL data check
+signature-0166	translate-0117	DISTINCT	K3 paper vs Ghosh–Sarnak
+signature-0166	upgrades-0322	DISTINCT	K3 paper vs Ghosh–Sarnak mechanism
+signature-0167	translate-0117	DISTINCT	K3 dense rational vs Ghosh–Sarnak counts
+tools-0119	upgrades-0310	DISTINCT	LM/CTWX BM analysis vs strong-approx data check
+tools-0120	translate-0117	DUP	both: Ghosh–Sarnak failure counts calibration
+tools-0121	translate-0116	DUP	both: Chen orbit divisibility/connectivity model
+tools-0122	translate-0116	DUP	both: BGS Markoff mod p connectivity
+translate-0116	upgrades-0105	DISTINCT	connectivity model vs congruence for R(p) counts
+translate-0116	upgrades-0106	DUP	both: BGS/Chen as model for certificate graph connectivity
+translate-0116	upgrades-0310	DISTINCT	connectivity model vs strong-approx data check
+translate-0117	upgrades-0322	DUP	both: Ghosh–Sarnak Hasse failures vs ES
+analogues-0100	dividing-0028	DISTINCT	quartic T1 refinement vs x²+64y² catalog entry
+analogues-0100	free_fable-0175	DUP	both: quartic reciprocity refinement of T1 for certificate families
+analogues-0100	translate-0198	DUP	both: quartic symbol refining T1 on certificates
+analogues-0178	free_fable-0174	DISTINCT	Descartes general vs applying HKRS to predict ES failures
+analogues-0178	free_opus-0090	DUP	both: ES reciprocal sum as Descartes curvature relation
+analogues-0178	signature-0012	DISTINCT	Descartes curvature analogy vs HKRS ↔ T1
+analogues-0178	translate-0318	DISTINCT	analogy vs constructing ES-encoding packing
+analogues-0217	dividing-0028	DISTINCT	constrained-world data vs quartic catalog entry
+analogues-0237	dividing-0068	DUP	both: HKRS reciprocity ↔ T1
+analogues-0237	dividing-0134	DUP	both: T1 as HKRS-type reciprocity obstruction
+analogues-0237	free_fable-0174	DUP	both: HKRS reciprocity analysis applied to T1/ES
+analogues-0237	signature-0012	DUP	both: HKRS reciprocity ↔ T1
+analogues-0237	signature-0148	DISTINCT	T1 template vs SL₂ prescribed-entry formulation
+analogues-0237	tools-0101	DUP	both: HKRS reciprocity ↔ T1
+analogues-0237	translate-0093	DUP	both: HKRS reciprocity ↔ T1
+analogues-0237	upgrades-0107	DISTINCT	T1 template vs quartic search in sub-routes
+dividing-0028	free_fable-0175	DISTINCT	catalog x²+64y² vs hidden quartic ES obstruction
+dividing-0028	free_fable-0274	DISTINCT	catalog entry vs C-form exceptions quartic hypothesis
+dividing-0067	tools-0101	DISTINCT	Rickards–Stange CF vs HKRS Apollonian
+dividing-0067	tools-0305	DUP	both: Rickards–Stange squares+sporadic ↔ ES sporadics
+dividing-0067	translate-0092	DUP	both: Rickards–Stange reciprocity ↔ T1
+dividing-0068	free_fable-0174	DUP	both: HKRS reciprocity ↔ ES T1
+dividing-0068	free_fable-0175	DISTINCT	HKRS catalog vs quartic obstruction for single Type
+dividing-0068	signature-0012	DUP	both: HKRS reciprocity ↔ T1
+dividing-0068	signature-0148	DISTINCT	HKRS catalog vs SL₂ prescribed-entry formulation
+dividing-0068	tools-0101	DUP	both: HKRS reciprocity ↔ T1
+dividing-0068	translate-0093	DUP	both: HKRS reciprocity ↔ T1
+dividing-0068	upgrades-0107	DISTINCT	HKRS catalog vs quartic search in sub-routes
+dividing-0068	upgrades-0108	DISTINCT	HKRS catalog vs structured-exception audit
+dividing-0068	upgrades-0213	DISTINCT	HKRS catalog vs corrected local-global formulation
+dividing-0134	tools-0101	DUP	both: T1 as HKRS reciprocity obstruction
+dividing-0134	translate-0092	DUP	both: Rickards–Stange reciprocity ↔ T1
+free_fable-0174	free_opus-0090	DISTINCT	HKRS analysis vs Ford circle curvature relation
+free_fable-0174	signature-0012	DUP	both: HKRS reciprocity ↔ T1
+free_fable-0174	signature-0013	DISTINCT	HKRS vs Shi generalized packings
+free_fable-0174	signature-0148	DISTINCT	HKRS vs SL₂ prescribed-entry formulation
+free_fable-0174	tools-0101	DUP	both: HKRS reciprocity ↔ T1
+free_fable-0174	translate-0093	DUP	both: HKRS reciprocity ↔ T1
+free_fable-0174	upgrades-0107	DISTINCT	HKRS ES analysis vs quartic sub-route search
+free_fable-0174	upgrades-0108	DISTINCT	HKRS analysis vs structured-exception audit
+free_fable-0174	upgrades-0213	DISTINCT	HKRS analysis vs corrected local-global formulation
+free_fable-0174	upgrades-0325	DISTINCT	HKRS analysis vs Bourgain–Fuchs positive proportion
+free_fable-0175	signature-0012	DISTINCT	quartic hidden obstruction vs generic HKRS ↔ T1
+free_fable-0175	tools-0101	DISTINCT	quartic hidden obstruction vs generic HKRS ↔ T1
+free_fable-0175	translate-0093	DISTINCT	quartic per-Type obstruction vs HKRS precedent for sporadics
+free_fable-0175	upgrades-0107	DUP	both: search quartic reciprocity obstructions in ES sub-routes
+free_fable-0192	free_opus-0257	DUP	both: near-square m²+small stress tests
+free_fable-0208	free_opus-0257	DISTINCT	type-separated conjecture vs near-square stress test
+free_fable-0208	tools-0305	DISTINCT	type-separated conjecture vs U(n) sporadic RS comparison
+free_fable-0208	upgrades-0204	DISTINCT	Type I, II separately vs Type I∪II Pell-shaped
+free_fable-0274	translate-0198	DISTINCT	C-form exceptions quartic vs certificate quartic bias
+free_fable-0274	upgrades-0107	DISTINCT	C-form exceptions vs sub-route quartic search
+free_opus-0090	signature-0012	DISTINCT	Ford circles vs HKRS ↔ T1
+free_opus-0211	translate-0198	DISTINCT	quartic symbols of p vs of certificate entries
+free_opus-0274	translate-0093	DISTINCT	contact experts vs HKRS precedent
+signature-0012	tools-0101	DUP	both: HKRS reciprocity ↔ T1
+signature-0012	translate-0093	DUP	both: HKRS reciprocity ↔ T1
+signature-0012	upgrades-0107	DISTINCT	T1 template vs quartic sub-route search
+signature-0012	upgrades-0108	DISTINCT	T1 template vs structured-exception audit
+signature-0012	upgrades-0213	DISTINCT	T1 template vs corrected local-global formulation
+signature-0013	tools-0101	DISTINCT	Shi packings vs HKRS
+signature-0148	tools-0101	DISTINCT	SL₂ formulation vs T1 template
+signature-0148	translate-0093	DISTINCT	SL₂ formulation vs T1 precedent
+signature-0148	upgrades-0107	DISTINCT	SL₂ formulation vs quartic search
+signature-0148	upgrades-0213	DISTINCT	SL₂ formulation vs corrected local-global
+tools-0101	translate-0092	DISTINCT	HKRS Apollonian vs Rickards–Stange CF orbits
+tools-0101	translate-0093	DUP	both: HKRS reciprocity ↔ T1
+tools-0101	upgrades-0107	DISTINCT	T1 template vs quartic sub-route search
+tools-0101	upgrades-0213	DISTINCT	T1 template vs corrected local-global formulation
+tools-0102	upgrades-0325	DISTINCT	thin-orbit circle method vs bounded-shape positive proportion
+translate-0093	upgrades-0107	DISTINCT	HKRS precedent vs quartic sub-route search
+translate-0093	upgrades-0213	DISTINCT	HKRS precedent vs corrected local-global formulation
+free_opus-0118	upgrades-0326	DUP	both: Lee–Yang zeros of certificate generating polynomial
+upgrades-0182	upgrades-0328	DUP	both: Mordell class-number count for xy+yz+zx=p ↔ ES
+dividing-0142	upgrades-0337	DUP	both: Grunwald–Wang 2-adic exception ↔ ES
