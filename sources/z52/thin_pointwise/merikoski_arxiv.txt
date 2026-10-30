@@ -1,0 +1,4 @@
+Source: https://arxiv.org/abs/1908.08816 (accessed 2026-10-30)
+Jori Merikoski, “On the largest prime factor of n^2+1,” arXiv:1908.08816 v3 (last revised 2020-11-02; submitted 2019-08-23).
+Abstract: infinitely often the greatest prime factor of n^2+1 exceeds n^1.279; conditionally on Selberg's eigenvalue conjecture exponent can be increased to 1.312. New ingredients include a Type II estimate and Harman's sieve; Kloosterman-sum bounds enter the Type II estimate.
+Scope: infinite n subsequence and a large-factor witness, not every n; not a theorem asserting n^2+1 prime.

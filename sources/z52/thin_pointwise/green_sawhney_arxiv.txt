@@ -1,0 +1,4 @@
+Source: https://arxiv.org/abs/2410.04189 (accessed 2026-10-30)
+Ben Green and Mehtaab Sawhney, “Primes of the form p^2+nq^2,” arXiv:2410.04189 v3 (last revised 2026-06-06; submitted 2024-10-05), accepted Acta Mathematica per arXiv comments.
+Abstract: for n ≡ 0 or 4 (mod 6), infinitely many primes p^2+nq^2 with p,q prime, with an asymptotic for their number; n=4 verifies the Friedlander–Iwaniec Gaussian primes conjecture. Method: Type I/II sums in Q(sqrt(-n)); Type II uses quantitative Gowers-norm concatenation and quasipolynomial inverse theorem.
+Conclusion scope: count over a growing family, not each prescribed integer.

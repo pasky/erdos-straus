@@ -8,6 +8,14 @@
 
 ## §1 Verified entries
 
+### Green–Sawhney: primes p²+nq²
+
+Ben Green and Mehtaab Sawhney, “Primes of the form p²+nq²,” arXiv:2410.04189 v3 (6 June 2026; submitted 5 October 2024), accepted for *Acta Mathematica*. Abstract, accessed 2026-10-30: for each n ≡ 0 or 4 (mod 6), infinitely many primes p²+nq² with p,q prime, and an asymptotic count; n=4 proves the Friedlander–Iwaniec Gaussian primes conjecture. The method uses Type I/II sums over Q(√−n), with recent Gowers-norm inputs for Type II. Status: accepted preprint. Excerpt: `sources/z52/thin_pointwise/green_sawhney_arxiv.txt`. Relation: `BRAINSTORM/technique_transfer_list.md`, `BRAINSTORM/z45_recent_pointwise_tools.md`, `BRAINSTORM/z31_small_count_pointwise.md` found by `git grep`; result counts a family of prime variables, not witnesses to each prescribed integer, so no B6 transfer.
+
+### Merikoski: large prime factor of n²+1
+
+Jori Merikoski, “On the largest prime factor of n²+1,” arXiv:1908.08816 v3 (2 November 2020; submitted 23 August 2019). Abstract, accessed 2026-10-30: infinitely often the largest prime factor of n²+1 exceeds n^1.279; under Selberg's eigenvalue conjecture, exponent 1.312. It highlights Type II estimates, Harman's sieve, and Kloosterman-sum bounds. Status: preprint v3. Excerpt: `sources/z52/thin_pointwise/merikoski_arxiv.txt`. Relation: `BRAINSTORM/z45_recent_pointwise_tools.md` and `BRAINSTORM/z31_small_count_pointwise.md`; subsequence large-factor result, not every-n prime/witness result.
+
 ### Maynard: primes omitting a fixed decimal digit
 
 James Maynard, “Primes with restricted digits,” arXiv:1604.01041, v2 (28 October 2019; submitted 4 April 2016). Abstract, accessed 2026-10-30: for each decimal digit, infinitely many primes omit that digit. The paper describes this as a Hardy–Littlewood circle-method binary problem; the abstract points to Type I/II information for Harman's sieve and decorrelation of the Fourier-large conditions for primes and restricted-digit numbers. Status: preprint (arXiv page; abstract verified), no individual prescribed integer is represented. Excerpt: `sources/z52/thin_pointwise/maynard_restricted_digits_arxiv.txt`. Relation: `BRAINSTORM/technique_transfer_list.md`, `BRAINSTORM/z45_recent_pointwise_tools.md`, and `BRAINSTORM/z31_small_count_pointwise.md` found by `git grep`; the theorem is family-level, so its minor-arc machinery does not supply B6's single-p main-term dominance.
