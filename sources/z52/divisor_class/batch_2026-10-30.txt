@@ -48,9 +48,9 @@ Theorem 1.2: assuming GRH, for subgroup index `h`, the least prime outside `H` i
 
 “For every `Q≥3`, there exists a set `P` ... with `|P|≤(log Q)^(1+ε)` ... such that for all but `O_{ε,A}(Q(log Q)^(−A))` positive integers `q≤Q`” the subset products equal `(Z/qZ)^×`; every prime in the selected set is at most `(log Q)^(C*(A+1))`. The theorem is explicitly almost-all-moduli, not a pointwise result for every prime modulus.
 
-### Cédric Pilatte, arXiv:2404.16450v2, Corollary 1.4 and §1.4
+### Cédric Pilatte, arXiv:2404.16450v3, Corollary 1.4 and §1.4
 
-Corollary 1.4: for fixed `N>2`, `d=⌈√log N⌉`, and independent random primes `b_i≤X=d^(1000d)` not dividing `N`, with high probability every element of `⟨b_1,…,b_d⟩` has a representation as a product `∏b_i^(e_i) mod N` with `|e_i|≤e^(O(d))`. Section 1.4 explicitly says this subgroup may remain inside the squares; it does not assert that these primes generate the full unit group. Theorem 3.18 is the short-basis result. Source opened at https://arxiv.org/html/2404.16450, including the full text.
+Corollary 1.4: for fixed `N>2`, `d=⌈√log N⌉`, and primes `b_i≤X=d^(1000d)` sampled independently and uniformly from the primes not dividing `N`, with high probability every element of `⟨b_1,…,b_d⟩` has a representation as a product `∏b_i^(e_i) mod N` with `|e_i|≤e^(O(d))`. Section 1.4 explicitly says this subgroup may remain inside the squares; it does not assert that these primes generate the full unit group. Theorem 3.18 is the short-basis result. Source opened at https://arxiv.org/html/2404.16450v3, including the full text.
 
 ### Daniel J. Bernstein, author PDF (2008-05-02), §6, Theorem 6.4
 
