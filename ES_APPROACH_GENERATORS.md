@@ -1,5 +1,8 @@
 # ES_APPROACH_GENERATORS — wave z52: literature scour, approach generators, ranked first problems (2026-10-30)
 
+> **Superseded for connection-finding by `ES_CONNECTIONS_TODO.md` (wave z52b: 3192 distinct candidate connections from 10
+> breadth-first lanes).** This file records the depth-first z52 pass (literature dossier, banked theorems, calibrations).
+
 **ES is OPEN.** Nothing in this wave proves or disproves it, or any new infinite case of it. Labels: PROVED /
 CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. All internal results are internally reviewed only, not
 refereed.
