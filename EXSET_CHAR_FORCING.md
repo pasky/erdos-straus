@@ -398,7 +398,14 @@ part of the supply — at p = 10⁸ all e > 10⁷ together carry < 0.1 %.)
 Reach is *not* implied by ES (it is a statement about counterfactual points), and Lemma 6.2 is the only way it is
 used. It is the natural formalisation of "congruence-certified forcing at q": any forcing statement for the line
 (q/p) = −1 proved from certificate congruence classes that see p only through its residues at moduli prime to q is a
-reach statement.
+reach statement. (Classes with q ∤ modulus certify p whatever its residue at q; they are certificates of p itself and
+irrelevant for forcing, since an exceptional p has none.)
+
+*Definition 6.1\* (all levels; R2-proofing).* Def 6.1 uses level-1 classes (q exactly once in the modulus). Let
+Reach\*(n, q) mean: every q-adic unit u with (u/q) = −1 is covered, i.e. the profinite point "n off q, u at q" lies in
+an ET class of Def 6.1's shape with q^k ∥ modulus for some k ≥ 1 (box u ≡ r (mod q^k), Haar measure q^{−k}). Then
+Reach ⟹ Reach\*, Lemma 6.2 holds for Reach\*, and Prop 6.3/Cor 6.4 below hold for Reach\* (Remark 6.5). The numerics
+use level 1 only, a lower bound for Reach\*.
 
 ### 6.2 An upper bound for reach: reach is at most polylogarithmic (PROVED)
 
@@ -424,10 +431,19 @@ primes p ≤ X, then |S| ≪ (log X)⁴ log log X. For such S, the integers ≤ 
 (X² + X²)/|𝒜| for confinement to S cannot beat X^{1/2−o(1)}.
 *Proof.* (a) A reach at q needs all (q−1)/2 non-residues reached; Markov over n ≤ X with Prop 6.3, and
 π(X) ≍ X/log X. (b) Sum (a) over q ≤ (log X)^A (Σ 1/q ≪ log log X) and divide by η·π((log X)^A). (c) Sum (a) over
-q ∈ S: |S|π(X)/2 ≤ Cπ(X)(log X)⁴ Σ_{q∈S} 1/q ≤ Cπ(X)(log X)⁴·O(log log X). ∎
+q ∈ S: |S|π(X)/2 ≤ Cπ(X)(log X)⁴ Σ_{q∈S} 1/q ≤ Cπ(X)(log X)⁴·O(log log X). For any coefficients a_n supported on
+S-smooth n ≤ N, Cauchy–Schwarz gives |Σ a_n χ(n)|² ≤ #supp(a)·Σ|a_n|², so the dual large sieve bound is
+≥ (N + X²)/#supp(a) ≥ X²/Ψ(max(N, X²), π⁻¹(|S|)) ≥ X^{1/2−o(1)}; this covers the robust form of §5 as well. ∎
+
+**Remark 6.5 (all levels).** For Reach\*, replace "number of reached residues" by the Haar measure μ_q of the covered
+non-residue units. A level-k tuple (a = q^k a₁) contributes measure q^{−k} and occurs for n in one class modulo
+4a₁b; the level-k analogue of the sum in Prop 6.3 (q^k in place of q) is ≪ X(log X)³ + X q^{k(ε−1)}(log X)², so
+E_n μ_q(covered) ≪ Σ_k q^{−k}(log X)³ ≪ (log X)³/q. Reach\* needs μ_q(covered) ≥ (1 − 1/q)/2; Markov gives
+Cor 6.4 verbatim for Reach\*. Scope: the ET cubic families of Def 6.1 (e | a + b, e | b + c). The general Type I
+family (e | k(b + c)) is also of cubic average size (Elsholtz–Tao); we expect the same bound but did not prove it.
 
 **Reading (T2-barrier, exact scope; Assessment on PROVED inputs).** Linnik confinement fed by *congruence-certified*
-forcing (reach in the sense of Def 6.1: ET Type I/II classes of modulus ≤ p) has, for most p, at most (log X)^{4+o(1)}
+forcing (reach in the sense of Def 6.1 or 6.1\*: ET Type I/II classes of modulus ≤ p, any level) has, for most p, at most (log X)^{4+o(1)}
 moduli q to work with. With the multiplicative large sieve over S-smooth sequences it therefore cannot give a bound
 better than X^{1/2+o(1)} for the exceptional set (Cor 6.4(c)), and the robust form (Thm 5.2, Cor 5.3(b)) is limited to
 A ≤ 4 in the same way. This does not prevent a power saving (X^{1/2} would be a power saving); it says that
