@@ -549,6 +549,24 @@ CAT += [
   ["arXiv:math/0211159 (Perelman, The entropy formula for the Ricci flow)"]),
 ]
 
+CAT += [
+ ("BIEB", "Bieberbach conjecture (case-by-case -> every n)",
+  "Bieberbach 1916 (n=2), Loewner 1923 (n=3), Garabedian-Schiffer (n=4), Pederson/Ozawa (n=6), Pederson-Schiffer (n=5); Milin conjecture formulated",
+  "de Branges 1985: |a_n| <= n for every n and every normalised univalent function",
+  "Loewner differential equation + a family of weight functions whose required positivity reduces to the Askey-Gasper inequality for sums of Jacobi polynomials (a special-function positivity identity valid for all n).",
+  ["de Branges, Acta Math. 154 (1985) 137-152"]),
+ ("COLLATZ", "Collatz: almost all orbits attain almost bounded values (stuck mirror)",
+  "Terras/Everett 1976-77: almost all n have a finite stopping time; Korec",
+  "Tao 2019: almost all (log density) orbits attain values below f(n) for any f -> infinity; every orbit STILL OPEN",
+  "Approximate the Syracuse map's 3-adic statistics by a random walk and prove a fine-scale mixing (Fourier decay) estimate for the Syracuse random variable; the step to every n is not available.",
+  ["arXiv:1909.03562 (Tao, Almost all orbits of the Collatz map attain almost bounded values)"]),
+ ("AXKOCHEN", "Ax-Kochen: Artin's C2 conjecture for all large p (via ultraproducts)",
+  "Lang: F_q((t)) is C2 (every form of degree d in > d^2 variables has a nontrivial zero); Artin's conjecture that Q_p is C2",
+  "Ax-Kochen 1965: for each d, forms of degree d in > d^2 variables have nontrivial p-adic zeros for all p > p_0(d) (and Terjanian 1966: false for some small p)",
+  "Model-theoretic transfer: non-principal ultraproducts of Q_p and of F_p((t)) are elementarily equivalent, so first-order statements true for F_p((t)) for almost all p hold for Q_p for almost all p.",
+  ["Ax-Kochen, Amer. J. Math. 87 (1965) 605-630", "Terjanian, C. R. Acad. Sci. 262 (1966)"]),
+]
+
 # ---- corrections from the verification pass (data/z52b/upgrades_verify_out_*.md), applied as overrides ----
 # fields: 1 name, 2 before, 3 after, 4 last_step, 5 refs
 FIX = {
