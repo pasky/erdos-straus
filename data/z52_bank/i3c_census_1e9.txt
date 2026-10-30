@@ -1,0 +1,25 @@
+ZERO 5
+ZERO 13
+ZERO 17
+ZERO 2521
+range [5,40000000]: primes p=1(4): 1216687, zeros: 4, max least-u = 29 at p = 8135521
+least u in [2,4): 1091228
+least u in [4,8): 121215
+least u in [8,16): 4145
+least u in [16,32): 95
+range [40000001,100000000]: primes p=1(4): 1663817, zeros: 0, max least-u = 28 at p = 81570241
+least u in [2,4): 1499901
+least u in [4,8): 159255
+least u in [8,16): 4582
+least u in [16,32): 79
+range [100000001,400000000]: primes p=1(4): 7787103, zeros: 0, max least-u = 29 at p = 113755321
+least u in [2,4): 7045896
+least u in [4,8): 722396
+least u in [8,16): 18571
+least u in [16,32): 240
+range [400000001,1000000000]: primes p=1(4): 14755884, zeros: 0, max least-u = 39 at p = 754039441
+least u in [2,4): 13386682
+least u in [4,8): 1338068
+least u in [8,16): 30769
+least u in [16,32): 361
+least u in [32,64): 4

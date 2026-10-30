@@ -256,19 +256,77 @@ rechecked).
 
 ### T1 I3_𝒞 census on 4·10⁷ < p ≤ 10⁸
 
-TODO
+Code: `scripts/z52_bank_i3c.c` (independent of argon's and fable's): smallest-prime-factor table; for each prime p ≡ 1 (4)
+and each endpoint u ≥ 3 with 3u² − 2u ≤ p (complete for words with u ≤ v, since v(tu − 1) = p + u, v ≥ u, t ≥ 3), all
+divisors A ≡ −1 (mod u) of p + u with t = (A+1)/u ≥ 3, v ≥ 3, testing t, u, v ∈ 𝒞_p; a zero is declared only after the full
+u-range. Cross-check: `scripts/z52_bank_i3c_check.py` (loop over t, u; different code path) gives the same zeros
+{5, 13, 17, 2521} for p < 3·10⁴ and converts 4 809 certifying interior words into exact 4/p identities via the slot
+formulas of §1(e). Data: `data/z52_bank/i3c_census_1e9.txt`.
+**Result (CERTIFIED).** No prime p ≡ 1 (4) with 4·10⁷ < p ≤ 10⁸ has I3_𝒞(p) = 0 (1 663 817 primes; 1 s). On p ≤ 4·10⁷ the
+zeros are exactly {5, 13, 17, 2521} (1 216 687 primes), so the board's census to 10⁸ (2 880 504 primes) is reproduced
+and argon-3's "Conditional on the 4·10⁷–10⁸ range" tag can be dropped. Extension: no zero in (10⁸, 10⁹] either
+(22 542 987 more primes; total 25 423 491 = π(10⁹; 4, 1)). The least certifying interior endpoint u is ≤ 39 throughout
+(≤ 3 for 91 % of primes; maximum 39 at p = 754 039 441).
+Scope: EVIDENCE for "I3_𝒞(p) ≥ 1 for all primes p ≡ 1 (4), p > 2521", which would imply ES₅(p) and ES(p) (§1(e)); it is
+not a proof of anything beyond 10⁹ and, like every finite census, cannot see the infinitely-many-failures behaviour that
+H4_NOT_POLYLOG forces for bounded endpoints.
 
 ### T2 S_{n,−4} census, n ≤ 10⁵
 
-TODO
+Code: `scripts/z52_bank_pencil.c` (complete divisor method of §1(a); 128-bit Pollard–Brent factoring of
+N_x = n²x² − 4(4x − n) < 2⁶⁷), witnesses verified on the equation before output; brute-force cross-check on n ≤ 300.
+**Result (CERTIFIED).** For 2 ≤ n ≤ 10⁵ (every n, not only 3 ∤ n), S_{n,−4}(ℕ) = ∅ exactly for
+n ∈ {2, 9, 21, 165, 945, 1197} (n = 2, …, 8 by direct search: only n = 1, 2 fail). **No failure with 3 ∤ n**, and none
+at all above 1197. So the board's fable-1 drop-condition (b) ("a failure with 3 ∤ n would show an unexplained global
+obstruction") did not fire up to 10⁵. Witnesses: `data/z52_bank/pencil_km4_witness_n9_1e5.txt.gz` (30 s on 12 cores).
+**Count scale (EVIDENCE; complete counts, `data/z52_bank/pencil_km4_counts_*`).** At primes p ≡ 1 (4) the number of
+solutions with x ≤ y ≤ z has mean c/log²p = 0.385, 0.407, 0.425, ≈ 0.43 at log p ≈ 7.3, 8.6, 10.3, 11.5 (minimum 6, 14, 17,
+17); local exponent ≈ 2.2. This confirms the board's log² scale (≈ 0.38–0.41 log²p) and extends it to 10⁵.
 
 ### T3 ES_Q1 over ℤ[i], Gaussian primes 10⁴ < N ≤ 10⁶
 
-TODO
+Definition (fable-2 / argon-4): ES_Q1(n): 4/n = 1/x + 1/y + 1/z with x, y, z ∈ Q1 = {Re ≥ 0, Im ≥ 0} ∖ {0}. Real n give
+only real solutions (Im(1/w) ≤ 0 on Q1), so on ℕ it is ES. One representative per Gaussian prime of norm p ≡ 1 (4):
+n = a + bi, 0 < a < b (n ↦ i·n̄ = b + ai is a symmetry of the problem and of Q1).
+**Search bounds (PROVED).** The u_j = 1/x_j lie in the closed fourth quadrant and sum to w = 4/n, so each lies in the
+rectangle [0, Re w] × [Im w, 0]: |u_j| ≤ |w|, i.e. N(x_j) ≥ N/16, and Re x_j·N ≤ 4a·N(x_j), Im x_j·N ≤ 4b·N(x_j); the
+coordinate of least norm has |u| ≥ |w|/3, i.e. N(x) ≤ 9N/16. For each such x, with m = 4x − n and M = nx,
+(my − M)(mz − M) = M², so all (y, z) come from Gaussian divisors D of M² (all units) with m | D + M and m | M²/D + M;
+y, z ∈ Q1 is then tested. (argon's bounds, re-derived.)
+Code: `scripts/z52_bank_gauss.c` (exact ℤ[i] arithmetic in 128 bits; every solution verified as 4xyz = n(xy + yz + zx));
+`scripts/z52_bank_gauss_brute.py` (independent: loop over x and y, z solved in ℚ(i)) gives identical complete counts at
+all Gaussian primes with N ≤ 400; the Bradford–Ionascu unique solution at 1 + 2i is reproduced (count 1).
+**Result (CERTIFIED).** For N ≤ 10⁴ the failures are exactly 2+5i, 4+5i, 5+6i, 10+13i, 2+17i, 8+73i (N = 29, 41, 61, 269,
+293, 5393): the board's six, by a third code path. **For 10⁴ < N ≤ 10⁶ (38 566 Gaussian primes up to reflection) there is
+no failure** (33 s CPU). Data: `data/z52_bank/gauss_q1_first_*`. This matches the board's prediction "finitely many
+failures, all below about 10⁷" as far as it goes.
+**Count scale (EVIDENCE; complete unordered counts, `data/z52_bank/gauss_q1_counts_*`).** Mean count / log²N: 0.193
+(1 045 primes, 10³ < N ≤ 2·10⁴, mean log N = 9.0), 0.207 (171 primes near 10⁵), 0.254 (704 primes in (9.8·10⁵, 10⁶]);
+mean count 15.7 → 27.5 → 48.4. Local exponent of log N: 2.6 (2·10⁴ → 10⁶), 3.1 (10⁵ → 10⁶); c/log³N ≈ 0.018–0.021
+throughout. So the board's "≈ 0.16 log²N, the (★) regime" (fit on N ≤ 700) is **not supported**: at these sizes the count
+grows like log³N (full-ES-like), with class-dependent constants. Minimum count above 10⁵: 6.
 
 ### T4 Shared invariants of T2/T3 failures
 
-TODO
+**S_{n,−4} (T2).** The odd failures 9, 21, 165, 945, 1197 are all ≡ 1 (4) and all divisible by 3; no other residue,
+mod 5, 7 or 8, is shared. For 3 | n the equation mod 3 reads xyz ≡ −1 (mod 3), so no coordinate is divisible by 3 —
+a local depletion. Measured (n ≡ 1 (4), n ≤ 6000, complete counts): mean count/log²n is 0.131 (3 | n, n ≡ 1 (8)),
+0.146 (3 | n, n ≡ 5 (8)) against 0.301 and 0.389 for 3 ∤ n. The failures are lottery losses in the depleted cell,
+like U(105); nothing global is visible (5 zeros among 500 values of the cell; the cell is not empty).
+**ES_Q1 (T3).** Normalise n so that Re n is even (n or b + ai). All six failures have **Im n ≡ 1 (mod 4)**: 4+5i, 6+5i, 2+5i,
+10+13i, 2+17i, 8+73i, with Re n mod 4 = 0, 2, 2, 2, 2, 0. These two classes have the low means (count/log²N at
+N ≤ 2·10⁴: 0.118 and 0.135 for Im ≡ 1, against 0.157 and 0.346 for Im ≡ 3; the gap persists at 10⁶: 0.19, 0.18 vs 0.20,
+0.44): again a local (mod 4, i.e. 2-adic cone/unit) depletion. A quartic-character probe found 5 of 6 failures with
+[3/π]₄ = −i, but [3/π]₄ has no effect on the class means (all four values within noise at every scale), so with six
+data points and three characters tried this is not significant.
+**Zero law (Assessment).** Plugging the measured class means into (J)97's law P(0) ≈ exp(−0.535 μ^{0.91}) predicts ≈ 15
+Gaussian failures for N ≤ 10⁴ (observed 6) and ≈ 4 for 10⁴ < N ≤ 10⁶ (observed 0); for S_{n,−4} (n ≡ 1 (4)) it predicts
+≈ 12 failures ≤ 1000 (observed 4) and ≈ 24 in (1000, 10⁵] (observed 1). Both siblings fail *less* often than that law
+(which was fitted to Type II cell means, a different normalisation), so the law is not a universal sibling law.
+**"Prime T1 in a sibling" (FRONTIER §7.15): no.** In both siblings every failure sits in a cell that is locally depleted
+(3 | n; Im n ≡ 1 (4)), each such cell is mostly successful, and the failures stop (above 1197, resp. 5393) while the
+counts grow. No residue class, character value or square-like profile shared by all failures was found beyond the local
+cell. This is consistent with the board's view that these are lotteries, and gives no new disproof shape.
 
 ## Review log
 
