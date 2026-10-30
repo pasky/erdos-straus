@@ -8,7 +8,7 @@ Data: `data/z52b/free_fable.jsonl` (rendered by `scripts/z52b_free_fable_build.p
 
 ## Summary
 
-**301+ items** (exact count above), breadth-first, nonsense-filter only. Along the way the lane made and
+**326 items**, breadth-first, nonsense-filter only. Along the way the lane made and
 verified (small ranges, `scripts/z52b_free_fable_sanity.py`) several small structural observations that
 sharpen how the other items should be read:
 
