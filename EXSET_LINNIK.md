@@ -504,39 +504,52 @@ p; mode 1 = at the plane point, x ≡ 1 at every m), `data/z51_linnik/forcing_es
 | plane point, any p ≥ 10⁷ | 40 (saturated) | → 0 | 0.57 | 0.40 | 0.32 | 0.31 | 0.26 | 17 |
 
 (Lane B's U-word numbers at the same p: [25,50) 0.47, 0.57, 0.70, 0.79; [100,125) 0.18, 0.25, 0.33, 0.40.)
-* **The cubic supply is real at the label level:** labels per q ≈ 0.034 (log p)³ over four decades, against
-  (log p)² + log q log p for U words. Coupon-collector coverage of the (q − 1)/2 non-residues then predicts a reach
-  q log q ≈ 0.07(log p)³, i.e. q ≈ (log p)³/(15 log log p), which is (log p)^{3−o(1)} as the brief anticipated, and well
-  beyond Heath-Brown's requirement (log X)^{1+δ} (§3). (EVIDENCE for the label count; Assessment for the extrapolation.)
-* **At the plane point the reach collapses:** the labels saturate at ≈ 40 per q (they are the finitely many solutions of
-  (km − 1)(k′m − 1) = (qm + 1)², the ℛ-analogue of the words of q in Lemma 2.3), and coverage is frozen at the same
-  values for every p. Residue classes mod q are never hit there (plane parity), while at an actual p the ℛ classes also
-  hit residues (the m-part carries the other sign).
+* **Cubic supply at the label level (EVIDENCE, finite fit).** "Labels" count accepted (M, D) occurrences, not distinct
+  residues. Per q they grow like ≈ 0.034(log p)³ over four decades (R2 reproduced 0.0378 at p = 1 000 609, q ≤ 113),
+  against (log p)² + log q log p for U words. A coupon-collector model then suggests full coverage of the (q − 1)/2
+  non-residues up to q log q ≈ 0.07(log p)³, i.e. q ≈ (log p)³/(15 log log p), well beyond Heath-Brown's requirement
+  (log X)^{1+δ} (§3). The extrapolation is an Assessment, not a per-prime theorem.
+* **At the one-coordinate plane point the ℛ-labels are finite (PROVED for each q; CERTIFIED for q ≤ 300).** With
+  D′ := A²/D, 4D ≡ −1 (mod m) forces 4D′ ≡ −1 (mod m); putting k := (4D + 1)/m, k′ := (4D′ + 1)/m gives
+  (km − 1)(k′m − 1) = (qm + 1)², i.e. m(kk′ − q²) = k + k′ + 2q, which has finitely many solutions (k ≤ k′ forces
+  k ≤ q + 2 and (k − 1)(k′ − 1) ≤ (q + 1)² or, for k = 1, (m − 1)(k′ − q²) = (q + 1)²). R2's independent enumeration
+  (`reviews/z51-linnik-review-2-check.py`) confirms the mode-1 counts exactly for q ≤ 113 and gives, for the primes
+  25 ≤ q ≤ 300, mean 39.83 labels, largest pivot 5 706 695, and coverage 0.568 / 0.402 / 0.320 / 0.313 / 0.259 in the five
+  bands: the table's saturation is exact over that range. Residues mod q are never hit there (Jacobi law for ℛ(M) with
+  x ≡ 1 mod m); at an actual p the ℛ classes also hit residues. This is a *one-coordinate* statement; multi-coordinate
+  sterility for ℛ(M) (an ES analogue of Theorem 2.5) is not proved.
 
 ### 6.2 CRT-certified reverse-role sieves are capped
 
-**Proposition 6.1 (PROVED given EXCEPTIONAL_LARGESIEVE Thm 2.1/Cor 2.2 and EXSET_SIEVE_MASS Thm 3.2).** Let 𝔊 ⊂ 𝔉₅ ∪ 𝔘
-be finite, L ≤ X^K, and for each unit class c mod L let ω_c(q) (q ≤ Q ≤ X, q ∤ L) be the number of classes mod q missed
-by the whole avoider Ω(𝔊) ∩ {n ≡ c (mod L)} (fibrewise CRT-certified depletion). Then the fibrewise Montgomery bound
-Σ_c (X/L + Q²)/L_c(Q) for #(E_X) is ≥ X·exp(−C(log X)^{2/3+o(1)}).
-*Proof.* On each fibre the bound is CRT-admissible for the fibre avoider (reparametrise n = c + Lk; the moduli q are
-prime to L), so by EXCEPTIONAL_LARGESIEVE Cor 2.2 it is ≥ (X/L)·E ν_c with ν_c = |g_c*|² ≥ 0, ≥ 1 on the fibre avoider,
-periodic with moduli dividing L·lcm(q₁, q₂). Then ν := Σ_c 1[n ≡ c (L)]ν_c is a nonnegative congruence combination,
-≥ 1 on all of Ω(𝔊), of level ≤ log L + 2 log Q ≤ (K + 2) log X, and Σ_c (X/L)E ν_c = X·E ν. EXSET_SIEVE_MASS Thm 3.2
-gives E ν ≥ exp(−C λ^{2/3}(log λ)^{2/3}). ∎
-*Why the cubic reach does not enter.* The reach of §6.1 uses the residues of p modulo **every** m ≤ p/q, i.e. the
-integer p itself. A fibre fixes p only mod L ≤ X^K; the classes ℛ(qm) whose m | L are certified on the fibre, and they
-number ≈ Σ_{m | L} τ(A_m²)/m ≈ (log log X)^{3} per q (the 1/m-weighted divisors m of L have log m ≈ log z, not log X),
-so certified fibrewise depletion stops at q ≈ (log log X)³ (Assessment; consistent with Prop 6.1). At the plane fibres it
-is the saturated plane count.
+**Proposition 6.1 (fibred reverse-role sieves; repaired after R2).** Let L ≤ X/2 and run Montgomery's sieve on each fibre
+n ≡ c (mod L) (all residues c, units or not) with moduli d ≤ Q, (d, L) = 1, fed by the classes mod d missed by the whole
+fibre avoider (fibrewise CRT-certified depletion), using the trivial bound on fibres where no sieve is run.
+(a) *ES ratio classes.* For 𝔊 any finite mixture of ℛ(M), (a, D), Case-A and selector classes this is
+    EXCEPTIONAL_LARGESIEVE Theorem 3.1 (PROVED there): the total bound is ≥ (X/2)exp(−Cλ^{3/4}(log λ)^{3/4}),
+    λ = max(λ₀, λ(L) + 2 log Q).
+(b) *Native U/ES₅ classes (PROVED given EXCEPTIONAL_LARGESIEVE Cor 2.2 and EXSET_SIEVE_MASS Thm 3.2).* For finite
+    𝔊 ⊂ 𝔉₅ ∪ 𝔘 the same proof applies verbatim with Thm 3.2 in place of KARY2 Thm 5.1: on fibre c,
+    Cor 2.2 gives a majorant ν_c = |g_c*|² ≥ 0, ≥ 1 on the fibre avoider, with moduli dividing lcm(d₁, d₂), d_i ≤ Q
+    (the Farey denominators, squarefree, not only primes); ν(n) := ν_c((n − c)/L) for n ≡ c (L) has summand moduli
+    L·lcm(d₁, d₂), i.e. **per-summand** level ≤ λ(L) + 2 log Q, is ≥ 0 on ℤ and ≥ 1 on the whole avoider (ν_c ≡ 1 on
+    fibres with the trivial bound, ν_c ≡ 0 on empty ones), and the total bound is ≥ ⌊X/L⌋LEν ≥ (X/2)Eν. Hence it is
+    ≥ (X/2)exp(−Cλ^{2/3}(log λ)^{2/3}).
+*Reading.* Certifying fibre depletion with any CRT-admissible large sieve buys nothing beyond the family's cap, whatever
+the fibring modulus L ≤ X/2.
+*Why the cubic reach does not enter (Assessment, model).* The §6.1 reach uses p's residues modulo every m ≤ p/q, i.e. the
+integer p. A fibre fixes p only mod L; averaging over c, the ℛ(qm)-labels with m | L certified on a fibre number about
+Σ_{m | L} τ(A_m²)/m ≈ (log log X)³ per q (the 1/m-weighted divisors of L have log m ≈ log z), so certified fibrewise
+depletion should stop near q ≈ (log log X)³. This is an average-over-c heuristic, not a uniform-in-c statement.
 
 ### 6.3 Decision
 
-The brief asks whether the reverse-role reach is CRT-certified (then capped) or needs pointwise input. **Answer:** the
-(log p)³ reach is a property of the individual integer p (its residues modulo all m ≤ p/q). Its CRT-certified part is
-capped by Proposition 6.1, and at the sterile plane points it is zero. Used as a Linnik input (q as residues of the
-exceptional primes) it is exactly the forcing of §3.3, which needs the pointwise statement P(a, T) or (WL_A). It needs
-pointwise input.
+The brief asks whether the reverse-role reach is CRT-certified (then capped) or needs pointwise input. **Answer
+(repaired after R2).** The (log p)³ reach measured in §6.1 is a property of the individual integer p (its residues modulo
+all m ≤ p/q). Every fibred, CRT-admissible implementation of it as a reverse-role sieve is capped at the family's
+exponent: 3/4 for the ES ratio family (EXCEPTIONAL_LARGESIEVE Thm 3.1), 2/3 for the native U/ES₅ family (Prop 6.1(b)).
+Used as a Linnik input (q as residues of the exceptional primes) it is the forcing of §3.3. So it needs input outside
+these CRT mechanisms: pointwise forcing (P(a, T), (WL_{A,κ})) or an approximate non-CRT control of the non-generic
+exceptional primes; neither is excluded or supplied here.
 
 ## 7. Hostile reviews
 
