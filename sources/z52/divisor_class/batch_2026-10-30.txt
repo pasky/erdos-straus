@@ -37,3 +37,21 @@ Theorem A: Suppose that for every even primitive quadratic character `χ mod q`,
 ## Bober–Goldmakher, “Pólya–Vinogradov and the least quadratic nonresidue” (arXiv:1311.7556v2)
 
 Theorem 1: For each `g≥1`, under the paper’s hypothesis that every primitive even character `χ mod q` of order `g` satisfies `M(χ)≤√q log(q)/f(q)` for an eventually nondecreasing `f`, the conclusion is stated for primitive odd characters `ξ mod k` of order `g` with the additional hypothesis `3∤k`: `n_ξ≪exp(C_g log(k)/f(k))`, with the paper specifying the constant. Conditional transfer result, not an unconditional new bound.
+
+## Additional primary-source excerpts opened 2026-10-30
+
+### Lamzouri–Li–Soundararajan, arXiv:1309.3595v3, §§1.1–1.2
+
+Theorem 1.2: assuming GRH, for subgroup index `h`, the least prime outside `H` is `<(α(h)+o(1))(log q)^2`, with `α(2)=0.8`, `α(3)=0.7`, and `α(h)=0.66` for `h>3`. Theorem 1.4: assuming GRH, `q≥20000`, and subgroup index `h>1`, the least prime in a specified coset `aH` is either `≤10^9` or `≤((h−1)log q+3(h+1)+(5/2)(log log q)^2)^2`. The introduction reports Bach’s earlier least-prime-outside-subgroup bounds `<2(log q)^2`, `<3(log q)^2` if excluding primes dividing `q`, and `(1+o(1))(log q)^2` asymptotically. It reports Bach–Sorenson progression bounds `(1+o(1))(φ(q)log q)^2` and `2(q log q)^2`, and Wedeniwski’s quadratic-subgroup explicit bound `(3/2)(log q)^2−(44/5)log q+13`. These three older-source statements are reports/citations in LLS, not direct verification of the cited papers.
+
+### Klurman–Shparlinski–Teräväinen, arXiv:2609.25393v1 (2026-09-21), Theorem 1.1
+
+“For every `Q≥3`, there exists a set `P` ... with `|P|≤(log Q)^(1+ε)` ... such that for all but `O_{ε,A}(Q(log Q)^(−A))` positive integers `q≤Q`” the subset products equal `(Z/qZ)^×`; every prime in the selected set is at most `(log Q)^(C*(A+1))`. The theorem is explicitly almost-all-moduli, not a pointwise result for every prime modulus.
+
+### Cédric Pilatte, Cryptology ePrint 2024/629 (2024-04-24), abstract
+
+“We prove a version of this conjecture using tools from analytic number theory such as zero-density estimates. As a result, we obtain an unconditional proof of correctness of this improved quantum algorithm and of subsequent variants.” The page links the paper PDF, which was not opened; only the abstract is quoted/paraphrased here.
+
+### Daniel J. Bernstein, author PDF (2008-05-02), §6, Theorem 6.4
+
+“For `v≥n^(1/4)` and `(v,n)=1`,” the number of divisors of `n` in `(u+vZ)∩[1,n^(1/2)]` is at most `33(log_2 n)^(3/2)+4.5(log_2 n)+10(log_2 n)^(1/2)+2`. It says this can be computed by covering the range with `O((log n)^(1/2))` arithmetic progressions/lattices. In the history paragraph, Bernstein describes CHGN’s `v≥n^(1/4+ε)` result with total lattice rank `O(ε^(−3/2))`, and Lenstra’s `v≥n^(1/4)` result with total rank `O((log n)^2)`; those are secondary reports in this paper.
