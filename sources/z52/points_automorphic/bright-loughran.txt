@@ -1,0 +1,5 @@
+Source: https://arxiv.org/html/1908.02526v2 (accessed 2026-10-30)
+Bright–Loughran, arXiv:1908.02526v2, revised 12 May 2020.
+Theorem 1.8 (statement as presented in paper): “The Brauer–Manin set (U_n(R)_+ × ∏_p 𝒰_n(Z_p))^Br is non-empty.” Its intended ES range is n ≥ 2; Theorem 1.1 states the conjecture for n ≥ 2 and the proof of Thm 1.8 uses a prime divisor of n.
+Theorem 1.9: U_n(Q) → 𝒰_n(A_Q)^Br_• does not have dense image.
+Lemma 3.10: integral points with u_1u_2u_3 ≠ 0 and u_i ≠ −u_j for all i,j form a finite set; in particular 𝒰_n(N) is finite for fixed n.
