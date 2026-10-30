@@ -357,57 +357,70 @@ For the least non-residue itself this is Baier's improvement of Linnik's A > 2 t
 (2008), [2]; recalled).
 
 **Proposition 5.2 (scale C log X; PROVED modulo the Montgomery–Vaughan moment large sieve for real characters, in the
-form of Lau–Wu 2008, Lemma 1).** Lau–Wu Lemma 1: Σ_{d ∈ D(Q)} |Σ_{P<ℓ≤2P} χ_d(ℓ)/ℓ|^{2j} ≪ Q(6j/(P log P))^j +
-(6P/(log P)²)^j, uniformly for 2 ≤ P ≤ Q, j ≥ 1, over fundamental discriminants |d| ≤ Q (primes p ≡ 1 (4) are among
-them, with χ_p(ℓ) = (ℓ/p)). Its proof bounds the 2j-th power through the tuple counts a_j(m) and uses only
-a_j(m₁)a_j(m₂) ≤ a_{2j}(n²); both survive restricting ℓ to any subset 𝒮 of the primes (a′_j ≤ a_j). Put
-σ_𝒮 := Σ_{ℓ∈𝒮, P<ℓ≤2P} 1/ℓ and c₀ := (log 2)²/(6e) ≈ 0.0294. Then for P = C log X (C > 0 fixed) and 𝒮 of relative
-density δ_𝒮 > 0 in the primes,
-`  #{p ≤ X, p ≡ 1 (4) : Σ_{ℓ∈𝒮, P<ℓ≤2P} (ℓ/p)/ℓ ≥ η σ_𝒮} ≪ X exp(−c₁ η² C log X/log log X) + X^{c₂ η² C (1+o(1))},`
-with c₁, c₂ > 0 depending only on δ_𝒮 (c₁ = c₂ = c₀ for 𝒮 = all primes).
-*Proof.* σ_𝒮 ≍ δ_𝒮 log 2/log P. Divide the moment bound by (ησ_𝒮)^{2j} and take j = ⌊c η² P/log P⌋ with c chosen so
-that the first term becomes X e^{−j}; the second term is then (O(P/η²))^{j} = X^{O(η²C)}. ∎
+form of Lau–Wu 2008, Lemma 1; R3-quantified).** Lau–Wu Lemma 1 (checked against the HAL manuscript by R3):
+Σ_{d ∈ D(Q)} |Σ_{P<ℓ≤2P} χ_d(ℓ)/ℓ|^{2j} ≪ Q(6j/(P log P))^j + (6P/(log P)²)^j, uniformly for 2 ≤ P ≤ Q and integers
+j ≥ 1, absolute constant, over fundamental discriminants of either sign with |d| ≤ Q. For every odd prime p,
+d = p* := (−1)^{(p−1)/2} p ∈ D(Q) represents the Legendre character: χ_{p*}(ℓ) = (ℓ/p) for odd ℓ. Restricting ℓ to a
+fixed subset 𝒮 of the primes is legitimate by rerunning the coefficient argument (the restricted tuple counts satisfy
+0 ≤ a′_j ≤ a_j, the square-correlation part is bounded by the unrestricted a_{2j}(n²), the other part by
+(Σ_{P<ℓ≤2P} ℓ^{−1/2})^{2j}); it is *not* a pointwise comparison of character sums. Let 𝒮 have relative density δ
+(π_𝒮(t) ~ δπ(t)), so σ_𝒮 := Σ_{ℓ∈𝒮, P<ℓ≤2P} 1/ℓ = (δ log 2 + o(1))/log P, and put a := δ log 2, κ := a²/(12e). Then
+for fixed η ∈ (0, 1], fixed C > 0, P = C log X and X large,
+`  #{p ≤ X : Σ_{ℓ∈𝒮, P<ℓ≤2P} (ℓ/p)/ℓ ≥ η σ_𝒮}  ≪  X exp(−κη²C log X/log log X) + X^{κη²C(1+o(1))}.`
+κ = (log 2)²/(12e) ≈ 0.0147 for all primes, κ = (log 2)²/(48e) ≈ 0.0037 for 𝒮 = {q ≡ 3 (mod 4)}; for C ≤ 1 the second
+term is ≤ X^{0.015} and is absorbed.
+*Proof.* Divide the moment bound by (ησ_𝒮)^{2j}: count ≪ X[6j log P/(η²a²P)·(1 + o(1))]^j + [6P/(η²a²)·(1 + o(1))]^j.
+With j = ⌊κη²P/log P⌋ the first base tends to 1/(2e) < e^{−1}, giving X e^{−j}; the second is exp(j(log P + O(1))) =
+X^{κη²C(1+o(1))}. ∎ (R3: the earlier endpoint constant c₀ = (log 2)²/(6e) is replaced by κ with slack.)
 
-**Theorem 5.3 (robust reduction; PROVED from Props 5.1′ and 5.2; R2-repaired).** Let 𝔈 be any set of primes.
+**Theorem 5.3 (robust reduction; PROVED from Props 5.1′ and 5.2; R2/R3-repaired).** Let 𝔈 be any set of odd primes.
 (a) For fixed A > 1 and 0 < η < 1/2:
 `  #(𝔈 ∩ [1, X]) ≤ X^{1/A+o(1)} + #{p ∈ 𝔈 ∩ [1, X] : #{q ∈ S((log X)^A) : (q/p) = −1} > (½ − η)·m}.`
 (b) For fixed C ∈ (0, 1] and η ∈ (0, 1]:
-`  #(𝔈 ∩ [1, X]) ≪ X exp(−c₁η²C log X/log log X) + #{p ∈ 𝔈 ∩ [1, X] : Σ_{P<q≤2P} (q/p)/q < η Σ_{P<q≤2P} 1/q},  P = C log X.`
+`  #(𝔈 ∩ [1, X]) ≪ X exp(−κη²C log X/log log X) + #{p ∈ 𝔈 ∩ [1, X] : Σ_{P<q≤2P} (q/p)/q < η Σ_{P<q≤2P} 1/q},  P = C log X.`
 The remainders are the primes of 𝔈 that are *not QR-biased* (a one-sided condition; two-sided balance follows by the
-same argument with |Σ|). (R2 repair.) If in addition one removes the further X^{1/A+o(1)} (resp.
-X exp(−c log X/log log X)) primes that are QR-biased on the subset {q ≡ 3 (mod 4)}, each remaining prime has
-≫_η (log X)^A/log log X (resp. ≫ log X/log log X) **forced windows** q ≡ 3 (mod 4) in the range, all of which fail if
-p ∈ 𝔈 = {ES fails}.
+same argument with |Σ|). *Forced windows (R2/R3 repair).* Remove in addition the X^{1/A+o(1)} (resp.
+X exp(−c log X/log log X)) primes that are QR-biased with a fixed threshold, say ½, on the subset {q ≡ 3 (mod 4)} of the
+range. Every remaining p ≡ 1 (mod 4) has ≫ (log X)^A/log log X (resp. ≫ log X/log log X) **forced windows**
+q ≡ 3 (mod 4) in the range, all of which fail if ES(p) fails.
 
-**Corollary 5.4 (CONDITIONAL; sufficient inputs).**
+**Corollary 5.4 (PROVED reduction; CONDITIONAL consequences of new, unproved sufficient hypotheses — not a counted
+conditional target under the CONTEXT hypothesis-quality rule, R3).** η is fixed throughout.
 (a) MF(A, η): every large p with ES(p) failing has #{q ≤ (log p)^A : (q/p) = −1} ≤ (½ − η)π((log p)^A). If MF(A, η)
 holds for some A > 1, η > 0, then #{p ≤ X : ES(p) fails} ≤ X^{1/A+o(1)}.
 (b) MF₁(C, η): every large p with ES(p) failing has Σ_{P<q≤2P} (q/p)/q ≥ η Σ_{P<q≤2P} 1/q, P = C log p. If MF₁(C, η)
 holds for some C ∈ (0, 1], η > 0, then #{p ≤ X : ES(p) fails} ≪ X exp(−c log X/log log X) — beyond the CRT caps
-(3/4 for ES), i.e. z50 Target 3 with θ → 1, conditionally.
+(3/4 for ES), i.e. the shape of z50 Target 3 with θ → 1, conditionally.
 (c) MF follows from the majority-reach hypothesis MR(A, η): Reach(p, q) (Def 6.1) at ≥ (½ + η)·π((log p)^A) odd primes
 q ≤ (log p)^A, for every large p ≡ 1 (8); MF₁ follows from MR₁(C, η): the q ∈ (C log p, 2C log p] with Reach(p, q)
 carry ≥ (1 + η)/2 of Σ 1/q there.
 *Proof.* (a), (b): on each dyadic range (Z, 2Z] the scale (log p)^A (resp. C log p) equals (log Z)^A(1 + o(1)) (resp.
-C log Z + O(C)); deleting the o(m) primes between the two scales changes the bias by o(1), so the hypothesis gives
+the endpoints C log p, 2C log p move by O(C), affecting O_C(1) primes of reciprocal weight O_C(1/log Z) against a
+total ≍ 1/log log Z); deleting the primes between the two scales changes the bias by o(1), so the hypothesis gives
 bias ≥ η/2 at the fixed scale of the range; apply Theorem 5.3 with X = 2Z and sum over ranges (R2 repair: genuine
 dyadic ranges). (c) Reach at q and (q/p) = −1 give ES(p) (Lemma 6.2), so an exceptional p is a residue at every q
 where reach holds. ∎
 
-**Status of the hypotheses (Assessment; R2-corrected).**
+**Status of the hypotheses (Assessment; R2/R3-corrected).**
 * *GRH.* For fixed A > 2, GRH (Lagarias–Odlyzko effective Chebotarev for ℚ(√p)) gives #{q ≤ (log p)^A : (q/p) = −1}
   = (½ + o(1))π((log p)^A) uniformly, so under GRH MF(A, η) is *equivalent* to eventual ES (R2; the round-1 claim
   that this needed A > 4 is withdrawn). For A ≤ 2, and for MF₁, GRH gives no such control (its error term
-  √y log p exceeds y = (log p)^A), so no GRH-equivalence with ES is known for MF(A) with 1 < A ≤ 2 or for MF₁.
+  √y log p exceeds y = (log p)^A), so no GRH-equivalence with ES is known for MF(A) with 1 < A ≤ 2 or for MF₁ (this
+  is absence of a known equivalence, not a proof of independence).
 * *Necessity.* MF and MF₁ are *sufficient*, not necessary: a power-small infinite set of unbiased exceptional primes
   would be compatible with the conclusion. "MF for all but a small set" is itself a sufficient exceptional-set
   statement; whether it is as hard as the conclusion is an Assessment, not a theorem.
+* *Testability (R3).* MF and MF₁ are implications with antecedent "ES(p) fails"; every tested prime satisfies ES, so
+  numerical tests of MF/MF₁ are vacuous. Neither MF₁ nor MR₁ is shown to be visibly weaker than the target
+  exceptional-set bound; they are new research conjectures that isolate a useful scale, not accepted hypotheses.
 * *Reach versions.* MR is a stronger, counterfactual requirement; it is *false* for A > 3 (Cor 6.4). At the small
-  scales it is numerically robust: on all 36 sampled primes (10⁵–10¹⁰, §6.3), MR₁(1/2, η) holds with weighted reach
-  fraction 1.000, and MR₁(1, η) holds (fraction ≥ 0.6) at every sampled p ≥ 10⁶ (failures only near 10⁵);
-  `scripts/z51_forcing_mr1.py`, `data/z51_forcing/mr1_summary.txt`. In the coupon model of §6.3 the probability that
-  Reach(p, q) fails for some q ≤ 2C log p is ≈ exp(−c(log p)²), summable over p, so MR₁(C, η) is heuristically
-  true for all large p at every fixed C. Proving it pointwise is still B2: for each non-residue class r mod q one
+  scales it is numerically robust (R3 reproduced these numbers independently from the raw files): on all 36 sampled
+  primes (10⁵–10¹⁰, §6.3) the weighted reach fraction at C = ½ is 1, so MR₁(½, η) holds on the sample for every
+  η ≤ 1; at C = 1 the fraction is ≥ 0.62 at every sampled p ≥ 10⁶, so MR₁(1, 0.2) holds there; six of the eight
+  primes near 10⁵ fail the 0.6 test of the recorded (truncated, lower-bound) search, which is not a proof that full
+  reach fails. `scripts/z51_forcing_mr1.py`, `data/z51_forcing/mr1_summary.txt`. In the coupon model of §6.3 the
+  probability that Reach(p, q) fails for some q ≤ 2C log p is ≈ exp(−c(log p)²), summable over p, so the model
+  predicts MR₁(C, η) for all large p at every fixed C (a model prediction, not a verified tail law). Proving it pointwise is still B2: for each non-residue class r mod q one
   needs an e ≡ −r (mod q) with p + e (or ep + 1) carrying a suitable divisor pair.
 
 **Corollary 5.5 (T2-lite: lower cap thresholds; PROVED modulo Heath-Brown 1995, resp. Lau–Wu Lemma 1).** Let e*(p)
@@ -419,12 +432,16 @@ least prime q ≡ 3 (mod 4) with (q/p) = −1. (a) e*(p) > (log X)^A/4 forces (q
 y = (log X)^A. Apply Heath-Brown's inequality to 𝒜 = squarefree products of r = ⌊log X/log y⌋ distinct such q
 (odd squarefree, all ≤ X, character value 1 at every such p): the count is ≪_ε X^{1+2ε}/|𝒜| and
 |𝒜| ≥ X^{1−1/A−o(1)} (as in CAP_BOUNDED Thm 3.2). (b) e*(p) > (C/2) log X forces (q/p) = +1 for all q ≡ 3 (4) in
-(P, 2P], P = C log X: full bias η = 1 on 𝒮 = {q ≡ 3 (4)}; apply Prop 5.2 (the X^{c₂C} term is X^{1−c} for C ≤ 1). ∎
-*Value.* (a) lowers CAP_BOUNDED Thm 3.2(a) (A > 2, exponent 2/A) to A > 1 with exponent 1/A, and gives a complete
-proof of the power saving at e ≥ (log N)^{1+ε} that CAP_INTERPOLATION Remark 3.2(b) only sketched. (b) reaches caps
-of order log p, inside the range CAP_INTERPOLATION Remark 3.2(c) lists as OPEN, with a near-power saving (not a
-power saving). Both are direct transfers of known least-non-residue technology (Baier; Lau–Wu/Montgomery–Vaughan) to
-the forced-window cap mechanism; no ES-specific input beyond CAP_BOUNDED Lemma 3.1. This is the brief's T2-lite
+(P, 2P], P = C log X: full bias η = 1 on 𝒮 = {q ≡ 3 (4)}; apply Prop 5.2 with κ = (log 2)²/(48e) (the second term is
+≤ X^{0.004}). ∎ (R3: SOUND.)
+*Value (R3-qualified).* (a) lowers CAP_BOUNDED Thm 3.2(a) (A > 2, exponent 2/A) to A > 1 with exponent 1/A; the
+qualitative A > 1 power saving for caps was already sketched by another route in CAP_INTERPOLATION Remark 3.2(b), so
+(a) is a complete proof with an explicit exponent. (b) improves the cap exceptional-set bound at caps of order log p,
+with a near-power saving (not a power saving); it does not settle the architecture-specific ceiling question of
+CAP_INTERPOLATION Remark 3.2(c). Both are direct transfers of established least-non-residue technology — Heath-Brown's
+quadratic large sieve as used by Baier for n₂ (A > 1), and the Montgomery–Vaughan moments behind Lau–Wu Theorem 2,
+which already proves the near-power shape for n_χ with P ≥ C₀ log Q — to the forced-window cap mechanism; no
+ES-specific input beyond CAP_BOUNDED Lemma 3.1. This is the brief's T2-lite
 target ("lowering its cap threshold … toward A > 1 or below"); it is a statement about the relaxation ES^{(y,e)},
 not about ES.
 
