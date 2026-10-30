@@ -1,10 +1,11 @@
 # z52 literature lane L5 — thin pointwise existence
 
 ## §0 Summary
-- **NEW since 2026-09-28:** None identified. Source checks confirm earlier-known Maynard (family-level) and Heath-Brown–Puchta (two primes plus powers of two) results.
-- **Transferable features:** (1) Fourier/Type I–II decorrelation can find primes in an infinite thin family; (2) bounded sparse summands can be absorbed when a power-size Goldbach supply is present.
-- **Does ES share them?** No: ES is a prescribed-prime, ≍ log²p tied-modulus problem (B2/B6), not a family average or power-sized reservoir.
-- **Campaign verdict change:** None. No new pointwise, polylog-count theorem transferable to ES found; unverified leads are explicitly listed in §4.
+- **Genuinely new since 2026-09-28:** Li–Liu (arXiv:2610.15784, 11 Oct 2026): 6 powers of 2 unconditionally, 5 under GRH, with two primes; Ding–Li–Li (arXiv:2607.03662): positive density for P₂+aᵃ.
+- **Verified thin-prime literature:** F-I x²+y⁴; Heath-Brown x³+2y³; Heath-Brown–Moroz; Maynard restricted digits; Pratt; Green–Sawhney p²+nq²; Merikoski n²+1 and aX²+bY³.
+- **Structural features:** family averaging/Type I–II Fourier decorrelation; power-sized Goldbach or class-number representation reservoirs; fixed-modulus character control.
+- **Does ES share them?** Not the decisive feature: ES has ≍log²p tied, moving-modulus events (B2/B6), with no power-size supply.
+- **Verdict change:** None. No verified universal theorem with polylog witnesses and no local obstruction transfers to ES. Source-access gaps are listed in §4.
 
 ## §1 Verified entries
 
@@ -52,9 +53,9 @@ Huixi Li and Zhixin Liu, “6 powers of 2 in the Linnik–Goldbach problem,” a
 
 J. Pintz and I. Z. Ruzsa, “On Linnik’s approximation to Goldbach’s problem. II,” DOI 10.1007/s10474-020-01077-8, *Acta Mathematica Hungarica* 161 (2020), 569–582 (published 22 July 2020). Abstract, accessed 2026-10-30: every sufficiently large even integer is a sum of two primes and K=8 powers of two, unconditionally. Status: published. Excerpt `sources/z52/thin_pointwise/pintz_ruzsa_2020.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; this is pointwise but has a power-sized two-prime supply, not a polylog-only mechanism.
 
-### Erdős and Cohen–Selfridge: covering obstructions around powers of two
+### Romanoff positive density; Erdős covering failures; Tao partial covering
 
-Theorem/claim checked via Tao, “A remark on primality testing and decimal expansions,” arXiv:0802.3361v4 (accessed 2026-10-30), which cites Erdős (1950) and Cohen–Selfridge (1975). Tao records Erdős's AP of odd m for which |m−2^i| is always composite and Cohen–Selfridge's strengthening making both |m−2^i| and m+2^i composite. This is a secondary-source verification of those claims; it does not justify the stronger unqualified claim that the AP contains no p+2^k representations. Status: original publications cited, secondary source checked. Excerpt `sources/z52/thin_pointwise/erdos_covering_tao_arxiv.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; finite congruence covering of an exponential orbit produces failures, illustrating B1, but no direct ES transfer.
+Romanoff's 1934 theorem, as explicitly cited and stated in Ding–Li–Li, “A Romanoff-type theorem for P₂+{aᵃ:a≥1},” arXiv:2607.03662v1, §1 (accessed 2026-10-30): the set {p+2^k} has positive lower density. The same source states Erdős 1950's covering result: an arithmetic progression of common difference 11,184,810 whose terms are not p+2^k. This corrects my earlier cautious note: the exact p+2^k failure claim is supported by this source. It is secondary verification; Romanoff's and Erdős's originals not opened. Tao's arXiv:0802.3361v4 §1 separately records Erdős and Cohen–Selfridge prime-power covering variants and proves Theorem 1.2: a positive proportion of primes avoid a growing logarithmic family of digit modifications, via partial covering then Selberg sieve. Status: sources accessed today, historical claims secondary, Tao's theorem primary. Excerpts: `sources/z52/thin_pointwise/erdos_covering_tao_arxiv.txt`, `sources/z52/thin_pointwise/ding_romanoff_2026.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; shows fixed-orbit covering failures / positive-density results, not a direct ES transfer (B1/B6).
 
 ### Croot: Erdős–Graham coloring theorem for unit fractions
 
@@ -105,12 +106,28 @@ Yuchen Ding, Huixi Li, and Junfeng Li, “A Romanoff-type theorem for P₂+{aᵃ
 Count labels caveat: “expected” counts are heuristic local-density estimates, not source theorems; asymptotic statements above are recorded only where the cited paper proves them. The brief's “every n is prime + bounded powers of two” conflation is rejected: verified Linnik/HBP/Pintz–Ruzsa statements use **two** primes.
 
 
-## §3 NEW candidates
+## §3 Dichotomy and NEW candidates
 
-None. The verified thin-prime theorem is a family-count result; the verified pointwise sparse-summand theorem still has a power-sized two-prime component. Neither supplies an approach to single-prime ES. The possible “between” examples found in the campaign files (least witnesses and quadratic forms) are already screened in `BRAINSTORM/z31_small_count_pointwise.md`; source verification here did not change their transfer assessment.
+### What fails, what succeeds, what lies between
+
+| Witness scale at one target | Examples checked | Status / mechanism |
+|---|---|---|
+| O(1) expected witnesses; covering failures | n=p+2^k; Romanoff-positive-density set versus Erdős AP of failures | Demonstrates positive density can coexist with an infinite arithmetic progression of failures; fixed-modulus covering controls the exponent orbit. Not every n and not ES-like divisor events. |
+| ≍log n expected witnesses; covering failures | n=p+2^k+2^ℓ (heuristic count) | Finite coverings are known for one power orbit, but no source-verified theorem here gives an AP of failures for precisely the two-power-plus-prime equation. Do not infer one. Linnik–Gallagher results are almost-all/density, not universally established by these sources. |
+| Power-size witness reservoirs; every n | Two primes + K powers of 2; 4 squares; suitable three-square/ternary-form representation counts | Success supplied by Goldbach/representation main term or class-number-scale count. Analytic circle method / local-global quadratic-form theory, not O(log n) event control. |
+| Polylog at each n, no local obstruction, universal theorem | No verified example found | This is the crucial gap. The closest positive-density/power-orbit and fixed-character cases do not settle every target. ES's ≍log²p count is intermediate in size but has tied moving moduli (B2), and no theorem found turns it into pointwise existence. |
+| Polylog but only almost-all / positive-density targets | Romanoff p+2^k; Ding–Li–Li P₂+aᵃ; Maynard/F-I/Green–Sawhney prime families | Averaging over targets or a growing family supplies the mass; this cannot be transferred to each n (B6). |
+| Fixed-modulus character witness, conditional pointwise | Least QNR under GRH; least prime in AP with fixed q | L-function zero control yields log-scale windows; ES's modulus moves with the certificate, so only partial analogy (B2/F3). |
+
+No NEW candidate. The October 2026 Li–Liu advance (K=6 unconditional, K=5 under GRH) is a genuine new literature update but retains the two-prime main term; it changes the state of the comparison, not the ES transfer verdict. The July 2026 Romanoff-type theorem similarly adds a fresh positive-density model of correlated sparse shifts, not a fixed-n theorem. A concrete next test, if pursuing the sparse-shift analogy, is to quantify whether the ES certificate parameter set has any analogue of the mean singular-factor bound for aᵃ−bᵇ in Ding–Li–Li §3; the non-obvious input would need to control *moving divisors in the prescribed residue class*, and it still faces B2 and checklist lines B6/F3. Cheapest test: state and try to prove a second-moment bound for the campaign's fixed-p divisor-counting function with the modulus held fixed first; this is exploratory, not a claim of transfer.
+
+### Relation to earlier verdicts
+
+No prior negative transfer verdict changes. `BRAINSTORM/z31_small_count_pointwise.md` already screened Romanoff/covering and HBP; `BRAINSTORM/z31_quadratic_forms.md` and `BRAINSTORM/z45_recent_pointwise_tools.md` already screen class-number/ternary-form routes; `BRAINSTORM/technique_transfer_list.md` includes Maynard, F-I, and additive combinatorics. The new source checks and 2026 papers sharpen the inventory but do not remove B2/B6.
 
 ## §4 Not accessed / could not verify
 
-- **Not independently source-verified in this lane:** Friedlander–Iwaniec primes of the form x²+y⁴; Heath-Brown's x³+2y³; Heath-Brown–Moroz; Green–Sawhney (title and precise result); Merikoski and Grimmelt–Merikoski; Pratt; Li; 2025–26 “x²+y³” lead; Linnik least-prime-in-AP theorem; Burgess least-QNR bounds; Romanoff/Erdős covering result; Sierpiński/Riesel; Heath-Brown–Puchta refinements beyond their abstract; three squares/genus and Duke–Schulze-Pillot. Prior campaign summaries are cited above but are not substitutes for the required source verification.
-- **Potentially wrong lead:** “every n is a sum of a prime and boundedly many powers of 2” should not be conflated with Linnik's theorem as stated in the brief: the verified Heath-Brown–Puchta theorem has *two* primes, and its precise statement is given in §1. No one-prime theorem verified.
-- No exact theorem or manuscript for the brief's Green–Sawhney title was identified/accessed in this lane; do not use that lead as a citation.
+- **Brief §1 checked from source:** Friedlander–Iwaniec, Heath-Brown x³+2y³, Heath-Brown–Moroz, Maynard, Green–Sawhney, Merikoski n²+1, Pratt, Merikoski aX²+bY³. **Not yet checked at source:** Grimmelt–Merikoski specifically; the 2025–26 arXiv API query did not return data (network returned empty response). Found and opened the arXiv record for Merikoski 2503.05396 as a confirmed “newest” example, but cannot claim a comprehensive API census.
+- **Brief §2 source limitations:** Croot and Bhargava–Hanke are source-opened. Erdős (1950) covering failure and Romanoff theorem were checked via the 2026 Ding–Li–Li article's explicit historical account and citations, plus Tao's secondary paper; original articles were not accessed. Linnik/Xylouris, Burgess, Gallagher's exact almost-all theorem, Sierpiński/Riesel, Gauss's three-square/triangular and Lagrange four-square primary sources, Duke–Schulze-Pillot full theorem, and Blomer's exact estimates remain **NOT ACCESSED** as standalone original statements in this lane. Their entries in §2 are sourced as structural comparisons, not represented as primary-source-verified here.
+- The “one prime plus boundedly many powers of 2” formulation in the brief is unsupported by sources opened: Linnik, Heath-Brown–Puchta, and Pintz–Ruzsa concern **two** primes plus powers of 2. The 2026 Li–Liu preprint further improves the unconditional number to six (five under GRH). No every-n one-prime-plus-bounded-powers theorem verified.
+- No proof claimed for ES. The heuristic counts in the table are explicitly labelled heuristic and should not be mistaken for theorem asymptotics.
