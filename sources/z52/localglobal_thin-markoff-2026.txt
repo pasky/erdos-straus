@@ -1,0 +1,9 @@
+Accessed 2026-10-30.
+
+N. Kingsbury-Neuschotz, arXiv:2603.04096v3 (PDF and HTML opened): Theorem 1.1 says for nondegenerate integer parameters (A,B,C,D), a density-one set of primes has a single giant Γ-orbit on S_{A,B,C,D}(F_p), possibly with bounded orbits that are reductions of finite complex orbits. The introduction says the exceptional prime set can depend on parameters. The density-one theorem is not pointwise all-p. For degenerate parameters, Theorem 10.1 and §11 give multiple large invariant sets and show transitivity on each for density-one primes, yielding exactly two or four large orbits in the stated cases. Theorem 4.1 reproduces de Courcy-Ireland–Litman–Mizuno: under their stated nondegeneracy conditions, every nontrivial orbit has size divisible by p.
+
+Daniel E. Martin, arXiv:2502.15960v1, Theorem 1.3: the number of vertices in each connected component of the classical Markoff graph G_p is divisible by p; in particular Baragar connectivity holds for all but finitely many primes after combining with BGS. Martin's intro explicitly explains the p versus p^ε contradiction with the giant-component complement and reports the effective Eddy et al. bound.
+
+J. Eddy et al., arXiv:2308.07579 abstract, reopened 2026-10-30: use Chen and BGS to establish connectivity for p>3.448×10^392; introduce maximal-divisor bounds and a fast verification method for many smaller primes.
+
+J. Bourgain, A. Gamburd, P. Sarnak, DOI 10.1090/jams/1061 (Crossref abstract, 2026-10-30): transitivity properties of Vieta actions modulo primes yield forms of strong approximation for the Markoff surface; applications show almost all Markoff numbers are highly divisible. Does not state all-p connectivity.
