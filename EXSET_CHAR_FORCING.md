@@ -567,20 +567,29 @@ numerically ubiquitous, while above (log p)³ reach provably disappears (Cor 6.4
 
 ## 7. Least-QNR lines (work item 3)
 
-### 7.1 What is known, in reach language
+### 7.1 What is known, and how it relates to reach (R2-revised)
 
-ES(p) is known whenever n₂(p) ≤ 13: on the r-generic line every non-residue cell mod r is covered at level 1 for
-r ≤ 13, while for r = 17 the level-1 survivors are the cells {5, 7} mod 17 ((J)70 Comp 4.1, CERTIFIED, exhaustive);
-finite ET coverings do not exist on the r-generic line for r ≥ 2.8·10⁶ ((J)70), and for r = 17 sterility is
-conditional on the uniform-multiplicity Conjecture 4.2 (POINTWISE_MORDELL17*). "Level 1" means that r divides the
-class modulus exactly once; so the level-1 analysis of the r-generic line is precisely Def 6.1's reach at q = r,
-evaluated at the profinite point x_q = 1 (q ≠ r). A *growing (p-dependent) covering* of the 17-line is exactly
-Reach(p, 17) for every prime p with n₂(p) = 17 (modulus ≤ p). By Lemma 6.2 that would prove ES on the whole line.
+* *Generic line.* (J)70 Comp 4.1 (CERTIFIED, exhaustive) shows that on the r-generic line (off-r coordinates all equal
+  to 1) every non-residue cell mod r is covered at level 1 by the seven ET families for r ≤ 13, while for r = 17 the
+  level-1 survivors are the cells {5, 7}. Sterile points on the r-generic line are PROVED for r ≥ 2^{21.4375} ≈ 2.84·10⁶
+  ((J)70); for r = 17 sterility is conditional on the uniform-multiplicity Conjecture 4.2 of `SIBLING.md` ((J)77).
+* *The whole least-QNR line.* The brief's "ES is known when n₂(p) ≤ 13" is, in the campaign's sources, a statement
+  about the generic line; POINTWISE_MORDELL distinguishes the full n₂-line from its generic point and records open
+  covering searches there (R2). Classically n₂(p) ∈ {3, 5, 7} is covered (Mordell). We do not use, and do not claim,
+  a covering theorem for all primes with n₂(p) ∈ {11, 13}.
+* *Dictionary (R2 correction).* Def 6.1 uses only the U and U⁻¹ box types; level-1 reach of these two families at the
+  generic point is a *subset* of the seven-family level-1 coverage. R2's exhaustive generic-point computation for the two
+  families finds missed non-residue cells {2, 6} at q = 11, {2, 5, 7, 8} at 13 and {3, 5, 6, 7} at 17 (seven families:
+  none, none, {5, 7}). So a cell missed by all seven families is missed by ours, not conversely.
+* *Growing coverings.* A p-dependent certificate for each prime on the 17-line proves ES there; it only has to hit p's
+  actual cell, may use other families, higher levels or larger moduli. Pointwise Reach(p, 17) for every line prime is
+  one *sufficient* target (Lemma 6.2), strictly more demanding than ES on the line.
 
 ### 7.2 Numerics on the 17-line (EVIDENCE; `scripts/z51_forcing_line17.sh`, `data/z51_forcing/line17_*.txt`)
 
 All primes p ≡ 1 (8) with (3/p) = (5/p) = (7/p) = (11/p) = (13/p) = 1, (17/p) = −1 in [10⁶, 2·10⁶] (286 primes), every
-third in [10⁷, 1.1·10⁷] (84) and every sixth in [10⁸, 1.01·10⁸] (36 primes); exact reach (E₂ = p/4, E₁ = p/12), q ≤ 61.
+third in [10⁷, 1.1·10⁷] (84) and every sixth in [10⁸, 1.01·10⁸] (36 primes); level-1 reach with the standard cutoffs
+(Def 6.1), q ≤ 61. (R2 reproduced the table aggregates.)
 
 | range | Reach(p,13) | **Reach(p,17)** | Reach(p,19) | Reach(p,23) | Reach(p,29) | Reach(p,31) |
 |---|---|---|---|---|---|---|
@@ -588,34 +597,33 @@ third in [10⁷, 1.1·10⁷] (84) and every sixth in [10⁸, 1.01·10⁸] (36 pr
 | [10⁷, 1.1·10⁷] | 84/84 | **84/84** | 84/84 | 84/84 | 71/84 | 76/84 |
 | [10⁸, 1.01·10⁸] | 36/36 | **36/36** | 36/36 | 35/36 | 36/36 | 36/36 |
 
-* The single failure of Reach(p, 17) is p = 1 240 009, and the unreached cell is exactly r = 5 — one of the two
-  level-1 survivor cells {5, 7} of the 17-generic line. p itself is ≡ 12 (mod 17), a reached cell, so ES(p) holds
-  through reach anyway. The mechanism is visible: p − 1 = 2³·3·7·11²·61, so p is close to the 17-generic point at all
-  the small moduli that carry most of the supply, and inherits its level-1 sterility in the cell 5. (The two
-  Reach(p, 13) failures, 1 160 041 and 1 487 641, miss one cell each; ES at n₂ = 13 is known by finite coverings that use
-  classes outside Def 6.1's modulus bound or at level ≥ 2.)
-* Heuristically, the expected number of unreached cells at q = 17 is ≈ 8·exp(−S_e(p)/17) with S_e ≈ 0.033 (log p)³
-  (§6.3); Σ_p exp(−c(log p)³) converges, so the coupon model predicts that Reach(p, 17) fails for only finitely many p.
-  The data agree (1/286 at 10⁶, 0 afterwards). So "ES on the 17-line by a growing covering" is heuristically true and
-  numerically robust from 10⁷ on.
+* The single failure of Reach(p, 17) is p = 1 240 009 (n₂(p) = 17), and the unreached cell is r = 5, one of the
+  seven-family generic survivor cells {5, 7}. R2 confirmed this with an independent complete search (also without the
+  cutoffs). p ≡ 12 (mod 17) lies in a reached cell, so ES(p) holds by an actual-cell certificate, e.g. (R2)
+  q = 17, b₁ = 1, c = 4, e = 7: 4/1240009 = 1/2690839370144 + 1/1627512 + 1/382944 (checked exactly) — a concrete case
+  of ES on the line without Reach(p, 17). Heuristic reading: p − 1 = 2³·3·7·11²·61, so p is close to the generic point
+  at the small moduli that carry most of the supply. The two Reach(p, 13) failures (1 160 041, 1 487 641) miss one
+  cell each; omitted families, the cutoffs or higher levels may each account for this.
+* In the coupon model the expected number of unreached cells at q = 17 is ≈ 8·exp(−S_e(p)/17), S_e ≈ 0.033 (log p)³;
+  Σ_p exp(−c(log p)³) < ∞, so the model predicts finitely many failures of Reach(p, 17) (a first-moment heuristic;
+  the model's tail near generic obstructions is unproved). The samples agree (1/286 at 10⁶, none in the later samples).
 
-### 7.3 What a proof would need, and why the two brief targets reduce to §§4–6 (Assessment)
+### 7.3 What a proof would need (Assessment)
 
-* *All p with n₂(p) = 17.* A growing covering must reach both sterile cells {5, 7} at every p on the line. At primes
-  that approximate the 17-generic point at small moduli (p ≡ 1 mod L for a large 17-free L), Comp 4.1 says that no
-  class whose 17-free modulus divides L reaches those cells; the certificate must use a class whose 17-free modulus
-  N does not divide L, i.e. a genuinely p-dependent divisor event (4N | p + e, or 4N | ep + 1, with N ∤ L). That
-  is a B2 event for each such p; no congruence argument can supply it uniformly, since the conditional sterile points
-  are exactly the limits of such p. Proposition 6.3 shows why the event is plentiful on average (supply
-  ≍ (log p)³ per prime, ≍ (log p)³/17 per cell); a pointwise lower bound for it would be a new theorem of B2 type.
-* *All p with n₂(p) ≤ R outside a power-small set.* By Lemma 6.2 and Theorem 5.2 this is the same problem as §§5–6:
-  primes with n₂(p) ≤ R are all but X^{2/A+o(1)} primes when R = (log X)^A, so the target is the full exceptional-set
-  problem restricted to an essentially full-density set. For fixed R (a finite union of least-QNR lines of positive
-  density) it is an exceptional-set problem of positive density, for which the CRT caps of z50 apply verbatim (the
-  lines are congruence-defined).
-* *Forced windows on the 17-line.* 17 ≡ 1 (mod 4), so there is no prime window at 17; the window m = 51 = 3·17 is
-  forced at 17 but not at 3 (p ≡ 1 (mod 3) on the line), and the joint target (−1, −1) in (ℤ/3)^× × (ℤ/17)^× is not
-  forced. The forced windows of 17-line primes are at q₃(p) ≥ 19, as for generic p; §3 applies unchanged.
+* *All p with n₂(p) = 17.* By Comp 4.1, if p ≡ 1 modulo a 17-free L, no level-1 class whose entire off-17 modulus
+  4a₁b divides L covers the generic survivor cells; a level-1 certificate for p in those cells must use off-17 data not
+  fixed by L, i.e. a p-dependent divisor event of B2 type. Higher levels and the other families cover parts of the
+  cells (POINTWISE_MORDELL17), and full sterility at 17 is conditional, so this is not a theorem that no congruence
+  argument can work. Prop 6.3′ is an *upper* bound on supply and does not show that any particular cell is supplied at
+  a given p (R2 repair).
+* *All p with n₂(p) ≤ R outside a power-small set.* For R = (log X)^A, A > 1 (or R = C log X) the primes with
+  n₂(p) > R are X^{1/A+o(1)} (resp. X exp(−c log X/log log X)) by Props 5.1′/5.2, so the target is the exceptional-set
+  problem on an essentially full set; Cor 5.4 gives the sufficient pointwise inputs. For fixed R it is an
+  exceptional-set problem on a positive-density, congruence-defined set.
+* *Forced windows on the 17-line.* 17 ≡ 1 (mod 4) is not a prime window for p ≡ 1 (4); at m = 51 the window
+  x = (p + 51)/4 is a non-residue mod 17 but a residue mod 3 on the line, so the target −1 is not forced mod 3. The
+  forced prime windows of line primes are at q₃(p) ≥ 19; §3's fixed-q bounds are averages over all primes and do not
+  automatically transfer to this thin subpopulation.
 
 ## 8. Hostile reviews
 
