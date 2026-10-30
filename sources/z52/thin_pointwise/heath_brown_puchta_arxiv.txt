@@ -1,0 +1,6 @@
+Source: https://arxiv.org/abs/math/0201299 (accessed 2026-10-30)
+Title: Integers Represented as a Sum of Primes and Powers of Two
+Authors: D.R. Heath-Brown and J.-C. Puchta
+Version: v2, revised 2002-04-02 (v1 submitted 2002-01-30)
+Abstract excerpt: “It is shown that every sufficiently large even integer is a sum of two primes and exactly 13 powers of 2. Under the Generalized Rieman Hypothesis one can replace 13 by 7.”
+Source page also records the technique: bounding the measure of the set on which the exponential sum formed from powers of 2 is large. The paper is 32 pages; abstract is the verified statement excerpt here.
