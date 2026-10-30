@@ -224,6 +224,305 @@ def clusters(items):
     return allg
 
 
+# ---------------------------------------------------------------- step 3: merge fields, areas, flags
+
+# Open area vocabulary derived from the lane tags (tags weigh 3, title 2, connection/why 1).
+AREAS = [
+    ("analytic NT", r"analytic|sieve|character.?sum|exponential.?sum|kloosterman|l-function|\bgrh\b|\brh\b|zero.?density|siegel|"
+     r"bombieri|level.?of.?distribution|primes? in (an )?a(rithmetic )?p|linnik|large.?sieve|circle.?method|divisor.?(problem|function|sum)|"
+     r"titchmarsh|hooley|erd(o|\u0151)s.?(hall|kac)|anatomy|smooth.?number|short.?interval|exceptional.?set|almost.?all|vaughan|"
+     r"barban|chowla|dispersion|bilinear|type.?iii|mean.?value|second.?moment|burgess|least.?(quadratic|prime)|chebotarev|"
+     r"pretentious|parity.?(problem|barrier)|equidistribut|deligne|weil.?bound|multiplicative.?function|transference|"
+     r"dense.?model|green.?tao|szemer(e|\u00e9)di|primitive.?set|sets.?of.?multiples|diophantine.?approx|sylvester.?schur"),
+    ("algebraic NT", r"algebraic.?number|class.?(group|number)|reciprocity|quadratic.?(field|form|residue|character)|ternary.?form|"
+     r"binary.?form|quaternion|\bcm\b|heegner|cyclotomic|galois|\bideals?\b|gaussian|z\[i\]|eisenstein|real.?quadratic|"
+     r"imaginary.?quadratic|genus|spinor|idoneal|norm.?form|fundamental.?unit|unit.?group|s-unit|legendre.?symbol|jacobi.?symbol|"
+     r"quartic|\bartin|primitive.?root|p-adic|2-adic|valuation|pell|cohen.?lenstra"),
+    ("arithmetic geometry", r"arithmetic.?geometry|algebraic.?geometry|brauer|manin|integral.?points?|hasse|torsor|cubic.?surface|"
+     r"log.?k3|fibration|del.?pezzo|\bu_n\b|surface|variety|(?<!certificate-)\bheights?\b|strong.?approximation|descent|elliptic.?curve|"
+     r"rational.?points|lang.?weil|hilbert.?irreducib|thin.?set|\btoric|blow.?up|cayley.?cubic|markoff|neron|severi"),
+    ("automorphic & spectral", r"modular.?form|automorphic|theta|spectral|eigen|laplacian|expander|half.?integral|maass|hecke|"
+     r"shimura|waldspurger|trace.?formula|homogeneous.?dynamics|ratner|\bque\b|linnik.?ergodic|kuznetsov|metaplectic"),
+    ("Egyptian fractions", r"egyptian|unit.?fraction|reciprocal.?sum|m/n|m-over-n|sierpi|schinzel|erd(o|\u0151)s.?problem|"
+     r"erdosproblems|greedy|zn(a|\u00e1)m|croot|bloom|breusch|k-terms|numerator|5/n|distinct.?denominator"),
+    ("sibling problems & calibration", r"catalog|sibling|calibration|minimal.?pair|feature.?flip|precedent|template|outcome:|"
+     r"goldbach|twin.?prime|waring|landau|lehmer|zsigmondy|bertrand|pillai|\bthue\b|catalan|brocard|lonely.?runner|conjecture.?h\b|"
+     r"hardy.?littlewood|bateman|solved|analog|pointwise.?precedent|count:"),
+    ("combinatorics", r"combinator|ramsey|graph|hypergraph|zero.?sum|davenport.?constant|additive.?comb|freiman|sum.?set|sumset|"
+     r"kneser|container|matroid|extremal|sperner|tiling|partition.?regular|hypercube|sensitivity|sandpile|spanning|forest|frieze|"
+     r"subset.?product|lov(a|\u00e1)sz|pigeonhole|nullstellensatz|polynomial.?method|poset|\bpartitions\b"),
+    ("probability & heuristics", r"probab|random|heuristic|poisson|chen.?stein|stein.?chen|janson|statistic|cram(e|\u00e9)r|"
+     r"entropy|large.?deviation|lower.?tail|expectation.?threshold|park.?pham|kahn.?kalai|percolation|branching|martingale|"
+     r"stochastic|local.?lemma"),
+    ("dynamics & continued fractions", r"dynamic|continued.?fraction|\bcf\b|sl.?2|sl\u2082|zaremba|ergodic|orbit|thin.?group|"
+     r"semigroup|apollonian|gauss.?map|farey|stern.?brocot|euclid|collatz|\bflow|horocycle|\bwords?\b|hj3|hirzebruch|engel|"
+     r"l(u|\u00fc)roth|numeration"),
+    ("geometry & topology", r"topolog|(?<!arithmetic.)(?<!algebraic.)geometr|orbifold|seifert|knot|\blinks?\b|3-manifold|hyperbolic|"
+     r"triangle|lattice.?point|polytope|tiling|\btiles?\b|polygon|euler.?char|gauss.?bonnet|plumbing|\blens\b|lens.?space|\btoric|"
+     r"convex|\blattices?\b|\blll\b|short.?vector|geometry.?of.?numbers|"
+     r"minkowski|persistent.?homology|fractal"),
+    ("ES variants, function fields & other rings", r"function.?field|f_q\[t\]|\bf_q\b|\U0001d53d|polynomial.?ring|s-integer|\brings?\b|"
+     r"matri(x|ces)|gaussian.?integer|es_q1|number.?field|over.?z\[|signed|p-adic.?es|constraint-world|new-world|\bvariants?\b|"
+     r"weighted-es|signed-es|relaxation|strengthen|locali[sz]ation"),
+    ("logic, complexity & formal", r"logic|\u03c0\u2081|\u03c0\u2070|\u03c0_1|pi_1|independen|reverse.?math|proof.?complex|"
+     r"decidab|tfnp|ppa\b|\bsat\b|smt|\blean\b|formali[sz]|mathlib|complexity|algorithm|nonstandard|model.?theor|\bml\b|"
+     r"machine.?learn|neural|llm|\bai\b|automat|alphaproof|funsearch|kolmogorov|walnut|formal.?method"),
+    ("physics & other sciences", r"physic|resistor|kirchhoff|electrical|stat.?mech|statistical.?mech|\bising|partition.?function|"
+     r"quantum|thermodynam|self.?organi|criticality|chemistry|biology|economics|mechanism.?design|crystal|music|optic"),
+    ("ES reformulations & certificates", r"reformulation|new.?form|\btype.?i\b|\btype.?ii\b|c-form|e-slice|\bes5\b|es\u2085|\u2605|"
+     r"mordell|\bi3\b|u\(n\)|\bform:|dictionary|polynomial.?ident|identit(y|ies).?famil|\bt1\b|odd.?square|square.?class|\b840\b|"
+     r"tied.?modul|4cp|winning-c|c_min|r\(p\)|f\(p\)|exceptions-409-577|hard-primes|certificate.?(famil|graph|count|height)|"
+     r"\bidentities\b|\bdivisors?\b|exponential.?famil|thin.?(famil|sequence)|star-count|r-zero"),
+    ("computation & data", r"computation|compute|numeric|experiment|\bdata\b|data-|oeis|\bsearch|verification|verify|script|"
+     r"enumerat|tabulat|fingerprint|record|sanity|null.?result|compute-and-check|\bscan|brute|\btables?\b"),
+    ("history, community & meta", r"histor|community|\bmeta\b|meta-|outreach|contact|ask |mathoverflow|polymath|survey|"
+     r"bibliograph|portfolio|strategy|recreational|anecdote|folklore|disproof.?hygiene|people|primary.?source"),
+]
+# ES-internal and computation vocabulary appears in almost every item; down-weight so the external field leads.
+AREA_WEIGHT = {"ES reformulations & certificates": 0.5, "computation & data": 0.6}
+_AREA_RX = [(name, re.compile(rx, re.I)) for name, rx in AREAS]
+
+
+def areas_for(tags, title, body):
+    tagtxt = " ".join(t for t in tags if not t.startswith("seen:"))
+    scores = []
+    for k, (name, rx) in enumerate(_AREA_RX):
+        s = 3 * len(set(m.group(0).lower() for m in rx.finditer(tagtxt)))
+        s += 2 * len(set(m.group(0).lower() for m in rx.finditer(title)))
+        s += min(2, len(set(m.group(0).lower() for m in rx.finditer(body))))
+        scores.append((s * AREA_WEIGHT.get(name, 1.0), -k, name))
+    scores.sort(reverse=True)
+    out = [name for s, _, name in scores[:3] if s >= 2.5]
+    if not out:
+        out = [scores[0][2]] if scores[0][0] > 0 else ["miscellaneous"]
+    return out
+
+
+RX_COMP = re.compile(r"\b(comput|recomput|script|enumerat|tabulat|numeric|run\b|search for|plot|fit\b|count\b|count the|histogram|"
+                     r"simulat|scan|brute|sage|pari|python|test\b|tests\b|testing|check (numerically|for p|on p|all)|census|"
+                     r"b-files?|pull\b|for (all |each |every )?(primes? |p |n |q )?[<\u2264]|evaluate|measure|sample|implement|"
+                     r"solve .* for|list (all|the)|data|correlat|search (?!(the )?literature))", re.I)
+RX_LIT = re.compile(r"\b(read|reread|look up|skim|search (the )?(literature|arxiv|mathoverflow|zbmath|mathscinet|google|for (a |the )?"
+                    r"(paper|reference|literature))|literature|survey|paper|reference|email|contact|ask\b|locate|zbmath|"
+                    r"mathscinet|book|thesis|cite|citation|arxiv|mathoverflow|oeis|dickson|(check|verify|confirm) (whether|if|that) "
+                    r"[^.]{0,80}(known|literature|proved|published|exists in|in the paper|states|claims))", re.I)
+RX_PROOF = re.compile(r"\b(prove|proof|lemma|show that|show\b|try to show|derive|attempt|establish|deduce|formulate|write down|"
+                      r"write (the|r\(p\)|it|each|out)|expand|estimate|\bbound\b|upper bound|lower bound|state and prove|work out|"
+                      r"classify|characteri[sz]e|translate .* (statement|theorem)|adapt|conjecture)", re.I)
+CONF_ORDER = {"high": 2, "med": 1, "low": 0}
+EFF_ORDER = {"cheap": 0, "medium": 1, "big": 2}
+RX_TEMPLATED = re.compile(r"^(Catalog:|Problem \d|Feature:|Feature flip|Between:|Minimal pair:|Transfer:|Connection:)", re.I)
+RX_TEMPLATED_BODY = re.compile(r"small-count existence problem|shares F\d|\u2194 ES F\d|share[sd]? F\d", re.I)
+
+
+RX_NOSTEP = re.compile(r"^none\b", re.I)  # catalog/calibration rows whose lane gave no actionable first step
+
+
+def _rep_score(it):
+    s = 10 * CONF_ORDER[it["confidence_not_nonsense"]]
+    if RX_TEMPLATED.search(it["title"]):
+        s -= 6
+    if RX_TEMPLATED_BODY.search(it["connection"]):
+        s -= 6
+    if re.search(r"\bF\d\d[wp]?\b", it["connection"]):  # signature-lane feature codes: less readable stand-alone
+        s -= 4
+    s += min(len(it["connection"]), 450) / 90 + min(len(it["first_step"]), 300) / 100
+    s += 1 if it["refs"] else 0
+    if RX_NOSTEP.match(it["first_step"]):
+        s -= 15
+    return s
+
+
+def merge_items(items, cl):
+    by = {it["id"]: it for it in items}
+    out = []
+    for n, g in enumerate(cl, 1):
+        mem = [by[x] for x in g]
+        rep = max(mem, key=_rep_score)
+        tags, refs, alt, alt_titles = [], [], [], []
+        for it in [rep] + [m for m in mem if m is not rep]:
+            for t in it["tags"]:
+                if t not in tags:
+                    tags.append(t)
+            for r in it["refs"]:
+                if r.lower() not in (x.lower() for x in refs):
+                    refs.append(r)
+            if it is not rep:
+                if it["first_step"] != rep["first_step"]:
+                    alt.append(f"[{it['id']}] {it['first_step']}")
+                alt_titles.append(f"[{it['id']}] {it['title']}")
+        lanes = sorted(set(m["lane"] for m in mem), key=LANES.index)
+        conf = max((m["confidence_not_nonsense"] for m in mem), key=CONF_ORDER.get)
+        areas = areas_for(tags, rep["title"] + " " + " ".join(m["title"] for m in mem if m is not rep),
+                          rep["connection"] + " " + rep["why"])
+        flags = []
+        if rep["effort"] == "cheap":
+            flags.append("cheap")
+        fs_all = " ".join(m["first_step"] for m in mem)
+        if RX_COMP.search(rep["first_step"]) or any(t.lower() in ("computation", "compute-and-check", "numerics",
+                                                                    "experimental", "experiments") for t in tags):
+            flags.append("computational")
+        if RX_LIT.search(rep["first_step"]):
+            flags.append("literature-check")
+        if RX_PROOF.search(rep["first_step"]):
+            flags.append("proof-attempt")
+        if len(lanes) >= 2:
+            flags.append("multi-lane")
+        if RX_NOSTEP.match(rep["first_step"]):
+            flags.append("reference-only")
+        if any(t.startswith("seen:") for t in tags):
+            flags.append("seen")
+        extra = {m["id"]: m["extra"] for m in mem if m["extra"]}
+        rec = {
+            "mid": f"Z{n:04d}", "title": rep["title"], "connection": rep["connection"], "why": rep["why"],
+            "first_step": rep["first_step"], "alt_first_steps": alt, "refs": refs, "tags": tags, "areas": areas,
+            "flags": flags, "sources": [m["id"] for m in [rep] + [m for m in mem if m is not rep]],
+            "lanes": lanes, "confidence_not_nonsense": conf, "effort": rep["effort"],
+        }
+        if alt_titles:
+            rec["alt_titles"] = alt_titles
+        if extra:
+            rec["lane_extra"] = extra
+        del fs_all
+        out.append(rec)
+    return out
+
+
+# ---------------------------------------------------------------- step 4: outputs
+
+def _trunc(s, n):
+    s = s.strip()
+    if len(s) <= n:
+        return s
+    cut = s[:n].rsplit(" ", 1)[0]
+    return cut.rstrip(",;:") + " \u2026"
+
+
+def _md_escape(s):
+    return s.replace("|", "\\|")
+
+
+def _rank_key(r):
+    return (-len(r["lanes"]), -CONF_ORDER[r["confidence_not_nonsense"]], EFF_ORDER[r["effort"]], -len(r["sources"]), r["mid"])
+
+
+def _item_md(r, conn_len=260, fs_len=230, show_areas=False):
+    src = ", ".join(r["sources"])
+    meta = f"{r['confidence_not_nonsense']}/{r['effort']}"
+    fl = " ".join("`" + f + "`" for f in r["flags"] if f != "cheap")
+    ar = (" \u00b7 also: " + "; ".join(r["areas"][1:])) if show_areas and len(r["areas"]) > 1 else ""
+    return (f"- [ ] **{r['mid']} {_md_escape(r['title'])}** \u2014 {_md_escape(_trunc(r['connection'], conn_len))}\n"
+            f"  *First step:* {_md_escape(_trunc(r['first_step'], fs_len))} ({src}; {meta}) {fl}{ar}\n")
+
+
+INTRO_PATH = os.path.join(MERGE_DIR, "todo_intro.md")
+
+
+def write_outputs(items, merged):
+    with open(os.path.join(DATA, "master.jsonl"), "w", encoding="utf-8") as fh:
+        for r in merged:
+            fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+    raw = collections.Counter(it["lane"] for it in items)
+    in_multi = collections.Counter()
+    for r in merged:
+        if len(r["lanes"]) >= 2:
+            for s in r["sources"]:
+                in_multi[s.rsplit("-", 1)[0]] += 1
+    flags = collections.Counter(f for r in merged for f in r["flags"])
+    areas_prim = collections.Counter(r["areas"][0] for r in merged)
+    areas_any = collections.Counter(a for r in merged for a in r["areas"])
+    nmulti = sum(1 for r in merged if len(r["lanes"]) >= 2)
+    nclus = sum(1 for r in merged if len(r["sources"]) >= 2)
+    sec1 = [r for r in merged if len(r["lanes"]) >= 2 or
+            (r["effort"] == "cheap" and r["confidence_not_nonsense"] == "high" and "reference-only" not in r["flags"])]
+    top = sorted([r for r in merged if len(r["lanes"]) >= 2], key=_rank_key)[:20]
+    L = []
+    w = L.append
+    w("# ES_CONNECTIONS_TODO \u2014 master list of candidate connections for Erd\u0151s\u2013Straus (wave z52b)\n\n")
+    w("> **ES is OPEN.** Nothing here is a proof or a claim of progress; every line is a *candidate connection* to be "
+      "tried. Generated breadth-first by 10 lanes; merged by `scripts/z52b_merge.py` (only true duplicates fused, nothing "
+      "dropped for being weak, already-screened or barrier-blocked).\n\n")
+    if os.path.exists(INTRO_PATH):
+        w(open(INTRO_PATH, encoding="utf-8").read().rstrip() + "\n\n")
+    w("## Counts\n\n")
+    w(f"**{len(items)} raw items \u2192 {len(merged)} distinct** ({nclus} merged clusters absorbing "
+      f"{sum(len(r['sources']) for r in merged if len(r['sources']) >= 2)} raw items; {nmulti} items proposed "
+      f"independently by \u2265 2 lanes).\n\n")
+    w("| lane | raw items | of which in multi-lane items | lane memo |\n|---|---:|---:|---|\n")
+    for lane in LANES:
+        w(f"| {lane} | {raw[lane]} | {in_multi[lane]} | `BRAINSTORM/z52b_{lane}.md` |\n")
+    w(f"| **total** | **{len(items)}** | **{sum(in_multi.values())}** | |\n\n")
+    w("Flags: " + ", ".join(f"`{k}` {v}" for k, v in flags.most_common()) + ".\n\n")
+    w("Areas (primary / any): " + ", ".join(f"{a} {areas_prim[a]}/{areas_any[a]}" for a, _ in areas_any.most_common())
+      + ".\n\n")
+    w("## How to use\n\n")
+    w("- Each item: `- [ ] **Zxxxx title** \u2014 connection` then *First step* (cheap concrete action), sources (lane ids; "
+      "the first is the representative whose wording is shown), `confidence/effort` (confidence that it is not nonsense), "
+      "flags. Long texts are truncated here; the full record (why, refs, all tags, alternative first steps from merged "
+      "duplicates, lane-specific fields) is in `data/z52b/master.jsonl` (grep the `mid`).\n")
+    w("- Flags: `cheap` = first step \u2264 ~1 h (lane's effort=cheap); `computational` / `literature-check` / "
+      "`proof-attempt` = nature of the first step (regex on its wording \u2014 approximate); `multi-lane` = proposed "
+      "independently by \u2265 2 lanes (a useful signal); `seen` = lane tagged it `seen:<file>` (already discussed in the "
+      "repo \u2014 still allowed); `reference-only` = the lane gave no actionable first step ('None.'), typically a "
+      "calibration/catalog row kept as context.\n")
+    w("- Areas are a light, open vocabulary derived from the tags (1\u20133 per item; items appear in \u00a72 under their "
+      "first area). They are for navigation, not a verdict. Tags (\u00a73) are the lanes' free-form tags, unioned over "
+      "merged duplicates; signature-lane tags `F01`\u2026`F40` refer to `data/z52b/signature_features.md`.\n")
+    w("- Tick an item when its first step is done; record the outcome in a BRAINSTORM memo and reference the `mid`.\n")
+    w("- Rebuild: `uv run --with numpy --with scikit-learn python scripts/z52b_merge.py build` (dedupe decisions live in "
+      "`data/z52b/merge/`).\n\n")
+    w("## Top-20 multi-lane items (most lanes, then confidence, then cheapness)\n\n")
+    for k, r in enumerate(top, 1):
+        w(f"{k}. **{r['mid']} {_md_escape(r['title'])}** \u2014 {len(r['lanes'])} lanes ({', '.join(r['lanes'])}); "
+          f"{r['confidence_not_nonsense']}/{r['effort']}. *First step:* {_md_escape(_trunc(r['first_step'], 200))}\n")
+    w("\n## \u00a71 Cheap & multi-lane\n\n")
+    w(f"{len(sec1)} items: proposed by \u2265 2 lanes (any effort), or cheap + high-confidence. Multi-lane first.\n\n")
+    sec1m = sorted([r for r in sec1 if len(r["lanes"]) >= 2], key=_rank_key)
+    sec1c = [r for r in sec1 if len(r["lanes"]) < 2]
+    w(f"### \u00a71a Multi-lane ({len(sec1m)})\n\n")
+    for r in sec1m:
+        w(_item_md(r, show_areas=False))
+    w(f"\n### \u00a71b Cheap + high-confidence, single lane ({len(sec1c)}), by primary area\n\n")
+    for a, _ in areas_prim.most_common():
+        grp = [r for r in sec1c if r["areas"][0] == a]
+        if grp:
+            w(f"#### {a} ({len(grp)})\n\n")
+            for r in grp:
+                w(_item_md(r, conn_len=200, fs_len=180))
+            w("\n")
+    w("\n## \u00a72 Full list by area\n\n")
+    w("Every distinct item exactly once, under its first area (secondary areas noted as 'also'). Within an area: "
+      "multi-lane first, then confidence, then effort.\n\n")
+    for a, _ in areas_prim.most_common():
+        grp = sorted([r for r in merged if r["areas"][0] == a], key=_rank_key)
+        w(f"### {a} ({len(grp)})\n\n")
+        for r in grp:
+            w(_item_md(r, show_areas=True))
+        w("\n")
+    w("## \u00a73 Index by tag\n\n")
+    tagidx = collections.defaultdict(list)
+    for r in merged:
+        for t in r["tags"]:
+            tagidx[t].append(r["mid"])
+    multi = sorted([t for t in tagidx if len(tagidx[t]) >= 2], key=lambda t: (-len(tagidx[t]), t.lower()))
+    single = len(tagidx) - len(multi)
+    w(f"{len(tagidx)} distinct tags; the {len(multi)} tags used by \u2265 2 items are indexed below (by frequency); "
+      f"{single} single-use tags are searchable in `data/z52b/master.jsonl`.\n\n")
+    for t in multi:
+        w(f"- `{t}` ({len(tagidx[t])}): {', '.join(tagidx[t])}\n")
+    with open(os.path.join(ROOT, "ES_CONNECTIONS_TODO.md"), "w", encoding="utf-8") as fh:
+        fh.write("".join(L))
+    print(f"{len(items)} raw -> {len(merged)} distinct; multi-lane {nmulti}; sec1 {len(sec1)}; flags {dict(flags)}")
+    print("areas primary:", dict(areas_prim.most_common()))
+
+
+def build():
+    items = load()
+    cl = clusters(items)
+    merged = merge_items(items, cl)
+    write_outputs(items, merged)
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "build"
     if cmd == "validate":
@@ -237,5 +536,7 @@ if __name__ == "__main__":
         print(f"{len(its)} raw -> {len(cl)} distinct; cluster sizes {sorted(sz.items())}")
         with open(os.path.join(MERGE_DIR, "clusters.json"), "w") as fh:
             json.dump([g for g in cl if len(g) > 1], fh, indent=0)
+    elif cmd == "build":
+        build()
     else:
         raise SystemExit(f"unknown command {cmd}")
