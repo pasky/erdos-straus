@@ -4,24 +4,21 @@ ES is OPEN. Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / A
 Internal campaign results are internally reviewed only.
 
 ## Summary
-1. **Audit (CERTIFIED by re-opening sources).** I re-opened 118 arXiv records and 11 PDFs. **No hallucinated item.**
-   Several "new since 2026-09-28" labels are wrong. KST (09-21), Hashimoto v2 (09-25), Shkredov/Zhang v2s (May/June;
-   already in the repo) and #728 v5 (January) all predate the cutoff. Only Cao–Xu, Filaseta–Kalogirou–Klein, Li–Liu
-   and Kadyrov et al. are genuinely new.
-2. **Errors.** L3 gives Chen's Annals paper a fabricated title ("A proof of the Markoff conjecture"; the Markoff
-   uniqueness conjecture is still open). L3 also misstates Shkredov Thm 8, which is for his class 𝒵, not all q.
-   The repo's `QUESTION_R.md` §5 credits the *Bull. AMS* survey to Kontorovich; it is by **Fuchs**. Carella's
-   QNR-bound gap is confirmed.
-3. **Grading.** No lane over-scopes a barrier. L1's two §3 "candidates" and L5's "next test" are DISAGREE (not
-   candidates). L5 missed a repository fact: the ≍ log n model p + 2^a + 2^b *fails* infinitely often (Crocker 1971,
-   re-read; Pan 2011).
+1. **Audit (CERTIFIED by re-opening sources).** 118 arXiv records and 11 PDFs re-opened. **No hallucinated item.**
+   KST, Hashimoto v2, Shkredov/Zhang v2s and #728 v5 were mislabelled "new since 2026-09-28" (all predate it). Only
+   Cao–Xu, Filaseta–Kalogirou–Klein, Li–Liu and Kadyrov et al. are genuinely new.
+2. **Errors.** L3 gives Chen's Annals paper a fabricated title ("A proof of the Markoff conjecture") and misreads
+   Shkredov Thm 8 (it is for his class 𝒵, not all q). `QUESTION_R.md` §5 credits the *Bull. AMS* survey to
+   Kontorovich; it is by **Fuchs**. Carella's QNR-bound gap is confirmed.
+3. **Grading.** No lane over-scopes a barrier. L1's two §3 "candidates" and L5's "next test" are DISAGREE. L5 missed
+   that the ≍ log n model p + 2^a + 2^b *fails* infinitely often (Crocker 1971, re-read; Pan 2011; already in repo).
 4. **Synthesis (Assessment).** No z52 item changes the ES map. Every solved pointwise result surveyed uses a
    power-size reservoir, free witnesses, averaging, or a long fixed-target character sum (RS fat Ψ). ES₅/U(n) is
-   **not known** to be an RS orbit or HKRS instance: the dictionary rules out the direct identification. It shares
-   only the *exception shape* "squares + finitely many sporadic". Alkauskas 2026 is a fourth instance; I reproduced
-   its 5 sporadic values (EVIDENCE), and its multiplicity is power-size (≈ X^{0.31}) in the tested range.
-5. **No literature-derived first problem survives.** FRONTIER §7 (Question R/TG, I3, RLD-U) is unchanged. The draft
-   `LIT_Z52_ADDITIONS.md` is ready for a parent read. Astra review: SOUND-AFTER-REPAIRS, 14 findings, all applied.
+   **not known** to be an RS orbit or HKRS instance (the dictionary rules out the direct identification); it shares
+   only the exception shape "squares + finitely many sporadic". Alkauskas 2026 is a fourth instance: I reproduced its
+   5 sporadic values, and its multiplicity is power-size (≈ X^{0.31}) in the tested range (EVIDENCE).
+5. **No literature-derived first problem survives**; FRONTIER §7 is unchanged. `LIT_Z52_ADDITIONS.md` is ready for a
+   parent read. Astra review: SOUND-AFTER-REPAIRS; all 14 findings applied.
 
 ## 1. Citation audit
 
