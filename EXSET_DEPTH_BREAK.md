@@ -681,3 +681,42 @@ Thm 2.6's quotient and fibre stated; §8 wording; the cross-check harness harden
   for the 4ℤ-line classes. The CRT fake law and the CH construction plausibly extend to the full refined U family with
   adjusted supply constants (Assessment); the exact roughness/cofactor parametrisation and the first-moment transfer
   for the 8ℤ+7 line need their own proof.
+
+## 9. Round 4: the board's astra-5 programme (quadratic-orthogonal residual) — drop-screen and cumulants
+
+*Requested after the board memo `/home/pasky/.pi/boards/20261029-depth-break/memo.md` (finalist 3: astra-5 ⊕ fable-3).*
+
+### 9.0 Summary (round 4)
+
+**Status: SKELETON.**
+
+| # | statement | label | § | review |
+|---|---|---|---|---|
+| 9a | algebra of R: values, orthogonality, avoider identity, independent-model mgf | — | §9.1 | — |
+| 9b | drop-screen along z = exp((log N)^β), β ∈ {0.6, 0.75, 0.9}: (1/(μt²))·log E e^{−tR} | — | §9.2 | — |
+| 9c | negative tail of R: coherent components? | — | §9.3 | — |
+| 9d | astra-5 on the top band: quadratic piece rare (Heath-Brown), residual mgf = TB | — | §9.4 | — |
+| 9e | j = 2: exact in the subexponential band; large-sieve bound for all z; the beyond-√N excess | — | §9.5 | — |
+| 9f | higher cumulants: proved range j ≤ (1−ε)(log N)^{1−β} versus needed j ≍ (log N)^β | — | §9.6 | — |
+| 9g | review and remaining gap | — | §9.7 | — |
+
+### 9.1 Setup
+(to be written)
+
+### 9.2 Drop-screen
+(to be written)
+
+### 9.3 The negative tail
+(to be written)
+
+### 9.4 The top band
+(to be written)
+
+### 9.5 The second cumulant
+(to be written)
+
+### 9.6 Higher cumulants: proved versus needed range
+(to be written)
+
+### 9.7 Review and remaining gap
+(to be written)
