@@ -112,7 +112,21 @@ Ulrich Derenthal and Florian Wilsch, “Iitaka fibrations and integral points: a
 - **Verified result.** Theorem 1.3/Proposition 4.8 gives Manin-type bounded-height asymptotics in the adjoint-rigid case and a sum of fiber contributions over the Iitaka fibration in the non-rigid case, for their specified spherical log Fano threefold family. Proof includes explicit universal-torsor counts. Their §4.3 identifies the log-anticanonical partial `G_a^3` case as previously treated by Chambert-Loir–Tschinkel.
 - **Relation:** precise example of geometric organization by Iitaka fibration and height asymptotics; it is neither an ES surface theorem nor a lower bound at an arbitrary prescribed ES parameter.
 
-## §5 Automorphic positivity: what is actually proved for one coefficient?
+### Gvirtz-Chen–Mezzedimi: potential Hilbert property for elliptic K3 surfaces
+
+Damián Gvirtz-Chen and Giacomo Mezzedimi, “Non-thin rational points for elliptic K3 surfaces,” arXiv:2404.06844v1 (2024). Source: full arXiv HTML; excerpt `sources/z52/points_automorphic/gvirtz-chen-mezzedimi-k3.txt`.
+
+- **Verified result.** Theorem 1.1 proves that a K3 surface over a number field with two distinct elliptic fibrations has the potential Hilbert property: after finite extension, its rational points are not thin. Theorem 4.5 classifies the K3 surfaces with a unique elliptic fibration (92 families in Picard ranks 3–12 plus rank-2 cases; rank >12 guarantees multiple fibrations). The methods use elliptic fibrations, lattices, covers and Hilbert-property descent.
+- **Relation:** this is rational-point arithmetic on projective K3 surfaces after field extension, not integral points on affine log-K3 surfaces, and gives no pointwise result for ES's varying coefficient.
+
+### Integral points on symmetric affine cubic surfaces: non-obstruction is not existence
+
+“Integral points on symmetric affine cubic surfaces,” arXiv:2204.13472v2. Source: full arXiv HTML; excerpt `sources/z52/points_automorphic/symmetric-affine-cubic-surfaces.txt`.
+
+- **Verified result.** Theorem 1.1 and §8 study surfaces `f(u₁)+f(u₂)+f(u₃)=n`; Theorem 8.1 gives, outside its explicitly defined exceptional set, trivial Brauer group and no integral Brauer–Manin obstruction. For the pure sum-of-cubes case, the paper applies Colliot-Thélène–Wittenberg Theorem 4.1a. Example 10.9 gives a surface failing weak and strong approximation. The paper’s conclusion is expressly absence of an integral BM obstruction, not existence of an integral point for every `n`.
+- **Relation:** directly relevant affine cubic/BM literature, but leaves the same logical gap as on ES: non-obstruction is weaker than integral-point existence, still more so than a positive ES point.
+
+## §6 Automorphic positivity: what is actually proved for one coefficient?
 
 This section separates positivity mechanisms in fixed quadratic-form theta series from the ES count. The source audit is the existing detailed survey `LITERATURE_AUTOMORPHIC.md` §§1, 6, with primary-text checks recorded there (including Kane’s archived text and the Blomer abstract); the statements below preserve its hypotheses rather than extrapolating them.
 
@@ -131,7 +145,7 @@ Thus `R(n)` is not currently identified as the `n`th coefficient of a fixed holo
 
 **Assessment:** source-verified positivity mechanisms exist for eligible coefficients of specified fixed ternary forms, by positive Eisenstein/local-density main terms dominating cusp errors. They are not a transfer candidate unless an explicit ES encoding with matching local densities, uniform cusp control, and exact positivity-preserving coefficient identity is first proved. No such encoding is present in the audited work.
 
-## §6 Not accessed / could not verify / incorrect leads
+## §7 Not accessed / could not verify / incorrect leads
 
 - No 2021–26 follow-up proving a new pointwise or density result on the Erdős–Straus surfaces was verified in this lane. The initial search surfaced no such result; this is not an exhaustive database search. The already-audited Bright–Loughran and geometry citations remain in `GEOMETRY_ES.md` and `LITERATURE_AUTOMORPHIC.md`.
 - Gvirtz-Chen remains **NOT VERIFIED** in this lane; no primary source or theorem text has yet been checked. Cao–Xu/Wei and Colliot-Thélène–Wittenberg have now been addressed above, with Cao–Xu and CTW explicitly marked as citation-level verification rather than fresh full-original audits.
