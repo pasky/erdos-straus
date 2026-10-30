@@ -34,3 +34,7 @@
 | Markoff mod-p connectivity | Giant component plus orbit sizes divisible by p forces a single orbit; ambient fibre has ≍p² points. | **No:** ES asks for a certificate on each varying prime, not connectivity of a large finite fibre; its available count is polylogarithmic (`FRONTIER` §3 B2/B6). | **Known-dead** for direct transfer; see `BRAINSTORM/z31_markoff_chen.md`. |
 | Markoff integral points on varying cubics | Almost-all parameter Hasse principle, with infinitely many failures; no pointwise dominance. | **No useful positive feature:** the analogous every-parameter claim fails in the Markoff family; see `FRONTIER` §3 B6. | **Known-dead** as a pointwise precedent; `BRAINSTORM/markoff_hasse_failures_vs_es.md`. |
 
+## §3 NEW candidates
+
+None. The strongest apparent pointwise analogues (Zhang and Shkredov) are preprint claims with power-sized, dimension-tunable denominator sets, while the pointwise Markoff theorem counts orbits in a fibre of size ≍p². None supplies an every-prime representation mechanism in a thin/polylogarithmic regime. A candidate would need to defeat B2's prescribed-divisor/residue bottleneck and pass the `FRONTIER` §4 screening checklist; no non-obvious input or cheap test emerged that is not already in `BRAINSTORM/z31_zaremba_thin_orbits.md` or `BRAINSTORM/z31_markoff_chen.md`.
+
