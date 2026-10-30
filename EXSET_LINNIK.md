@@ -29,7 +29,7 @@ Assessment. Scripts `scripts/z51_linnik_*`, data `data/z51_linnik/`.*
 A > 2 → A > 1, exponent 2/A → 1/A). For T2-barrier the lane proves scoped obstructions, strictly beyond z50's G3
 Assessment: fixed-order higher characters are never CRT-certified; quadratic confinement or bias on sparse prime sets
 cannot be certified by native ES₅/U word classes at any level (multi-coordinate sterile planes with every sign pattern);
-bounded-level hybrids and fibred reverse-role sieves inherit the CRT cap. Heath-Brown moves the Linnik requirement from
+hybrids of bounded whole-period level and fibred reverse-role sieves inherit the CRT caps. Heath-Brown moves the Linnik requirement from
 (log X)^{2+δ} to (log X)^{1+δ}, inside the heuristic forcing reach, so the route is heuristically consistent with room;
 what is missing is a non-CRT input that handles the non-generic (plane-like) primes.
 
@@ -54,7 +54,7 @@ The instances in the brief:
   primes from a dyadic block, Ψ_p = {χ_p}; a special case of (L2)/(L3) in its input.
 * (L5) Gallagher's larger sieve: not of this shape. If 𝒜 ⊂ [1, N] occupies ≤ ν_p classes mod p for p ∈ E, then
   |𝒜| ≤ (Σ_{p∈E} log p − log N)/(Σ_{p∈E} log p/ν_p − log N) when the denominator is positive. Used with E ⊂ (X/2, X] as
-  the moduli to bound #E, it gives: if |𝒜| > 2ν and ν_p ≤ ν on E, then #E ≤ 2ν log N/log(X/2); a power saving needs
+  the moduli to bound #E, it gives: if |𝒜| ≥ 3ν and ν_p ≤ ν on E, then #E < 2ν log N/log(X/2) for large X; a power saving needs
   ν ≤ X^{1−c}, i.e. 𝒜 confined to ≤ X^{1−c} classes mod every exceptional p (subgroups of index ≥ X^{c} when 𝒜 is
   multiplicatively generated). (In its primal use the larger sieve works with ν_p ≈ p/2, e.g. for the squares; R1.)
 
