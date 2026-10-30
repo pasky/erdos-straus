@@ -9,11 +9,11 @@ Checks (all exact integer/rational arithmetic; no code shared with z51_lcaps_*):
     range of n and l for several alphabets of primes = 3 (mod 4); plus large
     random composite n; plus the narrowed valuation sentence (v_s(V)=0 iff-direction
     only when a_s>0) with explicit a_s=0, s|V instances.
- 2. Classical solvability (Lemma 4.5): n with a prime factor = 3 (4), and n = 5 (8).
+ 2. Classical solvability (Lemma 4.3): n with a prime factor = 3 (4), and n = 5 (8).
  3. Squares (T1) never lie in a box class; box classes are quadratic nonresidues.
- 4. Collision counting of Lemma 4.1 for alphabets of primes = 3 (4).
+ 4. Collision counting of Lemma 4.1′ for alphabets of primes = 3 (4).
  5. A toy Montgomery large-sieve inequality on integers (not just primes).
- 6. Window-witness certificate of Proposition 4.7 (one overflow prime s, s || n+q).
+ 6. Window-witness certificate of Proposition 4.6 (at most one overflow prime s, s || n+q).
  7. Controls: 9 hard primes + R-zeros (18 distinct), searched by factoring n+4Q^2.
 Memory: a few MB.  Run:  ulimit -v 8000000; timeout 600 uv run scripts/z51_lcaps2_check.py
 """
@@ -116,7 +116,7 @@ def part1_certificates(nmax=200000, lmax=6000):
         rows.append(st)
         for k in totals:
             totals[k] += st[k]
-    # large random composite inputs (products of primes = 1 (4) and squares included)
+    # large random composite inputs in admissible box classes
     big = 0
     for _ in range(3000):
         alphabet, E = random.choice(ALPHABETS)
@@ -198,7 +198,7 @@ def first_primes_3mod4(k):
 
 
 def part4_collisions():
-    """Lemma 4.1 collision count: #bad l in (T,2T] <= #{(pair, l): l | Q_a^2-Q_b^2}
+    """Lemma 4.1′ collision count: #bad l in (T,2T] <= #{(pair, l): l | Q_a^2-Q_b^2}
     <= B(B-1) E log P / log T.  Alphabets: first k+1 primes = 3 (4) with one omitted."""
     rows = []
     for k, omit, E, T in [(2, 2, 10, 10 ** 3), (2, 2, 15, 10 ** 4), (2, 1, 10, 10 ** 4), (1, 1, 20, 10 ** 3),
@@ -287,7 +287,7 @@ def window_witness(n, q, s):
 
 
 def part6_window_witness(nmax=60000):
-    """Prop 4.7: n = 1 (8), q = 3 (4) prime, q not | n, s odd prime with v_s(n+q) odd, (s/q)=-1."""
+    """Prop 4.6(a): n = 1 (8), q = 3 (4) prime, q not | n, s odd prime with v_s(n+q) odd, (s/q)=-1."""
     checks = composite = positive = 0
     for n in range(9, nmax, 8):
         for q in (3, 7, 11, 19, 23, 31, 43):
