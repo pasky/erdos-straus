@@ -372,7 +372,9 @@ These are cubic families (three free parameters); they are subfamilies of all ES
 b = q·b₁, q ∤ b₁ce, has class modulus 4q·a₁b (resp. 4q·b₁c) ≤ n, contains n modulo 4a₁b (resp. 4b₁c), and has residue
 r at q (r ≡ −e, resp. −e⁻¹). In words: the profinite point "n at every modulus prime to q, r at q" lies in a
 certificate class of modulus ≤ n. *Reach(n, q)* holds if every quadratic non-residue r mod q is reached.
-(The modulus bound makes the notion finite: it forces e ≤ n/4, and E₂ = n/4, E₁ = n/12 make the search exact.)
+(The modulus bound makes the notion finite: it forces e ≤ n/4 + 1 for both types. Our runs use E₂ = n/4, exact
+for Type II, and E₁ = n/12 for Type I; the Type I tail e ∈ (n/12, n/4] needs b₁ = 1 or c = 1 and carries a negligible
+part of the supply — at p = 10⁸ all e > 10⁷ together carry < 0.1 %.)
 
 **Lemma 6.2 (reach forces; PROVED, trivial).** If Reach(p, q) and (q/p) = −1 then ES(p).
 *Proof.* p ≡ 1 (4), so (p/q) = (q/p) = −1 and r := p mod q is a reached non-residue: the class contains p itself. ∎
@@ -419,7 +421,7 @@ holds for every R if ES is true.
 
 ### 6.3 Numerics (EVIDENCE; `scripts/z51_forcing_reach.c`, `…_reach_batch.sh`, `…_reach_summary.py`)
 
-36 primes p ≡ 1 (mod 8): eight each near 10⁵, 10⁶, 10⁷ (exact: E₂ = p/4, E₁ = p/12), four near 10⁸ (exact), four
+36 primes p ≡ 1 (mod 8): eight each near 10⁵, 10⁶, 10⁷ ("exact": E₂ = p/4, E₁ = p/12, see Def 6.1), four near 10⁸ (exact), four
 near 10⁹ (e ≤ 2·10⁷) and four near 10¹⁰ (e ≤ 10⁷); all odd primes q ≤ 1000. The truncation at e ≤ 10⁷ loses ≈ 3 % of
 the supply (at p = 10⁸: 42 %, 72 %, 89 %, 97 %, 99.97 % of the exact supply from e ≤ 10³, 10⁴, 10⁵, 10⁶, 10⁷). 2 682
 randomly sampled witnesses (1 274 Type I, 1 408 Type II) were rebuilt into explicit 4/n identities and checked with

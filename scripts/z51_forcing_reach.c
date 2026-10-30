@@ -7,7 +7,7 @@
      Type I  (b,c,e): e | b+c, class n == -e^{-1} (mod 4bc)    [x=n*b*c*k, y=g*b, z=g*c, k=(e n+1)/(4bc), g=k(b+c)/e]
         with b = q*b1: need 4*b1*c | e*p+1 and e | q*b1+c; reached r = -e^{-1} mod q; size 4*q*b1*c <= p
         (class modulus <= p for both types, so that the class has representatives of the size of p; then
-        e <= (a+b) <= p/4 resp. e <= b+c <= p/(4q)+1, and E2 = p/4, E1 = p/12 make the search exact).
+        e <= (a+b) <= p/4+1 for both types; E2 = p/4 is exact for Type II, E1 = p/12 truncates a negligible Type I tail).
    (a,b ordered, so q may sit in either coordinate.)  e ranges over e == 3 (mod 4), e <= E2 (Type II), e <= E1 (Type I).
    Factorisations by sieving: p+e with primes <= sqrt(p+E2); e*p+1 with primes <= sqrt(E1*p+1) (residue e == -p^{-1}).
    Output per q: legendre (p/q), #QNR classes, #QNR unreached, #QR unreached, mean hits per QNR class, min hits,
