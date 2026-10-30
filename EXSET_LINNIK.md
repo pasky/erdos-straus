@@ -8,14 +8,30 @@ Assessment. Scripts `scripts/z51_linnik_*`, data `data/z51_linnik/`.*
 
 | # | claim | label | review |
 |---|---|---|---|
-| 1 | audit: what a "Linnik-type argument" is; which inputs it consumes | — | TBD |
-| 2 | circularity / CRT-certification barrier (T2-barrier) | TBD | TBD |
-| 3 | escape (a): bias instead of confinement; Heath-Brown upgrade of CAP_BOUNDED Thm 3.2 (T2-lite) | TBD | TBD |
-| 4 | escape (b): p-dependent sequences | TBD | TBD |
-| 5 | escape (c): supersets E′ ⊇ E_ES from the relaxation zoo | TBD | TBD |
-| 6 | escape (d): reverse roles, forcing reach with full Type II classes | TBD | TBD |
-| 7 | hostile reviews | — | — |
-| 8 | remaining gap | Assessment | — |
+| 1.2 | Linnik transfer: the input of every (L1)–(L4) argument is the containment E ⊂ B(a, T) (exact: the pointwise implication P(a, T); approximate: up to a remainder); B is periodic for quadratic tests, Haar(B) ≤ 1/T; Linnik is a level-free transfer | PROVED (trivial) | R1: MINOR, repaired |
+| 2.2 | fixed-order (k ≥ 3) character biases of squarefree-supported data have mean exactly φ(k) over the primes of any unit class: never CRT-certified (Chebotarev + Kummer) | PROVED | R1: MAJOR (coset), repaired; consequences for the larger sieve / full Montgomery withdrawn |
+| 2.3–2.4 | **plane lemma**: the native ES₅/U word classes meeting the Π-plane (x = 1 off Π) are the words of the Π-part h (W1) and an explicit W2 family; **plane parity law**: their boxes c mod h have (c/h) = −1 | PROVED; CERTIFIED (brute force, two independent scripts) | R1: SOUND after D ≤ h + 2 and coprimality repairs |
+| **2.5–2.6** | **sterile sparse planes**: for Σ_{q∈Π} q^{−1/2+ε} ≤ η₀, Haar-half of the Π-plane, and half of every sign cell, avoids every ES₅/U class; hence **no avoidance-of-word-classes argument, at any level, certifies quadratic Linnik confinement or bias (T > 2) on sparse Π** — though such data would give a power saving (Rem 2.7) | PROVED | R1: SOUND (exact, infinite-range scope); per-cell version added |
+| 2.8 | hybrid "Linnik for biased + CRT majorant for the rest" with bounded whole-period level is capped at the U/ES₅ CRT exponent | PROVED (given EXSET_SIEVE_MASS Thm 3.2) | R1: MAJOR (level definition), rescoped to whole-period level |
+| 2.9 | dense planes sterile with probability ≥ c₀e^{−C₀(Σ log q/q)²} (would extend 2.6 to all polylog-smooth data) | CONJECTURE; EVIDENCE: pair mass 0.77–1.02 flat for y = 200…1600, 28% sterile incl. triples at y = 200 | R1: evidence wording repaired |
+| 2.10 | scoped conjunction of the four obstructions (A)–(D); the first-draft universal circularity theorem is **withdrawn** | PROVED (conjunction) | R1: FATAL as first stated → rescoped |
+| **3.1** | **bias suffices**: #{p ≤ X : \|Σ_{q∈S}(q/p)\| ≥ (log X)^{−κ}s} ≪ X^{(1+2κ)/A+δ} for a block S at (log X)^A, A > 1, κ < (A−1)/2 | PROVED rel. Heath-Brown (1995) | R1: kernel/norm SOUND; threshold repaired |
+| **3.2** | **T2-lite**: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+δ} for every A > 1 (CAP_BOUNDED Thm 3.2(a): X^{2/A}, A > 2); the q₃-route cannot go below A = 1 (GRH) | PROVED rel. Heath-Brown; CONDITIONAL (GRH) for the limit | R1: proof repaired, exponent confirmed |
+| 3.3 | with Heath-Brown the Linnik requirement (log X)^{1+δ} lies inside the heuristic forcing reach (z50: "just short") | Assessment | R1: wording repaired |
+| 4.1–4.2 | p-dependent data cost their dimension; fibred and archimedean-twisted data reduce to §2; injective word-form data give nothing | PROVED | R2 |
+| 5.1–5.2 | zoo relaxations have the wrong orientation (E_R ⊂ E_ES); ES₅-defined supersets are CRT avoiders (colour is not free) | PROVED | R2 |
+| 5.3 | window strengthening: the window lottery is near-independent and its failures are residue-biased (0.34–0.38 vs 0.50, 33 663 primes near 10⁸); power saving for ES CONDITIONAL on the pointwise (WL_A) | EVIDENCE; CONDITIONAL | R2 |
+| 6.1 | ES Type II ratio classes: forcing labels per q ≈ 0.034(log p)³ (cubic supply confirmed, p = 10⁵…10⁸); collapse to ≈ 40 at plane points | EVIDENCE | R2 |
+| 6.2 | fibred reverse-role Montgomery sieve with CRT-certified depletion is capped | PROVED (given LS Cor 2.2 + EXSET_SIEVE_MASS Thm 3.2) | R2 |
+| 8 | remaining gap; T2-full not reached | Assessment | — |
+
+**Bottom line (Assessment).** T2-full is not reached. T2-lite is reached in the form the CONTEXT names (cap threshold
+A > 2 → A > 1, exponent 2/A → 1/A). For T2-barrier the lane proves scoped obstructions, strictly beyond z50's G3
+Assessment: fixed-order higher characters are never CRT-certified; quadratic confinement or bias on sparse prime sets
+cannot be certified by native ES₅/U word classes at any level (multi-coordinate sterile planes with every sign pattern);
+bounded-level hybrids and fibred reverse-role sieves inherit the CRT cap. Heath-Brown moves the Linnik requirement from
+(log X)^{2+δ} to (log X)^{1+δ}, inside the heuristic forcing reach, so the route is heuristically consistent with room;
+what is missing is a non-CRT input that handles the non-generic (plane-like) primes.
 
 ## 1. Audit
 
