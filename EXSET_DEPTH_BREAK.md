@@ -455,9 +455,12 @@ e.g. n = 2 895 235 193).
 
 *Where the excess over Poisson comes from (EVIDENCE).* Stratifying the non-squares at N = 10⁹ by their quadratic profile
 at 3, …, 29 (512 profiles; `PROFILE=1`, `data/z51_dbreak/profile_top_N1e9.txt`) changes the Poisson prediction for the
-number of zeros only from 851 611 to 906 959 (actual 1 225 894): the small-prime profile explains little. The excess is
-a mixture over the *scale* of n: the threshold √(2N) is fixed, so n ≪ N have fewer top-band candidates. At a fixed scale
-the top band is Poisson (next table).
+number of zeros only from 851 611 to 906 959 (actual 1 225 894): the small-prime profile explains little. Stratifying
+instead by the dyadic range of n (`SCALE=1`, `data/z51_dbreak/scale_top_N1e9.txt`) gives a mixture-Poisson prediction
+of 1 156 446, i.e. actual/prediction 1.06 instead of 1.44: the excess is mostly a mixture over the *scale* of n (the
+threshold √(2N) is fixed, so n ≪ N have fewer top-band candidates; E X_top = 3.34, 3.76, 4.18, 4.61, 5.03, 5.43 on
+[2^b, 2^{b+1}), b = 24…29). Within the top dyadic range [2²⁹, 10⁹] the ratio is 1.021; it is 1.04–1.10 in the lower ranges,
+which still mix scales by a factor 2. At a fixed scale the top band is Poisson (next table).
 
 **At a fixed scale, n uniform in [N/2, N] (EVIDENCE; `scripts/z51_dbreak_candidates.c`, random samples,
 `data/z51_dbreak/cand_N*.txt`).** The program enumerates, for each sampled n, all top-band candidates by the m-view of

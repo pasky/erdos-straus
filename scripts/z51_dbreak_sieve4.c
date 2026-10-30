@@ -88,6 +88,13 @@ int main(int argc, char **argv){
   for(int r=0;r<256;r++) if(hAll[r]||hS[r]) printf("H %d %lld %lld\n", r, hAll[r], hS[r]);
   { long long hs=0; for(int r=0;r<256;r++) hs+=hAll[r]; printf("S histogram_total=%lld (bin 255 = saturated count >= 255)\n", hs); }
   for(long long k=1;k<K;k++) if(!issq[k] && cntL[k]>=40) printf("BIG n=%lld R_large=%d small_hit=%d\n", 8*k+1, (int)cntL[k], (int)small[k]);
+  if(getenv("SCALE")){
+    // Stratify non-squares by the dyadic range of n: bin = floor(log2 n). Per bin: count, sum R_large, zeros.
+    static long long bc[64], bs[64], bz[64];
+    for(long long k=1;k<K;k++){ if(issq[k]) continue; long long n=8*k+1; int b=0; while((n>>(b+1))>0) b++;
+      bc[b]++; bs[b]+=cntL[k]; if(cntL[k]==0) bz[b]++; }
+    for(int b=0;b<64;b++) if(bc[b]) printf("D %d %lld %lld %lld\n", b, bc[b], bs[b], bz[b]);
+  }
   if(getenv("PROFILE")){
     // Quadratic profile of n at the primes 3..29: bit i = 1 iff n is a nonzero QR mod q_i (0 or non-residue -> 0).
     // For each of the 512 profiles: number of non-squares, sum of R_large, number with R_large = 0.
