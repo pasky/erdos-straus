@@ -302,7 +302,10 @@ series of `QUESTION_R.md` §3, the flea orbit gives a decidable, obstructed cont
 M_R-type corrections predict near-square deficits. My crude by-product suggests they exist there too.
 
 ## 4. Draft LITERATURE_2026.md additions
-See `LIT_Z52_ADDITIONS.md`. (TODO)
+`LIT_Z52_ADDITIONS.md` (worktree root) is ready to append to `LITERATURE_2026.md`. It contains verified items
+only: 3 new since the cutoff, 8 not previously recorded, and 5 updates/corrections, among them the Fuchs
+attribution in `QUESTION_R.md` and the Chen title. Items the lanes cite that I did not re-verify are left out.
+These include the non-arXiv entries, ProofAtlas, and the Johnston–Trudgian record (cited only through Li–Liu).
 
 ## 5. Cross-model hostile review
 (TODO)
