@@ -1,9 +1,9 @@
 # Non-ANT literature lane (L7, z52)
 
 ## §0 Summary
-- **New since 2026-09-28:** research pending; no claims yet.
-- **Transferable structural features:** pending source verification.
-- **Campaign verdict changes:** none identified yet.
+- **New since 2026-09-28:** verified arXiv:2601.07421v5, a Lean-formalized AI-assisted proof for Erdős #728 (a factorial-divisibility statement), based on carry-rich digit patterns plus a count/union bound. Its author notes a similar Pomerance argument; no novel technique or ES implication claimed.
+- **Most transferable features:** (1) Kummer converts divisibility into base-p carry inequalities; (2) simultaneous digit constraints can be achieved by counting bad residue classes and a union bound on a growing interval. Both prove density/infinite-family results, not all-point claims.
+- **Campaign verdict changes:** none. This route averages over candidate m in [M,2M] (B6), and its density-sized choice set is unlike ES's fixed-p, ≍ log²p lottery (B2). SAT results remain finite-domain certificates; no compactness route to infinite ES located.
 
 ## §1 Verified entries
 
@@ -13,13 +13,22 @@
 
 ## §2 Structural-feature table
 
-| Problem | Structural feature making it solvable | Does ES share it? | Transfer verdict |
+| Problem / result | Structural feature making it solvable | Does ES share it? | Transfer verdict |
 |---|---|---|---|
+| Schur number 5 (Heule; finite SAT) | Explicit finite encoding; exhaustive search plus independently checkable proof certificate | **No.** ES is infinite; reducing it to a finite certificate requires a covering/identity family, screened against B1 in `FRONTIER.md` §3 and checklist 17. | **Known-dead** as a direct template: `BRAINSTORM/logic_complexity.md`; finite computation does not establish global coverage. |
+| Erdős #728 (Sothanaphan; formal Lean proof) | Valuations translate divisibility to carries (Kummer); choose a good m in each growing interval via small bad-set counts and a union bound over primes | **Partial, only the local arithmetic analogy.** ES has no analogous interval of independently selectable m for each fixed p; averaging over m does not force ES(p), B6 (`FRONTIER.md` §3, §4 checklist 5). | **Known-dead** for ES transfer as stated: `BRAINSTORM/logic_complexity.md`, `BRAINSTORM/prob_lll_fixed_p.md`; candidate would require a new deterministic one-point selection principle and must pass B2/checklist 4. |
+| Automatic sequences / Presburger decision (screened, no new paper verified) | Finite automata decide definable base-b sets/relations; effective periodic structure | **No established bridge.** ES's existential denominators are unbounded and positivity/product arithmetic exceeds Presburger arithmetic. Sparse exponent families have proofs/certificates (`EXPONENT_COVERING.md`) but that is not an automatic decision procedure for all bounded-digit-sum n. | **Known-dead / no new candidate:** `BRAINSTORM/logic_divisibility_lgp.md`, `EXPONENT_COVERING.md`; any finite automaton menu faces B1. |
+| Pointwise homogeneous dynamics / equidistribution (screened) | Theorems for every object generally have rigid orbit structure, large point sets, or an orbit-closure classification | **No at the required scale.** Existing Duke/Heegner analogy has √p-scale points and a target that is a tied divisor condition, not an open region; see `BRAINSTORM/z31_duke_equidistribution.md` and B2. | **Known-dead:** `BRAINSTORM/z31_duke_equidistribution.md`; no orbit-closure formulation of ES found. |
+| LLL / probabilistic combinatorics (screened) | Product probability space, dependency control, and a positive-measure avoiding assignment | **No direct pointwise transfer.** LLL typically finds avoiders; it cannot turn an average model of factorisations into a successful divisor at a fixed p. B2/B6. | **Known-dead for displayed instantiations:** `BRAINSTORM/prob_lll_fixed_p.md` (see its errata: broad exclusion would overclaim). |
 
 ## §3 NEW candidates
 
-None identified yet; source and prior-work screening pending.
+**None.** The only recent lead, #728, is an interval-averaged carry argument and does not supply fixed-p forcing. Repurposing it would require a genuinely new lemma: for every sufficiently large hard p, exhibit one bounded-cost candidate whose simultaneous valuation/carry constraints hold, without averaging over p, over m, or over a family large enough to hide failures. The lemma would still have to pass `FRONTIER.md` §4 checklist 1 (odd squares), 4 (tied modulus), 5 (p fixed), and 8 (not a congruence menu); its cheapest test is exact enumeration on the listed odd-square, numerator-8 and hard-prime controls. No such input emerged, so no candidate is proposed.
 
 ## §4 Not accessed / could not verify / incorrect leads
 
-Research pending.
+- **NOT ACCESSED:** the SAT/Lean landmark papers and #728 were checked from their arXiv abstracts/HTML as recorded in §1; source text/PDF was not independently proof-audited. Publication status of arXiv:2601.07421v5 beyond the preprint was not verified.
+- **NOT ACCESSED:** primary papers for Büchi–Presburger/Walnut, automatic-sequence decision results, Ratner/Margulis–Oppenheim, Bourgain along primes, Sarnak Möbius disjointness, Lindenstrauss–Mohammadi–Wang, Pila–Wilkie/Ax–Kochen, and alternative LLL/spread/sunflower results. They are not asserted as fresh verified entries; the table records only the repo's existing screened verdicts.
+- **No evidence found** for a precedent reducing an unrestricted infinite number-theory assertion like ES to a finite SAT instance by ultraproduct/profinite compactness. Finite SAT certificates prove their finite encodings; no such compactness bridge was located.
+- Thin exponential families are not established here as an automatic-sequence decision procedure. `EXPONENT_COVERING.md` gives a family-specific finite-covering/certification framework, not a decision algorithm for all numbers with bounded binary digit sum.
+
