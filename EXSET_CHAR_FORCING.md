@@ -12,28 +12,35 @@ Assessment. Scripts `scripts/z51_forcing_*`, data `data/z51_forcing/`, reviews `
 | 2.1 | window criterion: ES at x ⟺ −1 ∈ R(px) mod 4x − p; Type II at x ⟺ −1 ∈ R(x) | PROVED (classical) | R1: SOUND (odd p) |
 | **2.2** | **Kneser covering lemma**: in a cyclic group of order 2u (u odd), −1 ∉ ∏{g_j^{±1}, 1} ⟹ stabiliser H ≤ U, no g_j ∈ −H, #{g_j ∉ H} ≤ [U:H] − 1; sharp | PROVED; CERTIFIED (u ≤ 45) | R1: SOUND |
 | 2.3 | anatomy of a failing forced window: all but ≤ d − 1 primes of x in an odd-order subgroup of index 2d ≥ 2ℓ_q; q = 3, and q = 7 for p ≡ 1 (8), never fail | PROVED; 936 643 checks | R1: SOUND |
-| **3.1** | **fixed q: forced-window failure rate ≤ (log X)^{−1+1/(2ℓ_q)+o(1)} ≤ (log X)^{−5/6+o(1)}**, vs (log X)^{−1/2} (Landau mode) for unforced windows; exponent sharp for integers (3.2) | PROVED mod Henriot (upper bound only) | R1: SOUND-WITH-MINOR |
-| 3.4 | G4 checked: refined at fixed q (upper bound), growing-q threshold heuristic (0.205); provable per-window range q ≤ (log X)^{0.4226} (Fourier, real/non-real split — R1's improvement) | PROVED pieces + Assessment | R1: MAJOR → repaired |
+| **3.1** | **fixed q: forced-window failure rate ≤ (log X)^{−1+1/(2ℓ_q)+o(1)} ≤ (log X)^{−5/6+o(1)}**, vs integer density (log X)^{−1/2} of the Landau mode that kills unforced windows; sharp for integers (3.2) | PROVED mod Henriot (upper bound only) | R1: SOUND-WITH-MINOR |
+| 3.4 | G4 checked: refined at fixed q (upper bound); growing-q threshold heuristic (0.205); provable per-window range q ≤ (log X)^{0.4226} (Fourier, real/non-real split — R1's improvement) | PROVED pieces + Assessment | R1: MAJOR → repaired |
 | 4.1 | fixed number of windows: product of single-window rates | PROVED mod Henriot (k + 1 forms) | R1: SOUND-WITH-MINOR |
-| 4.2 | multiplying the known per-window envelopes saves at most exp(−c(log X)^{0.4226−ε}) even loss-free; many-window route is an RLD-*like* lower-tail problem | Assessment (exact arithmetic for specified envelopes) | R1: MAJOR (1/3 cap withdrawn) → repaired |
-| 4.3 | joint failure of forced windows below the independence model in samples to 10¹²; hard primes have few/no successful forced windows (193: 0 of 18) | EVIDENCE | R1: wording repaired |
-| **5.1–5.2** | **robust Linnik: #{p ≤ X : Σ_{q ≤ (log X)^A}(q/p) ≥ 2ηπ} ≤ X^{2/A+o(1)}; so ES power saving ⟺ power saving for exceptional primes with *balanced* character on q ≤ (log X)^{2+δ}** (≫ (log X)^{2+δ}/log log X forced windows each) | PROVED (multiplicative large sieve) | R2 |
-| 5.3 | weakest Linnik input: MF(A, η) "exceptional primes are QR-biased" (not known to follow from GRH for A < 4), implied by majority reach MR(A, η) | CONDITIONAL / Assessment | R2 |
-| 6.1–6.2 | counterfactual reach (congruence-certified forcing) and Reach + (q/p) = −1 ⟹ ES | definitions; PROVED | R2 |
-| **6.3–6.4** | **reach is polylogarithmic: Σ_{n≤X} #reached classes ≪ X(log X)³; Reach(p, q) fails for almost all p once q ≥ (log X)^{4+ε}; MR(A) false for A > 4; Linnik fed by congruence-certified forcing is capped at X^{1/2+o(1)} (heuristically X^{2/3})** | PROVED mod Shiu; cap = T2-barrier with exact scope | R2 |
-| 6.3num | full ET Type I/II reach, 36 primes 10⁵–10¹⁰, q ≤ 1000: supply S_e ≈ 0.033 (log p)³ (fit exponent 3.15); coupon model validated; q* ≈ 0.13–0.18 (log p)² ≈ 0.02–0.03 (log p)³/log log p; majority reach ≈ 0.35 (log p)² at 10¹⁰; 2 682 witnesses exact | EVIDENCE / CERTIFIED (witnesses) | R2 |
-| 7 | 17-line: Reach(p, 17) for 285/286 primes in [10⁶, 2·10⁶] and all tested primes beyond; the one failure misses exactly the sterile cell 5 of (J)70 Comp 4.1; growing coverings are B2 | EVIDENCE + Assessment | R2 |
+| 4.2 | multiplying the two known per-window envelopes saves at most exp(−c(log X)^{0.4226−ε}) even loss-free; the many-window route is an RLD-*like* lower-tail problem | Assessment (exact arithmetic, specified envelopes) | R1: MAJOR (1/3 cap withdrawn) → repaired |
+| 4.3 | joint failure of forced windows below the independence model in samples to 10¹²; hard primes have few or no successful forced windows (193: 0 of 18) | EVIDENCE | R1: wording repaired |
+| 5.1–5.2 | **biased characters are rare**: #{p ≤ X : Σ_{q≤y}(q/p) ≥ 2ηπ(y)} ≤ X^{2/A+o(1)} (classical), ≤ X^{1/A+o(1)} for y = (log X)^A, any A > 0 (Heath-Brown); at scale P = C log X, ≪ X exp(−c log X/log log X) (Montgomery–Vaughan moments) | PROVED (mod HB 1995 / Lau–Wu Lemma 1) | R2: SOUND (5.1); 5.1′ is R2's; 5.2 new after R2 |
+| **5.3–5.4** | **robust reduction**: ES power saving ⟸ *bias* of exceptional primes at scale (log p)^{1+δ} (MF); near-power bound X e^{−c log X/log log X} ⟸ bias at scale C log p (MF₁); both implied by majority reach (MR, MR₁). MF₁ and MF(A ≤ 2) are not known to be GRH-equivalent to ES (MF(A > 2) is) | PROVED reduction; CONDITIONAL corollaries | R2 (GRH claim corrected) |
+| **5.5** | **T2-lite: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+o(1)} for every A > 1** (CAP_BOUNDED had A > 2, X^{2/A}); **#{p ≤ X : e*(p) > (C/2) log X} ≪ X e^{−c log X/log log X}** | PROVED mod Heath-Brown / Lau–Wu Lemma 1 (+ CAP_BOUNDED Lemma 3.1) | new after R2 (R3) |
+| 6.1–6.2 | counterfactual reach for two ET subfamilies (height ≤ p, level 1 / all levels); Reach + (q/p) = −1 ⟹ ES | definitions; PROVED | R2: scope repaired |
+| **6.3–6.4** | **reach is polylogarithmic**: Σ_{p≤X} #reached ≪ π(X)(log X)³(log log X)², so Reach(p, q) holds for a ≪ (log X)^{3+o(1)}/q fraction of p; MR(A) false for A > 3 | PROVED mod Shiu + Brun–Titchmarsh | R2 (6.3); 6.3′ new (R3) |
+| 6.3num | reach numerics, 36 primes 10⁵–10¹⁰, q ≤ 1000: supply S_e ≈ 0.033 (log p)³ (fit 3.15); coupon comparison; q* ≈ 0.02–0.03 (log p)³/log log p; MR₁(½) at all 36, MR₁(1) at all p ≥ 10⁶; 2 682 witnesses exact | EVIDENCE / CERTIFIED (witnesses) | R2: reproduced |
+| 7 | 17-line: Reach(p, 17) for 285/286 primes in [10⁶, 2·10⁶] and all 120 later samples; the failure (p = 1 240 009) misses the generic survivor cell 5, yet ES(p) holds by an actual-cell certificate; growing coverings need B2 events | EVIDENCE + Assessment | R2: dictionary corrected |
 | 9 | remaining gap | Assessment | — |
 
 **Bottom line.**
-* No z51 target is reached: no Linnik confinement, no power saving, no proof of a forcing reach. ES remains open.
-* New PROVED pieces: the Kneser anatomy of failing forced windows and the fixed-q failure exponent (G4 made exact at
-  fixed q); the robust Linnik reduction (confinement can be weakened to *bias*: the exact input is "exceptional primes
-  are QR-biased at scale (log p)^{2+δ}"); and an upper bound on congruence-certified forcing (reach ≤ (log p)^{4+o(1)}
-  for almost all p), which caps "Linnik + congruence-certified forcing" at X^{1/2} — a T2-barrier with exact scope.
-* Quantitatively: the full ET supply is cubic, (0.033 ± 0.005)(log p)³ per prime; the forcing reach fits
-  c(log p)³/log log p; but majority reach at (log p)^{2+δ} — the input Linnik needs — only sets in, heuristically,
-  around p ≈ 10⁸⁷. The window route through G2 is limited to exp(−(log X)^{0.42}) by the known envelopes.
+* No z51 target T1/T2-full is reached; ES remains open. There is no proof of any forcing reach, no Linnik
+  confinement and no unconditional power saving for ES.
+* **T2-lite reached (PROVED modulo Heath-Brown's quadratic large sieve):** the cap relaxation e*(p) ≤ (log p)^{A}/4
+  holds outside X^{1/A+o(1)} primes for every A > 1 (CAP_BOUNDED needed A > 2), and e*(p) ≤ C log p outside
+  X exp(−c log X/log log X) primes (Montgomery–Vaughan moments; caps of order log p were OPEN in CAP_INTERPOLATION
+  Remark 3.2(c), here with a near-power saving). These are transfers of known least-non-residue technology to the
+  forced-window cap mechanism, found with the R2 referee.
+* **T2-cond (new, nonstandard hypotheses):** if ES-exceptional primes are QR-biased on the primes in (C log p, 2C log p]
+  (MF₁), then E_ES(X) ≪ X exp(−c log X/log log X), beyond the 3/4 CRT cap; MF₁ follows from a pointwise
+  majority-reach hypothesis MR₁ that holds at every sampled prime (C = ½) and heuristically for all large p. Proving
+  MR₁ pointwise is a B2 statement.
+* **G4 made exact at fixed q** (Kneser anatomy, upper bound (log X)^{−1+1/(2ℓ_q)}); the window route through G2 is
+  limited to exp(−(log X)^{0.42}) by the known envelopes; **reach is polylogarithmic** (≤ (log p)^{3+o(1)} on average,
+  MR false above (log p)³), with measured cubic supply.
 
 ## 1. Audit
 
@@ -61,19 +68,20 @@ implication in F(R) is vacuous). So F at reach ≍ log²p is, modulo GRH, *equiv
 F((log p)^A) gives ES outside the Linnik set {n₂(p) > (log p)^A}. Note that F concerns **all** primes q, whereas the
 forced windows of §§2–4 exist only at q ≡ 3 (mod 4); windows alone never supply F. Any proof of F at that reach is a pointwise ES theorem on the generic part of the
 primes. This is why the brief asks also for (i) a reach for "all p outside a power-small set", (ii) weaker pointwise
-inputs that still feed Linnik (§5 below gives one: a *majority* of q suffices), and (iii) quantitative versions of the
-gates.
+inputs that still feed Linnik (§5: a *bias* suffices, and with Heath-Brown's or the Montgomery–Vaughan large sieve the
+scale drops to (log p)^{1+δ} or C·log p), and (iii) quantitative versions of the gates.
 
 ### 1.2 Which gate each item attacks, and the door
 
 * Item 1 (windows): G4 directly (per-window failure), then G2 (joint loss). Door: none new — the window mechanism is
-  CAP_POINTWISE Thm 1.1; what is new is the exact failure law (§§2–3) and its interaction with G2 (§4).
+  CAP_POINTWISE Thm 1.1; what is new is the anatomy of failures and a fixed-q upper bound (§§2–3), and the joint calculus (§4).
 * Item 2 (reach): G3. The reach is a *counterfactual* (profinite) statement: "every non-residue class of p mod q, with
-  p's residues at all moduli prime to q kept, carries a certificate". It implies F at q, is not implied by ES, and its
-  failure set is a congruence-avoidance set with supply ≍ (log p)³/q per class (§6). Door used by Linnik: primality of
+  p's residues at all moduli prime to q kept, carries a certificate" (for two ET subfamilies, height ≤ p). It implies
+  F at q, is not implied by ES, and its failure set is a congruence-avoidance set with measured supply ≈ 0.033(log p)³/q
+  per class (§6). Door used by Linnik: primality of
   the exceptional moduli (z50 B §4.2; outside the CRT caps).
-* Item 3 (lines): G3 at fixed q = 17; finite coverings are dead there in the (J)70/MORDELL17 sense, so only
-  p-dependent (non-congruence) data can help (§7).
+* Item 3 (lines): G3 at fixed q = 17; finite coverings of the 17-generic line are conjecturally impossible (sterility
+  at 17 is conditional on SIBLING Conj 4.2, (J)77), so p-dependent data are expected to be needed (§7).
 
 Controls run on every mechanism below: odd squares (no windows exist at squares, CAP_POINTWISE Cor 1.2), numerator 8
 at n = 17, 241, and the hard primes 193, 409, 577, 2521, 3361, 5569, 9601, 66529, 8813281.
@@ -627,33 +635,47 @@ third in [10⁷, 1.1·10⁷] (84) and every sixth in [10⁸, 1.01·10⁸] (36 pr
 
 ## 8. Hostile reviews
 
-* **R1 (Astra, `openai-codex/gpt-6-astra:high`, §§1–4; `reviews/z51-forcing-r1-astra.md`, independent check script
+* **R1 (Astra, `openai-codex/gpt-6-astra:high`, §§1–4; `reviews/z51-forcing-r1-astra.md`, check script
   `reviews/z51-forcing-r1-astra-check.py`).** Verdict: MAJOR revisions, no FATAL flaw; Lemma 2.2, Cor 2.3, Thm 3.1,
   Prop 3.2 and Prop 4.1 survive (the Henriot transfer was checked against the primary PDFs); the independent numerical
   audit matched all 7 423 window pairs. Repairs applied: dyadic Linnik in Obs 1.1(b) and the exact equivalence; odd p
   and the Type II equivalence in Lemma 2.1; lifted sharpness (now certified by the script); "exactly" withdrawn in 2(c)
-  (with the referee's unforced example p = 353, q = 11); 2(d) recast as a limitation of the relaxed bound; all
-  "exact exponent" language replaced by upper-bound statements (q = 7 has rate 0 on p ≡ 1 (8)); growing-q uniformity
-  marked unproved; the referee's real/non-real split of the Fourier majorant (a = 1 − 1/√3) adopted and the "1/3 cap"
-  withdrawn (Calc 4.2 now concerns specified envelopes only); random-box first-moment truncation corrected
-  (β > 3 log 3); RLD link labelled an analogy; correlation language weakened.
-* **R2 (Astra, §§5–7 and the whole document).** (pending)
+  (with the referee's unforced example p = 353, q = 11); 2(d) recast as a limitation of the relaxed bound; "exact
+  exponent" language replaced by upper-bound statements (q = 7 has rate 0 on p ≡ 1 (8)); growing-q uniformity marked
+  unproved; the referee's real/non-real split of the Fourier majorant (a = 1 − 1/√3) adopted and the "1/3 cap"
+  withdrawn; random-box truncation corrected (β > 3 log 3); RLD link labelled an analogy; correlation language weakened.
+* **R2 (Astra, §§5–7 and whole document; `reviews/z51-forcing-r2-astra.md`, check script
+  `reviews/z51-forcing-r2-astra-check.py`).** Verdict: MAJOR revisions; the advertised general "X^{1/2} cap for Linnik
+  fed by congruence-certified forcing" FATAL as an unrestricted claim; Prop 5.1, Prop 6.3, Cor 6.4(a)–(b) and all
+  numerics survive (independent reach enumeration at p = 100049 matched all 16 q; p = 1 240 009 and all 2 682
+  witnesses re-verified; fits reproduced). Repairs applied: GRH status of MF corrected (GRH makes MF(A > 2) equivalent
+  to ES); Heath-Brown's quadratic large sieve adopted (Prop 5.1′, the referee's argument), which lowers the robust
+  scale to A > 1 and led to Prop 5.2 and Cor 5.5; Thm 5.3's forced-window clause repaired (separate exceptional set
+  for q ≡ 3 (4), η < ½, one-sided bias); genuine dyadic proof of Cor 5.4; reach scope stated (two subfamilies, height,
+  level) and the universal characterisation withdrawn; cutoff counterexamples recorded (E₁ = p/12 is a truncation);
+  Prop 6.3 bookkeeping (ε = 1/C) and the level-k error of Remark 6.5 corrected (now inside Prop 6.3′); the X^{1/2}
+  barrier withdrawn; numerics relabelled (subfamilies, consistent-with-cubic, coupon aggregation, prime R_maj,
+  crossover log p ≈ 840); §7 dictionary corrected (two vs seven families; generic point vs whole line; growing
+  coverings ≠ Reach; conditional sterility and correct citations).
+* **R3 (Astra, the post-R2 additions: Props 5.1′, 5.2, Thm 5.3, Cors 5.4–5.5, Prop 6.3′, Cor 6.4).** (pending)
 
 ## 9. Remaining gap
 
-* **The input Linnik needs, exactly.** By Theorem 5.2 the exceptional-set problem is equivalent (up to X^{2/A+o(1)})
-  to the problem for exceptional primes with balanced quadratic character on q ≤ (log X)^A. Equivalently, the needed
-  pointwise input is MF(A, η) for some A > 2: ES-exceptional primes are QR-biased at that scale. Nothing in this lane
-  proves MF; the evidence (z50 B §4.1, reach numerics) says exceptional points would be strongly biased.
-* **Congruence-certified forcing cannot deliver more than X^{1/2}** (Cor 6.4), and heuristically not more than X^{2/3};
-  and even that requires a *pointwise* (all p) reach at a majority of q ≤ (log p)^{2+δ}, which is numerically false at
-  every accessible p (majority reach ≈ 0.35 (log p)² at 10¹⁰) and heuristically true only beyond p ≈ 10⁸⁷. Proving it
-  is B2 for every p.
-* **Non-congruence forcing (windows).** Forced windows are certificates whose success is a factorisation event of
-  (p + q)/4. The known multiplicative majorants control a single window only for q ≤ (log X)^{0.4226}; jointly they give
-  at most exp(−(log X)^{0.42}), far below 2/3. The windows that matter (q ≈ (log X)^{1.1} and beyond) succeed only
-  collectively; a proof would be a lower-tail theorem for ≍ (log X)^{2+δ}/log log X weak divisor events at prime shifts
-  of one p — an RLD-like statement (door (vii)), unproved.
-* **Least-QNR lines.** ES on the 17-line by growing coverings is Reach(p, 17) for all line primes: heuristically true
-  for all large p and numerically true for every tested p ≥ 10⁷; a proof needs p-dependent divisor events in the sterile
-  cells {5, 7}, i.e. B2.
+* **Pointwise forcing is still B2.** Every route here needs, at some point, a certificate for a *given* p in a
+  *given* class: reach at q ∈ (C log p, 2C log p] for a majority of q (MR₁), or bias of exceptional primes (MF₁). These
+  are numerically robust (MR₁(½) at all sampled primes) and heuristically true for all large p, but no argument
+  produces, for a fixed p and a fixed non-residue class r mod q, an e ≡ −r (mod q) with the needed divisor pair of
+  p + e or ep + 1.
+* **What the reductions buy.** By Thm 5.3 the exceptional-set problem is, up to X exp(−c log X/log log X), the problem
+  for exceptional primes that are *not* QR-biased at scale C log p; each such prime has ≫ log X/log log X forced
+  windows q ≡ 3 (4) in (C log X, 2C log X], all failing. With q ≍ log X, a forced window fails when the divisor box of
+  (p + q)/4 (typically (log X)^{1.1} elements) misses −1 in a group of order ≍ log X — individually unlikely; but
+  the only per-window bounds we can prove (Kneser–Rankin for q ≲ 2 log log X; Fourier for q ≤ (log X)^{0.42}) do not
+  reach q ≍ log X, and joint bounds over many windows are the G2 problem (Calc 4.2). A per-window failure bound at
+  q ≍ log X with a saving that survives multiplication over ≍ log X/log log X windows would close this gap at the
+  near-power level.
+* **Counterfactual reach is polylogarithmic** (Cor 6.4): congruence-certified forcing (of the tested kind) exists only
+  up to q ≈ (log p)^{3}, which is enough for every sieve used in §5 but must be proved pointwise.
+* **Least-QNR lines.** ES on the 17-line by growing coverings is supported numerically (Reach(p, 17) at all but one of
+  406 sampled line primes, and ES at that one by an actual-cell certificate); a proof needs p-dependent divisor events
+  in the generic survivor cells {5, 7}, i.e. B2.
