@@ -1,0 +1,20 @@
+Access date 2026-10-30. Abstract/source pages opened via arxiv.org; Semantic Scholar citation graph queried for arXiv:2307.02749 and arXiv:2401.01860.
+
+Direct post-HKRS developments:
+- H. Shi et al., arXiv:2510.21702v2 abstract: extends HKRS disproof to octahedral, cubic, square, triangular packings using quadratic invariants/reciprocity and tangent-circle parametrizations.
+- G. Alkauskas, arXiv:2508.05347v3 abstract: flea triangle areas attain every positive half-integer and meet every residue class modulo every modulus, yet no square is attained; explains via quadratic reciprocity/Apollonian dynamics; five further nonsquares up to 10^12.
+- E. Fuchs, Bull. AMS 63(1) (2026), DOI 10.1090/bull/1874, Crossref abstract: history of local-global Apollonian curvature conjecture and HKRS quadratic/quartic obstructions. AMS site blocked by CAPTCHA; Crossref metadata/abstract obtained.
+- H. Friedlander et al., arXiv:2410.00177v3 abstract: prime and thickened prime components; residue classes, component/curvature counts, computations to ~10^13.
+- A. Kontorovich, X. Zhang, arXiv:2409.10682v1 abstract: density-one version of local-global conjecture for combinatorial lengths of asymmetric periodic trajectories on regular pentagon.
+- X. X. Xiao, X. Zhang, arXiv:2405.14797v1 abstract: circle-method asymptotic local-global theorem for heights of thin Bianchi group orbits in H^3.
+
+Markoff connectivity followups:
+- D. E. Martin, arXiv:2502.15960v1, Thm 1.3: each component has size divisible by p; combined with BGS giant component gives connectivity for sufficiently large p. A new proof of Chen's divisibility corollary, not all-prime completion.
+- M. de Courcy-Ireland, M. Litman, Y. Mizuno, arXiv:2509.02187v3, Thm 1.1: under stated typical-parameter conditions, every nonzero orbit on their Markoff-like surface has size divisible by p; exceptional families separately treated.
+- J. Ma, M. Yang, Z. Yang, arXiv:2608.07880v1 abstract: connected Markoff graph implies 2-connectivity; hence 2-connected for all sufficiently large p; not 3-connected for p≥7.
+- S. Satake, Y. Yamasaki, arXiv:2512.21963v1 abstract: generalized Markoff graph topology, K3,3 subdivisions, embeddings/short cycles; no connectivity completion.
+- B. Nica, arXiv:2608.03097v1 abstract: vertex counts and degree distributions in generalized finite-field Vieta graphs; no all-integral-point lifting claim.
+- J. Eddy et al., arXiv:2308.07579 abstract reopened: connectivity for p>3.448·10^392 (published PLMS 2026); effective finite threshold, still not all p.
+- C. A. Brown, arXiv:2401.00630v3 abstract: o(p^(1+ε))-time connectivity testing; confirms p<10^6 computationally, not all p.
+
+Zaremba sources re-opened: I. D. Shkredov, arXiv:2603.14116v2, Theorem 8 / Remark 9: large fixed M, all q, at least q^(2w_M−1−o(1)) numerators with digits ≤100M; Remark 9 incorporates Zhang's result to assert full Zaremba. Xin Zhang, arXiv:2605.02518v2, Theorem 1.2: “Zaremba’s conjecture holds,” whose Conjecture 1.1 is all natural q with one absolute bound on all partial quotients; large bound, not 5. Shkredov response-query endpoint returned HTTP 422; a search for Zhang response returned no relevant result; no correction is visible in the current arXiv v2 histories.
