@@ -1,0 +1,1 @@
+['Apollonian packings: The rise and fall of the local to global conjecture'] ['Elena Fuchs'] ['Bulletin of the American Mathematical Society'] 63 1 59-77 {'date-parts': [[2025, 10, 15]]}

@@ -1,0 +1,498 @@
+== 2605.02518v2
+authors: Xin Zhang
+title: Expansion in $\text{SL}_2(\mathbb Z/q\mathbb Z)$ and Zaremba's conjecture
+published: 2026-05-04T12:18:19Z updated: 2026-05-08T15:40:58Z
+abstract: We establish an expansion theory for $\text{SL}_2(\mathbb Z/q\mathbb Z)$. Incorporating this into a framework recently developed by Shkredov, we confirm Zaremba's conjecture.
+
+== 2503.08800v4
+authors: Robin Zhang
+title: Positive integral points on acyclic cluster varieties
+published: 2025-03-11T18:30:24Z updated: 2026-09-28T23:56:40Z
+abstract: We determine the number of positive integral points on $n$-dimensional affine varieties associated to arbitrary $n \times n$ generalized Cartan matrices. An application to the theory of cluster algebras and combinatorics is the resolution of the Fontaine-Plamondon conjecture, which says that there are exactly $4400$ and $26952$ positive integral friezes of type $E_7$ and $E_8$ respectively. An application to number theory is a refinement and generalization of theorems of Mordell, Mohanty, and Schinzel to positive integers and higher dimensions by exhibiting examples of log K3 surfaces $xyz = G(x, y)$ and affine threefolds $xyzw = G(x, y, z)$ of every degree greater than $3$ with infinitely many positive integral solutions.
+
+== 2610.32302v1
+authors: Yichuan Cao, Xiaoping Xu
+title: Prime Numbers of the Form $24m+1$ and Erdös-Straus Conjecture
+published: 2026-10-23T07:57:41Z updated: 2026-10-23T07:57:41Z
+abstract: In 1948, Erdös and Straus formulated a conjecture on Egyptian fractions. One only needs to prove the conjecture for any prime number $n$ such that $n\equiv 1\;(\mbox{mod}\;24)$. In this article, we give a necessary and sufficient polynomial condition for a number of the form $24m+1$ to be a prime number. Then we present 56 solvability polynomials consisting of our earlier tame solutions, wild solutions and the polynomials for composite numbers of the form $24m+1$. Numeric test shows that they imply the conjecture. Moreover, we give a list of 36 exponential-polynomial functions consisting of our earlier 28 tame solutions and the polynomials for composite numbers, whose numeric test shows that Howerton's conjecture on fourteen wild primes holds. Furthermore, we find a version of Goldbach conjecture modulo 24.
+
+== 2601.07421v5
+authors: Nat Sothanaphan
+title: Resolution of Erdős Problem #728: a writeup of Aristotle's Lean proof
+published: 2026-01-12T11:05:22Z updated: 2026-01-26T17:28:49Z
+abstract: We provide a writeup of a resolution of Erdős Problem #728; this is the first Erdős problem (a problem proposed by Paul Erdős which has been collected in the Erdős Problems website) regarded as fully resolved autonomously by an AI system. The system in question is a combination of GPT-5.2 Pro by OpenAI and Aristotle by Harmonic, operated by Kevin Barreto. The final result of the system is a formal proof written in Lean, which we translate to informal mathematics in the present writeup for wider accessibility. The proved result is as follows. We show a logarithmic-gap phenomenon regarding factorial divisibility: For any constants $0<C_1<C_2$ and $0 < \varepsilon < 1/2$ there exist infinitely many triples $(a,b,n)\in\mathbb N^3$ with $\varepsilon n \le a,b \le (1-\varepsilon)n$ such that \[ a!\,b!\mid n!\,(a+b-n)!\qquad\text{and}\qquad C_1\log n < a+b-n < C_2\log n. \] The argument reduces this to a binomial divisibility $\binom{m+k}{k}\mid\binom{2m}{m}$ and studies it prime-by-prime. By Kummer's theorem, $ν_p\binom{2m}{m}$ translates into a carry count for doubling $m$ in base $p$. We then employ a counting argument to find, in each scale $[M,2M]$, an integer $m$ whose base-$p$ expansions simultaneously force many carries when doubling $m$, for every prime $p\le 2k$, while avoiding the rare event that one of $m+1,\dots,m+k$ is divisible by an unusually high power of $p$. These "carry-rich but spike-free" choices of $m$ force the needed $p$-adic inequalities and the divisibility. The overall strategy is similar to results regarding divisors of $\binom{2n}{n}$ studied earlier by Erdős and by Pomerance.
+
+== 2508.05347v3
+authors: Giedrius Alkauskas
+title: Squares, three fleas, sporadic sets, and squares
+published: 2025-08-07T12:55:49Z updated: 2026-09-09T10:19:37Z
+abstract: Three fleas are on the plane. At each move, two fleas jump to the other two vertices of a square erected on the segment joining them. Starting from $\{(0,0),(2,1),(3,2)\}$, we ask which areas can occur for the triangle they span. Every positive half-integer occurs, and the attainable integer areas meet every residue class modulo every modulus. Yet no perfect square ever occurs. We explain this unexpected obstruction using quadratic reciprocity, and then uncover its geometric source: the flea dynamics are closely related to integral Apollonian circle packings. An exact computation up to $10^{12}$ finds only five additional missing nonsquares: $5,29,80,99,179$.
+
+== 2603.26043v2
+authors: Yu Hashimoto
+title: Finiteness of Disjoint Covering Systems with Precisely One Repeated Modulus
+published: 2026-03-27T03:24:57Z updated: 2026-09-25T01:15:26Z
+abstract: We prove that for each fixed $m \ge 2$, there are only finitely many disjoint covering systems with minimum modulus at least $3$ in which precisely one modulus is repeated, namely the largest modulus, and it occurs exactly $m$ times.
+
+== 2603.14116v2
+authors: Ilya D. Shkredov
+title: On some results of Korobov and Larcher and Zaremba's conjecture
+published: 2026-03-14T21:05:48Z updated: 2026-06-24T17:34:59Z
+abstract: We prove, in particular, the well--known Zaremba conjecture from the theory of continued fractions for any prime denominator. More precisely, we show, firstly, that under some mild conditions, for any sufficiently large $q$, there exists $a$ coprime to $q$ such that all partial quotients of $a/q$ are bounded by $O(\sqrt{\log q})$, and, moreover we find asymptotically tight lower bound for the number of such $a$. Secondly, we obtain a good lower bound for the number $a$ such that the sum of all partial quotients of $a/q$ is bounded by $O(\log q \cdot \sqrt{\log \log q})$. This, accordingly, improves on some results of Korobov and Larcher. Finally, we show that for all sufficiently large $\mathcal{M}$ there are $Ω(q^{1-O(1/\mathcal{M})})$ numbers $a$ coprime to $q$ such that all partial quotients of $a/q$ are bounded by $\mathcal{M}$.
+
+== 2609.22388v2
+authors: Daniel Parrochia
+title: Descartes' Circle Theorem, Princess Elizabeth, and Spinors
+published: 2026-09-18T06:10:24Z updated: 2026-09-30T20:30:25Z
+abstract: In this article, on Descartes' famous "circle theorem," we first attempt to explain how the philosopher could have arrived at the equation that he presents without demonstration in a letter to Princess Palatine Elizabeth of Bohemia in November 1643 (a previously unpublished proof, to our knowledge). Then we report some stages of the subsequent generalization of this theorem, whose Cliffordian flavor, via the equivalence of a quadratic form and the square of a linear form, still mobilizes mathematicians today. This statement, which, over time, has undergone different extensions, Euclidean and non-Euclidean, has found, {\it in fine}, a spinor formalization. We see there the proof of what we may call, in a Bachelardian style, an "inductive value" of the truth, which extends by successive generalizations. We conclude, more briefly, with the contacts between Elizabeth and Descartes, and the perhaps symbolic meaning of these considerations on "kissing circles," as they are called in Anglo-Saxon countries, in the context of their correspondence on the soul and the body, and the question of passions.
+
+== 2609.25393v1
+authors: Oleksiy Klurman, Igor E. Shparlinski, Joni Teräväinen
+title: On the generation of multiplicative groups by small primes
+published: 2026-09-21T20:35:48Z updated: 2026-09-21T20:35:48Z
+abstract: Motivated by a question of Regev arising from his improved quantum factoring algorithm, we study how many small primes are needed to generate the group $({\mathbb Z}/q{\mathbb Z})^\times$ when each prime may be used with exponent only $0$ or $1$. We prove that, for every fixed $\varepsilon>0$ and $A>0$, there is an absolute constant $C_*$ and a set of at most $(\log Q)^{1+\varepsilon}$ primes, all at most $(\log Q)^{C_*(A+1)}$, such that for all but $O(Q(\log Q)^{-A})$ (with the implied constant depending only on $\varepsilon$ and $A$) integers $q\leq Q$, every element of $({\mathbb Z}/q{\mathbb Z})^\times$ is a product of a subset of these primes modulo $q$. The exponent $1+\varepsilon$ in the number of primes is best possible up to the arbitrary $\varepsilon$ in the exponent.
+
+== 2609.32140v1
+authors: Shisheng Li
+title: Unit fractions with semiprime denominators: an elementary proof of Erdős Problem #306
+published: 2026-09-26T01:53:41Z updated: 2026-09-26T01:53:41Z
+abstract: We give an elementary proof that every positive rational number $a/b$ with $b$ squarefree is a finite sum of distinct unit fractions $1/n$, where each $n$ is a product of two distinct primes (Erdős Problem #306). After a reduction to small targets, we take a single complete bipartite graph between the primes in $(y^2,2y^2]$, together with $2$ and the primes of $b$, and a tuned initial segment of the primes in $(y^8,y^9]$, and show that some subgraph has reciprocal sum congruent to $a/b$ modulo $1$; the small total mass then forces equality. Writing the number of such subgraphs as a finite Fourier sum, we sort the frequencies into three cases using a table indexed by the two sides of the graph. The small integer frequencies give a positive main term, and all other frequencies are negligible by a divisor-counting argument and a no-wrap-around form of the Chinese remainder theorem. The only inputs about primes are Chebyshev-type bounds. The circle-method framework comes from Tang's Lean development, which gave the first proof; our construction removes its anchor-synchronisation step. The proof has been formalised in Lean 4, apart from a cited inequality of Ramanujan. This work is a human-AI collaboration: AI tools contributed substantially to the construction, the experiments and the writing.
+
+== 2610.15784v1
+authors: Huixi Li, Zhixin Liu
+title: $6$ powers of $2$ in the Linnik--Goldbach problem
+published: 2026-10-11T17:15:48Z updated: 2026-10-11T17:15:48Z
+abstract: Linnik's approximation to Goldbach's conjecture concerns the representation of sufficiently large even integers as the sum of two primes and a bounded number of powers of two. We prove that $6$ powers of $2$ suffice unconditionally and that $5$ suffice under the GRH, improving previous works.
+
+== 2607.04157v2
+authors: Samuel Korsky
+title: Approximating $1$ by Sums of Unit Fractions
+published: 2026-07-05T07:53:02Z updated: 2026-10-08T22:24:32Z
+abstract: If a finite collection (with repetitions allowed) of unit fractions has sum larger than $K$, how close can a sum of some of them come to $1$ from below? Improving a bound of Erdős and Graham, we prove that the gap is at most $\exp(-c\sqrt{K\log K})$ for an absolute constant $c>0$ and all sufficiently large $K$. The proof combines equal fractions and applies a Fourier estimate to groups of denominators with comparable contributions. Elementary divisor counts then give the bound.
+
+== 2610.16530v1
+authors: Shirali Kadyrov, Aiken Kazin, Alibek Orynbassar, Nurdaulet Shynarbek
+title: Bounded continued fractions and quadratic orders in $\Q(\sqrt{127})$
+published: 2026-10-12T10:19:11Z updated: 2026-10-12T10:19:11Z
+abstract: We study the least periods and multiplier orders in two constructions of Mercat for continued fractions with bounded partial quotients. Our main explicit result concerns a family in $\Q(\sqrt{127})$ with partial quotients at most $4$. For every integer $j\geq1$, we prove that its primitive period has length $92j+2$ and its multiplier order has conductor $y_{4j}/4$, where $(4730624+419775\sqrt{127})^k=x_k+y_k\sqrt{127}$. The totally positive unit group of this order has index $4j$ in that of the maximal order. These exact formulas give divisor-sum lower bounds at fixed traces and a lower bound of order $(\log X)^2$ for the number of bounded continued fractions with discriminant at most $X$. We also prove a primitive-period refinement of Mercat's palindromic construction. Combining this refinement with Hensley's counting theorem gives, for every $m\geq2$ and $η>0$, at least $X^{δ_m/2-η}$ quadratic fields, up to a positive constant, that admit infinitely many purely periodic continued fractions with partial quotients at most $m$. Here $δ_m$ is the Hausdorff dimension of the corresponding continued fraction Cantor set.
+
+== 2605.04551v3
+authors: Andres Ventas
+title: A Ceiling Continued Fraction Approach to the Erdős-Straus Conjecture: Heuristic finiteness of counterexamples
+published: 2026-05-06T06:56:14Z updated: 2026-10-15T04:18:36Z
+abstract: We introduce the Ceiling Continued Fractions (FCT) framework for constructing three-term Egyptian fraction representations in the Erdős--Straus conjecture from divisors of the shifted integers \(p+i\). A probabilistic model for their arithmetic structure leads to an asymptotic upper-bound heuristic for cumulative failure. The resulting bound is summable, and the first Borel--Cantelli lemma assigns probability zero to the event that infinitely many primes survive the full FCT block. Computational tests on \(10^9\) Mordell-type primes at each of the scales \(10^{17}\), \(10^{52}\), and \(10^{131}\) found no counterexamples.
+
+== 2610.34541v1
+authors: Michael Filaseta, Alexandros Kalogirou, Jonah Klein
+title: Results for distinct covering systems with a prime minimum modulus $q \ge 11$
+published: 2026-10-25T20:03:54Z updated: 2026-10-25T20:03:54Z
+abstract: We prove that if the smallest modulus of a covering system is a prime $q \ge 11$, then the sum of the reciprocals of the moduli is at least $1+10^{-28}$. This improves on a previous more general bound of the first two authors in this particular case. We also show that it is impossible to construct a covering system using distinct multiples of $q$ as moduli. Finally, we show as a corollary that it is impossible to construct $10$ distinct covering systems with the property that no modulus is used in more than one of the covering systems.
+
+== 1309.3595v3
+authors: Youness Lamzouri, Xiannan Li, Kannan Soundararajan
+title: Conditional bounds for the least quadratic non-residue and related problems
+published: 2013-09-13T21:49:42Z updated: 2016-12-08T22:37:34Z
+abstract: This paper studies explicit and theoretical bounds for several interesting quantities in number theory, conditionally on the Generalized Riemann Hypothesis. Specifically, we improve the existing explicit bounds for the least quadratic non-residue and the least prime in an arithmetic progression. We also refine the classical conditional bounds of Littlewood for $L$-functions at $s=1$. In particular, we derive explicit upper and lower bounds for $L(1,χ)$ and $ζ(1+it)$, and deduce explicit bounds for the class number of imaginary quadratic fields. Finally, we improve the best known theoretical bounds for the least quadratic non-residue, and more generally, the least $k$-th power non-residue.
+
+== 2307.02749v3
+authors: Summer Haag, Clyde Kertzer, James Rickards, Katherine E. Stange
+title: The local-global conjecture for Apollonian circle packings is false
+published: 2023-07-06T03:18:40Z updated: 2024-09-05T18:18:56Z
+journal_ref: Annals of Mathematics, Vol. 200, No. 2, pp. 749-770 (September 2024)
+doi: 10.4007/annals.2024.200.2.6
+abstract: In a primitive integral Apollonian circle packing, the curvatures that appear must fall into one of six or eight residue classes modulo 24. The local-global conjecture states that every sufficiently large integer in one of these residue classes will appear as a curvature in the packing. We prove that this conjecture is false for many packings, by proving that certain quadratic and quartic families are missed. The new obstructions are a property of the thin Apollonian group (and not its Zariski closure), and are a result of quadratic and quartic reciprocity, reminiscent of a Brauer-Manin obstruction. Based on computational evidence, we formulate a new conjecture.
+
+== 2605.20579v1
+authors: Will Sawin
+title: An explicit lower bound for the unit distance problem
+published: 2026-05-20T00:37:35Z updated: 2026-05-20T00:37:35Z
+abstract: We show that there are sets of $n$ points in the plane with $n$ arbitrarily large that contain more than $n^{1.014}$ pairs of points separated by a distance exactly $1$. This improves on very recent work of a team at OpenAI, who proved the same result with an inexplicit exponent greater than $1$, drastically improving on the best previous lower bound and disproving a conjecture of Erdős. The method is number-theoretic, relying on constructing algebraic number fields of large degree and small discriminant with many primes of small norm via a Golod-Shafarevich criterion argument.
+
+== 2608.24035v1
+authors: Benjamin Dahan
+title: Sieve dimension and search depth for the Erdős-Straus conjecture, $n \equiv 1 \pmod{24}$
+published: 2026-08-25T03:47:55Z updated: 2026-08-25T03:47:55Z
+abstract: For primes $n\equiv1\pmod{24}$ we study how deep an explicit, factorization-free search for a decomposition of $4/n$ into three unit fractions has to go. Write $E_2(N;J)$ for the set of such primes $n\le N$ at which no witness of depth at most $J$ exists, in the sense of the two-parameter criterion of Theorem 3.9 with coprime parameters $u,a\le J$. We prove that for every fixed $J$ $$|E_2(N;J)| \ll_J \frac{N}{(\log N)^{1+\mathfrak{A}(J)/2}},$$ the exponent being the exact dimension of the covering on which the proof rests. The proof replaces the subgroup generated by the prime factors, an approach that breaks down as soon as $(\mathbb{Z}/4m)^{\times}$ has exponent greater than $2$, by a fixed-point-free involution, and is unconditional at every $J$. Second, we exhibit an unconditional obstruction. At the shift $c=7$ there are $\asymp N(\log N)^{-3/2}$ primes $n\le N$, $n\equiv1\pmod{24}$, at which both branches of the divisor criterion fail. The representation of $K_7=(n+7)/4$ by the principal form of discriminant $-7$ has to be primitive, so that the relevant input is the primitive-representation theorem of Fuchs, Hsu, Rickards, Schindler and Stange [25] rather than the classical results of Iwaniec; a fixed shift therefore cannot leave a finite residual set. Third, a factorization-free procedure decides the conjecture for all primes of an interval $[N,2N]$. Its Type II pass costs $\mathcal{O}(N(\log N)^{3})$ while its Type I pass costs $Θ(N^{2})$, which locates the whole quadratic cost in the extraction of the divisors of $4u^{2}d+1$ and exhibits an asymmetry between the two halves of the Type I/Type II dichotomy. The conjecture itself remains open.
+
+== 2607.15419v1
+authors: Will Sawin
+title: Sets of unit fractions without two members whose average is a unit fraction
+published: 2026-07-16T19:44:56Z updated: 2026-07-16T19:44:56Z
+abstract: We show that there is a constant $c>0$ such that, for all sufficiently large $N$, there is a subset $A \subseteq \{1,\dots,N\}$ of size $>cN$ such that for any two distinct elements $a,b$ in $A$, the average of $\frac{1}{a}$ and $\frac{1}{b}$ is not a unit fraction, negatively answering a question of Erdős and Graham. This also gives the best known lower bounds on the maximum size of a set of unit fractions without non-trivial three-term arithmetic progressions.
+
+== 2512.22083v2
+authors: Wouter van Doorn, Quanyu Tang
+title: The smallest denominator not contained in a unit fraction decomposition of $1$ with fixed length
+published: 2025-12-26T17:04:42Z updated: 2026-05-24T17:02:10Z
+journal_ref: Math. Proc. Cambridge Philos. Soc., published online (2026), 1--9
+doi: 10.1017/S0305004126102102
+abstract: Let $v(k)$ be the smallest integer larger than $1$ that does not occur among the denominators in any identity of the form $$ 1=\frac1{n_1}+\cdots+\frac1{n_k}, $$ where $1 \le n_1<\cdots<n_k$ are pairwise distinct integers. In their 1980 monograph, Erdős and Graham asked for quantitative estimates on the growth of $v(k)$ and suggested the lower bound $v(k)\gg k!$. In this paper we give the first known improvement and show that there exists an absolute constant $c>0$ such that the inequality $$ v(k)\ge e^{c k^2} $$ holds for all positive integers $k$.
+
+== 2106.00544v9
+authors: N. A. Carella
+title: Upper Bound of the Least Quadratic Nonresidues
+published: 2021-05-28T18:36:01Z updated: 2025-10-09T16:08:55Z
+abstract: Let $p\geq3$ be a large prime and let $n(p)\geq2$ denotes the least quadratic nonresidue modulo $p$. This note sharpens the standard upper bound of the least quadratic nonresidue from the unconditional upper bound $n(p)\ll p^{1/4\sqrt{e}+\varepsilon}$ to the conjectured upper bound $n(p)\ll (\log p)^{1+\varepsilon}$, where $\varepsilon>0$ is a small number, unconditionally. This improvement breaks the exponential upper bound barrier.
+
+== 2510.21702v2
+authors: Hanqi Shi, Wenyuan Shi, Ian Whitehead, Ham Williams-Tracy, Jeffrey Zhirui Zhang
+title: The Local-Global Conjecture is False for Generalized Circle Packings
+published: 2025-10-24T17:59:00Z updated: 2026-03-25T22:21:44Z
+abstract: Haag, Kertzer, Rickards, and Stange disprove the Local-Global Conjecture for Apollonian circle packings. We extend their disproof to four more types of integral circle packing: the octahedral, cubic, square, and triangular packings. In each case, we find quadratic invariants which imply quadratic reciprocity obstructions to the conjecture in certain packings. We utilize an explicit parametrization of circles tangent to a fixed circle in each packing type, and a quadratic reciprocity argument. Even in the packings where we do not find quadratic obstructions, the curvatures exhibit a predictable reciprocity structure. This leads to partial obstructions on integers appearing as curvatures in subsets of the packing.
+
+== 2401.01860v3
+authors: James Rickards, Katherine E. Stange
+title: Reciprocity obstructions in semigroup orbits in SL(2, Z)
+published: 2024-01-03T18:07:44Z updated: 2025-01-23T19:00:29Z
+journal_ref: Duke Math. J. 174(15): 3197-3244 (15 October 2025)
+doi: 10.1215/00127094-2025-0017
+abstract: We study orbits of semigroups of $\text{SL}(2,\mathbb{Z})$, and demonstrate reciprocity obstructions: we show that certain such orbits avoid squares, but not as a consequence of obstructions inherited from an algebraic set, and not as a consequence of congruence obstructions. This is in analogy to the reciprocity obstructions recently used to disprove the Apollonian local-global conjecture. We give an example of such an orbit which is known exactly, and misses all squares together with an explicit finite list of sporadic values: the corresponding semigroup is not thin, but is dense in an algebraic variety that does not have such obstructions. We also demonstrate thin semigroups with reciprocity obstructions, including semigroups associated to continued fractions formed from finite alphabets. Zaremba's conjecture states that for continued fractions with coefficients chosen from $\{1,\ldots,5\}$, every positive integer appears as a denominator. Bourgain and Kontorovich proposed a generalization of Zaremba's conjecture in the context of semigroups associated to finite alphabets. We disprove their conjecture. In particular, we demonstrate classes of finite continued fraction expansions which never represent rationals with square denominator, but not as a consequence of congruence obstructions, and for which the limit set has Hausdorff dimension exceeding $1/2$. An example of such a class is continued fractions of the form $[0; a_1, a_2, \ldots, a_n,1,1,2]$, where the $a_i$ are chosen from the set $\{4,8,12,\ldots,128\}$. The object at the heart of these results is a semigroup $Ψ\subseteqΓ_1(4)$ which preserves Kronecker symbols.
+
+== 2603.04096v3
+authors: Nathaniel Kingsbury-Neuschotz
+title: Strong Approximation for the Relative Character Variety of the Four-Times Punctured Sphere
+published: 2026-03-04T14:06:43Z updated: 2026-07-29T05:53:49Z
+abstract: We study the orbits of solutions to the Markoff-type equation $$X^2 + Y^2 + Z^2 = XYZ + AX + BY + CZ + D$$ in $\mathbb{F}_p,$ for fixed integers $A, B, C, D,$ under the symmetry group $Γ$ generated by \[\begin{split}&V_1: (x, y, z)\mapsto (A + yz - x, y, z),\\ &V_2: (x, y, z)\mapsto (x, B + xz - y, z),\text{ and}\\ &V_3: (x, y, z)\mapsto (x, y, C + xy - z).\end{split}\] This equation defines the Relative Character Variety of the Four-Times Punctured Sphere, with $Γ$ arising from the Pure Mapping Class Group. Outside an explicit degeneracy locus, $Γ$ acts transitively on the bulk of solutions mod $p$ for density-one of primes, the remainder splitting into several small orbits reflecting finite orbits over $\mathbb{C}$. For the ``degenerate'' parameters, we show there are either two large orbits (most degenerate parameters) or four (the rest, excluding $(0, 0, 0, 4)$) for a density-one set of primes. These results are especially interesting for two subfamilies. The first, $$X^2 + Y^2 + Z^2 = XYZ + k,\,\,\,k\neq 4,$$ arises in the combinatorial group theory of $\text{SL}_2(\mathbb{F}_p)$; we very nearly prove the $Q$-classification conjecture of McCullough and Wanderley for density-one of primes. By work of Martin, this conjecture implies their Classification and $T$-Classification Conjectures. The second, $$x_1^2 + x_2^2 + x_3^2 + a_1x_2x_3 + a_2x_1x_3 + a_3x_1x_2 = (3+a_1+a_2+a_3)x_1x_2x_3,$$ arises from generalized cluster algebras. Our degeneracy notion specializes to that of de Courcy-Ireland, Litman, and Mizuno. For all nondegenerate and some degenerate surfaces in this subfamily, their results imply our orbit count (1, 2, or 4) holds for all sufficiently large primes.
+
+== 2404.16450v3
+authors: Cédric Pilatte
+title: Unconditional correctness of recent quantum algorithms for factoring and computing discrete logarithms
+published: 2024-04-25T09:30:19Z updated: 2026-08-24T18:17:43Z
+journal_ref: Forum of Mathematics, Pi 14 (2026) e5
+doi: 10.1017/fmp.2025.10023
+abstract: In 1994, Shor introduced his famous quantum algorithm to factor integers and compute discrete logarithms in polynomial time. In 2023, Regev proposed a multi-dimensional version of Shor's algorithm that requires far fewer quantum gates. His algorithm relies on a number-theoretic conjecture on the elements in $(\mathbb{Z}/N\mathbb{Z})^{\times}$ that can be written as short products of very small prime numbers. We prove a version of this conjecture using tools from analytic number theory such as zero-density estimates. As a result, we obtain an unconditional proof of correctness of this improved quantum algorithm and of subsequent variants.
+
+== 2410.04189v3
+authors: Ben Green, Mehtaab Sawhney
+title: Primes of the form $p^2 + nq^2$
+published: 2024-10-05T15:08:03Z updated: 2026-06-06T20:17:08Z
+abstract: Suppose that $n$ is $0$ or $4$ modulo $6$. We show that there are infinitely many primes of the form $p^2 + nq^2$ with both $p$ and $q$ prime, and obtain an asymptotic for their number. In particular, when $n = 4$ we verify the `Gaussian primes conjecture' of Friedlander and Iwaniec. We study the problem using the method of Type I/II sums in the number field $\mathbf{Q}(\sqrt{-n})$. The main innovation is in the treatment of the Type II sums, where we make heavy use of two recent developments in the theory of Gowers norms in additive combinatorics: quantitative versions of so-called concatenation theorems, due to Kuca and to Kuca--Kravitz-Leng, and the quasipolynomial inverse theorem of Leng, Sah and the second author.
+
+== 2607.03662v1
+authors: Yuchen Ding, Huixi Li, Junfeng Li
+title: A Romanoff-type theorem for $P_2$+{$a^a$: a$\ge$ 1}
+published: 2026-07-04T02:31:00Z updated: 2026-07-04T02:31:00Z
+abstract: Let $Ω(n)$ denote the number of prime factors of $n$, counted with multiplicity, and put $P_2$={$m$ $\ge$ 1:$Ω(m)$ $\le$ 2}. We prove that the sumset $P_2$+{$a^a$: a$\ge$ 1} has positive lower density. The proof uses the Romanoff second moment method, in the spirit of Li and Pan's theorem on $P_2$+$2^{\mathcal P}$. The main new ingredient is the following average estimate for the singular factor \[ \frac{1}{K(K-1)} \sum_{\substack{1\le a,b\le K\\a\ne b}} \prod_{p\mid a^a-b^b}\left(1+\fracκ{p}\right) \le C_κ\] for some constant $C_κ>0$, which is valid for all $K \ge 2$ and any fixed $κ>0$. This estimate controls the average arithmetic correlation among the shifts $a^a$ and allows the Romanoff argument to be carried out.
+
+== 2609.09204v2
+authors: Xinyang Jiang
+title: Counting Type I and Type II solutions of the Erdos-Straus equation: concentration, local obstructions, and a pointwise comparison
+published: 2026-09-05T14:14:34Z updated: 2026-09-13T08:15:23Z
+abstract: For a prime p >= 5 let f_I(p) and f_II(p) count the Type I and Type II solutions of the Erdos-Straus equation 4/p = 1/x + 1/y + 1/z, in the sense of Elsholtz and Tao. We do not address the Erdos-Straus conjecture itself; our subject is the number of solutions. We turn a bijection of Bradford into an exact counting identity: f_I(p) and f_II(p) are sums, over the denominators n coprime to p, of the number of divisors of n^2 in a single residue class modulo e_n = 4n - p. A dual identity puts both counts on the same integer and the same modulus, distinguished only by the classes -p and -1. Our main unconditional result holds for every numerator m: the number of Type II solutions of m/p = 1/x + 1/(pY) + 1/(pZ) with Y <= K is at most sum_{n <= K} tau(n) = K log K + O(K), uniformly in p and m; on average over p <= N it is only O_m((log K)^3 log log K). Hence Type II solutions concentrate at x/p -> 1/m, while Type I solutions cannot. The numerator carries arithmetic information in two independent ways. A real character chi modulo e_n that is trivial on the primes dividing n annihilates Type II when chi(-1) = -1, and Type I when chi(-1)chi(m_0) = -1, where m_0 is the squarefree kernel of m; these coincide exactly when m is a square, so for the numerator 4 no criterion modulo squares can separate the two types. Separately, f_I(n) = f_II(n) = 0 for every odd perfect square n whenever 4 divides m, generalising a theorem of Elsholtz and Tao. Finally we prove the sharp local inequality 2B(n) >= A(n) for e_n in {1,3,5}, with a construction showing it fails for every odd e with 7 <= e <= 2*10^4; we conjecture f_I(p) > f_II(p) for all p > 5 with p not congruent to 1 mod 8, verify this for p <= 10^6, and reduce it to a finite window. We also locate exactly the factor log log N in the Elsholtz-Tao upper bound for the sum of f_I(p).
+
+== 2607.28387v2
+authors: Vjekoslav Kovač, Quanyu Tang
+title: Eventually greedy best Egyptian underapproximations of rational numbers via optimal control
+published: 2026-07-30T15:43:43Z updated: 2026-08-04T17:26:33Z
+abstract: We prove that every positive rational number has eventually greedy best Egyptian underapproximations, both when repetitions of the denominators are allowed and when the denominators are required to be distinct. This answers affirmatively a problem originating with Erdős and Graham and later revisited by Nathanson, and yields an application concerning the maximal asymptotic growth of denominators in unit fraction series converging to a given rational number. We reformulate the question as an optimal control problem for a dynamical system, construct an appropriate payoff function, and study properties of the associated Bellman function. We also answer another question of Nathanson by constructing an irrational number with unique and greedy best Egyptian underapproximations.
+
+== 2308.07579v1
+authors: Jillian Eddy, Elena Fuchs, Matthew Litman, Daniel Martin, Nico Tripeny
+title: Connectivity of Markoff mod-p graphs and maximal divisors
+published: 2023-08-15T05:34:46Z updated: 2023-08-15T05:34:46Z
+abstract: Markoff mod-$p$ graphs are conjectured to be connected for all primes $p$. In this paper, we use results of Chen and Bourgain, Gamburd, and Sarnak to confirm the conjecture for all $p > 3.448\cdot10^{392}$. We also provide a method that quickly verifies connectivity for many primes below this bound. In our study of Markoff mod-$p$ graphs we introduce the notion of \emph{maximal divisors} of a number. We prove sharp asymptotic and explicit upper bounds on the number of maximal divisors, which ultimately improves the Markoff graph $p$-bound by roughly 140 orders of magnitude as compared with an approach using all divisors.
+
+== 1703.06673v1
+authors: Marc Munsch
+title: On the minimal number of small elements generating prime field
+published: 2017-03-20T11:05:53Z updated: 2017-03-20T11:05:53Z
+abstract: In this note, we give an upper bound for the number of elements from the interval $[1,p^{1/4e^{1/2}+ε}]$ necessary to generate the finite field $\mathbb{F}_{p}$ with $p$ an odd prime.
+
+== 2509.02187v3
+authors: Matthew de Courcy-Ireland, Matthew Litman, Yuma Mizuno
+title: Divisibility by $p$ for Markoff-like Surfaces
+published: 2025-09-02T10:51:18Z updated: 2026-06-05T09:16:52Z
+abstract: We study orbits in a family of Markoff-like surfaces with extra off-diagonal terms over prime fields $\mathbb{F}_p$. It is shown that, for a typical surface of this form, every non-trivial orbit has size divisible by $p$. This extends a theorem of W.Y. Chen from the Markoff surface itself to others in this family. The proof closely follows and elaborates on a recent argument of D.E. Martin. We expect that there is just one orbit generically. For some special parameters, we prove that there are at least two or four orbits. Cayley's cubic surface plays a role in parametrising the exceptional cases and dictating the number of solutions mod $p$.
+
+== 2512.21963v1
+authors: Shohei Satake, Yoshinori Yamasaki
+title: Topological properties of generalized Markoff mod $p$ graphs
+published: 2025-12-26T10:18:41Z updated: 2025-12-26T10:18:41Z
+abstract: The generalized Markoff mod $p$ graph is defined via the equation $x^2+y^2+z^2=xyz+κ$ over the finite field $\mathbb{F}_p$ of prime order $p$. In this paper, we investigate the topological properties of the graph such as non-planarity, surface embeddability, and the existence of short cycles. Our approach is based on a systematic construction of $K_{3,3}$-subdivisions, integrating techniques from graph theory, computer algebra, and number theory.
+
+== 2512.13139v1
+authors: Will Hide, Bram Petri, Anna Roig-Sanchis, Joe Thomas
+title: Apollonian random manifolds and their bass notes
+published: 2025-12-15T09:47:39Z updated: 2025-12-15T09:47:39Z
+abstract: We study the spectrum of the Laplacian on two models of random hyperbolic 3-orbifolds, related to the Apollonian group and the super Apollonian group. We determine explicit spectral gaps for these random orbifolds. Moreover, we use our model to investigate the bass note spectrum of the set of hyperbolic 3-orbifolds.
+
+== 2605.18644v1
+authors: Joshua Harrington, Jonah Klein, Joshua Lowrance, Ognian Trifonov
+title: Covering systems where the prime divisors of all moduli are only $2$, $3$, or $5$
+published: 2026-05-18T16:51:26Z updated: 2026-05-18T16:51:26Z
+abstract: We try to find all quadruples of positive integers $(m,a,b,c)$ with $a \geq b \geq c$ such that there exists a distinct covering system with minimum modulus $m$ and least common multiple of the moduli $2^a 3^b 5^c$. We obtain complete description of all such quadruples when $m=2,3,4,5$, or $6$, except when $m=6$ and $b=c=1$. We also show that if the LCM of the moduli has only $2$, $3$, or $5$ as prime divisors, then $m \leq 9$ and construct a distinct covering system with $m=8$, $a=8$, $b=3$, and $c=2$. When a covering system exists for a quadruple $(m,a,b,c)$ we provide an example. Nonexistence of covering systems is established via integer programming or by using a new estimate on the density of a set covered by a system of congruences.
+
+== 2503.05396v1
+authors: Jori Merikoski
+title: On primes represented by $aX^2+bY^3$
+published: 2025-03-07T13:16:29Z updated: 2025-03-07T13:16:29Z
+abstract: Let $a,b>0$ be coprime integers. Assuming a conjecture on Hecke eigenvalues along binary cubic forms, we prove an asymptotic formula for the number of primes of the form $ax^2+by^3$ with $x \leq X^{1/2}$ and $y \leq X^{1/3}$. The proof combines sieve methods with the theory of real quadratic fields/indefinite binary quadratic forms, the Weil bound for exponential sums, and spectral methods of GL(2) automorphic forms. We also discuss applications to elliptic curves.
+
+== 2502.15960v1
+authors: Daniel E. Martin
+title: A new proof of Chen's theorem for Markoff graphs
+published: 2025-02-21T21:44:36Z updated: 2025-02-21T21:44:36Z
+abstract: In 2021, Chen proved a congruence for the degree of a certain map on the space of covers of elliptic curves. He concluded as a corollary that the size of any connected component of the Markoff mod $p$ graph is divisible by $p$. In combination with the work of Bourgain, Gamburd, and Sarnak, Chen's result proves a conjecture of Baragar for all but finitely many primes: the Markoff mod $p$ graph is connected. In this note, we provide an alternative proof for the Markoff corollary of Chen's theorem.
+
+== 2601.05790v2
+authors: Margarete Ketelsen, Philip Dittmann
+title: Composition Ax-Kochen/Ershov principles and tame fields of mixed characteristic
+published: 2026-01-09T13:35:11Z updated: 2026-01-15T14:31:28Z
+abstract: We study in which settings we have a composition AKE principle, i.e. when the theory of the coarsening $(K,w)$ and the theory of the induced valuation $(Kw,\overline{v})$ determine the theory of the composition $(K,v)$. We show that this is the case when $(K,w)$ is tame of equal characteristic, and provide counterexamples in mixed characteristic. We further show that, for a tame field of mixed characteristic, the theory of the valued field cannot, in general, be determined solely by the theories of its underlying field, its residue field, and its value group.
+
+== 2608.03097v1
+authors: Bogdan Nica
+title: Counting in Vieta graphs over $\mathbb{F}_p$
+published: 2026-08-04T04:14:05Z updated: 2026-08-04T04:14:05Z
+abstract: We introduce and study a finite simple graph of algebraic origin: the Vieta graph on the solution set over $\mathbb{F}_p$ to a symmetric, multivariate equation which is quadratic in each variable. This construction is a broad generalization of the Markoff graph over $\mathbb{F}_p$, extensively studied in the recent literature. We give a systematic approach, partly based on quadratic character sums, to the following basic counting questions: how many vertices does a Vieta graph have, and what is the degree distribution? We focus on explicit counts, addressing the low-dimensional cases in three and four variables.
+
+== 2609.07913v1
+authors: Miguel A. Mini, Flávio K. Miyazawa, Gabriel M. Silva, Yoshiko Wakabayashi
+title: Improved Upper Bounds for Dynamic Bin Packing of General, Unit-Fraction, and Power-Fraction Squares
+published: 2026-09-07T19:26:29Z updated: 2026-09-07T19:26:29Z
+abstract: This paper presents significant upper-bound improvements for dynamic 2D square bin packing, where square items arrive and depart over time and the objective is to minimize the peak number of concurrent active unit bins. In our model, repacking is permitted only within a destination bin upon item arrival; migration between active bins is strictly forbidden. By introducing a streamlined two-list algorithm and proving a tight $5/16$ occupied-area bound for Next-Fit Decreasing Height, we reduce the upper bound on the asymptotic competitive ratio for arbitrary squares from 4.2154 down to 3.918, breaking a longstanding theoretical ceiling. For restricted variants, we establish asymptotic competitive ratios of at most 3.356 for unit-fraction side lengths and 2.211 for power-fraction side lengths.
+
+== 2609.12177v1
+authors: Sneha Chaubey, Anwesh Ray
+title: Local-global principles for visibility of lattice points on parameterized curves
+published: 2026-09-10T20:13:11Z updated: 2026-09-10T20:13:11Z
+abstract: We develop a local-global theory for visibility of lattice points on families of parameterized curves. We introduce a notion of $p$-adic visibility and ask whether a lattice point is globally visible precisely when it is visible at every prime. We prove that this local-global principle holds for a broad class of families whose parametrizations are homogeneous with respect to positive weights. When the points on these curves fill the entire positive integer lattice, we compute the local and global densities of visible points and show that the global density is the product of the local densities. We then consider polynomial families of the form $y=qP(x)$, with $q\in\mathbb{Q}_{>0}$, and show that visibility can be detected prime by prime exactly when $P$ is a monomial. For non-monomial polynomials the local-global principle can fail, but the set of points where it fails has density zero; for separable polynomials we also obtain a quantitative bound for the number of non-visible points, improving the previously known bound. We further consider families whose lattice points lie on a proper lower-dimensional algebraic subset of the ambient space and show that their visibility densities can behave differently from those of the full lattice. Finally, we extend the theory from visibility from the origin to visibility from one lattice point to another and show that the corresponding local-global principle continues to hold for weighted homogeneous families.
+
+== 2608.07880v2
+authors: Jie Ma, Mengxi Yang, Zichen Yang
+title: Sharp vertex connectivity of the Markoff graphs modulo $p$
+published: 2026-08-08T03:14:17Z updated: 2026-09-03T08:53:13Z
+abstract: For a prime $p$ and $k\in\mathbb{F}_p$, the generalized Markoff graph $G_{p,k}$ is an undirected graph whose vertices are the solutions over the finite field $\mathbb{F}_p$ of the normalized Markoff equation \[ x_1^2+x_2^2+x_3^2=x_1x_2x_3+k, \] where two vertices are adjacent if they differ by a Vieta involution. The Markoff graph $G_p$ is obtained from $G_{p,0}$ by removing the origin. The structure of $G_p$ has been the subject of extensive study; in particular, a major breakthrough of Bourgain, Gamburd, and Sarnak established that $G_p$ contains a giant connected component. Combined with Chen's remarkable divisibility theorem, this implies that $G_p$ is connected for all sufficiently large primes $p$. In the same paper, Bourgain, Gamburd, and Sarnak further asked whether the family $\{G_p\colon \text{primes }p\geq 5\}$ forms an expander family. This motivates us to investigate the robustness of connectivity in the Markoff graphs. The main result of this paper is proved in the general setting: for every prime $p\geq5$ and every $k\in\mathbb{F}_p\setminus\{4\}$, each connected component $C$ of $G_{p,k}$ with $|V(C)|\geq 3$ is $2$-connected. Reducing to the case $k=0$, we conclude that if the Markoff graph $G_p$ is connected, then it is in fact $2$-connected. Consequently, the Markoff graph $G_p$ is $2$-connected for all sufficiently large primes $p$. This is sharp in the sense that $G_p$ is not $3$-connected for any prime $p\geq 7$.
+
+== 2401.00630v3
+authors: Colby Austin Brown
+title: An almost linear time algorithm testing whether the Markoff graph modulo $p$ is connected
+published: 2024-01-01T01:54:01Z updated: 2024-01-26T04:26:34Z
+abstract: The Markoff graph modulo $p$ is known to be connected for all but finitely many primes $p$ (see Eddy, Fuchs, Litman, Martin, Tripeny, and Vanyo [arxiv:2308.07579]), and it is conjectured that these graphs are connected for all primes. In this paper, we provide an algorithmic realization of the process introduced by Bourgain, Gamburd, and Sarnak [arxiv:1607.01530] to test whether the Markoff graph modulo $p$ is connected for arbitrary primes. Our algorithm runs in $o(p^{1 + ε})$ time for every $ε> 0$. We demonstrate this algorithm by confirming that the Markoff graph modulo $p$ is connected for all primes less than one million.
+
+== 2605.20695v1
+authors: Noga Alon, Thomas F. Bloom, W. T. Gowers, Daniel Litt, Will Sawin, Arul Shankar, Jacob Tsimerman, Victor Wang, Melanie Matchett Wood
+title: Remarks on the disproof of the unit distance conjecture
+published: 2026-05-20T04:46:35Z updated: 2026-05-20T04:46:35Z
+abstract: We present a short, digested, human-verified version of the recent OpenAI-generated counterexample to the Erdős unit distance conjecture, and a sequence of reflections on it. The argument relies crucially on ideas that may, at least in retrospect, be attributed to Ellenberg-Venkatesh, Golod-Shafarevich, and Hajir-Maire-Ramakrishna.
+
+== 2404.07113v1
+authors: Yang P. Liu, Mehtaab Sawhney
+title: On further questions regarding unit fractions
+published: 2024-04-10T15:51:58Z updated: 2024-04-10T15:51:58Z
+abstract: We prove that a subset $A\subseteq [1, N]$ with \[\sum_{n\in A}\frac{1}{n} \ge (\log N)^{4/5 + o(1)}\] contains a subset $B$ such that \[\sum_{n\in B} \frac{1}{n} = 1.\] Our techniques refine those of Croot and of Bloom. Using our refinements, we additionally consider a number of questions regarding unit fractions due to Erdős and Graham.
+
+== 2410.05030v1
+authors: Jonathon Hales
+title: Divisors in Residue Classes Revisited
+published: 2024-10-07T13:29:15Z updated: 2024-10-07T13:29:15Z
+abstract: In 1984, H. W. Lenstra described an algorithm finding divisors of $N$ congruent to $r \mod S$. When $S^3 > N$, this algorithm runs in polynomial time and hence factors $N$ in time $N^{1/3+o(1)}$. Lenstra's algorithm relies on a sign change in a constructed sequence and so cannot be adapted directly to larger euclidean number rings. We present a new method that generalizes to a larger class of euclidean rings and the polynomial ring $\mathbb{Z}[x]$. The algorithm is implemented and timed confirming its polynomial run time.
+
+== 2305.02689v1
+authors: Thomas F. Bloom
+title: Unit fractions with shifted prime denominators
+published: 2023-05-04T10:06:34Z updated: 2023-05-04T10:06:34Z
+journal_ref: Proceedings of the Royal Society of Edinburgh: Section A Mathematics 155 (2025) 2285-2295
+doi: 10.1017/prm.2024.42
+abstract: We prove that any positive rational number is the sum of distinct unit fractions with denominators in $\{p-1 : p\textrm{ prime}\}$. The same conclusion holds for the set $\{p-h : p\textrm{ prime}\}$ for any $h\in\mathbb{Z}\backslash\{0\}$, provided a necessary congruence condition is satisfied. We also prove that this is true for any subset of the primes of relative positive density, provided a necessary congruence condition is satisfied.
+
+== 2605.23601v2
+authors: Xiaoping Xu
+title: Congruence Classes of Supporting the Erdös-Straus Conjecture I: Tame Solutions
+published: 2026-05-22T13:11:06Z updated: 2026-09-19T12:57:52Z
+abstract: In 1948, Erdös and Straus formulated a conjecture : for any positive integer $n>2$, there exist positive integers $n_1,n_2$ and $n_3$ such that \begin{equation}\frac{4}{n}=\frac{1}{n_1}+\frac{1}{n_2}+\frac{1}{n_3},\nonumber\end{equation} which is still open. It is known that one only needs to prove the conjecture for any prime number $n$ such that $n\equiv 1\;(\mbox{mod}\;24)$. If $n=24m+1$ and $n_1\leq n_2,n_3$, then $n_1=6m+k$ with $1\leq k\leq 12m$. A solution $(n_1,n_2,n_3)$ of the above equation is called a {\it tame solution} if $n_2$ and $n_3$ are factors of $(6m+k)(24m+1)$. We call $n=24m+1$ {\it wild} if it does not have any tame solution. In this paper, we derive twenty-eight families of tame solutions of the above equation. Numeric test shows that they cover all the tame primes.
+
+== 2609.29250v1
+authors: Xiaoping Xu
+title: Congruence Classes of Supporting the Erdös-Straus Conjecture II: Wild Solutions
+published: 2026-09-24T08:55:09Z updated: 2026-09-24T08:55:09Z
+abstract: In 1948, Erdös and Straus formulated a conjecture : for any positive integer $n>2$, there exist positive integers $n_1,n_2$ and $n_3$ such that \begin{equation}\frac{4}{n}=\frac{1}{n_1}+\frac{1}{n_2}+\frac{1}{n_3},\nonumber\end{equation} which is still open. It is known that the conjecture holds if one can prove it for any prime $n\equiv 1\;(\mbox{mod}\;24)$. If $n=24m+1$ and $n_1\leq n_2,n_3$, then $n_1=6m+k$ with $1\leq k\leq 12m$. A solution $(n_1,n_2,n_3)$ of the above equation is called a {\it tame solution} if $n_2$ and $n_3$ are factors of $(6m+k)(24m+1)$. We call $n=24m+1$ {\it wild} if it does not have any tame solution. Based on the information in our earlier work on tame solutions posed in arXiv, Howerton found that there are only fourteen wild primes of the form $n=24m+1\leq 2.4\times 10^{11}$. In this paper, we derive thirty-four families of wild solutions of the above equation, which contain the solvability of the fourteen wild primes. Together with our earlier tame polynomial solutions, numeric test shows that they cover all the primes of the form $24m+1$.
+
+== 2204.13472v2
+authors: H. Uppal
+title: Integral points on symmetric affine cubic surfaces
+published: 2022-04-28T13:07:00Z updated: 2023-07-12T18:20:18Z
+doi: 10.1007/s00229-023-01498-z
+abstract: We show that if $f(u)\in \mathbb{Z}[u]$ is a monic cubic polynomial, then for all but finitely many $n\in \mathbb{Z}$ the affine cubic surface $f(u_{1})+f(u_{2})+f(u_{3})=n \subset \mathbb{A}^{3}_{\mathbb{Z}}$ has no integral Brauer-Manin obstruction to the Hasse principle.
+
+== 1107.3776v2
+authors: Jean Bourgain, Alex Kontorovich
+title: On Zaremba's Conjecture
+published: 2011-07-19T17:01:19Z updated: 2013-07-12T18:17:28Z
+abstract: Zaremba's 1971 conjecture predicts that every integer appears as the denominator of a finite continued fraction whose partial quotients are bounded by an absolute constant. We confirm this conjecture for a set of density one.
+
+== 2404.16016v2
+authors: David Conlon, Jacob Fox, Xiaoyu He, Dhruv Mubayi, Huy Tuan Pham, Andrew Suk, Jacques Verstraëte
+title: A question of Erdős and Graham on Egyptian fractions
+published: 2024-04-24T17:50:12Z updated: 2025-12-17T20:36:01Z
+journal_ref: Discrete Analysis 2025:28, 13 pp
+abstract: Answering a question of Erdős and Graham, we show that for each fixed positive rational number $x$ the number of ways to write $x$ as a sum of reciprocals of distinct positive integers each at most $n$ is $2^{(c_x + o(1))n}$ for an explicit constant $c_x$ increasing with $x$.
+
+== 2511.16817v2
+authors: Carl Pomerance, Andreas Weingartner
+title: Exceptions to the Erd\H os--Straus--Schinzel conjecture
+published: 2025-11-20T21:41:03Z updated: 2026-01-15T16:47:46Z
+abstract: A famous conjecture of Erd\H os and Straus is that for every integer $n\ge2$, $4/n$ can be represented as $1/x+1/y+1/z$, where $x,y,z$ are positive integers. This conjecture was generalized to $5/n$ by Sierpiński, and then Schinzel conjectured that for every integer $m\ge4$ there is a bound $n_m$ such that the fraction $m/n$ is the sum of 3 unit fractions for all integers $n\ge n_m$. Leveraging and generalizing work of Elsholtz and Tao, we show that if $n_m$ exists it must be at least $\exp(m^{1/3+o(1)})$; that is, there are numbers $n$ this large for which $m/n$ is not the sum of 3 unit fractions. We prove a weaker, but numerically explicit version of this theorem, showing that for $m\ge 6.52\times10^9$ there is a prime $p\in(m^2,2m^2)$ with $m/p$ not the sum of 3 unit fractions, and report on some extensive numerical calculations that support this assertion with the much smaller bound $m\ge20$. A result of Vaughan is that for each $m$, most $n$'s have $m/n$ representable; we make the dependence on $m$ in this result explicit. In addition, we prove a result generalizing the problem to the sum of $j$ unit fractions.
+
+== 2011.12940v2
+authors: William Chen
+title: Nonabelian level structures, Nielsen equivalence, and Markoff triples
+published: 2020-11-25T18:46:20Z updated: 2021-06-19T01:57:48Z
+abstract: In this paper we establish a congruence on the degree of the map from a component of a Hurwitz space of covers of elliptic curves to the moduli stack of elliptic curves. Combinatorially, this can be expressed as a congruence on the cardinalities of Nielsen equivalence classes of generating pairs of finite groups. Building on the work of Bourgain, Gamburd, and Sarnak, we apply this congruence to show that for all but finitely many primes $p$, the group of Markoff automorphisms acts transitively on the nonzero $\mathbb{F}_p$-points of the Markoff equation $x^2 + y^2 + z^2 - 3xyz = 0$. This yields a strong approximation property for the Markoff equation, the finiteness of congruence conditions satisfied by Markoff numbers, and the connectivity of a certain infinite family of Hurwitz spaces of $\text{SL}_2(\mathbb{F}_p)$-covers of elliptic curves. With possibly finitely many exceptions, this resolves a conjecture of Bourgain, Gamburd, and Sarnak, first posed by Baragar in 1991. Since their methods are effective, this reduces the conjecture to a finite computation.
+
+== 2112.03726v2
+authors: Thomas F. Bloom
+title: On a density conjecture about unit fractions
+published: 2021-12-07T14:30:58Z updated: 2023-10-12T10:07:53Z
+abstract: We prove that any set $A\subset \mathbb{N}$ of positive upper density contains a finite $S\subset A$ such that $\sum_{n\in S}\frac{1}{n}=1$, answering a question of Erdős and Graham.
+
+== 2505.10245v1
+authors: Ulrich Derenthal, Florian Wilsch
+title: Iitaka fibrations and integral points: a family of arbitrarily polarized spherical threefolds
+published: 2025-05-15T12:59:33Z updated: 2025-05-15T12:59:33Z
+abstract: Studying Manin's program for a family of spherical log Fano threefolds, we determine the asymptotic number of integral points whose height associated with an arbitrary ample line bundle is bounded. This confirms a recent conjecture by Santens and sheds new light on the logarithmic analogue of Iitaka fibrations, which have not yet been adequately formulated.
+
+== 2509.00128v1
+authors: Spiridon Mihnea, Dumitru C. Bogdan
+title: Further verification and empirical evidence for the Erdős-Straus conjecture
+published: 2025-08-29T11:38:51Z updated: 2025-08-29T11:38:51Z
+abstract: We provide empirical evidence for the Erdős-Straus conjecture by improving computational bounds to $10^{18}$ and by evaluating the solution-counting function $f(p)$ for this conjecture.
+
+== 2602.05768v2
+authors: Jie Ma, Quanyu Tang
+title: An Erdős problem on random subset sums in finite abelian groups
+published: 2026-02-05T15:31:19Z updated: 2026-03-19T16:16:38Z
+abstract: Let $f(N)$ denote the least integer $k$ such that, if $G$ is an abelian group of order $N$ and $A \subseteq G$ is a uniformly random $k$-element subset, then with probability at least $\tfrac12$ the subset-sum set $\{ \sum_{x \in S} x : S \subseteq A \}$ equals $G$. In 1965, Erdős and Rényi proved that for all $N$, $$ f(N) \le \log_2 N + \left(\frac{1}{\log 2}+o(1)\right)\log\log N. $$ Erdős later conjectured that this bound cannot be improved to $f(N)\le \log_2 N+o(\log\log N)$. In this paper we confirm this conjecture by showing that, for primes $p$, $$ f(p)\ge \log_2 p+\left(\frac{1}{2\log 2}+o(1)\right)\log\log p. $$
+
+== 2602.11774v1
+authors: Kyle Bradford
+title: A solution to the Straus-Erdős conjecture
+published: 2026-02-12T09:52:55Z updated: 2026-02-12T09:52:55Z
+abstract: This paper outlines a solution to the Straus Erdős Conjecture. Namely for each prime $p$ there exists positive integers $x \leq y \leq z$ so that $$ \frac{4}{p} = \frac{1}{x}+\frac{1}{y}+\frac{1}{z} $$
+
+== 2005.14013v1
+authors: Julian Lyczak
+title: Order 5 Brauer-Manin obstructions to the integral Hasse principle on log K3 surfaces
+published: 2020-05-28T13:59:04Z updated: 2020-05-28T13:59:04Z
+abstract: We construct families of log K3 surfaces and study the arithmetic of their members. We use this to produce explicit surfaces with an order 5 Brauer-Manin obstruction to the integral Hasse principle.
+
+== 1408.4515v2
+authors: Glyn Harman, Igor E. Shparlinski
+title: Products of Small Integers in Residue Classes and Additive Properties of Fermat Quotients
+published: 2014-08-20T03:30:31Z updated: 2015-05-23T03:08:54Z
+abstract: We show that for any $\varepsilon > 0$ and a sufficiently large cube-free $q$, any reduced residue class modulo $q$ can be represented as a product of $14$ integers from the interval $[1, q^{1/4e^{1/2} + \varepsilon}]$. The length of the interval is at the lower limit of what is possible before the Burgess bound on the smallest quadratic nonresidue is improved. We also consider several variations of this result and give applications to Fermat quotients.
+
+== 2405.14797v1
+authors: Xuan Xuan Xiao, Xin Zhang
+title: An asymptotic local-global theorem on heights of some Kleinian group orbits
+published: 2024-05-23T17:06:46Z updated: 2024-05-23T17:06:46Z
+abstract: We use circle method prove an asymptotic local-global theorem on the heights of point orbits of thin subgroups of Bianchi groups in $\mathbb H^3$.
+
+== 2312.13914v2
+authors: Tim Santens
+title: Manin's conjecture for integral points on toric varieties
+published: 2023-12-21T15:02:19Z updated: 2025-08-01T13:24:20Z
+abstract: We formulate a conjecture on the number of integral points of bounded height on log Fano varieties in analogy with Manin's conjecture on the number of rational points of bounded height on Fano varieties. We also give a prediction for the leading constant which is similar to Peyre's interpretation of the leading constant in Manin's conjecture. We give evidence for our conjecture by proving it for toric varieties. The proof is based on harmonic analysis on universal torsors.
+
+== 2211.11099v2
+authors: Elon Lindenstrauss, Amir Mohammadi, Zhiren Wang
+title: Effective equidistribution for some one parameter unipotent flows
+published: 2022-11-20T22:12:15Z updated: 2025-09-23T00:53:05Z
+abstract: We prove effective equidistribution theorems, with polynomial error rate, for orbits of the unipotent subgroups of $\operatorname{SL}_2(\mathbb R)$ in arithmetic quotients of $\operatorname{SL}_2(\mathbb C)$ and $\operatorname{SL}_2(\mathbb R)\times\operatorname{SL}_2(\mathbb R)$. The proof is based on the use of a Margulis function, tools from incidence geometry, and the spectral gap of the ambient space.
+
+== 2511.17716v2
+authors: E. Dyachenko
+title: Parametric Algorithms for the 5-Modular Analog of ES (Sierpiński): Structure of Solutions, Parameterization, and Constructive Proofs (SERP)
+published: 2025-11-21T19:12:30Z updated: 2025-11-25T16:05:13Z
+doi: 10.5281/zenodo.17067330
+abstract: We consider the problem of representing the fraction $5/P$ as a sum of three distinct unit fractions $1/A+1/B+1/C$ with $A<B<C$ and $A,B,C\in\mathbb{N}$. The case of primes $P\equiv 1 \pmod{5}$ is analyzed, where two constructive types of solutions arise: ED1 (exactly one denominator divisible by $P$, namely $C=cP$) and ED2 (exactly two denominators divisible by $P$, namely $B=bP$ and $C=cP$). Parametric constructions and enumeration algorithms are developed, including explicit transitions between ED1 and ED2. A deterministic algorithm is proposed, based on the intersection of a parametric lattice defined by pairs $(α,d')$ with bounded boxes. For each fixed prime $P\equiv 1 \pmod{5}$ the algorithm constructively produces a solution. Using analytic methods such as the Bombieri--Vinogradov theorem and the Chebotarev density theorem, it is shown that the density of admissible parameters is high, which yields polylogarithmic search complexity in the average case. A strict complexity guarantee for all primes remains conditional and depends on the finite covering hypothesis. This study extends previous work for coefficient $4$ (the Erdős--Straus conjecture) to coefficient $5$, transferring the same structure of parametrization and constructive solutions. Analytic applications provide averaging tools used for density estimates in parametric boxes.
+
+== 1508.05035v2
+authors: Paul Pollack
+title: Bounds for the first several prime character nonresidues
+published: 2015-08-20T16:34:06Z updated: 2015-08-24T02:59:32Z
+abstract: Let $\varepsilon > 0$. We prove that there are constants $m_0=m_0(\varepsilon)$ and $κ=κ(\varepsilon) > 0$ for which the following holds: For every integer $m > m_0$ and every nontrivial Dirichlet character modulo $m$, there are more than $m^κ$ primes $\ell \le m^{\frac{1}{4\sqrt{e}}+\varepsilon}$ with $χ(\ell)\notin \{0,1\}$. The proof uses the fundamental lemma of the sieve, Norton's refinement of the Burgess bounds, and a result of Tenenbaum on the distribution of smooth numbers satisfying a coprimality condition. For quadratic characters, we demonstrate a somewhat weaker lower bound on the number of primes $\ell \le m^{\frac14+ε}$ with $χ(\ell)=1$.
+
+== 2403.17370v1
+authors: Bernardo Subercaseaux, Wojciech Nawrocki, James Gallicchio, Cayden Codel, Mario Carneiro, Marijn J. H. Heule
+title: Formal Verification of the Empty Hexagon Number
+published: 2024-03-26T04:09:35Z updated: 2024-03-26T04:09:35Z
+abstract: A recent breakthrough in computer-assisted mathematics showed that every set of $30$ points in the plane in general position (i.e., without three on a common line) contains an empty convex hexagon, thus closing a line of research dating back to the 1930s. Through a combination of geometric insights and automated reasoning techniques, Heule and Scheucher constructed a CNF formula $φ_n$, with $O(n^4)$ clauses, whose unsatisfiability implies that no set of $n$ points in general position can avoid an empty convex hexagon. An unsatisfiability proof for n = 30 was then found with a SAT solver using 17300 CPU hours of parallel computation, thus implying that the empty hexagon number h(6) is equal to 30. In this paper, we formalize and verify this result in the Lean theorem prover. Our formalization covers discrete computational geometry ideas and SAT encoding techniques that have been successfully applied to similar Erdős-Szekeres-type problems. In particular, our framework provides tools to connect standard mathematical objects to propositional assignments, which represents a key step towards the formal verification of other SAT-based mathematical results. Overall, we hope that this work sets a new standard for verification when extensive computation is used for discrete geometry problems, and that it increases the trust the mathematical community has in computer-assisted proofs in this area.
+
+== 2409.10682v1
+authors: Alex Kontorovich, Xin Zhang
+title: On the Local-Global Conjecture for Combinatorial Period Lengths of Closed Billiards on the Regular Pentagon
+published: 2024-09-16T19:26:12Z updated: 2024-09-16T19:26:12Z
+abstract: We study the set of combinatorial lengths of asymmetric periodic trajectories on the regular pentagon, proving a density-one version of a conjecture of Davis-Lelievre.
+
+== 1901.08503v3
+authors: Florian Wilsch
+title: Integral points of bounded height on a log Fano threefold
+published: 2019-01-24T16:59:48Z updated: 2025-05-21T08:44:38Z
+journal_ref: Int. Math. Res. Not. IMRN 8, 6780-6808, 2023
+doi: 10.1093/imrn/rnac048
+abstract: We determine an asymptotic formula for the number of integral points of bounded height on a blow-up of $\mathbb{P}^3$ outside certain planes using universal torsors.
+
+== 2502.06055v2
+authors: Zhengyu Li, Conor Duggan, Curtis Bright, Vijay Ganesh
+title: Verified Certificates via SAT and Computer Algebra Systems for the Ramsey $R(3, 8)$ and $R(3, 9)$ Problems
+published: 2025-02-09T22:24:37Z updated: 2025-07-07T03:07:45Z
+doi: 10.24963/ijcai.2025/292
+abstract: The Ramsey problem $R(3, k)$ seeks to determine the smallest value of $n$ such that any red/blue edge coloring of the complete graph on $n$ vertices must either contain a blue triangle (3-clique) or a red clique of size $k$. Despite its significance, many previous computational results for the Ramsey $R(3, k)$ problem such as $R(3, 8)$ and $R(3, 9)$ lack formal verification. To address this issue, we use the software MathCheck to generate certificates for Ramsey problems $R(3, 8)$ and $R(3, 9)$ (and symmetrically $R(8, 3)$ and $R(9, 3)$) by integrating a Boolean satisfiability (SAT) solver with a computer algebra system (CAS). Our SAT+CAS approach significantly outperforms traditional SAT-only methods, demonstrating an improvement of several orders of magnitude in runtime. For instance, our SAT+CAS approach solves $R(3, 8)$ (resp., $R(8, 3)$) sequentially in 59 hours (resp., in 11 hours), while a SAT-only approach using state-of-the-art CaDiCaL solver times out after 7 days. Additionally, in order to be able to scale to harder Ramsey problems $R(3, 9)$ and $R(9, 3)$ we further optimized our SAT+CAS tool using a parallelized cube-and-conquer approach. Our results provide the first independently verifiable certificates for these Ramsey numbers, ensuring both correctness and completeness of the exhaustive search process of our SAT+CAS tool.
+
+== 2410.00177v3
+authors: Holley Friedlander, Elena Fuchs, Piper Harris, Catherine Hsu, James Rickards, Katherine Sanden, Damaris Schindler, Katherine E. Stange
+title: Prime and thickened prime components in Apollonian circle packings
+published: 2024-09-30T19:28:35Z updated: 2025-04-30T04:24:48Z
+abstract: Inspired by a question of Sarnak, we introduce the notion of a prime component in an Apollonian circle packing: a maximal tangency-connected subset having all prime curvatures. We also consider thickened prime components, which are augmented by all circles immediately tangent to the prime component. In both cases, we ask about the curvatures which appear. We consider the residue classes attained by the set of curvatures, the number of circles in such components, the number of distinct integers occurring as curvatures, and the number of prime components in a packing. As part of our investigation, we computed and analysed example components up to around curvature $10^{13}$; software is available.
+
+== 1911.07487v1
+authors: Nikolay G. Moshchevitin, Ilya D. Shkredov
+title: On a modular form of Zaremba's conjecture
+published: 2019-11-18T08:47:55Z updated: 2019-11-18T08:47:55Z
+abstract: We prove that for any prime $p$ there is a divisible by $p$ number $q = O(p^{30})$ such that for a certain positive integer $a$ coprime with $q$ the ratio $a/q$ has bounded partial quotients. In the other direction we show that there is an absolute constant $C>0$ such that for any prime $p$ exist divisible by $p$ number $q = O(p^{C})$ and a number $a$, $a$ coprime with $q$ such that all partial quotients of the ratio $a/q$ are bounded by two.
+
+== 2404.06844v1
+authors: Damián Gvirtz-Chen, Giacomo Mezzedimi
+title: Non-thin rational points for elliptic K3 surfaces
+published: 2024-04-10T09:16:01Z updated: 2024-04-10T09:16:01Z
+abstract: We prove that elliptic K3 surfaces over a number field which admit a second elliptic fibration satisfy the potential Hilbert property. Equivalently, the set of their rational points is not thin after a finite extension of the base field. Furthermore, we classify those families of elliptic K3 surfaces over an algebraically closed field which do not admit a second elliptic fibration.
+
+== 2511.07465v1
+authors: E. Dyachenko
+title: Constructive Proofs of the Erdos-Straus Conjecture for Prime Numbers with P congruent to 1 modulo 4
+published: 2025-11-07T11:02:52Z updated: 2025-11-07T11:02:52Z
+doi: 10.5281/zenodo.17062748
+abstract: The Erdos-Straus conjecture (ESC) concerns the representation of the fraction 4/P, where P is a prime number, as a sum of three positive unit fractions. The focus here is on the case when P is congruent to 1 modulo 4. Two constructive approaches are proposed. Method ED1 is based on a factorization identity and leads to a nonlinear parameterization in P, which requires divisor enumeration and local filtering. Method ED2 yields a linear system in P for the parameters (delta, b, c), describing the solution set as an affine lattice of finite index in Z^3. The central result states that for every prime P congruent to 1 modulo 4 there exists a representation: 4/P = 1/A + 1/(bP) + 1/(cP), where the triple (delta, b, c) in N^3 is constructed explicitly by method ED2. In addition, algorithms for transforming solutions (convolution and anti-convolution) are introduced, and large-scale computational verification confirms the correctness and efficiency of the proposed methods.
+
+== 2404.01508v3
+authors: Miguel Angel Lopez
+title: A Complete Congruence System for the Erdos-Straus Conjecture
+published: 2024-04-01T22:23:35Z updated: 2024-04-15T22:55:38Z
+abstract: In this paper we attack the Erdos-Straus conjecture by means of the structure of its solutions, extending and improving the results of a previous paper. Using previous results and supported by the works of Elsholtz and Tao and Monks and Velingker we define a system of congruences for which there are always solutions to the Erdos-Straus conjecture and which we conjecture to include all prime numbers. For this purpose, and always taking into account a result due to Mordell that limits the congruences admitting polynomial identities to those that are not quadratic residues, we will adopt a transversal approach and classify the solutions by their form and not by those congruences that produce them. Thus we define two new types of solutions, which we call Type A and B, and relate them to the already known Type II solutions and study their properties. Finally we conjecture that every prime number has at least one solution of Type A or B and we associate a congruence and a general polynomial to each Type of solution.
+
+== 1406.6307v1
+authors: Serge E. Salez
+title: The Erdős-Straus conjecture New modular equations and checking up to $N=10^{17}$
+published: 2014-06-24T16:59:30Z updated: 2014-06-24T16:59:30Z
+abstract: In 1999 Allan Swett checked (in 150 hours) the Erdős-Straus conjecture up to $N=10^{14}$ with a sieve based on a single modular equation. After having proved the existence of a "complete" set of seven modular equations (including three new ones), this paper offers an optimized sieve based on these equations. A program written in C++ (and given elsewhere) allows then to make a checking whose running time, on a typical computer, range from few minutes for $N=10^{14}$ to about 16 hours for $N=10^{17}$.
+
+== 1307.0874v3
+authors: Bob Hough
+title: Solution of the minimum modulus problem for covering systems
+published: 2013-07-02T22:36:06Z updated: 2016-05-03T14:49:46Z
+journal_ref: Annals of Mathematics 181.1 (2015): 361-382
+abstract: We answer a question of Erdős by showing that the least modulus of a distinct covering system of congruences is no larger than $10^{18}$.
+
+== 2508.07367v1
+authors: Bilal Ghermoul
+title: Almost a Complete Proof of the Generalized Erdős-Straus Conjecture: ${5}/{a} = {1}/{b} + {1}/{c} + {1}/{d}$
+published: 2025-08-10T14:33:50Z updated: 2025-08-10T14:33:50Z
+abstract: The generalized Erdős-Straus conjecture, proposed by Wacław Sierpiński in 1956, asks whether the Diophantine equation \[ \frac{5}{a} = \frac{1}{b} + \frac{1}{c} + \frac{1}{d} \] admits positive integer solutions $b,c,d \in \mathbb{N}$ for every integer $a \ge 2$. In this work we present explicit solutions for all integers $a \ge 2$. We begin with the simplest known cases where $a \equiv i \pmod{5}$ for $i \in \{0,2,3,4\}$, providing direct decompositions. The remaining open case, $a \equiv 1 \pmod{5}$, is addressed for $a = 5q + 1$ with $q \not\equiv 0 \pmod{252}$, where we give explicit decompositions, often with $q$ expressed as three-variable polynomials. For $q \equiv 0 \pmod{252}$, we conjecture that a specific polynomial $p_{1}(x,y,z)=z (x (5 y-1)-y)-x,~ x,y,z \in \mathbb{N}^*$, which exactly satisfies the generalized Erdős--Straus equation, generates all such multiples of $252$. This conjecture has been verified computationally for $5q+1$ up to approximately $10^{10}$, and the corresponding \textit{Mathematica} implementation is included.
+
+== 1805.02945v1
+authors: Christian Elsholtz, Stefan Planitzer
+title: The number of solutions of the Erdős-Straus Equation and sums of $k$ unit fractions
+published: 2018-05-08T11:07:51Z updated: 2018-05-08T11:07:51Z
+abstract: We prove new upper bounds for the number of representations of an arbitrary rational number as a sum of three unit fractions. In particular, for fixed $m$ there are at most $\mathcal{O}_ε(n^{3/5+ε})$ solutions of $\frac{m}{n}=\frac{1}{a_1}+\frac{1}{a_2}+\frac{1}{a_3}$. This improves upon a result of Browning and Elsholtz (2011) and extends a result of Elsholtz and Tao (2013) who proved this when $m=4$ and $n$ is a prime. Moreover there exists an algorithm finding all solutions in expected running time $\mathcal{O}_ε\left(n^ε\left(\frac{n^3}{m^2}\right)^{1/5}\right)$, for any $ε>0$. We also improve a bound on the maximum number of representations of a rational number as a sum of $k$ unit fractions. Furthermore, we also improve lower bounds. In particular we prove that for given $m\in \mathbb{N}$ in every reduced residue class $e \bmod f$ there exist infinitely many primes $p$ such that the number of solutions of the equation $\frac{m}{p}=\frac{1}{a_1}+\frac{1}{a_2}+\frac{1}{a_3}$ is $\gg_{f,m} \exp\left(\left(\frac{5\log 2}{12 \mathrm{lcm}(m,f)}+o_{f,m}(1)\right)\frac{\log p}{\log \log p}\right)$. Previously the best known lower bound of this type was of order $(\log p)^{0.549}$.
+

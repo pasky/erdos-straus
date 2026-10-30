@@ -1,0 +1,252 @@
+== 2211.08548v1
+authors: Maria Cummings, Michael Filaseta, Ognian Trifonov
+title: An upper bound for the minimum modulus in a covering system with squarefree moduli
+published: 2022-11-15T22:38:58Z updated: 2022-11-15T22:38:58Z
+abstract: Based on work of P. Balister, B. Bollobás, R. Morris, J. Sahasrabudhe and M. Tiba, we show that if a covering system has distinct squarefree moduli, then the minimum modulus is at most 118. We also show that in general the $k^{\rm th}$ smallest modulus in a covering system with distinct moduli (provided it is required for the covering) is bounded by an absolute constant.
+
+== 1402.2184v2
+authors: Boris Konev, Alexei Lisitsa
+title: A SAT Attack on the Erdos Discrepancy Conjecture
+published: 2014-02-10T15:33:07Z updated: 2014-02-17T09:06:41Z
+abstract: In 1930s Paul Erdos conjectured that for any positive integer C in any infinite +1 -1 sequence (x_n) there exists a subsequence x_d, x_{2d}, ... , x_{kd} for some positive integers k and d, such that |x_d + x_{2d} + ... + x_{kd}|> C. The conjecture has been referred to as one of the major open problems in combinatorial number theory and discrepancy theory. For the particular case of C=1 a human proof of the conjecture exists; for C=2 a bespoke computer program had generated sequences of length 1124 having discrepancy 2, but the status of the conjecture remained open even for such a small bound. We show that by encoding the problem into Boolean satisfiability and applying the state of the art SAT solvers, one can obtain a sequence of length 1160 with discrepancy 2 and a proof of the Erdos discrepancy conjecture for C=2, claiming that no sequence of length 1161 and discrepancy 2 exists. We also present our partial results for the case of C=3.
+
+== math/0311421v1
+authors: Ernest S. Croot
+title: On a coloring conjecture about unit fractions
+published: 2003-11-24T18:01:46Z updated: 2003-11-24T18:01:46Z
+journal_ref: Ann. of Math. (2), Vol. 157 (2003), no. 2, 545--556
+abstract: We prove an old conjecture of Erd{\H o}s and Graham on sums of unit fractions: There exists a constant $b>0$ such that if we $r$-color the integers in $2,b^r]$, then there exists a monochromatic set $S$ such that $\sum_{n \in S} 1/n=1$.
+
+== 1910.03740v5
+authors: Joshua Brakensiek, Marijn Heule, John Mackey, David Narváez
+title: The Resolution of Keller's Conjecture
+published: 2019-10-09T01:35:06Z updated: 2023-04-17T21:06:56Z
+abstract: We consider three graphs, $G_{7,3}$, $G_{7,4}$, and $G_{7,6}$, related to Keller's conjecture in dimension 7. The conjecture is false for this dimension if and only if at least one of the graphs contains a clique of size $2^7 = 128$. We present an automated method to solve this conjecture by encoding the existence of such a clique as a propositional formula. We apply satisfiability solving combined with symmetry-breaking techniques to determine that no such clique exists. This result implies that every unit cube tiling of $\mathbb{R}^7$ contains a facesharing pair of cubes. Since a faceshare-free unit cube tiling of $\mathbb{R}^8$ exists (which we also verify), this completely resolves Keller's conjecture.
+
+== 1210.5943v2
+authors: Fabrizio Barroero, Martin Widmer
+title: Counting lattice points and o-minimal structures
+published: 2012-10-22T16:00:10Z updated: 2013-04-27T14:17:32Z
+abstract: Let $Λ$ be a lattice in $\R^n$, and let $Z\subseteq \R^{m+n}$ be a definable family in an o-minimal structure over $\R$. We give sharp estimates for the number of lattice points in the fibers $Z_T={x\in \R^n: (T,x)\in Z}$. Along the way we show that for any subspace $Σ\subseteq\R^n$ of dimension $j>0$ the $j$-volume of the orthogonal projection of $Z_T$ to $Σ$ is, up to a constant depending only on the family $Z$, bounded by the maximal $j$-dimensional volume of the orthogonal projections to the $j$-dimensional coordinate subspaces.
+
+== 2301.09757v2
+authors: Bernardo Subercaseaux, Marijn J. H. Heule
+title: The Packing Chromatic Number of the Infinite Square Grid is 15
+published: 2023-01-23T23:27:41Z updated: 2025-06-12T14:35:49Z
+doi: 10.1007/978-3-031-30823-9_20
+abstract: A packing $k$-coloring is a natural variation on the standard notion of graph $k$-coloring, where vertices are assigned numbers from $\{1, \ldots, k\}$, and any two vertices assigned a common color $c \in \{1, \ldots, k\}$ need to be at a distance greater than $c$ (as opposed to $1$, in standard graph colorings). Despite a sequence of incremental work, determining the packing chromatic number of the infinite square grid has remained an open problem since its introduction in 2002. We culminate the search by proving this number to be 15. We achieve this result by improving the best-known method for this problem by roughly two orders of magnitude. The most important technique to boost performance is a novel and surprisingly effective propositional encoding. Additionally, we developed a new symmetry-breaking method. Since both new techniques are more complex than existing techniques for this problem, a verified approach is required to trust them. We include both techniques in a proof of unsatisfiability, reducing the trusted core to the correctness of the direct encoding.
+
+== 1811.03547v1
+authors: Paul Balister, Béla Bollobás, Robert Morris, Julian Sahasrabudhe, Marius Tiba
+title: On the Erdős Covering Problem: the density of the uncovered set
+published: 2018-11-08T16:52:31Z updated: 2018-11-08T16:52:31Z
+abstract: Since their introduction by Erdős in 1950, covering systems (that is, finite collections of arithmetic progressions that cover the integers) have been extensively studied, and numerous questions and conjectures have been posed regarding the existence of covering systems with various properties. In particular, Erdős asked if the moduli can be distinct and all arbitrarily large, Erdős and Selfridge asked if the moduli can be distinct and all odd, and Schinzel conjectured that in any covering system there exists a pair of moduli, one of which divides the other. Another beautiful conjecture, proposed by Erdős and Graham in 1980, states that if the moduli are distinct elements of the interval $[n,Cn]$, and $n$ is sufficiently large, then the density of integers uncovered by the union is bounded below by a constant (depending only on $C$). This conjecture was confirmed (in a strong form) by Filaseta, Ford, Konyagin, Pomerance and Yu in 2007, who moreover asked whether the same conclusion holds if the moduli are distinct and sufficiently large, and $\sum_{i=1}^k \frac{1}{d_i} < C$. Although this condition turns out not to be sufficiently strong to imply the desired conclusion, as the main result of this paper we will give an essentially best possible condition which is sufficient. Our method has a number of further applications. Most importantly, we prove the conjecture of Schinzel stated above, which was made in 1967. We moreover give an alternative (somewhat simpler) proof of a breakthrough result of Hough, who resolved Erdős' minimum modulus problem, with an improved bound on the smallest difference. Finally, we make further progress on the problem of Erdős and Selfridge.
+
+== 1706.10206v3
+authors: Aayush Rajasekaran, Jeffrey Shallit, Tim Smith
+title: Sums of Palindromes: an Approach via Automata
+published: 2017-06-30T14:00:53Z updated: 2017-08-30T19:13:16Z
+abstract: Recently, Cilleruelo, Luca, & Baxter proved, for all bases b >= 5, that every natural number is the sum of at most 3 natural numbers whose base-b representation is a palindrome. However, the cases b = 2, 3, 4 were left unresolved. We prove, using a decision procedure based on automata, that every natural number is the sum of at most 4 natural numbers whose base-2 representation is a palindrome. Here the constant 4 is optimal. We obtain similar results for bases 3 and 4, thus completely resolving the problem. We consider some other variations on this problem, and prove similar results. We argue that heavily case-based proofs are a good signal that a decision procedure may help to automate the proof.
+
+== 1711.08076v1
+authors: Marijn J. H. Heule
+title: Schur Number Five
+published: 2017-11-21T22:54:59Z updated: 2017-11-21T22:54:59Z
+abstract: We present the solution of a century-old problem known as Schur Number Five: What is the largest (natural) number $n$ such that there exists a five-coloring of the positive numbers up to $n$ without a monochromatic solution of the equation $a + b = c$? We obtained the solution, $n = 160$, by encoding the problem into propositional logic and applying massively parallel satisfiability solving techniques on the resulting formula. We constructed and validated a proof of the solution to increase trust in the correctness of the multi-CPU-year computations. The proof is two petabytes in size and was certified using a formally verified proof checker, demonstrating that any result by satisfiability solvers---no matter how large---can now be validated using highly trustworthy systems.
+
+== math/0201299v2
+authors: D. R. Heath-Brown, J. -C. Puchta
+title: Integers Represented as a Sum of Primes and Powers of Two
+published: 2002-01-30T14:52:02Z updated: 2002-04-02T15:12:07Z
+abstract: It is shown that every sufficiently large even integer is a sum of two primes and exactly 13 powers of 2. Under the Generalized Rieman Hypothesis one can replace 13 by 7. Unlike previous work on this problem, the proof avoids numerical calculations with explicit zero-free regions of Dirichlet L-functions. The argument uses a new technique to bound the measure of the set on which the exponential sum formed from powers of 2 is large.
+
+== 0708.1113v2
+authors: Manfred Einsiedler, Elon Lindenstrauss, Philippe Michel, Akshay Venkatesh
+title: Distribution of periodic torus orbits and Duke's theorem for cubic fields
+published: 2007-08-08T19:03:57Z updated: 2010-02-03T11:08:07Z
+journal_ref: Ann. of Math. Volume 173 (2011), Issue 2, Pages 815-885
+doi: 10.4007/annals.2011.173.2.5
+abstract: We study periodic torus orbits on spaces of lattices. Using the action of the group of adelic points of the underlying tori, we define a natural equivalence relation on these orbits, and show that the equivalence classes become uniformly distributed. This is a cubic analogue of Duke's theorem about the distribution of closed geodesics on the modular surface: suitably interpreted, the ideal classes of a cubic totally real field are equidistributed in the modular 5-fold SL_3(Z)\SL_3(R)/SO_3(R). In particular, this proves (a stronger form of) the folklore conjecture that the collection of maximal compact flats in SL_3(Z)\SL_3(R)/SO_3(R) of volume less than V becomes equidistributed as V goes to infinity. The proof combines subconvexity estimates, measure classification, and local harmonic analysis.
+
+== 1602.06208v2
+authors: Javier Cilleruelo, Florian Luca, Lewis Baxter
+title: Every positive integer is a sum of three palindromes
+published: 2016-02-19T16:23:43Z updated: 2017-06-17T10:34:35Z
+abstract: For integer $g\ge 5$, we prove that any positive integer can be written as a sum of three palindromes in base $g$.
+
+== 2212.01299v2
+authors: Jonah Klein, Dimitris Koukoulopoulos, Simon Lemieux
+title: On the $j$-th smallest modulus of a covering system with distinct moduli
+published: 2022-12-02T16:47:19Z updated: 2023-08-23T19:08:58Z
+abstract: Covering systems were introduced by Erdős in 1950. In the same article where he introduced them, he asked if the minimum modulus of a covering system with distinct moduli is bounded. In 2015, Hough answered affirmatively this long standing question. In 2022, Balister, Bollobás, Morris, Sahasrabudhe and Tiba gave a simpler and more versatile proof of Hough's result. Building upon their work, we show that there exists some absolute constant $c>0$ such that the $j$-th smallest modulus of a minimal covering system with distinct moduli is $\le \exp(cj^2/\log(j+1))$.
+
+== 1901.11465v1
+authors: Paul Balister, Béla Bollobás, Robert Morris, Julian Sahasrabudhe, Marius Tiba
+title: The Erdős-Selfridge problem with square-free moduli
+published: 2019-01-31T16:42:38Z updated: 2019-01-31T16:42:38Z
+journal_ref: Alg. Number Th. 15 (2021) 609-626
+doi: 10.2140/ant.2021.15.609
+abstract: A covering system is a finite collection of arithmetic progressions whose union is the set of integers. The study of covering systems with distinct moduli was initiated by Erdős in 1950, and over the following decades numerous problems were posed regarding their properties. One particularly notorious question, due to Erdős, asks whether there exist covering systems whose moduli are distinct and all odd. We show that if in addition one assumes the moduli are square-free, then there must be an even modulus.
+
+== 1605.00723v1
+authors: Marijn J. H. Heule, Oliver Kullmann, Victor W. Marek
+title: Solving and Verifying the boolean Pythagorean Triples problem via Cube-and-Conquer
+published: 2016-05-03T01:32:34Z updated: 2016-05-03T01:32:34Z
+journal_ref: SAT 2016, LNCS 9710, pages 228-245
+doi: 10.1007/978-3-319-40970-2_15
+abstract: The boolean Pythagorean Triples problem has been a longstanding open problem in Ramsey Theory: Can the set N = $\{1, 2, ...\}$ of natural numbers be divided into two parts, such that no part contains a triple $(a,b,c)$ with $a^2 + b^2 = c^2$ ? A prize for the solution was offered by Ronald Graham over two decades ago. We solve this problem, proving in fact the impossibility, by using the Cube-and-Conquer paradigm, a hybrid SAT method for hard problems, employing both look-ahead and CDCL solvers. An important role is played by dedicated look-ahead heuristics, which indeed allowed to solve the problem on a cluster with 800 cores in about 2 days. Due to the general interest in this mathematical problem, our result requires a formal proof. Exploiting recent progress in unsatisfiability proofs of SAT solvers, we produced and verified a proof in the DRAT format, which is almost 200 terabytes in size. From this we extracted and made available a compressed certificate of 68 gigabytes, that allows anyone to reconstruct the DRAT proof for checking.
+
+== 2109.12217v1
+authors: David Eppstein
+title: Egyptian Fractions with Denominators from Sequences Closed Under Doubling
+published: 2021-09-24T22:11:18Z updated: 2021-09-24T22:11:18Z
+journal_ref: Journal of Integer Sequences, Vol. 24 (2021), Article 21.8.8
+abstract: Resolving a conjecture of Zhi-Wei Sun, we prove that every rational number can be represented as a sum of distinct unit fractions whose denominators are practical numbers. The same method applies to allowed denominators that are closed under multiplication by two and include a multiple of every positive integer, including the odious numbers, evil numbers, Hardy-Ramanujan numbers, Jordan-Polya numbers, and fibbinary numbers.
+
+== math/0602568v1
+authors: Svetoslav Savchev, Fang Chen
+title: Long zero-free sequences in finite cyclic groups
+published: 2006-02-25T05:39:46Z updated: 2006-02-25T05:39:46Z
+abstract: A sequence in an additively written abelian group is called zero-free if each of its nonempty subsequences has sum different from the zero element of the group. The article determines the structure of the zero-free sequences with lengths greater than $n/2$ in the additive group $\Zn/$ of integers modulo $n$. The main result states that for each zero-free sequence $(a_i)_{i=1}^\ell$ of length $\ell>n/2$ in $\Zn/$ there is an integer $g$ coprime to $n$ such that if $\bar{ga_i}$ denotes the least positive integer in the congruence class $ga_i$ (modulo $n$), then $Σ_{i=1}^\ell\bar{ga_i}<n$. The answers to a number of frequently asked zero-sum questions for cyclic groups follow as immediate consequences. Among other applications, best possible lower bounds are established for the maximum multiplicity of a term in a zero-free sequence with length greater than $n/2$, as well as for the maximum multiplicity of a generator. The approach is combinatorial and does not appeal to previously known nontrivial facts.
+
+== math/0506483v1
+authors: V. Vu
+title: Olson's theorem for cyclic groups
+published: 2005-06-23T17:29:01Z updated: 2005-06-23T17:29:01Z
+abstract: Let $n$ be a large number. A subset $A$ of $Z_n$ is complete if $S_A = Z_n$, where $S_A$ is the collection of the subset sums of $A$. Olson proved that if $n$ is a prime and $|A|> 2n^{1/2} $, then $S_A$ is complete. We show that a similar result for the case when $n$ is a composite number, using a different approach.
+
+== 1706.03002v1
+authors: Elijah Fromm, Leo Goldmakher
+title: Improving the Burgess bound via Polya-Vinogradov
+published: 2017-06-09T15:38:01Z updated: 2017-06-09T15:38:01Z
+abstract: We show that even mild improvements of the Polya-Vinogradov inequality would imply significant improvements of Burgess' bound on character sums. Our main ingredients are a lower bound on certain types of character sums (coming from works of the second author joint with J. Bober and Y. Lamzouri) and a quantitative relationship between the mean and the logarithmic mean of a completely multiplicative function.
+
+== math/0607473v5
+authors: Kevin Ford
+title: Integers with a divisor in (y,2y]
+published: 2006-07-19T17:18:45Z updated: 2013-03-17T15:34:57Z
+journal_ref: Anatomy of Integers (J.-M. DeKoninck, A. Granville and F. Luca, eds), CRM Proc. and Lect. Notes 46 (2008), Amer. Math. Soc., 65-80
+abstract: We give a relatively short proof of one of the central cases of the main theorem from the paper "The distribution of integers with a divisor in a given interval", math.NT/0401223. Namely, we determine the order of magnitude of the number of integers <=x with a divisor in (y,2y]. The lower bound uses a different argument than that in the aforementioned paper. As a corollary, we deduce the order of magnitude for the number of distinct products in an N x N multiplication table.
+
+== 1807.10223v3
+authors: Daniel Loughran, Vladimir Mitankin
+title: Integral Hasse principle and strong approximation for Markoff surfaces
+published: 2018-07-26T16:21:55Z updated: 2019-04-29T13:20:36Z
+journal_ref: Published, IMRN 18 (2021), 14086-14122
+doi: 10.1093/imrn/rnz114
+abstract: We study the failure of the integral Hasse principle and strong approximation for Markoff surfaces, as studied by Ghosh and Sarnak, using the Brauer-Manin obstruction.
+
+== 1108.6118v1
+authors: Yong-Gao Chen, Christian Elsholtz, Li-Li Jiang
+title: Egyptian Fractions with Restrictions
+published: 2011-08-31T03:08:56Z updated: 2011-08-31T03:08:56Z
+journal_ref: Acta Arith. 154 (2012), 109-123
+doi: 10.4064/aa154-2-1
+abstract: Let $T_o(k)$ denote the number of solutions of $\sum_{i=1}^k\frac 1{x_i}=1$ in odd numbers $1<x_1<x_2<...<x_k$. It is clear that $T_o(2k)=0$. For distinct primes $p_1, p_2,..., p_t$, let $S(p_1, p_2,..., p_t)=\{p_1^{α_1}...p_t^{α_t}\mid α_i\in \mathbb{N}_0, i=1,2,..., t}$. Let $T_k(p_1,..., p_t)$ be the number of solutions $\sum_{i=1}^{k}\frac 1{x_i}=1$ with $1<x_1<x_2<...<x_{k}$ and $x_i\in S(p_1, p_2,..., p_t)$. It is clear that if $T_k(p_1,..., p_t)\not= 0$ for some $k$, then the inverse sum of all elements $s_j>1$ in $S(p_1, p_2,..., p_t)$ is more than 1. In this paper we study $T_o(k)$ and $T_k(p_1,..., p_t)$. Three of our results are: 1) $T_o(2k+1)\ge (\sqrt 2)^{(k+1)(k-4)}$ for all $k\ge 4$; 2) if the inverse sum of all elements $s_j>1$ in $S(p_1, p_2,..., p_t)$ is more than 1, then $T_k(p_1,..., p_t)\not= 0$ for infinitely many $k$ and the set of these $k$ is the union of finitely many arithmetic progressions; 3) there exists two constants $k_0=k_0(p_1,..., p_t)>1$ and $c=c(p_1,..., p_t)>1$ such that for any $k>k_0$ we have either $T_k(p_1,..., p_t)= 0$ or $T_k(p_1,..., p_t)>c^k$.
+
+== 0905.0163v3
+authors: Dimitris Koukoulopoulos
+title: Divisors of shifted primes
+published: 2009-05-01T23:06:14Z updated: 2010-05-15T19:22:55Z
+journal_ref: Int. Math. Res. Not. (2010) Vol. 2010 (24): 4585-4627
+doi: 10.1093/imrn/rnq045
+abstract: We bound from below the number of shifted primes p+s<x that have a divisor in a given interval (y,z]. Kevin Ford has obtained upper bounds of the expected order of magnitude on this quantity as well as lower bounds in a special case of the parameters y and z. We supply here the corresponding lower bounds in a broad range of the parameters y and z. As expected, these bounds depend heavily on our knowledge about primes in arithmetic progressions. As an application of these bounds, we determine the number of shifted primes that appear in a multiplication table up to multiplicative constants.
+
+== 1305.6356v1
+authors: Benjamin Linowitz, Lola Thompson
+title: The sign changes of Fourier coefficients of Eisenstein series
+published: 2013-05-28T03:38:49Z updated: 2013-05-28T03:38:49Z
+abstract: In this paper we prove a number of theorems that determine the extent to which the signs of the Hecke eigenvalues of an Eisenstein newform determine the newform. We address this problem broadly and provide theorems of both individual and statistical nature. Many of these results are Eisenstein series analogues of well-known theorems for cusp forms. For instance, we determine how often the p-th Fourier coefficients of an Eisenstein newform begin with a fixed sequence of signs \varepsilon_p = {\pm 1, 0}. Moreover, we prove the following variant of the strong multiplicity-one theorem: an Eisenstein newform is uniquely determined by the signs of its Hecke eigenvalues with respect to any set of primes with density greater than 1/2.
+
+== 1311.7556v2
+authors: Jonathan Bober, Leo Goldmakher
+title: Pólya-Vinogradov and the least quadratic nonresidue
+published: 2013-11-29T13:27:32Z updated: 2015-04-06T21:58:40Z
+abstract: It is well-known that cancellation in short character sums (e.g. Burgess' estimates) yields bounds on the least quadratic nonresidue. Scant progress has been made on short character sums since Burgess' work, so it is desirable to find a new approach to nonresidues. The goal of this note is to demonstrate a new line of attack via long character sums, a currently active area of research. Among other results, we demonstrate that improving the constant in the Pólya-Vinogradov inequality would lead to significant progress on nonresidues. Moreover, conditionally on a conjecture on long character sums, we show that the least nonresidue for any odd primitive character (mod $k$) is bounded by $(\log k)^{1.4}$.
+
+== 1904.04806v2
+authors: Paul Balister, Béla Bollobás, Robert Morris, Julian Sahasrabudhe, Marius Tiba
+title: The structure and number of Erdős covering systems
+published: 2019-04-09T17:36:28Z updated: 2022-11-16T18:09:18Z
+abstract: Introduced by Erdős in 1950, a covering system of the integers is a finite collection of arithmetic progressions whose union is the set $\mathbb{Z}$. Many beautiful questions and conjectures about covering systems have been posed over the past several decades, but until recently little was known about their properties. Most famously, the so-called minimum modulus problem of Erdős was resolved in 2015 by Hough, who proved that in every covering system with distinct moduli, the minimum modulus is at most $10^{16}$. In this paper we answer another question of Erdős, asked in 1952, on the number of minimal covering systems. More precisely, we show that the number of minimal covering systems with exactly $n$ elements is \[ \exp\left( \left(\frac{4\sqrtτ}{3} + o(1)\right) \frac{n^{3/2}}{(\log n)^{1/2}} \right) \] as $n \to \infty$, where \[ τ= \sum_{t = 1}^\infty \left( \log \frac{t+1}{t} \right)^2. \] En route to this counting result, we obtain a structural description of all covering systems that are close to optimal in an appropriate sense.
+
+== 1511.04876v2
+authors: Yonatan Harpaz
+title: Integral points on conic log K3 surfaces
+published: 2015-11-16T09:27:05Z updated: 2017-03-15T11:10:18Z
+abstract: Adapting a powerful method of Swinnerton-Dyer, we give explicit sufficient conditions for the existence of integral points on certain schemes which are fibered into affine conics. This includes, in particular, cases where the scheme is geometrically a smooth log K3 surface. To the knowledge of the author, this is the first family of log K3 surfaces for which such conditions are established.
+
+== 1711.10582v2
+authors: Bryce Kerr, Igor E. Shparlinski, Kam Hung Yau
+title: A refinement of the Burgess bound for character sums
+published: 2017-11-28T22:03:40Z updated: 2019-05-07T23:10:47Z
+abstract: In this paper we give a refinement of the bound of D. A. Burgess for multiplicative character sums modulo a prime number $q$. This continues a series of previous logarithmic improvements, which are mostly due to H. Iwaniec and E. Kowalski. In particular, for any nontrivial multiplicative character $χ$ modulo a prime $q$ and any integer $r\ge 2$, we show that $$ \sum_{M<n\le M+N}χ(n) = O\left( N^{1-1/r}q^{(r+1)/4r^2}(\log q)^{1/4r}\right), $$ which sharpens previous results by a factor $(\log q)^{1/4r}$. Our improvement comes from averaging over numbers with no small prime factors rather than over an interval as in previous approaches.
+
+== 1908.02526v2
+authors: Martin Bright, Daniel Loughran
+title: Brauer-Manin obstruction for Erdős-Straus surfaces
+published: 2019-08-07T10:50:49Z updated: 2020-05-12T11:37:08Z
+doi: 10.1112/blms.12374
+abstract: We study the failure of the integral Hasse principle and strong approximation for the Erdős-Straus conjecture using the Brauer-Manin obstruction.
+
+== 1706.06712v3
+authors: Amit Ghosh, Peter Sarnak
+title: Integral points on Markoff type cubic surfaces
+published: 2017-06-21T00:47:07Z updated: 2022-05-30T15:51:31Z
+journal_ref: Invent. Math. 2022
+doi: 10.1007/s00222-022-01114-z
+abstract: For integers $k$, we consider the affine cubic surface $V_{k}$ given by $M({\bf x})=x_{1}^2 + x_{2}^2 +x_{3}^2 -x_{1}x_{2}x_{3}=k$. We show that for almost all $k$ the Hasse Principle holds, namely that $V_{k}(\mathbb{Z})$ is non-empty if $V_{k}(\mathbb{Z}_p)$ is non-empty for all primes $p$, and that there are infinitely many $k$'s for which it fails. The Markoff morphisms act on $V_{k}(\mathbb{Z})$ with finitely many orbits and a numerical study points to some basic conjectures about these "class numbers" and Hasse failures. Some of the analysis may be extended to less special affine cubic surfaces.
+
+== 1403.1035v3
+authors: Dasheng Wei
+title: Strong approximation for a toric variety
+published: 2014-03-05T08:11:55Z updated: 2019-07-16T01:27:32Z
+abstract: Let X be a toric variety over a number field k with \kbar[X]^\times=\kbar^\times. Let W\subset X be a closed subset of codimension at least 2. We prove that X\setminus W satisfies strong approximation with algebraic Brauer--Manin obstruction.
+
+== math/9811112v1
+authors: Greg Martin
+title: Denser Egyptian Fractions
+published: 1998-11-18T16:49:21Z updated: 1998-11-18T16:49:21Z
+journal_ref: Acta Arith. 95 (2000), no. 3, 231-260
+abstract: An Egyptian fraction is a sum of distinct unit fractions (reciprocals of positive integers). We show that every rational number has Egyptian fraction representations where the number of terms is of the same order of magnitude as the largest denominator, improving a result from an earlier paper to best-possible form. We also settle, in best-possible form, the related problem of how small M_t(r) can be such that there is an Egyptian fraction representation of r with exactly t terms, the denominators of which are all at most M_t(r). We also consider the following problems posed by Erdos and Graham: the set of integers that cannot be the largest denominator of an Egyptian fraction representation of 1 is infinite - what is its order of growth? How about those integers that cannot be the second-largest (third-largest, etc.) denominator of such a representation? In the latter case, we show that only finitely many integers cannot be the second-largest (third-largest, etc.) denominator of such a representation; while in the former case, we show that the set of integers that cannot be the largest denominator of such a representation has density zero, and establish its order of growth. Both results extend to representations of any positive rational number.
+
+== 1806.02699v1
+authors: Kyle Pratt
+title: Primes from sums of two squares and missing digits
+published: 2018-06-07T14:24:28Z updated: 2018-06-07T14:24:28Z
+doi: 10.1112/plms.12307
+abstract: Let $\mathcal{A}'$ be the set of integers missing any three fixed digits from their decimal expansion. We produce primes in a thin sequence by proving an asymptotic formula for counting primes of the form $p = m^2 + \ell^2$, with $\ell \in \mathcal{A}'$. The proof draws on ideas from the work of Friedlander-Iwaniec on primes of the form $p = x^2+y^4$, as well as ideas from the work of Maynard on primes with restricted digits.
+
+== 0912.4751v2
+authors: Antoine Chambert-Loir, Yuri Tschinkel
+title: Integral points of bounded height on partial equivariant compactifications of vector groups
+published: 2009-12-23T22:29:41Z updated: 2012-02-20T22:28:48Z
+journal_ref: Duke Math. J. 161, no. 15 (2012), 2799-2836
+doi: 10.1215/00127094-1813638
+abstract: We establish asymptotic formulas for the number of integral points of bounded height on partial equivariant compactifications of vector groups.
+
+== 0802.3361v4
+authors: Terence Tao
+title: A remark on primality testing and decimal expansions
+published: 2008-02-22T18:34:55Z updated: 2010-04-18T17:55:56Z
+abstract: We show that for any fixed base $a$, a positive proportion of primes have the property that they become composite after altering any one of their digits in the base $a$ expansion; the case $a=2$ was already established by Cohen-Selfridge and Sun, using some covering congruence ideas of Erdős. Our method is slightly different, using a partially covering set of congruences followed by an application of the Selberg sieve upper bound. As a consequence, it is not always possible to test whether a number is prime from its base $a$ expansion without reading all of its digits. We also present some slight generalisations of these results.
+
+== 1604.01041v2
+authors: James Maynard
+title: Primes with restricted digits
+published: 2016-04-04T20:03:18Z updated: 2019-10-28T22:53:58Z
+abstract: Let $a_0\in\{0,\dots,9\}$. We show there are infinitely many prime numbers which do not have the digit $a_0$ in their decimal expansion. The proof is an application of the Hardy-Littlewood circle method to a binary problem, and rests on obtaining suitable `Type I' and `Type II' arithmetic information for use in Harman's sieve to control the minor arcs. This is obtained by decorrelating Diophantine conditions which dictate when the Fourier transform of the primes is large from digital conditions which dictate when the Fourier transform of numbers with restricted digits is large. These estimates rely on a combination of the geometry of numbers, the large sieve and moment estimates obtained by comparison with a Markov process.
+
+== 1908.08816v3
+authors: Jori Merikoski
+title: On the largest prime factor of $n^2+1$
+published: 2019-08-23T13:21:57Z updated: 2020-11-02T09:38:00Z
+abstract: We show that the largest prime factor of $n^2+1$ is infinitely often greater than $n^{1.279}$. This improves the result of de la Bretèche and Drappeau (2019) who obtained this with $1.2182$ in place of $1.279.$ The main new ingredients in the proof are a new Type II estimate and using this estimate by applying Harman's sieve method. To prove the Type II estimate we use the bounds of Deshouillers and Iwaniec on linear forms of Kloosterman sums. We also show that conditionally on Selberg's eigenvalue conjecture the exponent $1.279$ may be increased to $1.312.$
+
+== math/9811185v1
+authors: John Friedlander, Henryk Iwaniec
+title: The polynomial X^2+Y^4 captures its primes
+published: 1998-11-01T00:00:00Z updated: 1998-11-01T00:00:00Z
+journal_ref: Ann. of Math. (2) 148 (1998), no. 3, 945-1040
+abstract: This article proves that there are infinitely many primes of the form a^2 + b^4, in fact getting the asymptotic formula. The main result is that \sum_{a^2 + b^4\le x} Λ(a^2 + b^4) = 4π^{-1}κx^{3/4} (1 + O(\log\log x / \log x)) where a, b run over positive integers and κ= \int^1_0 (1 - t^4)^{1/2} dt = Γ(1/4)^2 /6\sqrt{2π}. Here of course, Λdenotes the von Mangoldt function and Γthe Euler gamma function.
+
