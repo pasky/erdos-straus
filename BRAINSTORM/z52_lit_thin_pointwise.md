@@ -19,11 +19,18 @@ D. R. Heath-Brown and J.-C. Puchta, “Integers Represented as a Sum of Primes a
 
 | Problem | Structural feature that made it solvable | Does ES share it? | Transfer verdict |
 |---|---|---|---|
+| Primes omitting a digit (Maynard) | Averaging over an infinite prime family; circle method and Type I/II minor-arc control for the joint prime/digit constraints. | No for the pointwise conclusion: the result is infinitely-many, not prescribed-n; B6 asks for dominance at one object. | Known-dead as direct transfer: `BRAINSTORM/technique_transfer_list.md` and `BRAINSTORM/z45_recent_pointwise_tools.md`; no change to those verdicts. |
+| Every sufficiently large even n = two primes + 13 powers of 2 (Heath-Brown–Puchta) | The two-prime Goldbach component gives a power-sized supply; bounded powers of two ride on the analytic main term. | No: ES has only ≍ log²p expected tied-modulus events, not a power-sized reservoir (B6/B2). | Known-dead as direct transfer; `BRAINSTORM/z31_small_count_pointwise.md` §(c) already identifies the power-main-term dependency. |
+| Least QNR / least prime in an AP | Character-sum/L-function control for a character at a fixed modulus; short-window pointwise bounds need strong hypotheses or power-length windows. | Partial: the quadratic-character sign in ES is analogous, but the divisor modulus varies with the certificate; see B2 and FRONTIER §3 (F3). | Known-dead as direct transfer: `BRAINSTORM/z31_small_count_pointwise.md`; no novelty claimed. |
+| Ternary quadratic-form representation / three-square pointwise theorems | Class-number or representation-count main terms, plus local conditions; ternary forms can have class-number-scale supply (Duke–Schulze-Pillot). | No identified shared supply: ES's count is polylogarithmic and subject to the tied-modulus forcing bottleneck (B2/B6). | Known-dead as direct transfer: `BRAINSTORM/z31_quadratic_forms.md` and `BRAINSTORM/z31_small_count_pointwise.md`. These are repo leads, not independently source-verified in this lane. |
+| n = p + 2^k | The expected count is O(1); Romanoff gives positive density, while a covering-congruence construction produces an AP of failures. | No: its failure relies on periodic exponents modulo fixed moduli; ES primes do not furnish that covering mechanism (B1). | Known-dead as failure analogue, `BRAINSTORM/z31_small_count_pointwise.md`; no inference about ES failures. Source not independently checked here. |
 
 ## §3 NEW candidates
 
-No new candidate recorded yet; source and repository checks pending.
+None. The verified thin-prime theorem is a family-count result; the verified pointwise sparse-summand theorem still has a power-sized two-prime component. Neither supplies an approach to single-prime ES. The possible “between” examples found in the campaign files (least witnesses and quadratic forms) are already screened in `BRAINSTORM/z31_small_count_pointwise.md`; source verification here did not change their transfer assessment.
 
 ## §4 Not accessed / could not verify
 
-Research in progress.
+- **Not independently source-verified in this lane:** Friedlander–Iwaniec primes of the form x²+y⁴; Heath-Brown's x³+2y³; Heath-Brown–Moroz; Green–Sawhney (title and precise result); Merikoski and Grimmelt–Merikoski; Pratt; Li; 2025–26 “x²+y³” lead; Linnik least-prime-in-AP theorem; Burgess least-QNR bounds; Romanoff/Erdős covering result; Sierpiński/Riesel; Heath-Brown–Puchta refinements beyond their abstract; three squares/genus and Duke–Schulze-Pillot. Prior campaign summaries are cited above but are not substitutes for the required source verification.
+- **Potentially wrong lead:** “every n is a sum of a prime and boundedly many powers of 2” should not be conflated with Linnik's theorem as stated in the brief: the verified Heath-Brown–Puchta theorem has *two* primes, and its precise statement is given in §1. No one-prime theorem verified.
+- No exact theorem or manuscript for the brief's Green–Sawhney title was identified/accessed in this lane; do not use that lead as a citation.
