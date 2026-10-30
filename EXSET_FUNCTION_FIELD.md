@@ -14,16 +14,16 @@ ES_q(A, P) with a polynomial numerator A; this document studies the numerator-fr
 | 2 | **T1:** squares fail U_q (Thm 1.3), and all forbidden classes are non-residues. ES₅,q ⇒ U_q (Cor 1.6′); over ℤ the nesting is reversed. | PROVED | §1.2 |
 | 3 | **Degenerate normalisations.** q ≡ 1 (4): no colour layer. Leading coefficients free: the exceptional set is *exactly* the squares once q > (n+1)², by one Weil sum over the q − 1 unit shifts (free character data with no integer analogue). | PROVED | §1.3 |
 | 4 | **Mass = shape count:** E[W_U] = m(n) = n(n+1)/2 − (k+1)(k+2)/2, k = ⌊(n−1)/2⌋, exactly for every q. The large-q limit is a fixed-mass limit. | PROVED | §3.1 |
-| 5 | **Word maps** (t,u,v) ↦ tuv − u − v (non-degenerate shapes) are finite flat of degree n!/(s!a!b!) and generically étale, in any characteristic. In characteristic p the large-q exceptional density is a Chebotarev statistic ρ_{n,p} of a finite group G_{n,p} = G^geo, with error O_n(q^{−1/2}). | PROVED (given Chebotarev for covers of A^n) | §§3.2–3.3 |
+| 5 | **Word maps** (t,u,v) ↦ tuv − u − v (non-degenerate shapes) are finite flat of degree n!/(s!a!b!) and generically étale, in any characteristic. For q ≡ 3 (mod 4), in each fixed characteristic p ≡ 3 (mod 4), the large-q U_q exceptional density is a Chebotarev statistic ρ_{n,p} of a finite group G_{n,p} = G^geo, with error O_n(q^{−1/2}). | PROVED (given Chebotarev for covers of A^n) | §§3.2–3.3 |
 | 6 | **Boundary S_n:** degenerating to tuv gives a copy of S_n in G_n acting on ordered set partitions, and the boundary n-cycle deranges every nontrivial word shape. Hence **the brief's Goal 1 is false for U_q:** for fixed n and q ≥ q₀(n), at least c_n qⁿ polynomials (c′_n qⁿ irreducible ones) have no nontrivial word, and the non-square U_q-exceptional set is a positive proportion. | PROVED (same input) | §§3.4–3.5 |
-| 7 | **Poisson heuristic:** the sampled large-q densities are consistent with p_f(n)·e^{−M_g(n)} (independent Poisson shapes × the S_n of f + 1), e.g. n = 5: model 0.00996 vs 0.0101 at q = 31. Sampled joint/product ratios approach 1 (n = 4, 5, 6). Conjecture 3.6: ρ_n = exp(−(c+o(1))n²) with c = 1/4 resp. 3/16. | EVIDENCE / CONJECTURE | §3.6 |
-| 7′ | **exp(−Ω(n²)) upper bound for the limiting large-q densities (round 2).** For each small class (deg u = a ≠ b = deg v, 4(a+b) ≤ n), exact CRT plus the overlap Lemma C2 make the word cover 4-transitive. CFSG then gives Alt ⊆ G_σ, and mixed transitivity plus Goursat give ∏ Alt ⊆ G_n. Hence ρ_{n,p} ≤ exp(−0.0043 n²) for all n ≥ 12 (≤ exp(−0.0103 n²) for n ≥ 100), in every odd characteristic, against exp(−c n^{2/3}) from CRT alone. This is the upper-bound half of Conj 3.6 in the iterated large-q model; no lower bound exp(−Cn²), no fixed-q or N-uniform statement. | PROVED (CFSG, Lang–Weil/Chebotarev) | §3.9 |
+| 7 | **Poisson heuristic:** the sampled large-q densities are consistent with p_f(n)·e^{−M_g(n)} (independent Poisson shapes × the S_n of f + 1), e.g. n = 5: model 0.00996 vs 0.0101 at q = 31. Sampled joint/product ratios are consistent with approach to 1 (n = 4, 5, 6); convergence is not proved. Conjecture 3.6: ρ_n = exp(−(c+o(1))n²) with c = 1/4 resp. 3/16. | EVIDENCE / CONJECTURE | §3.6 |
+| 7′ | **exp(−Ω(n²)) upper bound for the limiting large-q densities (round 2).** For each small class (deg u = a ≠ b = deg v, 4(a+b) ≤ n), exact CRT plus the overlap Lemma C2 make the word cover 4-transitive. CFSG then gives Alt ⊆ G_σ, and mixed transitivity plus Goursat give ∏ Alt ⊆ G*, the image of G_n on the selected small-shape fibres. Hence ρ_{n,p} ≤ exp(−0.0043 n²) for all n ≥ 12 (≤ exp(−0.0103 n²) for n ≥ 100), in every odd characteristic, against exp(−c n^{2/3}) from CRT alone. This is the upper-bound half of Conj 3.6 in the iterated large-q model; no lower bound exp(−Cn²), no fixed-q or N-uniform statement. | PROVED (CFSG, Lang–Weil/Chebotarev) | §3.9 |
 | 8 | **Exact CRT in F_q[T]** (deg M ≤ n) gives the same exponents as the integer CRT results: exp(−√n/16) for the prime family at every q ≡ 3 (4) (G1 value), and exp(−c n^{2/3}) for U at q = ∞ (Lemma C2 on class overlaps). | PROVED | §3.8 |
-| 9 | **Large q cannot give depth in N:** the error q^{n−1/2} = N^{1−1/(2n)}. Hybrid-regime budgets give (log N)^{1/2} or (log N)^{2/3} under explicit, unproved cost models. | PROVED (b) / Assessment (c, d) | §3.7 |
+| 9 | **Limits of the stated large-q error bound; conditional hybrid budgets:** the error q^{n−1/2} = N^{1−1/(2n)}. Hybrid-regime budgets give (log N)^{1/2} or (log N)^{2/3} under explicit, unproved cost models. | PROVED (b) / Assessment (c, d) | §3.7 |
 | 10 | **Fixed q = 3 resembles ℤ in the tested range n ≤ 15:** non-square failures are 0 at n = 9, 11, 13, 15 and 12, 7, 3 at n = 10, 12, 14; no irreducible failure beyond n = 8. FF-RLD-U ratios ≈ 1.2–1.5 (s = 2), ≈ 3 (s = 1.5) for n ≤ 15. | CERTIFIED (data) / CONJECTURE | §§2, 4.1–4.2 |
 | 11 | **Fixed q: the strongest result here is the CRT baseline exp(−√n/16).** RH (Weil) and exact level n hold in F_q[T], and FF-RLD-U is still open. The cited loss-O(k) character-product theorems concern rank-one events and, for Sawin–Shusterman's Chowla theorem, k < √q/(pe) shifts; U-witness counts have rank n!/(s!a!b!). | PROVED baseline; Assessment | §4.3 |
 | 12 | **Transfer:** this document derives RLD-U or T1-min from no F_q[T] theorem with a standard integer analogue (GRH, elementary CRT, Katz–Sarnak for the quadratic family). The ingredient behind 7′ (monodromy of word covers, large q) has no known integer analogue and acts at fixed mass. | Assessment | §5 |
-| 13 | Reviews: Astra R1, R2 (whole document) and R3 (§3.9, C2): all MAJOR, none FATAL; repairs applied, residual caveats listed in §6. | — | §6 |
+| 13 | Reviews: Astra R1, R2 (whole document) and R3 (§3.9, C2): all MAJOR, none FATAL; principal repairs applied; residual faithfulness corrections from R4 applied (§6). | — | §6 |
 
 ## 1. The analogue
 
@@ -341,7 +341,8 @@ moments E[W_c W_d] are close to E[W_c]E[W_d] (e.g. 2.0021 vs 2 at (43, 4)). This
 compositum, not a convergence theorem. Scope notes (R2): the code includes every genuine class, also (2, 2, 2) at
 n = 6, which has no U-admissible orientation, so the n = 6 row tests a stronger avoidance event than U-failure; and
 W_c adds both orientations (mean 2 for a ≠ b, 1 for a = b), which leaves the zero-probabilities and hence the ratios
-unchanged but must be halved before comparing with the Poisson means 1 and 1/2. *What exact CRT gives here and what
+unchanged. For comparison with the Poisson means: for a ≠ b the unordered count is W_c/2; for a = b it is (W_c + Δ_c)/2,
+Δ_c(f) := number of diagonal words with u = v, of mean 1/2 + 1/(2q^a) and limiting mean 1/2. *What exact CRT gives here and what
 it does not.* Use the modulus uv of degree d_c = a + b (not the divisors A, A′ of (1.1)). When d_c + d_{c′} ≤ n, the
 pairs of words over a common f are counted exactly by CRT and form one top-dimensional component (Prop 3.8 in §3.9,
 with Lemma C2 for the non-coprime pairs). For k classes whose lcm of moduli has degree > n, a class intersection holds
@@ -379,7 +380,7 @@ density, not for δ_q(n): (q, n) = (3, 9) has δ = 0.) Two illustrative cost mod
 For larger q these are upper bounds on what m_n can supply. In the second model the integer depth barrier of G1
 reappears as "number of events × log(complexity per event) ≲ log q" (over ℤ: "number of events × log(modulus per
 event) ≲ level log N") — an analogy, not an impossibility theorem for large-q methods.
-(d) **A proposed direction (Assessment).** A depth breaker would need, for the joint indicator of ≍ n² shape events, a
+(d) **A proposed direction (Assessment).** One proposed route would require, for the joint indicator of ≍ n² shape events, a
 separately stated cancellation hypothesis: error exp(O(n))·q^{n/2} (vanishing of the trace-function cohomology
 outside the middle degree), with the exponential constant controlled relative to q and complexity independent of the
 number of events. Purity alone does not give this. With complexity ∏ D_σ ≈ 3^{nk} for k interior shape events, the
@@ -433,7 +434,7 @@ a′ + b′ ≤ D) with gcd(M_c, M_c′) ≠ 1 and compatible residues. Hence P_
 *Proof.* Fix the degrees and γ := deg h, h := gcd(uv, u′v′) ≥ 1; then deg lcm = (a + b) + (a′ + b′) − γ, so it
 suffices to show that the number N_γ of compatible ordered pairs is ≤ C(D) q^{(a+b)+(a′+b′)−γ−1}. Note that
 #{(u, v) : h | uv} ≤ τ(h) q^{a+b−γ} (split h = h₁h₂ with h₁ | u, h₂ | v).
-(i) h not squarefree: at most q^{γ−1} such h; dropping compatibility, N_γ ≤ q^{γ−1}·τ(h)²q^{a+b−γ}q^{a′+b′−γ}.
+(i) h not squarefree: at most q^{γ−1} such h; dropping compatibility and using τ(h) ≤ 2^γ, N_γ ≤ 4^γ q^{(a+b)+(a′+b′)−γ−1}.
 (ii) h squarefree and γ < a′ + b′: choose h (q^γ), then (u, v) (≤ τ(h)q^{a+b−γ}), then a splitting h = h₁′h₂′
 with h₁′ | u′ = h₁′x′, h₂′ | v′ = h₂′y′ (coprime pieces). Compatibility h | (u + v − u′ − v′) gives
 h₂′y′ ≡ u + v (mod h₁′) and h₁′x′ ≡ u + v (mod h₂′): y′ (degree b′ − deg h₂′) lies in one class mod h₁′ and x′
@@ -525,8 +526,8 @@ U-shape. Condition the uniform measure on G* on a coset of N := ∏ A_{D_c} ⊴ 
 and uniform on cosets of A_{D_c}. The number of derangements in either coset of A_D in S_D is (d_D ± (D − 1))/2,
 d_D = #derangements of S_D (the even-minus-odd derangement count is (−1)^{D−1}(D − 1)); so in every coset each
 factor is ≤ (d_D + D)/D! ≤ 0.38 for D ≥ 6 (271/720 at D = 6), whatever the sign correlations. The count of 𝒞*_n is elementary:
-inadmissible pairs are those with n − a − b, a, b all even, which is 1/4 of the pairs when n is even and none when n
-is odd. The last sentence is Theorem 3.3. ∎
+inadmissible pairs are those with n − a − b, a, b all even, which is asymptotically 1/4 of the pairs when n is even
+(exactly F(⌊m/2⌋) of them) and none when n is odd. The last sentence is Theorem 3.3. ∎
 
 **Numerical illustration (CERTIFIED computations, EVIDENCE as interpretation; `scripts/z51_ffield_moments.c`,
 `data/z51_ffield/moments.txt`).** For σ = (2, 1, 2), n = 5 (D_σ = 30; outside the range of Theorem 3.9), the
@@ -559,15 +560,15 @@ exact counting. For the integer U problem no such family of covers and fixed-poi
 
 Table 2.1, q = 3: the non-square exceptional set is 5, 6, 6, 21, 3, 21, 0, 12, 0, 7, 0, 3, 0 for n = 3..15, against
 3^{n/2} squares for even n (none for odd n). Odd n with 9 ≤ n ≤ 15: none (EVIDENCE, tested range only; N = 3^15 ≈
-1.4·10^7). Even n: decreasing. This resembles the integer census pattern (squares plus six sporadic exceptions
+1.4·10^7). For the tested even degrees n = 8, 10, 12, 14 the counts decrease: 21, 12, 7, 3. This resembles the integer census pattern (squares plus six sporadic exceptions
 ≤ 978145 up to 10^9). Contrast with the q = ∞ model value p_f(n)e^{−M_g(n)} of §3.6: at (q, n) = (3, 10) it predicts
 0.004 exceptions, but there are 12; small q has *more* sporadic failures at even n than the Poisson model, and none
 at odd n ≥ 9 in the tested range. Some failures have no nontrivial word (q = 3: 15 such f at n = 8, 3 at n = 10;
 `scripts/z51_ffield_check.py`).
 
 *Primes (T2 face; CERTIFIED, `data/z51_ffield/irr.txt`, engine with `Z51_IRR=1`).* Irreducible U_q-failures at q = 3:
-3, 3, 0, 3, 0, 0, 0 at n = 5, 6, 7, 8, 10, 12, 14 (among 48 … 341484 irreducibles), and none at odd n ≤ 15 (no
-failures at all there): none beyond n = 8 in the tested range, as over ℤ (no prime among the six non-square integer
+3, 3, 0, 3, 0, 0, 0 at n = 5, 6, 7, 8, 10, 12, 14 (among 48 … 341484 irreducibles), and none at odd n = 9, 11, 13, 15
+(no failures at all there): none beyond n = 8 in the tested range, as over ℤ (no prime among the six non-square integer
 exceptions). At large q, by contrast, a positive proportion of irreducibles fail, as Cor 3.5′ predicts: 0.0733
 (q = 43, n = 4), 0.0089 / 0.0087 (q = 23 / 31, n = 5), 0.0046 (q = 11, n = 6).
 
@@ -632,9 +633,9 @@ number ≲ (rank)·C^n — a hypothesis, since rank alone does not bound Betti n
 k ≲ log q/(2 log 3), bounded at fixed q, while RLD-U at level z = n/s needs ≈ μ(z) ≍ n events. So, in this cost model,
 **depth × log(rank per event) ≲ (n/2) log q**: the F_q[T] form of G2 ("per-event saving must beat per-event loss").
 Rank-one events would cost ≈ log n each and allow ≈ n log q/log n events. At fixed q that is o(n), still short of
-≍ n (R2 correction). The U-events are not rank one, and no reduction of them to rank-one events is known. The only
-U-events that are factorisation-type functions of a single polynomial are the v = 1 events ("f + 1 has an odd-degree
-divisor").
+≍ n (R2 correction). The U-events are not rank one, and no reduction of them to rank-one events is known. The degenerate
+shapes of §3.6 are governed by the factorisation of f + 1; no comparable reduction of the genuine shape events is
+supplied here.
 
 ## 5. Transfer to ℤ
 
@@ -649,8 +650,8 @@ The arrows below are analogies, not equivalences.
 | Exact CRT up to degree n (§3.8) | √n (prime family), n^{2/3} (U, q = ∞); both PROVED | counting integers ≤ N in a residue class mod M: N/M + O(1) (unconditional; the O(1) accumulates over many events). Not EH, which concerns primes | elementary | the same exponents as the integer CRT results; CRT caps G1/(D)17 apply to CRT majorants |
 | RH for Dirichlet L-functions (Weil) | least inert prime ≤ 2 log_q n + O(1); equidistribution in progressions; μ(z) ≍ z | GRH | conjecture | not by any argument given here: in F_q[T] RH holds and RLD-U is still open and numerically true (Table 4.1); cf. (D)15/22 |
 | Lang–Weil / Chebotarev for the word covers φ_σ (Thm 3.3) | exact large-q limit; q^d shifts of degree d integrated into one cover; positive-proportion failure (Thm 3.5) | no known analogue: the argument needs f to be a point of a variety over a finite field with q → ∞ at fixed degree | — | no: fixed mass; error q^{n−1/2} = N^{1−1/(2n)} (§3.7(b)) |
-| Monodromy of the word covers G_n (Thm 3.9; Conj 3.6) | ρ_n ≤ e^{−cn²} PROVED (4-wise CRT + CFSG + Goursat), iterated large-q model; conjecturally p_f(n)e^{−M_g(n)} | no known family of covers with a fixed-point correspondence for integer words | — | no transfer known; a quantitative integer analogue (#exceptions ≤ N exp(−c(log N)²)) would be the conclusion itself |
-| Middle-degree cohomology / Sawin–Shusterman | k-point Chowla (power saving) for k < √q/(pe) | k-point Chowla / Elliott for restricted-divisor indicators, uniform in k | open (k = 2 and odd k known only log-averaged) | not for U as stated: those results concern rank-one (Möbius/character) events; U-witness counts are high-rank (§4.3) |
+| Monodromy of the word covers G_n (Thm 3.9; Conj 3.6) | ρ_n ≤ e^{−cn²} PROVED (4-wise CRT + CFSG + Goursat), iterated large-q model; conjecturally p_f(n)e^{−M_g(n)} | no known family of covers with a fixed-point correspondence for integer words | — | no transfer known; the integer analogue would be a dyadic lower-tail estimate (§5.3(c)), which is neither proved nor implied by a Poisson heuristic |
+| Middle-degree cohomology / Sawin–Shusterman | k-point Chowla (power saving) for k < √q/(pe) | k-point Chowla / Elliott for restricted-divisor indicators, uniform in k | the required restricted-divisor, growing-k hypothesis is not supplied; for Möbius/Liouville correlations, fixed-k logarithmic-average results include k = 2 and odd k ≥ 3, which are different statements | not for U as stated: those results concern rank-one (Möbius/character) events; U-witness counts are high-rank (§4.3) |
 | Pellet's formula + (s^p)′ = 0 | makes μ(r + s^p) a character in s | none known (no Frobenius-linear structure in ℤ) | — | no |
 
 ### 5.2 The three questions of the brief, answered
@@ -664,11 +665,11 @@ missing input over ℤ. This is not a non-implication theorem.
 covers plus the structure of G_n. It acts on a fixed number m(n) ≈ 3n²/8 of shape events, each integrating q^{s+b}
 shifts geometrically. Theorem 3.9 makes the mechanism precise. Low-order CRT counts, after removing an O(1/q) overlap
 contribution, prove 4-transitivity of the small-class word covers. CFSG and mixed transitivity force the joint
-monodromy to contain ∏ Alt. This yields an exp(−c n²) upper bound for the limiting densities (iterated large-q
+joint image on the selected fibres to contain ∏ Alt. This yields an exp(−c n²) upper bound for the limiting densities (iterated large-q
 model). Number fields and non-abelian Chebotarev of course exist over ℤ. What is missing is a family of covers whose
 Frobenius fixed points are the U-words of an integer n, with estimates at the required scale. For integers, a fixed n
-has words or not; there is no fibre X_σ over a varying base, no G_σ, and so nothing for low-order independence to
-bootstrap. The integer analogue of the low-order counts is CRT with an O(1) error per class; with pairwise coprime
+has words or not; no corresponding coefficient-space family and usable word/orbit correspondence for integer
+targets is supplied here, so there is nothing for low-order independence to bootstrap in this framework. The integer analogue of the low-order counts is CRT with an O(1) error per class; with pairwise coprime
 moduli whose product is comparable to N, that error is comparable to the main term, and the moduli of words need not
 be coprime. Even so, that part has an integer counterpart, while Theorem 3.9(i)–(ii) has none in this framework.
 
@@ -680,9 +681,12 @@ of §4.3 the relevant ratio is depth × log(rank) against (n/2) log q.
 
 ### 5.3 Conditional integer statements: tested
 
-(a) *GRH (analogue of Weil) and level-1 distribution (analogue of exact CRT).* Both hold in F_q[T]. With them, the
-best bounds proved in this document are the CRT ones (Prop 3.7). An implication "GRH + EH ⇒ T1-min" proved by an
-argument that transfers to F_q[T] would prove FF-T1-min. No such argument is known there either. FF-T1-min is
+(a) *RH and elementary congruence counting.* RH for Dirichlet L-functions and exact residue-class counts through
+degree n hold in F_q[T]. The RH/congruence estimates used in Proposition 3.7 give the CRT bounds; Theorem 3.9 uses
+additional geometric and group-theoretic input. No derivation of FF-T1-min from the former estimates is supplied, and
+this does not prove a non-implication over either ring. (EH concerns averaged prime-distribution errors and is not the
+analogue of elementary CRT.) An implication "GRH (+ prime-distribution hypotheses) ⇒ T1-min" proved by an argument
+that transfers to F_q[T] would prove FF-T1-min; no such argument is known there either. FF-T1-min is
 presumably true (Table 2.1, Table 4.1), so the FF world cannot *refute* such an implication. The test is therefore
 negative only in this weak sense (Assessment).
 (b) *Katz–Sarnak-type statements for the quadratic family* L(s, χ_n), analogue of the hyperelliptic ensemble y² = f.
@@ -690,10 +694,11 @@ They govern the colour data (f/A), i.e. rank-one information (least non-residue,
 separate squares from non-squares but are not U-witnesses. Their integer versions (n-level densities) bear on the
 Linnik-confinement door T2, not on T1-min. Their FF versions are theorems at large q and do not decide U_q (Thm 3.5
 holds regardless). Verdict: no route found.
-(c) *A Poisson/independence hypothesis for word statistics over ℤ* (the analogue of Conj 3.6). A quantitative lower-tail
-version (#{non-square n ≤ N failing U} ≤ N exp(−c(log N)²)) would give a finite non-square exceptional set, but it is
-a restatement of the desired conclusion (H⁻mom-type, LOWERTAIL_DEEP_ASTRA Thm 7.1). A qualitative Poisson heuristic
-does not by itself imply it. In F_q[T] at large q the analogous statement concerns a finite group at each n, and its
+(c) *A Poisson/independence hypothesis for word statistics over ℤ* (the analogue of Conj 3.6). A sufficient quantitative lower-tail
+hypothesis is #{non-square N < m ≤ 2N failing U} ≤ N exp(−c(log N)²) for every sufficiently large N. Since the right
+side tends to zero, this implies eventual absence of non-square failures (compare the sufficient moment hypothesis
+of LOWERTAIL_DEEP_ASTRA Thm 7.1, also on dyadic blocks). No such estimate or transfer is proved here, and a
+qualitative Poisson heuristic does not imply it. In F_q[T] at large q the analogous statement concerns a finite group at each n, and its
 upper-bound half is proved (Thm 3.9). That is the genuinely new feature of the function-field model, and no transfer
 of it is known.
 
@@ -721,13 +726,13 @@ divisor-table brute force agrees with the engine (q = 3, 7; n = 2..5). Repairs a
 * The square-defect claim was wrong and is replaced by the actual table. "Dies out" was relabelled EVIDENCE.
 * §3.7 was rewritten as conditional budget analogies with the general condition (1/2) log q − log E_n − m_n → ∞.
   The event bound is total, not per degree.
-* Prop 3.7(a): trimming to a subfamily of mass Θ(z), explicit constants and small degrees. Prop 3.7(b): now
-  CONDITIONAL on the explicit pair lemma C2; the reduction from j-tuples to pairs is proved.
+* Prop 3.7(a): trimming to a subfamily of mass Θ(z), explicit constants and small degrees. Prop 3.7(b): at the R1
+  stage made CONDITIONAL on the explicit pair lemma C2 (proved in round 2); the reduction from j-tuples to pairs is proved.
 * Provenance: all Table 2.1 runs were re-run into `enum.txt`; the q = 163 value was corrected (0.2001); n = 2 is exact.
 
 **Round 2 (author).** Lemma C2 proved by a stratified count (overlap degree γ costs γ; compatibility costs one more
 unless u′v′ = uv, which forces the same class); Prop 3.7(b) upgraded to PROVED; numerical check of the O(1/q) pair sum. New §3.9: Prop 3.8 (k-transitivity of small-class word covers from
-exact CRT + Lemma C2) and Theorem 3.9 (CFSG + Goursat: ∏ Alt ⊆ G_n, hence ρ_{n,p} ≤ exp(−0.0043 n²)); factorial-moment
+exact CRT + Lemma C2) and Theorem 3.9 (CFSG + Goursat: ∏ Alt ⊆ G*, the image of G_n on the small-shape fibres, hence ρ_{n,p} ≤ exp(−0.0043 n²)); factorial-moment
 check of high transitivity beyond the CRT range.
 
 **R2 (Astra, `reviews/z51-ffield-review-r2.md`; whole document at commit 98a86b72, before §3.9).** Verdict MAJOR, no
@@ -766,3 +771,16 @@ perfect core and the pair-surjective product lemma; the coset derangement bound 
 * The integer analogy was rephrased (CRT has an O(1) error; non-abelian Chebotarev exists over ℤ, and what is missing
   is this family of covers).
 * The scope is now explicitly the iterated large-q model.
+
+**R4 (Astra, `reviews/z51-ffield-review-r4.md`; final faithfulness check).** Verdict MAJOR on faithfulness only: "retain
+the main theorems and their PROVED labels". Applied:
+* ∏ Alt ⊆ G* (the image on the selected fibres), not ⊆ G_n, in row 7′, §5.2 and §6.
+* The integer lower-tail hypothesis is now dyadic and sufficient; the cumulative form contradicted the known
+  exceptions, and "restatement of the conclusion" was deleted.
+* §5.3(a) rewritten (EH is not elementary CRT); the Chowla status cell and the "no fibre" sentence corrected.
+* Census wording (odd n = 9..15; even trend for n = 8..14).
+* The diagonal correction for a = b classes.
+* A uniform τ(h) bound in C2(i).
+* "Asymptotically 1/4" in the 𝒞* count.
+* The false exclusivity claim about v = 1 events.
+* Summary rows 5, 7, 9, 13 and §3.7(d) wording.
