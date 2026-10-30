@@ -4,7 +4,7 @@
 
 Abstract: determines order of magnitude of H(x,y,z), integers n≤x with a divisor in (y,z], for all x,y,z; studies H_r, exactly r divisors. For r=1 establishes order for z≤x^(1/2−ε); for r≥2 in stated y,z range.
 
-Definitions/exact special case: H(x,y,z)=#{n≤x: τ(n;y,z)>0}. The paper states (Theorem T1, cited as Ford Theorem 1.1 by Koukoulopoulos): for x>100000 and 100≤y≤z−1≤x, if y≤√x then H(x,y,z)/x is comparable to η for z≤z0(y), to β/[max(1,−ξ)(log y)^G(β)] for z0(y)≤z≤2y, to u^δ(log(2/u))^(−3/2) for 2y≤z≤y², and to 1 for z≥y²; if y>√x, H(x,y,z) is comparable to H(x,x/z,x/y) when x/y≥x/z+1, otherwise ηx. This is an ambient-integer count, not a prescribed-N assertion.
+Definitions/exact special case: H(x,y,z)=#{n≤x: τ(n;y,z)>0}. The piecewise order-of-magnitude formula for H is Ford’s Theorem 1 (restated as Theorem 1.1 in Koukoulopoulos’s paper; do not confuse it with Ford’s Theorem T1, which is Tenenbaum’s earlier result). For x>100000 and 100≤y≤z−1≤x, if y≤√x then H(x,y,z)/x is comparable to η for z≤z0(y), to β/[max(1,−ξ)(log y)^G(β)] for z0(y)≤z≤2y, to u^δ(log(2/u))^(−3/2) for 2y≤z≤y², and to 1 for z≥y²; if y>√x, H(x,y,z) is comparable to H(x,x/z,x/y) when x/y≥x/z+1, otherwise ηx. This is an ambient-integer count, not a prescribed-N assertion.
 
 ## Koukoulopoulos, “Divisors of shifted primes,” arXiv:0905.0163v3
 
@@ -36,4 +36,4 @@ Theorem A: Suppose that for every even primitive quadratic character `χ mod q`,
 
 ## Bober–Goldmakher, “Pólya–Vinogradov and the least quadratic nonresidue” (arXiv:1311.7556v2)
 
-Theorem 1: For each `g≥1`, if every primitive even character `χ mod q` of order `g` satisfies `M(χ)≤√q log(q)/f(q)` for an eventually nondecreasing `f`, then for every primitive odd character `ξ mod k` of order `g`, `n_ξ≪exp(C_g log(k)/f(k))`; the theorem specifies `C_g`, including `C_g=π√3/[2(√e−1)]` when `3∤k`. Conditional transfer result, not an unconditional new bound.
+Theorem 1: For each `g≥1`, under the paper’s hypothesis that every primitive even character `χ mod q` of order `g` satisfies `M(χ)≤√q log(q)/f(q)` for an eventually nondecreasing `f`, the conclusion is stated for primitive odd characters `ξ mod k` of order `g` with the additional hypothesis `3∤k`: `n_ξ≪exp(C_g log(k)/f(k))`, with the paper specifying the constant. Conditional transfer result, not an unconditional new bound.
