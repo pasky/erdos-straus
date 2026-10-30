@@ -1,0 +1,7 @@
+Antoine Chambert-Loir and Yuri Tschinkel, “Integral points of bounded height on partial equivariant compactifications of vector groups,” arXiv:0912.4751, full HTML accessed 2026-10-30.
+
+Abstract: establishes asymptotic formulas for the number of integral points of bounded height on partial equivariant compactifications of vector groups.
+
+Verified in the introduction/height-zeta analysis: the objects are partial equivariant compactifications U of a vector group G=G_a^n, with integral points counted using a chosen integral model and heights attached to line bundles; the method is Fourier analysis/Poisson summation of height zeta functions. The asymptotic concerns height-ordered global counts, not prescribed parameters or a pointwise integral-point lower bound on every member of another family.
+
+Bibliography in Derenthal–Wilsch, arXiv:2505.10245v1, identifies the published version as Duke Math. J. 161 (2012), no. 15, 2799–2836, DOI 10.1215/00127094-1813638.

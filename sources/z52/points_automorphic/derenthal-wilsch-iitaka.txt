@@ -1,0 +1,7 @@
+Ulrich Derenthal and Florian Wilsch, “Iitaka fibrations and integral points: a family of arbitrarily polarized spherical threefolds,” arXiv:2505.10245v1, full HTML accessed 2026-10-30.
+
+Abstract: studies Manin’s program for integral points on a family of spherical log Fano threefolds and determines asymptotic counts for integral points of bounded height.
+
+Verified Theorem 1.3/Proposition 4.8: for adjoint-rigid members, the count has a Manin-type asymptotic (alpha/a times the product of local densities, B^a (log B)^(b−1)); for non-rigid members it is a sum over fibers of the Iitaka fibration with analogous fiber constants. The paper treats both regimes by explicit universal-torsor counting. The result is height ordered and specific to that spherical family, not a general pointwise estimate for another family’s fibers.
+
+The paper’s §4.3 explicitly says the log-anticanonical partial equivariant compactification of G_a^3 case was already treated by Chambert-Loir–Tschinkel (Duke Math. J. 161 (2012), 2799–2836).

@@ -82,10 +82,40 @@ Robin Zhang, “Positive integral points on acyclic cluster varieties,” arXiv:
 
 None. The source-verified results either restate audited ES geometry or concern sign patterns across a positive-density set of primes. Neither supplies the required single-object lower bound for a prescribed prime with expected count `≍ log² p`; proposing a transfer would evade B2/B6 rather than address them.
 
-## §4 Not accessed / could not verify / incorrect leads
+## §4 Additional individually checked leads
+
+### Chambert-Loir–Tschinkel: bounded-height integral points on additive-group compactifications
+
+Antoine Chambert-Loir and Yuri Tschinkel, “Integral points of bounded height on partial equivariant compactifications of vector groups,” arXiv:0912.4751; *Duke Math. J.* 161 (2012), no. 15, 2799–2836, DOI 10.1215/00127094-1813638. Source: full arXiv HTML; excerpt `sources/z52/points_automorphic/chambert-loir-tschinkel-integral.txt`.
+
+- **Verified scope/method.** The abstract states asymptotic formulas for bounded-height integral points on partial equivariant compactifications of vector groups. The paper sets up counts for a chosen integral model and line-bundle heights, then uses Fourier transforms, Poisson summation and height zeta functions. This is a height-ordered global count on a specified group compactification, not a pointwise lower bound in a prescribed parameter family.
+- **Relation:** relevant antecedent for height-counting methods; Derenthal–Wilsch explicitly invoke it for the log-anticanonical partial compactification of `G_a^3`. It does not by itself transfer to ES's individual numerator question.
+
+### Cao–Xu and Wei: strong approximation for toric varieties
+
+Dasheng Cao and Fei Xu, “Strong approximation with Brauer–Manin obstruction for toric varieties,” *Ann. Inst. Fourier* 68 (2018), no. 5, 1879–1908; Dasheng Wei, “Strong approximation for a toric variety,” arXiv:1403.1035v3. Source: Wei full HTML; excerpt `sources/z52/points_automorphic/cao-xu-strong-approx.txt`.
+
+- **Verified result.** Wei’s theorem states that for smooth toric `X` with `kbar[X]^×=kbar^×` and codimension-at-least-two closed `W`, `X\\W` satisfies strong approximation with algebraic Brauer–Manin obstruction off any chosen place `v₀`. Wei’s introduction identifies the Cao–Xu result as strong approximation with BM obstruction off all infinite places for any toric variety, without that geometric-units hypothesis. The former is checked directly; Cao–Xu is verified via Wei’s explicit bibliographic characterization, not its original text.
+- **Relation:** the ES resolution discussed in `GEOMETRY_ES.md` is not toric in the relevant integral model, and approximation statements do not imply the required integral point on each prescribed ES surface.
+
+### Colliot-Thélène–Wittenberg: affine cubic-surface Brauer groups and integral points
+
+Jean-Louis Colliot-Thélène and Olivier Wittenberg, “Groupe de Brauer et points entiers de deux familles de surfaces cubiques affines,” *Amer. J. Math.* 134 (2012), no. 5, 1303–1327. Source: checked later-paper citations and theorem use in `sources/z52/points_automorphic/ct-wittenberg-cubic-surfaces.txt`.
+
+- **Verified at citation level.** The full text of “Integral points on symmetric affine cubic surfaces” (arXiv:2204.13472v2), §8, explicitly applies CTW12 Theorem 4.1a to the assertion that sums of three cubes have no integral Brauer–Manin obstruction to the Hasse principle; §§7.1 and 8 also cite CTW12 Proposition 3.1 and Lemma 3.2 for boundary-residue/Brauer arguments. This is not an independent full-text audit of the 2012 original, so the source level is distinguished.
+- **Relation:** a direct affine-cubic/Brauer precedent, but a no-BM-obstruction theorem is not an unconditional integral-point existence theorem and does not yield ES pointwise coverage.
+
+### Derenthal–Wilsch: Iitaka fibrations and integral points on spherical threefolds
+
+Ulrich Derenthal and Florian Wilsch, “Iitaka fibrations and integral points: a family of arbitrarily polarized spherical threefolds,” arXiv:2505.10245v1 (2025). Source: full arXiv HTML; excerpt `sources/z52/points_automorphic/derenthal-wilsch-iitaka.txt`.
+
+- **Verified result.** Theorem 1.3/Proposition 4.8 gives Manin-type bounded-height asymptotics in the adjoint-rigid case and a sum of fiber contributions over the Iitaka fibration in the non-rigid case, for their specified spherical log Fano threefold family. Proof includes explicit universal-torsor counts. Their §4.3 identifies the log-anticanonical partial `G_a^3` case as previously treated by Chambert-Loir–Tschinkel.
+- **Relation:** precise example of geometric organization by Iitaka fibration and height asymptotics; it is neither an ES surface theorem nor a lower bound at an arbitrary prescribed ES parameter.
+
+## §5 Not accessed / could not verify / incorrect leads
 
 - No 2021–26 follow-up proving a new pointwise or density result on the Erdős–Straus surfaces was verified in this lane. The initial search surfaced no such result; this is not an exhaustive database search. The already-audited Bright–Loughran and geometry citations remain in `GEOMETRY_ES.md` and `LITERATURE_AUTOMORPHIC.md`.
-- The named leads (Harpaz, Santens, Wilsch, Mitankin, Lyczak, Gvirtz-Chen, Cao–Xu/Wei, Colliot-Thélène–Wittenberg) were not individually re-opened here; rely on existing repo audits, not this note, for their exact statements.
+- Gvirtz-Chen remains **NOT VERIFIED** in this lane; no primary source or theorem text has yet been checked. Cao–Xu/Wei and Colliot-Thélène–Wittenberg have now been addressed above, with Cao–Xu and CTW explicitly marked as citation-level verification rather than fresh full-original audits.
 - No 2024–26 theta-lift, Kudla–Millson, mock-modular, Borcherds, Bruinier–Funke, or half-integral-weight result certifying positivity of a single coefficient in a growing-level Eisenstein-type combination was source-verified. The leads in that clause remain **NOT VERIFIED**; no claim of nonexistence.
 - Linowitz–Thompson: arXiv abstract accessed but full theorem text and publication metadata not checked; accordingly only the abstract-level statement is recorded.
 

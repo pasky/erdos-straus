@@ -1,0 +1,7 @@
+Dasheng Wei, “Strong approximation for a toric variety,” arXiv:1403.1035v3, full HTML accessed 2026-10-30.
+
+Abstract: Let X be a toric variety over a number field k with kbar[X]^×=kbar^×, and W⊂X closed of codimension at least 2. X\W satisfies strong approximation with algebraic Brauer–Manin obstruction.
+
+Theorem (Introduction): For a number field k and place v₀, a smooth toric variety X with kbar[X]^×=kbar^× and closed W of codimension at least 2 satisfies strong approximation with algebraic Brauer–Manin obstruction off v₀.
+
+The introduction explicitly contrasts Cao–Xu [CX18], “Strong approximation with Brauer–Manin obstruction for toric varieties,” Ann. Inst. Fourier 68 (2018), no. 5, 1879–1908: they prove any toric variety X satisfies strong approximation with Brauer–Manin obstruction off all infinite places, without the geometric-units condition. This is a citation and characterization in Wei’s paper, not independent primary-source verification of all Cao–Xu details.

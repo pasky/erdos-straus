@@ -1,0 +1,5 @@
+Jean-Louis Colliot-Thélène and Olivier Wittenberg, “Groupe de Brauer et points entiers de deux familles de surfaces cubiques affines,” Amer. J. Math. 134 (2012), no. 5, 1303–1327, MR 2975237.
+
+Primary-source corroboration located through the full HTML of “Integral points on symmetric affine cubic surfaces,” arXiv:2204.13472v2, accessed 2026-10-30. Its §8 explicitly invokes CTW12, Theorem 4.1a, for the statement that equations x^3+y^3+z^3=m have no integral Brauer–Manin obstruction to the Hasse principle (after the indicated integral coordinate change). Its §7.1 cites CTW12, Proposition 3.1, and Lemma 3.2 for Brauer residue analysis on the cubic boundary. This is a checked later paper’s statement of the cited results, not a fresh inspection of CTW12’s full original text.
+
+Relevance: BM obstruction and local-global statements for two families of affine cubic surfaces; not a general pointwise existence theorem for a prescribed ES numerator.
