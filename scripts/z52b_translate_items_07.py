@@ -88,7 +88,7 @@ dict(t="Sum of two squares p = a² + b² and the Hecke-angle of p vs ES-hardness
 dict(t="Quartic residue symbol (A/p)₄ on certificates: hidden finer obstruction?",
  c="For p ≡ 1 (4), the quartic symbol refines (A/p). If certificates' quartic symbols are biased (e.g. never i for some class of p), there may be a finer reciprocity structure, as in the Apollonian quartic obstruction.",
  w="Quartic reciprocity obstructions appeared in HKRS for Apollonian packings. A quartic bias in ES certificates would be a new invariant.",
- f="Compute the distribution of (A/p)₄ over all ES₅ words with (A/p) = −1 for p ≡ 1 (8), p < 10⁶.",
+ f="Note (cheap test): (A/p) = −1 forces A^{(p−1)/4} = ±i, so only the i vs −i split is informative, and it needs a canonical i (e.g. i ≡ a/b mod p from p = a² + b², a odd, b even). With that normalisation, compute the i/−i split over sign-(−1) words, and the ±1 split over sign-(+1) words, for p ≡ 1 (8) < 10⁶.",
  r=[], g=["form:hj3","field:algebraic-number-theory","quartic-reciprocity","computation"], k="high", e="cheap"),
 dict(t="Erdős–Kac jointly over levels: dependence of ω(4Cp+1) across C via shared small primes",
  c="Level failures are dependent because 4Cp+1 and 4C′p+1 share small prime factors when C ≡ C′ mod q-structures. The joint distribution of (ω(4Cp+1))_C is a Kubilius-model question.",

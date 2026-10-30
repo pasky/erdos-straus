@@ -1,7 +1,7 @@
 # Batch 09: filling thin cells — V_n, pencil, RS, Kudla, quaternion/singular moduli, CF statistics, QMC, prime tuples.
 ITEMS = [
 dict(t="Maynard–Tao: infinitely many primes p with many simultaneously prime 4Cp+1 (forced level failures)",
- c="If 4Cp + 1 is prime, its only divisors are 1 and itself (≡ 1 mod 4C), so level C fails. Maynard–Tao gives, for admissible tuples of linear forms, infinitely many n with ≥ m of them prime. With n restricted to primes (Maynard's 'dense clusters' framework), this gives infinitely many primes p with ≥ m failed levels among C ≤ K.",
+ c="If 4Cp + 1 is prime, its only divisors are 1 and itself (≡ 1 mod 4C), so level C fails. Maynard–Tao gives, for admissible tuples of linear forms, infinitely many n with ≥ m of them prime. If n can also be restricted to primes (check: Maynard's 'dense clusters' framework allows subsets such as the primes), this would give infinitely many primes p with ≥ m failed levels among C ≤ K.",
  w="It would be a PROVED statement about ES-hardness: arbitrarily many small levels fail infinitely often. It calibrates any proof that uses a bounded set of small levels, as a quantitative B1.",
  f="Check whether Maynard's 'Dense clusters of primes in subsets' (Compos. Math. 2016) applies with n ranging over primes and forms 4Cn + 1; state the resulting m(K).",
  r=["Maynard, Small gaps between primes (Ann. Math. 2015)", "Maynard, Dense clusters of primes in subsets (Compos. Math. 2016)"], g=["form:typeII","field:sieve","prime-tuples","B1-native","calibration"], k="high", e="cheap", kw=["Maynard"]),
@@ -53,7 +53,7 @@ dict(t="Semigroup orbit counting (Bourgain–Kontorovich, Kontorovich–Oh) for 
 dict(t="Heilbronn's average CF length with a quadratic-character twist",
  c="Heilbronn: the average number of steps of the Euclidean algorithm on a/p is (12 log 2/π²) log p. Twisting by (a/p), the difference between average lengths over QR and QNR a is a 'character-correlated CF statistic'.",
  w="If QNRs have systematically shorter/longer expansions (in HJ form), that is a global bias relevant to λ(p) ≤ 3. Twisted Heilbronn sums reduce to Kloosterman-type sums (Ustinov's methods).",
- f="Compute mean HJ length over QR vs QNR a for p < 10⁵; test whether the difference is O(1) or decays.",
+ f="Caveat from a cheap test (scripts/z52b_translate_cheap.py, p < 3000): the plain mean of HJ length is dominated by a near p (p/(p−1) = [[2,…,2]] has length p−1, and (−1/p) = 1 puts it in QR), so QR − QNR mean differences are large noise (0.2 to 9.7). Use regular-CF length, log-HJ length or the count of A with r(p/A) ≤ L instead, for p < 10⁵.",
  r=["Heilbronn 1969", "Ustinov, on statistical properties of finite continued fractions (check)"], g=["form:hj3","field:continued-fractions","statistics"], k="high", e="cheap"),
 dict(t="Quasi-Monte Carlo: rank-1 lattice rules with generator A and HJ length 3 as 'worst' lattices",
  c="A 2-D rank-1 lattice rule {(k/p, kA/p)} has quality governed by the partial quotients of A/p (Zaremba index; Niederreiter). HJ length 3 with huge digits means a very bad lattice rule. ES₅ asks for a bad lattice rule with a QNR generator.",
