@@ -1,0 +1,23 @@
+Accessed 2026-10-30; problem pages via https://www.erdosproblems.com/{id} through Jina Reader; individual site pages cited below.
+
+#45 page: Croot [Cr03] proves finite-coloring question; Sawhney notes doubly exponential lower bound (essentially sharp).
+#46: Croot [Cr03] proves monochromatic representation; infinitely many disjoint solutions; extension to arbitrary m by induced coloring/scaling.
+#47: Bloom [Bl21], improved by Liu–Sawhney [LiSa24]; quantitative threshold is stated on page, though Jina's formula rendering drops equations.
+#206: Kovač [Ko24b] proves counterexample to “eventually greedy” for almost all real numbers (exceptional set has Lebesgue measure zero).
+#283: page lists GPT-5.5 Pro proof (prompted by Price); source paper is “Polynomial Egyptian Sums,” dated 3 May 2026; primary theorem/source excerpt in overleaf-283.txt.
+#285: Martin [Ma00] proved asymptotic; lower bound from harmonic sum; the page quotes reciprocal-harmonic estimate. Formalized in Lean in 2026.
+#290: van Doorn [vD24] gives explicit b when a∈(3^k,3^{k+1}], b=2·3^{k+1}−1, using consecutive reciprocal sums; page also gives linear upper bound and lower-order estimates.
+#296: site says Hunter–Sawhney derive the bound from Theorem 3 of Bloom [Bl21] plus greedy construction; AI-wiki logs Lean formalization 22 Apr–26 May 2026.
+#298: Bloom [Bl21] proves positive-upper-density set contains finite subset with required reciprocal sum.
+#299: negative answer follows from #298; any candidate sequence would generate a positive-density obstruction contradicted by Bloom's theorem.
+#300: Croot [Cr03] disproves proposed growth estimate; Liu–Sawhney [LiSa24] give tighter bound. Site formal status updated in 2026.
+#303: Brown–Rödl [BrRo91] prove finite-colouring version; formalized in Lean in Dec 2025.
+#309: page cites Yokota [Yo97, Yo02] and Croot [Cr99] for bounds on distinct reciprocal subset sums; disproval status refers to conjectured growth statement, not the Egyptian–Straus equation.
+#310: Bloom [Bl21] main result implies positive answer; Liu–Sawhney [LiSa24] prove sharper quantitative version and sharp dependence.
+#315: independent proofs Kamio [Ka25] and Li–Tang [LiTa25]; site describes the Vardi constant and reciprocal/Sylvester-type sequences. Lean formalization logged Jan 2026.
+#316: Sándor [Sa97] disproves partition statement using proper divisors of 120; general construction for any target uses divisor sets.
+#318: Sattler [Sa82b] proves the arithmetic-progression case; Larsen's linked paper proves the squares-excluding-1 case. Lean status first marked solved 16 Sep 2026.
+#355: van Doorn–Kovač [DoKo25] prove positive answer for every lacunarity constant c>1 (not c=1); AI formalization logged Jan–Mar 2026.
+#825: Larsen's linked paper proves affirmative answer, with strengthening for integers whose prime divisors satisfy a condition; statement is about abundancy/weird numbers and distinct proper-divisor sums.
+
+The pages often render formulas as blanks in text extraction; the citation and qualitative result are preserved, but no missing formula is reconstructed from memory. Recent GitHub `status.last_update` dates frequently record a Lean formalization/database update, not the date of the original theorem. Section §2 makes that distinction explicit.
