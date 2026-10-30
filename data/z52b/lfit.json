@@ -4,31 +4,31 @@
   "R2_gain": 0.286
  },
  "U|p|Q=3": {
-  "alpha": -0.293,
-  "R2_gain": 0.399
+  "alpha": -0.292,
+  "R2_gain": 0.398
  },
  "U|p|Q=5": {
-  "alpha": -0.307,
-  "R2_gain": 0.48
+  "alpha": -0.306,
+  "R2_gain": 0.479
  },
  "U|p|Q=7": {
-  "alpha": -0.299,
-  "R2_gain": 0.474
+  "alpha": -0.298,
+  "R2_gain": 0.473
  },
  "U|p|Q=13": {
   "alpha": -0.297,
-  "R2_gain": 0.48
+  "R2_gain": 0.479
  },
  "U|p|Q=31": {
   "alpha": -0.297,
   "R2_gain": 0.487
  },
  "U|p|Q=100": {
-  "alpha": -0.296,
+  "alpha": -0.295,
   "R2_gain": 0.482
  },
  "U|p|Q=1000": {
-  "alpha": -0.296,
+  "alpha": -0.295,
   "R2_gain": 0.477
  },
  "U|-4p|Q=2": {
@@ -48,11 +48,11 @@
   "R2_gain": 0.02
  },
  "U|-4p|Q=13": {
-  "alpha": 0.105,
-  "R2_gain": 0.024
+  "alpha": 0.106,
+  "R2_gain": 0.025
  },
  "U|-4p|Q=31": {
-  "alpha": 0.097,
+  "alpha": 0.098,
   "R2_gain": 0.022
  },
  "U|-4p|Q=100": {
@@ -68,32 +68,32 @@
   "R2_gain": 0.34
  },
  "k1 (one denom div p)|p|Q=3": {
-  "alpha": -0.333,
+  "alpha": -0.332,
   "R2_gain": 0.418
  },
  "k1 (one denom div p)|p|Q=5": {
-  "alpha": -0.354,
-  "R2_gain": 0.518
+  "alpha": -0.353,
+  "R2_gain": 0.517
  },
  "k1 (one denom div p)|p|Q=7": {
   "alpha": -0.34,
   "R2_gain": 0.497
  },
  "k1 (one denom div p)|p|Q=13": {
-  "alpha": -0.338,
+  "alpha": -0.337,
   "R2_gain": 0.503
  },
  "k1 (one denom div p)|p|Q=31": {
-  "alpha": -0.338,
-  "R2_gain": 0.509
+  "alpha": -0.337,
+  "R2_gain": 0.51
  },
  "k1 (one denom div p)|p|Q=100": {
-  "alpha": -0.336,
-  "R2_gain": 0.504
+  "alpha": -0.335,
+  "R2_gain": 0.505
  },
  "k1 (one denom div p)|p|Q=1000": {
-  "alpha": -0.337,
-  "R2_gain": 0.499
+  "alpha": -0.336,
+  "R2_gain": 0.5
  },
  "k1 (one denom div p)|-4p|Q=2": {
   "alpha": 0.0,
@@ -101,11 +101,11 @@
  },
  "k1 (one denom div p)|-4p|Q=3": {
   "alpha": 0.273,
-  "R2_gain": 0.08
+  "R2_gain": 0.081
  },
  "k1 (one denom div p)|-4p|Q=5": {
   "alpha": 0.061,
-  "R2_gain": 0.005
+  "R2_gain": 0.006
  },
  "k1 (one denom div p)|-4p|Q=7": {
   "alpha": 0.054,
@@ -116,20 +116,20 @@
   "R2_gain": 0.006
  },
  "k1 (one denom div p)|-4p|Q=31": {
+  "alpha": 0.049,
+  "R2_gain": 0.005
+ },
+ "k1 (one denom div p)|-4p|Q=100": {
   "alpha": 0.048,
   "R2_gain": 0.004
  },
- "k1 (one denom div p)|-4p|Q=100": {
-  "alpha": 0.047,
-  "R2_gain": 0.004
- },
  "k1 (one denom div p)|-4p|Q=1000": {
-  "alpha": 0.046,
+  "alpha": 0.047,
   "R2_gain": 0.004
  },
  "k2 (two denoms div p)|p|Q=2": {
   "alpha": -0.141,
-  "R2_gain": 0.075
+  "R2_gain": 0.076
  },
  "k2 (two denoms div p)|p|Q=3": {
   "alpha": -0.193,
@@ -141,7 +141,7 @@
  },
  "k2 (two denoms div p)|p|Q=7": {
   "alpha": -0.198,
-  "R2_gain": 0.235
+  "R2_gain": 0.234
  },
  "k2 (two denoms div p)|p|Q=13": {
   "alpha": -0.198,
@@ -149,10 +149,10 @@
  },
  "k2 (two denoms div p)|p|Q=31": {
   "alpha": -0.199,
-  "R2_gain": 0.247
+  "R2_gain": 0.246
  },
  "k2 (two denoms div p)|p|Q=100": {
-  "alpha": -0.198,
+  "alpha": -0.197,
   "R2_gain": 0.244
  },
  "k2 (two denoms div p)|p|Q=1000": {
@@ -164,8 +164,8 @@
   "R2_gain": 0.0
  },
  "k2 (two denoms div p)|-4p|Q=3": {
-  "alpha": 0.319,
-  "R2_gain": 0.154
+  "alpha": 0.318,
+  "R2_gain": 0.153
  },
  "k2 (two denoms div p)|-4p|Q=5": {
   "alpha": 0.191,
@@ -173,18 +173,18 @@
  },
  "k2 (two denoms div p)|-4p|Q=7": {
   "alpha": 0.203,
-  "R2_gain": 0.095
+  "R2_gain": 0.094
  },
  "k2 (two denoms div p)|-4p|Q=13": {
   "alpha": 0.207,
-  "R2_gain": 0.107
+  "R2_gain": 0.106
  },
  "k2 (two denoms div p)|-4p|Q=31": {
   "alpha": 0.206,
-  "R2_gain": 0.111
+  "R2_gain": 0.11
  },
  "k2 (two denoms div p)|-4p|Q=100": {
-  "alpha": 0.206,
+  "alpha": 0.207,
   "R2_gain": 0.113
  },
  "k2 (two denoms div p)|-4p|Q=1000": {
@@ -192,44 +192,44 @@
   "R2_gain": 0.114
  },
  "R(p) (\u2605)|p|Q=2": {
-  "alpha": -0.066,
-  "R2_gain": 0.009
+  "alpha": -0.065,
+  "R2_gain": 0.008
  },
  "R(p) (\u2605)|p|Q=3": {
-  "alpha": -0.174,
-  "R2_gain": 0.084
+  "alpha": -0.173,
+  "R2_gain": 0.083
  },
  "R(p) (\u2605)|p|Q=5": {
-  "alpha": -0.146,
+  "alpha": -0.145,
   "R2_gain": 0.064
  },
  "R(p) (\u2605)|p|Q=7": {
   "alpha": -0.165,
-  "R2_gain": 0.085
+  "R2_gain": 0.086
  },
  "R(p) (\u2605)|p|Q=13": {
-  "alpha": -0.168,
+  "alpha": -0.167,
   "R2_gain": 0.09
  },
  "R(p) (\u2605)|p|Q=31": {
   "alpha": -0.167,
-  "R2_gain": 0.092
+  "R2_gain": 0.091
  },
  "R(p) (\u2605)|p|Q=100": {
-  "alpha": -0.166,
+  "alpha": -0.165,
   "R2_gain": 0.09
  },
  "R(p) (\u2605)|p|Q=1000": {
-  "alpha": -0.165,
+  "alpha": -0.164,
   "R2_gain": 0.088
  },
  "R(p) (\u2605)|-4p|Q=2": {
   "alpha": 0.0,
-  "R2_gain": -0.0
+  "R2_gain": 0.0
  },
  "R(p) (\u2605)|-4p|Q=3": {
   "alpha": 0.44,
-  "R2_gain": 0.153
+  "R2_gain": 0.154
  },
  "R(p) (\u2605)|-4p|Q=5": {
   "alpha": 0.364,
@@ -240,8 +240,8 @@
   "R2_gain": 0.181
  },
  "R(p) (\u2605)|-4p|Q=13": {
-  "alpha": 0.38,
-  "R2_gain": 0.187
+  "alpha": 0.379,
+  "R2_gain": 0.188
  },
  "R(p) (\u2605)|-4p|Q=31": {
   "alpha": 0.38,
@@ -256,35 +256,35 @@
   "R2_gain": 0.2
  },
  "Uv(p)|p|Q=2": {
-  "alpha": -0.278,
+  "alpha": -0.277,
   "R2_gain": 0.198
  },
  "Uv(p)|p|Q=3": {
-  "alpha": -0.297,
+  "alpha": -0.296,
   "R2_gain": 0.314
  },
  "Uv(p)|p|Q=5": {
-  "alpha": -0.29,
-  "R2_gain": 0.327
+  "alpha": -0.288,
+  "R2_gain": 0.326
  },
  "Uv(p)|p|Q=7": {
-  "alpha": -0.291,
+  "alpha": -0.29,
   "R2_gain": 0.344
  },
  "Uv(p)|p|Q=13": {
-  "alpha": -0.289,
+  "alpha": -0.288,
   "R2_gain": 0.346
  },
  "Uv(p)|p|Q=31": {
-  "alpha": -0.287,
+  "alpha": -0.286,
   "R2_gain": 0.348
  },
  "Uv(p)|p|Q=100": {
-  "alpha": -0.286,
+  "alpha": -0.285,
   "R2_gain": 0.345
  },
  "Uv(p)|p|Q=1000": {
-  "alpha": -0.286,
+  "alpha": -0.285,
   "R2_gain": 0.341
  },
  "Uv(p)|-4p|Q=2": {
@@ -292,28 +292,28 @@
   "R2_gain": 0.0
  },
  "Uv(p)|-4p|Q=3": {
-  "alpha": 0.339,
+  "alpha": 0.337,
   "R2_gain": 0.117
  },
  "Uv(p)|-4p|Q=5": {
-  "alpha": 0.2,
+  "alpha": 0.199,
   "R2_gain": 0.055
  },
  "Uv(p)|-4p|Q=7": {
-  "alpha": 0.211,
+  "alpha": 0.21,
   "R2_gain": 0.069
  },
  "Uv(p)|-4p|Q=13": {
   "alpha": 0.213,
-  "R2_gain": 0.076
+  "R2_gain": 0.077
  },
  "Uv(p)|-4p|Q=31": {
   "alpha": 0.209,
   "R2_gain": 0.077
  },
  "Uv(p)|-4p|Q=100": {
-  "alpha": 0.208,
-  "R2_gain": 0.078
+  "alpha": 0.209,
+  "R2_gain": 0.079
  },
  "Uv(p)|-4p|Q=1000": {
   "alpha": 0.207,
@@ -324,11 +324,11 @@
   "R2_gain": 0.068
  },
  "I3(p)|p|Q=3": {
-  "alpha": -0.123,
+  "alpha": -0.122,
   "R2_gain": 0.103
  },
  "I3(p)|p|Q=5": {
-  "alpha": -0.131,
+  "alpha": -0.13,
   "R2_gain": 0.128
  },
  "I3(p)|p|Q=7": {
@@ -336,16 +336,16 @@
   "R2_gain": 0.1
  },
  "I3(p)|p|Q=13": {
-  "alpha": -0.114,
-  "R2_gain": 0.103
+  "alpha": -0.113,
+  "R2_gain": 0.104
  },
  "I3(p)|p|Q=31": {
   "alpha": -0.116,
-  "R2_gain": 0.109
+  "R2_gain": 0.11
  },
  "I3(p)|p|Q=100": {
-  "alpha": -0.116,
-  "R2_gain": 0.108
+  "alpha": -0.115,
+  "R2_gain": 0.109
  },
  "I3(p)|p|Q=1000": {
   "alpha": -0.116,
@@ -356,15 +356,15 @@
   "R2_gain": 0.0
  },
  "I3(p)|-4p|Q=3": {
-  "alpha": 0.134,
-  "R2_gain": 0.035
+  "alpha": 0.132,
+  "R2_gain": 0.034
  },
  "I3(p)|-4p|Q=5": {
   "alpha": 0.046,
   "R2_gain": 0.006
  },
  "I3(p)|-4p|Q=7": {
-  "alpha": 0.009,
+  "alpha": 0.008,
   "R2_gain": 0.0
  },
  "I3(p)|-4p|Q=13": {
@@ -372,15 +372,15 @@
   "R2_gain": 0.002
  },
  "I3(p)|-4p|Q=31": {
-  "alpha": 0.023,
+  "alpha": 0.022,
   "R2_gain": 0.002
  },
  "I3(p)|-4p|Q=100": {
-  "alpha": 0.024,
+  "alpha": 0.023,
   "R2_gain": 0.002
  },
  "I3(p)|-4p|Q=1000": {
-  "alpha": 0.024,
+  "alpha": 0.023,
   "R2_gain": 0.002
  },
  "W(p)|p|Q=2": {
@@ -388,7 +388,7 @@
   "R2_gain": 0.014
  },
  "W(p)|p|Q=3": {
-  "alpha": -0.109,
+  "alpha": -0.108,
   "R2_gain": 0.083
  },
  "W(p)|p|Q=5": {
@@ -400,11 +400,11 @@
   "R2_gain": 0.093
  },
  "W(p)|p|Q=13": {
-  "alpha": -0.108,
-  "R2_gain": 0.095
+  "alpha": -0.107,
+  "R2_gain": 0.094
  },
  "W(p)|p|Q=31": {
-  "alpha": -0.108,
+  "alpha": -0.107,
   "R2_gain": 0.096
  },
  "W(p)|p|Q=100": {
@@ -420,60 +420,60 @@
   "R2_gain": 0.0
  },
  "W(p)|-4p|Q=3": {
-  "alpha": 0.247,
-  "R2_gain": 0.122
+  "alpha": 0.245,
+  "R2_gain": 0.121
  },
  "W(p)|-4p|Q=5": {
-  "alpha": 0.187,
-  "R2_gain": 0.094
+  "alpha": 0.185,
+  "R2_gain": 0.093
  },
  "W(p)|-4p|Q=7": {
-  "alpha": 0.201,
-  "R2_gain": 0.123
+  "alpha": 0.199,
+  "R2_gain": 0.122
  },
  "W(p)|-4p|Q=13": {
-  "alpha": 0.202,
-  "R2_gain": 0.134
+  "alpha": 0.2,
+  "R2_gain": 0.132
  },
  "W(p)|-4p|Q=31": {
-  "alpha": 0.202,
-  "R2_gain": 0.142
+  "alpha": 0.2,
+  "R2_gain": 0.139
  },
  "W(p)|-4p|Q=100": {
-  "alpha": 0.202,
-  "R2_gain": 0.144
+  "alpha": 0.2,
+  "R2_gain": 0.142
  },
  "W(p)|-4p|Q=1000": {
-  "alpha": 0.2,
-  "R2_gain": 0.143
+  "alpha": 0.198,
+  "R2_gain": 0.141
  },
  "ESC(p)|p|Q=2": {
   "alpha": -0.196,
   "R2_gain": 0.127
  },
  "ESC(p)|p|Q=3": {
-  "alpha": -0.244,
+  "alpha": -0.243,
   "R2_gain": 0.273
  },
  "ESC(p)|p|Q=5": {
   "alpha": -0.237,
-  "R2_gain": 0.282
+  "R2_gain": 0.283
  },
  "ESC(p)|p|Q=7": {
-  "alpha": -0.244,
-  "R2_gain": 0.309
+  "alpha": -0.243,
+  "R2_gain": 0.31
  },
  "ESC(p)|p|Q=13": {
-  "alpha": -0.243,
-  "R2_gain": 0.314
+  "alpha": -0.242,
+  "R2_gain": 0.315
  },
  "ESC(p)|p|Q=31": {
   "alpha": -0.242,
-  "R2_gain": 0.318
+  "R2_gain": 0.319
  },
  "ESC(p)|p|Q=100": {
-  "alpha": -0.241,
-  "R2_gain": 0.314
+  "alpha": -0.24,
+  "R2_gain": 0.315
  },
  "ESC(p)|p|Q=1000": {
   "alpha": -0.24,
@@ -484,7 +484,7 @@
   "R2_gain": 0.0
  },
  "ESC(p)|-4p|Q=3": {
-  "alpha": 0.358,
+  "alpha": 0.357,
   "R2_gain": 0.168
  },
  "ESC(p)|-4p|Q=5": {
@@ -492,23 +492,23 @@
   "R2_gain": 0.089
  },
  "ESC(p)|-4p|Q=7": {
-  "alpha": 0.239,
+  "alpha": 0.238,
   "R2_gain": 0.114
  },
  "ESC(p)|-4p|Q=13": {
-  "alpha": 0.241,
+  "alpha": 0.24,
   "R2_gain": 0.125
  },
  "ESC(p)|-4p|Q=31": {
   "alpha": 0.236,
-  "R2_gain": 0.127
+  "R2_gain": 0.126
  },
  "ESC(p)|-4p|Q=100": {
   "alpha": 0.235,
   "R2_gain": 0.128
  },
  "ESC(p)|-4p|Q=1000": {
-  "alpha": 0.234,
+  "alpha": 0.233,
   "R2_gain": 0.128
  }
 }

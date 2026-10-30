@@ -24,12 +24,13 @@ def LQ(Q, twist):
 targets={'U':FP[:,1],'k1 (one denom div p)':FP[:,10],'k2 (two denoms div p)':FP[:,11],'R(p) (★)':W[P-1,3],'Uv(p)':W[P-1,4],'I3(p)':W[P-1,2],'W(p)':W[P-1,1],'ESC(p)':W[P-1,5]}
 base=np.vstack([np.ones_like(lp),lp,np.log(lp)]).T
 out={}
+Lcache={(tw,Q):LQ(Q,tw) for tw in ['p','-4p'] for Q in [2,3,5,7,13,31,100,1000]}
 for tn,t in targets.items():
     y=np.log(t.astype(float)+1)
     r0=y-base@np.linalg.lstsq(base,y,rcond=None)[0]; v0=r0.var()
     for twist in ['p','-4p']:
         for Q in [2,3,5,7,13,31,100,1000]:
-            x=LQ(Q,twist); X=np.hstack([base,x[:,None]]); b=np.linalg.lstsq(X,y,rcond=None)[0]; r=y-X@b
+            x=Lcache[(twist,Q)]; X=np.hstack([base,x[:,None]]); b=np.linalg.lstsq(X,y,rcond=None)[0]; r=y-X@b
             out[f'{tn}|{twist}|Q={Q}']=dict(alpha=round(float(b[-1]),3),R2_gain=round(float(1-r.var()/v0),3))
             print(tn,twist,Q,out[f'{tn}|{twist}|Q={Q}'],flush=True)
 json.dump(out,open('data/z52b/lfit.json','w'),indent=1)
