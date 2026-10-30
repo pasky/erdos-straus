@@ -18,10 +18,10 @@ Assessment. Scripts `scripts/z51_forcing_*`, data `data/z51_forcing/`, reviews `
 | 4.2 | multiplying the two known per-window envelopes saves at most exp(−c(log X)^{0.4226−ε}) even loss-free; the many-window route is an RLD-*like* lower-tail problem | Assessment (exact arithmetic, specified envelopes) | R1: MAJOR (1/3 cap withdrawn) → repaired |
 | 4.3 | joint failure of forced windows below the independence model in samples to 10¹²; hard primes have few or no successful forced windows (193: 0 of 18) | EVIDENCE | R1: wording repaired |
 | 5.1–5.2 | **biased characters are rare**: #{p ≤ X : Σ_{q≤y}(q/p) ≥ 2ηπ(y)} ≤ X^{2/A+o(1)} (classical), ≤ X^{1/A+o(1)} for y = (log X)^A, any A > 0 (Heath-Brown); at scale P = C log X, ≪ X exp(−c log X/log log X) (Montgomery–Vaughan moments) | PROVED (mod HB 1995 / Lau–Wu Lemma 1) | R2: SOUND (5.1); 5.1′ is R2's; 5.2 new after R2 |
-| **5.3–5.4** | **robust reduction**: ES power saving ⟸ *bias* of exceptional primes at scale (log p)^{1+δ} (MF); near-power bound X e^{−c log X/log log X} ⟸ bias at scale C log p (MF₁); both implied by majority reach (MR, MR₁). MF₁ and MF(A ≤ 2) are not known to be GRH-equivalent to ES (MF(A > 2) is) | PROVED reduction; CONDITIONAL corollaries | R2 (GRH claim corrected) |
-| **5.5** | **T2-lite: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+o(1)} for every A > 1** (CAP_BOUNDED had A > 2, X^{2/A}); **#{p ≤ X : e*(p) > (C/2) log X} ≪ X e^{−c log X/log log X}** | PROVED mod Heath-Brown / Lau–Wu Lemma 1 (+ CAP_BOUNDED Lemma 3.1) | new after R2 (R3) |
+| 5.3–5.4 | robust reduction: ES power saving ⟸ *bias* of exceptional primes at scale (log p)^{1+δ} (MF); near-power bound X e^{−c log X/log log X} ⟸ bias at scale C log p (MF₁); both implied by majority reach (MR, MR₁). No GRH-equivalence with ES is known for MF₁ or MF(A ≤ 2) (MF(A > 2) is GRH-equivalent) | PROVED reduction; consequences CONDITIONAL on new, unproved sufficient hypotheses (not a counted T2-cond) | R2, R3: SOUND-WITH-MINOR after relabelling |
+| **5.5** | **T2-lite: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+o(1)} for every A > 1** (CAP_BOUNDED had A > 2, X^{2/A}); **#{p ≤ X : e*(p) > (C/2) log X} ≪ X e^{−c log X/log log X}** — transfers of Heath-Brown/Baier and Montgomery–Vaughan/Lau–Wu technology | PROVED mod Heath-Brown / Lau–Wu Lemma 1 (+ CAP_BOUNDED Lemma 3.1) | R3: SOUND / SOUND-WITH-MINOR; "T2-lite reached" fair |
 | 6.1–6.2 | counterfactual reach for two ET subfamilies (height ≤ p, level 1 / all levels); Reach + (q/p) = −1 ⟹ ES | definitions; PROVED | R2: scope repaired |
-| **6.3–6.4** | **reach is polylogarithmic**: Σ_{p≤X} #reached ≪ π(X)(log X)³(log log X)², so Reach(p, q) holds for a ≪ (log X)^{3+o(1)}/q fraction of p; MR(A) false for A > 3 | PROVED mod Shiu + Brun–Titchmarsh | R2 (6.3); 6.3′ new (R3) |
+| **6.3–6.4** | **reach is polylogarithmic on average**: for q ≤ (log X)^C, Σ_{p≤X} #reached ≪ π(X)(log X)³(log log X)², so Reach(p, q) holds for a ≪ (log X)^{3+o(1)}/q fraction of p; MR(A) false for A > 3 (two ET subfamilies, height ≤ p, all levels) | PROVED mod Shiu + Brun–Titchmarsh | R2 (6.3: SOUND); R3 (6.3′: MAJOR → completed with R3's argument) |
 | 6.3num | reach numerics, 36 primes 10⁵–10¹⁰, q ≤ 1000: supply S_e ≈ 0.033 (log p)³ (fit 3.15); coupon comparison; q* ≈ 0.02–0.03 (log p)³/log log p; MR₁(½) at all 36, MR₁(1) at all p ≥ 10⁶; 2 682 witnesses exact | EVIDENCE / CERTIFIED (witnesses) | R2: reproduced |
 | 7 | 17-line: Reach(p, 17) for 285/286 primes in [10⁶, 2·10⁶] and all 120 later samples; the failure (p = 1 240 009) misses the generic survivor cell 5, yet ES(p) holds by an actual-cell certificate; growing coverings need B2 events | EVIDENCE + Assessment | R2: dictionary corrected |
 | 9 | remaining gap | Assessment | — |
@@ -34,13 +34,14 @@ Assessment. Scripts `scripts/z51_forcing_*`, data `data/z51_forcing/`, reviews `
   X exp(−c log X/log log X) primes (Montgomery–Vaughan moments; caps of order log p were OPEN in CAP_INTERPOLATION
   Remark 3.2(c), here with a near-power saving). These are transfers of known least-non-residue technology to the
   forced-window cap mechanism, found with the R2 referee.
-* **T2-cond (new, nonstandard hypotheses):** if ES-exceptional primes are QR-biased on the primes in (C log p, 2C log p]
-  (MF₁), then E_ES(X) ≪ X exp(−c log X/log log X), beyond the 3/4 CRT cap; MF₁ follows from a pointwise
-  majority-reach hypothesis MR₁ that holds at every sampled prime (C = ½) and heuristically for all large p. Proving
-  MR₁ pointwise is a B2 statement.
+* **A proved reduction with new conjectural inputs (not a counted T2-cond, R3):** if ES-exceptional primes are
+  QR-biased on the primes in (C log p, 2C log p] (MF₁), then E_ES(X) ≪ X exp(−c log X/log log X), beyond the 3/4 CRT
+  cap. MF₁ follows from a pointwise majority-reach hypothesis MR₁, which holds on every sampled prime (C = ½) and is
+  predicted for all large p by the coupon model; MF₁ itself cannot be tested numerically (its antecedent is "ES
+  fails"), and neither is shown visibly weaker than the conclusion. Proving MR₁ pointwise is a B2 statement.
 * **G4 made exact at fixed q** (Kneser anatomy, upper bound (log X)^{−1+1/(2ℓ_q)}); the window route through G2 is
-  limited to exp(−(log X)^{0.42}) by the known envelopes; **reach is polylogarithmic** (≤ (log p)^{3+o(1)} on average,
-  MR false above (log p)³), with measured cubic supply.
+  limited to exp(−(log X)^{0.42}) by the known envelopes; **reach is polylogarithmic on average** (≪ (log p)^{3+o(1)}
+  reached moduli q ≤ (log p)^C per prime on average, MR false above (log p)³), with supply consistent with cubic growth.
 
 ## 1. Audit
 
@@ -688,25 +689,36 @@ third in [10⁷, 1.1·10⁷] (84) and every sixth in [10⁸, 1.01·10⁸] (36 pr
   barrier withdrawn; numerics relabelled (subfamilies, consistent-with-cubic, coupon aggregation, prime R_maj,
   crossover log p ≈ 840); §7 dictionary corrected (two vs seven families; generic point vs whole line; growing
   coverings ≠ Reach; conditional sterility and correct citations).
-* **R3 (Astra, the post-R2 additions: Props 5.1′, 5.2, Thm 5.3, Cors 5.4–5.5, Prop 6.3′, Cor 6.4).** (pending)
+* **R3 (Astra, the post-R2 additions: Props 5.1′, 5.2, Thm 5.3, Cors 5.4–5.5, Prop 6.3′, Cor 6.4;
+  `reviews/z51-forcing-r3-astra.md`).** Verdict: MAJOR revisions, no FATAL; **the cap theorems (Cor 5.5) survive and
+  "T2-lite reached" is fair** under the CONTEXT definition; Prop 5.1′, Lau–Wu Lemma 1 (checked against the primary
+  manuscript), the subset restriction, Thm 5.3, Cor 5.4 and the GRH paragraph are SOUND or SOUND-WITH-MINOR; the MR₁
+  numbers were reproduced independently from the raw files. Repairs applied: Prop 6.3′'s all-level argument completed
+  with R3's Q ≤ X^θ / Q > X^θ split, Shiu-range checks and the restored log L; BT coprimality and boundary cases;
+  average-vs-maximum wording in §§0, 6, 9; MF₁/MR₁ relabelled as new conjectural sufficient inputs (not a counted
+  conditional target; MF₁ tests are vacuous); Prop 5.2 made quantitative with slack constants κ and p*; Thm 5.3 domain
+  (p ≡ 1 (4) for windows, subset threshold ½); novelty credited to Heath-Brown/Baier and Montgomery–Vaughan/Lau–Wu;
+  MR₁ evidence stated with η = 0.2 and as lower-bound tests.
 
 ## 9. Remaining gap
 
 * **Pointwise forcing is still B2.** Every route here needs, at some point, a certificate for a *given* p in a
-  *given* class: reach at q ∈ (C log p, 2C log p] for a majority of q (MR₁), or bias of exceptional primes (MF₁). These
-  are numerically robust (MR₁(½) at all sampled primes) and heuristically true for all large p, but no argument
-  produces, for a fixed p and a fixed non-residue class r mod q, an e ≡ −r (mod q) with the needed divisor pair of
-  p + e or ep + 1.
-* **What the reductions buy.** By Thm 5.3 the exceptional-set problem is, up to X exp(−c log X/log log X), the problem
-  for exceptional primes that are *not* QR-biased at scale C log p; each such prime has ≫ log X/log log X forced
-  windows q ≡ 3 (4) in (C log X, 2C log X], all failing. With q ≍ log X, a forced window fails when the divisor box of
-  (p + q)/4 (typically (log X)^{1.1} elements) misses −1 in a group of order ≍ log X — individually unlikely; but
-  the only per-window bounds we can prove (Kneser–Rankin for q ≲ 2 log log X; Fourier for q ≤ (log X)^{0.42}) do not
-  reach q ≍ log X, and joint bounds over many windows are the G2 problem (Calc 4.2). A per-window failure bound at
-  q ≍ log X with a saving that survives multiplication over ≍ log X/log log X windows would close this gap at the
-  near-power level.
-* **Counterfactual reach is polylogarithmic** (Cor 6.4): congruence-certified forcing (of the tested kind) exists only
-  up to q ≈ (log p)^{3}, which is enough for every sieve used in §5 but must be proved pointwise.
+  *given* class: reach at a majority of q ∈ (C log p, 2C log p] (MR₁), or bias of the exceptional primes (MF₁). MR₁
+  holds on every sampled prime (C = ½) and the coupon model predicts it for all large p, but no argument produces,
+  for a fixed p and a fixed non-residue class r mod q, an e ≡ −r (mod q) with the needed divisor pair of p + e or
+  ep + 1.
+* **What the reductions buy.** By Thm 5.3(b), after removing X exp(−c log X/log log X) primes (those QR-biased at scale
+  C log X, and separately those QR-biased on the q ≡ 3 (mod 4) of that range), the exceptional-set problem is the
+  problem for exceptional p ≡ 1 (4) that have ≫ log X/log log X forced windows q ≡ 3 (4) in (C log X, 2C log X], all
+  failing. At q ≍ log X a forced window fails when the ≈ (log X)^{1.1} divisor-ratio *choices* of (p + q)/4 (not
+  distinct elements: the group has order ≍ log X) miss −1 — heuristically unlikely; but the per-window bounds we can
+  prove (Kneser–Rankin for q ≲ 2 log log X; Fourier for q ≤ (log X)^{0.42}) do not reach q ≍ log X, and joint bounds
+  over many windows are the G2 problem (Calc 4.2). A per-window failure bound at q ≍ log X whose saving survives
+  multiplication over ≍ log X/log log X windows would give the near-power ES bound.
+* **Counterfactual reach is polylogarithmic on average** (Cor 6.4): for the two tested ET subfamilies at height ≤ p, a
+  prescribed q ≤ (log X)^C is reached for a ≪ (log X)^{3+o(1)}/q fraction of primes, and MR(A) fails for A > 3. The
+  scales §5 needs (C log p, (log p)^{1+δ}) are far below that, so the obstruction is the pointwise proof, not the
+  amount of supply.
 * **Least-QNR lines.** ES on the 17-line by growing coverings is supported numerically (Reach(p, 17) at all but one of
   406 sampled line primes, and ES at that one by an actual-cell certificate); a proof needs p-dependent divisor events
-  in the generic survivor cells {5, 7}, i.e. B2.
+  in the generic survivor cells {5, 7} (B2); full sterility at 17 is itself conditional.
