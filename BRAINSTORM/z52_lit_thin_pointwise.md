@@ -53,9 +53,25 @@ Huixi Li and Zhixin Liu, “6 powers of 2 in the Linnik–Goldbach problem,” a
 
 J. Pintz and I. Z. Ruzsa, “On Linnik’s approximation to Goldbach’s problem. II,” DOI 10.1007/s10474-020-01077-8, *Acta Mathematica Hungarica* 161 (2020), 569–582 (published 22 July 2020). Abstract, accessed 2026-10-30: every sufficiently large even integer is a sum of two primes and K=8 powers of two, unconditionally. Status: published. Excerpt `sources/z52/thin_pointwise/pintz_ruzsa_2020.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; this is pointwise but has a power-sized two-prime supply, not a polylog-only mechanism.
 
-### Romanoff positive density; Erdős covering failures; Tao partial covering
+### Romanoff: p+2^k has positive lower density
 
-Romanoff's 1934 theorem, as explicitly cited and stated in Ding–Li–Li, “A Romanoff-type theorem for P₂+{aᵃ:a≥1},” arXiv:2607.03662v1, §1 (accessed 2026-10-30): the set {p+2^k} has positive lower density. The same source states Erdős 1950's covering result: an arithmetic progression of common difference 11,184,810 whose terms are not p+2^k. This corrects my earlier cautious note: the exact p+2^k failure claim is supported by this source. It is secondary verification; Romanoff's and Erdős's originals not opened. Tao's arXiv:0802.3361v4 §1 separately records Erdős and Cohen–Selfridge prime-power covering variants and proves Theorem 1.2: a positive proportion of primes avoid a growing logarithmic family of digit modifications, via partial covering then Selberg sieve. Status: sources accessed today, historical claims secondary, Tao's theorem primary. Excerpts: `sources/z52/thin_pointwise/erdos_covering_tao_arxiv.txt`, `sources/z52/thin_pointwise/ding_romanoff_2026.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; shows fixed-orbit covering failures / positive-density results, not a direct ES transfer (B1/B6).
+N. P. Romanoff, “Über einige Sätze der additiven Zahlentheorie,” Math. Ann. 109 (1934), 668–678. The statement is quoted explicitly in Ding–Li–Li, arXiv:2607.03662v1 §1, opened 2026-10-30: {p+2^k} has positive lower density. Status: published original bibliographic data and statement checked via a 2026 secondary source; original not opened. Excerpt `sources/z52/thin_pointwise/ding_romanoff_2026.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; positive-density target set is not every target (B6).
+
+### Erdős: an arithmetic progression avoiding p+2^k
+
+P. Erdős, “On integers of the form 2^k+p and some related problems,” Summa Brasil. Math. 2 (1950), 113–123. Ding–Li–Li arXiv:2607.03662v1 §1 states Erdős constructed an AP, common difference 11,184,810, whose terms are not p+2^k (opened 2026-10-30). Status: original publication identified; result checked via secondary source. Excerpt `sources/z52/thin_pointwise/ding_romanoff_2026.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; finite covering failure mode for a periodic exponent orbit, unlike ES (B1).
+
+### Cohen–Selfridge: prime-power covering variants
+
+F. Cohen and J. L. Selfridge, “Not every number is the sum or difference of two prime powers,” Math. Comp. 29 (1975), 79–81. Tao's arXiv:0802.3361v4 §1, opened 2026-10-30, says they exhibit an AP of odd m for which both |m−2^i| and m+2^i are composite for every i. Status: primary source not opened; exact result checked through Tao's secondary article. Excerpt `sources/z52/thin_pointwise/erdos_covering_tao_arxiv.txt`. Relation: `BRAINSTORM/z31_small_count_pointwise.md`; periodic covering counterexample, not direct ES failure mechanism.
+
+### Tao: primes resistant to digit modification
+
+Terence Tao, “A remark on primality testing and decimal expansions,” arXiv:0802.3361v4, accessed 2026-10-30. Theorem 1.2: for fixed K, at least c_K N/log N primes in [N,(1+1/K)N] have |kp±ja^i| composite for all 1≤a,j,k≤K and 1≤i≤K log N. Proof uses partial covering followed by Selberg sieve. Status: preprint; theorem directly checked. Excerpt `sources/z52/thin_pointwise/erdos_covering_tao_arxiv.txt`. Relation: `BRAINSTORM/technique_transfer_list.md`; a prime-family/digit statement, not representation of each given n (B6).
+
+### Lagrange: four squares
+
+Joseph-Louis Lagrange's four-square theorem, as stated in Bhargava–Hanke's source-opened “Universal quadratic forms and the 290-Theorem” (preprint PDF, accessed 2026-10-30, introduction): every positive integer is a sum of four integer squares. This lane verified the statement through that scholarly source's explicit historical/theorem statement, not by opening Lagrange's 1772 memoir. The same paper cites Jacobi's exact r₄ formula in its bibliography/discussion. Relation: `BRAINSTORM/z31_quadratic_forms.md`; r₄(n) is power-sized, inapplicable to ES's polylog count (B2/B6).
 
 ### Croot: Erdős–Graham coloring theorem for unit fractions
 
