@@ -479,3 +479,66 @@ and sharper scoped barriers.
   zero-event bound TB_pow; (ii) the bias hypothesis MF₁/MF for ES-exceptional primes (implied by the pointwise MR₁/MR). The
   proved depth breakers here are power-dense forbidden sets (caps) and large-q monodromy (function fields); neither has a
   known transfer to cap-zero ES over ℤ.
+
+## 17. Wave z52: literature scour and approach generators aimed at ES itself (2026-10-30)
+
+Seven literature lanes (research model; `BRAINSTORM/z52_lit_*.md`) were graded by an Opus lane with an Astra review
+(`reviews/z52-lit-grading.md`). The wave also ran two cross-lab deep lanes on how pointwise theorems in thin regimes are
+proved (`BRAINSTORM/z52_deep_thin_pointwise_{opus,astra}.md`), and two boards, each with Fable, Astra and Argon. One
+board worked on generators (`~/.pi/boards/20261030-es-generators/memo.md`, 5 rounds). The other worked on weak points
+(`~/.pi/boards/20261030-es-weakpoints/memo.md`; Argon ran out of credits after round 2). A banking/test lane with an
+Astra review wrote `Z52_BANKED.md`. Briefs are in `../z52briefs/`, and the top-level synthesis is
+`ES_APPROACH_GENERATORS.md`. ES remains open.
+
+**No new lead that could move ES itself emerged.** No literature item, generator or weak point both implies something
+about ES(p) at a prescribed prime and has a credible way to be proved. All three seats of both boards say this in their
+final positions, and the two deep lanes reached the same verdict independently.
+
+* **Literature (graded; appended to `LITERATURE_2026.md`).** The grader found no hallucinated item. It corrected three
+  errors: a fabricated title for Chen's paper, the scope of Shkredov's Thm 8, and the author of the Bull. AMS survey
+  (Fuchs, not Kontorovich; fixed in QUESTION_R).
+  * Genuinely new since 2026-09-28 are four items: Cao–Xu 2610.32302 (unproved cover), Li–Liu 2610.15784 (2 primes +
+    6 powers of 2), Filaseta–Kalogirou–Klein 2610.34541, and Kadyrov et al. 2610.16530.
+  * Not previously recorded: KST 2609.25393 (subset-product generation for almost all q); Li 2609.32140 (#306);
+    Alkauskas 2508.05347 (flea areas miss squares + 5 sporadic values ≤ 10¹²; a fourth "squares + sporadic" instance
+    next to RS Thm 2.8, HKRS and U(n)).
+  * None transfers. Every solved pointwise result relies on a power-size reservoir, free witnesses, averaging, or a long
+    fixed-target character sum (RS's fat Ψ). ES₅/U(n) is not known to be an RS orbit or an HKRS instance.
+* **Meta-finding (Assessment, deep lanes).** Verified pointwise theorems in thin regimes get existence from (T) a thick
+  object of size ≥ n^c with an exact extraction rule (Zagier, Thue, Huang, Chen's orbit sizes), or from (R) algebraic
+  rigidity. Thin statements with neither are false or open (p + 2^k, p + 2^a + 2^b, p + 2k², Markoff k, three cubes, ES).
+  * The generator matrix (8 thick objects at p × 8 extraction rules) is the reusable output.
+  * Four cells were worked to scoped negatives: complement pairing (R(p)/2 mod 2 coin-like), χ-blind discharging,
+    χ-cliques are cosets, and homogenised Chevalley–Warning counts are numerator-blind.
+  * The two cells with no construction coincide with known loopholes: growing-level identities ((J)10) and non-affine
+    windmills.
+* **Pencil theorem (PROVED; `Z52_BANKED.md` §1(a), generalising board Lemma A).**
+  * Statement: for k = m² with n ≡ 1 (8) (m even) or 5 (8) (m odd), and (n/ℓ) = 1 for odd ℓ | m, the surface
+    4xyz − n(xy+yz+zx) = k has no positive integer points. The class (−q, −d) is a positive-integral Brauer–Manin
+    obstruction on a locally soluble surface, for a positive-density set of n.
+  * At k = 0 the class has residue n along the exceptional conic of the blown-up singular point, so it does not extend
+    to Br U_n for non-square n. It gives nothing at k = 0. Read at m = 0, the hypotheses say "n is a QR at every prime"
+    (Assessment).
+  * Unexplained zeros: S_{3861,4}, and twenty S_{n,1} zeros at n ≡ 1 (8) ≤ 10⁵, all divisible by 3.
+* **Other banked items.**
+  * GT1 (PROVED rel. Dirichlet): the genus layer is pointwise free.
+  * Three-coset Kneser bound 1 ≤ Ω_out ≤ d − 2 at a failing forced window (PROVED; a local inverse theorem, no escape).
+  * Correction (CERTIFIED): FRONTIER §5.5's SQ wording used the coprime Type I/II and is false at 105, 345, 561, 5985.
+    The original SQ (N-points) stands, and the line is repaired.
+  * Coprime ES ⇒ ES₅ fails at 3985 (composites only).
+  * I3_𝒞(p) ≥ 1 ⟹ ES(p) (PROVED). Its prime zeros are exactly 5, 13, 17, 2521 to 10⁹, with least interior endpoint
+    u ≤ 39 (CERTIFIED).
+  * Median-coordinate corollary of H4_NOT_POLYLOG.
+  * The fixed-q forcing line is open from q = 11.
+* **Sibling calibration (CERTIFIED / EVIDENCE).**
+  * S_{n,−4} fails only at {2, 9, 21, 165, 945, 1197} for n ≤ 10⁵.
+  * ES over ℤ[i] with first-quadrant denominators: six Gaussian-prime failures, all of norm N ≤ 5393, and none for
+    10⁴ < N ≤ 10⁶. Its count grows like log³N, not log²N as the board fitted.
+  * All failures of both siblings sit in low-count local cells. Both fail less often than the (J)97 zero law predicts.
+    No prime T1 was found.
+* **Killed:** norm descent, the carry-aware function-field lift, remainder rays, parabola completion, the δ-fold,
+  the Δ-harmonic and Angular-Pinching ℤ[i] claims, the global Alternation Trap, the I3 sign-ladder tail, and
+  "prime T1 closed" (details in the memos).
+* **Recommended next step (Assessment).** Do not open an attack lane from this slate. If a wave is wanted, the
+  cheapest informative pair is: (i) the full Br S_{n,k}/Br ℚ and its k → 0 degeneration (tractable, diagnostic);
+  (ii) one serious attempt at a growing-level identity or a non-affine windmill, with a hard drop condition on p < 10⁴.

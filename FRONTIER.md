@@ -494,6 +494,8 @@ no single-prime lower-tail mechanism is known.
 * The BM main term: M_BM(p) ≥ (3/(16π²) − o(1))(log p)² (Burgess) for every large prime; five-slice analogue
   ≥ (45/(32π²) − o(1))L² ((J)100, (J)105). Main terms only.
 * The BM layer is pointwise free: for odd n, some t ≡ 0 (4), t ≤ 4ℓ(n), has M_t^lev(n) > 0 iff n is not a square ((J)103).
+  *(z52.)* So is the genus layer: every non-square n ≡ 1 (4) has a level t = 4r at which no odd real character mod t
+  obstructs (GT1, PROVED rel. Dirichlet; Linnik-size t; `Z52_BANKED.md` §1(b)). Only the class of the divisor remains.
 * **Self-generated mute set** ((J)64, `CAP_POINTWISE.md`): for a prime window q = 4x − n with q ≡ 4 − n (8) and (q/n) = −1,
   reciprocity forces −1 ∈ ⟨primes of x⟩ mod q, giving 4/n = 1/x + 1/y + 1/z with z of square denominator and exponent cap
   e < q. Hence e*(n) ≪ rad(n)^5 for every odd n > 1 (PROVED, effective) and e*(n) ≤ (16 log n + 70)² for odd non-squares
@@ -539,7 +541,8 @@ no single-prime lower-tail mechanism is known.
   proof-by-contradiction; no propagation law is known.
 
 **5.5 Standing conjectures with evidence** (CONJECTURE; EVIDENCE ranges in brackets).
-SQ: for odd n, Type I ∪ Type II empty ⟺ n square [odd non-squares ≤ 10⁷]; SQ₅ (five slices; n ≠ 105) [10⁶]; SQ_± and 3SQ
+SQ: for odd n, V_I(n) ∪ V_II(n) empty (ET N-points, no coprimality) ⟺ n square [odd non-squares ≤ 10⁷] (z52 repair: with the
+coprime Type I/II of §1 the statement is false at 105, 345, 561, 5985 — a transcription error here, not in O146/(J)1; `Z52_BANKED.md` §1(d)); SQ₅ (five slices; n ≠ 105) [10⁶]; SQ_± and 3SQ
 (exception-free companions, (J)52, (J)53); PH (full-coset covers; all Mordell-hard primes < 10⁶ except 3529, 110881 at e ≤ 2000,
 samples to 10⁸, 14 hard primes ≤ 3.7·10⁷; R290 repair); PM-II (3361 only) [10⁸]; X_win: a_min(p) ≪ log p;
 U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [10¹¹]); López's union conjecture; CONJECTURE 0.2
@@ -673,8 +676,15 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     Hypothesis W by a standard one ((J)85, (J)91). *Why:* the only pointwise positive mechanism; its last step is B2.
 14. **ES ⇒ ES₅?** Is every ES prime a five-slice prime (λ(p) ≤ 3)? (56 % of solutions below 3000 lie outside the five-slice
     image; `LOWER_TAIL_FABLE.md`.) *Why:* decides whether the cleaner Legendre-form/forest picture loses anything.
+    *(z52.)* The coprime-category analogue fails on composites: 3985 has coprime Type I solutions but every five-slot word
+    has gcd(uv, 3985) = 5 (CERTIFIED). At primes the coprimality is automatic and the question is unchanged.
 15. **A "prime T1"** for disproof ((J)97): a global invariant at one prime forcing all ≍ (log p)³ events into the wrong
     class — or a proof that none exists beyond squares. *Why:* the only conceivable disproof shape.
+    *(z52 calibration, `ES_APPROACH_GENERATORS.md` G2–G4.)* In the pencil 4xyz − n(xy+yz+zx) = m², the class (−q, −d)
+    gives a positive-integral Brauer–Manin obstruction on a positive-density set of locally soluble n (PROVED). At
+    k = 0 it ramifies on the exceptional conic for non-square n, so primes escape it. The siblings S_{n,−4} (fails
+    only at 2, 9, 21, 165, 945, 1197 up to n ≤ 10⁵) and ES over ℤ[i] with first-quadrant denominators (six Gaussian-prime
+    failures, none for 10⁴ < N ≤ 10⁶) show lottery-type failures only, in low-count cells. No prime T1 was found.
 16. *(Housekeeping item resolved, R290 repair:* the (★) constants (log p)²/8 and 3/(2π²)(log p)² are the all-integer and the
     prime densities of the same ordered count; see §2.2 and `reviews/frontier-review.md` task (2).)
 17. **Conjecture I3** (z48/z49): every n > 2 433 600 is tuv − u − v with t, u, v ≥ 3. It is sign-free, prime-free and
@@ -686,6 +696,9 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     * The zero at 1560² is explained by the local model (square depletion plus 2³·3·5·13 | m).
     *Why:* it is the minimal test problem for any single-integer tied-class method. No standard conjecture is known to
     imply it.
+    *(z52.)* The certificate-restricted version I3_𝒞(p) ≥ 1 (a word with t, u, v ≥ 3 and a coordinate in 4ℤ ∪ (8ℤ − p))
+    implies ES₅(p), hence ES(p) (PROVED). Its zeros at primes p ≡ 1 (4) ≤ 10⁹ are exactly 5, 13, 17, 2521, and the least
+    certifying interior endpoint is u ≤ 39 throughout (CERTIFIED, `Z52_BANKED.md` §1(e), T1). It is ES-strength.
 
 ## 8. Pointers into the repository
 
