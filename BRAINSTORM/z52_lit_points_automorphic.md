@@ -27,10 +27,17 @@ Benjamin Linowitz and Lola Thompson, “The sign changes of Fourier coefficients
 
 | Problem | Solvable structural feature | Does ES share it? | Transfer verdict |
 |---|---|---|---|
+| Bright–Loughran: Brauer groups/local obstructions on each `U_n` | Explicit surface geometry and a computable transcendental Brauer class; local invariants constrain solutions and identify BM behavior. | **Partial:** ES shares the exact surface and class, but Thm 1.8 only establishes BM-set nonemptiness; B2 still asks for an actual integral point. `GEOMETRY_ES.md` §1. | **Known-dead as a standalone proof route** (`GEOMETRY_ES.md` §§1,6; `BM_CORRECTED_COUNT.md`): BM alone does not give integral points; strong approximation fails by Thm 1.9. |
+| Linowitz–Thompson: identify Eisenstein newform from signs | Multiplicativity/Hecke structure turns signs across a positive-density set of primes into a uniqueness fingerprint. | **No:** ES needs positivity/existence at one prescribed prime and only polylogarithmically many candidate events; it has no supplied positive-density prime set. B6 and B2. | **None:** theorem is sign-pattern uniqueness, not positivity of individual coefficients or a lower bound for an ES coefficient; `METAPLECTIC_ES.md` already treats ES’s Eisenstein-only normal form. |
 
 ## §3 New candidates
 
-None identified yet; assessment pending source verification.
+None. The source-verified results either restate audited ES geometry or concern sign patterns across a positive-density set of primes. Neither supplies the required single-object lower bound for a prescribed prime with expected count `≍ log² p`; proposing a transfer would evade B2/B6 rather than address them.
 
 ## §4 Not accessed / could not verify / incorrect leads
+
+- No 2021–26 follow-up proving a new pointwise or density result on the Erdős–Straus surfaces was verified in this lane. The initial search surfaced no such result; this is not an exhaustive database search. The already-audited Bright–Loughran and geometry citations remain in `GEOMETRY_ES.md` and `LITERATURE_AUTOMORPHIC.md`.
+- The named leads (Harpaz, Santens, Wilsch, Mitankin, Lyczak, Gvirtz-Chen, Cao–Xu/Wei, Colliot-Thélène–Wittenberg) were not individually re-opened here; rely on existing repo audits, not this note, for their exact statements.
+- No 2024–26 theta-lift, Kudla–Millson, mock-modular, Borcherds, Bruinier–Funke, or half-integral-weight result certifying positivity of a single coefficient in a growing-level Eisenstein-type combination was source-verified. The leads in that clause remain **NOT VERIFIED**; no claim of nonexistence.
+- Linowitz–Thompson: arXiv abstract accessed but full theorem text and publication metadata not checked; accordingly only the abstract-level statement is recorded.
 
