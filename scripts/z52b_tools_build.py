@@ -33,7 +33,7 @@ def seen(kw):
                        capture_output=True, text=True, timeout=60)
     files = [x for x in r.stdout.split("\n") if x and not x.startswith("BRAINSTORM/z52b_")]
     # prefer BRAINSTORM memos, then top-level
-    files.sort(key=lambda x: (0 if x.startswith("BRAINSTORM/") else 1 if "/" not in x else 2, x))
+    files.sort(key=lambda x: (x.endswith("README.md"), 0 if x.startswith("BRAINSTORM/") else 1 if "/" not in x else 2, x))
     out = ["seen:" + files[0]] if files else []
     _seen_cache[kw] = out
     return out
