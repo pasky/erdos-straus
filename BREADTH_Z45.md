@@ -491,8 +491,9 @@ Astra review wrote `Z52_BANKED.md`. Briefs are in `../z52briefs/`, and the top-l
 `ES_APPROACH_GENERATORS.md`. ES remains open.
 
 **No new lead that could move ES itself emerged.** No literature item, generator or weak point both implies something
-about ES(p) at a prescribed prime and has a credible way to be proved. All three seats of both boards say this in their
-final positions, and the two deep lanes reached the same verdict independently.
+about ES(p) at a prescribed prime and has a credible way to be proved. All three generators seats and the two active
+weak-points seats say this in their final positions; argon left the weak-points board after round 2 without a final
+pitch. The two deep lanes reached the same verdict independently.
 
 * **Literature (graded; appended to `LITERATURE_2026.md`).** The grader found no hallucinated item. It corrected three
   errors: a fabricated title for Chen's paper, the scope of Shkredov's Thm 8, and the author of the Bull. AMS survey
@@ -504,16 +505,19 @@ final positions, and the two deep lanes reached the same verdict independently.
     next to RS Thm 2.8, HKRS and U(n)).
   * None transfers. Every solved pointwise result relies on a power-size reservoir, free witnesses, averaging, or a long
     fixed-target character sum (RS's fat Ψ). ES₅/U(n) is not known to be an RS orbit or an HKRS instance.
-* **Meta-finding (Assessment, deep lanes).** Verified pointwise theorems in thin regimes get existence from (T) a thick
-  object of size ≥ n^c with an exact extraction rule (Zagier, Thue, Huang, Chen's orbit sizes), or from (R) algebraic
-  rigidity. Thin statements with neither are false or open (p + 2^k, p + 2^a + 2^b, p + 2k², Markoff k, three cubes, ES).
+* **Meta-finding (Assessment, deep lanes; among the surveyed, verified examples).** Pointwise theorems in thin regimes
+  get existence from (T) a thick object of size ≥ n^c with an exact extraction rule (Zagier, Thue, Huang, Chen's orbit
+  sizes), or from (R) algebraic rigidity. Thin statements with neither are false or open (p + 2^k, p + 2^a + 2^b,
+  Markoff k, three cubes, ES).
   * The generator matrix (8 thick objects at p × 8 extraction rules) is the reusable output.
-  * Four cells were worked to scoped negatives: complement pairing (R(p)/2 mod 2 coin-like), χ-blind discharging,
-    χ-cliques are cosets, and homogenised Chevalley–Warning counts are numerator-blind.
-  * The two cells with no construction coincide with known loopholes: growing-level identities ((J)10) and non-affine
-    windmills.
+  * Four cells were worked to scoped negatives, for the displayed constructions only. Complement pairing makes level
+    counts even (PROVED); R(p)/2 mod 2 looks coin-like (EVIDENCE). The discharging charge is χ-blind. χ-product cliques
+    lie inside a QR coset, so cardinality-only bounds fail below (p−1)/2. Homogenised counts are numerator-independent
+    (for ℓ ∤ kn).
+  * The two explicitly highlighted open cells coincide with known loopholes: positivity from growing-level identities
+    ((J)10) and non-affine windmills. Partially screened cells keep residual loopholes.
 * **Pencil theorem (PROVED; `Z52_BANKED.md` §1(a), generalising board Lemma A).**
-  * Statement: for k = m² with n ≡ 1 (8) (m even) or 5 (8) (m odd), and (n/ℓ) = 1 for odd ℓ | m, the surface
+  * Statement: for k = m² with m ≥ 1, n odd and positive, n ≡ 1 (8) (m even) or 5 (8) (m odd), and (n/ℓ) = 1 for odd ℓ | m, the surface
     4xyz − n(xy+yz+zx) = k has no positive integer points. The class (−q, −d) is a positive-integral Brauer–Manin
     obstruction on a locally soluble surface, for a positive-density set of n.
   * At k = 0 the class has residue n along the exceptional conic of the blown-up singular point, so it does not extend
@@ -525,17 +529,20 @@ final positions, and the two deep lanes reached the same verdict independently.
   * Three-coset Kneser bound 1 ≤ Ω_out ≤ d − 2 at a failing forced window (PROVED; a local inverse theorem, no escape).
   * Correction (CERTIFIED): FRONTIER §5.5's SQ wording used the coprime Type I/II and is false at 105, 345, 561, 5985.
     The original SQ (N-points) stands, and the line is repaired.
-  * Coprime ES ⇒ ES₅ fails at 3985 (composites only).
-  * I3_𝒞(p) ≥ 1 ⟹ ES(p) (PROVED). Its prime zeros are exactly 5, 13, 17, 2521 to 10⁹, with least interior endpoint
-    u ≤ 39 (CERTIFIED).
+  * Coprime ES ⇒ coprime ES₅ (five-slot word with gcd(uv, n) = 1) fails at 3985; plain ES₅(3985) holds (composites
+    only).
+  * I3_𝒞(p) ≥ 1 ⟹ ES(p) (PROVED). Its zeros among primes p ≡ 1 (4) ≤ 10⁹ are exactly 5, 13, 17, 2521; at every
+    other such prime the least certifying interior endpoint is u ≤ 39 (CERTIFIED).
   * Median-coordinate corollary of H4_NOT_POLYLOG.
   * The fixed-q forcing line is open from q = 11.
 * **Sibling calibration (CERTIFIED / EVIDENCE).**
-  * S_{n,−4} fails only at {2, 9, 21, 165, 945, 1197} for n ≤ 10⁵.
-  * ES over ℤ[i] with first-quadrant denominators: six Gaussian-prime failures, all of norm N ≤ 5393, and none for
-    10⁴ < N ≤ 10⁶. Its count grows like log³N, not log²N as the board fitted.
-  * All failures of both siblings sit in low-count local cells. Both fail less often than the (J)97 zero law predicts.
-    No prime T1 was found.
+  * S_{n,−4} fails only at {2, 9, 21, 165, 945, 1197} for 2 ≤ n ≤ 10⁵.
+  * ES over ℤ[i] with first-quadrant denominators: up to reflection, six Gaussian-prime failures, all of norm
+    N ≤ 5393, and none for 10⁴ < N ≤ 10⁶. Its count grows like log³N, not log²N as the board fitted.
+  * All failures of both siblings sit in low-count local cells: 3 | n for the odd S_{n,−4} failures, and
+    Im n ≡ 1 (4) after normalising Re n to be even. This is consistent with lottery-type failures; no additional
+    invariant was found, though a finer obstruction is not excluded (Assessment). Both siblings fail less often than the
+    (J)97 zero law predicts. No prime T1 was found.
 * **Killed:** norm descent, the carry-aware function-field lift, remainder rays, parabola completion, the δ-fold,
   the Δ-harmonic and Angular-Pinching ℤ[i] claims, the global Alternation Trap, the I3 sign-ladder tail, and
   "prime T1 closed" (details in the memos).

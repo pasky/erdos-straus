@@ -680,11 +680,12 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     has gcd(uv, 3985) = 5 (CERTIFIED). At primes the coprimality is automatic and the question is unchanged.
 15. **A "prime T1"** for disproof ((J)97): a global invariant at one prime forcing all ≍ (log p)³ events into the wrong
     class — or a proof that none exists beyond squares. *Why:* the only conceivable disproof shape.
-    *(z52 calibration, `ES_APPROACH_GENERATORS.md` G2–G4.)* In the pencil 4xyz − n(xy+yz+zx) = m², the class (−q, −d)
+    *(z52 calibration, `ES_APPROACH_GENERATORS.md` G2–G4.)* In the pencil 4xyz − n(xy+yz+zx) = m² (m ≥ 1), the class (−q, −d)
     gives a positive-integral Brauer–Manin obstruction on a positive-density set of locally soluble n (PROVED). At
-    k = 0 it ramifies on the exceptional conic for non-square n, so primes escape it. The siblings S_{n,−4} (fails
-    only at 2, 9, 21, 165, 945, 1197 up to n ≤ 10⁵) and ES over ℤ[i] with first-quadrant denominators (six Gaussian-prime
-    failures, none for 10⁴ < N ≤ 10⁶) show lottery-type failures only, in low-count cells. No prime T1 was found.
+    k = 0 it ramifies on the exceptional conic for non-square n, so primes escape it. The siblings S_{n,−4} (for 2 ≤ n ≤ 10⁵
+    fails only at 2, 9, 21, 165, 945, 1197) and ES over ℤ[i] with first-quadrant denominators (up to reflection, six
+    Gaussian-prime failures, none for 10⁴ < N ≤ 10⁶) have failures only in low-count cells. This is consistent with
+    lottery-type failures; no further invariant was found (Assessment). No prime T1 was found.
 16. *(Housekeeping item resolved, R290 repair:* the (★) constants (log p)²/8 and 3/(2π²)(log p)² are the all-integer and the
     prime densities of the same ordered count; see §2.2 and `reviews/frontier-review.md` task (2).)
 17. **Conjecture I3** (z48/z49): every n > 2 433 600 is tuv − u − v with t, u, v ≥ 3. It is sign-free, prime-free and

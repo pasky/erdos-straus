@@ -15,14 +15,17 @@ Proofs and cheap tests of the board items are in `Z52_BANKED.md`. Briefs are in 
 ## 0. Bottom line
 
 1. **No new lead that could move ES itself emerged.** No literature item, generator or weak point both implies
-   something about ES(p) at a prescribed prime and comes with a credible way to be proved. All three seats of both
-   boards said this in their final positions. The cross-lab deep lanes reached the same verdict independently.
+   something about ES(p) at a prescribed prime and comes with a credible way to be proved. All three generators
+   seats and the two active weak-points seats said this in their final positions; argon left the weak-points board
+   after round 2, out of credits, without a final pitch. The cross-lab deep lanes reached the same verdict
+   independently.
 2. **Solved meanwhile, and whether it transfers.**
    - Zaremba is claimed in full: Zhang arXiv:2605.02518v2, with Shkredov 2603.14116v2. Both are unrefereed.
    - Small primes generate (ℤ/q)^× for almost all q: Klurman–Shparlinski–Teräväinen 2609.25393.
    - Two primes plus 6 powers of 2 (5 under GRH): Li–Liu 2610.15784.
    - Erdős #306 was solved by a Fourier count: Li 2609.32140.
-   - A flea orbit misses the squares plus five sporadic values: Alkauskas 2508.05347.
+   - A flea orbit provably misses every square. Up to 10¹² it misses only five further values; whether that
+     list is complete is open (Alkauskas 2508.05347).
 
    **None transfers** (§1). Each rests on one of four things: a power-size witness reservoir, free choice of
    witnesses, averaging, or a long fixed-target character sum. ES at one prime has none of them.
@@ -35,14 +38,15 @@ Proofs and cheap tests of the board items are in `Z52_BANKED.md`. Briefs are in 
    - sibling-failure calibrations.
 
    These sharpen the map. They are not progress on 4/p.
-4. **Meta-finding (Assessment, §2 G1).** Every verified theorem that is pointwise in a thin regime gets existence
-   from one of two sources:
+4. **Meta-finding (Assessment, §2 G1).** Among the surveyed, verified examples, every theorem that is pointwise in a
+   thin regime gets existence from one of two sources:
    - (T) a thick deterministic object of size ≥ n^c with an exact extraction rule;
    - (R) algebraic rigidity.
 
    ES has no known instance of either. The generator matrix (thick objects at p × extraction rules) is the wave's
-   reusable tool for generating approaches. Its two cells with no construction yet are already-listed loopholes:
-   growing-level identities ((J)10) and non-affine windmills.
+   reusable tool for generating approaches. Its two explicitly highlighted open cells are already-listed loopholes:
+   positivity from growing-level identities ((J)10) and non-affine windmills. Partially screened cells keep their own
+   residual loopholes.
 
 ## 1. Literature dossier (verified 2026-10-30; full entries appended to `LITERATURE_2026.md` "Wave z52 additions")
 
@@ -52,19 +56,19 @@ in the merged files.
 
 | Result (status) | What made it solvable | Does ES share it? | Transfer |
 |---|---|---|---|
-| Zaremba, all q (Zhang 2605.02518v2 Thm 1.2; Shkredov Thm 8 on class 𝒵 + Rem 9; CLAIMED, unrefereed) | expansion in SL₂(ℤ/q) on Cantor digit sets; count tunable to ≈ q^{2δ−1} by enlarging the alphabet | No: ES₅ word length is fixed at 3, so the count is ≍ log²n and cannot be tuned (B3). Matrices are self-levelled (B2). Expansion also holds at squares, so it is blind to T1 | none; Question R/TG untouched |
+| Zaremba, all q (Zhang 2605.02518v2 Thm 1.2; Shkredov Thm 8 on class 𝒵 + Rem 9; CLAIMED, unrefereed) | expansion in SL₂(ℤ/q) on Cantor digit sets; count tunable to ≈ q^{2δ−1} by enlarging the alphabet | No: ES₅ word length is fixed at 3, so the expected/main-term count is ≍ log²n (not a pointwise bound) and cannot be tuned (B3). Matrices are self-levelled (B2). Expansion also holds at squares, so it is blind to T1 | none; Question R/TG untouched |
 | "squares + finitely many sporadic": Rickards–Stange Thm 2.8 (PROVED, fat Ψ, 15 sporadic); HKRS (OPEN); Alkauskas fleas (5 sporadic ≤ 10¹², completeness open); U(n) (6 sporadic ≤ 10⁹) | the only *proved* case uses a long character sum over one target's fibre (an AP of length ≍ n) | No: U(n)'s fibre has expected size log²n. ES₅/U(n) is not known to be an RS orbit or HKRS instance, and the certificate set contains no multiplication-closed subset | a *model of the statement*, not a method. Flea multiplicity ≈ X^{0.31} (EVIDENCE; power regime) |
 | Linnik–Goldbach, 2 primes + 6 powers of 2 (Li–Liu 2610.15784) | Goldbach pair reservoir N/log²N | No. The one-prime rungs fail: p + 2^k on an AP (Erdős), p + 2^a + 2^b i.o. (Crocker 1971, Pan 2011). ES failures cannot fill an AP (PROVED: scale ES(q), q ≡ 3 (4), by CRT) | none |
 | Subset-product generation of (ℤ/q)^× by (log Q)^{1+ε} small primes, almost all q (KST 2609.25393) | free shared primes, averaging over q; beating it would need Vinogradov's least-QNR conjecture | No: gate G4 needs the prime factors of *one* p-tied integer to hit −1 (B2, §4.9) | none; the "class, not parity" gap is untouched by all literature |
 | Erdős #306 (Li 2609.32140; Lean except one inequality) and the 2025–26 AI/Lean crop (#283, #728, #729, #401, #38, #90) | abundance: Fourier counts over exponentially many configurations, or a good m in an interval | No: none has ES's "every n, polylog witnesses" shape | none (calibration: AI+Lean pipelines solve exactly the shapes the barriers allow) |
-| Markoff (Chen, Ann. Math. 2024, "Nonabelian level structures, Nielsen equivalence, and Markoff triples"; Kingsbury-Neuschotz 2603.04096 density one, general parameters) | every orbit size ≡ 0 mod p (a divisibility invariant) + giant component | No group acts on U_n(ℤ); no orbit-size invariant | none |
-| Direct ES: Cao–Xu 2610.32302 (56 families, tested to 10¹¹, unproved by the authors' own statement) | — | — | unproved cover; B1 not shown to apply (unbounded parameters) |
+| Markoff (Chen, Ann. Math. 2024, "Nonabelian level structures, Nielsen equivalence, and Markoff triples"; Kingsbury-Neuschotz 2603.04096 density one, general parameters) | every Γ-orbit on the nonzero fibre X*(p) has size ≡ 0 mod p (a divisibility invariant) + giant component | No analogous infinite group action or orbit-size forcing is known for U_n (only coordinate permutations act) | none |
+| Direct ES: Cao–Xu 2610.32302 (56 families, tested for 24m+1 with m ≤ 10¹¹, unproved by the authors' own statement) | — | — | unproved cover; B1 not shown to apply (unbounded parameters) |
 | Covering systems: Filaseta–Kalogirou–Klein 2610.34541, Hashimoto 2603.26043 | finite-system structure theory | No (B1) | none |
 
 Deep-lane catalogue (40 + 23 entries): Zagier, Thue, Pell, Chevalley–Warning, Alon CN, Huang, Ramaré–Walker, LLS, CLB
-palindromes, Bang–Zsigmondy, … Every thin-count pointwise theorem falls under (T) or (R). The thin-count statements
-with neither are false or open: p + 2^k, p + 2^a + 2^b, p + 2k² (5777, 5993), Markoff k (Ghosh–Sarnak), three cubes,
-and ES.
+palindromes, Bang–Zsigmondy, … Among the surveyed examples, every thin-count pointwise theorem falls under (T) or (R).
+The thin-count statements with neither are false or open: p + 2^k, p + 2^a + 2^b, Markoff k (Ghosh–Sarnak), three
+cubes, and ES. (p + 2k², with failures 5777 and 5993, is a power-count statement, √n/log n expected.)
 
 ## 2. Generators (each: what · non-obvious input · why not already dead · first lemma · how it fails · z52 status)
 
@@ -86,22 +90,24 @@ and ES.
   object, an exact rule, and one step that is false at squares.
 - *Why not dead.* B1–B9 are scoped to constructions, not cells.
 - *First lemma.* Any new row or column must be run against the whole matrix first.
-- *Tested this wave (PROVED, scoped negatives):*
-  - complement pairing makes every level count even, and R(p)/2 mod 2 behaves like a coin (49.9 % / 51.0 %);
-  - the Dedekind–HJ discharging charge is χ-blind;
-  - multiplicative χ-cliques are cosets, so Hoffman/Huang bounds that depend only on |A| do not apply;
-  - homogenised Chevalley–Warning counts are numerator-blind.
-- *Open cells.* Growing-level exact identities ((J)10) and non-affine or infinite windmill menus (INVOLUTION_ES2).
-  Neither has a concrete construction. Digit-carry algorithms with unbounded loops (the B1 E2 hatch) are unscreened.
+- *Tested this wave (scoped negatives for the displayed constructions only):*
+  - PROVED: complement pairing makes every level count even. EVIDENCE: R(p)/2 mod 2 looks like a fair coin on the
+    samples (49.9 % / 51.0 %).
+  - PROVED: the Dedekind–HJ discharging charge is χ-blind.
+  - PROVED: χ-product cliques are contained in a QR coset, so no Hoffman/Huang bound that depends only on |A| applies
+    below |A| = (p−1)/2.
+  - PROVED: homogenised modular counts are numerator-independent (for ℓ ∤ kn).
+- *Open cells (explicitly highlighted).* Positivity from growing-level exact identities ((J)10; the W(n) identity
+  exists, but no positivity-forcing construction is known) and non-affine or infinite windmill menus (INVOLUTION_ES2). Digit-carry algorithms with unbounded loops (the B1 E2 hatch) are unscreened.
 
 **G2. Constant-term deformation: the pencil S_{n,k} : 4xyz − n(xy+yz+zx) = k** (fable-7 → `Z52_BANKED.md` §1(a)).
-- **Theorem (PROVED).** Let k = m². Suppose n ≡ 1 (8) if m is even and n ≡ 5 (8) if m is odd, and (n/ℓ) = 1 for
+- **Theorem (PROVED).** Let n be odd and positive and k = m² with m ≥ 1. Suppose n ≡ 1 (8) if m is even and n ≡ 5 (8) if m is odd, and (n/ℓ) = 1 for
   every odd prime ℓ | m.
   - Then S_{n,k}(ℕ) = ∅.
   - The class 𝒜 = (−q, −d) ∈ Br S_{n,k}, with q = 4y − n and d = qz − ny, is a Brauer–Manin obstruction to
     *positive integral* points.
   - The surface is locally soluble at every place.
-  - Each square k gives a positive-density set of such n.
+  - Each positive square k gives a positive-density set of such n.
   - The repo had not recorded this regime before. The literature search found no prior treatment of k ≠ 0
     fibres; this is a search result, not a proof of novelty, and the method is standard.
 - **Why it dies at k = 0 (PROVED).** The step "ℓ | d ⇒ −q is a square mod ℓ" uses the term kq of dd′ = n²y² + kq.
@@ -109,7 +115,8 @@ and ES.
   conic, so for non-square n it does not extend to Br U_n. For square n the residue vanishes.
 - *Reading (Assessment).* The hypotheses "(n/ℓ) = 1 for all ℓ | m" read at m = 0 give "n is a QR at every prime",
   i.e. n is a square. This is the T1 pattern seen as a degenerate limit. It explains structurally why primes escape
-  this BM mechanism. It supplies no transport to k = 0: scaling preserves k/n³, and the fibres are coprime at fixed y.
+  this particular BM mechanism. It supplies no transport to k = 0: scaling preserves k/n³, and at fixed y,
+  gcd(K_y(±4), K_y(0)) = gcd((ny)², 4q), which divides 4 when gcd(n, y) = 1.
 - *Data (CERTIFIED).* Unexplained zeros remain: S_{3861,4}(ℕ) = ∅ (n ≡ 5 (8)). The zeros of S_{n,1} at n ≡ 1 (8)
   up to 10⁵ number twenty, all divisible by 3.
 - *How it fails as a generator.* There is no k → 0 transport (conceded by fable). It is a disproof-shape
@@ -117,13 +124,14 @@ and ES.
 
 **G3. Conservative ring extensions and the conjugate-pair shadow** (fable-2/3, argon-4).
 - *What.* ES_Q1 over ℤ[i] is ES with denominators in the closed first quadrant. It is conservative: real n have only
-  ℕ³ solutions. It has genuine prime failures at 2+5i, 4+5i, 5+6i, 10+13i, 2+17i and 8+73i (N ≤ 10⁴, three code
-  paths).
-- *z52 test (CERTIFIED).* There are no failures for 10⁴ < N ≤ 10⁶ (38 566 primes). The count grows like log³N, not
-  the board's log²N (EVIDENCE, finite range). All six failures have Im n ≡ 1 (4), a low-count cell; no invariant
-  was found.
-- *Fable-3 (PROVED, sufficient direction).* A ring extension in which ES becomes easy does so through a Galois-stable
-  pair 1/β + 1/β̄. "Necessary" is false: ℤ[1/3] needs no pair.
+  ℕ³ solutions. Up to the reflection n ↦ i·n̄, it has genuine prime failures at 2+5i, 4+5i, 5+6i, 10+13i, 2+17i and
+  8+73i (N ≤ 10⁴, three code paths).
+- *z52 test (CERTIFIED).* There are no failures for 10⁴ < N ≤ 10⁶ (38 566 Gaussian primes up to reflection). The
+  count grows like log³N, not the board's log²N (EVIDENCE, finite range). Normalised so that Re n is even (5+6i
+  becomes 6+5i), all six failures have Im n ≡ 1 (4), a low-count cell (EVIDENCE). No further invariant was found.
+- *Fable-3.* What survives is a sufficient construction: explicit identities in which a Galois-stable pair
+  1/β + 1/β̄ = Tr β/N β makes ES easy in an extension. The universal claim that every easy extension works this
+  way is false; ℤ[1/3] needs no pair.
 - *How it fails.* Conservative on ℝ means every real statement is ES verbatim (sustained objection). The non-real
   failures are a sibling lottery. ℤ[√2] alternating pair-unit moves (astra-2) are the one open existence question:
   multi-step paths are unanalysed, and every seat rates it low probability.
@@ -131,9 +139,10 @@ and ES.
 **G4. Failure-calibrated siblings** (fable-6; `Z52_BANKED.md` T2–T4).
 - *What.* ES-shaped lotteries with known failures: S_{n,−4}, ES_Q1, 8/n, TES. They are used to fit the zero law
   behind "P(ES false)".
-- *Status after z52 (CERTIFIED).* S_{n,−4} fails for 2 ≤ n ≤ 10⁵ only at {2, 9, 21, 165, 945, 1197}, all odd ones
-  ≡ 0 (3), in a low-count local cell; it has a log² count scale.
-- *Finding (Assessment).* Both siblings fail *less* often than the (J)97 zero law predicts: 6 Gaussian failures
+- *Status after z52 (CERTIFIED).* For 2 ≤ n ≤ 10⁵, S_{n,−4} fails only at {2, 9, 21, 165, 945, 1197}. The odd
+  failures are all ≡ 0 (3), a low-count local cell. The count scale is log² (EVIDENCE).
+- *Finding (Assessment).* Read as consistent with lottery-type failures: no additional invariant was found, though a
+  finer global obstruction is not excluded. Both siblings fail *less* often than the (J)97 zero law predicts: 6 Gaussian failures
   observed against ≈ 20 predicted (N ≤ 10⁶), and 5 S_{n,−4} failures at n ≡ 1 (4) against ≈ 37 (n ≤ 10⁵). No "prime T1 in a sibling" appeared. The
   law was fitted on a different normalisation, so this is a calibration mismatch, not a rejection.
 
@@ -149,7 +158,7 @@ and ES.
 - *(c) Kneser at a failing forced window (PROVED).* 1 ≤ Ω_out ≤ d − 2 for both stabilisers, and at q = 7 a failing
   window forces p ≡ 5 (mod 7). The fable within-class test shows the failure profile carries nothing beyond p mod M,
   so there is no escape.
-- *(d) Fixed-q forcing line.* F_q, "(q/p) = −1 ⟹ ES(p)", is open from q = **11**, not 17: the sterile point x** has
+- *(d) Fixed-q forcing line.* F_q, "(q/p) = −1 ⟹ ES(p)", is open from q = **11**, not 17: the candidate sterile point x** has
   (2/11) = −1, so x** lies in the non-residue cell for q = 11. Scope correction to the wave brief: "ES(p) when
   n₂(p) ≤ 13" is a statement about the *generic point* of the least-QNR line. For all primes with n₂(p) ∈ {11, 13}
   no covering theorem is claimed; classically n₂(p) ∈ {3, 5, 7} is covered (`EXSET_CHAR_FORCING.md` §7.1).
@@ -169,17 +178,10 @@ and ES.
 
 ## 3. Ranked slate: first problems and weak points (Assessment)
 
-Ranking is by (information about ES itself) × (tractability). **None is expected to prove ES.** Items 1–3 are
-ES-strength; items 4–8 are calibration or loophole probes.
+Ranking is by (information about ES itself) × (tractability). **None is expected to prove ES.** Item 1 is
+ES-strength (it implies ES). Items 2–4 are structural probes. Items 5–8 are calibration or loophole probes.
 
-1. **Question R / Hypothesis TG** (FRONTIER §7.11).
-   - *Why it moves ES.* It is the exact Rickards–Stange form of T1 on the self-levelled words that are ES₅
-     certificates. z52 confirms it as the hinge: the full-Zaremba claims, KST, Alkauskas and HKRS follow-ups leave it
-     untouched.
-   - *Tractability.* Low. No thin-orbit local–global theorem exists anywhere in the literature surveyed.
-   - *Cheap test.* Use the flea orbit (decidable, obstructed, power-count) as a control set for the reciprocity
-     singular series of QUESTION_R §3. The z52 by-product was inconclusive.
-2. **I3_𝒞 conjecture.** Every prime p ≡ 1 (4), p > 2521, has a word tuv − u − v = p with t, u, v ≥ 3 and a
+1. **I3_𝒞 conjecture.** Every prime p ≡ 1 (4), p > 2521, has a word tuv − u − v = p with t, u, v ≥ 3 and a
    coordinate in 4ℤ ∪ (8ℤ − p).
    - *Why it moves ES.* It implies ES₅(p) and hence ES(p) (PROVED, five slot identities).
    - *Status.* CERTIFIED to 10⁹: the zeros are exactly {5, 13, 17, 2521}, and the least certifying interior endpoint
@@ -188,10 +190,19 @@ ES-strength; items 4–8 are calibration or loophole probes.
      Mordell-hard p, a u = 3 interior word exists ⟺ (p+3)/4 is composite.
    - *Cheap next test.* The growth of the least u over primes to 10¹⁰. Does max u grow like log p, or stay bounded
      in range?
+2. **Question R / Hypothesis TG** (FRONTIER §7.11).
+   - *Why it matters.* Its matrix and T1 dictionary match the self-levelled ES₅ certificate words exactly, and it is
+     the Rickards–Stange form of T1. Even a complete Question R theorem would concern power-size fibres and would
+     give **no transfer** to ES₅'s polylog regime (QUESTION_R §2). It is a structural precedent, not an ES
+     implication. The full-Zaremba claims, KST, Alkauskas and HKRS follow-ups leave it untouched.
+   - *Tractability.* Low. No proved pointwise or cofinite local–global theorem was found for the surveyed
+     reciprocity-obstructed thin orbits; RS's fat Ψ is not thin.
+   - *Cheap test.* Use the flea orbit (decidable, obstructed, power-count) as a control set for the reciprocity
+     singular series of QUESTION_R §3. The z52 by-product was inconclusive.
 3. **Growing-level exact identities** ((J)10; open cell of G1).
    - *Why.* It is the only (T)/(R)-type cell where positivity at one p could come from an exact formula. The
      T1-respecting W(n) identity exists; its positivity is the spin event.
-   - *Tractability.* Unknown; no construction exists.
+   - *Tractability.* Unknown; no positivity-forcing construction is known.
    - *Cheap test.* Search for an identity at level growing with p whose terms are individually signed by (·/p), on
      p < 10⁴.
 4. **Non-affine thick windmills** (open cell of G1; INVOLUTION_ES2 bars finite affine menus only).
@@ -201,8 +212,8 @@ ES-strength; items 4–8 are calibration or loophole probes.
    - *Cheap test.* Enumerate the involutions generated by the slice symmetries on X(p) for p < 10⁴, and test the
      fixed-point parity against R(p).
 5. **Br S_{n,k}/Br ℚ in full, and its degeneration at k = 0** (G2).
-   - *Why.* It identifies exactly which reciprocity mechanism ES escapes, and turns "no prime T1" into a statement
-     about one degenerating class.
+   - *Why.* It would identify exactly which Brauer-class mechanisms the ES fibre escapes, a restricted piece of the
+     "prime T1" question.
    - *Tractability.* High (algebraic geometry).
    - *Cheap tests.* Explain S_{3861,4}(ℕ) = ∅, and the divisibility by 3 of every S_{n,1} zero at n ≡ 1 (8).
 6. **Sibling zero-law recalibration** (G4).
@@ -212,11 +223,13 @@ ES-strength; items 4–8 are calibration or loophole probes.
    - *Cheap test.* Refit (J)97's P(0) on the per-cell means of all four siblings with the same normalisation.
 7. **F₁₁: "(11/p) = −1 ⟹ ES(p)"** (G5(d)).
    - *Why.* It is the first open fixed-q forcing statement, and it is a pointwise implication at prescribed p.
-   - *Tractability.* Very low by B1: the sterile point x** blocks every finite covering. It needs non-congruence
-     input.
+   - *Tractability.* Very low. x** is a candidate sterile point: it survives through ES level 2.59·10¹⁰
+     (CERTIFIED) and is CONJECTURED sterile. If it is sterile, no finite ET covering handles the line, and
+     non-congruence input is needed.
    - *Cheap test.* None beyond the existing sterile-point certification.
-8. **Watch item, external.** The first proof of the HKRS *revised* local–global conjecture (or the Alkauskas flea
-   completeness) for any thin orbit would be the first literature input that could transfer to U(n) or Question R.
+8. **Watch item, external.** A proof of the HKRS *revised* local–global conjecture (or of the Alkauskas flea
+   completeness) for any thin orbit would be a new method precedent for Question R. Whether it transfers to U(n)'s
+   polylog regime would remain to be seen.
    Track arXiv citers of 2307.02749 and 2401.01860.
 
 **Recommended next wave (Assessment).** Do not launch another attack lane on ES or on densities from this slate. The

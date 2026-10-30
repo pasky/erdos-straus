@@ -823,7 +823,7 @@ previously recorded in the repository.
 
 **Updates and corrections to existing entries**
 * Shkredov arXiv:2603.14116v2 (PDF):
-  * Thm 8: for all M ≥ M₀ and every q **in the class 𝒵** (large primes, large squarefree q, high prime powers;
+  * Thm 8: for all M ≥ M₀ and every q **in the class 𝒵** (examples: large primes, large squarefree q, high prime powers; see the source for the full definition;
     p. 4) there are ≥ q^{2w_M−1−o(1)} numerators with partial quotients ≤ 100M.
   * Remark 9: via Zhang–Tang general-modulus expansion, Cor 1 (existence) "is valid for any q (although the
     remaining results of the paper remain unchanged) … we now possess a proof of Zaremba's conjecture in full
@@ -831,7 +831,7 @@ previously recorded in the repository.
   * X. Zhang arXiv:2605.02518v2: Thm 1.2 "Zaremba's conjecture holds"; Remark 1.3, M is effective but large.
   * Both remain unrefereed. The entry at `LITERATURE_2026.md` §Wave AA stands.
 * The *Bull. AMS* 63(1) (2026) 59–77 survey "Apollonian packings: The rise and fall of the local to global conjecture"
-  is by **Elena Fuchs** (DOI 10.1090/bull/1874, Crossref), not Kontorovich as `QUESTION_R.md` §5 says.
+  is by **Elena Fuchs** (DOI 10.1090/bull/1874, Crossref), not Kontorovich as `QUESTION_R.md` §5 previously said (fixed).
 * Chen's Markoff paper is "Nonabelian level structures, Nielsen equivalence, and Markoff triples", *Ann. of Math.*
   199 (2024), DOI 10.4007/annals.2024.199.1.5. The z52 lane L3's title "A proof of the Markoff conjecture" is wrong,
   and the Markoff uniqueness conjecture remains open.
