@@ -7,10 +7,10 @@ Rickards–Stange, arXiv:2401.01860v3, Theorem 2.5:
 For nonnegative coprime x,y, any of the conditions (i) y odd and (x/y)=−1; (ii) (x,y)=(1,0) mod 4 and (x/y)=−1; (iii) (x,y)=(3,0) mod 4 and (x/y)=−(−1/y), implies neither numerator nor denominator of the Ψ-orbit of (x,y) is a square. Proposition 2.2: Ψ consists of Γ₁(4)≥0 matrices with (a/b)=1. Theorem 2.8: the missing positive numerators in Ψ(2/3) are exactly all squares plus {3,6,7,10,12,15,18,19,27,31,34,55,63,99,115}.
 
 Shkredov, arXiv:2603.14116v2, Corollary 1 and Theorem 8:
-Corollary 1: an absolute M≥2 works for every prime or square-free denominator p. Theorem 8: for all sufficiently large absolute M and any q, at least q^(2w_M−1−o(1)) coprime numerators have all partial quotients ≤100M. Remark 9 says the general-q case follows after Zhang's general-modulus growth results and states that Corollary 1 is valid for any q.
+Corollary 1: an absolute M≥2 works for every prime or square-free denominator p. Theorem 8 is for q∈𝒵, not all q: it gives at least q^(2w_M−1−o(1)) coprime numerators with digits ≤100M. The paper defines 𝒵 before Theorem 6 as sufficiently large q with either sufficiently large prime factors, square-free factorization, or q=p^n with n sufficiently large. Remark 9 says after Zhang–Tang's general-modulus growth results, Corollary 1 is valid for any q, “although the remaining results of the paper remain unchanged.” Thus Remark 9 claims all-q existence, but Theorem 8's power-size count remains only on 𝒵.
 
 Zhang, arXiv:2605.02518v2, Theorem 1.2:
 “Zaremba’s conjecture holds.” Conjecture 1.1 defines this as every natural q having a reduced a/q whose partial quotients are bounded by an absolute M. The text says method yields a large absolute M (not M=5); Remark 1.4 explains q-dependent generating sets defeat the fixed-set Bourgain–Varju spectral gap available there.
 
-Chen, arXiv:2011.12940, Theorem 1.2.5 (PDF p. 7):
+William Y. Chen, “Nonabelian level structures, Nielsen equivalence, and Markoff triples,” arXiv:2011.12940v2, *Annals of Mathematics* 199(1) (2024), DOI 10.4007/annals.2024.199.1.5. Theorem 1.2.5 (PDF p. 7):
 “For every p ≥ 3, every Out⁺(Π)-orbit on Epi(Π, SL₂(F_p))_{−2}/GL₂(F_p) has cardinality divisible by p. In particular, every Γ-orbit on X*(p) has cardinality divisible by p.” Together with BGS Theorem 1.2.3(b), whose complement bound is ≤p^ε, this forces one orbit for sufficiently large p; Chen Theorem 1.2.6 states finite effective exceptional set.
