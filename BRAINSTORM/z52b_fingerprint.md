@@ -3,7 +3,53 @@
 ES is OPEN. Nothing here proves or disproves it. This lane is breadth-first: items were filtered only for obvious
 nonsense; no barrier-checklist evaluation was done.
 
-{{SUMMARY}}
+## Summary (read this first)
+
+**319 items** (target ≥ 300), every one with a concrete first step; ~60% are backed by a computation run in
+this lane (numbers quoted are from `data/z52b/*.json`), the rest are "compute X and check Y" items. Labels: everything
+here is EVIDENCE/data unless a proof is given in the item (two short proofs: the isosceles law, and a partial proof
+of the p | z normal form). ES remains OPEN.
+
+**Ten items I find most exciting**
+1. `fingerprint-0193` — **Normal form:** in every solution x ≤ y ≤ z of 4/p, p | z (all 21 909 solutions for p < 2500
+   checked directly; share-sum check at all primes ≤ 10⁵; two of three cases proved). Explains minz(p) ≡ 0 (mod p).
+2. `fingerprint-0235` (+0194, 0273) — **Isosceles law, proved:** a solution with two equal denominators exists ⟺ p ≢ 1 (mod 4)
+   (via (4x−2p)(4z−p) = 2p²); for general n ⟺ n has a prime factor ≢ 1 (mod 4) (verified for all n ≤ 3000). Corollaries:
+   D(p) = U(p) on the hard class, U − D = 2 and O = 6U − 6 at every p ≡ 3 (4). A fully understood 'degenerate-locus' obstruction
+   on exactly the hard class — a toy model of T1.
+3. `fingerprint-0195` — **lcm-closed sub-ES** (solutions with x | z, equivalently y | z) fails at **only one** prime ≤ 10⁵:
+   2521 = lcm(1..10)+1, the hardest ES prime. Siblings: no-3 sub-ES fails only at 3, 241; all-squarefree only at 71, 191, 21169.
+4. `fingerprint-0016`, `0227`, `0094` — **Count law:** residual log U(p) ≈ −0.30·log L(1,χ_p) (truncated at q ≈ 30) explains
+   ≈ 49% of the fluctuation at ≈ 9 000 primes and holds out of sample at 10⁶ and 10⁷; F_q-point counts of the ES surface are
+   p-independent, so this is **not** a singular-series effect but a Hilbert-symbol/Brauer effect — and indeed the campaign's
+   BM main term M_BM predicts U(p) (residual ρ = +0.65) far better than its own (★) count R(p) (+0.10).
+5. `fingerprint-0156/0157` — per-prime weights: q ≡ 2 (3) give a clean Euler factor q·β_q ≈ −0.35; q ≡ 1 (3) are cancelled
+   by the shift-3 coupling p ≡ −3 (q) ⇒ (p/q) = (−3/q) (explains the '(7/p) anomaly').
+6. `fingerprint-0248`, `0277` — Mordell's six square classes mod 840 are exactly the six hardest classes by count, ordered
+   1 ≻ 121 ≻ 361 ≻ 169 ≻ 529 ≻ 289; n mod 840 explains 64% of the variance of log U(n); the classes = primes x² + 840y²
+   (840 idoneal, A139665) — suggests an 'idoneal covering' framing.
+7. `fingerprint-0182` — **Pairwise union:** (★) ∪ U, (★) ∪ I3 and U ∪ I3 each certify every non-square n ≡ 1 (4) ≤ 3·10⁶
+   except 105.
+8. `fingerprint-0183` — **Bounded U-certificates:** the least admissible v is ≤ 116 at every prime p ≡ 1 (4) ≤ 3·10⁶
+   (records 87 at 2521, 116 at 3361, none after); compare A400619's bounded greedy shift (≤ 111 beyond 1.2·10¹¹).
+9. `fingerprint-0134` (+0133) — R-zeros have small h(−4p) (12 of 14 below median, p ≈ 0.006) and large L(1,χ_p): the
+   (★) line's failures sit on both twists' tails (Siegel-dichotomy relevance).
+10. `fingerprint-0057`, `0055`, `0073` — divisibility-strengthened ES ladder (k | x,y,z ⟺ Schinzel 4k/p): last failures ≤ 10⁵
+    241, 12 241, 83 449 (= an R-zero), … ; fail(8) ∩ fail(12) = {2, 3} ⇒ union conjecture 'every p > 3 has an all-even or
+    all-3-divisible solution'.
+
+Also notable: OEIS A400619 and A392469 (2026 entries) reproduced independently (the latter only on p ≡ 1 (24) — a possible
+clarification); the predicted extreme prime lcm(1..19)+1 = 232 792 561 is hard (U = 276, below all 113 sampled primes at 10⁷
+in U/log³p) but not record-hard, and there Type II beats Type I (k₁ = 47 < k₂ = 82); **negative:** no general Type I/II
+complementarity (residual corr +0.70); higher-power (cubic/quartic/octic) residue characters, Rédei ranks, Gaussian angle,
+non-CM a_p, Ramanujan τ, Tunnell's congruent-number combination are all null.
+
+**Caveats.** (i) Early analyses read an incomplete prime file for (8·10⁴, 2·10⁵); every script was re-run on the complete
+data and the quoted numbers re-checked (changes were ≤ 0.01 in correlations; one record list was corrected). (ii) Several
+items normalise by log²p; ET's prime average is ≍ log³p (our data agree), so log² ratios are only comparable within a range.
+(iii) Correlations are Spearman on residuals of log(count+1) after log p, log log p; p-values are not multiple-testing
+corrected (most effects are ≥ 10σ, the small ones are labelled null).
+
 
 ## Method
 * Computed (scripts `scripts/z52b_fingerprint_*`, raw data `data/z52b/raw/`, large word table git-ignored):
@@ -27,9 +73,17 @@ nonsense; no barrier-checklist evaluation was done.
   were not run. Confidence = confidence that the item is not nonsense, not that it helps.
 
 ## Coverage notes / what I did NOT get to
-{{COVERAGE}}
+* Done: everything listed under Method; 32 restricted-ES shapes at primes ≤ 10⁵; numerators 5–48; BM main term at
+  p ≤ 30 000; pseudosquare / least-QNR record primes; lcm(1..19)+1; windows at 10⁶, 10⁷; OEIS text search for ES entries
+  (20 found, 8 used); hard-prime arithmetic profiles.
+* Not done (left as compute-and-check items): LMFDB conductor/rank comparisons, ternary-form scan (beyond Tunnell),
+  Hurwitz-number fits, function-field analogues, ES₅/λ(p) five-slice counts, Ramanujan-sum expansion, per-q weights for
+  other numerators, quasi-identity mining, segmented sieve beyond 3·10⁶, partitions/Kloosterman/Wilson null tests,
+  A396825 b-file comparison, residual (not raw) propagation along p ↦ (p+3)/4.
+* No item was evaluated against the barrier checklist (per brief). `seen:` tags only where I happened to know
+  (A139665's Mordell link is in OEIS itself).
 
-Item count: 307. Tag histogram (top 45): compute-and-check 82, star-count 21, m-over-n 15, hard-primes 14, oeis-match 13, null-result 13, L-function 12, oeis-gap 11, type-II 11, I3 11, 2-adic 11, type-I 10, mordell-classes 10, covering 9, class-number 9, sanity 9, U-family 9, new-conjecture 9, divisibility-strengthened-ES 8, R-zero 8, null-expected 8, composites 8, BM 7, local-densities 7, complementarity 7, coincidence 7, shifts 6, x-distribution 6, lemma-candidate 6, height 6, squares 6, records 6, schinzel 6, union-conjecture 6, certificate-height 6, anchor 5, calibration 5, oeis-null 5, prediction 5, pseudosquares 5, certificate-families 5, greedy 5, T1 5, multiplicativity 5, 840 5
+Item count: 319. Tag histogram (top 45): compute-and-check 83, star-count 21, m-over-n 16, hard-primes 15, null-result 14, oeis-match 13, L-function 12, oeis-gap 11, type-II 11, I3 11, 2-adic 11, type-I 10, mordell-classes 10, covering 9, class-number 9, sanity 9, U-family 9, R-zero 9, new-conjecture 9, composites 9, divisibility-strengthened-ES 8, null-expected 8, BM 7, local-densities 7, complementarity 7, height 7, squares 7, 840 7, coincidence 7, shifts 6, x-distribution 6, lemma-candidate 6, T1 6, records 6, schinzel 6, union-conjecture 6, certificate-height 6, anchor 5, calibration 5, oeis-null 5, prediction 5, pseudosquares 5, certificate-families 5, greedy 5, multiplicativity 5
 
 
 ## Items
@@ -647,3 +701,27 @@ Item count: 307. Tag histogram (top 45): compute-and-check 82, star-count 21, m-
 306. **Fingerprint of 'ES at p' vs 'ES at 4p+1' / 'ES at (p+3)/4'** — The (★) divisor form involves 4Cp + 1 and the greedy step (p+3)/4; test whether U(4p+1) or U((p+3)/4) (when composite, often easy) correlates with U(p). — *First step:* Compute Spearman(U(p), U(4p+1)) for p ≤ 7 500 and Spearman(U(p), U((p+3)/4)). [`fingerprint-0306`; med/cheap; propagation, p-tied-integers, compute-and-check]
 
 307. **ES count of the Fermat quotient-free / 'ES-easy' family p ≡ −1 (mod 840): exact identities** — Record-easy primes are ≡ −1 (mod 840); since p ≡ 3 (4) is trivially ES-solvable, the count excess there measures how many extra identity families fire at −1 modulo 3, 5, 7, 8. — *First step:* Mean U(p)/log³p over p ≡ 839 (mod 840) vs other p ≡ 3 (4). [`fingerprint-0307`; med/cheap; easy-primes, covering-multiplicity, compute-and-check]
+
+308. **Effective height: minz(p) ≤ p²/2 for every prime 100 < p ≤ 2·10⁵, extremal at the R-zero 577** — max minz(p)/p² = 0.5026 at p = 577 (an R-zero); for p > 1000 the largest log minz/log p is 1.84 (at 6271). — *First step:* Track max minz(p)/p² in windows at 10⁶, 10⁷ (count program already outputs minz). [`fingerprint-0308`; high/cheap; height, effective, R-zero, 577]
+
+309. **Lag-840 correlation at primes: residual log U(p) vs U(p+840) = 0.64 (3 425 pairs); lag 5880: 0.58** — Among primes p ≡ 1 (4) with p + 840 also prime, residuals correlate 0.64 — the mod-840 class carries ≈ 60% of the variance at primes too. — *First step:* Decompose the remaining 40% by p mod 11, 13 and by the χ_p Euler product over q ≥ 11. [`fingerprint-0309`; high/cheap; periodicity, 840, variance-decomposition]
+
+310. **Hardest composites are prime squares: lowest U(n)/log³n among composites ≤ 30 000 are 97², 113², 163², 109², 37², 67², 2·71², 173², 103², 61², 73², 89²** — Eleven of the twelve lowest composites are squares of primes ≡ 1 (4) (and one is 2·71²). — *First step:* Compare U(p²) with U(p)² and with the number of solutions inherited from 4/p by scaling. [`fingerprint-0310`; high/cheap; T1, squares, composites, hard-composites]
+
+311. **Easy class −1 (mod 840): mean U/log³p = 0.70 vs 0.19 for other p ≡ 3 (4)** — Primes p ≡ 839 (mod 840) have 3.6× more ES solutions than other primes ≡ 3 (mod 4) (p > 1000). — *First step:* Count which classical identities apply at p ≡ −1 (mod 840) and check that their solution counts sum to the observed excess. [`fingerprint-0311`; high/cheap; easy-primes, covering-multiplicity, 840]
+
+312. **Tunnell's ternary counts: individually weakly correlated with residual U (ρ ≈ 0.18), Tunnell difference A − 2B null (0.02)** — For p ≡ 1, 3 (mod 8), 100 < p ≤ 2·10⁴ (1 115 primes): #{x²+2y²+8z² = p} and #{x²+2y²+32z² = p} each correlate +0.19/+0.18 with residual log U(p); A − 2B (congruent-number criterion) ≈ 0. — *First step:* Correlate with h(−2p), h(−8p) to confirm the shared signal is just the class number. [`fingerprint-0312`; high/cheap; tunnell, congruent-number, ternary-forms, null-result]
+
+313. **U(p) vs U((p+3)/4): raw Spearman 0.66; vs U(4p+1): 0.36 (size-confounded)** — Raw rank correlations between ES counts at p and at the p-tied integers (p+3)/4 and 4p+1 (p ≤ 30 000 / 7 500). — *First step:* Recompute on residuals; if positive, ES-hardness is 'inherited' along the greedy forest (FOREST_*.md). [`fingerprint-0313`; med/cheap; propagation, p-tied-integers, size-confound]
+
+314. **Hard-prime fingerprints are consistent across seven independent detectors** — 193, 241, 577, 1201, 2521, 3361, 21169 recur among: U/log³ minima, m/p failures (12, 16, 20, 24), greedy-depth records (A400619), min-k records (A392469), height extremes, variant exceptions (lcm-closed, squarefree, no-3, 4|·), R-zeros/Type-A. — *First step:* Publish the hall of fame with per-detector membership as a table in the campaign (data/z52b/hard_profile.json + variants). [`fingerprint-0314`; high/cheap; hall-of-fame, test-set, hard-primes]
+
+315. **Proposed 'hall of fame' test set for ES ideas** — {193, 241, 409, 577, 1201, 2521, 3361, 5569, 9601, 12601, 20521, 21169, 21841, 66529, 83449, 118801, 8803369, 8813281, 232792561} with their detector memberships. — *First step:* Add a script that, given a candidate certificate family (as a predicate on (x,y,z) or words), reports which hall-of-fame primes it certifies. [`fingerprint-0315`; high/cheap; test-set, tooling, screening]
+
+316. **Screening tool: certify-or-not table for any new certificate family** — Generalise the variant counter to take a predicate plug-in and output failure sets at primes ≤ 10⁵ in < 1 min (as done for 32 shapes here). — *First step:* Refactor scripts/z52b_fingerprint_variants*.c into a predicate-driven engine with a small DSL (divisibility, coprimality, size). [`fingerprint-0316`; high/cheap; tooling, screening, engine]
+
+317. **Isosceles law generalised to m/p: when do solutions with two equal denominators exist?** — For m/p = 2/x + 1/z: (mx − 2p)(mz − p) = 2p²; existence ⟺ a factor pair of 2p² in classes mod m — e.g. m = 5: classes of p mod 5 and 10 decide. — *First step:* Work out m = 5, 7, 8 explicitly and verify with the variant counter. [`fingerprint-0317`; high/cheap; isosceles, m-over-n, exact-characterisation, proof]
+
+318. **Degenerate-locus obstruction as a model for T1** — The isosceles locus of 4/p is obstructed exactly on p ≡ 1 (4) by a mod-4 factor-class argument on 2p²; T1 (all certificate lines empty at odd squares) is a reciprocity obstruction on p-tied integers. — *First step:* Parametrise near-isosceles solutions (y − x small) and compute when their divisor-class condition becomes solvable for p ≡ 1 (4). [`fingerprint-0318`; med/medium; T1-analogue, degenerate-locus, toy-model]
+
+319. **Near-isosceles solutions: smallest y − x (or z − y) at p ≡ 1 (4)** — Since x = y is impossible at p ≡ 1 (4), the minimal gap y − x over solutions is a fingerprint of how close the hard class comes to the degenerate locus. — *First step:* Add min(y − x) and min(z − y) to the count program; tabulate at p ≡ 1 (4) ≤ 2·10⁵. [`fingerprint-0319`; high/cheap; near-isosceles, solution-geometry, compute-and-check]
