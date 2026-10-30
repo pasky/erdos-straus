@@ -8,7 +8,19 @@ Scripts `scripts/z52_bank_*`, data `data/z52_bank/`.
 
 ## Summary
 
-(to be written last)
+* **PROVED (1(a), generalises board Lemma A):** for k = m², S_{n,k}(ℕ) = ∅ if n ≡ 1 (8) (m even) / 5 (8) (m odd) and (n/ℓ) = 1
+  for odd ℓ | m; (−q, −d) ∈ Br S_{n,k} is a positive-integral BM obstruction on a locally soluble surface. CERTIFIED to 10⁴
+  (k = 1, 4); dead classes for k ≤ 144 match. Its k → 0 limit is ramified at the singular point (non-square n): no transport.
+  Literature search found nothing equivalent. CERTIFIED extras: S_{3861,4}(ℕ) = ∅ (n ≡ 5 (8)); S_{33,1}(ℕ) = ∅ (board missed).
+* **PROVED (re-proved + checked):** GT1 (1(b)); three-coset Kneser 1 ≤ Ω_out ≤ d − 2, both stabilisers, q = 7 ⟹ p ≡ 5 (7)
+  (1(c)); Prop 3.2(b) (1(e)); median corollary with the avoidance patch (1(f)); I3_𝒞(p) ≥ 1 ⟹ ES₅(p) ⟹ ES(p).
+* **Correction (1(d), CERTIFIED):** coprime SQ fails exactly at 105, 345, 561, 5985 (odd non-squares ≤ 10⁶); the repo's SQ
+  (O146/DISCOVERIES: N-points, no coprimality) is NOT refuted, FRONTIER §5.5's "Type I ∪ Type II" is a mis-transcription.
+  Coprime ES ⇒ coprime ES₅ fails at 3985 (gcd 5). Primes untouched.
+* **CERTIFIED (Part 2):** T1 no I3_𝒞 zero for p ≡ 1 (4) in (4·10⁷, 10⁹]. T2 S_{n,−4}(ℕ) = ∅ for 2 ≤ n ≤ 10⁵ only at
+  {2, 9, 21, 165, 945, 1197}, no failure with 3 ∤ n. T3 no ES_Q1 Gaussian-prime failure for 10⁴ < N ≤ 10⁶; EVIDENCE: count
+  grows ~log³N there, not the board's log². T4 (Assessment): failures sit in low-count local cells; no prime T1 found.
+* ES remains OPEN; nothing here is progress on 4/p.
 
 ## Part 1 — banked items
 
@@ -54,7 +66,7 @@ z ≡ 1 + y (mod 2) when ℓ = 2 — and x = (k + nyz)/d ∈ ℤ_ℓ by (I1)). S
 positive integral points** on a locally soluble surface, for a positive-density set of n for each square k:
 density (1/8)·∏_{ℓ | m odd} (ℓ − 1)/(2ℓ) among all n. 𝒜 is not constant: at (1, 0, −k/n) ∈ S_{n,k}(ℚ), (−q, −d) = (n, −k) has inv_∞ = 0.
 The board proved the k = 4 and k = 1 cases (astra R3, argon R4); the uniform statement for all squares k is new here.
-For non-square k the residue along {d = 0} is the class of k in the residue field ℚ(√(k(4k + n³)))(x), so 𝒜 is ramified
+For non-square k the residue along {d = 0} is the class of k in the residue field ℚ(√(k(4k + n³)))(x), so (d vanishing to order 1 along these lines) 𝒜 is ramified
 exactly when neither k nor 4k + n³ is a square (e.g. k = −4: ramified unless n³ − 16 is a square); consistent with
 the absence of positive-density kills at k = −1, −4, −9 below. (Review correction: an earlier draft said "ramified for
 every non-square k", which is false, e.g. n = 5, k = 11, 4k + n³ = 13².)
