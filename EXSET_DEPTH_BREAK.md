@@ -7,12 +7,13 @@ Scripts: `scripts/z51_dbreak_*`. Data: `data/z51_dbreak/`. Brief: `../z51briefs/
 
 ## 0. Summary table
 
-**Status: three rounds complete; two Astra hostile reviews folded in (§7). No target is reached: there is no
+**Status: three rounds complete; three Astra hostile reviews folded in (§7). No target is reached: there is no
 depth-breaking bound here.** What the lane produced:
 * an exact reformulation, and a reduction of T1-min, and of a power saving for E_U off the squares and for ES₅/U at
   primes, to one large-prime layer, the *top band* ℓ > √(2N) (Cor 3.3);
-* EVIDENCE that the top band is Poisson at a fixed scale (n ∈ [N/2, N], N = 10⁸…10¹¹) with mean ≈ 0.32 log N, so that
-  layer alone would give N^{−0.3} (§3.3);
+* EVIDENCE that at a fixed scale (n ∈ [N/2, N], N = 10⁸…10¹¹) the top band's zero probability matches e^{−mean}
+  within two standard errors (despite significant over-dispersion), with the mean growing ≈ 0.32 per unit of ln N,
+  consistent with that layer alone giving a power saving (§3.3);
 * an abstract barrier for prime-detection information that is two-sided only at first order, with scoped arithmetic
   meaning (Thm 2.3), and a model-level statement for two-sided information below the level cap (Thm 2.6);
 * a product-form obstruction for shift arguments (Prop 3.1) and scoped assessments for the other approaches.
@@ -27,8 +28,8 @@ depth-breaking bound here.** What the lane produced:
 | 2e | in the class-constant Cramér–Haar model, all mixed CRT/PD statistics of (all-prime) level ≤ λ, two-sided and of every order, are consistent with avoidance ≥ ½e^{−C√λ} | PROVED for that model, given the KARY/EK framework (EXSET_SIEVE_MASS Thm 3.2 proviso); arithmetic version OPEN | §2.4 | R2 SOUND-WITH-MINOR (repairs folded in) |
 | 3a | cost profile of shifts; product-form bounds with a common loss C > 1 per factor save ≪_C (log log N)² log log log N; a common loss 1 + ε needs log(1/ε) ≳ M/log log N to save M ≫ (log log N)² log log log N | PROVED for the defined product format | §3.1 | R2 SOUND-WITH-MINOR |
 | 3b | one layer suffices for upper bounds; T1-min ⟸ (TB_δ); (TB_pow) ⟹ E_U = odd squares + O(N^{1−c}) and #{p ≤ N : ES₅(p) fails} ≪ N^{1−c}; polynomial-level CRT majorants are linear (λ ≤ log N) or of degree ≤ 3 (λ ≤ 2 log N) in the top-band hits and save O(log log N) there | PROVED (inclusions; band bound via THETA) | §3.2 | R2 SOUND-WITH-MINOR |
-| 3c | over all n ≤ N: P(X_top = 0) ≈ 1.3–1.5·e^{−E X_top}, slope −0.30 in log N over 10⁷–4·10⁹; the excess over Poisson is a mixture over the scale of n | CERTIFIED counts / EVIDENCE | §3.3 | R2 SOUND-WITH-MINOR |
-| 3d | at a fixed scale (n ∈ [N/2, N]) X_top is Poisson within sampling error (ratio P(X_top=0)/e^{−E X_top} = 1.05, 1.02, 0.88, 1.12 at N = 10⁸, 10⁹, 10¹⁰, 10¹¹; standard errors 3–17%), E X_top ≈ 0.32 ln N; ≈ 0.08 (log N)² candidates per n | EVIDENCE (sampled; cross-checked against brute force) | §3.3 | added in R3 |
+| 3c | over all n ≤ N: P(X_top = 0) ≈ 1.3–1.5·e^{−E X_top}, slope −0.30 in log N over 10⁷–4·10⁹; at N = 10⁹ dyadic stratification by the size of n accounts for 81% of the excess zeros over a homogeneous Poisson prediction | CERTIFIED counts / EVIDENCE | §3.3 | R3 SOUND-WITH-MINOR |
+| 3d | at a fixed scale (n ∈ [N/2, N]) the zero probability of X_top is compatible with e^{−E X_top} (ratios 1.05, 1.02, 0.88, 1.12 at N = 10⁸…10¹¹, within ≈ 2 s.e.), although X_top is significantly over-dispersed (var/mean 1.04–1.09, 7–10 s.e.); E X_top ≈ 0.319 ln N − 1.20 over this range; ≈ 0.08 (log N)² candidates per n | EVIDENCE (sampled; cross-checked against brute force) | §3.3 | R3: counts SOUND; Poisson wording corrected |
 | 3e | literature: two-shift laws of P⁺ are *size* laws (logarithmic density; power-of-log error outside exceptional scales; unrefereed natural-density claim); nothing on P⁺(n+4e) mod 4e over many e. TB has a precise sufficient hypothesis (§3.2), not shown necessary | Assessment | §3.2 | R2 SOUND-WITH-MINOR |
 | 4 | raw Chebyshev on X stops at ≫ N/μ (Haar Var X ≥ E X/2); anatomy split is a research plan, not a barrier | PROVED (constant centering, Haar) / Assessment | §4 | R2 SOUND-WITH-MINOR |
 | 5 | a direct comparison with additive error η certifies ≤ log(1/η); the cited averaging/entropy results have bounded k and o(1) or power-of-log errors | PROVED (trivial) + Assessment | §5 | R2 SOUND-WITH-MINOR |
@@ -176,8 +177,9 @@ z-smooth. A *model* is a probability space carrying x ∈ 1 + 8Ẑ (Ẑ the prof
     r_j(x) = c_j·1[x ∈ class_j]·1[(x + 4e_j)/m_j has no prime factor ≤ z],
 
 class_j the class −4e_j − m_j (mod 4e_jm_j) inside 1 + 8Ẑ, with c_j ≥ 0 chosen so that E_ℋ r_j = #E^{PD}_j/#I (ℋ = Haar
-on 1 + 8Ẑ; r_j := 0 if the class or the event is empty). PD events with cofactor m > z are not represented; their bits
-can be adjoined identically zero, and nothing is asserted about them.
+on 1 + 8Ẑ; r_j := 0 if the class or the event is empty). All PD events outside 𝒥 (cofactor m > z, or 4em > z) are not
+represented: the stated information set constrains none of them, so their bits can be adjoined identically zero. Nothing
+is asserted about them, and B_λ ∩ {π ≡ 0} is a model event, not a lower bound for the arithmetic A_N.
 
 *Facts about r_j (PROVED).* (α) On the support of r_{e,m}, v_q(x + 4e) = v_q(m) for every prime q ≤ z, so m is the full
 z-smooth part of x + 4e; for fixed (x, e) at most one m has r_{e,m}(x) > 0. Thus the true exclusivity "n + 4e has at
@@ -185,13 +187,15 @@ most one cofactor m ≤ z with (n + 4e)/m a prime > z" holds in every model sati
 CRT event (ℓ′, e_j) with ℓ′ ≤ z meets x, then ℓ′ | m_j, as for integers. (γ) r_j ≤ C₁λ/(log N − λ): with Q = lcm(8, 4e),
 ℋ(class_j) = 8/(m_jQ), the roughness probability on the class is ∏_{p≤z, p∤Q}(1 − 1/p) ≍ Q/(φ(Q) log z), and
 Brun–Titchmarsh gives #E^{PD}_j/#I ≪ 1/(m_jφ(Q)(log N − λ)); divide. So r_j ≤ 1/C once λ ≤ c_C log N.
-(δ) *Arithmetic meaning on modulus-bounded tests.* Let S be a class b (mod d) with d ≤ z (so all prime factors of d,
-and all prime powers in d, are ≤ z). Under ℋ conditioned on class_j ∩ S the candidate (x + 4e_j)/m_j is uniform on the
-residue classes it can occupy modulo lcm(Q, d), and the roughness factor kills exactly the classes sharing a prime ≤ z
-with it. Hence E_ℋ[1_S r_j] = (#E^{PD}_j/#I)·ϖ_j(S), where ϖ_j(S) is the proportion of admissible *reduced* candidate
-classes that S selects: the Siegel–Walfisz/BV equidistribution main term, normalised by the true global count. It
-vanishes exactly when S is locally inadmissible. (Positive main term does not mean positive finite count; BV is an
-averaged statement.)
+(δ) *Arithmetic meaning on modulus-bounded tests.* Let S be a class b (mod d) with d ≤ z. Under x = m_jp − 4e_j, class_j is
+one reduced candidate class p ≡ a (mod Q) (a ≡ −1 (mod 4e_j), m_ja − 4e_j ≡ 1 (mod 8); incompatible pairs are the
+empty classes), and S becomes p ≡ c (mod d/g), g = gcd(m_j, d), or is empty if g ∤ b + 4e_j. Put L = lcm(Q, d) (all its
+prime factors are ≤ z), R = {a′ mod L : a′ ≡ a (mod Q), gcd(a′, L) = 1}, R_S = {a′ ∈ R : m_ja′ − 4e_j ≡ b (mod d)} and
+ϖ_j(S) = |R_S|/|R|. Haar gives equal mass to the extensions of the base class modulo L, the roughness factor kills
+exactly the non-reduced ones and multiplies each reduced one by the same ∏_{q≤z, q∤L}(1 − 1/q); hence
+E_ℋ[1_S r_j] = (#E^{PD}_j/#I)·ϖ_j(S): the Siegel–Walfisz/BV equidistribution proportion, normalised by the true global
+count. ϖ_j(S) vanishes exactly when S is locally inadmissible (E_ℋ[1_S r_j] also vanishes when the global count is 0).
+Positive main term does not mean positive finite count; BV is an averaged statement.
 
 An argument of **type (λ; K₂, K₃, …)** uses the integers only through statements implied by the following axioms.
 
@@ -203,12 +207,17 @@ An argument of **type (λ; K₂, K₃, …)** uses the integers only through sta
   and every clopen S.
 * (I4) *Support:* π_j = 0 wherever r_j = 0.
 
-By (δ), (I2) is the statement "primes in the candidate variable are equidistributed among the admissible reduced
-classes of every modulus d ≤ z, with the true total"; the integers satisfy it up to the Siegel–Walfisz/BV error terms,
-and an exact axiom implies every inequality |count − main term| ≤ error *with the same main term*. So arguments that use
-SW/BV/BT-type equidistribution of the PD candidates on such tests, sieve upper bounds of I3 form, CRT data at level λ,
-and the support facts (α)–(β), are covered. Not covered: first-moment tests outside the modulus-bounded family (e.g.
-classes with a large uncharged prime or a large prime power), two-sided correlations of order ≥ 2 (even averaged),
+By (δ), (I2) says that primes in the candidate variable are equidistributed among the admissible reduced classes
+modulo the induced moduli L₀ = lcm(Q, d/gcd(m_j, d)), normalised by the true total. Write A_j = #E^{PD}_j,
+A_j(S) = #(E^{PD}_j ∩ S), and let M_j be the conventional main term (Li(X_j) − Li(z))/φ(Q), X_j = (N + 4e_j)/m_j. If
+A_j = M_j + R_j and A_j(S) = ϖ_j(S)M_j + R_j(S), then A_j(S) − ϖ_j(S)A_j = R_j(S) − ϖ_j(S)R_j, so an available error bound
+transfers as |A_j(S) − ϖ_j(S)A_j| ≤ |R_j(S)| + ϖ_j(S)|R_j| (for averaged bounds, summed with the actual weights). The
+distribution theorem must be applied at modulus L₀ ≤ 2z²/m_j in the candidate variable X_j: Siegel–Walfisz in its
+logarithmic range, BV only on average in its X_j-dependent range. With this ledger, an exact axiom implies every
+inequality |count − main term| ≤ error centred at the same normalised main term. So arguments that use SW/BV/BT-type
+equidistribution of the PD candidates on such tests (within those ranges), sieve upper bounds of I3 form, CRT data at
+level λ, and the support facts (α)–(β), are covered. Not covered: first-moment tests outside the modulus-bounded family
+(e.g. classes with a large uncharged prime or a large prime power), two-sided correlations of order ≥ 2 (even averaged),
 signed interval sums at moduli > N, archimedean relations between candidates, Type I/II identities used beyond first
 moments, and exact zero correlations not implied by congruences and roughness.
 
@@ -309,8 +318,10 @@ Thm 3.2's assembly with first moment K log y: s₁ = √λ; singletons cost ≤ 
 d_i = ⌊λ/s⌋) has E M_{V_i} ≤ 2Ks and (E M_{V_i} + 4d_i)/d_i ≤ 4K·4^i + 4, so the blocks cost O(√λ Σ_i 2^{−i}(1 + i)) = O(√λ);
 keep the linear block, base term, leak bound and O(log²λ) remainder of the cited proof. So on the event of (2), every
 level-λ majorant of 𝒜(𝔊(𝒥′)) has Eν ≥ e^{−C√λ} (constants absorbed for λ ≥ λ₀).
-(4) *Fake laws.* As in Thm 2.3(i), there is a probability ρ_{𝒥′} with Haar marginals on every class of level ≤ λ and
-ρ_{𝒥′}(𝒜(𝔊(𝒥′))) ≥ e^{−C√λ}; off the event of (2), put ρ_{𝒥′} = ℋ.
+(4) *Fake laws.* As in Thm 2.3(i), but on a finite quotient that retains the full relevant prime-power digits (the
+realised W2 avoider may depend on them) and with the dual run directly on the fibre 1 + 8Ẑ, there is a probability
+ρ_{𝒥′} with Haar marginals on every class of level ≤ λ and ρ_{𝒥′}(𝒜(𝔊(𝒥′))) ≥ e^{−C√λ}; off the event of (2), put
+ρ_{𝒥′} = ℋ.
 (5) *The model.* Draw 𝒥′, then x ~ ρ_{𝒥′}, and set π_j = 1[j ∈ 𝒥′, x ∈ class_j]. For a mixed monomial of level ≤ λ,
 T = S ∩ ⋂_J class_j is a class (or empty) of level ≤ level(S) + Σ_J s_j ≤ λ, so E[1_S ∏_J π_j | 𝒥′] = 1[J ⊆ 𝒥′]ℋ(T) for
 every 𝒥′, and averaging over the independent coins gives ∏_J ρ_j·ℋ(T), the CH value. On the good event, x ∈ 𝒜(𝔊(𝒥′))
@@ -334,9 +345,9 @@ fails on planted squares (G5).
 
 Write X(n) = R(n) = Σ_e ω_e(n + 4e) (the number of events containing n), with ω_e(x) = #{ℓ | x prime, ℓ ≡ −1 (4e)}
 (Lemma 1.1(c),(d)). For 0 ≤ z < 1, P(X = 0) ≤ E z^X = #I^{−1} Σ_{n∈I} ∏_e z^{ω_e(n+4e)}, a correlation of multiplicative
-functions at many shifts. Verdict: bounds of product form over shifts with a common loss per factor are useless for
-this family (Prop 3.1); for upper bounds one layer suffices (Lemma 3.2), which reduces T1-min, and a power saving, to
-the top band (Cor 3.3); there the numerics are Poisson at fixed scale (§3.3). No proof of the top-band statement is
+functions at many shifts. Verdict: product-form bounds over shifts with a common loss C > 1 per factor save only
+≪ (log log N)² log log log N (Prop 3.1); for upper bounds one layer suffices (Lemma 3.2), which reduces T1-min, and a power saving, to
+the top band (Cor 3.3); there the fixed-scale zero probabilities match e^{−mean} (§3.3). No proof of the top-band statement is
 offered.
 
 ### 3.1 Product forms over shifts: the cost profile of the prime family
@@ -370,7 +381,8 @@ logarithm of N.
     saving M ≫ L₂²L₃ with a common factor 1 + ε requires a ≳ M/L₂.
 *Proof.* (a) (cost(e) − log C)^+ > 0 forces hit(e) > 1 − 1/C, so by Lemma 3.0(b) and φ(q) ≫ q/log log 3q, e ≤ E₁ with
 E₁ = O_C(L₂L₃). Each such shift contributes ≤ L₂ + O(1) (Lemma 3.0(a)).
-(b) Fix an absolute E₁′ with hit(e) ≤ ½ for e > E₁′ (Lemma 3.0(b)). Shifts e ≤ max(E₁, E₁′) contribute O(L₂²L₃) as in (a).
+(b) Choose E₁′(N) = O(L₂L₃) with hit(e) ≤ ½ for e > E₁′(N) (Lemma 3.0(b); no absolute cutoff exists, since for each fixed
+e, hit(e) → 1 as N → ∞). Shifts e ≤ max(E₁, E₁′(N)) contribute O(L₂²L₃) as in (a).
 A larger shift has cost(e) ≤ 2hit(e) and contributes only if ε/2 < cost(e) ≤ 2hit(e), which by Lemma 3.0(b) forces
 e ≤ E₀ with log E₀ ≤ a + O(log(2 + a + L₂)). If E₀ ≤ N^{1/3}, Lemma 3.0(c) bounds their contribution by
 C₀(1 + L₂) log 2E₀. If E₀ > N^{1/3}, then (log N)/3 < a + O(log(2 + a + L₂)) forces a ≫ log N, and Lemma 3.0(d) bounds
@@ -408,11 +420,14 @@ P⁺(n + 4e) ≡ −1 (mod 4e)} (by Lemma 1.1(d) only e ≤ (n + 3)/8 contribute
 each counted hit is an event). Then A_N ⊆ {X_top = 0}, and
 * (TB_δ) #{n ∈ I ∖ □ : X_top(n) = 0} ≤ N exp(−(log N)^{1/2+δ}) implies T1-min(4ℤ) and T1-min;
 * (TB_pow) #{n ∈ I ∖ □ : X_top(n) = 0} ≤ N^{1−c} implies
-  #{n ≤ N, n ≡ 1 (4) : U(n) fails} = #{odd squares ≤ N} + O(N^{1−c}) (a power saving for E_U off the squares), and
-  #{p ≤ N prime : ES₅(p) fails} ≤ #{p ≤ N : U(p) fails} ≪ N^{1−c} (EXSET_SIEVE_MASS Thm 3.5(a) for the first
-  inequality), i.e. z50 Target 1 for ES₅ and U.
+  #{n ≤ N, n ≡ 1 (4) : U(n) fails} = #{odd squares ≤ N} + O(N^{1−c}) (a power saving for E_U off the squares), and,
+  with ES₅ defined globally by a positive word with a slot ≡ 0 (mod 4) (EXSET_BEYOND_CRT §1.3; automatic at p = 2 via
+  (t, u, v) = (1, 2, 4) and at p ≡ 3 (4) via (2, 1, p + 1)),
+  #{p ≤ N : ES₅(p) fails} = #{p ≤ N, p ≡ 1 (4) : ES₅(p) fails} ≤ #{p ≤ N, p ≡ 1 (4) : U(p) fails} ≪ N^{1−c}
+  (EXSET_SIEVE_MASS Thm 3.5(a) for the inequality), i.e. z50 Target 1 for ES₅ and U.
 *Proof.* A U failure at n ≡ 1 (8) lies in no prime-pivot U certificate class, so it lies in A_N ⊆ {X_top = 0}; U holds at
-every n ≡ 5 (mod 8), n > 5 (z50 Obs. 6.0); primes are not squares. ∎
+every n ≡ 5 (mod 8), n > 5 (v = 3, A = 8; z50 Obs. 6.0); odd squares fail U (Theorem E), which gives the main term;
+primes are not squares. ∎
 
 By Lemma 1.1(e), X_top(n) = #{(m, e) : m ≡ 3 (4), e | (n + m)/4, (n + m)/(4e) ≡ −1 (mod m), (n + 4e)/m a prime > √(2N)}:
 for each cofactor m ≤ (3n + 3)/(2√(2N)), the divisors of the single integer (n + m)/4 in one class mod m produce
@@ -460,7 +475,9 @@ instead by the dyadic range of n (`SCALE=1`, `data/z51_dbreak/scale_top_N1e9.txt
 of 1 156 446, i.e. actual/prediction 1.06 instead of 1.44: the excess is mostly a mixture over the *scale* of n (the
 threshold √(2N) is fixed, so n ≪ N have fewer top-band candidates; E X_top = 3.34, 3.76, 4.18, 4.61, 5.03, 5.43 on
 [2^b, 2^{b+1}), b = 24…29). Within the top dyadic range [2²⁹, 10⁹] the ratio is 1.021; it is 1.04–1.10 in the lower ranges,
-which still mix scales by a factor 2. At a fixed scale the top band is Poisson (next table).
+which still mix scales by a factor 2. So at N = 10⁹ the stratification accounts for about 81% of the excess zeros
+(69 448 zeros remain above the stratified prediction; narrower bins or other arithmetic features may explain them; this
+is a finite-scale decomposition, not an identification of the cause). Fixed-scale samples follow.
 
 **At a fixed scale, n uniform in [N/2, N] (EVIDENCE; `scripts/z51_dbreak_candidates.c`, random samples,
 `data/z51_dbreak/cand_N*.txt`).** The program enumerates, for each sampled n, all top-band candidates by the m-view of
@@ -474,14 +491,17 @@ Miller–Rabin; it agrees with a brute-force e-view count of X_top on 150 random
 | 10¹⁰ | 100 000 | 42.1 | 6.155 | 1.053 | 0.00187 ± 0.00014 | 0.00212 | 0.88 |
 | 10¹¹ | 30 000 | 51.9 | 6.870 | 1.085 | 0.00117 ± 0.00020 | 0.00104 | 1.12 |
 
-At a fixed scale the zero probability agrees with the Poisson value within one to two standard errors, the mean grows
-by ≈ 0.74 per decade (≈ 0.32 ln N), and log P(X_top = 0) falls by ≈ 0.83 per decade between 10⁸ and 10¹⁰. The candidate
+At a fixed scale the zero probability agrees with e^{−E X_top} within about two standard errors (standardised
+differences 1.5, 0.5, −1.9, 0.65, accounting for the fitted mean), but the full law is not Poisson: Var X_top − E X_top is
+7–10 standard errors above zero at every scale (R3 §6.1), and 20-bin stratification in n removes only a small part of
+it. The mean grows by ≈ 0.74 per decade, i.e. slope ≈ 0.32 against ln N (mean ≈ 0.319 ln N − 1.20 over this range; the
+ratio mean/ln N is 0.253–0.271), and log P(X_top = 0) falls by ≈ 0.83 per decade between 10⁸ and 10¹⁰. The candidate
 count C_top is ≈ 0.08 (log N)² on average (0.076, 0.078, 0.080, 0.081 times (ln N)²), and its lower tail thins quickly
-(P(C_top ≤ 20) = 0.29, 0.097, 0.021, 0.003). A candidate is prime with probability ≈ 2.46/log p (local factors), and
-weighting candidates by 1/log p predicts the zero probability badly in both directions: the primality events are not
-a simple function of the candidate count. Reading (Assessment): at fixed scale the top band behaves like independent
-events with total mean ≈ 0.32 log N, which under TB_pow would give c ≈ 0.3; these are finite-range samples, not an
-asymptotic.
+(P(C_top ≤ 20) = 0.29, 0.097, 0.021, 0.003). The aggregate fit E X_top/E Σ_cand 1/log p is ≈ 2.46 (a fitted weighting, not a calibrated primality
+probability per candidate); the mixed-Poisson prediction E e^{−2.46 Σ 1/log p} fails in both directions across deciles,
+so the primality events are not a simple function of the candidate count. Reading (Assessment): the zero probability
+at fixed scale tracks e^{−mean}, and the mean grows like ≈ 0.32 ln N over these scales; if this persisted, TB_pow would
+hold with c ≈ 0.3. These are finite-range samples; no asymptotic, no independence statement and no exponent is proved.
 
 ## 4. Approach 3: anatomy and the bilinear (e, m) incidence
 
@@ -622,26 +642,41 @@ O(L₂L₃) and the small-shift term; Reading heuristics labelled; Cor 3.3 ES₅
 sufficient hypothesis; Selberg's range; N1 identity with ⋃_ℓ; variance ratios labelled as large-layer statistics; §5
 moment order restricted to the displayed bound; §8 wording. Not accepted: none.
 
-The fixed-scale Poisson data (§3.3, row 3d) were added after R2 and have not been reviewed.
+**R3 (`reviews/z51-dbreak-review-3.md`).** Rows 1, 2a, 2c, 2d, 3e, 4, 5 SOUND; 2b, 2e, 3a, 3b, 3c, 6 SOUND-WITH-MINOR;
+3d MAJOR for wording (counts SOUND). The modulus-bounded test family cures the round-2 counterexample: the local
+identity (δ) was rederived in the candidate variable (induced modulus, mod-8 condition, prime powers) and no
+replacement counterexample was found; Thm 2.6 repairs pass. The reviewer regenerated 12 sampled rows and checked 40 n
+by an independent e-view implementation (all agree), recomputed both numerical tables, and found the fixed-scale X_top
+significantly over-dispersed (Var − mean 7–10 s.e. above 0) although its zero probability matches e^{−mean} within
+≈ 2 s.e. Repairs (final): "Poisson within sampling error" replaced by the zero-probability statement everywhere; the
+mean described by its fitted slope (≈ 0.32 per unit ln N) and intercept; the scale stratification described as
+accounting for 81% of the excess at N = 10⁹; the false absolute cutoff in Prop 3.1(b) replaced by E₁′(N) = O(L₂L₃) (for
+fixed e, hit(e) → 1); ϖ_j defined explicitly with the induced modulus and the normalised error ledger stated; omitted
+events = all events outside 𝒥; Cor 3.3's ES₅ conclusion written on its domain with the global word/slot definition;
+Thm 2.6's quotient and fibre stated; §8 wording; the cross-check harness hardened. Not accepted: none.
 
 ## 8. Exact remaining gap
 
 * **No depth-breaking bound is proved.** T1-min(4ℤ) would follow from TB_δ, and a power saving for E_U off the squares
-  and for ES₅/U at primes from TB_pow (Cor 3.3). Polynomial-level CRT majorants cannot supply an exponential-in-mass
-  saving from the top band (they save O(log log N) there). At a fixed scale the top band is Poisson within sampling
-  error with mean ≈ 0.32 ln N at N = 10⁸–10¹¹ (EVIDENCE), so TB_pow with c ≈ 0.3 is consistent with all data.
+  and for ES₅ at primes from TB_pow (Cor 3.3). Polynomial-level CRT majorants cannot supply an exponential-in-mass
+  saving from the top band (they save O(log log N) there). At a fixed scale the top band's zero probability matches
+  e^{−mean} within about two standard errors at N = 10⁸–10¹¹, with the mean growing ≈ 0.32 per unit of ln N
+  (EVIDENCE; the full law is over-dispersed). This is consistent with TB_pow for some c ≈ 0.3; nothing asymptotic is
+  established.
 * **What is excluded, and only in this scope.** Arguments using CRT data at level λ, exact PD first moments on
   modulus-bounded tests, one-sided PD correlation bounds with K_k ≥ C^{k−1} and the support facts gain a constant
   (Thm 2.3). In the class-constant Cramér model, two-sided mixed statistics below the level cap gain nothing in the
   exponent (Thm 2.6); the arithmetic version needs a sieve-limit theorem for roughness-refined (prime-law) majorants.
   Product-form shift bounds with a common loss C > 1 save ≪ (log log N)² log log log N, and with a common loss 1 + ε
-  need log(1/ε) ≳ M/log log N (Prop 3.1). Raw Chebyshev stops at N/μ (Prop 4.1).
+  need log(1/ε) ≳ M/log log N (Prop 3.1). The raw Chebyshev bound with constant centering stops at ≫ N/μ in the Haar
+  model (Prop 4.1).
 * **What is not excluded.** True (roughness-aware) two-sided PD correlations below or above the level cap; union lower
   bounds for a block of mass ≫ √(log N) (that is the target in another form); weighted or nonlinear uses of the
-  incidence; signed interval sums at moduli above N; archimedean relations; heterogeneous or exact shift factors.
-* **The cleanest open statement this lane isolates:** TB_pow (or TB_δ) for the single layer ℓ > √(2N), i.e. a Poisson
-  lower tail for the residues of the largest prime factors P⁺(n + 4e) modulo 4e over the shifts e, beyond any two-shift
-  technology.
+  incidence; signed interval sums at moduli above N; archimedean relations; heterogeneous, exact or sufficiently
+  accurate shift factors; amplifications of bounded-order correlation inputs.
+* **The cleanest open statement this lane isolates:** TB_pow (or TB_δ) for the single layer ℓ > √(2N): a zero-event
+  upper bound for the hits "P⁺(n + 4e) ≡ −1 (mod 4e), P⁺(n + 4e) > √(2N)" over the shifts e. It is not supplied by the
+  cited two-shift theorems on largest prime factors, which concern sizes, not residues.
 * **Transfer to the full prime family 𝓕_N.** Upper bounds transfer (A_N ⊇ Av(𝓕_N)). Theorems 2.3 and 2.6 are proved
   for the 4ℤ-line classes. The CRT fake law and the CH construction plausibly extend to the full refined U family with
   adjusted supply constants (Assessment); the exact roughness/cofactor parametrisation and the first-moment transfer
