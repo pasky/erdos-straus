@@ -12,13 +12,13 @@ previously recorded in the repository.
     "numeric test shows that they imply the conjecture". In §3 the authors state that they tested the claim for
     m ≤ 10¹¹ and "failed to get a logic proof".
   * Status: unproved covering conjecture (preprint).
-  * Relation: a finite menu of polynomial families falls under FRONTIER B1 (Thm C), so it fails for infinitely many
-    p ≡ 1 (24), CONDITIONAL on Hypothesis H. This is an Assessment, since the polynomial form of every family was not
-    checked.
+  * Relation: the families are images of polynomials with unbounded parameters (§3 of the paper; e.g.
+    f₄₃ = (z+1)(4x+3)(24y+5) − x − y − 1). FRONTIER B1 is therefore not shown to apply. The missing step is the whole
+    covering claim.
 * M. Filaseta, A. Kalogirou, J. Klein, "Results for distinct covering systems with a prime minimum modulus q ≥ 11",
   arXiv:2610.34541v1 (2026-10-25).
-  * Statement: if the least modulus of a covering system is a prime q ≥ 11, then Σ 1/mᵢ ≥ 1 + 10⁻²⁸. No covering
-    system uses distinct multiples of q as moduli.
+  * Statement: if a covering system with **distinct moduli** has least modulus a prime q ≥ 11, then
+    Σ 1/mᵢ ≥ 1 + 10⁻²⁸. No covering system uses distinct multiples of q as moduli.
   * Status: preprint.
   * Relation: finite-system structure theory, outside B1; no ES relevance.
 * H. Li, Z. Liu, "6 powers of 2 in the Linnik–Goldbach problem", arXiv:2610.15784v1 (2026-10-11), PDF.
@@ -46,9 +46,10 @@ previously recorded in the repository.
   arXiv:2609.25393v1 (2026-09-21), PDF.
   * Statement (Thm 1.1): for fixed ε, A, there is a set of ≤ (log Q)^{1+ε} primes, each ≤ (log Q)^{C*(A+1)}, whose
     0/1 subset products give all of (ℤ/q)^× for all but O(Q(log Q)^{−A}) integers q ≤ Q. The exponent 1 + ε is
-    optimal.
-  * §1.2: the result holds pointwise under GRH, by orthogonality. Removing the exceptional set (even to a
-    better-than-super-polylog saving) would settle Vinogradov's least-QNR conjecture.
+    optimal up to the arbitrary ε.
+  * §1: a separate GRH statement says that all primes ≤ (log q)^B, p ∤ q, B > 4, generate for every large q (not
+    the same shared set). §1.2: shrinking the exceptional set beyond a super-polylogarithmic saving would require
+    Vinogradov's least-QNR conjecture.
   * Status: preprint.
   * Relation: free, shared primes and almost all q. Gate G4 (`EXSET_CHAR_FORCING.md` §2) needs the prime factors of
     one p-tied integer to hit −1 (B2, §4.9, §4.17).
@@ -66,8 +67,9 @@ previously recorded in the repository.
   * Status: preprint.
   * Relation: a fourth instance of the "squares + finitely many sporadic" shape, after Rickards–Stange Thm 2.8
     (proved, fat), HKRS (open) and U(n) (campaign, open).
-  * Campaign reproduction (`scripts/z52_gradelit_fleas.py`, EVIDENCE): the same 5 sporadic values up to doubled
-    area 10⁶; average multiplicity ≈ X^{0.32} (power-size), so the flea problem is not a polylog model of U(n).
+  * Campaign reproduction (`scripts/z52_gradelit_fleas.py`, EVIDENCE, finite range): the same 5 sporadic values up
+    to doubled area 10⁶. The average positive-word multiplicity grows like ≈ X^{0.31–0.32} over 10³–10⁶, consistent
+    with Apollonian δ − 1, so in the tested range this is a power-count model, not a polylog model of U(n).
 * N. Sothanaphan, "Resolution of Erdős Problem #728: a writeup of Aristotle's Lean proof", arXiv:2601.07421v5
   (2026-01-26).
   * Statement: for 0 < C₁ < C₂ and 0 < ε < 1/2 there are infinitely many (a, b, n) with εn ≤ a, b ≤ (1−ε)n,
@@ -78,9 +80,9 @@ previously recorded in the repository.
     #729, #401, #38, #90) has ES's "every n, polylog witnesses" shape.
 * N. Kingsbury-Neuschotz, "Strong Approximation for the Relative Character Variety of the Four-Times Punctured
   Sphere", arXiv:2603.04096v3 (2026-07-29).
-  * Statement: for nondegenerate (A, B, C, D), Γ acts transitively on the bulk of the F_p-points of
-    X² + Y² + Z² = XYZ + AX + BY + CZ + D for a density-one set of primes. There are two or four large orbits in the
-    degenerate cases.
+  * Statement: outside an explicit degeneracy locus, Γ acts transitively on the bulk of the F_p-points of
+    X² + Y² + Z² = XYZ + AX + BY + CZ + D for a density-one set of primes, with the remainder in small orbits. For
+    degenerate parameters there are two large orbits, or four (excluding (0, 0, 0, 4)).
   * Status: preprint.
   * Relation: a density-one result (B6). Chen's all-large-p mechanism (divisibility of orbit sizes) has no ES
     analogue (`BRAINSTORM/z31_markoff_chen.md`).
@@ -97,10 +99,11 @@ previously recorded in the repository.
 
 **Updates and corrections to existing entries**
 * Shkredov arXiv:2603.14116v2 (PDF):
-  * Thm 8: for all M ≥ M₀ and every q there are ≥ q^{2w_M−1−o(1)} numerators with partial quotients ≤ 100M. The
-    method itself proves q^{1−O(1/M)}.
-  * Remark 9: via Zhang–Tang general-modulus expansion, Cor 1 "is valid for any q … we now possess a proof of
-    Zaremba's conjecture in full generality".
+  * Thm 8: for all M ≥ M₀ and every q **in the class 𝒵** (large primes, large squarefree q, high prime powers;
+    p. 4) there are ≥ q^{2w_M−1−o(1)} numerators with partial quotients ≤ 100M.
+  * Remark 9: via Zhang–Tang general-modulus expansion, Cor 1 (existence) "is valid for any q (although the
+    remaining results of the paper remain unchanged) … we now possess a proof of Zaremba's conjecture in full
+    generality".
   * X. Zhang arXiv:2605.02518v2: Thm 1.2 "Zaremba's conjecture holds"; Remark 1.3, M is effective but large.
   * Both remain unrefereed. The entry at `LITERATURE_2026.md` §Wave AA stands.
 * The *Bull. AMS* 63(1) (2026) 59–77 survey "Apollonian packings: The rise and fall of the local to global conjecture"
@@ -110,4 +113,10 @@ previously recorded in the repository.
   and the Markoff uniqueness conjecture remains open.
 * Shi–Shi–Whitehead–Williams-Tracy–Zhang arXiv:2510.21702v2 (2026-03-25) and Kadyrov et al. arXiv:2610.16530v1
   (2026-10-12) were re-verified and are already cited in `QUESTION_R.md`.
-* Ventas arXiv:2605.04551 is at **v3** (2026-10-15); the content is unchanged (heuristic Borel–Cantelli).
+* Ventas arXiv:2605.04551 is at **v3** (2026-10-15); the current abstract still presents a heuristic Borel–Cantelli
+  argument.
+
+*Provenance.* "Verified" means: the arXiv record (authors, title, version, date, abstract) was re-opened. Theorem
+statements marked "PDF" were also read, but proofs were not checked. Crocker was read in the PDF. Pan 2011,
+Erdős 1950 and Johnston–Trudgian 2026 are cited through the repository or secondary sources only. The
+erdosproblems.com #306 page was opened on 2026-10-30.
