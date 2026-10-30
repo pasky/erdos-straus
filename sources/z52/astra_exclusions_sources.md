@@ -1,5 +1,7 @@
 # z52 Astra exclusion ledger — source checks
 
+Access date for the source checks below: **2026-10-30**.
+
 Scope: source-level screening of commonly cited neighboring results. This is a ledger, not a recommendation or a grading of the Astra approach. “Does not establish” below is strictly about the quoted theorem's quantifiers; it is not a claim that a stronger theorem is impossible. Pages were opened and read, not inferred from search-result snippets.
 
 ## Verified theorem scopes
@@ -25,7 +27,7 @@ Scope: source-level screening of commonly cited neighboring results. This is a l
 ### Erdős–Selfridge / consecutive products
 
 - **Source:** P. Erdős and J. L. Selfridge, “The Product of Consecutive Integers is Never a Power,” *Illinois Journal of Mathematics* **19**(2) (1975), 292–301. DOI: [10.1215/ijm/1256050816](https://doi.org/10.1215/ijm/1256050816). [Full Project Euclid PDF](https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-19/issue-2/The-product-of-consecutive-integers-is-never-a-power/10.1215/ijm/1256050816.pdf) was opened and its text read.
-- **Theorem 1 (source wording):** “The product of two or more consecutive positive integers is never a power.” In the paper’s setup, a power means an \(\ell\)-th power with integer \(\ell>2\); the introduction also frames the equation \((n+1)\cdots(n+k)=x^\ell\) with \(k>2,\ell>2,n>0\). The proof discussion covers the relevant boundary cases and Theorem 1 states the result for two or more consecutive positive integers.
+- **Theorem 1 (source wording):** “The product of two or more consecutive positive integers is never a power.” The theorem concerns nontrivial perfect powers (exponent at least2). The PDF extraction confuses `≥` with `>` in its setup; the initial draft's `ℓ>2` restriction was an OCR error and is not used. The quoted Theorem1 covers two or more consecutive positive integers.
 - **Quantifier boundary:** this rules out a perfect-power product of a consecutive block; it says nothing by itself about shifted-prime representations, prime-plus-powers, or arbitrary nonconsecutive factors.
 
 ## Distribution / heuristic results, not every-object existence

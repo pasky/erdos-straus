@@ -43,6 +43,13 @@
     19009,
     19681
   ],
+  "census_no_pigeonhole": [
+    5881,
+    16921,
+    18481
+  ],
+  "census_spare_windows": 2237,
+  "census_pigeonhole_windows": 3330,
   "controls": [
     {
       "n": 193,
@@ -50,6 +57,7 @@
       "hit_windows": 2,
       "odd_index_windows": 2,
       "spare_windows": 1,
+      "pigeonhole_windows": 1,
       "first_hit": [
         7,
         50,
@@ -64,6 +72,11 @@
         7,
         50,
         5
+      ],
+      "first_pigeonhole": [
+        7,
+        50,
+        5
       ]
     },
     {
@@ -72,6 +85,7 @@
       "hit_windows": 3,
       "odd_index_windows": 2,
       "spare_windows": 1,
+      "pigeonhole_windows": 2,
       "first_hit": [
         7,
         104,
@@ -86,6 +100,11 @@
         7,
         104,
         13
+      ],
+      "first_pigeonhole": [
+        7,
+        104,
+        6
       ]
     },
     {
@@ -94,6 +113,7 @@
       "hit_windows": 6,
       "odd_index_windows": 5,
       "spare_windows": 1,
+      "pigeonhole_windows": 3,
       "first_hit": [
         3,
         145,
@@ -108,6 +128,11 @@
         3,
         145,
         5
+      ],
+      "first_pigeonhole": [
+        3,
+        145,
+        2
       ]
     },
     {
@@ -116,6 +141,7 @@
       "hit_windows": 3,
       "odd_index_windows": 3,
       "spare_windows": 0,
+      "pigeonhole_windows": 1,
       "first_hit": [
         23,
         636,
@@ -126,7 +152,12 @@
         636,
         1
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        23,
+        636,
+        12
+      ]
     },
     {
       "n": 3361,
@@ -134,6 +165,7 @@
       "hit_windows": 2,
       "odd_index_windows": 2,
       "spare_windows": 1,
+      "pigeonhole_windows": 1,
       "first_hit": [
         3,
         841,
@@ -148,6 +180,11 @@
         3,
         841,
         29
+      ],
+      "first_pigeonhole": [
+        3,
+        841,
+        2
       ]
     },
     {
@@ -156,6 +193,7 @@
       "hit_windows": 9,
       "odd_index_windows": 8,
       "spare_windows": 1,
+      "pigeonhole_windows": 2,
       "first_hit": [
         7,
         1394,
@@ -170,6 +208,11 @@
         7,
         1394,
         41
+      ],
+      "first_pigeonhole": [
+        7,
+        1394,
+        6
       ]
     },
     {
@@ -178,6 +221,7 @@
       "hit_windows": 6,
       "odd_index_windows": 6,
       "spare_windows": 0,
+      "pigeonhole_windows": 1,
       "first_hit": [
         19,
         2405,
@@ -188,7 +232,12 @@
         2405,
         1
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        31,
+        2408,
+        16
+      ]
     },
     {
       "n": 23929,
@@ -196,6 +245,7 @@
       "hit_windows": 12,
       "odd_index_windows": 11,
       "spare_windows": 2,
+      "pigeonhole_windows": 2,
       "first_hit": [
         7,
         5984,
@@ -210,6 +260,11 @@
         7,
         5984,
         17
+      ],
+      "first_pigeonhole": [
+        7,
+        5984,
+        6
       ]
     },
     {
@@ -218,6 +273,7 @@
       "hit_windows": 8,
       "odd_index_windows": 8,
       "spare_windows": 0,
+      "pigeonhole_windows": 1,
       "first_hit": [
         31,
         16640,
@@ -228,7 +284,12 @@
         16640,
         3
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        31,
+        16640,
+        20
+      ]
     },
     {
       "n": 83449,
@@ -236,6 +297,7 @@
       "hit_windows": 10,
       "odd_index_windows": 9,
       "spare_windows": 1,
+      "pigeonhole_windows": 2,
       "first_hit": [
         11,
         20865,
@@ -250,6 +312,11 @@
         11,
         20865,
         13
+      ],
+      "first_pigeonhole": [
+        11,
+        20865,
+        10
       ]
     },
     {
@@ -258,6 +325,7 @@
       "hit_windows": 14,
       "odd_index_windows": 12,
       "spare_windows": 1,
+      "pigeonhole_windows": 2,
       "first_hit": [
         7,
         25502,
@@ -272,6 +340,11 @@
         7,
         25502,
         41
+      ],
+      "first_pigeonhole": [
+        7,
+        25502,
+        6
       ]
     },
     {
@@ -280,6 +353,7 @@
       "hit_windows": 16,
       "odd_index_windows": 11,
       "spare_windows": 2,
+      "pigeonhole_windows": 2,
       "first_hit": [
         3,
         82405,
@@ -294,6 +368,11 @@
         3,
         82405,
         5
+      ],
+      "first_pigeonhole": [
+        3,
+        82405,
+        2
       ]
     },
     {
@@ -302,6 +381,7 @@
       "hit_windows": 18,
       "odd_index_windows": 17,
       "spare_windows": 0,
+      "pigeonhole_windows": 2,
       "first_hit": [
         23,
         178086,
@@ -312,7 +392,12 @@
         178086,
         3
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        23,
+        178086,
+        14
+      ]
     },
     {
       "n": 1134241,
@@ -320,6 +405,7 @@
       "hit_windows": 25,
       "odd_index_windows": 20,
       "spare_windows": 2,
+      "pigeonhole_windows": 5,
       "first_hit": [
         3,
         283561,
@@ -334,6 +420,11 @@
         3,
         283561,
         233
+      ],
+      "first_pigeonhole": [
+        3,
+        283561,
+        2
       ]
     },
     {
@@ -342,6 +433,7 @@
       "hit_windows": 18,
       "odd_index_windows": 15,
       "spare_windows": 1,
+      "pigeonhole_windows": 1,
       "first_hit": [
         7,
         431054,
@@ -356,6 +448,11 @@
         7,
         431054,
         13
+      ],
+      "first_pigeonhole": [
+        7,
+        431054,
+        6
       ]
     },
     {
@@ -364,6 +461,7 @@
       "hit_windows": 23,
       "odd_index_windows": 20,
       "spare_windows": 0,
+      "pigeonhole_windows": 1,
       "first_hit": [
         23,
         431556,
@@ -374,7 +472,12 @@
         431556,
         1
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        23,
+        431556,
+        12
+      ]
     },
     {
       "n": 5212561,
@@ -382,6 +485,7 @@
       "hit_windows": 28,
       "odd_index_windows": 25,
       "spare_windows": 0,
+      "pigeonhole_windows": 3,
       "first_hit": [
         11,
         1303143,
@@ -392,7 +496,12 @@
         1303143,
         1
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        11,
+        1303143,
+        6
+      ]
     },
     {
       "n": 8813281,
@@ -400,6 +509,7 @@
       "hit_windows": 22,
       "odd_index_windows": 17,
       "spare_windows": 1,
+      "pigeonhole_windows": 5,
       "first_hit": [
         3,
         2203321,
@@ -414,6 +524,11 @@
         3,
         2203321,
         281
+      ],
+      "first_pigeonhole": [
+        3,
+        2203321,
+        2
       ]
     }
   ],
@@ -424,6 +539,7 @@
       "hit_windows": 1,
       "odd_index_windows": 0,
       "spare_windows": 1,
+      "pigeonhole_windows": 1,
       "first_hit": [
         3,
         10,
@@ -431,6 +547,11 @@
       ],
       "first_odd": null,
       "first_spare": [
+        3,
+        10,
+        2
+      ],
+      "first_pigeonhole": [
         3,
         10,
         2
@@ -442,6 +563,7 @@
       "hit_windows": 3,
       "odd_index_windows": 3,
       "spare_windows": 0,
+      "pigeonhole_windows": 1,
       "first_hit": [
         23,
         636,
@@ -452,7 +574,12 @@
         636,
         1
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        23,
+        636,
+        12
+      ]
     },
     {
       "n": 9601,
@@ -460,6 +587,7 @@
       "hit_windows": 6,
       "odd_index_windows": 6,
       "spare_windows": 0,
+      "pigeonhole_windows": 1,
       "first_hit": [
         19,
         2405,
@@ -470,7 +598,12 @@
         2405,
         1
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        31,
+        2408,
+        16
+      ]
     },
     {
       "n": 19333,
@@ -478,6 +611,7 @@
       "hit_windows": 7,
       "odd_index_windows": 4,
       "spare_windows": 2,
+      "pigeonhole_windows": 2,
       "first_hit": [
         3,
         4834,
@@ -492,6 +626,11 @@
         3,
         4834,
         2
+      ],
+      "first_pigeonhole": [
+        3,
+        4834,
+        2
       ]
     },
     {
@@ -500,6 +639,7 @@
       "hit_windows": 8,
       "odd_index_windows": 8,
       "spare_windows": 0,
+      "pigeonhole_windows": 1,
       "first_hit": [
         31,
         16640,
@@ -510,7 +650,12 @@
         16640,
         3
       ],
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": [
+        31,
+        16640,
+        20
+      ]
     }
   ],
   "squares": [
@@ -520,9 +665,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     },
     {
       "n": 25,
@@ -530,9 +677,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     },
     {
       "n": 49,
@@ -540,9 +689,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     },
     {
       "n": 81,
@@ -550,9 +701,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     },
     {
       "n": 121,
@@ -560,9 +713,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     },
     {
       "n": 169,
@@ -570,9 +725,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     },
     {
       "n": 225,
@@ -580,9 +737,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     }
   ],
   "numerator8": [
@@ -592,9 +751,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     },
     {
       "n": 131,
@@ -602,9 +763,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     },
     {
       "n": 241,
@@ -612,9 +775,11 @@
       "hit_windows": 0,
       "odd_index_windows": 0,
       "spare_windows": 0,
+      "pigeonhole_windows": 0,
       "first_hit": null,
       "first_odd": null,
-      "first_spare": null
+      "first_spare": null,
+      "first_pigeonhole": null
     }
   ],
   "homogeneous": [

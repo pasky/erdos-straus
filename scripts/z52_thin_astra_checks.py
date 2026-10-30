@@ -56,10 +56,10 @@ def ratio_count(factors, e):
     return counts.get(e-1, 0)
 
 
-def divisor_projection(factors, q):
+def divisor_projection(factors, q, power=2):
     out = {1}
     for ell, k in factors:
-        out = {r * pow(ell, 2*j, q) % q for r in out for j in range(k+1)}
+        out = {r * pow(ell, power*j, q) % q for r in out for j in range(k+1)}
     return out
 
 
@@ -86,8 +86,8 @@ def window(n, e, numerator=4):
 
 
 def scan(n, bound, numerator=4):
-    first_hit = first_odd = first_spare = None
-    hits = odds = spares = 0
+    first_hit = first_odd = first_spare = first_pigeonhole = None
+    hits = odds = spares = pigeonholes = 0
     for e in range((-n) % numerator or numerator, bound+1, numerator):
         if e < 3 or gcd(e, n) != 1:
             continue
@@ -99,14 +99,22 @@ def scan(n, bound, numerator=4):
             odds += 1
             first_odd = first_odd or [e, N, index]
         if numerator == 4 and e in PRIME_SET and e % 4 == 3:
+            # Comparator already proved/tested in s6_divisor_pigeonhole;
+            # this run measures subsumption of our proposed refinement.
+            divisor_classes = len(divisor_projection(fs, e, power=1))
+            pigeonhole = divisor_classes > (e-1)//2
+            if pigeonhole:
+                pigeonholes += 1
+                first_pigeonhole = first_pigeonhole or [e, N, divisor_classes]
             ell = spare_factor(fs, e)
             if ell is not None:
-                assert index > 0
+                assert index > 0 and pigeonhole
                 spares += 1
                 first_spare = first_spare or [e, N, ell]
     return dict(n=n, bound=bound, hit_windows=hits, odd_index_windows=odds,
-                spare_windows=spares, first_hit=first_hit,
-                first_odd=first_odd, first_spare=first_spare)
+                spare_windows=spares, pigeonhole_windows=pigeonholes,
+                first_hit=first_hit, first_odd=first_odd,
+                first_spare=first_spare, first_pigeonhole=first_pigeonhole)
 
 
 PRIME_SET = set(PRIMES)
@@ -171,6 +179,9 @@ def main():
         census_no_hit=[r['n'] for r in census if r['first_hit'] is None],
         census_no_odd=[r['n'] for r in census if r['first_odd'] is None],
         census_no_spare=[r['n'] for r in census if r['first_spare'] is None],
+        census_no_pigeonhole=[r['n'] for r in census if r['first_pigeonhole'] is None],
+        census_spare_windows=sum(r['spare_windows'] for r in census),
+        census_pigeonhole_windows=sum(r['pigeonhole_windows'] for r in census),
         controls=controls, complete_diagnostics=complete_diagnostics,
         squares=squares, numerator8=numerator8,
         homogeneous=homogeneous)
