@@ -1,0 +1,156 @@
+{
+ "3": {
+  "torus_QR": [
+   3
+  ],
+  "torus_QNR": [
+   3
+  ],
+  "affine": [
+   10
+  ]
+ },
+ "5": {
+  "torus_QR": [
+   13
+  ],
+  "torus_QNR": [
+   13
+  ],
+  "affine": [
+   26
+  ]
+ },
+ "7": {
+  "torus_QR": [
+   31
+  ],
+  "torus_QNR": [
+   31
+  ],
+  "affine": [
+   50
+  ]
+ },
+ "11": {
+  "torus_QR": [
+   91
+  ],
+  "torus_QNR": [
+   91
+  ],
+  "affine": [
+   122
+  ]
+ },
+ "13": {
+  "torus_QR": [
+   133
+  ],
+  "torus_QNR": [
+   133
+  ],
+  "affine": [
+   170
+  ]
+ },
+ "17": {
+  "torus_QR": [
+   241
+  ],
+  "torus_QNR": [
+   241
+  ],
+  "affine": [
+   290
+  ]
+ },
+ "19": {
+  "torus_QR": [
+   307
+  ],
+  "torus_QNR": [
+   307
+  ],
+  "affine": [
+   362
+  ]
+ },
+ "23": {
+  "torus_QR": [
+   463
+  ],
+  "torus_QNR": [
+   463
+  ],
+  "affine": [
+   530
+  ]
+ },
+ "29": {
+  "torus_QR": [
+   757
+  ],
+  "torus_QNR": [
+   757
+  ],
+  "affine": [
+   842
+  ]
+ },
+ "31": {
+  "torus_QR": [
+   871
+  ],
+  "torus_QNR": [
+   871
+  ],
+  "affine": [
+   962
+  ]
+ },
+ "37": {
+  "torus_QR": [
+   1261
+  ],
+  "torus_QNR": [
+   1261
+  ],
+  "affine": [
+   1370
+  ]
+ },
+ "41": {
+  "torus_QR": [
+   1561
+  ],
+  "torus_QNR": [
+   1561
+  ],
+  "affine": [
+   1682
+  ]
+ },
+ "43": {
+  "torus_QR": [
+   1723
+  ],
+  "torus_QNR": [
+   1723
+  ],
+  "affine": [
+   1850
+  ]
+ },
+ "47": {
+  "torus_QR": [
+   2071
+  ],
+  "torus_QNR": [
+   2071
+  ],
+  "affine": [
+   2210
+  ]
+ }
+}
