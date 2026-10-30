@@ -2,7 +2,8 @@
 # For each run: mu, model normalised log-mgf, empirical normalised log-mgf of the CENTRED residual R - E R,
 # (log E exp(-t(R - m)))/(mu t^2), and the excess over the independent model. Sample files ("n R H Q" per line)
 # are pooled per (beta, N); standard errors by the delta method.
-import sys, re, glob, math, collections
+import sys, re, glob, math, collections, gzip
+opn = lambda p: gzip.open(p, 'rt') if p.endswith('.gz') else open(p)
 
 def model_from_header(lines):
     hdr = [l for l in lines if l.startswith('# N=')][0]
@@ -30,11 +31,11 @@ def exact(path):
 def sample(paths):
     R = []
     for p in paths:
-        for l in open(p):
+        for l in opn(p):
             if l.startswith('#') or l.startswith('M'): continue
             f = l.split()
             if len(f) == 4: R.append(float(f[1]))
-    lines = open(paths[0]).read().splitlines()
+    lines = opn(paths[0]).read().splitlines()
     hdr, mu, s2, model = model_from_header(lines)
     n = len(R); m = sum(R) / n; var = sum((r - m) ** 2 for r in R) / n
     out = []
@@ -53,7 +54,7 @@ if __name__ == '__main__':
         print(f"EXACT {p.split('/')[-1]}: mu={mu:.3f} model_var={s2:.3f} emp_mean={m1:.2e} emp_var={var:.4f} (var/model {var/s2:.4f})")
         for t, a, b, x in out: print(f"   t={t:.2f} centred_norm={a:.5f} model_norm={b:.5f} excess={x:+.5f}")
     groups = collections.defaultdict(list)
-    for p in glob.glob(d + '/.samp_*.txt') + glob.glob(d + '/samp_*.txt'):
+    for p in glob.glob(d + '/samp_*.txt.gz') + glob.glob(d + '/samp_*.txt'):
         key = re.search(r'samp_(b[0-9.]+_N[0-9]+)', p).group(1); groups[key].append(p)
     for k in sorted(groups):
         hdr, mu, s2, m, var, n, out = sample(groups[k])

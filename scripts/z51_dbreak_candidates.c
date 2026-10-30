@@ -24,6 +24,7 @@ int main(int argc,char**argv){
   if(argc<4){ fprintf(stderr,"usage: candidates N samples seed [n...]\n"); return 1; }
   long long N=atoll(argv[1]); int S=atoi(argv[2]); rs^=(uint64_t)atoll(argv[3])*0x2545F4914F6CDD1DULL;
   double top=sqrt(2.0*(double)N);
+  if(getenv("TOP")) top=atof(getenv("TOP"));   // optional higher threshold (layer l > TOP); default sqrt(2N)
   long long Mmax=(long long)((1.5*(double)N+4.0)/top)+8;
   long long P=(long long)sqrt(2.0*(double)N+ (double)Mmax)+2;   // sieve primes up to sqrt(max value)
   char *c=calloc(P+1,1); int *pr=malloc(sizeof(int)*(P+1)); int np=0;
