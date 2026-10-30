@@ -9,21 +9,21 @@ Assessment. Scripts `scripts/z51_linnik_*`, data `data/z51_linnik/`.*
 | # | claim | label | review |
 |---|---|---|---|
 | 1.2 | Linnik transfer: the input of every (L1)–(L4) argument is the containment E ⊂ B(a, T) (exact: the pointwise implication P(a, T); approximate: up to a remainder); B is periodic for quadratic tests, Haar(B) ≤ 1/T; Linnik is a level-free transfer | PROVED (trivial) | R1: MINOR, repaired |
-| 2.2 | fixed-order (k ≥ 3) character biases of squarefree-supported data have mean exactly φ(k) over the primes of any unit class: never CRT-certified (Chebotarev + Kummer) | PROVED | R1: MAJOR (coset), repaired; consequences for the larger sieve / full Montgomery withdrawn |
+| 2.2 | fixed-order (k ≥ 3) character biases of squarefree-supported data have mean exactly φ(k) over the primes of any unit class: a lower bound T > φ(k) is never CRT-certified (Chebotarev + Kummer) | PROVED | R1: MAJOR (coset), repaired; consequences for the larger sieve / full Montgomery withdrawn; R2: SOUND |
 | 2.3–2.4 | **plane lemma**: the native ES₅/U word classes meeting the Π-plane (x = 1 off Π) are the words of the Π-part h (W1) and an explicit W2 family; **plane parity law**: their boxes c mod h have (c/h) = −1 | PROVED; CERTIFIED (brute force, two independent scripts) | R1: SOUND after D ≤ h + 2 and coprimality repairs |
 | **2.5–2.6** | **sterile sparse planes**: for Σ_{q∈Π} q^{−1/2+ε} ≤ η₀, Haar-half of the Π-plane, and half of every sign cell, avoids every ES₅/U class; hence **no avoidance-of-word-classes argument, at any level, certifies quadratic Linnik confinement or bias (T > 2) on sparse Π** — though such data would give a power saving (Rem 2.7) | PROVED | R1: SOUND (exact, infinite-range scope); per-cell version added |
 | 2.8 | hybrid "Linnik for biased + CRT majorant for the rest" with bounded whole-period level is capped at the U/ES₅ CRT exponent | PROVED (given EXSET_SIEVE_MASS Thm 3.2) | R1: MAJOR (level definition), rescoped to whole-period level |
-| 2.9 | dense planes sterile with probability ≥ c₀e^{−C₀(Σ log q/q)²} (would extend 2.6 to all polylog-smooth data) | CONJECTURE; EVIDENCE: pair mass 0.77–1.02 flat for y = 200…1600, 28% sterile incl. triples at y = 200 | R1: evidence wording repaired |
-| 2.10 | scoped conjunction of the four obstructions (A)–(D); the first-draft universal circularity theorem is **withdrawn** | PROVED (conjunction) | R1: FATAL as first stated → rescoped |
+| 2.9 | dense planes sterile with probability ≥ c₀e^{−C₀(Σ log q/q)²} (would extend 2.6 to all polylog-smooth squarefree data) | CONJECTURE; EVIDENCE: pair mass 0.77–1.02 flat for y = 200…1600; at y = 200, 28% of random points avoid all checked boxes (h = q, qq′, qq′q″) | R1/R2: evidence wording repaired |
+| 2.10 | scoped conjunction of the four obstructions (A)–(D); the first-draft universal circularity theorem is **withdrawn** | PROVED (conjunction) | R1: FATAL as first stated → rescoped; R2: honest after (D) repair |
 | **3.1** | **bias suffices**: #{p ≤ X : \|Σ_{q∈S}(q/p)\| ≥ (log X)^{−κ}s} ≪ X^{(1+2κ)/A+δ} for a block S at (log X)^A, A > 1, κ < (A−1)/2 | PROVED rel. Heath-Brown (1995) | R1: kernel/norm SOUND; threshold repaired |
 | **3.2** | **T2-lite**: #{p ≤ X : e*(p) > (log X)^A/4} ≪ X^{1/A+δ} for every A > 1 (CAP_BOUNDED Thm 3.2(a): X^{2/A}, A > 2); the q₃-route cannot go below A = 1 (GRH) | PROVED rel. Heath-Brown; CONDITIONAL (GRH) for the limit | R1: proof repaired, exponent confirmed |
 | 3.3 | with Heath-Brown the Linnik requirement (log X)^{1+δ} lies inside the heuristic forcing reach (z50: "just short") | Assessment | R1: wording repaired |
-| 4.1–4.2 | p-dependent data cost their dimension; fibred and archimedean-twisted data reduce to §2; injective word-form data give nothing | PROVED | R2 |
-| 5.1–5.2 | zoo relaxations have the wrong orientation (E_R ⊂ E_ES); ES₅-defined supersets are CRT avoiders (colour is not free) | PROVED | R2 |
-| 5.3 | window strengthening: the window lottery is near-independent and its failures are residue-biased (0.34–0.38 vs 0.50, 33 663 primes near 10⁸); power saving for ES CONDITIONAL on the pointwise (WL_A) | EVIDENCE; CONDITIONAL | R2 |
-| 6.1 | ES Type II ratio classes: forcing labels per q ≈ 0.034(log p)³ (cubic supply confirmed, p = 10⁵…10⁸); collapse to ≈ 40 at plane points | EVIDENCE | R2 |
-| 6.2 | fibred reverse-role Montgomery sieve with CRT-certified depletion is capped | PROVED (given LS Cor 2.2 + EXSET_SIEVE_MASS Thm 3.2) | R2 |
-| 8 | remaining gap; T2-full not reached | Assessment | — |
+| 4.1–4.2 | p-dependent data cost their linear dimension; fibred (CRT) data, archimedean twists and full-rank families are covered; structured low-rank families are open | PROVED | R2: general "blocking lemma" FATAL → withdrawn; rest SOUND after repair |
+| 5.1–5.2 | genuine relaxations have the wrong orientation (E_R ⊂ E_ES); ES₅-defined supersets are CRT avoiders (colour is not free) | PROVED | R2: example list and failure set corrected |
+| 5.3 | window criterion (PROVED); window lottery near-independent in the tested range, forced-only failures residue-biased (0.34–0.38 vs 0.50, 33 663 primes near 10⁸); power saving for ES CONDITIONAL on the pointwise (WL_{A,κ}) at Mordell-hard primes | PROVED / EVIDENCE / CONDITIONAL | R2: first (WL_A) FATAL (included p ≡ 3 (4)) → restricted; criterion verified (273 cases) |
+| 6.1 | ES ratio classes: forcing labels per q ≈ 0.034(log p)³ (finite fit, p = 10⁵…10⁸); at the one-coordinate plane point finitely many labels (mean 39.8 for 25 ≤ q ≤ 300) | EVIDENCE; PROVED/CERTIFIED (plane finiteness) | R2: reproduced, plane table certified |
+| 6.2 | fibred CRT-admissible reverse-role sieves are capped: 3/4 for the ES ratio family (EXCEPTIONAL_LARGESIEVE Thm 3.1), 2/3 for native U/ES₅ (Prop 6.1(b)) | PROVED (cited / given LS Cor 2.2 + EXSET_SIEVE_MASS Thm 3.2) | R2: MAJOR (nonunit fibres, family scope) → repaired |
+| 8 | remaining gap; T2-full not reached; the open per-summand hybrid ("fibre cap") door | Assessment | R2: item 5 wording repaired |
 
 **Bottom line (Assessment).** T2-full is not reached. T2-lite is reached in the form the CONTEXT names (cap threshold
 A > 2 → A > 1, exponent 2/A → 1/A). For T2-barrier the lane proves scoped obstructions, strictly beyond z50's G3
@@ -592,6 +592,29 @@ FATAL as stated. Per claim, and the repair made:
   universal statement; approximate option omitted. *Repaired.*
 R1 reproduced: the plane self-check (8/8), the planemass run at y = 200 (pair mass 1.0176; 100/300 pair-sterile), the
 bias identities, and an independent W1/parity verification.
+
+**R2 (Astra, high; repairs of §§1–3 and new §§4–6, §§0/8; `reviews/z51-linnik-review-2.md`, check script
+`reviews/z51-linnik-review-2-check.py`).** Overall MAJOR revision; two claims FATAL as stated. Per item:
+* R1 repairs (Lemma 1.2, (1.1), Prop 2.2, Lemmas 2.3–2.4, Thm 2.5(a)(b), Cor 2.6, Prop 2.8, Thm 3.1, Cor 3.2, GRH remark):
+  SOUND. Minor: Remark 2.7 needs ε ≤ 1/8; Prop 2.8 should quote λ = max(λ₀, λ(L)); Thm 2.10(A) must say T > φ(k);
+  "order ≥ 3 not periodic at all" too absolute; summary "28% sterile" must name the checked boxes. *All repaired.*
+* Lemma 4.1: SOUND (dimension, not number of states). Prop 4.2(i): disjoint case SOUND, overlap case MAJOR gap →
+  *repaired* by a global averaging argument (threshold 2^{t+1}). (ii): normalisation MINOR → T > 2(1 + 4T₀ log N).
+  (iii)/"exact blocking lemma": FATAL as a general exclusion (injective ≠ independent; few states ≠ congruence rule) →
+  *withdrawn*; low-rank structured families listed as open.
+* Lemma 5.1: abstract orientation SOUND; examples overbroad (restricted window menus are not relaxations: p = 5, q = 7;
+  V_φ not tautological) → *corrected*. Lemma 5.2: failure-set formula wrong → *corrected*. Window criterion: SOUND
+  (proof supplied; 273 cases checked). Window evidence: finite evidence SOUND, asymptotic reading MAJOR → *relabelled*
+  (forced-only failures; ≈ 25%; rate assumption explicit). (WL_A): FATAL as printed (it included primes p ≡ 3 (4), where
+  x = (p + q)/4 is not integral) → *restricted* to Mordell-hard primes at all large scales; Corollary 5.3 then SOUND.
+* §6.1 numerics: SOUND finite evidence; R2's independent enumeration certified the plane ℛ-label finiteness and table.
+  Prop 6.1: per-summand level SOUND, but nonunit fibres omitted (MAJOR) → *repaired* (all fibres, as in
+  EXCEPTIONAL_LARGESIEVE Thm 3.1, L ≤ X/2). §6.3: family scope (native 2/3 vs ratio 3/4) and "needs pointwise input" overclaimed
+  → *repaired* (ratio family via EXCEPTIONAL_LARGESIEVE Thm 3.1; approximate non-CRT inputs left open).
+* §8 item 5 (fibre-cap door, added during R2): SOUND as an open direction; the "most q" criterion replaced by an average,
+  η ∈ (0, 1), "removes exactly" withdrawn. *Repaired.*
+R2 reproduced: forcing at p = 1 000 609 (modes 0 and 1), the y = 200 window run on [10⁸, 1.03·10⁸] (5051 primes), and an
+independent direct check of the window criterion.
 
 ## 8. Remaining gap (precise)
 
