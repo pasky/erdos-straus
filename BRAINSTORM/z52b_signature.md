@@ -2,15 +2,15 @@
 
 *Wave z52b, breadth-first. Status: IN PROGRESS.*
 
-**Item count: 423** (dropped 25 raw items; drop log in `data/z52b/signature_raw/drops.json` + literal-duplicate filter).
+**Item count: 465** (dropped 25 raw items; drop log in `data/z52b/signature_raw/drops.json` + literal-duplicate filter).
 
-Confidence-not-nonsense: {'high': 129, 'med': 233, 'low': 61}; effort: {'cheap': 185, 'medium': 209, 'big': 29}.
+Confidence-not-nonsense: {'high': 143, 'med': 254, 'low': 68}; effort: {'cheap': 220, 'medium': 216, 'big': 29}.
 
-Generators: gen:integrator 105, gen:sub-arxiv 48, gen:sub-classical 53, gen:sub-erdosproblems 63, gen:sub-generic 64, gen:sub-oeis-mo-guy 35, gen:sub-other-fields 55
+Generators: gen:integrator 147, gen:sub-arxiv 48, gen:sub-classical 53, gen:sub-erdosproblems 63, gen:sub-generic 64, gen:sub-oeis-mo-guy 35, gen:sub-other-fields 55
 
-Feature-tag histogram (features in `data/z52b/signature_features.md`): F01 98, F01p 2, F01w 6, F02 6, F02w 1, F03 40, F04 57, F04w 3, F05 42, F05w 6, F06 29, F07 27, F08 19, F08w 16, F09 7, F10 56, F10w 3, F11 12, F12 105, F13 55, F14 30, F15 21, F16 20, F16w 19, F17 25, F17w 1, F18 15, F18w 1, F19 11, F20 34, F21 89, F22 27, F23 34, F24 29, F25 39, F26 7, F27 40, F28 2, F29 38, F30 18, F31 30, F32 77, F33 34, F34 22, F35 6, F36 16, F37 7, F38 21, F39 7, F40 9
+Feature-tag histogram (features in `data/z52b/signature_features.md`): F01 101, F01p 2, F01w 6, F02 7, F02w 1, F03 43, F04 61, F04w 3, F05 45, F05w 6, F06 29, F07 27, F08 22, F08w 16, F09 9, F10 60, F10w 3, F11 13, F12 111, F13 57, F14 32, F15 23, F16 20, F16w 19, F17 26, F17w 1, F18 16, F18w 1, F19 13, F20 35, F21 92, F22 28, F23 36, F24 33, F25 40, F26 8, F27 41, F28 3, F29 39, F30 19, F31 32, F32 79, F33 36, F34 26, F35 8, F36 17, F37 9, F38 22, F39 9, F40 11
 
-Top free tags: partial 150, solved 135, src:own 105, feature-flip 79, src:erdosproblems 63, src:arXiv 48, src:arxiv 48, open 26, src:OEIS 23, src:MathOverflow 12, divisors 11, quadratic-forms 11, src:tao-blog 11, conditional 10, sieve 10, GRH 9, computation 9, continued-fractions 7, heuristic 7, positivity 7, density 7, Egyptian-fractions 7, ladder 6, parity 6, thin-families 6, unit-fractions 6, solved-large-n 6, numerical-semigroups 5, solved-sibling 5, counting 5, reciprocity 5, calibration 5, absorption 5, algorithm 5, exceptional-set 5, primes 5, symmetry 5, src:Zaremba 5, src:lonely-runner 5, src:EFL 5, src:addition-chains 5, src:Frobenius 5, reformulation 4, involution 4, algorithmic 4
+Top free tags: partial 150, src:own 147, solved 135, feature-flip 95, src:erdosproblems 63, src:arXiv 48, src:arxiv 48, open 26, src:OEIS 23, quadratic-forms 12, src:MathOverflow 12, divisors 11, src:tao-blog 11, conditional 10, GRH 10, sieve 10, computation 10, solved-sibling 8, ladder 8, heuristic 8, continued-fractions 7, parity 7, thin-families 7, positivity 7, density 7, Egyptian-fractions 7, reformulation 6, calibration 6, unit-fractions 6, geometry 6, exceptional-set 6, symmetry 6, covering 6, solved-large-n 6, numerical-semigroups 5, counting 5, reciprocity 5, absorption 5, covering-systems 5, algorithm 5, primes 5, src:Zaremba 5, src:lonely-runner 5, src:EFL 5, src:addition-chains 5
 
 
 ## Method
@@ -1291,3 +1291,129 @@ Top free tags: partial 150, solved 135, src:own 105, feature-flip 79, src:erdosp
 
 423. **Certificate-length bounds and NP-style arithmetic witnesses** [high/medium] — Small-witness problems share F32, F01, F23: every positive instance has a short certificate even if universal existence is open. — *First step:* Derive an explicit bound on the minimal ES denominator from known constructions and test whether it is polynomial in p with effective constants.  
    `signature-0423` tags: F01, F23, F32, src:tao-blog, partial, gen:sub-generic
+
+424. **Erdős–Tetali thin bases: random sets A with r_{A,k}(n) ≍ log n for EVERY n — the polylog pointwise regime, solved probabilistically** [high/cheap] — Erdős–Tetali (1990): for every k there is a basis of order k with Θ(log n) representations of every large n. Same regime as ES (F04: polylog count, F01: every n, F21: pointwise), proved by independence + concentration (Janson/Chernoff) of the random set. — *First step:* Estimate the dependency structure of the ES level events at fixed p (pairwise correlations over (u,B,C)) and compare with the Erdős–Tetali concentration hypotheses (bounded pairwise dependence, expected count ≥ C log n with large C).  
+   `signature-0424` tags: F04, F21, F24, probabilistic-method, thin-bases, solved-sibling, src:own, gen:integrator
+
+425. **Erdős–Turán conjecture (a basis has unbounded r(n)) vs. ES's Linnik-type large values** [med/cheap] — Erdős–Turán: if r_{A+A}(n) ≥ 1 for all large n then r is unbounded. ES's R(p) is unbounded (Linnik-type large values; F37) consistent with this shape; ES's word set is a 'basis' of the primes in a trilinear sense. — *First step:* Check whether Erdős–Fuchs (no representation function is c + small error on average) applies to Σ_{n≤N} R(n) to give a lower bound on its fluctuations.  
+   `signature-0425` tags: F37, additive-bases, erdos-fuchs, src:own, gen:integrator
+
+426. **Sawin–Shusterman: twin primes and Chowla over F_q[T] (q large) by étale cohomology — the geometric pointwise route** [med/medium] — Over F_q[T] with q fixed but large relative to degree, they prove twin-prime-type asymptotics via cohomology of moduli spaces. ES has function-field variants (F26). — *First step:* Write the ES count over F_q[T] at fixed prime polynomial P as a point count of a variety V_P/F_q and check whether its top cohomology is controllable (dimension, irreducibility).  
+   `signature-0426` tags: F26, F21, function-field, etale-cohomology, src:own, gen:integrator
+
+427. **Sun's 1-3-5 conjecture proved via Lipschitz quaternions (Machiavelo–Tsopanidis): ∀n with an extra linear constraint** [med/medium] — Every n is x²+y²+z²+w² with x + 3y + 5z a square — a ∀n∃ witness statement with a constraint, proved by quaternion arithmetic (F31). ES has quaternion-order reformulations. — *First step:* Read the paper's key lemma (factorisation in Lipschitz integers with prescribed residue) and compare with the QUATERNION_ES dictionary.  
+   `signature-0427` tags: F31, F01, quaternions, solved-sibling, seen:QUATERNION_ES.md, src:own, gen:integrator
+
+428. **Zhi-Wei Sun's family of refined-Lagrange conjectures with explicit finite exception lists** [med/cheap] — Sun posed dozens of 'every n is … with constraint …' conjectures, each with finite explicit exceptions; several were proved (ternary forms, quaternions, spinor theory). Shares F01, F25, F23. — *First step:* Scan Sun's survey of conjectures on refinements of Lagrange's four-square theorem; list proved ones and their tools.  
+   `signature-0428` tags: F25, F01, catalogue, quadratic-forms, src:own, gen:integrator
+
+429. **Andrews–Dyson–Hickerson: σ(q) coefficients almost always 0 yet unbounded, via indefinite theta / Hecke characters of ℚ(√6)** [med/medium] — ADH express coefficients of a q-series (σ(q)) as signed counts of ideals in a real quadratic field (indefinite binary form). ES's level series is a Kronecker theta quotient θ(X²)/θ(X)² — also an indefinite (signature (1,1)) theta object (F19). — *First step:* Write D_t⁻ − D_t⁺ as a sum over x² − y² type forms (split indefinite theta) and look for an ADH-style real-quadratic twist with the same coefficients.  
+   `signature-0429` tags: F19, indefinite-theta, q-series, mock-modular, src:own, gen:integrator
+
+430. **Zwegers/Appell–Lerch: Kronecker's θ(x²)/θ(x)²-type quotients as Appell–Lerch sums with completions** [med/medium] — Quotients of Jacobi theta functions in the elliptic variable are Appell–Lerch sums (Kronecker's identity); Zwegers' completion makes them harmonic Maass–Jacobi forms. ES's (K1′) normal form is such a quotient (F19). — *First step:* Match (K1′) of METAPLECTIC_ES with Zwegers' μ(u,v;τ) and compute its completion; check whether the nonholomorphic part is supported on squares (T1).  
+   `signature-0430` tags: F19, F08, mock-modular, appell-lerch, seen:METAPLECTIC_ES.md, src:own, gen:integrator
+
+431. **ES ⟺ every (4−n)/n is the Euler characteristic of a hyperbolic triangle orbifold S²(x,y,z)** [med/cheap] — χ(S²(x,y,z)) = 1/x + 1/y + 1/z − 1, so ES(n) ⟺ some triangle orbifold has χ = (4 − n)/n, i.e. hyperbolic area 2π(n−4)/n (n ≥ 5). By Riemann–Hurwitz any finite quotient G of the triangle group acting on genus g satisfies |G|(n−4) = 2n(g−1). — *First step:* Check whether 'which rationals are Euler characteristics of triangle orbifolds' appears in the orbifold literature, and test small p via tables of triangle groups with given area.  
+   `signature-0431` tags: geometry, orbifolds, reformulation, F12, F14, src:own, gen:integrator
+
+432. **Strong symmetric genus spectrum (May–Zimmerman: every value occurs) as a ∀g∃G sibling via triangle groups** [low/cheap] — May–Zimmerman: there is a group of every strong symmetric genus. Proofs use explicit group families acting with triangle signatures; Riemann–Hurwitz ties genus to 1/x + 1/y + 1/z (see triangle-orbifold item). Shares F01, F12. — *First step:* Read May–Zimmerman's construction and check which signatures (x,y,z) and areas arise; see if area (p−4)/p is ever forced.  
+   `signature-0432` tags: F01, F12, group-actions, riemann-surfaces, src:own, gen:integrator
+
+433. **Hurwitz 84(g−1) / the spectrum of 1 − 1/x − 1/y − 1/z: gaps near 0 vs ES's values (n−4)/n** [low/cheap] — The set {1 − 1/x − 1/y − 1/z} has the minimum positive value 1/42 and a well-studied accumulation structure (Hurwitz). ES asks whether every (n−4)/n belongs to {1 − Σ1/x_i} (n ≥ 5). — *First step:* Compute the area spectrum up to denominator 10⁶ and its intersection with {(n−4)/n}; visualise where the hard n sit in the spectrum.  
+   `signature-0433` tags: F12, geometry, spectrum, src:own, gen:integrator
+
+434. **Salez's modular filters (verification to 10¹⁷) as an explicit infinite covering family** [high/cheap] — Salez found new modular equations (identity families) and used them as sieving filters to verify ES to 10¹⁷ (F23, F03, F34). — *First step:* Extract Salez's filter list and compute the density of primes left uncovered by the first k filters for k up to 10³; fit the decay rate.  
+   `signature-0434` tags: F23, F03, F34, computation, covering, src:own, gen:integrator
+
+435. **Mihnea–Dumitru (2025) to 10¹⁸ with solution-count statistics — data for signature calibration** [high/cheap] — Their verification reports per-n solution-count distributions (F23, F04). — *First step:* Compare their reported count statistics with M_BM(p) predictions at matching heights.  
+   `signature-0435` tags: F23, F04, data, src:own, gen:integrator
+
+436. **Lagrange's four squares: closure (Euler identity) + prime case by pigeonhole and descent — template for F02** [med/cheap] — Four squares reduces to primes by a composition identity; the prime case is done by finding a multiple mp represented (pigeonhole) and descending m to 1. ES reduces to primes by trivial closure; the prime case has no descent. — *First step:* Search for an operation turning ES-type data at mp (e.g. a solution where m divides two of the denominators) into data at m'p with m' < m.  
+   `signature-0436` tags: F02, descent, pigeonhole, solved-sibling, src:own, gen:integrator
+
+437. **Davenport–Lewis–Schinzel / Cassels–Pfister: polynomial-identity theorems for sums of squares ↔ Mordell–Schinzel for ES** [med/cheap] — Characterisations of when f(t) is a sum of squares of polynomials (Cassels–Pfister) are the sums-of-squares analogue of 'no polynomial identity covers the square classes' (F09). — *First step:* Re-prove Mordell–Schinzel's ES statement by a Cassels–Pfister-style specialisation at a square point and see what extra hypotheses would allow identities in (a,b) with p = a² + b².  
+   `signature-0437` tags: F09, identities, polynomial, src:own, gen:integrator
+
+438. **Feature flip F13 (cubic → quadric): 4/n = 1/x + 1/y is a hyperbola — fully solved by divisors** [high/cheap] — The 2-term equation is a split conic; its solvability is a divisor-in-class condition and fails on a positive-density set. ES adds one variable and becomes a cubic surface with hyperbola fibres (F15). — *First step:* Compute the density of primes failing the 2-term condition for 4/p − 1/x as x ranges over the first K admissible values; plot the decay in K.  
+   `signature-0438` tags: F13, F15, feature-flip, src:own, gen:integrator
+
+439. **Feature flip F14: weighted equation 4/p = 1/x + 1/y + 2/z is trivial — symmetry/unit numerators are load-bearing** [high/cheap] — x = (p+3)/4 leaves 12/(p(p+3)) = 3/N with N = p(p+3)/4, and 3/N = 1/N + 2/N. Breaking the unit-numerator symmetry kills the problem. — *First step:* List all weightings (a,b,c) with a+b+c small for which a/x + b/y + c/z = 4/p is trivially solvable; the first non-trivial weighting is a sub-problem ladder.  
+   `signature-0439` tags: F14, F12, feature-flip, ladder, src:own, gen:integrator
+
+440. **Feature flip F18: SL₂(ℤ) → SL₂(ℤ[i]) / Bianchi groups — Gaussian words for p ≡ 1 mod 4** [low/medium] — ES's SL₂ form asks for [[a,p],[c,d]] with congruence conditions. Over ℤ[i], p = ππ̄ splits; a Gaussian SL₂ version could split the problem into two conjugate halves. — *First step:* Write the SL₂(ℤ[i]) analogue with entry π and conditions mod (1+i)^k c; check whether norm maps produce ES matrices.  
+   `signature-0440` tags: F18, F29, feature-flip, bianchi, src:own, gen:integrator
+
+441. **Feature flip F22: problems with the parity barrier broken by an extra algebraic structure (Friedlander–Iwaniec x² + y⁴, Heath-Brown x³ + 2y³)** [med/medium] — Thin-sequence prime counts became possible when the sequence had bilinear structure (Type II sums). ES's (★) word 4uBC − u − B is bilinear in (u,B) at fixed C. — *First step:* Formulate 'p with R(p) = 0' as a sieve problem and check whether Type II information over (u,B) is available in the FI sense.  
+   `signature-0441` tags: F22, bilinear, parity, feature-flip, src:own, gen:integrator
+
+442. **Feature flip F24: sub-problems where the heuristic predicts infinitely many failures (single lines) — calibrate the union** [high/cheap] — Each single ES line (e.g. (★) at bounded C) fails infinitely often (e.g. when 4Cp+1 is prime); (★) overall fails at 14 primes ≤ 10¹⁰; the union never fails ≤ 10⁸. — *First step:* Plot, for unions of the first k lines (ordered by density), the count of failures ≤ X for X = 10⁶..10⁹; fit failure counts ~ X·exp(−c k).  
+   `signature-0442` tags: F24, F34, feature-flip, phase-diagram, seen:PHASE_DIAGRAM.md, src:own, gen:integrator
+
+443. **Feature flip F30: thin families proved via algebraic factorisation (Aurifeuillean, Sophie Germain) — catalogue other Aurifeuillean identities** [high/cheap] — ES was proved on 3·2^s + 1, 7·4^s + 9, 63·2^s + 1 using factorisations like 4X⁴ + 1 = (2X²+2X+1)(2X²−2X+1). Aurifeuillean factorisations exist for b^n ± 1 for many b. — *First step:* List Aurifeuillean factorisations (b = 2, 3, 5, 6, 7) and test which p-tied integers 4Cp+1 for p = a·b^s + k factor algebraically.  
+   `signature-0443` tags: F30, thin-families, factorisation, seen:FRONTIER.md, src:own, gen:integrator
+
+444. **Feature flip F33: replace reciprocals by squares/cubes — 4/n = Σ 1/x_i² (Egyptian fractions with square denominators, Graham)** [low/cheap] — Graham characterised which rationals are sums of distinct reciprocals of squares; 3-term versions with squares are sparse. ES with squared denominators breaks the hyperbola fibration. — *First step:* Check whether 'a/n = 1/x² + 1/y² + 1/z²' has a known local-global theory; record its obstruction set for small numerators.  
+   `signature-0444` tags: F33, F12, feature-flip, src:own, gen:integrator
+
+445. **Feature flip F38: Markoff (quadratic in each variable ⇒ Vieta group) vs ES (multilinear ⇒ no Vieta) — what symmetry group does the ES cubic have?** [med/cheap] — The ES surface 4xyz = n(xy+yz+zx) is multilinear; its automorphisms include S₃ and Cremona-type maps (x ↦ 1/x turns it into a plane 1/x+1/y+1/z linear in reciprocals!). In reciprocal coordinates X = 1/x it is the plane X + Y + Z = 4/n. — *First step:* Determine the group of birational automorphisms of the ES surface over ℚ that preserve positivity and integrality for infinitely many n.  
+   `signature-0445` tags: F38, F39, F13, symmetry, feature-flip, src:own, gen:integrator
+
+446. **Feature flip F39: Stern–Brocot / Calkin–Wilf trees enumerate every rational exactly once — is there a tree enumerating ES words with p at a bounded depth?** [med/cheap] — Universality of a tree enumeration is trivial for rationals; ES's word forest (F39) has connectivity results. A tree in which every prime appears within bounded depth would prove ES₅-type statements. — *First step:* Compute the depth of each hard prime in the Stern–Brocot-type tree generated by the ES₅ moves; check bounded depth up to 10⁸.  
+   `signature-0446` tags: F39, F17, trees, feature-flip, src:own, gen:integrator
+
+447. **Feature flip F40: Goldbach's exceptional set has a power saving (Montgomery–Vaughan) — why ES's is stuck at exp(−c(log)^{3/4})** [high/cheap] — Montgomery–Vaughan: E_Goldbach(N) ≪ N^{1−δ}. ES: E(N) ≪ N exp(−c(log N)^{3/4}) with 3/4 sharp for CRT sieves (F40). The difference: Goldbach counts are polynomial, ES counts polylog. — *First step:* Write the heuristic exceptional-set size predicted by the Poisson model (∑_n exp(−M(n))) and compare with N^{1−δ}: is a power saving even heuristically true for ES?  
+   `signature-0447` tags: F40, F05, feature-flip, exceptional-set, src:own, gen:integrator
+
+448. **Heuristic exceptional-set size for ES and for (★) alone: Σ_n exp(−M(n)) vs. proved bounds** [med/cheap] — Under the Poisson model with mean M(n) ≍ log²n the expected number of failures ≤ N is Σ exp(−c log²n) < ∞, while for single lines it diverges. Shares F24, F05, F40. — *First step:* Compute Σ_{n≤N} exp(−M_BM(n)) numerically for N = 10⁸ with the measured zero-law constant; compare with observed (★) failure counts.  
+   `signature-0448` tags: F24, F05, F40, heuristic, src:own, gen:integrator
+
+449. **Positive-proportion pointwise lower bound: R(p) ≥ c·log²p for a positive proportion of primes (second-moment / Paley–Zygmund)** [high/cheap] — From first and second moments of R(p) over p ≤ X, Paley–Zygmund gives R(p) ≥ ½E[R] on a positive proportion (F05w, F04). — *First step:* Check whether the second moment Σ_{p≤X} R(p)² ≪ X log⁴X is available (ET-type divisor-sum bounds) and write the Paley–Zygmund deduction.  
+   `signature-0449` tags: F05, F04, second-moment, intermediate-theorem, src:own, gen:integrator
+
+450. **Smallest-solution size statistics: max denominator of the best ES solution vs. p^θ** [high/cheap] — ES witnesses have size ≤ poly(p) (F32). The distribution of the minimal possible max-denominator (or minimal level C) over hard primes is an observable comparable to 'least witness' problems (least nonresidue ≪ log², least prime in AP). — *First step:* For hard primes ≤ 10⁹ record the minimal C with R_C(p) > 0 and minimal max(x,y,z)/p; fit against log p.  
+   `signature-0450` tags: F32, F35, least-witness, data, src:own, gen:integrator
+
+451. **Least prime in an arithmetic progression (Linnik's constant) as 'least witness' sibling for the minimal ES level** [med/medium] — Linnik: least prime ≡ a mod q is ≪ q^L. ES: least level C with a witness. Both are 'least witness' statements; Linnik's proof uses zero-density + Deuring–Heilbronn (Siegel zero repulsion) — F21. — *First step:* Formulate a 'log-free zero density' statement for the family {χ_{−4uB}} that would imply min level C ≪ p^ε, and check what is known.  
+   `signature-0451` tags: F21, F20, least-witness, zero-density, src:own, gen:integrator
+
+452. **Feature flip F03: n ≡ 0, 2, 3 mod 4 and non-square classes mod 840 are covered by identities — what if the hard classes were non-squares?** [high/cheap] — Mordell's identities cover every class except the six square classes mod 840 (F03, F08, F09). The squares are exactly the classes no polynomial family can reach — the reciprocity obstruction is the reason. — *First step:* For moduli M = 840·ℓ (ℓ ≤ 50), confirm the set of uncovered classes stays 'squares mod M' and record the minimal identity degree needed per class.  
+   `signature-0452` tags: F03, F08, F09, feature-flip, src:own, gen:integrator
+
+453. **Feature flip F31: Gauss's three-squares count r₃(n) ~ class number — a lattice count with a class-number main term** [low/cheap] — r₃(n) = 12h(−4n)-type formulas give pointwise lower bounds via Siegel. If any ES count is (even partially) a class number, Siegel-type lower bounds apply (ineffectively). — *First step:* Compute R(p) and Σ_{small D} h(−Dp) for hard primes ≤ 10⁶ and regress; any exact relation would be striking.  
+   `signature-0453` tags: F31, class-numbers, feature-flip, src:own, gen:integrator
+
+454. **Feature flip F11 downward: 3/n = 1/x + 1/y fails for p ≡ 1 mod 3 — the 'numerator = terms + 1' ladder starts with a genuine obstruction** [high/cheap] — 3/p as two unit fractions requires a divisor condition that fails for primes p ≡ 1 mod 3 (local-type obstruction), while 4/p in three terms has no local obstruction. m/n in m−1 terms: m = 3 fails, m = 4 is ES. — *First step:* Verify the 3/p criterion and check m = 4 with 2 terms (4/p = 1/x + 1/y ⟺ p ≡ 3 mod 4) to complete the small ladder table.  
+   `signature-0454` tags: F11, F12, feature-flip, ladder, src:own, gen:integrator
+
+455. **Feature flip F28: Type III-like solutions for composite n (neither type, e.g. 4/9 = 1/4 + 1/6 + 1/36) — the T1-free channel at squares** [high/cheap] — For n = m², Type I/II vanish (T1) but ES(m²) holds via solutions not of Type I/II (e.g. 4/9 = 1/4 + 1/6 + 1/36). Mixed-type solutions are the channel T1 does not see. — *First step:* Classify all ES solutions of 4/m² for odd m ≤ 101 by gcd pattern with m; check whether every one is a scaled solution of 4/d for d | m, d < m².  
+   `signature-0455` tags: F28, F08, feature-flip, squares, src:own, gen:integrator
+
+456. **Feature flip F36: problems where GRH IS known to give the pointwise result (least nonresidue, Artin, Ramanujan's form) — common structure** [med/cheap] — In each GRH-success case a single L-function (or bounded family) controls the event at the given n. ES's event needs a family of size ≍ p of characters χ_{−4uB} at once. — *First step:* For each GRH-success sibling, record the number of L-functions and the conductor range used; tabulate vs ES.  
+   `signature-0456` tags: F36, GRH, feature-flip, calibration, src:own, gen:integrator
+
+457. **Feature flip F37: problems where a two-sided asymptotic for the pointwise count IS true (r₄(n) = 8σ*(n))** [med/cheap] — Exact formulas (Jacobi) give two-sided control; ES provably has no two-sided polylog asymptotic (Linnik-type large values). — *First step:* List the exact formulae known for ES-like counts (theta-quotient normal form) and identify which term carries the Linnik large values.  
+   `signature-0457` tags: F37, feature-flip, src:own, gen:integrator
+
+458. **Feature flip F27 (cone): 4/n = 1/x + 1/y + 1/z with x,y,z ∈ ℤ_{≠0} and at most one negative — count grows polynomially** [med/cheap] — Allowing one negative denominator turns the problem into an indefinite one with many solutions (count ≫ n^δ). The positive cone cuts it down to polylog. — *First step:* Count signed solutions with |negative denominator| ≤ p^θ for hard p and see how the count decays as θ → 0.  
+   `signature-0458` tags: F27, feature-flip, cone, interpolation, src:own, gen:integrator
+
+459. **Hough/Erdős minimum-modulus theorem vs. ES's identities with growing moduli** [med/cheap] — Hough: any covering system with distinct moduli has minimum modulus ≤ 10¹⁶. ES's Mordell identities form a congruence covering of non-square classes; the square classes require infinitely many 'lines' with growing moduli. — *First step:* Apply the BBMST criterion to the list of ES identity classes (moduli ≤ 10⁵) and compute the guaranteed uncovered density.  
+   `signature-0459` tags: F03, F34, covering-systems, src:own, gen:integrator
+
+460. **Pratt-certificate analogy: recursive ES certificates via factors of p-tied integers** [low/cheap] — Pratt certificates for primality recurse on factors of p − 1. ES witnesses are divisors of p-tied integers (F10). A recursive scheme: a witness for p from 'witness-like data' for prime factors of 4Cp+1. — *First step:* For hard primes, record which prime factors q of 4Cp+1 'produce' the class −1 (q ≡ −1 mod 4C or products) and whether q's own ES data predict it.  
+   `signature-0460` tags: F35, F32, F10, recursion, src:own, gen:integrator
+
+461. **Every n > 1 has a divisor-pair structure: Dirichlet hyperbola method at fixed n as an ES lens** [med/cheap] — Each ES hyperbola fibre (ay − b)(az − b) = b² counts divisors of b² in a class; summing over x is a hyperbola-method sum at fixed n (F15, F10). — *First step:* Write the ES count as Σ_x #{d | (nx)² : d ≡ −nx mod (4x − n), d < nx} and check parity/symmetry under d ↔ (nx)²/d.  
+   `signature-0461` tags: F15, F10, hyperbola-method, src:own, gen:integrator
+
+462. **Additive energy of {1/x} and three-fold sums: Bourgain-type sum-product for reciprocals of integers ≤ N** [low/cheap] — How many rationals of height ≤ H lie in {1/x + 1/y + 1/z}? Counting 3-fold reciprocal sums is a sum-product/energy question (F33). — *First step:* Compute |{1/x+1/y+1/z : x,y,z ≤ N}| ∩ {4/n} for N up to 10⁴ and the energy of the reciprocal set.  
+   `signature-0462` tags: F33, sum-product, additive-energy, src:own, gen:integrator
+
+463. **Graph-theoretic reformulation: bipartite 'divisor graph' between levels C and primes p; ES ⟺ no isolated prime vertex** [med/cheap] — Make a bipartite graph with an edge (C, p) when R_C(p) > 0. ES ⟺ every hard prime has degree ≥ 1. Degree distribution ≍ Poisson(log²p). — *First step:* Compute the bipartite graph for p ≤ 10⁷, C ≤ 10³; check the isolated-vertex threshold vs. random bipartite graphs with the same degree sequence.  
+   `signature-0463` tags: F04, F24, random-graphs, reformulation, src:own, gen:integrator
+
+464. **Sierpiński/Riesel numbers: k·2^n + 1 composite for all n via covering — a 'shifted integer always composite' phenomenon** [med/cheap] — Covering congruences force k·2^n + 1 to be composite for all n. ES needs p-tied integers 4Cp + 1 to be composite WITH a divisor in a class; a covering forcing compositeness is a step in the right direction for a fixed p. — *First step:* For hard primes, find small primes q with q | 4Cp + 1 and q ≡ −1 (mod 4C) for some C < q (i.e. C ≡ −(4p)⁻¹ mod q with the class condition); count such (q, C) pairs with q ≤ log²p.  
+   `signature-0464` tags: F10, covering-systems, small-prime-factor, src:own, gen:integrator
+
+465. **Small-prime-factor witnesses: q | 4Cp + 1 with q ≡ −1 (mod 4C) is itself a witness (d = q)** [high/cheap] — If a prime q ≡ −1 (mod 4C) divides 4Cp + 1 then the cofactor is ≡ −1 too (product ≡ 1), so d = q is a (★) witness. For each prime q and each C with 4C | q + 1, q | 4Cp + 1 is a single congruence on p mod q. — *First step:* For each hard prime p ≤ 10⁸, find the least prime q such that some C with 4C | q + 1 satisfies q | 4Cp + 1; study the distribution of that q.  
+   `signature-0465` tags: F10, F34, covering, new-angle, src:own, gen:integrator
