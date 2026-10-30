@@ -358,7 +358,119 @@ rather than an every-q statement. §6 measures how far MR is from being true at 
 
 ## 6. Full Type I/II forcing reach (work item 2)
 
-(pending)
+### 6.1 Definition and the forcing implication
+
+Elsholtz–Tao classes (checked identities, `scripts/z51_forcing_reach_verify.py`):
+* Type II (a, b, e), e | a + b: every n ≡ −e (mod 4ab) has 4/n = 1/(abd) + 1/(acdn) + 1/(bcdn), c = (a+b)/e,
+  d = (n+e)/(4ab).
+* Type I (b, c, e), e | b + c: every n ≡ −e⁻¹ (mod 4bc) has 4/n = 1/(nbck) + 1/(gb) + 1/(gc), k = (en+1)/(4bc),
+  g = k(b+c)/e.
+These are cubic families (three free parameters); they are subfamilies of all ES certificates.
+
+**Definition 6.1 (counterfactual reach).** Let n ≡ 1 (mod 4) and q an odd prime, q ∤ n. A unit residue r mod q is
+*reached at (n, q)* if some Type II class (a, b, e) with a = q·a₁, q ∤ a₁be, or some Type I class (b, c, e) with
+b = q·b₁, q ∤ b₁ce, has class modulus 4q·a₁b (resp. 4q·b₁c) ≤ n, contains n modulo 4a₁b (resp. 4b₁c), and has residue
+r at q (r ≡ −e, resp. −e⁻¹). In words: the profinite point "n at every modulus prime to q, r at q" lies in a
+certificate class of modulus ≤ n. *Reach(n, q)* holds if every quadratic non-residue r mod q is reached.
+(The modulus bound makes the notion finite: it forces e ≤ n/4, and E₂ = n/4, E₁ = n/12 make the search exact.)
+
+**Lemma 6.2 (reach forces; PROVED, trivial).** If Reach(p, q) and (q/p) = −1 then ES(p).
+*Proof.* p ≡ 1 (4), so (p/q) = (q/p) = −1 and r := p mod q is a reached non-residue: the class contains p itself. ∎
+
+Reach is *not* implied by ES (it is a statement about counterfactual points), and Lemma 6.2 is the only way it is
+used. It is the natural formalisation of "congruence-certified forcing at q": any forcing statement for the line
+(q/p) = −1 proved from certificate congruence classes that see p only through its residues at moduli prime to q is a
+reach statement.
+
+### 6.2 An upper bound for reach: reach is at most polylogarithmic (PROVED)
+
+**Proposition 6.3 (PROVED modulo Shiu's Brun–Titchmarsh theorem for multiplicative functions).** Uniformly for primes
+3 ≤ q ≤ (log X)^C,
+`  Σ_{n ≤ X, n ≡ 1 (4)} #{r mod q : r reached at (n, q)}  ≪_C  X (log X)³.`
+*Proof.* Each reached residue comes from a tuple (type, a₁, b, e) with a₁b ≤ X/(4q), e | qa₁ + b, and n in one class
+modulo 4a₁b; so the sum is ≤ 2Σ_{a₁,b} τ(qa₁ + b)(X/(4a₁b) + 1). Group by n′ = qa₁ + b:
+Σ_{a₁<n′/q} 1/(a₁(n′ − qa₁)) = (1/n′)Σ (1/a₁ + q/(n′ − qa₁)) ≤ (1/n′)(2 + 2 log n′ + q/r₀(n′)), where
+r₀(n′) ∈ [1, q] is the least positive value of n′ − qa₁. Hence Σ_{a₁,b} τ(qa₁+b)/(a₁b) ≤ Σ_{n′≤X} τ(n′)(2 + 2 log n′)/n′
++ Σ_{r=1}^{q} (q/r) Σ_{n′ ≡ r (q), q < n′ ≤ X} τ(n′)/n′. The first sum is ≪ (log X)³. In the second, Shiu's theorem
+(q < (n′)^{1/2}) gives Σ_{n′≡r (q), q² < n′ ≤ X} τ(n′)/n′ ≪ (log X)²/q for r ≢ 0, the range q < n′ ≤ q² contributes
+≪ q^{ε−1} log q, and r = q (n′ ≡ 0) contributes ≪ (log X)²; so the second sum is ≪ (log X)² log q. The "+1" terms
+give Σ_{a₁b≤X/(4q)} τ(qa₁ + b) ≤ (X/(4q))·Σ τ/(a₁b) ≪ X(log X)³/q. ∎
+
+**Corollary 6.4 (PROVED from Prop 6.3).** Uniformly for 3 ≤ q ≤ (log X)^C:
+(a) #{p ≤ X prime : Reach(p, q)} ≪ π(X)(log X)⁴/q. So for q ≥ (log X)^{4+ε}, reach at q fails for almost all p.
+(b) For A > 4 and η > 0, the number of p ≤ X with Reach(p, q) for at least η·π((log X)^A) primes q ≤ (log X)^A is
+≪ π(X)(log X)^{4−A+o(1)}/η. So MR(A, η) of Cor 5.3 is *false* (for almost all p) when A > 4.
+(c) If S is a set of primes q ≤ (log X)^C such that Reach(p, q) holds for every q ∈ S for at least half of the
+primes p ≤ X, then |S| ≪ (log X)⁴ log log X. For such S, the integers ≤ X² composed of primes from S number at most
+Ψ(X², π⁻¹(|S|)) = X^{3/2+o(1)} (the count is largest for the first |S| primes), so Linnik's bound
+(X² + X²)/|𝒜| for confinement to S cannot beat X^{1/2−o(1)}.
+*Proof.* (a) A reach at q needs all (q−1)/2 non-residues reached; Markov over n ≤ X with Prop 6.3, and
+π(X) ≍ X/log X. (b) Sum (a) over q ≤ (log X)^A (Σ 1/q ≪ log log X) and divide by η·π((log X)^A). (c) Sum (a) over
+q ∈ S: |S|π(X)/2 ≤ Cπ(X)(log X)⁴ Σ_{q∈S} 1/q ≤ Cπ(X)(log X)⁴·O(log log X). ∎
+
+**Reading (T2-barrier, exact scope; Assessment on PROVED inputs).** Linnik confinement fed by *congruence-certified*
+forcing (reach in the sense of Def 6.1: ET Type I/II classes of modulus ≤ p) has, for most p, at most (log X)^{4+o(1)}
+moduli q to work with. With the multiplicative large sieve over S-smooth sequences it therefore cannot give a bound
+better than X^{1/2+o(1)} for the exceptional set (Cor 6.4(c)), and the robust form (Thm 5.2, Cor 5.3(b)) is limited to
+A ≤ 4 in the same way. This does not prevent a power saving (X^{1/2} would be a power saving); it says that
+congruence-certified forcing plus Linnik is capped at the square-root level, and, by the numerics below
+(reach ≈ c(log p)³/log log p), heuristically at X^{2/3}. The cap concerns the method; the true forcing statement F(R)
+holds for every R if ES is true.
+
+### 6.3 Numerics (EVIDENCE; `scripts/z51_forcing_reach.c`, `…_reach_batch.sh`, `…_reach_summary.py`)
+
+36 primes p ≡ 1 (mod 8): eight each near 10⁵, 10⁶, 10⁷ (exact: E₂ = p/4, E₁ = p/12), four near 10⁸ (exact), four
+near 10⁹ (e ≤ 2·10⁷) and four near 10¹⁰ (e ≤ 10⁷); all odd primes q ≤ 1000. The truncation at e ≤ 10⁷ loses ≈ 3 % of
+the supply (at p = 10⁸: 42 %, 72 %, 89 %, 97 %, 99.97 % of the exact supply from e ≤ 10³, 10⁴, 10⁵, 10⁶, 10⁷). 2 682
+randomly sampled witnesses (1 274 Type I, 1 408 Type II) were rebuilt into explicit 4/n identities and checked with
+exact rationals: 0 failures. Per-prime table: `data/z51_forcing/reach_summary.txt`; raw per-q data:
+`data/z51_forcing/reach/`.
+
+Statistics: q* = least q with an unreached non-residue class; S_e = supply, the mean over q ∈ [11, 300] of q times
+the mean number of distinct productive (type, e) per non-residue class (each (type, e) feeds exactly one class mod q);
+R_maj = largest R ≤ 1000 such that reach holds at ≥ 60 % of the odd primes q ≤ R.
+
+| p ≈ | log p | median q* | median S_e | S_e/(log p)³ | median R_maj | q*/(log p)² | q*/((log p)³/log log p) |
+|---|---|---|---|---|---|---|---|
+| 10⁵ | 11.6 | 17 | 49 | 0.032 | 34 | 0.13 | 0.027 |
+| 10⁶ | 13.9 | 29 | 86 | 0.032 | 43 | 0.15 | 0.029 |
+| 10⁷ | 16.2 | 36 | 128 | 0.030 | 67 | 0.14 | 0.024 |
+| 10⁸ | 18.4 | 50 | 202 | 0.032 | 96 | 0.15 | 0.023 |
+| 10⁹ | 20.7 | 60 | 318 | 0.036 | 141 | 0.14 | 0.020 |
+| 10¹⁰ | 23.0 | 93 | 422 | 0.035 | 186 | 0.18 | 0.024 |
+
+* **Supply is cubic.** S_e/(log p)³ stays in [0.027, 0.044] for all 36 primes; the least-squares exponent of the
+  medians is 3.15. This confirms the brief's "cubic supply" for the full ET Type I/II families with modulus ≤ p.
+* **The coupon model fits.** In dyadic q-bands the unreached fraction of non-residue classes matches the Poisson
+  prediction exp(−λ_q), λ_q = (distinct productive e per class), within 10–20 % relative (e.g. p ≈ 10¹⁰,
+  q ∈ [128, 256): 0.142 observed vs 0.123; q ∈ [256, 512): 0.387 vs 0.361).
+* **Fits of the reach.** The first-hole statistic q* grows with exponent 2.29 in log p; q*/(log p)² drifts up
+  (0.13 → 0.18) and q*/((log p)³/log log p) stays at 0.020–0.029. The range 10⁵–10¹⁰ (log p ratio 2) cannot separate
+  the two laws by the first-hole statistic alone; the supply law plus the validated coupon model favour
+  R(p) ≈ c·(log p)³/log log p with c ≈ 0.02–0.03 (heuristic, Assessment).
+* **Majority reach is far below (log p)^{2+δ} at accessible p.** R_maj ≈ 0.35 (log p)² at 10¹⁰. In the coupon model
+  with S_e ≈ 0.033 (log p)³, reach at q ≈ (log p)^{2+δ} needs 0.033 (log p)^{1−δ} ≳ log q; for δ = 0.1 this happens only
+  for log p ≳ 200 (p ≳ 10⁸⁷). So MR(2 + δ, η) — the input Cor 5.3 needs — is numerically false at every accessible p
+  and heuristically true only for astronomically large p. MR(A) for A > 3 fails heuristically for all large p, and for
+  A > 4 provably for almost all p (Cor 6.4).
+* Lane B (z50) measured q* ≈ 11–29 with W1 words only; with all ET Type I/II classes q* is 17–37 at 10⁶–10⁷, 43–83
+  at 10⁸–10⁹ and 83–101 at 10¹⁰.
+* **Controls** (`data/z51_forcing/reach_controls/`, exact): hard primes 193, 409, 577, 2521, 3361 have q* = 11 (the
+  size bound modulus ≤ p leaves few classes); 5569: 17; 9601: 13; 66529: 23; 8813281: 29. The odd squares
+  1002001 = 1001² and 9018009 = 3003² give q* = 31 and 29, like primes of that size: reach is congruence data and is
+  blind to T1 (at a square every q is a residue, so Lemma 6.2 never fires there, consistent with T1). Numerator 8:
+  Def 6.1 uses the 4/n identities only; nothing here transfers to 8/n.
+
+### 6.4 "A reach for all p outside a set you can bound" (Assessment)
+
+For each q and non-residue r, the set {n : r unreached at (n, q)} is a congruence-avoidance set over n's residues off q,
+with supply ≈ S_e/q ≍ (log n)³/q. Any bound for its size obtained by CRT methods is subject to the supply law of
+z50 A Thm 2.1 for that reduced family, so it is weaker than the corresponding bound for ES itself. Moreover
+{p : Reach(p, q) fails} ⊇ {p : ES(p) fails, (q/p) = −1} (Lemma 6.2). So "Reach for all p outside a bounded set", fed
+into Linnik, returns an exceptional-set bound no better than the bound already needed for the reach-failure set: the
+route is circular unless reach is proved pointwise, as G3 says. What §§5–6 add is quantitative: the pointwise input
+can be weakened to a majority (Cor 5.3), but the majority input is false for A > 4 and heuristically needs p ≳ 10⁸⁷
+for A slightly above 2.
 
 ## 7. Least-QNR lines (work item 3)
 
