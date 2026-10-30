@@ -1,0 +1,140 @@
+Pacific Journal of
+Mathematics
+
+
+ ON THE SUM OF A PRIME AND OF TWO POWERS OF TWO
+
+                 ROGER C LEMENT C ROCKER
+
+
+
+
+Vol. 36, No. 1                             November 1971
+                                                           PACIFIC JOURNAL OF MATHEMATICS
+                                                                     Vol. 36, No. 1, 1971
+
+
+
+         ON THE SUM OF A PRIME AND OF TWO
+                  POWERS OF TWO
+                                   ROGER CROCKER
+
+            It has been shown by different methods that there is an
+       infinity of positive odd integers not representable as the sum
+       of a prime and a (positive) power of 2, thus disproving a
+       conjecture to the contrary which had been made in the
+       nineteenth century. The question then arises as to whether
+       or not all sufficiently large positive odd integers can be re-
+       presented as the sum of a prime and of two positive powers
+                               α    6
+       of 2; that is, as p + 2 -f 2 , where α, b > 0 and p is prime.
+       (The corresponding question has been discussed for bases
+       other than 2 but is really quite trivial.) Theorem I gives a
+       negative answer to this question.
+
+           THEOREM I. There is an infinity of distinct, positive odd
+       integers not representable as the sum of a prime and of two
+       positive powers of 2.
+
+    NOTATION. Throughout this paper, each pt represents an odd
+prime. All quantities are integers and usually positive integers. As
+usual, "prime" is understood to mean "positive prime".
+
+      The method used in [1] gives Lemma I and Lemma II, below.
+The method used in [4] a slight modification of [3] is then combined
+with Lemma II to show that there is an infinity of positive odd
+integers not the sum of a prime and a positive power of 2 nor the
+sum of a prime and of two distinct positive powers of 2. Theorem I
+follows immediately.
+      First, to reproduce the counterexample in [4, p. 413] slightly
+generalized here, consider an "overlapping" congruence system (1)
+(i.e., given any positive integer, it will satisfy at least one of the
+equations of the system; such a system occurs below)
+(1)                         Xi = di (mod m<) ,              1^ i S h.
+    Suppose that from this system, one can construct the following
+simultaneous congruence system
+              2αί(modPi), l^i<^h,    where 2m " = l(modpt)
+(2)
+              c(modph+1), where ph+1 = 2P —1, p a prime, and
+                 c 3Ξ p i + 2 d ( m o ά p h + 1 )     f o r0 ^ d ^ p - 1 ,   l ^ i ^ h ;
+              l(mod 2)
+with all moduli pi9 1 g i g h + 1, distinct.                      (The m^ need not be
+                                                    103
+ 104                               ROGER CROCKER
+
+distinct and p may be any prime, so long as all p{ are distinct.) As
+shown by the method used in [4, p. 413], none of these odd integers
+is the sum of a prime and a power of 2, so that the counterexample
+is valid. Finally, in reference to the supposition just above, for the
+actual numerical choice of (1) one must show the existence of distinct
+Pi and of c satisfying the above conditions; this will be done later
+for the choice of (1) made in this paper.
+     Now one arrives at
+
+       LEMMA  I. 1 For every n ^ 3, 22n — 1 cannot be expressed as the
+sum    of a prime and of two distinct positive powers of 2.
+
+        Proof     Taking a > b (which results in no loss of generality),
+consider 22n - 1 - 2a - 2b = 22n - 1 - 2h (2a~h + 1) where a, b < 2 \
+Since a — b < 2π, it follows that for each a — 6,
+        22r + 1 I 22n - 1 - 2b(2a~b + 1) for some r <n(r being the largest
+power of 2 contained in a - b). But since 22n - 1 - 22%~ι - 22tι~2 =
+2 2*- 2 _ χ > 22 - i + i for ^ ^ 3, it follows that 2
+                                                     2%
+                                                        - 1 - 2a- 2b > 2 2 r + 1.
+The lemma follows.
+        The result in Lemma I may be generalized very considerably to
+give
+
+       LEMMA II. 2 For n ^ 3 and w = 1 (mod 16),              consider
+w Jlϊ=o Bi ^ 22n — 1, where B{ | 22* + 1 and Bι > 1 (though not neces-
+sarily prime or < 22i + 1). Then w ΠΓo1 Bt ( ^ 22% - 1) cannot be
+expressed as the sum of a prime and of two positive distinct powers
+of 2.
+
+    Proof. If n = 3, 4 or 5, Lemma I is immediately applicable.
+Suppose n ^ 6. Consider
+
+               wIlBi-2a-2b           = wJIBi-         2" (2°-6 + 1) > 0
+     1
+       This Lemma was communicated to me by A. Schinzel after he had read [1],
+and also appears in [4, p. 413] where some acknowledgment is made of [1]. I arrived
+at Lemma I independently, however but did not publish it, since by itself it is quite
+incomplete. It might be added that, contrary to the impression given in [4 p. 414],
+Lemma I is a trivial generalization of [1] using exactly the same method; this can
+easily be seen by comparing the proof in [1] with the above proof of Lemma I.
+     2
+       16 is far from the only possible modulus for w; any power of two > 16 would
+be suitable. For example, 64 could be used; w = 1 (mod 64), w = 3 (mod 64), or many
+other residue classes (mod 64) could then be chosen, with only obvious and trivial
+changes in the subsequent proofs. If w = 3 (mod 64) is chosen, the integers satisfying
+Theorem I Ξ I (mod 4). Incidentally, it occurred to me at first that it might be possible
+to "combine" Lemma I with the method in [3], I then realized that some generaliza-
+tion of Lemma I would be necessary. My search led to Lemma II, which I then was
+able to "combine" with the method of [4]).
+            ON THE SUM OF A PRIME AND OF TWO POWERS OF TWO                                 105
+
+where (without loss of generality) a > b then α, b < 2% and so
+a - b < 2\ Now for each a - 6, Br\w ΠΓo1 5* - 2δ(2α~& + 1) for
+some r < n, remembering that Br | 22r + 11 2a~b + 1 for some r < n.
+                         1       a  b                          a    h
+    Now suppose w Π?^. B{- 2 - 2 = Br; then w Ui=o Bi = 2 + 2 + Br.
+Now Π?=o Bt = UUo Bi Ui=6 Bi = -l(mod 16) (remembering that B, = 1
+(mod2ί+1) or for i ^ 5, Bt = I(modl6)). Since w = I(modl6), it fol-
+lows that w Π S 1 Bι =— 1 (mod 16).        Now with r < n, one has
+w Hni=o Bi > BQBxBr = 155 r so that w Ui=o Bt - Br> UBr ^ 42 (since
+                 α     δ
+Br ^ 3); thus 2 + 2 ;> 42 and since α > 6, one must have a > 3.
+Therefore 2 = 0(mod 16). But since 6 ^ 1 , r ^ 0, one has 25 con-
+            α
+
+
+gruent (mod 16) to 0, 2, 4 or 8 and Br congruent (mod 16) to 1, 3 or
+5. Hence 2 α + 2& + Br =£ -l(mod 16); therefore w ΠΓ^o1 Bt Φ 2a+ 2b + Br.
+Thus w ΠΓΓo1 J?< - 2a - 2δ ^ £ r . The lemma follows.
+
+    Proof of Theorem I. Take 22n — l/Gk for some chosen fixed k,
+where n > k, Gk \ 22k + l(fc = 10 will actually be chosen later), and
+1 < Gk < 22k + 1. Now assume that one can choose an overlapping
+congruence system [(1), above] such that in the corresponding simul-
+taneous congruence system [(2), above] one can have

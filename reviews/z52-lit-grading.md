@@ -85,7 +85,86 @@ me:** non-arXiv items (Lenstra 1984, Bernstein 2008, Heath-Brown 2001, Heule–S
 Pintz–Ruzsa 2020, the erdosproblems.com pages, ProofAtlas); I treat them at the lanes' stated access level.
 
 ## 2. Verdict grading
-(TODO)
+
+Key: AGREE / PARTIAL / DISAGREE with the lane's transfer verdict. "§4.k" is FRONTIER §4 checklist line k; B1–B6 as
+in FRONTIER §3. Overall calibration: no lane over-scopes a barrier the way the README "calibrated verdict" note
+describes. They consistently write "known-dead *as a direct transfer*" or "at current hypotheses", which is the right
+scope. The errors run the other way: two cases of **under-scoped enthusiasm** (L1 §3, L5 §3 "next test") and one
+**missed repository fact** (L5 on p + 2^a + 2^b).
+
+### L1 es_direct
+| Row / candidate | Lane verdict | Grade | Reason |
+|---|---|---|---|
+| Cao–Xu composite-n test | none | AGREE | A primality criterion by divisor residues mod 24 is congruence plus factorisation shape (§4.8) |
+| Cao–Xu 56-family cover | none; unproved | AGREE, *sharper* | A finite menu of polynomial families falls under B1 Thm C. CONDITIONAL on Hypothesis H, any such correct bounded procedure fails for infinitely many p ≡ 1 (24). So the cover is not merely unproved but **conditionally false** (Assessment: I did not check that every family is polynomial in m. The abstract calls them "solvability polynomials") |
+| Li #306 (semiprime unit fractions) | partial; "new candidate for experiments" | PARTIAL | The structural reading is right. The mechanism is abundance: a Fourier count over ~2^{#edges} subgraphs with a positive main term, plus "small total mass forces equality". ES has three terms and a ≍ log²p count. That is exactly §4.6 (B3) and the free-term-count relaxation of §4.12. The "experiments" label is too generous |
+| 19 recently-updated tagged problems | no/partial each | AGREE | Colouring, density, many-term or metric inputs (B6, §4.5–6). L1 rightly separates database `last_update` from proof dates |
+| §3 cand. 1 (switches from #283 down to 3 terms) | speculative candidate | DISAGREE (not a candidate) | Reaching exactly three distinct denominators *is* ES. Sum-preserving switches do not control the term count. This is §4.12 (relaxation then transport, with no transport theorem), and no step fails at odd squares (§4.1) |
+| §3 cand. 2 (3-edge semiprime Fourier count) | weak candidate | DISAGREE (not a candidate) | The 3-edge count for 4/p is a sub-slice of (★) with extra constraints. Its Fourier expansion at one p has no averaged variable to exploit and lands on B2 (§4.4). The lane half-concedes this ("may fail at the outset") |
+
+### L2 unitfrac_cover
+| Row | Lane verdict | Grade | Reason |
+|---|---|---|---|
+| Bloom; Liu–Sawhney | known-dead | AGREE | They need a large, freely chosen denominator pool (B6, §4.5–6). See `addcomb_unit_fraction_density.md` |
+| Conlon et al. counts | known-dead | AGREE | Exponentially many long representations say nothing about the 3-term count (B3) |
+| Bloom, shifted-prime denominators | partial at most | AGREE | Denominators are freely chosen and the term count is unbounded. ES needs divisors of a p-tied integer (B2) |
+| Sawin; Korsky; Kovač–Tang | none | AGREE | Avoidance, approximation and greedy dynamics are not exact 3-term existence (B3) |
+| BBMST distortion; Hough | partial; known-dead pointwise | AGREE (scope) | Pointwise *in each finite system*. ES's obstruction systems are p-dependent, and B1 already kills fixed finite menus. `covering_distortion_dual.md` stands |
+| Filaseta–Kalogirou–Klein | none | AGREE | A finite-system reciprocal-mass bound; no p-indexed event |
+| Deterministic subset-product / zero-sum | partial; known-dead at current hypotheses | AGREE | Quantitative reason the lane leaves implicit: a divisor box from ω(x) ≈ log log x prime factors has ≤ τ(x)² elements. Olson-type completeness needs > 2√q *distinct* generators. The scale fails (§4.17, B4) |
+| §3 "none" | — | AGREE | |
+
+### L3 localglobal_thin
+| Row | Lane verdict | Grade | Reason |
+|---|---|---|---|
+| Apollonian missed families (HKRS) | partial; known-dead as positive route | AGREE | T1 is a reciprocity obstruction of the same class (`z36_reciprocity_obstruction_home.md`). But ES has no infinite Vieta/tangency orbit to carry an invariant: the fixed-n equation is linear in each variable (`apollonian_reciprocity.md`) |
+| Zaremba (BK almost-all; Shkredov/Zhang all-q claims) | partial/no; known-dead at present scale | AGREE | The count is a power q^{2w_M−1}, against ES₅'s ≍ log²n (B3, §4.6). ES₅ matrices are also *self-levelled*: the modulus is the entry c (B2; `QUESTION_R.md` Prop 1.1) |
+| Markoff mod-p connectivity (Chen + BGS) | no; known-dead | AGREE | Connectivity of a ≍ p² fibre using a giant component. Not a varying-target existence statement (B6/B3) |
+| Markoff integral Hasse principle (Ghosh–Sarnak) | no | AGREE | Almost-all in the parameter, with infinitely many failures: an anti-precedent |
+| §9 thin-regime audit: RS Thm 2.6/2.8 as "near-example" | near-example | AGREE | The decisive feature is *fatness*: numerators fill an arithmetic progression of length ≍ n/(8xy) on a line, and Pólya–Vinogradov finishes. ES₅'s numerator set has size ≍ log²n (B3; `QUESTION_R.md` table §2) |
+| §3 "none" | — | AGREE | One omission, taken up in my §3: Alkauskas's flea orbit is a new thin data point with "squares + finitely many sporadic", the same *shape* as U(n) |
+
+### L4 points_automorphic
+| Row | Lane verdict | Grade | Reason |
+|---|---|---|---|
+| Bright–Loughran | partial; known-dead standalone | AGREE | §4.13: BM-set nonemptiness is not existence, and "BM is the only obstruction" is ES itself |
+| Linowitz–Thompson | none | AGREE | A uniqueness theorem from signs on a positive-density set of primes; nothing about one coefficient (B6) |
+| Harpaz; Wilsch; Santens; Loughran–Mitankin; Lyczak; R. Zhang; Chambert-Loir–Tschinkel; Cao–Xu/Wei; Derenthal–Wilsch; Uppal | relation notes only | AGREE | These are fixed-variety height asymptotics, conditional fibration theorems, or BM-obstruction constructions. The ES model is non-toric, and U_n has finitely many positive integral points |
+| §6 automorphic positivity | no ES encoding | AGREE | Careful and correct: R(n) is not a coefficient of a fixed theta series with a positive local-density main term (FRONTIER §2.3, Thm K) |
+| §3 "none" | — | AGREE | |
+
+### L5 thin_pointwise
+| Row | Lane verdict | Grade | Reason |
+|---|---|---|---|
+| F–I, Heath-Brown, HB–Moroz, Maynard, Pratt, Green–Sawhney, Merikoski (×2) | no; family-level | AGREE | Infinitude over a family, with no prescribed target (B6) |
+| HBP / Pintz–Ruzsa / Li–Liu (two primes + K powers of 2) | no; power-size reservoir | AGREE | Li–Liu Thm 1.1 proves r₆″(N) ≥ N L⁶/1000 from the Goldbach main term (§4.6) |
+| Romanoff / Erdős AP (p + 2^k) | failure analogy (B1) | AGREE | The O(1)-witness problem fails on an AP via a covering. ES failures cannot form an AP: any AP of odd n coprime to its modulus contains n with a prime factor ≡ 3 (mod 4), and those satisfy ES classically |
+| p + 2^a + 2^b (≍ log n witnesses) | "no every-n or almost-all theorem or covering failure verified" | **DISAGREE (missed fact)** | Already in the repository (`BRAINSTORM/s9_lower_tail_literature.md`, R282-checked). Crocker, *Pacific J. Math.* 36 (1971) 103–107, Thm I (re-opened by me, excerpt `sources/z52/grade_lit/crocker1971_excerpt.txt`): infinitely many odd n are not p + 2^a + 2^b. The mechanism is the Fermat-number factorisation of 2^{2^n} − 1 (Lemma I: 2^{2^n} − 1 − 2^a − 2^b is divisible by some 2^{2^r} + 1) combined with a covering. Pan 2011 (per repo) gives ≫ x^{1−ε} exceptions. So the *natural* ≍ log n model **fails**, on a structured family. That is the opposite of L5's "intermediate model, no failure known" |
+| Four/three squares, triangular, ternary forms, 290, Blomer | no | AGREE | Universality without a uniform witness-count floor. The lane rightly notes r₃(4^a) = 6 |
+| Least prime in AP; Burgess | partial analogy | AGREE | Fixed modulus (§4.4) |
+| §3 "concrete next test": a second-moment bound for the fixed-p divisor count "with the modulus held fixed first" | exploratory test | DISAGREE | Romanoff's second moment averages over targets (B6). Holding the modulus fixed removes exactly the tied modulus that B2 is about (§4.4), so the test cannot inform ES |
+
+### L6 divisor_class
+| Row | Lane verdict | Grade | Reason |
+|---|---|---|---|
+| Lenstra / CHGN / Hales / Bernstein | known-dead (existence) | AGREE | Upper bounds and enumeration only. They never force a hit (B2) |
+| Ford H(x,y,2y); Koukoulopoulos | known-dead | AGREE | Population counts (B6) |
+| Munsch; Harman–Shparlinski | partial; known-dead direct | AGREE | Freely chosen small representatives. ES's generators are the prime factors of a p-tied integer (§4.17) |
+| Least QNR; Carella | partial; Carella unusable | AGREE | Gap confirmed (§1.2 item 7) |
+| LLS coset theorem (GRH) | partial; known-dead direct | AGREE | It delivers the *class*, not just the parity (§4.9), but for freely chosen primes, not divisors of one N (B2) |
+| KST; Pilatte | no; known-dead direct | AGREE | Strengthened by KST §1.2 itself: dropping the almost-all exceptional set, even to a better-than-super-polylog saving, would require Vinogradov's least-QNR conjecture. The pointwise version holds under GRH by orthogonality, for *free* primes ≤ (log q)^B, B > 4 |
+| §3 "none" | — | AGREE | |
+
+### L7 nonant
+| Row | Lane verdict | Grade | Reason |
+|---|---|---|---|
+| SAT landmarks (Schur 5, Keller 7, Pythagorean triples, h(6), R(3,8/9)) | known-dead as template | AGREE | Finite encodings. An ES-to-finite reduction would be a covering/identity menu (B1, §4.8) |
+| #728 (Kummer carries + counting) | partial; known-dead as stated | AGREE | m is chosen from an interval of candidates (B6, §4.5) |
+| Automata (palindromes) | not a transfer; undecided | AGREE | Correctly refuses an unexhibited Walnut encoding |
+| Dynamics / Duke / effective unipotent | no | AGREE | Averages over growing orbits (B6) |
+| O-minimal counting | conditional only | AGREE | The volume main term needs thickening, which averages over neighbouring n (B3) |
+| Hough + LLL | no | AGREE | Positive uncovered density per finite system. Wrong direction and wrong target |
+| §3 "none" | — | AGREE | |
 
 ## 3. Cross-lane synthesis
 (TODO)
