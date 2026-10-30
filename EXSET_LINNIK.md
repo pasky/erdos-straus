@@ -391,9 +391,11 @@ the function and its derivative).
 
 **Proposition 4.2 (the three kinds of p-dependence; PROVED).**
 (i) *Dependence through p mod L, L ≤ X^K.* Then K ≤ φ(L) and the argument is a fibred datum: on the fibre p ≡ c (mod L)
-    one uses a^{(c)}. If the a^{(c)} are supported on squarefree Π-numbers with Π as in Theorem 2.5, Corollary 2.6 applies
-    to the fibre of the sterile plane point z (all Π-free coordinates of z are 1), with the threshold T replaced by
-    2·2^{ω_Π(L)} (the conditional second moment of Prop 2.8's proof). So fibring does not escape §2.
+    one uses a^{(c)}. If the a^{(c)} are supported on squarefree Π-numbers with Π as in Theorem 2.5 and Π ∩ supp(L) = ∅,
+    the sterile plane point z of Corollary 2.6 for a^{(c₀)}, c₀ := z mod L (≡ 1 at the Π-free part of L), gives
+    infinitely many primes in that fibre avoiding 𝔊 and outside the Linnik set. (If L shares primes with Π, condition on
+    them as in Prop 2.8's proof; this costs a factor 2^{ω_Π(L)} in T and needs a sterile point in the corresponding
+    sub-cell, which Theorem 2.5(b) provides.) So fibring does not escape §2 within its scope.
 (ii) *Archimedean twists a_n n^{it_p}, |t_p| ≤ T₀.* The Haar computation (1.1) is unchanged for each fixed t;
     E_Haar max_{|t|≤T₀}|Σ a_n (x/n) n^{it}|² ≪ (1 + T₀ log N)‖a‖² (Sobolev in t), so Corollary 2.6 holds with T > C T₀ log N,
     while the hybrid sieve's Δ grows by the same factor T₀.
@@ -419,7 +421,8 @@ certificate classes, E′ = E_X ∩ Ω(𝔊)-type avoider and every certificate 
 is a function of its shape (Theorem A; LOWERTAIL_DEEP_FABLE Lemma 1.2; FOREST_DEEP_FABLE Prop 3.1: the sets
 G_A = {−d : d | A + 1, (−d/A_odd) = −1} are p-independent). So "Type II slices with undetermined colour" do not exist at
 the level of classes: character data of p enter only through the *shadow* (whether p ≡ −d mod A for some d | A + 1).
-Hence Corollary 2.6 and Proposition 2.8 apply verbatim to every ES₅-defined E′. ∎
+Hence Corollary 2.6 (sparse Π) and Proposition 2.8 (bounded whole-period level) apply to every ES₅-defined E′, within
+their scopes. ∎
 
 **The window strengthening (EVIDENCE + Assessment).** The one natural strengthening with character content is
 R′_y(p): *some prime window q ≡ 3 (mod 4) in (y/2, y] carries an ES solution with x = (p + q)/4* (CAP_DOWN Lemma 3.1 at
@@ -440,8 +443,8 @@ fraction 0.34–0.38 against 0.50). *Model consequence (Assessment).* If the lot
 window: a *constant* bias, far more than Theorem 3.1 needs ((log X)^{−κ}). The pointwise statement that would make this
 rigorous is
 
-  **(WL_A)** every prime p ∈ (X/2, X] whose non-residue fraction on the primes ≡ 3 (4) in (y/2, y], y = (log X)^A,
-  lies in [1/2 − η, 1/2 + η], η = (log X)^{−κ}, has a window in that block carrying an ES solution.
+  **(WL_A)** every prime p ∈ (X/2, X] whose non-residue fraction θ_p on the primes ≡ 3 (4) in (y/2, y],
+  y = (log X)^A, satisfies |θ_p − 1/2| < η/2, η = (log X)^{−κ}, has a window in that block carrying an ES solution.
 
 **Corollary 5.3 (CONDITIONAL on (WL_A) for some A > 1, κ < (A − 1)/2).** #{p ≤ X : ES(p) fails} ≤ X^{(1+2κ)/A + o(1)}.
 *Proof.* E_X ⊂ E′_y ⊂ {biased profiles} by (WL_A); Theorem 3.1. ∎
