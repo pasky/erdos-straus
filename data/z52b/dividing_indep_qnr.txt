@@ -1,0 +1,17 @@
+# uv run python scripts/z52b_dividing_indep.py 1000 100000   (seed 2; residue model, hard classes mod 840)
+X=   32 observed=3.697e-01 independent=2.480e-01 ratio=1.49
+X=   56 observed=2.023e-01 independent=8.288e-02 ratio=2.44
+X=  100 observed=7.881e-02 independent=1.204e-02 ratio=6.54
+X=  178 observed=1.601e-02 independent=5.187e-04 ratio=30.87
+X=  316 observed=3.980e-03 independent=9.160e-06 ratio=434.52
+X=  562 observed=8.300e-04 independent=5.992e-08 ratio=13851.51
+X= 1000 observed=1.000e-04 independent=1.174e-10 ratio=852017.58
+
+# uv run python scripts/z52b_dividing_qnr.py 100000000   (hard-class primes < 1e8; n(p) = least prime QNR; n(p) >= 11 forced by the classes)
+corr(log s, log n(p)) = 0.421
+n(p) in [11,13): count= 90128 median s=17 q90=61 max=949
+n(p) in [13,20): count= 78672 median s=29 q90=89 max=2814
+n(p) in [20,30): count=  8351 median s=53 q90=138 max=1142
+n(p) in [30,50): count=  2297 median s=74 q90=201 max=1229
+n(p) in [50,1000): count=    20 median s=77 q90=182 max=586
+top s with n(p): (53049049, 2814, 17), (58080961, 1467, 19), (99762601, 1326, 17), (64267009, 1293, 17), (64384849, 1229, 37), (99194209, 1204, 31), (64992841, 1190, 17), (72639961, 1165, 31), (69890209, 1142, 23), (78294841, 1139, 19), (7183201, 1133, 29), ...
