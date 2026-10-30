@@ -363,7 +363,9 @@ large-cap primes; it says nothing about ES-exceptional primes.
 for every prime q ≡ 3 (mod 4), q ≤ y. Take S := the primes q ≡ 3 (mod 4) in (y/2, y] (s ∼ y/(4 log y) by the PNT in
 progressions); p ∉ S since p ≡ 1 (mod 8). Then σ_S(p) = s, and Theorem 3.1 with κ = 0 (η = 1) gives the bound. ∎
 
-*Remarks.* (1) The argument is Baier's least-non-residue argument (§1.5) transplanted to q₃(p); the novelty is only the
+*Remarks.* (0) Lane lcaps (`EXSET_LINNIK_CAPS.md`, Cor 2.2) independently derived the same bound X^{1/A+o(1)} for
+A > 1 via Heath-Brown's quadratic large sieve; the two derivations were obtained independently.
+(1) The argument is Baier's least-non-residue argument (§1.5) transplanted to q₃(p); the novelty is only the
 complete application to the exponent cap (CAP_BOUNDED Rem. (3) records an earlier reviewer sketch, CAP_INTERPOLATION
 Rem. 3.2(b), of a power saving for e ≥ (log N)^{1+ε} by a different class large sieve). Pollack's bound is not needed.
 (2) The route through q₃ cannot give a fixed power saving for A ≤ 1: with k := π(y; 4, 3), CONDITIONALLY on GRH,
