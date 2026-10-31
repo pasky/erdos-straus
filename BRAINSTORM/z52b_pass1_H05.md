@@ -1,7 +1,7 @@
 # z52b Pass 1 — batch H05 (25 items, Z1665–Z1918)
 
 **Summary.** covered 16, nothing 9, interesting 0, needs-compute 0, skipped 0. ES is OPEN; nothing here proves any case of it.
-No item turned up an `interesting` signal: every touched item was already settled in the cited repo section, and every untried item's cheap step came back empty.
+No item turned up an `interesting` signal: 16 were already settled in the repo (4 of them listed as untried: Z1711, Z1754, Z1804, Z1806), and the cheap step for the other 9 came back empty.
 Most useful by-products (all small): Z1709 — odd-square-norm points exist in every unit-square-norm coset mod 40/120 (CERTIFIED), so two-variable (x,y)-identities on p = x²+y² meet T1 except for a remaining coprimality check; Z1904 — per-level hit rate ≈ product-conditioned random subset-product model within ×1.5–2;
 Z1792 — log e_min(p) is 0.2% explained by log p and 51% by p mod primes ≤ 43 (9732 primes < 10⁶); Z1805/Z1915 — at (★)-failing primes, levels with many factors fail because of subgroup (genus) obstructions, and doubling statistics do not separate failing from control primes.
 Outcomes: `data/z52b/pass1/outcome_H05.jsonl`; scripts `scripts/z52b_p1_H05_*`; data `data/z52b/pass1/H05/`.
