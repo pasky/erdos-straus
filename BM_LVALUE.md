@@ -5,8 +5,18 @@ CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z
 Builds on `BM_CORRECTED_COUNT.md` (Prop 2.1, Thm 2.2, Prop 2.3), `FRONTIER.md` §2.2, Pass-1 record
 `BRAINSTORM/z52b_pass1_H07.md` §Z2882.
 
-## 0. Summary
-(to be written last)
+## 0. Summary (≤ 12 lines)
+* **PROVED (Thm A, §2):** for every prime p, T(p) = Σ_{𝒫(p)} (−uB/p)/φ(4uB) = (σ/4)·E(χ_p)·L(1, χ_p)² + O(p^{−1/16} log p),
+  σ = χ_p(−1), E = (2χ_p(2) − 1)∏_{ℓ odd} e_ℓ(χ_p(ℓ)) an explicit Euler product with sign χ_p(2); absolute effective constant
+  (Burgess r = 2 in the bulk uB ≤ p/4; Pólya–Vinogradov suffices on the boundary). For p ≡ 1 (4): T = E·(h(p) log ε_p)²/p + o(1).
+* **CONDITIONAL (GRH):** error O_ε(p^{−1/4+ε}). **EVIDENCE (§1, 91 415 primes ≤ 10⁷ incl. all ≤ 10⁶, all 14 (★)-failures):**
+  |err| ≤ 0.54 for p ≥ 10³, ≤ 0.052 at 10⁷ (T ∈ [−12.1, 10.5]); rms err ≈ 0.33·p^{−1/2}(log p)^{3/2}; a secondary term
+  ≈ 0.6·E·L(1, χ)·(log p)/√p at p ≡ 1 (8) (CONJECTURE).
+* **PROVED (Cor 3.1):** M_BM ≥ (0.1402 − o(1))(log p)² ≥ 0.92·M₀ at p ≡ 1 (8) (Stephens), M_BM ≥ M₀ − o(1) at p ≡ 5 (8) —
+  improves BM_CORRECTED Thm 2.2's 0.0190 (log p)²; GRH: M_BM = M₀ − O((log log p)²). At primes, H⁻_BM ≡ naive H⁻ up to constants.
+* **EVIDENCE (§3.3):** T explains R² ≈ 4–5 % of R − M₀ (genus layer: 23–28 %); hard primes have large L(1, χ_p), mostly via
+  the small-prime pattern; at the failures T removes only 9–42 % of M₀. **Assessment:** main term only (B3); new (§4).
+  **ES is OPEN.**
 
 ## 1. Statement and numerics
 
@@ -124,7 +134,7 @@ We may take p ≥ 100 (for p < 100 every quantity is bounded and the constant c 
 * **(PV)** For every interval, |Σ_{M<n≤M+N} χ(n)| ≤ P := √p log p (p ≥ 100). Explicit Pólya–Vinogradov
   (Frolenkov–Soundararajan; Lapkova): ≤ (2/π²)√p log p + 0.9467√p + 1.668 (χ even), (1/2π)√p log p + 0.8204√p + 1.0286 (odd), as
   quoted in Johnston–Ramaré–Trudgian, arXiv:2303.13785, Lemma 14; both are ≤ √p log p for p ≥ 100.
-* **(Bu)** Burgess (Proc. LMS 12 (1962) 193–206, Thm 2; Iwaniec–Kowalski Thm 12.6) with r = 2, prime modulus:
+* **(Bu)** Burgess (Proc. LMS (3) 12 (1962) 193–206; Iwaniec–Kowalski, *Analytic Number Theory*, Thm 12.6) with r = 2, prime modulus:
   |Σ_{M<n≤M+N} χ(n)| ≤ C_B N^{1/2} p^{3/16} log p for all M, N ≥ 1, C_B absolute and effective (explicit versions:
   Treviño, IJNT 11 (2015); Francis, JNT 228 (2021)).
 
