@@ -1,0 +1,2 @@
+primes p=1 mod 4 < 3000 checked; mismatches: 0
+examples {409: (0, 0, 0, 0), 577: (0, 0, 0, 0), 3361: (2, 2, 2, 2)}
