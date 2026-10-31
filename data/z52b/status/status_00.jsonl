@@ -58,3 +58,125 @@
 {"mid": "Z0058", "status": "open", "files": ["BRAINSTORM/s3_vphi_ringmaps.md Result 3"], "evidence": "", "note": "Norms of unit-orbit shots noted; product-of-conjugates 16/n^2 construction not examined."}
 {"mid": "Z0059", "status": "open", "files": ["BRAINSTORM/other_rings.md §2 and §4"], "evidence": "", "note": "Gaussian cone ES recorded as open conjecture; no Gaussian-prime search recorded."}
 {"mid": "Z0060", "status": "open", "files": ["BRAINSTORM/other_rings.md §2 and §3 (Prop 3.3)"], "evidence": "", "note": "Bradford-Ionascu Thm 3.1 cited; ray-class extraction and Z analogue not recorded."}
+{"mid": "Z0061", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (Prop 3.3)", "BRAINSTORM/other_rings.md §5"], "evidence": "", "note": "Prop 3.3 covers quadratic N(eps)=-1 only; general number-field conjecture not examined."}
+{"mid": "Z0062", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (EVIDENCE for D=2,5,7,13)"], "evidence": "", "note": "Non-hit classes for D=5 recorded in search box; square-class comparison not run."}
+{"mid": "Z0063", "status": "untried", "files": [], "evidence": "", "note": "Eisenstein cone / sector cones in Z[omega] not examined; other_rings covers only generic discrete cones."}
+{"mid": "Z0064", "status": "open", "files": ["BRAINSTORM/other_rings.md §4 (collapse principle)"], "evidence": "", "note": "Collapse principle for cones with small conjugates stated; semiring cone Z>=0[sqrt2] not searched."}
+{"mid": "Z0065", "status": "untried", "files": [], "evidence": "", "note": "Pisot/Salem semiring cones and beta-numeration links not examined in repo."}
+{"mid": "Z0066", "status": "untried", "files": [], "evidence": "", "note": "Non-maximal orders Z[2i], Z[sqrt-3] with Gaussian-style cones not examined for ES."}
+{"mid": "Z0067", "status": "open", "files": ["BRAINSTORM/other_rings.md §2 and §4 (Gaussian cone, open)"], "evidence": "", "note": "Gaussian cone ES recorded as open conjecture; no Gaussian-prime search recorded."}
+{"mid": "Z0068", "status": "open", "files": ["QUATERNION_ES.md (level 4dp ideal reformulation)"], "evidence": "", "note": "Quaternionic reformulation examined; positive-real-part cone search for Hurwitz denominators not run."}
+{"mid": "Z0069", "status": "untried", "files": [], "evidence": "", "note": "Positive-definite matrix ES with (4/n)I not examined; no repo hit."}
+{"mid": "Z0070", "status": "untried", "files": [], "evidence": "", "note": "Commuting-matrix reduction to products of number-field orders not stated in repo."}
+{"mid": "Z0071", "status": "untried", "files": [], "evidence": "", "note": "Group-ring cone N[C_m] for ES not examined; no repo hit."}
+{"mid": "Z0072", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (Lemma 3.1 discussion)"], "evidence": "", "note": "Only e in {1,2} over N recorded; p-dependent e and explicit e-slice match not checked."}
+{"mid": "Z0073", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (Prop 3.2, 2 in S gives trivial ES)"], "evidence": "", "note": "Dyadic inversion triviality recorded; local-global reformulation vs STRONG_APPROX_ES not checked."}
+{"mid": "Z0074", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (Prop 3.2)", "BRAINSTORM/s3_numerator_blind.md"], "evidence": "", "note": "S-integer relaxations examined; the nu(p) filter with 4/p=1/(p/3)+1/(2p)+1/(2p) not recorded."}
+{"mid": "Z0075", "status": "open", "files": ["BRAINSTORM/other_rings.md §4 (Assessment, unifying principle)"], "evidence": "", "note": "Informal discrete-cone principle recorded; formal Dedekind theorem and proof not written."}
+{"mid": "Z0076", "status": "untried", "files": [], "evidence": "", "note": "Class number greater than 1 imaginary quadratic ES for non-principal splitting primes not examined."}
+{"mid": "Z0077", "status": "untried", "files": [], "evidence": "", "note": "Galois-orbit (trace of reciprocal) ES in cyclic cubic fields not examined."}
+{"mid": "Z0078", "status": "open", "files": ["BRAINSTORM/s3_vphi_ringmaps.md Result 2 (trace averaging)"], "evidence": "", "note": "Trace/norm structure of averaged identity recorded; quadratic-orbit binary-form equivalence not made."}
+{"mid": "Z0079", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (Prop 3.3)"], "evidence": "", "note": "Prop 3.3 gives positive ES over O_K; algebraic-integer ring corollary not recorded."}
+{"mid": "Z0080", "status": "untried", "files": [], "evidence": "", "note": "Local quadratic-character sign patterns for p-adic ES solutions not tabulated in repo."}
+{"mid": "Z0081", "status": "untried", "files": [], "evidence": "", "note": "Global Legendre-symbol pattern tabulation of ES solutions not found in repo."}
+{"mid": "Z0082", "status": "open", "files": ["GEOMETRY_ES.md (BM and integral points)", "MARKOFF_ES.md"], "evidence": "", "note": "Integral points and Vieta-type symmetries of ES surfaces examined; automorphism-orbit test not recorded."}
+{"mid": "Z0083", "status": "open", "files": ["GEOMETRY_ES.md Prop 2.2 (positive-entry SL2 matrices)"], "evidence": "", "note": "Positive-entry matrix encoding of Type I examined; matrix-inverse ES with (4/n)I not tested."}
+{"mid": "Z0084", "status": "open", "files": ["GEOMETRY_ES.md Prop 2.2 (det M = n, positive entries)"], "evidence": "", "note": "det-n positive-entry matrix encoding examined; positive-definite inverse-sum version untested."}
+{"mid": "Z0085", "status": "untried", "files": [], "evidence": "", "note": "Product-ring componentwise lemma trivial; not recorded as dictionary entry."}
+{"mid": "Z0086", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (EVIDENCE N(eps)=+1)"], "evidence": "", "note": "Coverage for N(eps)=+1 fields observed numerically; proof route not written."}
+{"mid": "Z0087", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (Prop 3.2, 2 in S)"], "evidence": "", "note": "Z[1/2] and Z[1/3] mechanisms both recorded; classification over |S|=1 not done."}
+{"mid": "Z0088", "status": "open", "files": ["BRAINSTORM/z9_brandt_screen.md (L1 Hecke-equivariant functionals)", "BRAINSTORM/bsC_supersingular_transfer.md"], "evidence": "", "note": "Brandt counts examined as form-class data; ES-equals-Brandt-entry check not recorded."}
+{"mid": "Z0089", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (EVIDENCE D=3,6)"], "evidence": "", "note": "Full coverage observed for D=3,6 by search; explicit packaged theorem not written."}
+{"mid": "Z0090", "status": "untried", "files": [], "evidence": "", "note": "Real quadratic function fields with Pell units and unit-sum mechanism not examined."}
+{"mid": "Z0091", "status": "open", "files": ["BRAINSTORM/other_rings.md §2 and §4 (Gaussian conjecture open)"], "evidence": "", "note": "Gaussian-cone to Z injection question recorded only via open Gaussian conjecture."}
+{"mid": "Z0092", "status": "untried", "files": [], "evidence": "", "note": "Quaternionic non-negative semiring cones not examined; closure check not recorded."}
+{"mid": "Z0093", "status": "untried", "files": [], "evidence": "", "note": "CM-field cone from maximal real subfield with unit mechanism not examined; other_rings covers real quadratic only."}
+{"mid": "Z0094", "status": "open", "files": ["BRAINSTORM/other_rings.md §4 (lottery principle)"], "evidence": "", "note": "Unit-rank-0 classification only informally covered; Assessment not written."}
+{"mid": "Z0095", "status": "untried", "files": [], "evidence": "", "note": "Dual-number tangent-space ES not examined; no repo hit."}
+{"mid": "Z0096", "status": "open", "files": ["BRAINSTORM/other_rings.md §3 (Prop 3.2 S-integers)"], "evidence": "", "note": "S-integer worlds and unit mechanism recorded; circularity filter lemma not recorded."}
+{"mid": "Z0097", "status": "untried", "files": [], "evidence": "", "note": "Formal power series ES Hensel-lifting not examined in repo."}
+{"mid": "Z0098", "status": "untried", "files": [], "evidence": "", "note": "Height-positivity cone (all conjugates >= 1) in Z[sqrt2] not examined."}
+{"mid": "Z0099", "status": "untried", "files": [], "evidence": "", "note": "T1 emptiness at Gaussian squares pi^2 not examined; no hit."}
+{"mid": "Z0100", "status": "open", "files": ["BRAINSTORM/apollonian_reciprocity.md (quartic symbols not congruence data)", "BRAINSTORM/invol_sign_identities.md"], "evidence": "", "note": "Quartic symbols examined for other objects; certificate quartic-symbol bias test not run."}
+{"mid": "Z0101", "status": "untried", "files": [], "evidence": "", "note": "Closure of quadrant-type Gaussian cones not checked in repo."}
+{"mid": "Z0102", "status": "untried", "files": [], "evidence": "", "note": "Epstein unit-fraction-generated rings R(D) not examined in repo."}
+{"mid": "Z0103", "status": "untried", "files": [], "evidence": "", "note": "Egyptian-domain literature only mentioned in passing; length-bounded statement not examined."}
+{"mid": "Z0104", "status": "untried", "files": [], "evidence": "", "note": "Egyptian length function across domains not computed or defined in repo."}
+{"mid": "Z0105", "status": "open", "files": ["BRAINSTORM/ff_erdos_straus.md §1 (Lemma 1.1, dominant denominator at infinity)"], "evidence": "", "note": "Leading-coefficient view at infinity examined; completion F_q((1/T)) dictionary not written."}
+{"mid": "Z0106", "status": "untried", "files": [], "evidence": "", "note": "Weil restriction of O_K equation to six integer variables not examined."}
+{"mid": "Z0107", "status": "open", "files": ["BRAINSTORM/z25_numerator_models.md (divisor closure)", "AMPLIFY_EXCEPTION.md (K3 divisor closure)"], "evidence": "", "note": "Divisor closure of numerator sets recorded for other exceptional sets; M(p) divisor-closure reduction not recorded."}
+{"mid": "Z0108", "status": "open", "files": ["BRAINSTORM/z25_numerator_models.md", "BRAINSTORM/s8_numerator_size_screen.md"], "evidence": "", "note": "Numerator-model forced families examined; forced large elements of M(p) mod 4 not tabulated."}
+{"mid": "Z0109", "status": "open", "files": ["BRAINSTORM/s8_numerator_size_screen.md (8/p unsolvable at 11,17,131,241)", "BRAINSTORM/z39_quartic_slices.md"], "evidence": "", "note": "8/p exceptions recorded and partly explained; all-even covering family not searched."}
+{"mid": "Z0110", "status": "open", "files": ["BRAINSTORM/s8_numerator_size_screen.md", "BRAINSTORM/z39_quartic_slices.md"], "evidence": "", "note": "Coincident failure primes 17, 241 recorded; equivalence between the two solution types not proved in repo."}
+{"mid": "Z0111", "status": "untried", "files": [], "evidence": "", "note": "Sum-of-two-squares constraint on all denominators not examined; no repo hit."}
+{"mid": "Z0112", "status": "untried", "files": [], "evidence": "", "note": "Divisibility-chain x|y|z constrained world not examined in repo."}
+{"mid": "Z0113", "status": "untried", "files": [], "evidence": "", "note": "z = lcm(x,y) constrained world not examined in repo."}
+{"mid": "Z0114", "status": "open", "files": ["BRAINSTORM/s8_numerator_size_screen.md", "BRAINSTORM/padic_adelic_scaling.md"], "evidence": "", "note": "2-adic local-obstruction programme examined elsewhere; odd-denominator generalization over residue sets not tabulated."}
+{"mid": "Z0115", "status": "open", "files": ["BRAINSTORM/padic_adelic_scaling.md", "BRAINSTORM/s8_numerator_size_screen.md"], "evidence": "", "note": "Local congruence obstructions examined in adelic programme; denominators-1-mod-l tabulation not recorded."}
+{"mid": "Z0116", "status": "untried", "files": [], "evidence": "", "note": "Pairwise-coprime-denominator impossibility not stated or tested in repo."}
+{"mid": "Z0117", "status": "untried", "files": [], "evidence": "", "note": "Squarefree-denominator constrained world not examined in repo."}
+{"mid": "Z0118", "status": "untried", "files": [], "evidence": "", "note": "Prime-denominator constrained world (3/p two-term) not examined in repo."}
+{"mid": "Z0119", "status": "untried", "files": [], "evidence": "", "note": "Arithmetic-progression denominators not examined; no repo hit."}
+{"mid": "Z0120", "status": "open", "files": ["BRAINSTORM/y4_seven_control.md §(Sierpinski 5/n open)", "BRAINSTORM/ident_numerators.md"], "evidence": "", "note": "5/n recorded as open with m=4 covering analysis; m=5 mod-M uncovered-class table not recorded."}
+{"mid": "Z0121", "status": "open", "files": ["BRAINSTORM/ident_numerators.md", "BRAINSTORM/z25_numerator_models.md"], "evidence": "", "note": "Schinzel m/n finiteness examined per numerator; largest-exception table for m<=30 not recorded."}
+{"mid": "Z0122", "status": "open", "files": ["BRAINSTORM/ident_numerators.md", "EXPONENT_COVERING.md"], "evidence": "", "note": "Square-class obstruction examined for m=4; general-m uncovered-class search not recorded."}
+{"mid": "Z0123", "status": "open", "files": ["BRAINSTORM/z25_numerator_models.md", "BRAINSTORM/z32_numerator_ladder.md"], "evidence": "", "note": "Numerator ladder 4|8|16 examined structurally; E_1, E_2 computation not recorded."}
+{"mid": "Z0124", "status": "untried", "files": [], "evidence": "", "note": "Rav two-term divisor criterion not examined in repo."}
+{"mid": "Z0125", "status": "untried", "files": [], "evidence": "", "note": "Huang-Vaughan binary Egyptian fraction method only mentioned in literature notes; not applied to ES slices."}
+{"mid": "Z0126", "status": "open", "files": ["BRAINSTORM/z1_small_prime_pigeonhole.md §(numerators 2, 3 trivial)"], "evidence": "", "note": "Numerator-2 triviality noted in genus analysis; explicit n(n+1)/2 identity not recorded."}
+{"mid": "Z0127", "status": "untried", "files": [], "evidence": "", "note": "Weight-vector ternary problems (a,b,c) not examined as a family in repo."}
+{"mid": "Z0128", "status": "open", "files": ["BRAINSTORM/bsA_farey_graph_metric.md §(signed ES trivial, 2-term identities)"], "evidence": "", "note": "Signed ES triviality examined; size-controlled negative term threshold not recorded."}
+{"mid": "Z0129", "status": "untried", "files": [], "evidence": "", "note": "Best underapproximation structure (Kovac-Tang) only in literature notes; not applied to ES."}
+{"mid": "Z0130", "status": "open", "files": ["BRAINSTORM/y4_oneodd_slices.md (parity of odd slots)"], "evidence": "", "note": "Odd-denominator parity examined for one-odd slices; odd greedy termination link not recorded."}
+{"mid": "Z0131", "status": "open", "files": ["BRAINSTORM/y4_oneodd_slices.md"], "evidence": "", "note": "Parity forcing of even odd-term count examined; k=2 vs k=4 computation not recorded."}
+{"mid": "Z0132", "status": "untried", "files": [], "evidence": "", "note": "Shifted-prime denominators q-1 for 4/n not examined; Bloom only in literature notes."}
+{"mid": "Z0133", "status": "untried", "files": [], "evidence": "", "note": "Semiprime-denominator 3-term ES not examined; Li result only in literature notes."}
+{"mid": "Z0134", "status": "untried", "files": [], "evidence": "", "note": "Short-interval denominator windows (Croot) not applied to ES solutions."}
+{"mid": "Z0135", "status": "untried", "files": [], "evidence": "", "note": "Partition regularity of reciprocal equation 1/x+1/y+1/z=4/w not examined; no repo hit."}
+{"mid": "Z0136", "status": "untried", "files": [], "evidence": "", "note": "Sun covering-system reading of ES triples not examined."}
+{"mid": "Z0137", "status": "untried", "files": [], "evidence": "", "note": "Elsholtz-Planitzer k>=4 parametrizations only cited for counts; pointwise 4-term statement not examined."}
+{"mid": "Z0138", "status": "untried", "files": [], "evidence": "", "note": "Four-term ES with max-denominator cap not examined in repo."}
+{"mid": "Z0139", "status": "untried", "files": [], "evidence": "", "note": "Distinctness-WLOG for ES not examined in repo beyond folklore."}
+{"mid": "Z0140", "status": "untried", "files": [], "evidence": "", "note": "Arithmetic-progression structure of M(p) not examined in repo."}
+{"mid": "Z0141", "status": "untried", "files": [], "evidence": "", "note": "Chen-Elsholtz-Jiang S-unit restricted Egyptian fractions only cited in literature log; not applied."}
+{"mid": "Z0142", "status": "untried", "files": [], "evidence": "", "note": "Three-term sums of reciprocal squares for 4/n not examined."}
+{"mid": "Z0143", "status": "untried", "files": [], "evidence": "", "note": "Mixed square-denominator 4/n = 1/x + 1/y + 1/z^2 not examined."}
+{"mid": "Z0144", "status": "untried", "files": [], "evidence": "", "note": "Pronic/polynomial-valued denominator restriction not examined for ES."}
+{"mid": "Z0145", "status": "open", "files": ["BRAINSTORM/y4_oneodd_slices.md (parity)", "BRAINSTORM/padic_adelic_scaling.md"], "evidence": "", "note": "All-odd denominator impossibility at odd n noted via parity; prime-by-prime all-odd computation not recorded."}
+{"mid": "Z0146", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "", "note": "Density of representable rationals examined additively; a/b-plane transition plot not recorded."}
+{"mid": "Z0147", "status": "done", "files": ["BRAINSTORM/s3_min_scale.md (Cheap numerics, Type II only, p < 10^7)"], "evidence": "max h_min / log³p = 0.814 (≤ 0.82), max g_box / log²p = 1.46;", "note": "Type-II-only census to 10^7 run; h_min finite for all primes, so no failure recorded."}
+{"mid": "Z0148", "status": "open", "files": ["BRAINSTORM/greedy_algorithm_dynamics.md (O150, angle b)"], "evidence": "", "note": "Greedy-type dynamics for 4/p examined; bounded look-ahead variant not recorded."}
+{"mid": "Z0149", "status": "open", "files": ["BRAINSTORM/z25_numerator_models.md", "BRAINSTORM/z25_thresholds.md"], "evidence": "", "note": "Numerator-model exceptions examined by m; prime-vs-composite m comparison not recorded."}
+{"mid": "Z0150", "status": "untried", "files": [], "evidence": "", "note": "Egyptian fractions in topological groups (Ross) only in literature notes; not applied to ES."}
+{"mid": "Z0151", "status": "untried", "files": [], "evidence": "", "note": "Derived-set structure of 3-term sums not examined in repo."}
+{"mid": "Z0152", "status": "untried", "files": [], "evidence": "", "note": "Engel/Pierce expansion length of 4/p not examined for ES."}
+{"mid": "Z0153", "status": "untried", "files": [], "evidence": "", "note": "Triangle-group orbifold areas vs ES not examined; z9_triangle_shapes concerns other shapes."}
+{"mid": "Z0154", "status": "untried", "files": [], "evidence": "", "note": "Riemann-Hurwitz integrality of ES triples not examined in repo."}
+{"mid": "Z0155", "status": "untried", "files": [], "evidence": "", "note": "Log canonical thresholds of Brieskorn-Pham polynomials not examined in repo."}
+{"mid": "Z0156", "status": "untried", "files": [], "evidence": "", "note": "Quasi-homogeneous lct weight formulas not examined in repo."}
+{"mid": "Z0157", "status": "untried", "files": [], "evidence": "", "note": "Brieskorn link homology of ES triples not examined in repo."}
+{"mid": "Z0158", "status": "untried", "files": [], "evidence": "", "note": "Pretzel-link/Seifert Euler-number reformulation not examined in repo."}
+{"mid": "Z0159", "status": "untried", "files": [], "evidence": "", "note": "Star-shaped Dynkin tree determinants vs ES not examined in repo."}
+{"mid": "Z0160", "status": "untried", "files": [], "evidence": "", "note": "Weighted star-tree determinant with central weight k not examined in repo."}
+{"mid": "Z0161", "status": "untried", "files": [], "evidence": "", "note": "Parallel-resistor realisation of n/4 not examined in repo."}
+{"mid": "Z0162", "status": "untried", "files": [], "evidence": "", "note": "Rectangle strip tiling reformulation of ES not examined in repo."}
+{"mid": "Z0163", "status": "untried", "files": [], "evidence": "", "note": "Pinwheel periodic-scheduling density reformulation not examined in repo."}
+{"mid": "Z0164", "status": "untried", "files": [], "evidence": "", "note": "Compact prefix-code tree encoding of ES not examined in repo."}
+{"mid": "Z0165", "status": "untried", "files": [], "evidence": "", "note": "Landau class-equation Egyptian equations for groups not examined; no repo hit."}
+{"mid": "Z0166", "status": "open", "files": ["BRAINSTORM/bsA_farey_lnr_pigeonhole.md (HJ length)", "BRAINSTORM/bsA_toric_ksb_wahl.md"], "evidence": "", "note": "HJ continued-fraction length examined; lambda(p)<=3 as cyclic quotient singularity condition not recorded."}
+{"mid": "Z0167", "status": "untried", "files": [], "evidence": "", "note": "Dessins/Belyi-map encoding of ES triples not examined; no repo hit."}
+{"mid": "Z0168", "status": "untried", "files": [], "evidence": "", "note": "Takeuchi arithmetic triangle-group list vs ES triples not examined."}
+{"mid": "Z0169", "status": "untried", "files": [], "evidence": "", "note": "Spherical/Euclidean/hyperbolic trichotomy as context only; not examined for ES."}
+{"mid": "Z0170", "status": "untried", "files": [], "evidence": "", "note": "Wythoff tilings from ES triangles not examined."}
+{"mid": "Z0171", "status": "untried", "files": [], "evidence": "", "note": "Hurwitz branched-cover existence for ES data not examined."}
+{"mid": "Z0172", "status": "untried", "files": [], "evidence": "", "note": "Euler/regular-map equation as ES cousin not examined."}
+{"mid": "Z0173", "status": "untried", "files": [], "evidence": "", "note": "Schwarz hypergeometric exponent-difference reading of ES not examined."}
+{"mid": "Z0174", "status": "untried", "files": [], "evidence": "", "note": "Weighted projective hypersurface conditions vs 4/n not examined."}
+{"mid": "Z0175", "status": "open", "files": ["BRAINSTORM/bsA_fricke_vieta.md (O174, Vieta dynamics)", "MARKOFF_ES.md"], "evidence": "", "note": "Vieta/Markoff comparison examined; absence of second root for linear ES surface not explicitly recorded."}
+{"mid": "Z0176", "status": "open", "files": ["GEOMETRY_ES.md", "BRAINSTORM/graph_cayley_moves.md (M3 birational automorphisms)"], "evidence": "", "note": "Birational automorphisms of Markoff-type cubics examined; ES surface automorphism group not computed."}
+{"mid": "Z0177", "status": "open", "files": ["BRAINSTORM/apollonian_reciprocity.md", "BRAINSTORM/thin_group_orbits.md"], "evidence": "", "note": "Apollonian reciprocity obstructions examined; Haag-Kertzer-Rickards-Stange comparison not recorded."}
+{"mid": "Z0178", "status": "open", "files": ["BRAINSTORM/farey_ford_cf.md (O144a, Ford circles)", "BRAINSTORM/farey_chain_frieze.md"], "evidence": "", "note": "Ford-circle/Farey reading of Type I examined; tangency-curvature reformulation not separately recorded."}
+{"mid": "Z0179", "status": "untried", "files": [], "evidence": "", "note": "Sierpinski-triangle/Pascal-mod-2 reading of 4/n not examined."}
+{"mid": "Z0180", "status": "open", "files": ["FRIEZE_ES.md (deep file, A2 friezes)", "BRAINSTORM/y2_zamolodchikov_forcing.md"], "evidence": "", "note": "Frieze pattern reformulation of ES examined in y2 memos; width-3 frieze check for 4/p not recorded."}
+{"mid": "Z0181", "status": "open", "files": ["BRAINSTORM/tropical_newton.md", "BRAINSTORM/padic_adelic_scaling.md"], "evidence": "", "note": "Tropicalization of the ES surface examined; prime-by-prime cell list not computed."}
+{"mid": "Z0182", "status": "open", "files": ["BRAINSTORM/tropical_newton.md", "BRAINSTORM/z24_crt_shortfall.md"], "evidence": "", "note": "Archimedean size-window reading recorded in tropical and CRT memos."}
