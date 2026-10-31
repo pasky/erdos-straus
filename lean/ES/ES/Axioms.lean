@@ -5,6 +5,7 @@ import ES.Basic
 #print axioms ES.cofactor_dvd
 #print axioms ES.cform_ES
 #print axioms ES.cform_ES_rat
+#print axioms ES.cform_C_bound
 #print axioms ES.jacobi_C_of_dvd_succ
 #print axioms ES.jacobi_n_of_cform
 #print axioms ES.no_cform_square

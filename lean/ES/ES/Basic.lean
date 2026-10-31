@@ -43,7 +43,7 @@ throughout the repository.
 **Theorem (`cform_ES`).** If a ∣ 4Cn + 1 and 4C ∣ a + 1 then ES(n) with x = Cuv, y = nCv, z = nCu, where
 a + 1 = 4Cu, b + 1 = 4Cv, ab = 4Cn + 1.
 1. 4C ∣ b + 1: 4C · (ub) = (a + 1) b = (4Cn + 1) + b, so 4C ∣ 4Cn + (b + 1).
-2. (a + 1)(b + 1) = ab + (a + 1) + (b + 1) gives 4C · 4Cuv = 4C (n + u + v), so n + u + v = 4Cuv (C ≠ 0).
+2. (a + 1)(b + 1) + 1 = ab + (a + 1) + (b + 1) gives 4C · 4Cuv = 4C (n + u + v), so n + u + v = 4Cuv (C ≠ 0).
 3. u, v ≥ 1 (a + 1, b + 1 > 0), C ≥ 1, and n ≥ 1 (n = 0 would give u + v = 4Cuv ≥ 4uv > u + v).
 4. 4xyz − n(xy + yz + zx) = n²C²uv · (4Cuv − (n + u + v)) = 0.
 -/
@@ -131,6 +131,27 @@ theorem cform_ES_rat {n C a : ℕ} (h : CForm n C a) :
     · simp at e; omega
     · exact hn
   exact ⟨hn, (ESProp_iff_rat n hn).mp (cform_ES h)⟩
+
+/-- A C-form certificate for `n` forces `4C ≤ n + 2` (`BRAINSTORM/z45_euler_systems.md:126`, Lemma 3.1),
+so for each `n` only finitely many `C` (and divisors `a`) need checking. -/
+theorem cform_C_bound {n C a : ℕ} (h : CForm n C a) : 4 * C ≤ n + 2 := by
+  obtain ⟨⟨b, hab⟩, ha⟩ := h
+  have hb := cofactor_dvd hab ha
+  obtain ⟨u, hu⟩ := ha
+  obtain ⟨v, hv⟩ := hb
+  have hC : C ≠ 0 := by rintro rfl; omega
+  have hu1 : 1 ≤ u := Nat.one_le_iff_ne_zero.mpr (by rintro rfl; omega)
+  have hv1 : 1 ≤ v := Nat.one_le_iff_ne_zero.mpr (by rintro rfl; omega)
+  have key : n + u + v = 4 * C * u * v := by
+    have h1 : (4 * C) * (n + u + v) = (4 * C) * (4 * C * u * v) := by
+      have e : (a + 1) * (b + 1) + 1 = a * b + (a + 1) + (b + 1) := by ring
+      rw [hu, hv, ← hab] at e
+      zify at e ⊢
+      linear_combination -e
+    exact Nat.eq_of_mul_eq_mul_left (by omega) h1
+  -- 4Cuv − u − v ≥ 4C − 2 for u, v ≥ 1, C ≥ 1
+  have hC1 : 1 ≤ C := Nat.one_le_iff_ne_zero.mpr hC
+  nlinarith [Nat.mul_le_mul hu1 hv1, Nat.mul_le_mul (Nat.mul_le_mul hC1 hu1) hv1]
 
 /-! ### Part (b): the Jacobi-symbol obstruction T1 -/
 
@@ -421,8 +442,10 @@ theorem ES_of_primes_one_mod_four (h : ∀ p, p.Prime → p % 4 = 1 → ESProp p
     · exact h _ hp h1
     · exact ESProp_three_mod_four h3
 
-/-- C-form at every prime `p ≡ 1 (mod 4)` would imply ES. (The hypothesis is believed FALSE: the repo's search
-finds no C-form certificate for p = 409, 577, 5569, 9601 with C ≤ 60000, `BRAINSTORM/z52b_free_fable.md:485`.) -/
+/-- C-form at every prime `p ≡ 1 (mod 4)` would imply ES. **VACUOUS: the hypothesis is FALSE.** By
+`cform_C_bound` a certificate for p needs C ≤ (p+2)/4, and the exhaustive search over that range finds none for
+p = 409 (`BRAINSTORM/z45_euler_systems.md:126,170–183`; also `BRAINSTORM/z52b_free_fable.md:485`). The search is a
+computation and is not formalised here. Kept only as a formal record; the useful reduction is `ES_of_primes_one_mod_four`. -/
 theorem ES_of_cform_primes (h : ∀ p, p.Prime → p % 4 = 1 → ∃ C a, CForm p C a) : ErdosStraus :=
   ES_of_primes_one_mod_four fun p hp hp4 => by
     obtain ⟨C, a, hc⟩ := h p hp hp4

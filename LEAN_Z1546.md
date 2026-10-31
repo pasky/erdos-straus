@@ -1,8 +1,9 @@
 # LEAN_Z1546 — Lean formalisation: C-form ⟹ ES, and the square obstruction T1
 
 Item Z1546 (`ES_CONNECTIONS_TODO.md:182`; from `BRAINSTORM/z52b_free_fable.md` item 236). **ES is OPEN; nothing here
-proves it.** Everything below is machine-checked (Lean 4 + mathlib), with no `sorry` and no axioms beyond Lean's
-standard three.
+proves it.** All Lean statements listed below are machine-checked (Lean 4 + mathlib), with no `sorry` and no axioms
+beyond Lean's standard three. The brute-force count in finding 2 and the search cited in finding 3 are Python/repo
+computations and are not formalised.
 
 ## Discrepancies / scope findings (read first)
 
@@ -10,18 +11,23 @@ standard three.
 
 1. **T1 for the C-form holds at *every* square, not just odd ones** (and also at m = 0). The BRAINSTORM item
    (`BRAINSTORM/z52b_free_fable.md:489`, "odd squares") understates it. `PARITY_AUDIT.md:214` (Lemma 3.2, R265 repair m5)
-   and `FRONTIER.md:241` ("any square") already have it right. No hypotheses C ≥ 1 or n ≥ 1 are needed anywhere: Lean
-   derives both from `4C ∣ a + 1`.
+   and `FRONTIER.md:241` ("any square") already have it right. `CForm`, `cform_ES` and T1 carry no C ≥ 1 or n ≥ 1
+   hypotheses. C ≥ 1 follows from `4C ∣ a + 1`, and n ≥ 1 follows from the complete certificate (`a ∣ 4Cn + 1` together
+   with `4C ∣ a + 1`). `ESProp_iff_rat` and `cform_iff_shifted` do assume n > 0 explicitly.
 2. **T1 for the Type I *divisor form* (`FRONTIER.md:44`, f ∣ n² + 4c²d, f ≡ −n (mod 4cd)) at n = m² needs gcd(f, m) = 1,
    even for odd m.** The counterexample m = 3, c = 1, d = 3, f = 3 (3 ∣ 93, 12 ∣ 3 + 9) is checked by `decide` in
-   `ES/Axioms.lean`, as is m = 2, c = d = 1, f = 4. A brute-force check (m < 40, c < 30, d < 60) found 13435 Type I
-   divisor-form hits at squares, every one with gcd(f, m) > 1. This does not contradict the repo, because FRONTIER states the
+   `ES/Axioms.lean`, as is m = 2, c = d = 1, f = 4. A Python brute force over 1 ≤ m < 40, 1 ≤ c < 30, 1 ≤ d < 60 (all
+   divisors f of m⁴ + 4c²d) found 13375 distinct Type I divisor-form hits at squares, every one with gcd(f, m) > 1.
+   The count was confirmed independently by the reviewer. The script is not committed and the count is not
+   machine-checked. This does not contradict the repo, because FRONTIER states the
    divisor forms for primes p and the R290 repair (`FRONTIER.md:42`) already warns that composite n needs coprimality.
    Still, never apply the Type I divisor-form T1 at squares without gcd(f, m) = 1. The Type II divisor form needs no
    such hypothesis.
-3. The optional reduction `ES_of_cform_primes` ("C-form at every prime p ≡ 1 (4) ⟹ ES") is formally correct. Its
-   hypothesis is believed **false**: 409, 577, 5569 and 9601 have no C-form certificate with C ≤ 60000
-   (`BRAINSTORM/z52b_free_fable.md:485`). The useful reduction is `ES_of_primes_one_mod_four`.
+3. The optional reduction `ES_of_cform_primes` ("C-form at every prime p ≡ 1 (4) ⟹ ES") is formally correct, but
+   **vacuous: its hypothesis is false.** `cform_C_bound` (proved) shows that a certificate needs 4C ≤ n + 2, so for
+   each p the search is finite. That search, done exhaustively, finds no certificate for 409, 577 or 5569
+   (`BRAINSTORM/z45_euler_systems.md:126,170–183`). The reviewer also re-exhausted the ranges for 409, 577, 5569 and 9601.
+   The search itself is not formalised. The useful reduction is `ES_of_primes_one_mod_four`.
 
 ## Statements (Lean ↔ English), all PROVED
 
@@ -39,6 +45,8 @@ Definitions:
 * `cform_ES : CForm n C a → ESProp n`. Proof: write a + 1 = 4Cu and b + 1 = 4Cv. Then n + u + v = 4Cuv, and the
   witnesses are x = Cuv, y = nCv, z = nCu, as in the repo (`:389`). `cform_ES_rat` gives the same as a rational
   identity, with n > 0 derived rather than assumed.
+* `cform_C_bound : CForm n C a → 4*C ≤ n+2` (`BRAINSTORM/z45_euler_systems.md:126`, Lemma 3.1). It makes the C-form
+  search finite for each n.
 
 (b) T1 and the QNR lemma
 * Lemma A, `jacobi_C_of_dvd_succ : 4*C ∣ a+1 → J(C | a) = 1`. Proof: split off the 2-part of C (χ₈) and use reciprocity
@@ -62,7 +70,7 @@ The equivalence between the divisor forms and Elsholtz–Tao Type I/II *solution
 
 ## Axioms (`lean/ES/ES/Axioms.lean`, `#print axioms`)
 
-All 14 audited theorems (`ESProp_iff_rat`, `cofactor_dvd`, `cform_ES`, `cform_ES_rat`, `jacobi_C_of_dvd_succ`,
+All 15 audited theorems (`ESProp_iff_rat`, `cofactor_dvd`, `cform_ES`, `cform_ES_rat`, `cform_C_bound`, `jacobi_C_of_dvd_succ`,
 `jacobi_n_of_cform`, `no_cform_square`, `no_shifted_square`, `jacobi_a_of_cform`, `cform_iff_shifted`,
 `no_typeII_square`, `no_typeI_square`, `ES_of_primes_one_mod_four`, `ES_of_cform_primes`) report the same result:
 `depends on axioms: [propext, Classical.choice, Quot.sound]`. There is no `sorry` and no `native_decide`. The
