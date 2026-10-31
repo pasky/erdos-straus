@@ -123,3 +123,28 @@
 {"mid": "Z2916", "status": "untried", "files": [], "evidence": "", "note": "Efficient congruencing across modulus scales for 4uB not examined."}
 {"mid": "Z2917", "status": "untried", "files": [], "evidence": "", "note": "Voronoi-summation of divisor sums in progression 4p with class -1 mod 4C not carried out."}
 {"mid": "Z2918", "status": "open", "files": ["COMPOSITION_ES.md", "DETERMINISTIC_EXISTENCE.md"], "evidence": "", "note": "Composition laws on ES forms examined; defect-lowering composition for near-certificates not analysed."}
+{"mid": "Z2919", "status": "untried", "files": [], "evidence": "", "note": "Secant/tangent composition of integral points on U_n with denominators across fibres not computed."}
+{"mid": "Z2920", "status": "open", "files": ["BRAINSTORM/s6_divisor_pigeonhole.md"], "evidence": "", "note": "Divisor-set pigeonhole with Cauchy-Davenport examined; coprime-split e-slice version not computed."}
+{"mid": "Z2921", "status": "open", "files": ["BRAINSTORM/s3_words_parity.md", "BRAINSTORM/y1_reciprocal_parity.md"], "evidence": "", "note": "Parity of single-level counts examined via involutions; natural non-forced-even subsets not tested."}
+{"mid": "Z2922", "status": "open", "files": ["BRAINSTORM/gon_fermat_certificates.md", "BRAINSTORM/other_rings.md"], "evidence": "", "note": "Euclidean/order-norm analogue considered for ES; quaternion-order class numbers for the ES orders not computed."}
+{"mid": "Z2923", "status": "untried", "files": [], "evidence": "", "note": "LLL short-vector search in lattices L_{p,lambda} for (★) triples not run."}
+{"mid": "Z2924", "status": "untried", "files": [], "evidence": "", "note": "Ankeny-style small-vector-plus-congruence argument for the cubic ES polynomial not examined."}
+{"mid": "Z2925", "status": "untried", "files": [], "evidence": "", "note": "Genus class-number enumeration for ES lattice reformulations not performed."}
+{"mid": "Z2926", "status": "open", "files": ["FORCED_WINDOW.md"], "evidence": "", "note": "Auxiliary-prime window certificates examined; determinant-1 form/genus skeleton not built."}
+{"mid": "Z2927", "status": "untried", "files": [], "evidence": "", "note": "Cauchy-type region for (u+B, uB) forced hits not analysed."}
+{"mid": "Z2928", "status": "untried", "files": [], "evidence": "", "note": "Variety with power-size point count fibred over ES certificates not constructed."}
+{"mid": "Z2929", "status": "untried", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Kloosterman-sum treatment of sum over levels t of D_t(tp+1) not carried out."}
+{"mid": "Z2930", "status": "untried", "files": [], "evidence": "", "note": "Correlation of R(p), f_I(p) with class numbers h(-4p) not computed."}
+{"mid": "Z2931", "status": "open", "files": ["BM_CORRECTED_COUNT.md §3", "BRAINSTORM/z45_siegel_dichotomy.md"], "evidence": "", "note": "Siegel-based ineffective replacement of Burgess examined in BM and Siegel notes; the all-large-p yield not written out."}
+{"mid": "Z2932", "status": "untried", "files": ["SYNTHESIS_SPARKS9.md"], "evidence": "", "note": "l-adic Hecke correspondence on ES certificates with varying least non-residue l not tested."}
+{"mid": "Z2933", "status": "open", "files": ["BRAINSTORM/z9_heegner_layers.md", "BRAINSTORM/y1_heegner_level_t.md"], "evidence": "", "note": "Heegner/CM-point existence for ES examined in lanes; disc -4p cusp-landing encoding not tested."}
+{"mid": "Z2934", "status": "untried", "files": ["POINTWISE_SIZE.md"], "evidence": "", "note": "Escalation tree of certificate families up to 1e8 not implemented."}
+{"mid": "Z2935", "status": "open", "files": ["METAPLECTIC_ES.md Thm K"], "evidence": "", "note": "Per-level failure sets via Thm K examined; multiplicative description and density of level intersections not computed."}
+{"mid": "Z2936", "status": "untried", "files": [], "evidence": "", "note": "Cuspidal component / Waldspurger check on ES generating series not performed."}
+{"mid": "Z2937", "status": "untried", "files": [], "evidence": "", "note": "Constrained four-term ES relaxations not enumerated in repo."}
+{"mid": "Z2938", "status": "untried", "files": [], "evidence": "", "note": "Certificate scheme with only linear-form primality conditions not explored."}
+{"mid": "Z2939", "status": "open", "files": ["BRAINSTORM/z31_integral_points_cubics.md", "LITERATURE_AUTOMORPHIC.md"], "evidence": "", "note": "Harpaz conic-fibration framework examined in literature notes; hypothesis check for U_n not recorded."}
+{"mid": "Z2940", "status": "open", "files": ["BRAINSTORM/hardness_law.md", "BRAINSTORM/z45_siegel_dichotomy.md"], "evidence": "", "note": "Linnik-style zero-free/repulsion principles discussed for ES; least-level bound by p^L not formulated for order>=3 characters."}
+{"mid": "Z2941", "status": "open", "files": ["BRAINSTORM/z45_siegel_dichotomy.md", "BRAINSTORM/hardness_law.md"], "evidence": "", "note": "Exceptional-character effects on other certificate families considered; counts for large least non-residue not compared."}
+{"mid": "Z2942", "status": "untried", "files": [], "evidence": "", "note": "Dirichlet-product nonnegativity trick on twisted level series not tested."}
+{"mid": "Z2943", "status": "open", "files": ["EXSET_SHIFT_DIVISORS.md", "PRIMITIVE_INTERSECTION.md"], "evidence": "", "note": "Forced-level divisor constraints across C examined; sizes of constraint sets S_C vs 4Cp+1 not counted."}
