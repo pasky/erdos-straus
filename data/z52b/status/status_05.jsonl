@@ -198,3 +198,83 @@
 {"mid": "Z2193", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
 {"mid": "Z2194", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
 {"mid": "Z2195", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2196", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2197", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2198", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2199", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2200", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2201", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2202", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2203", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2204", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2205", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2206", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2207", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2208", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2209", "status": "open", "files": ["BRAINSTORM/bsG_ternary_weinberger.md"], "evidence": "", "note": "Borwein–Choi square-factor representation theorem examined for xy+yz+zx; ES-side use not analysed."}
+{"mid": "Z2210", "status": "open", "files": ["LITERATURE_2026.md"], "evidence": "", "note": "OEIS A025052 squarefree omission structure recorded in literature note; no ES test."}
+{"mid": "Z2211", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2212", "status": "open", "files": ["BRAINSTORM/bsG_ternary_weinberger.md"], "evidence": "", "note": "Idoneal-type omission condition for xy+yz+zx examined; cubic-form link not tested."}
+{"mid": "Z2213", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2214", "status": "open", "files": ["EXCEPTIONAL_LARGESIEVE.md"], "evidence": "", "note": "Exceptional-set power-saving bounds examined in campaign; ES-specific MO density question not settled."}
+{"mid": "Z2215", "status": "open", "files": ["BRAINSTORM/../z31_unit_fractions.md"], "evidence": "", "note": "Schinzel k/n largest-exception question listed as open problem; no ES computation recorded."}
+{"mid": "Z2216", "status": "open", "files": ["BRAINSTORM/z31_unit_fractions.md"], "evidence": "", "note": "a/n with k<a terms listed open in repo (Schinzel/Sierpiński class); no test recorded."}
+{"mid": "Z2217", "status": "open", "files": ["BRAINSTORM/z31_unit_fractions.md"], "evidence": "", "note": "k/n with fixed term count listed as open Schinzel-type problem; no test recorded."}
+{"mid": "Z2218", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2219", "status": "open", "files": ["HJ_DEEP.md"], "evidence": "", "note": "2n+1 prime criterion for bilinear complement examined in HJ_DEEP; ES-side use not recorded."}
+{"mid": "Z2220", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2221", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2222", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2223", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2224", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2225", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2226", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2227", "status": "open", "files": ["BRAINSTORM/bsG_ternary_weinberger.md"], "evidence": "", "note": "Square-factor coverage for xy+yz+zx examined; squarefree stratum not analysed for ES."}
+{"mid": "Z2228", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2229", "status": "open", "files": ["BRAINSTORM/bsG_ternary_weinberger.md"], "evidence": "", "note": "Square-factor exceptions for the trilinear form examined; positivity role not analysed."}
+{"mid": "Z2230", "status": "open", "files": ["LITERATURE_2026.md"], "evidence": "", "note": "Indecomposable-form reinterpretation of omission set recorded in literature note; not tested."}
+{"mid": "Z2231", "status": "open", "files": ["LITERATURE_2026.md"], "evidence": "", "note": "Squarefree omission list for xy+yz+zx noted in literature; finiteness-tail model not built."}
+{"mid": "Z2232", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2233", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2234", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2235", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2236", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2237", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2238", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2239", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2240", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2241", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2242", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2243", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2244", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2245", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2246", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2247", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2248", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2249", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2250", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2251", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2252", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2253", "status": "open", "files": ["BRAINSTORM/apollonian_reciprocity.md"], "evidence": "", "note": "Apollonian density-one local-global results examined (HKRS); ES pointwise contrast not analysed."}
+{"mid": "Z2254", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2255", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2256", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2257", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2258", "status": "open", "files": ["BRAINSTORM/bsA_fricke_vieta.md"], "evidence": "", "note": "Vieta/Fricke involution on Markoff-type cubic examined; uniqueness test not transferred to ES."}
+{"mid": "Z2259", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2260", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2261", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2262", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2263", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2264", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2265", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2266", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2267", "status": "open", "files": ["BRAINSTORM/bsH_nagao_cf.md"], "evidence": "", "note": "Negative-CF/SL2 word encoding of ES examined in Nagao CF memo; word-problem reading not analysed."}
+{"mid": "Z2268", "status": "open", "files": ["BRAINSTORM/greedy_algorithm_dynamics.md"], "evidence": "", "note": "Greedy Egyptian dynamics examined; fixed-three-term restriction flip not tested."}
+{"mid": "Z2269", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2270", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2271", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2272", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2273", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2274", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2275", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
