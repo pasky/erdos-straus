@@ -198,3 +198,28 @@
 {"mid": "Z2991", "status": "untried", "files": [], "evidence": "", "note": "Move graph on ES certificates of fixed p and component sizes not built."}
 {"mid": "Z2992", "status": "open", "files": ["AMPLIFY_EXCEPTION.md", "DISPROOF_AVENUES.md"], "evidence": "", "note": "Structured-exception families and adversarial searches examined; far-along checks on n=m^2 k not extended."}
 {"mid": "Z2993", "status": "untried", "files": ["B2_ACROSS_FIELDS.md"], "evidence": "", "note": "Equidistribution mod p of length-3 word entries not measured."}
+{"mid": "Z2994", "status": "untried", "files": [], "evidence": "", "note": "Post-2020 every-denominator Zaremba results not surveyed in repo."}
+{"mid": "Z2995", "status": "open", "files": ["EXP_OPEN.md"], "evidence": "", "note": "Open exponential families 15*2^s+1 listed; Niederreiter-style recursion between certificates not examined."}
+{"mid": "Z2996", "status": "open", "files": ["BRAINSTORM/nonab_homogeneous_dynamics.md"], "evidence": "", "note": "DRS/Eskin-McMullen counting framework noted; the coset-volume count for the SL2 quadric not computed."}
+{"mid": "Z2997", "status": "open", "files": ["BRAINSTORM/nonab_homogeneous_dynamics.md"], "evidence": "", "note": "Eskin-Margulis-Mozes rational-form regime noted; degenerate ad-pc=1 case not analysed."}
+{"mid": "Z2998", "status": "open", "files": ["BRAINSTORM/bsA_hecke_cusp_excursions.md"], "evidence": "", "note": "Cusp excursion/horocycle equidistribution examined for ES words; long-horocycle target depth not extracted."}
+{"mid": "Z2999", "status": "untried", "files": [], "evidence": "", "note": "Weyl/van der Corput differencing of the exponential-sum form of R(p) not carried out."}
+{"mid": "Z3000", "status": "untried", "files": [], "evidence": "", "note": "Profinite Furstenberg classification of closed x-invariant sets for ES not examined."}
+{"mid": "Z3001", "status": "untried", "files": [], "evidence": "", "note": "Ultraproduct nonstandard ES-failing prime not examined; noncounting shapes mention only."}
+{"mid": "Z3002", "status": "untried", "files": [], "evidence": "", "note": "Regime split of large p by arithmetic configuration not defined in repo."}
+{"mid": "Z3003", "status": "untried", "files": [], "evidence": "", "note": "Fourier reduction of window obstruction to a character obstruction not proved in repo."}
+{"mid": "Z3004", "status": "untried", "files": [], "evidence": "", "note": "SAT search for profinite obstructions to bounded certificate menus not run."}
+{"mid": "Z3005", "status": "untried", "files": [], "evidence": "", "note": "Multiscale induction on certificate level scales not attempted."}
+{"mid": "Z3006", "status": "untried", "files": [], "evidence": "", "note": "Slice-rank bound for certificate-avoiding exponent sets not formulated in repo."}
+{"mid": "Z3007", "status": "open", "files": ["BRAINSTORM/z31_zero_sum.md"], "evidence": "", "note": "Zero-sum/Olson-type theory for signed factor products examined; minimal distinct-class count for -1 not computed."}
+{"mid": "Z3008", "status": "untried", "files": [], "evidence": "", "note": "Combinatorial Nullstellensatz on the trial form not applied in repo."}
+{"mid": "Z3009", "status": "untried", "files": [], "evidence": "", "note": "EGZ-style composite-level reduction for certificates not tested."}
+{"mid": "Z3010", "status": "untried", "files": [], "evidence": "", "note": "Reiher-style length-class double counting of divisors not computed."}
+{"mid": "Z3011", "status": "untried", "files": [], "evidence": "", "note": "Nikolov-Pyber product-covering size check for ES words not performed."}
+{"mid": "Z3012", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "Rescue-family view of (★) and b=1 complementarity examined; structural rescue parameter not formalised."}
+{"mid": "Z3013", "status": "untried", "files": [], "evidence": "", "note": "Nonabelian character-ratio encoding of certificate counts not built."}
+{"mid": "Z3014", "status": "untried", "files": [], "evidence": "", "note": "Nibble-plus-absorber success rate for two-term step not measured."}
+{"mid": "Z3015", "status": "untried", "files": [], "evidence": "", "note": "Keevash-style random perturbation of Mordell templates for square classes not tested."}
+{"mid": "Z3016", "status": "untried", "files": [], "evidence": "", "note": "Bilinear closure maps producing certificates for new primes not searched."}
+{"mid": "Z3017", "status": "untried", "files": [], "evidence": "", "note": "Extremal vs random-like split by extremality score not computed."}
+{"mid": "Z3018", "status": "untried", "files": [], "evidence": "", "note": "Discharging/unavoidable-configuration argument over levels not attempted."}
