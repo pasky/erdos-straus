@@ -273,3 +273,28 @@
 {"mid": "Z3066", "status": "open", "files": ["SYNTHESIS_SPARKS9.md"], "evidence": "", "note": "Fixed-splitting-condition restriction of BM layer discussed; restricted (★)/ES5 counts for l=11,13,17 not run."}
 {"mid": "Z3067", "status": "open", "files": ["BRAINSTORM/z31_quadratic_forms.md", "BRAINSTORM/bsD_genus_vacuity_LDp.md"], "evidence": "", "note": "Ineffective large-p results for ternary/genus setups examined; bounded-l(p) subfamily statement not formulated."}
 {"mid": "Z3068", "status": "untried", "files": [], "evidence": "", "note": "Escape-of-mass check on normalised certificate shapes not computed."}
+{"mid": "Z3069", "status": "open", "files": ["BRAINSTORM/s7_typeII_free_controls.md", "BRAINSTORM/y7_full_t1.md"], "evidence": "", "note": "Exception list for U(n) and Type I/II at odd squares recorded; Pell-shaped conjecture over all odd non-squares not framed or tested."}
+{"mid": "Z3070", "status": "untried", "files": [], "evidence": "", "note": "Entropy count of near-certificates versus defect buckets not computed."}
+{"mid": "Z3071", "status": "untried", "files": [], "evidence": "", "note": "Affine-group product-covering encoding of (★) not examined."}
+{"mid": "Z3072", "status": "untried", "files": [], "evidence": "", "note": "Certificate probability conditional on Omega(4Cp+1) not tabulated."}
+{"mid": "Z3073", "status": "untried", "files": [], "evidence": "", "note": "Order-3 deficiency of 4-term unit-fraction representations of 4/p not enumerated."}
+{"mid": "Z3074", "status": "untried", "files": [], "evidence": "", "note": "Class numbers of Eichler orders of level 4C in Hurwitz algebra not computed."}
+{"mid": "Z3075", "status": "untried", "files": [], "evidence": "", "note": "Local-obstruction encoding of T1 exclusion at odd squares not tested."}
+{"mid": "Z3076", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "Explicit b=1 failure list and census examined; GRH-conditional completeness argument not attempted."}
+{"mid": "Z3077", "status": "untried", "files": [], "evidence": "", "note": "Corrected sub-route statements with reciprocity exceptions removed not formulated."}
+{"mid": "Z3078", "status": "open", "files": ["EXCEPTIONAL_KARY3.md", "BRAINSTORM/bsG_large_sieve_rate.md"], "evidence": "", "note": "Uniform-in-m exceptional bounds for m/p examined; least failing m(p) distribution not computed."}
+{"mid": "Z3079", "status": "untried", "files": [], "evidence": "", "note": "Zero-sum combination of near-certificates across levels not tested."}
+{"mid": "Z3080", "status": "open", "files": ["BRAINSTORM/z31_unit_fractions.md"], "evidence": "", "note": "Croot-type unit-fraction methods examined; single-target step for 4/p with three terms not isolated."}
+{"mid": "Z3081", "status": "untried", "files": [], "evidence": "", "note": "Collected explicit sufficient inequalities for ES at p ~ 1e18 not evaluated."}
+{"mid": "Z3082", "status": "untried", "files": [], "evidence": "", "note": "Level-lowering argument for a modular object tied to ES failures not developed."}
+{"mid": "Z3083", "status": "untried", "files": [], "evidence": "", "note": "Moment of character-twisted certificate counts over characters mod p not computed."}
+{"mid": "Z3084", "status": "untried", "files": [], "evidence": "", "note": "SL2(F_q) character count of ES-form solutions mod q not computed."}
+{"mid": "Z3085", "status": "untried", "files": [], "evidence": "", "note": "Dyadic-range histogram of certificate levels not produced."}
+{"mid": "Z3086", "status": "open", "files": ["EXCEPTIONAL_SHORT.md", "EXCEPTIONAL_KARY3.md"], "evidence": "", "note": "Short-interval saving tied to H examined; x-dependent saving not identified."}
+{"mid": "Z3087", "status": "untried", "files": [], "evidence": "", "note": "Extreme-value fit for least certificate parameter not performed."}
+{"mid": "Z3088", "status": "open", "files": ["BRAINSTORM/z32_bm_obstruction_map.md", "GEOMETRY_ES.md"], "evidence": "", "note": "Brauer/BM obstruction maps for ES fibrations examined; fibration over C-line integral obstruction not computed."}
+{"mid": "Z3089", "status": "untried", "files": [], "evidence": "", "note": "Smooth-divisor counting for 4Cp+1 in forced classes not carried out."}
+{"mid": "Z3090", "status": "untried", "files": [], "evidence": "", "note": "Kummer-style regularity invariant kappa(p) for ES not tested."}
+{"mid": "Z3091", "status": "open", "files": ["BRAINSTORM/z45_critical_chaos.md", "BRAINSTORM/z38_mbm_unconditional.md"], "evidence": "", "note": "Distribution of R/M_BM examined as chaos/main-term issue; histogram by window not produced."}
+{"mid": "Z3092", "status": "untried", "files": [], "evidence": "", "note": "Ramanujan-type congruences of f_II and R on progressions not computed."}
+{"mid": "Z3093", "status": "untried", "files": [], "evidence": "", "note": "Capture-family table for ES sub-routes not assembled."}
