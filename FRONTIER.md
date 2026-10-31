@@ -115,6 +115,14 @@ failing is *not* ES failing.
   M₀ = Σ 1/φ(4uB) and T(p) = Σ (−uB/p)/φ(4uB), a single Legendre symbol summed over a hyperbolic region.
 * **Theorem 2.2.** M_BM(p) ≥ (3/(16π²) − o(1))(log p)² ≈ 0.0190 (log p)² (Burgess), ≥ (1/(32π²) − o(1))(log p)² (Pólya–
   Vinogradov); M₀(p) = (3/(2π²) + o(1))(log p)²; under GRH M_BM ∼ M₀ (CONDITIONAL).
+* *(z52c, `BM_LVALUE.md` Thm A; PROVED, internal, cross-model reviewed.)* T(p) = (σ/4)·E(χ_p)·L(1, χ_p)² + O(p^{−1/16} log p)
+  with an explicit Euler product E (sign χ_p(2)); for p ≡ 1 (4), T ≈ E·(h(p) log ε_p)²/p. Hence M_BM(p) ≥ M₀(p) − o(1) at
+  p ≡ 5 (8) and M_BM(p) ≥ 0.1402 (log p)² ≥ 0.9225·M₀(p) at p ≡ 1 (8) (Stephens' bound on L(1, χ)), improving Theorem 2.2's
+  0.0190. Main term only (B3); it explains only 4–5 % of the variance of R − M₀ (EVIDENCE).
+* *(z52c, `RESIDUE_HARDNESS.md`; EVIDENCE + two PROVED lemmas.)* The full residue class of p (not just its characters) shifts
+  the expected count: p ≡ 1 (mod q) forces the cheap denominators' shifts into the latest class mod 4q. A parameter-free
+  local-density factor F fits all class means mod 3…16, 840 (class 1 is the hardest of 96 mod 840), absorbs the p ≡ 1 (q)
+  and "practical p − 1" effects, and raises corr(model, log R) from 0.49 to 0.71. Main-term refinement only.
 * **Two-sided asymptotics are false** (Prop 3.1, via Linnik): infinitely many p ≡ 1 (4) have
   R(p) ≥ exp((log 2/L_Lin − o(1)) log p/log log p), so every bound |R − M| ≤ (log p)^{O(1)} fails infinitely often (in the
   harmless direction). Only a one-sided statement can be true.
