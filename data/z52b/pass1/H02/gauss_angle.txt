@@ -1,0 +1,6 @@
+X=3000000 primes p≡1(4) in [1000000,3000000]: 69108; R(p)=0 count 3; residual sd 0.317
+cos(4·1θ): Spearman -0.0029 (p=0.45)  Pearson -0.0017 (p=0.65)  [raw feature sd 0.707, after congruence-residualisation sd 0.707]
+cos(4·2θ): Spearman -0.0048 (p=0.21)  Pearson -0.0043 (p=0.26)  [raw feature sd 0.707, after congruence-residualisation sd 0.707]
+cos(4·3θ): Spearman -0.0014 (p=0.71)  Pearson -0.0023 (p=0.54)  [raw feature sd 0.707, after congruence-residualisation sd 0.707]
+mean residual by θ octile: -0.002 0.000 0.000 0.006 -0.006 0.001 0.002 -0.001
+count by θ octile: 8632 8624 8584 8687 8635 8672 8635 8639
