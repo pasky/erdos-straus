@@ -273,7 +273,7 @@
 {"mid": "Z3066", "status": "open", "files": ["SYNTHESIS_SPARKS9.md"], "evidence": "", "note": "Fixed-splitting-condition restriction of BM layer discussed; restricted (★)/ES5 counts for l=11,13,17 not run."}
 {"mid": "Z3067", "status": "open", "files": ["BRAINSTORM/z31_quadratic_forms.md", "BRAINSTORM/bsD_genus_vacuity_LDp.md"], "evidence": "", "note": "Ineffective large-p results for ternary/genus setups examined; bounded-l(p) subfamily statement not formulated."}
 {"mid": "Z3068", "status": "untried", "files": [], "evidence": "", "note": "Escape-of-mass check on normalised certificate shapes not computed."}
-{"mid": "Z3069", "status": "open", "files": ["BRAINSTORM/s7_typeII_free_controls.md", "BRAINSTORM/y7_full_t1.md"], "evidence": "", "note": "Exception list for U(n) and Type I/II at odd squares recorded; Pell-shaped conjecture over all odd non-squares not framed or tested."}
+{"mid": "Z3069", "status": "open", "files": ["BRAINSTORM/s7_typeII_free_controls.md", "BRAINSTORM/y7_full_t1.md"], "evidence": "", "note": "Exception list for U(n) and Type I/II at odd squares recorded; Pell-shaped conjecture over all odd non-squares untested."}
 {"mid": "Z3070", "status": "untried", "files": [], "evidence": "", "note": "Entropy count of near-certificates versus defect buckets not computed."}
 {"mid": "Z3071", "status": "untried", "files": [], "evidence": "", "note": "Affine-group product-covering encoding of (★) not examined."}
 {"mid": "Z3072", "status": "untried", "files": [], "evidence": "", "note": "Certificate probability conditional on Omega(4Cp+1) not tabulated."}
