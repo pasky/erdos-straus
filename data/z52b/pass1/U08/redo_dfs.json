@@ -1,0 +1,9 @@
+{
+ "Z1618_dfs_first_hit": {
+  "n": 120,
+  "x_first_over_p_median": 7.060657891094305e-05,
+  "x_first_over_p_p90": 0.00029874678754138737,
+  "x_first_over_p_max": 0.002776492364645997,
+  "scanned_median": 1.0
+ }
+}

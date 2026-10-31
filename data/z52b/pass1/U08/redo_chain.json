@@ -1,0 +1,10 @@
+{
+ "Z1465_chain_vs_linear": {
+  "n": 400,
+  "linear_C_median": 1.0,
+  "linear_C_p90": 3.0,
+  "chain_steps_median": 1.0,
+  "chain_steps_p90": 1.0,
+  "chain_failures_after_40": 87
+ }
+}

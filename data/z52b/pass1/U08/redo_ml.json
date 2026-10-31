@@ -1,0 +1,20 @@
+{
+ "ML_Z1384_Z1794_Z1795_Z1544_Z2760_Z1236": {
+  "n": 1600,
+  "majority_baseline": 0.7306,
+  "gbt_cv_acc_Cmin_class": 0.8169,
+  "mlp_last6digits_cv_acc": 0.6225,
+  "tree_depth6_qp_only_cv_acc": 0.7087,
+  "Z1795_top_permutation_features": [
+   "p%3==1",
+   "p%7==5",
+   "p%11==8",
+   "p%5==3",
+   "p%7==6",
+   "(41/p)"
+  ],
+  "Z1236_ood_acc_p5mod8": 0.801,
+  "Z1236_ood_majority": 0.7219,
+  "Z1544_kmeans4_AMI_vs_Cmin": 0.2367
+ }
+}

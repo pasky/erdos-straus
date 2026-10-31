@@ -1,0 +1,10 @@
+{
+ "Z1765_subgroup_vs_divisor": {
+  "n_pairs": 12180,
+  "A": 1814,
+  "B": 3998,
+  "A_and_B": 1814,
+  "B_not_A": 2184,
+  "A_not_B": 0
+ }
+}

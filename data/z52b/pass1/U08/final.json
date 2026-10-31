@@ -1,0 +1,28 @@
+{
+ "Z2538": {
+  "solutions_checked": 8332,
+  "failures": 0
+ },
+ "Z1125": {
+  "primes_checked": 20,
+  "solvable_with_denominators_dividing60": []
+ },
+ "Z2989": {
+  "e_range": "3 mod 4 primes 5..199",
+  "N_windows": 25875,
+  "prime_factor_count": 65211,
+  "frac_QR": 0.4839,
+  "binom_sd_at_half": 0.00196
+ },
+ "Z2680": {
+  "n": 147,
+  "mean_bichromatic_edge_frac": 0.503,
+  "mean_longest_arc_over_p": 0.024,
+  "max_longest_arc_over_p": 0.4
+ },
+ "Z2989_q_gt_100": {
+  "prime_factor_count": 12291,
+  "frac_QR": 0.472,
+  "z_iid": -6.21
+ }
+}

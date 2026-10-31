@@ -1,0 +1,131 @@
+{
+ "Z1081_VC_typeI_families": {
+  "n_families": 643,
+  "n_primes_sample": 40,
+  "some_pair_shattered": true,
+  "some_triple_shattered": true
+ },
+ "Z1142_incidence_svd": {
+  "top5": [
+   8.26,
+   5.874,
+   5.174,
+   5.078,
+   4.801
+  ],
+  "shuffle_top1_mean": 7.215,
+  "shuffle_top1_sd": 0.083
+ },
+ "Z1139_gcd_defect_hist": {
+  "n": 52400,
+  "frac_gcd1": 0.7975,
+  "top": [
+   [
+    1,
+    0.7975
+   ],
+   [
+    3,
+    0.0989
+   ],
+   [
+    5,
+    0.0312
+   ],
+   [
+    7,
+    0.0183
+   ],
+   [
+    9,
+    0.011
+   ],
+   [
+    11,
+    0.0074
+   ]
+  ]
+ },
+ "Z1368_typeI_typeII_MI": {
+  "n": 1600,
+  "P_fI0": 0.0006,
+  "P_fII0": 0.0131,
+  "P_both0": 0.0006,
+  "indep_product": 0.0,
+  "MI_nats": 0.00272,
+  "corr_fI_fII": 0.6133
+ },
+ "Z2873_3resistor_topologies": {
+  "n_range": "2..300",
+  "realisable_by_parallel_ES": 299,
+  "only_nonparallel": [],
+  "n_only_nonparallel": 0,
+  "not_realisable_any": [],
+  "n_not_realisable": 0
+ },
+ "Z3152_subset_product_minus1": {
+  "by_e_and_k": {
+   "7": [
+    0.197,
+    0.52,
+    0.84,
+    0.957,
+    0.987,
+    0.997,
+    1.0
+   ],
+   "11": [
+    0.12,
+    0.287,
+    0.613,
+    0.843,
+    0.95,
+    0.983,
+    0.997
+   ],
+   "19": [
+    0.047,
+    0.167,
+    0.357,
+    0.593,
+    0.867,
+    0.977,
+    0.997
+   ],
+   "23": [
+    0.05,
+    0.153,
+    0.32,
+    0.52,
+    0.833,
+    0.943,
+    0.99
+   ]
+  },
+  "note": "prods include the empty product 1; nonempty subset tested via k-set closure"
+ },
+ "Z2020_maier_QR_vs_random": {
+  "n": 120,
+  "mean_R_over_log2_QR": 0.032,
+  "mean_R_over_log2_random": 0.0435,
+  "sd_QR": 0.0157,
+  "sd_random": 0.0193
+ },
+ "Z1221_las_vegas": {
+  "n": 1595,
+  "mean_success_rate_per_C": 0.025,
+  "expected_random_trials_median": 40.0,
+  "linear_scan_Cmin_median": 1.0
+ },
+ "Z1222_schedule_vs_linear": {
+  "median_linear": 1.0,
+  "median_permuted": 23.0,
+  "p90_linear": 2.0,
+  "p90_permuted": 67.0
+ },
+ "Z1733_mattis_box": {
+  "actual": -2.43125,
+  "max_over_sign_patterns": 3.68125,
+  "ratio": 1.514
+ }
+}

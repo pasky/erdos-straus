@@ -1,0 +1,94 @@
+{
+ "Z1963_solution_shape": {
+  "n_solutions": 6256,
+  "mean_logx_over_logp": 0.826,
+  "mean_logy": 1.391,
+  "mean_logz": 2.282,
+  "corr_logy_logz": 0.195
+ },
+ "Z2705_height_bounds": {
+  "n_range": "2..400",
+  "max_y_over_n2": 0.6667,
+  "max_z_over_n4": 0.1481,
+  "x_over_n_min_times4": 1.0025,
+  "x_over_n_max_times4": 3.0
+ },
+ "Z1728_level_spacing_r": {
+  "n_ratios": 717,
+  "mean_r": 0.466,
+  "poisson_ref": 0.3863,
+  "GOE_ref": 0.5307
+ },
+ "Z2753_multiplicativity": {
+  "coprime_pairs": 412,
+  "multiplicative_pairs": 0,
+  "example": {
+   "g2": 0.25,
+   "g3": 0.13194444444444445,
+   "g6": 0.04081719261778785
+  }
+ },
+ "Z1045_Z1135_entropy_divisor_residues_mod840": {
+  "mean_entropy_nats_by_k_prime_factors": {
+   "1": 0.6931,
+   "2": 1.3863,
+   "3": 2.0379,
+   "4": 2.6919,
+   "5": 3.3169
+  }
+ },
+ "Z1073_pairing_parity": {
+  "n": 8440,
+  "parity_mismatches": 0
+ },
+ "Z1126_spin_vs_divisor": {
+  "checked": 4,
+  "identical": 4
+ },
+ "Z1128_root_moduli": {
+  "n_roots": 5847,
+  "median_modulus": 1.0003,
+  "frac_near_unit_circle": 0.3994
+ },
+ "Z2759_sporadic_square_classes": {
+  "residues_mod840": [
+   105,
+   441,
+   625,
+   105,
+   249,
+   385
+  ],
+  "square_residues": [
+   441,
+   625
+  ]
+ },
+ "Z1063_beatty_restricted": {
+  "sqrt2": {
+   "solved_primes": 14,
+   "of": 147,
+   "beatty_density_1_2000": 0.707
+  },
+  "sqrt3": {
+   "solved_primes": 10,
+   "of": 147,
+   "beatty_density_1_2000": 0.578
+  },
+  "sqrt5": {
+   "solved_primes": 7,
+   "of": 147,
+   "beatty_density_1_2000": 0.447
+  },
+  "phi": {
+   "solved_primes": 13,
+   "of": 147,
+   "beatty_density_1_2000": 0.618
+  },
+  "sqrt7": {
+   "solved_primes": 7,
+   "of": 147,
+   "beatty_density_1_2000": 0.378
+  }
+ }
+}

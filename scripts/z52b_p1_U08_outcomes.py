@@ -219,6 +219,13 @@ o("Z0426","covered","Catalog entry (Gauss class number one) is in the catalog la
 o("Z0428","covered","Catalog entry (Ramanujan–Nagell) is in the catalog lane (tag 'catalog', Z0359–Z0459).",[T],"")
 o("Z0429","covered","Catalog entry (Thue equations) is in the catalog lane (tag 'catalog', Z0359–Z0459).",[T],"")
 
+# redo pass (pass1_U_fix.md): replace lines by mid
+from z52b_p1_U08_outcomes2 import OVERRIDES
+_ov_mids = {m for (m, *_rest) in OVERRIDES}
+R[:] = [r for r in R if r["mid"] not in _ov_mids]
+for _args in OVERRIDES:
+    o(*_args)
+
 if __name__ == "__main__":
     import sys
     batch = [json.loads(l)["mid"] for l in open(f"data/z52b/pass1/batch_{B}.jsonl")]

@@ -1,0 +1,10 @@
+{
+ "Z1764_grover_vs_classical": {
+  "n": 588,
+  "search_space": 40000,
+  "M_median": 14.0,
+  "M_zero_frac": 0.0017006802721088435,
+  "classical_S_over_M_median": 2857.1428571428573,
+  "grover_sqrt_median": 53.45224838248488
+ }
+}

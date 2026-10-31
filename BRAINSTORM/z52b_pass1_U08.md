@@ -1,13 +1,38 @@
-# z52b pass 1 — batch U08 (207 untried §2 items)
+# z52b pass 1 — batch U08 (207 untried §2 items), redo pass per pass1_U_fix.md
 
-- Outcomes (207): nothing 23, covered 56, interesting 2 (Z0143, Z0809), needs-compute 31, skipped 95. Records: data/z52b/pass1/outcome_U08.jsonl.
-- Interesting, Z0143: the one-square sibling 4/n = 1/x+1/y+1/z² splits by p mod 4. All 87 primes p≡3 (4) ≤ 1000 are solvable (first z ≤ 474), but 37 of 80 primes p≡1 (4) ≤ 1000 have no solution with z ≤ 600, and 20 of them none with z ≤ 4000. The solvable p≡1 (4) have z ≤ 26 (median 12). Section §Z0143 below.
-- Interesting, Z0809: the log-residual of U(p) against log log p is non-normal (skew −0.89, excess kurtosis 1.48); P(U≤20) is 0.52% observed vs 0.10% normal. Section §Z0809 below.
-- Checked and nothing: Z0716 (nx ≈ U/2.05, not log p), Z0290 (prime-type denominator world empty for p ≡ 1 (4), 5 < p ≤ 3000, except p = 5), Z0203 (a ≤ 7 representable at all primes ≤ 1500), Z0333 (Poisson thinning under-predicts failures ~2× from denominator sharing), Z0862 (exception list 71, 191, 21169 confirmed), Z0304 (F_q squares fail only at q = 3), Z2604 (no Sarnak-type correlation, z = 1.0).
-- Covered (56): the catalog items (Z0397–Z0429) are in the catalog lane; the statistics items are in the fingerprint and dividing lanes (e.g. Z0833 = fingerprint #162, Z0847 = #178). Z1272 is the existing Z0866 list (13, 37, 97, 181, …), reproduced here.
+- Outcomes (207, one line each): nothing 102, covered 65, interesting 4 (Z0143, Z0809, Z1778, Z2989), needs-compute 15, skipped 21. Records: data/z52b/pass1/outcome_U08.jsonl.
+- Skipped (21) are restatements or meta items, except Z1144 and Z1295, which are under-specified (no residue graph / no chart named in the item); flagged for the author.
+- Needs-compute (15) are each >30 min compute or >1 h coding (Walnut, Lean, prover runs, SAT, QUBO, LP, S-unit, PD-model, fan graph, involution graph, F_3[T] exceptions), with a spelled-out test.
+- Lookups were done by web search (arXiv API rate-limited): ES = Erdős Problem #242 (OPEN); Koenigsmann "Defining ℤ in ℚ" (Annals); Bel'tyukov–Lipshitz decidability of the existential theory of (ℕ,+,|); Campos et al. diagonal Ramsey (2023); Keevash designs; Chatterjee nonlinear LD; Katz–Sarnak; EKL; Kleban–Özlük and Knauf spin chains.
 
-Scripts: scripts/z52b_p1_U08_{enum,stats,corr,sq1,sq1_scan,sq1_checks,moments,outcomes}.py. Data: data/z52b/pass1/U08/ (< 1 MB).
-The f4 data used here: data/z52b/raw/f4_all_30000.txt (column 1 = U(n), validated against the enumerator for 211 primes: 0 mismatches).
+## Z1778 / Z2545 / Z1213 / Z3058 — small good divisors (interesting)
+
+**Setup.** For primes p ≡ 1 (mod 4) with p ∈ [10^6, 10^7] and [10^8, 10^9] (60 random primes each) and C ≤ 50, N = 4Cp+1 is fully factored and the good divisors (d | N, d > 1, d ≡ −1 mod 4C) are listed.
+
+**Observed (EVIDENCE).**
+* Every sampled prime (60/60 in both decades) has a good divisor composed only of primes ≤ 10^3 (C ≤ 50); same with primes ≤ 10^4.
+* The minimal good divisor scales like a power of N: median log10 d_min / log10 N = 0.294 (first decade) and 0.265 (second). So d_min ≈ N^0.27–0.29 ≈ p^0.28.
+* Fraction of successes with d_min ≤ 10^4: 0.94 and 0.76.
+* Factor-smoothness (Z1213): 80% and 75% of the prime factors q of these N have q − 1 1000-smooth.
+* Timing (Z3058): the C ≤ 50 linear scan with full factorisation takes 0.3–0.6 ms per prime near 10^12, 10^14, 10^16 (average C tried 2.1, 1.3, 1.2).
+
+**Why it matters (Assessment).** The data suggest a trial-division-type search with a fixed bound finds solutions at p ~ 10^9, but the minimal divisor exponent ≈ 0.28 means the required factor size grows polynomially in p. At p ~ 10^100 that is ~10^28, beyond ECM. So the factoring-free question (Z2545) has a clear quantitative answer at small p and a scaling question at large p.
+
+**Next.** Measure the minimal-divisor exponent at p ~ 10^12–10^15 (full factorisation feasible) and check whether it stays near 0.28.
+
+**Reproduce.** `uv run --with numpy --with sympy --with scipy --with scikit-learn python scripts/z52b_p1_U08_redo.py smallf` → data/z52b/pass1/U08/redo_smallf.json.
+
+## Z2989 — prime factors of (p+e)/4 avoid squares mod e (interesting, weak)
+
+**Setup.** e prime ≡ 3 (mod 4), 5 ≤ e ≤ 199; p ≤ 2·10^4 with p ≡ −e (mod 4); N_e = (p+e)/4; for each distinct prime factor q ≠ e of N_e, record whether q is a QR mod e.
+
+**Observed (EVIDENCE).** 48.4% QR over 65211 factors (−8σ against an i.i.d. null). Restricted to q > 100: 47.2% over 12291 factors (−6.2σ).
+
+**Caveat.** Windows for the same p overlap across the various e, so the effective sample is smaller and the σ values are optimistic. The bias is also weak (2–3 percentage points).
+
+**Next.** One e per p (random), and a control in which q runs over prime factors of random integers in the same range.
+
+**Reproduce.** `uv run --with sympy --with numpy python scripts/z52b_p1_U08_final.py` → data/z52b/pass1/U08/final.json.
 
 ## Z0143 — one square denominator: a p mod 4 split (interesting)
 

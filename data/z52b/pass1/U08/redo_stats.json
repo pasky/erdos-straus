@@ -1,0 +1,204 @@
+{
+ "Z1723_R_distribution": {
+  "n": 1600,
+  "mean_R": 12.895,
+  "var_R": 32.579,
+  "dispersion_var_over_mean": 2.527,
+  "skew_logR": -1.048,
+  "kurt_logR": 2.926,
+  "frac_R0": 0.003125,
+  "nb_dispersion_k_mom": 8.447
+ },
+ "Z2004_existence_vs_mu": [
+  {
+   "K": 5,
+   "mu": 5.987,
+   "P0_obs": 0.0433,
+   "P0_poisson": 0.0025
+  },
+  {
+   "K": 10,
+   "mu": 7.21,
+   "P0_obs": 0.025,
+   "P0_poisson": 0.0007
+  },
+  {
+   "K": 20,
+   "mu": 8.35,
+   "P0_obs": 0.0133,
+   "P0_poisson": 0.0002
+  },
+  {
+   "K": 50,
+   "mu": 9.59,
+   "P0_obs": 0.0067,
+   "P0_poisson": 0.0001
+  },
+  {
+   "K": 100,
+   "mu": 10.443,
+   "P0_obs": 0.0067,
+   "P0_poisson": 0.0
+  },
+  {
+   "K": 200,
+   "mu": 11.117,
+   "P0_obs": 0.0067,
+   "P0_poisson": 0.0
+  }
+ ],
+ "Z1736_info_Cmin_vs_p840": {
+  "H_Cmin_bits": 1.241,
+  "MI_p840_bits": 0.6445,
+  "MI_p840_shuffle_mean": 0.1748,
+  "MI_p8_bits": 0.0003,
+  "MI_p8_shuffle_mean": 0.0018,
+  "n": 1600
+ },
+ "Z1746_autocorr_logR": {
+  "n": 1600,
+  "slope_loglog": 1.147,
+  "lag1_same_class840": 0.3114,
+  "lag2_same_class840": 0.3048,
+  "lag1_all_primes": -0.0269
+ },
+ "Z1134_finite_size": {
+  "decades": [
+   {
+    "range": [
+     1000,
+     3000
+    ],
+    "n": 131,
+    "mean_R_over_log2": 0.1789
+   },
+   {
+    "range": [
+     3000,
+     10000
+    ],
+    "n": 398,
+    "mean_R_over_log2": 0.1573
+   },
+   {
+    "range": [
+     10000,
+     30001
+    ],
+    "n": 1002,
+    "mean_R_over_log2": 0.1443
+   }
+  ],
+  "slope_logR_vs_logp_pre1e4": 1.111,
+  "predicted_mean_R_at_2e4_from_fit": 12.7,
+  "observed_mean_R_in_1e4_3e4": 13.984
+ },
+ "Z1791_ratio_extremes": [
+  {
+   "f_over_g": "log2p/logp",
+   "min": 4.6151,
+   "argmin_p": 101,
+   "max": 10.3086,
+   "argmax_p": 29989,
+   "cv": 0.112
+  },
+  {
+   "f_over_g": "logp/log2p",
+   "min": 0.097,
+   "argmin_p": 29989,
+   "max": 0.2167,
+   "argmax_p": 101,
+   "cv": 0.145
+  },
+  {
+   "f_over_g": "U/log2p",
+   "min": 0.1467,
+   "argmin_p": 2521,
+   "max": 2.2124,
+   "argmax_p": 29917,
+   "cv": 0.308
+  },
+  {
+   "f_over_g": "U/logp",
+   "min": 1.1401,
+   "argmin_p": 193,
+   "max": 22.8018,
+   "argmax_p": 29917,
+   "cv": 0.351
+  },
+  {
+   "f_over_g": "logp/Cmin",
+   "min": 0.0299,
+   "argmin_p": 409,
+   "max": 10.3086,
+   "argmax_p": 29989,
+   "cv": 0.356
+  },
+  {
+   "f_over_g": "R1/logp",
+   "min": 0.0992,
+   "argmin_p": 23929,
+   "max": 4.2272,
+   "argmax_p": 16301,
+   "cv": 0.387
+  },
+  {
+   "f_over_g": "log2p/Cmin",
+   "min": 0.1799,
+   "argmin_p": 409,
+   "max": 106.2669,
+   "argmax_p": 29989,
+   "cv": 0.399
+  },
+  {
+   "f_over_g": "R1/log2p",
+   "min": 0.0098,
+   "argmin_p": 23929,
+   "max": 0.4425,
+   "argmax_p": 701,
+   "cv": 0.404
+  },
+  {
+   "f_over_g": "log2p/U",
+   "min": 0.452,
+   "argmin_p": 29917,
+   "max": 6.8163,
+   "argmax_p": 2521,
+   "cv": 0.425
+  },
+  {
+   "f_over_g": "R1/U",
+   "min": 0.0109,
+   "argmin_p": 23929,
+   "max": 0.8333,
+   "argmax_p": 193,
+   "cv": 0.503
+  },
+  {
+   "f_over_g": "logp/U",
+   "min": 0.0439,
+   "argmin_p": 29917,
+   "max": 0.8771,
+   "argmax_p": 193,
+   "cv": 0.518
+  },
+  {
+   "f_over_g": "U/Cmin",
+   "min": 0.0746,
+   "argmin_p": 409,
+   "max": 235.0,
+   "argmax_p": 29917,
+   "cv": 0.549
+  }
+ ],
+ "Z1074_zero_mass_LP": {
+  "moments": [
+   85.07,
+   8417.599,
+   933799.4
+  ],
+  "status": 0,
+  "max_zero_mass": 0.09217,
+  "grid_max": 235
+ }
+}
