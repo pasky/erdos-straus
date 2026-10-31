@@ -1,4 +1,4 @@
-# BM_LVALUE — the Brauer–Manin correction T(p) is ¼·E(χ_p)·L(1,χ_p)² (depth lane Z2882, wave z52c)
+# BM_LVALUE — the Brauer–Manin correction: T(p) = (σ/4)·E(χ_p)·L(1,χ_p)² + O(p^{−1/16} log p) (depth lane Z2882, wave z52c)
 
 Status: depth-lane result (z52c), cross-model reviewed (§5); not merged. **ES is OPEN; nothing here proves ES or any infinite case of it.** Labels: PROVED /
 CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z52c_bmL_*`, data `data/z52c/bmL/`.
@@ -9,10 +9,10 @@ Builds on `BM_CORRECTED_COUNT.md` (Prop 2.1, Thm 2.2, Prop 2.3), `FRONTIER.md` �
 * **PROVED (Thm A, §2):** for every prime p ≥ 5, T(p) = Σ_{𝒫(p)} (−uB/p)/φ(4uB) = (σ/4)·E(χ_p)·L(1, χ_p)² + O(p^{−1/16} log p),
   σ = χ_p(−1), E = (2χ_p(2) − 1)∏_{ℓ odd} e_ℓ(χ_p(ℓ)) an explicit Euler product with sign χ_p(2); absolute effective constant
   (Burgess r = 2 in the bulk uB ≤ p/4; Pólya–Vinogradov suffices on the boundary). For p ≡ 1 (4): T = E·(h(p) log ε_p)²/p + o(1).
-* **CONDITIONAL (GRH):** error O_ε(p^{−1/4+ε}). **EVIDENCE (§1, 91 415 primes ≤ 10⁷ incl. all ≤ 10⁶, all 14 (★)-failures):**
-  |err| ≤ 0.54 for p ≥ 10³, ≤ 0.052 at 10⁷ (T ∈ [−12.1, 10.5]); rms err ≈ 0.33·p^{−1/2}(log p)^{3/2}; a secondary term
-  ≈ 0.6·E·L(1, χ)·(log p)/√p at p ≡ 1 (8) (CONJECTURE).
-* **PROVED (Cor 3.1):** M_BM ≥ (0.1402 − o(1))(log p)² ≥ 0.92·M₀ at p ≡ 1 (8) (Stephens), M_BM ≥ M₀ − o(1) at p ≡ 5 (8) —
+* **CONDITIONAL (GRH):** error O_ε(p^{−1/4+ε}). **EVIDENCE (§1, 91 415 sampled primes ≤ 10⁷ incl. all ≤ 10⁶, all 14 (★)-failures):**
+  |err| < 0.55 for sampled p ≥ 10³, < 0.053 on [9.8·10⁶, 10⁷] (T ∈ [−12.11, 10.47]); rms err ≈ 0.33·p^{−1/2}(log p)^{3/2}; at
+  p ≡ 1 (8) err regresses on ≈ 0.6·E·L(1, χ)·(log p)/√p (regression CONJECTURE).
+* **PROVED (Cor 3.1):** M_BM ≥ ((3/π²)(½ − c_S²) − o(1))(log p)² ≈ 0.1402 (log p)² ≥ 0.92·M₀ at p ≡ 1 (8) (Stephens), M_BM ≥ M₀ − o(1) at p ≡ 5 (8) —
   improves BM_CORRECTED Thm 2.2's 0.0190 (log p)²; GRH: M_BM = M₀ − O((log log p)²). At primes, H⁻_BM ≡ naive H⁻ up to constants.
 * **EVIDENCE (§3.3):** T explains R² ≈ 4–5 % of R − M₀ (genus layer: 23–28 %); hard primes have large L(1, χ_p), mostly via
   the small-prime pattern; at the failures T removes only 9–42 % of M₀. **Assessment:** main term only (B3); new (§4).
@@ -40,7 +40,7 @@ p ≥ 5 is a prime, χ = χ_p = (·/p), σ := χ(−1) = (−1)^{(p−1)/2}. As 
 
 **The p mod 8 dependence** (σ and χ(2) = (−1)^{(p²−1)/8}):
 
-| p mod 8 | σ | χ(2) | 2-factor 2χ(2) − 1 | sign of T ≈ σE·L²/4 | effect on M_BM = M₀ − T |
+| p mod 8 | σ | χ(2) | 2-factor 2χ(2) − 1 | sign of the leading term σE·L²/4 | effect on M_BM = M₀ − T (leading term) |
 |---|---|---|---|---|---|
 | 1 | + | + | +1 | T > 0 | deficit (M_BM < M₀) |
 | 5 | + | − | −3 | T < 0 | surplus |
@@ -66,7 +66,9 @@ product over ℓ ≤ 2·10⁶ (relative truncation error < 10⁻⁶). Long-doubl
 * **window**: all 12 314 primes in [9.8·10⁶, 10⁷];
 * **strat**: 600 random p ≡ 1 (4) in (10⁶, 9.8·10⁶) (seed 52882) plus the five (★)-failures > 10⁶.
 `scripts/z52c_bmL_identity_check.py` verifies the algebra of §2 (convolution identity exactly for m ≤ 3000; the bulk/boundary
-decomposition, the d-expansion and the hyperbola identity in floating point at six primes) and reproduces the C values.
+decomposition and the hyperbola identity in floating point at six primes, the d-expansion at the five with p/4 ≤ 3000) and
+reproduces the C values. (Finite-p signs: T itself can have the "wrong" sign at small p, e.g. T(149) > 0 with 149 ≡ 5 (8) and
+T(19) < 0 with 19 ≡ 3 (8); the table gives leading-term signs.)
 Pass-1 values (40 random primes, `data/z52b/pass1/H07/`) are reproduced exactly.
 
 Error err := T − (σ/4)E·L(1, χ)² (from `stats.txt`; "[9.8e6, 1e7]" = window):
@@ -79,27 +81,30 @@ Error err := T − (σ/4)E·L(1, χ)² (from `stats.txt`; "[9.8e6, 1e7]" = windo
 | (10⁶, 9.8·10⁶) | 1 / 5 | 306 / 299 | +0.010 / −0.000 | 0.010 / 0.003 | 0.068 (1726201) / 0.013 | ≤ 0.0052 | [−3.9, 10.3] |
 | [9.8·10⁶, 10⁷] | 1 / 5 / 3 / 7 | ≈ 3080 each | +0.006 / −0.000 / −0.001 / −0.001 | 0.007 / 0.002 / 0.002 / 0.003 | 0.052 (9850801) / 0.017 / 0.017 / 0.010 | ≤ 0.0024 | [−12.1, 10.5] |
 
-* **The identity holds to within 0.6 at every prime p ≥ 10³ (91 415 primes), within 0.18 for p ≥ 10⁵ and within 0.052 on
-  the window at 10⁷, while T itself ranges over [−12.1, 10.5].** Relative to the typical spread of T the error is ≲ 1 %
+* **The identity holds to within 0.55 at every sampled prime p ≥ 10³ (91 249 primes), within 0.18 for sampled p ≥ 10⁵ and
+  within 0.053 on the window at 10⁷, while T itself ranges over [−12.11, 10.47].** Relative to the typical spread of T the error is ≲ 1 %
   at 10⁷.
-* The boundary ℬ is negligible (≤ 0.0024 at 10⁷); the bulk carries the whole error.
+* The boundary ℬ is negligible (< 0.0025 on the window at 10⁷); the bulk carries the whole error.
 * Small primes (p < 10³, not in the table): the error is O(1) there (e.g. p = 7: T = −0.5, prediction −0.127).
 
 ### 1.3 Size of the error term (EVIDENCE / CONJECTURE)
 
-* **Rate.** On dyadic bins 2¹⁰ … 2²⁴ (p ≡ 1 (4)), rms(err)·√p/(log p)^{3/2} = 0.32–0.34 (one bin of 75 primes: 0.39), flat
+* **Rate.** On dyadic bins 2¹⁰ … 2²⁴ (p ≡ 1 (4)), rms(err)·√p/(log p)^{3/2} = 0.31–0.34 (one bin of 75 primes: 0.39), flat
   over the whole range; a pure power fit gives rms ≈ 2.8·p^{−0.37} on this range, which is the same curve. So empirically
-  **err ≍ p^{−1/2}(log p)^{3/2}**, far below the proved p^{−1/16} log p. (This is the size the random-multiplicative
-  model predicts for the tail Σ_{m > p/4} χ(m)τ(m)/m: variance ≈ Σ_{m>x} τ(m)²/m² ≍ (log x)³/x.)
+  **err ≍ p^{−1/2}(log p)^{3/2}**, far below the proved p^{−1/16} log p. (Diagonal heuristic only: with
+  orthogonal (Steinhaus-type) signs the tail Σ_{m > p/4} χ(m)τ(m)/m has variance Σ_{m>x} τ(m)²/m² ≍ (log x)³/x; for a real
+  (Rademacher) multiplicative model the pairs with mn = □ add off-diagonal terms, not computed here.)
 * **A secondary term at p ≡ 1 (8)** (`scripts/z52c_bmL_secondary.py` → `data/z52c/bmL/secondary.txt`). The error is
-  biased only for p ≡ 1 (8) (mean ≈ +0.5 sd); there err·√p is strongly correlated with E·L(1, χ) (corr 0.78–0.86 in every
+  clearly biased for p ≡ 1 (8) (mean/sd = 1.48, 1.29, 1.11, 1.04, 0.98 over the five ranges of §1.2), negatively for p ≡ 7 (8)
+  (mean/sd ≈ −0.4 … −0.9), and ≈ unbiased for p ≡ 3, 5 (8); at p ≡ 1 (8) err·√p is strongly correlated with E·L(1, χ) (corr 0.78–0.86 in every
   range), with err ≈ b·E·L(1, χ)·(log p)/√p, b = 0.57–0.62 stable from 10³ to 10⁷; residual sd ≈ 0.13–0.20·(log p)^{3/2}/√p.
   For p ≡ 7 (8): b ≈ −0.12 … −0.16 (corr ≈ −0.6 … −0.7); p ≡ 3, 5 (8): |b| ≤ 0.05, corr ≤ 0.44 in absolute value.
   Assessment (not proved): partial sums Σ_{n ≤ θp} χ(n) at θ = 1/4, 1/8 are of size √p and depend on p mod 8 (Pólya's
   Fourier expansion; e.g. Σ_{n<p/4} χ(n) is a class number of ℚ(√−p) up to a factor for p ≡ 1 (4)), and the sharp cutoff at
-  x = p/4 converts them into a cross term L(1, χ)×(√p-size sum)/p. **CONJECTURE (from the data):**
-  T(p) = (σ/4)E L(1, χ)² + β_{p mod 8}·E·L(1, χ)·(log p)/√p + O(p^{−1/2}(log p)^{3/2}) with β₁ ≈ 0.6.
-  Not needed anywhere below.
+  x = p/4 converts them into a cross term L(1, χ)×(√p-size sum)/p. **CONJECTURE (regression form, from the data):**
+  for p ≡ 1 (8), the conditional mean of err·√p/log p given E·L(1, χ) is ≈ β₁·E·L(1, χ) with β₁ ≈ 0.6, uniformly in the
+  range; the remainder has rms ≈ 0.13–0.20·(log p)^{3/2}/√p. (A pointwise secondary asymptotic is not claimed: for bounded
+  L(1, χ) the β-term is below the remainder.) Not needed anywhere below.
 
 ### 1.4 The (★)-failure primes and the hardest primes (EVIDENCE)
 
@@ -185,7 +190,8 @@ K²x^{−1/2} = 18C_B² p^{−1/8}(log p)²; L²x^{−1/4} ≤ √2(2 + log p)²
 **Proposition 2.6 (boundary; Pólya–Vinogradov suffices).** |S_ℬ| ≪ p^{−1/4}(log p)² log log p; explicitly, for every
 1 ≤ U ≤ √p/2,
   |S_ℬ| ≤ 31.2·ν·(1 + log p)(log p)(1 + log U)·U/√p + 2ν²(1/(3U) + 3/√p),
-and U = p^{1/4}/log p gives the stated order.
+for integer U (Σ_{u>U} u^{−2} ≤ 1/U), and U = ⌊p^{1/4}/log p⌋ (≥ 1 for p ≥ e^{36}; smaller p are absorbed in the
+constant) gives the stated order.
 *Proof.* ℬ is invariant under (u, B) ↔ (B, u), the summand is symmetric and u ≠ B (u + B odd), so S_ℬ = 2S_ℬ^<, the sum over
 u < B. For fixed u, (u, B) ∈ ℬ iff B ∈ J_u := (X_u, X_u + Y_u], X_u := p/(4u), X_u + Y_u := (p + u)/(4u − 1) [4uB > p, resp.
 B(4u − 1) ≤ p + u], together with gcd(B, u) = 1 and B ≢ u (mod 2). Here Y_u = (p + 4u²)/(4u(4u − 1)) ≤ p/(12u²) + 1/3, and u < B
@@ -209,8 +215,10 @@ O(p^{−1/16} log p) and O(p^{−1/4}(log p)² log log p). Every constant is abs
 
 **Conditional sharpening (CONDITIONAL on GRH for L(s, χ_p)).** GRH implies the Lindelöf bound for L(s, χ) and hence
 S_χ(v) ≪_ε v^{1/2}p^ε for all v (standard: Perron's formula shifted to Re s = 1/2 + ε). Then Lemma 2.3(b) holds with K ≪_ε p^ε,
-Proposition 2.5 gives O_ε(p^{−1/4+ε}), and the argument of 2.6(i) with |Σ_{a<n≤b}χ(n)| ≪ (b − a + 1)^{1/2}p^ε for all u ≤ u₀ gives
-O_ε(p^{−1/2+ε}) for the boundary. So **under GRH, T(p) = (σ/4)E L² + O_ε(p^{−1/4+ε})**. (The observed size p^{−1/2}(log p)^{3/2},
+Proposition 2.5 gives O_ε(p^{−1/4+ε}), and the unconditional Proposition 2.6 already gives O(p^{−1/4}(log p)² log log p) for
+the boundary. So **under GRH, T(p) = (σ/4)E L² + O_ε(p^{−1/4+ε})**. (Review fix R1: an earlier claimed GRH boundary bound
+O(p^{−1/2+ε}) used a short-interval estimate |Σ_{a<n≤b}χ(n)| ≪ (b − a + 1)^{1/2}p^ε that does not follow from the initial-sum
+bound; withdrawn — not needed.) (The observed size p^{−1/2}(log p)^{3/2},
 §1.3, would need square-root cancellation in the bulk hyperbola terms beyond termwise bounds.)
 
 **Where the Pass-1 sketch was imprecise (and what changed).** (1) No truncation d ≤ p^ε is needed: Lemma 2.4's bound is
@@ -242,11 +250,12 @@ main term, not the count.)
 
 **Corollary 3.1 (PROVED, unconditional; p ≡ 1 (4)).**
 (a) p ≡ 5 (8): E < 0, so T(p) ≤ O(p^{−1/16} log p) and **M_BM(p) ≥ M₀(p) − o(1)** (the BM factor only adds mass).
-(b) p ≡ 1 (8): 0 < T(p) ≤ (3/π²)·L(1, χ_p)² + o(1) ≤ (3c_S²/π² + o(1))L², hence
-  **M_BM(p) ≥ ((3/π²)(1/2 − c_S²) − o(1))·L² = (0.14022 − o(1))·L² ≥ (1 − 2c_S² − o(1))·M₀(p) = (0.9226 − o(1))·M₀(p).**
-(c) Uniformly for p ≡ 1 (4): (0.9226 − o(1))M₀(p) ≤ M_BM(p) ≤ (1 + 6c_S² + o(1))M₀(p) = (1.232 + o(1))M₀(p)
-(upper bound from (a) with |E| ≤ 36/π²).
-(d) Fully explicit variant: for even quadratic χ, L(1, χ) ≤ ½ log p for all p (Ramaré, Acta Arith. 100 (2001), as quoted in JRT
+(b) p ≡ 1 (8): T(p) ≤ (3/π²)·L(1, χ_p)² + o(1) ≤ (3c_S²/π² + o(1))L², hence
+  **M_BM(p) ≥ ((3/π²)(1/2 − c_S²) − o(1))·L² ≥ (1 − 2c_S² − o(1))·M₀(p)**, where (3/π²)(1/2 − c_S²) = 0.140217… and
+  1 − 2c_S² = 0.922590…; in particular M_BM(p) ≥ 0.1402·L² and ≥ 0.9225·M₀(p) for all large p ≡ 1 (8).
+(c) Uniformly for p ≡ 1 (4) and p large: 0.9225·M₀(p) ≤ M_BM(p) ≤ (1 + 6c_S² + o(1))M₀(p) ≤ 1.233·M₀(p)
+(1 + 6c_S² = 1.232227…; upper bound from Theorem A at p ≡ 5 (8) with |E| ≤ 36/π²).
+(d) Effective finite-p variant (numerical only once C_B and C₁ are made numerical): for even quadratic χ, L(1, χ) ≤ ½ log p for all p (Ramaré, Acta Arith. 100 (2001), as quoted in JRT
 §1), so T(p) ≤ (3/(4π²))L² + c·p^{−1/16} log p for every p ≡ 1 (8), with c the constant of Theorem A.
 *Proof.* Theorem A, the range of E (§1.1), and the quoted bounds on L(1, χ). With the easy Burgess bound L(1, χ) ≤ (¼ + o(1))L
 instead of Stephens one gets 21/(16π²) ≈ 0.1330 in (b), as Pass 1 stated. ∎
@@ -264,7 +273,7 @@ moduli here).
 
 **What this does to FRONTIER §2.2 / H⁻_BM (exact).** By Cor 3.1(c), for primes p ≡ 1 (4) the BM-corrected main term is a
 bounded multiplicative perturbation of the naive one: for p ≡ 1 (4), p ≥ some p₁, "R(p) ≥ εM_BM(p)" implies
-"R(p) ≥ 0.92εM₀(p)" and is implied by "R(p) ≥ 1.24εM₀(p)" — so at primes H⁻_BM and the naive H⁻ with M₀ are the same
+"R(p) ≥ 0.92εM₀(p)" and is implied by "R(p) ≥ 1.234εM₀(p)" — so at primes H⁻_BM and the naive H⁻ with M₀ are the same
 hypothesis up to the constant. The BM correction matters for the hypothesis only at composite n
 (squares: T1), where M_BM ≠ M₀ by a factor that is not bounded below. The one-sided conditional of `BM_CORRECTED` §2
 ("Consequence") now holds with any E(p) ≤ (0.1402 − ε)L² unconditionally (was (0.0190 − ε)L²).
@@ -281,19 +290,21 @@ at p ≡ 5 (8), and M_BM = M₀ − O((log log p)²) under GRH. Main-term only; 
   characters) gives R² = 0.28 resp. 0.23 (slope 1.58, 1.57). Dispersion var(R − M)/(2·mean M): 2.00 (M₀) → 1.94 (M_BM) → 1.49
   (M_gen) at [10⁵, 10⁶]; 2.52 → 2.46 → 1.99 at 10⁷. **The BM L-value carries about 1/6 of the genus layer's predictive power;
   most of the genus layer's explanatory power is in the other real characters.** p ≡ 3 (4): R² ≈ 0.01–0.015.
-  (Using T or (σ/4)EL² gives identical numbers to three digits, as Theorem A predicts.)
+  (Using (σ/4)EL² instead of T changes these statistics only slightly — slopes 1.303 vs 1.291 and 1.467 vs 1.464, corr and R²
+  equal at the displayed precision — numerical evidence consistent with the small err of §1.)
 * **Slope > 1.** R responds to the L-value 1.3–1.5× more strongly than M_BM's coefficient 1, and the residual
   z = (R − M)/√M stays correlated with L(1, χ) after subtracting M_BM (corr −0.14; −0.27 within p ≡ 1 (8)) and even after M_gen
   (−0.12; −0.17). Reason (Assessment): by reciprocity the other genus characters at p are also values χ_p(ℓ) at small ℓ | uB,
   which are what makes L(1, χ_p) large. Whether the full genus layer M_gen − M₀ has a closed form in L-values (twists
   L(1, χ_p·ψ) by characters ψ of conductor dividing 8·∏ℓ) is a natural follow-up, not done here.
-* **Lower tail.** Among the lowest 1 % of R/M₀ (p ≡ 1 (4), 10⁴ ≤ p ≤ 10⁷, N = 454): 90 % have p ≡ 1 (8), mean L(1, χ) = 3.73 vs
+* **Lower tail.** Among the lowest 1 % of R/M₀ over the sampled p ≡ 1 (4), 10⁴ ≤ p ≤ 10⁷ (N = 454; census + window + strat,
+  so dominated by p ≤ 10⁶ and including the deliberately added failures): 90 % have p ≡ 1 (8), mean L(1, χ) = 3.73 vs
   1.63 overall, mean T/M₀ = 0.18 vs 0.02. All 14 (★)-failures ≡ 1 (4) have p ≡ 1 (8) and L(1, χ) = 2.26–5.22 (z-scores +0.6 … +3.2
   against all p ≡ 1 (4)), T = 1.4–8.1, i.e. the BM correction removes 9–42 % of M₀ at the failures (M_BM/M₀ = 0.58–0.91; 20–42 % except at
-  329 617, where it is 9 %).
+  329 617 (9 %) and 1 134 241 (15 %)).
 * **Control for the small-prime pattern.** 12 of the 14 failures have χ(2) = χ(3) = χ(5) = +1 (a class of density 1/8 among
   p ≡ 1 (4)), and *within* that class (N = 5 589, p ≥ 10⁴, mean L(1, χ) = 3.84) their L(1, χ) z-scores are −1.8 … +2.0 (mean
-  ≈ +0.8; the six failures ≥ 712 321 all +1.5 … +2.0). So most of the association "hard ⇔ large L(1, χ)" is the small-prime
+  ≈ +0.8 over the 12; of the six failures ≥ 712 321, five have +1.5 … +2.0 and 1 134 241 has +0.29). So most of the association "hard ⇔ large L(1, χ)" is the small-prime
   pattern (QR-richness, as in `BRAINSTORM/hardness_law.md`, `s7_lvalue_proxy`), with a modest residual excess.
 * **Not an explanation of the failures.** At the 14 failures M_BM = 3.0 … 30.5 while R = 0; for p ≥ 10⁵ M_BM ≥ 13. The
   L-value correction moves the main term by 9–42 % at these primes, nowhere near the ≈ 100 % deficit. The (★)-failures are
@@ -327,4 +338,23 @@ of primes is settled. **ES remains OPEN.**
   the BM correction with this L-value and the bookkeeping (exact pair region, parity, coprimality, 2-adic factor 2χ(2) − 1).
 
 ## 5. Review log
-(TODO)
+
+Cross-model hostile review (subagent, openai-codex/gpt-6-astra; no edits by the reviewer). **Verdict: Theorem A correctly
+PROVED after an elementary floor/range repair; no fatal error.** It re-derived the convolution identity incl. the 2-adic factor,
+the Abel-summation and hyperbola steps, the ν_u(e) coprimality/parity expansion and the exponents p^{3/16}, x^{−1/4}, p^{−1/16};
+confirmed Burgess r = 2 applies for all lengths (complete periods beyond p); checked the PV constants against JRT Lemma 14 and the
+Stephens/Ramaré inputs against JRT §1; reproduced the C engine at p = 7, 17, 409, 1 000 033 and ran the identity check. Issues and fixes:
+* R1 (major) GRH boundary bound O(p^{−1/2+ε}) relied on an unproved short-interval estimate → withdrawn; the GRH total
+  O(p^{−1/4+ε}) is unaffected (§2).
+* R2 Prop 2.6 needs integer U for Σ_{u>U}u^{−2} ≤ 1/U and U ≥ 1 → U = ⌊p^{1/4}/log p⌋, small p absorbed.
+* R3 rounded constants written as exact asymptotics → exact expressions + safe decimals 0.1402, 0.9225, 1.233 (Cor 3.1).
+* R4 "0 < T(p)" not implied by Theorem A (needs a lower bound for L(1, χ)) → removed; the p mod 8 table now says
+  "leading-term sign", with the finite-p counterexamples T(149) > 0, T(19) < 0 recorded.
+* R5 "fully explicit" → "effective finite-p variant" (C_B, C₁ not numerical).
+* R6–R8, R11 transcription/precision fixes in §§0, 1.2, 1.3, 3.3 (window max 0.0523 and boundary max 0.00240 now stated as
+  < 0.053 / < 0.0025; T-range [−12.11, 10.47]; 91 249 sampled primes ≥ 10³; bias figures per class; 1 134 241 exceptions; sample
+  scope of the lower-tail statistics; slopes 1.303 vs 1.291).
+* R9 the (log x)³/x variance is a diagonal (Steinhaus) heuristic → labelled as such.
+* R10 the secondary-term CONJECTURE restated as a regression statement (a pointwise version would be absorbed by the remainder).
+* R12 identity-check coverage (d-expansion at five primes) and title fixed.
+Novelty remains Assessment (identification plausibly new; machinery standard; priority not exhaustively checked).
