@@ -1,0 +1,40 @@
+{"mid": "Z2395", "status": "untried", "files": [], "evidence": "", "note": "Drappeau cited only as spectral/large-sieve input in ET Type I; no residue-on-modulus level-of-distribution examined."}
+{"mid": "Z2396", "status": "open", "files": ["BRAINSTORM/y3_salie_angle.md (roots equidistribution, DFI/Toth joint)"], "evidence": "", "note": "Roots equidistribution (DFI, Toth joint) examined as Salie angle; error at Planck scale not controlled."}
+{"mid": "Z2397", "status": "untried", "files": [], "evidence": "", "note": "DKSZ listed in LITERATURE_AUTOMORPHIC as transferable technique only; no ES bilinear square-root application examined."}
+{"mid": "Z2398", "status": "open", "files": ["PARITY_AUDIT.md B7 (Bettin-Chandee row)"], "evidence": "", "note": "Bettin-Chandee cited; Kloosterman-fraction form examined in (u,C) variables and found degenerate; trilinear not applied."}
+{"mid": "Z2399", "status": "untried", "files": [], "evidence": "", "note": "No trace-function (FKM) analysis of ES residue indicators found; only generic trace-function remarks."}
+{"mid": "Z2400", "status": "untried", "files": [], "evidence": "", "note": "No Polymath8 Type III / Deligne treatment of tau3-type ES counts found."}
+{"mid": "Z2401", "status": "untried", "files": [], "evidence": "", "note": "Irving/LSZ divisor-in-AP results not examined against TWO_POWER_LADDER counts."}
+{"mid": "Z2402", "status": "untried", "files": [], "evidence": "", "note": "GKM sieve audit covers Selberg moments, not subgroup-sifted density conditions for 4Cp+1."}
+{"mid": "Z2403", "status": "untried", "files": [], "evidence": "", "note": "Ford–Maynard prime-producing sieve framework not applied to ES divisor-class targets."}
+{"mid": "Z2404", "status": "untried", "files": [], "evidence": "", "note": "Erdos primitive-set/Lichtman multiples argument not found in repo; Lichtman used only for shifted primes."}
+{"mid": "Z2405", "status": "untried", "files": [], "evidence": "", "note": "BFT probabilistic prime models not refit to ES lottery; only BFT Thm 1.5 uniform HL noted."}
+{"mid": "Z2406", "status": "open", "files": ["BRAINSTORM/z45_critical_chaos.md §0 (Summary)"], "evidence": "", "note": "Random-multiplicative model of Legendre-sign structure examined; verdict PARTIAL, no rank computation of S3(p)."}
+{"mid": "Z2407", "status": "untried", "files": [], "evidence": "", "note": "Kozma–Samotij relative-entropy lower tails not applied to ES; only unrelated Mousset–Noever mention."}
+{"mid": "Z2408", "status": "untried", "files": [], "evidence": "", "note": "Harel–Mousset–Samotij upper tails not applied to ES counts; no repo treatment found."}
+{"mid": "Z2409", "status": "open", "files": ["BRAINSTORM/bsB_sterile_pretentious.md §Dictionary"], "evidence": "", "note": "Pretentiousness of sterile points examined only in F_q[T] analogy; real-character clustering over Z not tested."}
+{"mid": "Z2410", "status": "untried", "files": [], "evidence": "", "note": "Koukoulopoulos–Maynard GCD-graph compression not found applied to ES certificate levels."}
+{"mid": "Z2411", "status": "untried", "files": [], "evidence": "", "note": "Effective Duffin–Schaeffer (KMY) not present in repo; no ES moduli application examined."}
+{"mid": "Z2412", "status": "untried", "files": [], "evidence": "", "note": "Ustinov Kloosterman-sum CF-length count not found in repo; only generic CF screens."}
+{"mid": "Z2413", "status": "untried", "files": [], "evidence": "", "note": "Petrow–Young Weyl bound not applied to ES character sums mod 4C."}
+{"mid": "Z2414", "status": "untried", "files": [], "evidence": "", "note": "Hanson–Petridis Stepanov method not found applied to ES residue sets; only Paley-type mentions."}
+{"mid": "Z2415", "status": "open", "files": ["POINTWISE_OMEGA4.md §Thorner–Zaman use"], "evidence": "", "note": "Thorner–Zaman least-prime Chebotarev used for W(p) bounds; ES forcing-line exponent plug-in not tabulated."}
+{"mid": "Z2416", "status": "untried", "files": [], "evidence": "", "note": "Pierce–Turnage-Butterbaugh–Wood family Chebotarev not applied to ES Type I fields; no matching treatment."}
+{"mid": "Z2417", "status": "open", "files": ["reviews/pointwise-typei-review.md §finding on n_p bounds"], "evidence": "", "note": "Explicit Burgess/Treviño beyond computed range flagged for later; no explicit computation recorded."}
+{"mid": "Z2418", "status": "untried", "files": [], "evidence": "", "note": "Platt–Trudgian explicit zero-free regions not applied to ES exceptional-set constants."}
+{"mid": "Z2419", "status": "open", "files": ["OAI_DUMP_IMPACT.md §Assessment"], "evidence": "", "note": "Fixed zero-free strips assessed: change tools, not ES; GRH-quality errors not obtained, verdict PARTIAL."}
+{"mid": "Z2420", "status": "open", "files": ["BRAINSTORM/z45_siegel_dichotomy.md §0 Summary"], "evidence": "", "note": "Siegel-zero effects on divisor classes assessed as not controlling K_q; effective Siegel ternary consequences unexamined."}
+{"mid": "Z2421", "status": "untried", "files": [], "evidence": "", "note": "Zhang's Landau–Siegel preprint not mentioned anywhere in repo."}
+{"mid": "Z2422", "status": "open", "files": ["EXSET_LINNIK.md §header"], "evidence": "", "note": "Linnik confinement for ES primes examined with circularity and escapes; least prime in class −p mod 4C not plugged in."}
+{"mid": "Z2423", "status": "untried", "files": [], "evidence": "", "note": "DPR one-level density over characters mod 4C not found in repo; only generic spectral-large-sieve citations."}
+{"mid": "Z2424", "status": "open", "files": ["EXCEPTIONAL_TYPEI_LOGLOG2.md §Pascadi remark (l.223)"], "evidence": "", "note": "Pascadi large sieve applied as side remark; claimed to fail by D^{σ_j}, unverified, not recomputed."}
+{"mid": "Z2425", "status": "open", "files": ["BRAINSTORM/z45_recent_pointwise_tools.md §table (Kelley–Meka row)"], "evidence": "", "note": "KM/Bloom–Sisask rejected as \"no prescribed multiplicative class\"; (Z/e)^× quotient set not computed."}
+{"mid": "Z2426", "status": "open", "files": ["BRAINSTORM/z45_recent_pointwise_tools.md §table (Bloom–Sisask row)"], "evidence": "", "note": "Croot–Sisask almost periodicity dismissed generically; divisor-set convolution on (Z/e)^× not checked."}
+{"mid": "Z2427", "status": "open", "files": ["BRAINSTORM/z31_zero_sum.md §(a)-(b)"], "evidence": "", "note": "Subset-product zero-sum (Olson/Davenport) for K=(p+e)/4 examined; sharp Balandraud threshold tabulation not done."}
+{"mid": "Z2428", "status": "open", "files": ["BRAINSTORM/z33_target_davenport.md §Result"], "evidence": "", "note": "Target-(-1) zero-sum examined in cyclic groups; joint product (Z/4c × Z/d) Kemnitz form not treated."}
+{"mid": "Z2429", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md §2-3"], "evidence": "", "note": "BGK sum-product for small subgroups considered; subgroup-generated-by-prime-factors computation not performed."}
+{"mid": "Z2430", "status": "open", "files": ["BRAINSTORM/z33_target_davenport.md §Assessment"], "evidence": "", "note": "Parity forcing via exponent-2 shadow examined; −1 in generated subgroup vs quotient set not separated."}
+{"mid": "Z2431", "status": "open", "files": ["BRAINSTORM/gon_incidence_kloosterman.md §(c3)"], "evidence": "", "note": "Bourgain–Glibichuk–Konyagin sum-product cited as candidate; composite-modulus application at C≈p^θ not assessed."}
+{"mid": "Z2432", "status": "untried", "files": [], "evidence": "", "note": "Polynomial partitioning / Guth–Katz for ES cubic surface incidences not found in repo."}
+{"mid": "Z2433", "status": "untried", "files": [], "evidence": "", "note": "Slice rank of certificate tensor not computed; slice rank appears only as generic technique list."}
+{"mid": "Z2434", "status": "open", "files": ["BRAINSTORM/polynomial_method.md §header"], "evidence": "", "note": "Nullstellensatz/CHN polynomial method for ES congruences examined generically (COLLAPSES); mod-ℓ top coefficient not checked."}
