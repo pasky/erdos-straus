@@ -1,0 +1,1227 @@
+{"mid": "Z0001", "s": 1, "r": "proved FF twin; covering congruence mechanism transferable question"}
+{"mid": "Z0005", "s": 1, "r": "sign-subgroup cone interpolation; index-2 analogue of Z"}
+{"mid": "Z0009", "s": 1, "r": "profinite sterile points; Haar-null structure over Ẑ"}
+{"mid": "Z0011", "s": 1, "r": "finite-place positivity cone; multiplicative closure analysis"}
+{"mid": "Z0013", "s": 1, "r": "ray class group sign quotients; Carlitz structure"}
+{"mid": "Z0017", "s": 1, "r": "Mordell–Schinzel obstruction over Z[T]; eventual positivity"}
+{"mid": "Z0019", "s": 1, "r": "non-principal form primes; identity to cover non-congruence set"}
+{"mid": "Z0023", "s": 1, "r": "Nagao amalgam structure of SL2; word-length reshaping"}
+{"mid": "Z0025", "s": 1, "r": "Katz monodromy square-root cancellation for Type II sums"}
+{"mid": "Z0028", "s": 1, "r": "characteristic vs field size comparison; structural isolation"}
+{"mid": "Z0032", "s": 1, "r": "Chowla/parity barrier link to sieve arguments"}
+{"mid": "Z0035", "s": 1, "r": "polynomial identity for 4/(T²+1) over Z[T]"}
+{"mid": "Z0039", "s": 1, "r": "exponential-polynomial denominators parametrisation idea"}
+{"mid": "Z0041", "s": 1, "r": "small-height FF regime structure; m/n comparability"}
+{"mid": "Z0044", "s": 1, "r": "covering-tree technique transfer to Z with modulus growth"}
+{"mid": "Z0046", "s": 1, "r": "Frobenius additivity identities in char p certificates"}
+{"mid": "Z0048", "s": 1, "r": "S-integer FF analogue; universal divisors via units"}
+{"mid": "Z0050", "s": 1, "r": "reducible vs irreducible A structural dichotomy"}
+{"mid": "Z0055", "s": 1, "r": "smooth-numerator relaxation identity; shows what is trivial"}
+{"mid": "Z0057", "s": 1, "r": "trace descent from O_K to integer identity"}
+{"mid": "Z0060", "s": 1, "r": "Bradford–Ionascu Euclidean two-term criterion; divisor classes"}
+{"mid": "Z0062", "s": 1, "r": "square-class obstruction in O_K; unit mechanism gap"}
+{"mid": "Z0064", "s": 1, "r": "semiring cone discrete at one real place; structure"}
+{"mid": "Z0066", "s": 1, "r": "non-maximal orders and conductor effects on unit fractions"}
+{"mid": "Z0068", "s": 1, "r": "noncommutative quaternion ES; extra solutions mechanism"}
+{"mid": "Z0071", "s": 1, "r": "group ring zero divisors; cone structure question"}
+{"mid": "Z0076", "s": 1, "r": "principal vs non-principal primes; class group mechanism"}
+{"mid": "Z0079", "s": 1, "r": "algebraic integers unit-sum mechanism; trivialisation question"}
+{"mid": "Z0081", "s": 1, "r": "Legendre-symbol global sign constraint; local-global pattern"}
+{"mid": "Z0083", "s": 1, "r": "matrix ES with positive-entry cone; structure"}
+{"mid": "Z0088", "s": 1, "r": "quaternion ideals of norm p; Brandt matrix structure"}
+{"mid": "Z0091", "s": 1, "r": "Gaussian cone injection of solutions; norm structure"}
+{"mid": "Z0093", "s": 1, "r": "CM field relative-norm positivity; unit rank argument"}
+{"mid": "Z0095", "s": 1, "r": "dual-number tangent linearisation; structural reduction"}
+{"mid": "Z0098", "s": 1, "r": "height-positivity cone; norm-bounded set structure"}
+{"mid": "Z0101", "s": 1, "r": "Gaussian quadrant cone closure question; structure"}
+{"mid": "Z0103", "s": 1, "r": "Egyptian domain theory transfer to ES refinement"}
+{"mid": "Z0105", "s": 1, "r": "valuative cone at infinity; leading-coefficient problem"}
+{"mid": "Z0108", "s": 1, "r": "forced elements of M(p) via identities; mechanism"}
+{"mid": "Z0111", "s": 1, "r": "local norm obstruction via sums of two squares"}
+{"mid": "Z0114", "s": 1, "r": "2-adic parity local obstruction; archetype mechanism"}
+{"mid": "Z0116", "s": 1, "r": "coprime-denominator reduction argument; impossibility mechanism"}
+{"mid": "Z0120", "s": 1, "r": "m=5 twin with hard-class comparison; transfer question"}
+{"mid": "Z0122", "s": 1, "r": "square-class obstruction for general numerator m"}
+{"mid": "Z0124", "s": 1, "r": "Rav's two-term divisor criterion; reduction to divisors"}
+{"mid": "Z0129", "s": 1, "r": "best underapproximation structure theorems; gap characterisation"}
+{"mid": "Z0131", "s": 1, "r": "parity forces even term count; structural constraint"}
+{"mid": "Z0133", "s": 1, "r": "semiprime-denominator constrained ES; structure question"}
+{"mid": "Z0135", "s": 1, "r": "Rado partition regularity transfer to reciprocal equation"}
+{"mid": "Z0138", "s": 1, "r": "lattice reduction view of bounded-denominator four-term case"}
+{"mid": "Z0141", "s": 1, "r": "S-units restricted prime support; Egyptian representation structure"}
+{"mid": "Z0143", "s": 1, "r": "square-denominator sibling coupling to quadratic residues"}
+{"mid": "Z0146", "s": 1, "r": "rationals representable by three unit fractions; density picture"}
+{"mid": "Z0148", "s": 1, "r": "greedy/Engel expansions as dynamical systems on rationals"}
+{"mid": "Z0151", "s": 1, "r": "derived-set accumulation structure of three-term sums"}
+{"mid": "Z0153", "s": 1, "r": "triangle group covolume identity; hyperbolic geometry reformulation"}
+{"mid": "Z0155", "s": 1, "r": "log canonical threshold reformulation of ES via singularities"}
+{"mid": "Z0158", "s": 1, "r": "Seifert space / Euler number reformulation; topology mechanism"}
+{"mid": "Z0160", "s": 1, "r": "weighted star tree determinant identity with integer offset"}
+{"mid": "Z0162", "s": 1, "r": "rectangle tiling reformulation; geometric decomposition"}
+{"mid": "Z0165", "s": 1, "r": "Landau class equation Egyptian structure from groups"}
+{"mid": "Z0167", "s": 1, "r": "dessins d'enfants / Belyi maps for ES certificates"}
+{"mid": "Z0169", "s": 1, "r": "spherical/Euclidean/hyperbolic trichotomy of numerators"}
+{"mid": "Z0172", "s": 1, "r": "Euler-type regular map equation as two-term analogue"}
+{"mid": "Z0174", "s": 1, "r": "weighted projective Fano conditions as Egyptian constraints"}
+{"mid": "Z0176", "s": 1, "r": "birational geometry of ES surface; linear plane structure"}
+{"mid": "Z0178", "s": 1, "r": "Farey/Ford circle geometry for unit-fraction sums"}
+{"mid": "Z0180", "s": 1, "r": "frieze pattern / cluster algebra mechanism for unit fractions"}
+{"mid": "Z0183", "s": 1, "r": "squared rectangles and planar networks; Kirchhoff mechanism"}
+{"mid": "Z0185", "s": 1, "r": "minimum of exponential clocks identity; probabilistic reformulation"}
+{"mid": "Z0187", "s": 0, "r": "census tooling for fusion rings; software reuse only"}
+{"mid": "Z0189", "s": 1, "r": "ES over discretely ordered rings; model-theoretic transfer"}
+{"mid": "Z0192", "s": 1, "r": "ultraproduct transfer via Łoś; first-order limits"}
+{"mid": "Z0194", "s": 1, "r": "random-integer model vs structure; heuristic comparison"}
+{"mid": "Z0196", "s": 1, "r": "q-analogue of ES; rigidity under deformation"}
+{"mid": "Z0198", "s": 1, "r": "cross-world hard primes; structure of 241 and 2521"}
+{"mid": "Z0201", "s": 1, "r": "size-capped failure set; extreme solutions structure"}
+{"mid": "Z0203", "s": 1, "r": "average-case Schinzel world; Luca–Pappalardi bounds"}
+{"mid": "Z0205", "s": 1, "r": "computable-reals category check; decidability structure"}
+{"mid": "Z0208", "s": 1, "r": "p-adic local solubility vs cone; local-global structure"}
+{"mid": "Z0211", "s": 1, "r": "modular hyperbola with congruence and archimedean conditions"}
+{"mid": "Z0213", "s": 1, "r": "ordering on Z is unique; semigroup restriction alternative"}
+{"mid": "Z0215", "s": 1, "r": "Gaussian-norm failures not explained by mod 8; pattern"}
+{"mid": "Z0222", "s": 1, "r": "ternary vs binary Goldbach analogy; circle-method transfer"}
+{"mid": "Z0225", "s": 0, "r": "literature pointer only; no mechanism beyond a citation"}
+{"mid": "Z0228", "s": 1, "r": "Egyptian-fraction identities for perfect numbers; analogy"}
+{"mid": "Z0230", "s": 1, "r": "Least quadratic non-residue analogue for certificate search"}
+{"mid": "Z0237", "s": 1, "r": "Markoff strong approximation via divisibility; transfer analogy"}
+{"mid": "Z0239", "s": 1, "r": "Type II certificates as ring-class splitting conditions"}
+{"mid": "Z0242", "s": 1, "r": "uniformity in numerator m of almost-all results"}
+{"mid": "Z0247", "s": 1, "r": "Dirichlet hyperbola method with exponent pairs for counts"}
+{"mid": "Z0250", "s": 1, "r": "primitive divisors replacing units in proved worlds"}
+{"mid": "Z0254", "s": 1, "r": "Andrews–Dyson growing identity families; q-series analogy"}
+{"mid": "Z0257", "s": 1, "r": "cyclotomic units in real cyclotomic field; trace descent"}
+{"mid": "Z0260", "s": 1, "r": "all denominators divisible by 3 reduction; pattern data"}
+{"mid": "Z0263", "s": 1, "r": "max-size cap failure pattern; Type II structure"}
+{"mid": "Z0265", "s": 1, "r": "Z_(p) trivialisation via invertible 4; reduction idea"}
+{"mid": "Z0268", "s": 1, "r": "Gaussian-cone projection to sum-of-two-squares constraint"}
+{"mid": "Z0270", "s": 1, "r": "mixed rational/Gaussian denominators interpolation"}
+{"mid": "Z0272", "s": 1, "r": "number-field average: units needed; new mechanism question"}
+{"mid": "Z0275", "s": 1, "r": "thinned norm-denominator worlds; failure-rate structure"}
+{"mid": "Z0277", "s": 1, "r": "square-coset denominators reduce to square-reciprocal world"}
+{"mid": "Z0279", "s": 1, "r": "minimax-denominator canonical solutions; arithmetic structure"}
+{"mid": "Z0282", "s": 1, "r": "p-adic density of ES surface controls singular series"}
+{"mid": "Z0284", "s": 1, "r": "bounded-slice worlds; complexity measure E(p) question"}
+{"mid": "Z0286", "s": 1, "r": "finite-unit obstruction to norm-one cone; closed dead end"}
+{"mid": "Z0288", "s": 1, "r": "Z-span lattice of solution vectors across primes"}
+{"mid": "Z0290", "s": 1, "r": "prime-denominator sparse world; failure pattern"}
+{"mid": "Z0293", "s": 1, "r": "coding-theoretic weight-enumerator reformulation of ES"}
+{"mid": "Z0295", "s": 1, "r": "bipartite prime–certificate graph; ES as no-isolated-prime"}
+{"mid": "Z0299", "s": 1, "r": "word-map monodromy analogue over Z; bounding exceptions"}
+{"mid": "Z0301", "s": 1, "r": "FF Mordell analogue proved for q=9,27; covering obstruction"}
+{"mid": "Z0304", "s": 1, "r": "quadratic-positivity finite world over F_q; quadric structure"}
+{"mid": "Z0306", "s": 1, "r": "signed ES with bounded denominators; trivial case mechanism"}
+{"mid": "Z0308", "s": 1, "r": "char-2 cancellation shadow of signed identities"}
+{"mid": "Z0310", "s": 1, "r": "merging two unit fractions into one; (a−c)(b−c)=c² mechanism"}
+{"mid": "Z0313", "s": 1, "r": "projective numerator structure of matrix ES via inverse entries"}
+{"mid": "Z0316", "s": 1, "r": "Gaussian sector counts via Hecke characters"}
+{"mid": "Z0320", "s": 1, "r": "p-adic cone 1+p^kZ_p obstructed by valuation argument"}
+{"mid": "Z0322", "s": 1, "r": "odd numerator Fq[T] irreducible A; prime-numerator twist"}
+{"mid": "Z0326", "s": 1, "r": "Hilbert 10th / MRDP reformulation of ES-good set"}
+{"mid": "Z0328", "s": 1, "r": "squares via scaling; certificate lines empty; structural gap"}
+{"mid": "Z0330", "s": 1, "r": "dyadic splitting of 4 across imaginary quadratic fields"}
+{"mid": "Z0333", "s": 1, "r": "random thinning threshold; expected surviving count"}
+{"mid": "Z0337", "s": 1, "r": "non-uniformity requirement from Mordell–Schinzel obstruction"}
+{"mid": "Z0339", "s": 1, "r": "Hensel lifting from mod p^k solutions with archimedean box"}
+{"mid": "Z0341", "s": 1, "r": "Hardy field parametrised ES; eventual positivity analogue"}
+{"mid": "Z0343", "s": 1, "r": "four cones in Z[√2]; inclusion structure"}
+{"mid": "Z0345", "s": 1, "r": "commuting quaternion denominators reduce to imaginary quadratic orders"}
+{"mid": "Z0347", "s": 1, "r": "Sato–Tate-type equidistribution of solution angles"}
+{"mid": "Z0350", "s": 1, "r": "Hilbert irreducibility for ES-good primes as thin set values"}
+{"mid": "Z0353", "s": 1, "r": "FF analogue of smooth p−1 hard-prime clustering"}
+{"mid": "Z0355", "s": 1, "r": "sign twist via non-square leading coefficient at infinity"}
+{"mid": "Z0358", "s": 1, "r": "budgeted slice unions; failure density growth"}
+{"mid": "Z0361", "s": 1, "r": "Sun's odd-n prime-plus-powers-of-two; witness count analogy"}
+{"mid": "Z0364", "s": 1, "r": "Brier numbers; simultaneous covering obstruction analogy"}
+{"mid": "Z0366", "s": 1, "r": "prime-plus-Fibonacci; covering congruences on Fibonacci"}
+{"mid": "Z0368", "s": 1, "r": "Goldbach-other representation; finite explicit exceptions"}
+{"mid": "Z0370", "s": 1, "r": "ternary Goldbach circle method; finite exception analogy"}
+{"mid": "Z0373", "s": 1, "r": "Lemoine–Levy count analogy; witness density"}
+{"mid": "Z0375", "s": 1, "r": "Linnik four-square-type representation; dispersion method analogy"}
+{"mid": "Z0377", "s": 1, "r": "Legendre prime-in-interval; short-interval analogy"}
+{"mid": "Z0379", "s": 1, "r": "least prime in progression vs least certificate level"}
+{"mid": "Z0382", "s": 1, "r": "binary form representation; local obstruction analogy"}
+{"mid": "Z0384", "s": 1, "r": "quartic residue representation; reciprocity mechanism"}
+{"mid": "Z0386", "s": 1, "r": "Stevenhagen negative Pell; Rédei 4-rank obstruction"}
+{"mid": "Z0388", "s": 1, "r": "16-rank via bilinear Gaussian prime sums; density"}
+{"mid": "Z0392", "s": 1, "r": "Rouse 451 forms representing odd n; local obstruction analogy"}
+{"mid": "Z0394", "s": 1, "r": "Sun 1-3-5 proved via quaternion factorisation; reformulation"}
+{"mid": "Z0396", "s": 1, "r": "Pollock tetrahedral count; non-quadratic form obstruction"}
+{"mid": "Z0398", "s": 1, "r": "seven cubes local mod 9 obstruction; power reservoir analogy"}
+{"mid": "Z0400", "s": 1, "r": "signed-cube identity 6x=…; identity transfer to ES"}
+{"mid": "Z0402", "s": 1, "r": "Markoff uniqueness via Vieta descent analogy"}
+{"mid": "Z0404", "s": 1, "r": "Pillai exponential Diophantine finiteness; Baker-type mechanism"}
+{"mid": "Z0406", "s": 1, "r": "Erdős–Selfridge product of consecutive integers; Thue-type method"}
+{"mid": "Z0408", "s": 1, "r": "Stewart two-unit-fraction criterion; divisor mechanism"}
+{"mid": "Z0411", "s": 1, "r": "Erdős–Graham monochromatic unit sums; colouring structure"}
+{"mid": "Z0413", "s": 1, "r": "odd greedy termination question; dynamical expansion"}
+{"mid": "Z0415", "s": 1, "r": "Hensley δ_A density; congruence obstruction structure"}
+{"mid": "Z0418", "s": 1, "r": "Korobov/Niederreiter partial quotients; continued fraction mechanism"}
+{"mid": "Z0420", "s": 1, "r": "EKL measure rigidity transfer to unit-fraction approximation"}
+{"mid": "Z0422", "s": 1, "r": "flea orbits missing squares; provable obstruction structure"}
+{"mid": "Z0424", "s": 1, "r": "congruent-number Smith distribution; root-number parity forcing"}
+{"mid": "Z0426", "s": 1, "r": "Heegner–Baker finiteness mechanism; class number one analogy"}
+{"mid": "Z0428", "s": 1, "r": "Ramanujan–Nagell finiteness via imaginary quadratic arithmetic"}
+{"mid": "Z0430", "s": 1, "r": "Bilu–Hanrot–Voutier primitive divisors; Zsigmondy-type existence"}
+{"mid": "Z0432", "s": 1, "r": "elliptic divisibility primitive divisors; existence mechanism"}
+{"mid": "Z0434", "s": 1, "r": "MRDP/undecidability structure of ES-type existence"}
+{"mid": "Z0436", "s": 1, "r": "5x+1 dynamical drift; cycle structure analogy"}
+{"mid": "Z0440", "s": 1, "r": "palindromic three-term representation; digit mechanism"}
+{"mid": "Z0442", "s": 1, "r": "Combinatorial Nullstellensatz polynomial method lemma"}
+{"mid": "Z0444", "s": 1, "r": "Minkowski lattice-point existence mechanism"}
+{"mid": "Z0446", "s": 1, "r": "Carmichael totient fibre multiplicity structure"}
+{"mid": "Z0448", "s": 1, "r": "Landau n²+1 primes; sieve parity barrier link"}
+{"mid": "Z0450", "s": 1, "r": "Mauduit–Rivat digit sums on primes; Fourier mechanism"}
+{"mid": "Z0452", "s": 1, "r": "Pólya counting function; L-function counterexample structure"}
+{"mid": "Z0454", "s": 1, "r": "perfect cuboid rational points; obstruction analogy"}
+{"mid": "Z0456", "s": 1, "r": "abc radical/height inequality transfer question"}
+{"mid": "Z0459", "s": 1, "r": "Bilharz function-field Artin; RH-type transfer"}
+{"mid": "Z0461", "s": 1, "r": "free witness parameter feature; untied parameter gap"}
+{"mid": "Z0464", "s": 1, "r": "composition law feature; missing multiplicative structure"}
+{"mid": "Z0466", "s": 1, "r": "class-group/genus parametrisation with positivity"}
+{"mid": "Z0468", "s": 1, "r": "root-number parity forcing; L-function or Selmer link"}
+{"mid": "Z0470", "s": 1, "r": "finite escalation threshold; sporadic failure structure"}
+{"mid": "Z0472", "s": 1, "r": "canonical exceptional shape; odd squares structure"}
+{"mid": "Z0474", "s": 1, "r": "witness-event independence via shared integer p"}
+{"mid": "Z0476", "s": 1, "r": "thin-orbit expansion via spectral gap; word-length mechanism"}
+{"mid": "Z0478", "s": 1, "r": "Pomerance–Weingartner m/n transition at endpoint m=4"}
+{"mid": "Z0481", "s": 1, "r": "reciprocity obstruction at thin set; Brauer-type local structure"}
+{"mid": "Z0483", "s": 1, "r": "effectivity of partial results; ineffective input question"}
+{"mid": "Z0486", "s": 1, "r": "strong approximation on homogeneous spaces; integral points mechanism"}
+{"mid": "Z0488", "s": 1, "r": "monotone term-count structure; k=2 classified, k≥4 power counts"}
+{"mid": "Z0490", "s": 1, "r": "Selmer cubic Brauer–Manin/Sha obstruction analogy"}
+{"mid": "Z0492", "s": 1, "r": "Cassels–Guy cubic surface Brauer–Manin obstruction analogy"}
+{"mid": "Z0495", "s": 1, "r": "Melfi practical-number sums; two-summand mechanism"}
+{"mid": "Z0497", "s": 1, "r": "Euclid–Mullin prime generation mechanism analogy"}
+{"mid": "Z0499", "s": 1, "r": "small primes generate almost all residue groups; generation mechanism"}
+{"mid": "Z0502", "s": 1, "r": "Linnik p−1 sum-of-two-squares analogy; representation structure"}
+{"mid": "Z0504", "s": 1, "r": "Kummer cubic Gauss sums; reciprocity analogy"}
+{"mid": "Z0506", "s": 1, "r": "lonely runner simultaneous approximation mechanism"}
+{"mid": "Z0508", "s": 1, "r": "Mitsui Goldbach over number fields; power-count analogy"}
+{"mid": "Z0511", "s": 1, "r": "bounded-exponent ES variant; count dependence on k"}
+{"mid": "Z0513", "s": 1, "r": "Pan exceptions classification; algebraic families question"}
+{"mid": "Z0515", "s": 1, "r": "m=12 exceptional count; singular series explanation question"}
+{"mid": "Z0517", "s": 1, "r": "sporadic U(n) list vs Ramanujan form; GRH finite-computation mechanism"}
+{"mid": "Z0520", "s": 1, "r": "ES with a prime denominator; Crocker-scale count"}
+{"mid": "Z0522", "s": 1, "r": "explicit thin additive basis; algorithmic construction question"}
+{"mid": "Z0524", "s": 1, "r": "ternary Egyptian with denominators in AP; local obstruction pattern"}
+{"mid": "Z0528", "s": 1, "r": "Type I only vs Type II only solvability question"}
+{"mid": "Z0530", "s": 1, "r": "ES as covering of non-squares; distorted-measure sieve transfer"}
+{"mid": "Z0532", "s": 1, "r": "multiplicative divisor witnesses vs additive prime witnesses"}
+{"mid": "Z0534", "s": 1, "r": "Linnik-constant bound for smallest witness; effectivity mechanism"}
+{"mid": "Z0536", "s": 1, "r": "cyclotomic/Lucas Galois forcing of divisor classes"}
+{"mid": "Z0538", "s": 1, "r": "self-reducibility to prime factors; reduction structure"}
+{"mid": "Z0540", "s": 1, "r": "trial-count vs success-probability profile across thin problems"}
+{"mid": "Z0543", "s": 1, "r": "binary quadratic forms of discriminant −4d; union-of-forms structure"}
+{"mid": "Z0545", "s": 1, "r": "Kneser/Olson subset-product theory for subgroup avoiding −1"}
+{"mid": "Z0547", "s": 1, "r": "Rosser–Iwaniec sieve for no divisor ≡ −1 mod 4C"}
+{"mid": "Z0551", "s": 1, "r": "hyperbolic lattice-point counting; equidistribution mechanism"}
+{"mid": "Z0553", "s": 1, "r": "Halász/Matomäki–Radziwiłł multiplicative confinement indicators"}
+{"mid": "Z0555", "s": 1, "r": "Heegner points on X₀(N) tied to p; CM point mechanism"}
+{"mid": "Z0559", "s": 1, "r": "Janson/Poisson model calibrated on m-family"}
+{"mid": "Z0561", "s": 1, "r": "Bertrand-style exact extraction from explicit p-tied integer"}
+{"mid": "Z0563", "s": 1, "r": "two-squares decomposition p=a²+b² as forced certificate object"}
+{"mid": "Z0565", "s": 1, "r": "class number parity h(−4p) and 2-power divisibility lever"}
+{"mid": "Z0568", "s": 1, "r": "practical-number plus prime; Margenstern analogy"}
+{"mid": "Z0570", "s": 1, "r": "Hardy–Littlewood second conjecture; incompatibility structure"}
+{"mid": "Z0572", "s": 1, "r": "Dirichlet progression theorem; local gcd obstruction analogy"}
+{"mid": "Z0574", "s": 1, "r": "Hilbert irreducibility thin sets analogy"}
+{"mid": "Z0576", "s": 1, "r": "Fermat primes finiteness; heuristic summability analogy"}
+{"mid": "Z0578", "s": 1, "r": "Goldbach–Linnik short intervals; mechanism analogy"}
+{"mid": "Z0580", "s": 1, "r": "Vinogradov least-QNR conjecture via Burgess mechanism"}
+{"mid": "Z0583", "s": 1, "r": "Erdős–Woods numbers constructive families; mechanism"}
+{"mid": "Z0585", "s": 1, "r": "prime difference representations; power-count analogy"}
+{"mid": "Z0587", "s": 1, "r": "Darmon–Granville generalised Fermat finiteness mechanism"}
+{"mid": "Z0589", "s": 1, "r": "3x+1 vs 5x+1 minimal pair; drift sign contrast"}
+{"mid": "Z0591", "s": 1, "r": "Hensley vs Zaremba alphabet; congruence obstruction contrast"}
+{"mid": "Z0593", "s": 1, "r": "Fermat two squares vs ES at p≡1 mod 4; rigidity contrast"}
+{"mid": "Z0595", "s": 1, "r": "Markoff mod p vs integral Hasse; finite-field contrast"}
+{"mid": "Z0598", "s": 1, "r": "Apollonian vs Zaremba reciprocity obstruction contrast"}
+{"mid": "Z0601", "s": 1, "r": "Ramanujan form vs sum of squares; genus class number contrast"}
+{"mid": "Z0603", "s": 1, "r": "universal torsor of ES surface; linearised counting"}
+{"mid": "Z0605", "s": 1, "r": "variance/second-moment control feature; Elsholtz–Tao moments"}
+{"mid": "Z0607", "s": 1, "r": "uniformity in auxiliary parameter; Pomerance–Weingartner bound"}
+{"mid": "Z0609", "s": 1, "r": "exceptional set at composites; prime-factor reduction structure"}
+{"mid": "Z0611", "s": 1, "r": "archimedean local density; bounded positivity region"}
+{"mid": "Z0613", "s": 1, "r": "fixed-point-free involution forces even count; symmetry"}
+{"mid": "Z0615", "s": 0, "r": "meta feature-matrix decision tree over catalog; tooling only"}
+{"mid": "Z0617", "s": 0, "r": "meta search for unit-fraction resolutions; no mathematical mechanism"}
+{"mid": "Z0620", "s": 1, "r": "prime plus factorial count; density-zero analogy"}
+{"mid": "Z0622", "s": 1, "r": "3-smooth-plus-prime count; power-of-two/three analogy"}
+{"mid": "Z0625", "s": 1, "r": "greedy set-cover of primes by families; covering mechanism"}
+{"mid": "Z0627", "s": 1, "r": "Selberg parity example; sieve limit transfer"}
+{"mid": "Z0629", "s": 1, "r": "Erdős–Kac style count of hitting families"}
+{"mid": "Z0631", "s": 1, "r": "prime-covering analogue of Erdős–Selfridge distinct moduli"}
+{"mid": "Z0633", "s": 1, "r": "Romanoff positive-density stepping stone via Dirichlet"}
+{"mid": "Z0635", "s": 1, "r": "Stevenhagen-type Markov chain density model for families"}
+{"mid": "Z0638", "s": 1, "r": "S-integral ES via S-unit identities; structure question"}
+{"mid": "Z0640", "s": 1, "r": "Farey/Stern–Brocot graph distance reformulation of ES₅"}
+{"mid": "Z0642", "s": 1, "r": "bounded generation of SL₂ via arithmetic; transfer question"}
+{"mid": "Z0646", "s": 1, "r": "Markoff graph connectivity via Vieta moves; analogue for U_n"}
+{"mid": "Z0649", "s": 1, "r": "character-escape lemma from non-square at a prime"}
+{"mid": "Z0651", "s": 1, "r": "least-family-size distribution vs CRT model; pattern"}
+{"mid": "Z0653", "s": 1, "r": "residue-model log³ intensity; dividing-line reading"}
+{"mid": "Z0655", "s": 1, "r": "Fouvry–Iwaniec primes x²+y² with prime x; structure"}
+{"mid": "Z0657", "s": 1, "r": "Chebotarev least prime with splitting; Lagarias–Odlyzko analogy"}
+{"mid": "Z0659", "s": 1, "r": "every prime splits in some field family; reduction pattern"}
+{"mid": "Z0662", "s": 1, "r": "sum-product mechanism for mixed product-sum divisibility"}
+{"mid": "Z0664", "s": 1, "r": "single prime-power denominator restriction; Type I vs II counts"}
+{"mid": "Z0666", "s": 1, "r": "m/p residue-model computation vs Pomerance–Weingartner"}
+{"mid": "Z0668", "s": 1, "r": "large sieve applied to C-form exceptional set"}
+{"mid": "Z0670", "s": 1, "r": "least quadratic non-residue correlates with difficulty"}
+{"mid": "Z0673", "s": 1, "r": "Type I quadratic character condition via Kronecker symbol"}
+{"mid": "Z0675", "s": 1, "r": "pseudosquare tests; analogy with pseudoprime structure"}
+{"mid": "Z0680", "s": 0, "r": "OEIS anchor matching for 5/n, 6/n; bookkeeping only"}
+{"mid": "Z0684", "s": 0, "r": "least-prime-with-U=6 sequence; pure computation record"}
+{"mid": "Z0686", "s": 1, "r": "2521 = lcm+1 as extremal prime; smooth p−1 pattern"}
+{"mid": "Z0688", "s": 1, "r": "U(p) at least-QNR-record primes; pattern for least QNR"}
+{"mid": "Z0691", "s": 1, "r": "Type II count tracks L(1,χ_{−4p}); class-number mechanism"}
+{"mid": "Z0693", "s": 1, "r": "U(p) uncorrelated with elliptic a_p; negative structural test"}
+{"mid": "Z0695", "s": 1, "r": "(7/p) anomaly; character at 7 not seen by U(p)"}
+{"mid": "Z0698", "s": 1, "r": "divisor count of p−1 anticorrelates with U(p); pattern"}
+{"mid": "Z0700", "s": 1, "r": "regulator of Q(√p) anticorrelates with U(p); pattern"}
+{"mid": "Z0702", "s": 1, "r": "U-certificate word count correlation; structure of counts"}
+{"mid": "Z0705", "s": 1, "r": "minimal denominator height growth; extremal behaviour"}
+{"mid": "Z0709", "s": 1, "r": "greedy-failure composites as odd squares; T1 structure"}
+{"mid": "Z0711", "s": 1, "r": "record easy primes all ≡ −1 mod 840; congruence pattern"}
+{"mid": "Z0714", "s": 0, "r": "k₂(p)≥1 verified to 2·10⁵; verification range only"}
+{"mid": "Z0717", "s": 1, "r": "maximal smallest denominator vs least QNR; pattern"}
+{"mid": "Z0719", "s": 1, "r": "Mordell square classes mod 840 as hardest classes; pattern"}
+{"mid": "Z0722", "s": 1, "r": "hardest primes all ≡ 1 mod 24; congruence structure pattern"}
+{"mid": "Z0724", "s": 0, "r": "5/n and 6/n verified to 10⁵; verification range only"}
+{"mid": "Z0726", "s": 1, "r": "3-divisible ES reduction 12/p; failure pattern"}
+{"mid": "Z0728", "s": 1, "r": "5-divisible ES reduction 20/p; failure pattern"}
+{"mid": "Z0730", "s": 1, "r": "failure sets monotone under numerator divisibility; structure"}
+{"mid": "Z0732", "s": 1, "r": "hard primes fail many numerators; R-zero contrast pattern"}
+{"mid": "Z0736", "s": 1, "r": "exception lists for 10/n, 11/n, 13/n; composite exceptions"}
+{"mid": "Z0738", "s": 1, "r": "failures enriched near 5-smooth p±1; smoothness pattern"}
+{"mid": "Z0740", "s": 1, "r": "failure-count modulation mod 12; arithmetic pattern"}
+{"mid": "Z0742", "s": 1, "r": "3-adic local statistic of ES solutions; zero at hard primes"}
+{"mid": "Z0744", "s": 1, "r": "union conjecture ES₂ ∪ ES₃ for primes; sharp covering pattern"}
+{"mid": "Z0747", "s": 0, "r": "Spearman correlation computation on stored data; no mechanism"}
+{"mid": "Z0750", "s": 1, "r": "hard-prime concentration at small p; H(p) decay pattern"}
+{"mid": "Z0752", "s": 1, "r": "next-term prediction of last failure via k^{1/3} growth heuristic"}
+{"mid": "Z0755", "s": 1, "r": "square zeros of I3 pattern; explained by square structure"}
+{"mid": "Z0759", "s": 1, "r": "R-zeros at 2^k−1; pattern in binary exponents"}
+{"mid": "Z0762", "s": 1, "r": "composite R-zeros via Lehmer pseudosquare; pseudosquare link"}
+{"mid": "Z0764", "s": 1, "r": "BM main term explains U better than R; mechanism test"}
+{"mid": "Z0766", "s": 1, "r": "zero frequency by n mod 8; congruence pattern"}
+{"mid": "Z0768", "s": 1, "r": "word-count records via divisibility of tn+1 classes"}
+{"mid": "Z0770", "s": 1, "r": "R(p) always even via (u,B) swap involution; structure"}
+{"mid": "Z0773", "s": 1, "r": "ESC certificate count calibration; existence-equivalence link"}
+{"mid": "Z0775", "s": 1, "r": "distribution of smallest certificate parameter C; fingerprint"}
+{"mid": "Z0780", "s": 1, "r": "lower envelope of R/log²p; zeros and inf behaviour"}
+{"mid": "Z0782", "s": 1, "r": "higher-power residue characters; null effect structural test"}
+{"mid": "Z0784", "s": 1, "r": "quartic residuosity of 2 vs ES count; null pattern"}
+{"mid": "Z0786", "s": 1, "r": "elliptic curves of conductor p fibre structure; genus-1 link"}
+{"mid": "Z0788", "s": 1, "r": "divisor-sum null correlation vs b=1 line; structure question"}
+{"mid": "Z0790", "s": 1, "r": "Type II sensitivity to (3/p) and v₃(p−1); character pattern"}
+{"mid": "Z0792", "s": 1, "r": "smallest prime factor of p+4 vs Type II count; divisor pattern"}
+{"mid": "Z0794", "s": 1, "r": "CF period of √p vs solution count; regulator pattern"}
+{"mid": "Z0796", "s": 1, "r": "r₃(p)=12h(−4p) identity links counts to class number"}
+{"mid": "Z0798", "s": 1, "r": "Hurwitz class numbers and weight-3/2 Eisenstein structure"}
+{"mid": "Z0800", "s": 1, "r": "root numbers of quadratic twists of 32a1 by p"}
+{"mid": "Z0802", "s": 1, "r": "R-zeros high least QNR and L(1,χ_p); pattern"}
+{"mid": "Z0804", "s": 1, "r": "Type-A failures and h(−4p) quantile; class number pattern"}
+{"mid": "Z0807", "s": 1, "r": "Elsholtz–Tao normalisation log³ average; known bound link"}
+{"mid": "Z0809", "s": 1, "r": "lognormal tail of U(p) and finite-exception heuristics"}
+{"mid": "Z0811", "s": 1, "r": "Fermat quotient of 2 vs ES count; Wieferich-type invariant"}
+{"mid": "Z0813", "s": 1, "r": "Fermat primes 2-adic depth; p−1 power-of-two structure"}
+{"mid": "Z0815", "s": 1, "r": "cyclotomic class number proxy via Q(√p); structure"}
+{"mid": "Z0817", "s": 1, "r": "Mordell identity classes as regression features; structure"}
+{"mid": "Z0819", "s": 1, "r": "residue-pattern fingerprint of solution sets mod small primes"}
+{"mid": "Z0821", "s": 1, "r": "multiplicativity of U over semiprimes; regression pattern"}
+{"mid": "Z0823", "s": 1, "r": "Euler-type pattern in (q/p) weights of log U"}
+{"mid": "Z0825", "s": 1, "r": "(7/p) anomaly as 3-character confound; mechanism"}
+{"mid": "Z0828", "s": 1, "r": "(★) count weights tied to χ_{−4p}(q); character structure"}
+{"mid": "Z0830", "s": 1, "r": "shift spectrum sign pattern mod 3; divisor-shift mechanism"}
+{"mid": "Z0833", "s": 1, "r": "composite U(pq) factor dependence; multiplicative structure"}
+{"mid": "Z0835", "s": 1, "r": "2-adic depth effect saturation at 16; pattern"}
+{"mid": "Z0837", "s": 0, "r": "binary expansion null test; no mechanism expected"}
+{"mid": "Z0839", "s": 1, "r": "fraction of solutions outside five-slice family; χ_p dependence"}
+{"mid": "Z0841", "s": 1, "r": "Type I vs II proportions by p mod 24; rescue mechanism"}
+{"mid": "Z0843", "s": 0, "r": "logistic-regression prediction of R-zeros; tooling only"}
+{"mid": "Z0845", "s": 1, "r": "Carmichael numbers ES-rich; pseudoprime structure pattern"}
+{"mid": "Z0847", "s": 1, "r": "bounded U-certificate size Vmin; records structure"}
+{"mid": "Z0849", "s": 1, "r": "Cmin records and boundary solutions; certificate structure"}
+{"mid": "Z0851", "s": 1, "r": "I3 max-coordinate growth; certificate size structure"}
+{"mid": "Z0853", "s": 1, "r": "tail law of Cmin under independent divisor events"}
+{"mid": "Z0855", "s": 1, "r": "U failures factor into small primes ≡ 3 mod 4; structure"}
+{"mid": "Z0861", "s": 1, "r": "full chain x|y|z failures contain hard primes; pattern"}
+{"mid": "Z0864", "s": 1, "r": "241 = 240+1 universal outlier across variants; pattern"}
+{"mid": "Z0866", "s": 1, "r": "primitive-solution failures all ≡1 mod 12; congruence pattern"}
+{"mid": "Z0869", "s": 1, "r": "prime-x and square-denominator failure sets; rarity structure"}
+{"mid": "Z0871", "s": 1, "r": "restricted-shape density constants; local-density interpretation"}
+{"mid": "Z0874", "s": 0, "r": "OEIS lookups of restricted failure sets; bookkeeping only"}
+{"mid": "Z0876", "s": 1, "r": "4/2521 case study; x-divisibility obstruction pattern"}
+{"mid": "Z0878", "s": 0, "r": "variant engine rerun for numerators 5 and 8; tooling"}
+{"mid": "Z0880", "s": 1, "r": "Type I share vs L(1,χ_p); character dependence mechanism"}
+{"mid": "Z0884", "s": 0, "r": "targeted record-prime search plan; computational search only"}
+{"mid": "Z0886", "s": 1, "r": "(★) mean vs Brauer–Manin-type BM main term ratio drift"}
+{"mid": "Z0888", "s": 1, "r": "per-prime weights predicted from BM main term expansion"}
+{"mid": "Z0890", "s": 1, "r": "Pell pair 577²−2·408²=1 links R-zeros to √2 structure"}
+{"mid": "Z0892", "s": 1, "r": "FF analogue of 2521 via products of small irreducibles"}
+{"mid": "Z0894", "s": 1, "r": "FF pseudosquares as hardest inputs; Lehmer analogy"}
+{"mid": "Z0898", "s": 1, "r": "bounded-height constant for 3-term ES; height reduction"}
+{"mid": "Z0900", "s": 1, "r": "practical-number p−1 structure; Egyptian representability link"}
+{"mid": "Z0902", "s": 1, "r": "Znám/Prouhet–Tarry–Escott unit-fraction identity analogy"}
+{"mid": "Z0904", "s": 1, "r": "large fundamental unit regime for hard primes; CF period"}
+{"mid": "Z0906", "s": 1, "r": "Granville–Soundararajan extreme L(1,χ_d) bounds for hard primes"}
+{"mid": "Z0908", "s": 1, "r": "mod-840 congruence explains most variance; structure"}
+{"mid": "Z0910", "s": 1, "r": "Ramanujan-sum expansion of normalised count; character structure"}
+{"mid": "Z0912", "s": 1, "r": "neighbouring prime residual correlation; weak structure"}
+{"mid": "Z0914", "s": 1, "r": "easiest residue classes mod 840 as non-squares; structure"}
+{"mid": "Z0916", "s": 1, "r": "Kloosterman sums vs ES residual; Sato–Tate mechanism"}
+{"mid": "Z0918", "s": 1, "r": "supersingular j-invariants in F_p class-number formula"}
+{"mid": "Z0920", "s": 1, "r": "Tunnell ternary forms vs ES counts; congruent-number link"}
+{"mid": "Z0922", "s": 1, "r": "dispersion vs mean of exceptions; variance mechanism"}
+{"mid": "Z0925", "s": 1, "r": "hardest primes for 5/p shared with 4/p; cross-numerator"}
+{"mid": "Z0927", "s": 1, "r": "12601 = 12600+1 hardest across numerators; smooth p−1"}
+{"mid": "Z0929", "s": 1, "r": "minimum normalised count per decade; safety margin structure"}
+{"mid": "Z0932", "s": 0, "r": "OEIS A400619 records confirmation; verification bookkeeping"}
+{"mid": "Z0934", "s": 1, "r": "certificate-size bound vs Gold's k(p) conjecture; size law"}
+{"mid": "Z0936", "s": 1, "r": "idoneal numbers as natural covering moduli; class-group link"}
+{"mid": "Z0939", "s": 1, "r": "OEIS A257843 membership of hard primes; pattern"}
+{"mid": "Z0941", "s": 0, "r": "OEIS 2026 ES entries; community bookkeeping"}
+{"mid": "Z0945", "s": 1, "r": "ESC zero-set characterisation vs van Tol sequence"}
+{"mid": "Z0947", "s": 1, "r": "ET-normalised sum ratio vs N log²N; normalisation pattern"}
+{"mid": "Z0950", "s": 1, "r": "composites of hard primes; product structure pattern"}
+{"mid": "Z0952", "s": 1, "r": "norm-form representation counts for composite n"}
+{"mid": "Z0954", "s": 1, "r": "balanced-solution frequency; balanced lattice structure"}
+{"mid": "Z0956", "s": 1, "r": "identity signatures of residue classes mod 840"}
+{"mid": "Z0958", "s": 1, "r": "hard-prime twin structure p and p+840k; character pattern"}
+{"mid": "Z0960", "s": 0, "r": "Linnik-type cross-check expected null; no ES mechanism"}
+{"mid": "Z0962", "s": 1, "r": "fingerprint of U(4p+1) and U((p+3)/4) vs U(p)"}
+{"mid": "Z0964", "s": 1, "r": "effective height bound minz(p) ≤ 0.503 p²; R-zero extremal"}
+{"mid": "Z0966", "s": 1, "r": "hardest composites are prime squares; odd-square T1 link"}
+{"mid": "Z0968", "s": 1, "r": "Tunnell difference A−2B vs residual log U; structure"}
+{"mid": "Z0970", "s": 1, "r": "hard-prime recurrence across detectors; common mechanism"}
+{"mid": "Z0972", "s": 0, "r": "generalised screening tool; tooling only"}
+{"mid": "Z0975", "s": 1, "r": "near-isosceles gap as degenerate-locus fingerprint"}
+{"mid": "Z0977", "s": 1, "r": "consecutive-x coupling to residual factor-pair problem"}
+{"mid": "Z0980", "s": 1, "r": "symmetric functions s1,s2,s3 and cubic root connection"}
+{"mid": "Z0984", "s": 1, "r": "split/merge fraction trees from 1/a identity"}
+{"mid": "Z0986", "s": 1, "r": "determinant encoding of divisor conditions; congruence structure"}
+{"mid": "Z0989", "s": 1, "r": "resultant elimination between ES identity families"}
+{"mid": "Z0991", "s": 1, "r": "birational charts of ES surface; integrality comparison"}
+{"mid": "Z0993", "s": 1, "r": "logarithmic coordinates; thin families vs curved surface"}
+{"mid": "Z0997", "s": 1, "r": "elliptic slices of ES surface; genus-one question"}
+{"mid": "Z0999", "s": 1, "r": "norm equations in quadratic orders for discriminant conditions"}
+{"mid": "Z1001", "s": 1, "r": "Gaussian sum-of-two-squares factor residue constraint"}
+{"mid": "Z1004", "s": 1, "r": "continued-fraction local surgery; congruence data mechanism"}
+{"mid": "Z1006", "s": 1, "r": "Stern–Brocot paths of residual rationals; terminal patterns"}
+{"mid": "Z1009", "s": 1, "r": "higher power residue labels beyond quadratic symbols"}
+{"mid": "Z1012", "s": 1, "r": "CRT parameter selection as optimisation; structure"}
+{"mid": "Z1014", "s": 1, "r": "lattice reduction for simultaneous divisibility and smallness"}
+{"mid": "Z1017", "s": 1, "r": "affine semigroup of attainable parameters; holes structure"}
+{"mid": "Z1020", "s": 1, "r": "subset products in residue groups; divisor selection"}
+{"mid": "Z1022", "s": 1, "r": "nonunit factor separation before group heuristics"}
+{"mid": "Z1024", "s": 1, "r": "cyclotomic factorisation of p-tied expressions"}
+{"mid": "Z1026", "s": 1, "r": "divisor/complement switching in p-tied divisor count"}
+{"mid": "Z1036", "s": 1, "r": "residue-level local densities as fingerprint vector"}
+{"mid": "Z1038", "s": 1, "r": "exceptional-prime clustering in progressions; structure"}
+{"mid": "Z1040", "s": 1, "r": "factorial moments of distinct witness tuples"}
+{"mid": "Z1043", "s": 1, "r": "dependency graph of shared prime/congruence constraints"}
+{"mid": "Z1045", "s": 1, "r": "entropy of divisor residues under added prime powers"}
+{"mid": "Z1047", "s": 1, "r": "rough–smooth complementary factor constructions"}
+{"mid": "Z1050", "s": 1, "r": "prime-factor residue patterns producing target divisor"}
+{"mid": "Z1052", "s": 1, "r": "Chebotarev condition for family selection; Frobenius"}
+{"mid": "Z1055", "s": 1, "r": "additive energy of discrete logs of factor residues"}
+{"mid": "Z1057", "s": 1, "r": "random walks on residue groups; expander mechanism"}
+{"mid": "Z1059", "s": 1, "r": "Bohr-set interpretation of near-integral parametrisation"}
+{"mid": "Z1062", "s": 1, "r": "discrepancy of admissible parameter residues"}
+{"mid": "Z1064", "s": 1, "r": "CRT covering radius and largest gap in exclusions"}
+{"mid": "Z1066", "s": 1, "r": "vector-valued sieve weights across certificate families"}
+{"mid": "Z1069", "s": 1, "r": "weights on rare witnesses; domination reduction"}
+{"mid": "Z1071", "s": 1, "r": "arithmetic-progression packets sharing certificate templates"}
+{"mid": "Z1075", "s": 0, "r": "tracking smallest cutoff per stratum; measurement only"}
+{"mid": "Z1078", "s": 1, "r": "perfect-matching determinant encoding of restricted families"}
+{"mid": "Z1080", "s": 1, "r": "minimum hitting set of repair families for failure patterns"}
+{"mid": "Z1082", "s": 1, "r": "epsilon-net hitting of witness sets in finite universe"}
+{"mid": "Z1084", "s": 0, "r": "proof-producing finite-range set cover; tooling"}
+{"mid": "Z1086", "s": 1, "r": "Ramsey-type monochromatic parameter configurations"}
+{"mid": "Z1088", "s": 1, "r": "word-combinatorial wildcard blocks preserving ES identity"}
+{"mid": "Z1090", "s": 1, "r": "base-digit automaton with carries for certificate equation"}
+{"mid": "Z1092", "s": 1, "r": "regular language of admissible matrix words; automaton view"}
+{"mid": "Z1094", "s": 1, "r": "synchronizing words for congruence target sets"}
+{"mid": "Z1096", "s": 1, "r": "finite-state transducer digit rules with bounded carry"}
+{"mid": "Z1098", "s": 1, "r": "transfer matrix counts of admissible divisor selections"}
+{"mid": "Z1100", "s": 1, "r": "restricted partitions after clearing common denominator L"}
+{"mid": "Z1102", "s": 1, "r": "Ehrhart-type lattice-point reciprocity for denominator polytopes"}
+{"mid": "Z1104", "s": 1, "r": "inside-out polytopes with forbidden congruence hyperplanes"}
+{"mid": "Z1108", "s": 1, "r": "contingency-table allocation of prime valuations; structure"}
+{"mid": "Z1110", "s": 1, "r": "sandpile/cokernel groups organising denominator congruences"}
+{"mid": "Z1112", "s": 0, "r": "nonbacktracking walk search order; tooling only"}
+{"mid": "Z1115", "s": 0, "r": "random spanning-tree search routes; tooling only"}
+{"mid": "Z1117", "s": 1, "r": "persistent topology of certificate point clouds; invariant"}
+{"mid": "Z1119", "s": 1, "r": "rewriting confluence of exact identity transformations"}
+{"mid": "Z1122", "s": 0, "r": "job scheduling of search families; tooling only"}
+{"mid": "Z1124", "s": 1, "r": "tilings encoding reciprocal sums; geometric decomposition"}
+{"mid": "Z1126", "s": 1, "r": "spin-system model of residue selection; statistical mechanics analogy"}
+{"mid": "Z1128", "s": 1, "r": "zeros of certificate-generating polynomials; count structure"}
+{"mid": "Z1130", "s": 0, "r": "replica overlap diagnostic on sampled certificates; measurement only"}
+{"mid": "Z1132", "s": 1, "r": "frustrated congruence loops; obstruction mechanism"}
+{"mid": "Z1134", "s": 1, "r": "finite-size scaling of witness cost; falsifiable heuristic"}
+{"mid": "Z1136", "s": 0, "r": "energy landscape for search objective; tooling only"}
+{"mid": "Z1138", "s": 0, "r": "parallel tempering over search families; tooling only"}
+{"mid": "Z1141", "s": 1, "r": "quenched vs annealed witness counts; stat-mech analogy"}
+{"mid": "Z1143", "s": 1, "r": "arithmetic spectral outliers in quadratic-character sectors"}
+{"mid": "Z1145", "s": 0, "r": "QUBO/adiabatic search encoding; tooling only"}
+{"mid": "Z1147", "s": 1, "r": "tensor rank of bounded identity ansatz; low-rank structure"}
+{"mid": "Z1150", "s": 1, "r": "Lax-pair algebraic structure for certificate transformations"}
+{"mid": "Z1152", "s": 1, "r": "Yang–Baxter refactorisation of elementary matrix products"}
+{"mid": "Z1155", "s": 1, "r": "continued-fraction words vs modular geodesic codings"}
+{"mid": "Z1158", "s": 1, "r": "skew-product coupling of size and residue; dynamics"}
+{"mid": "Z1160", "s": 1, "r": "periodic residue orbits with nonperiodic growth; dynamics"}
+{"mid": "Z1162", "s": 1, "r": "arithmetic cocycle of scale and congruence corrections"}
+{"mid": "Z1164", "s": 1, "r": "adelic height combining real size and p-adic penalty"}
+{"mid": "Z1166", "s": 1, "r": "p-adic dynamics of rational parameter maps"}
+{"mid": "Z1170", "s": 1, "r": "stationary points of certificate cost on real surface"}
+{"mid": "Z1172", "s": 1, "r": "transport between neighbouring prime surfaces; rounding defect"}
+{"mid": "Z1174", "s": 1, "r": "finite Fourier uncertainty for divisor-residue distributions"}
+{"mid": "Z1176", "s": 0, "r": "SAT encoding of bounded denominator search; tooling only"}
+{"mid": "Z1178", "s": 1, "r": "quantifier elimination on fitting subproblems; logic structure"}
+{"mid": "Z1180", "s": 1, "r": "grammar of gcd/floor/reciprocal parametrisations"}
+{"mid": "Z1182", "s": 1, "r": "interval and congruence propagation through candidate parametrisations"}
+{"mid": "Z1184", "s": 0, "r": "modular conflict learning nogoods; search tooling only"}
+{"mid": "Z1187", "s": 0, "r": "independent arithmetic verification routes; tooling only"}
+{"mid": "Z1190", "s": 1, "r": "algorithmic simplicity of difficult instances; complexity question"}
+{"mid": "Z1192", "s": 0, "r": "Levin-style program search budgets; tooling only"}
+{"mid": "Z1198", "s": 0, "r": "meet-in-the-middle divisor search; tooling only"}
+{"mid": "Z1200", "s": 0, "r": "bitset reachability propagation; implementation only"}
+{"mid": "Z1203", "s": 0, "r": "modular fingerprints for duplicate detection; tooling only"}
+{"mid": "Z1205", "s": 0, "r": "straight-line program storage of denominators; representation tooling"}
+{"mid": "Z1207", "s": 0, "r": "sparse interpolation for parameter relations; tooling only"}
+{"mid": "Z1211", "s": 1, "r": "hidden-number lattice recovery of auxiliary parameters"}
+{"mid": "Z1213", "s": 1, "r": "smooth-order steering via p−1-style factoring structure"}
+{"mid": "Z1216", "s": 0, "r": "product/remainder tree candidate testing; tooling only"}
+{"mid": "Z1218", "s": 1, "r": "discrete logs linearising residues with bounded exponents"}
+{"mid": "Z1220", "s": 0, "r": "certified primality pipeline for experiments; process only"}
+{"mid": "Z1222", "s": 0, "r": "small-bias sample spaces; sampling tooling only"}
+{"mid": "Z1224", "s": 0, "r": "memory-bounded parallel parameter search; engineering only"}
+{"mid": "Z1226", "s": 0, "r": "permutation-equivariant ML predictors; tooling only"}
+{"mid": "Z1228", "s": 0, "r": "ML predictor for next family to try; tooling only"}
+{"mid": "Z1230", "s": 0, "r": "symbolic regression of witness costs; ML tooling only"}
+{"mid": "Z1232", "s": 0, "r": "counterfactual feature interventions; ML analysis only"}
+{"mid": "Z1234", "s": 0, "r": "uncertainty-guided compute allocation; experiment design only"}
+{"mid": "Z1236", "s": 0, "r": "out-of-distribution ML tests; evaluation design only"}
+{"mid": "Z1238", "s": 0, "r": "matched prime pairs as experiment design; no mechanism"}
+{"mid": "Z1241", "s": 0, "r": "learned embeddings of matrix words; ML tooling only"}
+{"mid": "Z1243", "s": 1, "r": "invariant discovery via low-degree expressions; invariant structure"}
+{"mid": "Z1245", "s": 0, "r": "literature retrieval by algebraic shape; bibliography only"}
+{"mid": "Z1247", "s": 0, "r": "dictionary of incompatible conventions; bookkeeping only"}
+{"mid": "Z1254", "s": 1, "r": "parametric proof objects: identity plus integrality proof split"}
+{"mid": "Z1257", "s": 0, "r": "property-based arithmetic testing; software testing only"}
+{"mid": "Z1259", "s": 0, "r": "mutation testing of certificate checkers; software only"}
+{"mid": "Z1264", "s": 1, "r": "Engel expansions vs unit-fraction decompositions; dynamics"}
+{"mid": "Z1266", "s": 1, "r": "Ostrowski numeration of auxiliary parameters relative to p"}
+{"mid": "Z1268", "s": 0, "r": "primary-source citation genealogy; bibliography only"}
+{"mid": "Z1270", "s": 1, "r": "two-term and four-term boundary cases vs three-term target"}
+{"mid": "Z1276", "s": 1, "r": "characteristic sensitivity of numerator four; invertibility structure"}
+{"mid": "Z1280", "s": 1, "r": "separable vs inseparable parametrisations in function fields"}
+{"mid": "Z1288", "s": 1, "r": "Cox-ring multigrading of parameter monomials"}
+{"mid": "Z1291", "s": 1, "r": "Galois action permuting factor allocations in norm parametrisation"}
+{"mid": "Z1293", "s": 1, "r": "rational curves through known certificates on ES surface"}
+{"mid": "Z1295", "s": 1, "r": "bad reduction of parametrisation charts; rank drop structure"}
+{"mid": "Z1297", "s": 1, "r": "theta series of congruence lattice for certificate counts"}
+{"mid": "Z1300", "s": 1, "r": "half-integral-weight correspondence for ternary quadratic slices"}
+{"mid": "Z1303", "s": 1, "r": "CM specialisations where norm/theta expressions simplify"}
+{"mid": "Z1308", "s": 1, "r": "p-adic variation of modular representation counts"}
+{"mid": "Z1311", "s": 1, "r": "p-adic integrals for valuation distributions; integral structure"}
+{"mid": "Z1313", "s": 1, "r": "Newton polygon analysis of parametrised one-variable polynomials"}
+{"mid": "Z1315", "s": 1, "r": "sum–product over Z/mZ stratified by ideals"}
+{"mid": "Z1322", "s": 1, "r": "LP duality explaining infeasibility of relaxed parameter cone"}
+{"mid": "Z1324", "s": 1, "r": "backward construction from final integrality lemma"}
+{"mid": "Z1326", "s": 1, "r": "Ising/Potts model on modular hyperbola graph; ground-state criterion"}
+{"mid": "Z1328", "s": 1, "r": "arcsine law of divisors applied to 4Cp+1 residue classes"}
+{"mid": "Z1330", "s": 1, "r": "QRT-type integrable map preserving 4/n invariant; integrable structure"}
+{"mid": "Z1335", "s": 1, "r": "percolation threshold on divisor-in-class bipartite graph"}
+{"mid": "Z1337", "s": 1, "r": "Anderson localisation analogy for divisor residue constraint"}
+{"mid": "Z1340", "s": 1, "r": "quantum unique ergodicity of theta functions; theta-quotient form"}
+{"mid": "Z1343", "s": 1, "r": "random walk on Cayley graph of residue group; first-passage"}
+{"mid": "Z1345", "s": 1, "r": "zeta-regularised Casimir interpretation of unit-fraction sums"}
+{"mid": "Z1347", "s": 1, "r": "Eisenstein series resonance at cusp for Γ₀(4C) divisor counts"}
+{"mid": "Z1350", "s": 1, "r": "devil's staircase structure of minimal C(p) function"}
+{"mid": "Z1353", "s": 1, "r": "Kasteleyn/dimer count of e-slice solutions"}
+{"mid": "Z1356", "s": 1, "r": "Jarzynski-type exact identity averaging over C"}
+{"mid": "Z1359", "s": 1, "r": "bulk–boundary invariant: Mordell classes vs square classes"}
+{"mid": "Z1363", "s": 1, "r": "loop/Schwinger–Dyson equations for generating function of f(n)"}
+{"mid": "Z1365", "s": 1, "r": "Gibbs measure on (C, divisor) pairs; partition function positivity"}
+{"mid": "Z1367", "s": 1, "r": "chaotic scattering analogy; three-body reduced-mass reformulation"}
+{"mid": "Z1369", "s": 1, "r": "potential-plus-move Lyapunov existence template"}
+{"mid": "Z1372", "s": 1, "r": "mutual information of residues with f(p); locality measure"}
+{"mid": "Z1376", "s": 0, "r": "SAT encoding of counterexample search; tooling only"}
+{"mid": "Z1378", "s": 1, "r": "decidability/reverse-math status of ES as bounded-quantifier sentence"}
+{"mid": "Z1380", "s": 1, "r": "non-polynomial program-synthesis formulas escaping Mordell–Schinzel"}
+{"mid": "Z1382", "s": 0, "r": "gradient-boosted classifier on arithmetic features; ML tooling"}
+{"mid": "Z1384", "s": 0, "r": "learned certificate prior via model; ML tooling only"}
+{"mid": "Z1387", "s": 1, "r": "Chevalley–Warning mod-prime counts for ES equation"}
+{"mid": "Z1389", "s": 0, "r": "Lean formalisation of reduction; formalisation process only"}
+{"mid": "Z1392", "s": 1, "r": "Gröbner elimination of Type I/II parametrisation relations"}
+{"mid": "Z1394", "s": 1, "r": "Ramsey bounded gaps for small-C solvability"}
+{"mid": "Z1396", "s": 1, "r": "pseudorandom generator viewpoint on divisor factorisations"}
+{"mid": "Z1398", "s": 1, "r": "smallest-solution growth exponent vs algorithmic approaches"}
+{"mid": "Z1403", "s": 1, "r": "Boolean Fourier analysis of winning-C indicator in p mod M"}
+{"mid": "Z1406", "s": 1, "r": "succinct witness length as information-theoretic bound"}
+{"mid": "Z1408", "s": 0, "r": "MCTS/RL search over proof strategies; tooling only"}
+{"mid": "Z1410", "s": 1, "r": "sparse character-sum expansion of Type I part; recovery"}
+{"mid": "Z1412", "s": 1, "r": "solution sets as codewords; minimum-weight structure"}
+{"mid": "Z1414", "s": 1, "r": "quantum adversary-bound analogy for winning-C query lower bounds"}
+{"mid": "Z1416", "s": 1, "r": "lattice/greedy first-term remainder two-term condition"}
+{"mid": "Z1418", "s": 1, "r": "hitting-set growth of winning-C families over primes"}
+{"mid": "Z1420", "s": 0, "r": "GPU search for hardest primes; computation only"}
+{"mid": "Z1424", "s": 0, "r": "Rhind papyrus 2/n history; no mechanism for ES"}
+{"mid": "Z1428", "s": 0, "r": "re-audit of Elsholtz–Tao open-problem list; bibliography only"}
+{"mid": "Z1431", "s": 0, "r": "outreach to specialist for divisor-restricted hyperbola question"}
+{"mid": "Z1433", "s": 0, "r": "Lean library for formal ES verification; formalisation only"}
+{"mid": "Z1435", "s": 1, "r": "Mordell's discarded parametrisations as non-polynomial families"}
+{"mid": "Z1437", "s": 1, "r": "Thue-lemma descent from square roots to divisor"}
+{"mid": "Z1441", "s": 1, "r": "second-moment alteration argument for structured p"}
+{"mid": "Z1444", "s": 1, "r": "−1-free subgroup criterion for divisor-in-class failure"}
+{"mid": "Z1449", "s": 1, "r": "Linnik-type reservoir template for one divisor in a class"}
+{"mid": "Z1452", "s": 1, "r": "highly composite 4Cp+1 heuristic; prime-producing parameters"}
+{"mid": "Z1456", "s": 1, "r": "Puiseux identities over ℚ(√n) avoiding square-class obstruction"}
+{"mid": "Z1458", "s": 1, "r": "Carmichael λ and group structure of (ℤ/4C)^× choice"}
+{"mid": "Z1460", "s": 1, "r": "local density automaton from Hensel lifting mod m"}
+{"mid": "Z1462", "s": 1, "r": "Farey neighbours giving unit-fraction splitting structure"}
+{"mid": "Z1465", "s": 1, "r": "adaptive C-choice from prime factors of previous failure"}
+{"mid": "Z1469", "s": 1, "r": "C-form as explicit covering system of residue classes"}
+{"mid": "Z1474", "s": 1, "r": "gap structure of winning C at fixed p"}
+{"mid": "Z1476", "s": 1, "r": "involutive symmetry of certificate set; orbit parity"}
+{"mid": "Z1479", "s": 1, "r": "higher-order power relaxations (ℤ/4C)^× modulo k-th powers"}
+{"mid": "Z1481", "s": 1, "r": "Siegel–Weil positivity from ternary representation numbers"}
+{"mid": "Z1484", "s": 1, "r": "Eichler–Selberg trace formula and Hurwitz class number sums"}
+{"mid": "Z1488", "s": 1, "r": "quartic reciprocity obstructions removing square-type families"}
+{"mid": "Z1492", "s": 1, "r": "analytic continuation of weighted winning-C sum; pole structure"}
+{"mid": "Z1495", "s": 1, "r": "weighted certificate counts with sieve-type weights"}
+{"mid": "Z1497", "s": 1, "r": "design-theory covering of prime residues by winning pairs"}
+{"mid": "Z1501", "s": 1, "r": "class group triviality for Type I divisibility ideals"}
+{"mid": "Z1503", "s": 1, "r": "near-square integers and Legendre-profile obstructions"}
+{"mid": "Z1507", "s": 1, "r": "Siegel-mass weighted counts by stabiliser; weighting structure"}
+{"mid": "Z1510", "s": 1, "r": "reciprocity-symbol zoo; square obstruction as special reciprocity case"}
+{"mid": "Z1513", "s": 1, "r": "C-form divisor forces quadratic non-residue via reciprocity"}
+{"mid": "Z1515", "s": 0, "r": "standing calibration list of hard primes; process only"}
+{"mid": "Z1518", "s": 0, "r": "crowd-sourced identity census; bookkeeping only"}
+{"mid": "Z1520", "s": 1, "r": "histogram of Type I (c,d) pairs; concentration in few fields"}
+{"mid": "Z1522", "s": 1, "r": "second-smallest certificate gaps; clustering structure"}
+{"mid": "Z1529", "s": 1, "r": "expected C-form count via divisor sums; main-term analysis"}
+{"mid": "Z1531", "s": 0, "r": "puzzle-literature search for unit-fraction tricks; bibliography"}
+{"mid": "Z1533", "s": 1, "r": "Poisson–Dirichlet factorisation model with subset-product coverage"}
+{"mid": "Z1536", "s": 1, "r": "quadratic divisor problem (DFI) for Type I sums along quadratic polynomial"}
+{"mid": "Z1538", "s": 1, "r": "quasi-modular fit of ES generating function; modular structure"}
+{"mid": "Z1540", "s": 1, "r": "Erdős 2^n mod n exponential reservoir analogy"}
+{"mid": "Z1542", "s": 1, "r": "Gallagher larger sieve for ES exceptional set"}
+{"mid": "Z1545", "s": 0, "r": "ML regression of f(p) on factorisations; ML tooling only"}
+{"mid": "Z1548", "s": 1, "r": "Gauss triangular-number theorem via class number positivity analogy"}
+{"mid": "Z1551", "s": 1, "r": "GRH-conditional ES status and conductor obstruction"}
+{"mid": "Z1553", "s": 1, "r": "CM elliptic curve reading of certificate divisors"}
+{"mid": "Z1558", "s": 1, "r": "Fermat primes via explicit square-class placement mod 840"}
+{"mid": "Z1561", "s": 1, "r": "C=2 parity escape via norms from Z[√2]"}
+{"mid": "Z1563", "s": 0, "r": "history of Straus and Egyptian-fraction papers; bibliography only"}
+{"mid": "Z1565", "s": 0, "r": "Guy UPINT reference pass for methods; bibliography only"}
+{"mid": "Z1567", "s": 1, "r": "full Type II QNR forcing via reciprocity on factor pairs"}
+{"mid": "Z1569", "s": 1, "r": "hidden 2-power invariant behind C-form exceptions"}
+{"mid": "Z1571", "s": 1, "r": "abc-conjecture consequences for nearly prime 4Cp+1"}
+{"mid": "Z1573", "s": 0, "r": "factorisation census tooling to larger range; computation only"}
+{"mid": "Z1575", "s": 1, "r": "composites under square multiples of C-form failures"}
+{"mid": "Z1578", "s": 1, "r": "upper-bound sieve for simultaneous failure at C=1,2"}
+{"mid": "Z1582", "s": 1, "r": "C-form exceptional set as squares plus quartic obstruction"}
+{"mid": "Z1584", "s": 1, "r": "binary-form representations of p and congruence constraints"}
+{"mid": "Z1587", "s": 1, "r": "ES for t²+1 and 4t²+1 identities; square-value structure"}
+{"mid": "Z1594", "s": 1, "r": "Ising chain in a character field for divisor counts"}
+{"mid": "Z1599", "s": 1, "r": "subset-product gap with rich factors not in index-2 subgroup"}
+{"mid": "Z1602", "s": 1, "r": "Bleicher–Erdős denominator tradeoffs for unit-fraction sums"}
+{"mid": "Z1604", "s": 0, "r": "explainer for teaching the hardness of p=409; outreach only"}
+{"mid": "Z1606", "s": 1, "r": "e-slice form as an exact equivalent with no exception"}
+{"mid": "Z1608", "s": 1, "r": "multiplicity poverty explains rich C-form failures; finding"}
+{"mid": "Z1610", "s": 0, "r": "Ulam-spiral visualisation of certificate parameters; visualisation"}
+{"mid": "Z1613", "s": 1, "r": "Sturmian/Beatty structure of first-denominator candidates"}
+{"mid": "Z1616", "s": 0, "r": "Lean Zulip and blog outreach for formalisation; outreach only"}
+{"mid": "Z1618", "s": 1, "r": "cellular-automaton space-time structure of search tree"}
+{"mid": "Z1620", "s": 1, "r": "density of winning C; log-density normalisation"}
+{"mid": "Z1622", "s": 1, "r": "Wythoff-style hyperbola lattice points across C"}
+{"mid": "Z1626", "s": 0, "r": "search of erdosproblems corpus for divisor-class results; bibliography"}
+{"mid": "Z1628", "s": 1, "r": "prime-factor forensics of exceptional primes by u-value"}
+{"mid": "Z1631", "s": 1, "r": "heuristic repair of expected count via forced symbols"}
+{"mid": "Z1633", "s": 0, "r": "meta hand-off of C-form program to a lane; process only"}
+{"mid": "Z1635", "s": 1, "r": "uniform-in-m square obstructions for Sierpiński and Schinzel"}
+{"mid": "Z1640", "s": 0, "r": "comment-thread harvesting from Tao's blog; bibliography only"}
+{"mid": "Z1642", "s": 1, "r": "Sylvester's sequence extremal denominators as dual structure"}
+{"mid": "Z1645", "s": 1, "r": "large-sieve modern variants for Vaughan-type argument"}
+{"mid": "Z1647", "s": 1, "r": "Duke–Schulze-Pillot ternary representation theorem transfer"}
+{"mid": "Z1652", "s": 1, "r": "Cayley cubic saturation with few-prime coordinates; p-adic constraints"}
+{"mid": "Z1655", "s": 1, "r": "Erdős–Graham prime-denominator sums; constrained denominators"}
+{"mid": "Z1657", "s": 1, "r": "Mordell–Schinzel no identity for squares; Galois monodromy obstruction"}
+{"mid": "Z1660", "s": 0, "r": "1990s average-count history thread; history only"}
+{"mid": "Z1662", "s": 0, "r": "Guy UPINT bibliography completeness sweep; bibliography only"}
+{"mid": "Z1664", "s": 1, "r": "Browning–Elsholtz upper bounds as structural pressure on lower bounds"}
+{"mid": "Z1666", "s": 1, "r": "Pomerance–Weingartner m/n exception density as uniform calibration"}
+{"mid": "Z1668", "s": 1, "r": "local-global template for cubic surfaces; non-Brauer obstruction question"}
+{"mid": "Z1671", "s": 1, "r": "Brauer–Manin failure for U_n; étale or descent obstruction"}
+{"mid": "Z1673", "s": 1, "r": "fibration method for integral points over the n-line"}
+{"mid": "Z1675", "s": 1, "r": "Silverman specialisation for pencil S_{n,k} at k→0"}
+{"mid": "Z1677", "s": 1, "r": "Cayley cubic nodes and local conditions at singular points"}
+{"mid": "Z1682", "s": 1, "r": "Appell–Lerch/Lambert series for R(p) coefficient extraction"}
+{"mid": "Z1684", "s": 1, "r": "M_BM as average of Kronecker characters; class number link"}
+{"mid": "Z1687", "s": 1, "r": "continued fraction of √p and ℚ(√p) arithmetic in ES₅"}
+{"mid": "Z1689", "s": 1, "r": "Ehrhart quasi-polynomial counts for Type II inequalities"}
+{"mid": "Z1691", "s": 1, "r": "Olson/Erdős–Ginzburg–Ziv subproduct theorems for divisors"}
+{"mid": "Z1693", "s": 1, "r": "Rudnev/Stevens–de Zeeuw incidence bounds over F_p"}
+{"mid": "Z1695", "s": 1, "r": "Combinatorial Nullstellensatz for nonvanishing certificate grid points"}
+{"mid": "Z1698", "s": 1, "r": "motivic class of certificate variety; all finite-field counts"}
+{"mid": "Z1701", "s": 1, "r": "Apollonian/Ford circle curvature relation to 4/p"}
+{"mid": "Z1703", "s": 1, "r": "Farey tessellation triangles for Egyptian splitting"}
+{"mid": "Z1706", "s": 1, "r": "Thue pigeonhole lemma for Type II pair forms"}
+{"mid": "Z1709", "s": 1, "r": "non-congruence Chebotarev classes for polynomial identities"}
+{"mid": "Z1712", "s": 1, "r": "elliptic curve attached to 4/n and rank structure"}
+{"mid": "Z1714", "s": 1, "r": "Heegner points as forced algebraic objects at each p"}
+{"mid": "Z1716", "s": 1, "r": "primitive divisors of Lucas sequences ≡ −1 mod m"}
+{"mid": "Z1718", "s": 1, "r": "Schinzel H implies evading families; barrier structure"}
+{"mid": "Z1721", "s": 1, "r": "Siegel's lemma for small solutions linear in C"}
+{"mid": "Z1723", "s": 1, "r": "random energy model as null model for certificate counts"}
+{"mid": "Z1726", "s": 1, "r": "Lee–Yang / stability preservers for window polynomial nonvanishing"}
+{"mid": "Z1728", "s": 1, "r": "pair correlation of certificate moduli; spectral analogy"}
+{"mid": "Z1730", "s": 1, "r": "Euclid/Gauss map dynamics and ES₅ continued-fraction length"}
+{"mid": "Z1732", "s": 1, "r": "Vieta jumping after substitution in bilinear ES surface"}
+{"mid": "Z1734", "s": 1, "r": "random multiplicative function model for Legendre symbol"}
+{"mid": "Z1736", "s": 1, "r": "information content of certificates in bits of p"}
+{"mid": "Z1738", "s": 1, "r": "multiplicative semigroup dynamics; Furstenberg rigidity"}
+{"mid": "Z1740", "s": 1, "r": "circle-rotation analogy for p mod consecutive moduli"}
+{"mid": "Z1742", "s": 1, "r": "thermodynamic formalism for Engel/Sylvester dynamics"}
+{"mid": "Z1745", "s": 0, "r": "record-hardness sequence OEIS lookup; bibliography only"}
+{"mid": "Z1747", "s": 1, "r": "maximum-entropy prediction of R(p) from residue constraints"}
+{"mid": "Z1750", "s": 1, "r": "Miller-index plane through (p/4,p/4,p/4) reformulation"}
+{"mid": "Z1753", "s": 1, "r": "balls-in-bins occupancy of trial moduli; probabilistic model"}
+{"mid": "Z1756", "s": 1, "r": "lattice-flow cusp excursions as small-vector certificates"}
+{"mid": "Z1758", "s": 1, "r": "Bohr-set reformulation of exact certificate residues"}
+{"mid": "Z1761", "s": 1, "r": "Egyptian greedy map orbits on residues mod p"}
+{"mid": "Z1763", "s": 1, "r": "Benjamini–Schramm local limits of divisor graph"}
+{"mid": "Z1765", "s": 1, "r": "hidden-subgroup formulation of ES gate over (ℤ/N)^×"}
+{"mid": "Z1768", "s": 1, "r": "CRT adversary construction of p evading small certificates"}
+{"mid": "Z1772", "s": 1, "r": "pigeonhole collision certificates; PPP-type reasoning"}
+{"mid": "Z1775", "s": 1, "r": "automatic-set/Büchi structure of certificate-size sets"}
+{"mid": "Z1778", "s": 1, "r": "ECM-style factoring tuned to classes; search structure"}
+{"mid": "Z1780", "s": 1, "r": "relation-lattice short vectors among divisor classes"}
+{"mid": "Z1784", "s": 1, "r": "explicit search bound as Linnik-type statement"}
+{"mid": "Z1788", "s": 1, "r": "interactive/compressed proofs of dense-set ES"}
+{"mid": "Z1792", "s": 0, "r": "symbolic regression on minimal solution sizes; ML tooling"}
+{"mid": "Z1794", "s": 0, "r": "neural certificate generator; ML tooling only"}
+{"mid": "Z1796", "s": 0, "r": "FunSearch-style program evolution; tooling only"}
+{"mid": "Z1799", "s": 1, "r": "elimination for bounded-degree identity families over Q[t]"}
+{"mid": "Z1801", "s": 0, "r": "cellular-automaton sieve pictures; visualisation only"}
+{"mid": "Z1803", "s": 1, "r": "quartic/octic residue invariants of hard primes"}
+{"mid": "Z1806", "s": 1, "r": "Titchmarsh divisor problem in progressions for certificate sums"}
+{"mid": "Z1811", "s": 1, "r": "Turán sieve variance lower bound for hitting events"}
+{"mid": "Z1815", "s": 1, "r": "divisors in progressions to large moduli averaged over C"}
+{"mid": "Z1819", "s": 1, "r": "prime 4Cp+1 kills C-slice; semiprime factor conditions"}
+{"mid": "Z1821", "s": 1, "r": "forced small-prime divisibility by self-levelled certificates"}
+{"mid": "Z1823", "s": 1, "r": "Artin primitive-root heuristic for class gate"}
+{"mid": "Z1825", "s": 1, "r": "Dirichlet series of R(n) and Tauberian mean values"}
+{"mid": "Z1827", "s": 1, "r": "random subset-product model of −1 hits"}
+{"mid": "Z1829", "s": 1, "r": "Eisenstein-integer splitting of hard primes; ℤ[ω] certificate"}
+{"mid": "Z1831", "s": 1, "r": "rational parametrisations with poles on the T1 locus"}
+{"mid": "Z1833", "s": 1, "r": "three-squares representations as thick extraction object"}
+{"mid": "Z1835", "s": 1, "r": "Cohen–Lenstra heuristics for class-gate events"}
+{"mid": "Z1840", "s": 1, "r": "reciprocity flip (q/p)=(p/q) gives residue-class covering"}
+{"mid": "Z1842", "s": 1, "r": "compactness in Ẑ for ES; closed uncovered subset"}
+{"mid": "Z1844", "s": 1, "r": "overspill argument for uniform certificate size bounds"}
+{"mid": "Z1847", "s": 1, "r": "ES for thin polynomial families via norm forms"}
+{"mid": "Z1849", "s": 1, "r": "word-level T1 invariant from ES₅ words"}
+{"mid": "Z1853", "s": 1, "r": "full I3 count over t up to p; Lenstra-regime divisors"}
+{"mid": "Z1856", "s": 1, "r": "shift form of (★) via divisors of consecutive shifts"}
+{"mid": "Z1859", "s": 0, "r": "Lean/Bloom–Mehta formalisation partnership; outreach only"}
+{"mid": "Z1861", "s": 0, "r": "asking specialists for method feedback; outreach only"}
+{"mid": "Z1863", "s": 0, "r": "MathOverflow question for community recognition; outreach only"}
+{"mid": "Z1865", "s": 0, "r": "conference targeting for talks; outreach only"}
+{"mid": "Z1867", "s": 0, "r": "public negative-results database; meta/process only"}
+{"mid": "Z1869", "s": 0, "r": "red-team lane for hard primes; process only"}
+{"mid": "Z1872", "s": 1, "r": "variable-numerator uniformity threshold at m=8 boundary"}
+{"mid": "Z1874", "s": 0, "r": "puzzle app for crowd-sourced instances; outreach only"}
+{"mid": "Z1876", "s": 1, "r": "just-intonation superparticular decompositions analogy"}
+{"mid": "Z1878", "s": 1, "r": "origami/binary folding analogy for unit-fraction decompositions"}
+{"mid": "Z1880", "s": 1, "r": "Fibonacci's alternative decomposition rules as constructions"}
+{"mid": "Z1882", "s": 0, "r": "time-boxed idea sprints protocol; meta only"}
+{"mid": "Z1884", "s": 0, "r": "non-English-literature survey; bibliography only"}
+{"mid": "Z1886", "s": 0, "r": "REU capstone recruitment; outreach only"}
+{"mid": "Z1888", "s": 0, "r": "public certificate database for p≤10⁹; data infrastructure only"}
+{"mid": "Z1890", "s": 0, "r": "Bayesian update of belief over ES falsity; meta only"}
+{"mid": "Z1893", "s": 1, "r": "Sidorenko/Blakley–Roy path-count lower bounds in divisibility graph"}
+{"mid": "Z1897", "s": 1, "r": "Sperner/Tucker labelling on level×divisor grid"}
+{"mid": "Z1899", "s": 1, "r": "SL₂(ℤ/4C) matrix coefficients for Type II condition"}
+{"mid": "Z1902", "s": 1, "r": "matroid rank of divisor-class vectors mod 2 for gate"}
+{"mid": "Z1904", "s": 1, "r": "random subset products covering −1; mixing threshold"}
+{"mid": "Z1906", "s": 1, "r": "additive-basis structure of ES-friendly integers under multiplication"}
+{"mid": "Z1908", "s": 1, "r": "lattice-point counts on cubic surface near asymptotic directions"}
+{"mid": "Z1910", "s": 1, "r": "polynomial ES over ℤ[T] and Mordell–Schinzel classification"}
+{"mid": "Z1912", "s": 1, "r": "divisor-in-class predicate definability; logic complexity"}
+{"mid": "Z1916", "s": 1, "r": "subset products avoiding −1 and inverse theorems"}
+{"mid": "Z1919", "s": 1, "r": "alteration method on random p-tied objects; class-gate fix"}
+{"mid": "Z1922", "s": 1, "r": "Belyi/dessin structure of ES fibration"}
+{"mid": "Z1924", "s": 1, "r": "three-gap/Kronecker structure of p mod m"}
+{"mid": "Z1926", "s": 1, "r": "B=1 slice as Landau–Ramanujan prime-factor event"}
+{"mid": "Z1928", "s": 1, "r": "simultaneous Landau–Ramanujan conditions on consecutive shifts"}
+{"mid": "Z1932", "s": 1, "r": "sangaku unit-fraction tangent relations as integer configuration"}
+{"mid": "Z1934", "s": 1, "r": "signed divisor sums with exact class-number formula"}
+{"mid": "Z1937", "s": 1, "r": "congruence counts of R(p) mod small m; coin-flip structure"}
+{"mid": "Z1940", "s": 1, "r": "signed ES relaxation with one negative term"}
+{"mid": "Z1942", "s": 1, "r": "power-of-two restricted-denominator ES; reservoir analogy"}
+{"mid": "Z1944", "s": 1, "r": "four-term rescue defect; minimal large denominator"}
+{"mid": "Z1946", "s": 1, "r": "Type I/II complementarity across primes"}
+{"mid": "Z1948", "s": 1, "r": "local vs global difficulty via correlation mod 840"}
+{"mid": "Z1950", "s": 0, "r": "Sierpiński monograph history; bibliography only"}
+{"mid": "Z1952", "s": 0, "r": "Dickson history chapter; bibliography only"}
+{"mid": "Z1954", "s": 0, "r": "LLM-assisted literature mining; search tooling only"}
+{"mid": "Z1956", "s": 1, "r": "Fermat factorisation viewpoint; square-root class landing"}
+{"mid": "Z1958", "s": 1, "r": "Pocklington-type primality as anti-certificate for slices"}
+{"mid": "Z1960", "s": 1, "r": "Hypothesis-H hard primes vs Type I compensation"}
+{"mid": "Z1964", "s": 1, "r": "Egyptian-fraction solution tree connected via shared denominators"}
+{"mid": "Z1966", "s": 1, "r": "hereditary closure ES(n)⟹ES(kn); descent from thick families"}
+{"mid": "Z1970", "s": 1, "r": "ES words as generalised Frobenius numbers; Sylvester analogue"}
+{"mid": "Z1972", "s": 1, "r": "Popoviciu formula turns (★) into sawtooth extremality condition"}
+{"mid": "Z1975", "s": 1, "r": "numerical semigroup counting by Frobenius number as template"}
+{"mid": "Z1978", "s": 1, "r": "Frobenius restatement of (★) without Egyptian fractions"}
+{"mid": "Z1980", "s": 1, "r": "Chebyshev-bias analogue across mod-840 hard classes"}
+{"mid": "Z1982", "s": 1, "r": "n = xyz − x − y − z sibling universality thresholds"}
+{"mid": "Z1984", "s": 0, "r": "Project Euler fast counting algorithms; engineering only"}
+{"mid": "Z1989", "s": 1, "r": "even/odd character split of slice counts"}
+{"mid": "Z1992", "s": 1, "r": "2D oscillator degeneracy reinterpretation of ES words"}
+{"mid": "Z1996", "s": 1, "r": "parity-problem diagnosis of slice success vs λ(4Cp+1)"}
+{"mid": "Z1999", "s": 1, "r": "Euler-type prime polynomials as thin families of class number one"}
+{"mid": "Z2001", "s": 1, "r": "minimal menu covering dyadic blocks of primes"}
+{"mid": "Z2005", "s": 0, "r": "cross-model review of merged list; process only"}
+{"mid": "Z2007", "s": 1, "r": "symmetric 3-generated semigroups as complete intersections"}
+{"mid": "Z2009", "s": 1, "r": "fixed small t word families and trivial odd-n universality"}
+{"mid": "Z2011", "s": 1, "r": "σ₂/σ₃ level-set restriction of ES solutions"}
+{"mid": "Z2016", "s": 1, "r": "Coppersmith lattice sampling of divisors at mid-range C"}
+{"mid": "Z2018", "s": 1, "r": "Maier–Tenenbaum divisor propinquity analogue for class divisors"}
+{"mid": "Z2021", "s": 1, "r": "Granville-corrected Cramér model for R(p) Poisson analogue"}
+{"mid": "Z2027", "s": 1, "r": "Goldbach–Linnik with sparse powers of two; strategy transfer"}
+{"mid": "Z2029", "s": 1, "r": "Colliot-Thélène–Xu spinor exceptions as Brauer–Manin obstructions"}
+{"mid": "Z2031", "s": 1, "r": "Bilu–Hanrot–Voutier primitive divisors give guaranteed divisors in class"}
+{"mid": "Z2033", "s": 1, "r": "diagonal solutions impossible at p≡1 mod 4; free S₃ action structure"}
+{"mid": "Z2035", "s": 1, "r": "8/n exception set as contrast test for the 4-numerator mechanism"}
+{"mid": "Z2038", "s": 1, "r": "chain and fixed-ratio sub-problems as two-variable divisor problems"}
+{"mid": "Z2040", "s": 1, "r": "Manin/CLT prediction for integral points on ES threefold"}
+{"mid": "Z2042", "s": 1, "r": "Corvaja–Zannier Hilbert property for thin images of fibration"}
+{"mid": "Z2044", "s": 1, "r": "theta-quotient normal form and nonvanishing of coefficients"}
+{"mid": "Z2046", "s": 1, "r": "shrinking-target hitting time for Gauss map orbits"}
+{"mid": "Z2048", "s": 1, "r": "witness-finding vs factoring p-tied integers; oracle structure"}
+{"mid": "Z2051", "s": 1, "r": "Cox representation of p by x²+ny² as square-modulo model"}
+{"mid": "Z2054", "s": 1, "r": "Tao's logarithmic-density Collatz method transferred to ES"}
+{"mid": "Z2058", "s": 1, "r": "forbidding Type I: explicit failure sets and union survival"}
+{"mid": "Z2060", "s": 1, "r": "pointwise bounds from averaging over auxiliary parameters"}
+{"mid": "Z2062", "s": 1, "r": "genus-character-only problems and ES reduction to genus theory"}
+{"mid": "Z2065", "s": 1, "r": "Pratt certificates vs bounded certificate procedures for ES"}
+{"mid": "Z2069", "s": 1, "r": "Schinzel H implies bounded procedures fail for ES"}
+{"mid": "Z2071", "s": 1, "r": "Hardy–Littlewood Conjecture H with Legendre-symbol singular series"}
+{"mid": "Z2073", "s": 0, "r": "OEIS cross-reference search for the failure sequence; bibliography only"}
+{"mid": "Z2085", "s": 1, "r": "Crocker prime-plus-two-powers obstruction structure"}
+{"mid": "Z2087", "s": 1, "r": "Zsigmondy primitive divisors and finite exception list"}
+{"mid": "Z2089", "s": 1, "r": "Tian rank results via Selmer/analytic rank for congruent-number families"}
+{"mid": "Z2091", "s": 1, "r": "Heath-Brown density via quadratic-form factorisation of prime factors"}
+{"mid": "Z2093", "s": 1, "r": "Schinzel–Sierpiński primes in shifted linear forms; pointwise witnesses"}
+{"mid": "Z2100", "s": 1, "r": "Apollonian reciprocity obstructions vs ES SL₂ formulation"}
+{"mid": "Z2102", "s": 1, "r": "Hooley conditional Artin argument; character-sum sieve signature"}
+{"mid": "Z2106", "s": 1, "r": "Linnik dispersion for progression-restricted divisor counts"}
+{"mid": "Z2109", "s": 1, "r": "conic fibration conditions linking hyperbola slices to certificates"}
+{"mid": "Z2111", "s": 1, "r": "weak vs strong approximation for Markoff orbifold pairs"}
+{"mid": "Z2114", "s": 1, "r": "Markoff-type K3 integral Hasse failure with dense points"}
+{"mid": "Z2116", "s": 1, "r": "Zariski density does not give ES existence; feature contrast"}
+{"mid": "Z2118", "s": 1, "r": "spinor-genus representation obstruction with congruence cosets"}
+{"mid": "Z2121", "s": 1, "r": "Lenstra divisor-in-class algorithm revisited"}
+{"mid": "Z2126", "s": 1, "r": "quadratic-form representations via continuants; deterministic algorithms"}
+{"mid": "Z2129", "s": 1, "r": "continuant recurrences as bounded ES word identities"}
+{"mid": "Z2133", "s": 1, "r": "Stern-sequence extremals via continuants; structure"}
+{"mid": "Z2135", "s": 1, "r": "parity control in Egyptian-fraction rewrites"}
+{"mid": "Z2139", "s": 1, "r": "matrix encoding of Markoff orbits along the Markoff tree"}
+{"mid": "Z2142", "s": 1, "r": "positive Markov–Hurwitz solutions and orbit positivity"}
+{"mid": "Z2144", "s": 1, "r": "continuant transformations and orbit-growth bounds"}
+{"mid": "Z2148", "s": 1, "r": "smooth-number equidistribution in residue classes"}
+{"mid": "Z2154", "s": 1, "r": "Problem 300 density bounds; pointwise-vs-average tension"}
+{"mid": "Z2157", "s": 1, "r": "Problem 302: density forcing reciprocal relation"}
+{"mid": "Z2161", "s": 1, "r": "Problem 306: multiplicative prime-factor Egyptian decompositions"}
+{"mid": "Z2166", "s": 1, "r": "Problem 311: least nonzero reciprocal subset sum; certificates"}
+{"mid": "Z2171", "s": 1, "r": "Problem 316: divisor-set partition counterexample structure"}
+{"mid": "Z2177", "s": 1, "r": "Problem 327: unit-fraction characterisation of odd sets"}
+{"mid": "Z2183", "s": 1, "r": "Problem 308: eventual threshold vs individual target"}
+{"mid": "Z2191", "s": 1, "r": "Problem 304: Vose bound and denominator growth stress test"}
+{"mid": "Z2193", "s": 1, "r": "Problem 313: prime reciprocal equation with local congruences"}
+{"mid": "Z2196", "s": 1, "r": "Problem 316: finite divisor-set obstruction vs universal primes"}
+{"mid": "Z2199", "s": 1, "r": "Problem 301 disjoint reciprocal blocks and divisor-fiber decomposition"}
+{"mid": "Z2202", "s": 1, "r": "Problem 319 reciprocal-set construction and residue-class balance"}
+{"mid": "Z2207", "s": 1, "r": "Problem 308 subset-sum threshold as two-term completion probe"}
+{"mid": "Z2210", "s": 1, "r": "squarefree exceptions of xy+yz+zx; quadratic-form obstruction structure"}
+{"mid": "Z2212", "s": 1, "r": "idoneal-number exceptions of ab+ac+bc; thin algebraic representation"}
+{"mid": "Z2217", "s": 1, "r": "more-than-three unit fractions; numerator-dependent exceptions"}
+{"mid": "Z2219", "s": 1, "r": "prime criterion from complement of 2xy+x+y values"}
+{"mid": "Z2222", "s": 1, "r": "prime transform and polynomial value complement structure"}
+{"mid": "Z2225", "s": 1, "r": "Stern primes as second notion of additive nonrepresentation"}
+{"mid": "Z2229", "s": 1, "r": "square-factor covering exceptions for xy+yz+zx; positivity structure"}
+{"mid": "Z2232", "s": 1, "r": "counting distinct unit-fraction solutions rather than existence"}
+{"mid": "Z2236", "s": 1, "r": "group class equations generate reciprocal sums"}
+{"mid": "Z2239", "s": 1, "r": "unique-representation locus of ab+ac+bc; low-multiplicity structure"}
+{"mid": "Z2245", "s": 1, "r": "Collatz parity words as finite certificates"}
+{"mid": "Z2247", "s": 1, "r": "lonely runner torus avoidance; geometric obstruction structure"}
+{"mid": "Z2251", "s": 1, "r": "EFL absorbing reservoir argument; global bound plus absorption"}
+{"mid": "Z2253", "s": 1, "r": "Apollonian curvature local-global density structure"}
+{"mid": "Z2256", "s": 1, "r": "addition chains as certificates with lower-bound mechanism"}
+{"mid": "Z2261", "s": 1, "r": "three-generator Frobenius numbers as sparse witnesses"}
+{"mid": "Z2265", "s": 1, "r": "SL₂(ℤ) semigroup membership as bounded-word reachability"}
+{"mid": "Z2268", "s": 1, "r": "odd greedy algorithm as unbounded-length feature flip"}
+{"mid": "Z2272", "s": 1, "r": "Ringel tree packing and finite obstruction complementarity"}
+{"mid": "Z2274", "s": 1, "r": "Erdős–Faber–Lovász as finite congruence-like coverings"}
+{"mid": "Z2276", "s": 1, "r": "Apollonian thin-orbit sieve and congruence expansion"}
+{"mid": "Z2278", "s": 1, "r": "Egyptian identities as local witness transformations"}
+{"mid": "Z2280", "s": 1, "r": "group word problem: equality vs existence contrast"}
+{"mid": "Z2283", "s": 1, "r": "Zaremba alphabet vs ES word length: finite-data contrast"}
+{"mid": "Z2287", "s": 1, "r": "Egyptian counts via divisor parametrisations and sieve moments"}
+{"mid": "Z2294", "s": 1, "r": "Hasse norm principle for norm-form equations"}
+{"mid": "Z2297", "s": 1, "r": "Vieta jumping on cubic Diophantine surfaces"}
+{"mid": "Z2299", "s": 1, "r": "polynomial identity coverings that provably miss classes"}
+{"mid": "Z2301", "s": 1, "r": "effective integral-point bounds vs uniform existence"}
+{"mid": "Z2306", "s": 1, "r": "sieve parity problem blocking single-type detection"}
+{"mid": "Z2309", "s": 1, "r": "multiplication-table divisor distribution with congruence class"}
+{"mid": "Z2312", "s": 1, "r": "quadratic reciprocity obstructions in parametrised identities"}
+{"mid": "Z2323", "s": 1, "r": "SAT-certified finite identity menus covering residue classes"}
+{"mid": "Z2326", "s": 1, "r": "nonvanishing of modular Fourier coefficients at all primes"}
+{"mid": "Z2331", "s": 1, "r": "branching processes for solution-tree growth under involutions"}
+{"mid": "Z2333", "s": 1, "r": "local solubility without integral points under positivity"}
+{"mid": "Z2336", "s": 1, "r": "branching of prime representations by quadratic forms"}
+{"mid": "Z2338", "s": 1, "r": "real-character bias in residue-class divisor sums"}
+{"mid": "Z2341", "s": 1, "r": "adelic densities for integral points in families"}
+{"mid": "Z2346", "s": 1, "r": "Zwegers completion of Appell–Lerch/Kronecker quotients"}
+{"mid": "Z2348", "s": 1, "r": "Hurwitz spectrum of 1−1/x−1/y−1/z vs (n−4)/n values"}
+{"mid": "Z2350", "s": 0, "r": "verification paper summary extraction; literature check only"}
+{"mid": "Z2353", "s": 1, "r": "cubic-to-quadric feature flip: two-term hyperbola fully solvable"}
+{"mid": "Z2357", "s": 1, "r": "single-line sub-problems expected to fail infinitely often"}
+{"mid": "Z2359", "s": 1, "r": "Stern–Brocot/Calkin–Wilf enumeration with bounded prime appearance"}
+{"mid": "Z2363", "s": 1, "r": "smallest-solution size statistics vs p^θ scaling"}
+{"mid": "Z2365", "s": 1, "r": "Gauss three-squares class-number main term lower bounds"}
+{"mid": "Z2368", "s": 1, "r": "GRH-success cases as single L-function controlled events"}
+{"mid": "Z2370", "s": 1, "r": "one negative denominator as indefinite count-growth question"}
+{"mid": "Z2372", "s": 1, "r": "additive energy of reciprocal sums; sum-product mechanism"}
+{"mid": "Z2374", "s": 1, "r": "covering-forced compositeness of shifted integers; Sierpiński analogy"}
+{"mid": "Z2377", "s": 1, "r": "Maynard dense prime clusters for certificate families"}
+{"mid": "Z2380", "s": 1, "r": "Lichtman level of distribution with well-factorable weights"}
+{"mid": "Z2382", "s": 1, "r": "Guth–Maynard large values and short-interval exceptional sets"}
+{"mid": "Z2385", "s": 1, "r": "Helfgott–Radziwiłł expansion of divisibility graphs"}
+{"mid": "Z2388", "s": 1, "r": "Matthiesen linear correlations of restricted divisor functions"}
+{"mid": "Z2392", "s": 1, "r": "Maynard primes as incomplete norm forms; sieve beyond parity"}
+{"mid": "Z2395", "s": 1, "r": "de la Bretèche–Drappeau level of distribution for quadratic polynomials"}
+{"mid": "Z2399", "s": 1, "r": "Fouvry–Kowalski–Michel trace functions for residue indicators"}
+{"mid": "Z2402", "s": 1, "r": "Granville–Koukoulopoulos–Matomäki sieve-density characterisation"}
+{"mid": "Z2404", "s": 1, "r": "primitive-set structure of covered n as multiples"}
+{"mid": "Z2406", "s": 1, "r": "Harper low-moment bounds for random multiplicative model of (·/p)"}
+{"mid": "Z2408", "s": 1, "r": "Harel–Mousset–Samotij upper tails for failure indicators"}
+{"mid": "Z2412", "s": 1, "r": "Ustinov Kloosterman method for continued-fraction statistics"}
+{"mid": "Z2421", "s": 1, "r": "Zhang's claimed Landau–Siegel effectivity as alternate input"}
+{"mid": "Z2424", "s": 1, "r": "Pascadi exceptional Maass form large sieve for dispersion"}
+{"mid": "Z2426", "s": 1, "r": "Bloom–Sisask almost-periodicity for sumset-type certificate sets"}
+{"mid": "Z2429", "s": 1, "r": "Bourgain–Glibichuk–Konyagin subgroup exponential sums"}
+{"mid": "Z2431", "s": 1, "r": "Bourgain sum-product for composite moduli 4C"}
+{"mid": "Z2436", "s": 1, "r": "critical vs supercritical expectation threshold of level hypergraph"}
+{"mid": "Z2438", "s": 1, "r": "Alweiss–Lovett–Wu–Zhang sunflowers among ES solution families"}
+{"mid": "Z2440", "s": 1, "r": "absorption method: almost-all to all gadgets for ES"}
+{"mid": "Z2442", "s": 1, "r": "arithmetic regularity decomposition of divisor-closed failure set"}
+{"mid": "Z2445", "s": 1, "r": "Green–Tao–Ziegler linear equations for prime-denominator solutions"}
+{"mid": "Z2448", "s": 1, "r": "OAI short Egyptian fraction claim; length-3 specialisation"}
+{"mid": "Z2451", "s": 1, "r": "book algorithm as two-colour search heuristic"}
+{"mid": "Z2453", "s": 1, "r": "Alon–Roichman expanders on (ℤ/e)^× from prime factors"}
+{"mid": "Z2455", "s": 1, "r": "superstrong approximation for ES₅ semigroup"}
+{"mid": "Z2457", "s": 1, "r": "Kontorovich–Nakamura integral Lorentzian lattice reformulation"}
+{"mid": "Z2459", "s": 1, "r": "sum-product/additive-multiplicative mixing for shifts vs products"}
+{"mid": "Z2461", "s": 1, "r": "decoupling and additive energy of ES word set"}
+{"mid": "Z2464", "s": 1, "r": "U_n as log Calabi–Yau Looijenga pair; theta functions"}
+{"mid": "Z2467", "s": 1, "r": "Schinzel H on average and Hasse principle for fibred varieties"}
+{"mid": "Z2469", "s": 1, "r": "Browning–Matthiesen norm forms as products of linear polynomials"}
+{"mid": "Z2471", "s": 1, "r": "Whang descent on moduli of local systems; relative character variety"}
+{"mid": "Z2473", "s": 1, "r": "Lawrence–Venkatesh p-adic period maps for ES fibres"}
+{"mid": "Z2475", "s": 1, "r": "Pila–Wilkie/Binyamini–Novikov counting for definable families"}
+{"mid": "Z2481", "s": 1, "r": "integral Manin conjecture for U_n via toric/log Fano counts"}
+{"mid": "Z2483", "s": 1, "r": "Browning–Sawin rational curves and ES polynomial sections"}
+{"mid": "Z2485", "s": 1, "r": "Bhargava–Gauss composition for Type I divisor values"}
+{"mid": "Z2488", "s": 1, "r": "Smith Rédei-symbol governing-field distributions of sterility"}
+{"mid": "Z2491", "s": 1, "r": "Ellenberg–Venkatesh lemma: small split primes give small torsion"}
+{"mid": "Z2493", "s": 1, "r": "Cremona symmetries of the Cayley cubic and reciprocal moves"}
+{"mid": "Z2495", "s": 1, "r": "perfectoid tilting for local ES variants; low-value link"}
+{"mid": "Z2497", "s": 1, "r": "Fargues–Scholze geometrisation: no evident ES object (recorded)"}
+{"mid": "Z2499", "s": 1, "r": "motivic class and point counts of U_n"}
+{"mid": "Z2502", "s": 1, "r": "Type II as determinant-1 integer matrices with fixed off-diagonal product"}
+{"mid": "Z2505", "s": 1, "r": "Duke equidistribution of torus packets for ES lattices"}
+{"mid": "Z2507", "s": 1, "r": "Li–Zhang Kudla–Rapoport arithmetic intersection; Diff-parity link"}
+{"mid": "Z2511", "s": 1, "r": "shifted convolution sums for ES correlations at shifts"}
+{"mid": "Z2514", "s": 1, "r": "Hecke-like transport between solution sets for n and ℓn"}
+{"mid": "Z2516", "s": 1, "r": "Marcus–Spielman–Srivastava interlacing families: one good member"}
+{"mid": "Z2521", "s": 1, "r": "Series geodesic coding: cusp excursions as partial quotients"}
+{"mid": "Z2523", "s": 1, "r": "murmuration structure of ES counts vs conductor analogy"}
+{"mid": "Z2525", "s": 1, "r": "Rudnick–Soundararajan moment lower bounds for certificate counts"}
+{"mid": "Z2527", "s": 1, "r": "Nicolas–Serre Hecke algebra mod 2; parity of level counts"}
+{"mid": "Z2529", "s": 1, "r": "Pila–Shankar–Tsimerman André–Oort heights for CM points"}
+{"mid": "Z2531", "s": 1, "r": "effective Oppenheim for indefinite ternary forms of U_n"}
+{"mid": "Z2533", "s": 1, "r": "eta/theta-quotient exact formulas for ES counts"}
+{"mid": "Z2535", "s": 1, "r": "Coppersmith small roots for Type I certificates at fixed p"}
+{"mid": "Z2538", "s": 0, "r": "Lean verifier for certificate batches; formalisation tooling only"}
+{"mid": "Z2541", "s": 0, "r": "PatternBoost/RL counterexample search; tooling only"}
+{"mid": "Z2543", "s": 1, "r": "Hilbert's tenth over ℚ and ES variant logical status"}
+{"mid": "Z2545", "s": 1, "r": "factoring-oracle complexity of finding ES solutions"}
+{"mid": "Z2547", "s": 0, "r": "certified interval arithmetic constants; numerics only"}
+{"mid": "Z2550", "s": 0, "r": "crowdsourced automated exploration of variants; process only"}
+{"mid": "Z2552", "s": 0, "r": "distributed GPU search for counterexamples; computation only"}
+{"mid": "Z2555", "s": 1, "r": "fake-ES models with ES statistics; sharpness of almost-all"}
+{"mid": "Z2557", "s": 0, "r": "OEIS-style sequence mining of ES statistics; bibliography only"}
+{"mid": "Z2559", "s": 1, "r": "OAI 012 joint Dickman law for consecutive Type II slices"}
+{"mid": "Z2562", "s": 1, "r": "OAI 029 primitive roots and parity of ord_e for slices"}
+{"mid": "Z2564", "s": 1, "r": "Jacobsthal/large-gap sieve for sterile windows"}
+{"mid": "Z2566", "s": 1, "r": "OAI 020 squarefree values of quartics for p-tied quadratics"}
+{"mid": "Z2568", "s": 1, "r": "OAI 013 Ostmann inverse Goldbach for ES-good sets"}
+{"mid": "Z2570", "s": 1, "r": "Goldfeld rank-parity model for ES parity layers"}
+{"mid": "Z2573", "s": 1, "r": "Margulis–Platonov normal subgroups for ES word groups"}
+{"mid": "Z2575", "s": 1, "r": "totient value-set counting technique for ES value sets"}
+{"mid": "Z2577", "s": 1, "r": "Katz monodromy of function-field certificate covers"}
+{"mid": "Z2580", "s": 1, "r": "Kubilius/Granville anatomy model for 4Cp+1 factor statistics"}
+{"mid": "Z2582", "s": 1, "r": "smooth-number restriction with smooth moduli in progressions"}
+{"mid": "Z2584", "s": 1, "r": "Turán–Kubilius variance bounds for R(p) across C"}
+{"mid": "Z2586", "s": 1, "r": "Granville–Harper–Soundararajan Halász for slice failure twists"}
+{"mid": "Z2588", "s": 1, "r": "smooth shifted primes via weighted dilation graphs"}
+{"mid": "Z2590", "s": 1, "r": "Littlewood–Offord lower anticoncentration for hitting −1"}
+{"mid": "Z2592", "s": 1, "r": "Larsen–Shalev word maps for ES₅ word shapes"}
+{"mid": "Z2594", "s": 1, "r": "BLMV effective equidistribution for multiplicative semigroups mod q"}
+{"mid": "Z2597", "s": 1, "r": "Heath-Brown delta method for ES solution counts over n≤N"}
+{"mid": "Z2601", "s": 1, "r": "Tao's almost-bounded orbit technique for greedy Egyptian algorithms"}
+{"mid": "Z2603", "s": 1, "r": "Tao–Teräväinen odd-order log-Chowla for consecutive slices"}
+{"mid": "Z2605", "s": 1, "r": "Host–Kra/Frantzikinakis ergodic structure of multiplicative colourings"}
+{"mid": "Z2607", "s": 1, "r": "Adiprasito–Huh–Katz Hodge–Riemann positivity for hyperplane-arrangement object"}
+{"mid": "Z2611", "s": 1, "r": "Shearer entropy inequality for joint divisibility of slices"}
+{"mid": "Z2613", "s": 1, "r": "Gallagher larger sieve with prime-power moduli for sterile primes"}
+{"mid": "Z2617", "s": 1, "r": "Siegel integral points on one-parameter ES curves; genus criterion"}
+{"mid": "Z2619", "s": 1, "r": "Selberg Λ² sieve upper bounds for sterile primes at depth K"}
+{"mid": "Z2621", "s": 1, "r": "Ramaré local models for one-integer certificate densities"}
+{"mid": "Z2623", "s": 1, "r": "ray class fields of small (c,d) for Type I certificates"}
+{"mid": "Z2625", "s": 1, "r": "Davenport constant forcing a −1 subproduct in (ℤ/t)^×"}
+{"mid": "Z2627", "s": 1, "r": "function-field transfer of T1 via polynomial reciprocity"}
+{"mid": "Z2629", "s": 1, "r": "log³ vs log² growth of Gaussian counts via Picard rank"}
+{"mid": "Z2631", "s": 1, "r": "Matomäki–Radziwiłł short-interval behaviour of Type II slices"}
+{"mid": "Z2634", "s": 1, "r": "Duke–Imamoḡlu–Tóth traces for I3 binary-form classes"}
+{"mid": "Z2636", "s": 1, "r": "Rosser–Iwaniec sieve for I3 at t=4 divisor mod 4"}
+{"mid": "Z2638", "s": 1, "r": "extreme-value prediction of last hard prime from sibling data"}
+{"mid": "Z2640", "s": 0, "r": "SAT/ILP search for a prime T1 shape; search tooling only"}
+{"mid": "Z2642", "s": 1, "r": "murmuration-type averages of I3 counts by residue"}
+{"mid": "Z2644", "s": 1, "r": "effective Chebotarev in Type I ray class fields"}
+{"mid": "Z2647", "s": 1, "r": "spectral sparsification of certificate dependency graph"}
+{"mid": "Z2649", "s": 1, "r": "Bloom/Liu–Sawhney machinery for dense-denominator representations"}
+{"mid": "Z2651", "s": 1, "r": "ES₅ as sandpile pairing on fan multigraph"}
+{"mid": "Z2653", "s": 1, "r": "Chan–Kontorovich–Pak spanning-tree growth via Zaremba"}
+{"mid": "Z2655", "s": 1, "r": "idoneal numbers in spanning-tree extremal problems vs sporadic lists"}
+{"mid": "Z2657", "s": 1, "r": "linking form of 2-bridge branched cover for ES₅ sign"}
+{"mid": "Z2660", "s": 1, "r": "Lisca rational balls bounded by lens spaces vs square p"}
+{"mid": "Z2662", "s": 1, "r": "cyclic quotient singularity resolution chains and non-residue A"}
+{"mid": "Z2664", "s": 1, "r": "Hacking–Prokhorov degenerations and Markov-type equations"}
+{"mid": "Z2668", "s": 1, "r": "Frobenius shadow of ⟨u,v⟩ via Popoviciu count"}
+{"mid": "Z2670", "s": 1, "r": "Christoffel word run-statistics as HJ length"}
+{"mid": "Z2672", "s": 1, "r": "Witten–Reshetikhin–Turaev invariants and Gauss sums carrying (A/p)"}
+{"mid": "Z2674", "s": 1, "r": "hyperbolic triangle billiards and Veech-type area structure"}
+{"mid": "Z2676", "s": 1, "r": "domino-strip continuant signed count"}
+{"mid": "Z2679", "s": 1, "r": "expansion of arithmetic forest components vs character sums"}
+{"mid": "Z2681", "s": 1, "r": "Z/2 flat connection on F_p with multiplicative edges"}
+{"mid": "Z2683", "s": 1, "r": "Ford-circle depth-3 chains for A/p"}
+{"mid": "Z2686", "s": 1, "r": "log Gromov–Witten A¹-curves on U_n vs polynomial identities"}
+{"mid": "Z2688", "s": 1, "r": "Cuntz–Holm–Jørgensen frieze finiteness with coefficients"}
+{"mid": "Z2690", "s": 1, "r": "Lyness-type periodic map with frozen side; integer orbits"}
+{"mid": "Z2693", "s": 1, "r": "Bergeron–Reutenauer SL₂-tilings with boundary N"}
+{"mid": "Z2695", "s": 1, "r": "quiver Grassmannian/Caldero–Chapoton frieze coefficients"}
+{"mid": "Z2697", "s": 1, "r": "Manin–Peyre for integral points on total space of U_n"}
+{"mid": "Z2699", "s": 1, "r": "torsor descent to coprime-divisibility parametrisation"}
+{"mid": "Z2701", "s": 1, "r": "ES over number fields with unit-rank orbits"}
+{"mid": "Z2704", "s": 1, "r": "Vojta/log CY prediction for integral points on U_n"}
+{"mid": "Z2707", "s": 1, "r": "Igusa zeta function encoding BM local densities"}
+{"mid": "Z2709", "s": 1, "r": "quaternion factorisation for Type I in imaginary quadratic order"}
+{"mid": "Z2711", "s": 1, "r": "prehomogeneous averages vs pointwise problem calibration"}
+{"mid": "Z2713", "s": 1, "r": "inverse zero-sum theory for subset product −1 in (ℤ/4C)^×"}
+{"mid": "Z2717", "s": 1, "r": "sum-product growth of S_L(p) as L grows"}
+{"mid": "Z2720", "s": 1, "r": "Klein sails/convex hull reading of Hirzebruch–Jung digits"}
+{"mid": "Z2723", "s": 1, "r": "twisted Gauss–Kuzmin transfer operator for CF character sums"}
+{"mid": "Z2725", "s": 1, "r": "Knauf spin-chain Dirichlet series for HJ lengths"}
+{"mid": "Z2727", "s": 1, "r": "Kudla derivative as certificate counting function"}
+{"mid": "Z2729", "s": 1, "r": "Brandt matrices and representation numbers of norm forms"}
+{"mid": "Z2731", "s": 1, "r": "Gauss three-squares class-number template; genus character sign"}
+{"mid": "Z2733", "s": 1, "r": "Waldspurger/Kohnen–Zagier squares of half-integral coefficients"}
+{"mid": "Z2735", "s": 1, "r": "Vieta involutions on Markoff-type surface S_{n,D}"}
+{"mid": "Z2737", "s": 1, "r": "Duke equidistribution of CM points for lattice meeting slices"}
+{"mid": "Z2739", "s": 1, "r": "genus characters of Cl(−4p) and ES sign"}
+{"mid": "Z2744", "s": 1, "r": "eta multiplier / theta multiplier value of ES sign"}
+{"mid": "Z2747", "s": 1, "r": "bounded arithmetic provability of Mordell covering witnesses"}
+{"mid": "Z2750", "s": 1, "r": "quadratic residue code inclusion of S₃(p)"}
+{"mid": "Z2752", "s": 1, "r": "F₂-linear system in Legendre symbols of small primes"}
+{"mid": "Z2755", "s": 1, "r": "large-deviation lower tail of certificate count"}
+{"mid": "Z2757", "s": 1, "r": "percolation on forest F_p reaching a QNR"}
+{"mid": "Z2759", "s": 1, "r": "Kolmogorov-complexity view of sporadic exception lists"}
+{"mid": "Z2761", "s": 1, "r": "Garsia–Milne involution principle for count identity"}
+{"mid": "Z2765", "s": 1, "r": "discrete Morse matching on near-solution posets"}
+{"mid": "Z2769", "s": 1, "r": "Siegel-type ineffectivity for I3 exceptional list"}
+{"mid": "Z2773", "s": 1, "r": "Drinfeld/Carlitz module torsion for ES_q certificates"}
+{"mid": "Z2775", "s": 1, "r": "power-ladder ES_(k) collapsing to finite coverings"}
+{"mid": "Z2779", "s": 1, "r": "Fourier counts vs abundance in Erdős-type problems"}
+{"mid": "Z2783", "s": 1, "r": "q-rationals and Jones polynomials of 2-bridge links"}
+{"mid": "Z2787", "s": 1, "r": "Stern diatomic sequence and binary runs of HJ length"}
+{"mid": "Z2789", "s": 1, "r": "Hilbert basis of 2-dimensional cone as HJ convergents"}
+{"mid": "Z2792", "s": 1, "r": "multiplicative generation of F_p* by forest edge products"}
+{"mid": "Z2794", "s": 0, "r": "fair-division restatement of ES; restatement only"}
+{"mid": "Z2796", "s": 1, "r": "Erdős–Kac joint behaviour of ω(4Cp+1) across C"}
+{"mid": "Z2798", "s": 1, "r": "SIS/LWE hardness heuristics for relation lattices"}
+{"mid": "Z2800", "s": 1, "r": "spin TQFT / spin-structure obstruction for 4-divisibility"}
+{"mid": "Z2803", "s": 1, "r": "Zolotarev sign as permutation parity of multiplication by A"}
+{"mid": "Z2805", "s": 1, "r": "fixed (t,u) word families as Chebotarev sets"}
+{"mid": "Z2807", "s": 1, "r": "Selberg parity barrier for the ES sign condition"}
+{"mid": "Z2810", "s": 1, "r": "Kneser theorem on divisor sumsets mod 4x−p"}
+{"mid": "Z2812", "s": 1, "r": "torus bundle H₁ and Anosov dynamics of γ_w"}
+{"mid": "Z2814", "s": 1, "r": "weak del Pezzo degree-3 structure of nodal ES cubic"}
+{"mid": "Z2819", "s": 1, "r": "gcd across levels bounded by C′−C coupling"}
+{"mid": "Z2822", "s": 1, "r": "ES over imaginary quadratic rings and unit freedom"}
+{"mid": "Z2824", "s": 1, "r": "Gaussian periods and cyclotomic unit reading of the sign"}
+{"mid": "Z2826", "s": 1, "r": "integer matrices with prescribed characteristic polynomial"}
+{"mid": "Z2828", "s": 1, "r": "Fourier–Dedekind sums for lattice points in word region"}
+{"mid": "Z2831", "s": 1, "r": "Gross–Zagier singular moduli and quaternion embedding"}
+{"mid": "Z2833", "s": 1, "r": "Lagrange convergents for small values of indefinite forms"}
+{"mid": "Z2835", "s": 1, "r": "pencil fibres with non-square k and Brauer classes"}
+{"mid": "Z2837", "s": 1, "r": "Heilbronn average CF length with quadratic twist"}
+{"mid": "Z2840", "s": 1, "r": "configuration-model random graph for F_p components"}
+{"mid": "Z2843", "s": 1, "r": "Ibukiyama explicit maximal orders vs ES orders"}
+{"mid": "Z2846", "s": 1, "r": "Gauss composition group law on words of fixed level"}
+{"mid": "Z2848", "s": 1, "r": "lens-space surgery obstruction and quadratic residues"}
+{"mid": "Z2850", "s": 1, "r": "Cohen–Lenstra law for sandpile groups with pairings"}
+{"mid": "Z2852", "s": 1, "r": "L-ladder as frieze with one frozen boundary side"}
+{"mid": "Z2855", "s": 1, "r": "Schreier graph of SL₂(ℤ) on P¹(F_p) and path lengths"}
+{"mid": "Z2857", "s": 0, "r": "PSLQ integer-relation search; numerical tooling only"}
+{"mid": "Z2860", "s": 1, "r": "effective Chebotarev in compositum over small levels"}
+{"mid": "Z2862", "s": 1, "r": "lattice-reduction search for large structured ES solutions"}
+{"mid": "Z2864", "s": 1, "r": "Montesinos relaxation with arbitrary Seifert numerators"}
+{"mid": "Z2866", "s": 1, "r": "Markov uniqueness at prime powers as pointwise precedent"}
+{"mid": "Z2868", "s": 1, "r": "relative SL₂ character variety of punctured torus"}
+{"mid": "Z2872", "s": 1, "r": "chain matrix as common carrier across several structures"}
+{"mid": "Z2874", "s": 1, "r": "tetrahedral four-term analogue of inradius/altitude identity"}
+{"mid": "Z2876", "s": 1, "r": "Riemenschneider point-diagram duality and sign under p≡1 mod 4"}
+{"mid": "Z2879", "s": 1, "r": "three-generator Frobenius-type formula for tuv−u−v"}
+{"mid": "Z2881", "s": 1, "r": "ambiguous forms of discriminant tied to factorisations A·A*"}
+{"mid": "Z2886", "s": 0, "r": "Lean/Coq verification tables for certificates; tooling only"}
+{"mid": "Z2888", "s": 1, "r": "Bohr-set formulation of L₃(p) via exact short intervals"}
+{"mid": "Z2890", "s": 1, "r": "friezes with coefficient N counted arithmetically"}
+{"mid": "Z2892", "s": 1, "r": "Apollonian-type packing with curvatures from ES words"}
+{"mid": "Z2894", "s": 1, "r": "affine cubic surface family W_p; integral points as words"}
+{"mid": "Z2897", "s": 1, "r": "global HJ tree of length-3 pairs and forest colouring"}
+{"mid": "Z2904", "s": 1, "r": "sparsity index explaining why ES is harder than binary Goldbach"}
+{"mid": "Z2906", "s": 1, "r": "Chen switching of Type I/II roles to bound near misses"}
+{"mid": "Z2908", "s": 1, "r": "Schnirelmann-type sumset U+U+U for fractions"}
+{"mid": "Z2910", "s": 1, "r": "powers-of-two lacunary slice x=2^k"}
+{"mid": "Z2913", "s": 1, "r": "g(4)=19-style descent to a verified range via analytic threshold"}
+{"mid": "Z2915", "s": 1, "r": "divisor counts in classes as coset theta series of xy"}
+{"mid": "Z2918", "s": 1, "r": "Lagrange descent on near-certificates via a composition law"}
+{"mid": "Z2920", "s": 1, "r": "pigeonhole over complementary divisor sets forcing certificates"}
+{"mid": "Z2923", "s": 1, "r": "Thue lattice vectors producing (★) triples"}
+{"mid": "Z2927", "s": 1, "r": "Cauchy-type simultaneous control of (u+B, uB)"}
+{"mid": "Z2930", "s": 1, "r": "class-number correlations of f_I and R with h(−kp)"}
+{"mid": "Z2933", "s": 1, "r": "always-existing CM objects for each p; existence source"}
+{"mid": "Z2935", "s": 1, "r": "explicit per-level thresholds for R_t as divisor counts"}
+{"mid": "Z2937", "s": 1, "r": "many-variable relaxations of ES with extra constrained term"}
+{"mid": "Z2939", "s": 1, "r": "integral fibration of U_n by two-term curves"}
+{"mid": "Z2942", "s": 1, "r": "Dirichlet product trick for nonnegative combined level series"}
+{"mid": "Z2944", "s": 1, "r": "CRT prime-factor census of 4Cp+1 by class of C mod q"}
+{"mid": "Z2946", "s": 1, "r": "zero-density style bound on large deviations across levels"}
+{"mid": "Z2949", "s": 1, "r": "least non-residue lens via QR behaviour of p modulo small primes"}
+{"mid": "Z2953", "s": 1, "r": "audit of conditional ES results for smooth-modulus versions"}
+{"mid": "Z2956", "s": 1, "r": "Friedlander–Iwaniec bilinear structure from p=a²+b²"}
+{"mid": "Z2958", "s": 1, "r": "switching d ↔ (4Cp+1)/d for trial divisors"}
+{"mid": "Z2960", "s": 1, "r": "transference principle relative to factorisation majorant"}
+{"mid": "Z2962", "s": 1, "r": "Siegel two-character positivity trick for ES counts"}
+{"mid": "Z2964", "s": 1, "r": "inverse Frey-type contradiction for hypothetical ES counterexample"}
+{"mid": "Z2966", "s": 1, "r": "Wieferich-type congruences forced on counterexamples"}
+{"mid": "Z2968", "s": 1, "r": "cyclotomic/Zsigmondy size argument for non-certificate part"}
+{"mid": "Z2971", "s": 1, "r": "Dirichlet–Pell pigeonhole on near-certificates in M₂(ℤ)"}
+{"mid": "Z2973", "s": 1, "r": "Smith-type distribution of certificate-free levels"}
+{"mid": "Z2977", "s": 1, "r": "Hecke-type relations among ES counts at p, pℓ, pℓ²"}
+{"mid": "Z2980", "s": 1, "r": "complementary failure sets of two methods covering all cases"}
+{"mid": "Z2982", "s": 1, "r": "amplified second moment over short family around p"}
+{"mid": "Z2984", "s": 1, "r": "potential-automorphy-style count over quadratic fields"}
+{"mid": "Z2986", "s": 1, "r": "killing ramification by lowering level for counterexamples"}
+{"mid": "Z2988", "s": 1, "r": "birational automorphisms of U_n preserving integral points"}
+{"mid": "Z2990", "s": 1, "r": "Chen divisibility congruences for certificate counts"}
+{"mid": "Z2992", "s": 1, "r": "almost-all vs every: structured-exception audit for ES"}
+{"mid": "Z2995", "s": 1, "r": "Niederreiter recursive constructions for ES exponential families"}
+{"mid": "Z2997", "s": 1, "r": "rational quadratic form counts with exceptional logarithmic behaviour"}
+{"mid": "Z2999", "s": 1, "r": "van der Corput differencing on the exponential-sum form of R(p)"}
+{"mid": "Z3004", "s": 0, "r": "SAT/ILP residue-class search for obstructions; search tooling only"}
+{"mid": "Z3007", "s": 1, "r": "±1-weighted zero-sum theory in (ℤ/e)* forcing −1"}
+{"mid": "Z3010", "s": 1, "r": "Reiher double counting of subsequences by length; prime-factor counts"}
+{"mid": "Z3014", "s": 1, "r": "nibble plus absorber for the two-term remainder"}
+{"mid": "Z3016", "s": 1, "r": "closure maps certificate(p) and certificate(q) ⇒ certificate(r)"}
+{"mid": "Z3018", "s": 1, "r": "unavoidable configurations and discharging over levels"}
+{"mid": "Z3020", "s": 1, "r": "entropy inequality for union-like certificate families"}
+{"mid": "Z3022", "s": 1, "r": "Graham 77-theorem affine closure mechanism for ES-like problems"}
+{"mid": "Z3024", "s": 1, "r": "minimum-modulus obstruction for covering Mordell-hard classes"}
+{"mid": "Z3026", "s": 1, "r": "modular forms mod ℓ for the ES word series"}
+{"mid": "Z3028", "s": 1, "r": "strengthened inductive ES statement with prescribed residues"}
+{"mid": "Z3030", "s": 1, "r": "binary-form class field criteria for Type I divisors"}
+{"mid": "Z3033", "s": 1, "r": "gradient ladder from infinitely-many to every for ES sub-routes"}
+{"mid": "Z3035", "s": 1, "r": "Miller–AKS deterministic certificate search with provable bound"}
+{"mid": "Z3037", "s": 1, "r": "Euler's false obstruction class and Mordell-hard square classes"}
+{"mid": "Z3039", "s": 1, "r": "covering-system obstructions blocking all certificate families"}
+{"mid": "Z3041", "s": 1, "r": "dual certificate / magic function for weighted ES positivity"}
+{"mid": "Z3044", "s": 1, "r": "positivity from exact divisor-class formulas with explicit tails"}
+{"mid": "Z3046", "s": 1, "r": "ternary-Goldbach-shaped sum over first denominator of two-term representations"}
+{"mid": "Z3050", "s": 1, "r": "weak subconvexity needing only an ε-saving over R ≥ 0"}
+{"mid": "Z3052", "s": 1, "r": "Bourgain–Kontorovich dimension threshold for ES word set"}
+{"mid": "Z3055", "s": 1, "r": "modular units and Weber functions as certificate generators"}
+{"mid": "Z3057", "s": 1, "r": "Olson group-ring formula for window certificate counts"}
+{"mid": "Z3059", "s": 1, "r": "Dvir-type polynomial bound for certificate-free residue sets"}
+{"mid": "Z3066", "s": 1, "r": "splitting-condition subfamilies of primes for ES"}
+{"mid": "Z3069", "s": 1, "r": "Pell-shaped characterisation of Type I/II failures at squares"}
+{"mid": "Z3071", "s": 1, "r": "affine-group encoding of (★) as a product covering"}
+{"mid": "Z3073", "s": 1, "r": "order-of-basis reading: 4/p as sum of four unit fractions"}
+{"mid": "Z3075", "s": 1, "r": "genus-theory exclusion at squares vs 4^a(8b+7) exclusion"}
+{"mid": "Z3078", "s": 1, "r": "large-degree analogue ES_m for growing numerator m"}
+{"mid": "Z3080", "s": 1, "r": "Croot one-target all-colourings pointwise model"}
+{"mid": "Z3083", "s": 1, "r": "twists by characters mod p and p-twisted coefficient objects"}
+{"mid": "Z3085", "s": 1, "r": "dyadic distribution of certificates across level ranges"}
+{"mid": "Z3088", "s": 1, "r": "integral Brauer–Manin for fixed-p conic families over C"}
+{"mid": "Z3090", "s": 1, "r": "Kummer-style regularity invariant κ(p) for ES"}
+{"mid": "Z3092", "s": 1, "r": "Ramanujan-type congruences on progressions for ES counts"}
+{"mid": "Z3095", "s": 1, "r": "genus-theoretic parametrisation of Mordell-hard primes"}
+{"mid": "Z3097", "s": 1, "r": "Legendre-formula bookkeeping for the product Π_C(4Cp+1)"}
+{"mid": "Z3101", "s": 1, "r": "Wielandt orbit counting with non-certificate orbits"}
+{"mid": "Z3104", "s": 1, "r": "interlacing families over windows certify a good window"}
+{"mid": "Z3107", "s": 1, "r": "precoloured ES strengthening with prescribed small prime divisor"}
+{"mid": "Z3109", "s": 1, "r": "variance-to-mean of R(p) as quasi-independence diagnostic"}
+{"mid": "Z3111", "s": 1, "r": "Tijdeman-to-Mihăilescu: bound first then exact algebra"}
+{"mid": "Z3113", "s": 1, "r": "Furstenberg-type incidence of certificate lines in (C,d) plane"}
+{"mid": "Z3115", "s": 1, "r": "classification of transfer maps between ES instances via e-slice"}
+{"mid": "Z3117", "s": 1, "r": "swap involution u↔B as free ℤ/2 action on near-certificates"}
+{"mid": "Z3119", "s": 1, "r": "higher Rédei-symbol analogues for ES sub-routes"}
+{"mid": "Z3123", "s": 1, "r": "Fourier interpolation determining R(n) from values"}
+{"mid": "Z3125", "s": 1, "r": "Hardy–Littlewood √n main term vs open binary problem"}
+{"mid": "Z3127", "s": 1, "r": "exact arithmetic characterisation of sub-route success sets"}
+{"mid": "Z3130", "s": 1, "r": "Galois-image congruences for ES counts mod ℓ"}
+{"mid": "Z3132", "s": 1, "r": "sign/size control of auxiliary special values with forced factors"}
+{"mid": "Z3135", "s": 1, "r": "uniformity obstruction for fixed-p linear-forms certificate schemes"}
+{"mid": "Z3138", "s": 1, "r": "b=1 line as sporadic-failure model like Goldbach's other conjecture"}
+{"mid": "Z3140", "s": 1, "r": "non-vanishing of finite level Dirichlet series at fixed p"}
+{"mid": "Z3143", "s": 1, "r": "Hecke-type operators on ES counts as functions of n"}
+{"mid": "Z3145", "s": 1, "r": "uniform spectral gap for ES move graph on residues"}
+{"mid": "Z3148", "s": 1, "r": "effective equidistribution rates vs required cusp depth"}
+{"mid": "Z3150", "s": 1, "r": "non-lacunary multiplicative closure of working levels"}
+{"mid": "Z3153", "s": 1, "r": "absorbers from Mordell identities for square-class repair"}
+{"mid": "Z3155", "s": 1, "r": "automatic refinements of ES as Sun-style conjectures"}
+{"mid": "Z3157", "s": 1, "r": "recursive product constructions from factorisations of 4Cp+1"}
+{"mid": "Z3159", "s": 1, "r": "current-graph constructions for one Mordell-hard residue class"}
+{"mid": "Z3161", "s": 1, "r": "polynomial congruence characterisation of ES as AKS-type test"}
+{"mid": "Z3163", "s": 1, "r": "strong approximation mod q for ES surface fibres"}
+{"mid": "Z3165", "s": 1, "r": "reversed Titchmarsh-type divisor sums over shifted primes"}
+{"mid": "Z3167", "s": 1, "r": "positivity lets all but smallest levels be discarded"}
+{"mid": "Z3169", "s": 1, "r": "sieve of growing dimension for thin level sets S_C"}
+{"mid": "Z3171", "s": 1, "r": "affine-sieve strengthening with prime or almost-prime parameters"}
+{"mid": "Z3173", "s": 1, "r": "large deviations of Euclidean algorithm at fixed denominator"}
+{"mid": "Z3175", "s": 1, "r": "function-field counterexamples at small q to direct ES analogue"}
+{"mid": "Z3177", "s": 1, "r": "third complementary method insurance against shared failures"}
+{"mid": "Z3181", "s": 1, "r": "Kaplansky-type ternary forms with GRH-conditional exception lists"}
+{"mid": "Z3186", "s": 1, "r": "commutator-style products of few divisor classes hitting −1"}
+{"mid": "Z3188", "s": 1, "r": "Syracuse-type 2-adic and 3-adic random variable for certificates"}
+{"mid": "Z3191", "s": 1, "r": "stickiness of certificates across nearby levels sharing primes"}
