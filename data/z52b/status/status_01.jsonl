@@ -298,3 +298,53 @@
 {"mid": "Z0697", "status": "open", "files": ["BRAINSTORM/z36_farey_least_qnr.md"], "evidence": "", "note": "Least primitive root proxy examined in Farey memo; correlation not recorded."}
 {"mid": "Z0698", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
 {"mid": "Z0699", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0700", "status": "open", "files": ["BRAINSTORM/bsB_root_number_parity.md"], "evidence": "", "note": "Regulator/unit invariants examined in sign-layer memos; correlation not recorded."}
+{"mid": "Z0701", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0702", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0703", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0704", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0705", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0706", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0707", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0708", "status": "open", "files": ["MENU_LADDER.md"], "evidence": "", "note": "Mordell square-class ladder examined; failure pattern n ≡ 1 mod 24 not recorded."}
+{"mid": "Z0709", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0710", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0711", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0712", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0713", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0714", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0715", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0716", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0717", "status": "open", "files": [], "evidence": "", "note": "Maximal smallest-denominator examined as maxx records; excess over p/4 not fitted."}
+{"mid": "Z0718", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0719", "status": "open", "files": ["MENU_LADDER.md"], "evidence": "", "note": "Mordell six square classes examined; ordering against hardness counts not recorded."}
+{"mid": "Z0720", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0721", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0722", "status": "open", "files": ["MENU_LADDER.md"], "evidence": "", "note": "Hard-prime classes examined; ranking by U/log² not recorded."}
+{"mid": "Z0723", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0724", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "5/n and 6/n failures examined in PW-style numerics; sub-campaign list not recorded."}
+{"mid": "Z0725", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0726", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Divisibility-strengthened 12/p failures examined in campaign numerics; list not recorded."}
+{"mid": "Z0727", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "16/p last failure appears among (★) failures; full list not recorded."}
+{"mid": "Z0728", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0729", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Divisibility-ladder failures partly recorded; full ladder not found."}
+{"mid": "Z0730", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0731", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0732", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0733", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "PW numerics for m∈[20,48] examined via PW table; reproduction not recorded."}
+{"mid": "Z0734", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0735", "status": "open", "files": ["BRAINSTORM/s3_numerator_blind.md"], "evidence": "", "note": "8/n failures examined; 9/n failure set not recorded."}
+{"mid": "Z0736", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0737", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0738", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0739", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0740", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0741", "status": "open", "files": ["BRAINSTORM/s3_numerator_blind.md"], "evidence": "", "note": "All-even ES solution counts examined for 8/n; U₈ not recorded."}
+{"mid": "Z0742", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0743", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0744", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0745", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0746", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0747", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0748", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "PW j-term generalisation noted; sibling with j unit fractions not computed."}
+{"mid": "Z0749", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "PW prime-in-interval threshold examined; explicit check not recorded."}
