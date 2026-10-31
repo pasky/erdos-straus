@@ -1,12 +1,31 @@
-# z52b Pass 1 — batch U01 (INCOMPLETE: 62 of 207 items processed; ES remains OPEN)
+# z52b Pass 1 — batch U01 (all 207 items have a line; ES remains OPEN)
 
-1. Counts so far: nothing 46, covered 3, interesting 9, needs-compute 4, skipped 0. Remaining 145 items have NO line in `data/z52b/pass1/outcome_U01.jsonl` (not processed, not skipped).
-2. Interesting: Z0728 (20/p failures concentrate on p≡1 mod 120), Z0730 (F(m)⊆F(mk) in 39/39 nontrivial pairs), Z0746 (composite failures always inherit from a failing prime divisor, 1556/1556), Z0900 (p−1 practical ⇒ harder; 0/30 hardest), Z0969 (residual corr 0.50 for U(p) vs U((p+3)/4)), Z1416 (greedy two-term lag max at 2521 and 1201), Z0355 / Z0893 / Z0894 (FF engine: constant numerator 4 degenerate by lc lemma; twist ratio grows with degree; square-at-linear-primes lowers mean ES count ~3.6×).
-3. Needs-compute: Z0752, Z0739 (extend to 1e7 needs existence-only counter), Z0949 (≈2–3 CPU-days extrapolated), Z0896 (new signed counter, 1–2 h).
-4. Caveat: the redo under pass1_U_fix.md was applied to the items already processed (Z0874, Z0878, Z0892–Z0894, Z0355, Z0896, Z0739, Z0752, Z0949 were re-run or re-labelled); the rest of the batch still needs the same treatment.
-5. Scripts: `scripts/z52b_p1_U01_*.py` (common, fingerprint, practical, isosceles, quick, ff, twoterm, fourterm, record, items_a/items_b). Raw outputs gzipped in `data/z52b/pass1/U01/`.
+1. Counts: nothing 150, covered 27, interesting 14, needs-compute 16, skipped 0 (outcome_U01.jsonl, one line per mid).
+2. Interesting: Z0728 (20/p failures on p≡1 mod 120), Z0730 (F(m)⊆F(mk) 39/39), Z0746 (composite failures inherit from a failing prime divisor, 1556/1556), Z0900 (p−1 practical ⇒ harder), Z0969 (residual corr 0.50), Z1416 and Z1735 (greedy two-term completion: lag max at 2521/1201; per-p success rate 0.03–0.75), Z1591 (C-form sign variant and standard give identical failure sets for p≤2000, C≤20), Z1941 (min max-denominator ~p^{1.5}, not p·polylog), Z1944 (4th term rescues to ≈0.75p), Z1282 / Z0893 / Z0894 / Z0355 (F_5[T] engine: irreducible denominators ~4.7× fewer solutions; constant numerator 4 degenerate; non-square twist ×4–5).
+3. Needs-compute (16): mostly specs missing or 1–3 h coding (Z0752, Z0739, Z0896, Z0949 ~2–3 CPU-days extrapolated, Z0323, Z0524, Z1322, Z1337, Z1479, Z2483, Z2498, Z2577, Z2909, Z3057, Z1123).
+4. HONEST GAP: 65 lines say (in their summary) that part of the first step was not executed — for items whose step was an unspecified analogy/metaphor, or a formal/literature item I did not chase (listed below). They should be re-triaged by the parent; I did not mark them `skipped` because rule 3 only allows restatements/meta.
+5. Scripts: `scripts/z52b_p1_U01_*.py` (allsols, stats2, rescue, triples, four, chain, cform, twoterm, ff, practical, isosceles, quick, fingerprint, items_a..f, record). Data gzipped in `data/z52b/pass1/U01/`.
+
+Flagged (summary admits step not run or only partly run): Z0076 Z0104 Z0051 Z0077 Z0228 Z0285 Z0293 Z0315 Z0524 Z0984 Z1123 Z1276 Z1338 Z1360 Z1393 Z1434 Z1646 Z2034 Z2137 Z2185 Z2186 Z2187 Z2188 Z2191 Z2192 Z2193 Z2195 Z2198 Z2199 Z2200 Z2201 Z2202 Z2205 Z2206 Z2207 Z2208 Z2236 Z2484 Z2650 Z2701 Z2776 Z2780 Z2794 Z1051 Z1098 Z1239 Z1315 Z1322 Z1337 Z1506 Z1942 Z2070 Z2086 Z2266 Z2495 Z2550 Z2579 Z2627 Z2773 Z3028 Z3107 Z0725 Z0747 Z2171 Z1731(partial).
 
 ## Interesting items
+
+### Z1591 — C-form sign variant
+* p+u+v=4Cuv (standard) and p+u−v=4Cuv (sign variant), v=(p+u)/(4Cu∓1). For primes 3≤p≤2000 and C≤20 the sets of primes with no certificate are identical (302 primes; symmetric difference empty). Primes failing all C≤20: 7, 31, 79, 127, 199 (standard), 5, 11 (sign).
+* Reproduce: `python3 scripts/z52b_p1_U01_cform.py`. Next: find the bijection or a case (C>20 or p>2000) where they differ.
+
+### Z1735 / Z1416 — greedy two-term completion
+* Z1416: x=⌈p/4⌉ works for most primes ≤3000; lag max 5 at p=2521 and 1201.
+* Z1735: over primes ≤400, fraction of first terms x giving a two-term remainder: mean 0.192, range 0.031–0.750; lag-1 autocorrelation of the indicator 0.12 (Z3046).
+* Reproduce: `python3 scripts/z52b_p1_U01_chain.py 400`, `scripts/z52b_p1_U01_twoterm.py 3000`.
+
+### Z1941 / Z1944 — size of the smallest solutions
+* Z1941 (allsols, p≤5000, 667 primes): min over ES triples of max-denominator / p has log–log slope 0.54 in p (dyadic maxima 68, 290, 561, 1014). The (log p)^A hypothesis does not fit this range.
+* Z1944 (4th term free, w≤p³, p≤150): min max(x,y,z) ≈0.75p (e.g. p=53: 40 vs 3-term R=742).
+* Reproduce: `python3 scripts/z52b_p1_U01_allsols.py 5000`, `scripts/z52b_p1_U01_rescue.py 150`.
+
+### Z1282 — irreducible vs split over F_5[T]
+* Mean #ES(T,P), deg 2: irreducible 5.4 (2 of 10 with zero), split 25.2, square 22.6. Next: degree 3–4 with the same split.
 
 ### Z0728 — 20/p failures and p ≡ 1 (mod 120)
 * Failures of 20/p (= 4/p with all denominators divisible by 5) at primes 5<p≤1e5: 60 (plus 2,3,5). Last 90001.

@@ -6,7 +6,7 @@ ROWS = []
 def R(mid, outcome, summary, evidence, nxt=""):
     ROWS.append({"mid": mid, "outcome": outcome, "summary": summary, "evidence": evidence, "next": nxt})
 D = os.path.dirname(os.path.abspath(__file__))
-for fn in ("z52b_p1_U01_items_d.py", "z52b_p1_U01_items_c.py", "z52b_p1_U01_items_b.py", "z52b_p1_U01_items_a.py"):
+for fn in ("z52b_p1_U01_items_f.py", "z52b_p1_U01_items_e.py", "z52b_p1_U01_items_d.py", "z52b_p1_U01_items_c.py", "z52b_p1_U01_items_b.py", "z52b_p1_U01_items_a.py"):
     exec(open(os.path.join(D, fn)).read())
 seen = set(); out = []
 for r in ROWS:
