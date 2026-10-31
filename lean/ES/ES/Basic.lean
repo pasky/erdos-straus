@@ -174,4 +174,107 @@ theorem jacobi_C_of_dvd_succ {C a : ℕ} (h : 4 * C ∣ a + 1) : jacobiSym C a =
   rw [h2, one_mul, jacobiSym.quadratic_reciprocity' hC'o hao, hsign, hmod, ← sq]
   exact jacobiSym.sq_one (by simp)
 
+/-- `a ≡ 3 (mod 4)` whenever `4C ∣ a + 1`. -/
+theorem mod_four_of_dvd_succ {C a : ℕ} (h : 4 * C ∣ a + 1) : a % 4 = 3 := by
+  have := (dvd_mul_right 4 C).trans h; omega
+
+/-- **Lemma B (QNR lemma).** Every C-form divisor `a` of `4Cn + 1` has `J(n | a) = −1`
+(`BRAINSTORM/z52b_free_fable.md:489`). -/
+theorem jacobi_n_of_cform {n C a : ℕ} (h : CForm n C a) : jacobiSym n a = -1 := by
+  obtain ⟨hdiv, h4⟩ := h
+  -- step 1
+  have ha4 := mod_four_of_dvd_succ h4
+  have hao : Odd a := Nat.odd_iff.mpr (by omega)
+  have hneg : jacobiSym (-1) a = -1 := by
+    rw [jacobiSym.at_neg_one hao, ZMod.χ₄_nat_three_mod_four ha4]
+  -- step 2
+  have hcong : jacobiSym ((4 * C * n : ℕ) : ℤ) a = jacobiSym (-1) a := by
+    apply jacobiSym.mod_left'
+    have : ((4 * C * n : ℕ) : ℤ) ≡ -1 [ZMOD a] := by
+      apply Int.modEq_iff_dvd.mpr
+      have : (a : ℤ) ∣ (4 * C * n + 1 : ℕ) := Int.natCast_dvd_natCast.mpr hdiv
+      have e : (-1 : ℤ) - ((4 * C * n : ℕ) : ℤ) = -((4 * C * n + 1 : ℕ) : ℤ) := by push_cast; ring
+      rw [e]; exact this.neg_right
+    exact this
+  -- step 3
+  have hsplit : jacobiSym ((4 * C * n : ℕ) : ℤ) a = jacobiSym (2 ^ 2) a * jacobiSym C a * jacobiSym n a := by
+    rw [show ((4 * C * n : ℕ) : ℤ) = 2 ^ 2 * C * n by push_cast; ring, jacobiSym.mul_left,
+      jacobiSym.mul_left]
+  have h22 : jacobiSym (2 ^ 2) a = 1 := by
+    apply jacobiSym.sq_one'
+    have : Nat.gcd 2 a = 1 := (Nat.coprime_two_left).mpr hao
+    exact_mod_cast this
+  rw [hsplit, h22, jacobi_C_of_dvd_succ h4, hneg] at hcong
+  simpa using hcong
+
+/-- A Jacobi symbol at a square top is never `−1`. -/
+theorem jacobi_sq_ne_neg_one (m : ℤ) (b : ℕ) : jacobiSym (m ^ 2) b ≠ -1 := by
+  rw [jacobiSym.pow_left]
+  rcases jacobiSym.trichotomy m b with h | h | h <;> rw [h] <;> norm_num
+
+/-- **T1 for the C-form.** No square `n = m²` (odd or even) has a C-form certificate, for any `C`. -/
+theorem no_cform_square (m C a : ℕ) : ¬ CForm (m ^ 2) C a := by
+  intro h
+  have := jacobi_n_of_cform h
+  push_cast at this
+  exact jacobi_sq_ne_neg_one m a this
+
+/-- **T1, shifted form** (`FRONTIER.md:241`, `PARITY_AUDIT.md:214` Lemma 3.2): for every `u`, `m² + u` has no
+divisor `f ≡ −1 (mod 4u)`. -/
+theorem no_shifted_square (m u f : ℕ) : ¬ (f ∣ m ^ 2 + u ∧ 4 * u ∣ f + 1) := by
+  rintro ⟨hdiv, h4⟩
+  have hf4 := mod_four_of_dvd_succ h4
+  have hfo : Odd f := Nat.odd_iff.mpr (by omega)
+  have hcong : jacobiSym ((m : ℤ) ^ 2) f = jacobiSym (-1 * u) f := by
+    apply jacobiSym.mod_left'
+    have : ((m : ℤ) ^ 2) ≡ -1 * u [ZMOD f] := by
+      apply Int.modEq_iff_dvd.mpr
+      have : (f : ℤ) ∣ (m ^ 2 + u : ℕ) := Int.natCast_dvd_natCast.mpr hdiv
+      have e : (-1 * u : ℤ) - (m : ℤ) ^ 2 = -((m ^ 2 + u : ℕ) : ℤ) := by push_cast; ring
+      rw [e]; exact this.neg_right
+    exact this
+  rw [jacobiSym.mul_left, jacobiSym.at_neg_one hfo, ZMod.χ₄_nat_three_mod_four hf4,
+    jacobi_C_of_dvd_succ h4] at hcong
+  exact jacobi_sq_ne_neg_one m f (by simpa using hcong)
+
+/-- QNR lemma, reciprocal form: for `n ≡ 1 (mod 4)` every C-form divisor `a` has `J(a | n) = −1`
+(for prime `n = p`: `a` is a quadratic non-residue mod `p`). -/
+theorem jacobi_a_of_cform {n C a : ℕ} (hn : n % 4 = 1) (h : CForm n C a) : jacobiSym a n = -1 := by
+  have hao : Odd a := Nat.odd_iff.mpr (by have := mod_four_of_dvd_succ h.2; omega)
+  rw [← jacobiSym.quadratic_reciprocity_one_mod_four hn hao]
+  exact jacobi_n_of_cform h
+
+/-! ### C-form ⟺ shifted form -/
+
+/-- The C-form and the shifted ("p + u has a divisor ≡ −1 (mod 4u)") form are equivalent, for `n ≥ 1`
+(`BRAINSTORM/z52b_free_fable.md:36`). -/
+theorem cform_iff_shifted (n : ℕ) (hn : 0 < n) :
+    (∃ C a, CForm n C a) ↔ ∃ u f, f ∣ n + u ∧ 4 * u ∣ f + 1 := by
+  constructor
+  · rintro ⟨C, a, ⟨b, hab⟩, ha⟩
+    have hb := cofactor_dvd hab ha
+    obtain ⟨u, hu⟩ := ha
+    obtain ⟨v, hv⟩ := hb
+    have hC : C ≠ 0 := by rintro rfl; omega
+    have key : n + u + v = 4 * C * u * v := by
+      have h1 : (4 * C) * (n + u + v) = (4 * C) * (4 * C * u * v) := by
+        have e : (a + 1) * (b + 1) + 1 = a * b + (a + 1) + (b + 1) := by ring
+        rw [hu, hv, ← hab] at e
+        zify at e ⊢
+        linear_combination -e
+      exact Nat.eq_of_mul_eq_mul_left (by omega) h1
+    -- n + u = v * a, and a + 1 = 4uC
+    refine ⟨u, a, ⟨v, ?_⟩, ⟨C, by rw [hu]; ring⟩⟩
+    zify at key hu ⊢
+    linear_combination key - v * hu
+  · rintro ⟨u, f, ⟨v, hv⟩, ⟨C, hC⟩⟩
+    -- 4Cn + 1 = f (4Cv − 1)
+    refine ⟨C, f, ⟨4 * C * v - 1, ?_⟩, ⟨u, by rw [hC]; ring⟩⟩
+    have hC0 : C ≠ 0 := by rintro rfl; simp at hC
+    have hv1 : v ≠ 0 := by rintro rfl; simp at hv; omega
+    have hv0 : 1 ≤ 4 * C * v := Nat.one_le_iff_ne_zero.mpr (by positivity)
+    zify [hv0]
+    zify at hv hC
+    linear_combination (4 * C : ℤ) * hv + hC
+
 end ES
