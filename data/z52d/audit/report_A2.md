@@ -4,7 +4,7 @@ ES is OPEN; nothing here bears on that. Files: `opus_A2.jsonl` (blind, committed
 scripts `scripts/z52d_audit_A2_*`, data `data/z52d/audit/A2/`.
 
 **Verdict counts:** AGREE 5 · MISS-MINOR 6 · MISS-MAJOR 1 · HAIKU-WRONG-COVERED 1 · HAIKU-BETTER 0.
-Opus outcomes: covered 7, nothing 5 (Z0975 has content 2), interesting 1 (Z3155). Content scores: 0×1, 1×10, 2×2, 3×0.
+Opus outcomes: covered 8, nothing 4 (Z0975 has content 2), interesting 1 (Z3155). Content scores: 0×1, 1×10, 2×2, 3×0.
 
 **MISS-MAJOR / WRONG-COVERED items**
 - Z0975 (MISS-MAJOR): Haiku did not split by p mod 4 and stopped at p ≤ 1500, so its numbers ("51% have y−x ≤ 2") describe only the
