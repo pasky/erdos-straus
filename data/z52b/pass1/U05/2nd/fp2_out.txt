@@ -1,0 +1,12 @@
+Z0777 U-certificate zeros (fingerprint-0178 def, V=1500), n≤300: [4, 9, 12, 16, 25, 28, 36, 49, 60, 64, 81, 96, 100, 105, 121, 124, 144, 156, 169, 196, 204, 225, 228, 256, 288, 289]
+  claimed list starts 12,28,60,96,105,124,156,204,228,288 — reproduced: [12, 28, 60, 96, 105, 124, 156, 204, 228, 288]
+  zeros ≡1 mod 4 in range: [9, 25, 49, 81, 105, 121, 169, 225, 289]  even zeros: 17 of 26
+  check 2961 (claimed zero): True
+Z0899 Spearman(Wilson quotient mod p, U/log²p) over p≡1(4), 5<p≤2e4 (1125): 0.159 (p=0.00)
+Z0958 mod-840 class means explain R2 = 0.797 of var(log U/log²p) over primes ≤1e5
+  lag 840·1: n=3824 corr raw=0.780 after class-mean removal=-0.080
+  lag 840·2: n=3735 corr raw=0.830 after class-mean removal=0.139
+  lag 840·5: n=3641 corr raw=0.764 after class-mean removal=-0.155
+  lag 840·10: n=3433 corr raw=0.818 after class-mean removal=0.087
+Z0962 normalised (U/log²n): Spearman(p, 4p+1) = 0.212 ; Spearman(p, (p+3)/4) = 0.683 (n=468)
+Z0672 comparison: R2 of class-mod-840 means (in-sample) = 0.639

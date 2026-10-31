@@ -1,0 +1,6 @@
+p≡1(4) primes ≤2e4: 1125
+Z1521 re-test: 267 primes fail for c≤30, d∈{1,2,3}
+  rescued by some c∈(30,120]: 0 of 267; still failing up to c=120: 267
+  first rescues (p,c): []
+Z1943 min positive near-miss gap (x≤8p, y≤8p, greedy 3rd term) for p≡1(4)≤400, 8 smallest: [(5, 0.0), (13, 0.0), (17, 0.0), (29, 0.0), (37, 0.0), (41, 0.0), (53, 0.0), (61, 0.0)]
+  gap·p^2 quantiles (hard primes 409,577,5569 vs median): {} median 0.0

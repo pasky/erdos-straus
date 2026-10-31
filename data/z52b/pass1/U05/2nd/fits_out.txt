@@ -1,0 +1,4 @@
+Z1537 least-squares fit of U(n) (n≤2000) on ['1', 'n', 'tau', 'sigma', 'sigma_2/n', 'phi', 'omega', 'Omega']: relative residual norm 0.272, max |res| 3704.10 (exact relation would give 0)
+Z1538 fit of U(n) (n≤2000) on σ₁/n, σ₃/n³, τ, σ₁(n/2)/n, σ₁(n/4)/n, 1: relative residual 0.258 (quasi-modular/Eisenstein-type fit would be ~0)
+Z1579 C≤100: −1 is not a square mod 4C for 100 of 100 values ⇒ an index-2 subgroup avoiding −1 exists (all C)
+Z1346/Z1964 solution graph (p≡1(4), first 200 primes ≤2e4): components with 'share ≥1 denominator': median 5, max 13; with 'share ≥2 denominators': median 30, max 64; graph connected for p with 1 comp: 4

@@ -1,0 +1,12 @@
+Z0939 A257843 terms reproduced (n≤3000, first 13): [89, 113, 161, 233, 281, 329, 353, 401, 409, 449, 473, 521, 593]
+  claimed: 89,113,161,233,281,329,353,401,409,449,473,521,593 — all present: True
+  primes p≡1(4) in A257843: 260 of 1125 (0.231); by p mod 24: {1: np.float64(0.251), 5: np.float64(0.0), 13: np.float64(0.0), 17: np.float64(0.668)}
+Z0279 type of minmax-z solution (primes p≡1(4), ≤2e4): {'II (p|y,z)': 1125}
+  minmax-z solution: x | z ? {'x|z': 15, 'x∤z': 1110}
+Z0955 peaks of log(y/x) histogram (40 bins on [0,8]): top bins at [np.float64(7.8), np.float64(7.4), np.float64(6.8), np.float64(6.6), np.float64(6.4)] counts [2783, 2680, 2584, 2540, 2498] ; total 83652 solutions
+  most common integer ratios: [(('z/y', 2), 569), (('y/x', 2), 569), (('y/x', 6), 289), (('z/y', 6), 289), (('y/x', 5), 287), (('z/y', 5), 283)]
+Z0818 Gini of solutions-per-x over p≡1(4)≤2e4: median 0.431, 10%/90% 0.330/0.558
+Z0819 distinct (x,y,z) mod 105 patterns per prime: hard-200 median 38.5 of median 39.0 solutions; easy-200 median 103.0 of 114.0
+Z0982 smallest z−y over solutions, primes p≡1(4)<1000 (first 12): [(5, 5), (13, 26), (17, 85), (29, 116), (37, 185), (41, 41), (53, 371), (61, 427), (73, 438), (89, 178), (97, 2522), (101, 303)]
+  overall min z−y among those: 5 at 5
+Z0233 share of solutions whose product x·y collides with another solution's product: hard-100 median 0.000, easy-100 median 0.000

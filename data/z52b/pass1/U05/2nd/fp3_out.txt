@@ -1,0 +1,6 @@
+Z0672/Z0958 class-mod-840 means: 2-fold CV R2 on primes≡1(4), 840<p≤1e5 (n=4713) = 0.620  (in-sample is inflated: ~5 primes per class)
+  Z0958 lag 840·1: pairs=1891 raw corr=0.685  residual corr (cross-fitted class means)=0.109
+  Z0958 lag 840·2: pairs=1873 raw corr=0.729  residual corr (cross-fitted class means)=0.255
+  Z0958 lag 840·5: pairs=1825 raw corr=0.639  residual corr (cross-fitted class means)=-0.003
+  Z0958 lag 840·10: pairs=1688 raw corr=0.690  residual corr (cross-fitted class means)=0.132
+Z0899 Wilson quotient W_p=((p-1)!+1)/p mod p vs log(U/log²p), p≡1(4), p≤2e4 (n=1125): rho=-0.033 (p=2.7e-01); vs p itself rho=0.012 (sanity: should be ~0 after normalisation); vs class-mod-840-residual rho=-0.003 (p=0.91)

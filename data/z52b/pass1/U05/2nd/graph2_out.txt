@@ -1,0 +1,8 @@
+p=409: edges=14924, isolated C=83, components=86, giant fraction=0.782, normalized-Laplacian λ2=-0.0000
+p=577: edges=14835, isolated C=83, components=84, giant fraction=0.792, normalized-Laplacian λ2=0.3261
+p=5569: edges=14856, isolated C=80, components=81, giant fraction=0.800, normalized-Laplacian λ2=0.3727
+p=9601: edges=14908, isolated C=80, components=81, giant fraction=0.800, normalized-Laplacian λ2=0.3761
+p=401: edges=14983, isolated C=83, components=84, giant fraction=0.792, normalized-Laplacian λ2=0.3822
+p=433: edges=14918, isolated C=88, components=89, giant fraction=0.780, normalized-Laplacian λ2=0.3844
+p=1009: edges=14939, isolated C=85, components=87, giant fraction=0.782, normalized-Laplacian λ2=0.0000
+p=2521: edges=14951, isolated C=82, components=83, giant fraction=0.795, normalized-Laplacian λ2=0.3713

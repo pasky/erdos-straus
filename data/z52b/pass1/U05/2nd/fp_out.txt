@@ -1,0 +1,23 @@
+Z0688 least p≡1(4) per least-QNR q: (p, U(p)/log²p) {2: (5, 0.772), 3: (17, 0.498), 5: (73, 0.38), 7: (241, 0.266), 11: (1009, 0.397), 13: (2689, 0.369), 17: (8089, 0.543), 19: (33049, 0.526), 23: (53881, 0.362), 29: (87481, 0.293)}
+Z0688 regression logU ~ 1 + logL(1,chi_p)[M=400] + log(sigma(p-1)/(p-1)) over 1200 primes p≡1(4)<1e5: coef=[4.529, -0.256, -0.295] R2=0.168
+Z0777 zeros U(n)=0, 2<=n<=30000: count 0 first []
+  even zeros: 0  n≡1 mod 4 zeros: []  n≡3 mod 4: 0
+Z0812 safe primes ≤1e5: 669, mean U/log²p = 2.715 vs all p≡3(4): 2.104
+  Spearman(U/log², log P+(p-1)/log p) over p≡3(4): 0.203 (p=5.1e-46)
+Z0818 U/nx over primes ≤1e5: median 2.13, 90% 3.04
+Z0821 log U(pq) ~ a + b log U(p) + c log U(q) (pq≤3e4, 4441 pairs): coef [4.722, 0.212, 0.308], R2=0.298
+Z0842 k-means k=2 on 200 hardest primes (≤1e5, p≡1(4)): inertia ratio 0.936, sizes [113, 87]
+Z0842 k-means k=3 on 200 hardest primes (≤1e5, p≡1(4)): inertia ratio 0.892, sizes [59, 79, 62]
+Z0842 k-means k=4 on 200 hardest primes (≤1e5, p≡1(4)): inertia ratio 0.862, sizes [50, 65, 40, 45]
+Z0899 Spearman(Wilson quotient mod p, U/log²p) over p≡1(4), p≤2e4 (1125): 0.244 (p=0.00)
+Z0903 U(43)=14 nx=5; U(1807)=327 nx=76; neighbours U(1805..1809)=[627, 1814, 327, 1022, 562]
+Z0910 fit U(n)/log³n on c_q(n), q≤30: R2=0.728; coef a_q: {1: np.float64(4.0924), 2: np.float64(2.1418), 3: np.float64(1.4693), 4: np.float64(1.5096), 5: np.float64(1.0654), 6: np.float64(0.7158), 7: np.float64(0.7836), 8: np.float64(0.8933), 9: np.float64(0.4291), 10: np.float64(0.5088), 11: np.float64(0.4613), 12: np.float64(0.4947)}
+  multiplicativity check a_6 vs a_2*a_3: 0.7158 vs 3.1470 ; a_10 vs a_2*a_5: 0.5088 vs 2.2818
+Z0950 lowest U/log³n composites ≤3e4: [(9409, {97: 2}, 73), (12769, {113: 2}, 82), (26569, {163: 2}, 108), (11881, {109: 2}, 85), (1369, {37: 2}, 41), (4489, {67: 2}, 65), (25202, {2: 1, 12601: 1}, 116), (29929, {173: 2}, 126)]
+  of the 15 lowest: all prime factors ≡1 mod 24 (both primes): 2 /15
+Z0951 log U(n) ~ 1 + ω1 + ω3 over 26754 composites ≤3e4: coef [4.91, 1.113, 1.154]
+Z0958 corr(log U/log²p at p, p+840k) for primes ≤1e5: {1: (3824, 0.78), 2: (3735, 0.83), 3: (3695, 0.788), 4: (3651, 0.821), 5: (3641, 0.764), 6: (3613, 0.83), 7: (3538, 0.759), 8: (3507, 0.835), 9: (3465, 0.791), 10: (3433, 0.818)}
+Z0962 Spearman(U(p),U(4p+1)) = 0.358 ; Spearman(U(p),U((p+3)/4)) = 0.727 (n=468)
+Z0672 log(U/log²p) on (q/p), q≤100 (4783 primes≡1(4)≤1e5): in-sample R2=0.103, 5-fold CV R2=0.094
+Z0710 record positions of U(n) ≤3e4 (strict): [2, 3, 6, 8, 10, 12, 15, 24, 30, 40, 48, 60, 72, 80, 96, 120, 144, 160, 168, 180, 192, 210, 224, 240, 336, 360, 420, 480, 560, 672]
+  overlap with τ-record set (highly composite): 20 of 53 U-records are τ-records

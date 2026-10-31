@@ -1,0 +1,4 @@
+Z2784 fan (t,u,v ∈[3,11], p≡1(4)): 275 triples; T(-1,-1) values: Counter({-1: 155, 1: 120}); bicycle dims: Counter({0: 275})
+  dependence on p mod 8 / Legendre (2/p): {(1, 0), (5, 0)}
+Z2677 Hermitian ℤ/4 connection Laplacians (random holonomies, 200 fan words): det equals p in 200/200 cases
+Z2652 k=3 (triangle multigraphs, tau=xy+yz+zx=p, cofactor pairing non-square): 116 of 116 primes p≡1(4), 5≤p<1500 have one; first failures: []

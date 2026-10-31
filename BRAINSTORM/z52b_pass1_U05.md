@@ -1,34 +1,50 @@
-# z52b Pass 1 — batch U05 (§2 untried, 207 items)
+# z52b Pass 1 — batch U05 (§2 untried, 207 items) — redo after pass1_U_fix
 
-1. Batch U05 complete: 207 items, outcomes in `data/z52b/pass1/outcome_U05.jsonl`. ES remains OPEN; nothing here proves or claims progress beyond verified small-range facts.
-2. Counts: covered 35, nothing 9, interesting 0, needs-compute 71, skipped 92.
-3. Interesting items: none. The few surprises checked (Z1512 omega-stratified agreement, Z3151 prime witnesses, Z1581 mixture of failure reasons at p=409) each resolved into known or explained behaviour.
-4. Covered most often by existing repo memos: FRIEZE_ES.md, FOREST_*.md, LORENZINI_W.md, fingerprint (isosceles law fingerprint-0229, x|z fingerprint-0190), free_fable #201/#164, data/z52b/variants*.json. Many §2 items are analogies or engineering (skipped), not ES steps.
-5. Computed here (reproducible; data in `data/z52b/pass1/U05/`): Z1512/Z1608 numbers reproduced exactly; Z1478 F2-relaxation is necessary but wins only 9.1% of relax-holding pairs; Z2655 only 105 of the six U(n) sporadics is idoneal; C-form min witness Omega=1 for 373/380 primes (p<6000, C≤150).
+1. Batch U05 complete (all 207 items redone under pass1_U_fix); outcomes in `data/z52b/pass1/outcome_U05.jsonl`. ES remains OPEN.
+2. Counts: nothing 133, covered 37, interesting 4, needs-compute 1, skipped 32 (meta/tooling or restatement only; listed in the outcome file).
+3. Interesting: **Z1521** (Type I with d∈{1,2,3} is blind to p≡1 mod 24), **Z0939** (A257843 membership confined to p≡1 mod 8), **Z3018** (22 mod-840 classes uncertified at C≤50 include all six Mordell classes), **Z2652** (non-square triangle pairing exists for all tested p; not shown to imply ES).
+4. Needs-compute: **Z1391** only (Salez seven-equation census; requires the full text of arXiv 1406.6307, est. 1–2 h).
+5. Scope caveat: the 32 `skipped` items are meta/tooling (proof-search engineering, outreach, scheduling) or restatements (Z2651, Z2691, Z1258); I read rule 3 as covering these. Everything else has a computed or lookup result.
 
-## Scripts and data
-* `scripts/z52b_p1_U05_fable.py` → `data/z52b/pass1/U05/fable.txt` (C-form census p≡1 mod 4, p≤6000, C≤150: 57,450 pairs, 1,522 wins). Covers Z1478, Z1512, Z1596, Z1608.
-* `scripts/z52b_p1_U05_misc.py` → `data/z52b/pass1/U05/misc.txt` (Z1477 gcd lemma, Z1561 C=2 taxonomy, Z2655 idoneal test, Z0711 residues mod 4, Z0760 R(3^k), Z0857 isosceles).
-* `scripts/z52b_p1_U05_409.py` → `data/z52b/pass1/U05/forensics409.txt` (Z1581 forensics, controls 401/433).
-* `scripts/z52b_p1_U05_minomega.py` → `data/z52b/pass1/U05/minomega.txt` (Z1075 least winning C; Z3151 min Omega(d)).
-* `scripts/z52b_p1_U05_outcomes.py` writes the outcome JSONL from the triage table.
+## Reproduction
+* `gcc -O2 -o /tmp/ucount scripts/z52b_p1_U05_ucount.c` (U(n) = unordered count, = A192787; validated against f4 col 1 for n≤3000); `UDUMP=1` prints solutions.
+* `scripts/z52b_p1_U05_cform.c` (C-form census) and `scripts/z52b_p1_U05_cmin.c` (early-exit C_min); data in `data/z52b/pass1/U05/2nd/`.
+* Solution dumps for `z52b_p1_U05_sol.py`, `_fits.py`, `_final.py`, `_last.py`, `_sandpile.py`: `seq 3 3000 | UDUMP=1 /tmp/ucount | grep ^S > /tmp/u05/dump_n3000.txt` and `awk '$1>=5 && $1<=20000' primes | UDUMP=1 /tmp/ucount | grep ^S > /tmp/u05/dump_p2e4.txt` (too large to commit: 62 MB, 7.6 MB).
 
-## Key verified numbers
-* Z1512: 8229 pairs (p<3000, C<40); 2356 have a subgroup containing −1; 1695 of those fail. Break-down by omega(N) for subgroup-containing pairs: omega=2: 308/2098 win; omega=3: 768/7534; omega=4: 395/4558 (8.7%); omega=5: 51/558. The hypothesis "≥95% agreement for omega≥4" is refuted.
-* Z1608: among Omega≥5 failures (p≡1 mod 4, p≤6000, C≤150), 2531 of 4184 (60.5%) have subgroup∋−1 (multiplicity type); the rest (39.5%) have a −1-free subgroup (Galois type). Matches the repo's 61/39 split up to 2 extra failures in my count.
-* Z1478: relaxation (−1 ∈ span of prime classes mod squares) is necessary (0 wins without it); holds for 16,736 pairs, of which 1,522 win (9.1%).
-* Z1581: p=409 has no C-form witness for C≤2000; controls 401 and 433 win at C∈{1,4,17} and {2,8,11}. Failing C with all prime factors QR mod 409: 936 of 2000; the rest have a QNR factor. No single Legendre reason dominates.
-* Z3151 / Z1075: over p≡1 mod 4, p≤6000 with a witness at C≤150: min Omega(d)=1 for 373 primes, 2 for 7, none needs 3; least winning C ≤40 (max at p=4789). 409, 577, 5569 have no witness at C≤150.
-* Z2655: h(−4n) vs number of genera: n=105 idoneal (8=8); 2961 (48 vs 8), 3985 (24 vs 4), 25305 (80 vs 16), 111969 (240 vs 16), 978145 (424 vs 8) not idoneal.
-* Z0857 (isosceles): checked for p<3000; a short proof (2/a+1/b=4/p ⇒ (4a−2p) | 2p²-type factorisation, odd-prime divisor analysis) gives no solution for p≡1 mod 4; already in fingerprint-0229.
+## Interesting items
 
-## Items of note marked needs-compute (first real tests to run in a depth or follow-up lane)
-* Z1596 (ω≥6 failures, stabiliser test): scan p≤1e5, C≤200.
-* Z1729, Z1964, Z2618, Z2652, Z2677, Z2678 (graph/spectral computations on C-form, solution and forest graphs).
-* Z1521 (do Type I certificates with d∈{1,2,3} cover all p≤1e7?) and Z1573 (census extension with OEIS check).
-* Z1628 (residue table for p+u at p=409 vs controls); Z1945 (first-term offset k*(p)).
+### Z1521 — Type I with d∈{1,2,3} is blind to p≡1 (mod 24) (interesting)
+Repo definition (FRONTIER §1): Type I(c,d) ⟺ some f | p²+4c²d with f ≡ −p (mod 4cd).
+* For p≡1(4), p≤2·10⁴ (1125 primes): no Type I solution with d∈{1,2,3} and c≤30 for **any of the 267 primes ≡1 (mod 24)**; c up to 120 rescues none (`typeI2_out.txt`). For the other three classes mod 24 (5, 13, 17), **858/858 primes** have such a solution with c≤30 (`typeI3_out.txt`, class counts 281/281, 288/288, 289/289).
+* For p≡1 (24) the solutions come from d∈{5,7,10,11} (d≤12); 29 of these 267 primes have no Type I solution with d≤12, c≤30 (5569 among them).
+* Partial proof for d=3 (checked numerically, 16,648 tests, 0 violations): if p≡1 (mod 3), p∤c, then 3 | 4cd forces f≡−p≡2 (mod 3); every prime q | p²+12c² with q∤6c satisfies (−3/q)=1, so q≡1 (mod 3); f is odd, so f cannot be ≡2 (mod 3). Hence d=3 is impossible for these p.
+* Why it matters: the d∈{1,2,3} family (imaginary quadratic fields Q(i), Q(√−2), Q(√−3)) with c unbounded covers 76% of primes and excludes exactly the class p≡1 (24), the repo's hard class. Next: prove the d=1 and d=2 analogues (same mod-8/mod-3 bookkeeping with f≡g≡−p mod 4cd, fg=p²+4c²d), and test d=5,7,10,11 on the same primes.
+* Reproduce: `python3 scripts/z52b_p1_U05_typeI3.py`, `scripts/z52b_p1_U05_typeI2.py`.
 
-## Notes
-* Several "covered" calls rely on keyword and file-level grep (e.g. FRIEZE_ES.md, LORENZINI_W.md, fingerprint memos) rather than a full read of each cited section; each covered outcome names the file.
-* Z2651 (sandpile fan) is recorded as skipped: det M = p and (M⁻¹)₁₁ = (tu−1)/p are checked by hand, so the pairing reformulation is a restatement of ES₅.
-* Z0706 lemma (4∤n ⇒ n | lcm of every solution) is PROVED by a parity/valuation argument; recorded as nothing because it does not bear on ES.
+### Z0939 — A257843 membership confined to p≡1 (mod 8) (interesting)
+A257843 = n where the lexicographically first solution ≠ the max-z solution.
+* Reproduced OEIS terms 89, 113, 161, 233, 281, … (all n≤3000).
+* For primes p≡1(4), p≤2·10⁴: membership 23% overall; **0% for p≡5 (mod 8)** (classes 5 and 13 mod 24, ≈570 primes), 25% for class 1 mod 24, 67% for class 17 mod 24.
+* Next: prove that for p≡5 (mod 8) the lex-first solution has the largest z (a 2-adic argument); check whether the rate on p≡1 (8) depends on p mod 16 or 32.
+* Reproduce: `scripts/z52b_p1_U05_sol.py` (needs the dump above).
+
+### Z3018 — mod-840 class certification at C≤50 (interesting)
+A class mod 840 is "certified" if some C≤50 wins for every sampled prime in it (≥5 primes per class, p≡1(4), p≤1e5).
+* 74 classes certified, covering 77.6% of the primes; the 22 uncertified classes are 1, 37, 109, 121, 157, 169, 241, 289, 337, 361, 409, 421, 457, 529, 541, 577, 589, 661, 709, 757, 781, 829.
+* These include **all six Mordell hard classes** (1, 121, 169, 289, 361, 529) and the R-zero classes 409 and 577. The 102 class-wide wins at C≤50 are all explained by a divisor of 4Cr+1 supported on {3,5,7} that is ≡ −1 (mod 4C) (Z1497), so the certified classes are congruence covers by small primes.
+* Caveat: class sizes are sample sizes (≥5 primes), so "uncertified" is empirical. Next: check the 16 non-Mordell uncertified classes at C≤200, and whether the uncertified set equals the set of classes with no {3,5,7}-supported certificate.
+* Reproduce: `scripts/z52b_p1_U05_last.py` and `scripts/z52b_p1_U05_cf2.py`.
+
+### Z2652 — non-square triangle pairing for every tested prime (interesting, low confidence)
+Triangle multigraph with multiplicities x,y,z: τ = xy+yz+zx; the cofactor pairing class on Z/p is the Legendre class of x+y (classes of x+y, x+z, y+z agree since (x+y)(x+z) ≡ x² mod p).
+* For all 1125 primes p≡1(4), p≤2·10⁴ there is a triangle with τ=p and non-square pairing (k*=3). The criterion agrees with the C≤5 C-form on 1082 primes and holds without a C≤5 certificate on 43 primes.
+* Open: this is not shown to imply ES. Next step: try to turn a triangle (x,y,z) into a three-term decomposition of 4/p, and test whether the 43 extra primes coincide with C-form failures at C≤200.
+* Reproduce: `scripts/z52b_p1_U05_tri.py`, `scripts/z52b_p1_U05_sandpile.py`.
+
+## Other notable computed facts (nothing, for calibration)
+* C-form census: the exact C≤200 exception set for p≡1(4), p≤1e5 is {409, 577, 5569, 9601, 23929, 60217, 83449, 98017}; to 1e6 with C≤20000 it is {409, 577, 5569, 9601, 23929, 83449, 102001, 184837, 329617, 712321}; 434437, 571741, 706801, 881269 win only at C=3879, 1489, 4016, 1695 (`cmin_p1e6_C1000.txt`, `final_out.txt`).
+* U(n) reproduced (validated against column 1 of f4_all_30000 for n≤3000); the Z0688 least-QNR records reproduce the item's numbers exactly (0.397, 0.369, 0.543, 0.526, 0.362, 0.293).
+* Z1497/Z3018: all 102 class-wide wins come from {3,5,7}-divisors (congruence covering).
+* Forests F_p (Z2792, Z2681, Z2678, Z2840): edge products generate F_p^* for all 180 primes tested; the F₂ flat-colouring space is not trivial (dim ≥3); forests are bipartite so the Hoffman bound is vacuous; the configuration model predicts a giant ≈4%, observed largest component ≈6.5%.
+* Sandpile/fan (Z2784, Z2677): T(−1,−1) = (−1)^{|E|} (bicycle dimension 0 for all 275 fan words); Hermitian ℤ/4 holonomy leaves det = p.
+* Solution graph (Z1964/Z2991): single-denominator moves only, median 5 components per prime; no two solutions share two denominators, so no Vieta-type moves.

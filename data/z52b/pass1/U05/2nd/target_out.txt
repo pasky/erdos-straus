@@ -1,0 +1,4 @@
+candidates p≡1 (840), 1e5<p≤1e6: 350; model R2 on training primes: 0.211
+correlation(model prediction, actual log(U/log²p)) over candidates: 0.380
+mean actual log(U/log²p): model top-10 (predicted most solutions) = -0.225 ; bottom-10 (predicted fewest) = -0.535
+min U over candidates: 46 at 132721 ; predicted fewest-solutions: [561961, 728281, 842521, 878641, 269641]

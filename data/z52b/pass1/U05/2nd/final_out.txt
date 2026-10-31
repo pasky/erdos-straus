@@ -1,0 +1,8 @@
+Z0934 k(p)=min{denominator/p : p | denominator} over p≡1(4), 5≤p≤2e4 (solutions with p dividing a denominator): max k/log p = 3.298 at p=16381 (k=32); records: [(5, 1), (13, 2), (37, 4), (421, 6), (541, 10), (1381, 21), (3361, 25), (16381, 32)]
+Z0768 W(n) records (n≤800): [(1, 3), (3, 6), (5, 9), (7, 11), (11, 15), (17, 17), (19, 19), (23, 23), (35, 24), (47, 31), (59, 35), (71, 37), (89, 39), (119, 47)]
+Z1411 profiles mod 840 (≥30 primes): fraction with C_min≤10: min 0.928 at r=169 (n=388), max 1.000 at r=13; lowest-5 classes: [(169, 0.928, 388), (241, 0.936, 404), (757, 0.942, 411), (361, 0.944, 394), (1, 0.947, 395)]
+Z1628 p=409, u≤50: 'p+u has divisor ≡-1 mod 4u' fails for 50 u; among those, all odd prime factors of p+u are QR mod 409 for 23
+Z1782 p=409: 15 ordered-by-x solutions in dump; type counts {'II': 6, 'I': 9}; min z 12270; (Type II solutions exist, so the C-form misses only the Type I route)
+Z1943 positive near-miss gap (x,y≤6p, greedy z) for p≡1(4)≤400: 37 primes; smallest 5 gaps [(397, 0.0), (337, 0.0), (373, 0.0), (277, 0.0), (353, 0.0)]; gap·p² median 0.000; for 409: None
+Z1573 C≤1000 census exceptions ≤1e6 (14) refined to C≤20000: 409 0; 577 0; 5569 0; 9601 0; 23929 0; 83449 0; 102001 0; 184837 0; 329617 0; 434437 3879; 571741 1489; 706801 4016; 712321 0; 881269 1695
+Z1943 gap·p³ quantiles over these primes: 10/50/90% = [0.0, 0.0, 0.002]; for 409 (not in range) n/a

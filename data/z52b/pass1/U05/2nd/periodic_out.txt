@@ -1,0 +1,2 @@
+{'omega≥6 failures': 1329, 'stab size 1': 1279, 'periodic (stab≠1)': 50, 'periodic & -1∉stab': 50, 'stab size 2': 48, 'stab size 4': 2}
+examples (p,C,|stab|,|D|,4C): [(2729, 184, 2, 62, 736), (10313, 82, 2, 52, 328), (16193, 132, 2, 60, 528)]

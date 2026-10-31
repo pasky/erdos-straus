@@ -1,0 +1,2 @@
+(a) random p≡1(840) near 1e12: 40 primes; #with win C≤40: 40; mean wins/p = 7.88; per-C rates {1: 0.55, 2: 0.55, 3: 0.53, 5: 0.55, 10: 0.17, 20: 0.15, 40: 0.1}
+(b) profile-matched (p≡409 mod 60060) near 1e12: 40 primes; #with win C≤40: 40; mean wins/p = 7.62; per-C rates {1: 0.53, 2: 0.55, 3: 0.42, 5: 0.45, 10: 0.1, 20: 0.23, 40: 0.0}

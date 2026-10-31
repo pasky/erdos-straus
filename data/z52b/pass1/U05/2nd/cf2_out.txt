@@ -1,0 +1,18 @@
+Z1497 class-wide wins (class mod 840 with ≥5 primes, C≤50): 102 pairs; explained by a divisor of 4Cr+1 supported on {3,5,7} ≡ -1 (mod 4C): 102
+Z1029 certificate divisors d (p≡1(4) first 600 primes, C≤30): 5284 total; with (d/p)=+1: 0 (signed sums cannot cancel iff 0)
+Z1036 mod 8: win-rate range (min,max) over classes for C=1,2,3: [(1, 0.739, 0.747), (2, 0.472, 0.477), (3, 0.323, 0.328)]
+Z1036 mod 9: win-rate range (min,max) over classes for C=1,2,3: [(1, 0.469, 1.0), (2, 0.353, 0.607), (3, 0.315, 0.339)]
+Z1036 mod 5: win-rate range (min,max) over classes for C=1,2,3: [(1, 0.727, 1.0), (2, 0.0, 0.726), (3, 0.0, 0.459)]
+Z1036 mod 7: win-rate range (min,max) over classes for C=1,2,3: [(1, 0.683, 1.0), (2, 0.365, 1.0), (3, 0.285, 0.516)]
+Z1403 C=1: M=840, top-5 frequency energy share = 0.403, share on frequencies with period dividing 4C: 0.328
+Z1403 C=2: M=840, top-5 frequency energy share = 0.301, share on frequencies with period dividing 4C: 0.252
+Z1403 C=3: M=840, top-5 frequency energy share = 0.359, share on frequencies with period dividing 4C: 0.513
+Z1403 C=5: M=840, top-5 frequency energy share = 0.397, share on frequencies with period dividing 4C: 0.433
+Z1403 C=10: M=840, top-5 frequency energy share = 0.333, share on frequencies with period dividing 4C: 0.340
+Z1403 C=20: M=1680, top-5 frequency energy share = 0.234, share on frequencies with period dividing 4C: 0.264
+Z1229 depth-3 tree for 'some C≤5 wins' trained on p≤5e4 (2391 primes): test accuracy on p>5e4 = 0.971 (base 0.971)
+  leaf: P(win)=1.000 n=1211  rule: (q3/p)=+1=0
+  leaf: P(win)=0.965 n=593  rule: (q3/p)=+1=1 & p≡1(5)=0 & p≡1(9)=0
+  leaf: P(win)=0.924 n=302  rule: (q3/p)=+1=1 & p≡1(5)=0 & p≡1(9)=1
+  leaf: P(win)=0.927 n=150  rule: (q3/p)=+1=1 & p≡1(5)=1 & (q7/p)=+1=0
+  leaf: P(win)=0.800 n=135  rule: (q3/p)=+1=1 & p≡1(5)=1 & (q7/p)=+1=1

@@ -1,0 +1,2 @@
+Z2840 configuration-model giant predicted vs observed largest component (60 primes ≡1(4), p<2500): predicted median 0.042 (>0 in 59); observed median 0.065
+  first 6 (p, predicted giant, observed largest): [(5, 0.0, 0.857), (13, 0.315, 0.533), (17, 0.33, 0.526), (29, 0.266, 0.419), (37, 0.166, 0.256), (41, 0.192, 0.302)]

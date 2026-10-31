@@ -1,0 +1,7 @@
+Z2618 p=409: graph C≤300 — 707 edges, 317 primes q; Hashimoto spectral radius 6.2965; sqrt(mean deg −1) = 1.1365; Ramanujan-type bound holds iff rho ≤ sqrt(d̄−1) + 1e-6 for the nontrivial part
+Z2618 p=401: graph C≤300 — 704 edges, 314 primes q; Hashimoto spectral radius 6.2959; sqrt(mean deg −1) = 1.1372; Ramanujan-type bound holds iff rho ≤ sqrt(d̄−1) + 1e-6 for the nontrivial part
+Z3010 (k=#prime factors with multiplicity capped at 6, is-class-−1): counts of (divisor residue = −1 mod 4C): {(1, True): 148, (2, True): 487, (3, True): 304, (4, True): 62, (5, True): 6, (6, True): 1}
+  hits by parity of k: {0: 550, 1: 458} (a parity identity would make one class vanish/balance)
+Z2669 Sylver Grundy of ⟨u,v⟩ (names ≤24) at forest edges with uv|p+u+v, p∈(73,97,401,409,577,1009,2521): 22 edges; examples [(409, 2, 3, 1, True), (409, 4, 7, 6, False), (409, 5, 6, 8, True), (401, 3, 4, 3, False), (401, 7, 12, 8, False), (577, 2, 3, 1, True)]
+  Grundy value by (uv/p)=+1?:  {(False, 2): 1, (False, 3): 1, (False, 4): 3, (False, 6): 3, (False, 8): 1, (False, 9): 1, (False, 10): 1, (True, 1): 7, (True, 4): 1, (True, 5): 1, (True, 8): 2}
+Z2840 largest component of F_p (60 primes ≡1(4), p<2500): median fraction 0.064, max 0.857

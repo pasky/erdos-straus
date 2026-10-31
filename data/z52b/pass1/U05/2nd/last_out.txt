@@ -1,0 +1,24 @@
+Z1642 max denominator/p² over all solutions (p≡1(4), ≤2e4): max 4166666.750 at p=19997, median 286016.750
+Z1763 'share a winning C' graph on 600 primes ≡1(4): degree median 469 of 599; density 0.723
+Z2606 a_k (k=ω(C)) = [3556, 13695, 8957, 1135]; log-concave at 2 of 2 interior points: [True, True]
+Z3017 Spearman(E(p), U/log²p) = -0.140 over p≡1(4)≤1e5
+Z3018 primes lying in mod-840 classes certified for all members by some C≤50: 0.776 of primes p≡1(4) ≤1e5 (74 classes)
+Z3059 q=7: residues with ≥20 primes and no C≤20 win: []
+Z3059 q=11: residues with ≥20 primes and no C≤20 win: []
+Z3059 q=13: residues with ≥20 primes and no C≤20 win: []
+Z3059 q=31: residues with ≥20 primes and no C≤20 win: []
+Z3059 q=101: residues with ≥20 primes and no C≤20 win: []
+Z3059 q=199: residues with ≥20 primes and no C≤20 win: []
+Z0837 Spearman(hamming weight of p, U/log²p) over p≡1(24): 0.240; by v2(p−1) (mean U/log² of hamming groups within v2 classes): {8: np.float64(0.21), 16: np.float64(0.19), 32: np.float64(0.17), 64: np.float64(0.11)}
+Z1238 matched pairs (same class mod 60060): 5752 pairs; Cmin ratio ≥10 in 62 (0.011); random pairs: 0.019
+Z1744 record Cmin (C≤1000, p≤1e6) : [(4357, 39), (4789, 40), (19141, 141), (26209, 149), (60217, 251), (98017, 557)]; log p at last record 11.49
+Z1747 residue-indicator regression of log(1+R(p)) for primes≡1(4)≤1e5, moduli ≤5: 5-fold CV R2 = 0.123
+Z1747 residue-indicator regression of log(1+R(p)) for primes≡1(4)≤1e5, moduli ≤10: 5-fold CV R2 = 0.201
+Z1747 residue-indicator regression of log(1+R(p)) for primes≡1(4)≤1e5, moduli ≤20: 5-fold CV R2 = 0.280
+Z1747 residue-indicator regression of log(1+R(p)) for primes≡1(4)≤1e5, moduli ≤50: 5-fold CV R2 = 0.297
+Z1613 p=409: 8 marked x in (p/4,3p/4]; distinct gaps 5: [(np.int64(1), 2), (np.int64(2), 1), (np.int64(3), 1), (np.int64(5), 2), (np.int64(26), 1)]
+Z1613 p=401: 12 marked x in (p/4,3p/4]; distinct gaps 6: [(np.int64(1), 4), (np.int64(2), 3), (np.int64(3), 1), (np.int64(4), 1), (np.int64(9), 1), (np.int64(17), 1)]
+Z2308/Z2328 p=1009, N=30: |A|=30, |A+A|=376 (|A|²=900, p=1009); |A+A|/|A|=12.53
+Z2308/Z2328 p=1009, N=60: |A|=60, |A+A|=871 (|A|²=3600, p=1009); |A+A|/|A|=14.52
+Z2308/Z2328 p=2521, N=30: |A|=30, |A+A|=419 (|A|²=900, p=2521); |A+A|/|A|=13.97
+Z2308/Z2328 p=2521, N=60: |A|=60, |A+A|=1318 (|A|²=3600, p=2521); |A+A|/|A|=21.97
