@@ -118,3 +118,13 @@
 {"mid": "Z1136", "outcome": "skipped", "summary": "Not actionable: the energy function is not specified concretely enough to compute.", "evidence": [], "next": ""}
 {"mid": "Z1143", "outcome": "skipped", "summary": "Not actionable: no operator is defined.", "evidence": [], "next": ""}
 {"mid": "Z1174", "outcome": "skipped", "summary": "Not actionable: no divisor-residue distribution is specified.", "evidence": [], "next": ""}
+{"mid": "Z1259", "outcome": "skipped", "summary": "Engineering idea (checker mutation tests), not ES mathematics.", "evidence": [], "next": ""}
+{"mid": "Z1307", "outcome": "skipped", "summary": "Not actionable: no concrete count is named to express as a period.", "evidence": [], "next": ""}
+{"mid": "Z1340", "outcome": "covered", "summary": "Theta-quotient reformulation and its modular structure are in METAPLECTIC_ES.md.", "evidence": ["METAPLECTIC_ES.md"], "next": ""}
+{"mid": "Z1484", "outcome": "needs-compute", "summary": "Not checked. Computation: Σ_t H(4n-t^2) for n=p compared with Eichler–Selberg traces (needs class-number tables and literature lookup); ~1h.", "evidence": ["BRAINSTORM/z52b_fingerprint.md"], "next": "Verify the Eichler–Selberg identity for the discriminants -(p^2+4c^2 d) with small c."}
+{"mid": "Z1508", "outcome": "nothing", "summary": "Count test: f(l*p)/f(p) for l=2,3,5,7 over primes p≡1 mod 4 up to 200 gives mean 4.6, 12.1, 10.8, 25.7 with sd about 1/3 to 1/2 of the mean (range 2.7–9.5 for l=2), so no Hecke-type constant relation. Multiplicativity fails as expected.", "evidence": ["scripts/z52b_p1_U04_counts.py", "data/z52b/pass1/U04/counts_checks.json"], "next": ""}
+{"mid": "Z1683", "outcome": "skipped", "summary": "Growth argument only: polylog counts exclude exponentially growing mock forms, but the weight-1 Eisenstein shape test is not run.", "evidence": [], "next": ""}
+{"mid": "Z1741", "outcome": "skipped", "summary": "Analogy only: a QUE-type target needs a fixed-size set that is not defined here.", "evidence": [], "next": ""}
+{"mid": "Z1854", "outcome": "covered", "summary": "R(p) = #{m ≡3 mod 4 : r_p(m) | (m+1)/4} is already verified for p<=1009 in z52b_free_opus.md (item 266; scripts/z52b_free_opus_check1.py).", "evidence": ["BRAINSTORM/z52b_free_opus.md (item 266)"], "next": ""}
+{"mid": "Z2088", "outcome": "covered", "summary": "Tunnell's criterion as a model is recorded with Spearman checks in final_checks.json (tunnell_spearman_A/B/A-2B).", "evidence": ["data/z52b/final_checks.json"], "next": ""}
+{"mid": "Z2325", "outcome": "skipped", "summary": "Not actionable: no specific modular object is named beyond the generic theta-quotient already covered in METAPLECTIC_ES.md; the cited search link is unverified.", "evidence": ["METAPLECTIC_ES.md"], "next": ""}
