@@ -168,3 +168,13 @@
 {"mid": "Z1019", "outcome": "skipped", "summary": "Not actionable: a divisor-poset construction without a question about where the target residue appears.", "evidence": [], "next": ""}
 {"mid": "Z1020", "outcome": "skipped", "summary": "Not actionable as stated: subset-product DP is the G4 computation, already measured in part by Z0545/Z1444 counts.", "evidence": ["data/z52b/pass1/U04/gate_check_20000_30.json"], "next": ""}
 {"mid": "Z1021", "outcome": "skipped", "summary": "Not actionable: discrete-log zero-sum analysis has no specified modulus or target.", "evidence": [], "next": ""}
+{"mid": "Z1050", "outcome": "skipped", "summary": "Not actionable: minimal sufficient factor multisets are not defined with a stopping rule.", "evidence": [], "next": ""}
+{"mid": "Z1055", "outcome": "skipped", "summary": "Not actionable: energy of log-residue sets is not tied to a specific obstruction.", "evidence": [], "next": ""}
+{"mid": "Z1056", "outcome": "skipped", "summary": "Not actionable: state graph undefined.", "evidence": [], "next": ""}
+{"mid": "Z1076", "outcome": "skipped", "summary": "Not actionable: hypergraph of compatible triples is not defined concretely.", "evidence": [], "next": ""}
+{"mid": "Z1078", "outcome": "skipped", "summary": "Not actionable: encoding not specified.", "evidence": [], "next": ""}
+{"mid": "Z1079", "outcome": "skipped", "summary": "Not actionable: family-test matrix not defined.", "evidence": [], "next": ""}
+{"mid": "Z1080", "outcome": "skipped", "summary": "Not actionable: failure-pattern/repair incidence not defined.", "evidence": [], "next": ""}
+{"mid": "Z1086", "outcome": "skipped", "summary": "Not actionable: Ramsey colouring without a template to test.", "evidence": [], "next": ""}
+{"mid": "Z1087", "outcome": "skipped", "summary": "Not actionable: successful-C progressions are not computed by the item and the 'derive conditions' step is unspecified.", "evidence": [], "next": ""}
+{"mid": "Z1088", "outcome": "skipped", "summary": "Not actionable: word-line encoding not specified.", "evidence": [], "next": ""}
