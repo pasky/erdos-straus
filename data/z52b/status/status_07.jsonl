@@ -248,3 +248,28 @@
 {"mid": "Z3041", "status": "untried", "files": [], "evidence": "", "note": "Dual certificate / positive linear combination of level series not found in repo."}
 {"mid": "Z3042", "status": "untried", "files": [], "evidence": "", "note": "Dimension-zero exceptional set via measure rigidity not formulated for ES."}
 {"mid": "Z3043", "status": "open", "files": ["METAPLECTIC_ES.md Thm K"], "evidence": "", "note": "Kronecker theta-quotient form of level series examined; exact Rademacher-type expansion not attempted."}
+{"mid": "Z3044", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Decomposition of the main term into BM part and character tail examined; explicit tail-to-main ratio across primes not computed."}
+{"mid": "Z3045", "status": "untried", "files": [], "evidence": "", "note": "Monotone flow on triples for 4/p with monovariant not designed in repo."}
+{"mid": "Z3046", "status": "untried", "files": [], "evidence": "", "note": "x-sum distribution of two-term counts r2 over first denominator not computed."}
+{"mid": "Z3047", "status": "untried", "files": [], "evidence": "", "note": "Real-variable circle-method count of near-solutions for 4/p not carried out."}
+{"mid": "Z3048", "status": "untried", "files": [], "evidence": "", "note": "Mordell yz+zx+xy formula bijection with ES solutions not examined."}
+{"mid": "Z3049", "status": "open", "files": ["METAPLECTIC_ES.md"], "evidence": "", "note": "Shifted-d3/GL(3) reading of the (u,B,C) count noted; Type III modulus-range analysis not done."}
+{"mid": "Z3050", "status": "untried", "files": [], "evidence": "", "note": "Weak subconvexity saving on X(p) via Halasz-type argument not attempted."}
+{"mid": "Z3051", "status": "untried", "files": [], "evidence": "", "note": "Zeta-type packaging over odd prime powers p^k of Type I/II counts not computed."}
+{"mid": "Z3052", "status": "open", "files": ["BRAINSTORM/z36_hj_cantor_dimension.md", "BRAINSTORM/thin_group_orbits.md"], "evidence": "", "note": "HJ Cantor-set dimension and thin-orbit exponents examined; ES word-count exponent up to 1e9 not fitted."}
+{"mid": "Z3053", "status": "open", "files": ["EXSET_BEYOND_CRT.md §Prop 4.1"], "evidence": "", "note": "Fixed-(t,u) progression form of ES examined; rotation-orbit propagation across primes not analysed."}
+{"mid": "Z3054", "status": "untried", "files": [], "evidence": "", "note": "Goldfeld-type effective bound via high-order zero not considered for ES Siegel step."}
+{"mid": "Z3055", "status": "untried", "files": [], "evidence": "", "note": "Weber/singular-modulus norms as certificate generators not computed."}
+{"mid": "Z3056", "status": "open", "files": ["AMPLIFY_EXCEPTION.md", "BRAINSTORM/z38_numerator8_control.md"], "evidence": "", "note": "8/n exception behaviour examined as numerator control; applying each mechanism verbatim to 8/131 not systematically checked."}
+{"mid": "Z3057", "status": "untried", "files": [], "evidence": "", "note": "Character-sum formula for window certificate counts not implemented or verified."}
+{"mid": "Z3058", "status": "untried", "files": [], "evidence": "", "note": "Certificate-search cost benchmark at 1e18-1e25 not performed."}
+{"mid": "Z3059", "status": "untried", "files": [], "evidence": "", "note": "Dvir-type bound on certificate-free residue sets mod q not computed."}
+{"mid": "Z3060", "status": "untried", "files": [], "evidence": "", "note": "Askey-Gasper positivity for level-weighted ES counts not found."}
+{"mid": "Z3061", "status": "untried", "files": [], "evidence": "", "note": "Milin-type uniform stronger statement for exponential families not formulated."}
+{"mid": "Z3062", "status": "untried", "files": [], "evidence": "", "note": "Logarithmic-density version of ES sub-route failure sums not estimated."}
+{"mid": "Z3063", "status": "untried", "files": [], "evidence": "", "note": "Ax-Kochen transfer classification of ES sub-statements not carried out."}
+{"mid": "Z3064", "status": "open", "files": ["AMPLIFY_EXCEPTION.md", "BRAINSTORM/s8_numerator_two_lines.md"], "evidence": "", "note": "Numerator-family exceptions (8/n at 131, 241) examined; statistic predicting largest exception for m<=30 not tested."}
+{"mid": "Z3065", "status": "open", "files": ["BRAINSTORM/bsE_sierpinski_moving_integer.md"], "evidence": "", "note": "Covering-type obstructions for exponential families examined in Sierpinski notes; periodic-set union for 15*2^s+1 not computed."}
+{"mid": "Z3066", "status": "open", "files": ["SYNTHESIS_SPARKS9.md"], "evidence": "", "note": "Fixed-splitting-condition restriction of BM layer discussed; restricted (★)/ES5 counts for l=11,13,17 not run."}
+{"mid": "Z3067", "status": "open", "files": ["BRAINSTORM/z31_quadratic_forms.md", "BRAINSTORM/bsD_genus_vacuity_LDp.md"], "evidence": "", "note": "Ineffective large-p results for ternary/genus setups examined; bounded-l(p) subfamily statement not formulated."}
+{"mid": "Z3068", "status": "untried", "files": [], "evidence": "", "note": "Escape-of-mass check on normalised certificate shapes not computed."}
