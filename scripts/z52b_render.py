@@ -24,6 +24,7 @@ for f in sorted(glob.glob('data/z52b/pass1/outcome_*.jsonl')):
         if l.strip():
             r = json.loads(l)
             p1[r['mid']] = r
+TRI = json.load(open('data/z52b/pass1/triage_interesting.json')) if glob.glob('data/z52b/pass1/triage_interesting.json') else {}
 for it in items:
     s = status.get(it['mid'])
     it['st'] = s['status'] if s else 'unclassified'
@@ -42,6 +43,8 @@ def line(it, pointer=False):
     if nl >= 2:
         meta.append(f'{nl} lanes')
     box = 'x' if r1 and r1['outcome'] in ('nothing', 'covered', 'skipped') else ' '
+    if r1 and r1['outcome'] == 'interesting' and TRI.get(it['mid'], 'NEW').split('-')[0] in ('REDISCOVERY', 'EXPLAINED', 'ARTIFACT', 'ARTIFACT/WEAK'):
+        box = 'x'
     out = f"- [{box}] **{it['mid']}** {short(it['title'], 140)} — {short(it['connection'], 260)}\n" \
           f"  *First step:* {short(it['first_step'], 260)} ({', '.join(meta)})"
     if pointer:
@@ -49,7 +52,8 @@ def line(it, pointer=False):
         extra = it['st_ev'] or it['st_note']
         out += f"\n  *Repo:* {short(files, 160)} — {short(extra, 220)}"
     if r1:
-        out += f"\n  *Pass 1 → {r1['outcome']}:* {short(r1['summary'], 300)}"
+        tv = f" [triage: {TRI[it['mid']]}]" if it['mid'] in TRI else ''
+        out += f"\n  *Pass 1 → {r1['outcome']}{tv}:* {short(r1['summary'], 300)}"
         if r1.get('next'):
             out += f" *Next:* {short(r1['next'], 200)}"
     return out
@@ -98,12 +102,21 @@ L.append('- When you work an item: tick it, and record the outcome in a memo cit
 if p1:
     c1 = collections.Counter(r['outcome'] for r in p1.values())
     L.append(f"## Pass 1 results ({len(p1)} items worked: " + ', '.join(f'{k} {v}' for k, v in c1.most_common()) + ')\n')
-    L.append('Pass 1 ran the first step of every §1 item (outcomes in `data/z52b/pass1/`, memos `BRAINSTORM/z52b_pass1_*.md`). '
+    L.append('Pass 1 ran the first step of every §1 item (Opus) and of every untried §2 item (Haiku, with a correction round) (outcomes in `data/z52b/pass1/`, memos `BRAINSTORM/z52b_pass1_*.md`). '
              'Ticked items are closed (nothing / covered / skipped). Open follow-ups:\n')
     by = {it['mid']: it for it in items}
+    tri = json.load(open('data/z52b/pass1/triage_interesting.json')) if glob.glob('data/z52b/pass1/triage_interesting.json') else {}
+    nc = sum(1 for r in p1.values() if r['outcome'] == 'needs-compute')
+    L.append(f'- **needs-compute: {nc} items** — plausible but the first meaningful test exceeds the cheap time box; each item below '
+             'carries its *Pass 1* line with the computation spelled out. Grep `Pass 1 → needs-compute`.')
+    L.append('- **interesting:** every item a worker flagged as interesting was re-triaged by Opus '
+             '(`data/z52b/pass1/triage_interesting.json`): verdicts REDISCOVERY / EXPLAINED-BY / ARTIFACT / NEW-CALIBRATION / '
+             'NEW-STRUCTURAL. Only the untriaged or NEW-* ones are listed here; NEW-STRUCTURAL count: '
+             f"{sum(1 for v in tri.values() if v == 'NEW-STRUCTURAL')}.")
     for r in sorted(p1.values(), key=lambda r: r['mid']):
-        if r['outcome'] in ('interesting', 'needs-compute'):
-            L.append(f"- **{r['mid']}** ({r['outcome']}) {short(by[r['mid']]['title'], 120)} — {short(r['summary'], 350)} "
+        v = tri.get(r['mid'])
+        if r['outcome'] == 'interesting' and (v is None or v.startswith('NEW') or v.startswith('DEPTH')):
+            L.append(f"- **{r['mid']}** ({tri.get(r['mid'], r['outcome'])}) {short(by[r['mid']]['title'], 120)} — {short(r['summary'], 350)} "
                      f"*Next:* {short(r.get('next', ''), 220)}")
     L.append('')
 L.append('## Contents\n')
