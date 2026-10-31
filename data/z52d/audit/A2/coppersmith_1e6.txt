@@ -1,0 +1,4 @@
+p in [10,10000] n=608: no(★)=4, no Coppersmith-regime(★)=13 (0.0214), no Lenstra-regime(★)=41 (0.0674)
+p in [10000,100000] n=4174: no(★)=2, no Coppersmith-regime(★)=28 (0.0067), no Lenstra-regime(★)=133 (0.0319)
+p in [100000,1000000] n=34392: no(★)=3, no Coppersmith-regime(★)=69 (0.0020), no Lenstra-regime(★)=413 (0.0120)
+largest primes lacking Coppersmith-regime (★): []
