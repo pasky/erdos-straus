@@ -1,0 +1,102 @@
+{
+ "2": {
+  "n": 238,
+  "representable": 238,
+  "frac": 1.0,
+  "first_fails": []
+ },
+ "3": {
+  "n": 238,
+  "representable": 238,
+  "frac": 1.0,
+  "first_fails": []
+ },
+ "4": {
+  "n": 238,
+  "representable": 238,
+  "frac": 1.0,
+  "first_fails": []
+ },
+ "5": {
+  "n": 238,
+  "representable": 238,
+  "frac": 1.0,
+  "first_fails": []
+ },
+ "6": {
+  "n": 238,
+  "representable": 238,
+  "frac": 1.0,
+  "first_fails": []
+ },
+ "7": {
+  "n": 238,
+  "representable": 238,
+  "frac": 1.0,
+  "first_fails": []
+ },
+ "8": {
+  "n": 238,
+  "representable": 233,
+  "frac": 0.97899,
+  "first_fails": [
+   3,
+   11,
+   17,
+   131,
+   241
+  ]
+ },
+ "9": {
+  "n": 238,
+  "representable": 235,
+  "frac": 0.98739,
+  "first_fails": [
+   5,
+   11,
+   19
+  ]
+ },
+ "10": {
+  "n": 238,
+  "representable": 231,
+  "frac": 0.97059,
+  "first_fails": [
+   3,
+   7,
+   11,
+   43,
+   61,
+   67,
+   181
+  ]
+ },
+ "11": {
+  "n": 238,
+  "representable": 236,
+  "frac": 0.9916,
+  "first_fails": [
+   3,
+   37
+  ]
+ },
+ "12": {
+  "n": 238,
+  "representable": 225,
+  "frac": 0.94538,
+  "first_fails": [
+   3,
+   5,
+   7,
+   13,
+   29,
+   31,
+   37,
+   73,
+   97,
+   193,
+   433,
+   577
+  ]
+ }
+}
