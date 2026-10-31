@@ -278,3 +278,83 @@
 {"mid": "Z1874", "status": "untried", "files": [], "evidence": "", "note": "Puzzle-app crowd-sourcing not done."}
 {"mid": "Z1875", "status": "untried", "files": [], "evidence": "", "note": "Music analogy not examined."}
 {"mid": "Z1876", "status": "untried", "files": [], "evidence": "", "note": "Music/just-intonation analogy not examined."}
+{"mid": "Z1877", "status": "untried", "files": [], "evidence": "", "note": "Multiplicative superparticular variant 1+4/p not examined."}
+{"mid": "Z1878", "status": "untried", "files": [], "evidence": "", "note": "Origami/folding decompositions not examined."}
+{"mid": "Z1879", "status": "untried", "files": [], "evidence": "", "note": "Rhind-papyrus 2/n heuristics not examined for 4/p."}
+{"mid": "Z1880", "status": "untried", "files": [], "evidence": "", "note": "Fibonacci's alternative decomposition rules not examined beyond greedy."}
+{"mid": "Z1881", "status": "untried", "files": [], "evidence": "", "note": "Connection-predictor on z52b list is a meta-task, not run."}
+{"mid": "Z1882", "status": "untried", "files": [], "evidence": "", "note": "Numerical kill-test protocol not examined."}
+{"mid": "Z1883", "status": "untried", "files": [], "evidence": "", "note": "Forward citation search not done."}
+{"mid": "Z1884", "status": "untried", "files": [], "evidence": "", "note": "Non-English literature survey not done."}
+{"mid": "Z1885", "status": "untried", "files": [], "evidence": "", "note": "Prize/bounty proposal not examined."}
+{"mid": "Z1886", "status": "untried", "files": [], "evidence": "", "note": "REU-style use of thin families not examined."}
+{"mid": "Z1887", "status": "untried", "files": [], "evidence": "", "note": "Equivalent-forms conversion library not examined."}
+{"mid": "Z1888", "status": "untried", "files": [], "evidence": "", "note": "Canonical certificate database not built."}
+{"mid": "Z1889", "status": "untried", "files": [], "evidence": "", "note": "Blind prediction contest not run."}
+{"mid": "Z1890", "status": "untried", "files": [], "evidence": "", "note": "Bayesian update of P(ES false) not examined."}
+{"mid": "Z1891", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Lower-tail literature searched for one-sided count theorems; general mathematics hunt not completed."}
+{"mid": "Z1892", "status": "untried", "files": [], "evidence": "", "note": "Supersaturation framing of certificates not examined."}
+{"mid": "Z1893", "status": "untried", "files": [], "evidence": "", "note": "Blakley–Roy homomorphism counts not examined."}
+{"mid": "Z1894", "status": "untried", "files": [], "evidence": "", "note": "Lean formalisation of thin-family proofs not started."}
+{"mid": "Z1895", "status": "untried", "files": [], "evidence": "", "note": "Formal-conjectures submission not done."}
+{"mid": "Z1896", "status": "open", "files": ["BRAINSTORM/invol_topological.md"], "evidence": "", "note": "Topological mod-2 degree/involution counting examined; degree-map construction for certificates not."}
+{"mid": "Z1897", "status": "untried", "files": [], "evidence": "", "note": "Sperner/Tucker labelling of level×divisor grid not examined."}
+{"mid": "Z1898", "status": "untried", "files": [], "evidence": "", "note": "Borsuk–Ulam/necklace splitting framing not examined."}
+{"mid": "Z1899", "status": "untried", "files": [], "evidence": "", "note": "SL₂(ℤ/4C) matrix-coefficient reading not examined."}
+{"mid": "Z1900", "status": "open", "files": ["KUDLA_ES.md"], "evidence": "", "note": "Weil-representation/theta reading of ES slices examined in Kudla memo; quadratic-slice Schwartz form not."}
+{"mid": "Z1901", "status": "untried", "files": [], "evidence": "", "note": "Categorical framing of Egyptian decompositions not examined."}
+{"mid": "Z1902", "status": "untried", "files": [], "evidence": "", "note": "Matroid rank of divisor classes not examined."}
+{"mid": "Z1903", "status": "open", "files": ["BRAINSTORM/bsC_arithmetic_topology.md"], "evidence": "", "note": "Arithmetic-topology linking/Legendre dictionary examined; ES-specific linking test not run."}
+{"mid": "Z1904", "status": "untried", "files": [], "evidence": "", "note": "Cutoff/mixing of random subset products not examined."}
+{"mid": "Z1905", "status": "open", "files": ["BRAINSTORM/z33_target_davenport.md"], "evidence": "", "note": "Prescribed-target zero-sum (−1) analysis examined; Waring-type group covering not."}
+{"mid": "Z1906", "status": "untried", "files": [], "evidence": "", "note": "Additive-basis property of certificate-friendly integers not examined."}
+{"mid": "Z1907", "status": "untried", "files": [], "evidence": "", "note": "Lichtman primitive-set structure for m=8 exceptions not examined."}
+{"mid": "Z1908", "status": "untried", "files": [], "evidence": "", "note": "Minkowski–Hlawka counts on the cubic surface not examined."}
+{"mid": "Z1909", "status": "untried", "files": [], "evidence": "", "note": "Khinchine flatness for certificate regions not examined."}
+{"mid": "Z1910", "status": "open", "files": ["BRAINSTORM/z18_two_specialisations.md"], "evidence": "", "note": "Polynomial identities over specialisations and Mordell–Schinzel classification examined; ℤ[T] version not."}
+{"mid": "Z1911", "status": "open", "files": ["BRAINSTORM/logic_divisibility_lgp.md"], "evidence": "", "note": "Local-global for divisibility systems examined in logic lane; ES instance not specifically."}
+{"mid": "Z1912", "status": "open", "files": ["BRAINSTORM/logic_divisibility_lgp.md"], "evidence": "", "note": "Divisibility-predicate definability examined in logic lane; complexity of ES predicate not."}
+{"mid": "Z1913", "status": "untried", "files": [], "evidence": "", "note": "Frey-object analogy not examined."}
+{"mid": "Z1914", "status": "open", "files": ["EXACT_FORMULA.md"], "evidence": "", "note": "Character-orthogonality count of divisors ≡ −1 examined in exact-formula memo; vanishing criterion not."}
+{"mid": "Z1915", "status": "untried", "files": [], "evidence": "", "note": "Polynomial Freiman–Ruzsa for divisor quotient sets not examined."}
+{"mid": "Z1916", "status": "open", "files": ["BRAINSTORM/z33_target_davenport.md"], "evidence": "", "note": "Kneser-type inverse argument at a failing window examined (LONGSHOT Prop 1.4); avoidance-of-−1 structure theorem not."}
+{"mid": "Z1917", "status": "untried", "files": [], "evidence": "", "note": "Hausdorff dimension of closure of failing primes not examined."}
+{"mid": "Z1918", "status": "untried", "files": [], "evidence": "", "note": "Hypergraph containers for factorisation patterns not examined."}
+{"mid": "Z1919", "status": "untried", "files": [], "evidence": "", "note": "Alteration method for p-tied objects not examined."}
+{"mid": "Z1920", "status": "untried", "files": [], "evidence": "", "note": "Dehn-twist/mapping-class reading of SL₂ words not examined."}
+{"mid": "Z1921", "status": "untried", "files": [], "evidence": "", "note": "Bianchi-group counting for Gaussian sibling not examined."}
+{"mid": "Z1922", "status": "untried", "files": [], "evidence": "", "note": "Belyi/dessins reading of ES fibration not examined."}
+{"mid": "Z1923", "status": "untried", "files": [], "evidence": "", "note": "Christoffel/Sturmian word structure of CF certificates not examined."}
+{"mid": "Z1924", "status": "untried", "files": [], "evidence": "", "note": "Three-distance structure of p mod m not examined."}
+{"mid": "Z1925", "status": "open", "files": ["BRAINSTORM/z33_forced_factor_criterion.md"], "evidence": "", "note": "Small-B shift slices and forced-factor criterion examined; small-q explicit divisor pattern not."}
+{"mid": "Z1926", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "b=1 line (p+1)/2 with prime ≡3 mod 4 factor is López's line, examined; Landau–Ramanujan framing not new."}
+{"mid": "Z1927", "status": "open", "files": ["BRAINSTORM/z29_forced_level_characters.md"], "evidence": "", "note": "Iterated B-slice failure via subset-product structure examined at forced levels; multi-B formulation not."}
+{"mid": "Z1928", "status": "untried", "files": [], "evidence": "", "note": "Simultaneous Landau–Ramanujan sieve on consecutive shifts not examined."}
+{"mid": "Z1929", "status": "open", "files": ["BRAINSTORM/tech_maynard_theta.md"], "evidence": "", "note": "Maynard-type upper-bound technology examined as technique; consecutive-shift application not."}
+{"mid": "Z1930", "status": "open", "files": ["BRAINSTORM/z9_triangle_shapes.md"], "evidence": "", "note": "Triangle/inradius reformulations examined; integer-exradius triangles not analysed for ES."}
+{"mid": "Z1931", "status": "open", "files": ["BRAINSTORM/z9_triangle_shapes.md"], "evidence": "", "note": "Triangle/altitude reformulation examined; integer-altitude subfamily not analysed."}
+{"mid": "Z1932", "status": "untried", "files": [], "evidence": "", "note": "Sangaku radius relations not examined."}
+{"mid": "Z1933", "status": "untried", "files": [], "evidence": "", "note": "Cubic-root (Vieta) formulation with e₂,e₃ not examined as such."}
+{"mid": "Z1934", "status": "open", "files": ["BRAINSTORM/invol_sign_identities.md"], "evidence": "", "note": "Signed-count/sign-identity search examined; exact-formula sign ε for certificates not."}
+{"mid": "Z1935", "status": "untried", "files": [], "evidence": "", "note": "Witten-index analogue not examined."}
+{"mid": "Z1936", "status": "untried", "files": [], "evidence": "", "note": "Categorification / Euler characteristic of certificate complex not examined."}
+{"mid": "Z1937", "status": "open", "files": ["ES_APPROACH_GENERATORS.md"], "evidence": "", "note": "Count-congruence G1 column noted as tested mod small moduli; mod 3,5,8 partial counts not."}
+{"mid": "Z1938", "status": "untried", "files": [], "evidence": "", "note": "Ramanujan-sum expansion of trial indicator not examined."}
+{"mid": "Z1939", "status": "open", "files": ["BRAINSTORM/z45_siegel_dichotomy.md"], "evidence": "", "note": "Siegel-zero dichotomy examined for ES-type statements; Friedlander–Iwaniec-type implication not."}
+{"mid": "Z1940", "status": "open", "files": ["BRAINSTORM/y2_positivity_is_T1.md"], "evidence": "", "note": "Positivity as T1 examined; signed-denominator relaxation not separately."}
+{"mid": "Z1941", "status": "untried", "files": [], "evidence": "", "note": "Small-solution size strengthening threshold not examined."}
+{"mid": "Z1942", "status": "untried", "files": [], "evidence": "", "note": "Restricted power-of-2 denominator strengthening not examined."}
+{"mid": "Z1943", "status": "untried", "files": [], "evidence": "", "note": "Near-miss gap distribution g(p) not examined."}
+{"mid": "Z1944", "status": "untried", "files": [], "evidence": "", "note": "Four-term rescue size with huge fourth denominator not examined."}
+{"mid": "Z1945", "status": "untried", "files": [], "evidence": "", "note": "First-term offset k with binary remainder not examined as such."}
+{"mid": "Z1946", "status": "open", "files": ["BRAINSTORM/corr_typeI_typeII_joint.md"], "evidence": "", "note": "Joint Type I/II correlation across primes examined; complementarity test not."}
+{"mid": "Z1947", "status": "untried", "files": [], "evidence": "", "note": "Transport between nearby primes via 4/p=4/q+4(q−p)/(pq) not examined."}
+{"mid": "Z1948", "status": "untried", "files": [], "evidence": "", "note": "Correlation of R(p) with R(p+840k) not examined."}
+{"mid": "Z1949", "status": "untried", "files": [], "evidence": "", "note": "Bernstein 1962 identity families not examined in repo."}
+{"mid": "Z1950", "status": "untried", "files": [], "evidence": "", "note": "Sierpiński 1956 monograph not examined."}
+{"mid": "Z1951", "status": "untried", "files": [], "evidence": "", "note": "Mordell 1969 chapter remarks not examined beyond cited classes."}
+{"mid": "Z1952", "status": "untried", "files": [], "evidence": "", "note": "Dickson's history chapter not examined."}
+{"mid": "Z1953", "status": "untried", "files": [], "evidence": "", "note": "Covering-radius/code analogy not examined."}
+{"mid": "Z1954", "status": "untried", "files": [], "evidence": "", "note": "LLM-based literature mining not run."}
+{"mid": "Z1955", "status": "untried", "files": [], "evidence": "", "note": "Twisted-factorisation forcing of divisors ≡ −1 not examined."}
+{"mid": "Z1956", "status": "open", "files": ["BRAINSTORM/gon_fermat_certificates.md"], "evidence": "", "note": "Fermat factorisation viewpoint on certificates examined; square-landing condition for 4Cp+1+Y² not."}
