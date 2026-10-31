@@ -348,3 +348,52 @@
 {"mid": "Z0747", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
 {"mid": "Z0748", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "PW j-term generalisation noted; sibling with j unit fractions not computed."}
 {"mid": "Z0749", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "PW prime-in-interval threshold examined; explicit check not recorded."}
+{"mid": "Z0750", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0751", "status": "open", "files": ["BRAINSTORM/s3_numerator_blind.md"], "evidence": "", "note": "8/n failures at 131 and 241 recorded; ES hardness comparison not recorded."}
+{"mid": "Z0752", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0753", "status": "open", "files": ["BRAINSTORM/README.md"], "evidence": "", "note": "Word-sieve census memos recorded; independent reproduction not listed."}
+{"mid": "Z0754", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "I3 zero set examined in EXSET_I3; odd zeros listed there."}
+{"mid": "Z0755", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "I3 zero squares examined in EXSET_I3."}
+{"mid": "Z0756", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "I3=0 at square 2433600 recorded in EXSET_I3; R/Uv/ESC joint zero not checked."}
+{"mid": "Z0757", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "105 zero of I3 examined; joint zero status with R/Uv/ESC not recorded."}
+{"mid": "Z0758", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "ESC zero set not recorded; non-square list not tabulated."}
+{"mid": "Z0759", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "R-zeros at Mersenne-type n examined in BM counts; list not recorded."}
+{"mid": "Z0760", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0761", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "R-zeros among odd non-squares examined in BM counts; list not recorded."}
+{"mid": "Z0762", "status": "open", "files": ["DEDEKIND_ES.md"], "evidence": "", "note": "Pseudosquare 2641 among non-square list in DEDEKIND_ES; R-zero role not recorded."}
+{"mid": "Z0763", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Mean R(n)/log²n drift examined in BM counts; drift values not recorded."}
+{"mid": "Z0764", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "BM main term compared with ES counts; comparison with (★) count not recorded."}
+{"mid": "Z0765", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "R-zeros versus BM tail examined; position in tail not recorded."}
+{"mid": "Z0766", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Zero rates by n mod 8 examined in BM counts; table not recorded."}
+{"mid": "Z0767", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "I3(n)=1 values examined in EXSET_I3; list not recorded."}
+{"mid": "Z0768", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0769", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0770", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "(u,B) swap involution parity examined in BM counts."}
+{"mid": "Z0771", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "I3 zero set against U failure set examined; overlap not recorded."}
+{"mid": "Z0772", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0773", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0774", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0775", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Certificate C-distribution examined in BM counts; smallest-C law not recorded."}
+{"mid": "Z0776", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "I3 at primes examined in EXSET_I3; zero primes not listed here."}
+{"mid": "Z0777", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0778", "status": "open", "files": ["DEDEKIND_ES.md"], "evidence": "", "note": "Greedy failure 2641 recorded in DEDEKIND_ES; greedy-failure list not indexed."}
+{"mid": "Z0779", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0780", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "min R(p)/log²p examined in BM counts; limit not determined."}
+{"mid": "Z0781", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Poisson test given BM main term proposed in BM counts; test not recorded."}
+{"mid": "Z0782", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0783", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0784", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0785", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0786", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0787", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md"], "evidence": "", "note": "Genus-1 fibre ranks of ES surface examined in fibration memo; hard-prime values not computed."}
+{"mid": "Z0788", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0789", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0790", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0791", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0792", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0793", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0794", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0795", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0796", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0797", "status": "open", "files": ["BRAINSTORM/bsG_ternary_weinberger.md"], "evidence": "", "note": "Ternary quadratic forms examined for Weinberger set; r_Q against U(n) not recorded."}
+{"mid": "Z0798", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
