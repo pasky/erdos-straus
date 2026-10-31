@@ -1,0 +1,18 @@
+Z0582: least root exponent log(x)/log(p): median 0.857, 90% 0.919, max 0.937 (n=3000, p<=59509)
+   fraction with x <= p^{1/4}: 0.0
+Z1543: f(p)/log^2 p over p≤1.2e4: max 1.898 at p=11197, mean 0.898; max f(p)=165 at p=11197
+   f(p) ≤ p^0.1 ? fraction: 0.0  max f(p)/p^0.1: 64.949
+Z1820: least C≤199 with Ω(4Cp+1)≤2 over first 1500 primes ≡1(4): none found for 0; C-distribution quantiles 50/90/99: [2. 3. 6.]
+Z1953: K=1: classes mod 840 (≥3 primes) containing a prime with no witness C≤K: 40/96
+Z1953: K=2: classes mod 840 (≥3 primes) containing a prime with no witness C≤K: 24/96
+Z1953: K=4: classes mod 840 (≥3 primes) containing a prime with no witness C≤K: 22/96
+Z1953: K=8: classes mod 840 (≥3 primes) containing a prime with no witness C≤K: 22/96
+Z1953: K=16: classes mod 840 (≥3 primes) containing a prime with no witness C≤K: 20/96
+Z1953: K=64: classes mod 840 (≥3 primes) containing a prime with no witness C≤K: 10/96
+Z2371: zero prime 409: 4p+1 = {1637: 1} ; (factor, mod4, R(factor)) = [(1637, 1, 14)]
+Z2371: zero prime 577: 4p+1 = {2309: 1} ; (factor, mod4, R(factor)) = [(2309, 1, 16)]
+Z2371: zero prime 5569: 4p+1 = {22277: 1} ; (factor, mod4, R(factor)) = [(22277, 1, 12)]
+Z2371: zero prime 9601: 4p+1 = {5: 1, 7681: 1} ; (factor, mod4, R(factor)) = [(5, 1, 2), (7681, 1, 8)]
+Z2371: zero prime 23929: 4p+1 = {95717: 1} ; (factor, mod4, R(factor)) = [(95717, 1, 30)]
+Z2371: zero prime 83449: 4p+1 = {541: 1, 617: 1} ; (factor, mod4, R(factor)) = [(541, 1, 4), (617, 1, 6)]
+Z2371: zero prime 102001: 4p+1 = {5: 1, 13: 1, 6277: 1} ; (factor, mod4, R(factor)) = [(5, 1, 2), (13, 1, 2), (6277, 1, 14)]

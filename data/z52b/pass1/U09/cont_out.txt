@@ -1,0 +1,4 @@
+409 577 5569 9601 23929 83449 102001 pattern t*u*v -1*u -1*v (4|t): primes p≡1(4): fail 7 / 8977; all odd primes: fail 15 / 17983; first failures: 3 7 31 79 127 199 409 577
+5 pattern t*u*v -1*u +1*v (4|t): primes p≡1(4): fail 1 / 8977; all odd primes: fail 3 / 17983; first failures: 3 5 11
+5 pattern t*u*v +1*u -1*v (4|t): primes p≡1(4): fail 1 / 8977; all odd primes: fail 3 / 17983; first failures: 3 5 11
+5 13 17 97 113 193 449 pattern t*u*v +1*u +1*v (4|t): primes p≡1(4): fail 7 / 8977; all odd primes: fail 12 / 17983; first failures: 3 5 7 13 17 23 97 113

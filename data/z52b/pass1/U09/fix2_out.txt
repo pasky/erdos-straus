@@ -1,0 +1,11 @@
+== Z1071 (normalised): lag-1 autocorrelation of R/log^2 p over consecutive primes
+  p≡1 (4), all: n=8977, lag-1 r=-0.0438; shuffled mean 0.0005 sd 0.0106
+  p≡1 (mod 840): n=87, lag-1 r=-0.1350; shuffled mean 0.0038 sd 0.0934
+  p≡1 (mod 24): n=2212, lag-1 r=-0.0418; shuffled mean -0.0001 sd 0.0196
+  after removing mod-840 class means: lag-1 r=0.0190
+== Z1235: calibration of 'C=1 succeeds' predictor (train p<=1e5, test p>1e5), predictor = mod-840 class mean
+  test n=4194, base rate 0.749; Brier(class) 0.1024 vs Brier(base) 0.1878
+   predicted in [0.2,0.3): n=174, mean pred 0.262, observed 0.437
+   predicted in [0.3,0.4): n=922, mean pred 0.353, observed 0.409
+   predicted in [0.4,0.6): n=648, mean pred 0.444, observed 0.370
+   predicted in [0.6,1.01): n=2450, mean pred 1.000, observed 1.000

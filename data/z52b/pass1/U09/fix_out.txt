@@ -1,0 +1,57 @@
+== Z0440: base-b digit (leading/last) vs R/log^2 p
+  base 3 last digit: class means [(np.int64(1), 0.148, 4472), (np.int64(2), 0.1985, 4505)]; spread max/min = 1.341
+  base 3 leading digit: class means [(np.int64(1), 0.1737, 5049), (np.int64(2), 0.1729, 3928)]; spread max/min = 1.005
+    frac(R=0) by last digit base 3: {1: 0.0016, 2: 0.0}
+  base 5 last digit: class means [(np.int64(1), 0.1733, 2233), (np.int64(2), 0.1543, 2256), (np.int64(3), 0.1761, 2261), (np.int64(4), 0.1897, 2226)]; spread max/min = 1.229
+  base 5 leading digit: class means [(np.int64(1), 0.1734, 4368), (np.int64(2), 0.1734, 2763), (np.int64(3), 0.1738, 939), (np.int64(4), 0.1726, 907)]; spread max/min = 1.007
+    frac(R=0) by last digit base 5: {0: 0.0, 1: 0.0009, 2: 0.0004, 3: 0.0, 4: 0.0018}
+  base 6 last digit: class means [(np.int64(1), 0.148, 4472), (np.int64(5), 0.1985, 4505)]; spread max/min = 1.341
+  base 6 leading digit: class means [(np.int64(1), 0.1728, 2614), (np.int64(2), 0.1735, 2476), (np.int64(3), 0.1729, 2419), (np.int64(4), 0.174, 1016), (np.int64(5), 0.1769, 452)]; spread max/min = 1.024
+    frac(R=0) by last digit base 6: {1: 0.0016, 5: 0.0}
+  base 10 last digit: class means [(np.int64(1), 0.1733, 2233), (np.int64(3), 0.1761, 2261), (np.int64(7), 0.1543, 2256), (np.int64(9), 0.1897, 2226)]; spread max/min = 1.229
+  base 10 leading digit: class means [(np.int64(1), 0.1724, 4789), (np.int64(2), 0.1779, 559), (np.int64(3), 0.1759, 541), (np.int64(4), 0.1763, 532), (np.int64(5), 0.1732, 532), (np.int64(6), 0.1728, 499), (np.int64(7), 0.1743, 520), (np.int64(8), 0.1731, 508), (np.int64(9), 0.1713, 497)]; spread max/min = 1.039
+    frac(R=0) by last digit base 10: {1: 0.0009, 3: 0.0, 5: 0.0, 7: 0.0004, 9: 0.0018}
+  base 12 last digit: class means [(np.int64(1), 0.148, 4472), (np.int64(5), 0.1985, 4505)]; spread max/min = 1.341
+  base 12 leading digit: class means [(np.int64(1), 0.177, 1113), (np.int64(2), 0.1741, 1077), (np.int64(3), 0.173, 1031), (np.int64(4), 0.1727, 1017), (np.int64(5), 0.1742, 978), (np.int64(6), 0.1707, 975), (np.int64(7), 0.1722, 979), (np.int64(8), 0.1724, 964), (np.int64(9), 0.1718, 643), (np.int64(10), 0.1782, 96), (np.int64(11), 0.1784, 104)]; spread max/min = 1.045
+    frac(R=0) by last digit base 12: {1: 0.0016, 5: 0.0}
+== Z0494: reciprocity-type correlation with (p/q), q small; also p mod 9 (p≡1 mod 24 subset)
+  q=3: mean(R/log^2 | (p/q)=+1)=0.1480 (n=4472), | -1: 0.1985 (n=4505), z=-41.22
+  q=5: mean(R/log^2 | (p/q)=+1)=0.1815 (n=4459), | -1: 0.1652 (n=4517), z=12.33
+  q=7: mean(R/log^2 | (p/q)=+1)=0.1586 (n=4460), | -1: 0.1879 (n=4517), z=-22.52
+  q=11: mean(R/log^2 | (p/q)=+1)=0.1665 (n=4464), | -1: 0.1802 (n=4513), z=-10.31
+  q=13: mean(R/log^2 | (p/q)=+1)=0.1755 (n=4450), | -1: 0.1712 (n=4526), z=3.22
+  q=17: mean(R/log^2 | (p/q)=+1)=0.1772 (n=4477), | -1: 0.1695 (n=4499), z=5.82
+  q=19: mean(R/log^2 | (p/q)=+1)=0.1707 (n=4466), | -1: 0.1760 (n=4511), z=-3.98
+  q=23: mean(R/log^2 | (p/q)=+1)=0.1683 (n=4465), | -1: 0.1783 (n=4512), z=-7.47
+  p mod 9 within p≡1 (mod 24): class means [(np.int64(1), 0.1374, 747), (np.int64(4), 0.1363, 734), (np.int64(7), 0.1416, 731)]; spread max/min = 1.039
+== Z0593: p = a^2+b^2 (a odd): R/log^2 vs a mod 8 and vs quartic class of a/b
+  a mod 8 (p=a²+b², a odd): class means [(np.int64(1), 0.1738, 2277), (np.int64(3), 0.174, 2238), (np.int64(5), 0.1753, 2262), (np.int64(7), 0.1702, 2200)]; spread max/min = 1.030
+  b mod 4: class means [(np.int64(0), 0.1698, 4466), (np.int64(2), 0.1769, 4511)]; spread max/min = 1.042
+== Z0604: local densities of 4xyz = n(xy+yz+zx) at odd q (primitive solutions mod q^k, normalised by q^{2k})
+  q=3: rho(n) for n=1..q-1 [1.0, 1.0]; squares [1]; mean over squares 1.000, over non-squares 1.000
+  q=5: rho(n) for n=1..q-1 [1.0, 1.0, 1.0, 1.0]; squares [1, 4]; mean over squares 1.000, over non-squares 1.000
+  q=7: rho(n) for n=1..q-1 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]; squares [1, 2, 4]; mean over squares 1.000, over non-squares 1.000
+  q=11: rho(n) for n=1..q-1 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]; squares [1, 3, 4, 5, 9]; mean over squares 1.000, over non-squares 1.000
+  q=3,k=2 check: [1.0, 1.0, 3.333, 1.0, 1.0, 3.333, 1.0, 1.0]
+== Z1071: autocorrelation of R over consecutive primes (subsequences)
+  p≡1 (mod 4), all: n=8977, lag-1 autocorrelation of R = 0.1391
+     shuffled baseline: mean -0.0009, sd 0.0102
+  p≡1 (mod 840): n=87, lag-1 autocorrelation of R = -0.0237
+     shuffled baseline: mean 0.0020, sd 0.1035
+== Z1189: compressibility of the (C,u,B) sequence of minimal triples (zlib) vs shuffled
+  triples n=8970, raw 94094 B, zlib 28500 B, shuffled-order zlib 30163 ± 42; ratio 0.9449
+  frac C=1: 0.7468  frac min(u,B)=1: 0.5725
+== Z1235: calibration of 'R>0' success prediction (train p<=1e5, test p>1e5) with class-mean predictor mod 840
+  test n=4194, base rate 1.000; Brier(class predictor) 0.0003 vs Brier(base rate) 0.0002
+   predicted in [0.9,1.01): n=4194, mean pred 0.999, observed 1.000
+== Z1419: is C_min(p) mod q a function of p mod q?  (C_min = minC; purity = Σ_classes max-count / N)
+  q=3: purity 0.7642 vs shuffled 0.7642 (N=8970)
+  q=5: purity 0.7576 vs shuffled 0.7577 (N=8970)
+  q=7: purity 0.7513 vs shuffled 0.7513 (N=8970)
+  q=11: purity 0.7485 vs shuffled 0.7485 (N=8970)
+  q=13: purity 0.7480 vs shuffled 0.7480 (N=8970)
+  q=17: purity 0.7474 vs shuffled 0.7474 (N=8970)
+  q=19: purity 0.7476 vs shuffled 0.7476 (N=8970)
+  q=23: purity 0.7474 vs shuffled 0.7474 (N=8970)
+  q=29: purity 0.7470 vs shuffled 0.7471 (N=8970)
+  q=31: purity 0.7468 vs shuffled 0.7468 (N=8970)

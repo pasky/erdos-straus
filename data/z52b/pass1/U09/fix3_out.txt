@@ -1,0 +1,23 @@
+Z0520: primes p≡1 (24), p<=6000: 89; with an ES solution having a prime denominator: 16 (missing: [73, 97, 193, 241, 313, 337, 409, 457, 577, 601, 673, 769, 1009, 1033, 1129])
+Z0669 group mixed: pairs 1776, mean independence ratio 1.0523, median 0.9880
+Z0669 group C·C' nonsquare: pairs 1958, mean independence ratio 1.0373, median 0.9790
+Z0669 group C·C' square: pairs 58, mean independence ratio 1.1408, median 1.0979
+Z0669 group both≡1(4): pairs 120, mean independence ratio 0.9606, median 0.9392
+Z0669 group both≡3(4): pairs 120, mean independence ratio 0.9419, median 0.9434
+   overall mean ratio all pairs: 
+Z0622: odd n in [3,1000000] not of form p+2^a3^b: 1515 ; largest 10: [994023, 994413, 995781, 996483, 996507, 997473, 999411, 999513, 999591, 999597]
+   count ≤10000: 7
+   count ≤100000: 105
+   count ≤1000000: 1515
+Z0621: odd n in [3,1000000] not p + x^3 (x≤100): 3073 ; first: [5, 7, 9, 17, 23, 33, 35, 41, 43, 47, 53, 57]
+   count ≤10000: 531
+   count ≤100000: 1619
+   count ≤1000000: 3073
+Z0620: odd n in [3,1000000] not p+k! : 184155 (k! up to 11!); first: [51, 57, 87, 93, 101, 117, 135, 147, 171, 177, 189, 207]
+Z0585: even n in [4,1e5]: min #{(p,q): p-q=n, p,q prime, p≤1000000} = 1015; #n with count 0: 0; median 1391
+Z0657: least prime p≡1 (840) with (p/ℓ)=+1 for all primes ℓ≤50, ℓ∤840: None
+   least prime p≡1 (24) with (p/ℓ)=+1 for all primes ℓ≤50, ℓ∤24: None
+   least prime p≡1 (840) with no splitting condition: 2521
+Z0657 least p≡1 (840), (p/l)=+1 all primes l<=50 (l∤840): None  #conditions 11
+Z0657 least p≡1 (24), (p/l)=+1 all primes l<=30 (l∤24): 483289  #conditions 8
+Z0622: exceptions<=1e6: 1515  frac divisible by 3: 1.0  rate among n≡0 mod 3: 0.0091  rate among n≢0 mod 3: 0.0

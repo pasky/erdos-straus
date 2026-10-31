@@ -16,7 +16,7 @@ int main(int argc, char**argv){
   for(long i=2;i*i<=X;i++) if(!comp[i]) for(long j=i*i;j<=X;j+=i) comp[j]=1;
   for(long p=5;p<=X;p++){
     if(comp[p] || p%4!=1) continue;
-    long R=0, minC=0; long double dummy=0; unsigned long long minMax=0; uint64_t mask=0;
+    long R=0, minC=0, mu=0, mb=0; long double dummy=0; unsigned long long minMax=0; uint64_t mask=0;
     // u,B >=1 with 4uB - u - B <= p  (needed since C >= 1 gives 4uBC - u - B = p >= 4uB - u - B)
     for(long u=1; ; u++){
       // minimal B for which 4uB-u-B<=p holds is B=1; loop until (4u-1)B - u > p
@@ -29,7 +29,7 @@ int main(int argc, char**argv){
         if(s % q == 0){
           long long C = s / q;
           R++;
-          if(minC==0 || C<minC) minC=C;
+          if(minC==0 || C<minC){ minC=C; mu=u; mb=B; }
           unsigned long long a = (unsigned long long)u*B*C, b=(unsigned long long)p*B*C, c=(unsigned long long)p*u*C;
           unsigned long long m = a; if(b>m) m=b; if(c>m) m=c;
           if(minMax==0 || m<minMax) minMax=m;
@@ -37,7 +37,7 @@ int main(int argc, char**argv){
         }
       }
     }
-    printf("%ld %ld %ld %llu %llu\n", p, R, minC, (unsigned long long)minMax, (unsigned long long)mask);
+    printf("%ld %ld %ld %llu %llu %ld %ld\n", p, R, minC, (unsigned long long)minMax, (unsigned long long)mask, mu, mb);
   }
   return 0;
 }
