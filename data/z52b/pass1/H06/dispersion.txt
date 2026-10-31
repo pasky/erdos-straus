@@ -1,0 +1,16 @@
+p= 8813281 log p=16.0
+  X=10 R_X=0 M_X=4.67 Disp=6.94 X*Disp/M^2=3.19 #C with D>0=0
+  X=30 R_X=0 M_X=11.45 Disp=13.11 X*Disp/M^2=3.0 #C with D>0=0
+  X=100 R_X=0 M_X=19.09 Disp=15.5 X*Disp/M^2=4.25 #C with D>0=0
+  X=300 R_X=0 M_X=26.41 Disp=16.54 X*Disp/M^2=7.11 #C with D>0=0
+  X=1000 R_X=0 M_X=34.92 Disp=16.92 X*Disp/M^2=13.88 #C with D>0=0
+  X=3000 R_X=0 M_X=42.97 Disp=17.04 X*Disp/M^2=27.68 #C with D>0=0
+  X=10000 R_X=0 M_X=52.29 Disp=17.08 X*Disp/M^2=62.44 #C with D>0=0
+p= 1000033 log p=13.8
+  X=10 R_X=14 M_X=14.83 Disp=9.32 X*Disp/M^2=0.42 #C with D>0=3
+  X=30 R_X=14 M_X=21.07 Disp=13.94 X*Disp/M^2=0.94 #C with D>0=3
+  X=100 R_X=18 M_X=27.42 Disp=21.83 X*Disp/M^2=2.9 #C with D>0=5
+  X=300 R_X=22 M_X=34.26 Disp=26.93 X*Disp/M^2=6.89 #C with D>0=7
+  X=1000 R_X=26 M_X=41.93 Disp=34.68 X*Disp/M^2=19.73 #C with D>0=9
+  X=3000 R_X=28 M_X=49.48 Disp=38.76 X*Disp/M^2=47.49 #C with D>0=10
+  X=10000 R_X=28 M_X=57.87 Disp=38.79 X*Disp/M^2=115.84 #C with D>0=10
