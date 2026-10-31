@@ -198,3 +198,53 @@
 {"mid": "Z1395", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1396", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1397", "status": "open", "files": ["BRAINSTORM/gon_lll_relation_lattice.md §5"], "evidence": "LLL/Coppersmith certify non-existence beyond a list, never existence", "note": "Bivariate Coppersmith on ES equation is the divisor problem; judged enumeration-only."}
+{"mid": "Z1398", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1399", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1400", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1401", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1402", "status": "blocked", "files": ["BRAINSTORM/s4_real_analytic_tools.md §3"], "evidence": "ES failures at odd squares are not real-infeasible (D is non-empty at m²), so no real certificate can encode T1", "note": "Real SOS/Positivstellensatz recorded as unable to encode T1."}
+{"mid": "Z1403", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1404", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1405", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1406", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1407", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1408", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1409", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1410", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1411", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1412", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1413", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1414", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1415", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1416", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1417", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1418", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1419", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1420", "status": "open", "files": ["DISPROOF_AVENUES.md §5"], "evidence": "", "note": "Adversarial search to 10^25 done; structured-family GPU sweep not done."}
+{"mid": "Z1421", "status": "blocked", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures", "note": "Croot smooth-number method applied to three-term ES recorded as collapsing by scale."}
+{"mid": "Z1422", "status": "blocked", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures", "note": "Bloom Fourier counting applied to three-term ES recorded as collapsing by scale."}
+{"mid": "Z1423", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1424", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1425", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1426", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1427", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1428", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1429", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1430", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1431", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1432", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1433", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1434", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1435", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1436", "status": "open", "files": ["STRONG_APPROX_ES.md §C5"], "evidence": "C5 — Thue/Minkowski (non-algebraic, deterministic)", "note": "Thue/Minkowski on Type II lattice listed as candidate route; not carried out."}
+{"mid": "Z1437", "status": "open", "files": ["BRAINSTORM/gon_incidence_kloosterman.md §(c4)"], "evidence": "", "note": "Thue lemma for small auxiliary solutions considered; bilinear target leaves it open."}
+{"mid": "Z1438", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1439", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1440", "status": "open", "files": ["BRAINSTORM/bsB_rayclass_norm_pullback.md"], "evidence": "", "note": "Ray-class encoding of Type I examined; recorded as pulled back from Q; not new."}
+{"mid": "Z1441", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1442", "status": "done", "files": ["data/z52b/free_fable_parts/HEADER.md"], "evidence": "C = 1 C-form wins ⟺ 4p+1 has a prime", "note": "Equivalence verified in small ranges; density and infinite-family parts not done."}
+{"mid": "Z1443", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1444", "status": "open", "files": ["data/z52b/free_fable_parts/TOP.md (item 4)"], "evidence": "subgroup-vs-subset-product disagree in ≈ 21% of (p, C)", "note": "Subgroup-versus-subset-product equivalence fails numerically in ~21% of pairs; no structure lemma."}
+{"mid": "Z1445", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1446", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1447", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
