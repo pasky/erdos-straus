@@ -8,8 +8,8 @@ ES is OPEN. Rows: `out_P04.jsonl`. Per-row labels are Assessments unless they ci
 | known-false | 30 | 0 | 0 | 0 | 30 |
 | circular | 23 | 0 | 0 | 0 | 23 |
 | unclear | 5 | 0 | 1 | 0 | 6 |
-| open-plausible | 0 | 1 | 0 | 0 | 1 | (Z2921 = PILOT Z2609's involution question)
-Novelty: 0 → 67, 1 → 33, 2 → 0. The batch is mostly calibration/infrastructure (41 rows: OEIS anchors, checkers, search tooling, census hygiene) and translation-lane dictionaries.
+| open-plausible | 0 | 1 | 0 | 0 | 1 |
+Novelty: 0 → 67, 1 → 33, 2 → 0. Open-plausible = Z2921 (PILOT Z2609's involution question). The batch is mostly calibration/infrastructure (41 rows: OEIS anchors, checkers, search tooling, census hygiene) and translation-lane dictionaries.
 
 **Plausibility ≥ 2 AND novelty ≥ 1:** one item; it is calibration only.
 * **Z0022** (FF Zaremba / λ ≤ 3 over F_q[T]): *for every irreducible P of large degree, some A has Artin-CF length ≤ 3 with the ES₅ sign condition.* A doable FF computation (deg ≤ 10 over F₃, F₅) after verifying the Niederreiter/Friesen FF-Zaremba statements; no ES yield (FF→ℤ transfer is blocked, (J)30).
