@@ -323,3 +323,33 @@
 {"mid": "Z3116", "status": "open", "files": ["BRAINSTORM/z31_unit_fractions.md", "BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "", "note": "Harmonic-sum thresholds for unit-fraction denominator sets examined generally; ES denominator harmonic mass not computed."}
 {"mid": "Z3117", "status": "open", "files": ["BRAINSTORM/invol_topological.md"], "evidence": "", "note": "Z/2 swap-action topology of certificates examined; index of the near-certificate complex not computed."}
 {"mid": "Z3118", "status": "untried", "files": [], "evidence": "", "note": "Halasz-type mean of 1[D_t(tn+1)>0] over n not computed."}
+{"mid": "Z3119", "status": "open", "files": ["BRAINSTORM/bsB_redei_oddpart.md", "BRAINSTORM/nonab_frobenius_redei.md"], "evidence": "", "note": "Redei-symbol reciprocity around T1 examined; higher Redei predictions for sub-route failures not correlated."}
+{"mid": "Z3120", "status": "untried", "files": ["FORCED_WINDOW.md"], "evidence": "", "note": "Window prime chosen by Frobenius in fields built from p not tested."}
+{"mid": "Z3121", "status": "untried", "files": [], "evidence": "", "note": "Attempt-set normalisation for a positive-proportion statement not computed."}
+{"mid": "Z3122", "status": "untried", "files": [], "evidence": "", "note": "Measure rigidity for (N,x) actions on residue profiles of p not examined."}
+{"mid": "Z3123", "status": "untried", "files": [], "evidence": "", "note": "Fourier-interpolation determination of R from sparse data not examined."}
+{"mid": "Z3124", "status": "untried", "files": ["BRAINSTORM/y4_mordell_witness.md"], "evidence": "", "note": "Per-class hardness ranking of Mordell classes mod 840 not computed from census."}
+{"mid": "Z3125", "status": "untried", "files": [], "evidence": "", "note": "Free-variable count of proposed ES lifts versus circle-method thresholds not tabulated."}
+{"mid": "Z3126", "status": "untried", "files": [], "evidence": "", "note": "Algebraic factorisation of 4Cm^2+1 at odd squares as explanation of T1 not examined."}
+{"mid": "Z3127", "status": "untried", "files": [], "evidence": "", "note": "Exact closed-form characterisation of sub-route success sets not attempted."}
+{"mid": "Z3128", "status": "untried", "files": [], "evidence": "", "note": "Brjuno-type additive difficulty index for p not defined or tested."}
+{"mid": "Z3129", "status": "untried", "files": [], "evidence": "", "note": "Lehmer tau-nonvanishing endgame comparison not written for ES."}
+{"mid": "Z3130", "status": "untried", "files": ["METAPLECTIC_ES.md"], "evidence": "", "note": "Mod-l Eisenstein congruences for ES level series not checked."}
+{"mid": "Z3131", "status": "open", "files": ["FORCED_WINDOW.md"], "evidence": "", "note": "Forced nonresidue prime factor of N_e for (p/e)=-1 examined; distribution of forced classes not measured."}
+{"mid": "Z3132", "status": "untried", "files": [], "evidence": "", "note": "Auxiliary polynomial P(p) with forced Jacobi-symbol factors not searched."}
+{"mid": "Z3133", "status": "open", "files": ["I3_DEEP_ASTRA.md", "EXSET_I3.md"], "evidence": "", "note": "I3 universality and Cauchy-type reductions examined; Cauchy-lemma factorisation proof for all large n not found."}
+{"mid": "Z3134", "status": "open", "files": ["EXSET_I3.md"], "evidence": "", "note": "Exception sets for I3-type cubic families examined; a·tuv−b·u−c·v+d classification not run."}
+{"mid": "Z3135", "status": "untried", "files": [], "evidence": "", "note": "Uniform prime-tuple requirement of certificate schemes at fixed p not formalised."}
+{"mid": "Z3136", "status": "untried", "files": [], "evidence": "", "note": "Trivial pointwise bound for character part X(p) versus M_gen not quantified."}
+{"mid": "Z3137", "status": "open", "files": ["BRAINSTORM/s9_janson_dependency.md", "PRIMITIVE_INTERSECTION.md"], "evidence": "", "note": "CRT-independence and Janson dependence examined; split into CRT pattern times class test not computed."}
+{"mid": "Z3138", "status": "open", "files": ["B1_LINE.md", "BRAINSTORM/s8_b1_line_census.md"], "evidence": "", "note": "b=1 sporadic failures and Goldbach-style model discussed; expected-count calibration not run."}
+{"mid": "Z3139", "status": "untried", "files": ["BRAINSTORM/graph_cayley_moves.md"], "evidence": "", "note": "Universal torsor of U_n and its integral points not computed."}
+{"mid": "Z3140", "status": "untried", "files": [], "evidence": "", "note": "Positivity combination of twisted level counts for nonvanishing not found."}
+{"mid": "Z3141", "status": "untried", "files": [], "evidence": "", "note": "Explicit Chebyshev-type lower bound for certificate-capable prime mass not computed."}
+{"mid": "Z3142", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "Joint failure of (★) and b=1 noted in B1 census; triple-family joint failure sets not computed."}
+{"mid": "Z3143", "status": "untried", "files": [], "evidence": "", "note": "Hecke-type operators on ES count functions not tested."}
+{"mid": "Z3144", "status": "untried", "files": [], "evidence": "", "note": "Level-aspect moment of D_C(p) minus expectation not computed."}
+{"mid": "Z3145", "status": "untried", "files": [], "evidence": "", "note": "Spectral gap of ES move graph mod q not computed."}
+{"mid": "Z3146", "status": "untried", "files": [], "evidence": "", "note": "Multiplicative energy of divisor classes across windows not computed."}
+{"mid": "Z3147", "status": "untried", "files": [], "evidence": "", "note": "Horocycle/unipotent reading of minus-continuant words not written out for ES."}
+{"mid": "Z3148", "status": "open", "files": ["BRAINSTORM/bsA_hecke_cusp_excursions.md", "BRAINSTORM/z36_hj_cantor_dimension.md"], "evidence": "", "note": "Effective horocycle equidistribution vs ES target measure discussed; resolvable measure at length p not computed."}
