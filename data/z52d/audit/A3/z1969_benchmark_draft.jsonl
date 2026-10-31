@@ -1,0 +1,30 @@
+{"id": "ESB01", "status": "PROVED", "statement": "For odd m, there are no positive integers u, B, C with 4uBC − u − B = m².", "answer": "true", "source": "FRONTIER §1 T1 (ET Prop 1.6); METAPLECTIC_ES Thm K (D_t^-(tm²+1)=0)"}
+{"id": "ESB02", "status": "PROVED", "statement": "For every square n = m² and every u ≥ 1, n + u has no divisor d with d ≡ −1 (mod 4u).", "answer": "true", "source": "FRONTIER §3 B5 (PARITY_AUDIT Lemma 3.2)"}
+{"id": "ESB03", "status": "PROVED", "statement": "For a prime p ≡ 1 (mod 4), u ≥ 1 and f | p + u with f ≡ −1 (mod 4u), f has a prime factor ℓ with (ℓ/p) = −1.", "answer": "true", "source": "FRONTIER §3 B5 (Lemma CT)"}
+{"id": "ESB04", "status": "PROVED", "statement": "R(p) := #{(u,B,C) ∈ ℕ³ : 4uBC − u − B = p} is even for every odd prime p.", "answer": "true (divisor form counts d and its cofactor; FRONTIER §2.1)", "source": "FRONTIER §2.1"}
+{"id": "ESB05", "status": "PROVED", "statement": "If n = 2^k divides z in a solution of 4/n = 1/x + 1/y + 1/z, then n divides x or y.", "answer": "true (2-adic valuation)", "source": "data/z52d/audit/opus_A3.jsonl Z0873"}
+{"id": "ESB06", "status": "PROVED", "statement": "For p ≥ 5 prime and integers j ≠ j′ ≤ J, gcd(jp + 1, j′p + 1) divides j − j′.", "answer": "true", "source": "FRONTIER §3 privacy of large primes (SS8 Lemma 2.3)"}
+{"id": "ESB07", "status": "PROVED", "statement": "For n ≥ 1 the graph on positive integers with an edge uv (u ≠ v) iff uv | n + u + v is a forest.", "answer": "true (each v > 1 has at most one smaller neighbour)", "source": "FRONTIER §3 rooted constructions (LOWER_TAIL_ASTRA)"}
+{"id": "ESB08", "status": "PROVED", "statement": "Every positive solution of 4/n = 1/x+1/y+1/z with x ≤ y ≤ z satisfies x ≤ n, y ≤ 2n², z ≤ 2n⁴.", "answer": "true", "source": "BRAINSTORM/z45_transfer_logic.md §3.5"}
+{"id": "ESB09", "status": "PROVED", "statement": "For odd n, 4/n = 1/x + 1/y + Q^k/Z with Q odd, gcd(Q, n) = gcd(Q, Z) = 1 is solvable for every odd k.", "answer": "true", "source": "FRONTIER §3 power ladder (POWER_LADDER_ES Thm 2.1)"}
+{"id": "ESB10", "status": "PROVED", "statement": "ES holds for every n = 3·2^s + 1, s ≥ 0.", "answer": "true", "source": "FRONTIER §1 thin families ((J)74/(J)75)"}
+{"id": "ESB11", "status": "PROVED", "statement": "M_BM(p) ≥ (3/(16π²) − o(1))(log p)² for primes p → ∞ (definition FRONTIER §2.2).", "answer": "true", "source": "BM_CORRECTED_COUNT Thm 2.2"}
+{"id": "ESB12", "status": "PROVED", "statement": "There are infinitely many primes p ≡ 1 (4) with R(p) ≥ (log p)^{100}.", "answer": "true (Linnik; two-sided asymptotics false)", "source": "BM_CORRECTED_COUNT Prop 3.1"}
+{"id": "ESB13", "status": "CERTIFIED", "statement": "8/131 is not a sum of three unit fractions.", "answer": "true", "source": "AMPLIFY_EXCEPTION Thm 2.5"}
+{"id": "ESB14", "status": "CERTIFIED", "statement": "List the primes p ≡ 1 (mod 4), p < 10⁶, with R(p) = 0.", "answer": "409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321", "source": "FRONTIER §4 item 14; B1_LINE §3.6"}
+{"id": "ESB15", "status": "CERTIFIED", "statement": "How many primes p ≡ 1 (mod 4), p ≤ 10¹⁰, have R(p) = 0, and what is the largest?", "answer": "14; 8 813 281", "source": "FRONTIER §2.1 ((J)89)"}
+{"id": "ESB16", "status": "CERTIFIED", "statement": "List the primes p ≡ 1 (4), p ≤ 10¹¹, such that p + 4d has no divisor ≡ −1 (mod 4d) for every d ≥ 1 (b = 1 line).", "answer": "193, 2521, 66529", "source": "FRONTIER §2.1 ((J)89/(J)90)"}
+{"id": "ESB17", "status": "CERTIFIED", "statement": "For p = 3361, list all Type II solutions of 4/p.", "answer": "1/850 + 1/(3361·25) + 1/(3361·170); 1/841 + 1/(3361·290) + 1/(3361·8410)", "source": "FRONTIER §4 item 14 ((J)82)"}
+{"id": "ESB18", "status": "CERTIFIED", "statement": "List the primes p ≡ 1 (4), p ≤ 10⁹, with no word p = tuv − u − v (t,u,v ≥ 3) having a coordinate in 4ℤ ∪ (8ℤ − p).", "answer": "5, 13, 17, 2521", "source": "FRONTIER §7.17 (Z52_BANKED §1(e))"}
+{"id": "ESB19", "status": "CERTIFIED", "statement": "Which odd non-squares n are exceptions to U(n) (as defined in the repo)?", "answer": "105, 2961, 3985, 25305, 111969, 978145 (in the checked range)", "source": "CONTEXT.md / FRONTIER"}
+{"id": "ESB20", "status": "OPEN", "statement": "Prove ES for all n = 15·2^s + 1.", "answer": "unknown", "source": "FRONTIER §7.8"}
+{"id": "ESB21", "status": "OPEN", "statement": "Prove ES for all n = 4^s + 297.", "answer": "unknown", "source": "FRONTIER §7.8"}
+{"id": "ESB22", "status": "OPEN", "statement": "Is 3361 the only prime without a prime-modulus Type II certificate (PM-II)?", "answer": "unknown (exhaustive to 10⁸)", "source": "FRONTIER §4 item 14"}
+{"id": "ESB23", "status": "OPEN", "statement": "Is every n > 2 433 600 of the form tuv − u − v with t, u, v ≥ 3 (I3)?", "answer": "unknown", "source": "FRONTIER §7.17"}
+{"id": "ESB24", "status": "OPEN", "statement": "Is every prime p with ES(p) a five-slice prime (λ(p) ≤ 3)?", "answer": "unknown", "source": "FRONTIER §7.14"}
+{"id": "ESB25", "status": "OPEN", "statement": "Prove M_gen(p) ≫ (log p)² unconditionally.", "answer": "unknown (conditional on a zero-free strip)", "source": "FRONTIER §7.4"}
+{"id": "ESB26", "status": "OPEN", "statement": "Beat the divisor bound |R(p) − M(p)| ≪ p^{2/5+o(1)} by cancellation.", "answer": "unknown", "source": "FRONTIER §7.1"}
+{"id": "ESB27", "status": "OPEN", "statement": "Are there infinitely many primes p ≡ 1 (4) with R(p) = 0?", "answer": "unknown (expected yes; fixed menus fail i.o. under H)", "source": "FRONTIER §2.1, §3 B2(iii)"}
+{"id": "ESB28", "status": "OPEN", "statement": "Find a prime p ≡ 1 (4), p > 10¹⁰, with R(p) = 0.", "answer": "unknown (constructive, verifier-friendly)", "source": "data/z52d/audit/A3/z1603_statements.md"}
+{"id": "ESB29", "status": "OPEN", "statement": "Prove the general-m Stickelberger identity of TWO_POWER_LADDER (known for m = 3, 4).", "answer": "unknown", "source": "FRONTIER §7.7"}
+{"id": "ESB30", "status": "OPEN", "statement": "Erdős–Straus: 4/n = 1/x + 1/y + 1/z is solvable for every n ≥ 2.", "answer": "unknown (verified to 10¹⁷/10¹⁸)", "source": "FRONTIER §1"}
