@@ -3,7 +3,7 @@
 1. Batch H06 is complete: 25 items, outcomes in `data/z52b/pass1/outcome_H06.jsonl`. ES remains open.
 2. Counts: nothing 15, covered 10, interesting 0, needs-compute 0, skipped 0.
 3. Covered (repo already did the step): Z1931, Z1939, Z1961, Z2026, Z2030, Z2045, Z2099, Z2323, Z2343, Z2360.
-4. Banked negatives (PROVED or CERTIFIED): Z1930 (rational exradii triangles: none at any p ≡ 1 (4); for n ≤ 3000, exactly when n has a 3 (mod 4) factor or 4 | n), Z2037 (ℤ[1/S]-ES is trivial for every S ≠ ∅), Z1979 (the certificate family is not Presburger), Z2406 (the 2^{−rank} model is blind to T1), Z2345 (ADH-type formulas are too small).
+4. Banked negatives: Z1930 (PROVED: no rational exradii triangle at any p ≡ 1 (4); CERTIFIED for n ≤ 3000: one exists exactly when n has a 3 (mod 4) factor or 4 | n), Z2037 (PROVED: ℤ[1/S]-ES is trivial for every S ≠ ∅), Z1979 (PROVED relative to Woods' theorem: the certificate family is not Presburger), Z2406 and Z2345 (EVIDENCE: the 2^{−rank} model is blind to T1; ADH-type formulas are too small).
 5. No interesting items: the one surprise (Z1930's χ₋₄ split) has a 10-line descent proof and is a dead variant, like Z1931.
 
 ## Z1930 — rational triangles with integer exradii and inradius n/4 (banked negative; outcome `nothing`)
