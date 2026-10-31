@@ -98,3 +98,28 @@
 {"mid": "Z2891", "status": "untried", "files": [], "evidence": "", "note": "Hyperbolic area of HJ-length-3 cusp regions versus word count not examined."}
 {"mid": "Z2892", "status": "open", "files": ["BRAINSTORM/apollonian_reciprocity.md"], "evidence": "", "note": "Apollonian reciprocity analogue examined as framework; ES-valued curvature packing not constructed."}
 {"mid": "Z2893", "status": "untried", "files": [], "evidence": "", "note": "Base-2 carry automaton for tuv-u-v=p not built; automaticity claim not examined in repo."}
+{"mid": "Z2894", "status": "untried", "files": ["BRAUER_TWISTS.md"], "evidence": "", "note": "Br(W_p) for tuv-u-v=p not computed; BRAUER_TWISTS treats a different surface ABC=k(A+B+C)."}
+{"mid": "Z2895", "status": "untried", "files": ["BRAUER_TWISTS.md"], "evidence": "", "note": "Quaternion class (tu-1,p) on W_p not examined; Brauer work covers other twists only."}
+{"mid": "Z2896", "status": "untried", "files": ["LORENZINI_W.md"], "evidence": "", "note": "Value sets of xyz+linear polynomials on boxes not examined; LORENZINI_W concerns critical polynomial of graphs."}
+{"mid": "Z2897", "status": "untried", "files": [], "evidence": "", "note": "Global by-excess HJ tree and level-3 colour inheritance not examined in repo."}
+{"mid": "Z2898", "status": "untried", "files": [], "evidence": "", "note": "Hierarchical-lattice RG picture of HJ ladder not found in repo."}
+{"mid": "Z2899", "status": "untried", "files": [], "evidence": "", "note": "Euler continuant / Euler-Minding identities for word counts not examined."}
+{"mid": "Z2900", "status": "untried", "files": [], "evidence": "", "note": "Calibration against other existence problems is a survey task; no such list in repo for ES."}
+{"mid": "Z2901", "status": "open", "files": ["BM_CORRECTED_COUNT.md", "BRAINSTORM/z38_mbm_unconditional.md"], "evidence": "", "note": "Explicit Burgess route for the M_BM main term was considered; Trevino explicit ranges for T(p) not checked."}
+{"mid": "Z2902", "status": "open", "files": ["EXCEPTIONAL_WEIGHTS.md"], "evidence": "", "note": "Weight choices for exceptional-set counts examined; smooth-weight variance comparison for R_w(p) not run."}
+{"mid": "Z2903", "status": "untried", "files": [], "evidence": "", "note": "Vinogradov bilinear split of R(p) by factor sizes not numerically examined."}
+{"mid": "Z2904", "status": "untried", "files": [], "evidence": "", "note": "Sparsity index log(main)/log(trials) across ES reformulations not tabulated."}
+{"mid": "Z2905", "status": "open", "files": ["BRAINSTORM/z45_siegel_dichotomy.md", "BRAINSTORM/s8_b1_line_census.md"], "evidence": "", "note": "Siegel-type character dichotomy for failures discussed; per-prime character statistics for the 17 failures not compared."}
+{"mid": "Z2906", "status": "untried", "files": [], "evidence": "", "note": "Chen-style role switch of near-miss divisor counts not examined."}
+{"mid": "Z2907", "status": "untried", "files": [], "evidence": "", "note": "Almost-prime levels 4Cp+1 = q1 q2 with class of q1 mod 4C not measured."}
+{"mid": "Z2908", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "", "note": "Additive-combinatorics density of unit-fraction sumsets examined; 4/n - U intersect U+U density not computed."}
+{"mid": "Z2909", "status": "untried", "files": [], "evidence": "", "note": "Spectrum of min |4/p - sum of three unit fractions| not computed."}
+{"mid": "Z2910", "status": "untried", "files": [], "evidence": "", "note": "ES solutions with x = 2^k slice not computed; power-of-2 hits are unrelated Goldbach-Linnik notes."}
+{"mid": "Z2911", "status": "open", "files": ["BRAINSTORM/s8_perj_lottery.md"], "evidence": "", "note": "Per-level lottery model for dyadic levels examined; joint failure along C=2^j not measured."}
+{"mid": "Z2912", "status": "untried", "files": [], "evidence": "", "note": "Universal-quadratic-form reduction map Phi to ES triples not constructed."}
+{"mid": "Z2913", "status": "untried", "files": ["BRAINSTORM/z18_descent_dies_at_D2.md"], "evidence": "", "note": "Descent sterility examined for root menus, not for N=(p+e)/4 divisor-greedy descent."}
+{"mid": "Z2914", "status": "open", "files": ["POINTWISE_TERNARY.md"], "evidence": "", "note": "Ternary-form/Linnik-style reductions examined for ES; ES-certificate ternary interpretation not tested."}
+{"mid": "Z2915", "status": "open", "files": ["METAPLECTIC_ES.md"], "evidence": "", "note": "Coset theta and theta-lift viewpoint examined in METAPLECTIC_ES; divisor-class coset theta of xy not written out."}
+{"mid": "Z2916", "status": "untried", "files": [], "evidence": "", "note": "Efficient congruencing across modulus scales for 4uB not examined."}
+{"mid": "Z2917", "status": "untried", "files": [], "evidence": "", "note": "Voronoi-summation of divisor sums in progression 4p with class -1 mod 4C not carried out."}
+{"mid": "Z2918", "status": "open", "files": ["COMPOSITION_ES.md", "DETERMINISTIC_EXISTENCE.md"], "evidence": "", "note": "Composition laws on ES forms examined; defect-lowering composition for near-certificates not analysed."}
