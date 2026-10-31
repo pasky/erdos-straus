@@ -1,11 +1,22 @@
 # RESIDUE_HARDNESS — the full residue-class factor E[count | p mod q] (depth lane Z0199, wave z52c)
 
-Status: working draft (skeleton). **ES is open; nothing here proves or claims it.** Labels as in DISCOVERIES.md (PROVED /
+Status: depth lane Z0199, complete pending review. **ES is open; nothing here proves or claims it.** Labels as in DISCOVERIES.md (PROVED /
 CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment). Scripts `scripts/z52c_rh_*`, data `data/z52c/rh/`.
 Builds on BRAINSTORM/z52b_pass1_H00.md §Z0199 (Pass-1 record), BM_CORRECTED_COUNT.md (M_BM), FRONTIER.md §2.
 
 ## 0. Summary
-(to be written last)
+1. **CERTIFIED** Type I/II tuple counts = solution counts (U = k₁ + k₂) at all 30 198 primes p ≡ 1 (4) in (2·10⁵, 10⁶] (§1.1).
+2. **PROVED** Lemma 1 (level-cell counts) and Lemma 2 (shift alignment: for p ≡ 1 (q) each q-divisible-modulus certificate needs
+   shift ≡ −1 (mod 4q), the latest class; §1.2, §3).
+3. **CONJECTURE** (★) closed form F_q(r) = 1 + 2q/((q²+1)L)·(Ψ_q(r) − Ψ̄_q), Ψ = −ψ(⟨−(4r)⁻¹⟩/q) − 2ψ(⟨−r⟩/q): a 1/L secondary term, invisible to M₀/M_BM/M_gen.
+4. **EVIDENCE** The parameter-free local-density model fits all class means mod 3, 5, 7, 8, 11, 13, 16, 840 for U, (★), Types I/II:
+   χ²/class 0.75–1.13 vs 30–2 800 for "no class effect" (up to 157 987 primes). Class 1 is the lowest of the 96 classes mod 840.
+5. **EVIDENCE** In the Pass-1 regression, 1[7 | p−1]: −0.131(6) → +0.009(5); all indicators |·| ≤ 0.02 (≤ 0.009 out of sample to 10⁷).
+   log F adds R² 0.11–0.19 beyond 25 characters. It absorbs the mod-840 ordering and 67–100 % of Z0900 (practical p − 1) (§2.2).
+6. **EVIDENCE** (★) model M′ = M_BM·F_S/F_MBM: corr with log R 0.49 → 0.71, z-sd 1.37 → 1.07; zeros in [10⁵, 10⁶): 3 observed,
+   3.2 expected (0.5 under M_BM). All 14 (★) failures ≤ 10⁷ are ≡ 1 (24), and nearly all lie in low-F classes (§2.3).
+7. **Assessment** p ≡ 1 (Q) forces x ≡ (m+1)/4 (Q) for the p-free denominator x = (p+m)/4, so cheap windows lose small-prime
+   divisors. Main-term refinement only; B3/B6 untouched. Verification should oversample p ≡ 1 (mod 840·16) (§3–4).
 
 ## 1. Derivation of E[count | p ≡ r (mod q)] from local densities
 
@@ -347,5 +358,24 @@ is irrelevant at this order.
   residue factor is the next term of the local-density expansion; it is not a new character, it is the boundary of the
   hyperbolic parameter region (digamma constants) meeting the congruence class of p.
 
-## 5. Review log
-(TODO)
+## 5. Reproduction
+
+```
+mkdir -p /tmp/rh; ulimit -v 8000000
+gcc -O2 -o /tmp/rh/star scripts/z52c_rh_star.c && /tmp/rh/star 10000000 /tmp/rh/s1e7          # (★) R, RW for n ≤ 1e7 (3 s)
+gcc -O2 -o /tmp/rh/types scripts/z52c_rh_types.c                                                # Types I/II/(★) on windows
+/tmp/rh/types 101 200000 /tmp/rh/t2e5full; /tmp/rh/types 200001 1000000 /tmp/rh/t1e6
+/tmp/rh/types 1000001 2000000 /tmp/rh/t2e6; /tmp/rh/types 5000001 10000000 /tmp/rh/t1e7          # last one ≈ 1.5 h
+/tmp/rh/types 1000001 2000000 /tmp/rh/q7e6 7                                                     # pair/level split, §3
+gcc -O2 -o /tmp/rh/mbm scripts/z38_mbm.c -lm && /tmp/rh/mbm 3 1000000 0 > /tmp/rh/mbm_1e6.txt     # M_BM (≈ 15 min)
+for p in 1134241 1724209 1726201 5212561 8813281; do /tmp/rh/mbm $p $p 0; done > /tmp/rh/mbm_fail.txt
+scripts/z52c_rh_runU.sh   # independent solution counter, (2e5, 1e6] (≈ 30 min on 20 cores); then scripts/z52c_rh_crosscheck.py
+uv run --with numpy --with scipy python scripts/z52c_rh_model.py     # §1.3/§2.1 -> data/z52c/rh/model_tables.json
+uv run python scripts/z52c_rh_table.py                                # §1.3 table
+uv run --with numpy --with sympy python scripts/z52c_rh_regress.py   # §2.2 -> data/z52c/rh/regress.json
+uv run --with numpy --with scipy python scripts/z52c_rh_hard.py      # §2.3 -> data/z52c/rh/hard.json
+uv run --with numpy python scripts/z52c_rh_decomp.py                 # §3 -> data/z52c/rh/decomp_q7.json
+```
+
+## 6. Review log
+(pending)
