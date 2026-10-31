@@ -153,7 +153,71 @@ are larger by ≈ L(10⁶)/L(p) (the 1/L law; `scripts/z52c_rh_regress.py` print
 Typical sizes at p ≈ 10⁶: one small prime q | p − 1 costs 5–10 %; p ≡ 1 (840) costs a factor ≈ 0.54.
 
 ## 2. Predictions against data
-(TODO)
+
+Data = exact counts at every prime p ≡ 1 (4) in (100, 2·10⁶] (U, T_I, T_II from `z52c_rh_types.c`, 74 405 primes; cross-checked with
+the solution counter, §1.1) and R at all primes ≤ 10⁷ (`z52c_rh_star.c`). Pass-1 used 8 966 primes ≤ 2·10⁵.
+
+### 2.1 Class means (EVIDENCE; `scripts/z52c_rh_model.py`)
+
+Over all 136 admissible classes for Q ∈ {3, 5, 7, 8, 11, 13, 16, 840} and the four families, (data − model)/SE, with SE the
+combined sampling error of the prime means and of the (composite-sample) model means:
+
+| window | primes | family | rms(data − model) | rms SE | χ²/class (model) | χ²/class (flat F ≡ 1) |
+|---|---|---|---|---|---|---|
+| [10⁵, 2·10⁵] | 4 194 | U | 0.034 | 0.034 | 1.07 | 92 |
+| | | (★) | 0.047 | 0.050 | 0.85 | 29 |
+| | | Type I / II | 0.037 / 0.036 | 0.035 / 0.040 | 1.13 / 0.86 | 115 / 42 |
+| [10⁶, 2·10⁶] | 35 241 | U | 0.0097 | 0.0114 | 0.80 | 593 |
+| | | (★) | 0.015 | 0.016 | 0.76 | 185 |
+| | | Type I / II | 0.011 / 0.010 | 0.012 / 0.013 | 0.84 / 0.78 | 721 / 263 |
+
+**The local-density model accounts for the class means of every family to within sampling error** (χ²/class ≈ 1 against
+hundreds for “no class dependence”). Classes mod 840 are thin (≈ 370 primes each at 10⁶), so χ² there is dominated by
+noise; the q ≤ 16 rows of the §1.3 table match to ≈ 0.005. The (★) closed form of §1.2 (first order only) is cruder:
+at 10⁶ it gives 0.888 / 0.894 / 0.971 for r = 1 / 2 / 4 mod 7 against model 0.902 / 0.909 / 0.954 and data 0.901 / 0.922 / 0.958 —
+right ordering and size, ≈ 0.01–0.02 off (the O(L⁻²) terms).
+
+### 2.2 The Pass-1 regression with the factor added (EVIDENCE; `scripts/z52c_rh_regress.py` → `data/z52c/rh/regress.json`)
+
+Pass-1 design: y = log(U + 1) on 1, log p, log log p, (q/p) for primes q < 80, plus the indicators 1[q | p − 1] (q = 5, 7,
+11, 13) and 1[16 | p − 1]. "After" = the same fit to y − log F(p), with **no fitted parameter in F**: log F(p) =
+log F_840(p mod 840) + log F_16 − log F_8 + log F_11 + log F_13 from the 10⁶-window model table, each factor rescaled to p by
+the 1/L law (F − 1 ∝ 1/log p; across the windows 10⁵ and 10⁶ (F − 1)·L is constant to 5–10 %).
+
+| p range (primes ≡ 1 (4)) | 1[5\|p−1] | 1[7\|p−1] | 1[11\|p−1] | 1[13\|p−1] | 1[16\|p−1] | R² gain of indicators | coefficient of log F if free |
+|---|---|---|---|---|---|---|---|
+| ≤ 2·10⁵ (Pass-1 set), before | −0.058(6) | **−0.131(6)** | −0.057(8) | −0.052(8) | −0.095(6) | 0.0208 | |
+| ≤ 2·10⁵, after | +0.012(5) | +0.009(5) | −0.007(6) | +0.018(6) | +0.020(5) | 0.0006 | 0.815(9) |
+| (2·10⁵, 2·10⁶], before | −0.049(2) | −0.106(2) | −0.042(3) | −0.047(3) | −0.078(2) | 0.0293 | |
+| (2·10⁵, 2·10⁶], after | +0.002(2) | +0.003(2) | −0.002(2) | +0.005(2) | +0.009(2) | 0.0002 | 0.919(5) |
+
+* **Yes: the factor predicts the −0.13 at q = 7** (and every other indicator): 96–99 % of the indicators' explained variance
+  is absorbed with no fitted parameter. The leftover +0.01–0.02 in the small-p range is an overshoot of the 1/L extrapolation
+  below 10⁴ and the log(U+1) attenuation (free coefficient 0.82 rather than 1; 0.92 out of sample).
+* log F explains **R² = 0.114** beyond the 25 characters (≤ 2·10⁵; 0.168 on (2·10⁵, 2·10⁶]), five times what the
+  indicators did (0.021): the full residue factor contains the character *interactions* (all of p's characters mod 3, 5, 7, 8
+  jointly) that a linear character model cannot represent. With the prime-by-prime product F₃F₅F₇F₁₆F₁₁F₁₃ instead of the joint
+  mod-840 table the indicators are absorbed equally well but the gain is only 0.046 and the Mordell squares stay ≈ −0.25 too low.
+* Square classes mod 7, mean residual before → after (≤ 2·10⁵): r = 1: −0.087 → +0.006, r = 2: +0.008 → +0.004, r = 4: +0.079 → −0.010.
+* The six Mordell squares mod 840 (≤ 2·10⁵, 79–90 primes each): before −0.37 (r = 1), −0.31, −0.26, −0.21, −0.27, −0.22;
+  after +0.11, +0.03, +0.08, +0.08, +0.04, +0.04; out of sample ((2·10⁵, 2·10⁶], ≈ 665 each): before −0.29 (r = 1) … −0.16,
+  after +0.006 … +0.022. **The class-1-lowest ordering mod 840 is predicted** (model: r = 1 is the lowest of all 96 classes) and
+  removed by the factor.
+* Number of q ∈ {3, 5, 7, 11, 13} dividing p − 1 (0 … 4), mean residual before: +0.014, +0.029, −0.037, −0.132, −0.279;
+  after: −0.003, −0.002, +0.004, +0.022, −0.031 (n = 49 at 4). Out of sample, 4 divisors: −0.214 → −0.028 (n = 332).
+* **Unexplained variance.** Residual sd of log(U+1) after characters: 0.209; after characters + log F: 0.187 (≤ 2·10⁵);
+  0.197 → 0.181 out of sample. What remains is the prime-specific part (T(p)-type Legendre sums over all characters, the
+  higher-order characters, X_BM), not residue-class structure: adding all five indicators back gains R² ≤ 0.0006.
+
+**Z0900 ("p − 1 practical" correlates with hardness; Pass-1 U01) is the same effect.** In the same design, the coefficient
+of 1[p − 1 practical] is −0.098(12) → −0.004(9) after the factor for p ≤ 3·10⁴, −0.088(5) → −0.015(4) for p ≤ 2·10⁵ and
+−0.067(2) → −0.018(1) out of sample: 80–100 % explained. Practicality of p − 1 means p − 1 divisible by 2 and by many small primes,
+i.e. p close to 1 in Ẑ; a small leftover (−0.015) presumably comes from moduli beyond 16·840·11·13 (e.g. 9, 17, 19 | p − 1, not in F).
+*Correction to the Z0900 record:* its "0 of the top-30 hardest primes have practical p − 1" ranks by *largest* U
+(`sorted(..., key=-U4)` in `scripts/z52b_p1_U01_practical.py`), i.e. the 30 *easiest*; in our design 29 of the 30 primes with the
+lowest residual have practical p − 1 (22 after the factor), consistent with the sign of the mean effect.
+
+(2.3 hardness model: below)
 
 ## 3. Why the class of 1 is hardest
 (TODO)
