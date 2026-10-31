@@ -353,3 +353,28 @@
 {"mid": "Z3146", "status": "untried", "files": [], "evidence": "", "note": "Multiplicative energy of divisor classes across windows not computed."}
 {"mid": "Z3147", "status": "untried", "files": [], "evidence": "", "note": "Horocycle/unipotent reading of minus-continuant words not written out for ES."}
 {"mid": "Z3148", "status": "open", "files": ["BRAINSTORM/bsA_hecke_cusp_excursions.md", "BRAINSTORM/z36_hj_cantor_dimension.md"], "evidence": "", "note": "Effective horocycle equidistribution vs ES target measure discussed; resolvable measure at length p not computed."}
+{"mid": "Z3149", "status": "open", "files": ["PARITY_AUDIT.md"], "evidence": "", "note": "Trial-form residues c_d examined; clustering of c_d/d at k/(4p) and hit-rate by k not tabulated."}
+{"mid": "Z3150", "status": "untried", "files": [], "evidence": "", "note": "Multiplicative closure of working levels for fixed p not tested."}
+{"mid": "Z3151", "status": "untried", "files": [], "evidence": "", "note": "Minimal Omega(d) over certificates per prime not computed."}
+{"mid": "Z3152", "status": "untried", "files": [], "evidence": "", "note": "Chevalley-Warning system for window certificates not written."}
+{"mid": "Z3153", "status": "untried", "files": [], "evidence": "", "note": "Absorber use of identity-covered N_e for window certificates not examined."}
+{"mid": "Z3154", "status": "untried", "files": [], "evidence": "", "note": "Strongest distinct-denominator/ordering refinement of ES not tabulated."}
+{"mid": "Z3155", "status": "untried", "files": [], "evidence": "", "note": "Automatic generation and survival test of ES refinement predicates not run."}
+{"mid": "Z3156", "status": "untried", "files": [], "evidence": "", "note": "Residue distribution of R(p)/2 mod small primes not computed."}
+{"mid": "Z3157", "status": "untried", "files": [], "evidence": "", "note": "Coprime splitting of 4Cp+1 with class combination not enumerated."}
+{"mid": "Z3158", "status": "untried", "files": [], "evidence": "", "note": "Surgery graph on near-certificates across levels sharing primes not built."}
+{"mid": "Z3159", "status": "untried", "files": [], "evidence": "", "note": "Compact parametric template cover of a Mordell class mod large M not searched."}
+{"mid": "Z3160", "status": "open", "files": ["BM_CORRECTED_COUNT.md", "BRAINSTORM/z38_mbm_unconditional.md"], "evidence": "", "note": "Single-exceptional-character control of M_BM examined in BM notes; at-most-one-character bound not modelled."}
+{"mid": "Z3161", "status": "untried", "files": [], "evidence": "", "note": "Polynomial-identity characterisation of ES modulo (X^r-1, p) not explored."}
+{"mid": "Z3162", "status": "untried", "files": [], "evidence": "", "note": "Local admissibility of residues of p under the t-branch constraints not computed."}
+{"mid": "Z3163", "status": "open", "files": ["BRAINSTORM/z32_bm_obstruction_map.md", "GEOMETRY_ES.md"], "evidence": "", "note": "BM obstruction to strong approximation for U_n examined; reduction-mod-q image not tabulated on data."}
+{"mid": "Z3164", "status": "untried", "files": [], "evidence": "", "note": "Prime-level-only restriction of (★) and its overlap model not computed."}
+{"mid": "Z3165", "status": "untried", "files": [], "evidence": "", "note": "Pairs (u,q) with q prime, q | p+u, q = -1 mod 4u not counted."}
+{"mid": "Z3166", "status": "open", "files": ["STRONG_APPROX_ES.md"], "evidence": "", "note": "Strong approximation for the SL2 quadric examined; substitution to homogeneous variety not tested."}
+{"mid": "Z3167", "status": "untried", "files": [], "evidence": "", "note": "Least major-level K(p) for certificates not fitted."}
+{"mid": "Z3168", "status": "untried", "files": [], "evidence": "", "note": "Single-level density-one baseline and its sieve asymptotic not checked against repo."}
+{"mid": "Z3169", "status": "open", "files": ["EXSET_SIEVE_MASS.md", "EXSET_HIGHDIM_SIEVE.md"], "evidence": "", "note": "Growing-dimension sieve over thin level sets examined; K(X) threshold versus observed least K not compared."}
+{"mid": "Z3170", "status": "open", "files": ["BRAINSTORM/bsB_sterile_pretentious.md"], "evidence": "", "note": "Pretentious distance of the Legendre symbol to 1 examined for sterile characters; ES-difficulty correlation not computed."}
+{"mid": "Z3171", "status": "untried", "files": [], "evidence": "", "note": "Prime/almost-prime parameters for certificates not tested."}
+{"mid": "Z3172", "status": "open", "files": ["BRAINSTORM/bsC_supersingular_transfer.md", "BRAINSTORM/bsD_eichler_degree_k.md"], "evidence": "", "note": "Supersingular/Eichler-order objects examined for ES transfer; small-vector ES test over maximal orders not run."}
+{"mid": "Z3173", "status": "open", "files": ["BRAINSTORM/farey_ford_cf.md", "BRAINSTORM/bsA_farey_lnr_pigeonhole.md"], "evidence": "", "note": "Euclid-length large deviations examined in Farey notes; fixed-denominator tail beyond denominator-averaged results not checked."}
