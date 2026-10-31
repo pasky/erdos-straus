@@ -108,3 +108,13 @@
 {"mid": "Z2928", "outcome": "skipped", "summary": "Not actionable: a power-size variety V_p with fibres of size p^delta is named without any construction.", "evidence": [], "next": ""}
 {"mid": "Z2985", "outcome": "nothing", "summary": "Closure test: among prime factors of 4p+1, 8p+1, (p+3)/4 and (p-1)/4 for the 30 hard primes (9 with no C<=30 witness plus the 25-prime hard profile, overlapping), only 2 of 62 factors of 4p+1 and 1 of 54 of (p+3)/4 land in the hard set; this is not significant against chance, so no descent map is visible.", "evidence": ["scripts/z52b_p1_U04_counts.py", "data/z52b/pass1/U04/counts_checks.json"], "next": ""}
 {"mid": "Z3121", "outcome": "skipped", "summary": "Not actionable: no finite attempt set with a proven stability is defined, so the positive-proportion statement cannot be tested.", "evidence": [], "next": ""}
+{"mid": "Z3139", "outcome": "skipped", "summary": "Not actionable: the universal torsor of U_n is not written, so no variable count can be made.", "evidence": [], "next": ""}
+{"mid": "Z0027", "outcome": "covered", "summary": "Drinfeld-module analogues and counts over F_q[T] are in DRINFELD_ES.md (and KUDLA_ES.md for the theta side).", "evidence": ["DRINFELD_ES.md", "KUDLA_ES.md"], "next": ""}
+{"mid": "Z0292", "outcome": "skipped", "summary": "Restatement: area 2pi(1-4/n) is Gauss–Bonnet for the orbifold; the trace-formula reading adds no existence information.", "evidence": [], "next": ""}
+{"mid": "Z0470", "outcome": "skipped", "summary": "Feature template with no concrete step: the 'finite escalation' object is not defined.", "evidence": [], "next": ""}
+{"mid": "Z0920", "outcome": "covered", "summary": "Tunnell ternary criterion and its ES comparison (Spearman for A, B and A-2B) are already in final_checks.json.", "evidence": ["data/z52b/final_checks.json (tunnell_spearman_A/B/A-2B)"], "next": ""}
+{"mid": "Z0988", "outcome": "skipped", "summary": "Not actionable: 'Vieta root exchange' after an unspecified lift is vague.", "evidence": [], "next": ""}
+{"mid": "Z1058", "outcome": "skipped", "summary": "Not actionable: transition graph not defined.", "evidence": [], "next": ""}
+{"mid": "Z1136", "outcome": "skipped", "summary": "Not actionable: the energy function is not specified concretely enough to compute.", "evidence": [], "next": ""}
+{"mid": "Z1143", "outcome": "skipped", "summary": "Not actionable: no operator is defined.", "evidence": [], "next": ""}
+{"mid": "Z1174", "outcome": "skipped", "summary": "Not actionable: no divisor-residue distribution is specified.", "evidence": [], "next": ""}
