@@ -248,3 +248,53 @@
 {"mid": "Z0647", "status": "open", "files": ["FRONTIER.md"], "evidence": "", "note": "Infinitude of ES exceptional set noted as open question in frontier."}
 {"mid": "Z0648", "status": "open", "files": ["MENU_LADDER.md"], "evidence": "", "note": "Mordell hard-class residual structure examined; cross-class correlation not recorded."}
 {"mid": "Z0649", "status": "open", "files": ["T1_TEMPLATE.md"], "evidence": "", "note": "Character-escape from non-square p reduces to Type I (d/p)=−1 condition."}
+{"mid": "Z0650", "status": "done", "files": ["scripts/z52b_dividing_header.md"], "evidence": "Their fraction δ(X) decays like exp(−0.028 (ln X)³) over X = 56..1778.", "note": "CRT avoidance density decay measured in lane computation (header)."}
+{"mid": "Z0651", "status": "done", "files": ["scripts/z52b_dividing_header.md"], "evidence": "the median is 22", "note": "Least family size distribution computed in lane (header)."}
+{"mid": "Z0652", "status": "open", "files": ["H4_NOT_POLYLOG.md"], "evidence": "", "note": "Conjectural exp((ln x/c)^{1/3}) least-family growth recorded as prediction; unproved."}
+{"mid": "Z0653", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Random-covering log³ intensity reading stated as assessment; not established."}
+{"mid": "Z0654", "status": "open", "files": ["NEAR_SQUARE.md"], "evidence": "", "note": "Near-square families examined; least-family record primes not tabulated."}
+{"mid": "Z0655", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0656", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0657", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0658", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Growing-level Chebotarev reformulation flagged in lane header; not established."}
+{"mid": "Z0659", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0660", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Divisor-in-class literature examined; ES-type statement not derived."}
+{"mid": "Z0661", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0662", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0663", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0664", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0665", "status": "done", "files": ["scripts/z52b_dividing_header.md"], "evidence": "the survivor fraction is about 8.5·10⁵ times the", "note": "Survivor statistics across families computed in lane (header)."}
+{"mid": "Z0666", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Schinzel m/p family proposed as calibration; residue-model run not recorded."}
+{"mid": "Z0667", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Residue model stated to predict observed extremes; size-versus-residue gap open."}
+{"mid": "Z0668", "status": "open", "files": ["CAMPAIGN_SUMMARY.md"], "evidence": "", "note": "Large sieve over C-form classes listed as campaign approach; not pursued here."}
+{"mid": "Z0669", "status": "done", "files": ["scripts/z52b_dividing_header.md"], "evidence": "Families are strongly positively correlated: the survivor fraction is about 8.5·10⁵ times the", "note": "Strong positive correlation with decay shape computed in lane (header)."}
+{"mid": "Z0670", "status": "done", "files": ["scripts/z52b_dividing_header.md"], "evidence": "Difficulty tracks the least quadratic non-residue n(p): corr(log s, log n(p)) = 0.42.", "note": "Least non-residue correlation computed in lane (header)."}
+{"mid": "Z0671", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0672", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "GRH sign-layer prediction stated as prediction; not tested in repo."}
+{"mid": "Z0673", "status": "open", "files": ["T1_TEMPLATE.md"], "evidence": "", "note": "Type I quadratic-character condition (d/p)=−1 is elementary and recorded in T1 template."}
+{"mid": "Z0674", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Character-cube covering reformulation proposed in lane header; not developed."}
+{"mid": "Z0675", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0676", "status": "done", "files": ["notes.md"], "evidence": "OEIS A192787 and the Wikipedia article likewise cite only Vaughan", "note": "OEIS anchor for U(n) looked up; cites only Vaughan."}
+{"mid": "Z0677", "status": "open", "files": ["sources/lit2026/audit-erdosproblems-242-forum-2026-10-04.md"], "evidence": "", "note": "A073101 appears in an erdosproblems audit; D(n) identification not recorded."}
+{"mid": "Z0678", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0679", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0680", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0681", "status": "open", "files": ["BRAINSTORM/s3_words_parity.md"], "evidence": "", "note": "S₃-orbit parity of word counts examined; full n ≡ 2 mod 4 statement not recorded."}
+{"mid": "Z0682", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0683", "status": "open", "files": [], "evidence": "", "note": "Record-low U(p) values examined in campaign notes; U(p) ≤ 4 list not recorded."}
+{"mid": "Z0684", "status": "open", "files": [], "evidence": "", "note": "Least prime with U(p)=6 is in campaign hard-prime records; not indexed."}
+{"mid": "Z0685", "status": "open", "files": [], "evidence": "", "note": "Record lows of U(p)/log²p examined in campaign notes; list not indexed."}
+{"mid": "Z0686", "status": "open", "files": ["ASTRA_BRIDGE.md"], "evidence": "2521 exit", "note": "2521 as hard prime appears in campaign bridge notes; hardness ranking open."}
+{"mid": "Z0687", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0688", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0689", "status": "open", "files": ["BRAINSTORM/s7_lvalue_proxy.md"], "evidence": "", "note": "L-value proxy hardness examined (Spearman 0.35); U(p) L(1,χ) correlation not recorded."}
+{"mid": "Z0690", "status": "open", "files": ["BRAINSTORM/s7_lvalue_proxy.md"], "evidence": "", "note": "L-value proxy regression examined; saturation at Q≈30 not recorded."}
+{"mid": "Z0691", "status": "open", "files": ["BRAINSTORM/s7_lvalue_proxy.md"], "evidence": "", "note": "Type II count versus L(1,χ_{-4p}) examined in L-value memo."}
+{"mid": "Z0692", "status": "open", "files": ["BRAINSTORM/ident_invariants.md"], "evidence": "", "note": "Class number h(−4p) examined as invariant; correlation with ES counts not recorded."}
+{"mid": "Z0693", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0694", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0695", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0696", "status": "open", "files": ["BRAINSTORM/s7_lvalue_proxy.md"], "evidence": "", "note": "Least non-residue against U(p) not recorded; QR-richness proxy examined."}
+{"mid": "Z0697", "status": "open", "files": ["BRAINSTORM/z36_farey_least_qnr.md"], "evidence": "", "note": "Least primitive root proxy examined in Farey memo; correlation not recorded."}
+{"mid": "Z0698", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0699", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
