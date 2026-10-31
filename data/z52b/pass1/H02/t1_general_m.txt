@@ -1,0 +1,13 @@
+m= 4  TypeI/TypeII counts at n=9,25,49,81,121,169:  0/0   0/0   0/0   0/0   0/0   0/0 
+m= 5  TypeI/TypeII counts at n=9,25,49,81,121,169:  4/3    -   15/7   2/0   4/2  23/11
+m= 6  TypeI/TypeII counts at n=9,25,49,81,121,169:   -    1/0   4/2    -    3/1   8/4 
+m= 7  TypeI/TypeII counts at n=9,25,49,81,121,169:  1/0   3/1    -    0/0   7/2   4/1 
+m= 8  TypeI/TypeII counts at n=9,25,49,81,121,169:  0/0   0/0   0/0   0/0   0/0   0/0 
+m= 9  TypeI/TypeII counts at n=9,25,49,81,121,169:   -    3/3   5/1    -    7/1   4/4 
+m=10  TypeI/TypeII counts at n=9,25,49,81,121,169:  2/2    -    6/3   0/0   1/0   6/4 
+m=11  TypeI/TypeII counts at n=9,25,49,81,121,169:  1/2   0/0   4/1   2/0    -    1/1 
+m=12  TypeI/TypeII counts at n=9,25,49,81,121,169:   -    0/0   0/0    -    0/0   0/0 
+m=13  TypeI/TypeII counts at n=9,25,49,81,121,169:  0/0   5/3   2/1   0/0   4/0    -  
+m=14  TypeI/TypeII counts at n=9,25,49,81,121,169:  1/0   2/1    -    0/0   4/1   0/0 
+m=15  TypeI/TypeII counts at n=9,25,49,81,121,169:   -     -    1/0    -    1/0   1/0 
+m=16  TypeI/TypeII counts at n=9,25,49,81,121,169:  0/0   0/0   0/0   0/0   0/0   0/0 
