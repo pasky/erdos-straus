@@ -188,7 +188,7 @@
 {"mid": "Z1385", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1386", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1387", "status": "open", "files": ["B2_ACROSS_FIELDS.md §M5"], "evidence": "so the congruence must see primality / the quadratic character (F6)", "note": "Count-congruence (Chevalley–Warning-type) route assessed; primality requirement noted; not carried out."}
-{"mid": "Z1388", "status": "open", "files": ["prob_lll_fixed_p.md", "BRAINSTORM/z52_deep_thin_pointwise_astra.md §table row 7"], "evidence": "", "note": "Combinatorial Nullstellensatz analysed for ES grids; wrong direction for roots; left open."}
+{"mid": "Z1388", "status": "open", "files": ["BRAINSTORM/prob_lll_fixed_p.md", "BRAINSTORM/z52_deep_thin_pointwise_astra.md §table row 7"], "evidence": "", "note": "Combinatorial Nullstellensatz analysed for ES grids; wrong direction for roots; left open."}
 {"mid": "Z1389", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1390", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1391", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
