@@ -1,0 +1,8 @@
+{
+ "mod8+mod3 additive": 0.4214,
+ "plus (6/p)": 0.4779,
+ "plus (2/p)(-3/p) (same as (6/p) for p=1 mod 4)": 0.4779,
+ "plus (2/p) only": 0.4214,
+ "plus (-3/p) only": 0.4214,
+ "corr(resU, (6/p))": -0.258
+}

@@ -1,0 +1,106 @@
+{
+ "Z2365_Z2930": {
+  "R2_sum_h_over_sqrtp(D=3,4,7,8)": 0.02674486420443445,
+  "R2_each_logh_D4": 0.011449610148969391,
+  "R2_each_logh_D8": 0.014750546403606513,
+  "R2_each_logh_D3": 0.3449463366272125,
+  "R2_each_logh_D7": 0.06191879549787305,
+  "R2_legendre(2,-3,5,-7)": 0.6260367553294126
+ },
+ "Z2731": {
+  "coef_logh_D3_D4_D7_D8": [
+   0.379,
+   0.069,
+   -0.022,
+   -0.243
+  ],
+  "R2": 0.487
+ },
+ "Z2739": {
+  "2": {
+   "n": 26,
+   "mean_res": 0.1629
+  },
+  "4": {
+   "n": 27,
+   "mean_res": -0.2413
+  },
+  "6": {
+   "n": 29,
+   "mean_res": 0.2629
+  },
+  "0": {
+   "n": 23,
+   "mean_res": -0.2573
+  }
+ },
+ "Z0541": {
+  "mean_ratio_count_over_expected": 0.2002,
+  "median": 0.0,
+  "frac_zero_count": 0.9348,
+  "n_pairs": 10550
+ },
+ "Z3130_pairing": {
+  "tested": 1764,
+  "odd_M_without_square_N": 0
+ },
+ "Z0232": {
+  "family_mean_Delta": 1.475,
+  "random_mean_Delta": 2.327
+ },
+ "Z3075": {
+  "fail_rate_squares_m2": 1.0,
+  "fail_rate_primes": 0.8995,
+  "n_sq": 975
+ },
+ "Z2752": {
+  "rows": 211,
+  "F2_rank_success_bits_C1_20": 20,
+  "n_all_ones_rows": 0
+ },
+ "Z2562": {
+  "slices": 2320,
+  "with_max_order_prime_factor": 1599,
+  "P(-1 divisor|max-order factor)": 0.1626,
+  "without": 721,
+  "P(-1 divisor|no max-order factor)": 0.0361
+ },
+ "Z2491": {
+  "d_tested": 100,
+  "full_coverage_count": 11,
+  "mean_frac_classes_hit": 0.605
+ },
+ "Z2964": {
+  "agreement_F(a)F(b)=F(ab)": 0.7966,
+  "pairs": 202080
+ },
+ "Z2967": {
+  "columns": 126,
+  "rank": 81,
+  "rows": 147
+ },
+ "Z2968": {
+  "mean_frac_log_mass_q_not_pm1_mod4C": 0.6335
+ },
+ "Z3030": {
+  "frac_with_divisor_minus_p_mod_4c": 0.0,
+  "pairs": 1600
+ },
+ "Z0475": {
+  "minU_over_n<=3000": 1,
+  "n_with_minU": [
+   2
+  ],
+  "h(-4n)": {}
+ },
+ "Z0339": {
+  "mean_U_over_log2p": 0.972,
+  "median": 0.973,
+  "sd": 0.3
+ },
+ "Z0483": {
+  "coef_log_L1chi_p": -0.447,
+  "corr": -0.741,
+  "n": 69
+ }
+}
