@@ -188,3 +188,13 @@
 {"mid": "Z1124", "outcome": "skipped", "summary": "Restatement: rectangle-area reading of the ES identity (as Z0162).", "evidence": [], "next": ""}
 {"mid": "Z1131", "outcome": "skipped", "summary": "Not actionable: factor-graph encoding not specified.", "evidence": [], "next": ""}
 {"mid": "Z1146", "outcome": "skipped", "summary": "Not actionable: tensor encoding not specified.", "evidence": [], "next": ""}
+{"mid": "Z1148", "outcome": "skipped", "summary": "Not actionable: no tensor is specified.", "evidence": [], "next": ""}
+{"mid": "Z1181", "outcome": "skipped", "summary": "Not actionable: e-graph of rational identities without a rewrite set.", "evidence": [], "next": ""}
+{"mid": "Z1197", "outcome": "skipped", "summary": "Not actionable: three factor graphs are not given.", "evidence": [], "next": ""}
+{"mid": "Z1201", "outcome": "skipped", "summary": "Not actionable: decision-diagram sizes are not an ES question.", "evidence": [], "next": ""}
+{"mid": "Z1210", "outcome": "skipped", "summary": "Not actionable: approximate-common-divisor model not specified.", "evidence": [], "next": ""}
+{"mid": "Z1212", "outcome": "skipped", "summary": "Not actionable: partial-factor bits not quantified.", "evidence": [], "next": ""}
+{"mid": "Z1227", "outcome": "skipped", "summary": "Not actionable: neural heuristic, no ES claim.", "evidence": [], "next": ""}
+{"mid": "Z1242", "outcome": "skipped", "summary": "Not actionable: proof-graph motifs with no concrete derivation set.", "evidence": [], "next": ""}
+{"mid": "Z1246", "outcome": "skipped", "summary": "Not actionable: literature bridge without a specific paper named.", "evidence": [], "next": ""}
+{"mid": "Z1326", "outcome": "skipped", "summary": "Ising/frustration reformulation of the e-slice is NP-hard in general and the model is equivalent to the already-catalogued e-slice graph; no new test is identified.", "evidence": [], "next": ""}
