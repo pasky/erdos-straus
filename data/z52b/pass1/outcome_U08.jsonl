@@ -198,3 +198,10 @@
 {"mid": "Z0404", "outcome": "covered", "summary": "Catalog entry (Pillai) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
 {"mid": "Z0405", "outcome": "covered", "summary": "Catalog entry (Brocard) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
 {"mid": "Z0408", "outcome": "covered", "summary": "Catalog entry (m/n two unit fractions, Stewart criterion) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
+{"mid": "Z0417", "outcome": "covered", "summary": "Catalog entry (Niederreiter partial-quotient bounds) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
+{"mid": "Z0418", "outcome": "covered", "summary": "Catalog entry (Korobov/Niederreiter) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
+{"mid": "Z0421", "outcome": "covered", "summary": "Catalog entry (Duffin–Schaeffer, Koukoulopoulos–Maynard) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
+{"mid": "Z0425", "outcome": "covered", "summary": "Catalog entry (Sylvester cubic sums) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
+{"mid": "Z0426", "outcome": "covered", "summary": "Catalog entry (Gauss class number one) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
+{"mid": "Z0428", "outcome": "covered", "summary": "Catalog entry (Ramanujan–Nagell) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
+{"mid": "Z0429", "outcome": "covered", "summary": "Catalog entry (Thue equations) is in the catalog lane (tag 'catalog', Z0359–Z0459).", "evidence": ["ES_CONNECTIONS_TODO.md"], "next": ""}
