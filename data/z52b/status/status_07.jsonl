@@ -298,3 +298,28 @@
 {"mid": "Z3091", "status": "open", "files": ["BRAINSTORM/z45_critical_chaos.md", "BRAINSTORM/z38_mbm_unconditional.md"], "evidence": "", "note": "Distribution of R/M_BM examined as chaos/main-term issue; histogram by window not produced."}
 {"mid": "Z3092", "status": "untried", "files": [], "evidence": "", "note": "Ramanujan-type congruences of f_II and R on progressions not computed."}
 {"mid": "Z3093", "status": "untried", "files": [], "evidence": "", "note": "Capture-family table for ES sub-routes not assembled."}
+{"mid": "Z3094", "status": "open", "files": ["BRAINSTORM/bsB_redei_oddpart.md"], "evidence": "", "note": "Redei/genus parity of class numbers examined for ES-related sets; the specific set with class-number cardinality not built."}
+{"mid": "Z3095", "status": "untried", "files": [], "evidence": "", "note": "Mordell-hard primes as values of principal-genus forms not tested."}
+{"mid": "Z3096", "status": "untried", "files": [], "evidence": "", "note": "Largest prime factor of 4Cp+1 in class -1 mod 4C not measured."}
+{"mid": "Z3097", "status": "untried", "files": [], "evidence": "", "note": "Legendre bookkeeping of prime shares in prod(4Cp+1) not computed."}
+{"mid": "Z3098", "status": "untried", "files": [], "evidence": "", "note": "Erdos-Selfridge distinct-parts argument for consecutive levels not attempted."}
+{"mid": "Z3099", "status": "untried", "files": [], "evidence": "", "note": "Reingold-style transformation with spectral gap not constructed."}
+{"mid": "Z3100", "status": "untried", "files": ["POINTWISE_SIZE.md"], "evidence": "", "note": "Hitting-set view of certificate attempts over primes not computed."}
+{"mid": "Z3101", "status": "untried", "files": [], "evidence": "", "note": "Wielandt-style orbit divisibility for a group action on ES configurations not examined."}
+{"mid": "Z3102", "status": "untried", "files": [], "evidence": "", "note": "Class-equation / cyclotomic divisibility identity for certificate-free contributions not found."}
+{"mid": "Z3103", "status": "open", "files": ["BRAINSTORM/z45_interlacing_stable.md"], "evidence": "", "note": "Interlacing-type existence theme examined for ES; ES-specific expected characteristic polynomial not constructed."}
+{"mid": "Z3104", "status": "open", "files": ["BRAINSTORM/z45_interlacing_stable.md"], "evidence": "", "note": "Interlacing over windows examined generically; window polynomials f_e not built or tested."}
+{"mid": "Z3105", "status": "untried", "files": [], "evidence": "", "note": "Thin-set structure of the two-term step over x not characterised for ES."}
+{"mid": "Z3106", "status": "untried", "files": [], "evidence": "", "note": "Eventual periodicity of guaranteed-positive levels across C not tested."}
+{"mid": "Z3107", "status": "untried", "files": [], "evidence": "", "note": "Precoloured refinement r | x for ES solutions not tested."}
+{"mid": "Z3108", "status": "untried", "files": [], "evidence": "", "note": "Uncovered density of (★) congruence system with smooth moduli not computed."}
+{"mid": "Z3109", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Variance structure of R(p) relative to BM main term discussed in BM notes; windowed variance ratio not computed."}
+{"mid": "Z3110", "status": "open", "files": ["HARD_PAIR.md", "PRIMITIVE_INTERSECTION.md"], "evidence": "", "note": "New-prime / primitive-part structure of 4Cp+1 examined; frequency of 4C | q+1 among new primes not measured."}
+{"mid": "Z3111", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "Census of the (★)-failures examined; shared algebraic property of the failing primes not identified."}
+{"mid": "Z3112", "status": "open", "files": ["BRAINSTORM/z45_euler_systems.md"], "evidence": "", "note": "Euler-system framework examined for ES; norm compatibility of near-certificates across levels not checked."}
+{"mid": "Z3113", "status": "untried", "files": [], "evidence": "", "note": "Incidence-geometry (Furstenberg) view of level lines not analysed."}
+{"mid": "Z3114", "status": "untried", "files": [], "evidence": "", "note": "Union-closed family of 3-term-solvable numerator sets not computed."}
+{"mid": "Z3115", "status": "untried", "files": [], "evidence": "", "note": "Classification of e-slice transfer maps not searched."}
+{"mid": "Z3116", "status": "open", "files": ["BRAINSTORM/z31_unit_fractions.md", "BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "", "note": "Harmonic-sum thresholds for unit-fraction denominator sets examined generally; ES denominator harmonic mass not computed."}
+{"mid": "Z3117", "status": "open", "files": ["BRAINSTORM/invol_topological.md"], "evidence": "", "note": "Z/2 swap-action topology of certificates examined; index of the near-certificate complex not computed."}
+{"mid": "Z3118", "status": "untried", "files": [], "evidence": "", "note": "Halasz-type mean of 1[D_t(tn+1)>0] over n not computed."}
