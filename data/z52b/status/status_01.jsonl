@@ -48,3 +48,53 @@
 {"mid": "Z0447", "status": "blocked", "files": ["BRAINSTORM/tech_maynard_theta.md"], "evidence": "to B3 at the step \"error ≤ main term\"", "note": "Maynard–Tao sieve with θ averaging examined for ES; memo verdict COLLAPSES."}
 {"mid": "Z0448", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
 {"mid": "Z0449", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0450", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0451", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md"], "evidence": "", "note": "Elliptic fibrations of ES surface examined; Euler sum-of-powers link not recorded."}
+{"mid": "Z0452", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0453", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0454", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0455", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0456", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0457", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0458", "status": "open", "files": ["BRAINSTORM/ff_erdos_straus.md"], "evidence": "fixed q with n → ∞ has Sawin–Shusterman-type étale-cohomology results", "note": "Twin-prime analogue over F_q[T] noted as function-field tool; not carried out."}
+{"mid": "Z0459", "status": "open", "files": ["BRAINSTORM/z44_one_mute_odd.md"], "evidence": "", "note": "Bilharz-type argument used in function-field ES; Artin analogue not tested."}
+{"mid": "Z0460", "status": "open", "files": ["BREADTH_Z45.md"], "evidence": "None transfers. Every solved pointwise result relies on a power-size reservoir, free witnesses,", "note": "Power-size reservoir examined across pointwise results; judged not transferable."}
+{"mid": "Z0461", "status": "open", "files": ["BREADTH_Z45.md"], "evidence": "None transfers. Every solved pointwise result relies on a power-size reservoir, free witnesses,", "note": "Free-witness parameter judged missing; fixed-modulus sub-event sweep not recorded."}
+{"mid": "Z0462", "status": "open", "files": ["DEPTH_ASPECT.md"], "evidence": "Periodic data are congruence data, so this is B1.", "note": "Periodic witness orbits reduce to congruence covering (B1); not tested for ES."}
+{"mid": "Z0463", "status": "blocked", "files": ["BRAINSTORM/invol_windmill_signature.md"], "evidence": "Only the transpose-type swap A↔B survives, whose fixed point is the non-ES point.", "note": "Windmill involution with fixed point examined; fixed point lies outside ES set."}
+{"mid": "Z0464", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Quaternion class discussed as one character per pair; composition law not analysed."}
+{"mid": "Z0465", "status": "open", "files": ["BRAINSTORM/canonical_invariants.md"], "evidence": "", "note": "Fundamental unit of Q(√p) examined as invariant; forced-object descent not tested."}
+{"mid": "Z0466", "status": "open", "files": ["BRAINSTORM/ident_invariants.md"], "evidence": "", "note": "Binary-form/class-group parametrisations examined; positivity-constrained version open."}
+{"mid": "Z0467", "status": "open", "files": ["B2_ACROSS_FIELDS.md"], "evidence": "", "note": "Heegner/CM point reading examined (Lemma 4.1); cubic-surface domination not settled."}
+{"mid": "Z0468", "status": "open", "files": ["BRAINSTORM/bsB_root_number_parity.md"], "evidence": "", "note": "Root-number parity forcing examined on ES fibrations; forcing not established."}
+{"mid": "Z0469", "status": "open", "files": ["B2_ACROSS_FIELDS.md"], "evidence": "M5 count-congruence (parity / mod-p count)", "note": "Count-congruence (Chevalley–Warning, Chen orbit sizes) examined; T1 needs more."}
+{"mid": "Z0470", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0471", "status": "open", "files": ["BRAINSTORM/s9_no_fixed_integer.md"], "evidence": "no holomorphic modular generating function by size", "note": "Modular generating function for ES counts examined; no holomorphic form found."}
+{"mid": "Z0472", "status": "open", "files": ["NEAR_SQUARE.md"], "evidence": "", "note": "Near-square structured families examined; canonical shape not established."}
+{"mid": "Z0473", "status": "open", "files": ["BRAINSTORM/EXSET_ARITH_JANSON_OPUS.md"], "evidence": "", "note": "Expected-count log² vs log threshold examined in exceptional-set memo."}
+{"mid": "Z0474", "status": "done", "files": ["scripts/z52b_dividing_header.md"], "evidence": "Families are strongly positively correlated: the survivor fraction is about 8.5·10⁵ times the", "note": "Correlation of certificate families measured in lane computation (header)."}
+{"mid": "Z0475", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0476", "status": "open", "files": ["ZAREMBA_TRANSFER.md"], "evidence": "", "note": "Spectral-gap thin-orbit expansion examined in ZAREMBA_TRANSFER; no new step."}
+{"mid": "Z0477", "status": "open", "files": ["FUNCTIONFIELD_ES.md"], "evidence": "", "note": "Function-field large-q degeneration examined; exact F_q[T] extraction not recorded here."}
+{"mid": "Z0478", "status": "open", "files": ["POINTWISE_MN.md"], "evidence": "", "note": "Parameter family m=4..20 at fixed p examined in pointwise m/n memos."}
+{"mid": "Z0479", "status": "open", "files": ["AMPLIFY_EXCEPTION.md"], "evidence": "", "note": "Averaging over targets examined; prior attempts recorded there."}
+{"mid": "Z0480", "status": "open", "files": ["FRONTIER.md"], "evidence": "", "note": "Algebraic identity covering residues: (J)10 loophole recorded as open."}
+{"mid": "Z0481", "status": "open", "files": ["T1_TEMPLATE.md"], "evidence": "", "note": "Reciprocity obstruction at odd squares examined as T1; full shape enumeration not recorded."}
+{"mid": "Z0482", "status": "open", "files": ["CONSTRUCTIVE_ES.md"], "evidence": "", "note": "Constructive case analysis examined; B1 forbids finite covering; digit recursion unresolved."}
+{"mid": "Z0483", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0484", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Crocker-type algebraic targets examined in literature; special-prime families not tested."}
+{"mid": "Z0485", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0486", "status": "open", "files": ["STRONG_APPROX_ES.md"], "evidence": "", "note": "Strong approximation for ES integral points examined; prior work recorded."}
+{"mid": "Z0487", "status": "open", "files": ["BRAINSTORM/markoff_hasse_failures_vs_es.md"], "evidence": "", "note": "Markoff reduction-theory failures compared with ES positivity; no finite domain found."}
+{"mid": "Z0488", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Monotone k-structure via Stewart reduction flagged in lane header; not analysed."}
+{"mid": "Z0489", "status": "open", "files": ["MENU_LADDER.md"], "evidence": "", "note": "Grunwald–Wang-type local/global exceptions discussed for square classes; T1 phrasing open."}
+{"mid": "Z0490", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0491", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0492", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0493", "status": "open", "files": ["CONDITIONAL_ES.md"], "evidence": "", "note": "Hasse principle for diagonal cubics: conditional inputs listed; not resolved."}
+{"mid": "Z0494", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0495", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0496", "status": "open", "files": ["ASTRA_BRIEF_DIRECTION2.md"], "evidence": "", "note": "Egyptian log-log-term bound (Vose) examined in a note; ES consequence not checked."}
+{"mid": "Z0497", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0498", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0499", "status": "open", "files": ["ES_APPROACH_GENERATORS.md"], "evidence": "", "note": "Klurman–Shparlinski–Teräväinen generator result noted; no ES step recorded."}
