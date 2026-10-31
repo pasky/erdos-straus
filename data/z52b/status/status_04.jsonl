@@ -118,3 +118,83 @@
 {"mid": "Z1714", "status": "open", "files": ["BRAINSTORM/y1_heegner_level_t.md"], "evidence": "", "note": "Heegner points for level t and words examined (O209); forced algebraic point per p not established."}
 {"mid": "Z1715", "status": "untried", "files": [], "evidence": "", "note": "Singular-moduli norm factorisations as divisor input not examined."}
 {"mid": "Z1716", "status": "open", "files": ["BRAINSTORM/y3_lucas_dickson_trace.md"], "evidence": "", "note": "Primitive prime divisors of Lucas sequences examined; residue ≡ −1 mod m via primitive divisors not settled."}
+{"mid": "Z1717", "status": "open", "files": ["POINTWISE_TYPEI6.md §3"], "evidence": "under abc it is finite", "note": "ABC consequences examined for Type I regime (v); the radical-pattern version for all 4Cp+1 not separately."}
+{"mid": "Z1718", "status": "open", "files": ["I3_DEEP_FABLE.md"], "evidence": "", "note": "Schinzel-H conditional families examined (Prop 4.1); menu-evasion sanity statement not separately recorded."}
+{"mid": "Z1719", "status": "open", "files": ["BRAINSTORM/nonab_motivic_pointcounts.md"], "evidence": "", "note": "ℓ-adic Galois representation of the family examined; Tate module of an integral-point Jacobian-like object not."}
+{"mid": "Z1720", "status": "untried", "files": [], "evidence": "", "note": "Arakelov slopes of certificate bundle not examined in repo."}
+{"mid": "Z1721", "status": "untried", "files": [], "evidence": "", "note": "Siegel's lemma for small congruence-constrained solutions not applied to Type II linear system."}
+{"mid": "Z1722", "status": "untried", "files": [], "evidence": "", "note": "Partition-function/zero-temperature reading of certificate count not present."}
+{"mid": "Z1723", "status": "untried", "files": [], "evidence": "", "note": "Derrida REM null model for certificate counts not examined."}
+{"mid": "Z1724", "status": "untried", "files": [], "evidence": "", "note": "Cramér-type independent-trial model not explicit in lottery/random-model docs."}
+{"mid": "Z1725", "status": "open", "files": ["BRAINSTORM/s9_janson_dependency.md"], "evidence": "", "note": "Janson-type dependency bounds examined for ES lower tail; large-deviation rate function not computed."}
+{"mid": "Z1726", "status": "open", "files": ["BRAINSTORM/z45_interlacing_stable.md"], "evidence": "", "note": "Stability/Lee–Yang-type nonvanishing examined in interlacing memo; ES window polynomial case not settled."}
+{"mid": "Z1727", "status": "untried", "files": [], "evidence": "", "note": "Random-matrix statistics of R(p)/M(p) not examined."}
+{"mid": "Z1728", "status": "untried", "files": [], "evidence": "", "note": "Spectral form factor/pair correlation of certificate moduli not examined."}
+{"mid": "Z1729", "status": "untried", "files": [], "evidence": "", "note": "Percolation on divisor graph not examined for ES certificates."}
+{"mid": "Z1730", "status": "open", "files": ["BRAINSTORM/z31_dynamics_ergodic.md"], "evidence": "", "note": "Dynamical/CF-length view of ES₅ examined in ergodic memo; Gauss-map reading not separately checked."}
+{"mid": "Z1731", "status": "untried", "files": [], "evidence": "", "note": "Transfer-matrix count of certificate words not present."}
+{"mid": "Z1732", "status": "open", "files": ["BRAINSTORM/bsA_fricke_vieta.md"], "evidence": "", "note": "Vieta moves and Fricke/trace reduction examined for ES; Vieta jumping on the bilinear surface not separately."}
+{"mid": "Z1733", "status": "untried", "files": [], "evidence": "", "note": "Ising-magnetisation reading of BM character sum not examined."}
+{"mid": "Z1734", "status": "open", "files": ["BRAINSTORM/z45_critical_chaos.md"], "evidence": "", "note": "Critical-chaos/random-multiplicative model of Legendre-symbol sums examined for ES; T(p) replacement not tested."}
+{"mid": "Z1735", "status": "untried", "files": [], "evidence": "", "note": "Markov-chain model of greedy remainders not present."}
+{"mid": "Z1736", "status": "untried", "files": [], "evidence": "", "note": "Information-content of certificates not measured in repo."}
+{"mid": "Z1737", "status": "open", "files": ["BREADTH_Z45.md"], "evidence": "ultraproducts, Ax–Kochen, nonstandard p, Kolmogorov complexity", "note": "Kolmogorov-complexity direction covered in transfer-logic lane; certificate-complexity disproof argument not written."}
+{"mid": "Z1738", "status": "open", "files": ["BRAINSTORM/z31_dynamics_ergodic.md"], "evidence": "", "note": "Furstenberg-type multiplicative dynamics examined in ergodic memo; divisor-semigroup orbit reading not tested."}
+{"mid": "Z1739", "status": "untried", "files": [], "evidence": "", "note": "One-integer-many-moduli residue mixing not examined as such."}
+{"mid": "Z1740", "status": "untried", "files": [], "evidence": "", "note": "p mod m for m near √p as quadratic sequence not examined."}
+{"mid": "Z1741", "status": "untried", "files": [], "evidence": "", "note": "QUE analogy for certificate mass not examined."}
+{"mid": "Z1742", "status": "open", "files": ["reviews/agent-reports/AGENT_REPORT_O150.md"], "evidence": "Prop B.1 (PROVED): greedy, Engel and Golomb/Farey all need ≥ 4 terms for *every* p ≡ 1 (24)", "note": "Engel-expansion dynamics examined: needs ≥4 terms; thermodynamic-formalism reading not done."}
+{"mid": "Z1743", "status": "untried", "files": [], "evidence": "", "note": "Random CSP threshold analogy not examined."}
+{"mid": "Z1744", "status": "untried", "files": [], "evidence": "", "note": "Extreme-value laws for minimal certificate size not examined."}
+{"mid": "Z1745", "status": "untried", "files": [], "evidence": "", "note": "Record-hardest-primes sequence not compiled."}
+{"mid": "Z1746", "status": "untried", "files": [], "evidence": "", "note": "Fokker–Planck model of log R(p) not present."}
+{"mid": "Z1747", "status": "untried", "files": [], "evidence": "", "note": "MaxEnt prediction from residue constraints not present."}
+{"mid": "Z1748", "status": "untried", "files": [], "evidence": "", "note": "Boltzmann sampling of certificates for huge p not present."}
+{"mid": "Z1749", "status": "untried", "files": [], "evidence": "", "note": "Harmonic-mean reformulation of 4/p not examined."}
+{"mid": "Z1750", "status": "untried", "files": [], "evidence": "", "note": "Miller-index/plane reformulation not examined."}
+{"mid": "Z1751", "status": "untried", "files": [], "evidence": "", "note": "Projective dual of unit-fraction plane not examined."}
+{"mid": "Z1752", "status": "untried", "files": [], "evidence": "", "note": "Springs-in-series analogy is a relabelling of the Egyptian sum; not examined."}
+{"mid": "Z1753", "status": "untried", "files": [], "evidence": "", "note": "Balls-in-bins occupancy for trial moduli not examined."}
+{"mid": "Z1754", "status": "untried", "files": [], "evidence": "", "note": "Chen–Stein Poisson approximation for certificate count not carried out."}
+{"mid": "Z1755", "status": "open", "files": ["EXCEPTIONAL_SHORT.md"], "evidence": "", "note": "Exceptional sets in short intervals/progressions examined (O88); second-moment positive-proportion version not."}
+{"mid": "Z1756", "status": "open", "files": ["BRAINSTORM/bsA_hecke_cusp_excursions.md"], "evidence": "", "note": "Cusp-excursion reading of certificates examined for SL₂ λ(p); SL₃ lattice-orbit version not."}
+{"mid": "Z1757", "status": "untried", "files": [], "evidence": "", "note": "Littlewood-type simultaneous small products not examined for ES certificates."}
+{"mid": "Z1758", "status": "untried", "files": [], "evidence": "", "note": "Bohr-set reading of exact congruence certificates not present."}
+{"mid": "Z1759", "status": "untried", "files": [], "evidence": "", "note": "Annealed vs quenched averages for certificate counts not examined."}
+{"mid": "Z1760", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Main term Σ 1/φ(4uB) examined; zeta-regularised constant terms not computed."}
+{"mid": "Z1761", "status": "open", "files": ["BRAINSTORM/greedy_algorithm_dynamics.md"], "evidence": "", "note": "Greedy-step dynamics examined for 4/p; mod-p periodic orbit map not studied."}
+{"mid": "Z1762", "status": "untried", "files": [], "evidence": "", "note": "Hydrodynamic limit of successful (u,C) set not examined."}
+{"mid": "Z1763", "status": "untried", "files": [], "evidence": "", "note": "Local weak limit of divisor graph not examined."}
+{"mid": "Z1764", "status": "untried", "files": [], "evidence": "", "note": "Grover search for certificates only appears in lane text."}
+{"mid": "Z1765", "status": "untried", "files": [], "evidence": "", "note": "Hidden-subgroup/Shor reformulation not examined."}
+{"mid": "Z1766", "status": "open", "files": ["DISCOVERIES.md"], "evidence": "", "note": "Coppersmith listed among screened angles (DISCOVERIES l.525); bivariate small-root version not carried out."}
+{"mid": "Z1767", "status": "untried", "files": [], "evidence": "", "note": "Coppersmith known-bits factoring with hints not examined for 4Cp+1."}
+{"mid": "Z1768", "status": "open", "files": ["BRAINSTORM/adv_stacked_primes.md"], "evidence": "", "note": "CRT supply for adversarial p examined (W(p) scales with y); exact construction not done."}
+{"mid": "Z1769", "status": "open", "files": ["BRAINSTORM/logic_complexity.md"], "evidence": "", "note": "Proof-complexity framing of ES examined in logic lane; resolution/cutting-plane sizes not."}
+{"mid": "Z1770", "status": "open", "files": ["BRAINSTORM/logic_weak_arithmetic.md"], "evidence": "", "note": "Weak-arithmetic/witnessing framing examined; factoring-hardness contrapositive not settled."}
+{"mid": "Z1771", "status": "untried", "files": [], "evidence": "", "note": "Zagier-involution PPA search formulation not examined."}
+{"mid": "Z1772", "status": "open", "files": ["LONGSHOT_PIGEONHOLE.md"], "evidence": "", "note": "Pigeonhole/collision approach examined; PPP-style injectivity framing not separately."}
+{"mid": "Z1773", "status": "open", "files": ["BRAINSTORM/z45_program_synthesis.md"], "evidence": "", "note": "Enumerative program synthesis for ES search examined (924 programs); LLM-guided variants not."}
+{"mid": "Z1774", "status": "untried", "files": [], "evidence": "", "note": "Ranking-function termination analysis of ES loop not examined."}
+{"mid": "Z1775", "status": "untried", "files": [], "evidence": "", "note": "Büchi/Cobham automaticity of certificate-size sets not examined."}
+{"mid": "Z1776", "status": "untried", "files": [], "evidence": "", "note": "Walnut decision procedure for ES menus not run."}
+{"mid": "Z1777", "status": "untried", "files": [], "evidence": "", "note": "Hidden-number-problem lattice attack not examined for ES."}
+{"mid": "Z1778", "status": "untried", "files": [], "evidence": "", "note": "ECM-style search tuned to divisors ≡ −1 not examined."}
+{"mid": "Z1779", "status": "untried", "files": [], "evidence": "", "note": "Index-calculus relation search over (ℤ/4C)^× not examined."}
+{"mid": "Z1780", "status": "open", "files": ["BRAINSTORM/gon_lll_relation_lattice.md"], "evidence": "", "note": "Relation lattices among divisor classes examined; ES short-vector reading not tested."}
+{"mid": "Z1781", "status": "untried", "files": [], "evidence": "", "note": "BDD representation of uncovered residue sets not examined."}
+{"mid": "Z1782", "status": "untried", "files": [], "evidence": "", "note": "ILP/branch-and-bound formulation of ES not examined."}
+{"mid": "Z1783", "status": "untried", "files": [], "evidence": "", "note": "Crypto one-way-function framing not examined."}
+{"mid": "Z1784", "status": "untried", "files": [], "evidence": "", "note": "Explicit first-certificate search bound O(log²p) not stated/tested."}
+{"mid": "Z1785", "status": "untried", "files": [], "evidence": "", "note": "Miller–Rabin/GRH-style witness bound analogy not examined."}
+{"mid": "Z1786", "status": "untried", "files": [], "evidence": "", "note": "LWE analogy (dismissed in item) not examined."}
+{"mid": "Z1787", "status": "open", "files": ["BRAINSTORM/z45_prime_t1_dual.md"], "evidence": "", "note": "Failure certificates for (★) fixtures incl. 409 examined; minimal proof-of-failure structure not."}
+{"mid": "Z1788", "status": "untried", "files": [], "evidence": "", "note": "PCP/interactive-proof framing not examined."}
+{"mid": "Z1789", "status": "untried", "files": [], "evidence": "", "note": "Volunteer-computing extension of verification not carried out."}
+{"mid": "Z1790", "status": "untried", "files": [], "evidence": "", "note": "GPU census kernel not examined."}
+{"mid": "Z1791", "status": "untried", "files": [], "evidence": "", "note": "Ramanujan-Machine/automated conjecture search on ES statistics not run."}
+{"mid": "Z1792", "status": "untried", "files": [], "evidence": "", "note": "Symbolic regression on minimal ES solution sizes not run."}
+{"mid": "Z1793", "status": "untried", "files": [], "evidence": "", "note": "ML classifier of low-R(p) from residues not run."}
+{"mid": "Z1794", "status": "untried", "files": [], "evidence": "", "note": "Neural certificate generator not examined."}
+{"mid": "Z1795", "status": "untried", "files": [], "evidence": "", "note": "Mechanistic interpretability of ES model not examined."}
+{"mid": "Z1796", "status": "open", "files": ["BRAINSTORM/z45_program_synthesis.md"], "evidence": "", "note": "Evolutionary/program search for ES certificate heuristics examined in synthesis memo; FunSearch variant not."}
