@@ -1,0 +1,14 @@
+R^2 of class-means mod 840 (96 classes): 0.406
+R^2 of class-means mod 8: 0.003
+R^2 of class-means mod 3: 0.159
+R^2 of class-means mod 5: 0.05
+R^2 of class-means mod 7: 0.105
+R^2 of class-means mod 24: 0.171
+R^2 of class-means mod 8·3·5·7: 0.406
+Spearman corr(N_8(p), R/log^2 p) = nan
+Spearman corr(N_3(p), R/log^2 p) = nan
+Spearman corr(N_5(p), R/log^2 p) = -0.018
+Spearman corr(N_7(p), R/log^2 p) = nan
+Spearman corr(log prod local N_{8,3,5,7}, R/log^2 p) = -0.018
+R^2 of mean-by-(p mod 840) after regressing on log S_{8,3,5,7}:
+   residual class-mean R^2 (fraction of residual variance explained by mod-840 classes): 0.4

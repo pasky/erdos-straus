@@ -1,0 +1,14 @@
+Z0670: Spearman(R/log^2, least QNR n(p)) = -0.3936
+Z0670: Spearman(R/log^2, #{l<=100: (p/l)=+1}) = -0.1406
+   #QR-primes=4: n=6 mean R/log^2=0.205
+   #QR-primes=5: n=40 mean R/log^2=0.188
+   #QR-primes=6: n=78 mean R/log^2=0.191
+   #QR-primes=16: n=308 mean R/log^2=0.161
+   #QR-primes=17: n=86 mean R/log^2=0.172
+   #QR-primes=18: n=11 mean R/log^2=0.152
+   least QNR=3: n=4505 mean R/log^2=0.198
+   least QNR=5: n=2259 mean R/log^2=0.152
+   least QNR=7: n=1127 mean R/log^2=0.159
+   least QNR=11: n=573 mean R/log^2=0.133
+   least QNR=13: n=280 mean R/log^2=0.128
+Z0891: m^2+1 primes <=2e5: 63  R=0 among them: 1  mean R/log^2: 0.141  overall: 0.173

@@ -1,0 +1,12 @@
+n in [100,1000): mean r(n)=13.463  frac r=0: 0.0911   0.5*log^2(mid)=19.91
+n in [1000,3000): mean r(n)=21.182  frac r=0: 0.0385   0.5*log^2(mid)=28.89
+n in [3000,10000): mean r(n)=29.210  frac r=0: 0.0186   0.5*log^2(mid)=38.54
+exceptions: 320  last 10: [9369, 9391, 9399, 9432, 9447, 9513, 9537, 9688, 9711, 9942]
+mod 2  exc share of residue (top 4): [(1, 0.047), (0, 0.017)]  overall exc rate 0.032
+mod 3  exc share of residue (top 4): [(0, 0.067), (1, 0.029)]  overall exc rate 0.032
+mod 4  exc share of residue (top 4): [(3, 0.048), (1, 0.045), (0, 0.027), (2, 0.008)]  overall exc rate 0.032
+mod 8  exc share of residue (top 4): [(7, 0.053), (5, 0.046), (1, 0.045), (3, 0.043)]  overall exc rate 0.032
+mod 9  exc share of residue (top 4): [(6, 0.068), (3, 0.068), (0, 0.066), (4, 0.037)]  overall exc rate 0.032
+mod 12  exc share of residue (top 4): [(3, 0.101), (9, 0.092), (0, 0.059), (7, 0.043)]  overall exc rate 0.032
+mod 16  exc share of residue (top 4): [(3, 0.053), (7, 0.053), (15, 0.053), (1, 0.05)]  overall exc rate 0.032
+mod 24  exc share of residue (top 4): [(15, 0.106), (3, 0.096), (9, 0.096), (21, 0.089)]  overall exc rate 0.032

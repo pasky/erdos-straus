@@ -1,0 +1,23 @@
+primes 8977 max p 199961
+Z1442: C=1 bit == (4p+1 has prime factor 3 mod 4) on all primes: True  mismatches: 0
+Z1442: fraction of p with C=1 failing: 0.2538  count: 2278
+   p<= 10000: C=1 fails for 170 of 609
+   p<= 100000: C=1 fails for 1227 of 4783
+   p<= 200000: C=1 fails for 2278 of 8977
+Z1406: minC quantiles 50/90/99/max: [ 1.  2. 11.] 23105
+   p<=1000: median minC 1.0, frac minC>log^2 p: 0.000, frac minC>sqrt p: 0.013
+   p<=10000: median minC 1.0, frac minC>log^2 p: 0.000, frac minC>sqrt p: 0.002
+   p<=100000: median minC 1.0, frac minC>log^2 p: 0.001, frac minC>sqrt p: 0.001
+   p<=200000: median minC 1.0, frac minC>log^2 p: 0.001, frac minC>sqrt p: 0.001
+Z1398 (★)-family only: fit log minMax ~ a log p + b: a=1.5238 b=0.353
+   median log(minMax)/log p: 1.5465  max: 1.886
+Z1496: R=0 primes (isolated in (★) graph): [409, 577, 5569, 9601, 23929, 83449, 102001]
+   #R=0 primes <= 1000: 2
+   #R=0 primes <= 10000: 4
+   #R=0 primes <= 100000: 6
+   #R=0 primes <= 200000: 7
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0049/scripts/z52b_p1_U09_analyze.py", line 45, in <module>
+    good = np.array([[(int(m) >> (c-1)) & 1 for c in Cs] for m in mask])  # primes x 64
+                       ~~~~~~~^^~~~~~~
+OverflowError: Python int too large to convert to C long
