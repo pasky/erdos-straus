@@ -277,4 +277,155 @@ theorem cform_iff_shifted (n : ℕ) (hn : 0 < n) :
     zify at hv hC
     linear_combination (4 * C : ℤ) * hv + hC
 
+/-! ### Extension: T1 for the full Type II and Type I divisor forms (`FRONTIER.md:44`)
+
+Paper proofs.
+* Type II: f ∣ 4c²d·m² + 1, 4cd ∣ f + 1. Then 4c²dm² ≡ −1 (mod f), so
+  −1 = J(−1 | f) = J((2cm)²·d | f) = J(2cm | f)² · J(d | f) = J(2cm | f)² ∈ {0, 1}  (Lemma A with C = d).
+* Type I: f ∣ m⁴ + 4c²d, 4cd ∣ f + m², gcd(f, m) = 1. Then m and f are odd (4 ∣ f + m²).
+  (i) f ≡ m²(4d − 1) (mod 4d) and J(−d | ·) is 4d-periodic on odd numbers (`jacobiSym.mod_right`), so
+      J(−d | f) = J(−d | m²(4d−1)) = J(−d | m)² · J(−1 | 4d−1) · J(d | 4d−1) = −J(−d | m)² ∈ {0, −1}.
+  (ii) m⁴ ≡ −d·(2c)² (mod f), so 1 = J(m | f)⁴ = J(−d | f) · J(2c | f)², forcing J(−d | f) = 1. Contradiction.
+  Without gcd(f, m) = 1 the statement is false, even for odd m (m = 3, c = 1, d = 3, f = 3: 3 ∣ 93, 12 ∣ 3 + 9;
+  also m = 2, c = d = 1, f = 4); this matches the
+  R290 repair at `FRONTIER.md:42` (Type I/II for composite n need coprimality).
+The equivalence of these divisor forms with Elsholtz–Tao Type I/II solutions is NOT formalised here. -/
+
+/-- **T1 for the Type II divisor form** (`FRONTIER.md:44`, generalising `no_cform_square`, which is `c = 1`):
+no `f ≡ −1 (mod 4cd)` divides `4c²d·m² + 1`. -/
+theorem no_typeII_square (m c d f : ℕ) : ¬ (f ∣ 4 * c ^ 2 * d * m ^ 2 + 1 ∧ 4 * c * d ∣ f + 1) := by
+  rintro ⟨hdiv, h4⟩
+  have hf4 := mod_four_of_dvd_succ (C := c * d) (by rw [← mul_assoc]; exact h4)
+  have hfo : Odd f := Nat.odd_iff.mpr (by omega)
+  have hd : jacobiSym d f = 1 := jacobi_C_of_dvd_succ (dvd_trans (⟨c, by ring⟩ : 4 * d ∣ 4 * c * d) h4)
+  have hcong : jacobiSym (((2 * c * m : ℕ) : ℤ) ^ 2 * d) f = jacobiSym (-1) f := by
+    apply jacobiSym.mod_left'
+    have : (((2 * c * m : ℕ) : ℤ) ^ 2 * d) ≡ -1 [ZMOD f] := by
+      apply Int.modEq_iff_dvd.mpr
+      have : (f : ℤ) ∣ (4 * c ^ 2 * d * m ^ 2 + 1 : ℕ) := Int.natCast_dvd_natCast.mpr hdiv
+      have e : (-1 : ℤ) - ((2 * c * m : ℕ) : ℤ) ^ 2 * d = -((4 * c ^ 2 * d * m ^ 2 + 1 : ℕ) : ℤ) := by
+        push_cast; ring
+      rw [e]; exact this.neg_right
+    exact this
+  rw [jacobiSym.mul_left, hd, mul_one, jacobiSym.at_neg_one hfo, ZMod.χ₄_nat_three_mod_four hf4] at hcong
+  exact jacobi_sq_ne_neg_one _ f hcong
+
+/-- **T1 for the Type I divisor form** (`FRONTIER.md:44`), at squares, under `gcd(f, m) = 1`:
+no `f ≡ −m² (mod 4cd)` coprime to `m` divides `m⁴ + 4c²d`. -/
+theorem no_typeI_square (m c d f : ℕ) (hcop : Nat.Coprime f m) :
+    ¬ (f ∣ (m ^ 2) ^ 2 + 4 * c ^ 2 * d ∧ 4 * c * d ∣ f + m ^ 2) := by
+  rintro ⟨hdiv, h4⟩
+  -- parity
+  have h4' : 4 ∣ f + m ^ 2 := dvd_trans (⟨c * d, by ring⟩ : 4 ∣ 4 * c * d) h4
+  have hmo : Odd m := by
+    rcases Nat.even_or_odd m with he | ho
+    · exfalso
+      have hf2 : 2 ∣ f := by
+        have h2m : 2 ∣ m ^ 2 := (even_iff_two_dvd.mp he).trans (Dvd.intro_left _ (by ring))
+        exact (Nat.dvd_add_left h2m).mp (dvd_trans (⟨2, by ring⟩ : 2 ∣ 4) h4')
+      have := Nat.dvd_gcd hf2 (even_iff_two_dvd.mp he)
+      rw [hcop] at this; omega
+    · exact ho
+  have hfo : Odd f := by
+    rcases Nat.even_or_odd f with he | ho
+    · exfalso
+      have h2 : 2 ∣ m ^ 2 := (Nat.dvd_add_right (even_iff_two_dvd.mp he)).mp
+        (dvd_trans (⟨2, by ring⟩ : 2 ∣ 4) h4')
+      have : ¬ 2 ∣ m ^ 2 := by rw [← even_iff_two_dvd]; exact Nat.not_even_iff_odd.mpr (hmo.pow)
+      exact this h2
+    · exact ho
+  have hd0 : d ≠ 0 := by
+    have := hfo.pos
+    rintro rfl; simp at h4; omega
+  -- (ii): J(−d | f) = 1
+  have hJm : jacobiSym m f ^ 4 = 1 := by
+    have h2 : jacobiSym m f ^ 2 = 1 := jacobiSym.sq_one (by
+      rw [Int.gcd_natCast_natCast]; exact hcop.symm)
+    calc jacobiSym m f ^ 4 = (jacobiSym m f ^ 2) ^ 2 := by ring
+      _ = 1 := by rw [h2]; norm_num
+  have hcong : jacobiSym ((m : ℤ) ^ 4) f = jacobiSym (-(d : ℤ) * ((2 * c : ℕ) : ℤ) ^ 2) f := by
+    apply jacobiSym.mod_left'
+    have : ((m : ℤ) ^ 4) ≡ -(d : ℤ) * ((2 * c : ℕ) : ℤ) ^ 2 [ZMOD f] := by
+      apply Int.modEq_iff_dvd.mpr
+      have : (f : ℤ) ∣ ((m ^ 2) ^ 2 + 4 * c ^ 2 * d : ℕ) := Int.natCast_dvd_natCast.mpr hdiv
+      have e : -(d : ℤ) * ((2 * c : ℕ) : ℤ) ^ 2 - (m : ℤ) ^ 4 = -(((m ^ 2) ^ 2 + 4 * c ^ 2 * d : ℕ) : ℤ) := by
+        push_cast; ring
+      rw [e]; exact this.neg_right
+    exact this
+  rw [jacobiSym.pow_left, hJm, jacobiSym.mul_left, jacobiSym.pow_left] at hcong
+  have hii : jacobiSym (-(d : ℤ)) f = 1 := by
+    rcases jacobiSym.trichotomy (-(d : ℤ)) f with h | h | h <;>
+      rcases jacobiSym.trichotomy ((2 * c : ℕ) : ℤ) f with h' | h' | h' <;>
+      rw [h, h'] at hcong <;> norm_num at hcong <;> exact h
+  -- (i): J(−d | f) = −J(−d | m)²
+  have hg : f % (4 * d) = (m ^ 2 * (4 * d - 1)) % (4 * d) := by
+    have h4d : 4 * d ∣ f + m ^ 2 := dvd_trans (⟨c, by ring⟩ : 4 * d ∣ 4 * c * d) h4
+    have hd1 : 1 ≤ 4 * d := by omega
+    have e : m ^ 2 * (4 * d - 1) + m ^ 2 = 4 * d * m ^ 2 := by
+      rw [Nat.mul_sub, mul_one, Nat.sub_add_cancel (Nat.le_mul_of_pos_right _ (by omega))]; ring
+    have h1 : f ≡ m ^ 2 * (4 * d - 1) [MOD 4 * d] := by
+      apply Nat.ModEq.add_right_cancel' (m ^ 2)
+      rw [e]
+      exact (Nat.modEq_zero_iff_dvd.mpr h4d).trans (Nat.modEq_zero_iff_dvd.mpr ⟨m ^ 2, rfl⟩).symm
+    exact h1
+  have hgo : Odd (m ^ 2 * (4 * d - 1)) := hmo.pow.mul (Nat.odd_iff.mpr (by omega))
+  have hJf : jacobiSym (-(d : ℤ)) f = jacobiSym (-(d : ℤ)) (m ^ 2 * (4 * d - 1)) := by
+    rw [jacobiSym.mod_right _ hfo, jacobiSym.mod_right _ hgo]
+    simp only [Int.natAbs_neg, Int.natAbs_natCast]
+    rw [hg]
+  have hm0 : NeZero (m ^ 2) := ⟨by have := hmo.pos; positivity⟩
+  have hq0 : NeZero (4 * d - 1) := ⟨by omega⟩
+  have hq : jacobiSym (-(d : ℤ)) (4 * d - 1) = -1 := by
+    have hqo : Odd (4 * d - 1) := Nat.odd_iff.mpr (by omega)
+    have hq4 : (4 * d - 1) % 4 = 3 := by omega
+    rw [neg_eq_neg_one_mul, jacobiSym.mul_left, jacobiSym.at_neg_one hqo,
+      ZMod.χ₄_nat_three_mod_four hq4, jacobi_C_of_dvd_succ (by rw [Nat.sub_add_cancel (by omega)])]
+    norm_num
+  rw [jacobiSym.mul_right, jacobiSym.pow_right, hq, hii] at hJf
+  rcases jacobiSym.trichotomy (-(d : ℤ)) m with h | h | h <;> rw [h] at hJf <;> norm_num at hJf
+
+/-! ### Optional: the standard reduction of ES to primes `p ≡ 1 (mod 4)` -/
+
+/-- ES is inherited by multiples: a solution for `n` scales to one for `k * n`. -/
+theorem ESProp_mul {n : ℕ} (k : ℕ) (hk : 0 < k) (h : ESProp n) : ESProp (k * n) := by
+  obtain ⟨x, y, z, hx, hy, hz, e⟩ := h
+  refine ⟨k * x, k * y, k * z, by positivity, by positivity, by positivity, ?_⟩
+  calc 4 * (k * x) * (k * y) * (k * z) = k ^ 3 * (4 * x * y * z) := by ring
+    _ = k ^ 3 * (n * (x * y + y * z + z * x)) := by rw [e]
+    _ = _ := by ring
+
+theorem ESProp_two : ESProp 2 := ⟨1, 2, 2, by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+/-- `n ≡ 3 (mod 4)`: `4/n = 1/(t+1) + 1/(2n(t+1)) + 1/(2n(t+1))`, `n = 4t + 3`. -/
+theorem ESProp_three_mod_four {n : ℕ} (h : n % 4 = 3) : ESProp n := by
+  obtain ⟨t, rfl⟩ : ∃ t, n = 4 * t + 3 := ⟨n / 4, by omega⟩
+  refine ⟨t + 1, 2 * (4 * t + 3) * (t + 1), 2 * (4 * t + 3) * (t + 1),
+    by positivity, by positivity, by positivity, ?_⟩
+  ring
+
+/-- **Reduction.** ES for every prime `p ≡ 1 (mod 4)` implies the full Erdős–Straus conjecture. -/
+theorem ES_of_primes_one_mod_four (h : ∀ p, p.Prime → p % 4 = 1 → ESProp p) : ErdosStraus := by
+  intro n hn
+  have hp := Nat.minFac_prime (show n ≠ 1 by omega)
+  obtain ⟨k, hk⟩ := Nat.minFac_dvd n
+  have hk0 : 0 < k := by
+    rcases Nat.eq_zero_or_pos k with rfl | hk0
+    · omega
+    · exact hk0
+  rw [hk, mul_comm]
+  apply ESProp_mul k hk0
+  rcases hp.eq_two_or_odd with h2 | hodd
+  · rw [h2]; exact ESProp_two
+  · have : n.minFac % 4 = 1 ∨ n.minFac % 4 = 3 := by omega
+    rcases this with h1 | h3
+    · exact h _ hp h1
+    · exact ESProp_three_mod_four h3
+
+/-- C-form at every prime `p ≡ 1 (mod 4)` would imply ES. (The hypothesis is believed FALSE: the repo's search
+finds no C-form certificate for p = 409, 577, 5569, 9601 with C ≤ 60000, `BRAINSTORM/z52b_free_fable.md:485`.) -/
+theorem ES_of_cform_primes (h : ∀ p, p.Prime → p % 4 = 1 → ∃ C a, CForm p C a) : ErdosStraus :=
+  ES_of_primes_one_mod_four fun p hp hp4 => by
+    obtain ⟨C, a, hc⟩ := h p hp hp4
+    exact cform_ES hc
+
 end ES
