@@ -8,12 +8,11 @@ ES is OPEN. Rows: `out_P04.jsonl`. Per-row labels are Assessments unless they ci
 | known-false | 30 | 0 | 0 | 0 | 30 |
 | circular | 23 | 0 | 0 | 0 | 23 |
 | unclear | 5 | 0 | 1 | 0 | 6 |
-| open-plausible | 0 | 1 | 0 | 0 | 1 |
+| open-plausible | 0 | 1 | 0 | 0 | 1 | (Z2921 = PILOT Z2609's involution question)
 Novelty: 0 → 67, 1 → 33, 2 → 0. The batch is mostly calibration/infrastructure (41 rows: OEIS anchors, checkers, search tooling, census hygiene) and translation-lane dictionaries.
 
 **Plausibility ≥ 2 AND novelty ≥ 1:** one item; it is calibration only.
 * **Z0022** (FF Zaremba / λ ≤ 3 over F_q[T]): *for every irreducible P of large degree, some A has Artin-CF length ≤ 3 with the ES₅ sign condition.* A doable FF computation (deg ≤ 10 over F₃, F₅) after verifying the Niederreiter/Friesen FF-Zaremba statements; no ES yield (FF→ℤ transfer is blocked, (J)30).
-* Plausibility 1: Z2921 (asymmetric involution with an odd fixed-point count at every p ≡ 1 (4); same as PILOT Z2609, novelty 0).
 
 **Recurring missing theorems**
 1. *One tied divisor event / ES-strength single family at each p* (B2): Z0858, Z0860, Z0937, Z0777, Z2770, Z1468, Z3098, Z1783(b), Z2692, Z1976, Z1273, Z2746. Three items turn out to be **known families**:
@@ -36,7 +35,6 @@ Novelty: 0 → 67, 1 → 33, 2 → 0. The batch is mostly calibration/infrastruc
 **Corrections to inputs and to a tempting shortcut**
 * Z1500: Pass 1 refuted "square discriminant ⇒ finite automorph group" with a counterexample over ℚ, but the lemma is TRUE over ℤ (split forms have no Pell units). The item's reading ("no orbit dynamics on (★)") stands.
 * POINTWISE_OMEGA13's W(p) bounds the witness modulus M = 4uC − 1, not the level C. Small levels with large u are not excluded.
-  Polylog *level* windows are the open HC-type target (FRONTIER §7.2). Rows Z1783, Z2414, Z2428, Z2595 and Z3098 were written with this distinction.
-* Z1468: the item assumed I3 is proved. It is CERTIFIED to 10⁹ only (FRONTIER §7.17).
+  Polylog *level* windows are the open HC-type target (FRONTIER §7.2). Rows Z1783, Z2414, Z2428, Z2595 and Z3098 were written with this distinction. Z1468 assumed I3 proved; it is CERTIFIED to 10⁹ only (§7.17).
 
 **Assessment.** No P04 item points at a proof architecture outside the repo's B1/B2/B3/T1 map. The useful outputs are the three identifications above (sub-families = known lines) and the forcing-confinement remark for item cluster 3. None has an ES yield.
