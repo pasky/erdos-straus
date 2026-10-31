@@ -1,0 +1,50 @@
+{"mid": "Z1996", "status": "untried", "files": [], "evidence": "", "note": "Parity barriers discussed only generically; no correlation of slice success with λ(4Cp+1) examined."}
+{"mid": "Z1997", "status": "blocked", "files": ["BRAINSTORM/ff_erdos_straus.md §Theorem 2.1 (PROVED, elementary)"], "evidence": "the q → ∞ limit (Katz / Bary-Soroker-type equidistribution of factorisation types) is precisely the regime where the analogue **fails**.", "note": "Repo shows fixed-P function-field ES fails as q grows; Theorem 2.1 kills the large-q existence claim."}
+{"mid": "Z1998", "status": "untried", "files": [], "evidence": "", "note": "No record of record-size Proth/Mordell-hard prime certificate search."}
+{"mid": "Z1999", "status": "untried", "files": [], "evidence": "", "note": "Euler n²+n+41 prime-density family not examined anywhere in repo."}
+{"mid": "Z2000", "status": "untried", "files": [], "evidence": "", "note": "Nested-modulus self-similarity of R/M not examined; scale-invariance hits are unrelated."}
+{"mid": "Z2001", "status": "untried", "files": [], "evidence": "", "note": "Dyadic-block menu set cover not computed; EXPONENT_COVERING is a different cover."}
+{"mid": "Z2002", "status": "untried", "files": [], "evidence": "", "note": "Integer short-interval certificate statement not examined; only prime short-interval remarks exist."}
+{"mid": "Z2003", "status": "untried", "files": [], "evidence": "", "note": "Summation-by-parts improvement via semigroup weights not examined; T(p) bound only."}
+{"mid": "Z2004", "status": "untried", "files": [], "evidence": "", "note": "Synthetic tunable-μ threshold experiment not found in repo."}
+{"mid": "Z2005", "status": "untried", "files": [], "evidence": "", "note": "Meta board-round for blind spots; no record of it."}
+{"mid": "Z2006", "status": "untried", "files": [], "evidence": "", "note": "No semigroup/Frobenius-number treatment of glued ES words found in repo."}
+{"mid": "Z2007", "status": "untried", "files": [], "evidence": "", "note": "Herzog complete-intersection semigroup reading absent from repo."}
+{"mid": "Z2008", "status": "untried", "files": [], "evidence": "", "note": "Rødseth/Greenberg algorithm absent from repo."}
+{"mid": "Z2009", "status": "untried", "files": [], "evidence": "", "note": "Fixed-level failure-set tabulation not recorded; only generic word-family analysis."}
+{"mid": "Z2010", "status": "untried", "files": [], "evidence": "", "note": "Apéry/genus invariants of ES semigroups not examined."}
+{"mid": "Z2011", "status": "untried", "files": [], "evidence": "", "note": "σ₂ level-set restriction of ES solutions not examined (only cubic surface integral points)."}
+{"mid": "Z2012", "status": "open", "files": ["BRAINSTORM/bsG_ternary_weinberger.md §Findings"], "evidence": "", "note": "Weinberger/Borwein–Choi ternary analysis examined; Tatuzawa-type effective step not done."}
+{"mid": "Z2013", "status": "open", "files": ["T1_TEMPLATE.md"], "evidence": "", "note": "Square-case T1 at level 4 proved in repo; classical literature trace (MO 364853) not done."}
+{"mid": "Z2014", "status": "untried", "files": [], "evidence": "", "note": "IMO-style Vieta-jumping analogue for level 4C divisors not found."}
+{"mid": "Z2015", "status": "open", "files": ["BRAINSTORM/z52_lit_localglobal_thin.md §bibliography (Shi et al.)"], "evidence": "This is the clearest genuine direct follow-up; source abstract verified.", "note": "Shi et al. abstract read; general criterion for reciprocity orbit structures not extracted."}
+{"mid": "Z2016", "status": "open", "files": ["BRAINSTORM/s3_lll_lenstra.md"], "evidence": "", "note": "Lenstra/Coppersmith certificate search examined; C≈p^{0.3} large-prime test unclear."}
+{"mid": "Z2017", "status": "untried", "files": [], "evidence": "", "note": "Ford-style anatomy prediction for witness levels not computed."}
+{"mid": "Z2018", "status": "untried", "files": [], "evidence": "", "note": "Residue-class Maier–Tenenbaum propinquity not found in literature notes."}
+{"mid": "Z2019", "status": "open", "files": ["CONDITIONAL_ES.md §7.3 Cramér scale"], "evidence": "", "note": "Cramér-scale analogy examined (§7.3); the item's what-ES-has-Cramér-lacks audit not done."}
+{"mid": "Z2020", "status": "untried", "files": [], "evidence": "", "note": "Maier matrix-method construction for ES not examined."}
+{"mid": "Z2021", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "BM-corrected Poisson model examined; Granville-sieved comparison and fit not recorded."}
+{"mid": "Z2022", "status": "untried", "files": [], "evidence": "", "note": "Legendre/Oppermann prime-between-squares not discussed as ES sibling."}
+{"mid": "Z2023", "status": "open", "files": ["BRAINSTORM/bsA_farey_lnr_pigeonhole.md", "SYNTHESIS_SPARKS9.md"], "evidence": "", "note": "Least non-residue examined for BM layer; correlation with R(p) not computed; judged no ES content."}
+{"mid": "Z2024", "status": "untried", "files": [], "evidence": "", "note": "Burgess-based primitive-root template for ES (★) not examined."}
+{"mid": "Z2025", "status": "untried", "files": [], "evidence": "", "note": "Linnik dispersion variance over C not computed; tech_smooth_level is a different tool."}
+{"mid": "Z2026", "status": "open", "files": ["SINGLE_P_COUNT.md"], "evidence": "", "note": "GRH log-log loss analysed; which GRH variant would give pointwise ES not pinned down."}
+{"mid": "Z2027", "status": "untried", "files": [], "evidence": "", "note": "Powers-of-2 absorbing set for ES not examined; Heath-Brown–Puchta mentioned only in passing."}
+{"mid": "Z2028", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Crocker infinite exceptions recorded from literature; covering construction and ES analogue not checked."}
+{"mid": "Z2029", "status": "done", "files": ["BRAUER_TWISTS.md §(0) Summary"], "evidence": "Its full Brauer quotient is `ℤ/2` unless `k` is a rational square; in that exceptional case it is `(ℤ/2)²`.", "note": "Cover Brauer pairing at squares computed; CT–Xu spinor framing not cited."}
+{"mid": "Z2030", "status": "untried", "files": [], "evidence": "", "note": "Tunnell-type ternary-form identity for ES not examined."}
+{"mid": "Z2031", "status": "open", "files": ["BRAINSTORM/y3_lucas_dickson_trace.md"], "evidence": "Primitive prime divisors of U_{4cd}(P,Q) with (D/h) = −1 are ≡ −1 (mod 4cd) (Carmichael/Bilu–Hanrot–Voutier)", "note": "Lucas primitive-divisor route examined; y3 notes divisors don't divide p+4c²d, residue left open."}
+{"mid": "Z2032", "status": "open", "files": ["BRAINSTORM/z31_unit_fractions.md §Sierpiński 5/n, Schinzel k/n"], "evidence": "", "note": "Schinzel/Sierpiński m/n-in-k-terms listed as open; the m−1 ladder tabulation not done."}
+{"mid": "Z2033", "status": "open", "files": ["INVOLUTION_ES.md §Prop 4.2"], "evidence": "", "note": "Only affine symmetries of S_n classified (S₃); non-affine involution with classifiable fixed points not addressed."}
+{"mid": "Z2034", "status": "untried", "files": [], "evidence": "", "note": "Vose term-count construction not examined for 4/p."}
+{"mid": "Z2035", "status": "open", "files": ["BRAINSTORM/z38_numerator8_control.md"], "evidence": "", "note": "8/n control done for BM argument; per-tool distinguish-4-from-8 audit not completed."}
+{"mid": "Z2036", "status": "open", "files": ["BRAINSTORM/y2_positivity_is_T1.md"], "evidence": "", "note": "Signed-term relaxation examined as positivity = T1; one-negative-term variant not tabulated."}
+{"mid": "Z2037", "status": "open", "files": ["B2_ACROSS_FIELDS.md §row 6/arith geometry"], "evidence": "", "note": "S-integral points mentioned for ES-related families; ℤ[1/S] relaxation not examined."}
+{"mid": "Z2038", "status": "untried", "files": [], "evidence": "", "note": "Chain/fixed-ratio sub-problems not examined as a sub-family census."}
+{"mid": "Z2039", "status": "untried", "files": [], "evidence": "", "note": "Descartes/Soddy curvature link to ES not computed."}
+{"mid": "Z2040", "status": "open", "files": ["B2_ACROSS_FIELDS.md §row 6 (E6, log K3 integral points)"], "evidence": "", "note": "Integral-points-on-log-K3 framing examined; Manin–CLT exponent prediction not made."}
+{"mid": "Z2041", "status": "untried", "files": [], "evidence": "", "note": "Wilsch log-Fano integral-point count not applied to ES threefold."}
+{"mid": "Z2042", "status": "untried", "files": [], "evidence": "", "note": "Hilbert-property/thin-image argument for ES fibration not examined."}
+{"mid": "Z2043", "status": "untried", "files": [], "evidence": "", "note": "Chen Wang Borwein-conjecture sign pattern not connected to ES; no record."}
+{"mid": "Z2044", "status": "open", "files": ["METAPLECTIC_ES.md §Thm K"], "evidence": "", "note": "Theta-quotient normal form examined; nonvanishing of its coefficients not analysed."}
+{"mid": "Z2045", "status": "open", "files": ["BRAINSTORM/s9_janson_dependency.md"], "evidence": "", "note": "Janson-type dependency bound for certificates examined; derandomised pseudorandom version not addressed."}
