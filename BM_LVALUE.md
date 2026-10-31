@@ -41,7 +41,7 @@ p ≥ 5 is a prime, χ = χ_p = (·/p), σ := χ(−1) = (−1)^{(p−1)/2}. As 
 p ≥ 5
   **T(p) = (σ/4)·E(χ_p)·L(1, χ_p)² + θ·c·p^{−1/16} log p,  |θ| ≤ 1.**
 Equivalently, p ≡ 1 (4): **T(p) = E(χ_p)·(h(p) log ε_p)²/p + O(p^{−1/16} log p)**; p ≡ 3 (4):
-T(p) = −(π²/4)·E(χ_p)·h(−p)²/p + O(p^{−1/16} log p). The boundary ℬ contributes only O(p^{−1/4}(log p)^{3/2}(log log p)²)
+T(p) = −(π²/4)·E(χ_p)·h(−p)²/p + O(p^{−1/16} log p). The boundary ℬ contributes only O(p^{−1/4}(log p)² log log p)
 (Pólya–Vinogradov suffices there); the p^{−1/16} comes from Burgess (r = 2) in the bulk. **CONDITIONAL on GRH** (via the
 Lindelöf consequence Σ_{n≤t}χ(n) ≪_ε t^{1/2}p^ε) the error is O_ε(p^{−1/4+ε}). Neither bound is close to the observed size
 (≈ p^{−1/2}(log p)^{3/2}, §1.3).
@@ -117,8 +117,98 @@ All 14 (★)-failures p ≡ 1 (4) ≤ 10¹⁰ (all ≤ 8 813 281, `B1_LINE.md` �
 At the 14 failures ≡ 1 (4) the identity's error decreases with p (0.49 → 0.03), as in the random sample. The hardest primes
 (smallest R/M_BM, p ≡ 1 (4), p ≥ 10⁴) are listed in `stats.txt`; their correlation with L(1, χ) is §3.3.
 
-## 2. Proof
-(TODO)
+## 2. Proof of Theorem A (PROVED)
+
+Notation: F(k) := χ(k)/k, G(t) := Σ_{k≤t} χ(k)/k, L := L(1, χ), S_χ(v) := Σ_{n≤v} χ(n), ν := max_{n≤p} n/φ(n) ≪ log log p.
+We may take p ≥ 100 (for p < 100 every quantity is bounded and the constant c absorbs it). Two external inputs:
+* **(PV)** For every interval, |Σ_{M<n≤M+N} χ(n)| ≤ P := √p log p (p ≥ 100). Explicit Pólya–Vinogradov
+  (Frolenkov–Soundararajan; Lapkova): ≤ (2/π²)√p log p + 0.9467√p + 1.668 (χ even), (1/2π)√p log p + 0.8204√p + 1.0286 (odd), as
+  quoted in Johnston–Ramaré–Trudgian, arXiv:2303.13785, Lemma 14; both are ≤ √p log p for p ≥ 100.
+* **(Bu)** Burgess (Proc. LMS 12 (1962) 193–206, Thm 2; Iwaniec–Kowalski Thm 12.6) with r = 2, prime modulus:
+  |Σ_{M<n≤M+N} χ(n)| ≤ C_B N^{1/2} p^{3/16} log p for all M, N ≥ 1, C_B absolute and effective (explicit versions:
+  Treviño, IJNT 11 (2015); Francis, JNT 228 (2021)).
+
+**Lemma 2.1 (decomposition).** T(p) = (σ/4)·(S(p/4) + S_ℬ), where
+S(x) := Σ_{m≤x, 2|m} χ(m)2^{ω(m)}/φ(m) and S_ℬ := Σ_{(u,B)∈ℬ} χ(u)χ(B)/(φ(u)φ(B)).
+*Proof.* On 𝒫(p) exactly one of u, B is even and gcd(u, B) = 1; if B = 2^k B′ (k ≥ 1, B′ odd) then
+φ(4uB) = 2^{k+1}φ(u)φ(B′) = 4φ(u)φ(B) (symmetrically if u is even). Also (4u − 1)(4B − 1) ≤ 4p + 1 gives u, B ≤ (p + 1)/3 < p,
+and (−uB/p) = σχ(u)χ(B). On 𝒫_bulk the coprime ordered factorisations m = uB of an even m ≤ p/4 are exactly its 2^{ω(m)}
+splittings (each has u + B odd), with φ(u)φ(B) = φ(m), χ(u)χ(B) = χ(m); and every pair with 4uB ≤ p is in 𝒫(p). ∎
+
+**Lemma 2.2 (the Dirichlet series; exact).** Let f(m) := 1[2|m]·2^{ω(m)}·m/φ(m). Then f = h ∗ τ (Dirichlet convolution), where
+h(d) = h₂(v₂(d))·∏_{ℓ^k ‖ d, ℓ odd} h_ℓ(k) with h₂(0) = 0, h₂(1) = 4, h₂(2) = −4, h₂(k) = 0 (k ≥ 3); h_ℓ(0) = 1,
+h_ℓ(1) = 2/(ℓ − 1), h_ℓ(2) = −(ℓ + 1)/(ℓ − 1), h_ℓ(k) = 0 (k ≥ 3). Consequently Σ_m χ(m)f(m)m^{−s} = L(s, χ)²H(s, χ) with
+H(s, χ) = Σ_d h(d)χ(d)d^{−s} absolutely convergent for Re s > 1/2, and **H(1, χ) = Σ_d h(d)χ(d)/d = E(χ)** of §1.1.
+*Proof.* f, τ and h are of product form F(m) = ∏_ℓ F_ℓ(v_ℓ(m)) (with f₂(0) = h₂(0) = 0 allowed), and the convolution of
+product-form functions is of product form with local convolutions, so it suffices to compare local power series. At 2:
+Σ_{k≥1} 4Y^k = 4Y/(1 − Y) = (4Y − 4Y²)(1 − Y)^{−2}. At odd ℓ: 1 + (2ℓ/(ℓ − 1))X/(1 − X) = (1 + 2X/(ℓ − 1) − ((ℓ + 1)/(ℓ − 1))X²)(1 − X)^{−2}
+(multiply out). Twisting by the completely multiplicative χ preserves the convolution identity. At s = 1 the local factors are
+4χ(2)/2 − 4χ(2)²/4 = 2χ(2) − 1 and 1 + 2χ(ℓ)/(ℓ(ℓ − 1)) − χ(ℓ)²(ℓ + 1)/(ℓ²(ℓ − 1)) = e_ℓ(χ(ℓ)). Absolute convergence: the moment
+H_θ := Σ_d |h(d)| d^{θ−1} = (4·2^{θ−1} + 4·4^{θ−1})·∏_{ℓ odd}(1 + 2ℓ^{θ−1}/(ℓ − 1) + (ℓ + 1)ℓ^{2θ−2}/(ℓ − 1)) is finite for
+θ < 1/2; numerically H_{1/4} = 13.97. Also Σ_{d≤x}|h(d)|d^{−1/2} ≤ (2 + 2√2)∏_{3≤ℓ≤x}(1 + 2/((ℓ−1)√ℓ) + (ℓ+1)/(ℓ(ℓ−1))) ≤ C₁ log x for
+x ≥ 10, by Mertens (numerically C₁ = 12.6 suffices up to x = 10⁷ and the ratio converges, ≈ 12.51 there). ∎
+(Checked exactly for m ≤ 3000 in `scripts/z52c_bmL_identity_check.py`.)
+
+**Lemma 2.3 (tails of L(1, χ)).** For t ≥ 1: (a) |L − G(t)| ≤ 2P/t; (b) |L − G(t)| ≤ K t^{−1/2} with K := 3C_B p^{3/16} log p;
+(c) |L| ≤ 2 + log p.
+*Proof.* By periodicity and Σ_{n≤p} χ(n) = 0, S_χ(v) = S_χ(v − p⌊v/p⌋), so (PV) gives |S_χ(v)| ≤ P and (Bu) gives
+|S_χ(v)| ≤ C_B v^{1/2}p^{3/16} log p for all v ≥ 0. Abel summation: L − G(t) = Σ_{n>t} χ(n)/n = −S_χ(t)/t + ∫_t^∞ S_χ(v)v^{−2}dv,
+whence (a) and (b) (∫_t^∞ v^{−3/2}dv = 2t^{−1/2}). (c): |G(p)| ≤ 1 + log p and 2P/p = 2 log p/√p < 1 for p ≥ 100. ∎
+
+**Lemma 2.4 (hyperbola; exact).** For y ≥ 1, z := √y, A(y) := Σ_{n≤y} χ(n)τ(n)/n = Σ_{ab≤y} F(a)F(b) satisfies
+  A(y) = L² − (L − G(z))² + 2Σ_{a≤z} F(a)(G(y/a) − L),
+hence, by Lemma 2.3(b) (y/a ≥ z ≥ 1 for a ≤ z) and Σ_{a≤z} a^{−1/2} ≤ 2z^{1/2}:
+  **|A(y) − L²| ≤ K² y^{−1/2} + 4K y^{−1/4}.**
+*Proof.* Dirichlet's hyperbola method gives Σ_{ab≤y} F(a)F(b) = 2Σ_{a≤z} F(a)G(y/a) − G(z)²; write G(y/a) = L + (G(y/a) − L)
+and 2G(z)L − G(z)² = L² − (L − G(z))². ∎ (Checked numerically at six primes.)
+
+**Proposition 2.5 (bulk).** For x ≥ 10:
+  |S(x) − E(χ)L²| ≤ C₁K² x^{−1/2} log x + (4K + L²)·H_{1/4}·x^{−1/4}.
+At x = p/4 this is **≤ 12√2·C_B·H_{1/4}·p^{−1/16} log p + O(p^{−1/8}(log p)³)**.
+*Proof.* By Lemma 2.2, S(x) = Σ_{m≤x} χ(m)f(m)/m = Σ_{dn≤x} (h(d)χ(d)/d)(τ(n)χ(n)/n) = Σ_{d≤x} (h(d)χ(d)/d)·A(x/d). Subtract
+E L² = Σ_d (h(d)χ(d)/d)L²:
+  S(x) − EL² = Σ_{d≤x} (h(d)χ(d)/d)(A(x/d) − L²) − L²Σ_{d>x} h(d)χ(d)/d.
+Lemma 2.4 with y = x/d bounds the first sum by K²x^{−1/2}Σ_{d≤x}|h(d)|d^{−1/2} + 4Kx^{−1/4}Σ_{d≤x}|h(d)|d^{−3/4}; the tail is
+≤ L²x^{−1/4}Σ_{d>x}|h(d)|d^{−3/4}. Use Lemma 2.2's moment bounds. At x = p/4: 4K x^{−1/4} = 12√2 C_B p^{−1/16} log p;
+K²x^{−1/2} = 18C_B² p^{−1/8}(log p)²; L²x^{−1/4} ≤ √2(2 + log p)²p^{−1/4} (Lemma 2.3(c)). ∎
+
+**Proposition 2.6 (boundary; Pólya–Vinogradov suffices).** |S_ℬ| ≪ p^{−1/4}(log p)² log log p; explicitly, for every
+1 ≤ U ≤ √p/2,
+  |S_ℬ| ≤ 31.2·ν·(1 + log p)(log p)(1 + log U)·U/√p + 2ν²(1/(3U) + 3/√p),
+and U = p^{1/4}/log p gives the stated order.
+*Proof.* ℬ is invariant under (u, B) ↔ (B, u), the summand is symmetric and u ≠ B (u + B odd), so S_ℬ = 2S_ℬ^<, the sum over
+u < B. For fixed u, (u, B) ∈ ℬ iff B ∈ J_u := (X_u, X_u + Y_u], X_u := p/(4u), X_u + Y_u := (p + u)/(4u − 1) [4uB > p, resp.
+B(4u − 1) ≤ p + u], together with gcd(B, u) = 1 and B ≢ u (mod 2). Here Y_u = (p + 4u²)/(4u(4u − 1)) ≤ p/(12u²) + 1/3, and u < B
+≤ (p + u)/(4u − 1) forces 4u² − 2u < p, i.e. u < u₀ := (1 + √(4p + 1))/4. For u ≤ U ≤ √p/2 one has X_u ≥ u, so u < B is automatic.
+(i) *Small u ≤ U (cancellation).* For B coprime to u, B/φ(B) = Σ_{e|B} ν_u(e) with ν_u(e) := μ²(e)∏_{ℓ|e, ℓ|u}(−1)∏_{ℓ|e, ℓ∤u}(ℓ − 1)^{−1},
+and Σ_{e|B} ν_u(e) = 0 if gcd(B, u) > 1 (a factor 1 − 1). Hence, with ε the required parity of B,
+  I(u) := Σ_{B∈J_u, (B,u)=1, B≡ε (2)} χ(B)/φ(B) = Σ_e (ν_u(e)χ(e)/e)·Σ_{n∈J_u/e, en≡ε (2)} χ(n)/n.
+The parity condition on n is: none, empty, or n ≡ 0 or 1 (mod 2); n = 2n′ gives (χ(2)/2)Σ_{n′∈J_u/(2e)} χ(n′)/n′ and "n odd" is
+the difference of the full and the even sum. For any interval (a, b], Abel summation with |Σ_{a<n≤t} χ(n)| ≤ P gives
+|Σ_{a<n≤b} χ(n)/n| ≤ P/b + P(1/a − 1/b) = P/a. So the inner sum is ≤ P e/X_u + ½·P·2e/X_u = 2Pe/X_u in absolute value, and
+  |I(u)| ≤ (2P/X_u)·Σ_{e ≤ p} |ν_u(e)| ≤ (2P/X_u)·2^{ω(u)}·1.95(1 + log p) = 15.6·2^{ω(u)}(1 + log p)·u·P/p,
+using Σ_{e≤Z} |ν_u(e)| ≤ 2^{ω(u)}Σ_{e₁≤Z} μ²(e₁)/φ(e₁) and Σ_{n≤Z} μ²(n)/φ(n) ≤ Σ_d μ²(d)/(dφ(d))·Σ_{m≤Z} 1/m ≤
+(ζ(2)ζ(3)/ζ(6))(1 + log Z) (from n/φ(n) = Σ_{d|n} μ²(d)/φ(d)). Summing with weight 1/φ(u) ≤ ν/u and Σ_{u≤U} 2^{ω(u)} ≤ U(1 + log U):
+Σ_{u≤U} |I(u)|/φ(u) ≤ 15.6ν(1 + log p)(log p)(1 + log U)U/√p.
+(ii) *Large u ∈ (U, u₀) (trivial).* Every admissible B exceeds X_u, so 1/φ(B) ≤ ν/X_u = 4νu/p, and there are ≤ Y_u + 1 of them:
+the u-term is ≤ (ν/u)(p/(12u²) + 4/3)(4νu/p) = ν²(1/(3u²) + 16/(3p)); summed over U < u < u₀ ≤ √p/2 + 1/2 this is
+≤ ν²(1/(3U) + 3/√p). Double for S_ℬ = 2S_ℬ^<. ∎
+
+**Proof of Theorem A.** T(p) − (σ/4)EL² = (σ/4)[(S(p/4) − EL²) + S_ℬ] (Lemma 2.1); Propositions 2.5 and 2.6 bound the brackets by
+O(p^{−1/16} log p) and O(p^{−1/4}(log p)² log log p). Every constant is absolute and effective (C_B, H_{1/4}, C₁, ζ-values). ∎
+
+**Conditional sharpening (CONDITIONAL on GRH for L(s, χ_p)).** GRH implies the Lindelöf bound for L(s, χ) and hence
+S_χ(v) ≪_ε v^{1/2}p^ε for all v (standard: Perron's formula shifted to Re s = 1/2 + ε). Then Lemma 2.3(b) holds with K ≪_ε p^ε,
+Proposition 2.5 gives O_ε(p^{−1/4+ε}), and the argument of 2.6(i) with |Σ_{a<n≤b}χ(n)| ≪ (b − a + 1)^{1/2}p^ε for all u ≤ u₀ gives
+O_ε(p^{−1/2+ε}) for the boundary. So **under GRH, T(p) = (σ/4)E L² + O_ε(p^{−1/4+ε})**. (The observed size p^{−1/2}(log p)^{3/2},
+§1.3, would need square-root cancellation in the bulk hyperbola terms beyond termwise bounds.)
+
+**Where the Pass-1 sketch was imprecise (and what changed).** (1) No truncation d ≤ p^ε is needed: Lemma 2.4's bound is
+uniform in y ≥ 1 and the d-sum converges against it (H_{1/4} < ∞). (2) The boundary does **not** need Burgess: Pólya–Vinogradov
+with the cut at U ≈ p^{1/4} suffices (the sketch's cut at p^{3/8} with Burgess is also valid). Burgess is genuinely needed in
+the bulk: with (PV) alone, Lemma 2.4's error is 2Σ_{a≤z}(1/a)(2Pa/y) ≈ 4P/√y ≈ 8 log p at y ≈ p/4 — not small, because the
+hyperbola sums G(y/a) at lengths down to √y ≈ √p/2 < √p. (3) The sketch's "o(1)" is in fact a power saving p^{−1/16}
+with an absolute effective constant (no Siegel-type ineffectivity: only upper bounds on character sums are used).
 
 ## 3. Consequences
 (TODO)
