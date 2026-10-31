@@ -1,0 +1,53 @@
+{
+ "Z1568_slice_fail_C<=200_p<=1e4": [
+  409,
+  577,
+  5569,
+  9601
+ ],
+ "Z1568_matches_given_list": true,
+ "slice_fail_C<=60_p_in_(1e4,6e4]": [
+  19141,
+  23041,
+  23929,
+  26209,
+  46237,
+  49669
+ ],
+ "n_checked_(1e4,6e4]": 2409,
+ "Z1054_one_den_div_p": {
+  "(-1, 1)": 5903,
+  "(1, -1)": 4753
+ },
+ "Z1054_legendre_of_yz_when_one_den_div_p": {
+  "-1": 10656
+ },
+ "Z1054_solutions": 15555,
+ "Z0636": {
+  "M": 120,
+  "n": 35,
+  "min_gap_times_p": [
+   73,
+   3.4673462665502086e-06
+  ],
+  "median_gap_times_p": 4.095674967260349e-05
+ },
+ "Z0356": {
+  "primes": 166,
+  "with_solution_with_p_multiples": 126
+ },
+ "Z0329": {
+  "1": {
+   "gaussian_primes_tested": 34,
+   "with_three_term_repr_norm<=25": 34
+  },
+  "2": {
+   "gaussian_primes_tested": 34,
+   "with_three_term_repr_norm<=25": 34
+  },
+  "3": {
+   "gaussian_primes_tested": 34,
+   "with_three_term_repr_norm<=25": 34
+  }
+ }
+}

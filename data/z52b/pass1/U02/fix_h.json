@@ -1,0 +1,15 @@
+{
+ "Z0919_corr_A_resU": -0.31154600686195305,
+ "Z0919_partial_A_resU_given_leg2": 0.39886017860800455,
+ "Z0919_partial_A_resU_given_leg2_leg-3_leg5_leg-7": 0.42168634752659767,
+ "Z0919_A-2B_resU": -0.08471945538762836,
+ "frac_A_zero_given_p_mod8_5": [
+  1.0,
+  0.0
+ ],
+ "Z0968_partial_A_resU_given_leg2_logh8_logh4": 0.30250409694299474,
+ "Z0968_partial_B_resU_given_leg2_logh8_logh4": 0.29865121225884855,
+ "Z0701_R2_logL_only": 0.5912306128442382,
+ "Z0701_R2_logL_plus_legendre": 0.639211381905449,
+ "Z0701_R2_legendre_only": 0.5954159110331063
+}
