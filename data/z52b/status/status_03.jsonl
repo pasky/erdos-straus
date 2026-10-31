@@ -48,3 +48,53 @@
 {"mid": "Z1245", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1246", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1247", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1248", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1249", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1250", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1251", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1252", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1253", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1254", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1255", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1256", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1257", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1258", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1259", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1260", "status": "blocked", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures", "note": "Croot/Bloom density methods applied to three-term ES recorded as collapsing."}
+{"mid": "Z1261", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md", "BRAINSTORM/z52_lit_unitfrac_cover.md"], "evidence": "", "note": "Erdős–Graham colouring discussed; partition of denominator candidates not examined."}
+{"mid": "Z1262", "status": "blocked", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures", "note": "Bloom density-increment route applied to ES recorded as collapsing by scale."}
+{"mid": "Z1263", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1264", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1265", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1266", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1267", "status": "blocked", "files": ["BRAINSTORM/greedy_algorithm_dynamics.md"], "evidence": "4/n with n odd has no representation with three odd denominators", "note": "Odd-denominator greedy variant recorded as impossible for odd n."}
+{"mid": "Z1268", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1269", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1270", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1271", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1272", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1273", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1274", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1275", "status": "open", "files": ["FUNCTIONFIELD_ES.md"], "evidence": "", "note": "Function-field landscape document exists; mechanism comparison not classified."}
+{"mid": "Z1276", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1277", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1278", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1279", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1280", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1281", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1282", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1283", "status": "open", "files": ["BRAINSTORM/z27_large_sieve_sunits.md", "BALANCED_LATTICE.md (I5)"], "evidence": "", "note": "S-unit box examined (too sparse); S-unit translation itself not classified."}
+{"mid": "Z1284", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1285", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1286", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md"], "evidence": "", "note": "Fibration over parameter examined; integral sections on congruence classes not assessed."}
+{"mid": "Z1287", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1288", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1289", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1290", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1291", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1292", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1293", "status": "open", "files": ["BRAINSTORM/rational_to_integral_cubic.md"], "evidence": "The quadratic structures inside ES are the split conics", "note": "Conic and rational-curve structure examined; construction through certificates not done."}
+{"mid": "Z1294", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1295", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1296", "status": "open", "files": ["BRAINSTORM/rational_to_integral_cubic.md"], "evidence": "", "note": "Low-degree curves on compactification discussed via conics; enumeration not carried out."}
+{"mid": "Z1297", "status": "open", "files": ["BRAINSTORM/z9_brandt_screen.md"], "evidence": "", "note": "Theta and class-number counts screened; assessment only."}
