@@ -378,3 +378,22 @@
 {"mid": "Z3171", "status": "untried", "files": [], "evidence": "", "note": "Prime/almost-prime parameters for certificates not tested."}
 {"mid": "Z3172", "status": "open", "files": ["BRAINSTORM/bsC_supersingular_transfer.md", "BRAINSTORM/bsD_eichler_degree_k.md"], "evidence": "", "note": "Supersingular/Eichler-order objects examined for ES transfer; small-vector ES test over maximal orders not run."}
 {"mid": "Z3173", "status": "open", "files": ["BRAINSTORM/farey_ford_cf.md", "BRAINSTORM/bsA_farey_lnr_pigeonhole.md"], "evidence": "", "note": "Euclid-length large deviations examined in Farey notes; fixed-denominator tail beyond denominator-averaged results not checked."}
+{"mid": "Z3174", "status": "open", "files": ["BRAINSTORM/z32_bm_obstruction_map.md", "BRAINSTORM/s9_disproof_class_layer.md"], "evidence": "", "note": "Reduction-theory/BM exclusion framework for Ghosh-Sarnak-type failures examined; ES reduced-representative congruence exclusion not computed."}
+{"mid": "Z3175", "status": "open", "files": ["BRAINSTORM/ff_erdos_straus.md"], "evidence": "", "note": "Function-field ES analogue examined in repo; small-q counterexample search with P of degree <=12 not run."}
+{"mid": "Z3176", "status": "untried", "files": [], "evidence": "", "note": "Coverage of primes by bounded-shape certificates versus U not computed."}
+{"mid": "Z3177", "status": "untried", "files": [], "evidence": "", "note": "Correlation matrix of family success indicators not computed."}
+{"mid": "Z3178", "status": "untried", "files": [], "evidence": "", "note": "Kolmogorov-sharpness classification of ES almost-all theorems not written."}
+{"mid": "Z3179", "status": "untried", "files": [], "evidence": "", "note": "Schinzel-on-average input for factorisations of 4Cp+1 not made explicit."}
+{"mid": "Z3180", "status": "open", "files": ["EXACT_FORMULA.md"], "evidence": "", "note": "Exact character-sum formula for D_C counts examined; size of nontrivial twisted sums versus tau(N) not measured."}
+{"mid": "Z3181", "status": "untried", "files": [], "evidence": "", "note": "Ternary-form representability of sporadic ES exception lists not tested."}
+{"mid": "Z3182", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "Relation between (★) and b=1 families for same p discussed in B1 notes; explicit switch bijection not constructed."}
+{"mid": "Z3183", "status": "untried", "files": [], "evidence": "", "note": "Zero-free-region analogue for small-level conspiracies not examined."}
+{"mid": "Z3184", "status": "untried", "files": [], "evidence": "", "note": "Window box-principle combination of equal-data windows not tested."}
+{"mid": "Z3185", "status": "open", "files": ["BM_CORRECTED_COUNT.md", "BRAINSTORM/bsE_depth_characters.md"], "evidence": "", "note": "Fourier/character expansions of divisor-class counts examined; Ramanujan-sum singular series decomposition not computed."}
+{"mid": "Z3186", "status": "open", "files": ["BRAINSTORM/z31_zero_sum.md", "BRAINSTORM/s6_divisor_pigeonhole.md"], "evidence": "", "note": "Zero-sum/Kneser-type covering of (Z/e)* by factor classes examined; ±1-diameter for hard windows not measured."}
+{"mid": "Z3187", "status": "untried", "files": [], "evidence": "", "note": "Finite base needed by a closure system for ES not computed."}
+{"mid": "Z3188", "status": "untried", "files": [], "evidence": "", "note": "Syracuse-type 2/3-adic random variable for minimal certificates not defined."}
+{"mid": "Z3189", "status": "untried", "files": [], "evidence": "", "note": "Berlekamp-Massey recurrences on minimal certificates along exponential families not run."}
+{"mid": "Z3190", "status": "untried", "files": [], "evidence": "", "note": "Automated CRT checker for configuration lemmas not implemented."}
+{"mid": "Z3191", "status": "untried", "files": [], "evidence": "", "note": "Stickiness of certificate-bearing levels across prime-sharing not measured."}
+{"mid": "Z3192", "status": "untried", "files": [], "evidence": "", "note": "Limiting empirical measure of divisor-class data as p grows not computed."}
