@@ -298,3 +298,53 @@
 {"mid": "Z1495", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1496", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1497", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1498", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1499", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1500", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1501", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1502", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1503", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1504", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1505", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1506", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1507", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1508", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1509", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1510", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1511", "status": "done", "files": ["data/z52b/free_fable_parts/TOP.md"], "evidence": "C-form certificate for C ≤ 60000 although ≈ 52 were", "note": "Finding recorded: C-form misses 409, 577, 5569, 9601 up to C ≤ 60000."}
+{"mid": "Z1512", "status": "done", "files": ["data/z52b/free_fable_parts/TOP.md"], "evidence": "only 39% are subgroup-type — multiplicity poverty, not Galois structure", "note": "Disagreement rate and rich-failure breakdown already recorded in the lane."}
+{"mid": "Z1513", "status": "done", "files": ["data/z52b/free_fable_parts/TOP.md"], "evidence": "Every C-form certificate divisor a is a QNR mod p", "note": "QNR lemma for C-form recorded; Type II extension checked separately (Z1567)."}
+{"mid": "Z1514", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1515", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1516", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1517", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1518", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1519", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1520", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1521", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1522", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1523", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1524", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1525", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1526", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1527", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1528", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1529", "status": "open", "files": ["data/z52b/free_fable_parts/TOP.md"], "evidence": "C-form certificate for C ≤ 60000 although ≈ 52 were", "note": "Expected-count gap computed for p=409 only; Type II comparison not done."}
+{"mid": "Z1530", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1531", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1532", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1533", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1534", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1535", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "", "note": "Circle-method scale assessment recorded; (c,d)-torus setup not carried out."}
+{"mid": "Z1536", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1537", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1538", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1539", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1540", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1541", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1542", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1543", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1544", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1545", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1546", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1547", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
