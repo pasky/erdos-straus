@@ -1,0 +1,11 @@
+p=1(4) n= 8977  min(y-x): frac==0 0.0
+  [1e+03,1e+04) n=529 log(min y-x)/log p: median 0.726 q10 0.561 q90 0.863 max 1.134; min(y-x)<=log^2 p: 0.043;  log(min z-y)/log p median 1.457 min 1.000 max 1.811
+  [1e+04,5e+04) n=1940 log(min y-x)/log p: median 0.740 q10 0.577 q90 0.867 max 1.017; min(y-x)<=log^2 p: 0.001;  log(min z-y)/log p median 1.461 min 1.000 max 1.763
+  [5e+04,1e+05) n=2234 log(min y-x)/log p: median 0.749 q10 0.594 q90 0.860 max 1.086; min(y-x)<=log^2 p: 0.000;  log(min z-y)/log p median 1.463 min 1.000 max 1.799
+  [1e+05,2e+05) n=4194 log(min y-x)/log p: median 0.754 q10 0.617 q90 0.853 max 1.017; min(y-x)<=log^2 p: 0.000;  log(min z-y)/log p median 1.464 min 1.000 max 1.828
+  smallest min(y-x) values overall: [np.int64(2), np.int64(5), np.int64(6), np.int64(9), np.int64(10), np.int64(11), np.int64(13), np.int64(14), np.int64(15), np.int64(18), np.int64(20), np.int64(21), np.int64(25), np.int64(26), np.int64(29)]
+  primes>1e5 with largest min(y-x)/p^0.5: [(np.float64(345.0966601891753), np.float64(129121.0)), (np.float64(365.2253655358174), np.float64(168481.0)), (np.float64(440.45631804562316), np.float64(129361.0))]
+  min over p of min(z-y)/p: 1.0  frac min(z-y) divisible by p: 1.0
+  corr(log min(y-x), log U): 0.257
+p=3(4) n= 9006  min(y-x): frac==0 1.0
+Type I min-gap solutions checked: 8956 failures: 0 min-gap attained with p|x or p|y: 10
