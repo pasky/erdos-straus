@@ -98,3 +98,57 @@
 {"mid": "Z2093", "status": "untried", "files": [], "evidence": "", "note": "Schinzel–Sierpiński shifted-form primes not examined for ES."}
 {"mid": "Z2094", "status": "untried", "files": [], "evidence": "", "note": "Hooley x²+y²+z³ representation not connected to ES."}
 {"mid": "Z2095", "status": "open", "files": ["s9_lower_tail_literature.md §Graham 1963"], "evidence": "", "note": "Graham n>77 unit-fraction theorem classified in literature table; ES-specific transfer not analysed."}
+{"mid": "Z2096", "status": "untried", "files": [], "evidence": "", "note": "Ford divisors-in-short-intervals not examined with ES residue restriction."}
+{"mid": "Z2097", "status": "untried", "files": [], "evidence": "", "note": "Erdős–Hall/Hooley divisor estimates not turned into ES pointwise count."}
+{"mid": "Z2098", "status": "untried", "files": [], "evidence": "", "note": "Tatuzawa effective Siegel bound not applied to ES character sums."}
+{"mid": "Z2099", "status": "open", "files": ["MARKOFF_ES.md"], "evidence": "", "note": "Markoff integral-Hasse analogues of BL examined; Loughran–Mitankin BM analysis not reconciled with ES."}
+{"mid": "Z2100", "status": "open", "files": ["BRAINSTORM/apollonian_reciprocity.md"], "evidence": "", "note": "Apollonian reciprocity obstructions examined (HKRS); ES-side transfer judged partial."}
+{"mid": "Z2101", "status": "untried", "files": [], "evidence": "", "note": "Finite congruence test for universal forms not examined for ES."}
+{"mid": "Z2102", "status": "untried", "files": [], "evidence": "", "note": "Hooley conditional Artin argument not compared with ES term-by-term."}
+{"mid": "Z2103", "status": "open", "files": ["SYNTHESIS_SPARKS9.md"], "evidence": "", "note": "BM layer pointwise-free iff n not square recorded; feature-flip isolation not pursued."}
+{"mid": "Z2104", "status": "untried", "files": [], "evidence": "", "note": "Almost-all-to-all exceptional-set method not applied to ES."}
+{"mid": "Z2105", "status": "untried", "files": [], "evidence": "", "note": "Three-versus-four-term unit-fraction comparison not analysed."}
+{"mid": "Z2106", "status": "untried", "files": [], "evidence": "", "note": "Linnik dispersion on ES divisor counts not computed."}
+{"mid": "Z2107", "status": "open", "files": ["BRAINSTORM/z30_genus_split.md"], "evidence": "", "note": "Genus-character main term split examined; ES real-character comparison not finalised."}
+{"mid": "Z2108", "status": "untried", "files": [], "evidence": "", "note": "290-theorem universal-form escalation not transferred to ES."}
+{"mid": "Z2109", "status": "open", "files": ["BRAINSTORM/s9_fibration_level.md"], "evidence": "", "note": "Harpaz conic-fibration integral points examined; bounded ES search use not analysed."}
+{"mid": "Z2110", "status": "open", "files": ["LITERATURE_AUTOMORPHIC.md"], "evidence": "", "note": "Mitankin–Uhlemann semi-integral Markoff paper recorded; ES comparison not analysed."}
+{"mid": "Z2111", "status": "open", "files": ["LITERATURE_AUTOMORPHIC.md"], "evidence": "", "note": "Weak-approximation gap for Markoff orbifold pairs recorded; ES witness gap not analysed."}
+{"mid": "Z2112", "status": "open", "files": ["LITERATURE_AUTOMORPHIC.md"], "evidence": "", "note": "Semi-integral diagnostic idea noted as a feature flip; not carried out."}
+{"mid": "Z2113", "status": "open", "files": ["LITERATURE_AUTOMORPHIC.md"], "evidence": "", "note": "Approximation-off-finite-set residue idea recorded; congruence subfamily test not done."}
+{"mid": "Z2114", "status": "untried", "files": [], "evidence": "", "note": "Markoff-type K3 integral Hasse counterexamples (arXiv:2504.10992) absent from repo."}
+{"mid": "Z2115", "status": "untried", "files": [], "evidence": "", "note": "Integral Hasse failure despite dense rational points not connected to ES in repo."}
+{"mid": "Z2116", "status": "untried", "files": [], "evidence": "", "note": "Markoff-type K3 Zariski-density claim (arXiv:2504.10992) absent from repo; no ES analysis."}
+{"mid": "Z2117", "status": "untried", "files": [], "evidence": "", "note": "Local-test audit via Markoff K3 counterexamples not examined in repo."}
+{"mid": "Z2118", "status": "untried", "files": [], "evidence": "", "note": "Spinor-genus classification (arXiv:2104.08798) absent from repo."}
+{"mid": "Z2119", "status": "untried", "files": [], "evidence": "", "note": "Near-miss identities for ternary forms (arXiv:2104.08798) not examined."}
+{"mid": "Z2120", "status": "untried", "files": [], "evidence": "", "note": "Ternary lattice-coset representations (arXiv:2104.08798) not connected to ES."}
+{"mid": "Z2121", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Lenstra-type residue-class divisor algorithm (arXiv:2410.05030) recorded; ES witness use not tested."}
+{"mid": "Z2122", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Euclidean-ring generalisation of divisor search recorded; ES certificate application not done."}
+{"mid": "Z2123", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Size-threshold limitation of divisor search recorded; ES size regime not analysed."}
+{"mid": "Z2124", "status": "untried", "files": [], "evidence": "", "note": "Sign-change divisor location for fixed ES slices not examined."}
+{"mid": "Z2125", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Function-field divisor-search extension recorded; ES-specific use not analysed."}
+{"mid": "Z2126", "status": "untried", "files": [], "evidence": "", "note": "Smith continuant binary-form representation (arXiv:1203.0347) absent from repo."}
+{"mid": "Z2127", "status": "untried", "files": [], "evidence": "", "note": "Polynomial continuant two-square construction (arXiv:1112.4535) absent from repo."}
+{"mid": "Z2128", "status": "untried", "files": [], "evidence": "", "note": "Continuant-increasing local moves (arXiv:1608.08322) absent from repo."}
+{"mid": "Z2129", "status": "untried", "files": [], "evidence": "", "note": "Continuant recurrence identities (arXiv:2501.06512) absent from repo."}
+{"mid": "Z2130", "status": "untried", "files": [], "evidence": "", "note": "Periodic continuant formulas (arXiv:2001.06213) absent from repo."}
+{"mid": "Z2131", "status": "untried", "files": [], "evidence": "", "note": "Continuant convergence bounds (arXiv:2106.03789) absent from repo."}
+{"mid": "Z2132", "status": "open", "files": ["BRAINSTORM/bsH_nagao_cf.md"], "evidence": "", "note": "SL2 matrix-entry encoding of CF words examined in Nagao/CF analysis; prescribed-entry test not done."}
+{"mid": "Z2133", "status": "open", "files": ["BRAINSTORM/bsA_minkowski_stern.md"], "evidence": "", "note": "Stern-row extremals linked to continuant words; counting analogy for ES not tested."}
+{"mid": "Z2134", "status": "untried", "files": [], "evidence": "", "note": "Two-for-two Egyptian rewriting (arXiv:2003.13229) absent from repo."}
+{"mid": "Z2135", "status": "untried", "files": [], "evidence": "", "note": "Parity in Egyptian-fraction rewrites (arXiv:2003.13229) absent from repo."}
+{"mid": "Z2136", "status": "open", "files": ["BRAINSTORM/z52_lit_unitfrac_cover.md"], "evidence": "", "note": "All-rational Egyptian-fraction construction recorded in unit-fraction lit lane; term-count contrast not analysed."}
+{"mid": "Z2137", "status": "untried", "files": [], "evidence": "", "note": "Egyptian rewrite interaction with S₃ symmetry not examined."}
+{"mid": "Z2138", "status": "untried", "files": [], "evidence": "", "note": "Two-term-to-three-term rewriting probe (arXiv:2003.13229) absent from repo."}
+{"mid": "Z2139", "status": "untried", "files": [], "evidence": "", "note": "Markoff matrix encoding (arXiv:0709.1499) absent from repo."}
+{"mid": "Z2140", "status": "open", "files": ["BRAINSTORM/bsA_fricke_vieta.md"], "evidence": "", "note": "Vieta/Markoff-tree navigation examined for ES; small-certificate descent not tested."}
+{"mid": "Z2141", "status": "untried", "files": [], "evidence": "", "note": "Generalised Markov–Hurwitz logarithmic growth (arXiv:2605.05075) absent from repo."}
+{"mid": "Z2142", "status": "untried", "files": [], "evidence": "", "note": "Positive Markov–Hurwitz solution study (arXiv:2605.05075) absent from repo."}
+{"mid": "Z2143", "status": "untried", "files": [], "evidence": "", "note": "Markov–Hurwitz orbit-tree contrast (arXiv:2605.05075) not analysed in repo."}
+{"mid": "Z2144", "status": "untried", "files": [], "evidence": "", "note": "Continuant order methods for orbit growth not examined for ES."}
+{"mid": "Z2145", "status": "untried", "files": [], "evidence": "", "note": "Fourier least-nonresidue bounds (arXiv:2404.08380) absent from repo."}
+{"mid": "Z2146", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "GRH least-nonresidue benchmark (arXiv:1309.3595) recorded; ES fibre-witness comparison not written up."}
+{"mid": "Z2147", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Least prime in progression result (arXiv:1309.3595) recorded for divisor residues; not tested for ES."}
+{"mid": "Z2148", "status": "untried", "files": [], "evidence": "", "note": "Soundararajan smooth-number equidistribution (arXiv:0707.0299) absent from repo."}
+{"mid": "Z2149", "status": "untried", "files": [], "evidence": "", "note": "Character-sum Fourier methods (arXiv:2404.08380) absent from repo."}
