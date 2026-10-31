@@ -1,0 +1,30 @@
+== m=3: 12980 primes; class sets with fewest failures (S as list of allowed classes):
+  S=[1, 2]: 1 fails, last=241, first=[241], by p mod 3: {1: 1}
+  S=[0, 1]: 4 fails, last=193, first=[5, 29, 73, 193], by p mod 3: {1: 2, 2: 2}
+  S=[0, 2]: 4 fails, last=97, first=[5, 13, 37, 97], by p mod 3: {1: 3, 2: 1}
+  S=[0]: 18 fails, last=12241, first=[5, 13, 29, 37, 73, 97, 193, 433], by p mod 3: {1: 16, 2: 2}
+  S=[1]: 12857 fails, last=299993, first=[5, 13, 17, 29, 37, 41, 53, 61], by p mod 3: {1: 6344, 2: 6513}
+  S=[2]: 12949 fails, last=299993, first=[5, 13, 17, 29, 37, 41, 53, 61], by p mod 3: {1: 6467, 2: 6482}
+== m=4: 12980 primes; class sets with fewest failures (S as list of allowed classes):
+  S=[0, 1, 2]: 0 fails, last=None, first=[], by p mod 4: {}
+  S=[0, 2, 3]: 0 fails, last=None, first=[], by p mod 4: {}
+  S=[1, 2, 3]: 0 fails, last=None, first=[], by p mod 4: {}
+  S=[0, 2]: 2 fails, last=241, first=[17, 241], by p mod 4: {1: 2}
+  S=[1, 2]: 2 fails, last=1009, first=[181, 1009], by p mod 4: {1: 2}
+  S=[2, 3]: 7 fails, last=4801, first=[5, 13, 37, 97, 193, 397, 4801], by p mod 4: {1: 7}
+  S=[0, 1, 3]: 11 fails, last=5281, first=[5, 13, 17, 37, 97, 113, 193, 241], by p mod 4: {1: 11}
+  S=[0, 3]: 12 fails, last=5281, first=[5, 13, 17, 37, 97, 113, 193, 241], by p mod 4: {1: 12}
+  S=[0, 1]: 14 fails, last=5281, first=[5, 13, 17, 37, 97, 113, 193, 241], by p mod 4: {1: 14}
+  S=[0]: 31 fails, last=83449, first=[5, 13, 17, 37, 73, 97, 113, 193], by p mod 4: {1: 31}
+  S=[1]: 12980 fails, last=299993, first=[5, 13, 17, 29, 37, 41, 53, 61], by p mod 4: {1: 12980}
+  S=[2]: 12980 fails, last=299993, first=[5, 13, 17, 29, 37, 41, 53, 61], by p mod 4: {1: 12980}
+== m=5: 12980 primes; class sets with fewest failures (S as list of allowed classes):
+  S=[0, 1, 2, 3]: 0 fails, last=None, first=[], by p mod 5: {}
+  S=[0, 2, 3, 4]: 0 fails, last=None, first=[], by p mod 5: {}
+  S=[0, 1, 2, 4]: 1 fails, last=61, first=[61], by p mod 5: {1: 1}
+  S=[0, 1, 3, 4]: 1 fails, last=5, first=[5], by p mod 5: {0: 1}
+  S=[1, 2, 3, 4]: 1 fails, last=5, first=[5], by p mod 5: {0: 1}
+  S=[0, 2, 3]: 2 fails, last=2521, first=[241, 2521], by p mod 5: {1: 2}
+  S=[0, 1, 4]: 2 fails, last=61, first=[5, 61], by p mod 5: {0: 1, 1: 1}
+  S=[0, 1, 3]: 3 fails, last=601, first=[5, 41, 601], by p mod 5: {0: 1, 1: 2}
+  S=[0, 2, 4]: 3 fails, last=2521, first=[61, 241, 2521], by p mod 5: {1: 3}
