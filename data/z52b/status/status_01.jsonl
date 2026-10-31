@@ -1,0 +1,50 @@
+{"mid": "Z0400", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0401", "status": "blocked", "files": ["BRAINSTORM/markoff_hasse_failures_vs_es.md"], "evidence": "So the GS construction fails at the Type II step.", "note": "Ghosh–Sarnak failure mechanism transported to ES examined; construction fails."}
+{"mid": "Z0402", "status": "untried", "files": [], "evidence": "", "note": "Markoff uniqueness only cited as analogy; no ES application examined."}
+{"mid": "Z0403", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0404", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0405", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0406", "status": "open", "files": ["BRAINSTORM/z52_deep_thin_pointwise_astra.md"], "evidence": "An obstruction theorem, not existence of a prescribed factor class.", "note": "Literature check judged wrong direction; no construction tested."}
+{"mid": "Z0407", "status": "open", "files": ["BRAINSTORM/bsE_padic_interpolation.md", "BRAINSTORM/bsK_skolem_dictionary.md"], "evidence": "", "note": "Skolem–Mahler–Lech/p-adic analysis done for families; identity with ES judged analogy only."}
+{"mid": "Z0408", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Stewart k=2 reduction flagged in lane header; subgroup analysis not recorded."}
+{"mid": "Z0409", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "Schinzel m/n exceptional sets treated for all m; N_m growth left open."}
+{"mid": "Z0410", "status": "done", "files": ["EXCEPTIONAL_MN.md §0"], "evidence": "Theorem B / Cor. C: progressions and primes in short intervals, as in SHORT (§5).", "note": "Uniform PW-type bound and short-interval version carried out in the note."}
+{"mid": "Z0411", "status": "open", "files": ["BRAINSTORM/z52_lit_thin_pointwise.md"], "evidence": "not a statement about each target n.", "note": "Erdős–Graham colouring examined as literature; judged not applicable pointwise."}
+{"mid": "Z0412", "status": "blocked", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures: number of terms,", "note": "Croot/Bloom density methods for unit fractions examined against 3-term ES; collapses by scale."}
+{"mid": "Z0413", "status": "open", "files": ["BRAINSTORM/greedy_algorithm_dynamics.md"], "evidence": "", "note": "Greedy dynamics for 4/p examined; odd-greedy termination within three terms not analysed."}
+{"mid": "Z0414", "status": "open", "files": ["ZAREMBA_TRANSFER.md"], "evidence": "", "note": "Zaremba pointwise method transferred to ES-five; conditional on unrefereed preprints."}
+{"mid": "Z0415", "status": "open", "files": ["BRAINSTORM/z31_zaremba_thin_orbits.md"], "evidence": "", "note": "Critical-exponent thin-orbit reading examined; alphabet search not recorded."}
+{"mid": "Z0416", "status": "open", "files": ["ES_APPROACH_GENERATORS.md", "BRAINSTORM/z36_reciprocity_obstruction_home.md"], "evidence": "ES₅/U(n) is not known to be an RS orbit or HKRS instance", "note": "Rickards–Stange model examined; sporadic-set fit not tested."}
+{"mid": "Z0417", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0418", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0419", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0420", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0421", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0422", "status": "open", "files": ["ES_APPROACH_GENERATORS.md"], "evidence": "A flea orbit provably misses every square. Up to 10¹² it misses only five further values; whether that", "note": "Flea-orbit square-missing examined as analogy; completeness left open."}
+{"mid": "Z0423", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0424", "status": "open", "files": ["BRAINSTORM/bsB_root_number_parity.md"], "evidence": "", "note": "Root-number parity forcing examined; Smith rank-parity route not recorded."}
+{"mid": "Z0425", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0426", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0427", "status": "open", "files": ["BRAINSTORM/bsG_ternary_weinberger.md"], "evidence": "105 and 2, 3, 5, 6, 9, 15 are idoneal, but 11, 14, 35, 510 are not.", "note": "Idoneal structure compared with Weinberger ternary set, not with U(n)."}
+{"mid": "Z0428", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0429", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0430", "status": "open", "files": ["BRAINSTORM/z45_recent_pointwise_tools.md"], "evidence": "", "note": "BHV/Stewart primitive divisors examined as pointwise analogue; not used as construction."}
+{"mid": "Z0431", "status": "open", "files": ["BRAINSTORM/z45_recent_pointwise_tools.md"], "evidence": "", "note": "Zsigmondy divisors examined; polynomial prime-divisor construction not tried."}
+{"mid": "Z0432", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0433", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0434", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0435", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0436", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0437", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Erdős–Tetali thin bases examined; natural sets lack polylog every-n regime."}
+{"mid": "Z0438", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0439", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0440", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0441", "status": "open", "files": ["B2_ACROSS_FIELDS.md"], "evidence": "T1: the Type I/II count is 0 at odd squares, so the congruence must see primality", "note": "Chevalley–Warning/EGZ count-congruence examined; judged to need primality input."}
+{"mid": "Z0442", "status": "open", "files": ["BRAINSTORM/polynomial_method.md"], "evidence": "", "note": "Nullstellensatz/polynomial-method approach examined; collapses in displayed forms only."}
+{"mid": "Z0443", "status": "open", "files": ["LONGSHOT_PIGEONHOLE.md"], "evidence": "", "note": "Thue-lemma pigeonhole covers transparent coset certificates only; not closed generally."}
+{"mid": "Z0444", "status": "open", "files": ["BALANCED_LATTICE.md"], "evidence": "", "note": "Minkowski/balanced-lattice route examined; left open."}
+{"mid": "Z0445", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0446", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0447", "status": "blocked", "files": ["BRAINSTORM/tech_maynard_theta.md"], "evidence": "to B3 at the step \"error ≤ main term\"", "note": "Maynard–Tao sieve with θ averaging examined for ES; memo verdict COLLAPSES."}
+{"mid": "Z0448", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0449", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
