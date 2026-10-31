@@ -336,7 +336,7 @@ is irrelevant at this order.
   open as before (barrier B3), and nothing here averages over p in a way that bears on a fixed p beyond prediction (B6
   respected: the factor is a deterministic function of p mod 840·16·11·13 and of log p, evaluated pointwise).
 * **Uniformity in Q is not established.** For p ≡ 1 modulo all primes ≤ y the first-order factors multiply to
-  ≈ ∏_{q ≤ y}(1 − c_q/L), with c_q ≍ (log q)/q·O(1) from §1.2 (2q/(q²+1)·(pair-term deficit ≈ 2 log q)), so log F ≈ −O(log y)/L;
+  ≈ ∏_{q ≤ y}(1 − c_q/L); for (★), §1.2 gives c_q = (2q/(q²+1))·(Ψ̄_q − Ψ_q(1)) = (6 + o(1))·(log q)/q (Ψ̄_q ∼ 3 log q, Ψ_q(1) = O(1)), so log F ≈ −(6 + o(1))·log y/L;
   for lcm(1..k) + 1 primes (y ≈ log p) this is −O(log log p/log p) → 0, but the first-order expansion is not justified when the
   product is far from 1 (2521: F_U = 0.17 at L = 7.8). Whether F_Q stays bounded below uniformly in Q is open (CONJECTURE: yes,
   F ≥ c > 0 for p ≥ p₀, because the deficit is confined to the shifts below 4q).
