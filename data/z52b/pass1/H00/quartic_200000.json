@@ -1,0 +1,64 @@
+{
+ "X": 200000,
+ "nprimes": 8964,
+ "stats": {
+  "all": {
+   "plus": 48206,
+   "minus": 48199,
+   "frac_plus": 0.5
+  },
+  "p%8=5": {
+   "plus": 24755,
+   "minus": 24569,
+   "frac_plus": 0.5019
+  },
+  "p%16=5": {
+   "plus": 12426,
+   "minus": 12284,
+   "frac_plus": 0.5029
+  },
+  "(2/p)4=0": {
+   "plus": 24755,
+   "minus": 24569,
+   "frac_plus": 0.5019
+  },
+  "p%16=13": {
+   "plus": 12329,
+   "minus": 12285,
+   "frac_plus": 0.5009
+  },
+  "p%8=1": {
+   "plus": 23451,
+   "minus": 23630,
+   "frac_plus": 0.4981
+  },
+  "p%16=9": {
+   "plus": 11932,
+   "minus": 12134,
+   "frac_plus": 0.4958
+  },
+  "(2/p)4=1": {
+   "plus": 11839,
+   "minus": 11805,
+   "frac_plus": 0.5007
+  },
+  "p%16=1": {
+   "plus": 11519,
+   "minus": 11496,
+   "frac_plus": 0.5005
+  },
+  "(2/p)4=-1": {
+   "plus": 11612,
+   "minus": 11825,
+   "frac_plus": 0.4955
+  }
+ },
+ "control": {
+  "plus": 13367,
+  "minus": 13492
+ },
+ "per_prime_frac_mean": 0.5002722948666359,
+ "per_prime_frac_sd": 0.16831139499482128,
+ "primes_all_plus": 99,
+ "primes_all_minus": 105
+}
