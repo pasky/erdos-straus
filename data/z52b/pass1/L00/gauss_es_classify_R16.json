@@ -1,0 +1,93 @@
+{
+ "R": 16,
+ "totals": {
+  "hits": 3160,
+  "xi_eq_eta": 40,
+  "zeta_in_xi_eta": 30,
+  "pi_divides_zeta": 2727,
+  "pi_divides_xi_or_eta": 899,
+  "any_degenerate": 3160
+ },
+ "per_pi_sample": [
+  {
+   "pi": [
+    0,
+    3
+   ],
+   "hits": 42,
+   "degenerate": 42
+  },
+  {
+   "pi": [
+    0,
+    7
+   ],
+   "hits": 117,
+   "degenerate": 117
+  },
+  {
+   "pi": [
+    0,
+    11
+   ],
+   "hits": 37,
+   "degenerate": 37
+  },
+  {
+   "pi": [
+    1,
+    1
+   ],
+   "hits": 0,
+   "degenerate": 0
+  },
+  {
+   "pi": [
+    1,
+    -1
+   ],
+   "hits": 0,
+   "degenerate": 0
+  },
+  {
+   "pi": [
+    1,
+    2
+   ],
+   "hits": 6,
+   "degenerate": 6
+  },
+  {
+   "pi": [
+    1,
+    -2
+   ],
+   "hits": 6,
+   "degenerate": 6
+  },
+  {
+   "pi": [
+    1,
+    4
+   ],
+   "hits": 38,
+   "degenerate": 38
+  },
+  {
+   "pi": [
+    1,
+    -4
+   ],
+   "hits": 38,
+   "degenerate": 38
+  },
+  {
+   "pi": [
+    1,
+    6
+   ],
+   "hits": 30,
+   "degenerate": 30
+  }
+ ]
+}
