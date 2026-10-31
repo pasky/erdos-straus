@@ -1,0 +1,5 @@
+M=840 units≡1(4)=96 uncovered=6 squares=6 uncovered==squares:True nonsquare-uncovered=0 square-covered=0
+M=9240 units≡1(4)=960 uncovered=34 squares=30 uncovered==squares:False nonsquare-uncovered=4 square-covered=0
+M=10920 units≡1(4)=1152 uncovered=46 squares=36 uncovered==squares:False nonsquare-uncovered=10 square-covered=0
+M=27720 units≡1(4)=2880 uncovered=98 squares=90 uncovered==squares:False nonsquare-uncovered=8 square-covered=0
+M=120120 units≡1(4)=11520 uncovered=242 squares=180 uncovered==squares:False nonsquare-uncovered=62 square-covered=0
