@@ -1,0 +1,8 @@
+409 R(p)= 0 wave-count= 0
+433 R(p)= 10 wave-count= 10
+601 R(p)= 4 wave-count= 4
+1009 R(p)= 6 wave-count= 6
+2521 R(p)= 2 wave-count= 2
+4801 R(p)= 10 wave-count= 10
+8641 R(p)= 6 wave-count= 6
+Popoviciu mismatches (uB<=60): 0
