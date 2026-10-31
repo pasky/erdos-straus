@@ -148,3 +148,53 @@
 {"mid": "Z1345", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1346", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1347", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1348", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1349", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1350", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1351", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1352", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1353", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1354", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1355", "status": "open", "files": ["BRAINSTORM/bsA_fricke_vieta.md"], "evidence": "", "note": "Fricke/Painlevé VI view noted; U_n as character variety not checked."}
+{"mid": "Z1356", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1357", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1358", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1359", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1360", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1361", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1362", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1363", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1364", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1365", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1366", "status": "open", "files": ["BRAINSTORM/technique_transfer_list.md §4"], "evidence": "", "note": "Matomäki–Radziwiłł transfer listed as analogue; no ES instance evaluated."}
+{"mid": "Z1367", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1368", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1369", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1370", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1371", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1372", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1373", "status": "done", "files": ["BRAINSTORM/s3_lll_lenstra.md"], "evidence": "they give no lower bound, so as existence tools they are B3/B6-blind", "note": "Lenstra/Coppersmith lattice computed on ES lines; first step carried out, only upper bounds."}
+{"mid": "Z1374", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1375", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1376", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1377", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1378", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1379", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1380", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1381", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1382", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1383", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1384", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1385", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1386", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1387", "status": "open", "files": ["B2_ACROSS_FIELDS.md §M5"], "evidence": "so the congruence must see primality / the quadratic character (F6)", "note": "Count-congruence (Chevalley–Warning-type) route assessed; primality requirement noted; not carried out."}
+{"mid": "Z1388", "status": "open", "files": ["prob_lll_fixed_p.md", "BRAINSTORM/z52_deep_thin_pointwise_astra.md §table row 7"], "evidence": "", "note": "Combinatorial Nullstellensatz analysed for ES grids; wrong direction for roots; left open."}
+{"mid": "Z1389", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1390", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1391", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1392", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1393", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1394", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1395", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1396", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1397", "status": "open", "files": ["BRAINSTORM/gon_lll_relation_lattice.md §5"], "evidence": "LLL/Coppersmith certify non-existence beyond a list, never existence", "note": "Bivariate Coppersmith on ES equation is the divisor problem; judged enumeration-only."}
