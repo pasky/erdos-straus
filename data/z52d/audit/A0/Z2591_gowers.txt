@@ -1,0 +1,14 @@
+q= 3 |G|=    24 |A||B||C|=     27 |G|^3/m=1.38e+04 ratio=1.95e-03 |ABC|=21 missing=3 (pred q(q-2)=3) all_traces=True
+q= 5 |G|=   120 |A||B||C|=    125 |G|^3/m=8.64e+05 ratio=1.45e-04 |ABC|=105 missing=15 (pred q(q-2)=15) all_traces=True
+q= 7 |G|=   336 |A||B||C|=    343 |G|^3/m=1.26e+07 ratio=2.71e-05 |ABC|=301 missing=35 (pred q(q-2)=35) all_traces=True
+q=11 |G|=  1320 |A||B||C|=   1331 |G|^3/m=4.6e+08 ratio=2.89e-06 |ABC|=1221 missing=99 (pred q(q-2)=99) all_traces=True
+q=13 |G|=  2184 |A||B||C|=   2197 |G|^3/m=1.74e+09 ratio=1.27e-06 |ABC|=2041 missing=143 (pred q(q-2)=143) all_traces=True
+q=17 |G|=  4896 |A||B||C|=   4913 |G|^3/m=1.47e+10 ratio=3.35e-07 |ABC|=4641 missing=255 (pred q(q-2)=255) all_traces=True
+q=19 |G|=  6840 |A||B||C|=   6859 |G|^3/m=3.56e+10 ratio=1.93e-07 |ABC|=6517 missing=323 (pred q(q-2)=323) all_traces=True
+q=23 |G|= 12144 |A||B||C|=  12167 |G|^3/m=1.63e+11 ratio=7.47e-08 |ABC|=11661 missing=483 (pred q(q-2)=483) all_traces=True
+q=29 |G|= 24360 |A||B||C|=  24389 |G|^3/m=1.03e+12 ratio=2.36e-08 |ABC|=23577 missing=783 (pred q(q-2)=783) all_traces=True
+q=31 |G|= 29760 |A||B||C|=  29791 |G|^3/m=1.76e+12 ratio=1.70e-08 |ABC|=28861 missing=899 (pred q(q-2)=899) all_traces=True
+q=37 |G|= 50616 |A||B||C|=  50653 |G|^3/m=7.2e+12 ratio=7.03e-09 |ABC|=49321 missing=1295 (pred q(q-2)=1295) all_traces=True
+q=41 |G|= 68880 |A||B||C|=  68921 |G|^3/m=1.63e+13 ratio=4.22e-09 |ABC|=67281 missing=1599 (pred q(q-2)=1599) all_traces=True
+q=43 |G|= 79464 |A||B||C|=  79507 |G|^3/m=2.39e+13 ratio=3.33e-09 |ABC|=77701 missing=1763 (pred q(q-2)=1763) all_traces=True
+q=47 |G|=103776 |A||B||C|= 103823 |G|^3/m=4.86e+13 ratio=2.14e-09 |ABC|=101661 missing=2115 (pred q(q-2)=2115) all_traces=True
