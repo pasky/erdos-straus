@@ -1,0 +1,30 @@
+C= 1 phi=  2  primes: P(fail)=0.2061 (n=108397)  integers: 0.2864  modelB(iid classes): 0.1572  modelB'(prod≡1): 0.3162
+C= 2 phi=  4  primes: P(fail)=0.4257 (n=108397)  integers: 0.4881  modelB(iid classes): 0.2707  modelB'(prod≡1): 0.4690
+C= 3 phi=  4  primes: P(fail)=0.5611 (n=108397)  integers: 0.5828  modelB(iid classes): 0.3447  modelB'(prod≡1): 0.5714
+C= 4 phi=  8  primes: P(fail)=0.5978 (n=108397)  integers: 0.6705  modelB(iid classes): 0.4041  modelB'(prod≡1): 0.6088
+C= 5 phi=  8  primes: P(fail)=0.6681 (n=108397)  integers: 0.7095  modelB(iid classes): 0.4446  modelB'(prod≡1): 0.6580
+C= 6 phi=  8  primes: P(fail)=0.7268 (n=108397)  integers: 0.7435  modelB(iid classes): 0.5104  modelB'(prod≡1): 0.7175
+C= 7 phi= 12  primes: P(fail)=0.7321 (n=108397)  integers: 0.7811  modelB(iid classes): 0.5182  modelB'(prod≡1): 0.7116
+C= 8 phi= 16  primes: P(fail)=0.7636 (n=108397)  integers: 0.8032  modelB(iid classes): 0.5578  modelB'(prod≡1): 0.7373
+C= 9 phi= 12  primes: P(fail)=0.8001 (n=108397)  integers: 0.8198  modelB(iid classes): 0.5989  modelB'(prod≡1): 0.7782
+C=10 phi= 16  primes: P(fail)=0.8000 (n=108397)  integers: 0.8373  modelB(iid classes): 0.6147  modelB'(prod≡1): 0.7862
+C=11 phi= 20  primes: P(fail)=0.8166 (n=108397)  integers: 0.8489  modelB(iid classes): 0.6226  modelB'(prod≡1): 0.7867
+C=12 phi= 16  primes: P(fail)=0.8468 (n=108397)  integers: 0.8589  modelB(iid classes): 0.6658  modelB'(prod≡1): 0.8241
+C=13 phi= 24  primes: P(fail)=0.8371 (n=108397)  integers: 0.8717  modelB(iid classes): 0.6546  modelB'(prod≡1): 0.8079
+C=14 phi= 24  primes: P(fail)=0.8519 (n=108397)  integers: 0.8800  modelB(iid classes): 0.6795  modelB'(prod≡1): 0.8242
+C=15 phi= 16  primes: P(fail)=0.8779 (n=108397)  integers: 0.8837  modelB(iid classes): 0.7148  modelB'(prod≡1): 0.8599
+C=16 phi= 32  primes: P(fail)=0.8640 (n=108397)  integers: 0.8950  modelB(iid classes): 0.7043  modelB'(prod≡1): 0.8397
+C=17 phi= 32  primes: P(fail)=0.8761 (n=108397)  integers: 0.8997  modelB(iid classes): 0.7121  modelB'(prod≡1): 0.8466
+C=18 phi= 24  primes: P(fail)=0.8954 (n=108397)  integers: 0.9033  modelB(iid classes): 0.7430  modelB'(prod≡1): 0.8694
+C=19 phi= 36  primes: P(fail)=0.8812 (n=108397)  integers: 0.9100  modelB(iid classes): 0.7337  modelB'(prod≡1): 0.8586
+C=20 phi= 32  primes: P(fail)=0.8960 (n=108397)  integers: 0.9130  modelB(iid classes): 0.7497  modelB'(prod≡1): 0.8702
+C=21 phi= 24  primes: P(fail)=0.9117 (n=108397)  integers: 0.9157  modelB(iid classes): 0.7713  modelB'(prod≡1): 0.8890
+C=22 phi= 40  primes: P(fail)=0.8991 (n=108397)  integers: 0.9220  modelB(iid classes): 0.7600  modelB'(prod≡1): 0.8738
+C=23 phi= 44  primes: P(fail)=0.9053 (n=108397)  integers: 0.9253  modelB(iid classes): 0.7664  modelB'(prod≡1): 0.8788
+C=24 phi= 32  primes: P(fail)=0.9195 (n=108397)  integers: 0.9274  modelB(iid classes): 0.7918  modelB'(prod≡1): 0.8985
+C=25 phi= 40  primes: P(fail)=0.9135 (n=108397)  integers: 0.9310  modelB(iid classes): 0.7826  modelB'(prod≡1): 0.8899
+C=26 phi= 48  primes: P(fail)=0.9171 (n=108397)  integers: 0.9329  modelB(iid classes): 0.7879  modelB'(prod≡1): 0.8922
+C=27 phi= 36  primes: P(fail)=0.9278 (n=108397)  integers: 0.9350  modelB(iid classes): 0.8087  modelB'(prod≡1): 0.9060
+C=28 phi= 48  primes: P(fail)=0.9206 (n=108397)  integers: 0.9378  modelB(iid classes): 0.7995  modelB'(prod≡1): 0.8967
+C=29 phi= 56  primes: P(fail)=0.9236 (n=108397)  integers: 0.9405  modelB(iid classes): 0.8051  modelB'(prod≡1): 0.9010
+C=30 phi= 32  primes: P(fail)=0.9376 (n=108397)  integers: 0.9413  modelB(iid classes): 0.8291  modelB'(prod≡1): 0.9211
