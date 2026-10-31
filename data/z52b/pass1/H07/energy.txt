@@ -1,0 +1,6 @@
+N=1000 S1/N=5.3490 S2/N=40.5350 S3/N=370.653  S1/(N L^2)=0.1121 S2/(N L^4)=0.01780 S3/(N L^6)=0.003412  primes1mod4: meanR/L^2=0.1493 meanR^2/L^4=0.02773  ratio E[R^2]/E[R]^2 all=1.417 primes=1.244 maxR=20
+N=10000 S1/N=9.5948 S2/N=120.4292 S3/N=1798.299  S1/(N L^2)=0.1131 S2/(N L^4)=0.01674 S3/(N L^6)=0.002946  primes1mod4: meanR/L^2=0.1423 meanR^2/L^4=0.02416  ratio E[R^2]/E[R]^2 all=1.308 primes=1.194 maxR=37
+N=100000 S1/N=15.1873 S2/N=288.2247 S3/N=6445.646  S1/(N L^2)=0.1146 S2/(N L^4)=0.01641 S3/(N L^6)=0.002768  primes1mod4: meanR/L^2=0.1435 meanR^2/L^4=0.02406  ratio E[R^2]/E[R]^2 all=1.250 primes=1.169 maxR=69
+N=1000000 S1/N=22.1015 S2/N=592.1985 S3/N=18565.224  S1/(N L^2)=0.1158 S2/(N L^4)=0.01626 S3/(N L^6)=0.002670  primes1mod4: meanR/L^2=0.1444 meanR^2/L^4=0.02391  ratio E[R^2]/E[R]^2 all=1.212 primes=1.147 maxR=116
+N=10000000 S1/N=30.3399 S2/N=1091.7763 S3/N=45657.297  S1/(N L^2)=0.1168 S2/(N L^4)=0.01618 S3/(N L^6)=0.002604  primes1mod4: meanR/L^2=0.1453 meanR^2/L^4=0.02381  ratio E[R^2]/E[R]^2 all=1.186 primes=1.128 maxR=183
+N=100000000 S1/N=39.9040 S2/N=1857.6689 S3/N=99912.946  S1/(N L^2)=0.1176 S2/(N L^4)=0.01613 S3/(N L^6)=0.002557  primes1mod4: meanR/L^2=0.1459 meanR^2/L^4=0.02372  ratio E[R^2]/E[R]^2 all=1.167 primes=1.114 maxR=313
