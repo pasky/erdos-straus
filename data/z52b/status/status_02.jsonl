@@ -1,0 +1,80 @@
+{"mid": "Z0799", "status": "untried", "files": [], "evidence": " ", "note": "Gaussian angle θ_p correlation with hardness not examined; only Gaussian identity/menu memos exist."}
+{"mid": "Z0800", "status": "untried", "files": [], "evidence": " ", "note": "No repo doc studies root numbers of quadratic twists of 32a1 against p."}
+{"mid": "Z0801", "status": "untried", "files": [], "evidence": " ", "note": "ord_p(2) appears only as a divisibility auxiliary, never correlated with U(p)."}
+{"mid": "Z0802", "status": "open", "files": ["s7_lvalue_proxy.md", "BRAINSTORM/README.md"], "evidence": " ", "note": "Close variant (least window vs L(1,χ_p) hardness) examined; R-zero L-quantile claim not tested."}
+{"mid": "Z0803", "status": "open", "files": ["ident_invariants.md", "adv_new_drivers.md"], "evidence": " ", "note": "h(−4p) hardness-driver regressions examined as nulls; R-zero quantile not checked."}
+{"mid": "Z0804", "status": "open", "files": ["HARD_PAIR.md", "BRAINSTORM/s8_b1_line_census.md"], "evidence": " ", "note": "HARD_PAIR studies why 193 and 2521 are hardest; L/class-number quantiles of Type-A failures not computed."}
+{"mid": "Z0805", "status": "open", "files": ["BRAINSTORM/corr_typeI_typeII_joint.md"], "evidence": " ", "note": "Joint Type I/II correlation at one p was examined; the two-twist joint-failure model is a close variant left open."}
+{"mid": "Z0806", "status": "open", "files": ["BRAINSTORM/anal_euler_product_law.md", "BRAINSTORM/s7_lvalue_proxy.md"], "evidence": " ", "note": "Euler-product statistic of L(1,χ_p) examined; per-prime weight fit not recorded as done."}
+{"mid": "Z0807", "status": "open", "files": ["BRAINSTORM/README.md"], "evidence": " ", "note": "ET log³ average normalisation is discussed; the flatness refit over dyadic ranges is not recorded."}
+{"mid": "Z0808", "status": "open", "files": ["BRAINSTORM/corr_typeI_typeII_joint.md"], "evidence": " ", "note": "Shift-richness Σ log τ((p+e)/4) joint with χ effects examined; residual-variance test not recorded."}
+{"mid": "Z0809", "status": "untried", "files": [], "evidence": " ", "note": "No repo document tests lognormality of U(p)/log²p."}
+{"mid": "Z0810", "status": "untried", "files": [], "evidence": " ", "note": "ρ(U, I3(p)) and word-count correlations are not recorded in any repo memo."}
+{"mid": "Z0811", "status": "untried", "files": [], "evidence": " ", "note": "Fermat quotient q_p(2) appears only in Wieferich theory memos, never correlated with U(p)."}
+{"mid": "Z0812", "status": "untried", "files": [], "evidence": " ", "note": "Safe-prime ES counts are not examined; Sophie Germain memos concern families of n, not p."}
+{"mid": "Z0813", "status": "open", "files": ["BRAINSTORM/z1_depth_bits.md"], "evidence": " ", "note": "2-adic depth per level examined (z1_depth_bits); U on Fermat-type primes 2^k·m+1 not computed."}
+{"mid": "Z0814", "status": "untried", "files": [], "evidence": " ", "note": "Proth primes appear as ES families (z15), not as U(p) test beds."}
+{"mid": "Z0815", "status": "untried", "files": [], "evidence": " ", "note": "h(p) and h(−4p) are examined; class number of Q(ζ_p)^+ is not."}
+{"mid": "Z0816", "status": "open", "files": ["BRAINSTORM/corr_typeI_typeII_joint.md"], "evidence": " ", "note": "Residue classes of p mod 5,7 were correlated with joint Type I/II; raw-residue test not separately recorded."}
+{"mid": "Z0817", "status": "untried", "files": [], "evidence": " ", "note": "Regression of U(p) on Mordell identity-class indicators (LASSO) is not in any repo memo."}
+{"mid": "Z0818", "status": "untried", "files": [], "evidence": " ", "note": "Solutions-per-x concentration index U/nx not examined."}
+{"mid": "Z0819", "status": "untried", "files": [], "evidence": " ", "note": "Solution-pattern fingerprint mod small q was never computed; no repo memo records it."}
+{"mid": "Z0820", "status": "open", "files": ["BRAINSTORM/adv_new_drivers.md"], "evidence": " ", "note": "Driver correlations for p ≡ 3 (mod 4) examined as a sign-flip case; the χ_p refit on that class not recorded."}
+{"mid": "Z0821", "status": "untried", "files": [], "evidence": " ", "note": "U(pq) versus U(p), U(q) regression not examined in any repo memo."}
+{"mid": "Z0822", "status": "open", "files": ["AMPLIFY_EXCEPTION.md", "ASTRA_BRIDGE.md"], "evidence": " ", "note": "Odd-square counts examined via T1 and divisor structure; U(p²) counts vs neighbours not recorded."}
+{"mid": "Z0823", "status": "open", "files": ["BRAINSTORM/anal_euler_product_law.md"], "evidence": " ", "note": "Per-prime Euler-product weights on (q/p) examined; the mod-3 split of weights is not recorded."}
+{"mid": "Z0824", "status": "open", "files": ["BRAINSTORM/adv_new_drivers.md", "BRAINSTORM/z29_dickson_least_shift.md"], "evidence": " ", "note": "Shift-divisor drivers τ(p+s) and least shifts examined; the (−3/q) confound via q | p+3 not tested."}
+{"mid": "Z0825", "status": "open", "files": ["BRAINSTORM/adv_new_drivers.md", "BRAINSTORM/y7_near_misses.md"], "evidence": " ", "note": "The (7/p) null was examined as a 7-adic effect; the confound with 7 | p+3 is not recorded."}
+{"mid": "Z0826", "status": "open", "files": ["BRAINSTORM/adv_new_drivers.md"], "evidence": " ", "note": "Driver effects for p ≡ 3 (mod 4) via χ_{−p} examined; per-prime Euler weights for that class not recorded."}
+{"mid": "Z0827", "status": "open", "files": ["BRAINSTORM/adv_new_drivers.md"], "evidence": " ", "note": "Sign flip between residue classes mod 4 is noted as a genus-character effect; L-power fit not done."}
+{"mid": "Z0828", "status": "untried", "files": [], "evidence": " ", "note": "Per-prime weights for the (★) count R(p) and its 3-, 7-adic densities were never computed."}
+{"mid": "Z0829", "status": "untried", "files": [], "evidence": " ", "note": "I3 per-prime weights and sign comparison with U not examined in any repo memo."}
+{"mid": "Z0830", "status": "open", "files": ["BRAINSTORM/adv_new_drivers.md"], "evidence": " ", "note": "Shifted-divisor correlations log τ(p+s) examined for several s; mod-3 split of ρ across shifts not recorded."}
+{"mid": "Z0831", "status": "open", "files": ["AMPLIFY_EXCEPTION.md", "ASTRA_BRIDGE.md"], "evidence": " ", "note": "Solutions at odd squares examined for inheritance and T1; counts normalised to neighbours not recorded."}
+{"mid": "Z0832", "status": "open", "files": ["AMPLIFY_EXCEPTION.md"], "evidence": " ", "note": "Valuation patterns of solutions of 4/p² classified; inheritance fraction from 4/p not tested."}
+{"mid": "Z0833", "status": "untried", "files": [], "evidence": " ", "note": "Composite pq solution counts vs factor counts not examined in any repo memo."}
+{"mid": "Z0834", "status": "open", "files": ["BRAINSTORM/z1_depth_bits.md", "HARD_PAIR.md"], "evidence": " ", "note": "2-adic depth examined as a hardness driver; Proth prime counts and v₂(p−1) regression not recorded."}
+{"mid": "Z0835", "status": "open", "files": ["BRAINSTORM/z1_depth_bits.md", "BRAINSTORM/y5_mod16_shadow.md"], "evidence": " ", "note": "2-adic depth per level and mod-16 shadow examined; saturation at 16 not recorded."}
+{"mid": "Z0836", "status": "open", "files": ["BRAINSTORM/markoff_hasse_failures_vs_es.md"], "evidence": " ", "note": "Failure sets of m/p compared with ES counts; count-law prediction of failing m not recorded."}
+{"mid": "Z0837", "status": "untried", "files": [], "evidence": " ", "note": "Binary-expansion null test on hard primes was never run."}
+{"mid": "Z0838", "status": "untried", "files": [], "evidence": " ", "note": "Five-slice CF count versus U(p) not correlated in any repo memo."}
+{"mid": "Z0839", "status": "open", "files": ["FRONTIER.md §7 (item 14)"], "evidence": " ", "note": "Open problem ES⇒ES₅ listed in FRONTIER §7 with 56% of solutions outside five-slice; per-prime fraction not computed."}
+{"mid": "Z0840", "status": "open", "files": ["BRAINSTORM/bsA_farey_lnr_pigeonhole.md", "BRAINSTORM/s4_maslov_inertia.md"], "evidence": " ", "note": "Hirzebruch–Jung length λ(p) bounded and studied at length 3; cross-tab with U quantiles not recorded."}
+{"mid": "Z0841", "status": "open", "files": ["BRAINSTORM/corr_typeI_typeII_joint.md"], "evidence": " ", "note": "Type I/II split and its joint behaviour examined; k₁/k₂ ratio by p mod 24 not tabulated."}
+{"mid": "Z0842", "status": "untried", "files": [], "evidence": " ", "note": "Clustering of hard primes by residue deficit vectors not examined."}
+{"mid": "Z0843", "status": "open", "files": ["BRAINSTORM/hardness_law.md"], "evidence": " ", "note": "Hardness predicted from χ_p and congruence data examined; logistic R-zero prediction AUC not recorded."}
+{"mid": "Z0844", "status": "untried", "files": [], "evidence": " ", "note": "Least C per p mod small numbers was never computed; no repo memo tracks Cmin by residues."}
+{"mid": "Z0845", "status": "untried", "files": [], "evidence": " ", "note": "Carmichael-number U ratios were not examined in any repo memo."}
+{"mid": "Z0846", "status": "untried", "files": [], "evidence": " ", "note": "Joint zero census of (★), Uv, I3 over non-squares was not recorded beyond the z52b wave."}
+{"mid": "Z0847", "status": "untried", "files": [], "evidence": " ", "note": "Vmin shift-record census up to 3·10⁶ not recorded in any repo memo."}
+{"mid": "Z0848", "status": "untried", "files": [], "evidence": " ", "note": "Independence-model prediction of Vmin tail not recorded; single-shift law exists but not applied here."}
+{"mid": "Z0849", "status": "untried", "files": [], "evidence": " ", "note": "Cmin records for (★) words at primes not recorded beyond the z52b wave."}
+{"mid": "Z0850", "status": "untried", "files": [], "evidence": " ", "note": "Boundary-only (★) primes as a hardness list were never examined."}
+{"mid": "Z0851", "status": "untried", "files": [], "evidence": " ", "note": "I3 minimal-coordinate growth records not examined in repo."}
+{"mid": "Z0852", "status": "untried", "files": [], "evidence": " ", "note": "Distribution of Cmin (fraction with Cmin=1) not recorded in repo memos."}
+{"mid": "Z0853", "status": "open", "files": ["EXSET_SHIFT_DIVISORS.md"], "evidence": " ", "note": "Single-shift failure law and its independence are discussed; empirical joint-event correlation matrix not recorded."}
+{"mid": "Z0854", "status": "untried", "files": [], "evidence": " ", "note": "Zero-family intersection at n=105 is noted only in z52b-wave memos; no repo memo tests n ≡ 0 mod 105 word counts."}
+{"mid": "Z0855", "status": "untried", "files": [], "evidence": " ", "note": "Prime-factor-class dependence of U-failures was not examined."}
+{"mid": "Z0856", "status": "done", "files": ["s7_window_lottery.md"], "evidence": "Type II normal form (x prime to p, p | y, p | z), for a prime p ≡ 1 (4)", "note": "The normal form is recorded in the repo; only the explicit lemma statement is repeated, not proved in a dedicated memo."}
+{"mid": "Z0857", "status": "untried", "files": [], "evidence": " ", "note": "Isosceles law (two equal denominators iff p ≢ 1 mod 4) is not stated in any repo memo."}
+{"mid": "Z0858", "status": "untried", "files": [], "evidence": " ", "note": "lcm-closed solutions (x | z) failure set at 2521 not examined in repo."}
+{"mid": "Z0859", "status": "untried", "files": [], "evidence": " ", "note": "Equivalence x | z ⟺ y | z from the normal form is not recorded in repo."}
+{"mid": "Z0860", "status": "untried", "files": [], "evidence": " ", "note": "Divisor-chain x | y failure census not examined in repo."}
+{"mid": "Z0861", "status": "untried", "files": [], "evidence": " ", "note": "Full chain x | y | z failure set not examined in repo."}
+{"mid": "Z0862", "status": "untried", "files": [], "evidence": " ", "note": "Squarefree-solution failure set (71, 191, 21169) not recorded in repo."}
+{"mid": "Z0863", "status": "untried", "files": [], "evidence": " ", "note": "Solutions with no denominator divisible by 3 (failures at 3, 241) not examined."}
+{"mid": "Z0864", "status": "open", "files": ["HARD_PAIR.md", "BRAINSTORM/s8_numerator_two_lines.md"], "evidence": " ", "note": "241 treated as an ES-hard prime across families; the universal-outlier catalogue is not recorded."}
+{"mid": "Z0865", "status": "untried", "files": [], "evidence": " ", "note": "Height (z ≤ p^{1.75}) failure census not recorded in repo."}
+{"mid": "Z0866", "status": "untried", "files": [], "evidence": " ", "note": "Primitive-solution failure set (gcd(x,y,z)=1) not examined in repo."}
+{"mid": "Z0867", "status": "untried", "files": [], "evidence": " ", "note": "Coprime-pair failure set not recorded; cap-0 coprime-pair structure is a different object."}
+{"mid": "Z0868", "status": "untried", "files": [], "evidence": " ", "note": "Parity of even denominators at odd n not examined in repo."}
+{"mid": "Z0869", "status": "untried", "files": [], "evidence": " ", "note": "Prime smallest-denominator frequency not examined."}
+{"mid": "Z0870", "status": "open", "files": ["TWO_POWER_LADDER.md"], "evidence": " ", "note": "Two-power denominator solutions are studied as ladders; the prime census of power-of-2 denominators is not recorded."}
+{"mid": "Z0871", "status": "untried", "files": [], "evidence": " ", "note": "Shares of restricted solution shapes were not recorded in repo."}
+{"mid": "Z0872", "status": "untried", "files": [], "evidence": " ", "note": "Composite failures for 'no denominator divisible by 4' not examined."}
+{"mid": "Z0873", "status": "untried", "files": [], "evidence": " ", "note": "Only-z-divisible-by-n at powers of 2 not examined in repo."}
+{"mid": "Z0874", "status": "untried", "files": [], "evidence": " ", "note": "No repo memo records OEIS lookups of restricted failure sets."}
+{"mid": "Z0875", "status": "untried", "files": [], "evidence": " ", "note": "Covering of primes by shape families was not examined in repo."}
+{"mid": "Z0876", "status": "open", "files": ["ASTRA_BRIDGE.md", "BRAINSTORM/z29_lopez_typeA.md"], "evidence": " ", "note": "Solution forest of 2521 partly examined; x-range and lcm-closed status of the 9 solutions not recorded."}
+{"mid": "Z0877", "status": "untried", "files": [], "evidence": " ", "note": "Overlap of primitive failures with hard lists was never computed."}
+{"mid": "Z0878", "status": "untried", "files": [], "evidence": " ", "note": "Restricted-shape variant counts for numerators 5 and 8 not in repo."}
