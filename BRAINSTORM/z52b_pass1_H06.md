@@ -1,6 +1,10 @@
 # z52b Pass 1 — batch H06
 
-(summary to be filled in when the batch is complete)
+1. Batch H06 is complete: 25 items, outcomes in `data/z52b/pass1/outcome_H06.jsonl`. ES remains open.
+2. Counts: nothing 15, covered 10, interesting 0, needs-compute 0, skipped 0.
+3. Covered (repo already did the step): Z1931, Z1939, Z1961, Z2026, Z2030, Z2045, Z2099, Z2323, Z2343, Z2360.
+4. Banked negatives (PROVED or CERTIFIED): Z1930 (rational exradii triangles: none at any p ≡ 1 (4); for n ≤ 3000, exactly when n has a 3 (mod 4) factor or 4 | n), Z2037 (ℤ[1/S]-ES is trivial for every S ≠ ∅), Z1979 (the certificate family is not Presburger), Z2406 (the 2^{−rank} model is blind to T1), Z2345 (ADH-type formulas are too small).
+5. No interesting items: the one surprise (Z1930's χ₋₄ split) has a 10-line descent proof and is a dead variant, like Z1931.
 
 ## Z1930 — rational triangles with integer exradii and inradius n/4 (banked negative; outcome `nothing`)
 
@@ -22,3 +26,21 @@ Not `interesting` (the surprise resolved into a short proof), but the lemma is w
   d ≡ 1 (4), D′ | p and D′ ≡ 3 (4). Hence D′ = p ≡ 3 (4). ∎
   Same mechanism as the altitude variant Z1931: a positivity/sum-of-two-squares constraint that is χ₋₄-sensitive. Dead
   variant at all hard primes; no depth lane.
+
+## Other short negatives worth keeping (outcome `nothing`)
+
+* **Z2037 (PROVED).** For any prime q, 4/n = 1/(an/q) + 1/(bn/q) + 1/(cn/q) whenever 4/q = 1/a + 1/b + 1/c. So ES over
+  ℤ[1/S] is trivial for every S ≠ ∅; the S-integral ladder has no intermediate rung.
+* **Z1979 (PROVED, relative to Woods' theorem).** Woods' theorem says parametric Presburger counts are eventually
+  quasi-polynomial. So if S_n = {(u,B,C) : 4uBC − u − B = n} were parametric-Presburger, R(n) would be a quasi-polynomial;
+  R(n) ≤ n^{o(1)} then forces it to be bounded. But R is unbounded (FRONTIER §2.2 Prop 3.1). Hence Barvinok short
+  generating functions cannot carry p as a parameter.
+* **Z2406 (EVIDENCE).** The F₂-rank of the squarefree kernels of A = tu − 1 over the words of n is essentially full,
+  with similar sizes at primes and at odd squares. At 41², 59², 101² and 257² the rank is 20, 22, 19 and 39, yet N₋ = 0
+  is certain by T1. So the random-multiplicative 2^{−rank} model does not see reciprocity.
+  Reproduce: `uv run --with sympy python scripts/z52b_p1_H06_f2rank.py 409 1681 …`.
+* **Z2345 (EVIDENCE).** Mean |N₊ − N₋|(p) ≈ 0.26–0.30·log²p (samples near 10³, 10⁴ and 10⁵). An ADH-type
+  Hecke-character sum over ideals of norm Ap + B in a fixed quadratic field has O(1) mean over primes, so it is too
+  small to match.
+* **Z2025 (EVIDENCE).** In the dispersion run over C ≤ X (`scripts/z52b_p1_H06_dispersion.py`), Disp saturates at
+  small C while M_X grows only like log X. So X·Disp/M_X² ≥ 0.4 at best, and the ratio grows with X.

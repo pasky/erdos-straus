@@ -1,0 +1,10 @@
+n=409 words=39 odd-exponent primes=14 F2-rank=14  model P(fail)=2^-14  actual N_-=8
+n=1009 words=43 odd-exponent primes=18 F2-rank=18  model P(fail)=2^-18  actual N_-=10
+n=1681 words=47 odd-exponent primes=20 F2-rank=20  model P(fail)=2^-20  actual N_-=0
+n=3361 words=47 odd-exponent primes=19 F2-rank=19  model P(fail)=2^-19  actual N_-=8
+n=3481 words=41 odd-exponent primes=22 F2-rank=22  model P(fail)=2^-22  actual N_-=0
+n=10009 words=133 odd-exponent primes=50 F2-rank=49  model P(fail)=2^-49  actual N_-=80
+n=10201 words=39 odd-exponent primes=20 F2-rank=19  model P(fail)=2^-19  actual N_-=0
+n=66529 words=69 odd-exponent primes=39 F2-rank=38  model P(fail)=2^-38  actual N_-=18
+n=66049 words=83 odd-exponent primes=41 F2-rank=39  model P(fail)=2^-39  actual N_-=0
+n=105 words=11 odd-exponent primes=5 F2-rank=5  model P(fail)=2^-5  actual N_-=0
