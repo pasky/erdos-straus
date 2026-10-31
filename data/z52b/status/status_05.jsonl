@@ -48,3 +48,53 @@
 {"mid": "Z2043", "status": "untried", "files": [], "evidence": "", "note": "Chen Wang Borwein-conjecture sign pattern not connected to ES; no record."}
 {"mid": "Z2044", "status": "open", "files": ["METAPLECTIC_ES.md §Thm K"], "evidence": "", "note": "Theta-quotient normal form examined; nonvanishing of its coefficients not analysed."}
 {"mid": "Z2045", "status": "open", "files": ["BRAINSTORM/s9_janson_dependency.md"], "evidence": "", "note": "Janson-type dependency bound for certificates examined; derandomised pseudorandom version not addressed."}
+{"mid": "Z2046", "status": "untried", "files": [], "evidence": "", "note": "Gauss-map shrinking-target reformulation of λ(p) ≤ 3 not examined."}
+{"mid": "Z2047", "status": "untried", "files": [], "evidence": "", "note": "Positive vs negative continuant sign flip treated as feature; no specific census recorded."}
+{"mid": "Z2048", "status": "open", "files": ["BRAINSTORM/z31_complexity.md"], "evidence": "", "note": "Witness-finding complexity analysed generically; reduction to factoring not settled."}
+{"mid": "Z2049", "status": "untried", "files": [], "evidence": "", "note": "Scholz–Brauer addition-chain analogy not examined."}
+{"mid": "Z2050", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "M_BM as sum over χ_{-4uB}(p) examined; maximal-splitting interpretation not tested."}
+{"mid": "Z2051", "status": "untried", "files": [], "evidence": "", "note": "Cox simultaneous representation x²+ny² model not examined."}
+{"mid": "Z2052", "status": "untried", "files": [], "evidence": "", "note": "Elsholtz–Planitzer exponent improvement via anatomy not attempted."}
+{"mid": "Z2053", "status": "untried", "files": [], "evidence": "", "note": "Absorption-method analogue for ES not examined."}
+{"mid": "Z2054", "status": "untried", "files": [], "evidence": "", "note": "Tao's log-density Collatz method not transferred to ES."}
+{"mid": "Z2055", "status": "untried", "files": [], "evidence": "", "note": "Hurwitz-type fundamental-solution count per n not computed."}
+{"mid": "Z2056", "status": "open", "files": ["BRAINSTORM/rational_to_integral_cubic.md"], "evidence": "", "note": "Rational parametrisation of ES cubic examined; complete parametrisation count not recorded."}
+{"mid": "Z2057", "status": "untried", "files": [], "evidence": "", "note": "Four-term distinct-denominator variant not examined."}
+{"mid": "Z2058", "status": "open", "files": ["BRAINSTORM/z38_shared_brauer_character.md"], "evidence": "", "note": "Type-restricted failure sets examined for (★) and b=1 lines; forbid-Type-I union not analysed."}
+{"mid": "Z2059", "status": "untried", "files": [], "evidence": "", "note": "Multiplicative-closure feature flip is meta; no test recorded."}
+{"mid": "Z2060", "status": "untried", "files": [], "evidence": "", "note": "Auxiliary-parameter averaging feature flip is meta; not analysed for ES."}
+{"mid": "Z2061", "status": "untried", "files": [], "evidence": "", "note": "Length-2 CF characterisation of primes not examined as ES comparison."}
+{"mid": "Z2062", "status": "open", "files": ["BRAINSTORM/z30_genus_split.md"], "evidence": "", "note": "Genus versus non-genus split of R* examined; pure-genus flip not resolved."}
+{"mid": "Z2063", "status": "open", "files": ["BRAINSTORM/z38_two_sided_false.md"], "evidence": "", "note": "Two-sided failure of R(p) examined; one-sided lower-bound precedents not catalogued."}
+{"mid": "Z2064", "status": "untried", "files": [], "evidence": "", "note": "Precedent search for pointwise polylog lower bounds not performed."}
+{"mid": "Z2065", "status": "untried", "files": [], "evidence": "", "note": "Pratt-certificate analogy as feature flip not analysed."}
+{"mid": "Z2066", "status": "untried", "files": [], "evidence": "", "note": "Weil-type pointwise bound gap in function fields not compared quantitatively."}
+{"mid": "Z2067", "status": "untried", "files": [], "evidence": "", "note": "8n+3 three-squares transform of ES divisor forms not examined."}
+{"mid": "Z2068", "status": "untried", "files": [], "evidence": "", "note": "Waring G(3) exceptional-set template not applied to ES."}
+{"mid": "Z2069", "status": "open", "files": ["POINTWISE_SIZE.md §Thm C"], "evidence": "", "note": "Schinzel H-dependence of bounded procedures recorded as Thm C; ES-specific use of H unverified."}
+{"mid": "Z2070", "status": "untried", "files": [], "evidence": "", "note": "Chen-style almost-ES relaxation not analysed."}
+{"mid": "Z2071", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Singular-series Legendre structure and square degeneracy of M_BM noted; Bateman–Horn comparison not made."}
+{"mid": "Z2072", "status": "open", "files": ["BRAINSTORM/tech_smooth_level.md"], "evidence": "", "note": "Level-of-distribution for smooth moduli examined (COLLAPSES); divisor-in-class d_3 range not analysed."}
+{"mid": "Z2073", "status": "done", "files": ["data/z52b/oeis_hits.json"], "evidence": "hard_U | U failures non-square | terms [105, 2961, 3985, 25305, 111969, 978145] | hits 0", "note": "OEIS lookup of U-failure set already run; zero hits recorded."}
+{"mid": "Z2074", "status": "untried", "files": [], "evidence": "", "note": "Sophie-Germain/2xy+x+y primality dictionary not examined as ES template."}
+{"mid": "Z2075", "status": "untried", "files": [], "evidence": "", "note": "Burgess least-nonresidue template not transferred to ES witnesses."}
+{"mid": "Z2076", "status": "untried", "files": [], "evidence": "", "note": "Ankeny GRH least-nonresidue template; not applied to ES witnesses."}
+{"mid": "Z2077", "status": "untried", "files": [], "evidence": "", "note": "Bach–Sorenson explicit least-prime bounds not connected to ES."}
+{"mid": "Z2078", "status": "untried", "files": [], "evidence": "", "note": "Gupta–Murty simultaneous primitive-root sieve not examined for ES."}
+{"mid": "Z2079", "status": "open", "files": ["BRAINSTORM/bsG_ternary_weinberger.md"], "evidence": "", "note": "Borwein–Choi/idoneal ternary structure examined; the three-variable divisor parametrisation claim unverified."}
+{"mid": "Z2080", "status": "untried", "files": [], "evidence": "", "note": "Linnik p+x²+y² dispersion applied to ES not examined beyond literature."}
+{"mid": "Z2081", "status": "untried", "files": [], "evidence": "", "note": "Heath-Brown–Puchta powers-of-two Goldbach–Linnik only cited; not applied to ES."}
+{"mid": "Z2082", "status": "untried", "files": [], "evidence": "", "note": "Pintz–Ruzsa K=8 result only cited; no ES-side analysis."}
+{"mid": "Z2083", "status": "open", "files": ["BRAINSTORM/z31_small_count_pointwise.md"], "evidence": "", "note": "Romanoff positive-density for p+2^k compared in small-count analysis; not an ES connection."}
+{"mid": "Z2084", "status": "untried", "files": [], "evidence": "", "note": "Erdős covering for p+2^k not transferred to ES congruence cover."}
+{"mid": "Z2085", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Crocker-type p+2^a+2^b exceptions recorded; the explicit obstruction-structure link to ES not analysed."}
+{"mid": "Z2086", "status": "untried", "files": [], "evidence": "", "note": "Cramér–Maier matrix method for ES short-interval irregularities not examined."}
+{"mid": "Z2087", "status": "open", "files": ["BRAINSTORM/z45_recent_pointwise_tools.md §B"], "evidence": "", "note": "Zsigmondy classified as a pointwise moving-class analogue; ES-specific cyclotomic-witness use not analysed."}
+{"mid": "Z2088", "status": "untried", "files": [], "evidence": "", "note": "Tunnell's theta criterion not connected to ES in repo."}
+{"mid": "Z2089", "status": "untried", "files": [], "evidence": "", "note": "Tian's congruent-number rank results not applied to ES."}
+{"mid": "Z2090", "status": "untried", "files": [], "evidence": "", "note": "Smith's positive-proportion congruent-number theorem not connected to ES."}
+{"mid": "Z2091", "status": "untried", "files": [], "evidence": "", "note": "Heath-Brown two-square prime-factor density not examined for ES."}
+{"mid": "Z2092", "status": "untried", "files": [], "evidence": "", "note": "Chen Wang Borwein positivity not connected to ES theta coefficients."}
+{"mid": "Z2093", "status": "untried", "files": [], "evidence": "", "note": "Schinzel–Sierpiński shifted-form primes not examined for ES."}
+{"mid": "Z2094", "status": "untried", "files": [], "evidence": "", "note": "Hooley x²+y²+z³ representation not connected to ES."}
+{"mid": "Z2095", "status": "open", "files": ["s9_lower_tail_literature.md §Graham 1963"], "evidence": "", "note": "Graham n>77 unit-fraction theorem classified in literature table; ES-specific transfer not analysed."}
