@@ -122,3 +122,23 @@ r = (d["M0"] - d["T"]) / L**2
 i = np.argmin(r)
 print(f"min M_BM/L² = {r[i]:.4f} at p={int(d['p'][i])} (T={d['T'][i]:.3f}, L1={d['L1'][i]:.3f}); max T/L² = {(d['T']/L**2).max():.4f}; "
       f"max L1/log p = {(d['L1']/L).max():.4f}; max E (p≡1(8)) = {d['E'][d['p8']==1].max():.4f}")
+
+# §3.3 controls: does L(1,χ) predict the lower tail beyond the main terms?
+print("\n## Residual correlations with L(1,χ) (p ≡ 1 (4), p ≥ 10⁵; z := (R − M)/√M)")
+m = (alld["p"] % 4 == 1) & (alld["p"] >= 10**5)
+d = sub(alld, m)
+for nm, M in [("M0", d["M0"]), ("M_BM", d["M0"] - d["T"]), ("Mgen", d["Mgen"])]:
+    z = (d["R"] - M) / np.sqrt(M)
+    lo = z <= np.quantile(z, 0.01)
+    print(f"{nm}: corr(z, L1) = {np.corrcoef(z, d['L1'])[0,1]:+.3f}; within p≡1(8): {np.corrcoef(z[d['p8']==1], d['L1'][d['p8']==1])[0,1]:+.3f}; "
+          f"lowest 1% of z: frac p≡1(8) {np.mean(d['p8'][lo]==1):.2f}, mean L1 {d['L1'][lo].mean():.2f} (all: {d['L1'].mean():.2f})")
+print("\n## Failure primes vs. the subpopulation with the same small-prime pattern χ(2)=χ(3)=χ(5)=+1 (p ≡ 1 (8), p ≡ 1 (3), p ≡ ±1 (5))")
+P = alld["p"].astype(np.int64)
+pat = (P % 8 == 1) & (P % 3 == 1) & ((P % 5 == 1) | (P % 5 == 4))
+dd = sub(alld, pat & (P >= 10**4))
+print(f"subpopulation (p ≥ 10⁴): N={len(dd['p'])}, mean L1={dd['L1'].mean():.3f}, sd={dd['L1'].std():.3f}")
+for q in FAIL1:
+    mm = alld["p"] == q
+    in_pat = bool(pat[mm][0])
+    r = (alld["L1"][mm][0] - dd["L1"].mean()) / dd["L1"].std()
+    print(f"  {q}: pattern {'yes' if in_pat else 'no '} χ(7)={'+' if pow(q % 7, 3, 7) == 1 else '-'} L1={alld['L1'][mm][0]:.3f} z_within={r:+.2f}")

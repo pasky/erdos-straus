@@ -132,3 +132,25 @@ lowest 1% R/M0: N=454 frac p≡1(8)=0.901 mean L1=3.725 mean T/M0=+0.1756
 
 ## M_BM/L² extremes (p ≡ 1 (4), p ≥ 10⁵)
 min M_BM/L² = 0.0969 at p=185641 (T=7.655, L1=5.024); max T/L² = 0.0520; max L1/log p = 0.4142; max E (p≡1(8)) = 1.1972
+
+## Residual correlations with L(1,χ) (p ≡ 1 (4), p ≥ 10⁵; z := (R − M)/√M)
+M0: corr(z, L1) = -0.280; within p≡1(8): -0.417; lowest 1% of z: frac p≡1(8) 0.88, mean L1 3.76 (all: 1.63)
+M_BM: corr(z, L1) = -0.141; within p≡1(8): -0.271; lowest 1% of z: frac p≡1(8) 0.59, mean L1 2.61 (all: 1.63)
+Mgen: corr(z, L1) = -0.117; within p≡1(8): -0.174; lowest 1% of z: frac p≡1(8) 0.72, mean L1 2.71 (all: 1.63)
+
+## Failure primes vs. the subpopulation with the same small-prime pattern χ(2)=χ(3)=χ(5)=+1 (p ≡ 1 (8), p ≡ 1 (3), p ≡ ±1 (5))
+subpopulation (p ≥ 10⁴): N=5589, mean L1=3.838, sd=0.695
+  409: pattern yes χ(7)=- L1=2.585 z_within=-1.80
+  577: pattern no  χ(7)=- L1=2.256 z_within=-2.28
+  5569: pattern yes χ(7)=+ L1=3.737 z_within=-0.14
+  9601: pattern yes χ(7)=+ L1=3.939 z_within=+0.15
+  23929: pattern yes χ(7)=- L1=3.624 z_within=-0.31
+  83449: pattern yes χ(7)=+ L1=4.475 z_within=+0.92
+  102001: pattern yes χ(7)=+ L1=4.707 z_within=+1.25
+  329617: pattern no  χ(7)=+ L1=3.031 z_within=-1.16
+  712321: pattern yes χ(7)=+ L1=5.143 z_within=+1.88
+  1134241: pattern yes χ(7)=- L1=4.037 z_within=+0.29
+  1724209: pattern yes χ(7)=+ L1=4.861 z_within=+1.47
+  1726201: pattern yes χ(7)=+ L1=5.220 z_within=+1.99
+  5212561: pattern yes χ(7)=+ L1=5.119 z_within=+1.84
+  8813281: pattern yes χ(7)=+ L1=5.155 z_within=+1.90

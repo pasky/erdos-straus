@@ -210,11 +210,111 @@ the bulk: with (PV) alone, Lemma 2.4's error is 2Σ_{a≤z}(1/a)(2Pa/y) ≈ 4P/�
 hyperbola sums G(y/a) at lengths down to √y ≈ √p/2 < √p. (3) The sketch's "o(1)" is in fact a power saving p^{−1/16}
 with an absolute effective constant (no Siegel-type ineffectivity: only upper bounds on character sums are used).
 
-## 3. Consequences
-(TODO)
+## 3. Consequences (carefully scoped)
 
-## 4. Novelty
-(TODO)
+Throughout L = log p, and M₀(p) = (3/(2π²))L² + O(L) (`BM_CORRECTED_COUNT` Thm 2.2 proof; M₀ depends on p only through
+its size). c_S := (1 − e^{−1/2})/2 = 0.19673 (Stephens, Proc. LMS (3) 24 (1972) 1–14: |L(1, χ)| ≤ (c_S + o(1)) log q for
+non-principal χ mod a prime q, as quoted in Johnston–Ramaré–Trudgian arXiv:2303.13785 §1).
+
+### 3.1 The BM main term in closed form (PROVED, from Theorem A)
+
+  **M_BM(p) = M₀(p) − (σ/4)·E(χ_p)·L(1, χ_p)² + O(p^{−1/16} log p),**
+
+i.e. for p ≡ 1 (4): **M_BM(p) = M₀(p) − E(χ_p)·(h(p) log ε_p)²/p + o(1)**, and for p ≡ 3 (4):
+M_BM(p) = M₀(p) + (π²/4)E(χ_p)h(−p)²/p + o(1). All arithmetic of p in the BM-corrected singular series is the single value
+L(1, χ_p) (equivalently h·log ε, resp. h(−p)) times the absolutely convergent Euler product E(χ_p), whose sign is χ_p(2). The
+Pass-1 phrase "a class-number square" is accurate: the correction is (h log ε)²/p up to the local factor E ∈ (0, 12/π²] at
+p ≡ 1 (8) and E ∈ [−36/π², 0) at p ≡ 5 (8). (Analogy, Assessment: this is the shape of Gauss–Siegel for r₃(n) ∝ √n·L(1, χ_{−4n})·(local
+factors), with L² because the pair (u, B) carries two independent χ-weighted variables; unlike r₃, here it is only the
+main term, not the count.)
+
+### 3.2 Unconditional and conditional sizes of the correction (PROVED / CONDITIONAL)
+
+**Corollary 3.1 (PROVED, unconditional; p ≡ 1 (4)).**
+(a) p ≡ 5 (8): E < 0, so T(p) ≤ O(p^{−1/16} log p) and **M_BM(p) ≥ M₀(p) − o(1)** (the BM factor only adds mass).
+(b) p ≡ 1 (8): 0 < T(p) ≤ (3/π²)·L(1, χ_p)² + o(1) ≤ (3c_S²/π² + o(1))L², hence
+  **M_BM(p) ≥ ((3/π²)(1/2 − c_S²) − o(1))·L² = (0.14022 − o(1))·L² ≥ (1 − 2c_S² − o(1))·M₀(p) = (0.9226 − o(1))·M₀(p).**
+(c) Uniformly for p ≡ 1 (4): (0.9226 − o(1))M₀(p) ≤ M_BM(p) ≤ (1 + 6c_S² + o(1))M₀(p) = (1.232 + o(1))M₀(p)
+(upper bound from (a) with |E| ≤ 36/π²).
+(d) Fully explicit variant: for even quadratic χ, L(1, χ) ≤ ½ log p for all p (Ramaré, Acta Arith. 100 (2001), as quoted in JRT
+§1), so T(p) ≤ (3/(4π²))L² + c·p^{−1/16} log p for every p ≡ 1 (8), with c the constant of Theorem A.
+*Proof.* Theorem A, the range of E (§1.1), and the quoted bounds on L(1, χ). With the easy Burgess bound L(1, χ) ≤ (¼ + o(1))L
+instead of Stephens one gets 21/(16π²) ≈ 0.1330 in (b), as Pass 1 stated. ∎
+
+This **improves `BM_CORRECTED_COUNT` Thm 2.2 from 3/(16π²) ≈ 0.0190 L² to 0.1402 L²** (7.4×) and replaces its positivity
+argument by an asymptotic. In range it is not operative: L(1, χ)/log p reaches 0.414 for p ≤ 10⁷ (Stephens' o(1) is large), and
+the observed min M_BM/L² over p ≡ 1 (4), p ≥ 10⁵ is 0.0969 (p = 185 641, L(1, χ) = 5.02) — `stats.txt`.
+
+**Corollary 3.2 (CONDITIONAL on GRH).** Littlewood's L(1, χ) ≤ (2e^γ + o(1)) log log p gives
+|T(p)| ≤ (12e^{2γ}/π² + o(1))(log log p)² ≈ 3.86 (log log p)² at p ≡ 1 (8) (×3 at p ≡ 5 (8)), so
+**M_BM(p) = M₀(p) − O((log log p)²)**, sharpening `BM_CORRECTED` Prop 2.3 (which had o(L²)).
+Size of T in general (Assessment): the mean of E·L(1, χ_p)² over p is O(1) (data: mean T/M₀ = +0.02), and values of order
+(log log p)² are expected along primes with χ_p(ℓ) = +1 for all small ℓ (standard Ω-results for L(1, χ); not checked for prime
+moduli here).
+
+**What this does to FRONTIER §2.2 / H⁻_BM (exact).** By Cor 3.1(c), for primes p ≡ 1 (4) the BM-corrected main term is a
+bounded multiplicative perturbation of the naive one: for p ≡ 1 (4), p ≥ some p₁, "R(p) ≥ εM_BM(p)" implies
+"R(p) ≥ 0.92εM₀(p)" and is implied by "R(p) ≥ 1.24εM₀(p)" — so at primes H⁻_BM and the naive H⁻ with M₀ are the same
+hypothesis up to the constant. The BM correction matters for the hypothesis only at composite n
+(squares: T1), where M_BM ≠ M₀ by a factor that is not bounded below. The one-sided conditional of `BM_CORRECTED` §2
+("Consequence") now holds with any E(p) ≤ (0.1402 − ε)L² unconditionally (was (0.0190 − ε)L²).
+
+*Proposed FRONTIER §2.2 bullet (for the parent to merge; not applied here, to avoid conflicts):* "**Closed form** (`BM_LVALUE.md`
+Thm A, PROVED): T(p) = (σ/4)E(χ_p)L(1, χ_p)² + O(p^{−1/16} log p), E an explicit Euler product with sign χ_p(2); for p ≡ 1 (4),
+M_BM = M₀ − E·(h(p) log ε_p)²/p + o(1). Hence M_BM ≥ (0.1402 − o(1))L² ≥ 0.92·M₀ unconditionally (Stephens), M_BM ≥ M₀ − o(1)
+at p ≡ 5 (8), and M_BM = M₀ − O((log log p)²) under GRH. Main-term only; H⁻_BM unchanged."
+
+### 3.3 Does the L-value explain hardness? (EVIDENCE; `stats.txt`)
+
+* **Variance explained.** On all p ≡ 1 (4) in [10⁵, 10⁶] (N = 34 392): regressing R − M₀ on −T gives slope 1.29, corr 0.23,
+  R² = 0.051; on the window at 10⁷ (N = 6 174): slope 1.46, corr 0.20, R² = 0.039. The genus main term M_gen (all real
+  characters) gives R² = 0.28 resp. 0.23 (slope 1.58, 1.57). Dispersion var(R − M)/(2·mean M): 2.00 (M₀) → 1.94 (M_BM) → 1.49
+  (M_gen) at [10⁵, 10⁶]; 2.52 → 2.46 → 1.99 at 10⁷. **The BM L-value carries about 1/6 of the genus layer's predictive power;
+  most of the genus layer's explanatory power is in the other real characters.** p ≡ 3 (4): R² ≈ 0.01–0.015.
+  (Using T or (σ/4)EL² gives identical numbers to three digits, as Theorem A predicts.)
+* **Slope > 1.** R responds to the L-value 1.3–1.5× more strongly than M_BM's coefficient 1, and the residual
+  z = (R − M)/√M stays correlated with L(1, χ) after subtracting M_BM (corr −0.14; −0.27 within p ≡ 1 (8)) and even after M_gen
+  (−0.12; −0.17). Reason (Assessment): by reciprocity the other genus characters at p are also values χ_p(ℓ) at small ℓ | uB,
+  which are what makes L(1, χ_p) large. Whether the full genus layer M_gen − M₀ has a closed form in L-values (twists
+  L(1, χ_p·ψ) by characters ψ of conductor dividing 8·∏ℓ) is a natural follow-up, not done here.
+* **Lower tail.** Among the lowest 1 % of R/M₀ (p ≡ 1 (4), 10⁴ ≤ p ≤ 10⁷, N = 454): 90 % have p ≡ 1 (8), mean L(1, χ) = 3.73 vs
+  1.63 overall, mean T/M₀ = 0.18 vs 0.02. All 14 (★)-failures ≡ 1 (4) have p ≡ 1 (8) and L(1, χ) = 2.26–5.22 (z-scores +0.6 … +3.2
+  against all p ≡ 1 (4)), T = 1.4–8.1, i.e. the BM correction removes 9–42 % of M₀ at the failures (M_BM/M₀ = 0.58–0.91; 20–42 % except at
+  329 617, where it is 9 %).
+* **Control for the small-prime pattern.** 12 of the 14 failures have χ(2) = χ(3) = χ(5) = +1 (a class of density 1/8 among
+  p ≡ 1 (4)), and *within* that class (N = 5 589, p ≥ 10⁴, mean L(1, χ) = 3.84) their L(1, χ) z-scores are −1.8 … +2.0 (mean
+  ≈ +0.8; the six failures ≥ 712 321 all +1.5 … +2.0). So most of the association "hard ⇔ large L(1, χ)" is the small-prime
+  pattern (QR-richness, as in `BRAINSTORM/hardness_law.md`, `s7_lvalue_proxy`), with a modest residual excess.
+* **Not an explanation of the failures.** At the 14 failures M_BM = 3.0 … 30.5 while R = 0; for p ≥ 10⁵ M_BM ≥ 13. The
+  L-value correction moves the main term by 9–42 % at these primes, nowhere near the ≈ 100 % deficit. The (★)-failures are
+  lower-tail events of the remainder X_BM, exactly as before (`BM_CORRECTED` §3).
+
+### 3.4 Bearing on existence (Assessment)
+
+Main-term only, as expected. Theorem A turns the BM-corrected singular series into a closed form and shows it is ≍ M₀ ≍ L²
+unconditionally at every large prime p ≡ 1 (4). It says nothing about the remainder X_BM = R − M_BM at a single p: the
+obstruction to (★) is the single-integer lower tail (B2/B3 of FRONTIER §3), unchanged. In particular H⁻_BM is neither weakened
+nor strengthened in substance (§3.2: at primes it is equivalent to the naive R ≥ ε′M₀). No case of ES and no infinite family
+of primes is settled. **ES remains OPEN.**
+
+## 4. Novelty (Assessment)
+
+* **Repo.** `git grep` finds the guess but not the result: ES_CONNECTIONS_TODO Z1809 ("T(p) as a smoothed L(1, χ_p)²-like
+  object … derive via Mellin inversion; test numerically", open), the Pass-1 record Z2882 (EVIDENCE + sketch), and
+  correlational EVIDENCE that hardness tracks L(1, χ_p) / QR-richness (`BRAINSTORM/hardness_law.md`, `s7_lvalue_proxy`,
+  `adv_new_drivers.md`, `anal_euler_product_law.md`). `BM_CORRECTED_COUNT` bounds T only through g(p) = sup_t|G(t)| and
+  positivity. Theorem A (identity + effective power-saving error) is new in the repo.
+* **Literature checked.** Elsholtz–Tao (J. Aust. MS 94 (2013), `sources/elsholtz-tao-1107.1010.pdf`): Jacobi-symbol sums such as
+  Σ(−ka/q) appear only as error terms in averaged upper bounds (their §7, bounded via periodicity/PV); no pointwise main term in
+  L(1, χ_p). Bright–Loughran (BLMS 52 (2020), `sources/bright-loughran-1908.02526.pdf`): Brauer group and BM obstruction of the
+  ES surfaces, no counting. Dahan (arXiv:2608.24035, `sources/`): sieve dimension for n ≡ 1 (24); a class number h(−12) appears
+  only in a fixed-shift representation argument. Web searches ("Erdős–Straus" with class number / L(1, χ) / Brauer–Manin
+  counting) found nothing closer. We found no prior statement of T(p) ~ (σ/4)E L(1, χ_p)² — **apparently new** (not an
+  exhaustive search; Jiang-type ES counting papers were not located).
+* **Ingredients are standard.** f = h ∗ τ with H absolutely convergent, the hyperbola approximation of L(1, χ)² by
+  Σ_{n≤x} τ(n)χ(n)/n for x ≥ p^{1/2+ε} via Burgess, and PV for short boundary sums are textbook (cf. the use of
+  truncated L(1, χ) sums in Granville–Soundararajan-type work and in Stephens/Pintz). The contribution is the identification of
+  the BM correction with this L-value and the bookkeeping (exact pair region, parity, coprimality, 2-adic factor 2χ(2) − 1).
 
 ## 5. Review log
 (TODO)
