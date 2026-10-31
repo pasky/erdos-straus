@@ -58,3 +58,13 @@
 {"mid": "Z0971", "outcome": "skipped", "summary": "A hall-of-fame list is a test set with no mathematical statement; the only action is a script.", "evidence": [], "next": ""}
 {"mid": "Z0980", "outcome": "skipped", "summary": "Symmetric coordinates restate the equation (e2/e3 = 4/n); integral-root search is the solution search itself.", "evidence": [], "next": ""}
 {"mid": "Z1012", "outcome": "skipped", "summary": "CRT optimisation of a congruence representative is under-specified; no cost function is defined in the item beyond the representative itself.", "evidence": [], "next": ""}
+{"mid": "Z1063", "outcome": "skipped", "summary": "Beatty-denominator candidates are a generic enumeration without a stated link to certificates beyond the first two denominators.", "evidence": [], "next": ""}
+{"mid": "Z1074", "outcome": "skipped", "summary": "Moment-inversion LP needs 'measured or proved count moments' that the item does not define for ES.", "evidence": [], "next": ""}
+{"mid": "Z1132", "outcome": "skipped", "summary": "'Frustration in congruence loops' is not defined precisely enough to test; the minimal-unsatisfiable-congruence search reduces to the residue-class census already in the repo.", "evidence": [], "next": ""}
+{"mid": "Z1135", "outcome": "skipped", "summary": "Renormalisation by eliminating small primes is under-specified; no effective residue measure is defined in the item.", "evidence": [], "next": ""}
+{"mid": "Z1207", "outcome": "skipped", "summary": "Sparse interpolation needs a stated parameter family; none is given.", "evidence": [], "next": ""}
+{"mid": "Z1233", "outcome": "skipped", "summary": "Active learning of a family selector has no ES target statement beyond the selector itself.", "evidence": [], "next": ""}
+{"mid": "Z1236", "outcome": "skipped", "summary": "Out-of-distribution ML testing needs a model; no ES claim is attached.", "evidence": [], "next": ""}
+{"mid": "Z1272", "outcome": "covered", "summary": "Primitive solutions: the repo already lists the primes ≤10^5 with no primitive solution (13, 37, 97, 181, 193, 277, 373, …; ES_CONNECTIONS_TODO Z0866). My check reproduces the listed primes 13, 37, 97, 181, 193, 277, 373, 541, 673, 757, 853, 1033, 1093, 1297, 1621 (20 such primes ≤ 3000 in total) (scripts/z52b_p1_U08_enum.py).", "evidence": ["ES_CONNECTIONS_TODO.md", "scripts/z52b_p1_U08_enum.py"], "next": ""}
+{"mid": "Z1295", "outcome": "skipped", "summary": "Bad reduction of a symbolic chart is not specified: which chart is not given.", "evidence": [], "next": ""}
+{"mid": "Z1924", "outcome": "skipped", "summary": "Three-distance regularity for {p/m} is not turned into a testable prediction; the piece/AP statement is not precise.", "evidence": [], "next": ""}
