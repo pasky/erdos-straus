@@ -1,4 +1,5 @@
-// z52c_rh_count.c: copy of z52b_fingerprint_count.c with mode 2 = primes p = 1 (mod 4) only (RESIDUE_HARDNESS.md).
+// z52c_rh_count.c: copy of z52b_fingerprint_count.c with mode 2 = primes p = 1 (mod 4) only, mode 3 = all 13-rough n = 1 (mod 4)
+// (prime or composite; the rough-integer evaluation of the local-density model, RESIDUE_HARDNESS.md §1).
 // Count solutions of m/n = 1/x+1/y+1/z, x<=y<=z, for n in [n0,n1] (optionally primes only).
 // Output per n: n U D O minz minz_x minz_y maxx minx nx k1 k2 k3 minlcm
 // U=#unordered, D=#distinct (x<y<z), O=#ordered, minz=min over sols of z, maxx=max x, minx=min x,
@@ -37,8 +38,9 @@ int main(int argc,char**argv){
   u64 m=atoll(argv[1]),n0=atoll(argv[2]),n1=atoll(argv[3]); int primeonly=argc>4?atoi(argv[4]):0;
   SPFN=n1*3+10; spf=calloc(SPFN+1,sizeof(int)); for(int i=2;i<=SPFN;i++)if(!spf[i])for(int j=i;j<=SPFN;j+=i)if(!spf[j])spf[j]=i;
   for(N=n0;N<=n1;N++){
-    if(primeonly && spf[N]!=(int)N)continue;
+    if(primeonly && primeonly!=3 && spf[N]!=(int)N)continue;
     if(primeonly==2 && (N%4)!=1)continue; /* z52c: p = 1 (mod 4) only */
+    if(primeonly==3 && ((N%4)!=1 || N%3==0 || N%5==0 || N%7==0 || N%11==0 || N%13==0))continue; /* z52c: 13-rough n = 1 (mod 4), primes or not */
     U=D=O=0;K[0]=K[1]=K[2]=K[3]=0;minz=~0ULL;mzx=mzy=0;maxx=0;minx=~0ULL;minlcm=~0ULL; long long nx=0;
     u64 xlo=N/m+1, xhi=(3*N)/m; 
     for(X=xlo;X<=xhi;X++){
