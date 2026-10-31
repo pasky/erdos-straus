@@ -1,0 +1,33 @@
+P0=10000000 primes=150 (Mordell-hard classes) e prime=3(4) <= 200: 24 values, both types
+('all',) slices 7200 success 2089 rate 0.2901
+('anyqnr', False) slices 3066 success 0 rate 0.0000
+('anyqnr', True) slices 4134 success 2089 rate 0.5053
+('omega', 1, False) slices 287 success 1 rate 0.0035
+('omega', 1, True) slices 56 success 0 rate 0.0000
+('omega', 2, False) slices 899 success 26 rate 0.0289
+('omega', 2, True) slices 469 success 83 rate 0.1770
+('omega', 3, False) slices 1377 success 92 rate 0.0668
+('omega', 3, True) slices 1080 success 384 rate 0.3556
+('omega', 4, False) slices 857 success 100 rate 0.1167
+('omega', 4, True) slices 1219 success 752 rate 0.6169
+('omega', 5, False) slices 256 success 58 rate 0.2266
+('omega', 5, True) slices 571 success 476 rate 0.8336
+('omega', 6, False) slices 20 success 10 rate 0.5000
+('omega', 6, True) slices 109 success 107 rate 0.9817
+('prim', False) slices 3696 success 287 rate 0.0777
+('prim', True) slices 3504 success 1802 rate 0.5143
+('prim|qnr', False) slices 630 success 287 rate 0.4556
+('prim|qnr', True) slices 3504 success 1802 rate 0.5143
+('qnr+omega', 1, False) slices 27 success 1 rate 0.0370
+('qnr+omega', 1, True) slices 56 success 0 rate 0.0000
+('qnr+omega', 2, False) slices 112 success 26 rate 0.2321
+('qnr+omega', 2, True) slices 469 success 83 rate 0.1770
+('qnr+omega', 3, False) slices 231 success 92 rate 0.3983
+('qnr+omega', 3, True) slices 1080 success 384 rate 0.3556
+('qnr+omega', 4, False) slices 172 success 100 rate 0.5814
+('qnr+omega', 4, True) slices 1219 success 752 rate 0.6169
+('qnr+omega', 5, False) slices 77 success 58 rate 0.7532
+('qnr+omega', 5, True) slices 571 success 476 rate 0.8336
+('qnr+omega', 6, False) slices 11 success 10 rate 0.9091
+('qnr+omega', 6, True) slices 109 success 107 rate 0.9817
+min successes per prime 8 mean 13.926666666666666
