@@ -152,3 +152,49 @@
 {"mid": "Z2147", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Least prime in progression result (arXiv:1309.3595) recorded for divisor residues; not tested for ES."}
 {"mid": "Z2148", "status": "untried", "files": [], "evidence": "", "note": "Soundararajan smooth-number equidistribution (arXiv:0707.0299) absent from repo."}
 {"mid": "Z2149", "status": "untried", "files": [], "evidence": "", "note": "Character-sum Fourier methods (arXiv:2404.08380) absent from repo."}
+{"mid": "Z2150", "status": "untried", "files": [], "evidence": "", "note": "Markoff matrix-tree encoding (arXiv:0709.1499) absent from repo; connectivity reframing not examined."}
+{"mid": "Z2151", "status": "untried", "files": [], "evidence": "", "note": "Extremal continuant thin-family growth (arXiv:2106.03789) absent from repo."}
+{"mid": "Z2152", "status": "untried", "files": [], "evidence": "", "note": "Erdős Problem 298 density-vs-universal comparison not recorded in repo."}
+{"mid": "Z2153", "status": "untried", "files": [], "evidence": "", "note": "Erdős Problem 299 finite-sum obstruction not recorded in repo."}
+{"mid": "Z2154", "status": "open", "files": ["B2_ACROSS_FIELDS.md §row 5"], "evidence": "", "note": "Croot and Liu–Sawhney unit-fraction density bounds recorded; ES pointwise tension not analysed."}
+{"mid": "Z2155", "status": "untried", "files": [], "evidence": "", "note": "Erdős Problem 300 sparse-set reciprocal count not examined for ES."}
+{"mid": "Z2156", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2157", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2158", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2159", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2160", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2161", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2162", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2163", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2164", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2165", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2166", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2167", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2168", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2169", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2170", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2171", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2172", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2173", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2174", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2175", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2176", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2177", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2178", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2179", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2180", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2181", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2182", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2183", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2184", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2185", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2186", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2187", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2188", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2189", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2190", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2191", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2192", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2193", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2194", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
+{"mid": "Z2195", "status": "untried", "files": [], "evidence": "", "note": "Erdős-problem literature analogy only (z52_lit_es_direct site audit lists it); no ES-side test recorded."}
