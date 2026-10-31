@@ -75,7 +75,7 @@
 {"mid": "Z2070", "status": "untried", "files": [], "evidence": "", "note": "Chen-style almost-ES relaxation not analysed."}
 {"mid": "Z2071", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Singular-series Legendre structure and square degeneracy of M_BM noted; Bateman–Horn comparison not made."}
 {"mid": "Z2072", "status": "open", "files": ["BRAINSTORM/tech_smooth_level.md"], "evidence": "", "note": "Level-of-distribution for smooth moduli examined (COLLAPSES); divisor-in-class d_3 range not analysed."}
-{"mid": "Z2073", "status": "done", "files": ["data/z52b/oeis_hits.json"], "evidence": "hard_U | U failures non-square | terms [105, 2961, 3985, 25305, 111969, 978145] | hits 0", "note": "OEIS lookup of U-failure set already run; zero hits recorded."}
+{"mid": "Z2073", "status": "done", "files": ["data/z52b/oeis_hits.json"], "evidence": "\"hard_U\": {\"desc\": \"U failures non-square\", \"terms\": [105, 2961, 3985, 25305, 111969, 978145]", "note": "OEIS lookup of U-failure set already run; zero hits recorded."}
 {"mid": "Z2074", "status": "untried", "files": [], "evidence": "", "note": "Sophie-Germain/2xy+x+y primality dictionary not examined as ES template."}
 {"mid": "Z2075", "status": "untried", "files": [], "evidence": "", "note": "Burgess least-nonresidue template not transferred to ES witnesses."}
 {"mid": "Z2076", "status": "untried", "files": [], "evidence": "", "note": "Ankeny GRH least-nonresidue template; not applied to ES witnesses."}
@@ -358,3 +358,42 @@
 {"mid": "Z2353", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
 {"mid": "Z2354", "status": "open", "files": ["BRAINSTORM/y4_t1_numerators.md"], "evidence": "", "note": "Numerator-2 triviality and unit-numerator symmetry examined; weighted-variant contrast recorded."}
 {"mid": "Z2355", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2356", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2357", "status": "open", "files": ["FRONTIER.md"], "evidence": "", "note": "Single-line infinite-failure heuristic vs (★) 14-prime failures recorded; line-level census not settled."}
+{"mid": "Z2358", "status": "open", "files": ["INVOLUTION_ES.md"], "evidence": "", "note": "Reciprocal-coordinate plane and automorphisms of the ES surface examined; Markoff-type Vieta contrast not written up."}
+{"mid": "Z2359", "status": "open", "files": ["BRAINSTORM/bsA_minkowski_stern.md"], "evidence": "", "note": "Stern-type tree enumerations examined; bounded-depth prime-covering tree not constructed."}
+{"mid": "Z2360", "status": "open", "files": ["EXCEPTIONAL_KARY3.md"], "evidence": "", "note": "Power-saving exceptional-set rates and CRT sieve sharpness examined; Montgomery–Vaughan analogue not settled."}
+{"mid": "Z2361", "status": "open", "files": ["BRAINSTORM/z29_nb_tail_model.md"], "evidence": "", "note": "Poisson/NB tail model for expected failures examined; sum-over-n finiteness claim not verified."}
+{"mid": "Z2362", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2363", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2364", "status": "open", "files": ["BRAINSTORM/y4_mordell_witness.md"], "evidence": "", "note": "Mordell identities covering all non-square classes mod 840 examined; square-class flip not analysed."}
+{"mid": "Z2365", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2366", "status": "open", "files": ["BRAINSTORM/ident_numerators.md"], "evidence": "", "note": "Numerator ladder m/n in m−1 terms examined; 3/p two-term local obstruction noted; not tabulated."}
+{"mid": "Z2367", "status": "open", "files": ["BRAINSTORM/y7_full_t1.md"], "evidence": "", "note": "T1 analysis at square moduli examined; mixed-type solutions for m² not classified."}
+{"mid": "Z2368", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2369", "status": "open", "files": ["BRAINSTORM/z38_two_sided_false.md"], "evidence": "", "note": "Two-sided asymptotics false for ES counts examined; exact-formula contrast noted, not developed."}
+{"mid": "Z2370", "status": "open", "files": ["BRAINSTORM/y2_positivity_is_T1.md"], "evidence": "", "note": "One-negative-denominator relaxation examined as positivity issue; growth of counts not computed."}
+{"mid": "Z2371", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2372", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2373", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2374", "status": "open", "files": ["BRAINSTORM/bsE_sierpinski_moving_integer.md"], "evidence": "", "note": "Sierpiński covering for q^s p+1 examined and collapsed (B1); fixed-p compositeness covering not analysed."}
+{"mid": "Z2375", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2376", "status": "open", "files": ["BRAINSTORM/tech_maynard_theta.md"], "evidence": "", "note": "Maynard–Tao multidimensional sieve examined for ES certificate families; (c,d) grid application not tested."}
+{"mid": "Z2377", "status": "open", "files": ["BRAINSTORM/tech_maynard_theta.md"], "evidence": "", "note": "Maynard dense-cluster results examined for linear forms; ES certificate-family instance not tested."}
+{"mid": "Z2378", "status": "blocked", "files": ["BRAINSTORM/tech_smooth_level.md §header verdict"], "evidence": "**Verdict: COLLAPSES.** Pointwise it is a T7/B6 leak.", "note": "Smooth-moduli level-of-distribution for ES witness moduli examined; verdict collapses."}
+{"mid": "Z2379", "status": "open", "files": ["BRAINSTORM/tech_smooth_level.md"], "evidence": "", "note": "Level-of-distribution for p-dependent classes examined in smooth-moduli memo; Maynard III variant not analysed."}
+{"mid": "Z2380", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2381", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2382", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2383", "status": "open", "files": ["BRAINSTORM/technique_transfer_list.md §4"], "evidence": "", "note": "Matomäki–Radziwiłł short-interval technique listed with breaking point; fixed-p progression version not analysed."}
+{"mid": "Z2384", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2385", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2386", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2387", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2388", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2389", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2390", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2391", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2392", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2393", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
+{"mid": "Z2394", "status": "untried", "files": [], "evidence": "", "note": "Literature/feature analogy; no ES-side test of this connection recorded."}
