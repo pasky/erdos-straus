@@ -7,6 +7,6 @@ a=200001; b=1000000; K=20
 for k in $(seq 0 $((K-1))); do
   lo=$(python3 -c "import math;print(int(math.sqrt($a**2+$k*($b**2-$a**2)/$K))+ (1 if $k>0 else 0))")
   hi=$(python3 -c "import math;print(int(math.sqrt($a**2+($k+1)*($b**2-$a**2)/$K)))")
-  ( ulimit -v 2000000; timeout 7200 /tmp/rh/cnt2 4 $lo $hi 2 > data/z52c/rh/raw/U_${lo}_${hi}.txt ) &
+  ( ulimit -v 2000000; timeout 7200 /tmp/rh/cnt2 4 $lo $hi 2 > data/z52c/rh/raw/U_${lo}_${hi}.txt   # (concatenated afterwards into data/z52c/rh/U_counter_2e5_1e6.txt.gz) ) &
 done
 wait
