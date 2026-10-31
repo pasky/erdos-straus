@@ -1,0 +1,18 @@
+primes p≡1(4), 5<=p<=6000: 383; C<=150
+total (p,C): 57450, wins: 1522
+Z1512 (p<3000,C<40): pairs 8229 fail 7568 | subgroup∋-1: 2356 of which fail: 1695
+Fail count by omega(N): {1: 8983, 2: 22462, 3: 18334, 4: 5603, 5: 537, 6: 9}
+Failures with subgroup∋-1 by omega: {2: 1790, 3: 6766, 4: 4163, 5: 507, 6: 9}
+Z1608 rich failures (Omega>=5): fail 4184 subgroup-type 2531 (60.49%)
+Z1596 omega>=6 failures: 9 subgroup-type 9 (100.00%)
+Regime 2^omega>=phi(4C) among failures: 784 of 55928 | of those subgroup-type: 172
+Z1512 breakdown by omega(N): omega, #pairs, #sub∋-1, #sub∋-1 & no win, #sub∋-1 & win, #no-sub & win (must be 0)
+1 8983 0 0 0 0
+2 22770 2098 1790 308 0
+3 19102 7534 6766 768 0
+4 5998 4558 4163 395 0
+5 588 558 507 51 0
+6 9 9 9 0 0
+Z1478 F2-relaxation table (full_win, relax_holds):  {(True, True): 1522, (False, False): 40714, (False, True): 15214}
+  -> relax fails but win: 0 (must be 0 if relaxation is necessary)
+  -> relax holds, no win: 15214 of 55928 relax-holds-or-not failures

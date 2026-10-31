@@ -1,0 +1,18 @@
+Z1477 gcd(4Cp+1,4C'p+1) | (C'-C) verified: True
+Z1477 common-divisor count <= tau(C'-C) violations: 0
+Z1561 C=2: prime p≡1(4)<6000 with win ⟺ NOT(res⊆{1,3} or res⊆{1,5}) mismatches: 0
+Z1561 residue-set patterns of 8p+1 (win/fail): {('fail', (1,)): 65, ('win', (3, 5, 7)): 76, ('fail', (3,)): 74, ('win', (7,)): 21, ('fail', (1, 5)): 12, ('win', (3, 5)): 24, ('fail', (1, 3)): 30, ('fail', (5,)): 43, ('win', (3, 7)): 13, ('win', (1, 7)): 6, ('win', (1, 3, 5, 7)): 10, ('win', (1, 3, 7)): 1, ('win', (1, 3, 5)): 4, ('win', (5, 7)): 4}
+Z2655 n=105: h(-4n)=8, genera=8, idoneal=True
+Z2655 n=2961: h(-4n)=48, genera=8, idoneal=False
+Z2655 n=3985: h(-4n)=24, genera=4, idoneal=False
+Z2655 n=25305: h(-4n)=80, genera=16, idoneal=False
+Z2655 n=111969: h(-4n)=240, genera=16, idoneal=False
+Z2655 n=978145: h(-4n)=424, genera=8, idoneal=False
+Z2655 n=15: h(-4n)=2, genera=2, idoneal=True
+Z2655 n=11: h(-4n)=3, genera=1, idoneal=False
+Z2655 n=14: h(-4n)=4, genera=2, idoneal=False
+Z2655 n=35: h(-4n)=6, genera=2, idoneal=False
+Z2655 n=510: h(-4n)=16, genera=8, idoneal=False
+Z0711 record primes listed (≥3) mod 4: Counter({3: 25}) 18719 mod 4 = 3
+Z0760 R(3^k) k=1..9 (C≤300): [0, 0, 2, 0, 2, 0, 4, 0, 18]
+Z0857 isosceles: p≡1(4) with an isosceles solution OR p≡3(4) without (should be empty): [] 0

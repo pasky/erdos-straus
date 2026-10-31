@@ -1,0 +1,3 @@
+p=409: wins for C<=2000: 0 first=[]; fails=2000; fails with ALL prime factors QR mod p: 936; fails with some QNR factor: 1064
+p=401: wins for C<=2000: 3 first=[1, 4, 17]; fails=1997; fails with ALL prime factors QR mod p: 743; fails with some QNR factor: 1254
+p=433: wins for C<=2000: 3 first=[2, 8, 11]; fails=1997; fails with ALL prime factors QR mod p: 844; fails with some QNR factor: 1153

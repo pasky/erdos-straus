@@ -1,0 +1,5 @@
+Z1075 least winning C (C<=150) for p≡1(4), p<=6000: max = 40 at p = [4789]
+  primes with no winner C<=150: [409, 577, 5569]
+  least winning C vs p (top 10 by C): [(40, 4789), (39, 4357), (23, 3109), (20, 157), (17, 1621), (14, 5881), (11, 4021), (11, 2521), (9, 2341), (9, 997)]
+Z3151 min Omega(d) over all C<=150 certificates: distribution {1: 373, 2: 7}
+  primes where min Omega >= 3 or none (C<=150): [(409, None), (577, None), (5569, None)] count 3
