@@ -348,3 +348,52 @@
 {"mid": "Z1545", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1546", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
 {"mid": "Z1547", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1548", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1549", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1550", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1551", "status": "open", "files": ["BALANCED_LATTICE.md"], "evidence": "the brief's Hooley/Kummer route certifies only the index condition", "note": "Conditional Hooley/Kummer route assessed; Artin comparison not written."}
+{"mid": "Z1552", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1553", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1554", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1555", "status": "open", "files": ["BRAINSTORM/anal_moments_structured.md (Remark B.2)"], "evidence": "It is false once (ℤ/4ad)^× has an element of order > 2", "note": "Tempting multi-class half-dimensional sieve recorded as false; K-fold version left open."}
+{"mid": "Z1556", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1557", "status": "blocked", "files": ["BRAINSTORM/z45_recent_pointwise_tools.md (summary table)"], "evidence": "wrong sign; does not yield −1", "note": "Zsigmondy primitive divisors recorded as giving +1, not the needed −1 class."}
+{"mid": "Z1558", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1559", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1560", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1561", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1562", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1563", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1564", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1565", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1566", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1567", "status": "done", "files": ["BRAINSTORM/bsB_salie_duality.md"], "evidence": "On every certificate (f'/p) = −1 (Bright–Loughran/Yamamoto sign, (I)7)", "note": "Sign (f/p) = −1 for full Type II certificates recorded; Type I side not checked."}
+{"mid": "Z1568", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1569", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1570", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1571", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1572", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1573", "status": "open", "files": ["data/z52b/free_fable_parts/HEADER.md"], "evidence": "have Type II certificates but no C-form certificate with C < 1500", "note": "Census done only to p < 20000; push to 10^7 not carried out."}
+{"mid": "Z1574", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1575", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1576", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1577", "status": "open", "files": ["BRAINSTORM/anal_moments_structured.md"], "evidence": "sterile p would satisfy D independent half-dimensional conditions", "note": "Half-dimensional sieve over many classes examined; single C=1 sieve unchecked."}
+{"mid": "Z1578", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1579", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1580", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1581", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1582", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1583", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1584", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1585", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1586", "status": "open", "files": ["AMPLIFY_EXCEPTION.md"], "evidence": "This is the Mordell–Schinzel square-class obstruction in local form", "note": "Square-value obstruction recorded for identities; general parametrisation analogy not worked out."}
+{"mid": "Z1587", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1588", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1589", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md"], "evidence": "The family C_N is classical", "note": "Bremner–Guy family recorded as classical; contrast with ES not developed."}
+{"mid": "Z1590", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1591", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1592", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1593", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1594", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
+{"mid": "Z1595", "status": "open", "files": ["BRAINSTORM/z31_zero_sum.md"], "evidence": "need lengths that a forced K never has: NOT SHARP.", "note": "Kneser/Davenport sumset bound examined; judged not sharp for forced K."}
+{"mid": "Z1596", "status": "untried", "files": [], "evidence": "", "note": "No repo document applies this technique or analogy to ES; generic."}
