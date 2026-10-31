@@ -173,3 +173,28 @@
 {"mid": "Z2966", "status": "open", "files": ["AMPLIFY_EXCEPTION.md", "EXPONENT_COVERING.md"], "evidence": "", "note": "Mod-840 covering of non-square residues by certificates examined; forced-congruence push to M=840m not done."}
 {"mid": "Z2967", "status": "untried", "files": [], "evidence": "", "note": "Stickelberger/annihilator relations among divisor classes mod 4C not computed."}
 {"mid": "Z2968", "status": "untried", "files": [], "evidence": "", "note": "Cyclotomic non-certificate part of prod(4Cp+1) not bounded; Bang-Zsigmondy analogue not written."}
+{"mid": "Z2969", "status": "untried", "files": [], "evidence": "", "note": "Corvaja-Zannier subspace-theorem divisibility results not applied to certificate divisibility."}
+{"mid": "Z2970", "status": "untried", "files": [], "evidence": "", "note": "Pairwise repulsion among ES-failing primes not tested; analogy only."}
+{"mid": "Z2971", "status": "open", "files": ["BRAINSTORM/z5_pell_unit_T1.md", "BRAINSTORM/z26_qsqrtp_antiforcing.md"], "evidence": "", "note": "Pell-unit route to ES examined; defect-pigeonhole on SL2 near-certificates not analysed."}
+{"mid": "Z2972", "status": "untried", "files": ["BRAINSTORM/farey_ford_cf.md"], "evidence": "", "note": "CF period of quadratic irrationals containing ES5 witness not examined."}
+{"mid": "Z2973", "status": "untried", "files": [], "evidence": "", "note": "Smith/Koymans-Pagano distribution of certificate-free level profiles not computed."}
+{"mid": "Z2974", "status": "open", "files": ["elliptic_fibration_es.md"], "evidence": "Gross–Zagier: ĥ(P_K) is proportional to L'(E/K, 1) (from memory).", "note": "Heegner/Gross-Zagier route to ES points examined on fibrations; canonical-point non-vanishing for U_p not built."}
+{"mid": "Z2975", "status": "untried", "files": [], "evidence": "", "note": "Trace-function cancellation for prime-level divisor-class sums not examined."}
+{"mid": "Z2976", "status": "untried", "files": [], "evidence": "", "note": "Stepanov-type complement bound for certificate counts not carried out."}
+{"mid": "Z2977", "status": "untried", "files": [], "evidence": "", "note": "Hecke-type relations among f(p), f(p l), f(p l^2) not examined."}
+{"mid": "Z2978", "status": "untried", "files": [], "evidence": "", "note": "Limit measures of normalised certificate data not defined in repo."}
+{"mid": "Z2979", "status": "untried", "files": [], "evidence": "", "note": "Entropy from Hecke recurrence on certificate shapes not examined; depends on unbuilt correspondence."}
+{"mid": "Z2980", "status": "open", "files": ["B1_LINE.md", "BRAINSTORM/s8_b1_line_census.md"], "evidence": "", "note": "Line-failure census for (★) and b=1 examined; anticorrelated statistics across failures not computed."}
+{"mid": "Z2981", "status": "open", "files": ["BRAINSTORM/z38_mbm_unconditional.md", "BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Dependence of BM main term on Legendre profile examined; second family increasing with T(p) not found."}
+{"mid": "Z2982", "status": "open", "files": ["EXSET_LINNIK_CAPS.md", "EXCEPTIONAL_SHORT.md"], "evidence": "", "note": "Amplified moment / Linnik-cap framework examined; explicit amplified second moment over short families not evaluated."}
+{"mid": "Z2983", "status": "untried", "files": [], "evidence": "", "note": "Mollified variance decomposition of R(n)/M(n) in Legendre symbols not computed."}
+{"mid": "Z2984", "status": "open", "files": ["BRAINSTORM/other_rings.md"], "evidence": "", "note": "Potential-automorphy descent over quadratic fields considered for ES; real quadratic solution-parity count not run."}
+{"mid": "Z2985", "status": "untried", "files": [], "evidence": "", "note": "Descent map Phi sending failing p to smaller failing prime not found; tested only in brainstorm lists."}
+{"mid": "Z2986", "status": "untried", "files": [], "evidence": "", "note": "Ramification-killing via n=pm not examined."}
+{"mid": "Z2987", "status": "untried", "files": ["BRAINSTORM/thin_group_orbits.md"], "evidence": "", "note": "Products A.T.A in SL2 with entry p not tested; thin-orbit notes do not address this product."}
+{"mid": "Z2988", "status": "open", "files": ["MARKOFF_ES.md", "GEOMETRY_ES.md"], "evidence": "", "note": "Vieta-type maps and Markoff structure of ES surface examined; general Cremona integrality-preserving maps not tested."}
+{"mid": "Z2989", "status": "untried", "files": ["FORCED_WINDOW.md"], "evidence": "", "note": "Square-avoidance of N_e prime factors across windows not measured."}
+{"mid": "Z2990", "status": "open", "files": ["B2_ACROSS_FIELDS.md (row M5)"], "evidence": "", "note": "Count-congruence mechanism listed as M5 in general terms; ES congruence for R(p) mod m not computed."}
+{"mid": "Z2991", "status": "untried", "files": [], "evidence": "", "note": "Move graph on ES certificates of fixed p and component sizes not built."}
+{"mid": "Z2992", "status": "open", "files": ["AMPLIFY_EXCEPTION.md", "DISPROOF_AVENUES.md"], "evidence": "", "note": "Structured-exception families and adversarial searches examined; far-along checks on n=m^2 k not extended."}
+{"mid": "Z2993", "status": "untried", "files": ["B2_ACROSS_FIELDS.md"], "evidence": "", "note": "Equidistribution mod p of length-3 word entries not measured."}
