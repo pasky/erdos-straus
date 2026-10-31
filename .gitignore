@@ -8,3 +8,4 @@ data/sterile/all_2e6.jsonl
 data/sterile/s_2e22.jsonl
 data/spec/*.bin
 paper/es-exponential-families.toc
+data/z52b/status/dossier_*.jsonl

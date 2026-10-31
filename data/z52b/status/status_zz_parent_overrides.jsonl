@@ -1,0 +1,48 @@
+{"mid": "Z0401", "status": "open", "files": ["BRAINSTORM/markoff_hasse_failures_vs_es.md"], "evidence": "So the GS construction fails at the Type II step.", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z0408", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0412", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures: number of terms,", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z0447", "status": "open", "files": ["BRAINSTORM/tech_maynard_theta.md"], "evidence": "to B3 at the step \"error ≤ main term\"", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z0463", "status": "open", "files": ["BRAINSTORM/invol_windmill_signature.md"], "evidence": "Only the transpose-type swap A↔B survives, whose fixed point is the non-ES point.", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z0474", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0488", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0563", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0573", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0593", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0597", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0599", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0609", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0615", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0618", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0626", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0650", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0651", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0653", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0658", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0665", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0666", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0667", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0669", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0670", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0672", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z0674", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1260", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z1262", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z1402", "status": "open", "files": ["BRAINSTORM/s4_real_analytic_tools.md §3"], "evidence": "ES failures at odd squares are not real-infeasible (D is non-empty at m²), so no real certificate can encode T1", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z1421", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z1422", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "Verdict up front: COLLAPSES to B3 (scale), by three independent measures", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z1442", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1444", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1466", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1467", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1470", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1471", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1511", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1512", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1513", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1529", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1557", "status": "open", "files": ["BRAINSTORM/z45_recent_pointwise_tools.md (summary table)"], "evidence": "wrong sign; does not yield −1", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z1573", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z1636", "status": "open", "files": ["BRAINSTORM/covering_distortion_dual.md §5"], "evidence": "The dual covering problem is *already exactly quantified* by the campaign's Haar/Ω line", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z2073", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
+{"mid": "Z2378", "status": "open", "files": ["BRAINSTORM/tech_smooth_level.md §header verdict"], "evidence": "**Verdict: COLLAPSES.** Pointwise it is a T7/B6 leak.", "note": "Parent review: downgraded from blocked — memo-level verdict, not a refutation of this exact item."}
+{"mid": "Z2879", "status": "untried", "files": [], "evidence": "", "note": "Parent review: only evidence was a z52b-generated file (self-reference); reset to untried."}
