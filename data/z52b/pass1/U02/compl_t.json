@@ -1,0 +1,37 @@
+{
+ "Z1835": {
+  "mean_fail_by_2rank": {
+   "1": 0.2733,
+   "2": 0.9339,
+   "3": 0.9785,
+   "4": 0.9911
+  },
+  "n_C": 60
+ },
+ "Z1022": {
+  "C=1": {
+   "solutions": 2647,
+   "frac_some_denominator_shares_factor_with_4C": 1.0
+  },
+  "C=2": {
+   "solutions": 2647,
+   "frac_some_denominator_shares_factor_with_4C": 1.0
+  },
+  "C=3": {
+   "solutions": 2647,
+   "frac_some_denominator_shares_factor_with_4C": 1.0
+  },
+  "C=5": {
+   "solutions": 2647,
+   "frac_some_denominator_shares_factor_with_4C": 1.0
+  },
+  "C=15": {
+   "solutions": 2647,
+   "frac_some_denominator_shares_factor_with_4C": 1.0
+  }
+ },
+ "Z0536_control": {
+  "random_N_1mod4_in_[1e4,6e5]": 1.0,
+  "n": 400
+ }
+}
