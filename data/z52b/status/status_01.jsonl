@@ -98,3 +98,53 @@
 {"mid": "Z0497", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
 {"mid": "Z0498", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
 {"mid": "Z0499", "status": "open", "files": ["ES_APPROACH_GENERATORS.md"], "evidence": "", "note": "Klurman–Shparlinski–Teräväinen generator result noted; no ES step recorded."}
+{"mid": "Z0500", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Ford's divisor-in-interval results examined as literature; model for R(p) not computed."}
+{"mid": "Z0501", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md"], "evidence": "", "note": "Erdős–Hooley Δ for unit-fraction divisor classes examined; Δ not computed for ES."}
+{"mid": "Z0502", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0503", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0504", "status": "open", "files": ["METAPLECTIC_ES.md"], "evidence": "", "note": "Cubic Gauss sum/Kummer route examined in METAPLECTIC_ES; no ES step recorded."}
+{"mid": "Z0505", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0506", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0507", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0508", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0509", "status": "open", "files": ["FUNCTIONFIELD_ES.md"], "evidence": "", "note": "Proof ingredients of F_q[T] ES variants examined in function-field memos."}
+{"mid": "Z0510", "status": "open", "files": [], "evidence": "", "note": "Restricted-denominator ES variants partly covered by divisibility-ladder records."}
+{"mid": "Z0511", "status": "open", "files": [], "evidence": "", "note": "Minimal max-denominator exponent examined for small primes; full min over p not recorded."}
+{"mid": "Z0512", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Crocker-type extension to p+2^a+2^b+2^c examined as open exact twin."}
+{"mid": "Z0513", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Crocker exceptions for p+2^a+2^b known infinite; structure of all exceptions not tested."}
+{"mid": "Z0514", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "Schinzel N_m growth discussed via PW exponent; fit not recorded."}
+{"mid": "Z0515", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "PW table anomaly at m=12 noted; heuristic expected counts not computed."}
+{"mid": "Z0516", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Heath-Brown three-cubes analogy noted; non-local failure question left open."}
+{"mid": "Z0517", "status": "open", "files": ["ES_APPROACH_GENERATORS.md"], "evidence": "", "note": "U(n) sporadic values recorded; factor pattern vs Ramanujan's 2719 not checked."}
+{"mid": "Z0518", "status": "open", "files": ["BRAINSTORM/other_rings.md"], "evidence": "No literature found on *totally positive* ES over real quadratic fields", "note": "Totally-positive ES over number fields noted as literature gap; not computed."}
+{"mid": "Z0519", "status": "open", "files": [], "evidence": "", "note": "Smooth-denominator ES partly covered by divisibility-ladder numerics; minimal bound not fitted."}
+{"mid": "Z0520", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0521", "status": "open", "files": [], "evidence": "", "note": "Minimal denominator vs p/4 records examined in lane notes; fit not recorded."}
+{"mid": "Z0522", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Explicit thin additive bases examined; only designed constructions found."}
+{"mid": "Z0523", "status": "open", "files": ["BRAINSTORM/z31_zaremba_thin_orbits.md"], "evidence": "", "note": "Critical δ=1/2 alphabets discussed; ES-five as critical case not settled."}
+{"mid": "Z0524", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0525", "status": "open", "files": ["ASTRA_BRIEF_DIRECTION2.md"], "evidence": "", "note": "Erdős log log b term-count conjecture examined in a note; ES consequence not recorded."}
+{"mid": "Z0526", "status": "open", "files": ["BRAINSTORM/s9_fibration_level.md"], "evidence": "", "note": "Harpaz integral-points theorem examined for ES fibrations; hypotheses not verified."}
+{"mid": "Z0527", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "Positive-proportion vs almost-all for fixed large m examined via PW; not settled."}
+{"mid": "Z0528", "status": "open", "files": ["BRAINSTORM/corr_typeI_typeII_joint.md"], "evidence": "", "note": "Separate Type I/II counts examined jointly; full separate-count table not recorded."}
+{"mid": "Z0529", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0530", "status": "open", "files": ["BRAINSTORM/covering_distortion_dual.md"], "evidence": "", "note": "Covering/distortion dual examined; uncovered-set computation not recorded."}
+{"mid": "Z0531", "status": "open", "files": ["BRAINSTORM/corr_typeI_typeII_joint.md"], "evidence": "", "note": "Type I and Type II mechanisms examined jointly; correlation measured."}
+{"mid": "Z0532", "status": "open", "files": ["BRAINSTORM/z52_lit_divisor_class.md"], "evidence": "", "note": "Divisor-in-class multiplicative witnesses examined as literature; ES reformulation not computed."}
+{"mid": "Z0533", "status": "open", "files": [], "evidence": "", "note": "Failure-set closure under divisibility recorded; other operations not found."}
+{"mid": "Z0534", "status": "open", "files": [], "evidence": "", "note": "Minimal Type I witness sizes examined numerically in campaign notes; Linnik-type bound not fitted."}
+{"mid": "Z0535", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0536", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0537", "status": "open", "files": ["BRAINSTORM/s6_exp_classes_105.md"], "evidence": "", "note": "Aurifeuillean and Sophie-Germain families examined in exponential-class memo."}
+{"mid": "Z0538", "status": "open", "files": ["SIBLING.md"], "evidence": "", "note": "Self-reducibility to smaller instances examined as sibling structure question."}
+{"mid": "Z0539", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0540", "status": "open", "files": ["BRAINSTORM/z52_deep_thin_pointwise_astra.md"], "evidence": "13-class taxonomy and 23 catalogue entries distinguish thin final counts from short certificates", "note": "Trials-times-success taxonomy exists; harmonic-profile search for other problems not done."}
+{"mid": "Z0541", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0542", "status": "open", "files": ["BRAINSTORM/tech_maynard_theta.md"], "evidence": "", "note": "Maynard–Tao θ-sieve examined for ES; tuple-of-C parametrisation not tested."}
+{"mid": "Z0543", "status": "open", "files": ["BRAINSTORM/ident_invariants.md"], "evidence": "", "note": "Binary quadratic forms of discriminant −4d examined in invariant memos; residue sets not computed."}
+{"mid": "Z0544", "status": "open", "files": ["B2_ACROSS_FIELDS.md"], "evidence": "", "note": "Duke equidistribution row examined; error-window comparison for ES not recorded."}
+{"mid": "Z0545", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0546", "status": "open", "files": ["MODP_RECIPROCITY.md"], "evidence": "", "note": "Reciprocity contradiction examined for one C; simultaneous multi-C case open."}
+{"mid": "Z0547", "status": "open", "files": ["BRAINSTORM/covering_distortion_dual.md"], "evidence": "", "note": "Rosser–Iwaniec style sieve for no-divisor-class examined in dual covering memo."}
+{"mid": "Z0548", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0549", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
