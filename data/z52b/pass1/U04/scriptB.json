@@ -1,0 +1,41 @@
+{
+ "Z1407": {
+  "n_primes": 211,
+  "n_components_among_primes": 5,
+  "largest_component": [
+   207,
+   1,
+   1,
+   1,
+   1
+  ],
+  "n_singletons": 4,
+  "note": "nodes: primes p<3000 and templates (C,d), C<=12; edge p-(C,d) iff d|4Cp+1, d\u2261-1 (4C)"
+ },
+ "Z0992": {
+  "n_primes": 44,
+  "mean_spearman_max_vs_xyz": 0.865,
+  "frac_primes_argmin_max_eq_argmin_xyz": 0.5
+ },
+ "Z0993": {
+  "n": 2078,
+  "quantiles_log_x": [
+   0.751,
+   0.791,
+   0.827
+  ],
+  "quantiles_log_y": [
+   0.992,
+   1.372,
+   1.629
+  ],
+  "quantiles_log_z": [
+   1.763,
+   2.16,
+   2.789
+  ],
+  "frac_z_le_2": 0.3619,
+  "frac_x_le_1": 1.0,
+  "note": "complete enumeration: no bounded box is missed; quantiles of log_p(x),log_p(y),log_p(z)"
+ }
+}

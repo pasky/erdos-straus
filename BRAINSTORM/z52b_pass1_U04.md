@@ -1,16 +1,13 @@
 # z52b Pass 1 — batch U04 (207 untried §2 items)
 
-**Summary (counts):** 207 items: skipped 106, covered 50, needs-compute 35, nothing 14, interesting 2.
-**Interesting:** Z0866 (primitive ES failures confined to p≡1 mod 12 up to 2·10⁴: 56/555 vs 0/570 in class 5 mod 12);
-Z1652 (Y. Wang, arXiv:1406.6963: almost-prime rational points on the Cayley cubic via circle method + torsors; possible fibre/class restriction).
-**Nothing with a computed negative:** Z0785 (Neumann–Setzer p = u²+64 vs hard primes), Z1343/Z1444/Z0545 (subgroup/Kneser
-gate: −1 in the generated subgroup but no witness, 6476 pairs), Z1508/Z2514/Z2977/Z3143 (no Hecke-type ratio relation for f(ℓp)/f(p)), Z2985 (no closure of the hard set under prime factors).
-**Items needing compute (spelled out in outcome_U04.jsonl):** 35, e.g. Z1394 (run length to 10⁸), Z0705 (max log(minz/p)/log p to 10⁷), Z1369, Z2471, Z2696.
+**Summary (counts, after the pass1_U_fix redo):** 207 items: nothing 87, covered 50, needs-compute 58, skipped 10 (restatement/meta only), interesting 2.
+**Interesting:** Z0866 (primitive ES failures confined to p≡1 mod 12 up to 2·10⁴: 56/555 vs 0/570 in class 5 mod 12); Z1652 (Y. Wang, arXiv:1406.6963: almost-prime rational points on the Cayley cubic via circle method + torsors; possible fibre/class restriction).
+**Computed negatives (examples):** Z0785 (Neumann–Setzer), Z0342 (Z[√2] cone), Z0562 (Pell candidates), Z0992 (heights disagree), Z1369 (Sylvester numerator stuck at 3), Z1407 (trivial giant component), Z1484 (Kronecker–Hurwitz verified, no ES trace), Z1670/Z2480/Z2699 (Derenthal: 4A1 cubic torsor has ≥2 relations, not a hypersurface), Z1965 (induction maps send no-witness primes to non-failing primes), Z2523 (class effects = Mordell classes), Z2696 (signed integer points on U_n grow slowly in B), Z0915 (partition parity null), Z1019–Z1087 (witness pipeline; see outcome lines).
+**Needs-compute:** 58, each with the computation and estimate in outcome_U04.jsonl. Several are estimated at 30–60 min and should be done next (Z0786, Z1164, Z1259, Z2617, Z2868, Z2626).
+**Outcome file (authoritative):** data/z52b/pass1/outcome_U04.jsonl (the earlier outcome_src/redo_src files are kept as the text source).
 
-Repro: `scripts/z52b_p1_U04_*.py`; data in `data/z52b/pass1/U04/`; outcomes `data/z52b/pass1/outcome_U04.jsonl`.
-Literature checks (arXiv API, abstracts): 1406.6963, 2504.10992, 2302.02143 (Tall; the item's "Clift" attribution is wrong),
-2605.05075, 1511.01285, 1901.08503 (Wilsch: blow-up of P³ outside planes, not a log Fano threefold like U_n),
-1908.02526, 1107.1010, 1603.04246, 1701.00265, 1604.01041, 1904.13109 and others (all exist as cited).
+Repro: `scripts/z52b_p1_U04_*.py`; data in `data/z52b/pass1/U04/`.
+Literature checks (arXiv API, web search, PDF): 1406.6963, 2504.10992, 2302.02143 (Tall; the item's "Clift" attribution is wrong), 2605.05075, 1511.01285, 1901.08503 (Wilsch: blow-up of P³ outside planes, not a log Fano threefold like U_n), math/0604194 (Derenthal, Table 7), math/0206100 (Corvaja–Zannier), 1703.05967 (Fink–Speyer), 1601.07066 (Corvaja–Zannier review), math/0311421 (Croot), Button 1998 (prime Markoff uniqueness; Lang 2007 prime powers), and others (existence checked).
 
 ## Interesting items
 
@@ -38,8 +35,9 @@ Literature checks (arXiv API, abstracts): 1406.6963, 2504.10992, 2302.02143 (Tal
 - **Next.** Read Wang's main theorem; decide whether his count survives restriction to a single fibre n = p (the rational points are in a 1-parameter family of n-fibres after the affine chart); if yes, check whether the residue class of one coordinate is controllable. This is a literature/theory lane, not a computation.
 - **Labels.** Literature lead only (abstract checked; no main theorem read). Assessment: no ES consequence established.
 
-## Notes on the batch
+## Notes on the batch (after pass1_U_fix)
 - Several items were duplicates of earlier fingerprint/variants results (Z0693, Z0704, Z0720, Z0793, Z0865, Z0898, Z0964, Z0920, Z0858 …); these are marked `covered` with the repo file or JSON that already holds the number. Two numbers in the item text were off (Z0693 correlations; Z0721 "2⁴ | p−1" claim: v₂ ranges 3..7 among the eight hard primes, all in Mordell's classes 1, 121, 361 mod 840).
 - Z2049's attribution to Clift is wrong: arXiv:2302.02143 is Tall's proof for n = 2^m·23+7.
 - Z2687 (Harpaz) and Z2114 (Dao, arXiv:2504.10992): verified abstracts; non-density/BM mechanisms do not transfer to existence, as noted in the outcome lines.
-- Not done (honest): Z1670/Z2480/Z2699 (Derenthal Cox-ring lookup), Z0705 (C-level compute to 10⁷), Z1394 (10⁸ scan).
+- Still open (honest): 58 needs-compute items, including Z1394 (10⁸ scan), Z0786 (ecdata per-conductor counts), and the Derenthal-dependent Galois/torsor items that now have a negative answer for the 4A1 cubic.
+- Z2866: the item says 'prime powers'; Button 1998 proves the prime case, Lang 2007 the prime-power case. Not relevant to S_{p,D} either way.

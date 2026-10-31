@@ -1,0 +1,3655 @@
+SINGULAR DEL PEZZO SURFACES
+WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+arXiv:math/0604194v3 [math.AG] 22 Jul 2013
+
+ULRICH DERENTHAL
+Abstract. We classify all generalized del Pezzo surfaces (i.e., minimal desingularizations of singular del Pezzo surfaces containing only rational double
+points) whose universal torsors are open subsets of hypersurfaces in affine
+space. Equivalently, their Cox rings are polynomial rings with exactly one
+relation. For all 30 types with this property, we describe the Cox rings in
+detail.
+These explicit descriptions can be applied to study Manin’s conjecture on
+the asymptotic behavior of the number of rational points of bounded height
+for singular del Pezzo surfaces, using the universal torsor method.
+
+Contents
+1. Introduction
+2. Construction
+2.1. Classification of generalized del Pezzo surfaces
+2.2. Degrees of generators of the Cox rings
+2.3. Construction of generalized del Pezzo surfaces
+2.4. Singular del Pezzo surfaces
+3. Classification
+3.1. Degree 7, 8, 9
+3.2. Degree 6
+3.3. Degree 5
+3.4. Degree 4
+3.5. Degree 3
+3.6. Degree 2
+3.7. Degree 1
+References
+
+1
+5
+5
+7
+12
+13
+16
+16
+16
+18
+21
+27
+33
+39
+42
+
+1. Introduction
+Universal torsors were introduced by Colliot-Thélène and Sansuc to study the
+Hasse principle and weak approximation for rational points on del Pezzo surfaces
+and other geometrically rational varieties [CTS76], [CTS77b], [CTS77a], [CTS80],
+[CTS87].
+Universal torsors are also applied in the context of Manin’s conjecture [FMT89],
+[BM90] on the asymptotic behavior of the number of rational points of bounded
+height on Fano varieties. This goes back to Salberger [Sal98] and Peyre [Pey98].
+After the proof of Manin’s conjecture for toric varieties (which include several del
+Pezzo surfaces) by Batyrev and Tschinkel [BT98], Salberger gave a different proof
+using universal torsors [Sal98].
+Date: July 22, 2013.
+2010 Mathematics Subject Classification. 14J26 (14C20, 14G05).
+1
+
+2
+
+ULRICH DERENTHAL
+
+Subsequently, Salberger’s approach to Manin’s conjecture via universal torsors
+was applied to many non-toric varieties, in particular del Pezzo surfaces. In each
+case, one needs a very precise understanding of universal torsors, in particular
+of defining equations. In this article, we focus on universal torsors that have a
+presentation as Zariski open subsets of affine hypersurfaces.
+The first examples, universal torsors over minimal desingularizations of cubic
+surfaces with singularities of types E6 resp. D4 , were worked out by Hassett and
+Tschinkel [HT04]. This lead to the first complete proof of Manin’s conjecture for
+a non-toric singular cubic surface over Q in [BBD07] and was a starting point in
+the program to study Manin’s conjecture for all types of split singular del Pezzo
+surfaces over number fields and function fields.
+For an overview of further progress towards Manin’s conjecture for del Pezzo
+surfaces over Q, we refer to [Bro07], [DT07], [Bro09]. If Manin’s conjecture is
+known for a del Pezzo surface of a certain type (see Definition 3 and Remark 4),
+we give a reference to the proof in Tables 3–9.
+Del Pezzo surfaces of some types are toric or equivariant compactifications of the
+additive group G2a (classified in [DL10]), so Manin’s conjecture follows from [BT98]
+or [CLT02], without using universal torsors. We observe that most other proofs of
+Manin’s conjecture are concerned with one particular example of a split singular
+del Pezzo surface such that a universal torsor of its minimal desingularization is an
+open subset of an affine hypersurface. So far, all proofs for examples of this kind
+are based on the description of universal torsors given in [HT04] or in (preliminary
+versions of) our work that we present here.
+Bourqui [Bou11] proved Manin’s conjecture for toric varieties over function fields
+using techniques analogous to [BT98]. Additionally, he developed universal torsor
+methods over function fields to prove Manin’s conjecture for some non-toric del
+Pezzo surfaces [Bou09], [Bou12]. His work also uses our explicit description of
+universal torsors of del Pezzo surfaces.
+From here, we work over an algebraically closed field of characteristic 0. We
+use the following terminology. A normal projective surface with ample anticanonical class is called ordinary del Pezzo surface if it is non-singular, or singular del
+Pezzo surface if its singularities are rational double points. A generalized del Pezzo
+surface is a non-singular projective surface whose anticanonical class is big and
+nef. Generalized del Pezzo surfaces are precisely ordinary del Pezzo surfaces and
+minimal desingularizations of singular del Pezzo surfaces.
+Universal torsors are closely related to Cox rings: Cox rings of generalized del
+e is a
+Pezzo surfaces are finitely generated, and a Zariski open subset of Spec(Cox(S))
+e
+universal torsor over the generalized del Pezzo surface S [Has09, Theorems 5.6, 5.7].
+e and all relations between them gives
+Therefore, determining generators of Cox(S)
+e containing
+coordinates and defining equations for the affine variety Spec(Cox(S))
+a universal torsor.
+e we will see (Lemma 5)
+While there is no canonical choice of generators of Cox(S),
+e can be described by a certain minimal number of generators and relathat Cox(S)
+e
+e
+tions that are homogeneous with respect to the natural Pic(S)-grading
+of Cox(S)
+and whose degrees with respect to this grading are uniquely defined. Whenever we
+mention (numbers and degrees of) generators and relations of Cox rings, we refer
+to such minimal sets of homogeneous generators and relations.
+As universal torsors of a generalized del Pezzo surface Se of degree d have dimene + rk(Pic(S))
+e = 12 − d, we can distinguish three cases:
+sion dim(S)
+(1) Precisely in the toric case [Cox95], [HK00, Corollary 2.10], Cox rings are
+polynomial rings in 12 − d variables (without relations), and their universal
+torsors can be presented as open subsets of affine space A12−d .
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+3
+
+(2) For Cox rings that are isomorphic to the quotients of polynomial rings in
+13 − d variables by one relation, the corresponding universal torsors are
+open subsets of affine hypersurfaces in A13−d .
+(3) If there are at least 14 − d generators and more than one relation in the
+Cox ring, universal torsors are open subsets of (possibly non-complete)
+intersections of at least two hypersurfaces in affine space of dimension ≥
+14 − d.
+For applications such as Manin’s conjecture, it is interesting to distinguish between these three cases. In case (1), Manin’s conjecture is known by the work of
+Batyrev and Tschinkel [BT98]. It turns out that it tends to be easier to prove
+Manin’s conjecture for del Pezzo surfaces in case (2) than in case (3).
+e the Cox ring depends essentially on the
+For an ordinary del Pezzo surface S,
+e
+degree d. For d ≥ 6, S is toric, so we are in case (1). For d ≤ 5, the Cox ring has
+been determined in [BP04], [STV07], [LV09], [TVAV09], and it turns out that we are
+e has one generator corresponding to each negative curve on
+in case (3). Here, Cox(S)
+e
+S, plus two generators of anticanonical degree in case d = 1 [BP04, Theorem 3.2].
+For generalized del Pezzo surfaces, the shape of the Cox ring depends not only
+on the degree. The classification of generalized del Pezzo surfaces is closely related
+to the classification of singular del Pezzo surfaces, which was done in degree 3 by
+Schläfli [Sch63] and Cayley [Cay69] and in degrees 1 and 2 by Du Val [DV34]. This
+leads to a finite number of types (see Definition 3), where each type in degree d ≤ 7
+corresponds to a subsystem of the root system Rd in Table 1. Each type may be
+described by the degree, the types of the ADE-singularities and the number of the
+lines on the corresponding singular del Pezzo surfaces (where the number of lines
+may be ignored in most cases; see Remark 4).
+d
+Rd
+
+7
+A1
+
+6
+A2 + A1
+
+5
+A4
+
+4
+D5
+
+3
+E6
+
+2
+E7
+
+1
+E8
+
+Table 1. Root systems Rd of del Pezzo surfaces of degree d
+e may have generaAs the example of the E6 cubic surface [HT04] shows, Cox(S)
+tors whose degrees are neither classes of negative curves nor the anticanonical class.
+However, the following result allows us to determine the degrees of generators of
+e recursively, starting with del Pezzo surfaces of high degree ≥ 7, which are
+Cox(S)
+always toric, so that their Cox ring is known by [Cox95]. We denote the class of a
+divisor D by D̄; in particular, −K̄Se is the class of an arbitrary anticanonical divisor
+e
+−KSe on S.
+Theorem 1. Let Se be a generalized del Pezzo surface. Then the number and degrees
+e depend only on the type of S.
+e
+of generators and relations of Cox(S)
+e
+e
+e is the
+If deg(S) ∈ {2, . . . , 7}, then the Pic(S)-degree of each generator of Cox(S)
+∗
+e
+class of a negative curve or −K̄Se or ρ D̄ for some contraction ρ : S → Se′ of a
+negative curve on Se and the degree D̄ of a generator of Cox(Se′ ).
+
+In Section 2, we present facts about del Pezzo surfaces and their universal torsors
+and Cox rings. We prove Theorem 1 (in the slightly more precise version stated as
+Theorem 8) and several auxiliary results. We show how to determine the shape of
+the Cox rings for all types of generalized del Pezzo surfaces in every degree d, given
+only their abstract classification via root systems.
+We compute the degrees of generators and relations of the Cox ring for each
+type in a purely “combinatorial” way, without using projective models, in Steps 1
+
+4
+
+ULRICH DERENTHAL
+
+and 2. Whenever this leads to case (2) of Cox rings with one relation, we show
+how to determine an explicit description of the corresponding singular del Pezzo
+e
+surfaces S and of Cox(S).
+It seems interesting to note that we first construct
+e by choosing a relation in Step 3, and then extract an explicit description
+Cox(S)
+of S from this in Step 4, together with extra information on the structure on S, its
+e
+desingularization Se and generators of Cox(S).
+We construct S and Se in a way that they are defined and split over Q (i.e., Se is
+obtained from P2 by a series of blow-ups, each defined over Q, and S and its lines
+e is defined over Q. Therefore,
+and singularities are all defined over Q). Also Cox(S)
+our results cover the case of split del Pezzo surfaces over Q. The classification,
+geometry and arithmetic of non-split del Pezzo surfaces over Q is more involved,
+see for example [CT88].
+Some (but not all) of our del Pezzo surfaces can be equipped with a complexity
+one torus action, so that their Cox rings can also be determined using the methods
+of Hausen and Süß [HS10] once a projective model is known. For some singular
+del Pezzo surfaces, Cox rings have been determined by this method; see [Hau13,
+Theorems 3.23–3.26] and the references therein.
+The fact that our construction starts with the abstract classification of del Pezzo
+surfaces instead of an explicit description of each type (for example by defining
+equations) seems both natural and useful in practice (lists of defining equations do
+not seem to be readily available in degrees other than 3 and 4).
+This leads to the following classification (see also Table 2):
+Theorem 2. The Cox rings of generalized del Pezzo surfaces Se of the following
+e generators with one relation:
+types have a minimal set of 13 − deg(S)
+• degree 6: types A1 (with three lines), A2 ;
+• degree 5: types A1 , A2 , A3 , A4 ;
+• degree 4: types 3A1 , A2 + A1 , A3 (with five lines), A3 + A1 , A4 , D4 , D5 ;
+• degree 3: types D4 , A3 + 2A1 , 2A2 + A1 , A4 + A1 , D5 , A5 + A1 , E6 ;
+• degree 2: types D5 + A1 , E6 , 2A3 + A1 , A5 + A2 , D4 + 3A1 , D6 + A1 , E7 ;
+• degree 1: types E6 + A2 , E7 + A1 , E8 .
+All other types are either toric or have Cox rings with at least two relations.
+toric
+1 relation ≥ 2 relations
+1 type
+–
+–
+3 types
+–
+–
+2 types
+–
+–
+4 types
+2 types
+–
+2 types
+4 types
+1 type
+3 types
+7 types
+6 types
+1 type
+7 types
+13 types
+–
+7 types
+39 types
+–
+3 types
+71 types
+16 types 30 types
+130 types
+Table 2. Relations in Cox rings of generalized del Pezzo surfaces
+degree
+9
+8
+7
+6
+5
+4
+3
+2
+1
+P
+
+In Section 3, we give a detailed presentation of the results. For Cox rings with one
+relation, our choice of data listed there is lead on the one hand by the question which
+information is crucial to determine the Cox rings and to describe them precisely,
+and on the other hand by the question which information is needed for applications
+such as Manin’s conjecture (see [DT07] and [Der09] for a systematic description of
+some aspects).
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+5
+
+Acknowledgements. This work was supported by grant DE 1646/2-1 of the
+Deutsche Forschungsgemeinschaft, by grant 200021 124737/1 of the Schweizer Nationalfonds and by the Center for Advanced Studies of LMU München. I thank
+V. Batyrev, J. Hausen, B. Hassett, J. Heinloth, A. Laface and the referee for useful
+remarks.
+
+2. Construction
+For the minimal desingularization Se of every singular del Pezzo surface S, we
+e has precisely one relation. If this is the
+determine whether its Cox ring Cox(S)
+case, we give an explicit and natural description of S in (weighted) projective space
+with its lines and singularities, of Se as a blow-up of P2 with its negative curves,
+e
+and of the generators and relation in Cox(S).
+In this section, we describe how this can be achieved starting with the abstract
+classification of generalized del Pezzo surfaces via root systems. When we determine
+e it turns out that the information
+the number of generators and relations of Cox(S),
+mentioned above can be extracted along the way. In particular, we construct an
+anticanonical embedding of S via the Cox ring.
+2.1. Classification of generalized del Pezzo surfaces. Let K be an algebraically closed field of characteristic 0. In this section, we recall the classification
+of generalized del Pezzo surfaces via root systems. For basic properties of generalized del Pezzo surfaces, see also [DP80, §III], [CT88], [AN06], [Dol12, §8] (where
+they are called rational surfaces of negative type, generalized del Pezzo surfaces,
+Gorenstein log del Pezzo surfaces, weak del Pezzo surfaces, respectively).
+e is equipped with
+Let Se be a generalized del Pezzo surface. Its Picard group Pic(S)
+the intersection form (·, ·), which is a non-degenerate bilinear form. For n ∈ Z, a
+curve C on Se is called an (n)-curve if C is isomorphic to P1 and its class C̄ ∈ Pic(S)
+has self intersection number (C̄, C̄) = n. A negative curve is an (n)-curve with
+e of a generalized del Pezzo surface is the self intersection
+n < 0. The degree deg(S)
+e of a generalized
+number of its anticanonical class −K̄Se. The Picard group Pic(S)
+e
+del Pezzo surface is free of rank 10 − deg(S).
+Any generalized del Pezzo surface Se is isomorphic to P2 (of degree 9), P1 × P1 ,
+the Hirzebruch surface F2 (both of degree 8) or a blow-up of P2 in r ≤ 8 points in
+almost general position (of degree 9 − r), i.e., we have a map ρ : Se → P2 that is a
+composition
+(2.1)
+
+ρ1
+ρr
+Se = Ser −→ Ser−1 → · · · → Se1 −→ Se0 = P2 ,
+
+where ρi : Sei → Sei−1 is the blow-up of a closed point pi ∈ Sei−1 not lying on a
+(−2)-curve on Sei−1 (see [Dol12, Proposition 8.1.16]).
+A generalized del Pezzo surface Se is ordinary if and only if it does not contain
+(−2)-curves, i.e., if it is P2 or P1 × P1 or the blow-up of P2 in r points in general
+position. In the notation above, general position means that p1 , . . . , pr do not lie
+on (−1)-curves, and additionally for r = 8, the point p8 is not a double point on a
+(2)-curve. Equivalently, p1 , . . . , p8 are distinct points in P2 , with no three on one
+line, no six on one conic and no eight on a cubic curve in P2 with one of them a
+singular point of that curve.
+If Se is a blow-up of P2 in r points as in (2.1), let ℓ0 = ρ∗ OP2 (1) and ℓi be the
+class of the total transform on Se of the exceptional divisor of ρi , for i = 1, . . . , r.
+e The intersection form is defined on this
+Then ℓ0 , ℓ1 , . . . , ℓr form a basis of Pic(S).
+
+6
+
+basis by
+
+ULRICH DERENTHAL
+
+
+
+i = j = 0,
+1,
+(ℓi , ℓj ) = −1, i = j > 0,
+
+
+0,
+i 6= j.
+
+In particular, excluding the cases P1 × P1 and F2 in degree 8, the Picard group
+e together with its intersection form depends only on the degree of S.
+e
+Pic(S)
+e
+For the class of an irreducible curve C on S, three cases occur:
+• C̄ = ℓi with i ∈ {1, . . . , r} if and only if C is the (−1)-curve that is the strict
+transform of the exceptional divisor of ρi that is not blown up subsequently.
+• C̄ = ℓi − ℓj with i < j ∈ {1, . . . , r} if and only if C is the (−2)-curve that
+is the strict transform of the exceptional divisor of ρi , with pj on its strict
+transform on Sej−1 .
+• C̄ = a0 ℓ0 − a1 ℓ1 − · · · − ar ℓr with a0 > 0 and a1 , . . . , ar ≥ 0 if and only if C
+is the strict transform of the curve ρ(C) of degree a0 in P2 , with pi a point
+of multiplicity ai on its strict transform on Sei−1 , for i = 1, . . . , r. Then C
+has self intersection number a20 − a21 − · · · − a2r .
+e Se′ have the same type if there
+Definition 3. Two generalized del Pezzo surfaces S,
+′
+∼
+e
+e
+is an isomorphism Pic(S) = Pic(S ) preserving the intersection form that gives a
+bijection between their sets of classes of negative curves.
+e preserving the
+For Se of degree d ≤ 7, the group of isomorphisms of Pic(S)
+intersection form is the Weyl group W (Rd ) of the root system
+e | (D̄, D̄) = −2, (D̄, −K̄Se) = 0},
+Rd = {D̄ ∈ Pic(S)
+
+as in Table 1.
+The types of generalized del Pezzo surfaces of degree d are in bijection to the
+subsystems of the root system Rd (up to automorphisms of Rd ; labeled according
+to the ADE-classification), except the subsystems of types 7A1 of R2 and of types
+7A1 , 8A1 and D4 + 4A1 of R1 (which occur only over fields of characteristic 2);
+see [Ura83], [AN06]. Here, the classes of the (−2)-curves are the simple roots of
+the subsystem R. Hence the Dynkin diagram of R describes the configuration of
+(−2)-curves on the corresponding generalized del Pezzo surface. The classes of the
+e with (D̄, D̄) = −1, (D̄, −K̄Se) = 1
+(−1)-curves are precisely the elements D̄ ∈ Pic(S)
+e
+and (D̄, Ē) ≥ 0 for all classes Ē of (−2)-curves on S.
+
+Remark 4. We note that Rd may contain root systems R, R′ that are abstractly
+isomorphic, without the existence of an automorphism of Rd mapping R to R′ .
+In this case, R, R′ correspond to two different types. For example, there are two
+types of generalized del Pezzo surfaces of degree 4 with an A3 -configuration of
+(−2)-curves: one with four and one with five (−1)-curves.
+It turns out that the type of a generalized del Pezzo surface is uniquely determined by its degree, its configuration of (−2)-curves and its number of (−1)-curves.
+Indeed, this can be checked from the data in [CT88] for degree d ≥ 4 and from
+[BW79] for d = 3. The article [Ura83] lists all cases with d ∈ {1, 2} where the
+configuration of (−2)-curves together with d does not determine the type uniquely.
+In each case, there are precisely two types, and it is straightforward to check that
+they differ by their number of (−1)-curves.
+For any type, we mention the number of (−1)-curves in addition to the degree
+and the ADE-type of the root system only when this is necessary to identify the
+type uniquely.
+In particular, there is only a finite number of types. Our first step is to find them
+together with the configuration of classes of negative curves, encoded in the extended
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+7
+
+Dynkin diagram of negative curves. This gives the classification in Tables 3–9, which
+recovers the lists in [CT88] for degree d ≥ 4, [BW79] for d = 3 and [Ura83] for d ≤ 2.
+For simplicity, for d ≤ 2, we only list the types with at most 13 − d negative curves;
+all others have Cox rings with more than one relation by Theorem 8 below.
+Step 1 (Find all types of generalized del Pezzo surfaces). We apply the procedure
+described in [AN06, Section 0.3] to find all types of generalized del Pezzo surfaces.
+For each type, this gives an extended Dynkin diagram of negative curves (where a
+vertex marked by a circle corresponds to the class of a (−2)-curve, a vertex marked
+by a square corresponds to the class of a (−1)-curve, with (Ē, Ē ′ ) edges between
+the vertices of Ē and Ē ′ ). It is empty for P2 and P1 × P1 . Otherwise, the extended
+Dynkin diagram of negative curves characterizes each type uniquely.
+For each type of degree d ≥ 7, we determine a sequence of contractions ρr , . . . , ρ1
+of (−1)-curves corresponding to (2.1) as follows: for i = r, . . . , 1, the effect of ρi is
+to remove a class Ē with self intersection number −1 from the extended Dynkin
+diagram of negative curves, to increase the self intersection number of the other
+classes Ē ′ by (Ē, Ē ′ )2 and to add (Ē, Ē ′ ) · (Ē, Ē ′′ ) edges between Ē ′ , Ē ′′ .
+This allows us to express the classes of negative curves in terms of the basis
+e
+ℓ0 , . . . , ℓr of Pic(S):
+• Ē = ℓi if (Ē, Ē) = −1 and (the strict transform of) Ē is contracted by ρi .
+• Ē = ℓi − ℓj with i < j if (Ē, Ē) = −2 such that ρj increases the self
+intersection number to −1 and ρi contracts its strict transform.
+• Ē = a0 ℓ0 − a1 ℓ1 − · · · − ar ℓr if Ē is not contracted by ρ, where a0 > 0 is
+the self intersection number of its image in P2 and ai ≥ 0 is the intersection
+number of its strict transform on Sei with ℓi .
+
+Result 1. This step gives a list of all types. We identify each type by the degree,
+the ADE-type of the configuration of (−2)-curves and the number of (−1)-curves.
+Furthermore, we give the extended Dynkin diagram of negative curves and list the
+classes Ēi of the negative curves in terms of the basis ℓ0 , . . . , ℓr the Picard group.
+
+2.2. Degrees of generators of the Cox rings. We summarize basic facts about
+universal torsors and Cox rings of generalized del Pezzo surfaces; see also [CTS87],
+e of generators of
+[HT04], [ADHL]. Then we show how to find the degrees in Pic(S)
+e
+e
+Cox(S) for S of any given type, based on the description of the classes of negative
+curves on Se obtained in Step 1. Several of the arguments and intermediate results
+in this section have appeared (sometimes implicitly) in previous work on Cox rings
+of rational surfaces (see [BP04], [HT04], [GM05], [TVAV11], for example).
+Let Se be a generalized del Pezzo surface of degree d. Let D0 , . . . , Dr be divisors
+e where r = 9 − d. Then the Cox
+on Se such that their classes form a basis of Pic(S),
+e
+ring of S with respect to D0 , . . . , Dr is defined as
+M
+e = Cox(S,
+e D0 , . . . , Dr ) =
+e O(ν0 D0 + · · · + νr Dr )),
+Cox(S)
+H 0 (S,
+(ν0 ,...,νr )∈Zr+1
+
+where the multiplication is induced by the multiplication of global sections. A
+different choice of divisors gives rise to a non-canonically isomorphic Cox ring. Our
+classification results will be independent of this choice, so that we use the notation
+e
+Cox(S).
+e is a finitely generated KSince Se is rational and −K̄Se is big and nef, Cox(S)
+e For D̄ ∈ Pic(S),
+e
+algebra by [Has09, Theorem 5.7]. It is naturally graded by Pic(S).
+e D̄ be its degree-D̄-part, which is isomorphic to H 0 (S,
+e O(D)). Whenever
+let Cox(S)
+e this is meant with respect to
+we talk about homogeneous elements s ∈ Cox(S),
+e for the degree. See [ADHL] for more
+this grading, and we write deg(s) ∈ Pic(S)
+information.
+
+8
+
+ULRICH DERENTHAL
+
+For i = 0, . . . , r, let Li be the invertible sheaf O(Di ), and let L◦i be the Gm -torsor
+over Se obtained by removing the zero-section from Li . Then
+
+T = L◦0 ×Se · · · ×Se L◦r
+with the natural map to Se is a universal torsor over Se in the sense of [CTS87, §2]. It
+e where TNS = Hom(Pic(S),
+e Gm ) ∼
+is a TNS -torsor over S,
+is the Néron-Severi
+= Gr+1
+m
+e Then T is an open subset of the affine variety
+torus with character group Pic(S).
+e [Has09, Theorem 5.6].
+Spec(Cox(S))
+e if they are
+We say that η1 , . . . , ηt are (a minimal system of ) generators of Cox(S)
+e as a K-algebra, and if no proper subset of η1 , . . . , ηt
+homogeneous, generate Cox(S)
+e Then the K-algebra homomorphism
+is enough to generate Cox(S).
+e
+(2.2)
+Ψ : K[X1 , . . . , Xt ] → Cox(S)
+
+defined by Ψ(Xi ) = ηi for i = 1, . . . , t is surjective. By Hilbert’s basis theorem, the kernel of Ψ is a finitely generated ideal. If R1 , . . . , Rm ∈ K[X1 , . . . , Xt ]
+e
+e via
+are homogeneous (with respect to the Pic(S)-grading
+induced from Cox(S)
+Ψ) and generate ker(Ψ), but no proper subset generates this kernel, we say that
+R1 (η1 , . . . , ηt ) = · · · = Rm (η1 , . . . , ηt ) = 0 are (a minimal system of ) relations in
+e
+Cox(S).
+Lemma 5. Let Se be a generalized del Pezzo surface. For any minimal system
+e the
+of generators and any corresponding minimal system of relations of Cox(S),
+e
+numbers of their elements and the degrees of their elements depend only on S.
+
+Proof. The effective cone of Se is strictly convex. Therefore, we have a partial
+e where D̄′ ≤ D̄ if and only if D̄ − D̄′ is the class of an effective
+ordering on Pic(S),
+e D̄ is non-trivial only for classes of effective divisors D, this part
+divisor. As Cox(S)
+is only affected by generators and relations of the finitely many effective degrees
+D̄′ ≤ D̄.
+e the number
+Therefore, for a minimal set of homogeneous generators of Cox(S),
+0 e
+of generators of degree D̄ is h (S, O(D)) − dim HD̄ where HD̄ is the intersection
+e D̄ with the subring of Cox(S)
+e generated by all homogeneous s ∈ Cox(S)
+e
+of Cox(S)
+with deg(s) < D̄, which is independent of any choices.
+Similarly, the number of relations of degree D̄ is dim ker(Ψ)D̄ − dim JD̄ where
+ker(Ψ)D̄ is the degree-D̄-part of ker(Ψ) and JD̄ is its intersection with the ideal
+generated by all homogeneous elements R of ker(Ψ) with deg(R) < D̄.
+
+
+Remark 6. Toric generalized del Pezzo surfaces are easily classified: P2 , P1 × P1
+and F2 are toric. If Se is a toric blow-up of P2 in r points, it must be obtained
+by a sequence of blow-ups of points invariant under the torus action. These are
+the intersection points of the two torus-invariant curves corresponding to adjacent
+rays in the fan of the toric varieties. Such a point may be blown up if the self
+intersection numbers of these two curves are both ≥ −1.
+It is straightforward to produce a list of all possibilities of such sequences of blowe correspond to the rays in the fan of S.
+e
+ups. By [Cox95], the generators of Cox(S)
+In particular, this includes information on the configuration of negatives curves on
+e so that one can determine all types (as in Definition 3) of toric generalized del
+S,
+Pezzo surfaces, shown in Figure 1 together with all blow-ups between them.
+e
+Our next goal is to determine the degrees of generators and relations of Cox(S).
+Our strategy is similar to [BP04, Theorem 3.2]. The following technical lemma is
+used in the proof of Theorem 8.
+Lemma 7. Let Se be a generalized del Pezzo surface of degree d ≥ 2 that is a blowe Then the linear system |D| has no base
+up of P2 . Let D be a nef divisor on S.
+points.
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+d=9
+
+P2 oo
+
+8
+
+7
+
+6
+
+5
+
+4
+
+4A1
+P1 × Pee▲1
+Bl3 P2 gg◆
+▲▲
+◆◆◆
+q
+♦♦
+q
+♦
+▲▲
+♦
+q
+◆
+♦
+◆◆◆
+♦
+▲
+xxqqq
+ww♦♦♦
+2 oo
+2 oo
+o
+o
+o
+o
+Bl2 P ff▼
+A1 (4 l.)
+Bl1 P ff▲
+A2 + 2A1 oo
+2A1
+gg❖❖❖ ♦♦♦
+▼▼▼ qq
+♦
+▲▲▲
+♦
+♦
+❖♦❖❖
+q▼▼
+▲▲▲
+♦♦
+♦
+q
+♦
+♦
+q
+❖
+▼
+♦
+♦
+ww♦
+ww♦
+xxqq
+A3 + 2A1
+2A1 oo
+F2 oo
+A1 ooff◆
+A2 + A1 oo
+◆◆◆
+♦♦
+♦
+◆◆◆
+♦
+ww♦♦♦
+A2 + A1
+
+9
+
+3
+
+3A2
+
+Figure 1. Toric generalized del Pezzo surfaces.
+Proof. For d = 9, we have Se ∼
+= P2 , with D trivial or very ample, so the statement
+is clear.
+For d < 9, if there is a (−1)-curve E on Se with (D̄, Ē) = 0, we consider the map
+ρ : Se → Se′ that contracts E. Then Se′ is a generalized del Pezzo surface of degree
+d + 1. We have D = ρ∗ (D′ ) for some divisor D′ on Se′ . As the negative curves on
+Se′ are images of negative curves of Se under ρ, the divisor D′ is nef. By induction
+on d, the linear system |D′ | has no base points. Consequently, |D| = |ρ∗ D′ | has no
+base points.
+If there is no (−1)-curve E ⊂ Se with (D, E) = 0, then let m > 0 be the
+minimum of (D̄, Ē) over all (−1)-curves E. Since (Ē, −K̄Se) = 1 for all (−1)-curves
+and (Ē, −K̄Se) = 0 for all (−2)-curves, D′ = D − m · (−KSe) is nef, and (D̄′ , Ē) = 0
+for some (−1)-curve E. As discussed before, |D′ | has no base points. Since d ≥ 2,
+
+the system | − KSe| is also base point free. Therefore, |D| has no base points.
+All generalized del Pezzo surfaces of degree ≥ 7 are toric, so the degrees of
+the generators of their Cox rings are easily determined (see Remark 6). For a
+generalized del Pezzo surface of lower degree, the following result allows us to
+determine recursively a finite number of potential degrees of generators of the Cox
+ring.
+Theorem 8. Let Se be a generalized del Pezzo surface of degree d ∈ {2, . . . , 7}. For
+e there is precisely one generator of Cox(S)
+e of degree Ē.
+each negative curve E on S,
+e of degree −K̄Se. The degree
+Furthermore, there are at most two generators of Cox(S)
+e is nef, and there is a contraction ρ : Se → Se′
+D̄ of any other generator of Cox(S)
+of a (−1)-curve on Se such that D̄ = ρ∗ (D̄′ ) for some nef D̄′ that is the degree of a
+generator of Cox(Se′ ).
+
+Proof. For d ≤ 7, the effective cone of Se is minimally generated by its negative
+e O(E)) = 1
+curves (see [DJT08, Theorem 3.10], for example). Therefore, h0 (S,
+for each negative curve E, and any minimal system of homogeneous generators of
+e contains precisely one section corresponding to E.
+Cox(S)
+e are nef. Indeed, this is a special
+The degrees of all other generators of Cox(S)
+case of [GM05, Theorem 1], but we give a short direct argument here. If an effective
+e is not nef, then (D̄, Ē) < 0 for
+divisor D corresponding to a generator s of Cox(S)
+some negative curve E, which implies that E is a component of D. On the other
+hand, D is a prime divisor because otherwise s would be the product of sections
+corresponding to its components. Therefore, D must coincide with E. See also
+[TVAV11, Proposition 1].
+
+10
+
+ULRICH DERENTHAL
+
+e that can be exIn the following, a distinguished section is an element of Cox(S)
+pressed as a polynomial in some sections whose degrees are as in the statement of the
+e we must show that each element of H 0 (S,
+e O(D))
+result. For each nef D̄ ∈ Pic(S),
+is a distinguished section. We use induction over the partial order on the effective
+e If D̄ is trivial, the claim is clear.
+cone in Pic(S).
+If (D̄, Ē) = 0 for some (−1)-curve E, consider the contraction ρ : Se → Se′ of E.
+Then D = ρ∗ (D′ ) for some nef divisor D′ on Se′ , and
+e O(D))
+ρ∗ : H 0 (Se′ , O(D′ )) → H 0 (S,
+
+is an isomorphism. If D̄′ is not the degree of a generator of Cox(Se′ ), then each
+s′ ∈ H 0 (Se′ , O(D′ )) is a polynomial in generators of Cox(Se′ ) of smaller degree, so
+the claim is true by induction over the degree after applying ρ∗ . Otherwise, D̄′ is
+the degree of a nef generator of Cox(Se′ ), so any section of degree D̄ = ρ∗ (D̄′ ) is
+distinguished by definition.
+If (D̄, Ē) ≥ 1 for all (−1)-curves E and (D̄, Ē) ≥ 0 for all (−2)-curves E, let
+m be the minimum of (D̄, Ē) over all (−1)-curves E. Let F be a (−1)-curve with
+(D̄, F̄ ) = m, and let s be a section corresponding to F .
+Consider the nef divisor D′ = D − m · (−KSe). Since |D′ | is base point free
+e O(D′ )) whose support does not
+by Lemma 7, we can choose a section s′ ∈ H 0 (S,
+′
+contain F . Then s is a distinguished section by induction.
+We consider the commutative diagram
+e O(−mKSe))
+H 0 (S,
+
+// H 0 (F, O(−mKSe)|F )
+
+
+// H 0 (S,
+e O(D))
+
+
+// H 0 (F, O(D)|F ).
+
+∼ f
+
+·s′
+
+0
+
+// H 0 (S,
+e O(D − F ))
+
+·s
+
+e O(D − F )) is distinguished. Therefore, it
+By induction, any section in H 0 (S,
+0 e
+is enough show that H (S, O(D)) contains distinguished sections that restrict to
+generators of H 0 (F, O(D)|F ), with O(D)|F ∼
+= OP1 (m) because of (D̄, F̄ ) = m.
+e O(−KSe)) that restrict to a basis
+We have distinguished sections s1 , s2 ∈ H 0 (S,
+0
+e
+e
+of H (F, O(−KS )|F ). Indeed, | − KS | is base point free by Lemma 7 (using d ≥ 2).
+e has at most two generators of degree −K̄Se.
+This shows that Cox(S)
+For any other D̄, the distinguished sections s′ si1 sm−i
+for i = 0, . . . , m restrict to
+2
+a basis of H 0 (F, O(D)|F ) since si1 sm−i
+restrict to a basis of H 0 (F, O(−mKSe)|F )
+2
+and since multiplication by s′ restricts to the isomorphism f by (D̄′ , F̄ ) = 0.
+
+Lemma 9. Let Se be a generalized del Pezzo surface whose Cox ring has t generators
+e let d(D̄)
+of degrees D̄1 , . . . , D̄t and one relation of degree D̄0 . For any D̄ ∈ Pic(S),
+be the number of ways to express D̄ as a non-negative integral linear combination
+e D̄ has dimension d(D̄) − d(D̄ − D̄0 ). If D̄ is nef, this
+of D̄1 , . . . , D̄t . Then Cox(S)
+is equal to the Euler characteristic χ(O(D)) = 12 ((D̄, D̄) + (D̄, −K̄Se)) + 1.
+Proof. Since there is only one relation, we have the exact sequence
+e → 0,
+0 → K[X1 , . . . , Xt ] → K[X1 , . . . , Xt ] → Cox(S)
+
+where the second map is Ψ as in (2.2) and the first map is multiplication by the
+e
+relation R generating ker(Ψ). If we consider the first K[X1 , . . . , Xt ] with the Pic(S)e shifted by the degree D̄0 of the relation, this is an
+grading induced from Cox(S)
+exact sequence of graded vector spaces, where the degree-D̄-part has dimension
+d(D̄) in the middle and dimension d(D̄ − D̄0 ) on the left hand side because of the
+shift. The first claim follows.
+The second claim holds by the vanishing theorem of Kawamata–Viehweg as in
+[HT04, Corollary 1.10] and the Riemann–Roch formula.
+
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+11
+
+The following result allows us to show that the Cox ring has more than one
+relation even in some cases with ≤ 13 − d negative curves.
+Proposition 10. Let Se be a generalized del Pezzo surface. Let ρ : Se → Se′ be the
+e If Cox(S)
+e has t generators, then Cox(Se′ ) has at
+contraction of a (−1)-curve on S.
+most t − 1 generators.
+e we may
+Proof. Let r = 9 − d. Via the natural embedding ρ∗ : Pic(Se′ ) ֒→ Pic(S),
+′
+e
+e
+assume that Pic(S ) has the basis ℓ0 , . . . , ℓr−1 , and Pic(S) has the basis ℓ0 , . . . , ℓr ,
+e
+where ℓr is the class of the exceptional divisor of ρ. Let us assume that Cox(S)
+is minimally generated by η1 , . . . , ηt . Since this includes sections corresponding to
+all negative curves by Theorem 8, we may assume that deg(ηt ) = ℓr . Furthermore,
+e
+in a minimal set of generators, the curve corresponding to a generator of Cox(S)
+must be irreducible. Therefore, in all cases except the exceptional divisor of ρ, it
+is the strict transform of an irreducible curve corresponding to a section ηi′ on Se′ ,
+so deg(ηi ) = deg(ηi′ ) − ki ℓr and ρ∗ (ηi′ ) = ηi ηtki , where ki is a non-negative integer.
+′
+We claim that η1′ , . . . , ηt−1
+generate Cox(Se′ ). Indeed, for each D̄′ ∈ Pic(Se′ ),
+∗
+0 e′
+′
+e ρ∗ O(D′ )) is an isomorphism. Therefore,
+the map ρ : H (S , O(D )) → H 0 (S,
+∗
+′
+any ρ (s) with deg(s) = D̄ can be expressed as a linear combination of monoat−1 at
+mials in η1 , . . . , ηt . We note that any η1a1 · · · ηt−1
+ηt of degree ρ∗ D̄′ is the pull′
+∗
+′
+at−1
+′ a1
+of degree D̄ via ρ because of the relation between
+back of (η1 ) · · · (ηt−1 )
+Pt−1
+deg(ηi ), deg(ηi′ ) mentioned above (where at = i=1 ki ai because of the degree).
+′
+Therefore, s can be expressed using only η1′ , . . . , ηt−1
+.
+
+Step 2 (Determine the degrees of generators and of the relation of the Cox ring).
+For any type of degree d, each of the s classes Ē1 , . . . , Ēs of negative curves is the
+e If s ≥ 14 − d, then Cox(S)
+e has more than one
+degree of a generator ηi of Cox(S).
+relation. If s ≤ 13 − d, we check whether the contraction of some (−1)-curve leads
+to a generalized del Pezzo surface Se′ of degree d + 1 whose Cox ring has more than
+one relation and hence more than 13 − (d + 1) generators. If this is the case, the
+Cox ring of Se has more than 13 − d generators by Proposition 10 and hence more
+than one relation.
+Otherwise, we determine finitely many nef degrees D̄i that may be degrees of
+e recursively using Theorem 8. We assume that their ordering
+generators of Cox(S)
+e (i.e., if D̄i < D̄j , then
+D̄1 , . . . , D̄t is compatible with the partial ordering of Pic(S)
+i < j). For i = 1, . . . , t, we apply Lemma 9 to D̄i as follows: with the knowledge
+of the number of generators in each degree D̄1 , . . . , D̄i−1 and whether a relation of
+some degree D̄0 < D̄i is known, we compute d(D̄i ) or d(D̄i ) − d(D̄i − D̄0 ) under the
+assumption that there is no generator and no relation of degree D̄i . If this number
+is smaller than χ(D̄i ), there must be generators of degree D̄i . If it is larger, there
+must be a relation; in this case, we look for the smallest of the finitely many degrees
+D̄0 ≤ D̄i where this relation occurs.
+If we end up finding 13 − d generators, but no relation yet, we look for it in
+multiples of −K̄Se (where it must show up because −K̄Se is in the interior of the
+effective cone), and then in all smaller degrees.
+Result 2. We list the degrees Ēi of the nef generators of the Cox ring and the
+degree of the relation in terms of ℓ0 , . . . , ℓr and compute their self intersection
+numbers. We add these degrees to the extended Dynkin diagram of negative curves
+to obtain the extended Dynkin diagram of Cox ring generators (with a vertex for the
+degree of each generator of the Cox ring, with edges corresponding to intersection
+numbers, and with circles and squares marking classes of (−2)- and (−1)-curves
+as in Step 1). In case of toric generalized del Pezzo surfaces, the extended Dynkin
+diagram of Cox ring generators is “circular” by Remark 6.
+
+12
+
+ULRICH DERENTHAL
+
+Remark 11. In degree d = 1, Lemma 7 turns out to be false in some cases, and we
+do not know whether Theorem 8 is always true. However, working in the following
+Step 3 under the assumption that Theorem 8 still holds gives the correct result, as
+we can confirm at the end using the techniques of [HT04] or [HS10]. The latter
+applies only to Se with a suitable K∗ -action. For every type of generalized del Pezzo
+surface where we find 13 − d generators, there is one isomorphy class with such a
+structure. By the proof of Lemma 5 and Lemma 9, other isomorphy classes of the
+same type have the same number and degrees of generators.
+2.3. Construction of generalized del Pezzo surfaces. The type does not determine the surface up to isomorphism. For example, the type of an ordinary del
+Pezzo surface depends only on the degree d (except for d = 8, where P1 × P1 and a
+blow-up of P2 in one point have different types), but it is unique up to isomorphism
+only if d ≥ 5. For each type where the Cox rings have one relation, it turns out
+that there are only one or two isomorphism classes. Two isomorphism classes occur
+only for type D4 in degree 3, for types D5 + A1 and E6 in degree 2 and for types
+E6 + A2 , E7 + A1 and E8 in degree 1 (see [BW79] and [Ye02]).
+So far, everything is purely combinatorial and depends only on the type, but not
+e A good choice of the relation in Cox(S)
+e will determine
+on the isomorphy class of S.
+e
+S.
+
+Lemma 12. Let Se be a generalized del Pezzo surface of degree d ≤ 7 whose Cox
+ring has 13 − d generators η1 , . . . , η13−d with corresponding divisors E1 , . . . , E13−d ,
+and one relation R(η1 , . . . , η13−d ) = 0. Let ρ : Se → P2 be the contraction of (the
+strict transforms of ) Ei for i ∈ I with #I = 9 − d.
+Then we may choose coordinates y0 , y1 , y2 in P2 such that ρ(Eij ) = {yj = 0}
+for j = 0, 1, 2 and such that ρ(Ei3 ) = {R′ (y0 , y1 , y2 ) = 0} for some homogeneous
+polynomial R′ of degree (Ēi3 , ℓ0 ), with I ∪ {i0 , . . . , i3 } = {1, . . . , 13 − d}.
+Furthermore, we may normalize y0 , y1 , y2 and R′ such that the substitution of
+the variables ηij by yj , for j = 0, . . . , 3, and ηi by 1, for i ∈ I, in the relation
+R(η1 , . . . , η13−d ) = 0 results in y3 − R′ (y0 , y1 , y2 ) = 0.
+
+Proof. As described in Section 2.1, any such Se is obtained as a composition of
+9 − d blow-ups of P2 as in (2.1), and the strict transforms of the exceptional divie satisfying
+sors are negative curves on Se (corresponding to generators ηi of Cox(S)
+(deg(ηi ), ℓ0 ) = 0, for i ∈ I of cardinality 9 − d).
+For any choice of independent sections y0 , y1 , y2 ∈ H 0 (P2 , O(1)), the sections
+∗
+ρ (yj ) have degree ℓ0 and are linearly independent. Looking at the three possibilities for Ēi as a linear combination of ℓ0 , . . . , ℓr listed in Step 1 (where the third
+option also holds for the nef degrees of the additional generators), we see that the
+coefficient ai,0 = (deg(ηi ), ℓ0 ) of ℓ0 must be 1 for at least three indices i ∈ {i0 , i1 , i2 }.
+Then we may choose y0 , y1 , y2 such that ρ(Eij ) = {yj = 0}. Furthermore, for the
+remaining index i3 , the curve ρ(Ei3 ) has degree ai3 ,0 = (deg(ηi3 ), ℓ0 ), so it is described by a homogeneous polynomial R′ (y0 , y1 , y2 ) of that degree.
+Let y3 ∈ H 0 (P2 , O(ai3 ,0 )) be a section vanishing on ρ(Ei3 ). For j = 0, . . . , 3,
+we normalize yj such that ρ∗ (yj ) is a product of ηij and a monic monomial in
+{ηi | i ∈ I}, and we normalize R′ such that y3 − R′ (y0 , y1 , y2 ) = 0 is a relation in
+H 0 (P2 , O(ai3 ,0 )).
+e But
+Therefore, its pullback via ρ∗ is a relation of degree ai3 ,0 ℓ0 in Cox(S).
+e is a product of R(η1 , . . . , η13−d ) = 0 and
+by assumption, any relation in Cox(S)
+some polynomial expression R′′ (η1 , . . . η13−d ). Looking at the term ρ∗ (y3 ) of ρ∗ (y3 −
+R′ (y0 , y1 , y2 )) and the ℓ0 -component of the degrees, we see that R′′ can only involve
+{ηi | i ∈ I}. The final claim follows by our choice of normalizations.
+
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+13
+
+If the Cox ring of some type of generalized del Pezzo surfaces of degree d ≤ 7
+has 13 − d generators and one relation, fixing an explicit polynomial expression for
+the relation determines Se uniquely. Indeed, this is abstractly clear, because Se is
+e by the action of TNS determined by the degrees
+the GIT quotient of Spec(Cox(S))
+e
+of the generators of Cox(S).
+But we can also obtain an explicit description of Se as a blow-up ρ : Se → P2
+of the projective plane from the relation R and from the degrees of the generators
+e found in Step 2. We choose coordinates in P2 as in Lemma 12 and
+of Cox(S)
+e
+determine the images of the divisors Ei corresponding to the generators ηi of Cox(S)
+that are not contracted by ρ. The multiplicity of pj on the strict transform of Ei is
+ai,j = (Ēi , ℓj ), which is easily read off the expressions for all Ēi in terms of ℓ0 , . . . , ℓr
+found in Step 2. It turns out that p1 , . . . , p9−d are always determined uniquely by
+these multiplicities and the images ρ(Ei ) of the non-contracted Ei .
+We may also determine ρ(Ei ) for the contracted Ei (i ∈ I) as follows. As
+described in the proof of Lemma 12, ρ∗ (yj ) is the product of ηij and a monic
+monomial in all ηi with i ∈ I. This monomial can be determined just from the
+knowledge of the degrees of all ηi and ρ∗ (yj ). If ηi occurs in the resulting expression
+for ρ∗ (yj ), then ρ(Ei ) must lie on ρ(Eij ). It turns out that this always determines
+ρ(Ei ) uniquely.
+e
+Therefore, the relation R also determines the generators η1 , . . . , η13−d of Cox(S)
+up to constant factors: for i ∈ I, the section ηi corresponds to the strict transform
+of the exceptional divisor of the corresponding blow-up; for i ∈ {i0 , . . . , i3 }, the
+section ηi corresponds to the strict transform of ρ(Ei ).
+Step 3 (Determine the relation in the Cox ring). As there is a relation in degree
+e O(D0 )) + 1 ways to write D̄0 as a non-negative integral linear
+D̄0 , there are h0 (S,
+combination of Ē1 , . . . , Ē13−d . Therefore, the relation R is a linear combination of
+e O(D0 )) + 1 monomials in the generators η1 , . . . , η13−d of
+the corresponding h0 (S,
+e
+Cox(S).
+e we choose a candidate
+To construct an explicit description of Se and Cox(S),
+for the relation (see also Example 13; confirming the correctness of the choice of
+relation is part of Step 4 below) for each isomorphism class of Se of each type and
+determine ρ(Ei ) for all i = 1, . . . , 13 − d from it.
+Result 3. We list the relation R(η1 , . . . , η13−d ) and the images of the curves Ei
+e unter ρ : Se → P2 . Here, ρ(Ei ) is a
+corresponding to the generators ηi of Cox(S)
+point for i ∈ I, ρ(Eij ) = {yj = 0} for j = 0, 1, 2, and ρ(Ei3 ) = {R′ (y0 , y1 , y2 ) = 0}.
+Example 13. Different choices of a relation R may lead to isomorphic or nonisomorphic Se (as mentioned in Section 2.1). Furthermore, it is not possible to
+choose an arbitrary relation between the monomials in η1 , . . . , η13−d of degree D̄0 .
+For example, in case of type D4 in degree d = 3, the monomials of the degree ℓ0
+of the relation are η2 η52 η8 , η3 η62 η9 , η4 η72 η10 , η1 · · · η7 . The curves contracted by ρ are
+E2 , . . . , E7 , and ρ(E1 ), ρ(E8 ), ρ(E9 ), ρ(E10 ) are lines in P2 . The two non-isomorphic
+choices that can be found in Section 3.5 correspond to the configurations where
+ρ(E1 ) meets the other lines in distinct points, but these may or may not meet each
+other in the same point. However, one cannot choose the relation η2 η52 η8 + η3 η62 η9 +
+η1 · · · η7 = 0 because this would lead to ρ(E1 ), ρ(E8 ), ρ(E9 ) meeting in one point,
+which is impossible because the first blow-up of p1 must be on ρ(E1 ) ∩ ρ(E8 ) but
+not on ρ(E9 ).
+2.4. Singular del Pezzo surfaces. Singular del Pezzo surfaces of degree 3 were
+classified by Schläfli [Sch63] and Cayley [Cay69]; see [BW79] for a more modern
+treatment. In degree 4, see [HP52]. All types of degree ≥ 4 can also be found in
+[CT88]. A classification of del Pezzo surfaces of degrees 2 and 1 was done by Du
+
+14
+
+ULRICH DERENTHAL
+
+Val [DV34], see also [Ura83]. A modern presentation of these results can be found
+in [BBD84] and [AN06].
+For a generalized del Pezzo surface Se of degree d, the linear system | − KSe| is
+d-dimensional. Let
+
+d
+
+d ≥ 3,
+P ,
+P[d] = P(2, 1, 1, 1), d = 2,
+
+
+P(3, 2, 1, 1), d = 1.
+For any d, we have a morphism π : Se → P[d], defined as follows:
+
+• For d ≥ 3, the morphism π is defined by the choice of a basis x0 , . . . , xd ∈
+e O(−KSe)).
+H 0 (S,
+e O(−KSe)) and some
+• For d = 2, it is defined by a basis x1 , x2 , x3 ∈ H 0 (S,
+e −2KSe) linearly independent of x2 , x2 , x2 , x1 x2 , x1 x3 , x2 x3 .
+x0 ∈ H 0 (S,
+1
+2
+3
+e −2KSe)
+e −3KSe), x1 ∈ H 0 (S,
+• For d = 1, it is defined by suitable x0 ∈ H 0 (S,
+e O(−KSe)).
+and a basis x2 , x3 ∈ H 0 (S,
+Let S ⊂ P[d] be the image of Se under π. If Se is ordinary, π is an embedding, so
+e Otherwise, π contracts the (−2)-curves on Se to rational double points (i.e.,
+S∼
+= S.
+ADE-singularities) on S and is an embedding in their complement. More precisely,
+the preimage under π of a singularity p of ADE-type on S is a connected tree of
+(−2)-curves on Se such that the corresponding connected component of (−2)-curves
+in the extended Dynkin diagram of negative curves has the same ADE-type as p.
+The image of a (−1)-curve on Se under π is a line on S if d ≥ 3. For simplicity, we
+use the term line on S also for the image of a (−1)-curve on Se under π for d = 1, 2.
+e
+Therefore, S is a singular del Pezzo surface with minimal desingularization S.
+We have −K̄Se = π ∗ (−K̄S ).
+The type of a singular del Pezzo surface S is the type of its minimal desingulare As in Remark 4, the type of S can be described by its degree, the types
+ization S.
+of its ADE-singularities and the number of its lines.
+A singular del Pezzo surface of degree d can be described explicitly as follows:
+• For d ≥ 5, the singular del Pezzo surface S is the non-complete intersection
+of d(d − 3)/2 quadrics in Pd [HW81, Theorem 4.4].
+• For d = 4, it is the complete intersection of two quadrics in P4 .
+• For d = 3, it is a cubic surface in P3 .
+• For d = 2, it is a surface in P(2, 1, 1, 1) of weighted degree 4.
+• For d = 1, it is a surface in P(3, 2, 1, 1) of weighted degree 6.
+The composition of a rational inverse of π : Se → S and ρ : Se → P2 is a birational
+map φ : S99KP2 , resulting in the following diagram:
+Se ❏❏
+❏❏ ρ
+❏❏
+π
+❏❏
+❏❏
+
+$$
+φ
+❴
+❴
+❴// P2
+P[d] ⊃ S
+Step 4 (Determine the singular del Pezzo surface). For this, we determine all
+monomials in η1 , . . . , η13−d of degree −K̄Se. Keeping the relation R in mind, we
+e O(−KSe)). For d ≥ 3,
+choose monomials M0 , . . . , Md that form a basis of H 0 (S,
+d
+∗
+e
+we define π : S → P via π (xi ) = Mi , for i = 0, . . . , d. We choose additionally
+suitable independent monomials of degree −2KSe if d = 1, 2 and −3KSe if d = 1 and
+e −di KSe) for
+get π : Se → P[d] by defining π ∗ (xi ) to be a chosen monomial in H 0 (S,
+each coordinate xi of weighted degree di in P[d] = P(d0 , d1 , d2 , d3 ).
+Using R, we express any other monomial M of degree −K̄Se as a linear combiPd
+Pd
+nation M = i=0 αi Mi of M0 , . . . , Md . Then M = π ∗ ( i=0 αi xi ).
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+15
+
+Next, we want to find equations defining S in P[d]. If F (x0 , . . . , xd ) = 0 on
+S for a (weighted) homogeneous polynomial of (weighted) degree d0 , then also
+e As the
+F (π ∗ (x0 ), . . . , π ∗ (xd )) = 0, giving a relation of degree −d0 KSe in Cox(S).
+ideal of relations is generated by R by assumption, this must be a multiple of R.
+As described above, we know how many independent equations of which degree
+define S. Therefore, we can write down all monomials in x0 , . . . , xd of that degree,
+apply π ∗ and find relations between the resulting monomials in η1 , . . . , η13−d using R
+until the corresponding homogeneous equations in x0 , . . . , xd are enough to define S.
+e in Step 3 that
+To confirm that we have chosen a suitable relation in Cox(S)
+gives rise to a singular del Pezzo surface S of the expected type, we compute the
+minimal desingularization of S by finding and blowing up the singularities, and we
+determine the configuration of the (−2)-curves obtained from the singularities and
+the (−1)-curves obtained as the strict transforms of the lines on S. We compare
+the resulting extended Dynkin diagram of negative curves with the one computed
+in Step 1. If we have two isomorphism classes of the same type, we find a geometric
+property that shows that our construction gives two non-isomorphic surfaces of this
+type. If this reveals that we have made an unsuitable choice of relation, we go back
+to Step 3.
+Next, we determine π(Ei ) for i = 1, . . . , 13 − d. Here, we use that ηi occurs in
+the monomial π ∗ (xj ) if and only if xj vanishes on π(Ei ), and similarly for π ∗ of the
+linear combinations of x0 , . . . , xd mentioned above.
+This gives another description of the divisors corresponding to the generators of
+e If one computes Se from S by resolving the singularities, one can determine
+Cox(S).
+which exceptional divisor is which (−2)-curve using the extended Dynkin diagram
+of Cox ring generators.
+Finally, to find an explicit expression for φ : S99KP2 , we first constructs its
+inverse ψ : P2 99KS, which is defined by (y0 : y1 : y2 ) 7→ x ∈ S ⊂ P[d]. Here, the
+i-th component xi of x is obtained from the expression π ∗ (xi ) in η1 , . . . , η13−d by
+substituting ηi by 1 for i ∈ I, and ηij by yj for j = 0, . . . , 3 (where we rewrite
+y3 in terms of y0 , y1 , y2 using y3 − R′ (y0 , y1 , y2 ) = 0, which is obtained from R
+by the same substitutions; see Lemma 12). If xi has weighted degree di , then the
+expression in terms of y0 , y1 , y2 has degree 3di .
+Then it is straightforward to compute the inverse φ. For d ≥ 3, we choose the
+sequence of contractions in the Dynkin diagram of negative curves in Step 1 such
+that φ is a projection to three coordinates xi . For d = 2, φ is given by monomials
+of weighted degree 2. For d = 1, it is given by monomials of weighted degree 3.
+Result 4. We list the equations defining S ⊂ P[d]. We describe the anticanonical
+∗
+map π : Se
+P→ P[d] by expressing π (xi ) in terms of η1 , . . . , η13−d . We also list all
+∗
+other π ( αi xi ) that are monomials in η1 , . . . , η13−d .
+We list π(E1 ), . . . , π(E13−d ): for a (−2)-curve, this is a point, namely the singularity it arises from (for which we give the ADE-type); for a (−1)-curve, it is
+a line (which we describe as an intersection of d − 1 hyperplanes if d ≥ 3); for a
+nef curve, it is a curve of higher degree (which we describe as an intersection of
+hypersurfaces).
+Whenever more than two Ei intersect pairwise on Se (which results in a triangle
+in the extended Dynkin diagram of Cox ring generators in case of three pairwise
+intersecting curves), we also determine whether they meet in one common point
+e it is also
+(sometimes, this helps to distinguish different isomorphy classes of S;
+interesting for applications). If so, we compute its image under π.
+We list the projection φ : S99KP2 . We list its inverse ψ : P2 99KS only for d = 1, 2,
+as it is easily recovered from φ for d ≥ 3.
+
+16
+
+ULRICH DERENTHAL
+
+3. Classification
+In this section, we present our classification of Cox rings of generalized del Pezzo
+surface, as summarized in Theorem 2. It is obtained using the results of Section 2,
+following the strategy of Steps 1–4. The presentation of del Pezzo surfaces where
+the Cox ring has one relation is as described in Results 1–4 in Section 2.
+3.1. Degree 7, 8, 9. Ordinary del Pezzo surfaces are P2 of degree 9, the blow-up
+Bl1 P2 of P2 in one point and P1 × P1 of degree 8, and the blow-up Bl2 P2 of P2 in
+two distinct points of degree 7. The additional generalized del Pezzo surfaces are
+the Hirzebruch surface F2 of degree 8 and the blow-up of Bl1 P2 in a point on its
+exceptional divisor.
+It is easy to check that all of them are toric (see Remark 6). We list them
+together with some basic properties and their cyclic Dynkin diagrams of Cox ring
+generators in Table 3.
+degree
+type
+9
+P2
+8
+Bl1 P2
+8
+P1 × P1
+8
+F2
+7
+Bl2 P2
+7
+
+singularities (−1)-curves type Dynkin diagram
+−
+0
+toric
+(1, 1, 1)
+−
+1
+toric
+(1, 0, −1, 0)
+−
+0
+toric
+(0, 0, 0, 0)
+A1
+0
+toric
+(2, 0, −2, 0)
+−
+3
+toric (0, −1, −1, −1, 0)
+A1
+2
+toric (1, 0, −2, −1, −1)
+
+Table 3. Del Pezzo surfaces of degree ≥ 7
+
+3.2. Degree 6. The classification of generalized del Pezzo surfaces Se of degree 6
+can be found in [CT88, Proposition 8.3], see Table 4. Ordinary sextic del Pezzo
+surfaces and types A1 with four lines, 2A1 and A2 + A1 are toric, with cyclic
+Dynkin diagrams of Cox ring generators
+(−1, −1, −1, −1, −1, −1),
+(0, −1, −1, −2, −1, −1),
+(0, −2, −1, −2, −1, 0),
+
+(1, 0, −2, −2, −1, −2),
+
+For every type, considering the configuration of blown-up points shows that the
+corresponding del Pezzo surface is unique up to isomorphism. For the remaining
+e using the procedure described in Section 2.
+types, we determine Cox(S)
+singularities lines
+−
+6
+A1
+4
+A1
+3
+2A1
+2
+A2
+2
+A2 + A1
+1
+
+type
+reference
+toric
+[BT98]
+toric
+[BT98]
+1 relation [CLT02], [Bro09]
+toric
+[BT98]
+1 relation [CLT02], [Lou10]
+toric
+[BT98]
+
+Table 4. Del Pezzo surfaces of degree 6
+Type A1 . Anticanonical model π : Se → S ⊂ P6 :
+x0 x1 − x3 x6 = x0 x2 − x4 x6 = x0 x5 − x3 x4 = x1 x4 − x2 x3
+= x2 x3 − x5 x6 = x0 x1 + x0 x2 + x1 x2 = x0 x3 + x0 x4 + x2 x3
+= x1 x5 + x23 + x3 x4 = x2 x5 + x3 x4 + x24 = 0.
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x3 : x4 : x5 ).
+Singularity: A1 in (0 : 0 : 0 : 0 : 0 : 0 : 1) with E1 :
+Ē1 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E1 ) = {y2 = 0}.
+(−1)-curves: E2 , E3 , E4 with
+Ē2 = ℓ1 , ρ(E2 ) = {(0 : 1 : 0)}, π(E2 ) = {x0 = x1 = x3 = x4 = x5 = 0},
+Ē3 = ℓ2 , ρ(E3 ) = {(1 : 0 : 0)}, π(E3 ) = {x0 = x2 = x3 = x4 = x5 = 0},
+Ē4 = ℓ3 , ρ(E4 ) = {(1 : −1 : 0)}, π(E4 ) = {x1 = x2 = x3 = x4 = x5 = 0}.
+Extra generators: (0)-curves E5 , E6 , E7 with
+Ē5 = ℓ0 − ℓ1 , ρ(E5 ) = {y0 = 0},
+π(E5 ) = {x0 = x1 = x3 = x6 = x2 x5 + x24 = 0},
+Ē6 = ℓ0 − ℓ2 , ρ(E6 ) = {y1 = 0},
+π(E6 ) = {x0 = x2 = x4 = x6 = x1 x5 + x23 = 0},
+Ē7 = ℓ0 − ℓ3 , ρ(E7 ) = {−y0 − y1 = 0},
+π(E7 ) = {x1 = x2 = x3 + x4 = x6 = x0 x5 − x3 x4 = 0}.
+Extended Dynkin diagram (π(E5 ∩ E6 ∩ E7 ) = (0 : 0 : 0 : 0 : 0 : 1 : 0)):
+E5 ❉
+E6
+E7
+
+③
+
+E2 ❇
+❇❇
+0123
+E3 7654
+E1
+⑤⑤⑤
+E4
+
+Cox ring: generators η1 , . . . , η7 with relation (degree ℓ0 )
+η2 η5 + η3 η6 + η4 η7 .
+∗
+
+Anticanonical sections π (xi ):
+(η1 η2 η3 η5 η6 , η1 η2 η4 η5 η7 , η1 η3 η4 η6 η7 , η12 η22 η3 η4 η5 , η12 η2 η32 η4 η6 , η13 η22 η32 η42 , η5 η6 η7 ),
+π ∗ (−x0 − x1 ) = η1 η22 η52 , π ∗ (−x0 − x2 ) = η1 η32 η62 ,
+π ∗ (−x1 − x2 ) = η1 η42 η72 , π ∗ (−x3 − x4 ) = η12 η2 η3 η42 η7 .
+Type A2 . Anticanonical model π : Se → S ⊂ P6 :
+x0 x5 − x3 x4 = x0 x6 − x1 x4 = x0 x6 − x2 x3 = x3 x6 − x1 x5
+= x4 x6 − x2 x5 = x1 x6 + x23 + x3 x4 = x2 x6 + x3 x4 + x24
+= x26 + x3 x5 + x4 x5 = x1 x2 + x0 x3 + x0 x4 = 0.
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x4 : x5 : x6 ).
+Singularity: A2 in (1 : 0 : 0 : 0 : 0 : 0 : 0) with E1 , E2 :
+Ē1 = ℓ2 − ℓ3 , ρ(E1 ) = {(1 : 0 : 0)},
+Ē2 = ℓ1 − ℓ2 , ρ(E2 ) = {(1 : 0 : 0)}.
+(−1)-curves: E3 , E4 with
+Ē3 = ℓ3 , ρ(E3 ) = {(1 : 0 : 0)}, π(E3 ) = {x1 = x3 = x4 = x5 = x6 = 0},
+Ē4 = ℓ0 − ℓ1 − ℓ2 , ρ(E4 ) = {y1 = 0}, π(E4 ) = {x2 = x3 = x4 = x5 = x6 = 0}.
+Extra generators: (0)-curve E5 and (1)-curves E6 , E7 with
+Ē5 = ℓ0 − ℓ1 , ρ(E5 ) = {y2 = 0},
+π(E5 ) = {x0 x5 − x23 = x1 = x2 = x3 + x4 = x6 = 0},
+
+17
+
+18
+
+ULRICH DERENTHAL
+
+Ē6 = 2ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E6 ) = {−y0 y1 − y22 = 0},
+π(E6 ) = {x0 = x1 = x3 = x2 x5 − x4 x6 = x2 x6 + x24 = x4 x5 + x26 = 0},
+Ē7 = ℓ0 , ρ(E7 ) = {y0 = 0},
+π(E7 ) = {x0 = x2 = x4 = x3 x6 − x1 x5 = x1 x6 + x23 = x3 x5 + x26 = 0}.
+Extended Dynkin diagram (π(E5 ∩ E6 ∩ E7 ) = (0 : 0 : 0 : 0 : 0 : 1 : 0)):
+E6 ❉
+E5
+E7
+
+③
+
+E3 ❈
+❈❈
+7654
+0123
+0123
+E2 7654
+E1
+④④④
+E4
+
+Cox ring: generators η1 , . . . , η7 with relation (degree 2ℓ0 − ℓ1 − ℓ2 )
+η2 η52 + η3 η6 + η4 η7 .
+Anticanonical sections π ∗ (xi ):
+(η6 η7 , η1 η2 η3 η5 η6 , η1 η2 η4 η5 η7 , η12 η2 η32 η4 η6 , η12 η2 η3 η42 η7 , η14 η22 η33 η43 , η13 η22 η32 η42 η5 ),
+π ∗ (−x1 − x2 ) = η1 η22 η53 , π ∗ (−x3 − x4 ) = η12 η22 η3 η4 η52 .
+3.3. Degree 5. See [CT88, Proposition 8.4] for the classification of generalized
+quintic del Pezzo surface. The generators and relations in the Cox ring of ordinary
+quintic del Pezzo surfaces have been determined in [BP04], see also [Sko93]; because
+of the ten lines, there are at least two (in fact five) relations. Additionally, we have
+six types of generalized del Pezzo surfaces as in Table 5.
+singularities lines
+−
+10
+A1
+7
+2A1
+5
+A2
+4
+A2 + A1
+3
+A3
+2
+A4
+1
+
+type
+reference
+≥ 2 relations [Bre02], [BF04]
+1 relation
+[Bau13]
+toric
+[BT98]
+1 relation
+[Der07]
+toric
+[BT98]
+1 relation
+[CLT02]
+1 relation
+[CLT02], [Mol12]
+
+Table 5. Del Pezzo surfaces of degree 5
+
+Types 2A1 and A2 + A1 are toric, with cyclic Dynkin diagrams of Cox ring
+generators
+(−1, −1, −1, −1, −2, −1, −2),
+
+(0, −1, −1, −2, −2, −1, −2).
+
+The remaining types have Cox rings with precisely one relation and are described
+in detail below. For each type, there is a quintic del Pezzo surface that is unique
+up to isomorphism, as one can see from the configurations of blown-up points.
+Type A1 . Anticanonical model π : Se → S ⊂ P5 :
+x0 x4 − x1 x2 = x0 x5 − x1 x3 = x2 x5 − x3 x4
+= x1 x2 + x1 x3 + x2 x3 = x1 x4 + x1 x5 + x2 x5 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x1 : x2 : x4 ).
+Singularity: A1 in (1 : 0 : 0 : 0 : 0 : 0) with E1 :
+Ē1 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E1 ) = {y2 = 0}.
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+19
+
+(−1)-curves: E2 , . . . , E8 with
+Ē2 = ℓ1 , ρ(E2 ) = {(1 : −1 : 0)}, π(E2 ) = {x1 = x2 = x4 = x5 = 0},
+Ē3 = ℓ2 , ρ(E3 ) = {(0 : 1 : 0)}, π(E3 ) = {x1 = x3 = x4 = x5 = 0},
+Ē4 = ℓ3 , ρ(E4 ) = {(1 : 0 : 0)}, π(E4 ) = {x2 = x3 = x4 = x5 = 0},
+Ē5 = ℓ4 , ρ(E5 ) = {(0 : 0 : 1)}, π(E5 ) = {x0 = x1 = x2 = x3 = 0},
+Ē6 = ℓ0 − ℓ1 − ℓ4 , ρ(E6 ) = {−y0 − y1 = 0}, π(E6 ) = {x0 = x1 = x2 = x4 = 0},
+Ē7 = ℓ0 − ℓ2 − ℓ4 , ρ(E7 ) = {y0 = 0}, π(E7 ) = {x0 = x1 = x3 = x5 = 0},
+Ē8 = ℓ0 − ℓ3 − ℓ4 , ρ(E8 ) = {y1 = 0}, π(E8 ) = {x0 = x2 = x3 = x4 + x5 = 0}.
+Extended Dynkin diagram:
+E2 E6 ❈❈
+②②
+7654
+0123
+E1 ❊❊E3 E7 E5
+④④
+E4 E8
+Cox ring: generators η1 , . . . , η8 with relation (degree ℓ0 − ℓ4 )
+η2 η6 + η3 η7 + η4 η8 .
+Anticanonical sections π ∗ (xi ):
+(η52 η6 η7 η8 , η1 η2 η3 η5 η6 η7 , η1 η2 η4 η5 η6 η8 , η1 η3 η4 η5 η7 η8 , η12 η22 η3 η4 η6 , η12 η2 η32 η4 η7 ),
+π ∗ (−x1 − x2 ) = η1 η22 η5 η62 , π ∗ (−x1 − x3 ) = η1 η32 η5 η72 ,
+π ∗ (−x2 − x3 ) = η1 η42 η5 η82 , π ∗ (−x4 − x5 ) = η12 η2 η3 η42 η8 .
+Type A2 . Anticanonical model π : Se → S ⊂ P5 :
+
+x0 x2 − x1 x5 = x0 x2 − x3 x4 = x0 x3 + x21 + x1 x4
+
+= x0 x5 + x1 x4 + x24 = x3 x5 + x1 x2 + x2 x4 = 0.
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 : x4 ).
+Singularity: A2 in (0 : 0 : 1 : 0 : 0 : 0) with E1 , E2 :
+Ē1 = ℓ0 − ℓ3 − ℓ4 , ρ(E1 ) = {y0 = 0},
+Ē2 = ℓ1 − ℓ2 , ρ(E2 ) = {(0 : 1 : −1)}.
+(−1)-curves: E3 , . . . , E6 with
+Ē3 = ℓ3 , ρ(E3 ) = {(0 : 0 : 1)}, π(E3 ) = {x0 = x1 = x3 = x4 = 0},
+Ē4 = ℓ4 , ρ(E4 ) = {(0 : 1 : 0)}, π(E4 ) = {x0 = x1 = x4 = x5 = 0},
+Ē5 = ℓ2 , ρ(E5 ) = {(0 : 1 : −1)}, π(E5 ) = {x0 = x3 = x5 = x1 + x4 = 0},
+Ē6 = ℓ0 − ℓ1 − ℓ2 , ρ(E6 ) = {−y1 − y2 = 0},
+π(E6 ) = {x2 = x3 = x5 = x1 + x4 = 0}.
+Extra generators: (0)-curves E7 , E8 with
+Ē7 = ℓ0 − ℓ3 , ρ(E7 ) = {y1 = 0}, π(E7 ) = {x1 = x2 = x3 = x0 x5 + x24 = 0},
+Ē8 = ℓ0 − ℓ4 , ρ(E8 ) = {y2 = 0}, π(E8 ) = {x2 = x4 = x5 = x0 x3 + x21 = 0}.
+Extended Dynkin diagram (π(E6 ∩ E7 ∩ E8 ) = (1 : 0 : 0 : 0 : 0 : 0)):
+E7 ❈
+❈
+E6 E5
+④④
+E8
+
+E3 ❉❉
+❉
+7654
+0123
+0123
+E2 7654
+E1
+③③③
+E4
+
+20
+
+ULRICH DERENTHAL
+
+Cox ring: generators η1 , . . . , η8 with relation (degree ℓ0 )
+η2 η52 η6 + η3 η7 + η4 η8 .
+Anticanonical sections π ∗ (xi ):
+(η13 η22 η32 η42 η5 , η12 η2 η32 η4 η7 , η6 η7 η8 , η1 η2 η3 η5 η6 η7 , η12 η2 η3 η42 η8 , η1 η2 η4 η5 η6 η8 ),
+π ∗ (−x1 − x4 ) = η12 η22 η3 η4 η52 η6 , π ∗ (−x3 − x5 ) = η1 η22 η53 η62 .
+Type A3 . Anticanonical model π : Se → S ⊂ P5 :
+
+x0 x2 − x21 = x0 x3 − x1 x4 = x2 x4 − x1 x3
+
+= x2 x4 + x24 + x0 x5 = x2 x3 + x3 x4 + x1 x5 = 0.
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 : x4 ).
+Singularity: A3 in (0 : 0 : 0 : 0 : 0 : 1) with E1 , E2 , E3 :
+Ē1 = ℓ1 − ℓ2 , ρ(E1 ) = {(0 : 0 : 1)},
+Ē2 = ℓ2 − ℓ3 , ρ(E2 ) = {(0 : 0 : 1)},
+Ē3 = ℓ0 − ℓ1 − ℓ2 − ℓ4 , ρ(E3 ) = {y0 = 0}.
+(−1)-curves: E4 , E5 with
+Ē4 = ℓ4 , ρ(E4 ) = {(0 : 1 : 0)}, π(E4 ) = {x0 = x1 = x3 = x4 = 0},
+Ē5 = ℓ3 , ρ(E5 ) = {(0 : 0 : 1)}, π(E5 ) = {x0 = x1 = x2 = x4 = 0}.
+Extra generators: (0)-curves E6 , E7 and (1)-curve E8 with
+Ē6 = ℓ0 − ℓ1 , ρ(E6 ) = {y1 = 0}, π(E6 ) = {x1 = x2 = x3 = x0 x5 + x24 = 0},
+Ē7 = ℓ0 − ℓ4 , ρ(E7 ) = {y2 = 0}, π(E7 ) = {x3 = x4 = x5 = x0 x2 − x21 = 0},
+Ē8 = 2ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E8 ) = {−y0 y2 − y12 = 0},
+π(E8 ) = {x5 = x2 + x4 = x0 x3 + x1 x2 = x0 x4 + x21 = x1 x3 + x22 = 0}.
+Extended Dynkin diagram (π(E6 ∩ E7 ∩ E8 ) = (1 : 0 : 0 : 0 : 0 : 0)):
+E6 ❉
+E8
+E7
+
+③③
+
+E4
+
+7654
+0123
+E1❈❈
+❈
+0123
+E5 7654
+E2
+④④④
+7654
+0123
+E3
+
+Cox ring: generators η1 , . . . , η8 with relation (degree 2ℓ0 − ℓ1 − ℓ2 )
+η1 η62 + η3 η42 η7 + η5 η8 .
+Anticanonical sections π ∗ (xi ):
+(η12 η24 η33 η42 η53 , η12 η23 η32 η4 η52 η6 , η12 η22 η3 η5 η62 , η1 η2 η3 η4 η6 η7 , η1 η22 η32 η42 η5 η7 , η7 η8 ),
+π ∗ (−x2 − x4 ) = η1 η22 η3 η52 η8 .
+Type A4 . Anticanonical model π : Se → S ⊂ P5 :
+
+x0 x2 − x21 = x0 x3 − x1 x4 = x2 x4 − x1 x3
+
+= x1 x2 + x24 + x0 x5 = x22 + x3 x4 + x1 x5 = 0.
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 : x4 ).
+Singularity: A4 in (0 : 0 : 0 : 0 : 0 : 1) with E1 , . . . , E4 :
+Ē1 = ℓ1 − ℓ2 , ρ(E1 ) = {(0 : 0 : 1)},
+Ē2 = ℓ2 − ℓ3 , ρ(E2 ) = {(0 : 0 : 1)},
+Ē3 = ℓ3 − ℓ4 , ρ(E3 ) = {(0 : 0 : 1)},
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+21
+
+Ē4 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E4 ) = {y0 = 0}.
+(−1)-curve: E5 with
+Ē5 = ℓ4 , ρ(E5 ) = {(0 : 0 : 1)}, π(E5 ) = {x0 = x1 = x2 = x4 = 0}.
+Extra generators: (0)-curve E6 , (1)-curve E7 and (5)-curve E8 with
+Ē6 = ℓ0 − ℓ1 , ρ(E6 ) = {y1 = 0}, π(E6 ) = {x1 = x2 = x3 = x0 x5 + x24 = 0},
+Ē7 = ℓ0 , ρ(E7 ) = {y2 = 0},
+π(E7 ) = {x3 = x4 = x0 x5 + x1 x2 = x0 x2 − x21 = x1 x5 + x22 = 0},
+Ē8 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 , ρ(E8 ) = {−y13 − y0 y22 = 0},
+π(E8 ) = {x5 = x0 x2 − x21 = x0 x3 − x1 x4 = x2 x4 − x1 x3 = x1 x2 + x24 = x22 + x3 x4 = 0}.
+Extended Dynkin diagram (π(E6 ∩ E7 ∩ E8 ) = (1 : 0 : 0 : 0 : 0 : 0)):
+7654
+0123
+E4❈❈
+❈
+0123
+E8 E5 7654
+E3
+③③
+④④
+④
+0123
+0123
+E6 7654
+E1 7654
+E2
+
+E7 ❉❉
+❉
+
+Cox ring: generators η1 , . . . , η8 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 )
+η12 η2 η63 + η4 η72 + η5 η8 .
+Anticanonical sections π ∗ (xi ):
+(η12 η24 η36 η43 η55 , η12 η23 η34 η42 η53 η6 , η12 η22 η32 η4 η5 η62 , η1 η2 η3 η4 η6 η7 , η1 η22 η33 η42 η52 η7 , η8 ).
+3.4. Degree 4. By classical results, which can be found in [HP52, Book IV,
+§XIII.11], every del Pezzo surface of degree 4 is the intersection of two quadrics
+in P4 , given by symmetric 5 × 5 matrices A, B, where A can be assumed to be
+non-singular. Besides the smooth quartic del Pezzo surface, there are 15 singular
+types, which can be distinguished by the Segre symbol (describing the structure of
+the Jordan form) of A−1 B. The extended Dynkin diagrams of negative curves can
+be found in [CT88, Proposition 6.1]. In total, this leads to the 16 types listed in
+Table 6.
+It turns out that types 4A1 , A2 + 2A1 and A3 + 2A1 are toric, with cyclic
+Dynkin diagrams of Cox ring generators
+(1, 2, 1, 2, 1, 2, 1, 2),
+
+(2, 1, 2, 1, 1, 2, 1, 2),
+
+(0, 2, 1, 2, 2, 2, 1, 2).
+
+Ordinary quartic del Pezzo surfaces and types A1 , 2A1 with eight or nine lines
+and A2 have Cox rings with more than one relation by Theorem 8 because their
+number of negative curves is larger than 13 − d = 9.
+For type A3 with four lines, this is not as obvious. We have only seven negative
+curves in the following configuration:
+0123
+0123
+0123
+E6 7654
+E1 7654
+E2 7654
+E3 E4
+E7
+
+E5
+
+e must have at least four additional nef generators, one in
+Step 2 shows that Cox(S)
+each of the degrees Ē1 + Ē2 + Ē3 + Ēi + Ēj with i = 4, 5 and j = 6, 7, whose space
+of global sections is 2-dimensional, but only a 1-dimensional subspace is generated
+by sections η1 , . . . , η7 corresponding to E1 , . . . , E7 .
+For the remaining seven types, the generalized quartic del Pezzo surface is unique
+up to isomorphism because it can be obtained by contraction of a (−1)-curve from
+a cubic surface that is unique up to isomorphism by [BW79]. We compute the Cox
+rings as follows.
+
+22
+
+ULRICH DERENTHAL
+
+singularities lines
+−
+16
+A1
+12
+2A1
+9
+2A1
+8
+A2
+8
+3A1
+6
+A2 + A1
+6
+A3
+5
+A3
+4
+4A1
+4
+A2 + 2A1
+4
+A3 + A1
+3
+A4
+3
+D4
+2
+A3 + 2A1
+2
+D5
+1
+
+type
+reference
+≥ 2 relations
+[BB11]
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations [BBP12], [Lou12]
+≥ 2 relations
+1 relation
+[LB12c]
+1 relation
+[LB12c]
+1 relation
+[DF13a]
+≥ 2 relations
+[LB12b]
+toric
+[BT98]
+toric
+[BT98]
+1 relation
+[Der09], [DF13b]
+1 relation
+[BD09b], [DF13b]
+1 relation
+[DT07], [DF13b]
+toric
+[BT98]
+1 relation
+[CLT02], [BB07]
+
+Table 6. Del Pezzo surfaces of degree 4
+
+Type 3A1 . Anticanonical model π : Se → S ⊂ P4 :
+
+x0 x2 − x3 x4 = x0 x1 + x0 x2 + x1 x2 = 0.
+
+Projection from E7 (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x1 : x2 : x4 ).
+Singularities: A1 , A1 , A1 in (0 : 1 : 0 : 0 : 0), (0 : 0 : 0 : 1 : 0), (0 : 0 : 0 : 0 : 1) with
+E1 , E2 , E3 , respectively:
+Ē1 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E1 ) = {−y0 − y1 = 0},
+Ē2 = ℓ0 − ℓ3 − ℓ4 − ℓ5 , ρ(E2 ) = {y2 = 0},
+Ē3 = ℓ1 − ℓ2 , ρ(E3 ) = {(0 : 0 : 1)}.
+(−1)-curves: E4 , . . . , E9 with
+Ē4 = ℓ0 − ℓ1 − ℓ4 , ρ(E4 ) = {y0 = 0}, π(E4 ) = {x0 = x1 = x3 = 0},
+Ē5 = ℓ4 , ρ(E5 ) = {(0 : 1 : 0)}, π(E5 ) = {x0 = x1 = x4 = 0},
+Ē6 = ℓ2 , ρ(E6 ) = {(0 : 0 : 1)}, π(E6 ) = {x0 = x2 = x3 = 0},
+Ē7 = ℓ3 , ρ(E7 ) = {(1 : −1 : 0)}, π(E7 ) = {x0 = x2 = x4 = 0},
+Ē8 = ℓ0 − ℓ1 − ℓ5 , ρ(E8 ) = {y1 = 0}, π(E8 ) = {x1 = x2 = x3 = 0},
+Ē9 = ℓ5 , ρ(E9 ) = {(1 : 0 : 0)}, π(E9 ) = {x1 = x2 = x4 = 0}.
+Extended Dynkin diagram:
+0123
+E 7654
+E1 E7 ❈
+❈
+④ 6
+④
+7654
+0123
+0123
+E3 ❊❊E8
+E9 7654
+E2
+②②
+E4
+E5
+Cox ring: generators η1 , . . . , η9 with relation (degree ℓ0 − ℓ1 )
+η4 η5 + η1 η6 η7 + η8 η9 .
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+23
+
+Anticanonical sections π ∗ (xi ):
+(η1 η2 η3 η4 η5 η6 η7 , η2 η3 η4 η5 η8 η9 , η1 η2 η3 η6 η7 η8 η9 , η1 η32 η4 η62 η8 , η1 η22 η5 η72 η9 ),
+π ∗ (−x0 − x1 ) = η2 η3 η42 η52 , π ∗ (−x0 − x2 ) = η12 η2 η3 η62 η72 , π ∗ (−x1 − x2 ) = η2 η3 η82 η92 .
+Type A2 + A1 . Anticanonical model π : Se → S ⊂ P4 :
+
+x0 x1 − x2 x3 = x1 x2 + x2 x4 + x3 x4 = 0.
+
+Projection from E9 (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x1 : x2 : x3 ).
+Singularities: A2 in (1 : 0 : 0 : 0 : 0) with E1 , E2 ; A1 in (0 : 0 : 0 : 0 : 1) with E3 :
+Ē1 = ℓ1 − ℓ2 , ρ(E1 ) = {(0 : 1 : −1)},
+Ē2 = ℓ0 − ℓ1 − ℓ4 − ℓ5 , ρ(E2 ) = {y0 = 0},
+Ē3 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E3 ) = {−y1 − y2 = 0}.
+(−1)-curves: E4 , . . . , E9 with
+Ē4 = ℓ3 , ρ(E4 ) = {(1 : 0 : 0)}, π(E4 ) = {x0 = x2 = x3 = 0},
+Ē5 = ℓ0 − ℓ3 − ℓ5 , ρ(E5 ) = {y1 = 0}, π(E5 ) = {x0 = x2 = x4 = 0},
+Ē6 = ℓ4 , ρ(E6 ) = {(0 : 1 : 0)}, π(E6 ) = {x1 = x3 = x4 = 0},
+Ē7 = ℓ5 , ρ(E7 ) = {(0 : 0 : 1)}, π(E7 ) = {x1 = x2 = x4 = 0},
+Ē8 = ℓ0 − ℓ3 − ℓ4 , ρ(E8 ) = {y2 = 0}, π(E8 ) = {x0 = x3 = x1 + x4 = 0},
+Ē9 = ℓ2 , ρ(E9 ) = {(0 : 1 : −1)}, π(E9 ) = {x1 = x2 = x3 = 0}.
+Extended Dynkin diagram:
+7654
+0123
+E1 E9
+②②
+②
+7654
+0123
+E2 ❋❋E6
+E7
+
+7654
+0123
+E3❈
+❈
+E8 E4
+②②
+E5
+
+Cox ring: generators η1 , . . . , η9 with relation (degree ℓ0 − ℓ3 )
+η5 η7 + η1 η3 η92 + η6 η8 .
+Anticanonical sections π ∗ (xi ):
+(η3 η42 η5 η8 , η12 η22 η3 η6 η7 η92 , η1 η2 η3 η4 η5 η7 η9 , η1 η2 η3 η4 η6 η8 η9 , η1 η22 η5 η6 η72 ),
+π ∗ (−x1 − x4 ) = η1 η22 η62 η7 η8 , π ∗ (−x2 − x3 ) = η12 η2 η32 η4 η93 .
+Type A3 . Anticanonical model π : Se → S ⊂ P4 :
+
+x0 x1 − x2 x3 = x2 x4 + x0 x3 + x1 x3 = 0.
+
+Projection from E5 (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 : x2 ).
+Singularity: A3 in (0 : 0 : 0 : 0 : 1) with E1 , E2 , E3 :
+Ē1 = ℓ1 − ℓ4 , ρ(E1 ) = {(0 : 1 : 0)},
+Ē2 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E2 ) = {y2 = 0},
+Ē3 = ℓ2 − ℓ5 , ρ(E3 ) = {(1 : 0 : 0)}.
+(−1)-curves: E4 , . . . , E8 with
+Ē4 = ℓ4 , ρ(E4 ) = {(0 : 1 : 0)}, π(E4 ) = {x0 = x2 = x3 = 0},
+Ē5 = ℓ3 , ρ(E5 ) = {(1 : −1 : 0)}, π(E5 ) = {x0 = x1 = x2 = 0},
+Ē6 = ℓ5 , ρ(E6 ) = {(1 : 0 : 0)}, π(E6 ) = {x1 = x2 = x3 = 0},
+Ē7 = ℓ0 − ℓ1 − ℓ4 , ρ(E7 ) = {y0 = 0}, π(E7 ) = {x0 = x3 = x4 = 0},
+
+24
+
+ULRICH DERENTHAL
+
+Ē8 = ℓ0 − ℓ2 − ℓ5 , ρ(E8 ) = {y1 = 0}, π(E8 ) = {x1 = x3 = x4 = 0}.
+Extra generators: (0)-curve E9 with
+Ē9 = ℓ0 − ℓ3 , ρ(E9 ) = {−y0 − y1 = 0}, π(E9 ) = {x4 = x0 + x1 = x20 + x2 x3 }.
+Extended Dynkin diagram (π(E7 ∩ E8 ∩ E9 ) = (0 : 0 : 1 : 0 : 0)):
+0123
+E7 ❈❈ E4 7654
+E1 ❉❉
+❉
+0123
+E9 E5 7654
+E2
+③③
+④④
+③
+0123
+E3
+E8 E6 7654
+Cox ring: generators η1 , . . . , η9 with relation (degree ℓ0 )
+η5 η9 + η1 η42 η7 + η3 η62 η8 .
+Anticanonical sections π ∗ (xi ):
+(η12 η22 η3 η42 η5 η7 , η1 η22 η32 η5 η62 η8 , η12 η23 η32 η4 η52 η6 , η1 η2 η3 η4 η6 η7 η8 , η7 η8 η9 ),
+π ∗ (−x0 − x1 ) = η1 η22 η3 η52 η9 .
+Type A3 + A1 . Anticanonical model π : Se → S ⊂ P4 :
+
+x0 x3 − x2 x4 = x0 x1 + x1 x3 + x22 = 0.
+
+Projection from E5 (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x2 : x3 ).
+Singularities: A3 in (0 : 0 : 0 : 0 : 1) with E2 , E3 , E4 ; A1 in (0 : 1 : 0 : 0 : 0) with
+E1 :
+Ē1 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E1 ) = {−y0 − y2 = 0},
+Ē2 = ℓ0 − ℓ1 − ℓ4 − ℓ5 , ρ(E2 ) = {y1 = 0},
+Ē3 = ℓ1 − ℓ2 , ρ(E3 ) = {(1 : 0 : −1)},
+Ē4 = ℓ2 − ℓ3 , ρ(E4 ) = {(1 : 0 : −1)}.
+(−1)-curves: E5 , E6 , E7 with
+Ē5 = ℓ3 , ρ(E5 ) = {(1 : 0 : −1)}, π(E5 ) = {x0 = x2 = x3 = 0},
+Ē6 = ℓ4 , ρ(E6 ) = {(0 : 0 : 1)}, π(E6 ) = {x0 = x1 = x2 = 0},
+Ē7 = ℓ5 , ρ(E7 ) = {(1 : 0 : 0)}, π(E7 ) = {x1 = x2 = x3 = 0}.
+Extra generators: (0)-curves E8 , E9 with
+Ē8 = ℓ0 − ℓ5 , ρ(E8 ) = {y2 = 0}, π(E8 ) = {x3 = x4 = x0 x1 + x22 = 0},
+Ē9 = ℓ0 − ℓ4 , ρ(E9 ) = {y0 = 0}, π(E9 ) = {x0 = x4 = x1 x3 + x22 = 0}.
+Extended Dynkin diagram (π(E1 ∩ E8 ∩ E9 ) = (0 : 1 : 0 : 0 : 0)):
+E8 ❉
+E7 ❉❉
+❉
+❉
+0123
+0123
+0123
+7654
+0123
+E4 7654
+E3 7654
+E2
+E1 E5 7654
+③③
+③③③
+E9
+E6
+Cox ring: generators η1 , . . . , η9 with relation (degree ℓ0 )
+η6 η9 + η7 η8 + η1 η3 η42 η53 .
+Anticanonical sections π ∗ (xi ):
+(η1 η2 η3 η4 η5 η6 η9 , η23 η32 η4 η62 η72 , η1 η22 η32 η42 η52 η6 η7 , η1 η2 η3 η4 η5 η7 η8 , η1 η8 η9 ),
+π ∗ (−x0 − x3 ) = η12 η2 η32 η43 η54 .
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+Type A4 . Anticanonical model π : Se → S ⊂ P4 :
+
+x0 x1 − x2 x3 = x0 x4 + x1 x2 + x23 = 0.
+
+Projection from E5 (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x2 : x3 ).
+Singularity: A4 in (0 : 0 : 0 : 0 : 1) with E1 , . . . , E4 :
+Ē1 = ℓ3 − ℓ4 , ρ(E1 ) = {(0 : 0 : 1)},
+Ē2 = ℓ4 − ℓ5 , ρ(E2 ) = {(0 : 0 : 1)},
+Ē3 = ℓ0 − ℓ1 − ℓ3 − ℓ4 , ρ(E3 ) = {y0 = 0},
+Ē4 = ℓ1 − ℓ2 , ρ(E4 ) = {(0 : 1 : 0)}.
+(−1)-curves: E5 , E6 , E7 with
+Ē5 = ℓ5 , ρ(E5 ) = {(0 : 0 : 1)}, π(E5 ) = {x0 = x2 = x3 = 0},
+Ē6 = ℓ2 , ρ(E6 ) = {(0 : 1 : 0)}, π(E6 ) = {x0 = x1 = x3 = 0},
+Ē7 = ℓ0 − ℓ1 − ℓ2 , ρ(E7 ) = {y2 = 0}, π(E7 ) = {x1 = x3 = x4 = 0}.
+Extra generators: (1)-curve E8 and (0)-curve E9 with
+Ē8 = 2ℓ0 − ℓ3 − ℓ4 − ℓ5 , ρ(E8 ) = {−y0 y2 − y12 = 0},
+π(E8 ) = {x4 = x0 x1 − x2 x3 = x1 x2 + x23 = x0 x3 + x22 = 0},
+Ē9 = ℓ0 − ℓ3 , ρ(E9 ) = {y1 = 0}, π(E9 ) = {x1 = x2 = x0 x4 + x23 = 0}.
+Extended Dynkin diagram (π(E7 ∩ E8 ∩ E9 ) = (1 : 0 : 0 : 0 : 0)):
+E8 ❈
+E5 ❉❉
+❈❈❈
+❉
+7654
+0123
+7654
+0123
+0123
+E2
+E7 E6 E4 E3 7654
+③
+④④
+③
+③
+7654
+0123
+E9
+E1
+Cox ring: generators η1 , . . . , η9 with relation (degree 2ℓ0 − ℓ3 − ℓ4 )
+η5 η8 + η1 η92 + η3 η42 η63 η7 .
+Anticanonical sections π ∗ (xi ):
+(η12 η24 η33 η42 η53 η6 , η1 η2 η3 η4 η6 η7 η9 , η12 η23 η32 η4 η52 η9 , η1 η22 η32 η42 η5 η62 η7 , η7 η8 ).
+Type D4 . Anticanonical model π : Se → S ⊂ P4 :
+
+x0 x3 − x1 x4 = x0 x1 + x1 x3 + x22 = 0.
+
+Projection from E5 (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 : x2 ).
+Singularity: D4 in (0 : 0 : 0 : 0 : 1) with E1 , . . . , E4 :
+Ē1 = ℓ2 − ℓ3 , ρ(E1 ) = {(1 : 0 : 0)},
+Ē2 = ℓ1 − ℓ2 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ0 − ℓ1 − ℓ2 − ℓ5 , ρ(E3 ) = {y1 = 0},
+Ē4 = ℓ3 − ℓ4 , ρ(E4 ) = {(1 : 0 : 0)}.
+(−1)-curves: E5 , E6 with
+Ē5 = ℓ5 , ρ(E5 ) = {(0 : 0 : 1)}, π(E5 ) = {x0 = x1 = x2 = 0},
+Ē6 = ℓ4 , ρ(E6 ) = {(1 : 0 : 0)}, π(E6 ) = {x1 = x2 = x3 = 0}.
+Extra generators: (0)-curves E7 , E8 , E9 with
+Ē7 = ℓ0 − ℓ1 , ρ(E7 ) = {y2 = 0}, π(E7 ) = {x2 = x0 + x3 = x20 + x1 x4 = 0},
+Ē8 = ℓ0 − ℓ5 , ρ(E8 ) = {y0 = 0}, π(E8 ) = {x0 = x4 = x1 x3 + x22 = 0},
+
+25
+
+26
+
+ULRICH DERENTHAL
+
+Ē9 = 2ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 , ρ(E9 ) = {−y0 y1 − y22 = 0},
+π(E9 ) = {x3 = x4 = x0 x1 + x22 = 0}.
+Extended Dynkin diagram (π(E7 ∩ E8 ∩ E9 ) = (0 : 1 : 0 : 0 : 0)):
+0123
+E8 ❉ E5 7654
+E3❈❈
+❈
+0123
+0123
+E7 7654
+E2 7654
+E1
+③
+④④
+④
+0123
+E9 E6 7654
+E4
+Cox ring: generators η1 , . . . , η9 with relation (degree 2ℓ0 − ℓ1 − ℓ2 )
+η3 η52 η8 + η4 η62 η9 + η2 η72 .
+Anticanonical sections π ∗ (xi ):
+(η12 η2 η32 η4 η52 η8 , η14 η22 η33 η43 η52 η62 , η13 η22 η32 η42 η5 η6 η7 , η12 η2 η3 η42 η62 η9 , η8 η9 ),
+π ∗ (−x0 − x3 ) = η12 η22 η3 η4 η72 .
+Type D5 . Anticanonical model π : Se → S ⊂ P4 :
+
+x0 x1 − x22 = x23 + x0 x4 + x1 x2 = 0.
+
+Projection from E6 (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x2 : x3 ).
+Singularity: D5 in (0 : 0 : 0 : 0 : 1) with E1 , . . . , E5 :
+Ē1 = ℓ3 − ℓ4 , ρ(E1 ) = {(0 : 0 : 1)},
+Ē2 = ℓ4 − ℓ5 , ρ(E2 ) = {(0 : 0 : 1)},
+Ē3 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E3 ) = {y0 = 0},
+Ē4 = ℓ2 − ℓ3 , ρ(E4 ) = {(0 : 0 : 1)},
+Ē5 = ℓ1 − ℓ2 , ρ(E5 ) = {(0 : 0 : 1)}.
+(−1)-curves: E6 with
+Ē6 = ℓ5 , ρ(E6 ) = {(0 : 0 : 1)}, π(E6 ) = {x0 = x2 = x3 = 0}.
+Extra generators: (1)-curve E7 , (0)-curve E8 and (4)-curve E9 with
+Ē7 = ℓ0 , ρ(E7 ) = {y2 = 0},
+π(E7 ) = {x3 = x0 x1 − x22 = x0 x4 + x1 x2 = x21 + x2 x4 = 0},
+Ē8 = ℓ0 − ℓ1 , ρ(E8 ) = {y1 = 0}, π(E8 ) = {x1 = x2 = x0 x4 + x23 = 0},
+Ē9 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 , ρ(E9 ) = {−y0 y22 − y13 = 0},
+π(E9 ) = {x4 = x0 x1 − x22 = x23 + x1 x2 = 0}.
+Extended Dynkin diagram (π(E7 ∩ E8 ∩ E9 ) = (1 : 0 : 0 : 0 : 0)):
+0123
+0123
+E8 ❉ 7654
+E4❈❈
+E5 7654
+❈
+0123
+0123
+E7 7654
+E3 7654
+E1
+④
+③③③
+④
+④
+0123
+E9 E6 7654
+E2
+Cox ring: generators η1 , . . . , η9 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 )
+η3 η72 + η2 η62 η9 + η4 η52 η83 .
+Anticanonical sections π ∗ (xi ):
+(η16 η25 η33 η44 η52 η64 , η12 η2 η3 η42 η52 η82 , η14 η23 η32 η43 η52 η62 η8 , η13 η22 η32 η42 η5 η6 η7 , η9 ).
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+27
+
+3.5. Degree 3. The classification of cubic del Pezzo surfaces is classical and goes
+back to Schläfli [Sch63]. Together with their numbers of lines, the list in Table 7
+can be found in [BW79].
+singularities lines
+−
+27
+A1
+21
+2A1
+16
+A2
+15
+3A1
+12
+A2 + A1
+11
+A3
+10
+4A1
+9
+A2 + 2A1
+8
+A3 + A1
+7
+2A2
+7
+A4
+6
+D4
+6
+A3 + 2A1
+5
+2A2 + A1
+5
+A4 + A1
+4
+A5
+3
+D5
+3
+3A2
+3
+A5 + A1
+2
+E6
+1
+
+type
+reference
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations
+[HB03]
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations
+≥ 2 relations
+1 relation
+[Bro06], [LB12d]
+1 relation
+1 relation
+[LB12a]
+1 relation
+≥ 2 relations
+1 relation
+[BD09a]
+toric
+[BT98], . . . , [Fre12]
+1 relation
+[BD12]
+1 relation
+[BBD07]
+
+Table 7. Cubic surfaces
+The only toric type is 3A2 , with cyclic Dynkin diagram of Cox ring generators
+(−2, −2, −1, −2, −2, −1, −2, −2, −1).
+Ordinary cubic surfaces and types A1 , 2A1 , A2 , 3A1 , A2 +A1 , A3 , 4A1 , A2 +2A1 ,
+A3 +A1 and 2A2 have two or more relations in their Cox rings because their number
+of negative curves is more than 13 − d = 10.
+For type A4 , the extended Dynkin diagram of negative curves is:
+0123
+0123
+0123
+E5 7654
+E2 7654
+E3 7654
+E4
+②②
+①①①
+②
+7654
+0123
+E1 E9 E7 E8
+①①
+✇✇
+E6
+E10
+Contracting E6 gives type A3 with four lines of degree 4, whose Cox ring has ≥ 2
+relations, so the same is true for type A4 of degree 3 by Proposition 10.
+For type A5 , the extended Dynkin diagram of negative curves is:
+0123
+7654
+7654
+7654
+0123
+0123
+E1 0123
+E2 0123
+E3 7654
+E4 7654
+E5 E6
+E7
+
+E8
+
+Step 2 shows that we have at least three additional generators, namely in degrees
+Ē2 + Ē3 + Ē4 + Ē5 + Ē7 + Ēi for i = 6, 8 and in degree Ē1 + 2Ē2 + 2Ē3 + 2Ē4 +
+2Ē5 + 2Ē6 + Ē7 .
+By [BW79], the type determines the surface up to isomorphism except for ordinary cubic surfaces and types A1 , 2A1 , A2 , 3A1 , A2 + A1 , A3 , 2A2 (where we
+
+28
+
+ULRICH DERENTHAL
+
+have infinite families with one or more parameters; the Cox rings have more than
+one relation) and type D4 (with precisely two isomorphy classes; see also [HT04,
+Remark 4.1]).
+Type D4 , first isomorphy class. Anticanonical model π : Se → S ⊂ P3 :
+x0 (x1 + x2 + x3 )2 − x1 x2 x3 = 0.
+
+Projection from (1 : 0 : 0 : 0) (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x1 : x2 : x3 ).
+Singularity: D4 in (1 : 0 : 0 : 0) with E1 , . . . , E4 :
+Ē1 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E1 ) = {y0 + y1 + y2 = 0},
+Ē2 = ℓ1 − ℓ4 , ρ(E2 ) = {(0 : 1 : −1)},
+Ē3 = ℓ2 − ℓ5 , ρ(E3 ) = {(1 : 0 : −1)},
+Ē4 = ℓ3 − ℓ6 , ρ(E4 ) = {(1 : −1 : 0)}.
+(−1)-curves: E5 , . . . , E10 with
+Ē5 = ℓ4 , ρ(E5 ) = {(0 : 1 : −1)}, π(E5 ) = {x1 = x2 + x3 = 0},
+Ē6 = ℓ5 , ρ(E6 ) = {(1 : 0 : −1)}, π(E6 ) = {x2 = x1 + x3 = 0},
+Ē7 = ℓ6 , ρ(E7 ) = {(1 : −1 : 0)}, π(E7 ) = {x3 = x1 + x2 = 0},
+Ē8 = ℓ0 − ℓ1 − ℓ4 , ρ(E8 ) = {y0 = 0}, π(E8 ) = {x0 = x1 = 0},
+Ē9 = ℓ0 − ℓ2 − ℓ5 , ρ(E9 ) = {y1 = 0}, π(E9 ) = {x0 = x2 = 0},
+Ē10 = ℓ0 − ℓ3 − ℓ6 , ρ(E10 ) = {y2 = 0}, π(E10 ) = {x0 = x3 = 0}.
+Extended Dynkin diagram (E8 ∩ E9 ∩ E10 = ∅):
+0123
+E2 ❊❊
+E8 ❊
+E5 7654
+❊
+❊
+7654
+0123
+0123
+E9 E6 E3 7654
+E1
+②②
+③③
+②
+0123
+E4
+E10
+E7 7654
+Cox ring: generators η1 , . . . , η10 with relation (degree ℓ0 )
+η2 η52 η8 + η3 η62 η9 + η4 η72 η10 − η1 η2 η3 η4 η5 η6 η7 .
+Anticanonical sections π ∗ (xi ):
+(η8 η9 η10 , η12 η22 η3 η4 η52 η8 , η12 η2 η32 η4 η62 η9 , η12 η2 η3 η42 η72 η10 ),
+π ∗ (x1 + x2 + x3 ) = η13 η22 η32 η42 η5 η6 η7 .
+Type D4 , second isomorphy class.
+
+It differs from the first one as follows:
+
+3
+
+Anticanonical model S ⊂ P :
+x0 (x1 + x2 + x3 )2 + x1 x2 (x1 + x2 ) = 0.
+The (−1)-curve E10 meets E8 , E9 in a point p with π(p) = (0 : 0 : 0 : 1):
+Ē10 = ℓ0 − ℓ3 − ℓ6 , ρ(E10 ) = {−y0 − y1 = 0}, π(E10 ) = {x0 = x1 + x2 = 0}.
+Cox ring: relation
+η2 η52 η8 + η3 η62 η9 + η4 η72 η10 = 0.
+Anticanonical sections π ∗ (xi ):
+(η8 η9 η10 , η12 η22 η3 η4 η52 η8 , η12 η2 η32 η4 η62 η9 , η13 η22 η32 η42 η5 η6 η7 + η12 η2 η3 η42 η72 η10 ),
+π ∗ (−x1 − x2 ) = η12 η2 η3 η42 η72 η10 , π ∗ (x1 + x2 + x3 ) = η13 η22 η32 η42 η5 η6 η7 .
+Type A3 + 2A1 . Anticanonical model π : Se → S ⊂ P3 :
+x23 (x1 + x2 ) + x0 x1 x2 = 0.
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+29
+
+Projection from (1 : 0 : 0 : 0) (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x1 : x2 : x3 ).
+Singularities: A3 , A1 , A1 in (1 : 0 : 0 : 0), (0 : 1 : 0 : 0), (0 : 0 : 1 : 0) with E2 , E3 , E4
+and E1 and E5 , respectively:
+Ē1 = ℓ3 − ℓ4 , ρ(E1 ) = {(1 : 0 : 0)},
+Ē2 = ℓ0 − ℓ3 − ℓ4 − ℓ5 , ρ(E2 ) = {y1 = 0},
+Ē3 = ℓ5 − ℓ6 , ρ(E3 ) = {(0 : 0 : 1)},
+Ē4 = ℓ0 − ℓ1 − ℓ2 − ℓ5 , ρ(E4 ) = {y0 = 0},
+Ē5 = ℓ1 − ℓ2 , ρ(E5 ) = {(0 : 1 : 0)}.
+(−1)-curves: E6 , . . . , E10 with
+Ē6 = ℓ2 , ρ(E6 ) = {(0 : 1 : 0)}, π(E6 ) = {x1 = x3 = 0},
+Ē7 = ℓ4 , ρ(E7 ) = {(1 : 0 : 0)}, π(E7 ) = {x2 = x3 = 0},
+Ē8 = ℓ6 , ρ(E8 ) = {(0 : 0 : 1)}, π(E8 ) = {x1 = x2 = 0},
+Ē9 = ℓ0 − ℓ5 − ℓ6 , ρ(E9 ) = {−y0 − y1 = 0}, π(E9 ) = {x0 = x1 + x2 = 0},
+Ē10 = ℓ0 − ℓ1 − ℓ3 , ρ(E10 ) = {y2 = 0}, π(E10 ) = {x0 = x3 = 0}.
+Extended Dynkin diagram:
+7654
+0123
+0123
+E2 E7 7654
+E1 ❋❋
+❋
+7654
+0123
+E3 E8 E9 E10
+①①①
+0123
+7654
+0123
+E5
+E4 E6 7654
+Cox ring: generators η1 , . . . , η10 with relation (degree ℓ0 − ℓ5 )
+η4 η5 η62 + η1 η2 η72 + η8 η9 .
+Anticanonical sections π ∗ (xi ):
+2
+(η1 η5 η9 η10
+, η2 η32 η42 η5 η62 η8 , η1 η22 η32 η4 η72 η8 , η1 η2 η3 η4 η5 η6 η7 η10 ),
+
+π ∗ (−x1 − x2 ) = η2 η32 η4 η82 η9 .
+Type 2A2 + A1 . Anticanonical model π : Se → S ⊂ P3 :
+x23 (x1 + x3 ) + x0 x1 x2 = 0.
+
+Projection from (0 : 1 : 0 : 0) (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x2 : x3 ).
+Singularities: A2 , A2 , A1 in (1 : 0 : 0 : 0), (0 : 0 : 1 : 0), (0 : 1 : 0 : 0) with E2 , E3
+and E4 , E5 and E1 , respectively:
+Ē1 = 2ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 − ℓ6 , ρ(E1 ) = {−y0 y1 − y22 = 0},
+Ē2 = ℓ2 − ℓ3 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ1 − ℓ2 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ5 − ℓ6 , ρ(E4 ) = {(0 : 1 : 0)},
+Ē5 = ℓ4 − ℓ5 , ρ(E5 ) = {(0 : 1 : 0)}.
+(−1)-curves: E6 , . . . , E10 with
+Ē6 = ℓ6 , ρ(E6 ) = {(0 : 1 : 0)}, π(E6 ) = {x0 = x3 = 0},
+Ē7 = ℓ0 − ℓ1 − ℓ4 , ρ(E7 ) = {y2 = 0}, π(E7 ) = {x1 = x3 = 0},
+Ē8 = ℓ3 , ρ(E8 ) = {(1 : 0 : 0)}, π(E8 ) = {x2 = x3 = 0},
+Ē9 = ℓ0 − ℓ4 − ℓ5 , , ρ(E9 ) = {y0 = 0}, π(E9 ) = {x0 = x1 + x3 = 0},
+Ē10 = ℓ0 − ℓ1 − ℓ2 , ρ(E10 ) = {y1 = 0}, π(E10 ) = {x2 = x1 + x3 = 0}.
+
+30
+
+ULRICH DERENTHAL
+
+Extended Dynkin diagram:
+7654
+E8 0123
+E1 E6 ❊❊
+❊
+①①
+①
+7654
+0123
+7654
+0123
+7654
+0123
+E2 ●● E3 E7 0123
+E5 7654
+E4
+①①
+E10
+E9
+Cox ring: generators η1 , . . . , η10 with relation (degree 2ℓ0 − ℓ1 − ℓ2 − ℓ4 − ℓ5 )
+η3 η5 η72 + η1 η6 η8 + η9 η10 .
+Anticanonical sections π ∗ (xi ):
+(η1 η42 η5 η62 η9 , η2 η32 η4 η52 η73 , η1 η22 η3 η82 η10 , η1 η2 η3 η4 η5 η6 η7 η8 ),
+π ∗ (−x1 − x3 ) = η2 η3 η4 η5 η7 η9 η10 .
+Type A4 + A1 . Anticanonical model π : Se → S ⊂ P3 :
+x2 x23 + x21 x3 + x0 x1 x2 = 0.
+
+Projection from (1 : 0 : 0 : 0) (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x1 : x2 : x3 ).
+Singularities: A4 in (1 : 0 : 0 : 0) with E1 , . . . , E4 ; A1 in (0 : 0 : 1 : 0) with E5 :
+Ē1 = ℓ0 − ℓ1 − ℓ2 − ℓ6 , ρ(E1 ) = {y1 = 0},
+Ē2 = ℓ2 − ℓ3 , ρ(E2 ) = {(0 : 0 : 1)},
+Ē3 = ℓ1 − ℓ2 , ρ(E3 ) = {(0 : 0 : 1)},
+Ē4 = ℓ0 − ℓ1 − ℓ4 − ℓ5 , ρ(E4 ) = {y0 = 0},
+Ē5 = ℓ4 − ℓ5 , ρ(E5 ) = {(0 : 1 : 0)}.
+(−1)-curves: E6 , . . . , E9 with
+Ē6 = ℓ5 , ρ(E6 ) = {(0 : 1 : 0)}, π(E6 ) = {x1 = x3 = 0},
+Ē7 = ℓ3 , ρ(E7 ) = {(0 : 0 : 1)}, π(E7 ) = {x1 = x2 = 0},
+Ē8 = ℓ6 , ρ(E8 ) = {(1 : 0 : 0)}, π(E8 ) = {x2 = x3 = 0},
+Ē9 = ℓ0 − ℓ4 − ℓ6 , ρ(E9 ) = {y2 = 0}, π(E9 ) = {x0 = x3 = 0}.
+Extra generators: (0)-curves E10 with
+Ē10 = 2ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 , ρ(E10 ) = {−y02 − y1 y2 = 0},
+π(E10 ) = {x0 = x21 + x2 x3 = 0}.
+Extended Dynkin diagram (π(E5 ∩ E9 ∩ E10 ) = (0 : 0 : 1 : 0)):
+0123
+7654
+0123
+0123
+E5 ❋❋ E6 7654
+E4 7654
+E3 ❊❊
+❋
+❊
+0123
+0123
+E1 7654
+E2
+E9 E8 7654
+①①
+③③③
+E10
+E7
+Cox ring: generators η1 , . . . , η10 with relation (degree 2ℓ0 − ℓ1 − ℓ2 − ℓ4 )
+η1 η82 η9 + η3 η42 η5 η63 + η7 η10 .
+Anticanonical sections π ∗ (xi ):
+(η5 η9 η10 , η1 η22 η32 η42 η5 η62 η7 , η12 η23 η32 η4 η72 η8 , η1 η2 η3 η4 η5 η6 η8 η9 ).
+Type D5 . Anticanonical model π : Se → S ⊂ P3 :
+
+x3 x20 + x0 x22 + x21 x2 = 0.
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+31
+
+Projection from (0 : 0 : 0 : 1) (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 : x2 ).
+Singularity: D5 in (0 : 0 : 0 : 1) with E1 , . . . , E5 :
+Ē1 = ℓ2 − ℓ3 , ρ(E1 ) = {(0 : 0 : 1)},
+Ē2 = ℓ3 − ℓ4 , ρ(E2 ) = {(0 : 0 : 1)},
+Ē3 = ℓ1 − ℓ2 , ρ(E3 ) = {(0 : 0 : 1)},
+Ē4 = ℓ0 − ℓ1 − ℓ2 − ℓ5 , ρ(E4 ) = {y0 = 0},
+Ē5 = ℓ5 − ℓ6 , ρ(E5 ) = {(0 : 1 : 0)}.
+(−1)-curves: E6 , E7 , E8 with
+Ē6 = ℓ4 , ρ(E6 ) = {(0 : 0 : 1)}, π(E6 ) = {x0 = x1 = 0},
+Ē7 = ℓ6 , ρ(E7 ) = {(0 : 1 : 0)}, π(E7 ) = {x0 = x2 = 0},
+Ē8 = ℓ0 − ℓ5 − ℓ6 , ρ(E8 ) = {y2 = 0}, π(E8 ) = {x2 = x3 = 0}.
+Extra generators: (0)-curves E9 , E10 with
+Ē9 = ℓ0 − ℓ1 , ρ(E9 ) = {y1 = 0}, π(E9 ) = {x1 = x0 x3 + x22 = 0},
+Ē10 = 2ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 , ρ(E10 ) = {−y0 y2 − y12 = 0},
+π(E10 ) = {x3 = x0 x2 + x21 = 0}.
+Extended Dynkin diagram (π(E8 ∩ E9 ∩ E10 ) = (1 : 0 : 0 : 0)):
+7654
+0123
+E10 ❋
+E2 ❉❉
+E6
+❋❋❋
+❉
+0123
+0123
+7654
+E5 7654
+E4 0123
+E1
+E8 E7 7654
+①①
+③③
+③
+7654
+0123
+E9
+E3
+Cox ring: generators η1 , . . . , η10 with relation (degree 2ℓ0 − ℓ1 − ℓ2 )
+η2 η62 η10 + η4 η52 η73 η8 + η3 η92 .
+Anticanonical sections π ∗ (xi ):
+(η14 η23 η32 η43 η52 η62 η7 , η13 η22 η32 η42 η5 η6 η9 , η12 η2 η3 η42 η52 η72 η8 , η8 η10 ).
+Type A5 + A1 . Anticanonical model π : Se → S ⊂ P3 :
+x31 + x2 x23 + x0 x1 x2 = 0.
+
+Projection from (1 : 0 : 0 : 0) (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x1 : x2 : x3 ).
+Singularities: A5 in (1 : 0 : 0 : 0) with E1 , . . . , E5 ; A1 in (0 : 0 : 1 : 0) with E6 :
+Ē1 = ℓ0 − ℓ1 − ℓ5 − ℓ6 , ρ(E1 ) = {y0 = 0},
+Ē2 = ℓ1 − ℓ2 , ρ(E2 ) = {(0 : 0 : 1)},
+Ē3 = ℓ2 − ℓ3 , ρ(E3 ) = {(0 : 0 : 1)},
+Ē4 = ℓ3 − ℓ4 , ρ(E4 ) = {(0 : 0 : 1)},
+Ē5 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E5 ) = {y1 = 0},
+Ē6 = ℓ5 − ℓ6 , ρ(E6 ) = {(0 : 1 : 0)}.
+(−1)-curves: E7 , E8 with
+Ē7 = ℓ6 , ρ(E7 ) = {(0 : 1 : 0)}, π(E7 ) = {x1 = x3 = 0},
+Ē8 = ℓ4 , ρ(E8 ) = {(0 : 0 : 1)}, π(E8 ) = {x1 = x2 = 0}.
+Extra generators: (0)-curves E9 and (1)-curve E10 with
+Ē9 = ℓ0 − ℓ5 , ρ(E9 ) = {y2 = 0}, π(E9 ) = {x3 = x0 x2 + x21 = 0},
+
+32
+
+ULRICH DERENTHAL
+
+Ē10 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − 2ℓ5 , ρ(E10 ) = {−y03 − y1 y22 = 0},
+π(E10 ) = {x0 = x31 + x2 x23 = 0}.
+Extended Dynkin diagram (π(E6 ∩ E9 ∩ E10 ) = (0 : 0 : 1 : 0)):
+7654
+0123
+E9 ●
+E5❉❉
+●●
+❉
+7654
+0123
+7654
+0123
+7654
+0123
+7654
+0123
+7654
+0123
+E
+E
+E
+E
+E4
+E
+6
+1
+2
+3
+7
+✇✇✇✇
+③③③
+E10
+E8
+Cox ring: generators η1 , . . . , η10 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − 2ℓ5 )
+η13 η22 η3 η6 η74 + η5 η92 + η8 η10 .
+Anticanonical sections π ∗ (xi ):
+(η6 η10 , η12 η22 η32 η42 η5 η6 η72 η8 , η1 η22 η33 η44 η52 η83 , η1 η2 η3 η4 η5 η6 η7 η9 ).
+Type E6 . Anticanonical model π : Se → S ⊂ P3 :
+
+x1 x22 + x2 x20 + x33 = 0.
+
+Projection from (0 : 1 : 0 : 0) (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x2 : x3 ).
+Singularity: E6 in (0 : 1 : 0 : 0) with E1 , . . . , E6 :
+Ē1 = ℓ1 − ℓ2 , ρ(E1 ) = {(1 : 0 : 0)},
+Ē2 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E2 ) = {y1 = 0},
+Ē3 = ℓ2 − ℓ3 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ5 − ℓ6 , ρ(E4 ) = {(1 : 0 : 0)},
+Ē5 = ℓ4 − ℓ5 , ρ(E5 ) = {(1 : 0 : 0)},
+Ē6 = ℓ3 − ℓ4 , ρ(E6 ) = {(1 : 0 : 0)}.
+(−1)-curves: E7 with
+Ē7 = ℓ6 , ρ(E7 ) = {(1 : 0 : 0)}, π(E7 ) = {x2 = x3 = 0}.
+Extra generators: (0)-curve E8 , (1)-curve E9 and (3)-curve E10 with
+Ē8 = ℓ0 − ℓ1 , ρ(E8 ) = {y2 = 0}, π(E8 ) = {x3 = x20 + x1 x2 = 0},
+Ē9 = ℓ0 , ρ(E9 ) = {y0 = 0}, π(E9 ) = {x0 = x1 x22 + x33 = 0},
+Ē10 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 − ℓ6 , ρ(E10 ) = {−y02 y1 − y23 = 0},
+π(E10 ) = {x1 = x20 x2 + x33 = 0}.
+Extended Dynkin diagram (π(E8 ∩ E9 ∩ E10 ) = (0 : 0 : 1 : 0)):
+E10 ●● E7
+●●
+E8
+✇✇
+E9
+
+7654
+0123
+0123
+E4 7654
+E5❈❈
+❈
+7654
+0123
+7654
+0123
+0123
+E1 E3 7654
+E6
+④
+④
+④
+7654
+0123
+E2
+
+Cox ring: generators η1 , . . . , η10 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 )
+η42 η5 η73 η10 + η2 η92 + η12 η3 η83 .
+Anticanonical sections π ∗ (xi ):
+(η1 η22 η32 η4 η52 η63 η9 , η10 , η12 η23 η34 η44 η55 η66 η73 , η12 η22 η33 η42 η53 η64 η7 η8 ).
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+33
+
+singularities (−1)-curves
+type
+reference
+..
+..
+..
+.
+.
+.
+A5 + A1
+5
+≥ 2 relations
+5
+1 relation
+D5 + A1
+E6
+4
+1 relation
+A6
+4
+≥ 2 relations
+D6
+3
+≥ 2 relations
+2A3 + A1
+4
+1 relation
+A5 + A2
+3
+1 relation
+D4 + 3A1
+3
+1 relation
+A7
+2
+≥ 2 relations
+D6 + A1
+2
+1 relation
+E7
+1
+1 relation
+[BB13]
+Table 8. Del Pezzo surfaces of degree 2
+
+3.6. Degree 2. In degree 2, the eleven types listed in Table 8 have at most 13−d =
+11 negative curves. For simplicity, we do not list the additional 35 types with 12 or
+more negative curves, whose Cox rings have at least two relations by Theorem 8.
+For types D6 , A6 , A5 + A1 , we apply Proposition 10 as follows. For type D6 ,
+the extended Dynkin diagram of negative curves is:
+7654
+0123
+E6
+E9
+0123
+0123
+0123
+0123
+0123
+E7 7654
+E1 7654
+E2 7654
+E3 7654
+E4 7654
+E5 E8
+Contracting E8 gives type A5 of degree 3, whose Cox ring has ≥ 2 relations.
+For type A6 , the extended Dynkin diagram of negative curves is:
+0123
+7654
+0123
+E6
+E1 E8 E7 7654
+0123
+0123
+0123
+0123
+E2 7654
+E3 7654
+E4 7654
+E5 E9
+E10 7654
+Contracting E8 gives type A5 of degree 3, whose Cox ring has ≥ 2 relations.
+For type A5 + A1 , the extended Dynkin diagram of negative curves is:
+0123
+0123
+0123
+E7 7654
+E3 7654
+E4 7654
+E5
+①①
+①①①
+①
+7654
+0123
+E2 E8 E9 E10
+①①①
+①①①
+0123
+7654
+0123
+E6
+E1 E11 7654
+Contracting E11 gives type A4 of degree 3, whose Cox ring has ≥ 2 relations.
+For type A7 , the extended Dynkin diagram of negative curves is:
+7654
+0123
+0123
+0123
+0123
+0123
+0123
+0123
+E1 7654
+E2 7654
+E3 7654
+E4 7654
+E5 7654
+E6 7654
+E7
+E8
+
+E9
+
+In Step 2, we discover at least three extra generators in degrees Ē2 + Ē3 + Ē4 +
+Ē5 + Ē6 + Ē8 + Ē9 , Ē1 + 2Ē2 + 2Ē3 + 2Ē4 + 2Ē5 + 2Ē6 + Ē8 + 2Ē9 and 2Ē2 +
+2Ē3 + 2Ē4 + 2Ē5 + 2Ē6 + Ē7 + 2Ē8 + Ē9 .
+For the remaining seven types, we compute the Cox rings with precisely one
+relation below.
+By [Ye02, Theorems 1.2, 1.5], del Pezzo surfaces of types E7 , A5 + A2 , 2A3 +
+A1 , D6 +A1 , D4 +3A1 are unique up to isomorphism. For types E6 and D5 +A1 , we
+have two isomorphism classes. Indeed, we cannot have more than two isomorphism
+classes because blowing up E7 ∩ E9 on type E6 gives a surface of degree 1, type
+
+34
+
+ULRICH DERENTHAL
+
+E7 + A1 , and blowing up E7 ∩ E10 on type D5 + A1 gives a surface of degree 1, type
+E6 + A2 . Since types E7 + A1 , E6 + A2 of degree 1 have precisely two isomorphism
+classes, types E6 , D5 +A1 of degree 2 can have at most two isomorphism classes. For
+each type, we will give two surfaces below (depending on a parameter λ ∈ {0, 1}).
+The automorphism group will be infinite precisely for λ = 0, but we will also
+mention how their configurations of negative curves differ geometrically, so that
+one clearly sees that they cannot be isomorphic.
+Type D5 + A1 . Anticanonical model π : Se → S ⊂ P(2, 1, 1, 1):
+x20 + x0 x21 + x1 x22 x3 + λx0 x1 x2 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x21 : x1 x2 ), inverse
+y 7→ (y0 y1 y24 : y1 y22 : y23 : −y02 y1 − y0 y12 − λy0 y1 y2 ).
+
+Singularities: D5 in (0 : 0 : 0 : 1) with E1 , . . . , E5 ; A1 in (0 : 0 : 1 : 0) with E6 :
+Ē1 = ℓ6 − ℓ7 , ρ(E1 ) = {(1 : 0 : 0)},
+Ē2 = ℓ5 − ℓ6 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ0 − ℓ1 − ℓ3 − ℓ5 , ρ(E3 ) = {y2 = 0},
+Ē4 = ℓ1 − ℓ2 , ρ(E4 ) = {(0 : 1 : 0)},
+Ē6 = ℓ3 − ℓ4 , ρ(E6 ) = {(1 : −1 : 0)},
+Ē5 = ℓ0 − ℓ5 − ℓ6 − ℓ7 , ρ(E5 ) = {y1 = 0}.
+(−1)-curves: E7 , . . . , E11 with
+Ē7 = ℓ0 − ℓ3 − ℓ4 , ρ(E7 ) = {−y0 − y1 − λy2 = 0},
+π(E7 ) = {x3 = x0 + x21 + λx1 x2 = 0},
+Ē8 = ℓ2 , ρ(E8 ) = {(0 : 1 : 0)}, π(E8 ) = {x0 = x2 = 0},
+Ē9 = ℓ7 , ρ(E9 ) = {(1 : 0 : 0)}, π(E9 ) = {x0 = x1 = 0},
+Ē10 = ℓ4 , ρ(E10 ) = {(1 : −1 : 0)}, π(E10 ) = {x2 = x0 + x21 = 0},
+Ē11 = ℓ0 − ℓ1 − ℓ2 , ρ(E11 ) = {y0 = 0}, π(E11 ) = {x0 = x3 = 0}.
+Extended Dynkin diagram (E6 , E7 , E11 meet in one point p with π(p) = (0 : 0 : 1 :
+0) if and only if λ = 0):
+E7 ❋❋
+E10
+❋
+0123
+7654
+0123
+E6 E9 7654
+E1
+①①①
+E11
+E8
+
+0123
+7654
+E5 ❊❊
+❊
+0123
+7654
+7654
+E2 0123
+E3
+②②
+②
+0123
+7654
+E4
+
+Cox ring: generators η1 , . . . , η11 with relation (degree ℓ0 )
+2
+η12 η2 η6 η93 + η5 η7 η10
++ η4 η82 η11 + λη1 η2 η3 η4 η5 η8 η9 η10 .
+
+Anticanonical sections π ∗ (xi ):
+(η12 η23 η34 η43 η52 η6 η82 η9 η11 , η12 η22 η32 η4 η5 η6 η92 , η1 η22 η33 η42 η52 η8 η10 , η6 η7 η11 ),
+2
+.
+π ∗ (−x0 − x21 − λx1 x2 ) = η12 η23 η34 η42 η53 η6 η7 η9 η10
+
+Type E6 . Anticanonical model π : Se → S ⊂ P(2, 1, 1, 1):
+x20 + x0 x23 + x31 x2 + λx0 x1 x3 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x21 : x1 x3 ), inverse
+y 7→ (y0 y15 : y13 : −y02 y1 − y0 y22 − λy0 y1 y2 : y12 y2 ).
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+35
+
+Singularity: E6 in (0 : 0 : 1 : 0) with E1 , . . . , E6 :
+Ē1 = ℓ6 − ℓ7 , ρ(E1 ) = {(0 : 0 : 1)},
+Ē2 = ℓ0 − ℓ1 − ℓ2 − ℓ6 , ρ(E2 ) = {y1 = 0},
+Ē3 = ℓ2 − ℓ3 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ3 − ℓ4 , ρ(E4 ) = {(1 : 0 : 0)},
+Ē5 = ℓ4 − ℓ5 , ρ(E5 ) = {(1 : 0 : 0)},
+Ē6 = ℓ1 − ℓ2 , ρ(E6 ) = {(1 : 0 : 0)}.
+(−1)-curves: E7 , . . . , E10 with
+Ē7 = ℓ0 − ℓ6 − ℓ7 , ρ(E7 ) = {y0 = 0}, π(E7 ) = {x0 = x2 = 0},
+Ē8 = ℓ5 , ρ(E8 ) = {(1 : 0 : 0)}, π(E8 ) = {x1 = x0 + x23 = 0},
+Ē9 = ℓ7 , ρ(E9 ) = {(0 : 0 : 1)}, π(E9 ) = {x0 = x1 = 0},
+Ē10 = 2ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 , ρ(E10 ) = {−y0 y1 − y22 − λy1 y2 = 0},
+π(E10 ) = {x2 = x0 + x23 + λx1 x3 = 0}.
+Extra generators: (0)-curve E11 with
+Ē11 = ℓ0 − ℓ1 , ρ(E11 ) = {y2 = 0}, π(E11 ) = {x3 = x20 + x31 x2 = 0}.
+Extended Dynkin diagram (with E7 , E10 touching in p and meeting E11 transversally also in p with π(p) = (0 : 1 : 0 : 0) if λ = 0, and with E7 , E10 , E11 meeting
+in p with π(p) = (0 : 1 : 0 : 0) transversally and E7 , E10 meeting also in p′ with
+π(p′ ) = (0 : 1 : 0 : −1) if λ = 1):
+E11 ❍
+❍
+E10 E8
+✈✈✈✈✈✈
+E7
+E9
+
+7654
+0123
+E6❉❉
+❉
+7654
+0123
+0123
+0123
+E5 7654
+E4 7654
+E3
+②②
+②
+7654
+0123
+7654
+0123
+E1 E2
+
+Cox ring: generators η1 , . . . , η11 with relation (degree 2ℓ0 − ℓ1 − ℓ2 )
+2
+η12 η2 η7 η93 + η4 η52 η83 η10 + η6 η11
++ λη1 η2 η3 η4 η5 η6 η8 η9 η11 .
+
+Anticanonical sections π ∗ (xi ):
+(η14 η25 η36 η44 η52 η63 η7 η93 , η12 η23 η34 η43 η52 η62 η8 η9 , η7 η10 , η1 η22 η33 η42 η5 η62 η11 ).
+Type 2A3 + A1 . Anticanonical model π : Se → S ⊂ P(2, 1, 1, 1):
+x20 + x0 x1 x3 + x1 x22 x3 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x21 : x1 x2 ), inverse
+y 7→ (y0 y1 (y0 y1 + y22 )2 : y1 (y0 y1 + y22 ) : y2 (y0 y1 + y22 ) : −y02 y1 ).
+
+Singularities: A3 , A3 , A1 in (0 : 0 : 0 : 1), (0 : 1 : 0 : 0), (0 : 0 : 1 : 0) with E1 , E2 , E3
+and E4 , E5 , E6 and E7 , respectively:
+Ē1 = 2ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 − ℓ6 , ρ(E1 ) = {−y0 y1 − y22 = 0},
+Ē2 = ℓ6 − ℓ7 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ5 − ℓ6 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ3 − ℓ4 , ρ(E4 ) = {(0 : 1 : 0)},
+Ē5 = ℓ2 − ℓ3 , ρ(E5 ) = {(0 : 1 : 0)},
+Ē6 = ℓ1 − ℓ2 , ρ(E6 ) = {(0 : 1 : 0)},
+Ē7 = ℓ0 − ℓ5 − ℓ6 − ℓ7 , ρ(E7 ) = {y1 = 0}.
+
+36
+
+ULRICH DERENTHAL
+
+(−1)-curves: E8 , . . . , E11 with
+Ē8 = ℓ7 , ρ(E8 ) = {(1 : 0 : 0)}, π(E8 ) = {x0 = x1 = 0},
+Ē9 = ℓ4 , ρ(E9 ) = {(0 : 1 : 0)}, π(E9 ) = {x0 = x2 = 0},
+Ē10 = ℓ0 − ℓ1 − ℓ5 , ρ(E10 ) = {y2 = 0}, π(E10 ) = {x2 = x0 + x1 x3 = 0},
+Ē11 = ℓ0 − ℓ1 − ℓ2 , ρ(E11 ) = {y0 = 0}, π(E11 ) = {x0 = x3 = 0}.
+Extended Dynkin diagram:
+7654
+0123
+E1 E9
+②②
+②
+7654
+0123
+0123
+E2 ❊❊ E8 7654
+E7
+❊
+7654
+0123
+E3 E10
+
+0123
+7654
+E4 ❋❋
+❋
+0123
+E5
+E11 7654
+①①
+①
+0123
+7654
+E6
+
+Cox ring: generators η1 , . . . , η11 with relation (degree 2ℓ0 − ℓ1 − ℓ2 − ℓ5 − ℓ6 )
+2
+η1 η4 η92 + η3 η6 η10
++ η7 η8 η11 .
+
+Anticanonical sections π ∗ (xi ):
+2
+).
+(η12 η22 η3 η42 η52 η6 η7 η8 η92 η11 , η1 η22 η3 η7 η82 , η1 η2 η3 η4 η5 η6 η9 η10 , η4 η52 η6 η7 η11
+
+Type A5 + A2 . Anticanonical model π : Se → S ⊂ P(2, 1, 1, 1):
+x20 + x0 x2 x3 + x31 x3 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x21 : x1 x3 ), inverse
+y 7→ (y03 y1 y22 : y0 y1 y2 : −y02 y1 − y12 y2 : y0 y22 ).
+
+Singularities: A5 in (0 : 0 : 1 : 0) with E1 , . . . , E5 ; A2 in (0 : 0 : 0 : 1) with E6 , E7 :
+Ē1 = ℓ0 − ℓ3 − ℓ4 − ℓ5 , ρ(E1 ) = {y0 = 0},
+Ē2 = ℓ5 − ℓ6 , ρ(E2 ) = {(0 : 1 : 0)},
+Ē3 = ℓ6 − ℓ7 , ρ(E3 ) = {(0 : 1 : 0)},
+Ē4 = ℓ0 − ℓ1 − ℓ5 − ℓ6 , ρ(E4 ) = {y2 = 0},
+Ē5 = ℓ1 − ℓ2 , ρ(E5 ) = {(1 : 0 : 0)},
+Ē6 = ℓ3 − ℓ4 , ρ(E6 ) = {(0 : 0 : 1)},
+Ē7 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E7 ) = {y1 = 0}.
+(−1)-curves: E8 , E9 , E10 with
+Ē8 = ℓ4 , ρ(E8 ) = {(0 : 0 : 1)}, π(E8 ) = {x0 = x1 = 0},
+Ē9 = ℓ2 , ρ(E9 ) = {(1 : 0 : 0)}, π(E9 ) = {x1 = x0 + x2 x3 = 0},
+Ē10 = ℓ7 , ρ(E10 ) = {(0 : 1 : 0) = 0}, π(E10 ) = {x0 = x3 = 0}.
+Extra generators: (0)-curve E11 with
+Ē11 = 2ℓ0 − ℓ3 − ℓ5 − ℓ6 − ℓ7 , ρ(E11 ) = {−(y02 + y1 y2 ) = 0},
+π(E11 ) = {x2 = x20 + x31 x3 = 0}.
+Extended Dynkin diagram (π(E6 ∩ E7 ∩ E11 ) = (0 : 0 : 0 : 1)):
+7654
+0123
+0123
+0123
+E6 ●● E8 7654
+E1 7654
+E2 ❉❉
+❉
+7654
+0123
+E11 E10
+E3
+✇
+③③
+③
+✇
+7654
+0123
+7654
+0123
+7654
+0123
+E7 E9 E5 E4
+Cox ring: generators η1 , . . . , η11 with relation (degree 2ℓ0 − ℓ3 − ℓ5 − ℓ6 )
+η12 η2 η6 η83 + η4 η52 η7 η93 + η10 η11 .
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+37
+
+Anticanonical sections π ∗ (xi ):
+2
+(η13 η23 η33 η42 η5 η62 η7 η83 η10 , η1 η2 η3 η4 η5 η6 η7 η8 η9 , η6 η7 η11 , η1 η22 η33 η42 η5 η10
+).
+
+Type D4 + 3A1 . Anticanonical model π : Se → S ⊂ P(2, 1, 1, 1):
+x20 + x21 x2 x3 + x1 x22 x3 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x21 : x1 x2 ), inverse
+y 7→ (y0 y1 y22 (y1 + y2 )2 : y1 y2 (y1 + y2 ) : y22 (y1 + y2 ) : −y02 y1 ).
+
+Singularities: D4 , A1 , A1 , A1 in (0 : 0 : 0 : 1), (0 : 0 : 1 : 0), (0 : 1 : 0 : 0), (0 : 1 :
+−1 : 0) with E1 , . . . , E4 and E5 and E6 and E7 , respectively:
+Ē1 = ℓ1 − ℓ2 , ρ(E1 ) = {(1 : 0 : 0)},
+Ē2 = ℓ2 − ℓ3 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ0 − ℓ1 − ℓ4 − ℓ5 , ρ(E3 ) = {y2 = 0},
+Ē4 = ℓ0 − ℓ1 − ℓ6 − ℓ7 , ρ(E4 ) = {−y1 − y2 = 0},
+Ē5 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E5 ) = {y1 = 0},
+Ē6 = ℓ4 − ℓ5 , ρ(E6 ) = {(0 : 1 : 0)},
+Ē7 = ℓ6 − ℓ7 , ρ(E7 ) = {(0 : 1 : −1)}.
+(−1)-curves: E8 , . . . , E11 with
+Ē8 = ℓ5 , ρ(E8 ) = {(0 : 1 : 0)}, π(E8 ) = {x0 = x2 = 0},
+Ē9 = ℓ0 − ℓ4 − ℓ6 , ρ(E9 ) = {y0 = 0}, π(E9 ) = {x0 = x3 = 0},
+Ē10 = ℓ3 , ρ(E10 ) = {(1 : 0 : 0)}, π(E10 ) = {x0 = x1 = 0},
+Ē11 = ℓ7 , ρ(E11 ) = {(0 : 1 : −1) = 0}, π(E11 ) = {x0 = x1 + x2 = 0}.
+Extended Dynkin diagram:
+7654
+0123
+E5 E10
+④④
+0123
+E9 ❈ 7654
+E E8
+❈ 6
+7654
+0123
+E7 E11
+
+7654
+0123
+E2 ❊❊
+❊
+7654
+0123
+0123
+E3 7654
+E1
+②②
+②
+7654
+0123
+E4
+
+Cox ring: generators η1 , . . . , η11 with relation (degree ℓ0 − ℓ1 )
+2
+2
+η2 η5 η10
++ η3 η6 η82 + η4 η7 η11
+.
+
+Anticanonical sections π ∗ (xi ):
+2
+(η13 η22 η32 η42 η5 η6 η7 η8 η9 η10 η11 , η12 η22 η3 η4 η5 η10
+, η12 η2 η32 η4 η6 η82 , η5 η6 η7 η92 ),
+2
+π ∗ (−x1 − x2 ) = η12 η2 η3 η42 η7 η11
+.
+
+Type D6 + A1 . Anticanonical model π : Se → S ⊂ P(2, 1, 1, 1):
+x20 + x1 x32 + x21 x2 x3 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x21 : x1 x2 ), inverse
+y 7→ (y0 y1 (y0 y1 + y22 )2 : y1 (y0 y1 + y22 ) : y2 (y0 y1 + y22 ) : −y02 y1 ).
+
+Singularities: D6 in (0 : 0 : 0 : 1) with E1 , . . . , E6 ; A1 in (0 : 1 : 0 : 0) with E7 :
+Ē1 = ℓ0 − ℓ1 − ℓ6 − ℓ7 , ρ(E1 ) = {y2 = 0},
+Ē2 = ℓ1 − ℓ2 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ2 − ℓ3 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ3 − ℓ4 , ρ(E4 ) = {(1 : 0 : 0)},
+
+38
+
+ULRICH DERENTHAL
+
+Ē5 = ℓ4 − ℓ5 , ρ(E5 ) = {(1 : 0 : 0)},
+Ē6 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E6 ) = {y1 = 0},
+Ē7 = ℓ6 − ℓ7 , ρ(E7 ) = {(0 : 1 : 0)}.
+(−1)-curves: E8 , E9 with
+Ē8 = ℓ5 , ρ(E8 ) = {(1 : 0 : 0)}, π(E8 ) = {x0 = x1 = 0},
+Ē9 = ℓ7 , ρ(E9 ) = {(0 : 1 : 0)}, π(E9 ) = {x0 = x2 = 0}.
+Extra generators: (0)-curves E10 , E11 with
+Ē10 = ℓ0 − ℓ6 , ρ(E10 ) = {y0 = 0}, π(E10 ) = {x0 = x22 + x1 x3 = 0},
+Ē11 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 − 2ℓ6 , ρ(E11 ) = {−y02 y1 − y23 = 0},
+π(E11 ) = {x3 = x20 + x1 x32 = 0}.
+Extended Dynkin diagram (π(E7 ∩ E10 ∩ E11 ) = (0 : 1 : 0 : 0)):
+7654
+0123
+E10 ●
+E6❉❉
+❉
+●
+0123
+0123
+0123
+0123
+7654
+0123
+E1 7654
+E2 7654
+E3 7654
+E4
+E7 E9 7654
+✇
+✇✇✇
+③③
+③
+0123
+E11
+E5
+E8 7654
+Cox ring: generators η1 , . . . , η11 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − 2ℓ6 )
+2
+η13 η22 η3 η7 η94 + η6 η10
++ η5 η82 η11 .
+
+Anticanonical sections π ∗ (xi ):
+(η12 η23 η34 η45 η53 η63 η7 η8 η9 η10 , η1 η22 η33 η44 η53 η62 η82 , η12 η22 η32 η42 η5 η6 η7 η92 , η7 η11 ).
+Type E7 . Anticanonical model π : Se → S ⊂ P(2, 1, 1, 1):
+x20 + x1 x32 + x31 x3 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x21 : x1 x2 ), inverse
+y 7→ (y0 y15 : y13 : y12 y2 : −y02 y1 − y23 ).
+
+Singularity: E7 in (0 : 0 : 0 : 1) with E1 , . . . , E7 :
+Ē1 = ℓ1 − ℓ2 , ρ(E1 ) = {(1 : 0 : 0)},
+Ē2 = ℓ2 − ℓ3 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ3 − ℓ4 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ4 − ℓ5 , ρ(E4 ) = {(1 : 0 : 0)},
+Ē5 = ℓ5 − ℓ6 , ρ(E5 ) = {(1 : 0 : 0)},
+Ē6 = ℓ6 − ℓ7 , ρ(E6 ) = {(1 : 0 : 0)},
+Ē7 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E7 ) = {y1 = 0}.
+(−1)-curves: E8 with
+Ē8 = ℓ7 , ρ(E8 ) = {(1 : 0 : 0)}, π(E8 ) = {x0 = x1 = 0}.
+Extra generators: (0)-curve E9 , (1)-curve E10 and (2)-curve E11 with
+Ē9 = ℓ0 − ℓ1 , ρ(E9 ) = {y2 = 0}, π(E9 ) = {x2 = x20 + x31 x3 = 0},
+Ē10 = ℓ0 , ρ(E10 ) = {y0 = 0}, π(E10 ) = {x0 = x32 + x21 x3 = 0},
+Ē11 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 − ℓ6 − ℓ7 , ρ(E11 ) = {−y02 y1 − y23 = 0},
+π(E11 ) = {x3 = x20 + x1 x32 = 0}.
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+39
+
+Extended Dynkin diagram (π(E9 ∩ E10 ∩ E11 ) = (0 : 1 : 0 : 0)):
+E9 ❍❍❍
+❍
+E10
+
+E
+E8
+✈✈✈✈✈✈ 11
+
+7654
+0123
+0123
+E1 7654
+E2❈❈
+❈
+7654
+0123
+0123
+0123
+7654
+E6 7654
+E5 7654
+E4 0123
+E3
+④④
+④
+7654
+0123
+E7
+
+Cox ring: generators η1 , . . . , η11 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 )
+2
+η12 η2 η93 + η7 η10
++ η4 η52 η63 η84 η11 .
+
+Anticanonical sections π ∗ (xi ):
+(η13 η26 η39 η47 η55 η63 η75 η8 η10 , η12 η24 η36 η45 η54 η63 η73 η82 , η12 η23 η34 η43 η52 η6 η72 η9 , η11 ).
+3.7. Degree 1. We list the seven types of generalized del Pezzo surfaces of degree
+1 with at most 13 − d = 12 negative curves in Table 9. Additionally, there are 67
+types with more than 12 negative curves.
+singularities (−1)-curves
+type
+..
+..
+..
+.
+.
+.
+D7
+5
+≥ 2 relations
+E7
+5
+≥ 2 relations
+E6 + A2
+4
+1 relation
+A8
+3
+≥ 2 relations
+E7 + A1
+3
+1 relation
+D8
+2
+≥ 2 relations
+E8
+1
+1 relation
+Table 9. Del Pezzo surfaces of degree 1
+
+For types D7 , E7 , A8 , D8 , we apply Proposition 10 to show that the Cox rings
+have ≥ 2 relations. For type D7 , the extended Dynkin diagram of negative curves
+is:
+0123
+7654
+0123
+E2 0123
+E3 7654
+E4 ❊❊
+E8 7654
+❊
+①①
+①
+7654
+0123
+0123
+0123
+E1 ❋❋ E9 E10 7654
+E6 7654
+E5
+❋
+②②
+②
+0123
+E11 E12 7654
+E7
+Contracting E9 gives type D6 of degree 2, whose Cox ring has ≥ 2 relations.
+For type E7 , the extended Dynkin diagram of negative curves is:
+7654
+0123
+E7 7654
+E6
+E12❋❋❋❋E8 0123
+❋❋
+0123
+E9 E11 7654
+E5
+①①
+0123
+7654
+0123
+0123
+E2 0123
+E10 7654
+E3 7654
+E4 7654
+E1
+Contracting E10 leads to type D6 of degree 2, whose Cox ring has ≥ 2 relations.
+For type A8 , the extended Dynkin diagram of negative curves is:
+0123
+7654
+7654
+0123
+0123
+E2 0123
+E1 E9 7654
+E8 7654
+E7
+7654
+7654
+E3 0123
+E4
+E10 0123
+
+7654
+0123
+0123
+E5 7654
+E6 E11
+
+Contracting E9 gives type A6 of degree 2, whose Cox ring has ≥ 2 relations.
+For type D8 , the extended Dynkin diagram of negative curves is:
+0123
+0123
+0123
+0123
+0123
+0123
+7654
+0123
+E2 7654
+E3 7654
+E4 7654
+E5 7654
+E6 7654
+E7 E10
+E1 7654
+E9
+
+7654
+0123
+E8
+
+40
+
+ULRICH DERENTHAL
+
+Contracting E10 gives type A7 of degree 2, whose Cox ring has ≥ 2 relations.
+According to [Ye02, Theorem 1.2], for each of the types E6 + A2 , E7 + A1 , E8 ,
+there exist two isomorphy classes. They will be given below using a parameter
+λ ∈ {0, 1}. Geometrically, the two isomorphism classes of each type differ as follows:
+for λ = 1, their automorphism group is finite; for λ = 0, it is infinite.
+Type E6 + A2 . Anticanonical model π : Se → S ⊂ P(3, 2, 1, 1):
+x20 + x0 x22 x3 + x31 + λx0 x1 x2 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 x2 : x32 ), inverse
+y 7→ (y0 y28 : y1 y25 : y23 : −y02 y2 − y13 − λy0 y1 y2 ).
+
+Singularities: E6 in (0 : 0 : 0 : 1) with E1 , . . . , E6 ; A2 in (0 : 0 : 1 : 0) with E7 , E8 :
+Ē1 = ℓ0 − ℓ6 − ℓ7 − ℓ8 , ρ(E1 ) = {y0 = 0},
+Ē2 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E2 ) = {y2 = 0},
+Ē3 = ℓ3 − ℓ4 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ2 − ℓ3 , ρ(E4 ) = {(1 : 0 : 0)},
+Ē5 = ℓ1 − ℓ2 , ρ(E5 ) = {(1 : 0 : 0)},
+Ē6 = ℓ4 − ℓ5 , ρ(E6 ) = {(1 : 0 : 0)},
+Ē7 = ℓ7 − ℓ8 , ρ(E7 ) = {(0 : 0 : 1)},
+Ē8 = ℓ6 − ℓ7 , ρ(E8 ) = {(0 : 0 : 1)}.
+(−1)-curves: E9 , . . . , E12 with
+Ē9 = ℓ5 , ρ(E9 ) = {(1 : 0 : 0)}, π(E9 ) = {x2 = x20 + x31 = 0},
+Ē10 = ℓ8 , ρ(E10 ) = {(0 : 0 : 1)}, π(E10 ) = {x0 = x1 = 0},
+Ē11 = ℓ0 − ℓ1 − ℓ6 , ρ(E11 ) = {y1 = 0}, π(E11 ) = {x1 = x0 + x22 x3 = 0},
+Ē12 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 − 2ℓ6 − ℓ7 ,
+ρ(E12 ) = {−y02 y2 − y13 − λy0 y1 y2 = 0}, π(E12 ) = {x3 = x20 + x31 + λx0 x1 x2 = 0}.
+Extended Dynkin diagram (for λ = 0, π(E7 ∩ E8 ∩ E12 ) = (0 : 0 : 1 : 0); for λ = 1,
+E7 , E8 , E12 meet pairwise in three different points that all project to (0 : 0 : 1 : 0)):
+7654
+7654
+7654
+0123
+E1 0123
+E2 ❊❊
+E7 ❋❋E10 0123
+❋
+❊
+0123
+7654
+0123
+E3
+E12 E9 E6 7654
+②
+①
+②
+①
+②
+①
+7654
+0123
+7654
+7654
+E8 E11 0123
+E5 0123
+E4
+Cox ring: generators η1 , . . . , η12 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − 2ℓ6 − ℓ7 )
+3
+3
+η12 η2 η7 η10
++ η4 η52 η8 η11
++ η6 η92 η12 + λη1 η2 η3 η4 η5 η6 η9 η10 η11 .
+
+Anticanonical sections π ∗ (xi ):
+3
+(η14 η25 η36 η44 η52 η63 η72 η8 η10
+, η12 η23 η34 η43 η52 η62 η7 η8 η10 η11 , η1 η22 η33 η42 η5 η62 η9 , η7 η8 η12 ).
+
+Type E7 + A1 . Anticanonical model π : Se → S ⊂ P(3, 2, 1, 1):
+x20 + x31 + x1 x32 x3 + λx0 x1 x2 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 x2 : x32 ), inverse
+y 7→ (y0 y28 : y1 y25 : y23 : −y02 y2 − y13 − λy0 y1 y2 ).
+
+Singularities: E7 in (0 : 0 : 0 : 1) with E1 , . . . , E7 ; A1 in (0 : 0 : 1 : 0) with E8 :
+Ē1 = ℓ5 − ℓ6 , ρ(E1 ) = {(1 : 0 : 0)},
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+41
+
+Ē2 = ℓ4 − ℓ5 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ3 − ℓ4 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ2 − ℓ3 , ρ(E4 ) = {(1 : 0 : 0)},
+Ē5 = ℓ1 − ℓ2 , ρ(E5 ) = {(1 : 0 : 0)},
+Ē6 = ℓ0 − ℓ1 − ℓ7 − ℓ8 , ρ(E6 ) = {y1 = 0},
+Ē7 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E7 ) = {y2 = 0},
+Ē8 = ℓ7 − ℓ8 , ρ(E8 ) = {(0 : 0 : 1)}.
+(−1)-curves: E9 , E10 , E11 with
+Ē9 = ℓ8 , ρ(E9 ) = {(0 : 0 : 1)}, π(E9 ) = {x0 = x1 = 0},
+Ē10 = ℓ6 , ρ(E10 ) = {(1 : 0 : 0)}, π(E10 ) = {x2 = x20 + x31 = 0},
+Ē11 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 − ℓ6 − 2ℓ7 ,
+ρ(E11 ) = {−y02 y2 − y13 − λy0 y1 y2 = 0}, π(E11 ) = {x3 = x20 + x31 + λx0 x1 x2 = 0}.
+Extra generators: (0)-curve E12 with
+Ē12 = ℓ0 − ℓ7 , ρ(E12 ) = {y0 = 0}, π(E12 ) = {x0 = x21 + x32 x3 = 0}.
+Extended Dynkin diagram (π(E8 ∩ E11 ∩ E12 ) = (0 : 0 : 1 : 0); for λ = 0, E8 , E11
+touch in one point where they also meet E12 transversally; for λ = 1, E8 , E11 meet
+transversally in two points; in one of them, they also meet E12 ):
+0123
+0123
+E1 7654
+E2 ❊❊
+E11●●●
+E10 7654
+●●●
+❊
+7654
+0123
+7654
+0123
+7654
+0123
+7654
+0123
+7654
+0123
+E
+E
+E
+E
+E3
+E
+8
+6
+5
+4
+9
+✇✇
+③③
+③
+7654
+0123
+E12
+E7
+Cox ring: generators η1 , . . . , η12 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − 2ℓ7 )
+3
+2
+η4 η52 η63 η8 η94 + η12 η2 η10
+η11 + η7 η12
++ λη1 η2 η3 η4 η5 η6 η7 η9 η10 η12 .
+
+Anticanonical sections π ∗ (xi ):
+(η13 η26 η39 η47 η55 η63 η75 η8 η9 η12 , η12 η24 η36 η45 η54 η63 η73 η8 η92 , η12 η23 η34 η43 η52 η6 η72 η10 , η8 η11 ).
+Type E8 . Anticanonical model π : Se → S ⊂ P(3, 2, 1, 1):
+x20 + x31 + x52 x3 + λx0 x1 x2 = 0.
+
+Birational map (inducing ρ : Se → P2 ): φ : S99KP2 , x 7→ (x0 : x1 x2 : x32 ), inverse
+y 7→ (y0 y28 : y1 y25 : y23 : −y02 y2 − y13 − λy0 y1 y2 ).
+
+Singularity: E8 in (0 : 0 : 0 : 1) with E1 , . . . , E8 :
+Ē1 = ℓ1 − ℓ2 , ρ(E1 ) = {(1 : 0 : 0)},
+Ē2 = ℓ2 − ℓ3 , ρ(E2 ) = {(1 : 0 : 0)},
+Ē3 = ℓ3 − ℓ4 , ρ(E3 ) = {(1 : 0 : 0)},
+Ē4 = ℓ4 − ℓ5 , ρ(E4 ) = {(1 : 0 : 0)},
+Ē5 = ℓ5 − ℓ6 , ρ(E5 ) = {(1 : 0 : 0)},
+Ē6 = ℓ6 − ℓ7 , ρ(E6 ) = {(1 : 0 : 0)},
+Ē7 = ℓ7 − ℓ8 , ρ(E7 ) = {(1 : 0 : 0)},
+Ē8 = ℓ0 − ℓ1 − ℓ2 − ℓ3 , ρ(E8 ) = {y2 = 0}.
+
+42
+
+ULRICH DERENTHAL
+
+(−1)-curves: E9 with
+Ē9 = ℓ8 , ρ(E9 ) = {(1 : 0 : 0)}, π(E9 ) = {x2 = x20 + x31 = 0}.
+Extra generators: (0)-curve E10 = and (1)-curves E11 , E12 with
+Ē10 = ℓ0 − ℓ1 , ρ(E10 ) = {y1 = 0}, π(E10 ) = {x1 = x20 + x52 x3 = 0},
+Ē11 = 3ℓ0 − ℓ1 − ℓ2 − ℓ3 − ℓ4 − ℓ5 − ℓ6 − ℓ7 − ℓ8 ,
+ρ(E11 ) = {−y02 y2 − y13 − λy0 y1 y2 = 0}, π(E11 ) = {x3 = x20 + x31 + λx0 x1 x2 = 0},
+Ē12 = ℓ0 , ρ(E12 ) = {y0 = 0}, π(E12 ) = {x0 = x31 + x52 x3 = 0}.
+Extended Dynkin diagram (with E10 , E11 , E12 meeting in p with π(p) = (0 : 1 : 0 :
+0); the automorphism group is infinite precisely for λ = 0):
+E10 ❍❍
+❍❍
+E12
+
+E11 E9
+✈✈✈✈✈✈
+
+7654
+0123
+7654
+E1 0123
+E2❈❈
+❈
+7654
+0123
+0123
+0123
+7654
+7654
+E7 7654
+E6 7654
+E5 0123
+E4 0123
+E3
+④④
+④
+0123
+7654
+E8
+
+Cox ring: generators η1 , . . . , η12 with relation (degree 3ℓ0 − ℓ1 − ℓ2 − ℓ3 )
+3
+2
+η12 η2 η10
++ η4 η52 η63 η74 η95 η11 + η8 η12
++ λη1 η2 η3 η4 η5 η6 η7 η8 η9 η10 η12 .
+
+Anticanonical sections π ∗ (xi ):
+(η15 η210 η315 η412 η59 η66 η73 η88 η12 , η14 η27 η310 η48 η56 η64 η72 η85 η10 , η12 η24 η36 η45 η54 η63 η72 η83 η9 , η11 ).
+References
+[ADHL]
+[AN06]
+[Bau13]
+[BB07]
+[BB11]
+[BB13]
+[BBD84]
+
+[BBD07]
+[BBP12]
+[BD09a]
+[BD09b]
+[BD12]
+[BF04]
+[BM90]
+[Bou09]
+[Bou11]
+
+I. Arzhantsev, U. Derenthal, J. Hausen, and A. Laface. Cox rings. arXiv:1003.4229,
+http://www.mathematik.uni-tuebingen.de/˜hausen/.
+V. Alexeev and V. V. Nikulin. Del Pezzo and K3 surfaces, volume 15 of MSJ Memoirs.
+Mathematical Society of Japan, Tokyo, 2006.
+S. Bauer. Die Manin-Vermutung für eine del-Pezzo-Fläche, Master thesis, Universität
+München, 2013.
+R. de la Bretèche and T. D. Browning. On Manin’s conjecture for singular del Pezzo
+surfaces of degree 4. I. Michigan Math. J., 55(1):51–80, 2007.
+R. de la Bretèche and T. D. Browning. Manin’s conjecture for quartic del Pezzo surfaces
+with a conic fibration. Duke Math. J., 160(1):1–69, 2011.
+S. Baier and T. D. Browning. Inhomogeneous cubic congruences and rational points
+on del Pezzo surfaces. J. reine angew. Math., 680:69–151, 2013.
+D. Bindschadler, L. Brenton, and D. Drucker. Rational mappings of del Pezzo surfaces,
+and singular compactifications of two-dimensional affine varieties. Tohoku Math. J. (2),
+36(4):591–609, 1984.
+R. de la Bretèche, T. D. Browning, and U. Derenthal. On Manin’s conjecture for a
+certain singular cubic surface. Ann. Sci. École Norm. Sup. (4), 40(1):1–50, 2007.
+R. de la Bretèche, T. D. Browning, and E. Peyre. On Manin’s conjecture for a family
+of Châtelet surfaces. Ann. of Math. (2), 175(1):297–343, 2012.
+T. D. Browning and U. Derenthal. Manin’s conjecture for a cubic surface with D5
+singularity. Int. Math. Res. Not. IMRN, (14):2620–2647, 2009.
+T. D. Browning and U. Derenthal. Manin’s conjecture for a quartic del Pezzo surface
+with A4 singularity. Ann. Inst. Fourier (Grenoble), 59(3):1231–1265, 2009.
+S. Baier and U. Derenthal. Quadratic congruences on average and rational points on
+cubic surfaces, arXiv:1205.0373, 2012.
+R. de la Bretèche and É. Fouvry. L’éclaté du plan projectif en quatre points dont deux
+conjugués. J. reine angew. Math., 576:63–122, 2004.
+V. V. Batyrev and Yu. I. Manin. Sur le nombre des points rationnels de hauteur borné
+des variétés algébriques. Math. Ann., 286(1-3):27–43, 1990.
+D. Bourqui. Comptage de courbes sur le plan projectif éclaté en trois points alignés.
+Ann. Inst. Fourier (Grenoble), 59(5):1847–1895, 2009.
+D. Bourqui. Fonction zêta des hauteurs des variétés toriques non déployées. Mem.
+Amer. Math. Soc., 211(994):viii+151, 2011.
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+[Bou12]
+
+43
+
+D. Bourqui. Exemples de comptage de courbes sur les surfaces. Math. Ann., to appear,
+arXiv:1205.3573, 2012.
+[BP04]
+V. V. Batyrev and O. N. Popov. The Cox ring of a del Pezzo surface. In Arithmetic
+of higher-dimensional algebraic varieties (Palo Alto, CA, 2002), volume 226 of Progr.
+Math., pages 85–103. Birkhäuser Boston, Boston, MA, 2004.
+[Bre02]
+R. de la Bretèche. Nombre de points de hauteur bornée sur les surfaces de del Pezzo
+de degré 5. Duke Math. J., 113(3):421–464, 2002.
+[Bro06]
+T. D. Browning. The density of rational points on a certain singular cubic surface. J.
+Number Theory, 119(2):242–283, 2006.
+[Bro07]
+T. D. Browning. An overview of Manin’s conjecture for del Pezzo surfaces. In Analytic number theory, volume 7 of Clay Math. Proc., pages 39–55. Amer. Math. Soc.,
+Providence, RI, 2007.
+[Bro09]
+T. D. Browning. Quantitative arithmetic of projective varieties, volume 277 of Progress
+in Mathematics. Birkhäuser Verlag, Basel, 2009.
+[BT98]
+V. V. Batyrev and Yu. Tschinkel. Manin’s conjecture for toric varieties. J. Algebraic
+Geom., 7(1):15–53, 1998.
+[BW79]
+J. W. Bruce and C. T. C. Wall. On the classification of cubic surfaces. J. London Math.
+Soc. (2), 19(2):245–256, 1979.
+[Cay69]
+A. Cayley. A memoir on cubic surfaces. Philos. Trans. Roy. Soc. London, 159:231–326,
+1869.
+[CLT02] A. Chambert-Loir and Yu. Tschinkel. On the distribution of points of bounded height
+on equivariant compactifications of vector groups. Invent. Math., 148(2):421–452, 2002.
+[Cox95]
+D. A. Cox. The homogeneous coordinate ring of a toric variety. J. Algebraic Geom.,
+4(1):17–50, 1995.
+[CT88]
+D. F. Coray and M. A. Tsfasman. Arithmetic on singular Del Pezzo surfaces. Proc.
+London Math. Soc. (3), 57(1):25–87, 1988.
+[CTS76] J.-L. Colliot-Thélène and J.-J. Sansuc. Torseurs sous des groupes de type multiplicatif;
+applications à l’étude des points rationnels de certaines variétés algébriques. C. R.
+Acad. Sci. Paris Sér. A-B, 282(18):Aii, A1113–A1116, 1976.
+[CTS77a] J.-L. Colliot-Thélène and J.-J. Sansuc. La descente sur une variété rationnelle définie
+sur un corps de nombres. C. R. Acad. Sci. Paris Sér. A-B, 284(19):A1215–A1218,
+1977.
+[CTS77b] J.-L. Colliot-Thélène and J.-J. Sansuc. Variétés de première descente attachées aux
+variétés rationnelles. C. R. Acad. Sci. Paris Sér. A-B, 284(16):A967–A970, 1977.
+[CTS80] J.-L. Colliot-Thélène and J.-J. Sansuc. La descente sur les variétés rationnelles.
+In Journées de Géometrie Algébrique d’Angers, Juillet 1979/Algebraic Geometry,
+Angers, 1979, pages 223–237. Sijthoff & Noordhoff, Alphen aan den Rijn, 1980.
+[CTS87] J.-L. Colliot-Thélène and J.-J. Sansuc. La descente sur les variétés rationnelles. II.
+Duke Math. J., 54(2):375–492, 1987.
+[Der07]
+U. Derenthal. Manin’s conjecture for a quintic del Pezzo surface with A2 singularity,
+arXiv:0710.1583, 2007.
+[Der09]
+U. Derenthal. Counting integral points on universal torsors. Int. Math. Res. Not.
+IMRN, (14):2648–2699, 2009.
+[DF13a] U. Derenthal and C. Frei. Counting imaginary quadratic points via universal torsors,
+arXiv:1302.6151, 2013.
+[DF13b] U. Derenthal and C. Frei. Counting imaginary quadratic points via universal torsors,
+II. Math. Proc. Cambridge Philos. Soc., to appear, arXiv:1304.3352, 2013.
+[DJT08] U. Derenthal, M. Joyce, and Z. Teitler. The nef cone volume of generalized del Pezzo
+surfaces. Algebra Number Theory, 2(2):157–182, 2008.
+[DL10]
+U. Derenthal and D. Loughran. Singular del Pezzo surfaces that are equivariant compactifications. Zap. Nauchn. Sem. S.-Peterburg. Otdel. Mat. Inst. Steklov. (POMI),
+377(Issledovaniya po Teorii Chisel. 10):26–43, 241, 2010.
+[Dol12]
+I. V. Dolgachev. Classical algebraic geometry. Cambridge University Press, Cambridge,
+2012. A modern view.
+[DP80]
+M. Demazure and H. C. Pinkham, editors. Séminaire sur les Singularités des Surfaces,
+volume 777 of Lecture Notes in Mathematics. Springer, Berlin, 1980. Held at the Centre
+de Mathématiques de l’École Polytechnique, Palaiseau, 1976–1977.
+[DT07]
+U. Derenthal and Yu. Tschinkel. Universal torsors over del Pezzo surfaces and rational
+points. In Equidistribution in number theory, an introduction, volume 237 of NATO
+Sci. Ser. II Math. Phys. Chem., pages 169–196. Springer, Dordrecht, 2007.
+[DV34]
+P. Du Val. On isolated singularities of surfaces which do not affect the conditions of
+adjunction (Parts II and III). Proc. Cambridge Philos. Soc., 30:460–465, 483–491, 1934.
+
+44
+
+[FMT89]
+
+ULRICH DERENTHAL
+
+J. Franke, Yu. I. Manin, and Yu. Tschinkel. Rational points of bounded height on Fano
+varieties. Invent. Math., 95(2):421–435, 1989.
+[Fre12]
+C. Frei. Counting rational points over number fields on a singular cubic surface. Algebra
+Number Theory, to appear, arXiv:1204.0383, 2012.
+[GM05]
+C. Galindo and F. Monserrat. The total coordinate ring of a smooth projective surface.
+J. Algebra, 284(1):91–101, 2005.
+[Has09]
+B. Hassett. Rational surfaces over nonclosed fields. In Arithmetic geometry, volume 8
+of Clay Math. Proc., pages 155–209. Amer. Math. Soc., Providence, RI, 2009.
+[Hau13]
+J. Hausen. Three lectures on Cox rings. In Torsors, Étale Homotopy and Applications
+to Rational Points, volume 405 of London Math. Soc. Lecture Note Ser., pages 3–60.
+Cambridge Univ. Press, Cambridge, 2013.
+[HB03]
+D. R. Heath-Brown. The density of rational points on Cayley’s cubic surface. In Proceedings of the Session in Analytic Number Theory and Diophantine Equations, volume
+360 of Bonner Math. Schriften, page 33, Bonn, 2003. Univ. Bonn.
+[HK00]
+Y. Hu and S. Keel. Mori dream spaces and GIT. Michigan Math. J., 48:331–348, 2000.
+Dedicated to William Fulton on the occasion of his 60th birthday.
+[HP52]
+W. V. D. Hodge and D. Pedoe. Methods of algebraic geometry. Vol. II. Book III: General theory of algebraic varieties in projective space. Book IV: Quadrics and Grassmann
+varieties. Cambridge, at the University Press, 1952.
+[HS10]
+J. Hausen and H. Süß. The Cox ring of an algebraic variety with torus action. Adv.
+Math., 225(2):977–1012, 2010.
+[HT04]
+B. Hassett and Yu. Tschinkel. Universal torsors and Cox rings. In Arithmetic of higherdimensional algebraic varieties (Palo Alto, CA, 2002), volume 226 of Progr. Math.,
+pages 149–173. Birkhäuser Boston, Boston, MA, 2004.
+[HW81]
+F. Hidaka and K. Watanabe. Normal Gorenstein surfaces with ample anti-canonical
+divisor. Tokyo J. Math., 4(2):319–330, 1981.
+[LB12a]
+P. Le Boudec. Manin’s conjecture for a cubic surface with 2A2 + A1 singularity type.
+Math. Proc. Cambridge Philos. Soc., 153(3):419–455, 2012.
+[LB12b] P. Le Boudec. Manin’s conjecture for a quartic del Pezzo surface with A3 singularity
+and four lines. Monatsh. Math., 167(3-4):481–502, 2012.
+[LB12c]
+P. Le Boudec. Manin’s conjecture for two quartic del Pezzo surfaces with 3A1 and
+A1 + A2 singularity types. Acta Arith., 151(2):109–163, 2012.
+[LB12d] P. Le Boudec. Affine congruences and rational points on a certain cubic surface,
+arXiv:1207.2685, 2012.
+[Lou10]
+D. Loughran. Manin’s conjecture for a singular sextic del Pezzo surface. J. Théor.
+Nombres Bordeaux, 22(3):675–701, 2010.
+[Lou12]
+D. Loughran. Manin’s conjecture for a singular quartic del Pezzo surface. J. Lond.
+Math. Soc. (2), 86(2):558–584, 2012.
+[LV09]
+A. Laface and M. Velasco. Picard-graded Betti numbers and the defining ideals of Cox
+rings. J. Algebra, 322(2):353–372, 2009.
+[Mol12]
+S. Moll. Rationale Punkte auf einer singulären del Pezzo Fläche, Diplomarbeit, Universität München, 2012.
+[Pey98]
+E. Peyre. Terme principal de la fonction zêta des hauteurs et torseurs universels.
+Astérisque, (251):259–298, 1998. Nombre et répartition de points de hauteur bornée
+(Paris, 1996).
+[Sal98]
+P. Salberger. Tamagawa measures on universal torsors and points of bounded height
+on Fano varieties. Astérisque, (251):91–258, 1998. Nombre et répartition de points de
+hauteur bornée (Paris, 1996).
+[Sch63]
+L. Schläfli. On the distribution of surfaces of the thrid order into species, in reference to
+the absence or presence of singular points, and the relaity of their lines. Philos. Trans.
+Roy. Soc. London, 153:193–241, 1863.
+[Sko93]
+A. N. Skorobogatov. On a theorem of Enriques-Swinnerton-Dyer. Ann. Fac. Sci.
+Toulouse Math. (6), 2(3):429–440, 1993.
+[STV07] M. Stillman, D. Testa, and M. Velasco. Gröbner bases, monomial group actions, and
+the Cox rings of del Pezzo surfaces. J. Algebra, 316(2):777–801, 2007.
+[TVAV09] D. Testa, A. Várilly-Alvarado, and M. Velasco. Cox rings of degree one del Pezzo
+surfaces. Algebra Number Theory, 3(7):729–761, 2009.
+[TVAV11] D. Testa, A. Várilly-Alvarado, and M. Velasco. Big rational surfaces. Math. Ann.,
+351(1):95–107, 2011.
+[Ura83]
+T. Urabe. On singularities on degenerate del Pezzo surfaces of degree 1, 2. In Singularities, Part 2 (Arcata, Calif., 1981), volume 40 of Proc. Sympos. Pure Math., pages
+587–591. Amer. Math. Soc., Providence, R.I., 1983.
+
+DEL PEZZO SURFACES WHOSE UNIVERSAL TORSORS ARE HYPERSURFACES
+
+[Ye02]
+
+45
+
+Q. Ye. On Gorenstein log del Pezzo surfaces. Japan. J. Math. (N.S.), 28(1):87–136,
+2002.
+
+Mathematisches Institut, Ludwig-Maximilians-Universität München, Theresienstr.
+39, 80333 München, Germany
+E-mail address: ulrich.derenthal@mathematik.uni-muenchen.de
+
+

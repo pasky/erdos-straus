@@ -1,0 +1,50 @@
+{
+ "Z1212": {
+  "mean_fraction_divisors_meeting_congruence": 0.2776,
+  "n": 3894,
+  "mean_tau": 7.62
+ },
+ "Z3144": {
+  "mean_second_moment_over_mean": 2.512,
+  "n_primes": 1124,
+  "note": "ratio of level-variance to mean level count; Poisson-like would be ~1"
+ },
+ "Z1385": {
+  "mean_S_over_e": 0.233,
+  "mean_SS_over_e": 0.24,
+  "frac_SS_full": 0.0
+ },
+ "Z2453": {
+  "per_C_mean_min_gap": [
+   [
+    1,
+    1.129,
+    0.0
+   ],
+   [
+    2,
+    0.383,
+    0.0
+   ],
+   [
+    3,
+    0.142,
+    0.0
+   ],
+   [
+    5,
+    0.131,
+    0.0
+   ]
+  ],
+  "note": "normalised spectral gap 1-lambda2/deg of Cayley graph on (Z/4C)^* with generators = prime factors of 4Cp+1 (distinct), p<=~1000"
+ },
+ "Z3068": {
+  "n_hard": 50,
+  "n_other": 2028,
+  "hard_mean_log_z": 2.215,
+  "other_mean_log_z": 2.224,
+  "frac_z_gt_1p8_hard": 0.9,
+  "frac_z_gt_1p8_other": 0.857
+ }
+}

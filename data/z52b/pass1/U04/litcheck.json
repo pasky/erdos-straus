@@ -1,0 +1,103 @@
+{
+ "Z0535_baker_unit": "ERR rate-limited",
+ "Z0535_baker_egypt": "ERR rate-limited",
+ "Z1670_derenthal": [
+  "math/0604194v3 | Singular del Pezzo surfaces whose universal torsors are hypersurfaces | Ulrich Derenthal",
+  "1601.00685v4 | Degeneration of torsors over families of del Pezzo surfaces | Ulrich Derenthal, Norbert Hoffmann",
+  "math/0604193v1 | Universal torsors over Del Pezzo surfaces and rational points | Ulrich Derenthal, Yuri Tschinkel",
+  "2109.08137v3 | G-torsors and universal torsors over nonsplit del Pezzo surfaces | Ulrich Derenthal, Norbert Hoffmann"
+ ],
+ "Z2480_cox_cayley": [
+  "math/0402154v1 | The Cox Ring of a Del Pezzo Surface Has Rational Singularities | Oleg N. Popov",
+  "math/0604194v3 | Singular del Pezzo surfaces whose universal torsors are hypersurfaces | Ulrich Derenthal"
+ ],
+ "Z2042_CZ_hilbert": [
+  "1601.07066v2 | On the Hilbert Property and the Fundamental Group of Algebraic Varieties | Pietro Corvaja, Umberto Zannier",
+  "2608.28255v1 | Rational and integral values of rational functions at rational points | Pietro Corvaja, Umberto Zannier",
+  "2205.04364v2 | Rational curves and the Hilbert Property on Jacobian Kummer varieties | Dami\u00e1n Gvirtz-Chen, Zhizhong Huang",
+  "2510.24479v2 | Fibration theorems for varieties with the weak Hilbert property | Sebastian Petersen"
+ ],
+ "Z2465_orlik_terao": [
+  "1404.5480v3 | An Abstraction of Whitney's Broken Circuit Theorem | Klaus Dohmen, Martin Trinks",
+  "1703.05967v1 | A Gr\u00f6bner basis for the graph of the reciprocal plane | Alex Fink, David E Speyer"
+ ],
+ "Z2465_reciprocal_plane": [
+  "1703.05967v1 | A Gr\u00f6bner basis for the graph of the reciprocal plane | Alex Fink, David E Speyer"
+ ],
+ "Z2477_CZ_integral": [
+  "math/0206100v1 | On integral points on surfaces | Pietro Corvaja, Umberto Zannier",
+  "0907.1517v2 | Integral points, divisibility between values of polynomials and entire curves on surfaces | Pietro Corvaja, Umberto Zannier",
+  "0907.2098v1 | The Many Faces of the Subspace Theorem (after Adamczewski, Bugeaud, Corvaja, Zannier...) | Yuri Bilu",
+  "2303.00099v2 | An Hilbert Irreducibility Theorem for integral points of del Pezzo surfaces | Simone Coccia"
+ ],
+ "Z2697_surj_integral": [],
+ "Z2453_alon_roichman": [
+  "2102.02801v2 | Geometry of Random Cayley Graphs of Abelian Groups | Jonathan Hermon, Sam Olesker-Taylor",
+  "1009.5695v1 | On the Banach space valued Azuma inequality and small set isoperimetry of Alon-Roichman graphs | Assaf Naor",
+  "1304.5010v4 | Small-Bias Sets for Nonabelian Groups: Derandomizing the Alon-Roichman Theorem | Sixia Chen, Cristopher Moore",
+  "2005.04502v2 | Cayley graphs without a bounded eigenbasis | Ashwin Sah, Mehtaab Sawhney"
+ ],
+ "Z2511_blomer_shifted": [
+  "2511.03294v1 | A higher rank shifted convolution problem with applications to L-functions | Valentin Blomer, Junxian Li",
+  "math/0703246v2 | The spectral decomposition of shifted convolution sums | Valentin Blomer, Gergely Harcos",
+  "2610.20182v1 | New bounds for $\\mathrm{GL}(3)\\times\\mathrm{GL}(2)$ shifted convolution sums | Guangwei Hu, Guangshi L\u00fc",
+  "2404.10692v2 | Local integral transforms and global spectral decomposition | Valentin Blomer, Subhajit Jana"
+ ],
+ "Z2646_gillman": [
+  "1703.10205v3 | A Sharp Tail Bound for the Expander Random Sampler | Shravas Rao, Oded Regev"
+ ],
+ "Z2530_bruinier_funke": [
+  "math/0212286v4 | On Two Geometric Theta Lifts | Jan Hendrik Bruinier, Jens Funke",
+  "1112.3444v1 | Regularized theta liftings and periods of modular functions | Jan H. Bruinier, Jens Funke",
+  "math/0408406v1 | Traces of CM values of modular functions | Jan Hendrik Bruinier, Jens Funke",
+  "2411.07962v1 | A modular framework for generalized Hurwitz class numbers II | Olivia Beckwith, Andreas Mono"
+ ],
+ "Z1683_mock_egypt": [
+  "1006.0915v2 | From sheaves on P2 to a generalization of the Rademacher expansion | Kathrin Bringmann, Jan Manschot",
+  "1803.09270v2 | An exact formula for $\\mathrm{U}(3)$ Vafa-Witten invariants on $\\mathbb{P}^2$ | Kathrin Bringmann, Caner Nazaroglu",
+  "2604.18241v1 | A Rademacher exact type formula for pod$_2(n)$ | Kilian Rausch",
+  "1504.02500v3 | Algebraic and transcendental formulas for the smallest parts function | Scott Ahlgren, Nickolas Andersen"
+ ],
+ "Z2328_Coef_nonvanish": [
+  "1505.05463v1 | Fourier coefficients for twists of Siegel paramodular forms (expanded version) | Jennifer Johnson-Leung, Brooks Roberts",
+  "2005.10354v4 | Variants of Lehmer's speculation for newforms | Jennifer S. Balakrishnan, William Craig",
+  "1405.5486v6 | A variant of the Bombieri-Vinogradov theorem in short intervals with applications | Jesse Thorner"
+ ],
+ "Z2866_button_markoff": "ERR rate-limited",
+ "Z2664_HP_markov": "ERR rate-limited",
+ "Z2228_Brauer_pencil": [],
+ "Z2936_Ono_Sound": [],
+ "Z3026_Ono_mod": [],
+ "Z1484_EichlerSelberg": [
+  "2406.14280v1 | Eichler-Selberg relations for singular moduli | Yuqi Deng, Toshiki Matsusaka",
+  "1404.5491v2 | Eichler-Selberg Type Identities for Mixed Mock Modular Forms | Michael H. Mertens"
+ ],
+ "Z2065_DCL_murm": [
+  "2410.04952v1 | Murmurations and Sato-Tate Conjectures for High Rank Zetas of Elliptic Curves | Zhan Shi, Lin Weng",
+  "2504.12295v2 | Murmurations for elliptic curves ordered by height | Will Sawin, Andrew V. Sutherland",
+  "2505.01093v1 | Variations on murmurations | Kimball Martin",
+  "2408.12723v3 | Murmurations and ratios conjectures | Alex Cowan"
+ ],
+ "Z2090_Smith": [
+  "1603.08479v2 | The congruent numbers have positive natural density | Alexander Smith"
+ ],
+ "Z2089_Tian": [
+  "1411.4728v1 | Genus Periods, Genus Points and Congruent Number Problem | Ye Tian, Xinyi Yuan",
+  "1210.8231v1 | Congruent Numbers and Heegner Points | Ye Tian",
+  "2610.31631v1 | Nonvanishing of 2-primary Kolyvagin classes via simultaneous quadratic twists | Zhiqi Sun"
+ ],
+ "Z2482_BLS": [
+  "2006.02356v1 | The Hasse principle for random Fano hypersurfaces | Tim Browning, Pierre Le Boudec"
+ ],
+ "Z2555_Radchenko": [
+  "2007.03981v1 | Fourier uniqueness in $\\mathbb{R}^4$ | Andrew Bakan, Haakan Hedenmalm",
+  "2512.18677v1 | The basis functions of Fourier interpolation | David Berghaus, Andriy Bondarenko",
+  "1701.00265v2 | Fourier interpolation on the real line | Danylo Radchenko, Maryna Viazovska",
+  "2406.19511v2 | Cohomology of Fuchsian groups and Fourier interpolation | Mathilde Gerbelli-Gauthier, Akshay Venkatesh"
+ ],
+ "Z2190_erdos300": [
+  "math/0311421v1 | On a coloring conjecture about unit fractions | Ernest S. Croot",
+  "2404.07113v1 | On further questions regarding unit fractions | Yang P. Liu, Mehtaab Sawhney",
+  "math/9904181v1 | On Unit Fractions with Denominators in Short Intervals | Ernest S. Croot"
+ ]
+}

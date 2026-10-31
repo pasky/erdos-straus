@@ -1,0 +1,62 @@
+{
+ "pr_20001_200000.txt": {
+  "n_p1mod4": 7852,
+  "pmin": 20021,
+  "pmax": 199961,
+  "max_minz_over_p": [
+   17616.0,
+   129121
+  ],
+  "max_minz_over_p2": [
+   0.13643,
+   129121
+  ],
+  "max_logminz_over_logp": [
+   1.8307,
+   129121
+  ],
+  "median_minz_over_p": 481.0,
+  "frac_minz_div_p": 1.0,
+  "n_minz_over_p2_gt_0p4": 0
+ },
+ "pr_1e6_window.txt": {
+  "n_p1mod4": 156,
+  "pmin": 1000033,
+  "pmax": 1003957,
+  "max_minz_over_p": [
+   25012.0,
+   1000457
+  ],
+  "max_minz_over_p2": [
+   0.025,
+   1000457
+  ],
+  "max_logminz_over_logp": [
+   1.733,
+   1000457
+  ],
+  "median_minz_over_p": 1660.0,
+  "frac_minz_div_p": 1.0,
+  "n_minz_over_p2_gt_0p4": 0
+ },
+ "pr_1e7_window.txt": {
+  "n_p1mod4": 113,
+  "pmin": 10000121,
+  "pmax": 10003957,
+  "max_minz_over_p": [
+   24304.0,
+   10000993
+  ],
+  "max_minz_over_p2": [
+   0.00243,
+   10000993
+  ],
+  "max_logminz_over_logp": [
+   1.6265,
+   10000993
+  ],
+  "median_minz_over_p": 6178.0,
+  "frac_minz_div_p": 1.0,
+  "n_minz_over_p2_gt_0p4": 0
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "B": 80,
+ "PMAX": 200,
+ "n_primes": 21,
+ "n_with_Z2_triple": 5,
+ "n_with_genuinely_irrational_triple": 4,
+ "missing_irr_example": [
+  13
+ ],
+ "missing": [
+  29,
+  37,
+  53,
+  61,
+  89,
+  97,
+  101,
+  109,
+  113,
+  137,
+  149,
+  157,
+  173,
+  181,
+  193,
+  197
+ ],
+ "n_missing": 16,
+ "example": [
+  5,
+  [
+   [
+    24,
+    -16
+   ],
+   [
+    20,
+    0
+   ],
+   [
+    24,
+    -16
+   ]
+  ]
+ ]
+}
