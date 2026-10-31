@@ -178,3 +178,13 @@
 {"mid": "Z1086", "outcome": "skipped", "summary": "Not actionable: Ramsey colouring without a template to test.", "evidence": [], "next": ""}
 {"mid": "Z1087", "outcome": "skipped", "summary": "Not actionable: successful-C progressions are not computed by the item and the 'derive conditions' step is unspecified.", "evidence": [], "next": ""}
 {"mid": "Z1088", "outcome": "skipped", "summary": "Not actionable: word-line encoding not specified.", "evidence": [], "next": ""}
+{"mid": "Z1089", "outcome": "skipped", "summary": "Not actionable: reduction-map fibres not defined for a concrete graph.", "evidence": [], "next": ""}
+{"mid": "Z1100", "outcome": "skipped", "summary": "Restatement: 4L/p = L/x+L/y+L/z is the ES identity with a common denominator; no new constraint.", "evidence": [], "next": ""}
+{"mid": "Z1109", "outcome": "skipped", "summary": "Not actionable: no weighted tree encoding of certificates is given.", "evidence": [], "next": ""}
+{"mid": "Z1110", "outcome": "skipped", "summary": "Not actionable: no certificate graph is specified.", "evidence": [], "next": ""}
+{"mid": "Z1112", "outcome": "skipped", "summary": "Not actionable: no certificate graph is specified.", "evidence": [], "next": ""}
+{"mid": "Z1114", "outcome": "skipped", "summary": "Not actionable: residue-state graph not defined.", "evidence": [], "next": ""}
+{"mid": "Z1115", "outcome": "skipped", "summary": "Not actionable: spanning-tree exploration without a certificate graph.", "evidence": [], "next": ""}
+{"mid": "Z1124", "outcome": "skipped", "summary": "Restatement: rectangle-area reading of the ES identity (as Z0162).", "evidence": [], "next": ""}
+{"mid": "Z1131", "outcome": "skipped", "summary": "Not actionable: factor-graph encoding not specified.", "evidence": [], "next": ""}
+{"mid": "Z1146", "outcome": "skipped", "summary": "Not actionable: tensor encoding not specified.", "evidence": [], "next": ""}
