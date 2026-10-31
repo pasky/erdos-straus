@@ -148,3 +148,53 @@
 {"mid": "Z0547", "status": "open", "files": ["BRAINSTORM/covering_distortion_dual.md"], "evidence": "", "note": "Rosser–Iwaniec style sieve for no-divisor-class examined in dual covering memo."}
 {"mid": "Z0548", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
 {"mid": "Z0549", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0550", "status": "open", "files": ["BRAINSTORM/rational_to_integral_cubic.md"], "evidence": "", "note": "Manin-style heuristics for integral points examined; ES fibre not computed."}
+{"mid": "Z0551", "status": "open", "files": ["BRAINSTORM/nonab_homogeneous_dynamics.md"], "evidence": "", "note": "Hyperbolic lattice counting on quadrics examined; region R_p not identified."}
+{"mid": "Z0552", "status": "open", "files": ["AMPLIFY_EXCEPTION.md"], "evidence": "This is the Mordell–Schinzel square-class obstruction in local form", "note": "Mordell–Schinzel square-class obstruction examined; thin-set image not analysed."}
+{"mid": "Z0553", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0554", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0555", "status": "open", "files": ["BRAINSTORM/y1_heegner_level_t.md"], "evidence": "", "note": "Heegner points on X₀(t) tied to ES examined; ES-surface point count not computed."}
+{"mid": "Z0556", "status": "open", "files": ["WINDMILL.md"], "evidence": "", "note": "I3 Zagier-type involution examined; fixed-point analysis recorded in windmill memo."}
+{"mid": "Z0557", "status": "open", "files": ["BRAINSTORM/polynomial_method.md"], "evidence": "", "note": "Davenport/EGZ with prescribed target examined as polynomial-method input."}
+{"mid": "Z0558", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0559", "status": "open", "files": ["LOWER_TAIL_ASTRA.md"], "evidence": "", "note": "Poisson/Janson calibration on Schinzel family proposed; fit not recorded."}
+{"mid": "Z0560", "status": "open", "files": ["BRAINSTORM/nonab_homogeneous_dynamics.md"], "evidence": "", "note": "Measure-rigidity model for exceptional primes examined; no dynamics found."}
+{"mid": "Z0561", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0562", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0563", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Two-squares forced object flagged in lane header; identity test not recorded."}
+{"mid": "Z0564", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0565", "status": "open", "files": [], "evidence": "", "note": "h(−4p) correlation with ES counts examined; certificate-shape tabulation not recorded."}
+{"mid": "Z0566", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "PW explicit threshold m ≥ 6.52·10⁹ examined; smallest failing m not searched."}
+{"mid": "Z0567", "status": "open", "files": ["BRAINSTORM/ident_numerators.md"], "evidence": "", "note": "PW j-unit-fraction generalisation noted; section not extracted here."}
+{"mid": "Z0568", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0569", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0570", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0571", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0572", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0573", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Chebotarev/Frobenius reading flagged in lane header; not established."}
+{"mid": "Z0574", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0575", "status": "open", "files": ["BRAINSTORM/z52_lit_thin_pointwise.md"], "evidence": "Same periodic-covering obstruction, irrelevant at ES primes.", "note": "Sierpiński/Riesel covering noted as literature; judged irrelevant to ES primes."}
+{"mid": "Z0576", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0577", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0578", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0579", "status": "open", "files": ["BRAINSTORM/z31_small_count_pointwise.md"], "evidence": "", "note": "Least primitive root examined as small-count pointwise example; not tested for ES."}
+{"mid": "Z0580", "status": "open", "files": ["BRAINSTORM/z36_farey_least_qnr.md"], "evidence": "", "note": "Least quadratic non-residue examined in Farey memo; ES link left open."}
+{"mid": "Z0581", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0582", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0583", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0584", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0585", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0586", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0587", "status": "open", "files": ["BRAINSTORM/padic_adelic_scaling.md"], "evidence": "", "note": "Darmon/Campana-type integral points noted for ES boundary; not computed."}
+{"mid": "Z0588", "status": "open", "files": ["BRAINSTORM/padic_adelic_scaling.md"], "evidence": "", "note": "Campana points on boundary examined in adelic scaling memo; not established."}
+{"mid": "Z0589", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0590", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "p+2^a+2^b+2^c versus Crocker family examined as open twin."}
+{"mid": "Z0591", "status": "open", "files": ["BRAINSTORM/z31_zaremba_thin_orbits.md"], "evidence": "", "note": "Hensley congruence obstruction for {2,4,6,8,10} examined as Zaremba analogue."}
+{"mid": "Z0592", "status": "open", "files": ["EXCEPTIONAL_MN.md"], "evidence": "", "note": "Large-m versus m=4 contrast examined via PW calibration; not settled."}
+{"mid": "Z0593", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Fermat two-squares versus ES at p≡1 mod 4 contrast flagged in lane header."}
+{"mid": "Z0594", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0595", "status": "open", "files": ["BRAINSTORM/z31_markoff_chen.md"], "evidence": "", "note": "Markoff mod-p versus integral Hasse contrast examined; ES analogue not settled."}
+{"mid": "Z0596", "status": "open", "files": [], "evidence": "", "note": "Negative Pell at primes examined in pointwise memos; general-d density not tested."}
+{"mid": "Z0597", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "k=2 Egyptian (Stewart) reduction flagged in lane header; k=3 contrast open."}
+{"mid": "Z0598", "status": "open", "files": ["BRAINSTORM/apollonian_reciprocity.md"], "evidence": "", "note": "Apollonian reciprocity obstruction examined against Zaremba; ES minimal pair open."}
+{"mid": "Z0599", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "p+2^k periodic-witness covering versus ES flagged in lane header; not tested."}
