@@ -1,0 +1,21 @@
+{
+ "PMAX": 400,
+ "n_p1mod4_checked": 37,
+ "n_primitive_ok": 30,
+ "fails": [
+  13,
+  37,
+  97,
+  181,
+  193,
+  277,
+  373
+ ],
+ "fails_mod12": {
+  "1": 7,
+  "5": 0,
+  "9": 0
+ },
+ "fails_mod_12_counts_by_class_all": {},
+ "seconds": 0.0
+}

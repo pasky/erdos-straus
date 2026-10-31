@@ -1,0 +1,566 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/WpbwGUdt1IAhmDKUITW+Rj0MNF4</id>
+  <title>arXiv Query: search_query=&amp;id_list=2504.10992,1908.02526,2605.05075,1406.6963,1511.01285,1106.4977,1107.1010,1603.04246,2302.02143,1304.3333,1409.0993,1710.01848,1803.04583,2109.08788,2312.13914,2006.02356,1904.13109,1701.00265,2204.10140,2310.07681,2310.19357,1604.01041,1210.8231,1603.08479,1901.08503,0808.1550,2310.19357,1707.00225,2107.08101&amp;start=0&amp;max_results=60</title>
+  <updated>2026-10-31T15:10:00Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=60&amp;id_list=2504.10992,1908.02526,2605.05075,1406.6963,1511.01285,1106.4977,1107.1010,1603.04246,2302.02143,1304.3333,1409.0993,1710.01848,1803.04583,2109.08788,2312.13914,2006.02356,1904.13109,1701.00265,2204.10140,2310.07681,2310.19357,1604.01041,1210.8231,1603.08479,1901.08503,0808.1550,2310.19357,1707.00225,2107.08101" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>60</opensearch:itemsPerPage>
+  <opensearch:totalResults>28</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2109.08788v4</id>
+    <title>Canonical Heights on Shimura Varieties and the André-Oort Conjecture</title>
+    <updated>2024-12-17T08:19:33Z</updated>
+    <link href="https://arxiv.org/abs/2109.08788v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2109.08788v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The main purpose of this work is to prove the André-Oort conjecture in full generality.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-09-18T00:08:34Z</published>
+    <arxiv:comment>The argument has been substantially rewritten to make it clearer, including introduced the notion of a "Solid Height Function" on CM points to make precise what properties are essential</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jonathan Pila</name>
+    </author>
+    <author>
+      <name>Ananth N. Shankar</name>
+    </author>
+    <author>
+      <name>Jacob Tsimerman</name>
+    </author>
+    <author>
+      <name>Hélène Esnault</name>
+    </author>
+    <author>
+      <name>Michael Groechenig</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2312.13914v2</id>
+    <title>Manin's conjecture for integral points on toric varieties</title>
+    <updated>2025-08-01T13:24:20Z</updated>
+    <link href="https://arxiv.org/abs/2312.13914v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2312.13914v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We formulate a conjecture on the number of integral points of bounded height on log Fano varieties in analogy with Manin's conjecture on the number of rational points of bounded height on Fano varieties. We also give a prediction for the leading constant which is similar to Peyre's interpretation of the leading constant in Manin's conjecture. We give evidence for our conjecture by proving it for toric varieties. The proof is based on harmonic analysis on universal torsors.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-12-21T15:02:19Z</published>
+    <arxiv:comment>The new version shows that the conjectural leading constant is well-defined and fixes some typos</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Tim Santens</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2302.02143v1</id>
+    <title>The Scholz conjecture for $n=2^m(23)+7$, $m \in \mathbb{N}^*$</title>
+    <updated>2023-02-04T10:44:53Z</updated>
+    <link href="https://arxiv.org/abs/2302.02143v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2302.02143v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Scholz conjecture on addition chains states that $\ell(2^n-1) \leq \ell(n) + n -1$ for all integers $n$ where $\ell(n)$ stands for the minimal length of all addition chains for $n$. It is proven to hold for infinite sets of integers. In this paper, we will prove that the conjecture still holds for $n=2^m(23)+7$. It is the first set of integers given by Thurber \cite{9} to prove that there are an infinity of integers satisfying $\ell(2n) = \ell(n)$. Later on, Thurber \cite{4} give a second set of integers with the same properties ($n=2^{2m+k+7} + 2^{2m+k+5} + 2^{m+k+4} + 2^{m+k+3} + 2^{m+2} + 2^{m+1} + 1$). We will prove that the conjecture holds for them as well.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-02-04T10:44:53Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Amadou Tall</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2204.10140v2</id>
+    <title>Murmurations of elliptic curves</title>
+    <updated>2024-07-30T10:20:50Z</updated>
+    <link href="https://arxiv.org/abs/2204.10140v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2204.10140v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the average value of the Frobenius trace at p over elliptic curves in a fixed conductor range with given rank. Plotting this average as p varies over the primes yields a striking oscillating pattern, the details of which vary with the rank. Based on this observation, we perform various data-scientific experiments with the goal of classifying elliptic curves according to their ranks.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-04-21T14:45:40Z</published>
+    <arxiv:comment>27 pages, 16 figures, 2 tables</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Experimental Mathematics, 2024</arxiv:journal_ref>
+    <author>
+      <name>Yang-Hui He</name>
+    </author>
+    <author>
+      <name>Kyu-Hwan Lee</name>
+    </author>
+    <author>
+      <name>Thomas Oliver</name>
+    </author>
+    <author>
+      <name>Alexey Pozdnyakov</name>
+    </author>
+    <arxiv:doi>10.1080/10586458.2024.2382361</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1080/10586458.2024.2382361" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1603.08479v2</id>
+    <title>The congruent numbers have positive natural density</title>
+    <updated>2016-03-29T22:00:41Z</updated>
+    <link href="https://arxiv.org/abs/1603.08479v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1603.08479v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that the rational elliptic curve y^2 = x^3 - n^2x satisfies the full Birch and Swinnerton-Dyer conjecture for at least 41.9% of positive squarefree integers n equal to 1, 2, or 3 mod 8, and that it satisfies the regular BSD conjecture for at least 55.9% of positive squarefree integers n equal to 5, 6, or 7 mod 8. In particular, at least 55.9% of positive squarefree integers equal to 5, 6, or 7 mod 8 are congruent numbers. These proofs complete an argument started by Tian, Yuan, and Zhang.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-03-28T18:47:48Z</published>
+    <arxiv:comment>32 Pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Alexander Smith</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1210.8231v1</id>
+    <title>Congruent Numbers and Heegner Points</title>
+    <updated>2012-10-31T05:34:34Z</updated>
+    <link href="https://arxiv.org/abs/1210.8231v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1210.8231v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Mohammed Ben Alhocain, in an Arab manuscript of the tenth century, stated that the principal object of the theory of rational right triangles is to find a square which when increased or diminished by a certain number $m$ becomes a square (see Dickson). In modern language, this object is to find a rational point of infinite order on the elliptic curve $my^2=x^3-x$. Heegner constructed (see also Monsky) such rational points in the case that $m$ are primes congruent to 5, 7 modulo 8 or twice primes congruent to 6 modulo 8. We extend Heegner's result to integers $m$ with many prime divisors.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-10-31T05:34:34Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Ye Tian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2107.08101v1</id>
+    <title>Carleson estimates for the Green function on domains with lower dimensional boundaries</title>
+    <updated>2021-07-16T20:07:10Z</updated>
+    <link href="https://arxiv.org/abs/2107.08101v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2107.08101v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In the present paper, we consider an elliptic divergence form operator in $\mathbb{R}^n\setminus\mathbb{R}^d$ with $d&lt;n-1$ and prove that its Green function is almost affine, in the sense that the normalized difference between the Green function with a sufficiently far away pole and a suitable affine function at every scale satisfies a Carleson measure estimate. The coefficients of the operator can be very oscillatory, and only need to satisfy some condition similar to the traditional quadratic Carleson condition.</summary>
+    <category term="math.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-07-16T20:07:10Z</published>
+    <arxiv:comment>37 pages</arxiv:comment>
+    <arxiv:primary_category term="math.AP"/>
+    <author>
+      <name>Guy David</name>
+    </author>
+    <author>
+      <name>Linhan Li</name>
+    </author>
+    <author>
+      <name>Svitlana Mayboroda</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1409.0993v4</id>
+    <title>On the fibration method for zero-cycles and rational points</title>
+    <updated>2015-06-22T15:59:16Z</updated>
+    <link href="https://arxiv.org/abs/1409.0993v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1409.0993v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Conjectures on the existence of zero-cycles on arbitrary smooth projective varieties over number fields were proposed by Colliot-Thélène, Sansuc, Kato and Saito in the 1980's. We prove that these conjectures are compatible with fibrations, for fibrations into rationally connected varieties over a curve. In particular, they hold for the total space of families of homogeneous spaces of linear groups with connected geometric stabilisers. We prove the analogous result for rational points, conditionally on a conjecture on locally split values of polynomials which a recent work of Matthiesen establishes in the case of linear polynomials over the rationals.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-09-03T08:47:04Z</published>
+    <arxiv:comment>54 pages; v3: minor updates, added Remark 9.12(ii), v4: improved exposition, final version</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Annals of Mathematics 183 (2016), no. 1, 229-295</arxiv:journal_ref>
+    <author>
+      <name>Yonatan Harpaz</name>
+    </author>
+    <author>
+      <name>Olivier Wittenberg</name>
+    </author>
+    <arxiv:doi>10.4007/annals.2016.183.1.5</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.4007/annals.2016.183.1.5" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1511.01285v1</id>
+    <title>Geometry and arithmetic of certain log K3 surfaces</title>
+    <updated>2015-11-04T10:54:30Z</updated>
+    <link href="https://arxiv.org/abs/1511.01285v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1511.01285v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $k$ be a field of characteristic $0$. In this paper we describe a classification of smooth log K3 surfaces $X$ over $k$ whose geometric Picard group is trivial and which can be compactified into del Pezzo surfaces. We show that such an $X$ can always be compactified into a del Pezzo surface of degree $5$, with a compactifying divisor $D$ being a cycle of five $(-1)$-curves, and that $X$ is completely determined by the action of the absolute Galois group of $k$ on the dual graph of $D$. When $k=\mathbb{Q}$ and the Galois action is trivial, we prove that for any integral model $\mathcal{X}/\mathbb{Z}$ of $X$, the set of integral points $\mathcal{X}(\mathbb{Z})$ is not Zariski dense. We also show that the Brauer-Manin obstruction is not the only obstruction for the integral Hasse principle on such log K3 surfaces, even when their compactification is "split".</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-11-04T10:54:30Z</published>
+    <arxiv:primary_category term="math.AG"/>
+    <author>
+      <name>Yonatan Harpaz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0808.1550v2</id>
+    <title>Smoothable del Pezzo surfaces with quotient singularities</title>
+    <updated>2008-08-28T19:39:15Z</updated>
+    <link href="https://arxiv.org/abs/0808.1550v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0808.1550v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We give a complete classification of del Pezzo surfaces with quotient singularities and Picard rank 1 which admit a Q-Gorenstein smoothing.
+  There are 14 infinite families of toric examples. The surfaces in each family correspond to solutions of a Markov-type equation. The remaining surfaces are obtained as deformations of the toric surfaces or belong to a finite list of sporadic surfaces.</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2008-08-11T18:03:02Z</published>
+    <arxiv:comment>36 pages. v2: corrected attribution of Prop. 2.7, added reference</arxiv:comment>
+    <arxiv:primary_category term="math.AG"/>
+    <arxiv:journal_ref>Compositio Math. 146 (2010) 169-192</arxiv:journal_ref>
+    <author>
+      <name>Paul Hacking</name>
+    </author>
+    <author>
+      <name>Yuri Prokhorov</name>
+    </author>
+    <arxiv:doi>10.1112/S0010437X09004370</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/S0010437X09004370" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1803.04583v2</id>
+    <title>Arithmetic of curves on moduli of local systems</title>
+    <updated>2020-08-22T15:23:33Z</updated>
+    <link href="https://arxiv.org/abs/1803.04583v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1803.04583v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the arithmetic of algebraic curves on coarse moduli spaces for special linear rank two local systems on surfaces with fixed boundary traces. We prove a structure theorem for morphisms from the affine line into the moduli space. We show that the set of integral points on any nondegenerate algebraic curve on the moduli space can be effectively determined.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-03-13T00:31:37Z</published>
+    <arxiv:comment>28 pages, 3 figures, accepted for publication in Algebra &amp; Number Theory</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Alg. Number Th. 14 (2020) 2575-2605</arxiv:journal_ref>
+    <author>
+      <name>Junho Peter Whang</name>
+    </author>
+    <arxiv:doi>10.2140/ant.2020.14.2575</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.2140/ant.2020.14.2575" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1901.08503v3</id>
+    <title>Integral points of bounded height on a log Fano threefold</title>
+    <updated>2025-05-21T08:44:38Z</updated>
+    <link href="https://arxiv.org/abs/1901.08503v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1901.08503v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We determine an asymptotic formula for the number of integral points of bounded height on a blow-up of $\mathbb{P}^3$ outside certain planes using universal torsors.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-01-24T16:59:48Z</published>
+    <arxiv:comment>19 pages, author accepted version, appeared in IMRN</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Int. Math. Res. Not. IMRN 8, 6780-6808, 2023</arxiv:journal_ref>
+    <author>
+      <name>Florian Wilsch</name>
+    </author>
+    <arxiv:doi>10.1093/imrn/rnac048</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1093/imrn/rnac048" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2006.02356v1</id>
+    <title>The Hasse principle for random Fano hypersurfaces</title>
+    <updated>2020-06-03T16:04:19Z</updated>
+    <link href="https://arxiv.org/abs/2006.02356v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2006.02356v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>It is known that the Brauer--Manin obstruction to the Hasse principle is vacuous for smooth Fano hypersurfaces of dimension at least $3$ over any number field. Moreover, for such varieties it follows from a general conjecture of Colliot-Thélène that the Brauer--Manin obstruction to the Hasse principle should be the only one, so that the Hasse principle is expected to hold. Working over the field of rational numbers and ordering Fano hypersurfaces of fixed degree and dimension by height, we prove that almost every such hypersurface satisfies the Hasse principle provided that the dimension is at least $3$. This proves a conjecture of Poonen and Voloch in every case except for cubic surfaces.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-06-03T16:04:19Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Tim Browning</name>
+    </author>
+    <author>
+      <name>Pierre Le Boudec</name>
+    </author>
+    <author>
+      <name>Will Sawin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1707.00225v1</id>
+    <title>Extended dynamic mode decomposition with dictionary learning: a data-driven adaptive spectral decomposition of the Koopman operator</title>
+    <updated>2017-07-02T01:38:45Z</updated>
+    <link href="https://arxiv.org/abs/1707.00225v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1707.00225v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Numerical approximation methods for the Koopman operator have advanced considerably in the last few years. In particular, data-driven approaches such as dynamic mode decomposition (DMD) and its generalization, the extended-DMD (EDMD), are becoming increasingly popular in practical applications. The EDMD improves upon the classical DMD by the inclusion of a flexible choice of dictionary of observables that spans a finite dimensional subspace on which the Koopman operator can be approximated. This enhances the accuracy of the solution reconstruction and broadens the applicability of the Koopman formalism. Although the convergence of the EDMD has been established, applying the method in practice requires a careful choice of the observables to improve convergence with just a finite number of terms. This is especially difficult for high dimensional and highly nonlinear systems. In this paper, we employ ideas from machine learning to improve upon the EDMD method. We develop an iterative approximation algorithm which couples the EDMD with a trainable dictionary represented by an artificial neural network. Using the Duffing oscillator and the Kuramoto Sivashinsky PDE as examples, we show that our algorithm can effectively and efficiently adapt the trainable dictionary to the problem at hand to achieve good reconstruction accuracy without the need to choose a fixed dictionary a priori. Furthermore, to obtain a given accuracy we require fewer dictionary terms than EDMD with fixed dictionaries. This alleviates an important shortcoming of the EDMD algorithm and enhances the applicability of the Koopman framework to practical problems.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-07-02T01:38:45Z</published>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Qianxiao Li</name>
+    </author>
+    <author>
+      <name>Felix Dietrich</name>
+    </author>
+    <author>
+      <name>Erik M. Bollt</name>
+    </author>
+    <author>
+      <name>Ioannis G. Kevrekidis</name>
+    </author>
+    <arxiv:doi>10.1063/1.4993854</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1063/1.4993854" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1603.04246v2</id>
+    <title>The sphere packing problem in dimension 8</title>
+    <updated>2017-04-04T02:03:32Z</updated>
+    <link href="https://arxiv.org/abs/1603.04246v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1603.04246v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper we prove that no packing of unit balls in Euclidean space $\mathbb{R}^8$ has density greater than that of the $E_8$-lattice packing.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-03-14T13:00:35Z</published>
+    <arxiv:comment>22 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Annals of Mathematics, Pages 991-1015 from Volume 185 (2017), Issue 3</arxiv:journal_ref>
+    <author>
+      <name>Maryna Viazovska</name>
+    </author>
+    <arxiv:doi>10.4007/annals.2017.185.3.7</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.4007/annals.2017.185.3.7" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1604.01041v2</id>
+    <title>Primes with restricted digits</title>
+    <updated>2019-10-28T22:53:58Z</updated>
+    <link href="https://arxiv.org/abs/1604.01041v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1604.01041v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $a_0\in\{0,\dots,9\}$. We show there are infinitely many prime numbers which do not have the digit $a_0$ in their decimal expansion.
+  The proof is an application of the Hardy-Littlewood circle method to a binary problem, and rests on obtaining suitable `Type I' and `Type II' arithmetic information for use in Harman's sieve to control the minor arcs. This is obtained by decorrelating Diophantine conditions which dictate when the Fourier transform of the primes is large from digital conditions which dictate when the Fourier transform of numbers with restricted digits is large. These estimates rely on a combination of the geometry of numbers, the large sieve and moment estimates obtained by comparison with a Markov process.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-04-04T20:03:18Z</published>
+    <arxiv:comment>70 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>James Maynard</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1701.00265v2</id>
+    <title>Fourier interpolation on the real line</title>
+    <updated>2020-02-14T15:46:27Z</updated>
+    <link href="https://arxiv.org/abs/1701.00265v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1701.00265v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We use weakly holomorphic modular forms for the Hecke theta group to construct an explicit interpolation formula for Schwartz functions on the real line. The formula expresses the value of a function at any given point in terms of the values of the function and its Fourier transform on the set $\{0, \pm\sqrt{1}, \pm\sqrt{2}, \pm\sqrt{3},\dots\}$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-01-01T17:10:59Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>M. Publ.math.IHES (2018)</arxiv:journal_ref>
+    <author>
+      <name>Danylo Radchenko</name>
+    </author>
+    <author>
+      <name>Maryna Viazovska</name>
+    </author>
+    <arxiv:doi>10.1007/s10240-018-0101-z</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s10240-018-0101-z" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1304.3333v3</id>
+    <title>The Hardy--Littlewood conjecture and rational points</title>
+    <updated>2014-03-19T08:30:37Z</updated>
+    <link href="https://arxiv.org/abs/1304.3333v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1304.3333v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Schinzel's Hypothesis (H) was used by Colliot-Thélène and Sansuc, and later by Serre, Swinnerton-Dyer and others, to prove that the Brauer-Manin obstruction controls the Hasse principle and weak approximation on pencils of conics and similar varieties. We show that when the ground field is Q and the degenerate geometric fibres of the pencil are all defined over Q, one can use these methods to obtain unconditional results by replacing Hypothesis (H) with the finite complexity case of the generalised Hardy-Littlewood conjecture recently established by Green, Tao and Ziegler.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-04-11T15:09:49Z</published>
+    <arxiv:comment>19 pages; minor changes, final version</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Compositio Math. 150 (2014) 2095-2111</arxiv:journal_ref>
+    <author>
+      <name>Yonatan Harpaz</name>
+    </author>
+    <author>
+      <name>Alexei N. Skorobogatov</name>
+    </author>
+    <author>
+      <name>Olivier Wittenberg</name>
+    </author>
+    <arxiv:doi>10.1112/S0010437X14007568</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/S0010437X14007568" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1107.1010v6</id>
+    <title>Counting the number of solutions to the Erdos-Straus equation on unit fractions</title>
+    <updated>2015-08-02T20:05:58Z</updated>
+    <link href="https://arxiv.org/abs/1107.1010v6" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1107.1010v6" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For any positive integer $n$, let $f(n)$ denote the number of solutions to the Diophantine equation $\frac{4}{n} = \frac{1}{x} + \frac{1}{y} + \frac{1}{z}$ with $x,y,z$ positive integers. The \emph{Erdős-Straus conjecture} asserts that $f(n) &gt; 0$ for every $n \geq 2$. To solve this conjecture, it suffices without loss of generality to consider the case when $n$ is a prime $p$.
+  In this paper we consider the question of bounding the sum $\sum_{p&lt;N} f(p)$ asymptotically as $N \to \infty$, where $p$ ranges over primes. Our main result establishes the asymptotic upper and lower bounds $$ N \log^2 N \ll \sum_{p \leq N} f(p) \ll N \log^2 N \log \log N.$$ In particular, from this bound and the prime number theorem we have $f(p) = O(\log^3 p \log \log p)$ for a subset of primes of density arbitrarily close to 1; thus a typical prime has a relatively small number of solutions to the Erdős-Straus Diophantine equation.
+  We also establish some related results on $f$ and related quantities, for instance establishing the bound $f(p) \ll p^{3/5} + O(\frac{1}{\log\log p})}$ for all primes $p$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-07-06T01:02:36Z</published>
+    <arxiv:comment>55 pages, two figures. An error in the statement and proof of Theorem 1.9 has been corrected, and some new references added</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Aust. Math. Soc. 94 (2013), 50--105</arxiv:journal_ref>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+    <author>
+      <name>Terence Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1904.13109v1</id>
+    <title>The dimension growth conjecture, polynomial in the degree and without logarithmic factors</title>
+    <updated>2019-04-30T08:59:03Z</updated>
+    <link href="https://arxiv.org/abs/1904.13109v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1904.13109v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We address Heath-Brown's and Serre's dimension growth conjecture (proved by Salberger), when the degree $d$ grows. Recall that Salberger's dimension growth results give bounds of the form $O_{X, \varepsilon} (B^{\dim X+\varepsilon})$ for the number of rational points of height at most $B$ on any integral subvariety $X$ of ${\mathbb P}^n_{\mathbb Q}$ of degree $d\geq 2$, where one can write $O_{d,n, \varepsilon}$ instead of $O_{X, \varepsilon}$ as soon as $d\geq 4$. Our main contribution is to remove the factor $B^\varepsilon$ as soon as $d \geq 5$, without introducing a factor $\log B$, while moreover obtaining polynomial dependence on $d$ of the implied constant. Working polynomially in $d$ allows us to give a self-contained and slightly simplified treatment of dimension growth for degree $d \geq 16$, while in the range $5 \leq d \leq 15$ we invoke results by Browning, Heath-Brown and Salberger. Along the way we improve the well-known bounds due to Bombieri and Pila on the number of integral points of bounded height on affine curves and those by Walsh on the number of rational points of bounded height on projective curves. The former improvement leads to a slight sharpening of a recent estimate due to Bhargava, Shankar, Taniguchi, Thorne, Tsimerman and Zhao on the size of the $2$-torsion subgroup of the class group of a degree $d$ number field. Our treatment builds on recent work by Salberger which brings in many primes in Heath-Brown's variant of the determinant method, and on recent work by Walsh and Ellenberg--Venkatesh, who bring in the size of the defining polynomial. We also obtain lower bounds showing that one cannot do better than polynomial dependence on $d$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-04-30T08:59:03Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Alg. Number Th. 14 (2020) 2261-2294</arxiv:journal_ref>
+    <author>
+      <name>Wouter Castryck</name>
+    </author>
+    <author>
+      <name>Raf Cluckers</name>
+    </author>
+    <author>
+      <name>Philip Dittmann</name>
+    </author>
+    <author>
+      <name>Kien Huu Nguyen</name>
+    </author>
+    <arxiv:doi>10.2140/ant.2020.14.2261</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.2140/ant.2020.14.2261" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2310.07681v2</id>
+    <title>Murmurations</title>
+    <updated>2025-07-17T20:05:58Z</updated>
+    <link href="https://arxiv.org/abs/2310.07681v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2310.07681v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We establish a case of the surprising correlation phenomenon observed in the recent works of He, Lee, Oliver, Pozdnyakov, and Sutherland between Fourier coefficients of families of modular forms and their root numbers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-10-11T17:30:24Z</published>
+    <arxiv:comment>An extended version of the article</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Invent. math. (2025)</arxiv:journal_ref>
+    <author>
+      <name>Nina Zubrilina</name>
+    </author>
+    <arxiv:doi>10.1007/s00222-025-01347-8</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00222-025-01347-8" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.05075v1</id>
+    <title>The Logarithmic Asymptotic Phenomenon for Generalized Markov-Hurwitz Equations</title>
+    <updated>2026-05-06T16:10:56Z</updated>
+    <link href="https://arxiv.org/abs/2605.05075v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.05075v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The purpose of this paper is twofold. First, we introduce a family of generalized Markov-Hurwitz equations, extending classical Markov-Hurwitz equations with additional degree n-1 interaction terms, Gyoda and Matsushita's generalized Markov equations from 3 variables to n variables. Second, we prove a logarithmic asymptotic phenomenon for the positive integer solutions of these equations.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-06T16:10:56Z</published>
+    <arxiv:comment>23 pages, 6 figures, comments welcome!</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Zhichao Chen</name>
+    </author>
+    <author>
+      <name>Zelin Jia</name>
+    </author>
+    <author>
+      <name>Wenchao Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2310.19357v3</id>
+    <title>Improved bounds for the two-point logarithmic Chowla conjecture</title>
+    <updated>2026-08-25T13:08:40Z</updated>
+    <link href="https://arxiv.org/abs/2310.19357v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2310.19357v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $λ$ be the Liouville function, defined as $λ(n) := (-1)^{Ω(n)}$ where $Ω(n)$ is the number of prime factors of $n$ with multiplicity. In 2021, Helfgott and Radziwiłł proved that $$\sum_{n\leq x} \frac{1}{n} λ(n) λ(n+1) \ll \frac{\log x}{(\log \log x)^{1/2}},$$improving earlier results by Tao and Teräväinen. We prove that $$\sum_{n\leq x} \frac{1}{n} λ(n) λ(n+1) \ll (\log x)^{1-c}$$for some absolute constant $c&gt;0$. This appears to be best possible with current methods.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-10-30T08:51:01Z</published>
+    <arxiv:comment>Minor typos corrected. 66 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Cédric Pilatte</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1908.02526v2</id>
+    <title>Brauer-Manin obstruction for Erdős-Straus surfaces</title>
+    <updated>2020-05-12T11:37:08Z</updated>
+    <link href="https://arxiv.org/abs/1908.02526v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1908.02526v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the failure of the integral Hasse principle and strong approximation for the Erdős-Straus conjecture using the Brauer-Manin obstruction.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-08-07T10:50:49Z</published>
+    <arxiv:comment>17 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Martin Bright</name>
+    </author>
+    <author>
+      <name>Daniel Loughran</name>
+    </author>
+    <arxiv:doi>10.1112/blms.12374</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/blms.12374" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1710.01848v2</id>
+    <title>Nonlinear descent on moduli of local systems</title>
+    <updated>2020-07-21T15:46:11Z</updated>
+    <link href="https://arxiv.org/abs/1710.01848v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1710.01848v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We establish a structure theorem for the integral points on moduli of special linear rank two local systems over surfaces, using mapping class group descent and boundedness results for systoles of local systems.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-10-05T01:12:50Z</published>
+    <arxiv:comment>49 pages, 4 figures, accepted for publication in Israel Journal of Mathematics</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Junho Peter Whang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1406.6963v1</id>
+    <title>The saturation number for Cayley's cubic surface</title>
+    <updated>2014-06-26T18:04:14Z</updated>
+    <link href="https://arxiv.org/abs/1406.6963v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1406.6963v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the density of rational points on Cayley's cubic surface whose coordinates have few prime factors. The key tools used are the circle method and universal torsors.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-06-26T18:04:14Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Yuchao Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1106.4977v3</id>
+    <title>Mirror symmetry for log Calabi-Yau surfaces I</title>
+    <updated>2015-03-06T09:24:50Z</updated>
+    <link href="https://arxiv.org/abs/1106.4977v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1106.4977v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give a canonical synthetic construction of the mirror family to a pair (Y,D) of a smooth projective surface with an anti-canonical cycle of rational curves, as the spectrum of an explicit algebra defined in terms of counts of rational curves on Y meeting D in a single point. In the case D is contractible, the family gives a smoothing of the dual cusp, and thus a proof of Looijenga's 1981 cusp conjecture.</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-06-24T14:30:19Z</published>
+    <arxiv:comment>144 pages, 3 figures, Second version significantly shorter, 109 pages. The first version has a lot of material (particularly in the introduction and material on cyclic quotient singularities) which does not appear in the new version. Download version 1 if this material is desired. Third and final version, small changes from Version 2, to appear in Publ. IHES</arxiv:comment>
+    <arxiv:primary_category term="math.AG"/>
+    <author>
+      <name>Mark Gross</name>
+    </author>
+    <author>
+      <name>Paul Hacking</name>
+    </author>
+    <author>
+      <name>Sean Keel</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2504.10992v2</id>
+    <title>Rational and integral points on Markoff-type K3 surfaces</title>
+    <updated>2025-04-17T20:52:13Z</updated>
+    <link href="https://arxiv.org/abs/2504.10992v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2504.10992v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Following recent works by E. Fuchs et al. and by the author, we study rational and integral points on Markoff-type K3 (MK3) surfaces, i.e., Wehler K3 surfaces of Markoff type. In particular, we construct a family of MK3 surfaces which have a Zariski dense set of rational points but fail the integral Hasse principle due to the Brauer-Manin obstruction and provide some counting results for this family. We also give some remarks on Brauer groups, Picard groups, and failure of strong approximation on MK3 surfaces.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-04-15T09:08:55Z</published>
+    <arxiv:comment>28 pages; comments are welcome; added an assumption to Proposition 3.2 and rewrote the statement, added some details to the proof, the result remains the same; revised some assumptions for technical reasons, the main results stay the same; updated and added references. arXiv admin note: substantial text overlap with arXiv:2302.11515</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Quang-Duc Dao</name>
+    </author>
+  </entry>
+</feed>

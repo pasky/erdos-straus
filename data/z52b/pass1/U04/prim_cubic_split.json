@@ -1,0 +1,74 @@
+{
+ "2_is_3th_power": {
+  "yes_fails": 13,
+  "yes_n": 181,
+  "no_fails": 43,
+  "no_n": 374
+ },
+ "2_is_4th_power": {
+  "yes_fails": 15,
+  "yes_n": 128,
+  "no_fails": 41,
+  "no_n": 427
+ },
+ "2_is_6th_power": {
+  "yes_fails": 5,
+  "yes_n": 85,
+  "no_fails": 51,
+  "no_n": 470
+ },
+ "3_is_3th_power": {
+  "yes_fails": 16,
+  "yes_n": 184,
+  "no_fails": 40,
+  "no_n": 371
+ },
+ "3_is_4th_power": {
+  "yes_fails": 27,
+  "yes_n": 275,
+  "no_fails": 29,
+  "no_n": 280
+ },
+ "3_is_6th_power": {
+  "yes_fails": 16,
+  "yes_n": 184,
+  "no_fails": 40,
+  "no_n": 371
+ },
+ "5_is_3th_power": {
+  "yes_fails": 21,
+  "yes_n": 190,
+  "no_fails": 35,
+  "no_n": 365
+ },
+ "5_is_4th_power": {
+  "yes_fails": 9,
+  "yes_n": 136,
+  "no_fails": 47,
+  "no_n": 419
+ },
+ "5_is_6th_power": {
+  "yes_fails": 12,
+  "yes_n": 85,
+  "no_fails": 44,
+  "no_n": 470
+ },
+ "7_is_3th_power": {
+  "yes_fails": 19,
+  "yes_n": 173,
+  "no_fails": 37,
+  "no_n": 382
+ },
+ "7_is_4th_power": {
+  "yes_fails": 25,
+  "yes_n": 134,
+  "no_fails": 31,
+  "no_n": 421
+ },
+ "7_is_6th_power": {
+  "yes_fails": 15,
+  "yes_n": 77,
+  "no_fails": 41,
+  "no_n": 478
+ }
+}

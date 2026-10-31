@@ -1,0 +1,207 @@
+Z0174|skipped|Weighted-projective 'Egyptian' condition 1/a+1/b+1/c=4/n is ES itself with weights as denominators; Fano/well-formedness conditions are inequalities/gcd conditions that do not produce this equality. No list of weighted hypersurfaces is indexed by it.|none|
+Z0287|skipped|Category error: the group law on an elliptic curve has no unit-fraction sum, so '4/P = sum 1/X_i' has no content; the meaningful genus-1 world is the coordinate-ring one already in the repo.|none|
+Z0340|covered|Log-CY structure of the ES cubic (projective closure = Cayley cubic, boundary triangle, S4 on nodes, ES(n) <=> integral point with y3=-n) is already PROVED in the cayley memo; the torsor/cluster identification is the open part.|BRAINSTORM/cayley_markoff_cm.md §1-2; BRAINSTORM/bsA_toric_ksb_wahl.md|
+Z0342|needs-compute|Not checked. Computation: search 4/p = sum 1/x_i with x_i in Z[sqrt2], x_i and conjugate x_i' >= 1, bounded height |x|<=X, requiring the sqrt2-parts to cancel; compare with Z-solution counts for p<=500.|scripts/ (none yet)|Search Z[sqrt2] triples with norm/height bound X=2p for p<=500, count rational-sum hits per p; estimate: O(X^2) pairs per p with a two-term reduction, minutes in C, hours in Python.
+Z0350|covered|Value-set/cover reformulation is definitional (Type II families are covers of the p-line); the Hilbert-irreducibility and thin-set value-set theory that would supply density statements is the framework already catalogued in the repo.|BRAINSTORM/z52_lit_thin_pointwise.md|
+Z0535|skipped|Not actionable: the 'linear forms in logarithms' step is never formulated as a statement about ES certificates, so Baker's theorem has nothing to apply to.|BRAINSTORM/z52b_dividing.md|
+Z0562|needs-compute|Not checked. Computation: for primes p=a^2+b^2 (forced), test simple certificate formulas built from (a,b) (e.g. Legendre-type factorisation of (a+b)^2 +/- ...) on p<=10^4 and record the success fraction; needs an explicit candidate formula list first (~1h).|data/z52b/pass1/U04/|Write 3-5 explicit candidate certificate formulas from (a,b) and test them on p<=10^4.
+Z0612|needs-compute|Not checked. Computation: for p<=300 and q<=300 primes, count solutions of 4/(pq) not of the form scaled 4/p or 4/q (the divisor solver in scripts/z52b_p1_U04_counts.py gives the counts), then correlate with R(p).|scripts/z52b_p1_U04_counts.py|Use f(pq) minus scaled-solution count; expected cheap (<10 min); a correlation with R(p) is the only real test.
+Z0693|covered|Already computed: classical_corr.json gives U(p) vs a_p(11a1)/2sqrt p +0.0034, a_p(37a1) -0.0021, |a_p(32a)|/2sqrt p +0.0089, tau(p)/p^5.5 +0.0013 (item quoted -0.005, +0.007, +0.006 — numbers slightly off).|data/z52b/classical_corr.json; scripts/z52b_fingerprint_classical.py lines 52-56|
+Z0703|covered|minz(p) = 0 mod p for p<=2e5 is covered: the repo's fingerprint item 0190 gives the lemma x|z <=> y|z (which forces p|z), and variants2.json records x|z failing only at 2521.|BRAINSTORM/z52b_fingerprint.md (item 0190, 0189); data/z52b/variants2.json|
+Z0704|covered|The sequence and its correlation are in the repo: classical_corr.json gives minz(p)/p vs tau(4p+1) = -0.421 (item -0.42); the R(p) correlation (-0.31) and the identification with least C remain untested.|data/z52b/classical_corr.json; data/z52b/final_checks.json|
+Z0705|needs-compute|Not checked (repo has max log(minz)/log p = 1.84 at p=6271 for p<=2e5 only). Computation: minz(p) for primes up to 10^7 via the divisor solver in C; estimate O(p) per prime, roughly 10^9-10^10 operations total: hours in C.|data/z52b/final_checks.json|Extend final_checks-style max log(minz/p)/log p to p<=10^6 in C; fit the growth exponent.
+Z0720|covered|Correlation of U(p) with log P+(p-1)/log p (+0.3965, item +0.40) is already in classical_corr.json; the Baker-Harman density split of 'ES-hard' among smooth p-1 is not yet done.|data/z52b/classical_corr.json (U(p) ~ P+(p-1)/p)|Density of ratio<0.3 among primes with P+(p-1)<=p^(1/3) vs others, using hard_profile.json and the U(p) column.
+Z0742|needs-compute|Not checked. Computation: for p<=10^5 count solutions of 4/p with 3|x,y,z (U_12) and U_4 (all) and compare ratio distribution with k=2,3,5 predicted local factors; needs the ES solution counter (the repo's U(p) pipeline).|scripts/z52b_fingerprint_classical.py|Count per prime with a divisor solver; estimate minutes in Python for p<=2e4.
+Z0785|nothing|Neumann-Setzer test run: 0 of 25 hard primes (hard_profile.json) have p = u^2+64, versus 43 of 4772 primes = 1 mod 4 up to 1e5 (0.9%, i.e. about 0.2 expected hits among 25), so no signal.|scripts/z52b_p1_U04_quick.py; data/z52b/pass1/U04/quick_checks.json|
+Z0786|needs-compute|Not checked. Computation: Cremona ecdata counts of curves of conductor N=p, 2p, 4p, 8p, 16p for p<=3e4 (needs a download of the ecdata tables; not in the repo), then Spearman with U(p) residual.|https://johncremona.github.io/ecdata/|Download ecdata, tabulate conductor counts, run the classical_corr Spearman pipeline (about 1h including download).
+Z0793|covered|minz(p)/p vs h(-4p) is in classical_corr.json (-0.136 unnormalised; the item's -0.19 is for h(-4p)/sqrt p, which is not in the repo). The L(1,chi) regression with both L-values is not run.|data/z52b/classical_corr.json|Add h(-4p)/sqrt p and log L(1,chi_{-4p}) features to classical_corr pipeline.
+Z0865|covered|Height facts are in variants.json/variants2.json: z<=n^2 fails at no prime <=1e5; z<=n^1.75 fails at 50 primes (last 95327); z<=n^1.5 failures counted there. The exponent-2 limit question is open.|data/z52b/variants.json; data/z52b/variants2.json; BRAINSTORM/z52b_fingerprint.md (item 197)|
+Z0866|interesting|Primitive ES solutions (gcd(x,y,z)=1) fail for 56 primes ≡1 mod 4 up to 2e4, all ≡1 mod 12; 0 failures among 570 primes ≡5 mod 12 (vs 56/555 in 1 mod 12). Repo list up to 1e5 (110 primes) agrees with recomputed list, and cubic/quartic characters of 2,3,5,7 split the 1 mod 12 failures by at most about 2 sigma (no clear secondary invariant).|scripts/z52b_p1_U04_primitive.py; scripts/z52b_p1_U04_prim_cubic.py; data/z52b/pass1/U04/primitive_check_20000.json; data/z52b/pass1/U04/prim_cubic_split.json; data/z52b/variants.json (primitive gcd=1)|Prove or refute 'every p≡5 mod 12 has a primitive solution' (look for an explicit family in that class and a 3-adic invariant that forbids primitivity on the 1 mod 12 failures); check first 5 of the 1 mod 12 failures for a local obstruction at 3.
+Z0871|covered|Shares of solution shapes (x|z 0.377, no-3 0.344 etc.) are computed in variants.json/variants2.json as mean_share_of_U; comparison with local densities mod 3,4,8,9 is not done.|data/z52b/variants.json; data/z52b/variants2.json|
+Z0898|covered|Max minz(p)/p^2 = 0.5026 at p=577 for p<=2e5 is in final_checks.json; the constant for windows at 10^6, 10^7 is the remaining compute.|data/z52b/final_checks.json|
+Z0964|covered|Effective height statement minz(p) <= 0.503 p^2 for 100<p<=2e5 with extremum at 577 is in final_checks.json (max_minz_over_p2 = 0.50260, 577).|data/z52b/final_checks.json|
+Z0991|skipped|Not actionable: 'charts' and 'divisibility conditions' are unspecified, so no comparison can be run.|none|
+Z0992|skipped|Not actionable: no height is defined concretely enough to test descent along known transformations.|none|
+Z0993|skipped|Plotting log-denominator triples without a hypothesis yields no test; the item does not say what pattern would matter.|none|
+Z0998|covered|Conic-bundle structure over the x-line and its integral-point toolbox are already analysed (fibre ((4x-n)y-nx)((4x-n)z-nx)=(nx)^2 and the Harpaz-type fibration method).|BRAINSTORM/z45_prime_t1_dual.md (x-fibre); BRAINSTORM/s9_fibration_level.md|
+Z1013|skipped|Not actionable: the height bounds that would justify reconstruction are not specified, and rational reconstruction without a bound proves nothing.|none|
+Z1099|skipped|Not actionable: a generating function is named but no question about it is posed.|none|
+Z1107|skipped|Not actionable: monomial substitution and toric ideals are not tied to a specific ES parametrization in the item.|none|
+Z1120|skipped|Not actionable: no candidate order or rewrite rule is written down.|none|
+Z1133|covered|Height cutoffs at z<=n^1.5, n^1.75, n^2 are already tabulated (variants.json, variants2.json); the two-dimensional C-by-height phase diagram is not computed.|data/z52b/variants.json; data/z52b/variants2.json|
+Z1164|skipped|Not actionable: no explicit height combining archimedean size and p-adic valuations is defined.|none|
+Z1214|skipped|Not actionable as a proof step: measures search coverage rather than ES mathematics.|none|
+Z1230|skipped|Not actionable: symbolic regression on witness sizes is a search heuristic without a stated conjecture to test.|none|
+Z1277|skipped|Not actionable: degree profiles of a polynomial certificate model are not specified.|none|
+Z1284|covered|Boundary components of the compactified ES cubic and their arithmetic meaning (zero/infinite denominators, triangle through three nodes) are described in the cayley memo.|BRAINSTORM/cayley_markoff_cm.md §1-2|
+Z1287|skipped|Not actionable: the torsor-type coordinates are not written, so the reconstruction-map check has no object.|none|
+Z1289|skipped|Not actionable: the 'positive chamber' decomposition is not defined for a concrete family.|none|
+Z1320|skipped|Not actionable: low-degree curve fitting to bounded points is vague; determinant-method estimates are not specified.|none|
+Z1369|needs-compute|Not checked. Computation: for p<=10^4 take near-solutions (x,y,z) minimising |4/p - sum| and test candidate moves (replace z by the nearest integer making the sum exact, then rebalance) for reaching an exact solution; estimate minutes in Python.|scripts/ (none yet)|Implement the near-solution move search for p<=10^4 and record the fraction of primes reached by each move rule.
+Z1407|needs-compute|Not checked. Computation: list templates (c,d) for all solutions of primes p<=10^5, build the prime-template bipartite graph, and measure its giant-component growth; estimate hours in Python (use C for the solution lists).|data/z52b/variants.json|Implement template extraction for p<=2e4 first, then scale.
+Z1454|covered|Involutions of the cubic surface through rational points (Vieta/Markoff moves) and their positivity behaviour are already analysed (the orbit argument shows Markoff moves preserve positivity but are sparse).|BRAINSTORM/cayley_markoff_cm.md §1 (ii)-(iii)|
+Z1588|skipped|The total space is rational (n = 4xyz/(xy+yz+zx)), a triviality; the value-set question for this rational function is ES itself, so nothing new.|GEOMETRY_ES.md|
+Z1652|interesting|Arxiv 1406.6963 (Y. Wang, verified) proves density of rational points on Cayley's cubic with coordinates of few prime factors via circle method plus universal torsors. The 'saturation' title in the item is misleading; the relevant object is the ES cubic (Cayley cubic, cayley memo P1), so the result may give almost-prime rational points that could be steered to a fixed fibre n=p or a congruence class of a coordinate.|BRAINSTORM/cayley_markoff_cm.md §P1; arXiv:1406.6963 (abstract checked)|Read Wang's main theorem; decide whether its almost-prime count survives restriction to the fibre y3=-p (or to a residue class of one coordinate); if yes, this is a route to few-prime denominators in ES.
+Z1670|needs-compute|Not checked: a literature step (Derenthal's Cox ring of the 4A1 cubic / torsor equation) was planned but not completed; the arXiv search returned no matching paper.|none|Fetch Derenthal's universal-torsor paper and read the 4A1 cubic entry; check whether the torsor is a hypersurface in A^4 with coefficients n.
+Z1720|skipped|Not actionable: no concrete Hermitian Z-module model of the (u,C) search space is given, so slopes cannot be computed.|none|
+Z1965|skipped|Not actionable: candidate maps phi(p) are listed, but no 'certificate transfer' rule is defined, so no test can be run.|none|
+Z1966|skipped|Pure tautology: if q divides all denominators of a solution of 4/(pq) then dividing by q gives a solution of 4/p, so the descending solutions are exactly the scaled ones.|none|
+Z2041|nothing|Abstract of arXiv:1901.08503 (Wilsch) checked: it counts integral points of bounded height on a blow-up of P^3 outside planes via universal torsors, not a log Fano threefold like U_n. The stated comparison therefore does not apply directly.|arXiv:1901.08503 (abstract checked)|
+Z2042|skipped|Not actionable: the Corvaja–Zannier thin-image statement is not linked to the Mordell–Schinzel obstruction by any concrete fibration computation; the item is a literature pointer only.|none|
+Z2049|skipped|Analogy only: Scholz–Brauer addition-chain families (Tall, arXiv:2302.02143, abstract checked; the item's 'Clift' attribution is wrong) use a different operation; no ES map corresponds.|arXiv:2302.02143 (abstract checked)|
+Z2089|skipped|Literature precedent only: Tian's congruent-number rank theorem (arXiv:1210.8231 exists) relies on a 2-Selmer parity input, and ES has no defined Selmer analogue to test.|arXiv:1210.8231 (existence checked)|
+Z2090|skipped|Literature precedent only: Smith's positive-density theorem (arXiv:1603.08479 exists) uses Selmer distributions with no ES analogue defined.|arXiv:1603.08479 (existence checked)|
+Z2114|nothing|Arxiv 2504.10992 (Dao) checked: Markoff-type K3 surfaces with Zariski-dense rational points but integral Hasse failure due to Brauer–Manin. Bright–Loughran say BM is absent for ES, so the mechanism does not transfer.|arXiv:2504.10992 (abstract checked); arXiv:1908.02526|
+Z2115|skipped|Duplicate of Z2114: same arXiv source and no separate first step.|arXiv:2504.10992|
+Z2117|skipped|Duplicate of Z2114 (same source, same audit idea).|arXiv:2504.10992|
+Z2141|nothing|Abstract of arXiv:2605.05075 checked: generalized Markov–Hurwitz equations with a logarithmic asymptotic phenomenon for positive solutions. ES surfaces U_n and S_{n,D} are not of this form, so no transfer is identified.|arXiv:2605.05075 (abstract checked)|
+Z2190|skipped|Not checked: erdosproblems.com/300 not fetched; the link to ES is heuristic only, with no concrete ES construction in the item.|none|
+Z2255|skipped|Analogy only: the addition-chain recursion (Tall 2302.02143) appends chain segments to exponents; no map n -> an+b preserving an Egyptian certificate is identified.|arXiv:2302.02143|
+Z2301|covered|Effective height data for the ES surface is already in final_checks.json (max minz/p^2) and LATTICE_MEETING.md; a uniform bound polynomial in p is the open part.|data/z52b/final_checks.json; LATTICE_MEETING.md|
+Z2341|covered|Local densities of the ES surface at primes dividing 2p are computed in BM_CORRECTED_COUNT.md; the comparison across residue classes of p is the only new piece.|BM_CORRECTED_COUNT.md|
+Z2393|skipped|Not actionable: Maynard-type Fourier bounds need a digit-type thin set; the 'indicator of residues not covered by identities' is not defined beyond the mod-840 covering already known.|none|
+Z2463|covered|The identification U_n = Cayley cubic minus a triangle through three nodes, and Markoff V_4 as another chart of the same cubic, are PROVED in the cayley memo.|BRAINSTORM/cayley_markoff_cm.md §1-2|
+Z2465|skipped|Reciprocal-plane/Orlik–Terao structure of a 4-hyperplane rank-3 arrangement is standard and its Hilbert series is trivial; no mechanism linking broken circuits to integrality is identified.|none|
+Z2466|covered|The x-fibration fibre ((4x-n)y-nx)((4x-n)z-nx)=(nx)^2 and its divisor-of-square reformulation are analysed; fibration-method hypotheses are in B2_ACROSS_FIELDS.|BRAINSTORM/z45_prime_t1_dual.md; BRAINSTORM/s9_fibration_level.md; B2_ACROSS_FIELDS.md|
+Z2470|covered|HSW finite-complexity fibration results and degenerate fibres over linear forms in x are discussed in B2_ACROSS_FIELDS.md and s9_fibration_level.md.|B2_ACROSS_FIELDS.md; BRAINSTORM/s9_fibration_level.md|
+Z2471|needs-compute|Not checked. Computation: symbolically match the projective closure of U_n with the Fricke cubic of the four-holed sphere for some boundary traces (a,b,c,d) (sympy, ~30 min); decide whether Whang's descent (arXiv:1710.01848, 1803.04583 exist) applies.|arXiv:1710.01848; arXiv:1803.04583|Solve for boundary traces making the Fricke cubic equal to 4xyz = n(xy+yz+zx) up to affine change; if none, record the negative.
+Z2472|skipped|Depends on an unverified claim (OAI 027 is labelled CLAIMED in the item) and on the identification in Z2471, which is not established.|none|
+Z2476|nothing|CCDN-type bounds are power-saving in the height B for varieties of this kind, while the expected count is polylog(n); the bound gives no information at that scale for U_n.|arXiv:1904.13109 (existence checked)|
+Z2477|skipped|Not actionable: imposing S-smoothness adds boundary divisors that move with the prime set, so the Corvaja–Zannier boundary count does not apply uniformly.|none|
+Z2480|needs-compute|Not checked (literature step not completed). Computation: write the torsor equation for the minimal resolution of the Cayley cubic and compare with ET's parametrisation; needs Derenthal's Cox ring for 4A1.|arXiv literature search not successful|Obtain Derenthal's Cox ring for the 4A1 cubic and compare with ES parametrisation.
+Z2481|skipped|Applicability gap: Santens and Wilsch treat log Fano/toric settings, while U_n is log Calabi–Yau (κ̄=0), so the predicted exponent does not apply.|arXiv:2312.13914; arXiv:1901.08503 (abstracts checked)|
+Z2482|skipped|Calibration only: BLS random-family Hasse principle (arXiv:2006.02356 exists) has no step that can be applied to a one-parameter family.|arXiv:2006.02356 (existence checked)|
+Z2492|covered|Elliptic fibrations of the Cayley cubic resolution and their group laws are analysed in elliptic_fibration_es.md.|BRAINSTORM/elliptic_fibration_es.md|
+Z2493|covered|Automorphisms S4 permuting the node coordinates and the Cremona picture of the cubic are PROVED in the cayley memo (P1).|BRAINSTORM/cayley_markoff_cm.md §P1|
+Z2499|covered|Point counts of the cubic and its boundary mod primes, and motivic class, are in nonab_motivic_pointcounts.md and BM_CORRECTED_COUNT.md.|BRAINSTORM/nonab_motivic_pointcounts.md; BM_CORRECTED_COUNT.md|
+Z2500|needs-compute|Not checked. Computation: compute the tropical variety of the reciprocal plane for {u,v,w,u+v+w-4/n} and compare its cones with the log-size vectors (log x, log y, log z)/log n of ES solutions at p<=10^6; estimate ~1h.|data/z52b/variants.json|Tropicalise the arrangement (Tevelev) and bin observed size patterns of ES solutions.
+Z2529|covered|CM/Heegner data of the Cayley cubic and the CM-tetrahedron dictionary are in the cayley memo; height bounds of Pila–Shankar–Tsimerman for special points are not applied.|BRAINSTORM/cayley_markoff_cm.md §1|
+Z2574|skipped|Not actionable: the claimed elliptic-curve results (OAI 002/030, labelled CLAIMED) have no attached elliptic curve for ES except through fibrations already listed.|none|
+Z2608|covered|Markoff/cluster-type moves on the Cayley cubic and their action on ES solutions (orbit sparsity, positivity via SU(2)) are analysed in the cayley memo.|BRAINSTORM/cayley_markoff_cm.md §1 (ii)-(iii)|
+Z2617|skipped|Siegel's theorem concerns genus and punctures of curves; the certificate families are rational curves with boundary data already catalogued, so no new census arises.|FRONTIER.md §1|
+Z2626|needs-compute|Not checked. Computation: write Br of the pencil S_{n,-4} evaluated at the failing n {2,9,21,165,945,1197} via quaternion symbols, extending the k>0 square computation in Z52_BANKED §1; ~1h.|Z52_BANKED.md §1|Evaluate candidate quaternion classes (a,b) on the k=-4 pencil at the six failing n.
+Z2629|needs-compute|Not checked. Computation: compute the Chambert-Loir–Tschinkel exponent for U_n over Q(i) versus Q from the Galois action on the boundary (three lines over Q(i)); a short hand computation with the boundary data, then compare with the observed log^3 vs log^2.|Z52_BANKED.md|Determine the boundary Galois action and predicted exponent.
+Z2645|needs-compute|Not checked. Computation: Galois group of a single Type I certificate cover over Q(p) (fixed c,d) and its thin exceptional set; needs PARI/Magma polynomial-group computation (~1h).|none|Compute the Galois group of the cover with PARI polgalois over Q(t) at a few specialisations.
+Z2664|skipped|Content of the cited Hacking–Prokhorov paper (arXiv:0808.1550, existence checked) is not verified here, and no concrete identification of S_{n,D} with weights of a degeneration is given.|arXiv:0808.1550 (existence checked)|
+Z2686|needs-compute|Not checked. Computation: count low-degree (deg<=3) A^1-curves in U_n for small n by polynomial identity search (solve the defining equation identically in t); ~1h.|scripts/ (none yet)|Polynomial identity search for deg<=3 A^1-curves in U_n for n<=50.
+Z2687|nothing|Harpaz (arXiv:1511.01285, abstract checked) classifies log K3 surfaces that compactify to dP5 with a pentagon of (-1)-curves and proves non-density of integral points for trivial Galois action. Non-density is not existence (a finite set of points is not dense), so this gives no existence information for ES₅ words.|arXiv:1511.01285 (abstract checked); FRIEZE_ES.md|
+Z2696|needs-compute|Not checked. Computation: count signed integer points of U_n with |x|,|y|,|z|<=B for fixed n (O(B^2) pairs per n with divisibility test), B up to 10^4, then fit the growth against (log B)^b; minutes in numpy.|data/z52b/variants.json|Count signed integer points on U_n for n=p, fit exponent.
+Z2697|skipped|Not actionable beyond literature search: the 'surjectivity onto the base for integral points' question is not formulated for this family, and no lemma is checked.|arXiv:1107.1010 (existence checked)|
+Z2698|needs-compute|Not checked. Computation: Brauer group of the generic fibre of the pencil over Q(k) and residues at k=0,infinity; a symbolic computation of residues (~2h).|ES_APPROACH_GENERATORS.md §2 G2; Z52_BANKED.md|Compute residues of the candidate quaternion classes along k=0.
+Z2699|needs-compute|Not checked: matching ET parametrisation with the Cox ring of the minimal desingularisation requires the Derenthal Cox ring (literature not completed).|arXiv:1107.1010 (abstract checked)|Obtain Cox ring and compare with ET (2.1)-(2.7).
+Z2700|covered|The archimedean positivity (real component U(R)^+) and its coupling with finite places is the T1 reciprocity mechanism already analysed; the Brauer–Manin real-component refinement is in Bright–Loughran.|CONTEXT.md (T1); arXiv:1908.02526 (existence checked)|
+Z2702|covered|Plane sections x+y+z=s as an elliptic fibration of the ES cubic are analysed in elliptic_fibration_es.md (s-pencil, rank jumps, Heegner points).|BRAINSTORM/elliptic_fibration_es.md|
+Z2703|covered|Conic-bundle/Châtelet-type fibration toolbox over the x-line (Browning–Matthiesen–Skorobogatov, Schinzel) is discussed in B2_ACROSS_FIELDS.md.|B2_ACROSS_FIELDS.md|
+Z2704|covered|Vojta/log-CY calibration (no degeneracy prediction for log CY) is recorded in B2_ACROSS_FIELDS.md.|B2_ACROSS_FIELDS.md|
+Z2707|covered|Local densities and Igusa zeta of the ES surface are discussed in BM_CORRECTED_COUNT.md and padic_functionfield_igusa.md.|BM_CORRECTED_COUNT.md; BRAINSTORM/padic_functionfield_igusa.md|
+Z2708|covered|Fixed-C divisor problem as a ray-class question is discussed in B2_ACROSS_FIELDS.md.|B2_ACROSS_FIELDS.md|
+Z2735|covered|Vieta involutions B -> AC-B and A -> BC/n-A for S_{n,D} and their integrality conditions are in MARKOFF_ES.md.|MARKOFF_ES.md|
+Z2785|covered|ES₅ frieze as pentagon/A2-cluster data with frozen-side twist is in FRIEZE_ES.md; the M_{0,5} identification is discussed there.|FRIEZE_ES.md|
+Z2793|covered|The s-form ES(p) <=> m(s)=p with lcm of 4s_i/gcd(4s_i,S) is GEOMETRY_ES.md §2; the distribution of m(s) is the open computation.|GEOMETRY_ES.md §2|
+Z2802|covered|Zolotarev sign as the permutation sign of x -> Ax and its origami/cylinder encodings are analysed in bsB_zolotarev_transpose.md.|BRAINSTORM/bsB_zolotarev_transpose.md|
+Z2866|skipped|Analogy only: Markov uniqueness at prime powers is about the largest Markoff number; the link to S_{p,D} is not concrete, and the Button paper is not checked here.|none|
+Z2868|needs-compute|Not checked. Computation: test whether nA^2+B^2+D-ABC becomes a Markoff-type character-variety cubic after rescaling; compare discriminants and singular points (sympy, ~30 min).|MARKOFF_ES.md|Compute singular points and discriminant of nA^2+B^2+D-ABC and of x^2+y^2+z^2-xyz-k.
+Z2894|needs-compute|Not checked. Computation: Br(W_p) for the compactification of tuv-u-v=p (sympy-level, ~1h), and check whether the sign class is unramified on the complement of tu=1.|none|Compute residues of (tu-1,p) along tu=1 and at the boundary.
+Z2895|covered|The sign evaluation (tu-1 | p) on words is a Jacobi symbol by reciprocity: p ≡ -u (mod tu-1) because tuv ≡ v, so the sign equals (-u | tu-1) up to the standard 2 and infinity factors. This is the same mechanism as SIGN_IDENTITY Prop 5.2 (Type II reciprocity).|SIGN_IDENTITY.md §5 (Prop 5.2); data/z52b/pass1/U04/ (reasoning only)|
+Z2913|covered|The τ((p+3)/4) correlation with U(p) (+0.589) that the greedy-N descent would exploit is in classical_corr.json; the 'descent to N=(p+e)/4' has no defined map.|data/z52b/classical_corr.json|
+Z2919|skipped|Not actionable: no secant/tangent composition rule for integral points of nearby fibres is written down.|none|
+Z2928|skipped|Not actionable: a power-size variety V_p with fibres of size p^delta is named without any construction.|none|
+Z2985|nothing|Closure test: among prime factors of 4p+1, 8p+1, (p+3)/4 and (p-1)/4 for the 30 hard primes (9 with no C<=30 witness plus the 25-prime hard profile, overlapping), only 2 of 62 factors of 4p+1 and 1 of 54 of (p+3)/4 land in the hard set; this is not significant against chance, so no descent map is visible.|scripts/z52b_p1_U04_counts.py; data/z52b/pass1/U04/counts_checks.json|
+Z3121|skipped|Not actionable: no finite attempt set with a proven stability is defined, so the positive-proportion statement cannot be tested.|none|
+Z3139|skipped|Not actionable: the universal torsor of U_n is not written, so no variable count can be made.|none|
+Z0027|covered|Drinfeld-module analogues and counts over F_q[T] are in DRINFELD_ES.md (and KUDLA_ES.md for the theta side).|DRINFELD_ES.md; KUDLA_ES.md|
+Z0292|skipped|Restatement: area 2pi(1-4/n) is Gauss–Bonnet for the orbifold; the trace-formula reading adds no existence information.|none|
+Z0470|skipped|Feature template with no concrete step: the 'finite escalation' object is not defined.|none|
+Z0920|covered|Tunnell ternary criterion and its ES comparison (Spearman for A, B and A-2B) are already in final_checks.json.|data/z52b/final_checks.json (tunnell_spearman_A/B/A-2B)|
+Z0988|skipped|Not actionable: 'Vieta root exchange' after an unspecified lift is vague.|none|
+Z1058|skipped|Not actionable: transition graph not defined.|none|
+Z1136|skipped|Not actionable: the energy function is not specified concretely enough to compute.|none|
+Z1143|skipped|Not actionable: no operator is defined.|none|
+Z1174|skipped|Not actionable: no divisor-residue distribution is specified.|none|
+Z1259|skipped|Engineering idea (checker mutation tests), not ES mathematics.|none|
+Z1307|skipped|Not actionable: no concrete count is named to express as a period.|none|
+Z1340|covered|Theta-quotient reformulation and its modular structure are in METAPLECTIC_ES.md.|METAPLECTIC_ES.md|
+Z1484|needs-compute|Not checked. Computation: Σ_t H(4n-t^2) for n=p compared with Eichler–Selberg traces (needs class-number tables and literature lookup); ~1h.|BRAINSTORM/z52b_fingerprint.md|Verify the Eichler–Selberg identity for the discriminants -(p^2+4c^2 d) with small c.
+Z1508|nothing|Count test: f(l*p)/f(p) for l=2,3,5,7 over primes p≡1 mod 4 up to 200 gives mean 4.6, 12.1, 10.8, 25.7 with sd about 1/3 to 1/2 of the mean (range 2.7–9.5 for l=2), so no Hecke-type constant relation. Multiplicativity fails as expected.|scripts/z52b_p1_U04_counts.py; data/z52b/pass1/U04/counts_checks.json|
+Z1683|skipped|Growth argument only: polylog counts exclude exponentially growing mock forms, but the weight-1 Eisenstein shape test is not run.|none|
+Z1741|skipped|Analogy only: a QUE-type target needs a fixed-size set that is not defined here.|none|
+Z1854|covered|R(p) = #{m ≡3 mod 4 : r_p(m) | (m+1)/4} is already verified for p<=1009 in z52b_free_opus.md (item 266; scripts/z52b_free_opus_check1.py).|BRAINSTORM/z52b_free_opus.md (item 266)|
+Z2088|covered|Tunnell's criterion as a model is recorded with Spearman checks in final_checks.json (tunnell_spearman_A/B/A-2B).|data/z52b/final_checks.json|
+Z2325|skipped|Not actionable: no specific modular object is named beyond the generic theta-quotient already covered in METAPLECTIC_ES.md; the cited search link is unverified.|METAPLECTIC_ES.md|
+Z2326|skipped|Not actionable: no modular object or prime subsequence is specified.|none|
+Z2386|skipped|Not actionable: the graph construction on the vertex set is not specified so the replacement by {4Cp+1} cannot be checked (Pilatte arXiv:2310.19357 exists).|arXiv:2310.19357 (existence checked)|
+Z2453|needs-compute|Not checked. Computation: spectral gap of Cayley graphs of (Z/e)^* generated by prime factors of N (and pooled generators from several slices sharing e); small matrices, ~30 min.|data/z52b/pass1/U04/gate_check_20000_30.json|Compute spectral gaps for e <= 120 with generators from 4Cp+1 factorisations.
+Z2511|needs-compute|Not checked. Computation: second moment sum_C (D_C(p)-E_C)^2 at fixed p via the divisor solver for p up to 10^5 and comparison with the Poisson prediction; ~1h.|scripts/z52b_p1_U04_gate.py (divisor machinery)|Measure Var/mean of the C-level counts at fixed p.
+Z2514|nothing|Test of Hecke-type relations: the ratios f(l*p)/f(p) (l=2,3,5,7) are not constant across p (2.7–9.5 for l=2), so no linear Hecke relation with fixed coefficients is visible among f(p), f(lp), f(l^2p) in the tested range.|scripts/z52b_p1_U04_counts.py; data/z52b/pass1/U04/counts_checks.json|
+Z2517|skipped|Not an ES step: deterministic expander constructions are a computing-efficiency idea, not a claim about certificates.|none|
+Z2523|needs-compute|Not checked. Computation: average of U(p)/log^2 p over p in windows against p/M mod small M (murmuration-style oscillation test) using the existing per-prime table; ~30 min.|data/z52b/raw/f4_all_30000.txt|Bin U(p)/log^2 p by p mod 840 and by p/X windows.
+Z2527|covered|Parity of ES counts (complement pairing) and the mod-2 structure are analysed in PARITY_FIXED_P.md.|PARITY_FIXED_P.md|
+Z2528|skipped|Not actionable: no lattice whose theta series has ES counts as coefficients is identified; the item says 'if not, close'.|none|
+Z2530|skipped|Growth argument: polylog ES counts do not match the exponential growth of coefficients of weakly holomorphic forms with nontrivial principal part; no lattice or class-group trace is identified.|none|
+Z2533|skipped|Not actionable: no ES sub-count is identified as an eta-quotient coefficient.|none|
+Z2646|skipped|Engineering (expander-walk Monte Carlo) rather than ES mathematics.|none|
+Z2726|needs-compute|Not checked. Computation: apply T_2 coset representatives to the SL2 matrices of ES₅ words and check which images are words of entry p or 2p; ~1h.|METAPLECTIC_ES.md|Implement T_2 action on word matrices for p<=500.
+Z2729|needs-compute|Not checked. Computation: Brandt matrices for B_{p,infinity} (needs Sage/Magma, not available in the repo) and correlation with level counts; estimate ~2h once tooling is set up.|BRAINSTORM/z9_brandt_screen.md|Install Sage or implement Brandt matrices for p<=200.
+Z2733|covered|The Waldspurger route and its restricted scope (Prop 2.4) are analysed in SIGN_IDENTITY.md.|SIGN_IDENTITY.md (Prop 2.4)|
+Z2734|covered|Theta-multiplier sign, the O175 refutation and the lifting question are in bsB_theta_multiplier.md.|BRAINSTORM/bsB_theta_multiplier.md|
+Z2743|covered|Borcherds-product divisors and the prior valence attempt are in bsC_valence_borcherds.md.|BRAINSTORM/bsC_valence_borcherds.md|
+Z2744|needs-compute|Not checked. Computation: Rademacher Phi(gamma_w) and the Rademacher symbol for word matrices at p<1000, test whether they mod 8 or 24 determine the sign; ~1h.|BRAINSTORM/bsB_theta_multiplier.md|Compute Phi for word matrices and tabulate against the sign.
+Z2936|needs-compute|Not checked. Computation: decompose products of level series into Eisenstein and cuspidal parts with modular symbols (needs Sage); ~2h.|METAPLECTIC_ES.md|Install Sage; compute the cuspidal projection of level-t series products.
+Z2977|nothing|Test of f(p*l), f(p*l^2) relations: the ratio f(pl)/f(p) has sd 1/3–1/2 of its mean with no constant or Legendre-controlled split found in the tested range (p<=200, l<=7), so no Soundararajan-type relation is visible.|scripts/z52b_p1_U04_counts.py; data/z52b/pass1/U04/counts_checks.json|
+Z2978|skipped|Not actionable: a QUE-type classification of limit measures has no defined measure on certificates.|none|
+Z2979|skipped|Depends on a Hecke correspondence on certificate shapes that is not defined (Z2726 is the open first step).|none|
+Z3026|needs-compute|Not checked. Computation: W(q) = sum q^(tuv-u-v) to 10^6 terms mod 2 and mod 3, test linear relations with theta/eta quotients; ~1h.|none|Compute W(q) mod 2 and mod 3 and search for eta-quotient relations of small level.
+Z3041|skipped|Research program without a concrete identity to test; the magic-function step is not specified.|none|
+Z3068|needs-compute|Not checked. Computation: empirical distribution of (log C/log p, log u/log p) over all certificates for hard primes vs controls; needs certificate enumeration (~2h).|data/z52b/variants.json|Enumerate certificates for hard primes and bin the normalized logs.
+Z3082|skipped|Not actionable: 'vanishing forces membership in a smaller space' is not formulated for an explicit modular object.|none|
+Z3123|skipped|Not actionable: the interpolation formula for R(p) is not written down.|none|
+Z3143|nothing|Test of Hecke-type action: regression of f(lp) on f(p) for l=2,3,5,7 gives ratios not constant in p, and the spread is not explained by Legendre symbols of l (checked on p<=200).|scripts/z52b_p1_U04_counts.py; data/z52b/pass1/U04/counts_checks.json|
+Z3144|needs-compute|Not checked. Computation: moment sum_{C<=X} |D_C(p)-E_C|^2 at p~10^8 with a Kuznetsov-type prediction; estimate hours; the divisor machinery is in scripts/z52b_p1_U04_gate.py.|scripts/z52b_p1_U04_gate.py|Compute the level-aspect second moment for p in [10^6,10^7].
+Z3145|skipped|Not actionable: the 'ES-preserving moves' graph on residues mod q is not defined.|none|
+Z0162|skipped|Restatement: a strip tiling of an n x 4 rectangle is the ES identity rewritten; no new constraint.|none|
+Z0545|nothing|The Kneser/Stewart confinement criterion (−1 lies in the subgroup generated by the prime factors) is far from sufficient: over primes p<=2e4 and C<=30, 6476 pairs have −1 in the generated subgroup but no witness, against 3894 pairs with a witness.|scripts/z52b_p1_U04_gate.py; data/z52b/pass1/U04/gate_check_20000_30.json|
+Z0662|skipped|Note-only non-feature (the item itself says nothing to test).|none|
+Z0674|covered|Quadratic-character corners of the covering are the mod-840 Mordell covering, already recorded (CONTEXT.md lists the classes mod 840).|CONTEXT.md; data/z52b/variants.json|
+Z0721|covered|Hard primes 2521,1201,3361,20521,21841,4201,14401,9601 all lie in Mordell's classes 1, 121, 361 mod 840; the item's '2^4 | p-1' is wrong (v2 ranges 3..7). Carmichael over-representation (Pinch tables) is untested.|scripts/z52b_p1_U04_quick.py; data/z52b/pass1/U04/quick_checks.json; CONTEXT.md (mod 840)|
+Z0858|covered|x | z (equivalently y | z) fails at 2521 only among primes <=1e5 (variants2.json), and the lemma is fingerprint item 0190.|data/z52b/variants2.json (x | z); BRAINSTORM/z52b_fingerprint.md (items 0189, 0190)|
+Z0915|needs-compute|Not checked. Computation: add p(n) mod 2 and mod 3 features to scripts/z52b_fingerprint_classical.py and rerun the Spearman pipeline (expected null); ~20 min.|scripts/z52b_fingerprint_classical.py|Add the two partition features and rerun.
+Z1019|skipped|Not actionable: a divisor-poset construction without a question about where the target residue appears.|none|
+Z1020|skipped|Not actionable as stated: subset-product DP is the G4 computation, already measured in part by Z0545/Z1444 counts.|data/z52b/pass1/U04/gate_check_20000_30.json|
+Z1021|skipped|Not actionable: discrete-log zero-sum analysis has no specified modulus or target.|none|
+Z1050|skipped|Not actionable: minimal sufficient factor multisets are not defined with a stopping rule.|none|
+Z1055|skipped|Not actionable: energy of log-residue sets is not tied to a specific obstruction.|none|
+Z1056|skipped|Not actionable: state graph undefined.|none|
+Z1076|skipped|Not actionable: hypergraph of compatible triples is not defined concretely.|none|
+Z1078|skipped|Not actionable: encoding not specified.|none|
+Z1079|skipped|Not actionable: family-test matrix not defined.|none|
+Z1080|skipped|Not actionable: failure-pattern/repair incidence not defined.|none|
+Z1086|skipped|Not actionable: Ramsey colouring without a template to test.|none|
+Z1087|skipped|Not actionable: successful-C progressions are not computed by the item and the 'derive conditions' step is unspecified.|none|
+Z1088|skipped|Not actionable: word-line encoding not specified.|none|
+Z1089|skipped|Not actionable: reduction-map fibres not defined for a concrete graph.|none|
+Z1100|skipped|Restatement: 4L/p = L/x+L/y+L/z is the ES identity with a common denominator; no new constraint.|none|
+Z1109|skipped|Not actionable: no weighted tree encoding of certificates is given.|none|
+Z1110|skipped|Not actionable: no certificate graph is specified.|none|
+Z1112|skipped|Not actionable: no certificate graph is specified.|none|
+Z1114|skipped|Not actionable: residue-state graph not defined.|none|
+Z1115|skipped|Not actionable: spanning-tree exploration without a certificate graph.|none|
+Z1124|skipped|Restatement: rectangle-area reading of the ES identity (as Z0162).|none|
+Z1131|skipped|Not actionable: factor-graph encoding not specified.|none|
+Z1146|skipped|Not actionable: tensor encoding not specified.|none|
+Z1148|skipped|Not actionable: no tensor is specified.|none|
+Z1181|skipped|Not actionable: e-graph of rational identities without a rewrite set.|none|
+Z1197|skipped|Not actionable: three factor graphs are not given.|none|
+Z1201|skipped|Not actionable: decision-diagram sizes are not an ES question.|none|
+Z1210|skipped|Not actionable: approximate-common-divisor model not specified.|none|
+Z1212|skipped|Not actionable: partial-factor bits not quantified.|none|
+Z1227|skipped|Not actionable: neural heuristic, no ES claim.|none|
+Z1242|skipped|Not actionable: proof-graph motifs with no concrete derivation set.|none|
+Z1246|skipped|Not actionable: literature bridge without a specific paper named.|none|
+Z1326|skipped|Ising/frustration reformulation of the e-slice is NP-hard in general and the model is equivalent to the already-catalogued e-slice graph; no new test is identified.|none|
+Z1343|nothing|Separation done: among 33720 (p,C) pairs (p<=2e4, C<=30), 23350 have −1 outside the generated subgroup, 6476 have −1 in it without a divisor witness, 3894 have a witness; the subgroup test is not the binding constraint.|scripts/z52b_p1_U04_gate.py; data/z52b/pass1/U04/gate_check_20000_30.json|
+Z1353|skipped|Not actionable: the bipartite graph is not planar and no determinant structure is identified.|none|
+Z1357|covered|Forest reformulation of ES (with lattices, theta quotients, SL2 words) is listed as an equivalent form in CONTEXT.md; the Laplacian-minor test is not run.|CONTEXT.md|
+Z1385|needs-compute|Not checked. Computation: |S_N(e)| and |S_N(e)·S_N(e)| relative to e for p<=10^5 (subset product sets), looking for near-subgroup e; ~1h (reuse gate script machinery).|scripts/z52b_p1_U04_gate.py|Compute doubling ratios for the subset-product sets.
+Z1394|needs-compute|Run check to p<=2e4: longest run of consecutive primes ≡1 mod 24 with no C<=2 witness is 4 (primes 6841..7129 span). Extending to 10^8 needs about 7e5 primes ≡1 mod 24 with two factorisations each: minutes in C.|scripts/z52b_p1_U04_gate.py; data/z52b/pass1/U04/gate_check_20000_30.json|Run the C<=2 witness test up to 10^8 and record the longest run.
+Z1444|nothing|Structure lemma tested: 'subset products = subgroup' fails: 6476 of 10370 (p,C) pairs with −1 in the generated subgroup have no witness (p<=2e4, C<=30).|scripts/z52b_p1_U04_gate.py; data/z52b/pass1/U04/gate_check_20000_30.json|
+Z1451|skipped|Reminder-only item (Hall/marriage lens); the item itself says it is a count restatement.|none|
