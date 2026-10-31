@@ -1,0 +1,74 @@
+Z2081 | NO RESULT | q= ti:"Goldbach-Linnik" AND ti:"powers of two"
+Z2082 | NO RESULT | q= ti:"Pintz" AND ti:"powers of two"
+Z2421 | NO RESULT | q= au:Zhang AND ti:Landau-Siegel
+Z2412 | NO RESULT | q= au:Ustinov AND ti:Kloosterman
+Z2413 | 1811.02452v3 2018-11-06 | The Weyl bound for Dirichlet $L$-functions of cube-free conductor
+Z2413 | 1908.10346v3 2019-08-27 | The fourth moment of Dirichlet $L$-functions along a coset and the Weyl bound
+Z2416 | 1709.09637v2 2017-09-27 | An effective Chebotarev density theorem for families of number fields, with an application to $\ell$-torsion i
+Z2423 | 2002.11968v2 2020-02-27 | One-level density estimates for Dirichlet L-functions with extended support
+Z2512 | 0809.1636v1 2008-09-09 | Mass equidistribution for Hecke eigenforms
+Z2519 | NO RESULT | q= au:Stromberg AND au:Venkatesh
+Z2522 | 2005.09051v1 2020-05-18 | Monodromy groups of certain Kloosterman and hypergeometric sheaves
+Z2525 | math/0502042v1 2005-02-02 | Lower bounds for moments of L-functions
+Z2525 | math/0601498v1 2006-01-20 | Lower bounds for moments of L-functions: symplectic and orthogonal examples
+Z2578 | 1809.05137v2 2018-09-13 | Square-root cancellation for sums of factorization functions over short intervals in function fields
+Z2578 | 2102.09730v2 2021-02-19 | Square-root cancellation for sums of factorization functions over squarefree progressions in $\mathbb F_q[t]$
+Z2408 | NO RESULT | q= au:Harel AND au:Samotij
+Z2411 | NO RESULT | q= au:Koukoulopoulos AND au:Maynard AND ti:Duffin
+Z2402 | 1205.0413v2 2012-05-02 | When the sieve works
+Z2403 | 2407.14368v1 2024-07-19 | On the theory of prime producing sieves
+Z2403 | 1412.5029v3 2014-12-16 | Long gaps between primes
+Z2387 | 1707.01315v3 2017-07-05 | Correlations of the von Mangoldt and higher divisor functions I. Long shift ranges
+Z2387 | 1509.01545v2 2015-09-04 | Sign patterns of the Liouville and Möbius functions
+Z2382 | 2405.20552v2 2024-05-31 | New large value estimates for Dirichlet polynomials
+Z2380 | 2309.08522v1 2023-08-30 | Primes in arithmetic progressions to large moduli, and Goldbach beyond the square-root barrier
+Z2381 | 1811.08672v1 2018-11-21 | Level of distribution of unbalanced convolutions
+Z2381 | 1812.00562v2 2018-12-03 | Another application of Linnik's dispersion method
+Z2395 | NO RESULT | q= au:Bretheche AND au:Drappeau
+Z2397 | 1908.10143v3 2019-08-27 | Bilinear forms in Weyl sums for modular square roots and applications
+Z2399 | 1211.6043v3 2012-11-26 | Algebraic trace functions over the primes
+Z2399 | 2511.09459v4 2025-11-12 | Bilinear forms with trace functions
+Z2446 | 2003.04122v2 2020-03-09 | A polylogarithmic bound in the nonlinear Roth theorem
+Z2446 | 1903.02592v2 2019-03-06 | Quantitative bounds in the nonlinear Roth theorem
+Z2462 | 2211.10520v1 2022-11-18 | Finite abelian groups via congruences
+Z2462 | 1310.8447v2 2013-10-31 | Multigrade efficient congruencing and Vinogradov's mean value theorem
+Z2599 | 2503.00656v2 2025-03-01 | Sub-Weyl bound for $GL(2)$ via trivial delta
+Z2603 | 2109.06291v2 2021-09-13 | The Hardy--Littlewood--Chowla conjecture in the presence of a Siegel zero
+Z2603 | 2111.08912v3 2021-11-17 | On the Hardy-Littlewood-Chowla conjecture on average
+Z2603b | 2604.06848v1 2026-04-08 | A Halász-type asymptotic formula for logarithmic means and its consequences
+Z2603b | 2009.03225v1 2020-09-07 | Monotone chains of Fourier coefficients of Hecke cusp forms
+Z3054 | NO RESULT | q= au:Goldfeld AND ti:Siegel
+Z2098 | 2508.10844v3 2025-08-14 | Tatuzawa's theorem for Rankin-Selberg $L$-functions
+Z2077 | 2006.07445v2 2020-06-12 | Algorithms to Uniformly Generate Random Factored Smooth Integers
+Z2077 | 1301.5293v2 2013-01-22 | Approximately counting semismooth integers
+Z2418 | 1402.3953v2 2014-02-17 | An improved explicit bound on $|ζ(1/2 + it)|$
+Z2418 | 1404.5669v2 2014-04-22 | Linnik's approximation to Goldbach's conjecture, and other problems
+Z2078 | NO RESULT | q= au:Gupta AND au:Murty AND ti:primitive
+Z2094 | NO RESULT | q= au:Hooley AND ti:Waring
+Z2096 | math/0607460v3 2006-07-19 | The distribution of integers with at least two divisors in a short interval
+Z2096 | 1508.02359v1 2015-08-10 | Probability Distributions for Quantum Stress Tensors Measured in a Finite Time Interval
+Z2097 | 1212.2915v2 2012-12-12 | Detection of Potential Transit Signals in the First Twelve Quarters of Kepler Mission Data
+Z2097 | 2210.06849v3 2022-10-13 | Retrospectives on the Embodied AI Workshop
+Z2401 | 1403.8031v2 2014-03-31 | The divisor function in arithmetic progressions to smooth moduli
+Z2401b | 1610.07395v1 2016-10-24 | Squares in Piatetski--Shapiro Sequences
+Z2401b | 1612.05905v1 2016-12-18 | Cancellations between Kloosterman sums modulo a prime power with prime arguments
+Z2404 | 1806.02250v2 2018-06-06 | The Erdos conjecture for primitive sets
+Z2404 | 2110.10146v2 2021-10-19 | Translated sums of primitive sets
+Z2459 | 2007.12970v2 2020-07-25 | On sums and products along the edges, II
+Z2459 | 1802.06405v1 2018-02-18 | Sums, products and ratios along the edges of a graph
+Z2431 | NO RESULT | q= au:Bourgain AND ti:composite
+Z2564 | 1802.07604v4 2018-02-21 | Long gaps in sieved sets
+Z2564 | 1412.5029v3 2014-12-16 | Long gaps between primes
+Z2356 | NO RESULT | q= au:Friedlander AND au:Iwaniec AND ti:parity
+Z2320 | NO RESULT | q= au:Harman AND ti:Linnik
+Z2303 | 1402.3130v3 2014-02-13 | Interval-valued neutrosophic soft sets and its decision making
+Z2303 | 2106.15792v1 2021-06-30 | Learning Bounds for Open-Set Learning
+Z2189 | 0712.2112v1 2007-12-13 | Dirichlet sets and Erdos-Kunen-Mauldin theorem
+Z2189 | 1806.02250v2 2018-06-06 | The Erdos conjecture for primitive sets
+Z2298 | 2409.06894v3 2024-09-10 | Vinogradov's theorem for primes with restricted digits
+Z2298 | 2410.04189v3 2024-10-05 | Primes of the form $p^2 + nq^2$
+Z2611 | astro-ph/0410261v1 2004-10-11 | The exceptional X-ray variability of the dwarf Seyfert nucleus NGC 4395
+Z2611 | 1111.2574v1 2011-11-10 | On the exceptional set for binary Egyptian fractions
+Z2611b | 2104.11217v1 2021-04-22 | Rotation sets and actions on curves
+Z2611b | 2102.06940v2 2021-02-13 | HAWKS: Evolving Challenging Benchmark Sets for Cluster Analysis
+Z1427 | NO RESULT | q= au:Elsholtz AND au:Tao AND ti:exceptional
