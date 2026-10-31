@@ -223,3 +223,28 @@
 {"mid": "Z3016", "status": "untried", "files": [], "evidence": "", "note": "Bilinear closure maps producing certificates for new primes not searched."}
 {"mid": "Z3017", "status": "untried", "files": [], "evidence": "", "note": "Extremal vs random-like split by extremality score not computed."}
 {"mid": "Z3018", "status": "untried", "files": [], "evidence": "", "note": "Discharging/unavoidable-configuration argument over levels not attempted."}
+{"mid": "Z3019", "status": "untried", "files": [], "evidence": "", "note": "Hereditary property of N_e = (p+e)/4 for minimal counterexample not identified."}
+{"mid": "Z3020", "status": "untried", "files": [], "evidence": "", "note": "Entropy inequality over union of certificate families not computed."}
+{"mid": "Z3021", "status": "untried", "files": [], "evidence": "", "note": "Entropic Ruzsa distances between level divisor-class distributions not computed."}
+{"mid": "Z3022", "status": "untried", "files": [], "evidence": "", "note": "Affine maps n -> an+b preserving ES Type II solvability not searched."}
+{"mid": "Z3023", "status": "open", "files": ["BRAINSTORM/greedy_algorithm_dynamics.md"], "evidence": "", "note": "Greedy first-step rules examined in greedy dynamics notes; look-ahead x=ceil(p/4)+k rule not tested."}
+{"mid": "Z3024", "status": "untried", "files": [], "evidence": "", "note": "Greedy minimum covering moduli for hard classes not computed; covering-distortion notes are general."}
+{"mid": "Z3025", "status": "open", "files": ["BRAINSTORM/z45_critical_chaos.md", "BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Zero-law P(R=0 | M) modelling examined; extrapolated sum over p>1e18 not computed."}
+{"mid": "Z3026", "status": "untried", "files": [], "evidence": "", "note": "Mod-2/mod-3 congruences for the ES word series not computed."}
+{"mid": "Z3027", "status": "untried", "files": ["BRAINSTORM/invol_topological.md"], "evidence": "", "note": "Tucker/Ky Fan labelling on divisor complex not constructed."}
+{"mid": "Z3028", "status": "untried", "files": [], "evidence": "", "note": "Prescribed-residue strengthening of ES for induction not tested numerically."}
+{"mid": "Z3029", "status": "untried", "files": [], "evidence": "", "note": "Quaternion norm form with linear side condition for certificates not formulated."}
+{"mid": "Z3030", "status": "untried", "files": [], "evidence": "", "note": "Divisors of p^2+4c^2 d in classes mod 4cd via genus characters not enumerated."}
+{"mid": "Z3031", "status": "open", "files": ["EXCEPTIONAL_SHORT.md"], "evidence": "", "note": "Short-interval exceptional-set bound examined; smallest H with certificate prime in every interval not determined."}
+{"mid": "Z3032", "status": "untried", "files": [], "evidence": "", "note": "Shafarevich-style lifting tower for certificates not traced."}
+{"mid": "Z3033", "status": "open", "files": ["BRAINSTORM/bsM_shot_coverage.md", "BRAINSTORM/s9_ladder_thinning.md"], "evidence": "", "note": "Ladder of rungs for ES sub-routes discussed in several notes; per-sub-route rung table not assembled."}
+{"mid": "Z3034", "status": "untried", "files": [], "evidence": "", "note": "AKS-style two-sided group size argument over divisor classes not attempted."}
+{"mid": "Z3035", "status": "open", "files": ["BRAINSTORM/logic_complexity.md", "BM_CORRECTED_COUNT.md"], "evidence": "", "note": "GRH-conditional search-time discussion exists; a provable certificate-time bound not formulated."}
+{"mid": "Z3036", "status": "untried", "files": [], "evidence": "", "note": "Pigeonhole collisions of near-certificates into exact certificates not analysed."}
+{"mid": "Z3037", "status": "untried", "files": [], "evidence": "", "note": "Recursive/product constructions moving ES certificates into square classes not found."}
+{"mid": "Z3038", "status": "open", "files": ["BRAINSTORM/y7_mordell_levels.md", "POINTWISE_SIZE.md"], "evidence": "", "note": "Per-class Mordell families mod 840 examined; minimal family count versus modulus not computed."}
+{"mid": "Z3039", "status": "open", "files": ["BRAINSTORM/bsE_sierpinski_moving_integer.md"], "evidence": "", "note": "Covering-obstruction analogy examined for Sierpinski-type problems; ES certificate-family covering not checked."}
+{"mid": "Z3040", "status": "open", "files": ["BRAINSTORM/bsE_padic_interpolation.md"], "evidence": "", "note": "p-adic periodicity along exponential families examined; covering of s for 15*2^s+1 not computed."}
+{"mid": "Z3041", "status": "untried", "files": [], "evidence": "", "note": "Dual certificate / positive linear combination of level series not found in repo."}
+{"mid": "Z3042", "status": "untried", "files": [], "evidence": "", "note": "Dimension-zero exceptional set via measure rigidity not formulated for ES."}
+{"mid": "Z3043", "status": "open", "files": ["METAPLECTIC_ES.md Thm K"], "evidence": "", "note": "Kronecker theta-quotient form of level series examined; exact Rademacher-type expansion not attempted."}
