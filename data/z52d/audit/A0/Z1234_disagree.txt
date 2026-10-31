@@ -1,0 +1,9 @@
+n=39095 primes p≡1(4) in (1e3,1e6]; log F: sd 0.219, 5%/95% quantiles -0.372/0.350
+all | 39095 | M0: meanLL -3.152 bias +0.061 | M_BM: meanLL -3.139 bias +0.085 | M_BM*F: meanLL -2.838 bias +0.108
+B<<A (5%) | 1955 | M0: meanLL -2.887 bias -0.347 | M_BM: meanLL -2.801 bias -0.321 | M_BM*F: meanLL -2.550 bias +0.086
+B>>A (5%) | 1955 | M0: meanLL -6.027 bias +0.533 | M_BM: meanLL -6.105 bias +0.543 | M_BM*F: meanLL -3.175 bias +0.106
+agree (middle 20%) | 7819 | M0: meanLL -2.776 bias +0.066 | M_BM: meanLL -2.780 bias +0.085 | M_BM*F: meanLL -2.824 bias +0.114
+B<<A top classes mod 840: [(421, 266), (37, 225), (157, 185), (337, 174), (577, 172), (757, 170)]  frac p≡1 (16): 0.243  zeros of R: 5 of 7
+B>>A top classes mod 840: [(629, 404), (209, 397), (761, 137), (341, 113), (89, 109), (41, 92)]  frac p≡1 (16): 0.256  zeros of R: 0 of 7
+B<<A expected zeros  M_BM: 2.28  M_BM*F: 13.64  observed: 5
+B>>A expected zeros  M_BM: 0.6  M_BM*F: 0.03  observed: 0
