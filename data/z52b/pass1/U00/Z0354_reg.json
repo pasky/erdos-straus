@@ -1,0 +1,17 @@
+{
+ "n_primes": 1611,
+ "R2_base_chars": 0.6850198238171071,
+ "R2_base_chars_plus_D": 0.8108628681564289,
+ "R2_gain_D": 0.1258430443393218,
+ "coef_D_per_sd": -0.6070819482781431,
+ "R2_D_plus_logp_only": 0.7272086357684807,
+ "spearman_D_resid": -0.14659192581576924,
+ "R2_base_chars_plus_divisors_of_p-1_le1000": 0.7560170876046164,
+ "R2_plus_both": 0.8316225433461757,
+ "gain_D_beyond_divisors": 0.0756054557415593,
+ "spearman_D_vs_divisors_of_p-1": 0.6578031603691636,
+ "R2_chars_plus_2adic_and_classes_of_one": 0.8411100218263905,
+ "R2_plus_D": 0.8453390189359642,
+ "gain_D_after_2adic_classes": 0.004228997109573696,
+ "coef_D_per_sd_after_controls": -0.2344185679347905
+}
