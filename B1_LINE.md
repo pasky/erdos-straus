@@ -74,7 +74,7 @@ particular if every odd prime ℓ ≤ Y is a QR mod p, every pair has a prime fa
 p ≡ 1 (4) with p ≢ 1 (mod 24): the pair (3, 4) solves p ≡ 5 (12) and (3, 8) solves p ≡ 13 (24). The (★) line holds for
 p ≡ 5 (8) via (1, 2) (N = (p + 3)/2). *Proof.* 12 | p + 7, 24 | p + 11, 8 | p + 3 respectively. ∎
 *Reading.* The 2-adic escape is real but it only acts in classes that fixed congruence identities already cover. The
-b = 1 hardness lies in p ≡ 1 (24), the (★) hardness in p ≡ 1 (8) (e.g. 409 ≡ 17 (24) fails (★)). At p ≡ 1 (8) both lines
+b = 1 hardness lies in p ≡ 1 (24), and so does the (★) hardness (z52c erratum: 409 ≡ 1 (24), not 17; (★) holds for every p ≡ 2 (3) via (u, B, C) = (1, (p+1)/3, 1) and for p ≡ 5 (8) via the pair (1, 2), so every (★) failure is ≡ 1 (24), PROVED). At p ≡ 1 (8) both lines
 need an odd non-residue of p inside the pair. The
 census agrees: every b = 1 failure and every record of the least shift from p = 73 on is at p ≡ 1 (24) (§2).
 

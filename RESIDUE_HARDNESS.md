@@ -14,7 +14,7 @@ Builds on BRAINSTORM/z52b_pass1_H00.md §Z0199 (Pass-1 record), BM_CORRECTED_COU
 5. **EVIDENCE** In the Pass-1 regression, 1[7 | p−1]: −0.131(6) → +0.010(5); all indicators |·| ≤ 0.02 (≤ 0.009 out of sample to 10⁷).
    log F adds R² 0.11–0.19 beyond 25 characters. It absorbs the mod-840 ordering and 67–100 % of Z0900 (practical p − 1) (§2.2).
 6. **EVIDENCE** (★) model M′ = M_BM·F_S/F_MBM: corr with log R 0.49 → 0.71, z-sd 1.37 → 1.07 (better mean model); zero law mixed:
-   [10⁵, 10⁶) 3 zeros vs 3.2 expected (M_BM: 0.5), but < 10⁵ 4 vs 21.9. All 14 (★) failures ≤ 10⁷ are ≡ 1 (24), mostly in low-F classes.
+   [10⁵, 10⁶) 3 zeros vs 3.2 expected (M_BM: 0.5), but < 10⁵ 4 vs 21.9. All 14 (★) failures ≤ 10⁷ are ≡ 1 (24) — this part is PROVED and elementary ((★) holds at p ≡ 5 (8) via (1, 2) and at p ≡ 2 (3) via (1, (p+1)/3, 1); z52c triage note) — and they sit mostly in low-F classes (EVIDENCE).
 7. **Assessment** p ≡ 1 (Q) forces x ≡ (m+1)/4 (Q) for the p-free denominator x = (p+m)/4, so cheap windows lose small-prime
    divisors. Main-term refinement only; B3/B6 untouched. Verification should oversample p ≡ 1 (mod 840·16) (§3–4).
 
