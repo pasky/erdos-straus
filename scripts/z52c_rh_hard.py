@@ -59,7 +59,10 @@ ff = F_at(fp)
 out['failures'] = [dict(p=int(p), M_BM=round(float(m), 2), F_S=round(float(f), 3), M_BM_F=round(float(m*f), 2),
                         mlog10P0_before=round(float(m/2/np.log(10)), 2), mlog10P0_after=round(float(m*f/2/np.log(10)), 2),
                         p_mod_840=int(p % 840), p_mod_16=int(p % 16)) for p, m, f in zip(fp, fm, ff)]
-out['failures_F_quantile'] = [float((F < f).mean()) for f in ff[:9]]  # quantile of F among all primes ≤ 1e6 (failures ≤ 1e6)
+# quantile of F among the primes of (1e3, 1e6], for the failures in that range (R-review fix: was ff[:9], which picked
+# 1134241, 1724209 instead of 409, 577; those two are < 1e3 and outside the sample, so the 7 failures in (1e3, 1e6] are used)
+sel_q = (fp > 1000) & (fp <= 10**6)
+out['failures_F_quantile'] = {int(p): round(float((F < f).mean()), 4) for p, f in zip(fp[sel_q], ff[sel_q])}
 out['failures_total_log10_surprise'] = {'before': float(np.sum(fm)/2/np.log(10)), 'after': float(np.sum(fm*ff)/2/np.log(10))}
 # where do the expected zeros sit? share of sum exp(-MF/2) carried by the lowest-F decile of primes, vs share of primes
 dec = F <= np.quantile(F, 0.1)

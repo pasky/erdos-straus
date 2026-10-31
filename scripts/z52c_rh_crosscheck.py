@@ -11,3 +11,4 @@ for f in ['data/z52c/rh/U_counter_2e5_1e6.txt.gz']:
 A=np.vstack(rows); P=A[:,0]
 ok=(TI[P-lo]==2*A[:,10])&(TII[P-lo]==2*A[:,11])&(A[:,1]==A[:,10]+A[:,11])
 print(len(P),'agree',ok.sum())
+assert ok.all() and len(P) == 30198, 'cross-check FAILED'

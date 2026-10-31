@@ -1,4 +1,5 @@
-"""RESIDUE_HARDNESS §1–2: class factors F_Q(r) = E[count | p ≡ r (mod Q)] / (mean over classes), model vs data.
+"""RESIDUE_HARDNESS §1–2 (MSSD = mean squared standardized discrepancy over classes; descriptive: SEs treat the class
+means as independent and ignore the error of the normalising mean, and classes of different Q overlap): class factors F_Q(r) = E[count | p ≡ r (mod Q)] / (mean over classes), model vs data.
 
 Model (local-density sum, §1.3): for each certificate family the exact tuple count at every integer v of the window, each tuple
 weighted by the prime local density of its AP (factor l/(l−1) for primes l > 13 dividing the AP modulus; 0 if the AP has no
@@ -93,8 +94,16 @@ for name, pre, lo, hi, wlo, whi in WINDOWS:
             d = out[name][str(Q)][f]; d1 += list(np.array(d['data']) - 1); se1 += d['data_se']
         d1 = np.array(d1); se1 = np.array(se1)
         print(f' {f}: classes {len(dm)}, rms(data−model) {np.sqrt((dm**2).mean()):.4f}, rms(SE data⊕model) {np.sqrt((se**2).mean()):.4f},'
-              f' chi2/class {((dm/se)**2).mean():.2f}; null F≡1: rms {np.sqrt((d1**2).mean()):.4f}, chi2/class {((d1/se1)**2).mean():.1f}')
+              f' MSSD {((dm/se)**2).mean():.2f}; null F≡1: rms {np.sqrt((d1**2).mean()):.4f}, MSSD {((d1/se1)**2).mean():.1f}')
+        # without the 96 thin mod-840 classes (R-review: they dominate the 136-class average)
+        dmx = []; sex = []
+        for Q in QS:
+            if Q == 840: continue
+            d = out[name][str(Q)][f]; dmx += list(np.array(d['data']) - np.array(d['model'])); sex += list(np.hypot(d['data_se'], d['model_se']))
+        dmx = np.array(dmx); sex = np.array(sex)
+        print(f'    {f} without Q = 840: classes {len(dmx)}, MSSD {((dmx/sex)**2).mean():.2f}')
+        out[name]['summary_' + f + '_no840'] = dict(n=len(dmx), mssd=float(((dmx/sex)**2).mean()))
         out[name]['summary_' + f] = dict(rms_model=float(np.sqrt((dm**2).mean())), rms_se=float(np.sqrt((se**2).mean())),
-                                         chi2_model=float(((dm/se)**2).mean()), chi2_null=float(((d1/se1)**2).mean()))
+                                         mssd_model=float(((dm/se)**2).mean()), mssd_null=float(((d1/se1)**2).mean()))
 os.makedirs('data/z52c/rh', exist_ok=True)
 json.dump(out, open('data/z52c/rh/model_tables.json', 'w'), indent=0)

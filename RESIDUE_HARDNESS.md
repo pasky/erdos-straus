@@ -6,15 +6,15 @@ Builds on BRAINSTORM/z52b_pass1_H00.md §Z0199 (Pass-1 record), BM_CORRECTED_COU
 
 ## 0. Summary
 1. **CERTIFIED** Type I/II tuple counts = solution counts (U = k₁ + k₂) at all 30 198 primes p ≡ 1 (4) in (2·10⁵, 10⁶] (§1.1).
-2. **PROVED** Lemma 1 (level-cell counts) and Lemma 2 (shift alignment: for p ≡ 1 (q) each q-divisible-modulus certificate needs
-   shift ≡ −1 (mod 4q), the latest class; §1.2, §3).
+2. **PROVED** Lemma 1 (level-cell counts) and Lemma 2 (shift alignment: for p ≡ 1 (q) each q-divisible-modulus Type I/II certificate
+   needs shift ≡ −1 (mod 4q), the latest class; in (★) shift ≡ −1 (mod q); §1.2, §3).
 3. **CONJECTURE** (★) closed form F_q(r) = 1 + 2q/((q²+1)L)·(Ψ_q(r) − Ψ̄_q), Ψ = −ψ(⟨−(4r)⁻¹⟩/q) − 2ψ(⟨−r⟩/q): a 1/L secondary term, invisible to M₀/M_BM/M_gen.
 4. **EVIDENCE** The parameter-free local-density model fits all class means mod 3, 5, 7, 8, 11, 13, 16, 840 for U, (★), Types I/II:
-   χ²/class 0.75–1.13 vs 30–2 800 for "no class effect" (up to 157 987 primes). Class 1 is the lowest of the 96 classes mod 840.
-5. **EVIDENCE** In the Pass-1 regression, 1[7 | p−1]: −0.131(6) → +0.009(5); all indicators |·| ≤ 0.02 (≤ 0.009 out of sample to 10⁷).
+   mean squared standardized discrepancy 0.75–1.13 vs 29–2 800 for "no class effect" (to 157 987 primes). Class 1 is lowest of 96 mod 840.
+5. **EVIDENCE** In the Pass-1 regression, 1[7 | p−1]: −0.131(6) → +0.010(5); all indicators |·| ≤ 0.02 (≤ 0.009 out of sample to 10⁷).
    log F adds R² 0.11–0.19 beyond 25 characters. It absorbs the mod-840 ordering and 67–100 % of Z0900 (practical p − 1) (§2.2).
-6. **EVIDENCE** (★) model M′ = M_BM·F_S/F_MBM: corr with log R 0.49 → 0.71, z-sd 1.37 → 1.07; zeros in [10⁵, 10⁶): 3 observed,
-   3.2 expected (0.5 under M_BM). All 14 (★) failures ≤ 10⁷ are ≡ 1 (24), and nearly all lie in low-F classes (§2.3).
+6. **EVIDENCE** (★) model M′ = M_BM·F_S/F_MBM: corr with log R 0.49 → 0.71, z-sd 1.37 → 1.07 (better mean model); zero law mixed:
+   [10⁵, 10⁶) 3 zeros vs 3.2 expected (M_BM: 0.5), but < 10⁵ 4 vs 21.9. All 14 (★) failures ≤ 10⁷ are ≡ 1 (24), mostly in low-F classes.
 7. **Assessment** p ≡ 1 (Q) forces x ≡ (m+1)/4 (Q) for the p-free denominator x = (p+m)/4, so cheap windows lose small-prime
    divisors. Main-term refinement only; B3/B6 untouched. Verification should oversample p ≡ 1 (mod 840·16) (§3–4).
 
@@ -59,11 +59,11 @@ Two kinds of pairs (u, B):
   which those with x = −1 or y = −1 (2 points; x = y = −1 would need 4cr ≡ 0) are excluded: q − 3. If k ≡ 0 (c = c*):
   2q − 1 points on xy = 0, minus the two with x = −1 or y = −1: 2q − 3. (Total (q−2) + (q−2)(q−3) + (2q−3) = (q−1)².) ∎
   So level c* = −(4r)⁻¹ carries q extra cells: that is the level C with **q | 4Cp + 1** (divisor form of FRONTIER §2.1). With
-  Σ_{C ≡ c (q), C ≤ X} (1/C) log(X/C) = (1/(2q)) L² + (−ψ(c/q)/q) L + O(1) (ψ = digamma, c ∈ {1, …, q}), the r-dependent part is
-  ∝ −ψ(⟨c*⟩/q).
+  Σ_{C ≡ c (q), C ≤ X} (1/C) log(X/C) = (1/(2q)) L² − ((log q + ψ(c/q))/q) L + O(1) (ψ = digamma, c ∈ {1, …, q}), the
+  r-dependent part is ∝ −ψ(⟨c*⟩/q) (the log q cancels between classes).
 * **pairs with q | u (or q | B) ("pair term").** The AP v ≡ −(u + B) (mod 4uB) is constant mod q, ≡ −B (resp. −u): such a pair
   hits only the class r ≡ −B. Its expected contribution is ≍ X/(4uB) per pair (all C), so the class-r total is
-  Σ_{q | u} Σ_{B ≡ −r (q)} 1/(uB), whose r-dependent constant is −ψ(⟨−r⟩/q)/q (Σ_{B ≡ b (q), B ≤ Y} 1/B = (log Y − ψ(b/q))/q + o(1)).
+  Σ_{q | u} Σ_{B ≡ −r (q)} 1/(uB), whose r-dependent constant is −ψ(⟨−r⟩/q)/q (Σ_{B ≡ b (q), B ≤ Y} 1/B = (log Y − log q − ψ(b/q))/q + o(1)).
   (Averaging over u mod 4 — the constraint u + B ≡ 3 (4) — does not change this: by Gauss multiplication the four classes
   mod 4q above b average to −ψ(b/q) + log 4.)
 
@@ -97,8 +97,9 @@ Bombieri–Vinogradov), so the prime statement is a CONJECTURE, tested in §2.
 For Types I/II the same two mechanisms operate (a shift parameter must lie in a class mod q; a level parameter starts at 1),
 but the parameter space is 4-dimensional and a closed form was not derived. Instead the local-density sum is evaluated
 **exactly** as a lattice sum: for every integer v in a window, enumerate all tuples hitting v and give each tuple the prime
-local density of its AP — weight ∏_{ℓ | modulus, ℓ > 13} ℓ/(ℓ − 1), and weight 0 if the AP contains no units (Type II with
-gcd(s, 2ab) > 1) — then average over the **13-rough composite** v ≡ 1 (4) in the class r (the factors at ℓ ≤ 13 are
+local density of its AP — weight ∏ over the *distinct* primes ℓ > 13 of the AP modulus of ℓ/(ℓ − 1), and weight 0 if the AP contains
+no units (Type II with gcd(s, 2ab) > 1); each *ordered* tuple uses its own AP (Type I (a, b, e, d): modulus 4ad; its mirror
+(b, a, e, d): 4bd) — then average over the **13-rough composite** v ≡ 1 (4) in the class r (the factors at ℓ ≤ 13 are
 implemented exactly by the roughness; composites only, so that model and prime data share no samples). This is
 "Σ over parameter tuples of the local density of the congruence p ≡ a(tuple) (mod m(tuple)), restricted to the class r" with
 no free parameter. Programs: `scripts/z52c_rh_star.c` ((★), all n ≤ 10⁷), `scripts/z52c_rh_types.c` (Types I, II, (★) on a
@@ -109,8 +110,8 @@ window), `scripts/z52c_rh_model.py` (class tables → `data/z52c/rh/model_tables
 
 | Q | r | U model (data) | (★) model (data) | Type I model | Type II model |
 |---|---|---|---|---|---|
-| 3 | 1■ | 0.929 (0.930) | 0.881 (0.883) | 0.933 | 0.917 |
-| 3 | 2 | 1.071 (1.070) | 1.119 (1.117) | 1.067 | 1.083 |
+| 3 | 1■ | 0.929 (0.930) | 0.881 (0.883) | 0.934 | 0.917 |
+| 3 | 2 | 1.071 (1.070) | 1.119 (1.117) | 1.066 | 1.083 |
 | 5 | 1■ | 0.902 (0.906) | 0.990 (0.990) | 0.882 | 0.953 |
 | 5 | 2 | 1.101 (1.100) | 0.914 (0.914) | 1.109 | 1.083 |
 | 5 | 3 | 1.050 (1.047) | 1.013 (1.016) | 1.075 | 0.986 |
@@ -125,11 +126,11 @@ window), `scripts/z52c_rh_model.py` (class tables → `data/z52c/rh/model_tables
 | 8 | 5 | 1.126 (1.124) | 1.016 (1.017) | 1.149 | 1.067 |
 | 11 | 1■ | 0.940 (0.940) | 0.934 (0.938) | 0.942 | 0.935 |
 | 11 | 2 | 0.976 (0.975) | 0.952 (0.950) | 0.976 | 0.977 |
-| 11 | 3■ | 0.991 (0.995) | 0.941 (0.940) | 0.999 | 0.974 |
+| 11 | 3■ | 0.992 (0.995) | 0.941 (0.940) | 0.999 | 0.974 |
 | 11 | 4■ | 1.016 (1.017) | 0.985 (0.983) | 1.013 | 1.024 |
 | 11 | 5■ | 0.953 (0.952) | 0.945 (0.954) | 0.955 | 0.948 |
-| 11 | 6 | 0.983 (0.983) | 0.970 (0.971) | 0.984 | 0.980 |
-| 11 | 7 | 1.057 (1.054) | 0.972 (0.967) | 1.066 | 1.035 |
+| 11 | 6 | 0.983 (0.983) | 0.970 (0.971) | 0.983 | 0.980 |
+| 11 | 7 | 1.058 (1.054) | 0.972 (0.967) | 1.066 | 1.035 |
 | 11 | 8 | 1.129 (1.123) | 1.108 (1.104) | 1.118 | 1.158 |
 | 11 | 9■ | 0.946 (0.952) | 1.014 (1.023) | 0.946 | 0.949 |
 | 11 | 10 | 1.008 (1.008) | 1.179 (1.170) | 1.002 | 1.020 |
@@ -137,7 +138,7 @@ window), `scripts/z52c_rh_model.py` (class tables → `data/z52c/rh/model_tables
 | 13 | 2 | 1.015 (1.012) | 0.948 (0.951) | 1.020 | 1.000 |
 | 13 | 3■ | 0.975 (0.975) | 1.046 (1.050) | 0.968 | 0.992 |
 | 13 | 4■ | 1.011 (1.004) | 0.969 (0.968) | 1.024 | 0.976 |
-| 13 | 5 | 0.971 (0.974) | 0.954 (0.954) | 0.972 | 0.966 |
+| 13 | 5 | 0.970 (0.974) | 0.954 (0.954) | 0.972 | 0.966 |
 | 13 | 6 | 1.046 (1.053) | 0.962 (0.966) | 1.044 | 1.051 |
 | 13 | 7 | 1.003 (0.998) | 0.977 (0.978) | 1.013 | 0.977 |
 | 13 | 8 | 0.973 (0.972) | 1.027 (1.033) | 0.975 | 0.969 |
@@ -151,9 +152,9 @@ window), `scripts/z52c_rh_model.py` (class tables → `data/z52c/rh/model_tables
 | 16 | 13 | 1.157 (1.154) | 1.011 (1.013) | 1.170 | 1.123 |
 | 840 | 1 (Mordell sq.) | 0.542 (0.557) | 0.648 (0.657) | 0.509 | 0.627 |
 | 840 | 121 (Mordell sq.) | 0.574 (0.592) | 0.669 (0.701) | 0.541 | 0.657 |
-| 840 | 169 (Mordell sq.) | 0.580 (0.591) | 0.693 (0.704) | 0.548 | 0.662 |
-| 840 | 289 (Mordell sq.) | 0.599 (0.617) | 0.676 (0.723) | 0.569 | 0.673 |
-| 840 | 361 (Mordell sq.) | 0.588 (0.596) | 0.665 (0.682) | 0.553 | 0.679 |
+| 840 | 169 (Mordell sq.) | 0.581 (0.591) | 0.693 (0.704) | 0.548 | 0.662 |
+| 840 | 289 (Mordell sq.) | 0.599 (0.617) | 0.676 (0.723) | 0.570 | 0.673 |
+| 840 | 361 (Mordell sq.) | 0.589 (0.596) | 0.665 (0.682) | 0.553 | 0.679 |
 | 840 | 529 (Mordell sq.) | 0.612 (0.632) | 0.690 (0.718) | 0.577 | 0.699 |
 
 mod 840 (96 classes p ≡ 1 (4)): U-model range 0.542 (r = 1) … 1.612 (r = 557); mean over the 6 Mordell squares 0.583.
@@ -172,9 +173,11 @@ the solution counter, §1.1) and R at all primes ≤ 10⁷ (`z52c_rh_star.c`). P
 ### 2.1 Class means (EVIDENCE; `scripts/z52c_rh_model.py`)
 
 Over all 136 admissible classes for Q ∈ {3, 5, 7, 8, 11, 13, 16, 840} and the four families, (data − model)/SE, with SE the
-combined sampling error of the prime means and of the (composite-sample) model means:
+combined sampling error of the prime means and of the (composite-sample) model means. MSSD = mean of the squared standardized
+discrepancies — a *descriptive* statistic, not a calibrated χ² test: the SEs treat class means as independent, ignore the
+error of the normalising mean, and classes of different Q overlap; 96 of the 136 classes are the thin mod-840 ones (R-review).
 
-| window | primes | family | rms(data − model) | rms SE | χ²/class (model) | χ²/class (flat F ≡ 1) |
+| window | primes | family | rms(data − model) | rms SE | MSSD (model) | MSSD (flat F ≡ 1) |
 |---|---|---|---|---|---|---|
 | [10⁵, 2·10⁵] | 4 194 | U | 0.034 | 0.034 | 1.07 | 92 |
 | | | (★) | 0.047 | 0.050 | 0.85 | 29 |
@@ -186,11 +189,12 @@ combined sampling error of the prime means and of the (composite-sample) model m
 | | | (★) | 0.0062 | 0.0073 | 0.75 | 729 |
 | | | Type I / II | 0.0048 / 0.0059 | 0.0054 / 0.0062 | 0.78 / 0.98 | 2 823 / 988 |
 
-**The local-density model accounts for the class means of every family to within sampling error** (χ²/class ≈ 1 against
-hundreds for “no class dependence”). Classes mod 840 are thin (≈ 370 primes each at 10⁶), so χ² there is dominated by
-noise; the q ≤ 16 rows of the §1.3 table match to ≈ 0.005. The (★) closed form of §1.2 (first order only) is cruder:
+**The local-density model accounts for the class means of every family to within sampling error** (MSSD ≈ 1 against
+hundreds for “no class dependence”). Without the 96 mod-840 classes (40 classes, q ≤ 16) the MSSD is 0.44–0.85 (U: 0.85, 0.48,
+0.72 in the three windows), so the agreement is not an artefact of the thin classes; the q ≤ 16 rows of the §1.3 table match to
+≈ 0.005. The (★) closed form of §1.2 (first order only) is cruder:
 at 10⁶ it gives 0.888 / 0.894 / 0.971 for r = 1 / 2 / 4 mod 7 against model 0.902 / 0.909 / 0.954 and data 0.901 / 0.922 / 0.958 —
-right ordering and size, ≈ 0.01–0.02 off (the O(L⁻²) terms).
+right ordering and size, ≈ 0.01–0.02 off (attributed to the neglected higher-order terms; not verified to be O(L⁻²)).
 
 ### 2.2 The Pass-1 regression with the factor added (EVIDENCE; `scripts/z52c_rh_regress.py` → `data/z52c/rh/regress.json`)
 
@@ -202,9 +206,9 @@ the 1/L law (F − 1 ∝ 1/log p; across the windows 10⁵ and 10⁶ (F − 1)·
 | p range (primes ≡ 1 (4)) | 1[5\|p−1] | 1[7\|p−1] | 1[11\|p−1] | 1[13\|p−1] | 1[16\|p−1] | R² gain of indicators | coefficient of log F if free |
 |---|---|---|---|---|---|---|---|
 | ≤ 2·10⁵ (Pass-1 set), before | −0.058(6) | **−0.131(6)** | −0.057(8) | −0.052(8) | −0.095(6) | 0.0208 | |
-| ≤ 2·10⁵, after | +0.012(5) | +0.009(5) | −0.007(6) | +0.018(6) | +0.020(5) | 0.0006 | 0.815(9) |
+| ≤ 2·10⁵, after | +0.012(5) | +0.010(5) | −0.007(6) | +0.019(6) | +0.020(5) | 0.0006 | 0.814(9) |
 | (2·10⁵, 2·10⁶], before | −0.049(2) | −0.106(2) | −0.042(3) | −0.047(3) | −0.078(2) | 0.0293 | |
-| (2·10⁵, 2·10⁶], after | +0.002(2) | +0.003(2) | −0.002(2) | +0.005(2) | +0.009(2) | 0.0002 | 0.919(5) |
+| (2·10⁵, 2·10⁶], after | +0.002(2) | +0.003(2) | −0.002(2) | +0.005(2) | +0.009(2) | 0.0002 | 0.918(5) |
 | [5·10⁶, 10⁷], before | −0.045(1) | −0.095(1) | −0.036(2) | −0.042(2) | −0.070(1) | 0.0334 | |
 | [5·10⁶, 10⁷], after | −0.002(1) | +0.001(1) | −0.002(1) | +0.002(2) | +0.005(1) | 0.00006 | 0.958(3) |
 
@@ -223,9 +227,11 @@ the 1/L law (F − 1 ∝ 1/log p; across the windows 10⁵ and 10⁶ (F − 1)·
   removed by the factor.
 * Number of q ∈ {3, 5, 7, 11, 13} dividing p − 1 (0 … 4), mean residual before: +0.014, +0.029, −0.037, −0.132, −0.279;
   after: −0.003, −0.002, +0.004, +0.022, −0.031 (n = 49 at 4). Out of sample, 4 divisors: −0.214 → −0.028 (n = 332) and −0.198 → −0.038 (n = 768, [5·10⁶, 10⁷]).
-* **Unexplained variance.** Residual sd of log(U+1) after characters: 0.209; after characters + log F: 0.187 (≤ 2·10⁵);
-  0.197 → 0.181 on (2·10⁵, 2·10⁶], 0.190 → 0.156 on [5·10⁶, 10⁷]. What remains is the prime-specific part (T(p)-type Legendre sums over all characters, the
-  higher-order characters, X_BM), not residue-class structure: adding all five indicators back gains R² ≤ 0.0006.
+* **Unexplained variance.** Residual sd of log(U+1) after characters: 0.209; after characters + log F (free coefficient): 0.150
+  (≤ 2·10⁵); 0.197 → 0.154 on (2·10⁵, 2·10⁶], 0.190 → 0.156 on [5·10⁶, 10⁷] (the prime-product variant gives only 0.209 → 0.187).
+  What remains is not explained by the tested residue factors or indicators (adding the five indicators back gains R² ≤ 0.0006);
+  presumably mostly prime-specific (T(p)-type Legendre sums, higher-order characters, X_BM), though untested moduli (9, 17, 19, …)
+  and further interactions remain possible.
 
 **Z0900 ("p − 1 practical" correlates with hardness; Pass-1 U01) is the same effect.** In the same design, the coefficient
 of 1[p − 1 practical] is −0.098(12) → −0.004(9) after the factor for p ≤ 3·10⁴, −0.088(5) → −0.015(4) for p ≤ 2·10⁵ and
@@ -261,16 +267,18 @@ swap-Poisson), and its coefficient in a free fit is ≈ 1. **Zero law by range**
 | [10⁵, 3·10⁵) | 8 197 | 1 | 0.35 | 2.1 |
 | [3·10⁵, 10⁶) | 26 195 | 2 | 0.14 | 1.1 |
 
-Above 10⁵ the failures are **no longer surprising under M′** (3 observed vs 3.2 expected; under M_BM 0.49 expected, which was
-the "far tail possibly fatter than Poisson" of BM_CORRECTED §3.2). Below 10⁵ M′ overpredicts zeros: there the 1/L
-extrapolation of F from L ≈ 14 down to L ≈ 7–11 overshoots and the counts are under-dispersed (sd z = 0.76–0.92), so this
-range tests neither model sharply.
+**The zero law under M′ is mixed** (R-review repair). Above 10⁵ the failures are no longer surprising under M′ (3 observed vs
+3.2 expected; 0.49 under M_BM) — but that is only 3 events, i.e. limited evidence. Below 10⁵ the swap-Poisson zero law with M′
+is **sharply rejected**: 4 observed vs 21.9 expected (P(N ≤ 4) ≈ 4·10⁻⁶ under independent Poisson); likely causes are the 1/L
+extrapolation of F from L ≈ 14 down to L ≈ 7–11 (overshoot) and under-dispersion there (sd z = 0.76–0.92), but explaining the
+failure does not make it uninformative: M′ is a better *mean* model, not a validated *zero* model. (BM_CORRECTED §3.2's
+"possibly fatter far tail" was measured on odd non-squares with M_BM8, not on this prime/M_BM sample, so it is not directly
+the quantity compared here.)
 
 **The 14 (★) failures p ≡ 1 (4) ≤ 10⁷** (409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201,
 5212561, 8813281; recomputed from `z52c_rh_star.c`, = the FRONTIER census list ≤ 10¹⁰): all 14 are ≡ 1 (mod 24) (p ≡ 1 mod 8
 and mod 3), 10 of 14 are ≡ 1 (16), 9 lie in a Mordell class mod 840, three in class 1 itself (712321, 1726201, 8813281 —
-p − 1 divisible by 3·5·7), and 11 have a second odd prime ≤ 19 dividing p − 1 (base rates among p ≡ 1 (4): 1/4 for ≡ 1 (24), 0.54 for the latter among p ≡ 1 (24)). The refined factor F_S/F_MBM at the failures is 0.57–0.82 (409, 577 excluded: p < 10³); the 9 failures ≤ 10⁶ sit at
-the 0.2–23 % quantiles of F (median 4 %). Total surprise Σ M/(2 log 10) of the 12 failures > 10³: 48.5 decades under M_BM,
+p − 1 divisible by 3·5·7), and 11 have a second odd prime ≤ 19 dividing p − 1 (base rates among p ≡ 1 (4): 1/4 for ≡ 1 (24), 0.54 for the latter among p ≡ 1 (24)). The refined factor F_S/F_MBM at the failures is 0.57–0.82 (409, 577 excluded: p < 10³); the 7 failures in (10³, 10⁶] sit at the 0.2, 1.1, 1.5, 3.8, 4.1, 18.6, 22.6 % quantiles of F among those primes (median 3.8 %). Total surprise Σ M/(2 log 10) of the 12 failures > 10³: 48.5 decades under M_BM,
 36.2 under M′. The hard primes by U are similar: F_U = 0.17 at 2521 (= lcm(1..10) + 1, the hardest prime ≤ 2·10⁵),
 0.37 / 0.39 at the Type-A failures 193 / 66529, 0.31 at 5569 and 9601. Among the 1 % of primes with the lowest R/M_BM the mean
 log F is −0.33 (all primes: −0.03); 5 of the 7 zeros in (10³, 10⁶] are in the lowest-F decile, which carries 67 % of the
@@ -307,11 +315,11 @@ q | x; class 1 forfeits this gain in all the cheap windows. This is "p ≡ 1 (q)
 | r mod 7 | 1■ | 2■ | 3 | 4■ | 5 | 6 |
 |---|---|---|---|---|---|---|
 | least shift ⟨σ_r⟩_{28} | 27 | 19 | 11 | 3 | 23 | 15 |
-| pair term (7 \| modulus) | **0.137** | 0.210 | 0.212 | 0.310 | 0.185 | 0.184 |
-| level term (rest) | 0.786 | 0.783 | 0.809 | 0.763 | 0.809 | 0.812 |
-| total F_7 | 0.923 | 0.994 | 1.021 | 1.073 | 0.994 | 0.996 |
+| pair term (7 \| modulus) | **0.148** | 0.228 | 0.218 | 0.295 | 0.201 | 0.200 |
+| level term (rest) | 0.774 | 0.766 | 0.802 | 0.777 | 0.794 | 0.796 |
+| total F_7 | 0.922 | 0.994 | 1.020 | 1.073 | 0.994 | 0.996 |
 
-The class-1 deficit (−0.077 against the mean) is ≈ 90 % pair term (−0.069), and the pair term orders the extreme classes as
+The class-1 deficit (−0.078 against the mean) is ≈ 85 % pair term (−0.067), and the pair term orders the extreme classes as
 Lemma 2 says (largest least-shift 27 → lowest; least-shift 3 → highest); the middle classes are also shaped by
 the Type-I shift g being a divisor of 4a²d + 1 (not a free variable). The level term (q | 4Cp + 1 at level C ≡ −(4r)⁻¹ in (★),
 Lemma 1) is a different function of r and nearly flat for U.
@@ -345,7 +353,8 @@ is irrelevant at this order.
   conclusion "finitely many (★) failures, expected count beyond 10¹⁰ ≪ 1" is unchanged, while the expected tail mass moves
   into the low-F classes (§2.3: 67 % of the expected zeros in the lowest-F decile). The refinement *raises* the heuristic
   failure probability at the hardest classes by a factor exp(M_BM(1 − F)/2) — e.g. ≈ e^{3.3} ≈ 27 at 8 813 281 — and makes the
-  observed failures above 10⁵ consistent with the model (3 vs 3.2 expected) where M_BM alone expected 0.5. (Assessment;
+  observed failures above 10⁵ consistent with the model (3 vs 3.2 expected) where M_BM alone expected 0.5 — three events only,
+  and below 10⁵ the same zero law overpredicts (4 vs 21.9), so this is not a validated failure model. (Assessment;
   this is a statement about a heuristic, not about ES, and the full Type I ∪ II count U ≫ R is not modelled for zeros here.)
 * **Which primes a verification must stress-test.** Rank candidates by M_BM·F (or by F alone): primes p ≡ 1 (mod 840·16) with
   further small q | p − 1 (11, 13, 17, 19, …), i.e. p = 1 + (highly divisible number): lcm(1..k) + 1, primorial-type
@@ -363,10 +372,7 @@ is irrelevant at this order.
 ```
 mkdir -p /tmp/rh; ulimit -v 8000000
 gcc -O2 -o /tmp/rh/star scripts/z52c_rh_star.c && /tmp/rh/star 10000000 /tmp/rh/s1e7          # (★) R, RW for n ≤ 1e7 (3 s)
-gcc -O2 -o /tmp/rh/types scripts/z52c_rh_types.c                                                # Types I/II/(★) on windows
-/tmp/rh/types 101 200000 /tmp/rh/t2e5full; /tmp/rh/types 200001 1000000 /tmp/rh/t1e6
-/tmp/rh/types 1000001 2000000 /tmp/rh/t2e6; /tmp/rh/types 5000001 10000000 /tmp/rh/t1e7          # last one ≈ 1.5 h
-/tmp/rh/types 1000001 2000000 /tmp/rh/q7e6 7                                                     # pair/level split, §3
+scripts/z52c_rh_runtypes.sh   # all Types I/II/(★) windows (20-way parallel, ≈ 10 min) -> /tmp/rh/{t2e5full,t1e6,t2e6,q7e6,t1e7}_*
 gcc -O2 -o /tmp/rh/mbm scripts/z38_mbm.c -lm && /tmp/rh/mbm 3 1000000 0 > /tmp/rh/mbm_1e6.txt     # M_BM (≈ 15 min)
 for p in 1134241 1724209 1726201 5212561 8813281; do /tmp/rh/mbm $p $p 0; done > /tmp/rh/mbm_fail.txt
 scripts/z52c_rh_runU.sh   # independent solution counter, (2e5, 1e6] (≈ 30 min on 20 cores); then scripts/z52c_rh_crosscheck.py
@@ -378,4 +384,22 @@ uv run --with numpy python scripts/z52c_rh_decomp.py                 # §3 -> da
 ```
 
 ## 6. Review log
-(pending)
+
+**Cross-model hostile review** (openai-codex/gpt-6-astra, 2026-10-31; no CRITICAL findings; all reruns reproduced the committed
+json; Lemma 1 brute-forced for q ≤ 31; Lemma 2 checked on 746 tuples; cross-check 30 198/30 198 re-run). Findings and repairs:
+* MAJOR — Type I weights counted a prime common to a and d twice, and gave the mirror tuple (b, a, e, d) the AP weight of
+  (a, b, e, d). *Fixed* (`z52c_rh_types.c`: distinct-prime weights, mirror weighted by its own modulus 4bd and pair predicate);
+  all windows regenerated (`scripts/z52c_rh_runtypes.sh`) and every table, regression and decomposition number in this file
+  updated. Effect: ≤ 0.001 on the q ≤ 16 factors, ≤ 0.004 mod 840; conclusions unchanged.
+* MAJOR — §2.3 zero law: "tests neither model sharply" below 10⁵ was wrong (4 observed vs 21.9 expected is a sharp rejection).
+  *Rewritten*: M′ is a better mean model, not a validated zero model; the > 10⁵ agreement is 3 events.
+* MAJOR — `z52c_rh_runU.sh` did not parse. *Fixed* (bash -n clean; creates dirs, waits on PIDs, assembles the gz);
+  `z52c_rh_crosscheck.py` now asserts.
+* MINOR — "χ²/class" renamed MSSD and qualified as descriptive; added the q ≤ 16-only values (0.44–0.85).
+* MINOR — residual sds were taken from the prime-product variant; corrected (0.209 → 0.150 etc.); "not residue-class structure"
+  softened to "not explained by the tested factors".
+* MINOR — failure quantiles used the wrong 9 primes (`ff[:9]`); now by value, the 7 failures in (10³, 10⁶].
+* MINOR — harmonic-sum identities lacked the −log q constants; restored (they cancel between classes).
+* MINOR — summary item 2 overgeneralised Lemma 2's mod-4q statement to (★); restricted.
+Reviewer verdict (paraphrased): effect well supported; the closed form is conjectural (its discrepancies from the model are
+not shown to be O(L⁻²) — §1.2's "O(L⁻²)" is the derivation's claim, not verified); no progress on B3/B6; ES open.
