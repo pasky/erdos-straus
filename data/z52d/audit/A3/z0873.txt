@@ -1,0 +1,9 @@
+2 solutions 1 #with exactly one denom div by n: 0 hist {2: 1}
+4 solutions 3 #with exactly one denom div by n: 0 hist {0: 2, 2: 1}
+8 solutions 10 #with exactly one denom div by n: 0 hist {0: 8, 2: 2}
+16 solutions 28 #with exactly one denom div by n: 0 hist {0: 26, 2: 2}
+32 solutions 70 #with exactly one denom div by n: 0 hist {0: 66, 2: 4}
+64 solutions 128 #with exactly one denom div by n: 0 hist {0: 124, 2: 4}
+128 solutions 269 #with exactly one denom div by n: 0 hist {0: 260, 2: 9}
+256 solutions 442 #with exactly one denom div by n: 0 hist {0: 433, 2: 9}
+512 solutions 715 #with exactly one denom div by n: 0 hist {0: 700, 2: 15}
