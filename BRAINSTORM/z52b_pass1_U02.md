@@ -1,12 +1,9 @@
-# z52b pass 1 — batch U02 (§2 untried; 207 items) — COMPLETE: every item has a line; some remain open
+# z52b pass 1 — batch U02 (§2 untried; 207 items) — INCOMPLETE (86 items still non-compliant)
 
-- Outcomes (207): nothing 87, covered 12, interesting 4, needs-compute 52, skipped 52 (skipped = restatement/meta only, or open items from the first pass that the fix rules did not reach; see the list at the bottom).
-- Interesting: Z1054 (exactly one denominator divisible by p ⇒ (y/p)(z/p) = −1 in 10656/10656 cases, p<5000); Z1568 (no proper divisor ≡ −1 mod 4C for any C≤200 among p≤10⁴ gives exactly {409,577,5569,9601}); Z0968 (Tunnell A(p) keeps +0.30 partial correlation with residual log U after (2/p), h(−8p), h(−4p); raw −0.31 is a mod-8 split; item's +0.18 not reproduced); Z2983 (conductor-24 step: the quadratic character (6/p) = (2/p)(3/p) adds +0.06 out-of-sample over the additive mod-8 + mod-3 model; absent from the repo).
-- Covered/nothing with substance: Z3075 and Z3030 reproduce the T1 odd-square exclusion (failure rate 1.0 at 975 odd-square N; 0/1600 divisor pairs); Z0339 mean U/log²p = 0.97; Z2562 enrichment is a τ(N) confound; Z3130 parity lemma (d ↦ N/d); Z0541 divisor counts far from equidistributed (93.5% zero-count slices).
-- Still open (not run to the fix-rule standard): 52 skipped and 52 needs-compute lines. The needs-compute lines state the computation and an estimate; skipped lines are mostly generic first-pass items (Z0990–Z1313 range) whose step was never made precise. These need a worker decision.
-- Proved side facts: Z0259 (no repeated denominators for p≡1 mod 4), Z0868 (≥2 even denominators for odd n), p | xyz for every solution (4xyz = p(xy+yz+zx)), Z3048 (p ∤ xyz for positive Mordell triples).
-- Records: data/z52b/pass1/outcome_U02.jsonl; scripts scripts/z52b_p1_U02_*; data data/z52b/pass1/U02/*.json.
-
+- Outcomes (207): nothing 102, covered 12, interesting 7, needs-compute 44, skipped 42.
+- Interesting (7): Z1054 (one denominator divisible by p ⇒ (y/p)(z/p) = −1, 10656/10656); Z1568 (C≤200 slice-failure set = {409,577,5569,9601} for p≤10⁴); Z0968 (Tunnell A keeps +0.30 partial after mod-8 and class numbers); Z2983 ((6/p) = (2/p)(3/p) adds +0.06 out of sample); Z1342 ((−C/p)=+1 slices succeed 22% vs 14%); Z1471 ((a/p) = −1 for all 2044 winning divisors; reduces to (C/a)=+1); Z1483 (Type I with d=1 has zero hits despite h(−4)=1).
+- Open: 86 lines are still skipped or needs-compute without a run, so the batch is NOT complete under pass1_U_fix.md. The list is in data/z52b/pass1/outcome_U02.jsonl (outcome in {skipped, needs-compute}, summary not starting with "NOT PROCESSED").
+- Records: data/z52b/pass1/outcome_U02.jsonl; scripts/z52b_p1_U02_*; data/z52b/pass1/U02/*.json.
 
 ## Z1054 — one denominator divisible by p (interesting)
 
@@ -27,3 +24,15 @@ Out-of-sample R² of residual log U (p=1 mod 4, 100<p≤3·10⁴) on residue-cla
 ## Reproduce
 
 Helper: scripts/z52b_p1_U02_lib.py (esols, validated against f4_all_30000 for n<3000). Scripts: z52b_p1_U02_{Z0081,a,b,c,d,e,f,fp,g,h,m,n,o,p}.py.
+
+## Z1342 — quadratic sign and slice success (interesting)
+
+`scripts/z52b_p1_U02_q.py`. C ≤ 12, p = 1 mod 4, p < 2000: P(slice success | (−C/p)=+1) = 0.222 (n=1062); P(success | (−C/p)=−1) = 0.140 (n=700). Next: control for (C/p) and (−1/p) jointly.
+
+## Z1471 — winning divisors are non-residues (interesting)
+
+`scripts/z52b_p1_U02_r.py`. For all 2044 divisors a of 4Cp+1 with a ≡ −1 mod 4C (C ≤ 12, 300 primes p < 2·10⁴), (a/p) = −1. Reciprocity with p ≡ 1 mod 4 gives (a/p) = (p/a) = −(C/a), so the claim is equivalent to (C/a) = +1, which is not proved here. Next: prove it; check against p < 10⁶.
+
+## Z1483 — d = 1 has no Type I certificates (interesting)
+
+`scripts/z52b_p1_U02_q.py`. Type I(d,c,p): ∃ f | p² + 4c²d, 1 < f < N, f ≡ −p mod 4cd. For 10 primes near 10⁴ and c ≤ 60: d=1: 0 hits; d=2: 72; d=3: 24; d=5: 20; d=7: 19. Consistent with Z3030 (0 of 1600). Next: prove d=1 is empty (genus argument on Z[2ci]) or find a counterexample.
