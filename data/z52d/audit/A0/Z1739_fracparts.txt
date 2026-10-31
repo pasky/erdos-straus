@@ -1,0 +1,12 @@
+prime     n=1000121 |R|=3273493 zeros(R)=42 KS-dist-to-divisor-law=0.01341 (1/sqrt|R|=0.00055) mass<0.02: 0.03416 vs law 0.03243
+prime     n=1000193 |R|=3273758 zeros(R)=38 KS-dist-to-divisor-law=0.01341 (1/sqrt|R|=0.00055) mass<0.02: 0.03414 vs law 0.03243
+prime     n=1000289 |R|=3274085 zeros(R)=36 KS-dist-to-divisor-law=0.01336 (1/sqrt|R|=0.00055) mass<0.02: 0.03411 vs law 0.03243
+prime     n=1000313 |R|=3274177 zeros(R)=46 KS-dist-to-divisor-law=0.01337 (1/sqrt|R|=0.00055) mass<0.02: 0.03413 vs law 0.03243
+prime     n=1000409 |R|=3274529 zeros(R)=20 KS-dist-to-divisor-law=0.01335 (1/sqrt|R|=0.00055) mass<0.02: 0.03415 vs law 0.03243
+prime     n=1000457 |R|=3274690 zeros(R)=26 KS-dist-to-divisor-law=0.01334 (1/sqrt|R|=0.00055) mass<0.02: 0.03411 vs law 0.03243
+composite n=1017001 |R|=3333006 zeros(R)=26 KS-dist-to-divisor-law=0.01330 (1/sqrt|R|=0.00055) mass<0.02: 0.03412 vs law 0.03243
+composite n=1012729 |R|=3317932 zeros(R)=4 KS-dist-to-divisor-law=0.01324 (1/sqrt|R|=0.00055) mass<0.02: 0.03410 vs law 0.03243
+composite n=1010209 |R|=3309048 zeros(R)=16 KS-dist-to-divisor-law=0.01328 (1/sqrt|R|=0.00055) mass<0.02: 0.03412 vs law 0.03243
+composite n=1005385 |R|=3292051 zeros(R)=14 KS-dist-to-divisor-law=0.01339 (1/sqrt|R|=0.00055) mass<0.02: 0.03419 vs law 0.03243
+composite n=1006129 |R|=3294680 zeros(R)=16 KS-dist-to-divisor-law=0.01330 (1/sqrt|R|=0.00055) mass<0.02: 0.03413 vs law 0.03243
+composite n=1000801 |R|=3275905 zeros(R)=26 KS-dist-to-divisor-law=0.01323 (1/sqrt|R|=0.00055) mass<0.02: 0.03408 vs law 0.03243
