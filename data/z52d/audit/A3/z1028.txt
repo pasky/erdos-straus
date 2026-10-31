@@ -1,0 +1,2 @@
+primes 9590 mismatches 0 zeros of D^-(12p+1) 6411
+zero pattern (sigma_-4==tau, sigma_-3==tau, sigma_12==tau): count {(True, True, True): 2687, (True, False, False): 2156, (False, True, False): 1568}
