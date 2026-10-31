@@ -1,0 +1,121 @@
+{
+ "Z1150_conjugators_found": 0,
+ "Z1157_count_over_nlogn": {
+  "1000": 0.242,
+  "10000": 0.2442
+ },
+ "Z1160_cycle_lengths_mod8": [
+  [
+   1,
+   1
+  ],
+  [
+   3,
+   1
+  ],
+  [
+   6,
+   2
+  ],
+  [
+   12,
+   4
+  ]
+ ],
+ "Z1162_identity_words_len3_mod8": 0,
+ "Z1241_words_per_matrix_mod8_max": 8,
+ "Z1243_symmetry_checked": "u<->B swap is an involution on R(n) (Z1243 claim reduces to this)",
+ "Z1253_signed_continuant_matches_of_512": {
+  "(1, 1)": 0,
+  "(1, -1)": 0,
+  "(-1, 1)": 0,
+  "(-1, -1)": 0
+ },
+ "Z1298_xy_mod8_hist": [
+  [
+   [
+    0,
+    1
+   ],
+   4
+  ],
+  [
+   [
+    0,
+    5
+   ],
+   7
+  ],
+  [
+   [
+    1,
+    0
+   ],
+   4
+  ],
+  [
+   [
+    1,
+    4
+   ],
+   5
+  ],
+  [
+   [
+    2,
+    1
+   ],
+   6
+  ],
+  [
+   [
+    2,
+    5
+   ],
+   5
+  ]
+ ],
+ "Z1350_cmin_hard_vs_other": {
+  "n": 143,
+  "none_upto_399": 4,
+  "max_cmin": 14,
+  "median_cmin": 2
+ },
+ "Z1412_F2rank_64cols": 11,
+ "Z1412_rows": 13,
+ "Z1462_SB_depth_of_4_over_p_hist": [
+  [
+   5,
+   1
+  ],
+  [
+   7,
+   1
+  ],
+  [
+   8,
+   1
+  ],
+  [
+   11,
+   1
+  ],
+  [
+   13,
+   1
+  ],
+  [
+   14,
+   1
+  ],
+  [
+   17,
+   1
+  ],
+  [
+   19,
+   1
+  ]
+ ],
+ "Z1614_note": "greedy Engel lengths 3 or 4 only (see Z0152)"
+}
