@@ -1,0 +1,80 @@
+{"mid": "Z1597", "status": "untried", "files": [], "evidence": "", "note": "Turán–Kubilius/Erdős–Kac only generic or for shifts of p; no sieve over C for ω(4Cp+1)."}
+{"mid": "Z1598", "status": "open", "files": ["B1_LINE.md §5"], "evidence": "", "note": "Close variant: character forcing examined and proved negative for total product; failure-structure claim not tested."}
+{"mid": "Z1599", "status": "open", "files": ["BRAINSTORM/z33_target_davenport.md"], "evidence": "", "note": "Target-(-1) Davenport/escaper analysis examines the −1-free subgroup question; not this exact claim."}
+{"mid": "Z1600", "status": "open", "files": ["BRAINSTORM/z33_target_davenport.md", "LONGSHOT_PIGEONHOLE.md"], "evidence": "", "note": "Prescribed-element zero-sum with multiplicities examined in z33 Assessment; regime test not done."}
+{"mid": "Z1601", "status": "open", "files": ["LONGSHOT_PIGEONHOLE.md"], "evidence": "", "note": "Zero-sum (Davenport/EGZ) judged not directly applicable for single C; pooled-across-C variant not addressed."}
+{"mid": "Z1602", "status": "untried", "files": [], "evidence": "", "note": "Bleicher–Erdős only cited from memory in greedy_algorithm_dynamics; no k-vs-D analysis."}
+{"mid": "Z1603", "status": "untried", "files": [], "evidence": "", "note": "Benchmark/prize submission proposal; no repo document examines it."}
+{"mid": "Z1604", "status": "untried", "files": [], "evidence": "", "note": "409 documented widely but no one-page explainer with C≤12 table exists."}
+{"mid": "Z1605", "status": "open", "files": ["reviews/synthesis-eight-review.md §Prop 1.5"], "evidence": "", "note": "Type II with c and d parametrisation examined; the cp-as-C-form dictionary and c-minimality not recorded."}
+{"mid": "Z1606", "status": "open", "files": ["BRAINSTORM/ident_invariants.md §Lemma 1.1"], "evidence": "", "note": "e-slice minimal winning e (e_min) computed for small e; exceptional-prime e_min not reported."}
+{"mid": "Z1607", "status": "untried", "files": [], "evidence": "", "note": "Meta form-tagging hygiene proposal; no repo examination."}
+{"mid": "Z1608", "status": "untried", "files": [], "evidence": "", "note": "61%/39% finding appears only in item text; no repo document records it."}
+{"mid": "Z1609", "status": "untried", "files": [], "evidence": "", "note": "Goldbach-comet-style plot of ES data; no repo document examines it."}
+{"mid": "Z1610", "status": "untried", "files": [], "evidence": "", "note": "Ulam/Klauber spiral of certificate parameters; no repo examination found."}
+{"mid": "Z1611", "status": "untried", "files": [], "evidence": "", "note": "Möbius inversion over divisor lattice for certificate indicator; not found."}
+{"mid": "Z1612", "status": "untried", "files": [], "evidence": "", "note": "Ostrowski/Zeckendorf numeration automata idea appears only in z52b lanes."}
+{"mid": "Z1613", "status": "untried", "files": [], "evidence": "", "note": "Beatty/three-gap structure of two-term remainders appears only in z52b lane text."}
+{"mid": "Z1614", "status": "untried", "files": [], "evidence": "", "note": "Collatz analogy appears only in z52b lane text; no repo computation."}
+{"mid": "Z1615", "status": "untried", "files": [], "evidence": "", "note": "Crowd-computing census proposal; not examined in repo."}
+{"mid": "Z1616", "status": "untried", "files": [], "evidence": "", "note": "Zulip/blog outreach; repo has erdosproblems #242 lit only, not this question."}
+{"mid": "Z1617", "status": "untried", "files": [], "evidence": "", "note": "Compression/Kolmogorov proof-length measurement of certificate table; no repo analysis."}
+{"mid": "Z1618", "status": "untried", "files": [], "evidence": "", "note": "Cellular-automaton view of ES search appears only in z52b text."}
+{"mid": "Z1619", "status": "untried", "files": [], "evidence": "", "note": "Fourier/almost-periodicity in C of win(p,C) not examined."}
+{"mid": "Z1620", "status": "open", "files": ["BRAINSTORM/anal_euler_product_law.md §1"], "evidence": "", "note": "Euler-product/L(1,χ_p) proxy for ES statistic examined and judged COLLAPSES; log-density constant c(p) not computed."}
+{"mid": "Z1621", "status": "untried", "files": [], "evidence": "", "note": "Lambert-series generating function of C-form count not examined."}
+{"mid": "Z1622", "status": "open", "files": ["OAI_METHOD_007.md"], "evidence": "If d=4Cu−1 and its cofactor is 4Cv−1, then p=4Cuv−u−v.", "note": "Same (u,v) reparametrisation used for a range bound only; hyperbola-sum count not done."}
+{"mid": "Z1623", "status": "open", "files": ["BRAINSTORM/s9_union_thinning.md"], "evidence": "W(p) is itself a divisor-in-moving-class count (each word is a divisor e ≡ −1 (mod u) of p + u)", "note": "Shifted-prime divisor reformulation noted and barrier-screened (B2); literature search not done."}
+{"mid": "Z1624", "status": "open", "files": ["FRONTIER.md §1"], "evidence": "e-slice form: ES(p) ⟺ ∃ e ≡ −p (mod 4) with −1 ∈ {ab⁻¹ mod e : ab | N}, N = (p+e)/4 (Type II) or (pe+1)/4 (Type I).", "note": "Type I e-slice already recorded; shifted pu+1 divisor restatement and 2521 table not done."}
+{"mid": "Z1625", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "Two-sided union statement touched by López 'union conjecture' and e-slice equivalence; not written as one-parameter test."}
+{"mid": "Z1626", "status": "untried", "files": [], "evidence": "", "note": "Search of erdosproblems for divisors of n+k in k-dependent classes not performed."}
+{"mid": "Z1627", "status": "untried", "files": [], "evidence": "", "note": "Local/QNR obstruction test for 409 in shifted form not found in repo."}
+{"mid": "Z1628", "status": "untried", "files": [], "evidence": "", "note": "Residue-avoidance table for p+u at p=409 not present."}
+{"mid": "Z1629", "status": "open", "files": ["BRAINSTORM/bsB_salie_duality.md"], "evidence": "(f'/p) = −1 on every certificate follows directly", "note": "Same forced Legendre symbol derived for Type II certificates; shifted-form version and near-miss scan not done."}
+{"mid": "Z1630", "status": "open", "files": ["BRAINSTORM/polynomial_method.md"], "evidence": "", "note": "T1 odd-square obstruction known for C-form; shifted m²+u divisor version not written explicitly."}
+{"mid": "Z1631", "status": "open", "files": ["BRAINSTORM/bsB_salie_duality.md"], "evidence": "", "note": "Forced symbols examined for Type II; empirical entropy-based forced-symbol search not performed."}
+{"mid": "Z1632", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "Exceptional sets (193/2521/66529) and union conjecture recorded from López; disjointness of the two sets not tested."}
+{"mid": "Z1633", "status": "untried", "files": [], "evidence": "", "note": "Meta: brief for follow-up lane; no repo examination."}
+{"mid": "Z1634", "status": "done", "files": ["BRAINSTORM/z52_lit_unitfrac_cover.md §4"], "evidence": "Abstract theorem: every positive rational is a finite sum of distinct `1/(p−1)`", "note": "Abstract of 2305.02689 read and recorded; constraint analysis partial."}
+{"mid": "Z1635", "status": "open", "files": ["BRAINSTORM/y7_mordell_levels.md"], "evidence": "Same harness for M = 4, p ≤ 10⁵: uncertified residues = Mordell's six.", "note": "m=4 and m=7 per-residue covering checked; uniform-in-m sweep to m=12 not done."}
+{"mid": "Z1636", "status": "blocked", "files": ["BRAINSTORM/covering_distortion_dual.md §5"], "evidence": "COLLAPSES to B1/B6. The dual covering problem is already exactly quantified by the campaign's Haar/Ω line", "note": "Hough/BBMST covering-distortion route for ES judged collapsing; Mordell-history part untouched."}
+{"mid": "Z1637", "status": "untried", "files": [], "evidence": "", "note": "Erdős–Graham book survey of unit-fraction problems; no repo pass over solved list for ES methods."}
+{"mid": "Z1638", "status": "untried", "files": [], "evidence": "", "note": "Martin's dense-Egyptian result recorded in lit lane; not applied to 4/p with k=4 denominators."}
+{"mid": "Z1639", "status": "untried", "files": [], "evidence": "", "note": "Four-term 4/p triviality and 4-term solution-count comparison not performed."}
+{"mid": "Z1640", "status": "untried", "files": [], "evidence": "", "note": "Tao 2011 blog comment harvest not in repo."}
+{"mid": "Z1641", "status": "untried", "files": [], "evidence": "", "note": "Webb/Li historical exceptional-set table not compiled; only campaign bounds present."}
+{"mid": "Z1642", "status": "untried", "files": [], "evidence": "", "note": "Sylvester/extremal Egyptian denominator max(z)/p² ratio not computed."}
+{"mid": "Z1643", "status": "untried", "files": [], "evidence": "", "note": "ES over number fields with total positivity not examined in repo."}
+{"mid": "Z1644", "status": "untried", "files": [], "evidence": "", "note": "Elsholtz 2001 k-term sums not examined; repo cites Elsholtz–Tao only."}
+{"mid": "Z1645", "status": "open", "files": ["EXCEPTIONAL_LARGESIEVE.md"], "evidence": "", "note": "Large-sieve route to the exceptional set examined across series; multiplicative-semigroup moduli variant not checked."}
+{"mid": "Z1646", "status": "untried", "files": [], "evidence": "", "note": "Erdős–Graham denominators-from-a-set problem not examined for ES."}
+{"mid": "Z1647", "status": "open", "files": ["B2_ACROSS_FIELDS.md §4.3"], "evidence": "Duke 1988 Thm 1 (verbatim via agent). New elementary dictionary (memo 4, Lemma 4.1, PROVED", "note": "Duke/ternary equidistribution route examined as a dictionary; ternary-spinor large-integer version not tested."}
+{"mid": "Z1648", "status": "untried", "files": [], "evidence": "", "note": "Explicit all-p-large Helfgott-type threshold for ES routes not written."}
+{"mid": "Z1649", "status": "untried", "files": [], "evidence": "", "note": "Cyclotomic/Stickelberger-type rigidity attached to p not examined beyond README mentions."}
+{"mid": "Z1650", "status": "open", "files": ["INVOLUTION_ES2.md"], "evidence": "", "note": "Zagier-type involutions on ES windmills examined; restricted-subset parity claim not tested."}
+{"mid": "Z1651", "status": "open", "files": ["BRAINSTORM/cayley_markoff_cm.md", "BM_CORRECTED_COUNT.md"], "evidence": "m = 4 + βν² from the singular Cayley cubic.", "note": "Singular Cayley cubic and Markoff relation examined; closure singularity type and torsor count not done."}
+{"mid": "Z1652", "status": "untried", "files": [], "evidence": "", "note": "Saturation results on Cayley cubic (arXiv:1406.6963) not examined."}
+{"mid": "Z1653", "status": "open", "files": ["BRAINSTORM/z31_duke_equidistribution.md"], "evidence": "", "note": "Linnik/ELMV split-prime equidistribution examined for power-size point sets; ES-fibre version with fixed split prime not tested."}
+{"mid": "Z1654", "status": "untried", "files": [], "evidence": "", "note": "Ellenberg–Venkatesh local-global cited only for lattices; ES slice as orbit count not examined."}
+{"mid": "Z1655", "status": "untried", "files": [], "evidence": "", "note": "Erdős–Graham prime-denominator strengthening not checked for 4/p."}
+{"mid": "Z1656", "status": "done", "files": ["BRAINSTORM/z52_lit_es_direct.md"], "evidence": "extend filters with S_29 to 2,101,514 residues mod 25,878,772,920", "note": "Mihnea–Dumitru filter set recorded from arXiv:2509.00128; brute-force fraction partly recorded."}
+{"mid": "Z1657", "status": "untried", "files": [], "evidence": "", "note": "Galois/monodromy obstruction for polynomial identities over square classes not examined."}
+{"mid": "Z1658", "status": "untried", "files": [], "evidence": "", "note": "Booker–Sutherland cube-sum computation not adapted to ES search in repo."}
+{"mid": "Z1659", "status": "untried", "files": [], "evidence": "", "note": "Two-stage Huang–Vaughan ES tree not enumerated; farey docs do not address it."}
+{"mid": "Z1660", "status": "untried", "files": [], "evidence": "", "note": "1990s–2000s ES averaging literature not surveyed for techniques."}
+{"mid": "Z1661", "status": "untried", "files": [], "evidence": "", "note": "Erdős 1950 Hungarian paper not located in repo."}
+{"mid": "Z1662", "status": "untried", "files": [], "evidence": "", "note": "UPINT D11 reference diff not performed."}
+{"mid": "Z1663", "status": "untried", "files": [], "evidence": "", "note": "Distinct-denominator sanity table for primes ≤10⁷ not computed."}
+{"mid": "Z1664", "status": "untried", "files": [], "evidence": "", "note": "Browning–Elsholtz upper bounds cited in bsE_et_casework_depth only; not used as lower-bound pressure."}
+{"mid": "Z1665", "status": "open", "files": ["DISCOVERIES.md", "WINDMILL_REDUCTION.md"], "evidence": "Zagier's windmill is the dihedral symmetry of Conway rivers.", "note": "Conway river/topograph of windmill examined; topograph of γ_w-fixed forms with p location not drawn."}
+{"mid": "Z1666", "status": "open", "files": ["BRAINSTORM/ident_numerators.md"], "evidence": "Pomerance–Weingartner arXiv:2511.16817: Schinzel exceptions exist with `n_m ≥ exp(m^{1/3+o(1)})`", "note": "Pomerance–Weingartner m/n exceptions recorded; virtual m=4 analogue not tested."}
+{"mid": "Z1667", "status": "open", "files": ["BRAINSTORM/anal_dirichlet_series.md"], "evidence": "", "note": "Dirichlet series of ES counts examined; multiple-zeta-like structure not addressed."}
+{"mid": "Z1668", "status": "open", "files": ["BRAINSTORM/z52_lit_points_automorphic.md"], "evidence": "", "note": "Wilsch log-Fano integral-point counts recorded; check for ES-type surfaces not completed."}
+{"mid": "Z1669", "status": "untried", "files": [], "evidence": "", "note": "Egyptian tiling/Dehn-invariant reformulation not examined."}
+{"mid": "Z1670", "status": "untried", "files": [], "evidence": "", "note": "Cox ring of Cayley cubic appears only as lane text; no explicit entry checked."}
+{"mid": "Z1671", "status": "blocked", "files": ["BRAINSTORM/z45_etale_descent.md"], "evidence": "the geometric étale fundamental groups are `π₁(U_n)=1`", "note": "Étale covers of U_n are trivial, so étale-Brauer adds nothing beyond BM."}
+{"mid": "Z1672", "status": "open", "files": ["BRAINSTORM/z45_etale_descent.md"], "evidence": "", "note": "π₁(U_n)=1 recorded; Kummer H¹(U_n, μ_m) and ET congruence matching not computed."}
+{"mid": "Z1673", "status": "open", "files": ["BRAINSTORM/s9_fibration_level.md"], "evidence": "", "note": "Fibration method with Schinzel-type input examined; integral-points version for this total space not settled."}
+{"mid": "Z1674", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md §P2"], "evidence": "", "note": "Pencil through ES surface analysed as rational elliptic surface; y/z-slice genus not separately examined."}
+{"mid": "Z1675", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md §P2"], "evidence": "", "note": "Pencil Picard/Mordell–Weil rank computed (MW rank 0); specialisation k→0 jumps not checked."}
+{"mid": "Z1676", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md §P2"], "evidence": "", "note": "Shioda–Tate/Mordell–Weil bookkeeping on the pencil; full NS lattice and Galois action not computed."}
