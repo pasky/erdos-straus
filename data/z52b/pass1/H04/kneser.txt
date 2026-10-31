@@ -1,0 +1,9 @@
+primes: 200 1000609 1087249  levels C<=100
+  hit: 1166
+  a: -1 not in <primes>: 14398
+  b: -1 in <primes>, not in D: 4436
+  stabiliser ('a', 'H nontrivial') 2273
+  stabiliser ('a', 'H trivial') 12125
+  stabiliser ('b', 'H nontrivial') 647
+  stabiliser ('b', 'H trivial') 3789
+  type b: |D|/|<primes>| quartiles [0.083, 0.117, 0.208, 0.35, 0.5]
