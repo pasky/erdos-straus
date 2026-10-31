@@ -1,0 +1,26 @@
+{
+ "100000": {
+  "mean_R": 23.304,
+  "mean_Rprime": 6.4,
+  "Rprime_over_logp": 0.5558969368361624,
+  "R_over_log2p": 0.175816279486346,
+  "frac_Rprime0": 0.008,
+  "min_Rprime": 0
+ },
+ "1000000": {
+  "mean_R": 31.688,
+  "mean_Rprime": 7.352,
+  "Rprime_over_logp": 0.5321555051587846,
+  "R_over_log2p": 0.16602020708066728,
+  "frac_Rprime0": 0.008,
+  "min_Rprime": 0
+ },
+ "10000000": {
+  "mean_R": 42.32,
+  "mean_Rprime": 9.28,
+  "Rprime_over_logp": 0.5757503988660252,
+  "R_over_log2p": 0.16289891872513268,
+  "frac_Rprime0": 0.0,
+  "min_Rprime": 1
+ }
+}
