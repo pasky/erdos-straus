@@ -1,6 +1,6 @@
 # z52b pass1 U06 — status (INCOMPLETE batch; not merged)
 
-Status: 70 of 207 items have an outcome line; the rest are NOT yet processed. Counts from data/z52b/pass1/outcome_U06.jsonl are
+Status: 69 of 207 items have an outcome line; the remaining 138 are NOT yet processed. Counts from data/z52b/pass1/outcome_U06.jsonl are
 in the file; the fix pass (pass1_U_fix.md) is applied only to the first 70 items.
 
 Interesting (2):
