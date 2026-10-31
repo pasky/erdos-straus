@@ -1,0 +1,22 @@
+p mod 8 = 1
+  [1e+03,1e+04) N=258 coef(err*sqrt p ~ b*E*L1): b=4.978, b/log p=0.5815, corr=0.862, sd resid/L^1.5=0.131, sd resid/L=0.383
+  [1e+04,1e+05) N=2089 coef(err*sqrt p ~ b*E*L1): b=6.237, b/log p=0.5730, corr=0.826, sd resid/L^1.5=0.154, sd resid/L=0.509
+  [1e+05,1e+06) N=17168 coef(err*sqrt p ~ b*E*L1): b=7.686, b/log p=0.5829, corr=0.804, sd resid/L^1.5=0.171, sd resid/L=0.620
+  [1e+06,1e+07) N=306 coef(err*sqrt p ~ b*E*L1): b=9.366, b/log p=0.6036, corr=0.799, sd resid/L^1.5=0.187, sd resid/L=0.736
+  [1e+07,1e+07) N=3094 coef(err*sqrt p ~ b*E*L1): b=10.000, b/log p=0.6208, corr=0.775, sd resid/L^1.5=0.199, sd resid/L=0.801
+p mod 8 = 5
+  [1e+03,1e+04) N=271 coef(err*sqrt p ~ b*E*L1): b=0.237, b/log p=0.0276, corr=0.344, sd resid/L^1.5=0.115, sd resid/L=0.337
+  [1e+04,1e+05) N=2085 coef(err*sqrt p ~ b*E*L1): b=0.342, b/log p=0.0314, corr=0.352, sd resid/L^1.5=0.110, sd resid/L=0.364
+  [1e+05,1e+06) N=17224 coef(err*sqrt p ~ b*E*L1): b=0.504, b/log p=0.0382, corr=0.372, sd resid/L^1.5=0.106, sd resid/L=0.384
+  [1e+06,1e+07) N=299 coef(err*sqrt p ~ b*E*L1): b=0.708, b/log p=0.0457, corr=0.442, sd resid/L^1.5=0.098, sd resid/L=0.384
+  [1e+07,1e+07) N=3080 coef(err*sqrt p ~ b*E*L1): b=0.726, b/log p=0.0450, corr=0.394, sd resid/L^1.5=0.101, sd resid/L=0.405
+p mod 8 = 3
+  [1e+03,1e+04) N=267 coef(err*sqrt p ~ b*E*L1): b=0.329, b/log p=0.0384, corr=-0.153, sd resid/L^1.5=0.124, sd resid/L=0.364
+  [1e+04,1e+05) N=2098 coef(err*sqrt p ~ b*E*L1): b=0.272, b/log p=0.0250, corr=-0.136, sd resid/L^1.5=0.119, sd resid/L=0.393
+  [1e+05,1e+06) N=17244 coef(err*sqrt p ~ b*E*L1): b=0.285, b/log p=0.0216, corr=-0.138, sd resid/L^1.5=0.115, sd resid/L=0.418
+  [1e+07,1e+07) N=3074 coef(err*sqrt p ~ b*E*L1): b=0.309, b/log p=0.0192, corr=-0.138, sd resid/L^1.5=0.113, sd resid/L=0.455
+p mod 8 = 7
+  [1e+03,1e+04) N=265 coef(err*sqrt p ~ b*E*L1): b=-1.391, b/log p=-0.1627, corr=-0.695, sd resid/L^1.5=0.087, sd resid/L=0.253
+  [1e+04,1e+05) N=2091 coef(err*sqrt p ~ b*E*L1): b=-1.563, b/log p=-0.1438, corr=-0.660, sd resid/L^1.5=0.093, sd resid/L=0.307
+  [1e+05,1e+06) N=17270 coef(err*sqrt p ~ b*E*L1): b=-1.705, b/log p=-0.1293, corr=-0.642, sd resid/L^1.5=0.092, sd resid/L=0.335
+  [1e+07,1e+07) N=3066 coef(err*sqrt p ~ b*E*L1): b=-1.997, b/log p=-0.1240, corr=-0.603, sd resid/L^1.5=0.099, sd resid/L=0.397
