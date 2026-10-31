@@ -1,6 +1,5 @@
 # z52d avenue — batch P01 (100 items) summary
-ES is OPEN. Rows: `out_P01.jsonl`. Per-row labels are Assessments unless they cite a PROVED/CERTIFIED source. Batch is mostly
-unit-fraction literature (Erdős #299–#321, Croot/Bloom/Liu–Sawhney), sign/reciprocity items and ring analogues.
+ES is OPEN. Rows: `out_P01.jsonl`; labels are Assessments unless a PROVED/CERTIFIED source is cited. Mostly unit-fraction literature, sign laws, rings.
 
 **Status × plausibility** (columns: plausibility 0/1/2/3)
 | status | 0 | 1 | 2 | 3 | Σ |
@@ -17,8 +16,7 @@ No harder-than-open. Novelty: 0 → 55, 1 → 42, 2 → 3 (Z0163, Z1121, Z1358; 
   q ≡ 3 (4) with (ℓ/q) = −1. Then ord_q(ℓ) = 2k with k odd, so q | 1+ℓ^k, and with x = (n+q)/4,
   4/n = 1/x + qℓ^k/((1+ℓ^k)nx) + q/((1+ℓ^k)nx). This extends other_rings Prop 3.2 (ℓ = 3, 5) to every non-square ℓ. Unlike
   POWER_LADDER Thm 5.1, which puts the mute prime in one numerator, it needs no Artin condition. Checked by
-  `scripts/z52d_avenue_zl_check.py`. It is a relaxation; the transport back to cap 0 is blocked (B-fin).
-* Plaus ≥ 2, novelty 0: Z0075 (the 'collapse' half of the discrete-cone principle for real quadratic O_K with N(ε) = +1).
+  `scripts/z52d_avenue_zl_check.py`. It is a relaxation; transport back to cap 0 is blocked (B-fin). (Plaus 2, novelty 0: Z0075.)
 
 **Recurring missing theorems**
 1. *Growing-window lower tail* (X_win / X_QNR; one B2 event per window; bounded windows false under Dickson): Z0942, Z0708, Z2206, Z2170, Z2145.
@@ -33,13 +31,10 @@ No harder-than-open. Novelty: 0 → 55, 1 → 42, 2 → 3 (Z0163, Z1121, Z1358; 
 8. *Calibration only*: Erdős cluster Z2153–Z2208, numerator models (Z0527, Z0734, Z2215), strata/valuation lemmas (Z0259 = Z1271,
    Z0868, Z0872, Z0319 = Z0994 = Z1010, Z0973), census items (Z0943, Z0949), FF/ring items (Z0004, Z0006, Z0099, Z0352).
 
-**Cheap checks / proofs in this pass** (timeout 60, ulimit 4 GB)
-* Z0251: identity checked for all primes ℓ < 3000 and n ≡ 1 (4) < 400. Z1471: every (★) divisor a ≡ −1 (mod 4C) of 4Cp+1 has
-  (a/p) = −1 (3-line Jacobi proof; this is T1 at the divisor level).
-* Z1483: Type I hits at (c, d) force (d/p) = −1, because χ_{−4d} is odd and f ≡ −p. Check over 30 primes ≈ 10⁴, d ≤ 15: no hit with (d/p) = +1
+**Cheap checks / proofs** (timeout 60, ulimit 4 GB). Z0251: identity checked for all primes ℓ < 3000 and n ≡ 1 (4) < 400. Z1471: every (★) divisor a ≡ −1 (mod 4C) of 4Cp+1 has
+  (a/p) = −1 (3-line Jacobi proof; this is T1 at the divisor level). Z1483: Type I hits at (c, d) force (d/p) = −1, because χ_{−4d} is odd and f ≡ −p. Check over 30 primes ≈ 10⁴, d ≤ 15: no hit with (d/p) = +1
   (`scripts/z52d_avenue_typeI_dsign.py`). Pass 1's 'surprise' (no hits at d = 1) is this genus/BM factor (1 − (d/p)).
 **Corrections:** Z1471 was 'not proved' in Pass 1 and is now proved. Z0110: the 17/241 coincidence is a one-sided inclusion plus
 the rarity of E₈. Z0099: no Gaussian T1 is expected (no real place, T1_TEMPLATE Cor 2.2). Z3065: the Sierpiński analogy points the wrong way.
 
-**Assessment.** No P01 item points to a proof architecture outside the repo's B2 / B3 / T1 / relaxation-transport picture.
-The only new theorem is on the ring side (Z0251) and does not bear on ES.
+**Assessment.** No P01 item points outside the repo's B2 / B3 / T1 / relaxation-transport picture; the only new theorem (Z0251) is ring-side.
