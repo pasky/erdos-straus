@@ -1,12 +1,12 @@
 # BM_LVALUE — the Brauer–Manin correction T(p) is ¼·E(χ_p)·L(1,χ_p)² (depth lane Z2882, wave z52c)
 
-Status: depth-lane draft (skeleton). **ES is OPEN; nothing here proves ES or any infinite case of it.** Labels: PROVED /
+Status: depth-lane result (z52c), cross-model reviewed (§5); not merged. **ES is OPEN; nothing here proves ES or any infinite case of it.** Labels: PROVED /
 CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z52c_bmL_*`, data `data/z52c/bmL/`.
 Builds on `BM_CORRECTED_COUNT.md` (Prop 2.1, Thm 2.2, Prop 2.3), `FRONTIER.md` §2.2, Pass-1 record
 `BRAINSTORM/z52b_pass1_H07.md` §Z2882.
 
 ## 0. Summary (≤ 12 lines)
-* **PROVED (Thm A, §2):** for every prime p, T(p) = Σ_{𝒫(p)} (−uB/p)/φ(4uB) = (σ/4)·E(χ_p)·L(1, χ_p)² + O(p^{−1/16} log p),
+* **PROVED (Thm A, §2):** for every prime p ≥ 5, T(p) = Σ_{𝒫(p)} (−uB/p)/φ(4uB) = (σ/4)·E(χ_p)·L(1, χ_p)² + O(p^{−1/16} log p),
   σ = χ_p(−1), E = (2χ_p(2) − 1)∏_{ℓ odd} e_ℓ(χ_p(ℓ)) an explicit Euler product with sign χ_p(2); absolute effective constant
   (Burgess r = 2 in the bulk uB ≤ p/4; Pólya–Vinogradov suffices on the boundary). For p ≡ 1 (4): T = E·(h(p) log ε_p)²/p + o(1).
 * **CONDITIONAL (GRH):** error O_ε(p^{−1/4+ε}). **EVIDENCE (§1, 91 415 primes ≤ 10⁷ incl. all ≤ 10⁶, all 14 (★)-failures):**
