@@ -1,0 +1,16 @@
+x+y square       fail primes= 39176 (p=1(4):  39175, frac 1.0000) last=999961 head=[2, 5, 13, 17, 29, 37, 41, 53, 61, 73] meanshare(top half)=0.000
+x+y+z square     fail primes= 78491 (p=1(4):  39175, frac 1.0000) last=999983 head=[2, 3, 5, 7, 13, 17, 19, 23, 29, 31] meanshare(top half)=0.000
+y-x square       fail primes= 36386 (p=1(4):  36386, frac 0.9288) last=999961 head=[5, 29, 37, 41, 61, 73, 89, 97, 101, 109] meanshare(top half)=0.000
+x+y prime        fail primes= 38060 (p=1(4):  26836, frac 0.6850) last=999959 head=[13, 29, 37, 41, 61, 89, 97, 103, 109, 137] meanshare(top half)=0.002
+z-y square       fail primes= 39159 (p=1(4):  39159, frac 0.9996) last=999961 head=[13, 17, 29, 37, 41, 53, 61, 73, 89, 97] meanshare(top half)=0.000
+x triangular     fail primes= 35795 (p=1(4):  20044, frac 0.5117) last=999961 head=[5, 13, 41, 89, 149, 151, 193, 281, 317, 331] meanshare(top half)=0.005
+n | x+y+z        fail primes= 78498 (p=1(4):  39175, frac 1.0000) last=999983 head=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29] meanshare(top half)=0.000
+x+z square       fail primes= 78227 (p=1(4):  39175, frac 1.0000) last=999983 head=[2, 3, 5, 7, 13, 17, 19, 23, 29, 31] meanshare(top half)=0.000
+x=ceil(n/4)      fail primes=  4540 (p=1(4):   4540, frac 0.1159) last=999769 head=[73, 193, 241, 313, 409, 433, 601, 673, 769, 1033] meanshare(top half)=0.106
+x,y squarefree   fail primes=     3 (p=1(4):      1, frac 0.0000) last=21169 head=[71, 191, 21169] meanshare(top half)=0.132
+x odd            fail primes=     5 (p=1(4):      5, frac 0.0001) last=2521 head=[5, 37, 193, 197, 2521] meanshare(top half)=0.190
+x=1 mod 4        fail primes=    33 (p=1(4):     25, frac 0.0006) last=157393 head=[5, 7, 11, 29, 37, 41, 43, 89, 181, 193] meanshare(top half)=0.096
+x=1 mod 3        fail primes=    10 (p=1(4):     10, frac 0.0003) last=19889 head=[5, 17, 41, 89, 241, 449, 761, 2161, 7937, 19889] meanshare(top half)=0.237
+z prime          fail primes= 78496 (p=1(4):  39175, frac 1.0000) last=999983 head=[5, 7, 11, 13, 17, 19, 23, 29, 31, 37] meanshare(top half)=0.000
+y prime          fail primes= 36313 (p=1(4):  19564, frac 0.4994) last=999979 head=[7, 13, 31, 37, 43, 61, 67, 73, 79, 97] meanshare(top half)=0.002
+y^2>=xz          fail primes=     0 (p=1(4):      0, frac 0.0000) last=None head=[] meanshare(top half)=0.299
