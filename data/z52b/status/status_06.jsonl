@@ -38,3 +38,73 @@
 {"mid": "Z2432", "status": "untried", "files": [], "evidence": "", "note": "Polynomial partitioning / Guth–Katz for ES cubic surface incidences not found in repo."}
 {"mid": "Z2433", "status": "untried", "files": [], "evidence": "", "note": "Slice rank of certificate tensor not computed; slice rank appears only as generic technique list."}
 {"mid": "Z2434", "status": "open", "files": ["BRAINSTORM/polynomial_method.md §header"], "evidence": "", "note": "Nullstellensatz/CHN polynomial method for ES congruences examined generically (COLLAPSES); mod-ℓ top coefficient not checked."}
+{"mid": "Z2435", "status": "open", "files": ["BRAINSTORM/technique_transfer_list.md §15"], "evidence": "", "note": "Huang sensitivity dismissed as cosmetic analogy; signed divisor-cube construction not tested."}
+{"mid": "Z2436", "status": "open", "files": ["BRAINSTORM/technique_transfer_list.md §12"], "evidence": "", "note": "Park–Pham thresholds judged inapplicable at fixed p; matched random-model threshold not simulated."}
+{"mid": "Z2437", "status": "open", "files": ["BRAINSTORM/technique_transfer_list.md §12"], "evidence": "", "note": "Spread/fractional-threshold route dismissed with Kahn–Kalai; spread parameter of certificate measure not computed."}
+{"mid": "Z2438", "status": "untried", "files": [], "evidence": "", "note": "Sunflower structure among ES solutions not examined; only unrelated sunflower DNF data."}
+{"mid": "Z2439", "status": "untried", "files": [], "evidence": "", "note": "Hypergraph container counts for ES failure sets not found in repo."}
+{"mid": "Z2440", "status": "open", "files": ["BRAINSTORM/prob_lll_fixed_p.md §(absorption line)"], "evidence": "", "note": "Absorption noted as building global coverings, labelled B1; almost-all-to-all gadget not examined."}
+{"mid": "Z2441", "status": "open", "files": ["BRAINSTORM/technique_transfer_list.md §12"], "evidence": "", "note": "Expectation-threshold route judged inapplicable at fixed p; OAI 175 threshold recomputation not done."}
+{"mid": "Z2442", "status": "open", "files": ["BRAINSTORM/technique_transfer_list.md §5"], "evidence": "", "note": "Green–Tao-type density structure rejected for winning-θ set (B3); regularity for failure set not checked."}
+{"mid": "Z2443", "status": "open", "files": ["BRAINSTORM/technique_transfer_list.md §5"], "evidence": "", "note": "Transference rejected for θ-sets at fixed p (\"relative density > 0\" fails); prime-set version not examined."}
+{"mid": "Z2444", "status": "open", "files": ["BRAINSTORM/z45_recent_pointwise_tools.md §table (LSS row)"], "evidence": "", "note": "LSS/Gowers rejected as \"no prescribed multiplicative class\"; Gowers norm of ES indicator not estimated."}
+{"mid": "Z2445", "status": "open", "files": ["BRAINSTORM/wildcard_list.md §W7"], "evidence": "", "note": "GTZ linear-pattern route pre-screened COLLAPSES (B6) for factorisation patterns; prime-denominator shapes not enumerated."}
+{"mid": "Z2446", "status": "untried", "files": [], "evidence": "", "note": "Peluse–Prendiville power-saving polynomial Szemerédi not applied to Mordell-family configurations."}
+{"mid": "Z2447", "status": "open", "files": ["BRAINSTORM/addcomb_unit_fraction_density.md §Verdict"], "evidence": "", "note": "Bloom/Croot unit-fraction methods collapse to B3; Liu–Sawhney lemmas for fixed term count not listed."}
+{"mid": "Z2448", "status": "open", "files": ["OAI_DUMP_IMPACT.md §table row 025"], "evidence": "", "note": "OAI 025 judged \"not an ES upgrade\": headline does not reach 3 terms; a=4 degeneration not checked."}
+{"mid": "Z2449", "status": "untried", "files": [], "evidence": "", "note": "Moreira / Hindman sum-product configuration for ES Type I not examined."}
+{"mid": "Z2450", "status": "untried", "files": [], "evidence": "", "note": "Erdős reciprocal-sum (OAI 159) calibration for failure set not found in repo."}
+{"mid": "Z2451", "status": "untried", "files": [], "evidence": "", "note": "Campos et al. book algorithm not examined for ES colouring search."}
+{"mid": "Z2452", "status": "untried", "files": [], "evidence": "", "note": "Mattheus–Verstraëte algebraic graph for sterile patterns not examined."}
+{"mid": "Z2453", "status": "open", "files": ["BRAINSTORM/z23_expander_walk.md §header"], "evidence": "", "note": "Expander/free-walk reasoning on class group examined; Cayley graph on (Z/e)^× from prime factors not measured."}
+{"mid": "Z2454", "status": "open", "files": ["BRAINSTORM/z33_forced_quotient_total.md §header"], "evidence": "", "note": "Forced quotient structure examined; approximate-group test |Q·Q| ≤ K|Q| not run."}
+{"mid": "Z2455", "status": "open", "files": ["BRAINSTORM/thin_group_orbits.md §header"], "evidence": "", "note": "Affine-sieve/thin-group route screened as B3; ES5 semigroup mod-q closure not computed."}
+{"mid": "Z2456", "status": "open", "files": ["BRAINSTORM/nonab_homogeneous_dynamics.md §header"], "evidence": "", "note": "Uniform congruence counting screened as B3; truncated-digit Hausdorff dimension not computed."}
+{"mid": "Z2457", "status": "untried", "files": [], "evidence": "", "note": "Kontorovich–Nakamura reflective lattice check for ES lattices not found; Apollonian lattice memo unrelated."}
+{"mid": "Z2458", "status": "open", "files": ["BRAINSTORM/apollonian_reciprocity.md §header"], "evidence": "", "note": "Bourgain–Kontorovich density-one Apollonian method considered as analogue; ES binary-form subfamily not identified."}
+{"mid": "Z2459", "status": "open", "files": ["BRAINSTORM/gon_incidence_kloosterman.md §(c3)"], "evidence": "", "note": "Sum-product existence results noted; multiplicative energy of {4Cp+1} not measured."}
+{"mid": "Z2460", "status": "untried", "files": [], "evidence": "", "note": "Discretised projection / Furstenberg approach to ES ratios not found in repo."}
+{"mid": "Z2461", "status": "untried", "files": [], "evidence": "", "note": "Energy E(N)=Σ R(n)² decoupling test not found; energy_note files concern other families."}
+{"mid": "Z2462", "status": "open", "files": ["BRAINSTORM/anal_moments_structured.md §header"], "evidence": "", "note": "Higher moments/structured-set analysis considered; efficient-congruencing moment exponents not computed."}
+{"mid": "Z2463", "status": "open", "files": ["BRAINSTORM/cayley_markoff_cm.md §header"], "evidence": "", "note": "Cayley-cubic/Markoff route examined for ES surface; boundary-triangle automorphism check not recorded."}
+{"mid": "Z2464", "status": "open", "files": ["GEOMETRY_ES.md §Prop 2.1"], "evidence": "", "note": "Toric/log-CY model of U_n recorded; GHK theta-function basis not examined."}
+{"mid": "Z2465", "status": "untried", "files": [], "evidence": "", "note": "Reciprocal-plane / Orlik–Terao presentation of U_n not found in repo."}
+{"mid": "Z2466", "status": "open", "files": ["BRAINSTORM/s9_fibration_level.md §header"], "evidence": "", "note": "Fibration-level integral points examined; Harpaz–Wittenberg hypothesis not stated for U_n."}
+{"mid": "Z2467", "status": "untried", "files": [], "evidence": "", "note": "Skorobogatov–Sofos Schinzel-on-average transfer to ES families not found."}
+{"mid": "Z2468", "status": "untried", "files": [], "evidence": "", "note": "Browning–Sofos–Teräväinen probability-1 Bateman–Horn not applied to CONDITIONAL_ES polynomials."}
+{"mid": "Z2469", "status": "open", "files": ["BRAINSTORM/s7_normform_collapse.md §header"], "evidence": "", "note": "Norm-form binary-form rung collapse examined; Browning–Matthiesen linear-norm match not checked."}
+{"mid": "Z2470", "status": "open", "files": ["BRAINSTORM/s9_fibration_level.md §header"], "evidence": "", "note": "Split-degenerate-fibre HSW hypothesis not checked; fibration level examined generically."}
+{"mid": "Z2471", "status": "open", "files": ["BRAINSTORM/cayley_markoff_cm.md §header"], "evidence": "", "note": "Cayley/Fricke cubic identification examined; Whang character-variety match not recorded."}
+{"mid": "Z2472", "status": "untried", "files": [], "evidence": "", "note": "OAI 027 integral-density mechanism not analysed in repo; only generic OAI assessments."}
+{"mid": "Z2473", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md §header"], "evidence": "", "note": "Auxiliary-curve genus for ES fibres considered; Lawrence–Venkatesh finiteness not applied."}
+{"mid": "Z2474", "status": "open", "files": ["BRAINSTORM/z18_descent_dies_at_D2.md §header"], "evidence": "", "note": "Genus ladder for ES auxiliary curves examined; DGH uniform bound not applied."}
+{"mid": "Z2475", "status": "open", "files": ["BRAINSTORM/logic_ominimal.md §Verdict"], "evidence": "", "note": "Pila–Wilkie/o-minimal counting judged COLLAPSES; sharply o-minimal (Binyamini–Novikov) variant not checked."}
+{"mid": "Z2476", "status": "untried", "files": [], "evidence": "", "note": "CCDN dimension-growth bound for integral points of U_n not found in repo."}
+{"mid": "Z2477", "status": "open", "files": ["GEOMETRY_ES.md §integral points"], "evidence": "", "note": "Integral points on the ES log-CY surface discussed; Corvaja–Zannier degeneracy not applied to boundary count."}
+{"mid": "Z2478", "status": "open", "files": ["BRAINSTORM/bsK_sunit_limit.md §header"], "evidence": "", "note": "S-unit obstruction examined as S→all primes limit; finite S-smooth ES solutions not enumerated."}
+{"mid": "Z2479", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md §header"], "evidence": "", "note": "Curve-based integral point methods considered for ES; S-unit solutions with S={2,3,5,7} not computed."}
+{"mid": "Z2480", "status": "open", "files": ["BRAINSTORM/graph_cayley_moves.md §Cayley torsor"], "evidence": "", "note": "Universal torsor of Cayley cubic noted from Heath-Brown; ES boundary torsor equation not written."}
+{"mid": "Z2481", "status": "open", "files": ["BRAINSTORM/z52_lit_points_automorphic.md §Santens"], "evidence": "", "note": "Santens/integral Manin reviewed; log-CY exponent for U_n not predicted."}
+{"mid": "Z2482", "status": "untried", "files": [], "evidence": "", "note": "Browning–Le Boudec–Sawin random Fano HP not found in repo."}
+{"mid": "Z2483", "status": "open", "files": ["LONGSHOT_FIBRED.md §header"], "evidence": "", "note": "Fibred encodings and sections considered; degree-d sections over F_q(t) dimension not computed."}
+{"mid": "Z2484", "status": "open", "files": ["GEOMETRY_ES.md §fibres"], "evidence": "", "note": "Sections of U over ℚ(n) and the Mordell–Schinzel integral barrier discussed; fibre components not computed."}
+{"mid": "Z2485", "status": "open", "files": ["BRAINSTORM/z33_forced_quotient_total.md §header"], "evidence": "", "note": "Genus/class-group parity of quadratic-form values considered; class of divisors of p²+4c²d not computed."}
+{"mid": "Z2486", "status": "untried", "files": [], "evidence": "", "note": "Ellenberg–Venkatesh–Westerland Cohen–Lenstra over F_q(t) not applied to ES Type I class groups."}
+{"mid": "Z2487", "status": "untried", "files": [], "evidence": "", "note": "Landesman–Levy stable-homology moments not formulated for function-field ES lower tails."}
+{"mid": "Z2488", "status": "open", "files": ["BRAINSTORM/bsB_redei_oddpart.md §header"], "evidence": "", "note": "Governing-field and Rédei distributions examined for ES sign layer; depth-k Rédei distribution over p not computed."}
+{"mid": "Z2489", "status": "open", "files": ["BRAINSTORM/bsB_redei_oddpart.md §header"], "evidence": "", "note": "Stevenhagen/Koymans–Pagano negative-Pell analogy examined via Rédei/genus framework; −1 ray-class formulation not written."}
+{"mid": "Z2490", "status": "open", "files": ["BRAINSTORM/bsB_redei_oddpart.md §header"], "evidence": "", "note": "CKMP-type 8-rank lower bounds considered via Rédei framework; conversion step not identified."}
+{"mid": "Z2491", "status": "untried", "files": [], "evidence": "", "note": "Ellenberg–Venkatesh small-split-primes torsion lemma not applied to ES Type I classes."}
+{"mid": "Z2492", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md §header"], "evidence": "", "note": "Elliptic pencils on ES surface examined; Cayley-resolution pencil and torsion-section map not tested."}
+{"mid": "Z2493", "status": "open", "files": ["BRAINSTORM/graph_cayley_moves.md §header"], "evidence": "", "note": "Cayley cubic moves on ES solutions examined; full birational symmetry group action not tested."}
+{"mid": "Z2494", "status": "open", "files": ["BRAINSTORM/padic_adelic_scaling.md §header"], "evidence": "", "note": "Local p-adic densities examined as blind to p; uniform motivic integration of σ_ℓ(n) not computed."}
+{"mid": "Z2495", "status": "untried", "files": [], "evidence": "", "note": "Perfectoid tilting for ES local statements not discussed in repo; low-value item."}
+{"mid": "Z2496", "status": "untried", "files": [], "evidence": "", "note": "Condensed/analytic-stack formulation of integral Brauer–Manin set not found in repo."}
+{"mid": "Z2497", "status": "open", "files": ["BRAINSTORM/nonab_motivic_pointcounts.md §header"], "evidence": "", "note": "Galois/Langlands-type objects for ES screened; automorphic Fourier-coefficient question not settled."}
+{"mid": "Z2498", "status": "open", "files": ["BRAINSTORM/padic_functionfield_igusa.md §header"], "evidence": "", "note": "Function-field geometric Langlands/motivic readings of ES considered; ℓ-adic cohomology of ES variety not computed."}
+{"mid": "Z2499", "status": "open", "files": ["BRAINSTORM/nonab_motivic_pointcounts.md §header"], "evidence": "", "note": "Point counts and motive of U_n considered (Lang–Weil generic); #U_n(F_ℓ) formula not computed."}
+{"mid": "Z2500", "status": "open", "files": ["BRAINSTORM/tropical_newton.md §header"], "evidence": "", "note": "Tropical/Newton views of ES solutions screened; tropical variety of reciprocal plane not compared with data."}
+{"mid": "Z2501", "status": "open", "files": ["BRAINSTORM/nonab_homogeneous_dynamics.md §header"], "evidence": "", "note": "Homogeneous-dynamics equidistribution screened as B3; LMW error terms for Type II count not estimated."}
+{"mid": "Z2502", "status": "open", "files": ["POINTWISE_TYPEII_SPECTRAL.md §header"], "evidence": "", "note": "Automorphic structure of Type II matrices examined; coset lattice counting with ab=4c²dp not run."}
+{"mid": "Z2503", "status": "open", "files": ["BRAINSTORM/nonab_homogeneous_dynamics.md §header"], "evidence": "", "note": "Closed-orbit equidistribution (EMV) screened generically; ternary-form closed orbit not identified."}
+{"mid": "Z2504", "status": "open", "files": ["BRAINSTORM/z21_lattice_meeting_point.md §header"], "evidence": "", "note": "Lattice-per-slice and genus views of L_ρ considered; AES joint equidistribution setup not matched."}
