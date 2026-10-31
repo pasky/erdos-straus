@@ -217,7 +217,50 @@ i.e. p close to 1 in Ẑ; a small leftover (−0.015) presumably comes from modu
 (`sorted(..., key=-U4)` in `scripts/z52b_p1_U01_practical.py`), i.e. the 30 *easiest*; in our design 29 of the 30 primes with the
 lowest residual have practical p − 1 (22 after the factor), consistent with the sign of the mean effect.
 
-(2.3 hardness model: below)
+### 2.3 The factor in the (★) hardness model (EVIDENCE; `scripts/z52c_rh_hard.py` → `data/z52c/rh/hard.json`)
+
+M_BM already contains part of the class dependence (the Brauer character χ_{−4uB}(p) through T(p)), so the refinement is
+**M′(p) := M_BM(p)·F_S(p)/F_MBM(p)**, F_S the (★) model factor (840·16/8·11·13, 1/L-rescaled) and F_MBM the class factor of
+M_BM itself (class means of M_BM over primes in [2·10⁵, 10⁶], same components; no R data enters M′). (Using F_S without the
+division double-counts the Brauer part: expected zeros 40 instead of 25 below.) 39 095 primes p ≡ 1 (4) in (10³, 10⁶]:
+
+| statistic | M_BM | M′ = M_BM·F_S/F_MBM |
+|---|---|---|
+| corr(log(R + 1), log M) | 0.486 | **0.712** |
+| swap-Poisson log-likelihood Σ log P(R/2 \| M/2) | −122 716 | **−110 967** |
+| sd of z = (R − M)/√(2M) | 1.37 | **1.07** |
+| min z (argmin) | −3.31 (329 617) | −2.86 (963 481) |
+| share of primes with R < M/2 | 2.8 % | 1.1 % |
+| free fit log(R+1) ~ a + b log M_BM + c log F | | b = 0.88, c = 0.96 |
+
+So the factor removes most of the excess dispersion that BM_CORRECTED_COUNT §3.2 recorded (sd 1.37 → 1.07, i.e. close to
+swap-Poisson), and its coefficient in a free fit is ≈ 1. **Zero law by range** (swap-Poisson, P(R = 0) = e^{−M/2}):
+
+| p range | primes | (★) zeros observed | expected under M_BM | expected under M′ |
+|---|---|---|---|---|
+| [10³, 10⁴) | 529 | 2 | 6.1 | 12.9 |
+| [10⁴, 10⁵) | 4 174 | 2 | 2.4 | 9.0 |
+| [10⁵, 3·10⁵) | 8 197 | 1 | 0.35 | 2.1 |
+| [3·10⁵, 10⁶) | 26 195 | 2 | 0.14 | 1.1 |
+
+Above 10⁵ the failures are **no longer surprising under M′** (3 observed vs 3.2 expected; under M_BM 0.49 expected, which was
+the "far tail possibly fatter than Poisson" of BM_CORRECTED §3.2). Below 10⁵ M′ overpredicts zeros: there the 1/L
+extrapolation of F from L ≈ 14 down to L ≈ 7–11 overshoots and the counts are under-dispersed (sd z = 0.76–0.92), so this
+range tests neither model sharply.
+
+**The 14 (★) failures p ≡ 1 (4) ≤ 10⁷** (409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201,
+5212561, 8813281; recomputed from `z52c_rh_star.c`, = the FRONTIER census list ≤ 10¹⁰): all 14 are ≡ 1 (mod 24) (p ≡ 1 mod 8
+and mod 3), 10 of 14 are ≡ 1 (16), 9 lie in a Mordell class mod 840, three in class 1 itself (712321, 1726201, 8813281 —
+p − 1 divisible by 3·5·7), and 11 have a second odd prime ≤ 19 dividing p − 1 (base rates among p ≡ 1 (4): 1/4 for ≡ 1 (24), 0.54 for the latter among p ≡ 1 (24)). The refined factor F_S/F_MBM at the failures is 0.57–0.82 (409, 577 excluded: p < 10³); the 9 failures ≤ 10⁶ sit at
+the 0.2–23 % quantiles of F (median 4 %). Total surprise Σ M/(2 log 10) of the 12 failures > 10³: 48.5 decades under M_BM,
+36.2 under M′. The hard primes by U are similar: F_U = 0.17 at 2521 (= lcm(1..10) + 1, the hardest prime ≤ 2·10⁵),
+0.37 / 0.39 at the Type-A failures 193 / 66529, 0.31 at 5569 and 9601. Among the 1 % of primes with the lowest R/M_BM the mean
+log F is −0.33 (all primes: −0.03); 5 of the 7 zeros in (10³, 10⁶] are in the lowest-F decile, which carries 67 % of the
+expected zeros under M′ (33 % under M_BM).
+
+Reading (Assessment): the residue factor is the dominant *predictable* component of hardness beyond M_BM; the failures are not
+explained away (they still sit 1.5–5 decades into the Poisson tail individually), but their location is: the (★)-failures
+and the U-hard primes are, almost without exception, p ≡ 1 modulo 8 and modulo several small odd primes.
 
 ## 3. Why the class of 1 is hardest
 (TODO)
