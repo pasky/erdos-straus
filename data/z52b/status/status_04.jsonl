@@ -36,8 +36,8 @@
 {"mid": "Z1632", "status": "open", "files": ["B1_LINE.md"], "evidence": "", "note": "Exceptional sets (193/2521/66529) and union conjecture recorded from López; disjointness of the two sets not tested."}
 {"mid": "Z1633", "status": "untried", "files": [], "evidence": "", "note": "Meta: brief for follow-up lane; no repo examination."}
 {"mid": "Z1634", "status": "done", "files": ["BRAINSTORM/z52_lit_unitfrac_cover.md §4"], "evidence": "Abstract theorem: every positive rational is a finite sum of distinct `1/(p−1)`", "note": "Abstract of 2305.02689 read and recorded; constraint analysis partial."}
-{"mid": "Z1635", "status": "open", "files": ["BRAINSTORM/y7_mordell_levels.md"], "evidence": "Same harness for M = 4, p ≤ 10⁵: uncertified residues = Mordell's six.", "note": "m=4 and m=7 per-residue covering checked; uniform-in-m sweep to m=12 not done."}
-{"mid": "Z1636", "status": "blocked", "files": ["BRAINSTORM/covering_distortion_dual.md §5"], "evidence": "COLLAPSES to B1/B6. The dual covering problem is already exactly quantified by the campaign's Haar/Ω line", "note": "Hough/BBMST covering-distortion route for ES judged collapsing; Mordell-history part untouched."}
+{"mid": "Z1635", "status": "open", "files": ["BRAINSTORM/y7_mordell_levels.md"], "evidence": "Same harness for M = 4, p ≤ 10⁵:", "note": "m=4 and m=7 per-residue covering checked; uniform-in-m sweep to m=12 not done."}
+{"mid": "Z1636", "status": "blocked", "files": ["BRAINSTORM/covering_distortion_dual.md §5"], "evidence": "The dual covering problem is *already exactly quantified* by the campaign's Haar/Ω line", "note": "Hough/BBMST covering-distortion route for ES judged collapsing; Mordell-history part untouched."}
 {"mid": "Z1637", "status": "untried", "files": [], "evidence": "", "note": "Erdős–Graham book survey of unit-fraction problems; no repo pass over solved list for ES methods."}
 {"mid": "Z1638", "status": "untried", "files": [], "evidence": "", "note": "Martin's dense-Egyptian result recorded in lit lane; not applied to 4/p with k=4 denominators."}
 {"mid": "Z1639", "status": "untried", "files": [], "evidence": "", "note": "Four-term 4/p triviality and 4-term solution-count comparison not performed."}
@@ -52,7 +52,7 @@
 {"mid": "Z1648", "status": "untried", "files": [], "evidence": "", "note": "Explicit all-p-large Helfgott-type threshold for ES routes not written."}
 {"mid": "Z1649", "status": "untried", "files": [], "evidence": "", "note": "Cyclotomic/Stickelberger-type rigidity attached to p not examined beyond README mentions."}
 {"mid": "Z1650", "status": "open", "files": ["INVOLUTION_ES2.md"], "evidence": "", "note": "Zagier-type involutions on ES windmills examined; restricted-subset parity claim not tested."}
-{"mid": "Z1651", "status": "open", "files": ["BRAINSTORM/cayley_markoff_cm.md", "BM_CORRECTED_COUNT.md"], "evidence": "m = 4 + βν² from the singular Cayley cubic.", "note": "Singular Cayley cubic and Markoff relation examined; closure singularity type and torsor count not done."}
+{"mid": "Z1651", "status": "open", "files": ["BM_CORRECTED_COUNT.md", "BRAINSTORM/cayley_markoff_cm.md"], "evidence": "m = 4 + βν² from the singular Cayley cubic.", "note": "Singular Cayley cubic and Markoff relation examined; closure singularity type and torsor count not done."}
 {"mid": "Z1652", "status": "untried", "files": [], "evidence": "", "note": "Saturation results on Cayley cubic (arXiv:1406.6963) not examined."}
 {"mid": "Z1653", "status": "open", "files": ["BRAINSTORM/z31_duke_equidistribution.md"], "evidence": "", "note": "Linnik/ELMV split-prime equidistribution examined for power-size point sets; ES-fibre version with fixed split prime not tested."}
 {"mid": "Z1654", "status": "untried", "files": [], "evidence": "", "note": "Ellenberg–Venkatesh local-global cited only for lattices; ES slice as orbit count not examined."}
@@ -107,13 +107,13 @@
 {"mid": "Z1703", "status": "open", "files": ["BRAINSTORM/bsA_farey_graph_metric.md"], "evidence": "", "note": "Farey-graph geodesic continued fractions examined (Beardon–Hockman–Short); Egyptian splitting along Farey edges not tested."}
 {"mid": "Z1704", "status": "open", "files": ["BRAINSTORM/bsA_hecke_cusp_excursions.md"], "evidence": "", "note": "Cusp excursions and geodesic reading examined for λ(p); closed geodesics of discriminant tied to p not tested."}
 {"mid": "Z1705", "status": "untried", "files": [], "evidence": "", "note": "Minkowski-theorem short vectors in p-dependent lattice not connected to ES coset positivity in repo."}
-{"mid": "Z1706", "status": "open", "files": ["BRAINSTORM/s8_twisted_hyperbola_thue.md"], "evidence": "", "note": "Thue/Minkowski on Xε ≡ u (mod p) examined; height free, class tied; Thue pair form for Type II not separately settled."}
+{"mid": "Z1706", "status": "open", "files": ["BRAINSTORM/s8_twisted_hyperbola_thue.md"], "evidence": "", "note": "Thue/Minkowski on Xε ≡ u (mod p) examined; height free, class tied; Thue pair form for Type II not settled."}
 {"mid": "Z1707", "status": "untried", "files": [], "evidence": "", "note": "Pell/norm-form representation of 4p not examined beyond CF residue windows."}
 {"mid": "Z1708", "status": "open", "files": ["BRAINSTORM/bsB_rayclass_norm_pullback.md"], "evidence": "", "note": "Ray-class norm pullback and Chebotarev-type splitting examined; family of fields covering all splitting types not settled."}
 {"mid": "Z1709", "status": "open", "files": ["BRAINSTORM/nonab_frobenius_redei.md"], "evidence": "", "note": "Kummer fields for 2 a quartic residue examined as non-abelian Frobenius classes; polynomial identities on these classes not decided."}
 {"mid": "Z1710", "status": "untried", "files": [], "evidence": "", "note": "Delone–Faddeev binary cubic rings not connected to ES slices in repo."}
 {"mid": "Z1711", "status": "untried", "files": [], "evidence": "", "note": "Bhargava cube composition on (★) triples not examined."}
-{"mid": "Z1712", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md"], "evidence": "", "note": "Elliptic curves in the ES surface and rank examined (memo 3); curve E_n attached to 4/n with fixed ratio not separately."}
+{"mid": "Z1712", "status": "open", "files": ["BRAINSTORM/elliptic_fibration_es.md"], "evidence": "", "note": "Elliptic curves in ES surface and their rank examined (memo 3); curve E_n for 4/n with fixed ratio not separately."}
 {"mid": "Z1713", "status": "open", "files": ["BRAINSTORM/bsB_root_number_parity.md"], "evidence": "", "note": "BSD-parity template vs ES sign examined (O175); certificate-curve parity forcing not settled."}
 {"mid": "Z1714", "status": "open", "files": ["BRAINSTORM/y1_heegner_level_t.md"], "evidence": "", "note": "Heegner points for level t and words examined (O209); forced algebraic point per p not established."}
 {"mid": "Z1715", "status": "untried", "files": [], "evidence": "", "note": "Singular-moduli norm factorisations as divisor input not examined."}
@@ -358,3 +358,42 @@
 {"mid": "Z1954", "status": "untried", "files": [], "evidence": "", "note": "LLM-based literature mining not run."}
 {"mid": "Z1955", "status": "untried", "files": [], "evidence": "", "note": "Twisted-factorisation forcing of divisors ≡ −1 not examined."}
 {"mid": "Z1956", "status": "open", "files": ["BRAINSTORM/gon_fermat_certificates.md"], "evidence": "", "note": "Fermat factorisation viewpoint on certificates examined; square-landing condition for 4Cp+1+Y² not."}
+{"mid": "Z1957", "status": "untried", "files": [], "evidence": "", "note": "Quadratic-sieve smooth values of X²−4Cp−1 not examined."}
+{"mid": "Z1958", "status": "untried", "files": [], "evidence": "", "note": "Pocklington/Proth primality framing of 4Cp+1 not examined for ES slices."}
+{"mid": "Z1959", "status": "open", "files": ["B1_LINE.md §4"], "evidence": "", "note": "Dickson-type simultaneous primality construction examined in B1 §4; C≤K tuple version not separately."}
+{"mid": "Z1960", "status": "untried", "files": [], "evidence": "", "note": "Dickson-tuple hard primes vs Type I slices not tested."}
+{"mid": "Z1961", "status": "untried", "files": [], "evidence": "", "note": "Constructive/deterministic ES algorithm target not examined."}
+{"mid": "Z1962", "status": "untried", "files": [], "evidence": "", "note": "Standard certificate format with checker not present."}
+{"mid": "Z1963", "status": "untried", "files": [], "evidence": "", "note": "Power-sum/Newton symmetric-function view not examined."}
+{"mid": "Z1964", "status": "untried", "files": [], "evidence": "", "note": "Solution-graph with shared-denominator edges not examined."}
+{"mid": "Z1965", "status": "untried", "files": [], "evidence": "", "note": "Descent/induction p → φ(p) via certificate inheritance not examined."}
+{"mid": "Z1966", "status": "untried", "files": [], "evidence": "", "note": "Hereditary p·q closure dualisation not examined."}
+{"mid": "Z1967", "status": "untried", "files": [], "evidence": "", "note": "x=p branch 3/p two-term reduction not examined as such."}
+{"mid": "Z1968", "status": "untried", "files": [], "evidence": "", "note": "Gaussian-process regression of R(p)/M(p) not run."}
+{"mid": "Z1969", "status": "untried", "files": [], "evidence": "", "note": "AI-prover benchmark construction not done."}
+{"mid": "Z1970", "status": "untried", "files": [], "evidence": "", "note": "Frobenius-number reading of tuv−u−v not in repo (no Frobenius-number hits)."}
+{"mid": "Z1971", "status": "untried", "files": [], "evidence": "", "note": "Sylvester coin-problem history link not in repo."}
+{"mid": "Z1972", "status": "untried", "files": [], "evidence": "", "note": "Popoviciu denumerant formula not in repo."}
+{"mid": "Z1973", "status": "untried", "files": [], "evidence": "", "note": "Ehrhart/denumerant quasi-polynomial reading not in repo."}
+{"mid": "Z1974", "status": "untried", "files": [], "evidence": "", "note": "Apéry-set gap structure of ⟨u,B⟩ not examined."}
+{"mid": "Z1975", "status": "untried", "files": [], "evidence": "", "note": "Frobenius-number semigroup counting template not examined."}
+{"mid": "Z1976", "status": "untried", "files": [], "evidence": "", "note": "Semigroup interpretation of Type I not examined."}
+{"mid": "Z1977", "status": "untried", "files": [], "evidence": "", "note": "Denumerant symmetry N(n)+N(g−n)=t not examined."}
+{"mid": "Z1978", "status": "untried", "files": [], "evidence": "", "note": "Frobenius restatement of (★) not examined."}
+{"mid": "Z1979", "status": "untried", "files": [], "evidence": "", "note": "Barvinok generating functions for certificates not examined."}
+{"mid": "Z1980", "status": "untried", "files": [], "evidence": "", "note": "Chebyshev-bias per-class comparison mod 840k not examined."}
+{"mid": "Z1981", "status": "untried", "files": [], "evidence": "", "note": "Grechuk Diophantine catalogue placement not examined."}
+{"mid": "Z1982", "status": "untried", "files": [], "evidence": "", "note": "Sibling xyz−x−y−z universality threshold not examined."}
+{"mid": "Z1983", "status": "untried", "files": [], "evidence": "", "note": "Mining dangling memo first steps is a meta-task, not run."}
+{"mid": "Z1984", "status": "untried", "files": [], "evidence": "", "note": "Project Euler-style fast counting not examined."}
+{"mid": "Z1985", "status": "untried", "files": [], "evidence": "", "note": "Decision-tree query lower bound for certificate search not examined."}
+{"mid": "Z1986", "status": "untried", "files": [], "evidence": "", "note": "Eisenstein sextant sibling ES not examined."}
+{"mid": "Z1987", "status": "open", "files": ["BRAINSTORM/bsD_artin_conjugation.md"], "evidence": "the class −1 is **complex conjugation c = Frob_∞**", "note": "Ray-class −1 as complex conjugation Artin symbol examined; Kummer-field reformulation not further."}
+{"mid": "Z1988", "status": "open", "files": ["BRAINSTORM/bsD_artin_conjugation.md"], "evidence": "", "note": "Complex-conjugation/CM-extension reading examined; real-subfield splitting analysis not."}
+{"mid": "Z1989", "status": "untried", "files": [], "evidence": "", "note": "Odd/even character split of slice count not examined as such."}
+{"mid": "Z1990", "status": "untried", "files": [], "evidence": "", "note": "Teichmüller rigidity analogy not examined."}
+{"mid": "Z1991", "status": "untried", "files": [], "evidence": "", "note": "Weighted projective line reformulation not examined."}
+{"mid": "Z1992", "status": "untried", "files": [], "evidence": "", "note": "Quantum oscillator degeneracy reading not examined."}
+{"mid": "Z1993", "status": "untried", "files": [], "evidence": "", "note": "Sylvester waves of restricted partition function not examined."}
+{"mid": "Z1994", "status": "untried", "files": [], "evidence": "", "note": "Torus-knot/semigroup genus relation not examined."}
+{"mid": "Z1995", "status": "untried", "files": [], "evidence": "", "note": "Vertex-configuration Egyptian equations not examined."}
