@@ -198,3 +198,53 @@
 {"mid": "Z0597", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "k=2 Egyptian (Stewart) reduction flagged in lane header; k=3 contrast open."}
 {"mid": "Z0598", "status": "open", "files": ["BRAINSTORM/apollonian_reciprocity.md"], "evidence": "", "note": "Apollonian reciprocity obstruction examined against Zaremba; ES minimal pair open."}
 {"mid": "Z0599", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "p+2^k periodic-witness covering versus ES flagged in lane header; not tested."}
+{"mid": "Z0600", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0601", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0602", "status": "open", "files": ["BRAINSTORM/z31_small_count_pointwise.md"], "evidence": "", "note": "Romanoff positive density versus ES almost-all contrast examined; not an ES construction."}
+{"mid": "Z0603", "status": "open", "files": ["BRAINSTORM/graph_cayley_moves.md"], "evidence": "", "note": "Universal torsor of ES surface mentioned in graph-moves memo; integral points not computed."}
+{"mid": "Z0604", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0605", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0606", "status": "open", "files": ["UNIT_ORBIT_ES.md"], "evidence": "", "note": "Symmetry group of the solution set examined in unit-orbit memo."}
+{"mid": "Z0607", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0608", "status": "open", "files": ["BRAINSTORM/ident_numerators.md"], "evidence": "", "note": "Identities in p searched; Mordell–Schinzel rules out identities in p alone."}
+{"mid": "Z0609", "status": "open", "files": ["BRAINSTORM/z52b_dividing_header.md"], "evidence": "", "note": "Composite-n failure structure for small numerators recorded in lane items only."}
+{"mid": "Z0610", "status": "open", "files": ["BRAINSTORM/corr_typeI_typeII_joint.md"], "evidence": "", "note": "Size-regime split of certificates examined in Type I/II memos."}
+{"mid": "Z0611", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0612", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0613", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "The (u,B) swap involution examined for parity; fixed-point-free argument recorded."}
+{"mid": "Z0614", "status": "open", "files": ["BRAINSTORM/z36_reciprocity_obstruction_home.md"], "evidence": "", "note": "Rickards–Stange fixed-target cancellation examined as model; ES cancellation not shown."}
+{"mid": "Z0615", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Dividing-line table exists; decision-tree fit not recorded."}
+{"mid": "Z0616", "status": "done", "files": ["BRAINSTORM/z52_deep_thin_pointwise_astra.md"], "evidence": "13-class taxonomy and 23 catalogue entries distinguish thin final counts from short certificates", "note": "Witness-profile taxonomy already built in astra memo."}
+{"mid": "Z0617", "status": "open", "files": ["sources/lit2026/audit-erdosproblems-242-2026-10-04.md"], "evidence": "", "note": "Erdős-problems site searched for unit-fraction items; Guy D11 search not recorded."}
+{"mid": "Z0618", "status": "open", "files": ["scripts/z52b_dividing_header.md"], "evidence": "", "note": "Verified-then-false examples (Crocker, PW) listed in lane header; catalogue incomplete."}
+{"mid": "Z0619", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0620", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0621", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0622", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0623", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0624", "status": "open", "files": [], "evidence": "", "note": "Size of ES solutions partly covered by minimal-denominator records; bound not recorded."}
+{"mid": "Z0625", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0626", "status": "done", "files": ["scripts/z52b_dividing_header.md"], "evidence": "Their fraction δ(X) decays like exp(−0.028 (ln X)³) over X = 56..1778.", "note": "CRT avoidance of Type I/II families measured in lane computation (header)."}
+{"mid": "Z0627", "status": "open", "files": [], "evidence": "", "note": "Parity-type sieve barrier recorded generically; ES-specific model not computed."}
+{"mid": "Z0628", "status": "open", "files": ["LOWER_TAIL_ASTRA.md"], "evidence": "", "note": "Kubilius-type probabilistic model examined in lower-tail memo; ES instance open."}
+{"mid": "Z0629", "status": "open", "files": ["BRAINSTORM/anal_moments_structured.md"], "evidence": "", "note": "Turán–Kubilius/Erdős–Kac moments examined for shifted-prime analogues."}
+{"mid": "Z0630", "status": "open", "files": ["BRAINSTORM/z52_lit_thin_pointwise.md"], "evidence": "", "note": "Sierpiński covering dual examined as literature; not a prime-covering for ES."}
+{"mid": "Z0631", "status": "open", "files": ["BRAINSTORM/z52_lit_unitfrac_cover.md"], "evidence": "", "note": "Balister et al. Erdős covering with square-free moduli examined as literature."}
+{"mid": "Z0632", "status": "open", "files": ["BALANCED_LATTICE.md"], "evidence": "", "note": "Thue/lattice reformulation of ES examined in balanced-lattice memo."}
+{"mid": "Z0633", "status": "open", "files": ["BRAINSTORM/s9_lower_tail_literature.md"], "evidence": "", "note": "Romanoff-type positive density as stepping stone examined in literature memo."}
+{"mid": "Z0634", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0635", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0636", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0637", "status": "open", "files": ["BRAINSTORM/bsE_large_q_char3.md"], "evidence": "", "note": "Characteristic-p degeneracies of function-field ES examined in char-3 memo."}
+{"mid": "Z0638", "status": "open", "files": ["BRAINSTORM/bsK_sunit_limit.md"], "evidence": "", "note": "S-unit/S-integral ES limit examined; ℤ[1/S] version left open."}
+{"mid": "Z0639", "status": "open", "files": ["BRAINSTORM/s8_signed_genus_wall.md"], "evidence": "", "note": "Signed/negative-denominator variant examined in signed genus wall memo."}
+{"mid": "Z0640", "status": "open", "files": ["BRAINSTORM/bsA_farey_graph_metric.md"], "evidence": "", "note": "Farey-graph word paths for ES₅ examined in Farey metric memo."}
+{"mid": "Z0641", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0642", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0643", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0644", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0645", "status": "untried", "files": [], "evidence": "", "note": "No repo document examines this connection; catalog listings only."}
+{"mid": "Z0646", "status": "open", "files": ["B2_ACROSS_FIELDS.md"], "evidence": "", "note": "Bourgain–Gamburd–Sarnak strong approximation row examined; U_n adaptation not done."}
+{"mid": "Z0647", "status": "open", "files": ["FRONTIER.md"], "evidence": "", "note": "Infinitude of ES exceptional set noted as open question in frontier."}
+{"mid": "Z0648", "status": "open", "files": ["MENU_LADDER.md"], "evidence": "", "note": "Mordell hard-class residual structure examined; cross-class correlation not recorded."}
+{"mid": "Z0649", "status": "open", "files": ["T1_TEMPLATE.md"], "evidence": "", "note": "Character-escape from non-square p reduces to Type I (d/p)=−1 condition."}
