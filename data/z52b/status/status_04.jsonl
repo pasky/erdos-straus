@@ -198,3 +198,83 @@
 {"mid": "Z1794", "status": "untried", "files": [], "evidence": "", "note": "Neural certificate generator not examined."}
 {"mid": "Z1795", "status": "untried", "files": [], "evidence": "", "note": "Mechanistic interpretability of ES model not examined."}
 {"mid": "Z1796", "status": "open", "files": ["BRAINSTORM/z45_program_synthesis.md"], "evidence": "", "note": "Evolutionary/program search for ES certificate heuristics examined in synthesis memo; FunSearch variant not."}
+{"mid": "Z1797", "status": "untried", "files": [], "evidence": "", "note": "AI-prover attempts on ES sub-lemmas not run."}
+{"mid": "Z1798", "status": "untried", "files": [], "evidence": "", "note": "SMT verification of ES identity families not run."}
+{"mid": "Z1799", "status": "untried", "files": [], "evidence": "", "note": "Gröbner elimination of 4/n identity families not computed."}
+{"mid": "Z1800", "status": "untried", "files": [], "evidence": "", "note": "Birthday/meet-in-the-middle matching of Type I and II slices not examined."}
+{"mid": "Z1801", "status": "untried", "files": [], "evidence": "", "note": "Cellular-automaton sieve picture not examined."}
+{"mid": "Z1802", "status": "open", "files": ["BRAINSTORM/bsE_depth_characters.md"], "evidence": "", "note": "Character-sum/depth analysis of residue classes examined; Fourier-regression of difficulty not run."}
+{"mid": "Z1803", "status": "open", "files": ["BRAINSTORM/z35_free_quartic_bit.md"], "evidence": "", "note": "Quartic-residue invariant of hard primes examined; octic/quartic symbols for R(p) not settled."}
+{"mid": "Z1804", "status": "untried", "files": [], "evidence": "", "note": "Divisor equidistribution for one integer not examined as such."}
+{"mid": "Z1805", "status": "untried", "files": [], "evidence": "", "note": "General-position smooth-level abundance not examined."}
+{"mid": "Z1806", "status": "untried", "files": [], "evidence": "", "note": "Titchmarsh-type divisor sum over p with congruences not computed."}
+{"mid": "Z1807", "status": "open", "files": ["BRAINSTORM/bsE_depth_characters.md"], "evidence": "", "note": "Kowalski–Michel–Sawin bilinear Kloosterman bounds mentioned in character memos; ES Type II application not."}
+{"mid": "Z1808", "status": "open", "files": ["BM_CORRECTED_COUNT.md"], "evidence": "", "note": "Character sums T(p) over hyperbolic regions examined as BM main term; short-sum route not."}
+{"mid": "Z1809", "status": "open", "files": ["BRAINSTORM/anal_euler_product_law.md"], "evidence": "", "note": "L(1,χ_p) positivity/Siegel-type reading examined; smoothed L² main-term identification not."}
+{"mid": "Z1810", "status": "open", "files": ["BRAINSTORM/y2_parity_involution.md"], "evidence": "", "note": "Divisor-pairing symmetry d ↔ N/d examined as involution; exact hyperbola error tracking not."}
+{"mid": "Z1811", "status": "untried", "files": [], "evidence": "", "note": "Turán-sieve lower bound for certificate hits not examined."}
+{"mid": "Z1812", "status": "open", "files": ["DELTA_TRANSPORT.md"], "evidence": "", "note": "Transport of solutions across levels examined; descent from kp to p not settled."}
+{"mid": "Z1813", "status": "open", "files": ["BRAINSTORM/z36_reciprocal_sum_gluing.md"], "evidence": "", "note": "Scaling 4/p to 4k/(kp) gluing examined; k | x,y,z family not computed."}
+{"mid": "Z1814", "status": "untried", "files": [], "evidence": "", "note": "Heath-Brown delta-method count of the ES fibre not examined."}
+{"mid": "Z1815", "status": "open", "files": ["BRAINSTORM/z39_gl3_shifted_divisor.md"], "evidence": "", "note": "Shifted-divisor sums in APs examined; ES-specific averaged-over-C application not done."}
+{"mid": "Z1816", "status": "untried", "files": [], "evidence": "", "note": "Dual modulus-indexed table of p-classes not examined as such."}
+{"mid": "Z1817", "status": "open", "files": ["BRAINSTORM/z30_minorant_obstruction.md"], "evidence": "", "note": "Minorant/lower-bound sieve obstructions examined; unconditional certificate-free prime lower bound not."}
+{"mid": "Z1818", "status": "open", "files": ["BRAINSTORM/tech_maynard_theta.md"], "evidence": "", "note": "Maynard-type sieve for admissible tuples examined as technique; ES tuple application not."}
+{"mid": "Z1819", "status": "open", "files": ["BRAINSTORM/z29_forced_level_characters.md"], "evidence": "", "note": "Prime and semiprime factor-class conditions examined; semiprime-success criterion not stated."}
+{"mid": "Z1820", "status": "untried", "files": [], "evidence": "", "note": "Chen-type P₂ for some small C not examined."}
+{"mid": "Z1821", "status": "open", "files": ["BRAINSTORM/z37_self_level_matrices.md"], "evidence": "", "note": "Self-level divisibility by small primes examined; forced-C slice analysis not complete."}
+{"mid": "Z1822", "status": "open", "files": ["BRAINSTORM/covering_distortion_dual.md"], "evidence": "", "note": "Covering-by-primes via distortion examined in covering memo; prime-moduli construction not."}
+{"mid": "Z1823", "status": "open", "files": ["BRAINSTORM/bsD_artin_conjugation.md"], "evidence": "", "note": "Artin-type primitive-root heuristic examined for Frobenius classes; gate for divisor classes not."}
+{"mid": "Z1824", "status": "open", "files": ["BRAINSTORM/anal_moments_structured.md"], "evidence": "", "note": "τ₃ log-moment analysis examined for shifted e-slices; ternary-factorisation mean matching not."}
+{"mid": "Z1825", "status": "open", "files": ["BRAINSTORM/anal_dirichlet_series.md"], "evidence": "", "note": "Dirichlet series of ES counts examined; exact-formula R(n) series for all odd n not."}
+{"mid": "Z1826", "status": "untried", "files": [], "evidence": "", "note": "Multiplicative energy of divisor sets not examined."}
+{"mid": "Z1827", "status": "open", "files": ["BRAINSTORM/z29_forced_level_characters.md"], "evidence": "", "note": "Subset-product structure at forced levels examined; random-element probability model not computed."}
+{"mid": "Z1828", "status": "open", "files": ["BRAINSTORM/z33_forced_quotient_total.md"], "evidence": "", "note": "Complementary-subproduct symmetry under total ≡ 1 examined for forced quotient; random-model conditioning not."}
+{"mid": "Z1829", "status": "open", "files": ["BRAINSTORM/y7_split_norm.md"], "evidence": "", "note": "Split-prime/norm reformulations in ℤ[ω] examined; explicit a²+3b² certificate not built."}
+{"mid": "Z1830", "status": "open", "files": ["BRAINSTORM/z35_gaussian_menus_closed.md"], "evidence": "", "note": "Gaussian menus for p=a²+b² examined; polynomial identities in (a,b) not searched."}
+{"mid": "Z1831", "status": "open", "files": ["BRAINSTORM/z18_two_specialisations.md"], "evidence": "", "note": "T1 specialisation obstruction examined for identities; rational-parametrisation breaking at squares not."}
+{"mid": "Z1832", "status": "untried", "files": [], "evidence": "", "note": "Four-square representation count as thick object not examined."}
+{"mid": "Z1833", "status": "untried", "files": [], "evidence": "", "note": "Three-square representation count as certificate source not examined."}
+{"mid": "Z1834", "status": "open", "files": ["WINDMILL_REDUCTION.md"], "evidence": "", "note": "Reduced binary forms of discriminant −4p-type examined in windmill memo; class-number-thick extraction rule not."}
+{"mid": "Z1835", "status": "untried", "files": [], "evidence": "", "note": "Cohen–Lenstra class-gate heuristic not computed for ES."}
+{"mid": "Z1836", "status": "open", "files": ["BRAINSTORM/bsB_redei_oddpart.md"], "evidence": "", "note": "Rédei/genus-character 2-part examined; −1-class event for divisor classes not settled."}
+{"mid": "Z1837", "status": "open", "files": ["B1_LINE.md §5"], "evidence": "", "note": "Elementary-2 group duality case (d | 6) examined in forced-level section; F₂ linear-system formulation not separately."}
+{"mid": "Z1838", "status": "open", "files": ["BRAINSTORM/z29_forced_level_characters.md"], "evidence": "", "note": "Legendre forcing lines examined for forced levels; multi-symbol patterns not enumerated."}
+{"mid": "Z1839", "status": "open", "files": ["EXSET_CHAR_FORCING.md"], "evidence": "", "note": "Forcing lines by least quadratic non-residue examined; n₂(p) implication not settled."}
+{"mid": "Z1840", "status": "untried", "files": [], "evidence": "", "note": "Reciprocity reorientation of forcing symbols not separately examined."}
+{"mid": "Z1841", "status": "open", "files": ["BRAINSTORM/bsG_sterile_set.md"], "evidence": "", "note": "Sterile sets at finite levels examined; profinite sterile point formulation not."}
+{"mid": "Z1842", "status": "untried", "files": [], "evidence": "", "note": "Compactness/closed-subset argument on Ẑ not examined."}
+{"mid": "Z1843", "status": "open", "files": ["BRAINSTORM/z45_transfer_logic.md"], "evidence": "", "note": "Ultraproduct and nonstandard-prime transfer examined; nonstandard counterexample not."}
+{"mid": "Z1844", "status": "open", "files": ["BRAINSTORM/z45_transfer_logic.md"], "evidence": "", "note": "Overspill/transfer principles examined in transfer-logic lane; uniform certificate-size bound not."}
+{"mid": "Z1845", "status": "open", "files": ["BRAINSTORM/y10_hard_primes_m2minus3.md"], "evidence": "", "note": "Near-square primes and square obstruction examined; almost-square certificate counts not."}
+{"mid": "Z1846", "status": "open", "files": ["BRAINSTORM/y10_hard_primes_m2minus3.md"], "evidence": "", "note": "Polynomial families m²+c examined; m²+4 Type II count not."}
+{"mid": "Z1847", "status": "open", "files": ["BRAINSTORM/s7_normform_collapse.md"], "evidence": "", "note": "Norm-form families for 4m²+1-type n examined; Gaussian factorisation proof not."}
+{"mid": "Z1848", "status": "untried", "files": [], "evidence": "", "note": "Bateman–Horn prime-count test on hard families not run."}
+{"mid": "Z1849", "status": "open", "files": ["BRAINSTORM/z45_interlacing_stable.md"], "evidence": "", "note": "T1 at squares examined in interlacing memo; word-level invariant not."}
+{"mid": "Z1850", "status": "open", "files": ["BRAINSTORM/I3_DEEP_FABLE.md"], "evidence": "", "note": "Least interior endpoint u(p) and I3 extremal behaviour examined; Jacobsthal analogy not."}
+{"mid": "Z1851", "status": "untried", "files": [], "evidence": "", "note": "Iwaniec Jacobsthal technique for certificate evasion not applied."}
+{"mid": "Z1852", "status": "open", "files": ["BREADTH_Z45.md"], "evidence": "", "note": "I3 hyperbola formulation examined in breadth lane; Kloosterman refinement not carried out."}
+{"mid": "Z1853", "status": "untried", "files": [], "evidence": "", "note": "Sum over t of divisor counts of tp+1 not computed."}
+{"mid": "Z1854", "status": "untried", "files": [], "evidence": "", "note": "One-parameter r_p(m) reformulation not in repo docs; claimed check not located."}
+{"mid": "Z1855", "status": "untried", "files": [], "evidence": "", "note": "Piecewise-linear r_p(m) structure not examined."}
+{"mid": "Z1856", "status": "open", "files": ["BRAINSTORM/s9_union_thinning.md"], "evidence": "", "note": "Shifted-prime divisor form examined (B2 remark on p+u); block-sum identity not."}
+{"mid": "Z1857", "status": "open", "files": ["BRAINSTORM/bsG_short_block.md"], "evidence": "", "note": "Short blocks of shifted integers examined; consecutive-block rigidity under Erdős–Selfridge analogy not."}
+{"mid": "Z1858", "status": "untried", "files": [], "evidence": "", "note": "Posting ES findings to erdosproblems forum is an outreach task, not examined."}
+{"mid": "Z1859", "status": "untried", "files": [], "evidence": "", "note": "Bloom–Mehta Lean formalisation partnership not pursued."}
+{"mid": "Z1860", "status": "untried", "files": [], "evidence": "", "note": "Asking Elsholtz for abandoned ideas not done."}
+{"mid": "Z1861", "status": "untried", "files": [], "evidence": "", "note": "Asking thin-orbit experts not done."}
+{"mid": "Z1862", "status": "untried", "files": [], "evidence": "", "note": "MathOverflow question not posted."}
+{"mid": "Z1863", "status": "untried", "files": [], "evidence": "", "note": "MathOverflow shift-form question not posted."}
+{"mid": "Z1864", "status": "untried", "files": [], "evidence": "", "note": "Polymath-style collaboration not organised."}
+{"mid": "Z1865", "status": "untried", "files": [], "evidence": "", "note": "Conference targeting not done."}
+{"mid": "Z1866", "status": "untried", "files": [], "evidence": "", "note": "External referee review not sought."}
+{"mid": "Z1867", "status": "untried", "files": [], "evidence": "", "note": "Public barrier-first negative-results table not compiled."}
+{"mid": "Z1868", "status": "untried", "files": [], "evidence": "", "note": "Hatch × thick-object meta-generation not performed."}
+{"mid": "Z1869", "status": "open", "files": ["BRAINSTORM/adv_stacked_primes.md"], "evidence": "", "note": "Adversarial prime construction examined in red-team lane; dedicated lane not formed."}
+{"mid": "Z1870", "status": "untried", "files": [], "evidence": "", "note": "Analogy-of-analogies chains not compiled."}
+{"mid": "Z1871", "status": "open", "files": ["DISPROOF_AVENUES.md"], "evidence": "", "note": "Disproof avenues examined; counterexample-dossier format not."}
+{"mid": "Z1872", "status": "open", "files": ["BRAINSTORM/y4_t1_numerators.md"], "evidence": "", "note": "Uniform-in-m boundary at m=4 vs 8 examined in numerator memos; family statement not formulated."}
+{"mid": "Z1873", "status": "open", "files": ["BRAINSTORM/z30_conjecture_audit.md"], "evidence": "", "note": "ES-implying statement hierarchy examined in conjecture audit; weakest-implying ranking not."}
+{"mid": "Z1874", "status": "untried", "files": [], "evidence": "", "note": "Puzzle-app crowd-sourcing not done."}
+{"mid": "Z1875", "status": "untried", "files": [], "evidence": "", "note": "Music analogy not examined."}
+{"mid": "Z1876", "status": "untried", "files": [], "evidence": "", "note": "Music/just-intonation analogy not examined."}
