@@ -1,0 +1,9 @@
+{
+ "primes_checked": 147,
+ "words_min": 0,
+ "words_median": 24,
+ "words_max": 50,
+ "primes_with_zero_words": 1,
+ "primes_with_congruence_word": 146,
+ "matrix_identity": "None"
+}

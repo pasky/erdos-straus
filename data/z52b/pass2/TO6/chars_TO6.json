@@ -1,0 +1,152 @@
+{
+ "Z2062_Z2107_Z2310_Z2337": {
+  "classes_H": 96,
+  "real_char_rank": 16,
+  "real_chars": 32,
+  "r2_real_chars_over_mean": 0.843,
+  "r2_trivial": 0.0,
+  "r2_real_null_shuffle_mean": 0.1573,
+  "r2_real_null_shuffle_95": 0.2685,
+  "noninteracting_part_r2": 0.157
+ },
+ "Z2062_top_real_characters_(a8,b3,c5,d7)": [
+  [
+   [
+    3,
+    0,
+    0,
+    0
+   ],
+   18.16
+  ],
+  [
+   [
+    2,
+    0,
+    0,
+    0
+   ],
+   18.16
+  ],
+  [
+   [
+    1,
+    0,
+    1,
+    0
+   ],
+   10.51
+  ],
+  [
+   [
+    0,
+    0,
+    1,
+    0
+   ],
+   10.51
+  ],
+  [
+   [
+    1,
+    1,
+    0,
+    0
+   ],
+   10.37
+  ],
+  [
+   [
+    0,
+    1,
+    0,
+    0
+   ],
+   10.37
+  ]
+ ],
+ "Z2071_BH_product": {
+  "corr_logS_logR_over_log2p": 0.4181,
+  "corr_logS_vs_classmean_logR": 0.4965,
+  "corr_logS_logR_after_class_mean": 0.0224
+ },
+ "Z2369_top_R_over_log2": [
+  {
+   "p": 80077,
+   "c840": 277,
+   "R": 397,
+   "ratio": 3.114,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 72797,
+   "c840": 557,
+   "R": 352,
+   "ratio": 2.808,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 76157,
+   "c840": 557,
+   "R": 343,
+   "ratio": 2.715,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 49277,
+   "c840": 557,
+   "R": 309,
+   "ratio": 2.647,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 58237,
+   "c840": 277,
+   "R": 303,
+   "ratio": 2.517,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 91837,
+   "c840": 277,
+   "R": 317,
+   "ratio": 2.427,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 43117,
+   "c840": 277,
+   "R": 274,
+   "ratio": 2.406,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 66877,
+   "c840": 517,
+   "R": 292,
+   "ratio": 2.365,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 50957,
+   "c840": 557,
+   "R": 274,
+   "ratio": 2.332,
+   "mordell_square_mod840": false
+  },
+  {
+   "p": 83597,
+   "c840": 437,
+   "R": 299,
+   "ratio": 2.328,
+   "mordell_square_mod840": false
+  }
+ ],
+ "Z2359_CF_lengths_p_over_4_first2000": {
+  "regular_median": 2,
+  "regular_max": 2,
+  "negative_ceiling_median": 4,
+  "negative_ceiling_max": 4,
+  "mean_log_p": 9.43
+ }
+}

@@ -1,7 +1,7 @@
 # z52d Pass 2 — batch TO6 (101 "touched" items, Pass 1 absent)
 
-**Counts (101 input lines, 101 output lines in `data/z52b/pass2/outcome_TO6.jsonl`):** interesting 5 · covered 3 · nothing 93 · needs-compute 0 · skipped 0.
-**Interesting:** Z2035 (8/n 3-term failure control set), Z2048 (first witness = factoring a ~p-size integer), Z2123 (Lenstra threshold t ≳ √p vs witness location), Z2215 (3-term failure sets k/n, n ≤ 60000), Z2367 (classes of 4/m² solutions; prime m never has exactly one denominator divisible by m).
+**Counts (101 input lines, 101 output lines in `data/z52b/pass2/outcome_TO6.jsonl`, lint 0 flagged):** interesting 7 · covered 3 · nothing 91 · needs-compute 0 · skipped 0.
+**Interesting:** Z2035 (8/n 3-term failure control set), Z2048 (first witness = factoring a ~p-size integer), Z2021 (witness absence is ≈0.4× the independence prediction), Z2123 (Lenstra threshold t ≳ √p vs witness location), Z2215 (3-term failure sets k/n, n ≤ 60000), Z2357 (union-of-lines failure phase: zero failures from 43 lines, t ≤ 171), Z2367 (classes of 4/m² solutions; prime m never has exactly one denominator divisible by m).
 **Covered:** Z1997, Z2292 (FF large-q refutation, Thm 2.1), Z2029 (BRAUER_TWISTS §(0)).
 **Honesty note:** 93 items are `nothing` but most of them were NOT executed: they are literature/analysis items that I did not finish in this pass. Each such record says so in `not_done`. They are not evidence of emptiness. Premise failures found are listed below.
 
@@ -48,3 +48,23 @@ Reproduce: `uv run --with sympy python scripts/z52d_p2_TO6_sqclass.py 61`.
 
 ## Not done (summary)
 Most `nothing` records: literature-only items (Z2012, Z2013, Z2015, Z2063, Z2072, Z2095, Z2100, Z2110–Z2113, Z2133, Z2136, Z2146, Z2147, Z2154, Z2230, Z2253, Z2276, Z2281, Z2379, Z2383, Z2415) and analysis items not started (Z2019, Z2021, Z2056, Z2062, Z2071, Z2107, Z2122, Z2125, Z2132, Z2267, Z2302, Z2310, Z2327, Z2337, Z2346, Z2357, Z2359, Z2369, Z2376, Z2377, Z2396, Z2398, Z2409). Each record's `not_done` field says what was missing. No lattice (Coppersmith / Hales) implementation was run (Z2016, Z2121, Z2122). The 4-term ladder beyond m=8 and the k ≥ 27 cutoff extension to 10⁶ are the most useful follow-ups.
+
+## Lint-fix round (25 flagged items, `scripts/z52d_p2_TO6_fix_*`)
+Each flagged item got an executed step; the lines were replaced, the others untouched. Lint: 0 flagged.
+- **Z2021 (interesting):** witness lines are positively correlated: P(no witness in lines t ≤ 63) = 0.00078 vs 0.00196 under independence (ratio 0.40); variance 5.92 vs 4.93. Data: `witness_stats_TO6.json`.
+- **Z2357 (interesting):** failures F_k of the union of the first k lines: 2140, 123, 33, 7, 2 at k = 1, 4, 8, 16, 32; F_43 = 0 (t ≤ 171); fitted slope −0.49 per line.
+- Characters (Z2062, Z2107, Z2310, Z2337): real (order ≤ 2) characters of (Z/840)* explain R² = 0.84 of the class means vs a 0.16 shuffle null; non-real part not resolvable at this sample.
+- Z2071: the Legendre singular-series product correlates 0.42 with R/log²p but 0.02 after the mod-840 class mean.
+- Z2095: Graham's 77 threshold reproduced by exact search (no set at m = 77, sets at 78–80); the problem class differs from ES.
+- Z2122: Hales Thm 1.1 covers Z[i] with the same |S|³ > |N| threshold; no new regime for integer witnesses.
+- Z2125: F₅[T] nondegenerate solutions exist for deg P = 1 (e.g. 4/(T+2) = 1/T + 1/(T+3T²) + 1/(2T)); monic-denominator solutions absent (consistent with Prop 1.2).
+- Z2132/Z2267: M(u)M(t)M(v) ∈ SL₂(ℤ) has (0,0)-entry tuv − u − v; the congruence word exists for 146 of 147 primes p < 2000 (p ≡ 1 mod 4).
+- Z2302/Z2056: rational parametrisation (birational, verified in sympy); integral points are a ~2·10⁻⁵ density subset of the box.
+- Z2359: depth of p/4 in the Stern–Brocot tree is ~p/4 (unbounded); the regular CF of p/4 is trivially length 2 — the record's λ(p) must mean a different expansion.
+- Z2276, Z2409: witness-line densities are not equidistributed mod 105/1155; the t=3 correlation with (2/p) is the mod-8 effect (p ≡ 5 mod 8 always witnessed at t=3).
+- Z2346: Kronecker's identity verified to 10⁻³⁰; the (K1′) completion itself not checked.
+- Z2396: DFI joint χ² = 2.49 (9 dof) for D = 12.
+- Z2376/2377: at-least-m witness counts match the independence (Poisson-binomial) prediction to ~0.01.
+- Z2374: every sampled prime has a small prime q ≤ (log p)² in class −1 mod t (t ≤ 63) dividing tp+1; cofactor condition not checked.
+- Z2327: no quaternion treatment found; Z2398: Bettin–Chandee bounds are averaged over moduli, the ES phase is linear in p and t — no pointwise route found.
+- Z2369: top R/log²p values lie in non-Mordell classes.
