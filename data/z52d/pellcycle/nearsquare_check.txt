@@ -1,0 +1,10 @@
+(a) m even in [4,20000]: mismatches 0
+(b) m ≡ 0 (60), m <= 20000: 3663 (m,u) pairs checked, non-isolated 0
+m=834000 p=695556000001: roots [1, 2, 4, 417000, 417001, 833999, 834000, 834001, 1667998, 1667999, 1668000, 1668001, 1668002, 3336000]; components (status,size) {('mono', 1), ('mono', 8)}; comp(1) = Thm3.1 set: True; a bichromatic edge elsewhere: (6, 11279)
+m=3831780 p=14682537968401: roots [1, 2, 4, 1915890, 1915891, 3831779, 3831780, 3831781, 7663558, 7663559, 7663560, 7663561, 7663562, 15327120]; components (status,size) {('mono', 1), ('mono', 8)}; comp(1) = Thm3.1 set: True; a bichromatic edge elsewhere: (5, 38428519)
+m=4428480 p=19611435110401: roots [1, 2, 4, 2214240, 2214241, 4428479, 4428480, 4428481, 8856958, 8856959, 8856960, 8856961, 8856962, 17713920]; components (status,size) {('mono', 1), ('mono', 8)}; comp(1) = Thm3.1 set: True; a bichromatic edge elsewhere: (7, 34)
+m=9245160 p=85472983425601: roots [1, 2, 4, 4622580, 4622581, 9245159, 9245160, 9245161, 18490318, 18490319, 18490320, 18490321, 18490322, 36980640]; components (status,size) {('mono', 1), ('mono', 8)}; comp(1) = Thm3.1 set: True; a bichromatic edge elsewhere: (5, 1447779)
+m=9690240 p=93900751257601: roots [1, 2, 4, 4845120, 4845121, 9690239, 9690240, 9690241, 19380478, 19380479, 19380480, 19380481, 19380482, 38760960]; components (status,size) {('mono', 1), ('mono', 8)}; comp(1) = Thm3.1 set: True; a bichromatic edge elsewhere: (5, 4048493199)
+m=10088940 p=101786710323601: roots [1, 2, 4, 5044470, 5044471, 10088939, 10088940, 10088941, 20177878, 20177879, 20177880, 20177881, 20177882, 40355760]; components (status,size) {('mono', 1), ('mono', 8)}; comp(1) = Thm3.1 set: True; a bichromatic edge elsewhere: (5, 367499)
+(c) 6 H-instances, failures 0
+TOTAL FAILURES 0
