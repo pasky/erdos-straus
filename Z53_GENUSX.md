@@ -21,7 +21,7 @@ CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z53_genusx_*`, 
   point, so no u-average acts (Cor 4.2); the shell has no bilinear structure (Lemma 4.3); the exact layers are sums over the free
   variable w of a function of (p mod w, ⌊p/w⌋) (Lemma 4.1); the genus layer is itself a (★)-shaped tied event for x² + pt
   (Lemma 4.4); interval information on χ_p of any strength cannot control the BM shell sum (Prop 4.6, scoped).
-* **Falsifier (EVIDENCE; §5).** Exact engine at 10⁸–10¹² (850 random primes, 120 near-squares, 14 (★)-zero primes, 150
+* **Falsifier (EVIDENCE; §5).** Exact engine at 10⁸–10¹² (900 random primes, 120 near-squares, 14 (★)-zero primes, 150
   squares): G/M̂ = 0.98–1.02 on average; T_w carries ≈ 10 % of var(R − M), T_uw ≈ 90 % at swap-Poisson level; at the (★)-zero
   primes the failure sits in T_uw at 6 of 9 informative primes. Not killed; localised.
 * **Verdict: narrowed** (one strengthening lemma, Theorem X; the remainder is B2 over exact divisors with its density layers
@@ -55,8 +55,8 @@ B − B^gen likewise; expand AB = A^gB^g + (A − A^g)B^g + A^g(B − B^g) + (A 
 **Divisor (level) form (PROVED, elementary).** For w | p + u put w′ := (p + u)/w and w″ := w′/2 (p + u ≡ 2 (mod 4) and w odd,
 so w″ is odd). Then on exact divisors
   A_u(w) = 1[w″ ≡ −1 (mod 4u)],   A_u^gen(w) = (2^{ω(u)}/φ(u))·1[w″ ∈ −(ℤ/4u)^{×2}]  (i.e. w″ ≡ 3 (4) and (−w″/ℓ) = 1 ∀ℓ | u).
-(2w ≡ −p (mod u) ⟺ 2w·2w″ ≡ −2p·2w″... directly: p + u = 2ww″ gives p ≡ 2ww″ (mod u), so 2w ≡ −p ⟺ w″ ≡ −1 (mod u); the mod-4
-condition w ≡ −ww″ (mod 4) ⟺ w″ ≡ 3 (mod 4); and (−2pw/ℓ) = (−4w²w″/ℓ) = (−w″/ℓ).) So w″ = 4uC − 1 is the (★) level divisor
+(p + u = 2ww″ gives p ≡ 2ww″ (mod u), so 2w ≡ −p (mod u) ⟺ w″ ≡ −1 (mod u) (w is a unit mod u); w₀ ≡ −ww″ (mod 4), so
+w ≡ w₀ (mod 4) ⟺ w″ ≡ 3 (mod 4); and for ℓ | u, (−2pw/ℓ) = (−4w²w″/ℓ) = (−w″/ℓ).) So w″ = 4uC − 1 is the (★) level divisor
 of p + u, and
   R_𝔉 = 2#{(u, w) ∈ 𝔉 : w | p+u, w″ ≡ −1 (4u)},  G_𝔉 = 2Σ_{u∈𝒰}(2^{ω(u)}/φ(u))#{w ∈ 𝒮_u∩(Y,X] : w | p+u, w″ ∈ −□ (4u)}:
 **R − G is "class of the level divisor inside its genus coset mod 4u", G − M is "genus layer of exact divisors vs. density".**
@@ -190,7 +190,8 @@ sum −Σ_{𝔖} (w″/p)/φ(u). Any proof of (X-w) must therefore prove cancell
 w″-projection of the shell (at squares this sum equals −E₁ ≍ log²).
 
 **Proposition 4.6 (interval information on χ_p cannot do it; scoped no-go).** Let N ≥ √p and 𝒲 := {w″ : (u, w) ∈ 𝔖,
-N < w″ ≤ 2N} (for the standard windows this box is non-empty iff w ≤ √p/… is allowed, i.e. β < 1/2). Then
+N < w″ ≤ 2N} (w″ ≥ √p means w ≤ (p + U₁)/(2√p), so the box meets 𝔖 only if β < 1/2: true for Thm U's optimal and the standard windows,
+false for Theorem X's windows, β > 1/2). Then
 (a) |𝒲 ∩ I| ≤ p|I|/(2N²) + 2 for every interval I ⊂ (N, 2N];
 (b) there is f : ℤ ∩ (N, 2N] → {±1} with f ≡ −1 on 𝒲 and |Σ_{n∈I} f(n)| ≤ 5 for **every** interval I.
 So every hypothesis on χ_p that only constrains its sums over intervals (or smoothly weighted sums: partial summation), of
@@ -204,6 +205,19 @@ interval sums S(b) − S(a) lie in [−5, 5]. ∎
 *Scope.* f is not multiplicative and has no prescribed sums on progressions mod q > 2; arguments using the complete
 multiplicativity of χ_p jointly with the shell's arithmetic (as Thm U/Theorem X do for the *density*) are not covered.
 That is the escape hatch, and §5 shows what it has to beat.
+
+**Remark 4.7 (cubic/quartic characters, cubic large sieve; Assessment).** For χ₂ mod w of order k ∈ {3, 4, 6}, k-th power
+reciprocity in ℚ(ζ_k) rewrites χ₂(−p·ū) as a Hecke character with p (split, p ≡ 1 (24)) in its conductor, evaluated at
+the prime ideals above w — "p in the conductor" exactly as in Thm U. So each *bounded-order density layer* on the w-side
+(B^{(k)} := projection of B onto χ₂ with χ₂^k = 1) is of Thm U type and should be o(1) on windows by Hecke-L/Burgess bounds
+over ℚ(ζ_k) (not written out). This does not touch T_w or T_uw: B − B^gen is the sum over *all* χ₂ mod w (orders up to λ(w)),
+and by Lemma 4.1 its support is the shell, where no average acts. Heath-Brown's cubic large sieve [HB00, Thm 2; restated as
+(1.11) in Dunn–Radziwiłł, arXiv:2109.07463: Σ_{N(a)≤A, a≡1(3)} μ²(a)|Σ_{N(b)≤B, b≡1(3)} β_b (b/a)₃|² ≪_ε (AB)^ε(A + B +
+(AB)^{2/3})Σ|β_b|²] is a mean square over moduli: on the shell (moduli a ↔ w, points b ↔ u², A ≍ X, B ≍ U₁⁴, with χ₂(p)
+carried as a coefficient) Cauchy–Schwarz against it can only return (number of (w, χ₂) pairs)^{1/2}·(A + B)^{1/2}-type bounds,
+i.e. the square-root barrier (B6), since the shell sum of interest has size ≍ log²p while the coefficient vectors have ℓ²
+mass ≍ #shell. The u-side ladder of §5 (EVIDENCE) shows the same thing numerically: each bounded order explains a growing but
+partial share; no bounded order carries the remainder.
 
 ## 5. Falsifier F: sizes of the three layers at 10⁸–10¹² (EVIDENCE; CERTIFIED identities)
 
@@ -264,7 +278,8 @@ layer is depressed near squares (the T1 deformation of B5), G/M̂ ≈ 0.93.
 
 **u-side order ladder** (`ladder_*`; share of var(R − M̂) explained by G^{(K)} − M̂, K = 2, 4, 6, 12, 120):
 10⁹: 0.09, 0.14, 0.20, 0.31, 0.53; 10¹⁰: 0.10, 0.16, 0.15, 0.27, 0.38; 10¹¹: 0.10, 0.13, 0.20, 0.24, 0.39;
-10¹²: 0.10, 0.13, 0.16, 0.22, 0.35; mean G^{(K)}/M̂ ∈ [0.95, 1.06] throughout. The explained share grows steadily with
+10¹²: 0.10, 0.13, 0.16, 0.22, 0.35 (`ladder_small_summary.txt`, `ladder_large_summary.txt`); mean G^{(K)}/M̂ ∈ [0.948, 1.060]
+for the random primes at 10⁹–10¹² (near-squares 0.90–0.98). The explained share grows steadily with
 the size of the K-th-power quotient; no bounded order carries the remainder (K = 120 already equals R on every u whose prime
 factors all have ℓ − 1 | 120).
 
