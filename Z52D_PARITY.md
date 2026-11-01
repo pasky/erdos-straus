@@ -33,16 +33,20 @@ Scripts: `scripts/z52d_parity_*`. Data: `data/z52d/parity/`.
   * Stratum-heterogeneous and twisted laws (mod primes 13…47) show nothing either.
   * **CERTIFIED:** no bit is a function of (p mod 6160, h(−4p) mod 16) on primes ≤ 10⁷ (each of the 1 920 classes
     contains both values), and the same holds on (10⁸, 2·10⁸].
-* **Verdict: narrowed.** The m ≥ 3 / square-generated-subgroup escape (Z3101) is dead on X for finite affine menus
-  (theorem). The class-number-parity source (Z3094) shows no detectable signal (EVIDENCE). What survives is unchanged from (J)2: ℤ/2 forcing on auxiliary sets other than X, with
-  non-affine maps or infinite menus, and the n-dependent SL₂ group. A14/A15's "no concrete object" remains the real
-  obstruction.
+* **Verdict: narrowed.**
+  * On X with finite affine menus, the Z3101 escape is dead (theorem) for both rules of Thm C: K ⊆ Γ^{(2)}, and orbit
+    modulus m ≥ 3.
+  * The class-number-parity source (Z3094) shows no detectable signal (EVIDENCE).
+  * What survives is unchanged from (J)2: ℤ/2 forcing on auxiliary sets other than X, with non-affine maps or infinite
+    menus, and the n-dependent SL₂ group; also existence counts that do not come from the action.
+  * A14/A15's "no concrete object" remains the real obstruction.
 
 ## 1. Statements attacked
 
 * **S1 (Lemma; Ranking O "C3 Lemma", Z3101).** Does (J)2 Thm 6.1 (no finite affine involution menu on X proves ES) extend
-  verbatim to ℤ/3, S₃ and general finite groups acting by affine maps? **Answered: §2.** It extends. For odd/m ≥ 3 cases it
-  becomes unconditional (Thm C); the parity case is verbatim (Thm D). Labels as stated there.
+  verbatim to ℤ/3, S₃ and general finite groups acting by affine maps? **Answered: §2.** It extends for action-derived rules. For
+  K ⊆ Γ^{(2)} and for orbit modulus m ≥ 3 it becomes unconditional (Thm C); the parity case is verbatim (Thm D). Labels
+  as stated there.
 * **S2 (Falsifier; Ranking O "C3 Falsifier", Z3094, Z0565, Z0881, Z0959).** For p ≡ 1 (24), do [8 | h(−4p)]
   (Barrucand–Cohn: ⟺ p = x² + 32y²) and h(−4p) mod 16 correlate with certificate parities after conditioning on p mod 16?
   A correlation would be the first M5 input seeing more than congruence data. **Answered: §3, no (EVIDENCE).**
