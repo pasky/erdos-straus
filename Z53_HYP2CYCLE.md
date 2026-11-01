@@ -447,7 +447,7 @@ does not apply to R2. A power saving for one balanced block can be (conditionall
 standalone implication for ES (an indirect use inside a larger argument is not excluded). R2 is worth keeping only as a
 methods test (MIX).
 
-## 7. Proposition D: the determinant method is vacuous for (★) blocks
+## 7. Proposition D: the black-box determinant method gives no saving for (★) blocks
 
 **Cited input.**
 * (HB15) Heath-Brown, CIME notes (LNM 1891, 2006), Theorem 15, as restated in T. Reuss's thesis (Oxford 2015), Thm 2, and
