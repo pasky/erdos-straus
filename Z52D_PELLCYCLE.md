@@ -53,8 +53,8 @@ Verdict: **dead** (CONDITIONAL on H), with the narrowing above. ES is open.
   * R3 = R2 ∪ {convergent numerators and denominators ≤ p + 2 of S and of W}. Convergents are monotone, so only finitely many
     are ≤ p + 2.
   * **Unit data.** U(p) = {t, u, t ± 2, u ± 2} ∩ [1, p + 2], where ε_p = (t + u√p)/2 is the fundamental unit (Z0465's
-    recipe, recast as forest roots). At p = m² + 1, u − 2 = 0 is dropped. U is used only in §1; at long-period primes t and
-    u exceed p + 2.
+    recipe, recast as forest roots). At p = m² + 1, u − 2 = 0 is dropped. U is used only in §1. At long-period primes ε_p is huge,
+    so t, and typically u, exceed p + 2.
 * **Cycle-root statement CR(R).** For every prime p ≡ 1 (mod 4), p > p₀, some component of F_p that meets R(p) contains a
   bichromatic edge. This is the missing theorem of Z0596 and Z1298, in forest form.
 * **What is excluded.** The cycle-centre two-squares route ((J)3, p = a² + b² as a binary-form certificate) is not used.
