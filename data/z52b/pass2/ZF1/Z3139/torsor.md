@@ -37,3 +37,9 @@ Not done: no Gröbner basis of the full ideal (number of minimal relations not d
 trinomials + R generate at least a codim-4 locus by construction, but minimality/saturation was not checked); no Heath-
 Brown 2003 details read beyond the abstract and Derenthal's citation; integral model of the torsor over ℤ (signs, the
 factor 4 and 2-adic units) only handled by the λ = −1/4 scaling.
+
+**Prior.** ET Remark 2.10 (read) already says Props 2.2/2.6 are special cases of Heath-Brown's classification of primitive
+points on Cayley's surface, x_i = ε y_j y_k y_l z_ij z_ik z_il ([HB03, Lemma 1]) — our t_i = ∏ℓ_j ∏e_ab is that formula
+(y ↔ ℓ, z ↔ e). The repo mentions it in BRAINSTORM/graph_cayley_moves.md §2. New here: the Cox-ring/diagonal relations,
+Derenthal's non-hypersurface verdict, the explicit w-face slot dictionary (3 Type I + 3 Type II placements of p) and
+the variable count at fixed n.
