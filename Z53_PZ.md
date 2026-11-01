@@ -82,7 +82,7 @@ f(t) = log(Y/t)/t, which is decreasing and ≥ 0 on [1,Y]. Then Σ_{u=1}^{⌊Y�
 **BV** (Bombieri 1965, A. I. Vinogradov 1965). Verified statement: Tao, 254A Notes 3 (2015), **Theorem 17**:
 Σ_{q≤Q} sup_{a∈(ℤ/q)^×}|Δ(Λ1_{[1,x]}; a (q))| ≪_A x log^{−A}x for Q ≤ x^{1/2}log^{−B}x, B = B(A). The form with max over
 y ≤ x is Davenport, *Multiplicative Number Theory*, Ch. 28. The π-form below follows by partial summation, with prime powers
-and p | q contributing O(x^{1/2}) per q.
+contributing O(x^{1/2}log x/q + log²x) per q, which is ≪ x^{1/2}log³x in total over q ≤ Q.
 For every A > 0 there is B = B(A) such that
   Σ_{q ≤ X^{1/2}L^{−B}} max_{(a,q)=1} |π(X; q, a) − π(X)/φ(q)| ≪_A X L^{−A}.
 We use A = A₀ = 200, B₀ = B(A₀). Note Q² = X^{1/2}L^{−B₀}.
