@@ -1,0 +1,27 @@
+table entries verified exactly: 50/50
+prime entries following the scribes' rule (first denominator a with p∤a, 2a-p = sum of the listed parts, all dividing a): 24/25
+  p=3 a=2 2a-p=1 parts=[1] rule=True
+  p=5 a=3 2a-p=1 parts=[1] rule=True
+  p=7 a=4 2a-p=1 parts=[1] rule=True
+  p=11 a=6 2a-p=1 parts=[1] rule=True
+  p=13 a=8 2a-p=3 parts=[2, 1] rule=True
+  p=17 a=12 2a-p=7 parts=[4, 3] rule=True
+  p=19 a=12 2a-p=5 parts=[3, 2] rule=True
+  p=23 a=12 2a-p=1 parts=[1] rule=True
+  p=29 a=24 2a-p=19 parts=[12, 4, 3] rule=True
+  p=31 a=20 2a-p=9 parts=[5, 4] rule=True
+  p=37 a=24 2a-p=11 parts=[8, 3] rule=True
+  p=41 a=24 2a-p=7 parts=[4, 3] rule=True
+  p=43 a=42 2a-p=41 parts=[21, 14, 6] rule=True
+  p=47 a=30 2a-p=13 parts=[10, 3] rule=True
+  p=53 a=30 2a-p=7 parts=[5, 2] rule=True
+  p=59 a=36 2a-p=13 parts=[9, 4] rule=True
+  p=61 a=40 2a-p=19 parts=[10, 5, 4] rule=True
+  p=67 a=40 2a-p=13 parts=[8, 5] rule=True
+  p=71 a=40 2a-p=9 parts=[5, 4] rule=True
+  p=73 a=60 2a-p=47 parts=[20, 15, 12] rule=True
+  p=79 a=60 2a-p=41 parts=[20, 15, 6] rule=True
+  p=83 a=60 2a-p=37 parts=[15, 12, 10] rule=True
+  p=89 a=60 2a-p=31 parts=[15, 10, 6] rule=True
+  p=97 a=56 2a-p=15 parts=[8, 7] rule=True
+  p=101 a=101 2a-p=101 parts=None rule=False

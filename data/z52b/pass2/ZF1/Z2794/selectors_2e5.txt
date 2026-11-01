@@ -1,0 +1,3 @@
+primes p=1(4) <= 200000: 8977; no 2-part scribes' certificate (R(p)=0): 7: 409 577 5569 9601 23929 83449 102001
+RH (min a/x) == GR (min X): 0.0198; RH == LV (min C): 0.4732; RH == RD (max tau(X)): 0.1136; GR == LV: 0.0065
+RH-selected X even: 1.0000; RH-selected X has maximal tau among certificates: 0.2725; mean fraction of certificates with larger tau: 0.2899
