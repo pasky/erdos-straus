@@ -11,13 +11,14 @@ Scripts: `scripts/z52d_parity_*`. Data: `data/z52d/parity/`.
   result is stronger and unconditional. The idea: on generic points (off a fixed proper closed set Z), every element of
   the group acts as id or as the swap ρ (Lemma A). So generic orbits have size ≤ 2, and generic stabilisers have index
   ≤ 2 (Lemma B). Consequences:
-  * (Thm C, **PROVED; only Dirichlet's theorem is used, no H or Bateman–Horn**) Covered: the fixed-point rule with a
+  * (Thm C, **PROVED, unconditional: Dirichlet for infinitude, PNT in fixed arithmetic progressions for natural density; no H or Bateman–Horn**) Covered: the fixed-point rule with a
     certificate subgroup K ⊆ Γ^{(2)} := ⟨γ² : γ ∈ Γ⟩, and the Wielandt orbit rule (Z3101) with modulus m ≥ 3, or with any
     m when Γ = Γ^{(2)}. This includes ℤ/3, every odd-order Γ, and A₃ ⊂ S₃. Each such windmill fails on a set of primes
     p ≡ 1 (24) of positive relative density, whatever existence argument it uses.
   * (Thm D, **PROVED reduction**) Covered: the fixed-point rule with K ⊄ Γ^{(2)} and an odd count |Fix K|, and the orbit
     rule with m = 2. These give exactly INVOLUTION_ES Thm 5.1's conclusion E(p) ∩ Z ≠ ∅, so (J)2 Thm 6.1 / Cor 6.2 apply
-    verbatim with the same labels: barred CONDITIONAL on Bateman–Horn, unconditionally when Z has no Siegel-cylinder
+    verbatim with the same labels: barred CONDITIONAL on Bateman–Horn (BH-order lower bound for the quantitative
+    count; see the §2.6 caveat on the parent's 6.1(d) wording), unconditionally when Z has no Siegel-cylinder
     component. ℤ/2, S₃ with a transposition, and S₃ itself land here. Here the result is (J)2 again, nothing stronger.
   * Not covered (§2.8): count congruences that do not come from the action (e.g. |Fix K| ≢ 0 mod 3, K ⊄ Γ^{(2)}, from an
     external formula), subsets of X, other coordinate systems, non-affine maps and infinite menus.
@@ -27,16 +28,17 @@ Scripts: `scripts/z52d_parity_*`. Data: `data/z52d/parity/`.
   mod 2. None of them is predicted by [8 | h(−4p)], [16 | h(−4p)], or h(−4p)/4 mod 4, after stratifying by p mod 16 or by
   p mod 6160.
   * ≤ 10⁸: max |z| = 2.80 over 30 tests. The Bonferroni threshold is 3.14, or 3.34 if both stratifications are counted.
-    None of the five largest deviations replicates on the second range.
-  * Pooled ≤ 2·10⁸ (1 383 890 primes): every class-bit |log OR| ≤ 0.0073, and every 95 % interval lies within ±0.017.
+    None of the five largest deviations replicates on the second range (consistent with fluctuations).
+  * Pooled ≤ 2·10⁸ (1 383 890 primes): every class-bit |log OR| ≤ 0.0074, and every nominal (asymptotic, per-test) 95 % interval lies within ±0.017.
   * Non-congruential controls (quartic character of 3, cubic character of 2) and a random bit behave the same way.
   * Stratum-heterogeneous and twisted laws (mod primes 13…47) show nothing either.
-  * **CERTIFIED:** no bit is a function of (p mod 6160, h(−4p) mod 16) on primes ≤ 10⁷ (each of the 1 920 classes
+  * **CERTIFIED (bounded scope):** no bit is a function of (p mod M, h(−4p) mod 16) for any M | 6160 on primes ≤ 10⁷ (each of the 1 920 classes
     contains both values), and the same holds on (10⁸, 2·10⁸].
 * **Verdict: narrowed.**
   * On X with finite affine menus, the Z3101 escape is dead (theorem) for both rules of Thm C: K ⊆ Γ^{(2)}, and orbit
     modulus m ≥ 3.
-  * The class-number-parity source (Z3094) shows no detectable signal (EVIDENCE).
+  * The class-number-parity source (Z3094) shows no detectable signal for the tested bits (EVIDENCE; not a universal
+    obstruction).
   * What survives is unchanged from (J)2: ℤ/2 forcing on auxiliary sets other than X, with non-affine maps or infinite
     menus, and the n-dependent SL₂ group; also existence counts that do not come from the action.
   * A14/A15's "no concrete object" remains the real obstruction.
@@ -116,7 +118,7 @@ For p ∈ F ∖ 𝔈 and x ∈ G(p):
 (ii). (iv) ρ is a fixed-point-free involution of G(p) (its only fixed point on X(p) is x₀). Both sets in question are
 ρ-invariant by (ii)/(iii): a size-1 orbit {x} has Stab(x) = Γ_p = Stab(ρx). ∎
 
-### 2.4 Lemma D (generic non-certificate pairs; PROVED, Dirichlet only)
+### 2.4 Lemma D (generic non-certificate pairs; PROVED, unconditional: Dirichlet / PNT in fixed APs)
 
 Let Z ⊊ 𝔸³ be closed and ρ-invariant. There exist t ≡ 1 (4) and u ≡ 23 (24), t, u ≥ 1, such that the axis line
 `ℓ = {(t,u)} × 𝔸¹ ⊄ Z`. For such (t,u), put q := tu − 1, L := lcm(24, 4q), and let 𝒫 be the set of primes p ≡ 1 (24)
@@ -131,7 +133,7 @@ vanishing on S vanishes, for each of infinitely many t, at infinitely many u, so
 in u) has infinitely many roots t. Hence S ⊄ C.
 (a) t ≡ 1 and u ≡ 3 (mod 4) give q ≡ 2 (mod 4), and gcd(u, q) = 1 (as tu − q = 1). So gcd(24, 4q) = 8·gcd(3, q)
 divides 24. Since −u ≡ 1 (mod 24), the two congruences are compatible, and the joint class r mod L is reduced: r ≡ 1 (mod 24)
-is prime to 2 and 3, and every odd prime ℓ | q has r ≡ −u ≢ 0 (mod ℓ), because gcd(u, q) = 1. Dirichlet gives density φ(24)/φ(L) relative to p ≡ 1 (24).
+is prime to 2 and 3, and every odd prime ℓ | q has r ≡ −u ≢ 0 (mod ℓ), because gcd(u, q) = 1. Dirichlet gives infinitely many such primes, and the prime number theorem in fixed arithmetic progressions gives the natural density φ(24)/φ(L) relative to p ≡ 1 (24).
 (b) 4q | p + u, so v := (p+u)/q is a positive integer ≡ 0 (mod 4), and `tuv − u − v = (q+1)v − u − v = qv − u = p`.
 At x_p, A = q ≡ 2 (mod 4), so x_p ∉ E(p). At ρx_p = (t, v, u), A = tv − 1 ≡ −1 (mod 4), so ρx_p ∉ E(p).
 (c) ℓ is irreducible and ℓ ⊄ Z, so ℓ ∩ Z is finite. The x_p are distinct points of ℓ, and Z is ρ-invariant. ∎
@@ -140,7 +142,7 @@ CERTIFIED sanity check (`uv run --with sympy python scripts/z52d_parity_lemmaD_c
 (5,23), (1,47), (9,71), (13,95), every p < 3·10⁶ in 𝒫 satisfies (b). The observed relative frequencies are 0.1001,
 0.0562, 0.0455, 0.0035, 0.0014, against φ(24)/φ(L) = 0.1000, 0.0556, 0.0455, 0.0036, 0.0016.
 
-### 2.5 Theorem C (everything except parity is barred unconditionally; PROVED)
+### 2.5 Theorem C (the rules K ⊆ Γ^{(2)} and orbit modulus m ≥ 3 are barred unconditionally; PROVED)
 
 Let (Γ_p)_{p∈F} be a finite-menu group family on X, and let Z be its set from Lemma A. Suppose that for all but finitely
 many p ∈ F, either
@@ -150,7 +152,7 @@ many p ∈ F, either
 
 Take (t,u) and 𝒫 from Lemma D for this Z. Then **F contains only finitely many primes of 𝒫**. In particular F omits a set
 of primes p ≡ 1 (24) of positive relative density, and no such windmill proves ES for all large p ≡ 1 (24). No hypothesis
-is used beyond Dirichlet's theorem, and the existence half of the windmill is never used.
+is used beyond Dirichlet's theorem and the prime number theorem in fixed arithmetic progressions (for the density), and the existence half of the windmill is never used.
 
 *Proof.* Let p ∈ 𝒫 ∩ F lie outside the finitely many exceptions: 𝔈, the p with x_p ∈ Z (Lemma D(c)), and the p where
 (R1)/(R2) fail. Then x_p ∈ G(p).
@@ -168,8 +170,14 @@ Then `E(p) ∩ Z ≠ ∅` for all but finitely many p ∈ F. This is the conclus
 (depending only on 𝓜; Z₃ = ∅ in the (t,u,v) coordinates, finitely many fixed planes in (A,B,t)). Hence **INVOLUTION_ES2 Thm 6.1 and Cor 6.2 apply verbatim**:
 * (PROVED) F omits 100 % of the primes p ≡ 1 (mod α₀) if Z has no Siegel-cylinder component;
 * (CONDITIONAL on H) F omits infinitely many p ≡ 1 (24) if every 2-dimensional component of Z is an axis cylinder;
-* (CONDITIONAL on the Bateman–Horn lower bound of Thm 6.1(d)) F omits ≫ N/(log N)^{|S|} primes p ≡ 1 (24) up to N, for
-  every menu.
+* (CONDITIONAL on a Bateman–Horn-order lower bound `#{admissible y ≤ Y} ≫ Y/(log Y)^{|S|}` for the family of
+  INVOLUTION_ES2 Thm 5.3) F omits ≫ N/(log N)^{|S|} primes p ≡ 1 (24) up to N, for every menu. This follows from
+  INVOLUTION_ES2 Thm 6.1(a) by subtracting the O(N^{2/3}) exceptional set 𝔈_Z.
+  **Caveat (cross-review, inherited from the parent):** INVOLUTION_ES2 Thm 6.1(d) states its hypothesis "precisely" as
+  the weaker bound `> C_Z·(24MY)^{2/3}`. That weaker bound gives only infinitely many omitted primes. An assumed bound
+  ≫ Y^{2/3+δ} gives a correspondingly weaker count. Neither gives the BH-order count ≫ N/(log N)^{|S|}. The two forms are
+  conflated in the source. Here the BH-order form is assumed for the quantitative conclusion; the parent's 6.1(d) wording
+  should be repaired (flagged for the FRONTIER/STATUS maintainer, not propagated as a theorem).
 
 *Proof.* (R1′) x₀ is ρ-fixed, so if x₀ ∈ G(p) its orbit is {x₀}. Then x₀ ∈ Fix(Γ_p) ⊆ Fix(K_p) ⊆ E(p), which is false.
 So x₀ ∈ Z. By Lemma B(iv), |Fix(K_p) ∩ G(p)| is even. Hence |Fix(K_p) ∩ Z| is odd, and ∅ ≠ Fix(K_p) ∩ Z ⊆ E(p) ∩ Z.
@@ -247,20 +255,22 @@ seeded random bit.
 So the quartic character of 2 is **not** an independent control once p mod 16 is fixed. It is the same test as b8, and
 was replaced by q3.
 
-### 3.2 Literature (Koymans read in full; Barrucand–Cohn and Cohn–Lagarias only through secondary sources)
+### 3.2 Literature (Koymans read in full; Barrucand–Cohn original verified by the cross-reviewer)
 
 * 8 | h(−4p) ⟺ p = x² + 32y² ⟺ (−4)^{(p−1)/8} ≡ 1 (mod p) (p ≡ 1 (8)): Barrucand–Cohn, J. reine angew. Math. 238 (1969)
-  67–70. **Not opened.** Secondary sources:
-  * Cohn–Lagarias, Math. Comp. (1983) (JSTOR 2007707), eq. (1.3), seen only as a search snippet: "(1.3) 8 | h(−4p) ⟺
-    p = x² + 32y² … (1.2) from the Rédei–Reichardt theorem".
-  * The note "The forms x² + 32y² and x² + 64y²" (scispace; search snippet only) describes Barrucand–Cohn's second theorem:
-    −4 is an 8th power mod p iff p = x² + 32y². Koymans, ANT 14 (2020) 37–65
+  67–70. I could not open it. The cross-reviewer read the original from the Göttingen scans linked by EuDML
+  (https://eudml.org/doc/183503): p. 67 eqs. (1)–(4) and p. 68 Main Theorem (6b), (6d), (6e). The hypotheses there are
+  exactly p ≡ 1 (8), and the theorem states x² + 32y² ⟺ −4 an eighth-power residue ⟺ 8 | h(Q(√−p)), whose discriminant
+  is −4p. No congruence hypothesis is missing. Earlier secondary sources (search snippets only) agree:
+  * Cohn–Lagarias, Math. Comp. (1983) (JSTOR 2007707), eq. (1.3);
+  * the note "The forms x² + 32y² and x² + 64y²" (scispace).
+* Koymans, ANT 14 (2020) 37–65
   (arXiv:1809.07167, read): Q(ζ₈, √(1+i)) is a governing field for the 8-rank, and p splits completely there iff 8 | h(−p);
   Hasse's criterion is quoted. **CERTIFIED here:** [8 | h(−4p)] = [p = x² + 32y²] on all 82 887 primes p ≡ 1 (24) ≤ 10⁷
   and on every 10th one up to 10⁸ (146 577 checks, 0 mismatches).
 * 16-rank: Koymans (loc. cit., Thm 1.1, read) proves unconditionally that 16 | h(−p) has density 1/16 among all primes.
   Among p ≡ 1 (24) the *expected* share is 1/4. That is not stated in Koymans for progressions mod 3; it is observed here
-  (0.2499 / 0.2502 on the two ranges). Koymans also states that **no** value of d is known for which a governing
+  (0.2499 / 0.2502 on the two ranges). Koymans also states (as of that paper; not a survey of later work) that **no** value of d is known for which a governing
   field for the 16-rank exists or fails to exist. Cohn–Lagarias conjectured that they always exist. **Correction to Ranking
   O's C3 note** ("the 16-rank has no governing field"): the correct statement is "no governing field is *known*". The
   16-rank is still a non-congruential (non-abelian Chebotarev, if a governing field exists) parity source.
@@ -291,7 +301,9 @@ uv run --with numpy --with scipy python scripts/z52d_parity_corr.py /tmp/c1e8.tx
   * [F] the sum over the 6160-strata (n ≥ 20) of the per-stratum 2×2 χ²;
   * [G] twisted laws: Y ⊕ Z (Z = b8, b16) against p mod ℓ, ℓ = 13…47 prime.
 
-  Mantel–Haenszel log odds ratios carry Robins–Breslow–Greenland 95 % intervals. χ² tails are exact (scipy).
+  Mantel–Haenszel log odds ratios carry Robins–Breslow–Greenland 95 % intervals. χ² survival probabilities are evaluated
+  numerically (scipy), but the χ² null approximations and the 95 % intervals are asymptotic/nominal: they are not exact
+  finite-sample guarantees and not simultaneous over tests.
 
 ### 3.4 Results (EVIDENCE; N = 719 781 primes p ≡ 1 (24), p ≤ 10⁸; `data/z52d/parity/corr_1e8.txt`)
 
@@ -344,34 +356,36 @@ On the new range alone, the largest |z| among the 25 class/control z-tests is 1.
 ≤ 10⁸). The no-deterministic-law check again finds all 1 920 classes non-constant. **Pooled** (N = 1 383 890, p ≤ 2·10⁸,
 `corr_pooled_2e8.txt`): max |z| = 1.87 (BICH vs rnd), and among the class bits max |z| = 1.51 (UII vs b16 | b8). All
 Mantel–Haenszel ORs for class bits lie in [0.993, 1.007], and every class-bit 95 % interval for log OR lies within ±0.017.
-**Nothing replicates; the ≤ 10⁸ extremes were multiple-testing
+**Nothing replicates; the ≤ 10⁸ extremes did not replicate and are consistent with multiple-testing
 fluctuations.**
 
 ### 3.6 Interpretation (Assessment)
 
 The certificate counts are sums, over levels t, of divisor-pair counts of tp + 1 in residue classes (METAPLECTIC_ES Thm K).
-The 2-power part of Cl(−4p) is Frobenius data in a fixed tower: Q(ζ₈, √(1+i)) for the 8-rank, and an unknown,
-conjecturally existing field for the 16-rank. The data detect no association between the two layers at the level of parity
-(|log OR| ≲ 0.02). This matches (J)96 ("non-abelian Frobenius inert on finite witness sets") and Z0881 (no effect on log counts).
+The 8-rank of Cl(−4p) is Frobenius data in a known governing field, Q(ζ₈, √(1+i)). For the 16-rank a governing
+field is only conjectural (Cohn–Lagarias), so it is not known to be Frobenius data in any fixed field. The data detect no
+association with the tested parities (tested common-OR estimates within |log OR| ≲ 0.02, nominal intervals). This matches (J)96 ("non-abelian Frobenius inert on finite witness sets") and Z0881 (no effect on log counts).
 Z3094's idea was to find a set whose size is a class number up to known even terms. Then the parity of that set's size
 would be governed by h(−4p). None of the five natural ES cardinalities is such a set, even statistically. For Rédei-type
 forcing it would have to be one exactly.
 
 ## 4. Verdict for C3 / A14 / A15: **narrowed**
 
-* **Killed (theorem).** Finite-group forcing on the O152 set X, with every group element acting by a fixed finite affine
-  menu (§2.1), under either of two rules (Thm C, unconditional apart from Dirichlet):
+* **Killed (theorem; "dead" only in this scope).** Finite-group forcing on the O152 set X, with every group element acting by a fixed finite affine
+  menu (§2.1), under either of two rules (Thm C, unconditional: Dirichlet / PNT in fixed arithmetic progressions):
   * the fixed-point rule with certificate subgroup K ⊆ Γ^{(2)};
   * the Wielandt orbit rule with m ≥ 3 (any m if Γ = Γ^{(2)}).
 
   Z3101's escape "m > 2 is not covered by (J)2" is closed on X for these rules.
 * **Unchanged (theorem).** The parity rules (K ⊄ Γ^{(2)} with an odd |Fix K|; orbit rule with m = 2) are (J)2 verbatim
-  (Thm D): barred CONDITIONAL on Bateman–Horn, and unconditionally for menus without Siegel-cylinder exceptional sets.
+  (Thm D): barred CONDITIONAL on Bateman–Horn (BH-order lower bound; §2.6 caveat), CONDITIONAL on H for cylinder
+  exceptional sets, and unconditionally for menus without Siegel-cylinder exceptional sets.
 * **Not covered.** K ⊄ Γ^{(2)} with an existence count that does not come from the action (e.g. mod 3) — this is the bare
   M5 problem. Also not covered: subsets of X, other coordinate systems, non-affine maps, infinite menus (§2.8).
 * **No detectable signal (EVIDENCE; CERTIFIED non-determinism for laws of modulus dividing 6160).** The 8-rank and 16-rank
-  of Cl(−4p) do not predict the parity of R(p)/2, f_II/2, BICH, |E(p)| or (|X(p)|−1)/2. Any association is below
-  |log OR| ≈ 0.02. The "first M5 input beyond congruence data" did not materialise.
+  of Cl(−4p) show no detectable association with the parity of R(p)/2, f_II/2, BICH, |E(p)| or (|X(p)|−1)/2: the tested
+  common-OR estimates and their nominal 95 % intervals are within |log OR| ≈ 0.02 (pooled ±0.017). This does not exclude
+  untested interactions, other class-group bits, or other auxiliary sets. The "first M5 input beyond congruence data" did not materialise.
 * **Survives (Assessment, as A14/A15 say):** ℤ/2 forcing on auxiliary sets other than X, or with non-affine or growing
   menus; Smith-theory / discrete-Morse complexes (A15; no K_p is specified anywhere, and none is constructed here).
   Plausibility stays at 1 at best, with no concrete object.
@@ -381,9 +395,11 @@ forcing it would have to be one exactly.
 * **§6 "Algebraic / forcing", replace the windmill bullet with:**
   "Windmills / involutions / finite-group actions on X in which every group element acts by a fixed finite affine menu:
   * the parity rules (fixed points of K ⊄ Γ^{(2)} with an odd count; Wielandt modulus m = 2) are barred CONDITIONAL on
-    BH ((J)2 Thm 6.1);
+    a BH-order lower bound ((J)2 Thm 6.1; note that 6.1(d)'s 'precise' Y^{2/3} hypothesis does not yield the stated
+    N/(log N)^{|S|} count and needs rewording);
   * the fixed-point rule with K ⊆ Γ^{(2)} (ℤ/3, any odd-order K, A₃ ⊂ S₃) and the Wielandt orbit rule with m ≥ 3 are
-    barred unconditionally on a positive-density set of p ≡ 1 (24), because generic orbits have size ≤ 2;
+    barred unconditionally (on the full X with a fixed common finite affine menu) on a positive-density set of
+    p ≡ 1 (24), because generic orbits have size ≤ 2;
   * existence counts not coming from the action are not covered.
 
   → `Z52D_PARITY.md` Thms C, D."
@@ -404,16 +420,20 @@ therefore fail unconditionally on a positive proportion of primes ≡ 1 (24):
 * windmills certified at points fixed by squares;
 * Wielandt-type orbit rules with modulus m ≥ 3.
 
-The parity rules are exactly the (J)2 case (barred under Bateman–Horn). Existence counts from outside the action stay
+The parity rules are exactly the (J)2 case (barred under a BH-order lower bound; the parent's weaker
+"precise" 6.1(d) hypothesis does not give that count, §2.6). Existence counts from outside the action stay
 open.
 
 The falsifier is clean. It covered 719 781 primes p ≡ 1 (24) up to 10⁸, plus a pre-registered replication on 664 109
 primes in (10⁸, 2·10⁸]. Once p mod 16 (or p mod 6160) is fixed, none of [8 | h(−4p)] (Barrucand–Cohn), [16 | h(−4p)] or
-h(−4p) mod 16 detectably predicts the parity of any of the five natural certificate counts. Odds ratios are within
-2 % of 1, the non-abelian controls behave identically, and no fixed-modulus law exists.
+h(−4p) mod 16 detectably predicts the parity of any of the five natural certificate counts. The tested common-odds-ratio
+estimates are within 2 % of 1 (nominal 95 % intervals), the non-abelian controls behave identically, and no law
+Y = f(p mod M, h(−4p) mod 16) with M | 6160 holds (CERTIFIED). This does not rule out untested interactions, other
+class-group invariants, laws with other moduli, or an auxiliary set built differently.
 
-Cluster C3 is narrowed. Its group-theoretic generalisation is dead on X for the covered rules, and its class-number parity
-source shows no signal. What remains is the A14/A15 residue: an unconstructed auxiliary set or complex. ES remains open.
+Cluster C3 is narrowed. Its group-theoretic generalisation is dead only for Thm C's rules, on the full X with a fixed common finite
+affine menu. The parity case keeps its conditional residue, and the class-number experiment is negative evidence, not a
+universal obstruction. What remains is the A14/A15 residue: an unconstructed auxiliary set or complex. ES remains open.
 
 ## 7. Review
 
@@ -449,3 +469,22 @@ source shows no signal. What remains is the A14/A15 residue: an unconstructed au
   * this note was added.
 
   All corr_*.txt files were regenerated with the revised script, and the numbers in §3 come from them.
+
+* **Cross-model hostile review** (GPT/Astra, `data/z52d/xreview/REVIEW_PARITY.md`, verdict ACCEPT-WITH-FIXES).
+  The core finite-group obstruction (Lemmas A, B, D; Thm C) and the parity reduction (Thm D) were judged correct.
+  All decisive computations were reproduced independently: prime completeness to 2·10⁸, CMH/RBG statistics, the
+  1 920-class law exclusion, and byte-identical reruns of `corr_1e8.txt` / `corr_2e8.txt`. Changes made:
+  1. (MAJOR) Thm D's quantitative consequence now assumes a Bateman–Horn-order lower bound ≫ Y/(log Y)^{|S|}. A caveat
+     flags that INVOLUTION_ES2 6.1(d)'s "precise" Y^{2/3} hypothesis does not give the stated count; this is inherited
+     from the parent and is not propagated. The change is applied in §0, §2.6, §4, §5 and §6.
+  2. (MAJOR) Statistical and scope wording:
+     * "no fixed-modulus law exists" became "no law f(p mod M, h mod 16) with M | 6160";
+     * "any association is below …" became "the tested common-OR estimates and nominal intervals are …";
+     * "were multiple-testing fluctuations" became "did not replicate; consistent with fluctuations";
+     * explicit non-exclusions were added: untested interactions, other class-group bits, other auxiliary sets;
+     * "dead" is restricted to Thm C's rules on the full X with a fixed common finite affine menu (§0, §4, §5, §6).
+  3. (MINOR) The density attribution is now "Dirichlet for infinitude, PNT in fixed APs for natural density" (Lemma D,
+     Thm C, §0, §4). The §2.5 title no longer says "everything except parity".
+  4. (MINOR) χ² null approximations and 95 % intervals are labelled asymptotic/nominal and not simultaneous. §3.6 now
+     says the 8-rank has a known governing field and the 16-rank only a conjectural one. The pooled bound is rounded up
+     to 0.0074. §3.2 now cites the original Barrucand–Cohn pages, as verified by the cross-reviewer.
