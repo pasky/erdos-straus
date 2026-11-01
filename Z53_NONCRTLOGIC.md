@@ -124,7 +124,7 @@ the quadratic residue symbol.
 𝔭. Writing h = Σ c_k X^k, β^d h(q) = Σ c_k β^{d−k}(qβ)^k ≡ Σ c_k β^{d−k} = h^∨(β) (mod 𝔭). The Legendre symbol of h(q) mod p
 equals the residue symbol of h(q) at 𝔭 (O_K/𝔭 = F_p), and [·/𝔭] is multiplicative with [β/𝔭]^{−d} = [β/𝔭]^d. ∎
 
-**Lemma T2 (Hilbert reciprocity).** Let x ∈ O_K, x ∉ 𝔭, p odd, 𝔭 ∤ 2x. Then [x/𝔭] = ∏_{v∈T(x)} (x, π_q)_v (quadratic
+**Lemma T2 (Hilbert reciprocity).** Let x ∈ O_K∖{0} with x ∉ 𝔭 (p is odd). Then [x/𝔭] = ∏_{v∈T(x)} (x, π_q)_v (quadratic
 Hilbert symbols of K).
 *Proof.* Product formula ∏_v (x, π_q)_v = 1 over all places of K (Hilbert reciprocity; standard, e.g. Neukirch, *Algebraic
 Number Theory*, Ch. VI Thm 8.1 — theorem number quoted from memory, not re-checked). Complex places contribute 1. A finite
@@ -132,20 +132,21 @@ v ∉ T(x), v ≠ 𝔭 is odd, and x, π_q are v-units there ((π_q) = 𝔭), so
 so (x, π_q)_𝔭 = [x/𝔭] (tame symbol at an odd place). All symbols are ±1. ∎
 
 **Definition (trap point).** q* ∈ Ẑ is a *trap point for P* if for every prime ℓ and every place v | ℓ of K,
-1 − q*_ℓ β ∈ (K_v^×)². (Squares are open in K_v^×, so for each ℓ there is E with: q ≡ q*_ℓ (mod ℓ^E) ⇒ 1 − qβ ∈ (K_v^×)² for
-all v | ℓ.) Then P(q*_ℓ) = N(1 − q*_ℓβ) is a unit square in ℤ_ℓ for every ℓ, so a trap point is square-mimicking for P; in
+1 − q*_ℓ β ∈ (O_v^×)² (a unit square). (Unit squares are open in K_v^×, so for each ℓ there is E with: q ≡ q*_ℓ (mod ℓ^E) ⇒
+1 − qβ ∈ (O_v^×)² for all v | ℓ.) Then P(q*_ℓ) = N(1 − q*_ℓβ) is a unit square in ℤ_ℓ for every ℓ, so a trap point is square-mimicking for P; in
 particular C_P = 1 and every admissible p is ≡ 1 (mod 8) and ≡ 1 (mod 3).
 
 **Lemma T3 (real places).** If q > 0 then π_q is positive at every real place of K. *Proof.* A real embedding σ sends β to a
 real root β_σ of R, and 1/β_σ is a real root of P, hence negative; so 1 − qβ_σ > 1. ∎
 
 **Lemma T4 (QR-transparency at trap points; PROVED, unconditional).** Let q* be a trap point, x ∈ O_K∖{0}, and let Λ_x be the
-set of rational primes below the finite places of T(x), with precisions E_ℓ as in the definition. Then for every integer
-q > 0 with q ≡ q*_ℓ (mod ℓ^{E_ℓ}) (ℓ ∈ Λ_x), P(q) = p prime and p > 2|N(x)|: [x/𝔭_q] = 1. Consequently, for every h ∈ ℤ[X]
-and every such q (Λ enlarged by Λ_β ∪ Λ_{h^∨(β)}) with p ∤ h(q): **(h(q)/p) = +1.**
+set of rational primes below the finite places of T(x) (the primes dividing 2N(x)), with precisions E_ℓ as in the
+definition. Then for every integer q > 0 with q ≡ q*_ℓ (mod ℓ^{E_ℓ}) (ℓ ∈ Λ_x), P(q) = p prime and 𝔭_q ∤ x (automatic if
+p > |N(x)|): [x/𝔭_q] = 1. Consequently, for every h ∈ ℤ[X] and every such q (with Λ_β ∪ Λ_{h^∨(β)} in place of Λ_x) with
+p ∤ h(q): **(h(q)/p) = +1.**
 *Proof.* By the choice of q, π_q ∈ (K_v^×)² at every finite v ∈ T(x); by Lemma T3 also at real v. So every symbol in Lemma
-T2 is 1. The consequence is Lemma T1 with x = β and x = h^∨(β) (h^∨(β) ≠ 0 unless R | h^∨, i.e. h is a multiple of P; then
-p | h(q)). ∎
+T2 is 1. The consequence is Lemma T1 with x = β and x = h^∨(β): 𝔭 ∤ β since qβ ≡ 1, and 𝔭 ∤ h^∨(β) since
+β^d h(q) ≡ h^∨(β) and p ∤ h(q) (in particular h^∨(β) ≠ 0). ∎
 
 *Reading.* At a trap point **every polynomial value is a quadratic residue** mod p — exactly what is true at an odd square
 m² for every integer prime to m. Primality of the values is not needed for this; it is needed only to make a procedure's run
@@ -174,8 +175,8 @@ tree at (P, q*) is defined and finite. Then there are explicit finite S′ ⊇ S
 q has **Π(P(q)) = FAIL** (PROVED). Under Hypothesis H for {f_h(y) = h(M′y + q̃)/C_h : h ∈ S′} there are infinitely many such q,
 all with P(q) ≡ 1 (mod 24) (CONDITIONAL on H).
 *Proof.* As Theorem C / Theorem A(e). Let Π′ append FACTOR of the output denominators; S′ its polynomial set; Λ′ = Λ ∪ {2, 3}
-∪ Λ_β ∪ ⋃_{h∈S′∖{P}} Λ_{h^∨(β)} ∪ {primes of the constants K_A, C_h} ∪ ⋃_ℓ Λ_ℓ, with the E_ℓ of Lemma T4 (and the original E_ℓ,
-whichever is larger). At an admissible q beyond all thresholds (in particular p > 2|N(x)| for the finitely many x used), the
+∪ Λ_x over x ∈ {β} ∪ {h^∨(β) : h ∈ S′∖{P}} ∪ {the primes ℓ dividing some constant K_A or C_h}, with the E_ℓ of Lemma T4
+(and the original E_ℓ, whichever is larger). At an admissible q beyond all thresholds (in particular p > 2|N(x)| for the finitely many x used), the
 actual output is the formal output of some leaf at q (Theorem A(a)). A p-free denominator has prime factors of two kinds:
 primes ℓ of constants (ℓ ∈ Λ′; (ℓ/p) = +1 by Lemma T4 with h = ℓ constant) and formal primes r_h(q) = h(q)/C_h, h ≠ P
 ((r_h/p) = (h(q)/p)(C_h/p) = +1 by Lemma T4 twice). So every prime factor is a residue, contradicting Lemma CT(a) (p ≡ 1 (4)) if
@@ -183,7 +184,8 @@ the output were a SUCCESS; by correctness the output is FAIL. Existence: Theorem
 nondegeneracy, not linearity). Admissible p ≡ P(q*) is a unit square at 2 and 3, hence ≡ 1 (8), ≡ 1 (3). ∎
 
 **Examples of trap families** (all with P(0) = 1, no positive real root): 24X + 1 (Theorem C); **X² + 1** (β = ±i; the trap
-condition at 2 is 8 | q, at 3 it is 3 | q, at 5 it is q ≡ 0, ±… — q ≡ 0 always works); kX² + 1 (k ≥ 1); 2X² + 1; X⁴ + 1;
+condition is 8 | q at 2, 3 | q at 3, 5 | q at 5 (computed: 1 ∓ 2q must both be nonzero squares mod 5); q ≡ 0 works at every
+ℓ); kX² + 1 (k ≥ 1); 2X² + 1; X⁴ + 1;
 cyclotomic Φ_N(dX) (N ≥ 2, d ≥ 1); LXᵇ + 1 when irreducible; 2X³ + 2X + 1. Non-examples: X² − 3X + 1 (positive real roots — the
 real place breaks Lemma T4, see §4); X² + 4 (P(0) ≠ 1; indeed p = q² + 4 ≡ 5 (8) for odd q, and one of q ± 2 is always a
 non-residue mod p since (q+2)(q−2) ≡ −8).
@@ -209,15 +211,17 @@ semantics on a congruence class (Lemma D plus Prop A of POINTWISE_SIZE). Hence p
 ⌊c·p^θ⌋ (c, θ > 0 real) agrees with one of finitely many polynomials G_1, …, G_m ∈ ℚ[X] at infinitely many q with p = P(q)
 (deg P = n, lc P = L), then nθ ∈ ℤ and c·L^θ ∈ ℚ. (Some G_i agrees infinitely often; c·P(q)^θ = cL^θq^{nθ}(1 + O(1/q)) is
 within 1 of G_i(q), so deg G_i = nθ and lc G_i = cL^θ.) Consequently **⌊p^θ⌋ for irrational θ, ⌊log p⌋, and the pair
-(⌊√p⌋, ⌊√(2p)⌋) have no formal semantics on any polynomial family** (the pair would need L and 2L to be squares). Individually,
+(⌊√p⌋, ⌊√(2p)⌋) have no formal semantics on any polynomial family** (the pair would need L and 2L to be squares; for ⌊log p⌋:
+log P(q) = n log q + O(1) cannot stay within 1 of a polynomial, constant or not). Individually,
 ⌊√(2p)⌋ is killed on 2X² + 1. So archimedean escape is cheap — but see §5.
 
 **Corollary T3 (QNR-valued oracles escape every trap point; PROVED).** If an oracle O satisfies (O(p)/p) = −1 for all primes p
 (e.g. n_p, the least primitive root g_p ≥ n_p, the least prime ℓ ≡ a (mod m) with (ℓ/p) = −1), then for every trap family
 P, every polynomial G ∈ ℚ[X] and every trap point, O(P(q)) ≠ G(q) for all q in a refined trap class with P(q) prime and q
 large: by Lemma T4 G(q) (cleared of denominators, whose primes are added to Λ) is a residue. So such O has no finite-menu
-formal semantics at any trap point. Conversely (Lemma CT + Lemma T4) any program that succeeds at a trap prime must have
-computed a **non-polynomial integer with a non-residue prime factor**. This is the exact escape boundary of B1 at trap points:
+formal semantics at any trap point. Conversely, by Lemma CT a successful output contains a non-residue prime, so by Lemma T4 the
+output denominators cannot be given on a refined trap class by finitely many polynomials: success at trap points requires
+the program to generate **integers that are not polynomial in q and carry a non-residue prime factor**. This is the exact escape boundary of B1 at trap points:
 *escape ⟺ generation of a non-formal quadratic non-residue.*
 
 ## 4. First falsifier (CERTIFIED computations)
@@ -255,7 +259,8 @@ non-residue prime in N (Lemma CT) and occurs at a window whose formal value is c
 **(F3) Independent (★) census cross-check** (by-product of §6, `scripts/z53_noncrtlogic_qnrseed.py`, exhaustive
 enumeration of all (u, B, C) by the trial form B = (p + u)/(4uC − 1), u ≤ B, smallest-prime-factor sieve): among primes
 p ≡ 1 (24) in [300, 5·10⁶), R(p) = 0 exactly at 409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209,
-1726201 — the twelve census zeros of FRONTIER §2.1 in that range (CERTIFIED by one more engine).
+1726201 — the twelve zeros of the campaign's (★) census in that range (FRONTIER §2.1 gives the count; full list e.g. in
+`BRAINSTORM/z52d_pass2_SK1.md`: … 1726201, 5212561, 8813281) (CERTIFIED by one more engine).
 
 ## 5. The taxonomy (answers S1)
 
@@ -274,7 +279,7 @@ semantics where stated.
 | ⌊√(kp)⌋ and the full CF/Pell/unit data of √(kp) (and (1+√(kp))/2 when relevant) for **one** fixed k | killed — **long cycles irrelevant** | formal on the trap family kX² + 1 (Richaud–Degert) | Thm T, Cor T1 |
 | Cornacchia data: the representation p = x² + ky² for one fixed k ≥ 1 | killed | (x, y) = (1, q) on kX² + 1 | Thm T, Cor T4 |
 | ⌊√(2p)⌋ alone | killed | trap family 2X² + 1 | Cor T2 |
-| (⌊√p⌋, ⌊√(2p)⌋) jointly; CF data of √p and √(2p) jointly; ⌊p^θ⌋, θ ∉ ℚ; ⌊log p⌋; ⌊R_p⌋ | **escape**: no formal semantics on any polynomial family | leading-coefficient obstruction | Cor T2(ii), PROVED |
+| (⌊√p⌋, ⌊√(2p)⌋) jointly (hence CF data of √p and √(2p) jointly); ⌊p^θ⌋, θ ∉ ℚ; ⌊log p⌋ | **escape**: no formal semantics on any polynomial family | leading-coefficient obstruction | Cor T2(ii), PROVED |
 | n_p, least primitive root g_p, least prime ≡ a (m) with (ℓ/p) = −1, any QNR-valued oracle | **escape every trap point** | values are non-residues; trap points are QR-transparent | Cor T3, PROVED |
 | h(±p), regulator, discrete logs (as unbounded integers) | open (not proved formal on any trap family; not proved to escape) | Siegel growth makes constancy impossible; exact polynomiality not excluded unconditionally | Assessment |
 
@@ -340,11 +345,11 @@ h(q) with v_r(H_h) odd are non-residues), which is exactly why n_p escapes.
    p + ℓ carrying an even, hence typically larger, number of non-residue prime factors. So the seed supplies parity and nothing
    about the class (EVIDENCE; the explanation is an Assessment).
 2. *Which (★) certificates use n_p* (`scripts/z53_noncrtlogic_qnrseed.py`, `data/z53/noncrtlogic/qnrseed_*.txt`): all
-   43 433 primes p ≡ 1 (24) in [300, 5·10⁶), all (★) solutions. For each small prime ℓ the share of solutions with ℓ | uBC is
+   43 442 primes p ≡ 1 (24) in [300, 5·10⁶), all (★) solutions. For each small prime ℓ the share of solutions with ℓ | uBC is
    larger when ℓ is a non-residue than when it is a residue (e.g. ℓ = 11: 0.216 vs 0.185 on [10⁶, 5·10⁶)), and larger still when
    ℓ = n_p (0.267) — consistent with Lemma CT (every certificate needs a non-residue) plus the absence of smaller competing
    non-residues, both quadratic-layer facts. P(some (★) solution uses n_p) = 0.960 ([300, 10⁶)) and 0.978 ([10⁶, 5·10⁶)): the
-   n_p-seeded sub-count is *more* often zero (2–4 % of primes) than the full count (12 zeros among 43 433 primes) — seeding
+   n_p-seeded sub-count is *more* often zero (2–4 % of primes) than the full count (12 zeros among 43 442 primes) — seeding
    restricts the lottery, it does not force it. The CF-norm generator s_p (least prime ≡ ±3 (8) dividing a norm of √(2p), a
    non-residue by construction) equals n_p for 70 % of primes and is used by a (★) solution slightly less often (0.945).
 3. *Test primes* (`scripts/z53_noncrtlogic_forestroot.py 4 5000`, `data/z53/noncrtlogic/forestroot_d4.txt`; BFS depth ≤ 4,
@@ -376,9 +381,9 @@ CONDITIONAL on H).
 **FRONTIER §4 hard screens** for the best positive idea in reach (n_p-seeded certificates):
 1. *T1 squares:* passes — n_p does not exist at m² (and Lemma T4 is the precise reason every formal mechanism fails there and at
    trap points).
-2. *8/131:* not applicable to the no-go theorems (Lemma CT holds for every numerator 4 | m via (J)41's full T1, so Theorems A/T
-   kill numerator-8 programs too — consistent, since barriers are allowed to be numerator-uniform). The n_p-seeded forest
-   certificate is 4-specific through the five-slice sign law.
+2. *8/131:* not a constraint on the no-go theorems (a barrier may be numerator-uniform; Theorems A/T use Lemma CT, proved for
+   numerator 4 only — a numerator-m analogue was not checked here). The n_p-seeded forest certificate is 4-specific through the
+   five-slice sign law (bichromatic ⟺ certificate is the m = 4 χ-fibre, (J)32).
 3. *Tied modulus:* **fails** — after seeding, the certificate event (a divisor w′ ≡ −1 (mod ℓ) of p + ℓ that is a
    non-residue) is the B2 event; §6 EVIDENCE 1 shows the seed removes F1 but does not raise the class factor.
 4. *Fixed p:* passes (n_p is pointwise; Lemma T4 is pointwise at each admissible p).
