@@ -1,0 +1,7 @@
+slices 12000
+ (e/p)=-1:False  -1∈H:False  hit:False    4038  0.337
+ (e/p)=-1:False  -1∈H:True  hit:False    1357  0.113
+ (e/p)=-1:False  -1∈H:True  hit:True     822  0.069
+ (e/p)=-1:True  -1∈H:True  hit:False    3885  0.324
+ (e/p)=-1:True  -1∈H:True  hit:True    1898  0.158
+P(-1∈H)=0.663  P(hit)=0.227  P(no hit | -1∈H)=0.658
