@@ -231,7 +231,10 @@ the parity of v₂(t), or non-uniform arguments) is not excluded by (a)–(b).
 **Proposition 8 (polynomial multi-base certificates collapse; PROVED; argument supplied by the hostile review).** Let
 θ₁, …, θ_k > 1 be reals such that 2, θ₁, …, θ_k are multiplicatively independent (e.g. θ = 3, 5), Y = 2^{s/D},
 Z_j = θ_j^{s/D′}. If x, y, z ∈ ℚ[Y, Z₁, …, Z_k] are positive integers with 4/n = 1/x + 1/y + 1/z for all s in an
-infinite arithmetic progression, then x, y, z ∈ ℚ[Y]: the certificate is a root family (§3).
+infinite arithmetic progression, then x, y, z ∈ ℚ[Y], valid (positive integers) on the original progression. If that
+progression contains all sufficiently large multiples of a modulus (as Prop 7(b) supplies in a congruence covering),
+this is a root family through μ = 0 (§3). (An arbitrary progression is *not* a neighbourhood of μ = 0: e.g. n = 15Y + 1,
+x = (2n + 1)/7, y = 2n, z = 2n(2n + 1)/7 is valid at Y = 2^s for s ≡ 1 (mod 3), but x(1) = 33/7 is not dyadic.)
 *Proof.* Along s = s₀ + Lt, every monomial Y^iZ^j evaluates to C_{ij}·λ_{ij}^t with pairwise distinct positive bases
 λ_{ij} (multiplicative independence), so P := 4xyz − n(xy + yz + zx) evaluates to a real exponential sum Σ c_{ij}λ_{ij}^t
 with distinct bases; such a sum with a non-zero coefficient has at most (#terms − 1) real zeros (Descartes' rule for
@@ -302,7 +305,8 @@ C(1) = 4d(1 − α)² — always fails). EVIDENCE only.
   * **B (= II-ac)**: limit equation jj′c_o = 2^E + 16j + j′ (the A′ equation with X ↔ X′); even u and integer w empty
     (PROVED); u = 1, 1/2 dead for every D; certified empty for integer u, E ≤ 3000, dyadic u, ip ≤ 72, dyadic w,
     4i − 2 ≤ 90. Beyond: a 2-adic approximation of exponent p/2 — Ridout-finite for every p **including p = 3**
-    (ineffective).
+    (ineffective; Ridout with targets α_∞ = ∞, α₂ = β = 15^{−1/p} gives |u − β|₂/u ≪ u^{−1−p/2}, and the threshold for
+    approximation by *integers* is exponent 1, not 2).
   * A finite, D-independent candidate-superset test with exact local checks (Lemma 2) for all four binomial menus and
     *rational* u; no hit at small heights (EVIDENCE: r, v ≤ 40, p ≤ 19).
 * **Sign lemma (Lemma 5, PROVED)**: in any root family the real roots of a, b, c, d lie at or below the largest real root
@@ -314,7 +318,8 @@ C(1) = 4d(1 − α)² — always fails). EVIDENCE only.
 * **Covering (Prop 7)**: Sierpiński-type covering congruences cannot work on their own: the class t ≡ 0 always
   survives, so the kickoff's "complete covering = theorem" route needs a rule through μ = 0 first.
 * **Other bases (Prop 8, PROVED)**: certificates polynomial in 2^{s/D} and in exponentials with multiplicatively
-  independent bases (3^{s/D′}, 5^{s/D′}, …) collapse to root families in 2^{s/D}; so "3^s, 5^s-base certificates" of
+  independent bases (3^{s/D′}, 5^{s/D′}, …) collapse to polynomials in 2^{s/D} alone (root families through μ = 0 when the progression is residue-0, as in a
+  congruence covering); so "3^s, 5^s-base certificates" of
   polynomial type are not a new menu.
 
 Surviving routes for a *congruence-covering* proof of 60 | s (not claimed exhaustive for all conceivable proofs):
@@ -345,7 +350,8 @@ family (EXP_15 §1) and is not touched here.
 >   moderate height (D-independent shape test); B is Ridout-finite for every p including p = 3, A for p = 3 is not.
 > * Sign lemma (PROVED): real roots of a, b, c, d lie below the real root of n; hence no rule polynomial in 2^{s/2} reaches
 >   μ = 0, and at D = 3 the only one-constant Type II pattern left is II-d (EVIDENCE: none at small height).
-> * Certificates polynomial in 2^{s/D} and 3^{s/D′}, 5^{s/D′}, … collapse to root families in 2^{s/D} (PROVED).
+> * Certificates polynomial in 2^{s/D} and 3^{s/D′}, 5^{s/D′}, … collapse to polynomials in 2^{s/D} (PROVED); on a
+>   residue-0 progression (as forced in a congruence covering) these are root families through μ = 0.
 > * Open: binomial menus beyond the certified heights or with odd-denominator u; B′ for p ≥ 13; patterns with at most
 >   one constant (II-d at D = 3, Type I at D = 4, D ≥ 5); Laurent/other exponential certificates. In a congruence
 >   covering a rule through μ = 0 is necessary (Prop 7). *(z53 THIN15; z52d THINFAMILY.)*
@@ -356,7 +362,7 @@ two-constant binomial landscape around μ = 0: B′ (II-cd) collapses to finitel
 root degree 2 and two of the three one-constant cubic patterns. No rule through μ = 0 was found, and none of the
 results proves one cannot exist: the remaining room is in non-binomial patterns (at most one constant) of root
 degree ≥ 3, at heights beyond the certified bounds, and in exponential certificates outside the polynomial
-multi-base class (which collapses to root families, Prop 8). ES remains open for the family (and,
+multi-base class (which collapses to 2-power polynomial certificates, Prop 8). ES remains open for the family (and,
 of course, in general).
 
 ## 7. Review log
@@ -378,3 +384,10 @@ of course, in general).
     INCOMPLETE), m12 (a < 1/4 strictness justified).
   * m7 (other bases): the reviewer's degree-collapse argument is adopted as Prop 8 (PROVED), replacing the earlier
     Assessment.
+* **Cross-model review** (`data/z53/xreview/REVIEW_THIN15.md`; independent replays incl.
+  `scripts/z53_xrev_thin15_certificates.py`, all 50 000 certificates, menu-B runs, Thue p ≤ 11 + SG, sweeps, II-d grid,
+  census). Verdict ACCEPT-WITH-FIXES, *narrowed* confirmed; every claim CORRECT except Prop 8 (CORRECT-WITH-FIX).
+  Required fix applied: Prop 8 now concludes only "polynomial in Y, valid on the original progression", with "root
+  family through μ = 0" only for residue-0 progressions (reviewer's counterexample recorded); the §6 summary, FRONTIER
+  text and bottom line are scoped accordingly. Optional fix applied: the Ridout specialisation (integer threshold 1) is
+  spelled out in §6.
