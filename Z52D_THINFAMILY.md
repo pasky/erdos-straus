@@ -12,12 +12,13 @@ paper/es-exponential-families.tex (below "the paper"); EXP_OPEN; MENU_LADDER.
 
 ## 0. Bottom line
 
-* **Calibration (CERTIFIED).** Every actual proof certificate for 3·2^s + 1 and 63·2^s + 1 is a C-finite sequence on each
-  valid residue class. Berlekamp–Massey recovers the characteristic polynomial ∏_e (X − 2^{ωTe}), with e running over the
-  monomials Y^e of the coordinate, and predicts the next 10 terms exactly.
-  *(EVIDENCE.)* **Minimal** certificates show no recurrence: on even s the middle coordinate y has linear complexity
-  len/2. So Z3189's literal proposal (BM on minimal certificates) is void. The object to study is the *family*
-  certificate.
+* **Calibration (CERTIFIED for the audited rules).** For each of the 39 audited rule-classes of the actual proofs of
+  3·2^s + 1 (paper Thm proth3 and the cubic family of EXP_OPEN Prop 2.1) and 63·2^s + 1 (paper Thm 63), every
+  coordinate is a C-finite sequence on its valid residue class. Berlekamp–Massey recovers the characteristic polynomial
+  ∏_e (X − 2^{ωTe}), with e running over the monomials Y^e of the coordinate, and predicts the next 10 terms exactly.
+  *(EVIDENCE.)* For **minimal** certificates, no low-order recurrence was detected for the minimal y on the tested even
+  progression (s ≤ 60, 24 terms, L = 12). This is evidence against this fitting strategy, not an obstruction theorem.
+  It does not exclude a higher-order or later-onset recurrence, another progression, or other characteristic roots.
 * **The ansatz is the root-family menu (PROVED, Thm 1).** A certificate that is C-finite on a progression, with
   characteristic roots of the form 2^{rational}·(root of unity), gives a root family x, y, z ∈ ℚ[Y], Y = 2^{s/D}. Coefficients
   depending on s are allowed in the hypothesis. So the recurrence ansatz inherits every existing obstruction (the paper's
@@ -57,7 +58,7 @@ paper/es-exponential-families.tex (below "the paper"); EXP_OPEN; MENU_LADDER.
   * the A′ sub-case with odd(λ₂) > 1 (EVIDENCE only);
   * exponential certificates in other bases.
   No new all-exponent identity was found.
-* 4^s + 297: the ansatz has no structural role (§5); its μ = 3 lies in the divisor class D₁₉. I3 coverings for 3^k ± 2
+* 4^s + 297 (Assessment): the ansatz appears to have no structural role (§5); its μ = 3 lies in the divisor class D₁₉. I3 coverings for 3^k ± 2
   were **not attempted** (time).
 
 ## 1. Statements attacked
@@ -90,11 +91,14 @@ ET/divisor rules.
 * Minimal certificates of 3·2^s + 1 (least x, then least y; exhaustive window-lemma divisor search via PARI; s ≤ 60) show
   a clean dichotomy:
   * the gap is 3 for every odd s ≥ 3 and 7 for every even s ≥ 14 (for odd s the whole certificate is polynomial in n; for
-    even s it is a constant-gap window m = 7 whose budget varies), so x is C-finite;
-  * on even s ≥ 14 (24 terms) the coordinate y has **L = 12 = len/2**, i.e. no recurrence is detected — the budget uses
-    "lottery" divisors of the factorisation;
+    even s it is a constant-gap window m = 7 whose budget varies), so for s ≤ 60 the minimal x agrees with a C-finite
+    sequence on each parity class (observed only; no proof that this persists for s > 60);
+  * on even s ≥ 14 (24 terms) the coordinate y has **L = 12 = len/2**, i.e. no low-order recurrence is detected on this
+    window; the budget appears to use "lottery" divisors of the factorisation (finite data, not a proof of
+    non-recurrence);
   * on odd s, y has L = 3 (an ET class).
-  (EVIDENCE.) In this range, minimal certificates are recurrent exactly where they come from an ET class.
+  (EVIDENCE.) In this range, a low-order recurrence for the minimal certificate was detected exactly where it comes from
+  an ET class.
 
 ## 3. Theorems
 
@@ -105,11 +109,12 @@ with P_j ∈ ℚ̄[t], λ_j ∈ ℚ and roots of unity ζ_j (this is exactly "C-
 its coefficients) whose values agree with an ES solution on {s ≡ 0 (mod L′), s ≥ s₁}.
 *Proof.*
 0. Since s₀ ≡ 0 (mod L), reindexing t ↦ t − s₀/L makes s₀ = 0.
-1. Let M be the lcm of the orders of the ζ_j and restrict to t ≡ 0 (mod M); then ζ_j^t = 1, so after grouping equal
-   bases each coordinate is Σ_j P_j(t)2^{λ_j t} with distinct λ_j. Its values are rational, and the representation of a
-   sequence as such a sum is unique, so applying Galois automorphisms shows P_j ∈ ℚ[t]. (The class t ≡ 0 keeps μ = 0 in
-   the closure.) Choose λ > 0 such
-   that every λ_j and L are integer multiples of λ, and further restrict t so that λt ∈ ℤ. With Y := 2^{λt}, each
+1. Let H be the lcm of the orders of the ζ_j and of the denominators of all λ_j, and reindex t = Hq (q ≥ q₀). Then
+   ζ_j^t = 1 and the bases 2^{Hλ_j} are **rational** and, after grouping equal bases, distinct. Each coordinate is
+   Σ_j P_j(Hq)·(2^{Hλ_j})^q with rational values. The representation of a sequence as such a sum is unique, and every
+   Galois automorphism fixes the (rational) bases and the values, so it fixes each coefficient polynomial: P_j(Hq) ∈ ℚ[q].
+   (The class t ≡ 0 (mod H) keeps μ = 0 in the closure.) Rename q as t and Hλ_j as λ_j. Choose λ > 0 such that every
+   λ_j and L are integer multiples of λ, and further restrict t so that λt ∈ ℤ. With Y := 2^{λt}, each
    coordinate is Σ_{j∈ℤ} P_j(t)Y^j, and n = c₀Y^{L/λ} + 1.
 2. *Negative powers vanish.* Let e clear the denominators of all P_j. Then R(t) := Σ_{j<0}P_j(t)Y^j = x_t − Σ_{j≥0}P_j(t)Y^j
    lies in (1/e)ℤ and tends to 0, so R(t) = 0 for all large t. The functions t^k2^{λjt} are linearly independent, so P_j = 0
@@ -124,11 +129,23 @@ its coefficients) whose values agree with an ES solution on {s ≡ 0 (mod L′),
    with D = L/λ on {t ≡ t₁ (mod e), t ≡ 0 (mod M·M′)} (M′ making λt integral), i.e. on s ≡ 0 (mod L·lcm(e, M, M′)),
    whose closure contains μ = 0 (t₁ ≡ 0 mod e, and s₀ = 0 by step 0).
 6. On that set it is a valid ES certificate: positive integers satisfying the identity. ∎
+*Stronger finish (supplied by the cross-model review, checked here; PROVED).* After step 3, x, y, z ∈ ℚ[t, Y] = K[t] with
+K = ℚ(Y), and 1/x + 1/y + 1/z = 4/n in K(t). Let t → ∞ formally, i.e. compare t-degrees.
+* If all three have positive t-degree, the left side tends to 0, which is impossible.
+* If exactly two do, the third (t-constant) coordinate equals n/4, so the other two reciprocals sum to 0. This is
+  impossible by positivity on the original progression.
+* If exactly one does, the two t-constant reciprocals already sum to 4/n, forcing the third reciprocal to be 0, which
+  is impossible.
+So all three have t-degree 0: the original subsequences are themselves polynomials in Y, and the specialisation of
+step 4 is unnecessary.
 
 *Scope.* Roots with other prime bases (3^t, …) or irrational algebraic roots are **not** covered. Reducing them would
-need a Corvaja–Zannier-type theorem on integral values of ratios of power sums: if F(n)/G(n) ∈ ℤ infinitely often, then
-P(n)F(n)/G(n) is a power sum for some polynomial P (Corvaja–Zannier, Invent. Math. 149 (2002) 431–451, verified
-bibliographically). This is not done here (Assessment: the natural next step if a non-2-power certificate is ever
+need a Corvaja–Zannier-type theorem on integral values of ratios of linear recurrences. In the form restated by
+Zannier (J. Théor. Nombres Bordeaux, *Diophantine equations with linear recurrences*, Theorem B, p. 429; original:
+Corvaja–Zannier, Invent. Math. 149 (2002) 431–451), it says: if F(n)/G(n) ∈ ℤ for infinitely many n (under the stated
+hypotheses), then on a suitable progression qn + r there is a nonzero polynomial P with P(n)F(qn + r)/G(qn + r) and
+G(qn + r)/P(n) linear recurrences. This does **not** say that the progression contains μ = 0, nor that the resulting
+bases are powers of 2. This is not done here (Assessment: the natural next step if a non-2-power certificate is ever
 proposed). *Reading.* BM per class therefore detects exactly the root families. It cannot find anything that the
 root-family menus of the paper/EXP_OPEN/EXP_15 miss, and every obstruction to root families (Theorem W, Cor. ratio,
 Thm iiad3, and Thm 5 below) is an obstruction to the ansatz.
@@ -356,8 +373,10 @@ gives the c = 80 cubic hit and an SG hit (K = 4, c = 11); c₀ = 63 gives none (
 
 ## 6. Verdict for the cluster: **narrowed**
 
-* Sub-route killed:
-  * "BM on minimal certificates" (Z3189 as posed): minimal certificates are lottery objects (§2).
+* EVIDENCE only (not a kill): BM on minimal certificates (Z3189 as posed) detected no low-order recurrence for the
+  minimal y on the tested even progression (24 terms, L = 12). This is evidence against this fitting strategy, not an
+  obstruction theorem (§2).
+* Sub-routes killed (PROVED):
   * Menu C (Prop 3), at every D.
   * The u ≡ 3 (8) branch of the whole menu A (Cor 5.1(a)).
 * Sub-routes reduced to explicit inequalities, with certified emptiness up to large heights:
@@ -380,7 +399,9 @@ gives the c = 80 cubic hit and an SG hit (K = 4, c = 11); c₀ = 63 gives none (
 ## 7. Proposed FRONTIER §7.8 text (do not edit FRONTIER from here)
 
 > 8. **Thin families still open:** 15·2^s + 1 (60 | s), 4^s + 297, 4^s + 33, 4^s + 273. *(z52d THINFAMILY.)*
-> * A C-finite certificate in 2-power roots is a root family (PROVED), so recurrence fitting is not a new menu.
+> * A C-finite certificate in 2-power roots is a root family (PROVED), so recurrence fitting in such roots is not a new
+>   menu. BM on minimal certificates found no low-order recurrence on the tested range (EVIDENCE only, not an
+>   obstruction). Recurrences in other bases are not covered.
 > * For 15·2^s + 1 at μ = 0, every moving-gap root family with irreducible smallest coordinate is in menu A (⊇ II-ad),
 >   A′ (⊇ I-ac) or C (Type I, (c, d) const). C is empty (PROVED).
 > * A satisfies c_o ≤ 32(1 + 2^E) + (1024(1 + 2^E)² + 1)/2 (PROVED). Hence the u ≡ 3 (8) branch is empty for all of A.
@@ -390,7 +411,7 @@ gives the c = 80 cubic hit and an SG hit (K = 4, c = 11); c₀ = 63 gives none (
 >   u ∈ ℤ[1/2] \ ℤ for −v₂(c) ≤ 66.
 > * Open: reducible-x moving-gap families (II-ac/II-cd/general); A and A′ (integer u) beyond v₂(c) = 3000 (p = 3 in A
 >   not even finite); dyadic A′ beyond 66; A′ with odd(λ₂) > 1 (EVIDENCE only); non-2-power exponential certificates.
-> * 4^s + 297 is a covering-supply problem (μ = 3 ∈ D₁₉); roots add only supply.
+> * 4^s + 297 is a covering-supply problem (μ = 3 ∈ D₁₉); roots add only supply (Assessment, not a theorem).
 > *Why:* concrete; the only setting where forced budgets beat every ET covering.
 
 ## 8. Review
@@ -420,3 +441,16 @@ and Thm 7 for odd u, and re-ran the scripts. Repairs:
   * m11: the binom cache key.
   * m12: "repairs" became "makes rigorous".
   * m13: the hypothesis of Lemma 4 item 3.
+
+**Cross-model review (GPT/Astra; `data/z52d/xreview/REVIEW_THINFAMILY.md`).** Verdict ACCEPT-WITH-FIXES. The reviewer
+reran the decisive computations (menuA 15/63/3, dyadic 66, BM, xcheck) and found the same numbers. Every theorem was
+classified CORRECT or CORRECT-WITH-FIX. Fixes applied:
+* the BM "kill/void" language for minimal certificates is replaced by an explicit EVIDENCE statement (§0, §2, §6, §7);
+* the calibration claim is restricted to the 39 audited rule-classes;
+* the minimal-x C-finiteness inference is qualified to s ≤ 60;
+* Thm 1's rationality step is made explicit (reindex t = Hq with rational bases), and the reviewer's stronger finish
+  (t-degree argument) is added;
+* the Corvaja–Zannier statement is corrected (progression, recurrence conclusion, no claim about μ = 0 or 2-power
+  bases);
+* every beyond-bound, odd-denominator, reducible-x and other-base escape stays in the survivor lists, and the 4^s + 297
+  remark is labelled Assessment in §0 and §7.
