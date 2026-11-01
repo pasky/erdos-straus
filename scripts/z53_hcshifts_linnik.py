@@ -1,6 +1,6 @@
 # z53 HCSHIFTS: Proposition W3 check (CERTIFIED instances).
 # Q_X = prod_{ell <= X+1} ell^{a_ell}, a_ell = floor(log_ell(X+1)) + 1 (and 8 | Q_X).  For primes p = 1 (mod Q_X):
-#   (i)  the (X+1)-smooth part of p + x and of x p + 1 equals x + 1, for every 1 <= x <= X;
+#   (i)  the (X+1)-smooth part of p + x and of x p + 1 equals x + 1, for every 1 <= x <= X (checked for all such x);
 #   (ii) every certificate (d | N, d = -1 mod x) with x in C ∩ [4, X] is private-type w.r.t. y = X + 1
 #        (gcd(d, r) not in {1, r}, r the (X+1)-rough part of N).
 # The script verifies (i) and (ii) by full factorisation at the first K such primes, and reports HC(p) and the number
@@ -39,6 +39,9 @@ def main():
             if pari.isprime(p):
                 found += 1
                 hc = None; minomega = 99; ncert = 0
+                for x in range(1, X + 1):          # (i) for every 1 <= x <= X, both lines
+                    for N in (p + x, x * p + 1):
+                        if N // rough(N, y) != x + 1: print("  FAIL smooth part (all x)", p, x); bad += 1
                 for x in range(4, 400):
                     if not inC(x): continue
                     fired = False

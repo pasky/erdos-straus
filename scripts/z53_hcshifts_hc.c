@@ -7,6 +7,9 @@
 // powers ell^e || N with ell > y).  The certificate is CONGRUENCE-type (w.r.t. y) if gcd(d, r_y) is 1 or r_y (the
 // rough part sits entirely on one side, so the class of d mod x is determined by p modulo a y-smooth modulus), and
 // PRIVATE-type otherwise (the rough part is split between d and N/d).
+// NOTE (review): in modes list/range the scan stops at the first x >= 128 at which HC and all auxiliary minima are known,
+//   so HC is exact but lines beyond 128 are evaluated only when needed (masks cover C ∩ [4,128]).
+// type_x / type_Y are EXISTENTIAL flags: C = SOME certificate at x = HC is congruence-type, P = EVERY one is private-type.
 // Output per prime (mode list/range):  p HC line d N ncert@HC type_x type_Y HCcong_x HCcong_Y HCsmall maskE maskL
 //   type_x : type w.r.t. y = x (the coordinate);  type_Y : w.r.t. y = Y (command line, default 4096)
 //   HCcong_*: least x <= XCAP with a congruence-type certificate (0 = none up to XCAP)
@@ -19,6 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#include <math.h>
 typedef unsigned __int128 u128; typedef uint64_t u64;
 static inline u64 mulmod(u64 a,u64 b,u64 m){ return (u64)((u128)a*b%m); }
 static u64 powmod(u64 a,u64 e,u64 m){ u64 r=1; a%=m; while(e){ if(e&1) r=mulmod(r,a,m); a=mulmod(a,a,m); e>>=1;} return r; }
@@ -46,7 +50,7 @@ static void factor(u64 n){ NP=0; static const int small[]={2,3,5,7,11,13,17,19,2
   // sort primes ascending
   for(int i=0;i<NP;i++) for(int j=i+1;j<NP;j++) if(PR[j]<PR[i]){u64 t=PR[i];PR[i]=PR[j];PR[j]=t;int s=EX[i];EX[i]=EX[j];EX[j]=s;} }
 static u64 DV[1<<16]; static int ND;
-static void divisors(void){ ND=1; DV[0]=1; for(int i=0;i<NP;i++){ int cur=ND; u64 pe=1; for(int e=1;e<=EX[i];e++){ pe*=PR[i]; for(int j=0;j<cur;j++) DV[ND++]=DV[j]*pe; } } }
+static void divisors(void){ long t=1; for(int i=0;i<NP;i++) t*=EX[i]+1; if(t>(1<<16)){ fprintf(stderr,"divisor buffer overflow (tau=%ld)\n",t); exit(2);} ND=1; DV[0]=1; for(int i=0;i<NP;i++){ int cur=ND; u64 pe=1; for(int e=1;e<=EX[i];e++){ pe*=PR[i]; for(int j=0;j<cur;j++) DV[ND++]=DV[j]*pe; } } }
 static u64 rough(u64 y){ u64 r=1; for(int i=0;i<NP;i++) if(PR[i]>y){ for(int e=0;e<EX[i];e++) r*=PR[i]; } return r; }
 static inline int inC(u64 x){ return (x%4)==0 || (x%8)==7; }
 
@@ -86,11 +90,13 @@ static void dop(u64 p,u64 XCAP,u64 Y){
 // mode "lines": aggregate, over the first COUNT primes p = 1 (8) at or above A, for every x in C ∩ [4,XCAP] and both
 // lines, the number of (p, line) pairs and of firing ones, binned by b = floor(log2 tau(N)); prints rows
 // "x type b count fired sumcert" where sumcert = total number of divisors d = -1 (mod x).
-static long LC[260][2][40], LF[260][2][40], LS[260][2][40];
+static long LC[260][2][40], LF[260][2][40], LS[260][2][40]; static double LP[260][2][40]; static int PHI[260];
+static int phi_i(int n){ int r=0; for(int k=1;k<=n;k++){ int a=k,b=n; while(b){int t=a%b;a=b;b=t;} if(a==1) r++; } return r; }
 static void dolines(u64 p,u64 XCAP){ if(p%8!=1) return;
   for(u64 x=4;x<=XCAP;x++){ if(!inC(x)) continue;
     for(int ty=0;ty<2;ty++){ u64 N= ty? x*p+1 : p+x; factor(N); divisors(); int c=0; for(int i=0;i<ND;i++) if(DV[i]%x==x-1) c++;
-      int b=0; int t=ND; while(t>1){t>>=1;b++;} LC[x][ty][b]++; if(c) LF[x][ty][b]++; LS[x][ty][b]+=c; } } }
+      int b=0; int t=ND; while(t>1){t>>=1;b++;} LC[x][ty][b]++; if(c) LF[x][ty][b]++; LS[x][ty][b]+=c;
+      if(!PHI[x]) PHI[x]=phi_i((int)x); LP[x][ty][b]+= 1.0-exp(-(ty?0.5:1.0)*(double)ND/PHI[x]); } } }
 int main(int argc,char**argv){
   if(argc<2){ fprintf(stderr,"usage\n"); return 1; }
   printf("# p HC line d N ncert type_x type_Y HCcong_x HCcong_Y HCsmall maskE maskL mmin Pplus(mmin)\n"); if(getenv("HSMALL")) HSMALL=atoll(getenv("HSMALL"));
@@ -98,8 +104,8 @@ int main(int argc,char**argv){
     while(scanf("%llu",&p)==1) dop(p,XCAP,Y); }
   else if(!strcmp(argv[1],"range")){ u64 A=atoll(argv[2]); long cnt=atol(argv[3]); u64 XCAP=atoll(argv[4]), Y=argc>5?atoll(argv[5]):4096;
     u64 p=A + ((1+8-(A%8))%8); long k=0; for(;k<cnt;p+=8){ if(isprime(p)){ dop(p,XCAP,Y); k++; } } }
-  else if(!strcmp(argv[1],"lines")){ u64 A=atoll(argv[2]); long cnt=atol(argv[3]); u64 XCAP=atoll(argv[4]);
+  else if(!strcmp(argv[1],"lines")){ u64 A=atoll(argv[2]); long cnt=atol(argv[3]); u64 XCAP=atoll(argv[4]); if(XCAP>259){fprintf(stderr,"XCAP<=259 in lines mode\n");return 1;}
     u64 p=A + ((1+8-(A%8))%8); long k=0; for(;k<cnt;p+=8){ if(isprime(p)){ dolines(p,XCAP); k++; } }
-    printf("# lines A=%llu count=%ld XCAP=%llu\n# x type(0=e,1=l) log2tau count fired sumcert\n",(unsigned long long)A,cnt,(unsigned long long)XCAP);
-    for(u64 x=4;x<=XCAP;x++) for(int ty=0;ty<2;ty++) for(int b=0;b<40;b++) if(LC[x][ty][b]) printf("%llu %d %d %ld %ld %ld\n",(unsigned long long)x,ty,b,LC[x][ty][b],LF[x][ty][b],LS[x][ty][b]); }
+    printf("# lines A=%llu count=%ld XCAP=%llu\n# x type(0=e,1=l) floor(log2 tau) count fired sumcert sum_pred  [sum_pred = sum over the bin of 1-exp(-c tau(N)/phi(x)), c=1 (e), 1/2 (l)]\n",(unsigned long long)A,cnt,(unsigned long long)XCAP);
+    for(u64 x=4;x<=XCAP;x++) for(int ty=0;ty<2;ty++) for(int b=0;b<40;b++) if(LC[x][ty][b]) printf("%llu %d %d %ld %ld %ld %.3f\n",(unsigned long long)x,ty,b,LC[x][ty][b],LF[x][ty][b],LS[x][ty][b],LP[x][ty][b]); }
   return 0; }

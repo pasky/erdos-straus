@@ -29,21 +29,22 @@ def first(fn):
         if not line.startswith('#'): return line.split()[0]
 
 def lines(fn):
-    D = collections.defaultdict(lambda: [0, 0])
+    # rows: x type b count fired sumcert sum_pred ; sum_pred = sum over the bin of 1 - exp(-c tau/phi(x)) (exact tau)
+    D = {}
     for line in open(fn):
         if line.startswith('#'): continue
-        x, ty, b, c, fi, s = map(int, line.split()); D[(x, ty, b)][0] += c; D[(x, ty, b)][1] += fi
-    print(f"== {fn}: P(fire | x, b = floor(log2 tau)) observed / model 1-exp(-c 2^b/phi(x)), c = 1 (e), 1/2 (l)")
+        f = line.split(); x, ty, b, c, fi = map(int, f[:5]); D[(x, ty, b)] = (c, fi, float(f[6]))
+    print(f"== {fn}: P(fire | x, b = floor(log2 tau)) observed / model mean of 1-exp(-c tau/phi(x)) over the bin "
+          f"(c = 1 endpoint, 1/2 level); also the pooled ratio fired/predicted over all bins with predicted >= 0.2")
     for x in [23, 31, 47, 64, 127, 128, 191, 255, 256]:
-        ph = phi(x)
         for ty in (0, 1):
-            cells = []
-            for b in range(2, 14):
-                cnt, fi = D.get((x, ty, b), (0, 0))
+            cells = []; F = P = 0.0
+            for b in range(1, 16):
+                cnt, fi, sp = D.get((x, ty, b), (0, 0, 0.0))
                 if cnt >= 300:
-                    pred = 1 - math.exp(-(1.0 if ty == 0 else 0.5) * 2 ** b / ph)
-                    cells.append(f"{b}:{fi/cnt:.2f}/{pred:.2f}")
-            print(f"   x={x:3d} {'el'[ty]} phi={ph:3d}  " + " ".join(cells))
+                    cells.append(f"{b}:{fi/cnt:.2f}/{sp/cnt:.2f}")
+                    if sp / cnt >= 0.2: F += fi; P += sp
+            print(f"   x={x:3d} {'el'[ty]} phi={phi(x):3d}  " + " ".join(cells) + (f"   pooled {F/P:.2f}" if P else ""))
 
 if __name__ == '__main__':
     mode = sys.argv[1]
