@@ -34,8 +34,9 @@ not an impossibility theorem.
     (stratified by colour, a mod 8 and size);
   * conditioning on the genus count drops these ratios to 0.93–1.08.
 
-  So the measured advantage of SM roots is consistent with a pure genus explanation; no additional class-group effect was
-  detected at the ±10 % level. The class inside the coset is B2.
+  So the measured advantage of SM roots is consistent with a pure genus explanation. The genus-conditioned MH point
+  estimates lie between 0.930 and 1.081; no confidence interval or detection threshold is established, so a larger effect
+  in another statistic or root selection is not excluded. The class inside the coset is B2.
 * **Class-group data of −4p are forest data at the square vertices (Prop 3, PROVED dictionary).** The neighbours of
   b² are the forms (A, 2b, C) of discriminant −4p with A ≡ −1 (mod b²), and the edge colour is the genus character.
   Square roots are the weakest root family measured (668 failures ≤ 10⁸).
@@ -196,7 +197,7 @@ t₃ = 5 < … . At the primes of Theorem 1:
 Hence each menu of the listed types (and only these are claimed) fails infinitely often under Dickson, even with
 unrestricted exploration of the components. Not covered: arbitrary bounded-size functions of class-group data, prefixes
 of the orbit of a p-dependent split class, prefixes of an individual real reduction cycle. (Any "first K′ positions" of SM, SP, SMN or NR, genus minima, ambiguous
-forms and orbit prefixes of a split class are all covered by suitable H, K.)
+forms and orbit prefixes of the chosen prime-5 class are all covered by suitable H, K.)
 
 **Verified instances** (CERTIFIED by complete exploration; `scripts/z53_forestclass_thm1inst.py`,
 `data/z53/forestclass/thm1_instances.txt`). Each instance was certified by exploring every component meeting the menu
@@ -303,8 +304,9 @@ p ≡ 1 (24) at 10⁹, 10¹⁰, 10¹¹, 10¹². The engine's genus counts were c
   (v₂(a) ≤ 1 and every odd prime of a ≡ 1 (4)). Otherwise the target coset of an SP vertex is non-principal, and the
   vertex is then genus-obstructed whenever every prime factor of p + a is a square mod a (Lemma G(3)).
 * No standard errors are given: vertices of one prime are dependent, and the genus buckets are coarse (factor √2).
-  Assessment: the residual 0.93–1.08 shows no class-group effect beyond the genus layer at the ±10 % level; it does not
-  exclude a small one.
+  Assessment: the genus-conditioned MH point estimates lie between 0.930 and 1.081. They are consistent with a pure
+  genus explanation. No confidence interval or detection threshold is established (common-support stratification and
+  within-prime dependence matter), so this does not exclude a larger effect in another statistic or root selection.
 
 **Proposition 3 (class-group data of −4p are forest data at square vertices; PROVED dictionary).** Let p ≡ 1 (4) be prime
 and b ≥ 1 with b² ≤ p + 2.
@@ -444,8 +446,8 @@ These are consistency checks of a conjecture-shaped statement, not of a proof.
   * The reduced-form minima of −4p number p^{1/2−o(1)} (Prop 2, rel. Siegel), so no fixed polynomial recipe enumerates
     them. As root sets the class-group data are congruence-filtered windows.
   * At class-group roots a ∈ SM there is never a genus obstruction to a neighbour (Lemma G, PROVED; one-way). The
-    ×1.14–1.41 enrichment of SM roots falls to 0.93–1.08 after conditioning on genus counts (EVIDENCE): no effect
-    beyond the genus layer was detected.
+    ×1.14–1.41 enrichment of SM roots falls to MH point estimates 0.930–1.081 after conditioning on genus counts
+    (EVIDENCE; consistent with a genus explanation, no confidence interval or detection threshold established).
   * Class-group data of −4p are forest data at the square vertices (Prop 3).
   * CERTIFIED to 10⁸ (p ≡ 1 (8)): SP never fails, SM fails only at 19441, its non-principal-genus part at 48 primes.
 
@@ -459,15 +461,17 @@ These are consistency checks of a conjecture-shaped statement, not of a proof.
 
 ## 8. Bottom line
 
-The class groups of ±4p are the natural p-dependent, non-quasi-polynomial root source that FRONTIER §7.2 left open. As
-forest roots they behave as follows:
-* their bounded parts are congruence data and die under Dickson, with K non-residue roots and H fixed roots at once
-  (Theorem 1);
-* their unbounded parts escape B1 (Prop 2). The one proved forest input is Lemma G: a class-group root never has a
-  genus obstruction to having a neighbour.
+The class groups of ±4p are the natural p-dependent root source that FRONTIER §7.2 left open. As forest roots they
+behave as follows:
+* the bounded menus enumerated in Cor 1.1 fail under Dickson, with K non-residue roots and H fixed roots at once
+  (Theorem 1, CONDITIONAL);
+* the full set of reduced-form minima of −4p cannot be enumerated by any fixed finite list of polynomial values (Prop 2,
+  PROVED rel. Siegel). This does not exclude polynomially indexed growing enumerations; it does not give a
+  positive-discriminant analogue; and it does not give the same cardinality bound for the truncated SM, SMN, SP.
+* The one proved forest input is Lemma G: a class-group root never has a genus obstruction to having a neighbour.
 
-The measured advantage of class-group roots is consistent with that genus layer alone (EVIDENCE, residual within
-±10 %; a small further effect is not excluded). The one place where class-group data *are* forest data, the square vertices (Prop 3), is the weakest root family.
+The measured advantage of class-group roots is consistent with that genus layer alone (EVIDENCE: genus-conditioned
+MH point estimates 0.930–1.081, no confidence interval or detection threshold established). The one place where class-group data *are* forest data, the square vertices (Prop 3), is the weakest root family.
 Certified to 10⁸: the all-cycles set never fails, and the reduced-form set fails once (19441). The canonical
 non-principal-genus roots fail 48 times, at a decaying rate. Nothing found supplies the class of a divisor inside its
 genus coset, which is where B2 sits. The surviving question is the growing-window one (Assessment: HC-type). ES remains
@@ -514,4 +518,16 @@ Its twelve findings were all applied:
 11. 1 607 runs on 1 586 distinct inputs; SP mean at 10¹² is 85.6.
 12. The instances are described as instances of the conclusion with a reduced modulus.
 
-A cross-model review is to follow.
+**Cross-model review** (`data/z53/xreview/REVIEW_FORESTCLASS.md`, audit script
+`scripts/z53_xrev_forestclass_check.py`). Verdict ACCEPT-WITH-FIXES ("Narrowed" supported). The review re-derived
+Theorem 1, Cor 1.1, Props 2–3 and Lemma G, and reran the census to 10⁷ byte-identically. It also built independent
+forests at 57 primes (all 48 SMN failures, 19441 and the maximum-rank witnesses), reran all 668 SQ failures, gave Lucas
+proofs for all 16 instances and their Dickson forms, and re-aggregated the genus and sample data; everything agreed.
+
+Its three scope fixes were applied:
+1. "Orbit prefixes of a split class" is now "of the chosen prime-5 class" (Cor 1.1), and §8 now says the bounded
+   menus enumerated in Cor 1.1 fail.
+2. "No effect at the ±10 % level" is now the genus-conditioned MH point estimates 0.930–1.081, with no confidence
+   interval or detection threshold established (§0, §4, §7, §8).
+3. §8's "non-quasi-polynomial" is removed, and Prop 2's exclusion is restated precisely: no fixed finite value lists for
+   the full −4p minimum set, with no positive-discriminant analogue and no bound for the truncated sets.
