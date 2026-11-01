@@ -1,0 +1,3 @@
+100000 primes 15 ordered sols 352 share in Lenstra regime (4C)^3>=N: 0.415 max sols per such level 2
+1000000 primes 15 ordered sols 484 share in Lenstra regime (4C)^3>=N: 0.314 max sols per such level 2
+10000000 primes 15 ordered sols 608 share in Lenstra regime (4C)^3>=N: 0.306 max sols per such level 2

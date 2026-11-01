@@ -1,0 +1,6 @@
+wins 1497 mismatches 0
+389 R= 6 wins by arc B: {2: 2, 10: 1, 17: 1, 26: 1, 130: 1}
+401 R= 6 wins by arc B: {2: 1, 4: 1, 6: 1, 13: 1, 27: 1, 134: 1}
+409 R= 0 wins by arc B: {}
+421 R= 3 wins by arc B: {2: 2, 9: 1}
+433 R= 8 wins by arc B: {2: 2, 5: 1, 7: 1, 8: 1, 14: 1, 29: 1, 62: 1}

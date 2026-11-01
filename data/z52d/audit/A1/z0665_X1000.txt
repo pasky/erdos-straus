@@ -1,0 +1,10 @@
+X=1000 NS=200000 strata=128 (Legendre vector at [11, 13, 17, 19, 23, 29, 31])
+observed survivors 1.100e-04; global-independent 1.155e-10 (ratio 952755.0); stratified-independent 7.456e-07 (ratio 147.53)
+  #QNR among QS = 0: n=  1624 observed=4.310e-03 strat-indep=6.244e-05
+  #QNR among QS = 1: n= 10951 observed=7.305e-04 strat-indep=3.756e-06
+  #QNR among QS = 2: n= 32692 observed=1.529e-04 strat-indep=1.902e-07
+  #QNR among QS = 3: n= 54643 observed=3.660e-05 strat-indep=6.722e-09
+  #QNR among QS = 4: n= 54770 observed=0.000e+00 strat-indep=2.019e-10
+  #QNR among QS = 5: n= 32856 observed=0.000e+00 strat-indep=4.110e-12
+  #QNR among QS = 6: n= 10866 observed=0.000e+00 strat-indep=7.195e-14
+  #QNR among QS = 7: n=  1598 observed=0.000e+00 strat-indep=5.684e-16

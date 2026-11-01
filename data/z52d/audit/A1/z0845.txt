@@ -1,0 +1,11 @@
+K = 5 ; hardest primes p≡1(4)<1500 (p, U, median, ratio): [(1201, 11, 195.5, 0.06), (241, 8, 131.5, 0.06), (1009, 19, 270.0, 0.07), (421, 16, 207.5, 0.08), (1321, 22, 281.5, 0.08), (193, 6, 75.5, 0.08), (1249, 19, 228.0, 0.08), (601, 16, 177.5, 0.09), (1489, 22, 242.5, 0.09), (1129, 19, 208.0, 0.09)]
+median-hardness primes: [857, 1109, 461, 349, 1373, 89, 641, 509, 977, 617]  easiest: [1493, 157, 109, 557, 41, 101, 277, 53, 37, 29]
+hard×hard: 25 semiprimes, U/median: mean 0.31, median 0.23, min 0.06, max 0.96
+median×median: 25 semiprimes, U/median: mean 0.40, median 0.30, min 0.17, max 1.28
+easy×easy: 25 semiprimes, U/median: mean 0.61, median 0.57, min 0.22, max 1.36
+hard×easy: 22 semiprimes, U/median: mean 0.54, median 0.57, min 0.16, max 1.05
+193·241 = 46513 (367, 1720.5)
+residue-matched control primes (p ≡ 1 mod 24, not hardest, every 2nd by hardness rank): [1153, 673, 769, 577, 1297, 97, 937] ... their prime ratios median 0.12 vs hardest median 0.08
+control×control (p,q ≡ 1 mod 24): 21 semiprimes, U/median: mean 0.30, median 0.25, min 0.10
+lowest hard×hard semiprimes (ratio, n, n mod 840): [(0.06, 1332889, 649), (0.08, 289441, 481), (0.1, 217897, 337), (0.11, 1355929, 169), (0.13, 1410121, 601)]
+Carmichael U/median (K=5): [(561, 3.89), (1105, 4.21), (1729, 5.55), (2465, 3.27), (2821, 5.76), (6601, 5.91), (8911, 2.9), (10585, 3.87), (15841, 2.86), (29341, 5.21)]
