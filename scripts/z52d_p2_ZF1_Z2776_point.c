@@ -11,4 +11,4 @@ int main(int argc,char**argv){ ll A=atoll(argv[1]), D3=atoll(argv[2]), M=atoll(a
     if(mod(A+u+v,w)==0 && mod(D3+u+v,q)==0){ printf("E u=%lld v=%lld m=%lld\n",u,v,m); if(++found>5) return 0; } }
   for(ll t=3;3*t-1<=M;t++) for(ll u=3;t*u-1<=M;u++){ ll m=t*u-1, w=m, q=1; while(w%3==0){w/=3;q*=3;}
     if(mod(A+u,w)==0 && mod(D3+u,q)==0){ printf("L t=%lld u=%lld m=%lld\n",t,u,m); if(++found>5) return 0; } }
-  printf("none up to %lld\n",M); return 0; }
+  if(!found) printf("none up to %lld\n",M); return 0; }

@@ -1,4 +1,4 @@
-odd n ≤ 1201: 159617 solutions round-tripped; types {'I': 14929, 'II': 5823, None: 138865, 'star_nonET': 287}; (★) solutions 1657 (cform == ET-II c=1)
+odd n ≤ 1201: 159617 solutions enumerated, 20752 Type I/II round-tripped through all forms (the 138865 of neither type are only enumerated); types {'I': 14929, 'II': 5823, None: 138865, 'star_nonET': 287}; (★) solutions 1657 (cform == ET-II c=1)
 41 primes: 469 C-form certificates round-tripped
 ok
 f_II(1009): bs_adv_count 16 == es_forms ordered count (checked)

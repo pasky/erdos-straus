@@ -6,7 +6,7 @@ fn=sys.argv[1]; L=(gzip.open(fn,"rt") if fn.endswith(".gz") else open(fn)).read(
 names=L[0].split('weights:')[1].split(); P0=int(L[0].split()[2]); H=int(L[0].split()[4])
 M0=np.array(L[1].split()[1:],float); M1=np.array(L[2].split()[1:],float); V0=np.array(L[3].split()[1:],float); V1=np.array(L[4].split()[1:],float)
 D=np.array([l.split() for l in L[5:] if l.strip()],float); p=D[:,0]; R=D[:,1:]
-t=((p-P0)/H)[:,None]; M=M0+(M1-M0)*t; V=V0+(V1-V0)*t
+t=((p-P0)/H)[:,None]; M=M0+(M1-M0)*t; V=2*(V0+(V1-V0)*t)  # ordered R_w counts each unordered shot twice ((u,B)<->(B,u), symmetric weights): Poisson var = 2*Σ_ordered w²/φ
 X=R/M
 print(f'# {fn}: {len(p)} primes p≡1(4) in [{P0},{P0+H}]')
 print('weight        M_w     mean X  sd X   CV_pois  var/pois  q.001  q.01   min    z(q.001)  P(R_w=0)  sd_X|840  hard1/all')

@@ -10,6 +10,7 @@ Forms implemented (n odd ≥ 3 unless stated; ET = Elsholtz–Tao, J. Aust. Math
   ET-I     (a, b, c, d, t)                 4abd = tn + 1, ct = a + b;  sol = (abdn, acd, bcd)
   ET-II    (a, b, c, d, e)                 4abd = n + e,  ce = a + b;  sol = (abd, acdn, bcdn)
   div-I    (c, d, f, g)                    fg = n² + 4c²d, f ≡ g ≡ −n (mod 4cd)        [f = 4acd − n, g = 4bcd − n]
+                                           (inverse needs c | a + b: automatic if gcd(n, c) = 1, may fail for composite n)
   div-II   (c, d, f, g)                    fg = 4c²dn + 1, f ≡ g ≡ −1 (mod 4cd)        [f = 4acd − 1, g = 4bcd − 1]
   eslice   (kind, e, N, a, b)              kind 'II': N = (n+e)/4; kind 'I': N = (ne+1)/4; ab | N, a + b ≡ 0 (mod e)
                                            (i.e. −1 ≡ a·b⁻¹ (mod e) when gcd(b, e) = 1)
@@ -102,10 +103,13 @@ def etI_to_divI(n, p):
     return (c, d, f, g)
 
 def divI_to_etI(n, q):
+    """Inverse of etI_to_divI. With a = (f+n)/4cd, b = (g+n)/4cd one has 4cd·ab = c + n(a+b), so c | a+b whenever
+    gcd(n, c) = 1 (always for prime n, c < n). For composite n sharing a factor with c the divisor conditions are NOT
+    sufficient (e.g. n = 9, (c,d,f,g) = (3,1,3,39): a = 1, b = 4, c ∤ a + b) — then None is returned."""
     c, d, f, g = q; m = 4 * c * d
     assert f * g == n * n + 4 * c * c * d and (f + n) % m == 0 and (g + n) % m == 0
     a, b = (f + n) // m, (g + n) // m
-    assert (a + b) % c == 0
+    if (a + b) % c: return None
     return (a, b, c, d, (a + b) // c)
 
 def etII_to_divII(n, p):
@@ -247,7 +251,8 @@ def tests(NMAX=400, verbose=True):
         if int(isqrt(n)) ** 2 == n:   # T1: odd squares have no Type I/II solutions
             assert not any(classify(n, s) for s in sols), n
     if verbose:
-        print(f'odd n ≤ {NMAX}: {nsol} solutions round-tripped; types {stats}; (★) solutions {star_unordered} (cform == ET-II c=1)')
+        print(f'odd n ≤ {NMAX}: {nsol} solutions enumerated, {stats["I"] + stats["II"]} Type I/II round-tripped through all forms '
+              f'(the {stats[None]} of neither type are only enumerated); types {stats}; (★) solutions {star_unordered} (cform == ET-II c=1)')
     return stats
 
 def tests_large(primes, verbose=True):

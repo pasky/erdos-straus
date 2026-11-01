@@ -3,7 +3,7 @@
 import sys, numpy as np
 fn=sys.argv[1]; L=open(fn).read().split('\n')
 D=np.array([l.split() for l in L[1:] if l.strip()],np.int64); p=D[:,0]; S=D[:,1:]/2.0
-def lab(b): return f'C={b+1}' if b<32 else f'C∈[{2**(b-27)},{2**(b-26)})'
+def lab(b): return f'C={b+1}' if b<32 else (f'C∈[{2**(b-27)},{2**(b-26)})' if b>32 else 'C∈[33,64)')
 def demean(X,cls):
     Y=X.astype(float).copy()
     for c in np.unique(cls):
