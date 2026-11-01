@@ -1,6 +1,6 @@
 # z52d Pass 2, batch TO0b (99 items): summary
 
-Counts: nothing 93, interesting 4, covered 2 (Z0006, Z0147), needs-compute 0, skipped 0. Only 19 items carried out a concrete computation or literature step as specified; the other 80 are recorded `nothing` with an explicit `not_done` in data/z52b/pass2/outcome_TO0b.jsonl (honest partial batch, see §0).
+Counts: nothing 93, interesting 4, covered 2 (Z0006, Z0147), needs-compute 0, skipped 0. 51 items carry a computation, literature, identity or argument step (several partial; each line's not_done says what is missing); 48 are recorded `nothing` with summary 'Not executed' (no step run). This is an honest partial batch: the full 99-item protocol was not carried out, see §0.
 Interesting: Z0005 (square-class leading coefficients remove every monic failure), Z0114 and Z0115 (premises false as stated), Z0214 (odd prime squares are harder than 4).
 Full per-item lines: data/z52b/pass2/outcome_TO0b.jsonl (99 lines, one per input). Scripts: scripts/z52d_p2_TO0b_*. Data: data/z52b/pass2/TO0b/.
 
