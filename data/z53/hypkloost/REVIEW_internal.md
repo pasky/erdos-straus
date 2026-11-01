@@ -362,3 +362,146 @@ The saved LP numbers at H=q_max/2 (0.005311,0.001727,0.000712) agree with the me
 - **Not established / in places false:** pointwise certificate spectrum necessities, exact orthogonality of relative bins or prime samples, exhaustion of analytic implementations, and the claim that only top-spectrum primality-dependent methods survive.
 
 Do not paste §9 into FRONTIER before these corrections.
+
+## Second pass
+
+**Verdict: substantial repair, but further corrections required before exporting §9.** The repaired Theorems B and C are sound; the previous critical positive-mean/pointwise conflation is largely removed. Remaining problems concern an insufficient positivity target, an unstated restriction in the exact KF expansion, an invalid odd-numerator extension, and several summary/hypothesis/data qualifications. ES remains OPEN; nothing reviewed establishes ES.
+
+This pass reads the entire revised memo, the first review, `cond_stats.txt`, the analysis/input/LP scripts and saved LP output, and the quoted literature statements in `LIT_CHECK.md`. Literature comparisons remain conditional on those quotations, not a new verification of the original PDFs. Line numbers below refer to the revised `Z53_HYPKLOOST.md` as reviewed, before any subsequent edits. The memo is unchanged by this review.
+
+### F01–F21 disposition
+
+FIXED means the original substantive error is repaired, not that every surrounding sentence is approved. PARTLY identifies a remaining portion explicitly. No original finding is wholly NOT FIXED.
+
+| Finding | Status | Revised text and assessment |
+|---|---|---|
+| F01 | PARTLY | §5.1:263–264 says “if H < q_max/2, the mean … is ≤ 0”; §5.2:361–362 correctly limits primitive-frequency necessity to “each pair contributing positive mean”; §8:570 retains negative-mean certificates. However §0:42 and §10:634 again say “each pair's primitive frequencies,” and the surviving oscillatory target is insufficient (S01–S02). |
+| F02 | FIXED | §5.1:264 gives exactly “H < min(q_min, q_max/2)” and `E[Σ G] = |𝒫|·ĝ_0 ≤ 0`; proof at 283–286 uses both inequalities. The arbitrary-set statement inherits these hypotheses. |
+| F03 | FIXED | §5.1:243–249 requires “ĝ(h) = 0 for integers |h| > H” and constructs g by “smooth bumps around the integers.” This admits arbitrary real G, including constants and endpoint coefficients, and the Fejér support is correctly stated. |
+| F04 | FIXED | §5.1:289–295 chooses “1/(q_max + 2) < δ < 1/q_max” and proves “q_max∫S⁻ … ≤ S⁻(0).” Exact full-grid quadrature establishes strict positivity at zero, not merely somewhere in the arc. |
+| F05 | PARTLY | §5.1:255–258 says “pair-weighted count” and “For general g no localisation is claimed”; the finite-window/information-equivalence claim is removed. But §8:583 still says these identities show where truncations “stop being pointwise” and “A survivor must avoid them”; §10:629 repeats the former. This remains an unsupported exclusion (S06). |
+| F06 | FIXED | §3.1:148–152 restricts Parseval to “all residues mod L,” says relative bins “are not orthogonal,” and separates conditioned prime/unit measures. |
+| F07 | FIXED | §3.1:181–184 explicitly says “This is evidence, not a theorem” and permits pointwise cancellation and cancelling individual covariances. §3.2:195–196 says measured KF size “is not a lower bound for what a KF estimate could give.” No general no-cancellation conclusion survives in the main discussion. |
+| F08 | FIXED | §5.1:327–335 uses “for G(0) = 1,” gives the all-pair uniform mean tending to 0.120, and separately identifies the prime mean 0.146. The signed-sum/max-bound distinction is explicit. There is a smaller summary normalization slip (S02). |
+| F09 | FIXED | §5.2:342–350 says “full, unweighted projection,” distinguishes arbitrary weights from class averages, and includes the 1/6 versus 1/4 counterexample. |
+| F10 | PARTLY | §5.2:351–352 correctly states the cutoff, smoothness, coprimality, and “not … all divisors of lcm(1, …, D).” But the §6.3:530 ledger's universal-constant row still omits coprimality (S05). |
+| F11 | PARTLY | §5.2:363–367 restricts complete Ramanujan sums to “Ramanujan-form weights” and permits an “arbitrary combination” for general f. Joint-conductor summation is explicitly retained. The quoted `K·p^{o(1)}` pair count still omits `UV ≤ p` (S05). |
+| F12 | FIXED | §4:209–212 explicitly says (4.1) “does not contain the 4-condition” and restores that condition in N, on coprime pairs. Read the quotient-divisibility indicator on its integer-quotient locus, as the surrounding text specifies. |
+| F13 | PARTLY | §4:218–221 and §6.1:446 restore the coprime zero mode with the correct constant. However the exact equality for N₁ drops noncoprime solutions without imposing `u,B < p`, and the displayed asymptotic proof needs an aspect-ratio repair (S04). |
+| F14 | FIXED | §6.1:442–456 scopes the ceiling to “zero-frequency term + absolute error,” explicitly says it “does not apply to every use of one relation,” gives N₁ = 0 at p = 19, and leaves coupled estimates uncovered. |
+| F15 | PARTLY | §6.2:516–522 correctly supplies additive detection and says “Nothing here excludes a spectral treatment jointly in the level and the integer.” But proposed FRONTIER §9:607 drops “the two natural orientations” and again says “the moduli are p … or the levels” without that scope (S06). |
+| F16 | FIXED | §7:542 now says `k ≪_ε V^{2/(3√3)+ε}(log p)⁵`, checks rational irreducibility and box sides, and expressly says this “does not show that a better determinant-method argument is impossible.” Affine representatives `(x,y,z,1)` are automatically primitive; adding that one sentence would complete the checklist explicitly. |
+| F17 | PARTLY | §0:18 and §7:550–552 correctly say “checked theorems” and “The search is not exhaustive.” But §0:67 “no method for any of them is known,” §8:589 “no method is known,” and §10:641 “None has a known tool” remain unqualified global claims (S06). |
+| F18 | FIXED | §5.3:413–423 defines the containing level interval with `O(C̄ + 1)` integer entries and requires “the third side is not smaller in order,” within the Fejér/max-Δ implementation. This comparison is meaningful for nonempty feasible/hit boxes, not an empty containing box. |
+| F19 | PARTLY | §5.1:297–305 labels the LP EVIDENCE and discloses floating HiGHS and the coefficient box. It still calls the feasible objects “certificates” despite allowing G(0) = 0, and does not specify tolerances; saved rows actually return G(0) = 0 (S08). |
+| F20 | PARTLY | §3.2:197–201 fixes sample labels and sd wording; the saved bootstrap is now reproducible and §3.1:166–167 disclaims certified coverage. But §6.1:455 still writes `N₁ = Σ1/B + O(17)`, and two numerical summary/scope slips remain (S08). |
+| F21 | FIXED | §1:76 states “U, V ≥ 1 integers,” §1:83 excludes coordinate-1 blocks, §5.1:239 requires a “nonempty finite set of pairs of positive integers,” and §5.1:332 uses an explicit finite candidate set. The separate missing KF restriction is recorded under F13/S04. |
+
+### Remaining and newly noticed findings
+
+#### S01 — MAJOR — Positive oscillation alone does not establish positivity
+
+**Locations:** §0:70; §5.1:320–321; §8:575,588–589; §10:638. This wording is introduced or amplified by the repair of F01.
+
+For a frequency certificate, write
+
+    L(p) = |𝒫|·ĝ_0 + A(p),  A(p) = Σ_{0<|h|≤H} ĝ_h S_{−h}(p).
+
+If ĝ_0 < 0, the target is `A(p) > −|𝒫|·ĝ_0`, not merely `A(p) > 0`. The analogous conductor target must overcome the negative constant Fourier term too. The revised “What survives” repeatedly describes only the weaker target.
+
+The memo's own degree-3 G supplies a concrete counterexample at **p = 17** in the same U = 1, V = 2 block:
+
+    mean(G) = −0.7228118792429148
+    A(17) = 1.214947753175082 > 0
+    −2 mean(G) = 1.4456237584858296
+    L(17) = −0.23067600531074747,  N(17) = 0.
+
+**Fix:** state the required quantitative inequality in the survivor lists, or say “the whole certificate is positive at p.” Positive oscillation is a necessary feature of a successful negative-mean certificate, not a sufficient success criterion. §5.1's p = 19 example itself is valid.
+
+#### S02 — MINOR — Summary quantifiers and mean normalization are still wrong
+
+**Locations:** §0:36,42; §10:633–634.
+
+The frequency-side expectation in the nonresonant range is `|𝒫|·ĝ_0`, not ĝ_0 (the mean of G). Say which function is being averaged or give the formula. Also a positive-mean pairwise conductor certificate need not use **each pair's** primitive frequencies: take `f_π = 1_0` for one pair and zero for every other pair. The sum has positive mean, with no frequencies at all for the zero pairs.
+
+**Fix:** copy the exact qualification from §5.2:361–362: each **positive-mean contributing pair** must have primitive frequencies; equivalently the sum requires at least one such pair.
+
+#### S03 — MINOR — The new conductor example omits conductors 2 and 4
+
+**Location:** §5.2:369 (also an error in this review's original F01 example).
+
+For `f(m) = 1[8|m] + 1[3|m] − 1`, the actual expansion is
+
+    f = −13/24 + (c₂ + c₄ + c₈)/8 + c₃/3.
+
+Thus the reduced-conductor support is **{1,2,3,4,8}**, not “1, 3, 8 only.” On ℤ/24, the Fourier coefficients at a = 6 and a = 12 are both 1/8, giving conductors 4 and 2. The claimed mean **−13/24 is correct**, as are `f ≤ 1[24|m]`, f(24) = 1, and the absence of conductor 24. This correction does not weaken the counterexample.
+
+**Fix:** replace the support list (including when quoting the first review). This second-pass section corrects, rather than silently rewriting, the original review's mistake.
+
+#### S04 — MAJOR — The exact coprime KF expansion lacks a needed hypothesis
+
+**Locations:** §4(O3):215–221; §6.1 K(b):446 and proof at 483–484; propagated KF-zero-mode summaries.
+
+The sentence “Non-coprime pairs have B ∤ p + u” is true if all relevant u,B are below p, but §1 permits arbitrary positive integer U,V and K(b) does not add that restriction. Counterexample: p = 5, U = 10, V = 5. The pair (u,B) = (15,10) satisfies B | p+u and has gcd = 5. In this block N₁ = 7, while the coprime expansion counts 6. This concerns N₁, not the genuinely coprime solutions counted by N.
+
+**Fix:** either impose `2U,2V < p` (or restrict to blocks containing a hit and derive this), define a separate coprime count N₁,cop with `N ≤ N₁,cop`, or add the noncoprime solution count explicitly. Merely mentioning “when u,B < p” inside the argument does not impose it in the theorem.
+
+The constant `(6/π²)log 2` is correct. There is, however, a **proof gap**, not a false asymptotic: the displayed estimate gives error `O(U log V/V + log V)`, which is o(U) only with `log V = o(U)`. “U,V → ∞” alone does not make that argument uniform. For V ≥ U, reverse the summation and count B coprime to each u using partial summation/Möbius inversion; this gives error O(log U). For U ≥ V the displayed argument suffices. Together one obtains, with m = min(U,V),
+
+    Σ_(u,B)=1 1/B = (6/π²)log 2·U + O(U log(2m)/m).
+
+State the limiting regime in K(b) and its summaries; the constant is not a finite-box universal lower bound without an error term.
+
+#### S05 — MINOR — Two inherited theorem hypotheses still disappear in restatements
+
+**Locations:** §5.2:364; §6.3:530.
+
+The fixed-conductor count `≤ K·p^{o(1)}` needs `UV ≤ p` (or another polynomial size relation to p), as HYP Thm 5 explicitly says. With unrestricted U,V the appropriate bound is `K·max_{t≤4UV} τ(t)`, hence `K·(UV)^{o(1)}`. Restore the size hypothesis or use this latter expression.
+
+The low-conductor ledger's “universal constant … blind” needs `gcd(n,d)=1` for all d ≤ D. This is correctly stated in §5.2 but omitted from the ledger. Say “for p > D,” or retain the general coprimality hypothesis there; otherwise the random-n controls themselves demonstrate the failure.
+
+#### S06 — MINOR — Residual summary/FRONTIER exclusions exceed the results
+
+**Locations:** §0:67; §8:583,589; §9:607–611; §10:625–641.
+
+* Replace global “no method … is known” / “None has a known tool” by “no uniform method was found in this investigation.” Explicit one-prime examples already exist here; the open objective is a uniform result, not positivity at any single prime.
+* Restore “in the two displayed natural orientations” to the FRONTIER Kuznetsov bullet. The proposition is not a classification of all orientations or spectral reorganizations.
+* Delete “A survivor must avoid them” and “stop being pointwise” for the periodisation/class-average identities. These identities still evaluate functions at a specified p; their smoothing/congruence content does not prove that every successful method must avoid using them, for example in combination with a complementary remainder.
+* The FRONTIER sentence “These constrain positive-mean … arguments only” should refer specifically to **B(b) and C(b)**. K's upper-bound implementation ceiling and Q's bookkeeping are not positive-mean-minorant theorems.
+
+The checked-theorem qualifiers, nonexhaustive literature disclaimer, and explicit retention of joint/nonlinear methods are otherwise much improved. I found no surviving assertion that ES is proved, nor an explicit general impossibility of cancellation.
+
+#### S07 — MINOR — The “replace 4 by M” screen is false verbatim for Theorem B
+
+**Location:** §8:581, “Thms B, C, E and the KF analysis are numerator-uniform (replace 4 by M).”
+
+B's sharp half-modulus threshold uses **even q_max**. It does not transfer literally to odd M and odd products uB. For the allowed singleton pair set {(1,1)}, replace 4 by 131, so q = 131. The polynomial
+
+    G(x) = (1/131) Σ_{h=−65}^{65} e(hx)
+
+is real, has degree 65 < 131/2, equals 1 at zero and 0 on every nonzero 131-grid point, and has positive mean 1/131. Thus the claimed verbatim extension of B(b) is false. More generally odd q has this degree-(q−1)/2 example.
+
+**Fix:** qualify the screen: the qualitative large-degree obstruction persists with parity-dependent thresholds, but the exact B theorem here assumes moduli divisible by four. Either prove the modified odd-modulus version or do not claim the full theorem is numerator-uniform. For the rectangular integer-side blocks, q_max = 4MUV remains even; this defect concerns the asserted extension of B's arbitrary-pair-set theorem, not the repaired theorem for q = 4uB. C and E do not suffer from this particular parity issue.
+
+#### S08 — MINOR — Remaining numerical and LP qualifications
+
+**Locations:** §0:27; §3.1:174–175; §5.1:297–305; §6.1:455; §12:667,701.
+
+* The entire §3 table agrees with `cond_stats.txt`, including all bootstrap endpoints. The §0 summary reverses the p10 bin order: **relative +0.036, absolute +0.018**, not +0.02/+0.04 in the preceding relative/absolute order.
+* “Absolute bins d < 2¹⁰ ≈ U have sd ≤ 0.003 at primes” applies to **p12 only**. In p10, U = 316 and bin j = 9 has sd 0.03064 (j = 8: 0.00817). Label this bullet p12 explicitly.
+* Replace the residual `N₁ = Σ1/B + O(17)` in K(b) with “sample sd(N₁ − Σ1/B) = 16.85.” Big-O notation is not a sample standard deviation. The displayed range elsewhere is correctly retained.
+* Call the LP a **closed relaxation** allowing G(0) ≤ 1, not optimization over certificates requiring G(0) > 0. Saved rows H = 30,46,63,70 have G(0) = 0. State that solver outputs are approximate and list the actual tolerances or explicitly identify them as unspecified HiGHS defaults. No new LP run or rigorous optimization is needed for B's independently proved sharpness.
+* Amend the review log's “All were addressed” and “sd ≈ 17” completion claim after these remaining repairs; the original review itself contained the conductor-support slip corrected in S03.
+
+### Rechecked proofs, arithmetic, and small computations
+
+* **B hypotheses/Poisson:** rapid decay gives uniform convergence of the periodization; its Fourier coefficients are the prescribed integer samples. Uniqueness of Fourier coefficients proves (5.1), including H = 0. Smooth Hermitian bumps produce a real Schwartz g for every real G. The new sampling-only support condition is sufficient.
+* **B threshold/sharpness:** the half-shifted grid proves only nonpositive polynomial mean below q_max/2. The expectation identity separately needs H < q_min. The repaired Selberg choice has positive integral; all nonzero full-grid values are nonpositive; exact quadrature forces S⁻(0) > 0. No gap remains in this repair.
+* **Low-degree example:** on every nonzero 24- or 32-grid point, cos(2πx) ≤ cos(2π/32), so G ≤ 0 exactly, not merely by a floating check. G(0) = 0.012448824648788116 and the two p = 19 phases give the claimed positive total. Its mean is `−t − c(1/2+t²) < 0`. S01 checks p = 17 to separate positive oscillation from a positive certificate.
+* **C class average/primitive lemma:** the divisor identity and CRT probability remain correct, including M not dividing the original lcm. The signed tensor measure has masses 0,1/q,2/q, total mass 1 and zero mass at 0; it preserves the average of every assigned subgroup-invariant component. The proof works for every q ≥ 2. The new explicit f has correct mean and minorant inequality but the larger support in S03.
+* **K arithmetic:** the full-additive zero mode and implementation ceiling are correct. The coprime leading constant is correct subject to the proof/hypothesis repairs in S04. For BC the first-term ratio is at least `(4C̄)^{1/2}A^{7/20}(UV)^{−1/40}`. Thus, dropping ε losses and A ≥ 1, `4C̄ < (UV)^{1/20}` implies `(4C̄)²¹ < p`, hence `C̄ ≲ p^{1/21}`. This is necessary only, not a sufficient saving condition or a lower bound on KF sums. The DFI p^{1/37} arithmetic is unchanged and correct relative to the quotation.
+* **Q additive detection:** the exact restricted sum is `(1/c)Σ_{k mod c}e(k/c)S(m,n+k;c)`. This is precisely the ordinary-sum combination described by the revision; no mandatory nebentypus remains. The two orientations and top-right-entry condition are correct bookkeeping, not an exhaustion theorem.
+* **HB row:** the coefficients in the degree-one-in-z polynomial are coprime over ℚ[x,y,w], so irreducibility follows by Gauss. `(x,y,z,1)` is primitive; T is the maximum monomial box weight, not a coefficient-weighted height. The exponent `2/(3√3)` and logarithmic height factor match the quoted theorem. Choosing the coordinate containing box for a hit gives volume comparable to p. This is a covering upper bound only; the revised non-exclusion sentence is appropriate.
+* **Statistics:** reran the saved analysis script, with one BLAS thread, on the 10,800 preserved rows (largest array 3000×83). Its full stdout matches `cond_stats.txt` **byte-for-byte**, including the bootstrap. No large conductor-generation or LP job was rerun. Separate tiny arrays checked f's Fourier support, the two G evaluations, the p = 5 noncoprime counterexample, and the odd-q Dirichlet kernel. All executed shell commands were timeout-bounded; Python ran via `uv run --with numpy python` under `ulimit -v 6000000`.
+
+**Disposition:** keep the repaired core theorems, fix S01–S08 and the indicated restatements, then export only the scoped FRONTIER text. The “narrowed” verdict is defensible as a report on the displayed implementations, not as a no-go theorem for other approaches.
