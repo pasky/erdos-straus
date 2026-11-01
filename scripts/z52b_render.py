@@ -166,30 +166,68 @@ if p1:
 if p2 or AV:
     fin = {it['mid']: final(it['mid']) for it in items}
     cF = collections.Counter(r['outcome'] if r else 'none' for r in fin.values())
-    L.append(f"## Pass 2 and the proof-avenue layer (wave z52d)\n")
-    L.append(f"- **First-step verdict coverage:** {sum(1 for r in fin.values() if r)}/{len(items)} items have a recorded verdict "
-             f"(latest of Pass 1 / Pass 2 / Opus audit): " + ', '.join(f'{k} {v}' for k, v in cF.most_common()) + '.')
-    L.append('- **Audit** (`data/z52d/audit/`, reports `report_A*.md`): Opus redid 54 random Haiku nothing/skipped/covered verdicts '
-             'blind. 20 AGREE, 29 MISS-MINOR, 2 MISS-MAJOR, 3 HAIKU-WRONG-COVERED; no lost item bore on a proof of ES. '
-             'Pass 2 (`data/z52b/pass2/`, brief-hardened against the audit\'s failure patterns) redid every skipped, every needs-compute, '
-             'every "covered" without a depth citation, and worked the touched items Pass 1 never did.')
+    def srcof(mid):
+        r = p2.get(mid)
+        if r is not None:
+            return r['_src']
+        return 'pass 1'
+    cSrc = collections.Counter(srcof(it['mid']) for it in items if fin[it['mid']])
+    by = {it['mid']: it for it in items}
+    L.append("## Wave z52d — audits, Pass 2, proof-avenue layer, depth lanes\n")
+    L.append('**Bottom line (Assessment).** No proof avenue for ES was found. Every item now has a first-step verdict and ~94 % have a '
+             'proof-avenue row; two independent rankers (Opus, GPT) found no avenue at plausibility ≥ 2; the five top clusters went '
+             'to depth lanes and all came back *narrowed* (scoped no-go theorems), none strengthened. ES remains OPEN.\n')
+    L.append(f"- **Coverage.** {sum(1 for r in fin.values() if r)}/{len(items)} items have a first-step verdict "
+             "(latest of Pass 1 / Pass 2 / Opus audit; outcomes " + ', '.join(f'{k} {v}' for k, v in cF.most_common()) +
+             "). No `needs-compute` remains; the residual `skipped` are organisational/outreach items.")
+    L.append('- **Audit of Pass 1** (`data/z52d/audit/report_A*.md`): Opus redid 54 random Haiku nothing/skipped/covered verdicts '
+             'blind: 20 AGREE, 29 MISS-MINOR, 2 MISS-MAJOR, 3 WRONG-COVERED; content lost was calibration only, never proof-relevant. '
+             'Haiku verdicts are reliable as decisions, weak as records (skips of actionable steps, substituted steps, tiny ranges, '
+             'covered-by-own-origin).')
+    L.append('- **Pass 2** (`data/z52b/pass2/`, brief hardened against those patterns, plus a lint and fix round): redid every '
+             'skipped, every needs-compute, every covered-without-depth-citation, and worked the 908 touched items never worked; '
+             'an Opus finisher (batches ZF*) did all residual needs-compute and stub records with real computations. '
+             '**Audit of Pass 2** (`data/z52d/audit2/`): 32 blind Opus redos — 15 AGREE, 15 MISS-MINOR, 1 MISS-MAJOR, 1 HAIKU-BETTER; '
+             'again no proof-relevant loss; records still miss repo coverage pointers about half the time.')
+    tri2 = collections.Counter(TRI2.values())
+    L.append(f"- **Pass-2 'interesting' triage** (Opus, `BRAINSTORM/z52d_pass2_triage_*.md`): {sum(tri2.values())} items — "
+             + ', '.join(f'{k} {v}' for k, v in tri2.most_common()) + '. NEW-* items:')
+    for mid in sorted(k for k, v in TRI2.items() if v.startswith('NEW') or v.startswith('DEPTH')):
+        r = p2.get(mid) or p1.get(mid)
+        L.append(f"  - **{mid}** ({TRI2[mid]}) {short(by[mid]['title'], 110)} — {short(r['summary'] if r else '', 260)}")
     if AV:
         cS = collections.Counter(r.get('status') for r in AV.values())
-        L.append(f"- **Proof-avenue layer** (`data/z52d/avenue/`, Opus, {len(AV)} items: every proof-attempt item plus every item a "
-                 "keep-biased structural screen kept): per item the most favourable proof architecture, its missing theorem, and whether "
-                 "that theorem is known-false / circular / harder than a famous open problem / open. Statuses: "
-                 + ', '.join(f'{k} {v}' for k, v in cS.most_common()) + '. Batch summaries: `data/z52d/avenue/summary_*.md`.')
+        L.append(f"- **Proof-avenue layer** (`data/z52d/avenue/`, Opus, {len(AV)} items = every proof-attempt item + every item a "
+                 "keep-biased structural screen kept): per item the most favourable proof architecture and its missing theorem. "
+                 "Statuses: " + ', '.join(f'{k} {v}' for k, v in cS.most_common()) + '. Batch summaries `summary_*.md`. '
+                 'Read negative statuses as "dead by the cited argument or by Assessment": an independent GPT audit overturned ~30 % of '
+                 'negative *labels* (to open, plausibility ≤ 1), while neither audit found a buried avenue (Opus 0/40 real avenues).')
+        L.append('- **Rankings** (independent): `data/z52d/avenue/rank_O/RANKING_O.md` (Opus, 23 clusters) and `rank_A/RANKING_A.md` '
+                 '(GPT, 79 clusters). Both: no ES avenue at plausibility ≥ 2; best proof-facing targets are plausibility-1 faces of the '
+                 'B2 single-integer lower tail.')
+        L.append('- **Depth lanes** (Opus, each cross-reviewed by GPT, fixes applied; FRONTIER §3/§6/§7 updated):')
+        L.append('  - `Z52D_HYPERBOLA.md` — §7.1 hyperbola cancellation: **narrowed**. Benchmark p^{1/3}; one-step dualization, '
+                 'Erdős–Turán with square-root input, Cauchy–Schwarz all closed (scoped PROVED); low-conductor part identical at primes '
+                 'and rough squares.')
+        L.append('  - `Z52D_PELLCYCLE.md` — Pell/reduction-cycle forest roots: **dead under H** for the principal-cycle root menu '
+                 '(near-square primes m²+1); arbitrary functions of cycle data not covered.')
+        L.append('  - `Z52D_FOURIER.md` — bounded-order character obstruction: **strongly narrowed**; signed inverse lemma false for '
+                 'B ≤ 952 (all B under Dickson); collapses to §7.3 (genus layer) + B2.')
+        L.append('  - `Z52D_PARITY.md` — finite-group / windmill forcing: **narrowed**; ℤ/3, odd-order, A₃, Wielandt m ≥ 3 menus fail '
+                 'unconditionally; parity rules = (J)2; no 2-power class-group signal (EVIDENCE to 2·10⁸).')
+        L.append('  - `Z52D_THINFAMILY.md` — 15·2^s+1 (side theorem, no transfer): **narrowed**; root-family menu structure theorem, '
+                 'menu C empty, certified ranges; open escapes listed in FRONTIER §7.8.')
+        L.append('  - `LEAN_Z1546.md` — Lean: C-form ⟹ ES and T1 for C-form/shifted/Type II (Type I needs gcd(f,m)=1); later '
+                 'also ES(3·2^s+1) for all s. Standard axioms only.')
         surv = sorted([r for r in AV.values() if int(r.get('plausibility', 0)) >= 2 and int(r.get('novelty', 0)) >= 1
                        and not str(r.get('yield', '')).lower().startswith('none')],
                       key=lambda r: (-int(r['plausibility']), -int(r['novelty']), r['mid']))
-        by = {it['mid']: it for it in items}
-        L.append(f"- **Survivors** (plausibility ≥ 2, novelty ≥ 1, some proof yield; {len(surv)}). Parent review verdicts in "
-                 "`data/z52d/avenue/review.json` where present:")
+        L.append(f"- **Avenue rows with plausibility ≥ 2, novelty ≥ 1 and some yield** ({len(surv)}; all are side theorems — averaged, "
+                 "main-term, explicit-constant or thin-family — per both rankings):")
         for r in surv:
             rv = f" **[{AVR[r['mid']]}]**" if r['mid'] in AVR else ''
             L.append(f"  - **{r['mid']}**{rv} (plaus {r['plausibility']}, nov {r['novelty']}, {r.get('status')}) "
-                     f"{short(by[r['mid']]['title'], 90)} — *missing theorem:* {short(r.get('missing_theorem'), 260)} "
-                     f"*yield:* {short(str(r.get('yield')), 100)}")
+                     f"{short(by[r['mid']]['title'], 90)} — *missing theorem:* {short(r.get('missing_theorem'), 220)}")
     L.append('')
 L.append('## Contents\n')
 L.append(f'- §1 Start here — multi-lane ({len(start)})')
