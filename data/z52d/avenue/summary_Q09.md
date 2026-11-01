@@ -11,16 +11,14 @@ batch, mostly geometry of the ES cubic (Cayley cubic, pencils, Markoff analogues
 | open-plausible | 0 | 1 | 2 | 0 | 3 |
 | unclear | 1 | 0 | 6 | 0 | 7 |
 Novelty: 0 → 68, 1 → 45, 2 → 0. 23 rows are calibration-only. Plaus-3 rows are calibration or main-term statements (yield none).
-
 **Plausibility ≥ 2 AND novelty ≥ 1**: none with an ES yield. The rows with content beyond calibration:
 * **Z2040/Z2481**: *#{P ∈ U_1(ℚ)_{>0} : den(P) ≤ B} ≍ B(log B)²* is equivalent to ET's N log³N via scaling (averaged; B6).
 * **Z2687**: *the ES₅ frieze N-fibre is dP5 minus a pentagon* (Harpaz's log K3 class; non-BM obstruction precedent; disproof side only).
-* Disproof-side computations, cheap and open: Z2626 (Br on S_{n,−4}), Z2834/Z2835 (pencil zeros), Z2629 (log³ vs log², see below).
-The others (Z0785, Z0786, Z0793, Z0871, Z0964, Z0993, Z0997, Z1013, Z1099, Z1289, Z1407, Z1677, Z2114/5/7, Z2141, Z2190, Z2465, Z2500, Z2894) are calibration.
+* Disproof-side computations, cheap and open: Z2626 (Br on S_{n,−4}), Z2834/Z2835 (pencil zeros), Z2629 (log³ vs log², see below). The others (Z0785, Z0786, Z0793, Z0871, Z0964, Z0993, Z0997, Z1013, Z1099, Z1289, Z1407, Z1677, Z2114/5/7, Z2141, Z2190, Z2465, Z2500, Z2894) are calibration.
 
 **Recurring missing theorems**
-1. *A group action / moves on ES points* (M3; Aut U_n finite, U_n linear in each variable): Z0992, Z1120, Z1164, Z1293, Z1330,
-   Z1369, Z1732, Z2297, Z2471, Z2492, Z2493, Z2608, Z2702, Z2813, Z2919. On S_{n,D}, both Vieta moves fix C: Z2735, Z2664, Z2815, Z2866.
+1. *A group action / moves on ES points* (M3; Aut U_n finite, linear in each variable): Z0992, Z1120, Z1164, Z1293, Z1330, Z1369, Z1732, Z2297,
+   Z2471, Z2492, Z2493, Z2608, Z2702, Z2813, Z2919. On S_{n,D}, both Vieta moves fix C: Z2735, Z2664, Z2815, Z2866.
 2. *Scaling isomorphism U_n ≅ U_1 over ℤ[1/n]* (GEOMETRY_ES §1) kills every n-dependent geometric invariant: Z0787, Z1652, Z1672, Z1676,
    Z1712, Z2042, Z2470, Z2499, Z2686, Z2814. Any 'prime T1' must live in the integral model.
 3. *Finer cohomological obstruction* (none: π₁(U_n) = 1, étale-Brauer = BM = ∅): Z1432, Z1671, Z1672.
