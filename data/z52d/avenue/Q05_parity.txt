@@ -13,3 +13,4 @@ p=1(24)                    P(R/2 odd)=0.5000 n=374900
 (7/p)=-1                   P(R/2 odd)=0.4993 n=750356
 2 quartic res (p=1(8))     P(R/2 odd)=0.5004 n=375029
 2 not quartic (p=1(8))     P(R/2 odd)=0.4990 n=374985
+products tested: 255  max |E[(-1)^(R/2) * product]| = 0.0025 ((3/p)*(5/p)*(11/p)*(13/p)*(2/p)4*(-1/p)4); 1/sqrt(n) = 0.0008

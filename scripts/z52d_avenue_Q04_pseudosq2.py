@@ -1,13 +1,14 @@
 """z52d avenue Q04 Z0762 (extension): R(n) at Lehmer pseudosquares (OEIS A002189) <= 5e7 vs all non-square n = 1 (8)
-in a +-2% window (controls). Needs R array from scripts/z52b_p1_H04_rstar.c (uint16, R(n) for n<=N). EVIDENCE only."""
+in a +-max(2%,4000) window, excluding n itself (controls). Needs R array from scripts/z52b_p1_H04_rstar.c (uint16, R(n) for n<=N). EVIDENCE only."""
 import numpy as np, math, sys
 R=np.fromfile(sys.argv[1],dtype=np.uint16); N=len(R)-1
 ps=[73,241,1009,2641,8089,18001,53881,87481,117049,515761,1083289,3206641,3818929,9257329,22000801,48473881]
 rat=[];crat=[];crat2=[]
 for n in ps:
     if n>N: break
-    lo,hi=int(n*0.98),int(n*1.02)
-    m=np.arange(lo,hi+1); m=m[(m%8==1)]
+    w=max(int(n*0.02),4000)  # window: +-2%, at least +-4000
+    lo,hi=max(n-w,9),min(n+w,N)
+    m=np.arange(lo,hi+1); m=m[(m%8==1)&(m!=n)]  # exclude the pseudosquare itself
     r=np.round(np.sqrt(m)).astype(np.int64); sq=r*r==m; m=m[~sq]
     L2=math.log(n)**2
     c=R[m].astype(float)
