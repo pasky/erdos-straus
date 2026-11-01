@@ -192,8 +192,8 @@ if p2 or AV:
     L.append(f"- **Coverage.** {sum(1 for r in fin.values() if r)}/{len(items)} items have a first-step verdict "
              "(latest of Pass 1 / Pass 2 / Opus audit; outcomes " + ', '.join(f'{k} {v}' for k, v in cF.most_common()) +
              f"). No `needs-compute` remains. Residual `skipped` ({len(skipped)}): {', '.join(skipped)} — each record states "
-             "its reason (organisational/outreach, or a mathematical dismissal of the item as stated); they are not all "
-             "administrative. Per-item lines show every record (Pass 1, Pass 2, blind audit with its comparison verdict).")
+             "its reason; all are organisational / outreach / decisions for the user (several with the item's mathematical "
+             "question answered from the repo). Per-item lines show every record (Pass 1, Pass 2, blind audit with its comparison verdict).")
     L.append('- **Audit of Pass 1** (`data/z52d/audit/report_A*.md`): Opus redid 54 random Haiku nothing/skipped/covered verdicts '
              'blind: 20 AGREE, 29 MISS-MINOR, 2 MISS-MAJOR, 3 WRONG-COVERED; content lost was calibration only, never proof-relevant. '
              'Haiku verdicts are reliable as decisions, weak as records (skips of actionable steps, substituted steps, tiny ranges, '
