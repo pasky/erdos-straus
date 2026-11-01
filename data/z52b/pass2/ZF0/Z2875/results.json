@@ -1,0 +1,532 @@
+{
+  "full_n_range": [
+    1,
+    100
+  ],
+  "all_split_cubics": 6484,
+  "repeated_root_cubics": 529,
+  "distinct_root_cubics": 5955,
+  "coefficient_grid": {
+    "n": [
+      1,
+      100
+    ],
+    "e1": [
+      1,
+      200
+    ],
+    "e2": [
+      1,
+      10000
+    ],
+    "integer_e3": true
+  },
+  "nonnegative_square_discriminant": 1586,
+  "totally_split_in_grid": 682,
+  "square_but_irreducible": 904,
+  "irreducible_examples": [
+    {
+      "n": 2,
+      "e1": 7,
+      "e2": 14,
+      "e3": 7,
+      "discriminant": 49,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 9,
+      "e2": 18,
+      "e3": 9,
+      "discriminant": 729,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 13,
+      "e2": 26,
+      "e3": 13,
+      "discriminant": 4225,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 15,
+      "e2": 54,
+      "e3": 27,
+      "discriminant": 35721,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 19,
+      "e2": 38,
+      "e3": 19,
+      "discriminant": 17689,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 21,
+      "e2": 98,
+      "e3": 49,
+      "discriminant": 405769,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 27,
+      "e2": 54,
+      "e3": 27,
+      "discriminant": 59049,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 31,
+      "e2": 248,
+      "e3": 124,
+      "discriminant": 61504,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 37,
+      "e2": 74,
+      "e3": 37,
+      "discriminant": 165649,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "n": 2,
+      "e1": 37,
+      "e2": 296,
+      "e3": 148,
+      "discriminant": 14807104,
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  ],
+  "per_n": [
+    {
+      "n": 1,
+      "triples": 0
+    },
+    {
+      "n": 2,
+      "triples": 1
+    },
+    {
+      "n": 3,
+      "triples": 3
+    },
+    {
+      "n": 4,
+      "triples": 3
+    },
+    {
+      "n": 5,
+      "triples": 2
+    },
+    {
+      "n": 6,
+      "triples": 8
+    },
+    {
+      "n": 7,
+      "triples": 7
+    },
+    {
+      "n": 8,
+      "triples": 10
+    },
+    {
+      "n": 9,
+      "triples": 6
+    },
+    {
+      "n": 10,
+      "triples": 12
+    },
+    {
+      "n": 11,
+      "triples": 9
+    },
+    {
+      "n": 12,
+      "triples": 21
+    },
+    {
+      "n": 13,
+      "triples": 4
+    },
+    {
+      "n": 14,
+      "triples": 17
+    },
+    {
+      "n": 15,
+      "triples": 39
+    },
+    {
+      "n": 16,
+      "triples": 28
+    },
+    {
+      "n": 17,
+      "triples": 4
+    },
+    {
+      "n": 18,
+      "triples": 26
+    },
+    {
+      "n": 19,
+      "triples": 11
+    },
+    {
+      "n": 20,
+      "triples": 36
+    },
+    {
+      "n": 21,
+      "triples": 29
+    },
+    {
+      "n": 22,
+      "triples": 25
+    },
+    {
+      "n": 23,
+      "triples": 21
+    },
+    {
+      "n": 24,
+      "triples": 57
+    },
+    {
+      "n": 25,
+      "triples": 10
+    },
+    {
+      "n": 26,
+      "triples": 20
+    },
+    {
+      "n": 27,
+      "triples": 29
+    },
+    {
+      "n": 28,
+      "triples": 42
+    },
+    {
+      "n": 29,
+      "triples": 7
+    },
+    {
+      "n": 30,
+      "triples": 81
+    },
+    {
+      "n": 31,
+      "triples": 19
+    },
+    {
+      "n": 32,
+      "triples": 70
+    },
+    {
+      "n": 33,
+      "triples": 31
+    },
+    {
+      "n": 34,
+      "triples": 25
+    },
+    {
+      "n": 35,
+      "triples": 65
+    },
+    {
+      "n": 36,
+      "triples": 79
+    },
+    {
+      "n": 37,
+      "triples": 9
+    },
+    {
+      "n": 38,
+      "triples": 32
+    },
+    {
+      "n": 39,
+      "triples": 73
+    },
+    {
+      "n": 40,
+      "triples": 96
+    },
+    {
+      "n": 41,
+      "triples": 7
+    },
+    {
+      "n": 42,
+      "triples": 86
+    },
+    {
+      "n": 43,
+      "triples": 14
+    },
+    {
+      "n": 44,
+      "triples": 62
+    },
+    {
+      "n": 45,
+      "triples": 93
+    },
+    {
+      "n": 46,
+      "triples": 42
+    },
+    {
+      "n": 47,
+      "triples": 34
+    },
+    {
+      "n": 48,
+      "triples": 160
+    },
+    {
+      "n": 49,
+      "triples": 18
+    },
+    {
+      "n": 50,
+      "triples": 53
+    },
+    {
+      "n": 51,
+      "triples": 52
+    },
+    {
+      "n": 52,
+      "triples": 59
+    },
+    {
+      "n": 53,
+      "triples": 13
+    },
+    {
+      "n": 54,
+      "triples": 89
+    },
+    {
+      "n": 55,
+      "triples": 98
+    },
+    {
+      "n": 56,
+      "triples": 136
+    },
+    {
+      "n": 57,
+      "triples": 41
+    },
+    {
+      "n": 58,
+      "triples": 33
+    },
+    {
+      "n": 59,
+      "triples": 27
+    },
+    {
+      "n": 60,
+      "triples": 196
+    },
+    {
+      "n": 61,
+      "triples": 11
+    },
+    {
+      "n": 62,
+      "triples": 37
+    },
+    {
+      "n": 63,
+      "triples": 155
+    },
+    {
+      "n": 64,
+      "triples": 128
+    },
+    {
+      "n": 65,
+      "triples": 49
+    },
+    {
+      "n": 66,
+      "triples": 103
+    },
+    {
+      "n": 67,
+      "triples": 17
+    },
+    {
+      "n": 68,
+      "triples": 73
+    },
+    {
+      "n": 69,
+      "triples": 55
+    },
+    {
+      "n": 70,
+      "triples": 185
+    },
+    {
+      "n": 71,
+      "triples": 40
+    },
+    {
+      "n": 72,
+      "triples": 211
+    },
+    {
+      "n": 73,
+      "triples": 7
+    },
+    {
+      "n": 74,
+      "triples": 32
+    },
+    {
+      "n": 75,
+      "triples": 129
+    },
+    {
+      "n": 76,
+      "triples": 80
+    },
+    {
+      "n": 77,
+      "triples": 97
+    },
+    {
+      "n": 78,
+      "triples": 160
+    },
+    {
+      "n": 79,
+      "triples": 37
+    },
+    {
+      "n": 80,
+      "triples": 292
+    },
+    {
+      "n": 81,
+      "triples": 46
+    },
+    {
+      "n": 82,
+      "triples": 40
+    },
+    {
+      "n": 83,
+      "triples": 27
+    },
+    {
+      "n": 84,
+      "triples": 245
+    },
+    {
+      "n": 85,
+      "triples": 68
+    },
+    {
+      "n": 86,
+      "triples": 40
+    },
+    {
+      "n": 87,
+      "triples": 93
+    },
+    {
+      "n": 88,
+      "triples": 157
+    },
+    {
+      "n": 89,
+      "triples": 10
+    },
+    {
+      "n": 90,
+      "triples": 235
+    },
+    {
+      "n": 91,
+      "triples": 94
+    },
+    {
+      "n": 92,
+      "triples": 93
+    },
+    {
+      "n": 93,
+      "triples": 71
+    },
+    {
+      "n": 94,
+      "triples": 60
+    },
+    {
+      "n": 95,
+      "triples": 165
+    },
+    {
+      "n": 96,
+      "triples": 366
+    },
+    {
+      "n": 97,
+      "triples": 8
+    },
+    {
+      "n": 98,
+      "triples": 85
+    },
+    {
+      "n": 99,
+      "triples": 147
+    },
+    {
+      "n": 100,
+      "triples": 156
+    }
+  ],
+  "independent_grid_equals_filtered_denominator_enumeration": true
+}
