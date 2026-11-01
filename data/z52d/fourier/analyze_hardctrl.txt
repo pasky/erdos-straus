@@ -1,36 +1,36 @@
-windows 73000 primes 146
-hard 30 primes; per prime: {'F-ok': 13.7, 'F-sub': 36.5, 'F-pov': 186.6, 'U-ok': 3.2, 'U-sub': 207.7, 'U-pov': 52.3}
-ctrl 116 primes; per prime: {'F-ok': 17.3, 'F-sub': 39.6, 'F-pov': 184.8, 'U-ok': 5.9, 'U-sub': 187.4, 'U-pov': 64.9}
+windows 72738 primes 146
+hard 30 primes; per 500 windows: {'F-ok': 13.9, 'F-sub': 36.2, 'F-pov': 186.6, 'U-ok': 3.2, 'U-sub': 207.9, 'U-pov': 52.1}
+ctrl 116 primes; per 500 windows: {'F-ok': 17.3, 'F-sub': 39.6, 'F-pov': 184.8, 'U-ok': 5.9, 'U-sub': 187.4, 'U-pov': 64.9}
 THEOREM CHECK kill_jac at forced windows (must be 0): 0
 THEOREM CHECK subgroup-type at forced PRIME windows (must be 0): 0
 THEOREM CHECK sign c(chi_-e) = (e/p), i.e. negative exactly at forced windows (must be 0 violations): 0
-hard sub-type kill classes per prime {'F:nonreal': 3.7, 'F:realother': 32.83, 'U:jac': 195.43, 'U:nonreal': 1.63, 'U:realother': 10.67}
-   nonreal-only kill min orders [(4, 148), (8, 8), (16, 4)]
-ctrl sub-type kill classes per prime {'F:nonreal': 4.5, 'F:realother': 35.13, 'U:jac': 175.41, 'U:nonreal': 1.49, 'U:realother': 10.54}
+hard sub-type kill classes per 500 windows {'F:nonreal': 3.49, 'F:realother': 32.7, 'U:jac': 195.65, 'U:nonreal': 1.63, 'U:realother': 10.62}
+   nonreal-only kill min orders [(4, 140), (8, 7), (16, 4)]
+ctrl sub-type kill classes per 500 windows {'F:nonreal': 4.5, 'F:realother': 35.13, 'U:jac': 175.41, 'U:nonreal': 1.49, 'U:realother': 10.54}
    nonreal-only kill min orders [(4, 638), (8, 47), (16, 10)]
 
 Inverse lemma L(B,eta) on obstructed windows with H = G (full generated subgroup):
-hard forced n=5124: B2/η0.1: 0.33|0.32 B2/η0.2: 0.23|0.05 B4/η0.1: 0.41|0.38 B4/η0.2: 0.25|0.10 B6/η0.1: 0.51|0.45 B6/η0.2: 0.35|0.24 B12/η0.1: 0.61|0.52 B12/η0.2: 0.47|0.36 B24/η0.1: 0.71|0.61 B24/η0.2: 0.57|0.48  ANYorder η0.2: 1.00|1.00
-hard unforced n=1348: B2/η0.1: 1.00|1.00 B2/η0.2: 0.17|0.13 B4/η0.1: 1.00|1.00 B4/η0.2: 0.18|0.14 B6/η0.1: 1.00|1.00 B6/η0.2: 0.33|0.27 B12/η0.1: 1.00|1.00 B12/η0.2: 0.47|0.39 B24/η0.1: 1.00|1.00 B24/η0.2: 0.61|0.53  ANYorder η0.2: 0.99|0.99
+hard forced n=5036: B2/η0.1: 0.33|0.32 B2/η0.2: 0.23|0.05 B4/η0.1: 0.41|0.38 B4/η0.2: 0.25|0.10 B6/η0.1: 0.51|0.45 B6/η0.2: 0.35|0.24 B12/η0.1: 0.61|0.52 B12/η0.2: 0.47|0.36 B24/η0.1: 0.71|0.61 B24/η0.2: 0.57|0.48 |c|B2/η0.037: 1.00 |c|B2/η0.100: 0.99 |c|B2/η0.333: 0.99 |c|B12/η0.037: 1.00 |c|B12/η0.100: 1.00 |c|B12/η0.333: 0.99 |c|B24/η0.037: 1.00 |c|B24/η0.100: 1.00 |c|B24/η0.333: 0.99  ANYorder η0.2: 1.00|1.00
+hard unforced n=1318: B2/η0.1: 1.00|1.00 B2/η0.2: 0.16|0.13 B4/η0.1: 1.00|1.00 B4/η0.2: 0.17|0.13 B6/η0.1: 1.00|1.00 B6/η0.2: 0.33|0.26 B12/η0.1: 1.00|1.00 B12/η0.2: 0.47|0.39 B24/η0.1: 1.00|1.00 B24/η0.2: 0.61|0.53 |c|B2/η0.037: 1.00 |c|B2/η0.100: 1.00 |c|B2/η0.333: 0.05 |c|B12/η0.037: 1.00 |c|B12/η0.100: 1.00 |c|B12/η0.333: 0.38 |c|B24/η0.037: 1.00 |c|B24/η0.100: 1.00 |c|B24/η0.333: 0.53  ANYorder η0.2: 0.99|0.99
 hard by box size M (all|odd, B=12, η=0.1; any-order max c median):
-   M=3 n=94 L12: 1.00|1.00 median cmax 1.000
-   M=9 n=986 L12: 0.82|0.70 median cmax 0.985
-   M=15 n=279 L12: 0.75|0.62 median cmax 0.971
-   M=21 n=101 L12: 0.61|0.33 median cmax 0.960
-   M=27 n=1778 L12: 0.78|0.73 median cmax 0.892
-   M=33 n=21 L12: 0.19|0.19 median cmax 0.908
-   M=45 n=738 L12: 0.67|0.57 median cmax 0.850
-   M=63 n=244 L12: 0.62|0.48 median cmax 0.812
-   M=75 n=75 L12: 0.59|0.51 median cmax 0.816
-   M=81 n=892 L12: 0.68|0.64 median cmax 0.707
+   M=3 n=93 L12: 1.00|1.00 median cmax 1.000
+   M=9 n=960 L12: 0.82|0.70 median cmax 0.985
+   M=15 n=269 L12: 0.75|0.62 median cmax 0.970
+   M=21 n=96 L12: 0.62|0.33 median cmax 0.960
+   M=27 n=1742 L12: 0.78|0.73 median cmax 0.891
+   M=33 n=20 L12: 0.15|0.15 median cmax 0.908
+   M=45 n=720 L12: 0.67|0.57 median cmax 0.846
+   M=63 n=239 L12: 0.62|0.49 median cmax 0.812
+   M=75 n=72 L12: 0.57|0.49 median cmax 0.816
+   M=81 n=886 L12: 0.68|0.64 median cmax 0.707
    M=99 n=43 L12: 0.40|0.33 median cmax 0.783
-   M=105 n=44 L12: 0.43|0.30 median cmax 0.777
-   M=135 n=446 L12: 0.59|0.52 median cmax 0.656
+   M=105 n=42 L12: 0.40|0.29 median cmax 0.764
+   M=135 n=444 L12: 0.59|0.52 median cmax 0.653
    M=189 n=166 L12: 0.53|0.48 median cmax 0.570
    M=225 n=55 L12: 0.45|0.44 median cmax 0.583
    M=243 n=425 L12: 0.41|0.38 median cmax 0.497
-ctrl forced n=19437: B2/η0.1: 0.33|0.31 B2/η0.2: 0.23|0.05 B4/η0.1: 0.42|0.38 B4/η0.2: 0.25|0.10 B6/η0.1: 0.52|0.45 B6/η0.2: 0.36|0.24 B12/η0.1: 0.62|0.52 B12/η0.2: 0.48|0.37 B24/η0.1: 0.72|0.62 B24/η0.2: 0.58|0.49  ANYorder η0.2: 1.00|1.00
-ctrl unforced n=6616: B2/η0.1: 1.00|0.99 B2/η0.2: 0.18|0.10 B4/η0.1: 1.00|1.00 B4/η0.2: 0.19|0.12 B6/η0.1: 1.00|1.00 B6/η0.2: 0.33|0.25 B12/η0.1: 1.00|1.00 B12/η0.2: 0.45|0.36 B24/η0.1: 1.00|1.00 B24/η0.2: 0.57|0.50  ANYorder η0.2: 0.99|0.99
+ctrl forced n=19437: B2/η0.1: 0.33|0.31 B2/η0.2: 0.23|0.05 B4/η0.1: 0.42|0.38 B4/η0.2: 0.25|0.10 B6/η0.1: 0.52|0.45 B6/η0.2: 0.36|0.24 B12/η0.1: 0.62|0.52 B12/η0.2: 0.48|0.37 B24/η0.1: 0.72|0.62 B24/η0.2: 0.58|0.49 |c|B2/η0.037: 1.00 |c|B2/η0.100: 0.98 |c|B2/η0.333: 0.97 |c|B12/η0.037: 1.00 |c|B12/η0.100: 0.99 |c|B12/η0.333: 0.98 |c|B24/η0.037: 1.00 |c|B24/η0.100: 0.99 |c|B24/η0.333: 0.98  ANYorder η0.2: 1.00|1.00
+ctrl unforced n=6616: B2/η0.1: 1.00|0.99 B2/η0.2: 0.18|0.10 B4/η0.1: 1.00|1.00 B4/η0.2: 0.19|0.12 B6/η0.1: 1.00|1.00 B6/η0.2: 0.33|0.25 B12/η0.1: 1.00|1.00 B12/η0.2: 0.45|0.36 B24/η0.1: 1.00|1.00 B24/η0.2: 0.57|0.50 |c|B2/η0.037: 1.00 |c|B2/η0.100: 1.00 |c|B2/η0.333: 0.11 |c|B12/η0.037: 1.00 |c|B12/η0.100: 1.00 |c|B12/η0.333: 0.38 |c|B24/η0.037: 1.00 |c|B24/η0.100: 1.00 |c|B24/η0.333: 0.50  ANYorder η0.2: 0.99|0.99
 ctrl by box size M (all|odd, B=12, η=0.1; any-order max c median):
    M=3 n=281 L12: 1.00|1.00 median cmax 1.000
    M=9 n=3950 L12: 0.81|0.72 median cmax 0.985

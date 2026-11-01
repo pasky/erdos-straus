@@ -1,14 +1,14 @@
 windows 100000 primes 400
-ctrl 400 primes; per prime: {'F-ok': 18.0, 'F-sub': 15.1, 'F-pov': 87.5, 'U-ok': 9.1, 'U-sub': 73.3, 'U-pov': 47.0}
+ctrl 400 primes; per 500 windows: {'F-ok': 36.0, 'F-sub': 30.2, 'F-pov': 175.0, 'U-ok': 18.1, 'U-sub': 146.7, 'U-pov': 94.1}
 THEOREM CHECK kill_jac at forced windows (must be 0): 0
 THEOREM CHECK subgroup-type at forced PRIME windows (must be 0): 0
 THEOREM CHECK sign c(chi_-e) = (e/p), i.e. negative exactly at forced windows (must be 0 violations): 0
-ctrl sub-type kill classes per prime {'F:nonreal': 1.46, 'F:realother': 13.64, 'U:jac': 67.62, 'U:nonreal': 0.82, 'U:realother': 4.88}
+ctrl sub-type kill classes per 500 windows {'F:nonreal': 2.91, 'F:realother': 27.29, 'U:jac': 135.25, 'U:nonreal': 1.65, 'U:realother': 9.76}
    nonreal-only kill min orders [(4, 852), (8, 52), (16, 7), (32, 1)]
 
 Inverse lemma L(B,eta) on obstructed windows with H = G (full generated subgroup):
-ctrl forced n=32117: B2/η0.1: 0.34|0.32 B2/η0.2: 0.23|0.05 B4/η0.1: 0.41|0.37 B4/η0.2: 0.25|0.10 B6/η0.1: 0.51|0.45 B6/η0.2: 0.36|0.24 B12/η0.1: 0.63|0.52 B12/η0.2: 0.48|0.36 B24/η0.1: 0.73|0.63 B24/η0.2: 0.59|0.50  ANYorder η0.2: 0.99|0.99
-ctrl unforced n=17125: B2/η0.1: 0.97|0.97 B2/η0.2: 0.20|0.09 B4/η0.1: 0.97|0.97 B4/η0.2: 0.21|0.12 B6/η0.1: 0.97|0.97 B6/η0.2: 0.33|0.25 B12/η0.1: 0.98|0.97 B12/η0.2: 0.45|0.35 B24/η0.1: 0.98|0.98 B24/η0.2: 0.56|0.49  ANYorder η0.2: 0.98|0.98
+ctrl forced n=32117: B2/η0.1: 0.34|0.32 B2/η0.2: 0.23|0.05 B4/η0.1: 0.41|0.37 B4/η0.2: 0.25|0.10 B6/η0.1: 0.51|0.45 B6/η0.2: 0.36|0.24 B12/η0.1: 0.63|0.52 B12/η0.2: 0.48|0.36 B24/η0.1: 0.73|0.63 B24/η0.2: 0.59|0.50 |c|B2/η0.037: 1.00 |c|B2/η0.100: 0.93 |c|B2/η0.333: 0.91 |c|B12/η0.037: 1.00 |c|B12/η0.100: 0.96 |c|B12/η0.333: 0.92 |c|B24/η0.037: 1.00 |c|B24/η0.100: 0.97 |c|B24/η0.333: 0.93  ANYorder η0.2: 0.99|0.99
+ctrl unforced n=17125: B2/η0.1: 0.97|0.97 B2/η0.2: 0.20|0.09 B4/η0.1: 0.97|0.97 B4/η0.2: 0.21|0.12 B6/η0.1: 0.97|0.97 B6/η0.2: 0.33|0.25 B12/η0.1: 0.98|0.97 B12/η0.2: 0.45|0.35 B24/η0.1: 0.98|0.98 B24/η0.2: 0.56|0.49 |c|B2/η0.037: 0.98 |c|B2/η0.100: 0.98 |c|B2/η0.333: 0.16 |c|B12/η0.037: 0.99 |c|B12/η0.100: 0.98 |c|B12/η0.333: 0.39 |c|B24/η0.037: 1.00 |c|B24/η0.100: 0.99 |c|B24/η0.333: 0.50  ANYorder η0.2: 0.98|0.98
 ctrl by box size M (all|odd, B=12, η=0.1; any-order max c median):
    M=3 n=506 L12: 1.00|1.00 median cmax 1.000
    M=9 n=6853 L12: 0.85|0.74 median cmax 0.971

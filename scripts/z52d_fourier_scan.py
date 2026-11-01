@@ -4,7 +4,7 @@ For each prime p ≡ 1 (mod 4) in the list and every window 3 ≤ e ≤ E, e ≡
   r = #box vectors hitting −1 (direct, exact) and the Fourier identity r = φ⁻¹Σχ(−1)F (checked, |diff| < 1e-6);
   forced := Jacobi (e/p) = −1;  type ∈ ok / sub (−1 ∉ H=⟨s⟩) / pov (−1 ∈ H, missed by the box);  Hfull := (H = G);
   for obstructed windows: c(χ_{−e}) (Jacobi (·/e), the BM/(I)7 character), kill flags (odd χ with c = 1: real χ_{−e},
-  other real, only non-real), max c over χ≠1 of order ≤ B (B in BLIST) for all χ and for odd χ, global max c with order,
+  other real, only non-real), max c over χ≠1 of order ≤ B (B in BLIST) for all χ and for odd χ, and max |c| (unsigned, mxa), global max c with order,
   and all characters with c ≥ ETA_REC (primitive id, order, parity, c) for the cross-window test.
 Output: one JSON line per window to stdout (gzip it).  Usage: python z52d_fourier_scan.py E p1 p2 ...
 """
@@ -31,7 +31,7 @@ def group(e):
 
 def scan_prime(p, E):
     for e in range(3, E + 1, 4):
-        if p % 4 != 1 or e % 4 != 3 or p % e == 0:
+        if p % 4 != 1 or e % 4 != 3 or e % p == 0 or e >= 3 * p:
             continue
         N = (p + e) // 4
         G = group(e)
@@ -59,6 +59,7 @@ def scan_prime(p, E):
             rec[f'mx{B}'] = round(float(c[m].max()), 6) if m.any() else None
             mo = m & G.oddmask
             rec[f'mxo{B}'] = round(float(c[mo].max()), 6) if mo.any() else None
+            rec[f'mxa{B}'] = round(float(np.abs(c[m]).max()), 6) if m.any() else None
         i = int(np.argmax(np.where(nt, c, -9)))
         rec['cmax'] = round(float(c[i]), 6)
         rec['cmax_order'] = int(G.order[i])

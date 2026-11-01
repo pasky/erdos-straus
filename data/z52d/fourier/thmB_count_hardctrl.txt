@@ -1,0 +1,5 @@
+Thm B windows 2110 distinct q 35 max q 1907 (102001, 27) with M >= |G|: 57
+  1/|c(chi_-q)| distribution [(3, 2066), (7, 1), (15, 26), (27, 17)]  min |c| with (q-1)/2 > 24: (0.037037, (1134241, 179))
+forced H=G windows with M >= 1·φ: 1190, obstructed 265; L(12,.1) holds all 0.33 odd 0.25
+forced H=G windows with M >= 2·φ: 512, obstructed 23; L(12,.1) holds all 0.22 odd 0.17
+forced H=G windows with M >= 4·φ: 172, obstructed 0; L(12,.1) holds all 0.00 odd 0.00

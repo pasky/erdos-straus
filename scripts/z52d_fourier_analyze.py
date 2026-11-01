@@ -10,9 +10,9 @@ print('windows', len(R), 'primes', len({r['p'] for r in R}))
 # 1. types
 T = Counter((grp(r), r['forced'], r['type']) for r in R)
 for g in ('hard', 'ctrl'):
-    n = len({r['p'] for r in R if grp(r) == g})
+    n = sum(1 for r in R if grp(r) == g) / 500  # per 500 windows
     if n == 0: continue
-    print(g, n, 'primes; per prime:', {f"{'F' if f else 'U'}-{t}": round(T[(g, f, t)] / n, 1)
+    print(g, len({r['p'] for r in R if grp(r) == g}), 'primes; per 500 windows:', {f"{'F' if f else 'U'}-{t}": round(T[(g, f, t)] / n, 1)
                                        for f in (True, False) for t in ('ok', 'sub', 'pov')})
 # 2. real layer
 bad = [r for r in R if r['type'] == 'sub' and r['kill_jac'] and r['forced']]
@@ -22,12 +22,12 @@ print('THEOREM CHECK subgroup-type at forced PRIME windows (must be 0):', len(ba
 sgn = [r for r in R if r['type'] != 'ok' and ((r['c_jac'] < 0) != r['forced'])]
 print('THEOREM CHECK sign c(chi_-e) = (e/p), i.e. negative exactly at forced windows (must be 0 violations):', len(sgn))
 for g in ('hard', 'ctrl'):
-    n = len({r['p'] for r in R if grp(r) == g})
+    n = sum(1 for r in R if grp(r) == g) / 500
     if n == 0: continue
     S = [r for r in R if grp(r) == g and r['type'] == 'sub']
     c = Counter(('F' if r['forced'] else 'U') + ':' + ('jac' if r['kill_jac'] else 'realother' if r['kill_real'] else
                                                        f"nonreal") for r in S)
-    print(g, 'sub-type kill classes per prime', {k: round(v / n, 2) for k, v in sorted(c.items())})
+    print(g, 'sub-type kill classes per 500 windows', {k: round(v / n, 2) for k, v in sorted(c.items())})
     mo = Counter(r['kill_min_order'] for r in S if not r['kill_real'])
     print('   nonreal-only kill min orders', sorted(mo.items()))
 # 3. inverse lemma
@@ -42,6 +42,13 @@ for g in ('hard', 'ctrl'):
                 a = sum(1 for r in W if (r[f'mx{B}'] or -1) >= eta) / len(W)
                 o = sum(1 for r in W if (r[f'mxo{B}'] or -1) >= eta) / len(W)
                 line += f" B{B}/η{eta}: {a:.2f}|{o:.2f}"
+        for B in (2, 12, 24, 952):
+            key = f'mxa{min(B, 24)}'
+            if B == 952:  # Thm B windows only: unsigned refutation threshold
+                continue
+            for eta in (0.037, 0.1, 0.3333):  # ≈ 1/27, 0.1, ≈ 1/3 (values stored to 6 decimals)
+                u = sum(1 for r in W if (r.get(key) or -1) >= eta) / len(W)
+                line += f" |c|B{B}/η{eta:.3f}: {u:.2f}"
         cm = sum(1 for r in W if r['cmax'] >= 0.2) / len(W)
         co = sum(1 for r in W if r['cmax_odd_val'] >= 0.2) / len(W)
         line += f"  ANYorder η0.2: {cm:.2f}|{co:.2f}"

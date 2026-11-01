@@ -1,13 +1,13 @@
 --- scope all, ETA 0.3
-hard  n=30 mean best_share=0.780 mean best_cov=0.072 BM share=0.405 mean #obstructed=483.2  max best_cov=0.107
+hard  n=30 mean best_share=0.778 mean best_cov=0.072 BM share=0.405 mean #obstructed=474.4  max best_cov=0.108
 ctrl  n=116 mean best_share=0.831 mean best_cov=0.074 BM share=0.368 mean #obstructed=476.8  max best_cov=0.104
-   mean rank of hard primes in best_cov (uniform expectation 72.5): 57.0
+   mean rank of hard primes in best_cov (uniform expectation 72.5): 56.9
 --- scope forced, ETA 0.3
-hard  n=30 mean best_share=0.771 mean best_cov=0.074 BM share=0.000 mean #obstructed=223.1  max best_cov=0.110
+hard  n=30 mean best_share=0.772 mean best_cov=0.075 BM share=0.000 mean #obstructed=218.9  max best_cov=0.110
 ctrl  n=116 mean best_share=0.773 mean best_cov=0.081 BM share=0.000 mean #obstructed=224.5  max best_cov=0.131
-   mean rank of hard primes in best_cov (uniform expectation 72.5): 56.2
-409 forced: best ψ ((3, '1/6'),) hit 18/31 (of 251 forced obstructed) BM share 0.0
-577 forced: best ψ ((5, '1/2'),) hit 23/47 (of 242 forced obstructed) BM share 0.0
+   mean rank of hard primes in best_cov (uniform expectation 72.5): 57.6
+409 forced: best ψ ((3, '1/2'),) hit 13/47 (of 154 forced obstructed) BM share 0.0
+577 forced: best ψ ((5, '1/2'),) hit 21/42 (of 214 forced obstructed) BM share 0.0
 5569 forced: best ψ ((3, '1/2'),) hit 25/86 (of 243 forced obstructed) BM share 0.0
 9601 forced: best ψ ((3, '1/2'),) hit 22/80 (of 244 forced obstructed) BM share 0.0
 23929 forced: best ψ ((3, '1/2'),) hit 21/83 (of 240 forced obstructed) BM share 0.0

@@ -1,0 +1,11 @@
+windows with e >= 200
+mean qr hard 0.495 ctrl 0.488; mean ω hard 2.732 ctrl 2.758
+U-sub-jac  raw hard−ctrl  +16.36 | OLS qr    +58.8 (t=+4.0)  ω    -28.5 (t=-4.0)  hard +15.19 (t=+4.7)
+U-sub-twist raw hard−ctrl   +0.08 | OLS qr     +5.1 (t=+1.7)  ω     -0.3 (t=-0.2)  hard  +0.04 (t=+0.1)
+U-pov      raw hard−ctrl  -13.68 | OLS qr    -43.3 (t=-3.4)  ω    +47.0 (t=+7.8)  hard -12.13 (t=-4.4)
+U-ok       raw hard−ctrl   -0.94 | OLS qr     -3.0 (t=-1.9)  ω     +6.2 (t=+8.2)  hard  -0.75 (t=-2.2)
+F-all      raw hard−ctrl   -1.88 | OLS qr    -19.2 (t=-2.7)  ω    -23.1 (t=-6.9)  hard  -2.35 (t=-1.5)
+F-pov      raw hard−ctrl   +2.31 | OLS qr     +7.9 (t=+1.0)  ω    -19.2 (t=-5.0)  hard  +1.75 (t=+1.0)
+F-sub-twist raw hard−ctrl   -1.77 | OLS qr    -27.5 (t=-5.0)  ω    -16.5 (t=-6.3)  hard  -2.02 (t=-1.7)
+F-sub-nonreal raw hard−ctrl   -0.98 | OLS qr     +1.1 (t=+0.4)  ω     -8.5 (t=-6.3)  hard  -1.21 (t=-1.9)
+F-ok       raw hard−ctrl   -1.43 | OLS qr     -0.6 (t=-0.2)  ω    +21.1 (t=+13.6)  hard  -0.87 (t=-1.2)
