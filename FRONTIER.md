@@ -395,7 +395,8 @@ bichromatic edges (χ_n-colouring). Under Dickson,
 for every fixed H, infinitely many p ≡ 1 (24) have every component meeting {1,…,H} monochromatic; rooting at the least
 non-residue also fails i.o. (p = 2521 + 9240a with (p + 11)/12 prime). For every M, infinitely many p ≡ 1 (8) have no window
 certificate with m ≤ M at any cap (CONDITIONAL on Dickson). *Rules out:* fixed finite root sets and bounded windows. *Does NOT
-rule out:* growing/p-dependent roots, Pell or class-group cycle data.
+rule out:* growing/p-dependent roots, class-group cycle data, arbitrary functions of Pell-cycle data. (The principal-cycle
+root menu itself fails i.o. under H: `Z52D_PELLCYCLE.md` Thm 1.1, see §7.2.)
 
 ## 4. What a proof would need — a five-minute screening checklist
 
@@ -590,7 +591,15 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Bounded windows; balanced-lattice caps; GRH cap routes → bounded/slow cap is not ES; cap 0 is B2 → (J)83, (J)85, (J)91.
 * Menu ladder from thin families to primes → positive-density rungs collapse to B1/B2 → (J)76, (J)78, (J)79.
 * 2-adic / Fano pigeonhole beyond 4/p → used up (forcing only M ∈ {2,3,4}) → (J)57; no global Fano law on the 2-isogeny graph → (J)65.
-* Windmills / involutions with finite affine menus → barred (CONDITIONAL) → (J)2 Thm 6.1.
+* Windmills / involutions with finite affine menus → barred (CONDITIONAL) → (J)2 Thm 6.1. Finite-group actions on X by a
+  fixed common finite affine menu: the fixed-point rule with K ⊆ Γ^{(2)} (ℤ/3, odd order, A₃ ⊂ S₃) and the Wielandt orbit
+  rule with m ≥ 3 fail on a positive-density set of p ≡ 1 (24) **unconditionally** (generic orbits have size ≤ 2); the parity
+  rules are (J)2 verbatim, barred given a BH-order lower bound; 2-power class-group data (8-, 16-rank, h mod 16) show no
+  association with certificate parities to 2·10⁸ (EVIDENCE) → `Z52D_PARITY.md` Thms C, D (z52d, cross-model reviewed).
+* Signed bounded-order Fourier/character inverse for window obstructions (Z3003 route) → false for B ≤ 952, all B under
+  Dickson; only shared character found is χ_p (BM) → `Z52D_FOURIER.md` Thm B (z52d).
+* Principal-cycle (Pell) root menu R3 ∪ U in F_p → frozen to a polynomial recipe at near-square primes; fails i.o. under H →
+  `Z52D_PELLCYCLE.md` Thm 1.1 (z52d).
 * Fermat / binary-form certificates p = Q(u,v) → miss infinitely many primes of every square class → (J)3.
 
 *Geometry / relaxations / transfers*
@@ -612,15 +621,29 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 
 Ordered roughly by (relevance to the lower tail) × (tractability), an Assessment. None is claimed to lead to ES.
 
-1. **Cancellation on a height-dependent subset of the modular hyperbola.** Bound E(p) = R(p) − M(p) better than the divisor
-   bound p^{2/5+o(1)} *by cancellation*, i.e. any non-trivial estimate for #{(x, y) : xy ≡ 1 (mod 4p), x ≡ y ≡ −1 (mod 4C),
-   C = (xy − 1)/4p} in a range. *Why:* "the only lead not ruled out" (`PARITY_AUDIT` §2–3); even a weak power saving would be
-   the first class-aware single-integer input of this shape.
+1. **Cancellation on a height-dependent subset of the modular hyperbola.** Bound E(p) = R(p) − M(p) better than the
+   elementary bound *by cancellation*, i.e. any non-trivial estimate for #{(x, y) : xy ≡ 1 (mod 4p), x ≡ y ≡ −1 (mod 4C),
+   C = (xy − 1)/4p} in a range. *Why:* even a weak power saving would be the first class-aware single-integer input of this
+   shape (`PARITY_AUDIT` §2–3).
+   *(z52d update, `Z52D_HYPERBOLA.md`, cross-model reviewed.)* The elementary benchmark is p^{1/3+o(1)} (PROVED; ET's
+   p^{2/5} is for full Type II), and the balanced block u, B ≍ p^{1/4} has N ≤ p^{1/4}. Its standard one-step
+   implementations are closed (PROVED, each scoped to the stated implementation): one-step dualization at fixed conductor
+   (≤ K·p^{o(1)} pairs per conductor ≥ q/K, the complete a-sum gives c_d(n)); the Erdős–Turán/Fejér route with max_h |S_h|
+   (square-root input reproduces the trivial bound); Cauchy–Schwarz in the function variable (no off-diagonal). For smoothly
+   weighted blocks the conductor ≤ m^{1−ε} part is a universal constant up to O(m^{−A}) at primes *and* rough odd squares
+   (PROVED), so a remainder bound uniform over rough n cannot give positivity. EVIDENCE (10⁵ primes at 10¹²): block errors
+   look swap-Poisson; the RESIDUE_HARDNESS factor lives in the boundary strips, not the interior. Still open: cancellation
+   across conductors/frequencies, short-segment beyond-square-root bounds, the 2-cycle count of x ↦ (−p mod x), unbalanced
+   blocks. It is no longer "the only lead not ruled out" — it is B2 at its self-dual scale with the standard tools closed.
 2. **Growing roots in the forest F_p** (edge uv ⇔ uv | p + u + v). Fixed roots and the least-non-residue root fail i.o. under
    Dickson, and the component of 1 can be as small as 8 vertices i.o. (CONDITIONAL on Dickson, `LOWER_TAIL_ASTRA.md` Thms 3.1,
    5.1) — so Fable's spark "|comp(1)| ≫ (log p)² unconditionally" is false under Dickson and the growth claim behind it was
-   retracted (`LOWER_TAIL_FABLE.md` §2, R286 repair D5). Open: can p-dependent roots, or full reduction-cycle / Pell / class-group data,
-   force a bichromatic edge (Astra's open questions)? An almost-all size bound for comp(1) is a different, open question.
+   retracted (`LOWER_TAIL_FABLE.md` §2, R286 repair D5). Open: can p-dependent growing root sets force a bichromatic edge
+   (Astra's open questions)? *(z52d, `Z52D_PELLCYCLE.md`, cross-model reviewed:)* the principal-cycle root menu R3 ∪ U of √p
+   and (1+√p)/2 (all P_k, Q_k, a_k, convergents ≤ p + 2, unit coordinates) cannot: under H there are infinitely many
+   p = m² + 1 ≡ 1 (24) where every component meeting it is monochromatic, even with unrestricted forest exploration (Thm 1.1,
+   CONDITIONAL on H); unconditionally, at every prime m² + 1 with 60 | m the cycle roots other than 1, 2, 4 are isolated
+   (Prop 1.6). Arbitrary functions of cycle data, and cycle data used as other coordinates, are not covered. An almost-all size bound for comp(1) is a different, open question.
    *Why:* the forest is the cleanest combinatorial form of ES₅.
    *(z49 update.)*
    * Certificate ⟺ bichromatic is proved three times. The coordinate form is also proved: some coordinate of some word
@@ -632,6 +655,12 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
    BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
    can obstruct (the (★)-failure n = 7 at t = 12; (J)103 §2 Reading). *Why:* it is the next layer after the one proved free.
+   *(z52d, `Z52D_FOURIER.md`, cross-model reviewed.)* In window coordinates the BM character χ_{−e} carries an exact,
+   explicit share of the Fourier obstruction mass and obstructs only unforced windows (PROVED); the other odd real obstructions
+   are χ_p twisted by even genus characters of the window (Assessment) — i.e. exactly this item. A signed bounded-order
+   character inverse lemma for obstructed windows is false for B ≤ 952 (PROVED + CERTIFIED; every B under Dickson), and no
+   tested non-BM character (conductor ≤ 200) is shared across a hard prime's windows (EVIDENCE). The "exceptional
+   character / regime split" variant thus reduces to this item plus B2.
 4. **A polylog lower bound for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *(z48 update: `LOWERTAIL_DEEP_ASTRA.md` Thm 5.4 gives M_gen(p) ≥ (2/π⁴ − o(1)) log²p from **any fixed Dirichlet zero-free strip**, hence CONDITIONAL on OAI-003 or GRH; an unconditional version and any transfer to R(p) remain open.)* *Why:* M_gen is the finer
    T1-exact main term; with it the one-sided target could be stated relative to the genus series.
 5. **BM-corrected Harris/FKG inequality over primes** ((J)103 §3; recorded there only as a
