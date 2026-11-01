@@ -318,7 +318,15 @@ semantics where stated.
 | ⌊√(2p)⌋ alone | killed | trap family 2X² + 1 | Cor T2 |
 | (⌊√p⌋, ⌊√(2p)⌋) jointly (hence CF data of √p and √(2p) jointly); ⌊p^θ⌋, θ ∉ ℚ; ⌊log p⌋ | **escape**: no formal semantics on any polynomial family | leading-coefficient obstruction | Cor T2(ii), PROVED |
 | n_p, least primitive root g_p, least prime ≡ a (m) with (ℓ/p) = −1, any QNR-valued oracle | **escape every trap point** | values are non-residues; Lemma T4 | Cor T3: pointwise PROVED; "no semantics" CONDITIONAL on H (Dirichlet for linear P) |
-| h(±p), regulator (via a specified integer encoding, e.g. ⌊R_p⌋), discrete logs | open: neither shown formal on a trap family nor shown to escape | — (e.g. Siegel bounds h(−p) or h(p)R_p, not h(p) alone; a discrete log can be constant) | Assessment |
+| h(±p), regulator (via a specified integer encoding, e.g. ⌊R_p⌋), discrete logs | open in general: neither shown formal on some trap family nor shown to escape all of them. On X² + 1 (the family that freezes the Pell data): ⌊R_p⌋ = ⌊log(q + √p)⌋ is not formal (PROVED, as for ⌊log p⌋), and h(p) is not a finite menu of polynomials (see below) | — (Siegel bounds h(−p) or h(p)R_p, not h(p) alone; a discrete log can be constant) | Assessment; X² + 1 statements as labelled |
+
+*h(p) on X² + 1.* For prime p = q² + 1 (q even ≥ 4), ε_p = q + √p is fundamental (Z52D_PELLCYCLE Lemma 1.4), so h(p) =
+√p·L(1, χ_p)/(2 log(q + √p)) (class number formula, h(p)R_p = (√p/2)L(1, χ_p)). If h(p) ∈ {G_1(q), …, G_m(q)} (G_i ∈ ℚ[X]) for
+infinitely many such q, some G_i agrees infinitely often. A constant G_i would give L(1, χ_p) ≪ log p/√p, contradicting
+Siegel's L(1, χ) ≫_ε p^{−ε} (unconditional, ineffective). Since L(1, χ_p) ≪ log p, h(p) ≪ q, so deg G_i = 1 and then
+L(1, χ_p) ≍ log q along the subsequence, contradicting Littlewood's GRH bound L(1, χ_p) ≪ log log p. So on X² + 1, h(p) has no
+finite-menu formal semantics (CONDITIONAL on GRH for the degree-1 case; unconditional for constant menus). Hence the trap family
+that kills the Pell data does not freeze h(p); whether some other trap family does is open.
 
 **Corollary T4 (Fermat/Cornacchia certificates; PROVED transfer, CONDITIONAL on H).** For fixed k ≥ 1, a prime p has at most
 one representation p = x² + ky² with x, y > 0 (for k = 1 up to order). (Proof, k ≥ 2: from two representations,
