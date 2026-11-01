@@ -200,7 +200,8 @@ if p2 or AV:
              'covered-by-own-origin).')
     L.append('- **Pass 2** (`data/z52b/pass2/`, brief hardened against those patterns, plus a lint and fix round): redid every '
              'skipped, every needs-compute, every covered-without-depth-citation, and worked the 908 touched items never worked; '
-             'an Opus finisher (batches ZF*) did all residual needs-compute and stub records with real computations. '
+             'an Opus finisher (batches ZF0/ZF1) did all residual needs-compute and stub records with real computations, and ZF2 redid the '
+             '12 §1 items Pass 1 (Opus) had skipped as "not actionable as stated". '
              '**Audit of Pass 2** (`data/z52d/audit2/`): 32 blind Opus redos — 15 AGREE, 15 MISS-MINOR, 1 MISS-MAJOR, 1 HAIKU-BETTER; '
              'again no proof-relevant loss; records still miss repo coverage pointers about half the time.')
     tri2 = collections.Counter(TRI2.values())
