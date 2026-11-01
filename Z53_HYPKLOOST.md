@@ -17,14 +17,14 @@ bounding" that we checked: linear/minorant functionals of the dual, Kloosterman-
   no saving.
 * No power saving was found in any block. None of the checked theorems gives one.
 * The obstructions proved here are to **positive-mean ("main term") arguments** and to **specific implementations**. They
-  do not exclude cancellation in general, negative-mean certificates whose oscillatory part happens to be positive at p,
-  or joint/nonlinear methods (§8).
+  do not exclude cancellation in general, negative-mean certificates that are nevertheless positive at p (their
+  oscillatory part must then exceed the negative constant term), or joint/nonlinear methods (§8).
 
 1. **F1 falsifier (EVIDENCE, §3).** At 3000 primes near 10¹² (U = 1000) and 10¹⁰ (U = 316) we computed the exact conductor
    pieces of the balanced-block count.
    * Their sample sds are of order one (≈ 0.3 in each top relative-depth bin).
    * They show no aggregate variance reduction: the cross-covariance share is +0.14 [+0.01, +0.26] (relative bins) and
-     +0.15 [+0.02, +0.28] (absolute bins) at 10¹², and ≈ +0.02/+0.04 (CI containing 0) at 10¹⁰.
+     +0.15 [+0.02, +0.28] (absolute bins) at 10¹², and +0.036 (relative) / +0.018 (absolute), CI containing 0, at 10¹⁰.
    * At odd squares the pieces have comparable variance (Σ Var = 0.175) but the total is identically 0 (share −1). This is
      forced by T1 for every square. At primes the total is also 0 for 92 % of the rows, but not identically.
 2. **Thm B (PROVED). Frequency weights and positive-mean certificates.**
@@ -33,14 +33,16 @@ bounding" that we checked: linear/minorant functionals of the dual, Kloosterman-
      |ℓ| ≲ q_π/(2H+2) around n.
    * (b) A frequency certificate of N(n) ≥ 1 of degree H < q_max/2 has mean ≤ 0.
    * (c) The threshold q_max/2 is sharp: positive-mean certificates of degree q_max/2 exist.
-   * For H < min(q_min, q_max/2) the certificate's expectation (n uniform modulo all q_π) equals its mean, so it is ≤ 0.
+   * For H < min(q_min, q_max/2) the expectation of the frequency side (n uniform modulo all q_π) is |𝒫|·ĝ_0 ≤ 0, where
+     ĝ_0 is the mean of G.
    * A low-degree certificate can still be positive at a particular n: an explicit example is given in §5.1.
 3. **Thm C (PROVED). Conductor projections and the primitive-conductor lemma.**
    * (a) The full unweighted projection of the dual onto conductors dividing M is the class average of N over n mod M.
    * (b) Every minorant f ≤ 1[q | ·] on ℤ/q with no primitive Fourier frequency (no a/q with gcd(a,q) = 1) has
      mean ≤ 0.
-   * So a pairwise conductor certificate needs each pair's primitive frequencies to have positive mean. Again,
-     negative-mean certificates without them exist (explicit example, §5.2).
+   * So in a pairwise conductor certificate, every pair that contributes positive mean must use primitive frequencies;
+     a positive-mean certificate needs at least one such pair. Negative-mean certificates without them exist
+     (explicit example, §5.2).
 4. **Thm K (PROVED; (c) relative to the quoted DFI/Bettin–Chandee statements). Kloosterman fractions.**
    * (a) In the Kloosterman-fraction expansion of the two relations u | p+B, B | p+u, reciprocity eliminates the second
      fraction. What is left is the one-sided detector of B | p+u times a Dirichlet kernel in (p+u+B)/(uB).
@@ -64,10 +66,11 @@ bounding" that we checked: linear/minorant functionals of the dual, Kloosterman-
    in the Fejér route gives ≫ (two-side product)^{1/2} ≥ min of those two sides, so it never beats HYP Thm 1.
 
 **What survives (§8).** For the upper bound (S1): HYP R1/R2, and joint/nonlinear estimates. For positivity, all of the
-following remain open, and no method for any of them is known:
+following remain open. This investigation found no uniform method for any of them; isolated examples at single primes
+exist.
 * arguments with a positive main term that inject the arithmetic of p (primality, quadratic character) at the top of the
   spectrum: frequencies ≥ q_max/2 or primitive conductors;
-* negative-mean certificates whose oscillatory part is shown positive at the given p;
+* negative-mean certificates shown to be positive at the given p, i.e. with oscillatory part A(p) > −|𝒫|·ĝ_0;
 * methods not passing through a linear Fourier expansion of the divisibility indicator.
 
 ## 1. Statements attacked
@@ -171,7 +174,7 @@ rough uncertainty indications, not certified coverage.)
   * The cross share is near 0 or positive. There is no aggregate variance reduction between conductor ranges in these
     samples.
   * corr(N, P₀ + … + P_k) = 0.61, 0.76, 0.88, 0.94, 0.97 for k = 0…4 (10¹²). N = 0 in 92.4 % of the rows.
-* **Low conductors.** Absolute bins d < 2¹⁰ ≈ U have sd ≤ 0.003 at primes, consistent with HYP Thm 3 (here sharp
+* **Low conductors (10¹², U = 1000).** Absolute bins d < 2¹⁰ ≈ U have sd ≤ 0.003 at primes, consistent with HYP Thm 3 (here sharp
   cutoffs). At random n they have sd 0.019 in bin j = 1; HYP Thm 3 needs gcd(n, d) = 1.
 * **Odd squares.** The pieces have comparable variance, but the total is identically 0 (T1, at every square). At primes
   the total is 0 in 92 % of rows too; the difference is that T1 makes it 0 universally.
@@ -212,13 +215,16 @@ where ū is the inverse of u mod B.
 * The archimedean factor is a Dirichlet kernel of length u in F′ = (p+u+B)/(uB). The arithmetic factor is the one-sided
   Kloosterman-fraction detector of B | p + u, with numerator c·p.
 
-**(O3) One-sided bilinear sum.** For coprime pairs, 1[B | p+u] = B⁻¹Σ_{b mod B} e(b(1 + pū)/B). Non-coprime pairs have
-B ∤ p + u, since gcd(u,B) | p would force gcd = 1 when u, B < p. Hence
+**(O3) One-sided bilinear sum.** Assume 2U, 2V < p. For coprime pairs, 1[B | p+u] = B⁻¹Σ_{b mod B} e(b(1 + pū)/B).
+Non-coprime pairs have B ∤ p + u, since gcd(u,B) | p would force gcd = 1 when u, B < p. (Without 2U, 2V < p this fails:
+for p = 5, U = 10, V = 5 the pair (15,10) has gcd 5 and 10 | 20.) Hence
 
   N₁ = Σ_{π : (u,B)=1} B⁻¹ + Σ_{b ≥ 1} Σ_{B > b} B⁻¹ e(b/B) Σ_{u : (u,B)=1} e(bp ū/B).
 
-* The first term is the coprime zero mode. It equals U·Σ_{V<B≤2V} φ(B)/B² + O(Σ_B τ(B)/B) = (6/π²)log 2·U(1 + o(1)) as
-  U, V → ∞ (standard: #{u ∈ (U,2U] : (u,B) = 1} = Uφ(B)/B + O(τ(B))).
+* The first term is the coprime zero mode. With m := min(U,V) it equals (6/π²)log 2·U + O(U log(2m)/m).
+  * For U ≥ V use #{u ∈ (U,2U] : (u,B) = 1} = Uφ(B)/B + O(τ(B)) and Σ_{V<B≤2V}φ(B)/B² = (6/π²)log 2 + O(log V/V).
+  * For V ≥ U reverse the roles: Σ_{B∈(V,2V], (B,u)=1} 1/B = (φ(u)/u)log 2 + O(τ(u)/V) (Möbius and partial summation),
+    and Σ_{U<u≤2U}φ(u)/u = (6/π²)U + O(log U).
 * The second term is a family of DFI forms Σ α_u β_B e(a ū/B), with α_u = 1, β_B = 1[B > b]e(b/B)/B and numerator a = bp.
   These are the "coefficients we control".
 
@@ -296,8 +302,11 @@ degree allowance H ≥ H₀.
 
 *Check of (b)–(c) by linear programming (EVIDENCE).* `scripts/z53_hypkloost_certificate_lp.py` →
 `data/z53/hypkloost/certificate_lp.txt`.
-* For the blocks (U,V) = (2,2), (2,3), (3,3) (q_max = 64, 96, 144) we maximise ĝ_0 over even certificates of degree H
-  with G ≤ 0 on T_𝔅 and G(0) ≤ 1, using floating-point HiGHS with the artificial box bound |coefficients| ≤ 10.
+* For the blocks (U,V) = (2,2), (2,3), (3,3) (q_max = 64, 96, 144) we maximise ĝ_0 over even polynomials of degree H
+  with G ≤ 0 on T_𝔅 and G(0) ≤ 1. This is the closed relaxation of the certificate condition: it allows G(0) = 0, and
+  the H < q_max/2 rows do return G(0) = 0.
+* The solver is floating-point HiGHS with its default tolerances, and we impose the artificial box bound
+  |coefficients| ≤ 10. The outputs are approximate.
 * The maximum is 0 for every H < q_max/2 tested (H = 30, 31; 46, 47; 63, 70, 71).
 * It is positive from H = q_max/2 on (0.0053, 0.0017, 0.0007 at H = 32, 48, 72).
 * For H ≥ q_max the box bound is hit (an artefact: T is finite).
@@ -317,8 +326,11 @@ degree allowance H ≥ H₀.
 * G has degree 3, G ≤ 0 on T (checked: max_T G = 0), and G(0) = 0.01245 > 0.
 * At p = 19 the phases are F = 1 and 25/32, so Σ_π G(−F_π) = G(0) > 0, certifying N(19) ≥ 1. Indeed 24 | 19 + 2 + 3.
 * Its mean is negative, as (b) requires.
-* So (b) obstructs *positive-mean* certificates only. A low-degree certificate whose oscillatory part
-  Σ_{0<|h|≤H} ĝ_h S_{−h}(p) is positive at the given p is not excluded. (Example due to the hostile reviewer.)
+* So (b) obstructs *positive-mean* certificates only. Write the frequency side as |𝒫|ĝ_0 + A(p), with
+  A(p) = Σ_{0<|h|≤H} ĝ_h S_{−h}(p). A low-degree certificate with A(p) > −|𝒫|ĝ_0 is not excluded. (Example due to the
+  hostile reviewer.)
+* A(p) > 0 alone is not enough. For the same G at p = 17, A(17) = 1.215 > 0 but −2ĝ_0 = 1.446, so the frequency side is
+  −0.231, and indeed N(17) = 0 (second-pass review).
 
 **Reading.**
 * With the Fejér kernel and frequencies |h| ≤ H, the frequency side is a smoothed count over windows of length ≍ q/H ≍ UV/H
@@ -361,12 +373,14 @@ frequency: f̂(a) := q⁻¹Σ_m f(m)e(−am/q) = 0 whenever gcd(a, q) = 1. Then 
 * By (b), every pair whose f_π has no primitive frequency contributes ≤ 0 in mean. A positive-mean pairwise certificate
   needs, for each pair contributing positive mean, primitive frequencies a/q_π.
 * For Ramanujan-form weights this is the top conductor d = q_π. There the dual term is one complete Ramanujan sum
-  λ_π(q_π)c_{q_π}(n + s_π)/q_π per pair, and by HYP Thm 5 each conductor ≥ q/K carries ≤ K·p^{o(1)} pairs.
+  λ_π(q_π)c_{q_π}(n + s_π)/q_π per pair. By HYP Thm 5 each conductor ≥ q/K carries ≤ K·max_{t≤4UV}τ(t) pairs, which is
+  K·p^{o(1)} when UV ≤ p.
   * That is a fixed-conductor count. It does not exclude summation across many conductors.
 * For general f_π the primitive component is an arbitrary combination of the e(am/q_π), gcd(a, q_π) = 1, not necessarily
   a multiple of c_{q_π}.
 * Negative-mean certificates without primitive frequencies can be positive at a given n. For the pair (2,3), q = 24, put
-  f(m) = 1[8 | m] + 1[3 | m] − 1 ≤ 1[24 | m]. It uses conductors 1, 3, 8 only and has f(24) = 1, mean −13/24. At p = 19 it
+  f(m) = 1[8 | m] + 1[3 | m] − 1 ≤ 1[24 | m]. Its expansion is −13/24 + (c₂ + c₄ + c₈)/8 + c₃/3, so its conductors are 1, 2, 3, 4, 8 (not 24). It has f(24) = 1 and
+  mean −13/24. At p = 19 it
   certifies the hit (2,3). (Example due to the hostile reviewer.)
 * (b) is stronger than requiring the lcm of the support to be q. Example: q = ℓ₁ℓ₂ with distinct primes and support
   {1, ℓ₁, ℓ₂}. The lcm is q, but every minorant a + b·1[ℓ₁|m] + c·1[ℓ₂|m] ≤ 1[q|m] has mean ≤ max(0, 1/ℓ₁ + 1/ℓ₂ − 1) = 0.
@@ -401,7 +415,7 @@ and the objective is a + b/ℓ₁ + c/ℓ₂. The maximum is attained at a verte
 * A positive-mean pairwise lower bound must use primitive frequencies of the pairs it relies on, i.e. the top of the
   divisor lattice.
 * (b) is the conductor analogue of Theorem B(b). Both are uncertainty statements about minorants of a point mass, and both
-  constrain positive-mean arguments only.
+  constrain positive-mean arguments only. A negative-mean certificate must overcome its negative constant term.
 
 ### 5.3 Theorem E — the max-input Fejér ceiling in every coordinate system (PROVED)
 
@@ -445,14 +459,16 @@ and identity (4.1) holds.
 and N₁′ := #{π ∈ 𝔅 : u | p+B}.
 * With the ordinary additive detector B⁻¹Σ_{b mod B}e(b(p+u)/B), the zero-frequency term is
   Σ_π 1/B = U(H_{2V} − H_V) ≥ U/2. Symmetrically Σ_π 1/u ≥ V/2 for N₁′.
-* With the coprime Kloosterman-fraction detector (O3), it is Σ_{(u,B)=1} 1/B = (6/π²)log 2·U(1 + o(1)).
+* With the coprime Kloosterman-fraction detector (O3, assuming 2U, 2V < p), it is
+  Σ_{(u,B)=1} 1/B = (6/π²)log 2·U + O(U log(2m)/m), m = min(U,V).
 * So a bound N ≤ N₁ ≤ (zero-frequency term) + (nonnegative error allowance), or the same through N₁′, outputs
-  ≥ min(U,V)/2 (additive), resp. ≥ (6/π²)log 2·min(U,V)(1 + o(1)) (KF). Both are ≫ min(U, V, C̄ + 1).
+  ≥ min(U,V)/2 (additive), resp. ≥ (6/π²)log 2·min(U,V) − O(min(U,V)·log(2m)/m) (KF). Both are ≫ min(U, V, C̄ + 1)
+  once m is large.
 
 The ceiling does **not** apply to every use of one relation.
 * An argument that evaluates N₁ exactly outputs N₁. Deterministically N₁ ≥ Σ_{B∼V}⌊U/B⌋ ≥ U/2 − V (≥ U/4 once U ≥ 4V;
   symmetrically for N₁′). In the balanced block there is no useful deterministic lower bound: N₁ = 0 for U = V = 2,
-  p = 19. EVIDENCE (F3): N₁ = Σ1/B + O(17) at U = V = 1000, p ≈ 10¹².
+  p = 19. EVIDENCE (F3): at U = V = 1000, p ≈ 10¹², the sample sd of N₁ − Σ1/B is 16.85.
 * Genuinely coupled estimates are not covered: the second relation decomposed into separable pieces, further averaging,
   or weighted joint bounds.
 
@@ -527,7 +543,7 @@ the integer cp + 1. It is only that none is exhibited, and HYP §3.7 / Z1480 rec
 |---|---|---|---|
 | sawtooth frequencies, Fejér weights, h ≤ H | h | smoothed count over windows of length ≍ UV/H around p (Thm B(a)) | archimedean B6 for this kernel; positive-mean certificates need H ≥ q_max/2 (Thm B(b,c)) |
 | full projection onto conductors d \| M | (d, a) | class average of N over n ≡ p (mod M) (Thm C(a)) | B1 data; positive-mean pairwise certificates need primitive frequencies (Thm C(b)) |
-| conductors d ≤ D ≤ min(U,V)^{1−ε}, smooth weights | (d, a) | universal constant up to O(min^{−A}) (HYP Thm 3) | blind |
+| conductors d ≤ D ≤ min(U,V)^{1−ε}, smooth weights | (d, a) | universal constant up to O(min^{−A}) (HYP Thm 3), for n coprime to every d ≤ D (e.g. primes p > D) | blind |
 | KF moduli B, inverse ū | (u, B) free | one-relation count N₁; zero mode ≫ min(U,V) (Thm K(b)) | ceiling for main + absolute-error bounds; numerator bp ≥ UV (Thm K(c)) |
 | two-relation KF | (u, B, a, c) | sawtooth kernel × one-sided KF (Thm K(a)) | reduces to rows 1 and 4 for these expansions |
 | Kuznetsov moduli | c | levels with one integer cp + 1 each, or the single modulus p (Prop Q) | no direct fixed-index application exhibited |
@@ -567,26 +583,28 @@ the integer cp + 1. It is only that none is exhibited, and HYP §3.7 / Z1480 rec
   * pairwise conductor certificates need primitive frequencies (Thm C(b));
   * the full conductor projection onto divisors of M is a class average (Thm C(a)), and Fejér-weighted frequency sums are
     window-smoothed counts (Thm B(a)).
-  Negative-mean certificates whose oscillatory part is positive at p are not excluded (explicit examples, §§5.1–5.2).
+  Negative-mean certificates that are positive at p (oscillatory part exceeding the negative constant term) are not
+  excluded (explicit examples, §§5.1–5.2).
 * **Kuznetsov.** The two natural orientations give the single modulus p or levels carrying one integer each (Prop Q). No
   direct application was exhibited; none is excluded.
 
 **Hard screens for the best surviving idea.** That idea is: positivity at p from the top of the spectrum (frequencies
-≳ q_max/2, primitive conductors), or from a proved positive value of a low-frequency oscillatory sum, using the
-arithmetic of p.
+≳ q_max/2, primitive conductors), or from a low-degree certificate proved positive at p (oscillatory part exceeding
+|𝒫|·|ĝ_0|), using the arithmetic of p.
 
 | screen | pass/fail | note |
 |---|---|---|
 | T1 (odd squares) | undecided; must use primality | the theorems here hold for every integer n and are consistent with T1. F1: at squares the pieces' total vanishes identically, and a survivor must explain why it does not at primes |
-| 8/131 | FAIL as stated | Thms B, C, E and the KF analysis are numerator-uniform (replace 4 by M). A survivor must name where 4 enters |
+| 8/131 | FAIL as stated | Thms C, E and the KF analysis transfer to numerator M (replace 4 by M). B's exact threshold q_max/2 uses even moduli; for odd moduli a parity-dependent version holds (e.g. odd q: a degree-(q−1)/2 Dirichlet kernel already has positive mean). So B transfers qualitatively, not verbatim. A survivor must name where 4 enters |
 | tied modulus | not broken | the top conductor *is* the tied modulus q = 4uB; the averaged variables are p-attached or collapse (§6.3) |
-| fixed p | partly | Thms B(a), C(a) show where specific truncations stop being pointwise (Fejér windows, class averages). A survivor must avoid them |
+| fixed p | partly | Thms B(a), C(a) identify the smoothing (Fejér windows) and congruence (class average) content of specific truncations. They do not show that a successful method must avoid them, e.g. in combination with a complementary remainder |
 
 **What survives.**
 * (i) Positive-mean certificates of degree ≳ q_max/2 (or using primitive conductors), with a beyond-square-root bound for
   the remaining oscillatory part at the given p.
-* (ii) Negative-mean certificates of lower degree, with a proof that their oscillatory part is positive at the given p.
-  That is a lower bound for a signed exponential sum at one point; no method is known.
+* (ii) Negative-mean certificates of lower degree, with a proof that the whole certificate is positive at the given p,
+  i.e. A(p) > −|𝒫|ĝ_0. That is a lower bound for a signed exponential sum at one point. This investigation found no
+  uniform method for it.
 * (iii) For the upper bound (S1): HYP R1/R2, and joint-conductor or weighted estimates not of the forms analysed here.
 * (iv) Nonlinear uses of the dual (products of S_h, amplification, moments). These are not covered here.
 * (v) Methods that do not pass through a linear Fourier expansion of the divisibility indicator, and other spectral or
@@ -604,11 +622,12 @@ arithmetic of p.
 > * (K) Kloosterman fractions. Reciprocity turns the second Kloosterman fraction into the archimedean phase.
 >   Main + absolute-error bounds through one relation are ≫ min(U,V). The numerator is bp ≥ UV, so the quoted DFI bounds
 >   can save only if C̄ ≲ p^{1/37}, and Bettin–Chandee only if C̄ ≲ p^{1/21}.
-> * (Q) Kuznetsov. In the SL₂ form the moduli are p (single) or the levels (one integer each). No direct application was
->   found.
+> * (Q) Kuznetsov. In the two displayed natural orientations of the SL₂ form the moduli are p (single) or the levels
+>   (one integer each). No direct fixed-index application was found.
 >
-> These constrain positive-mean ("main term") arguments only. Low-degree certificates can be positive at a given p, and
-> proving that is a signed lower-bound problem with no known method.
+> The obstructions B(b) and C(b) constrain positive-mean ("main term") arguments only. Low-degree certificates can be
+> positive at a given p, but then their oscillatory part must exceed the negative constant term. Proving that is a
+> signed lower-bound problem, and this investigation found no uniform method for it.
 >
 > EVIDENCE (3000 primes at 10¹⁰ and 10¹²): the exact conductor pieces have sample sd ≈ 0.3 and no aggregate cancellation
 > (cross-covariance share +0.02…+0.15). At odd squares the total vanishes identically (T1).
@@ -626,19 +645,20 @@ Kloosterman fractions, bilinear forms or Kuznetsov, can beat the elementary boun
 make precise, it does not.
 * At 10¹⁰–10¹², the exact conductor pieces at primes have order-one sample sd and show no aggregate cancellation. The one
   universal exact cancellation in sight is T1's at odd squares.
-* Exact identities locate where specific truncations stop being pointwise:
+* Exact identities identify the smoothing or congruence content of specific truncations:
   * Fejér-weighted frequency sums are smoothed counts over windows of integers around p;
   * the full conductor projection is a class average;
   * Kloosterman fractions collapse by reciprocity into the sawtooth phase, with a numerator bp too large for the quoted
     DFI and Bettin–Chandee bounds outside tiny-level blocks.
-* Two uncertainty lemmas show that positive-mean certificates need frequencies up to q_max/2 = 8UV (sharp), resp. each
-  pair's primitive frequencies.
+* Two uncertainty lemmas show that positive-mean certificates need frequencies up to q_max/2 = 8UV (sharp), resp.
+  primitive frequencies for every pair that contributes positive mean.
 * What remains:
   * positivity from the top of the spectrum using the primality of p;
-  * proving a low-degree oscillatory sum positive at one prime;
+  * proving a low-degree certificate positive at one prime, i.e. its oscillatory part larger than its negative constant
+    term;
   * nonlinear or joint methods.
 
-None has a known tool. ES remains open.
+This investigation found no uniform method for any of them. ES remains open.
 
 ## 11. Reproduction
 
@@ -664,7 +684,8 @@ uv run --with numpy --with scipy python scripts/z53_hypkloost_certificate_lp.py
 
 **Hostile internal review** (deep-mode subagent, 2026-11-01; `data/z53/hypkloost/REVIEW_internal.md`).
 
-The first version read "major revision": 2 CRITICAL, 15 MAJOR and 4 MINOR findings. All were addressed in this version.
+The first version read "major revision": 2 CRITICAL, 15 MAJOR and 4 MINOR findings. They were addressed in the second
+version. A second pass then found 12 FIXED and 9 PARTLY, plus S01–S08. Those are addressed in the third version, below.
 
 CRITICAL:
 * F01: positive mean was conflated with pointwise positivity. Every spectrum necessity is now qualified "positive-mean",
