@@ -286,6 +286,23 @@ L(1, χ_{−4up})H_u(1)·log X_u > 0 and the 2^{ω(u)+1} − 1 cross terms ε_η
   L(1, χ_pψ) + O(L(1, χ_p)²): its χ_p-dependence is an infinite weighted family of twisted L-values L(1, χ_pψ), ψ running over the
   genus characters of the cofactor, not finitely many. Under GRH each is ≪ log log p, which suggests M_gen ~ M₀; the observed
   M_gen/M₀ ∈ [0.57, 1.46] reflects L(1, χ_pψ) of size up to ≈ 5 at 10⁷ (hard primes are QR-rich, `BM_LVALUE` §3.3).
+* **Which characters do it at the (★)-zero primes (EVIDENCE; `scripts/z53_genuslval_decomp{.c,_stats.py}` →
+  `data/z53/genuslval/decomp_stats.txt`, `decomp_raw.tsv`).** Exact decomposition (Lemma 2.3, no asymptotics) of the part of
+  M_gen coming from all squarefree u ≡ 1 (4) slices, by genus character type: P (η = 1, principal genus), C4 (η = χ₋₄; product
+  L(1, χ₋₄)L(1, χ_{up}) up to Euler factors), CBM (η = χ₋₄(·/u), u > 1; ηχ_D = χ_p, the BM-like product L(1, χ_{−4u})L(1, χ_p)),
+  CU0 (η = (·/u)), CMIX (1 < d < u). Each of the 14 (★)-zero primes against 60 random primes p′ ≡ 1 (8) in [0.9p, 1.1p]
+  (seed 53); mean percentile of the failures: **P 26, C4 6, CBM 20, CU0 35, CMIX 68, total 7**. At 11 of 14 failures C4 is at
+  percentile ≤ 4, and at 9 of 14 (all six failures ≥ 712321 among them) CBM is at ≤ 3; 577 and 329617 go the other way (CBM
+  at percentile 100 / 83). Typical sizes at 10⁶–10⁷ (per log²p): P ≈ 0.040–0.045 for controls vs 0.035–0.039 at failures; C4 ≈ −0.001
+  vs −0.0028 … −0.0043; CBM ≈ 0 vs −0.0016 … −0.0040. **Reading:** at the hard primes the genus deficit is carried mainly by two specific cross characters, χ₋₄ and the
+  BM-like χ₋₄(·/u), whose second L-factor L(1, χ_pψ) is large (QR-richness of p) and whose sign ε_η is −1 on the dominant
+  small-u slices; the principal class-number term is only moderately low. This identifies "which genus characters" at
+  attained sizes; by Theorem U their combined effect is bounded away from killing M_gen as p → ∞.
+* **What Siegel / Stephens / Burgess / GRH give (brief (a)).** Siegel (ineffective): each slice's principal term is
+  ≫_ε p^{−ε}·log p — useless for log². Landau–Page/Tatuzawa: at most one exceptional u — superseded by the averaging of
+  Prop 2.5, which needs no such input. Stephens (|L(1, χ)| ≤ (c_S + o(1))log q): bounds every cross term by O(log²p), so the
+  *unwindowed* slice sums are only bounded by O(log³p) in total — insufficient; the window trick is what removes the cross
+  terms. Burgess (cube-free): Theorem U, 2/(3π⁴). GRH (or a fixed strip): β, α₀ → 0, constant 2/π⁴ (Thm 5.4).
 
 ## 5. Falsifier F1 and controls (EVIDENCE / CERTIFIED identities)
 
