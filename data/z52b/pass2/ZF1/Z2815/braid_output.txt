@@ -1,0 +1,157 @@
+det(G^T + s G) = d1*d2*d3*s**3 + d1*d2*d3 + s**2*(-a**2*d3 + a*b*c - b**2*d2 - c**2*d1 + 3*d1*d2*d3) + s*(-a**2*d3 + a*b*c - b**2*d2 - c**2*d1 + 3*d1*d2*d3)
+coefficients (s^3..s^0): [d1*d2*d3, -a**2*d3 + a*b*c - b**2*d2 - c**2*d1 + 3*d1*d2*d3, -a**2*d3 + a*b*c - b**2*d2 - c**2*d1 + 3*d1*d2*d3, d1*d2*d3]
+s^2 coefficient: -a**2*d3 + a*b*c - b**2*d2 - c**2*d1 + 3*d1*d2*d3
+mutation sigma_1: lower-triangular entries after mutation = [0, 0, 0]; new diag = [d2, d1, d3]
+   pencil coefficients unchanged: [0, 0, 0, 0]  new (a,b,c) = (-a, -a*b/d1 + c, b)
+mutation sigma_2: lower-triangular entries after mutation = [0, 0, 0]; new diag = [d1, d3, d2]
+   pencil coefficients unchanged: [0, 0, 0, 0]  new (a,b,c) = (-a*c/d2 + b, a, -c)
+braid relation holds on Gram: True
+
+[item proposal d=(1,n,1)] invariant s^2-coeff: -a**2 + a*b*c - b**2*n - c**2 + 3*n
+general s^2-coefficient: d1 d2 d3 * (3 terms) -> -a**2*d3 + a*b*c - b**2*d2 - c**2*d1 + 3*d1*d2*d3
+[d=(0,1,n)] s^2-coeff: -a**2*n + a*b*c - b**2  with (a,b,c)=(C,B?,A?)
+diagonals/dictionaries giving exactly +-(nA^2+B^2-ABC): [((0, 1, n), (A, B, C), (1, 1, 1), -1), ((0, 1, n), (A, B, C), (1, -1, -1), -1), ((0, 1, n), (A, B, C), (-1, 1, -1), -1), ((0, 1, n), (A, B, C), (-1, -1, 1), -1), ((0, n, 1), (B, A, C), (1, 1, 1), -1), ((0, n, 1), (B, A, C), (1, -1, -1), -1), ((0, n, 1), (B, A, C), (-1, 1, -1), -1), ((0, n, 1), (B, A, C), (-1, -1, 1), -1), ((1, 0, n), (A, C, B), (1, 1, 1), -1), ((1, 0, n), (A, C, B), (1, -1, -1), -1), ((1, 0, n), (A, C, B), (-1, 1, -1), -1), ((1, 0, n), (A, C, B), (-1, -1, 1), -1), ((1, n, 0), (C, A, B), (1, 1, 1), -1), ((1, n, 0), (C, A, B), (1, -1, -1), -1), ((1, n, 0), (C, A, B), (-1, 1, -1), -1), ((1, n, 0), (C, A, B), (-1, -1, 1), -1), ((n, 0, 1), (B, C, A), (1, 1, 1), -1), ((n, 0, 1), (B, C, A), (1, -1, -1), -1), ((n, 0, 1), (B, C, A), (-1, 1, -1), -1), ((n, 0, 1), (B, C, A), (-1, -1, 1), -1), ((n, 1, 0), (C, B, A), (1, 1, 1), -1), ((n, 1, 0), (C, B, A), (1, -1, -1), -1), ((n, 1, 0), (C, B, A), (-1, 1, -1), -1), ((n, 1, 0), (C, B, A), (-1, -1, 1), -1)]
+
+Gram [[0, a, b], [0, 1, c], [0, 0, n]] det = 0
+ sigma_1: undefined (divides by chi(e_1,e_1) = 0)
+ sigma_2: new diag [0, n, 1], new (a,b,c) = (-a*c + b, a, -c)
+
+Vieta involutions of S_{n,D}: A -> BC/n - A (needs n | BC), B -> AC - B; C fixed (MARKOFF_ES Prop 2.1).
+[
+ {
+  "n": 17,
+  "start": [
+   2,
+   1,
+   36,
+   3
+  ],
+  "states": 3,
+  "diagonals": [
+   [
+    0,
+    1,
+    17
+   ],
+   [
+    0,
+    17,
+    1
+   ],
+   [
+    1,
+    0,
+    17
+   ]
+  ],
+  "frame_points": 1,
+  "vieta_points": 8,
+  "frame_subset_vieta": true,
+  "vieta_subset_frame": false,
+  "abs_C_values_in_frame": [
+   36
+  ]
+ },
+ {
+  "n": 29,
+  "start": [
+   4,
+   1,
+   120,
+   15
+  ],
+  "states": 3,
+  "diagonals": [
+   [
+    0,
+    1,
+    29
+   ],
+   [
+    0,
+    29,
+    1
+   ],
+   [
+    1,
+    0,
+    29
+   ]
+  ],
+  "frame_points": 1,
+  "vieta_points": 8,
+  "frame_subset_vieta": true,
+  "vieta_subset_frame": false,
+  "abs_C_values_in_frame": [
+   120
+  ]
+ },
+ {
+  "n": 5,
+  "start": [
+   2,
+   1,
+   12,
+   3
+  ],
+  "states": 3,
+  "diagonals": [
+   [
+    0,
+    1,
+    5
+   ],
+   [
+    0,
+    5,
+    1
+   ],
+   [
+    1,
+    0,
+    5
+   ]
+  ],
+  "frame_points": 1,
+  "vieta_points": 8,
+  "frame_subset_vieta": true,
+  "vieta_subset_frame": false,
+  "abs_C_values_in_frame": [
+   12
+  ]
+ },
+ {
+  "n": 41,
+  "start": [
+   2,
+   3,
+   30,
+   7
+  ],
+  "states": 3,
+  "diagonals": [
+   [
+    0,
+    1,
+    41
+   ],
+   [
+    0,
+    41,
+    1
+   ],
+   [
+    1,
+    0,
+    41
+   ]
+  ],
+  "frame_points": 1,
+  "vieta_points": 8,
+  "frame_subset_vieta": true,
+  "vieta_subset_frame": false,
+  "abs_C_values_in_frame": [
+   30
+  ]
+ }
+]
