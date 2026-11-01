@@ -1,0 +1,8 @@
+{
+ "ES_pairwise_coprime_triples": 0,
+ "identity_holds_ES": 0,
+ "identity_holds_random_coprime_controls": 0,
+ "n_controls": 0,
+ "recalled_identity": "s(bc,a)+s(ca,b)+s(ab,c) = -1/4 + (a^2+b^2+c^2)/(12abc)",
+ "note": "recalled identity fails on most coprime triples (see Z1358 pass-2 table); the comparison is a frequency test only"
+}

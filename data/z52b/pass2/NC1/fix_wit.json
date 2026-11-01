@@ -1,0 +1,252 @@
+{
+ "Z1223": {
+  "primes": 39175,
+  "H(family)": 1.2884,
+  "H(family|p mod 840)": 0.7792,
+  "H(family|p mod 840, legendre 11..31)": 0.4174,
+  "frac_primes_with_C_min<=2": 0.912
+ },
+ "Z1228": {
+  "test_primes": 18444,
+  "mean_tests_fixed_order_1..50": 1.593,
+  "mean_tests_global_learned_order": 1.595,
+  "mean_tests_class_learned_order(p mod 840)": 1.438,
+  "max_tests_class_learned": 51,
+  "unresolved_in_50_fixed": 18,
+  "unresolved_in_50_class": 18
+ },
+ "Z1277": {
+  "witnesses_checked": 19966,
+  "identity_ok": 19966,
+  "top_profiles(exponents of x,y,z in log p)": [
+   [
+    [
+     1.0,
+     2.0,
+     1.0
+    ],
+    10935
+   ],
+   [
+    [
+     1.0,
+     1.75,
+     1.0
+    ],
+    3216
+   ],
+   [
+    [
+     1.0,
+     1.75,
+     1.25
+    ],
+    3083
+   ],
+   [
+    [
+     1.0,
+     1.5,
+     1.25
+    ],
+    650
+   ],
+   [
+    [
+     1.0,
+     1.5,
+     1.5
+    ],
+    588
+   ],
+   [
+    [
+     0.75,
+     1.75,
+     1.25
+    ],
+    493
+   ],
+   [
+    [
+     0.75,
+     1.75,
+     1.0
+    ],
+    455
+   ],
+   [
+    [
+     0.75,
+     1.5,
+     1.25
+    ],
+    195
+   ]
+  ],
+  "n_distinct_profiles": 15
+ },
+ "Z1281": {
+  "resultant_symbolic": "-4*u + 4*v",
+  "pairs_same_C": 18229,
+  "gcd_gt_1": 10613,
+  "violations_gcd_not_dividing_4(v-u)": 0
+ },
+ "Z1287": {
+  "witness_pairs": 148765,
+  "reconstruction_failures": 0,
+  "strata_counts_g(top)": [
+   [
+    1,
+    117429
+   ],
+   [
+    3,
+    16062
+   ],
+   [
+    5,
+    4916
+   ],
+   [
+    7,
+    2987
+   ],
+   [
+    9,
+    1232
+   ],
+   [
+    11,
+    1131
+   ]
+  ]
+ },
+ "Z1320": {
+  "points": 399,
+  "by_degree": {
+   "1": {
+    "monomials": 3,
+    "rank": 3,
+    "vanishing_poly_exists": false
+   },
+   "2": {
+    "monomials": 6,
+    "rank": 6,
+    "vanishing_poly_exists": false
+   },
+   "3": {
+    "monomials": 10,
+    "rank": 10,
+    "vanishing_poly_exists": false
+   },
+   "4": {
+    "monomials": 15,
+    "rank": 15,
+    "vanishing_poly_exists": false
+   },
+   "5": {
+    "monomials": 21,
+    "rank": 21,
+    "vanishing_poly_exists": false
+   },
+   "6": {
+    "monomials": 28,
+    "rank": 28,
+    "vanishing_poly_exists": false
+   }
+  }
+ },
+ "Z1479": {
+  "primes_with_witness": 39122,
+  "frac_with_some_kth_power_residue_witness": {
+   "2": 0.0,
+   "4": 0.0,
+   "8": 0.0
+  }
+ },
+ "Z1510": {
+  "proxy": "parity of #witnesses (C\u226450) vs (2,p)_2 = p mod 8 and Legendre (p/3),(p/5)",
+  "table": {
+   "(1, -1, -1)": {
+    "1": 2471,
+    "0": 2437
+   },
+   "(1, -1, 1)": {
+    "1": 2437,
+    "0": 2475
+   },
+   "(1, 1, -1)": {
+    "1": 2468,
+    "0": 2447
+   },
+   "(1, 1, 1)": {
+    "1": 2393,
+    "0": 2424
+   },
+   "(5, -1, -1)": {
+    "0": 2447,
+    "1": 2473
+   },
+   "(5, -1, 0)": {
+    "1": 1
+   },
+   "(5, -1, 1)": {
+    "0": 2420,
+    "1": 2450
+   },
+   "(5, 1, -1)": {
+    "1": 2400,
+    "0": 2517
+   },
+   "(5, 1, 1)": {
+    "0": 2488,
+    "1": 2427
+   }
+  }
+ },
+ "Z1359": {
+  "H(X)": 0.4299,
+  "top_MI_jacobi_invariants": [
+   [
+    3,
+    0.09435
+   ],
+   [
+    27,
+    0.09435
+   ],
+   [
+    75,
+    0.09435
+   ],
+   [
+    7,
+    0.0176
+   ],
+   [
+    63,
+    0.0176
+   ]
+  ],
+  "note": "X = witness with C<=2; invariants (p/m) for odd m<100 (Jacobi)."
+ },
+ "Z1584": {
+  "odd_squares_m^2_m<1000_C<=50_pairs_tested": 24950,
+  "witnesses_found_at_odd_squares": 0
+ },
+ "Z1621": {
+  "primes": 20000,
+  "mean_c_C_for_C=1..8": [
+   2.131,
+   0.942,
+   0.508,
+   0.459,
+   0.317,
+   0.231,
+   0.232,
+   0.197
+  ],
+  "mean_c_C_for_C=40..50": 0.0278
+ }
+}

@@ -1,0 +1,221 @@
+{
+ "Z1223_bias_corrected": {
+  "H(family|p mod 840) - shuffled baseline": -0.468,
+  "H(family|p mod 840, legendre 11..31) - shuffled baseline": -0.2045,
+  "H(family)": 1.2884,
+  "cells_mod840_x_legendre": 11927
+ },
+ "Z1479": {
+  "note": "k=2 gives only the non-residue value for every witness (Lemma B, jacobi_a_of_cform); k=4,8 classes below",
+  "first_witness_root_of_unity_classes": {
+   "4": {
+    "distinct_values_of_d^((p-1)/gcd(k,p-1))": 39122,
+    "values_with_counts(top)": [
+     [
+      3,
+      1
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      13,
+      1
+     ],
+     [
+      12,
+      1
+     ]
+    ]
+   },
+   "8": {
+    "distinct_values_of_d^((p-1)/gcd(k,p-1))": 37884,
+    "values_with_counts(top)": [
+     [
+      692,
+      4
+     ],
+     [
+      105923,
+      4
+     ],
+     [
+      30,
+      3
+     ],
+     [
+      792,
+      3
+     ]
+    ]
+   }
+  }
+ },
+ "Z1707_candidates": {
+  "D=5": {
+   "C=y": {
+    "n": 2698,
+    "witness_rate": 0.039,
+    "matched_base_rate": 0.048
+   },
+   "C=x-y": {
+    "n": 2698,
+    "witness_rate": 0.006,
+    "matched_base_rate": 0.006
+   },
+   "C=x+y": {
+    "n": 2698,
+    "witness_rate": 0.003,
+    "matched_base_rate": 0.004
+   }
+  },
+  "D=8": {
+   "C=y": {
+    "n": 2973,
+    "witness_rate": 0.077,
+    "matched_base_rate": 0.086
+   },
+   "C=x-y": {
+    "n": 2973,
+    "witness_rate": 0.004,
+    "matched_base_rate": 0.006
+   },
+   "C=x+y": {
+    "n": 2973,
+    "witness_rate": 0.004,
+    "matched_base_rate": 0.004
+   }
+  },
+  "D=12": {
+   "C=y": {
+    "n": 2977,
+    "witness_rate": 0.057,
+    "matched_base_rate": 0.07
+   },
+   "C=x-y": {
+    "n": 2977,
+    "witness_rate": 0.004,
+    "matched_base_rate": 0.005
+   },
+   "C=x+y": {
+    "n": 2977,
+    "witness_rate": 0.003,
+    "matched_base_rate": 0.004
+   }
+  },
+  "D=13": {
+   "C=y": {
+    "n": 1623,
+    "witness_rate": 0.038,
+    "matched_base_rate": 0.045
+   },
+   "C=x-y": {
+    "n": 1623,
+    "witness_rate": 0.003,
+    "matched_base_rate": 0.005
+   },
+   "C=x+y": {
+    "n": 1623,
+    "witness_rate": 0.002,
+    "matched_base_rate": 0.003
+   }
+  }
+ },
+ "Z1832_1833_rule_C_in_representation": {
+  "primes_p<2000_p\u22611(4)": 147,
+  "covered_by_some_3-square rep with C=entry": 110,
+  "covered_by_some_4-square rep with C=entry": 142
+ },
+ "Z1689": {
+  "window_p<=20000": 20000,
+  "U=V=30": true,
+  "smallest_period_in_window": 20000,
+  "distinct_values": 17,
+  "max_value": 16
+ },
+ "Z1889_blind": {
+  "train_primes": 20731,
+  "test_primes": 18444,
+  "base_rate_C<=2": 0.9093,
+  "brier_model(p mod 840)": 0.05612,
+  "brier_base": 0.07786
+ },
+ "Z1908_projected_area_over_log2p": {
+  "101": 0.0281,
+  "1009": 0.0128,
+  "10007": 0.0072,
+  "100003": 0.0046
+ },
+ "Z1922": {
+  "surface": "y=z: 4/n = 1/x + 2/y  <=>  4xy - n(y+2x) = 0",
+  "n_as_function": "[4*x*y/(2*x + y)]",
+  "fibre_over_n_is_conic_in_(x,y)": true,
+  "degenerate_fibres": "n=0 (x or y=0), n=infinity"
+ },
+ "Z1936": {
+  "p=13,K=8": {
+   "dim": 81,
+   "rank": 81,
+   "dim_ker": 0,
+   "dim_coker": 0,
+   "chi = dim ker - dim coker": 0
+  },
+  "p=101,K=6": {
+   "dim": 49,
+   "rank": 49,
+   "dim_ker": 0,
+   "dim_coker": 0,
+   "chi = dim ker - dim coker": 0
+  }
+ },
+ "Z1485": {
+  "1009": {
+   "sum_T": 51952,
+   "mean_T/sqrt(N)": 0.85608,
+   "max_T": 1592
+  },
+  "10007": {
+   "sum_T": 515202,
+   "mean_T/sqrt(N)": 0.85805,
+   "max_T": 17852
+  }
+ },
+ "Z1438_d1": {
+  "primes_tested": 300,
+  "fraction_with_type_I_d1_solution_c<=20": 0.0
+ },
+ "Z1409": {
+  "energy": "(4xyz - p(xy+yz+zx))^2 on {1..64}^3 (bit-blast-equivalent objective; NOT the QUBO matrix)",
+  "results": {
+   "13": {
+    "B": 64,
+    "states": 262144,
+    "zero_energy_states(solutions with x,y,z<=64)": 6,
+    "gap_first_nonzero_energy": 1,
+    "distinct_levels": 37572
+   },
+   "17": {
+    "B": 64,
+    "states": 262144,
+    "zero_energy_states(solutions with x,y,z<=64)": 0,
+    "gap_first_nonzero_energy": 4,
+    "distinct_levels": 36835
+   },
+   "29": {
+    "B": 64,
+    "states": 262144,
+    "zero_energy_states(solutions with x,y,z<=64)": 0,
+    "gap_first_nonzero_energy": 9,
+    "distinct_levels": 35600
+   },
+   "37": {
+    "B": 64,
+    "states": 262144,
+    "zero_energy_states(solutions with x,y,z<=64)": 0,
+    "gap_first_nonzero_energy": 25,
+    "distinct_levels": 35553
+   }
+  }
+ }
+}
