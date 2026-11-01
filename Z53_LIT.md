@@ -25,7 +25,9 @@ sweep did produce material that changes what other lanes should do:
    §3.1, p. 6–7). For every fixed A > 1 and large N there is a prime p with (log p)^A ≍ N such that the inverses
    x̄ (mod p), x ≤ N, are badly distributed (D_p(N) ≫ 1). The construction is **unconditional**: Linnik/Xylouris gives a
    prime p ≡ −1 (mod m), where m = lcm of the (2N)^{1/A}-smooth integers in [N, 2N], with log p ≍ log m ≍ N^{1/A}. It
-   controls a **positive proportion ρ(A)** (Dickman) of a window of polylog length (log p)^A by congruences. This is the
+   controls a **positive proportion ρ(A)** (Dickman) of a window of polylog length (log p)^A by congruences. Caveat: the
+   class −1 itself makes (★) *easy*, since any s ≡ 3 (mod 4) dividing p + 1 gives the u = 1 certificate. A kill must use
+   the Linnik-lcm mechanism with a different class. With that caveat, this is the
    template, with explicit numbers, for "how far a congruence (Dickson-free) construction reaches at growing windows". Our
    Lemma L2 (§6.2, PROVED) shows the whole statistic is congruence data. F2 (§6.3, EVIDENCE) shows that it correlates with
    (★)-hardness (raw r = −0.167 over 64 380 primes), but that ≈ 99 % of the shared variance is absorbed by small-divisor
