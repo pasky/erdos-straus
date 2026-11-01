@@ -1,0 +1,17 @@
+PARI stack size set to 1000000000 bytes, maximum size set to 1000001536
+LIMIT-HIT ('A', 1, 3, 1, 14, 5, 6) shape(any D): []
+LIMIT-HIT ("A'", 1, 3, 1, 14, 5, 6) shape(any D): []
+LIMIT-HIT ('A', 1, 5, 1, 14, 5, 6) shape(any D): []
+LIMIT-HIT ("A'", 1, 5, 1, 14, 5, 6) shape(any D): []
+.. E = 100 done, 171 candidates so far
+.. E = 200 done, 334 candidates so far
+.. E = 300 done, 500 candidates so far
+.. E = 400 done, 664 candidates so far
+.. E = 500 done, 824 candidates so far
+.. E = 600 done, 990 candidates so far
+.. E = 700 done, 1153 candidates so far
+.. E = 800 done, 1312 candidates so far
+.. E = 900 done, 1472 candidates so far
+.. E = 1000 done, 1634 candidates so far
+.. E = 1100 done, 1795 candidates so far
+.. E = 1200 done, 1955 candidates so far

@@ -1,0 +1,185 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+=== (a) actual certificates: 3*2^s+1 (Thm 4.1) ===
+SG11 d=3^0 f+^2 f-^1               s=4+4*t, Y=2^(1 t), t = 2 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (9, True, True), (7, True, True)]
+SG11 d=3^0 f+^2 f-^1               s=4+4*t, Y=2^(1 t), t = 9 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (9, True, True), (7, True, True)]
+SG11 d=3^0 f+^0 f-^2               s=4+4*t, Y=2^(1 t), t = 1 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (9, True, True), (9, True, True)]
+SG11 d=3^0 f+^0 f-^2               s=4+4*t, Y=2^(1 t), t = 8 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (9, True, True), (9, True, True)]
+SG11 d=3^0 f+^2 f-^0               s=4+4*t, Y=2^(1 t), t = 3 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (9, True, True), (9, True, True)]
+SG11 d=3^0 f+^2 f-^0               s=4+4*t, Y=2^(1 t), t = 6 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (9, True, True), (9, True, True)]
+SG11 d=3^0 f+^1 f-^2               s=4+4*t, Y=2^(1 t), t = 4 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (9, True, True), (7, True, True)]
+SG11 d=3^0 f+^1 f-^2               s=4+4*t, Y=2^(1 t), t = 7 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (9, True, True), (7, True, True)]
+D7                                 s=0+1*t, Y=2^(1 t), t = 1 mod 3: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (2, True, True)]
+n=6 (7)                            s=0+1*t, Y=2^(1 t), t = 2 mod 3: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+n=7 (15)                           s=0+1*t, Y=2^(1 t), t = 1 mod 4: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+n=13 (15)                          s=0+1*t, Y=2^(1 t), t = 2 mod 4: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+D5                                 s=0+1*t, Y=2^(1 t), t = 3 mod 4: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (2, True, True)]
+D61                                s=0+1*t, Y=2^(1 t), t = 24 mod 60: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (2, True, True)]
+=== (a) actual certificates: 3*2^s+1 cubic moving-gap family (EXP_OPEN Prop 2.1) ===
+II-ac (a,c)=(80,1), Y=2^(s/3)      s=0+3*t, Y=2^(1 t), t = 0 mod 12: (L, predicts, charpoly=prod(X-2^{1Te})) = [(4, True, True), (4, True, True), (7, True, True)]
+II-ac (a,c)=(80,1), Y=2^(s/3)      s=0+3*t, Y=2^(1 t), t = 4 mod 12: (L, predicts, charpoly=prod(X-2^{1Te})) = [(4, True, True), (4, True, True), (7, True, True)]
+=== (a) actual certificates: 63*2^s+1 (Thm 4.4) ===
+II-ad (a,d)=(5,17), Y=2^(s/3)      s=0+3*t, Y=2^(1 t), t = 0 mod 40: (L, predicts, charpoly=prod(X-2^{1Te})) = [(4, True, True), (4, True, True), (8, True, True)]
+II-ad (a,d)=(5,17), Y=2^(s/3)      s=0+3*t, Y=2^(1 t), t = 8 mod 40: (L, predicts, charpoly=prod(X-2^{1Te})) = [(4, True, True), (4, True, True), (8, True, True)]
+II-ad (a,d)=(5,17), Y=2^(s/3)      s=0+3*t, Y=2^(1 t), t = 16 mod 40: (L, predicts, charpoly=prod(X-2^{1Te})) = [(4, True, True), (4, True, True), (8, True, True)]
+II-ad (a,d)=(5,17), Y=2^(s/3)      s=0+3*t, Y=2^(1 t), t = 24 mod 40: (L, predicts, charpoly=prod(X-2^{1Te})) = [(4, True, True), (4, True, True), (8, True, True)]
+II-ad (a,d)=(5,17), Y=2^(s/3)      s=0+3*t, Y=2^(1 t), t = 32 mod 40: (L, predicts, charpoly=prod(X-2^{1Te})) = [(4, True, True), (4, True, True), (8, True, True)]
+D(5,)                              s=0+1*t, Y=2^(1 t), t = 3 mod 4: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (2, True, True)]
+II2(1, 2, 15)                      s=0+1*t, Y=2^(1 t), t = 1 mod 4: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+II2(2, 2, 15)                      s=0+1*t, Y=2^(1 t), t = 2 mod 4: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+II2(5, 3, 119)                     s=0+1*t, Y=2^(1 t), t = 4 mod 8: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+II2(5, 2, 39)                      s=0+1*t, Y=2^(1 t), t = 4 mod 12: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+II2(1, 5, 19)                      s=0+1*t, Y=2^(1 t), t = 14 mod 18: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+I1(1, 146, 39)                     s=0+1*t, Y=2^(1 t), t = 2 mod 9: (L, predicts, charpoly=prod(X-2^{1Te})) = [(3, True, True), (2, True, True), (3, True, True)]
+D(11,)                             s=0+1*t, Y=2^(1 t), t = 2 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (2, True, True)]
+II2(3, 1, 11)                      s=0+1*t, Y=2^(1 t), t = 4 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+II2(1, 1, 11)                      s=0+1*t, Y=2^(1 t), t = 6 mod 10: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+D(29,)                             s=0+1*t, Y=2^(1 t), t = 20 mod 28: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (2, True, True)]
+II2(1, 11, 87)                     s=0+1*t, Y=2^(1 t), t = 24 mod 28: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+D(127,)                            s=0+1*t, Y=2^(1 t), t = 1 mod 7: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (2, True, True)]
+II2(1, 32, 127)                    s=0+1*t, Y=2^(1 t), t = 2 mod 7: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (2, True, True), (3, True, True)]
+I1(1, 86, 23)                      s=0+1*t, Y=2^(1 t), t = 4 mod 14: (L, predicts, charpoly=prod(X-2^{1Te})) = [(3, True, True), (2, True, True), (3, True, True)]
+II1(1, 254, 15)                    s=0+1*t, Y=2^(1 t), t = 5 mod 7: (L, predicts, charpoly=prod(X-2^{1Te})) = [(2, True, True), (3, True, True), (3, True, True)]
+I1(1, 1405, 511)                   s=0+1*t, Y=2^(1 t), t = 28 mod 140: (L, predicts, charpoly=prod(X-2^{1Te})) = [(3, True, True), (2, True, True), (3, True, True)]
+I2(2, 43, 151)                     s=0+1*t, Y=2^(1 t), t = 140 mod 210: (L, predicts, charpoly=prod(X-2^{1Te})) = [(4, True, True), (2, True, True), (3, True, True)]
+=== (b) minimal certificates of 3*2^s+1, s = 1..60 ===
+s=1 n=7 min cert (x, y, z) = (2, 15, 210) gap m=1
+s=2 n=13 min cert (x, y, z) = (4, 18, 468) gap m=3
+s=3 n=25 min cert (x, y, z) = (7, 60, 2100) gap m=3
+s=4 n=49 min cert (x, y, z) = (14, 99, 9702) gap m=7
+s=5 n=97 min cert (x, y, z) = (25, 810, 392850) gap m=3
+s=6 n=193 min cert (x, y, z) = (50, 1380, 1331700) gap m=7
+s=7 n=385 min cert (x, y, z) = (97, 12450, 92989050) gap m=3
+s=8 n=769 min cert (x, y, z) = (194, 21340, 16410460) gap m=7
+s=9 n=1537 min cert (x, y, z) = (385, 197250, 23344340250) gap m=3
+s=10 n=3073 min cert (x, y, z) = (770, 338031, 114264618930) gap m=7
+s=11 n=6145 min cert (x, y, z) = (1537, 3148290, 5947034806170) gap m=3
+s=12 n=12289 min cert (x, y, z) = (3075, 3435390, 211087538550) gap m=11
+s=13 n=24577 min cert (x, y, z) = (6145, 50341890, 1520583482921370) gap m=3
+s=14 n=49153 min cert (x, y, z) = (12290, 86298625, 10426433661348250) gap m=7
+s=15 n=98305 min cert (x, y, z) = (24577, 805347330, 389150592357530010) gap m=3
+s=16 n=196609 min cert (x, y, z) = (49154, 1380588399, 1906024326072794802) gap m=7
+s=17 n=393217 min cert (x, y, z) = (98305, 12885065730, 99614951306967194010) gap m=3
+s=18 n=786433 min cert (x, y, z) = (196610, 22088656020, 341536107316828912260) gap m=7
+s=19 n=1572865 min cert (x, y, z) = (393217, 206159085570, 25500941137628990249370) gap m=3
+s=20 n=3145729 min cert (x, y, z) = (786434, 353415463120, 601318725235490012080) gap m=7
+s=21 n=6291457 min cert (x, y, z) = (1572865, 3298537504770, 6528209802221280126146970) gap m=3
+s=22 n=12582913 min cert (x, y, z) = (3145730, 5654635273071, 31974900071453088102497970) gap m=7
+s=23 n=25165825 min cert (x, y, z) = (6291457, 52776568619010, 1671219717118189882551409050) gap m=3
+s=24 n=50331649 min cert (x, y, z) = (12582914, 90474115835044, 469663602073112118391782772) gap m=7
+s=25 n=100663297 min cert (x, y, z) = (25165825, 844424972075010, 427832120078328006558067825050) gap m=3
+s=26 n=201326593 min cert (x, y, z) = (50331650, 1447585659224065, 2933705937107637731799365949850) gap m=7
+s=27 n=402653185 min cert (x, y, z) = (100663297, 13510799049883650, 109525014579802150225848072509850) gap m=3
+s=28 n=805306369 min cert (x, y, z) = (201326594, 23161369771039599, 536449049670826903442755455041202) gap m=7
+s=29 n=1610612737 min cert (x, y, z) = (402653185, 216172782784872450, 28038403210173387791429154876529050) gap m=3
+s=30 n=3221225473 min cert (x, y, z) = (805306370, 370581913230451860, 96131668089479505553085180613769860) gap m=7
+s=31 n=6442450945 min cert (x, y, z) = (1610612737, 3458764516504895490, 7177831188380006076414706564988508570) gap m=3
+s=32 n=12884901889 min cert (x, y, z) = (3221225474, 5929310599262502915, 12952477330404559469542947277194575010) gap m=7
+s=33 n=25769803777 min cert (x, y, z) = (6442450945, 55340232231866073090, 1837524782086121165477253533874467215770) gap m=3
+s=34 n=51539607553 min cert (x, y, z) = (12884901890, 94868969538501139311, 9000121381297057073408488787706528415410) gap m=7
+s=35 n=103079215105 min cert (x, y, z) = (25769803777, 885443715581008150530, 470406344077140753502331741613793675418010) gap m=3
+s=36 n=206158430209 min cert (x, y, z) = (51539607554, 1517903512417222603716, 592382924816711604511139755622478734676) gap m=7
+s=37 n=412316860417 min cert (x, y, z) = (103079215105, 14167099448780734332930, 120424024074986031947256262026888610515098010) gap m=3
+s=38 n=824633720833 min cert (x, y, z) = (206158430210, 24286456197880379080705, 825764736512187190278492716860720292885535130) gap m=7
+s=39 n=1649267441665 min cert (x, y, z) = (412316860417, 226673591178430165024770, 30828550162635656117766831419752814794663106970) gap m=3
+s=40 n=3298534883329 min cert (x, y, z) = (824633720834, 388583299162905335225199, 150996980388327986199555230364537299218709364402) gap m=7
+s=41 n=6597069766657 min cert (x, y, z) = (1649267441665, 3626777458846636303187970, 7892108841598838810261971950484328509834788444570) gap m=3
+s=42 n=13194139533313 min cert (x, y, z) = (3298534883330, 6217332786593762443338900, 27058658885477631445939755860896619709323733908100) gap m=7
+s=43 n=26388279066625 min cert (x, y, z) = (6597069766657, 58028439341513195502174210, 2020379863447005829450346178065146494235306811300250) gap m=3
+s=44 n=52776558133249 min cert (x, y, z) = (13194139533314, 99477324585449307412383657, 539432664502440255626498375565636437209386927354) gap m=7
+s=45 n=105553116266497 min cert (x, y, z) = (26388279066625, 928455029464079186639454210, 517217245042286490356778739262373903494549497372580250) gap m=3
+s=46 n=211106232532993 min cert (x, y, z) = (52776558133250, 1591637193366985351873616751, 2533308955309134319791159559537004994406650077754179250) gap m=7
+s=47 n=422212465065985 min cert (x, y, z) = (105553116266497, 14855280471424739220649934850, 132407614730815933404454726554032485174316490364896778650) gap m=3
+s=48 n=844424930131969 min cert (x, y, z) = (211106232532994, 25466195093870951363080955079, 12369726561072693169347640868981034329427690036242508882) gap m=7
+s=49 n=1688849860263937 min cert (x, y, z) = (422212465065985, 237684487542793716468073627650, 33896349371088276831420049661559536360405575704390433085850) gap m=3
+s=50 n=3377699720527873 min cert (x, y, z) = (844424930131970, 407459121501931964741707628545, 232432109973176617787995686745484287880928431437845070715290) gap m=7
+s=51 n=6755399441055745 min cert (x, y, z) = (1688849860263937, 3802951800684691019239876722690, 8677465438998560333155829652291285400465435639565857219778970) gap m=3
+s=52 n=13510798882111489 min cert (x, y, z) = (3377699720527874, 6519345944030898407596971449199, 42501871537952125952487703919624114634733805064737157266292402) gap m=7
+s=53 n=27021597764222977 min cert (x, y, z) = (6755399441055745, 60847228810955022530840822284290, 2221431152383628979003879395085475916455760852310164351326198170) gap m=3
+s=54 n=54043195528445953 min cert (x, y, z) = (13510798882111490, 104309535104494322408470140757140, 7616335379601013360437985012190159051045069971500026450581928580) gap m=7
+s=55 n=108086391056891905 min cert (x, y, z) = (27021597764222977, 973555660975280225385464335433730, 568686375010208860782816293404327969777189077441694884871997594010) gap m=3
+s=56 n=216172782113783809 min cert (x, y, z) = (54043195528445954, 1668952561671908950083196642394140, 100504219442157676969910527071532048585727096538893261606335669660) gap m=7
+s=57 n=432345564227567617 min cert (x, y, z) = (108086391056891905, 15576890575604483065735474082480130, 145583712002613458258501653880306370457690459811915067704253024410010) gap m=3
+s=58 n=864691128455135233 min cert (x, y, z) = (216172782113783810, 26703240986750542367521843839425391, 713063079196474079616840865171916675087475788004284859744369216077490) gap m=7
+s=59 n=1729382256910270465 min cert (x, y, z) = (432345564227567617, 249230249209671726890039764181843970, 37269430272669044667654867090561558810338699548362391702148269473372570) gap m=3
+s=60 n=3458764513820540929 min cert (x, y, z) = (864691128455135234, 427251855788008674545112291675284802, 1040561105798111995703233556457934248975614594155479428122143418107099) gap m=7
+min-cert class s=0 mod 2, s>=1 (30 terms) coord x  : linear complexity L = 8 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 2, s>=1 (30 terms) coord y  : linear complexity L = 15 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 2, s>=1 (30 terms) coord gap: linear complexity L = 7 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 2, s>=1 (30 terms) coord x  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 2, s>=1 (30 terms) coord y  : linear complexity L = 4 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 2, s>=1 (30 terms) coord gap: linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 3, s>=1 (20 terms) coord x  : linear complexity L = 7 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 3, s>=1 (20 terms) coord y  : linear complexity L = 10 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 3, s>=1 (20 terms) coord gap: linear complexity L = 6 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 3, s>=1 (20 terms) coord x  : linear complexity L = 4 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 3, s>=1 (20 terms) coord y  : linear complexity L = 7 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 3, s>=1 (20 terms) coord gap: linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 3, s>=1 (20 terms) coord x  : linear complexity L = 4 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 3, s>=1 (20 terms) coord y  : linear complexity L = 10 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 3, s>=1 (20 terms) coord gap: linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 4, s>=1 (15 terms) coord x  : linear complexity L = 5 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 4, s>=1 (15 terms) coord y  : linear complexity L = 8 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 4, s>=1 (15 terms) coord gap: linear complexity L = 4 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 4, s>=1 (15 terms) coord x  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 4, s>=1 (15 terms) coord y  : linear complexity L = 4 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 4, s>=1 (15 terms) coord gap: linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 4, s>=1 (15 terms) coord x  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 4, s>=1 (15 terms) coord y  : linear complexity L = 6 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 4, s>=1 (15 terms) coord gap: linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 4, s>=1 (15 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 4, s>=1 (15 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 4, s>=1 (15 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=4 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=4 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=4 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=5 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=5 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=5 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=6 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=6 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=6 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=7 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=7 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=7 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=8 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=8 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=8 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=9 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=9 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=9 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=10 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=10 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=10 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=11 mod 12, s>=1 (5 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=11 mod 12, s>=1 (5 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=11 mod 12, s>=1 (5 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 2, s>=14 (24 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 2, s>=14 (24 terms) coord y  : linear complexity L = 12 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 2, s>=14 (24 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 2, s>=14 (23 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 2, s>=14 (23 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 2, s>=14 (23 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 4, s>=14 (12 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 4, s>=14 (12 terms) coord y  : linear complexity L = 6 (a genuine recurrence needs L << len/2)
+min-cert class s=0 mod 4, s>=14 (12 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 4, s>=14 (11 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 4, s>=14 (11 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=1 mod 4, s>=14 (11 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 4, s>=14 (12 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 4, s>=14 (12 terms) coord y  : linear complexity L = 5 (a genuine recurrence needs L << len/2)
+min-cert class s=2 mod 4, s>=14 (12 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 4, s>=14 (12 terms) coord x  : linear complexity L = 2 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 4, s>=14 (12 terms) coord y  : linear complexity L = 3 (a genuine recurrence needs L << len/2)
+min-cert class s=3 mod 4, s>=14 (12 terms) coord gap: linear complexity L = 1 (a genuine recurrence needs L << len/2)
