@@ -1,0 +1,2 @@
+prime: N=150 mean|A|=1307 P0=10 mean#squares=0.407 mean Z=-2.124 sd Z=4.863 (noise model sqrt(2|A|)/P0=5.112); mean Z on strips with squares=-1.752 (n=52), without=-2.322 (n=98)
+square: N=150 mean|A|=1305 P0=10 mean#squares=0.000 mean Z=-3.068 sd Z=4.868 (noise model sqrt(2|A|)/P0=5.109); mean Z on strips with squares=nan (n=0), without=-3.068 (n=150)

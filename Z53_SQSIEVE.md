@@ -236,3 +236,62 @@ paper of that title area (arXiv:1409.3177) in fact uses the large sieve without 
 (4) Off-diagonal (U ≪ V) the main term |𝒜|/P ≍ V/P exceeds the trivial min(U, W) unless V/U ≤ P — the sieve candidates
 are all splittings of s ≍ V; no reparametrisation by the symmetric pair (u, B) reduces this (u, B are the only symmetric
 pair of (★); fixing B or u gives linear equations).
+
+## 6. The reverse direction: lower bounds and square-sensitivity (Theorem C)
+
+The brief asks whether any *lower-bound* version of the square-sieve count — #{(C,k) ∈ strip : f(C,k) = □} from below —
+can be square-sensitive (vanish at odd squares n = m², where R(m²) = 0). Answer (scoped): square-sensitivity is available
+only through the Brauer–Manin twist, and lower bounds are not available through the square sieve at all.
+
+**Theorem C1 (BM twist in strip coordinates; PROVED; content known for primes, `BM_CORRECTED_COUNT.md` Thm 1.1).**
+Let n ≥ 3 be odd and (u, B, C) a (★) triple; x := 4Cu − 1, y := 4CB − 1. (i) (n/x) = −1 (Jacobi); in particular R(m²) = 0
+(T1). (ii) If gcd(uBC, n) = 1 then (−uB/n) = −1. Hence every point (C, k) of the strip with f(C,k) a square and
+gcd(Ck, n) = 1 lies in 𝒜⁻ := {(C,k) : (−k/n) = −1}, and 𝒜⁻ = ∅ when n is an odd square ((−k/m²) ∈ {0, 1}).
+*Proof.* (i) xy = 4Cn + 1, so gcd(x, n) = 1 and 4Cn ≡ −1 (mod x); x ≡ 3 (mod 4), so (4Cn/x) = (−1/x) = −1. Write C = 2^a C′
+with C′ odd. If a ≥ 1 then 8 | 4C | x + 1, so (2/x) = 1. By reciprocity (C′/x) = (x/C′)(−1)^{((C′−1)/2)((x−1)/2)}; since
+x ≡ −1 (mod C′), (x/C′) = (−1/C′) = (−1)^{(C′−1)/2}, and (x − 1)/2 is odd, so (C′/x) = 1. Thus (C/x) = 1 and (n/x) = −1.
+At n = m², (m²/x) = 1: contradiction. (ii) By reciprocity, (x/n) = (n/x)(−1)^{((n−1)/2)((x−1)/2)} = −(−1/n). Mod n, xy ≡ 1, so
+x(x + 1)(y + 1) ≡ (x + 1)(1 + x) = (x + 1)²; gcd(x + 1, n) = gcd(4Cu, n) = 1, so (x/n) = ((x + 1)(y + 1)/n) = (16C²uB/n)
+= (uB/n). Hence (−uB/n) = (−1/n)(x/n) = −1. ∎ *Check:* 87 388 coprime triples, odd n ≤ 20 000: no violation
+(`data/z53/sqsieve/checks.txt`); in every computed strip all squares lie in 𝒜⁻ and |𝒜⁻| = 0 at odd squares (§7).
+
+So a square-sensitive square sieve must carry the weight (1 − (−k/n))/2 — a character of conductor n, i.e. the BM layer,
+whose main term is already free pointwise (FRONTIER §2.2, §4 item 13). The auxiliary characters (·/qq′) of the sieve have
+conductor ≤ 4P² = n^{o(1)}-to-n^{0.06}; their complete sums (Lemma W) and the ℓ = 0 terms of S_Q depend on n only through
+n mod Q and the block parameters (PROVED, by inspection of Lemma W and §4.4(i)). This is the closed "low-conductor
+universality" phenomenon in strip form.
+
+**Lemma C3 (square-sieve minorants have non-positive main coefficient; PROVED).** Let 𝒫 be a set of P₀ odd primes,
+σ(a) := Σ_{q∈𝒫}(a/q), ν(a) := #{q ∈ 𝒫 : q | a}, w ≥ 0 finitely supported on ℤ∖{0} with ν(a) ≤ P₀ − 1 on supp w. Let
+D(x) = A + Bx + Cx² be a *minorant*: D(σ(a)) ≤ 1_□(a) for all a ∈ supp w. Assume (H) non-squares in supp w realise the
+σ-values ±x₀ for some x₀ ≥ √P₀ and ±ε₀ for some ε₀ ∈ {0, 1}. Then A + C(P₀ − ν(a)) ≤ 0 for all a ∈ supp w, and
+  D⁺·Σ_{m≥1} w(m²) ≥ Σ_a w(a)D(σ(a)) = Σ_a w(a)(A + C(P₀ − ν(a))) + B·Σ_{q∈𝒫}S_q + C·Σ_{q≠q′}S_{qq′},
+  D⁺ := max(0, max_{□∈supp w} D(σ)), S_Q := Σ_a w(a)(a/Q),
+so the first sum on the right is ≤ 0: **a positive lower bound must come entirely from a signed lower bound for
+B·Σ_q S_q + C·Σ_{q≠q′}S_{qq′}** — the auxiliary character sums, which the upper-bound sieve only needs small in absolute value.
+*Proof.* D(x) + D(−x) = 2(A + Cx²), and D ≤ 0 at σ-values of non-squares. If C ≥ 0: A + C(P₀ − ν) ≤ A + CP₀ ≤ A + Cx₀² ≤ 0.
+If C < 0: A + C(P₀ − ν) ≤ A + Cε₀² ≤ 0 since P₀ − ν ≥ 1 ≥ ε₀². The identity is σ(a)² = (P₀ − ν(a)) + Σ_{q≠q′}(a/qq′) summed
+against w; the inequality is the minorant property (squares contribute ≤ D⁺ each, non-squares ≤ 0). ∎
+(H) holds in every strip computed in §7 (non-square σ-values include 0 or ±1 and ±⌈√P₀⌉; CERTIFIED for those runs).
+*Reading (Assessment).* Heath-Brown's upper bound uses the majorant D = (2σ/P₀)², main coefficient ≈ 4/P₀ > 0; minorants
+are forced to main coefficient ≤ 0. The signed combination would have to be shown ≥ (const)·P₀² at a prime and must be
+≤ 0 at odd squares; each S_{qq′} is a sum of |𝒜| terms of square-root size (EVIDENCE §7), and each square contributes
+≈ P₀² to Σ_{q≠q′}S_{qq′}, so the needed signed accuracy is o(1) per pair on average — the count itself.
+
+**Falsifier F3 (EVIDENCE; `scripts/z53_sqsieve_lambda.py`).** Z := (Σ_𝒜 σ(f)² − P₀|𝒜|)/P₀² = #□·(1 − o(1)) + noise. Over 150
+primes p ≡ 1 (24) and 150 odd squares near 10¹⁰ (cube strips, |𝒜| ≈ 1 300, P₀ = 10): sd(Z) = 4.86 (primes), 4.87 (squares)
+vs the random model √(2|𝒜|)/P₀ = 5.11, while the mean square count is 0.41 (primes) and 0 (squares). The per-n signal
+(≤ 1 per square) is buried in noise ≈ 5: the statistic does not separate primes from odd squares pointwise; only the
+average over n does (mean Z −2.12 vs −3.07, difference ≈ the mean square count) — an average over n, excluded by B6/T7.
+
+**Proposition C4 (the other lower-bound routes reduce to closed items; PROVED identities + pointers).**
+(a) *Conic parametrisation.* For fixed C, f(C,k) = r² with s = 4Ck − n is C(s² − r²) = n + s, i.e.
+(2Cs − 1)² − (2Cr)² = 4Cn + 1 with factor pair (2C(s − r) − 1, 2C(s + r) − 1) = (4Cu − 1, 4CB − 1): integral points of the conic
+family are exactly the tied divisors d ≡ −1 (mod 4C) of the single integers 4Cn + 1 (FRONTIER §2.1 divisor form). A sieve
+lower bound over the family is a lower bound for B2 itself.
+(b) *Representation counts (Duke/Iwaniec type).* At each level 4C the generating series is an Eisenstein/theta quotient
+with no cusp forms (`METAPLECTIC_ES.md` Thm K), so a "main term + cusp bound" route has nothing to bound and its main term is
+the class-blind average; counting integral points of the quadric xy − 4nC = 1 with *fixed*-level congruences certifies the
+tie only at ≤ τ(q²) heights (HYPSUMPROD Cor A′), and such counts are T1-blind (low-conductor universality).
+**Verdict for (S3): dead as scoped** — the square sieve's tie-detection is upper-bound-only (Lemma C3); the only
+square-sensitive ingredient is the BM twist (C1, conductor n); conic/representation lower bounds are B2 or closed items.
