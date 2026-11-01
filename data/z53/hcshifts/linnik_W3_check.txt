@@ -1,0 +1,15 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+== X=16: log Q_X = 29.46, Q_X/X-ratio log(Q)/X = 1.842
+  p = 87568474593601  (log p = 32.1, X/log p = 0.498)  HC = 4; certificates with coordinate <= X: 42, all private; min omega(rough part) over lines <= X: 1
+  p = 118842929805601  (log p = 32.4, X/log p = 0.494)  HC = 4; certificates with coordinate <= X: 28, all private; min omega(rough part) over lines <= X: 1
+  p = 168882058144801  (log p = 32.8, X/log p = 0.488)  HC = 4; certificates with coordinate <= X: 14, all private; min omega(rough part) over lines <= X: 2
+== X=20: log Q_X = 35.35, Q_X/X-ratio log(Q)/X = 1.768
+  p = 69998485655498401  (log p = 38.8, X/log p = 0.516)  HC = 4; certificates with coordinate <= X: 60, all private; min omega(rough part) over lines <= X: 1
+  p = 74514516988111201  (log p = 38.8, X/log p = 0.515)  HC = 4; certificates with coordinate <= X: 28, all private; min omega(rough part) over lines <= X: 1
+  p = 88062610985949601  (log p = 39.0, X/log p = 0.513)  HC = 4; certificates with coordinate <= X: 100, all private; min omega(rough part) over lines <= X: 1
+== X=24: log Q_X = 43.23, Q_X/X-ratio log(Q)/X = 1.801
+  p = 17917354312141284001  (log p = 44.3, X/log p = 0.541)  HC = 4; certificates with coordinate <= X: 92, all private; min omega(rough part) over lines <= X: 1
+  p = 47779611499043424001  (log p = 45.3, X/log p = 0.530)  HC = 4; certificates with coordinate <= X: 98, all private; min omega(rough part) over lines <= X: 1
+== X=32: log Q_X = 58.63, Q_X/X-ratio log(Q)/X = 1.832
+  p = 405463062827953140362352001  (log p = 61.3, X/log p = 0.522)  HC = 4; certificates with coordinate <= X: 104, all private; min omega(rough part) over lines <= X: 1
+  p = 434424710172806936102520001  (log p = 61.3, X/log p = 0.522)  HC = 4; certificates with coordinate <= X: 64, all private; min omega(rough part) over lines <= X: 1

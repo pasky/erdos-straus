@@ -82,6 +82,15 @@ static void dop(u64 p,u64 XCAP,u64 Y){
     (unsigned long long)mE,(unsigned long long)mL,(unsigned long long)mm,(unsigned long long)mP);
   fflush(stdout); }
 
+
+// mode "lines": aggregate, over the first COUNT primes p = 1 (8) at or above A, for every x in C ∩ [4,XCAP] and both
+// lines, the number of (p, line) pairs and of firing ones, binned by b = floor(log2 tau(N)); prints rows
+// "x type b count fired sumcert" where sumcert = total number of divisors d = -1 (mod x).
+static long LC[260][2][40], LF[260][2][40], LS[260][2][40];
+static void dolines(u64 p,u64 XCAP){ if(p%8!=1) return;
+  for(u64 x=4;x<=XCAP;x++){ if(!inC(x)) continue;
+    for(int ty=0;ty<2;ty++){ u64 N= ty? x*p+1 : p+x; factor(N); divisors(); int c=0; for(int i=0;i<ND;i++) if(DV[i]%x==x-1) c++;
+      int b=0; int t=ND; while(t>1){t>>=1;b++;} LC[x][ty][b]++; if(c) LF[x][ty][b]++; LS[x][ty][b]+=c; } } }
 int main(int argc,char**argv){
   if(argc<2){ fprintf(stderr,"usage\n"); return 1; }
   printf("# p HC line d N ncert type_x type_Y HCcong_x HCcong_Y HCsmall maskE maskL mmin Pplus(mmin)\n"); if(getenv("HSMALL")) HSMALL=atoll(getenv("HSMALL"));
@@ -89,4 +98,8 @@ int main(int argc,char**argv){
     while(scanf("%llu",&p)==1) dop(p,XCAP,Y); }
   else if(!strcmp(argv[1],"range")){ u64 A=atoll(argv[2]); long cnt=atol(argv[3]); u64 XCAP=atoll(argv[4]), Y=argc>5?atoll(argv[5]):4096;
     u64 p=A + ((1+8-(A%8))%8); long k=0; for(;k<cnt;p+=8){ if(isprime(p)){ dop(p,XCAP,Y); k++; } } }
+  else if(!strcmp(argv[1],"lines")){ u64 A=atoll(argv[2]); long cnt=atol(argv[3]); u64 XCAP=atoll(argv[4]);
+    u64 p=A + ((1+8-(A%8))%8); long k=0; for(;k<cnt;p+=8){ if(isprime(p)){ dolines(p,XCAP); k++; } }
+    printf("# lines A=%llu count=%ld XCAP=%llu\n# x type(0=e,1=l) log2tau count fired sumcert\n",(unsigned long long)A,cnt,(unsigned long long)XCAP);
+    for(u64 x=4;x<=XCAP;x++) for(int ty=0;ty<2;ty++) for(int b=0;b<40;b++) if(LC[x][ty][b]) printf("%llu %d %d %ld %ld %ld\n",(unsigned long long)x,ty,b,LC[x][ty][b],LF[x][ty][b],LS[x][ty][b]); }
   return 0; }

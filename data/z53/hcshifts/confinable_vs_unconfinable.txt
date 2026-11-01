@@ -1,0 +1,18 @@
+== samp_1e9.txt
+  q=  7: P(miss | (p/q)=+1, confinable) = 0.190   P(miss | (p/q)=-1, unconfinable) = 0.000
+  q= 23: P(miss | (p/q)=+1, confinable) = 0.401   P(miss | (p/q)=-1, unconfinable) = 0.160
+  q= 31: P(miss | (p/q)=+1, confinable) = 0.419   P(miss | (p/q)=-1, unconfinable) = 0.278
+  q= 47: P(miss | (p/q)=+1, confinable) = 0.557   P(miss | (p/q)=-1, unconfinable) = 0.372
+  q= 71: P(miss | (p/q)=+1, confinable) = 0.657   P(miss | (p/q)=-1, unconfinable) = 0.494
+  q= 79: P(miss | (p/q)=+1, confinable) = 0.635   P(miss | (p/q)=-1, unconfinable) = 0.561
+  q=103: P(miss | (p/q)=+1, confinable) = 0.689   P(miss | (p/q)=-1, unconfinable) = 0.639
+  q=127: P(miss | (p/q)=+1, confinable) = 0.732   P(miss | (p/q)=-1, unconfinable) = 0.695
+== samp_1e13.txt
+  q=  7: P(miss | (p/q)=+1, confinable) = 0.156   P(miss | (p/q)=-1, unconfinable) = 0.000
+  q= 23: P(miss | (p/q)=+1, confinable) = 0.330   P(miss | (p/q)=-1, unconfinable) = 0.126
+  q= 31: P(miss | (p/q)=+1, confinable) = 0.349   P(miss | (p/q)=-1, unconfinable) = 0.224
+  q= 47: P(miss | (p/q)=+1, confinable) = 0.470   P(miss | (p/q)=-1, unconfinable) = 0.307
+  q= 71: P(miss | (p/q)=+1, confinable) = 0.566   P(miss | (p/q)=-1, unconfinable) = 0.422
+  q= 79: P(miss | (p/q)=+1, confinable) = 0.551   P(miss | (p/q)=-1, unconfinable) = 0.483
+  q=103: P(miss | (p/q)=+1, confinable) = 0.607   P(miss | (p/q)=-1, unconfinable) = 0.559
+  q=127: P(miss | (p/q)=+1, confinable) = 0.652   P(miss | (p/q)=-1, unconfinable) = 0.618

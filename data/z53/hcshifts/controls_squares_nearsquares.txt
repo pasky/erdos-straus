@@ -1,0 +1,8 @@
+odd squares m^2, m = 100001..110000 odd (5000 values): lines x in C ∩ [4,256] firing at any of them: 0 of 5000
+near-square p = m^2 + 1 (first 2000 primes = 1 (8) with m >= 10^5): P(HC>4)=0.035 P(HC>8)=0.0020 P(HC>15)=0.0005 meanHC=4.12 maxHC=16
+near-square p = m^2 + 8 (first 2000 primes = 1 (8) with m >= 10^5): P(HC>4)=0.000 P(HC>8)=0.0000 P(HC>15)=0.0000 meanHC=4.00 maxHC=4
+near-square p = m^2 + 9 (first 2000 primes = 1 (8) with m >= 10^5): P(HC>4)=0.106 P(HC>8)=0.0015 P(HC>15)=0.0000 meanHC=4.33 maxHC=12
+near-square p = m^2 + 16 (first 2000 primes = 1 (8) with m >= 10^5): P(HC>4)=0.048 P(HC>8)=0.0000 P(HC>15)=0.0000 meanHC=4.15 maxHC=8
+near-square p = m^2 + 17 (first 2000 primes = 1 (8) with m >= 10^5): P(HC>4)=0.000 P(HC>8)=0.0000 P(HC>15)=0.0000 meanHC=4.00 maxHC=4
+near-square p = m^2 + 24 (first 2000 primes = 1 (8) with m >= 10^5): P(HC>4)=0.063 P(HC>8)=0.0020 P(HC>15)=0.0015 meanHC=4.21 maxHC=23
+generic control: 600000 consecutive primes = 1 (8) from 1e10: P(HC>4)=0.067 P(HC>8)=0.0012 P(HC>15)=0.0001 meanHC=4.21
