@@ -88,7 +88,7 @@ is automatic (Z52D Prop 2(b)). Its *level* is k := (n+u+B)/(uB).
 | **R2** (FRONTIER §7.1, Z52D (R2)) | ∃η > 0: N₄(p,U) ≪ U^{1−η} for all primes p, U ≍ p^{1/4} | OPEN; CONDITIONAL on MIX (Thm R) |
 | **R2′** | the same for N₂ (implies R2) | OPEN; CONDITIONAL on MIX (Thm R) |
 | **MIX(η)** | \|W(h₁,h₂)\| ≤ U^{1−η} for 0 < \|h₂\| ≤ U^η, \|h₁\| ≤ U^η (§5) | OPEN; EVIDENCE: holds with η ≈ 1/2 numerically |
-| **R3** (Z52D) | determinant-method power saving | standard HB form vacuous (Prop D, PROVED rel. cited thms) |
+| **R3** (Z52D) | determinant-method power saving | black-box HB14/15 implementation gives no saving (Prop D, PROVED rel. cited thms); other uses open |
 | exact identity / falsifier (kickoff) | — | identities §3 (PROVED); no falsifier exists in range (§4) |
 | N₂ vs N₄ (kickoff) | is N₂ better bounded? where does 4 enter? | no; §2 (PROVED + EVIDENCE) |
 
