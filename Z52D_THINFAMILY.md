@@ -313,7 +313,8 @@ odd(v) = 1, and likewise odd(v)⁴ | 15.)
 ## 4. Computations (exact commands; all exact integer/rational arithmetic)
 
 **Computation 8.**
-(a) `z52d_thinfamily_menuA.py 15 3000` (log `menuA_15_E3000.log`, final summary line; CERTIFIED for E ≤ 3000). It enumerates every (E, p, u): u ≡ 15^{−1/p} (mod 2^E), 15u^p ≤ 1 + 2^E·C_A(E), v₂(15u^p − 1) = E. For
+(a) `z52d_thinfamily_menuA.py 15 3000` (log `menuA_15_E3000.log`; CERTIFIED for E ≤ 3000: 4878 candidates (E, p, u),
+primes p up to 5669, exit 0). It enumerates every (E, p, u): u ≡ 15^{−1/p} (mod 2^E), 15u^p ≤ 1 + 2^E·C_A(E), v₂(15u^p − 1) = E. For
 each it tests menu A by Theorem 5:
 * small N: all divisors of N;
 * otherwise: all k ≤ k_max(E, c_o), each tested by an exact perfect-square check.
@@ -398,7 +399,8 @@ Hostile review by a fresh subagent: `reviews/z52d-thinfamily-review.md`. Result:
 defects. The reviewer re-verified Thm 1, Thm 2 (all 9 placements), Prop 3, Lemma 4, Thm 5, Cor 5.1 (all numbers), Lemma 6
 and Thm 7 for odd u, and re-ran the scripts. Repairs:
 * M1 (certified range not supported by the committed log): the E ≤ 3000 run was restarted with the final code and
-  completed; the committed log ends with its summary line (§4).
+  completed (4878 candidates, exit 0; the k-loop now uses gmpy2 and is re-cross-checked against direct divisor
+  enumeration in `xcheck.log`); the committed log ends with its summary line (§4).
 * M2 (survivor lists treated Ridout-finite and bounded-certified items as dead): the lists in §0, §6 and §7 now include
   A for p ≥ 5 beyond E = 3000, A′ with integer u beyond 3000, and dyadic A′ beyond e = 66.
 * M3 (even u and even w in A′ untreated): added to Thm 7, with the reviewer's argument (checked).

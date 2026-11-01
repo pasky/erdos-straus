@@ -33,29 +33,31 @@ def CA(E):                   # Thm 5 bound at k = 1:  c_o <= Q + (Q^2+1)/2, Q = 
     Q = 2 * F * (1 + 2 ** E); return Q + (Q * Q + 1) // 2
 def CAp(E): return 2 ** E + F + 1
 
-def testA(u, p, E, co, N):
+def testA(u, p, E, co, N, force_k=False):
     """all X with X X' = N, c_o | (F+X)(1+X'); returns list of (X, X')."""
     out = []
-    if N < 10 ** 40 or (co < 10 ** 12 and N < 10 ** 60):          # direct: all divisors of N
+    if not force_k and (N < 10 ** 40 or (co < 10 ** 12 and N < 10 ** 60)):          # direct: all divisors of N
         for X in (int(t) for t in pari.divisors(N)):
             Xp = N // X
             if ((F + X) * (1 + Xp)) % co == 0: out.append((X, Xp))
         return out
-    if 2 * F * 2 ** E > 10 ** 7 * isqrt(co): raise RuntimeError('k-range too large at %s' % ((u, p, E),))
-    k = 1
+    if not force_k and 2 * F * 2 ** E > 10 ** 7 * isqrt(co): raise RuntimeError('k-range too large at %s' % ((u, p, E),))
+    # exact k-loop in gmpy2 (mpz arithmetic, is_square); identical logic to the plain-int version cross-checked in
+    # z52d_thinfamily_xcheck.py
+    co_ = gmpy2.mpz(co); P2 = gmpy2.mpz(2) ** E; F_ = gmpy2.mpz(F); N_ = gmpy2.mpz(N)
+    k = gmpy2.mpz(1)
     while True:
-        Q = 2 * F * (k + 2 ** E)
-        if k * k * co > Q + (Q * Q + 1) // 2 or k * co > F * N + 2 * F + 1: break
-        D = co * (k * k * co - 4 * F * (k + 2 ** E))
-        if D >= 0:
-            W = isqrt(D)
-            if W * W == D:
-                for sg in (1, -1):
-                    a2 = k * co - 2 * F + sg * W       # = 2X
-                    b2 = k * co - 2 * F - sg * W       # = 2 F X'
-                    if a2 > 0 and a2 % 2 == 0 and b2 > 0 and b2 % (2 * F) == 0:
-                        X, Xp = a2 // 2, b2 // (2 * F)
-                        if X * Xp == N: out.append((X, Xp))
+        Q = 2 * F_ * (k + P2)
+        if k * k * co_ > Q + (Q * Q + 1) // 2 or k * co_ > F_ * N_ + 2 * F_ + 1: break
+        D = co_ * (k * k * co_ - 4 * F_ * (k + P2))
+        if D >= 0 and gmpy2.is_square(D):
+            W = gmpy2.isqrt(D)
+            for sg in (1, -1):
+                a2 = k * co_ - 2 * F_ + sg * W       # = 2X
+                b2 = k * co_ - 2 * F_ - sg * W       # = 2 F X'
+                if a2 > 0 and a2 % 2 == 0 and b2 > 0 and b2 % (2 * F_) == 0:
+                    X, Xp = int(a2 // 2), int(b2 // (2 * F_))
+                    if X * Xp == N: out.append((X, Xp))
         k += 1
     return out
 
