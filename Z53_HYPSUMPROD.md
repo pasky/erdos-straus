@@ -20,7 +20,7 @@ benchmark question "beat the elementary p^{1/3+o(1)}" is a pure *counting* probl
    * Mechanism: near the cube, u and B are the roots of z² − sz + k with s = u + B = 4Ck − n and k = uB, so a (★) triple
      is exactly a point (C, k) of the thin strip 𝒜 = {(C, k) : 4Ck − n ∈ s-range} at which **f(C, k) = (4Ck − n)² − 4k is a
      perfect square**. Heath-Brown's square sieve converts "f is a square" into Jacobi-symbol sums Σ_𝒜 (f/qq′); these
-     cancel because (i) the complete sums Σ_{k mod q}(f(c,k)/q) are ±1 except on one class of c (explicit discriminant
+     cancel because (i) the complete sums Σ_{k mod q}(f(c,k)/q) are −1 except on the class c ≡ 0 (sum 0) and one exceptional class of c (explicit discriminant
      16(4cn + 1)), and (ii) 𝒜 is equidistributed in residue classes mod qq′ by van der Corput's third-derivative test.
    * This *is* tie-aware cancellation: the tie x ≡ y ≡ −1 (mod 4C) of the hyperbola form is exactly the integrality of the
      roots, i.e. the square condition. It is the "non-trivial estimate for #{(x,y) : xy ≡ 1 (4p), x ≡ y ≡ −1 (mod 4C)} in a
@@ -40,7 +40,8 @@ benchmark question "beat the elementary p^{1/3+o(1)}" is a pure *counting* probl
    * divisor-in-residue-class bounds (Lenstra, CHN, Bernstein) and Shiu: O(1) or O(log n) per fibre, removing only n^{o(1)}
      when used as per-fibre majorants (an argument showing most fibres empty is not excluded).
    The balanced block u, B ≍ p^{1/4} is **not** reached (the strip 𝒜 is sparse there; §4.3).
-3. **Lower side (§5; PROVED).** Lemma A: a hyperbola point at height H yields a Type II solution iff x ≡ −1 (mod 4cd) for some
+3. **Lower side (§5; PROVED).** Lemma A: a hyperbola point at height H comes from an algebraic Type II quadruple (4abcd − a − b = cn;
+   a strict Elsholtz–Tao Type II solution when additionally gcd(abd, n) = 1) iff x ≡ −1 (mod 4cd) for some
    factorisation H = c²d; so the tie modulus is always ≥ 4√H. Cor A′: a fixed congruence x ≡ −1 (mod q) *by itself* implies
    the tie only at heights H | q²/16 (≤ τ(q²) single integers 4Hn + 1); at other heights certification needs information
    beyond the congruence (it does not forbid points that happen to be tied, e.g. n = 5, (x,y) = (3,7), q = 4, H = 1). Weil/Selberg–Hooley give the tie-free count only for γ > 1/2, where the
@@ -117,7 +118,11 @@ and even, i.e. u = (s − r)/2 ≥ 1; B = (s + r)/2 ≥ u. Then u + B = s, uB = 
 preimages of a point (by (ii), {u,B} is determined by (s, k)). Triples with u = B satisfy u(4uC − 2) = n, so u | n, and C is
 then determined: at most τ(n) of them. ∎
 
-### 3.3 The square sieve (Lemma 1.2; Heath-Brown, Math. Ann. 266 (1984), Thm 1 — self-contained proof)
+### 3.3 The square sieve (Lemma 1.2: a proved variant of Heath-Brown, Math. Ann. 266 (1984), Thm 1)
+*Original (read from the GDZ scan, pp. 251–253, by the cross-model reviewer):* nonnegative summable weights w on all of ℤ with
+w(0) = 0 and w(a) = 0 for |a| ≥ exp(P₀); then Σ_m w(m²) ≪ P₀⁻¹Σ_a w(a) + P₀⁻²Σ_{q≠q′}|Σ_a w(a)(a/qq′)|. Below we state and
+prove a variant (support condition only on positive squares, explicit constants 4, 4); our strip also satisfies the
+original hypothesis for large T (|f| ≪ T^{2+4η}, P₀ ≫ T^{1/25}/log T).
 Let 𝒫 be a set of P₀ ≥ 1 odd primes and w : ℤ∖{0} → [0, ∞) finitely supported, with w(a) = 0 for a perfect square
 a > 2^{P₀}. Then
   Σ_{m ≥ 1} w(m²) ≤ (4/P₀) Σ_a w(a) + (4/P₀²) Σ_{q ≠ q′ ∈ 𝒫} |Σ_a w(a)(a/qq′)|,
@@ -202,7 +207,8 @@ square sieve would give ≈ n^{1/4}-type bounds at the cube. Not claimed.
 (3) Why primality is irrelevant: every step is uniform in n. Consequently the theorem does not by itself imply positivity
 (T1: R(m²) = 0 satisfies every upper bound).
 (4) Full Type II (Assessment). Elsholtz–Tao's f_II(n) ≪ n^{2/5+o(1)} (Prop. 1.7; `sources/elsholtz-tao-1107.1010.pdf` §3) is
-extremal at a, c, d ≍ n^{1/5}, b ≍ n^{3/5}, e ≍ n^{2/5} (their sextuple coordinates; e·ad·ac·cd ≤ n²). There every quadratic
+extremal at a, c, d ≍ n^{1/5}, b ≍ n^{3/5}, e ≍ n^{2/5} (their sextuple coordinates; e²·ad·ac·cd = (acde)² ≤ n²). Note f_II counts the full family while R is its c = 1
+algebraic slice: ET's 2/5 neither subsumes our 74/225 for the slice nor is improved by it. There every quadratic
 pair the square sieve could detect — (a, b) at level 4cd, the hyperbola pair (f, 4bcd − 1) of their (2.21), the pair (e, f)
 of (2.19) — is unbalanced by a factor ≍ n^{1/5}, so the candidate set has size ≫ n^{3/5} and the sieve's main term |𝒜|/P
 does not beat n^{2/5} unless P ≥ n^{1/5}, far outside the range where Lemma 1.4-type discrepancy bounds help. So this
@@ -284,13 +290,17 @@ unbalanced blocks: **closed as a reduction** (no information beyond the B-fibre)
 
 ## 5. Lower side: where lower-bound tools apply and how the tie breaks them
 
-**Lemma A (tie floor for Type II; PROVED).** Let n ≥ 1, (x, y) ∈ ℕ² with xy ≡ 1 (mod 4n), H := (xy − 1)/(4n). The Type II
-quadruples (a,b,c,d) ∈ ℕ⁴ with 4abcd − a − b = cn and (4acd − 1, 4bcd − 1) = (x, y) correspond bijectively to factorisations
+**Lemma A (tie floor for Type II; PROVED).** Let n ≥ 1, (x, y) ∈ ℕ² with xy ≡ 1 (mod 4n), H := (xy − 1)/(4n). The algebraic
+Type II quadruples (a,b,c,d) ∈ ℕ⁴ with 4abcd − a − b = cn and (4acd − 1, 4bcd − 1) = (x, y) correspond bijectively to factorisations
 H = c²d with x ≡ −1 (mod 4cd).
 *Proof.* (⇒) (4acd − 1)(4bcd − 1) = 4cd(4abcd − a − b) + 1 = 4c²dn + 1, so H = c²d and x ≡ −1 (mod 4cd). (⇐) Given
 H = c²d with 4cd | x + 1: xy = 4c²dn + 1 ≡ 1 (mod 4cd) forces y ≡ −1 (mod 4cd); a := (x+1)/(4cd), b := (y+1)/(4cd) satisfy
 16abc²d² − 4cd(a+b) + 1 = 4c²dn + 1, i.e. 4abcd − a − b = cn. The maps are mutually inverse. ∎
 (★) is c = 1, d = H (full tie mod 4H); the weakest admissible tie has modulus 4cd = 4√(Hd) ≥ 4√H.
+*Scope (cross-model fix).* "Algebraic quadruple" means only the displayed equation. Elsholtz–Tao's strict Type II also
+requires gcd(abd, n) = 1; for composite n the two differ (n = 12, (a,b,c,d) = (2,2,1,1), H = 1, (x,y) = (7,7): tied, but the
+denominators (4, 24, 24) are not a strict Type II solution). The Type II interpretation below is meant for n = p prime with
+that coprimality; the algebra (and Cor A′) holds for all n.
 
 **Corollary A′ (fixed congruences certify only finitely many heights; PROVED).** Fix q ≥ 1 and H ≥ 1. The implication
 "x ≡ −1 (mod q) ⇒ x ≡ −1 (mod 4cd) for some H = c²d" holds for all integers x iff some factorisation H = c²d has 4cd | q;
@@ -379,7 +389,7 @@ Append to §7.1:
 > uniform in n (valid at squares), so it does nothing for positivity. Block map: the gain exists only near the cube
 > (≤ 1/75); λ-uniform hyperbola concentration bounds are floored at ≍ W, shift-uniform class-blind counts at ≍ U, Lenstra-type
 > and Shiu per-fibre bounds remove only n^{o(1)}; the written square sieve does not reach the balanced block (sparse strip).
-> Lower side: a hyperbola point gives a Type II solution iff x ≡ −1 mod 4cd for some c²d = height (tie modulus ≥ 4√H), so a
+> Lower side: a hyperbola point gives an (algebraic) Type II quadruple iff x ≡ −1 mod 4cd for some c²d = height (tie modulus ≥ 4√H), so a
 > fixed congruence by itself implies the tie only at heights H | q²/16.
 
 In §3 ("Tied modulus") and §2.2 replace "|E(p)| ≪ p^{1/3+o(1)} (best known)" by "|E(p)| ≪ p^{1/3−1/225+o(1)} (z53; square sieve;
@@ -424,4 +434,11 @@ n ≤ 300 (604 points), and reran `rmax 5e8` (byte-identical) and all square-sie
 * MINOR 6: log H → log(2H) with the h-sums made explicit (Lemma 1.4).
 * MINOR 7: priority wording: "first in this campaign; no prior occurrence found in a brief search".
 * NIT 8: Prop C stated for integer U, V and with the limits V → ∞, X/V → ∞.
-A cross-model review will follow.
+**Cross-model review** (`data/z53/xreview/REVIEW_HYPSUMPROD.md`). Verdict **ACCEPT-WITH-FIXES**: Theorem 1 survives, no
+exponent or coverage gap; it re-derived Lemma 1.4 and the assembly (24/25 + 2η, 74/225, 8/25), checked Heath-Brown's
+original Theorem 1 and Shiu's Theorem 1 (p. 163; α = 1/5, β = 1/4 — the memo's abbreviated letters are swapped,
+harmlessly), and reproduced `rmax_5e8.txt` byte-for-byte and all controls. Fixes applied: (1) Lemma A and summaries now speak
+of *algebraic* Type II quadruples; strict ET Type II needs gcd(abd, n) = 1 (counterexample n = 12 recorded); (2) Lemma 1.2
+is labelled a proved variant of Heath-Brown's Theorem 1, whose original hypotheses are quoted; §0 shorthand on the complete
+sums corrected (c ≡ 0 gives 0); (3) ET product corrected to e²·ad·ac·cd = (acde)² ≤ n², with the note that f_II
+(full family) and R (c = 1 slice) are not comparable; (4) priority wording kept as unverified; no claim about full Type II.
