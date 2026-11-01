@@ -258,7 +258,7 @@ s ≤ 3 000 000 (CERTIFIED)**; previously only s ≤ 52 (Salez's 10¹⁷) was kn
 71.8 % of t ≤ 3000 have a prime factor < 10⁶ (most often 23, 79, 811, 137, 47); 846 t (first: 2, 3, 4, 11, 13, …) have
 none. The certificates never need a factor of n (they use the smooth part of (n + m)/4).
 
-**5.2 Exact D-independent menu test (Lemma 2).** `z53_thin15_menus.py` (controls printed by running it):
+**5.2 D-independent candidate-superset test (Lemma 2).** `z53_thin15_menus.py` (controls printed by running it):
 c₀ = 3, u = 3, p = 3: hits in A, A′ and B, including the II-ac cubic family (B, X = 84, X′ = 1, φ = 63);
 c₀ = 63, u = 3, p = 3: exactly the A hit X = 21, X′ = 84 (EXP_OPEN Thm 2.3). `z53_thin15_sweep.py c₀ H P`
 (u = r/v and SG w = r/v, r, v ≤ H, odd p ≤ P, all four menus): controls `sweep_3_H12_P13_control.log` (11 hits: A, A′,
@@ -303,7 +303,8 @@ C(1) = 4d(1 − α)² — always fails). EVIDENCE only.
     (PROVED); u = 1, 1/2 dead for every D; certified empty for integer u, E ≤ 3000, dyadic u, ip ≤ 72, dyadic w,
     4i − 2 ≤ 90. Beyond: a 2-adic approximation of exponent p/2 — Ridout-finite for every p **including p = 3**
     (ineffective).
-  * A D-independent finite exact test (Lemma 2) for all four binomial menus and *rational* u; no hit at small heights.
+  * A finite, D-independent candidate-superset test with exact local checks (Lemma 2) for all four binomial menus and
+    *rational* u; no hit at small heights (EVIDENCE: r, v ≤ 40, p ≤ 19).
 * **Sign lemma (Lemma 5, PROVED)**: in any root family the real roots of a, b, c, d lie at or below the largest real root
   of n. Consequences: **no rule polynomial in 2^{s/2} reaches μ = 0 (Thm 6)**; at D = 3 the one-constant patterns II-a
   and II-c are empty; at D = 4 Type II reduces to B in SG shape with w dyadic beyond e = 90 or with an odd-denominator
@@ -357,3 +358,23 @@ results proves one cannot exist: the remaining room is in non-binomial patterns 
 degree ≥ 3, at heights beyond the certified bounds, and in exponential certificates outside the polynomial
 multi-base class (which collapses to root families, Prop 8). ES remains open for the family (and,
 of course, in general).
+
+## 7. Review log
+
+* **Hostile review** (fresh deep-mode subagent; report `reviews/z53-thin15-review.md`). Verdict REVISE: no fatal defect;
+  3 MAJOR, 9 MINOR. The reviewer independently re-verified all 50 000 certificates (divisibility form), Lemma 1, Lemma 2,
+  Props 3–4 (incl. Bennett's Thm 1.1 from the source), Lemma 5, the D = 3 sign arguments, the controls, the H24 sweep,
+  the Thue runs for p ≤ 7 and SG, the census and the II-d grid counts. Repairs:
+  * M1 (D = 4 survivors understated): Theorem 6 Remark (i) and §6 now keep B-SG with dyadic e > 90 and odd-denominator
+    w, and A′-SG beyond Z52D's bounds; the Type I list is marked non-exhaustive.
+  * M2 (covering necessity overclaimed; "one-constant" too narrow): Prop 7(b) is restricted to congruence coverings
+    (paper Lemma compact); survivor lists say "at most one constant" and are not claimed exhaustive for all proofs.
+  * M3 (Lemma 2 is a superset test, not a realisation test): wording fixed in Lemma 2's consequence, §5.2, §6.
+  * m4 (false "degree 0 or 2" in Thm 6): proof rewritten — only the parameters of the smallest coordinate are bounded;
+    the Type I case analysis is now complete (abdn-minimum, I-ad, C, A′).
+  * m5 (max m = 167, exact frequencies), m6 (u = 1 is p-independent: the script now handles it once; rerun of
+    `menuB.py int 3000`: 0 candidates with u ≥ 3), m8 (placeholders removed; completed logs named; p = 13 Thue not
+    finished), m9 (T1: odd squares for s ≥ 1), m10 (FRONTIER text: C is n² + c = ff″), m11 (FLAG path now exits 2 with
+    INCOMPLETE), m12 (a < 1/4 strictness justified).
+  * m7 (other bases): the reviewer's degree-collapse argument is adopted as Prop 8 (PROVED), replacing the earlier
+    Assessment.
