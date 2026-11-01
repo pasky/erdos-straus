@@ -1,0 +1,10 @@
+bin  n_euler  euler R/L2  all R/L2  | mordell-class: n_euler euler all
+     1000    16  0.210  0.186 |    1 0.086 0.078
+     4691    28  0.189  0.176 |    0  nan  0.094
+    22007    53  0.187  0.173 |    2 0.042 0.104
+   103239   104  0.177  0.170 |    4 0.111 0.110
+   484313   184  0.175  0.167 |    4 0.126 0.115
+  2271994   369  0.173  0.165 |   14 0.122 0.120
+ 10658316   751  0.167  0.164 |   24 0.124 0.124
+zeros among Euler primes: []
+fraction of Euler primes in Mordell classes: 0.033 vs all 0.062
