@@ -393,7 +393,7 @@ B_d=12	+4.13	-0.20	-0.52	-1.37
 B_d=13	+1.35	+0.73	-0.46	+3.23
 B_d=14	-2.99	+0.48	+2.54	-3.12
 B_d=15	+7.63	-0.30	-0.14	-3.38
-# sum of squared stratum-difference z = 1283.2 over 120 tests (chi2 with 120 dof under H0, approx.)
+# sum of squared stratum-difference z = 1283.2 over 120 tests (descriptive; contrasts correlated, not a calibrated chi2 test)
 # skipped (large square factor): 35 50 48 33 43 43 45 36 43 31 37 36 43 47 34 40 1682 1334 29 40 34 39 38 35 43 35 45 38 37 33 
 # quartic-residue rate of large QR factors by class a mod t (k>=2 lines; k=1 in brackets)
 A_C=1  1:0.483(7290)[0.607/3839]   | pooled 0.4829 chi2=0.0 dof=0

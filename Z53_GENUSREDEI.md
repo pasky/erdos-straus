@@ -76,11 +76,13 @@ classes and the parity links?
   (all 2-power-order characters of the level group), plus the product law do not determine the event. (R-rev: this is a formal
   statement about classes; data of an actual prime at *all* moduli determine the prime, so no unconditional pointwise arithmetic
   non-determination is claimed.) Under HC the twisted configurations are realised by primes with the same datum and the same
-  decorations (Corollary P″, CONDITIONAL). Exact census at 12 370 primes (§6.3): quadratic images of the level group decide the
-  (★) event essentially only at the exponent-2 levels C | 6.
+  decorations (Corollary P″, CONDITIONAL). In the exact census at 12 370 primes near 10⁷, C ≤ 100 (§6.3; sample-specific), the
+  quadratic images decided the (★) event mostly at the exponent-2 levels C | 6 (75 of 89 such levels). Lemma P is about unsigned
+  events and its inequality is a *sufficient* condition, not a classification of levels.
 * (PROVED, §5.4) At odd squares (under coprimality/parity hypotheses) an extra law (L3□) holds, which yields T1 on those lines;
-  at near-squares p = m² + k representation laws appear (the (J)53 deformation). Joint laws beyond (L1)–(L5) arise only from data of p that are not Frobenius data, and the
-  ones known are anti-forcing.
+  at near-squares p = m² + k representation laws appear (the (J)53 deformation). (CONDITIONAL on HC, via JRT — not a consequence
+  of §5.4:) Frobenius data of p add no joint laws beyond (L1)–(L5); the extra joint laws known (squares, near-squares) come from
+  data of p that are not Frobenius data and are anti-forcing.
 
 ## 2. Why this is not already closed
 * CLASS_FORCING Thm 5.2 is single-factor. Lemma 3.1's realisability is abstract (integers, not values of a line at primes).
@@ -114,7 +116,7 @@ classes and the parity links?
 (α_jp + β_j)/q^{ν_{j,q}} mod q^{e_q − ν_{j,q}} is constant, with e_q − ν_{j,q} > v_q(Tγ_j) by admissibility.
 (L2): since p ∤ γ_j, L_j(p) ≡ β_j/γ_j (mod p), so (L_j(p)/𝔭)_n = ((β_j/γ_j)/𝔭)_n; multiplicativity of the symbol gives
 ∏_i(ℓ_{j,i}/𝔭)_n = ((β_j/(γ_js_j))/𝔭)_n, and for y supported on {−1} ∪ {q ≤ B}, (y/𝔭)_n = κ_σ(y) because Frob_𝔓 = σ acts on y^{1/n}
-by y^{1/n} ↦ y^{p/n} (mod 𝔓). (L3): ℓ | α_jp + β_j and ℓ ∤ α_jβ_j give p ≡ −β_j/α_j (mod ℓ), so (p/ℓ) = (−α_jβ_j/ℓ) (multiply
+by σ(y^{1/n}) ≡ (y^{1/n})^p (mod 𝔓), and dividing by y^{1/n} gives κ_σ(y) ≡ y^{(p−1)/n} (mod 𝔓) (X-rev repair). (L3): ℓ | α_jp + β_j and ℓ ∤ α_jβ_j give p ≡ −β_j/α_j (mod ℓ), so (p/ℓ) = (−α_jβ_j/ℓ) (multiply
 by α_j²); (ℓ/𝔭)_n^{n/2} = (ℓ/p) = (p/ℓ) since p ≡ 1 (mod 4). For fixed D = −α_jβ_j the map ℓ ↦ (D/ℓ) on odd primes ℓ ∤ D is a
 Dirichlet character mod 4·rad(D) (quadratic reciprocity; square factors of D do not matter). (L4): ℓ′ := ℓ_y divides
 α_{j′}p + β_{j′}, so α_{j′}p ≡ −β_{j′} and γ_jα_{j′}L_j(p) = α_jα_{j′}p + α_{j′}β_j ≡ R_{jj′} (mod ℓ′); ℓ′ ∤ R_{jj′}γ_jα_{j′}
@@ -206,7 +208,8 @@ sufficiently large prime with datum Π and squarefree rough parts iff P holds fo
 In particular a divisor event is forced *given prescribed decorations* iff it holds for every law-compatible configuration
 carrying those decorations (a finite check per number of factors). In particular, given *all*
 decorations (D2), (D3) — all n-th power symbols of the factors at p, the full joint Rédei matrix — the classes of the large
-factors are constrained by nothing except (L1) and the parity links (L3)/(L4): the "class beyond parity" is jointly free.
+factors are constrained by nothing except (L1), the parity links (L3)/(L4), and (L5) (fixed mutual symbols also constrain the
+classes mod 4; X-rev repair): the "class beyond parity" is jointly free.
 *Proof.* ⇐ by Lemma 3.1 (every realised configuration satisfies the laws); ⇒ by JRT (a configuration violating P is realised
 infinitely often). ∎
 
@@ -302,7 +305,7 @@ level group, plus its realisation by varying p under HC.)*
 *Setting.* G := (ℤ/t)^× for a level t; a fixed part with divisor-class set Σ(s) ⊂ G; k ≥ 2 private classes a_1, …, a_k ∈ G with
 product g. H ≤ G a subgroup. An *H-twist* is (a_ih_i) with h_i ∈ H and ∏h_i = 1 (same images in G/H, same product).
 
-**Lemma P (PROVED, finite groups).** If −1 ∉ Σ(s) ∪ Σ(s)·g and (2^k − 2)·|Σ(s)| < |H|, some H-twist satisfies
+**Lemma P (PROVED, finite groups; unsigned event −1 ∈ Σ only — the signed e-slice event −1 ∈ Σ^± is not treated).** If −1 ∉ Σ(s) ∪ Σ(s)·g and (2^k − 2)·|Σ(s)| < |H|, some H-twist satisfies
 −1 ∉ Σ(s)·Σ(a_1h_1, …, a_kh_k) (Σ(·) = subset products). Consequently, if the untwisted configuration has the event (−1 ∈ Σ(s)·Σ(a))
 then the event is not a function of (Σ(s), g, the images of the a_i in G/H).
 *Proof.* V := {(h_i) ∈ H^k : ∏h_i = 1} ≅ H^{k−1}. Fake subset products are a_Sh_S, h_S := ∏_{i∈S}h_i; S = ∅ and S = full give 1 and g,
@@ -378,7 +381,8 @@ line has model event probability 0.086). Bounded-level data neither predict nor 
 (`configcensus_12p1_3e6.txt`): the (★) line 12p + 1 (C = 3, level 12) at primes p ≡ 1 (4), p < 3·10⁶, restricted to N = ℓ₁ℓ₂
 (two distinct primes > 61, s = 1; 17 932 instances). Decorations: classes a₁, a₂ mod 12, whether ℓ₁, ℓ₂ are 4th powers mod p,
 and (ℓ₁/ℓ₂). The laws predict a₂ = a₁⁻¹ = a₁, (ℓ/p) = (−3/ℓ) (L3), ζ₁ζ₂ = 1 (L2, so the two 4th-power flags agree and are 0 for
-non-residues), ε free: exactly 12 law-compatible configurations. Observed: 0 law violations, exactly the 12 configurations,
+non-residues), ε free: exactly 12 law-compatible *projected* configurations (the boolean 4th-power flag merges the two non-residue symbols ±i,
+so this is not a census of full D2 configurations; X-rev). Observed: 0 law violations, exactly the 12 projected configurations,
 with counts 1010–1225 for each of the 8 residue-class configurations (a₁ ∈ {1, 7}) and 2169–2328 for each of the 4 non-residue ones
 (a₁ ∈ {5, 11}), i.e. close to equal frequency within each class type, as the free (HC-type) heuristic predicts.
 
@@ -395,8 +399,10 @@ Q-levels sit at C = 1 (22), 2 (16), 3 (22), 6 (15) — the exponent-2 levels, 75
 14, 20, 21} (14); there are 258 protected levels spread over C = 4 … 98 and one R level (p = 10 310 329, C = 5:
 20p + 1 = 3·7·113²·769, certificate 3·113).
 *Reading.* Formal (Lemma P) and, via Corollary P″, CONDITIONAL on HC: at the levels C ≤ 100 of these primes, the quadratic images
-of the factor classes decide the (★) event essentially only at the exponent-2 levels; elsewhere the odd-order part of the
-actual classes is the irreducible input. This is not an unconditional statement about the given primes (their factors are what
+of the factor classes decided the (★) event mostly at the exponent-2 levels (75 of 89 Q-levels; sample-specific); at the
+protected levels information beyond the quadratic quotient G/G² — higher 2-primary or odd-order information — is necessary.
+(X-rev repair: the earlier "the odd-order part is the irreducible input" was false — at p = 1901, t = 32, N = 127·479, the classes
+(31, 31) have the event, the product-preserving square twist by (9, 25) gives (23, 7) without it, and G is a 2-group.) This is not an unconditional statement about the given primes (their factors are what
 they are), only about what the quadratic profile at the level can see.
 
 *Scope.* EVIDENCE only; finite ranges, one weighting scheme; the event model ignores sizes of divisors (irrelevant here: every
@@ -411,8 +417,8 @@ large prime exceeds every level).
    ∃-level statement at the next (quartic or odd) layer? Corollary 4.1 says that at each fixed finite family the quartic/odd layer
    is jointly free even given all decorations, and Lemma P / Corollary P″ quantify, level by level, that quadratic images of the
    level group cannot decide the event once |G²| > (2^k − 2)|Σ(s)| (CONDITIONAL on HC for the realisation). So such a statement
-   would have to come from counting across levels (a lower-tail statement of (★)-type), not from algebra at any fixed family of
-   levels. (R-rev: the earlier claim that this hatch is closed "pointwise and unconditionally" is withdrawn — at a fixed p the data
+   *(Assessment, not a theorem)* plausibly have to come from counting across levels (a lower-tail statement of (★)-type) rather
+   than from algebra at a fixed family of levels; JRT does not exclude algebraic growing-family mechanisms. (R-rev: the earlier claim that this hatch is closed "pointwise and unconditionally" is withdrawn — at a fixed p the data
    determine the factors.) **Assessment:** what remains of this hatch is the counting (lower-tail) form of B2.
 2. **Non-Frobenius data of p.** Prop 5.4(b): representation data (p = m² + k) do impose joint laws — subgroup restrictions, i.e.
    anti-forcing; whether they leave Corollary F's criterion unchanged along a polynomial family is a Hypothesis-H question
@@ -436,14 +442,20 @@ large prime factors (squarefree rough parts), even decorated by all n-th power s
 exactly product + symbol product + parity + cross-line parity + reciprocity (Lemma 3.1 PROVED; Theorem JRT CONDITIONAL on HC;
 Theorem U PROVED for partial configurations); bounded-level forcing from a Frobenius datum of p is exactly the B1 congruence
 criterion (Corollary F, CONDITIONAL on HC), in every Chebotarev class. Lemma P (PROVED, formal) and Corollary P″ (CONDITIONAL)
-quantify that quadratic images of the level group decide the event only at levels with small G² (essentially t | 24, EVIDENCE §6.3).
+give a sufficient condition (|G²| > (2^k − 2)|Σ(s)|, depending on k and Σ(s)) under which quadratic images of the level group do
+not decide the (unsigned) event; in the §6.3 sample the quadratically decided levels were mostly t | 24 (EVIDENCE, sample-specific).
+Scope (X-rev): this is a no-go for forcing from the datum Π alone; prescribed decorations of the factors *can* force the event
+(p = 73: p + 4 = 7·11, both (ℓ/73) = −1, so (L3) forces both factors ≡ 3 (4) although B1 fails) — Corollary 4.1's finite check
+applies then.
 The unconditional exact theorem implies an open prime-pair statement (Prop D), so "CONDITIONAL on HC" is the honest ceiling
-for this kind of no-go. What survives: (i) growing level families (= B2, counting form), (ii) non-Frobenius data of p
+for this kind of no-go. What survives: (i) growing level families (B2; whether only counting arguments can work there is an
+Assessment, not proved), (ii) non-Frobenius data of p
 (representation data: anti-forcing as far as known; p-dependent class-group data: not treated), (iii) repeated large prime
 factors (outside the squarefree domain of JRT).
 *What it buys:* §7.6 can be demoted to "closed relative to HC for fixed finite families" (not removed); the "class beyond parity"
-question of §7.3 is jointly free at every fixed finite family of levels (Corollary 4.1), so progress on §7.3 must be a
-counting/lower-tail statement across growing level families, not an algebraic law at bounded levels.
+question of §7.3 is jointly free at every fixed finite family of levels (Corollary 4.1, CONDITIONAL on HC, squarefree rough
+parts), so progress on §7.3 cannot come from an algebraic law of the datum at bounded levels; *(Assessment)* a counting/lower-tail
+statement across growing level families is the natural remaining direction.
 
 ## 9. FRONTIER §4 hard screens (for the best idea here, "joint algebraic forcing at bounded levels")
 * **T1 (squares):** used as a diagnostic — Prop 5.4(a) exhibits the extra law at squares (under its hypotheses) that the free
@@ -472,7 +484,14 @@ Hostile deep-mode reviewer subagent (full report `data/z53/genusredei/review_hos
   implication.
 The reviewer re-ran all free-model runs, the test-prime summary, the configuration census and the twist scans and found the raw
 outputs reproduced; after the (L1)/integrality/squarefree repairs it found no further defect in JRT Steps 1–5, Theorem U, the
-union bound of Lemma P, or Prop 5.4 under its hypotheses. A cross-model review is to follow.
+union bound of Lemma P, or Prop 5.4 under its hypotheses. **Cross-model review** (`data/z53/xreview/REVIEW_GENUSREDEI.md`): ACCEPT-WITH-FIXES. Independently re-derived JRT Steps 1–5,
+Theorem U, Prop D, Corollary F, Prop 5.4, Lemma P and Corollary P″ (all CORRECT, conditional ones as conditional); reproduced
+all free-model runs, the configuration census and the twist scans byte-for-byte. Required fixes applied (marked "X-rev"): the
+§6.3 odd-part conflation (false; counterexample p = 1901, t = 32); the Π-only vs decoration-conditioned forcing distinction and the
+squarefree domain carried into §§8, 11, 12; sufficient bounds and sample statistics no longer read as classifications; the
+growing-family "counting only" claim labelled Assessment; the §1 bullet's HC-dependence made explicit; L2 Frobenius formula;
+(L5) kept in Corollary 4.1; "projected" configurations in §6.2; Lemma P scoped to unsigned events; the generated stratum-sum line
+no longer says "chi2 … under H0".
 
 ## 11. Proposed FRONTIER §7.6 text (do not edit FRONTIER here)
 > 6. **Full-factor-multiset realisation** — *closed relative to HC for fixed finite families of levels* (z53,
@@ -484,7 +503,9 @@ union bound of Lemma P, or Prop 5.4 under its hypotheses. A cross-model review i
 > CONDITIONAL). Hence bounded-level forcing from a Frobenius datum of p is exactly the B1 criterion of CLASS_FORCING Prop 3.2
 > (Corollary F), in every Chebotarev class (upgrading Thm 6.1). Unconditionally, every finite partial configuration occurs with
 > positive density (Theorem U); the exact statement implies an open prime-pair statement (Prop D). A formal twisting lemma
-> (Lemma P) plus JRT show that quadratic images of the level group decide the event only where G² is small (essentially t | 24).
+> (Lemma P, unsigned events) plus JRT give a sufficient condition (|G²| > (2^k − 2)|Σ(s)|) under which quadratic images of the
+> level group do not decide the event (in a sample, quadratically decided levels were mostly t | 24). This is a no-go for forcing
+> from the datum of p alone: prescribed factor decorations can force the event (e.g. p = 73, p + 4 = 7·11).
 > Odd squares carry an extra law (T1, under coprimality hypotheses), near-squares representation laws (anti-forcing).
 > EVIDENCE: a free model with only the product law fits bounded-level event rates of primes to 10⁸ with no clear dependence on
 > non-abelian Frobenius data, and detects squares/near-squares at 20–80σ. Open: growing level families (B2), p-dependent
@@ -495,7 +516,10 @@ For any fixed finite family of lines/levels, data at p of Frobenius type — Fro
 quartic/spin-type symbols of the factors at p and the joint Rédei matrix of all factors, constrain the classes of all prime
 factors of p + 4d / 4Cp + 1 / the e-slice integers jointly by exactly the product laws, one quadratic link per factor, the
 cross-line links and reciprocity (PROVED), and by nothing else (CONDITIONAL on HC; the unconditional exact form implies an open
-prime-pair statement, the unconditional partial form is PROVED). Consequently the joint/higher-genus angle cannot force the B2
-class at bounded levels: §7.6 closes relative to HC as a scoped no-go, bounded-level forcing is exactly B1 in every Chebotarev
-class, odd squares carry the extra T1 law, and the remaining freedom is across growing families of levels — B2 itself. ES
+prime-pair statement, the unconditional partial form is PROVED), all for primes whose rough parts are squarefree. Consequently
+Frobenius-type data of p cannot force the B2 class at bounded levels: §7.6 closes relative to HC as a scoped no-go —
+bounded-level forcing from the datum of p alone is exactly B1 in every Chebotarev class (prescribed decorations of the factors
+can force the event, e.g. p = 73, and are then a finite check, Corollary 4.1) — odd squares carry the extra T1 law, and the
+remaining freedom is across growing families of levels — B2 itself (whether only counting arguments can work there is an
+Assessment). ES
 remains open.

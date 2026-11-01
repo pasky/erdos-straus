@@ -174,7 +174,7 @@ int main(int argc, char **argv) {
         double v = V[L][a] / ((double)Ncnt[L][a] * Ncnt[L][a]) + V[L][b] / ((double)Ncnt[L][b] * Ncnt[L][b]);
         double z = v > 0 ? d / sqrt(v) : 0; if (v > 0) { cz2 += z * z; cdf++; } printf("\t%+.2f", z); }
       printf("\n"); }
-    printf("# sum of squared stratum-difference z = %.1f over %d tests (chi2 with %d dof under H0, approx.)\n", cz2, cdf, cdf); }
+    printf("# sum of squared stratum-difference z = %.1f over %d correlated contrasts (descriptive diagnostic, not a calibrated chi2 test)\n", cz2, cdf); }
   printf("# skipped (large square factor): "); for (int L = 0; L < nlines(); L++) printf("%ld ", skipsq[L]); printf("\n");
   printf("# skipped (gcd(N,t)>1, composite n only): "); for (int L = 0; L < nlines(); L++) printf("%ld ", skipgcd[L]); printf("\n");
   if (mode == 'P' || mode == 'N') {
