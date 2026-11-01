@@ -1,0 +1,232 @@
+                                               BORCHERDS PRODUCTS OF HALF-INTEGRAL WEIGHT
+
+
+                                                                 HAOWU WANG AND BRANDON WILLIAMS
+arXiv:2007.00055v1 [math.NT] 30 Jun 2020
+
+
+
+
+                                                   Abstract. We give a necessary and sufficient criterion for the existence of
+                                                   Borcherds products of half-integral weight associated to even lattices that
+                                                   split two hyperbolic planes. In particular we prove that half-integral weight
+                                                   Borcherds products exist for lattices of arbitrary rank.
+
+
+
+
+                                                                              1. Introduction
+                                              Let L be an even lattice of signature (l, 2). The Borcherds lift [2] is a multi-
+                                           plicative lifting that takes vector-valued modular forms on SL2 (Z) with poles at
+                                           cusps for a finite Weil representation attached to L as input and yields automor-
+                                           phic forms for the orthogonal group of L. The Borcherds products constructed in
+                                           this way have many interesting properties. For example, in a neighborhood of any
+                                           cusp, they are represented by a converging infinite product in which the exponents
+                                           are Fourier coefficients of their input function. Moreover, the zeros and poles of
+                                           any Borcherds product lie on rational quadratic divisors and their orders can be
+                                           read immediately off of the Fourier expansion of the input function. Of particular
+                                           importance are Borcherds products of singular weight l/2 − 1, as the Fourier ex-
+                                           pansion of any singular-weight modular form is supported only on vectors of norm
+                                           zero, implying massive cancellation when the product is expanded and suggesting a
+                                           deeper underlying structure. Indeed, many of the known singular-weight products
+                                           arise as Weyl denominators of generalized Kac–Moody algebras (see for example
+                                           [8]).
+                                              There are no known examples of singular-weight Borcherds products on lattices
+                                           L as above with odd l ≥ 5. More generally, to the authors’ knowledge, no examples
+                                           of Borcherds products of any half-integral weight appear in the literature for lattices
+                                           with l ≥ 4.
+                                              In this note we will show that for every l ∈ N there exist even lattices of sig-
+                                           nature (l, 2) that admit holomorphic Borcherds products of half-integral weight.
+                                           Among even lattices that split two hyperbolic planes, we prove that lattices that
+                                           admit Borcherds products of half-integral weight have a very simple characteriza-
+                                           tion. (Recall that a lattice L splits two hyperbolic planes if it can be written in
+                                           the form L = K ⊕ 2U , where K is an even lattice and where U is unimodular of
+                                           signature (1, 1), and 2U = U ⊕ U .)
+                                           Theorem 1. Let L be an even lattice of the form L = K ⊕ 2U where K is positive-
+                                           definite and U is unimodular of signature (1, 1) and let h−, −i : L × L → Z be its
+                                           inner product. The following are equivalent:
+                                           (i) L admits holomorphic Borcherds products of half-integral weight;
+                                           (ii) hx, yi ∈ 8Z for all x, y ∈ K.
+
+                                             2010 Mathematics Subject Classification. 11F27, 11F55.
+                                                                                        1
+2                       HAOWU WANG AND BRANDON WILLIAMS
+
+
+   Acknowledgments. The authors thank Jan Bruinier and Eberhard Freitag for
+helpful discussions. H. Wang is grateful to the Max Planck Institute for Mathe-
+matics in Bonn for its hospitality and financial support. B. Williams is supported
+by a fellowship of the LOEWE focus group Uniformized Structures in Arithmetic
+and Geometry.
+
+                                   2. Preliminaries
+   For lattices that split two hyperbolic planes, the Borcherds lift can be conve-
+niently expressed in terms of Jacobi forms. Suppose K is an even positive-definite
+lattice with dual lattice K 0 . A weakly holomorphic Jacobi form of weight k ∈ Z
+and lattice index K is a holomorphic function φ : H × (K ⊗ C) → C satisfying
+                   aτ + b     z                    c            
+                φ          ,        = (cτ + d)k e              Q(z) φ(τ, z)
+                    cτ + d cτ + d                      cτ + d
+and
+                     φ(τ, z + λτ + µ) = e(−Q(λ)τ − hλ, zi)φ(τ, z)
+                   
+for all M = ac db ∈ SL2 (Z) and λ, µ ∈ K. Here H is the upper half-plane and
+e(x) = e2πix . The qualifier weakly holomorphic means that the Fourier expansion
+may be a Laurent series in the variable q:
+                               X X
+                   φ(τ, z) =            c(n, `)q n ζ ` , ζ ` := e2πih`,zi .
+                             n−∞ `∈K 0
+
+We do not impose any condition on `; however the transformation    laws imply that
+for any fixed n only finitely many terms appear in the sum `∈K 0 c(n, r)ζ ` .
+                                                            P
+   Now suppose φ has weight 0 and integral Fourier coefficients. The Borcherds lift
+of φ is a meromorphic modular form of weight c(0, 0)/2 on the Type IV domain
+attached to the lattice L = K ⊕ 2U . In terms of the tube domain model
+      HK = {Z = (τ, z, w) ∈ H × (K ⊗ C) × H : Q(im(z)) < (im τ ) · (im w)},
+writing q = e2πiτ , s = e2πiw , and r` = e2πih`,zi , the Borcherds lift of φ is represented
+locally as the product
+                                     Y
+                         q A rB sC         (1 − q n r` sm )c(nm,`) ,
+                                  (n,`,m)>0
+
+where (n, `, m) > 0 is a positivity condition with respect to a Weyl chamber and
+(A, B, C) is the associated Weyl vector. (See Theorem 4.2 of [5] for details.)
+   This formulation and Borcherds’ vector-valued modular forms are related by the
+theta decomposition. If we write
+                    X                                            X
+        φ(τ, z) =        fγ (τ )ΘK,γ (τ, z), where ΘK,γ (τ, z) =    q Q(`) ζ ` ,
+                  γ∈K 0 /K                                           `∈K+γ
+
+then the association                            X
+                              φ ↔ F (τ ) =               fγ (τ )eγ
+                                              γ∈K 0 /K
+
+(where eγ are the basis elements of C[K 0 /K]) defines an isomorphism between
+weakly holomorphic Jacobi forms of weight 0 and weakly holomorphic vector-valued
+modular forms of weight −rank(K)/2 for the Weil representation for K. The latter
+may be interpreted as input functions in Borcherds’ sense after identifying the Weil
+representations for K and L = K ⊕ 2U .
+                BORCHERDS PRODUCTS OF HALF-INTEGRAL WEIGHT                                3
+
+
+                                3. Proof of Theorem 1
+  (i) ⇒ (ii): Suppose Ψ is the Borcherds lift of a weakly holomorphic Jacobi form
+                                   X X
+                        φ(τ, z) =             c(n, `)q n ζ ` ,
+                                           n−∞ `∈K 0
+
+and let N be the greatest common divisor of all inner products of vectors in K.
+Borcherds’ congruence ([2], Theorem 11.2; a simpler proof for Jacobi forms is given
+in Corollary 4.5 of [10]) implies
+                                X
+                             N    c(0, `) ≡ 0 (mod 24).
+                                   `∈K 0
+
+By definition, each term c(0, `) in the above sum is integral. If Ψ has half-integral
+weight,
+P        then c(0, 0) is odd. Since c(0, `) is symmetric under ` 7→ −`, it follows that
+  `∈K 0 c(0, `) is odd and therefore 8|N .
+
+
+  (ii) ⇒ (i): The existence proof is constructive. We proceed in two steps.
+
+   Step 1. We first construct a Borcherds product of half-integral weight when
+K = 8ZN ; in other words, a Gram matrix for K is given by the diagonal matrix
+diag(8, ..., 8). Recall (e.g. [1], Example 5 of section 15; or [6], Example 2.3) that
+there is a holomorphic product of weight 1/2 attached to the lattice K = 8Z. The
+input function as a weak Jacobi form can be given as a quotient of theta functions:
+                                     ϑ(τ, 3z)
+                     φ0,4 (τ, z) =            = ζ + 1 + ζ −1 + O(q),
+                                     ϑ(τ, z)
+where q = e2πiτ , ζ = e2πiz , and (by Jacobi’s triple product)
+                         ∞         
+                        X       −4     n2  n
+            ϑ(τ, z) =                 q 8 ζ2
+                       n=−∞
+                                 n
+                                            ∞
+                          1    1        1
+                                            Y
+                     = q 8 (ζ 2 − ζ − 2 )         (1 − q n ζ)(1 − q n ζ −1 )(1 − q n ).
+                                            n=1
+
+For any N ∈ N, we obtain a weak Jacobi form of weight 0 and index 8ZN by
+repeatedly taking the direct product of φ0,4 with itself:
+                φN (τ, z1 , ..., zn ) := φ0,4 (τ, z1 )φ0,4 (τ, z2 )...φ0,4 (τ, zn ).
+The Borcherds lift ΨN of φN is then a (meromorphic) Borcherds product of weight
+1/2. By a theorem of Bruinier ([3], Theorem 1.3) ΨN is a quotient of two holomor-
+phic Borcherds products; one of these is of half-integral weight.
+
+   Step 2. Let L be any even lattice satisfying (ii). The rescaled lattice K(1/8) is
+integral (not necessarily even) and embeds in a positive-definite Type I unimodular
+lattice of rank at most l + 1 by Corollary 8 of [4]. It follows that K is embedded
+in an even lattice M lying in the same genus as 8ZN for some N . Since even
+lattices in the same genus yield equivalent Jacobi forms, we obtain from Step 1 a
+holomorphic half-integral weight Borcherds product attached to M ⊕ 2U . By [7],
+its quasi-pullback to L is a Borcherds product of half-integral weight.
+4                           HAOWU WANG AND BRANDON WILLIAMS
+
+
+                                          4. Examples
+   Every step of the above proof can be made constructive, but the half-integral
+weight products constructed in this way tend to have rather large weight and com-
+plicated divisors. Therefore it seems worthwhile to present a few simpler examples
+of half-integral weight Borcherds products on lattices of rank greater than 5.
+
+   In this section we give two examples of half-integral weight Borcherds products
+associated to lattices of signature (4, 2). These can also be interpreted as Hermitian
+modular forms of degree two over the Eisenstein and Gaussian integers, respectively.
+In both cases we give only the principal part of the input form as a vector-valued
+modular form (which determines the weight and divisor). The two examples were
+computed in SAGE [9].
+Example 2. Take K = Z2 with Gram matrix ( 16        8
+                                                 8 16 ). The lattice L = K ⊕ 2U
+admits (at least) four holomorphic Borcherds products of weight 9/2. These four
+forms are conjugates under the symmetries of the discriminant form. The principal
+part of one of the forms is
+9e(0,0) + q −1/24 (4e±(11/12,1/24) + 4e±(1/24,1/24) + 4e±(1/24,11/12) − e±(7/12,5/24)
+          − e±(5/24,5/24) − e±(5/24,7/12) + 2e±(5/12,7/24) + 2e±(7/24,7/24) + 2e±(7/24,5/12)
+          + e±(1/12,11/24) + e±(11/24,11/24) + e±(11/24,1/12) ) + q −1/8 (3e±(1/8,0)
+          + 3e±(0,1/8) + 3e±(1/8,7/8) ) + q −1/6 (e±(1/6,5/12) + e±(5/12,5/12)
+          + e±(5/12,1/6) + 2e±(5/6,1/12) + 2e±(1/12,1/12) + 2e±(1/12,5/6) ),
+where e±γ represents eγ + e−γ .
+Example 3. Take K = Z2 with Gram matrix ( 80 08 ) . The lattice L = K ⊕2U admits
+two holomorphic Borcherds products of weight 7/2. These can be interpreted as
+Hermitian modular forms for a level 4 subgroup over the Gaussian integers. These
+forms are conjugate under an involution of the discriminant form. The principal
+part of one of the forms is
+             7e(0,0) + q −1/16 (3e±(1/8,0) + 3e±(0,1/8) + e±(1/2,1/8) + e±(1/8,1/2) )
+                     + q −1/8 (e±(1/8,1/8) + e±(1/8,7/8) )
+                     + q −1/4 (e±(1/4,0) + e±(0,1/4) ).
+                                            References
+    [1] Richard Borcherds. Automorphic forms on Os+2,2 (R) and infinite products. Invent. Math.,
+        120(1):161–213, 1995.
+    [2] Richard Borcherds. Automorphic forms with singularities on Grassmannians. Invent. Math.,
+        132(3):491–562, 1998.
+    [3] Jan Bruinier. Borcherds products with prescribed divisor. Bull. Lond. Math. Soc., 49(6):
+        979–987, 2017.
+    [4] John Conway and Neil Sloane. Low-dimensional lattices. V. Integral coordinates for integral
+        lattices. Proc. Roy. Soc. London Ser. A, 426(1871):211–232, 1989.
+    [5] Valery Gritsenko. Reflective modular forms and their applications. Uspekhi Mat. Nauk, 73
+        (5(443)):53–122, 2018.
+    [6] Valery Gritsenko and Viacheslav Nikulin. Automorphic forms and Lorentzian Kac-Moody
+        algebras. II. Internat. J. Math., 9(2):201–275, 1998.
+    [7] Shouhei Ma. Quasi-pullback of Borcherds products. Bull. Lond. Math. Soc., 51(6):1061–1078,
+        2019.
+                 BORCHERDS PRODUCTS OF HALF-INTEGRAL WEIGHT                                 5
+
+
+ [8] Nils Scheithauer. On the classification of automorphic products and generalized Kac-Moody
+     algebras. Invent. Math., 164(3):641–678, 2006.
+ [9] The Sage Developers. SageMath, the Sage Mathematics Software System (Version 9.1),
+     2020. https://www.sagemath.org.
+[10] Haowu Wang. The classification of 2-reflective modular forms. 2019. URL arXiv:1906.10459.
+
+   Max-Planck-Institut für Mathematik, Vivatsgasse 7, 53111 Bonn, Germany
+   E-mail address: haowu.wangmath@gmail.com
+
+  Fachbereich Mathematik, Technische Universität Darmstadt, 64289 Darmstadt, Ger-
+many
+  E-mail address: bwilliams@mathematik.tu-darmstadt.de
+

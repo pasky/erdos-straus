@@ -1,0 +1,1792 @@
+                                                        Congruence Classes of Supporting the Erdös-Straus
+                                                                 Conjecture I: Tame Solutions 1
+
+
+                                                                                       Xiaoping Xu
+
+
+                                                     HLM, Institute of Mathematics, Academy of Mathematics & System Sciences
+                                                             Chinese Academy of Sciences, Beijing 100190, P.R. China
+                                                       & School of Mathematics, University of Chinese Academy of Sciences,
+                                                                            Beijing 100049, P.R. China
+
+                                                                                          Abstract
+arXiv:2605.23601v2 [math.NT] 19 Sep 2026
+
+
+
+
+                                                        In 1948, Erdös and Straus formulated a conjecture : for any positive integer
+                                                     n > 2, there exist positive integers n1 , n2 and n3 such that
+                                                                                     4   1   1  1
+                                                                                       =   +   + ,
+                                                                                     n   n1 n2 n3
+                                                     which is still open. It is known that one only needs to prove the conjecture for
+                                                     any prime number n such that n ≡ 1 (mod 24). If n = 24m + 1 and n1 ≤ n2 , n3 ,
+                                                     then n1 = 6m + k with 1 ≤ k ≤ 12m. A solution (n1 , n2 , n3 ) of the above equation
+                                                     is called a tame solution if n2 and n3 are factors of (6m + k)(24m + 1). We call
+                                                     n = 24m + 1 wild if it does not have any tame solution. In this paper, we derive
+                                                     twenty-eight families of tame solutions of the above equation. Numeric test shows
+                                                     that they cover all the tame primes.
+
+                                                     Keywords: Erdös-Straus conjecture; Egyptian fraction; congruence class; tame
+                                                     solution; wild solution; wild prime.
+
+
+                                           1         Introduction
+                                           Ancient Egyptians used sums of unit fractions (whose numerators are 1) to express frac-
+                                           tions due to their ways of distributing food. For instance, 5/8 was interpreted by ancient
+                                           Egyptians as distributing five pancakes fairly among eight people. They cut first four
+                                           pancakes into halves and then cut the last one into eight equal pieces. So each person
+                                           got the same share: 1/2 + 1/8 pancakes. This amazingly interpreted the mathematical
+                                           equation
+                                                                                    5   1 1
+                                                                                       = + .                                    (1.1)
+                                                                                    8   2 8
+                                           So an Egyptian fraction is a sum of distinct unit fractions. By repeatedly applying the
+                                           simple fact
+                                                                              1       1        1
+                                                                                =       +          ,                            (1.2)
+                                                                             k    k + 1 k(k + 1)
+                                           one can easily prove that any fraction is a Egyptian fraction. However, it is very difficult
+                                           to determine if a fraction can be expressed as a sum of fixed number of unit fractions
+                                           (cf. [3] for an excellent exposition and extensive references). For example, it is difficult to
+                                           know if a fraction can be written as a sum of two unit fractions (e.g., cf. [5, 6, 7, 10, 16]).
+                                               1
+                                                   2010 Mathematical Subject Classification. Primary 11D68: Secondary 11D85, 11A67, 11B75
+
+                                                                                              1
+In 1948, Erdös and Straus formulated a conjecture : for any positive integer n > 2, there
+exist positive integers n1 , n2 and n3 such that
+                                     4   1   1  1
+                                       =   +   + ,                                       (1.3)
+                                     n   n1 n2 n3
+which is still open up to now. For each n, the number of solution can go to infinity as n
+does. Elscholtz and Tao [3] found excellent bounds for it.
+    Mordell [15] proved that the conjecture holds for positive integers in 834 congruence
+classes modulo 840. Terzi [23] used computer to verify that the conjecture holds for
+positive integers in the congruence classes modulo 120120 except 198 classes. Kotsireas
+[12] verified the conjecture for every n < 1010 . There are other interesting partial results
+on the conjecture or related works (e.g., cf. [1, 2, 4, 11, 13, 14, 16, 17, 18, 19, 20, 21, 22,
+23, 24, 25]).
+    It is known that one only needs to prove the conjecture for any prime number n such
+that n ≡ 1 (mod 24), which will be reviewed in next section. Suppose that n = 24m + 1
+and n1 ≤ n2 , n3 . Then n1 = 6m + k with 1 ≤ k ≤ 12m and
+                           4        1         4k − 1
+                                =       +                  .                             (1.4)
+                        24m + 1   6m + k (6m + k)(24m + 1)
+If
+                    1           ℑ1                   1            ℑ2
+                      =                       and      =                               (1.5)
+                   n2   (6m + k)(24m + 1)           n2    (6m + k)(24m + 1)
+for some positive integers ℑ1 and ℑ2 such that ℑ1 + ℑ2 = 4k − 1, we call the triple
+(n1 , n2 , n3 ) a tame solution of the Erdös-Straus equation (1.3) for the positive integer
+n = 24m + 1. Moreover, we call n = 24m + 1 wild if it does not have any tame solution.
+Based on our definition in the earlier version of this work [26], Howerton [8] showed that
+there are only fourteen wild primes of the form 24m + 1 ≤ 2.4 × 1011 . In this paper, we
+derive twenty-eight families of tame solutions of Erdös-Straus equation (1.3). Numeric test
+shows that they cover all the tame primes. Furthermore, we call ℑ1 and ℑ2 the numerator
+summands for the tame solution (n1 , n2 , n3 ). The paper is organized as follows.
+    In Section 2, we present some basic known facts about the Erdös-Straus equation and
+prove that a tame solution (n1 , n2 , n3 ) of the equation for a prime n = 24m + 1 must
+satisfy (1.4), (1.5) and ℑ1 , ℑ2 are factors of 6m + k. In Section 3, we solve the equation
+for a prime of the form 24m + 1 with ℑ1 = 2(2j + 1) and ℑ2 = 4ℓ + 1. In Section 4, we
+solve the equation for a prime of the form 24m + 1 with ℑ1 = 4(2j + 1) and ℑ2 = 4ℓ + 3.
+In Section 5, we solve the equation for a prime of the form 24m + 1 with ℑ1 = 2r+3 (2j + 1)
+and ℑ2 = 4ℓ + 3.
+
+
+2     Basics of the Erdös-Straus Equation
+In this section, we list some basic known facts about the Erdös-Straus equation (1.3).
+Then we prove that the numerator summands of the tame solution of the equation for a
+prime n = 24m + 1 must be factors of 6m + k.
+   As shown in [21], a simple calculation
+                                 4  1   1      1
+                                   = +     +         ,                                   (2.1)
+                                2k  k k + 1 k(k + 1)
+                                4    1   1      1
+                                  =    +    +         ,                                  (2.2)
+                               3k   3k k + 1 k(k + 1)
+
+                                              2
+and
+                                4        1   1     1
+                                    =       + +                                           (2.3)
+                             3k − 1   3k − 1 k k(3k − 1)
+shows that Erdös-Straus equation holds for all n except those n ≡ 1 (mod 6). Throughout
+this paper, we denote by N the set of nonnegative integers. So we only need to solve (1.3)
+for n ∈ 1 + 6N. Further calculations
+                     4    1       1                  1
+                         = +             +                                                (2.4)
+                  4k − 1  k k(4k − 1) + 1 k(4k − 1)(k(4k − 1) + 1)
+and
+                   4         1            1                  1
+                        =       +                  +                                      (2.5)
+               24k − 11   6k − 2 (3k − 1)(24k − 11) (6k − 2)(24k − 11)
+show that Erdös-Straus equation holds for all n except those n ≡ 1 (mod 24). This fact
+is known to some people (e.g., cf. [14]). If (n1 , n2 , n3 ) is a solution of the Erdös-Straus
+equation (1.3) for n and k is another positive integer, then
+                                    4    1    1    1
+                                      =     +    +                                        (2.6)
+                                   nk   n1 k n2 k n3 k
+naturally holds. So it is enough to solve the equation for any prime number n. From now
+on, we always assume that
+
+                           n = 24m + 1 is a prime and m ∈ N.                              (2.7)
+
+Moreover, we can assume a tame solution (n1 , n2 , n3 ) of (1.3) for n satisfying n1 ≤ n2 , n3 .
+Then we have
+                                4          1            4
+                                       ≤       ≤              .                         (2.8)
+                            3(24m + 1)    n1       24m + 1
+Equivalently
+                                    6m + 1 ≤ n1 ≤ 18m.                                    (2.9)
+Thus
+                              n1 = 6m + k with 1 ≤ k ≤ 12m.                              (2.10)
+In particular,
+                            4        1         4k − 1
+                                 =       +                                               (2.11)
+                         24m + 1   6m + k (6m + k)(24m + 1)
+and
+                 1           ℑ1                     1           ℑ2
+                    =                         and      =                                 (2.12)
+                 n2   (6m + k)(24m + 1)             n2   (6m + k)(24m + 1)
+for some positive integers ℑ1 and ℑ2 such that
+
+                                      ℑ1 + ℑ2 = 4k − 1.                                  (2.13)
+
+   Denote
+                                      ℑ = l.c.m(ℑ1 , ℑ2 ),                               (2.14)
+the least common multiple of ℑ1 and ℑ2 . Let c ∈ Z such that m + cℑ > 0. Observe
+
+ (6(m + cℑ) + k)(24(m + cℑ) + 1) = (6m + k)(24m + 1) + 6cℑ(48m + 24cℑ + 4k + 1). (2.15)
+
+By Assumption (2.12),
+
+                            (6m + k)(24m + 1) = n2 ℑ1 = n3 ℑ2 .                          (2.16)
+
+                                               3
+The above two expressions imply that
+                 ℑ1                                               ℑ2
+                                         and                                          (2.17)
+   (6(m + cℑ) + k)(24(m + cℑ) + 1)                  (6(m + cℑ) + k)(24(m + cℑ) + 1)
+are unit fractions. Moreover,
+
+ 4(6(m + cℑ) + k) − (24(m + cℑ) + 1) = 4(6m + 1) − (2m + 1) = 4k − 1 = ℑ1 + ℑ2 . (2.18)
+
+Therefore,
+              4                1                        ℑ1
+                       =               +
+        24(m + cℑ) + 1   6(m + cℑ) + k (6(m + cℑ) + k)(24(m + cℑ) + 1)
+                                         ℑ1
+                         +                                             (2.19)
+                           (6(m + cℑ) + k)(24(m + cℑ) + 1)
+is a solution of the Erdös-Straus equation (1.3); that is,
+
+       {24(m + cℑ) + 1 | c ∈ Z such that m + cℑ > 0} are tame numbers.                (2.20)
+
+This partially explains why Mordell [15] and Terzi [23] had their modulo conditions.
+
+   Note that
+                                     4k − 1 ≤ 48m − 1                                 (2.21)
+by (2.10). Suppose ℑi ̸ |(6m + k). Since 24m + 1 is a prime, we must have (24m + 1)|ℑi .
+So the above equation yields
+                                      ℑi = 24m + 1.                              (2.22)
+Without loss of generality, we may assume i = 2. Then
+
+                      ℑ1 = 4k − 1 − ℑ2 = 4k − 24m − 2 ≤ 24m − 2.                      (2.23)
+
+Thus
+                                        ℑ1 |(6m + k).                                 (2.24)
+According to (2.23), we can write
+
+                                ℑ1 = 4j + 2         with j ∈ N.                       (2.25)
+
+Based on (2.11) and (2.13), we have
+
+               ℑ1 + 24m + 1 = ℑ1 + ℑ2 = 4k − 1 = 4(6m + k) − (24m + 1).               (2.26)
+
+By (2.24),
+                         ℑ1 |[2(24m + 1)] =⇒ (2j + 1)|(24m + 1).                      (2.27)
+If j = 0, 24m + 3 = 4k − 1 =⇒ k = 6m + 1 is odd, which contradicts (2.24) and (2.25).
+So j > 0. Then (2.23) and (2.25) show that 2j + 1 ≥ 3 is a proper factor of 24m + 1. This
+contradicts the assumption that 24m + 1 is a prime.
+
+    Theorem 2.1 For a prime n of the form 24m + 1, its tame solution (n1 , n2 , n3 ) must
+satisfies (2.10)-(2.13) and
+
+                                ℑ1 |(6m + k),       ℑ2 |(6m + k).                     (2.28)
+
+
+
+                                                4
+     Since
+                       ℑ1 + ℑ2 = 4k − 1 = 4(6m + k) − (24m + 1)                     (2.29)
+and n = 24m + 1 is a prime, we must have
+
+                                       g.c.d(ℑ1 , ℑ2 ) = 1.                         (2.30)
+
+    In the rest of this paper, we always derive a necessary condition of m on the tameness
+of a prime 24m + 1, but the condition is also sufficient for any m satisfying the condition
+such that 24m + 1 is tame.
+
+
+3      Cases with the ℑ1 = 2(2j + 1) and ℑ2 = 4ℓ + 1
+First we have
+                                         k =j+ℓ+1                                     (3.1)
+by (2.13). Moreover,
+                                  6m + k = 6m + j + ℓ + 1.                            (3.2)
+According to the firs expression in (2.28),
+
+                                      2|(6m + j + ℓ + 1).                             (3.3)
+
+So
+                                     j + ℓ ≡ 1 (mod 2).                               (3.4)
+
+3.1        Case j = 2s and ℓ = 6t + 1
+In this case,
+                              ℑ1 = 2(4s + 1),       ℑ2 = 24t + 5                      (3.5)
+and
+                          6m + j + ℓ + 1 = 2(3(m + t) + s + 1))                       (3.6)
+According to the firs expression in (2.28),
+
+                                  (4s + 1)|(3(m + t) + s + 1);                        (3.7)
+
+that is,
+                          (3(m + t) + s + 1) ≡ 0 (mod 4s + 1).                        (3.8)
+So
+                        3(m + t) + s + 1 ≡ 4s + 1 (mod 12s + 1).                      (3.9)
+Equivalently,
+                              3(m + t) ≡ 3s (mod 4s + 1).                           (3.10)
+
+
+     Subcase 1. s ̸≡ 2 (mod 3).
+
+     In this subcase, 4s + 1 ̸≡ 2 (mod 3) and the above equation implies
+
+                                  m + t ≡ s (mod 4s + 1);                           (3.11)
+
+that is,
+                        m + t = s + c(4s + 1)         for some c ∈ N.               (3.12)
+
+                                                5
+So
+                              6m + j + ℓ + 1 = 2(3c + 1)(4s + 1).                 (3.13)
+According to the second expression in (2.28) and (2.30),
+
+                 (24t + 5)|(3c + 1) =⇒ c = 16t + 3 + d(24t + 5) for d ∈ N.        (3.14)
+
+Thus
+               m = s − t + (4s + 1)[16t + 3 + d(24t + 5)]       for some c ∈ N.   (3.15)
+and
+                          6m + j + ℓ + 1 = 2(3d + 2)(4s + 1)(24t + 5).            (3.16)
+Expression (2.11) becomes
+                      4                   1
+                           =
+                  24m + 1     2(3d + 2)(4s + 1)(24t + 5)
+                           2(4s + 1) + (24t + 5)
+                  +
+                    2(3d + 2)(4s + 1)(24t + 5)(24m + 1)
+                               1                          1
+                =                            +
+                  2(3d + 2)(4s + 1)(24t + 5) (3d + 2)(24t + 5)(24m + 1)
+                                 1
+                  +                            .                                  (3.17)
+                    2(3d + 2)(4s + 1)(24m + 1)
+
+
+     Subcase 2. s = 3s1 + 2 with s1 ∈ N.
+
+     In this subcase,
+                                4s + 1 = 12s1 + 9 = 3(4s1 + 3).                   (3.18)
+So (3.10) is equivalent to
+
+                             3(m + t) ≡ 9s1 + 6 (mod 3(4s1 + 3),                  (3.19)
+
+which yields
+                                m + t ≡ 3s1 + 2 (mod 4s1 + 3);                    (3.20)
+that is,
+                        m + t = 3s1 + 2 + c(4s1 + 3)      for some c ∈ N.         (3.21)
+So
+                               6m + j + ℓ + 1 = 6(c + 1)(4s + 1).                 (3.22)
+According to the second expression in (2.28) and (2.30),
+
+                (24t + 5)|(c + 1) =⇒ c = −1 + (d + 1)(24t + 5) for d ∈ N.         (3.23)
+
+Thus
+                          m = −s1 − t − 1 + (d + 1)(4s1 + 3)(24t + 5)             (3.24)
+                                        ℑ1 = 6(4s1 + 3)                           (3.25)
+and
+                          6m + j + ℓ + 1 = 6(d + 1)(4s1 + 3)(24t + 5).            (3.26)
+
+
+
+                                               6
+Expression (2.11) becomes
+
+            4                    1                    6(4s1 + 3) + (24t + 5)
+                 =                            +
+        24m + 1     6(d + 1)(4s1 + 3)(24t + 5) 6(d + 1)(4s1 + 3)(24t + 5)(24m + 1)
+                     1                          1
+      =                            +
+        6(d + 1)(4s1 + 3)(24t + 5) (d + 1)(24t + 5)(24m + 1)
+                       1
+        +                            .                                         (3.27)
+          6(d + 1)(4s1 + 3)(24m + 1)
+
+
+    Theorem 3.1 For any positive integer m in (3.15), we have the tame solution (3.17)
+of the Erdös-Straus equation. When m is in (3.24), we have the tame solution (3.27) of
+the Erdös-Straus equation.
+
+
+3.2        Case j = 6s and ℓ = 6t + 3
+In this case,
+                             ℑ1 = 2(12s + 1),     ℑ2 = 24t + 13                  (3.28)
+by (3.1), and
+                          6m + j + ℓ + 1 = 2(3(m + s + t) + 2))                  (3.29)
+According to the firs expression in (2.28),
+
+                               (12s + 1)|(3(m + s + t) + 2);                     (3.30)
+
+that is,
+                           3(m + s + t) + 2 ≡ 0 (mod 12s + 1).                   (3.31)
+So
+                      3(m + s + t) + 2 ≡ 2(12s + 1) (mod 12s + 1).               (3.32)
+Equivalently,
+                             3(m + t) ≡ 21s (mod 12s + 1).                       (3.33)
+Hence
+                               m + t ≡ 7s (mod 12s + 1).                         (3.34)
+Under this condition,
+
+                        m + t = 7s + c(12s + 1)      for some c ∈ N              (3.35)
+
+and
+                           6m + j + ℓ + 1 = 2(3c + 2)(12s + 1).                  (3.36)
+According to the second expression in (2.28) and (2.30),
+
+                (24t + 13)|(3c + 2) =⇒ c = 16t + 8 + d(24t + 13) for d ∈ N.      (3.37)
+
+Now
+
+                      m = 7s − t + (16t + 8 + d(24t + 13))(12s + 1)              (3.38)
+
+and
+                      6m + j + ℓ + 1 = 2(3d + 2)(12s + 1)(24t + 13).             (3.39)
+
+                                              7
+Expression (2.11) becomes
+        4                    1                      2(12s + 1) + (24t + 13)
+             =                              +
+    24m + 1     2(3d + 2)(12s + 1)(24t + 13) 2(3d + 2)(12s + 1)(24t + 13)(24m + 1)
+                  1                            1
+  =                              +
+    2(3d + 2)(12s + 1)(24t + 13) (3d + 2)(24t + 13)(24m + 1)
+                    1
+    +                             .                                          (3.40)
+      2(3d + 2)(12s + 1)(24m + 1)
+
+    Theorem 3.2 For any positive integer m in (3.38), we have the tame solution (3.40)
+of the Erdös-Straus equation.
+
+
+3.3        Case j = 6s and ℓ = 6t + 5
+In this case,
+                        ℑ1 = 2(12s + 1),   ℑ2 = 24t + 21 = 3(8t + 7)            (3.41)
+by (4.1), and
+                             6m + j + ℓ + 1 = 6(m + s + t + 1)                  (3.42)
+According to the firs expression in (2.28),
+                                 (12s + 1)|(m + s + t + 1);                     (3.43)
+that is,
+                       m = −s − t − 1 + c(12s + 1) for some c ∈ N.              (3.44)
+Moreover,
+                               6m + j + ℓ + 1 = 6c(12s + 1).                    (3.45)
+According to the second expression in (2.28) and (2.30),
+                (24t + 21)|[6c(12s + 1)] =⇒ (8t + 7)|c =⇒ c = (d + 1)(8t + 7)   (3.46)
+for some d ∈ N. Thus
+                         m = −s − t − 1 + (d + 1)(12s + 1)(8t + 7)              (3.47)
+and
+                        6m + j + ℓ + 1 = 6(d + 1)(12s + 1)(8t + 7).             (3.48)
+Expression (2.11) becomes
+                        4                   1
+                             =
+                    24m + 1     6(d + 1)(12s + 1)(8t + 7)
+                            2(12s + 1) + 3(8t + 7)
+                    +
+                      6(d + 1)(12s + 1)(8t + 7)(24m + 1)
+                                1                         1
+                  =                           +
+                    6(d + 1)(12s + 1)(8t + 7) 3(d + 1)(8t + 7)(24m + 1)
+                                   1
+                    +                            .                              (3.49)
+                      2(d + 1)(12s + 1)(24m + 1)
+
+    Theorem 3.3 For any positive integer m in (3.47), we have the tame solution (3.49)
+of the Erdös-Straus equation.
+
+
+                                              8
+3.4        Case j = 6s + 1 and ℓ = 6t + 4
+In this case,
+                              ℑ1 = 6(4s + 1),       ℑ2 = 24t + 17                (3.50)
+by (3.1), and
+                             6m + j + ℓ + 1 = 6(m + s + t + 1)                   (3.51)
+According to the first expression in (2.28),
+
+                                 (4s + 1)|(m + s + t + 1);                       (3.52)
+
+that is,
+                       m = −s − t − 1 + c(4s + 1) for some c ∈ N.                (3.53)
+Moreover,
+                               6m + j + ℓ + 1 = 6c(4s + 1).                      (3.54)
+According to the second expression in (2.28) and (2.30),
+
+              (24t + 17)|[6c(4s + 1)] =⇒ (24t + 17)|c =⇒ c = (d + 1)(24t + 17)   (3.55)
+
+for some d ∈ N. Thus
+
+                        m = −s − t − 1 + (d + 1)(4s + 1)(24t + 17)               (3.56)
+
+and
+                       6m + j + ℓ + 1 = 6(d + 1)(4s + 1)(24t + 17).              (3.57)
+Expression (2.11) becomes
+
+            4                   1                     6(4s + 1) + (24t + 17)
+                 =                            +
+        24m + 1     6(d + 1)(4s + 1)(24t + 17) 6(d + 1)(4s + 1)(24t + 17)(24m + 1)
+                     1                          1
+      =                            +
+        6(d + 1)(4s + 1)(24t + 17) (d + 1)(24t + 17)(24m + 1)
+                       1
+        +                           .                                          (3.58)
+          6(d + 1)(4s + 1)(24m + 1)
+
+
+    Theorem 3.4 For any positive integer m in (3.56), we have the tame solution (3.58)
+of the Erdös-Straus equation.
+
+
+3.5        Case j = 6s + 2 and ℓ = 6t + 3
+In this case,
+                             ℑ1 = 2(12s + 5),       ℑ2 = 24t + 13                (3.59)
+by (3.1), and
+                             6m + j + ℓ + 1 = 6(m + s + t + 1)                   (3.60)
+According to the firs expression in (2.28),
+
+                                 (12s + 5)|(m + s + t + 1);                      (3.61)
+
+that is,
+                      m = −s − t − 1 + c(12s + 5) for some c ∈ N.                (3.62)
+
+                                                9
+Moreover,
+                               6m + j + ℓ + 1 = 6c(12s + 5).                    (3.63)
+According to the second expression in (2.28) and (2.30),
+
+                           (24t + 13)|c =⇒ c = (d + 1)(24t + 13)                (3.64)
+
+for some d ∈ N. Thus
+
+                        m = −s − t − 1 + (d + 1)(12s + 5)(24t + 13)             (3.65)
+
+and
+                        6m + j + ℓ + 1 = 6(d + 1)(12s + 5)(24t + 13).           (3.66)
+Expression (2.11) becomes
+                      4                    1
+                           =
+                  24m + 1     6(d + 1)(12s + 5)(24t + 13)
+                           2(12s + 5) + (24t + 13)
+                  +
+                    6(d + 1)(12s + 5)(24t + 13)(24m + 1)
+                               1                           1
+                =                             +
+                  6(d + 1)(12s + 5)(24t + 13) 3(d + 1)(24t + 13)(24m + 1)
+                                 1
+                  +                            .                                (3.67)
+                    6(d + 1)(12s + 5)(24m + 1)
+
+
+    Theorem 3.5 For any positive integer m in (3.65), we have the tame solution (3.67)
+of the Erdös-Straus equation.
+
+
+3.6        Case j = 6s + 3 and ℓ = 6t
+In this case,
+                              ℑ1 = 2(12s + 7),     ℑ2 = 24t + 1                 (3.68)
+by (3.1), and
+                           6m + j + ℓ + 1 = 2(3(m + s + t) + 2)).               (3.69)
+According to the firs expression in (2.28),
+
+                                (12s + 7)|(3(m + s + t) + 2);                   (3.70)
+
+that is,
+                           3(m + s + t) + 2 ≡ 0 (mod 12s + 7).                  (3.71)
+So
+                      3(m + s + t) + 2 ≡ 2(12s + 7) (mod 12s + 7).              (3.72)
+Equivalently,
+                            3(m + t) ≡ 21s + 12 (mod 12s + 7).                  (3.73)
+So
+                              m + t ≡ 7s + 4 (mod 12s + 7).                     (3.74)
+Under this condition,
+
+                      m + t = 7s + 4 + c(12s + 7)       for some c ∈ N          (3.75)
+
+                                              10
+and
+                            6m + j + ℓ + 1 = 2(3c + 2)(12s + 7)).               (3.76)
+The second expression in (2.28) and (2.30) imply
+
+                  (24t + 1)|(3c + 2) =⇒ c = 16t + d(24t + 1) for d ∈ N.         (3.77)
+
+Now
+                        m = 7s − t + 4 + (16t + d(24t + 1))(12s + 7).           (3.78)
+and
+                        6m + j + ℓ + 1 = 2(3d + 2)(12s + 7)(24t + 1).           (3.79)
+Expression (2.11) becomes
+                      4                    1
+                           =
+                  24m + 1     2(3d + 2)(12s + 7)(24t + 1)
+                           2(12s + 7) + (24t + 1)
+                  +
+                    2(3d + 2)(12s + 7)(24t + 1)(24m + 1)
+                               1                           1
+                =                             +
+                  2(3d + 2)(12s + 7)(24t + 1) (3d + 2)(24t + 1)(24m + 1)
+                                 1
+                  +                             .                               (3.80)
+                    2(3d + 2)(12s + 7)(24m + 1)
+
+
+    Theorem 3.6 For any positive integer m in (3.78), we have the tame solution (3.80)
+of the Erdös-Straus equation.
+
+
+3.7        Case j = 6s + 3 and ℓ = 6t + 2
+In this case,
+                        ℑ1 = 2(12s + 7),   ℑ2 = 24t + 9 = 3(8t + 3)             (3.81)
+by (3.1), and
+                             6m + j + ℓ + 1 = 6(m + s + t + 1)                  (3.82)
+According to the firs expression in (2.28),
+
+                                 (12s + 7)|(m + s + t + 1);                     (3.83)
+
+that is,
+                             m + s + t + 1 ≡ 0 (mod 12s + 7).                   (3.84)
+So
+                              m + t ≡ 11s + 6 (mod 12s + 7).                    (3.85)
+Under this condition,
+
+                     m + t = 11s + 6 + c(12s + 7)         for some c ∈ N        (3.86)
+
+and
+                             6m + j + ℓ + 1 = 6(c + 1)(12s + 7).                (3.87)
+The second expression in (2.28) and (2.30) imply
+
+                                      (8t + 3)|(c + 1).                         (3.88)
+
+                                              11
+Thus
+                          c = (d + 1)(8t + 3) − 1 for 0 < d ∈ N.                (3.89)
+Now
+                        m = −t − s − 1 + (d + 1)(12s + 7)(8t + 3)               (3.90)
+and
+                        6m + j + ℓ + 1 = 6(d + 1)(12s + 7)(8t + 3).             (3.91)
+Expression (2.11) becomes
+                4                  1
+                     =
+             24m + 1   6(d + 1)(12s + 7)(8t + 3)
+                               2(12s + 7) + 3(8t + 3)
+                       +
+                         6(d + 1)(12s + 7)(8t + 3)(24m + 1)
+                                   1                         1
+                     =                           +
+                       6(d + 1)(12s + 7)(8t + 3) 3(d + 1)(8t + 3)(24m + 1)
+                                      1
+                       +                            .                           (3.92)
+                         2(d + 1)(12s + 7)(24m + 1)
+
+
+    Theorem 3.7 For any positive integer m in (3.90), we have the tame solution (3.92)
+of the Erdös-Straus equation.
+
+
+3.8        Case j = 6s + 3 and ℓ = 6t + 4
+In this case,
+                             ℑ1 = 2(12s + 7),      ℑ2 = 24t + 17                (3.93)
+by (3.1), and
+                           6m + j + ℓ + 1 = 2(3(m + s + t) + 4)                 (3.94)
+According to the firs expression in (2.28),
+
+                               (12s + 7)|(3(m + s + t) + 4);                    (3.95)
+
+that is,
+                          3(m + s + t) + 4 ≡ 0 (mod 12s + 7).                   (3.96)
+So
+                        3(m + s + t) + 4 ≡ 12s + 7 (mod 12s + 7).               (3.97)
+Equivalently,
+                            3(m + t) ≡ 9s + 3 (mod 12s + 7).                    (3.98)
+So
+                             m + t ≡ 3s + 1 (mod 12s + 7).                      (3.99)
+Under this condition,
+
+                      m + t = 3s + 1 + c(12s + 7)       for some c ∈ N         (3.100)
+
+and
+                           6m + j + ℓ + 1 = 2(3c + 1)(12s + 7).                (3.101)
+
+
+                                              12
+According to the second expression in (2.28) and (2.30),
+
+             (24t + 17)|(3c + 1) =⇒ c = 16t + 11 + d(24t + 17) for d ∈ N.    (3.102)
+
+Now
+                     m = 3s + 1 − t + (16t + 11 + d(24t + 17))(12s + 7)      (3.103)
+and
+                       6m + j + ℓ + 1 = 2(3d + 2)(12s + 7)(24t + 17).        (3.104)
+Expression (2.11) becomes
+                      4                    1
+                           =
+                  24m + 1     2(3d + 2)(12s + 7)(24t + 17)
+                           2(12s + 7) + (24t + 17)
+                  +
+                    2(3d + 2)(12s + 7)(24t + 17)(24m + 1)
+                                1                           1
+                =                              +
+                  2(3d + 2)(12s + 7)(24t + 17) (3d + 2)(24t + 17)(24m + 1)
+                                  1
+                  +                             .                            (3.105)
+                    2(3d + 2)(12s + 7)(24m + 1)
+
+
+    Theorem 3.8 For any positive integer m in (3.103), we have the tame solution
+(3.105) of the Erdös-Straus equation.
+
+
+3.9        Case j = 6s + 5 and ℓ = 6t
+In this case,
+                              ℑ1 = 2(12s + 11),    ℑ2 = 24t + 1              (3.106)
+by (3.1), and
+                             6m + j + ℓ + 1 = 6(m + s + t + 1)               (3.107)
+According to the firs expression in (2.28),
+
+                                 (12s + 11)|(m + s + t + 1);                 (3.108)
+
+that is,
+                            m + s + t + 1 ≡ 0 (mod 12s + 11).                (3.109)
+So
+                             m ≡ −s − t − 1 (mod 12s + 11).                  (3.110)
+Under this condition,
+
+                      m = −s − t − 1 + c(12s + 11)      for some c ∈ N       (3.111)
+
+and
+                               6m + j + ℓ + 1 = 6c(12s + 11).                (3.112)
+     The second expression in (2.28) and (2.30) imply
+
+                     (24t + 1)|c =⇒ c = (d + 1)(24t + 1) for 0 < d ∈ N.      (3.113)
+
+Now
+                        m = −s − t − 1 + (d + 1)(24t + 1)(12s + 11).         (3.114)
+
+                                              13
+and
+                      6m + j + ℓ + 1 = 6(d + 1)(12s + 11)(24t + 1).       (3.115)
+Expression (2.11) becomes
+                      4                    1
+                           =
+                  24m + 1     6(d + 1)(12s + 11)(24t + 1)
+                              2(12s + 11) + (24t + 1)
+                  ++
+                       6(d + 1)(12s + 11)(24t + 1)(24m + 1)
+                               1                            1
+                =                            +
+                  (d + 1)(12s + 11)(24t + 1) 3(d + 1)(24t + 1)(24m + 1)
+                                  1
+                  +                              .                        (3.116)
+                    6(d + 1)(12s + 11)(24m + 1)
+
+
+    Theorem 3.9 For any positive integer m in (3.145), we have the tame solution
+(3.147) of the Erdös-Straus equation.
+
+
+
+4      Cases ℑ1 = 4j, j is odd and ℑ2 = 4ℓ + 3
+This is the case when
+
+                        ℑ1 = 4j,    k = j + ℓ + 1 with j, ℓ ∈ N             (4.1)
+
+and ℓ ≥ 1 by (2.13). Moreover,
+
+                                   6m + k = 6m + j + ℓ + 1.                 (4.2)
+
+According to the first expression in (2.28),
+
+                                      4|(6m + j + ℓ + 1).                   (4.3)
+
+So
+                                     j + ℓ ≡ 1 (mod 2).                     (4.4)
+
+4.1       Case m = 2m1 , j = 4s + 1 and ℓ = 12t + 3
+Now
+                             ℑ1 = 4(4s + 1),        ℑ2 = 48t + 11           (4.5)
+and
+                           6m′ + j ′ + ℓ′ = 4(3(m1 + t) + s + 1).           (4.6)
+According to the first expression in (2.28),
+
+                               (4s + 1)|(3(m1 + t) + s + 1);                (4.7)
+
+that is
+                          3(m1 + t) + s + 1 ≡ 0 (mod 4s + 1).               (4.8)
+Note
+                        3(m1 + t) + s + 1 ≡ 4s + 1 (mod 4s + 1).            (4.9)
+
+                                               14
+Equivalently,
+                              3(m1 + t) ≡ 3s (mod 4s + 1).                      (4.10)
+
+
+   Subcase 1. s ̸≡ 2 (mod 3).
+
+   In this subcase,
+                                m1 + t ≡ s (mod 4s + 1).                        (4.11)
+Hence
+                         m1 + t = s + c(4s + 1) for some c ∈ N.                 (4.12)
+Observe that
+                             6m + j + ℓ; = 4(3c + 1)(4s + 1).                   (4.13)
+According to the second expression in (2.28) and (2.30),
+
+                                   (48t + 11)|(3c + 1).                         (4.14)
+
+Therefore,
+                      c = 32t + 7 + d(48t + 11)     for some d ∈ N.             (4.15)
+This implies
+
+                  m = 2m1 = 2[s − t + (32t + 7 + d(48t + 11))(4s + 1)]          (4.16)
+
+and
+                      6m + j + ℓ + 1 = 4(3d + 2)(4s + 1)(48t + 11).             (4.17)
+Expression (2.11) becomes
+                      4                    1
+                           =
+                  24m + 1     4(3d + 2)(4s + 1)(48t + 11)
+                           4(4s + 1) + (48t + 11)
+                  +
+                    4(3d + 2)(4s + 1)(48t + 11)(24m + 1)
+                               1                           1
+                =                             +
+                  4(3d + 2)(4s + 1)(48t + 11) (3d + 2)(48t + 11)(24m + 1)
+                                 1
+                  +                            .                                (4.18)
+                    4(3d + 2)(4s + 1)(24m + 1)
+
+
+   Subcase 2. s ≡ 2 (mod 3).
+
+   In this subcase, s = 3s1 + 2 for some s1 ∈ N. Then (4.10) is equivalent to
+
+                            m1 + t ≡ 3s1 + 2 (mod 4s1 + 3).                     (4.19)
+
+Hence
+                      m1 + t = 3s1 + 2 + c(4s1 + 3) for some c ∈ N.             (4.20)
+Moreover,
+                3(m1 + t) + s + 1 = 3(m1 + t + s1 + 1) = 3(c + 1)(4s1 + 3).     (4.21)
+According to the second expression in (2.28) and (2.30),
+
+                                    (48t + 11)|(c + 1).                         (4.22)
+
+                                            15
+Thus
+                         c = (d + 1)(48t + 11) − 1 for some d ∈ N.              (4.23)
+Now
+                      m = −2s1 − 2t − 2 + 2(d + 1)(4s1 + 3)(48t + 11)           (4.24)
+and
+                       6m + j + ℓ + 1 = 12(d + 1)(4s1 + 3)(48t + 11).           (4.25)
+Expression (2.11) becomes
+                       4                     1
+                            =
+                   24m + 1     12(d + 1)(4s1 + 3)(48t + 11)
+                            12(4s1 + 3) + (48t + 11)
+                   +
+                     12(d + 1)(4s1 + 3)(48t + 11)(24m + 1)
+                                 1                           1
+                 =                              +
+                   12(d + 1)(4s1 + 3)(48t + 11) (d + 1)(48t + 11)(24m + 1)
+                                   1
+                   +                             .                              (4.26)
+                     12(d + 1)(4s1 + 3)(24m + 1)
+
+
+    Theorem 4.1 For any positive integer m in (4.16), we have the tame solution (4.18)
+of the Erdös-Straus equation. When m is of the form (4.24), we have the tame solution
+(4.26) of the Erdös-Straus equation.
+
+
+4.2       Case m = 2m1 + 1, j = 12s + 5 and ℓ = 4t
+In this case,
+                              ℑ1 = 4(12s + 5),    ℑ2 = 16t + 3                  (4.27)
+by (4.1), and
+
+          6m + j + ℓ + 1 = 12m1 + 6 + 12s + 5 + 4t + 1 = 4(3(m1 + s + 1) + t)   (4.28)
+
+According to the second expression in (2.28),
+
+                                (16t + 3)|(3(m1 + s + 1) + t);                  (4.29)
+
+that is
+                           3(m1 + s + 1) + t ≡ 0 (mod 16t + 3).                 (4.30)
+Note
+                        3(m1 + s + 1) + t ≡ 16t + 3 (mod 16t + 11).             (4.31)
+Equivalently,
+                              3(m1 + s) ≡ 15t (mod 16t + 3).                    (4.32)
+
+
+   Subcase 1. t ̸≡ 0 (mod 3).
+
+   In this subcase, the above equation is equivalent to
+
+                                m1 + s ≡ 5t (mod 16t + 3).                      (4.33)
+
+
+                                             16
+Hence
+                         m1 = 5t − s + c(16t + 3) for some c ∈ N.           (4.34)
+     Observe that
+                            6m + j + ℓ + 1 = 4(3c + 1)(16t + 3).            (4.35)
+According to the first expression in (2.28) and (2.30),
+
+                                     (12s + 5)|(3c + 1).                    (4.36)
+
+Therefore,
+                         c = 8s + 3 + d(12s + 5)     for some d ∈ N.        (4.37)
+This implies
+                        m1 = 5t − s + (8s + 3 + d(12s + 5))(16t + 3)        (4.38)
+                    =⇒ m = 2[5t − s + (8s + 3 + d(12s + 5))(16t + 3)] + 1   (4.39)
+and
+                        6m + j + ℓ + 1 = 4(3d + 2)(12s + 5)(16t + 3).       (4.40)
+Expression (2.11) becomes
+                     4                    1
+                          =
+                 24m + 1     4(3d + 2)(12s + 3)(16t + 3)
+                          4(12s + 5) + (16t + 3)
+                 +
+                   4(3d + 2)(12s + 5)(16t + 3)(24m + 1)
+                              1                           1
+               =                             +
+                 4(3d + 2)(12s + 5)(16t + 3) (3d + 2)(16t + 3)(24m + 1)
+                                1
+                 +                             .                            (4.41)
+                   4(3d + 2)(12s + 5)(24m + 1)
+
+
+     Subcase 2. t ≡ 0 (mod 3).
+
+     In this subcase, t = 3t1 for some t ∈ N. Equation (3.42) becomes
+
+                            3(m1 + s) ≡ 45t1    (mod 3(16t1 + 1)).          (4.42)
+
+So
+                               m1 + s ≡ 15t1    (mod 16t1 + 1);             (4.43)
+that is,
+                       m1 + s = 15t1 + c(16t1 + 1)     for some c ∈ N.      (4.44)
+     Observe that
+                            6m + j + ℓ + 1 = 12(c + 1)(16t1 + 1).           (4.45)
+According to the first expression in (2.28) and (2.30),
+
+                                      (12s + 5)|(c + 1).                    (4.46)
+
+Therefore,
+                        c = (d + 1)(12s + 5) − 1     for some d ∈ N.        (4.47)
+This implies
+                        m1 = −s − t1 − 1 + (d + 1)(12s + 5)(16t1 + 1)       (4.48)
+
+                                               17
+                    =⇒ m = 2[−s − t1 + (d + 1)(12s + 5)(16t1 + 1)] − 1           (4.49)
+and
+                      6m + j + ℓ + 1 = 12(d + 1)(12s + 5)(16t1 + 1).             (4.50)
+Expression (2.11) becomes
+                      4                     1
+                           =
+                  24m + 1     12(d + 1)(12s + 5)(16t1 + 1)
+                           4(12s + 5) + 3(16t1 + 1)
+                  +
+                    12(d + 1)(12s + 5)(16t1 + 1)(24m + 1)
+                               1                             1
+                =                              +
+                  12(d + 1)(12s + 5)(16t1 + 9) 3(d + 1)(16t1 + 9)(24m + 1)
+                                 1
+                  +                            .                                 (4.51)
+                    4(d + 1)(12s + 5)(24m + 1)
+
+
+    Theorem 4.2 For any positive integer m in (4.39), we have the tame solution (4.41)
+of the Erdös-Straus equation. When m is in (4.49), we have the tame solution (4.51) of
+the Erdös-Straus equation.
+
+
+4.3       Case m = 2m1 , j = 12s + 7 and ℓ = 12t + 4
+Now
+                             ℑ1 = 4(12s + 7),       ℑ2 = 48t + 19                (4.52)
+by (4.1), and
+                           6m + j + ℓ + 1 = 12(m1 + s + t + 1).                  (4.53)
+According to the first expression in (2.28),
+
+                                (12s + 7)|(m1 + s + t + 1);                      (4.54)
+
+that is
+                           m1 + s + t + 1 ≡ 0 (mod 12s + 7).                     (4.55)
+Hence
+                      m1 = −s − t − 1 + c(12s + 7) for some c ∈ N.               (4.56)
+   Observe that
+                              6m + j + ℓ + 1 = 12c(12s + 7).                     (4.57)
+According to the second expression in (2.28) and (2.30),
+
+                                       (48t + 19)|c.                             (4.58)
+
+Therefore,
+                         c = (d + 1)(48t + 19)       for some d ∈ N.             (4.59)
+This implies
+                   m = 2m1 = 2[−s − t − 1 + (d + 1)(12s + 7)(48t + 19)]          (4.60)
+and
+                      6m + j + ℓ + 1 = 12(d + 1)(12s + 7)(48t + 19).             (4.61)
+
+
+                                               18
+Expression (2.11) becomes
+                      4                    1
+                           =
+                  24m + 1     12(d + 1)(12s + 7)(48t + 19)
+                           4(12s + 7) + (48t + 19)
+                  +
+                    12(d + 1)(12s + 7)(48t + 19)(24m + 1)
+                                1                           1
+                =                              +
+                  12(d + 1)(12s + 7)(48t + 19) 3(d + 1)(48t + 19)(24m + 1)
+                                  1
+                  +                             .                               (4.62)
+                    12(d + 1)(12s + 7)(24m + 1)
+
+
+    Theorem 4.3 For any positive integer m in (4.60), we have the tame solution (4.62)
+of the Erdös-Straus equation.
+
+
+4.4       Case m = 2m1 + 1, j = 12s + 1 and ℓ = 12t + 4
+Now
+                             ℑ1 = 4(12s + 1),       ℑ2 = 48t + 19               (4.63)
+by (4.1), and
+                           6m + j + ℓ + 1 = 12(m1 + s + t + 1).                 (4.64)
+According to the first expression in (2.28),
+
+                                (12s + 1)|(m1 + s + t + 1);                     (4.65)
+
+that is
+                           m1 + s + t + 1 ≡ 0 (mod 12s + 1).                    (4.66)
+Hence
+                      m1 = −s − t − 1 + c(12s + 1) for some c ∈ N.              (4.67)
+   Observe that
+                              6m + j + ℓ + 1 = 12c(12s + 1).                    (4.68)
+According to the second expression in (2.28) and (2.30),
+
+                                       (48t + 19)|c.                            (4.69)
+
+Therefore,
+                         c = (d + 1)(48t + 19)       for some d ∈ N.            (4.70)
+This implies
+
+                 m = 2m1 + 1 = 2[−s − t + (d + 1)(12s + 1)(48t + 19)] − 1       (4.71)
+
+and
+                      6m + j + ℓ + 1 = 12(d + 1)(12s + 1)(48t + 19).            (4.72)
+
+
+
+
+                                               19
+Expression (2.11) becomes
+                       4                    1
+                            =
+                   24m + 1     12(d + 1)(12s + 1)(48t + 19)
+                            4(12s + 1) + (48t + 19)
+                   +
+                     12(d + 1)(12s + 1)(48t + 19)(24m + 1)
+                                 1                           1
+                 =                              +
+                   12(d + 1)(12s + 1)(48t + 19) 3(d + 1)(48t + 19)(24m + 1)
+                                   1
+                   +                             .                               (4.73)
+                     12(d + 1)(12s + 1)(24m + 1)
+
+
+    Theorem 4.4 For any positive integer m in (4.70), we have the tame solution (4.72)
+of the Erdös-Straus equation.
+
+
+4.5       Case m = 2m1 + 1, j = 4s + 3 and ℓ = 12t + 2
+In this case,
+                               ℑ1 = 4(4s + 3),       ℑ2 = 48t + 11               (4.74)
+by (4.1), and
+                           6m + j + ℓ + 1 = 4(3(m1 + t + 1) + s).                (4.75)
+     According to the first expression in (2.28),
+
+                                 (4s + 3)|(3(m1 + t + 1) + s);                   (4.76)
+
+that is
+                            3(m1 + t + 1) + s ≡ 0 (mod 4s + 3).                  (4.77)
+Note
+                          3(m1 + t + 1) + s ≡ 4s + 3 (mod 4s + 3).               (4.78)
+Equivalently,
+                               3(m1 + t) ≡ 3s (mod 4s + 3).                      (4.79)
+
+
+     Subcase 1. s ≡ 0 (mod 3).
+
+     In this subcase, s = 3s1 for some s1 ∈ N. Moreover, the above equation becomes
+
+                              3(m1 + t) ≡ 9s1        (mod 12s1 + 3).             (4.80)
+
+So
+                                 m1 + t ≡ 3s1    (mod 4s1 + 1).                  (4.81)
+Thus
+                         m1 = 3s1 − t + c(4s1 + 1) for some c ∈ N.               (4.82)
+In particular,
+
+                  6m + j + ℓ + 1 = 12(m1 + t + s1 + 1) = 12(c + 1)(4s1 + 1).     (4.83)
+
+
+
+                                                20
+The second expression in (2.28) and (2.30) yield
+
+        (48t + 11)|(c + 1) =⇒ c = (d + 1)(48t + 11) − 1 for some d ∈ N.     (4.84)
+
+Equation (4.71) shows
+
+                      m1 = −s1 − t − 1 + (d + 1)(4s1 + 1)(48t + 11).        (4.85)
+
+                   =⇒ m = 2[−s1 − t + (d + 1)(4s1 + 1)(48t + 11)] − 1.      (4.86)
+Furthermore,
+                      6m + j + ℓ + 1 = 12(d + 1)(4s1 + 1)(48t + 11).        (4.87)
+Therefore, (2.11) becomes
+                      4                     1
+                           =
+                  24m + 1     12(d + 1)(4s1 + 1)(48t + 11)
+                           12(4s1 + 1) + (48t + 11)
+                  +
+                    12(d + 1)(4s1 + 1)(48t + 11)(24m + 1)
+                                1                           1
+                =                              +
+                  12(d + 1)(4s1 + 1)(48t + 11) (d + 1)(48t + 11)(24m + 1)
+                                  1
+                  +                             .                           (4.88)
+                    12(d + 1)(4s1 + 1)(24m + 1)
+
+
+   Subcase 2. s ̸≡ 0 (mod 3).
+
+   By (4.68),
+                                m1 + t ≡ s (mod 4s + 3).                    (4.89)
+Thus
+                                m1 ≡ s − t (mod 4s + 3).                    (4.90)
+Hence
+                         m1 = s − t + c(4s + 3) for some c ∈ N.             (4.91)
+   Observe that
+                            6m + j + ℓ + 1 = 4(3c + 1)(4s + 3).             (4.92)
+According to the second expression in (2.28) and (2.30),
+
+                                    (48t + 11)|(3c + 1).                    (4.93)
+
+Therefore,
+                      c = 32t + 7 + d(48t + 11)      for some d ∈ N.        (4.94)
+This implies
+                       m1 = s − t + (32t + 7 + d(48t + 11))(4s + 3)         (4.95)
+                  =⇒ m = 2[s − t + (32t + 7 + d(48t + 11))(4s + 3)] + 1     (4.96)
+and
+                      6m + j + ℓ + 1 = 4(3d + 2)(4s + 3)(48t + 11).         (4.97)
+
+
+
+
+                                            21
+Expression (2.11) becomes
+                       4                    1
+                            =
+                   24m + 1     4(3d + 2)(4s + 3)(48t + 11)
+                            4(4s + 3) + (48t + 11)
+                   +
+                     4(3d + 2)(4s + 3)(48t + 11)(24m + 1)
+                                1                           1
+                 =                             +
+                   4(3d + 2)(4s + 3)(48t + 11) (3d + 2)(48t + 11)(24m + 1)
+                                  1
+                   +                            .                                (4.98)
+                     4(3d + 2)(4s + 3)(24m + 1)
+
+   In summary, we have:
+
+    Theorem 4.5 For any positive integer m in (4.86), we have the tame solution (4.88)
+of the Erdös-Straus equation. When m is in (4.96), we have the tame solution (4.98) of
+the Erdös-Straus equation.
+
+
+4.6       Case m = 2m1 , j = 12s + 11 and ℓ = 4t
+In this case,
+                             ℑ1 = 4(12s + 11),    ℑ2 = 16t + 3                   (4.99)
+by (4.1), and
+                           6m + j + ℓ + 1 = 4(3(m1 + s + 1) + t).               (4.100)
+   According to the second expression in (2.28),
+
+                                (16t + 3)|(3(m1 + s + 1) + t);                  (4.101)
+
+that is
+                           3(m1 + s + 1) + t ≡ 0 (mod 16t + 3).                 (4.102)
+Note
+                        3(m1 + s + 1) + t ≡ 16t + 3 (mod 16t + 3).              (4.103)
+Equivalently,
+                             3(m1 + s) ≡ 15t (mod 16t + 3).                     (4.104)
+
+
+   Subcase 1. t ̸≡ 0 (mod 3).
+
+   In this subcase, the above equation is equivalent to
+
+                                m1 + s ≡ 5t (mod 16t + 3).                      (4.105)
+
+Thus
+                         m1 = 5t − s + c(16t + 3) for some c ∈ N.               (4.106)
+In particular,
+                            6m + j + ℓ + 1 = 4(3c + 1)(16t + 3).                (4.107)
+The first expression in (2.28) and (2.30) yield
+
+          (12s + 11)|(3c + 1) =⇒ c = 8s + 7 + d(12s + 11) for some d ∈ N.       (4.108)
+
+                                             22
+Equation (5.91) shows
+                        m1 = 5t − s + (8s + 7 + d(12s + 11))(16t + 3)          (4.109)
+                     =⇒ m = 2[5t − s + (8s + 7 + d(12s + 11))(16t + 3)].       (4.110)
+Furthermore,
+                       6m + j + ℓ + 1 = 4(3d + 2)(12s + 11)(16t + 3).          (4.111)
+Therefore, (2.11) becomes
+                      4                    1
+                           =
+                  24m + 1     4(3d + 2)(12s + 11)(16t + 3)
+                           4(12s + 11) + (16t + 3)
+                  +
+                    4(3d + 2)(12s + 11)(16t + 3)(24m + 1)
+                                1                            1
+                =                              +
+                  4(3d + 2)(12s + 11)(16t + 3) 4(3d + 2)(16t + 3))(24m + 1)
+                                  1
+                  +                              .                             (4.112)
+                    4(3d + 2)(12s + 11)(24m + 1)
+
+   Subcase 2. t ≡ 0 (mod 3).
+
+   In this subcase, t = st1 for some t1 ∈ N. Now (4.104) becomes
+                        3(m1 + s + 1) ≡ 45t1 + 3 (mod 3(16t1 + 1));            (4.113)
+equivalently,
+                               m1 + s ≡ 15t1    (mod 16t1 + 1);                (4.114)
+Thus
+                        m1 = 15t1 − s + c(16t1 + 1) for some c ∈ N.            (4.115)
+In particular,
+                            6m + j + ℓ + 1 = 12(c + 1)(16t1 + 1).              (4.116)
+The first expression in (2.28) and (2.30) yield
+        (12s + 11)|(c + 1) =⇒ c = (d + 1)(12s + 11) − 1 for some d ∈ N.        (4.117)
+Equation (5.91) shows
+                       m1 = −s − t − 1 + (d + 1)(12s + 11)(16t1 + 1)           (4.118)
+                    =⇒ m = 2[−s − t1 − 1 + (d + 1)(12s + 11)(16t1 + 1)].       (4.119)
+Furthermore,
+                       6m + j + ℓ + 1 = 12(d + 1)(12s + 11)(16t1 + 1).         (4.120)
+Therefore, (2.11) becomes
+                      4                     1
+                           =
+                  24m + 1     12(d + 1)(12s + 11)(16t1 + 1)
+                           4(12s + 11) + 3(16t1 + 1)
+                  +
+                    12(d + 1)(12s + 11)(16t1 + 1)(24m + 1)
+                                1                             1
+                =                               +
+                  12(d + 1)(12s + 11)(16t1 + 1) 3(d + 1)(16t1 + 1))(24m + 1)
+                                  1
+                  +                             .                              (4.121)
+                    4(d + 1)(12s + 11)(24m + 1)
+
+                                               23
+     In summary, we have:
+
+    Theorem 4.6 When m is in (4.110), the Erdös-Straus equation (4.112) holds. If m
+is in (4.119), the Erdös-Straus equation (4.121) holds.
+
+4.7     Section Summary
+In the above sections, m = g(x, d, y), ℑ1 = η(x) and ℑ2 = h(y) are integral polynomials,
+where x = s or s1 and y = 2t or y = 2t1 . If we change y to odd positive integer, they still
+give a solution of the Erdös-Straus equation. In summary, we have the following table of
+solutions:
+
+
+                                              Table 4.6
+
+
+                              m                                          ℑ1           ℑ2
+           2x − y + 2(16y + 7 + d(24y + 11))(4x + 1)                  4(4x + 1)    24y + 11
+           −2x − y − 2 + 2(d + 1)(4x + 3)(24y + 11)                  12(4x + 3)    24y + 11
+         5y − 2x + 2(8x + 3 + d(12x + 5))(8y + 3) + 1                4(12x + 5)     8y + 3
+            −2x − y − 1 + 2(d + 1)(12x + 5)(8y + 1)                  4(12x + 5)    3(8y + 1)
+          −2x − y − 2 + 2(d + 1)(12x + 7)(24y + 19)                  4(12x + 7)    24y + 19
+          −2x − y − 1 + 2(d + 1)(12x + 1)(24y + 19)                  4(12x + 1)    24y + 19
+           −2x − y + 2(d + 1)(4x + 1)(24y + 11) − 1                  12(4x + 1)    24y + 11
+         2x − y + 2(16y + 7 + d(24y + 11))(4x + 3) + 1                4(4x + 3)    24y + 11
+          5y + 2[−x + (8x + 7 + d(12s + 11))(8y + 3)]                4(12x + 11)    8y + 3
+           −2x − y − 2 + 2(d + 1)(12x + 11)(8y + 1)                  4(12x + 11)   3(8y + 1)
+
+
+
+
+5      Cases ℑ1 = 2r+3j ′, j ′ is odd and ℑ2 = 4ℓ + 3
+
+In this situation, j = 2r+1 j ′ .
+
+                                    ℑ1 = 2r+3 j ′ ,        ℑ2 = 4ℓ + 3.                        (5.1)
+
+Moreover,
+                             6m + j + ℓ + 1 = 6m + 2r+1 j ′ + ℓ + 1.                           (5.2)
+According to the first expression in (2.28),
+
+                             6m + 2r+1 j ′ + ℓ + 1 ≡ 0 (mod 2r+3 j ′ ).                        (5.3)
+
+So
+                                                ℓ is odd.                                      (5.4)
+
+
+
+
+                                                      24
+5.1     j = 3 · 2r+1 (2s + 1) and ℓ = 3 · 2r+3 t + 5
+In this case,
+
+ 6m + j + ℓ + 1 = 6m + 3 · 2r+1 (2s + 1) + 3 · 2r+3 t + 6 = 6[m + 2r (2s + 4t + 1) + 1]. (5.5)
+
+Now (5.3) becomes,
+
+                     6[m + 2r (2s + 4t + 1) + 1] ≡ 0 (mod 2r+3 3(2s + 1));                 (5.6)
+
+equivalently,
+                       m + 2r (2s + 4t + 1) + 1 ≡ 0 (mod 2r+2 (2s + 1));                   (5.7)
+Thus
+                m = 2r+2 (2s + 1)c − 2r (2s + 4t + 1) − 1        for some 0 < c ∈ N.       (5.8)
+Note
+            ℑ2 = 4ℓ + 3 = 3 · 2r+5 t + 23,       6m + j + ℓ + 1 = 3 · 2r+3 (2s + 1)c.      (5.9)
+According to the second expression in (2.28) and (2.30),
+
+                     (3 · 2r+5 t + 23)|(3 · 2r+3 (2s + 1)c) =⇒ (3 · 2r+5 t + 23)|c        (5.10)
+
+                       =⇒ c = (d + 1)(3 · 2r+5 t + 23)       for some d ∈ N.              (5.11)
+Hence
+                  m = (d + 1)2r+3 (2s + 1)(3 · 2r+5 t + 23) − 2r (2s + 4t + 1) − 1        (5.12)
+and
+                     6m + j + ℓ + 1 = 3(d + 1)2r+3 (2s + 1)(3 · 2r+5 t + 23).             (5.13)
+Therefore, (2.11) becomes
+               4                          1
+                    =
+           24m + 1      3(d + 1)2 (2s + 1)(3 · 2r+5 t + 23)
+                                  r+3
+
+                   (3 · 2r+3 (2s + 1) + (3 · 2r+5 t + 23)
+           +
+             3(d + 1)2r+3 (2s + 1)(3 · 2r+5 t + 23)d(24m + 1)
+                              1                                   1
+         =          r+3               r+5
+                                                   +          r+5
+           3(d + 1)2 (2s + 1)(3 · 2 t + 23) (d + 1)(3 · 2 t + 23)(24m + 1)
+                              1
+           +                                    .                          (5.14)
+             3(d + 1)2r+3 (2s + 1)d(24m + 1)
+
+
+   Theorem 5.1 When m is in (5.12), the Erdös-Straus equation (5.14) holds.
+
+
+5.2     j = 2r+1 (2s + 1), 3 ̸ |(2s + 1) and ℓ = 3 · 2r+3 t + 5
+In this case,
+
+ 6m + j + ℓ + 1 = 6m + 2r+1 (2s + 1) + 3 · 2r+3 t + 6 = 6(m + 2r+2 t + 1) + 2r+1 (2s + 1). (5.15)
+
+Now (5.3) becomes,
+
+                   6(m + 2r+2 t + 1) + 2r+1 (2s + 1) ≡ 0 (mod 2r+3 (2s + 1));             (5.16)
+
+
+                                                  25
+equivalently,
+
+                    3(m + 2r+2 t + 1) + 2r (2s + 1) ≡ 0 (mod 2r+2 (2s + 1)).            (5.17)
+
+   Note
+
+           3(m + 2r+2 t + 1) + 2r (2s + 1) ≡ 2r+2 (2s + 1)) (mod 2r+2 (2s + 1));        (5.18)
+
+equivalently,
+                     3(m + 2r+2 t + 1) ≡ 2r (2s + 1)3 (mod 2r+2 (2s + 1)).              (5.19)
+Hence
+                       m + 2r+1 t + 1 ≡ 2r (2s + 1) (mod 2r+1 (2s + 1)),                (5.20)
+that is,
+                m = 2r (2s + 1) + 2r+2 (2s + 1)c − 2r+2 t − 1      for some c ∈ N.      (5.21)
+Moreover,
+
+        ℑ2 = 4ℓ + 3 = 3 · 2r+5 t + 23,     6m + j + ℓ + 1 = 2r+3 (2s + 1)(3c + 1).      (5.22)
+
+   According to the second expression in (2.28) and (2.30),
+
+           (3 · 2r+5 t + 23)|(2r+3 (2s + 1)(3c + 1)) =⇒ (3 · 2r+5 t + 23)|(3c + 1).     (5.23)
+
+Thus
+                     c = 2r+6 t + 15 + d(3 · 2r+5 t + 23)    for some d ∈ N.            (5.24)
+Now
+               m = 2r (2s + 1)[4(2r+6 t + 15 + d(3 · 2r+5 t + 23)) + 1] − 2r+2 t − 1.   (5.25)
+and
+                    6m + j + ℓ + 1 = (2d + 2)2r+3 (2s + 1)(3 · 2r+5 t + 23)).           (5.26)
+Therefore, (2.11) becomes
+                             4                           1
+                                  =
+                         24m + 1      (3d + 2)2 (2s + 1)(3 · 2r+5 t + 23)
+                                                r+3
+
+                                   2r+3 (2s + 1) + (3 · 2r+5 t + 23)
+                         +
+                           (3d + 2)2r+3 (2s + 1)(3 · 2r+5 t + 23)(24m + 1)
+                                           1
+                       =
+                         (3d + 2)2 (2s + 1)(3 · 2r+5 t + 23)
+                                  r+3
+
+                                             1
+                         +
+                           (3d + 2)(3 · 2r+5 t + 23)(24m + 1)
+                                           1
+                         +           r+3
+                                                             .                          (5.27)
+                           (3d + 2)2 (2s + 1)(24m + 1)
+
+
+   Theorem 5.2 When m is in (5.25), the Erdös-Straus equation (5.27) holds.
+
+
+
+
+                                                 26
+5.3      j = 22r+2 (6s + 1) and ℓ = 3 · 22r+4 t + 1
+In this case,
+
+ 6m+j+ℓ+1 = 6m+22r+2 (6s+1)+3·22r+4 t+2 = 6[m+22r+2 (s+2t)+(22r+1 +1)/3]. (5.28)
+
+Now (5.3) becomes,
+
+                6[m + 22r+2 (s + 2t) + (22r+1 + 1)/3] ≡ 0 (mod 22r+4 (6s + 1));           (5.29)
+
+equivalently,
+
+                3[m + 22r+2 (s + 2t) + (22r+1 + 1)/3] ≡ 0 (mod 22r+3 (6s + 1)).           (5.30)
+
+So
+                  m + 22r+2 (s + 2t) + (22r+1 + 1)/3 ≡ 0 (mod 22r+3 (6s + 1)).            (5.31)
+Thus
+
+      m = 22r+3 (6s + 1)c − 22r+2 (s + 2t) − (22r+1 + 1)/3          for some 0 < c ∈ N.   (5.32)
+
+Note
+                ℑ2 = 4ℓ + 3 = 3 · 22r+6 t + 7,   6m + j + ℓ + 1 = 22r+4 3(6s + 1)c.       (5.33)
+According to the second expression in (2.28) and (2.30),,
+
+                                (3 · 22r+6 t + 7)|(3 · 22r+4 (6s + 1)c)                   (5.34)
+
+                       =⇒ c = (d + 1)(3 · 2r+6 t + 7)        for some d ∈ N.              (5.35)
+Hence
+
+        m = (d + 1)22r+3 (6s + 1)(3 · 22r+6 t + 7) − 22r+2 (s + 2t) − (22r+1 + 1)/3       (5.36)
+
+and
+                    6m + j + ℓ + 1 = 3(d + 1)22r+4 (6s + 1)(3 · 22r+6 t + 7)d.            (5.37)
+Therefore, (2.11) becomes
+                             4                           1
+                                  =
+                         24m + 1      3(d + 1)22r+4 (6s + 1)(3 · 22r+6 t + 7)
+                                  22r+4 (6s + 1) + (3 · 22r+6 t + 7)
+                         +
+                           (d + 1)22r+4 (6s + 1)(3 · 22r+6 t + 7)(24m + 1)
+                                            1
+                       =
+                         3(d + 1)22r+4 (6s + 1)(3 · 22r+6 t + 7)
+                                             1
+                         +               2r+6
+                           3(d + 1)(3 · 2     t + 7)(24m + 1)
+                                            1
+                         +           2r+4
+                                                              .                           (5.38)
+                           3(d + 1)2      (6s + 1)(24m + 1)
+
+     Theorem 5.3 When m is in (5.36), the Erdös-Straus equation (5.38) holds.
+
+
+
+
+                                                  27
+5.4      j = 22r+2 (6s + 5) and ℓ = 3 · 22r+4 t + 1
+In this case,
+ 6m+j +ℓ+1 = 6m+22r+2 (6s+5)+3·22r+4 t+2 = 6(m+22r+3 t))+22r+2 (6s+5)+2. (5.39)
+Now (5.3) becomes,
+                 6(m + 22r+3 t)) + 22r+2 (6s + 5) + 2 ≡ 0 (mod 22r+4 (6s + 5));            (5.40)
+equivalently,
+                 3(m + 22r+3 t)) + 22r+1 (6s + 5) + 1 ≡ 0 (mod 22r+3 (6s + 5)).            (5.41)
+     Note
+      3(m + 22r+3 t)) + 22r+1 (6s + 5) + 1 ≡ 22r+4 (6s + 5) (mod 22r+3 (6s + 5)).          (5.42)
+So
+                   3(m + 22r+3 t)) ≡ 22r+1 7(6s + 5) − 1 (mod 22r+3 (6s + 5)).             (5.43)
+        3(m + 22r+3 t) ≡ 3[22r+2 (7s + 6) − (22r+1 + 1)/3] (mod 22r+3 (6s + 5)).           (5.44)
+Hence
+               m + 22r+3 t ≡ 22r+2 (7s + 6) − (22r+1 + 1)/3 (mod 22r+3 (6s + 5)).          (5.45)
+Thus
+     m = 22r+3 (6s + 5)c + 22r+2 (7s − 2t + 6) − (22r+1 + 1)/3          for some c ∈ N.    (5.46)
+     Observe
+        ℑ2 = 4ℓ + 3 = 3 · 22r+6 t + 7,     6m + j + ℓ + 1 = (3c + 2)22r+4 (6s + 5).        (5.47)
+According to the second expression in (2.28) and (2.30),
+            (3 · 22r+6 t + 7)|((3c + 2)22r+4 (6s + 5)) =⇒ (3 · 22r+6 t + 7)|(3c + 2)       (5.48)
+                   =⇒ c = 22r+7 t + 4 + d(3 · 22r+6 t + 7)      for some d ∈ N.            (5.49)
+Hence
+ m = 22r+3 (6s + 5)(22r+7 t + 4 + d(3 · 22r+6 t + 7)) + 22r+2 (7s − 2t + 6) − (22r+1 + 1)/3 (5.50)
+and
+                     6m + j + ℓ + 1 = (3d + 2)22r+4 (6s + 5)(3 · 22r+6 t + 7).             (5.51)
+Therefore, (2.11) becomes
+                              4                            1
+                                   =              2r+4
+                          24m + 1      (3d + 2)2       (6s + 5)(3 · 22r+6 t + 7)
+                                    22r+4 (6s + 5) + (3 · 22r+6 t + 7)
+                          +
+                            (3d + 2)22r+4 (6s + 5)(3 · 22r+6 t + 7)(24m + 1)
+                                              1
+                        =
+                          (3d + 2)22r+4 (6s + 5)(3 · 22r+6 3t + 7)
+                                              1
+                          +               2r+6
+                            (3d + 2)(3 · 2     t + 7)(24m + 1)
+                                             1
+                          +           2r+4
+                                                               .                           (5.52)
+                            (3d + 2)2      (6s + 5)(24m + 1)
+
+     Theorem 5.4 When m is in (5.50), the Erdös-Straus equation (5.52) holds.
+
+
+                                                 28
+5.5      j = 22r+2 (6s + 5) and ℓ = 3 · 22r+4 t + 3
+In this case,
+
+6m + j + ℓ + 1 = 6m + 22r+2 (6s + 5) + 3 · 22r+4 t + 4 = 6[m + 22r+2 (s + 2t) + (5 · 22r+1 + 2)/3].
+                                                                                            (5.53)
+Now (5.3) becomes,
+
+                6[m + 22r+2 (s + 2t) + (·22r+1 + 2)/3] ≡ 0 (mod 22r+4 (6s + 5));            (5.54)
+
+equivalently,
+
+           3[m + 22r+2 (s + 2t) + (5 · 22r+1 + 2)/3] ≡ 0 (mod 22r+3 (6s + 5)).              (5.55)
+
+So
+                m + 22r+2 (s + 2t) + (5 · 22r+1 + 2)/3 ≡ 0 (mod 22r+3 (6s + 5)).            (5.56)
+Thus
+
+     m = 22r+3 (6s + 5)c − 22r+2 (s + 2t) − (5 · 22r+1 + 2)/3      for some 0 < c ∈ N.      (5.57)
+
+Note
+
+          ℑ2 = 4ℓ + 3 = 3 · 22r+6 t + 15,   6m + j + ℓ + 1 = 3 · 22r+4 (6s + 5)c.           (5.58)
+
+      According to the second expression in (2.28) and (2.30),
+
+                               (22r+6 3t + 15)|(3 · 22r+4 (6s + 1)c)                        (5.59)
+
+                        =⇒ c = (d + 1)(2r+6 t + 5)       for some d ∈ N.                    (5.60)
+Hence
+
+        m = (d + 1)22r+3 (6s + 5)(22r+6 t + 5)d − 22r+2 (s + 2t) − (5 · 22r+1 + 2)/3        (5.61)
+
+and
+                    6m + j + ℓ + 1 = (d + 1)22r+4 (6s + 5)(3 · 22r+4 t + 15)d.              (5.62)
+Therefore, (2.11) becomes
+                             4                            1
+                                   =
+                         24m + 1      (d + 1)22r+4 (6s + 5)(3 · 22r+6 t + 15)
+                                    2r+4
+                                   2     (6s + 5) + (3 · 22r+6 t + 15)
+                         +
+                           (d + 1)22r+4 (6s + 5)(3 · 22r+6 t + 15)(24m + 1)
+                                             1
+                       =          2r+4
+                         (d + 1)2      (6s + 1)(3 · 22r+6 t + 15)
+                                              1
+                         +               2r+6
+                           (d + 1)(3 · 2      t + 15)(24m + 1)
+                                            1
+                         +          2r+4
+                                                               .                            (5.63)
+                           (d + 1)2      (6s + 5)d(24m + 1)
+
+
+      Theorem 5.5       When m is in (5.61), the Erdös-Straus equation (5.63) holds.
+
+
+
+                                                29
+5.6     j = 22r+1 (6s + 1) and ℓ = 3 · 22r+3 t + 1
+In this case,
+ 6m+j +ℓ+1 = 6m+22r+1 (6s+1)+3·22r+3 t+2 = 6(m+22r+2 t)+22r+1 (6s+1)+2. (5.64)
+Now (5.3) becomes,
+                 6(m + 22r+2 t) + 22r+1 (6s + 1) + 2 ≡ 0 (mod 22r+3 (6s + 1));                  (5.65)
+equivalently,
+                  3(m + 22r+2 t) + 22r (6s + 1) + 1 ≡ 0 (mod 22r+2 (6s + 1)).                   (5.66)
+     Note
+        3(m + 22r+2 t) + 22r (6s + 1) + 1 ≡ 22r+3 (6s + 1) (mod 22r+2 (6s + 1))                 (5.67)
+                  =⇒ 3(m + 22r+2 t) ≡ 22r 7(6s + 1) − 1 (mod 22r+2 (6s + 1))                    (5.68)
+                     2r+2              2r+1                 2r               2r+2
+      =⇒ 3(m + 2            t) ≡ 3[2          (7s + 1) + (2 − 1)/3] (mod 2          (6s + 1))   (5.69)
+         =⇒ m + 22r+2 t ≡ 22r+1 (7s + 1) + (22r − 1)/3. (mod 22r+2 (6s + 1))                    (5.70)
+So
+     m = c(22r+2 (6s + 1)) + 22r+1 (7s − 2t + 1) + (22r − 1)/3              for some c ∈ N.     (5.71)
+     Now
+       ℑ2 = 4ℓ + 3 = 3 · 22r+5 t + 7,            6m + j + ℓ + 1 = 3(3c + 2)22r+3 (6s + 1).      (5.72)
+According to the second expression in (2.28) and (2.30),
+           (3 · 22r+5 t + 7)|(3(3c + 2)22r+3 (6s + 1)) =⇒ (3 · 22r+5 t + 7)|(3c + 2)            (5.73)
+                   =⇒ c = 22r+6 t + 4 + d(3 · 22r+5 t + 7)           for some d ∈ N.            (5.74)
+Hence
+ m = 22r+2 (6s + 1)(22r+6 t + 4 + d(3 · 22r+5 t + 7)) + 22r+1 (7s − 2t + 1) + (22r − 1)/3 (5.75)
+and
+                    6m + j + ℓ + 1 = 3(3d + 2)22r+3 (6s + 1)(3 · 22r+5 t + 7).                  (5.76)
+Therefore, (2.11) becomes
+                             4                              1
+                                  =                2r+3
+                         24m + 1      3(3d + 2)2        (6s + 1)(3 · 22r+5 t + 7)
+                                    22r+3 (6s + 1) + (3 · 2r+5 t + 7)
+                         +
+                           3(3d + 2)22r+3 (6s + 1)(3 · 22r+5 t + 7)(24m + 1)
+                                             1
+                       =            2r+3
+                         3(3d + 2)2      (6s + 1)(3 · 2r+5 t + 7)
+                                              1
+                         +                 2r+5
+                           3(3d + 2)(3 · 2      t + 7)(24m + 1)
+                                             1
+                         +            2r+3
+                                                                .                               (5.77)
+                           3(3d + 2)2      (6s + 1)(24m + 1)
+
+     Theorem 5.6         When m is in (5.75), the Erdös-Straus equation (5.77) holds.
+
+
+                                                       30
+5.7     j = 22r+1 (6s + 1) and ℓ = 3 · 22r+3 t + 3
+In this case,
+
+ 6m+j +ℓ+1 = 6m+22r+1 (6s+1)+3·22r+3 t+4 = 6[m+22r+1 (s+2t)+(22r +2)/3]. (5.78)
+
+Now (5.3) becomes,
+
+                6[m + 22r+1 (s + 2t) + (22r + 2)/3] ≡ 0 (mod 22r+3 (6s + 1));        (5.79)
+
+equivalently,
+
+                3[m + 22r+1 (s + 2t) + (22r + 2)/3] ≡ 0 (mod 22r+2 (6s + 1)).        (5.80)
+
+So
+                 m + 22r+1 (s + 2t) + (22r + 2)/3 ≡ 0 (mod 22r+2 (6s + 1)).          (5.81)
+Thus
+
+        m = 22r+2 (6s + 1)c − 22r+1 (s + 2t) − (22r + 2)/3.        for some c ∈ N.   (5.82)
+
+Note
+
+         ℑ2 = 4ℓ + 3 = 3 · 22r+5 t + 15,   6m + j + ℓ + 1 = 3 · 22r+3 (6s + 1)c.     (5.83)
+
+According to the second expression in (2.28) and (2.30),
+
+                             (3 · 22r+5 t + 15)|(3 · 22r+3 (6s + 1)c)                (5.84)
+
+                      =⇒ c = (d + 1)(2r+5 t + 5)         for some d ∈ N.             (5.85)
+Hence
+
+         m = (d + 1)22r+2 (6s + 1)(22r+5 t + 5) − 22r+1 (s + 2t) − (22r + 2)/3       (5.86)
+
+and
+                   6m + j + ℓ + 1 = (d + 1)22r+3 (6s + 1)(3 · 22r+5 t + 15).         (5.87)
+Therefore, (2.11) becomes
+                           4                             1
+                                 =           2r+3
+                       24m + 1      (d + 1)2      (6s + 1)(3 · 22r+5 t + 15)
+                                 22r+3 (6s + 1) + (3 · 2r+5 t + 15)
+                       +
+                         (d + 1)22r+3 (6s + 1)(3 · 22r+5 t + 15)(24m + 1)
+                                          1
+                     =          2r+3
+                       (d + 1)2      (6s + 1)(3 · 2r+5 t + 15)
+                                           1
+                       +
+                         (d + 1)(3 · 2r+5 t + 15)(24m + 1)
+                                          1
+                       +          2r+3
+                                                             .                       (5.88)
+                         (d + 1)2      (6s + 1)d(24m + 1)
+
+
+     Theorem 5.7 When m is in (5.86), the Erdös-Straus equation (5.88) holds.
+
+
+
+                                               31
+5.8     j = 22r+1 (6s + 5) and ℓ = 3 · 22r+3 t + 1
+In this case,
+
+ 6m+j+ℓ+1 = 6m+22r+1 (6s+5)+3·22r+3 t+2 = 6[m+22r+1 (s+2t)+(5·22r +1)/3]. (5.89)
+
+Now (5.3) becomes,
+
+                6[m + 22r+1 (s + 2t) + (5 · 22r + 1)/3] ≡ 0 (mod 22r+3 (6s + 5));          (5.90)
+
+equivalently,
+
+                3[m + 22r+1 (s + 2t) + (5 · 22r + 1)/3] ≡ 0 (mod 22r+2 (6s + 5)).          (5.91)
+
+So
+                  m + 22r (s + 2t) + (5 · 22r + 1)/3 ≡ 0 (mod 22r+2 (6s + 5)).             (5.92)
+Thus
+
+       m = 22r+2 (6s + 5)c − 22r+1 (s + 2t) − (5 · 22r + 1)/3            for some c ∈ N.   (5.93)
+
+Note
+
+         ℑ2 = 4ℓ + 3 = 3 · 22r+5 t + 7,     6m + j + ℓ + 1 = 3 · 22r+3 (6s + 5)c.          (5.94)
+
+According to the second expression in (2.28) and (2.30),
+
+                               (3 · 22r+5 t + 7)|(3 · 22r+3 (6s + 1)c)                     (5.95)
+
+                      =⇒ c = (d + 1)(3 · 22r+5 t + 7)        for some d ∈ N.               (5.96)
+Hence
+
+       m = (d + 1)22r+2 (6s + 5)(3 · 22r+5 t + 7) − 22r+1 (s + 2t) − (5 · 22r + 1)/3       (5.97)
+
+and
+                    6m + j + ℓ + 1 = 3(d + 1)22r+3 (6s + 5)(3 · 22r+5 t + 7).              (5.98)
+Therefore, (2.11) becomes
+               4                            1
+                    =             2r+3
+           24m + 1      3(d + 1)2      (6s + 5)(3 · 22r+5 t + 7)
+                      22r+3 (6s + 5) + (3 · 2r+5 t + 7)
+           +
+             3(d + 1)22r+3 (6s + 5)(3 · 22r+5 t + 7)(24m + 1)
+                              1                                     1
+         =           2r+3               r+5
+                                                   +             2r+5
+           3(d + 1)2      (6s + 5)(3 · 2 t + 7) 3(d + 1)(3 · 2        t + 7)(24m + 1)
+                              1
+           +                                    .                                     (5.99)
+             3(d + 1)22r+3 (6s + 5)(24m + 1)
+
+
+     Theorem 5.8        When m is in (5.97), the Erdös-Straus equation (5.99) holds.
+
+
+
+
+                                                 32
+5.9    Section Summary
+In the above sections, m = g(x, d, y) and ℑ2 = h(y) are integral polynomials, where
+y = 2r+1 t, y = 22+1 t or y = 22r+2 t. If we change y to any positive integer, they still
+give a solution of the Erdös-Straus equation. In summary, we have the following table of
+solutions:
+
+
+                                        Table 5.6
+
+
+                                    m                                         ℑ1            ℑ2
+           (d + 1)2r+2 (2x + 1)(24y + 23) − y − 2r (2x + 1) − 1         2r+3 (6x + 3)    24y + 23
+            2r (2x + 1)[4(16y + 15 + d(24y + 23)) + 1] − y − 1          2r+3 (2x + 1)    24y + 23
+     (d + 1)22r+3 (6x + 1)(24y + 7) − 2y − 22r+2 x − (22r+1 + 1)/3      22r+4 (6x + 1)    24y + 7
+ 22r+2 [2(6x + 5)(16y + 4 + d(24y + 7)) + 7x + 6] − y − (22r+1 + 1)/3   22r+4 (6x + 5)    24y + 7
+      (d + 1)22r+3 (6x + 5)(8y + 5) − y − 22r x − (5 · 22r+1 + 2)/3     22r+4 (6x + 5)   24y + 15
+  22r+1 [2(6x + 1)(16y + 4 + d(24y + 7)) + 7x + 1] − y + (22r − 1)/3    22r+3 (6x + 1)    24y + 7
+        (d + 1)22r+2 (6x + 1)(8y + 5) − y − 22r+1 x − (22r + 2)/3       22r+3 (6x + 1)   24y + 15
+     (d + 1)22r+2 (6x + 5)(24y + 7) − y − 22r+1 x − (3 · 22r + 1)/3     22r+3 (6x + 5)    24y + 7
+
+
+
+
+References
+ [1] K. Bradford, A note on the Erdös-Straus conjecture, Integers 21 (2021), Paper No.
+     A24, 10pp.
+ [2] M. Bright and D. Loughran, Braues-Manin obstruction for Erdös-Straus surfaces,
+     Bull. Lond. Math. Soc. 52 (2020), no. 4, 746–761.
+ [3] C. Elscholtz and T. Tao, Counting the number of solutions to the equations on unit
+     fractions, J. Aust. Math. Soc. 94 (2013), 50–105.
+ [4] T. R. Hagedon, A proof of a conjecture on Egyptian fractions, Amer. Math. Monthly
+     107 (2000), no. 1, 62–63.
+ [5] J. Huang and R. Vaughan, Mean value theorems for binary Egyptian fractions, J.
+     Number Theory 121 (2011), no. 9, 1641–1656.
+ [6] J. Huang and R. Vaughan, Mean value theorems for binary Egyptian fractions II,
+     Acta Arith. 115 (2012), no. 3, 287–296.
+ [7] J. Huang and R. Vaughan, On the exceptional set for binary Egyptian fractions,
+     Bull. Lond. Math. Soc. 45 (2013), no. 4. 861–874.
+ [8] B. Howerton, The wild primes formula sheet, personal communication, 12 June 2026.
+ [9] C. Jia, The estimate for mean values on prime numbers relative to 4/n = 1/n1 +
+     1/n2 + 1/n3 , Sci. China: Math. 55 (3), (2012), 465–474.
+[10] C. Jia, Mean value from representation of a rational number as sum of two Egyptina
+     fractions, J. Number Theory 132 (2012), no. 4, 701–713.
+
+                                              33
+[11] E. J. Ionascu and A. Wilson, On the Erdös-Straus conjecture, Rev. Roumaine Math.
+     Pures Appl. 56 (2011), no. 1, 21–30.
+[12] I. Kotsireas, The Erdös-Straus conjecture on Egyptian fractions, Paul Erdös and his
+     mathematics (Budapest, 1999), 140–144, János Nolgai Math. Soc. Budapest, 1999.
+[13] D. Li, On the equation 4/n = 1/x + 1/y + 1/z, J. Number Theory 13 (1981), no. 4,
+     485–494.
+[14] S. Maiti, A study on Erdös-Straus conjecture on Diophantime equation n4 = x1 + y1 + z1 ,
+     arXiv: 2010.00975v1 [math.GM] 30 Dec 2020.
+
+[15] L. J. Mordell, Diophantime Equations, Academic Press, London/New York, 1969.
+[16] S. Prugsapitak, The Egyptian fraction of the form a1 + 1b = q−1
+                                                                  pq
+                                                                     , Int. J. Math. Comput.
+     Sci. 18 (2023), no. 4, 595–597.
+[17] L. Antonio Rosati, Sull’equazione diofantea 4/n = 1/x1 + 1/x2 + 1/x3 , Boll. Uni.
+     Mat. Ital. (3) 9 (1954), 59–63.
+[18] J. W. Sander, On 4/n = 1/x + 1/y + 1/z and Rosser’s sieve, Acta Arith. 59 (1991),
+     no. 2, 183–204.
+[19] J. W. Sander, On 4/n = 1/x + 1/y + 1/z and Iwanniec’s half-dimensional sieve, J.
+     Number Theory 46 (1994), no. 2, 123–136.
+
+[20] J. W. Sander, Egyptian fractions and the Erdös-Straus conjecture, Nieuw Arch. Wisk
+     (4) 15 (1997), no. 1-2, 43–50.
+
+[21] J. D. Serna, Partial proof without words: shapping some cases of the Erdös-Straus
+     conjecture, College. Math. J. 40 (2015), no. 3, 181.
+
+[22] S. Subburam and A. Togb’e, A note on Erdös-Straus conjecture, Period Math. Hun-
+     gar. 72 (2016), no. 1, 43–49.
+
+[23] D. G. Terzi, On a conjecture by Erdös and Straus, Nordisk Tidsk. Informationsbe-
+     hindling (BIT) 11 (1971), 212–216.
+
+[24] R. C. Vaughan, On a problem of Erdös, Straus and Schinzel, Mathematika 17 (1970),
+     193–198.
+
+[25] W. A. Webb, On 4/n = 1/x + 1/y + 1/z, Proc. Amer. Math. Soc. 25 (1970), 578–584.
+[26] X. Xu, Congruence classes of supporting the Erdös-Straus conjecture I: tame solu-
+     tions, arXiv: 2605.2360[v] [math.NT] May 2026.
+
+
+   E-Mail: xiaoping@math.ac.cn
+
+
+
+
+                                             34
+

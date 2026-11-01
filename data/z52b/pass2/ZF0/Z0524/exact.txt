@@ -1,0 +1,23 @@
+q=5 N=1000000 x_steps=0 seconds=13.335
+r=1 admissible=200000 certified=199896 inherited=176696 unresolved=104 first_exact_failure=13
+r=2 admissible=199999 certified=199767 inherited=177017 unresolved=232 first_exact_failure=11
+r=3 admissible=200000 certified=199808 inherited=177017 unresolved=192 first_exact_failure=19
+r=4 admissible=200000 certified=199841 inherited=176673 unresolved=159 first_exact_failure=2
+q=7 N=1000000 x_steps=0 seconds=103.579
+r=1 admissible=142857 certified=142186 inherited=122870 unresolved=671 first_exact_failure=6
+r=2 admissible=142857 certified=142139 inherited=122606 unresolved=718 first_exact_failure=5
+r=3 admissible=142857 certified=142358 inherited=122751 unresolved=499 first_exact_failure=53
+r=4 admissible=142857 certified=141939 inherited=122460 unresolved=918 first_exact_failure=3
+r=5 admissible=142857 certified=142249 inherited=122167 unresolved=608 first_exact_failure=2
+r=6 admissible=142857 certified=141500 inherited=122851 unresolved=1357 first_exact_failure=29
+q=11 N=1000000 x_steps=0 seconds=421.919
+r=1 admissible=90909 certified=88774 inherited=74101 unresolved=2135 first_exact_failure=5
+r=2 admissible=90909 certified=87839 inherited=74452 unresolved=3070 first_exact_failure=10
+r=3 admissible=90909 certified=88990 inherited=74166 unresolved=1919 first_exact_failure=15
+r=4 admissible=90909 certified=88853 inherited=73564 unresolved=2056 first_exact_failure=9
+r=5 admissible=90909 certified=88662 inherited=74275 unresolved=2247 first_exact_failure=3
+r=6 admissible=90909 certified=88591 inherited=74209 unresolved=2318 first_exact_failure=19
+r=7 admissible=90909 certified=88982 inherited=74119 unresolved=1927 first_exact_failure=2
+r=8 admissible=90909 certified=89015 inherited=74356 unresolved=1894 first_exact_failure=7
+r=9 admissible=90909 certified=88625 inherited=74503 unresolved=2284 first_exact_failure=23
+r=10 admissible=90909 certified=88977 inherited=74170 unresolved=1932 first_exact_failure=6

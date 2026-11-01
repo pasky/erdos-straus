@@ -1,0 +1,85 @@
+{
+  "label": "EVIDENCE",
+  "definition": "select exponents of first ceil(omega(N)/2) prime factors of N=4Cp+1; label iff some assignment of remaining exponents yields d=-1 mod 4C",
+  "train_prime_max": 5000,
+  "test_prime_range": [
+    100001,
+    1000000
+  ],
+  "C_max": 8,
+  "train": {
+    "instances": 4380,
+    "mixed_instances": 887,
+    "auc": 0.999158467308819,
+    "methods": [
+      "learned",
+      "smallest_partial_divisor",
+      "seeded_random"
+    ],
+    "top1": [
+      1.0,
+      0.3697857948139797,
+      0.43291995490417134
+    ],
+    "MRR": [
+      1.0,
+      0.6575079186127664,
+      0.6600701409325985
+    ]
+  },
+  "test": {
+    "instances": 28928,
+    "mixed_instances": 7465,
+    "auc": 0.9857276937608129,
+    "methods": [
+      "learned",
+      "smallest_partial_divisor",
+      "seeded_random"
+    ],
+    "top1": [
+      0.9906229068988613,
+      0.3874079035498995,
+      0.45023442732752844
+    ],
+    "MRR": [
+      0.9948766199938337,
+      0.6660831499378049,
+      0.6739826283398039
+    ]
+  },
+  "test_by_remaining_slots": [
+    {
+      "remaining_prime_slots": 1,
+      "instances": 4351,
+      "top1": [
+        1.0,
+        0.34934497816593885,
+        0.4470236727189152
+      ]
+    },
+    {
+      "remaining_prime_slots": 2,
+      "instances": 3086,
+      "top1": [
+        0.9779650032404407,
+        0.4423201555411536,
+        0.45366169799092676
+      ]
+    },
+    {
+      "remaining_prime_slots": 3,
+      "instances": 28,
+      "top1": [
+        0.9285714285714286,
+        0.25,
+        0.5714285714285714
+      ]
+    }
+  ],
+  "paired_top1_gain_CI95": [
+    0.5909544541192231,
+    0.6170261219022103
+  ],
+  "seconds": 37.055551052093506,
+  "limitations": "No neural message passing; ranking only, exact suffix enumeration supplies labels. Factorization costs excluded from ranking quality. No ES existence claim."
+}

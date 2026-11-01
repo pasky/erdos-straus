@@ -1,0 +1,109 @@
+## Content from https://sites.google.com/view/integersconference2025
+
+Title: Integers Conference
+
+URL Source: https://sites.google.com/view/integersconference2025
+
+Markdown Content:
+I NT EG ER S
+
+CONFERENCE 2025
+
+In Honor of the 80th Birthdays of
+
+Melvyn Nathanson and Carl Pomerance
+
+May 14- 17, 2025
+
+University of Georgia
+
+Athens, Georgia
+
+The Editors of Integers and the Department of Mathematics at the University of Georgia are pleased to announce the Integers Conference 2025. The Integers conferences are international conferences held for the purpose of bringing together mathematicians, students, and others interested in number theory and combinatorics.
+
+Plenary Speakers
+
+*   Jean-Marc Deshouillers, University of Bordeaux
+
+*   Steve Fan, University of Georgia
+
+*   Carrie Finch-Smith, Washington and Lee University
+
+*   Alex Iosevich, University of Rochester
+
+*   Jeffrey Lagarias, University of Michigan
+
+*   Jared Duker Lichtman, Stanford University
+
+*   Nathan McNew, Towson University
+
+*   Kevin O'Bryant, College of Staten Island, City University of New York
+
+*   David Ross, University of Hawaii
+
+*   Katherine Stange, University of Colorado Boulder
+
+*   Lola Thompson, Utrecht University
+
+*   Caroline Turnage-Butterbaugh, Carleton College
+
+Contributed Talks:
+
+We welcome contributed talks in number theory, combinatorics, and combinatorial game theory. All contributed talks will be scheduled for 20-minute time slots. Note: as there is a ceiling on the number of talks we are able to accommodate, we cannot guarantee that all requests to present a talk will be honored. Those submitting abstracts will be notified regarding approval of their talk within one week of the abstract submission. To submit your abstract, click on the "Abstract Submission Form" link below.
+
+**UPDATE**:We have received a large number of requests to speak. For this reason, for those who have not yet made such a request, we ask that they do so by March 3, via an email to [IntegersJournal@gmail.com](mailto:IntegersJournal@gmail.com) , giving the title of the talk.The deadline for submission of abstracts is April 7, 2025.
+
+[List of Speakers](https://sites.google.com/d/1fa1RB5xLJpLu2RkSsXQ0zY-9zCuFissL/p/1B0AUPL-NjR0q833NZ6VhVws2Ze4CIw7A/edit)
+
+Financial Support:
+
+Limited financial support for presenters may be available. Send requests for support to IntegersJournal@gmail.com. Student applications for support should include a brief letter of endorsement from the student's advisor. The deadline for requests for financial support is March 3, 2025.
+
+Lodging and Hotel Reservations:
+
+Conference attendees must make their own hotel reservations. A block of rooms has been set aside for conference attendees at the Holiday Inn Express at a reduced rate of $159 per night. To obtain the reduced rate: telephone the Holiday Inn Express (706-546-8122) and say that you are with the "UGA Math Integers Conference." Note that this block of special-rate rooms will be held for the conference only until April 16. The Holiday Inn Express is about 1 mile (a 20-minute walk) to the site of the conference talks on the University of Georgia campus, and is conveniently located in downtown Athens, within walking distance to many restaurants. The Holiday Inn Express offers a complimentary hot breakfast.
+
+There are several other nearby hotels in addition to the Holiday Inn Express, including: Hampton Inn, Hilton Garden Inn, Fairfield Inn, and Springhill Suites. Making reservations far in advance is recommended for any of these.
+
+Conference Banquet:
+
+The conference banquet will be held on Thursday evening, 6:30 - 9:00 PM. The cost is $15 for students and $30 for everyone else. More information and banquet tickets are available at the following webpage: [Integers Conference Banquet](https://sites.google.com/view/integersconference2025/conference-banquet)
+
+Notice:  The Banquet has been sold out
+
+Registering for Conference:
+
+All participants, including students, should register at the following link: [Register Here](https://estore.uga.edu/C27063_ustores/web/store_main.jsp?STOREID=519&SINGLESTORE=true) The registration fee is $60, except for students for whom the registration fee is waived.
+
+Conference Proceedings:
+
+The journal Integers: Electronic Journal of Combinatorial Number Theory plans to publish the conference proceedings as a special volume. Details are available here: [Proceedings Information](https://sites.google.com/view/integersconference2025/proceedings-announcement)
+
+Travel:
+
+The closest airport to the University of Georgia is Hartsfield-Jackson International Airport in Atlanta. It is approximately 75 miles from Athens. In addition to numerous car rental companies at the airport, there are also shuttle services between the airport and Athens - for example, [Groome Transportation](https://groometransportation.com/athens/?&sd_client_id=9a219212-9e62-4280-a16d-0da3d2291acf)makes frequent runs to Athens every day. Other options from the airport include Uber and Lyft. Directions to the conference venue on campus, and parking information, will be sent to all registrants.
+
+Deadlines:
+
+*   Application for Financial Support: March 2, 2025
+
+*   Request to Present a Talk: March 3, 2025
+
+*   Abstract Submission: April 7, 2025
+
+*   Holiday Inn Express Hotel Room Reservations: April 16, 2025
+
+*   Purchase of Banquet Tickets: April 23, 2025
+
+Organizing Committee:
+
+Bruce Landman, Neil Lyall, Paul Pollack, Giorgis Petridis, Dino Lorenzini, Matthew Just, David Leach, Florian Luca, Melvyn Nathanson, Jaroslav Nesetril, Richard Nowakowski, Aaron Robertson
+
+Sponsors:
+
+This conference is made possible by the generous support of the U.S. National Science Foundation, the Number Theory Foundation, and the University of Georgia.
+
+Further Information:
+
+Questions may be directed to Bruce Landman at IntegersJournal@gmail.com
+

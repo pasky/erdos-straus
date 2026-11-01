@@ -1,0 +1,1133 @@
+                           CANT 2025
+                                        .
+         Twenty-third Annual Workshop on
+      Combinatorial and Additive Number Theory
+                        CUNY Graduate Center
+                          May 20 - 23, 2025
+
+                                Abstracts
+
+(1) Carlo Francisco E. Adajar, University of Georgia
+    Email: paco@uga.edu
+    Title: On the distribution of vp (σ(n))                              P
+    Abstract: For a positive integer m and a prime p, we write σ(m) := d|m d
+    for the sum of the divisors of m, and vp (m) := max{k ∈ Z≥0 : pk | m} for
+    the p-adic valuation of m, i.e., the exponent of p in the prime factorization
+    of m. For each prime p, we give an asymptotic expression for the count
+
+                           #{n ≤ x : vp (σ(n)) = k}
+
+    as x → ∞, uniformly for k  log log x. We then deduce an asymptotic for
+    the count of n ≤ x such that vp (σ(n)) < vp (n) as x → ∞.
+    This talk is based on ongoing work with Paul Pollack.
+
+(2) Samuel Allen Alexander, U.S. Securities and Exchange Commission
+    Title: Hindman’s theorem and the hyperreals
+    Email: samuelallenalexander@gmail.com
+    Abstract: Hindman’s theorem says that if the natural numbers are colored
+    using finitely many colors, then there exists some color c and some infi-
+    nite S ⊆ N such that for every finite nonempty subset {n1 , . . . , nk } of S,
+    n1 + · · · + nk is color c. We present a proof using hyperreal numbers, and
+    a stronger version of the theorem involving hyperreal numbers.
+    Some of this material was previously published in 2024 in the Journal of
+    Logic and Analysis.
+
+(3) Daniel Baczkowski, University of Findlay
+    Email: baczkowski@findlay.edu
+    Title: Diophantine equations involving arithmetic functions and factorials
+    Abstract: F. Luca proved for any fixed rational number α > 0 that the Dio-
+    phantine equations α m! = f (n!), where f is either the Euler function, the
+    divisor sum function, or the function counting the number of divisors, have
+    finitely many integer solutions in m and n. In joint work with Novaković
+    we generalize the mentioned result and show that Diophantine equations
+    of the form α m1 ! · · · mr ! = f (n!) have finitely many integer solutions, too.
+    In addition, we do so by including the case f is the sum of k th powers of
+    divisors function. Moreover, the same holds by replacing some of the fac-
+    torials with certain examples of Bhargava factorials.
+
+                                       1
+(4) Paul Baginski, Fairfield University
+    Email: baginski@gmail.com
+    Title: The plus-minus Davenport constant of some finite abelian groups
+    Abstract: Let G be a finite abelian group, written additively. A sequence
+    S = {g1 , . . .P
+                   , gn } of not necessarily distinct elements of G is a zero-sum
+                     n
+    sequence if i=1 gi = 0. The (classical) Davenport constant D(G) is the
+    least number n such that every sequence S of length n or greater has a
+    zero-sum subsequence. The Davenport constant has long been studied due
+    to its applications to algebraic number theory and other branches of math-
+    ematics. Many variations of the Davenport constant have been proposed,
+    including one known as the plus-minus Davenport constant D± (G), which
+    has applications to combinatorics. Specifically, a sequence S = {g1 , . . . , gn }
+    of not necessarily distinct elements P  of G is a plus-minus zero-sum sequence
+                                              n
+    if there are λi ∈ {1, −1} such that i=1 λi gi = 0. The plus-minus Daven-
+    port constant is the least number n such that every sequence S of length
+    n or greater has a plus-minus zero-sum subsequence. In this talk, we will
+    give an update on the current knowledge about the plus-minus Davenport
+    constant D± (G) for several finite abelian groups G.
+
+(5) Gautami Bhowmik, Université Lille, France
+    Email: gautami.bhowmik@univ-lille.fr
+    Title: On the Telhcirid problem
+    Abstract: We consider the digital reverse of integers, in particular those
+    of primes. A palindromic prime number is a popular example of a prime
+    whose reverse is also a prime and the infinitude of such primes is one among
+    the open conjectures in the area. We will discuss reversed primes in arith-
+    metic progression built on ideas of Mauduit-Rivat and Maynard.
+    This is joint work with Yuta Suzuki.
+
+(6) Jörg Brüdern, Universität Göttingen, Germany
+    Email: jbruede@gwdg.de
+    Title: Expander estimates for cubes
+    Abstract: Suppose that A is a subset of the natural numbers. The supre-
+    mum α of all t with
+                      lim sup N −t #{a ∈ A : a ≤ N } > 0
+    is the exponential density of A.
+        We examine what happens if one adds a power to A. Fix k ≥ 2, and let
+    βk be the exponential density of
+                           {xk + a : x ∈ N, a ∈ A}.
+    It is easy to see that β2 = min(1, 21 + α). One might guess that
+                                          1
+                              βk = min(1,   + α)                             (∗)
+                                          k
+    holds for all k, but we are far from a proof. All current world records for
+    this problem are due to Davenport, and are 80 years old. In this interim
+    report on ongoing work with Simon Myerson, we describe a method for
+    k = 3 that improves Davenport’s results when α > 3/5, and that confirms
+    (*) in an interval (α0 , 1]. A concrete value for α0 will be released during
+    the talk, and if time permits, we also discuss the perspectives to generalize
+    the approach to larger values of k.
+
+(7) Jonathan Chapman, University of Warwick, UK
+    Email: Jonathan.Chapman@warwick.ac.uk
+    Title: Counting commuting integer matrices
+    Abstract: Consider the set of pairs of d × d matrices (A, B) whose entries
+    are all integers with absolute value at most N . We call (A, B) a commut-
+    ing pair if AB = BA. Browning, Sawin, and Wang recently showed that
+                                                        2    2
+    the number of commuting pairs is at most Od (N d +2− d+1 ). They further
+                                              2
+    conjectured that the lower bound Ωd (N d +1 ), which comes from letting A
+    or B be a multiple of the identity matrix, should be sharp. In this talk, I
+    will discuss progress on the cases d = 2 and d = 3, where we show that this
+    conjecture holds. I will also demonstrate how our approach relates counting
+    commuting pairs of matrices to the study of restricted divisor correlations
+    in number theory.
+    Joint work with Akshat Mudgal (University of Warwick).
+
+(8) Scott Chapman, Sam Houston State University
+    Email: stc008@shsu.edu
+    Title: Betti elements and non-unique factorizations
+    Abstract: Let M be a commutative cancellative reduced atomic monoid
+    with set of atoms (or irreducibles) A(M ). Given a nonunit x in M , let
+    Z(x) represent the set of factorizations of x into atoms. Define a graph ∇x
+    whose vertex set is Z(x) where two vertices are joined by an edge if these
+    factorizations share an atom. Call x a Betti element of M if the graph ∇x
+    is disconnected. Betti elements have proven to be a powerful tool in the
+    study of nonunique factorizations of elements in monoids. In particular,
+    over the past several years many papers have used Betti elements to study
+    factorizaton properties in affine monoids (i.e., finitely generated additive
+    submonoids of Nk0 for some positive integer k). Several strong results have
+    been obtained when M is a numerical monoid (i.e., k = 1 above). In this
+    talk, we will review the basic properties of Betti elements and some of the
+    results regarding affine monoids mentioned above. We will then extend
+    this study to more general rings and monoids which are commutative and
+    cancellative. We focus on two cases: (I) when the monoid M has a single
+    Betti element, (II) when each atom of M divides every Betti element. We
+    call those monoids satisfying condition (II) as having full atomic support.
+    We show using elementary arguments that a monoid of type (I) is actually
+    of full atomic support. We close by showing for a monoid of full atomic
+    support that the catenary degree, the tame degree, and the omega primal-
+    ity constant (three well studied invariants in the nonunique factorization
+    literature) can be easily computed from the monoid’s set of Betti elements.
+
+(9) Shashi Chourasiya, University of New South Wales, Australia
+    Email: s.chourasiya@unsw.edu.au
+    Title: Power-free palindromes and reversed primes
+    Abstract: Several long-standing conjectures in number theory are related
+     to the digital properties of integers. Historically, such problems have been
+     confined to the realm of elementary number theory, but recently huge break-
+     throughs have been made by applying deep analytical techniques. In this
+     talk, we discuss some very recent results on this topic, focusing on palin-
+     dromes and reversed primes. We first establish that for all bases b ≥ 26000,
+     there exist infinitely many prime numbers p for which {←    −
+                                                                 p } is square-free.
+     Furthermore, we demonstrate the existence of infinitely many palindromes
+     (with n = ← −) that are cube-free.
+                 n
+     This is based on joint work with Daniel R. Johnston.
+
+(10) Hopper Clark, Bates College
+     Email: hclark2@bates.edu
+     Title : Patterns among Ulam words
+     Abstract: In 1964, Stanislaw Ulam wrote about the Ulam sequence: begin-
+     ning with 1 and 2, the next term is the smallest unique sum of two different
+     earlier terms. In 2020, the parallel notion of the set of Ulam words, U, was
+     introduced by Bade, Cui, Labelle, and Li, which looks at concatenations of
+     words in F2 , the free group on two generators. In this talk, we will discuss
+     patterns of words in U, touching on both proven results and conjectured
+     ones. We will see how these patterns come to life visually, and see how they
+     produce images such as the discrete Sierpı́nski triangle.
+
+(11) Taylor Daniels, Purdue University
+     Email: daniel84@purdue.edu
+     Title: Vanishing Legendre-17-signed partition numbers
+     Abstract: For odd primes p let χp (r) := ( pr ) denote the Legendre symbol.
+     With this, the Legendre-signed partition numbers, denoted p(n, χp ), are
+     then defined to be the coefficients appearing in the series expansion
+
+                p−1 ∞                            ∞
+                Y Y              1              X
+                                     mp+r
+                                          = 1 +     p(n, χp )q n .
+                r=1 m=0
+                        1 − χ p (r)q            n=1
+
+
+     It is known that: (1) one has p(n, χ5 ) = 0 for all n ≡ 2 (mod 10); and (2)
+     the sequences (p(n, χp ))n≥1 do not have such a periodic vanishing when-
+     ever p 6≡ 1 (mod 8) and p 6= 5. In this talk we discuss the recent result that
+     p(n, χ17 ) vanishes only when the input n is odd and 1 − 24n is congruent
+     to a quartic residue (mod 17), as well as a similar vanishing in the sequence
+     (p(n, −χ17 ))n≥1 .
+
+(12) Aritram Dhar, University of Florida
+     Email: aritramdhar@ufl.edu
+     Title: A bijective proof of an identity of Berkovich and Uncu
+     Abstract: The BG-rank BG(π) of an integer partition π is defined as
+
+                                BG(π) := i − j
+
+     where i is the number of odd-indexed odd parts and j is the number of
+     even-indexed odd parts of π. In a recent work, Fu and Tang ask for a
+     direct combinatorial proof of the following identity of Berkovich and Uncu
+                                                    
+                                       2k2 −k 2N + ν
+                     B2N +ν (k, q) = q
+                                               N + k q2
+
+     for any integer k and non-negative integer N where ν ∈ {0, 1}, BN (k, q) is
+     the generating function for partitions into distinct
+                                                          parts less than or equal
+                                              a+b
+     to N with BG-rank equal to k and                 is a Gaussian binomial coef-
+                                                b q
+     ficient. In this talk, I will give a bijective proof of Berkovich and Uncu’s
+     identity along the lines of Vandervelde and Fu and Tang’s idea.
+     This is joint work with Avi Mukhopadhyay.
+
+(13) Robert W. Donley, Jr., CUNY and Institute for Advanced Study
+     Email: rdonley@qcc.cuny.edu
+     Title: A classification for 1-factorizations of small order
+     Abstract: A graph G admits a 1-factorization if its edge set decomposes into
+     disjoint perfect matchings. When G is bipartite, the equivalency classes of
+     such graphs are determined by orbits of 0/1-semi-magic squares under row
+     and column permutations. By the Birkhoff-von Neumann theorem, such
+     matrices are sums of permutation matrices. In a manner similar to the
+     construction of standard Young tableaux, we introduce a path model for
+     the construction of bipartite 1-factorizations and classify those of small or-
+     der.
+
+(14) Dennis Eichhorn, University of California Irvine
+     Email: deichhor@uci.edu
+     Title: Open problems involving cranks for partition congruences
+     Abstract: Dyson famously conjectured, correctly, that his rank statistic
+     witnesses Ramanujan’s first two congruences for p(n), and that there exists
+     a “crank” statistic that witnesses Ramanujan’s congruence modulo 11 in a
+     similar fashion. As it turns out, this phenomenon of congruence-witnessing
+     statistics, which we now also call “cranks” in homage to Dyson, also occurs
+     in other contexts within partition theory. In this talk, we give several open
+     problems and conjectures in this area, highlighting some recent develop-
+     ments along the way.
+     This talk will include joint work with several coauthors.
+
+(15) Jinhui Fang, Nanjing Normal University, China
+     Email: fangjinhui1114@163.com
+     Title: On bounded unique representation bases
+     Abstract: For a nonempty set A of integers and an integer n, let rA (n) be
+     the number of representations of n = a + a0 with a ≤ a0 and a, a0 ∈ A, and
+     let dA (n) be the number of representations of n = a − a0 with a, a0 ∈ A. In
+     1941, Erdős and Turán posed the profound conjecture: If A is a set of pos-
+     itive integers such that rA (n) ≥ 1 for all sufficiently large n, then rA (n) is
+     unbounded. In 2004, Nešetřil and Serra introduced the notion of bounded
+     sets and confirmed the Erdős-Turán conjecture for all bounded bases. In
+     2003, Nathanson considered the existence of the set A with logarithmic
+     growth such that rA (n) = 1 for all integers n. Recently, we prove that, for
+     any positive function l(x) with l(x) → 0 as x → ∞, there is a bounded
+     set A of integers such that rA (n) = 1 for all integers n and dA (n) = 1 for
+     all positive integers n, and A(−x, x) ≥ l(x) log x for all sufficiently large x,
+     where A(−x, x) is the number of elements a ∈ A with −x ≤ a ≤ x.
+     This is joint work with Prof. Yong-Gao Chen.
+
+(16) Daniel Benjamin Flores, Purdue University
+     Email: flore205@purdue.edu
+     Title:K-multimagic squares and magic squares of kth powers via the circle
+     method
+     Abstract: Here we investigate K-multimagic squares of order N . These
+     are N × N magic squares which remain magic after raising each element to
+     the kth power for all 2 ≤ k ≤ K. Given K ≥ 2, we consider the problem
+     of establishing the smallest integer N0 (K) for which there exist nontrivial
+     K-multimagic squares of order N0 (K).
+        Previous results on multimagic squares show that N0 (K) ≤ (4K − 2)K
+     for large K. We use the Hardy-Littlewood circle method to improve this to
+                           N0 (K) ≤ 2K(K + 1) + 1.
+     The intricate structure of the coefficient matrix poses significant technical
+     challenges for the circle method. We overcome these obstacles by general-
+     izing the class of Diophantine systems amenable to the circle method and
+     demonstrating that the multimagic square system belongs to this class for
+     all N ≥ 4. We additionally establish the existence of infinitely many N × N
+     magic squares of distinct kth powers as soon as
+                     N > 2 min{2k , dk(log k + 4.20032)e}.
+     This result marks progress toward resolving an open problem popularized
+     by Martin Gardner in 1996, which asks whether a 3 × 3 magic square of
+     distinct squares exists.
+
+(17) Jonathan Fraser, St. Andrews University, UK
+     Email: jmf32@st-andrews.ac.uk
+     Title: Averages of the Fourier transform in finite fields
+     Abstract: Discrete Fourier analysis is a useful tool in various counting prob-
+     lems in vector spaces over finite fields. I will mention some results in this
+     direction, with emphasis on a new approach based on quantifying Fourier
+     decay via a spectrum of exponents coming from certain Lp averages.
+
+(18) Pedro A. Garcia Sánchez, Universidad de Granada, Spain
+     Email: pedro@ugr.es
+     Title: Some problems related to the ideal class monoid of a numerical
+     semigroup
+     Abstract: Let S be a numerical semigroup (a submonoid of the set of non-
+     negative integers under addition such that max(Z\S) exists). A non-empty
+     set of integers I is said to be an ideal of S if I +S ⊆ I and I has a minimum.
+     If I and J are ideals of S, we write I ∼ J if there exists an integer z such
+     that I = z + J. The ideal class monoid of S is defined as the set of ideals of
+     S modulo this relation, where addition of two classes [I] and [J] is defined
+     as [I] + [J] = [I + J], with I + J = {i + j | i ∈ I, j ∈ J}.
+         An ideal I is said to be normalized if min(I) = 0. The set of normalized
+     ideals of S, denoted by I0 (S), is a monoid isomorphic to the ideal class
+     monoid of S [1].
+         It is known that if S and T are numericals semigroups for which I0 (S) is
+     isomorphic to I0 (T ), then S and T must be the same numerical semigroup
+     [4].
+         On I0 (S) we can define a partial order  as I  J if there exists
+     K ∈ I0 (S) such that I + K = J. We know that if S and T are nu-
+     merical semigroups with multiplicity three such that the poset (I0 (S), )
+     is isomorphic to the poset (I0 (T ), ), then S and T are the same numerical
+     semigroup [2]. However, if we remove the multiplicity three condition, this
+     poset isomorphsm problem is still open.
+         In [3], we study the case when the poset (I0 (S), ) is a lattice. We show
+     that this is the case if and only if the multiplicity of S is at most four.
+     References:
+     1. L. Casabella, M. D’Anna, P. A. Garcia Sánchez, Apéry sets and the ideal
+     class monoid of a numerical semigroup, Mediterr. J. Math. 21, 7 (2024).
+     2. P. A. Garcia Sánchez, The isomorphism problem for ideal class monoids
+     of numerical semigroups, Semigroup Forum 108 (2024), 365–376.
+     3. S. Bonzio, P. A. Garcia Sánchez, The poset of normalized ideals of nu-
+     merical semigroups with multiplicity three, to appear in Comm. Algebra.
+     4. S. Bonzio, P. A. Garcia Sánchez, When the poset of the ideal class
+     monoid of a numerical semigroup is a lattice, arXiv:2412.07281.
+
+(19) Val Gladkova, University of Cambridge, UK
+     Email: vg338@cam.ac.uk
+     Title: A lower bound for the strong arithmetic regularity lemma
+     Abstract: The strong regularity lemma is a combinatorial tool originally
+     introduced by Alon, Fischer, Krivelevich, and Szegedy in order to prove an
+     induced removal lemma for graphs. Conlon and Fox showed that for some
+     graphs, the strong regularity lemma must produce partitions of wowzer-
+     size. This talk will sketch a proof that a comparable lower bound must
+     hold for the arithmetic analogue of this lemma, in the setting of vector
+     spaces over finite fields.
+
+(20) N. Hegyvári, Eötvös University and Rényi Institute, Budapest
+     Email: hegyvari.norbert@renyi.hu
+     Title: Variants of Raimi’s theorem
+     Abstract: In 1968 Raimi proved the following intersection theorem:
+                                                                     Sr
+        There exists E ⊆ N such that, whenever r ∈ N and N = i=1 Di there
+     exist i ∈ {1, 2, . . . , r} and k ∈ N such that (Di + k) ∩ E is infinite and
+     (Di + k) \ E is infinite.
+        A new proof of the theorem is due to N. Hindman, then to Bergelson and
+     Weiss, and the generalization to the author. In the present talk, we give
+     an outline of the new proofs and the generalization and some variations are
+     discussed in different structures (e.g. in Zkn , in SL2 (Fp ).)
+        These variations are joint work with János Pach and Thang Pham.
+
+(21) Harald Helfgott, CNRS/Institut de Mathématiques de Jussieu, France
+     Email: harald.helfgott@gmail.com
+     Title: Explicit estimates for sums of arithmetic functions, or the optimal
+     use of finite informationPon Dirichlet series
+                                        −s
+     Abstract: Let F (s) =       n an n    be a Dirichlet series. Say we have an
+     analytic continuation of F (s), and information on the poles of F (s) with
+     |=s| ≤ T for some large constant T . What isPthe best way to use this
+     information to give explicit estimates on sums n≤x an ?
+     P The problem of giving explicit bounds on the Mertens function M (x) =
+        n≤x µ(n) illustrates how open this basic question was. One mightP
+                                                                            think
+     that bounding M (x) is essentially equivalent to estimating ψ(x) = n≤x Λ(n)
+     or the number of primes ≤ x. However, we have long had fairly satisfactory
+     explicit bounds on ψ(x)−x, whereas bounding M (x) well was a notoriously
+     recalcitrant problem.
+         We give an optimal way to use information on the poles of F (s) with
+     |=s| ≤ T . In particular, by means of our general, direct analytic approach,
+     we give bounds on the Mertens function much stronger than those in the
+     literature, while also substantially improving on estimates on ψ(x) for x of
+     moderate size.
+         We use functions of ”Beurling-Selberg” type – namely, optimal approxi-
+     mant due to Carneiro-Littmann and an optional majorant/minorant due to
+     Graham-Vaaler. Our procedure has points of contact with Wiener-Ikehara
+     and also with work of Ramana and Ramar, but does not rely on results in
+     the explicit analytic-number-theory literature.
+     Joint work with Andres Chirre.
+
+(22) Brian Hopkins, Saint Peter’s University
+     Email: bhopkins@saintpeters.edu
+     Title: Scaled Arndt compositions
+     Abstract: In 2013, Jörg Ardnt observed that integer compositions c1 + c2 +
+     · · · = n with c2i−1 > c2i for each positive i are counted by the Fibonacci
+     numbers. This was confirmed by the speaker and Tangboonduangjit in
+     2022 and we explored generalizations of this pair-wise condition including
+     c2i−1 > c2i + k for an affine parameter k. In the current work, a collabo-
+     ration with Augustine Munagi, we consider scaling parameters, integers s
+     and t, and resolve some cases of the general condition sc2i−1 > tc2i + k.
+     Techniques include generating functions and combinatorial proofs.
+
+(23) Robert Hough, Stony Brook University
+     Email: robert.hough@stonybrook.edu
+     Title: Lower order terms in the shape of cubic fields
+     Abstract: The ring of integers of a degree n number field may be viewed
+     as an n-dimensional lattice within the canonical embedding. Spectrally ex-
+     panding the space of lattices, we study the distribution of lattice shapes of
+     rings of integers when cubic fields are ordered by discriminant by studying
+     the Weyl sums testing the lattice shape against the real analytic Eisenstein
+     series and Maass cusp forms. In the case of Eisenstein series we identify a
+     lower order main term of order X 11/12 when fields of discriminant of order
+     X are counted with a smooth weight.
+     Joint work with Eun Hye Lee. Recent work of Lee and Ramin Tagloo-
+     Bighash promises to extend these ideas to integral orbits in general preho-
+     mogeneous vector spaces.
+
+(24) Sophie Huczynska, University of St. Andrews, UK
+     Email: sh70@st-andrews.ac.uk
+     Title: Additive triples in groups of odd prime order
+     Abstract: For a subset A of an additive group G, a Schur triple in A is
+     a triple of the form (a, b, a + b) ∈ A3 . Denote by r(A) the number of
+     Schur triples of A; the behaviour of r(A) as A ranges over subsets of a
+     group G has been studied by various authors. When r(A) = 0, A is sum-
+     free. The question of minimum and maximum r(A) for A of fixed size
+     in Zp was resolved by Huczynska, Mullen and Yucas (2009) and indepen-
+     dently by Samotij and Sudakov (2016). Several generalisations of the Schur
+     triple problem have received attention. In this talk, I will present recent
+     work (with Jonathan Jedwab and Laura Johnson) on the generalisation to
+     triples (a, b, a + b) ∈ A × B × B, where A, B ⊆ Zp . Denote by r(A, B, B)
+     the number of triples of this form; we obtain a precise description of its full
+     spectrum of values and show constructively that each value in this spec-
+     trum can be realised when B is an interval of consecutive elements in Zp .
+
+(25) Alex Iosevich, University of Rochester
+     Email: iosevich@gmail.com
+     Title: The Fourier uncertainty principle, signal recovery, and applications
+     Abstract: We are going to discuss the analytic, arithmetic, and practical
+     aspects of exact signal recovery, with the emphasis on the role of restriction
+     theory for the Fourier transform and connections with the classical results
+     of Bourgain, Talagrand, and others.
+
+(26) Robert Jacobs
+     Email: bobbyjacobs@email.com
+     Title: Crossword puzzles
+     Abstract: It is known that the most words possible in a 15 × 15 crossword
+     puzzle is 96 if the grid is symmetrical and connected and every word has
+     at least 3 letters. In this talk, I will prove this and find the most words
+     possible in other grids.
+
+(27) Thomas Karam, University of Oxford, UK
+     Email: Thomas.Karam@maths.ox.ac.uk
+     Title: After the cap-set problem, and some properties of the slice rank
+     Abstract: The infamous cap-set problem asks for the size of the largest
+     subset A ⊂ Fn3 not containing any solutions to the equation x + y + z = 0
+     aside from the trivial solutions x = y = z. A proof that that size is bounded
+     above by C n for some C < 3, which arose in 2016 in two breakthrough
+     papers by Croot-Lev-Pach and by Ellenberg and Gijswijt (both published
+     in the Annals of Mathematics), was later reformulated by Tao in a more
+     symmetric way, leading to the definition of a new notion of rank on tensors
+     called the slice rank.
+        Since then, the slice rank has been studied further, and the resulting
+     properties have often found related number-theoretic applications. To take
+     the earliest and perhaps simplest example, a key component of the argu-
+     ment in the proof of the original cap-set problem itself is that the slice rank
+     of a diagonal tensor is equal to its number of non-zero entries, mirroring
+     the analogous property of matrix rank.
+        After reviewing some more such applications by other mathematicians,
+     we will present some results concerning other basic properties of the slice
+     rank, and in particular the ideas behind some of their simpler proofs in the
+     special case where the support of the tensor is contained in an antichain:
+     there, as established by Sawin and Tao, the slice rank of the tensor is equal
+     to the smallest number of slices that suffice to cover its support. If time al-
+     lows then we will also discuss how the proofs in this special case illuminate
+     to some extent the proofs in the general case.
+
+(28) William Keith, Michigan Technical University
+     Email: wjkeith@mtu.edu
+     Title: s (mod t)-cores
+     Abstract: We consider simultaneous (s, s + t, s + 2t, . . . , s + pt)-cores in
+     the large-p limit, or (when s < t), partitions in which no hook may be of
+     length s (mod t). As a boundary case of the general study made by Cho,
+     Huh and Sohn, we find special symmetries and relations, such as generating
+     functions, congruences when s is not coprime to t, and enumerations when
+     s is coprime to t. Of particular interest is the comparison to the behavior
+     of simultaneous (s, t)-cores and self-conjugate (s, t)-cores.
+     Joint work with Rishi Nath and James Sellers.
+
+(29) Gergo Kiss, Budapest Corvinus University and Rényi Institute, Hungary
+     Email: kigergo57@gmail.com
+     Title: Weak tiling and the Coven-Meyerowitz conjecture from an analytic
+     point of view
+     Abstract: The concept of weak tiling was originally introduced in Rn by
+     Lev and Matolcsi, and has proven to be an essential tool in addressing
+     Fuglede’s conjecture for convex domains. In this talk, we extend the notion
+     of weak tiling to the setting of cyclic groups and further generalize it using
+     a natural averaging process. As a result, the tiles are no longer sets, but
+     rather become step functions–a framework we refer to as functional tiling.
+         One advantage of this approach is that the cyclotomic divisors of the
+     functions involved in a functional tiling remain the same as those of the
+     characteristic functions of the original sets. Another is that functional
+     tilings can be studied using the well-established tools and objective func-
+     tions of linear programming, which is computationally efficient due to its
+     polynomial-time solvability.
+         I will introduce the key quantities involved and present basic connections
+     between functional and classical tilings. Finally, I will provide a counterex-
+     ample to the Coven-Meyerowitz conjecture within the context of functional
+     tilings. It is important to note, however, that none of the counterexamples
+     we constructed in this setting correspond to tiling pairs of sets. Thus, the
+     Coven-Meyerowitz conjecture for tiling sets remains open.
+     This is joint work with Itay Londner, Máté Matolcsi, and Gábor Somlai.
+
+(30) Sandor Kiss, Budapest University of Technology and Economics, Hun-
+     gary
+     Email: ksandor@math.bme.hu
+     Title: Generalized Stanley sequences
+     Abstract: For an integer k ≥ 3, let A0 = {a1 , . . . , at } be a set of nonneg-
+     ative integers which does not contain an arithmetic progression of length
+     k. The set S(A) is defined by the following greedy algorithm. If s ≥ t
+     and a1 , . . . , as have already been defined, then as+1 is the smallest integer
+     a > as such that {a1 , . . . , as } ∪ {a} also does not contain a k-term arith-
+     metic progression. The sequence S(A) is called a Stanley sequence of order
+     k generated by A0 . Starting out from a set of the form A0 = {0, t}, Richard
+     P. Stanley and Odlyzko tried to generate arithmetic progression-free sets
+     by using the greedy algorithm. In 1999, Erdős, Lev, Rauzy, Sándor and
+     Sárközy extended the notion of Stanley sequence to other initial sets A0 .
+     In my talk I investigate some further generalizations of Stanley sequences
+     and I give some density type results about them.
+     This is a joint work with Csaba Sándor and Quan-Hui Yang.
+
+(31) Yoshiharu Kohayakawa, University of Sao Paulo, Brazil
+     Email: yoshi@ime.usp.br
+     Title: Arithmetic progressions in subset sums of sparse random sets of in-
+     tegers
+     Abstract: Given a set S ⊂ N, its sumset S + S is the set of all sums s + s0
+     with both s and s0 elements of S. Given p : N → [0, 1], let An = [n]p be the
+     p-random subset of [n] = {1, . . . , n}: the random set obtained by including
+     each element of [n] in An independently with probability p(n). Let ε > 0
+     be fixed, and suppose p(n) ≥ n−1/2+ε for all large enough n. We prove
+     that, then, with high probability, long arithmetic progressions exist in the
+     sumset of any positive density subset of An , that is, with probability ap-
+     proaching 1 as n → ∞, for any subset S of An with a fixed proportion of
+     the√elements of An , the sumset S + S contains arithmetic progressions with
+     2Ω( log n) elements. Joint work with Marcelo Campos and Gabriel Dahia.
+
+(32) Jakub Konieczny, University of Oxford
+     Email: jakub.konieczny@gmail.com
+     Title: Multiplicative generalised polynomial sequences
+     Abstract: Generalised polynomials are sequences constructed from polyno-
+     mial sequences using the integer part function, addition, and multiplication.
+     Determining whether a given sequence is a generalised polynomial is often
+     a non-trivial task. In joint work with J. Byszewski and B. Adamczewski,
+     we have discovered both surprising examples of such sequences and devel-
+     oped criteria to disprove that a given sequence is a generalised polynomial.
+     More broadly, given a family of sequences, one can pose a classification
+     problem: Which sequences in the family are generalized polynomials? In
+     this talk, I will present a complete resolution of this problem for the family
+     of multiplicative sequences, as well as partial results for (non-completely)
+     multiplicative sequences.
+
+(33) Vjekoslav Kovač, University of Zagreb, Croatia
+     Email: vjekovac@math.hr
+     Title: Several irrationality problems for Ahmes series
+     Abstract: Proving (ir)rationality of infinite series of distinct unit fractions
+     has been an active topic of research for decades, with numerous occasional
+     breakthroughs. We will investigate what can be obtained using elementary
+     techniques (such as iterative constructions and the probabilistic method)
+     and address several problems posed by Paul Erdős throughout the 1980s.
+     In particular, we will study one type of irrationality sequences introduced
+     by Erdős and Graham, (almost entirely) resolve a question by Erdős on
+     simultaneous rationality of two or more “consecutive” series, and give a
+     negative answer to an “infinite-dimensional” conjecture by Stolarsky.
+     This is joint work with Terence Tao (UCLA).
+
+(34) Emmanuel Kowalski, ETH Zürich, Switzerland
+     Email: kowalski@ethz.ch
+     Title: Some pseudorandom graphs
+     Abstract: A classical construction associates to any Sidon set a graph with-
+     out 4-cycles. We investigate some properties of these graphs in the case of
+     the Sidon sets constructed by Forey, Fresán and myself using methods of
+     algebraic geometry. In particular, this provides deterministic families of Ra-
+     manujan graphs with semi-circle and other interesting explicit asymptotic
+     eigenvalue distributions.
+        Based on joint work with A. Forey and J. Fresán and discussions with
+     Y. Wigderson and T. Schramm.
+
+(35) Noah Lebowitz-Lockard
+     Email: nlebowi@gmail.com
+     Title: Partitions and ordered products
+     Abstract: Let g(n) be the number of ways to express n as an ordered parti-
+     tion of numbers greater than 1. We also let a(n) be the number of partitions
+     of n of the form n1 + n2 + · · · + nk , where ni is a multiple of ni+1 and the ni
+     are distinct. Though there is substantial research around g(n), much less
+     is known about a(n). We discuss these two functions, as well as some new
+     asymptotics on a(n).
+
+(36) Paolo Leonetti, Università degli Studi dell’Insubria, Italy
+     Email: leonettipaolo@gmail.com
+     Title: On the completeness induced by densities on natural numbers
+     Abstract: Let ν : P(N) → R be an “upper density” on the natural numbers
+     N (for instance, ν can be the upper asymptotic density or the upper Banach
+     density). Then a natural pseudometric dν is induced on P(N), namely,
+
+                     ∀A, B ⊆ N,    dν (A, B) := ν(A 4 B)
+
+     We provide necessary and sufficient conditions for the completeness of dν .
+     Then we identify in which cases the latter ones are verified.
+
+(37) Mehdi Makhul, London School of Economcs, UK
+     Email: mmakhul@risc.jku.at
+     Title: Web geometry and the orchard problem
+     Abstract: Let P be a set of n points in the plane, not all lying on a single
+     line. The orchard planting problem asks for the maximum number of lines
+     passing through exactly three points of P . Green and Tao showed that the
+     maximum possible number of such lines for an n-element set is b n(n−3)6  c+1.
+     Lin and Swanepoel also investigated a generalization of the orchard problem
+     in higher dimensions. Specifically, if P is a set of n points in d-dimensional
+     space, they established an upper bound for the maximum number of hyper-
+     planes passing through exactly d + 1 points of P . Our goal is to describe
+     the structural properties of configurations that achieve near-optimality in
+     the asymptotic regime. Let C ⊂ Rd be an algebraic curve of degree r, and
+     suppose that P ⊂ C is a set of n points. If P determines at least cnd hyper-
+     planes, each passing through exactly d + 1 points of P , then the following
+     must hold: The degree of C must be d + 1; and the curve C is the com-
+     plete intersection of d2 − 1 quadric hypersurfaces. Our approach relies on
+     the theory of web geometry and the Elekes-Szabó Theorem-a cornerstone
+     of incidence geometry-both of which provide the structural basis for our
+     analysis.
+     Joint work with Konrad Swanepoel.
+
+(38) Debyani Manna, Indian Institute of Technology Roorkee, India
+     Email: d manna@ma.iitr.ac.in, debyani97@gmail.com
+     Title: Some results on the extended inverse problem of A + 2 · A
+     Abstract: Let A be a finite set of integers and A+2·A = {a+2a0 : a, a0 ∈ A}.
+     An extended inverse problem associated with the sumset A + 2 · A is to de-
+     termine the underlying set A when the size of the sumset A + 2 · A deviates
+     from the minimum possible size. We find all possible arithmetic structures
+     of A for certain cardinalities of A + 2 · A and use them to address extended
+     inverse problems in the Baumslag-Solitar group BS(1, 2).
+     This is joint work with Ram Krishna Pandey.
+
+(39) Nathan McNew, Towson University
+     Email: nmcnew@towson.edu
+     Title: The density of covering numbers
+     Abstract: In 1950, Erdős introduced covering systems–finite collections of
+     arithmetic progressions whose union contains every integer. They featured
+     in some of his favorite problems, many of which are still open. In 1979,
+     answering one of Erdős’s questions, Haight introduced covering numbers:
+     positive integers n for which a covering system can be constructed with
+     distinct moduli that are divisors of n. If no proper divisor of n is a cover-
+     ing number, we call n a primitive covering number. We establish an upper
+     bound on the number of primitive covering numbers, from which it follows
+     that the set of covering numbers has a natural density. By refining tech-
+     niques used to bound the density of abundant numbers, we obtain relatively
+     tight bounds for the density of covering numbers and, in the process, im-
+     prove the bounds on the density of abundant numbers as well.
+
+(40) Steve Miller, Williams College
+     Email: sjm1@williams.edu
+     Title: Phase transitions for binomial sets under linear forms
+     Abstract: We generalize results on sum and difference sets of a subset S
+     of N drawn from a binomial model. Given A ⊆ {0, 1, . . . , N }, an integer
+     h ≥ 2, and a linear form L : Zh → Z
+       L(x1 , . . . , xh ) := u1 x1 + · · · + uh xh ,   ui ∈ Z6=0 for all i ∈ [h],
+     we study the size of
+                      L(A) = {u1 a1 + · · · + uh ah : ai ∈ A}
+     and its complement L(A)c when each element of {0, 1, . . . , N } is indepen-
+     dently included in A with probability p(N ), identifying two phase transi-
+     tions. The first global one concerns the relative sizes of L(A) and L(A)c ,
+                        h−1
+     with p(N ) = N − h as the threshold. Asymptotically almost surely, below
+     the threshold almost all sums generated in L(A) are distinct and almost
+     all possible sums are in L(A)c , and above the threshold almost all possible
+     sums are in L(A). Our asymptotic formulae substantially extends work
+     of Hegarty and Miller, resolving their conjecture. The second local phase
+     transition concerns the asymptotic behavior of the number of distinct real-
+                                                         h−2
+     izations in L(A) of a given value, with p(N ) = N − h−1 as the threshold and
+     identifies (in a sharp sense) when the number of such realizations obeys a
+     Poisson limit. Our main tools are recent results on the asymptotic enu-
+     meration of partitions, Stein’s method for Poisson approximation, and the
+     martingale machinery of Kim-Vu.
+
+(41) Mohan, BK Birla Institute of Engineering and Technology, India
+     Email: mohan98math@gmail.com
+     Title: Special additive complements of a set of natural numbers
+     Abstract: Let A be a set of natural numbers. A set B of natural num-
+     bers is said to be an additive complement of the set A if all sufficiently
+     large natural numbers can be represented as x + y for some x ∈ A and
+     y ∈ B. We shall describes various types of additive complements of the
+     set A such as those additive complements of A that do or do not intersect
+     A, additive complements which are the union of disjoint infinite arithmetic
+     progressions, and additive complements having various densities etc. We
+     estabilish that if A = {ai : i ∈ N} is a set of natural numbers such that
+     ai < ai+1 for i ∈ N and lim inf n→∞ (an+1 /an ) > 1, then there exists a set
+     B ⊂ N such that B ∩ A = ∅ and B is a sparse additive complement of the
+     set A. Besides this, for a given positive real number α ≤ 1 and a finite set
+     A, we investigate a set B such that B can be written as a union of disjoint
+     infinite arithmetic progressions with the natural density of A+B equal to α.
+
+(42) Jeff Mozzochi
+     Email: cjm@ix.netcom.com
+     Title: The closest known attempted proof of the twin prime conjecture
+     Abstract: Using a primitive formulation of the circle method we present
+     a sufficient condition for the twin prime conjecture that misses being true
+     by just an epsilon. We also show that the well-known sufficient condition
+     for the twin prime conjecture implies the patently false statement that for
+     each positive integer m, there exists an infinite number of prime pairs whose
+     difference is m.
+
+(43) Rishi Nath, York College (CUNY)
+     Email: rnath@york.cuny.edu
+     Title: Simultaneous (co)core partitions
+     Abstract: In the 1950s, Littlewood and others famously showed how to
+     decompose an integer partition into its p-core and p-quotient for positive t.
+     In the early 2000s, J. Anderson began the study of partitions which have
+     both empty s-quotient and empty t-quotient for s and t relatively prime.
+     Here we consider a perpendicular question, that of partitions which have
+     both empty s-core and t-core.
+     This is joint work with T. Queer and A. Perez.
+
+(44) Mel Nathanson, Lehman College (CUNY)
+     Email: melvyn.nathanson@lehman.cuny.edu
+     Title: Sizes of sumsets of finite sets of integers
+     Abstract: In the study of sums of finite sets of integers, most attention has
+     been paid to sets with small sumsets (Freiman’s theorem and related work)
+     and to sets with large sumsets (Sidon sets and Bh -sets). The focus of this
+     talk is on the full range of sizes of h-fold sums of a set of k integers. New
+     results and open problems will be presented.
+
+(45) Vladyslav Oles, University of Idaho
+     Email: voles@uidaho.edu
+     Title: Vanishing symmetric functions
+     Abstract: We continue an old solution by Noga Alon of conjectures of Arie
+     Bialostocki. The first problem deals with vanishing symmetric functions on
+     consecutive blocks in an arbitrary Zn -coloring of the positive integers. The
+     second problem (unpublished) deals with vanishing symmetric functions on
+     grid points inside of a polygon. The problems originated from the classical
+     Theorem of Van der Waerden.
+     This is joint work with Arie Bialostocki.
+
+(46) Firdavs Rakhmonov, University of St. Andrews, UK
+     Email: fr52@st-andrews.ac.uk
+     Title: Exceptional projections in finite fields: Fourier analytic bounds and
+     incidence geometry
+     Abstract: We consider the problem of bounding the number of exceptional
+     projections (projections which are smaller than typical) of a subset of a
+     vector space over a finite field. We establish bounds that depend on Lp
+     estimates for the Fourier transform, improving various known bounds for
+     sets with sufficiently good Fourier analytic properties. The special case
+     p = 2 recovers a recent result of Bright and Gan (following Chen), which
+     established the finite field analogue of Peres–Schlag’s bounds from the con-
+     tinuous setting.
+     We prove several auxiliary results of independent interest, including a char-
+     acter sum identity for subspaces (solving a problem of Chen), and an ana-
+     logue of Plancherel’s theorem for subspaces. These auxiliary results also
+     have applications in affine incidence geometry, that is, the problem of esti-
+     mating the number of incidences between a set of points and a set of affine
+     k-planes. We present a novel and direct proof of a well-known result in this
+     area that avoids the use of spectral graph theory, and we provide simple
+     examples demonstrating that these estimates are sharp up to constants.
+     This is joint work with Jonathan Fraser.
+
+(47) Asher Roberts, St. Joseph’s University New York
+     Email: aroberts@sjny.edu
+     Title: Large deviations of Selberg’s central limit theorem on RH
+     Abstract: Assuming the Riemann hypothesis, we show that for k > 0 and
+     V ∼ k log log T ,
+                                                                2
+                                                            e−V / log log T
+                                                 
+       1
+         meas t ∈ [T, 2T ] : log |ζ(1/2 + it)| > V ≤ Ck √                   .
+       T                                                       log log T
+     This shows that Selberg’s central limit theorem persists in the large devi-
+     ation regime. As a corollary, we recover the result of Soundararajan and
+     of Harper on the moments of ζ. This directly implies the sharp moment
+     bounds of Soundararajan and Harper, i.e.,
+                      1 2T
+                       Z
+                                                          2
+                            |ζ(1/2 + it)|dt ≤ Ck (log T )k .
+                     T T
+     This is joint work with Louis-Pierre Arguin (Oxford University) and Emma
+     Bailey (University of Bristol).
+
+(48) David Ross, University of Hawaii
+     Email: ross@math.hawaii.edu
+     Title: Upper density and a theorem of Banach
+     Abstract: Suppose An (n ∈ N) is a sequence of sets in a finitely-additive
+     measure space which are uniformly bounded away from 0, µAn ≥ a > 0
+     for all n. Then there is a subsequence
+                                 T           Ank , where {nk }k has upper Banach
+     density ≥ a, such that µ k<N Ank ≥ a for every N . Surprisingly, this
+     implies a density-limit version of a representation theorem of Banach:
+        Theorem: Let { fn : n ∈ N} be a uniformly bounded sequence of func-
+     tions on a set X. The following are equivalent: (i) {fn }n weakly d-converges
+     to 0; (ii) for any sequence {xk : k ∈ N} in X, d- lim lim inf fn (xk ) = 0.
+                                                      n→∞ k→∞
+        Here “d-” denotes a density limit. Banach’s non-density version of this
+     theorem (without the “d-”) has been described by some as “marvelous”.
+(49) Anne de Roton, Université de Lorraine, Institut Elie Cartan, France
+     Email: anne.de-roton@univ-lorraine.fr
+     Title: Iterated sums races
+     Abstract: This is joint work with Paul Péringuey.
+     Our work provides a solution to a question posed by M. Nathanson in late
+     2024, but we later realized that this problem, along with an even more
+     challenging one, had already been solved by N. Kravitz in a paper posted
+     on arXiv in January 2025. While our construction is similar to his, it is
+     simpler, and we hope that it can serve as an introductory step toward un-
+     derstanding the underlying ideas.
+     Nathanson’s question is as follows:
+     For every integer m ≥ 3, do there exist finite sets A and B of integers and
+     an increasing sequence of positive integers h1 < h2 < · · · < hm , such that:
+
+                           |hi A| > |hi B|   if i is odd,
+                          |hi A| < |hi B|    if i is even.
+
+     Additionally, do there exist such sets with |A| = |B|? Can such sets be
+     constructed with |A| = |B| and diam(A) = diam(B)?
+     We provide a positive answer to these questions and propose an iterative
+     construction of sets that satisfy these conditions.
+
+(50) Akash Singha Roy, University of Georgia
+     Email: akash01s.roy@gmail.com
+     Title: Joint distribution in residue classes of families of multiplicative func-
+     tions
+     Abstract: The distribution of values of arithmetic functions in residue
+     classes has been a problem of great interest in elementary, analytic, and
+     combinatorial number theory. In work studying this problem for large
+     classes of multiplicative functions, Narkiewicz obtained general criteria
+     deciding when a family of such functions is jointly uniformly distributed
+     among the coprime residue classes to a fixed modulus. Using these criteria,
+     he along with Śliwa, Rayner, Dobrowolski, Fomenko, and others, gave ex-
+     plicit results on the distribution of interesting multiplicative functions and
+     their families in coprime residue classes.
+        In this talk, we shall give best possible extensions of Narkiewicz’s cri-
+     teria (and hence also of the other aforementioned results) to moduli that
+     are allowed to vary in a wide range. This is motivated by the celebrated
+     Siegel-Walfisz theorem on the distribution of primes in arithmetic progres-
+     sions, and our results happen to be some of the best possible qualitative
+     analogues of the Siegel-Walfisz theorem for the classes of multiplicative
+     functions considered by Narkiewicz and others. Our arguments blend ideas
+     from multiple subfields of number theory, as well as from linear algebra over
+     rings, commutative algebra, and arithmetic and algebraic geometry. This
+     talk is partly based on joint work with Paul Pollack.
+
+(51) Cihan Sabuncu, Université de Montréal, Canada
+     Email: cihan.sabuncu@umontreal.ca
+     Title: Extreme values of r3 (n) in arithmetic progressions
+     Abstract: A classical result of Chowla shows that the representation func-
+     tion r3 (n), which counts the number of ways n can be expressed as a sum
+     of three squares, satisfies
+                                      √
+                              r3 (n)  n log log n
+     for infinitely many integers n. This lower bound, in turn, also implies that
+     L(1, χD )  log log |D| holds for infinitely many fundamental discriminants
+     D < 0. In this talk, we will investigate whether such extremal behavior of
+     r3 (n) persists when n is restricted to lie in an arithmetic progression n ≡ a
+     (mod q).
+     This is joint work with Jonah Klein and Michael Filaseta.
+
+(52) Vincent Schinina, CUNY Graduate Center
+     Email: vschinina@gradcenter.cuny.edu
+     Title: On a missing interval of integers from RZ (h, 4)
+     Abstract: The set RZ (h, 4) consists of all possible sizes for the h-fold sum-
+     set of sets containing four integers. An immediate question to ask is what
+     are the elements of this set? We know that RZ (h, 4) ⊆ [3h+1, h+3  h ], where
+     the right side is an interval of integers that includes the endpoints. These
+     endpoints are known to be attained. By observation, it appears that the
+     interval of integers [3h + 2, 4h − 1] is absent from RZ (h, 4). We will briefly
+     discuss the procedure used to prove that the integers in [3h + 2, 4h − 1] are
+     not possible sizes for the h-fold sumset of a set containing four integers.
+     Furthermore, we will confirm that this interval can’t be made larger by
+     exhibiting a set whose h-fold sumset has size 4h.
+
+(53) Alisa Sedunova, Purdue University
+     Email: alisa.sedunova@gmail.com
+     Title: The multiplication table constant and sums of two squares
+     Abstract: Let r1 (n) be the number of representations of n as the sum of a
+     square and a square of a prime. We discuss the erratic behavior of r1 , which
+     is similar to the one of the divisor function. We will show that the number
+     of integers up to x that have at least one such representation is asymptotic
+     to (π/2)x log x minus a secondary term of size x/(log x)1+d+o(1) , where d is
+     the multiplication table constant. Detailed heuristics suggest very precise
+     asymptotic for the secondary term as well. In particular, our proofs imply
+     that the main contribution to the mean value of r1 (n) comes from integers
+     with unusual number of prime factors, i.e. those with ω(n) ∼ 2 log log x (for
+     which r1 (n) ∼ (log x)log 4−1 ), where ω(n) is the number of district prime
+     factors of n.
+     In the talk we will review the results of several works that include a recent
+     joint preprint with Andrew Granville and Cihan Sabuncu and my paper
+     from 2022 as well as some work in progress.
+
+(54) James A. Sellers, University of Minnesota Duluth
+     Email: jsellers@d.umn.edu
+     Title: Extending congruences for overpartitions with `-regular non-overlined
+     parts
+     Abstract: Recently, Alanazi, Alenazi, Keith, and Munagi considered over-
+     partitions wherein the non-overlined parts must be `-regular, that is, the
+     non-overlined parts cannot be divisible by the integer `. In the process, they
+     proved a general parity result for the corresponding enumerating functions,
+     and they also proved some specific Ramanujan–like congruences for the case
+     ` = 3. In this talk, we use elementary generating function manipulations
+     to significantly extend the set of known congruences for these functions.
+        All of the proof techniques used herein are elementary, relying on clas-
+     sical q-series identities and generating function manipulations, along with
+     mathematical induction.
+
+(55) Steven Senger, Missouri State University
+     Email: StevenSenger@missouristate.edu
+     Title: VC-dimension of subsets of the Hamming graph
+     Abstract: Vapnik-Chervonenkis or VC-dimension has been a useful tool in
+     combinatorics, machine learning, and other areas. Given a graph from a
+     well-studied family, there has been recent activity on size thresholds for a
+     subset of a graph to guarantee bounds on the VC-dimension of the sub-
+     set. These resemble finite point configuration results, such as the Erdos-
+     Falconer distance problem, both in form as well as in the techniques of
+     proof. Typically, one looks at graphs that are highly pseudorandom, such
+     as the distance graph or the dot product graph, but the Hamming graph
+     is quantifiably less pseudorandom, and standard techniques seem to break
+     down and yield very weak results if any. We present a suite of results
+     that outperform their counterparts for the Hamming graph. The proofs
+     are completely elementary, and in some cases, tight.
+
+(56) Besfort Shala, University of Bristol, UK
+     Email: besfort.shala@bristol.ac.uk
+     Title: Multiplicative energy in number theory
+     Abstract: I will discuss the important role of multiplicative energy of sets
+     in number theory, particularly in the probabilistic theory of random multi-
+     plicative functions. The aim is to provide a survey of recent results in the
+     area.
+
+(57) Ilya Shkredov, Purdue University
+     Email: ilya.shkredov@gmail.com
+     Title: Some applications of the higher energy method to distribution irreg-
+     ularities
+     Abstract: We review recent results obtained by the method of higher sum-
+     sets and higher energies. In particular, we discuss two applications: irreg-
+     ularities in the distribution of the difference set and irregularities in the
+     large Fourier coefficients of sets with small sumsets.
+
+(58) Gábor Somlai, Eötvös Loránd University and Rényi Institute, Hungary
+     Email: zsomlei@gmail.com
+     Title: Pushing the gap between tiles and spectral sets even further
+     Abstract: Fuglede conjectured that a bounded measurable set in a locally
+     compact topological space endowed with Haar measure is spectral if and
+     only if it is a tile and Fuglede also confirmed the conjecture for sets whose
+     tiling complement is a lattice and for spectral sets one of whose spectrums
+     is a lattice.
+         The conjecture was disproved by Tao in the case of finite abelian groups
+     where the counting measure plays the role of the Haar measure. Tao con-
+     structed a spectral set in Z53 of size 6, that is not a tile. This construction
+     was lifted to the 5 dimensional Euclidean space, where the original conjec-
+     ture was mostly studied.
+         Lev and Matolcsi verified Fuglede’s conjecture for convex sets in Rn
+     for every positive integer n. The key of proving the harder direction of
+     the conjecture is to introduce the weak tiling property and prove that all
+     spectral sets are weak tilings.
+         One of the goals of our work was to answer a question of Kolountzakis,
+     Lev and Matolcsi, whether there is a weak tile that is neither a tile nor
+     spectral. There is such a set which apparently makes it harder to prove the
+     spectral-tile direction of the conjecture in the remaining open cases.
+         The other result towards structurally distinguishing spectral sets and
+     tiles was a disproof of a conjecture of Greenfeld and Lev. They conjectured
+     that the product of two sets is spectral if and only if both of them are spec-
+     tral. A similar property holds for tiles, but the product of a non-spectral
+     set with a spectral set can be spectral. Finally, we obtain an easy charac-
+     terization of tiles using the spectral property.
+
+(59) Christoph Spiegel, Zuse Institute Berlin, Germany
+     Email: spiegel@zib.de
+     Title: An unsure talk on an un-Schur problem
+     Abstract: Graham, Rödl, and Ruciński originally posed the problem of de-
+     termining the minimum number of monochromatic Schur triples that must
+     appear in any 2-coloring of the first n integers. This question was sub-
+     sequently resolved independently by Datskovsky, Schoen, and Robertson
+     and Zeilberger. Here we suggest studying a natural anti-Ramsey variant of
+     this question and establish the first non-trivial bounds by proving that the
+     maximum fraction of Schur triples that can be rainbow in a given 3-coloring
+     of the first n integers is at least 0.4 and at most 0.66656. We conjecture
+     the lower bound to be tight. This question is also motivated by a famous
+     analogous problem in graph theory due to Erdős and Sós regarding the
+     maximum number of rainbow triangles in any 3-coloring of Kn , which was
+     settled by Balogh, et al.
+     This is joint work with Olaf Parczyk.
+
+(60) Josiah Sugarman, Hebrew University of Jerusalem, Israel
+     Email: josiahsugarman@gmail.com
+     Title: Explicit spectral gap for the quaquaversal operator
+     Abstract: The spectral gap of an operator is the gap between the largest
+     eigenvalue and the rest of the spectrum. In the mid 90s, John Conway
+     and Charles Radin introduced a three dimensional substitution tiling, the
+     Quaquaversal Tiling, with the property that the orientations of its tiles
+     equidistribute faster than what is possible for two dimensional substitu-
+     tion tilings. Conway and Radin showed that the orientations of the tiles
+     were dense in SO(3) and implicity introduced an operator (later explicitly
+     studied by Draco, Sadun, and Van Wieren) whose spectral gap controls the
+     equidistribution rate. Draco, Sadun, and Van Wieren studied the eigen-
+     values of this operator numerically and conjectured that it has a spectral
+     gap bounded below by approximately 0.0061697. We exploit a fact, due
+     to Serre, that the group of orientations for this tiling is 2-arithmetic and
+     follow a strategy similar to Lubotzky, Phillips, and Sarnak’s in order to
+     obtain a lower bound of about 0.0061711, resolving the conjecture.
+
+(61) Christian Táfula, Université de Montréal, Canada
+     Email: christian.tafula.santos@umontreal.ca
+     Title: Waring and Waring–Goldbach subbases with prescribed representa-
+     tion functions
+     Abstract: We investigate representation functions rA,h (n) of subsets A of
+     k-th powers Nk and k-th powers of primes Pk . Building on work of Vu,
+     Wooley, and others, we prove that for h ≥ hk = O(8k k 2 ) and regularly
+     varying F (n) satisfying limn→∞ F (n)/ log n = ∞, there exists A ⊆ Nk
+     such that
+                           rA,h (n) ∼ Sk,h (n)F (n),
+     where Sk,h (n) is the singular series associated to Waring’s problem. In
+     the case of prime powers, we obtain analogous results for F (n) = nκ . For
+     F (n) = log n, we prove that for every h ≥ 2k 2 (2 log k + log log k + O(1)),
+     there exists A ⊆ Pk such that rA,h (n)  log n, showing the existence of
+     thin subbases of prime powers.
+
+(62) Johann Thiel, New York City College of Technology (CUNY)
+     Email: jthiel@citytech.cuny.edu
+     Title: Bivariate polynomials associated with binary trees created by Quick-
+     Sort
+     Abstract: In this talk we describe a generating series whose coefficients are
+     polynomials that, for a given positive integer n, encode the depth at which
+     the various list entries appear as labeled nodes in the binary trees obtained
+     by QuickSorting permutations of the list consisting of one copy of each of
+     the first n non-negative integers. Extracting the appropriate coefficients
+     yields information for the number of times a given list entry appears at a
+     given depth, the total number of list entries that appear at a given depth,
+     and consequently the average number of list entries that appear at a given
+     depth taken over all n! permutations. Joint work with David M. Bradley.
+
+(63) Salvatore Tringali, Hebei Normal University, China
+     Email: salvo.tringali@gmail.com
+     Title: Power monoids and the Bienvenu-Geroldinger problem for torsion
+     groups
+     Abstract: Let M be a (multiplicatively written) monoid with identity ele-
+     ment 1M . Endowed with the operation of setwise multiplication induced by
+     M , the collection of finite subsets of M containing 1M forms a monoid in
+    its own right, denoted by Pfin,1 (M ) and called the reduced finitary power
+    monoid of M .
+       It is natural to ask whether, for all H and K in a given class of monoids,
+    Pfin,1 (H) is isomorphic to Pfin,1 (K) if and only if H is isomorphic to K.
+    Originating from a conjecture of Bienvenu and Geroldinger recently settled
+    by Yan and myself, the problem — together with its numerous variants and
+    ramifications — has non-trivial connections to additive number theory and
+    related fields. In this talk, I will present a positive solution for the class of
+    torsion groups.
+    References
+    P.-Y. Bienvenu and A. Geroldinger, On algebraic properties of power monoids
+    of numerical monoids, Israel J. Math. 265 (2025), 867–900.
+    S. Tringali and W. Yan, A conjecture of Bienvenu and Geroldinger on power
+    monoids, Proc. Amer. Math. Soc. 153 (2025), No. 3, 913–919.
+
+(64) Trevor D. Wooley, Purdue University
+     Email: twooley@purdue.edu
+     Title: Equidistribution and Lp -sets for p < 2
+     Abstract: We investigate subsets A of the natural numbers having the
+     property that, for some positive number p < 2, one has
+               Z 1     X           p
+                             e(nα) dα  |A ∩ [1, N ]|p N ε−1 .
+                0   n∈A∩[1,N ]
+
+    Examples of such sets include (but are not restricted to) the squarefree,
+    or more generally, the r-free numbers. For polynomials ψ(x; α) = αk xk +
+    . . . + α1 x, having coefficients αi satisfying suitable irrationality conditions,
+    we show that the sequence (ψ(n; α))n∈A is equidistributed modulo 1.
+                         Additional abstracts
+(1) Adrian Beker University of Zagreb, Croatia
+    Email: adrian.beker@math.hr
+    Title: The Erdős-Moser sum-free set problem via improved bounds for k-
+    configurations
+    Abstract: In a recent remarkable breakthrough, Kelley and Meka signifi-
+    cantly improved the bounds for sets of integers lacking three-term arith-
+    metic progressions. Soon thereafter, Filmus, Hatami, Hosseini and Kelman
+    extended their methods to sets lacking so-called binary systems of linear
+    forms. Central to their approach is a new sparse graph counting lemma
+    which is tailored to density increment arguments in additive number theory.
+    In this talk, I will discuss how one can combine improvements in certain
+    quantitative aspects of their graph counting lemma with further Kelley–
+    Meka-style arguments to get new bounds for sets lacking k-configurations,
+    i.e. collections of k integers together with their pairwise arithmetic means.
+    As a consequence, this gives an alternative proof of a bound for the Erdős–
+    Moser sum-free set problem of best known shape.
+
+(2) Krystian Gajdzica, Jagiellonian University, Poland
+    Email: krystian.gajdzica@uj.edu.pl
+    Title: On the Bessenrodt-Ono inequality for polynomials
+    Abstract: In 2016, Bessenrodt and Ono discovered that the partition func-
+    tion satisfies the ineqaulity of the form
+                              p(a)p(b) > p(a + b)
+    for all integers a, b ⩾ 2 with a+b > 9. That result initiated a broad research
+    related to investigating analogue properties for other partition statistics.
+    Moreover, it turns out that we can pass from the discrete problem to the
+    continuous one by considering appropriate family of polynomials. That was
+    the idea of Heim and Neuhauser, who showed that a family of polynomials
+    defined via generating function:
+                       ∞                    ∞
+                       X                    Y       1
+                             Pn (x)q n :=
+                       n=0                  n=1
+                                                (1 − q n )x
+    fulfills the Bessenrodt-Ono type inequality.
+       In this talk, we present an extension of the above and examine a family
+    of polynomials associated to the so-called A-partition function in particu-
+    lar, and a sequence of real numbers in general.
+
+(3) Brad Isaacson, New York City College of Technology (CUNY)
+    Email: bisaacson@citytech.cuny.edu
+    Title: Reciprocity formulae for generalized Dedekind and Hardy-Berndt
+    sums involving Apostol-Bernoulli polynomials and functions
+    Abstract: This talk is concerned with generalized Dedekind and Hardy–
+    Berndt sums and their corresponding reciprocity theorems. It emerges that
+    the ingredients needed for certain reciprocity theorems are functions pos-
+    sessing suitable product formulas and Raabe-type multiplication formulas,
+    for which the Bernoulli and Euler functions both enjoy. However, many
+    functions possess these properties, and consequently, generalized sums in-
+    volving these functions must also obey a reciprocity theorem of this type.
+    In this talk, we consider a unification of the generalized Dedekind and
+    Hardy–Berndt sums which involve Apostol–Bernoulli functions and present
+    its reciprocity theorem which contains all of the reciprocity theorems for
+    the generalized Dedekind and Hardy-Berndt sums in the literature as spe-
+    cial cases.
+
+(4) Bruce Keener, University of Findlay
+    Email: keenerb@findlay.edu
+    Title: Third order recurrence relations with Sierpiński and Riesel numbers
+    Abstract: A Sierpiński number is an odd positive integer k satisfying
+    k · 2n + 1 is composite for every positive integer n. In a similar fashion, a
+    Riesel number is an odd positive integer k satisfying k · 2n − 1 is compos-
+    ite for every positive integer n. Previous work has been done to show an
+    intersection between Sierpiński or Riesel numbers with various number se-
+    quences such as Fibonacci, Lucas numbers, images of various polynomials,
+    polygonal numbers, Carmichael numbers, Ruth-Aaron pairs, binomial co-
+    efficients, and Narayanas cow. We expand on these findings by considering
+    such an intersection with the Tribonacci, Padovan, Perrin, Van der Laan,
+    and Leonardo sequences.
+

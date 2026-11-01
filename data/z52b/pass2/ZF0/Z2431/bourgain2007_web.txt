@@ -1,0 +1,228 @@
+## Content from https://www.numdam.org/item/10.1016/j.crma.2007.01.019.pdf
+
+Title: doi:10.1016/j.crma.2007.01.019
+
+URL Source: https://www.numdam.org/item/10.1016/j.crma.2007.01.019.pdf
+
+Published Time: Tue, 06 Dec 2022 09:33:30 GMT
+
+Number of Pages: 4
+
+Markdown Content:
+C. R. Acad. Sci. Paris, Ser. I 344 (2007) 349–352 
+
+http://france.elsevier.com/direct/CRASS1/ Number Theory Sum–product theorems and exponential sum bounds in residue classes for general modulus Jean Bourgain 
+
+Institute for Advanced Study, Princeton, NJ 08540, USA 
+
+Received 11 January 2007; accepted 22 January 2007 Available online 27 February 2007 Presented by Jean Bourgain 
+
+Abstract 
+
+The purpose of this Note is to extend (in the appropriate formulation) the sum–product theorem in Zq = Z/q Z (established in [J. Bourgain, N. Katz, T. Tao, A sum–product estimate in finite fields and applications, GAFA 14 (2004) 27–57; J. Bourgain, A. Glibichuk, S. Konyagin, Estimate for the number of sums and products and for exponential sums in fields of prime order, J. London Math. Soc. 73 (2006) 380–398] for q prime, in [J. Bourgain, M. Chang, Exponential sum estimates over subgroups and almost subgroups of Z∗ 
+
+> q
+
+, where q is composite with few factors, GAFA 16 (2) (2006) 327–366] for q composite with few factors and in [J. Bourgain, A. Gamburd, P. Sarnak, Sieving and expanders, C. R. Acad. Sci. Paris, Ser. I 343 (3) (2006) 155–159] for q
+
+square free) to the case of arbitrary modulus. Consequences to exponential sum bounds (mod q) are given. To cite this article: J. Bourgain, C. R. Acad. Sci. Paris, Ser. I 344 (2007). 
+
+© 2007 Académie des sciences. Published by Elsevier Masson SAS. All rights reserved. 
+
+Résumé Théorèmes sommes–produits et sommes exponentielles dans les classes de résidus pour module arbitraire. Dans cette Note, nous généralisons (avec un énoncé approprié) le théorème somme–produit dans Zq = Z/q Z, où q est arbitraire (pour q
+
+premier, un tel résultat fût obtenu dans [J. Bourgain, N. Katz, T. Tao, A sum–product estimate in finite fields and applications, GAFA 14 (2004) 27–57 ; J. Bourgain, A. Glibichuk, S. Konyagin, Estimate for the number of sums and products and for exponential sums in fields of prime order, J. London Math. Soc. 73 (2006) 380–398], pour q un nombre composé avec un nombre de facteurs premiers borné dans [J. Bourgain, M. Chang, Exponential sum estimates over subgroups and almost subgroups of Z∗ 
+
+> q
+
+, where q is composite with few factors, GAFA 16 (2) (2006) 327–366], et pour q un produit simple dans [J. Bourgain, A. Gamburd, P. Sarnak, Sieving and expanders, C. R. Acad. Sci. Paris, Ser. I 343 (3) (2006) 155–159]. Nous en déduisons également des estimées sur certaines sommes exponentielles (mod q). Pour citer cet article : J. Bourgain, C. R. Acad. Sci. Paris, Ser. I 344 (2007). 
+
+© 2007 Académie des sciences. Published by Elsevier Masson SAS. All rights reserved. 
+
+Version française abrégée 
+
+Soit Zq = Z/q Z l’anneau des classes de residues (mod q). Nous établissons la propriété ‘sommes-produits’ suivante : 
+
+E-mail address: bourgain@ias.edu. 1631-073X/$ – see front matter © 2007 Académie des sciences. Published by Elsevier Masson SAS. All rights reserved. doi:10.1016/j.crma.2007.01.019 350 J. Bourgain / C. R. Acad. Sci. Paris, Ser. I 344 (2007) 349–352 
+
+Théorème 1. Pour tout δ1 > 0, δ 2 > 0, il existe ε > 0 et δ3 > 0 tel que si q est un entier arbitraire suffisament grand et A ⊂ Zq satisfait les conditions 
+
+(i) |A| < q 1−δ1 ,
+
+(ii) Si q1|q et q1 > q ε, on a |πq 1(A) | > q δ21
+
+on a 
+
+(iii) |A + A| + | A.A | > q δ3|A|.
+
+Nous dénotons ici πq 1 : Zq → Zq1, q 1|q, l’application quotient et A + A = { x + y | x, y ∈ A} (resp. A.A = { x.y |
+
+x, y ∈ A}) l’ensemble « somme » (resp. l’ensemble « produit »). Ce genre de résultats fut obtenu antérieurement dans certains cas particuliers, notamment pour q premier [8,7], 
+
+q composé avec nombre de facteurs borné [4] et q produit simple [6]. Ils mènent à des estimées nouvelles sur les sommes exponentielles (voir [7,4,1,2]) et de nouveaux exemples d’expanseurs sur les groupes SL2 (q) (voir [6]). Nous mentionnons ici la conséquence suivante du Théorème 1 : 
+
+Théorème 2. Pour tout γ > 0, il existe ε > 0, τ > 0 et un entier positif k tel que si A1, . . . , Ak ⊂ Zq et satisfont la condition 
+
+(i) Si q1|q, q 1 > q ε et ξ ∈ Zq1 , on a 
+
+∣∣Ai ∩ π −11 (ξ ) ∣∣ < q −γ 
+
+> 1
+
+|A| (1  i  k). 
+
+Alors, on a 
+
+(ii) max ξ ∈Z∗ 
+
+> q
+
+| ∑
+
+> x1∈A1,...,xk ∈Ak
+
+eq (ξ x 1 . . . xk) | < q −τ |A1| · · · | Ak | (où eq (x) = e( 2πi
+
+> q
+
+x) ).
+
+1. Introduction 
+
+We denote by Zq the ring of residue classes mod q.For q1|q, let πq 1 : Zq → Zq1 be the quotient map. Our purpose is to state the general case of the sum–product theorems obtained in [8,7,4,6] for special moduli q.We have 
+
+Theorem 1. Given δ1, δ 2 > 0, there are ε > 0 and δ3 > 0 such that the following holds. Let q be an arbitrary (suffi-ciently large ) modulus and A ⊂ Zq satisfying 
+
+(i) |A| < q 1−δ1 ,
+
+(ii) If q1|q and q1 > q ε, then |πq 1(A) | > q δ21 .Then 
+
+(iii) |A + A| + | A.A | > q δ3|A|.
+
+Remark 1. In Theorem 1, ε depends on both δ1 and δ2 (unlike in the square-free case where ε only depends on δ1, see [6]). An important aspect of Theorem 1 is the uniformity of the estimates in q.
+
+Remark 2. If q = pm11 · · · pmJ J is the prime factorization of q, the ring Zq identifies with the product Zpmj
+
+> 1
+
+× · · · × 
+
+ZpmJJ
+
+. To establish Theorem 1, we proceed in two steps. First we establish the result for q of the form p = pm, p
+
+prime. We then treat the product, relying in particular on the methods from [2,6]. Both parts are technically rather involved and rely on combinatorial analysis on ‘trees’. J. Bourgain / C. R. Acad. Sci. Paris, Ser. I 344 (2007) 349–352 351 
+
+2. Further results 
+
+Results such as Theorem 1 have further applications to the theory of exponential sums (cf. [7,4,1,2]) and the theory of expanders on groups (cf. [5,6]). We limit ourselves here to exponential sum bounds. 
+
+Theorem 2. Given γ > 0, there are ε > 0, τ > 0 and a positive integer k ∈ Z+ such that the following holds. Let q be an arbitrary modulus and A1, . . . , Ak ⊂ Zq such that 
+
+(i) If q1|q, q 1 > q ε and ξ ∈ Zq1 , we have 
+
+∣∣Ai ∩ π −1 
+
+> q1
+
+(ξ ) ∣∣ < q −γ 
+
+> 1
+
+|Ai | (1  i  k). 
+
+Then 
+
+(ii) max ξ ∈Z∗ 
+
+> q
+
+| ∑
+
+> x1∈A1,...,xk ∈Ak
+
+eq (ξ x 1 · · · xk) | < q −τ |A1| · · · | Ak |.
+
+There is the following consequence to ‘almost subgroups’ (in the sense of [9]) of Z∗ 
+
+> q
+
+, providing a certain general-ization of the exponential sum bound for subgroups H < Z∗ 
+
+> q
+
+obtained in [2] (see also remarks below): 
+
+Corollary 3. Given γ > 0 and κ > 0, there is ε > 0 such that the following holds. Let q be an arbitrary modulus and 
+
+H ⊂ Z∗ 
+
+> q
+
+satisfy 
+
+(i) If q1|q, q 1 > q ε and ξ ∈ Zq1 , we have 
+
+∣∣H ∩ π −1 
+
+> q1
+
+(ξ ) ∣∣ < q −γ 
+
+> 1
+
+|H |
+
+and 
+
+(ii) |H.H | < |H |1+ε.Then 
+
+(iii) |{ ξ ∈ Zq | | ∑
+
+> x∈H
+
+eq (ξ x) | > |H |1−ε}| < q κ .
+
+Remarks. 
+
+(1) The previous statement was proven in [3] for q prime (see also [9] for a different proof ). (2) The result from [2] states that if H < Z∗ 
+
+> q
+
+(q arbitrary) is any subgroup such that |H | > q ε, then max  
+
+> ξ∈Z∗
+> q
+
+∣∣∣∣∑
+
+> x∈H
+
+eq (ξ x) 
+
+∣∣∣∣ < q −δ|H | (1) where δ = δ(ε) > 0. In the context of ‘almost subgroups’ i.e. H satisfying a property of the form Corollary 3, condition (ii), additional assumptions (of the form condition (i)) are necessary, however. For instance, letting q = p2 and 
+
+H = {1 + pt | 0  t < √p } (2) it is clear that |H.H |  2|H |, but 
+
+∣∣∣∣∑
+
+> x∈H
+
+ep2(ξ x) 
+
+∣∣∣∣ > 12 |H | (3) for all 0  ξ < 110 
+
+√p.352 J. Bourgain / C. R. Acad. Sci. Paris, Ser. I 344 (2007) 349–352 
+
+References 
+
+[1] J. Bourgain, Mordell’s exponential sum estimate revisited, JAMS 18 (2) (2005) 477–499. [2] J. Bourgain, Exponential sum estimates over subgroups of Z∗ 
+
+> q
+
+, q arbitrary, J. Analyse 97 (2005) 317–356. [3] J. Bourgain, Estimates on exponential sums related to the Diffie–Hellman distributions, GAFA 15 (1) (2005) 1–34. [4] J. Bourgain, M. Chang, Exponential sum estimates over subgroups and almost subgroups of Z∗ 
+
+> q
+
+, where q is composite with few factors, GAFA 16 (2) (2006) 327–366. [5] J. Bourgain, A. Gamburd, Uniform expansion bounds for Cayley graphs of SL2 (Fp) , Ann. of Math., in press. [6] J. Bourgain, A. Gamburd, P. Sarnak, Sieving and expanders, C. R. Acad. Sci. Paris, Ser. I 343 (3) (2006) 155–159. [7] J. Bourgain, A. Glibichuk, S. Konyagin, Estimate for the number of sums and products and for exponential sums in fields of prime order, J. London Math. Soc. 73 (2006) 380–398. [8] J. Bourgain, N. Katz, T. Tao, A sum–product estimate in finite fields and applications, GAFA 14 (2004) 27–57. [9] T. Tao, V. Vu, Additive Combinatorics, Cambridge Studies in Advanced Mathematics, vol. 105, Cambridge University Press, 2006.
+

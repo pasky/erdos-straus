@@ -1,0 +1,337 @@
+{
+  "n": 4783,
+  "Cmax": 1024,
+  "shared_HH": 56032.0,
+  "within_p_16level_bin_permutation_expected_HH": 21138.019270873,
+  "ratio": 2.6507687064704752,
+  "matched": [
+    {
+      "p": 409,
+      "hard": {
+        "hits": 0.0,
+        "edges": 98658.0,
+        "HH": 0.0,
+        "HF": 0.0,
+        "FF": 98658.0,
+        "expected_HH": 0.0,
+        "components": 176.0,
+        "giant": 848.0,
+        "isolates": 174.0
+      },
+      "controls": [
+        1249,
+        2089,
+        3769,
+        5449,
+        7129,
+        9649,
+        11329,
+        13009,
+        16369,
+        17209
+      ],
+      "control_mean": {
+        "edges": 98668.9,
+        "components": 173.0,
+        "giant": 851.1,
+        "isolates": 171.1
+      },
+      "control_range": {
+        "edges": [
+          98586.0,
+          98719.0
+        ],
+        "components": [
+          163.0,
+          183.0
+        ],
+        "giant": [
+          840.0,
+          862.0
+        ],
+        "isolates": [
+          162.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "p": 577,
+      "hard": {
+        "hits": 0.0,
+        "edges": 98555.0,
+        "HH": 0.0,
+        "HF": 0.0,
+        "FF": 98555.0,
+        "expected_HH": 0.0,
+        "components": 170.0,
+        "giant": 854.0,
+        "isolates": 168.0
+      },
+      "controls": [
+        7297,
+        9817,
+        10657,
+        11497,
+        13177,
+        17377,
+        18217,
+        21577,
+        24097,
+        27457
+      ],
+      "control_mean": {
+        "edges": 98727.9,
+        "components": 174.8,
+        "giant": 849.7,
+        "isolates": 173.3
+      },
+      "control_range": {
+        "edges": [
+          98628.0,
+          98860.0
+        ],
+        "components": [
+          168.0,
+          181.0
+        ],
+        "giant": [
+          843.0,
+          857.0
+        ],
+        "isolates": [
+          167.0,
+          179.0
+        ]
+      }
+    },
+    {
+      "p": 5569,
+      "hard": {
+        "hits": 0.0,
+        "edges": 98677.0,
+        "HH": 0.0,
+        "HF": 0.0,
+        "FF": 98677.0,
+        "expected_HH": 0.0,
+        "components": 172.0,
+        "giant": 852.0,
+        "isolates": 170.0
+      },
+      "controls": [
+        4729,
+        3889,
+        3049,
+        8089,
+        8929,
+        9769,
+        12289,
+        15649,
+        18169,
+        19009
+      ],
+      "control_mean": {
+        "edges": 98763.2,
+        "components": 176.5,
+        "giant": 847.6,
+        "isolates": 174.6
+      },
+      "control_range": {
+        "edges": [
+          98704.0,
+          98858.0
+        ],
+        "components": [
+          167.0,
+          188.0
+        ],
+        "giant": [
+          836.0,
+          856.0
+        ],
+        "isolates": [
+          164.0,
+          186.0
+        ]
+      }
+    },
+    {
+      "p": 9601,
+      "hard": {
+        "hits": 0.0,
+        "edges": 98803.0,
+        "HH": 0.0,
+        "HF": 0.0,
+        "FF": 98803.0,
+        "expected_HH": 0.0,
+        "components": 175.0,
+        "giant": 848.0,
+        "isolates": 172.0
+      },
+      "controls": [
+        8761,
+        4561,
+        1201,
+        19681,
+        20521,
+        23041,
+        25561,
+        27241,
+        28081,
+        28921
+      ],
+      "control_mean": {
+        "edges": 98782.3,
+        "components": 175.7,
+        "giant": 848.0,
+        "isolates": 173.4
+      },
+      "control_range": {
+        "edges": [
+          98646.0,
+          98883.0
+        ],
+        "components": [
+          155.0,
+          188.0
+        ],
+        "giant": [
+          836.0,
+          867.0
+        ],
+        "isolates": [
+          151.0,
+          186.0
+        ]
+      }
+    },
+    {
+      "p": 23929,
+      "hard": {
+        "hits": 0.0,
+        "edges": 98691.0,
+        "HH": 0.0,
+        "HF": 0.0,
+        "FF": 98691.0,
+        "expected_HH": 0.0,
+        "components": 169.0,
+        "giant": 854.0,
+        "isolates": 166.0
+      },
+      "controls": [
+        25609,
+        26449,
+        18049,
+        17209,
+        30649,
+        16369,
+        31489,
+        13009,
+        34849,
+        11329
+      ],
+      "control_mean": {
+        "edges": 98684.2,
+        "components": 176.4,
+        "giant": 847.4,
+        "isolates": 174.3
+      },
+      "control_range": {
+        "edges": [
+          98623.0,
+          98772.0
+        ],
+        "components": [
+          171.0,
+          187.0
+        ],
+        "giant": [
+          838.0,
+          854.0
+        ],
+        "isolates": [
+          169.0,
+          186.0
+        ]
+      }
+    },
+    {
+      "p": 83449,
+      "hard": {
+        "hits": 0.0,
+        "edges": 98737.0,
+        "HH": 0.0,
+        "HF": 0.0,
+        "FF": 98737.0,
+        "expected_HH": 0.0,
+        "components": 178.0,
+        "giant": 846.0,
+        "isolates": 176.0
+      },
+      "controls": [
+        82609,
+        81769,
+        80929,
+        87649,
+        77569,
+        89329,
+        91009,
+        74209,
+        73369,
+        93529
+      ],
+      "control_mean": {
+        "edges": 98765.2,
+        "components": 174.3,
+        "giant": 849.9,
+        "isolates": 172.5
+      },
+      "control_range": {
+        "edges": [
+          98685.0,
+          98814.0
+        ],
+        "components": [
+          169.0,
+          182.0
+        ],
+        "giant": [
+          841.0,
+          855.0
+        ],
+        "isolates": [
+          167.0,
+          179.0
+        ]
+      }
+    }
+  ],
+  "ranges": {
+    "edges": [
+      81321.0,
+      99319.0
+    ],
+    "components": [
+      151.0,
+      270.0
+    ],
+    "giant": [
+      755.0,
+      874.0
+    ],
+    "isolates": [
+      149.0,
+      269.0
+    ]
+  },
+  "fixed_level_matched": {
+    "n": 4782,
+    "HH": 56032,
+    "expected": 46943.181996392,
+    "stratum_size_range": [
+      17,
+      33
+    ],
+    "ratio": 1.1936131641929717
+  }
+}

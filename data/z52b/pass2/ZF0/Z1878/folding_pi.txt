@@ -1,0 +1,304 @@
+## Content from https://arxiv.org/html/2403.09277v1
+
+Title: Folding 𝜋
+
+URL Source: https://arxiv.org/html/2403.09277v1
+
+Markdown Content:
+The University of Melbourne   
+August 24, 2026
+
+###### Abstract
+
+It is well known that the set of origami constructible numbers is larger than the classical straight-edge and compass constructible numbers. However, the Huzita-Justin-Hatori origami constructible numbers remain algebraic so that the transcendental number \pi can only be approximated using a finite number of straight line folds. Using these methods we give a convergent sequence for folding \pi as well as other methods to approximate \pi. Folding along curved creases, however, allows for the construction of transcendental numbers. We here give a method to construct \pi exactly by folding along a parabola, and we discuss generalizations for folding other transcendental numbers such as \Gamma(1/4).
+
+## 1 Introduction
+
+The number \pi is a transcendental number, which means that it isn’t the solution of any algebraic equation [[2](https://arxiv.org/html/2403.09277v1#bib.bib2)]. From the perspective of classical constructibility, this means that \pi cannot be constructed, since straight-edge and compass can only construct numbers which are solutions of quadratic equations or nested square roots of such numbers [[2](https://arxiv.org/html/2403.09277v1#bib.bib2)]. Origami can construct a larger class of numbers using the Huzita-Justin-Hatori origami operations [[1](https://arxiv.org/html/2403.09277v1#bib.bib1)], which allows the construction of numbers derived from cubic equations. However, just like with straight-edge and compass, straight-line creases cannot construct \pi exactly. To go further, curved creases are necessary.
+
+We begin by first considering methods to construct \pi approximately using straight-line creases. Just as with the numerical algorithms that can keep running to give ever more precise values, we begin by giving a convergent sequence whose approximation is limited only by the physical limitations of folding ever finer angles with precision. On the other hand, we can also consider particular cut-off points of precision to \pi and attempt to fold these approximations. We give three such methods, first folding \pi’s continued fraction convergents using Fujimoto’s approximation method, then folding trigonometric approximants using an angular version of Fujimoto’s approximation method, and finally folding cubic approximants to \pi.
+
+All of the straight-line crease methods only approximate \pi. We therefore expand into allowing the folding of curved creases. Of course, folding along a curved crease no longer follows the Huzita-Justin axioms of straight-line crease origami operations, since they cannot construct curved creases exactly. By folding along a parabola, we show that we can construct \pi exactly. Finally, we end by discussing constructions for other transcendental numbers and how to view the curved crease construction as a convergent sequence of straight-line origami operations.
+
+## 2 Convergent folding sequence
+
+In 2007, Osler gave a geometric translation of Vieta’s product formulat for \pi[[10](https://arxiv.org/html/2403.09277v1#bib.bib10)], and this method can be readily adapted to an origami folding sequence. We show such an adaptation in Figure [1](https://arxiv.org/html/2403.09277v1#S2.F1 "Figure 1 ‣ 2 Convergent folding sequence ‣ Folding 𝜋") for a square sheet of paper, such as typical origami paper, although using rectangles such as Letter of A4 paper can also be used.
+
+In practice, only 6 to 8 iterations can be made due to the difficulty of folding small angles accurately. With 6 iterations, the the procedure will give 3 accurate digits, 3.14127\ldots, while with 8 iterations, the procedure will give 4 accurate digits, 3.141572\ldots. If a sheet of paper is cut to exactly 4\times 4 cm, then the \pi approximant can be measured directly in cm from the last iteration, although in practice this size paper is too small. In general, the approximant to \pi is found by measuring the last iteration length and dividing by the length of the 1/4 horizontal mark, shown in the last step.
+
+Due to folding errors, crease size, and measuring limitations, perhaps only 2 decimals can be found this way in practice, although with a very large sheet 3 or 4 digits might be found. Photographic backdrop paper is inexpensive, colorful, and typically comes in rolls of width around 9 ft (3 m), which would be suitable for a large demonstration.
+
+(a)Fold from corner to corner
+
+(b)Fold from corner to corner 
+
+(c)Bisect the angle 
+
+(d)Fold the previous crease back on itself through the intersection 
+
+(e)Bisect the angle 
+
+(f)Fold the previous crease back on itself through the nearest intersection 
+
+(g)Repeat previous two steps as much as practicable
+
+(h)Fold the left edge to the center 
+
+(i)Measure lengths a and b. In the limit, b/a\to\pi.
+
+Figure 1: Convergent folding sequence for \pi.
+
+## 3 Folding \pi’s continued fraction convergents
+
+The Fujimoto approximation [[4](https://arxiv.org/html/2403.09277v1#bib.bib4), [8](https://arxiv.org/html/2403.09277v1#bib.bib8)] is an exponentially converging algorithm to divide a strip of paper into a rational fraction with odd denominator of a length between 0 and 1. Beginning with an initial guess, a series of folds is made, such that either the left or the right edge of the paper is taken to the previously made fold; see Figure [2](https://arxiv.org/html/2403.09277v1#S3.F2 "Figure 2 ‣ 3 Folding 𝜋’s continued fraction convergents ‣ Folding 𝜋") for a demonstration involving approximating \frac{1}{5}. After the procedure returns to near the original guess, a new more accurate crease will have been created much closer to the desired rational fraction. The process can be further repeated for increased precision. At each fold of the process, the error of the initial guess is halved, so that after folding through the procedure the algorithm produces a fold very close to the desired exact value.
+
+(a)Initial guess for \frac{1}{5} with error \epsilon. 
+
+(b)Fold the right edge to the previous crease (R) 
+
+(c)Fold the right edge to the previous crease (R)
+
+(d)Fold the left edge to the previous crease (L) 
+
+(e)Fold the left edge to the previous crease (L) 
+
+Figure 2: Folding Fujimoto’s exponentially convergent approximation for \frac{1}{5} from an initial guess of \frac{1}{5} with error \epsilon. The steps taken can be represented as RRLL. 
+
+Given a fraction 0<s/t<1 with odd denominator, the algorithm starts by folding an initial guess crease around s/t. Call this first crease’s numerator s_{0}=s. For a previously formed crease s_{n-1}, the algorithm proceeds as follows:
+
+1.   1.
+If s_{n-1} is odd, fold the right edge to the previous crease, forming a new crease with numerator s_{n}=s_{n-1}+(t-s_{n-1})/2.
+
+2.   2.
+If s_{n-1} is even, fold the left edge to the previous crease, forming a new crease with numerator s_{n}=s_{n-1}/2.
+
+3.   3.
+Iterate the previous steps until for some n, s_{n}=s_{0}, or else repeat again the procedure if further precision is desired.
+
+That the procedure produces cycles can be seen as follows. Since t is odd, either s_{n-1} will be even or else t-s_{n-1} will be even, and so at each step, a positive integer s_{n} will be produced in the range 0<s_{n}<t. After a maximum of t steps, by the pigeonhole principle the s_{n} will repeat a previous value, hence producing a cycle.
+
+We can analyze the algorithm and its cycles by rewriting the first two steps of the algorithm in the backwards direction as follows
+
+1.   1.
+s_{n-1}=2s_{n}, or
+
+2.   2.
+s_{n-1}=2s_{n}-t
+
+The backwards procedure is equivalent to multiplying s_{n} by 2 mod t, that is, the procedure is an origami realization of cyclotomic cosets of 2 mod t.
+
+In the example of \frac{1}{5} in Figure [2](https://arxiv.org/html/2403.09277v1#S3.F2 "Figure 2 ‣ 3 Folding 𝜋’s continued fraction convergents ‣ Folding 𝜋"), all possible creases are formed, that is, all numerators between 1 and t are visited in the cycle. This isn’t always the case, so that sometimes much shorter folding sequences can be found. For example, the cycle for \frac{1}{7} is \frac{1}{7}, \frac{4}{7}, \frac{2}{7}, \frac{1}{7}, \ldots. Notice that in this case, the missing fractions form another independent cycle \frac{3}{7}, \frac{5}{7}\frac{6}{7}, \frac{3}{7},\ldots.
+
+The number of cycles that exist for a given denominator is given by the OEIS sequence A006694 [[9](https://arxiv.org/html/2403.09277v1#bib.bib9)]. The larger the number of cycles that exist for a given denominator, the smaller the cycle lengths on average, and hence the smaller a folding sequence. In fact, we will see below that for the fraction 4703/33215 only 36 folds are needed to form the wanted cycle, 4 orders of magnitude smaller than what one would naively expect, given the denominator.
+
+As a means of describing the folding procedure, we will use R or L to denote folding the right or left edges of the paper to the previously folded crease, respectively. In the example of Figure [2](https://arxiv.org/html/2403.09277v1#S3.F2 "Figure 2 ‣ 3 Folding 𝜋’s continued fraction convergents ‣ Folding 𝜋") for finding 1/5, the sequence of folds from the initial guess is RRLL. Note that the sequence could have been stopped after just two steps (RR) if one is willing to rotate the strip of paper 180^{\circ} to find a new 1/5 approximant.
+
+We seek to find a sequence of folds using Fujimoto’s algorithm which will approximate \pi using rational approximants to \pi. Given a choice of rational approximant, as long as enough folds or repetitions of the procedure are made, then the algorithm will coverge exponentially to the approximant such that the error in folding is smaller than the error coming from the rational approximation itself. The best rational approximants of \pi are those coming from its continued fraction expansion, and we mostly consider these except for two cases below.
+
+It seems reasonable to only find \pi’s fractional part 0.14159\ldots, since otherwise a much larger strip of paper is necessary, with the first 3 units of paper going unused. The first continued fraction convergent for \pi is 22/7, the fractional part of which is given by 1/7, which has the simple sequence
+
+\mathrm{RLL}(1)
+
+This sequence can be repeated multiple times to decrease the error of the distance between the initial guess and the approximant. The approximant is accurate to 2 digits, 0.142\ldots, and repeating this sequence twice will reduce any initial error by a factor of 64, which is likely sufficient precision.
+
+The next two smallest sequences which improve upon this are not produced by the continued fraction convergents, which, though they give more accurate results, have sequences which are longer and are presented afterwards. The next two sequences are for 18/127=0.1417\ldots with the 7 step sequence
+
+\mathrm{LRLLRLL}(2)
+
+and for 93/657=0.14155\ldots with the 18 step sequence
+
+\mathrm{RRLLRRRRLLLLRLLRLL}(3)
+
+Given the error of the initial guess fold, the first sequence of 7 steps will have decreased that error by a factor of 2^{-7}\approx 7.8\times 10^{-3}, which may not be sufficient for achieving the 3 digits of accuracy of the approximant. The sequence could be repeated a second time, for a total of 14 steps, so that the initial error is decreased by a factor of 2^{-14}\approx 6.1\times 10^{-5} to ensure the accuracy of all digits. For the sequence with 18 steps, the initial error will be decreased by a factor of 2^{-18}\approx 3.8\times 10^{-6}, which will ensure that all 4 accurate digits of the approximant are achieved.
+
+The next best sequence uses the continued fraction convergent 355/113. The fractional part is given by 16/113=0.1415929\ldots and from an initial guess we have the following sequence
+
+\mathrm{LLLLRRRRLRRLRR}(4)
+
+After this sequence of 14 folds, the last crease will be on the right as an approximant to 1-16/113, so that the paper could be rotated 180^{\circ} to find an approximant for 16/113. Whatever the initial error of the guess, that error will have decreased by 2^{-14}\approx 6.1\times 10^{-5}, which may be sufficient for achieving 4 or 5 decimals of accuracy from the possible 6 decimals of the approximant, in which case this sequence of 14 steps is superior to the 18 step sequence above. If rotating the paper is undesirable, however, one could repeat the sequence in reverse, for a total of 28 steps, to arrive back on the left for a much more precise fold near the starting fold,
+
+\mathrm{LLLLRRRRLRRLRR\penalty\ \penalty\ RRRRLLLLRLLRLL}(5)
+
+Whatever the initial error of the guess, that error will have now decreased by 2^{-28}\approx 3.7\times 10^{-9}, so if the full accuracy of 6 digits of the convergent is desired, the sequence of length 28 can be used.
+
+Note that the full sequence of 28 folds contains a subsequence of 6 folds in succession all from the same side. In fact, four of the six happen immediately after the first half-sequence of 14 folds that end with a crease around 0.14159 from the right edge. The next four folds will subdivide this small length near the right edge of the paper by a factor of 16. Therefore, the paper used for this sequence should have a length greater than 11.3 cm, ideally at least double, so that none of the folds are within less than 1 mm from the edge of the paper. Standard Letter or A4 paper is almost triple this size along the long side.
+
+The next best folding sequence is for the convergent 104348/33215, accurate to 9 digits, which requires a sequence of length 36 to fold 4703/33215,
+
+\mathrm{RRRRRLLRLLLRLRLRLRRLRRRRRRLLLLRLLRLL}(6)
+
+In this sequence of folds, there is also a subsequence of 6 successive halvings, requiring a similarly sized length of paper compared to the previous sequence.
+
+Beyond these convergents, the lengths of the sequences of folds grow very quickly and there are greater subsequences of successive halvings, requiring ever larger lengths of paper to fold.
+
+In practicality, the precision of the half-sequence of 14 folds for the convergent 16/113 may be at the limit of what can be measured, since even with a 10 meter strip of paper, only 5 digits of precision can be measured if measuring to the nearest milimeter.
+
+## 4 Folding trigonometric approximants to \pi
+
+Fujimoto noted that his algorithm also works for finding rational approximations to angles [[5](https://arxiv.org/html/2403.09277v1#bib.bib5), [3](https://arxiv.org/html/2403.09277v1#bib.bib3)]. Given the right angle of a corner of a piece of paper, we would like to find a rational approximation to the angle \theta\approx 72.34321^{\circ} such that \tan\theta=\pi. Since \theta/90^{\circ}=0.803813\ldots, we can use the angular version of the algorithm to find rational approximants of this angle.
+
+Figure 3: Rational angle approximations can be found for the angle \theta\approx 72.34321^{\circ} in the top left corner, for which a/b=\pi. 
+
+We will assume the configuration shown in Figure [3](https://arxiv.org/html/2403.09277v1#S4.F3 "Figure 3 ‣ 4 Folding trigonometric approximants to 𝜋 ‣ Folding 𝜋"), and we will use the notation where L means the left edge of the paper is folded to the previous crease (such that the crease goes through the top left corner), while R means the top edge is folded to the previous crease (the crease going through the top left corner). Unfortunately, much higher accuracy is needed in the rational approximation to the angle in order to achieve a subsequent desired accuracy in the tangent of the angle.
+
+The following sequence of 8 steps will find the rational angle approximation to 41/51=0.80392\ldots
+
+\mathrm{LRLLRRLL}(7)
+
+which subsequently yield the approximation 3.1434\ldots, accurate to 2 digits. The sequence of 8 steps will reduce any initial angle error by a factor of 2^{-8}\approx 3.9\times 10^{-3}, which is only sufficient for achieving one digit of accuracy in the tangent of the angle. To achieve the full accuracy of the approximation for \pi, the sequence can be repeated, so that any angle error is reduced by a factor of 2^{-16}\approx 3.2\times 10^{-5}.
+
+The next best sequence is given by the rational angle approximation to 10034/12483=0.80381318\ldots, with sequence
+
+\mathrm{RLRLLRRRLLLRLLRRLL}(8)
+
+The rational angle approximation will yield the tangent approximation 3.141587\ldots with 4 digits of accuracy.
+
+The next best sequence is for the rational angle approximation to 237047/294903=0.80381345\ldots. It has 30 steps, but unfortunately it begins by bisecting the initial angle 9 times in a row, which is beyond the limits of practicality due to the difficulty of folding small angles. Laying aside this sequence, the next best sequence, which is a slightly worse approximation, is a sequence of 36 steps for the rational angle approximation to 80096/99645=0.8038135, given by
+
+\mathrm{RRRRRLRLLRLRLRRLLLRLRLLRRRLLLRLLRRLL}(9)
+
+This gives the tangent approximation 3.1415937\ldots with 5 digits of accuracy, and the length of the sequence is sufficient to achieve this accuracy regardless of the initial error. Though easier than the rejected sequence, it still features 5 repeat bisections, which is difficult to fold in practice.
+
+Longer sequences for more accurate tangent approximations can be sought, but the length grows quickly and they may feature too many sequential bisections, making them impracticable to fold.
+
+## 5 Folding algebraic approximants to \pi
+
+The final way we consider to fold an approximant of \pi is to seek a polynomial equation of degree 2 or 3 with integer coefficients which has a real root close to \pi. The desired real root of the polynomial can then be found via origami by the application of Lill’s method, as detailed in [[1](https://arxiv.org/html/2403.09277v1#bib.bib1)]
+
+In practice, quadratics and cubics with “small” integer coefficients are preferrable, e.g. coefficients with absolute value less than 64 or 128, since rational fractions of the side of the square of paper with denominator 2^{n} must be found, and divisions of the side of a square beyond 128 equal parts is not very convenient in practice. With these constraints, an exhaustive search for quadratics and cubics with integer coefficients <100 was performed. The best approximants come from cubics rather than quadratics, which is reasonable to expect given the larger number of cubic polynomials. Of those with coefficients <64, the best is
+
+9x^{3}-9x^{2}-44x-52=0(10)
+
+with its real root having a difference of 1.58\ldots\times 10^{-7} from \pi. Though the construction of the corresponding path of Lill’s method can fit within a square with at most a division into 64 equal parts, the extra auxiliary crease lines required for the origami implementation of the method fall outside of the bounds of the paper. The best cubic approximation whose origami construction falls within the square is
+
+4x^{3}-22x^{2}+29x+2=0(11)
+
+This cubic has a real root a distance of 3.42\ldots\times 10^{-7} away from \pi, although it has another root 2.42\ldots which is close enough to the desired root that it could be mistakenly found rather than the \pi approximant.
+
+The best cubic approximant whose origami construction fits inside a square with at most 64 divisions and which cannot be mistaken for another nearby root is the cubic
+
+8x^{3}-17x^{2}-16x-30=0(12)
+
+which only has one real root, a distance of 1.27\ldots\times 10^{-5} from \pi.
+
+Finally, the best cubic approximation of \pi was found which can fit within a Letter or A4 sheet of paper such that after folding the approximant the root can be measured directly in cm. It is the cubic given by
+
+x^{3}-x^{2}-8x+4=0(13)
+
+which has the real root 3.1413\ldots, accurate to 3 digits.
+
+Figure 4: Lill’s method for finding the real root 3.1413\ldots of the cubic x^{3}-x^{2}-8x+4=0. A single fold is made by aligning point A to the left edge D while at the same time aligning point B to line L, making a crease that crosses line M. The measurement in cm from O to M will give the \pi approximant when the length from B to O is 1 cm. 
+
+The origami folding procedure is given in Figure [4](https://arxiv.org/html/2403.09277v1#S5.F4 "Figure 4 ‣ 5 Folding algebraic approximants to 𝜋 ‣ Folding 𝜋"), where a printing such that the length from B to O is 1 cm will result in a crease crossing line M such that the length from O to the crease intersection is 3.1413\ldots. Note that in practice care must be taken to ensure that a printer will print at 100% scaling.
+
+## 6 Folding \pi exactly using curved creases
+
+Jun Mitani has popularized rotationally symmetric origami models through his software Ori-Revo [[7](https://arxiv.org/html/2403.09277v1#bib.bib7)], a sample of which is shown in Figure [5](https://arxiv.org/html/2403.09277v1#S6.F5 "Figure 5 ‣ 6 Folding 𝜋 exactly using curved creases ‣ Folding 𝜋"). In the software, the user can select points, connected by lines, which represent the silhouette of the shape after folding along the crease pattern that is produced. The number of segments and other parameters can be chosen by the user. The mathematics involved in producing the crease pattern is described in detail in Robert Lang’s book Twists, Tilings, and Tessellations [[6](https://arxiv.org/html/2403.09277v1#bib.bib6)], of which we focus here on the cylindrical thin-flange case.
+
+![Image 1: Refer to caption](https://arxiv.org/html/2403.09277v1/Ori-RevoSample.png)
+
+Figure 5: A sample of Jun Mitani’s Ori-Revo software showing the silhouette (left), generated crease pattern (lower right) and resulting folded model according to various chosen options (top right).
+
+A limitation of the software and the mathematical description in Twists, Tilings, and Tessellations, however, is that only line segments are allowed or presented. We can easily adapt the equations to the continuous case, however. Given a silhouette curve x(y), the crease pattern curve can be calculated as:
+
+\displaystyle X\displaystyle=\displaystyle x(y)\tan\left(\frac{\pi}{n}\right)(14)
+\displaystyle Y\displaystyle=\displaystyle\int_{0}^{y}\sqrt{1+\left(\frac{dx}{dy}\right)^{2}}dy(15)
+\displaystyle H\displaystyle\geq\displaystyle x_{f}\tan\left(\frac{\pi}{n}\right)(16)
+
+where X and Y are crease pattern coordinates given parametrically, and where H is the half-width of each panel of the crease pattern segments. The greater the quantity H, the larger the flange that sticks out of the folded shape, with the equality meaning that the flange will disappear for at least one point along the silhouette curve. We don’t need to restrict our original curve to be a function, however. We can also calculate a crease pattern for a parametrically defined curve given by (x(t),y(t)) as
+
+\displaystyle X\displaystyle=\displaystyle x(t)\tan\left(\frac{\pi}{n}\right)(17)
+\displaystyle Y\displaystyle=\displaystyle\int_{0}^{t}\sqrt{\left(\frac{dx}{dt}\right)^{2}+\left(\frac{dy}{dt}\right)^{2}}dt(18)
+\displaystyle H\displaystyle\geq\displaystyle\max\left(x(t)\right)(19)
+
+The formula for Y in both cases is in fact just the arclength of the curve, and in certain cases the formula can produce closed-form solutions. These solutions are in general transcendental, so that constructing the crease pattern curve to fold is itself non-trivial.
+
+However, we can work the other way around, asking what silhouette is produced by folding along a given chosen curve. Given a crease pattern function X(Y), with a chosen H\geq\max(X), the silhouette equations become,
+
+\displaystyle x\displaystyle=\displaystyle X(Y)\cot\left(\frac{\pi}{n}\right)(20)
+\displaystyle y\displaystyle=\displaystyle\int_{0}^{Y}\sqrt{1+\left(\frac{dX}{dY}\right)^{2}}dY(21)
+
+If the crease pattern curve is given parametrically as (X(t),Y(t)), the silhouette equations become
+
+\displaystyle x\displaystyle=\displaystyle X(t)\cot\left(\frac{\pi}{n}\right)(23)
+\displaystyle y\displaystyle=\displaystyle\int_{0}^{t}\sqrt{\left(\frac{dX}{dt}\right)^{2}+\left(\frac{dY}{dt}\right)^{2}}dt(24)
+
+We can now construct the curves we wish and ask what final folded shapes result. One of the simplest curves other than line segments is a parabola. For the parabola X=Y^{2}/2 between 0\leq Y\leq 1, the resulting folded silhouette is given by the curve
+
+\displaystyle x\displaystyle=\displaystyle\frac{Y^{2}}{2}\cot\left(\frac{\pi}{n}\right)(26)
+\displaystyle y\displaystyle=\displaystyle\frac{1}{2}\left[Y\sqrt{1-Y^{2}}+\sin^{-1}(Y)\right](27)
+
+For convenience, we can choose n=4, so that
+
+\displaystyle x\displaystyle=\displaystyle\frac{Y^{2}}{2}(28)
+\displaystyle y\displaystyle=\displaystyle\frac{1}{2}\left[Y\sqrt{1-Y^{2}}+\sin^{-1}(Y)\right](29)
+
+or equivalently,
+
+y=\frac{1}{2}\left[\sqrt{2x}\sqrt{1-2x}+\sin^{-1}(\sqrt{2x})\right](30)
+
+We can now consider the endpoint coordinate Y=1, at x=1/2, and we find that
+
+y\left(\frac{1}{2}\right)=\frac{\pi}{4}(31)
+
+The crease pattern curve and the folded silhouette curve are shown in Figure [6](https://arxiv.org/html/2403.09277v1#S6.F6 "Figure 6 ‣ 6 Folding 𝜋 exactly using curved creases ‣ Folding 𝜋"). The full crease pattern is shown in Figure [7](https://arxiv.org/html/2403.09277v1#S6.F7 "Figure 7 ‣ 6 Folding 𝜋 exactly using curved creases ‣ Folding 𝜋"), and Figure [8](https://arxiv.org/html/2403.09277v1#S6.F8 "Figure 8 ‣ 6 Folding 𝜋 exactly using curved creases ‣ Folding 𝜋") shows the author’s folding of the crease patter.
+
+Figure 6: On the left the plot of the crease pattern function x=y^{2}/2 between 0\leq x\leq 1. On the right the plot of the silhouette function y=1/2\left[\sqrt{2x}\sqrt{1-2x}+\sin^{-1}(\sqrt{2x})\right] between 0\leq x\leq 0.5.
+
+Since we know the crease pattern being folded must have a height of 1 before folding in the crease pattern coordinates, we can simply find the ratio of the height after folding to the height before folding, with the result being \pi/4. And since we will have folded four segments to achieve the result, the construction given by the crease pattern shown in Figure [7](https://arxiv.org/html/2403.09277v1#S6.F7 "Figure 7 ‣ 6 Folding 𝜋 exactly using curved creases ‣ Folding 𝜋") in fact folds \pi! And because the surface rulings are parallel to the ground and the cross-sections are therefore squares, one might say, tongue-in-cheek, that “origami can square the circle”.
+
+![Image 2: Refer to caption](https://arxiv.org/html/2403.09277v1/piquad.png)
+
+Figure 7: Crease pattern of parabola x=y^{2}/2 segments producing \pi after folding.
+
+![Image 3: Refer to caption](https://arxiv.org/html/2403.09277v1/piquadfolded_small.jpg)
+
+Figure 8: The crease pattern of Figure [7](https://arxiv.org/html/2403.09277v1#S6.F7 "Figure 7 ‣ 6 Folding 𝜋 exactly using curved creases ‣ Folding 𝜋") folded by the author.
+
+## 7 Other transcendental numbers
+
+The number \pi is not the only transcendental number we can consider using the methods above. We can seek to approximate any other number using continued fraction convergents, or trigonometric or algebraic approximants. More interesting is to consider other convergent sequences, but the author is unaware of other constructions which could be adapted to origami that are similar to the one above for \pi.
+
+The curved crease method to produce \pi can also produce other transcendental numbers. For example, folding along the cubic X=Y^{3}/3 between 0\leq Y\leq 1 for 4 segments produces the transcendental number
+
+y(Y=1)=\frac{\Gamma\left(\frac{1}{4}\right)}{6\sqrt{2\pi}}(32)
+
+and in general we have the following silhouette equations for folding with 4 segments,
+
+\displaystyle X\displaystyle=\displaystyle\frac{Y^{n}}{n}(33)
+\displaystyle y\displaystyle=\displaystyle\int_{0}^{Y}\sqrt{1+Y^{2n-2}}dY(34)
+\displaystyle=\displaystyle{}_{2}F_{1}\left(-\frac{1}{2},\frac{1}{2n-2},1+\frac{1}{2n-2};Y^{2n-2}\right)(35)
+\displaystyle x\displaystyle=\displaystyle\frac{Y^{n}}{n}(36)
+
+with endpoint at Y=1 given by
+
+y(Y=1)=\frac{\sqrt{\pi}\Gamma\left(\frac{1}{2n-2}\right)}{2n\Gamma\left(\frac{1}{2}+\frac{1}{2n-2}\right)}=\frac{2^{\frac{1}{n-1}}\Gamma\left(\frac{1}{2n-2}\right)^{2}}{4n\Gamma\left(\frac{1}{n-1}\right)}(37)
+
+This procedure has the potential to construct other transcendental constants, although it requires first constructing polynomials of high degree. Not much is known about the algebraic independence of the numbers \Gamma\left(1/k\right) except that the numbers for k=2,3,4 are known to be algebraically independent [[11](https://arxiv.org/html/2403.09277v1#bib.bib11)]. This means that the cubic procedure which produces a ratio involving \Gamma(1/4) and \Gamma(1/2)=\sqrt{\pi}, actually constructs a new transcendental constant \Gamma(1/4) distinct from \pi.
+
+## 8 Conclusions
+
+In this short paper we have been presented several methods for constructing \pi either exactly, convergently, or approximately. Of course, all of these methods have the inherent limitation of precision of both folding and measuring, let alone material properties. In addition, constructing a continuous parabola to fold along in order to construct \pi exactly itself falls outside of the realm of origami.
+
+Of course, because the Huzita-Justin straight crease axioms can construct solutions to quadratics, they can be used in principle to construct a dense set of origami-constructible points along the parabola. Therefore, constraining ourselves to only points constructible using standard origami procedures, we can define a new convergent sequence which approximates \pi, where more and more points along the parabola x=y^{2}/2 are constructed, and the height after folding along all of them is measured, which will approach \pi/4. Further, since standard stright-line origami operations can also construct a dense set of points along cubics, the curved crease procedure also produces a convergent sequence for constructing the transcendental number \Gamma\left(\frac{1}{4}\right). In fact, for any given curve having a dense number of rorigami-constructible points, an origami sequence can be defined which may converge to new transcendental numbers.
+
+It remains, therefore, that from the perspective of straight-line crease origami, \pi and other transcendental numbers retain their enchanting mystery as numbers that can only be produced at best convergently in a finite number of steps.
+
+## 9 Acknowledgements
+
+Most of the work in this paper was produced while the author was in the School of Information and Physical Sciences at the University of Newcastle, NSW, Australia in 2018 and the author wishes to thank the generous hospitality of Judy-anne Osborn and Richard Brent during this time.
+
+## References
+
+*   [1] Roger C. Alperin and Robert J. Lang. One- two-, and multi-fold origami axioms. In Robert J. Lang, editor, Origami 4, pages 371–393, Natick, MA, 2009. A K Peters, Ltd. 
+*   [2] Wooster Woodruff Beman and David Eugene Smith, editors. Famous Problems of Elementary Geometry. Ginn and Company, Boston, 1897. 
+*   [3] Shuzo Fujimoto. Twist origami 3. 
+*   [4] Shuzo Fujimoto. Twist Origami 1. 1978. 
+*   [5] Shuzo Fujimoto. Twist Origami 2. 1983. 
+*   [6] Robert J. Lang. Twists, Tilings, and Tessellations. CRC Press, NY, 2018. 
+*   [7] Jun Mitani. Ori-revo: A design tool for 3d origami of revolution. https://mitani.cs.tsukuba.ac.jp/, 2024. 
+*   [8] Masami Nishikawi and Shuzo Fujimoto. Invitation to Creative Playing with Origami. 1982. 
+*   [9] OEIS. OEIS Foundation Inc. (2024). Number of cyclotomic cosets of 2 mod 2n+1, Entry A006694 in The On-Line Encyclopedia of Integer Sequences. https://oeis.org/A006694. 
+*   [10] T. J. Osler. A simple geometric method of estimating the error in using vieta’s product for \pi. International Journal of Mathematical Education in Science and Technology, 38(1):136–142, 2007. 
+*   [11] Michel Waldschmidt. Les travaux de g. v. cudnovskii sur les nombres transcendants. Seminaire Bourbaki, 1975-76(18):274–292, 1977. Talk no 488.
+

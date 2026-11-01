@@ -1,0 +1,2277 @@
+                                                                   A Reverse Minkowski Theorem
+                                                                     Oded Regev∗†              Noah Stephens-Davidowitz‡§
+                                                                                                  noahsd@gmail.com
+arXiv:1611.05979v6 [math.MG] 7 Jul 2022
+
+
+
+
+                                                                                              Abstract
+                                                      We prove a conjecture due to Dadush, showing that if L ⊂ Rn is a lattice such that det(L0 ) ≥
+                                                  1 for all sublattices L0 ⊆ L, then
+                                                                                      X       2   2
+                                                                                          e−πt kyk ≤ 3/2 ,
+                                                                                        y∈L
+
+                                                  where t := 10(log n + 2). From this we derive bounds on the number of short lattice vectors,
+                                                  which can be viewed as a partial converse to Minkowski’s celebrated first theorem. We also
+                                                  derive a bound on the covering radius.
+
+
+                                          1       Introduction
+                                          A lattice L ⊂ Rn is the set of integer linear combinations of linearly independent basis vectors
+                                          B = (b1 , . . . , bn ). The determinant of the lattice, det(L) = | det(B)|, is a measure of its global
+                                          density in the sense that
+                                                                                                 vol(rB2n )
+                                                                                 det(L) = lim               ,
+                                                                                           r→∞ |L ∩ rB n |
+                                                                                                        2
+
+                                          where rB2n denotes the closed Euclidean ball of radius r > 0, whose volume is (πn)−1/2 (2πer2 /n)n/2 (1+
+                                          o(1)). (Here and elsewhere, we write o(1) for an arbitrary function that approaches zero as the
+                                          dimension n approaches infinity.)
+                                             Minkowski’s celebrated first theorem shows that a lattice with small determinant must have
+                                          short non-zero vectors [Min10]. This is one of the foundational results in the study of lattices and
+                                          the geometry of numbers, and it has innumerable applications. We consider the following point-
+                                          counting form of this theorem due to Blichfeldt and van der Corput,1 which says that a lattice with
+                                          small determinant must have many short points, or informally, that “global density implies local
+                                          density.”
+                                              ∗
+                                               Courant Institute of Mathematical Sciences, New York University.
+                                              †
+                                               Supported by the Simons Collaboration on Algorithms and Geometry and by the National Science Foundation
+                                          (NSF) under Grant No. CCF-1320188. Any opinions, findings, and conclusions or recommendations expressed in this
+                                          material are those of the authors and do not necessarily reflect the views of the NSF.
+                                             ‡
+                                               Cornell University.
+                                             §
+                                               Much of this work was done while at New York University, supported by the National Science Foundation (NSF)
+                                          under Grant No. CCF-1320188. Part of this work was done while visiting Chris Peikert at the University of Michigan.
+                                             1
+                                               They actually showed the slightly stronger bound |L ∩ rB2n | ≥ 2b2−n · vol(rB2n )c + 1 and considered arbitrary
+                                          norms, not just `2 . (See, e.g., [GL87, Thm. 1 of Ch. 2, Sec. 7].)
+
+
+
+                                                                                                   1
+Theorem 1.1 ([vdC36]). For any lattice L ⊂ Rn with det(L) ≤ 1 and r > 0,
+                                                        1  πer2 n/2
+                      |L ∩ rB2n | ≥ 2−n · vol(rB2n ) = √              (1 + o(1)) .
+                                                         πn 2n
+    It is quite natural to ask whether a converse of Theorem 1.1 holds. In particular, if a lattice
+has sufficiently many short points, does it necessarily have small determinant? Does local density
+imply global density?
+    It is easy to see that the answer is actually no. Consider, for example, the lattice generated by
+the vectors (1/t, 0) and (0, t2 ) for some arbitrarily large t. This lattice has at least 2btrc + 1 points
+of norm at most r, but it has arbitrarily large determinant t. Notice, however, that this lattice
+contains a sublattice generated by (1/t, 0) that does have small determinant. This leads us to a
+more refined question:
+      If a lattice has sufficiently many short points, does it necessarily have a small-determinant
+      sublattice? Does local density imply global density restricted to a subspace?
+Equivalently, in the contrapositive, the question asks for an upper bound on the number of lattice
+points in a ball given that there is no sublattice of small determinant.
+    Dadush conjectured a suitably precise answer to these questions [Dad12a]. He later studied
+this conjecture in depth in joint work with the first named author [DR16]. Among other things,
+they showed a number of applications of the conjecture (from computational complexity of lattice
+problems to Brownian motion on flat tori) and gave some evidence for it. We refer the reader
+to [DR16] for a full list of their results.
+    Our main result is a proof of the conjecture of Dadush, which in particular implies the applica-
+tions mentioned above.
+Theorem 1.2 (Reverse Minkowski Theorem). For any lattice L ⊂ Rn with det(L0 ) ≥ 1 for all
+sublattices L0 ⊆ L,
+                                              3
+                                    ρ1/t (L) ≤ ,
+                                              2
+where t := 10(log n + 2).
+   Here, for a lattice L ⊂ Rn and s > 0,
+                                                                2   2
+                                                          e−πkyk /s
+                                                    X
+                                        ρs (L) :=
+                                                    y∈L
+
+is the Gaussian mass of the lattice with parameter s. This can be seen as a smooth version of
+the point-counting function r 7→ |L ∩ rB2n |, with the parameter s playing the role of the radius r,
+and it arises naturally in a number of contexts (often in the form of the theta function, ΘL (iy) :=
+                                                                                      2 2
+ρ1/√y (L)). In particular, Theorem 1.2 immediately implies that |L ∩ rB2n | ≤ 3eπt r /2 for any
+radius r > 0. (We note that the constant 3/2 in this bound and the theorem statement is chosen
+for convenience, and a similar statement holds with any constant strictly bigger than 1.)
+    One can view Theorem 1.2 as relating the parameters
+                                   η ∗ (L) := inf{t : ρ1/t (L) ≤ 3/2}
+(known as the smoothing parameter of the dual lattice [MR07]) and
+                                                                        0
+                                  ηdet (L) := max
+                                               0
+                                                  det(L0 )−1/ rank(L ) .
+                                              L ⊆L
+
+
+                                                     2
+Specifically, we claim that
+                                    2
+                                      · ηdet (L) ≤ η ∗ (L) ≤ 10(log n + 2) · ηdet (L) .                  (1)
+                                    3
+Indeed, the first inequality is an immediate consequence of the Poisson Summation Formula, Eq. (5)
+(see Eq. (6)). When ηdet (L) = 1, the second inequality is precisely Theorem 1.2; the general case
+follows by noting that both ηdet (L) and η ∗ (L) behave identically under scaling of Lp(homogeneous
+of degree −1). Eq. (1) is not far from tight, as can be seen by noting that η ∗ (Zn ) = log n/π + o(1)
+and ηdet (Zn ) = 1.
+    In Section 5, we extend Theorem 1.2 to obtain a bound on the Gaussian mass for all parameters,
+as follows.
+
+Theorem 1.3. Let t := 10(log n + 2). Then, for any lattice L ⊂ Rn with det(L0 ) ≥ 1 for all
+sublattices L0 ⊆ L,
+                                2    2
+  1. ρs (L) ≤ 1 + e−π(1/s −t ) /2 for any s ≤ 1/t;
+
+  2. ρs (L) ≤ (Cst)n/2 for any 1/t < s < t and some universal constant C > 1; and
+
+  3. ρs (L) ≤ 2sn for any s ≥ t.
+
+Theorem 1.3 implies the following point-counting bounds. (See Section 5 for the proof.)
+
+Corollary 1.4. Let t := 10(log n + 2). Then, for any lattice L ⊂ Rn with det(L0 ) ≥ 1 for all
+sublattices L0 ⊆ L, and every shift vector u ∈ Rn ,
+                                                      2 2
+  1. for any r ≥ 1, |L ∩ (rB2n + u)| ≤ 3eπt r /2;
+                                                                                   √
+  2. for any n/(2π) · t−1 ≤ r ≤                n/(2π) · t, |L ∩ (rB2n + u)| ≤ (Ctr/ n)n/2 for some universal
+                  p                         p
+
+     constant C > 0; and
+
+                          n/(2π) · t, |L ∩ (rB2n + u)| ≤ 2(2πer2 /n)n/2 .
+                       p
+  3. for any r ≥
+
+In Section 8, we discuss the tightness of Theorem 1.3 and Corollary 1.4.
+
+1.1      Approximation to the covering radius
+The covering radius µ(L) of a lattice L ⊂ Rn is the maximal distance from any point in Rn
+to the lattice, or equivalently, the minimum radius r such that L + rB2n = Rn . It follows from
+the definition  that µ(L) must be at least the radius of a ball of volume det(L), which is at
+least n/(2πe) det(L)1/n . By considering projections, Kannan and Lovász [KL88] improved this
+      p
+
+lower bound, as follows. Let πW ⊥ (L) be the projection of the lattice onto the space W ⊥ or-
+thogonal to some lattice subspace W ⊂ Rn —a subspace spanned by k < n linearly independent
+lattice vectors.2 Then clearly µ(L) ≥ µ(πW ⊥ (L)), and the latter is at least (dim(W ⊥ )/(2πe))1/2 ·
+                     ⊥
+det(πW ⊥ (L))1/ dim(W ) . So, we obtain the lower bound
+                                                            1
+                                                µ(L) ≥ √        · µdet (L) ,
+                                                            2πe
+  2
+      The projection πW ⊥ (L) is a lattice if and only if W is a lattice subspace.
+
+
+                                                             3
+where
+                                                    q                                           1
+                              µdet (L) := maxn          dim(W ⊥ ) · det(πW ⊥ (L)) dim(W ⊥ ) ,
+                                            W ⊂R
+
+with the maximum taken over lattice subspaces W ⊂ Rn . To make the analogy to ηdet more
+apparent, we apply duality and write
+                                                                        1                                               1
+                                                                −
+                          q                                                               q
+                                                                                                                  − rank(M)
+       µdet (L) = maxn      dim(W ⊥ ) · det(πW ⊥ (L)∗ )             dim(W ⊥ )   = max∗       rank(M) · det(M)                 ,
+                  W ⊂R                                                           M⊆L
+
+where L∗ denotes the dual of a lattice L, the first equality uses the fact that the determinant of
+the dual lattice is the reciprocal of the determinant of the lattice, and the second equality uses the
+fact that πW ⊥ (L)∗ = W ⊥ ∩ L∗ . Kannan and Lovász also observed the upper bound
+                                                  √
+                                         µ(L) ≤ C n · µdet (L)
+
+(see [DR16, Theorem 11.1] for a proof), and asked whether a better upper bound could be found.3
+In Section 6, we use Theorem 1.2 to derive the following improved bound.
+
+Theorem 1.5 (Covering-radius approximation). For any lattice L ⊂ Rn ,
+                                  1
+                              √       · µdet (L) ≤ µ(L) ≤ 10(log n + 10)3/2 · µdet (L) .                                          (2)
+                                  2πe
+     We emphasize that Dadush and Regev [DR16] already proved that Theorem 1.5 (with slightly
+weaker parameters) would follow from a proof of Theorem 1.2. Although our proof is shorter and
+achieves slightly better parameters, it is conceptually similar to the one in [DR16].
+     We note that the specific polylogarithmic factor that we obtain is likely not optimal. In fact, in
+                                                                                                    3/2
+      √ 6.8 we prove a bound similar to that in Eq. (2) that replaces the factor 10(log n + 10)
+Theorem
+by C log n, assuming the celebrated Slicing Conjecture [Bou91, p     Kla06, Che21, KL22]. However,
+it is not difficult to show that this factor cannot be smaller than log n/(4e) + o(1).4
+
+Covering radius of stable lattices and Minkowski’s Conjecture. We say that a lattice
+L ⊂ Rn is stable if det(L) = 1 and det(L0 ) ≥ 1 for all sublattices L0 ⊆ L. Stable lattices arise in a
+number of contexts [HN75, Stu76, Gra84] and they play an important role in the sequel. Shapira
+                                                             √
+and Weiss showed that a tight bound of µ(L) ≤ µ(Zn ) = n/2 on the covering radius of stable
+lattices would imply a well-known conjecture attributed to Minkowski [SW16]. Specifically, the
+conjecture asserts that for every lattice L ⊂ Rn with det(L) = 1 and vector t = (t1 , . . . , tn ) ∈ Rn ,
+
+                                                              |yi − ti | ≤ 2−n .
+                                                        Y
+                                                  inf                                                                             (3)
+                                                  y∈L
+                                                         i
+   3
+    They also proved similar bounds for arbitrary norms [KL88, Corollary 3.11].
+   4
+    Consider the lattice L generated by (e1 , e2 /2, 2e3 /33/2 , . . . , (n − 1)(n−1)/2 en /nn/2 ). It is not difficult to verify
+that µdet (L) = 1, but
+                            n                           n                       n
+                            X (k − 1)k−1                X (1 − 1/k)k            X         1              log n
+           µ(L)2 = 1/4 +                     = 1/4 +                        =                   + O(1) =       + O(1) .
+                                     4kk                       4(k − 1)               4e(k − 1)            4e
+                            k=2                         k=2                     k=2
+                    p
+Therefore, µ(L) =      log n/(4e) + o(1).
+
+
+                                                                    4
+(See [SW16] and [Sol19].)
+    We do not manage to prove a bound tight enough to imply Eq. (3), but en route to proving
+                                       √
+Theorem 1.5 we do show that µ(L) ≤ 4 n(log n + 10) for all stable lattices. (See Theorem 6.2.) We
+also observe that a very strong resolution to the Slicing Conjecture would yield the desired tight
+bound, when combined with a recent result due to Magazinov [Mag18]. (See Theorem 6.7 and the
+discussion afterwards.)
+
+1.2   An optimal bound on the Gaussian mass for “extreme” parameters
+It is tempting to ask whether ρs (L) ≤ ρs (Zn ) for any lattice L ⊂ Rn such that det(L0 ) ≥ 1 for
+all sublattices L0 ⊆ L and any parameter s > 0. (See Section 1.5.) The next theorem shows
+that indeed ρs (L) ≤ ρs (Zn ) for such lattices, but only for “extremely low” or “extremely high”
+parameters s. (See Section 7 for the proof.)
+Theorem 1.6. For any lattice L ⊂pRn such that det(L    0                          0
+                                                      p) ≥ 1 for all sublattices L ⊆ L and
+parameter s > 0 such that either s ≤ 2π/(n + 2) or s ≥ (n + 2)/(2π), we have ρs (L) ≤ ρs (Zn ).
+We hope that the proof of Theorem 1.6 might provide some hints as to how to extend it to all
+parameters s.
+
+1.3   Proof overview
+In this section, we give a high-level overview of the proof of Theorem 1.2.
+
+Bounding the mass of stable lattices.             Recall that a lattice L is stable if det(L) = 1 and
+      0                           0
+det(L ) ≥ 1 for all sublattices L ⊆ L. I.e., stable lattices are determinant-one lattices that satisfy
+the assumption in Theorem 1.2. In this proof overview, we focus on bounding the Gaussian mass
+ρs (L) of stable lattices L. As it turns out, the general case then follows easily.
+    Crucially, the stable lattices form a compact subset of the set of determinant-one lattices, so
+that the continuous function ρs (L) must attain a global maximum over the set of stable lattices.
+We may therefore restrict our attention to a lattice that corresponds to this global maximum. If
+this lattice is on the boundary of the set of stable lattices, then it has a strict sublattice L0 with
+determinant one. We can then “split the lattice” at L0 . Namely, we can replace the original lattice
+L by the direct sum L0 ⊕ L/L0 , where both L0 and L/L0 are stable. By using the fact that the
+Gaussian has a positive Fourier transform, it is not difficult to prove that
+
+                             ρs (L) ≤ ρs (L0 ⊕ L/L0 ) = ρs (L0 )ρs (L/L0 ) .
+
+(See Lemma 2.3.) So, we have reduced the question to a lower-dimensional one. Therefore, if we
+could show that for any dimension, the global maximizer is on the boundary, then we could use
+induction to show that the global maximizer of the Gaussian mass is simply the integer lattice
+Zn = Z ⊕ · · · ⊕ Z.
+    Indeed, this is how we prove Theorem 1.6 (in Section 7), which shows that Zn has maximal
+Gaussian mass for certain “extreme” parameters s. For such parameters, by taking the second
+derivative, we show that a stable lattice cannot be a local maximum over the set of determinant-
+one lattices. Therefore, the global maximizer of ρs (L) over the compact subset of stable lattices
+must be on the boundary, and we can perform the “splitting” procedure described above to show
+by induction that ρs (L) ≤ ρs (Zn ).
+
+                                                   5
+    However, it was recently shown by Heimendahl et al. that stable local maxima do exist for some
+parameters s [HMT+ 22].5 As a potential way around this issue, we could use a natural and very
+elegant idea due to Shapira and Weiss [SW16]—we could try to directly bound the value of ρs (L)
+at any local maximum. Then, either the global maximum of ρs (L) over the set of stable lattices
+is one of these local maxima, in which case we can apply this bound; or it is on the boundary, in
+which case we can “split the lattice” as above. (Shapira and Weiss suggested using this approach
+to bound the covering radius of stable lattices, which is also known to have local maxima [DSV12];
+they showed that a tight bound would resolve Minkowski’s Conjecture [SW16].)
+
+Enter the Voronoi cell.       Unfortunately, directly bounding the value of ρs (L) at local maxima
+seems to be beyond our grasp. So, instead of working with ρs (L) directly, we work with a proxy
+for it: the Gaussian mass of the Voronoi cell of the lattice
+                                                     Z
+                                                                     2
+                                      γs (V(L)) :=             e−πkxk dx ,
+                                                      V(L)/s
+
+where the Voronoi cell is the set of all points that are at least as close to the origin as to any other
+lattice point,
+                           V(L) := {x ∈ Rn : ∀y ∈ L, kxk ≤ ky − xk} .
+An elegant proof due to Chung, Dadush, Liu, and Peikert [CDLP13] shows that ρs (L) is at most
+1/γs (V(L)). (See Lemma 4.1.) So, in order to prove an upper bound on ρs (L), it suffices to prove
+a lower bound on γs (V(L)).
+    We accomplish this via the approach described above. Namely, we reduce the problem to
+bounding the value of γs (V(L)) at local minima L. (We do not know whether these local minima
+exist.) For such an L, we consider two functions, both defined over the set of all determinant-one
+matrices A ∈ SLn (R): g(A) = γs (V(AL)) and h(A) = γs (AV(L)). Notice that the value we wish
+to bound is g(In ) = h(In ). Moreover, as we show (in Section 3), the two functions have the same
+gradient at A = In and therefore the fact that g has a local minimum at A = In implies that h
+has a critical point there. Using a result due to Bobkov [Bob11], which itself follows from a deep
+theorem due to Cordero-Erausquin, Fradelizi, and Maurey [CFM04],6 we can show that any such
+critical point of h must actually be a global maximum. I.e., in the language of convex geometry, the
+Voronoi cell is in a position that maximizes the Gaussian mass. (Note the rather surprising jump
+from a presumed local minimum over the set of determinant-one lattices to a global maximum over
+the set of positions of the Voronoi cell.) Finally, we complete the proof by applying the celebrated
+``∗ theorem [FT79, Lew79, Pis82], which implies that for s = 1/t, the global maximum of h is at
+least 2/3, where t := 10(log n + 2) as in Theorem 1.2.
+
+1.4    Related work
+Our main theorem was originally conjectured by Dadush [Dad12a]. Dadush together with the first
+named author described several applications of the conjecture [DR16]. In particular, they showed
+the connection between this conjecture and the Kannan-Lovász-style covering-radius approximation
+   5
+    This was originally posed as an open question in an earlier version of this paper.
+   6
+    We note in passing that one can prove Theorem 1.2 (at least up to constants) without using this rather heavy
+hammer by considering local maxima of the `-norm of the Voronoi cell instead of local minima of the Gaussian mass
+of the Voronoi cell.
+
+
+
+                                                         6
+given in Theorem 1.5. They also used a result from convex geometry (specifically the Milman-Pisier
+Theorem [MP87]) as evidence for the conjecture. That theorem is related to the ``∗ theorem that
+we use in our proof.
+    The high-level outline of our proof (in which we obtain a bound on a lattice parameter by
+reducing the question to stable local extrema) is due to Shapira and Weiss [SW16]. They showed
+that an important conjecture attributed to Minkowski would follow if we could prove that Zn
+has maximal covering radius amongst all stable lattices (i.e., that the covering radius of an n-
+                                      √
+dimensional stable lattice is at most n/2). They then observed that it would suffice to bound the
+covering radius of the lattices corresponding to local maxima of the covering radius function over
+the set of determinant-one lattices.
+    Stable lattices were introduced (in a more general context) by Harder and Narasimhan [HN75]
+and by Stuhler [Stu76]. Our presentation more-or-less follows that of Grayson [Gra84].
+    Counting the number of lattice points in a ball is a classical question, and a summary of all that
+is known is far beyond the scope of this paper. (See, e.g., [CS98].) In particular, much research
+has gone into studying the relationship between the number of points in a ball of radius r and the
+determinant of the densest one-dimensional sublattice, written λ1 (L). (I.e., λ1 (L) is the length of
+the shortest non-zero vector in the lattice.) It is easy to see that the number of lattice points in
+a ball of radius r ≥ λ1 (L) is at most (Cr/λ1 (L))n , which is essentially the best possible bound
+based on λ1 (L).7 We consider the densest sublattice of any dimension (not just the densest one-
+dimensional sublattice) to obtain bounds that are much stronger in many cases. (Other authors
+have considered other generalizations of λ1 (L) to derive incomparable bounds. E.g., [Hen02].)
+    Many authors have considered the extrema of various lattice parameters over the set of determinant-
+one lattices. Voronoi famously characterized the local maxima of the length of the shortest non-
+zero vector [Vor08], and a long line of work has gone into finding the specific global maxima in
+various dimensions. (See, e.g., [CS98, CK09].) Similarly, Montgomery [Mon88] and Sarnak and
+Strömbergsson [SS06] considered the minima of the Gaussian mass ρs (L) and closely related func-
+tions.
+    Informally, the results mentioned above (and almost all literature on this topic since Minkowski)
+were concerned with the “best” lattices. E.g., they primarily considered lattices with the largest
+minimum distance, the smallest covering radius, the minimal Gaussian mass, etc. We are in some
+sense interested in the “worst” lattices. Thus, we consider maxima of the Gaussian mass, maxima
+of the covering radius (as in [DSV12]), etc. (These questions only make sense over a bounded subset
+of the determinant-one lattices, such as the stable lattices.) Note that, while the “best” lattices
+tend to have fascinating properties (see, e.g., [CS98]), in our setting the “worst” lattice that we
+know of is Zn .
+    We also note two follow-up works. First, Lovett and the first named author used Theorem 1.2
+to give a counterexample to a very strong variant of the polynomial Freiman-Ruzsa conjecture
+over the integers [LR17]. This variant was introduced by Green (who suggested that it was likely
+to be false) [Gre07]. Second, Dadush showed a number of applications of Theorems 1.2 and 1.5,
+including an algorithm for finding dense lattice subspaces and a remarkably tight approximation to
+the covering radius in terms of the so-called canonical filtration [Dad19] (as defined in Section 2.4).
+    The reader might also be interested in the lecture notes of Bost providing a broader perspective
+   7
+    Finding the exact best possible bounds on |L ∩ sλ1 (L)B2n | in various regimes is a fascinating classical problem
+that is still an active area of research. For example, when s = 1, this is known as the lattice “kissing number”
+problem, and the limit as s → ∞ is the lattice sphere-packing problem. See, e.g., [KL78, CS98, CK09].
+
+
+
+                                                         7
+on the results of this paper [Bos20].
+
+1.5    Directions for future work
+
+                                                                           p for t in Theorem 1.2.
+The most obvious direction for future work is to try to obtain a better value
+As far as we know, the correct value could be as small as t = η ∗ (Zn ) = log(n)/π + o(1). Our
+proof seems to be loose in two places: (1) Theorem 4.6, which bounds the maximal Gaussian mass
+of convex bodies; and (2) the induction argument in the proof of Proposition 4.14. It seems that
+one would need to improve both parts of the proof to obtain a significantly better bound.
+    A more ambitious goal would be to prove that
+
+                                               ρs (L) ≤ ρs (Zn )                                         (4)
+
+for all s > 0 and all lattices L ⊂ Rn such that det(L0 ) ≥ 1 for all sublattices L0 ⊆ L. To that end,
+Eisenberg and the authors recently proved that this is true in an average sense over s, which can
+be stated as an inequality relating Epstein zeta functions as follows:
+
+                                              kyk−2σ ≤                kzk−2σ
+                                      X                       X
+
+                                    y∈L\{0}               z∈Zn \{0}
+
+for all such lattices L ⊂ Rn and all σ > n/2 [ERS22]. They prove this by showing that the Epstein
+zeta function has no local maxima over the set of determinant-one lattices (and over certain subsets
+of this set). One might think to try to prove something similar for ρs (L). However, local maxima
+are known to exist for some parameters s [HMT+ 22]. As an alternative, one can try using the
+technique of “characterizing the local extrema” that we use to prove Theorem 1.2. For this, we
+note that any local maximum of ρs (L) must correspond to an “isotropic” lattice L in the sense that
+                                                          2   2
+                                              yy T e−πkyk /s = α · In
+                                        X
+
+                                        y∈L
+
+for some scalar α > 0. So, it would suffice to show Eq. (4) for (stable) “isotropic” lattices. Unfor-
+tunately, we do not know how to make use of this.
+    Recall from Eq. (1) that Theorem 1.2 gives quite a tight approximation to the smoothing
+parameter η ∗ (L). However, an analogous tightness result does not hold for Theorem 1.3 and
+Corollary 1.4. Dadush and Regev therefore suggested a potential refinement that depends on “the
+full spectrum of dense sublattices,” minL0 ⊆L, rank(L0 )=k det(L0 )1/k for k = 1, . . . , n, rather than just
+                           0
+minL0 ⊆L det(L0 )1/ rank(L ) [DR16, Section 9]. This could potentially give a tight characterization of
+|L ∩ rB2n | for all radii r and all lattices L ⊂ Rn .
+    One can also consider generalizations of Theorems 1.5 and 1.2 to arbitrary norms, as discussed
+in [KL88] and [DR16, Section 9] respectively. Extending Theorem 1.5 to arbitrary norms could
+potentially yield faster algorithms for Integer Programming [Dad12b]. Unfortunately, a natural
+generalization of Theorem 1.2 actually fails. (See [DR16, Section 9].)
+
+Acknowledgments
+We are extremely grateful to Daniel Dadush for sharing his conjecture with us and for many helpful
+discussions. We are also indebted to Barak Weiss for introducing us to stable lattices and their
+salient properties and for telling us about the technique of “handling the stable local maxima
+
+                                                      8
+separately” from his paper with Uri Shapira [SW16]. We also thank him for his help with the
+proof of Proposition 6.4. We thank Bo’az Klartag for referring us to [Bob11] and for other useful
+comments. We thank Ronen Eldan for showing us how to greatly simplify the proof of Theorem 3.1.
+The first named author thanks Prof. Volker Kempe for his help with the two rascals.
+
+
+2     Preliminaries
+We use c, C, C 0 to denote arbitrary positive universal constants, whose value might change from
+one occurrence to the next. Logarithms are base e unless otherwise specified. Vectors x ∈ Rn
+are column vectors. We write kxk to represent the Euclidean norm of x, and we write In for the
+identity matrix in n dimensions. For a matrix A ∈ Rn×n , we write AT for the transpose of A. We
+write B2n := {x ∈ Rn : kxk ≤ 1} for the Euclidean ball in Rn . We write πS (x) for the orthogonal
+projection of x onto span(S) for some S ⊆ Rn . (E.g., π{y} (x) = hy, xiy/kyk2 .) For two additive
+subgroups S1 ⊆ Rn and S2 ⊆ Rm , their direct sum S1 ⊕ S2 ⊆ Rn+m is {(x, y) : x ∈ S1 , y ∈ S2 }.
+    A convex body K ⊂ Rn is a convex compact subset of Rn with non-empty interior. It is
+symmetric if −K = K. A position of a convex body is simply AK for a determinant-one matrix A.
+
+2.1   Lattices
+A lattice L ⊂ Rn of rank d is the set of integer linear combinations of linearly independent basis
+vectors B := (b1 , . . . , bd ),
+                                                 d
+                                                nX                   o
+                                 L = L(B) :=            ai bi : ai ∈ Z .
+                                                  i=1
+
+We typically treat lattices as though they are full rank (i.e., d = n) by implicitly identifying span(L)
+with Rd . The dual lattice
+
+                            L∗ := {w ∈ span(L) : ∀y ∈ L, hw, yi ∈ Z}
+
+is the set of all vectors in the span of L that have integer inner products with all lattice vectors.
+One can check that L∗∗ = L and that L∗ is generated by B∗ := B(BT B)−1 .
+    We write
+                                         λ1 (L) := min kyk
+                                                   y∈L\{0}
+
+for the length of the shortest non-zero lattice vector. The covering radius is
+
+                                    µ(L) :=     max     min kt − yk .
+                                              t∈span(L) y∈L
+
+It is not hard to show that λ1 (L) ≤ 2µ(L) (e.g., by taking tq= v/2, where v ∈ L has kvk = λ1 (L)).
+    The determinant of the lattice is given by det(L) := det(BT B), or simply | det(B)| in the
+full-rank case. One can show that the determinant is well defined (i.e., it does not depend on the
+choice of basis B). It follows that if L ⊂ Rn has full rank and A ∈ Rn×n is non-singular, then
+det(AL) = | det(A)| det(L), and that det(L∗ ) = 1/ det(L).
+    A sublattice L0 ⊆ L is an additive subgroup of L. We say that L0 is primitive if L0 = L∩span(L0 ).
+For a primitive sublattice L0 ⊆ L, we define the quotient lattice L/L0 := πspan(L0 )⊥ (L) to be the
+
+
+
+                                                    9
+projection of L onto the space orthogonal to L0 . In particular, L/L0 is a lattice, and we have the
+identities (L/L0 )∗ = L∗ ∩ span(L0 )⊥ and det(L/L0 ) = det(L)/ det(L0 ).
+                                                                 2 2
+    For a parameter s > 0 and x ∈ Rn , we define ρs (x) = e−πkxk /s . Then, for any discrete set A,
+                                         P
+we define its Gaussian mass as ρs (A) = x∈A ρs (x). When s = 1, we omit the subscript.
+    We recall the Poisson Summation Formula for the Gaussian mass of a lattice, which says that
+                                                           sn
+                                        ρs (L) =               · ρ (L∗ )                           (5)
+                                                         det(L) 1/s
+for any s > 0 and (full-rank) lattice L ⊂ Rn . As an example, it follows that for any full-rank lattice
+L ⊂ Rn ,
+                                                     sn
+                                          ρs (L) >        .                                         (6)
+                                                   det(L)
+Lemma
+  √    2.1 ([Ban93, Lemma 1.5]). For any lattice L ⊂ Rn , shift vector u ∈ Rn , and any r ≥
+1/ 2π,                                       √
+                                   √                      2 n
+                      ρ((L − u) \ r nB2n ) ≤   2πer2 e−πr      · ρ(L) .
+   The following claim was observed by Banaszczyk [Ban93] and is an immediate consequence of
+the Poisson Summation Formula and positivity.
+Claim 2.2. For any lattice L ⊂ Rn , shift vector u ∈ Rn , and parameter s > 0, ρs (L − u) ≤ ρs (L)
+with equality if and only if u ∈ L.
+Proof. By applying the Poisson summation formula to the shifted Gaussian ρs (L − u), we see that
+                          sn    X                              sn    X
+         ρs (L − u) =               ρ1/s (w) cos(2πhw, ui) ≤            ρ (w) = ρs (L) ,
+                        det(L) w∈L∗                          det(L) w∈L∗ 1/s
+
+as needed, where we have equality if and only if hw, ui ∈ Z for all w ∈ L∗ , i.e., if and only if
+u ∈ L.
+Lemma 2.3. For any lattice L ⊂ Rn , primitive sublattice L0 ⊂ L, and s > 0,
+                             ρs (L) ≤ ρs (L0 ⊕ L/L0 ) = ρs (L0 )ρs (L/L0 ) ,
+with equality if and only if L = L0 ⊕ L/L0 .
+Proof. Let T ⊂ L be any complete set of coset representatives of L modulo L0 . (In other words,
+for every y ∈ L there exists a unique t ∈ T such that y ≡ t (mod L0 ).) Let π := πspan(L0 ) , and
+π ⊥ := πspan(L0 )⊥ . Then,
+
+                                                            ρs (t + y 0 )
+                             X                   X
+                                   ρs (y) =
+                             y∈L              t∈T,y 0 ∈L0
+
+                                                            ρs (y 0 + π(t))ρs (π ⊥ (t))
+                                                 X
+                                         =
+                                              t∈T,y 0 ∈L0
+
+                                                    ρs (L0 + π(t))ρs (π ⊥ (t))
+                                              X
+                                         =
+                                              t∈T
+
+                                         ≤ ρs (L0 )            ρs (π ⊥ (t))
+                                                          X
+
+                                                         t∈T
+                                         = ρs (L )ρs (L/L0 ) ,
+                                                     0
+
+
+where the inequality is Claim 2.2 and the last equality uses the primitivity of L0 .
+
+                                                            10
+                                                                           L5 = L
+                      log det
+
+
+
+                                                                   L4
+                    L0 = {0}
+                                                                    rank
+                                                            L3
+                                   L1
+                                            L2
+                  Figure 1: The canonical polygon of a (hypothetical) lattice L.
+
+
+
+2.2   Linear algebra
+We write SLn (R) for the group of all n × n determinant-one real matrices. A matrix U ∈ SLn (R) is
+orthogonal if U T U = In . Equivalently, a matrix is orthogonal if its associated linear transformation
+is an isometry. (I.e., kU xk = kxk for all x ∈ Rn .) We write kAk := supx∈Rn \{0} kAxk/kxk for the
+operator norm of A.
+    We recall the definition of the matrix exponential,
+
+                                eA := In + A + A2 /2 + A3 /6 + · · · ,
+
+for any matrix A ∈ Rn×n , and the identity det(eA ) = eTr(A) . Every positive-definite matrix A has
+a matrix logarithm M such that eM = A.
+
+2.3   A note on the topology of the space of determinant-one lattices
+Throughout this paper, we consider various topological notions over the space of determinant-one
+(full-rank) lattices in Rn (e.g., local maxima of functions over this space, compact sets, etc.). For-
+mally, the space of determinant-one lattices is SOn (R)\SLn (R)/SLn (Z), i.e., the set of determinant-
+one real matrices modulo the orthogonal matrices SOn (R) (i.e., isometries) and the unimodular
+matrices SLn (Z), which are transformations between bases of the same lattice. The topology is the
+quotient topology. (See [Ter16, Section 1.4].) However, the reader may prefer to think of the space
+of determinant-one lattice bases, which is simply SLn (R) with its standard topology.
+
+2.4   Stability
+We say that a lattice L ⊂ Rn is stable if det(L) = 1 and det(L0 ) ≥ 1 for all sublattices L0 ⊆ L.
+(Some authors call such lattices “semistable.”) Note the obvious relationship between this notion
+and Theorem 1.2. Here, we describe the properties of stable lattices that we will need in the sequel,
+and include proofs for completeness. This theory was developed by [HN75, Stu76, Gra84]. See,
+e.g., [Gra84, Cas04] for a more thorough treatment.
+
+
+
+                                                  11
+   We can in some sense “decompose” any lattice into stable lattices. To see this, we consider the
+two-dimensional scatter plot with points
+                                {(rank(L0 ), log det(L0 )) : L0 ⊆ L} ,
+for some lattice L ⊂ Rn , where we explicitly include the trivial sublattice {0} and define log det({0}) :=
+0. We call this the canonical plot of L. Note that these points are bounded from below and that
+for each rank 0 ≤ k ≤ n, there is a (not necessarily unique) sublattice of rank k that has minimal
+determinant among all sublattices with rank k. The convex hull of these points is therefore a de-
+generate polygon (bounded from below, but unbounded from above), called the canonical polygon
+of L. See Figure 1.
+    We are interested in the extremal points of this polygon. (E.g., L0 , . . . , L5 in Figure 1.) Notice
+that any sublattice corresponding to an extremal point must necessarily be densest among all
+sublattices of that rank, but this necessary condition is not sufficient. In fact, it is known that each
+extremal point corresponds to a unique sublattice. Moreover, if two sublattices L1 and L2 both
+correspond to extremal points, then one is contained in the other. Therefore, the extremal points
+define a canonical filtration of L,
+                                  {0} = L0 ⊂ L1 ⊂ · · · ⊂ Lk = L .
+(Note that we only include in the canonical filtration lattices that correspond to extremal points, not
+any lattice on the boundary. E.g., the canonical filtration of Zn is trivial: {0} = L0 ⊂ L1 = Zn .) It
+is also known that all of the quotients Li /Li−1 of adjacent sublattices in the canonical filtration are
+scalings of stable lattices. This is what we mean when we say that we can “decompose” a lattice
+into a sequence of stable lattices.
+     Following [Gra84, Cas04], we make the above (and other) facts precise in Proposition 2.5, which
+lists basic properties of the canonical filtration and stable lattices. We first need the following
+lemma, due to Stuhler [Stu76].
+Lemma 2.4. For any L ⊂ Rn and any two primitive sublattices L1 , L2 ⊆ L,
+                      rank(L1 ) + rank(L2 ) = rank(L1 ∩ L2 ) + rank(L1 + L2 ) ,
+and
+                           det(L1 ∩ L2 ) det(L1 + L2 ) ≤ det(L1 ) det(L2 ) ,
+where we define det({0}) = 1.
+Proof. The equality of ranks follows by considering the dimensions of the subspaces spanned by
+L1 , L2 , L1 ∩ L2 , and L1 + L2 . For the inequality, suppose that M1 , M2 ⊆ M are sublattices such
+that M1 ∩ M2 = {0} and M1 + M2 = M. Then, we have
+                 det(M) = det(M1 ) · det(πspan(M1 )⊥ (M2 )) ≤ det(M1 ) det(M2 ) ,
+where we have used the fact that πspan(M1 )⊥ is a contraction that preserves the rank of M2 .
+Plugging in M := (L1 + L2 )/(L1 ∩ L2 ), M1 := L1 /(L1 ∩ L2 ) and M2 := L2 /(L1 ∩ L2 ) gives
+                det(L1 + L2 )/ det(L1 ∩ L2 ) = det((L1 + L2 )/(L1 ∩ L2 ))
+                                              ≤ det(L1 /(L1 ∩ L2 )) det(L2 /(L1 ∩ L2 ))
+                                              = det(L1 ) det(L2 )/ det(L1 ∩ L2 )2 .
+The result follows by rearranging.
+
+                                                  12
+                                                                  L0 + L4        L5 = L
+
+
+                                              L0
+                                     (x, y)                              L4
+
+                     L0 = {0}
+                                        L0 ∩ L 4                 L3
+                                     L1
+                                                   L2
+Figure 2: An illustration of the proof of Item 1 of Proposition 2.5 (similar to [Gra84, Figure 1.17]).
+In particular, if L0 6⊆ L4 , then (x, y) must lie strictly above the dashed line, and therefore cannot
+be an extremal point (or even a boundary point) of the canonical polygon.
+
+
+
+Proposition 2.5. For any lattice L ⊂ Rn , let {0} = L0 , L1 , . . . , Lk = L be all sublattices cor-
+responding to extremal points of the canonical polytope, ordered by their rank. (See Figure 1.)
+Then,
+  1. the Li define a filtration L0 ⊂ L1 ⊂ · · · ⊂ Lk (in particular, the Li have distinct ranks);
+
+  2. the quotient lattice Li /Li−1 is a scaling of a stable lattice for 1 ≤ i ≤ k (i.e., αi · Li /Li−1 is
+     stable, where αi := det(Li /Li−1 )−1/ rank(Li /Li−1 ) ); and
+
+  3. for all 1 ≤ i ≤ k − 1, det(Li /Li−1 )1/ rank(Li /Li−1 ) < det(Li+1 /Li )1/ rank(Li+1 /Li ) .
+Furthermore,
+  (i) the dual of a stable lattice is stable;
+
+ (ii) the set of all stable lattices is compact;
+
+(iii) the direct sum of stable lattices is stable; and
+
+(iv) a lattice L ⊂ Rn is on the boundary of the set of stable lattices if and only if L is stable and
+     there is a primitive sublattice L0 ⊂ L with 0 < rank(L0 ) < n such that L0 and L/L0 are both
+     stable.
+Proof. To prove Item 1, fix an index i and let L0 ⊂ L be a sublattice with rank(L0 ) ≤ rank(Li ) but
+L0 6⊆ Li . Below we will show that L0 must lie in the interior of the canonical polygon. In particular,
+this would imply that each Lj with j ≤ i must have Lj ⊆ Li , as desired.
+    First, notice that we must have rank(L0 + Li ) > rank(Li ), since otherwise L0 + Li would be a
+strict superlattice of Li with the same rank, contradicting the assumption that Li is an extremal
+point of the canonical polygon. Notice that, by Lemma 2.4, this also implies that rank(L0 ∩ Li ) <
+rank(L0 ) ≤ rank(Li ). Now, consider the point (x, y) in the plane with
+
+                             x := rank(L0 ∩ Li ) + rank(L0 + Li ) − rank(Li )
+
+                                                        13
+and
+                         y := log det(L0 ∩ Li ) + log det(L0 + Li ) − log det(Li ) .
+See Figure 2. By Lemma 2.4, we have rank(L0 ) = x and log det(L0 ) ≥ y, i.e., that the point
+(rank(L0 ), log det(L0 )) lies on or above the point (x, y) in the plane. It therefore suffices to show
+that (x, y) is in the interior of the canonical polygon, which we do by showing that (x, y) lies
+strictly above the line segment between the points (rank(L0 ∩ Li ), log det(L0 ∩ Li )) and (rank(L0 +
+Li ), log det(L0 + Li )). (See the dashed line in Figure 2.) Equivalently, it is enough to show that
+(rank(Li ), log det(Li )) lies strictly below this line segment (since it is the reflection of (x, y) through
+the midpoint of the line segment). This holds because Li corresponds to an extremal point, and,
+because rank(L0 ∩ Li ) < rank(Li ) < rank(L0 + Li ), it is distinct from the two endpoints of the line
+segment.
+     To prove Item 2, let L0 ⊆ Li /Li−1 be a sublattice. Let Lb ⊆ Li be the sublattice satisfying Li−1 ⊆
+Lb and L0 = L/Lb i−1 . Since Li−1 and Li are consecutive extremal points of the canonical polygon,
+the point (rank(L),b log det(L)) b must lie on or above the line between (rank(Li−1 ), log det(Li−1 ))
+and (rank(Li ), log det(Li )). This statement is equivalent to the inequality in the following:
+
+                                 det(L0 ) = det(L)/
+                                                b det(Li−1 )
+
+                                               det(L )  rank(Lb)−rank(Li−1 )
+                                                       i    rank(Li )−rank(Li−1 )
+                                          ≥
+                                               det(Li−1 )
+                                                                rank(L0 )
+                                          = det(Li /Li−1 ) rank(Li /Li−1 ) .
+
+I.e., if we set αi := det(Li /Li−1 )−1/ rank(Li /Li−1 ) , then det(αi L0 ) ≥ 1. It follows that αi Li /Li−1 is
+stable, as claimed.
+     Item 3 simply says that the slopes of the lines between extremal points on the canonical polytope
+are strictly increasing. This follows immediately from the definition of the canonical polytope. (See
+Figure 1.)
+     To prove Item (i), let M ⊂ Rn be a stable lattice and let M0 ⊆ M∗ be a primitive sublattice
+of the dual. We have
+                               1
+             det(M0 ) =                = det((M∗ /M0 )∗ ) = det(M ∩ span(M0 )⊥ ) ≥ 1 .
+                          det(M∗ /M0 )
+Therefore, M∗ is stable.
+   Item (ii) follows immediately from Mahler’s compactness theorem [Mah46] together with the
+observation that λ1 (M) ≥ 1 for any stable lattice M.
+   To prove Item (iii), let M1 , M2 be two stable lattices, and let M0 ⊂ M1 ⊕ M2 be a primitive
+sublattice. Then, applying Lemma 2.4, we have
+                          det(M0 ∩ M1 ) det(M0 + M1 )
+            det(M0 ) ≥                                = det(M0 ∩ M1 ) det(M0 + M1 ) .
+                                   det(M1 )
+
+Note that M0 ∩ M1 is a sublattice of M1 , so that det(M0 ∩ M1 ) ≥ 1. And M0 + M1 =
+M1 ⊕ πspan(M2 ) (M0 ) is the direct sum of M1 with a sublattice of M2 , so that det(M0 + M1 ) =
+det(πspan(M2 ) (M0 )) ≥ 1 as well. The result follows.
+   Finally, Item (iv) follows by first noting that a stable lattice M is on the boundary if and only if
+there is some strict primitive non-zero sublattice M0 ⊂ M with det(M0 ) = 1. Clearly, M0 is stable,
+
+                                                       14
+since it has determinant one and all of its sublattices are also sublattices of M, so that they must
+have determinant at least one. To see that M/M0 is stable, first notice that it has determinant
+one. Next, let L0 ⊆ M/M0 be an arbitrary sublattice. Let Lb ⊆ M be the sublattice satisfying
+M0 ⊆ Lb and L0 = L/M
+                   b    0 . Then det L0 = det L/
+                                              b det M0 = det L  b ≥ 1, where the inequality uses that
+M is stable.
+
+2.5   The Voronoi cell and fundamental bodies
+The Voronoi cell of a lattice L ⊂ Rn ,
+
+                           V(L) := {x ∈ Rn : hx, yi ≤ kyk2 /2, ∀y ∈ L} ,
+
+is the set of vectors in Rn that are at least as close to 0 than to any other lattice vector. In fact,
+it is a symmetric polytope.
+     A fundamental body of a lattice L ⊂ Rn is any convex body K ⊂ Rn such that K + L = Rn and
+Int(K) ∩ (K + y) = ∅ for any non-zero lattice point y ∈ L \ {0}. Equivalently, vol(K) = det(L)
+and Int(K) ∩ (K + y) = ∅ for any non-zero lattice point y ∈ L \ {0}. In particular, the Voronoi
+cell is a fundamental body.
+Claim 2.6. For any lattice L ⊂ Rn , primitive sublattice L0 ⊂ Rn , fundamental body K1 ⊂ span(L0 )
+of L0 , and fundamental body K2 ⊂ span(L0 )⊥ of L/L0 , the Minkowski sum K := K1 + K2 is a
+fundamental body of L. In particular, if {0} = L0 ⊂ L1 ⊂ · · · ⊂ Lk is a filtration of primitive
+sublattices, then         M           
+                        V     Li /Li−1 = V(L1 /L0 ) + · · · + V(Lk /Lk−1 )
+                               i
+is a fundamental body of L.
+Proof. Notice that
+
+                     vol(K) = vol(K1 ) · vol(K2 ) = det(L0 ) · det(L/L0 ) = det(L) .
+
+It therefore suffices to show that Int(K) ∩ (K + y) = ∅ for any y ∈ L \ {0}. So suppose there
+exists y ∈ L such that Int(K) ∩ (K + y) 6= ∅. Then, by projecting orthogonally to L0 , we see that
+Int(K2 ) ∩ (K2 + πspan(L0 )⊥ (y)) 6= ∅. Since K2 is a fundamental body of L/L0 and πspan(L0 )⊥ (y) ∈
+L/L0 , it follows that πspan(L0 )⊥ (y) = 0, i.e., y ∈ L0 . Intersecting with span(L0 ), this implies that
+Int(K1 ) ∩ (K1 + y) 6= ∅. Since y ∈ L0 and K1 is a fundamental body of L0 , we obtain that y = 0.
+The result follows.
+
+   We will also need the following claim, which follows immediately from the definition of a fun-
+damental body.
+Claim 2.7. For any lattice L ⊂ Rn , fundamental body K of L, and non-singular matrix A ∈ Rn×n ,
+the body AK is a fundamental body of AL. In particular, AV(L) is a fundamental body of AL.
+Proof. It suffices to notice that AK + AL = A(K + L) = Rn and Int(AK) ∩ (AK + Ay) =
+A(Int(K) ∩ (K + y)) = ∅ for y ∈ L \ {0}.
+
+   The next lemma and its corollary show that the Voronoi cell is in some sense the “optimal
+fundamental body.” They are very similar to some results due to Dadush [Dad12b, Lemma 6.3.6,
+Corollary 6.3.7].
+
+                                                   15
+Lemma 2.8. For any lattice L ⊂ Rn , there is a map ψL : Rn → V(L) such that kψL (x)k ≤ kxk,
+and for every fundamental body K of L, ψL restricted to Int(K) is injective and volume-preserving.
+
+Proof. The function ψL just maps x to a representative of x mod L that is in the Voronoi cell.
+Specifically, let CVPL (x) := argminy∈L ky − xk be a closest lattice vector to x (breaking ties
+arbitrarily), and let ψL (x) := x − CVPL (x). By the definition of CVP, it is immediate that
+kψL (x)k = miny∈L ky − xk ≤ kxk.
+    Suppose ψL (x) = ψL (x0 ) for some x, x0 ∈ Int(K). I.e., x − CVPL (x) = x0 − CVPL (x0 ).
+Rearranging, we see that y := x − x0 = CVPL (x) − CVPL (x0 ) is a lattice point. But, x ∈
+Int(K) ∩ (K + y). Since K is a fundamental body, it follows that y = 0. I.e., x = x0 , and ψL is
+injective over Int(K).
+    The fact that ψL is volume-preserving over Int(K) follows from the fact that it is injective and
+preserves volume locally.
+
+Corollary 2.9. For any non-decreasing measurable function f : R≥0 → R, lattice L ⊂ Rn , and
+fundamental body K of L,     Z                Z
+                                              f (kxk)dx ≤        f (kxk)dx .
+                                      V(L)                   K
+
+Proof.
+Z                  Z                      Z                           Z                            Z
+     f (kxk)dx =            f (kxk)dx ≥            f (kψL (x)k)dx =                  f (kxk)dx =            f (kxk)dx ,
+ K                 Int(K)                 Int(K)                       ψL (Int(K))                   V(L)
+
+where the last equality follows from the fact that ψL preserves volume and vol(Int(K)) = vol(V(L)),
+so it must be the case that ψL (Int(K)) ⊂ V(L) differs from V(L) on a set of measure zero.
+
+2.6      Matrix calculus
+We say that a function g : Rn×n → R is differentiable at Q ∈ Rn×n if there exists a B ∈ Rn×n such
+that
+                                 g(Q + M ) − g(Q) − Tr(B T M )
+                             lim                                =0,
+                            M →0              kM k
+and we call B the gradient of g at Q,
+
+                                              ∇A g(A)|A=Q := B .                                                  (7)
+
+(Some authors prefer to define ∇A g(A)|A=Q as B T .)
+
+
+3     Gradients over lattices and over positions of the Voronoi cell
+The purpose of this section is to prove the following theorem.
+
+Theorem 3.1. For any continuously differentiable function f : R≥0 → R and lattice L ⊂ Rn , let
+                      1                                           1
+                                Z                                                    Z
+                                               2
+          g(A) :=           ·         f (kxk )dx, and h(A) :=           ·                     f (kxk2 )dx ,
+                  | det(A)|     V(AL)                         | det(A)|               AV(L)
+
+
+
+
+                                                        16
+where A ∈ Rn×n is a non-singular matrix. Then, g and h are differentiable at A = In , with
+                                                                 Z
+                       ∇A g(A)|A=In = ∇A h(A)|A=In = 2                   f 0 (kxk2 )xxT dx ,
+                                                                  V(L)
+
+where f 0 (x) := dx
+                  d
+                    f (x).
+    We first compute the gradient of h, which is straightforward.
+Claim 3.2. For any continuously differentiable function f : R≥0 → R and bounded measurable set
+U ⊂ Rn , let
+                                          1
+                                                  Z
+                            h(A) :=             ·     f (kxk2 )dx ,
+                                      | det(A)| AU
+where A ∈ Rn×n is a non-singular matrix. Then, h is differentiable with
+                                                        Z
+                                 ∇A h(A)|A=In = 2            f 0 (kxk2 )xxT dx ,
+                                                         U
+
+where f 0 (x) := dx
+                  d
+                    f (x).
+Proof. By a change of variables, we have
+                                                    Z
+                                           h(A) =       f (kAxk2 )dx .
+                                                    U
+
+Next, by the chain rule, ∇A f (kAxk2 ) = 2f 0 (kAxk2 )AxxT , which is bounded as x ranges over U
+and A ranges over any bounded set. Therefore, we may use the bounded convergence theorem to
+swap the gradient and the integral and write
+                                   Z
+                                           ∇A f (kAxk2 ) dx
+                                                         
+                       ∇A h(A) =
+                                     U
+                                     Z
+                                =2         f 0 (kAxk2 )AxxT dx .
+                                       U
+
+    Now, we prove Theorem 3.1. (We thank Ronen Eldan for showing us this proof. An earlier
+version of this work had a much longer proof.)
+
+Proof of Theorem 3.1. Fix a continuously differentiable function f : R≥0 → R and a lattice L ⊂ Rn .
+By Claim 3.2, it suffices to show that the gradient of g at In exists and is equal to the gradient of
+h at In . Recalling the definition of the gradient in Eq. (7), we see that this is equivalent to proving
+that
+                                        h(In + M ) − g(In + M )
+                                   lim                            =0.                                (8)
+                                  M →0            kM k
+In fact, setting ν = ν(L) > 1 as in Claim 3.3 below, we will show that for any M ∈ Rn×n with
+operator norm kM k < 1/(nν),
+
+                         | det(In + M )| · h(In + M ) − g(In + M ) ≤ C ∗ kM k2 ,                    (9)
+
+where C ∗ := C ∗ (L, f ) > 0 is independent of M . This implies Eq. (8) because the determinant
+is bounded away from zero in a neighborhood around In , so that limM →0 kM k2 /(kM k · | det(In +
+M )|) = 0.
+
+                                                        17
+   Let A := In + M . By the definition of the Voronoi cell, kxk = dist(x, AL) if x ∈ V(AL).
+Therefore,
+                                                   Z
+                              | det(A)| · g(A) =            f (kxk2 )dx
+                                                   V(AL)
+                                                   Z
+                                              =             f (dist(x, AL)2 )dx
+                                                   V(AL)
+                                                   Z
+                                              =             f (dist(x, AL)2 )dx ,                           (10)
+                                                   AV(L)
+
+where the last equality uses the facts that (1) AV(L) is a fundamental domain of AL (i.e., Claim 2.7),
+and (2) the distance function x 7→ dist(x, AL) is periodic over AL so that the integral is the same
+over any fundamental domain.
+   Now, let Vb := (AV(L)) \ V(AL) be the set of points in AV(L) such that kxk 6= dist(x, AL).
+Using Eq. (10), we see that the left-hand side of Eq. (9) is
+        Z                                                   Z
+                  f (kxk2 ) − f (dist(x, AL)2 ) dx =            f (kxk2 ) − f (dist(x, AL)2 ) dx
+                                                                                                 
+         AV(L)                                              V
+                                                            b
+                                                             b · max f (kxk2 ) − f (dist(x, AL)2 ) .
+                                                       ≤ vol(V)
+                                                                   x∈V
+                                                                     b
+
+                                          b ≤ C ∗ kM k and max
+We complete the proof by arguing that vol(V)                              2                2
+                                                0                 b f (kxk )−f (dist(x, AL) ) ≤
+                                                                x∈V
+ ∗               ∗     ∗               ∗     ∗
+C1 kM k, where C0 := C0 (L) > 0 and C1 := C1 (L, f ) > 0 are independent of M .
+    By Claim 3.3,
+                                                                                                  
+                 Vb = (AV(L)) \ V(AL) ⊂ (1 + νkM k) · V(L) \ (1 − νkM k) · V(L) ,
+
+and therefore,
+                              b ≤ (1 + νkM k)n − (1 − νkM k)n · vol(V(L))
+                                                                          
+                          vol(V)
+                                 ≤ 100nν vol(V(L)) · kM k ,
+
+as desired, where we have used that kM k < 1/(nν).
+    Next, notice that for x ∈ Vb ⊂ AV(L), we have, say, kxk ≤ kAkµ(L) ≤ 2µ(L) and dist(x, AL) ≤
+kxk ≤ 2µ(L). Therefore,
+
+                                                                                        d
+                 f (kxk2 ) − f (dist(x, AL)2 ) ≤ kxk − dist(x, AL) ·            max        f (r2 )
+                                                                              0≤r≤2µ(L) dr
+
+                                             = 2 kxk − dist(x, AL) ·             max       r|f 0 (r2 )| ,   (11)
+                                                                               0≤r≤2µ(L)
+
+where the inequality follows, e.g., from the fundamental theorem of calculus. Since f 0 is continuous
+by assumption, the maximum in Eq. (11) is well defined and finite. To complete the proof, let
+x0 := (1 − νkM k)2 x, which satisfies x0 ∈ V(AL) because
+
+                    (1 − νkM k)2 AV(L) ⊂ (1 + νkM k)(1 − νkM k)V(AL) ⊂ V(AL)
+
+
+
+
+                                                       18
+where we used the right containment in Eq. (12) and the left containment in Eq. (13) of Claim 3.3
+below. Then, by the triangle inequality,
+
+                       kxk − dist(x, AL) ≤ 2 x − x0 + kx0 k − dist(x0 , AL)
+                                         = 2 x − x0
+                                         ≤ 4νkxkkM k
+                                         ≤ 8νµ(L)kM k .
+
+Combining this with Eq. (11) shows that there exists a C1∗ of the desired form.
+
+Claim 3.3. For any lattice L ⊂ Rn there exists ν = ν(L) > 1 such that for all M ∈ Rn×n with
+kM k < 1/ν, we have
+
+                        (1 − νkM k) · V(L) ⊂ AV(L) ⊂ (1 + νkM k) · V(L) ,                     (12)
+
+and similarly,
+                        (1 − νkM k) · V(L) ⊂ V(AL) ⊂ (1 + νkM k) · V(L) ,                     (13)
+where A := In + M .
+
+Proof. We take ν := 20µ(L)/λ1 (L) and notice that ν ≥ 10. Then, for any x ∈ V(L) ⊂ µ(L)B2n , we
+have kAx − xk = kM xk ≤ µ(L)kM k. Since (λ1 (L)/2) · B2n ⊂ V(L), we have
+
+                       AV(L) ⊂ V(L) + µ(L)kM kB2n ⊂ (1 + νkM k) · V(L) .
+
+Similarly,
+                      V(L) ⊂ AV(L) + µ(L)kM kB2n ⊂ (1 − νkM k)−1 · AV(L) ,
+where the second inclusion uses the fact that, say, (λ1 (L)/4) · B2n ⊂ AV(L) since kA−1 k ≤ 2. This
+establishes Eq. (12).
+    Next, let x ∈ V(L). Let α := 2 maxy∈L\{0} hAy, xi/kAyk2 . Equivalently, α > 0 is minimal such
+that x/α ∈ V(AL). We claim that α ≤ 1 + νkM k, which implies that (1 − νkM k) · V(L) ⊂ V(AL).
+Indeed, for non-zero y ∈ L, we have
+
+                        hAy, xi   hy, xi + hM y, xi
+                                ≤
+                         kAyk2    (1 − kM k)2 kyk2
+                                       |hy, xi|          kM k       kxk
+                                ≤            2    2
+                                                    +           2
+                                                                  ·
+                                  (1 − kM k) kyk      (1 − kM k) kyk
+                                       |hy, xi|          kM k        kxk
+                                ≤                   +             ·      .
+                                  (1 − kM k)2 kyk2 (1 − kM k)2 λ1 (L)
+
+Since x ∈ V(L), |hy, xi|/kyk2 ≤ 1/2 and kxk ≤ µ(L). Therefore,
+
+                                 1            2kM k      µ(L)
+                       α≤              2
+                                         +           2
+                                                       ·      ≤ 1 + νkM k ,
+                            (1 − kM k)     (1 − kM k) λ1 (L)
+
+as claimed.
+
+
+
+                                                19
+   Finally, we use a similar argument to prove that V(AL) ⊂ (1 + νkM k) · V(L). In particular, for
+any x ∈ V(AL) and non-zero y ∈ L, we have
+
+                          hy, xi   hAy, xi          kxk
+                               2
+                                 ≤       2
+                                           + kM k ·
+                           kyk       kyk            kyk
+                                                 hAy, xi          µ(AL)
+                                 ≤ (1 + kM k)2 ·         + kM k ·
+                                                  kAyk2           λ1 (L)
+                                   (1 + kM k) 2          µ(AL)
+                                 ≤              + kM k ·
+                                         2               λ1 (L)
+                                   1 + νkM k
+                                 ≤            ,
+                                        2
+which implies the result. For this last inequality, we use the fact that, e.g., µ(AL) ≤ 2µ(L) since
+
+                µ(AL) = maxn min kAx − Ayk ≤ kAk · maxn min kx − yk ≤ 2µ(L) .
+                          x∈R y∈L                             x∈R y∈L
+
+
+4    Proof of the Reverse Minkowski Theorem
+In this section, we prove our main theorem, Theorem 1.2. Recall that the Voronoi cell V(L) of a
+lattice L ⊂ Rn is the symmetric polytope of all vectors in Rn that are closer to 0 than to any other
+lattice vector,
+                          V(L) := {x ∈ Rn : ∀y ∈ L, hy, xi ≤ kyk2 /2} .
+Also recall that for parameter s > 0, γs (·) is the Gaussian measure on Rn given by
+                                                  Z
+                                                                2
+                                      γs (S) :=            e−πkxk dx
+                                                  S/s
+
+                             n
+for any measurable√ set S ⊆ R . (Some authors prefer to parametrize γ in terms of the standard
+deviation σ := s/ 2π.) We omit the subscript when s = 1. We are interested in the Gaussian
+mass γs (V(L)) of the Voronoi cell because, as the following lemma due to Chung, Dadush, Liu,
+and Peikert shows, this can be used to obtain an upper bound on the mass ρs (L) of the lattice
+itself [CDLP13]. We include a proof for completeness.
+
+Lemma 4.1 ([CDLP13, Lemma 3.4]). For any lattice L ⊂ Rn and s > 0,
+
+                                       ρs (L) · γs (V(L)) ≤ 1 .
+
+Proof. By scaling appropriately, we may assume without loss of generality that s = 1. Note that
+the Voronoi cell tiles space with respect to L. I.e., y∈L (V(L) + y) = Rn , where the union is
+                                                     S
+
+
+
+
+                                                      20
+disjoint except on a measure-zero set. So,
+                                  Z
+                                                   2
+                            1=          e−πkxk dx
+                                   Rn
+                                  XZ                            2
+                              =                e−πky+tk dt
+                                  y∈L V(L)
+                                                       Z
+                                                   2                    2
+                                        e−πkyk                  e−πktk e2πhy,ti dt
+                                  X
+                              =
+                                  y∈L                  V(L)
+                                               Z
+                                                                    2
+                                                           e−πktk cosh(2πhy, ti)dt
+                                  X
+                              =         ρ(y)
+                                  y∈L           V(L)
+                                               Z
+                                                                    2
+                                                           e−πktk dt
+                                  X
+                              ≥         ρ(y)
+                                  y∈L           V(L)
+
+                              = ρ(L)γ(V(L)) ,
+
+where the fourth line follows from the fact that the Voronoi cell is symmetric.
+
+    Therefore, in order to prove Theorem 1.2, it suffices to show that γ1/t (V(L)) ≥ 2/3 for every
+lattice L ⊂ Rn with det(L0 ) ≥ 1 for all sublattices L0 ⊆ L, where t := 10(log n+2). As we explained
+in the introduction, we will reduce this to studying local minima of the function L 7→ γ1/t (V(L))
+over the set of determinant-one lattices. (We do not know whether such local minima actually
+exist.)
+    In Section 4.1, we collect some (mostly known) facts about the Gaussian mass of convex bodies.
+The statements of Theorem 4.2 and Lemma 4.11 are the only parts of Section 4.1 that will be used
+later on. In particular, in Section 4.2, we apply these two facts to prove Theorem 1.2.
+
+4.1   Gaussian mass of convex bodies
+We say that a measurable set U ⊂ Rn is in isotropic Gaussian position for parameter s if
+                                      Z
+                                                           2
+                                              e−πkxk xxT dx = α · In
+                                        U/s
+
+for some scalar α > 0. If s = 1, we simply say that U is in isotropic Gaussian position. Such a
+position has been considered elsewhere (e.g., [Bob11]), but as far as we know, it did not previously
+have a name.
+    The main goal of this section is to prove the following theorem. We will also include a standard
+fact in Lemma 4.11 towards the end of this section.
+
+Theorem 4.2. For any symmetric convex body K ⊂ Rn with vol(K) ≥ 1, if K is in isotropic
+Gaussian position for some parameter 0 < s ≤ 1/t, then γs (K) ≥ 2/3 where t := 10(log n + 2).
+
+   Our proof of Theorem 4.2 proceeds in two parts. The first part is a result due to Bobkov [Bob11]
+(Proposition 4.3 below), showing that an isotropic Gaussian position of a convex body has maximal
+Gaussian mass. We include a proof for completeness. In the second part (Theorem 4.6 below), we
+show that any volume-one convex body K ⊂ Rn has a position such that γs (K) ≥ 2/3.
+
+
+
+                                                               21
+Proposition 4.3 ([Bob11, Proposition 3.1]). For any symmetric convex body K ⊂ Rn , if K is in
+isotropic Gaussian position for some parameter s > 0, then γs (K) ≥ γs (AK) for any determinant-
+one matrix A ∈ SLn (R).
+
+  We start by observing that isotropic Gaussian positions correspond to critical points of the
+Gaussian mass function over positions.
+
+Fact 4.4. For any measurable set U ⊂ Rn , let
+                                                     γ(AU )
+                                         h(A) :=             ,
+                                                   | det(A)|
+
+where A ∈ Rn×n is a non-singular matrix. Then,
+                                                        Z
+                                                                      2
+                              ∇A h(A)|A=In = −2π                e−πkxk xxT dx .
+                                                            U
+
+In particular, A 7→ γ(AU ) has a critical point at In when restricted to determinant-one matrices if
+and only if U is in isotropic Gaussian position.
+
+Proof. Simply apply Claim 3.2 with f (x) = e−πx and notice that a differentiable function h :
+Rn×n → R has a critical point at In when restricted to the set of determinant-one matrices if and
+only if its gradient is proportional to the identity. This follows from the fact that the tangent space
+to the set of determinant-one matrices at In is the space orthogonal to the identity.
+
+   We will also need the following result due to Cordero-Erausquin, Fradelizi, and Maurey [CFM04],
+which is related to the so-called (B) conjecture due to Banaszczyk (see [Lat02]).
+
+Theorem 4.5 ([CFM04]). For any symmetric convex body K ⊂ Rn , the function γ(eM K), where
+M ∈ Rn×n ranges over all diagonal matrices, is log-concave.
+
+Proof of Proposition 4.3. By scaling K, we may assume that s = 1. Let A = U DV be the singular-
+value decomposition of A. (I.e., D is a diagonal matrix with non-negative entries along the diagonal
+                                                                                              0
+and U and V are orthogonal matrices.) Since D has determinant one, we may write D = eD for a
+diagonal matrix D0 with trace zero.
+    Note that the Gaussian measure is invariant under orthogonal transformations, so that γ(AK) =
+γ(U DV K) = γ(DV K). Let K 0 := V K, and note that γ(K 0 ) = γ(K) and that K 0 is in isotropic
+Gaussian position, since V is an orthogonal transformation.
+    Let h(M
+        b   ) := γ(eM K 0 )/| det(eM )|. By Fact 4.4 and the chain rule, we have
+                                               Z
+                                                                  2
+                        ∇M h(M
+                           b   )|M =0 = −2π           e−πkxk xxT dx = −α · In
+                                                 K0
+
+for some scalar α ∈ R, where the second equality is simply the fact that K 0 is in isotropic Gaussian
+position. Let X ⊂ Rn×n be the set of trace-zero diagonal matrices. Then, the function h           bX
+obtained by restricting h to X has a critical point at zero, since Tr(In M ) = 0 for any M ∈ X. By
+                         b
+Theorem 4.5, hb X is log-concave, so that this critical point must be a global maximum. Therefore,
+                                                        0
+                          γ(AK) = γ(DK 0 ) = γ(eD K 0 ) ≤ γ(K 0 ) = γ(K) ,
+
+as needed.
+
+                                                   22
+   We now proceed to the second part of the proof of Theorem 4.2. Namely, we prove the following.
+Theorem 4.6. For any symmetric convex body K ⊂ Rn with volume √     one, there is a determinant-
+one matrix A ∈ SLn (R) such that γ1/t (AK) ≥ 2/3, where t := 2 3e(log2 n + 2) < 10(log n + 2).
+   The proof is based on an important theorem that follows from the work of Figiel and Tomczak-
+Jaegermann [FT79], Lewis [Lew79], and Pisier [Pis82]. We first need some definitions. Recall that
+any symmetric convex body K ⊂ Rn defines a norm k · kK given by
+
+                                        kxkK := inf{s ≥ 0 : x ∈ sK} .
+
+We then define the `-norm on Rn×n by
+                                                   Z                    1/2
+                                     `K (A) :=               kAxk2K dγ(x)       ,
+                                                        Rn
+                       2
+where dγ(x) := e−πkxk dx. Finally, we recall that the polar body of a symmetric convex body K is
+given by
+                           K ◦ := {x ∈ Rn : ∀y ∈ K, hy, xi ≤ 1} ,
+which is itself a convex body.
+Theorem 4.7 ([FT79, Lew79, Pis82]; see [Dad12b, Theorem 4.4.3]). For any symmetric convex
+body K ⊂ Rn , there exists a determinant-one matrix A ∈ SLn (R) such that
+
+                                   `K (A)`K ◦ ((AT )−1 ) ≤ n(log2 n + 2)/π .
+
+Lemma 4.8. For any symmetric convex body K ⊂ Rn with volume one and any determinant-one
+matrix A ∈ SLn (R), we have
+                                                     q                      √
+                               `K ◦ ((AT )−1 ) ≥         n/(2π) · rn > n/(2π e) .
+
+where rn := vol(B2n )−1/n >        n/(2πe) is the radius such that vol(rn B2n ) = 1.
+                               p
+
+Proof. Since `K ◦ ((AT )−1 ) = `AT K ◦ (In ) = `(A−1 K)◦ (In ), and using that A−1 K is also a symmetric
+convex body of volume one, it suffices to prove the case A = In in the statement. Unpacking the
+definitions, we see that
+                                        Z
+                                2
+                      `K ◦ (In ) =            kxk2K ◦ dγ(x)
+                                          n
+                                        ZR
+                                    =         sup hy, xi2 dγ(x)
+                                         Rn y∈K
+                                        Z
+                                                    2
+                                                               Z       hy, xi2       
+                                    =            kxk dγ(x) ·          sup     2
+                                                                                 dγ(x)
+                                            Rn                     Rn y∈K kxk
+
+                                       n               hy, xi2
+                                              Z
+                                    =    ·         sup      2
+                                                               dγ(x) ,                             (14)
+                                      2π         Rn y∈K kxk
+
+where in the third equality we use integration in polar coordinates. By Jensen’s inequality, we have
+                                 hy, xi2                  hy, xi       2
+                           Z                                  Z
+                               sup    2
+                                         dγ(x) ≥      sup        dγ(x)    ,                        (15)
+                           Rn y∈K kxk              Rn y∈K kxk
+
+
+
+                                                             23
+and by Urysohn’s inequality (see [AGM15, Theorem 1.5.11]), we have
+
+                                                          hy, xi
+                                            Z
+                                                    sup          dγ(x) ≥ rn .                                       (16)
+                                            Rn y∈K         kxk
+
+The result follows by combining Eqs. (14), (15), and (16).
+
+   The following corollary is an immediate consequence of the previous two results.
+
+Corollary 4.9. For any symmetric convex body K ⊂ Rn with volume one, there exists a determinant-
+                                           √
+one matrix A ∈ SLn (R) such that `K (A) ≤ 2 e(log2 n + 2).
+
+Proof of Theorem 4.6. By Corollary 4.9, there exists an A ∈ SLn (R) such that
+                                        Z
+                                                                 √
+                            `K (A)2 =           kAxk2K dγ(x) ≤ (2 e(log2 n + 2))2 .
+                                         Rn
+
+We will use A−1 as our matrix. Note that
+                        Z                                  Z                              Z
+       γ1/t (A−1 K) =        1kxkA−1 K ≤t dγ(x) =                1kAxkK ≤t dγ(x) = 1 −          1kAxkK >t dγ(x) .
+                        Rn                                  Rn                             Rn
+
+The result then follows by Markov’s inequality, which tells us that
+            Z
+                                        1
+                                                Z
+                                                                             1       √                 1
+                  1kAxkK >t dγ(x) ≤        ·         kAxk2K dγ(x) ≤              · (2 e(log2 n + 2))2 = .
+             Rn                         t2      Rn                           t 2                       3
+   We now obtain Theorem 4.2 as an immediate corollary of Proposition 4.3 and Theorem 4.6.
+
+Proof of Theorem 4.2. By Theorem 4.6 and the monotonicity of γs (AK) in s, there is some A ∈
+SLn (R) such that γs (AK) ≥ 2/3. By Proposition 4.3, γs (K) ≥ γs (AK) ≥ 2/3, as needed.
+
+Concentration of measure.       We will also need a standard lemma about the concentration
+of Gaussian measure. We first recall the Gaussian isoperimetric inequality [ST74, Bor75] (see
+also [AGM15, Theroem 3.1.9]).
+
+Theorem 4.10 (Gaussian isoperimetric inequality). For any measurable set U ⊂ Rn and any
+τ > 0,                                     Z                        σ+τ       2
+                                        γ(U + τ B2n ) ≥                   e−πx dx ,
+                                                                 −∞
+                                                −πx2
+                                    Rσ
+where σ ∈ [−∞, ∞] is such that        −∞ e             dx = γ(U ).
+
+   Recall that the inradius of a convex body K is defined as max{r ≥ 0 : rB2n ⊆ K}, i.e., the
+radius of the largest ball contained in the body.
+
+Lemma 4.11. If K ⊂ Rn is a convex body with γ1/t (K) ≥ 2/3 for some t > 0, then
+                                                                            2 2
+                                        γ1/(t+τ ) (K) ≥ 1 − e−πr τ /3 ,
+
+for any τ ≥ 0, where r ≥ 0 is the inradius of K.
+
+
+                                                               24
+Proof. Note that
+                                 γ1/(t+τ ) (K) = γ((t + τ )K) ≥ γ(tK + rτ B2n ) ,
+since by definition rB2n ⊆ K. Applying Theorem 4.10, we have
+                                                                 Z σ+rτ
+                                                                                    2
+                                        γ1/(t+τ ) (K) ≥                       e−πx dx ,
+                                                                  −∞
+
+                                    −πx2 dx = 2/3. Finally, we note that
+                                Rσ
+where σ > 0 is such that        −∞ e
+         Z σ+rτ                      Z ∞                                            Z ∞
+                     2                                  2                     2 2                      2           2 2
+                  e−πr dx = 1 −                e−πx dx ≥ 1 − e−πr τ                           e−πx dx = 1 − e−πr τ /3 ,
+          −∞                          σ+rτ                                              σ
+
+where the inequality follows from the fact that σ, τ , and r are non-negative, so that (x + rτ )2 ≥
+x2 + r2 τ 2 for all x ≥ σ. The result follows.
+
+4.2   Proof of Theorem 1.2
+We now use Theorem 3.1 and Theorem 4.2 to characterize local minima of γs (V(L)).
+Theorem 4.12. If L ⊂ Rn corresponds to a local minimum (or maximum) of γ1/t (V(L)) over the
+set of determinant-one lattices, then V(L) is in isotropic Gaussian position with parameter 1/t, and
+                                                    γ1/t (V(L)) ≥ 2/3 ,
+where t := 10(log n + 2).
+                                                             2
+Proof. By Theorem 3.1 with f (x) = tn · e−πt x , we have
+                                                                          Z
+                                                                                  f 0 (kxk2 )xxT dx
+                                                        
+               ∇A γ1/t (V(AL))/| det(A)|                    A=In
+                                                                 =2
+                                                                          V(L)
+                                                                                        Z
+                                                                                                           2   2
+                                                                 = −2πtn+2 ·                       e−πt kxk xxT dx .
+                                                                                            V(L)
+
+Recall that In corresponds to a local extremum of a differentiable function g(A) restricted to the
+manifold of determinant-one matrices only if ∇A g(A)|A=In is a scalar multiple of the identity. So,
+the above expression must be a multiple of the identity. I.e., V(L) is in isotropic Gaussian position.
+The result then follows from Theorem 4.2.
+
+   Before moving to the proof of our main theorem, we need the following claim.
+Claim 4.13. For any x > 1,
+                                                    2                 2
+                                        e−2 log x + e−2 log (x/(x−1)) < 1 .
+Proof. By symmetry, we may assume that x ≥ 2. (Otherwise, we can replace x with x/(x − 1).) If
+2 ≤ x ≤ 2.5, then
+                                 2              2                             2                    2
+                         e−2 log x + e−2 log (x/(x−1)) < e−2 log 2 + e−2 log (5/3) < 1 .
+A similar computation works if 2.5 ≤ x ≤ e. Finally, using the fact that log(x/(x − 1)) = − log(1 −
+1/x) > 1/x for x > 1, we have for any x ≥ e that
+                            2              2                     1         2  1       1
+                    e−2 log x + e−2 log (x/(x−1)) <                 + e−2/x < 2 + 1 − 2 = 1 .
+                                                                 x2          x       x
+
+                                                                 25
+    We now prove our main theorem in the special case when L is a stable lattice. The full result
+will follow as a relatively straightforward corollary.
+Proposition 4.14. For any stable lattice L ⊂ Rn , ρ1/t (L) ≤ 23 , where t := 10(log n + 2).
+Proof. By Lemma 4.1, it suffices to show that γ1/t (V(L)) ≥ 2/3. We assume for induction that
+γ1/(10(log d+2)) (V(L0 )) ≥ 2/3 for any stable lattice L0 of rank d < n. (A quick check shows that this
+is true for d = 1.) Since the set of stable lattices is compact by Item (ii) of Proposition 2.5 and the
+function γ1/t (V(L)) is continuous, we may assume without loss of generality that L corresponds to
+a global minimum of γ1/t (V(L)) over the set of stable lattices. If this global minimum is also a local
+minimum over the set of determinant-one lattices, then by Theorem 4.12, γ1/t (V(L)) ≥ 2/3, and
+we are done.
+    Otherwise, L lies on the boundary of the set of stable lattices. I.e., there is some primitive
+sublattice L0 ⊂ L of rank d < n such that L0 and L/L0 are stable. (See Item (iv) of Proposition 2.5.)
+                                                                            2
+By Corollary 2.9 (applied to the non-decreasing function x 7→ −e−π(tx) ) together with Claim 2.6,
+we have
+                   γ1/t (V(L)) ≥ γ1/t (V(L/L0 ⊕ L0 )) = γ1/t (V(L/L0 )) · γ1/t (V(L0 )) .             (17)
+Let t1 := 10(log d + 2) and t2 := 10(log(n − d) + 2). By the induction hypothesis, we see that
+γ1/t1 (V(L0 )) ≥ 2/3 and γ1/t2 (V(L/L0 )) ≥ 2/3. By Lemma 4.11, we therefore have
+                             1 −2 log2 (n/d)                             1        2
+          γ1/t (V(L0 )) ≥ 1 −  ·e            , and γ1/t (V(L/L0 )) ≥ 1 − · e−2 log (n/(n−d)) ,
+                             3                                           3
+where we have used the fact that the inradius of the Voronoi cell, which is equal to half the length
+of the shortest nonzero vector, is at least 1/2 for stable lattices (and the constant in the exponent
+is very loose). Therefore, using (17),
+                                        1 −2 log2 (n/d)     1         2
+                                                                                    
+                    γ1/t (V(L)) ≥ 1 −      ·e             · 1 − · e−2 log (n/(n−d))
+                                         3                     3
+                                        1          2               2
+                                          · e−2 log (n/d) + e−2 log (n/(n−d))
+                                                                              
+                                >1−
+                                        3
+                                 2
+                                >   ,
+                                 3
+where the last inequality follows from Claim 4.13 with x := n/d.
+   So, for every stable lattice L, we have γ1/t (V(L)) ≥ 2/3, and the result then follows from
+Lemma 4.1.
+
+   We now derive our main theorem as a corollary.
+
+Proof of Theorem 1.2. Let {0} = L0 ⊂ · · · ⊂ Lk = L be the canonical filtration of L. Recall
+from Item 2 of Proposition 2.5 that for 1 ≤ i ≤ k, αi · (Li /Li−1 ) is a stable lattice, where αi :=
+det(Li /Li−1 )−1/ rank(Li /Li−1 ) . Moreover, α1 = det(L1 )−1/ rank(L1 ) ≤ 1 by our assumption on L. By
+Item 3 of Proposition 2.5, αi is non-increasing with i, implying that αi ≤ 1 for 1 ≤ i ≤ k. Therefore,
+by Lemma 2.3,
+                                         k
+                                        M                      k
+                                                                M                   
+                      ρ1/t (L) ≤ ρ1/t         Li /Li−1 ≤ ρ1/t         αi · (Li /Li−1 ) .
+                                        i=1                     i=1
+By Item (iii) of Proposition 2.5, this direct sum of stable lattices is itself a stable lattice. The result
+then follows from Proposition 4.14.
+
+                                                     26
+5    Bounds on ρs (L) for all parameters and point-counting bounds
+We first give the proof of Corollary 1.4, which follows immediately from Theorem 1.3.
+
+Proof of Corollary 1.4. For any r > 0
+                                                      2       2                    2   2
+                        |L ∩ (rB2n + u)| ≤ eπr /s ρs (L − u) ≤ eπr /s ρs (L) ,
+
+where the last inequality is Claim 2.2. Item 1 then follows
+                                                       p     by plugging in s = 1/t and applying
+Item 1 of Theorem 1.3. Item 2 follows by
+                                       p  taking s = r   2π/n and applying Item 2 of Theorem 1.3.
+Finally, Item 3 follows by taking s = r 2π/n and applying Item 3 of Theorem 1.3.
+
+    We now prove Theorem 1.3, which gives bounds on the Gaussian mass for all parameters. We
+start with Item 1, addressing parameters s ≤ 1/t.
+Theorem 5.1 (Slight strengthening of Item 1 of Theorem 1.3). For any lattice L ⊂ Rn with
+det(L0 ) ≥ 1 for all sublattices L0 ⊆ L,
+                                                  2           2       2                    2       2
+                        ρs (L) ≤ 1 + e−πλ1 (L) (1/s −t ) /2 ≤ 1 + e−π(1/s −t ) /2
+
+for any s ≤ 1/t, where t := 10(log n + 2).
+Proof. Note that for any y ∈ L \ {0},
+                                              2           2       2                            2       2   2
+                    ρs (y) = ρ1/t (y) · e−πkyk (1/s −t ) ≤ ρ1/t (y)e−πλ1 (L) (1/s −t ) .
+
+The result follows by summing over all y ∈ L\{0} and applying Theorem 1.2. The second inequality
+uses the fact that λ1 (L) ≥ 1.
+
+   We now prove the “high-parameter analogue” of Theorem 1.2. The proof uses Theorem 1.2 and
+duality.
+Theorem 5.2 (Item 3 of Theorem 1.3). For any lattice L ⊂ Rn with det(L0 ) ≥ 1 for all sublattices
+L0 ⊆ L and any parameter s ≥ t, ρs (L) ≤ 2sn where t := 10(log n + 2).
+Proof. Recall the Poisson Summation Formula applied to the Gaussian mass (Eq. (5)):
+                                                        sn
+                                      ρs (L) =              · ρ (L∗ ) .
+                                                      det(L) 1/s
+Assume first that L is stable. Then, by Theorem 1.2 and the fact that the dual of a stable lattice
+is stable (Item (i) of Proposition 2.5),
+
+                             ρs (L) = sn · ρ1/s (L∗ ) ≤ sn · ρ1/t (L∗ ) ≤ 2sn .
+
+For a general lattice L ⊂ Rn , let {0} = L0 ⊂ L1 ⊂ · · · ⊂ Lk = L be the canonical filtration
+of L. Recall from Item 2 that αi · (Li /Li−1 ) is stable for some αi . Furthermore, by Item 3 of
+Proposition 2.5, αi ≤ 1. Then, by Lemma 2.3,
+                                    M                               M                   
+                      ρs (L) ≤ ρs        Li /Li−1 ≤ ρs                     αi · Li /Li−1 ≤ 2sn ,
+
+where the last inequality follows from the fact that the direct sum of stable lattices is stable together
+with the bound proven above for stable lattices. (See Item (iii) of Proposition 2.5.)
+
+                                                              27
+    The rest of this section is dedicated to the proof of Item 2 of Theorem 1.3. Note that we already
+have a bound on ρs (L) for s ≤ 1/t and for s ≥ t, but we currently have no non-trivial bound for
+intermediate parameters 1/t < s < t. To remedy this, we show in Theorem 5.5 below that ρeσ (L)
+is “approximately log-convex,” which allows us to interpolate between these two bounds. In the
+proof of Theorem 5.5, we are unable to work with ρeσ (L) directly, so we instead show that it can
+be approximated by γeσ (V(L)) (Lemma 5.4). We then notice that the latter function is log-concave
+by Theorem 4.5.
+Claim 5.3. For any lattice L ⊂ Rn , y ∈ L, and s > 0,
+                                ρs (y)γs (V(L)) ≤ γs (V(L) + y) ≤ γs (V(L))
+Proof. By scaling appropriately, we may assume that s = 1. We have
+                                              Z
+                                                                     2
+                           γ(V(L) + y) =                  e−πkx+yk dx
+                                                   V(L)
+                                                      Z
+                                            = ρ(y)               ρ(x)e−2πhy,xi dx
+                                                          V(L)
+                                                      Z
+                                            = ρ(y)               ρ(x) cosh(2πhy, xi)dx ,
+                                                          V(L)
+
+where we have used the symmetry of the Voronoi cell in the last line. The lower bound now follows
+from noting that cosh(2πhx, yi) ≥ 1. For the upper bound, we recall that, by definition, any vector
+in the Voronoi cell x ∈ V(L) satisfies hy, xi ≤ kyk2 /2 for any lattice vector y ∈ L. Therefore,
+cosh(2πhy, xi) ≤ cosh(πkyk2 ) ≤ 1/ρ(y), as needed.
+
+Lemma 5.4. For any lattice L ⊂ Rn and any s > 0,
+                                         e−4n /2 ≤ γs (V(L))ρs (L) ≤ 1 .
+Proof. The upper bound is Lemma  4.1, repeated for comparison. By scaling appropriately, we may
+                                             2
+assume that s = 1. Recall that Rn kxk2 e−πkxk dx = n/(2π). It follows from Markov’s inequality
+                              R
+
+that √n/πB n e−πkxk dx ≥ 1/2. Let
+    R              2
+
+             2
+                                                                         q
+                               Y := {y ∈ L : (V(L) + y) ∩                    n/πB2n 6= ∅} .
+
+I.e., Y is the set of vectors y ∈ L such that there exists some x ∈ n/πB2npwith ky − xk ≤ ky 0 − xk
+                                                                                   p
+
+for every y 0 ∈ L. By taking y 0 = 0, we immediately see that Y ⊆ L ∩ 2 n/πB2n . Recalling that
+the Voronoi cell tiles space, we have
+                           Z
+                                               2
+                  1/2 ≤ √                e−πkxk dx
+                                n/πB2n
+                           X
+                       ≤         γ(V(L) + y)
+                           y∈Y
+
+                       ≤ |Y | · γ(V(L))                                                (Claim 5.3)
+                                   q
+                       ≤ |L ∩ 2 n/πB2n | · γ(V(L))
+                       ≤ e4n ρ(L)γ(V(L)) ,
+as needed.
+
+                                                            28
+    We now prove the “approximate log-convexity” of ρeσ (L).
+
+Theorem 5.5. For any lattice L ⊂ Rn and any t1 > s > t2 > 0,
+
+                                         ρs (L) ≤ 2e4n ρt1 (L)τ ρt2 (L)1−τ ,
+
+where τ := log(s/t2 )/ log(t1 /t2 ).
+
+Proof. We have
+                                   1
+                   ρs (L) ≤                                                      (Lemma 4.1)
+                              γs (V(L))
+                                             1
+                          ≤                                                    (Theorem 4.5)
+                              γt1   (V(L))τ γ
+                                          t2 (V(L))
+                                                    1−τ
+
+                          ≤ 2e4n ρt1 (L)τ ρt2 (L)1−τ                           (Lemma 5.4) ,
+
+as needed.
+
+Corollary 5.6 (Item 2 of Theorem 1.3). For any lattice L ⊂ Rn with det(L0 ) ≥ 1 for all L0 ⊆ L
+and any parameter 1/t < s < t, we have
+
+                                                 ρs (L) ≤ 4(e8 st)n/2 ,
+
+where t := 10(log n + 2).
+
+Proof. Let τ := (1 − log s/ log t)/2. Then,
+
+                   ρs (L) ≤ 2e4n ρ1/t (L)τ · ρt (L)1−τ                         (Theorem 5.5)
+                               1+τ 4n            1−τ
+                          ≤2         e ρt (L)                                  (Theorem 1.2)
+                                4n (1−τ )n
+                          ≤ 4e t                                               (Corollary 5.2)
+                          = 4(e8 st)n/2 ,
+
+as needed.
+
+
+6    Proof of the covering radius approximation
+We will need the following lemma, which is implicit in [Ban93].
+
+Lemma 6.1. For any lattice L ⊂ Rn and t > 0 such that ρ1/t (L∗ ) ≤ 3/2,
+                                                       r n        
+                                             µ(L) <             +1 ·t.
+                                                           2π
+Proof. By scaling the lattice, we may assume without loss of generality that t = 1. Let r :=
+         √
+((1 + 4/ n)/(2π))1/2 . By Lemma 2.1, for any t ∈ Rn , we have
+                    √         √            2 n             √         √
+       ρ((L − t) \ r nB2n ) ≤   2πer2 e−πr      · ρ(L) = e−2 n (1 + 4/ n)n/2 · ρ(L) < ρ(L)/3 ,
+
+
+
+                                                          29
+                                                                                                                        2
+where the last inequality follows by noting that it holds for n = 1 and that e−2x · (1 + 4/x)x /2 is a
+decreasing function in x for x > 0 (a fact that can be proven using a tedious but straightforward
+computation). On the other hand, it is an easy consequence of the Poisson Summation Formula
+(see, e.g., [MR07]) that for any t ∈ Rn ,
+                                                         2 − ρ(L∗ )
+                                        ρ(L − t) ≥                  · ρ(L) ≥ ρ(L)/3 .
+                                                           ρ(L∗ )
+                      √                                                  √
+Therefore, (L − t) ∩ r nB2n is nonempty, and
+                                                                             p
+                                          p in particular, dist(t, L) ≤ r n < n/(2π) + 1. Since
+this holds for arbitrary t, we have µ(L) < n/(2π) + 1, as needed.
+   We now note that Theorem 1.2 (together with Lemma 6.1) immediately implies a bound on the
+covering radius of stable lattices.
+Theorem 6.2. For any stable lattice L ⊂ Rn ,
+                                          √
+                                  µ(L) ≤ 4 n(log n + 10) .
+Proof. Let t := 10(log n + 2). Since L∗ is also stable (by Item (i) of Proposition 2.5), Theorem 1.2
+implies that ρ1/t (L∗ ) ≤ 3/2. Applying Lemma 6.1, we have
+                                          q                   √
+                                  µ(L) ≤ ( n/(2π) + 1) · t < 4 n(log n + 10) ,
+as needed.
+   Next, we show (Proposition 6.4) how to reduce the case of general lattices to the stable case.
+We will need the following technical lemma, which is a slight modification of [DR16, Lemma 4.9]
+(with an essentially identical proof).
+Lemma 6.3 (Reverse AM-GM). Let 0 < a1 < · · · < ak and d1 , . . . , dk ∈ N, and for j = 1, . . . , k,
+            P
+define mj := i≥j di . Then,
+                                k                                                 Y              1/mj
+                                                                                          adi i
+                                X
+                                      di ai ≤ 2e · dlog(2m1 )e · max mj                                     .
+                                                                         j
+                                i=1                                                 i≥j
+
+Proof. For ` = 1, 2, . . ., let S` := {j :               e−` ak < aj ≤ e1−` ak }, and let j` := min{j ∈ S` }.               For
+non-empty S` , we have
+                                                                                     Y                   1/mj
+                                                                                                  adi i
+                                                                                                                `
+                         X
+                                di ai ≤ mj` e1−` ak ≤ emj` aj` ≤ emj` ·                                             .
+                         i∈S`                                                          i≥j`
+
+Let `∗ := dlog(2m1 )e. By the above inequality, it suffices to argue that there exists an ` such that
+2`∗ · S` di ai ≥ ki=1 di ai . Indeed,
+     P          P
+
+              ∗
+             ` X                  k                                     k                                 k
+             X                    X               X X                   X                          ak  1 X
+                        di ai =         di ai −               di ai >         di ai − m1 ·            ≥ ·    di ai ,
+             `=1 i∈S`             i=1             `>`∗ i∈S`             i=1
+                                                                                                  2m1  2 i=1
+
+where in the last inequality we have used that dk ≥ 1. Therefore, there exists an ` such that
+                                                                  k
+                                                  X           1 X
+                                                      di ai ≥ ∗ ·   di ai ,
+                                                  i∈S
+                                                             2` i=1
+                                                     `
+
+as needed.
+
+                                                                 30
+       Recall that                                 q                                              1
+                            µdet (L) := maxn            dim(W ⊥ ) · det(πW ⊥ (L)) dim(W ⊥ ) ,
+                                        W ⊂R
+where the maximum is over lattice subspaces W ⊂ Rn of L (i.e., subspaces W spanned by up to
+n − 1 lattice vectors).
+Proposition 6.4. Let                                            √
+                                         Cµ (n) := max sup µ(L)/ d ,
+                                                              d≤n
+
+where the supremum is over stable lattices L ⊂ Rd . Then, for any lattice L ⊂ Rn ,
+                                             q
+                                   µ(L) ≤          2edlog(2n)e · Cµ (n) · µdet (L) .
+Proof. Let {0} = L0 ⊂ L1 ⊂ · · · ⊂ Lk = L be the canonical filtration of some lattice L ⊂ Rn .
+Let di := rank(Li /Li−1 ). Note that Li /Li−1 is a scaling of a stable lattice, i.e., det(Li /Li−1 )−1/di ·
+(Li /Li−1 ) is stable. (See Item 2 of Proposition 2.5.) We therefore have by Claim 2.6 and Lemma 2.8
+that
+                                               M                           2
+                                  µ(L)2 ≤ µ                  Li /Li−1
+                                                        i
+                                             X
+                                         =          µ(Li /Li−1 )2
+                                               i
+                                                               X
+                                         ≤ Cµ (n)2 ·                    di det(Li /Li−1 )2/di .                (18)
+                                                                   i
+
+Next, we recall from Item 3 of Proposition 2.5 that ai := det(Li /Li−1 )2/di is an increasing sequence,
+                   P
+and we note that i≥j di = rank(L/Lj−1 ). We may therefore use Lemma 6.3 to bound Eq. (18)
+from above by
+                                                                                                  2
+                     2edlog(2n)e · Cµ (n)2 · max rank(L/Li ) · det(L/Li ) rank(L/Li )
+                                                    i
+                                                                                                      2
+                        ≤ 2edlog(2n)e · Cµ (n)2 maxn dim(W ⊥ ) · det(πW ⊥ (L)) dim(W ⊥ ) ,
+                                                            W ⊂R
+
+as needed.
+    Theorem 1.5 now follows as an immediate corollary of the above results. In particular, we have
+Cµ (n) ≤ 4(log n + 10) and therefore 2edlog(2n)e · Cµ (n) ≤ 10(log n + 10)3/2 . The result then
+                                    p
+
+follows from Proposition 6.4.
+
+6.1      Connection with the Slicing Conjecture
+In this section, we prove Theorem 6.8. The structure of the proof is based on the one suggested
+in [SW16], as was the case for the proof of our main theorem in Section 4.
+    As in Section 4, we are unable to work with the lattice parameter µ(L) that interests us directly.8
+Instead, we work with the lattice parameter
+                                                        s
+                                                              1
+                                                                            Z
+                                      µ(L) :=                                      kxk2 dx ,
+                                                            det(L)          V(L)
+   8
+     While [DSV12] give a characterization of lattices corresponding to local maxima of µ, we are unable to obtain a
+sufficiently strong bound on the covering radius of these lattices. See [SW16] for more about this question.
+
+
+                                                                       31
+which gives a good approximation to µ. The following tight result due to Magazinov [Mag18] (and
+conjectured in [HLR09]) makes this precise. (See [HLR09, Claim 3.1] for a slightly weaker result
+with a simple proof. See, e.g., [ZF96, CS98, GMR05, HLR09, Mag18] for more about µ.)
+
+Theorem 6.5 ([Mag18]). For any lattice L ⊂ Rn ,
+                                                       √
+                                     µ(L) ≤ µ(L) ≤         3µ(L) .
+
+   We now observe that Theorem 3.1 is applicable to the function µ(L)2 . Recall that a symmetric
+convex body K ⊂ R is said to be isotropic if K xxT dx = α · In for some scalar α > 0.
+                  n
+                                            R
+
+
+Proposition 6.6. For any lattice L ⊂ Rn ,
+                                                2
+                                                               Z
+                                       2
+                             ∇A µ(AL) |A=In =                         xxT dx ,
+                                              det(L)           V(L)
+
+where A ∈ Rn×n is a non-singular matrix. In particular, if L corresponds to a local maximum (or
+local minimum) of µ(L) over the set of determinant-one lattices, then V(L) is isotropic.
+
+Proof. To compute the gradient, we simply apply Theorem 3.1 with f (x) := x, and recall that
+                                       1        1
+                                                           Z
+                          µ(AL)2 =         ·                          f (kxk2 )dx .
+                                     det(L) | det(A)|      V(AL)
+
+The “in particular” follows from the fact that a differentiable function g(A) restricted to the set
+of determinant-one matrices has a critical point at A = In if and only if ∇A g(A)|A=In is a scalar
+multiple of the identity.
+
+   We define the (symmetric) isotropic constant
+                                               1
+                                                       Z
+                                  L2n := max     · sup   kxk2 dx ,
+                                           d≤n d    K  K
+
+where the supremum is taken
+                         √     over all isotropic symmetric convex bodies K ⊂ Rd of volume one. It
+is known to satisfy 1/(2 3) ≤ Ln ≤ no(1) , and the Slicing Conjecture implies that Ln is bounded
+by a universal constant [Bou91, Kla06, Che21, KL22]. (The lower bound is due to the hypercube,
+[−1/2, 1/2]n .) We note in passing that we are only concerned with the isotropic constant for Voronoi
+cells, which could conceivably be easier to bound than the isotropic constant for arbitrary convex
+bodies.
+
+Theorem 6.7. For any stable lattice L ⊂ Rn ,
+                                        √      √
+                                 µ(L) ≤ 3µ(L) ≤ 3nLn .
+                                                             √
+Proof. By Theorem 6.5, it suffices to prove that µ(L)√    ≤ √nLn . Note that this is trivially true
+for n = 1. We assume for induction that µ(L0 ) ≤ dLd ≤ dLn for all stable lattices L0 of rank
+d < n. Recall that the set of stable lattices is compact (Item (ii) of Proposition 2.5), so that we
+may assume without loss of generality that L corresponds to a global maximum of the function
+µ over this set. If this is also a local maximum over the set of determinant-one lattices, then by
+                                                                   √
+Proposition 6.6, the Voronoi cell is isotropic, and we have µ(L) ≤ nLn by the definition of µ and
+
+                                                  32
+Ln . Otherwise, L must lie on the boundary of the set of stable lattices. I.e., there is some primitive
+sublattice L0 ⊂ L of rank 0 < d < n such that L0 and L/L0 are both stable. (See Item (iv) of
+Proposition 2.5.) Applying the induction hypothesis and Corollary 2.9 (together with Claim 2.6),
+we have
+             µ(L)2 ≤ µ(L0 ⊕ L/L0 )2 = µ(L0 )2 + µ(L/L0 )2 ≤ dL2n + (n − d)L2n = nL2n ,
+as needed.
+                                                             √
+    As far as we know, it is entirely possible that Ln = 1/(2 3), i.e., that the hypercube [−1/2, 1/2]n
+is the worst symmetric body for the Slicing Conjecture. If this is true, then we get that for any
+                                     √
+stable lattice L ⊂ Rn , µ(L) ≤ n/2, which is tight for Zn . Apart from being an interesting
+statement in its own right, it was shown by Shapira and Weiss [SW16] that such a result would
+imply the so-called Minkowski conjecture (see there for more information).
+    We can now use Proposition 6.4 to extend Theorem 6.7 to all lattices L ⊂ Rn .
+
+Theorem 6.8. For any lattice L ⊂ Rn ,
+                          1                        p
+                        √     · µdet (L) ≤ µ(L) ≤ 5 log n + 1 · Ln · µdet (L) .
+                          2πe
+                                                                         √
+    As we observed in Footnote 4, there are lattices with µ(L) ≥ C log n · µdet (L). So, up to
+a constant factor, Theorem 6.8 gives the strongest possible upper bound on µ(L) in terms of
+µdet (L), assuming the Slicing Conjecture. We note √that Dadush recently proved a variant of
+Theorem 6.8 [Dad19, Theorem 2.5]. He avoids the log n factor loss by replacing µdet with a
+parameter that depends on determinants of multiple projections of L simultaneously, rather than
+just one as in the definition of µdet . In particular, assuming the Slicing Conjecture, his result
+gives a characterization of the covering radius up to a constant factor in terms of determinants of
+projections.
+
+
+7    An optimal bound for extreme parameters
+We now prove Theorem 1.6, which says that Zn has maximal Gaussian masspamongst all lattices
+L with det(L0 ) ≥ 1 for all p
+                            sublattices L0 ⊆ L, for very small parameters s ≤ 2π/(n + 2) and for
+very large parameters s ≥ (n + 2)/(2π). The proof is similar to that of Theorem 1.2, except here
+we work directly with ρs (L) (instead of the proxy γs (V(L))). Moreover, we show that ρs (L) has no
+local maxima for those values of s, which leads to a simpler proof and the clearly tight result. In
+order to show that local maxima do not exist, we will show that the Laplacian of ρs (L) is always
+positive when L is stable.
+    In more detail, for a lattice L and s > 0 let fL,s : X → R be given by
+                                                                    T A   2
+                                                                e−πy e y/s ,
+                                                          X
+                              fL,s (A) := ρs (eA/2 L) =
+                                                          y∈L
+
+where X ⊂ Rn×n is the linear space of all symmetric matrices with zero trace. Notice that as
+A ranges over X, eA/2 := In + ∞              i
+                                 P
+                                    i=1 (A/2) /i! ranges over all determinant-one positive-definite
+                           A/2
+matrices. In particular, e L ranges over all lattices of fixed determinant, up to orthogonal
+transformations. (To see this, notice that any L0 of the same determinant as L can be written as
+L0 = T L for some matrix T of determinant one. Then, up to an orthogonal transformation, L0
+
+                                                  33
+equals V T DV L where T = U DV is the singular value decomposition of T . Finally, notice that
+V T DV is a determinant-one positive-definite matrix.) See [Ter16, Section 1.1.3] for a more in-depth
+treatment of the space of determinant-one matrices.
+    Recall that the Laplacian of a twice differentiable function g : X → R is given by
+                                                    X ∂2
+                                      ∆X g(A) :=                g(A) ,
+                                                     i
+                                                         ∂Ei2
+
+where the Ei form an orthonormal basis of X (under the inner product hA, Bi = Tr(AT B)), and
+
+                                    ∂2          ∂2
+                                        g(A) :=     g(A + rM )|r=0
+                                   ∂M 2         ∂r2
+is the directional second derivative of g in the M direction. One can show that the Laplacian
+does not depend on the choice of basis. Clearly, if the Laplacian is positive at A, then A cannot
+correspond to a local maximum of g, since there must be at least one direction in which the second
+derivative is positive.
+    The Laplacian of fL,s is straightforward to calculate. It can be found, e.g., in the work by
+Sarnak and Strömbergsson [SS06] who used it to study local minima of ρs (L).
+
+Claim 7.1 ([SS06, Eq. (46)]). Let X ⊂ Rn×n be the space of trace-zero symmetric matrices. Then,
+for any lattice L ⊂ Rn and any parameter s > 0,
+                                   π n−1 X               2 π
+                                                          
+                                                                    2   n + 2
+                   ∆X fL,s (0) =      ·   ·     ρs (y)kyk      · kyk  −        .
+                                   s2   n   y∈L
+                                                            s2            2
+
+Proposition 7.2. For any lattice L ⊂ Rn and
+                                                s
+                                                     2π
+                                      0<s≤              · λ1 (L) ,
+                                                    n+2
+
+L cannot correspond to a local maximum of ρs (L) over the set of determinant-one lattices. In
+        p since stable lattices have λ1 (L) ≥ 1, a stable lattice cannot correspond to a local maximum
+particular,
+for s ≤ 2π/(n + 2).
+
+Proof. It suffices to show that the Laplacian given in Claim 7.1 is positive for such L. Indeed, the
+summand is zero for y = 0, and since
+                                          π              n+2
+                                           2
+                                             · λ1 (L)2 ≥     ,
+                                          s               2
+the summand is non-negative for all non-zero y ∈ L. Finally, since any lattice contains vectors of
+arbitrarily large length, there must be some strictly positive terms in the sum. Therefore, the full
+sum is strictly positive, as needed.
+
+   From this, we derive our main result for the special case of stable lattices.
+
+                                          2π/(n + 2) and stable lattice L ⊂ Rn , ρs (L) ≤ ρs (Zn ).
+                                      p
+Proposition 7.3. For any 0 < s ≤
+
+
+
+                                                    34
+Proof. Note that the result is trivial for n = 1. We assume for induction that the result holds for
+all dimensions less than n. Since the set of stable lattices is compact and ρs (L) is a continuous
+function, we may assume that L corresponds to a global maximum of ρs (L) over the set of stable
+lattices. By Proposition 7.2, this cannot be a local maximum over the set of determinant-one
+lattices. So, L must be on the boundary of the set of stable lattices. I.e., there is a non-trivial
+primitive sublattice L0 ⊂ L with d := rank(L0 ) such that L0 and L/L0 are themselves stable lattices
+of rank strictly less than n. (See Item (iv) of Proposition 2.5.) Applying the induction hypothesis,
+we have by Lemma 2.3 that
+
+                      ρs (L) ≤ ρs (L0 ) · ρs (L/L0 ) ≤ ρs (Zd ) · ρs (Zn−d ) = ρs (Zn ) ,
+                                                p                             p                  p
+where we have used the fact that s ≤               2π/(n + 2) ≤ min{ 2π/(d + 2),                     2π/(n − d + 2)} in
+order to apply the induction hypothesis.
+
+   We now “invert the parameter” using duality.
+
+                                   (n + 2)/(2π) and stable lattice L ⊂ Rn , ρs (L) ≤ ρs (Zn ).
+                                 p
+Corollary 7.4. For any s ≥
+
+Proof. Recall that the dual L∗ of a stable lattice is itself stable. (See Item (i) of Proposition 2.5.)
+Furthermore, by the Poisson Summation Formula for the discrete Gaussian (Eq. (5)),
+
+                                   sn                    sn
+                      ρs (L) =          · ρ1/s (L∗ ) ≤       · ρ (Zn ) = ρs (Zn ) ,
+                                 det(L)                det(L) 1/s
+
+as needed, where the inequality follows from Proposition 7.3, and the last equality follows from the
+Poisson Summation Formula applied to Zn .
+
+   We can now prove Theorem 1.6.
+
+Proof of Theorem 1.6. Let {0} = L0 ⊂ L1 ⊂ · · · ⊂ Lk = L be the canonical filtration of L, and let
+di := rank(Li /Li−1 ) ≤ n. Then, by Lemma 2.3, we have
+                                                       Y
+                                            ρs (L) ≤       ρs (Li /Li−1 ) .
+                                                       i
+                  p                                                p
+Note that, if s ≤ 2π/(n + 2), then we also have s ≤ 2π/(di + 2) for all i. And, αi · (Li /Li−1 )
+is a stable lattice for some αi ≤ 1. (See Items 2 and 3 of Proposition 2.5.) So, in this case we may
+apply Proposition 7.3 to obtain
+                                  Y                                Y
+                       ρs (L) ≤          ρs (αi · (Li /Li−1 )) ≤        ρs (Zdi ) = ρs (Zn ) .
+                                     i                              i
+                             p                                  p
+If, on the other hand, s ≥ (n + 2)/(2π), then s ≥                  (di + 2)/(2π) for all i, so we may similarly
+apply Corollary 7.4 to obtain the same result.
+
+Remark. It is possible to show that, in the setting of Theorem 1.6, ρs (L) = ρs (Zn ) if and only if L
+is an orthogonal transformation of Zn . To see this, first notice that in order to get equality, all the
+αi in the proof above must be one, i.e., L must be stable. Next, we follow the induction argument
+in the proof of Proposition 7.3, and recall the case of equality in Lemma 2.3.
+
+
+
+                                                           35
+8      Tightness of our bounds
+In this section, we discuss the tightness of our bounds by considering some classes of lattices L ⊂ Rn .
+
+8.1     Tightness of Item 3 of Theorem 1.3 for stable lattices
+It is an immediate consequence of the Poisson Summation Formula (Eq. (5)) that ρs (L) ≥ sn / det(L)
+for any s > 0 and L ⊂ Rn . Combining this with Item 3 of Theorem 1.3, we see that
+
+                                                            sn ≤ ρs (L) ≤ 2sn
+
+for any stable lattice L ⊂ Rn and any s ≥ 10(log n + 2). I.e., Item 3 of Theorem 1.3 is tight for all
+stable lattices up to a factor of two in the mass.
+
+8.2     The integer lattice Zn
+We first prove bounds on the Gaussian mass of Zn . In particular, the lower bound in Eq. (19)
+                                                                                          √ below
+shows that ρ√π/ log n (Zn ) ≥ 3/2, so that Theorem 1.2 is tight for Zn up to a factor of C log n in
+t. Similar bounds hold for Items 1 and 2 of Theorem 1.3.
+Claim 8.1. For any n ≥ 1 and parameter s > 0,
+                                                   2   n                                            2   n
+                                 1 + 2e−π/s                 ≤ ρs (Zn ) ≤ 1 + (2 + s)e−π/s                     ,                (19)
+
+and                                                n                                                             n
+                                               2                                                              2
+                          sn · 1 + 2e−πs                   ≤ ρs (Zn ) ≤ sn · 1 + (2 + 1/s)e−πs                         .       (20)
+Proof. Note that ρs (Zn ) = ρs (Z)n . So, it suffices to bound ρs (Z). Furthermore, Eq. (20) follows
+from Eq. (19) and the Poisson Summation Formula (Eq. (5)). So, it suffices to prove Eq. (19) for
+the case n = 1. For the lower bound, we have
+                                                              ∞
+                                                                          2   2                  2
+                                                                    e−πz /s ≥ 1 + 2e−π/s .
+                                                              X
+                                     ρs (Z) = 1 + 2
+                                                              z=1
+
+For the upper bound, we write
+                                     ∞                                                 Z ∞
+                        −π/s2              −πz 2 /s2                  −π/s2                      2   2                     2
+                                                                                             e−πx /s dx ≤ 1 + (2 + s)e−π/s ,
+                                     X
+      ρs (Z) = 1 + 2e           +2         e                ≤ 1 + 2e              +2
+                                     z=2                                               1
+
+where we have used [AS64, Eq. 7.1.13] to bound the error function.
+
+    We now bound |Zn ∩ rB2n |. Note that the lower bound in the next claim, which shows that
+                 2       2                                                            0 2   2
+|Z ∩ rB2n | ≥ eCr log(n/r ) , is relatively close to the upper bound |Zn ∩ rB2n | ≤ eC r log n given by
+  n
+
+Item 1 of Corollary 1.4. (We include a better upper bound on |Zn ∩ rB2n | below for completeness.
+See [Ste17] for a slightly tighter bound via a more careful application of the same proof and [MO90]
+                               √
+for tighter bounds for r = C n.)
+                                                      √
+Claim 8.2. For any n ≥ 1 and any radius 1 ≤ r ≤ n,
+                                                       2                                             2
+                                 (2n/br2 c)br c ≤ |Zn ∩ rB2n | ≤ (2e3 n/br2 c)br c .
+
+                                                                     36
+Proof. Since all points in Zn have integer squared norm, we may assume without loss of generality
+that r2 is an integer. For the lower bound, we note that the number of vectors of length r whose
+coordinates lie in the set {−1, 0, +1} is
+                                                           !
+                                                 r2   n                         2
+                                              2                ≥ (2n/r2 )r ,
+                                                      r2
+
+as needed.                                       p
+    For the upper bound, using Eq. (19) with s := π/ log(2n/r2 ) < 4,
+                                                           2   2
+                                  |Zn ∩ rB2n | ≤ eπr /s ρs (Zn )
+                                                                    r2 (2 + s) n
+                                                                    2
+                                                                        
+                                                  ≤ (2n/r2 )r · 1 +
+                                                                        2n
+                                                         2 r2
+                                                  ≤ (2n/r ) · (1 + 3r /n)n
+                                                                      2
+
+                                                                        2
+                                                  ≤ (2e3 n/r2 )r ,
+
+as needed.
+
+8.3   Random lattices
+There exists a unique probability measure Ln over the set of determinant-one lattices in Rn that
+is invariant under SLn (R) [Sie45]. (See, e.g., [Ter16] or [GL87, Chapter 3].) We call a random
+variable L sampled from Ln a random lattice, and we write this as L ∼ Ln . The purpose of this
+section is to prove the following result.
+                                                             √
+Proposition 8.3. For any sufficiently large n and any r ≥ n log n,
+                  h                                                         i
+             Pr       L is stable and |L ∩ rB2n | ≥ vol(rB2n )/2 ≥ 1 − (Cn/r2 )n/2 − (C/n)n/2 ,
+          L∼Ln
+
+where C > 0 is some universal constant. In particular, there exists a stable lattice L satisfying
+
+                        |L ∩ rB2n | ≥ vol(rB2n )/2 = (4πn)−1/2 (2πer2 /n)n/2 (1 + o(1)) ,          (21)
+
+where the o(1) term approaches zero as n approaches ∞.
+                                                                 √
+    Note that the lower bound in Eq. (21) is within a factor of C n of the upper bound in Item 3
+of Corollary 1.4, which applies to stable lattices.
+    We will need the following three results.
+Theorem 8.4 ([Sie45]). For any n ≥ 2 and any measurable set S ⊂ Rn ,
+
+                                           E [|(L \ {0}) ∩ S|] = vol(S) .
+                                          L∼Ln
+
+Theorem 8.5 ([Rog55, Sch60]; see [Gru07, Theorem 24.3]). For n ≥ 3 and any Borel set S ⊂ Rn ,
+                                                                           2 
+                                 E        |(L \ {0}) ∩ S| − vol(S)                  ≤ C vol(S) ,
+                               L∼Ln
+
+where C > 0 is some universal constant.
+
+                                                               37
+Theorem 8.6 ([SW14]). For any sufficiently large n, an n-dimensional random lattice is stable
+with probability at least 1 − (C/n)n/2 , where C > 0 is some universal constant.
+Proof of Proposition 8.3. By Chebyshev’s inequality, Theorem 8.4, and Theorem 8.5, there is some
+universal constant C > 0 such that
+                                                                C
+                             |L ∩ rB2n | < vol(rB2n )/2 ≤              ≤ (C 0 n/r2 )n/2 .
+                                                    
+                    Pr
+                  L∼Ln                                      vol(rB2n )
+The result then follows by Theorem 8.6 and union bound.
+
+
+References
+[AGM15]    Shiri Artstein-Avidan, Apostolos A. Giannopoulos, and Vitali D. Milman. Asymp-
+           totic geometric analysis. Part I, volume 202 of Mathematical Surveys and Monographs.
+           American Mathematical Society, Providence, RI, 2015. 24
+[AS64]     Milton Abramowitz and Irene A. Stegun. Handbook of mathematical functions with
+           formulas, graphs, and mathematical tables, volume 55 of National Bureau of Standards
+           Applied Mathematics Series. For sale by the Superintendent of Documents, U.S. Gov-
+           ernment Printing Office, Washington, D.C., 1964. 36
+[Ban93]    Wojciech Banaszczyk. New bounds in some transference theorems in the geometry of
+           numbers. Mathematische Annalen, 296(4):625–635, 1993. 10, 29
+[Bob11]    Sergey G. Bobkov. On Milman’s ellipsoids and M -position of convex bodies. In Concen-
+           tration, functional inequalities and isoperimetry, volume 545 of Contemp. Math., pages
+           23–33. Amer. Math. Soc., Providence, RI, 2011. 6, 9, 21, 22
+[Bor75]    Christer Borell. The Brunn-Minkowski inequality in Gauss space. Invent. Math.,
+           30(2):207–216, 1975. 24
+[Bos20]    Jean-Benoı̂t Bost. Réseaux euclidiens, séries thêta et pentes. Number 422, pages Exp.
+           No. 1151, 1–59. 2020. Séminaire Bourbaki. Vol. 2018/2019. Exposés 1151-1165. 8
+[Bou91]    Jean Bourgain. On the distribution of polynomials on high-dimensional convex sets. In
+           Geometric aspects of functional analysis (1989–90), volume 1469 of Lecture Notes in
+           Math., pages 127–137. Springer, Berlin, 1991. 4, 32
+[Cas04]    Bill Casselman. Stability of lattices and the partition of arithmetic quotients. Asian J.
+           Math., 8(4):607–637, 2004. 11, 12
+[CDLP13] Kai-Min Chung, Daniel Dadush, Feng-Hao Liu, and Chris Peikert. On the lattice
+         smoothing parameter problem. In CCC, 2013. 6, 20
+[CFM04]    Dario Cordero-Erausquin, Matthieu Fradelizi, and Bernard Maurey. The (B) conjecture
+           for the Gaussian measure of dilates of symmetric convex sets and related problems. J.
+           Funct. Anal., 214(2):410–427, 2004. 6, 22
+[Che21]    Yuansi Chen. An almost constant lower bound of the isoperimetric coefficient in the
+           KLS conjecture. GAFA, 2021. 4, 32
+
+                                                    38
+[CK09]     Henry Cohn and Abhinav Kumar. Optimality and uniqueness of the Leech lattice
+           among lattices. Ann. of Math. (2), 170(3):1003–1050, 2009. 7
+
+[CS98]     John Conway and Neil J. A. Sloane. Sphere Packings, Lattices and Groups. Springer
+           New York, 1998. 7, 32
+
+[Dad12a]   Daniel Dadush. Private communication, 2012. 2, 6
+
+[Dad12b]   Daniel Dadush. Integer Programming, Lattice Algorithms, and Deterministic Volume
+           Estimation. PhD thesis, Georgia Institute of Technology, 2012. 8, 15, 23
+
+[Dad19]    Daniel Dadush. On approximating the covering radius and finding dense lattice sub-
+           spaces. In STOC, 2019. 7, 33
+
+[DR16]     Daniel Dadush and Oded Regev. Towards strong reverse Minkowski-type inequalities
+           for lattices. In FOCS, 2016. arXiv:1606.06913. 2, 4, 6, 8, 30
+
+[DSV12]    Mathieu Dutour Sikirić, Achill Schürmann, and Frank Vallentin. Inhomogeneous ex-
+           treme forms. Ann. Inst. Fourier (Grenoble), 62(6):2227–2255 (2013), 2012. 6, 7, 31
+
+[ERS22]    Yael Eisenberg, Oded Regev, and Noah Stephens-Davidowitz. A tight reverse Minkowski
+           inequality for the Epstein zeta function, 2022. arXiv:2201.05201. 8
+
+[FT79]     Tadeusz Figiel and Nicole Tomczak-Jaegermann. Projections onto Hilbertian subspaces
+           of Banach spaces. Israel J. Math., 33(2):155–171, 1979. 6, 23
+
+[GL87]     Peter M. Gruber and Cornelis Gerrit Lekkerkerker. Geometry of numbers. Number 37.
+           North-Holland Publishing Co., Amsterdam, 2nd ed edition, 1987. 1, 37
+
+[GMR05]    Venkatesan Guruswami, Daniele Micciancio, and Oded Regev. The complexity of the
+           Covering Radius Problem. Comput. Complex., 14(2):90–121, 2005. 32
+
+[Gra84]    Daniel R. Grayson. Reduction theory using semistability. Comment. Math. Helv.,
+           59(4):600–634, 1984. 4, 7, 11, 12, 13
+
+[Gre07]    Ben Green. A guest post on Terrence Tao’s blog, 2007. http://terrytao.wordpress.
+           com/2007/03/11/ben-green-the-polynomial-freiman-ruzsa-conjecture/. 7
+
+[Gru07]    Peter M. Gruber. Convex and discrete geometry, volume 336 of Grundlehren der
+           Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences].
+           Springer, Berlin, 2007. 37
+
+[Hen02]    Martin Henk. Successive minima and lattice points. Rend. Circ. Mat. Palermo (2)
+           Suppl., (70, part I):377–384, 2002. IV International Conference in “Stochastic Geometry,
+           Convex Bodies, Empirical Measures & Applications to Engineering Science”, Vol. I
+           (Tropea, 2001). 7
+
+[HLR09]    Ishay Haviv, Vadim Lyubashevsky, and Oded Regev. A note on the distribution of the
+           distance from a lattice. Discrete & Computational Geometry, 41(1):162–176, 2009. 32
+
+
+
+
+                                               39
+[HMT+ 22] Arne Heimendahl, Aurelio Marafioti, Antonia Thiemeyer, Frank Vallentin, and
+          Marc Christian Zimmermann. Critical Even Unimodular Lattices in the Gaussian Core
+          Model. International Mathematics Research Notices, 2022. rnac164. 6, 8
+[HN75]    Günter Harder and Mudumbai S. Narasimhan. On the cohomology groups of moduli
+          spaces of vector bundles on curves. Mathematische Annalen, 212(3):215–248, 1975. 4,
+          7, 11
+[KL78]    Grigorii A. Kabatjanskiı̆ and Vladimir I. Levenšteı̆n. Bounds for packings on the sphere
+          and in space. Problemy Peredači Informacii, 14(1):3–25, 1978. 7
+[KL88]    Ravi Kannan and László Lovász. Covering minima and lattice-point-free convex bodies.
+          Ann. of Math. (2), 128(3):577–602, 1988. 3, 4, 8
+[KL22]    Bo’az Klartag and Joseph Lehec. Bourgain’s slicing problem and KLS isoperimetry up
+          to polylog, 2022. arxiv:2203.15551. 4, 32
+[Kla06]   Bo’az Klartag. On convex perturbations with a bounded isotropic constant. Geom.
+          Funct. Anal., 16(6):1274–1290, 2006. 4, 32
+[Lat02]   Rafal Latala. On some inequalities for Gaussian measures. In Proceedings of the Inter-
+          national Congress of Mathematicians, Vol. II (Beijing, 2002), pages 813–822. Higher
+          Ed. Press, Beijing, 2002. 22
+[Lew79]   Daniel R. Lewis. Ellipsoids defined by Banach ideal norms. Mathematika, 26(1):18–29,
+          1979. 6, 23
+[LR17]    Shachar Lovett and Oded Regev. A counterexample to a strong variant of the polyno-
+          mial Freiman-Ruzsa conjecture in Euclidean space. Discrete Anal., pages Paper No. 8,
+          6, 2017. 7
+[Mag18]   Alexander Magazinov. A proof of a conjecture by Haviv, Lyubashevsky and Regev
+          on the second moment of a lattice Voronoi cell. Advances in Geometry, 2018.
+          arXiv:1707.03809. 5, 32
+[Mah46]   K. Mahler. On lattice points in n-dimensional star bodies. I. Existence theorems. Proc.
+          Roy. Soc. London Ser. A, 187:151–187, 1946. 14
+[Min10]   Hermann Minkowski. Geometrie der Zahlen. B.G. Teubner, 1910. 1
+[MO90]    James E. Mazo and Andrew M. Odlyzko. Lattice points in high-dimensional spheres.
+          Monatsh. Math., 110(1):47–61, 1990. 36
+[Mon88]   Hugh L. Montgomery. Minimal theta functions. Glasgow Math. J., 30(1):75–85, 1988.
+          7
+[MP87]    V. D. Milman and G. Pisier. Gaussian processes and mixed volumes. Ann. Probab.,
+          15(1):292–304, 1987. 7
+[MR07]    Daniele Micciancio and Oded Regev. Worst-case to average-case reductions based on
+          Gaussian measures. SIAM Journal on Computing, 37(1):267–302 (electronic), 2007. 2,
+          30
+
+                                               40
+[Pis82]   Gilles Pisier. Holomorphic semigroups and the geometry of Banach spaces. Ann. of
+          Math. (2), 115(2):375–392, 1982. 6, 23
+
+[Rog55]   Claude A. Rogers. Mean values over the space of lattices. Acta Math., 94:249–287,
+          1955. 37
+
+[Sch60]   Wolfgang M. Schmidt. A metrical theorem in geometry of numbers. Trans. Amer.
+          Math. Soc., 95:516–529, 1960. 37
+
+[Sie45]   Carl Ludwig Siegel. A mean value theorem in geometry of numbers. Ann. of Math. (2),
+          46:340–347, 1945. 37
+
+[Sol19]   Omri N. Solan. Stable and well-rounded lattices in diagonal orbits. Israel J. Math.,
+          234(2):501–519, 2019. 5
+
+[SS06]    Peter Sarnak and Andreas Strömbergsson. Minima of Epstein’s zeta function and
+          heights of flat tori. Invent. Math., 165(1):115–151, 2006. 7, 34
+
+[ST74]    Vladimir N. Sudakov and Boris S. Tsirelson. Extremal properties of half-spaces for
+          spherically invariant measures. Zap. Naučn. Sem. Leningrad. Otdel. Mat. Inst. Steklov.
+          (LOMI), 41:14–24, 165, 1974. Problems in the theory of probability distributions, II.
+          24
+
+[Ste17]   Noah Stephens-Davidowitz. On the Gaussian Measure Over Lattices. PhD thesis, New
+          York University, 2017. 36
+
+[Stu76]   Ulrich Stuhler. Eine Bemerkung zur Reduktionstheorie quadratischer Formen. Arch.
+          Math. (Basel), 27(6):604–610, 1976. 4, 7, 11, 12
+
+[SW14]    Uri Shapira and Barak Weiss. A volume estimate for the set of stable lattices. C. R.
+          Math. Acad. Sci. Paris, 352(11):875–879, 2014. 38
+
+[SW16]    Uri Shapira and Barak Weiss. Stable lattices and the diagonal group. J. Eur. Math.
+          Soc. (JEMS), 18(8):1753–1767, 2016. arXiv:1609.08481. 4, 5, 6, 7, 9, 31, 33
+
+[Ter16]   Audrey Terras. Harmonic analysis on symmetric spaces—higher rank spaces, positive
+          definite matrix space and generalizations. Springer, New York, second edition, 2016.
+          11, 34, 37
+
+[vdC36]   Johannes van der Corput. Verallgemeinerung einer Mordellschen Beweismethode in der
+          Geometrie der Zahlen, Zweite Mitteilung. Acta Arithmetica, 2(1):145–146, 1936. 2
+
+[Vor08]   Georges Voronoi. Nouvelles applications des paramètres continus à la théorie des formes
+          quadratiques. Premier mémoire. Sur quelques propriétés des formes quadratiques posi-
+          tives parfaites. J. Reine Angew. Math., 133:97–102, 1908. 7
+
+[ZF96]    Ram Zamir and Meir Feder. On lattice quantization noise. IEEE Transactions on
+          Information Theory, 42(4):1152–1159, 1996. 32
+
+
+
+
+                                               41
+

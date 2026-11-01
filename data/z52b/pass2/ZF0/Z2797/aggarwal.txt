@@ -1,0 +1,273 @@
+                                                    An improved constant in Banaszczyk’s transference theorem
+                                                              Divesh Aggarwal∗                            Noah Stephens-Davidowitz
+                                                       National University of Singapore              Massachusetts Institute of Technology
+                                                            dcsdiva@nus.edu.sg                               noahsd@gmail.com
+arXiv:1907.09020v1 [math.MG] 21 Jul 2019
+
+
+
+
+                                                                                                Abstract
+                                                        We show that                                            
+                                                                                    µ(L)λ1 (L∗ ) < 0.1275 + o(1) · n ,
+                                                     where µ(L) is the covering radius of an n-dimensional lattice L ⊂ Rn and λ1 (L∗ ) is the length
+                                                     of the shortest non-zero vector in the dual lattice L∗ . This improves on Banaszczyk’s celebrated
+                                                     transference theorem (Math. Annal., 1993) by about 20%.
+                                                         Our proof follows Banaszczyk exactly, except in one step, where we replace a Fourier-
+                                                     analytic bound on the discrete Gaussian mass with a slightly stronger bound based on packing.
+                                                     The packing-based bound that we use was already proven by Aggarwal, Dadush, Regev, and
+                                                     Stephens-Davidowitz (STOC, 2015) in a very different context. Our contribution is therefore
+                                                     simply the observation that this implies a better transference theorem.
+
+
+                                           1        Introduction
+                                           A lattice L ⊂ Rn is the set of integer linear combinations of linearly independent basis vectors
+                                           B = (b1 , . . . , bn ). I.e.,
+                                                                         L := {z1 b1 + · · · + zn bn : zi ∈ Z} .
+                                           The dual lattice L∗ is the set of vectors that have integer inner product with all elements in L. I.e.,
+
+                                                                               L∗ := {w ∈ Rn : ∀y ∈ L, hw, yi ∈ Z} .
+
+                                                   A transference theorem relates the geometry of the primal lattice L to that of the dual lattice
+                                           L∗ . For example, the first minimum
+
+                                                                                          λ1 (L) := min kyk
+                                                                                                    y∈L6=0
+
+                                           is the minimal (Euclidean) norm of a non-zero lattice vector, and the covering radius
+
+                                                                                       µ(L) := maxn min ky − tk
+                                                                                                t∈R y∈L
+
+                                           is the maximal distance from any point in space to the lattice. Banaszczyk’s celebrated transference
+                                           theorem states that the covering radius of L is rather closely related to the first minimum of the
+                                           dual lattice, as follows.
+                                               ∗
+                                              This research was partially funded by the Singapore Ministry of Education and the National Research Foundation
+                                           under grant R-710-000-012-135
+
+
+                                                                                                    1
+Theorem 1.1 ([Ban93]). For any lattice L ⊂ Rn ,
+                                1            ∗
+                                                   1       
+                                  ≤ µ(L)λ1 (L ) ≤     + o(1) · n .
+                                2                  2π
+   (Here and elsewhere, we write o(1) for an unspecified function that approaches zero as n grows.
+Banaszczyk actually formally proved a slightly weaker bound, but he noted at the end of his paper
+that his proof yields Theorem 1.1. See, e.g., [MS19].)
+   We are interested in the upper bound in Theorem 1.1, and we include the simple lower bound
+only for completeness. I.e., we are interested in the quantity
+                                            1
+                                    Tn :=     · sup µ(L)λ1 (L∗ ) ,
+                                            n L⊂Rn
+
+where the supremum is taken over all lattices in n dimensions. Theorem 1.1 shows that Tn <
+1/(2π) + o(1) ≈ 0.159, and it is known that
+                                             1
+                                     Tn >       − o(1) ≈ 0.059 ,                               (1)
+                                            2πe
+so that Tn is known up to a constant factor. (Eq. (1) follows, e.g., from [Sie45].)
+    Our main result is the following refinement of Theorem 1.2.
+
+Theorem 1.2. For any lattice L ⊂ Rn , we have
+                               1
+                                 ≤ µ(L)λ1 (L∗ ) < 0.1275 + o(1) · n
+                                                               
+                               2
+I.e.,
+                                        Tn < 0.1275 + o(1) .
+
+   Theorem 1.2 is a roughly 20% improvement over Banaszczyk’s Theorem 1.1, but still rather far
+from matching the lower bound in Eq. (1). In fact, we prove a potentially stronger bound of
+
+                                                2βn
+                                        Tn <     √ + o(1) ,
+                                               2π e
+
+where βn is a certain geometric quantity known to satisfy
+
+                                0.0219 − o(1) < βn < 0.401 + o(1) .
+
+See Eq. (6).
+
+
+2       Banaszczyk’s original proof
+Like Banaszczyk’s original proof, our proof of Theorem 1.2 works by studying the Gaussian mass
+                                            X
+                            ρs,r (L − t) :=       exp(−πky − tk2 /s2 )
+                                               y∈L
+                                            ky−tk≥r
+
+
+
+
+                                                     2
+for a lattice L ⊂ Rn , parameter s > 0, shift vector t ∈ Rn , and radius r ≥ 0. When r = 0, we
+simply write ρs (L − t). In particular, notice that the covering radius µ(L) is the maximal radius
+r > 0 such that ρs,r (L − t) = ρs (L − t) for some t ∈ Rn . To obtain a bound µ(L) < r, it therefore
+suffices to prove that
+                                        ρs,r (L − t) < ρs (L − t)
+for some parameter s > 0 and all t ∈ Rn .
+    To that end, using the language and notation of [MR07], we define the smoothing parameter
+η = η(L) > 0 to be the unique parameter satisfying ρ1/η (L∗ ) = 3/2.1 Using the Poisson Summation
+Formula, Banaszczyk showed that
+
+                                         ρs (L)/3 < ρs (L − t) ≤ ρs (L)                                          (2)
+
+for any s ≥ η(L) and t ∈ Rn .
+    So, for such a parameter s ≥ η(L) and a suitable radius r > 0, we wish to show that ρs,r (L−t) ≤
+ρs (L)/3 for all t ∈ Rn . Intuitively, we expect this to be true when r is large relative to s. Indeed,
+Banaszczyk’s celebrated tail bound says exactly this. Using the Poisson Summation Formula again,
+he showed that
+                                          ρs,r (L − t) ≤ ρs (L)/3                                   (3)
+            √                       √
+for r ≥ Cn n · s where p Cn = 1/ 2π + o(1). (Banaszczyk actually proved a more general bound
+that holds for all r ≥ n/(2π) · s, but we will only need this special case.) Therefore,
+                                                      √
+                                          µ(L) < Cn n · η(L) .                                      (4)
+
+     We note that the continuous Gaussian with parameter s has mass concentrated in a thin shell
+                          √
+of radius roughly Cn ns. For sufficiently large s, the discrete Gaussian mass ρs (L − t) is similarly
+concentrated. In particular, Eq. (3) is tight up to a constant when s ≥ η(L). Therefore, it seems
+difficult (though perhaps not impossible) to improve upon this step in Banaszczyk’s proof.2
+     The last step in the proof (as presented here) is where we will diverge from Banaszczyk, but it
+will still be instructive to complete Banaszczyk’s original proof. To do so, Banaszczyk applied his
+tail bound once more to bound η(L) in terms of 1/λ1 (L∗ ). In particular, notice that ρ1/s (L∗ ) =
+                                              √
+1 + ρ1/s,λ1 (L∗ ) (L∗ ). Therefore, if s ≥ Cn n/λ1 (L∗ ), Eq. (3) implies that ρ1/s (L∗ ) ≤ 1 + ρ1/s (L∗ )/3.
+Rearranging gives ρ1/s (L∗ ) ≤ 3/2, i.e.,
+                                                     √
+                                            η(L) ≤ Cn n/λ1 (L∗ ) .                                        (5)
+
+Combining Eqs. (4) and (5) yields Theorem 1.1, µ(L)λ1 (L∗ ) ≤ Cn2 · n.
+   While Banaszczyk’s tail bound Eq. (3) is quite tight when the parameter s is sufficiently large,
+s ≥ η(L), it is not necessarily tight for smaller parameters. Indeed, in the last step above, we
+specifically chose such a small parameter that nearly all of the Gaussian mass is concentrated on
+0. For such small parameters, Eq. (3) is in fact loose, as we will show in the next section. By
+improving on the tail bound in this special case, we will improve Eq. (5), thus obtaining the better
+transference theorem in Theorem 1.2.
+   1
+     There is nothing particularly special about the constant 3/2 in this definition. Any constant strictly between 1
+and 2 would suffice for our purposes, though our choice of constant gives a slightly cleaner proof.
+   2
+     The authors do not know of an example where Eq. (4) is tight. So, it is conceivable that one could improve
+Eq. (4) substantially without improving on Eq. (3) much. This seems to require a very fine understanding of the
+behavior of the discrete Gaussian at small radii.
+
+
+                                                         3
+3     Proof of Theorem 1.2
+For a lattice L ⊂ Rn and α ≥ 1, let
+
+                                  Nα (L) := |{y ∈ L : 0 < kyk ≤ αλ1 (L)}|
+
+be the number of non-zero lattice points inside a ball of radius αλ1 (L). E.g., N1 (L) is the kissing
+number of L, the number of shortest non-zero vectors.
+    Intuitively, for large α, we expect Nα (L) to be proportional to the volume of the ball of radius
+αλ1 (L), and therefore to be proportional to αn . Indeed, for a random lattice L ⊂ Rn under the
+Haar measure, Nα (L) is concentrated closely around αn . (See [Sie45].) It is therefore natural to
+define
+                                             1          Nα (L)
+                                      βn := · log sup          ,                                  (6)
+                                             n     L⊂Rn  αn
+                                                           α≥1
+
+where by convention we take the logarithm base two (here and below). Notice that βn measures how
+much this volume heuristic can underestimate Nα . (Until recently, it was not even clear whether βn
+is bounded away from zero. But, Vldu recently proved the existence of lattices with exponentially
+large kissing number, which implies that βn is in fact bounded below by some constant. Specifically,
+βn > 0.0219 − o(1) [Vlă19].)
+    Upper bounds on βn and Nα are quite well studied. For example, Eq. (3) implies that
+log N1 (L) < (log(e)/2 + o(1)) · n, and the more general tail bound in [Ban93] implies that βn <
+log(e)/2 + o(1). Indeed, Banaszczyk’s original transference theorem essentially follows from this
+bound.
+    However, the best asymptotic upper bound known is due to Kabatjanskiı̆ and Levenšteı̆n [KL78].3
+In particular, they show that
+                                        βn < 0.401 + o(1) .                                     (7)
+We simply observe that such a bound on βn yields improvements to Eq. (5). In fact, the following
+theorem already appeared in [ADRS15] in a very different context. At the time, we did not recognize
+the relevance to transference.
+
+Theorem 3.1 ([ADRS15, Lemma 4.2]). For any lattice L ⊂ Rn and any parameter s > 0,
+                                                       22βn +o(1) s2 n n/2
+                                       ρs (L) < 1 +                            .
+                                                         2πeλ1 (L)2
+   3
+     Kabatjanskiı̆ and Levenšteı̆n formally only showed a bound on N1 (L), but this can easily be extended to a bound
+on βn . See [PS09, Lemma 3].
+
+
+
+
+                                                          4
+Proof. We have
+                                          Z ∞
+                            2πλ1 (L)2
+                  ρs (L) = 1 +          ·        Nα (L) · α exp(−πα2 λ1 (L)2 /s2 )dα
+                                s2          1
+                                                   Z ∞
+                            2πλ1 (L)2 βn n
+                        ≤1+             ·2       ·     αn+1 · exp(−πα2 λ1 (L)2 /s2 )dα
+                                s2                  1
+                                                   Z ∞
+                            2πλ1 (L)2 βn n
+                        <1+             ·2       ·     αn+1 · exp(−πα2 λ1 (L)2 /s2 )dα
+                                s2                  0
+                             22βn s2 n/2
+                        =1+                    · Γ(n/2 + 1)
+                              πλ1 (L)2
+                             22βn +o(1) s2 n n/2
+                        <1+                         ,
+                               2πeλ1 (L)2
+as needed.
+
+Corollary 3.2. For any lattice L ⊂ Rn ,
+                        2βn                 √        20.401             √
+                                              n                           n
+                 η(L) < √      + o(1) ·          ∗
+                                                   < √        + o(1) ·          .                 (8)
+                          2πe             λ1 (L )        2πe           λ1 (L∗ )
+
+Proof. Taking s > n/(2πe)·2βn +o(1) /λ1 (L∗ ) in Theorem 3.1 yields ρ1/s (L∗ ) < 3/2. I.e., η(L) < s,
+                 p
+
+as needed.
+
+   Theorem 1.2 then follows by combining Eqs. (4) and (8).
+
+
+References
+[ADRS15] Divesh Aggarwal, Daniel Dadush, Oded Regev, and Noah Stephens-Davidowitz. Solving
+         the Shortest Vector Problem in 2n time via Discrete Gaussian Sampling. In STOC, 2015.
+         http://arxiv.org/abs/1412.7994. 4
+
+[Ban93]      Wojciech Banaszczyk. New bounds in some transference theorems in the geometry of
+             numbers. Mathematische Annalen, 296(4), 1993. 2, 4
+
+[KL78]       G. A. Kabatjanskiı̆ and V. I. Levenšteı̆n. Bounds for packings on the sphere and in
+             space. Problemy Peredači Informacii, 14(1), 1978. 4
+
+[MR07]       Daniele Micciancio and Oded Regev. Worst-case to average-case reductions based on
+             Gaussian measures. SIAM Journal of Computing, 37(1), 2007. 3
+
+[MS19]       Stephen D. Miller and Noah Stephens-Davidowitz. Kissing numbers and trans-
+             ference theorems from generalized tail bounds. SIAM J. Discrete Math., 2019.
+             http://arxiv.org/abs/1802.05708. 2
+[PS09]       Xavier Pujol and Damien Stehlé. Solving the Shortest Lattice Vector Problem in time
+             22.465n . http://eprint.iacr.org/2009/605, 2009. 4
+
+[Sie45]      Carl Ludwig Siegel. A mean value theorem in geometry of numbers. Annals of Mathe-
+             matics, 46(2), 1945. 2, 4
+
+                                                   5
+[Vlă19]   Serge Vlăduţ. Lattices with exponentially large kissing numbers. Moscow Journal of
+           Combinatorics and Number Theory, 8(2), 2019. http://arxiv.org/abs/1802.00886.
+           4
+
+
+
+
+                                               6
+

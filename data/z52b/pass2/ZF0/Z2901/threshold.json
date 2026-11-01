@@ -1,0 +1,33 @@
+{
+  "r": 10,
+  "c2": 1.5216,
+  "g_additive_constant": 16.150725926133138,
+  "target": 0.009498860966469166,
+  "numerical_crossing_logp": 345.5151013786558,
+  "numerical_crossing_log10p": 150.05530194299283,
+  "safe_p1": "10^1000",
+  "safe_logp": 2302.5850929940457,
+  "safe_lower_coefficient": 0.01593711493864545,
+  "samples": [
+    {
+      "logp": 500,
+      "lower_over_logp2": 0.01183639739239556
+    },
+    {
+      "logp": 1000,
+      "lower_over_logp2": 0.014450900466497205
+    },
+    {
+      "logp": 2000,
+      "lower_over_logp2": 0.01576382401077174
+    },
+    {
+      "logp": 2302.5850929940457,
+      "lower_over_logp2": 0.01593711493864545
+    },
+    {
+      "logp": 10000,
+      "lower_over_logp2": 0.016825431852522336
+    }
+  ]
+}

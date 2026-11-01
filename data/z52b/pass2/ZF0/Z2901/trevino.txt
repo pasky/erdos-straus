@@ -1,0 +1,1475 @@
+                                           THE BURGESS INEQUALITY AND THE LEAST k-TH POWER
+                                                             NON-RESIDUE
+arXiv:1412.3062v2 [math.NT] 11 Mar 2015
+
+
+
+
+                                                                               ENRIQUE TREVIÑO
+
+
+                                                   Abstract. The Burgess inequality
+                                                                                 P       is the best upper bound we have for the
+                                                   character sum Sχ (M, N ) = M <n≤M +N χ(n). Until recently, no explicit es-
+                                                   timates had been given for the inequality. In 2006, Booker gave an explicit
+                                                   estimate for quadratic characters which he used to calculate the class num-
+                                                   ber of a 32-digit discriminant. McGown used an explicit estimate to show that
+                                                   there are no norm-Euclidean Galois cubic fields with discriminant greater than
+                                                   10140 . Both of their explicit estimates are on restricted ranges. In this paper
+                                                   we prove an explicit estimate that works for any M and N . We also improve
+                                                   McGown’s estimates in a slightly narrower range, getting explicit estimates for
+                                                   characters of any order. We apply the estimates to the question of how large
+                                                   must a prime p be to ensure that there is a k-th power non-residue less than
+                                                   p1/6 .
+
+
+
+
+                                                                                1. introduction
+                                             Let χ be a character mod q for some integer q > 1. Throughout the paper we
+                                          will use the term character for Dirichlet character. Let Sχ (M, N ) be defined as
+                                          follows                                    X
+                                                                    Sχ (M, N ) =            χ(n).
+                                                                                         M<n≤M+N
+                                          Historically, studying this sum has proven fruitful in analytic number theory to
+                                          bound the least k-th power non-residue, to bound class numbers, to bound the least
+                                          inert prime in a number field, and to bound the least primitive root, among other
+                                          applications. The first non-trivial bound for this sum was proven independently by
+                                          Pólya and Vinogradov in 1918; namely, they showed that there exists an absolute
+                                                                                     √
+                                          constant c > 0 such that |Sχ (M, N )| ≤ c q log q. The Pólya–Vinogradov inequality
+                                                                                       √
+                                          is very useful when N is big compared to q, but not very useful otherwise (since
+                                          trivially |Sχ (M, N )| ≤ N ). What we want is an inequality that gives a nontrivial
+                                                                                      √
+                                          result even when N is small compared to q. The best theorem for short character
+                                          sums is known as the Burgess inequality ([5],[6], [8], [9]) and allows us to take N
+                                                         1
+                                          as small as q 4 −o(1) .a We state the theorem below:
+                                          Theorem (Burgess). Let χ be a primitive character mod q with q > 1, and let M
+                                          and N be non-negative reals with N ≥ 1. Then
+                                                                                                  1   r+1
+                                                                           |Sχ (M, N )| ≪ N 1− r q 4r2 +ε
+
+                                              2010 Mathematics Subject Classification. Primary 11L40, 11Y60.
+                                              Key words and phrases. Character Sums, Burgess inequality, power residues and non-residues.
+                                              Many results in this paper are in Chapter 6 of the author’s Ph. D. Dissertation [20].
+                                              aTo get −o(1) instead of +o(1), one needs a clever use of the large sieve as done by Hildebrand
+                                          in [13].
+                                                                                          1
+2                                   ENRIQUE TREVIÑO
+
+
+for r = 2, 3 and for any r ≥ 1 if q is cubefree, the implied constant depending only
+on ε and r.
+   To prove the Burgess inequality, one of the keys is the following inequality which
+relies on a deep theorem of Weil [23]:
+Theorem A. For p a prime number, r a positive integer and B a positive real
+number satisfying r ≤ 9B, let χ be a non-principal character to the modulus p.
+Then
+                                       2r
+              X       X                                                     √
+                            χ(x + b)        ≤ (2r − 1)!!B r p + (2r − 1)B 2r p.,
+            x mod p 1≤b≤B
+
+where (2r − 1)!! = (2r − 1)(2r − 3) . . . (1).
+   The above theorem was proven with weaker constants by Erdös and Davenport
+in [10], and Burgess improved it to better constants and used it to get the Burgess
+inequality. In [3], Booker proved it with these constants for quadratic characters.
+In [21], the author extended it to all characters. The reliance on the Weil estimate
+makes it difficult to improve the Burgess inequality asymptotically.
+   Recently, some problems have required getting explicit estimates on the Burgess
+inequality. Booker in [3] needed an explicit form of the inequality to compute a 32-
+digit discriminant. McGown in [15] used an explicit form of the inequality to show
+that there are no norm-Euclidean Galois cubic fields of discriminant greater than
+10140 . The goal of this paper is to improve their explicit estimates in the ranges
+they work in and give an explicit estimate that works regardless of the range of N .
+We apply these estimates to a question about k-th power non-residues mod p.
+   The work of Booker and McGown relies on the exposition of the Burgess inequal-
+ity in [14]. In that book, Iwaniec and Kowalski sketch the proof of the following:
+Theorem B. Let p be a large enough prime. Let χ be a non-principal character
+mod p. Let r be a positive integer, and let M and N be non-negative integers with
+N ≥ 1. Then
+                                              1   r+1         1
+                        |Sχ (M, N )| ≤ 30N 1− r p 4r2 (log p) r .
+    In Section 3 we improve Theorem B to
+Theorem 1. Let p be a prime. Let χ be a non-principal character mod p. Let M
+and N be non-negative integers with N ≥ 1, let 2 ≤ r ≤ 10 be a positive integer,
+and let p0 be a positive real number. Then for p ≥ p0 , there exists c1 (r), a constant
+depending on r and p0 such that
+                                                     1   r+1      1
+                        |Sχ (M, N )| ≤ c1 (r)N 1− r p 4r2 (log p) r ,
+where c1 (r) is given by Table 1.
+   In the spirit of Theorem B, where we have no restriction on r, we also prove the
+following corollary:
+Corollary 1. Let p be a prime such that p ≥ 107 . Let χ be a non-principal character
+mod p. Let r be a positive integer, and let M and N be non-negative integers with
+N ≥ 1. Then
+                                              1   r+1         1
+                      |Sχ (M, N )| ≤ 2.74N 1− r p 4r2 (log p) r .
+       THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                    3
+
+
+                     r p0 = 107 p0 = 1010 p0 = 1020
+                     2    2.7381      2.5173       2.3549
+                     3    2.0197      1.7385       1.3695
+                     4    1.7308      1.5151       1.3104
+                     5    1.6107      1.4572       1.2987
+                     6    1.5482      1.4274       1.2901
+                     7    1.5052      1.4042       1.2813
+                     8    1.4703      1.3846       1.2729
+                     9    1.4411      1.3662       1.2641
+                    10 1.4160         1.3495       1.2562
+        Table 1. Values for the constant c1 (r) in the Burgess inequality.
+
+
+                                        1       1
+   Restricting N to be less than 4p 2 + 4r , McGown in [15] proved an explicit version
+of Burgess with worse constants but with a better exponent in log p. Indeed, he
+proved:
+Theorem C. Let p ≥ 2 · 104 be a prime number. Let M and N be non-negative
+                           1  1
+integers with 1 ≤ N ≤ 4p 2 + 4r . Suppose χ is a non-principal character mod p.
+Then there exists a computable constant C(r) such that
+                                                    1   r+1       1
+                       |Sχ (M, N )| < C(r)N 1− r p 4r2 (log p) 2r ,
+where C(r) is given by Table 2.
+
+                           r    C(r)     r   C(r)
+                           2 10.0366 9 2.1467
+                           3 4.9539 10 2.0492
+                           4 3.6493 11 1.9712
+                           5 3.0356 12 1.9073
+                           6 2.6765 13 1.8540
+                           7 2.4400 14 1.8088
+                           8 2.2721 15 1.7700
+        Table 2. Values for the constant C(r) in the Burgess inequality.
+
+
+                                    1       1                     1
+   The restriction that N ≤ 4p 2 + 4r is used to get the exponent 2r in the log p
+term of the inequality. In Section 4, we improve McGown’s Theorem to have better
+constants in a similar range.
+Theorem 2. Let p be a prime. Let χ be a non-principal character mod p. Let M
+                                                     1  1
+and N be non-negative integers with 1 ≤ N ≤ 2p 2 + 4r , let r ≤ 10 be a positive
+integer, and let p0 be a positive real number. Then for p ≥ p0 , there exists c2 (r), a
+constant depending on r and p0 such that
+                                                    1   r+1       1
+                       |Sχ (M, N )| < c2 (r)N 1− r p 4r2 (log p) 2r ,
+where c2 (r) is given by Table 3.
+  Using an idea from [16], we can get rid of the restriction on N for r ≥ 3.
+4                                 ENRIQUE TREVIÑO
+
+
+                     r p0 = 1010 p0 = 1015 p0 = 1020
+                     2    3.6529      3.5851        3.5751
+                     3    2.5888      2.5144        2.4945
+                     4    2.1914      2.1258        2.1078
+                     5    1.9841      1.9231        1.9043
+                     6    1.8508      1.7959        1.7757
+                     7    1.7586      1.7066        1.6854
+                     8    1.6869      1.6384        1.6187
+                     9    1.6283      1.5857        1.5654
+                    10    1.5794      1.5410        1.5216
+        Table 3. Values for the constant c2 (r) in the Burgess inequality.
+
+
+
+Corollary 2. Let p ≥ 1010 be a prime number. Let M and N be non-negative
+integers with N ≥ 1. Suppose χ is a non-principal character mod p and that p ≥ p0
+for some positive real p0 . Then for r ≥ 3, there exists a computable constant c2 (r)
+depending on r and p0 , such that
+                                                  1   r+1        1
+                      |Sχ (M, N )| < c2 (r)N 1− r p 4r2 (log p) 2r ,
+where c2 (r) is the same as that of Table 3 whenever r ≥ 3.
+                                                     √
+  Putting an extra restriction on N (namely, N ≤ 2 p), Booker in [3] gave better
+bounds in the special case of quadratic characters.
+Remark 1. Using Theorem A one could extend Booker’s theorem to all orders of
+χ (with slightly worse constants). The reason we would get slightly worse constants
+is that in the quadratic case, the inequality in Theorem A can be improved slightly
+                                  √
+to (2r − 1)!!B r p + (2r − 2)B 2r p. Every other part of Booker’s proof extends
+naturally, but this part of the inequality fails when looking at higher orders.
+    In Section 5, we apply these estimates to a question about k-th power non-
+residues mod p. Indeed, let p be a prime and let k be an integer with k | p − 1
+and k > 1. Let g(p, k) be the least k-th power non-residue mod p. The case k = 2,
+i.e., the question of how big the least quadratic non-residue is, has been studied
+extensively. A probabilistic heuristic using that a prime q is a quadratic non-residue
+mod p half of the time, suggests that g(p, 2) ≪ log p log log p and that g(p, 2) ≫
+log p log log p for infinitely many p. Assuming the Generalized Riemann Hypothesis
+for Dirichlet L-functions (GRH), Ankeny [1] showed that g(p, k) ≪ (log p)2 and
+Bach [2] made this explicit by proving (under GRH) that g(p, k) ≤ 2(log p)2 . The
+best unconditional results (for g(p, k)) are due to Burgess [5], who, building on work
+by Vinogradov [22], showed that
+                                                 1
+                                                 √    +ε
+                                  g(p, k) ≪ε p 4 e         .
+   For k ≥ 3, better estimates which depend upon k have been proven by Wang
+Yuan([24]) building on work of Vinogradov ([22]) and Buhštab ([4]).
+   All of the work described so far has been of asymptotic nature. In terms of
+getting explicit bounds, Karl Norton [18], building on a technique of Burgess [7],
+was able to show that g(p, k) ≤ 3.9p1/4 log p unless k = 2 and p ≡ 3 (mod 4) for
+which he showed g(p, k) ≤ 4.7p1/4 log p. In [21], the author improved Norton’s
+      THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                 5
+
+
+bounds to 0.9p1/4 log p and 1.1p1/4 log p, respectively. These bounds are far from
+                             1
+                             √ +ε
+the asymptotic bound of p 4 e . In this paper, as an application of the explicit
+Burgess inequality, we find an upper bound on how large p has to be to ensure that
+there is a k-th power non-residue less than p1/6 .
+Theorem 3. Let p be a prime number and k > 1 be a positive divisor of p − 1.
+Then for p ≥ 104732 , the least k-th power non-residue mod p is less than or equal
+to p1/6 .
+Remark 2. The techniques involved in the proof can be used to answer this ques-
+                          1
+tion for pα whenever α > 4√ e
+                              .
+
+                            2. Preliminary lemmas
+   Let A and N be positive integers. Let v(x) be the number of representations of x
+as ān (mod p), where ā is the inverse of a (mod p), 1 ≤ a ≤ A and M < n ≤ M +N ,
+that is,
+(1) v(x) = # (a, n) ∈ N2 | 1 ≤ a ≤ A, M < n ≤ M + N and n ≡ ax mod p .
+               
+
+  The main lemma in this section is the following:
+Lemma 1. Let p be a prime and let N < p be a positive integer. Let A ≥ 28 be an
+                       N
+integer satisfying A < 12 , then
+                                                             
+                         X                     AN
+(2)               V2 =         v 2 (x) ≤ 2AN      + log(1.85A) .
+                                                p
+                      x mod p
+
+   To prove the lemma regarding V2 we will need a couple of estimates involving
+the φ function (Lemmas 2 and 3), an estimate on a sum of logarithms (Lemma 4)
+and a non-trivial combinatorial count (Lemma 5).
+Lemma 2. For x ≥ 1 a real number we have:
+                       X φ(n)      6
+(3)                             ≤ 2 x + log x + 1.
+                             n    π
+                            n≤x
+
+Proof. For 1 ≤ x < 2, the left hand side of (3) is 1, while the right hand side is
+at least 1. We can manually check that for all integers x satisfying 2 ≤ x ≤ 41 we
+have
+                    X φ(n)       6
+                              ≤ 2 (x − 1) + log (x − 1) + 1,
+                          n     π
+                     n≤x
+
+implying that (3) is true for x < 41. Therefore, we may assume that x ≥ 41.
+   Let’s work with the sum:
+           X φ(n)       X1X           n X X µ(d) X j x k µ(d)
+(4)                  =           µ(d) =                =              .
+                n           n         d          x
+                                                    d         d    d
+          n≤x         n≤x    d|n          d≤x n≤ d        d≤x
+
+   From [12, Theorem 422] it follows that for x ≥ 1
+                             X1                   1
+(5)                                 < log x + γ + .
+                                  d               x
+                                d≤x
+6                                       ENRIQUE TREVIÑO
+
+
+   Using (5) in (4) yields
+    X φ(n)         X µ(d)     X µ(d) X 1   6              1    X µ(d)
+(6)           ≤x           −x       +    ≤    x+log x+γ +   −x        .
+          n             d2       d2    d   π2             x       d2
+       n≤x             d≥1             d>x              d≤x                               d>x
+
+    Moser and Macleod [17] gave a simple proof that for x ≥ 2 we have
+                                       X µ(d)              1   8
+(7)                                                   ≤      +   .
+                                             d2           3x 3x2
+                                       d>x
+
+    Combining (7) with (6) yields for x ≥ 41 that
+          X φ(n)       6                  1 1     8   6
+                   ≤ 2 x + log x + γ + + +          ≤ 2 x + log x + 1.
+                n     π                   x 3 3x     π
+             n≤x
+
+                                                                                                    
+Lemma 3. For x ≥ 1 a real number we have:
+                   X             2     1
+(8)                    nφ(n) ≤ 2 x3 + x2 log x + x2 .
+                                π      2
+                              n≤x
+
+Proof. For 1 ≤ x < 2, the left hand side of (8) is 1, while the right hand side is
+at least x2 ≥ 1. Therefore it is true for 1 ≤ x < 2. Now for 2 ≤ x < 3, the left
+hand side is 3, while the right hand side is at least x2 ≥ 4. Therefore (8) is true for
+1 ≤ x < 3. In the rest of the proof we will assume that x ≥ 3. Let’s work with the
+sum:
+   X             X X µ(d)n2        X           X
+       φ(n)n =                   =     µ(d)d        m2
+                            d
+    n≤x             n≤x d|n               d≤x             dm≤x
+                                                      X µ(d)d j x k j x k             jxk   
+                                                  =                             +1      2    +1 .
+                                                              6         d   d             d
+                                                      d≤x
+
+    Now, let θd = xd −
+                             x
+                              d    . Then we have
+        X              x3 X µ(d) x2 X (3 − 6θd )µ(d)
+(9)          φ(n)n =            +
+                       3     d2   6         d
+       n≤x                   d≤x              d≤x
+                        xX                       1X
+                           6θd2 − 6θd + 1 µ(d) −
+                                         
+                      +                             θd (1 − θd )(1 − 2θd )µ(d)d.
+                        6                        6
+                             d≤x                                    d≤x
+
+   From (5) it follows that for x ≥ 3
+                   X1                 1              1   1
+(10)                     < log x + γ + < log x + 1 −   −    .
+                       d              x              60 60x
+                       d≤x
+
+   Using that 0 ≤ θd ≤ 1 we have that |3 − 6θd | ≤ 3, that |6θd2 − 6θd + 1| ≤ 1 and
+                                                                    X µ(d)   6
+                               1
+|(1 − θd )(1 − 2θd )(−θd )| ≤ 10 . Therefore, using (9), (10), that     2
+                                                                           = 2 , and
+                                                                       d    π
+                                                                                  d≥1
+that |µ(d)| ≤ 1, we get
+          X               x3 X µ(d) x2 X 1 x X    1 X
+(11)            φ(n)n ≤          2
+                                   +      +    1+     d
+                          3     d    2   d 6      60
+          n≤x                 d≤x                 d≤x             d≤x       d≤x
+        THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                                      7
+
+
+       2 3 x3 X µ(d) 1 2        x2   x2        x2
+                                                                                            
+                                          x         1                             x(x + 1)
+ ≤       2
+           x −    2
+                    + x log x +    −    −    +    +                                              .
+       π       3 d   2          2    120 120   6    60                               2
+                 d>x
+
+  From (7) we have (for x ≥ 2)
+                         X µ(d)                  1   8   1
+                                           ≥       − 2 ≥− .
+                                    d2          3x 3x    x
+                             d>x
+
+Combining this with (11) yields the lemma.                                                           
+
+Lemma 4. For x ≥ 1 we have:
+                          X                     x
+                                          log         ≤x−1
+                                                 d
+                                    d≤x
+                                    X            x
+Proof. For 1 ≤ x < 2 we have               log         = log x ≤ x − 1. Therefore, we may
+                                                  d
+                                    d≤x
+assume x ≥ 2. Now,
+        X      x               X
+(12)       log     = ⌊x⌋ log x −   log d ≤ ⌊x⌋ log x − ⌊x⌋ log ⌊x⌋ + ⌊x⌋ − 1.
+                d
+          d≤x                            d≤x
+
+To get the second inequality we used that
+          X           X             Z ⌊x⌋
+              log d =       log d ≥       log t dt = ⌊x⌋ log ⌊x⌋ − ⌊x⌋ + 1.
+           d≤x         2≤d≤x               1
+
+  Now, notice that x = ⌊x⌋ + {x} and log (1 + y) ≤ y. Therefore we have
+(13)        ⌊x⌋ log x = ⌊x⌋ log ⌊x⌋ + ⌊x⌋ log (x/⌊x⌋) ≤ ⌊x⌋ log ⌊x⌋ + {x}.
+  Combining equations (12) and (13) yields
+                       X           x
+                             log          ≤ {x} + ⌊x⌋ − 1 = x − 1.
+                                    d
+                       d≤x
+                                                                                                     
+
+Lemma 5. Let A ≥ 2, N ≥ 1, a1 , a2 and M be integers. Let p > N be a prime
+number. Suppose, 1 ≤ a1 , a2 ≤ A with a1 6= a2 . Then the number of pairs of
+integers (n1 , n2 ) satisfying M < n1 , n2 ≤ N + M and a1 n2 − a2 n1 = kp is bounded
+above by
+                                     gcd (a1 , a2 )
+                                  N                 + 1.
+                                    max{a1 , a2 }
+Proof. Let d = gcd (a1 , a2 ). Since a1 n2 − a2 n1 = kp, we have that d|k. Let
+      ′          ′            ′
+a1 = a1 d, a2 = a2 d and k = k d. Now, we also have
+                                                        ′    ′
+                                kp + a2 n1   k p + a2 n1
+(14)                       n2 =            =      ′      .
+                                   a1            a1
+                                                                     ′    ′                          ′
+The right hand side of (14) must be an integer. Therefore k p + a2 n1 ≡ 0 mod a1 .
+                                                                                    ′
+Since this is a linear equation in terms of n1 , there is at most one solution mod a1 .
+                                                                 N
+Therefore, in the interval (M, M + N ] there are at most ′ + 1 choices of n1 .
+                                                                 a1
+8                                    ENRIQUE TREVIÑO
+
+
+Since n2 is uniquely determined from n1 , the number of pairs (n1 , n2 ) satisfying
+the conditions of the lemma is bounded by
+                              N          gcd (a1 , a2 )
+                               ′ + 1 = N                + 1.
+                              a1              a1
+                                                             gcd (a1 , a2 )
+Analogously, the number of pairs is bounded by N                            + 1. The statement
+                                                                  a2
+of the lemma is now an easy consequence.                                                    
+
+    Now we are ready to prove Lemma 1.
+
+Proof of Lemma 1. We’ll begin by noting that V2 is the number of quadruples
+(a1 , a2 , n1 , n2 ) with 1 ≤ a1 , a2 ≤ A and M < n1 , n2 ≤ M +N such that a1 n2 ≡ a2 n1
+(mod p). If a1 = a2 , since N < p, we have that n1 = n2 because n1 ≡ n2 (mod p)
+while |n1 − n2 | ≤ N < p. Therefore, the number of quadruples in this case is AN .
+Fix a1 and a2 with a1 6= a2 . Let k be an integer satisfying
+(15)                                 a1 n2 − a2 n1 = kp,
+for some n1 and n2 . We can put a bound on possible values for k. First of all, k
+                                                             ′               ′
+must be a multiple of gcd (a1 , a2 ). Now, if we write n1 = n1 + M and n2 = n2 + M ,
+                                         ′       ′
+we have, using kp − (a1 − a2 )M = a1 n2 − a2 n1 , that
+                                 ′                                    ′
+                 −a2 N ≤ −a2 n1 < kp − (a1 − a2 )M < a1 n2 ≤ a1 N.
+
+Therefore k lies in an interval of length at most (a1 +a p
+                                                           2 )N
+                                                                . Since k is a multiple of
+gcd (a1 , a2 ) and k lies in such an interval, then there are at most
+                                     (a1 + a2 )N
+                                                     + 1,
+                                     gcd (a1 , a2 )p
+choices for k.
+   Given a1 , a2 and k we can count the number of pairs (n1 , n2 ) which would satisfy
+                                                           gcd (a1 ,a2 )
+(15). By Lemma 5, the number of pairs is bounded by N max{a       1 ,a2 }
+                                                                          + 1. Therefore
+we get
+                      X  (a1 + a2 )N                  gcd (a , a )N
+                                                              1   2
+                                                                               
+(16) V2 ≤ AN + 2                                 +1                       +1
+                     a1 <a2
+                              gcd (a1 , a2 )p            max{a1 , a2 }
+                                                       2N 2      2N
+                                           = AN +           S1 +    S2 + 2N S3 + A2 − A,
+                                                        p         p
+where
+                                       X    a1 + a2
+                               S1 =                      ,
+                                      a <a
+                                           max{a1 , a2 }
+                                       1    2
+
+                                        X     a1 + a2
+                               S2 =                        ,
+                                       a <a
+                                            gcd (a1 , a2 )
+                                        1    2
+
+and
+                                        X gcd (a1 , a2 )
+(17)                            S3 =                      .
+                                       a <a
+                                            max{a1 , a2 }
+                                        1    2
+       THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                                             9
+
+
+   Dealing with S1 is straightforward, in fact S1 is
+(18)
+   X X a1 + a2           X             a2 (a2 − 1)
+                                                    
+                                                        3 A(A − 1)  3    3
+                     =         a2 − 1 +               =            = A2 − A.
+       a <a
+               a 2                          2a 2        2    2      4    4
+  a2 ≤A   1   2               a2 ≤A
+
+  Now, let’s estimate S2 :
+          X        a1 + a2        X X               X
+  S2 =                          =                                (b1 + b2 )
+                 gcd (a1 , a2 )
+       a1 <a2 ≤A                  d≤A b2 ≤ A b1 <b2 ,(b1 ,b2 )=1
+                                           d
+                        X X  φ(b2 )                             
+                                                                      3X                 X
+                     =                         b2 + φ(b2 )b2 =                                    φ(b2 )b2 .
+                                           2                          2
+                             d≤A 2≤b2 ≤
+                                    A                                            d≤A 2≤b2 ≤ A
+                                          d                                                   d
+
+Using Lemma 3, we get
+                 3 X A 3 3 X A 2      A    3 X A 2
+           S2 ≤ 2        +         log ( ) +          .
+                π     d    4  d         d    2   d
+                            d≤A               d≤A                              d≤A
+                                                             X 1
+Using that log ( A
+                 d ) = log A − log d, and that                          = ζ(s), yields
+                                                                   ds
+                                                             d≥1
+
+                      3ζ(3) 3 3ζ(2) 2       3   X log d 3
+              S2 ≤       2
+                           A +     A log A − A2        + A2 ζ(2).
+                       π        4           4      d2   2
+                                                                    d≤A
+
+Using that for A ≥ 11 we have 3ζ(2) − 34 d≤A log d
+                                        P
+                                2             d2 < 2 yields
+                           3ζ(3) 3 3ζ(2) 2
+(19)                        S2 ≤ A +    A log (A) + 2A2 .
+                             π2      4
+  Let’s estimate S3 . We have
+           X gcd (a1 , a2 )      X X       X       1     X                               X      φ(b2 )
+  S3 =                         =                      =                                                .
+                 max(a1 , a2 )                     b2                                            b2
+          a1 <a2 ≤A                  A    d≤A b2 ≤       b1 <b2 ,(b1 ,b2 )=1     d≤A 2≤b2 ≤   A
+                                                     d                                        d
+
+Using Lemma 2 yields
+               X A 1              A
+                                     
+                                        6 X1 X       A
+         S3 ≤               + log ( ) = 2 A   + log ( ).
+                     d ζ(2)        d   π    d        d
+                      d≤A                                           d≤A        d≤A
+
+  From (5) it follows that for A ≥ 27
+                      X1                  1
+                             < log A + γ + < log (1.85A).
+                          d               A
+                            d≤A
+
+Using this and Lemma 4 yields
+                                 6
+(20)                               A log (1.85A) + A − 1.
+                                S3 ≤
+                                π2
+   Using (18), (19) and (20) in (16) yields the following upper bound for V2 :
+(21)
+      3 A − 1 3AN 3N 3ζ(3)A2 3ζ(2)A log A 6                               1 2A 
+2AN +            +      −     +          +               +    log (1.85A)−  +
+       2   2N       4p    4p       π2 p          4p        π2              A p
+   For A ≥ 4, we have
+                               3ζ(3)A2   3ζ(2)A log A   3 A2
+(22)                                   +              <      .
+                                 π2 p         4p        4 p
+10                                 ENRIQUE TREVIÑO
+
+
+Since N > 3A we have the following two inequalities:
+                           AN     3 A2      3N    2A
+(23)                           >        and     >    .
+                           4p     4 p        4p    p
+   Combining (22) and (23) yields
+                    3ζ(3)A2
+                                                         
+          3AN                   3ζ(2)A log A      2A 3N         AN
+(24)            +            +                 +       −      <    .
+           4p         π2 p           4p            p     4p      p
+Finally, using that A ≥ 28 and that N > 12A, yields
+           6                    6                3  1  3  A
+(25) 1 − 2 log (1.85A) ≥ 1 − 2 log (51.8) ≥ 1.54766 > +   ≥ +   .
+            π                     π                  2 24  2 2N
+   Combining (24) and (25) in (21) yields (2).                  
+Remark 3. The main term will come from the log (1.85A) term and the 1.85 can
+be changed to a smaller number (the limit being eγ ), forcing A to be slightly larger
+to make the inequalities work. Also, the coefficient on log (1.85A) can be changed
+to be as close to π62 as we want as long as A is big enough. It is important to note
+that big A’s will mean forcing p to be much bigger in the estimates for the Burgess
+inequality.
+Remark 4. The constraint A ≥ 28 is used to get the main term to be log (1.85A);
+however, we can relax the condition on A and get a slightly worse main term. We
+chose our values this way to get the constants in Tables 1 and 3 as low as possible
+for small values of r. Relaxing the A ≥ 28 condition would make these constants
+worse, but improve the constants for larger values of r. Since the small values of
+r seem to be the most useful in applications, we decided to focus on minimizing
+these cases.
+
+                       3. Explicit Burgess inequality
+Proof of Theorem 1. Let M and N ≥ 1 be non-negative integers. Let r ≥ 2 be a
+positive integer. Fix a constant c1 (r) ≥ 1 (which we will name later). We will prove
+the Theorem by induction. Assume that for all positive integers h < N , we have
+                                                 1   r+1       1
+                       |Sχ (M, h)| ≤ c1 (r)h1− r p 4r2 (log p) r .
+The idea is to estimate Sχ (M, N ) by shifting by h (n 7→ n + h) and getting an error
+that we can deal with by induction.
+   Note that, for all h < N ,
+                     X                      X                     X
+   Sχ (M, N ) =              χ(n + h) +             χ(n) −                  χ(n).
+                M<n≤M+N                  M<n≤M+h               M+N <n≤M+N +h
+
+Therefore                             X
+                    Sχ (M, N ) =               χ(n + h) + 2θE(h),
+                                   M<n≤N +M
+where |θ| ≤ 1 which depends upon h, and E(h) = max |Sχ (K, h)|.
+                                                           K
+   Let A and B be positive reals and let H = ⌊A⌋⌊B⌋. We will use shifts of length
+h = ab where a and b are positive integers satisfying a ≤ A and b ≤ B. After
+averaging over all the pairs (a, b) we get
+                          1 X        X                 1 X
+(26)       Sχ (M, N ) =                    χ(n + ab) +     2θE(ab).
+                          H                            H
+                             a,b M<n≤M+N                           a,b
+        THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                                11
+
+
+Let v(x) be defined as in (1), then
+
+               X         X                              X                X
+(27)                             χ(n + ab) ≤                      v(x)         χ(x + b) .
+                a,b M<n≤M+N                           x mod p            b≤B
+
+Let
+                                     X                  X
+                             V :=             v(x)           χ(x + b) .
+                                    x mod p            b≤B
+
+Then, combining (26) with (27), we get
+                                                V   2 X
+(28)                         |Sχ (M, N )| ≤       +     E(ab).
+                                                H   H
+                                                             a,b
+                                                                               X
+  We can now focus on estimating V . Now define V1 :=                                 v(x),
+                                                                          x (mod p)
+          X                              X               X                  2r
+V2 :=               v 2 (x) and W :=                              χ(x + b)      . Using Hölder’s In-
+        x (mod p)                      x (mod p) 1≤b≤B
+equality we get
+                                              1− r1     1     1
+(29)                                V ≤ V1            V22r W 2r .
+  First note that
+                                     V1 = ⌊A⌋N ≤ AN.
+                                     N
+From Lemma 1, for ⌊A⌋ ≥ 28 and ⌊A⌋ < 12 , we have
+                                                 
+                                  AN
+(30)                  V2 ≤ 2AN        + log(1.85A) .
+                                   p
+We can also bound W , since by Theorem A, we have (for r ≤ 9B):
+                 (2r)! r                 √                                  √
+(31)       W ≤         B p + (2r − 1)B 2r p = (2r − 1)!!B r p + (2r − 1)B 2r p.
+                 2r r!
+   Let’s head back to proving the Burgess bound. We will let AB = kN for k a real
+number to be chosen later. Using the inequalities of V1 , V2 and W together with
+                                                  V
+(29) yields the following bound upper bound for H   :
+
+(32)
+                               AB           1                      2r1
+  V      1     1− r1  1  1   ⌊A⌋⌊B⌋ (2W B) 2r   AN                             1
+    ≤        V1 V2 W 2r ≤
+                     2r
+                                  1 ·               + log (1.85A)        N 1− 2r
+  H   ⌊A⌋⌊B⌋                (AB) 2r     B        p
+                                        1                       1
+                                                               2r
+                 A      B    1 (2W B) 2r AN                               1
+           ≤         ·     · 1 ·                 + log (1.85A)      N 1− r .
+              A − 1 B − 1 k 2r        B       p
+  Because of (32) we can see that a good choice for B is the one that minimizes
+WB                                                                 p               1
+B 2r . Using (31), we seek to minimize the expression (2r − 1)!! B r−1 + (2r − 1)Bp .
+                                                                                   2
+
+We take the derivative with respect to B and equal it to zero. After this process
+we get that a good B is
+                                               1 1
+(33)                      B = (2r − 3)!!(r − 1) r p 2r .
+12                                      ENRIQUE TREVIÑO
+
+
+   Using this value of B we get
+                    1               1
+            (2W B) 2r      2r(2r − 1) 2r          1             1 r+1
+(34)                   ≤                 (r − 1) 2r2 (2r − 3)!! 2r2 p 4r2 .
+                B            r−1
+   Now we must try to bound AN p + log (1.85A). To do this, we can use the Pólya–
+Vinogradov inequality to give an upper bound for N , since for N large, the Pólya–
+Vinogradov inequality would be a better bound than the Burgess inequality. Indeed,
+if
+                                                       1       1
+(35)                                     N ≥ p 2 + 4r log p,
+then, since c1 (r) ≥ 1, we have
+                                          1      r+1                   1   √
+                            c1 (r)N 1− r p 4r2 (log p) r ≥                  p log p.
+Therefore, from the Pólya–Vinogradov inequality (see Section 9.4 in [16]) we can
+                                        1   r+1         1
+conclude that |Sχ (M, N )| ≤ c1 (r)N 1− r p 4r2 (log p) r , whenever we have (35).
+   If we have r ≥ 3, then we can use the Burgess inequality with r − 1 instead of
+the Pólya–Vinogradov inequality, to get a better upper bound on N . Indeed, if we
+let s be a real number that satisfies
+                                                                   1
+(36)                                 c1 (r − 1) ≤ s r(r−1) c1 (r),
+then if                                          1     1           1
+                                    N ≥ s p 4 + 2r + 4r(r−1) log p,
+then                        r+1                                                        r
+                        1                1                                     1           1
+           c1 (r)N 1− r p 4r2 (log p) r ≥ c1 (r − 1)N 1− r−1 p 4(r−1)2 (log p) r−1 .
+   Similarly, we can put a lower bound on N , by noting that |Sχ (M, N )| ≤ N .
+Indeed,
+                                          1   r+1         1
+                               c1 (r)N 1− r p 4r2 (log p) r ≥ N,
+whenever
+                                                  1   1
+                                   N ≤ c1 (r)r p 4 + 4r log p.
+   Therefore, we may assume that
+                                             3                             5
+(37)                              c1 (2)2 p 8 log p < N < p 8 log p,
+for r = 2, and that
+                              1     1                                  1   1       1
+(38)                 c1 (r)r p 4 + 4r log p < N < s p 4 + 2r + 4r(r−1) log p,
+for r ≥ 3.
+   Using that A = kN
+                   B , the upper bound for N in (37), and (33), we get
+                                                           5
+                          AN        kN 2      kp 4 log2 p
+(39)                             =        ≤               ≤ k log2 p,
+                             p       pB           pB
+for r = 2, and for r ≥ 3, we get
+(40)
+                       1   1      1
+ AN     kN 2     s2 kp 2 + r + 2r(r−1) log2 p                     s2 k
+      =       ≤                               =                       1   1   1       1    log2 p,
+  p      pB                   pB                  ((2r − 3)!!(r − 1)) r p 2 − 2r − 2r(r−1)
+   Now we consider what happens to log (1.85A).
+                                     
+                               1.85kN                         3 log p
+(41)       log (1.85A) = log            ≤ log (1.85k log p) +         ,
+                                  B                              8
+        THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                                13
+
+
+for r = 2, and for r ≥ 3, we get
+(42)                                                       
+                      1.85kN                1.85s k log p         log p     log p
+  log (1.85A) = log             ≤ log                       1   +       +           .
+                         B              ((2r − 3)!!(r − 1)) r       4     4r(r − 1)
+    Now, let’s bound the error term, the part we have labeled as E(h).
+    For any a, b such that ab = h < N , we have by induction hypothesis E(h) ≤
+              1  r+1          1
+c1 (r)(ab)1− r p 4r2 (log p) r . Therefore,
+                  1               2 X                      2         X X                1
+(43)            r+1             ·           E(ab) ≤                              (ab)1− r
+        c1 (r)p 4r2 (log p) r H a,b                     ⌊A⌋⌊B⌋
+                            1
+                                                                   1≤a≤A 1≤b≤B
+                           Z A+1                !    Z B+1              !
+                     1                 1− r1                   1− r1           AB
+               ≤2                    t       dt              t       dt
+                    AB       1                         1                  (A − 1)(B − 1)
+                                                                  2− r1
+                           1       2           (A + 1)(B + 1)                   AB
+              ≤ (AB)1− r
+                              (2 − 1r )2               AB                 (A − 1)(B − 1)
+                                                                            2− 1r
+                             2r2
+                                                       
+                                         1− r1   1− r1   (A + 1)(B + 1)                   AB
+                      =                k       N                                                  .
+                         (2r − 1)2                              AB                 (A − 1)(B − 1)
+   Combining equations (32), (34), (39), (41) and (43) with (28) yields (for r = 2)
+                                                                                 1
+       |Sχ (M, N )|             AB             1         3       log (1.85k log p) 4
+(44)                     ≤                (12) 4
+                                                  1 +          +
+                                                                      k log2 p
+        1    3         1
+      N 2 p 16 (log p) 2   (A − 1)(B − 1)             8k log p
+                                                              3
+                                   8 1         (A + 1)(B + 1) 2           AB
+                                 + k c1 (2)
+                                      2                                            .
+                                   9                 AB            (A − 1)(B − 1)
+   Similarly, for r ≥ 3, combining equations (32), (34), (40), (42) and (43) with
+(28) yields
+                                            1
+           |Sχ (M, N )|            2r(2r − 1) 2r                   1         AB
+(45)            r+1           ≤                  (2r − 3)!!(r − 1) 2r2
+         1− 1
+       N r p 4r (log p) r
+                  2
+                           1
+                                     r −  1                            (A  − 1)(B    − 1)
+                                                                                            1
+                                                                                            2r
+                                                                          1.85s k log p
+                                                                 log                    1
+                s2                     1            1                 ((2r−3)!!(r−1)) r    
+                      1     r−2  +          +                 +               2
+                                                                                            
+
+   ((2r − 3)!!(r − 1)) r p 2(r−1)    4k log p 4r(r − 1)k log p           k log p            
+
+                                                                       2− 1r
+                           2r2
+                                                  
+                                       1              (A + 1)(B + 1)                 AB
+                      +         2
+                                  k 1− r c1 (r)                                                .
+                        (2r − 1)                           AB                   (A − 1)(B − 1)
+   Now, if we let c1 (r) be defined as follows
+                                                                                 1
+                                                         3       log (1.85k log p) 4
+                         AB             1
+                                                1 +   8k log p +      k log2 p
+(46)     c1 (2) =                  (12) 4                              3             ,
+                  (A − 1)(B − 1)                                     2
+                                          1 − 98 k 2 (A+1)(B+1)
+                                                   1                            AB
+                                                            AB             (A−1)(B−1)
+
+for r = 2, and
+                                                                          1
+                                                                              ! 2r1
+                   AB                 2r(2r − 1) ((2r − 3)!!(r − 1)) r
+(47) c1 (r) =
+              (A − 1)(B − 1)                       r−1
+14                                            ENRIQUE TREVIÑO
+
+                                                                                                               ! 1
+                                                                                                                     2r
+                                                                                               1.85s k log p
+                                                                                      log                   1
+                        s2                         1            1                           ((2r−3)!!(r−1)) r
+                                              + 4k log p + 4r(r−1)k log p +
+                                                                                                                
+                       1    1− 1 −    1                                                       k log2 p          
+        ((2r−3)!!(r−1)) r p 2  2r   2r(r−1)
+
+
+·                                                                    2− r1                                            ,
+                                  2r 2
+                                          1− r1        (A+1)(B+1)                   AB
+                            1 − (2r−1) 2k                 AB                     (A−1)(B−1)
+
+for r ≥ 3. Therefore from (44) and (45), we get that
+                                                                      1    r+1        1
+                                 |Sχ (M, N )| ≤ c1 (r)N 1− r p 4r2 (log p) r .
+   All we have to do is pick k to minimize c1 (r) in such a way that ⌊A⌋ ≥ 28, and
+that N ≥ 12A. First, we’ll start by showing that
+                                                            B ≥ 15.
+                                               1        1
+   Since B = ((2r − 3)!!(r − 1)) p , we can just manually check for 2 ≤ r ≤ 20
+                                               r       2r
+
+that the inequality is satisfied. To show that it works for r ≥ 21, we can show that
+                                                                       1
+(48)                                     ((2r − 3)!!(r − 1)) r ≥ 15,
+by noticing that it works for r = 21 and that the left hand side of (48) is increasing.
+Indeed, the left hand side is increasing; by noticing that (2r − 3)(r − 1) < (2r −
+1)(r + 1), we get
+                                          (2r − 1)r−1 (r + 1)r−1   (2r − 1)r (r + 1)r
+                (2r − 3)!!(r − 1) <                              <                    ,
+                                               (r − 1)r−2              (r − 1)r
+implying that
+           1
+             log ((2r − 3)!!(r − 1)) < log ((2r − 1)(r + 1)) − log (r − 1),
+           r
+which implies
+            r+1
+                   log ((2r − 3)!!(r − 1)) < log ((2r − 1)!!) + log (r + 1),
+              r
+and hence
+                                     1
+                                                                     1
+                                                                         
+            log ((2r − 3)!!(r − 1)) r < log ((2r − 1)!!)(r + 1)) r+1 .
+
+     Using that B ≥ 15, since A = kN
+                                   B , then
+                                                       kN   kN   N
+                                           A=             <    <    ,
+                                                        B   12   12
+whenever k < 1.
+           1
+  Let k ≥ 30 . To check that ⌊A⌋ ≥ 28, we use (38) and (33) and we note that
+                                                                             1    1
+                                           N        c1 (r)r p 4 − 4r log p
+                      ⌊A⌋ ≥ A − 1 ≥           −1≥                          1 − 1.
+                                          30B     30((2r − 3)!!(r − 1)) r
+Table 4 shows the lower bound c1 (r) must satisfy to have ⌊A⌋ ≥ 28 in different
+situations.
+   Now, B is defined in terms of r and p. By fixing an r and a p0 (a fixed lower
+bound for p), we can calculate B in terms of r and p0 . Let c′1 (r) be a parameter
+satisfying c′1 (r) < c1 (r). A is written in terms of k and N and from (37) and (38)
+we have a range for N in terms of c1 (r), p, r, k and s. From this we can find a
+lower bound for A in terms of c′1 (r), k, r, s and p. The parameter s is optimal
+when it is as small as possible so we fix s (in terms of r, c′1 (r) and c1 (r − 1)) to
+       THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                    15
+
+
+
+                          r   p ≥ 107 p ≥ 1010      p ≥ 1020
+                          2   2.68289 1.45765       0.24442
+                          3   1.88354 1.13939       0.251637
+                          4    1.6153 1.06881       0.305418
+                          5   1.48379 1.04807       0.363232
+                          6   1.40512 1.04167       0.417191
+                          7   1.35216 1.04007       0.465518
+                          8   1.31369 1.04016       0.508197
+                          9   1.28422 1.04077       0.545749
+                         10   1.26077 1.04147       0.578819
+        Table 4. Lower bounds for the constant c1 (r) in the Burgess in-
+        equality to satisfy ⌊A⌋ ≥ 28.
+
+
+be the smallest real satisfying (36). After plugging in A, B, r, s, k, p0 and c′1 (r)
+                                                                      1
+to the equations (46) and (47), we can find a good value of k ∈ [ 30    , 1), and a good
+          ′
+value of c1 (r) for each r and p0 to find the smallest c1 (r) we can. After making the
+choices of k and c′1 (r) described in Table 5, we conclude that c1 (r) has the values
+listed in Table 1 as upper bounds.
+
+                      p0 = 107          p0 = 1010         p0 = 1020
+                 r   k      c′1 (r)     k     c′1 (r)     k     c′1 (r)
+                 2  2/45 2.738         1/30 2.517        1/30 2.354
+                 3  1/16 2.019        11/150 1.737       2/15 1.369
+                 4  1/12 1.729        31/300 1.515      37/300 1.310
+                 5  1/12 1.610         7/75 1.456       31/300 1.298
+                 6  1/12 1.548         1/12 1.426        7/75 1.289
+                 7 11/150 1.504       11/150 1.404       1/12 1.281
+                 8 19/300 1.470       19/300 1.383       1/12 1.272
+                 9 19/300 1.441       19/300 1.366      11/150 1.264
+                10 4/75 1.415          4/75 1.349       11/150 1.256
+             Table 5. Values chosen for k and c′1 (r) to build Table 1.
+
+
+                                                                                      
+Proof of Corollary 1. We begin by pointing out that Theorem 1 proves this for
+2 ≤ r ≤ 10 and p ≥ 107 . We also know that it is true for the r = 1 case by the
+Pólya–Vinogradov inequality (Vinogradov proved it with the constant 1 in [22]).
+   Following the proof of Theorem 1, we also have that B ≥ 15 for all r and hence,
+                             N
+for any k < 1, we have A < 12  . It is also worth pointing out that we can use s = 1,
+since now the constant 2.74 is fixed as the constant in our upper bound, instead of
+a constant depending on r.
+   We need to show that you can pick a k such that ⌊A⌋ ≥ 28. First, let’s prove
+                                 1
+that 2.74r ≥ ((2r − 3)!!(r − 1)) r . Indeed, for all r ≥ 1 we have
+                                                            1
+                          2.74r > 2r ≥ ((2r − 3)!!(r − 1)) r .
+16                                                  ENRIQUE TREVIÑO
+
+
+     Now we have
+                                                         1    1
+                          kN   k(2.74)r p 4 − 4r log p      1    1
+                                                            4 − 4r log p > 29,
+                       A=    ≥                       1 ≥ kp
+                           B   ((2r − 3)!!(r − 1))   r
+
+                             29
+whenever k >            1    1         .
+                      p 4 − 4r log p
+   We replace B by 15 in (47) (since B ≥ 15), and we can see that the only factors
+                                          1
+that don’t decrease   with r are the k 1− r term which appears in the denominator,
+              1
+                
+and the 2 − r exponent in the denominator. With this in mind, let c(r) be defined
+as follows for r ≥ 4:
+                                                          1
+                                                            ! 2r1
+                  15A      2r(2r − 1) ((2r − 3)!!(r − 1)) r
+(49) c(r) =
+               14(A − 1)                r−1
+                                                                          ! 1
+                                                                               2r
+                                                                                                  1.85 k log p
+                                                                                        log                    1
+                         1                               1            1                       ((2r−3)!!(r−1)) r
+                                                    + 4k log p + 4r(r−1)k log p +
+                                                                                                                  
+                       1    1− 1 −    1                                                               2
+                                                                                                 k log p           
+        ((2r−3)!!(r−1)) r p 2  2r   2r(r−1)
+
+
+·                                                                     2                                            .
+                                         2r         2        16(A+1)            15A
+                                   1 − (2r−1) 2k               15A            14(A−1)
+
+                11                         1    1
+   Letting k = 64  , A ≥ kp 4 − 4r and p ≥ 107 we confirm that c(r) ≤ 2.74 whenever
+r ≥ 3. Since it is also true for r ≤ 3, we conclude our corollary.               
+
+                                  4. Improving McGown’s theorem
+                                                                       1
+   The main obstacle in improving the (log p) r factor in the Burgess inequality is
+the bound on V2 . However, if we put a bound on N , we can make the proof cleaner
+                                              1
+while also improving the exponent in log p to 2r . First we prove a lemma regarding
+V2 and then we will be able to prove Theorem 2.
+Lemma 6. Let p be a prime, and N be a positive integer. Let A ≥ 30 be an integer
+such that N > 7A and 2AN < p. Let v(x) be defined as in (1). Then
+                           X
+                    V2 =        v 2 (x) ≤ 2AN log(1.85A).
+                                               x mod p
+
+Proof. The proof is essentially the same as that of Lemma 1. Recall that V2 is the
+number of quadruples (a1 , a2 , n1 , n2 ) with 1 ≤ a1 , a2 ≤ A and M < n1 , n2 ≤ M +N
+such that a1 n2 ≡ a2 n1 (mod p). If a1 = a2 , since N < p, we have that n1 = n2
+because n1 ≡ n2 (mod p) while |n1 − n2 | ≤ N < p. Therefore, the number of
+quadruples in this case is AN . Fixing a1 6= a2 and writing
+                                                    a1 n2 − a2 n1 = kp,
+we can put a bound on possible values for k. As shown in the proof of Lemma 1,
+                     (a1 +a2 )N
+there are at most gcd   (a1 ,a2 )p + 1 values of k. Since 2AN < p, then we have that k
+is uniquely determined.
+   In the proof of Lemma 1, we showed that given a1 , a2 and k, the number of pairs
+                              gcd (a1 ,a2 )
+(n1 , n2 ) is bounded by N max{a    1 ,a2 }
+                                            + 1.
+   Now, for A ≥ 30 and N > 7A we have
+                                            
+               6                            6                        3 1     3 A
+(50) 1 − 2 log (1.85A) ≥ 1 − 2 log (55.5) = 1.57471 > +                    > +      .
+               π                            π                        2 14    2 2N
+       THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                                    17
+
+
+  Using the definition of S3 as in (17), using the inequalities (20) and (50), for
+A ≥ 30 and N > 7A, we have
+                X  gcd (a1 , a2 )N     
+  V2 ≤ AN + 2                        +1
+              a <a
+                       max{a1 , a2 }
+                    1   2
+
+                                        = AN + 2N S3 + A2 − A ≤ 2AN log (1.85A).
+                                                                                                      
+  Now we are ready to prove Theorem 2.
+Proof of Theorem 2. The proof is very similar to the proof of Theorem 1. We pro-
+                                                                             r+1          1
+ceed by induction, assuming that for all h < N we have |Sχ (M, h)| ≤ c2 (r)p 4r2 (log p) 2r .
+   Most of the work in the proof of Theorem 1 can be replicated. So I’ll just point
+out the things that change.
+   The first change is that by employing Lemma 6, (30) becomes
+                                   V2 ≤ 2AN log (1.85A).
+This change affects (32), by deleting AN
+                                       p inside the parenthesis. Now it looks as
+follows:
+                                                      1
+                 V        AB         1 (2W B) 2r                1      1
+(51)               ≤                  1          (log (1.85A)) 2r N 1− r .
+                 H   (A − 1)(B − 1) k 2r  B
+   The next change is the range for N , which we deduced by using the Pólya–
+Vinogradov inequality, the trivial bound, and the case for r − 1. Instead of (37),
+using our hypothesis and the trivial bound, we now have
+                                     3p               5
+(52)                       c2 (2)r p 8 log p < N < 2p 8 ,
+                                           1
+for r = 2. Assuming c2 (r − 1) ≤ s r(r−1) c2 (r) for a real number s, and using the
+Burgess inequality for r − 1 we have, for r ≥ 3, the following range for N
+                   1    1 p                   1   1       1    1      1
+         c2 (r)r p 4 + 4r log p < N < min{2p 2 + 4r , s p 4 + 2r + 4r(r−1) log p}.
+                                                                          p
+(53)
+   Using that A = kNB and (52), we get
+                                     
+                               1.85kN                  3 log p   3 log p
+(54)       log (1.85A) = log            ≤ log (3.7k) +         ≤         ,
+                                  B                       8         8
+for r = 2 (we’re assuming k < 1/4, which implies log (3.7k) < 0). Using (53), yields
+(55)                                           √          
+                      1.85kN              1.85s k log p          log p     log p
+  log (1.85A) = log            ≤ log                       1   +       +           ,
+                         B             ((2r − 3)!!(r − 1)) r       4     4r(r − 1)
+for r ≥ 3.
+   The bound for E(h) is almost the same as in (43), the only difference being the
+                                 1
+exponent of log p, which is now 2r instead of 1r . Making this change and using both
+(34) and (54) with (51) yields (for r = 2)
+                                                               41
+         |Sχ (M, N )|              AB             1        3
+(56)     1   3          1 ≤                  (12) 4
+       N 2 p 16 (log p) 4     (A − 1)(B − 1)              8k
+                                                                                           32
+                                           AB        8 12                 (A + 1)(B + 1)
+                                    +                  k c2 (2)                                   .
+                                      (A − 1)(B − 1) 9                         AB
+18                                      ENRIQUE TREVIÑO
+
+
+     For r ≥ 3, using (34) and (55) with (51) yields
+                                                                                                            1
+                                                                                                                 ! 2r1
+             |Sχ (M, N )|                  AB         2r(2r − 1) ((2r − 3)!!(r − 1)) r
+(57)              r+1            ≤
+              1                1
+         N 1− r p 4r2 (log p) 2r    (A − 1)(B − 1)                 r−1
+                                       √
+                                                                     2r1
+                                  1.85s k log p
+                        log ((2r−3)!!(r−1)) r1      1        1      
+                      ·                          +    +             
+                                  k log p          4k 4r(r − 1)k 
+
+                                                                                                          2− r1
+                                          2r2
+                                                                                
+                             AB                       1                             (A + 1)(B + 1)
+                      +                        2
+                                                 k 1− r c2 (r)                                                       .
+                        (A − 1)(B − 1) (2r − 1)                                          AB
+     Now, if we let c2 (r) be defined as follows
+                                                                    1
+                                                                         3
+                                                                              41
+                        A  B                               (12) 4       8k
+(58)          c2 (2) =                                                    32                       ,
+                       A−1B−1                    1
+                                                     
+                                                         (A+1)(B+1)
+                                        1 − 89 k 2          AB
+                                                                                       AB
+                                                                                    (A−1)(B−1)
+
+and, for r ≥ 3,
+(59)
+                                                                                              !                            1
+                                                                                                                          2r
+                                                                                    √
+                                                                          1.85s k       log p
+                                                                log
+                         2r(2r−1)((2r−3)!!(r−1)) r1                                   1
+                                                                        ((2r−3)!!(r−1)) r              1       1
+                                                                                                    + 4k + 4r(r−1)k
+                                                                                                                    
+                                   r−1                                     k log p                                
+            A  B
+c2 (r) =                                                                                2− r1                                  ,
+           A−1B −1                          2r  2
+                                                    1− r    1
+                                                                
+                                                                    (A+1)(B+1)                         AB
+                                                                                                                 
+                                      1 − (2r−1) 2k                    AB                           (A−1)(B−1)
+
+for r ≥ 3. Then, from (56) and (57), we get that
+                                                            1   r+1                 1
+                            |Sχ (M, N )| ≤ c2 (r)N 1− r p 4r2 (log p) 2r .
+  All we have to do is pick k to minimize c2 (r) in such a way that ⌊A⌋ ≥ 30, that
+N > 7A and 2AN < p.
+  Using that B ≥ 15, it is not hard to check that N ≥ 7A. Indeed, since A = kN B ,
+            kN     N
+we have A ≤ 15 < 7 .
+                                   3
+  To check that ⌊A⌋ ≥ 30 for k ≥ 64  , we do the following:
+                                                      1    1 √
+                              3N           3c2 (r)r p 4 − 4r log p
+             ⌊A⌋ ≥ A − 1 ≥        −1≥                             1 − 1.
+                              64B         64((2r − 3)!!(r − 1)) r
+Table 6 shows the lower bound c must satisfy to have ⌊A⌋ ≥ 30 in different situa-
+tions.
+   Let’s now verify that 2AN < p. Indeed, from the fact that A = kN B and from
+(52), we have
+                             2kN 2              8kp
+                     2AN =          ≤                       1 < p,
+                               B        ((2r − 3)!!(r − 1)) r
+                                 1
+                                        
+whenever k < min ((2r−3)!!(r−1))
+                                  r
+                           8        , 1   .
+     As in the proof of Theorem 1, we define can find bounds for c2 (r) by controlling
+                                                                                                                     1
+                                                                  3 ((2r−3)!!(r−1))                                  r
+the parameters p0 , c′2 (r) and k. We find a good value of k ∈ [ 64 ,       8       )
+                       ′
+and a good value of c2 (r) for each r and p0 , and plug in the values of B, k, and a
+       THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                         19
+
+
+
+                              r p ≥ 1010        p ≥ 1015               p ≥ 1020
+                              2 2.78392         1.22500                0.55514
+                              3 1.75393         0.86474                0.43480
+                              4 1.47708         0.81850                0.46029
+                              5 1.35767         0.82260                0.50431
+                              6 1.29240         0.83775                0.54839
+                              7 1.25127         0.85450                0.58848
+                              8 1.22279         0.87022                0.62388
+                              9 1.20171         0.88422                0.65489
+                             10 1.18536         0.89649                0.68202
+        Table 6. Lower bounds for the constant c2 (r) in the Burgess in-
+        equality to satisfy ⌊A⌋ ≥ 30.
+
+
+
+lower bound bound for A on (58) to find c2 (2) and on (59) to find c2 (r) for r ≥ 3
+in Table 3 and conclude the theorem. The values of k and c′2 (r) we chose can be
+found on Table 7.
+
+                          p0 = 1010             p0 = 1015                  p0 = 1020
+                   r      k     c′2 (r)         k     c′2 (r)              k     c′2 (r)
+                   2    0.124 3.65            0.124 3.58                 0.124 3.57
+                   3    0.126 2.58            0.131 2.51                 0.135 2.49
+                   4    0.106 2.19            0.116 2.12                 0.120 2.10
+                   5    0.091 1.98            0.101 1.92                 0.107 1.90
+                   6    0.080 1.85            0.090 1.79                 0.095 1.77
+                   7    0.072 1.75            0.079 1.70                 0.084 1.68
+                   8    0.064 1.68            0.071 1.635                0.077 1.61
+                   9    0.058 1.625           0.065 1.58                 0.070 1.56
+                  10    0.054 1.579           0.060 1.54                 0.064 1.52
+            Table 7. Values chosen for k and c′2 (r) to build Table 3.
+
+
+                                                                                           
+Proof of Corollary 2. By Theorem 2, we have our desired result whenever N <
+   1    1
+2p 2 + 4r . Therefore, the only thing we need to prove is that for p ≥ 1010 and r ≥ 3,
+           1  1
+N < 2p 2 + 4r . Since the induction in the proof of Theorem 2 relied on the upper
+bound for N , we can’t use the Burgess inequalities in Theorem 2 to give an upper
+bound for N in this corollary. However, we can use the Burgess inequalities from
+Theorem 1 to improve the upper bound for N . Indeed, for p ≥ 1010 , we have
+                                                           1       3          1
+                             |Sχ (M, N )| ≤ 2.6N 1− 2 p 16 (log p) 2 .
+If
+                                         2r    3   1           3
+                             N ≥ (2.6) r−1 p 8 − 8r − 8r(r−1)
+                                                                        p
+                                                                         log p,
+then                   r+1
+                  1                  1                 1   3   p
+             N 1− r p 4r2 (log p) 2r ≥ 2.6N 1− 2 p 16           log p ≥ |Sχ (M, N )|.
+20                                  ENRIQUE TREVIÑO
+
+
+     Therefore, we may assume that
+                                         2r   3   1    3
+                           N ≤ (2.6) r−1 p 8 − 8r − 8r(r−1)
+                                                              p
+(60)                                                           log p.
+
+  Now, all we need to conclude is to show that the right hand side of (60) is less
+        1    1
+than 2p 2 + 4r . Using that p ≥ 1010 , we can verify this manually for r ∈ {3, 4, . . . , 21}.
+Now, for r ≥ 22 we have
+                        2r   3    1      3                  44   3p           1
+             N ≤ (2.6) r−1 p 8 − 8r − 8r(r−1) log p ≤ (2.6) 21 p 8 log p < 2p 2 .
+                                             p
+
+The last inequality is true whenever p ≥ 1010 .                                            
+
+Remark 5. Booker and McGown in their proofs have A range through only prime
+numbers. This idea makes the constants converge quicker. For large enough p, it
+doesn’t improve the numbers, but it does for smaller p. To save space, we ommited
+using that technique here, instead focusing on other techniques that made an impact
+on the ”asymptotic” constant. One of the nice ideas not used by McGown or Booker
+is the idea of using Burgess for smaller r to help out with the larger r. This allows
+the theorems to extend to the whole range when r ≥ 3.
+
+Remark 6. Theorem A is a little stronger in [21] when the order of the character
+is bigger. Therefore, one could use that theorem to get better constants for cubic
+characters, quartic characters and so on.
+
+
+                         5. Least k-th power non-residue
+   To prove our results on the least k-th power non-residues, we will need the
+following estimates from [19]:
+                               X 1
+Lemma 7. Let B = lim                    − log log x, and let π(x) be the number of primes
+                        m→∞         p
+                              p≤m
+up to x. Then the following estimates are true:
+                                            1     X1
+                     log log x + B −          2 <     for x > 1,
+                                        2 log x p≤x p
+                     X1                         1
+                            < log log x + B +       for x ≥ 286,
+                     p≤x
+                         p                 2 log2 x
+                                                 
+                                  x           3
+                         π(x) <        1+           for x > 1.
+                                log x     2 log x
+     From it we derive the following immediate corollary:
+
+Corollary 3. For real numbers x, y satisfying x > y > 1 and x ≥ 286, the following
+estimate is true:
+                  X 1                                 1           1
+                        < log log x − log log y +       2   +       2 .
+                      p                           2 log   x   2 log  y
+                y<p≤x
+
+  Now we are ready to prove the key lemma (a lower bound on a character sum),
+which is the essence of Vinogradov’s trick.
+       THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                   21
+
+                                                                         1
+                                                                        √    +δ
+Lemma 8. Let x ≥ 286 be a real number, and let y = x e       for some δ > 0. Let
+χ be a non-principal character mod p for some prime p. If χ(n) = 1 for all n ≤ y,
+then
+                                   √
+                                                                 
+             X                                  1        1      1
+                 χ(n) ≥ x 2 log (δ e + 1) −        −         −      .
+              n≤x
+                                             log2 x log2 y x
+
+Proof. Since χ(n) is totally multiplicative, χ(n) = 1 for all n ≤ y, and x < p, then
+
+                         X               X                    X
+                               χ(n) =            χ(n) +              χ(n)
+                         n≤x             n≤x               n≤x
+                                        χ(n)=1            χ(n)6=1
+
+
+                                        X           X              X
+                                   =          1−             1+             χ(n)
+                                        n≤x         n≤x            n≤x
+                                                   χ(n)6=1        χ(n)6=1
+                                        X            X
+                                   ≥          1−2             χ(n)
+                                        n≤x          n≤x
+                                                    χ(n)6=1
+                                        X            X X
+                                   ≥          1−2                  1,
+                                        n≤x         y<q≤x n≤ x
+                                                             q
+                                                    χ(q)6=1
+
+where the sum ranges over q prime. Therefore we have
+
+               X                    X x              X 1
+                     χ(n) ≥ ⌊x⌋ − 2       ≥ x − 1 − 2x     .
+                                       q                 q
+               n≤x                        y<q≤x                              y<q≤x
+
+Using Corollary 3 to estimate the sum of the reciprocals of primes we get the desired
+inequality.                                                                        
+
+   We can now prove Theorem 3. We will use the explicit Burgess inequality proved
+as Corollary 1 because it works for all r.
+
+Proof of Theorem 3. Let χ be a character mod p. Then if n < p and χ(n) 6= 1, n
+is a k-th power non-residue. Let r be an integer. Let x ≥ 286 be a real number and
+           1
+             +δ
+let y = x e = p1/6 for some δ > 0. Assume that χ(n) = 1 for all n ≤ y. Now by
+          √
+
+
+Corollary 1 and Lemma 8 we have
+                                              √
+                                                                         
+                1   r+1         1                         1      1      1
+        2.74x1− r p 4r2 (log p) r ≥ x 2 log (δ e + 1) −       −      −      .
+                                                        log2 x log2 y x
+                     1    1
+Now, letting x = p 4 + 2r we get
+                  log log p   1            √                     1     1   1
+(61)         2.74p r log p − 4r2 ≥ 2 log (δ e + 1) −              2 −   2 − .
+                                                               log x log y x
+Picking r = 22, one finds that δ = 0.00458 . . .. For p ≥ 104732 , the right hand
+side of (61) is bigger than the left hand side, showing that χ(n) is not always 1 for
+n ≤ y = p1/6 , and hence the theorem is true.                                      
+22                                   ENRIQUE TREVIÑO
+
+
+Remark 7. To be able to use Theorem 2 to improve Theorem 3, we would need
+to calculate what happens for r > 20 since the restriction y = p1/6 implies r > 20.
+Since we know that p will be large, we can also pick a large p0 and then find a good
+constant for the Burgess inequality when p is very large and r > 20. After doing
+all of this work, one could show that Theorem 3 works for p ≥ 103850 .
+
+                                   Acknowledgements
+   I would like to dedicate this paper to Paul Bateman and Heini Halberstam. I
+would like to thank Carl Pomerance for suggesting the problem, his useful comments
+and his encouragement. I would like to express my gratitude to Andrew Granville,
+Hugh Montgomery and Robert Vaughan for allowing me to look at unpublished
+manuscripts that helped me on my work on the Burgess inequality. I would also
+like to thank Paul Pollack who directed me to McGown’s work. Finally, I’d like
+to thank an anonymous referee that read the paper carefully and suggested many
+improvements.
+
+                                        References
+ 1. N. C. Ankeny, The least quadratic non residue, Ann. of Math. (2) 55 (1952), 65–72.
+    MR 0045159 (13,538c)
+ 2. Eric Bach, Explicit bounds for primality testing and related problems, Math. Comp. 55 (1990),
+    no. 191, 355–380. MR 1023756 (91m:11096)
+ 3. Andrew R. Booker, Quadratic class numbers and character sums, Math. Comp. 75 (2006),
+    no. 255, 1481–1492 (electronic). MR 2219039 (2008a:11140)
+ 4. A. A. Buhštab, On those numbers in an arithmetic progression all prime factors of which are
+    small in order of magnitude, Doklady Akad. Nauk SSSR (N.S.) 67 (1949), 5–8. MR 0030995
+    (11,84b)
+ 5. D. A. Burgess, The distribution of quadratic residues and non-residues, Mathematika 4 (1957),
+    106–112. MR 0093504 (20 #28)
+ 6.        , On character sums and primitive roots, Proc. London Math. Soc. (3) 12 (1962),
+    179–192. MR 0132732 (24 #A2569)
+ 7.        , A note on the distribution of residues and non-residues, J. London Math. Soc. 38
+    (1963), 253–256. MR 0148628 (26 #6135)
+ 8.        , On character sums and L-series. II, Proc. London Math. Soc. (3) 13 (1963), 524–536.
+    MR 0148626 (26 #6133)
+ 9.        , The character sum estimate with r = 3, J. London Math. Soc. (2) 33 (1986), no. 2,
+    219–226. MR 838632 (87g:11098)
+10. H. Davenport and P. Erdös, The distribution of quadratic and higher residues, Publ. Math.
+    Debrecen 2 (1952), 252–265. MR 0055368 (14,1063h)
+11. John Friedlander, Primes in arithmetic progressions and related topics, Analytic number
+    theory and Diophantine problems (Stillwater, OK, 1984), Progr. Math., vol. 70, Birkhäuser
+    Boston, Boston, MA, 1987, pp. 125–134. MR 1018373 (90h:11086)
+12. G. H. Hardy and E. M. Wright, An introduction to the theory of numbers, Oxford, at the
+    Clarendon Press, 1954, 3rd ed. MR 0067125 (16,673c)
+13. Adolf Hildebrand, A note on Burgess’ character sum estimate, C. R. Math. Rep. Acad. Sci.
+    Canada 8 (1986), no. 1, 35–37. MR 827113 (87e:11095)
+14. Henryk Iwaniec and Emmanuel Kowalski, Analytic number theory, American Mathematical
+    Society Colloquium Publications, vol. 53, American Mathematical Society, Providence, RI,
+    2004. MR 2061214 (2005h:11005)
+15. Kevin J. McGown, Norm-Euclidean cyclic fields of prime degree, Int. J. Number Theory 8
+    (2012), no. 1, 227–254. MR 2887892
+16. Hugh L. Montgomery and Robert C. Vaughan, Multiplicative number theory. I. Classical
+    theory, Cambridge Studies in Advanced Mathematics, vol. 97, Cambridge University Press,
+    Cambridge, 2007. MR 2378655 (2009b:11001)
+       THE BURGESS INEQUALITY AND THE LEAST k-TH POWER NON-RESIDUE                         23
+
+
+17. L. Moser and R. A. MacLeod, The error term for the squarefree integers, Canad. Math. Bull.
+    9 (1966), 303–306. MR 0200251 (34 #150)
+18. Karl K. Norton, Numbers with small prime factors, and the least kth power non-residue,
+    Memoirs of the American Mathematical Society, No. 106, American Mathematical Society,
+    Providence, R.I., 1971. MR 0286739 (44 #3948)
+19. J. Barkley Rosser and Lowell Schoenfeld, Approximate formulas for some functions of prime
+    numbers, Illinois J. Math. 6 (1962), 64–94. MR 0137689 (25 #1139)
+20. Enrique Treviño, Numerically explicit estimates for character sums, 2011, Thesis (Ph.D.)–
+    Dartmouth College.
+21. Enrique Treviño, The least k-th power non-residue, J. Number Theory 149 (2015), 201–224.
+    MR 3296008
+22. Ivan Matveevič Vinogradov, Selected works, Springer-Verlag, Berlin, 1985, With a biogra-
+    phy by K. K. Mardzhanishvili, Translated from the Russian by Naidu Psv [P. S. V. Naidu],
+    Translation edited by Yu. A. Bakhturin. MR 807530 (87a:01042)
+23. André Weil, On some exponential sums, Proc. Nat. Acad. Sci. U. S. A. 34 (1948), 204–207.
+    MR 0027006 (10,234e)
+24. W. Yuan, Estimation and application of character sums, Shuxue Jinzhan 7 (1964), 78–83.
+
+   Department of Mathematics and Computer Science, Lake Forest College, Lake For-
+est, Illinois 60045
+   E-mail address: trevino@lakeforest.edu
+

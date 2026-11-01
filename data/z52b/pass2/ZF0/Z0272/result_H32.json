@@ -1,0 +1,4809 @@
+{
+ "H": 32,
+ "pmax": 1000,
+ "seconds": 1.5302937030792236,
+ "fields": [
+  {
+   "D": 2,
+   "basis_s": 0,
+   "basis_t": 2,
+   "elements": 746,
+   "primes_with_solution": 7,
+   "solutions": 69,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 22,
+     "without_unit": 20,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       4,
+       -2
+      ],
+      [
+       4,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 5,
+     "without_unit": 2,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       6,
+       -2
+      ],
+      [
+       30,
+       18
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       30,
+       -20
+      ],
+      [
+       30,
+       20
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 34,
+     "without_unit": 34,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       32,
+       -8
+      ],
+      [
+       32,
+       8
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       7,
+       0
+      ],
+      [
+       22,
+       -2
+      ],
+      [
+       22,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 23,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       16,
+       -6
+      ],
+      [
+       32,
+       12
+      ],
+      [
+       32,
+       12
+      ]
+     ]
+    },
+    {
+     "p": 31,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       16,
+       -2
+      ],
+      [
+       32,
+       4
+      ],
+      [
+       32,
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 3,
+   "basis_s": 0,
+   "basis_t": 3,
+   "elements": 610,
+   "primes_with_solution": 7,
+   "solutions": 74,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 16,
+     "without_unit": 13,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       3,
+       -1
+      ],
+      [
+       3,
+       1
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 19,
+     "without_unit": 15,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       5,
+       -1
+      ],
+      [
+       21,
+       9
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       10,
+       -5
+      ],
+      [
+       20,
+       10
+      ],
+      [
+       20,
+       10
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 8,
+     "without_unit": 8,
+     "example": [
+      [
+       4,
+       -1
+      ],
+      [
+       10,
+       4
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 13,
+     "without_unit": 13,
+     "example": [
+      [
+       4,
+       0
+      ],
+      [
+       20,
+       -4
+      ],
+      [
+       20,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 14,
+     "without_unit": 14,
+     "example": [
+      [
+       8,
+       -2
+      ],
+      [
+       12,
+       2
+      ],
+      [
+       27,
+       10
+      ]
+     ]
+    },
+    {
+     "p": 23,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       13,
+       0
+      ],
+      [
+       29,
+       -9
+      ],
+      [
+       29,
+       9
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 5,
+   "basis_s": 1,
+   "basis_t": 1,
+   "elements": 1056,
+   "primes_with_solution": 9,
+   "solutions": 132,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 19,
+     "without_unit": 16,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       2,
+       1
+      ],
+      [
+       3,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 22,
+     "without_unit": 17,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       4,
+       1
+      ],
+      [
+       21,
+       -9
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 32,
+     "without_unit": 32,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       10,
+       -4
+      ],
+      [
+       20,
+       25
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 9,
+     "without_unit": 9,
+     "example": [
+      [
+       3,
+       1
+      ],
+      [
+       10,
+       -4
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 35,
+     "without_unit": 35,
+     "example": [
+      [
+       6,
+       2
+      ],
+      [
+       8,
+       -2
+      ],
+      [
+       22,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       13,
+       0
+      ],
+      [
+       13,
+       13
+      ],
+      [
+       26,
+       -13
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 9,
+     "without_unit": 9,
+     "example": [
+      [
+       9,
+       2
+      ],
+      [
+       18,
+       -5
+      ],
+      [
+       31,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 29,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       19,
+       0
+      ],
+      [
+       23,
+       1
+      ],
+      [
+       24,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 31,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       20,
+       8
+      ],
+      [
+       28,
+       -8
+      ],
+      [
+       31,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 6,
+   "basis_s": 0,
+   "basis_t": 6,
+   "elements": 432,
+   "primes_with_solution": 7,
+   "solutions": 36,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 10,
+     "without_unit": 9,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       6,
+       -2
+      ],
+      [
+       6,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 4,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       6,
+       -1
+      ],
+      [
+       12,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 14,
+     "without_unit": 14,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       6,
+       -1
+      ],
+      [
+       30,
+       10
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       7,
+       -2
+      ],
+      [
+       14,
+       0
+      ],
+      [
+       22,
+       8
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       18,
+       -4
+      ],
+      [
+       18,
+       4
+      ],
+      [
+       19,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 23,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       12,
+       -1
+      ],
+      [
+       24,
+       2
+      ],
+      [
+       24,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 29,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       16,
+       -2
+      ],
+      [
+       32,
+       4
+      ],
+      [
+       32,
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 7,
+   "basis_s": 0,
+   "basis_t": 7,
+   "elements": 400,
+   "primes_with_solution": 7,
+   "solutions": 25,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 2,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       9,
+       -3
+      ],
+      [
+       9,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 9,
+     "without_unit": 6,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       7,
+       -1
+      ],
+      [
+       7,
+       1
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       30,
+       -10
+      ],
+      [
+       30,
+       10
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 4,
+     "without_unit": 4,
+     "example": [
+      [
+       5,
+       -1
+      ],
+      [
+       8,
+       2
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       14,
+       -3
+      ],
+      [
+       28,
+       6
+      ],
+      [
+       28,
+       6
+      ]
+     ]
+    },
+    {
+     "p": 29,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       24,
+       -4
+      ],
+      [
+       24,
+       4
+      ],
+      [
+       29,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 31,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       21,
+       -1
+      ],
+      [
+       21,
+       1
+      ],
+      [
+       31,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 10,
+   "basis_s": 0,
+   "basis_t": 10,
+   "elements": 334,
+   "primes_with_solution": 4,
+   "solutions": 24,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 7,
+     "without_unit": 6,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       20,
+       -6
+      ],
+      [
+       20,
+       6
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 11,
+     "without_unit": 9,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       10,
+       -2
+      ],
+      [
+       10,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 4,
+     "without_unit": 4,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       10,
+       -2
+      ],
+      [
+       20,
+       5
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       12,
+       -2
+      ],
+      [
+       12,
+       2
+      ],
+      [
+       13,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 11,
+   "basis_s": 0,
+   "basis_t": 11,
+   "elements": 320,
+   "primes_with_solution": 4,
+   "solutions": 18,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 3,
+     "without_unit": 2,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       11,
+       -3
+      ],
+      [
+       11,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       11,
+       -3
+      ],
+      [
+       11,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 9,
+     "without_unit": 9,
+     "example": [
+      [
+       8,
+       -2
+      ],
+      [
+       12,
+       3
+      ],
+      [
+       24,
+       6
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       15,
+       -3
+      ],
+      [
+       15,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 13,
+   "basis_s": 1,
+   "basis_t": 3,
+   "elements": 634,
+   "primes_with_solution": 8,
+   "solutions": 43,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 7,
+     "without_unit": 6,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       5,
+       3
+      ],
+      [
+       8,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 21,
+     "without_unit": 14,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       5,
+       1
+      ],
+      [
+       12,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       15,
+       -5
+      ],
+      [
+       30,
+       20
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 4,
+     "without_unit": 4,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       14,
+       7
+      ],
+      [
+       21,
+       -7
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       7,
+       -1
+      ],
+      [
+       13,
+       0
+      ],
+      [
+       26,
+       13
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       10,
+       -2
+      ],
+      [
+       24,
+       2
+      ],
+      [
+       30,
+       16
+      ]
+     ]
+    },
+    {
+     "p": 23,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       17,
+       5
+      ],
+      [
+       22,
+       -5
+      ],
+      [
+       23,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 29,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       19,
+       1
+      ],
+      [
+       20,
+       -1
+      ],
+      [
+       29,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 14,
+   "basis_s": 0,
+   "basis_t": 14,
+   "elements": 284,
+   "primes_with_solution": 4,
+   "solutions": 16,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 7,
+     "without_unit": 6,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       16,
+       -4
+      ],
+      [
+       16,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       16,
+       -4
+      ],
+      [
+       16,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       6,
+       -1
+      ],
+      [
+       10,
+       2
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       11,
+       0
+      ],
+      [
+       12,
+       -2
+      ],
+      [
+       12,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 15,
+   "basis_s": 0,
+   "basis_t": 15,
+   "elements": 274,
+   "primes_with_solution": 5,
+   "solutions": 22,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 4,
+     "without_unit": 2,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       5,
+       -1
+      ],
+      [
+       5,
+       1
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 3,
+     "without_unit": 2,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       15,
+       -3
+      ],
+      [
+       15,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 11,
+     "without_unit": 11,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       30,
+       -2
+      ],
+      [
+       30,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       7,
+       0
+      ],
+      [
+       17,
+       -3
+      ],
+      [
+       17,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       10,
+       -1
+      ],
+      [
+       20,
+       2
+      ],
+      [
+       20,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 17,
+   "basis_s": 1,
+   "basis_t": 4,
+   "elements": 544,
+   "primes_with_solution": 6,
+   "solutions": 30,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       21,
+       -8
+      ],
+      [
+       26,
+       16
+      ],
+      [
+       26,
+       16
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 6,
+     "without_unit": 6,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       6,
+       3
+      ],
+      [
+       9,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       3,
+       1
+      ],
+      [
+       12,
+       -4
+      ],
+      [
+       20,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       4,
+       1
+      ],
+      [
+       8,
+       -2
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 9,
+     "without_unit": 9,
+     "example": [
+      [
+       6,
+       0
+      ],
+      [
+       15,
+       3
+      ],
+      [
+       18,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 7,
+     "without_unit": 7,
+     "example": [
+      [
+       8,
+       0
+      ],
+      [
+       24,
+       4
+      ],
+      [
+       28,
+       -4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 19,
+   "basis_s": 0,
+   "basis_t": 19,
+   "elements": 242,
+   "primes_with_solution": 5,
+   "solutions": 9,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       5,
+       -1
+      ],
+      [
+       5,
+       1
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       25,
+       -5
+      ],
+      [
+       25,
+       5
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       8,
+       -1
+      ],
+      [
+       22,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       17,
+       0
+      ],
+      [
+       24,
+       -4
+      ],
+      [
+       24,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 31,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       27,
+       -3
+      ],
+      [
+       27,
+       3
+      ],
+      [
+       31,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 21,
+   "basis_s": 1,
+   "basis_t": 5,
+   "elements": 485,
+   "primes_with_solution": 5,
+   "solutions": 33,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 3,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       3,
+       1
+      ],
+      [
+       4,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 7,
+     "without_unit": 4,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       5,
+       1
+      ],
+      [
+       30,
+       -9
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 15,
+     "without_unit": 15,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       8,
+       2
+      ],
+      [
+       10,
+       -2
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       4,
+       1
+      ],
+      [
+       14,
+       -4
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       9,
+       1
+      ],
+      [
+       18,
+       2
+      ],
+      [
+       26,
+       -6
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 22,
+   "basis_s": 0,
+   "basis_t": 22,
+   "elements": 224,
+   "primes_with_solution": 3,
+   "solutions": 6,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       10,
+       -2
+      ],
+      [
+       10,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 4,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       8,
+       -1
+      ],
+      [
+       18,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       7,
+       0
+      ],
+      [
+       12,
+       -2
+      ],
+      [
+       12,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 23,
+   "basis_s": 0,
+   "basis_t": 23,
+   "elements": 222,
+   "primes_with_solution": 6,
+   "solutions": 11,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 2,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       25,
+       -5
+      ],
+      [
+       25,
+       5
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       30,
+       -6
+      ],
+      [
+       30,
+       6
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       7,
+       -1
+      ],
+      [
+       12,
+       2
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       13,
+       0
+      ],
+      [
+       24,
+       -4
+      ],
+      [
+       24,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       11,
+       0
+      ],
+      [
+       25,
+       -3
+      ],
+      [
+       25,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 29,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       27,
+       -3
+      ],
+      [
+       27,
+       3
+      ],
+      [
+       29,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 26,
+   "basis_s": 0,
+   "basis_t": 26,
+   "elements": 206,
+   "primes_with_solution": 3,
+   "solutions": 5,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 5,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       24,
+       -4
+      ],
+      [
+       24,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       18,
+       -2
+      ],
+      [
+       18,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       16,
+       -2
+      ],
+      [
+       32,
+       4
+      ],
+      [
+       32,
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 29,
+   "basis_s": 1,
+   "basis_t": 7,
+   "elements": 407,
+   "primes_with_solution": 5,
+   "solutions": 21,
+   "unit_only_primes": [
+    2
+   ],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       12,
+       5
+      ],
+      [
+       17,
+       -5
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       10,
+       4
+      ],
+      [
+       30,
+       -9
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 8,
+     "without_unit": 8,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       6,
+       1
+      ],
+      [
+       18,
+       -4
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 6,
+     "without_unit": 6,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       28,
+       2
+      ],
+      [
+       30,
+       -2
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       12,
+       3
+      ],
+      [
+       13,
+       0
+      ],
+      [
+       15,
+       -3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 30,
+   "basis_s": 0,
+   "basis_t": 30,
+   "elements": 194,
+   "primes_with_solution": 5,
+   "solutions": 14,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 7,
+     "without_unit": 6,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       12,
+       -2
+      ],
+      [
+       12,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       12,
+       -2
+      ],
+      [
+       12,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       14,
+       0
+      ],
+      [
+       24,
+       -4
+      ],
+      [
+       24,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       16,
+       -2
+      ],
+      [
+       32,
+       4
+      ],
+      [
+       32,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       12,
+       -1
+      ],
+      [
+       24,
+       2
+      ],
+      [
+       24,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 31,
+   "basis_s": 0,
+   "basis_t": 31,
+   "elements": 190,
+   "primes_with_solution": 2,
+   "solutions": 4,
+   "unit_only_primes": [
+    3
+   ],
+   "rows": [
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       31,
+       -5
+      ],
+      [
+       31,
+       5
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       24,
+       -4
+      ],
+      [
+       24,
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 33,
+   "basis_s": 1,
+   "basis_t": 8,
+   "elements": 380,
+   "primes_with_solution": 5,
+   "solutions": 16,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 8,
+     "without_unit": 7,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       20,
+       8
+      ],
+      [
+       28,
+       -8
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 4,
+     "without_unit": 2,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       8,
+       2
+      ],
+      [
+       24,
+       -6
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       4,
+       1
+      ],
+      [
+       5,
+       -1
+      ],
+      [
+       20,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       5,
+       1
+      ],
+      [
+       6,
+       -1
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 29,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       16,
+       -1
+      ],
+      [
+       32,
+       -2
+      ],
+      [
+       32,
+       6
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 34,
+   "basis_s": 0,
+   "basis_t": 34,
+   "elements": 182,
+   "primes_with_solution": 4,
+   "solutions": 6,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       24,
+       -4
+      ],
+      [
+       24,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       7,
+       -1
+      ],
+      [
+       8,
+       -1
+      ],
+      [
+       30,
+       5
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       14,
+       -2
+      ],
+      [
+       14,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       8,
+       -1
+      ],
+      [
+       14,
+       0
+      ],
+      [
+       14,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 35,
+   "basis_s": 0,
+   "basis_t": 35,
+   "elements": 182,
+   "primes_with_solution": 8,
+   "solutions": 14,
+   "unit_only_primes": [
+    2
+   ],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       7,
+       -1
+      ],
+      [
+       7,
+       1
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       21,
+       -3
+      ],
+      [
+       21,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       8,
+       -1
+      ],
+      [
+       14,
+       0
+      ],
+      [
+       26,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       10,
+       -1
+      ],
+      [
+       20,
+       2
+      ],
+      [
+       20,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       17,
+       0
+      ],
+      [
+       30,
+       -4
+      ],
+      [
+       30,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       15,
+       -1
+      ],
+      [
+       15,
+       1
+      ],
+      [
+       19,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 23,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       14,
+       -1
+      ],
+      [
+       28,
+       2
+      ],
+      [
+       28,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 29,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       21,
+       -1
+      ],
+      [
+       21,
+       1
+      ],
+      [
+       29,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 37,
+   "basis_s": 1,
+   "basis_t": 9,
+   "elements": 357,
+   "primes_with_solution": 4,
+   "solutions": 19,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 3,
+     "count": 8,
+     "without_unit": 4,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       6,
+       1
+      ],
+      [
+       15,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       15,
+       5
+      ],
+      [
+       20,
+       -5
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       5,
+       1
+      ],
+      [
+       6,
+       -1
+      ],
+      [
+       21,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       20,
+       5
+      ],
+      [
+       25,
+       -5
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 38,
+   "basis_s": 0,
+   "basis_t": 38,
+   "elements": 172,
+   "primes_with_solution": 2,
+   "solutions": 3,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 11,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       22,
+       0
+      ],
+      [
+       28,
+       -4
+      ],
+      [
+       28,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       16,
+       -2
+      ],
+      [
+       32,
+       4
+      ],
+      [
+       32,
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 39,
+   "basis_s": 0,
+   "basis_t": 39,
+   "elements": 170,
+   "primes_with_solution": 4,
+   "solutions": 7,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 3,
+     "without_unit": 2,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       26,
+       -4
+      ],
+      [
+       26,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       26,
+       -4
+      ],
+      [
+       26,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       21,
+       -3
+      ],
+      [
+       21,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       7,
+       0
+      ],
+      [
+       9,
+       -1
+      ],
+      [
+       9,
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 41,
+   "basis_s": 1,
+   "basis_t": 10,
+   "elements": 338,
+   "primes_with_solution": 4,
+   "solutions": 12,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       4,
+       0
+      ],
+      [
+       6,
+       2
+      ],
+      [
+       8,
+       -2
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       6,
+       0
+      ],
+      [
+       9,
+       3
+      ],
+      [
+       12,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 7,
+     "without_unit": 7,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       12,
+       3
+      ],
+      [
+       15,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       5,
+       1
+      ],
+      [
+       10,
+       -2
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 42,
+   "basis_s": 0,
+   "basis_t": 42,
+   "elements": 164,
+   "primes_with_solution": 6,
+   "solutions": 12,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 5,
+     "without_unit": 4,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       14,
+       -2
+      ],
+      [
+       14,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       14,
+       -2
+      ],
+      [
+       14,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       14,
+       0
+      ],
+      [
+       28,
+       -4
+      ],
+      [
+       28,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       16,
+       -2
+      ],
+      [
+       32,
+       4
+      ],
+      [
+       32,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       13,
+       0
+      ],
+      [
+       18,
+       -2
+      ],
+      [
+       18,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       12,
+       -1
+      ],
+      [
+       24,
+       2
+      ],
+      [
+       24,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 43,
+   "basis_s": 0,
+   "basis_t": 43,
+   "elements": 160,
+   "primes_with_solution": 3,
+   "solutions": 4,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       6,
+       0
+      ],
+      [
+       14,
+       -2
+      ],
+      [
+       14,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       6,
+       0
+      ],
+      [
+       22,
+       -2
+      ],
+      [
+       22,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       19,
+       0
+      ],
+      [
+       27,
+       -3
+      ],
+      [
+       27,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 46,
+   "basis_s": 0,
+   "basis_t": 46,
+   "elements": 156,
+   "primes_with_solution": 1,
+   "solutions": 3,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 3,
+     "count": 3,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       10,
+       -1
+      ],
+      [
+       24,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 47,
+   "basis_s": 0,
+   "basis_t": 47,
+   "elements": 156,
+   "primes_with_solution": 3,
+   "solutions": 4,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       4,
+       0
+      ],
+      [
+       28,
+       -4
+      ],
+      [
+       28,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       9,
+       -1
+      ],
+      [
+       14,
+       0
+      ],
+      [
+       16,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       17,
+       0
+      ],
+      [
+       27,
+       -3
+      ],
+      [
+       27,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 51,
+   "basis_s": 0,
+   "basis_t": 51,
+   "elements": 148,
+   "primes_with_solution": 2,
+   "solutions": 4,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 5,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       18,
+       -2
+      ],
+      [
+       18,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       21,
+       -1
+      ],
+      [
+       21,
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 53,
+   "basis_s": 1,
+   "basis_t": 13,
+   "elements": 296,
+   "primes_with_solution": 3,
+   "solutions": 5,
+   "unit_only_primes": [
+    2
+   ],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       23,
+       7
+      ],
+      [
+       30,
+       -7
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       23,
+       7
+      ],
+      [
+       30,
+       -7
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       4,
+       0
+      ],
+      [
+       16,
+       4
+      ],
+      [
+       20,
+       -4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 55,
+   "basis_s": 0,
+   "basis_t": 55,
+   "elements": 144,
+   "primes_with_solution": 3,
+   "solutions": 4,
+   "unit_only_primes": [
+    3
+   ],
+   "rows": [
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       11,
+       -1
+      ],
+      [
+       11,
+       1
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       13,
+       0
+      ],
+      [
+       27,
+       -3
+      ],
+      [
+       27,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       9,
+       0
+      ],
+      [
+       19,
+       -1
+      ],
+      [
+       19,
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 57,
+   "basis_s": 1,
+   "basis_t": 14,
+   "elements": 285,
+   "primes_with_solution": 3,
+   "solutions": 9,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       4,
+       1
+      ],
+      [
+       5,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       20,
+       5
+      ],
+      [
+       25,
+       -5
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 6,
+     "without_unit": 6,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       28,
+       1
+      ],
+      [
+       29,
+       -1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 58,
+   "basis_s": 0,
+   "basis_t": 58,
+   "elements": 140,
+   "primes_with_solution": 2,
+   "solutions": 3,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       16,
+       -2
+      ],
+      [
+       32,
+       4
+      ],
+      [
+       32,
+       4
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       20,
+       -2
+      ],
+      [
+       20,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 59,
+   "basis_s": 0,
+   "basis_t": 59,
+   "elements": 138,
+   "primes_with_solution": 1,
+   "solutions": 1,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 11,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       11,
+       0
+      ],
+      [
+       27,
+       -3
+      ],
+      [
+       27,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 61,
+   "basis_s": 1,
+   "basis_t": 15,
+   "elements": 275,
+   "primes_with_solution": 5,
+   "solutions": 13,
+   "unit_only_primes": [
+    3
+   ],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       4,
+       1
+      ],
+      [
+       5,
+       -1
+      ],
+      [
+       5,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       10,
+       2
+      ],
+      [
+       30,
+       -6
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 5,
+     "without_unit": 5,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       24,
+       6
+      ],
+      [
+       30,
+       -6
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       9,
+       0
+      ],
+      [
+       11,
+       1
+      ],
+      [
+       12,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 19,
+     "count": 4,
+     "without_unit": 4,
+     "example": [
+      [
+       9,
+       0
+      ],
+      [
+       24,
+       3
+      ],
+      [
+       27,
+       -3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 62,
+   "basis_s": 0,
+   "basis_t": 62,
+   "elements": 136,
+   "primes_with_solution": 1,
+   "solutions": 2,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       10,
+       -1
+      ],
+      [
+       14,
+       0
+      ],
+      [
+       18,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 65,
+   "basis_s": 1,
+   "basis_t": 16,
+   "elements": 265,
+   "primes_with_solution": 3,
+   "solutions": 5,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       12,
+       0
+      ],
+      [
+       22,
+       6
+      ],
+      [
+       28,
+       -6
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       12,
+       3
+      ],
+      [
+       15,
+       -3
+      ],
+      [
+       20,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       6,
+       1
+      ],
+      [
+       7,
+       -1
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 66,
+   "basis_s": 0,
+   "basis_t": 66,
+   "elements": 128,
+   "primes_with_solution": 2,
+   "solutions": 4,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 5,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       18,
+       -2
+      ],
+      [
+       18,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       28,
+       -2
+      ],
+      [
+       28,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 67,
+   "basis_s": 0,
+   "basis_t": 67,
+   "elements": 128,
+   "primes_with_solution": 2,
+   "solutions": 2,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       9,
+       -1
+      ],
+      [
+       9,
+       1
+      ],
+      [
+       21,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       7,
+       0
+      ],
+      [
+       27,
+       -3
+      ],
+      [
+       27,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 69,
+   "basis_s": 1,
+   "basis_t": 17,
+   "elements": 259,
+   "primes_with_solution": 6,
+   "solutions": 15,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 2,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       12,
+       3
+      ],
+      [
+       15,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 3,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       7,
+       1
+      ],
+      [
+       18,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       20,
+       5
+      ],
+      [
+       25,
+       -5
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       14,
+       0
+      ],
+      [
+       24,
+       6
+      ],
+      [
+       30,
+       -6
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 6,
+     "without_unit": 6,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       13,
+       1
+      ],
+      [
+       14,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       14,
+       2
+      ],
+      [
+       18,
+       -3
+      ],
+      [
+       30,
+       6
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 70,
+   "basis_s": 0,
+   "basis_t": 70,
+   "elements": 126,
+   "primes_with_solution": 2,
+   "solutions": 2,
+   "unit_only_primes": [
+    3
+   ],
+   "rows": [
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       20,
+       -2
+      ],
+      [
+       20,
+       2
+      ]
+     ]
+    },
+    {
+     "p": 31,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       30,
+       -2
+      ],
+      [
+       30,
+       2
+      ],
+      [
+       31,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 71,
+   "basis_s": 0,
+   "basis_t": 71,
+   "elements": 126,
+   "primes_with_solution": 2,
+   "solutions": 2,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       9,
+       -1
+      ],
+      [
+       9,
+       1
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       5,
+       0
+      ],
+      [
+       27,
+       -3
+      ],
+      [
+       27,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 73,
+   "basis_s": 1,
+   "basis_t": 18,
+   "elements": 251,
+   "primes_with_solution": 5,
+   "solutions": 8,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       12,
+       3
+      ],
+      [
+       15,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       5,
+       1
+      ],
+      [
+       30,
+       -6
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       20,
+       0
+      ],
+      [
+       24,
+       6
+      ],
+      [
+       30,
+       -6
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       6,
+       1
+      ],
+      [
+       12,
+       -2
+      ],
+      [
+       14,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 23,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       12,
+       0
+      ],
+      [
+       24,
+       2
+      ],
+      [
+       26,
+       -2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 74,
+   "basis_s": 0,
+   "basis_t": 74,
+   "elements": 124,
+   "primes_with_solution": 1,
+   "solutions": 1,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       18,
+       -2
+      ],
+      [
+       18,
+       2
+      ],
+      [
+       21,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 77,
+   "basis_s": 1,
+   "basis_t": 19,
+   "elements": 245,
+   "primes_with_solution": 6,
+   "solutions": 12,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 3,
+     "without_unit": 2,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       5,
+       1
+      ],
+      [
+       6,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 1,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       15,
+       3
+      ],
+      [
+       18,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       6,
+       1
+      ],
+      [
+       14,
+       0
+      ],
+      [
+       22,
+       -4
+      ]
+     ]
+    },
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       10,
+       1
+      ],
+      [
+       11,
+       -1
+      ],
+      [
+       13,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       13,
+       2
+      ],
+      [
+       30,
+       -4
+      ],
+      [
+       30,
+       -4
+      ]
+     ]
+    },
+    {
+     "p": 23,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       16,
+       1
+      ],
+      [
+       17,
+       -1
+      ],
+      [
+       23,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 78,
+   "basis_s": 0,
+   "basis_t": 78,
+   "elements": 122,
+   "primes_with_solution": 2,
+   "solutions": 4,
+   "unit_only_primes": [
+    3
+   ],
+   "rows": [
+    {
+     "p": 3,
+     "count": 2,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       12,
+       -1
+      ],
+      [
+       30,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       12,
+       -1
+      ],
+      [
+       24,
+       2
+      ],
+      [
+       24,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 79,
+   "basis_s": 0,
+   "basis_t": 79,
+   "elements": 122,
+   "primes_with_solution": 1,
+   "solutions": 3,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 7,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       11,
+       -1
+      ],
+      [
+       11,
+       1
+      ],
+      [
+       21,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 82,
+   "basis_s": 0,
+   "basis_t": 82,
+   "elements": 116,
+   "primes_with_solution": 0,
+   "solutions": 0,
+   "unit_only_primes": [],
+   "rows": []
+  },
+  {
+   "D": 83,
+   "basis_s": 0,
+   "basis_t": 83,
+   "elements": 116,
+   "primes_with_solution": 0,
+   "solutions": 0,
+   "unit_only_primes": [],
+   "rows": []
+  },
+  {
+   "D": 85,
+   "basis_s": 1,
+   "basis_t": 21,
+   "elements": 231,
+   "primes_with_solution": 3,
+   "solutions": 7,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 3,
+     "count": 4,
+     "without_unit": 3,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       8,
+       1
+      ],
+      [
+       9,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       7,
+       0
+      ],
+      [
+       7,
+       1
+      ],
+      [
+       8,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 23,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       13,
+       -1
+      ],
+      [
+       29,
+       4
+      ],
+      [
+       32,
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 86,
+   "basis_s": 0,
+   "basis_t": 86,
+   "elements": 116,
+   "primes_with_solution": 0,
+   "solutions": 0,
+   "unit_only_primes": [],
+   "rows": []
+  },
+  {
+   "D": 87,
+   "basis_s": 0,
+   "basis_t": 87,
+   "elements": 116,
+   "primes_with_solution": 2,
+   "solutions": 2,
+   "unit_only_primes": [
+    2
+   ],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       29,
+       -3
+      ],
+      [
+       29,
+       3
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       29,
+       -3
+      ],
+      [
+       29,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 89,
+   "basis_s": 1,
+   "basis_t": 22,
+   "elements": 226,
+   "primes_with_solution": 3,
+   "solutions": 6,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 5,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       12,
+       2
+      ],
+      [
+       30,
+       -5
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       8,
+       0
+      ],
+      [
+       10,
+       1
+      ],
+      [
+       11,
+       -1
+      ]
+     ]
+    },
+    {
+     "p": 17,
+     "count": 3,
+     "without_unit": 3,
+     "example": [
+      [
+       8,
+       0
+      ],
+      [
+       28,
+       4
+      ],
+      [
+       32,
+       -4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 91,
+   "basis_s": 0,
+   "basis_t": 91,
+   "elements": 112,
+   "primes_with_solution": 3,
+   "solutions": 3,
+   "unit_only_primes": [
+    3
+   ],
+   "rows": [
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       13,
+       -1
+      ],
+      [
+       13,
+       1
+      ]
+     ]
+    },
+    {
+     "p": 5,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       11,
+       -1
+      ],
+      [
+       11,
+       1
+      ],
+      [
+       15,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 29,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       15,
+       0
+      ],
+      [
+       31,
+       -1
+      ],
+      [
+       31,
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 93,
+   "basis_s": 1,
+   "basis_t": 23,
+   "elements": 223,
+   "primes_with_solution": 4,
+   "solutions": 7,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 3,
+     "without_unit": 2,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       14,
+       3
+      ],
+      [
+       17,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       14,
+       3
+      ],
+      [
+       17,
+       -3
+      ]
+     ]
+    },
+    {
+     "p": 7,
+     "count": 2,
+     "without_unit": 2,
+     "example": [
+      [
+       2,
+       0
+      ],
+      [
+       30,
+       2
+      ],
+      [
+       32,
+       -2
+      ]
+     ]
+    },
+    {
+     "p": 11,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       4,
+       0
+      ],
+      [
+       28,
+       4
+      ],
+      [
+       32,
+       -4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 94,
+   "basis_s": 0,
+   "basis_t": 94,
+   "elements": 110,
+   "primes_with_solution": 1,
+   "solutions": 1,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       3,
+       0
+      ],
+      [
+       20,
+       -2
+      ],
+      [
+       20,
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 95,
+   "basis_s": 0,
+   "basis_t": 95,
+   "elements": 110,
+   "primes_with_solution": 1,
+   "solutions": 1,
+   "unit_only_primes": [],
+   "rows": [
+    {
+     "p": 13,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       13,
+       0
+      ],
+      [
+       15,
+       -1
+      ],
+      [
+       15,
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "D": 97,
+   "basis_s": 1,
+   "basis_t": 24,
+   "elements": 217,
+   "primes_with_solution": 2,
+   "solutions": 2,
+   "unit_only_primes": [
+    3
+   ],
+   "rows": [
+    {
+     "p": 2,
+     "count": 1,
+     "without_unit": 1,
+     "example": [
+      [
+       5,
+       1
+      ],
+      [
+       6,
+       -1
+      ],
+      [
+       6,
+       0
+      ]
+     ]
+    },
+    {
+     "p": 3,
+     "count": 1,
+     "without_unit": 0,
+     "example": [
+      [
+       1,
+       0
+      ],
+      [
+       14,
+       -2
+      ],
+      [
+       30,
+       6
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,3796 @@
+## Content from http://www.iam.khv.ru/articles/Ustinov/nth20_eng.pdf
+
+Title: nth20_eng.pdf
+
+URL Source: http://www.iam.khv.ru/articles/Ustinov/nth20_eng.pdf
+
+Published Time: 2009-03-17T14:24:00.000Z
+
+Number of Pages: 24
+
+Markdown Content:
+Algebra i analiz St. Petersburg Math. J.
+
+Tom. 20 (2008), }5 S 1061-0022(XX)0000-0
+
+ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE
+
+xy ≡ l (mod q) UNDER THE GRAPH OF A TWICE CONTINUOUSLY DIFFERENTIABLE FUNCTION
+
+A. V. USTINOV
+
+Abstract. A result by V. A.Bykovski˘ ı (1981) on the number of solutions of the congruence xy ≡ l (mod q) under the graph of a twice continuously differentiable function is refined. As an application, Porter’s result (1975) on the mean number of steps in the Euclid algorithm is sharpened and extended to the case of Gauss–Kuzmin statistics.
+
+§1. Introduction
+
+Notation.
+
+1) For a natural number q, we denote by δq (n) the characteristic function of divisi-bility by q:
+
+δq (n) =
+
+{
+
+1 if n ≡ 0 (mod q),
+
+0 if n 6 ≡ 0 (mod q).
+
+2) The sum of powers of divisors of a natural number q is denoted by
+
+σα(q) = ∑
+
+> d|q
+
+dα.
+
+3) If A is a statement, then [ A] means 1 if A is true and 0 otherwise. 4) For a rational number r, r = [ t0; t1, . . . , t s] denotes the canonical continued frac-tion of length s = s(r), where t0 = [ r] (the integral part of r), t1, . . . , t s are quotients (natural numbers), and ts ≥ 2 for s ≥ 1. 5) For rational r = [ t0; t1, . . . , t s] and real x ∈ [0 , 1], by s(x)(r) we denote the Gauss– Kuzmin statistics
+
+s(x)(r) = # {j : 1 ≤ j ≤ s, [0; tj , . . . , t s] ≤ x}.
+
+In particular, the length of a continued fraction is s = s(r) = s(1) (r). Let q be a natural number, l an integer, and f a nonnegative function. Denote by
+
+T [f ] the number of solutions of the congruence xy ≡ l (mod q) that lie in the domain
+
+P1 < x ≤ P2, 0 < y ≤ f (x):
+
+T [f ] = ∑
+
+> P1<x ≤P2
+
+∑
+
+> 0<y ≤f(x)
+
+δq (xy − l).
+
+In a series of number-theoretic problems, the need for asymptotic formulas for T [f ]arises. They underlie results on convolutions of arithmetic functions [10, 12], on sums
+
+2000 Mathematics Subject Classification. 11L05, 11L07.
+
+Key words and phrases. Euclid algorithm, Gauss–Kuzmin statistics, Kloosterman sums. Supported by RFBR (grant no. 07-01-00306, by the Far Eastern Department of the Russian Academy of Sciences (project no. 06-III--01-017), and by the Foundation of Assistance to the Russian Science.
+
+> c©2004 American Mathematical Society
+> 12A. V. USTINOV
+
+of arithmetic functions on the values of a quadratic polynomial [2, 12], on statistical properties of the Euclid algorithm [1, 5, 13], etc. We denote
+
+S[f ] = 1
+
+q
+
+∑
+
+> P1<x ≤P2
+
+μq,l (x)f (x),
+
+where μq,l (x) is the number of solutions of the congruence xy ≡ l (mod q) with respect to the variable y lying within the limits 1 ≤ y ≤ q.The following statement is the main result of the present paper.
+
+Theorem 1. Let P1 and P2 be real numbers, let P = P2 − P1 ≥ 2, and let a nonnegative function f (x) be twice continuously differentiable on the entire interval [P1, P 2]. Suppose that 1
+
+A ≤ | f ′′ (x)| ≤ wA .
+
+for some A > 0 and w ≥ 1. Then the following asymptotic formula is valid :(1) T [f ] = S[f ] − P
+
+2 · δq (l) + R[f ],
+
+where
+
+(2)
+
+R[f ] w σ2/30 (q)σ5/30 (a)σ4/3
+
+> −1/2
+
+(a)P A −1/3
+
++ σ0(q)σ0(a)( A1/2a1/2σ−1(q)σ−1/2(a)+ q1/2σ0(a)σ2
+
+> −1/2
+
+(a) log 2 P + a log P )
+
+and a = ( l, q ).
+
+This theorem refines a result of the paper [2], where formula (1) was proved with the remainder term
+
+R[f ]  a1/2qε(( P A −1/3 + A2/3) log 4/3 P + q1/2 log 2 P ).
+
+As an application of Theorem 1, we prove a refinement of a result due to Porter [13] (see also [1]) extended to the case of Gauss–Kuzmin statistic.
+
+Theorem 2. Suppose b ≥ 2 is natural and x ∈ (0 , 1] is real. Then the sum
+
+N ∗
+
+> x
+
+(b) = ∑
+
+> 1≤a≤b
+> (a,b )=1
+
+s(x)(a/b )
+
+satisfies the following asymptotic formula :
+
+N ∗
+
+> x
+
+(b) = 2ϕ(b)
+
+ζ(2) (log( x + 1) log b + C(x)) + Oε,x
+
+(
+
+b5/6 log 7/6+ ε b
+
+)
+
+,
+
+where ε > 0 is an arbitrarily small number,
+
+(3)
+
+C(x) = log(1 + x)
+
+(
+
+log x − log( x + 1) 2 + 2 γ − 2 ζ′(2)
+
+ζ(2) − 1
+
+)
+
++ h1(x) + h2(x) + ζ(2) 2
+
+(
+
+x · [x < 1] − x
+
+1 + x
+
+)
+
+,h1(x) =
+
+> ∞
+
+∑
+
+> n=1
+
+1
+
+n
+
+( n∑
+
+> m=1
+
+xn + mx − log(1 + x)
+
+)
+
+,(4)
+
+h2(x) =
+
+> ∞
+
+∑
+
+> n=1
+
+1
+
+n
+
+ ∑
+
+> nx≤m< nx+n
+
+1
+
+m − log(1 + x)
+
+ .(5) ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 3
+
+Moreover, the estimate of the remainder term is uniform in x provided x ∈ [x0, 1] for some fixed x0 > 0.
+
+§2. Estimates of Kloosterman sums
+
+Suppose q is a natural number and l, m, n are integers. We define the sums (6) Kq (l, m, n ) =
+
+> q
+
+∑
+
+> x,y =1
+
+δq (xy − l)e2πi mx +ny q ;in a special case they coincide with the classical Kloosterman sums
+
+Kq (m, n ) = Kq (1 , m, n ) =
+
+> q
+
+∑
+
+> x,y =1
+
+δq (xy − 1) e2πi mx +ny q .
+
+We mention the simplest properties of the sums Kq (l, m, n ). 1◦ If ( l, q ) = 1, then Kq (l, m, n ) = Kq (lm, n ).
+
+2◦ If q = q1q2 and ( q1, q 2) = 1, then
+
+Kq (l, m, n ) = Kq1 (¯ q22 l, m, n )Kq2 (¯ q21 l, m, n ),
+
+where ¯ q1 and ¯ q2 are solutions of the congruences q1 ¯q1 ≡ 1 (mod q2) and q2 ¯q2 ≡ 1(mod q1). 3◦ For any permutation σ ∈ S3, we have
+
+Kq (n1, n 2, n 3) = Kq (nσ(1) , n σ(2) , n σ(3) ).
+
+4◦. K q (l, m, n ) = Kq (l, −m, −n).
+
+We obtain the first property if we put x = lx 1 in the definition (6). To prove the second property, it suffices to make the substitutions
+
+x = x1q2 + x2q1, y = y1q2 + y2q1 (1 ≤ x1, y 1 ≤ q1, 1 ≤ x2, y 2 ≤ q2).
+
+The third property follows from the relation
+
+Kq (l, m, n ) = 1
+
+q
+
+> q
+
+∑
+
+> x,y,z =1
+
+e2πi mx +ny +lz −xyz q .
+
+The fourth property is obtained with the help of the substitution x → − x, y → − y.In [7], for the classical Kloosterman sums, Estermann proved the estimate (7) |Kq (m, n )| ≤ σ0(q) · (m, n, q )1/2 · q1/2.
+
+A similar inequality remains valid for the sums Kq (l, m, n ).
+
+Lemma 1. Suppose q is natural, l, m, and n are integers, and a = ( l, q ). Then
+
+(8) |Kq (l, m, n )| ≤ fq (l, m, n ) · q1/2,
+
+where
+
+fq (l, m, n ) = σ0(q)σ0(( l, m, n, q ))( lm, ln, mn, q )1/2.
+
+Proof. Property 2 ◦ of the sums Kq (l, m, n ) and the multiplicativity of fq (l, m, n ) as a function of q show that it suffices to prove (8) in the case where q is a power of a prime number. Suppose p is prime, α ≥ 1, q = pα, and ( l, m, n, p α) = pλ. If λ = α, then
+
+Kq (l, m, n ) =
+
+> pα
+
+∑
+
+> x,y =1
+
+δpα (xy ) = ( α + 1) pα − αp α−1 ≤ σ0(q)q, 4 A. V. USTINOV
+
+and (8) is fulfilled. Now we assume that λ ≤ α − 1, l = pλl1, m = pλm1, and n = pλn1.By the symmetry 3 ◦ of the Kloosterman sums, we may assume that ( l1, p ) = 1. Then, after the changes x = pβ x1, y = pλ−β y1 (0 ≤ β ≤ λ), we obtain
+
+Kpα (l, m, n ) =
+
+> λ
+
+∑
+
+> β=0
+> pα−β
+
+∑
+
+> x1=1
+> pα−λ+β
+
+∑
+
+> y1=1
+
+δpα−λ (x1y1 − l1)e2πi m1pβ x1+n1pλ−β y1
+
+> pα−λ
+
+= pλλ∑
+
+> β=0
+> pα−λ
+
+∑
+
+> x1=1
+> pα−λ
+
+∑
+
+> y1=1
+
+δpα−λ (x1y1 − l1)e2πi m1pβ x1+n1pλ−β y1
+
+> pα−λ
+
+= pλλ∑
+
+> β=0
+
+Kpα−λ (m1pβ , n 1pλ−β , l 1).
+
+Using property 1 ◦ of the sums Kq (l, m, n ) and Estermann’s estimate (7), we find
+
+∣∣Kpα−λ (m1pβ , n 1pλ−β , l 1)∣∣ = ∣∣Kpα−λ (l1m1pβ , n 1pλ−β , 1) ∣∣
+
+= ∣∣Kpα−λ (l1m1pβ , n 1pλ−β )∣∣ ≤ σ0(pα)( m1pβ , n 1pλ−β , p α−λ)1/2p(α−λ)/2.
+
+Taking the relation λ + 1 = σ0(( l, m, n, p α)) into account, we arrive at the inequality
+
+|Kpα (l, m, n )| ≤ σ0(pα)σ0(( l, m, n, p α)) pα/ 2 max
+
+> 0≤β≤λ
+
+(mp β , np λ−β , p α)1/2.
+
+Observing that (mp β , np λ−β , p α) ≤ (lm, ln, mn, p α),
+
+we complete the proof of the lemma. 
+
+Remark 1. The sharper estimate (mp β , np λ−β , p α)2 = ( m2p2β , n 2p2α−2β , p 2α) ≤ (l2m2, l 2n2, m 2n2, lmn, p 2α)shows that the inequality in Lemma 1 is valid with the coefficient
+
+fq (l, m, n ) = σ0(q)σ0(( l, m, n, q ))( l2m2, l 2n2, m 2n2, lmn, q 2)1/4.
+
+Corollary 1. Suppose q is natural, l is an integer, and a = ( l, q ). Then
+
+> q
+
+∑
+
+> m,n =1
+
+|Kq (l, m, n )|
+
+m · n  σ0(q)σ20 (a)σ2
+
+> −1/2
+
+(a) log 2(q + 1) q1/2.
+
+Proof. By Lemma 1,
+
+|Kq (l, m, n )| ≤ σ0(q)σ0(a)( lm, ln, mn, q )1/2q1/2.
+
+Therefore, to prove the corollary it suffices to verify that the sum
+
+S =
+
+> q
+
+∑
+
+> m,n =1
+
+(lm, ln, mn, q )1/2
+
+mn
+
+satisfies the estimate (9) S  σ0(a)σ2
+
+> −1/2
+
+(a) log 2(q + 1) .ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 5
+
+We transform the sum S:
+
+S = ∑
+
+> δ|q
+
+δ1/2
+
+> q
+
+∑
+
+> m,n =1
+
+[( lm, ln, mn ) = δ]
+
+mn
+
+≤ ∑
+
+> δ|q
+
+δ1/2
+
+> q
+
+∑
+
+> m,n =1
+
+1
+
+mn
+
+[ δ
+
+(l, δ ) | m, δ
+
+(l, δ ) | n, δ | mn
+
+]
+
+≤ ∑
+
+> δ|q
+
+δ1/2
+
+> q
+
+∑
+
+> m1,n 1=1
+
+1
+
+m1n1
+
+· (l, δ )2
+
+δ2 [( l, δ )2 | m1n1δ].
+
+Henceforth, [ A] denotes 1 if the assertion A is true and 0 otherwise. Introducing the parameters δ1 = ( δ, l ) and δ2 = ( δ, δ 21 ), we find
+
+S ≤ ∑
+
+> δ1|(l,q )
+
+δ21
+
+∑
+
+> δ|q
+> (δ,l )= δ1
+
+1
+
+δ3/2
+
+> q
+
+∑
+
+> m1,n 1=1
+
+[δ21 | m1n1δ]
+
+m1n1
+
+≤ ∑
+
+> δ1|(l,q )
+
+δ21
+
+∑
+
+> δ|q
+> (δ,l )= δ1
+
+1
+
+δ3/2
+
+> q
+
+∑
+
+> m1,n 1=1
+
+1
+
+m1n1
+
+[ δ21
+
+δ2
+
+| m1n1
+
+]
+
+.
+
+Note that δ1 | δ2 and δ21 /δ 2 | δ1. Consequently, the estimate
+
+> q
+
+∑
+
+> m1,n 1=1
+
+1
+
+m1n1
+
+[d | m1n1] ≤
+
+> q2
+
+∑
+
+> k=1
+
+σ0(dk )
+
+dk  σ0(d)
+
+d · log 2(q + 1) implies that
+
+S  σ0(a) log 2(q + 1) ∑
+
+> δ1|(l,q )
+
+∑
+
+> δ|q
+> (δ,l )= δ1
+
+δ2
+
+δ3/2 = σ0(a) log 2(q + 1) ∑
+
+> δ|q
+
+δ2
+
+δ3/2 .
+
+After the changes δ = δ1 · δ0 and ( δ1, δ 0) = δ′, we have
+
+∑
+
+> δ|q
+
+δ2
+
+δ3/2 = ∑
+
+> δ1|(l,q )
+
+∑
+
+> δ|q
+> (δ,l )= δ1
+
+(δ21 , δ )
+
+δ3/2 ≤ ∑
+
+> δ1|(l,q )
+
+δ−1/21
+
+∑
+
+> δ0|q
+
+(δ1, δ 0)
+
+δ3/20
+
+= ∑
+
+> δ1|(l,q )
+
+δ−1/21
+
+∑
+
+> δ′|δ1
+
+δ′ ∑
+
+> δ0|q
+> (δ0,δ 1)= δ′
+
+1
+
+δ3/20
+
+ ∑
+
+> δ1|a
+
+δ−1/21
+
+∑
+
+> δ′|a
+
+(δ′)−1/2.
+
+Therefore, (10) ∑
+
+> δ|q
+
+δ2
+
+δ3/2  σ2
+
+> −1/2
+
+(a).
+
+Thus, estimate (9) is proved, together with the lemma. 
+
+Separately, we estimate the sums Kq (l, m, n ) in the case where one of the arguments is equal to zero. Let
+
+cq (m, n ) = Kq (0 , m, n ) =
+
+> q
+
+∑
+
+> x,y =1
+
+δq (xy )e2πi mx +ny q .6 A. V. USTINOV
+
+Such sums are generalizations of the Ramanujan sums
+
+cq (n) =
+
+> q
+
+∑∗
+
+> x=1
+
+e2πi nx q
+
+(from now on the asterisk means that the summation is over the reduced system of residues), because
+
+cq (n) = Kq (0 , 1, n ) = cq (1 , n ).
+
+By property 2 ◦ of the Kloosterman sums Kq (l, m, n ) for q = q1q2, ( q1, q 2) = 1, we have
+
+cq (m, n ) = cq1 (m, n )cq2 (m, n ).
+
+Therefore, to compute the sums cq (m, n ), it suffices to consider the ease where q is a power of a prime number.
+
+Lemma 2. Suppose p is prime, α ≥ 1, and q = pα. Then
+
+cq (m, n ) = gpα (m, n ) − gpα−1 (m, n ),
+
+where
+
+(11) gq (m, n ) = q · δq (( m, q )( n, q )) σ0(( m, q )( n, q )q−1).
+
+Proof. If xy ≡ 0 (mod pα), then the relations
+
+x = pβ x1, (x1, p ) = 1 , y = pα−β y1
+
+hold true for some β (0 ≤ β ≤ α). Therefore,
+
+cq (m, n ) =
+
+> α
+
+∑
+
+> β=0
+> pα−β
+
+∑∗
+
+> x1=1
+> pβ
+
+∑
+
+> y1=1
+
+e2πi mp β x1+np α−β y1
+
+> pα
+
+=
+
+> α
+
+∑
+
+> β=0
+> pα−β
+
+∑
+
+> x1=1
+> pβ
+
+∑
+
+> y1=1
+
+e2πi
+
+> (mx 1
+> pα−β+ny 1
+> pβ
+> )
+
+−
+
+> α−1
+
+∑
+
+> β=0
+> pα−β−1
+
+∑
+
+> x1=1
+> pβ
+
+∑
+
+> y1=1
+
+e2πi
+
+> (mx 1
+> pα−β−1+ny 1
+> pβ
+> )
+
+= gpα (m, n ) − gpα−1 (m, n ),
+
+where
+
+gpα (m, n ) = pαα∑
+
+> β=0
+
+δpα−β (m)δpβ (n).
+
+To verify (11), we note that if pα - (m, p α)( n, p α), then gpα (m, n ) = 0 . If ( m, p α) = pν1 ,(n, p α) = pν2 , and ν1 + ν2 ≥ α, then
+
+gpα (m, n ) = pαα∑
+
+> β=0
+
+[α − ν1 ≤ β ≤ ν2]= pα(ν1 + ν2 − α + 1) = pα · σ0(( m, p α)( n, p α)p−α). 
+
+Corollary 2. For any natural q and integers m and any n, we have
+
+(12) |cq (m, n )| ≤ σ0(( m, q ))( q, mn ).
+
+In particular,
+
+(13) Kq (m, 0, 0) = |cq (m, 0) | ≤ σ0(( m, q )) q. ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 7
+
+Proof. Since the quantity on the right-hand side of (12) (as well as cq (m, n )) is a multi-plicative function of the parameter q, it suffices to prove (12) for powers of prime numbers. Suppose p is prime, α ≥ 1, and q = pα. Consider three cases: (1) pα | (m, p α)( n, p α), and thus pα−1 | (m, p α−1)( n, p α−1); (2) pα - (m, p α)( n, p α), but pα−1 | (m, p α−1)( n, p α−1); (3) pα−1 - (m, p α−1)( n, p α−1). In the first case, gpα (m, n ) > 0, gpα−1 (m, n ) > 0, and for ( m, p α) = pν1 , (n, p α) = pν2
+
+we have
+
+gpα−1 (m, n ) = pα−1(min {ν1, α − 1} + min {ν2, α − 1} − α + 2)
+
+≤ pα−1(ν1 + ν2 − α + 2) ≤ pα(ν1 + ν2 − α + 1) = gpα (m, n ).
+
+Therefore, by Lemma 2, 0 ≤ cpα (m, n ) = gpα (m, n ) − gpα−1 (m, n ) ≤ gpα (m, n ),
+
+|cpα (m, n )| ≤ gpα (m, n ) ≤ pασ0(( m, p α)) δpα (( m, p α)( n, p α)) = σ0(( m, q ))( q, mn ).
+
+Similarly, in the second case we obtain
+
+|cq (m, n )| = gpα−1 (m, n )
+
+≤ pα−1σ0(( m, p α)) δpα−1 (( m, p α−1)( n, p α−1)) = σ0(( m, q ))( q, mn ).
+
+Finally, in the third case we have |cq (m, n )| = 0. 
+
+Corollary 3. Suppose q is natural, l is an integer, and a = ( l, q ). Then
+
+> q
+
+∑
+
+> n=1
+
+|cq (l, n )|
+
+n  σ0(q)σ0(a) log( q + 1) · a.
+
+Proof. By Corollary 2,
+
+> q
+
+∑
+
+> n=1
+
+|cq (l, n )|
+
+n ≤ σ0(a)
+
+> q
+
+∑
+
+> n=1
+
+1
+
+n (q, ln ) = aσ 0(a)
+
+> q
+
+∑
+
+> n=1
+
+1
+
+n
+
+( qa , n
+
+)
+
+≤ aσ 0(a) ∑
+
+> δ|q/a
+
+δ
+
+> q
+
+∑
+
+> n=1
+> δ|n
+
+1
+
+n  aσ 0(a)σ0(q) log( q + 1) .
+
+
+
+Lemma 3. Suppose q ≥ 1 is natural, l is an integer, Q1, Q2, P1, P2 are real, 0 ≤
+
+P1, P 2 ≤ q, and a = ( l, q ). Then for the sum
+
+Φq (Q1, Q 2; P1, P 2) = ∑
+
+> Q1<u ≤Q1+P1
+> Q2<v ≤Q2+P2
+
+δq (uv − l)
+
+we have the asymptotic formula
+
+Φq (Q1, Q 2; P1, P 2) = Kq (l, 0, 0)
+
+q2 · P1P2 + O (ψl(q)) ,
+
+where
+
+(14) ψl(q) = σ0(q)σ20 (a)σ2
+
+> −1/2
+
+(a) log 2(q + 1) q1/2 + σ0(q)σ0(a) log( q + 1) a. 8 A. V. USTINOV
+
+Proof. We define the integers
+
+M1 = [ Q1], M2 = [ Q2],N1 = [ Q1 + P1] − [Q1], N2 = [ Q2 + P2] − [Q2].
+
+Then (15) Φq (Q1, Q 2; P1, P 2) = Φ q (M1, M 2; N1, N 2)and (16) 0 ≤ N1, N 2 ≤ q,
+
+because 0 ≤ Nj = [ Qj + Pj ] − [Qj ] = Pj + {Qj } − { Qj + Pj } ≤ q (j = 1 , 2) .
+
+First, we prove the lemma with M1, M2, N1, N2 in place of Q1, Q2, P1, P2. If one of the numbers N1 and N2 is equal to zero, then the lemma is trivial. For this reason, in the sequel we assume that N1 and N2 are natural numbers. We define two functions
+
+F1 : {M1 + 1 , . . . , M 1 + q} → { 0, 1}, F2 : {M2 + 1 , . . . , M 2 + q} → { 0, 1}
+
+by setting
+
+Fj (x) =
+
+{
+
+1 if Mj < x ≤ Mj + Nj ,
+
+0 if Mj + Nj < x ≤ Mj + q.
+
+These functions have the following Fourier series expansions:
+
+Fj (x) = ∑
+
+> −q/ 2<k ≤q/ 2
+
+̂
+
+Fj (k)e2πi kx q
+
+where ̂
+
+Fj (k) = 1
+
+q
+
+> Mj+Nj
+
+∑
+
+> y=Mj+1
+
+e−2πi ky q .
+
+For k = 0 we have ̂
+
+Fj (0) = 1
+
+q Nj ,
+
+and for the other k ∈ (−q/ 2, q/ 2], we can sum the geometric progression to find ̂
+
+Fj (k) = 1
+
+q · 1 − e−2πikN j /q
+
+1 − e−2πik/q · e−2πik (Mj +1) /q .
+
+Therefore, (17)
+
+∣∣̂ Fj (k)∣∣ = 1
+
+q · | sin( πkN j /q )|| sin( πk/q )| ≤ 1
+
+q| sin( πk/q )|≤ 12|k| (−q/ 2 < k ≤ q/ 2; k 6 = 0) .
+
+In accordance with the said above Φq (M1, M 2; N1, N 2) =
+
+> M1+q
+
+∑
+
+> u=M1+1
+> M2+q
+
+∑
+
+> v=M2+1
+
+δq (uv − l)F1(u)F2(v)=
+
+> M1+q
+
+∑
+
+> u=M1+1
+> M2+q
+
+∑
+
+> v=M2+1
+
+δq (uv − l) ∑
+
+> −q/ 2<m,n ≤q/ 2
+
+̂
+
+F1(m)̂F2(n)e2πi mu +nv q
+
+= ∑
+
+> −q/ 2<m,n ≤q/ 2
+
+̂
+
+F1(m)̂F2(n)Kq (l, m, n ).ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 9
+
+Separating out the term with m = n = 0, we obtain the relation Φq (M1, M 2; N1, N 2) = N1N2
+
+q2 · Kq (l, 0, 0) + R1 + R2 + R3,
+
+where
+
+R1 = ∑′−q/ 2<n ≤q/ 2̂
+
+F1(0) ̂F2(n)Kq (l, 0, n ),R2 = ∑′−q/ 2<m ≤q/ 2̂
+
+F1(m)̂F2(0) Kq (l, m, 0) ,R3 = ∑′−q/ 2<m ≤q/ 2
+
+∑′−q/ 2<n ≤q/ 2̂
+
+F1(m)̂F2(n)Kq (l, m, n ).
+
+Henceforth, the prime at the summation sign means that the summation index does not take the value zero. Using inequalities (17) for the Fourier coefficients and properties 3◦–4 ◦ of the sums Kq (l, m, n ), we arrive at the estimates
+
+R1,2 
+
+> q
+
+∑
+
+> n=1
+
+|Kq (l, 0, n )|
+
+n ,R3 
+
+> q
+
+∑
+
+> m,n =1
+
+|Kq (l, m, n )| + |Kq (−l, m, n )|
+
+mn .
+
+Applying Corollaries 1 and 3, we obtain the asymptotic formula Φq (M1, M 2; N1, N 2) = N1N2
+
+q2 · Kq (l, 0, 0) + O(ψl(q)) ,
+
+where the function ψl(q) is as in (14). The definitions of M1, M2, N1, and N2 and condition (16) imply that
+
+|P1P2 − N1N2| = |P1(P2 − N2) + N2(P1 − N1)| ≤ 2q.
+
+By (13) and (15), this inequality implies that
+
+∣∣∣Φq (Q1, Q 2; P1, P 2) − P1P2
+
+q2 Kq (l, 0, 0)
+
+∣∣∣
+
+ ψl(q) +
+
+∣∣∣ N1N2
+
+q2 Kq (l, 0, 0) − P1P2
+
+q2 Kq (l, 0, 0)
+
+∣∣∣
+
+ ψl(q) + Kq (l, 0, 0)
+
+q2 q  ψl(q).
+
+The lemma is proved. 
+
+Remark 2. For any P1 and P2 = q, the same arguments yield the formula Φq (Q1, Q 2; P1, P 2) = P1
+
+q Kq (l, 0, 0) + O(σ0(q)σ0(a)a).
+
+§3. Application of van der Corput’s method
+
+Lemma 4. Let P1 and P2 be real numbers, and let P = P2 − P1 ≥ 1. Assume that a real function f (x) is continuously differentiable on the entire interval [P1, P 2], and that
+
+f ′(x) is monotone, ‖f ′(x)‖ ≥ λ > 0. Then
+
+∑
+
+> P1<x ≤P2
+
+e2πif (x)  λ−1.
+
+Proof. See [8, Theorem 2.1]. 10 A. V. USTINOV
+
+Lemma 5. Let P1 and P2 be real numbers, and let P = P2 − P1 ≥ 1. Assume that a real function f (x) is twice continuously differentiable on the entire interval [P1, P 2], and that, for some A > 0 and w ≥ 1, we have
+
+1
+
+A ≤ | f ′′ (x)| ≤ wA .
+
+Then
+
+∑
+
+> P1<x ≤P2
+
+e2πif (x) w
+
+P
+
+√A + √A.
+
+Proof. See [8, Theorem 2.2]. 
+
+Lemma 6. Let P1 and P2 be real numbers, and let P = P2 − P1 ≥ 2. Assume that a real function f (x) is twice continuously differentiable on the entire interval [P1, P 2], and that, for some A ≥ P and w ≥ 1, we have
+
+1
+
+A ≤ | f ′′ (x)| ≤ wA .
+
+Then, for any natural q,
+
+> q
+
+∑
+
+> m=1
+
+∣∣∣∣∑
+
+> P1<x ≤P2
+
+e2πi ( mx q +f (x))
+
+∣∣∣∣ w q
+
+( P
+
+√A + log A
+
+)
+
++ √A.
+
+Proof. We note that it suffices to prove the lemma for the sum
+
+S = ∑
+
+> 1≤m≤q/ 8
+
+∣∣∣∣∑
+
+> P1<x ≤P2
+
+e2πi ( mx q +f (x))
+
+∣∣∣∣.
+
+Without loss of generality, we may assume that f ′′ > 0 and, for x ∈ [P1, P 2], the values of the derivative of f (x) lie inside an interval of length not exceeding 1 /8. Otherwise, the interval [ P1, P 2] can be divided into O( PA + 1) = O(1) shorter intervals such that on each of them this condition is fulfilled. Thus, the values of the derivative of the function
+
+> mx q
+
++ f (x) range inside an interval of length not exceeding 1 /4. If this interval contains a half-integer, then ‖ mq + f ′(x)‖ ≥ 14 and, by Lemma 4,
+
+S  q  q
+
+( P
+
+√A + log A
+
+)
+
++ √A.
+
+Now we consider the case where, for some integer k, for all 1 ≤ m ≤ q/ 2 and x ∈ [P1, P 2], the values of the derivative of mx q + f (x) lie inside the interval [ k − 12 , k + 12 ], i.e.,
+
+k − 12 ≤ mq + f ′(x) ≤ k + 12 (1 ≤ m ≤ q/ 8, P 1 < x ≤ P2).
+
+Let integers m1 and m2 be determined by the conditions
+
+m1
+
+q + f ′(P2) ≤ k − 1
+
+√A , m1 + 1
+
+q + f ′(P2) > k − 1
+
+√A ;
+
+m2
+
+q + f ′(P1) ≥ k + 1
+
+√A , m2 − 1
+
+q + f ′(P1) < k + 1
+
+√A .ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 11
+
+We write the sum S in the form S = S1 + S2 + S3, where
+
+S1 = ∑
+
+> 1≤m<m 1
+
+∣∣∣∣∑
+
+> P1<x ≤P2
+
+e2πi ( mx q +f (x))
+
+∣∣∣∣,S2 = ∑
+
+> m1<m<m 2
+
+∣∣∣∣∑
+
+> P1<x ≤P2
+
+e2πi ( mx q +f (x))
+
+∣∣∣∣,S3 = ∑
+
+> m2≤m≤q/ 2
+
+∣∣∣∣∑
+
+> P1<x ≤P2
+
+e2πi ( mx q +f (x))
+
+∣∣∣∣.
+
+By Lemma 4,
+
+S1  ∑
+
+> 1≤m<m 1
+
+1
+
+k −
+
+( mq + f ′(P2)
+
+) <
+
+∫ m1
+
+> 0
+
+dm k −
+
+( mq + f ′(P2)
+
+)  q · log A.
+
+Similarly,
+
+S3  ∑
+
+> m2<m ≤q/ 2
+
+1
+
+> mq
+
++ f ′(P1) − k <
+
+∫ q/ 2
+
+> m2
+
+dm
+
+> mq
+
++ f ′(P1) − k  q · log A.
+
+We apply Lemma 5 to the sum S2:
+
+S2  (m2 − m1 + 1)
+
+( P
+
+√A + √A
+
+)
+
+ (m2 − m1 + 1) √A
+
+
+
+(
+
+q
+
+( 1
+
+√A + PA
+
+)
+
++ 1
+
+) √A = q
+
+(
+
+1 + P
+
+√A
+
+)
+
++ √A.
+
+Summing the estimates for S1, S2, and S3, we obtain the required estimate of the sum
+
+S. 
+
+§4. Proof of the main result
+
+Lemma 7 (Poisson summation formula) . Let h be a real nonnegative function such that the integral ∫ ∞−∞
+
+h(x) dx
+
+exists as an improper Riemann integral. Assume also that h is monotone nondecreasing on the interval (−∞ , 0] and is monotone nonincreasing on [0 , ∞). Then
+
+> ∞
+
+∑
+
+> m=−∞
+
+h(m + 0) + h(m − 0) 2 =
+
+> ∞
+
+∑
+
+> n=−∞
+
+̂
+
+h(n),
+
+where the two series converge absolutely, and ̂
+
+h(n) =
+
+∫ ∞−∞
+
+h(t)e−2πint dt
+
+is the Fourier transform of h.Proof. See [6, 11.24]. 
+
+Proof of Theorem 1. We assume that A  1, max {A, q } ≤ P 2, and log( Aq )  log P ,because otherwise the estimate to be proved is worse than the trivial one. Note that it suffices to prove the lemma under the assumption that the graph of the function f (x) for x ∈ [P1, P 2] goes through no points of the integer lattice. Indeed, if this condition is not fulfilled, then ε can be chosen within the limits 0 < ε ≤ A−1/3, so that for integers x ∈ [P1, P 2] the numbers f (x) ± ε are not integers. If we assume that for the 12 A. V. USTINOV
+
+functions f ± ε relation (1) holds true with the remainder term (2), then, by using the relations
+
+T [f − ε] < T [f ] ≤ T [f + ε], S[f ± ε] = S[f ] + O(P A −1/3),
+
+we obtain the required estimate of the remainder term for the function f as well. We may also assume that f ≥ 2q, because otherwise we can replace the function f by
+
+f + 2 q.For ∆ < 1/4 and for real α, β (β − α > ∆), we define the functions
+
+ψ(α, β ; x) = [ α < x ≤ β],ψ∓(α, β ; x) = 1∆
+
+∫ ∆/2
+
+> −∆/2
+
+ψ
+
+(
+
+α ± ∆2 , β ∓ ∆2 ; x + t
+
+)
+
+dt ;obviously, we have
+
+ψ−(α, β ; x) ≤ ψ(α, β ; x) ≤ ψ+(α, β ; x).
+
+We denote by N (x) the number of solutions of the congruence xy ≡ l (mod q) with respect to the unknown y that lies within the limits 1 ≤ y ≤ f (x). Then
+
+N−(x) ≤ N (x) =
+
+> ∞
+
+∑
+
+> y=−∞
+
+δq (xy − l)ψ
+
+( 12 , f (x); y
+
+)
+
+≤ N+(x),
+
+where
+
+N∓(x) =
+
+> ∞
+
+∑
+
+> y=−∞
+
+δq (xy − l)ψ∓
+
+( 12 , f (x); y
+
+)
+
+=
+
+> q
+
+∑
+
+> k=1
+
+δq (xk − l)
+
+> ∞
+
+∑
+
+> m=−∞
+
+ψ∓
+
+( 12 , f (x); mq + k
+
+)
+
+.
+
+For any value of k, the functions
+
+h∓(m) = ψ∓
+
+( 12 , f (x); mq + k
+
+)
+
+are nonnegative, continuous, and Riemann integrable on the entire real line; also, they are monotone nondecreasing on the interval ( −∞ , 0] and monotone nonincreasing on [0 , ∞) (recall that f ≥ 2q by assumption). Therefore, the Poisson summation formula can be applied to them (see Lemma 7), yielding
+
+N∓(x) =
+
+> q
+
+∑
+
+> k=1
+
+δq (xk − l)
+
+> ∞
+
+∑
+
+> n=−∞
+
+(∫ ∞−∞
+
+ψ∓
+
+( 12 , f (x); qv + k
+
+)
+
+e−2πinv dv
+
+)
+
+= 1
+
+q
+
+> q
+
+∑
+
+> k=1
+
+δq (xk − l)
+
+> ∞
+
+∑
+
+> n=−∞
+
+(∫ ∞−∞
+
+ψ∓
+
+( 12 , f (x); u
+
+)
+
+e−2πin u−kq du
+
+)
+
+= 1
+
+q
+
+> q
+
+∑
+
+> k=1
+
+δq (xk − l)
+
+> ∞
+
+∑
+
+> n=−∞
+
+e2πi nk q̂ ψ∓
+
+( 12 , f (x); nq
+
+)
+
+.
+
+If n = 0, then ̂
+
+ψ∓
+
+( 12 , f (x); nq
+
+)
+
+= f (x) − 12 ∓ ∆.
+
+For n 6 = 0, we have ̂
+
+ψ∓
+
+( 12 , f (x); nq
+
+)
+
+= q · t∆(N ) e−2πi nq ( 12 ± ∆2 ) − e−2πi nq (f (x)∓ ∆2 )
+
+2πin ,ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 13
+
+where
+
+t∆(n) = sin πn ∆
+
+> qπn ∆
+> q
+
+, |t∆(n)| ≤ T∆(n) = min
+
+{
+
+1, q
+
+|n|∆
+
+}
+
+.
+
+Consequently, (18) N∓(x) = μq,l (x)
+
+q
+
+(
+
+f (x) − 12 ∓ ∆
+
+)
+
++ N (1)
+
+> ∓
+
+(x) + N (2)
+
+> ∓
+
+(x),
+
+where
+
+N (1)
+
+> ∓
+
+(x) =
+
+> q
+
+∑
+
+> k=1
+
+δq (xk − l)
+
+> ∞
+
+∑′
+
+> n=−∞
+
+t∆(n) e2πi nq (k− 12 ∓ ∆2 )
+
+2πin ,N (2)
+
+> ∓
+
+(x) =
+
+> q
+
+∑
+
+> k=1
+
+δq (xk − l)
+
+> ∞
+
+∑′
+
+> n=−∞
+
+t∆(n) e−2πi nq (f (x)∓ ∆2 −k)
+
+2πin .
+
+Next,
+
+T−[f ] ≤ T [f ] = ∑
+
+> P1<x ≤P2
+
+N (x) ≤ T+[f ],
+
+where
+
+T∓[f ] = ∑
+
+> P1<x ≤P2
+
+N∓(x).
+
+By Remark 2, ∑
+
+> P1<x ≤P2
+
+μq,l (x) = Pq Kq (l, 0, 0) + O(σ0(q)σ0(a)a).
+
+Therefore, after summation, formula (18) yields (19)
+
+T∓[f ] = S[f ] − P
+
+2q2 Kq (l, 0, 0) + T (1)
+
+> ∓
+
+[f ] + T (2)
+
+> ∓
+
+[f ]+ O
+
+( ∆Pq2 Kq (l, 0, 0)
+
+)
+
++ O (σ0(q)σ0(a)a) ,
+
+where
+
+T (1 ,2)
+
+> ∓
+
+[f ] = ∑
+
+> P1<x ≤P2
+
+N (1 ,2)
+
+> ∓
+
+(x).
+
+It is well known that the function
+
+r(x) =
+
+{ 12 − { x} if x / ∈ Z,
+
+0 if x ∈ Z
+
+has the Fourier series expansion
+
+r(x) = 12πi
+
+> ∞
+
+∑′
+
+> n=−∞
+
+e2πinx
+
+n .
+
+This implies that the smoothed function
+
+g(x) = q
+
+∆
+
+∫ ∆/(2 q)
+
+> −∆/(2 q)
+
+( 12 − { x + t}
+
+)
+
+dt
+
+is representable in the form
+
+g(x) = 12πi
+
+> ∞
+
+∑′
+
+> n=−∞
+
+t∆(n)
+
+n · e2πinx .14 A. V. USTINOV
+
+For x ∈
+
+( ∆2q , 1 − ∆2q
+
+)
+
+we have
+
+g(x) = 12 − x + O
+
+( ∆
+
+q
+
+)
+
+.
+
+Consequently,
+
+N (1)
+
+> ∓
+
+(x) =
+
+> q
+
+∑
+
+> k=1
+
+δq (xk − l)g
+
+( kq − 12q ∓ ∆2q
+
+)
+
+=
+
+> q
+
+∑
+
+> k=1
+
+δq (xk − l)
+
+( 12 − kq + 12q
+
+)
+
++ O
+
+( ∆ · μq,l (x)
+
+q
+
+)
+
+.
+
+To find T (1)
+
+> ∓
+
+[f ], we split the sum in the variable x into segments the length of which does not exceed q. For the sums
+
+S′ =
+
+> q
+
+∑
+
+> x,k =1
+
+δq (xk − l) kq and S′′ =
+
+> q
+
+∑
+
+> x,k =1
+
+δq (xk − l) q − kq
+
+we have S′ + S′′ = Kq (l, 0, 0) and S′′ = S′ − qδ q (l). Therefore,
+
+S′ = 12 (Kq (l, 0, 0) + qδ q (l)) ,
+
+> q
+
+∑
+
+> x=1
+
+N (1)
+
+> ∓
+
+(x) = 12
+
+( Kq (l, 0, 0)
+
+q − qδ q (l)
+
+)
+
++ O
+
+( ∆ · Kq (l, 0, 0)
+
+q
+
+)
+
+.(20) Moreover, applying Lemma 3 to the double sums in the identity
+
+> P′
+
+∑
+
+> x=1
+> q
+
+∑
+
+> k=1
+
+δq (xk − l) kq =
+
+> P′
+
+∑
+
+> x=1
+> q
+
+∑
+
+> k=1
+
+δq (xk − l) − 1
+
+q
+
+> q
+
+∑
+
+> b=1
+> P′
+
+∑
+
+> x=1
+> b−1
+
+∑
+
+> k=1
+
+δq (xk − l),
+
+for 1 ≤ P ′ ≤ q we obtain
+
+> P′
+
+∑
+
+> x=1
+> q
+
+∑
+
+> k=1
+
+δq (xk − l) kq = P ′
+
+2q Kq (l, 0, 0) + O(ψl(q)) .
+
+Hence, (21)
+
+> P′
+
+∑
+
+> x=1
+
+N (1)
+
+> ∓
+
+(x) = 12
+
+( P ′
+
+q2 Kq (l, 0, 0) − P ′δq (l)
+
+)
+
++ O(ψl(q)) + O
+
+( ∆P ′ · Kq (l, 0, 0)
+
+q2
+
+)
+
+.
+
+Thus, (4) and (21) show that
+
+∑
+
+> P1<x ≤P2
+
+N (1)
+
+> ∓
+
+(x) = 12
+
+( Pq2 Kq (l, 0, 0) − P δ q (l)
+
+)
+
++ O(ψl(q)) + O
+
+( ∆P · Kq (l, 0, 0)
+
+q2
+
+)
+
+.
+
+Substituting this in (19), we arrive at the relation (22) T∓[f ] = S[f ] − P
+
+2 δq (l) + T (2)
+
+> ∓
+
+[f ] + O(ψl(q)) + O
+
+( ∆P · Kq (l, 0, 0)
+
+q2
+
+)
+
+.
+
+Now we estimate T (2)
+
+> ∓
+
+[f ]. Using the relation
+
+> q−1
+
+∑
+
+> k=0
+
+δq (xk − l)e−2πi nk q = 1
+
+q
+
+> q
+
+∑
+
+> m=1
+
+Kq (l, m, n )e2πi mx q ,ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 15
+
+we write the quantity N (2)
+
+> ∓
+
+(x) in the form
+
+N (2)
+
+> ∓
+
+(x) = 1
+
+q
+
+> ∞
+
+∑′
+
+> n=−∞
+
+t∆(n)
+
+> q
+
+∑
+
+> m=1
+
+Kq (l, m, n ) e2πi ( nq (f (x)∓ ∆2 )− mx q )
+
+2πin .
+
+Hence,
+
+|T (2)
+
+> ∓
+
+[f ]|  1
+
+q
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(n)
+
+n
+
+> q
+
+∑
+
+> m=1
+
+|Kq (l, m, n )| ·
+
+∣∣∣∣∑
+
+> P1<x ≤P2
+
+e2πi mx −nf (x)
+
+> q
+
+∣∣∣∣.
+
+By Lemma 1,
+
+|T (2)
+
+> ∓
+
+[f ]|  σ0(q)σ0(a)
+
+q1/2 · S,
+
+where a = ( l, q ),
+
+S =
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(n)
+
+n
+
+> q
+
+∑
+
+> m=1
+
+(lm, ln, mn, q )1/2 · | Sq (m, n )| ,Sq (m, n ) = ∑
+
+> P1<x ≤P2
+
+e2πi mx −nf (x)
+
+> q
+
+.
+
+We set δ = ( lm, ln, mn, q ), δ1 = ( l, δ ) and transform the sum S:
+
+S = ∑
+
+> δ|q
+
+δ1/2
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(n)
+
+n
+
+> q
+
+∑
+
+> m=1
+
+[( lm, ln, mn ) = δ] · | Sq (m, n )|≤ ∑
+
+> δ|q
+
+δ1/2
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(n)
+
+n
+
+[ δδ1
+
+| n
+
+] q∑
+
+> m=1
+
+[ δδ1
+
+| m, δ | mn
+
+]
+
+· | Sq (m, n )| .
+
+After the change of summation indices m = δm 1/δ 1 and n = δn 1/δ 1, we arrive at the following bound on S:
+
+S ≤ ∑
+
+> δ|q
+
+δ1
+
+δ1/2
+
+> ∞
+
+∑
+
+> n1=1
+
+T∆(δn 1/δ 1)
+
+n1
+
+> δ1q/δ
+
+∑
+
+> m1=1
+
+[δ21 | δm 1n1
+
+] · | Sq (δm 1/δ 1, δn 1/δ 1)|
+
+= ∑
+
+> δ|q
+
+δ1
+
+δ1/2
+
+> ∞
+
+∑
+
+> n1=1
+
+T∆(δn 1/δ 1)
+
+n1
+
+> δ1q/δ
+
+∑
+
+> m1=1
+
+[ δ21
+
+δ2
+
+| m1n1
+
+]
+
+· ∣∣Sδ1q/δ (m1, n 1)∣∣ ,
+
+where δ2 = ( δ21 , δ ). Next, we set δ3 = ( n1, δ 21 /δ 2). Then
+
+S ≤ ∑
+
+> δ|q
+
+δ1
+
+δ1/2
+
+∑
+
+> δ3|δ21/δ 2
+> ∞
+
+∑
+
+> n1=1
+
+T∆(δn 1/δ 1)
+
+n1
+
+[( n1, δ 21 /δ 2)= δ3]
+
+> δ1q/δ
+
+∑
+
+> m1=1
+
+[ δ21
+
+δ2δ3
+
+| m1
+
+]
+
+· ∣∣Sδ1q/δ (m1, n 1)∣∣
+
+≤ ∑
+
+> δ|q
+
+δ1
+
+δ1/2
+
+∑
+
+> δ3|δ21/δ 2
+> ∞
+
+∑
+
+> n2=1
+
+T∆(δδ 3n2/δ 1)
+
+δ3n2
+
+> δ2δ3qδδ 1
+
+∑
+
+> m2=1
+
+∣∣∣∣Sδ1q/δ
+
+( δ21
+
+δ2δ3
+
+m2, δ 3n2
+
+)∣ ∣∣∣ ,
+
+where n1 = δ3n2, m 1 = δ21
+
+> δ2δ3
+
+m2. We estimate the sum of Sδ1q/δ
+
+( δ21
+
+> δ2δ3
+
+m2, δ 3n2
+
+). This sum depends on the function
+
+F (x) =
+
+( δ21
+
+δ2δ3
+
+m2x − δ3n2f (x)
+
+) δδ1q ,16 A. V. USTINOV
+
+for which
+
+F ′′ (x) = δδ 3n2
+
+δ1q f ′′ (x)  δδ 3n2
+
+δ1qA = 1
+
+A1
+
+, A1 = δ1qA δδ 3n2
+
+.
+
+We apply Lemma 6 if A1 ≥ P and Lemma 5 if A1 < P . This shows that S  S1 + S2,where
+
+S1 = ∑
+
+> δ|q
+
+δ1
+
+δ1/2
+
+∑
+
+> δ3|δ21/δ 2
+> ∞
+
+∑
+
+> n=1
+
+T∆(δδ 3n/δ 1)
+
+δ3n
+
+( δ2δ3qδδ 1
+
+( PA1/21
+
++ log P
+
+)
+
++ A1/21
+
+)
+
+[A1 ≥ P ],S2 = ∑
+
+> δ|q
+
+δ1
+
+δ1/2
+
+∑
+
+> δ3|δ21/δ 2
+> ∞
+
+∑
+
+> n=1
+
+T∆(δδ 3n/δ 1)
+
+δ3n · δ2δ3qδδ 1
+
+( PA1/21
+
++ A1/21
+
+)
+
+[A1 < P ].
+
+Collecting the terms of the same form in S1 and S2 and using the monotonicity of T∆(n), we get the estimate (23) S  S3 + S4 + S5 + S6,
+
+where
+
+S3 =P A −1/2q1/2 ∑
+
+> δ|q
+
+∑
+
+> δ3|δ21/δ 2
+
+δ2δ1/23
+
+δδ 1/21
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(δδ 3n/δ 1)
+
+n1/2 ,S4 =q log P ∑
+
+> δ|q
+
+∑
+
+> δ3|δ21/δ 2
+
+δ2
+
+δ3/2
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(n)
+
+n ,S5 =A1/2q1/2 ∑
+
+> δ|q
+
+∑
+
+> δ3|δ21/δ 2
+
+δ3/21
+
+δδ 3/23
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(n)
+
+n3/2 ,S6 =A1/2q3/2 ∑
+
+> δ|q
+
+∑
+
+> δ3|δ21/δ 2
+
+δ2δ1/21
+
+δ2δ1/23
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(δδ 3n/δ 1)
+
+n3/2
+
+[
+
+n > δ1qA δδ 3P
+
+]
+
+.
+
+Making use of the inequality T∆(n) ≤ min {1, q (∆ |n|)−1} and considering the cases where
+
+b∆ > q and b∆ ≤ q, we obtain the estimate
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(bn )
+
+n1/2 
+
+( qb∆
+
+)1/2
+
+.
+
+Hence,
+
+S3  P A −1/2∆−1/2q ∑
+
+> δ|q
+
+δ2
+
+δ3/2
+
+∑
+
+> δ3|δ21/δ 2
+
+1.
+
+Since ∑
+
+> δ3|δ21/δ 2
+
+1 ≤ ∑
+
+> δ3|δ1
+
+1 ≤ σ0(a),
+
+inequality (10) implies that (24) ∑
+
+> δ|q
+
+δ2
+
+δ3/2
+
+∑
+
+> δ3|δ21/δ 2
+
+1  σ0(a)σ2
+
+> −1/2
+
+(a)and (25) S3  σ0(a)σ2
+
+> −1/2
+
+(a)P A −1/2∆−1/2q.
+
+Next, since ∞∑
+
+> n=1
+
+T∆(n)
+
+n  log P, ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 17
+
+by (24) we have (26) S4  q log 2 P ∑
+
+> δ|q
+
+∑
+
+> δ3|δ21/δ 2
+
+δ2
+
+δ3/2  qσ 0(a)σ2
+
+> −1/2
+
+(a) log 2 P.
+
+To estimate the sum S5, we note that
+
+> ∞
+
+∑
+
+> n=1
+
+T∆(n)
+
+n3/2  1.
+
+Therefore,
+
+S5  A1/2q1/2 ∑
+
+> δ|q
+
+∑
+
+> δ3|δ21/δ 2
+
+δ3/21
+
+δδ 3/23
+
+ A1/2q1/2 ∑
+
+> δ|q
+
+δ3/21
+
+δ
+
+ A1/2q1/2 ∑
+
+> δ1|(q,l )
+
+δ3/21
+
+∑
+
+> δ|q
+> (δ,l )= δ1
+
+1
+
+δ  A1/2q1/2σ−1(q)σ1/2(a).
+
+Consequently, (27) S5  A1/2q1/2a1/2σ−1(q)σ−1/2(a).
+
+For any N , k > 0, we have
+
+∑
+
+> n>N
+
+T∆(kn )
+
+n3/2 ≤ ∑
+
+> n>N
+
+T∆(kN )
+
+n3/2  T∆(kN )
+
+N 1/2 .
+
+Thus,
+
+S6  P 1/2qT ∆
+
+( Aq P
+
+) ∑
+
+> δ|q
+
+∑
+
+> δ3|δ21/δ 2
+
+δ2
+
+δ3/2 ,
+
+and, by (24),
+
+S6  σ0(a)σ2
+
+> −1/2
+
+(a)P 1/2qT ∆
+
+( Aq P
+
+)
+
+.
+
+Now, we apply the inequality
+
+T∆
+
+( Aq P
+
+)
+
+= min
+
+{
+
+1, P
+
+∆A
+
+}
+
+≤
+
+( P
+
+∆A
+
+)1/2
+
+to get an estimate similar to (25) for the sum S6:(28) S6  σ0(a)σ2
+
+> −1/2
+
+(a)P A −1/2∆−1/2q.
+
+Substituting (25), (26), and (27) in (23), we arrive at an estimate of the sum S and of the remainder term T (2)
+
+> ∓
+
+[f ]:
+
+S  σ0(a)σ2
+
+> −1/2
+
+(a)( P A −1/2∆−1/2q + q log 2 P ) + σ−1(q)σ−1/2(a)A1/2q1/2a1/2,T (2)
+
+> ∓
+
+[f ]  σ0(q)σ2
+
+> −1/2
+
+(a)σ20 (a)( P A −1/2q1/2∆−1/2 + q1/2 log 2 P )+σ0(q)σ−1(q)σ0(a)σ−1/2(a)A1/2a1/2.
+
+Now substituting this in (22) and using (13), we obtain (1) with a remainder term
+
+R[f ]  ∆P · q−1σ0(a) + aσ 0(q)σ0(a) log( q + 1) + σ0(q)σ2
+
+> −1/2
+
+(a)σ20 (a)( P A −1/2q1/2∆−1/2
+
++ q1/2 log 2 P ) + σ0(q)σ−1(q)σ0(a)σ−1/2(a)A1/2a1/2.18 A. V. USTINOV
+
+The choice ∆ = qA −1/3σ2/30 (q)σ2/30 (a)σ4/3
+
+> −1/2
+
+(a)completes the proof of the theorem. 
+
+Remark 3. In applications, as a rule, the greatest contribution is made by the first summand of the remainder term. For this reason, usually, a simpler estimate of the remainder term can be used: (29) R[f ]  σ2/30 (q)σ20 (a)P A −1/3 +
+
+(
+
+A1/2a1/2 + q1/2 + a
+
+)
+
+P ε.
+
+Remark 4. For q = 1, the theorem proved above converts to a known result on the number of points under the graph of a twice continuously differentiable function (see [3, Lemma 4], and also [14, Problem I.6.4]).
+
+§5. A refinement of a result by Porter
+
+Lemma 8. For any natural b ≥ 4, the sums
+
+Dk = ∑
+
+> a|b
+
+σk
+
+> 0
+
+(a)
+
+a (k ≥ 0)
+
+satisfy the estimate
+
+(30) Dk  (log log b)2k
+
+.
+
+Proof. The relations σ1(n) = nσ −1(n) and σ1(n)  n log log n (see, e.g., [9, Theorem 323]) imply that the lemma holds true for the sum D0 = σ−1(b). If we assume that (30) is valid for some k ≥ 0, then for k + 1 we obtain
+
+Dk+1 = ∑
+
+> a|b
+
+σk
+
+> 0
+
+(a)
+
+a
+
+∑
+
+> t|a
+
+1 = ∑
+
+> t|b
+
+∑
+
+> a1|b/t
+
+σk
+
+> 0
+
+(ta 1)
+
+ta 1
+
+≤ ∑
+
+> t|b
+
+σk
+
+> 0
+
+(t)
+
+t
+
+∑
+
+> a1|b/t
+
+σk
+
+> 0
+
+(a1)
+
+a1
+
+≤ D2
+
+> k
+
+ (log log b)2k+1
+
+.
+
+
+
+Proof of Theorem 2. We assume that ε < 1/6 and denote by Tx(b) the number of solu-tions of the equation (31) m1m2 + n1n2 = b
+
+with respect to the unknowns 1 ≤ m1 ≤ n1 and 1 ≤ m2 ≤ n2x. Let T ∗
+
+> x
+
+(b) denote the number of solutions of equation (31) in which 1 ≤ m1 ≤ n1, ( m1, n 1) = 1, and 1 ≤ m2 ≤ n2x. For the sum
+
+Nx(b) =
+
+> b
+
+∑
+
+> a=1
+
+s(x)(a/b ),
+
+the following relation is valid (see the proof of Lemma 3 in [4]):
+
+Nx(b) = 2 T ∗
+
+> x
+
+(b) + b
+
+(
+
+x · [x < 1] − xx + 1
+
+)
+
++ O(1) .
+
+The quantities Nx(b) and Tx(b) are related to N ∗
+
+> x
+
+(b) and T ∗
+
+> x
+
+(b) by the M¨ obius inversion formula
+
+N ∗
+
+> x
+
+(b) = ∑
+
+> d|b
+
+μ(d)Nx(b/d ), T ∗
+
+> x
+
+(b) = ∑
+
+> d|b
+
+μ(d)Tx(b/d ).ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 19
+
+Therefore, (32) N ∗
+
+> x
+
+(b) = 2 ∑
+
+> d1d2|b
+
+μ(d1)μ(d2)Tx
+
+( bd1d2
+
+)
+
++ ϕ(b)
+
+(
+
+x · [x < 1] − xx + 1
+
+)
+
++ O(bε).
+
+To compute Tx(b), we introduce the parameter U = ( b log b)1/2 and divide all the solutions of equation (31) into two groups. We attribute the solutions with n1 < U to the first group and all other solutions to the second. Accordingly, Tx(b) is represented in the form (33) Tx(b) = T1(b, U ) + T2(b, U ).
+
+First, we find an asymptotic formula for T1(b, U ). We note that, for fixed n1, the variables m1 and m2 satisfy the congruence (34) m1m2 ≡ b (mod n1).
+
+If n1, m 1, and m2 are known, then n2 is determined uniquely:
+
+n2 = b − m1m2
+
+n1
+
+.
+
+The restriction m2 ≤ n2x is equivalent to the inequality (35) m2 ≤ bx n1 + m1x = fn1 (m1).
+
+Thus, the problem reduces to the calculation of the number of solutions of the congru-ence (34) in which the variables satisfy the restrictions 0 < m 1 ≤ n1 and m2 ≤ fn1 (m1). We apply Theorem 1 with P1 = 0, P2 = n1, f = fn1 , and with the simpler estimate of the remainder term (see Remark 3). Since
+
+f ′′
+
+> n1
+
+(m1)  bn31
+
+,
+
+we obtain
+
+T [fn1 ] = S[fn1 ] − n1
+
+2 · δn1 (b) + R[fn1 ].
+
+Hence, (36) T1(b, U ) = ∑
+
+> n1<U
+
+T [fn1 ] = S1(b, U ) + R1(b, U ) + O(b1/2+ ε),
+
+where
+
+S1(b, U ) = ∑
+
+> n1<U
+
+S[fn1 ] = ∑
+
+> n1<U
+
+1
+
+n1
+
+∑
+
+> m1≤n1
+
+μn1,b (m1)fn1 (m1),(37)
+
+R1(b, U ) = ∑
+
+> n1<U
+
+R[fn1 ]  b1/3 ∑
+
+> n1<U
+
+σ2/30 (n1)σ20 (a1)+ bε ∑
+
+> n1<U
+
+(
+
+n3/21 a1/21 b−1/2 + n1/21 + a1
+
+)
+
+,(38) and a1 = ( n1, b ). Applying the estimate σ0(xy ) ≤ σ0(x)σ0(y) and the H¨ older inequality, we see that
+
+∑
+
+> n1<U
+
+σ2/30 (n1)σ20 (a1) ≤ ∑
+
+> a1|b
+
+σ20 (a1) ∑
+
+> n<U/a 1
+
+σ2/30 (na 1)
+
+≤ ∑
+
+> a1|b
+
+σ30 (a1)
+
+ ∑
+
+> n<U/a 1
+
+σ0(n)
+
+
+
+> 2/3
+
+(U/a 1)1/3  U log 2/3 b ∑
+
+> a1|b
+
+σ30 (a1)
+
+a1
+
+.20 A. V. USTINOV
+
+Next, applying Lemma 8, we arrive at the inequality
+
+b1/3 ∑
+
+> n1<U
+
+σ2/30 (n1)σ20 (a1)  b5/6 log 7/6+ ε/ 2 b.
+
+The contribution of the other terms occurring in the formula for R1(b, U ) is smaller provided ε < 1/6:
+
+b−1/2+ ε ∑
+
+> n1<U
+
+n3/21 a1/21  b−1/2+ ε ∑
+
+> a1|b
+
+a1/21
+
+∑
+
+> n<U/a 1
+
+(a1n)3/2
+
+ b−1/2+ εU 5/2 ∑
+
+> a1|b
+
+a−1/21  b3/4+2 ε,bε ∑
+
+> n1<U
+
+n1/21  bεU 3/2  b3/4+2 ε,bε ∑
+
+> n1<U
+
+a1  bε ∑
+
+> a1|b
+
+a1
+
+∑
+
+> n<U/a 1
+
+1 ≤ bεU σ −1(b)  b1/2+2 ε.
+
+Thus, (39) T1(b, U ) = S1(b, U ) + O(b5/6 log 7/6+ ε b).
+
+To find S1(b, U ), first we consider the sum Φ( U ) = ∑
+
+> n<U
+
+1
+
+n
+
+∑
+
+> m≤n
+
+xn + mx ,
+
+which can be written in the form Φ( U ) = log(1 + x) ∑
+
+> n<U
+
+1
+
+n + ∑
+
+> n<U
+
+1
+
+n
+
+( ∑
+
+> m≤n
+
+xn + mx − log(1 + x)
+
+)
+
+= log(1 + x)(log U + γ) + h1(x) + O(U −1),
+
+where h1(x) is defined as in (4). Hence, applying the M¨ obius inversion formula to the sum Φ∗(U ) = ∑
+
+> n≤U
+
+1
+
+n
+
+∑∗
+
+> m≤n
+
+xn + mx ,
+
+we get Φ∗(U ) = ∑
+
+> d≤U
+
+μ(d)
+
+d2 · Φ
+
+( Ud
+
+)
+
+,
+
+which leads to the asymptotic formula (40) Φ∗(U ) = log(1 + x)
+
+ζ(2)
+
+(
+
+log U + γ − ζ′(2)
+
+ζ(2)
+
+)
+
++ h1(x)
+
+ζ(2) + O
+
+( log( U + 1)
+
+U
+
+)
+
+.
+
+Substituting μn1,b (m1) = d1 · δd1 (b) with d1 = ( m1, n 1) in (37), after the changes m1 =
+
+d1m and n1 = d1n we obtain
+
+S1(b, U ) = ∑
+
+> n1<U
+
+1
+
+n1
+
+∑
+
+> m1≤n1
+
+bx n1 + m1x d1 · δd1 (b)= ∑
+
+> d1|b
+
+bd1
+
+∑
+
+> n<U/d 1
+
+1
+
+n
+
+∑∗
+
+> m≤n
+
+xn + mx = ∑
+
+> d|b
+
+bd Φ∗
+
+( Ud
+
+)
+
+.
+
+By (40), this can be written as (41) S1(b, U ) = 1
+
+ζ(2)
+
+∑
+
+> d|b
+
+bd
+
+(
+
+log(1 + x)
+
+(
+
+log Ud + γ − ζ′(2)
+
+ζ(2)
+
+)
+
++ h1(x)
+
+)
+
++ O(b1/2+ ε).ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 21
+
+Substituting (41) in (39), we arrive at an asymptotic formula for T1(b, U ): (42)
+
+T1(b, U ) = 1
+
+ζ(2)
+
+∑
+
+> d|b
+
+bd
+
+(
+
+log(1 + x)
+
+(
+
+log Ud + γ − ζ′(2)
+
+ζ(2)
+
+)
+
++ h1(x)
+
+)
+
++ O(b5/6 log 7/6+ ε b).
+
+To find T2(b, U ), we note that, for fixed n2, the variables m1 and m2 satisfy the congruence (43) m1m2 ≡ b (mod n2).
+
+If n2, m1, and m2 are known, then n1 is determined uniquely:
+
+n1 = b − m1m2
+
+n2
+
+.
+
+The restriction max {m1, U } ≤ n1 is equivalent to the inequality
+
+m1 ≤ min
+
+{ bm2 + n2
+
+, b − U n 2
+
+m2
+
+}
+
+= gn2 (m2).
+
+We divide the interval I = (0 , n 2], inside which the variable m2 changes, into shorter intervals by the points 1, 2, 2 2, . . . , 2 k (k = [log 2 n2]), and to this partition we add the point m0 = bU − n2 at which the function gn2 may be nondifferentiable:
+
+I =
+
+> k′
+
+⊔
+
+> j=1
+
+Ij (k′ = k + 2) .
+
+We assume that
+
+gn2 (m2) =
+
+
+
+bm2 + n2
+
+if m2 ∈ k′′
+
+⊔
+
+> j=1
+
+Ij ,b − U n 2
+
+m2
+
+if m2 ∈ k′
+
+⊔
+
+> j=k′′ +1
+
+Ij ,
+
+where 0 ≤ k′′ ≤ k′. We apply Theorem 1 to the function gn2 on each of the intervals Ij .Then for the entire interval I we get
+
+T [gn2 ] = S[gn2 ] + R′′ [gn2 ] + R′[gn2 ] + O (b1+ εU −1) ,
+
+where
+
+S[gn2 ] = 1
+
+n2
+
+∑
+
+> 1≤m2≤n2
+
+μn2,b (m2)gn2 (m2),R′′ [gn2 ] =
+
+> k′′
+
+∑
+
+> j=1
+
+R(j)[gn2 ], R′[gn2 ] =
+
+> k′
+
+∑
+
+> j=k′′ +1
+
+R(j)[gn2 ],
+
+and R(j)[gn2 ] is the remainder term obtained as in Theorem 1 on the interval Ij .For j = 1 , . . . , k ′′ , we have
+
+gn2 (m2)  bn32
+
+on the interval Ij . Therefore, the sum of the remainders R′′ [gn2 ] is estimated like the sum (38) (with the replacement of U by b/U ): (44) ∑
+
+> n2≤b/U
+
+R′′ [gn2 ]  b5/6 log 7/6+ ε b. 22 A. V. USTINOV
+
+If j = k′′ + 1 , . . . , k ′, then
+
+g′′
+
+> n2
+
+(m2)  b − U n 2
+
+m32
+
+ b − U n 2
+
+23j
+
+on the interval Ij . Consequently, by (29),
+
+R(j)[gn2 ]  σ2/30 (n2)σ20 (a2)b1/3 + bε/ 2 (
+
+23j/ 2a1/22 b−1/2 + n1/22 + a2
+
+)
+
+,
+
+where a2 = ( n2, b ). Thus,
+
+R′[gn2 ] =
+
+> k′
+
+∑
+
+> j=k′′ +1
+
+R(j)[gn2 ]  σ2/30 (n2)σ20 (a2) log b · b1/3
+
++ bε (
+
+n3/22 a1/22 (b − U n 2)−1/2 + n1/22 + a2
+
+)
+
+.
+
+Hence, like in the case of R[fn1 ], we arrive at the estimate (45) ∑
+
+> n2≤b/U −2
+
+R′[gn2 ]  b5/6 log 7/6+ ε b.
+
+If the value of the variable n2 > b/U − 2 is fixed, then n1 can take at most b1/2+ ε/ 2
+
+values, and for fixed n1 and n2, at most σ0(b − n1n2)  bε/ 2 values of m1 and m2 may exist. Therefore, by (44) and (45), we have
+
+T2(b, U ) = ∑
+
+> n2≤b/U
+
+T [gn2 ]= ∑
+
+> n2≤b/U −2
+
+T [gn2 ] + O(b1/2+ ε) = S2(b, U ) + O(b5/6 log 7/6+ ε b),
+
+where
+
+S2(b, U ) = ∑
+
+> n2≤b/U
+
+1
+
+n2
+
+∑
+
+> m2≤n2
+
+μn2,b (m2)gn2 (m2).
+
+As in the case of the sum S1(b, U ), after the change
+
+μn2,b (m2) = d2 · δd2 (b), d2 = ( m2, n 2),
+
+the sum S2(b, U ) is written in the form
+
+S2(b, U ) = ∑
+
+> d|b
+
+bd
+
+∑
+
+> n≤b/ (dU )
+
+1
+
+n
+
+∑∗
+
+> m≤nx
+
+min
+
+{ 1
+
+m + n , 1
+
+m − dU n bm
+
+}
+
+= ∑
+
+> d|b
+
+bd · F ∗
+
+> x
+
+( bdU
+
+)
+
+,
+
+where
+
+F ∗
+
+> x
+
+(ξ) = ∑
+
+> n≤ξ
+
+1
+
+n
+
+∑∗
+
+> m≤nx
+
+min
+
+{ 1
+
+m + n , 1
+
+m − nmξ
+
+}
+
+.
+
+For the sum F ∗
+
+> x
+
+(ξ), the following asymptotic formula is valid (see [4, Lemma 10]):
+
+F ∗
+
+> x
+
+(ξ) = log( x + 1)
+
+ζ(2) log ξ + H(x)
+
+ζ(2) + O
+
+( log 2(ξ + 1)
+
+ξ
+
+)
+
+,
+
+where
+
+H(x) = log(1 + x)
+
+(
+
+log x − ζ′(2)
+
+ζ(2) − log( x + 1) 2 + γ − 1
+
+)
+
++ h2(x)ON THE NUMBER OF SOLUTIONS OF THE CONGRUENCE xy ≡ l (mod q) 23
+
+and h2(x) is defined as in (5). Therefore,
+
+S2(b, U ) = 1
+
+ζ(2)
+
+∑
+
+> d|b
+
+bd
+
+(
+
+log( x + 1) log bdU + H(x)
+
+)
+
++ O(b1/2+ ε),T2(b, U ) = 1
+
+ζ(2)
+
+∑
+
+> d|b
+
+bd
+
+(
+
+log( x + 1) log bdU + H(x)
+
+)
+
++ O(b5/6 log 7/6+ ε b).
+
+Substituting this expression for T2(b, U ) and relation (42) in (33), we arrive at an as-ymptotic formula for Tx(b):
+
+Tx(b) = 1
+
+ζ(2)
+
+∑
+
+> d|b
+
+bd
+
+(
+
+log( x + 1) log bd2 + C1(x)
+
+)
+
++ O(b5/6 log 7/6+ ε b),
+
+where
+
+C1(x) = H(x) + log(1 + x)
+
+(
+
+γ − ζ′(2)
+
+ζ(2)
+
+)
+
++ h1(x).
+
+We substitute this result in (32). Then, since
+
+∑
+
+> dd 1d2|b
+
+μ(d1)μ(d2)
+
+dd 1d2
+
+= ϕ(b)
+
+b , ∑
+
+> dd 1d2|b
+
+μ(d1)μ(d2)
+
+dd 1d2
+
+log( d1d2d2) = 0 (see [11]), we get
+
+∑
+
+> d1d2|n
+
+μ(d1)μ(d2)Tx
+
+( bd1d2
+
+)
+
+= ϕ(b)
+
+ζ(2) (log( x + 1) log b + C1(x)) + O(b5/6 log 7/6+ ε b),N ∗
+
+> x
+
+(b) = 2ϕ(b)
+
+ζ(2) (log( x + 1) log b + C(x)) + O(b5/6 log 7/6+ ε b),
+
+where C(x) is as in (3). The theorem is proved. 
+
+The author expresses his gratitude to V. A. Bykovski˘ ı for discussion of the results obtained and for helpful advice.
+
+References
+
+[1] M. O. Avdeeva, Distribution of partial quotients in finite continued fractions , Preprint no. 4 Dal ′nevost. Otdel. Ross. Akad. Nauk, Khabarov. Otdel. Inst. Prikl. Mat., “Dal ′nauka”, Vladivostok, 2000. (Russian) [2] V. A. Bykovski˘ ı, Asymptotic properties of lattice points (a1, a 2) that satisfy the congruence a1a2 ≡
+
+l(q), Zap. Nauchn. Sem. Leningrad. Otdel. Mat. Inst. Steklov. (LOMI) 112 (1981), 5–25; English transl. in J. Soviet Math. 25 (1984), no. 2. MR0643990 (83d:10060) [3] I. M. Vinogradov, Special variants of the method of trigonometric sums , “Nauka”, Moscow, 1976; English transl., Selected works , Springer-Verlag, Berlin etc., 1985, pp. 299–383. MR0469878 (57:9659); MR0807530 (87a:01042) [4] A. V. Ustinov, On the statistical properties of finite continued fractions , Zap. Nauchn. Sem. S.-Peterburg. Otdel. Mat. Inst. Steklov. (POMI) 322 (2005), 186–211; English transl., J. Math. Sci. (N.Y.) 137 (2006), no. 2, 4722–4738. MR2138459 (2006b:11090) [5] , Asymptotic behavior of the first and second moments for the number of steps of the Eu-clidean algorithm , Izv. Ross. Akad. Nauk Ser. Mat. 72 (2008), no. 5, 189–224. (Russian) [6] T. M. Apostol, Mathematical analysis , Addison-Wesley Publ. Co., Reading, MA etc., 1974. MR0344384 (49:9123) [7] T. Estermann, On Kloosterman’s sum , Mathematika 8 (1961), 83–86. MR0126420 (23:A3716) [8] S. W. Graham and G. Kolesnik, van der Corput’s method of exponential sums , London Math. Soc. Lecture Note Ser., vol. 126, Cambridge Univ. Press, Cambridge, 1991. MR1145488 (92k:11082) [9] G. H. Hardy and E. M. Wrighte, An introduction to the theory of numbers , Clarendon Press, Oxford Univ. Press, New York, 1979. MR0568909 (81i:10002) 24 A. V. USTINOV
+
+[10] D. R. Heath-Brown, The fourth power moment of the Riemann zeta function , Proc. London Math. Soc. (3) 38 (1979), 385–422. MR0532980 (81f:10052) [11] H. Heilbronn, On the average length of a class of finite continued fractions , 1969 Number The-ory and Analysis (Papers in Honor of Edmund Landau), Plenum, New York, 1969, pp. 87–96. MR0258760 (41:3406) [12] C. Hooley, On the number of divisors of a quadratic polynomial , Acta Math. 110 (1963), 97–114. MR0153648 (27:3610) [13] J. W. Porter, On a theorem of Heilbronn , Mathematika 22 (1975), no. 1, 20–28. MR0498452 (58:16567) [14] G. Tenenbaum, Introduction to analytic and probabilistic number theory , Cambridge Stud. Adv. Math., vol. 46, Cambridge Univ. Press, Cambridge, 1995. MR1342300 (97e:11005b)
+
+E-mail address : ustinov@iam.khv.ru
+
+Received 12/DEC/2007
+
+Translated by ???

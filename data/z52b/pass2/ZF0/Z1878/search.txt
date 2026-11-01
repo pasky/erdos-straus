@@ -1,0 +1,42 @@
+## Search Results
+
+[1] Title: Folding 𝜋
+[1] URL Source: https://arxiv.org/html/2403.09277v1
+[1] Description: The Fujimoto approximation [4, 8] is an exponentially converging algorithm to divide a strip of paper into a rational fraction with odd ...
+[1] Date: Mar 14, 2024
+
+[2] Title: Fujimoto approximator - Stephen Hill's website
+[2] URL Source: http://srhill.info/origami/lab/fujimoto_approximator.php
+[2] Description: The Fujimoto approximation technique can be used to fold a piece of paper into any odd number of units. It was developed independently by Fujimoto and Brunton, ...
+
+[3] Title: Divide Paper into Fifths: Fujimoto Approximation
+[3] URL Source: https://origami-resource-center.com/divide-paper-into-fifths-4/
+[3] Description: Start on the left-edge of the paper and make a pinch fold at a location which you estimate to be approximately 1/5th of the length of the paper. Call this pinch ...
+
+[4] Title: Applying Fujimoto approximation in folding Origami Spirals
+[4] URL Source: https://mathermatician.com/en/2023/07/31/fujimoto-approximation-teaching-math-through-origami/
+[4] Description: Demonstrate the Fujimoto approximation in its simplest form by considering fractions like 1⁄2 or 1⁄3. To achieve the desired 1/n value, we can ...
+[4] Date: Jul 31, 2023
+
+[5] Title: Folding fractions | plus.maths.org
+[5] URL Source: https://plus.maths.org/folding-numbers
+[5] Description: Here is a simple way you can fold a piece of paper into any fraction you would paper and mark half way along top side with a small crease.
+[5] Date: Mar 2, 2015
+
+[6] Title: Class 7: Origami is Hard
+[6] URL Source: https://www.youtube.com/watch?v=voMyQUarX-k
+[6] Description: This class begins with several examples of box-pleating and maze-folding. Clarifications on NP-hardness are provided with a walkthrough. ...
+[6] Date: 12 years ago
+
+[7] Title: Origami and Geometric Constructions
+[7] URL Source: http://www.wiskundemeisjes.nl/wp-content/uploads/2008/02/origami_constructions.pdf
+[7] Description: by RJ Lang · 1996 · Cited by 121 — An alternative technique for folding rational fractions was devised by the Japanese mathematician Shuzo Fujimoto [4]
+
+[8] Title: Rational fraction constructions with origami
+[8] URL Source: https://math.stackexchange.com/questions/3931567/rational-fraction-constructions-with-origami
+[8] Description: I'm writing a paper on origami in maths and currently looking at approximating rational fractions using various methods: crossing diagonals, ...
+[8] Date: Dec 2, 2020
+
+[9] Title: Fold a Strip of Paper into Approximate n-ths
+[9] URL Source: https://www.cutoutfoldup.com/411-fold-a-strip-of-paper-into-approximate-n-ths.php
+[9] Description: Here is a demonstration of the Fujimoto's approximation, a method that will allow you to fold a strip of paper in any odd units. For this example, we'll ...

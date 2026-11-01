@@ -1,0 +1,24 @@
+{
+  "word_matrix": "Matrix([[t*u*v - u - v, -t*v + 1], [t*u - 1, -t]])",
+  "trace": "t*u*v - t - u - v",
+  "pair_traces": [
+    "t*v - 2",
+    "t*u - 2",
+    "u*v - 2"
+  ],
+  "fricke_cubic_verified": true,
+  "common_p_pair_product_trace": "-A*Bs - As*B + p**2 + s*t",
+  "common_p_pair_inverse_trace": "A*Bs + As*B - p*s - p*t",
+  "stats": {
+    "words": 350,
+    "letter_pairs_assignments": 1824,
+    "word_matrix_pairs": 1723,
+    "word_pair_product_assignments": 9297,
+    "word_pair_product_positive_residual": 4994,
+    "word_pair_inverse_assignments": 9275,
+    "letter_pairs_positive_residual": 322,
+    "word_pair_inverse_positive_residual": 4320
+  },
+  "hits": [],
+  "scope": "All odd primes p<200, all interior words, all unordered distinct pairs within a prime; all permutations of each specified trace triple; no arbitrary affine reparametrizations."
+}

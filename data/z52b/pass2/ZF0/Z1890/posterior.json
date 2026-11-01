@@ -1,0 +1,52 @@
+{
+  "label": "Assessment",
+  "model": "yi|theta_i ~ Binomial(Ni,theta_i); theta_i|mu,kappa ~ Beta(mu*kappa,(1-mu)*kappa); independent siblings, exchangeable new ES rate",
+  "prior": "log10(mu) uniform [-8,-0.3], log10(kappa) uniform [-1,7], 181x181 grid",
+  "mu_95CI_and_median": [
+    0.0001410731762141426,
+    0.0007527775638141652,
+    0.03507518739525679
+  ],
+  "kappa_95CI_and_median": [
+    3.981071705534973,
+    599.4842503189415,
+    6989.473207273493
+  ],
+  "posterior_mean_mu": 0.004510148729247835,
+  "grid_boundary_mass": 0.00014662635018276805,
+  "finite_predictive": [
+    {
+      "future_trials": 1,
+      "prob_any_failure": 0.004510148729116452
+    },
+    {
+      "future_trials": 1000,
+      "prob_any_failure": 0.3668910771506083
+    },
+    {
+      "future_trials": 1000000,
+      "prob_any_failure": 0.9073597158119959
+    },
+    {
+      "future_trials": 1000000000,
+      "prob_any_failure": 0.966280044410623
+    }
+  ],
+  "P_ES_counterexample_beyond_1e18_stationary_model": 1.0,
+  "reason": "A Beta distribution has theta_ES>0 almost surely; infinitely many independent future trials then fail almost surely. This is a MODEL ARTEFACT, not evidence ES is false. The threshold 1e18 does no work in a stationary model.",
+  "spike_at_zero_sensitivity": [
+    {
+      "prior_P_ES_true": 0.1,
+      "posterior_P_any_failure_in_infinite_tail": 0.9
+    },
+    {
+      "prior_P_ES_true": 0.5,
+      "posterior_P_any_failure_in_infinite_tail": 0.5
+    },
+    {
+      "prior_P_ES_true": 0.9,
+      "posterior_P_any_failure_in_infinite_tail": 0.09999999999999998
+    }
+  ],
+  "nonidentifiability": "An independent ES-specific zero-rate indicator has identical sibling likelihood under both states, so its prior is unchanged. Finite data do not determine decay/extrapolation of arithmetic failure probabilities; the siblings have incompatible domains and visibly nonstationary bins. No valid real-world P(ES false) is claimed."
+}

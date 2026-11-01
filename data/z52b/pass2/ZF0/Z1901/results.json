@@ -1,0 +1,108 @@
+{
+  "prime_max": 100000,
+  "primes": 9592,
+  "totals": {
+    "triples": 1687648,
+    "unit_binary": 531409,
+    "distinct_anchors": 3645297,
+    "minimal_anchors": 719739,
+    "anchor_certificates": 5053327,
+    "typeI": 1236681,
+    "typeII": 450967,
+    "path00": 7551909,
+    "path01": 2458939,
+    "path10": 76571,
+    "path11": 9618,
+    "cert00": 1687647,
+    "cert01": 1236681,
+    "cert10": 55620,
+    "cert11": 9617,
+    "only_z": 1236681
+  },
+  "by_mod4": {
+    "1": {
+      "primes": 4783,
+      "totals": {
+        "triples": 572425,
+        "unit_binary": 0,
+        "distinct_anchors": 1294859,
+        "minimal_anchors": 288982,
+        "anchor_certificates": 1717275,
+        "typeI": 402752,
+        "typeII": 169673,
+        "path00": 2613301,
+        "path01": 805504,
+        "path10": 15745,
+        "path11": 0,
+        "cert00": 572425,
+        "cert01": 402752,
+        "cert10": 15745,
+        "cert11": 0,
+        "only_z": 402752
+      }
+    },
+    "2": {
+      "primes": 1,
+      "totals": {
+        "triples": 1,
+        "unit_binary": 1,
+        "distinct_anchors": 2,
+        "minimal_anchors": 1,
+        "anchor_certificates": 2,
+        "typeI": 0,
+        "typeII": 1,
+        "path00": 0,
+        "path01": 1,
+        "path10": 0,
+        "path11": 2,
+        "cert00": 0,
+        "cert01": 1,
+        "cert10": 0,
+        "cert11": 1,
+        "only_z": 0
+      }
+    },
+    "3": {
+      "primes": 4808,
+      "totals": {
+        "triples": 1115222,
+        "unit_binary": 531408,
+        "distinct_anchors": 2350436,
+        "minimal_anchors": 430756,
+        "anchor_certificates": 3336050,
+        "typeI": 833929,
+        "typeII": 281293,
+        "path00": 4938608,
+        "path01": 1653434,
+        "path10": 60826,
+        "path11": 9616,
+        "cert00": 1115222,
+        "cert01": 833928,
+        "cert10": 39875,
+        "cert11": 9616,
+        "only_z": 833929
+      }
+    }
+  },
+  "independent_check": "all primes <=200: existing brute and divisor enumerators; unit refinements and Farey determinants recomputed with Fraction",
+  "max_triples": {
+    "p": 87359,
+    "triples": 1621,
+    "unit_binary": 1459,
+    "distinct_anchors": 3227,
+    "minimal_anchors": 423,
+    "anchor_certificates": 4861,
+    "typeI": 1224,
+    "typeII": 397,
+    "path00": 7263,
+    "path01": 2445,
+    "path10": 10,
+    "path11": 2,
+    "cert00": 1621,
+    "cert01": 1224,
+    "cert10": 8,
+    "cert11": 2,
+    "only_z": 1224
+  },
+  "no_unit_binary_primes": 4783
+}

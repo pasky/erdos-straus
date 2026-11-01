@@ -1,0 +1,43 @@
+## Content from https://www.theoryofnumbers.com/cant/
+
+Title: Combinatorial and Additive Number Theory (CANT 2026)
+
+URL Source: https://www.theoryofnumbers.com/cant/
+
+Markdown Content:
+**Description:** This is the twenty-fourth in a series of annual workshops sponsored by the New York Number Theory Seminar at the CUNY Graduate Center on problems in combinatorial and additive number theory and related parts of mathematics.
+
+This is a hybrid conference: Talks may be presented in person in the Science Center on the 4th floor of the CUNY Graduate Center or on Zoom.   
+ The lectures from Monday, July 13, to Thursday, July 16, will be in person at the CUNY Graduate Center and broadcast on Zoom.   
+ The lectures on Friday, July 17, and Saturday, July 18, will only be on Zoom.   
+ There will be a problem session every afternoon at the CUNY Graduate Center.   
+ Everyone is invited and encouraged to attend in person both the morning and afternoon sessions.   
+ There will be daily morning coffee and afternoon wine and cheese.
+
+All conference lectures, both those presented in person and those delivered remotely, will be broadcast live on Zoom and uploaded to YouTube.   
+ To join the conference on Zoom, you should download the free software Zoom 5.0 from www.zoom.us.
+
+The conference program, list of speakers, and abstracts will be posted on this website and on [researchseminars.org](http://www.researchseminars.org/).
+
+Mathematicians who would like to speak at the meeting, either in person or remotely, should submit a title and abstract (both pdf and LaTex file) to: [melvyn.nathanson@lehman.cuny.edu](mailto:melvyn.nathanson@lehman.cuny.edu).
+
+**Website:**[http://www.theoryofnumbers.com/cant/](http://www.theoryofnumbers.com/cant/)
+
+**Location of in person sessions:**  
+ Science Center, 4th floor   
+ CUNY Graduate Center   
+ 365 Fifth Avenue   
+ New York, NY 10016
+
+**Registration:** Registration for CANT 2026 is free. All participants, both those attending in person and those on Zoom, should register by sending an email to
+
+| ### **Registration email: additivecombinatorics@gmail.com** |
+| --- |
+
+**For more information, please contact:**  
+ Melvyn B. Nathanson  
+ Department of Mathematics  
+ Lehman College (CUNY)  
+ Bronx, NY 10468   
+ Email: [melvyn.nathanson@lehman.cuny.edu](mailto:melvyn.nathanson@lehman.cuny.edu)
+

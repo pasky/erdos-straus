@@ -1,0 +1,17 @@
+{
+  "label": "CERTIFIED (computer)",
+  "N": 1000,
+  "K": 4,
+  "verified_witnesses": 961,
+  "independent_hits": [
+    158,
+    127,
+    141,
+    127,
+    153,
+    125,
+    130
+  ],
+  "census_matches": true,
+  "method": "direct exact rational tuple construction and explicit three-fraction sum, compared against C residue sieve"
+}

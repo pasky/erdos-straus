@@ -1,0 +1,67 @@
+{
+  "bilinear": [
+    {
+      "m": "1",
+      "n": "1",
+      "trivial": "2",
+      "dfi_thm2": "95/48",
+      "dfi_thm1": "2",
+      "dfi_best": "95/48",
+      "dfi_saving": "1/48",
+      "smooth_inner_completion_Weil": "3/2"
+    },
+    {
+      "m": "9/10",
+      "n": "1",
+      "trivial": "19/10",
+      "dfi_thm2": "227/120",
+      "dfi_thm1": "37/20",
+      "dfi_best": "37/20",
+      "dfi_saving": "1/20",
+      "smooth_inner_completion_Weil": "3/2"
+    },
+    {
+      "m": "4/5",
+      "n": "1",
+      "trivial": "9/5",
+      "dfi_thm2": "433/240",
+      "dfi_thm1": "17/10",
+      "dfi_best": "17/10",
+      "dfi_saving": "1/10",
+      "smooth_inner_completion_Weil": "3/2"
+    },
+    {
+      "m": "1/2",
+      "n": "1",
+      "trivial": "3/2",
+      "dfi_thm2": "37/24",
+      "dfi_thm1": "5/4",
+      "dfi_best": "5/4",
+      "dfi_saving": "1/4",
+      "smooth_inner_completion_Weil": "3/2"
+    }
+  ],
+  "ES_cells": [
+    {
+      "alpha": "2/5",
+      "delta": "3/5",
+      "rho": "1/25",
+      "Weil_normalized_exponent": "-3/25",
+      "spectral_first_term_exponent": "9/50"
+    },
+    {
+      "alpha": "1/2",
+      "delta": "1/2",
+      "rho": "0",
+      "Weil_normalized_exponent": "0",
+      "spectral_first_term_exponent": "0"
+    },
+    {
+      "alpha": "3/5",
+      "delta": "2/5",
+      "rho": "1/50",
+      "Weil_normalized_exponent": "6/25",
+      "spectral_first_term_exponent": "-3/50"
+    }
+  ]
+}

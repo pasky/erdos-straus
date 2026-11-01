@@ -1,0 +1,9 @@
+{
+  "label": "CERTIFIED (computer)",
+  "prover": "LLM author in this session plus Lean 4.34.1 kernel; Std omega/grind/simp",
+  "statements": 10,
+  "first_attempt_closed": 8,
+  "final_closed": 10,
+  "sorryAx": false,
+  "scope": "Ten explicitly cited algebraic/congruence sublemmas, not ten complete parent theorems. No Mathlib dependency."
+}

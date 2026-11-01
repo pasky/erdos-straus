@@ -1,0 +1,1397 @@
+  The flatness theorem for non-symmetric
+convex bodies via the local theory of Banach
+                   spaces
+                 Wojciech Banaszczyk (Lódź)
+               Alexander E. Litvak (Tel Aviv)
+                Alain Pajor (Marne-la-Vallée)
+           Stanislaw J. Szarek (Cleveland & Paris)
+
+
+                                Abstract
+      Let L be a lattice in IRn and K a convex body disjoint from L. The
+  classical Flatness Theorem asserts that then w(K, L), the L-width of
+  K, doesn’t exceed some bound, depending only on the dimension n;
+  this fact was later found relevant to questions in integer programming.
+  Kannan and Lovász (1988) showed that under the above assumptions
+  w(K, L) ≤ C n2 , where C is a universal constant. Banaszczyk (1996)
+  proved that w(K, L) ≤ C n(1 + log n) if K has a centre of symmetry.
+  In the present paper we show that w(K, L) ≤ C n3/2 for an arbitrary
+  K. It is conjectured that the exponent 3/2 may be replaced by 1,
+  perhaps at the cost of a logarithmic factor; we prove that for some
+  naturally arising classes of bodies.
+  Keywords: convex bodies, lattices, flatness theorem, Gaussian measure
+
+
+
+
+                                    1
+1    Introduction
+The study of convex sets is central in many areas of mathematics. One of
+these is optimization, be it discrete or continuous. Another, at the first sight
+unrelated, is functional analysis: balls in normed spaces are convex and,
+conversely, a “non-degenerated” convex symmetric set in a vector (or affine)
+space induces a norm for which it is a ball (symmetry is an important but
+not a crucial restriction). This article employs methods developed and/or
+commonly used in the latter field to investigate the questions in convexity
+motivated by the former.
+    “When does a convex set contain a point with integer coordinates?” is,
+in essence, the Integer Programming Problem. Lenstra (1983) showed that,
+in fixed dimension, the problem can be solved in polynomial time, and the
+argument involves the notion of lattice width of a set K, defined (for the
+integer lattice Zn ) by
+        w(K, Zn ) := min { max hx, yi − min hx, yi : y ∈ Zn \ {0} },
+                             x∈K           x∈K
+
+where hx, yi is the canonical inner product in IRn . If K ⊂ IRn is a convex
+body that is integer point free (i.e., K ∩ Zn = ∅), then w(K, Zn ) is bounded
+by some constant, depending only on the dimension n; this fact, due to
+Khinchine (1948), is usually called the flatness theorem . The value of that
+constant is relevant to the complexity of Lenstra’s algorithm. Given a convex
+body K ⊂ IRn denote
+Flt(K) := sup {w(H, Zn ) : H is an affine image of K satisfying H∩Zn = ∅}.
+Kannan and Lovász (1988) proved that if K is an n-dimensional convex body,
+then Flt(K) ≤ Cn2 (here and below, C, c, c0 , c0 etc. denote universal numer-
+ical constant which may vary between occurrences). We refer to their paper
+for details and more exhaustive motivational and bibliographical information
+concerning the flatness theorem. It was later proved by Banaszczyk (1996)
+that Flt(K) ≤ C n(1 + log n) if K is symmetric, and that Flt(K) ≤ n if K is
+an ellipsoid. On the other hand, one has Flt(K) ≥ n if K is a simplex, and
+the results of Banaszczyk (1996) imply that Flt(K) ≥ cn for all symmetric
+K (cf. Proposition 2.3 below).
+    The present paper was motivated by an attempt to improve the upper
+bound for Flt(K) for non-symmetric K. We show here (Theorem 2.4, Corol-
+lary 2.5) that Flt(K) ≤ C0 n3/2 for an arbitrary n-dimensional K, and that
+
+                                       2
+Flt(K) ≤ C1 n(1 + log n) if K is a simplex or, more generally, a polytope
+whose number of vertices or faces is polynomial in the dimension (the con-
+stant C1 depending then on the polynomial in question), which is the princi-
+pal case of interest if K is defined by its faces or vertices. Then we use these
+results to improve the inequalities given in Kannan and Lovász (1988) and
+estimating w(K, L) by the number of points of L in K (see Remark 2.7).
+    Let us sketch the ideas involved in the arguments. If K ⊂ IRn is a convex
+body containing the origin in the interior, the polar body K ◦ is defined by
+
+                K ◦ := { x ∈ IRn : hx, yi ≤ 1 for each y ∈ K } .
+
+One has (K ◦ )◦ = K. We denote further by k · kK the gauge function of K
+(i.e., kxkK := inf{t > 0 : x/t ∈ K}) and set
+                                    Z
+                         M (K) :=            kxkK dµn (x) ,
+                                     S n−1
+
+where µn is the normalized Lebesgue measure on S n−1 . The quantity M (K)
+is equal to one half of a well-known geometric parameter: the mean width of
+K ◦.
+     We show first that Flt(K) ≤ C n M (K) M (K ◦ ); this inequality is actually
+quite deep as it relies on the Majorizing Measure Theorem for Gaussian
+processes (Talagrand (1987)) – why Gaussian, it will become apparent in
+the sequel. Since Flt(K) is an affine invariant of K, the problem is to find
+an affine image H of K with M (H) M (H ◦ ) as small as possible. If K is
+symmetric and if X = (IRn , k · kK ) is the corresponding normed space, then
+it is a known fact in the local theory of Banach spaces that one can find H
+with
+                    M (H) M (H ◦ ) ≤ K(X) ≤ C (1 + log n)
+where K(X) is the so-called K-convexity constant of X (see e.g., Linden-
+strauss and Milman (1993), (4.1.9) and (4.1.10), or Pisier (1989), Theorem
+3.1; we give a definition in section 4). This is sometimes referred to as the
+“M M ∗ -estimate” and asserts that, as far as the “M M ∗ -product” is con-
+cerned, an arbitrary n-dimensional normed space differs from the Euclidean
+space l2n (in which case the product clearly equals 1) only by a logarithmic
+factor. In the geometric language this means that every (bounded symmet-
+ric) convex body admits an affine image so “well balanced” that its mean
+width and simultaneously that of its polar are “essentially” the same as is
+the case for the Euclidean ball. This is quite surprising in view of the fact that
+
+                                        3
+the Banach-Mazur distance (see section 4√for definition) of an n-dimensional
+normed space to l2n could be as large as n (resp. n in the non-symmetric
+case), and that, moreover, for many – perhaps most – of “standard” classes of
+spaces there are universal (i.e., independent of the space and its dimension)
+estimates for the K-convexity constant.
+    The statements about the parameter M (·) (and, particularly, the “M M ∗ -
+product”) are often expressed in the closely related language of Gaussian
+rather than spherical averages. Let γn be the standard Gaussian measure on
+                                2
+IRn with density (2π)−n/2 e−|x| /2 , where | · | is the usual Euclidean norm. If
+K ⊂ IRn is a convex body containing the origin in the interior, let us denote
+                                 Z                   1/2
+                       `(K) :=            kxk2K dγn (x)      .
+                                   IR   n
+
+
+If K is 0-symmetric, then `(K) is just the so-called `-norm of the identity
+operator acting from the Euclidean space IRn to the normed space X =
+(IRn , k·kK ); see e.g., Lindenstrauss and Milman (1993), (2.3.16) and (2.3.17).
+The Gaussian average `(K) is “essentially” the same as n1/2 M (K). More
+precisely, there are constants σn ≥ 1 with σn → 1 as n → ∞ such that, for
+all K as above, `(K) = σn n1/2 M (K). (We could have dispensed with σn ’s
+if we had defined M (K) via the second moment of k · kK , an insignificant
+modification by Lemma 3.3; however, that would not conform to the standard
+terminology.) Thus, if K is symmetric and H, X are as above, one has
+`(H) `(H ◦ ) ≤ n K(X) ≤ C n (1 + log n) while, on the other hand, Flt(K) =
+Flt(H) ≤ C `(H) `(H ◦ ) etc.
+    It is natural to attempt to carry over the scheme described above to the
+non-symmetric case; unfortunately, no efficient route to that goal is known.
+Indeed, a straightforward “translation” of the argument allows one only to
+produce an affine image H of K with `(H) `(H ◦ ) ≤ n2 , which yields an esti-
+mate for Flt(K) of the same order as that obtained in Kannan and Lovász
+(1988). We show two ways, corresponding to the two parts of Theorem 2.4,
+to improve that direct approach. The first argument uses the John’s decom-
+position of identity (or, alternatively, a reverse Brascamp–Lieb inequality;
+see Remark 3.6) to analyse the quantities `(H) `(H ◦ ) directly. In full gen-
+erality it implies only that Flt(K) ≤ C n3/2 (1 + log n)1/2 , but allows for
+superior estimates for polytopes with “not too many” vertices or faces. The
+second argument adapts the definition of the K-convexity constant to the
+non-symmetric case and uses “non-symmetric Gaussian projections” to yield
+an estimate of the type Cn3/2 .
+
+                                          4
+    We wish to point out here that estimating the product `(H) `(H ◦ ) is
+(essentially) equivalent to finding the smallest λ for which there are a, b > 0,
+with ab ≤ λ such that, say,
+
+                            γn (aH) · γn (bH ◦ ) ≥ .8 .
+
+This can be thought of as a Gaussian analogue of the reverse Santaló inequal-
+ity (cf. Bourgain and Milman (1987)). In the symmetric case the asymptot-
+ically optimal value of λ that works for some affine image H of an arbitrary
+K is somewhere between O(n(1 + log n)1/2 ) (see Proposition 5.1 in section 5)
+and O(n(1 + log n)) (cf. Bourgain (1984), Pisier (1981); see the comments
+at the beginning of section 4). In the non-symmetric case the game is wide
+open; our upper estimate being O(n3/2 ) and the n-dimensional simplex re-
+quiring O(n(1 + log n)) (again, see Proposition 5.1), which we conjecture is
+the correct order.
+    In view of Lemma 2.2 below, we could reduce the non-symmetric case
+to the symmetric one if we were able to satisfactorily answer the following
+question: what is the smallest λ > 0 such that for any convex body K ⊂ IRn
+with γn (K −K) ≥ .9 there exists a ∈ K such that γn (λ(K −a)) ≥ .9? Again,
+we conjecture that the n-dimensional regular simplex gives the correct order
+O(1 + log n) (or perhaps is even optimal).
+    Since, as indicated earlier, the questions considered here are motivated
+partly by the Integer Programming Problem, it is appropriate to ask whether
+the arguments are “constructive”, e.g., given a convex body K disjoint from
+Zn , are we able to “explicitly” exhibit a y ∈ Zn \ {0} that witnesses the “flat-
+ness” of K? We have not pursued this question vigorously; however, at least
+at first sight, such “constructivity” appears to be difficult to extract from
+our approach. (The same question arises with Zn replaced by an arbitrary
+lattice.)
+    Our results (both preliminary and main) and their corollaries are listed
+in section 2. The following two sections deal respectively with the details
+of the two arguments referred to above. Finally, section 5 addresses mostly
+the issue of the necessity for logarithmic factors that appear in many places
+throughout the paper.
+    After this paper has been submitted, it has been noticed by Litvak and
+Tomczak-Jaegermann (1998) that our Proposition 3.1 (see also Remark 3.2
+implies the following estimate on the Banach-Mazur distance between ar-
+bitrary n-dimensional not-necessarily-symmetric convex bodies K1 , K2 (see
+
+                                        5
+section 4 for definitions)
+
+                      d(K1 , K2 ) ≤ O(n3/2 (1 + log n)1/2 ) .
+
+It has been known for some time that such results can be obtained from
+“``∗ -” (or “M M ∗ -”) estimates (see, e.g., Benyamini and Gordon (1981),
+Bourgain and Milman (1986)), but in the present context the argument re-
+quires some finesse. We should point out here that, until recently, no upper
+estimate for d(K1 , K2 ) better than n2 (and following from John (1948)) was
+known; on the other hand, to our knowledge and besides very low dimen-
+sions, no examples are known with d(K1 , K2 ) > n – and certainly none
+with d(K1 , K2 )n. Finally, very recently, stronger results were obtained by
+Rudelson (1998), who proved O(n4/3 (1 + log n)a ) type estimates (a > 0 a
+numerical constant) for both the Banach-Mazur distance and for the “``∗ -
+product”. This yields an identical improvement to the first inequality of our
+Theorem 2.4 and its consequences, including the resulting estimate of Flt(K)
+(cf. Proposition 2.3).
+   Acknowledgement. The first named author was partially supported by
+KBN Grant 2 P301 019 04; part of the work was done when he was visiting
+University of Marne-la-Vallée in the spring of 1995. The research of the
+second and fourth named authors was partially supported by Grant No.92-
+00285 from U.S.-Israel Binational Science Foundation. The research of the
+fourth named author was partially supported by NSF (U.S.A.). The second
+named author would like to thank Professor E. Gluskin for his help and
+encouragement.
+
+
+2     More notation and the results
+Before proceeding further, we need to establish some notation. By Kn we
+denote the family of all closed bounded convex bodies in IRn . It is convenient
+to introduce the following subfamilies of Kn
+
+         K0n := { K ∈ Kn : K contains zero in the interior },
+         C n := { K ∈ Kn : K has a centre of symmetry },
+         C0n := { K ∈ Kn : K is symmetric with respect to zero }.
+
+As usual, most of the results can be carried over to the class of closed con-
+vex bodies (i.e., possibly unbounded, or containing 0 not necessarily in the
+
+                                        6
+interior, ...) just by approximation. However, we shall in principle restrict
+ourselves to the smaller classes Kn (resp. K0n ) to avoid technical difficulties,
+even though often, for the purpose of brevity, we shall talk of polars of bodies
+that could a priori contain zero on the boundary.
+    Since the invariants we study are (largely) affinely invariant, it will be
+convenient to consider, in addition to Zn , arbitrary lattices. A lattice in IRn
+is an additive subgroup of IRn generated by n linearly independent vectors.
+The family of all lattices in IRn is denoted by Ln . Given a lattice L, we define
+the dual lattice L∗ in the usual way
+
+                L∗ := { x ∈ IRn : hx, yi ∈ Z for each y ∈ L } ;
+
+one has (L∗ )∗ = L. The concept of lattice width generalizes; for K ∈ Kn and
+L ∈ Ln , the L-width of K is
+
+                w(K, L) :=     min { max hx, yi − min hx, yi } .
+                             y∈L∗ \{0}   x∈K       x∈K
+
+and it is readily seen that, for K ∈ Kn ,
+
+     Flt(K) = max { w(K, L) : L ∈ Ln , a ∈ IRn and K ∩ (a + L) = ∅ }.
+
+   Let L ∈ Ln and K ∈ Kn . By µ(K, L) one denotes the covering radius of
+L with respect to K
+
+                  µ(K, L) := min { r > 0 : L + rK = IRn }.
+
+If K ∈ C0n , one denotes by λ1 (K, L) the first minimum of L with respect to K
+
+                   λ1 (K, L) := min { kxkK : x ∈ L \ {0} }.
+
+   The lemma that follows connects these two parameters with Gaussian
+moments of gauges of the convex bodies in question. Before stating it, we
+wish to comment that although `(K) is traditionally defined as the second
+Gaussian moment, it is occasionally    more convenient to work with other
+moments, say `p (K) := ( IRn kxkK dγn (x))1/p for p ∈ (0, ∞). We point out
+                                 p
+                          R
+
+that, for a fixed p, `p (K) is uniformly equivalent to `(K) over K ∈ K0n ,
+n ∈ IN . This is well known for K ∈ C0n (in fact for a much more general class
+of measures). We provide a proof for the non-symmetric case in Lemma 3.3.
+The argument gives the correct order of the constants involved as p → +∞,
+but we will use primarily the case p = 1.
+
+                                          7
+Lemma 2.1 There exists a universal constant C0 such that
+
+                     µ(K, L) · λ1 (H, L∗ ) ≤ C0 `(K) `(H)
+
+for arbitrary K ∈ K0n , H ∈ C0n and L ∈ Ln .
+
+For K ∈ C0n , this is just a special case of Lemma 3 of Banaszczyk (1996).
+The proof given by Banaszczyk (1996), based on the theorem of Talagrand
+(1987) on majorizing measure, extends unchanged to arbitrary K ∈ K0n .
+
+Lemma 2.2 For an arbitrary convex body K ∈ K0n and p ∈ [1, ∞), one has
+
+                           `p ((K − K)◦ ) ≤ 2 `p (K ◦ )
+
+with equality for p = 1.
+
+Proof. For K, H ∈ K0n we have
+
+                       k · k(K+H)◦ = k · kK ◦ + k · kH ◦ ,
+
+in particular
+
+                       kxk(K−K)◦ = kxkK ◦ + k − xkK ◦ .
+The conclusion of the Lemma follows now from the definition of `p (·) and the
+triangle inequality for an Lp -norm.                                       2
+
+  Let K, H ∈ Kn . If there is an affine transformation of IRn which carries
+K onto H, then we write K ∼ H. For K ∈ Kn , we denote
+
+            Ell(K) := min { `(H) `(H ◦ ) : H ∈ K0n and H ∼ K }.
+
+It is implicit in the above definition that the bodies H contain 0 in the
+interior. However, in the sequel we will often suppress for the purpose of
+brevity, the “interior” requirement in related definitions and statements. We
+point out that, in any case, the infimum such as above can not be achieved
+if 0 belongs to the boundary of H.
+    We can now state the following two results, which summarize the present
+paper.
+
+
+
+                                        8
+Proposition 2.3 There exist universal positive constants c, C such that
+
+                          cn ≤ Flt(K) ≤ CEll(K)
+
+for K ∈ Kn .
+Proof. The existence of c > 0 such that cn ≤ Flt(K) for every K ∈ C0n is
+a direct consequence of Theorem 2 of Banaszczyk (1996); the proof extends
+almost unchanged to arbitrary K ∈ Kn .
+    For the second inequality, fix K ∈ Kn and consider an arbitrary H ∈ K0n
+with H ∼ K. Next, take an arbitrary L ∈ Ln and a ∈ IRn with (L +a)∩H =
+∅; then µ(H, L) > 1. It follows directly from the definitions that
+
+                       w(H, L) = λ1 ((H − H)◦ , L∗ ).
+
+Thus, by Lemmas 2.1 and 2.2, we have
+
+            w(H, L) ≤ C0 `(H) `((H − H)◦ ) ≤ 2C0 `(H) `(H ◦ )
+
+where C0 is the constant from Lemma 2.1. Since L and a, (L + a) ∩ H = ∅,
+were arbitrary, it follows that
+
+                         Flt(H) ≤ 2C0 `(H) `(H ◦ ).
+
+As H ∼ K, we have Flt(H) = Flt(K). Thus
+
+                         Flt(K) ≤ 2C0 `(H) `(H ◦ ).
+
+Since H ∼ K was arbitrary, we obtain Flt(K) ≤ 2C0 Ell(K).                 2
+
+
+Theorem 2.4 There exists a universal constant C such that
+
+                       Ell(K) ≤ Cn3/2 ,      K ∈ Kn .
+
+Moreover, if K is a polytope with N1 vertices and N2 faces, then
+
+            Ell(K) ≤ Cn(1 + log n)1/2 (1 + log min{N1 , N2 })1/2 .
+
+
+
+The proof of Theorem 2.4 will be the object of the next two sections.
+
+                                      9
+Corollary 2.5 Let S be an n-dimensional simplex in IRn . Then
+                          n ≤ Flt(S) ≤ C n(1 + log n) ,
+where C is a universal constant.
+Proof. The first inequality is well known: consider the simplex S with ver-
+tices 0, ne1 , . . . , nen ; it is enough to observe that the interior of S is disjoint
+from Zn while w(S, Zn ) = n. The second inequality follows from Proposition
+2.3 and the second part of Theorem 2.4.                                              2
+
+Remark 2.6 Let us say that a polytope with integer vertices is lattice-
+free if it intersects the integer lattice only at its vertices. Very recently,
+Kantor (1998) showed that for any positive number α < 1e , and for n large
+enough, there exists a lattice-free simplex S ⊂ IRn of dimension n whose
+width w(S, Zn ) > αn. It can also be shown that αn may be replaced by n − 2
+(Sebö (1998)).                                                            2
+Remark 2.7 Let K ∈ Kn , L ∈ Ln and let s be the number of elements of L
+in K. Kannan and Lovász (1988) proved that
+                          w(K, L) ≤ C n2 d(s + 1)1/n e                         (∗)
+where C is a universal constant. For K ∈ C n they gave the bound
+                            w(K, L) ≤ C0 n(n + s1/n ),
+which was improved by Banaszczyk (1996) to
+                        w(K, L) ≤ C1 n(1 + log n + s1/n ).
+(see also Gritzmann and Wills (1993), (3.12) and (3.13)). Talata (1995)
+improved (∗) to
+                      w(K, L) ≤ C 0 n(n + s1/n ).
+The argument used in Talata (1995) together with the first part of Theorem
+2.4 allows one to show that
+                          w(K, L) ≤ C 00 n(n1/2 + s1/n ),
+while combined with Corollary 2.5 yields
+                         w(S, L) ≤ C2 n(1 + log n + s1/n )
+if S is an n-dimensional simplex, with analogous statements if the number of
+facets or the number of vertices of the body in question is “under control”. 2
+
+                                          10
+3    The ``∗-estimate via the John’s decomposi-
+     tion of identity.
+The object of this section is to prove the following result, which will imply
+the second part of Theorem 2.4.
+
+Proposition 3.1 There exists a positive constant C such that for any integer
+n and any n-dimensional convex polytope K, we have
+
+                  Ell(K) ≤ Cn(1 + log n)1/2 (1 + log N )1/2 ,
+
+where N is the smaller of the number of facets and the number of vertices of
+K.
+
+Remark 3.2 Proposition 3.1 implies, for an arbitrary K ∈ Kn , an estimate
+
+                        Ell(K) ≤ C0 n3/2 (1 + log n)1/2
+
+for some universal constant C0 . This follows e.g., from the well-known fact
+that any n-dimensional convex body can be “reasonably” approximated by a
+polytope with at most, say, 5n vertices (or faces). The same estimate follows
+also directly from the proof of Proposition 3.1. The proof shows that the
+above estimate on Ell(K) is witnessed by affine images of K whose Löwner
+or John ellipsoids are Euclidean balls, see below for definitions (specifically,
+the estimate given by Proposition 3.1 - and the second part of Theorem 2.4 -
+is witnessed by the affine image of K whose Löwner ellipsoid is a Euclidean
+ball if the number of faces of K exceeds that of vertices, resp. the John
+ellipsoid if the opposite is true). We will improve this estimate in the next
+section by removing the factor (1 + log n)1/2 .                               2
+    Before proving Proposition 3.1, we observe that the moments of the gauge
+of a convex body are equivalent. This fact is well known when we the body
+is symmetric and the measure is log-concave, see for instance Milman and
+Schechtman (1986), Appendix II.
+Lemma 3.3 There is a positive constant c such that for any integer n, any
+p ≥ 1 and any K ∈ K0n , we have
+                    c        Z
+                   √ `p (K) ≤ n kxkK dγn (x) ≡ `1 (K).
+                     p        IR
+
+
+
+
+                                      11
+Proof. By homogeneity, we may assume that IRn kxkK dγn (x) = 1. Then, by
+                                                         R
+
+Markov inequality, γn (tK) > 1 − 1/t, for any t > 0. In particular, choose t
+to satisfy γ1 ((−∞, 1]) = 1 − 1/t. Then tK ⊃ B2n (the Euclidean unit ball).
+Indeed, if x ∈ IRn , |x| = 1, was such that x ∈ / tK then, by a separation
+argument, there would exist a unit vector u ∈ IRn verifying
+           tK ⊂ {y ∈ IRn : hy, ui ≤ hx, ui} ⊂ {y ∈ IRn : hy, ui ≤ 1},
+whence γn (tK) ≤ γ1 ((−∞, 1]) = 1 − 1/t, contradicting our choice of t. As
+a consequence, the gauge of K is t-Lipschitz on the Euclidean space. We
+now use the following variant of the Gaussian isoperimetric inequality (see
+Pisier (1986)): if F : IRn → IR is is t-Lipschitz (with respect to the Euclidean
+metric), then, for any s > 0,
+                                    Z
+                     γn (F −               F dγn ≥ s) ≤ exp(−s2 /2t2 )
+                                      Rn
+
+(any other version of the isoperimetric inequality would also work). Accord-
+ingly, γn (k · kK − 1 ≥ s) ≤ exp(−s2 /2t2 ) and so
+                                                                                (z − 1)2
+           Z +∞                                         Z +∞                                 !
+      p                 p−1                                         p−1
+`p (K) =           pz         γn (kxkK ≥ z) dz ≤ 1 +           pz         exp −          dz .
+            0                                            1                         2t2
+                                                                                    √
+                                                                                        p
+The right-hand term can easily be estimated from above by ( c )p for some
+universal constant c > 0.                                               2
+
+    The Löwner ellipsoid (resp. John ellipsoid) of a body K is the (unique)
+ellipsoid of minimal volume containing K (resp. maximal volume contained
+in K). For any body K ⊂ IRn , there exists an affine transformation T
+such that the unit Euclidean ball B2n is the Löwner (resp. John) ellipsoid of
+T (K). An important and useful feature of these concepts is described by the
+following result of John (1948).
+Lemma 3.4 Let K be a body of IRn such that the ellipsoid of minimal volume
+containing K is the unit Euclidean ball. Then there exist M contact points
+(ui )1≤i≤M ( kui kK = |ui | = 1 for all 1 ≤ i ≤ M ) and M positive scalars
+(λi )1≤i≤M such that
+           M                  M                                     M
+                                    λi ui = 0 and ∀x ∈ IRn , x =
+           X                  X                                     X
+                 λi = n,                                                   λi hx, ui iui .
+           i=1                i=1                                    i=1
+
+Moreover M can be chosen so that M ≤ n(n+3)
+                                        2
+                                            .
+
+                                                  12
+   We will now estimate Ell(K) using the Löwner ellipsoid of K.
+Proof of Proposition 3.1. Replacing, if necessary, K by its affine image, we
+may assume that the Euclidean unit ball is the Löwner ellipsoid of K. Let
+(ui )1≤i≤M and (λi )1≤i≤M be as in Lemma 3.4. Then, for any x ∈ IRn , we have
+                            (M                 M
+                                                                                    )
+                             X                 X
+            kxkK ≤ inf              ti : x =         ti ui , ti ≥ 0, i = 1, . . . , M .
+                              i=1              i=1
+        P
+Since   1≤i≤M λi ui = 0, we have
+
+                   M
+                   X                         M
+                                             X
+             x=          λi hx, ui i ui =          λi (hx, ui i − min hx, uj i) ui .
+                                                                  1≤j≤M
+                   i=1                       i=1
+
+Therefore
+                                     M
+                                     X
+                         kxkK ≤            λi hx, ui i − n min hx, uj i.
+                                                            1≤j≤M
+                                     i=1
+We integrate now this inequality over IRn . The first term on the right yields
+zero and so, using Lemma 3.3, we get
+                                                      Z
+                 `(K) ≤ c−1 `1 (K) ≤ c−1 n                  max hx, uj i dγn (x).
+                                                        IRn 1≤j≤M
+
+Estimates of the last integral are well known (see e.g., Pisier (1989), Lemma
+4.14), and are stated here as a lemma for future reference.
+Lemma 3.5 Let Z1 , . . . , ZM be a sequence of mean zero Gaussian random
+variables on a probability space (Ω, P ). Then
+             Z
+                   max |Zj | dP ≤ C1 (1 + log M )1/2 max kZj kL2 (Ω)
+              Ω 1≤j≤M                                             1≤j≤M
+
+where C1 is a universal constant.
+Since in our setting M ≤ n(n + 3)/2 ≤ 2n2 and since, for u ∈ IRn , the
+Gaussian variable Z = h·, ui is of norm |u| in L2 (IRn , γn ), Lemma 3.5 implies
+
+                                `(K) ≤ C0 n(1 + log n)1/2 .
+
+On the other hand, the dual norm, the gauge of K ◦ , is dominated by the
+Euclidean norm and so
+                                            √
+                         `(K ◦ ) ≤ `(B2n ) = n.
+
+                                                   13
+The last two inequalities yield the estimate
+
+                        Ell(K) ≤ C0 n3/2 (1 + log n)1/2
+
+given in Remark 3.2. To obtain the estimate stated in the assertion of Propo-
+sition 3.1, let K be a polytope with N1 vertices. Then, again by Lemma 3.5,
+
+                          `(K ◦ ) ≤ C1 (1 + log N1 )1/2 .
+
+Combining this with the estimate for `(K) we get that
+
+                  Ell(K) ≤ Cn(1 + log n)1/2 (1 + log N1 )1/2 .
+
+On the other hand, if the number of facets of K is N2 , then so is the number
+of vertices of K ◦ , which shows that the inequality above also holds with N1
+replaced by N2 . This completes the proof of Proposition 3.1.               2
+
+Remark 3.6 Very recently Barthe (1998a) showed that among all convex        √
+bodies K whose John      ellipsoid is the unit Euclidean ball (hence `(K) ≤   n),
+the mean width 2 kxkK ◦ dµn (x), is maximal if K is a regular simplex S
+                      R
+
+circumscribed to the unit Euclidean ball; µn denotes here the normalized
+Lebesgue measure on S n−1 . The argument uses a reverse Brascamp–Lieb
+inequality (see Barthe (1998b), cf. Brascamp and Lieb (1976)). This implies
+the same assertion for the Gaussian average. An easy computation shows
+that for S, `(S ◦ ) is of order n(1 + log n)1/2 , which, for general K, gives the
+same estimate for Ell(K) as the one obtained above.                            2
+
+
+4     The modified Gaussian projection and the
+      ``∗-estimate.
+The purpose of this section is to prove the first part of Theorem 2.4 (i.e., to
+remove the logarithmic factor from the estimate given in Remark 3.2).
+    As indicated in the introduction, the situation is quite well understood
+in the symmetric case. We recall that for two normed spaces E1 , E2 the
+Banach–Mazur distance is defined by
+
+    d(E1 , E2 ) := inf{kT k · kT −1 k : T : E1 → E2 a linear isomorphism} .
+
+
+                                        14
+(As usual in such context we identify a normed space E with its unit ball
+BE , thus we may write d(K1 , K2 ) in place of d(E1 , E2 ) if Kj = BEj , j = 1, 2.)
+Then, if K ∈ C0n , √
+                   X = (IRn , k · kK ) is the corresponding normed space and
+dX := d(l2n , X) ≤ n, we have
+
+Ell(K) ≡ min {`(uK)`((uK)◦ ) : u ∈ GL(n)} ≤ Cn(1+log dX ) ≤ Cn(1+log n),
+
+where C is a universal constant (Figiel and Tomczak-Jaegermann (1979),
+Lewis (1979), Pisier (1981)). This estimate has many consequences in the
+finite dimensional geometry.
+    Closely connected to ``∗ -estimates is another invariant of a normed space:
+the norm of the Gaussian projection G in the space L2 (X); that norm can
+be taken as a definition of K(X), the K-convexity constant of X, mentioned
+in the introduction. Let us recall the notion of the Gaussian projection (for
+details see Pisier (1989), Ch.2). Consider the probability space (Ω, A, P )
+= (IRIN , B, γ∞ ), where B is the Borel σ-algebra and γ∞ is the canonical
+Gaussian probability measure on IRIN . Then the coordinate functions gi :
+IRIN → IR, defined by gi (x) = xi , form a sequence of independent identically
+distributed standard Gaussian random variables.
+    Let A be the set of all finitely supported sequences α = (α1 , α2 , ...) with
+αn ∈ Z+ . For α ∈ A define
+
+                          Hα (x) := hα1 (x1 )hα2 (x2 )... ,
+
+where hk (x), k = 0, 1, 2, ... are Hermite polynomials (recall h0 ≡ 1). Then
+{Hα : α ∈ A} is an orthogonal basis of L2 = L2 (Ω, P ).
+    Let H k be a closed span in L2 of the functions {Hα : |α|    ≡ αi = k}
+                                                                   P
+
+and Qk : L2 →H k be the orthogonal projection. E.g., Q0 f = Ω f dP and Q1
+                                                               R
+
+is the orthogonal projection onto the linear span of {gi : i ≥ 1}.
+    As usual, L2 (X) denotes the space of measurable functions f : Ω → X
+for which                            Z                   1/2
+                        kf kL2 (X) :=        kf (x)k2 dP
+                                         Ω
+
+is finite. As in our setting dim X < ∞, L2 (X) may be identified with L2 ⊗ X
+(in general, it would be a completion of L2 ⊗ X with respect to the above
+norm). We now define the Gaussian projection G = GX : L2 (X)→L2 (X) by
+the formula G = Q1 ⊗ IX , where IX denotes the identity operator on X. In
+
+
+                                         15
+the sequel we will suppress the implicit dependence of G on X; in particular
+we will sometimes write G for Q1 = Q1 ⊗ IIR = GIR .
+    The connection between ``∗ -estimates and the Gaussian projection is
+given by the following inequality (Figiel and Tomczak-Jaegermann (1979))
+
+                             Ell(K) ≤ C0 kGk ,
+
+where K = BX and C0 is a universal constant. In the Hilbert space case
+the Gaussian projection is orthogonal, hence of norm one. Surprisingly, that
+norm is also “quite small” in the case of a general normed space. Indeed,
+Pisier (1989) (cf. Bourgain (1984)) did show that
+
+                           kGk ≤ C1 (1 + log dX ),
+
+where C1 is a universal constant; this is in general much smaller than the
+“trivial” estimate dX we could otherwise expect. The last two inequalities
+clearly imply the estimate for Ell(K) in the symmetric case stated at the
+beginning of this section.
+    As indicated in the introduction, transferring these results to the non-
+symmetric setting (which is the natural one from the point of view of convex
+bodies) is not automatic. Indeed, even the correct statement of the problem
+encounters difficulties. This is basically due to the fact that the natural
+context for non-symmetric convex bodies being that of an affine space, the
+center of the coordinate system is not canonically determined. In accordance
+with this philosophy we shall consider, as the primary setup, the convex
+body K as a subset of an n-dimensional affine space V . Once we decide to
+choose a ∈ V (normally an interior point of K) as the “origin”, V may be
+identified with its underlying vector space X via v −→ v − a, and K with
+K − a := Ka ⊂ X. We can now consider the gauge of of Ka in X (or V , a
+being fixed). In order to make the notation more transparent we shall denote
+the gauge function by pK,a (x) if x is thought of as an element of V and by
+kxkKa if x ∈ X. Thus, for x ∈ V ,
+
+     pK,a (x) := kx − akKa = kx − akK−a = inf{λ : x − a ∈ λ(K − a)}.
+
+We denote Xa = (X, k · kKa ); this could be further identified with Va =
+(V, pK,a ). The definition of the Banach–Mazur distance generalizes imme-
+diately to spaces with a possibly non-symmetric gauge function and so we
+will write dKa = dXa = d(l2n , Xa ). However, in the affine context it is more
+
+                                     16
+natural to consider affine rather than linear maps; if K, K 0 are subsets of an
+affine space this leads to the definition of the “affine Banach-Mazur distance”
+ˆ
+d(K,  K 0 ) := inf a,b d(Ka , Kb0 ) and to dˆK := inf a d(l2n , Xa ) = inf a dXa , the latter
+necessarily ≤ n (see John (1948)).
+    The affine space in question will be usually endowed with a Euclidean
+structure, in particular we may talk about polars of Ka ’s (or of K with
+respect to its interior point a) and the functionals `p (Ka ). We denote by
+GL(X) the group of automorphisms of the vector space X (for fixed a ∈ K,
+one may also think of GL(X) as of affine maps preserving a). We will prove
+
+Theorem 4.1 There exists an absolute constant C such that for any convex
+body K in an n-dimensional (affine) Euclidean space
+                                                                            q
+            Ell(K) ≡         inf      {`(wKa ) · `((wKa ) )} ≤ Cn dˆK .
+                                                              ◦
+                        a∈K,w∈GL(X)
+
+
+   As in the symmetric case, we are going to use the Gaussian projection.
+When considered as operating on L2 (Xa ), we shall denote it by Ga . However,
+we point out that the underlying vector space being the same for all a’s, Ga
+as a linear map does not depend on a. Moreover, G (or Ga ) annihilates
+constant functions and so we may as well talk about Ga f if f is affine space
+valued.
+   If we now use the usual operator norm and define the functional
+
+                                                      kGa f kL2 (Xa )
+                    ψ(K) = ψG (K) := inf sup                          ,
+                                                   6 0 kf kL2 (Xa )
+                                             a∈K f =
+
+
+then easy examples show that
+                                        ˆ
+                             ψG (K) ≥ c d(K, K ∩ −K)
+      ˆ
+and d(K,  K ∩ −K) can be as large as n (as can be checked directly for
+the simplex, or see Grünbaum (1963) for this and a general discussion of
+related matters). To obtain a satisfactory result we are going to define new
+functionals, suggested by E. Gluskin, which will replace the standard norm
+of an operator. Let
+
+                                                        kGa f kL2 (Xa )
+                     ϕ(K) = ϕG (K) := sup inf                           ,
+                                              6 0 a∈K
+                                             f=          kf kL∞ (Xa )
+
+                                             17
+                                                   kGa f kL2 (Xa )
+                 ϕ2 (K) = ϕ2,G (K) := sup inf                      .
+                                          f 6=0 a∈K kf kL2 (Xa )
+
+Note that considering Ga as an operator Ga : L∞ → L2 rather than Ga :
+L2 → L2 is quite natural as the inequality
+
+                                  kF kL∞ (Xa ) ≤ 1
+
+has a simple geometric meaning, independent of the choice of the origin
+a ∈ K: it just means that F (t) ∈ K a.e. in Ω. For symmetric bodies all
+these three functionals are still the usual norms; moreover, ψ(·) = ϕ2 (·) while
+ϕ(K) and ϕ2 (K) are equivalent up to a universal multiplicative constant (the
+latter follows by considering G as acting from L2 to L1 – i.e., as the adjoint
+to G : L∞ → L2 – and using the fact that the L2 and L1 norms are equiv-
+alent on the range of G by Lemma 3.3, the Khinchine–Kahane inequality).
+For non-symmetric bodies the difference between ϕ(K) and ψ(K) becomes
+substantial. For example, in the case of the n-dimensional simplex S one can
+prove that (see Proposition 5.5 in the last section)
+
+                               ϕ(S) ≤ C (1 + log n),
+
+which implies the same sharp estimate for Ell(S) ≤ Cn(1 + log n) as that
+given by Theorem 2.4 or Proposition 3.1, while
+
+                                   ψ(S) ≥ c n.
+
+Still, the new functional satisfies the Figiel–Tomczak-Jaegermann type esti-
+mate. We have
+Proposition 4.2 Under the assumptions of Theorem 4.1 there is an absolute
+constant C such that
+
+          Ell(K) ≡       inf       {`(wKa ) · `((wKa )◦ )} ≤ C n ϕ(K).
+                     a∈K,w∈GL(X)
+
+
+
+
+For reader’s convenience we sketch the proof, which mimics that of the sym-
+metric case (Figiel and Tomczak-Jaegermann (1979), see also Bourgain and
+Milman (1987)), at the end of this section. Unfortunately, we were not able to
+obtain the logarithmic estimate for ϕ(K) in the general case. The following
+result gives some non-trivial estimate.
+
+                                        18
+Proposition 4.3 For any convex body K we have
+                                                                   q
+                                   ϕ(K) ≤ ϕ2 (K) ≤ 9 dˆK .
+
+
+    Clearly the last two Propositions imply Theorem 4.1. The proof of Propo-
+sition 4.3 consists of two parts. First, we estimate the norm of the Gaussian
+projection of a mean zero function. We then handle arbitrary functions by
+properly choosing the center.
+Lemma 4.4 Let q be a (possibly non-symmetric) gaugeRfunction on IRn and
+let X = (IRn , q). Let f be function in L2 (X), such that Ω f (t)dP = 0. Then
+                                                          q
+                           kGf kL2 (X) ≤ (1 + 2 dX ) kf kL2 (X) .
+
+We will mimic the proof of the analogous statement in Pisier (1989), Theorem
+2.5. However, in the non-symmetric case we can not use the Bernstein’s
+inequality, so we replace Lemma 2.6 of Pisier (1989) by the following
+Lemma 4.5 Let {xk : k ≥ 1} be a finitely supported sequence in a linear
+space equipped with a convex positively homogeneous non-negative functional
+q. Assume that
+                                                 ∞
+                                           !
+                                                      εk x k
+                                                 X
+                                    max q                          ≤1
+                                   0<ε≤1/2
+                                                  1
+
+and set ∆ = maxk≥2 q (−xk ). Then
+                                                      q
+                                  q (x1 ) ≤ 1 + 2 max{1, ∆}.
+
+Proof. By homogeneity and convexity of the functional q we have
+                            ∞                      ∞
+                                                                                          ε2 ∆
+                                         !                             !!                     !
+                  −1                k                          k                  −1
+                            X                      X
+    q (x1 ) ≤ ε        q           ε xk + q               −ε xk             ≤ ε        1+      .
+                              1                       2                                   1−ε
+                                   √
+Setting ε = min{1/2, (1 +               ∆)−1 } completes the proof.                                2
+
+Proof of Lemma 4.4.                As in Pisier (1989), for ε ∈ [−1, 1] consider the
+operator
+                                                εk Qk : L2 → L2 ,
+                                          X
+                              Tε :=
+                                          k≥0
+
+
+                                                  19
+where, for k = 0, 1, 2, . . ., Qk is the orthogonal projection onto the linear
+span of Hermite polynomials of degree exactly k that was defined earlier.
+Let S = span{Hα : α ∈ A} ⊂ L2 = L2 (Ω, P ) be the linear span of all
+Hermite polynomials. It was shown in Pisier (1989), Lemma 2.1 that, for
+f ∈ S,                           Z         √
+                       Tε f (x) = f (ε u + 1 − ε2 v)dP (y).
+                                  Ω
+                                                                     √
+Take f in S ⊗ X with kf kL2 (X) ≤ 1 and let fε (u, v) := f (ε u + 1 − ε2 v).
+Now, in the finite-dimensional case, (L2 (X))∗ = L2 (X ∗ ), where X ∗ =
+(IRn , q∗ ), q∗ = k · kK ◦ being the gauge dual to q = k · kK . Consequently,
+there exists a function g ∈ L2 (X ∗ ) such that kgkL2 (X ∗ ) = 1 and
+                                            Z
+       k(Tε ⊗ IX )f kL2 (X) =                     h(Tε ⊗ IX )f, gi dP
+       Z Z                                   Ω
+
+   =                hfε (u, v), g(x)idP (y)dP (x)
+        Ω       Ω
+       Z Z                                             1/2 Z Z                             1/2
+                         2
+   ≤                    q (fε (u, v)) dP (y)dP (x)                      q∗2 (g(x)) dP (y)dP (x)
+            Ω       Ω                                           Ω   Ω
+   =   kf kL2 (X) kgk         L2 (X ∗ )    ≤ 1.
+The last equality is implied by the fact that, for any ε ∈ [−1, 1], the function
+                      √
+fε (u, v) ≡ f (ε u + 1 − ε2 v) on (Ω × Ω, P ⊗ P ) has the same distribution as
+                                          P
+f onqP (Ω, P ) (which in turn follows from αi gi having the same distribution
+as       αi2 g1 ). Clearly
+                                          k(Qk ⊗ IX )f kL2 (X) ≤ dX
+as in the symmetric case (see Pisier (1989), Lemma 2.2). Therefore, applying
+Lemma 4.5 with ∆ = dX , B = L2 (X) and xk = (Qk ⊗ IX )f , we obtain
+                                                                               q
+                        kGf kL2 (X) ≡ k(Q1 ⊗ IX )f kL2 (X) ≤ 1 + 2 dX .
+As S ⊗ X is dense in L2 (X), Lemma 4.4 follows.                                                   2
+
+Proof of Proposition 4.3: Let K ⊂ IRn (thought of as both an affine and a
+vector space) be aR convex body such that dK0 = dˆK . Fix f ∈ L2 (IRn ) and
+set x∅ = Q0 f = Ω f dP . If x∅ 6= 0, we shall, for this particular f , choose
+the origin a as
+                         c1 − c2
+            a=                   x∅ , where c−1             −1
+                                             1 = kx∅ kK0 , c2 = k − x∅ kK0 .
+                            2
+                                                       20
+                        Figure 1: Choosing the origin.
+
+In other words, a is chosen to be the midpoint of the segment
+
+                             K0 ∩ {λx∅ : λ ∈ IR}
+
+(see Figure 1). Then kx∅ kKa = k−x∅ kKa and a ∈ 12 K0 ; the latter implies that
+dKa ≤ 3dK0 = 3dˆK . (Indeed, if E is an ellipsoid such that E ⊂ K0 ⊂ dK0 E,
+then 21 E ⊂ 12 K0 ⊂ Ka = K0 − a ⊂ 32 dK0 E.) These assertions hold also,
+trivially, if x∅ = 0 and we set a = 0. Thus, by Lemma 4.4,
+                                  q
+         kGa f kL2 (Xa ) ≤ (1 + 2 dXa )kf − x∅ kL2 (Xa )
+                                  q                                     
+                        ≤ (1 + 2 dXa ) kf kL2 (Xa ) + k − x∅ kL2 (Xa )
+                                  q                             
+                        ≤ (1 + 2 3dˆK ) kf kL2 (Xa ) + kx∅ kKa
+                                  q
+                        ≤ (2 + 4 3dˆK )kf kL2 (Xa ) .
+
+The last inequality uses the fact that kx∅ kKa ≤ kf kL2 (Xa ) , which follows just
+from Jensen’s inequality. This completes the proof of the Proposition.          2
+
+   For the Proof of Proposition 4.2 we need
+
+
+                                       21
+Lemma 4.6 Lewis (1979) Let α be a gauge function on n×n matrices which
+vanishes only at 0 and let α∗ be the dual gauge function (with respect to the
+trace duality i.e., given by hu, vi = tr(uv)). Then there exists u ∈ GL(n)
+such that α(u) = 1 and α∗ (u−1 ) = n.
+The above result is stated in Lewis (1979) for (ideal) norms only, but the
+argument does not use symmetry (nor, a priori, any ideal property).
+Proof of Proposition 4.2. As before, we may assume that dK0 = dK , in
+particular 0 is an interior point of K. We will show that, for some w ∈ GL(n)
+and a ∈ K,
+
+                             `1 ((wKa )◦ ) ≤ n ,                                     (#)
+while
+                                                kGa f kL2 (Xa )
+               `(wKa ) ≤ ϕ(K) ≡ sup inf                         .                    (##)
+                                       f 6=0 a∈K kf kL∞ (Xa )
+
+By Lemma 3.3, these two inequalities imply Proposition 4.2.
+    As before, let g1 , g2 , . . . be independent identically distributed standard
+Gaussian random variables and G = G0 the (usual linear) Gaussian projec-
+tion. As only gj , j = 1, . . . , n , will be relevant, we may replace (Ω, P ) by
+(IRn , dγn ) (applying the conditional expectation when necessary). Identify-
+ing X = X0 with IRn , we define a gauge function α on the space of n × n
+matrices by
+                                                           n
+                                                           X
+                  α(u) = inf{kf kL∞ (X) : Gf =                   uei gi } .
+                                                           i=1
+
+By Lemma 4.6, there exists an isomorphism u : IRn → X such that α(u) = 1
+and α∗ (u−1 ) = n. In particular, there exists a function f ∈ L∞ (X) such that
+                                                         n
+                                                         X
+                     kf kL∞ (X) = 1 and Gf =                   uei gi .
+                                                         i=1
+
+(Here and throughout the rest of this argument we take for granted that
+the infima/suprema in question are achieved. This is true because of w∗ -
+compactness, or we could have worked with objects “almost achieving” them.)
+Hence, by the definition of ϕ(·), there exists a ∈ K such that
+                                   Z       n
+                                                                   !1/2
+                                                 uei gi k2Ka dγn          = `(u−1 Ka ) ,
+                                           X
+        ϕ(K) ≥ kGa f kL2 (Xa ) =       k
+                                           i=1
+
+
+                                           22
+which yields the inequality (##) with w = u−1 . On the other hand,
+                                                                 Z       n
+    `1 ((u−1 Ka )◦ ) = `1 ((u−1 K)◦ ) = `1 (u∗ K ◦ ) =                         ((u∗ )−1 ei )gi kK ◦ dγn
+                                                                         X
+                                                                     k
+                                                                         i=1
+
+as, by the second assertion of Lemma 2.2, `1 ((u−1 Ka )◦ ) = `1 ((u−1 K −u−1 a)◦ )
+does not depend on the choice of a ∈ K and since (u−1 K)◦ = u∗ K ◦ . Now
+choose h ∈ L∞ (X) of norm one such that the last integral equals
+            n
+          Z X                                   n                               n
+                         ∗ −1                             ∗ −1
+                                                                                      hei , u−1 zi i
+                                                X                               X
+            h         ((u ) ei )gi , hidγn =          h(u ) ei , zi i =
+                i=1                             i=1                             i=1
+            R
+where zi = gi hdγn .
+   Define v : l2n →X by vei = zi . By definition, α(v) ≤ 1, and so
+                      n                              
+                            hei , u−1 zi i = tr u−1 v ≤ α∗ (u−1 )α(v) ≤ n,
+                      X
+
+                      i=1
+
+which is (#) with w = u−1 . This completes the proof.                                                     2
+
+
+5     The logarithmic factors – do we need them?
+As described in the introduction, the invariant Flt(·) in dimension n verifies
+cn ≤ Flt(·) ≤ C n(1 + log n) for symmetric bodies (Banaszczyk (1996)),
+and it is conceivable that similar estimates hold in the non-symmetric case,
+even though our argument gives, in general, a significantly weaker upper
+estimate. There is no substantial evidence as to whether the logarithmic
+factor is necessary. On the other hand, one can not hope to remove that
+factor by estimating more precisely the invariant Ell(·). We have
+
+Proposition 5.1 Let S and Q denote respectively an n-dimensional simplex
+and cube. Then
+                      Ell(Q) ≥ c n(1 + log n)1/2 ,
+                                    Ell(S) ≥ c0 n(1 + log n),
+where c and c0 are universal positive constants.
+
+
+
+
+                                                23
+Thus the lower estimates are of the same order as the upper estimates im-
+plied by the (asymptotically) known respective K-convexity constants (see
+Banaszczyk (1996) for the cube and Proposition 5.5 below, combined with
+Proposition 4.2, for the simplex) or, even simpler, by direct calculation. This
+equivalence is not really surprising, but we provide a proof as we could not
+find a reference in the literature. The argument clearly works in a much
+more general setting (e.g., for spaces or bodies “with enough symmetries”,
+see Tomczak-Jaegermann (1989), §16), but – in particular – we haven’t at-
+tempted to verify whether examples due to Bourgain (1984) of n-dimensional
+spaces whose K-convexity constants are O(1 + log n) yield Ell(·) of order
+n(1 + log n). The proof is based on the following two elementary facts.
+
+Lemma 5.2 Let K1 , K2 ∈ Kn , w ∈ GL(n) and p ∈ [1, ∞). Then there exist
+linear subspaces E1 , E2 ⊂ IRn with dim Ei = mi ≥ n/2, i = 1, 2, verifying
+
+              `p (E1 ∩ K1 ) · `p (E2 ∩ K2◦ ) ≤ `p (wK1 ) · `p ((wK2 )◦ ).
+
+
+We point out that the quantities `p (·) in the assertion refer to averages with
+respect to the standard Gaussian measures on the respective spaces Ei . We
+emphasize that the argument does not require symmetry of the gauge func-
+tion.
+Proof. For clarity, we will present the proof for p = 1, the argument for
+other p’s is identical. We have kxkwK1 = kw−1 xkK1 and, considering that
+(wK2 )◦ = (w∗ )−1 K2◦ , kxk(wK2 )◦ = kw∗ xkK2◦ . Let w−1 = U ∆ be the polar
+decomposition of w−1 , i.e., U ∈ O(n), ∆ positive. Replacing, if necessary,
+Ki by U ∗ Ki , we may assume that U is the identity, hence w−1 = ∆ and
+w∗ = ∆−1 . Let s1 ≥ s2 ≥ . . . ≥ sn > 0 be the eigenvalues of ∆ and let (uk )
+the corresponding orthonormal basis of IRn diagonalizing ∆. Set m = m1 =
+dn/2e and let E1 = span{uk : 1 ≤ k ≤ m} and E2 = span{uk : m ≤ k ≤ n}
+respectively. Clearly dim E1 , dim E2 ≥ n/2 while
+     Z                      Z                       Z
+sm        kxkK1 dγm (x) ≤        k∆xkK1 dγm (x) ≤          k∆xkK1 dγn (x) = `1 (K1 ).
+     E1                     E1                       IRn
+
+Both  inequalities Rabove follow from the “ideal property” of the `-norm, i.e.,
+  kvxkK dγ(x) ≤ kxkK dγ(x) if v is a contraction on the Euclidean space
+R
+
+(see e.g., Pisier (1989), (3.12); the argument does not use symmetry of the
+
+
+
+                                          24
+gauge function), the first one applied to v = sm ∆−1
+                                                  |E1 , and the second to the
+orthogonal projection onto E1 . Similarly,
+                Z                        Z
+          s−1
+           m         kxkK2◦ dγm2 (x) ≤         k∆−1 xkK2◦ dγn (x) = `1 (K2◦ ),
+                E2                       IRn
+
+whence the Lemma follows.                                                        2
+
+    Before stating the next lemma we recall the definition of the `-ellipsoid,
+already implicitly referred to several times in the paper. Given K ∈ Kn , let
+uR ∈ GL(n) be given by Lemma 4.6 applied to α(v) = `(v) ≡ `(v −1 K) =
+( IRn kvxk2K dγn (x))1/2 , we then set E = uB2n , where B2n is the Euclidean unit
+ball. We need to know that (i) E is unique and (ii) any u giving E maximizes
+| det u| over {u : `(u) ≤ 1}. We have
+
+Lemma 5.3 Let K ∈ Kn be such that its `-ellipsoid K is the unit Euclidean
+ball. Let E ⊂ IRn be a linear subspace, dim E = m. Denote θ = m/n. Then
+                                                        1−θ
+                             `(E ∩ K) ≥ θ(1 − θ) θ .
+
+In particular if dim E ≥ n/2, then `(E ∩ K) ≥ 1/4.
+
+Proof. (Sketch) Let P be the orthogonal projection onto E, then `(P ) ≤
+`(I) = 1 by the ideal property of the `-norm (see the proof of the preceding
+lemma), similarly `(I −P ) ≤ 1. Consider now, for s, t > 0, u = sP +t(I −P ).
+One shows that if the condition in the assertion of the Lemma was not
+satisfied, one would be able to choose s, t so that `(u) ≤ s`(P ) + t ≤
+s`(E ∩ K) + t = 1 while | det u| = sm tn−m > 1 = | det I|, contradicting
+the optimal property of the identity I. More precisely, the same argument
+gives `(P )θ `(I − P )1−θ ≥ θθ (1 − θ)1−θ .                                2
+
+Proof of Proposition 5.1. One checks directly that for the cube Q in the
+“standard” position, i.e., Q = [−1, 1]n ⊂ IRn , `(Q) is precisely of order
+(1 + log n)1/2 while n > `(Q◦ ) ≥ `1 (Q◦ ) = (2/π)1/2 n. Now the `-ellipsoid
+of Q (and its polar) is a multiple of the Euclidean ball; this follows from
+the fact that these are the only ellipsoids which are invariant under the
+group of symmetries of Q (resp. its polar) and from the uniqueness of the
+`-ellipsoid. Hence, by Lemma 5.3, if dim E ≥ n/2, then `(Q ∩ E) ≥ `(Q)/4
+(resp. `(Q◦ ∩ E)) ≥ `(Q◦ )/4). Therefore, by Lemma 5.2 (applied with
+
+                                             25
+K1 = K2 = Q), for any w ∈ GL(n), `(wQ) · `((wQ)◦ ) ≥ cn(1 + log n)1/2 , as
+required.
+    Let S be a regular simplex in the “standard” position, i.e., with centroid
+at the origin and, say, circumscribed to the Euclidean unit ball. It is rather
+easy to check that `(S) is precisely of order (1 + log n)1/2 and `(S ◦ ) = n`(S)
+(but we will not use this information explicitly.) The same argument as
+applied above to Q works for S provided we restrict ourselves to linear maps.
+However, in the general affine case we “loose control” of the `-ellipsoid of
+S − a and so we have to be more careful. Let w ∈ GL(n) and let a be
+an interior point of S. Denote λ = `(w(S − a)) · `((w(S − a))◦ ). Now, by
+Lemma 2.2, `1 ((K − a)◦ ) does not depend on a and so `((w(S − a))◦ ) =
+`((wS − wa)◦ ) ≥ `1 ((wS − wa)◦ ) = `1 ((wS)◦ ) ≥ c0 `((wS)◦ ), where the last
+inequality uses Lemma 3.3. Hence
+                         `(w(S − a)) · `((wS)◦ ) ≤ c−1
+                                                    0 λ.
+
+We now are in a position to apply Lemma 5.2 with K1 = S − a and K2 = S;
+the Proposition will follow if we show that, for linear subspaces E1 , E2 ⊂ IRn
+with dim Ei ≥ n/2, i = 1, 2,
+                `(E1 ∩ (S − a)) · `(E2 ∩ S ◦ ) ≥ c1 n(1 + log n).
+For our representation of S (circumscribed to the Euclidean unit ball), let
+ui , i = 1, . . . , n + 1 , be the contact points. Then S = {x ∈ IRn : hx, ui i ≤
+1 for i = 1, . . . , n + 1} and vi = −nui are the vertices of S. In particular, it
+follows that S ◦ = −S/n, hence kxkS ◦ = nk − xkS . Accordingly `(E2 ∩ S ◦ ) =
+n `(E2 ∩ S) and so, to show the last inequality, it clearly suffices to establish
+that if a is an interior point of S and dim E ≥ n/2, then
+                     `(E ∩ (S − a)) ≥ c2 (1 + log n)1/2 .                   (†)
+To this end observe first that the vectors x ∈ IRn are uniquely represented
+                                                                      hx,ui i
+as x = n+1
+                              Pn+1
+                               i=1 ti = 0, moreover, one has ti = − n+1 for
+            P
+               i=1 ti vi with
+i = 1, . . . , n+1. For such an x and for the choice of the point a = n+1
+                                                                      i=1 ai vi ∈
+                                                                     P
+            Pn+1
+S (with i=1 ai = 1, ai ≥ 0) as the origin, one has
+                   n+1
+                                                           *            +
+                                         ti                    ui
+                   X                          
+       kxkS−a = k     ti vi kS−a = max −           = max x,           .
+                  i=1
+                                   i≤n+1 ai          i≤n+1  (n + 1)ai
+(We employ here the notation kxkS−a rather than pSa (x) as x is a vector
+rather than a point in an affine space.) Now the contact points (ui ) yield
+
+                                       26
+a “decomposition of identity” as in Lemma 3.4 (this has been already used
+above), one has
+                                      n n+1
+                     ∀x ∈ IRn , x =
+                                          X
+                                              hx, ui iui .
+                                    n + 1 i=1
+A well-known argument (see e.g., Pelczyński (1980), Prop. 16.1) shows then
+that, for any rank k orthogonal projection P in IRn , one has maxi≤n+1 |P ui | ≥
+(k/n)1/2 . Thus, starting with an arbitrary subspace E ⊂ IRn with dim E =
+m ≥ n/2, one can construct inductively a sequence ui1 , ui2 , . . . , uis , s ≥ n/4 ,
+such that, denoting by PE the orthogonal projection onto E and wj = PE uij ,
+one has, for j = 1, . . . , s, |wj | ≥ 1/2 and, moreover,
+
+                     dist(wj , span{wr : 1 ≤ r < j}) ≥ 1/2.
+
+Recall that, for a vector x ∈ E,
+                 *               +           *               +           *             +
+                   ui                           PE ui                        wj
+kxkS−a = max x,                      = max x,                    ≥ max x,                  .
+         i≤n+1  (n + 1)ai              i≤n+1  (n + 1)ai            j≤s    (n + 1)aij
+    P   n+1
+As      i=1 ai = 1, it follows that among the numbers ai , strictly less
+than (n + 1)/8, hence at most n/8, are > 8/(n + 1), and so the set
+J = {j ≤ s : aij < 8/(n + 1)}, is of cardinality at least n/8 (remem-
+ber s ≥ n/4). Denoting yj = wj /((n + 1)aij ) we see from the preceding
+inequality that, for j ∈ J, |yj | > 1/16 and, moreover, |yj − yj 0 | ≥ 1/16 for
+j, j 0 ∈ J, j 6= j 0 . To summarize, we have shown that there exist yj ∈ E for
+j ∈ J with
+ (1) kxkS−a ≥ maxj∈J hx, yj i
+ (2) |yj − yj 0 | ≥ 1/16 for j, j 0 ∈ J, j 6= j 0
+ (3) the cardinality of J is at least n/8.
+This type of situation is handled by one of the companion inequalities to
+Lemma 3.5, the “Sudakov minoration” (see e.g., Pisier (1989), Theorem 5.6).
+
+Lemma 5.4 Let α > 0 and let Z1 , . . . , ZM be a sequence of jointly Gaussian
+random variables on a probability space (Ω, P ) such that
+
+             kZj − Zj 0 kL2 (Ω) ≥ α for j, j 0 ∈ {1, . . . , M }, j 6= j 0 .
+
+Then                  Z
+                          max Zj dP ≥ c1 α(1 + log M )1/2 ,
+                       Ω 1≤j≤M
+where c1 is a universal constant.
+
+                                           27
+As the map E 3 y → h· , yi ∈ L2 (E, γm ) is an isometry, Lemma 5.4 combined
+with (1)-(3) implies that
+                                         Z
+                                                                   c1         n
+ `((S − a) ∩ E) ≥ `1 ((S − a) ∩ E) =           kxkS−a dγm (x) ≥       (1 + log )1/2 ,
+                                           E                       16         8
+whence (†) easily follows.                                                          2
+
+   As indicated earlier, the asymptotically precise estimate Ell(S) ≤
+C n(1 + log n), where S is an n-dimensional simplex, is not difficult to obtain
+by direct calculation (applied to the regular simplex). It also follows from
+the methods of section 3 (Proposition 3.1). Finally, it may be alternatively
+derived from Proposition 4.2 and the following result, which we include pri-
+marily as it suggests that the non-symmetric analogues of the K-convexity
+constants introduced in section 4 are, in some sense, correct.
+
+Proposition 5.5 Let S be an n-dimensional simplex. Then
+
+                      c(1 + log n) ≤ ϕ(S) ≤ C(1 + log n),
+
+where c and C are universal positive constants.
+
+Proof. The first inequality follows directly from Proposition 5.1 and Propo-
+sition 4.2. As in the proof of Proposition 5.1, let S be a regular simplex
+circumscribed to the Euclidean unit ball; we will keep the notation of that
+proof in the sequel. Clearly, it is enough to prove the claim for this particular
+n-dimensional simplex.
+     By the definition of the invariant ϕ(·) and the comments following it,
+given F : Ω → S, we need to estimate (by C(1 + log n)) the quantity
+inf a∈S kGa F kL2 (Xa ) . F being S-valued, there exist functions f1 , ..., fn+1 :
+Ω → IR+ such that n+1
+                                                  Pn+1
+                           i=1 fi ≡ 1 and F =
+                         P
+                                                    i=1 fi vi . The Gaussian projec-
+tion of F is now just n+1
+                          P
+                             i=1 Gf  v
+                                    i i , where G is the usual Gaussian projection
+(defined for scalar valued functions); we point out that n+1      i=1 Gfi ≡ 0 and so,
+                                                                P
+                                                    Pn+1
+as explained in the proof of Proposition 5.1, i=1 Gfi vi represents a vector
+function, whose L2 -norm with respect to the gauge k · kS−a (i.e. kGa F kL2 (Xa )
+in the language of section 4, the quantity we need to estimate) is
+                                                 !2    1/2
+                                 Z
+                                    Gfi
+                        A =  max −                    dt     .
+                             Ω i    ai
+
+                                         28
+By Lemma 3.3 with p = 2 and by Lemma 3.5 applied with Yi = −Gfi /ai
+(which are Gaussian random variables), we have
+                 √        −1
+                               Z
+                                            Gfi                             kGfi k2
+            A≤       2c            max          dP ≤ C 0 (1 + log n)1/2 max         .
+                               Ω    i       ai                           i    ai
+
+Now if a = (a1 , ..., an+1 ) ∈ S is given by ai = kGfi k2 /(               i kGfi k2 ), we get
+                                                                         P
+
+
+     A ≤ C 0 (1 + log n)1/2                 kGfi k2 = C 0 (π/2)1/2 (1 + log n)1/2
+                                    X                                               X
+                                                                                        kGfi k1 .
+                                        i                                           i
+
+On the other hand
+
+     kGfi k1 = kG`n+1 F kL1 (`n+1 ) ≤ K(`n+1 ) kF kL∞ (`n+1 ) = K(`n+1 ) ≤ C 00 (1+log n)1/2 ,
+X
+                      1                 1
+                                         1                         1
+                                                                   1
+ i
+
+the last inequality being the well-known estimate for the (usual) K-convexity
+constant of `m1 . Combining the last two inequalities yields the required ma-
+jorant for A and hence the second assertion of the Proposition.            2
+
+Remark 5.6 Our final remark concerns possible use of the Rademacher pro-
+jection in place of the Gaussian projection in section 4 (with almost the same
+outcome). Indeed, one may replace throughout the argument (IRIN , B, γ∞ )
+by ZI2N = {−1, 1}IN equipped with the Haar measure, the Gaussian variables
+by the Rademachers, and the Hermite polynomials by the Walsh functions.
+In the symmetric case the norms of Gaussian and Rademacher projections
+are equivalent, more precisely kGk ≤ kRk ≤ π2 kGk (see e.g., Tomczak-
+Jaegermann (1989)). The proof of this fact does not use “strongly” the
+symmetry of the norm (only the boundedness of kxk/k − xk is relevant).
+Moreover, for any finite sequence (xi ) in X we have
+     s
+         2 X                   X                  q             X
+           k ri xi kL2 (X) ≤ k   gi xi kL2 (X) ≤ C 1 + log dX k   ri xi kL2 (X)
+         π
+(see e.g., Tomczak-Jaegermann (1989), 4.2-4.4, or Bourgain and Milman
+(1987), Lemma 8.6, for the symmetric case); since Gaussian and Rademacher
+variables have symmetric distributions, this inequality holds also in the non-
+symmetric case. Then we can define the functional ϕ = ϕR for the Rademacher
+projection and obtain for it almost the same estimates as in the Gaussian
+case. More precisely, the Pisier’s estimate kGk ≤ C (1+log dX ) and Proposi-
+tion 4.3 carry over (more or less) directly to the Rademacher case. Lemma 4.4
+
+                                                      29
+can be obtained using Lemma 4.5 and a convolution with a Riesz measure
+(Pisier (1981), see also Bourgain and Milman (1987)). In Theorem 4.1 an
+additional logarithmic factor will appear, i.e.
+                      Ell(K) ≤ C n ϕR (K)(1 + log dX ),
+and so this approach leads to a slightly inferior final result.                 2
+
+
+References
+ Banaszczyk, W. (1996). Inequalities for convex bodies and polar reciprocal lat-
+     tices in IRn II: Application of K-convexity. Discrete Comput. Geom. 16
+     305-311.
+
+ Barthe, F. (1998a). An extremal property of the mean width of the simplex,
+     Math. Ann. 310 685-693.
+
+ Barthe, F. (1998b). On a reverse form of the Brascamp–Lieb inequality. Invent.
+     Math. 134 335-361.
+
+ Benyamini, Y., Y. Gordon (1981). Random factorization of operators between
+     Banach spaces. J. Analyse Math. 39 45-74.
+
+ Bourgain, J. (1984). On martingale transforms in finite dimensional lattices with
+     an appendix on the K-convexity constant. Math. Nachr. 119 41-53.
+
+ Bourgain, J., V. D. Milman (1986). Distances between normed spaces, their
+     subspaces and quotient spaces. Integral Equations Operator Theory 9 31-46.
+
+ Bourgain, J., V. D. Milman (1987). New volume ratio properties for convex
+     symmetric bodies in Rn . Invent. Math. 88 319-340.
+
+ Brascamp, H. J., E. H. Lieb (1976). Best constants in Young’s inequality, its
+     converse and its generalization to more than three functions. Adv. Math.
+     20 151-173.
+
+ Figiel, T., N. Tomczak-Jaegermann (1979). Projections onto Hilbertian Sub-
+      spaces of Banach spaces. Israel J. Math. 33 155-171.
+
+ Gritzmann, P., J. M. Wills (1993). Lattice points. P. M. Gruber and J. M. Wills
+      eds., Handbook of Convex Geometry, North-Holland, Amsterdam, 765-797.
+
+ Grünbaum, B. (1963). Measures of symmetry for convex sets. Proc. Sympos.
+      Pure Math. 7, Amer. Math. Soc., Providence, 233-270.
+
+                                       30
+John, F. (1948). Extremum problems with inequalities as subsidiary conditions.
+    Courant Anniversary Volume, Interscience, New York, 187-204.
+
+Kannan, R., L. Lovász (1988). Covering minima and lattice-point-free convex
+    bodies. Ann. Math. 128 577-602.
+
+Kantor, J.-M. (1998). On the width of lattice-free simplices. Preprint.
+
+Khinchine, A. (1948). A quantitative formulation of Kronecker’s theory of ap-
+    proximation. Izv. Acad. Nauk SSSR, Ser. Mat. 12 113-122 (in Russian).
+
+Lenstra, H. W. (1983). Integer programming with a fixed number of variables.
+    Math. of Oper. Res. 8 538-548.
+
+Lewis, D. R. (1979). Ellipsoids defined by Banach ideal norms. Mathematika 26
+    no. 1, 18-29.
+
+Lindenstrauss, J., V. D. Milman (1993). The local theory of normed spaces and
+    its applications to convexity. P. M. Gruber and J. M. Wills eds., Handbook
+    of Convex Geometry, North-Holland, Amsterdam , 1149-1220.
+
+Litvak, A., N. Tomczak-Jaegermann (1998). Private communication.
+
+Milman, V. D., G. Schechtman (1986). Asymptotic theory of finite dimensional
+    normed spaces, Lecture Notes in Math. 1200, Springer Verlag, Berlin-New
+    York.
+
+Pelczyński, A. (1980). Geometry of finite-dimensional Banach spaces and oper-
+     ator ideals. E. H. Lacey, ed., Notes in Banach spaces, University of Texas
+     Press, Austin, Texas, 81-181
+
+Pisier, G. (1981). K-convexity. B.-L. Lin, ed., Proceeding of Research Workshop
+     on Banach spaces and operator ideals, University of Iowa, Iowa City, Iowa,
+     139-151.
+
+Pisier, G. (1986). Probabilistic methods in the geometry of Banach spaces.
+     C.I.M.E. Varenna 1985. Lecture Notes in Math. 1206, Springer Verlag,
+     Berlin-New York, 167-241.
+
+Pisier, G. (1989). The Volume of Convex Bodies and Banach Space Geometry,
+     Cambridge University Press, Cambridge.
+
+Rudelson, M. (1998) Distances between non–symmetric convex bodies and the
+    M M ∗ -estimate. Preprint. Available at http://xxx.lanl.gov/abs/math/9812010.
+
+
+                                      31
+ Sebö, A. (1998). An Introduction to Empty Lattice Simplices. IPCO 7, Lecture
+      Notes in Computer Science, Springer Verlag, to appear.
+
+ Talagrand, M. (1987). Regularity of Gaussian measures. Acta Math. 159 99-149.
+
+ Talata, I. (1997). Covering the lattice points of a convex body with affine sub-
+      spaces. Intuitive geometry (Budapest, 1995), 429-440, Bolyai Soc. Math.
+      Stud., 6, Janos Bolyai Math. Soc., Budapest, 1997.
+
+ Tomczak-Jaegermann, N. (1989)., Banach–Mazur distances and finite-dimensional
+    operator ideals, Pitman Monographs and Surveys in Pure and Applied Math-
+    ematics, 38. Longman Scientific & Technical, Harlow; copublished in the
+    United States with John Wiley & Sons, Inc., New York.
+
+
+
+
+Faculty of Mathematics, Lódź University, 90-238 Lódź, Poland
+E-mail: wbanasz@imul.uni.lodz.pl
+
+Department of Mathematics Tel Aviv University Ramat Aviv, Tel-Aviv, Israel
+Present address: Department of Mathematics, Technion, Haifa 32000, Israel
+E-mail : alexandr@math.ualberta.ca
+
+Equipe d’Analyse et de Mathématiques Appliquées, Université de Marne-la-Vallée, 5 blvd
+Descartes, 77454 Marne-la-Vallée, France
+E-mail : pajor@math.univ-mlv.fr
+
+Department of Mathematics, Case Western Reserve University, Cleveland, OH 44106-
+7058, U.S.A.
+and
+Université Pierre et Marie Curie, Equipe d’Analyse, Bte 186, 4, Place Jussieu, 75252
+Paris, France
+E-mail : szarek@ccr.jussieu.fr
+
+
+
+
+                                            32
+

@@ -1,0 +1,24 @@
+{
+  "CANT2024.txt": {
+    "lines": 658,
+    "matches": []
+  },
+  "CANT2026.txt": {
+    "lines": 1205,
+    "matches": [
+      "ge of Aurora, Colorado Email: collier.gaiser@ccaurora.edu Title: On Rado numbers for equations with unit fractions Abstract: Let Rr (k) be the smallest n such that every r-coloring of {1, 2, ..., n} has a monochromatic solution to x1 + x2 + \u00b7 \u00b7 \u00b7 + xk = y, where x1 , x2 , . . . , xk are not necessarily distinct. "
+    ]
+  },
+  "CANT2025.txt": {
+    "lines": 1160,
+    "matches": [
+      "ionality problems for Ahmes series Abstract: Proving (ir)rationality of infinite series of distinct unit fractions has been an active topic of research for decades, with numerous occasional breakthroughs. We will investigate what can be obtained using elementary techniques (such as iterative constructions and the"
+    ]
+  },
+  "INTEGERS2025.txt": {
+    "lines": 1412,
+    "matches": [
+      "eciprocals of Shifted Golomb Primes The study of decomposing rational numbers into sums of distinct unit fractions is one of the oldest topics in additive number theory. Many interesting questions arise when we restrict the denominators to some specific subset S of rational numbers. Bloom has proved that 1 can be"
+    ]
+  }
+}

@@ -1,0 +1,1414 @@
+Séminaire Bourbaki                                                                 Juin 2000
+52 année, 1999-2000, no 876
+
+
+
+
+            DERIVATIVES OF EISENSTEIN SERIES
+    AND GENERATING FUNCTIONS FOR ARITHMETIC CYCLES
+
+                                 by Stephen S. KUDLA
+
+
+
+
+   The classical formula of Siegel and Weil identiﬁes the values of Siegel–Eisenstein series at
+certain critical points as integrals of theta functions. When the critical point is the center
+of symmetry for the functional equation, the Fourier coeﬃcients of the values of the ‘even’
+Siegel–Eisenstein series thus contain arithmetic information about the representations of
+quadratic forms. It is natural to ask for an arithmetic interpretation of the derivative of
+the ‘odd’ series at their center of symmetry.
+   I would like to report on my work on a family of identities relating the Fourier expansions
+of the derivatives of certain Siegel–Eisenstein series at their center of symmetry, on one
+side, and generating functions for the degrees of 0–cycles on moduli schemes for abelian
+varieties, on the other. On the one hand, such identities can be viewed as generalizations
+of the Siegel–Weil formula to the case of the derivative. On the other hand, the identities
+imply that the generating functions in question, which are given as power series in q with
+coeﬃcients arising from arithmetical algebraic geometry, are in fact the q-expansions of
+modular forms. This work grows out of results obtained in collaboration with Steve Rallis
+[18], [19], [20] and with John Millson [15], [16], [17]. More recent progress has been made
+in collaboration with Michael Rapoport [21], [22], [23] and Tonghai Yang [24], [25]. At
+present, the identities have been fully established only in certain special cases as explained
+below. Nonetheless, these examples, together with partial results in higher dimensions,
+suggest the outline of a more extensive theory.
+   An additional origin of the investigation described here was the study of the triple
+product L-function at the center of the critical strip, in collaboration with Michael Harris
+[9] and with Benedict Gross [7]. In particular, a Siegel–Eisenstein series is a key ingredient
+in the Rankin-Selberg integral representation of this L–function. Thus the occurrence of
+arithmetic geometric quantities in the central derivatives of the Eisenstein series should
+reﬂect their appearance in the central derivative of the L–function, and hence should
+provide a relation to the Gross–Zagier formula [8].
+
+
+  Support of NSF Grant DMS 9970506 is gratefully acknowledged.
+                                           876-02
+
+   Section 1 contains two examples, one recalling the work of Hirzebruch and Zagier on the
+modular generating functions for curves on a Hilbert–Blumenthal surface and the second
+illustrating a generating function in the simplest arithmetic case, involving the derivative
+of a classical Eisenstein series of weight 1. In section 2, the incoherent Siegel–Eisenstein
+series, which should be related to arithmetic generating series, are deﬁned in general.
+Section 3 reviews the results of [15],[16],[17] on generating functions for cycles on locally
+symmetric spaces. These results suggest what one should hope for in the arithmetic case.
+In section 4, the generating function for 0–cycles on an arithmetic surface attached to
+a Shimura curve is deﬁned, and Conjecture 4.7 relates it to the central derivative of an
+incoherent Eisenstein series of weight 32 and genus 2. The comparison of the nonsingular
+Fourier coeﬃcients of the two objects is discussed in sections 5 and 6. Section 7 contains a
+brief survey of results in higher dimensional cases as well as a second look at the simplest
+example of section 1. Some speculations about further developments are made in section
+8.
+  1. Two examples
+  2. Central derivatives of Siegel–Eisenstein series
+  3. Generating functions in the geometric case
+  4. Generating functions for arithmetic 0–cycles; the case of Shimura curves
+  5. Non-singular Fourier coeﬃcients
+  6. Green’s functions and Whittaker functions
+  7. Further results
+  8. Final remarks
+  I would like to warmly thank J.-B. Bost, G. Henniart and M. Rapoport for detailed
+comments and advice on the original draft of this report.
+
+
+
+0.1. Notation
+
+Q, A, Af , A× denote the rational numbers, the adèles, the ﬁnite adèles,
+and the idèles of Q respectively.
+Ẑ = lim Z/nZ, and, for any Z–module M , M̂ = M ⊗Z Ẑ.
+     ←−
+      n
+Fq denotes the ﬁnite ﬁeld with q elements, and F̄q denotes an algebraic closure of it.
+( , )p (resp. ( , )A ) denotes the quadratic Hilbert symbol for Qp (resp. A).
+ψ is a ﬁxed nontrivial character of A/Q.
+Hg = {τ = u + iv ∈ Symg (C) | v > 0} is the Siegel space of genus g;
+H = H1 is the upper half–plane.
+e(x) = e2πix
+Symn (R) = {x ∈ Mn (R) | t x = x} = the space of n × n symmetrix matrices.
+                                             876-03
+
+
+                                                                 
+                                               a1
+                                                   ..            
+                     diag(a1 , . . . , an ) =           .         ∈ Symn (R).
+                                                             an
+
+
+
+1. TWO EXAMPLES
+
+  To ﬁx ideas, it may be useful to consider two examples in classical language. The
+ﬁrst of these illustrates the construction of generating functions for curves on a complex
+surface. More precisely, it gives a compact quotient version of the Hirzebruch–Zagier
+generating function for curves on a Hilbert–Blumenthal surface and a similar generating
+function for 0–cycles on such a surface. The second example illustrates the arithmetic
+case where cycles on moduli spaces for abelian varieties are deﬁned by imposing extra
+endomorphisms. The example involves CM elliptic curves and the generating function is
+identiﬁed as the central derivative of an Eisenstein series of weight 1.
+
+
+1.1. The case of a complex surface.
+
+   The results of this section are special cases of joint work with John Millson [15], [16],
+[17]. Let V , ( , ) be a 4–dimensional rational vector space with a symmetric bilinear form
+of signature (2, 2). Let Q(x) = 12 (x, x) be the associated quadratic form. Fix a lattice L
+in V on which the form is Z–valued and let
+
+                             Γ ⊂ {γ ∈ SO(V )(Q)+ | γL = L}
+
+be a subgroup of ﬁnite index, where SO(V )(R)+ is the identity component of the Lie
+group SO(V )(R) and SO(V )(Q)+ = SO(V )(Q) ∩ SO(V )(R)+ . The space D of negative
+2–planes in V (R) is isomorphic to the product H × H of two copies of the upper half–plane
+H, and the quotient S = Γ\D is (the complex points of) a quasi–projective variety. Now
+assume that the space V is anisotropic so that S is projective. This assumption eliminates
+complications coming from the compactiﬁcation of the cusps, which are a signiﬁcant issue
+in the Hilbert–Blumenthal case considered by Hirzebruch and Zagier.
+  For a vector x ∈ V (Q) with Q(x) > 0, let
+
+                                    Dx = {z ∈ D | z ⊥ x}
+
+be the set of negative 2–planes orthogonal to x, so that Dx ⊂ D is isomorphic to an
+embedded upper half–plane H ⊂ H × H. The image Z(x, Γ) of Dx in the quotient S is
+a compact curve, the image of the quotient Γx \Dx , where Γx is the stabilizer of x. Note
+that the curve Z(x, Γ) depends only on the Γ orbit of x. Associated to a positive integer
+                                                876-04
+
+t, there is a ﬁnite sum of such curves
+                                                  
+(1.1)                          Z(t, L) =                          Z(x, Γ),
+                                           x ∈ L, Q(x) = t
+                                                mod Γ
+
+parametrized by the Γ–orbits in the set of lattice vectors of length t. This is the ana-
+logue of the Hirzebruch–Zagier curve TN on a Hilbert–Blumenthal surface [11]. Let
+[Z(t, L)] ∈ H 2 (S, Q) be the cohomology class of Z(t, L), and let [Z(0, L)] ∈ H 2 (S, Q)
+be the cohomology class of the invariant form∗
+                              1
+(1.2)                ω=−        Im(z1 )−2 dz1 ∧ dz̄1 + Im(z2 )−2 dz2 ∧ dz̄2
+                             4π
+on H × H. As in [11], one can form a generating function
+                                                 
+(1.3)                    φ1 (τ, L) = [Z(0, L)] +   [Z(t, L)] q t ,
+                                                       t∈Z>0
+
+where q = e(τ ), for an auxillary variable τ = u + iv ∈ H. The analogue of the result of
+Hirzebruch–Zagier [11] is a special case of [15], [16], [17], see Theorem 3.1 below.
+
+Theorem 1.1. — The generating function φ1 (τ, L) is an elliptic modular form of weight
+2, valued in H 2 (S, C).
+
+  Taking the intersection product with the cohomology class of a arbitrary curve C on S
+one obtains:
+
+Corollary 1.2. — For a curve C on S, the generating function for intersection num-
+bers
+                                             
+                  φ1 (τ, L) · [C] = vol(C) +   [Z(t, L)] · [C] q t
+                                                         t>0
+
+is a modular form of weight 2. Here vol(C) =             C
+                                                             ω.
+
+   One can also deﬁne a generating functions for 0–cycles on S as follows. For a pair
+of vectors x = [x1 , x2 ] ∈ V (Q)2 with matrix of inner products Q(x) = 12 ((xi , xj ))i,j ∈
+Sym2 (Q), there is an associated cycle Dx = Dx1 ∩ Dx2 ⊂ D. If Q(x) is nonsingular, then
+Dx is a point when Q(x) is positive deﬁnite and is empty otherwise. If Q(x) has rank 1,
+then Dx = Dx1 = Dx2 is a curve when Q(x) ≥ 0 (the components x1 and x2 are colinear
+since V is anisotropic) and is empty otherwise. Finally, if Q(x) = 0, then x = 0 and
+Dx = D. Let Z(x, Γ) be the image of Dx in the quotient S; again, this depends only on
+
+  ∗
+    This is twice the form used in [11], p.104, since the Z(t, L)’s of (1.1) are twice the corresponding
+cycles in [11].
+                                               876-05
+
+the Γ–orbit of x. For T ∈ Sym2 (Z), let
+                                                   
+(1.4)                       Z(T, L) =                            Z(x, Γ).
+                                        x ∈ L2 , Q(x) = T
+                                               mod Γ
+If T > 0 is positive deﬁnite, Z(T, L) is either empty or a ﬁnite sum of points on S. If
+T ≥ 0, has rank 1, then Z(T, L) is either empty or a ﬁnite sum of curves on S, and
+if T = 0, then Z(0, L) = S. Let [Z(T, L)] ∈ H 2r(T ) (S, Q) be the cohomology class of
+Z(T, L), where r(T ) = rank(T ). The generating function in this case is
+                                    
+(1.5)                 φ2 (τ, L) =           [Z(T, L)] ∪ [ω]2−r(T ) q T ,
+                                   T ∈Sym2 (Z)≥0
+
+where τ ∈ H2 , the Siegel space of genus 2, and q T = e(tr(T τ )). Note that the terms for
+singular T ’s are obtained by shifting by suitable powers of [ω]. The coeﬃcients of this
+generating function lie in H 4 (S, C), and [15], [16], [17] yield the following result.
+Theorem 1.3. — The generating function φ2 (τ, L) is a Siegel modular form of weight 2
+and genus 2 valued in H 4 (S, C).
+   Applying the degree map H 4 (S, C) → C, one obtains a scalar valued Siegel modular
+form.
+Corollary 1.4. — The generating function
+                                                                       
+   deg(φ2 (τ, L)) = vol(S) +      vol(Z(T, L)) q T +                                deg(Z(T, L)) q T
+                                                                    T ∈Sym2 (Z)>0
+                               T ∈Sym2 (Z)≥0
+
+                                  r(T )=1
+
+is a Siegel modular form of weight 2 and genus 2.
+   In particular, the positive deﬁnite Fourier coeﬃcients of deg(φ2 (τ, L)) are the degrees
+of the 0–cycles Z(T, L) on the surface S. The volumes of curves on S are taken with
+respect to the restriction of the invariant (1,1)–form ω of (1.2) and
+
+                                        vol(S) =           ω2.
+                                                       S
+
+   Theorems 1.1 and 1.3 are proved by constructing a theta function θ1 (τ, L) for τ ∈ H,
+resp. θ2 (τ, L) for τ ∈ H2 , valued in closed (1, 1)–forms, resp. closed (2, 2)–forms on S. The
+generating function is the cohomology class of this theta function, i.e., φi (τ, L) = [θi (τ, L)]
+for i = 1, 2, and hence is modular. In addition, the generating function of Corollary 1.2
+resp. Corollary 1.4 is obtained as the integral of θ1 (τ, L) over the curve C, resp. θ2 (τ, L)
+over S. For suitable Γ’s, this last integral over S is a constant multiple of the group
+theoretic integral of the theta function which occurs in the Siegel–Weil formula, and
+hence coincides with a special value of a Siegel–Eisenstein series of genus 2 at the point
+s = 12 , [13] and Proposition 3.2 below.
+                                           876-06
+
+Corollary 1.5. — There is a nonzero constant c such that
+                                                        1
+                               deg(φ2 (τ, L)) = c · E(τ, , L)
+                                                        2
+for a suitable Siegel–Eisenstein series E(τ, s, L) of genus 2 and weight 2.
+
+   In the case in which S is a product of modular curves, such a geometric interpretation
+of the Fourier coeﬃcients of a Siegel–Eisenstein series was observed by Gross and Keating
+[6].
+
+
+1.2. Interlude.
+
+   More general results of this type, [15], [16], [17], and [13], concerning generating func-
+tions for cycles of codimension n on Shimura varieties X deﬁned by rational quadratic
+forms of signature (m − 2, 2) are discussed in section 3 below. Note that the complex
+dimension of X is m − 2. The main aim of this report is to explain the ﬁrst steps in
+establishing a similar theory in the arithmetic case. Roughly speaking, this means the
+following. First, one wants to consider cycles of codimension n on integral models X of
+                                                                                 r
+the Shimura varieties X and their classes in the arithmetic Chow groups CH (X), [4]. For
+2 ≤ m ≤ 4, integral models can be obtained as moduli spaces of suitable abelian varieties,
+and cycles can be deﬁned as the loci where the abelian varieties in question are equipped
+with additional endomorphisms of a certain type. The theta functions valued in the deR-
+ham complex are not available in this context, and so it is not clear at present how to
+deﬁne generating functions for cycles of arbitrary codimension. If one considers 0–cycles,
+                                                                 m−1
+however, one may apply the arithmetic degree map deg : CH            (X) → R. One may then
+look for an analogue of Corollary 1.5 and Proposition 3.2, where the Siegel–Eisenstein
+series will now have genus n = m − 1 and the critical point will be s0 = m2 − n+1     2
+                                                                                          = 0,
+i.e., the central point on the real axis for the functional equation of the Eisenstein series.
+Moreover, it turns out that the ‘correct’ Eisenstein series of genus n and weight n+1   2
+                                                                                          will
+                                                                               
+have a zero at this point, so that one should look at its ﬁrst derivative E (τ, 0, L). The
+case of the arithmetic surfaces attached to Shimura curves is discussed at length below in
+sections 4–6, and the analogue of Corollary 1.5 is given in Conjecture 4.7. The simplest
+example, however, occurs for m = 2. This case involves only classical objects, e.g., elliptic
+curves with complex multiplication and Eisenstein series of weight 1 for SL2 .
+
+
+1.3. Derivatives of Eisenstein series of weight 1.
+
+  This section describes the simplest case in which the derivative at s = 0 of an Eisenstein
+series can be identiﬁed with a generating function for the arithmetic degrees of 0–cycles on
+a moduli scheme. These results are joint work with Michael Rapoport and Tonghai Yang
+                                                                √
+[24]. Fix a prime d ≡ 3 mod 4 with d > 3, and let k = Q( −d) be the corresponding
+                                              876-07
+
+imaginary quadratic ﬁeld with ring of integers Ok and associated Dirichlet character χd .
+Let                                                     
+                                           − s+1     s+1
+                             Λ(s, χd ) = π    2  Γ          L(s, χd )
+                                                      2
+where L(s, χd ) is the Dirichlet L–series of χd . For a nonzero integer n ∈ Z, let ρ(n) be
+the number of ideals in Ok of norm n. For example, note that, for a prime p, ρ(p) = 0 if
+p is inert in k, ρ(p) = 2 is p is split in k, and ρ(d) = 1.
+  There are two normalized Eisenstein series of weight 1 for Γ = SL2 (Z) attached to k.
+For τ = u + iv ∈ H, and s ∈ C with Re(s) > 1, let
+                             s+1
+                                              
+           E±∗ (τ, s) = v 2 d 2 Λ(s + 1, χd )   (cτ + d)−1 |cτ + d|−s Φ± (γ),
+                          s
+
+
+                                                γ∈Γ∞ \Γ
+                    
+                a b
+where, for γ =         ∈ Γ,
+                 c d
+                                  
+                                  χd (a)                if c ≡ 0 mod (d)
+                       Φ± (γ) =
+                                  ±i d− 12 χ (c)        if c is prime to d.
+                                             d
+
+The entire analytic continuation of these series in s satisfy the functional equations
+                                   E±∗ (τ, −s) = ±E±∗ (τ, s).
+A general construction of series of this sort is described in section 2 below. A case of the
+Siegel–Weil formula due to Hecke describes the value at s = 0 of the even series:
+                                              
+                                              ∞                     
+                       E+∗ (τ, 0) = 2hk + 4          ρ(t) q t = 2         ϑ(τ, a),
+                                               t=1                   a
+
+where hk is the class number of k, the ideal a runs over representatives of the ideal classes
+of k, and θ(τ, a) is the binary theta series attached to a. For the odd series, E−∗ (τ, 0) = 0,
+and the function of interest is the (negative of the) leading term
+                                             ∂  ∗        
+                                φ(τ, d) = −      E− (τ, s) s=0 .
+                                            ∂s
+Theorem 1.6. — The modular form φ(τ, d) of weight 1 has Fourier expansion
+                                                                   
+                                                                    ∞
+                          φ(τ, d) = a0 (v) +         at (v) q t +         at q t ,
+                                               t<0                  t=1
+
+where, for t > 0,
+                                                      
+             at = 2 log(d) (ordd (t) + 1) ρ(t) + 2          log(p) (ordp (t) + 1) ρ(t/p),
+                                                      p=d
+
+where the sum runs over primes p inert in k,
+                                                          Λ (1, χd )
+                         a0 = −hk     log(d) + log(v) + 2             ,
+                                                          Λ(1, χd )
+                                               876-08
+
+and, for t < 0,
+                                  at (v) = −2Ei(−4π|t|v) ρ(−t).
+Here                                                  ∞
+                                  −Ei(−x) =               u−1 e−ux du
+                                                  1
+is the exponential integral.
+
+   The idea now is to give an interpretation of these coeﬃcients as the degrees in the sense
+of arithmetic geometry of certain 0–cycles on the the coarse moduli scheme M for elliptic
+curves (E, ι) with complex multiplication ι : Ok 3→ End(E) by Ok . This scheme over Ok
+can be identiﬁed with Spec(OH ), where H is the Hilbert class ﬁeld of k. For such a curve
+(E, ι), the space of special endomorphisms is the Z-module
+
+(1.6)             V (E, ι) = {x ∈ End(E) | x ι(a) = ι(ā) x for all a ∈ Ok }.
+
+This space has a Z-valued quadratic form Q deﬁned by x2 = −Q(x) · idE . For t ∈ Z,
+let Z(t) be the coarse moduli scheme whose points over an algebraically closed ﬁeld
+correspond to triples (E, ι, x) where x ∈ V (E, ι) with Q(x) = t. The scheme Z(t) → M
+is the locus of (E, ι)’s with an extra multiplication, anticommuting with the action of Ok .
+Such extra endomorphisms can only exist for a supersingular curve E in characteristic p
+for a prime p which is not split in k. Then Z(t) = Spec(R(t)) where R(t) is an Artin
+algebra in which p is nilpotent. Let
+
+                                     deg(Z(t)) = log |R(t)|.
+
+The second main result of [24] is a calculation of this degree; this calculation depends in
+an essential way on the results of Gross [5].
+
+Theorem 1.7. — For t > 0,
+                                          deg(Z(t)) = at ,
+and hence
+                                                                  
+                      φ(τ, d) =         deg(Z(t)) q t + a0 (v) +         at (v) q t .
+                                  t>0                              t<0
+
+  A sort of geometric interpretation of the remaining terms will be discussed in section 7
+below, cf. also [24].
+
+
+2. CENTRAL DERIVATIVES OF SIEGEL–EISENSTEIN SERIES
+
+  A general construction of ‘even’ and ‘odd’ Siegel–Eisenstein series is best described
+in representation theoretic language, and is connected with the Siegel–Weil formula at
+the central critical point. These series, which will be called coherent and incoherent
+series respectively, for reasons explained below, will have integral or half–integral weight
+                                           876-09
+
+depending on the parity of the dimension of the relevant quadratic spaces. Hence it is
+necessary to work on the metaplectic group.
+ Let G = Sp2n be the symplectic group of rank n over Q and let P = M N be the
+maximal parabolic with Levi factor M ≃ GLn and unipotent radical N ≃ Symn . Let
+                                  
+                                  Mp (A) if n is even
+                                      2n
+                           GA =
+                                  Sp (A) if n is odd,
+                                     2n
+
+where Mp2n (A) is the twofold metaplectic cover of Sp2n (A), and let PA and MA be the
+subgroups of GA corresponding to P and M . Let GQ be Sp2n (Q) for n odd resp. the
+image of this group in Mp2n (A) under the canonical splitting, if n is even. For each place
+p ≤ ∞ of Q, there are groups Gp , Pp and Mp , deﬁned analogously.
+ A quadratic character χ of A× /Q× determines a character χ = χψ of MA , trivial on
+MQ = MA ∩ GQ , and for s ∈ C, one has the degenerate principal series representation
+
+                                                PA (χ| | )
+                                   I(s, χ) = IndGA      s
+
+
+of GA . (The character χψ depends on the ﬁxed choice of the nontrivial additive character
+ψ of A/Q in the metaplectic case.)
+  For Φ(s) ∈ I(s, χ), the Siegel-Eisenstein series is deﬁned for Re(s) > n+1
+                                                                          2
+                                                                             by
+                                              
+                              E(g, s, Φ) =          Φ(γg, s).
+                                            γ∈PQ \GQ
+
+From the standard theory of Eisenstein series one knows that this function has a mero-
+morphic analytic continuation to the whole s–plane and satisﬁes a functional equation
+relating s and −s. In addition, it has no poles on the line Re(s) = 0 (unitary axis). In
+particular, there is an intertwining map
+
+(2.1)                 E(0) : I(0, χ) −→ A(G),             Φ(0) → E(0, Φ)
+
+from the degenerate principal series at s = 0 to the space A(G) of automorphic forms on
+GA .
+  The image and kernel of this map can be described in terms of representations associated
+to quadratic forms as follows.
+  A rational vector space V of dimension m with a nondegenerate quadratic form Q
+determines a quadratic character χV of A× /Q× by
+                                                 m(m−1)
+                            χV (x) = (x, (−1)      2      det(Q))A ,
+
+where ( , )A is the global quadratic Hilbert symbol. For such a space (V, Q), there is a
+Weil representation ωV of GA on the Schwartz space S(V (A)n ), determined by ψ. This
+gives rise to a GA – intertwining map
+
+               λV : S(V (A)n ) −→ I(s0 , χV ),       λV (ϕ)(g) = ωV (g)ϕ)(0),
+                                           876-10
+
+where s0 = m2 − n+1 2
+                      . Specializing to the case χV = χ and m = n + 1, one obtains an
+irreducible constituent Π(V ) = λV S(V (A)n ) of I(0, χ).
+   Similarly, for each place p ≤ ∞, there is an analogous local construction which yields
+an irreducible constituent Πp (Vp ) of the local induced representation Ip (0, χVp ) of Gp
+associated to each quadratic space Vp over Qp of dimension n + 1 and character χVp .
+Then, for a global space V , one has
+                     Π(V ) ≃ ⊗p≤∞ Πp (Vp ) ⊂ I(0, χ) = ⊗p≤∞ Ip (0, χp )
+where Vp = V ⊗Q Qp and the primes indicate the restricted tensor products. For a ﬁnite
+prime p, there are precisely two possible quadratic spaces Vp+ and Vp− over Qp , for a ﬁxed
+n and character χp . They are distinguished by their Hasse invariants :p (Vp± ) = ±1, and,
+in fact, [19],
+                              Ip (0, χp ) = Πp (Vp+ ) ⊕ Πp (Vp− ).
+For p = ∞, the quadratic spaces of dimension n + 1 and character χ∞ are determined
+by their signature, and fall into two groups according to their Hasse invariant. The local
+induced representation I∞ (0, χ∞ ) is the direct sum of the corresponding Π∞ (V∞ )’s, [18].
+For example, for n = 4 the quadratic spaces over R of signatures (5, 0), and (1, 4) have
+Hasse invariant +1, while that of signature (3, 2) has Hasse invariant −1, and
+                         I∞ (0, χ∞ ) = Π(5, 0) ⊕ Π(3, 2) ⊕ Π(1, 4),
+in the obvious notation. Here χ∞ = 1.
+   If a collection of local quadratic spaces C = {Vp } is the set of localizations of a global
+space V , then the product formula for the Hasse invariants asserts that
+                                            
+                                   :(C) :=     :p (Vp ) = 1.
+                                           p≤∞
+
+Such a collection and the Eisenstein series associated to it will be called coherent. On
+the other hand, the collection C of local quadratic spaces obtained by choosing one prime
+p0 (e.g., p0 = ∞) and switching the space Vp0 to a space Vp0 with the opposite Hasse
+invariant has                                   
+                             :(C) := :p0 (Vp0 )   :p (Vp ) = −1,
+                                              p≤∞
+                                              p=p0
+
+so that such a collection cannot be the set of localizations of any global quadratic space.
+In this case, the collection C and the Eisenstein series associated to it will be called
+incoherent. The irreducible admissible representation
+                                                              
+                                         
+                           Π(C) = Πp0 (Vp0 ) ⊗ ⊗ p≤∞ Πp (Vp )
+                                                      p=p0
+
+
+of GA is also a constituent of I(0, χ). Then there is a direct sum decomposition
+                                                            
+                         I(0, χ) =        Π(V ) ⊕          Π(C)
+                                       V                      C
+                                               876-11
+
+where V runs over all global quadratic spaces of dimension n + 1 and character χ, and C
+runs over all incoherent collections, where :(C) = −1, as just described. One then obtains
+a description of the kernel and image of the map E(0) in terms of the Π(V )’s and Π(C)’s,
+[14], [20], [9].
+
+Theorem 2.1. — (i)
+                                                   
+                                  ker(E(0)) =               Π(C).
+                                                  (C)=−1
+
+(ii) Each automorphic representation Π(V ) in the image
+                                             
+                                Im(E(0)) ≃       Π(V )
+                                                     V
+
+coincides with space of (regularized) theta integrals
+
+(2.2)                      I(g, ϕ) =                       θ(g, h; ϕ) dh,
+                                       O(V )(Q)\O(V )(A)
+
+attached to the global quadratic space V . Here, for ϕ ∈ S(V (A)n ), g ∈ GA and h ∈
+O(V )(A),
+                                         
+                           θ(g, h; ϕ) =     (ω(g)ϕ)(h−1 x).
+                                           x∈V (Q)
+
+   The integral I(g, ϕ) must be deﬁned by a regularization procedure [20] whenever V is
+isotropic.
+   Part (ii) of Theorem 1.2 is essentially the Siegel–Weil formula in the present context,
+[20], [33]. Note that the theta functions involve global arithmetic, e.g., the number of
+solutions of diophantine equations of the form Q(x) = T for T ∈ Symn (Z) and x ∈ Ln
+for a lattice L ⊂ V (Q), whereas the Eisenstein series is constructed from local data.
+
+Problem. — What is the arithmetic content of the ﬁrst derivative E  (g, 0, Φ) when
+Φ ∈ Π(C) with :(C) = −1?
+
+Remark 2.2. — The results to be discussed in the remainder of the talk suggest an
+answer to this question, at least for the following particular case:
+Let V be a rational quadratic space, as above, with signature (n − 1, 2), and let C be the
+collection of local quadratic spaces obtained from {Vp } by replacing V∞ by the space V∞
+of signature (n + 1, 0). Let ϕ∞ ∈ S((V∞ )n ) be the Gaussian ϕ∞ (x) = exp(−πQ (x)), and
+      (n+1)/2
+let Φ∞        (s) ∈ I∞ (s, χ∞ ) be the corresponding section; it is the unique eigenvector for
+K∞ of weight n+1  2
+                     . For any ϕ ∈ S(V (Af )n ), with corresponding section Φf (s) ∈ If (s, χf ),
+                                         n+1
+                              Φ(0) = Φ∞2 (0) ⊗ Φf (0) ∈ Π(C).
+Then the central derivative E  (g, 0, Φ) should be related to a generating function for the
+degrees of 0–cycles on an integral model of the Shimura variety associated to the group
+GSpin(V ).
+                                               876-12
+
+Remark 2.3. — For comparison with the generating functions considered below, it is
+convenient to write the Eisenstein series in more classical language. For τ = u + iv ∈ Hn ,
+the Siegel space of genus n, and for ϕ ∈ S(V (Af )n ), let
+                                         n+1
+             E(τ, s, ϕ) : = det(v)− 2 (s+ 2 ) E(gτ , s, Φ)
+                                     1
+(2.3)
+                                                 n+1
+                          =        det(cτ + d)− 2 | det(cτ + d)|−s (ωf (γ)ϕ)(0),
+                           γ∈Γ∞ \Γ
+
+where Γ = Sp2n (Z), Γ∞ = Γ ∩ 
+                             P (Q), ωf denotes
+                                              the action of GAf on S(V (Af )n ) via the
+                                  v 2 uv − 2
+                                     1         1
+
+Weil representation, and gτ =                .
+                                       v− 2
+                                          1
+
+
+
+
+3. GENERATING FUNCTIONS IN THE GEOMETRIC CASE
+
+   This section describes the results of [15], [16], [17], and [13] on generating functions for
+the cohomology classes of special cycles in the case of O(n − 1, 2), special cases of which
+were described in section 1.1. These results suggest what one might hope to prove in the
+arithmetic case.
+   For a rational quadratic space V of signature (n − 1, 2), let H = GSpin(V ) and let D
+be the space of oriented negative 2–planes in V (R). The space D is isomorphic to two
+copies of a bounded domain of type IV in Cn−1 , [10], [28], and the group H(R) acts on
+it by holomorphic automorphisms. For a compact open subgroup K ⊂ H(Af ), the orbit
+space
+                              XK (C) = H(Q)\D × H(Af )/K
+is the set of complex points of a quasi–projective variety XK deﬁned over Q, the Shimura
+variety attached to H, D and K. The variety XK is in fact projective if V is anisotropic
+and smooth if K is suﬃciently small.
+   Fix r ∈ Z with 1 ≤ r ≤ n − 1. For x ∈ V (R)r , let
+                                     Dx = {z ∈ D | x ⊥ z}
+be the set of z’s which are orthogonal to all components of x. If the matrix T = Q(x) =
+1
+2
+  ((xi , xj )) is positive deﬁnite, i.e., if the components of x span a positive r–plane, then
+Dx has complex codimension r in D. If, in addition, x ∈ V (Q)r , then x⊥ is a rational
+quadratic space of signature (n − r − 1, 2), the stabilizer Hx of x in H is isomorphic to
+GSpin(x⊥ ), and there is a natural map of Shimura varieties
+                 Z(x, K) : Hx (Q)\Dx × Hx (Af )/Hx (Af ) ∩ K −→ XK (C),
+giving a cycle of codimension r on XK (C). Given a function ϕ ∈ S(V (Af )r )K and
+T ∈ Symr (Q)>0 , there is a weighted linear combination Z(T, ϕ) of such cycles [13], and the
+resulting cohomology classes [Z(T, ϕ)] ∈ H 2r (XK ), where H ∗ (XK ) is the cohomology of
+XK (C) with complex coeﬃcients [17]. Examples are given by (1.1) and (1.4) in section 1.1,
+                                            876-13
+
+where ϕ is the characteristic function of (L̂)r ⊂ V (Af )r , for L̂ = L ⊗Z Ẑ. If T is only
+positive semi–deﬁnite with rank(T ) = r(T ), the associated cycles have codimension r(T )
+and their cohomology classes lie in H 2r(T ) (XK ).
+   To form a generating function, let τ = u + iv ∈ Hr , the Siegel space of genus r, and let
+ T
+q = e(tr(τ T )).
+
+Theorem 3.1. — [17]. For ϕ ∈ S(V (Af )r )K , and for a suitable choice of a Kähler form
+ω on XK (C), the generating series
+                                   
+                      φr (τ, ϕ) =        [Z(T, ϕ)] · [ω]r−r(T ) q T
+                                   T ∈Symr (Q)≥0
+
+is the q–expansion of a holomorphic Siegel modular form of weight n+1
+                                                                   2
+                                                                      and genus r valued
+      2r
+in H (XK ).
+
+  The proof of this result depends on a construction of a theta function taking values
+in the space of closed 2r forms on XK (C). This method is quite general and applies to
+the locally symmetric spaces associated to O(p, q), U (p, q) and Sp(p, q), cf. [15], [16], and
+[17].
+  Specializing to the case where V is anisotropic and r = n − 1 and applying
+deg : H 2(n−1) (XK ) → C, one obtains a holomorphic Siegel modular form of genus n − 1
+and weight n+1 2
+                 ,
+                                             
+(3.1)    φdeg (τ, ϕ) = deg φn−1 (τ, ϕ) =               deg [Z(T, ϕ)] · [ω]n−1−r(T ) q T .
+                                          T ∈ Symn−1 (Q)≥0
+
+By the Siegel–Weil formula [20], this form is, in turn, a value of an Eisenstein series. More
+precisely, let                    
+                                  Mp
+                                         2(n−1) (A) if n is even
+                           GA =
+                                  Sp
+                                        2(n−1) (A)   if n is odd.
+The machinery described in section 2 carries over, except that the map λV : S(V (A)) −→
+I(s0 , χ) now takes values in the induced representation at the point s0 = 12 . Let E(g, s, Φ)
+                                                             n+1
+be the Siegel–Eisenstein series associated to the section Φ∞2 (s) ⊗ Φf (s), where Φf ( 12 ) =
+λV (ϕ) for the weight function ϕ ∈ S(V (Af )n−1 )K . The Siegel–Weil formula for the
+anisotropic space V then implies the following generalization of Corollary 1.5 above [13]:
+
+Proposition 3.2. — For τ = u+iv ∈ Hn−1 , and for a weight function ϕ ∈ S(V (Af )n−1 )K ,
+                                                   n+1     1
+                 φdeg (τ, ϕ) = vol(XK (C)) det(v)− 4 E(gτ , , Φ).
+                                                           2
+where
+                             vol(XK (C)) =        ω n−1 .
+                                                   XK (C)
+In particular, the positive deﬁnite Fourier coeﬃcients of this Eisenstein series are the
+degrees of the (weighted) 0–cycles Z(T, ϕ) on XK .
+                                           876-14
+
+4. GENERATING FUNCTIONS FOR ARITHMETIC 0–CYCLES: THE
+   CASE OF SHIMURA CURVES
+
+  This section describes the generating function for the arithmetic degrees of 0–cycles on
+the arithmetic surface X associated to a Shimura curve X over Q. The series of interest
+will be analogous to the series deg(φ2 (τ, L)) for a complex surface given in Corollary 1.4
+and will have the form
+                                         
+(4.1)                      φ̂deg (τ ) =               v)) q T ,
+                                                deg(Z(T,
+                                      T ∈Sym2 (Z)
+
+                                                                    2
+                                 v)’s are certain classes in CH (X), the top arithmetic
+where τ = u + iv ∈ H2 and the Z(T,
+Chow group of the arithmetic surface X, [4]. As in the second example of section 1, the
+deﬁnition of the relevant cycles will depend on a modular interpretation. To give a more
+detailed explanation, it is convenient to begin with the geometric situation of section 3.
+   Fix an indeﬁnite division quaternion algebra B over Q. The space V = {x ∈ B |
+tr(x) = 0}, equipped with the restriction of the reduced norm of B, is a three dimensional
+quadratic space over Q of signature (1, 2). The group H = B × ≃ GSpin(V ) acts on V by
+conjugation. The Shimura curve XK associated to a compact open subgroup K ⊂ H(Af ),
+is a moduli space for abelian surfaces with OB –action and level structure, where OB is a
+                                                                  ×
+maximal order in B. For example, suppose that K = OB ⊗Z Ẑ . Then X = XK is the
+(coarse) moduli scheme over Q for pairs (A, ι) consisting of an abelian surface A together
+with an action ι : OB 3→ End(A) of OB , and X(C) ≃ ΓB \H, where ΓB = (OB )×       + is the
+group of norm 1 units on OB .
+  The 0–cycles on X deﬁned in section 3 can also be deﬁned by specifying additional
+endomorphisms.
+
+Definition 4.1. — For an abelian surface (A, ι) with OB –action, the space of special
+endomorphisms is
+
+                 V (A, ι) = {x ∈ End(A) | ι(b)x = xι(b) and tr(x) = 0}.
+
+This space is equipped with a Z–valued quadratic form deﬁned, for a special endomorphism
+x ∈ V (A, ι), by x2 = −Q(x) · 1A .
+
+Definition 4.2. — For t ∈ Z>0 , the special cycle Z(t) is the locus of triples (A, ι, x)
+where x ∈ V (A, ι) with Q(x) = t.
+
+   In fact, one then has Z(t) = Z(t, ϕ) where Z(t, ϕ) is the 0–cycle on X = XK deﬁned
+in section 3 for the weight function ϕ ∈ S(V (Af ))K , the characteristic function of the set
+V (Af ) ∩ OB ⊗Z Ẑ .
+ The 0–cycle Z(t) on X is rational over Q and is analogous to the set of CM points on the
+                                                             √
+modular curve associated to the imaginary quadratic ﬁeld Q( −t). For τ = u + iv ∈ H,
+                                           876-15
+
+the upper halfplane and q = e(τ ), the degree generating function (3.1) in the present case
+                                                   
+(4.2)                       φdeg (τ ) = vol(X) +         deg(Z(t)) q t
+                                                   t>0
+
+
+is the value at s = 12 of an Eisenstein series of weight 32 for a congruence subgroup of
+SL2 (Z), cf. Proposition 3.2. Here vol(X) is the volume of X(C) ≃ ΓB \H with respect to
+   1 −2
+− 2π y dx ∧ dy.
+   Now consider the arithmetic case. Let X be the coarse moduli scheme over S = Spec(Z)
+for abelian surfaces (A, ι) with OB –action satisfying Drinfeld’s ‘special’ condition [2]. The
+arithmetic surface X has generic ﬁber XQ = X, the canonical model of the Shimura curve;
+X has good reduction at all primes p  D(B), where D(B) is the product of the primes
+p such that Bp = B ⊗Q Qp is a division algebra. The points of X over an algebraically
+closed ﬁeld k correspond to isomorphism classes of (A, ι)’s over k.
+   For an abelian scheme (A, ι) over a connected base, the space of special endomorphisms
+V (A, ι) with its Z–valued quadratic form Q is deﬁned as before.
+
+Definition 4.3. — For T ∈ Sym2 (Z)>0 , the arithmetic special cycle Z(T ) is the locus
+of triples (A, ι, x), where x = [x1 , x2 ] ∈ V (A, ι)2 is a pair of special endomorphisms
+xi ∈ V (A, ι) with Q(x) = 12 ((xi , xj ))i,j = T .
+
+Proposition 4.4. — [23]. The cycle Z(T ) is either empty or is supported in the set
+of supersingular points of a single ﬁber Xp , where p is determined by T , as described in
+Lemma 4.5 below. If p  D(B), or if p|D(B) but p  T , then Z(T ) is a 0–cycle on Xp . If
+p|D(B) and p|T , then Z(T ) is a union, with multiplicities, of components of the ﬁber Xp
+(and some additional embedded components).
+
+Sketch of proof. — The proof of this result illustrates the way in which the the basic
+structure of the cycle Z(T ) is determined by the space V (A, ι). Observe that, for a
+geometric point (A, ι) of X and viewing A up to isogeny,
+                                    
+                                    
+                                    B             if A is simple,
+                                    
+                                    
+        End0 (A) = End(A) ⊗Z Q ≃     M2 (C)        if A ≃ E × E with E ordinary,
+                                    
+                                    
+                                    
+                                    M (B)
+                                      2            if A ≃ E × E with E supersingular,
+
+for an elliptic curve E. In the second case, End0 (E) ≃ C is an imaginary quadratic
+ﬁeld which splits B, and, in the third case, which occurs only in characteristic p > 0,
+End0 (E) ≃ B is the quaternion algebra over Q ramiﬁed at ∞ and p. In this case,
+write M2 (B) ≃ B ⊗ B (p) where B (p) is the deﬁnite quaternion algebra over Q whose
+local invariants diﬀer from those of B precisely at ∞ and p. Then, in the three cases,
+                                            876-16
+
+End0 (A, ι) ≃ Q, C, and B (p) respectively, and
+                                           
+                                           
+                                            0
+                                           
+                                           
+              V 0 (A, ι) = V (A, ι) ⊗Z Q ≃ C 0       = {x ∈ C | tr(x) = 0},
+                                           
+                                           
+                                           
+                                           V (p)    = {x ∈ B (p) | tr(x) = 0}.
+It follows that Z(T )Q = ∅, i.e., the cycle Z(T ) has no points in characteristic 0. If Z(T )
+meets the ﬁber Xp at p, then Z(T ) ∩ Xp is contained in the supersingular locus of Xp ,
+and the rational quadratic space V (p) represents T , i.e., there exists a pair of vectors
+x = [x1 , x2 ] ∈ V (p) (Q) such that Q(p) (x) = T . This last condition implies that Z(T ) is
+supported in a single ﬁber, due to the following simple observation.
+
+Lemma 4.5. — (i) The quadratic spaces V (p) have the same determinant as V , i.e.,
+det(V (p) ) = det(V ) ∈ Q× /Q×,2 .
+(ii) For a given T ∈ Sym2 (Q) with det(T ) = 0, there is a unique three dimensional rational
+quadratic space VT with det(VT ) = det(V ) which represents T ; the quadratic form on VT
+has matrix
+                                                        
+                                    T
+(4.3)                                                       .
+                                       det(V )/ det(T )
+
+   Thus, if VT is not isomorphic to any of the V (p) ’s then Z(T ) is empty, while if VT ≃ V (p)
+for some p, then Z(T ) is supported in the supersingular locus of Xp .
+
+Definition 4.6. — A matrix T ∈ Sym2 (Z)>0 will be called irregular if VT ≃ V (p) where
+p|D(B) and p|T . Otherwise T will be called regular.
+
+  The assertions about the irregular case require a more detailed argument, using the
+p-adic uniformization of the formal completion of Xp , [23].
+                                      2
+  The arithmetic Chow group CH (X) is generated by pairs (Z, g) where Z is a 0–cycle
+on X and g is a smooth (1, 1)–form on X(C), modulo a suitable equivalence, [4], [32].
+                                  2
+There is a degree map deg : CH (X) → R.
+  For T ∈ Sym2 (Z)>0 regular, let
+
+(4.4)                           v) = (Z(T ), 0) ∈ CH 2 (X).
+                               Z(T,
+
+Then Z(T ) = Spec(R(T )) for an Artin ring R(T ) in which p is nilpotent, and the corre-
+sponding positive deﬁnite coeﬃcients of the generating function (4.1) are given by
+
+(4.5)                                  v)) = log |R(T )|.
+                                  deg(Z(T,
+
+  For nonsingular T ∈ Sym2 (Z) with signature (1, 1) or (0, 2), set
+
+(4.6)                          v) = (0, g(T, v)) ∈ CH 2 (X),
+                              Z(T,
+                                                    876-17
+
+where g(T, v) is a smooth (1, 1)–form, depending on T and v, which is described in (6.3)
+of section 6.
+  Finally, if T ∈ Sym2 (Z)≥0 has rank 1, then, in eﬀect, only one special endomorphism
+had been imposed, so that there is an associated divisor Z(T ) on X. A Green’s function
+Ξ(T, v) for this divisor is constructed in section 6, below. This function continues to make
+sense when T ≤ 0. There is a resulting class
+
+(4.7)                             v) = (Z(T ), Ξ(T, v)) ∈ CH 1 (X),
+                                 Z(T,
+
+where Z(T ) is empty when T ≤ 0. Let ω̂ X be the relative dualizing sheaf of X over
+Spec(Z), with metric coming from the uniformization of X(C) by D, viewed as an element
+      1                                      1
+                                
+of CH (X) via the isomorphism Pic(X)   ≃ CH (X), and let
+                                                                           1
+(4.8)                          ω̂ X(v) = ω̂ X + (0, log det(v)) ∈ CH (X).
+
+This class plays a role analogous to that of [ω], the Kähler class, in section 3 above.
+                                                          1            1                   2
+  Using the arithmetic intersection pairing CH (X) × CH (X) → CH (X), the full arith-
+metic generating function (4.1), analogous to φdeg given in Corollary 1.4 and (3.1) in the
+geometric case, is then
+
+(4.9)
+                                                                                
+  φ̂deg (τ ) = deg(ω̂ X(v)2 ) +                     v) · ω̂ X(v) ) q T +
+                                               deg Z(T,                                          v) ) q T .
+                                                                                           deg( Z(T,
+                                  rank(T )=1                                       T
+                                                                               det(T )=0
+
+where suitable terms have been added† for irregular T .
+  In the present situation, the construction of Remark 2.3 yields an incoherent Eisenstein
+series E(τ, s, ϕ) of weight 32 associated to ϕ ∈ S(V (Af )2 ), the characteristic function of
+ B ∩ V (Af ))2 .
+(O
+
+Conjecture 4.7. — The generating function φ̂deg (τ ) is a Siegel modular form of weight
+3
+2
+  , more precisely
+
+(4.10)                              φ̂deg (τ ) = vol(X(C)) · E  (τ, 0, ϕ).
+
+   The main results in this direction assert that many of the Fourier coeﬃcients of the two
+series coincide. Recall that D(B) is the product of the primes p at which Bp is division.
+Also put V (∞) = V , so that there is a rational quadratic space associated to each place
+of Q. By Lemma 4.5, a given nonsingular T ∈ Sym2 (Q) is represented by at most one
+of these spaces. If T is positive deﬁnite, this space, if it exists, must be one of the V (p) ’s
+for a ﬁnite prime p, while if T has signature (1, 1) or (0, 2), then this space can only be
+V = V (∞) .
+  †
+      by a still not very satisfactory procedure
+                                               876-18
+
+Theorem 4.8. — [14]. Suppose that T ∈ Sym2 (Z) is nonsingular.
+(i) If T is not represented by any V (p) , then the T –th Fourier coeﬃcient of both sides of
+(4.10) vanish.
+(ii) If T is represented by V (p) with p  2D(B), including p = ∞, then the T –th Fourier
+coeﬃcients of the two sides of (4.10) agree, i.e.,
+(4.11)                          v)) q T = vol(X(C)) · E  (τ, 0, ϕ).
+                           deg(Z(T,                     T
+
+  In fact, work in progress [25] should extend (4.11) to all T of rank 1.
+  The proof of (ii) is similar to the proof of the main identity at the heart of the Gross–
+Zagier formula [8]; it amounts to an explicit computation of the two quantites, one from
+arithmetic geometry, the other from automorphic forms. A sketch of the proof is given in
+the next two sections.
+
+
+5. NON–SINGULAR FOURIER COEFFICIENTS
+
+   The Fourier coeﬃcients of the central derivative of an incoherent Eisenstein series
+E(τ, s, ϕ) associated to a rational quadratic space V of signature (n − 1, 2), as deﬁned as
+in Remark 2.3, have an interesting structure.
+   For each prime p ≤ ∞, deﬁne a quadratic space V (p) of dimension n + 1 and the same
+determinant as that of V as follows. Let V (∞) = V . For a ﬁnite prime p, V (p) has signature
+(n + 1, 0) and local Hasse invariants at ﬁnite primes @ determined by
+                                         
+                                          :' (V )    if @ = p, and
+(5.1)                   :' (V ⊗Q Q' ) =
+                             (p)
+                                         −: (V ) if @ = p.
+                                               p p
+
+For each nonsingular T ∈ Symn (Q), there is a rational quadratic space VT of dimension
+n + 1 and the same determinant as V deﬁned by equation (4.3).
+  It is well known that if the function ϕ = ⊗p<∞ ϕp ∈ S(V (Af )n ) is factorizable and
+Re(s) > n+1
+          2
+             , then each nonsingular Fourier coeﬃcient of E(τ, s, ϕ) is given by a product
+                                          n+1          
+                         ET (τ, s, ϕ) = WT,∞
+                                           2
+                                              (τ, s) ·   WT,p (s, ϕp )
+                                                         p<∞
+
+of local (degenerate) Whittaker functions, [20]. In classical language, the archimedean
+factor is a conﬂuent hypergeometric function of a matrix argument studied by Shimura
+[30], while the product over the ﬁnite primes is the Siegel series.
+
+Proposition 5.1. — [14], section 6. (i) If VT is not isomorphic to any V (p) , then
+                                          ET (τ, 0, ϕ) = 0.
+(ii) If VT ≃ V (p) for a ﬁnite prime, then WT,p (0, ϕp ) = 0 and
+                                                              
+                         ET (τ, 0, ϕ) = q T · WT,p (s, ϕp ) s=0 · AT (ϕ),
+                                                                      (p)
+                                             876-19
+
+         (p)
+where AT (ϕ) is, up to a factor at p, the Fourier coeﬃcient of a theta integral (cf. (2.2))
+attached to V (p) .
+(iii) If VT ≃ V (∞) = V ,
+
+                                             n+1         
+                           ET (τ, 0, ϕ) = WT,∞  (τ, s) s=0 · AT (ϕ),
+                                              2                  (∞)
+
+
+
+         (∞)
+where AT (ϕ) is the T –th Fourier coeﬃcient of a theta integral attached to V .
+
+
+   Idea of proof of Theorem 4.8 for p < ∞. Restricting to the case n = 2 as in section 4,
+suppose that T ∈ Sym2 (Z) is nonsingular with VT ≃ V (p) for a ﬁnite prime p  2D(B). In
+this case, using Proposition 5.1, the identity to be proved in (ii) of Theorem 4.8 amounts
+to
+
+                                                                    
+(5.2)           v)) = deg((Z(T ), 0)) = vol(X(C)) · WT,p (s, ϕp )  · A(p) (ϕ).
+           deg(Z(T,                                                   s=0 T
+
+
+
+  This identity, which is of the same nature as the identities between heights and Fourier
+coeﬃcients involved in the Gross-Zagier formula, is proved by computing the two sides
+explicitly.
+   On the geometric side, since T is regular, Z(T ) is a collection of supersingular points
+on Xp , each counted with a certain multiplicity. This multiplicity is the length of the
+local Artin ring associated to the deformations of the triple (A, ι, x), where x is a pair of
+special endomorphisms. By the Serre–Tate Theorem, one can pass to the deformations
+of (A(p), ι, x) where A(p) is corresponding p–divisible group with the action ι of (OB )p =
+OB ⊗Z Zp ≃ M2 (Zp ) and a pair of special endomorphisms x. Since A is isogenous to
+E × E for a supersingular elliptic curve E, one reduces, via the idempotents in (OB )p ,
+to the problem of deforming (E(p), x) for a pair x = [x1 , x2 ] of endomorphisms of the p–
+divisible group of such a curve. Note that E(p) is a p–divisible formal group of dimension
+1 and height 2. The length of the associated Artin ring is then obtained by specializing
+a beautiful result of Gross and Keating [6].
+   They consider the deformations of a collection (X, X , y) where X and X are formal
+groups of dimension 1 and height 2 over F̄p and y = [y1 , y2 , y3 ] is a triple of nonzero
+isogenies yi : X → X . Note that the universal deformation ring of the pair (X, X ) is
+W [[t, t ]], where W = W (F̄p ) is the ring of Witt vectors of F̄p .
+
+Proposition 5.2. — (Gross-Keating, [6], Proposition 5.4) Suppose that the matrix Q
+of inner products of the triple y = [y1 , y2 , y3 ] with respect to the degree quadratic form on
+Hom(X, X ) has invariants a1 ≤ a2 ≤ a3 . For p odd, this means that Q ∈ Sym3 (Zp ) is
+GL3 (Zp ) equivalent to diag(:1 pa1 , :2 pa2 , :3 pa3 ) for units :i ∈ Z×
+                                                                        p . Then the length of the
+                                                          876-20
+
+deformation ring of (X, X , y) is given by:
+              a                                             (a1 +a2 −2)/2
+               1 −1                                              
+(5.3)                 (i + 1)(a1 + a2 + a3 − 3i) p +  i
+                                                                             (a1 + 1)(2a1 + a2 + a3 − 4i) pi
+              i=0                                                i=a1
+
+                                 1
+                                + (a1 + 1)(a3 − a2 + 1) p(a1 +a2 )/2 .
+                                 2
+if a1 + a2 is even, and
+           a                                             (a1 +a2 −1)/2
+            1 −1                                              
+                   (i + 1)(a1 + a2 + a3 − 3i) p + i
+                                                                          (a1 + 1)(2a1 + a2 + a3 − 4i) pi
+            i=0                                               i=a1
+
+if a1 + a2 is odd.
+
+   Specialized to the case where y1 is an isomorphism, so that a1 = 0, one obtains an ex-
+plicit formula for the multiplicity δp (T ) of a point in Z(T ), and, in particular, observes that
+this multiplicity depends only on the GL2 (Zp )–equivalence class of T , and not on the par-
+ticular point. Thus, the left hand side of (5.2) has the form (δp (T ) · ( # points in Z(T ))).
+                                                                
+   On the other hand, for p = 2, the quantity WT,p (s, ϕp )       on the analytic side of (5.2)
+                                                                                 s=0
+can be computed from the result of Kitaoka [12]. More precisely, the quadratic form on
+the lattice Lp = (OB ⊗ Zp ) ∩ Vp has matrix S0 = diag(1, 1, −1) for a suitable basis. Let
+
+                                  Sr = diag(1, 1, −1, 1, . . . , 1, −1, . . . , −1)
+                                                                  
+                                                                 r              r
+
+be the quadratic form obtained from S0 by adding r hyperboic planes. Then
+
+                                         WT,p (r, ϕp ) = γp · αp (Sr , T ),
+
+for a root of unity γp , where
+
+           αp (Sr , T ) = lim p−t(3+4r) |{x ∈ M3+2r,2 (Zp /pt Zp ) | t xSr x ≡ T              mod (pt )}|
+                            t→∞
+
+is the classical representation density of T by Sr as deﬁned by Siegel, [12]. This quantity
+has the form αp (Sr , T ) = Ap (q −r , T ) for a polynomial Ap (X, T ), which was ﬁrst calculated
+in this case by Kitaoka [12]‡ . When T is such that WT,p (0, ϕp ) = 0, and T ∈ Sym2 (Zp ) is
+GL2 (Zp )–equivalent to diag(:1 pa , :2 pb ), then Kitaoka’s formula yields
+                                    ∂            
+  WT,p (s, ϕp ) s=0 = − log(p) γp      Ap (X, T ) X=1
+                                    ∂X
+(5.4)                     = log(p) γp (1 − p−2 )
+                                !
+                                
+                                 (a−1)/2   (a + b − 4j) pj                                      if a is odd
+                                      j=0
+                              × !(a−2)/2
+                                
+                                 j=0 (a + b − 4j) pj + 2 (b − a + 1) pa/2
+                                                            1
+                                                                                                 if a is even
+                                                                                                 and b is odd
+  ‡
+      Recently, it has been calculated in general, for p = 2, by F. Sato and Y. Hironaka, [29]
+                                            876-21
+
+Remarkably,
+                                      
+(5.5)                  WT,p (s, ϕp ) s=0 = log(p) γp (1 − p−2 ) δp (T ),
+
+where δp (T ) is the multiplicity computed via the Gross–Keating formula! Finally, by a
+                                                                                (p)
+straightforward counting argument, the number of points in Z(T ) is given by AT (ϕ), up
+to simple factors, independent of T , which compensate for the extra p2 − 1 and the factor
+vol(X(C)).
+
+
+
+6. GREEN’S FUNCTIONS AND WHITTAKER FUNCTIONS
+
+                 v) in the arithmetic Chow groups of integral models of Shimura curves
+   The classes Z(T,
+involve the Green’s functions deﬁned in [14], section 11. This section describes the con-
+struction of such functions. First, suppose that V is a rational quadratic space of signature
+(n − 1, 2), as in section 3, and recall that for t ∈ Q>0 and for ϕ ∈ S(V (Af ))K , there is a
+divisor Z(t, ϕ) on XK , given as a weighted sum of the images in XK of the divisors Dx in
+D. A Green’s function of logarithmic type for Z(t, ϕ) in the sense of Gillet–Soulé [4] can
+be constructed by averaging rapidly decreasing Green’s functions for Dx ’s. Next, in the
+case of a Shimura curve (n = 2), the smooth (1, 1)–form g(T, v) used in the construction
+of the terms for indeﬁnite T ’s in the generating function of arithmetic degrees is deﬁned
+via the star product. The notation is that of section 3.
+  For an oriented negative 2–plane z ∈ D, let prz be the projection to z with respect to
+the orthogonal decomposition V (R) = z + z ⊥ . For x ∈ V (R), x = 0, the quantity
+
+                                R(x, z) = −(prz (x), prz (x))
+
+is nonnegative and vanishes if and only if z ∈ Dx . Let
+
+                                ξ(x, z) = −Ei(−2πR(x, z)),
+
+where, for r > 0,
+                                                      ∞
+                                                          e−rt
+                                   −Ei(−r) =                   dt
+                                                  1        t
+is the exponential integral. Since −Ei(−r) decays exponentially as r goes to inﬁnity and
+behaves like − log(r) + O(1) as r goes to 0, the function ξ(x) has a logarithmic singularity
+along the (possibly empty) divisor Dx and decays very rapidly away from Dx . In addition,
+it satisﬁes the Green’s equation:
+
+                                    ddc ξ(x) + δDx = µ(x)
+
+for a smooth (1, 1)–form µ(x) on D, and hence deﬁnes a Green’s form of log type for Dx ,
+in the sense of Gillet-Soulé.
+                                           876-22
+
+  Note that R(hx, hz) = R(x, z) for h ∈ GSpin(V )(R), so that ξ(hx, hz) = ξ(x, z) as
+well. For v > 0 and t ∈ Q>0 , and a weight function ϕ ∈ S(V (Af ))K , the sum
+                                            
+(6.1)                    g(t, v, ϕ)(z, h) =      ϕ(h−1 x) ξ(x, z)
+                                            x∈V (Q)
+                                            Q(x)=t
+
+depends only on the orbit H(Q)(z, h)K of the point (z, h) ∈ D × H(Af ). Thus, g(t, v, ϕ)
+deﬁnes a Green’s function of logarithmic type for the divisor Z(t, ϕ), deﬁned in section 3
+(for r = 1), on XK .
+  In the case n = 2, for the space V considered in section 4, and a pair of vectors
+x = [x1 , x2 ] ∈ V (R)2 such that det(Q(x)) = 0, the integral
+
+                                  Λ(x) =       ξ(x1 ) ∗ ξ(x2 )
+                                           D
+
+of the ∗–product of the associated Green’s functions [4] is well deﬁned and satisﬁes
+Λ(hx) = Λ(x) for all h ∈ GSpin(V )(R). This implies that Λ(x) actually only depends on
+the matrix of inner products Q(x), i.e.,
+
+(6.2)                               Λ(x) =: Λ0 (Q(x)).
+
+One can view Λ(x) as the ‘archimedean height pairing’ of the 0–cycles Dx1 and Dx2 in D.
+In fact this quantity has the following rather surprising additional invariance:
+
+Theorem 6.1. — [14], section 13. For any k ∈ SO(2), and any x,
+
+                                      Λ(xk) = Λ(x).
+
+   Note that, even when Q(x1 ) > 0 and Q(x2 ) > 0, so that one initially has a pair of
+0–cycles Dx1 and Dx2 in D, eventually, after rotation, one encounters a pair of vectors
+x1 and x2 with Q(x2 ) < 0, so that the cycle Dx2 has vanished (!) and is replaced, in
+some sense, by the geodesic arc {z ∈ D | x2 ∈ z}. Nonetheless, the ‘archimedean height
+pairing’ Λ(x) is invariant under such a deformation.
+  It follows that, writing v ∈ Sym2 (R)>0 as v = at a for a ∈ GL2 (R)+ , the quantity Λ(xa)
+depends only on v and not on the choice of a. Then, for a nonsingular T ∈ Sym2 (Z), one
+has a smooth (1, 1)–form
+                                                            
+(6.3)                      g(T, v) =             ϕ(x) Λ(xa) µ
+                                       x ∈ V (Q)2
+                                       Q(x) = T
+                                         mod ΓB
+
+on X, where µ = y −2 dx ∧ dy, ϕ is the characteristic function of the set O B 2 ∩ V (Af )2 ,
+and ΓB = OB   ×                                                    v) when T has signature
+                . This is the form used in the deﬁnition (4.6) of Z(T,
+(1, 1) or (0, 2). Note that the sum is nonempty precisely when V represents T .
+                                               876-23
+
+  Idea of proof of Theorem 4.8 for p = ∞.               Again using Proposition 5.1, the identity
+to be proved in this case is
+                                               n+1       
+                      v)) q T = vol(X(C)) · W 2 (τ, s)  · A(∞) (ϕ).
+                 deg(Z(T,                     T,∞          s=0 T
+
+The left hand side is simply
+                                                        
+(6.4)                          q T · Λ0 (t aT a) ·                ϕ(x),
+                                                     x ∈ V (Q)2
+                                                     Q(x) = T
+                                                       mod ΓB
+
+where v = at a, as before and Λ0 is given by (6.2). Then some transformations of the
+integral representations of the matrix argument conﬂuent hypergeometric function of
+Shimura’s paper [30] together with a manipulation of the integral deﬁning Λ shows that
+                              n+1         
+                            WT,∞
+                               2
+                                  (τ, s) s=0 = c∞ · Λ0 (t aT a) · q T ,
+
+where c∞ is an innocuous constant. Again, the sum in (6.4) counts pairs of lattice vectors
+                                (∞)
+modulo ΓB and coincides with AT , the Fourier coeﬃcient of the theta integral, up to a
+constant which absorbs c∞ and provides the required vol(X(C)) factor.
+
+
+
+7. FURTHER RESULTS
+
+   One would like to identify the central derivative E  (τ, 0, ϕ) of the incoherent Eisenstein
+series (2.3) as a generating function for arithmetic degrees in the general case. In the
+series of papers [24], [22], [21] the cases n = 1, 3 and 4 are considered. In each of these
+cases (and also for n = 5), the Shimura variety X associated to H = GSpin(V ) is of
+PEL type, i.e., can be interpreted as a moduli space for abelian varieties (A, ι) with a
+speciﬁed endomorphism ring, due to the existence of an accidental isomorphism. This
+allows one to give a modular deﬁnition of an integral model XK of XK , at least over
+Spec(Z[N −1 ]) for a suitable N depending on the compact open subgroup K. For each
+abelian scheme (A, ι), there is a space of special endomorphisms V (A, ι), equipped with
+a Z–valued quadratic form. Special cycles on X are then deﬁned by imposing collections
+of such endomorphisms, as in section 4 and the example of section 1.3 above.
+   The case n = 1. This case is considered in [24] and is described in classical language
+in section 1.3 above. From the point of view now developed it amounts to the following.
+                                      √
+An imaginary quadratic ﬁeld k = Q( −d) with quadratic form Q(x) = −Nk/Q (x) gives a
+rational quadratic space (V, Q) of signature (0, 2). The group GSpin(V ) is then the torus
+over Q with GSpin(V )(Q) ≃ k× , and X ≃ Spec(OH ) is the restriction of scalars to Spec(Z)
+of the coarse moduli space over Ok of elliptic curves (A, ι) with complex multiplication
+                                            876-24
+
+by Ok . In this case the space of special endomorphisms (1.6) is
+
+                         V (A, ι) = {x ∈ End(A) | xι(b) = ι(b̄)x}.
+
+This space is zero unless A is a supersingular elliptic curve in characteristic p, where p is
+not split in k, in which case, V (A, ι) ⊗Z Q ≃ V (p) , the rational quadratic space given by
+V (p) = k with quadratic form Q(p) (x) = p Nk/Q (x). For τ = u + iv ∈ H, the generating
+function is then given by
+                                             
+(7.1)                           φ̂deg (τ ) =        v)) q t .
+                                               deg(Z(t,
+                                            t∈Z
+
+                   v) = (Z(t), 0) ∈ CH 1 (X) where Z(t) is the locus of (A, ι, x)’s where
+Here, for t > 0, Z(t,
+                                                 v) = (0, g(t, v)) ∈ CH 1 (X), where
+x ∈ V (A, ι) with Q(x) = −x2 = t. For t < 0, Z(t,
+g(t, v) is the function on X(C) ≃ H(Q)\D × H(Af )/K given by (6.1). Here K ≃ O         × .
+                                                                                           k
+Note that in this case, D consists of two points (via the two possible orientations of V (R)),
+and R(x, z) = 2Nk/Q (x), so that ξ(xa, z) = −Ei(−4πvNk/Q (x)), precisely as in [24]. This
+gives an improved version of Theorem 1.7:
+
+Theorem 7.1. — [24]. When d ≡ 3 mod (4) is a prime and for a suitable deﬁnition of
+                       v)),
+the constant term deg(Z(0,
+
+                             φ̂deg (τ ) = vol(X(C)) · E  (τ, 0, ϕ),
+                                          k ⊂ V (Af ) and vol(X(C)) = hk is the class
+where ϕ is the characteristic function of O
+number of k.
+
+  The result is proved by a direct calculation of both sides, using the results of Gross [5]
+to compute multiplicities on the moduli space. The restriction to prime discriminant is
+only made to streamline the calculations.
+  The higher dimensional cases treated so far exhibit some new phenomena.
+   The case n = 3. This case is considered in [22]. The incoherent Eisenstein series (2.2)
+associated to a rational quadratic space of signature (2, 2) will have weight 2 and genus
+3. To deﬁne the relevant moduli problem and generating function for arithmetic degrees,
+let C(V ) = C + (V ) ⊕ C − (V ) be the Cliﬀord algebra of V with its Z2 –grading. Then the
+center of C + (V ) is a real quadratic ﬁeld k (possibly k = Q ⊕ Q), and C + (V ) has the
+form B0 ⊗Q k for an indeﬁnite quaternion algebra B0 over Q. The associated Shimura
+variety X is a surface whose complex points parametrize polarized abelian varieties (A, ι)
+of dimension 8 with an action of a maximal order in C(V ) ⊗ k. Included among the X’s
+are products of modular curves (k = Q ⊕ Q, B0 = M2 (Q)), products of Shimura curves
+(k = Q ⊕ Q, B0 division), Hilbert-Blumenthal surfaces (k a ﬁeld, B0 = M2 (Q)) and their
+twisted (quaternionic) analogues (k a ﬁeld, B0 division). An integral model X of X over
+Spec(Z[N −1 ]), is deﬁned as the moduli space of polarized abelian schemes with such an
+                                            876-25
+
+action, level structure, etc. The space of special endomorphisms of a given (A, ι) is then
+
+               V (A, ι) = {x ∈ End(A) | x ι(c ⊗ a) = ι(c ⊗ ā) x, and x∗ = x}
+
+where ∗ denotes the Rosati involution of A. As before, this space has a Z–valued quadratic
+form deﬁne by x2 = Q(x)·1A . Again, a key point is that, for (A, ι) supersingular, the space
+V (A, ι) ⊗ Q ≃ V (p) is the 4 dimensional rational quadratic space deﬁned by (5.1) above.
+For T ∈ Sym3 (Z)>0 , the special cycle Z(T ) is the locus of (A, ι, x)’s where x ∈ V (A, ι)3
+with Q(x) = T . This cycle is either empty or is supported in the supersingular locus Xs.s.
+                                                                                          p
+of the ﬁber at p for the unique prime p for which VT ≃ V (p) . Here one assumes that p  N ,
+so that p is a prime of good reduction; in particular, p is not ramiﬁed in k.
+  If a prime p  N splits in k, then the supersingular locus Xs.s.
+                                                               p consists of a ﬁnite set of
+points. If p is inert in k, then Xp has dimension 1 and is, in fact, is a union of P1 ’s [31],
+                                  s.s.
+
+[22], section 4, crossing at Fp2 rational points.
+  Let ϕ ∈ S(V (Af )3 ) be the characteristic function of L ⊗ Ẑ for a lattice L ⊂ V (Q) such
+that Lp is self dual for all p  N , and let E(τ, s, ϕ) be the associated incoherent Eisenstein
+series (2.3) of weight 2.
+
+Theorem 7.2. — [22]. Suppose that T ∈ Sym3 (Z)>0 .
+(i) If VT is not isomorphic to any V (p) , then Z(T ) is empty and ET (τ, 0, ϕ) = 0.
+(ii) If VT ≃ V (p) for a prime p  N which splits in k, then there is a class Z(T      ) =
+                3
+(Z(T ), 0) ∈ CH (X) and
+
+(7.2)                              )) · q T = C · E  (τ, 0, ϕ),
+                              deg(Z(T               T
+
+for a constant C independent of T .
+(iii) Suppose that VT ≃ V (p) for a prime p  N which is inert in k. If p  T , then Z(T )
+                                                        ) = (Z(T ), 0) ∈ CH 3 (X) and,
+consists of a ﬁnite number of points, there is a class Z(T
+again,
+
+(7.3)                               )) · q T = C · E  (τ, 0, ϕ).
+                               deg(Z(T               T
+
+If p | T , then Z(T ) is a union of components of the supersingular locus Xs.s.
+                                                                           p .
+
+
+   Here, T ∈ Sym3 (Z)>0 will be called irregular if VT ≃ V (p) with p  N inert in k and
+p | T . The situation for p | N , e.g., p ramiﬁed in k, has not yet been studied.
+                            )) = log |R(T )| for the Artin ring R(T ) deﬁning Z(T ), so
+   Here, as in (4.5), deg(Z(T
+that the fact that X is only deﬁned over Spec(Z[N −1 ]) and need not be proper will not be
+important. These issues will be essential, however, if one wants to deﬁne the full generating
+function φ̂deg (τ ) and compare it to E  (τ, 0, ϕ). The proof of (7.2) and (7.3), where Z(T ) is
+a 0–cycle, again comes down to a relation between derivatives of representation densities
+for quadratic forms and the result of Gross and Keating described in Proposition 5.2
+above, now in its full generality. Indeed, that result was obtained in connection with the
+                                           876-26
+
+study of the derivative of a Siegel–Eisenstein series of weight 2, due to the connection of
+such a series with the triple product L–function [3], [27], [9], [7].
+   The case n = 4. This case is considered in [21]. Here the Shimura varieties are (twisted)
+Siegel 3–folds, and the pattern is similar to that for n = 3. The one new point is that the
+‘regularity’ condition on T ∈ Sym4 (Z) required to obtain a 0–cycle in the supersingular
+locus (which is again a curve with P1 components) becomes: VT ≃ V (p) and T represents
+1 over Zp . One then obtains an analogue of Theorem 6.2, with the comparison again
+based on [6].
+
+
+8. FINAL REMARKS
+
+  Beyond the range of the accidental isomorphisms, i.e., for n ≥ 6, the Shimura varieties
+associated to GSpin(V ) for rational quadratic spaces V of signature (n − 1, 2) are no
+longer of PEL type, so that the modular interpretation of points, special endomorphisms,
+and other tools used before are no longer available. Instead, it will be necessary to work
+with integral models deﬁned by suitable types of Hodge classes, etc., [26]. Presumably
+there is a good notion of special endomorphisms or special Hodge classes in this situation
+which cut out the required cycles. This theory remains to be established.
+   Even in the range 2 ≤ n ≤ 5, many diﬃculties lie in the way of a full treatment of the
+generating function for φ̂deg (τ ). For example, there is the problem of the contribution of
+irregular T ’s, which occur even in the case of good reduction. The contribution of the
+singular T ’s is ‘global’ and will presumably involve models over Z, detailed information
+about the ﬁbers of bad reduction, etc. Much work remains to be done.
+    In addition, there is the question of deﬁning modular arithmetic generating functions
+φ̂r (τ ), analogous to the series φr (τ ) of Theorem 3.1 above, valued in arithmetic Chow
+              r
+groups CH (X) for arbitrary codimension. Of course the image of such series under the
+cycle class map should be the generating series discussed in section 3. Recent work of
+Borcherds [1], which gives a generating function involving the classes of the divisors Z(t, ϕ)
+on XK (C) in the Chow group CH 1 (XK (C)), rather than in cohomology, will be relevant
+here.
+  In all cases, it remains to work out the modiﬁcations required in the case of non-compact
+quotient.
+
+
+
+                                     REFERENCES
+
+
+ [1] R. E. Borcherds, The Gross-Kohnen-Zagier Theorem in higher dimensions, Duke
+     Math. J. 97 (1999), pp. 219–233.
+                                          876-27
+
+ [2] J.-F. Boutot and H. Carayol, Uniformisation p–adiques des courbes de Shimura,
+     Astérisque 196–197 (1991), 45–158.
+ [3] P. Garrett, Decomposition of Eisenstein series: Rankin triple products, Annals of
+     Math. 125 (1987), 209–235.
+ [4] H. Gillet and C. Soulé, Arithmetic intersection theory, Jour of IHES, 72 (1990), pp.
+     94–174.
+ [5] B. H. Gross, On canonical and quasi-canonical liftings, Inventiones Math. 84 (1986),
+     321–326.
+ [6] B. H. Gross and K. Keating, On the intersection of modular correspondences, Invent.
+     Math. 112 (1993), pp. 225–245.
+ [7] B. H. Gross and S. Kudla, Heights and the central critical values of triple product
+     L-functions, Compositio Math., 81 (1992), pp. 143–209.
+ [8] B. H. Gross and D. Zagier, Heegner points and the derivatives of L-series, Inventiones
+     math. 84 (1986), pp. 225–320.
+ [9] M. Harris and S. Kudla, The central critical value of a triple product L-function,
+     Annals of Math. 133 (1991), pp. 605-672.
+[10] S. Helgason, Diﬀerential Geometry and Symmetric Spaces, Academic Press, 1962.
+[11] F. Hirzebruch and D. Zagier, Intersection numbers of curves on Hilbert modular
+     surfaces and modular forms of Nebentypus, Inventiones Math. 36 (1976), pp. 57–
+     113.
+[12] Y. Kitaoka, A note on local densities of quadratic forms, Nagoya Math. J. 92 (1983),
+     145–152.
+[13] S. Kudla, Algebraic cycles on Shimura varieties of orthogonal type, Duke Math. J.
+     86 (1997), pp. 39–78.
+[14] S. Kudla, Central derivatives of Eisenstein series and height pairings, Annals of
+     Math. 146 (1997), pp. 545–646.
+[15] S. Kudla and J. Millson, The theta correspondence and harmonic forms I, Math.
+     Annalen, 274 (1986), pp. 353–378.
+[16] S. Kudla and J. Millson, The theta correspondence and harmonic forms II, Math.
+     Annalen, 277 (1987), pp. 267–314.
+[17] S. Kudla and J. Millson, Intersection numbers of cycles on locally symmetric spaces
+     and Fourier coeﬃcients of holomorphic modular forms in several complex variables,
+     IHES 71 (1990), pp.121–172.
+[18] S. Kudla and S. Rallis, Degenerate principal series and invariant distributions, Israel
+     J. Math., 69 (1990), pp. 25–45
+[19] S. Kudla and S. Rallis, Ramiﬁed degenerate principal series representations for
+     Sp(n), Israel J. Math., 78 (1992), pp. 209–256.
+[20] S. Kudla and S. Rallis, A regularized Siegel-Weil formula: the ﬁrst term identity,
+     Annals of Math. 140 (1994), pp. 1–80.
+                                         876-28
+
+[21] S. Kudla and M. Rapoport, Cycles on Siegel 3–folds and derivatives of Eisenstein
+     series, Ann. École Norm. Sup. (to appear).
+[22] S. Kudla and M. Rapoport, Arithmetic Hirzebruch–Zagier cycles, J. reine angew.
+     Math. 515 (1999), 155–244.
+[23] S. Kudla and M. Rapoport, Heights on Shimura curves and p–adic uniformization,
+     Inventiones Math. (to appear)
+[24] S. Kudla, M. Rapoport and T. Yang, On the derivative of an Eisenstein series of
+     weight 1, Int. Math. Res. Notices No.7 (1999), 347–385.
+[25] S. Kudla, M. Rapoport and T. Yang, (in preparation).
+[26] B. Moonen, Models of Shimura varieties in mixed characteristics, in Galois Repre-
+     sentations in Arithmetic Algebraic Geometry, A. J. Scholl and R. L. Taylor, eds.,
+     London Math. Society Lecture Note Series 254, Cambridge Univ. Press, 1998.
+[27] I.I. Piatetski-Shapiro and S. Rallis, Rankin triple L–functions, Compositio Math. 64
+     (1987), 31–115.
+[28] I. Satake, Algebraic Structures of Symmetric Domains, Publ. of the Math. Soc. of
+     Japan, 14, Iwanami Shoten and Princeton Univ. Press, 1980.
+[29] F. Sato and Y. Hironaka, Local densities of representations of quadratic forms over
+     p–adic integers (the non-dyadic case), J. Number Theory 83 (2000), 106–136.
+[30] G. Shimura, Conﬂuent hypergeometric functions on tube domains, Math. Annalen
+     260 (1982), pp. 269–302.
+[31] H. Stamm, On the reduction of the Hilbert-Blumenthal-moduli scheme with Γ0 (p)-
+     level structure, Forum Math. 9 (1997), pp. 405–455.
+[32] C. Soulé, D. Abramovich, J.-F. Burnol, and J.Kramer, Lectures on Arakelov Geom-
+     etry, Cambridge Stud. Adv. Math., vol 33, Cambridge U. Press., 1992.
+[33] W. J. Sweet, The metaplectic case of the Weil–Siegel formula, thesis, Univ. of
+     Maryland, 1990.
+[34] T. Yang, An explicit formula for local densities of quadratic forms, J. Number Theory
+     72 (1998), pp. 309–356.
+
+                                            Stephen S. KUDLA
+                                            Department of Mathematics
+                                            University of Maryland
+                                            College Park, MD 20742
+                                            USA
+                                            E-mail : ssk@math.umd.edu
+

@@ -1,0 +1,30 @@
+Welcome to Walnut! Type "help;" to see all available commands.
+
+[Walnut]$ computed ~:2 states - 19ms
+
+[Walnut]$ computed ~:1 states - 2ms
+computed ~:2 states - 1ms
+
+[Walnut]$ ____
+TRUE
+
+[Walnut]$ _____
+FALSE
+
+[Walnut]$ 
+[Walnut]$ computed ~:1 states - 1ms
+java.lang.Exception: the operator * cannot be applied to two variables
+	at Automata.NumberSystem.arithmetic(NumberSystem.java:795)
+	at Token.ArithmeticOperator.act(ArithmeticOperator.java:188)
+	at Main.Computer.compute(Computer.java:113)
+	at Main.Computer.<init>(Computer.java:49)
+	at Main.Prover.eval_def_commands(Prover.java:565)
+	at Main.Prover.dispatch(Prover.java:383)
+	at Main.Prover.readBuffer(Prover.java:335)
+	at Main.Prover.run(Prover.java:289)
+	at Main.Prover.main(Prover.java:255)
+the operator * cannot be applied to two variables
+	: char at 54
+	: eval rawES "?msd_4 A n ($pow4(n) => (E x,y,z x>0 & y>0 & z>0 & 4*x*y*z=(n+297)*(x*y+x*z+y*z)))";
+
+[Walnut]$ 

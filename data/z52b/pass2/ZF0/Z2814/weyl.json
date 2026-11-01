@@ -1,0 +1,13 @@
+{
+ "W_E6_order": 51840,
+ "oriented_root_set_stabilizer": 24,
+ "root_subsystem_normalizer": 384,
+ "oriented_configurations": 2160,
+ "unoriented_configurations": 135,
+ "nef_orbits": [
+  3,
+  6
+ ],
+ "generic_conic_orbit": 27,
+ "seconds": 1.886918067932129
+}

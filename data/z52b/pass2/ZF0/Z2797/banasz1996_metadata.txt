@@ -1,0 +1,193 @@
+## Content from https://link.springer.com/article/10.1007/BF02711514
+
+Title: Inequalities for convex bodies and polar reciprocal lattices in <Emphasis Type="Italic">R </Emphasis> <Superscript> <Emphasis Type="Italic">n </Emphasis> </Superscript> II: Application of <Emphasis Type="Italic">K </Emphasis>-convexity
+
+URL Source: https://link.springer.com/article/10.1007/BF02711514
+
+Final URL: https://link.springer.com/content/pdf/10.1007/BF02711514.pdf
+
+Published Time: Thu, 24 Aug 2017 21:37:24 GMT
+
+Number of Pages: 7
+
+Markdown Content:
+Discrete ComputGeom 16:305-311 (1996) Discrete & Computational 
+
+# Geometry 1996 Springer-Verlag New York Inc. 
+
+# Inequalities for Convex Bodies and Polar Reciprocal Lattices in R n 
+
+# Ih Application of K-Convexity* 
+
+W. Banaszczyk Instituteof Mathematics, L6d~ University, 90-238 L6d2, Poland wbanasz@krysia.uni.lodz.pl 
+
+Abstract. The paper is a supplementto [2]. Let L be a lattice and U an o-symmetric convex body i n R n. The Minkowski functional I[ I1~ of U, the polar body U ~ the dual lattice L*, the covering radius/z(L, U), and the successive minima ~.i(L, U), i = 1. . . . . n, are defined in the usual way. Let 12, be the family of all lattices in R". Given a convex body U, we define 
+
+mh(U) = sup max ~.i(L, U)~.n-i+l(L*, U~  
+
+> L~s l < i < n
+
+lh(U) = sup Zl(L, U) 9 U~ 
+
+> L E L n
+
+and kh(U) is defined as the smallest positive number s for which, given arbitrary L 6 12, 
+
+and x ~ R"\(L + U), some y 6 L* with IlYlluo < sd(xy, Z) can be found. It is proved that 
+
+Cln < jh(U) < C2nK(R~) < C3n(1 + logn), for j = k, 1, m, where C1, C2, C3 are some numerical constants and K(R"v) is the K-convexity constant of the normed space (R", II IIu). This is an essential strengthening of the bounds obtained in [2]. The bounds for lh(U) are then applied to improve the results of Kannan and Lov~sz [5] estimating the lattice width of a convex body U by the number of lattice points in U. This paper is a supplement to the earlier paper [2]. We recall briefly the notation in-troduced there. By/2n and Cn we denote, respectively, the family of all n-dimensional lattices and the family of all symmetric convex bodies in R n. Let L ~ /~n and U ~ Cn. By L* and U ~ we denote, respectively, the dual lattice and the polar body, defined in * This research was supportedby KBN Grant 2 P301 019 04. 306 W. Banaszczyk 
+
+the usual way. By # ( L , U) and ~.i(L, U), i = 1. . . . . n, we denote, respectively, the covering radius and the successive minima of L with respect to U. Consider a pair of convex bodies U, V 6 Cn. Let du be the metric on R n induced by U and let ]1 IIv be the norm on R" induced by V. Let x y be the euclidean inner product of vectors x, y 6 R n and let d(xy, Z) be the usual one-dimensional distance o f x y to Z. In [2] we obtained upper bounds for the following quantifies: 
+
+d r ( x , L) . Ilyllv kh(U, V ) = sup sup inf   
+
+> L c L . xelCn yeL*
+
+d(xy, Z) ' 
+
+> xr xy~Z
+
+lh(U, V) = sup )~l (L, U) 9It(L*, V), 
+
+> L c s
+
+mh(U, V) = sup m a x ~.i(L, U)"~.n-i+l(L*, V).  
+
+> L~s l<iSn
+
+It is convenient to denote them byjh(U, V), j = k, 1, m. In this paper, applying the notion of K-convexity, we derive upper bounds forjh(U, V) which are essentially stronger than those obtained in [2]. We are interested mainly in the case V = U ~ Thus, we denote jh(U) = jh(U, U ~ forj = k, 1, m and U 6 Cn. Naturally, jh(U) are affine invariants of U. Upper bounds forjh(U) belong to the so-called transference theorems in the geometry of numbers; for motivations and earlier results we refer the reader to [2]. Let Bp denote the unit ball of the normed space lp, 1 _< p _< oo (we identify vector spaces lp and Rn). It was proved in [1] that jh(B~) _< Cn. (1) Here and below, C is some numerical constant which may vary from line to line. Next, it was proved in [2] that jh(Bp) _ Cpn, 1 < p < ~ , (2) where Cp depends on p only, that jh(Bp) _< Cn(1 + logn) 1/2, 1 < p _< c~, and that jh(U) _< Cn(1 + logn) provided that U is symmetric with respect to the coordinate hyperplanes. In this paper we prove that 
+
+C - t n < jh(U) < Cn(1 + l o g n ) (3) for any U 6 C,. Then we apply upper bounds for lh(U) to improve the results of Kannan and Lov~isz [5] estimating the width of a convex body U by the number of lattice points in U. The inequality on the left in (3) was announced in [1]; for U = B~, it had been known earlier (see Chapter II, Theorem 9.5, of [8]). It is a direct consequence of Siegel's mean value theorem. The proof of the inequality on the right makes use of some results of [2], of dual properties of e-norm, and of the theorem ofM. Talagrand on majorizing measure.     
+
+> ....2
+
+Let A be a discrete subset of R". It is convement to write o(A) = ~x~A e-~X - For U ~ Cn, we define 
+
+o((L + a ) \ U ) 
+
+fl(U) = sup sup 
+
+LJt" a~" O(L) Inequalities for Convex Bodies and Polar Reciprocal Lattices in R n, I1 307 
+
+The following fact is a direct consequence of Lemmas 1.4, 1.5, and 1.6 of [2]: 
+
+Lemma 1. There exists a numerical constant Cl such that if U, V 6 C, and 3(U), ~(V) <_ C11, then jh(U, V) < C1 for j = k, 1, m. For U ~ C,, by R~ we denote the space R n endowed with the norm II [I u. Endowed with the euclidean norm, R n is denoted by R~. By Tv we denote the identity operator from R~ to R~, and s is the e-norm of Tu (see Section 2 of [3], Chapter 3 of [10], (12.2) of [12], or (2.3.16) and (2.3.17) of [6]). 
+
+Lemma 2. To each e > 0 there corresponds some 3 > 0 such that if U ~ Cn and e(Tw) < $, then ~(U) < e. Proof. Fix 3 and take any U ~ C, with e(Tu ) < $. The result of Talagrand [11] on major\zing measure implies that there is a sequence x~ 6 (R~)* such that and, denoting 
+
+## IIx~ll _ Ce(Tu) (1 + logk) -1/2, k = 1, 2 . . . . . 
+
+W k : { x ~ R " : l ( x , x ~ , ) l ~ l } , k = l , 2 . . . . . we have W = N~=I Wk C U (see pp. 128-129 of [11] and p. 85 of [10]). Here C is some numerical constant. Choose any L ~ E, and a ~ R n. It is convenient to write La 
+
+instead of L + a. L e m m a 2.4 of [2] says that 
+
+Q({X E L a: ](x, X*)l >__r IIx* II}) < 2 e-rrr2Q(L), r > O, x* ~ (R~)*. 
+
+Hence 
+
+O(La\Wk) < 2e-~llx;ll-20(L ) < 20(L ) 9 (ke)-~c-2~-'-
+
+for k = 1, 2 . . . . . which implies that 
+
+# O(LAU) < O(La\ W) = 0 La\ Wk = 0 (La\Wk)  
+
+> k = l oo oo
+
+<_ E O ( L a \ W k ) <~ 2 o ( L ) . E(ke)_~r c 2~-2 = 2 0 ( L ) . f ( $ ) .  
+
+> k = l k = l
+
+As L ~/2n and a ~ R n were arbitrary, it follows that 3(U) < 2 f ( 3 ) . Now it remains to observe that f ( 3 ) --+ 0 as 6 -+ 0. [] 
+
+Lemma 3. There exists a universal constant C such that 
+
+jh(U, V) < C~(Tu)- g.(Tv) for all U, V ~ Cn and j = k, 1, m. 308 W. Banaszczyk 
+
+Proof Let C1 be the constant from Lemma 1. By Lemma 2, there exists some 8 > 0 suchthatif W ~ C~ and e(Tw) < 8,then/5(W) < C l 1. Choose arbitrary U, V ~ Cn and 
+
+j = k, 1, m. Let s = 6-1e(Tv) and t = ~-le(Tv). Then e(Tsu) = s - l e ( T v ) = 6 and, 
+
+similarly, e(Ttv) = 3. Hence/3 (sU),/3(tV) < C[ 1, which implies thatjh(sU, t V) < C1. Thus jh(U, V) = st -jh(sU, tV) < StCl = C l ~ - 2 e ( T u ) 9 e ( T v ) . [] Let X be an n-dimensional real normed space. By d(X, l~) we denote the Banach-Mazur distance of X to l~; note that d (X, l~ ) < n i/2. B y K (X) we denote the K-convexity constant of X (see, e.g., Chapter 2 of [10] or (2.2.19) of [6]). We recall some basic facts about K (X): (i) K(X*) = K ( X ) . 
+
+(ii) K(l~) = 1. 
+
+(iii) K ( X ) < C(1 + logd(X, l~)). (iv) K ( X ) <_ C(1 + logd(X, l~)) 1/2 if X has a 1-unconditional basis. For (i)-(iii) see p. 20 of [10]; assertion (iv) was proved in [9]. Lemma 4. To each U ~ C, there corresponds a linear isomorphism S of R n such that e(Ts(u)) . e(Ts(u)o) < n K (Rnu). 
+
+This fact was proved by Figiel and Tomczak-Jaegermann in [3], by using a general theorem of D. R. Lewis. The isomorphism S describes the so-called e-ellipsoid for U. See also (4.1.9) of [6], Theorem 3.11 of [ 10], or Section 12 of [ 12] for a detailed analysis. Theorem 1. There exists a universal constant C such that 
+
+jh(U) < CnK(R~) for all U ~ Cn and j = k, 1, m. 
+
+Proof Choose any U e Cn. Due to Lemma 4, we can find an affine image W of U with e(Tw) 9e(Tw o) < nK(R~). Let C be the constant from Lemma 3. Then, for each j = k, 1, m, we have jh(U) -----jh(W) = jh(W, W~ Cg(Tw). e(Tw o) <_ C n K (R~). [] 
+
+The following result is a direct consequence of Theorem 1 and (iii): Corollary 1. There exists a universal constant C such that 
+
+jh(U) _< Cn(1 + logn) (4) 
+
+for all U ~ Cn and j = k, 1, m. Inequalities for Convex Bodies and Polar Reciprocal Lattices in R n , I1 309 It follows from (i)-(iv) that for many convex bodies U the logarithmic factor in (4) can be improved. See also (1) and (2). It should be pointed out that the proof of (1) in [1] gives quite good numerical values of C; see (9) below. Let Q be a convex body in R n, symmetric or not, and let L 9 s Denote by s the number of points of L in Q and let WL (Q) be the L-width of Q: 
+
+WL(Q) = rrfin ( m a x x y -- minxy'].  
+
+> y~L*\{0}
+
+\ xEQ x~Q .I 
+
+Kannan and Lov~isz [5] proved that 
+
+WL(Q) <_ c0[(s + 1)l/"]n 2, (5) where co is the constant which comes from the Bourgain-Milman inequality: voln(U) 9 voln(U ~ > , U 9 Cn. 
+
+It is assumed here that co > 1. Furthermore, it was proved in [5] that 
+
+WL (Q) < con 2 + 2cons l/n (6) provided that Q has a center of symmetry. See also (3.12) and (3.13) of [4]. Now, suppose that Q is symmetric with respect to some point p and let U = Q - p. It is clear that WL(Q) = 23~1(L*, U ~ (see Lemma (2.3) of [5]). We denote 
+
+cv = 4n -1 (vol, (U) 9vol, (U~ The proof of (6) in [5] shows actually that 
+
+WL(Q) < 2/z(L, U) 9 ~.1 (L*, U 0) + 2 c u n s 1/n. (7) By Corollary 1, we have # ( L , U) . k l ( L * , U ~ < lh(U ~ < Cn(1 + l o g n ) . 
+
+Since, by definition, cu < co, it follows that 
+
+WL(Q) < Cn(1 + logn) + 2cons l/n, (8) which is better than (6) at least for large n. For convex bodies Q satisfying some additional conditions, inequality (7) allows us to obtain further improvements of (8); see the remarks following Corollary 1. Consider, in particular, an n-dimensional ellipsoid D with center at some point p. Let B = D - p; then co < 2(7re) -1 due to the Santalo inequality. Let t denote the number of points of 
+
+> 1
+
+L in D. It was proved in [1] that lh(B) < ~n and lh(B) _< (27r)-ln + O(n 1/2) as n --~ c~. 310 W. Banaszczyk This yields 
+
+wL(D) < (l +4(zre)-ltl/~)n, (9) 
+
+wL(D) < (1 + 4 e - l t l / " ) r r - l n + O(n 1/2) as n --+ ~ . Now, suppose that Q is an arbitrary convex body in R n, not necessarily centrally symmetric. Let D be the ellipsoid of maximal volume in Q and let p, B, and t be defined as above. Then D C Q c n B + p due to the John theorem. It is obvious that t < s and 
+
+wL(Q) < wL(nB + p) = nwL(D). 
+
+Now, using (9), we obtain upper bounds for wL(Q) which differ from (5) only in nu-merical constants. A very interesting problem is to improve the factor n 2 in (5). In our proof of (8), the central symmetry of Q or U is essential only in Lemma 4. However, to give a nonsymmetric analogue of Lemma 4 seems to be a difficult task. Let voln(U) denote the n-dimensional euclidean volume of a convex body U 6 Cn. Lenuna 5. To each pair U, V ~ Cn there corresponds a lattice L ~ E,n such that 
+
+)~I(L, U ) - Zl(L*, V) > [voln(U) 9vol,(V)] -1/n. 
+
+Proof. (Sketch) For W ~ Cn and L ~/2n, let Nw (L) be the number of nonzero points of L in W, and let N~v(L) = Nw(L*). Siegel's mean value theorem says that the mean value 9~(Nw) of Nw (L) over all lattices L with determinant 1 is equal to voln (W) (the best description of this averaging process is given in [7]). It is not very hard to see that 
+
+9~(N~r = 9?;t(Nw) (very loosely speaking, there is a fundamental domain invariant under the transformation L w-> L*). Now, take arbitrary U, V ~ Cn, and let s = vol~(U) -1/~, t = vol~(V) -l/n. Then 
+
+9Jt(Nsu + Ntv) = 9~(Nsv) + 9-)~(N;v) = 9~(Nst~) + 9Jt(Ntv) = voln(sU) d- VOln(tV) = Sn voln(U) + t n voln(V) = 2. Since the function L w-> (Nsv + N;v)(L) assumes nonnegative even values only, there mustbe some L ~ E,n withNsu(L) = OandN;v(L) = 0;inotherwords,~l(L, sU) > 1 
+
+and ).I(L*, tV) > 1. Then )~I(L, U) 9~I(L*, V) = st~.l(L, sU) 9 )~I(L*, tV) > st. [] 
+
+Theorem 2. There exists a numerical constant C such that jh(U) > C - i n for all U 6 Cn and j = k, l, m. Proof. Let U ~ Cn. By Lemma 5, we can find a lattice L ~ Ln with )~1(L, U) 9)q (L*, U ~ > [ voln(U) 9 vol,(U~ -l/n, 
+
+which is greater than (2ne)-ln due to the Santalo inequality. Then 
+
+mh(W) > ~.i(L, U) 9~.n-i+l(L*, WO) >_ ~-1(L, U)-)~I(L*, U O) > (2ne)-ln. Inequalities for Convex Bodies and Polar Reciprocal Lattices in R n, I1 311  
+
+> 1,
+
+Next, we have the obvious inequality #(L*, U ~ > ~:kl (L , U~ whence 
+
+1 ~.1(L, U) ~.1(L*, U ~ > (4zre)-ln. lh(U) > kl(L, U) 9 U ~ > 5 Finally, it remains to observe that kh(U) _> 2 lh(U). [] 
+
+Acknowledgment The author wishes to express his deep gratitude to Nicole Tomczak-Jaegermann for her comments and suggestions. References 
+
+1. W. Banaszczyk, New bounds in some transference theorems in the geometry of numbers, Math. Ann. 296 
+
+(1993), 625-635. 2. W. Banaszczyk, Inequalities for convex bodies and polar reciprocal lattices in R n, Discrete Comput. Geom. 
+
+13 (1995), 217-231. 3. T. Figiel and N. Tomczak-Jaegermann, Projections onto Hilbertian subspaces of Banach spaces, Israel J. Math. 33 (1979), 155-171. 4. P. Gritzmann and J. M. Wills, Lattice points, in Handbook of Convex Geometry, edited by P. M. Gruber and J. M. Wills, North-Holland, Amsterdam, 1993, pp. 765-797. 5. R. Kannan and L. Lov~isz, Covering minima and lattice-point-free convex bodies, Ann. Math. 128 (1988), 577-602. 6. J. Lindenstrauss and V. D. Milman, The local theory of normed spaces and its applications to convexity, in Handbook of Convex Geometry, edited by P. M. Gruber and J. M. Wills, North-Holland, Amsterdam, 1993, pp. 739-763. 7. A.M. Macbeath and C. A. Rogers, Siegel's mean value theorem in the geometry of numbers, Math. Proc. Cambridge Philos. Soc. 54 (1958), 139-151. 8. J. Milnor and D. Husemoller, Symmetric Bilinear Forms, Springer-Verlag, Berlin, 1973. 9. G. Pisier, On the duality between type and cotype, Proc. Conf. on Martingale Theory in Harmonic Analysis and Banach Spaces, Cleveland, 1981, Lecture Notes in Mathematics, Vol. 939, Springer-Verlag, Berlin, 1982. 10. G. Pisier, The Volume of Convex Bodies and Banach Space Geometry, Cambridge University Press, Cam-bridge, 1989. 11. M. Talagrand, Regularity of Gaussian processes, Acta Math. 159 (1987), 99-149. 12. N. Tomczak-Jaegermann, Banach-Mazur Distances and Finite-Dimensional Operator Ideals, Longman Scientific & Technical, Harlow, 1989. 
+
+Received February 15, 1995.
+

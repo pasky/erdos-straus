@@ -1,0 +1,275 @@
+[
+ {
+  "q": 5,
+  "N": 1000000,
+  "seconds": 6.04,
+  "residues": [
+   {
+    "r": 1,
+    "admissible": 200000,
+    "certified": 199896,
+    "inherited": 176696,
+    "first_exact_failure": 13,
+    "coprime6_admissible": 66666,
+    "coprime6_certified": 66562,
+    "coprime6_first_failure": 13,
+    "failures": 104,
+    "coprime6_failures": 104
+   },
+   {
+    "r": 2,
+    "admissible": 199999,
+    "certified": 199767,
+    "inherited": 177017,
+    "first_exact_failure": 11,
+    "coprime6_admissible": 66666,
+    "coprime6_certified": 66434,
+    "coprime6_first_failure": 11,
+    "failures": 232,
+    "coprime6_failures": 232
+   },
+   {
+    "r": 3,
+    "admissible": 200000,
+    "certified": 199808,
+    "inherited": 177017,
+    "first_exact_failure": 19,
+    "coprime6_admissible": 66666,
+    "coprime6_certified": 66474,
+    "coprime6_first_failure": 19,
+    "failures": 192,
+    "coprime6_failures": 192
+   },
+   {
+    "r": 4,
+    "admissible": 200000,
+    "certified": 199841,
+    "inherited": 176673,
+    "first_exact_failure": 2,
+    "coprime6_admissible": 66667,
+    "coprime6_certified": 66521,
+    "coprime6_first_failure": 17,
+    "failures": 159,
+    "coprime6_failures": 146
+   }
+  ],
+  "admissible": 799999,
+  "failures": 687,
+  "coprime6_admissible": 266665,
+  "coprime6_failures": 674
+ },
+ {
+  "q": 7,
+  "N": 1000000,
+  "seconds": 76.662,
+  "residues": [
+   {
+    "r": 1,
+    "admissible": 142857,
+    "certified": 142186,
+    "inherited": 122870,
+    "first_exact_failure": 6,
+    "coprime6_admissible": 47619,
+    "coprime6_certified": 47013,
+    "coprime6_first_failure": 13,
+    "failures": 671,
+    "coprime6_failures": 606
+   },
+   {
+    "r": 2,
+    "admissible": 142857,
+    "certified": 142139,
+    "inherited": 122606,
+    "first_exact_failure": 5,
+    "coprime6_admissible": 47620,
+    "coprime6_certified": 46942,
+    "coprime6_first_failure": 5,
+    "failures": 718,
+    "coprime6_failures": 678
+   },
+   {
+    "r": 3,
+    "admissible": 142857,
+    "certified": 142358,
+    "inherited": 122751,
+    "first_exact_failure": 53,
+    "coprime6_admissible": 47619,
+    "coprime6_certified": 47126,
+    "coprime6_first_failure": 53,
+    "failures": 499,
+    "coprime6_failures": 493
+   },
+   {
+    "r": 4,
+    "admissible": 142857,
+    "certified": 141939,
+    "inherited": 122460,
+    "first_exact_failure": 3,
+    "coprime6_admissible": 47619,
+    "coprime6_certified": 46772,
+    "coprime6_first_failure": 17,
+    "failures": 918,
+    "coprime6_failures": 847
+   },
+   {
+    "r": 5,
+    "admissible": 142857,
+    "certified": 142249,
+    "inherited": 122167,
+    "first_exact_failure": 2,
+    "coprime6_admissible": 47618,
+    "coprime6_certified": 47167,
+    "coprime6_first_failure": 37,
+    "failures": 608,
+    "coprime6_failures": 451
+   },
+   {
+    "r": 6,
+    "admissible": 142857,
+    "certified": 141500,
+    "inherited": 122851,
+    "first_exact_failure": 29,
+    "coprime6_admissible": 47618,
+    "coprime6_certified": 46270,
+    "coprime6_first_failure": 29,
+    "failures": 1357,
+    "coprime6_failures": 1348
+   }
+  ],
+  "admissible": 857142,
+  "failures": 4771,
+  "coprime6_admissible": 285713,
+  "coprime6_failures": 4423
+ },
+ {
+  "q": 11,
+  "N": 1000000,
+  "seconds": 412.739,
+  "residues": [
+   {
+    "r": 1,
+    "admissible": 90909,
+    "certified": 88774,
+    "inherited": 74101,
+    "first_exact_failure": 5,
+    "coprime6_admissible": 30303,
+    "coprime6_certified": 28392,
+    "coprime6_first_failure": 5,
+    "failures": 2135,
+    "coprime6_failures": 1911
+   },
+   {
+    "r": 2,
+    "admissible": 90909,
+    "certified": 87839,
+    "inherited": 74452,
+    "first_exact_failure": 10,
+    "coprime6_admissible": 30302,
+    "coprime6_certified": 27893,
+    "coprime6_first_failure": 43,
+    "failures": 3070,
+    "coprime6_failures": 2409
+   },
+   {
+    "r": 3,
+    "admissible": 90909,
+    "certified": 88990,
+    "inherited": 74166,
+    "first_exact_failure": 15,
+    "coprime6_admissible": 30302,
+    "coprime6_certified": 28459,
+    "coprime6_first_failure": 37,
+    "failures": 1919,
+    "coprime6_failures": 1843
+   },
+   {
+    "r": 4,
+    "admissible": 90909,
+    "certified": 88853,
+    "inherited": 73564,
+    "first_exact_failure": 9,
+    "coprime6_admissible": 30303,
+    "coprime6_certified": 28690,
+    "coprime6_first_failure": 31,
+    "failures": 2056,
+    "coprime6_failures": 1613
+   },
+   {
+    "r": 5,
+    "admissible": 90909,
+    "certified": 88662,
+    "inherited": 74275,
+    "first_exact_failure": 3,
+    "coprime6_admissible": 30303,
+    "coprime6_certified": 28288,
+    "coprime6_first_failure": 25,
+    "failures": 2247,
+    "coprime6_failures": 2015
+   },
+   {
+    "r": 6,
+    "admissible": 90909,
+    "certified": 88591,
+    "inherited": 74209,
+    "first_exact_failure": 19,
+    "coprime6_admissible": 30303,
+    "coprime6_certified": 28609,
+    "coprime6_first_failure": 19,
+    "failures": 2318,
+    "coprime6_failures": 1694
+   },
+   {
+    "r": 7,
+    "admissible": 90909,
+    "certified": 88982,
+    "inherited": 74119,
+    "first_exact_failure": 2,
+    "coprime6_admissible": 30303,
+    "coprime6_certified": 29005,
+    "coprime6_first_failure": 13,
+    "failures": 1927,
+    "coprime6_failures": 1298
+   },
+   {
+    "r": 8,
+    "admissible": 90909,
+    "certified": 89015,
+    "inherited": 74356,
+    "first_exact_failure": 7,
+    "coprime6_admissible": 30304,
+    "coprime6_certified": 28862,
+    "coprime6_first_failure": 7,
+    "failures": 1894,
+    "coprime6_failures": 1442
+   },
+   {
+    "r": 9,
+    "admissible": 90909,
+    "certified": 88625,
+    "inherited": 74503,
+    "first_exact_failure": 23,
+    "coprime6_admissible": 30303,
+    "coprime6_certified": 28092,
+    "coprime6_first_failure": 23,
+    "failures": 2284,
+    "coprime6_failures": 2211
+   },
+   {
+    "r": 10,
+    "admissible": 90909,
+    "certified": 88977,
+    "inherited": 74170,
+    "first_exact_failure": 6,
+    "coprime6_admissible": 30303,
+    "coprime6_certified": 28947,
+    "coprime6_first_failure": 17,
+    "failures": 1932,
+    "coprime6_failures": 1356
+   }
+  ],
+  "admissible": 909090,
+  "failures": 21782,
+  "coprime6_admissible": 303029,
+  "coprime6_failures": 17792
+ }
+]

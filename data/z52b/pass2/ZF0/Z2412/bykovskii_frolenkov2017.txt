@@ -1,0 +1,6925 @@
+## Content from https://www.mathnet.ru/php/getFT.phtml?jrnid=sm&paperid=8718&what=fullteng&option_lang=rus
+
+Title: The average length of finite continued fractions with fixed denominator
+
+URL Source: https://www.mathnet.ru/php/getFT.phtml?jrnid=sm&paperid=8718&what=fullteng&option_lang=rus
+
+Final URL: https://www.mathnet.ru/links/cea7255ff050e8cab50fd03bd0ad514e/sm8718_eng.pdf
+
+Published Time: Thu, 23 Mar 2023 14:01:11 GMT
+
+Number of Pages: 40
+
+Markdown Content:
+> Sbornik :Mathematics 208 :5 644–683 Matematicheski˘ ı Sbornik 208 :5 63–102 DOI: https://doi.org/10.1070/SM8718
+
+## The average length of finite continued fractions with fixed denominator
+
+V. A. Bykovskii and D. A. Frolenkov
+
+Abstract. In 1968 Heilbronn proved an asymptotic formula for the mean value of the lengths of continued fraction expansions of rational numbers with identical denominators. A new method is proposed for solving Heil-bronn’s problem and its generalizations. New estimates for the remainders, which improve the earlier results due to Porter (1975) and Ustinov (2005), are obtained. Bibliography: 28 titles.
+
+Keywords: continued fraction, additive divisor problem, convolution for-mula.
+
+§ 1. Introduction
+
+It is well known that Euclid’s algorithm for two positive integers a and b, a < b ,is closely related to the expansion of the rational number a/b in a finite continued fraction of length s = s(a/b ):
+
+ab = [0; a1, . . . , a s] = 1
+
+a1 + ... + 1
+
+as
+
+(1) where a1, . . . , a s are positive integers and as > 2 for s > 1. Many modifications of Euclid’s algorithm are known, which result in representations of a rational number as different continued fractions (see [25] and [26]). In most Euclid algorithms the number of steps can be expressed in terms of the Gauss-Kuzmin statistics (see [25] and [26]), which are defined by the following equality for real x ∈ [0 , 1] and a/b as in (1):
+
+sx
+
+ ab
+
+
+
+= #
+
+
+
+j : 1 6 j 6 s
+
+ ab
+
+
+
+, [0; aj , . . . , a s] 6 x
+
+
+
+.
+
+Note that s1(a/b ) = s(a/b ). The first result on the average length of continued fractions,
+
+1
+
+ϕ(b)
+
+X
+
+> 16a6b
+> (a,b )=1
+
+s
+
+ ab
+
+
+
+= 2 log 2
+
+ζ(2) log b + O(log 4 log b), (2)
+
+> This research was financed by agrant from the Russian Science Foundation (project no. 14-11-00335) at the Khabarovsk Division of the Institute of Applied Mathematics of the Far-Eastern Branch of the Russian Academy of Sciences.
+> AMS 2010 Mathematics Subject Classification . Primary 11K50.
+
+c⃝ 2017 Russian Academy of Sciences (DoM), London Mathematical Society, Turpion Ltd. Average length of finite continued fractions 645
+
+where ϕ( · ) is the Euler function, is due to Heilbronn [5]. In his proof of (2) Heilbronn used only elementary methods and one key idea: he showed that finding the average length of continued fractions is closely related to the problem of the number of integer solutions of the equation n1n2 + n3n4 = b. Note that the link between the mean values of various characteristics of continued fractions and the number of integer solutions of certain equations was first established by Lochs [10]. Using Weil’s bounds for Kloosterman sums, Porter [14] proved that
+
+1
+
+ϕ(b)
+
+X
+
+> 16a6b
+> (a,b )=1
+
+s
+
+ ab
+
+
+
+= 2 log 2
+
+ζ(2) log b + CP − 1 + Oε(b−1/6+ ε), (3) where ε > 0 and
+
+CP = 2 log 2
+
+ζ(2)
+
+ 3 log 2 2 + 2 γ − 2 ζ′(2)
+
+ζ(2) − 1
+
+
+
+− 12
+
+is the Porter constant (in the form found by Wrench; see [7]). Formula (3) can be generalized to the case of Gauss-Kuzmin statistics (see [27]) as
+
+X
+
+> 16a6b
+> (a,b )=1
+
+sx
+
+ ab
+
+
+
+= 2ϕ(b)
+
+ζ(2)
+
+ log( x + 1) log b + CP (x) + Oε,x
+
+ b5/6 log 7/6+ ε b, (4) where ε > 0, x ∈ (0 , 1] ,
+
+CP (x) = log(1 + x)
+
+
+
+log x − log( x + 1) 2 + 2 γ − 2 ζ′(2)
+
+ζ(2) − 1
+
+
+
++ h1(x) + h2(x) + ζ(2) 2
+
+
+
+x · [x < 1] − x
+
+1 + x
+
+
+
+,
+
+the functions h1(x) and h2(x) are given by the absolutely convergent series
+
+h1(x) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ nX
+
+> m=1
+
+xn + mx − log(1 + x)
+
+
+
+(5) and
+
+h2(x) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ X
+
+> n/x 6m<n/x +n
+
+1
+
+m − log(1 + x)
+
+
+
+, (6) and [x < 1] is equal to 1 if x < 1 and to 0 otherwise. Using Wrench’s result (see [7]) we obtain
+
+h1(1) = log 2 2 − ζ(2) 2 , h2(1) = log 2 2 2
+
+ζ(2) CP (1) = CP − 1.
+
+The main purpose of this paper is to improve the estimate for the remainder in the asymptotic formula (4). 646 V. A. Bykovskii and D. A. Frolenkov
+
+Theorem 1. For all x ∈ (0 , 1] and ε > 0,
+
+X
+
+> 16a6b
+> (a,b )=1
+
+sx
+
+ ab
+
+
+
+= 2ϕ(b)
+
+ζ(2)
+
+ log( x + 1) log b + CP (x) + Oε,x (b5/6−1/42+ ε).
+
+For x = 1 we prove a stronger result.
+
+Theorem 2. For each ε > 0
+
+X
+
+> 16a6b
+> (a,b )=1
+
+s
+
+ ab
+
+
+
+= 2ϕ(b)
+
+ζ(2)
+
+ log 2 log b + CP (1)  + Oε(b5/6−7/174+ ε).
+
+The central idea underlying the proofs given by Heilbronn, Porter and Ustinov is a relationship between the average length of continued fractions and the number of positive integer solutions of the system
+
+n1n2 + n3n4 = N, 1 6 n1 6 n3, 1 6 n2 6 n4. (7) Now we describe the main ideas that enable us to improve the estimate for the remainder term in (4). At the first step we make changes of variables which transform (7) into
+
+n1n2 + n3n4 = N, 1 6 n1
+
+n3
+
+6 2.
+
+At the second stage we smooth the characteristic function of the interval [1 , 2] .The sums arising on the smoothing intervals are evaluated as in [28]; to do this we use only the methods from the works by Heilbronn, Porter and Ustinov. The remainder in the resulting asymptotic formulae has a better estimate than Oε(b5/6+ ε) because the smoothing intervals are small — this is the third step in the proof. At the fourth stage we calculate the sum with a smooth characteristic function. To do this we use a method which is fundamentally new in this problem. Expressing the characteristic function in terms of the inverse Mellin transform we reduce the problem to finding an asymptotic formula that holds uniformly in s in the following additive divisor problem: N −1X
+
+> n=1
+
+σs(n)σ−s(N − n), (8) where σs(n) is the sum of the sth powers of the divisors of n. This problem goes back to Ramanujan and was considered in turn by Ingham [6], Estermann [3], Halberstam [4], Kuznetsov [22] and Motohashi [11]. However, all these authors focused on reducing the power of N in the remainder term in an asymptotic formula for the sum (8). Here we obtain an asymptotic formula for (8) that holds uniformly in s for the first time. Thanks to our new method we obtain another expression, distinct from the Heilbronn-Porter-Ustinov formulae, for the leading term in the asymptotic formula for the sum with the smoothed characteristic function. At the fifth stage we prove that the leading terms in these distinct asymptotic formulae are equal, for sums on the smoothing intervals and sums on [1 , 2] alike. Average length of finite continued fractions 647
+
+Acknowledgements. The authors are grateful to the referee, who found some inaccuracies in the first version of this paper.
+
+§ 2. Auxiliary results
+
+If A is a proposition, then [A] is equal to 1 if A is true and to 0 otherwise. For a positive integer q and an integer a set
+
+δq (a) =
+
+(
+
+1 if a ≡ 0 (mod q),
+
+0 if a̸ ≡ 0 (mod q).
+
+In the half-plane Re s > 1 the Riemann zeta function is defined by
+
+ζ(s) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+ns
+
+where the series on the right is absolutely convergent for Re s > 1. This function extends holomorphically to the whole complex s-plane, with the exception of s = 1 .There ζ(s) has a simple pole with residue 1. In what follows we shall require the following bounds for the Riemann zeta function: if |t| > 2 then
+
+|ζ(1 + it )| ≪ log 2/3 |t|, |ζ(it )| ≪ √t log 2/3 |t|, 1
+
+|ζ(1 + it )| ≪ log |t|. (9) The first bound is proved, for instance, in [19], Ch. 4, § 2.3, Theorem 2. The second follows from the first with the help of the functional equation for the Riemann zeta function. The third is proved, for instance, in [15], p. 158. For complex s and positive integer n let
+
+τs(n) = τ−s(n) = X
+
+> n1n2=n
+
+ n1
+
+n2
+
+s
+
+= nsσ−2s(n) = n−sσ2s(n) (10) be a generalized divisor function. Recall Dirichlet’s classical result
+
+X
+
+> 16n6R
+
+τ (n) = R(log R + 2 γ − 1) + O(R1/2) (11) (see [21], Theorem 3) and its consequence
+
+X
+
+> 16n6R
+
+τ (n)
+
+n = 12 log 2 R + 2 γ log R + γ2 − 2γ1 + O
+
+ log RR1/2
+
+
+
+, (12) which can be proved using Abel’s lemma. Let μ( · ) denote the M¨ obius function. Then we have the following asymptotic formulae:
+
+X
+
+> 16n6R
+
+μ(n)
+
+n2 = 1
+
+ζ(2) + O(R−1), (13)
+
+X
+
+> 16n6R
+
+μ(n)
+
+n2 log n = ζ′(2)
+
+ζ2(2) + O
+
+ log RR
+
+
+
+. (14) 648 V. A. Bykovskii and D. A. Frolenkov
+
+Let Li 2(z) denote Euler’s dilogarithm:
+
+Li 2(z) =
+
+> ∞
+
+X
+
+> n=1
+
+zn
+
+n2 = −
+
+Z z
+
+> 0
+
+log(1 − t)
+
+t dt,
+
+Li ′
+
+> 2
+
+(z) = − log(1 − z)
+
+z . (15)
+
+Lemma 1. The following asymptotic formula holds for y > −1 and U > 10 :
+
+X
+
+> n<U
+
+1
+
+n log
+
+
+
+1 + ny U
+
+
+
+= − Li 2(−y) + Oy
+
+ 1
+
+U
+
+
+
+.
+
+Proof . Using the Euler-Maclaurin formula for sums (see [19], Appendix, § 2, Theo-rem 2) we obtain
+
+X
+
+> n<U
+
+1
+
+n log
+
+
+
+1 + ny U
+
+
+
+=
+
+Z U
+
+> 0
+
+log
+
+
+
+1 + zy U
+
+ dz z + Oy
+
+ 1
+
+U
+
+
+
+=
+
+Z y
+
+> 0
+
+log(1 + t) dt t + Oy
+
+ 1
+
+U
+
+
+
+=
+
+Z y
+
+> 0
+> ∞
+
+X
+
+> n=1
+
+(−1) n−1tn
+
+ndt t + Oy
+
+ 1
+
+U
+
+
+
+=
+
+> ∞
+
+X
+
+> n=1
+
+(−1) n−1yn
+
+n2 + Oy
+
+ 1
+
+U
+
+
+
+= − Li 2(−y) + Oy
+
+ 1
+
+U
+
+
+
+.
+
+The proof is complete. For integers m1, m2 and MSq (m1, m 2; M ) =
+
+> q−1
+
+X
+
+> a,b =0
+
+δq (ab − M )e
+
+ m1a + m2bq
+
+
+
+is a generalized Kloosterman sum. We require the bound
+
+|Sq (m1, m 2; M )| 6 q1/2τ 2(q)( m1m2, q )1/2 ≪ε q1/2+ ε(m1m2, q )1/2 (16) (see [27], Lemma 1). Set
+
+k+(s; z) = 12 sin( πs )
+
+ J−2s(z) − J2s(z), k−(s; z) = 2
+
+π cos( πs )K2s(z),
+
+where Js(z) and Ks(z) are the standard and modified Bessel functions. Also set
+
+ϕs(n) = X
+
+> d|n
+
+μ(d)
+
+d1+ s and γ(s; M ; q) = X
+
+> d|(M,q )
+
+d−sϕs
+
+ qd
+
+
+
+.
+
+Then for each positive integer M and an infinitely differentiable function
+
+f : ( −∞ , ∞) → C with compact support separated away from zero we have the Average length of finite continued fractions 649
+
+following generalized Voronoi summation formula (see [1]):
+
+X
+
+> n≡M(mod q)
+
+f (n)τs(n) = ζ(1 + 2 s)
+
+q γ(2 s; M ; q)
+
+Z ∞−∞
+
+f (x)|x|s dx
+
++ ζ(1 − 2s)
+
+q γ(−2s; M ; q)
+
+Z ∞−∞
+
+f (x)|x|−s dx
+
++ 2πq2
+
+> ∞
+
+X
+
+> m,n =1
+
+ mn
+
+s
+
+g+
+
+
+
+16 π2 mn q2
+
+
+
+Sq (m, n ; M )+ g−
+
+
+
+16 π2 mn q2
+
+
+
+Sq (m, n ; −M )
+
+
+
+, (17) where
+
+g±(y) =
+
+Z ∞
+
+> 0
+
+ k±(s; √xy )f (x) + k∓(s; √xy )f (−x) dx.
+
+For (M, N ) = 1 and Re s > max {1, − Re v} the following equality holds:
+
+> ∞
+
+X
+
+> q=1
+
+γ(v; M ; qN )
+
+qs = τ(s+v)/2(M )
+
+M (s+v)/2
+
+ζ(s)
+
+ζ(1 + s + v)
+
+φv (N )
+
+φs+v (N ) (18) (see [18], Lemma 2.1). The function k+(it/ 2; t√z) with z, t > 0 satisfies the following asymptotic for-mula uniformly in t:
+
+k+
+
+ it
+
+2 ; t
+
+√z
+
+
+
+= −
+
+ 2
+
+πt
+
+1/2
+
+(1 + z)−1/4
+
+
+
+sin
+
+
+
+tκ (z) − π
+
+4
+
+ nX
+
+> k=0
+
+(−1) kU2k(p)
+
+t2k
+
+− cos
+
+
+
+tκ (z) − π
+
+4
+
+ n−1X
+
+> k=0
+
+(−1) kU2k+1 (p)
+
+t2k+1 + O
+
+ p2n+1
+
+t2n+1
+
+
+
+(19) (see [2], formulae (3.4b) and (5.16)), where
+
+κ(z) = (1 + z)1/2 + log z1/2
+
+1 + (1 + z)1/2 , p = (1 + z)−1/2, (20) and the functions Uj (p) are defined in [23], p. 363, by
+
+U0(p) = 1 , U1(p) = 3p − 5p3
+
+24 and U2(p) = 81 p2 − 462 p4 + 385 p6
+
+1152 .
+
+It is easy to verify that
+
+κ′(z) =
+
+√1 + z
+
+2z . (21) In estimates for various integrals we will use the following result (see [16], Ch. 4, Lemma 2). 650 V. A. Bykovskii and D. A. Frolenkov
+
+Lemma 2. Let f, g ∈ C1[a, b ], g′(x)̸ = 0 , and assume that f (x)/g ′(x) has a finite number of intervals of monotonicity . Then
+
+Z ba
+
+f (x)eig (x) dx ≪ sup
+
+> x∈[a,b ]
+
+|f (x)||g′(x)| .
+
+The Mellin transform of a function f : [0 , ∞) → C is defined by
+
+bf (s) =
+
+Z ∞
+
+> 0
+
+f (x)xs−1 dx. (22) If, for some small positive ε, f (x) has the properties f (x) = O(x−a−ε) as x → 0+
+
+and f (x) = O(x−b+ε) as x → +∞, where a < b , then the integral in (22) is absolutely convergent and defines an analytic function in the strip a < Re s < b .The inverse Mellin transform is defined by
+
+f (x) = 12πi
+
+Z
+
+> Re s=c
+
+bf (s)x−s ds, where a < c < b (23) (see [13], for instance). Now fix two infinitely differentiable functions
+
+θ : [0 , 1] → [0 , 1] and η : [0 , ∞) → [0 , 1]
+
+such that
+
+θ(x) = 0 for 0 6 x 6 14 , θ(x) = 1 for 34 6 x 6 1, (24)
+
+η(x) = 1 for 0 6 x 6 12 , η(x) = 0 for x > 2, (25)
+
+θ(x) + θ(1 − x) = 1 and η(x) + η
+
+ 1
+
+x
+
+
+
+= 1 . (26) We define a function ω(δ, · ) : ( −∞ , ∞) → [0 , ∞) by
+
+ω(δ, x ) = c−1(δ) exp
+
+ 1
+
+x − δ − 1
+
+x + δ
+
+
+
+for |x| < δ, ω(δ, x ) = 0 for |x| > δ,
+
+where we select the constant c(δ) so that
+
+Z ∞−∞
+
+ω(δ, x ) dx = 1 .
+
+Lemma 3. For each real a such that a > 0 or a2δ < 2,
+
+Z ∞−∞
+
+ω(δ, x )( x + δ)a dx ≪a δa. (27) Average length of finite continued fractions 651
+
+Proof . We prove (27) for δ < 1/10 . First we estimate c(δ):
+
+c(δ) =
+
+Z δ
+
+> −δ
+
+exp
+
+ 1
+
+x − δ − 1
+
+x + δ
+
+
+
+dx = 2 δ
+
+Z 10
+
+exp
+
+ 2
+
+δ(x2 − 1)
+
+
+
+dx
+
+= 2 δ exp
+
+
+
+− 2
+
+δ
+
+ Z 10
+
+exp
+
+
+
+− 2x2
+
+δ(1 − x2)
+
+
+
+dx = 2 δ exp
+
+
+
+− 2
+
+δ
+
+
+
+×
+
+Z d0
+
+> 0
+
+exp
+
+
+
+− 2x2
+
+δ(1 − x2)
+
+
+
+dx + X
+
+> 06i<I
+
+Z di+1
+
+> di
+
+exp
+
+
+
+− 2x2
+
+δ(1 − x2)
+
+
+
+dx
+
+
+
+, (28) where di = d02i for 0 6 i < I and dI = 1 . Taking d0 = δ1/2 we obtain
+
+c(δ) ≪ δ exp
+
+
+
+− 2
+
+δ
+
+
+
+δ1/2 + X
+
+> 06i<I
+
+(di+1 − di) exp
+
+
+
+− 2d2
+
+> i
+
+δ(1 − d2
+
+> i
+
+)
+
+
+
+≪ δ exp
+
+
+
+− 2
+
+δ
+
+
+
+δ1/2 + δ1/2 X
+
+> 06i<I
+
+2i exp( −22i+1 )
+
+
+
+≪ δ3/2 exp
+
+
+
+− 2
+
+δ
+
+
+
+. (29) The proof of (27) for a > 0 is trivial, so let a = −b, b > 0. After the same transformations as in (28) and (29) we obtain
+
+Z δ
+
+> −δ
+
+exp
+
+ 1
+
+x − δ − 1
+
+x + δ
+
+
+
+(x + δ)−b dx ≪ δ−bc(δ) + δ1−b exp
+
+
+
+− 2
+
+δ
+
+
+
+×
+
+Z d0
+
+> 0
+
+exp
+
+
+
+− 2x2
+
+δ(1 − x2)
+
+ dx
+
+(1 − x)b + X
+
+> 06i<I
+
+Z di+1
+
+> di
+
+exp
+
+
+
+− 2x2
+
+δ(1 − x2)
+
+ dx
+
+(1 − x)b
+
+
+
+.
+
+(30) It is easy to show that g(x) = exp  −2δ−1x2/(1 − x2)(1 − x)−b is a decreasing function for x > bδ . Set d0 = ρδ 1/2, where we choose the coefficient ρ so that
+
+dI−1 < 9/10 . As b2δ < 2, it follows that g(x) is decreasing for x > d 0, and therefore
+
+Z δ
+
+> −δ
+
+exp
+
+ 1
+
+x − δ − 1
+
+x + δ
+
+
+
+(x + δ)−b dx ≪ δ−bc(δ) + δ1−b exp
+
+
+
+− 2
+
+δ
+
+
+
+×
+
+
+
+δ1/2 + X
+
+> 06i<I
+
+di+1 exp
+
+
+
+− 2d2
+
+> i
+
+δ(1 − d2
+
+> i
+
+)
+
+
+
+(1 − di)−b
+
+
+
+≪ δ−bc(δ).
+
+The proof is complete. Let χ(a, b ; · ) be the characteristic function of the interval [a, b ]. Then the func-tion
+
+α(a, b, δ ; y) =
+
+Z ∞−∞
+
+χ
+
+
+
+a − δ
+
+2 , b + δ
+
+2 ; z + y
+
+
+
+ω
+
+ δ
+
+2 , z
+
+
+
+dz (31) has the following properties:
+
+α(a, b, δ ; y) = 1 for a 6 y 6 b, α(a, b, δ ; y) = 0 for y 6 a − δ and for y > b + δ. (32) Let bα(s) denote the Mellin transform of α(1 , 1 + x, ∆; · ).652 V. A. Bykovskii and D. A. Frolenkov
+
+Lemma 4. For a > −1, 0 < ∆ < 1/2 and x ∈ (0 , 1]
+
+Z ∞−∞
+
+|bα(it )|ta dt ≪a,x 1 + ∆ −a.
+
+Proof . Using (32) and (22) we obtain
+
+|bα(it )| ≪ x 1. (33) Integrating the integral defining bα(s) by parts n + 1 times, for t > 1 we obtain
+
+|bα(it )| ≪ x
+
+1
+
+tn+1
+
+Z ∞
+
+> 0
+
+|α(n+1) (y)|yn dy ≪x
+
+1
+
+tn+1 ∆n . (34) Using (33) and using estimate (34) twice (for n = 0 and n = 2 + [ a]) we deduce that
+
+Z ∞−∞
+
+|bα(it )|ta dt ≪
+
+Z 10
+
+|bα(it )|ta dt +
+
+Z 1/∆1
+
+|bα(it )|ta dt +
+
+Z ∞
+
+> 1/∆
+
+|bα(it )|ta dt
+
+≪x 1 +
+
+Z 1/∆1
+
+ta−1 dt +
+
+Z ∞
+
+> 1/∆
+
+ta
+
+t3+[ a]∆2+[ a] dt ≪a,x 1 + ∆ −a.
+
+The proof is complete. The next result was proved in [18], Lemma 2.3.
+
+Lemma 5. The Mellin transform bη(s) is a meromorphic function with a single simple pole at s = 0 ; for s̸ = 0
+
+bη(s) + bη(−s) = 0 . (35)
+
+Furthermore , for ε > 0, in the domain min j>0 dist( s, −j) > ε the following estimate holds :
+
+bη(s) = (−1) k
+
+s(s + 1) · · · (s + k − 1)
+
+Z 21/2
+
+η(k)(x)xs+k−1 dx ≪ε
+
+1(1 + |s|)k . (36)
+
+§ 3. The length of a continued fraction and the number of solutions of an equation
+
+The link between the mean values of various characteristics of continued fractions and the number of integer solutions of a certain equation was first discovered by Lochs [10] and then by Heilbronn [5]. We use the generalization of Heilbronn’s result to the case of the Gauss-Kuzmin statistics which is due to Ustinov (see [24], Lemma 3 and [27], formula (32)).
+
+Lemma 6. For b > 2, ϵ > 0 and x ∈ (0 , 1]
+
+X
+
+> 16a6b
+> (a,b )=1
+
+sx
+
+ ab
+
+
+
+= 2 X
+
+> d1d2|b
+
+μ(d1)μ(d2) eTx
+
+ bd1d2
+
+
+
++ ϕ(b)
+
+
+
+x · [x < 1] − xx + 1
+
+
+
++ Oϵ(bϵ), (37) Average length of finite continued fractions 653
+
+where eTx(N ) is the number of solutions of the equation
+
+n1n2 + n3n4 = N (38)
+
+for unknowns satisfying
+
+1 6 n1 6 xn 3 and 1 6 n2 6 n4. (39) Ustinov [27] established the following asymptotic formula for eTx(N ).
+
+Lemma 7. For N > 2, ϵ > 0 and x ∈ (0 , 1]
+
+eTx(N ) = log(1 + x)
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2 + σ1(N )
+
+ζ(2)
+
+ C(x) + h1(x) + h2(x)
+
++ Oϵ(N 5/6 log 7/6+ ϵ N ), (40)
+
+where h1(x) and h2(x) are defined by (5) and (6), respectively , and
+
+C(x) = log(1 + x)
+
+
+
+log x − log( x + 1) 2 + 2 γ − 2 ζ′(2)
+
+ζ(2) − 1
+
+
+
+. (41) To prove Theorem 1 it is sufficient to establish the asymptotic formula (40) with a remainder as in Theorem 1. The first step is to simplify condition (39).
+
+Lemma 8. For N > 2, ϵ > 0 and x ∈ (0 , 1]
+
+eTx(N ) = Tx(N ) +
+
+ xx + 1 − 1
+
+
+
+σ1(N ) + Oϵ(N ϵ), (42)
+
+where Tx(N ) is the number of solutions of equation (38) in unknowns satisfying
+
+n3 6 n1 6 (x + 1) n3, n2, n 3, n 4 > 1. (43)
+
+Proof . In (38) and (39) we make the change of variables
+
+n4 = m4 + n2, n1 = m1 − n3.
+
+Then we see that eTx(N ) is the number of solutions of the system
+
+m1n2 + n3m4 = N, n3 < m 1 6 (1 + x)n3, m4 > 0, n2,3 > 1. (44) It follows from (44) and the definition of Tx(N ) that
+
+eTx(N ) = Tx(N ) + X
+
+> m1n2=N
+
+X
+
+> n3<N/n 26(1+ x)n3
+
+1 − X
+
+> n3(n2+m4)= N
+
+1= Tx(N ) +
+
+ xx + 1 − 1
+
+
+
+σ1(N ) + Oϵ(N ϵ).
+
+The proof is complete. 654 V. A. Bykovskii and D. A. Frolenkov
+
+The rhombus superscript in P means that we sum over the positive integer solutions of (38). Using property (32) of α(1 , 1 + x, ∆; · ) we arrive at the following result.
+
+Lemma 9. The equality
+
+Tx(N ) = S1(x, N ) − S2(x, N ) − S3(x, N )
+
+holds for
+
+S1(x, N ) = X
+
+α
+
+
+
+1, 1 + x, ∆; n1
+
+n3
+
+
+
+,S2(x, N ) = X
+
+> 1−∆<n 1/n 3<1
+
+α
+
+
+
+1, 1 + x, ∆; n1
+
+n3
+
+
+
+,S3(x, N ) = X
+
+> 1+ x<n 1/n 361+ x+∆
+
+α
+
+
+
+1, 1 + x, ∆; n1
+
+n3
+
+
+
+.
+
+(45) Using the definition (31) of α(1 , 1 + x, ∆; · ) we obtain yet another result.
+
+Lemma 10. The following equalities hold :
+
+S2,3(x, N ) =
+
+Z ∞−∞
+
+ω
+
+ ∆2 , z
+
+
+
+S2,3(x, N ; z) dz,
+
+where S2(x, N ; z) and S3(x, N ; z) are the numbers of solutions of (38) that satisfy
+
+1 − ∆2 − z 6 n1
+
+n3
+
+< 1 and 1 + x < n1
+
+n3
+
+6 1 + x + ∆2 − z (46)
+
+respectively .That is, we have again reduced the problem of finding asymptotic formulae for the quantities S2,3(x, N ) to that of finding the number of solutions of (38) that satisfy certain additional conditions. The main advantage of the conditions in (46) over those in (43) is that now the ratio n1/n 3 must lie in a short interval, which yields a better bound for the remainder term in the asymptotic formula for S2,3(x, N ).Recall that bα(s) denotes the Mellin transform of α(1 , 1 + x, ∆; · ). We have the following result.
+
+Lemma 11. The equality
+
+S1(x, N ) = 12πi
+
+Z
+
+> Re s=0
+
+bα(s)V (s; N ) ds (47)
+
+holds for
+
+V (s; N ) =
+
+> N−1
+
+X
+
+> n=1
+
+σs(n)σ−s(N − n) = X
+
+> n1n2+n3n4=N
+
+ n1
+
+n3
+
+s
+
+. (48) Average length of finite continued fractions 655
+
+Proof . Substituting the function α(1 , 1 + x, ∆; · ) expressed in terms of the inverse Mellin transform into the definition of S1(x, N ) in (45) we obtain
+
+S1(x, N ) = 12πi
+
+Z
+
+> Re s=0
+
+bα(s) X n1
+
+n3
+
+−s
+
+ds.
+
+It remains to use definition (10) to complete the proof. We see that the problem of findings an asymptotic formulae for S1(x, N ) reduces to a well-understood additive divisor problem. The main complication here is that we need an asymptotic formula for V (s; N ) which holds uniformly in s.
+
+§ 4. Additive divisor problem
+
+We introduce the following function of the complex arguments s1 and s2:
+
+ρN (z; s1, s 2) = σ1+ s1+s2 (N ) ζ(1 + s1)ζ(1 + s2)
+
+ζ(2 + s1 + s2) zs1 (1 − z)s2
+
++ N s1 σ1−s1+s2 (N ) ζ(1 − s1)ζ(1 + s2)
+
+ζ(2 − s1 + s2) (1 − z)s2
+
++ N s2 σ1+ s1−s2 (N ) ζ(1 + s1)ζ(1 − s2)
+
+ζ(2 + s1 − s2) zs1 + N s1+s2 σ1−s1−s2 (N ) ζ(1 − s1)ζ(1 − s2)
+
+ζ(2 − s1 − s2) .
+
+(49) Note that it is holomorphic in s1 and s2.
+
+Theorem 3. For N > 2, ε > 0, s = it and T = 1 + |t|
+
+V (s; N ) =
+
+Z 10
+
+ρN (z, s, −s) dz + Oε(( N T )3/4+ ε). (50) Formula (50) with its remainder of the form Oε(T N 3/4(N T )ε) can be found in [17] together with a sketch of its proof. Here we present a full proof of (50) which repeats the argument in [17]. Throughout what follows t > 1. Following [17], for Q > 0 we set
+
+ξ1(s; Q; x) = θ(x)η
+
+ Q
+
+1 − x
+
+
+
+xs/ 2, ξ−1(s; Q; x) = θ(x)η
+
+ Q
+
+1 − x
+
+ xs/ 2
+
+(1 − x)s . (51) It follows from the definitions (24) and (25) of θ( · ) and η( · ) that ξ±1(s; Q; x)̸ = 0
+
+only on [1 /4, 1 − Q/ 2] . Hence ξ±1(s; Q; x) = 0 for Q > 3/2. For a certain λ > 1,which we will select in the optimal way, and for j = ±1 we set
+
+Vj (s; N ; λ) = X
+
+> q6
+
+√3N λ j /2
+
+ N 1/2
+
+q
+
+js
+
+eVj (s; N ; λ; q), (52)
+
+eVj (s; N ; λ; q) = X
+
+> n6Nn≡N(mod q)
+
+ξj
+
+
+
+s; q2
+
+N λ j ; nN
+
+
+
+τs/ 2(n). (53) 656 V. A. Bykovskii and D. A. Frolenkov
+
+Lemma 12. For λ > 1
+
+V (s; N ) = V1(s; N ; λ) + V1(−s; N ; λ) + V−1(s; N ; λ) + V−1(−s; N ; λ). (54)
+
+Proof . Using (26) and (48) we obtain
+
+V (s; N ) = X
+
+> n1n2+n3n4=N
+
+ n1
+
+n3
+
+s
+
+θ
+
+ n1n2
+
+N
+
+
+
++ θ
+
+ n3n4
+
+N
+
+
+
+.
+
+Setting n1 = m3, n2 = m4, n3 = m1 and n4 = m2 in the second sum yields
+
+V (s; N ) = V (s; N ; θ) + V (−s; N ; θ), (55)
+
+V (s; N ; θ) = X
+
+> n1n2+n3n4=N
+
+ n1
+
+n3
+
+s
+
+θ
+
+ n1n2
+
+N
+
+
+
+.
+
+Now we look at V (s; N ; θ). Using (26) we obtain
+
+V (s; N ; θ) = X
+
+> n1n2+n3n4=N
+
+ n1
+
+n3
+
+s
+
+θ
+
+ n1n2
+
+N
+
+
+
+η
+
+ n3
+
+λn 4
+
+
+
++ η
+
+ λn 4
+
+n3
+
+
+
+. (56) We can transform the first sum in (56). It follows from (25) that terms of the first sum are distinct from zero only if n4 > n3/(2 λ). Since n3n4 < N , it follows that n3 < (2 N λ )1/2. Fixing n3 = q and setting n4 = ( N − n1n2)/q we obtain
+
+X
+
+> n1n2+n3n4=N
+
+ n1
+
+n3
+
+s
+
+θ
+
+ n1n2
+
+N
+
+
+
+η
+
+ n3
+
+λn 4
+
+
+
+= X
+
+> q< √2N λ
+
+X
+
+> n1n2≡N(mod q)
+> n1n2<N
+
+ n1
+
+q
+
+s
+
+θ
+
+ n1n2
+
+N
+
+
+
+η
+
+ q2
+
+λ(N − n1n2)
+
+
+
+= X
+
+> q< √2N λ
+
+q−s X
+
+> n≡N(mod q)
+> n<N
+
+τs/ 2(n)ns/ 2θ
+
+ nN
+
+
+
+η
+
+ q2
+
+λ(N − n)
+
+
+
+.
+
+Using (51) and (52) we find that
+
+X
+
+> n1n2+n3n4=N
+
+ n1
+
+n3
+
+s
+
+θ
+
+ n1n2
+
+N
+
+
+
+η
+
+ n3
+
+λn 4
+
+
+
+= V1(s; N ; λ).
+
+The second sum in (56) can be transformed in a similar way. Note that terms of the second sum are distinct from zero only if n4 < (2 N/λ )1/2. Accordingly, we fix
+
+n4 = q, so that n3 = ( N − n1n2)/q . Thus,
+
+V (s; N ; θ) = V1(s; N ; λ) + V−1(s; N ; λ). (57) Substituting (57) into (55) yields (54) and completes the proof. For j = ±1 set
+
+G±
+
+> j
+
+(s; Q; y) =
+
+Z ∞
+
+> 0
+
+ξj (s; Q; x)k±
+
+ s
+
+2 ; √xy
+
+
+
+dx. (58) Average length of finite continued fractions 657
+
+Lemma 13. For N > 2, ε > 0, s = it and T = 1 + |t|
+
+V (s; N ) =
+
+Z 10
+
+ρN (z, s, −s) dz + Oϵ
+
+ (N T λ )1/2+ ϵ + X
+
+> k,m =±1
+
+R±
+
+> k
+
+(ms ; N ),
+
+where for j = ±1
+
+R±
+
+> j
+
+(s; N ) = X
+
+> q6
+
+√3N λ j /2
+
+2Nq2
+
+> ∞
+
+X
+
+> m,n =1
+
+ mn
+
+s/ 2
+
+Sq (m, n ; N )G±
+
+> j
+
+
+
+s; q2
+
+N λ j ; 16 π2
+
+q2 N mn
+
+
+
+.
+
+(59)
+
+Proof . Assume that Re s > 0. Applying Voronoi’s formula (17) to (53) we obtain
+
+Vj (s; N ; λ) = X
+
+> q6
+
+√3N λ j /2
+
+ √Nq
+
+js  ζ(1 + s)
+
+q γ(s; N ; q)
+
+Z ∞
+
+> 0
+
+ξj
+
+
+
+s; q2
+
+N λ j ; xN
+
+
+
+xs/ 2 dx
+
++ ζ(1 − s)
+
+q γ(−s; N ; q)
+
+Z ∞
+
+> 0
+
+ξj
+
+
+
+s; q2
+
+N λ j ; xN
+
+
+
+x−s/ 2 dx
+
+
+
++ R+
+
+> j
+
+(s; N ) + R−
+
+> j
+
+(s; N ).
+
+Consider the case j = 1 . Set x = N y in the integrals. Since ξj (s; q2/(N λ ); x/N ) = 0
+
+for q > p3N λ/ 2, we can take the sum over q from 1 to infinity. Interchanging summation and integration yields
+
+V1(s; N ; λ) =
+
+Z ∞
+
+> 0
+
+
+
+N 1+ sζ(1 + s)
+
+> ∞
+
+X
+
+> q=1
+
+γ(s; N ; q)
+
+q1+ s ξ1
+
+
+
+s; q2
+
+N λ ; y
+
+
+
+ys/ 2
+
++ N ζ (1 − s)
+
+> ∞
+
+X
+
+> q=1
+
+γ(−s; N ; q)
+
+q1+ s ξ1
+
+
+
+s; q2
+
+N λ ; y
+
+
+
+y−s/ 2
+
+
+
+dy + R+1 (s; N ) + R−
+
+> 1
+
+(s; N )=
+
+Z ∞
+
+> 0
+
+θ(y)
+
+
+
+N 1+ sζ(1 + s)ys
+
+> ∞
+
+X
+
+> q=1
+
+γ(s; N ; q)
+
+q1+ s η
+
+ q2
+
+N λ (1 − y)
+
+
+
++ N ζ (1 − s)
+
+> ∞
+
+X
+
+> q=1
+
+γ(−s; N ; q)
+
+q1+ s η
+
+ q2
+
+N λ (1 − y)
+
+
+
+dy + R+1 (s; N ) + R−
+
+> 1
+
+(s; N ).
+
+(60) We can calculate the sums over q. Applying the inverse Mellin transform (23) to η( · ) we obtain
+
+> ∞
+
+X
+
+> q=1
+
+γ(s; N ; q)
+
+q1+ s η
+
+ q2
+
+N λ (1 − y)
+
+
+
+= 12πi
+
+> ∞
+
+X
+
+> q=1
+
+γ(s; N ; q)
+
+q1+ s
+
+Z
+
+> Re z=c
+
+bη(z)
+
+ q2
+
+N λ (1 − y)
+
+−z
+
+dz,
+
+where c > 0. Since Re s > 0 and c > 0, the sum with respect to q and the integral with respect to z converge absolutely and we can interchange integration and summation:
+
+> ∞
+
+X
+
+> q=1
+
+γ(s; N ; q)
+
+q1+ s η
+
+ q2
+
+N λ (1 − y)
+
+
+
+= 12πi
+
+Z
+
+> Re z=c
+
+bη(z)( N λ (1 − y)) z
+
+> ∞
+
+X
+
+> q=1
+
+γ(s; N ; q)
+
+q1+ s+2 z dz. 658 V. A. Bykovskii and D. A. Frolenkov
+
+Using (18) we obtain
+
+> ∞
+
+X
+
+> q=1
+
+γ(s; N ; q)
+
+q1+ s η
+
+ q2
+
+N λ (1 − y)
+
+
+
+= 12πi
+
+Z
+
+> Re z=c
+
+bη(z)( N λ (1 − y)) z τ1/2+ s+z (N )
+
+N 1/2+ s+z
+
+ζ(1 + s + 2 z)
+
+ζ(2 + 2 s + 2 z) dz. (61) In a similar way
+
+> ∞
+
+X
+
+> q=1
+
+γ(−s; N ; q)
+
+q1+ s η
+
+ q2
+
+N λ (1 − y)
+
+
+
+= 12πi
+
+Z
+
+> Re z=c
+
+bη(z)( N λ (1 − y)) z τ1/2+ z (N )
+
+N 1/2+ z
+
+ζ(1 + s + 2 z)
+
+ζ(2 + 2 z) dz. (62) Substituting (61) and (62) into (60) yields
+
+V1(s; N ; λ) = N 1/2
+
+Z ∞
+
+> 0
+
+θ(y) 12πi
+
+Z
+
+> Re z=c
+
+bη(z)
+
+×
+
+
+
+ys(λ(1 − y)) z τ1/2+ s+z (N ) ζ(1 + s)ζ(1 + s + 2 z)
+
+ζ(2 + 2 s + 2 z)+ ((1 − y)) z τ1/2+ z (N ) ζ(1 − s)ζ(1 + s + 2 z)
+
+ζ(2 + 2 z)
+
+
+
+dz dy + R+1 (s; N ) + R−
+
+> 1
+
+(s; N ).
+
+A formula for V−1(s; N ; λ) can be deduced similarly. Thus,
+
+V1(s; N ; λ) + V−1(s; N ; λ) = N 1/2
+
+Z ∞
+
+> 0
+
+θ(y) 12πi
+
+Z
+
+> Re z=c
+
+bη(z)
+
+×
+
+
+
+ys(λ(1 − y)) z τ1/2+ s+z (N ) ζ(1 + s)ζ(1 + s + 2 z)
+
+ζ(2 + 2 s + 2 z)+ ( λ(1 − y)) z τ1/2+ z (N ) ζ(1 − s)ζ(1 + s + 2 z)
+
+ζ(2 + 2 z)+ ys
+
+(1 − y)s
+
+ 1 − yλ
+
+z
+
+τ1/2+ z (N ) ζ(1 + s)ζ(1 − s + 2 z)
+
+ζ(2 + 2 z)+ 1(1 − y)s
+
+ 1 − yλ
+
+z
+
+τ1/2−s+z (N ) ζ(1 − s)ζ(1 − s + 2 z)
+
+ζ(2 − 2s + 2 z)
+
+
+
+dz dy
+
++ R+1 (s; N ) + R−
+
+> 1
+
+(s; N ) + R+
+
+> −1
+
+(s; N ) + R−−1(s; N ). (63) The principle of analytic continuation shows that (63) also holds for Re s = 0 .The integrand has poles at z = 0 and z = ±s/ 2. Deforming the contour of integra-tion into the line Re z = −1/2 and using Cauchy’s theorem we obtain
+
+V1(s; N ; λ) + V−1(s; N ; λ) = N 1/2
+
+Z ∞
+
+> 0
+
+θ(y)
+
+
+
+ysτ1/2+ s(N ) ζ(1 + s)ζ(1 + s)
+
+ζ(2 + 2 s)+ τ1/2(N ) ζ(1 − s)ζ(1 + s)
+
+ζ(2) + ys
+
+(1 − y)s τ1/2(N ) ζ(1 + s)ζ(1 − s)
+
+ζ(2) Average length of finite continued fractions 659
+
++ 1(1 − y)s τ1/2−s(N ) ζ(1 − s)ζ(1 − s)
+
+ζ(2 − 2s)
+
+
+
+dy
+
++ N 1/2
+
+2λs/ 2
+
+Z ∞
+
+> 0
+
+θ(y)
+
+
+
+ys bη(−s/ 2) + bη(s/ 2) (1 − y)s/ 2 τ1/2+ s/ 2(N ) ζ(1 + s)
+
+ζ(2 + s)+ bη(−s/ 2) + bη(s/ 2) (1 − y)s/ 2 τ1/2−s/ 2(N ) ζ(1 − s)
+
+ζ(2 − s)
+
+
+
+dy
+
++ N 1/2
+
+Z ∞
+
+> 0
+
+θ(y) 12πi
+
+Z
+
+> Re z=−1/2
+
+bη(z)( . . . ) dz dy + X
+
+> k=±1
+
+R±
+
+> k
+
+(s; N ),
+
+where the integral with respect to z contains the same expression as the integral with respect to z in (63). Using (35) and also the estimates (9) and (36) we obtain
+
+V1(s; N ; λ) + V−1(s; N ; λ) = N 1/2
+
+Z 10
+
+θ(y)
+
+
+
+ysτ1/2+ s(N ) ζ(1 + s)ζ(1 + s)
+
+ζ(2 + 2 s)+ τ1/2(N ) ζ(1 − s)ζ(1 + s)
+
+ζ(2) + ys
+
+(1 − y)s τ1/2(N ) ζ(1 + s)ζ(1 − s)
+
+ζ(2) + τ1/2−s(N )(1 − y)s
+
+ζ(1 − s)ζ(1 − s)
+
+ζ(2 − 2s)
+
+
+
+dy
+
++ Oϵ
+
+ (N T λ )1/2+ ϵ + R+1 (s; N ) + R−
+
+> 1
+
+(s; N ) + R+
+
+> −1
+
+(s; N ) + R−−1(s; N ).
+
+From the relations
+
+Z 10
+
+ θ(y) + θ(y) dy = 1 ,
+
+Z 10
+
+ θ(y)ys + θ(y)(1 − y)s dy =
+
+Z 10
+
+ys dy
+
+and
+
+Z 10
+
+
+
+θ(y) ys
+
+(1 − y)s + θ(y) y−s
+
+(1 − y)−s
+
+
+
+dy =
+
+Z 10
+
+ys
+
+(1 − y)s dy
+
+and (54) we find that
+
+V (s; N ) = V1(s; N ; λ) + V−1(s; N ; λ) + V1(−s; N ; λ) + V−1(−s; N ; λ)= N 1/2
+
+Z 10
+
+
+
+ysτ1/2+ s(N ) ζ(1 + s)ζ(1 + s)
+
+ζ(2 + 2 s) + τ1/2(N ) ζ(1 − s)ζ(1 + s)
+
+ζ(2) + ys
+
+(1 − y)s τ1/2(N ) ζ(1 + s)ζ(1 − s)
+
+ζ(2) + τ1/2−s(N )(1 − y)s
+
+ζ(1 − s)ζ(1 − s)
+
+ζ(2 − 2s)
+
+
+
+dy
+
++ Oϵ
+
+ (N T λ )1/2+ ϵ + R+1 (±s; N ) + R−
+
+> 1
+
+(±s; N ) + R+
+
+> −1
+
+(±s; N ) + R−−1(±s; N ).
+
+Using (10) we note that the integrand is equal to the function ρN (y, s, −s) defined by (49). The proof of Lemma 13 is complete. Thus, Theorem 3 is a consequence of Lemma 3 and bounds for Rj (s; N ). To obtain the latter we must estimate the functions G±
+
+> j
+
+(s; Q; y) in (58). We obtain the necessary relations by integrating (58) by parts using differential equations. 660 V. A. Bykovskii and D. A. Frolenkov
+
+Lemma 14. The functions
+
+u1(x) = xs/ 2k+
+
+ s
+
+2 ; √xy
+
+
+
+, u−1(x) = (1 − x)−sxs/ 2k+
+
+ s
+
+2 ; √xy
+
+
+
+,v1(x) = xs/ 2k−
+
+ s
+
+2 ; √xy
+
+
+
+and v−1(x) = (1 − x)−sxs/ 2k−
+
+ s
+
+2 ; √xy
+
+ (64)
+
+satisfy the following differential equations :
+
+4xy u′′
+
+> 1
+
+(x) + 4(1 − s)
+
+y u′
+
+> 1
+
+(x) + u1(x) = 0 ,a(x)
+
+c(x) u′′ −1(x) − b(x)
+
+c(x) u′−1(x) + u−1(x) = 0 ,
+
+4xy v′′
+
+> 1
+
+(x) + 4(1 − s)
+
+y v′
+
+> 1
+
+(x) − v1(x) = 0 ,a(x)
+
+d(x) v′′ −1(x) − b(x)
+
+d(x) v′−1(x) + v−1(x) = 0 ,
+
+(65)
+
+where
+
+a(x) = 4 x(1 − x)2, b(x) = 4(1 − x) s(1 + x) − (1 − x), (66)
+
+c(x) = y(1 − x)2 + 4( s2 − s), d(x) = −y(1 − x)2 + 4( s2 − s). (67) The differential equation for u1(x) is a particular case of formula 8491.3 in [20]. The equation for v1(x) can be verified directly using formulae 8486.10 and 8486.12 in [20]. The differential equations for u−1(x) and v−1(x) are consequences of the ones for u1(x) and v1(x).It what follows we shall require lower bounds for c(x). Recall that s = it
+
+and t > 1.
+
+Lemma 15. For 1/4 6 x 6 1 − Q/ 2
+
+|c(x)| ≫
+
+
+
+t2 if y 6
+
+ 7t
+
+3
+
+2
+
+,yQ 2 if y >
+
+ 5tQ
+
+2
+
+.
+
+Proof . It follows from (67) that
+
+|c(x)| = p(y(1 − x)2 − 4t2)2 + (4 t)2 ≫ | y(1 − x)2 − 4t2| + 4 t. (68) Assume that y 6 (7 t/ 3) 2. Taking the inequality 1/4 6 x 6 1 − Q/ 2 into account we obtain y(1 − x)2 6 (7 t/ 4) 2. Substituting this into (68) yields |c(x)| ≫ t2. Suppose
+
+y > (5 t/Q )2. As 1/4 6 x 6 1 − Q/ 2, we have y(1 − x)2 > (5 t/ 2) 2. Substituting this into (68) yields |c(x)| ≫ y(1 − x)2. The proof is complete. Average length of finite continued fractions 661
+
+Lemma 16. For 0 < Q 6 3/2 and y > 0
+
+G+
+
+> −1
+
+(s; Q; y) ≪
+
+
+
+1 + yyt 5/2 for y 6
+
+ 7t
+
+3
+
+2
+
+,y−3/4√t for
+
+ 7t
+
+3
+
+2
+
+< y 6
+
+ 5tQ
+
+2
+
+,y−7/4Q−2t for y >
+
+ 5tQ
+
+2
+
+.
+
+(69)
+
+Proof . Set M = y/t 2.1. Assume that (7 /3) 2 < M 6 (5 /Q )2 and make the substitution x = z/M
+
+in (58). This yields
+
+G+
+
+> −1
+
+(s; Q; y) ≪ 1
+
+M
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+
+
+k+
+
+ s
+
+2 ; t√z
+
+ zs/ 2 dz
+
+(M − z)s . (70) Now we substitute the asymptotic formula (19) with n = 1 into (70). Note that all the terms in (19), apart from the remainder, can be estimated similarly. So
+
+G+
+
+> −1
+
+(s; Q; y) ≪ t3/2
+
+y
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ eith ±(z)
+
+(1 + z)1/4 dz
+
++ t3/2
+
+y
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ dz t3(1 + z)7/4 , (71) where h±(z) = log( √z/ (M − z)) ± κ(z). We look at the integral containing h+(z).Taking (21) into account we obtain
+
+h′
+
+> +
+
+(z) = 12z
+
+ M + zM − z + √1 + z
+
+
+
+. (72) Using Lemma 2 yields
+
+t3/2
+
+y
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ eith +(z)
+
+(1 + z)1/4 dz ≪ t1/2M 1/4
+
+y . (73) Now we look at the integral containing h−(z). Taking (20) and (21) into account we obtain
+
+h′−(z) = 1
+
+M − z − 12( √1 + z + 1) = 12z
+
+ M + zM − z − √1 + z
+
+
+
+, (74)
+
+h′′ −(z) = 1(M − z)2 + (√1 + z − 1) 2
+
+4z2√1 + z . (75) The equation h′−(z) = 0 has the unique solution z0 = M − 2√M ; in addition,
+
+h′′ −(z0) = 14√M (√M − 1) ≍ 1
+
+M .662 V. A. Bykovskii and D. A. Frolenkov
+
+We set Z = ( M/t )1/2 and split the integral with respect to z into the integrals over
+
+|z − z0| 6 Z and |z − z0| > Z . We estimate the modulus of the first integral and use Lemma 2 to estimate the second. Then
+
+t3/2
+
+y
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ eith −(z)
+
+(1 + z)1/4 dz
+
+≪ t3/2
+
+y
+
+ Z
+
+(1 + M )1/4 + sup
+
+> |z−z0|>Z
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ (th ′−(z)) −1
+
+(1 + z)1/4
+
+
+
+. (76) Since h′′ −(z) > 0, it remains to find a lower bound for |h′−(z0 ± Z)|. We have
+
+h′−(z0 + Z) − h′−(z0) = Z
+
+(M − z0)( M − z0 − Z)+ Z
+
+2( √1 + z0 + 1)( √1 + z0 + Z + 1)( √1 + z0 + √1 + z0 + Z) ,
+
+and therefore |h′−(z0 ± Z)| ≫ Z/M . Substituting this into (76) yields
+
+t3/2
+
+y
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ eith −(z)
+
+(1 + z)1/4 dz
+
+≪ t3/2
+
+y
+
+ Z
+
+(1 + M )1/4 + MZt (1 + M )1/4
+
+
+
+≪ tM 1/4
+
+y . (77) Substituting (73) and (77) into (71) we obtain
+
+G+
+
+> −1
+
+(s; Q; y) ≪ tM 1/4
+
+y + t1/2M 1/4
+
+y + 1
+
+t3/2yM 3/4 ≪ tM 1/4
+
+y = t1/2
+
+y3/4 .
+
+2. Assume that M 6 (7 /3) 2. Then it follows from (58), (51) and (64) that
+
+G+
+
+> −1
+
+(s; Q; y) =
+
+Z ∞
+
+> 0
+
+θ(x)η
+
+ Q
+
+1 − x
+
+
+
+u−1(x) dx.
+
+Expressing u−1(x) using equation (65) and integration by parts we obtain
+
+G+
+
+> −1
+
+(s; Q; y) = −
+
+Z ∞
+
+> 0
+
+
+
+θ(x)η
+
+ Q
+
+1 − x
+
+ a(x)
+
+c(x)
+
+′′
+
++
+
+
+
+θ(x)η
+
+ Q
+
+1 − x
+
+ b(x)
+
+c(x)
+
+′
+
+u−1(x) dx.
+
+Differentiating and comparing the terms multiplying like powers of c(x) we find that
+
+G+
+
+> −1
+
+(s; Q; y) ≪
+
+Z ∞
+
+> 0
+
+θ(x)η
+
+ Q
+
+1 − x
+
+ b′(x)
+
+c(x) + b(x)c′(x)
+
+c2(x) + a(x)( c′(x)) 2
+
+c3(x)
+
+
+
+u−1(x) dx.
+
+Set Y = y(1 − x)2. Since M 6 (7 /3) 2 and 1/4 6 x 6 1 − Q/ 2, we have Y 6 (7 t/ 4) 2.Using (68), (66) and (67) we obtain
+
+b(x)c′(x)
+
+c(x) ≪ Y t
+
+|Y − 4t2| + 4 t ≪ Yt ≪ t ≪ b′(x),a(x)( c′(x)) 2
+
+c2(x) ≪ Y 2
+
+(Y − 4t2)2 + 16 t2 ≪ Y 2
+
+t4 ≪ 1 ≪ b′(x).Average length of finite continued fractions 663
+
+Hence
+
+G+
+
+> −1
+
+(s; Q; y) ≪
+
+Z ∞
+
+> 0
+
+θ(x)η
+
+ Q
+
+1 − x
+
+ b′(x)
+
+c(x) u−1(x) dx. (78) Now we set x = z/M and use the asymptotic formula (19) with n = 1 . Note that all the terms in (19), apart from the remainder, have similar estimates. Therefore,
+
+G+
+
+> −1
+
+(s; Q; y) ≪ t3/2
+
+y
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ b′(z/M )
+
+c(z/M )
+
+eith ±(z)
+
+(1 + z)1/4 dz
+
++ t3/2
+
+y
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ b′(z/M )
+
+c(z/M )
+
+dz t3(1 + z)7/4 . (79) Consider the integral containing h−(z). Since h′′ −(z) > 0 (see (75)), we have
+
+|h′−(z)| > h′−
+
+ M
+
+4
+
+
+
+≫ M −1
+
+(see (74)). It follows from (68) that |b′(z/M )| | c(z/M )|−1 ≪ t−1. Using Lemma 2 yields
+
+t3/2
+
+y
+
+Z ∞
+
+> 0
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ b′(z/M )
+
+c(z/M )
+
+eith −(z)
+
+(1 + z)1/4 dz
+
+≪ t1/2
+
+y sup
+
+> z∈[0 ,∞]
+
+θ
+
+ zM
+
+
+
+η
+
+ Q
+
+1 − z/M
+
+ |b′(z/M )||c(z/M )| | h′−(z)| ≪ Myt 1/2 . (80) Consider the integral containing h+(z). Proceeding in a similar way and bearing in mind that, in view of (72),
+
+h′
+
+> +
+
+(z) > M + z
+
+2z(M − z) ≫ M −1
+
+for M/ 4 < z < M (1 − Q/ 2) , we arrive at (80). We estimate the second integral in (79) using the inequality |b′(z/M )|| c(z/M )|−1 ≪ t−1 and obtain
+
+G+
+
+> −1
+
+(s; Q; y) ≪ M + t−2
+
+yt 1/2 .
+
+3. Assume that M > (5 /Q )2. Similarly to the above and bearing in mind that we now have Y > (5 t/ 2) 2 we arrive first at (78) and then at (79). Using the estimates
+
+b′
+
+ zM
+
+
+
+c
+
+ zM
+
+ −1
+
+≪ tyQ 2 ,
+
+|h′−(z)| > h′−
+
+
+
+M
+
+
+
+1 − Q
+
+2
+
+
+
+≫ M −1/2 and |h′
+
+> +
+
+(z)| ≫ M −1/2,
+
+similarly to the previous part of the proof we obtain
+
+G+
+
+> −1
+
+(s; Q; y) ≪ t3/2M 1/4
+
+(yQ )2 .
+
+The proof of Lemma 16 is complete. 664 V. A. Bykovskii and D. A. Frolenkov
+
+The following bounds were established in [17].
+
+Lemma 17. For 0 < Q 6 3/2 and y > 0
+
+G±
+
+> 1
+
+(s; Q; y), G −−1(s; Q; y) ≪ 1
+
+y
+
+ t1/2
+
+Q1/2 + 1
+
+Qt 1/3
+
+
+
+min
+
+
+
+1, t1/2
+
+y1/4
+
+
+
+. (81)
+
+Corollary. For s = it , |t| > 1,
+
+R+
+
+> −1
+
+(s; N ) ≪ N 3/4+ ϵ tλ3/4 , (82)
+
+R±
+
+> 1
+
+(s; N ), R −−1(s; N ) ≪ N 3/4+ ϵ(t1/2λ3/4 + t1/6λ). (83) Substituting (69) and (81) into (59), estimating the moduli of the Kloosterman sums with the help of (16) and taking the equality |(m/n )it/ 2| = 1 into account we obtain (82) and (83), respectively. Taking λ = t1/3 yields
+
+X
+
+> k=−1,1
+
+ R+
+
+> k
+
+(s; N ) + R−
+
+> k
+
+(s; N ) ≪ N 3/4+ ϵt3/4. (84) Substituting (84) into (13) we arrive at (50).
+
+§ 5. An asymptotic formula for S1(x, N )
+
+To simplify the notation we set α(z) = α(1 , 1 + x, ∆; z). Our main aim in this section is the following auxiliary result.
+
+Proposition. For N > 2, ϵ > 0 and x ∈ (0 , 1]
+
+S1(x, N ) = X
+
+> d|N
+
+d
+
+> ∞
+
+X
+
+> n=1
+> ∞
+
+X
+
+> k=1
+
+τ (n)μ(k)
+
+nk 2
+
+Z 10
+
+
+
+α
+
+ Mz
+
+
+
++ α
+
+ zM
+
+
+
+dz
+
++ σ1(N )
+
+ζ(2)
+
+
+
+log N − 2
+
+σ1(N )
+
+X
+
+> d|N
+
+d log d − 2γ + 2 ζ′(2)
+
+ζ(2) + 1
+
+ Z ∞
+
+> 0
+
+α(y)
+
+y dy
+
+− σ1(N )
+
+ζ(2)
+
+Z ∞
+
+> 0
+
+α(y)
+
+y log y dy + σ1(N )
+
+ζ(2)
+
+ H1(α) + H2(α) + Oε
+
+ N
+
+∆
+
+3/4+ ε
+
+, (85)
+
+where M = N d −2nk 2 ,
+
+H1(α) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ ∞X
+
+> m=1
+
+α(m/n )
+
+m −
+
+Z ∞
+
+> 0
+
+α(y)
+
+y dy
+
+
+
+and
+
+H2(α) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ ∞X
+
+> m=1
+
+1
+
+m
+
+Z 10
+
+α
+
+ m(1 − z)
+
+nz
+
+
+
+dz −
+
+Z ∞
+
+> 0
+
+dy y
+
+Z 10
+
+α
+
+ y(1 − z)
+
+z
+
+
+
+dz
+
+
+
+.
+
+Proof . To deduce (85) we must substitute (50) into (47). The contribution of the remainder in (50) can be estimated using Lemma 4. Hence it remains to evaluate
+
+Z 10
+
+I(z) dz, where I(z) = 12πi
+
+Z
+
+> Re s=0
+
+bα(s)ρN (z; s, −s) ds. (86) Average length of finite continued fractions 665
+
+Substituting ρN (z; s, −s) from (49) into (86) we express all the Riemann zeta func-tions which occur as series. Interchanging the order of summation and integration we arrive at integrals of the form
+
+12πi
+
+Z
+
+> Re s=0
+
+bα(s)a−s ds = α(a).
+
+However, the expression for ρN (z; s, −s) contains the term ζ(1 − s)ζ(1 + s) and therefore we cannot find a line of integration Re s = c such that all the series representing Riemann zeta functions are absolutely convergent on it. Thus, we cannot interchange summation and integration. This problem can be overcome as follows. Since bα(s) and ρN (z; s, −s) are holomorphic, we can transform the contour of integration without changing the value of I(z). Set Γ0 = γ1 ∪ γ2 ∪ γ3, where
+
+γ1 is the straight line connecting −i∞ with −i/ 4, γ2 = {| z| = 1 /4, Re z > 0}
+
+and γ3 is the straight line connecting i/ 4 with i∞. Then
+
+I(z) = 12πi
+
+Z
+
+> Γ0
+
+bα(s)ρN (z; s, −s) ds.
+
+For an arbitrary δ, 0 < δ < 1/16 , set
+
+ρN (z; s, −s; δ) = σ1(N ) ζ(1 − s + δ)ζ(1 + s + δ)
+
+ζ(2) zs(1 − z)−s
+
++ N sσ1−2s(N ) ζ2(1 − s + δ)
+
+ζ(2 − 2s) (1 − z)−s
+
++ N −sσ1+2 s(N ) ζ2(1 + s + δ)
+
+ζ(2 + 2 s) zs + σ1(N ) ζ(1 − s + δ)ζ(1 + s + δ)
+
+ζ(2) , (87)
+
+I(z; δ) = 12πi
+
+Z
+
+> Γ0
+
+bα(s)ρN (z; s, −s; δ) ds. (88) Then
+
+I(z) = lim
+
+> δ→0
+
+I(z; δ). (89) In (88) we transform the contour into Re s = 0 ; in doing so we go over the pole at s = δ. By Cauchy’s integral theorem
+
+I(z; δ) = 12πi
+
+Z
+
+> Re s=0
+
+bα(s)ρN (z; s, −s; δ) ds − bα(δ)σ1(N ) ζ(1 + 2 δ)
+
+ζ(2) zδ (1 − z)−δ
+
++ bα(δ)N δ σ1−2δ (N ) (1 − z)−δ
+
+ζ(2 − 2δ)
+
+
+
+log N − log(1 − z) − 2γ
+
++ bα′(δ)
+
+bα(δ) + 2 ζ′(2 − 2δ)
+
+ζ(2 − 2δ) − 2 σ′
+
+> 1−2δ
+
+(N )
+
+σ1−2δ (N )
+
+
+
+− bα(δ)σ1(N ) ζ(1 + 2 δ)
+
+ζ(2) . (90) 666 V. A. Bykovskii and D. A. Frolenkov
+
+We substitute (87) into (90) (we are going to look at the first term in (87): the other three are dealt with in a similar way):
+
+12πi
+
+Z
+
+> Re s=0
+
+bα(s)σ1(N ) ζ(1 − s + δ)ζ(1 + s + δ)
+
+ζ(2) zs(1 − z)−s ds
+
+= σ1(N )
+
+ζ(2)
+
+> ∞
+
+X
+
+> m,n =1
+
+1(mn )1+ δ
+
+12πi
+
+Z
+
+> Re s=0
+
+bα(s)
+
+ mz n(1 − z)
+
+s
+
+ds
+
+= σ1(N )
+
+ζ(2)
+
+> ∞
+
+X
+
+> m,n =1
+
+1(mn )1+ δ α
+
+ n(1 − z)
+
+mz
+
+
+
+= σ1(N )
+
+ζ(2)
+
+> ∞
+
+X
+
+> m=1
+
+1
+
+m1+ δ
+
+ ∞X
+
+> n=1
+
+1
+
+n1+ δ α
+
+ n(1 − z)
+
+mz
+
+
+
+− 1
+
+mδ
+
+Z ∞
+
+> 0
+
+α
+
+ y(1 − z)
+
+z
+
+ dy y1+ δ
+
+
+
++ σ1(N )
+
+ζ(2) ζ(1 + 2 δ)
+
+Z ∞
+
+> 0
+
+α
+
+ y(1 − z)
+
+z
+
+ dy y1+ δ .
+
+Setting M = N d −2nk 2 we obtain
+
+I(z; δ) = X
+
+> d|N
+
+d
+
+> ∞
+
+X
+
+> n=1
+> ∞
+
+X
+
+> k=1
+
+τ (n)μ(k)
+
+n1+ δ k2
+
+
+
+α
+
+ Mz
+
+
+
++ α
+
+ 1 − zM
+
+
+
++ σ1(N )
+
+ζ(2)
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n1+ δ
+
+ ∞X
+
+> m=1
+
+α(m/n )
+
+m1+ δ − 1
+
+nδ
+
+Z ∞
+
+> 0
+
+α(y)
+
+y1+ δ dy
+
+
+
++ σ1(N )
+
+ζ(2)
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n1+ δ
+
+ ∞X
+
+> m=1
+
+1
+
+m1+ δ α
+
+ m(1 − z)
+
+nz
+
+
+
+− 1
+
+nδ
+
+Z ∞
+
+> 0
+
+α
+
+ y(1 − z)
+
+z
+
+ dy y1+ δ
+
+
+
++ σ1(N )
+
+ζ(2) ζ(1 + 2 δ)
+
+Z ∞
+
+> 0
+
+α
+
+ y(1 − z)
+
+z
+
+ dy y1+ δ +
+
+Z ∞
+
+> 0
+
+α(y) dy y1+ δ
+
+− bα(δ) − bα(δ) zδ
+
+(1 − z)δ
+
+
+
++ bα(δ)N δ σ1−2δ (N ) (1 − z)−δ
+
+ζ(2 − 2δ)
+
+×
+
+
+
+log N − log(1 − z) − 2γ + bα′(δ)
+
+bα(δ) + 2 ζ′(2 − 2δ)
+
+ζ(2 − 2δ) − 2 σ′
+
+> 1−2δ
+
+(N )
+
+σ1−2δ (N )
+
+
+
+. (91) To take the limit as δ → 0 note that
+
+Z ∞
+
+> 0
+
+α
+
+ y(1 − z)
+
+z
+
+ dy y1+ δ +
+
+Z ∞
+
+> 0
+
+α
+
+
+
+y
+
+ dy y1+ δ − bα(δ) − bα(δ) zδ
+
+(1 − z)δ = a(δ) − a(−δ),
+
+where
+
+a(δ) =
+
+
+
+1 + (1 − z)δ
+
+zδ
+
+bα(−δ).
+
+Hence we have
+
+lim
+
+> δ→0
+
+ζ(1 + 2 δ) a(δ) − a(−δ) = −2
+
+Z ∞
+
+> 0
+
+α(y)
+
+y log y dy + log 1 − zz
+
+Z ∞
+
+> 0
+
+α(y)
+
+y dy. (92) Substituting (91) into (89) and using (92) we obtain (85). The proof is complete. Average length of finite continued fractions 667
+
+§ 6. Asymptotic formulae for S2,3(x, N ; z)
+
+Recall that S2(x, N ; z) denotes the number of solutions of (38) that satisfy
+
+
+
+1 − ∆2 − z
+
+
+
+n3 6 n1 < n 3, n1,2,3,4 > 1. (93) Let
+
+β2 = ∆/2 + z
+
+1 − ∆/2 − z .
+
+Lemma 18. For each ϵ > 0
+
+S2(x, N ; z) = S∗
+
+> 2
+
+(β2, N ; z) − β2
+
+β2 + 1 σ1(N ) + Oϵ(N ϵ),
+
+where S∗
+
+> 2
+
+(β2, N ; z) is the number of solutions of (38) where the unknowns satisfy
+
+n3 6 β2n1, n4 6 n2 and n3, n 4 > 1.
+
+Proof . In (38) and (93) we set
+
+n3 = m3 + n1 and n2 = m2 − n4.
+
+Then we see that S2(x, N ; z) is equal to the number of solutions of the system
+
+m3n4 + n1m2 = N, 1 6 m3 6 β2n1, 1 6 n4 < m 2,
+
+or, using more convenient notation,
+
+n1n2 + n3n4 = N, 1 6 n3 6 β2n1, 1 6 n4 < n 2. (94) It follows from (94) and the definition of S∗
+
+> 2
+
+(β2, N ; z) that
+
+S2(x, N ; z) = S∗
+
+> 2
+
+(β2, N ; z) − X
+
+> n2(n1+n3)= Nn36β2n1
+
+1 = S∗
+
+> 2
+
+(β2, N ; z) − X
+
+> n2|N
+
+ β2
+
+β2 + 1
+
+Nn2
+
+
+
+= S∗
+
+> 2
+
+(β2, N ; z) − β2
+
+β2 + 1 σ1(N ) + O(σ0(N )) .
+
+The proof is complete.
+
+Lemma 19 (see [28]). For N > 2, ϵ > 0, x ∈ (0 , 1] and each U 6 N 1/2 such that
+
+N/U is a half-integer
+
+S∗
+
+> 2
+
+(β2, N ; z) = log(1 + β2)
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2 + σ1(N )
+
+ζ(2)
+
+ C(β2) + h1(β2) + h2(β2)
+
++ Oϵ
+
+
+
+β2U N 1/3 + N 4/3 β2
+
+U + N 2
+
+U 5/2 + U 5/2
+
+N 1/2β3/22
+
+
+
+N ϵ
+
+
+
+, (95)
+
+where h1(β2), h2(β2) and C(β2) are defined by (5), (6) and (41), respectively .This is a particular case of a result in [28]. 668 V. A. Bykovskii and D. A. Frolenkov
+
+Recall that S3(x, N ; z) denotes the number of solutions of (38) that satisfy
+
+(1 + x)n3 < n 1 6
+
+
+
+1 + x + ∆2 − z
+
+
+
+n3, n1,2,3,4 > 1. (96) We start with the case when x = 1 . Let
+
+β3 = ∆2 − z.
+
+Lemma 20. For each ϵ > 0
+
+S3(1 , N ; z) = S∗
+
+> 3
+
+(1 , N ; z) − β3
+
+2( β3 + 2) σ1(N ) + Oϵ(N ϵ),
+
+where S∗
+
+> 3
+
+(1 , N ; z) is the number of solutions of equation (38) for unknowns satisfying
+
+n3 6 β3n1, 2n4 6 n2 and n3, n 4 > 1. (97)
+
+Proof . In (38) and (96) we make the change of variables
+
+n1 = m1 + 2 n3, n4 = m4 − 2n2.
+
+Then we see that S3(1 , N ; z) is the number of solutions of the system
+
+m1n2 + n3m4 = N, 1 6 m1 6 β3n3, 1 6 n2 < m4
+
+2 ,
+
+or, using more convenient notation,
+
+n1n2 + n3n4 = N, 1 6 n3 6 β3n1, 1 6 n4 < n2
+
+2 . (98) It follows from (98) and the definition of S∗
+
+> 3
+
+(1 , N ; z) that
+
+S3(1 , N ; z) = S∗
+
+> 3
+
+(1 , N ; z) − X
+
+> n2(2 n1+n3)= Nn36β3n1
+
+1= S∗
+
+> 3
+
+(1 , N ; z) − X
+
+> n2|N
+
+X
+
+> n1
+
+ 2N
+
+(2 + β3)n2
+
+6 2n1 6 Nn2
+
+− 1
+
+
+
+= S∗
+
+> 3
+
+(1 , N ; z) − β3
+
+2( β3 + 2) σ1(N ) + O(σ0(N )) .
+
+The proof is complete.
+
+Lemma 21. For N > 2, ϵ > 0, x ∈ (0 , 1] and each U 6 N 1/2 such that N/U is a half-integer ,
+
+S∗
+
+> 3
+
+(1 , N ; z) = log(1 + β3/2)
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2
+
++ σ1(N )
+
+ζ(2)
+
+
+
+h7(β3) + h8(β3) +
+
+
+
+2γ − 2 ζ′(2)
+
+ζ(2) − 1
+
+
+
+log
+
+
+
+1 + β3
+
+2
+
+
+
++ Li 2
+
+ β3
+
+β3 + 2
+
+
+
++ Oϵ
+
+
+
+β3U N 1/3 + N 4/3 β3
+
+U + N 2
+
+U 5/2 + U 5/2
+
+N 1/2β3/23
+
+
+
+N ϵ
+
+
+
+, (99) Average length of finite continued fractions 669
+
+where the functions h7(x) and h7(x) are defined by absolutely convergent series as follows :
+
+h7(x) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ X
+
+> m6n/ 2
+
+xn + xm − log
+
+
+
+1 + x
+
+2
+
+
+
+,h8(x) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ X
+
+> m6xn
+
+1
+
+m + 2 n − log
+
+
+
+1 + x
+
+2
+
+
+
+.
+
+Proof . Conditions (97) differ from those considered in [27] and [28] only by the coefficient 2 in the inequality 2n4 6 n2. This does not affect the estimate for the remainder, but changes the leading term (cf. (99) and (95)). So we only describe the modifications which occur in the calculation of the leading term in [27]. We will use the same notation as [27], putting primes ′ on. The argument that follows is valid for any y > 0; we will apply the resulting formulae to y = β3. Thus
+
+Φ′
+
+> y
+
+(U ) = X
+
+> n6U
+
+1
+
+n
+
+X
+
+> m6n/ 2
+
+yn + my , (100)
+
+Φ′
+
+> y
+
+(U ) = X
+
+> n6U
+
+1
+
+n
+
+ X
+
+> m6n/ 2
+
+yn + my − log
+
+
+
+1 + y
+
+2
+
+
+
++ log
+
+
+
+1 + y
+
+2
+
+ X
+
+> n6U
+
+1
+
+n
+
+= log
+
+
+
+1 + y
+
+2
+
+
+
+(log U + γ) + h7(y) + O(U −1). (101) The next formula is a modification of one in [24], Lemma 10:
+
+F ′(ξ) = X
+
+> n6ξ
+
+1
+
+n
+
+X
+
+> m6ny
+
+min
+
+ 12n + m , 1
+
+m − nmξ
+
+
+
+= log
+
+
+
+1 + y
+
+2
+
+
+
+(log ξ + γ − 1) + h8(y) + Li 2
+
+ yy + 2
+
+
+
++ O
+
+ log(1 + ξ)
+
+ξ
+
+
+
+. (102) To prove (102) we represent F ′(ξ) as follows:
+
+F ′(ξ) = F ′
+
+> 1
+
+(ξ) + F ′
+
+> 2
+
+(ξ), (103) where
+
+F ′
+
+> 1
+
+(ξ) = X
+
+> n6ξ
+
+1
+
+n
+
+X
+
+> m6ny m62( ξ−n)
+
+12n + m and F ′
+
+> 2
+
+(ξ) = X
+
+> n6ξ
+
+1
+
+n
+
+X
+
+> m6ny m> 2( ξ−n)
+
+ 1
+
+m − nmξ
+
+
+
+.
+
+Now we calculate F ′
+
+> 1
+
+(ξ):
+
+F ′
+
+> 1
+
+(ξ) = X
+
+> n62ξ/ (2+ y)
+
+1
+
+n
+
+X
+
+> m6ny
+
+12n + m + X
+
+> 2ξ/ (2+ y)<n 6ξ
+
+1
+
+n
+
+X
+
+> m62( ξ−n)
+
+12n + m
+
+= X
+
+> n62ξ/ (2+ y)
+
+1
+
+n
+
+ X
+
+> m6ny
+
+12n + m − log
+
+
+
+1 + y
+
+2
+
+
+
++
+
+
+
+log 2ξ
+
+2 + y + γ + O
+
+ 1
+
+ξ
+
+
+
+log
+
+
+
+1 + y
+
+2
+
+
+
++ X
+
+> 2ξ/ (2+ y)<n 6ξ
+
+1
+
+n
+
+
+
+log ξn + O
+
+ 1
+
+n
+
+ 670 V. A. Bykovskii and D. A. Frolenkov
+
+= log
+
+
+
+1 + y
+
+2
+
+
+
+log ξ − 12 log
+
+
+
+1 + y
+
+2
+
+
+
++ γ
+
+
+
++ h8(y) + O
+
+ log(1 + ξ)
+
+ξ
+
+
+
+. (104) We represent F ′
+
+> 2
+
+(ξ) in the form F ′
+
+> 2
+
+(ξ) = F ′
+
+> 3
+
+(ξ) + F ′
+
+> 4
+
+(ξ), where
+
+F ′
+
+> 3
+
+(ξ) = X
+
+> m62yξ/ (2+ y)
+
+X
+
+> ξ−m/ 2<n 6ξ
+
+ 1
+
+mn − 1
+
+mξ
+
+
+
+and
+
+F ′
+
+> 4
+
+(ξ) = X
+
+> 2yξ/ (2+ y)<m 6ξy
+
+X
+
+> m/y 6n6ξ
+
+ 1
+
+mn − 1
+
+mξ
+
+
+
+.
+
+We calculate F ′
+
+> 3
+
+(ξ). Using Lemma 1 we find that
+
+F ′
+
+> 3
+
+(ξ) = X
+
+> m62yξ/ (2+ y)
+
+1
+
+m
+
+
+
+− log
+
+
+
+1 − m
+
+2ξ
+
+
+
++ O
+
+ 1
+
+ξ − m/ 2
+
+
+
+− X
+
+> m62yξ/ (2+ y)
+
+1
+
+ξm
+
+ m
+
+2 + O(1)
+
+
+
+= Li 2
+
+ yy + 2
+
+
+
+− y
+
+2 + y + O
+
+ log(1 + ξ)
+
+ξ
+
+
+
+. (105) Next we evaluate F ′
+
+> 4
+
+(ξ):
+
+F ′
+
+> 4
+
+(ξ) = X
+
+> 2yξ/ (2+ y)<m 6ξy
+
+1
+
+m
+
+
+
+log ξy m + O
+
+ 1
+
+m
+
+
+
+− X
+
+> 2yξ/ (2+ y)<m 6ξy
+
+1
+
+ξm
+
+
+
+ξ − my + O(1)
+
+
+
+= 12 log 2
+
+
+
+1 + y
+
+2
+
+
+
+− log
+
+
+
+1 + y
+
+2
+
+
+
++ y
+
+2 + y + O
+
+ 1
+
+ξ
+
+
+
+. (106) From (105) and (106) we obtain
+
+F ′
+
+> 2
+
+(ξ) = 12 log 2
+
+
+
+1 + y
+
+2
+
+
+
+− log
+
+
+
+1 + y
+
+2
+
+
+
++ Li 2
+
+ yy + 2
+
+
+
++ O
+
+ log(1 + ξ)
+
+ξ
+
+
+
+. (107) Substituting (104) and (107) into (103) we deduce (102). Lemma 21 is proved. Next we let x in (96) be arbitrary.
+
+Lemma 22. For N > 2, ϵ > 0, x ∈ (0 , 1] and each U 6 N 1/2 such that N/U is a half-integer
+
+S3(x, N ; z) = log(1 + x + β3) − log(1 + x)
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2
+
++ σ1(N )
+
+ζ(2)
+
+ C(x + β3) + h1(x + β3) + h2(x + β3) − C(x) − h1(x) − h2(x)
+
+−
+
+ 11 + x − 11 + x + β3
+
+
+
+σ1(N ) + Oϵ
+
+
+
+U N 1/3 + β3
+
+N 4/3
+
+U + N 2
+
+U 5/2
+
+
+
+N ϵ
+
+
+
+.
+
+(108) Average length of finite continued fractions 671
+
+Proof . In (38) and (96) we make the change of variables
+
+n1 = m1 + n3, n4 = m4 − n2.
+
+Then we see that S3(x, N ; z) is the number of solutions of the system
+
+m1n2 + n3m4 = N, xn 3 < m 1 6 (x + β3)n3, 1 6 n2 < m 4,
+
+or, using more convenient notation,
+
+n1n2 + n3n4 = N, xn 1 < n 3 6 (x + β3)n1, 1 6 n4 < n 2. (109) It follows from (109) and the definition of S∗
+
+> 2
+
+(β2, N ; z) that
+
+S3(x, N ; z) = S∗
+
+> 2
+
+(x + β3, N ; z) − S∗
+
+> 2
+
+(x, N ; z) − X
+
+> n2(n1+n3)= Nxn 1<n 36(x+β3)n1
+
+1= S∗
+
+> 2
+
+(x + β3, N ; z) − S∗
+
+> 2
+
+(x, N ; z)
+
+−
+
+ 11 + x − 11 + x + β3
+
+
+
+σ1(N ) + O(σ0(N )) .
+
+Using the result in [28] we obtain (108). The proof is complete.
+
+§ 7. A new type of asymptotic formula for S1(x, N )
+
+To calculate Tx(N ) (see Lemma 9) we must compare the leading term in the formula for S2,3(x, N ) with the leading term in the formula for S1(x, N ). So it is convenient to express S1(x, N ) in a similar way to S2,3(x, N ) in Lemma 10. To do this we replace α(z) = α(1 , 1 + x, ∆; z) in (85) by its integral representation of the form (31). Set
+
+a1 = b2 = 1 , b1 = a3 = 1 + x, a2 = 1 − ∆2 − z, b3 = 1 + x + ∆2 − z, χ1(z; y) = [ a1 6 y 6 b1], χ2(z; y) = [ a2 6 y < b 2] and χ3(z; y) = [ a3 < y 6 b3].
+
+Then (31) can be written as follows:
+
+α(z) = α(1 , 1 + x, ∆; z) =
+
+Z ∞−∞
+
+ χ1(z; y) + χ2(z; y) + χ3(z; y)ω
+
+ ∆2 , z
+
+
+
+dz. (110) Replacing α(z) in (85) by its integral representation (110) we obtain the following.
+
+Lemma 23. The equality
+
+S1(x, N ) =
+
+Z ∞−∞
+
+ω
+
+ ∆2 , z
+
+ 3X
+
+> i=1
+
+S1,i (x, N ; z) dz + Oε
+
+ N
+
+∆
+
+3/4+ ε
+
+,672 V. A. Bykovskii and D. A. Frolenkov
+
+holds for
+
+S1,i (x, N ; z) = X
+
+> d|N
+
+d
+
+> ∞
+
+X
+
+> n=1
+> ∞
+
+X
+
+> k=1
+
+τ (n)μ(k)
+
+nk 2
+
+Z 10
+
+
+
+χi
+
+
+
+z; Mt
+
+
+
++ χi
+
+
+
+z; tM
+
+
+
+dt
+
++ σ1(N )
+
+ζ(2)
+
+
+
+log N − 2
+
+σ1(N )
+
+X
+
+> d|N
+
+d log d − 2γ + 2 ζ′(2)
+
+ζ(2) + 1
+
+ Z ∞
+
+> 0
+
+χi(z; y)
+
+y dy
+
+− σ1(N )
+
+ζ(2)
+
+Z ∞
+
+> 0
+
+χi(z; y)
+
+y log y dy + σ1(N )
+
+ζ(2)
+
+ H1(χi(z; · )) + H2(χi(z; · )) , (111)
+
+where M = N d −2nk 2 .To calculate the leading term for S1(x, N ) we must substitute the functions
+
+χi(z; · ) into (111) and transform the resulting relations.
+
+Lemma 24. For i = 1 , 2, 3
+
+S1,i (x, N ; z) = log( bi/a i)
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2 + σ1(N )
+
+ζ(2)
+
+ h2+ i(ai, b i) + h6(ai, b i)
+
++ σ1(N )
+
+ζ(2)
+
+
+
+2γ − 2 ζ′(2)
+
+ζ(2) − 1 − 12 log( aibi)
+
+
+
+log bi
+
+ai
+
++ Oϵ(N 1/2+ ϵ), (112)
+
+where the functions h3(a, b ), h4(a, b ), h5(a, b ) and h6(a, b ) are given by the absolutely convergent series
+
+h3(a, b ) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ X
+
+> an 6m6bn
+
+1
+
+m − log ba
+
+
+
+,h4(a, b ) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ X
+
+> an 6m<bn
+
+1
+
+m − log ba
+
+
+
+,h5(a, b ) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ X
+
+> an<m 6bn
+
+1
+
+m − log ba
+
+
+
+,h6(a, b ) =
+
+> ∞
+
+X
+
+> n=1
+
+1
+
+n
+
+ ∞X
+
+> m=1
+
+ 1
+
+m + an − 1
+
+m + bn
+
+
+
+− log ba
+
+
+
+.
+
+(113)
+
+Proof . We consider the case when i = 3 , which is technically the most complicated. If i = 3 , then the integrals in (111) satisfy
+
+Z 10
+
+
+
+χ3
+
+
+
+z; Mt
+
+
+
++ χ3
+
+
+
+z; tM
+
+
+
+dt = [ a3 < M 6 b3] + [ b−13 < M 6 a−13 ]+ M a −13 [M 6 a3] + M b 3[M 6 b−13 ] − M b −13 [M 6 b3] − M a 3[M 6 a−13 ],
+
+Z ∞
+
+> 0
+
+χ3(z; y)
+
+y dy = log b3
+
+a3
+
+,
+
+Z ∞
+
+> 0
+
+χ3(z; y)
+
+y log y dy = 12 (log 2 b3 − log 2 a3),
+
+Z ∞
+
+> 0
+
+dy y
+
+Z 10
+
+χ3
+
+
+
+z; y(1 − t)
+
+t
+
+
+
+dt = log b3
+
+a3
+
+,
+
+Z 10
+
+χ3
+
+
+
+z; m(1 − t)
+
+nt
+
+
+
+dt = mm + a3n − mm + b3n .Average length of finite continued fractions 673
+
+Hence
+
+S1,3(x, N ; z) = X
+
+> d|N
+
+d
+
+> ∞
+
+X
+
+> k=1
+
+μ(k)
+
+k2
+
+> ∞
+
+X
+
+> n=1
+
+τ (n)
+
+n
+
+ [a3 < M 6 b3] + [ b−13 < M 6 a−13 ]+ M a −13 [M 6 a3] + M b 3[M 6 b−13 ] − M b −13 [M 6 b3] − M a 3[M 6 a−13 ]
+
++ σ1(N )
+
+ζ(2)
+
+
+
+log N − 2
+
+σ1(N )
+
+X
+
+> d|N
+
+d log d − 2γ + 2 ζ′(2)
+
+ζ(2) + 1 − 12 log( a3b3)
+
+
+
+log b3
+
+a3
+
++ σ1(N )
+
+ζ(2)
+
+ h5(a3, b 3) + h6(a3, b 3). (114) Thus it remains to calculate the sums over d, k and n. Using (11)–(14) we obtain
+
+X
+
+> d|N
+
+d
+
+> ∞
+
+X
+
+> k=1
+
+μ(k)
+
+k2
+
+> ∞
+
+X
+
+> n=1
+
+τ (n)
+
+n [a3 < M 6 b3] = log( b3/a 3)
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2
+
++ σ1(N )
+
+ζ(2)
+
+
+
+2γ − 2 ζ′(2)
+
+ζ(2) + 12 log( a3b3)
+
+
+
+log b3
+
+a3
+
++ Oϵ(N 1/2+ ϵ), (115)
+
+X
+
+> d|N
+
+d
+
+> ∞
+
+X
+
+> k=1
+
+μ(k)
+
+k2
+
+> ∞
+
+X
+
+> n=1
+
+τ (n)
+
+n M a −13 [M 6 a3] = 1
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2
+
++ σ1(N )
+
+ζ(2)
+
+
+
+2γ − 2 ζ′(2)
+
+ζ(2) − 1 + log a3
+
+
+
++ Oϵ(N 1/2+ ϵ). (116) The formulae for the other four sums are straightforward consequences of (115) and (116). Applying these asymptotic formulae in (114) we obtain (112). The proof is complete.
+
+§ 8. Function series
+
+Our aim is to establish various relations for the functions hi( · ). Throughout this section x and y are arbitrary positive numbers.
+
+Lemma 25. For any positive x and yh6(1 + y, 1 + x)= h1(x) − h1(y) − ζ(2)
+
+ x
+
+1 + x − y
+
+1 + y
+
+
+
++ Li 2(−y) − Li 2(−x). (117)
+
+Proof . Following Ustinov [27] set
+
+Φx(U ) = X
+
+> n6U
+
+1
+
+n
+
+X
+
+> m6n
+
+xn + mx . (118) Using the definition (5) we obtain
+
+Φx(U ) = log(1 + x) X
+
+> n6U
+
+1
+
+n + X
+
+> n6U
+
+1
+
+n
+
+ X
+
+> m6n
+
+xn + mx − log(1 + x)
+
+
+
+= log(1 + x)(log U + γ) + h1(x) + Ox(U −1). (119) 674 V. A. Bykovskii and D. A. Frolenkov
+
+Now consider the difference of two functions from (118):
+
+Φx(U ) − Φy (U ) = X
+
+> n6U
+
+1
+
+n
+
+X
+
+> m6n
+
+ xn + mx − yn + my
+
+
+
+= X
+
+> n6U
+
+1
+
+n
+
+X
+
+> m<n
+
+ xn + mx − yn + my
+
+
+
++ ζ(2)
+
+ x
+
+1 + x − y
+
+1 + y
+
+
+
++ Ox,y (U −1).
+
+(120) For the double sum in (120) we have
+
+X
+
+> n6U
+
+1
+
+n
+
+X
+
+> m<n
+
+ xn + mx − yn + my
+
+
+
+= X
+
+> m<U
+
+X
+
+> m<n 6U
+
+x − y
+
+(n + mx )( n + my )= X
+
+> m<U
+
+X
+
+> n6U−m
+
+x − y
+
+(n + m(1 + x))( n + m(1 + y)) = X
+
+> m<U
+
+1
+
+m
+
+X
+
+> n6U−m
+
+ 1
+
+n + m(1 + y) − 1
+
+n + m(1 + x)
+
+
+
+= X
+
+> m<U
+
+1
+
+m
+
+ ∞X
+
+> n=1
+
+ 1
+
+n + m(1 + y) − 1
+
+n + m(1 + x)
+
+
+
+− log 1 + x
+
+1 + y
+
+
+
++  log U + γ + O(U −1) log 1 + x
+
+1 + y
+
+− X
+
+> m<U
+
+1
+
+m
+
+X
+
+> n>U −m
+
+ 1
+
+n + m(1 + y) − 1
+
+n + m(1 + x)
+
+
+
+. (121) For the last sum we obtain
+
+− X
+
+> m<U
+
+1
+
+m
+
+X
+
+> n>U −m
+
+ 1
+
+n + m(1 + y) − 1
+
+n + m(1 + x)
+
+
+
+= − X
+
+> m<U
+
+1
+
+m
+
+X
+
+> n>U
+
+ 1
+
+n + my − 1
+
+n + mx
+
+
+
+= X
+
+> m<U
+
+1
+
+m log U + my U + mx + O
+
+ X
+
+> m<U
+
+1(U + my )( U + mx )
+
+
+
+= X
+
+> m<U
+
+1
+
+m log
+
+
+
+1 + my U
+
+
+
+− X
+
+> m<U
+
+1
+
+m log
+
+
+
+1 + mx U
+
+
+
++ Ox,y (U −1).
+
+Using Lemma 1 we find that
+
+− X
+
+> m<U
+
+1
+
+m
+
+X
+
+> n>U −m
+
+ xn + m(1 + y) − xn + m(1 + x)
+
+
+
+= Li 2(−x) − Li 2(−y) + Ox,y (U −1). (122) Average length of finite continued fractions 675
+
+Substituting (122) into (121) yields
+
+X
+
+> n6U
+
+1
+
+n
+
+X
+
+> m<n
+
+ xn + mx − yn + my
+
+
+
+= h6(1 + y, 1 + x)+ (log U + γ) log 1 + x
+
+1 + y + Li 2(−x) − Li 2(−y) + Ox,y (U −1). (123) Substituting (123) into (120) yields
+
+Φx(U ) − Φy (U ) = h6(1 + y, 1 + x) + (log U + γ) log 1 + x
+
+1 + y
+
++ Li 2(−x) − Li 2(−y) + ζ(2)
+
+ x
+
+1 + x − y
+
+1 + y
+
+
+
++ Ox,y (U −1). (124) Substituting (119) into (124) and letting U tend to infinity we arrive at (117). The proof is complete.
+
+Lemma 26. For x > y > 0
+
+h5(1 + y, 1 + x) = h2(x) − h2(y)+ Li 2(−x) − Li 2(−y) + log x log(1 + x) − log y log(1 + y). (125)
+
+Proof . Following Ustinov [24] set
+
+Fx(U ) = X
+
+> n<U
+
+X
+
+> m6nx
+
+1
+
+m
+
+ 1
+
+n − 1
+
+m + n
+
+
+
+. (126) Using the definition in (6) we find that
+
+Fx(U ) =  log(1 + x) + log U   log( xU ) + γ + h2(x)
+
+− X
+
+> m<xU
+
+log( m + U )
+
+m + Ox
+
+ log UU
+
+
+
+(see [24]). With the help of Lemma 1 we obtain
+
+X
+
+> m<xU
+
+log( m + U )
+
+m = X
+
+> m<xU
+
+log U + log(1 + m/U )
+
+m
+
+=  log( xU ) + γ log U − Li 2(−x) + Ox
+
+ log UU
+
+
+
+.
+
+Hence
+
+Fx(U ) =  log( xU ) + γ log(1 + x) + h2(x) + Li 2(−x) + Ox
+
+ log UU
+
+
+
+. (127) 676 V. A. Bykovskii and D. A. Frolenkov
+
+Now consider the difference of two functions from (126). Using the definition (113) we obtain
+
+Fx(U ) − Fy (U ) = X
+
+> n<U
+
+X
+
+> ny<m 6nx
+
+1
+
+m
+
+ 1
+
+n − 1
+
+m + n
+
+
+
+= X
+
+> n<U
+
+1
+
+n
+
+X
+
+> n(1+ y)<m 6n(1+ x)
+
+1
+
+m
+
+= X
+
+> n<U
+
+1
+
+n
+
+ X
+
+> n(1+ y)<m 6n(1+ x)
+
+1
+
+m − log 1 + x
+
+1 + y
+
+
+
++ (log U + γ) log 1 + x
+
+1 + y + Ox,y
+
+ 1
+
+U
+
+
+
+= h5(1 + y, 1 + x) + (log U + γ) log 1 + x
+
+1 + y + Ox,y
+
+ 1
+
+U
+
+
+
+. (128) Substituting (127) into (128) and letting U tend to infinity we arrive at (125). The proof is complete.
+
+Lemma 27. For each y, 0 6 y < 1,
+
+h6(1 − y, 1) = h1
+
+ y
+
+1 − y
+
+
+
+− yζ (2) + Li 2(y). (129)
+
+Proof . We transform the function (118) as follows
+
+Φy/ (1 −y)(U ) = X
+
+> n6U
+
+1
+
+n
+
+X
+
+> m6n
+
+yn(1 − y) + my
+
+= yζ (2) + Oy (U −1) + X
+
+> n6U
+
+1
+
+n
+
+X
+
+> m<n
+
+yn(1 − y) + my
+
+= yζ (2) + Oy (U −1) + X
+
+> m<U
+
+1
+
+m
+
+X
+
+> m<n 6U
+
+my n(n(1 − y) + my ) . (130) Now we transform the second sum in (130):
+
+X
+
+> m<U
+
+1
+
+m
+
+X
+
+> m<n 6U
+
+my n(n(1 − y) + my ) = X
+
+> m<U
+
+1
+
+m
+
+X
+
+> k6U−m
+
+my
+
+(k + m)( k(1 − y) + m)= X
+
+> k<U
+
+1
+
+k
+
+X
+
+> m6U−k
+
+ky
+
+(k + m)( k(1 − y) + m)= X
+
+> k<U
+
+1
+
+k
+
+ ∞X
+
+> m=1
+
+ 1
+
+k(1 − y) + m − 1
+
+k + m
+
+
+
+− log 11 − y
+
+
+
++ (log U + γ + O(U −1)) log 11 − y − X
+
+> k<U
+
+1
+
+k
+
+X
+
+> m>U −k
+
+ky
+
+(k + m)( k(1 − y) + m) .
+
+(131) Using Lemma 1 we find
+
+X
+
+> k<U
+
+1
+
+k
+
+X
+
+> m>U −k
+
+ky
+
+(k + m)( k(1 − y) + m) = X
+
+> k<U
+
+1
+
+k
+
+X
+
+> m>U −k
+
+ 1
+
+k(1 − y) + m − 1
+
+k + m
+
+
+
+= − X
+
+> k<U
+
+1
+
+k log
+
+
+
+1 − ky U
+
+
+
++ O
+
+ log UU
+
+
+
+= Li 2(y) + Oy
+
+ log UU
+
+
+
+. (132) Average length of finite continued fractions 677
+
+Substituting (132) into (131) we obtain
+
+X
+
+> m<U
+
+1
+
+m
+
+X
+
+> m<n 6U
+
+my n(n(1 − y) + my )= h6(1 − y, 1) + (log U + γ) log 11 − y − Li 2(y) + Oy
+
+ log UU
+
+
+
+. (133) Substituting (133) and (119) into (130) and letting U tend to infinity we arrive at (129). The proof is complete.
+
+Lemma 28. For each y, 0 6 y < 1,
+
+h4(1 − y, 1) = h2
+
+ y
+
+1 − y
+
+
+
+− log y log(1 − y) − Li 2(y). (134)
+
+Proof . We write equality (127) at x = y/ (1 − y) in the following form:
+
+Fy/ (1 −y)(U ) = −
+
+
+
+log U + log y
+
+1 − y + γ
+
+
+
+log(1 − y)+ h2
+
+ y
+
+1 − y
+
+
+
++ Li 2
+
+ yy − 1
+
+
+
++ Oy
+
+ log UU
+
+
+
+. (135) Using the definition (126) we obtain
+
+Fy/ (1 −y)(U ) = X
+
+> n<U
+
+X
+
+> m6ny/ (1 −y)
+
+1
+
+n(m + n) .
+
+Substituting in m = k − n we see that
+
+Fy/ (1 −y)(U ) = X
+
+> n<U
+
+X
+
+> n<k 6n/ (1 −y)
+
+1
+
+nk
+
+= X
+
+> k6U
+
+X
+
+> k(1 −y)6n<k
+
+1
+
+nk + X
+
+> U <k<U/ (1 −y)
+
+X
+
+> k(1 −y)6n<U
+
+1
+
+nk . (136) For the first double sum in (136) we have
+
+X
+
+> k6U
+
+1
+
+k
+
+X
+
+> k(1 −y)6n<k
+
+1
+
+n = X
+
+> k6U
+
+1
+
+k
+
+ X
+
+> k(1 −y)6n<k
+
+1
+
+n − log 11 − y
+
+
+
++ (log U + γ + O(U −1)) log 11 − y
+
+= h4(1 − y, 1) + (log U + γ) log 11 − y + Oy
+
+ 1
+
+U
+
+
+
+. (137) For the second sum in (136) we have
+
+X
+
+> U <k<U/ (1 −y)
+
+X
+
+> k(1 −y)6n<U
+
+1
+
+nk = X
+
+> U <k<U/ (1 −y)
+
+1
+
+k
+
+
+
+log U
+
+1 − y − log k
+
+
+
++ O
+
+ 1
+
+U
+
+
+
+= 12 log 2(1 − y) + Oy
+
+ log UU
+
+
+
+. (138) 678 V. A. Bykovskii and D. A. Frolenkov
+
+Substituting (137) and (138) into (136) we obtain
+
+Fy/ (1 −y)(U ) = h4(1 − y, 1) − (log U + γ) log(1 − y)+ 12 log 2(1 − y) + Oy
+
+ log UU
+
+
+
+. (139) Equating (139) and (135) and letting U tend to infinity yields
+
+h4(1 − y, 1) = h2
+
+ y
+
+1 − y
+
+
+
+− log y
+
+1 − y log(1 − y)
+
+− 12 log 2(1 − y) + Li 2
+
+ yy − 1
+
+
+
+. (140) Using formula 25.12.3 from [12], with z = y/ (y − 1) , we find that
+
+Li 2
+
+ yy − 1
+
+
+
+= − Li 2(y) − 12 log 2(1 − y). (141) Substituting (141) into (140) we obtain (134). The proof of Lemma 28 is complete. The proof of the next statement is similar to Lemma 25.
+
+Lemma 29. For x > 0
+
+h6(1 , 1 + x) = h1(x) − ζ(2) x
+
+1 + x − Li 2(−x).
+
+The proof of the next statement is similar to Lemma 26.
+
+Lemma 30. For x > 0
+
+h3(1 , 1 + x) = h2(x) + ζ(2) + Li 2(−x) + log x log(1 + x).
+
+Lemma 31. The following equality holds :
+
+Li 2
+
+ 12
+
+
+
+− Li 2
+
+ 14
+
+
+
+− log 2 2 = Li 2(−2) + Li 2
+
+ 13
+
+
+
+− Li 2(−1) + 12 log 2 32 .
+
+Proof . We need the equality
+
+Li 2
+
+ 13
+
+
+
+− 16 Li 2
+
+ 19
+
+
+
+= π2
+
+18 − 16 log 2 3 (142) (see [9], formula 84). Using equality (17) in [8], Appendix A.2, and setting x = y = 1 /3
+
+in it, we obtain
+
+Li 2
+
+ 14
+
+
+
+= Li 2
+
+ 13
+
+
+
+− 12 Li 2
+
+ 19
+
+
+
+− 12 log 2 43 . (143) Substituting (142) into (143) we find that
+
+Li 2
+
+ 14
+
+
+
++ 13 Li 2
+
+ 19
+
+
+
+= π2
+
+18 + 2 log 2 log 3 − 2 log 2 2 − 23 log 2 3. (144) Average length of finite continued fractions 679
+
+It follows from (142) and (144) that
+
+Li 2
+
+ 14
+
+
+
++ 2 Li 2
+
+ 13
+
+
+
+= π2
+
+6 − log 2 2 − log 2 32 . (145) The following equalities hold (see [8], Appendix A.2.1, formulae 5 and 8):
+
+Li 2(−2) + Li 2
+
+
+
+− 12
+
+
+
+= − π2
+
+6 − 12 log 2 2 and Li 2
+
+ 13
+
+
+
++ Li 2
+
+
+
+− 12
+
+
+
+= − 12 log 2 32 .
+
+Hence
+
+Li 2(−2) − Li 2
+
+
+
+− 13
+
+
+
+= − π2
+
+6 − 12 log 2 2 + 12 log 2 32 . (146) Adding (146) and (145) we find that
+
+Li 2
+
+ 14
+
+
+
++ Li 2
+
+ 13
+
+
+
++ Li 2(−2) = − 32 log 2 2 − 12 log 2 32 . (147) The following equalities hold (see [8], Appendix A.2.1, formulae 3 and 4):
+
+Li 2
+
+ 12
+
+
+
+= π2
+
+12 − 12 log 2 2 and Li 2(−1) = − π2
+
+12 ,
+
+and therefore
+
+Li 2
+
+ 12
+
+
+
++ Li 2(−1) = − 12 log 2 2. (148) Subtracting (148) from (147) yields
+
+Li 2
+
+ 14
+
+
+
++ Li 2
+
+ 13
+
+
+
++ Li 2(−2) − Li 2
+
+ 12
+
+
+
+− Li 2(−1) = − log 2 2 − 12 log 2 32 .
+
+The proof is complete.
+
+Lemma 32. For x > 0
+
+h7(x) = h1(1 + x) − h1(1) + Li 2(−1) − Li 2(−1 − x)
+
+− Li 2
+
+ x
+
+2 + x
+
+
+
+− log 2 log
+
+
+
+1 + x
+
+2
+
+
+
+− 12 log 2
+
+
+
+1 + x
+
+2
+
+
+
+. (149)
+
+Proof . Note that we only need to prove that
+
+Φ1+ x(U ) − Φ1(U ) − Φ′
+
+> x
+
+(U ) = Li 2(−1 − x) + Li 2
+
+ x
+
+2 + x
+
+
+
+− Li 2(−1) + log 2 log
+
+
+
+1 + x
+
+2
+
+
+
++ 12 log 2
+
+
+
+1 + x
+
+2
+
+
+
++ Ox(U −1). (150) In fact, substituting formulae (101) and (119) into (150) and letting U tend to infinity we arrive at (149). Using (118) and (100) we find that
+
+Φ1+ x(U ) − Φ1(U ) − Φ′
+
+> x
+
+(U )= X
+
+> n6U
+
+X
+
+> m6n
+
+x
+
+(n + m)( n + m(1 + x)) − X
+
+> n6U
+
+X
+
+> m6n/ 2
+
+xn(n + mx ) . (151) 680 V. A. Bykovskii and D. A. Frolenkov
+
+For the first sum we have
+
+X
+
+> n6U
+
+X
+
+> m6n
+
+x
+
+(n + m)( n + m(1 + x)) = X
+
+> m6U
+
+X
+
+> 2m6n6m+U
+
+xn(n + mx )= X
+
+> n6U
+
+X
+
+> m6n/ 2
+
+xn(n + mx ) + X
+
+> U <n 62U
+
+X
+
+> n−U6m6n/ 2
+
+xn(n + mx ) . (152) Substituting (152) into (151) and observing that we can take U to be a half-integer we obtain
+
+Φ1+ x(U ) − Φ1(U ) − Φ′
+
+> x
+
+(U ) = X
+
+> U <n 62U
+
+X
+
+> n−U <m 6n/ 2
+
+xn(n + mx )= X
+
+> U <n 62U
+
+1
+
+n
+
+
+
+log n(1 + x/ 2)
+
+n(1 + x) − U x + O
+
+ 1
+
+n − U + n/x
+
+
+
+= log 2 log 1 + x/ 21 + x − X
+
+> U <n 62U
+
+1
+
+n log
+
+
+
+1 − U x n(1 + x)
+
+
+
++ Ox
+
+ 1
+
+U
+
+
+
+.
+
+Arguing as in the proof of Lemma 1 yields
+
+Φ1+ x(U ) − Φ1(U ) − Φ′
+
+> x
+
+(U )= log 2 log 1 + x/ 21 + x + Li 2
+
+ x
+
+1 + x
+
+
+
+− Li 2
+
+ x
+
+2(1 + x)
+
+
+
++ Ox
+
+ 1
+
+U
+
+
+
+. (153) Substituting (153) into (150) and letting U tend to infinity we see that we only need to prove that
+
+Li 2
+
+ x
+
+1 + x
+
+
+
+− Li 2
+
+ x
+
+2(1 + x)
+
+
+
+− log 2 log(1 + x)= Li 2(−1 − x) + Li 2
+
+ x
+
+2 + x
+
+
+
+− Li 2(−1) + 12 log 2
+
+
+
+1 + x
+
+2
+
+
+
+. (154) Using (15) to differentiate (154) with respect to x we arrive at the identity 0 = 0 .Hence it is sufficient to verify (154) at one point. For x = 1 we proved (154) in Lemma 31. The proof is complete.
+
+§ 9. Proof of Theorems 1 and 2
+
+To prove Theorems 1 and 2 we must find an asymptotic formula for Tx(N )
+
+(see Lemmas 6 and 8). To do this we require the following result. Average length of finite continued fractions 681
+
+Lemma 33. For N > 2, ϵ > 0, x ∈ (0 , 1] and each U 6 N 1/2 such that N/U is a half-integer
+
+S1,1(x, N ; z) = log(1 + x)
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2 −
+
+ xx + 1 − 1
+
+
+
+σ1(N )+ σ1(N )
+
+ζ(2)
+
+ C(x) + h1(x) + h2(x) + Oϵ(N 1/2+ ϵ), (155)
+
+S1,2(x, N ; z) − S2(x, N ; z)= Oϵ
+
+
+
+β2U N 1/3 + β2
+
+N 4/3
+
+U + N 2
+
+U 5/2 + U 5/2
+
+N 1/2β3/22
+
+
+
+N ϵ
+
+
+
+, (156)
+
+S1,3(x, N ; z) − S3(x, N ; z)= Oϵ
+
+
+
+U N 1/3 + β3
+
+N 4/3
+
+U + N 2
+
+U 5/2
+
+
+
+N ϵ
+
+
+
+, (157)
+
+S1,3(1 , N ; z) − S3(1 , N ; z)= Oϵ
+
+
+
+β3U N 1/3 + β3
+
+N 4/3
+
+U + N 2
+
+U 5/2 + U 5/2
+
+N 1/2β3/23
+
+
+
+N ϵ
+
+
+
+. (158) Formula (155) follows from Lemmas 24, 29 and 30. Formula (156) follows from Lemmas 18, 19, 24, 27 and 28, and (157) follows from Lemmas 22, 24, 25 and 26. Formula (158) is a consequence of Lemmas 20, 21, 24 and 32 and the equality
+
+h8(x) = h5(2 , 2 + x).
+
+Lemma 34. For N > 2, ϵ > 0, x ∈ (0 , 1] and each U 6 N 1/2 such that N/U is a half-integer ,
+
+Tx(N ) = log(1 + x)
+
+ζ(2)
+
+X
+
+> d|N
+
+Nd log Nd2 −
+
+ xx + 1 − 1
+
+
+
+σ1(N )+ σ1(N )
+
+ζ(2)
+
+ C(x) + h1(x) + h2(x)
+
++ Oϵ
+
+
+
+∆U N 1/3 + U N 1/3[x < 1] + ∆ N 4/3
+
+U + N 2
+
+U 5/2
+
++ U 5/2
+
+N 1/2∆3/2 + N 3/4
+
+∆3/4+ ϵ
+
+
+
+N ϵ
+
+
+
+. (159) Formula (159) is a consequence of Lemmas 9, 10, 23, 33 and 3. Now we take the following values of the parameters:
+
+U = N
+
+[N 1/2+1 /42 ] + 1 /2 and N −5/63 6 ∆ 6 N −1/21 for x < 1,U = N
+
+[N 1/2+1 /58 ] + 1 /2 and ∆ = N −5/87 for x = 1 .
+
+Substituting (159) into (42) we obtain the asymptotic formula (40) with the remain-der term
+
+Oϵ(N 5/6−1/42+ ϵ) for x < 1 and Oϵ(N 5/6−7/174+ ϵ) for x = 1 .682 V. A. Bykovskii and D. A. Frolenkov
+
+Substituting this formula into (37) completes the proof of Theorems 1 and 2 (see [27]).
+
+Bibliography
+
+[1] V. A. Bykovsky (Bykovskii), N. V. Kuznetsov and A. I. Vinogradov, “Generalized summation formula for inhomogeneous convolution”, Automorphic functions and their applications (Khabarovsk 1988), Acad. Sci. USSR, Inst. Appl. Math., Khabarovsk 1990, pp. 18–63. [2] T. M. Dunster, “Bessel functions of purely imaginary order, with an application to second-order linear differential equations having a large parameter”, Siam J . Math .
+
+Anal . 21 :4 (1990), 995–1018. [3] T. Estermann, “On the representations of a number as the sum of two products”,
+
+Proc . London Math . Soc . S2-31 :1 (1930), 123–133. [4] H. Halberstam, “An asymptotic formula in the theory of numbers”, Trans . Amer .
+
+Math . Soc . 84 :2 (1957), 338–351. [5] H. Heilbronn, “On the average length of a class of finite continued fractions”,
+
+Abhandlungen aus Zahlentheorie und Analysis [Number theory and analysis ], Zur Erinnerung an E. Landau [Papers in honor of E. Landau], VEB, Berlin; Plenum, New York 1968, pp. 87–96. [6] A. E. Ingham, “Some asymptotic formulae in the theory of numbers”, J. London Math . Soc . 2:3 (1927), 202–208. [7] D. E. Knuth, “Evaluation of Porter’s constant”, Comput . Math . Appl . 2:2 (1976), 137–139. [8] L. Lewin, Polylogarithms and associated functions , North-Holland Publishing Co., New York–Amsterdam 1981, xvii+359 pp. [9] L. Lewin, “The dilogarithm in algebraic fields”, J. Austral . Math . Soc . Ser . A 33 :3 (1982), 302–330. [10] G. Lochs, “Statistik der Teilnenner der zu den echten Br¨ uchen geh¨ origen regelm¨ aßigen Kettenbr¨ uche”, Monatsh . Math . 65 :1 (1961), 27–52. [11] Y. Motohashi, “The binary additive divisor problem”, Ann . Sci . ´Ecole Norm .
+
+Sup . (4) 27 :5 (1994), 529–572. [12] F. W. J. Olver, D. W. Lozier, R. F. Boisvert and Ch. W. Clark (eds.), NIST handbook of mathematical functions , U. S. Department of Commerce, National Institute of Standards and Technology, Washington, DC; Cambridge Univ. Press, Cambridge 2010, xvi+951 pp. [13] R. B. Paris and D. Kaminski, Asymptotics and Mellin-Barnes integrals ,Encyclopedia Math. Appl., vol. 85, Cambridge Univ. Press, Cambridge 2001, xvi+422 pp. [14] J. W. Porter, “On a theorem of Heilbronn”, Mathematika 22 :1 (1975), 20–28. [15] G. Tenenbaum, Introduction to analytic and probabilistic number theory , Cambridge Stud. Adv. Math., vol. 46, Cambridge Univ. Press, Cambridge 1995, xvi+448 pp. [16] E. C. Titchmarsh, The theory of the Riemann zeta-function , Clarendon Press, Oxford 1951, vi+346 pp. [17] V. A. Bykovskii and D. A. Frolenkov, “Asymptotic formula for the convolution of a generalized divisor function”, Dokl . Ross . Akad . Nauk 465 :2 (2015), 137–140; English transl. in Dokl . Math . 92 :3 (2015), 670–673. [18] V. A. Bykovskii and D. A. Frolenkov, “Asymptotic formulae for the second moments of L-series of holomorphic cusp forms on the critical line”, Izv . Ross . Akad . Nauk Ser . Mat . 81 :2 (2017), 5–34; English transl. in Izv . Math . 81 :2, 239–268. Average length of finite continued fractions 683
+
+[19] A. A. Karatsuba and S. M. Voronin, The Riemann zeta-function , Fizmatlit, Moscow 1994, 376 pp.; English transl. in de Gruyter Exp. Math., vol. 5, Walter de Gruyter & Co., Berlin 1992, xii+396 pp. [20] I. S. Gradshteyn and I. M. Ryzhik, Table of integrals , series , and products , 4th ed., Fizmatgiz, Moscow 1963, 1100 pp.; English transl., 5th ed., Academic Press, Inc., Boston, MA 1994, xlviii+1204 pp. [21] A. A. Karatsuba, Basic analytic number theory , 2nd ed., Nauka, Moscow 1983, 240 pp.; English transl., Springer-Verlag, Berlin–Heidelberg 1993, xiv+222 pp. [22] N. V. Kuznetsov, “Convolution of the Fourier coefficients of the Eisenstein-Maass series”, Automorphic functions and number theory . I, Zap. Nauchn. Sem. Leningrad. Otdel. Mat. Inst. Steklov., vol. 129, Nauka, Leningrad Branch, Leningrad 1983, pp. 43–84; English transl. in J. Soviet Math . 29 :2 (1985), 1131–1159. [23] F. W. J. Olver, Asymptotics and special functions , Computer Science and Applied Mathematics, Academic Press, New York–London 1974, xvi+572 pp. [24] A. V. Ustinov, “On the statistical properties of finite continued fractions”, Papers in number theory , Zap. Nauchn. Sem. S.-Peterburg. Otdel. Mat. Inst. Steklov., vol. 322, St Petersburg Branch of Steklov Mathematical Institute, St Petersburg 2005, pp. 186–211; English transl. in J. Math . Sci . ( N. Y.) 137 :2 (2006), 4722–4738. [25] A. V. Ustinov, “The mean number of steps in the Euclidean algorithm with least absolute value remainders”, Mat . Zametki 85 :1 (2009), 153–156; English transl. in
+
+Math . Notes 85 :1 (2009), 142–145. [26] A. V. Ustinov, “The mean number of steps in the Euclidean algorithm with odd incomplete quotients”, Mat . Zametki 88 :4 (2010), 594–604; English transl. in
+
+Math . Notes 88 :4 (2010), 574–584. [27] A. V. Ustinov, “On the number of solutions of the congruence xy ≡ l (mod q) under the graph of a twice continuously differentiable function”, Algebra i Analiz 20 :5 (2008), 186–216; English transl. in St . Petersburg Math . J. 20 :5 (2009), 813–836. [28] A. V. Ustinov, “On Gauss-Kuzmin statistics in short intervals”, Dal’nevost . Mat .
+
+Zh . 11 :1 (2011), 93–98. (Russian)
