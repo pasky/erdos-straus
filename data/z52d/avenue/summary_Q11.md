@@ -4,11 +4,11 @@ ES is OPEN. Rows: `out_Q11.jsonl`. Per-row labels are Assessments unless they ci
 **Status × plausibility** (rows: status; columns: plausibility 0/1/2/3)
 | status | 0 | 1 | 2 | 3 | Σ |
 |---|---|---|---|---|---|
-| known-true (gap named) | 2 | 0 | 0 | 37 | 39 |
-| known-false | 41 | 0 | 0 | 0 | 41 |
+| known-true (gap named) | 2 | 0 | 0 | 36 | 38 |
+| known-false | 40 | 0 | 0 | 0 | 40 |
 | circular | 20 | 1 | 0 | 0 | 21 |
 | open-plausible | 0 | 1 | 0 | 0 | 1 |
-| unclear | 7 | 4 | 0 | 0 | 11 |
+| unclear | 9 | 4 | 0 | 0 | 13 |
 Novelty: 0 → 74, 1 → 38, 2 → 1 (Z2786, plaus 0). ≈ 25 gate-G4, ≈ 20 forest/frieze/sandpile, ≈ 25 data items; plaus 3 = calibration.
 
 **Plausibility ≥ 2 AND novelty ≥ 1:** none with a proof yield. Calibration-only: Z1512, Z1561, Z1599, Z2427, Z2652, Z2758, Z2840,
@@ -17,7 +17,7 @@ Z2850, Z2851, Z0233. Best open row: **Z1600** (plaus 1): *some level C ≤ (log 
 **Recurring missing theorems**
 1. *Structure-only forcing of −1 among subset products of the factors of 4Cp+1 / N_e* (Kneser, Olson, EGZ, Davenport, PFR, KM,
    BGK, Balandraud, pigeonhole on splits): Z1444, Z1596, Z1599, Z1600, Z1608, Z1690, Z1691, Z1915, Z1916, Z2425, Z2712, Z2713,
-   Z2810, Z2920, Z3007, Z3010, Z3157, Z3186. All die on multiplicity poverty (B4; LONGSHOT Prop 1.4).
+   Z2810, Z2920, Z3007, Z3010, Z3157 (Z3186's ±1-products are weaker; open). Poverty kills them (B4; |D| ≤ τ(N)).
 2. *Forest F_p / bichromatic edge* (fixed roots fail under Dickson; §7.2): Z2678, Z2679, Z2681, Z2757, Z2792, Z2840.
 3. *Frieze/sandpile/cluster reformulations of ES₅* (circular): Z2651, Z2675, Z2688, Z2689, Z2691, Z2693, Z2694, Z2695, Z2890.
 4. *Pooling across levels* (privacy): Z2385, Z2648, Z2819, Z3079, Z3158, Z1964. 5. *Parity* (M5/T1): Z0463, Z0613, Z1896, Z2676, Z2761.
@@ -31,7 +31,7 @@ Z2850, Z2851, Z0233. Best open row: **Z1600** (plaus 1): *some level C ≤ (log 
 * Z1561 (PROVED, elementary): for 4C | 24 the group is elementary 2-abelian, so level failure = genus confinement exactly.
 * Z1599 (PROVED): H = {1, 7} ⊂ (ℤ/16)^× avoids −1 yet both odd real characters are −1 on 7 — a class obstruction invisible to
   the genus layer (so GT1's genus-free level need not win, Z1478).
-* Z2652/Z2851 (PROVED given a prime q ≡ 3 (4), (q/p) = −1, q ≤ √(2p); GRH gives it; CHECKED p < 3·10⁴): every prime p ≡ 1 (4) is
+* Z2652/Z2851 (PROVED given a prime q ≡ 3 (4), (q/p) = −1, q ≤ √(2p) — GRH gives it for large p; census: all p ≡ 1 (4) < 3·10⁴) p is
   τ of a TRIANGLE multigraph with non-square sandpile pairing (a ≡ √(−p) mod q, b = q − a, c = (a²+p)/q − a). The pairing ladder
   bottoms out at 3 vertices: ES₅'s cost is the fan shape, not the vertex count (the ES^□ one-Dirichlet-prime mechanism, B-fin).
 * Z2655/Z0517: of the U(n) sporadics only 105 is idoneal (h(−4n) = 48, 24, 80, 240, 424 with |Cl[2]| = 8, 4, 16, 16, 8 for the rest).
