@@ -1,0 +1,112 @@
+{
+ "Z1358": {
+  "A: -1/4+(a2+b2+c2)/(12abc)": {
+   "holds_for": 216,
+   "of": 3714
+  },
+  "residual_by_parity_pattern(first 2 values)": {
+   "(0, 1, 1)": {
+    "2/5": 14,
+    "-2/7": 16
+   },
+   "(1, 0, 1)": {
+    "2/5": 14,
+    "-2/7": 16
+   },
+   "(1, 1, 0)": {
+    "2/5": 14,
+    "0": 72
+   },
+   "(1, 1, 1)": {
+    "24/35": 6,
+    "4/11": 6
+   }
+  }
+ },
+ "Z1382": {
+  "classifier": "class-frequency (p mod 840), Laplace",
+  "test_accuracy_model": 0.9149,
+  "test_accuracy_majority": 0.9149,
+  "test_primes": 18444
+ },
+ "Z1401": {
+  "primes": 50,
+  "LP_value_min_mean_over_primes": 1.0,
+  "note": "LP over witnesses of one prime (cover constraint sum x \u2265 1): optimum 1 for every prime; the relaxation carries no information"
+ },
+ "Z1464": {
+  "primes": 3000,
+  "adaptive(C=1 then prime factors of 4p+1 \u226450)": {
+   "mean_queries_success": 1.032,
+   "fail": 723
+  },
+  "scan(C=1,2,\u2026)": {
+   "mean_queries_success": 1.677,
+   "fail": 10
+  }
+ },
+ "Z1548": {
+  "d=2": {
+   "overall": 0.152,
+   "by_c(min,max)": [
+    0.045,
+    0.525
+   ]
+  },
+  "d=3": {
+   "overall": 0.0762,
+   "by_c(min,max)": [
+    0.01,
+    0.305
+   ]
+  },
+  "d=5": {
+   "overall": 0.0935,
+   "by_c(min,max)": [
+    0.01,
+    0.43
+   ]
+  },
+  "d=6": {
+   "overall": 0.0573,
+   "by_c(min,max)": [
+    0.01,
+    0.28
+   ]
+  },
+  "d=7": {
+   "overall": 0.022,
+   "by_c(min,max)": [
+    0.0,
+    0.105
+   ]
+  }
+ },
+ "Z1584_ansatz": {
+  "linear_forms_per_variable": 125,
+  "points": 6,
+  "identities_found(x,y,z linear in u,v)": {
+   "u2+2v2": 0,
+   "u2+3v2": 0,
+   "u2-2v2": 0,
+   "u2+uv+v2": 0,
+   "u2+6v2": 0
+  },
+  "note": "x,y,z linear forms with coefficients in {-2..2}; identity checked at 6 integer points"
+ },
+ "Z1322_farkas": {
+  "p": 409,
+  "candidate_range": [
+   103,
+   306
+  ],
+  "dual_multiplier(alpha,beta)": [
+   1.0,
+   -0.0032679738562091504
+  ],
+  "dual_feasible(alpha/x+beta>=0 for all x)": true,
+  "b.y = 4/p - 3/x_max": -2.397e-05,
+  "LP_status_with_w>=0_unbounded_upper": 2,
+  "interpretation": "Farkas: no nonnegative weights; every ES triple has max denominator \u2265 3p/4"
+ }
+}

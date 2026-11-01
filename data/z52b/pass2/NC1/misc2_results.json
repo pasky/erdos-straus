@@ -1,0 +1,93 @@
+{
+ "greedy_a3_trend": {
+  "[1000,10000)": {
+   "primes_sampled": 129,
+   "greedy_slice_success": 0.419
+  },
+  "[10000,100000)": {
+   "primes_sampled": 400,
+   "greedy_slice_success": 0.512
+  },
+  "[100000,1000000)": {
+   "primes_sampled": 400,
+   "greedy_slice_success": 0.515
+  },
+  "[1000000,10000000)": {
+   "primes_sampled": 400,
+   "greedy_slice_success": 0.585
+  }
+ },
+ "corr_raw": 0.4639,
+ "corr_within_mod840_classes": {
+  "n": 4782,
+  "pearson": 0.2051
+ },
+ "pell_vs_control": {
+  "D=5": {
+   "reps": 556,
+   "witness_at_C=y": 0.061,
+   "control_C=y+7": 0.023
+  },
+  "D=8": {
+   "reps": 556,
+   "witness_at_C=y": 0.124,
+   "control_C=y+7": 0.036
+  },
+  "D=12": {
+   "reps": 555,
+   "witness_at_C=y": 0.094,
+   "control_C=y+7": 0.022
+  },
+  "D=13": {
+   "reps": 444,
+   "witness_at_C=y": 0.041,
+   "control_C=y+7": 0.032
+  }
+ },
+ "three_squares_premise": {
+  "odd_primes_checked": 302,
+  "violations_of_p_not_7mod8_rule": []
+ },
+ "r4_check": {
+  "3": [
+   32,
+   32
+  ],
+  "5": [
+   48,
+   48
+  ],
+  "7": [
+   64,
+   64
+  ],
+  "11": [
+   96,
+   96
+  ],
+  "13": [
+   112,
+   112
+  ],
+  "17": [
+   144,
+   144
+  ],
+  "19": [
+   160,
+   160
+  ],
+  "23": [
+   192,
+   192
+  ],
+  "29": [
+   240,
+   240
+  ],
+  "31": [
+   256,
+   256
+  ]
+ }
+}

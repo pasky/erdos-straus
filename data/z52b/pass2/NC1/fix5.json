@@ -1,0 +1,62 @@
+{
+ "Z1309_mahler": {
+  "series": "a(n)=[least witness C \u2208{1,2}] over n\u2264700; relation sum_j,k P_jk(z) F(z^{2^j}) \u2261 0 mod z^300",
+  "results": {
+   "m=1,D=2": {
+    "unknowns": 6,
+    "witness_indicator_nullity": 0,
+    "control_all_ones_nullity": 2
+   },
+   "m=2,D=2": {
+    "unknowns": 9,
+    "witness_indicator_nullity": 0,
+    "control_all_ones_nullity": 3
+   },
+   "m=2,D=3": {
+    "unknowns": 12,
+    "witness_indicator_nullity": 0,
+    "control_all_ones_nullity": 5
+   },
+   "m=3,D=3": {
+    "unknowns": 16,
+    "witness_indicator_nullity": 0,
+    "control_all_ones_nullity": 5
+   }
+  },
+  "note": "nullity 0 => no Mahler relation of this order; control (all ones) must show nullity \u22651"
+ },
+ "Z1776_small_cases": {
+  "4^1+297=301": true,
+  "4^2+297=313": true,
+  "4^3+297=361": true,
+  "4^4+297=553": true,
+  "4^5+297=1321": true,
+  "4^6+297=4393": true,
+  "15*2^1+1=31": true,
+  "15*2^2+1=61": true,
+  "15*2^3+1=121": true,
+  "15*2^4+1=241": true,
+  "15*2^5+1=481": true,
+  "15*2^6+1=961": true,
+  "15*2^7+1=1921": true,
+  "15*2^8+1=3841": true,
+  "15*2^9+1=7681": true,
+  "15*2^10+1=15361": true,
+  "15*2^11+1=30721": true
+ },
+ "Z1518_thm21": {
+  "s_range": "(1): s>=1; (2)-(8): s>=0",
+  "m_checked": 3000,
+  "agreements": 3000,
+  "disagreements(first 10)": []
+ },
+ "Z1887_roundtrip": {
+  "witnesses_tested": 2874,
+  "round_trip_ok": 2874,
+  "failures_first5": []
+ },
+ "Z1848_control": {
+  "primes_1mod840_below_1e6": 395,
+  "frac_C<=2": 0.641
+ }
+}

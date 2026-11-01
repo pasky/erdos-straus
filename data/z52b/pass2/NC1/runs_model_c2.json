@@ -1,0 +1,55 @@
+{
+ "N_primes": 6354932,
+ "q_global_fail": 0.12093252925444363,
+ "n_classes": 24,
+ "table": [
+  {
+   "k": 1,
+   "observed_exact_len": 606180,
+   "iid_global": 593879.7,
+   "iid_class_indep": 599690.7
+  },
+  {
+   "k": 2,
+   "observed_exact_len": 68593,
+   "iid_global": 71819.4,
+   "iid_class_indep": 70416.2
+  },
+  {
+   "k": 3,
+   "observed_exact_len": 7301,
+   "iid_global": 8685.3,
+   "iid_class_indep": 8033.6
+  },
+  {
+   "k": 4,
+   "observed_exact_len": 725,
+   "iid_global": 1050.3,
+   "iid_class_indep": 851.9
+  },
+  {
+   "k": 5,
+   "observed_exact_len": 60,
+   "iid_global": 127.0,
+   "iid_class_indep": 85.8
+  },
+  {
+   "k": 6,
+   "observed_exact_len": 7,
+   "iid_global": 15.4,
+   "iid_class_indep": 8.5
+  },
+  {
+   "k": 7,
+   "observed_exact_len": 1,
+   "iid_global": 1.9,
+   "iid_class_indep": 0.9
+  },
+  {
+   "k": 8,
+   "observed_exact_len": 0,
+   "iid_global": 0.2,
+   "iid_class_indep": 0.1
+  }
+ ]
+}

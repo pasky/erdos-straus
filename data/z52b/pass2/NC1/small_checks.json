@@ -1,0 +1,41 @@
+{
+ "Z1259_mutations": {
+  "sign_flip_x": {
+   "tested": 36,
+   "accepted_as_valid": 0
+  },
+  "x_plus_1": {
+   "tested": 36,
+   "accepted_as_valid": 0
+  },
+  "y_times_2": {
+   "tested": 36,
+   "accepted_as_valid": 0
+  },
+  "n_plus_4": {
+   "tested": 36,
+   "accepted_as_valid": 0
+  },
+  "drop_term": {
+   "tested": 36,
+   "accepted_as_valid": 0
+  },
+  "residue_shift_4C": {
+   "tested": 36,
+   "accepted_as_valid": 0
+  },
+  "swap_then_mutate": {
+   "tested": 36,
+   "accepted_as_valid": 0
+  }
+ },
+ "Z1259_unmutated_base_pass": "36/36",
+ "Z1358_pairwise_coprime_triples_tested": 75,
+ "Z1358_identity_holds": 2,
+ "Z1322_LP_p409": {
+  "status": 0,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "n_candidates": 716,
+  "candidate_range": "ceil(p/4)..2p"
+ }
+}

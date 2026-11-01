@@ -1,0 +1,31 @@
+{
+ "mean_f_over_log3n_N3000": 2.4973,
+ "n_with_f0": 0,
+ "max_f": 15849,
+ "partial_dirichlet": {
+  "s=2,N=300": {
+   "partial_F": 5.660332,
+   "partial_F/zeta^3": 1.271734
+  },
+  "s=2,N=1000": {
+   "partial_F": 6.710135,
+   "partial_F/zeta^3": 1.507599
+  },
+  "s=2,N=3000": {
+   "partial_F": 7.384416,
+   "partial_F/zeta^3": 1.659093
+  },
+  "s=3,N=300": {
+   "partial_F": 0.509654,
+   "partial_F/zeta^3": 0.293427
+  },
+  "s=3,N=1000": {
+   "partial_F": 0.511748,
+   "partial_F/zeta^3": 0.294633
+  },
+  "s=3,N=3000": {
+   "partial_F": 0.512171,
+   "partial_F/zeta^3": 0.294876
+  }
+ }
+}
