@@ -1,0 +1,17 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+.. r=1, tested 0, hits 0
+.. r=2, tested 10, hits 0
+.. r=3, tested 22, hits 0
+.. r=4, tested 48, hits 0
+.. r=5, tested 74, hits 0
+.. r=6, tested 126, hits 0
+.. r=7, tested 153, hits 0
+.. r=8, tested 233, hits 0
+.. r=9, tested 287, hits 0
+.. r=10, tested 368, hits 0
+.. r=11, tested 422, hits 0
+.. r=12, tested 554, hits 0
+.. r=13, tested 608, hits 0
+.. r=14, tested 768, hits 0
+.. r=15, tested 848, hits 0
+.. r=16, tested 954, hits 0

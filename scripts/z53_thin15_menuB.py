@@ -90,3 +90,20 @@ elif mode == 'dyadic':
         print('.. p=%d done, %d windows' % (p, nw), flush=True)
     print('menu B, dyadic u = r/2^i, e = ip <= %d: %d (p,i,r) tested, %d limit-level solutions, %d exact survivors, %d flags'
           % (EMAX, nw, nlim, nexact, len(flags)))
+elif mode == 'sgdyadic':   # Sophie-Germain shape 1 + a = 60 w^4, w = r/2^i (r odd, i >= 1): e = 4i - 2, c_num = 15 r^4 - 2^e
+    nw = 0
+    for i in range(1, (EMAX + 2) // 4 + 1):
+        e = 4 * i - 2; P2 = 2 ** e
+        rmin = iroot(P2 // 15, 4); rmax = iroot((17 * P2 + 2) // 15, 4) + 1
+        for r in range(rmin | 1, rmax + 1, 2):
+            cn = 15 * r ** 4 - P2
+            if cn <= 0 or cn > 16 * P2 + 2: continue
+            nw += 1
+            N = 16 * P2 + cn
+            for (X, Xpp) in limit_divisor_pairs(N, cn, 1, 16 * P2, None):
+                nlim += 1
+                h = test(15, Fr(cn, P2), 4 * Fr(r, 2 ** i) ** 4, menus=('B',))
+                nexact += len(h)
+                print('LIMIT-HIT SG i=%d r=%d X=%d 2^e X\'=%d exact-survivors=%s' % (i, r, X, Xpp, h), flush=True)
+    print('menu B, SG dyadic w = r/2^i, e = 4i-2 <= %d: %d (i,r) tested, %d limit-level solutions, %d exact survivors, %d flags'
+          % (EMAX, nw, nlim, nexact, len(flags)))

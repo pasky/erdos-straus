@@ -10,6 +10,7 @@ c0, H, P = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
 ps = [p for p in range(3, P + 1) if all(p % q for q in range(2, p))]
 ntest = 0; hits = []
 for r in range(1, H + 1):
+    print('.. r=%d, tested %d, hits %d' % (r, ntest, len(hits)), flush=True)
     for v in range(1, H + 1):
         if gcd(r, v) != 1: continue
         shapes = [('p=%d' % p, Fr(r, v) ** p) for p in ps] + [('SG', 4 * Fr(r, v) ** 4)]
