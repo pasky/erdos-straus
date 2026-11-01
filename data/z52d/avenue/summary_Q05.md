@@ -11,7 +11,6 @@ batch: 46 rows are calibration only (fingerprints, generic technique stubs, lit 
 | unclear | 3 | 2 | 0 | 0 | 5 |
 | open-plausible | 0 | 1 | 0 | 1 | 2 |
 Novelty: 0 → 66, 1 → 47, 2 → 0. All plaus-3 rows are calibration or main-term statements (yield none).
-
 **Plausibility ≥ 2 AND novelty ≥ 1**: 28 rows, all calibration/main-term (yield none) except Z2490, a CKMP-type 'positive proportion' that is already superseded (B6).
 The one open thin-family row is **Z1847** (*ES for all 4m² + 1*; plaus 1: universal trap under H, no forced budget visible).
 
@@ -30,15 +29,12 @@ The one open thin-family row is **Z1847** (*ES for all 4m² + 1*; plaus 1: unive
   (3/p), (5/p), (7/p) and (2/p)₄, so no bounded-level parity (M5) law exists for (★).
 * **Z1501 (PROVED + checked)**: a Type I certificate at (c, d) forces (d/p) = −1 (0 violations in 1610 certificates). So any finite menu of d, including
   the nine Heegner d, fails on the positive-density set {(d/p) = +1 ∀ d in the menu}.
-* **Z1584 (sketch, Assessment)**: a 2-variable Type I identity on a form f representing odd squares must have f | Y·Z (T1 at the square-value conic,
-  plus Iwaniec primes), so it is Type II, which ident_form_families Prop 3.2 excludes along lines. If written up, this closes binary-form identity
-  families (Z1584, Z1707, Z1829, Q04 Z0019) at once.
-* **Z2365 (scale)**: no ES sub-count can equal a class number (Siegel vs divisor bound). **Z1001**: d ≡ 3 (4) is never a ℤ[i]-norm, so Gaussian structure only reaches the cofactor.
-* **Z1999 (EVIDENCE)**: Euler primes n² + n + 41 have R/L² 3–8 % above all primes, and are identical within the Mordell classes (a local-class effect only).
+* **Z1584 (sketch, Assessment)**: a 2-variable Type I identity on a form representing odd squares must have f | Y·Z (T1 on the square-value conic,
+  plus Iwaniec primes), so it is Type II, which Prop 3.2 excludes. This would close Z1584, Z1707, Z1829 and Q04 Z0019 at once.
+* **Z2365**: no ES sub-count can equal a class number (Siegel vs divisor bound). **Z1001**: d ≡ 3 (4) is never a ℤ[i]-norm. **Z1999**: Euler primes
+  n² + n + 41 have R/L² 3–8 % above all primes, and are identical within the Mordell classes (EVIDENCE; a local-class effect only).
 
-**Corrections.** Z1568: Pass 1's 'C-form exceptional set' is the (★) zero set (CERTIFIED: 14 primes ≤ 10¹⁰). Its C ≤ 60 list is truncated, except
-23929. Z1548/Z1481: the proposed d = 1 test cases are empty at every prime (Z1482). Z1922: {y = z} is a surface over the n-line, not a curve.
+**Corrections.** Z1568: Pass 1's 'C-form exceptional set' = the (★) zero set (CERTIFIED, 14 primes ≤ 10¹⁰). Z1548/Z1481: the d = 1 test cases are empty (Z1482).
 
-**Assessment.** Nothing in Q05 escapes B1/B2/B3/T1/class-not-parity. The quadratic-form material collapses in three ways: genus-level (T1), power-size (B3,
-Siegel), or parity-only (CLASS_FORCING). The worthwhile output is housekeeping: the Z1584 lemma (closing 2-variable identity families) and the
-(★) parity null.
+**Assessment.** Nothing in Q05 escapes B1/B2/B3/T1/class-not-parity. Quadratic-form material collapses as genus-level (T1), power-size (B3, Siegel)
+or parity-only (CLASS_FORCING). The useful output is housekeeping: the Z1584 lemma and the (★) parity null.
