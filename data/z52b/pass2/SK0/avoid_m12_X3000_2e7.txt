@@ -1,0 +1,12 @@
+m=12 families=36771 samples=20000000 elapsed=310.3s
+X=    10 survivors=20000000 delta=1.000e+00 ln(delta)/(lnX)^3=0.0000
+X=    18 survivors=20000000 delta=1.000e+00 ln(delta)/(lnX)^3=0.0000
+X=    32 survivors=17997754 delta=8.999e-01 ln(delta)/(lnX)^3=-0.0025
+X=    56 survivors=15678874 delta=7.839e-01 ln(delta)/(lnX)^3=-0.0037
+X=   100 survivors=10567772 delta=5.284e-01 ln(delta)/(lnX)^3=-0.0065
+X=   178 survivors= 7105735 delta=3.553e-01 ln(delta)/(lnX)^3=-0.0074
+X=   316 survivors= 4298977 delta=2.149e-01 ln(delta)/(lnX)^3=-0.0081
+X=   562 survivors= 2123991 delta=1.062e-01 ln(delta)/(lnX)^3=-0.0088
+X=  1000 survivors=  968761 delta=4.844e-02 ln(delta)/(lnX)^3=-0.0092
+X=  1778 survivors=  349917 delta=1.750e-02 ln(delta)/(lnX)^3=-0.0097
+X=  3000 survivors=  122650 delta=6.132e-03 ln(delta)/(lnX)^3=-0.0099
