@@ -30,14 +30,15 @@ def load(fn):
     return d
 
 
-def gof_swap(N, M):
-    """chi^2 of N/2 against Poisson(M/2) (swap-Poisson) and of N against Poisson(M), bins 0,1,2,>=3 (in units of the variable)."""
+def gof_swap(N, M, fitted=False):
+    """chi^2 of N/2 against Poisson(M/2) (swap-Poisson) and of N against Poisson(M); bins 0, 1, >=2 of the variable
+    (sparse tail pooled; review fix). df = bins - 1, minus 1 more if the rate was fitted from the same data."""
     out = {}
     for name, X, lam in [('swapPoisson(N/2~Poi(M/2))', N/2, M/2), ('Poisson(N~Poi(M))', N, M)]:
-        obs = np.array([(X == 0).sum(), (X == 1).sum(), (X == 2).sum(), (X >= 3).sum()], float)
-        pr = np.array([poisson.pmf(0, lam), poisson.pmf(1, lam), poisson.pmf(2, lam), poisson.sf(2, lam)])
-        exp = pr*len(X); m = exp > 1e-9
-        c2 = float((((obs - exp)**2)/np.where(m, exp, 1))[m].sum()); df = int(m.sum()) - 1
+        obs = np.array([(X == 0).sum(), (X == 1).sum(), (X >= 2).sum()], float)
+        pr = np.array([poisson.pmf(0, lam), poisson.pmf(1, lam), poisson.sf(1, lam)])
+        exp = pr*len(X)
+        c2 = float(((obs - exp)**2/exp).sum()); df = 2 - (1 if fitted else 0)
         out[name] = dict(obs=obs.tolist(), exp=[round(float(e), 2) for e in exp], chi2=round(c2, 2), df=df, pval=float(chi2.sf(c2, df)))
     return out
 
@@ -79,7 +80,7 @@ for w, fn, U in WIN:
     r['balanced'] = dict(mean_N=round(float(N.mean()), 5), M0=M0, z_mean=round(float((N.mean() - M0)/se), 2), var=round(float(N.var()), 5),
                          var_over_mean=round(float(N.var()/N.mean()), 4), var_over_2M0=round(float(N.var()/(2*M0)), 4),
                          max_N=int(N.max()), hist={int(k): int((N == k).sum()) for k in np.unique(N)}, gof=gof_swap(N, M0),
-                         gof_fitted_mean=gof_swap(N, float(N.mean())),
+                         gof_fitted_mean=gof_swap(N, float(N.mean()), fitted=True),
                          odd_N=int((N % 2 == 1).sum()))
     sel1 = (P % 4 == 1)
     if (X['MQ'] != 0).any():
@@ -95,17 +96,17 @@ for w, fn, U in WIN:
         r['balanced']['class_means'] = class_means(P, N, M0)
     if (X['Nint'] >= 0).any():
         Ni = X['Nint']; Mi = M0INT[w]; sei = Ni.std()/np.sqrt(len(Ni)); lf = logF(P[sel1])
-        r['interior'] = dict(T0=U, mean=round(float(Ni.mean()), 4), M0_int=Mi, z_mean=round(float((Ni.mean() - Mi)/sei), 2),
+        r['interior'] = dict(T0=U, mean=round(float(Ni.mean()), 4), mean_p1mod4=round(float(Ni[sel1].mean()), 4), M0_int=Mi, z_mean=round(float((Ni.mean() - Mi)/sei), 2),
                              var_over_mean=round(float(Ni.var()/Ni.mean()), 4), var_over_2M0=round(float(Ni.var()/(2*Mi)), 4),
                              odd=int((Ni % 2 == 1).sum()), corr_logF=corr_t(Ni[sel1], lf), class_means=class_means(P, Ni, Mi))
         for nm in ['Su', 'SC', 'R']:
             Y = X[nm]
             if (Y < 0).any(): continue
-            r[nm] = dict(mean=round(float(Y.mean()), 4), var_over_mean=round(float(Y.var()/Y.mean()), 4), corr_logF=corr_t(Y[sel1], lf),
+            r[nm] = dict(mean=round(float(Y.mean()), 4), mean_p1mod4=round(float(Y[sel1].mean()), 4), var_over_mean=round(float(Y.var()/Y.mean()), 4), corr_logF=corr_t(Y[sel1], lf),
                          class_means=class_means(P, Y, Y.mean()))
         if (X['R'] >= 0).all():
             Bd = X['R'] - Ni
-            r['boundary_R_minus_Nint'] = dict(mean=round(float(Bd.mean()), 4), corr_logF=corr_t(Bd[sel1], lf), class_means=class_means(P, Bd, Bd.mean()))
+            r['boundary_R_minus_Nint'] = dict(mean=round(float(Bd.mean()), 4), mean_p1mod4=round(float(Bd[sel1].mean()), 4), corr_logF=corr_t(Bd[sel1], lf), class_means=class_means(P, Bd, Bd.mean()))
             # log-scale regression of RESIDUE_HARDNESS type: log(Y+1) ~ a + c log F
             for nm, Y in [('R', X['R']), ('Nint', Ni), ('boundary', Bd)]:
                 A = np.column_stack([np.ones(sel1.sum()), lf]); y = np.log(Y[sel1] + 1)
