@@ -28,7 +28,7 @@ paper/es-exponential-families.tex (below "the paper"); EXP_OPEN; MENU_LADDER.
   Jacobi argument. This makes rigorous, and extends to rational constants, the one-line "Type I with (c, d) constant is
   dead" remark of EXP_OPEN (I4), which had no written proof (gcd bookkeeping, the case 2 | d).
 * **Menu A (contains II-ad = (BI)) is reduced to a 2-adic approximation problem with an explicit bound (PROVED,
-  Thms 4–5).** Here c = 15u^p − 1 = 2^E c_o with u ∈ ℤ odd, E ≥ 2, and **c_o ≤ 32(1 + 2^E) + (1024(1 + 2^E)² + 1)/2**.
+  Lemma 4, Thm 5).** Here c = 15u^p − 1 = 2^E c_o with u ∈ ℤ odd, E ≥ 2, and **c_o ≤ 32(1 + 2^E) + (1024(1 + 2^E)² + 1)/2**.
   Hence |15u^p − 1|₂ ≪ u^{−p/3}.
   * Consequences: the u ≡ 3 (mod 8) branch (E = 2) is empty for the **whole** menu A, not only for (BI) (the paper's
     Thm iiad3 is extended).
@@ -67,7 +67,7 @@ template transfer to 15·2^s + 1 at s ≡ 0 (mod 60)?
 (S2) [A09] Prove a new all-exponent identity for an open family (15·2^s + 1 with 60 | s; 4^s + 297), or a rigorous
 obstruction to the recurrence ansatz.
 Throughout: n = c₀Y^D + 1, c₀ = 4^J − 1 odd, Y = 2^{s/D}, μ = 0 the profinite unit-square point. A *root family through
-μ = 0* is as in the paper (Def. 5.1): x, y, z ∈ ℚ[Y], 4xyz = n(xy + yz + zx), positive integers at Y = 2^{s/D} for all s in
+μ = 0* is as in the paper (Definition rootfamily): x, y, z ∈ ℚ[Y], 4xyz = n(xy + yz + zx), positive integers at Y = 2^{s/D} for all s in
 C = {s ≡ 0 (mod L), s ≥ s₁}. Lemma (special) of the paper / MENU_LADDER Lemma 2.1: R ∈ ℚ[Y] is integer-valued on a
 smaller such C iff R(1) ∈ ℤ[1/2] and R(0) ∈ ℤ_(2). For c₀ ∈ {3, 15, 63}, n is irreducible in ℚ[Y] for every D
 (Capelli: −1/c₀ is not a p-th power for odd p, and 1/c₀ ∉ 4ℚ⁴; paper Comp. W for 15, 63).
