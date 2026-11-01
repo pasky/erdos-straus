@@ -27,8 +27,8 @@ Then S_{n,k}(ℕ) = ∅.
 The product of all local symbols is then −1, which contradicts Hilbert reciprocity. ∎
 *Check* (`scripts/z52d_p2_ZF1_Z2835_mordell.py 3001 1000000`, complete search with the general bound x²(4x − 3n) ≤ k).
 There are 55 861 Mordell-fibre pairs with n ≤ 3001 and k ≤ 10⁶. Under the hypothesis, 13 682 of 13 682 are empty
-(both n ≡ 1 and n ≡ 5 (8)). Without it, 54 % are still empty (24 731 of 45 860 with gcd = 1 and a "bad" prime ℓ | s,
-(−n/ℓ) = −1). Bad ℓ = 3 makes points easy: 55 of 2 179 are empty. Adjacent non-Mordell controls (n, k + 1..3) are empty only
+(both n ≡ 1 and n ≡ 5 (8)). Without it, many are still empty: 17 829 of 31 548 (57 %) with gcd = 1 and a "bad" prime ℓ | s,
+(−n/ℓ) = −1. A bad ℓ = 3 makes points easy: only 111 of 5 635 such pairs are empty. Adjacent non-Mordell controls (n, k + 1..3) are empty only
 2.5 % of the time (298 of 11 986).
 
 **Why it might matter for ES (Assessment).** On the k-pencil, 𝒜 obstructs on two loci: {k = □} (Thm 1(a), positive
@@ -42,7 +42,7 @@ prime p is never on the k = 0 Mordell locus, which matches FRONTIER §7 item 15 
 scripts/z52d_p2_ZF1_Z2835_mordell.py 3001 1000000 /tmp/pencilk`, and `uv run --with sympy python
 scripts/z52d_p2_ZF1_Z2835_bm13.py`. For the zero tables run `scripts/z52_bank_pencil.c` with `first k 9 9999 2 1`.
 
-**Next step.** Check whether the 54 % residual emptiness on bad-prime Mordell fibres is a BM obstruction to *bounded*
+**Next step.** Check whether the 57 % residual emptiness on bad-prime Mordell fibres is a BM obstruction to *bounded*
 integral points (strong approximation): solutions need a bad prime ℓ | d with y ≡ −2k/n² (mod ℓ). Also compute the full
 Br S_{n,k} at sporadic zeros (e.g. k = 2, n = 3465) to see whether any other class exists.
 
