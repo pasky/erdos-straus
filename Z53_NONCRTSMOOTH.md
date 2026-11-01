@@ -28,10 +28,10 @@ of the E(q, κ) with **κ | q/4** (Lemma 3.4); E(q, s²) is an ES^□-type relax
    "height | M" removes the tie exactly and gives a problem with two fixed moduli (4M, 4p).
 2. **Theorem B (one prescribed class modulus; PROVED).** (a) For every q ∈ 4ℕ and prime p ∤ q(q − 1), E(q, κ) holds
    for some κ ≤ q − 2 (CRT with x = q − 1). (b) #{p ≤ X : E(q, κ) for some κ ≤ J} ≤ (JX/q)(log(JX) + 6) +
-   4J^{3/2}(X/(q − 2))^{1/2}. Consequently (Cor B1), for a class modulus q ≤ X^{1/2} prescribed independently of p, all
-   but o(π(X)) primes p ≤ X have no solution with κ ≤ q/(log X)^{2+η}: **a statement about one prescribed class modulus
-   that holds for all (or almost all) p cannot guarantee a cofactor below q/(log p)^{2+η}, against q − 2 from the trivial
-   construction** — while (★) needs κ = 1 and Type II needs κ | q/4. EVIDENCE: the least cofactor is 0.13–0.22·q at
+   4J^{3/2}(X/(q − 2))^{1/2}. Consequently (Cor B1), for a class modulus q = q(X) ∈ 4ℕ with q ≤ X^{1/2},
+   prescribed independently of p, all but o(π(X)) primes p ≤ X have no solution with κ ≤ q/(log X)^{2+η}: **a statement
+   about one such class modulus that holds for almost all p ≤ X cannot guarantee a cofactor below q/(log X)^{2+η},
+   against q − 2 from the trivial construction** (the bound q ≤ X^{1/2} is essential: §4.2) — while (★) needs κ = 1 and Type II needs κ | q/4. EVIDENCE: the least cofactor is 0.13–0.22·q at
    p ≈ 10⁶ (q = 8 … 1000).
 3. **Theorem A (free-object rungs; PROVED constructions).** A0 (fixed class modulus, T1-blind), A1 (class modulus
    q = 4C/2, T1-blind), A2 (T1-admissible square cofactor, from one prime ℓ ≡ 3 (4) with (ℓ/p) = −1: 4·1·ℓ·C′ − 1 − ℓ =
@@ -53,11 +53,13 @@ of the E(q, κ) with **κ | q/4** (Lemma 3.4); E(q, s²) is an ES^□-type relax
    * "x and y both p^{1/4}-smooth": empty at 98.6–98.8 % of primes in every sample (EVIDENCE). (One smooth coordinate is a
      constant ≈ 0.3 share of R and is not refuted.)
 
-**Verdict: narrowed.** At one prescribed class modulus a fixed-modulus statement cannot beat the trivial construction by
-more than (log p)^{2+η} in the cofactor (Thm B, PROVED); tie removal by closure is a finite menu per M (Thm C);
+**Verdict: narrowed.** At one class modulus q = q(X) ∈ 4ℕ with q ≤ X^{1/2}, prescribed independently of p (p averaged up
+to X), no statement valid for almost all p can beat the trivial construction by more than (log X)^{2+η} in the cofactor
+(Thm B, PROVED; the size hypothesis q ≤ X^{1/2} is essential, §4.2); tie removal by closure is a finite menu per M (Thm C);
 free-object constructions reach the T1-admissible square-cofactor rung A2, and the step A2 → Type II is again a single
 tied divisor event (Thm A, PROVED). What survives is the aggregation over the class modulus q — a *joint* statement over
-many q at one p — which is B2 itself (§7).
+many q at one p — which is B2 itself (§7). All of this concerns Type II (and its (★) line); ES(p) ⟺ Type I(p) or
+Type II(p), and nothing here bears on Type I or on ES proofs that avoid Type II.
 
 ## 1. Statements attacked
 
@@ -199,6 +201,9 @@ quB − u − B = κp is solvable.
 *Proof.* x = q − 1 ≡ −1 (mod q). By CRT (gcd(q, p) = 1) take y ∈ [1, qp] with y ≡ −1 (mod q), y ≡ (q − 1)⁻¹ (mod p).
 Then xy ≡ 1 (mod q) and (mod p), so xy = 1 + κqp with 1 ≤ κ ≤ ((q − 1)qp − 1)/(qp) < q − 1. ∎
 
+(For integers q ≥ 4 not divisible by 4 the definition of κ(p, q) via quB − u − B = κp is used verbatim; (b) holds for
+all q ≥ 4 in this sense, and is applied below only to q ∈ 4ℕ.)
+
 **(b)** For every integer q ≥ 4, J ≥ 1 and X ≥ 3,
   #{p ≤ X prime : κ(p, q) ≤ J} ≤ (JX/q)(log(JX) + 6) + 4J^{3/2}(X/(q − 2))^{1/2}.
 
@@ -211,23 +216,32 @@ also divides qu − 1, so g = 1 and B lies in at most one class mod j: #B ≤ (j
 count for j is ≤ (X/q)(log U_j + 3) + 2U_j ≤ (X/q)(½ log(jX) + 3) + 2U_j. Double and sum over j ≤ J, using
 Σ_{j≤J} √j ≤ J^{3/2}. ∎
 
-**Corollary B1 (PROVED).** Let q = q(X) ∈ [4, X^{1/2}] be a class modulus prescribed independently of p, and
+**Corollary B1 (PROVED).** Let q = q(X) ∈ 4ℕ ∩ [4, X^{1/2}] be a class modulus prescribed independently of p, and
 J ≤ q/(log X)^{2+η} with η > 0 fixed. Then all but o(π(X)) primes p ≤ X have κ(p, q) > J. (Divide (b) by
 π(X) ≥ X/log X: the first term gives ≤ (log(JX) + 6)/(log X)^{1+η} → 0; the second ≤ 4q log X/(√X (log X)^{3}) → 0.)
 Hence no statement "for every (or almost every) p ∈ (X/2, X], E(q, κ) for some κ ≤ K", with q prescribed in advance,
 holds with K ≤ q/(log X)^{2+η}. Statements in which q may depend on p are the aggregated problem and are not covered.
 
+*The size hypothesis q ≤ X^{1/2} cannot be dropped* (cross-model review): with P = ∏_{3≤r≤X, r prime} r and q = 2 + 2P
+(∈ 4ℕ, prescribed independently of p, and p ∤ q(q − 1) for odd p ≤ X), x = y = q − 1 gives xy = 1 + κqp with
+κ = (q − 2)/p, so every p ∈ (X/2, X] has κ(p, q) < 2q/X ≪ q/(log X)^{2+η}. Also, for a *fixed* q the threshold
+q/(log X)^{2+η} eventually drops below 1, so B1 says nothing about κ = 1 there; finite-q menus are handled only
+conditionally (Thm C(b), under H).
+
 **Corollary B2 (PROVED).** With J = 1, q = 4C: the share of primes p ≤ X having a (★) triple at the prescribed level C is
 ≤ (log X)(log X + 6)/(4C) + o(1). Summing (b)'s per-j bound over κ | q/4: the share of p ≤ X having a Type II solution
-with prescribed class modulus q is ≤ τ(q/4)(log X)(log(qX) + 6)/q + o(1). (These are averages over p; they are used only as
+with prescribed class modulus q is ≤ τ(q/4)(log X)(log(qX) + 6)/q + (4 log X/√((q − 2)X))·Σ_{j | q/4} √j; for
+4 ≤ q ≤ X^{1/2} the last term is ≤ 4τ(q)·X^{−1/2}·log X → 0. (Both shares need q ≤ X^{1/2}, or the explicit
+remainders, for the o(1)/error terms. These are averages over p; they are used only as
 barriers for pointwise statements at a prescribed modulus, not as inputs.)
 
 *Reading (Assessment).* Heuristically E(q, κ) has probability ≍ log p/q for κ ≤ q (one log fewer than Cor B2 proves), so
 the Type II region at class modulus q has probability ≍ τ(q/4) log p/q (the admissible cofactors are sparse — τ(q/4) of
-them — though not all small: κ = q/4 is admissible). ES is the union over q ≤ p of these events. Methods that work at
+them — though not all small: κ = q/4 is admissible). Type II(p) is the union over q of these events (Lemma 3.4); ES(p)
+is Type I(p) or Type II(p), so a joint-in-q Type II theorem would suffice for ES but is not equivalent to it. Methods that work at
 one prescribed class modulus — Weil, Burgess with smooth weights, sieves, representation theorems — therefore have at
-most a (log p)^{2+η} factor to gain over the trivial construction there, and the ES content lies in the aggregation over
-q. EVIDENCE (§5.2): the least cofactor scales linearly in q (mean κ(p, q)/q = 0.13–0.22 at 19 primes near 10⁶), and the
+most a (log X)^{2+η} factor to gain over the trivial construction there (in the scope of Cor B1: q ∈ 4ℕ, q ≤ X^{1/2},
+prescribed independently of p), and the Type II content lies in the aggregation over q. EVIDENCE (§5.2): the least cofactor scales linearly in q (mean κ(p, q)/q = 0.13–0.22 at 19 primes near 10⁶), and the
 number of ordered witnesses with κ ≤ q is ≈ log p for every q.
 
 ### 4.3 Theorem C — the closure is a finite menu
@@ -258,7 +272,7 @@ Statements were read in the primary source (arXiv abstract or PDF) unless marked
 | **Ramaré–Walker** Thm 1.1 (arXiv:1610.05804; JTNB 30 (2018)): q ≤ x^{1/16} ⇒ every invertible class mod q contains p₁p₂p₃ with all p_i ≤ x^{1/3} | (i) q = 4C, class −1: a free product x ≡ −1 (mod 4C) — rung A0; (ii) q = 4p, class 1: some N = p₁p₂p₃ ≡ 1 (mod 4p) | (i) x must also divide 4Cp + 1 — a congruence on p modulo the free x, not supplied; (ii) the theorem controls neither the height (N − 1)/4p nor whether some divisor of N lies in −1 (mod (N − 1)/p) |
 | **Szabó** (arXiv:2208.05762) Thm 1: q cube-free ⇒ \|E₂(q)\| ≥ (3/8 + o(1))φ(q) (products of two primes ≤ q); Thm 2: q large prime ⇒ E₆(q) = (ℤ/q)^×; Thm 3: q ≥ q₀(ε) ⇒ E₃(q^{6/5+ε}) = (ℤ/q)^× | as RW; Thm 1 is a density over classes | as RW; Thm 1 need not contain the class −1 |
 | **Harman–Shparlinski** Thm 1 (arXiv:1408.4515): q cube-free large ⇒ every reduced a ≡ n₁⋯n₁₄ (mod q), n_i ≤ q^{1/(4√e)+ε} | x ≡ −1 (mod 4C) congruent to a product of 14 small integers — rung A0 | x must divide 4Cp + 1; the theorem is silent on that. Data: (★) solutions with x **and** y p^{1/4}-smooth are absent at ≈ 98.7 % of primes; with one smooth coordinate they are a constant share (≈ 0.3) of R, so the data do not refute a one-coordinate use (§5.1) |
-| **Weil on 𝓗** (Shparlinski, *Modular hyperbolas*, Thm 13, arXiv:1103.2879): #{xy ≡ a (m), x ∈ I, y ∈ J} = φ(m)\|I\|\|J\|/m² + O(m^{1/2+o(1)}) | E(q, κ) in a box: after (u − q̄)(B − q̄) ≡ q̄² (mod p), a solution in a balanced box needs UV ≥ p^{3/2+ε}, i.e. cofactor ≍ q p^{1/2+ε} | worse than the trivial κ ≤ q − 2 (Thm B(a)); by Thm B(b) no statement at a prescribed q beats q/(log p)^{2+η} for most p |
+| **Weil on 𝓗** (Shparlinski, *Modular hyperbolas*, Thm 13, arXiv:1103.2879): #{xy ≡ a (m), x ∈ I, y ∈ J} = φ(m)\|I\|\|J\|/m² + O(m^{1/2+o(1)}) | E(q, κ) in a box: after (u − q̄)(B − q̄) ≡ q̄² (mod p), a solution in a balanced box needs UV ≥ p^{3/2+ε}, i.e. cofactor ≍ q p^{1/2+ε} | worse than the trivial κ ≤ q − 2 (Thm B(a)); by Cor B1 no statement at a q ≤ X^{1/2} prescribed independently of p beats q/(log X)^{2+η} for almost all p ≤ X |
 | **Garaev–Karatsuba** (via Shparlinski §3.2 and KSWX §3.3; PARITY_AUDIT row B1, verified by R265): almost all a ⇒ xy ≡ a (p), x, y ≤ p^{1/2}(log p)^{1+ε} | right size scale (xy ≈ p) | averaged over the residue a (B6); at a = 1 trivial; the tie is not a residue condition |
 | **Bourgain–Garaev** Thm 2 (arXiv:1211.4184): \|I\| < p^{3/46} ⇒ #{x̄ + ȳ + z̄ = λ, x, y, z ∈ I} < \|I\|^{2/3+o(1)} (λ ∉ I⁻¹ ∪ {0}) | the additive form 4C ≡ ū + B̄ (Lemma 3.1) is a two-term reciprocal sum | an upper bound; the ES target λ = 4C is tied to the size by 4uBC = p + u + B |
 | **Klurman–Shparlinski–Teräväinen** (arXiv:2609.25393, abstract): a small set of small primes generates (ℤ/q)^× for all but O(Q(log Q)^{−A}) moduli q ≤ Q | almost all class moduli q = 4C | ES needs a rare event (Cor B2: share ≤ (log X)²/(4C) at a prescribed level) at some q, not a typical property of almost all q |
@@ -268,21 +282,25 @@ Statements were read in the primary source (arXiv abstract or PDF) unless marked
 **Common pattern (Assessment).** Each theorem either (i) chooses a free object in a class modulo a fixed modulus (rung
 A0; the object then has to divide a forced integer, i.e. p must lie in a prescribed class modulo the free object), or
 (ii) produces objects whose height and factorisation it does not control, or (iii) averages over residues or moduli
-(B6). By Thm B, (i) used at one prescribed class modulus is capped at the trivial construction up to (log p)^{2+η}; by
+(B6). By Thm B, (i) used at one class modulus q ≤ X^{1/2} prescribed independently of p is capped, for almost all p ≤ X, at
+the trivial construction up to (log X)^{2+η}; by
 Lemma 3.5 and Thm A the T1-admissible free rung is A2.
 
 ### 4.5 Closest provable statement and exact gap
 
 * **Closest tie-free statement (PROVED):** for every q ∈ 4ℕ and p ∤ q(q − 1), E(q, κ) for some κ ≤ q − 2 (Thm B(a)); for a
-  class modulus prescribed in advance, nothing valid for almost all p guarantees κ ≤ q/(log p)^{2+η} (Thm B(b), Cor B1).
+  class modulus q = q(X) ∈ 4ℕ, q ≤ X^{1/2}, prescribed independently of p, nothing valid for almost all p ≤ X guarantees
+  κ ≤ q/(log X)^{2+η} (Thm B(b), Cor B1; false without q ≤ X^{1/2}, §4.2).
 * **Closest T1-carrying statement (PROVED, known in substance):** A2 — E(4C′, s²) with class modulus (4H)^{1−θ′},
   θ′ = log s²/log 4H, from one prime ℓ ≡ 3 (4) with (ℓ/p) = −1 (Dirichlet).
 * **Exact gap (PROVED reduction + Assessment):** Type II ⟺ some E(q, κ) with κ | q/4 (Lemma 3.4); within A2 this is
-  "s² | ℓ + 1 and 4ℓ | p + w", which implies a (★) triple with C = s²/4. At a prescribed q the Type II event occurs for at
-  most a τ(q/4)(log X)²/q share of p (Cor B2), heuristically ≍ τ(q/4) log p/q; any proof must aggregate over q. In the
+  "s² | ℓ + 1 and 4ℓ | p + w", which implies a (★) triple with C = s²/4. At a prescribed q ≤ X^{1/2} the Type II event occurs for at
+  most a τ(q/4)(log X)(log(qX) + 6)/q + o(1) share of p ≤ X (Cor B2), heuristically ≍ τ(q/4) log p/q; any proof of
+  Type II(p) via this picture must aggregate over q (Assessment; ES proofs via Type I are not addressed). In the
   compact form (Prop 3.2): one needs a point x of the inverse graph of (ℤ/4p)^× whose height h(x) = (x x̄ − 1)/p divides
   x + 1; the information carried by the class of x modulo 4p or modulo any fixed Q is, at the winners, the χ-shadow
-  (x/p) = −1 plus the class itself, and Thm B shows that a prescribed class modulus alone cannot force a small height.
+  (x/p) = −1 plus the class itself, and Thm B shows that a class modulus q ≤ X^{1/2} prescribed independently of p cannot, for almost all p, force a
+  small height.
 
 ## 5. Computations
 
@@ -316,11 +334,13 @@ near-square with R = 0 is 1 134 241, a known (★) failure.)
 * **EVIDENCE.** Above 5·10⁵ the unordered either-prime count has mean 5.8 and variance/mean 1.05 (Poisson-like); the
   both-prime count has mean 0.74 and variance/mean 0.92. The either-prime mean grows like ≈ 0.42–0.51·log p over the
   samples; the both-prime mean like ≈ 0.05·log p.
-* **CONJECTURE (conditional on a Poisson zero law with mean c·log p, c ≈ 0.42–0.51 for either-prime).** Then the
-  either-prime sub-lottery fails at ≍ X^{1−c+o(1)} primes below X — infinitely many while R(p) > 0. For the both-prime
+* **CONJECTURE (conditional on (i) a Poisson zero law with mean c·log p, c ≈ 0.42–0.51, for the either-prime count, and
+  (ii) unrestricted (★) failures being o(X^{1−c}) below X — e.g. R(p) > 0 eventually, or a joint zero law for the pair
+  (R, Rp)).** Then the either-prime sub-lottery fails at ≍ X^{1−c+o(1)} primes below X with R(p) > 0 — infinitely many.
+  The marginal law (i) alone does not place its zeros at primes with R(p) > 0. For the both-prime
   (EOS-shape) sub-lottery (c ≈ 0.05) the failures would have density p^{−0.05}, i.e. it fails at most primes in any
   practical range. Either way, no theorem that delivers a *prime* divisor (rung A0 with a prime, or EOS shape) can carry
-  (★) at every large p unless this zero law is wrong.
+  (★) at every large p unless these hypotheses fail.
 * **EVIDENCE.** "x and y products of primes ≤ p^{1/4}" is empty at ≈ 98.7 % of primes in every sample (share of R:
   0.33–0.45 %); "≤ p^{1/3}": empty at 69–85 %. One coordinate p^{1/4}-smooth is a constant ≈ 0.26–0.33 share of R and empty
   at 1–14 %: not refuted.
@@ -353,29 +373,31 @@ divisibility closure (Lemma 3.3)".
 2. **8/131.** The (q, κ) analysis is numerator-specific only through 4 | q; the representation theorems are
    numerator-blind. **Fail (no 4-specific step).**
 3. **Tied modulus.** Closure removes the tie exactly (Lemma 3.3) but turns it into a finite menu per M (Thm C), and one
-   prescribed class modulus cannot force a small cofactor (Thm B). **Fail — the lane's main negative result.**
+   class modulus q ≤ X^{1/2} prescribed independently of p cannot force a small cofactor for almost all p (Thm B). **Fail — the lane's main negative result.**
 4. **Fixed p.** All statements are at one p, except Thm B(b)/Cor B1–B2, which are averages used only as barriers.
    **Pass** (but no positive pointwise input survives).
 
 ## 7. Verdict, proposed FRONTIER §7 text, bottom line
 
-**Verdict: narrowed.** Scoped results: (i) for a class modulus prescribed independently of p, no statement valid for
-almost all p guarantees a cofactor below q/(log p)^{2+η}, while the trivial CRT construction gives q − 2 (Thm B,
+**Verdict: narrowed.** Scoped results (all about Type II and its (★) line; ES = Type I or Type II): (i) for a class
+modulus q = q(X) ∈ 4ℕ, q ≤ X^{1/2}, prescribed independently of p, no statement valid for almost all p ≤ X guarantees a
+cofactor below q/(log X)^{2+η} (false without the size bound), while the trivial CRT construction gives q − 2 (Thm B,
 Cor B1; PROVED); (ii) removing the tie by divisibility closure is a finite menu per M (Thm C(a) PROVED, (b) CONDITIONAL
 on H) with expectation O(log p) per M (EVIDENCE/Assessment); (iii) the free-object rungs reach the T1-admissible
 square-cofactor rung A2, and the exact condition for A2 to be Type II implies a (★) triple with C = s²/4 (Thm A; PROVED);
 (iv) the prime and EOS-shape sub-lotteries are CERTIFIED to fail at many primes < 10⁶ where (★) holds, and are predicted
-to fail infinitely often under a Poisson zero law (CONJECTURE). Surviving: a **joint** statement over many class moduli at
+to fail infinitely often under a Poisson zero law plus negligible unrestricted failures (CONJECTURE). Surviving: a **joint** statement over many class moduli at
 one p — e.g. a lower bound for #{q ≤ Q : E(q, κ) for some κ | q/4} at fixed p — which is B2 itself, and the compact
 inverse-graph form (Prop 3.2) as a clean target for a non-fixed-modulus idea (Assessment).
 
 **Proposed FRONTIER §7 text (do not edit FRONTIER here; for the non-CRT item / §4 item 8):**
 > *(z53 NONCRTSMOOTH, `Z53_NONCRTSMOOTH.md`.)* Fixed-modulus multiplicative representation (Erdős–Odlyzko–Sárközy,
 > Ramaré–Walker, Szabó, Harman–Shparlinski, Weil on 𝓗) does not supply the tied divisor. In the two-modulus form
-> E(q, κ): x ≡ y ≡ −1 (mod q), xy = κqp + 1, (★) is κ = 1 and Type II is κ | q/4 (PROVED). For a class modulus q
-> prescribed independently of p, the trivial CRT solution has κ ≤ q − 2, and all but o(π(X)) primes p ≤ X have no
-> solution with κ ≤ q/(log X)^{2+η} (PROVED, elementary) — so a statement about one prescribed class modulus has at most a
-> (log p)^{2+η} factor to gain over the trivial construction, and the ES content is the aggregation over q (Assessment).
+> E(q, κ): x ≡ y ≡ −1 (mod q), xy = κqp + 1, (★) is κ = 1 and Type II is κ | q/4 (PROVED; ES = Type I or Type II).
+> The trivial CRT solution has κ ≤ q − 2; for a class modulus q = q(X) ∈ 4ℕ with q ≤ X^{1/2}, prescribed independently
+> of p, all but o(π(X)) primes p ≤ X have no solution with κ ≤ q/(log X)^{2+η} (PROVED, elementary; false without
+> q ≤ X^{1/2}) — so a statement about one such class modulus has at most a (log X)^{2+η} factor to gain over the
+> trivial construction, and the Type II content is the aggregation over q (Assessment).
 > Removing the tie by "height | M" is a finite menu per M (fails i.o. under H). Free-object constructions reach the
 > T1-admissible square-cofactor rung (4/p = s²/x + 1/y + 1/z from one prime ℓ ≡ 3 (4) with (ℓ/p) = −1; ES^□-type); making
 > it Type II implies a (★) triple with C = s²/4. Compact form: R(p) = #{x ∈ (1, 4p) : (x x̄ − 1)/p | x + 1} on the inverse
@@ -384,8 +406,9 @@ inverse-graph form (Prop 3.2) as a clean target for a non-fixed-modulus idea (As
 
 **Bottom line.** The fixed-modulus representation theorems are the right tools for the wrong quantifier: they speak
 about every class modulo one modulus, while (★) asks for a rare event at *some* class modulus q among ≍ p of them.
-Writing ES as the two-modulus event E(q, κ) makes this exact. At one prescribed q the trivial CRT solution already gives
-cofactor κ ≤ q − 2, and for most p nothing smaller than q/(log p)^{2+η} exists there; (★) and Type II need κ = 1 and
+Writing Type II (the part of ES studied here) as the two-modulus event E(q, κ) makes this exact. At one prescribed q the
+trivial CRT solution already gives cofactor κ ≤ q − 2, and — for q ≤ X^{1/2} prescribed independently of p — for most
+p ≤ X nothing smaller than q/(log X)^{2+η} exists there; (★) and Type II need κ = 1 and
 κ | q/4. Tie removal by divisibility closure is algebraically exact but becomes a finite menu. Free primes are absent from
 (★) at 85 primes below 10⁶ where (★) holds, and prime pairs (the EOS shape) at nearly half of them. The one T1-carrying
 thing a free prime does buy is the square-cofactor relaxation A2, already known as ES^□. What would be new is a
@@ -440,4 +463,12 @@ Runtimes: engine 1 ≈ 20 min (p24), ≈ 10 min (10⁷ sample); engine 2 ≈ 25 
   Banks–Shparlinski's fixed base prime, Szabó Thm 3, the Bourgain–Garaev size relation 4uBC = p + u + B; stale numbers
   (400 primes at 10⁷; fixed-q table split into the 19 primes near 10⁶ and the 10 failures; "best M" is chosen per p;
   N_q counts ordered witnesses); the CRT checker now checks κ ∈ [1, q − 2]; one label per claim.
-* Cross-model review: pending.
+* *Cross-model review* (`data/z53/xreview/REVIEW_NONCRTSMOOTH.md`, on commit c3aee577; verdict ACCEPT-WITH-FIXES). It
+  re-derived every lemma/theorem as CORRECT and replicated all data with an independent engine
+  (`scripts/z53_xrev_noncrtsmooth_census.cpp`: 18/18 columns exact on 10 747 inputs; `scripts/z53_xrev_noncrtsmooth_audit.py`:
+  290/290 fixed-q rows exact). Fixes applied: (1, MAJOR) the size hypothesis q ∈ 4ℕ, q ≤ X^{1/2}, prescribed
+  independently of p, restored in every restatement of Cor B1 (§0, §4.2 reading, §4.5, §6, §7, FRONTIER text), with the
+  reviewer's counterexample q = 2 + 2∏_{3≤r≤X} r showing it is essential, the remark that B1 is vacuous for fixed q, and
+  the explicit Type II remainder in Cor B2; (2, MAJOR) "ES is the union / ES as E(q, κ)" replaced by Type II, with
+  ES = Type I or Type II stated; (3) the Poisson CONJECTURE now states the extra hypothesis on unrestricted failures;
+  (4) κ(p, q) defined for q ∉ 4ℕ in Thm B(b).
