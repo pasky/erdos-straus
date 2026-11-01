@@ -199,8 +199,14 @@ simplex, and the off-cube argument with uniform error bookkeeping is not written
 treatment of the classes might improve the proved 1/225; not pursued.
 (2) The data show the character sums are square-root size (§7.2), far better than Lemma 1.4; with square-root sums the
 square sieve would give ≈ n^{1/4}-type bounds at the cube. Not claimed.
-(4) Full Type II (Elsholtz	tao f_II for Consequently the theorem does not by itself imply positivity
+(3) Why primality is irrelevant: every step is uniform in n. Consequently the theorem does not by itself imply positivity
 (T1: R(m²) = 0 satisfies every upper bound).
+(4) Full Type II (Assessment). Elsholtz–Tao's f_II(n) ≪ n^{2/5+o(1)} (Prop. 1.7; `sources/elsholtz-tao-1107.1010.pdf` §3) is
+extremal at a, c, d ≍ n^{1/5}, b ≍ n^{3/5}, e ≍ n^{2/5} (their sextuple coordinates; e·ad·ac·cd ≤ n²). There every quadratic
+pair the square sieve could detect — (a, b) at level 4cd, the hyperbola pair (f, 4bcd − 1) of their (2.21), the pair (e, f)
+of (2.19) — is unbalanced by a factor ≍ n^{1/5}, so the candidate set has size ≫ n^{3/5} and the sieve's main term |𝒜|/P
+does not beat n^{2/5} unless P ≥ n^{1/5}, far outside the range where Lemma 1.4-type discrepancy bounds help. So this
+implementation does not improve 2/5; checked only at that configuration.
 
 ## 4. The block-shape map (upper side)
 
