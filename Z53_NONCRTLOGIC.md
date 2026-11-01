@@ -357,8 +357,9 @@ so non-residue formal primes are available — which is exactly why n_p escapes.
   procedure that, given n_p = r, certifies by a finite menu of ET Prop 1.9 classes fails i.o. (unconditional: Dirichlet
   supplies the primes). Every r ≤ 13 *is* covered at level 1, r = 17 open ((J)70 Comp 4.1, FRONTIER §7.9).
 * With FACTOR the question is FRONTIER §7.9's (uniform multiplicity / sterility on the r-generic line). **So the cheapest
-  escaping primitive with complete factorisation control (n_p is a prime) buys exactly the quadratic layer, and what remains is
-  the r-generic sterility problem — a B2-type statement** (Assessment, matching FRONTIER's own reading of §7.9).
+  escaping primitive with complete factorisation control (n_p is a prime; its value is a function of finitely many Legendre
+  symbols) buys quadratic-layer information, and what remains is the r-generic sterility problem — a B2-type statement**
+  (Assessment, matching FRONTIER's own reading of §7.9).
 * Scope of the reduction: it uses that n_p = r is fixed by a *finite prefix* of quadratic symbols; it applies equally to "least
   prime ≡ a (mod m) with a prescribed symbol". It does **not** apply to the least primitive root g_p (fixing g_p needs
   order/power-residue data: mod 97, 5 and 28 are both non-residues, of orders 96 and 32 — reviewer's example; that is
