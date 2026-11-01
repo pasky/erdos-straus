@@ -12,8 +12,23 @@ static long Lcount(long p, long C) {
         if ((p + u) % (4 * u * C - 1) == 0) L++;
     return L;
 }
+
+// b1 mode: b=1 line count: #{(d,k): d>=1,k>=1, (4dk-1) | (p+4d)}  (divisor form of López Type A: p+4d has divisor w≡-1 mod 4d)
+static long B1count(long p) {
+    long B = 0;
+    for (long d = 1; 4 * d - 1 <= p + 1; d++)
+        for (long k = 1; (4 * d * k - 1) <= p + 4 * d; k++)
+            if ((p + 4 * d) % (4 * d * k - 1) == 0) B++;
+    return B;
+}
 int main(int argc, char **argv) {
     char *spec = argc > 1 ? argv[1] : "all";
+    if (strcmp(spec, "par200") == 0) { // for C=1..200: print p, #odd L_C, #levels with L_C>0 (C<=200), and list of odd C
+        long p; while (scanf("%ld", &p) == 1) { long nodd = 0, npos = 0; printf("%ld", p);
+            for (long C = 1; C <= 200 && C <= (p + 2) / 4; C++) { long L = Lcount(p, C); if (L & 1) { nodd++; printf(" o%ld", C); } if (L) npos++; }
+            printf(" | nodd=%ld npos=%ld\n", nodd, npos); }
+        return 0; }
+    if (strcmp(spec, "b1") == 0) { long p; while (scanf("%ld", &p) == 1) printf("%ld %ld\n", p, B1count(p)); return 0; }
     long *cl = NULL; long ncl = 0;
     int all = strcmp(spec, "all") == 0;
     if (!all) {
