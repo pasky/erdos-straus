@@ -17,15 +17,17 @@ the count without the 4-condition.
 1. **Main new step. R2 reduces to a second-order equidistribution hypothesis (MIX) that needs only a power saving, not
    beyond-square-root cancellation** (Theorem R; the reduction is PROVED, MIX itself is open).
    * f(f(u)) = u holds exactly when the phase pair (θ_u, θ_{f(u)}), θ_x := {−p/x}, lies on the graph of the Gauss map
-     x ↦ 1/x − 1 or of x ↦ 1/(1+x) (Lemma G). Both coordinates lie in (1/f(u))ℤ.
+     x ↦ 1/x − 1 or of x ↦ 1/(1+x) (Lemma G). The two sides of that equality, θ_B and Γ_j(θ_u), both lie in (1/B)ℤ.
    * Hence, for U^{−1} ≤ δ ≤ 1/2, N₂ ≪ δU + δ^{−1}U^{3ε}·max |W(h)| over 0 < |h₂| ≤ H, |h₁| ≤ H, with
      H = 15U^{2ε}/δ, where W(h) = Σ_{u ∈ dom f} e(−h₁p/u − h₂p/f(u)).
    * If |W| ≤ U^{1−η} on |h| ≤ U^η, then N₄ ≤ N₂ ≪ U^{1−η/2+3ε}. So R2 follows from *any* power saving in a sum of
      ≈ 0.69U terms. Lemma G and Theorem R are new in the repo; Theorem R is a standard smoothed Erdős–Turán
      reduction.
    * EVIDENCE at 10¹², 10¹⁶, 10¹⁸ (29 primes with |h| ≤ 20/10/6, plus 8 primes with |h| ≤ U^{1/2}):
-     |W|/√|dom f| has rms 1.0–1.2 and maximum ≤ 5.5. This is square-root size, so MIX(η ≈ 1/2) is consistent with all
-     computations. It would give N₂ ≪ U^{3/4+ε}.
+     |W|/√|dom f| has rms 1.0–1.2 and maximum ≤ 5.5. This is square-root scale. The maxima on |h| ≤ U^{1/2} are 2.68, 4.53
+     and 4.11 times √U, so a literal constant-one MIX(1/2) fails at these inputs. The data are compatible with a
+     conjectural uniform U^{1/2+o(1)} bound, hence with MIX(η) for each fixed η < 1/2. That family would give
+     N₂ ≪ U^{3/4+ε} for every ε > 0.
    * Comparison with Z52D's sufficient condition R1 (Assessment). R1 asks for beyond-square-root cancellation in a sum
      of U² terms, and Z52D measured |S_h| ≈ 1.4–1.8·U against it at 10¹². MIX asks only for a power saving in ≈ 0.69U
      terms. Neither is shown to imply the other, and they bound N(U,U) and N₂ respectively.
@@ -34,11 +36,13 @@ the count without the 4-condition.
 2. **The standard determinant method is vacuous for (★) in every block (Prop D; PROVED relative to the cited theorems).**
    * For F = kuB − u − B − p, Heath-Brown's affine Theorem 15 (CIME notes, statement taken from the restatements by
      Reuss and by Browning–Heath-Brown) bounds the number of auxiliary polynomials by X = T^ε·exp(2√(Π log B_i/log T)).
-     We show X ≥ min(B_i)^{2/√3}. Annals Theorem 14, applied to the homogenisation, gives a bound X′ ≥ the same power.
-   * So any count bound obtained by applying these theorems as stated is ≥ min(B_i)^{2/√3}. For the full box this is
-     worse by a power than the elementary bound min(B_i)·p^{o(1)} (Z52D Thm 1); subdivisions never beat the elementary
-     bound. This closes Z52D's (R3) in its standard form. The reason is that the box is *critical*: V/T = 1, so the
-     expected count is O(1).
+     We show X ≥ min(B_i)^{2/√3}. Annals Theorem 14 (checked in the source by the cross-model reviewer), applied to the
+     homogenisation, gives a bound X′ ≥ the same power. These lower bounds concern the displayed upper-bound expressions.
+   * So the black-box implementation (that bound times a uniform per-curve bound, on the full box or on a full grid of
+     sub-boxes) gives ≥ min(B_i)^{2/√3}. For the full box this is worse by a power than the elementary bound
+     min(B_i)·p^{o(1)} (Z52D Thm 1), and a full grid never beats it. This closes Z52D's (R3) for that implementation
+     only; occupancy pruning or other uses of the theorem are not excluded. The reason is that the box is *critical*:
+     V/T = 1, so the expected count is O(1).
 3. **Where the 4-condition enters (Lemma B, Prop C, Prop S PROVED; readings Assessment).**
    * The 4-condition adds exactly two 2-adic bits at the even vertex: (★) pairs are the mixed cycles
      u ↦ (−(p+u) mod 4u) ↦ u. In the pair-product model N₄ = N₂/5 and N₅ = (3/4)N₂, where N₅ counts the five-slice
@@ -47,23 +51,24 @@ the count without the 4-condition.
      (PROVED relative to DK Cor 4.1 by a 160-cell check, plus 2.8·10⁵ words).
    * T1 lives in the five-slice layer, not in the 2-cycle count. An explicit infinite family of odd squares m² has
      N₂(m², ⌊√m⌋) ≥ 1 (Prop S), and 14.0 % of odd squares near 10¹² have N₂ > 0. So a lower bound for N₂ is T1-blind.
-   * (Assessment.) For upper bounds the 4-condition is only a bounded thinning, so N₂ is *not* bounded better than N₄: the
-     trivial bound U/2 is the same, and no better bound for either is known.
-4. **Dynamics of f is the independent-CRT random map (EVIDENCE).**
+   * (Assessment.) For upper bounds the 4-condition is only a bounded thinning, and no better bound is known for N₂ than for
+     N₄ (the trivial bound U/2 is the same). The model ratio does not prove equal difficulty; only R2′ ⟹ R2 is a theorem.
+4. **Dynamics of f matches the tested independent-CRT statistics (EVIDENCE; no random-map law is established).**
    * The means of N₂, N₄ and N₃ (3-cycles), the domain size |dom f|/U → log 2, and the second factorial moments all match
      the model. In particular N₂ is under-dispersed (var/mean 0.989) and N₄ over-dispersed (1.009), exactly as the model
      predicts.
    * Exhaustive scan of all 1.9·10⁸ primes < 4·10⁹: max N₂ = 7 and max N₄ = 5. The tails are consistent with the model,
      and the class mod 64 has no effect.
-   * No falsifier of a power saving exists in range. The data look like N₂ ≤ p^{o(1)}.
+   * No falsifier of a power saving exists in range. The data are consistent with the CONJECTURE N₂ ≤ p^{o(1)}.
 5. **R2 is irrelevant to ES and to the bound R(p) ≪ p^{1/3+o(1)}** (§6; PROVED facts plus Assessment).
    * It is an upper bound; the block's main term is 0.146 < 1; and the balanced block's trivial bound p^{1/4} is already
      below the cube block's p^{1/3}.
 
 **Verdict: narrowed, with one strengthened sufficient condition.**
-* Closed (scoped PROVED): the standard (HB Thm 14/15) determinant method for (★) blocks.
+* Closed (scoped PROVED): the black-box use of the standard (HB Thm 14/15) determinant method for (★) blocks.
 * Located: the 4-condition (2-adic) and T1 (five-slice layer).
-* Strengthened: R2′ ⟸ MIX, a square-root-regime hypothesis consistent with all computations (EVIDENCE, §5.3).
+* Strengthened: R2′ ⟸ MIX, a square-root-regime hypothesis; the data show square-root scale, compatible with MIX(η) for
+  each fixed η < 1/2 (EVIDENCE, §5.3).
 * Recommended: retire R2 from FRONTIER §7.1's ES-relevant list. If kept, keep it as an upper-bound methods test, stated
   via MIX.
 
@@ -196,7 +201,9 @@ interior length-3 words, including 2-cycles.
   q + 1 ≤ 2U for every listed q.
 * 4 ∤ k and N₅ = 0 follow from T1 at odd squares.
   * PARITY_AUDIT Lemma 3.2 gives no (★) at squares.
-  * For the five slices: n ≡ 1 (8) and every unit is a square mod n, so all edges are monochromatic, and DK Thm 4.5 applies.
+  * For the five slices: n ≡ 1 (8), and at a square n every unit has Jacobi symbol (x/n) = (x/m)² = +1. The edge sign
+    A = ku − 1 is a unit, since (ku−1)(kB−1) = kn + 1, so DK Thm 4.5 applies without assuming unit endpoints: (A/n) = +1,
+    and no slice holds.
 
 CERTIFIED (`scripts/z53_hyp2cycle_sqfamily.py 20000` + `…_scan.c`): all 1 124 squares with q < 20 000 have N₂ ≥ 1 and
 N₄ = N₅ = 0. ∎
@@ -204,8 +211,8 @@ N₄ = N₅ = 0. ∎
 *Reading (Assessment).* T1 kills the 4-condition and the whole five-slice (QR) layer, but not the 2-cycles themselves: about 14 % of odd
 squares have one. So
 * a lower bound for N₂, i.e. one with no 4- or QR-input, is false as an ES tool;
-* for upper bounds the 4-condition is a bounded thinning (N₄ ≤ N₂, ratio → 1/5 in the model), so R2 and R2′ are equally
-  hard for counting methods.
+* for upper bounds the 4-condition is a bounded thinning on average (N₄ ≤ N₂ always; ratio → 1/5 in the model). The model
+  ratio does not prove that R2 and R2′ are equally hard or have equivalent bounds; only R2′ ⟹ R2 is a theorem.
 
 The ES-relevant content of the 4-condition is the two 2-adic bits of Lemma B on top of the QR colour condition (Prop C′).
 That is FRONTIER §4 item 9 ("class, not parity") in its smallest form: the colour fixes the five-slice union, and the
@@ -213,9 +220,10 @@ That is FRONTIER §4 item 9 ("class, not parity") in its smallest form: the colo
 
 ## 3. Exact forms of the 2-cycle count (PROVED)
 
-The continued-fraction form is already known and is not redone. 2-cycles at level k are HJ words
+The continued-fraction form is already known and is not redone. 2-cycles at level k ≥ 2 are HJ words
 n/(kB−1) = [[u, k, B]], equivalently n/(kB−1) = [u−1; 1, k−2, 1, B−1] (LENGTH_THREE Prop 1.1, DK Lemma 1.1), with
-u, B ∈ (U, 2U]. Equivalently they are the SL₂ matrices [[ku−1, n],[k, kB−1]].
+u, B ∈ (U, 2U]. The HJ dictionary presupposes k ≥ 2, which is automatic at the fourth-root scale (k ≍ √n) but not for
+every allowed U: p = 11, U = 3, {4, 5} has k = 1. In all cases they are the SL₂ matrices [[ku−1, n],[k, kB−1]].
 
 **Lemma A (level form; PROVED).** Suppose every level occurring in the block exceeds 4U. This holds if n ≥ 16U³, since
 k > n/(4U²); for U = ⌊n^{1/4}⌋ it holds for n ≥ 2¹⁶. Then {u,B} ↦ k is injective, and
@@ -243,11 +251,13 @@ second filter is a square condition of probability ≍ 1/U.
 **Strip and fixed-difference forms.**
 * Strip form: N₂ = #{(k, m) ∈ ℤ² : s := km − n ∈ (2U, 4U], s² − 4m = □, …}. These are lattice points in the hyperbolic
   strip n + 2U < km ≤ n + 4U, i.e. the Dirichlet-divisor geometry, with a square condition on top.
-* Fixed-difference form: with w = B − u, N₂ = Σ_{w≥1} #{u : u | n + w, (u + w) | n − w, u, u+w ∈ (U,2U]}.
+* Fixed-difference form (at primes; for composite n add the product condition uB | n + u + B): with w = B − u,
+  N₂(p,U) = Σ_{w≥1} #{u : u | p + w, (u + w) | p − w, u, u+w ∈ (U,2U]}. At composite n the two divisibilities alone do
+  not suffice: n = 15, U = 6, u = 9, B = 12 has u | n + 3, B | n − 3 but uB = 108 ∤ 36 = n + u + B.
 * Both are restatements: substitute m = uB, s = u + B. All three forms make R2 a count of rare events (≈ 1/U each)
   among ≍ U candidates. None has an obvious cancellation.
 
-## 4. Dynamics of f: it is the independent-CRT random map (EVIDENCE)
+## 4. Dynamics of f: it matches the tested independent-CRT statistics (EVIDENCE)
 
 Model (Prop C setting): p uniform over units modulo a common multiple of all moduli.
 * E|dom f| = Σ_x #{y ∈ (U,2U] : (x,y)=1}/φ(x) → U log 2.
@@ -283,7 +293,7 @@ Model (Prop C setting): p uniform over units modulo a common multiple of all mod
   * Against Poisson with the empirical mean, the N₂ tail is *thinner* (61 590 vs 70 451 at N₂ = 4) and the N₄ tail
     *fatter* (273 vs 151 at N₄ = 4). This is consistent with the second moments above, which the CRT model reproduces.
   * **No falsifier of a power saving exists in range.** max N₂ = 7 among 1.9·10⁸ primes, and max N₂ ≤ 6 at 10¹²–10¹⁸ in
-    the samples. The growth looks like p^{o(1)}, as in the Poisson model. Constructions of p with many 2-cycles need
+    the samples. This is consistent with the CONJECTURE N₂ ≤ p^{o(1)} (Poisson model). Constructions of p with many 2-cycles need
     p ≡ −(u_i+B_i) (mod u_iB_i) for many pairs, i.e. prime moduli ≳ p^{1/2}. Assessment: beyond BV-level, and
     sub-power at best.
 * *Controls.*
@@ -340,8 +350,10 @@ with 2U < p, and U^{−1} ≤ δ ≤ 1/2, with H := 15U^{2ε}/δ,
 
   N₂(p, U) ≤ CδU + CU^{3ε}δ^{−1}·max_{0<|h₂|≤H, |h₁|≤H} |W(h)| + C·U^{−A}.
 
-*Corollary (CONDITIONAL on MIX(η)).* Suppose |W(h)| ≤ U^{1−η} for all 0 < |h₂| ≤ U^{η}, |h₁| ≤ U^{η}. Take δ = U^{−η/2}
-(so H ≤ U^{η} for ε < η/8 and U large). Then N₄ ≤ N₂ ≪_ε U^{1−η/2+3ε}. So R2′, hence R2, holds.
+*Corollary (CONDITIONAL on MIX(η)).* Let 0 < η ≤ 1. **MIX(η)** is the uniform hypothesis: there are U₀ and C₀ such that
+for every prime p and every integer U ≥ U₀ in the fourth-root range c₁p^{1/4} ≤ U ≤ c₂p^{1/4} (fixed c₁, c₂ > 0), with
+2U < p, one has |W(h)| ≤ C₀U^{1−η} for all 0 < |h₂| ≤ U^{η}, |h₁| ≤ U^{η}. Take δ = U^{−η/2} ≥ U^{−1} (so H ≤ U^{η} for
+ε < η/8 and U large). Then N₄ ≤ N₂ ≪_{ε,η,C₀} U^{1−η/2+3ε} uniformly in that range. So R2′, hence R2, holds.
 
 *Proof.*
 (1) *Majorant.* Fix ψ ∈ C_c^∞(−2, 2) with 0 ≤ ψ ≤ 1 and ψ = 1 on [−1, 1]. Fix ρ₀ ∈ C_c^∞(0.4, 1.1) with 0 ≤ ρ₀ ≤ 1 and
@@ -393,12 +405,14 @@ then χ(x,y) ≥ 1. By Lemma G, 2N₂ ≤ Σ_{u ∈ dom f} χ(θ_u, θ_{f(u)}).
     3·10⁴, i.e. |W| ≈ 0.145·U at all three scales (≈ 0.21·|dom f|). That is a main term coming from the domain condition θ_u ∈ A_u, and Theorem R
     avoids it.
   * The extended rows cover |h| ≤ U^{1/2} (H = 32, 100, 180 ≥ U^{1/2} = 31.6, 100, 178), at one to five primes per
-    scale. So MIX(η) for η up to ≈ 1/2 is *consistent with every computation*. This is EVIDENCE only; an asymptotic
-    hypothesis cannot be verified numerically.
+    scale. The observed scale is square-root: the normalised maxima 3.307, 5.423, 4.939 (at (0,22), (0,94), (0,167)) are
+    2.68, 4.53 and 4.11 times √U. So a *literal* constant-one MIX(1/2) fails at these inputs. The data are compatible with
+    a conjectural uniform bound |W| ≤ U^{1/2+o(1)}, hence with MIX(η) for each fixed η < 1/2 (EVIDENCE only; an asymptotic
+    hypothesis cannot be verified numerically).
   * The maximum always sits on the h₁ = 0 column, whose rms drifts slowly upward (≈ 1.9 → 2.1 → 2.3–2.6). This is
     consistent with a logarithmic factor from Σ d_U².
-  * If MIX held with η ≈ 1/2, the conditional output would be N₂ ≪ U^{3/4+ε}: far above the true size p^{o(1)}, but a
-    power saving.
+  * If MIX(η) held for every fixed η < 1/2 (each with its own constant), the conditional output would be N₂ ≪ U^{3/4+ε}
+    for every ε > 0: far above the conjectured size p^{o(1)}, but a power saving.
 * **Comparison (Assessment).** Z52D Thm 6(c) needs Δ_H ≤ (UV)^{1/2−η} for the 2D sums S_h over all U² pairs. That is beyond-square-root
   cancellation (R1), and Z52D measured |S_h| ≈ 1.4–1.8·U at 10¹² (EVIDENCE against R1 at that scale). MIX needs only a
   power saving in a sum of ≈ 0.69U terms. Neither hypothesis is shown to imply the other. Lemma G solves the first divisibility exactly instead of Fourier-expanding it, which
@@ -429,8 +443,9 @@ PROVED facts with an Assessment reading.
    N₂ is positive at infinitely many odd squares.
 
 **Assessment.** FRONTIER §7.1's phrase "even a weak power saving would be the first class-aware single-integer input"
-does not apply to R2. A power saving for one balanced block can be (conditionally, Thm R) class-blind, and it is in any
-case ES-inert. R2 is worth keeping only as a methods test (MIX).
+does not apply to R2. A power saving for one balanced block can be (conditionally, Thm R) class-blind, and it has no
+standalone implication for ES (an indirect use inside a larger argument is not excluded). R2 is worth keeping only as a
+methods test (MIX).
 
 ## 7. Proposition D: the determinant method is vacuous for (★) blocks
 
@@ -451,15 +466,17 @@ F = kuB − u − B − p, which is absolutely irreducible, linear in each varia
   X auxiliary surfaces. The bound X it furnishes satisfies X ≥ min(B_i)^{2/√3}.
 * HB14, applied to the homogenisation F^h = kuB − uz² − Bz² − pz³ with box (B₁, B₂, B₃, 1), furnishes
   X′ ≍ V^{2/3^{3/2}+ε}, and V^{2/3^{3/2}} ≥ min(B_i)^{2/√3}.
-* (These are upper bounds; the true number of curves needed may be smaller. The point is what the theorems certify.)
-* Any count bound obtained by applying these theorems as stated, i.e. X or X′ times a per-curve bound ≥ 1, is therefore
-  ≥ min(B_i)^{2/√3}. In the block (U,2U] × (V,2V] × levels, min(B_i) ≍ min(U, V, p/(UV)). So for the full box this
-  exceeds the elementary bound p^{o(1)}·min(U, V, p/(UV)) (Z52D Thm 1) by a power whenever min(B_i) ≥ p^{ε}.
-* Subdivided boxes never do better than the elementary bound.
+* (These are upper bounds; the true number of curves needed may be smaller. The statement concerns the displayed
+  upper-bound expressions only.)
+* Any count bound obtained by applying these theorems as a black box, i.e. X or X′ times a uniform per-curve bound ≥ 1, is
+  therefore ≥ min(B_i)^{2/√3}. In the block (U,2U] × (V,2V] × levels, min(B_i) ≍ min(U, V, p/(UV)). So for the full box
+  this exceeds the elementary bound p^{o(1)}·min(U, V, p/(UV)) (Z52D Thm 1) by a power whenever min(B_i) ≥ p^{ε}.
+* A full grid of sub-boxes, each charged with the same black-box bound, never does better than the elementary bound.
 
 *Proof.*
-* The monomial kuB occurs, and B₁B₂B₃ dominates B₁, B₂ and 1, so T = B₁B₂B₃. Translation x_i ↦ x_i + c_i keeps the
-  monomial x₁x₂x₃ with coefficient 1, so T ≥ ∏B_i still.
+* The monomial kuB occurs, and B₁B₂B₃ dominates B₁, B₂ and 1, so T = B₁B₂B₃. Under a translation x_i ↦ x_i + c_i the
+  polynomial stays multi-affine (degree ≤ 1 in each variable) and keeps the monomial x₁x₂x₃ with coefficient 1, so every
+  monomial is a sub-product of x₁x₂x₃ and T = ∏B_i still.
 * With b_i = log B_i and b₁ ≤ b₂ ≤ b₃: ∏b_i/Σb_i ≥ b₁b₂b₃/(3b₃) ≥ b₁²/3. Hence exp(2√(∏b_i/log T)) ≥ e^{2b₁/√3}.
 * For HB14 (n = 4, d = 3): V^d/T = V³/V = V² and d^{−3/2} = 3^{−3/2}, so k ≪ V^{2·3^{−3/2}+ε}. Also V ≥ B_min³ and
   3·2·3^{−3/2} = 2/√3.
@@ -467,8 +484,10 @@ F = kuB − u − B − p, which is absolutely irreducible, linear in each varia
   is ≥ ∏(B_i/s_i)·s_j^{2/√3} ≥ B_j ≥ min(B_i). This is never below the elementary bound up to p^{o(1)}; slabs of
   width 2 come within p^{o(1)} of it. ∎
 
-*Scope.* This closes Z52D's (R3) for the standard affine and projective determinant method in the (u, B, k) model,
-including translations and subdivisions. In the balanced block the (s, w, k) model k(s² − w²) − 4s − 4p and the (k, m, w)
+*Scope.* This closes Z52D's (R3) only for the black-box implementation of the standard affine and projective
+determinant method in the (u, B, k) model: the stated auxiliary-curve bound times a uniform per-curve bound, on the full
+box or on a full grid of (translated) sub-boxes. It does not rule out occupancy pruning (skipping empty sub-boxes),
+exploiting the specific auxiliary curves, or other uses of the same theorems. In the balanced block the (s, w, k) model k(s² − w²) − 4s − 4p and the (k, m, w)
 model (km − p)² − 4m − w² give the same ratio ∏ log B_i/log T = (log U)²/2. Other embeddings, Salberger's global determinant method, and
 congruence-enhanced (p-adic or Coppersmith-type) variants are not covered.
 
@@ -480,21 +499,25 @@ known for integral points on general genus ≥ 1 curves. Ellenberg–Venkatesh p
 ## 8. Verdict
 
 **Narrowed, with one strengthened sufficient condition.**
-* **Closed (scoped PROVED, relative to theorem statements from secondary sources).** The standard determinant method
-  (HB14/HB15) for (★) blocks. The number of auxiliary curves it certifies is ≥ min(B_i)^{2/√3}, so any bound obtained
-  from it is no better than the trivial one (Prop D).
+* **Closed (scoped PROVED, relative to HB14, checked in the source, and the restated HB15).** The black-box use of the
+  standard determinant method (HB14/HB15) for (★) blocks, i.e. its stated bound on the number of auxiliary curves times a
+  uniform per-curve bound, over the full box or a full grid of sub-boxes. That bound expression is ≥ min(B_i)^{2/√3}, so
+  this implementation is no better than the trivial bound (Prop D). Occupancy pruning, exploiting the auxiliary curves, or
+  other uses of the theorem are not excluded.
 * **Strengthened.** R2′ ⟸ MIX (Thm R, PROVED). MIX is a power-saving (not beyond-square-root) bound for the second-order
   Weyl sums of the remainder map.
-  * EVIDENCE: |W| is square-root size on |h| ≤ U^{1/2} at 10¹²–10¹⁸, so MIX is consistent with all computations.
+  * EVIDENCE: |W| is of square-root scale on |h| ≤ U^{1/2} at 10¹²–10¹⁸ (maxima 2.7–4.5·√U, so a literal constant-one
+    MIX(1/2) fails at these inputs). This is compatible with a conjectural uniform U^{1/2+o(1)} bound, hence with MIX(η)
+    for each fixed η < 1/2.
   * Assessment: it is a more natural sufficient condition than Z52D's R1, which Z52D measured against at 10¹². Neither
-    implies the other.
+    is shown to imply the other.
 * **Located.**
   * The 4-condition is two 2-adic bits on the even vertex (Lemma B). It is a factor 1/5 in the model (Prop C), and it sits
     inside the QR colour layer (Prop C′).
   * T1 kills the five-slice layer but not the 2-cycles (Prop S, infinite family). So N₂ is *not* bounded better than N₄,
     and any lower bound for N₂ is T1-blind.
-* **Dynamics.** f is the independent-CRT random map to second order (EVIDENCE, 1.9·10⁸ primes exhaustively). No falsifier
-  of a power saving exists (max N₂ = 7 below 4·10⁹).
+* **Dynamics.** f matches the tested independent-CRT statistics to second order (EVIDENCE, 1.9·10⁸ primes exhaustively);
+  no random-map law is established. No falsifier of a power saving exists (max N₂ = 7 below 4·10⁹).
 * **What is missing for R2.** MIX, i.e. any power saving in Σ_{u ≤ 2U} e(−h₁p/u − h₂p/f(u)) for h₂ ≠ 0. That is
   second-order equidistribution of (p mod u, p mod f(u)), and no method is known (§5.3).
 * **For ES.** None of this helps (§6). R2 is an upper-bound methods test.
@@ -517,26 +540,30 @@ In §7.1, replace the sentence "Still open: cancellation across conductors/frequ
 bounds, the 2-cycle count of x ↦ (−p mod x), unbalanced blocks." by:
 
 > Still open: cancellation across conductors/frequencies, short-segment beyond-square-root bounds, unbalanced blocks. *(z53, `Z53_HYP2CYCLE.md`.)* The 2-cycle
-> form (R2) is an upper-bound methods test only, and it is ES-inert. A bound N ≪ U^{1−η} for the balanced block would not
+> form (R2) is an upper-bound methods test only, with no standalone ES implication. A bound N ≪ U^{1−η} for the balanced block would not
 > improve R(p) ≪ p^{1/3+o(1)} (the cube block dominates), and could not give positivity (block mean 0.146).
 > * PROVED: R2 follows from MIX, a power-saving bound for Σ_{u ∈ dom f} e(−h₁p/u − h₂p/f(u)) with h₂ ≠ 0 and
 >   |h| ≤ U^η. The reason is that f(f(u)) = u iff ({−p/u}, {−p/f(u)}) lies on the graph of x ↦ 1/x − 1 (the Gauss map)
 >   or of its inverse-digit branch x ↦ 1/(1+x) (Lemma G / Thm R).
 > * Assessment: MIX asks only for a power saving, unlike Z52D's beyond-square-root R1, and neither is shown to imply the
->   other. EVIDENCE: |W| is square-root size for |h| ≤ U^{1/2} at 10¹²–10¹⁸.
-> * PROVED (relative to theorem statements from secondary sources): the standard determinant method (Heath-Brown's
->   Thm 14/15) certifies ≥ min(B_i)^{2/√3} auxiliary curves for kuB − u − B = p in every box. So it never beats the
->   trivial bound.
+>   other. EVIDENCE: |W| is of square-root scale (max 2.7–4.5·√U) for |h| ≤ U^{1/2} at 10¹²–10¹⁸, compatible with a
+>   conjectural uniform U^{1/2+o(1)} bound, hence with MIX(η) for each fixed η < 1/2.
+> * PROVED (relative to Heath-Brown's Thm 14, checked in the Annals text, and the restated Thm 15): for kuB − u − B = p,
+>   the stated upper-bound expression for the number of auxiliary curves is ≥ min(B_i)^{2/√3} in every box. So the
+>   black-box implementation (that bound times a uniform per-curve bound, full box or full grid) never beats the trivial
+>   bound. Actual curves need not number that many; occupancy pruning and other uses are not excluded.
 > * PROVED: T1 kills the five-slice layer but not the 2-cycles. There are infinitely many odd squares with a balanced
 >   2-cycle (q | m² + 1, q + 1 | m² − 1).
 > * PROVED (model): the 4-condition is two 2-adic bits, with density ratio 1/5.
-> * EVIDENCE: f is the independent-CRT random map to second order. The maximum 2-cycle count over all primes < 4·10⁹ is 7.
+> * EVIDENCE: f matches the tested independent-CRT statistics (means, second moments). The maximum 2-cycle count over all
+>   primes < 4·10⁹ is 7.
 
 In §6 (*Analytic / counting at one prime*), add:
 
-> * Determinant method (Heath-Brown Thm 14/15) on kuB − u − B = p → the certified number of auxiliary curves is
->   ≥ min(B_i)^{2/√3} in every box, so it never beats the trivial bound (critical box, V/T = 1) → `Z53_HYP2CYCLE.md`
->   Prop D (z53).
+> * Determinant method (Heath-Brown Thm 14/15) on kuB − u − B = p, used as a black box with a uniform per-curve bound
+>   (full box, or full-grid subdivision) → its stated upper-bound expression for the number of auxiliary curves is
+>   ≥ min(B_i)^{2/√3}, so that implementation never beats the trivial bound (critical box, V/T = 1). Occupancy pruning or
+>   other uses of the theorem are not excluded → `Z53_HYP2CYCLE.md` Prop D (z53).
 
 ## 11. Bottom line
 
