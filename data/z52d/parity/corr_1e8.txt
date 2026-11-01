@@ -46,4 +46,11 @@ identity [8|h] == [2 quartic] XOR [p=9 (16)] mismatches: 0
   EA: p%16=1,b8=0: 0.5006 (n=180191); p%16=1,b8=1: 0.5022 (n=179716); p%16=1,b16=0: 0.5019 (n=269998); p%16=1,b16=1: 0.5001 (n=89909); p%16=9,b8=0: 0.4996 (n=179803); p%16=9,b8=1: 0.4983 (n=180071); p%16=9,b16=0: 0.4987 (n=269940); p%16=9,b16=1: 0.4997 (n=89934)
   NE: p%16=1,b8=0: 0.5013 (n=180191); p%16=1,b8=1: 0.5005 (n=179716); p%16=1,b16=0: 0.5017 (n=269998); p%16=1,b16=1: 0.4984 (n=89909); p%16=9,b8=0: 0.4977 (n=179803); p%16=9,b8=1: 0.5010 (n=180071); p%16=9,b16=0: 0.4997 (n=269940); p%16=9,b16=1: 0.4984 (n=89934)
 
+[E] no deterministic law: classes (p mod 6160, h mod 16) in which Y takes both values; first such pair
+  R2: 1920 of 1920 classes non-constant; first counterexample pair (937, 19417, (937, 4))
+  UII: 1920 of 1920 classes non-constant; first counterexample pair (433, 18913, (433, 12))
+  BICH: 1920 of 1920 classes non-constant; first counterexample pair (433, 18913, (433, 12))
+  EA: 1920 of 1920 classes non-constant; first counterexample pair (433, 18913, (433, 12))
+  NE: 1920 of 1920 classes non-constant; first counterexample pair (1009, 19489, (1009, 4))
+
 max |z| over 5x4 class/Frobenius tests: 2.55  (Bonferroni 5% two-sided threshold for 40 tests ~ 3.23)

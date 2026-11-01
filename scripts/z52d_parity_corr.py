@@ -170,6 +170,18 @@ def main():
                     idx = [i for i in range(n) if P[i] % 16 == r16 and Z[kz][i] == zv]
                     parts.append(f"p%16={r16},{kz}={zv}: {sum(y[i] for i in idx) / len(idx):.4f} (n={len(idx)})")
         print(f"  {ky}: " + "; ".join(parts))
+    print("\n[E] no deterministic law: classes (p mod 6160, h mod 16) in which Y takes both values; first such pair")
+    for ky, y in Y.items():
+        seen = {}; both = set(); first = None
+        for i in range(n):
+            key = (P[i] % 6160, h[i] % 16)
+            if key in seen and seen[key][0] != y[i]:
+                both.add(key)
+                if first is None:
+                    first = (seen[key][1], P[i], key)
+            elif key not in seen:
+                seen[key] = (y[i], P[i])
+        print(f"  {ky}: {len(both)} of {len(seen)} classes non-constant; first counterexample pair {first}")
     mx = max(max(abs(a[2]), abs(a[3])) for a in res if a[1] != 'rnd')
     print(f"\nmax |z| over {len(Y)}x{len(Z)-1} class/Frobenius tests: {mx:.2f}  (Bonferroni 5% two-sided threshold for 40 tests ~ 3.23)")
 

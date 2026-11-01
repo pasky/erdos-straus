@@ -1,6 +1,6 @@
 """Independent brute-force check of scripts/z52d_parity_counts.c for small p (z52d PARITY lane).
 X(p) by direct (t,u) loops; Type II by direct enumeration of 4/p = 1/x + 1/y + 1/z with p | y, p | z, p ∤ x
-(ordered (y,z)); h(-4p) by a naive reduced-form count.  Usage: python z52d_parity_brute.py OUT.txt PMAX"""
+(unordered {y,z}: y <= z; the C counter's f_II is ordered = 2x this); h(-4p) by a naive reduced-form count.  Usage: python z52d_parity_brute.py OUT.txt PMAX"""
 import sys
 from math import isqrt
 
@@ -30,7 +30,7 @@ def type2_ordered(p):
             num = m * y1 - x
             if num <= 0:
                 continue
-            if (x * y1) % num == 0:
+            if (x * y1) % num == 0 and (x * y1) // num >= y1:
                 c += 1
     return c
 
@@ -67,7 +67,7 @@ def main():
         f2 = type2_ordered(p)
         h = hform(p)
         got = (nE, nB, r4, nEA, f2, h)
-        exp = tuple(f[1:7])
+        exp = (f[1], f[2], f[3], f[4], f[5] // 2, f[6])
         if got != exp or nX % 2 == 0:
             bad += 1
             print("MISMATCH", p, got, exp)
