@@ -161,9 +161,33 @@ exception); the deficit is global across the h-layers, not confined to h = 1. Th
 failure is a lower-tail event of one depressed integer, so widening the family (idea 1) buys a larger mean (log³p) but
 no complementarity — exactly the "doubled main term, nothing forced" conclusion already recorded there.
 
-## 4. Barrier check against FRONTIER §§3–4, §6
+## 4. Barrier check against FRONTIER §§3–4, §6 (read only after §§1–3 were fixed)
 
-(after the computations)
+For each idea: which barrier, whether its scope really covers the idea, and what (if anything) is left.
+
+| # | idea | barrier / existing item | scope really covers it? | residue |
+|---|---|---|---|---|
+| 1 | full Type II (II), log³p mean, modulus u/a on shifts 4a²C | It *is* ET Type II; the a = 1 slice is López's b = 1 line (`B1_LINE.md`, `BM_CORRECTED_COUNT.md` §4, Prop 4.1(a): Brauer character χ_{−4ab} on the whole family). B2 (tied modulus 4ah with the integer hp + a), T1 for every h (§2.2(b)), B6 for the log³ average (ET). | Yes. Every layer is a tied divisor event of one integer in one moving class; §3.2 shows the layers are positively correlated at the hard primes (no complementarity). | None as a route. Useful only as bookkeeping: the hardest primes are hard on *all* layers. |
+| 2 | Type I | ET Type I; same barriers; (J)89 Lemma 4.1 (positive Type I slices have (d/p) = −1). | Yes. | None. |
+| 3 | exceptional set = squares? | T1 (B5) is exact: f_I(m²) = f_II(m²) = 0 (ET Prop 1.6); the converse to 2·10⁵ (§3.1) is implied by the prime census to 10⁸ (FRONTIER §1) plus scaling. | Yes. | Confirms that primality enters only through non-squareness *at the level of the obstruction*; the proof must still produce a class, not a parity (checklist 9). |
+| 4 | r-spectrum R(n) = labels of the forest F_n | The forest (J)106/(J)83, bichromatic ⟺ certificate, composition "adds reachability, never existence" ((J)82), fixed roots/bounded windows dead under Dickson. | Yes: an r-closure law would be a composition rule between slices, exactly what (J)82 found adds nothing. A numerical look (p = 409, 577: R ∋ 2, 3, 6, 11, 14, 15, … with no multiple of 4) showed no closure pattern. | None. |
+| 5 | covering-system / large sieve with non-CRT targets | B6 (Vaughan 1970, Elsholtz–Tao exceptional sets ≪ N exp(−c(log N)^{2/3})); §7.12 (exponent θ > 3/4) is the live averaged target, already audited (`BREADTH_Z45.md` §§15–16: CRT architectures capped at 3/4). | Yes; and the targets {−(u+B) mod 4uB} are genuinely non-CRT, which is the audited "non-CRT" gap. | Nothing beyond §7.12, which has its own lanes. |
+| 6 | genus / ray-class reformulation | §2.2 (BM = one Kronecker character per pair), §7.3 (class inside the coset), CLASS_FORCING Thm 2.1 (no reciprocity law adds information about [N] ∈ (ℤ/t)*). | Yes: the condition d ≡ −1 (mod 4C) is a ray-class condition mod 4C whose only p-dependent part is the parity (d/p) = −1. | None. |
+| 7 | identities over a non-principal-genus form | B1 (Mordell–Schinzel) *plus* the degree count of §2.4, which kills it even where T1 would not. | Yes (own proof). | Dead, PROVED. |
+| 8 | mutual-divisibility pairs / Vieta | Forest F_p; no involution ((J)89 Cor 4.2); equation linear in each variable. | Yes. | None. |
+| 9 | Proth slice C = 2^j | "2-group levels alone do not suffice (1 298 primes ≤ 10⁶ have no word at any such level)" (§3, Stickelberger item). | Yes. | None. |
+| 10 | Davenport / zero-sum on prime residues | needs ω(p+u) ≳ |(ℤ/4u)*|; §7.6 (full-factor-multiset realisation) is the open form. | Yes. | Only §7.6, already listed. |
+| 11 | probabilistic / polynomial / circle / modular | §2.5; B3 scale, §2.3 (theta quotient is Eisenstein-only). | Yes. | None. |
+
+**Screens for the best survivor (idea 1, full Type II as the target statement).** T1: passes (vanishes at squares for
+every h, §2.2(b)); 8/131: the same family for numerator 8 fails at 131 and 241 (`BM_CORRECTED_COUNT.md` §4), so any argument
+must use 4 — not supplied; tied modulus: fails (modulus 4ah tied to the integer hp + a; relaxing to u/a on square-multiple
+shifts changes the constant, not the tie); fixed p: fails (only averaged inputs known). So idea 1 is **not a route**; it is
+the same wall with a log³p mean.
+
+**False-kill audit.** I looked for an idea whose kill depends on a scope assumption that the idea violates. The only
+candidates were idea 7 (non-principal genus forms escape *T1*) — killed instead by §2.4, unconditionally — and idea 5's
+non-CRT targets, which are precisely the gap §7.12/z50 already names. No false kill found.
 
 ## 5. Verdict / proposed §7 text
 
