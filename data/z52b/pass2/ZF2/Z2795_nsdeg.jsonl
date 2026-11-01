@@ -1,0 +1,36 @@
+{"k": 5, "p": 10069, "kind": "control prime R>0, box empty", "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 10133, "kind": "control prime R>0, box empty", "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 10141, "kind": "control prime R>0, box empty", "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 10181, "kind": "control prime R>0, box empty", "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 409, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 577, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 5569, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 9601, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 441, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 625, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 2025, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 5, "p": 9801, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 15, "n_vars": 15, "nonzero": 32768, "agree": true}
+{"k": 6, "p": 10657, "kind": "control prime R>0, box empty", "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 10861, "kind": "control prime R>0, box empty", "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 10937, "kind": "control prime R>0, box empty", "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 11273, "kind": "control prime R>0, box empty", "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 409, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 577, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 5569, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 9601, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 441, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 625, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 2025, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 6, "p": 9801, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 18, "n_vars": 18, "nonzero": 262144, "agree": true}
+{"k": 7, "p": 300017, "kind": "control prime R>0, box empty", "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 300089, "kind": "control prime R>0, box empty", "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 300149, "kind": "control prime R>0, box empty", "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 300193, "kind": "control prime R>0, box empty", "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 409, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 577, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 5569, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 9601, "kind": "(*)-failing prime", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 441, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 625, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 2025, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 7, "p": 9801, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
