@@ -1,9 +1,11 @@
-# Theorem P census (Z53_GENUSREDEI §5.5): at a fixed prime p, for the (★) levels C <= X (N_C = 4Cp+1, t = 4C),
+# Formal Lemma P census (Z53_GENUSREDEI §5.5, §6.3; formal finite-group statement, see memo): at a fixed prime p, for the (★) levels C <= X (N_C = 4Cp+1, t = 4C),
 # classify each level where the event E_C = [-1 in Sigma(N_C) mod t] holds:
-#   B1   : -1 in Sigma(s) ∪ Sigma(s)*g  (s = N_C / product of twistable primes; twistable = prime > X dividing N_C exactly once;
-#          g = class of the twistable part)  -> event visible from smooth part + product law alone;
-#   P2   : not B1, k >= 2 twistable primes and (2^k - 2)|Sigma(s)| < |G^2|   -> event NOT determined by any quadratic data;
-#   Podd : not B1, not P2, k >= 2 and (2^k - 2)|Sigma(s)| < |G_odd|          -> not determined by any 2-power-character data;
+#   B1   : -1 in Sigma(s0) ∪ Sigma(s0)*g0 with s0 = X-smooth part, g0 = class of N/s0 -> visible from congruence data;
+#   R    : not B1, but decided by the fixed part s (X-smooth part AND repeated large primes q^e, q > X, e >= 2) and the
+#          class g of the twistable part (twistable = prime > X dividing N_C exactly once);
+#   P2   : not B1/R, k >= 2 twistable primes and (2^k - 2)|Sigma(s)| < |G^2| -> FORMAL Lemma P: some product-1 twist of the
+#          twistable classes by squares kills the event (quadratic-character images mod t do not determine it);
+#   (Podd is never reached: G_odd ⊆ G^2.)
 #   P2x  : not B1/P2/Podd, but an exhaustive search finds a product-1 twist by squares killing the event (protected);
 #   Q    : exhaustive search: EVERY product-1 twist by squares keeps the event (event determined by quadratic data);
 #   U    : search too large (not classified).
@@ -45,23 +47,28 @@ def exact_twist(t, Ss, cls, cap=200000):
         if not any((y * z) % t == t - 1 for y in Ss for z in S): return True
     return False
 def classify(p, X):
-    out = {"B1": 0, "P2": 0, "Podd": 0, "P2x": 0, "Q": 0, "U": 0, "none": 0}
+    out = {"B1": 0, "R": 0, "P2": 0, "Podd": 0, "P2x": 0, "Q": 0, "U": 0, "none": 0}
     for C in range(1, X + 1):
         t = 4 * C; N = 4 * C * p + 1; f = factorint(N)
-        tw = [q for q, e in f.items() if q > X and e == 1]
-        sm = [(q, e) for q, e in f.items() if not (q > X and e == 1)]
         ev = (t - 1) in sigma(list(f.items()), t)
         if not ev: out["none"] += 1; continue
+        # genuine B1: X-smooth part + class of the rest (product law) decide
+        smooth = [(q, e) for q, e in f.items() if q <= X]; rest = 1
+        for q, e in f.items():
+            if q > X: rest = rest * pow(q, e, t) % t
+        Sm = sigma(smooth, t)
+        if (t - 1) in Sm or (t - 1) in {x * rest % t for x in Sm}: out["B1"] += 1; continue
+        tw = [q for q, e in f.items() if q > X and e == 1]
+        sm = [(q, e) for q, e in f.items() if not (q > X and e == 1)]   # fixed part: smooth + repeated large primes
         Ss = sigma(sm, t); g = 1
         for q in tw: g = g * q % t
-        if (t - 1) in Ss or (t - 1) in {x * g % t for x in Ss}: out["B1"] += 1; continue
+        if (t - 1) in Ss or (t - 1) in {x * g % t for x in Ss}: out["R"] += 1; continue   # needs a repeated large prime
         k = len(tw); bound = (2 ** k - 2) * len(Ss)
         if k >= 2 and bound < gsq(t): out["P2"] += 1
-        elif k >= 2 and bound < odd_part(phi(t)): out["Podd"] += 1
         else:
             # exact search for a twist by squares (H = G^2) with product 1 that kills the event
             r = exact_twist(t, Ss, [q % t for q in tw])
-            out["U" if r is None else ("P2x" if r else "Q")] = out.get("U" if r is None else ("P2x" if r else "Q"), 0) + 1
+            key = "U" if r is None else ("P2x" if r else "Q"); out[key] += 1
     return out
 if __name__ == "__main__":
     X = int(sys.argv[1]); mode = sys.argv[2]
@@ -71,25 +78,25 @@ if __name__ == "__main__":
         while len(ps) < cnt:
             q = random.randrange(lo, 2 * lo) | 1
             if q % 4 == 1 and isprime(q): ps.append(q)
-    print("# X =", X, " p\tevents\tB1\tP2\tPodd\tP2x\tQ\tU\tpossibly-decidable(B1+Q+U>0)")
+    print("# X =", X, " p\tevents\tB1\tR\tP2\tPodd\tP2x\tQ\tU\tdecided-by-fixed-part-or-quadratic-images(B1+R+Q+U>0)")
     tot = 0; dec = 0
     for p in ps:
-        o = classify(p, X); e = o["B1"] + o["P2"] + o["Podd"] + o["P2x"] + o["Q"] + o["U"]; d = int(o["B1"] + o["Q"] + o["U"] > 0)
+        o = classify(p, X); e = o["B1"] + o["R"] + o["P2"] + o["Podd"] + o["P2x"] + o["Q"] + o["U"]; d = int(o["B1"] + o["R"] + o["Q"] + o["U"] > 0)
         tot += 1; dec += d
-        print(p, e, o["B1"], o["P2"], o["Podd"], o["P2x"], o["Q"], o["U"], d, sep="\t")
+        print(p, e, o["B1"], o["R"], o["P2"], o["Podd"], o["P2x"], o["Q"], o["U"], d, sep="\t")
     print("# primes with some level decidable from smooth part + product + 2-power data:", dec, "/", tot)
 
 def range_scan(X, lo, hi):
     """All primes p ≡ 1 (4) in [lo, hi): how many have NO B1-visible event level C <= X, and among those the classes."""
     from sympy import primerange
-    n = 0; noB1 = 0; agg = {"P2": 0, "Podd": 0, "P2x": 0, "Q": 0, "U": 0}; onlyP = 0; noev = 0; rows = []
+    n = 0; noB1 = 0; agg = {"R": 0, "P2": 0, "Podd": 0, "P2x": 0, "Q": 0, "U": 0}; onlyP = 0; noev = 0; rows = []
     for p in primerange(lo, hi):
         if p % 4 != 1: continue
         n += 1; o = classify(p, X)
         if o["B1"] == 0:
             noB1 += 1
             for k in agg: agg[k] += o[k]
-            if o["P2"] + o["Podd"] + o.get("P2x", 0) + o.get("Q", 0) + o["U"] == 0: noev += 1
-            elif o["U"] == 0 and o.get("Q", 0) == 0: onlyP += 1
+            if sum(o[k] for k in agg) == 0: noev += 1
+            elif o["U"] == 0 and o["Q"] == 0 and o["R"] == 0: onlyP += 1
             rows.append((p, o))
     return n, noB1, agg, onlyP, noev, rows
