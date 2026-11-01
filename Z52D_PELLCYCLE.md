@@ -13,21 +13,23 @@ infinitely many primes p = m² + 1 ≡ 1 (mod 24) (m = 60t, five quadratics prim
 full principal-cycle data of √p and of (1+√p)/2 is monochromatic (Theorem 1.1). The data cover:
 * all P_k, Q_k and partial quotients;
 * all convergent numerators and denominators ≤ p + 2;
-* the unit coordinates {t, u, t ± 2, u + 2} of ε_p.
+* the unit coordinates {t, u, t ± 2, u ± 2} of ε_p (u − 2 = 0 is dropped at m² + 1).
 
 **Unconditionally** (Prop 1.6), at every prime p = m² + 1 with 60 | m, all these roots except 1, 2, 4 are isolated vertices.
 There the Pell cycle adds nothing to the fixed roots {1, 2, 4}. Note that (J)106's Dickson families never reach p = m² + 1;
 freezing 1, 2, 4 there is exactly what Theorem 1.1 does under H.
 
 The computation on the brief's families plus controls gives (CERTIFIED counts; rates are EVIDENCE):
-* Per root, a cycle element is **statistically indistinguishable from a random vertex of the same size** at the
-  0.1–0.4 pp level. The paired difference is −0.09 ± 0.08 pp over 356 primes. The pool is mostly controls; the 16 hard
-  primes alone give no power.
+* Per root, a cycle element **differs from a random vertex of the same size by ≤ 0.4 pp** (≤ 20 % relative, on a
+  1.5–3 % base). Small effects of both signs reach 2–5σ, but none is a mechanism. Against size-matched draws the pooled
+  difference is −0.09 ± 0.08 pp over 356 primes; against size+colour-matched draws it is +0.22 ± 0.07 pp. The pool is
+  mostly controls; the 16 hard primes alone give no power.
 * The Dickson family 2521 + 9240a is no harder than its class-matched controls.
 * At long periods the cycle wins only by multiplicity: hundreds of roots at a ~2 % per-root rate.
 
-Over all 1.44 M primes p ≡ 1 (8) < 10⁸, CR(R0) fails at 98 primes, at a rate that does not decay, including periods in the
-thousands. CR(R3) fails at 6 primes, all of period ≤ 5. Size-matched random root sets fail about equally often (§3.4).
+Over all 1.44 M primes p ≡ 1 (8) < 10⁸, CR(R0) fails at 98 primes, at a rate that does not visibly decay beyond 2·10⁷,
+including periods in the thousands. CR(R3) fails at 6 primes, all of period ≤ 5. Below 4·10⁷, size-matched random root sets
+fail about equally often (50 cycle vs 39 random for R0; §3.4). If anything the cycle is slightly worse than random.
 
 The only p-dependent survivor is the all-cycles (class-group) root set. It contains every a < √p with p a square mod a
 (Prop 2.4) and never failed below 2·10⁷. That is FRONTIER §7.2's generic growing-root question, not a Pell mechanism.
@@ -307,13 +309,14 @@ The paired per-prime difference "cycle rate − baseline rate", mean ± s.e. ove
 | R0 | −0.09 ± 0.08 pp | +0.22 ± 0.07 pp | −0.17 ± 0.07 pp | +0.23 ± 0.06 pp |
 | R3 | −0.12 ± 0.06 pp | +0.03 ± 0.06 pp | −0.18 ± 0.06 pp | +0.04 ± 0.06 pp |
 
-* **Per element, cycle roots are statistically indistinguishable from random roots at the ≈ 0.1–0.4 pp level** (base rate
-  1.5–3 %). Effects at ≥ 2σ are:
+* **Per element, cycle roots differ from random roots by ≤ 0.4 pp** (base rate 1.5–3 %). Pooled effects at ≥ 2σ are
+  listed below; several within-family effects also reach 2–5σ (e.g. R3, CD, depth 2 vs size: −0.14 ± 0.03 pp; see
+  `census_tables.md`).
   * R0 vs size+colour: +0.22 ± 0.07 pp, and +0.37 ± 0.12 pp within D. This is plausibly the Q-roots being split integers
     rather than mere residues.
   * R0 vs size at depth 2: −0.17 ± 0.07 pp.
   * R3 vs size: −0.12 ± 0.06 pp (full) and −0.18 ± 0.06 pp (depth 2).
-  * R3 vs size+colour: +0.20 ± 0.06 pp in D and +0.16 ± 0.06 pp in CD.
+  * R3 vs size+colour: +0.20 ± 0.06 pp in D and +0.16 ± 0.06 pp in CD (within-family).
 
   The signs go both ways and the sizes are ≤ 0.4 pp, i.e. ≤ 20 % relative. None of this is a mechanism. **Power caveat:** on
   the hard primes themselves (Z ∪ N, 16 primes) the paired s.e. is ≈ 1 pp on a 1.6 % base, so the test there has
@@ -384,8 +387,18 @@ random root set that keeps roots < 8 and replaces each root u ≥ 8 by one unifo
 | [36, 40)·10⁶ | 57,364 | 1 | 2 | 0 | 0 |
 | **total < 4·10⁷** | 608,100 | **50** | **39** | **4** | **5** |
 
-The cycle fails about as often as a random set of the same sizes: 50 vs 39 for R0, a difference of about 1.2σ treating both
-as Poisson, and 4 vs 5 for R3. It is not more robust, which is the point at issue.
+The cycle fails about as often as a random set of the same sizes, and if anything slightly more often. It is not more
+robust, which is the point at issue.
+* **R0: 50 vs 39.** The counts are paired: 24 primes fail both ways, 26 fail only for the cycle and 15 only for random sets.
+  McNemar gives (26 − 15)/√41 ≈ 1.7σ, not significant. The large overlap shows that failure is driven mainly by the prime,
+  largely through the shared roots < 8.
+* **R3: 4 vs 5,** with an overlap of 3.
+* **Long-period tail.** Below 4·10⁷ the random set never fails at a period > 505. The cycle fails at periods 901, 1357 and
+  2929, and at exactly those three primes 0/100 fresh random sets fail (below). With 3 vs 0 this is not significant, but in
+  the tail the cycle is, if anything, worse than random.
+* **Draw bias.** Random draws from overlapping windows can collide and are deduplicated, and in R3 draws ≥ p are dropped. Both
+  make random sets slightly smaller, a few % at long periods, which biases the control towards failing. This works against
+  the "cycle is worse" reading, not against the conclusion.
 
 **Selection caveat and class bias (EVIDENCE).**
 * At the R0-failing primes themselves, a fresh random set fails less often. The 100-draw failure counts
@@ -393,19 +406,21 @@ as Poisson, and 4 vs 5 for R3. It is not more robust, which is the point at issu
   28 845 721 and 32 676 361 to 40/100 at 3 819 481. These primes were selected for cycle failure, so that comparison is
   biased.
 * Those long-period failures have many cycles: c(p) = 18, 22, 18, 10 at 1 847 401, 28 237 801, 28 845 721, 32 676 361. The
-  √p cycle covers only 13–25 % of S(p).
+  √p cycle covers only 12.5–25 % of S(p).
 * To test whether cycle membership is anti-correlated with lying in a bichromatic component,
   `scripts/z52d_pellcycle_classbias.py 10⁶ 10⁷ 400 11` (`data/z52d/pellcycle/classbias.txt`) uses 400 random primes
   p ≡ 1 (8) in [10⁶, 10⁷].
   * Of the 9,948 split vertices ≤ √p in bichromatic components, 5,519 are √p-cycle Q-values against 5,275.5 expected from
     the per-prime coverage, a ratio of 1.046.
   * For split vertices in monochromatic non-trivial components the ratio is 0.946.
-  * So there is no anti-correlation. There is a weak positive association of ≈ 5 % relative, matching the +0.2 pp of §3.2.
-    It is far from a mechanism.
+  * So on average there is no anti-correlation. There is a weak positive association of ≈ 5 % relative, the same sign as
+    the R0 vs size+colour effect of §3.2. It is ≈ 4–5σ by a crude binomial s.e. that ignores within-component correlation,
+    and far from a mechanism. This average says nothing about the specific long-period failing primes above.
 
 **Implementation note (review fix).** The first version of `root_sets` generated convergents over pre-period + two periods
 only. This misses convergents ≤ p + 2 at p = 5; the reviewer found no other p < 4·10⁵ affected. The routine now runs until
-A_k, B_k > p + 2. The census (§3.2) was rerun with the fixed code and is bit-identical. The 6 R3 failures above were
+A_k, B_k > p + 2. The census (§3.2) was rerun with the fixed code and compared in-session: the 362 records are identical.
+The rerun outputs were not kept, so this is not checkable from the repo. The random R3 control ran with the fixed routine. The 6 R3 failures above were
 rechecked with it; the failure census itself ran with the old routine, which can only miss roots, so R3 failures can only
 be over-counted, and all 6 survive the recheck.
 
@@ -455,8 +470,9 @@ What survives is no longer C4.
   *all* reduction cycles contains every a < √p with p □ mod a (Prop 2.4) and is a generic growing root set, not excluded."
 * **§7.2, sentence "Open: can p-dependent roots, or full reduction-cycle / Pell / class-group data, force a bichromatic
   edge".** Replace with: "Open: can p-dependent growing root sets force a bichromatic edge? (Principal reduction-cycle / Pell
-  data used as roots cannot, under H: `Z52D_PELLCYCLE.md` Thm 1.1; per root they are statistically indistinguishable from
-  random vertices of the same size at the ±0.1–0.4 pp level, EVIDENCE pooled mostly over controls, §3.2.)"
+  data used as roots cannot, under H: `Z52D_PELLCYCLE.md` Thm 1.1; per root they differ from random vertices of the same
+  size by ≤ 0.4 pp with effects of both signs, EVIDENCE pooled mostly over controls, §3.2; and they fail about as often as
+  size-matched random root sets, §3.4.)"
 * **§6 dead ends, one line.** "Pell / reduction-cycle roots in F_p → near-square primes m² + 1 freeze the cycle to a polynomial
   recipe; dead under H → Z52D_PELLCYCLE."
 
@@ -467,8 +483,9 @@ p-dependent root source that (J)106 leaves open. It cannot:
 * **At near-square primes** p = m² + 1 the cycle is a fixed polynomial recipe in m. When 60 | m, every cycle root ≥ 5 is
   provably isolated (Prop 1.6). Under Hypothesis H the remaining roots 1, 2, 4 can be frozen into a monochromatic component simultaneously. So
   infinitely many hard primes (≡ 1 mod 24) defeat every principal-cycle root (Thm 1.1).
-* **At long-period primes** each cycle element is statistically indistinguishable from a random vertex of the same size
-  (paired difference −0.09 ± 0.08 pp over 356 primes, mostly controls; the 16 hard primes alone have no power). The cycle
+* **At long-period primes** each cycle element differs from a random vertex of the same size by ≤ 0.4 pp, with small
+  effects of both signs (e.g. −0.09 ± 0.08 pp vs size, +0.22 ± 0.07 pp vs size+colour, over 356 primes, mostly controls;
+  the 16 hard primes alone have no power). Whole cycles fail about as often as random root sets of the same sizes. The cycle
   succeeds there only because it contains hundreds of candidates. When S and W are the only cycles, it already contains
   every split a < √p.
 * **The Dickson family** 2521 + 9240a is neither helped nor hurt beyond its residue class.
@@ -522,4 +539,21 @@ points, and all have been fixed:
   * the 577 root 4;
   * the ambiguous-form / slice-form scope in §4.
 
-REVIEW_ROUND2
+Round 2: a second hostile reviewer checked that the round-1 fixes were applied and audited the new §3.4 material. It
+recomputed every aggregate from the chunk files and independently re-verified with its own code:
+* the failures at 32 676 361, 28 845 721, 1 847 401, 19 441, 429 529, 11 516 521 and 76 737 601;
+* the rescue edge {4, 7} at 76 737 601;
+* the c(p) values.
+
+It found no fatal problems. Its fixes, all applied:
+* "statistically indistinguishable" was too strong; it is now "≤ 0.4 pp, effects of both signs";
+* the long-period tail where the cycle fails and random sets do not is now stated;
+* the paired McNemar 1.7σ with the overlap of 24;
+* "does not visibly decay beyond 2·10⁷";
+* the range < 4·10⁷ of the random control is stated in §0;
+* u ± 2 in §0;
+* the within-family ≥ 2σ effects are noted;
+* the class-bias result is "same sign as", not "matches";
+* coverage 12.5–25 %;
+* the draw-collision bias;
+* the census-rerun provenance.
