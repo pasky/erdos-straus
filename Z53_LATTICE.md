@@ -6,7 +6,7 @@ CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Internal results a
 Lane: z53 LATTICE (brief `z52bbriefs/z53_depth.md`, kickoff `z52bbriefs/z53_lanes.md` §LATTICE). Scripts
 `scripts/z53_lattice_*`, data `data/z53/lattice/` (< 1 MB).
 
-**Status: final (hostile review R1 applied, §11); awaiting cross-model review.** Verdict: **narrowed** (§8).
+**Status: final (hostile review R1 and cross-model review applied, §11).** Verdict: **narrowed** (§8).
 
 ## 0. Summary
 
@@ -20,7 +20,7 @@ Lane: z53 LATTICE (brief `z52bbriefs/z53_depth.md`, kickoff `z52bbriefs/z53_lane
 * **Prop A1 (PROVED; algebraic core).** If 4CuB − u − B ≡ n (mod D) on a coset of index D′ in ℤ³, then
   D′ ≥ D^{4/3}/c₀, c₀ = 2⁶·3^{4/3} < 277. (Cosets of large index always exist, e.g. t + Dℤ³ with t ∈ V_n; the content is
   that none is *efficient*.) Brute force (CERTIFIED, q ∈ {2, …, 9, 11, 16, 25, 27}) finds the true minimum D′ = q² for
-  q ∈ {5, 7, 11, 25, 27} and q = 9 when ℓ ∤ n; D′ = q^{3/2} (q = 9, 25 with ℓ | n), q^{5/3} (q = 27, 3 | n); and D′ = q, q, 2q,
+  q ∈ {5, 7, 11} and for q ∈ {9, 25, 27} when ℓ ∤ n (ℓ the prime of q); D′ = q^{3/2} (q = 9, 25 with ℓ | n), q^{5/3} (q = 27, 3 | n); and D′ = q, q, 2q,
   3q at the 2-adic q = 4, 8, 16 and at q = 6.
 * **Lemma V (PROVED).** A convex body inside the exactness shell {|G| ≤ D} (u, B > 0) has volume ≤ 15.12·D²/n when
   D ≤ n/17: the shell
@@ -40,9 +40,10 @@ Lane: z53 LATTICE (brief `z52bbriefs/z53_depth.md`, kickoff `z52bbriefs/z53_lane
   same exponent C ≍ n^{1/3} as the CHN boundary (not the identical condition). In the density model, 1/4 (Lenstra) and
   4/9 (CHN) of the mass of R lies in the C-slice regimes, 9/16 in the u-slice CHN regime, 35/36 is Lenstra-visible somewhere
   (model integrals); every actual (★) triple is CHN-visible in some slice (PROVED). Measured at 10⁷, 10⁹ (EVIDENCE). The LLL
-  guarantees are uniform in n and hold at odd squares where the root set is empty (T1), so on their own they carry no
+  guarantees are uniform in n and hold at odd squares, where the set of *positive admissible* target roots is empty (T1;
+  signed polynomial roots may exist), so on their own they carry no
   existence content; Howgrave-Graham's lemma is Thue-exactness applied to an *assumed* root.
-* **Natural lattice invariants (EVIDENCE).** The Thue-lattice angle (p = a² + b², b/a) is uncorrelated with R(p)/log²p among
+* **Natural lattice invariants (EVIDENCE).** The Thue-lattice angle (p = a² + b², b/a) shows no detected correlation with R(p)/log²p among
   primes p ≡ 1 (24) (corr −0.018 at 10⁷, −0.011 at 10⁹); among the 14 (★)-zero primes it is small (b/a < 0.16) for 5 of 14
   (vs ≈ 20 % expected; binomial tail 0.134, not significant). Near-squares show the known T1-deformation deficit.
 * **What survives (Assessment).** Non-convex "Thue schemes" count sub-lotteries of R(n) in a thin curved shell (a §7.1-type
@@ -377,7 +378,9 @@ and 3361, 5101441 have R = 4, 2, 8, 2, 10, all CHN-visible.
 (mod N^m) and |h(x₀)| < N^m then h(x₀) = 0 — is Thue-exactness, applied to a root x₀ *assumed* to exist; the method's
 guarantee is "every small root of P is a root of the reduced h", whose converse fails. (b) The CHN/Coppersmith lattice for
 (N_C, r = −1, s = 4C) has dimension, determinant and LLL bounds depending only on the sizes of N_C, s, X, Y; for n = m² (m odd)
-every slice has an empty root set (T1: m² + u has no divisor ≡ −1 mod 4u, FRONTIER B5), with the same guarantees. Hence no
+every slice has an empty set of *positive admissible* target roots (T1: m² + u has no divisor ≡ −1 mod 4u, FRONTIER B5; the
+integer polynomial P_C may still have signed roots, e.g. n = 9, C = 1, (u, B) = (0, −9), which even meets XY < 16C²), with the
+same guarantees. Hence no
 statement deduced from those guarantees implies a root. (c) The visibility result (every triple CHN-visible somewhere) is an
 algorithmic statement: O(n) slices (C-slices up to n/4; u- or B-slices up to (n + 1)/3 — visibility may occur only in the
 large coordinate, e.g. (1, (n + 1)/3, 1) for n ≡ 5 (6)), each decided in polynomial time for fixed ε at s ≥ N^{1/4+ε}
@@ -439,7 +442,8 @@ arguments outside that template stands as it was.
 Minkowski template in natural coordinates — a full-rank lattice coset on which 4CuB − u − B ≡ n (mod D), a convex body in the
 positive octant on which |4CuB − u − B − n| ≤ D, and a covering or Minkowski volume hypothesis — no such certificate exists for
 n ≥ 6.8·10¹⁷: every such coset has index ≥ D^{4/3}/277, every such body has volume ≤ 15.12D²/n when D ≤ n/17 (Thm 2.6). At a
-fixed level C the modulus must share a factor ≥ (4Cn + 1)/456 with 4Cn + 1 (Thm 3.1); in hyperbola coordinates the class
+fixed level C the modulus D must share a factor ≥ (4Cn + 1)/456 with 4Cn + 1 if D ≤ n/7, and ≥ (4Cn + 1)/O(log²n) otherwise —
+a quantitative constraint on the modulus, not a factorization requirement (Thm 3.1); in hyperbola coordinates the class
 condition is not a lattice condition (Prop 3.2). Non-convex counting, non-linear encodings and arguments beyond covering/
 Minkowski are not excluded."
 *§6, add:* "Classical Thue/Minkowski/covering certificates for (★) in natural, rank-3 affine or fixed-level coordinates →
@@ -480,4 +484,11 @@ lanes; it adds no independent route. ES remains open.
   scaling automorphism), m5 (t vs −t; Prop 3.2 statement; "pairwise intersecting"; numerator row) — all repaired.
   The reviewer independently re-ran the coset search for q ≤ 11, the fixed-C local bounds for q = 3, 5, 8, 9, the regime
   enumerator, and all constants.
-
+* **Cross-model review (2026-11-01; `data/z53/xreview/REVIEW_LATTICE.md`, independent audit script
+  `scripts/z53_xrev_lattice_independent.py`).** Verdict ACCEPT-WITH-FIXES; every theorem (Def. 1.1, Prop 2.3, Lemmas 2.4–2.5″,
+  Thm 2.6 and all thresholds, Thm 3.1, Prop 3.2, Lemma 4.1–Thm 4.3, §5) re-derived as CORRECT; all data files reproduced
+  byte-for-byte; 2,277 fixed-C local cases and the q = 16 coset bound checked independently. Required fixes applied: (1) §9
+  fixed-C sentence now keeps the D ≤ n/7 / thick-case distinction; (2) §5.2(b) and summary say "empty set of positive
+  admissible target roots" (signed roots of P_C exist, e.g. n = 9, C = 1, (0, −9)); (3) summary q² sentence attaches ℓ ∤ n to
+  q = 9, 25, 27, and "uncorrelated" became "no detected correlation". Disclosed limit: the exact CHN count statement was not
+  primary-source verified (Bernstein's survey corroborates the fixed-ε regime); it is not a premise of Theorems A, A′, B, D.
