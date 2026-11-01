@@ -1,0 +1,4 @@
+'ESProth15.proth15_offcore' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ESProth15.proth15_of_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+ESProth15.proth15_offcore : ∀ (s : ℕ), s % 360 ≠ 0 ∧ s % 360 ≠ 240 → ES.ESProp (15 * 2 ^ s + 1)
+checked: Proth3.lean + Proth15.lean concatenated (imports ES.Basic, Mathlib), lean 4.34.1, Mathlib d13f23b7; no errors, no sorry

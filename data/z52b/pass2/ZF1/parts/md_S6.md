@@ -1,5 +1,11 @@
 # ZF1 / shard S6 — interesting items
 
+Summary (8 items): interesting 4 (Z2306, Z2080, Z2776, Z1894), nothing 4 (Z3072, Z2902, Z1887, Z1797).
+* Z1894: MENU_STERILITY Theorem C (ES for all 3·2^s + 1) fully machine-checked in Lean (`lean/ES/ES/Proth3.lean`).
+* Z2776: I3(3^k + 2) ≥ 1 for all k ≥ 5 by a period-12 exponent covering; 3^k − 2 has a PROVED sterile limit point.
+* Z2306: parity-invisible certificates are ≈ 1/5 on average; p = 1044877 has only parity-invisible ones (cut N^{1/3}).
+* Z2080: 44 % of Var R(p) comes from the edge lines u = 1 / B = 1 (divisors of p + 1); the interior is near-Poisson.
+
 ## Z2306 — Parity problem: which ES certificates are invisible to a sieve? {#Z2306}
 
 **What.** For a prime p and level C put N_C = 4Cp + 1, q = 4C, r_C = #{d | N_C : d ≡ −1 (mod q)} (FRONTIER §2.1
@@ -75,3 +81,60 @@ with E controlled by the divisor structure of p + 1 and the interior close to Po
 `data/z52b/pass2/ZF1/Z2080/analysis_1e7.txt`, `analysis_1e8.txt`.
 
 **Next.** Fit the zero-probability of the interior part alone (index ≈ 1.5 Poisson) against the census zeros of (★).
+
+## Z2776 — I3 on c·3^k + d by exponent coverings: 3^k + 2 closes; 3^k − 2 has a PROVED sterile point {#Z2776}
+
+**Setting.** I3(n): n = tuv − u − v with t, u, v ≥ 3 (I3_DEEP_FABLE §5.5, where 2^k ± 1, 2^k ± 3, 7·2^k − 1, 5·2^k − 1,
+3·2^k + 1 were closed). Fixed-word classes with two fixed coordinates: **E** (u, v fixed): uv | n + u + v; **L** (t, u
+fixed): (tu − 1) | n + u. Search: `scripts/z52d_p2_ZF1_Z2776_i3cover.py c b d B Ls [partial]` (moduli sharing primes with
+b or c handled exactly; periods L ≤ 5040 at B = 3000, ≤ 720 at B = 12000; cover re-verified by direct division for
+k ≤ 400; positive controls 2^k ± 1, 3·2^k + 1 reproduce FABLE's theorems with shorter periods, L = 36, 12, 12).
+
+**Results (CERTIFIED / PROVED, computer-assisted; `data/z52b/pass2/ZF1/Z2776/cover_B3000.jsonl`, `partial_B12000.jsonl`).**
+* **I3(3^k + 2) ≥ 1 for every k ≥ 3, k ≠ 4**: three L-words, period 12 — (t,u) = (3,3) [8 | n + 3, k odd],
+  (4,4) [15 | n + 4, k ≡ 2 (4)], (13,7) [90 | n + 7, k ≡ 0 (4)]; zeros only at k = 0, 1, 2, 4 (n = 3, 5, 11, 83).
+* Also closed: 5·3^k − 1 (2 words, L = 12), 2·3^k + 1 (2 words, L = 12); 2·3^k − 1 and 10^k ± 1 lie in a single
+  residue class (n ≡ 5 mod 12, resp. a fixed class mod 18 / 12) and are covered by one word — congruence families, trivial.
+* **Not closed:** 3^k − 2 (all k ≢ 1 mod 240 covered by 12 words; residual k ≡ 1), 5·3^k + 1 (residual k ≡ 1, 2 mod 48),
+  3^k − 1 (residual k ≡ 1 mod 48), 3^k + 1 (residual k ≡ 1, 2, 3, 15, 22 mod 60), 5^k ± 1 (not covered at B = 3000).
+
+**The residual classes are neighbourhoods of tiny I3 zeros.** Their profinite limit point is (n_{k₀} at every prime ≠ 3,
+d at 3) with n_{k₀} ∈ {1, 2, 4, 10, 16, 46} an I3 zero (3^1 − 2, 3^1 − 1, 3^1 + 1, 3^2 + 1, 5·3 + 1, 5·9 + 1). No E- or L-word
+with modulus ≤ 3·10⁶ contains any of these six points (`scripts/z52d_p2_ZF1_Z2776_point.c`,
+`limit_points_M3e6.txt`; positive controls (83, 2), (11, 2) found at m = 129, 21; the point (28, 1) of 3^k + 1 is covered at
+m = 17, so the k ≡ 3 residual there is a period/supply artefact).
+
+**Proposition (PROVED here).** Let P ∈ Ẑ be 1 at every prime ≠ 3 and −2 at 3 (the limit of 3^k − 2 as k → 1 away from 3
+and k → ∞ 3-adically). No E- or L-word class contains P. Hence for no L is {3^k − 2 : k ≡ 1 (mod L)} covered by finitely many
+two-fixed-coordinate I3 classes.
+*Proof.* Write the modulus as 3^a·w, 3 ∤ w. **E**: P ∈ class ⟺ uv | … ⟺ uv ≡ 0, u + v ≡ −1 (mod w), u + v ≡ 2 (mod 3^a).
+So u, v are the roots of X(X + 1) mod every ℓ^e ∥ w and of X(X − 2) mod 3^a; the roots are distinct mod ℓ, so prime power by
+prime power one of u, v is ≡ 0 and the other ≡ −1 (resp. 2). As uv = 3^a w exactly, u = 3^a w₁, v = w₂ (w = w₁w₂, after
+renaming) with V := w₂ ≡ −1 (w₁), V ≡ 2 (3^a), U := 3^a w₁ ≡ −1 (V). a = 0: V | U + 1, U | V + 1, U, V ≥ 3 is impossible. w₁ = 1:
+V | 3^a + 1 but V ≥ 3^a + 2. Otherwise U + 1 = rV with r ≡ −1 (w₁), r = j w₁ − 1: j = 1 gives V = 3^a + (3^a + 1)/(w₁ − 1),
+forcing (3^a + 1)/(w₁ − 1) = 2, w₁ = (3^a + 3)/2 ≡ 0 (mod 3) — contradiction; j ≥ 2 gives V < 3^a + 2 — contradiction.
+**L**: (tu − 1) | n + u at P ⟺ u ≡ −1 (w), u ≡ 2 (3^a), tu − 1 = 3^a w. Then t = xw − 1 and w(xu − 3^a) = u + 1. a = 0:
+tu − 1 | u + 1 impossible for t ≥ 3. a ≥ 1, u = 2 + 3^a z (z ≥ 1): w = 1 forces u = (3^a + 1)/(x − 1) ≤ 3^a + 1 < u; x = 1
+gives w = 1 + (1 + 3^a)/(2 + 3^a(z − 1)), i.e. z = 1, w = (3^a + 3)/2 ≡ 0 (mod 3) — contradiction — or z ≥ 2, 1 < w < 2;
+x ≥ 2 gives w < 1. ∎ (The closure of {3^k − 2 : k ≡ 1 mod L} contains P: take k ≡ 1 mod L·ord_w 3 and k ≥ a.)
+
+**Why it might matter.** It is the I3 analogue of the ET sterile point μ = 0 of 3·2^s + 1 (EXPONENT_COVERING Cor 1.5):
+fixed-word exponent coverings are complete *except* at limit points mimicking a tiny I3 zero, and there they provably fail;
+whether a window/moving word (polynomial in X = 3^{(k−1)/2}, n = 3X² − 2 on k odd) closes the class is the I3 version of
+the (J)74 question. **Next:** search moving words for n = 3X² − 2, X = 3^j (I3 analogue of the Sophie-Germain window), and
+prove sterility of the points (2, −1), (4, 1), (16, 1) by the same root-splitting argument.
+
+## Z1894 — Lean: MENU_STERILITY Theorem C (ES for every 3·2^s + 1) fully formalised {#Z1894}
+
+**What.** `lean/ES/ES/Proth3.lean` (≈ 230 lines, imports `ES.Basic` + Mathlib; added to `ES.lean`) proves
+`ESProth3.proth3 : ∀ s : ℕ, ES.ESProp (3 * 2 ^ s + 1)` with axioms [propext, Classical.choice, Quot.sound] only, no
+`sorry`; compiles in ≈ 9 s (Lean 4.34.1, Mathlib d13f23b7 via `lake env` of a built checkout; log
+`data/z52b/pass2/ZF1/Z1894/lean_check.txt`). Structure exactly as Theorem C: generic `window` lemma (CAP_DOWN Lemma 1.1:
+n + m = 4K, K² = de, m y₀ = K + d, m z₀ = e + K ⟹ (K, n y₀, n z₀)), `sophie_germain` 4(Y+1)⁴ + 1 = f₊(Y+1) f₊(Y),
+`sg_window` (the eight m = 11 rules, (b, c) per X mod 11, divisibility decided in ZMod 11), the ET classes mod 7 and 15,
+divisor classes 5, 7, 61 by scaling, and `pow_mod_period` for 2^s mod 7, 15, 11, 61.
+**Why it matters.** Pass 1 estimated "days of Lean work"; the whole theorem took well under an hour, so every thin-family
+theorem of the (J)62–(J)80 type (finite ET covering + polynomial window identities) is cheap to machine-check — a
+certificate format that a referee need not trust. Same pipeline gave the 15·2^s + 1 off-core theorem (Z1797).
+**Next.** Formalise (J)80 (63·2^s + 1) and (J)75 (7·4^s + 9) with the same `window` lemma; generate the ET-class part
+automatically from the certificate JSON as in `scripts/z52d_p2_ZF1_Z1797_gen_lean.py`.
