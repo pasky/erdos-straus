@@ -1,0 +1,4 @@
+hard primes p <= 20000: 53; with no level <= 40: 2 [5569, 9601]
+greedy menu size: 10 levels: [1, 2, 4, 5, 8, 9, 11, 20, 21, 26]
+no menu of size <= 4 found; greedy gives 10
+exact minimum hitting set size (levels <= 40): 10 [1, 2, 3, 4, 5, 8, 9, 11, 14, 21]

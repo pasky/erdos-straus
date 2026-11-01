@@ -1,0 +1,6 @@
+    [cls._sympify(op(cls._sympify(i), cls._sympify(j)))
+                  ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0059/scripts/z52d_p2_NC3_levelprod.py", line 41, in <lambda>
+    A3 = Matrix(PREC+1, len(ind), lambda k, j: allc[ind[j]][k])
+                                               ~~~~^^^^^^^^
+IndexError: list index out of range

@@ -1,0 +1,18 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+KH check 1 1.0 1
+KH check 2 4.0 4
+KH check 3 6.0 6
+KH check 5 10.0 10
+KH check 10 30.0 30
+KH check 12 44.0 44
+KH check 30 122.0 122
+n range 2 300 T 20
+fit sum_t M_t^lev(n) ~ a*sum_t sum_s H(4tn-s^2) + b : a=0.000003 b=15.703198 maxresid=2.031e+01
+first rows (n, sum M, sum H): [(2, 8.972, 1460.0), (3, 10.539, 2207.0), (4, 0.0, 3280.0), (5, 11.217, 3515.0), (6, 7.208, 5590.0), (7, 14.522, 4879.0)]
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+t 4 fit (tau-sigma_chi)(N) vs KH sum 2sigma-lambda at N=tn+1: slope 0.0011 icpt 0.8263 maxres 11.278
+   corr(tau-sig, sum_s H(4N-s^2)): 0.3856
+t 8 fit (tau-sigma_chi)(N) vs KH sum 2sigma-lambda at N=tn+1: slope 0.0005 icpt 0.7279 maxres 13.511
+   corr(tau-sig, sum_s H(4N-s^2)): 0.3179
+t 3 fit (tau-sigma_chi)(N) vs KH sum 2sigma-lambda at N=tn+1: slope 0.0019 icpt 1.0852 maxres 12.382
+   corr(tau-sig, sum_s H(4N-s^2)): 0.5119

@@ -1,0 +1,16 @@
+rows: 173  TI-true: 13  control: 160
+all:  P(GZ | TI) = 13/13   P(GZ | control) = 25/160
+(-d/p)=(-m/p)=-1 only:  P(GZ | TI) = 13/13   P(GZ | control) = 24/35
+TI-true rows where GZ fails (p,d,m,cond): []
+GZ by (( -d/p), (-m/p), ((4dm-1)/p)):
+   (-1, -1, -1) {True: 9, False: 7}
+   (-1, -1, 0) {True: 13}
+   (-1, -1, 1) {False: 4, True: 15}
+   (-1, 0, 1) {True: 1}
+   (-1, 1, -1) {False: 13}
+   (-1, 1, 1) {False: 23}
+   (1, -1, -1) {False: 20}
+   (1, -1, 1) {False: 20}
+   (1, 0, 1) {False: 1}
+   (1, 1, -1) {False: 24}
+   (1, 1, 1) {False: 23}

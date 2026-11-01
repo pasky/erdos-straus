@@ -1,0 +1,3 @@
+primes 99 sign changes along resistance order: observed 939 random-order mean 996.4
+primes 99 sign changes along resistance order: observed 939 random-order mean 996.4
+pair-respecting random mean (per run, summed over primes): 495.9

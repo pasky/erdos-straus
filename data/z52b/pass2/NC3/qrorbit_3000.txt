@@ -1,0 +1,4 @@
+primes 101
+L3 closed under A->A^{-1}: 101 / 101
+L3 closed under A->-A: 0 / 101
+primes with nontrivial multiplicative stabiliser: 0 []

@@ -1,0 +1,2 @@
+words checked: 350  words where |tr-2| != tu+tv-4: 350  examples: [(7, (2, 2, 3), 5), (7, (2, 3, 2), 5), (13, (2, 2, 5), 11), (13, (3, 2, 3), 10)]
+|det(g-I)| = |2-tr| equals |p-t-2| identically: True

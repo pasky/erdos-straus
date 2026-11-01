@@ -1,0 +1,15 @@
+m=6: primes p<=2000000 (p∤m) = 148931, failures = 13; first failures [7, 13, 37, 61, 73, 127, 193, 397, 457, 601, 613, 1093]
+   best single (d/p)=e: d=-3 e=1 misses 0 failures, cond size 74412, failure rate in/out 0.0002/0.0000
+   best pair: (d1=-3,e1=1) & (d2=-1,e2=1) misses 2 failures, cond size 37180, failure rate inside 0.0003
+m=8: primes p<=2000000 (p∤m) = 148931, failures = 21; first failures [5, 11, 17, 19, 53, 101, 113, 131, 241, 491, 739, 1061]
+   best single (d/p)=e: d=-2 e=1 misses 5 failures, cond size 74376, failure rate in/out 0.0002/0.0001
+   best pair: (d1=-2,e1=1) & (d2=-1,e2=1) misses 11 failures, cond size 37116, failure rate inside 0.0003
+m=10: primes p<=2000000 (p∤m) = 148930, failures = 82; first failures [7, 11, 13, 23, 31, 41, 43, 61, 67, 73, 83, 101]
+   best single (d/p)=e: d=-5 e=1 misses 17 failures, cond size 74431, failure rate in/out 0.0009/0.0002
+   best pair: (d1=-5,e1=1) & (d2=-2,e2=1) misses 40 failures, cond size 37155, failure rate inside 0.0011
+m=12: primes p<=2000000 (p∤m) = 148931, failures = 169; first failures [5, 7, 13, 17, 19, 29, 31, 37, 41, 53, 61, 73]
+   best single (d/p)=e: d=-1 e=1 misses 18 failures, cond size 74416, failure rate in/out 0.0020/0.0002
+   best pair: (d1=-3,e1=1) & (d2=-1,e2=1) misses 57 failures, cond size 37180, failure rate inside 0.0030
+m=16: primes p<=2000000 (p∤m) = 148931, failures = 439; first failures [5, 7, 11, 13, 17, 19, 23, 37, 41, 43, 53, 67]
+   best single (d/p)=e: d=-2 e=1 misses 126 failures, cond size 74376, failure rate in/out 0.0042/0.0017
+   best pair: (d1=-2,e1=1) & (d2=-1,e2=1) misses 215 failures, cond size 37116, failure rate inside 0.0060

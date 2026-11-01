@@ -1,0 +1,6 @@
+p in [1e+06,1e+07) sample 3000: P(minC=1)=0.565, P(minC<=3)=0.909, P(no word C<=10)=0.0133
+p in [1e+07,1e+08) sample 3000: P(minC=1)=0.589, P(minC<=3)=0.916, P(no word C<=10)=0.0143
+p in [1e+08,1e+09) sample 1500: P(minC=1)=0.607, P(minC<=3)=0.939, P(no word C<=10)=0.0047
+hard (square classes mod 840) P(minC=1): 0.505  non-hard: 0.609
+mean words with C<=10 (hard, non-hard): 10.16 12.72
+primes with no word for C<=10: [3201409, 9110641, 9626137, 9107881, 7878289, 6189361, 8598817, 5124529, 5126929, 3714769, 1135009, 5624137, 3384529, 5923681, 1549321, 1559617, 9013729, 1044697, 1868617, 3919057]

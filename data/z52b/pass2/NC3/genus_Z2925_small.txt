@@ -1,0 +1,9 @@
+d=1 m=1 N=3: det=18 classes(det)=1 classes-with-same-theta(genus proxy)=1
+d=1 m=2 N=7: det=98 classes(det)=1 classes-with-same-theta(genus proxy)=1
+d=1 m=3 N=11: det=242 classes(det)=2 classes-with-same-theta(genus proxy)=1
+d=2 m=1 N=7: det=98 classes(det)=1 classes-with-same-theta(genus proxy)=1
+d=2 m=2 N=15: det=450 classes(det)=12 classes-with-same-theta(genus proxy)=1
+d=2 m=3 N=23: det=1058 classes(det)=3 classes-with-same-theta(genus proxy)=1
+d=3 m=1 N=11: det=242 classes(det)=2 classes-with-same-theta(genus proxy)=1
+d=3 m=2 N=23: det=1058 classes(det)=3 classes-with-same-theta(genus proxy)=1
+d=3 m=3 N=35: det=2450 classes(det)=28 classes-with-same-theta(genus proxy)=1

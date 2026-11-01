@@ -1,0 +1,10 @@
+dim M = 5  dim S = 0
+charpoly T3 on S: 1    on E (complement): (x - 4)**4*(x + 4)
+cuspidal part coordinates in S-basis: []
+cuspidal part zero: True
+check: (I - Hm) coordH lies in E: True
+dim M = 14  dim S = 3
+charpoly T3 on S: x**3    on E (complement): (x - 4)**7*(x + 4)**4
+cuspidal part coordinates in S-basis: ['0', '0', '0']
+cuspidal part zero: True
+check: (I - Hm) coordH lies in E: True

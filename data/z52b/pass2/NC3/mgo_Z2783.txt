@@ -1,0 +1,10 @@
+q->1 sanity OK
+  poles: 55  zeros: 0
+i distinct phases: 3 phases shared by both signs: 3
+  examples: [(0.0, {1, -1}), (0.25, {1, -1}), (0.5, {1, -1})]
+  poles: 0  zeros: 0
+e^{i pi/4} distinct phases: 36 phases shared by both signs: 4
+  examples: [(-0.774165, {-1}), (-0.524165, {-1}), (-0.0, {1, -1}), (0.125, {1, -1}), (0.144781, {1}), (0.15224, {1})]
+e^{i pi/4}: words 118 majority accuracy phase->sign: 0.9661
+phase determined by (t,u,v) mod 4: False classes 20 conflicting 18
+phase determined by regular CF of p/A mod 4: False classes 27 conflicting 21

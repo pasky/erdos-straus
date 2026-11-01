@@ -1,0 +1,3 @@
+4-chains: 6250 classes (p mod 8, entries mod 4): 90 inconsistent: 0
+example inconsistent classes: []
+classes with >=2 representatives: 90  of which inconsistent: 0

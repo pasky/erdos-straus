@@ -1,0 +1,6 @@
+p=17 |W|=2 sum_betti(F2,X)=0 betti={} fixed_words=0 inv_faces=1 chi(Fix)=1
+p=41 |W|=2 sum_betti(F2,X)=0 betti={} fixed_words=0 inv_faces=1 chi(Fix)=1
+p=73 |W|=12 sum_betti(F2,X)=0 betti={} fixed_words=0 inv_faces=39 chi(Fix)=39
+p=89 |W|=6 sum_betti(F2,X)=0 betti={} fixed_words=0 inv_faces=5 chi(Fix)=5
+p=97 |W|=14 sum_betti(F2,X)=0 betti={} fixed_words=0 inv_faces=79 chi(Fix)=79
+p=113 |W|=8 sum_betti(F2,X)=0 betti={} fixed_words=0 inv_faces=9 chi(Fix)=9

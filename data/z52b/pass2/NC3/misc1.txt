@@ -1,0 +1,19 @@
+== Z2824: norm of (1-zeta^A)/(1-zeta) from Q(zeta_p) to Q(sqrt p*) ==
+p=13: QR A give |N| set [1.0], QNR A give |N| set [10.908327]
+p=17: QR A give |N| set [1.0], QNR A give |N| set [65.984845]
+p=29: QR A give |N| set [1.0], QNR A give |N| set [26.962912]
+p=37: QR A give |N| set [1.0], QNR A give |N| set [145.99315]
+p=41: QR A give |N| set [1.0], QNR A give |N| set [4097.999756]
+p=53: QR A give |N| set [1.0], QNR A give |N| set [50.980385]
+== Z2828: Dedekind sums over L3(p) vs (D2) prediction 12 s(A,p) = t+u+v-9 + (A+A*)/p ==
+words checked: 92 identity holds: 92 fails: 0
+== Z2861: Farey move p -> p + kA preserves Jacobi (p/A)?  ==
+Jacobi (p+kA / A) = (p / A): 402 holds, 0 fails
+== Z2880: is the sign a class function on SL2(Z/4)? (conjugacy classes of SL2(Z/4)) ==
+|SL2(Z/4)| = 48 conjugacy classes: 10
+words 2554 conjugacy classes hit: 9 classes with both signs: 1
+== Z2899: 4-chain Bezout identity p*K(b,c) - K(a,b,c)*K(b,c,d) = ±1 ==
+values of K(abcd)K(bc) - K(abc)K(bcd) over 2..11^4: {-1: 10000}
+== Z2889: multiplicative energy E(S) = #{a b = c d mod p} of S_3(p) (L3) and S_4(p) (4-chain cofactors) ==
+p=1009: |S3|=20 E(S3)=1268  E/|S|^3=0.1585  E/|S|^2=3.170
+p=10009: |S3|=38 E(S3)=4578  E/|S|^3=0.0834  E/|S|^2=3.170

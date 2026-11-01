@@ -1,0 +1,9 @@
+p ≡ 1 (24), p <= 1500: prime factors (odd) of N_p counted: 209
+  fraction with ℓ ≡ -1 mod 4C (C = least level): 0.565
+  fraction with (-4p/ℓ)=+1 (split): 0.0  fraction with (-4p/ℓ)=-1 (inert): 1.0  (Gross–Zagier: prime factors of H_D(0) are non-split)
+control (all inert odd primes ℓ<3000, same C): fraction ≡ -1 mod 4C: 0.395  n= 3346
+C=1: factors n=144 frac(-1 mod 4C)=0.729 | control n=2069 frac=0.500
+C=2: factors n=47 frac(-1 mod 4C)=0.277 | control n=1070 frac=0.243
+C=5: factors n=18 frac(-1 mod 4C)=0.000 | control n=207 frac=0.135
+genus pattern ((-1/ℓ),(p/ℓ)) factors: {(-1, 1): 208, (1, -1): 85}
+genus pattern controls (inert ℓ<3000): {(-1, 1): 0.498, (1, -1): 0.502}  factors: {(-1, 1): 0.71, (1, -1): 0.29}

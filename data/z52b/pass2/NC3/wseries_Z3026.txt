@@ -1,0 +1,7 @@
+N 200000 total words 10152102 odd-coefficient count 57218 density 0.2861
+first odd n: [4, 8, 16, 20, 21, 28, 30, 32, 36, 39, 40, 44, 52, 57, 64, 65, 66, 68, 75, 76, 80, 84, 90, 92, 93, 100, 102, 108, 111, 115, 116, 120, 124, 128, 129, 133, 138, 147, 148, 160]
+8n+1 square: class size 198, of which odd-coefficient 91
+4n+1 square: class size 140, of which odd-coefficient 70
+n square: class size 140, of which odd-coefficient 69
+n+1 square: class size 140, of which odd-coefficient 44
+odd coefficient residues mod 24 (counts): [(0, 4130), (1, 729), (2, 736), (3, 3391), (4, 6991), (5, 740), (6, 3388), (7, 735), (8, 3502), (9, 3380), (10, 735), (11, 728), (12, 2953), (13, 726), (14, 724), (15, 3368), (16, 3523), (17, 746), (18, 3404), (19, 739), (20, 7008), (21, 3393), (22, 727), (23, 722)]

@@ -1,0 +1,7 @@
+words: 118
+counts (sign, Phi mod 2): [((-1, Fraction(0, 1)), 28), ((-1, Fraction(1, 1)), 54), ((1, Fraction(0, 1)), 18), ((1, Fraction(1, 1)), 18)]
+distinct (sign, 12Phi mod 24) classes: 4 [((-1, Fraction(0, 1)), 28), ((-1, Fraction(12, 1)), 54), ((1, Fraction(0, 1)), 18), ((1, Fraction(12, 1)), 18)]
+distinct (sign, 12Phi mod 24) classes: 4 [((-1, Fraction(0, 1)), 28), ((-1, Fraction(12, 1)), 54), ((1, Fraction(0, 1)), 18), ((1, Fraction(12, 1)), 18)]
+odd A: counts (Jacobi (-p/A), Phi mod 2, Legendre (A/p)): [((-1, Fraction(0, 1), -1), 10), ((-1, Fraction(1, 1), -1), 10), ((-1, Fraction(1, 1), 1), 8), ((1, Fraction(0, 1), -1), 4), ((1, Fraction(0, 1), 1), 9), ((1, Fraction(1, 1), -1), 36), ((1, Fraction(1, 1), 1), 8)]
+even A: counts (Phi mod 2, sign): [((Fraction(0, 1), -1), 14), ((Fraction(0, 1), 1), 9), ((Fraction(1, 1), -1), 8), ((Fraction(1, 1), 1), 2)]
+reciprocity check (Jacobi (p/A) == Legendre (A/p)) x (Phi even): [((True, False), 62), ((True, True), 23)]

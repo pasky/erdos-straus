@@ -1,0 +1,1 @@
+words 2554 sign(A*) != sign(A): 0   AA* = tp+1 holds: 2554
