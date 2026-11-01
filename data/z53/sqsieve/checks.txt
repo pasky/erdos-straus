@@ -1,2 +1,3 @@
 Lemma W: 27962 (q,n,c,l) cases, odd primes q<=23: all pass; max |G|/sqrt(q) over q∤l = 1.9307 (bound 2)
+Lemma W(d) CRT factorisation: 273594 cases (Q in 15,35,33,77; n even residues), max error 1.9e-14; Kloosterman identity: 556 cases (q<=17), max error 1.8e-15
 BM-in-strip: 87388 coprime (*) triples with odd n<=20000: violations of (-uB/n)=-1: 0; triples at odd squares: 0

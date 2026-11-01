@@ -36,6 +36,36 @@ def check_weil(QMAX):
                 assert tot <= 2*q**1.5 + 1e-6, (q, n, l, tot)
     return cases, worst
 
+def G(c, l, n, Q, tw):
+    from sympy import jacobi_symbol
+    return sum(int(jacobi_symbol(((4*c*k-n)**2-4*k) % Q, Q))*tw[(l*k) % Q] for k in range(Q))
+
+def check_crt_kloosterman():
+    """Lemma W(d): G^(Q)_c(l) = G^(q)_c(l*inv(q',q)) G^(q')_c(l*inv(q,q')); and Lemma W(b) Kloosterman identity
+    H(d,l) = sum_x ((x^2-d)/q) e(lx/q) = S(-d, -inv(4)l^2; q) for q not dividing d*l."""
+    cases = 0; err = 0.0
+    for (q, qq) in [(3, 5), (5, 7), (3, 11), (7, 11)]:
+        Q = q*qq
+        twQ = [cmath.exp(2j*math.pi*t/Q) for t in range(Q)]
+        twq = [cmath.exp(2j*math.pi*t/q) for t in range(q)]
+        twqq = [cmath.exp(2j*math.pi*t/qq) for t in range(qq)]
+        for n in range(0, Q, 2):
+            for c in range(Q):
+                for l in range(Q):
+                    a = G(c, l, n, Q, twQ)
+                    b = G(c % q, (l*pow(qq, -1, q)) % q, n, q, twq)*G(c % qq, (l*pow(q, -1, qq)) % qq, n, qq, twqq)
+                    err = max(err, abs(a-b)); cases += 1
+    kerr = 0.0; kcases = 0
+    for q in primerange(3, 18):
+        tw = [cmath.exp(2j*math.pi*t/q) for t in range(q)]
+        i4 = pow(4, -1, q)
+        for d in range(1, q):
+            for l in range(1, q):
+                H = sum(leg(x*x-d, q)*tw[(l*x) % q] for x in range(q))
+                S = sum(tw[(-d*t - i4*l*l*pow(t, -1, q)) % q] for t in range(1, q))
+                kerr = max(kerr, abs(H-S)); kcases += 1
+    return cases, err, kcases, kerr
+
 def check_bm(NMAX):
     # enumerate all (*) triples with 4uBC-u-B <= NMAX
     bad = 0; tested = 0; zero_sq = 0
@@ -58,5 +88,7 @@ if __name__ == "__main__":
     QMAX = int(sys.argv[1]); NMAX = int(sys.argv[2])
     cases, worst = check_weil(QMAX)
     print(f"Lemma W: {cases} (q,n,c,l) cases, odd primes q<={QMAX}: all pass; max |G|/sqrt(q) over q∤l = {worst:.4f} (bound 2)")
+    c1, e1, c2, e2 = check_crt_kloosterman()
+    print(f"Lemma W(d) CRT factorisation: {c1} cases (Q in 15,35,33,77; n even residues), max error {e1:.1e}; Kloosterman identity: {c2} cases (q<=17), max error {e2:.1e}")
     tested, bad, zsq = check_bm(NMAX)
     print(f"BM-in-strip: {tested} coprime (*) triples with odd n<={NMAX}: violations of (-uB/n)=-1: {bad}; triples at odd squares: {zsq}")

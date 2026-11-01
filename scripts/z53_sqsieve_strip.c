@@ -39,13 +39,13 @@ int main(int argc,char**argv){
   for(int i=0;i<np;i++){ for(ll j=0;j<m;j++) sig[j]+=leg(Fv[j],pr[i]); }
   for(int i=0;i<np;i++) for(int i2=i+1;i2<np;i2++){ ll S=0; for(ll j=0;j<m;j++) S+=leg(Fv[j],pr[i])*leg(Fv[j],pr[i2]); double a=fabs((double)S); if(a>mx) mx=a; ss+=a*a; npairs++; }
   double Lam=0, Lam_sq=0; int smin=1<<30, smax=-(1<<30); int x0=(int)ceil(sqrt((double)np)); if((x0-np)%2) x0++;
-  int has0=0, hasp=0, hasm=0;
+  int has0=0, hasp1=0, hasm1=0, hasp=0, hasm=0;
   for(ll j=0;j<m;j++){ ll f=Fv[j]; int isq=0; if(f>0){ ll r=(ll)sqrtl((long double)f); while(r*r>f) r--; while((r+1)*(r+1)<=f) r++; isq=(r*r==f);} 
     Lam+= (double)sig[j]*sig[j]; if(isq) Lam_sq+=(double)sig[j]*sig[j];
-    if(!isq && f!=0){ if(sig[j]<smin) smin=sig[j]; if(sig[j]>smax) smax=sig[j]; if(abs(sig[j])<=1) has0=1; if(sig[j]==x0) hasp=1; if(sig[j]==-x0) hasm=1; } }
+    if(!isq && f!=0){ if(sig[j]<smin) smin=sig[j]; if(sig[j]>smax) smax=sig[j]; if(sig[j]==0) has0=1; if(sig[j]==1) hasp1=1; if(sig[j]==-1) hasm1=1; if(sig[j]==x0) hasp=1; if(sig[j]==-x0) hasm=1; } }
   printf("n=%lld W=%lld s in (%lld,%lld] P=%lld P0=%d |A|=%lld squares=%lld coprime_squares=%lld of_which_BM(-k/n)=-1:%lld |A-|=%lld\n",n,W,S1,S2,P,np,m,nsq,nsq_cop,nsq_bm_ok,nminus);
   printf("  S_Q over %lld pairs: max|S_Q|=%.0f rms=%.1f sqrt|A|=%.1f\n",npairs,mx,sqrt(ss/(npairs?npairs:1)),sqrt((double)m));
-  printf("  Lambda=sum sigma^2=%.0f  (P0*|A|=%lld; squares contribute %.0f; (Lambda-P0|A|)/P0^2=%.3f)  nonsquare sigma range [%d,%d], x0=%d: sigma in{0,+-1}:%d sigma=+x0:%d sigma=-x0:%d\n",
-    Lam,(ll)np*m,Lam_sq,(Lam-(double)np*m)/((double)np*np),smin,smax,x0,has0,hasp,hasm);
+  printf("  Lambda=sum sigma^2=%.0f  (P0*|A|=%lld; squares contribute %.0f; (Lambda-P0|A|)/P0^2=%.3f)  nonsquare sigma range [%d,%d], x0=%d: sigma=0:%d sigma=+1:%d sigma=-1:%d sigma=+x0:%d sigma=-x0:%d  (H):%d\n",
+    Lam,(ll)np*m,Lam_sq,(Lam-(double)np*m)/((double)np*np),smin,smax,x0,has0,hasp1,hasm1,hasp,hasm,(has0||(hasp1&&hasm1))&&hasp&&hasm);
   return 0;
 }
