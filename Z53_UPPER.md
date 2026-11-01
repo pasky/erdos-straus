@@ -25,7 +25,7 @@ What is proved here:
 | # | statement | status |
 |---|-----------|--------|
 | L1.1 | c ∈ 𝒞_p is a coordinate ⟺ p + c or cp + 1 has a positive divisor ≡ −1 (mod c) | PROVED |
-| L1.2 | every coordinate of every word of p is ≤ p + 2; so HC(p) < ∞ ⟹ HC(p) ≤ p + 2 | PROVED |
+| L1.2 | every coordinate of every word of p is ≤ p + 2; so HC(p) < ∞ ⟹ HC(p) ≤ p − 1 (p, p+1, p+2 ∉ 𝒞_p) | PROVED |
 | L1.3 | words ⟷ pairs (m, e) with e ∣ m + 1, m ∣ p + e (u = e, t = (m+1)/e, v = (p+e)/m) | PROVED |
 | P2.1 | HC(p) = 3 iff p ≡ 5 (mod 8); for p ≡ 1 (8): HC(p) ≥ 4, and HC(p) = 4 iff (p+4)(4p+1) has a prime factor ≡ 3 (mod 4) | PROVED |
 | L3.1 | **reciprocity constraint**: every divisor d certifying a coordinate c ∈ 𝒞_p (as in L1.1) has (d/p) = −1 | PROVED |
@@ -34,12 +34,12 @@ What is proved here:
 | **T4.1** | **for 0 < θ ≤ 1/2: #{p ≤ x : HC(p) > x^θ + 1} ≤ 16 x exp(−0.15 √(θ log x)) for x ≥ x₀(θ); hence HC(p) ≤ p^θ for all p ≤ x outside ≪_θ x exp(−0.1 √(θ log x)) primes** | PROVED (Bombieri–Vinogradov, ineffective x₀) |
 | T4.2 | for fixed K: #{p ≤ x : HC(p) > 4K} ≪_K x (log x)^{−1−κ(K)}, κ(K) = 2Σ_{k≤K} 1/φ(4k) ≥ log(K+1) | PROVED |
 | T4.3 | polylog bonus: #{p ≤ x : HC(p) > (log x)^A} ≪_{A,ε} x exp(−(1−ε) A (log log x)²) | PROVED (Siegel–Walfisz, ineffective) |
-| §5 | the exact pointwise statement needed; why congruence data and prime-level certificates cannot suffice | PROVED parts + EVIDENCE |
+| §5 | the exact pointwise statement needed; small-prime-supported certificates cannot suffice (PROVED); prime-level certificates fail for some tested p (EVIDENCE) | PROVED parts + EVIDENCE |
 | §6 | HC(p) ≤ 64 for all primes p ≡ 1 (4) below 10⁸; lemma checks; prime-level statistics | CERTIFIED |
 
-So the brief's "weaker milestone" is reached in the *exceptional-set* form: HC(p) ≤ p^θ for every fixed θ > 0 outside a
-set of relative density ≪ exp(−c√(θ log x)) (T4.1), and HC(p) ≤ (log p)^A outside a set of relative density
-exp(−(1−ε)A(log log x)²) (T4.3). The exceptional sets are explicit (they are contained in the explicit sieve-survivor sets
+So the brief's "weaker milestone" is reached in the *exceptional-set* form: HC(p) ≤ p^θ for every fixed θ > 0 for all p ≤ x outside a
+set of size ≪ x exp(−c√(θ log x)) (T4.1), and HC(p) ≤ (log x)^A outside a set of size ≪ x exp(−(1−ε)A(log log x)²)
+(T4.3). The exceptional sets are explicit (they are contained in the explicit sieve-survivor sets
 𝒮 of §4). Comparison: Vaughan (1970) proved that ES fails for ≪ x exp(−c (log x)^{2/3}) integers n ≤ x — a better rate,
 but with no control of the size of a 𝒞-coordinate (I have not checked whether his solutions have one).
 
@@ -62,7 +62,8 @@ e := (cp+1)/d; de ≡ 1 and d ≡ −1 (mod c) give e ≡ −1 (mod c), e ≥ 1,
 
 So HC(p) = min{c ∈ 𝒞_p : (U) or (T) holds for c}. (1, 2 ∉ 𝒞_p: 1, 2 ≢ 0 (4), and −p is odd and ≢ 1 (8) since p ≢ 7 (8).)
 
-**Lemma 1.2.** Every coordinate of every word of p is ≤ p + 2. Hence HC(p) < ∞ implies HC(p) ≤ p + 2.
+**Lemma 1.2.** Every coordinate of every word of p is ≤ p + 2. Hence HC(p) < ∞ implies HC(p) ≤ p − 1 (p, p + 1,
+p + 2 ∉ 𝒞_p: they are ≡ 1, 2, 3 (mod 4), and an odd x ≡ −p (8) would need x ≢ p, p + 2 (mod 8) since 2p, 2p + 2 ≢ 0 (8)).
 
 *Proof.* t = (p + u + v)/(uv) ≤ p + 1/v + 1/u ≤ p + 2. By the symmetry u ↔ v assume u ≤ v; it suffices to show
 v ≤ p + 2. From v(tu − 1) = p + u ≤ p + v we get v(tu − 2) ≤ p. If tu ≥ 3 this gives v ≤ p. tu = 1 is impossible
