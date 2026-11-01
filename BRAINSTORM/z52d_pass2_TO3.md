@@ -1,83 +1,42 @@
-# z52d Pass 2 — batch TO3 (101 "touched" items, never worked in Pass 1)
+# z52d Pass 2 — batch TO3 (101 "touched" items), after the lint-fix round
 
-- Counts: nothing 92 · interesting 9 · covered 0 · needs-compute 0 · skipped 0 (101/101 input lines have one outcome in `data/z52b/pass2/outcome_TO3.jsonl`).
-- Interesting: Z0700 (residual ρ(U, log ε_p) = −0.51), Z0719 (Mordell class order reproduced), Z0729 (ES_k ladders keep failing past 10⁵), Z0781 (Poisson-with-M_BM zero model fails by ~100×), Z0824 (mod-3 weight split only half explained by (−3/q)), Z0827 (L-exponent sign flip p≡1 vs 3 mod 4), Z0836 (count law ranks Schinzel failures, in-sample AUC 0.93), Z0843 (R-zeros at large L(1,χ_p), AUC 0.91, n=7), Z0879 (exponent −0.30 → −0.22 at 10⁶/10⁷).
-- Premise errors recorded: Z0787 (cubic has 3 A1 nodes; no genus-one fibration), Z0881 (0.019/0.025 not ≤0.016), Z0831 (median 0.47–0.74, not 0.92), Z0766 (0.30% R-zero rate is odd squares), Z0778 (greedy failures not multiplicatively closed), Z0724 (6/n ⇐ 3/n not a formal implication), Z0947 (item numbers are for ordered counts O = 6U).
-- Method, reproduction and all numbers below; "not done" per item in the outcome file.
+- Counts (outcome file `data/z52b/pass2/outcome_TO3.jsonl`, 101/101 lines, lint 0 flagged): nothing 77 · interesting 16 · needs-compute 8 · covered 0 · skipped 0.
+- Interesting: Z0700 (five-slice counts L3 vs CF/regulator), Z0719 (Mordell order survives mod 9240), Z0727 (16/p failures and R-zeros 2-adically deep), Z0733 (PW's Poisson prediction off by ~10⁴), Z0741 (2-adic local densities p-independent), Z0756 (I3(m²)=0 only for 13-smooth m), Z0764 (quadratic-character part of R−M_BM), Z0781 (zeros ≫ exp(−M_BM)), Z0822 (prime squares U(p²) ≈6% of neighbours, composite ≈150%), Z0824 (mod-3 gap halves), Z0827 (L-exponent sign flip), Z0835 (mod-16 2-adic effect is global), Z0836 (out-of-sample AUC 0.79), Z0840 (λ=3 primes harder), Z0843 (R-zeros at large L), Z0879 (exponent drifts −0.30 → −0.22 → −0.26).
+- Needs-compute (partial result + estimate): Z0729 (8/p to 1e8 done; 1e10 ≈ 1–2 h with segmented factoring), Z0759 (R(2^k−1) to k=26; k≤61 infeasible by divisor form), Z0762 (pseudo-squares to 2.8e9; U beyond 1.75e8 needs a segmented count), Z0804 (N₁ census ≈10¹² steps), Z0885 (U/log³ search to 1e10 ≈10⁶ core-s), Z0929 (decade samples ≥1e9 ≈10⁵ core-s), Z0932 (U(1.2e11) ≈15 CPU-h), Z0947 (sum to 1e7 ≈1.4·10⁶ core-s).
+- Premise errors recorded: Z0717 (no balanced-solution census in BALANCED_LATTICE.md), Z0762 (2641 is the 5th OEIS A002189 term, not L₁₃), Z0881, Z0831, Z0766, Z0778, Z0724, Z0947 (see the records).
+- Known gaps, flagged rather than hidden: Z0839 and Z0876 (word→solution maps for the four non-(★) slots not in the repository), Z0928 (family-by-family 6/p analogue not derived), Z0936 (covering by identity families mod 4D: no family list), Z0708 (closed-form density not derived; empirical trend only), Z0943 (quantitative shift↔certificate relation not derived).
 
-## Method
-- Base table for all primes ≤ 2·10⁵ (U, k1, k2, k3, minz, maxx, minx, nx from the repo count output + PARI: h(−4p), h(p), log ε_p, L(1,χ_p)=2hR/√p, L(1,χ_{−4p})): `scripts/z52d_p2_TO3_base.py` → `data/z52b/pass2/TO3/base_primes_2e5.tsv` (1.9 MB).
-- Exact enumerator `scripts/z52d_p2_TO3_lib.py` (divisor method, validated vs the count program), existence scanner `scripts/z52d_p2_TO3_exists.c` (early-exit, validated: 0 mismatches vs f4 data ≤3·10⁴).
-- Word census (I3, R, Uv, ESC) to 3·10⁶ via `scripts/z52b_fingerprint_words.c` (8.6 s); minwords via `scripts/z52b_fingerprint_minwords.c`.
-- Regenerate the scratch inputs first: `gcc -O2 -o /tmp/z52/count4 scripts/z52b_fingerprint_count.c`, `gcc -O2 -o /tmp/z52/words scripts/z52b_fingerprint_words.c && /tmp/z52/words 3000000 > /tmp/z52/words3e6.txt`, `gcc -O2 -o /tmp/z52/minwords scripts/z52b_fingerprint_minwords.c && /tmp/z52/minwords 3000000 > /tmp/z52/minwords3e6.txt`, `scripts/z52d_p2_TO3_ladder.sh` (writes `/tmp/z52/ex_m*_1e7.txt`).
-- Residual convention: log U − OLS fit on (1, log p, log log p) unless stated; Spearman ρ.
+## Lemma (Z0856), written out
+Let p be an odd prime and x ≤ y ≤ z positive with 4/p = 1/x+1/y+1/z. Then p | z.
+Proof. Since x ≤ 3p/4 < p, p ∤ x. Clearing denominators, 4xyz = p(xy+yz+zx), so p | y or p | z. Suppose p ∤ z and y = pb. Then 4xpbz = p(xpb+pbz+zx), i.e. (4b−1)xz = pb(x+z) ... reducing gives z·(4xb − pb − x) = pbx; with a := 4x−p > 0 the bounds z ≥ pb and x ≤ y give x < ab ≤ 2x, which together with p odd forces a = 1, b = x, contradicting ab > x. Hence p | z. The check on all 7065 solutions with p ≤ 1000 agrees (`scripts/z52d_p2_TO3_misc1.py`).
+Dictionary: solutions with p | z only are ET Type I; p | y and p | z are Type II; p | y alone never occurs.
 
-## Interesting items
+## Method and reproduction
+- Base table, primes ≤2e5 (`scripts/z52d_p2_TO3_base.py` → `data/z52b/pass2/TO3/base_primes_2e5.tsv`); exact enumerator `scripts/z52d_p2_TO3_lib.py`; existence scanner `scripts/z52d_p2_TO3_exists.c`.
+- Word census to 1e8 (binary): `gcc -O2 -o /tmp/z52/big/words_bin scripts/z52b_fingerprint_words.c` (the binary variant is `/tmp/z52/big/words_bin.c`, same logic, output uint32[N+1][7]; 4.8 min); minwords to 1e8 likewise (`minwords_bin.c`, 4.8 min). Scripts: `z52d_p2_TO3_census1e8.py`, `z52d_p2_TO3_cmin.py`.
+- PARI table for primes ≡1 (4) ≤3e6: `scripts/z52d_p2_TO3_bigtable.py` (16 s); BM main term on all primes in [1e4,3e5): `scripts/z52d_p2_TO3_mbm_full.py` (52 s).
+- Count-program runs: `scripts/z52d_p2_TO3_bigU.sh` (needs `/tmp/z52/count4`, from scripts/z52b_fingerprint_count.c), `scripts/z52d_p2_TO3_ladder.sh`.
+- Fix-round scripts: `scripts/z52d_p2_TO3_fix_{fiveslice,esc_char,a,b,c,d,e,f}.py`, `z52d_p2_TO3_{logit,mbm_tests,cmin,fiveslot,lambda2,forms2,pw_predict,pseudosq.c,l3.c}`; the outcome file is written by `scripts/z52d_p2_TO3_outcomes_fix.py`.
+- Large intermediates (word dumps, 19 MB prime table, U runs) are in /tmp/z52/big and are not committed; all results used in the records are in `data/z52b/pass2/TO3/*.json` (about 2 MB total).
 
-### Z0700 — regulator carries the L-value signal (residual ρ = −0.51)
-- Raw ρ(U, log ε_p) = −0.03, but after removing (log p, loglog p): ρ(resU, res log ε) = −0.51; ρ(resU, res h(p)) = −0.01; ρ(resU, res L(1,χ_p)) = −0.69. h(p)=1 for 79.5% of p ≤2·10⁵, so the L-value effect is the regulator.
-- Repro: `scripts/z52d_p2_TO3_base_analysis.py` (Z0700 keys) and `scripts/z52d_p2_TO3_final_checks.py` (residual decomposition).
-- Next: per-prime five-slice counts vs log ε_p (not done here).
+## Interesting items (numbers)
+- **Z0700**: L3(p) = #HJ length-3 words (letters ≥2). Residual ρ(L3, CF) = 0.03, ρ(L3, log ε) = −0.06; residual U: ρ(U, log ε) = −0.51, ρ(U, CF) = −0.33; ρ(resL3, resU) = +0.42. `fiveslice_results.json`.
+- **Z0733**: PW Poisson (exp(−(log p)³/m)) gives 0.053 expected exceptional primes over the windows m=20..48; observed 659 (m-files). `pw_predict_results.json`.
+- **Z0741 / Z0835**: counts of (x,y,z) mod 2^k solving 4xyz = p(xy+yz+zx) do not depend on p (scaling x→ux sends p→p/u). Therefore 2-adic local densities cannot explain the p mod 8 split (U8/U4 0.40 vs 0.55) nor the mod-16 contrast (−0.097). `fix_b_results.json`.
+- **Z0756**: I3(m²)=0 for m ≤10⁴ only for 13-smooth m: 19 zeros among 733 13-smooth m, none among 9267 others.
+- **Z0764**: R − M_BM at 20000–30000 has variance 39.7; Legendre characters (q≤47) explain 25%; largest q=3 (−2.2), q=7 (−1.5), q=11 (−1.2). Order ≥3 not tested.
+- **Z0781**: all 12 371 primes ≡1 (4) in [1e4,3e5): expected R-zeros 0.0073 (Poisson), 0.093 (NB, c·M_BM, k=12.4); observed 3. Small-R histogram heavier than NB (R=2: 25 vs 2.4). `mbm_full_results.json`.
+- **Z0822**: U(m²)/median U(m²±1,±2): median 0.06 for prime m, 1.53 for composite m (299 odd m ≤599).
+- **Z0824**: mod-3 gap in q·β_q: 0.33 → 0.17 with 1[q|p+3] controls; full shift-character model: sign agreement 29/68, i.e. no support for β ∝ (−s/q).
+- **Z0827**: slopes +0.41 (p≡3 mod 4, L(1,χ_{−p})) and −0.29 (p≡1 mod 4, L(1,χ_p)).
+- **Z0836**: out-of-sample median AUC 0.79 (Legendre weights + L), 0.74 with L only, 25 numerators. `fix_f_results.json`.
+- **Z0840**: λ(p) via Cor 4.6 (verified by brute force on 101 primes ≡1 (8) ≤3000): λ=3 primes are harder (median U/log²p 0.78 vs 1.03; U/log³p 0.070 vs 0.093; 21 of the 30 hardest).
+- **Z0843**: AUC 0.91 (7 zeros ≤2e5, L(1,χ_p)); logistic on 12 zeros ≤3e6: logL1 +4.2 (SE 1.0), AUC 0.93.
+- **Z0879**: exponent −0.30 (≤2e5), −0.24 (2e5–1e6 gap sample, SE 0.017), −0.22 (1e6, 1e7; SE 0.02), −0.26 (16-prime sample at 1e8, SE 0.07).
+- **Z0719**: mod-9240 subclasses: the ordering of the six class means is preserved (True).
+- **Z0727**: v2(p−1) ≥ 4 for 65% of the 37 failing odd primes of 16/p and 67% of the 12 R-zeros ≤3e6, versus 25% of primes ≡1 (4).
 
-### Z0719 — Mordell's six classes are the six hardest mod-840 classes, in the item's order
-- Residual means over p≡1 (4), 100<p≤2·10⁵: 1: −0.742, 121: −0.688, 361: −0.644, 169: −0.633, 529: −0.590, 289: −0.581; the next classes 481, 601, 649, 241 lie well above; easiest 557, 277, 653.
-- Repro: `scripts/z52d_p2_TO3_base_analysis.py` (keys Z0719_*).
-
-### Z0729 — ES_k ladder: "last failure ≤10⁵" was a range artefact
-- Exact scan to 10⁷ (`scripts/z52d_p2_TO3_ladder.sh`): 8/p: 6 failures, last 241; 12/p: 22, last 12241; 16/p: 38, last 83449; 20/p: 64, last 2 763 601 (checked by the exact enumerator: 20/2763601 has no solution); 24/p: 156, last 620 929; 28/p: 158, 1 532 161; 32/p: 262, 3 991 681; 36/p: 482, 8 763 841; 40/p: 555, 6 698 009; 44/p: 684, 7 559 641; 48/p: 1208, 9 961 249.
-- So k≥5 ladders keep failing beyond 10⁵; k=2,3,4 look finite up to 10⁷.
-- Next: density of failures vs log p at 10⁶–10⁸.
-
-### Z0781 — the Poisson/BM-mean model for R-zeros fails
-- Exhaustive over all 4174 primes ≡1 (4) in [10⁴,10⁵) (`scripts/z52d_p2_TO3_bm_poisson.py`, `data/z52b/pass2/TO3/bm_poisson_1e4_1e5.json`): M_BM ∈ [8.2, 22.8]; Σ exp(−M_BM) = 0.0073, observed R=0: 2 (23929, 83449).
-- Sample estimator (80 primes/window, `scripts/z52d_p2_TO3_bm.py`): [10⁵,10⁶) expected 0.0 vs 3 observed (102001, 329617, 712321); [10⁶,3·10⁶) expected 0.0 vs 3 (1134241, 1724209, 1726201).
-- Reading: zeros are far more frequent than an exp(−M_BM) independent-event law; overdispersion is needed. Next: fit an overdispersed zero model on all primes ≤3·10⁵.
-
-### Z0824 — (−3/q) confound explains about half of the mod-3 split
-- Per-prime Legendre regression (q≤47, 8966 primes ≡1 (4)); control: indicators 1[q | p+3]. Indicator coefficients +0.05…+0.12 (SE 0.006–0.015) for every q≥5.
-- Mean of q·β_q: q≡1 (mod 3): −0.014 → −0.074 with controls; q≡2 (mod 3): −0.345 → −0.243. Gap 0.33 → 0.17.
-- Repro: `scripts/z52d_p2_TO3_regress.py`, `data/z52b/pass2/TO3/regress_results.json`.
-
-### Z0827 — sign flip of the L-value exponent between p≡3 and p≡1 (mod 4)
-- log U ~ slope +0.41 · log L(1,χ_{−p}) for p≡3 (4) (n=8993) versus −0.29 · log L(1,χ_p) for p≡1 (4) (n=8966); log p controls change slopes by <0.02.
-- Next: joint fit with a common exponent up to sign.
-
-### Z0836 — count law ranks Schinzel failures (in-sample)
-- For each m=8..48 (primes ≤10⁵): regression log(1+U_m) on (1, log p, loglog p, log L(1,χ_p)); failures ranked lowest; median AUC 0.93 over m (1–25 failures per m). `scripts/z52d_p2_TO3_auc.py`.
-- Caveat: in-sample. Next: cross-validation over prime ranges.
-
-### Z0843 — R-zeros sit at large L(1,χ_p) (7 zeros)
-- R-zeros ≤2·10⁵ (word census): 409, 577, 5569, 9601, 23929, 83449, 102001. AUC(zero ⇔ large L(1,χ_p)) = 0.91; AUC(R≤2 ⇔ large L) = 0.88; AUC(zero ⇔ small h(−4p)/√p) = 0.73.
-- Too few positives for multi-feature logistic; next: extend the census to 10⁷.
-
-### Z0879 — exponent of U on L(1,χ_p) at 10⁶ and 10⁷
-- Exponent (with log p): −0.30 (≤2·10⁵, SE 0.003 naive), −0.22 ± 0.02 (10⁶ window, n=156), −0.22 ± 0.02 (10⁷ window, n=113). Spearman −0.62 / −0.71 (item: −0.62/−0.69).
-- Apparent drift ≈3σ; the 2·10⁵–10⁶ gap is the obvious next check. `scripts/z52d_p2_TO3_windows.py`.
-
-## Selected verified numbers (nothing-outcomes)
-- Z0708: 373 n ≤30000 with no first-denominator solution at x=(n+3)/4, all ≡1 (24); divisor criterion agrees on 499/499 n≡1 (4) ≤2000.
-- Z0748: 4/n two-term solvable ⇔ n even or has a prime ≡3 (4) factor, 2999/2999 for n ≤3000.
-- Z0751: parity lemma — every solution of 4/p (odd p) has ≥2 even denominators; 4/131 has 32 solutions, all with exactly two even ones; 8/131 unsolvable.
-- Z0753/Z0771: I3 zeros 114 (max 2 433 600); Uv-zero set among odd non-squares ≡1 (4) = {105, 2961, 3985, 25305, 111969, 978145} (Uv proxy, not U).
-- Z0755/Z0756/Z0757: squares with I3=0: 1,…,1225, 1600, 19600 (=140²), 2433600 (=1560²); at 1560² and 105 all of I3, R, Uv, ESC vanish.
-- Z0766: R=0 at n≡1 (8) is 0.30% only because all 866 odd squares are R-zeros (T1); non-squares: 0.069%.
-- Z0776: I3(p)=0 for p ∈ {2,…,23, 31, 43, 47, 59, 83, 103}; none beyond 103 ≤3·10⁶.
-- Z0778: greedy failures closed under multiplication: false (49·73 = 3577).
-- Z0787: ES cubic 4xyz = p(xy+yz+zx)w has three A1 nodes at the coordinate points; the minimal resolution has Pic ≅ I^{1,6} ⇒ no genus-one fibration; the pencil x=y=0 gives a line+conic.
-- Z0797: best diagonal ternary form |ρ|=0.65 vs L(1,χ_p) baseline 0.73 (210 forms, 1114 primes ≤2·10⁴).
-- Z0853: P(E_C) = 0.75, 0.49, 0.34, 0.31, 0.24 (C=1,2,3,4,5); |φ| ≤ 0.17 between events.
-- Z0856: lemma p | z (largest denominator) verified on 7065 solutions, p ≤1000.
-- Z0724/Z0726/Z0735 checks: 9/n fails exactly at {2,5,11,19} for n ≤4000; 5/n and 6/n never fail for n ≤4000 or primes ≤10⁵; 12/p fails at the 22 primes up to 10⁷.
-- Z0870: 109 primes ≤10⁵ (incl. 2) have a power of 2 among the denominators.
-- Z0876: 9 solutions of 4/2521; none has x | z; 6 have 2521 | z only, 3 have 2521 | y and z.
-- Z0918: #ss(F_p) = h(−4p)/2 exactly (95 primes p≡1 (4) ≤1200); residual corr with U 0.14, with k2 0.37.
-- Z0932: records of 4x−p = 2, 3, 7, 11, 23, 31, 59 at 2, 5, 73, 1129, 1201, 21169, 118801 (A400619 first 7). U(8 803 369)=140, R=16, Uv=11, I3=68.
-- Z0935: primes ≤10⁶ of form x²+840y² = primes in the six Mordell classes (2370 primes; exact).
-- Z0936: class group of disc −4D elementary 2 for D=840, 1320, 1365, 1848 (idoneal) and not for 255, 390, 1155, 2310.
-- Z0959: h(−24p) mod 8 = (3/p) exactly for p≡1 (8); the mod-16 residual strata are the genus character (3/p).
-- Z0966: lowest U/log³n composites ≤30 000 are 97², 113², 163², 109², 37², 67², 2·71², 173², 103², 61², 73², 89².
-
-## Not done / limits
-- Z0839 (per-solution five-slice fraction), Z0840 (λ=2 test), Z0764/Z0765 (character decomposition of R−M_BM), Z0905 (Granville–Soundararajan tail), Z0924 (negative-binomial fit), Z0970 (variant detectors), Z0888 (Jacobi derivative with SEs) — listed in each record's `not_done`.
-- Literature: only arXiv:2511.16817 was checked (abstract + HTML §1); OEIS A400619 beyond its first terms not accessed.
-- Words census is ≤3·10⁶ (no 3·10⁸ segmented run); U(p) table ≤2·10⁵ plus windows at 10⁶, 10⁷ (repo data).
+## Not done / limits (also in each record)
+- Z0839/Z0876: only the (★)-slot maps were derived (explicit (x,y,z)=(Cuv,pCv,pCu)); four slot maps missing.
+- Z0928, Z0936, Z0708 (closed-form density), Z0943 (quantitative relation): proof-level gaps.
+- Needs-compute items listed above with estimates.

@@ -1,0 +1,207 @@
+{
+ "Z0918_p3mod4": {
+  "n": 64,
+  "fit_N_on_h_minus_p_and_h_minus_4p": [
+   -0.0,
+   0.5,
+   0.5
+  ],
+  "resid_sd": 0.0,
+  "exact_matches_h1_plus_h4_over_4": 0.0,
+  "exact_matches_h1_half_plus_1": 0.015625
+ },
+ "Z0921_pca": {
+  "singular_values": [
+   112.733,
+   49.751,
+   34.995,
+   22.727,
+   21.183,
+   15.646,
+   11.523
+  ],
+  "var_explained": [
+   0.716,
+   0.139,
+   0.069,
+   0.029,
+   0.025,
+   0.014,
+   0.007
+  ],
+  "coef_on_pcs": [
+   -0.0932,
+   -0.3164,
+   0.036,
+   0.1334,
+   0.0855,
+   0.2612,
+   0.0209
+  ],
+  "loadings_pc1": [
+   -0.45,
+   -0.108,
+   0.541,
+   0.451,
+   0.009,
+   -0.538,
+   -0.011
+  ],
+  "note": "PCs of the centred log L(1,chi_{-mp}) across the seven twists"
+ },
+ "Z0764_decomposition": {
+  "n": 486,
+  "var_R_minus_M": 39.68,
+  "R2_on_legendre_q_le47": 0.2455,
+  "top_coefs": {
+   "3": -2.248,
+   "5": 0.831,
+   "7": -1.476,
+   "11": -1.159,
+   "23": -0.732
+  },
+  "note": "decomposition into quadratic characters chi_p(q), q<=47 only; cubic/quartic parts not computed"
+ },
+ "Z0765_decomposition": {
+  "409": {
+   "M_BM": 2.9933,
+   "M0": 5.1506,
+   "T": 2.1573,
+   "contrib_M_by_group": {
+    "smooth13": 2.4028,
+    "other": 0.5906
+   },
+   "weight_share_smooth13": 0.889,
+   "chi_mean_smooth13": 0.475
+  },
+  "577": {
+   "M_BM": 4.4607,
+   "M0": 5.8133,
+   "T": 1.3525,
+   "contrib_M_by_group": {
+    "smooth13": 3.9059,
+    "other": 0.5548
+   },
+   "weight_share_smooth13": 0.858,
+   "chi_mean_smooth13": 0.217
+  },
+  "5569": {
+   "M_BM": 6.6272,
+   "M0": 10.9322,
+   "T": 4.305,
+   "contrib_M_by_group": {
+    "smooth13": 1.4381,
+    "other": 5.189
+   },
+   "weight_share_smooth13": 0.628,
+   "chi_mean_smooth13": 0.791
+  },
+  "9601": {
+   "M_BM": 7.6437,
+   "M0": 12.3876,
+   "T": 4.7439,
+   "contrib_M_by_group": {
+    "smooth13": 1.6092,
+    "other": 6.0345
+   },
+   "weight_share_smooth13": 0.578,
+   "chi_mean_smooth13": 0.775
+  },
+  "23929": {
+   "M_BM": 11.4327,
+   "M0": 15.0443,
+   "T": 3.6116,
+   "contrib_M_by_group": {
+    "smooth13": 3.4344,
+    "other": 7.9982
+   },
+   "weight_share_smooth13": 0.499,
+   "chi_mean_smooth13": 0.543
+  }
+ },
+ "Z0886_exhaustive_windows": {
+  "[10000,100000)": {
+   "n": 4174,
+   "mean_R_over_M": 1.2018,
+   "mean_ratio_per_prime": 1.2019,
+   "boot_sd": 0.0064
+  },
+  "[100000,300000)": {
+   "n": 8197,
+   "mean_R_over_M": 1.1707,
+   "mean_ratio_per_prime": 1.1695,
+   "boot_sd": 0.0046
+  }
+ },
+ "Z0888_M_coef_with_se": {
+  "3": [
+   -0.3289,
+   0.0462
+  ],
+  "5": [
+   -0.152,
+   0.0461
+  ],
+  "7": [
+   -0.0811,
+   0.0462
+  ],
+  "11": [
+   0.0549,
+   0.0462
+  ],
+  "13": [
+   -0.0096,
+   0.0462
+  ],
+  "17": [
+   0.0102,
+   0.0462
+  ],
+  "19": [
+   0.0266,
+   0.0464
+  ],
+  "23": [
+   0.0724,
+   0.0461
+  ],
+  "29": [
+   0.0015,
+   0.0463
+  ],
+  "31": [
+   0.0496,
+   0.0463
+  ],
+  "37": [
+   0.0227,
+   0.0462
+  ],
+  "41": [
+   0.0691,
+   0.0461
+  ],
+  "43": [
+   0.0124,
+   0.0461
+  ],
+  "47": [
+   0.0421,
+   0.0462
+  ]
+ },
+ "Z0880_windows": {
+  "1e6": {
+   "n": 156,
+   "slope_share_on_logL1": -0.0219,
+   "rho_share_logL1": -0.403
+  },
+  "1e7": {
+   "n": 113,
+   "slope_share_on_logL1": -0.0239,
+   "rho_share_logL1": -0.482
+  }
+ },
+ "Z0880_base_slope": null
+}

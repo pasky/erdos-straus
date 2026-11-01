@@ -1,0 +1,20 @@
+{
+ "n": 8966,
+ "frac_L3_zero": 0.0,
+ "rho_L3_U_raw": 0.653,
+ "rho_resL3_resU": 0.423,
+ "rho_resL3_rescf": 0.033,
+ "rho_resL3_reslogeps": -0.064,
+ "rho_resU_rescf": -0.329,
+ "rho_resU_reslogeps": -0.51,
+ "rho_resL3_resU_partial_on_cf": null,
+ "pcorr_resL3_resU_given_cf": 0.456,
+ "median_L3_by_resU_quintile": [
+  68.0,
+  70.0,
+  74.0,
+  78.0,
+  90.0
+ ],
+ "ES5_all_primes_1mod8_check": null
+}

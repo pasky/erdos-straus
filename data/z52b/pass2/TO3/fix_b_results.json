@@ -1,0 +1,431 @@
+{
+ "Z0741_local2": {
+  "4": {
+   "1": {
+    "total": 352,
+    "all_even": 160,
+    "ratio": 0.4545
+   },
+   "9": {
+    "total": 352,
+    "all_even": 160,
+    "ratio": 0.4545
+   }
+  },
+  "5": {
+   "1": {
+    "total": 1408,
+    "all_even": 640,
+    "ratio": 0.4545
+   },
+   "9": {
+    "total": 1408,
+    "all_even": 640,
+    "ratio": 0.4545
+   },
+   "17": {
+    "total": 1408,
+    "all_even": 640,
+    "ratio": 0.4545
+   },
+   "25": {
+    "total": 1408,
+    "all_even": 640,
+    "ratio": 0.4545
+   }
+  },
+  "6": {
+   "1": {
+    "total": 5888,
+    "all_even": 2816,
+    "ratio": 0.4783
+   },
+   "9": {
+    "total": 5888,
+    "all_even": 2816,
+    "ratio": 0.4783
+   },
+   "17": {
+    "total": 5888,
+    "all_even": 2816,
+    "ratio": 0.4783
+   },
+   "25": {
+    "total": 5888,
+    "all_even": 2816,
+    "ratio": 0.4783
+   },
+   "33": {
+    "total": 5888,
+    "all_even": 2816,
+    "ratio": 0.4783
+   },
+   "41": {
+    "total": 5888,
+    "all_even": 2816,
+    "ratio": 0.4783
+   },
+   "49": {
+    "total": 5888,
+    "all_even": 2816,
+    "ratio": 0.4783
+   },
+   "57": {
+    "total": 5888,
+    "all_even": 2816,
+    "ratio": 0.4783
+   }
+  }
+ },
+ "Z0741_note": "mod 2^k counts of (x,y,z) in (Z/2^k)^3 solving 4xyz = p(xy+yz+zx); ratio = share with all denominators even (scaling to 8/p)",
+ "Z0826_local_q": {
+  "3": {
+   "count_plus": 10,
+   "count_minus": 10,
+   "log_ratio": 0.0
+  },
+  "5": {
+   "count_plus": 26,
+   "count_minus": 26,
+   "log_ratio": 0.0
+  },
+  "7": {
+   "count_plus": 50,
+   "count_minus": 50,
+   "log_ratio": 0.0
+  },
+  "11": {
+   "count_plus": 122,
+   "count_minus": 122,
+   "log_ratio": 0.0
+  },
+  "13": {
+   "count_plus": 170,
+   "count_minus": 170,
+   "log_ratio": 0.0
+  },
+  "17": {
+   "count_plus": 290,
+   "count_minus": 290,
+   "log_ratio": 0.0
+  },
+  "19": {
+   "count_plus": 362,
+   "count_minus": 362,
+   "log_ratio": 0.0
+  },
+  "23": {
+   "count_plus": 530,
+   "count_minus": 530,
+   "log_ratio": 0.0
+  }
+ },
+ "Z0826_compare": {
+  "3": {
+   "qbeta_p3mod4": 0.502,
+   "qbeta_p1mod4": -0.307,
+   "local_log_ratio": 0.0
+  },
+  "5": {
+   "qbeta_p3mod4": 0.51,
+   "qbeta_p1mod4": -0.46,
+   "local_log_ratio": 0.0
+  },
+  "7": {
+   "qbeta_p3mod4": 0.333,
+   "qbeta_p1mod4": -0.112,
+   "local_log_ratio": 0.0
+  },
+  "11": {
+   "qbeta_p3mod4": 0.503,
+   "qbeta_p1mod4": -0.357,
+   "local_log_ratio": 0.0
+  },
+  "13": {
+   "qbeta_p3mod4": 0.312,
+   "qbeta_p1mod4": -0.048,
+   "local_log_ratio": 0.0
+  },
+  "17": {
+   "qbeta_p3mod4": 0.401,
+   "qbeta_p1mod4": -0.372,
+   "local_log_ratio": 0.0
+  },
+  "19": {
+   "qbeta_p3mod4": 0.387,
+   "qbeta_p1mod4": -0.166,
+   "local_log_ratio": 0.0
+  },
+  "23": {
+   "qbeta_p3mod4": 0.255,
+   "qbeta_p1mod4": -0.317,
+   "local_log_ratio": 0.0
+  }
+ },
+ "Z0831_inherited_odd_m_le61": {
+  "per_m": {
+   "3": {
+    "n": 6,
+    "inherited": 3
+   },
+   "5": {
+    "n": 10,
+    "inherited": 2
+   },
+   "7": {
+    "n": 18,
+    "inherited": 7
+   },
+   "9": {
+    "n": 46,
+    "inherited": 29
+   },
+   "11": {
+    "n": 24,
+    "inherited": 9
+   },
+   "13": {
+    "n": 24,
+    "inherited": 4
+   },
+   "15": {
+    "n": 317,
+    "inherited": 183
+   },
+   "17": {
+    "n": 27,
+    "inherited": 4
+   },
+   "19": {
+    "n": 37,
+    "inherited": 11
+   },
+   "21": {
+    "n": 491,
+    "inherited": 276
+   },
+   "23": {
+    "n": 60,
+    "inherited": 21
+   },
+   "25": {
+    "n": 106,
+    "inherited": 57
+   },
+   "27": {
+    "n": 182,
+    "inherited": 121
+   },
+   "29": {
+    "n": 38,
+    "inherited": 7
+   },
+   "31": {
+    "n": 63,
+    "inherited": 19
+   },
+   "33": {
+    "n": 678,
+    "inherited": 366
+   },
+   "35": {
+    "n": 931,
+    "inherited": 483
+   },
+   "37": {
+    "n": 41,
+    "inherited": 9
+   },
+   "39": {
+    "n": 676,
+    "inherited": 388
+   },
+   "41": {
+    "n": 49,
+    "inherited": 7
+   },
+   "43": {
+    "n": 59,
+    "inherited": 14
+   },
+   "45": {
+    "n": 1740,
+    "inherited": 1253
+   },
+   "47": {
+    "n": 103,
+    "inherited": 34
+   },
+   "49": {
+    "n": 196,
+    "inherited": 113
+   },
+   "51": {
+    "n": 811,
+    "inherited": 436
+   },
+   "53": {
+    "n": 64,
+    "inherited": 13
+   },
+   "55": {
+    "n": 1216,
+    "inherited": 663
+   },
+   "57": {
+    "n": 896,
+    "inherited": 456
+   },
+   "59": {
+    "n": 100,
+    "inherited": 27
+   },
+   "61": {
+    "n": 65,
+    "inherited": 11
+   }
+  },
+  "total": 9074,
+  "inherited": 5026,
+  "frac": 0.5539,
+  "composite_m": [
+   9,
+   15,
+   21,
+   25,
+   27,
+   33,
+   35,
+   39,
+   45,
+   49,
+   51,
+   55,
+   57
+  ]
+ },
+ "Z0907_k2": {
+  "mean_k1_resid_low20": 0.03,
+  "mean_k2_resid_low20": -0.033,
+  "mean_k1_resid_all": 0.0,
+  "mean_k2_resid_all": 0.0,
+  "sd_k2_resid": 0.291,
+  "t_k2_low20": -0.51
+ },
+ "Z0808_residual_var": {
+  "base_plus_L1": 0.048,
+  "plus_legendre47": 0.0454,
+  "plus_tau": 0.0383,
+  "plus_legendre_tau_h4": 0.0373,
+  "var_logU": 0.1912
+ },
+ "Z0918_p3mod4": {
+  "n": 64,
+  "n_minus_hm_half_counts": {
+   "0.5": 1,
+   "1.5": 7,
+   "2.5": 4,
+   "4.5": 14,
+   "3.5": 5,
+   "7.5": 12,
+   "5.5": 2,
+   "6.5": 4,
+   "10.5": 5,
+   "9.5": 2,
+   "8.5": 1,
+   "13.5": 3,
+   "12.5": 2,
+   "11.5": 1,
+   "16.5": 1
+  },
+  "n_minus_h4_half_counts": {
+   "0.5": 6,
+   "1.5": 14,
+   "2.5": 14,
+   "3.5": 8,
+   "5.5": 3,
+   "6.5": 4,
+   "4.5": 5,
+   "7.5": 2,
+   "9.5": 2,
+   "8.5": 1,
+   "10.5": 2,
+   "12.5": 2,
+   "11.5": 1
+  },
+  "fit_candidates": {
+   "(h(-p)+h(-4p))/4": 0.0,
+   "h(-p)/2 with (+1) correction": 0.015625
+  }
+ },
+ "Z0921": "see regress_results.json (raw twist fits); PCA version: computed in fix_b",
+ "Z0767_factors": {
+  "2160": {
+   "2": 4,
+   "3": 3,
+   "5": 1
+  },
+  "2316": {
+   "2": 2,
+   "3": 1,
+   "193": 1
+  },
+  "3900": {
+   "2": 2,
+   "3": 1,
+   "5": 2,
+   "13": 1
+  },
+  "9090": {
+   "2": 1,
+   "3": 2,
+   "5": 1,
+   "101": 1
+  },
+  "9408": {
+   "2": 6,
+   "3": 1,
+   "7": 2
+  },
+  "30276": {
+   "2": 2,
+   "3": 2,
+   "29": 2
+  },
+  "453660": {
+   "2": 2,
+   "3": 1,
+   "5": 1,
+   "7561": 1
+  },
+  "2433600": {
+   "2": 6,
+   "3": 2,
+   "5": 2,
+   "13": 2
+  }
+ },
+ "Z0776": {
+  "n_primes_le1e8": 5761455,
+  "I3_zero_primes": [
+   2,
+   3,
+   5,
+   7,
+   11,
+   13,
+   17,
+   19,
+   23,
+   31,
+   43,
+   47,
+   59,
+   83,
+   103
+  ],
+  "min_I3_prime_gt103": 2,
+  "argmin_I3_prime_gt103": 127,
+  "count_I3_eq1_primes_gt103": 0
+ }
+}
