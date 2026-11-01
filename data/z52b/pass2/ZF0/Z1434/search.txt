@@ -1,0 +1,45 @@
+## Search Results
+
+[1] Title: Combinatorial and Additive Number Theory (CANT 2026)
+[1] URL Source: https://www.theoryofnumbers.com/cant/
+[1] Description: A satellite conference of ICM 2026 Monday, July 13 - Saturday, July 18, 2026 . abstracts will be posted on this website and on researchseminars.org.
+
+[2] Title: An algorithm for Egyptian fraction representations with ...
+[2] URL Source: https://arxiv.org/html/2107.05076v1
+[2] Description: We describe an algorithm for finding all unit fraction representations of a given rational number using denominators from a given finite ...
+[2] Date: Jul 11, 2021
+
+[3] Title: Egyptian Fractions and Representation Registers in the ...
+[3] URL Source: https://www.ejmste.com/article/egyptian-fractions-and-representation-registers-in-the-construction-of-the-fraction-concept-10992
+[3] Description: by F Clemente · 2021 · Cited by 2 — Abstract. In this work we will analyze the relation between registers of representation and the construction of the fraction concept.
+
+[4] Title: Egyptian Fractions
+[4] URL Source: https://www.alphaxiv.org/abs/2210.04496
+[4] Description: In this survey paper we review some of the many interesting questions concerning such 'Egyptian fraction' decompositions, and recent progress ...
+[4] Date: Oct 10, 2022
+
+[5] Title: Combinatorial and Additive Number Theory (CANT 2025)
+[5] URL Source: https://www.gc.cuny.edu/events/combinatorial-and-additive-number-theory-cant-2025
+[5] Description: This event has passed. Tuesday, May 20 — Friday, May 23, 2025. The conference program, list of speakers, and abstracts will be posted on this ...
+[5] Date: May 23, 2025
+
+[6] Title: Rings & Wings
+[6] URL Source: https://math.uccs.edu/sites/default/files/2026-07/Abstract-2026-03-11.pdf
+[6] Description: March 11, 2025. Title: Egyptian Fractions in Rings with Zero Divisors. Abstract: The ancient Egyptians developed the notation of Egyptian fractions, sums of.
+
+[7] Title: Egyptian Fractions
+[7] URL Source: https://www.semanticscholar.org/paper/Egyptian-Fractions-Hanley/2a15bd5b12034b976922af7bf6df745bfa1d1fa7
+[7] Description: In this paper, we investigate the representations of rational numbers via continued fraction, Egyptian fraction, and Engel fraction expansions.
+
+[8] Title: Egyptian Fractions - NRICH Maths
+[8] URL Source: https://nrich.maths.org/problems/egyptian-fractions
+[8] Description: The ancient Egyptians didn't write fractions with a numerator greater than 1 - they wouldn't, for example, write 2 7 , 5 9 , 123 467 ..... Instead they wrote ...
+
+[9] Title: 3355 - conferences.cirm-math.fr
+[9] URL Source: https://conferences.cirm-math.fr/3355.html
+[9] Description: Du 29 septembre 2025 au 3 octobre 2025, la 5ème édition de l'école CANT aura lieu au CIRM à Marseille, France. CANT est un acronyme pour Combinatoire, Automates ...
+
+[10] Title: counting the number of egyptian fractions: a lower bound
+[10] URL Source: https://sites.unimi.it/molteni/research/papers-pdf/56-molteni-Counting%20the%20number%20of%20Egyptian%20fractions_a%20lower%20bound.pdf
+[10] Description: An Egyptian fraction is a sum of the form 1/n1 +···+1/nr where n1,...,nr are distinct positive integers. We prove explicit lower bounds for the.
+[10] Date: by G MOLTENI · 2026

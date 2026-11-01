@@ -1,0 +1,55 @@
+scripts/z52d_p2_ZF0_Z2539_lemmas.lean:49:2: error: `grind` failed
+case grind
+p w : Int
+hp : 0 < p
+hw : 0 < w
+hsmall : w < 2 * p
+k : Int
+hk : w = p * k
+h : ¬w = p
+⊢ False
+[grind] Goal diagnostics
+  [facts] Asserted facts
+    [prop] -1 * p + 1 ≤ 0
+    [prop] -1 * w + 1 ≤ 0
+    [prop] -2 * p + w + 1 ≤ 0
+    [prop] w = p * k
+    [prop] ¬w = p
+  [eqc] True propositions
+    [prop] -2 * p + w + 1 ≤ 0
+    [prop] -1 * p + 1 ≤ 0
+    [prop] -1 * w + 1 ≤ 0
+  [eqc] False propositions
+    [prop] w = p
+  [eqc] Equivalence classes
+    [eqc] {w, p * k}
+    [eqc] {-1 * w, -1 * (p * k)}
+  [cutsat] Assignment satisfying linear constraints
+    [assign] p := 2
+    [assign] w := 1
+    [assign] k := 0
+  [ring] Ring `Int`
+    [basis] Basis
+      [_] p * k + -1 * w = 0
+    [diseqs] Disequalities
+      [_] ¬-1 * p + w = 0
+scripts/z52d_p2_ZF0_Z2539_lemmas.lean:60:13: warning: Possibly looping simp theorem: `Int.mul_emod`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+scripts/z52d_p2_ZF0_Z2539_lemmas.lean:60:27: warning: Possibly looping simp theorem: `Int.add_emod`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+scripts/z52d_p2_ZF0_Z2539_lemmas.lean:60:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+'master_cleared' depends on axioms: [propext, Classical.choice, Quot.sound]
+'star_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'star_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'common_shift_divisor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'window105_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'window105_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'window105_integral' depends on axioms: [propext, Quot.sound]
+'sophie_germain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'short_multiple' depends on axioms: [sorryAx]
+'es_parity' depends on axioms: [sorryAx]

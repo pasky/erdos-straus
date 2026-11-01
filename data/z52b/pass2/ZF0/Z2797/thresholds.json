@@ -1,0 +1,46 @@
+[
+  {
+    "q": 237971,
+    "S": [
+      3,
+      5,
+      7
+    ],
+    "N": 118985,
+    "logs": [
+      45486,
+      72569,
+      29253
+    ],
+    "Delta": "141/118985",
+    "lambda2_squared": "9261/14157430225",
+    "old_cap": 4385,
+    "direct_Euclidean_cap": 3710,
+    "asymptotic_only_ASD_leading_cap_factor": 1118.1373757731626,
+    "warning": "ASD o(1) is not an explicit bound at this small k"
+  },
+  {
+    "q": 423883,
+    "S": [
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    "N": 211941,
+    "logs": [
+      1,
+      95052,
+      115322,
+      7793,
+      169863
+    ],
+    "Delta": "1967/211941",
+    "lambda2_squared": "207839/4990998609",
+    "old_cap": 1205,
+    "direct_Euclidean_cap": 775,
+    "asymptotic_only_ASD_leading_cap_factor": 307.1891032560172,
+    "warning": "ASD o(1) is not an explicit bound at this small k"
+  }
+]

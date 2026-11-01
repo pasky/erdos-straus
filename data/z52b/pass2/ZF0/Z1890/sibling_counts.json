@@ -1,0 +1,158 @@
+[
+  {
+    "sibling": "pencil_minus4",
+    "trials": 99999,
+    "failures": 6,
+    "range": [
+      2,
+      100000
+    ],
+    "failure_values": [
+      2,
+      9,
+      21,
+      165,
+      945,
+      1197
+    ],
+    "source": "data/z52_bank/pencil_km4_witness_n9_1e5.txt.gz; Z52_BANKED.md T2 for n<9",
+    "bins": [
+      {
+        "range": [
+          2,
+          1000
+        ],
+        "trials": 999,
+        "failures": 5
+      },
+      {
+        "range": [
+          1001,
+          10000
+        ],
+        "trials": 9000,
+        "failures": 1
+      },
+      {
+        "range": [
+          10001,
+          100000
+        ],
+        "trials": 90000,
+        "failures": 0
+      },
+      {
+        "range": [
+          100001,
+          1000000
+        ],
+        "trials": 0,
+        "failures": 0
+      }
+    ]
+  },
+  {
+    "sibling": "Gaussian_Q1",
+    "trials": 39175,
+    "failures": 6,
+    "range": [
+      5,
+      999961
+    ],
+    "failure_values": [
+      29,
+      41,
+      61,
+      269,
+      293,
+      5393
+    ],
+    "source": "data/z52_bank/gauss_q1_first_le1e4.txt; data/z52_bank/gauss_q1_first_1e4_1e6.txt.gz",
+    "bins": [
+      {
+        "range": [
+          2,
+          1000
+        ],
+        "trials": 80,
+        "failures": 5
+      },
+      {
+        "range": [
+          1001,
+          10000
+        ],
+        "trials": 529,
+        "failures": 1
+      },
+      {
+        "range": [
+          10001,
+          100000
+        ],
+        "trials": 4174,
+        "failures": 0
+      },
+      {
+        "range": [
+          100001,
+          1000000
+        ],
+        "trials": 34392,
+        "failures": 0
+      }
+    ]
+  },
+  {
+    "sibling": "eight_over_n",
+    "trials": 2999,
+    "failures": 6,
+    "range": [
+      2,
+      3000
+    ],
+    "failure_values": [
+      2,
+      3,
+      11,
+      17,
+      131,
+      241
+    ],
+    "source": "data/bs_ident/mn_exceptions_3000.txt",
+    "bins": [
+      {
+        "range": [
+          2,
+          1000
+        ],
+        "trials": 999,
+        "failures": 6
+      },
+      {
+        "range": [
+          1001,
+          10000
+        ],
+        "trials": 2000,
+        "failures": 0
+      },
+      {
+        "range": [
+          10001,
+          100000
+        ],
+        "trials": 0,
+        "failures": 0
+      },
+      {
+        "range": [
+          100001,
+          1000000
+        ],
+        "trials": 0,
+        "failures": 0
+      }
+    ]
+  }
+]

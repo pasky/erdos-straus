@@ -1,0 +1,262 @@
+{
+  "examples": [
+    {
+      "p": 3,
+      "m": 1,
+      "T": [
+        [
+          1,
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          1
+        ]
+      ],
+      "e": 1,
+      "aut_E": 12,
+      "norm1_vectors": 6,
+      "ordered_endomorphism_pairs": 12,
+      "stack_mass": "1",
+      "vp_det": 1,
+      "GK_length": "1",
+      "normalized_Kitaoka_derivative": "1",
+      "degree_div_logp": "1",
+      "certificate_unordered": 1,
+      "certificate_ordered": 1,
+      "tuples": [
+        [
+          1,
+          1,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "p": 3,
+      "m": 4,
+      "T": [
+        [
+          1,
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          4
+        ]
+      ],
+      "e": 5,
+      "aut_E": 12,
+      "norm1_vectors": 6,
+      "ordered_endomorphism_pairs": 24,
+      "stack_mass": "2",
+      "vp_det": 1,
+      "GK_length": "1",
+      "normalized_Kitaoka_derivative": "1",
+      "degree_div_logp": "2",
+      "certificate_unordered": 1,
+      "certificate_ordered": 2,
+      "tuples": [
+        [
+          1,
+          4,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "p": 3,
+      "m": 7,
+      "T": [
+        [
+          1,
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          7
+        ]
+      ],
+      "e": 9,
+      "aut_E": 12,
+      "norm1_vectors": 6,
+      "ordered_endomorphism_pairs": 12,
+      "stack_mass": "1",
+      "vp_det": 3,
+      "GK_length": "2",
+      "normalized_Kitaoka_derivative": "2",
+      "degree_div_logp": "2",
+      "certificate_unordered": 0,
+      "certificate_ordered": 0,
+      "tuples": []
+    },
+    {
+      "p": 3,
+      "m": 10,
+      "T": [
+        [
+          1,
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          10
+        ]
+      ],
+      "e": 13,
+      "aut_E": 12,
+      "norm1_vectors": 6,
+      "ordered_endomorphism_pairs": 24,
+      "stack_mass": "2",
+      "vp_det": 1,
+      "GK_length": "1",
+      "normalized_Kitaoka_derivative": "1",
+      "degree_div_logp": "2",
+      "certificate_unordered": 0,
+      "certificate_ordered": 0,
+      "tuples": []
+    },
+    {
+      "p": 3,
+      "m": 19,
+      "T": [
+        [
+          1,
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          19
+        ]
+      ],
+      "e": 25,
+      "aut_E": 12,
+      "norm1_vectors": 6,
+      "ordered_endomorphism_pairs": 36,
+      "stack_mass": "3",
+      "vp_det": 1,
+      "GK_length": "1",
+      "normalized_Kitaoka_derivative": "1",
+      "degree_div_logp": "3",
+      "certificate_unordered": 0,
+      "certificate_ordered": 0,
+      "tuples": []
+    },
+    {
+      "p": 7,
+      "m": 2,
+      "T": [
+        [
+          1,
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          2
+        ]
+      ],
+      "e": 1,
+      "aut_E": 4,
+      "norm1_vectors": 2,
+      "ordered_endomorphism_pairs": 4,
+      "stack_mass": "1",
+      "vp_det": 1,
+      "GK_length": "1",
+      "normalized_Kitaoka_derivative": "1",
+      "degree_div_logp": "1",
+      "certificate_unordered": 1,
+      "certificate_ordered": 2,
+      "tuples": [
+        [
+          1,
+          2,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "p": 7,
+      "m": 9,
+      "T": [
+        [
+          1,
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          9
+        ]
+      ],
+      "e": 5,
+      "aut_E": 4,
+      "norm1_vectors": 2,
+      "ordered_endomorphism_pairs": 8,
+      "stack_mass": "2",
+      "vp_det": 1,
+      "GK_length": "1",
+      "normalized_Kitaoka_derivative": "1",
+      "degree_div_logp": "2",
+      "certificate_unordered": 1,
+      "certificate_ordered": 2,
+      "tuples": [
+        [
+          1,
+          9,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "p": 7,
+      "m": 16,
+      "T": [
+        [
+          1,
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          16
+        ]
+      ],
+      "e": 9,
+      "aut_E": 4,
+      "norm1_vectors": 2,
+      "ordered_endomorphism_pairs": 4,
+      "stack_mass": "1",
+      "vp_det": 1,
+      "GK_length": "1",
+      "normalized_Kitaoka_derivative": "1",
+      "degree_div_logp": "1",
+      "certificate_unordered": 0,
+      "certificate_ordered": 0,
+      "tuples": []
+    }
+  ],
+  "totals": [
+    {
+      "p": 3,
+      "mmax": 1000,
+      "indices_with_p_div_det": 334,
+      "cycle_support": 200,
+      "positive_cycle_no_certificate": 198,
+      "certificate_indices": 2,
+      "sum_degree_div_logp": "591",
+      "sum_unordered_certificates": 2
+    },
+    {
+      "p": 7,
+      "mmax": 1000,
+      "indices_with_p_div_det": 143,
+      "cycle_support": 92,
+      "positive_cycle_no_certificate": 89,
+      "certificate_indices": 3,
+      "sum_degree_div_logp": "230",
+      "sum_unordered_certificates": 3
+    }
+  ]
+}

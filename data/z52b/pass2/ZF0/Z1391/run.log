@@ -1,0 +1,9 @@
+N=10000000 K=24 primes=664579 seconds=16.445
+family=0 independent_hits=664555 reversed_first=1860 attempted=766207
+family=1 independent_hits=655885 reversed_first=55 attempted=1052870
+family=2 independent_hits=659361 reversed_first=219 attempted=734814
+family=3 independent_hits=655861 reversed_first=363 attempted=1052820
+family=4 independent_hits=661793 reversed_first=8472 attempted=729249
+family=5 independent_hits=647994 reversed_first=4176 attempted=882878
+family=6 independent_hits=649428 reversed_first=649428 attempted=658972
+uncovered_including_2=6 first_uncovered: 5309329 5719921 5751001 7586401 8611201

@@ -1,0 +1,704 @@
+                                                                    Prime Numbers of the Form 24m + 1
+                                                                       and Erdös-Straus Conjecture 1
+
+                                                                          Yichuan Cao and Xiaoping Xu2
+                                                                   State Key Laboratory of Mathematical Sciences,
+                                                                     Academy of Mathematics & System Sciences
+                                                              Chinese Academy of Sciences, Beijing 100190, P.R. China
+                                                         & School of Mathematics, University of Chinese Academy of Sciences,
+                                                                             Beijing 100049, P.R. China
+                                                                                          Abstract
+
+                                                         In 1948, Erdös and Straus formulated a conjecture on Egyptian fractions. One
+arXiv:2610.32302v1 [math.NT] 23 Oct 2026
+
+
+
+
+                                                     only needs to prove the conjecture for any prime number n such that n ≡ 1 (mod 24).
+                                                     In this article, we give a necessary and sufficient polynomial condition for a number
+                                                     of the form 24m + 1 to be a prime number. Then we present 56 solvability poly-
+                                                     nomials consisting of our earlier tame solutions, wild solutions and the polynomials
+                                                     for composite numbers of the form 24m + 1. Numeric test shows that they imply
+                                                     the conjecture. Moreover, we give a list of 36 exponential-polynomial functions con-
+                                                     sisting of our earlier 28 tame solutions and the polynomials for composite numbers,
+                                                     whose numeric test shows that Howerton’s conjecture on fourteen wild primes holds.
+                                                     Furthermore, we find a version of Goldbach conjecture modulo 24.
+
+                                                     Keywords: Erdös-Straus conjecture; Egyptian fraction; prime number; Goldbach
+                                                     conjecture; Howerton conjecture.
+
+
+                                           1         Introduction
+                                           Ancient Egyptians used sums of unit fractions (whose numerators are 1) to express frac-
+                                           tions due to their ways of distributing food. For instance, 5/8 was interpreted by ancient
+                                           Egyptians as distributing five pancakes among eight people fairly. They cut first four
+                                           pancakes into halves and cut the last one into eight equal pieces. So each person got the
+                                           same share: 1/2 + 1/8 pancakes. This amazingly interpreted the mathematical equation
+                                                                                         5  1 1
+                                                                                           = + .                                             (1.1)
+                                                                                         8  2 8
+                                           So an Egyptian fraction is a sum of distinct unit fractions. By repeatedly applying the
+                                           simple fact
+                                                                               1      1         1
+                                                                                 =        +           ,                               (1.2)
+                                                                               k    k + 1 k(k + 1)
+                                           one can easily prove that any fraction is a Egyptian fraction. However, it is very difficult
+                                           to determine if a fraction can be expressed as a sum of fixed number of unit fractions (cf.
+                                           [6] for an excellent exposition and extensive references). For example, it is difficult to know
+                                           if a fraction can be written as a sum of two unit fractions (e.g., cf. [10, 11, 12, 14, 22]).
+                                           In 1948, Erdös and Straus formulated a conjecture : for any positive integer n > 2, there
+                                           exist positive integers n1 , n2 and n3 such that
+                                                                                     4   1   1  1
+                                                                                       =   +   + ,                                           (1.3)
+                                                                                     n   n1 n2 n3
+                                               1
+                                                   2010 Mathematical Subject Classification. Primary 11D68, 11P32; Secondary 11D85, 11A67, 11B75
+                                               2
+                                                   Corresponding Author
+
+
+                                                                                              1
+which is still open up to now. For each n, the number of solution can go to infinity as n
+does. Elscholtz and Tao [6] found excellent bounds for it.
+     If n = 24m + 1 and n1 ≤ n2 , n3 , then n1 = 6m + k with 1 ≤ k ≤ 12m. A solution
+(n1 , n2 , n3 ) of the equation (1.3) is called a tame solution if n2 and n3 are factors of
+(6m + k)(24m + 1). We call n = 24m + 1 wild if it does not have any tame solution. In
+[35], we derived twenty-eight families of tame solutions of the equation (1.3). Numeric
+test shows that they cover all the tame primes. Based on the information in our earlier
+work on tame solutions posed in arXiv, Howerton [9] found that there are only fourteen
+wild primes of the form n = 24m + 1 ≤ 2.4 × 1011 . In [36]. we derived thirty-four families
+of wild solutions of the equation in (1.3), which contain the solvability of the fourteen
+wild primes. Together with our earlier tame polynomial solutions in [35], numeric test
+shows that they cover all the primes of the form 24m + 1.
+     In this article, we give a necessary and sufficient polynomial condition for a number of
+the form 24m + 1 to be a prime number. Then we present the 56 solvability polynomials
+consisting of our earlier tame polynomial solutions in [35], wild polynomial solutions
+in [36] and the polynomials in this paper for composite numbers of the form 24m + 1.
+Numeric test shows that they imply Erdös-Straus conjecture. Moreover, we give a list
+of 36 exponential-polynomial functions consisting of our earlier 28 tame solutions in [35]
+and the polynomials for composite numbers, whose numeric test shows that Howerton’s
+conjecture on fourteen wild primes holds.
+     Goldbach conjecture says that any even integer ≥ 4 is a sum of two primes, which is
+still open today. As a byproduct of this work, we find a version of Goldbach conjecture
+modulo 24. The paper is organized as follows.
+   In Section 2, we derive a necessary and sufficient condition for a number of the form
+24m+1 to be a prime. In Section 3, we present 56 solvability polynomials for Erdös-Straus
+conjecture. In Section 4, we present 36 solvability exponential-polynomial functions for
+Howerton’s conjecture. Moreover, we given Goldbach conjecture modulo 24 in Section 5.
+
+
+2    Primes of the Form 24m + 1
+In this section, we want to find the conditions that a positive integer of the form 24m + 1
+is a prime.
+    Let p > 3 be a prime. Then one of the following conditions must hold:
+
+                      (1) p ≡ 1 (mod 12);        (2) p ≡ 5 (mod 12);                    (2.1)
+
+                     (3) p ≡ 7 (mod 12);         (4) p ≡ 11 (mod 12).                   (2.2)
+In Case (1), p = 12k + 1 for some k ∈ N, and
+
+                    (12k + 1)2 = 144k 2 + 24k + 1 = 24k(6k + 1) + 1.                    (2.3)
+
+In Case (2), p = 12k + 5 for some k ∈ N, and
+
+ (12k + 5)2 = 144k 2 + 120k + 25 = 24(6k 2 + 5k + 1) + 1 = 24(2k + 1)(3k + 1) + 1. (2.4)
+
+In Case (3), p = 12k + 7 for some k ∈ N, and
+
+ (12k + 7)2 = 144k 2 + 168k + 49 = 24(6k 2 + 7k + 2) + 1 = 24(2k + 1)(3k + 2) + 1. (2.5)
+
+In Case (4), p = 12k + 11 for some k ∈ N, and
+
+ (12k + 11)2 = 144k 2 + 264k + 121 = 24(6k 2 + 11k + 5) + 1 = 24(k + 1)(6k + 5) + 1. (2.6)
+
+
+                                             2
+   Consider n = 24m + 1 with m ∈ N. Since g.c.d(24, p) = 1, there exists ξ ∈ N such
+that
+                               24ξ ≡ 1 (mod p).                                (2.7)
+In particular,
+                            n ≡ 0 (mod p) =⇒ m ≡ −ξ (mod p).                         (2.8)
+In Case (1), (2.3) gives ξ = −k(6k + 1) and so
+
+               24m + 1 ≡ 0 (mod 12k + 1) ⇔ m ≡ k(6k + 1) (mod 12k + 1).              (2.9)
+
+Indeed the above equation holds for any 1 < k ∈ N. Similarly, we obtain that
+
+        24m + 1 ≡ 0 (mod 12k + 5) ⇔ m ≡ (2k + 1)(3k + 1) (mod 12k + 5),             (2.10)
+
+         24m + 1 ≡ 0 (mod 12k + 7) ⇔ m ≡ (2k + 1)(3k + 2) (mod 12k + 7)             (2.11)
+and
+
+        24m + 1 ≡ 0 (mod 12k + 11) ⇔ m ≡ (k + 1)(6k + 5) (mod 12k + 11)             (2.12)
+
+hold for any k ∈ N.
+   Next we want to show that the quadratic conditions in the above four expressions can
+be simplified to linear conditions.
+   Case (1a). Assume k = 2ℓ in (2.9) with 0 < ℓ ∈ N.
+   In this case,
+                          k(6k + 1) = 2ℓ(12ℓ + 1) = ℓ(24ℓ + 1) + ℓ.                 (2.13)
+Thus
+                    24m + 1 ≡ 0 (mod 24ℓ + 1) ⇔ m ≡ ℓ (mod 24ℓ + 1).                (2.14)
+
+
+   Case (1b). Assume k = 2ℓ + 1 in (2.9) with ℓ ∈ N.
+   In this case,
+
+                    k(6k + 1) = (2ℓ + 1)(12ℓ + 7) = ℓ(24ℓ + 13) + 13ℓ + 7.          (2.15)
+
+Thus
+                 24m + 1 ≡ 0 (mod 24ℓ + 13) ⇔ m ≡ 13ℓ + 7 (mod 24ℓ + 13).           (2.16)
+
+
+   Case (2a). Assume k = 2ℓ in (2.10) with ℓ ∈ N.
+   In this case,
+
+      (2k + 1)(3k + 1) = (4ℓ + 1)(6ℓ + 1) = 24ℓ2 + 10ℓ + 1 = ℓ(24ℓ + 5) + 5ℓ + 1.   (2.17)
+
+Hence
+                  24m + 1 ≡ 0 (mod 24ℓ + 5) ⇔ m ≡ 5ℓ + 1 (mod 24ℓ + 5).             (2.18)
+
+
+   Case (2b). Assume k = 2ℓ + 1 in (2.10) with ℓ ∈ N.
+   In this case,
+
+ (2k + 1)(3k + 1) = (4ℓ + 3)(6ℓ + 4) = 24ℓ2 + 34ℓ + 12 = ℓ(24ℓ + 17) + 17ℓ + 12. (2.19)
+
+
+                                              3
+Thus
+             24m + 1 ≡ 0 (mod 24ℓ + 17) ⇔ m ≡ 17ℓ + 12 (mod 24ℓ + 17).            (2.20)
+
+
+   Case (3a). Assume k = 2ℓ in (2.11) with ℓ ∈ N.
+   In this case,
+
+   (2k + 1)(3k + 2) = (4ℓ + 1)(6ℓ + 2) = 24ℓ2 + 14ℓ + 2 = ℓ(24ℓ + 7) + 7ℓ + 2.    (2.21)
+
+Hence
+               24m + 1 ≡ 0 (mod 24ℓ + 7) ⇔ m ≡ 7ℓ + 2 (mod 24ℓ + 7).              (2.22)
+
+
+   Case (3b). Assume k = 2ℓ + 1 in (2.11) with ℓ ∈ N.
+   In this case,
+
+ (2k + 1)(3k + 2) = (4ℓ + 3)(6ℓ + 5) = 24ℓ2 + 38ℓ + 15 = ℓ(24ℓ + 19) + 19ℓ + 15. (2.23)
+
+Thus
+             24m + 1 ≡ 0 (mod 24ℓ + 19) ⇔ m ≡ 19ℓ + 15 (mod 24ℓ + 19).            (2.24)
+
+
+   Case (4a). Assume k = 2ℓ in (2.12) with ℓ ∈ N.
+   In this case,
+
+  (k + 1)(6k + 5) = (2ℓ + 1)(12ℓ + 5) = 24ℓ2 + 22ℓ + 5 = ℓ(24ℓ + 11) + 11ℓ + 5.   (2.25)
+
+Hence
+             24m + 1 ≡ 0 (mod 24ℓ + 11) ⇔ m ≡ 11ℓ + 5 (mod 24ℓ + 11).             (2.26)
+
+
+   Case (4b). Assume k = 2ℓ + 1 in (2.12) with ℓ ∈ N.
+   In this case,
+
+ (k + 1)(6k + 5) = (2ℓ + 2)(12ℓ + 11) = 24ℓ2 + 46ℓ + 22 = ℓ(24ℓ + 23) + 23ℓ + 22. (2.27)
+
+Thus
+             24m + 1 ≡ 0 (mod 24ℓ + 23) ⇔ m ≡ 23ℓ + 22 (mod 24ℓ + 23).            (2.28)
+
+
+   In summary, we have:
+   Theorem 2.1 Let m ∈ N. Then n = 24m + 1 is a prime if and only the following
+condition hold:
+   (1) m ̸≡ s (mod 24s + 1) for 0, m ̸= s ∈ N;
+   (2) m ̸≡ 5s + 1 (mod 24s + 5) for any s ∈ N;
+   (3) m ̸≡ 7s + 2 (mod 24s + 7) for any s ∈ N;
+   (4) m ̸≡ 11s + 5 (mod 24s + 11) for any s ∈ N;
+   (5) m ̸≡ 13s + 7 (mod 24s + 13) for any s ∈ N;
+   (6) m ̸≡ 17s + 12 (mod 24s + 17) for any s ∈ N;
+   (7) m ̸≡ 19s + 15 (mod 24s + 19) for any s ∈ N;
+   (8) m ̸≡ 23s + 22 (mod 24s + 23) for any s ∈ N.
+
+   The sufficiency follows from the following proposition.
+
+                                           4
+    Proposition 2.2. For any positive integer m, n = 24m + 1 is a composite number if
+and only n = (24s+1)(24t+1) for some positive integers s and t; or n = (24s+p)(24t+p)
+for some p ∈ {5, 7, 11, 13, 17, 19, 23} and s, t ∈ N.
+
+   Proof. If (1) in the above theorem fails, then
+
+                 m = s + t(24s + 1) = s + t + 24st        for s, t ∈ N, st ̸= 9.            (2.29)
+
+When (2) in the above theorem fails, we have
+
+      m = 5s + 1 + t(24s + 5) = 1 + 5(s + t) + 24st             for s, t ∈ N, st ̸= 9.      (2.30)
+
+In the case that (3) in the above theorem fails, we have
+
+      m = 7s + 2 + t(24s + 7) = 2 + 7(s + t) + 24st             for s, t ∈ N, st ̸= 9.      (2.31)
+
+Suppose that (4) in the above theorem fails. We have
+
+    m = 11s + 5 + t(24s + 11) = 5 + 11(s + t) + 24st             for s, t ∈ N, st ̸= 9.     (2.32)
+
+If (5) in the above theorem fails, then
+
+    m = 13s + 7 + t(24s + 13) = 7 + 13(s + t) + 24st             for s, t ∈ N, st ̸= 9.     (2.33)
+
+When (6) in the above theorem fails, we have
+
+   m = 17s + 12 + t(24s + 17) = 12 + 17(s + t) + 24st              for s, t ∈ N, st ̸= 9.   (2.34)
+
+In the case that (7) in the above theorem fails, we have
+
+   m = 19s + 15 + t(24s + 19) = 15 + 19(s + t) + 24st              for s, t ∈ N, st ̸= 9.   (2.35)
+
+Suppose that (8) in the above theorem fails. We have
+
+   m = 23s + 22 + t(24s + 23) = 22 + 23(s + t) + 24st              for s, t ∈ N, st ̸= 9.   (2.36)
+
+   Note
+
+ 24 + 1 = 52 ,   24 × 2 + 1 = 72 ,   24 × 5 + 1 = 121 = 112 ,     24 × 7 + 1 = 169 = 132 , (2.37)
+
+ 24 × 12 + 1 = 289 = 172 ,      24 × 15 + 1 = 361 = 192 ,       24 × 22 + 1 = 529 = 232 . (2.38)
+Thus we have
+                          24(s + t + 24st) + 1 = (24s + 1)(24t + 1),                        (2.39)
+ 24[1 + 5(s + t) + 24st] + 1 = 24 × 1 + 1 + 24[5(s + t) + 24st] = (24s + 5)(24t + 5), (2.40)
+ 24[2 + 7(s + t) + 24st] + 1 = 24 × 2 + 1 + 24[7(s + t) + 24st] = (24s + 7)(24t + 7), (2.41)
+ 24[5 + 11(s+t)+24st]+1 = 24×5+1+24[11(s+t)+24st] = (24s+11)(24t+11), (2.42)
+ 24[7 + 13(s+t)+24st]+1 = 24×7+1+24[13(s+t)+24st] = (24s+13)(24t+13), (2.43)
+ 24[12+17(s+t)+24st]+1 = 24×12+1+24[17(s+t)+24st] = (24s+17)(24t+17), (2.44)
+ 24[15+19(s+t)+24st]+1 = 24×15+1+24[19(s+t)+24st] = (24s+19)(24t+19), (2.45)
+ 24[22+23(s+t)+24st]+1 = 24×22+1+24[23(s+t)+24st] = (24s+23)(24t+23). (2.46)
+
+
+   Now the conclusion follows from (2.29)-(2.36) and (2.39)-(2.46).               □
+
+   We set
+
+                                               5
+                         Table 2.1 Polynomials for Composite Numbers
+                     i           fi (x, y)             i              fi (x, y)
+                     1        x + y + 24xy             2       1 + 5(x + y) + 24xy
+                     3     2 + 7(x + y) + 24xy         4       5 + 11(x + y) + 24xy
+                     5    7 + 13(x + y) + 24xy         6      12 + 17(x + y) + 24xy
+                     7    15 + 19(x + y) + 24xy        8      22 + 23(x + y) + 24xy
+
+
+   Denote by Z+ the set of positive integers.
+
+  Corollary 2.3. A positive integer of the form 24m + 1 is composite if and only if
+m = f1 (x, y) for x, y ∈ Z+ , or m = fi (x, y) for some i ∈ {2, 3, 4, 5, 6, 7, 8} and x, y ∈ N.
+
+   Set
+                                     S1 = {f1 (x, y) | x, y ∈ Z+ },                           (2.47)
+                                      Si = {fi (x, y) | x, y ∈ N}                             (2.48)
+for 2 ≤ i ≤ 8. Let
+                                                   8
+                                                   [
+                                             S =           Si .                               (2.49)
+                                                   i=1
+
+
+   Corollary 2.4. A positive integer of the form 24m + 1 is a prime if and only m ̸∈ S .
+
+   In particular, we have the following table:
+
+                          Table 2.2 1 ≤ m ≤ 1000 for Prime 24m + 1
+  3       4     8         10    13    14   17    18         19    24     25    28    32   39   42
+ 43      47    48         50    52    54   55    62         67    69     73    74    75   78   83
+ 84      87    88         89    90    95   99    103        105   108   109   112   113   118 119
+ 123     125   127       130   132   134   138   140        143   144   147   153   154   157 158
+ 162     169   172       173   174   175   178   179        185   188   190   194   197   200 207
+ 208     213   217       218   220   227   230   232        235   237   239   244   245   248 253
+ 255     259   264       265   270   272   273   274        278   283   285   290   294   297 299
+ 304     305   307       308   309   312   314   315        320   323   328   333   334   337 340
+ 342     343   347       348   349   355   360   362        363   364   365   372   375   377 385
+ 389     393   400       402   404   405   407   409        417   424   428   430   432   438 444
+ 347     348   358       463   465   469   472   473        479   483   484   467   493   498 502
+ 503     504   510       512   517   518   519   523        524   525   529   530   535   537 542
+ 543     549   552       554   559   560   563   564        568   570   572   578   580   595 600
+ 602     608   613       614   622   628   630   633        634   635   637   638   640   650 652
+ 659     662   663       664   668   669   677   678        682   684   690   693   694   697 705
+ 708     710   714       717   719   724   725   727        729   732   738   739   740   745 747
+ 749     752   754       755   757   759   762   763        768   769   770   773   783   788 792
+ 795     802   803       809   810   812   817   820        823   824   825   833   837   838 840
+ 843     848   855       858   860   867   869   872        875   880   882   883   888   893 895
+ 897     899   900       902   903   909   910   914        915   922   923   928   932   935 949
+ 955     958   959       960   967   978   979   983        987   990   993   994   997   999 1000
+
+
+
+
+                                                   6
+    For instance, we have the following primes:
+
+    24 × 3 + 1 = 73,   24 × 4 + 1 = 96,     24 × 8 + 1 = 193,     24 × 10 + 1 = 241,   (2.50)
+
+ 24 × 13 + 1 = 313,    24 × 14 + 1 = 337,    24 × 17 + 1 = 409,     24 × 18 + 1 = 433, (2.51)
+ 24 × 19 + 1 = 457,    24 × 24 + 1 = 577,    24 × 25 + 1 = 601,     24 × 28 + 1 = 673, (2.52)
+ 24 × 32 + 1 = 769,    24 × 39 + 1 = 937,   24 × 42 + 1 = 1009,    24 × 43 + 1 = 1033. (2.53)
+
+
+3     Solvability Polynomials for E-S Conjecture
+The following table is taken from the wild solutions of the Erdös-Straus equation (1.3)
+found in [36]:
+
+                  Table 3.1     Polynomials for Wild Solutions
+              i              fi (x, y)             i            fi (x, y)
+              9        4 + 5(x + y) + 6xy         10      4 + 10x + 7y + 15xy
+             11       3 + 7x + 10y + 21xy         12      3 + 11x + 7y + 22xy
+             13     11 + 14x + 17y + 21xy         14     18 + 19y + 23x(y + 1)
+             15      8 + 20x + 13y + 30xy         16     9 + 10x + 29y + 30xy
+             17      4 + 14x + 13y + 42xy         18      3 + 28x + 5y + 42xy
+             19      6 + 14x + 19y + 42xy         20    27 + 28x + 41y + 42xy
+             21       6 + 7y + 46x(y + 1)         22     14 + 15y + 46x(y + 1)
+             23      9 + 33x + 19y + 66xy         24    20 + 33x + 41y + 66xy
+             25     21 + 33x + 43y + 66xy         26    32 + 33x + 65y + 66xy
+             27       9 + 10y + 69x(y + 1)        28     10 + 11y + 69x(y + 1)
+             29      33 + 34y + 69x(y + 1)        30     55 + 56y + 69x(y + 1)
+             31      73 + 74y + 92x(y + 1)        32   18 + 19x + 113y + 114xy
+             33     30 + 95x + 37y + 114xy        34    16 + 17y + 138x(y + 1)
+             35     42 + 43y + 138x(y + 1)        36    66 + 67y + 138x(y + 1)
+             37     88 + 89y + 138x(y + 1)        38    90 + 91y + 138x(y + 1)
+             39    108 + 109y + 138x(y + 1)       40   112 + 113y + 138x(y + 1)
+             41    136 + 137y + 138x(y + 1)
+
+
+  The details of the above polynomials in [36] are as follows:
+m = f9 (x, y) is taken from (3.6) and the solution for n = 24m + 1 was given in (3.8);
+m = f10 (x, y) is taken from (3.89) and the solution for n = 24m + 1 was given in (3.91);
+m = f11 (x, y) is taken from (3.26) and the solution for n = 24m + 1 was given in (3.28);
+m = f12 (x, y) is taken from (3.52) and the solution for n = 24m + 1 was given in (3.54);
+m = f13 (x, y) is taken from (3.32) and the solution for n = 24m + 1 was given in (3.34);
+m = f14 (x, y) is taken from (3.37) and the solution for n = 24m + 1 was given in (3.39);
+m = f15 (x, y) is taken from (3.95) and the solution for n = 24m + 1 was given in (3.97);
+m = f16 (x, y) is taken from (3.83) and the solution for n = 24m + 1 was given in (3.85);
+m = f17 (x, y) is taken from (3.17) and the solution for n = 24m + 1 was given in (3.19);
+m = f18 (x, y) is taken from (3.40) and the solution for n = 24m + 1 was given in (3.42);
+m = f19 (x, y) is taken from (3.45) and the solution for n = 24m + 1 was given in (3.47);
+m = f20 (x, y) is taken from (3.14) and the solution for n = 24m + 1 was given in (3.16);
+m = f21 (x, y) is taken from (3.56) and the solution for n = 24m + 1 was given in (3.58);
+m = f22 (x, y) is taken from (4.5) and the solution for n = 24m + 1 was given in (4.7);
+m = f23 (x, y) is taken from (3.71) and the solution for n = 24m + 1 was given in (3.73);
+
+                                              7
+m = f24 (x, y) is taken from (3.77) and the solution for n = 24m + 1 was given in (3.79);
+m = f25 (x, y) is taken from (3.54) and the solution for n = 24m + 1 was given in (3.66);
+m = f26 (x, y) is taken from (3.58) and the solution for n = 24m + 1 was given in (3.60);
+m = f27 (x, y) is taken from (3.75) and the solution for n = 24m + 1 was given in (3.77);
+m = f28 (x, y) is taken from (4.43) and the solution for n = 24m + 1 was given in (4.45);
+m = f29 (x, y) is taken from (4.49) and the solution for n = 24m + 1 was given in (4.51);
+m = f30 (x, y) is taken from (4.81) and the solution for n = 24m + 1 was given in (4.83);
+m = f31 (x, y) is taken from (4.88) and the solution for n = 24m + 1 was given in (4.89);
+m = f32 (x, y) is taken from (3.103) and the solution for n = 24m + 1 was given in (3.105);
+m = f33 (x, y) is taken from (3.109) and the solution for n = 24m + 1 was given in (3.111);
+m = f34 (x, y) is taken from (4.98) and the solution for n = 24m + 1 was given in (4.100);
+m = f35 (x, y) is taken from (4.24) and the solution for n = 24m + 1 was given in (4.26);
+m = f36 (x, y) is taken from (4.62) and the solution for n = 24m + 1 was given in (4.64);
+m = f37 (x, y) is taken from (4.29) and the solution for n = 24m + 1 was given in (4.32);
+m = f38 (x, y) is taken from (4.17) and the solution for n = 24m + 1 was given in (4.19);
+m = f39 (x, y) is taken from (4.104) and the solution for n = 24m + 1 was given in (4.106);
+m = f40 (x, y) is taken from (4.68) and the solution for n = 24m + 1 was given in (4.70);
+m = f41 (x, y) is taken from (4.11) and the solution for n = 24m + 1 was given in (4.13).
+
+   The following table is taken from the tame solutions of Erdös-Straus equation (1.3)
+found in [35]:
+               Table 3.2       Polynomials for Tame Solutions
+                   i                       fi (x, y, z)
+                  42        x − y + (4x + 1)(16y + 3 + z(24y + 5))
+                  43          (z + 1)(4x + 3)(24y + 5) − x − y − 1
+                  44      7x − y + (16y + 8 + z(24y + 13))(12x + 1)
+                  45          (z + 1)(12x + 1)(8y + 7) − x − y − 1
+                  46         (z + 1)(4x + 1)(24y + 17) − x − y − 1
+                  47        (z + 1)(12x + 5)(24y + 13) − x − y − 1
+                  48       7x − y + 4 + (12x + 7)(16y + z(24y + 1))
+                  49          (z + 1)(12x + 7)(8y + 3) − x − y − 1
+                  50    3x − y + 1 + (12x + 7)(16y + 11 + z(24y + 17))
+                  51        (z + 1)(12x + 11)(24y + 1) − x − y − 1
+                  52      2x − y + 2(16y + 7 + z(24y + 11))(4x + 1)
+                  53       2[(z + 1)(4x + 3)(24y + 11) − x − 1] − y
+                  54    2x − y + 2(16y + 7 + z(24y + 11))(4x + 3) + 1
+                  55    4(6x + 1)(16y + 4 + z(24y + 7)) + 14x − y + 2
+                  56     5y − 2x + 2(8x + 3 + z(12x + 5))(8y + 3) + 1
+
+
+    The details of the above polynomials in [35] are as follows:
+m = f42 (x, y, z) is taken from (3.15) and the solution for n = 24m + 1 was given in (3.17);
+m = f43 (x, y, z) is taken from (3.24) and the solution for n = 24m + 1 was given in (3.27);
+m = f44 (x, y, z) is taken from (3.38) and the solution for n = 24m + 1 was given in (3.40);
+m = f45 (x, y, z) is taken from (3.47) and the solution for n = 24m + 1 was given in (3.49);
+m = f46 (x, y, z) is taken from (3.56) and the solution for n = 24m + 1 was given in (3.58);
+m = f47 (x, y, z) is taken from (3.65) and the solution for n = 24m + 1 was given in (3.67);
+m = f48 (x, y, z) is taken from (3.78) and the solution for n = 24m + 1 was given in (3.80);
+m = f45 (x, y, z) is taken from (3.90) and the solution for n = 24m + 1 was given in (3.92);
+m = f50 (x, y, z) is taken from (3.103) and the solution for n = 24m + 1 was given in
+(3.105);
+
+                                             8
+m = f51 (x, y, z) is taken from (3.114) and the solution for n = 24m + 1 was given in
+(3.116);
+m = f52 (x, y, z) is taken from (4.16) with x = s and y = 2t, and the solution for
+n = 24m + 1 was given in (4.18);
+m = f53 (x, y, z) is taken from (4.24) with x = s1 and y = 2t, and the solution for
+n = 24m + 1 was given in (4.26);
+m = f54 (x, y, z) is taken from (4.96) with x = s and y = 2t, and the solution for
+n = 24m + 1 was given in (4.98);
+m = f55 (x, y, z) is taken from (5.75) with r = 0, x = s and y = 4t, and the solution for
+n = 24m + 1 was given in (5.77);
+m = f56 (x, y, z) is taken from (4.39) with x = s and y = 2t, and the solution for
+n = 24m + 1 was given in (4.41).
+   Recall that N is the set of nonnegative integers and Z+ is the set of positive integers.
+Take Tables 2.1, 3.1 and 3.2. Set
+
+                                   S1 = {f1 (x, y) | x, y ∈ Z+ },                             (3.1)
+
+                                    Si = {fi (x, y) | x, y ∈ N}                               (3.2)
+for 2 ≤ i ≤ 41, and
+                                  Sj = {fj (x, y, z) | x, y, z ∈ N}                           (3.3)
+for 42 ≤ j ≤ 56.
+
+                       r=1 Sr .
+                      S56
+    Claim. Z+ =
+
+    We have used AI to test the claim for m ≤ 1011 and it holds. But we failed to get a
+logic proof. It is known that one only need to prove Erdös-Straus conjecture for a prime
+of the form 24m + 1 (e.g., cf. Section 2 in [35]). In fact, any solution of the Erdös-Straus
+equation (1.3) for any prime factor in a composite number      n > 2 induces a solution for
+n, Note that 24m + 1 is a primes if and only if m ̸∈ i=1 Si . The above claim implies
+                                                       S8
+
+                                                                      56
+                                                                      [
+                       {24m + 1 | m ∈ Z+ } = {24m + 1 | m ∈                 Sr };             (3.4)
+                                                                      r=1
+
+equivalently, Erdös-Straus conjecture holds.
+
+
+4    Howerton’s Conjecture
+In our first version of [35], we gave the definitions of tame prime and wild prime. Moreover,
+we found that there are only nine wild primes among 24m + 1 with m ≤ 30000. Based
+the above information, Howerton [9] found that there are only fourteen wild primes of the
+form 24m + 1 with m ≤ 1010 . They are
+
+    409,   577,    5569,    9601,     23929,    83449,    102001,      329617,      712321,   (4.1)
+
+                   1134241,       1724209,   1726201,     5212561,      8813281.              (4.2)
+He made a conjecture:
+
+                      There Are Exactly Fourteen Wild Primes !                                (4.3)
+
+In the following, we want to give a theoretic evidence of supporting Howerton’s conjecture.
+Moreover, we redefine the following fi ’s:
+
+                                                 9
+           Table 4.1        More Polynomials for Tame Solutions
+                     i                        fi (x, y, z)
+                     9         x − y + (4x + 1)(16y + 3 + z(24y + 5))
+                    10           (z + 1)(4x + 3)(24y + 5) − x − y − 1
+                    11      7x − y + (16y + 8 + z(24y + 13))(12x + 1)
+                    12           (z + 1)(12x + 1)(8y + 7) − x − y − 1
+                    13          (z + 1)(4x + 1)(24y + 17) − x − y − 1
+                    14         (z + 1)(12x + 5)(24y + 13) − x − y − 1
+                    15       7x − y + 4 + (12x + 7)(16y + z(24y + 1))
+                    16           (z + 1)(12x + 7)(8y + 3) − x − y − 1
+                    17    3x − y + 1 + (12x + 7)(16y + 11 + z(24y + 17))
+                    18         (z + 1)(12x + 11)(24y + 1) − x − y − 1
+                    19      2x − y + 2(16y + 7 + z(24y + 11))(4x + 1)
+                    20        2[(z + 1)(4x + 3)(24y + 11) − x − 1] − y
+                    21     5y − 2x + 2(8x + 3 + z(12x + 5))(8y + 3) + 1
+                    22        2[(z + 1)(12x + 5)(8y + 1) − x] − y − 1
+                    23       2[(z + 1)(12x + 7)(24y + 19) − x − 1] − y
+                    24       2[(z + 1)(12x + 1)(24y + 19) − x] − y − 1
+                    25        2[(z + 1)(4x + 1)(24y + 11) − x] − y − 1
+                    26    2x − y + 2(16y + 7 + z(24y + 11))(4x + 3) + 1
+                    27      5y + 2[(8x + 7 + z(12x + 11))(8y + 3) − x]
+                    28        2[(z + 1)(12x + 11)(8y + 1) − x − 1] − y
+
+and
+
+      Table 4.2          Exponential-Polynomials for Tame Solutions
+          i                                 fi (r, x, y, z)
+         29             2r (2x + 1)[4(16y + 15 + z(24y + 23)) + 1] − y − 1
+         30   22r+2 [2(6x + 5)(16y + 4 + z(24y + 7)) + 7x + 6] − y − (22r+1 + 1)/3
+         31    22r+1 [2(6x + 1)(16y + 4 + z(24y + 7)) + 7x + 1] − y + (22r − 1)/3
+         32            (z + 1)2r+2 (2x + 1)(24y + 23) − y − 2r (2x + 1) − 1
+         33        (z + 1)22r+3 (6x + 1)(24y + 7) − y − 22r+2 x − (22r+1 + 1)/3
+         34       (z + 1)22r+3 (6x + 5)(8y + 5) − y − 22r+2 x − (5 · 22r+1 + 2)/3
+         35          (z + 1)22r+2 (6x + 1)(8y + 5) − y − 22r+1 x − (22r + 2)/3
+         36        (z + 1)22r+2 (6x + 5)(24y + 7) − y − 22r+1 x − (5 · 22r + 1)/3
+
+
+    The details of the above functions in [35] are as follows:
+the polynomials f9 (x, y, z)-f18 (x, y, z) in Table 4.1 are exactly f42 (x, y, z)-f51 (x, y, z) in
+Table 3,2, respectively;
+the polynomial f19 (x, y, z)-f28 (x, y, z) are taken from the table in Section 4.7 of [35];
+the exponential-polynomial functions f29 (r, x, y, z)-f36 (r, x, y, z) are taken from the table
+in Section 5.9 of [35].
+
+   Denote
+
+                W    = {17, 24, 232, 400, 997, 3477, 4250, 13734, 29680,
+                       47260, 71842, 71925, 217190, 367220}.                                (4.4)
+
+Then {24m + 1 | m ∈ W } are exactly the wild primes in (4.1) and (4.2).
+
+                                               10
+   Recall that N is the set of nonnegative integers and Z+ is the set of positive integers.
+Take Table 2.1 and denote
+
+                                T1 = {f1 (x, y) | x, y ∈ Z+ };                           (4.5)
+
+                                  Ti = {fi (x, y) | x, y ∈ N}                            (4.6)
+for 2 ≤ i ≤ 8. Take Table 4.1 and set
+
+                               Ti = {fi (x, y, z) | x, y, z ∈ N}                         (4.7)
+
+for 9 ≤ i ≤ 28. Take Table 4.2 and let
+
+                             Ti = {fi (r, x, y, z) | r, x, y, z ∈ N}                     (4.8)
+
+for 29 ≤ i ≤ 36. Define
+                                                36
+                                                [
+                                         T =          Ti .                               (4.9)
+                                                i=1
+
+
+    Claim. For any positive integer m, if m ̸∈ T , then m ∈ W .
+
+    We have used AI to test the claim for m ≤ 107 and it holds. But we failed to get a
+logic proof. In terms of the form 24m + 1, the above claim implies Howerton’s conjecture
+in (4.3). Moreover, Howerton’s conjecture is stronger than Erdös-Straus conjecture.
+
+
+5     Goldbach Conjecture Modolo 24
+In his letter to Euler 1874, Goldbach proposed the following conjecture: any even integer
+≥ 4 is a sum of two primes. The most advanced progress in this direction is Chen’s
+Theorem which was announced in 1966 and the detailed proof was published in 1973
+(cf. [3, 4, 5]). Chen’s Theorem says that any even integer ≥ 4 is a sum of a prime
+and the product of at most two primes. There are many significant works on Goldbach
+conjecture (cf. [32] for excellent exposition). For instance, [7, 19, 18, 20, 28, 24, 34] are
+also interesting related works.
+    Take Table 2.1, (4.5) and (4.6). Denote
+                                                      8
+                                                      [
+                                     P = Z+ \ (            Ti ).                         (5.1)
+                                                     i=1
+
+Then {24m + 1 | m ∈ P} are all the prime of the form 24m + 1 (cf. Table 2.2). We have
+
+    Goldbach Conjecture Modulo 24 {20 ≤ m ∈ Z+ } ⊂ {m1 + m2 | m1 , m2 ∈ P}.
+
+    We have used AI to test the above conjecture for m ≤ 107 and it holds. But we
+failed to get a logic proof. The above conjecture implies that for any integer m ≥
+20, 24m + 2 is a sum of primes of the forms 24m1 + 1 and 24m2 + 1. When m ∈
+{1, 2, 3, 4, 5, 9, 10, 15, 19}, 24m + 2 is not a sum of primes of the forms 24m1 + 1 and
+24m2 + 1. If m ∈ {6, 7, 8, 11, 12, 13, 14, 16, 17, 18}, 24m + 2 is still a sum of primes of the
+forms 24m1 + 1 and 24m2 + 1.
+
+
+
+
+                                               11
+References
+ [1] K. Bradford, A note on the Erdös-Straus conjecture, Integers 21 (2021), Paper No.
+     A24, 10pp.
+
+ [2] M. Bright and D. Loughran, Brauer-Manin obstruction for Erdös-Straus surfaces,
+     Bull. Lond. Math. Soc. 52 (2020), no. 4, 746–761.
+
+ [3] J-R. Chen, On the representation of a larger even integer as the sum of a prime and
+     the product of at most two primes, Sci. Sinica 16 (1973), 157–176.
+
+ [4] J-R. Chen, On the representation of a larger even integer as the sum of a prime and
+     the product of at most two primes. II, Sci. Sinica 21 (1978), no. 4, 421–430.
+
+ [5] J-R. Chen, On the Goldbach’s problem and the sieve methods, Sci. Sinica 21 (1978),
+     no. 6, 701–739.
+
+ [6] C. Elscholtz and T. Tao, Counting the number of solutions to the equations on unit
+     fractions, J. Aust. Math. Soc. 94 (2013), 50–105.
+ [7] F. J. Francis and E. S. Lee, Additive representations of natural numbers, Integers 22
+     (2022), Paper No. A14, 10pp.
+ [8] T. R. Hagedon, A proof of a conjecture on Egyptian fractions, Amer. Math. Monthly
+     107 (2000), no. 1, 62–63.
+ [9] B. Howerton, The wild primes formula sheet, personal communication, 12 June 2026.
+[10] J. Huang and R. Vaughan, Mean value theorems for binary Egyptian fractions, J.
+     Number Theory 121 (2011), no. 9, 1641–1656.
+[11] J. Huang and R. Vaughan, Mean value theorems for binary Egyptian fractions II,
+     Acta Arith. 115 (2012), no. 3, 287–296.
+[12] J. Huang and R. Vaughan, On the exceptional set for binary Egyptian fractions,
+     Bull. Lond. Math. Soc. 45 (2013), no. 4. 861–874.
+[13] C. Jia, The estimate for mean values on prime numbers relative to 4/n = 1/n1 +
+     1/n2 + 1/n3 , Sci. China: Math. 55 (3), (2012), 465–474.
+[14] C. Jia, Mean value from representation of a rational number as sum of two Egyptina
+     fractions, J. Number Theory 132 (2012), no. 4, 701–713.
+[15] E. J. Ionascu and A. Wilson, On the Erdös-Straus conjecture, Rev. Roumaine Math.
+     Pures Appl. 56 (2011), no. 1, 21–30.
+[16] I. Kotsireas, The Erdös-Straus conjecture on Egyptian fractions, Paul Erdös and his
+     mathematics (Budapest, 1999), 140–144, János Nolgai Math. Soc. Budapest, 1999.
+
+[17] D. Li, On the equation 4/n = 1/x + 1/y + 1/z, J. Number Theory 13 (1981), no. 4,
+     485–494.
+
+[18] S. Maiti, A study on Erdös-Straus conjecture on Diophantime equation n4 = x1 + y1 + z1 ,
+     arXiv: 2010.00975v1 [math.GM] 30 Dec 2020.
+[19] K. Matomäki and J. Merikoski, Siegel zeros, twin primes, Goldbach’s conjecture, and
+     primes in short intervals, Int. Math. Res. Not. IMRN 2023, No. 23, 20337–20384.
+
+
+                                             12
+[20] K. Matomäki and X. Shao, Vinogradov’s three primes theorem with almost twin
+     primes, Compos. Math. 153 (2017), No. 6, 1220–1256.
+[21] L. J. Mordell, Diophantime Equations, Academic Press, London/New York, 1969.
+[22] S. Prugsapitak, The Egyptian fraction of the form a1 + 1b = q−1
+                                                                  pq
+                                                                     , Int. J. Math. Comput.
+     Sci. 18 (2023), no. 4, 595–597.
+
+[23] L. Antonio Rosati, Sull’equazione diofantea 4/n = 1/x1 + 1/x2 + 1/x3 , Boll. Uni.
+     Mat. Ital. (3) 9 (1954), 59–63.
+
+[24] J. Salmensuu, The Goldbach conjecture with summands in arithmetic progressions,
+     Q. J. Math. 73 (2022), no. 4, 1375–1401.
+
+[25] J. W. Sander, On 4/n = 1/x + 1/y + 1/z and Rosser’s sieve, Acta Arith. 59 (1991),
+     no. 2, 183–204.
+[26] J. W. Sander, On 4/n = 1/x + 1/y + 1/z and Iwanniec’s half-dimensional sieve, J.
+     Number Theory 46 (1994), no. 2, 123–136.
+[27] J. W. Sander, Egyptian fractions and the Erdös-Straus conjecture, Nieuw Arch. Wisk
+     (4) 15 (1997), no. 1-2, 43–50.
+[28] X. Shao, A density version of the Vinogradov three primes theorem, Duke Math. J.
+     163 (2014), no. 3, 489–512.
+[29] S. Subburam and A. Togb’e, A note on Erdös-Straus conjecture, Period Math. Hun-
+     gar. 72 (2016), no. 1, 43–49.
+[30] D. G. Terzi, On a conjecture by Erdös and Straus, Nordisk Tidsk. Informationsbe-
+     hindling (BIT) 11 (1971), 212–216.
+[31] R. C. Vaughan, On a problem of Erdös, Straus and Schinzel, Mathematika 17 (1970),
+     193–198.
+[32] R. C. Vaughan, Goldbach’s conjectures: a historical perspective, Open problems in
+     mathematics, 479–520, Springer [Cham], 2016.
+[33] W. A. Webb, On 4/n = 1/x + 1/y + 1/z, Proc. Amer. Math. Soc. 25 (1970), 578–584.
+
+[34] J. Wu, Chen’s double sieve, Goldbach’s conjecture and the twin prime problem, Acta
+     Arith. 114 (2004), no. 3, 215–273.
+
+[35] X. Xu, Congruence classes of supporting the Erdös-Straus conjecture I: tame solu-
+     tions, arXiv: 2605.23601v2 [math.NT] 19 Sep 2026.
+
+[36] X. Xu, Congruence classes of supporting the Erdös-Straus conjecture II: wild solu-
+     tions, arXiv: 2609.29250v1 [math.NT] 24 Sep 2026.
+
+
+   E-Mail: Y. Cao, caoyichuan@amss.ac.cn;        X. Xu, xiaoping@math.ac.cn
+
+
+
+
+                                            13
+

@@ -1,0 +1,116 @@
+{
+  "P5_in_J": {
+    "5": 1,
+    "3": -984420,
+    "2": -107468800,
+    "1": 189495047430,
+    "0": 21057657937920
+  },
+  "F": "(P5(J)-2J)*Theta_4; J=j-744",
+  "polar_terms": [
+    {
+      "component": 0,
+      "exponent": "-5",
+      "coefficient": 1
+    },
+    {
+      "component": 1,
+      "exponent": "-79/16",
+      "coefficient": 1
+    },
+    {
+      "component": 1,
+      "exponent": "-31/16",
+      "coefficient": 1
+    },
+    {
+      "component": 1,
+      "exponent": "-15/16",
+      "coefficient": -2
+    },
+    {
+      "component": 2,
+      "exponent": "-19/4",
+      "coefficient": 1
+    },
+    {
+      "component": 2,
+      "exponent": "-11/4",
+      "coefficient": 1
+    },
+    {
+      "component": 2,
+      "exponent": "-3/4",
+      "coefficient": -2
+    },
+    {
+      "component": 3,
+      "exponent": "-71/16",
+      "coefficient": 1
+    },
+    {
+      "component": 3,
+      "exponent": "-55/16",
+      "coefficient": 1
+    },
+    {
+      "component": 3,
+      "exponent": "-7/16",
+      "coefficient": -2
+    },
+    {
+      "component": 4,
+      "exponent": "-4",
+      "coefficient": 2
+    },
+    {
+      "component": 5,
+      "exponent": "-71/16",
+      "coefficient": 1
+    },
+    {
+      "component": 5,
+      "exponent": "-55/16",
+      "coefficient": 1
+    },
+    {
+      "component": 5,
+      "exponent": "-7/16",
+      "coefficient": -2
+    },
+    {
+      "component": 6,
+      "exponent": "-19/4",
+      "coefficient": 1
+    },
+    {
+      "component": 6,
+      "exponent": "-11/4",
+      "coefficient": 1
+    },
+    {
+      "component": 6,
+      "exponent": "-3/4",
+      "coefficient": -2
+    },
+    {
+      "component": 7,
+      "exponent": "-79/16",
+      "coefficient": 1
+    },
+    {
+      "component": 7,
+      "exponent": "-31/16",
+      "coefficient": 1
+    },
+    {
+      "component": 7,
+      "exponent": "-15/16",
+      "coefficient": -2
+    }
+  ],
+  "constant_terms": {
+    "4": -4
+  },
+  "borcherds_weight": 0.0
+}

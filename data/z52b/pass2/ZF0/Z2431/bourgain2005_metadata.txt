@@ -1,0 +1,90 @@
+## Content from https://link.springer.com/article/10.1007/BF02807410
+
+Title: Exponential sum estimates over subgroups ofZ * q,q arbitrary,q arbitrary
+
+URL Source: https://link.springer.com/article/10.1007/BF02807410
+
+Markdown Content:
+*   [J. Bourgain](https://link.springer.com/article/10.1007/BF02807410#auth-J_-Bourgain-Aff1)[1](https://link.springer.com/article/10.1007/BF02807410#Aff1)
+
+*   329 Accesses
+
+*   22 Citations
+
+*   [Explore all metrics](https://link.springer.com/article/10.1007/BF02807410/metrics)
+
+## Access this article
+
+[Log in via an institution](https://wayf.springernature.com/?redirect_uri=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2FBF02807410)
+
+## Subscribe and save
+
+Springer+
+
+from $39.99 /Month
+
+*   Starting from 10 chapters or articles per month
+*   Access and download chapters and articles from more than 300k books and 2,500 journals
+*   Cancel anytime
+
+[View plans](https://link.springer.com/product/springer-plus)
+
+## Buy Now
+
+Price excludes VAT (USA)   
+ Tax calculation will be finalised during checkout.
+
+Instant access to the full article PDF.
+
+## References
+
+*   [B] J. Bourgain,_Mordell's exponential sum estimate revisited_, J. Amer. Math. Soc.**18** (2005), 477–499.
+
+[Article](https://doi.org/10.1090%2FS0894-0347-05-00476-5)[MATH](http://www.emis.de/MATH-item?1072.11063)[MathSciNet](http://www.ams.org/mathscinet-getitem?mr=2137982)[Google Scholar](http://scholar.google.com/scholar_lookup?&title=Mordell%27s%20exponential%20sum%20estimate%20revisited&journal=J.%20Amer.%20Math.%20Soc.&doi=10.1090%2FS0894-0347-05-00476-5&volume=18&pages=477-499&publication_year=2005&author=Bourgain%2CJ.)
+
+*   [B-C] J. Bourgain and M. Chang, Exponential sum estimates over subgroups and almost subgroups of Z*q, where q is composite with few prime factors, Geom. Funct. Anal., to appear.
+
+*   [B-G-K] J. Bourgain, A. Glibichuk and S. Konyagin,_Estimates for the number of sums and products and for exponential sums over subgroups in fields of prime order_, Proc. London Math. Soc., to appear.
+
+*   [B-K-T] J. Bourgain, N. Katz and T. Tao,_A sum-product estimate in finite fields, and applications_, Geom. Funct. Anal.**14** (2004), 27–57.
+
+[Article](https://link.springer.com/article/10.1007/s00039-004-0451-1)[MATH](http://www.emis.de/MATH-item?02121750)[MathSciNet](http://www.ams.org/mathscinet-getitem?mr=2053599)[Google Scholar](http://scholar.google.com/scholar_lookup?&title=A%20sum-product%20estimate%20in%20finite%20fields%2C%20and%20applications&journal=Geom.%20Funct.%20Anal.&doi=10.1007%2Fs00039-004-0451-1&volume=14&pages=27-57&publication_year=2004&author=Bourgain%2CJ.&author=Katz%2CN.&author=Tao%2CT.)
+
+*   [Na] M. Nathanson,_Additive Number Theory_, Springer-Verlag, New York, 1996.
+
+[Google Scholar](http://scholar.google.com/scholar_lookup?&title=Additive%20Number%20Theory&publication_year=1996&author=Nathanson%2CM.)
+
+[Download references](https://citation-needed.springer.com/v2/references/10.1007/BF02807410?format=refman&flavour=references)
+
+## Author information
+
+### Authors and Affiliations
+
+1.   School of Mathematics, Institute for Advanced Study, 08540, Princeton, NJ, USA
+
+J. Bourgain
+
+Authors
+
+1.   J. Bourgain
+
+### Corresponding author
+
+Correspondence to [J. Bourgain](mailto:bourgain@math.ias.edu).
+
+## About this article
+
+### Cite this article
+
+Bourgain, J. Exponential sum estimates over subgroups of Z*q,_q_ arbitrary,_q_ arbitrary. _J. Anal. Math._**97**, 317–355 (2005). https://doi.org/10.1007/BF02807410
+
+[Download citation](https://citation-needed.springer.com/v2/references/10.1007/BF02807410?format=refman&flavour=citation)
+
+*   Received: 28 March 2005
+
+*   Issue date: December 2005
+
+*   DOI: https://doi.org/10.1007/BF02807410
+
+### Keywords
+

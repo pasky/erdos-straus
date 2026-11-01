@@ -1,0 +1,1386 @@
+         INTEGERS CONFERENCE 2025
+                          University of Georgia, Athens, Georgia
+
+                                     Abstracts
+Abstracts complied May 2, 2025.
+
+1. Carlo Francisco E. Adajar, University of Georgia
+
+                               On the Distribution of vp (σ(n))
+                                                             P
+  For a positive integer m and a prime p, we write σ(m) := d|m d for the sum of the divisors
+  of m, and vp (m) := max{k ∈ Z≥0 : pk | m} for the p-adic valuation of m, i.e., the exponent
+  of p in the prime factorization of m. For each prime p, we give an asymptotic expression for
+  the count
+                                     #{n ≤ x : vp (σ(n)) = k}
+  as x → ∞, for k ≪ log log x. We then deduce asymptotics for the count of n ≤ x such that
+  vp (σ(n)) < vp (n), as x → ∞. This talk is based on ongoing work with Paul Pollack.
+
+
+
+
+2. Rishika Agrawal, University of Georgia
+
+   Writing Rational Numbers as a Sum of Reciprocals of Shifted Golomb Primes
+
+  The study of decomposing rational numbers into sums of distinct unit fractions is one of the
+  oldest topics in additive number theory. Many interesting questions arise when we restrict
+  the denominators to some specific subset S of rational numbers. Bloom has proved that 1 can
+  be expressed as a sum of reciprocals of shifted primes, corresponding to the set S = {p − 1 :
+  p a prime}. In this talk, we will explain why the same remains true for shifted Golomb primes.
+  Golomb primes is a density 0 subset of the primes constructed sequentially using the rule: qj
+  is a Golomb prime if qj is not 1 mod q for all Golomb primes q ≤ qj .
+
+
+
+
+3. Mohsen Aliabadi, University of California, San Diego
+
+                          Acyclic Matchings in Abelian Groups
+
+  The inquiry into identifying sets of monomials that can be eliminated from a generic homo-
+  geneous polynomial via a linear change of coordinates was initiated by E. K. Wakeford. This
+  linear algebra problem prompted C. K. Fan and J. Losonczy to introduce the notion of acyclic
+  matchings in the additive group Zn , subsequently extended to abelian groups by the latter
+  author. Alon, Fan, Kleitman, and Losonczy established the acyclic matching property for Zn .
+  This talk aims to classify all abelian groups with respect to the acyclic matching property.
+4. Ali Alsetri, University of Kentucky
+
+                    Density Version of the Binary Goldbach Problem
+
+  Let δ > 12 . We prove that if A is a subset of the primes such that the relative density of A
+  in every reduced residue class is at least δ, then almost all even integers can be written as
+  the sum of two primes in A. The constant 12 in the statement is best possible. Moreover we
+  give an example to show that for any ϵ > 0 there exists a subset of the primes with relative
+  density at least 1 − ϵ such that A + A misses a positive proportion of even integers.
+  Joint work with Xuancheng Shao, University of Kentucky.
+
+
+
+
+5. William Banks, University of Missouri
+
+      A Variant of the Linnik-Sprindzuk Theorem for Simple Zeros of Dirichlet
+                                    L-Functions
+                                                                           †
+  For each primitive Dirichlet character χ, we introduce a hypothesis RHsim   [χ] stated in terms
+                                                                                    †
+  of the simple zeros of L(s, χ); under the generalized Riemann hypothesis, RHsim      [χ] always
+  holds. On the other hand, assuming only the generalized Lindelöf hypothesis, and that
+      †
+  RHsim  [χ] holds for one character, then it holds for every character. In this situation, Siegel
+  zeros cannot exist.
+
+
+
+
+6. Alexander Borisov, Binghamton University
+
+                           Locally Integer Polynomial Functions
+
+  A locally integer polynomial function on an infinite subset of the integers is an integer-
+  valued function whose restriction to every finite subset is given by a polynomial with integer
+  coefficients. These functions form interesting rings, and their theory bears some mysterious
+  resemblance to the theory of complex-analytic functions. In particular, they form a sheaf
+  rather than just a presheaf with respect to cofinite and density one topologies on the sets of
+  integers and natural numbers. Many natural open questions remain, in particular regarding
+  the sheafification of their presheaf in the Kirch topology and other adic topologies. The
+  talk will be based on my recent preprint: https://people.math.binghamton.edu/borisov/
+  documents/papers/LIP_INTEGERS_v2.pdf
+
+
+
+
+7. Walter Bridges, University of North Texas
+
+    Integer Partitions and Statistics for Random Representations of Lie Algebras
+
+  Choose a partition of a large integer uniformly at random. How big do we expect the largest
+  part to be? How many 1’s are there? What does the Young diagram look like? For that
+  matter, how can we generate large partitions efficiently, to collect data and make conjec-
+  tures? Following work on partitions by Erdős, Turán, and many others, Fristedt introduced
+   a statistical mechanics inspired approach to these sorts of questions that has proved widely
+   useful in analytic combinatorics. I will discuss an extension of Fristedt’s methodology and
+   describe how a typical, large-dimensional representation looks for the family of complex Lie
+   algebras, slr+1 (C). (The case r = 1 corresponds to integer partitions.) In particular, we give
+   asymptotic probability distributions for the multiplicity of small irreducible representations,
+   as well as the largest dimension, the largest height, and the total number of irreducible rep-
+   resentations appearing in the decomposition of a representation sampled uniformly from all
+   representations with the same dimension.
+   Joint work with Kathrin Bringmann, University of Cologne and Caner Nazaroglu, University
+   of Cologne.
+
+
+
+
+ 8. Kyle Burke, Florida Southern College
+
+                    On the Computational Complexity of Battle Sheep
+
+   Battle Sheep is a board game published by Blue Orange, previously released under the name
+   Splits. It is a normal play combinatorial game where players move stacks of tokens across a
+   board of hexagons to block their opponent’s moves. We show that this game is PSPACE-hard
+   via a reduction from Two Player Bounded Constraint Logic.
+   Joint work with Hirotaka Ono, Nagoya University.
+
+
+
+
+ 9. Caroline Cashman, College of William & Mary
+
+                                Black Hole Zeckendorf Games
+
+   Zeckendorf proved that every positive integer can be written as a decomposition of non-
+   adjacent Fibonacci numbers. Baird-Smith, Epstein, Flint and Miller converted reaching an
+   integer’s Zeckendorf decomposition into a two-player game. They gave a non-constructive
+   proof that Player 2 has a winning strategy for n ̸= 2; a constructive solution is unknown.
+   We expand by investigating new variants of this game. The Black Hole Zeckendorf game
+   on Fm is played in columns Fi for i < m. Gameplay is similar to the original Zeckendorf
+   game, except any piece placed on Fi for i ≥ m is removed from play. With these constraints,
+   we analyze the games with black holes on F3 and F4 and construct a solution for specific
+   configurations, using a parity-stealing based non-constructive proof to lead to a constructive
+   one. We also examine a pre-game in which players take turns placing down n pieces on the
+   outermost columns before the decomposition phase, and find constructive solutions for any
+   n.
+   Joint work with Steven Miller, Williams College; Jenna Shuffelton, Williams College, and
+   Daeyoung Son, Williams College.
+
+
+
+
+10. Tsz Ho Chan, Kennesaw State University
+
+                           Close Points on a Modular Hyperbola
+   For any prime p, let Zp be the ring of integers modulo p. Given 1 ≤ c < p, we consider the
+   modular hyperbola Hc = {(x, y) ∈ Zp × Zp : xy ≡ c (mod p)}. We are interested in how close
+   two points in Hc can be. This study is related to character sums, Burgess’s bound, Gauss
+   sums, Kloosterman sums, and least quadratic non-residues.
+
+
+
+
+11. Sungkon Chang, Georgia Southern University
+
+                                    Zeckendorf Expansions
+
+   Zeckendorf’s Theorem can be generalized in several directions. One of the generalizations
+   considered in this talk is to calculate the probability of picking a positive integer that is
+   expanded under Zeckendorf’s rule of expansion by a sequence given by the Fibonacci re-
+   currence with different initial values. When this generalization was considered for the 3rd
+   order Fibonacci recurrence, only partial answers were available; in this talk, and we provide
+   a complete solution. We also discuss the same question for second-order linear recurrences.
+   Joint work with Samuel Aguilar, Georgia Southern University.
+
+
+
+
+12. David and Gregory Chudnovsky, New York University
+
+      Number Theory and Combinatorics Problems in Contemporary VLSI and
+                              Supercomputers
+
+   As Moore’s law stalls at about 1 nm process, chip integration becomes more sophisticated in
+   2D and 3D. Combinatorial and number-theoretic problems arising there become morecomplex
+   and harder to solve in practice since in general they are NP-hard. We present selected
+   relevant problems and even some solutions from our 25+ years of experience in chip design
+   and supercomputer integration. Among the subjects are: Erdos-Turan bounds and resonance
+   removal (”Break Step” problem). Partitions and wiring with displacement. Gossip problems
+   in grid graphs. 2D packing and jogging vias.
+
+
+
+
+13. Pranabesh Das, Xavier University of Louisiana, New Orleans, LA
+
+            Beal’s Conjecture and Fermat-type Equation of Signature 3-3-n
+
+   Since the proof of Fermat’s Theorem, several techniques have been developed for solving
+   various Generalized Fermat equations(GFE) of the shape
+
+                              Xp + Y q = Zr     with   1   1   1
+                                                       p + q + r < 1,                         (1)
+
+   where p, q and r are positive integers, and gcd(X, Y, Z) = 1. We state the following conjecture
+   on Generalized Fermat equations.
+   Conjecture (Fermat–Catalan Conjecture). Let p, q and r be positive integers, and let X, Y, Z
+   be coprime. Then the equation
+
+                               Xp + Y q = Zr    with   1   1   1
+                                                       p + q + r <1
+   has only finitely many solutions.
+   This conjecture is considered to be difficult, and only a few cases of the conjecture for tuples
+   (p, q, r) are known. In this talk, we will discuss the equation of signature (p, q, r) = (3, 3, n)
+   and our recent progress based on joint papers with Mike Bennett. Joint work with Michael
+   A. Bennett, University of British Columbia, Vancouver, Canada and Pranabesh Das, Xavier
+   University of Louisiana.
+
+
+
+
+14. Alfie Davies, Memorial University of Newfoundland
+
+                        Comparisons in the Misère Blocking Universe
+
+   We present a finite comparison test for short games modulo the misère blocking universe,
+   and also an alternative characterisation for invertible blocking games. The blocking universe
+   was recently introduced as a means to study pocancellativity. Roughly speaking, a game is
+   “blocking” if, whenever a player runs out of moves and the other player gives moves back
+   to them, then the original player can move to a position where they again have no moves.
+   Finite comparison tests have been established for many other universes, but it is not fully
+   understood when such a test exists, although it is known that some universes cannot exhibit
+   one.
+   Joint work with Rebecca Milley, Grenfell Campus, Memorial University of Newfoundland.
+
+
+
+
+15. Rebecca DeLand, University of Colorado, Boulder
+
+                      Limiting Density of Elliptic Divisibility Sequences
+
+   Let E/Q
+          be an elliptic
+                         curve and P be a rational point of infinite order. If we write the points
+           An Bn
+   [n]P = D2 , D3 , the Dn ’s form an elliptic divisibility sequence. In this talk, we will explore
+              n   n
+   the residue classes of elliptic divisibility sequences modulo pλ for λ ≥ 1. We will then discuss
+   how we can use elliptic curves over local fields to gain information about the residue classes
+   as λ → ∞.
+
+
+
+
+16. Jean-Marc Deshouillers, Institut de Mathématiques de Bordeaux
+
+    Coprimality of Consecutive Elements from Sequences with Polynomial Growth
+
+   The study of the coprimality of elements from sequences with polynomial growth (e.g., (⌊αn⌋)n
+   or SPS sequences (⌊nc ⌋)n ) goes back to Evans (1953), Lambek and Moser (1955). I shall give
+   a short outline of recent developments obtained jointly with Michael Drmota and Clemens
+   Müllner, with Sunil L. Naik, and with Henryk Iwaniec.
+
+
+
+
+17. Karl Dilcher, Dalhousie University
+      Powers of Arcsine and Infinite Classes of Series Involving Central Binomial
+                                      Coefficients
+
+   We derive a general integral representation for power series and apply it to positive integer
+   powers of arcsin(x). We concentrate on the first to the fourth powers and obtain infinite
+   classes of new series involving central binomial coefficients. As corollaries we obtain various
+   classes of series expansions and limit expressions for π and some of its integer powers. We
+   also discuss some connections with hypergeometric series.
+   Joint work with Christophe Vignat, Tulane University and Université Paris Saclay.
+
+
+
+
+18. Ben Doyle, Purdue University
+
+                    Lp -means of Exponential Sums over r-Frees in Fq [t]
+
+   The moments of exponential sums which are restricted to a certain subset of the integers can
+   reveal interesting additive information about these sets. With this in mind, Balog and Ruzsa,
+   and later Keil, examined the k-th moments of exponential sums over the r-free integers,
+   which are integers not divisible by r-th powers. In particular, Keil found the exact order of
+   magnitude of these moments for all k > 0, with the exception of the case k = 1 + 1/r, where
+   he missed by a factor of log(X). We examine the analogous problem in the function field
+   setting, obtaining a result analogous to Keil’s, with two added improvements. In the case
+   k = 1 + 1/r, we obtain the exact order of magnitude, and in the case k > 1 + 1/r, we refine
+   the result to an asymptotic formula using the Hardy-Littlewood circle method.
+
+
+
+
+19. Dennis Eichhorn, UC Irvine
+
+              Open Problems Involving Cranks For Partition Congruences
+
+   Dyson famously conjectured, correctly, that his rank statistic witnesses Ramanujan’s first two
+   congruences for p(n), and that there exists a “crank” statistic that witnesses Ramanujan’s
+   congruence modulo 11 in a similar fashion. As it turns out, this phenomenon of congruence-
+   witnessing statistics, which we now also call “cranks” in homage to Dyson, also occurs in other
+   contexts within partition theory. In this talk, we give several open problems and conjectures
+   in this area, highlighting some recent developments along the way.
+   This talk will include joint work with several coauthors.
+
+
+
+
+20. Steve Fan, Department of Mathematics, University of Georgia
+
+                               Counting Shifted-Prime Divisors
+
+   For every positive integer n, let ω ∗ (n) denote the number of positive divisors of n which
+   are shifted primes, namely, numbers of the form p − 1 with p prime. The study of ω ∗ was
+   initiated by Prachar in 1954, who showed, among other things, that the values of ω ∗ (n) can
+   be abnormally large on rare occasions, and was recently picked up by Murty and Murty and
+   by Ding, Guo and Zhang with a focus on its first two moments. Remarkably, this function
+   and its variants have played important roles in the development of the first unconditional
+   deterministic primality test, running in nearly polynomial time, by Adleman, Pomerance and
+   Rumely in 1983, and in the proof of the infinitude of Carmichael numbers discovered in the
+   seminal 1994 work by Alford, Granville, and Pomerance. Despite previous work on ω ∗ , its
+   precise distribution has remained a mystery. In this talk, I will discuss my recent work, both
+   jointly with Pomerance and independently, on the distribution of ω ∗ .
+   Joint work with Carl Pomerance, Department of Mathematics, Dartmouth College.
+
+
+
+
+21. Sohail Farhangi, University of Adam Mickiewicz
+
+     Undecidability in the Ramsey Theory of Polynomial Equations and Hilbert’s
+                                   10th Problem
+
+   A central topic of study in arithmetic Ramsey theory is to determine for a given integral
+   domain R which polynomials p ∈SR[x1 , · · · , xn ] are partition regular, i.e., when is it the case
+   that for any finite partition R = ℓi=1 Ci , there exists some 1 ≤ i0 ≤ ℓ for which Ci0 contains a
+   solution to p(x1 , · · · , xn ) = 0. We reduce this question to a variant of Hilbert’s 10th problem
+   over R, and thereby determine the exact lightface complexity of the set of partition regular
+   polynomials for many integral domains R. We will then discuss the combinatorial implications
+   of this set theoretic result. Time permitting, we will discuss analogous results in the realm
+   of density Ramsey theory. In this setting, we were required to prove a compactness principle
+   and a uniformity principle of independent interest for countable cancellative left amenable
+   semigroups.
+   Joint work with Bill Mance, University of Adam Mickiewicz and Steve Jackson, University
+   of North Texas.
+
+
+
+
+22. Michael Filaseta, University of South Carolina
+
+               A Solution to a 1973 Conjecture of P. Erdős and J. Selfridge
+
+   A covering system is a collection of congruences x ≡ aj (mod mj ) such that every integer
+   satisfies at least one of the congruences. It is called distinct if the mj are distinct. Let C be
+   a finite distinct covering system. L. Mirsky and D. J. Newman showed that if the minimum
+   modulus m0 of C exceeds 1, then the sum of the reciprocals of the moduli in C exceeds 1.
+   In a 1952 paper of P. Erdős, he mentions that H. Davenport questioned whether a stronger
+   condition on the minimum modulus, like m0 > 2, would lead to a larger lower bound than
+   1. It is now well-known that the sum of the reciprocals of the moduli in C can be arbitrarily
+   close to 1 if m0 ∈ {2, 3, 4}. In a 1973 paper of Erdős, he mentions the conjecture, attributed
+   to himself and J. Selfridge, that if m0 > 4, then the sum of the reciprocals of the moduli in C
+   is greater than c for some fixed c > 1. In this talk, I will describe further history and recent
+   joint work with Alexandros Kalogirou which resolves this conjecture of Erdős and Selfridge.
+   Joint work with Alexandros Kalogirou, University of South Carolina.
+23. Carrie Finch-Smith, Washington and Lee University
+
+                   Two Decades with My Friends Riesel and Sierpiński
+
+   Two of my favorite numbers are 78557 and 509203 because for each and every natural number
+   n, the integers 78557 · 2n + 1 and 509203 · 2n − 1 are composite. Another way of saying this is
+   that 509203 is a Riesel number, and 78557 is a Sierpiński number. My everchanging group of
+   undergraduate researchers and I have been searching for Riesel and Sierpiński numbers hiding
+   out in other integer sequences. In this talk, we’ll explore places where we have found examples
+   easily. and then we’ll see some of the more complicated arguments used to demonstrate where
+   they were able to hide from us a bit longer.
+
+
+
+
+24. Daniel Flores Galiote, Purdue University
+
+    K-Multimagic Squares and Magic Squares of kth Powers via the Circle Method
+
+   We investigate K-multimagic squares of order N . These are N × N magic squares which
+   remain magic after raising each element to the kth power for all 2 ≤ k ≤ K. Given K ≥ 2,
+   we consider the problem of establishing the smallest integer N (K) for which there exist non-
+   trivial K-multimagic squares of order N (K). Previous results on multimagic squares show
+   that N (K) ≤ (4K − 2)K for large K. Here we utilize the Hardy-Littlewood circle method
+   and establish the bound
+                                    N2 (K) ≤ 2K(K + 1) + 1.
+   We additionally address the simpler problem of magic squares consisting of kth powers, im-
+   proving on a recent result by Rome and Yamagishi.
+
+
+
+
+25. Jon Grantham, IDA/CCS
+
+                   Searching for Defective Prime Powers in Low Genus
+
+   Inspired by a remark of Serre, we extend the search for primes p such that the maximum
+   Hasse bound for the number of points on an elliptic curve over Fp5 is not achieved. We give
+   a list of all q < 1070 such that the Hasse bound is not achieved over Fq . Further, we explore
+   the heuristics for how many such numbers should exist in each case. We also examine the
+   genus 2 and 3 cases.
+   Joint work with Katie Ahrens, IDA/CCR-L.
+
+
+
+
+26. Andrew Granville, Université de Montreal
+
+                                  Primes of the Form am − bn
+   For given positive coprime integers a, b, how many primes are there of the form am − bn ? We
+   believe there are infinitely many when a = 2, b = 1 (the Mersenne primes), and there is no
+   more than one when g := (a − 1, b − 1) > 1 (since am − bn ≡ 1m − 1n ≡ 0 (mod g)). What
+   can we say for other pairs a and b?
+   Joint work with Francesco Pappalardi, Roma Tre.
+
+
+
+
+27. Robert (Scotty) Groth, University of South Carolina
+
+                   New Irreducibility Criteria on Legendre Polynomials
+
+   Legendre polynomials, where the nth Legendre polynomial, written Pn (x), is of degree n, are
+   a classical family of polynomials that first arose in A. M. Legendre’s study of the forces of
+   attraction between spheroids. It has long been conjectured that P n (x) := Pn (x) is irreducible
+   (over Q) for n ≥ 2 even and P n (x) := Pn (x)/x is irreducible (over Q) for n ≥ 3 odd. Using
+   Newton polygons, along with other techniques, we present an algorithm to determine if P n (x)
+   is irreducible for a given n. We then use this algorithm to deduce the irreducibility of P n (x)
+   for 2 ≤ n ≤ 107 . Using similar ideas, we produce several new irreducibility criteria for P n (x)
+   that build on prior results. Most notably, in an extension of existing irreducibility criteria,
+   we show, for a fixed odd prime q, that Pp+q (x) is irreducible for every prime p that is not
+   in some finite exceptional computable set of primes Pq . We demonstrate the computational
+   aspects of this result by showing Pp+q (x) is irreducible for every odd prime q ≤ 13 and every
+   prime p, and we obtain some additional partial results for q ≤ 29.
+
+
+
+
+28. Swaroop Hegde, University of Georgia
+
+               An Inverse Result for Ruzsa’s Inequality on Triple Sumsets
+
+   If A is a finite subset of an abelian group, then Ruzsa has proved that |A+A+A| ≤ |A+A|3/2
+   and has also constructed examples to show that this inequality is sharp up to a constant
+   factor. I will present √ a new proof of this inequality which improves the constant factor in
+   the upper bound to         2/3 + o(1) while also showing a connection to the Kruskal-Katona
+   Theorem from extremal graph theory. I will then present an inverse result which states that
+   if |A + A + A| is close to |A + A|3/2 then the set A should look similar to the standard sharp
+   examples that Ruzsa has constructed. The new proof of Ruzsa’s inequality also leads to the
+   possibility of using stability results from extremal graph theory to understand the structure
+   of our inverse result more clearly.
+
+
+
+
+29. Brian Hopkins, Saint Peter’s University
+
+    On Andrews and Bachraoui’s Partitions Where Only the Smallest Part Can Be
+                                    Repeated
+
+   Andrews and Bachraoui recently considered partitions where only the smallest part can be
+   repeated, a specified number of times, and requested combinatorial proofs for several results.
+   As these partitions generalize distinct partitions, we can connect one case of an enumeration
+   result to an infinite recurrence for the number of distinct partitions found by Ewell in 1980.
+   In this talk, we will explore these results and extensions combinatorially.
+
+
+
+
+30. Dru Horne, University of Georgia
+
+                               k-Multiple Integer Compositions
+
+   Given an integer composition (ordered partition) a of n, we say that a is a k-multiple com-
+   position if k divides n but k does not divide the size of any initial subcomposition of n.
+   Additionally, if the parts of a are no larger than r, we say that a is r-restricted. In this
+   talk, we give enumerative results and provide some bijective proofs for unrestricted l-multiple
+   compositions and for some special cases of r-restricted k-multiple compositions.
+   Joint work with Matt Just, University of Georgia.
+
+
+
+
+31. Alex Iosevich, University of Rochester
+
+                        Imputation of Missing Values in Time Series
+
+   We are going to consider functions from integers modulo N to complex numbers, and remove
+   a significant number of values. It turns out that under a variety of reasonable conditions, the
+   original values can be recovered exactly, or at least approximated in an efficient way. Classical
+   results by Bourgain, Talagrand and other Fourier restriction estimates play an important role.
+   Joint work with Will Burstein , University of Rochester; Azita Mayeli, City University of New
+   York Graduate Center, and Hari Nathan, University of Rochester.
+
+
+
+
+32. Brad Isaacson, New York City College of Technology (CUNY)
+
+       Reciprocity Formulae for Generalized Dedekind and Hardy-Berndt Sums
+                       Involving Apostol-Bernoulli Functions
+
+   This talk is concerned with generalized Dedekind and Hardy-Berndt sums and their corre-
+   sponding reciprocity theorems. It emerges that the ingredients needed for certain reciprocity
+   theorems are functions possessing suitable generating functions and Raabe-type multiplication
+   formulas, for which the Bernoulli and Euler functions both enjoy. However, many functions
+   possess these properties, and consequently, generalized sums involving these functions must
+   also obey a reciprocity theorem of this type. In this talk, we consider a unification of the
+   generalized Dedekind and Hardy-Berndt sums which involve Apostol-Bernoulli functions and
+   present its reciprocity theorem which contains all of the reciprocity theorems for the general-
+   ized Dedekind and Hardy-Berndt sums in the literature as special cases.
+33. Abhishek Jha, University of Illinois Urbana-Champaign
+
+                               Smallest Totient in a Residue Class
+
+   We obtain a totient analogue for Linnik’s theorem in arithmetic progressions. Specifically,
+   for any coprime pair of positive integers (m, a) such that m is odd, there exists n ≤ m2+o(1)
+   such that φ(n) ≡ a (mod m).
+
+
+
+
+34. Alexandros Kalogirou, UofSC
+
+                             Irreducibility of Lacunary Polynomials
+
+   In recent work we were able to show that most 0,1 polynomials with few terms are irreducible.
+   We present that proof here. The key to the solution is a series of results of Schinzel on the
+   factorization of lacunary polynomials. It is the speaker’s intention to highlight those results
+   and ask related questions, motivated by information theoretic considerations.
+
+
+
+
+35. William J. Keith, Michigan Technological University
+
+                              Partitions Without Hooks s Modulo t
+
+   We extend previous authors’ work on simultaneous (s, s+t, . . . , s+pt)-cores by considering the
+   limiting case, which is simply partitions with no hooks of length s modulo t. Our contribution
+   is particularly to generating functions and congruences for these objects.
+   Joint work with Rishi Nath, CUNY Graduate Center and James Sellers, UMN-Duluth.
+
+
+
+
+36. Sándor Kiss, Budapest University of Technology and Economics
+
+                                  Generalized Stanley Sequences
+
+   For a k ≥ 3 integer, let A0 = {a1 , . . . , at } be a set of nonnegative integers that does not contain
+   an arithmetic progression of length k. The set S(A) is defined by the following algorithm. If
+   s ≥ t and a1 , . . . as have already been defined, then let as+1 be the smallest integer a > as such
+   that {a1 , . . . as } ∪ {a} also does not contain a k-terms arithmetic progression. The sequence
+   S(A) is called the Stanley sequence of order k generated by A0 . Starting from a set of the
+   form A0 = {0, t}, in an unpublished manuscript Richard P. Stanley and Andrew Odlyzko tried
+   to generate arithmetic progression-free sets by using the greedy algorithm. In 1999 Erdős,
+   Lev, Rauzy, Sándor and Sárközy extended the notion of Stanley sequence to other initial sets
+   A0 . In my talk I investigate some further generalizations of Stanley sequences and give some
+   density-type results about them.
+   Joint work with Csaba Sándor, Budapest University of Technology and Economics and Quan-
+   Hui Yang, Nanjing Normal University.
+37. Jonah Klein, University of South Carolina
+
+                  On Extreme Values of r3 (n) in Arithmetic Progressions
+
+   Let r3 (n) denote the number of representations of an integer n as a sum of 3 integer squares.
+   For a given integer m, and any residue a (mod m) that can be written as a sum of 3 squares
+   modulo m, we show the existence of infinitely many integers n ≡ a (mod m) such that
+              √
+   r3 (n) ≫m n log log(n).
+   Joint work with Michael Filaseta, University of South Carolina and Cihan Sabuncu, Université
+   de Montréal.
+
+
+
+
+38. Mits Kobayashi, Dartmouth College
+
+        Generalizing a Geometric Construction for Triangular-Square numbers
+
+   The usual way to generate the sequence of triangular-square numbers is to use solutions to
+   the Pell equation x2 − 2y 2 = 1. However, there is a more elementary construction involving
+   directly manipulating geometric triangles and squares. in this talk we will show how this
+   construction can be generalized to generate sequences of numbers which are both triangular
+   and equal to a fixed number of squares.
+   Joint work with Berit Givens, Cal Poly Pomona.
+
+
+
+
+39. Jeffrey C. Lagarias, University of Michigan
+
+                               Generalized Factorials, Extended
+
+   Many generalizations of the factorial function and of binomial coefficients have been studied.
+   We consider a class of such factorials in the spirit of Knuth and Wilf (1989), that are built
+   of products of “generalized integers.” In 1997 Manjul Bhargava introduced a (multiplicative)
+   generalization of the factorial function, first for Z, then for Dedekind domains. Given an
+   arbitrary subset S of the ring Z, the generalized factorials associated to S can be used to
+   describe the ring of polynomials that are integer-valued on the set S. These factorials are
+   specified by their prime factorization, and determining the power of p dividing the k-th
+   factorial associated to S is done by means of “p-sequence” invariants of S. This talk will
+   describe extensions to define “b-sequence” invariants associated to every ideal (b) of Z, giving
+   rise to a larger class of generalized factorials. These results have a further extension to all
+   ideals of Dedekind domains. The talk discusses properties of these factorials.
+   Joint work with Wijit Yangjit, University of Michigan.
+
+
+
+
+40. Daniel Larsen, Massachusetts Institute of Technology
+
+              Carmichael Numbers in All Possible Arithmetic Progressions
+   In 1994, Alford, Granville, and Pomerance introduced a method for producing infinitely many
+   Carmichael numbers. Their method was then adapted by Matomäki and subsequently Wright
+   to prove the analogue of Dirichlet’s theorem for Carmichael numbers. However, new ideas are
+   needed to prove, for example, that there are infinitely many Carmichael numbers divisible by
+   3. I will briefly outline the AGP method and say a few words about how it needs to be modified
+   to find all arithmetic progressions which contain infinitely many Carmichael numbers.
+
+
+
+
+41. Jared Duker Lichtman, Stanford University
+
+                               The abc Conjecture Almost Always
+
+   The celebrated abc conjecture asserts that every solution to the equation a + b = c in triples
+   of coprime integers (a, b, c) must satisfy rad(abc) ≥ c1−ϵ , with finitely many exceptions. We
+   prove a power-saving bound on the exceptional set of such triples. Namely, there are at most
+   O(X 33/50 ) many triples of coprime integers in a cube (a, b, c) ∈ [1, X]3 satisfying a + b = c
+   and rad(abc) < c1−ϵ . The proof is based on a combination of bounds for the density of integer
+   points on varieties.
+   Joint work with Tim Browning, IST Austria and Joni Teravainen , University of Cambridge.
+
+
+
+
+42. Andrew Lott, University of Georgia
+
+                           Polynomial Patterns in the Prime Lattice
+
+   We provide a multidimensional extension of previous results on the existence of polynomial
+   progressions in dense subsets of the primes. Let A be a subset of the prime lattice lattice Pd of
+   positive relative upper density. We show that A contains all polynomial configurations of the
+   form x + P0 (y)v 0 , . . . , x + Pl (y)v l satisfying a non-degeneracy condition, for some x ∈ Zd and
+   y ∈ N. Moreover, if A ⊂ PdN is of upper density δ > 0 then one may have that 0 < y < logL N
+   as long as N is sufficiently large, where L is a constant depending on the configuration but is
+   independent of N and δ.
+   Joint work with Ákos Magyar, University of Georgia; Giorgis Petridis , University of Georgia,
+   and Janós Pintz, Alfréd Rényi Institute of Mathematics.
+
+
+
+
+43. Florian Luca, Stellenbosch University
+
+                      On the Distance between Factorials and Repunits
+
+   We show that if n ≥ n0 , b ≥ 2 are integers, p ≥ 7 is prime and
+
+                                       n! − (bp − 1)/(b − 1) ≥ 0,
+
+   then n!−(bp −1)/(b−1) ≥ 0.5 log log n/ log log log n. Further results are obtained, in particular
+   for the case n! − (bp − 1)/(b − 1) < 0. This research was inspired by the Brocard–Ramanujan
+   problem which asks for all the positive integer solutions (n, b) of the Diophantine equation
+   n! + 1 = b2 .
+   Joint work with Michael Filaseta, University of South Carolina.
+
+
+
+
+44. Debyani Manna, Indian Institute of Technology Roorkee
+
+               Some Results on the Extended Inverse Problem of A + 2 · A
+
+   Let A be a finite set of integers and A + 2 · A = {a + 2a′ : a, a′ ∈ A}. An extended inverse
+   problem associated with the sumset A+2·A is to determine the underlying set A when the size
+   of the sumset A + 2 · A deviates from the minimum possible size. In this paper, we study the
+   extended inverse problem of A + 2 · A. Further, we find the all possible arithmetic structures
+   of A for certain cardinalities of A + 2 · A and use them to address extended inverse problems
+   in the Baumslag-Solitar group BS(1, 2). In conclusion, we provide illustrative examples in
+   support of the following question posed by Bukh in 2008. For some ϵ > 0, is |A + 2 · A|/|A| ≤
+   (|A + A|/|A|)3−ϵ ?
+   Joint work with Prof. Ram Krishna Pandey, Indian Institute of Technology Roorkee.
+
+
+
+
+45. Junzhe Mao, Georgia Institute of Technology
+
+      An Inverse Theorem for Generalized Arithmetic Progressions with a Mild
+                             Multiplicative Property
+
+   In this paper we prove a structural theorem for generalized arithmetic progressions in Fp
+   which contain a large product set of two other progressions. Our method also gives a similar
+   result for generalized arithmetic progressions in Mn (Fp ).
+   Joint work with Ernie Croot, Georgia Institute of Technology.
+
+
+
+
+46. Nathan McNew, Towson University
+
+         Covering Numbers and Abundant Numbers: A Tale of Two Densities
+
+   In 1950, Erdős introduced covering systems–finite collections of arithmetic progressions whose
+   union contains every integer. They featured in some of his favorite problems, many of which
+   are still open, though the past decade has seen significant progress on some of the most well
+   known questions. In 1979, answering one of Erdős’s questions, Haight introduced covering
+   numbers: positive integers n for which a covering system can be constructed with distinct
+   moduli that are divisors of n. If no proper divisor of n is a covering number, we call n a
+   primitive covering number. Covering numbers share many properties with abundant numbers,
+   of which they form a subset. We establish an upper bound on the number of primitive covering
+   numbers, proving they are far sparser than primitive abundant numbers and thus that the set
+   of covering numbers has a natural density. However, computing this density is significantly
+   harder than for abundant numbers due to the complexity of determining whether a number is
+   a covering number. By refining techniques used to bound the density of abundant numbers,
+   we obtain relatively tight bounds for the density of covering numbers and, in the process,
+   improve the bounds on the density of abundant numbers as well.
+   Joint work with Jai Setty, NYU.
+
+
+
+
+47. Zemyna E. Mikalciute, University of Georgia
+
+                     Distribution of Parts in Palindromic Compositions
+
+   An integer composition is said to be palindromic modulo m if symmetric parts in the compo-
+   sition differ by a multiple of m. This generalizes the notion of a parity palindrome, introduced
+   by G. E. Andrews and G. Simay. In this talk, we share recent results on the density of vari-
+   ous sets of integers distributed among the parts of compositions that are palindromic modulo
+   m. For the case m = 3, we show how our results give an elegant explanation of an identity
+   involving the Lucas and Fibonacci numbers, and, time permitting, we show how our results
+   can be extended to analogous classes of ordered factorizations.
+   Joint work with Matthew R. Just, University of Georgia.
+
+
+
+
+48. Steven J Miller, Williams College and the Fibonacci Association
+
+                   Results in Additive and Elementary Number Theory
+
+   Like many attendees, I’ve been fortunate to know and be inspired by Carl and Mel for decades;
+   I’ve written more papers influenced by their results and suggestions than anyone other then
+   my thesis advisors! I’ll briefly describe some work I and my students have done building
+   on their contributions and insights in More Sums Than Differences Sets (Mel) and Special
+   Integer Sequences (Carl), ending if time permits with some problems for this year’s students
+   (collaborators welcome!).
+
+
+
+
+49. Mauro Di Nasso, University of Pisa, Italy
+
+           Ramsey’s Witnesses and Infinite Partition Regular Configurations
+
+   We introduce the notion of Ramsey partition regularity, a generalization of partition regularity
+   involving infinitary configurations. This notion is characterized in terms of certain ultrafilters
+   related to tensor products, named Ramsey’s witnesses. We use these characterizations to
+   determine whether various configurations involving polynomials and exponentials are Ramsey
+   partition regular over the natural numbers.
+   Joint work with Lorenzo Luperi Baglini, University of Milan, Italy; Marcello Mamino, Uni-
+   versity of Pisa, Italy; Rosario Mennuni, University of Milan, Italy, and Mariaclara Ragosta.
+50. Rishi Nath, CUNY York College
+
+                                  Simultaneous Core Partitions
+
+   In the 1940s, Littlewood first showed how an integer partition could be uniquely decomposed
+   into its t-core and t-quotient for all t. Five decades later, J. Anderson showed that, for s
+   and t relatively prime, the number of partitions whose s-quotient and t-quotient are both
+   empty was finite, and could be described by generalized Dyck paths in an s by t lattice. Here
+   we investigate the orthogonal question of which integer partitions have both their s-core and
+   t-core empty.
+   Joint work with Tahda Queer, CUNY Hunter College and Alecto Perez, Independent Re-
+   searcher.
+
+
+
+
+51. Melvyn Nathanson, Lehman College (CUNY)
+
+                          Sizes of Sumsets of Finite Sets of Integers
+
+   In the study of sums of finite sets of integers, most attention has been paid to sets with small
+   sumsets (Freiman’s theorem and related work) and to sets with large sumsets (Sidon sets and
+   Bh -sets). This talk focuses on the full range of sizes of h-fold sums of a set of k integers.
+   Many new results and open problems are presented.
+
+
+
+
+52. Vincent Nguyen, University of California, Los Angeles
+
+         A Series Involving a Product of Four Consecutive Harmonic Numbers
+
+   In correspondence with Goldbach, Euler began investigating series of the form
+                               X
+                                   k −m 1 + 2−n + · · · + k −n ,
+                                                              
+
+                                    k≥1
+
+   which are known today as Euler sums. For the case where n = 1 and m ≥ 2, Euler was able
+   to obtain a closed form in terms
+                                  P of zeta   values. We use elementary techniques in the spirit
+                                         Hk Hk+1 Hk+2 Hk+3
+   of Euler to evaluate the series k≥1 k(k+1)(k+2)(k+3)    , where Hk := 1 + 12 + · · · + k1 is the kth
+   harmonic number, in terms of zeta values. The closed form is a potential counterexample
+   to a conjecture of Furdui and Sı̂ntămărian. We relate this problem to conjectures regarding
+   irrationality and Q-linear independence of zeta values.
+   Joint work with Wilson Chen, University of California, Los Angeles.
+
+
+
+
+53. Kevin O’Bryant, CUNY - Graduate Center & Staten Island
+
+                                              Sidon Sets
+   A Sidon set is a set of integers containing no nontrivial solutions to a + b = c + d. In this
+   survey talk, I will go through the history of the study of Sidon sets, collecting open problems
+   and highlighting recent progress.
+
+
+
+
+54. Tristan Phillips, Dartmouth College
+
+     Unboundedness of Average p-Selmer Ranks of Elliptic Curves with N-Torsion
+
+   Let E be an elliptic curve with a rational N -torsion point, and let p be a prime dividing N .
+   Then E admits a rational p-isogeny ϕ. Let ϕb denote the dual isogeny of ϕ. One can then
+   consider the Tamagawa ratio, which measures the size of the ϕ-Selmer group relative to the
+   ϕ-Selmer
+   b         group. This talk will discuss the distribution of these Tamagawa ratios, proving an
+   analog of the Erdős–Kac Theorem. One can then use this to prove that the average p-Selmer
+   rank of elliptic curves with a rational N -torsion point is unbounded.
+
+
+
+
+55. Paul Pollack, University of Georgia
+
+                           How Nonunique Is Your Factorization?
+
+   Number theorists learn early on not to take unique factorization for granted. In 1980, R.J.
+   Valenza introduced the ”elasticity” of an integral domain as a means of measuring how far
+   away the domain is from possessing unique factorization. I will survey what is known about
+   elasticity of rings of number theoretic interest. Particular attention will be paid to recent
+   work of the speaker on elasticity of orders in quadratic fields.
+   Joint work with Kai (Steve) Fan, University of Georgia and Enrique Treviño, Lake Forest
+   College.
+
+
+
+
+56. Prasanta Kumar Ray, Sambalpur University, India
+
+    Statistical Convergence Based on the Padovan sequence and a Korovkin-Type
+                              Approximation Theorem
+
+   Statistical convergence is a concept in mathematical analysis that evaluates the convergence
+   of a sequence of numbers based on their statistical properties. Unlike traditional convergence,
+   which examines the limit of individual terms, statistical convergence assesses the overall be-
+   havior of the sequence. Specifically, a sequence of real numbers (xn ) is said to converge
+   statistically to a real number L if, for every ϵ > 0, lim n1 {k ≤ n : |xk − L| ≥ ϵ} = 0. This
+                                                         n→∞
+   implies that the proportion of terms significantly deviating from L becomes negligible in a
+   precise mathematical sense.Statistical convergence was independently introduced in 1951 by
+   Fast and Steinhaus and has since been widely studied in various areas of mathematics, such
+   as real analysis, functional analysis, and probability theory. Aizpuru et al. extended the
+   concept by incorporating density by moduli, leading to the notion of f -statistical conver-
+   gence. Subsequently, Bhardwaj and Dhawan employed f -statistical convergence to establish
+   Korovkin-type theorems. Similarly, Boyanov and Veselinov proved a Korovkin-type theorem
+   using the test functions {1, e−x , e−2x } within the Banach space C ∗ [0, ∞), which consists of
+   continuous functions on the interval [0, ∞). Kirisci and Karasia were the first to connect this
+   with the Fibonacci sequence and introduced Fibonacci statistical convergence and proved a
+   Korovkin-type theorem in that context. Motivated by these ideas, we study the statistical
+   convergence based on a third order recurrence sequence, namely the Padovan sequence, by
+   utilizing density by moduli. The primary goal of this study is to prove a Korovkin-type
+   theorem based on this statistical convergence.
+   Joint work with Mrutyunjaya Meher, Sambalpur University, India.
+
+
+
+
+57. Michael Revers, University of Salzburg, Austria
+
+        New Bounds in R.S. Lehman’s Estimates for the Difference π (x) − li (x)
+
+   We denote by π (x) the usual prime counting function and let li (x) be the logarithmic integral
+   of x. In 1966, R.S. Lehman came up with a new approach and an effective method for finding
+   an upper bound where it is assured that a sign change occurs for π (x) − li (x) for some value
+   x not higher than this given bound. In this talk we provide further improvements on the
+   error terms including an improvement upon Lehman’s famous error term S3 in his original
+   paper. We are now able to eliminate the lower condition for the size-length η completely. For
+   further numerical computations this enables us to establish sharper results on the positions
+   for the sign changes. We illustrate with some numerical computations on the lowest known
+   crossover regions near 10316 and we discuss numerically on potential crossover regions below
+   this value.
+
+
+
+
+58. Alex Rice, Millsaps College
+
+                    Notes and Computations on Forbidden Differences
+
+   Dating at least to the 1970s, a popular family of questions and results in arithmetic com-
+   binatorics concerns the existence of certain differences in dense sets of integers. The most
+   famous results are due to Sŕközy, who showed that a subset of {1, 2, ..., N } with no perfect
+   square differences has size o(N ), along with the analogous fact for differences that are one
+   less than a prime number. In work stemming from a Summer 2024 undergraduate research
+   program, we approach some related, more elementary questions, including exact formulas for
+   sets lacking prime or shifted square differences, and exact threshold values for sets lacking
+   square and p − 1 differences for N up to 300 and 500, respectively. The latter computations
+   were executed by leveraging existing algorithms for finding maximum cliques in graphs.
+
+
+
+
+59. Robert Schneider, Michigan Technological University
+
+                     Partition-Theoretic Model of Prime Distribution
+   We make an application of ideas from partition theory to a problem in multiplicative number
+   theory. We propose a deterministic model of prime number distribution, from first principles
+   related to properties of integer partitions, that predicts the prime number theorem and sug-
+   gests new conjectures regarding predictable variations in prime gaps. The model posits that,
+   for n ≥ 2,
+                                                 n−1
+                                                 X  d(j) 
+                                 pn = 1 + 2                  + ε(n),
+                                                       2
+                                                 j=1
+
+   where pk is the kth prime number, d(k) is the divisor function, and ε(k) ≥ 0 is an error that
+   is negligible asymptotically; both the main term and error are enumerative functions in our
+   conceptual model. We refine the error to give numerical estimates of π(n) similar to those
+   provided by the logarithmic integral, and much more accurate than li(n) up to n = 10,000
+   where the estimate is almost exact. We also test a seemingly dubious prediction suggested
+   by the model, that prime-indexed primes p2 , p3 , p5 , p7 , etc., are more likely to be involved in
+   twin prime pairs than are arbitrary primes; surprisingly, computations show prime-indexed
+   primes are more likely to be twin primes up to at least n = 10,000,000,000, with the bias
+   diminishing but persistent as n increases.
+   Joint work with Aidan Botkin, Michigan Technological University ; Madeline L. Dawsey, Uni-
+   versity of Texas Tyler; David J. Hemmer, Michigan Technological University , and Matthew
+   R. Just , University of Georgia .
+
+
+
+
+60. David Ross, Department of Mathematics, University of Hawaii
+
+     Nonstandard Methods and Discovery in Number Theory and Combinatorics
+
+   Many people still think of Nonstandard Analysis primarily as a way to replace epsilon-delta
+   arguments by a rigorous use of infinitesimals. However, there are other very powerful proper-
+   ties this machinery can bring to arguments, and even if a final proof is entirely standard it can
+   be motivated by the nonstandard argument. I’ll describe some examples from number theory
+   and combinatorics where a nonstandard argument suggests a standard proof, or otherwise
+   gives an unexpected insight into the problem.
+
+
+
+
+61. Akash Singha Roy, University of Georgia
+
+     Joint Distribution in Residue Classes of Families of Multiplicative Functions
+
+   The distribution of values of arithmetic functions in residue classes has been a problem of
+   great interest in elementary, analytic and combinatorial number theory. In work studying
+   this problem for large classes of multiplicative functions, Narkiewicz obtained general cri-
+   teria deciding when a family of such functions is jointly uniformly distributed among the
+   coprime residue classes to a fixed modulus. Using these criteria, he along with Sliwa, Rayner,
+   Dobrowolski, Fomenko and others gave explicit results on the distribution of interesting mul-
+   tiplicative functions and their families in coprime residue classes. In this talk, we shall give
+   best possible extensions of Narkiewicz’s criteria (and hence also of the other aforementioned
+   results) to moduli that are allowed to vary in a wide range. This is motivated by the cele-
+   brated Siegel-Walfisz theorem on the distribution of primes in arithmetic progressions, and
+   our results happen to be some of the best possible qualitative analogues of the Siegel-Walfisz
+   theorem for the classes of multiplicative functions considered by Narkiewicz and others. Our
+   arguments blend ideas from multiple subfields of number theory, as well as from linear algebra
+   over rings, commutative algebra, and arithmetic and algebraic geometry. This talk is partly
+   based on joint work with Prof. Paul Pollack.
+   Joint work with Paul Pollack, University of Georgia.
+
+
+
+
+62. Charles Samuels, Christopher Newport University
+
+                Extensions of Completely Additive Arithmetic Functions
+
+   A completely additive arithmetic function is a map f : N → R such that f (ab) = f (a) + f (b)
+   for all a, b ∈ N. Each map of this type has at least one extension to a linear transformation
+                                    ×   ×
+   from the Q-vector space G := Q /Qtors to R. By referencing a measure-like object called a
+   consistent map, we present a complete classification of all such extensions. When G is equipped
+   with a certain norm arising from the Weil height, we further describe the circumstances under
+   which these extensions are continuous.
+
+
+
+
+63. J.C. Saunders, Middle Tennessee State University
+
+                             Combinations of Cranks Modulo 15
+
+   In this talk, we express the generating function of a combination of cranks of partitions that
+   belong to congruence classes 3, 4, 5, 6, and 7 modulo 15, in terms of the Eisenstein series. Our
+   results rely on the observation that the generating function of the combination we consider is a
+   weight 1 modular form on Γ0 (225) with the nontrivial modulo 3 primitive Dirichlet character.
+   We obtain the modularity result by analyzing the transformation properties of related Klein
+   forms.
+   Joint work with Zafer Selcuk Aygin, American University of Sharjah.
+
+
+
+
+64. Steven Senger, Missouri State University
+
+           Improved Bounds on the Size of an Image Set of Planar Functions
+
+   In 2012, the authors determined the first (and at the time of writing, the only) non-trivial
+   upper bound for the cardinality of the image set for several classes of functions, including
+   planar functions. Here, we show that the upper bound cannot be tight for planar functions
+   over Fq , with the possible exception of q = 343. We further show that if such an exceptional
+   planar function exists, then it implies the existence of a projective plane of order 18. This
+   follows from more general results, which apply to wider classes of functions.
+   Joint work with Robert Coulter, University of Delaware.
+65. Andrew Sills, Georgia Southern University
+
+                             The q-Factorization of Power Series
+
+   Q power series
+   Any                 with unit constant term can be factored into an infinite product of the form
+                n )−an . It turns out that there are direct formulas for the exponents a in terms
+     n≥1 (1 − q                                                                          n
+   of the coefficients of the power series, and vice versa, as sums over partitions. Applications
+   follow in the form of formulas for certain combinatorial functions.
+   Joint work with Robert Schneider, Michigan Technological University and Hunter Waldron,
+   Michigan Technological University.
+
+
+
+
+66. Jon Sorenson, Butler University
+
+    An Algorithm and Computation to Verify Legendre’s Conjecture up to 7 · 1013
+
+   Legendre’s Conjecture states that, for every positive integer n, there exists a prime between
+   n2 and (n + 1)2 . We review what is currently known about Legendre’s conjecture and similar
+   conjectures, we present a new algorithm to unconditionally verify Legendre’s conjecture for all
+   n ≤ N that runs in O(N log N log log N ) arithmetic operations (heuristically), and we share
+   the results of a computation we undertook that verified this conjecture up to N ≈ 7.05 · 1013 .
+   Note that this means we were finding 27-digit primes.
+   Joint work with Jonathan Webster, Butler University.
+
+
+
+
+67. Anitha Srinivasan, Departamento de Métodos Cuantitativos, ICADE, Madrid
+
+            The Generalized Markoff Equation and Binary Quadratic Forms
+
+   We present recent joint work with Luis Ángel Calvo on the generalized Markoff equation
+   x2 + y 2 + z 2 = 3xyz + m. It is known that just like in the case of the Markoff equation
+   (m = 0), the solution triples here also may be represented on trees (there may be more
+   than one). The focus of this talk will be to highlight the role played by binary quadratic
+   forms in several interesting problems related to this equation. One such problem is to find
+   m′ s for which there are no solutions (Hasse failures). Another is to enumerate all solution
+   trees. Using the theory of forms we are able to give an efficient algorithm to do this. A third
+   example is a formula to count the number of solutions of the kind (1, b, c).
+   Joint work with Luis Ángel Calvo, Departamento de Métodos Cuantitativos, ICADE, Madrid.
+
+
+
+
+68. Katherine Stange, University of Colorado, Boulder
+
+        Local-Global in Thin Orbits (Apollonian Circle Packings and Continued
+                                      Fractions)
+   Primitive integral Apollonian circle packings are fractal arrangements of tangent circles with
+   integer curvatures. The curvatures form an orbit of a ’thin group,’ a subgroup of an algebraic
+   group having infinite index in its Zariski closure. The curvatures that appear must fall into
+   a restricted class of residues modulo 24. The twenty-year-old local-global conjecture states
+   that every sufficiently large integer in one of these residue classes will appear as a curvature
+   in the packing. We prove that this conjecture is false for many packings, by proving that
+   certain quadratic and quartic families are missed. The new obstructions are a property of the
+   thin Apollonian group (and not its Zariski closure), and are a result of quadratic and quartic
+   reciprocity, reminiscent of a Brauer-Manin obstruction. Based on computational evidence,
+   we formulate a new conjecture. This is joint work with Summer Haag, Clyde Kertzer, and
+   James Rickards. Time permitting, I will discuss some new results, joint with Rickards, that
+   extend these phenomena to certain settings in the study of continued fractions.
+
+
+
+
+69. Yuta Suzuki, Rikkyo University
+
+                      Telhcirid’s Theorem on Arithmetic Progressions
+
+   The classical Dirichlet theorem on arithmetic progressions states that there are infinitely
+   many primes in a given arithmetic progression with a trivial necessary condition. In this
+   talk, we prove a reversed version of this theorem, which may be called Telhcirid’s theorem
+   on arithmetic progressions, i.e., we prove that there are infinitely many primes whose reverse
+   of radix representation is in a given arithmetic progression except in some degenerate cases.
+   Unfortunately, our result needs the base of radix representation to be relatively large.
+   Joint work with Gautami Bhowmik, University of Lille.
+
+
+
+
+70. Elif Tan, Ankara University
+
+             On Combinatorial Interpretations of Special Integer Sequences
+
+   Fibonacci numbers have a rich history of combinatorial interpretations, including their con-
+   nection to the number of tilings of an n-board using squares and dominoes. In this talk, we
+   present combinatorial interpretations of several special integer sequences, such as the gener-
+   alized bi-periodic Fibonacci sequences and the generalized bi-periodic Padovan sequences, in
+   terms of weighted linear tilings, and provide combinatorial proofs for several identities involv-
+   ing them. We also explore the incomplete and hyper versions of these sequences, establishing
+   connections and relationships that reveal deeper combinatorial insights.
+
+
+
+
+71. Lola Thompson, Utrecht University
+
+                    Preimages of the Sum of Proper Divisors Function
+
+   Let s(n) denote the sum of proper divisors of an integer n. The function s(n) has been
+   studied for thousands of years, due to its connection with the perfect numbers. In 1992,
+   Erdős, Granville, Pomerance, and Spiro (EGPS) conjectured that if A is a set of integers
+   with asymptotic density zero then s−1 (A) also has asymptotic density zero. This has been
+   confirmed for certain specific sets A, but remains open in general. In this talk, we will give a
+   survey of recent progress towards the EGPS conjecture. This talk is based on joint work with
+   Paul Pollack and Carl Pomerance, and also on joint work with Kübra Benli, Giulia Cesana,
+   Cécile Dartyge, and Charlotte Dombrowsky.
+
+
+
+
+72. Alain Togbe, Purdue University Northwest
+
+                     On k-Generalized Numbers Close to a Power of 2
+                                                                                        
+                                                                                     (k)
+   Let k, r be an integer with k ≥ 2 and r ̸= 0. Let the linear recurrence sequence Gn
+                                                                                             n≥2−k
+   of order k be defined by
+                                           (k)         (k)          (k)
+                                G(k)
+                                 n = rGn−1 + Gn−2 + . . . + Gn−k ,
+
+   for n ≥ 2 with the initial conditions
+                   (k)         (k)               (k)          (k)             (k)
+                 G−(k−2) = G−(k−3) = · · · = G−1 = 0,        G0 = a, and G1 = b.
+   We say that an integer n is close to a positive integer m if n satisfies
+                                                      √
+                                          |n − m| < m.
+   In this talk, we will discuss how k-generalized numbers are closed to a power of 2. This is
+   based on a joint work with M. Bachabi, and B. Kourouma.
+
+
+
+
+73. Enrique Treviño, Lake Forest College
+
+                         On Sets Whose Subsets Have Integer Mean
+
+   We call a finite set of positive integers balanced if all its subsets have integer mean. For
+   a positive integer N , let M (N ) be the cardinality of the largest balanced set all of whose
+   elements are less than or equal to N , and let S(N ) be the cardinality of the balanced set with
+   elements less than or equal to N that has maximal sum. We study properties of balanced
+   sets and answer questions regarding what positive integers N satisfy M (N ) = S(N ).
+
+
+
+
+74. Ognian Trifonov, University of South Carolina
+
+       Lattice Points Close to a Smooth Curve and Squarefull Numbers in Short
+                                       Intervals
+
+   Abstract Let Q(x) be the number of squarefull numbers not exceeeding x. We show that if
+   1         8                   1/2+θ − Q(x) ∼ ζ(3/2) xθ , improving the previous 2002 record.
+                                      
+   2 > θ > 65 + ϵ, then Q x + x                    ζ(3)
+   The main new ingredient of the proof is a recent estimate of Heath-Brown on the number of
+   zeros of ternary quadratic forms in boxes.
+75. Lee Troupe, Mercer University
+
+                       Distributions of Values of Arithmetic Functions
+
+    Let f (n) denote an arithmetic function, and let ω(n) denote the number of distinct prime
+    divisors of n. In a 1940 paper, Erdős and Kac proved that if f (n) is a strongly additive
+    function with |f (p)| ≤ 1 for all primes p, then the values of ω(f (n)) satisfy a Gaussian
+    normal distribution with a certain mean and variance. Thus probabilistic number theory
+    was born. In the intervening years, a host of authors have made their own contributions to
+    the field, establishing similar results for arithmetic functions not covered by the Erdős–Kac
+    theorem as well as investigating other statistical properties of these functions. In this talk,
+    we will survey some of these contributions. We will focus in particular on results of Carl
+    Pomerance and his mathematical lineage, including ongoing joint work with Paul Pollack
+    (University of Georgia).
+
+
+
+
+76. Caroline Turnage-Butterbaugh, Carleton College
+
+              Simple Zeros and Critical Zeros of the Riemann Zeta-function
+
+    Assuming the Riemann Hypothesis, Montgomery (1973) proved a theorem concerning the
+    pair correlation of nontrivial zeros of the Riemann zeta-function. One consequence of this
+    theorem is that, under RH, at least 2/3 of the zeros of simple. In this talk, I will show that the
+    pair correlation method can be used to prove results not only on the vertical distribution of
+    zeros but on their horizontal distribution as well. In particular, I will discuss how to remove
+    RH from Montgomery’s theorem, and, upon assuming a much weaker hypothesis than RH,
+    conclude that at least 2/3 of the zeros are simple and that at least 2/3 of the zeros are on
+    the critical line.
+    Joint work with Sieg Baluyot, Eastern Carolina University; Dan Goldston, San Jose State
+    University, and Ade Irma Suriajaya, Kyushu University.
+
+
+
+
+77. Lalit Vaishya, Indian Statistical Institute New Delhi, India
+
+       Density Results on Certain Sets Associated with a Siegel Modular Form of
+                                       Degree 2
+
+    We prove explicit lower bounds for the natural density of the sets of primes p represented
+    by a reduced form of negative discriminant D such that eigenvalues λ(p) of a Siegel cusp
+    form of degree 2 satisfy c1 < λ(p) < c2 for the real numbers c1 and c2 . A similar result is
+    also proved for the set of primes p represented by a reduced form of negative discriminant
+    D such that |λ(p)| > c. Analogous results are also valid if one replaces natural density by
+    Dirichlet density. Moreover, we deal with various kinds of quantitative results concerning
+    the comparison between the normalized Hecke eigenvalues over the prime p represented by a
+    reduced form of negative discriminant D, of two distinct Siegel cuspidal Hecke eigenforms for
+    the full symplectic group of degree 2, which are not Saito-Kurokawa lifts.
+    Joint work with Prahsant Tiwari, HRI Prayagraj India.
+78. Diego Villamizar, Xavier University of Louisiana
+
+              The p-adic Valuations of a Couple of Multiplicative Functions
+
+   In this talk, we will discuss the p-adic valuation of two multiplicative functions: Euler’s totient
+   function, φ(n), which counts the positive integers up to n that are relative prime to n, and
+   the sum of divisors function, σ(n), which sums all the positive divisors of n. We will present
+   explicit formulas and discuss some bounds. This talk will be based on joint work with T.
+   Ambederham, V. Moll, and V. Sharma.
+
+
+
+
+79. Eleanor Waiss, Butler University
+
+            Algorithms to Write Integers as the Sum of Consecutive Primes
+
+   Let f (n) denote the number of representations a positive integer n has as a sum of consecutive
+   primes. For example, f (17) = 2 since 17 is prime and 17 = 2 + 3 + 5 + 7, with no other
+   representations. In 1963, Moser showed that the average value of f (n) is asymptotically log
+   2. Moser also posed four questions on f (n):
+    (a) Is f (n) = 1 infinitely often?
+    (b) Is f (n) = k solvable for every k?
+    (c) Does the set of integers n for which f (n) = k have positive density?
+    (d) Is the lim sup f (n) = ∞?
+   One can also find these questions in Guy’s Unsolved Problems in Number Theory. In this
+   talk, we will describe and analyze a couple of algorithms that compute the histogram h(x, k),
+   the number of n ≤ x such that f (n) = k. We will also give conjectured answers to Moser’s
+   four questions based on data from our histogram for x = 1012 .
+   Joint work with Jonathan Sorenson, Butler University.
+
+
+
+
+80. Ren Watson, University of Texas at Austin
+
+                Fixed Perimeter Analogues of Classical Partition Identities
+
+   In 2016, Straub proved that Euler’s classic partition identity holds true for partitions with
+   largest hook (perimeter) n. This inspired further study of the relationship between classical
+   partitions and fixed perimeter partitions. We begin by proving and generalizing the fixed
+   perimeter analogue of Andrews’ S-T Theorem. We then extend the study of parity bias
+   inequalities, first introduced by Kim, Kim, and Lovejoy in 2020, to the fixed perimeter setting
+   and show using combinatorial methods that fixed perimeter analogues of many classical parity
+   bias results can be proven and generalized. We finally prove Tribonacci recurrences for the
+   number of fixed perimeter PED and POD partitions that are unique to the fixed perimeter
+   setting.
+   Joint work with Gabriel Gray, University of Dayton; Emily Payne, University of Texas Rio
+   Grande Valley, and Holly Swisher, Oregon State University.
+81. Jonathan Webster, Butler University
+
+                       Progress on Producing Carmichael Numbers
+
+   Previous procedures by Pinch produced Carmichael numbers with a prime-by-prime append-
+   ing process. We preview a process predominated by preproducts. The prime-by-prime pro-
+   cedure is a poor pairing for present-day parallel processing potential. A precomputation
+   produces a pile of preproducts which partitions the problem with less repeated processing.
+   We present progress on producing all Carmichael numbers less than 1024 , practical problems,
+   and a probabilistic polynomial-time factoring procedure. For Professor Pomerance.
+   Joint work with Andrew Shallue, Illinois Wesleyan University.
+
+
+
+
+82. Andreas Weingartner, Southern Utah University
+
+            An Extension of Smooth Numbers: Multiple Dense Divisibility
+
+   The i-tuply y-densely divisible numbers were introduced by a Polymath project, as a weaker
+   condition on the moduli than y-smoothness, in distribution estimates for primes in arithmetic
+   progressions. We obtain the order of magnitude of the count of these integers up to x,
+   uniformly in x and y, for every fixed natural number i.
+   Joint work with Garo Sarajian, West Point.
+
+
+
+
+83. Laurence Petrus Wijaya, University of Kentucky
+
+    On Monochromatic Solutions of Linear Equations Using At Least Three Colors
+
+   We study the number of monochromatic solutions to linear equations in {1, . . . , n} when we
+   color the set by at least three colors. We consider the r-commonness for r ≥ 3 of linear
+   equations with an odd number of terms, and we also prove that any 2-uncommon equation
+   is r-uncommon for any r ≥ 3.
+
+
+
+
+84. Tom Wright, Wofford College
+
+                Carmichael Numbers: Elliptic, Arithmetical, and Beyond
+
+   In this talk, we will discuss some of my results on Carmichael numbers. Specifically, we will
+   focus on the infinitude of Carmichael numbers in arithmetic progressions and the infinitude
+   of elliptic Carmichael numbers, as well as some more recent ideas towards harder problems.
+
+
+
+
+85. Chi Hoi (Kyle) Yip, Georgia Institute of Technology
+      Multiplicative Irreducibility of Small Perturbations of Shifted k-th Powers
+
+   Motivated by a conjecture of Erdős on the additive irreducibility of small perturbations of the
+   set of squares, recently Hajdu and Sárközy studied a multiplicative analogue of the conjecture
+   for shifted k-th powers. They conjectured that for each k ≥ 2, if one changes o(X 1/k ) elements
+   of Mk′ = {xk + 1 : x ∈ N} up to X, then the resulting set cannot be written as a product
+   set AB nontrivially. In this talk, I will discuss a proof of a more general version of their
+   conjecture for k ≥ 3.
+
+
+
+
+86. Francesca Yu, Carnegie Mellon University
+
+                           Structure-Biased Maker-Breaker Games
+
+   In classical Maker-Breaker games on graphs, Maker and Breaker take turns claiming edges;
+   Maker’s goal is to claim all of some structure (e.g., a spanning tree, Hamilton cycle, etc.),
+   while Breaker aims to stop her. The standard question considered is how powerful a Breaker
+   Maker can defeat; i.e., for the 1 : b biased game where Breaker takes b edges per turn, how
+   large can b be for Maker to still have a winning strategy, for various possible goal sets? We
+   introduce a variant of this question in which Breaker is required to choose their multiples edges
+   as the edges of (a subgraph of) a given structure (e.g., a matching, clique, etc.) on each turn.
+   We establish the order of magnitude of the threshold biases for Triangle Games, Connectivity
+   Games, and Hamiltonicity Games under clique, matching, and star biases respectively. We
+   conclude that in most cases structure imposes major obstruction to Breaker, opening up a set
+   of games whose strategies deviate from the classical biased Maker-Breaker game strategies,
+   and shedding light on the types of Breaker strategies that will and will not work to prove
+   tighter bounds in the classical setting.
+   Joint work with Wesley Pegden, Carnegie Mellon University.
+

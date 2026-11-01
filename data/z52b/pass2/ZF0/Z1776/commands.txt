@@ -1,0 +1,7 @@
+reg pow4 msd_4 "0*10*";
+def menu "?msd_4 (E q n=5*q) | (E q n=20*q+13)";
+eval known9 "?msd_4 A n ($pow4(n) => $menu(n+9))";
+eval trial297 "?msd_4 A n ($pow4(n) => $menu(n+297))";
+def uncovered297 "?msd_4 $pow4(t) & ~$menu(t+297)";
+eval rawES "?msd_4 A n ($pow4(n) => (E x,y,z x>0 & y>0 & z>0 & 4*x*y*z=(n+297)*(x*y+x*z+y*z)))";
+exit;

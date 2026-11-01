@@ -1,0 +1,1089 @@
+[
+  {
+    "id": 1,
+    "table": "2.1",
+    "type": "composite",
+    "m": "24*x*y + x + y",
+    "parameters": {
+      "x_min": 1,
+      "y_min": 1
+    },
+    "certificate": {
+      "factorization": "(24*x + 1)*(24*y + 1)",
+      "symbolic": true
+    }
+  },
+  {
+    "id": 2,
+    "table": "2.1",
+    "type": "composite",
+    "m": "24*x*y + 5*x + 5*y + 1",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "factorization": "(24*x + 5)*(24*y + 5)",
+      "symbolic": true
+    }
+  },
+  {
+    "id": 3,
+    "table": "2.1",
+    "type": "composite",
+    "m": "24*x*y + 7*x + 7*y + 2",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "factorization": "(24*x + 7)*(24*y + 7)",
+      "symbolic": true
+    }
+  },
+  {
+    "id": 4,
+    "table": "2.1",
+    "type": "composite",
+    "m": "24*x*y + 11*x + 11*y + 5",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "factorization": "(24*x + 11)*(24*y + 11)",
+      "symbolic": true
+    }
+  },
+  {
+    "id": 5,
+    "table": "2.1",
+    "type": "composite",
+    "m": "24*x*y + 13*x + 13*y + 7",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "factorization": "(24*x + 13)*(24*y + 13)",
+      "symbolic": true
+    }
+  },
+  {
+    "id": 6,
+    "table": "2.1",
+    "type": "composite",
+    "m": "24*x*y + 17*x + 17*y + 12",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "factorization": "(24*x + 17)*(24*y + 17)",
+      "symbolic": true
+    }
+  },
+  {
+    "id": 7,
+    "table": "2.1",
+    "type": "composite",
+    "m": "24*x*y + 19*x + 19*y + 15",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "factorization": "(24*x + 19)*(24*y + 19)",
+      "symbolic": true
+    }
+  },
+  {
+    "id": 8,
+    "table": "2.1",
+    "type": "composite",
+    "m": "24*x*y + 23*x + 23*y + 22",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "factorization": "(24*x + 23)*(24*y + 23)",
+      "symbolic": true
+    }
+  },
+  {
+    "id": 9,
+    "table": "3.1",
+    "type": "wild",
+    "m": "6*x*y + 5*x + 5*y + 4",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "(6*x + 5)*(6*y + 5)",
+        "2*(6*x + 5)*(144*x*y**2 + 240*x*y + 100*x + 120*y**2 + 197*y + 81)",
+        "2*(6*x + 5)*(6*y + 5)*(144*x*y + 120*x + 120*y + 97)*(144*x*y**2 + 240*x*y + 100*x + 120*y**2 + 197*y + 81)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 10,
+    "table": "3.1",
+    "type": "wild",
+    "m": "15*x*y + 10*x + 7*y + 4",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(15*x + 7)*(3*y + 2)",
+        "(2*x + 1)*(3*y + 2)*(360*x*y + 240*x + 168*y + 97)",
+        "2*(2*x + 1)*(15*x + 7)*(3*y + 2)*(360*x*y + 240*x + 168*y + 97)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 11,
+    "table": "3.1",
+    "type": "wild",
+    "m": "21*x*y + 7*x + 10*y + 3",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(21*x + 10)*(3*y + 1)",
+        "6*(21*x + 10)*(48*x*y + 16*x + 23*y + 7)*(504*x*y + 168*x + 240*y + 73)",
+        "3*(21*x + 10)*(3*y + 1)*(48*x*y + 16*x + 23*y + 7)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 12,
+    "table": "3.1",
+    "type": "wild",
+    "m": "22*x*y + 11*x + 7*y + 3",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "3*(22*x + 7)*(2*y + 1)",
+        "6*(22*x + 7)*(72*x*y + 36*x + 23*y + 10)*(528*x*y + 264*x + 168*y + 73)",
+        "2*(22*x + 7)*(2*y + 1)*(72*x*y + 36*x + 23*y + 10)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 13,
+    "table": "3.1",
+    "type": "wild",
+    "m": "21*x*y + 14*x + 17*y + 11",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(21*x + 17)*(3*y + 2)",
+        "2*(21*x + 17)*(144*x*y + 96*x + 117*y + 76)*(504*x*y + 336*x + 408*y + 265)",
+        "(21*x + 17)*(3*y + 2)*(144*x*y + 96*x + 117*y + 76)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 14,
+    "table": "3.1",
+    "type": "wild",
+    "m": "23*x*y + 23*x + 19*y + 18",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(23*x + 19)*(y + 1)",
+        "6*(23*x + 19)*(144*x*y + 144*x + 119*y + 113)*(552*x*y + 552*x + 456*y + 433)",
+        "(23*x + 19)*(y + 1)*(144*x*y + 144*x + 119*y + 113)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 15,
+    "table": "3.1",
+    "type": "wild",
+    "m": "30*x*y + 20*x + 13*y + 8",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(30*x + 13)*(3*y + 2)",
+        "2*(30*x + 13)*(48*x*y + 32*x + 21*y + 13)*(720*x*y + 480*x + 312*y + 193)",
+        "2*(30*x + 13)*(3*y + 2)*(48*x*y + 32*x + 21*y + 13)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 16,
+    "table": "3.1",
+    "type": "wild",
+    "m": "30*x*y + 10*x + 29*y + 9",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(30*x + 29)*(3*y + 1)",
+        "2*(30*x + 29)*(96*x*y + 32*x + 93*y + 29)*(720*x*y + 240*x + 696*y + 217)",
+        "(30*x + 29)*(3*y + 1)*(96*x*y + 32*x + 93*y + 29)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 17,
+    "table": "3.1",
+    "type": "wild",
+    "m": "42*x*y + 14*x + 13*y + 4",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(42*x + 13)*(3*y + 1)",
+        "2*(42*x + 13)*(144*x*y + 48*x + 45*y + 14)*(1008*x*y + 336*x + 312*y + 97)",
+        "2*(42*x + 13)*(3*y + 1)*(144*x*y + 48*x + 45*y + 14)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 18,
+    "table": "3.1",
+    "type": "wild",
+    "m": "42*x*y + 28*x + 5*y + 3",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(42*x + 5)*(3*y + 2)",
+        "(42*x + 5)*(144*x*y + 96*x + 18*y + 11)*(1008*x*y + 672*x + 120*y + 73)",
+        "2*(42*x + 5)*(3*y + 2)*(144*x*y + 96*x + 18*y + 11)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 19,
+    "table": "3.1",
+    "type": "wild",
+    "m": "42*x*y + 14*x + 19*y + 6",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(42*x + 19)*(3*y + 1)",
+        "3*(42*x + 19)*(48*x*y + 16*x + 22*y + 7)*(1008*x*y + 336*x + 456*y + 145)",
+        "6*(42*x + 19)*(3*y + 1)*(48*x*y + 16*x + 22*y + 7)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 20,
+    "table": "3.1",
+    "type": "wild",
+    "m": "42*x*y + 28*x + 41*y + 27",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(42*x + 41)*(3*y + 2)",
+        "6*(42*x + 41)*(48*x*y + 32*x + 47*y + 31)*(1008*x*y + 672*x + 984*y + 649)",
+        "6*(42*x + 41)*(3*y + 2)*(48*x*y + 32*x + 47*y + 31)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 21,
+    "table": "3.1",
+    "type": "wild",
+    "m": "46*x*y + 46*x + 7*y + 6",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(46*x + 7)*(y + 1)",
+        "3*(46*x + 7)*(144*x*y + 144*x + 22*y + 19)*(1104*x*y + 1104*x + 168*y + 145)",
+        "2*(46*x + 7)*(y + 1)*(144*x*y + 144*x + 22*y + 19)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 22,
+    "table": "3.1",
+    "type": "wild",
+    "m": "46*x*y + 46*x + 15*y + 14",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(46*x + 15)*(y + 1)",
+        "6*(46*x + 15)*(144*x*y + 144*x + 47*y + 44)*(1104*x*y + 1104*x + 360*y + 337)",
+        "2*(46*x + 15)*(y + 1)*(144*x*y + 144*x + 47*y + 44)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 23,
+    "table": "3.1",
+    "type": "wild",
+    "m": "66*x*y + 33*x + 19*y + 9",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "3*(66*x + 19)*(2*y + 1)",
+        "2*(66*x + 19)*(72*x*y + 36*x + 21*y + 10)*(1584*x*y + 792*x + 456*y + 217)",
+        "6*(66*x + 19)*(2*y + 1)*(72*x*y + 36*x + 21*y + 10)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 24,
+    "table": "3.1",
+    "type": "wild",
+    "m": "66*x*y + 33*x + 41*y + 20",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "3*(66*x + 41)*(2*y + 1)",
+        "2*(66*x + 41)*(72*x*y + 36*x + 45*y + 22)*(1584*x*y + 792*x + 984*y + 481)",
+        "6*(66*x + 41)*(2*y + 1)*(72*x*y + 36*x + 45*y + 22)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 25,
+    "table": "3.1",
+    "type": "wild",
+    "m": "66*x*y + 33*x + 43*y + 21",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "3*(66*x + 43)*(2*y + 1)",
+        "6*(66*x + 43)*(72*x*y + 36*x + 47*y + 23)*(1584*x*y + 792*x + 1032*y + 505)",
+        "6*(66*x + 43)*(2*y + 1)*(72*x*y + 36*x + 47*y + 23)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 26,
+    "table": "3.1",
+    "type": "wild",
+    "m": "66*x*y + 33*x + 65*y + 32",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "3*(66*x + 65)*(2*y + 1)",
+        "6*(66*x + 65)*(72*x*y + 36*x + 71*y + 35)*(1584*x*y + 792*x + 1560*y + 769)",
+        "6*(66*x + 65)*(2*y + 1)*(72*x*y + 36*x + 71*y + 35)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 27,
+    "table": "3.1",
+    "type": "wild",
+    "m": "69*x*y + 69*x + 10*y + 9",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(69*x + 10)*(y + 1)",
+        "2*(69*x + 10)*(144*x*y + 144*x + 21*y + 19)*(1656*x*y + 1656*x + 240*y + 217)",
+        "3*(69*x + 10)*(y + 1)*(144*x*y + 144*x + 21*y + 19)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 28,
+    "table": "3.1",
+    "type": "wild",
+    "m": "69*x*y + 69*x + 11*y + 10",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(69*x + 11)*(y + 1)",
+        "6*(69*x + 11)*(144*x*y + 144*x + 23*y + 21)*(1656*x*y + 1656*x + 264*y + 241)",
+        "3*(69*x + 11)*(y + 1)*(144*x*y + 144*x + 23*y + 21)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 29,
+    "table": "3.1",
+    "type": "wild",
+    "m": "69*x*y + 69*x + 34*y + 33",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(69*x + 34)*(y + 1)",
+        "6*(69*x + 34)*(144*x*y + 144*x + 71*y + 69)*(1656*x*y + 1656*x + 816*y + 793)",
+        "3*(69*x + 34)*(y + 1)*(144*x*y + 144*x + 71*y + 69)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 30,
+    "table": "3.1",
+    "type": "wild",
+    "m": "69*x*y + 69*x + 56*y + 55",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(69*x + 56)*(y + 1)",
+        "2*(69*x + 56)*(144*x*y + 144*x + 117*y + 115)*(1656*x*y + 1656*x + 1344*y + 1321)",
+        "3*(69*x + 56)*(y + 1)*(144*x*y + 144*x + 117*y + 115)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 31,
+    "table": "3.1",
+    "type": "wild",
+    "m": "92*x*y + 92*x + 74*y + 73",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "12*(46*x + 37)*(y + 1)",
+        "4*(46*x + 37)*(384*x*y + 384*x + 309*y + 305)*(2208*x*y + 2208*x + 1776*y + 1753)",
+        "3*(46*x + 37)*(y + 1)*(384*x*y + 384*x + 309*y + 305)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 32,
+    "table": "3.1",
+    "type": "wild",
+    "m": "114*x*y + 19*x + 113*y + 18",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "(114*x + 113)*(6*y + 1)",
+        "6*(x + 1)*(6*y + 1)*(2736*x*y + 456*x + 2712*y + 433)",
+        "6*(x + 1)*(114*x + 113)*(6*y + 1)*(2736*x*y + 456*x + 2712*y + 433)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 33,
+    "table": "3.1",
+    "type": "wild",
+    "m": "114*x*y + 95*x + 37*y + 30",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "(114*x + 37)*(6*y + 5)",
+        "2*(3*x + 1)*(6*y + 5)*(2736*x*y + 2280*x + 888*y + 721)",
+        "2*(3*x + 1)*(114*x + 37)*(6*y + 5)*(2736*x*y + 2280*x + 888*y + 721)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 34,
+    "table": "3.1",
+    "type": "wild",
+    "m": "138*x*y + 138*x + 17*y + 16",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(138*x + 17)*(y + 1)",
+        "(138*x + 17)*(144*x*y + 144*x + 18*y + 17)*(3312*x*y + 3312*x + 408*y + 385)",
+        "6*(138*x + 17)*(y + 1)*(144*x*y + 144*x + 18*y + 17)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 35,
+    "table": "3.1",
+    "type": "wild",
+    "m": "138*x*y + 138*x + 43*y + 42",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(138*x + 43)*(y + 1)",
+        "2*(138*x + 43)*(144*x*y + 144*x + 45*y + 44)*(3312*x*y + 3312*x + 1032*y + 1009)",
+        "6*(138*x + 43)*(y + 1)*(144*x*y + 144*x + 45*y + 44)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 36,
+    "table": "3.1",
+    "type": "wild",
+    "m": "138*x*y + 138*x + 67*y + 66",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(138*x + 67)*(y + 1)",
+        "3*(138*x + 67)*(144*x*y + 144*x + 70*y + 69)*(3312*x*y + 3312*x + 1608*y + 1585)",
+        "6*(138*x + 67)*(y + 1)*(144*x*y + 144*x + 70*y + 69)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 37,
+    "table": "3.1",
+    "type": "wild",
+    "m": "138*x*y + 138*x + 89*y + 88",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(138*x + 89)*(y + 1)",
+        "2*(138*x + 89)*(144*x*y + 144*x + 93*y + 92)*(3312*x*y + 3312*x + 2136*y + 2113)",
+        "6*(138*x + 89)*(y + 1)*(144*x*y + 144*x + 93*y + 92)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 38,
+    "table": "3.1",
+    "type": "wild",
+    "m": "138*x*y + 138*x + 91*y + 90",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(138*x + 91)*(y + 1)",
+        "6*(138*x + 91)*(144*x*y + 144*x + 95*y + 94)*(3312*x*y + 3312*x + 2184*y + 2161)",
+        "6*(138*x + 91)*(y + 1)*(144*x*y + 144*x + 95*y + 94)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 39,
+    "table": "3.1",
+    "type": "wild",
+    "m": "138*x*y + 138*x + 109*y + 108",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(138*x + 109)*(y + 1)",
+        "(138*x + 109)*(144*x*y + 144*x + 114*y + 113)*(3312*x*y + 3312*x + 2616*y + 2593)",
+        "6*(138*x + 109)*(y + 1)*(144*x*y + 144*x + 114*y + 113)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 40,
+    "table": "3.1",
+    "type": "wild",
+    "m": "138*x*y + 138*x + 113*y + 112",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(138*x + 113)*(y + 1)",
+        "3*(138*x + 113)*(144*x*y + 144*x + 118*y + 117)*(3312*x*y + 3312*x + 2712*y + 2689)",
+        "6*(138*x + 113)*(y + 1)*(144*x*y + 144*x + 118*y + 117)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 41,
+    "table": "3.1",
+    "type": "wild",
+    "m": "138*x*y + 138*x + 137*y + 136",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(138*x + 137)*(y + 1)",
+        "6*(138*x + 137)*(144*x*y + 144*x + 143*y + 142)*(3312*x*y + 3312*x + 3288*y + 3265)",
+        "6*(138*x + 137)*(y + 1)*(144*x*y + 144*x + 143*y + 142)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 42,
+    "table": "3.2",
+    "type": "tame",
+    "m": "96*x*y*z + 64*x*y + 20*x*z + 13*x + 24*y*z + 15*y + 5*z + 3",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(4*x + 1)*(3*z + 2)*(2304*x*y*z + 1536*x*y + 480*x*z + 312*x + 576*y*z + 360*y + 120*z + 73)",
+        "(24*y + 5)*(3*z + 2)*(2304*x*y*z + 1536*x*y + 480*x*z + 312*x + 576*y*z + 360*y + 120*z + 73)",
+        "2*(4*x + 1)*(24*y + 5)*(3*z + 2)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 43,
+    "table": "3.2",
+    "type": "tame",
+    "m": "96*x*y*z + 96*x*y + 20*x*z + 19*x + 72*y*z + 71*y + 15*z + 14",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(4*x + 3)*(z + 1)*(2304*x*y*z + 2304*x*y + 480*x*z + 456*x + 1728*y*z + 1704*y + 360*z + 337)",
+        "(24*y + 5)*(z + 1)*(2304*x*y*z + 2304*x*y + 480*x*z + 456*x + 1728*y*z + 1704*y + 360*z + 337)",
+        "6*(4*x + 3)*(24*y + 5)*(z + 1)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 44,
+    "table": "3.2",
+    "type": "tame",
+    "m": "288*x*y*z + 192*x*y + 156*x*z + 103*x + 24*y*z + 15*y + 13*z + 8",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(12*x + 1)*(3*z + 2)*(6912*x*y*z + 4608*x*y + 3744*x*z + 2472*x + 576*y*z + 360*y + 312*z + 193)",
+        "(24*y + 13)*(3*z + 2)*(6912*x*y*z + 4608*x*y + 3744*x*z + 2472*x + 576*y*z + 360*y + 312*z + 193)",
+        "2*(12*x + 1)*(24*y + 13)*(3*z + 2)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 45,
+    "table": "3.2",
+    "type": "tame",
+    "m": "96*x*y*z + 96*x*y + 84*x*z + 83*x + 8*y*z + 7*y + 7*z + 6",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(12*x + 1)*(z + 1)*(2304*x*y*z + 2304*x*y + 2016*x*z + 1992*x + 192*y*z + 168*y + 168*z + 145)",
+        "3*(8*y + 7)*(z + 1)*(2304*x*y*z + 2304*x*y + 2016*x*z + 1992*x + 192*y*z + 168*y + 168*z + 145)",
+        "6*(12*x + 1)*(8*y + 7)*(z + 1)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 46,
+    "table": "3.2",
+    "type": "tame",
+    "m": "96*x*y*z + 96*x*y + 68*x*z + 67*x + 24*y*z + 23*y + 17*z + 16",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(4*x + 1)*(z + 1)*(2304*x*y*z + 2304*x*y + 1632*x*z + 1608*x + 576*y*z + 552*y + 408*z + 385)",
+        "(24*y + 17)*(z + 1)*(2304*x*y*z + 2304*x*y + 1632*x*z + 1608*x + 576*y*z + 552*y + 408*z + 385)",
+        "6*(4*x + 1)*(24*y + 17)*(z + 1)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 47,
+    "table": "3.2",
+    "type": "tame",
+    "m": "288*x*y*z + 288*x*y + 156*x*z + 155*x + 120*y*z + 119*y + 65*z + 64",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(12*x + 5)*(z + 1)*(6912*x*y*z + 6912*x*y + 3744*x*z + 3720*x + 2880*y*z + 2856*y + 1560*z + 1537)",
+        "3*(24*y + 13)*(z + 1)*(6912*x*y*z + 6912*x*y + 3744*x*z + 3720*x + 2880*y*z + 2856*y + 1560*z + 1537)",
+        "6*(12*x + 5)*(24*y + 13)*(z + 1)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 48,
+    "table": "3.2",
+    "type": "tame",
+    "m": "288*x*y*z + 192*x*y + 12*x*z + 7*x + 168*y*z + 111*y + 7*z + 4",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(12*x + 7)*(3*z + 2)*(6912*x*y*z + 4608*x*y + 288*x*z + 168*x + 4032*y*z + 2664*y + 168*z + 97)",
+        "(24*y + 1)*(3*z + 2)*(6912*x*y*z + 4608*x*y + 288*x*z + 168*x + 4032*y*z + 2664*y + 168*z + 97)",
+        "2*(12*x + 7)*(24*y + 1)*(3*z + 2)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 49,
+    "table": "3.2",
+    "type": "tame",
+    "m": "96*x*y*z + 96*x*y + 36*x*z + 35*x + 56*y*z + 55*y + 21*z + 20",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(12*x + 7)*(z + 1)*(2304*x*y*z + 2304*x*y + 864*x*z + 840*x + 1344*y*z + 1320*y + 504*z + 481)",
+        "3*(8*y + 3)*(z + 1)*(2304*x*y*z + 2304*x*y + 864*x*z + 840*x + 1344*y*z + 1320*y + 504*z + 481)",
+        "6*(12*x + 7)*(8*y + 3)*(z + 1)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 50,
+    "table": "3.2",
+    "type": "tame",
+    "m": "288*x*y*z + 192*x*y + 204*x*z + 135*x + 168*y*z + 111*y + 119*z + 78",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "2*(12*x + 7)*(3*z + 2)*(6912*x*y*z + 4608*x*y + 4896*x*z + 3240*x + 4032*y*z + 2664*y + 2856*z + 1873)",
+        "(24*y + 17)*(3*z + 2)*(6912*x*y*z + 4608*x*y + 4896*x*z + 3240*x + 4032*y*z + 2664*y + 2856*z + 1873)",
+        "2*(12*x + 7)*(24*y + 17)*(3*z + 2)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 51,
+    "table": "3.2",
+    "type": "tame",
+    "m": "288*x*y*z + 288*x*y + 12*x*z + 11*x + 264*y*z + 263*y + 11*z + 10",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "6*(12*x + 11)*(z + 1)*(6912*x*y*z + 6912*x*y + 288*x*z + 264*x + 6336*y*z + 6312*y + 264*z + 241)",
+        "3*(24*y + 1)*(z + 1)*(6912*x*y*z + 6912*x*y + 288*x*z + 264*x + 6336*y*z + 6312*y + 264*z + 241)",
+        "6*(12*x + 11)*(24*y + 1)*(z + 1)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 52,
+    "table": "3.2",
+    "type": "tame",
+    "m": "192*x*y*z + 128*x*y + 88*x*z + 58*x + 48*y*z + 31*y + 22*z + 14",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "4*(4*x + 1)*(3*z + 2)*(4608*x*y*z + 3072*x*y + 2112*x*z + 1392*x + 1152*y*z + 744*y + 528*z + 337)",
+        "(24*y + 11)*(3*z + 2)*(4608*x*y*z + 3072*x*y + 2112*x*z + 1392*x + 1152*y*z + 744*y + 528*z + 337)",
+        "4*(4*x + 1)*(24*y + 11)*(3*z + 2)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 53,
+    "table": "3.2",
+    "type": "tame",
+    "m": "192*x*y*z + 192*x*y + 88*x*z + 86*x + 144*y*z + 143*y + 66*z + 64",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "12*(4*x + 3)*(z + 1)*(4608*x*y*z + 4608*x*y + 2112*x*z + 2064*x + 3456*y*z + 3432*y + 1584*z + 1537)",
+        "(24*y + 11)*(z + 1)*(4608*x*y*z + 4608*x*y + 2112*x*z + 2064*x + 3456*y*z + 3432*y + 1584*z + 1537)",
+        "12*(4*x + 3)*(24*y + 11)*(z + 1)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 54,
+    "table": "3.2",
+    "type": "tame",
+    "m": "192*x*y*z + 128*x*y + 88*x*z + 58*x + 144*y*z + 95*y + 66*z + 43",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "4*(4*x + 3)*(3*z + 2)*(4608*x*y*z + 3072*x*y + 2112*x*z + 1392*x + 3456*y*z + 2280*y + 1584*z + 1033)",
+        "(24*y + 11)*(3*z + 2)*(4608*x*y*z + 3072*x*y + 2112*x*z + 1392*x + 3456*y*z + 2280*y + 1584*z + 1033)",
+        "4*(4*x + 3)*(24*y + 11)*(3*z + 2)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 55,
+    "table": "3.2",
+    "type": "tame",
+    "m": "576*x*y*z + 384*x*y + 168*x*z + 110*x + 96*y*z + 63*y + 28*z + 18",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "8*(6*x + 1)*(3*z + 2)*(13824*x*y*z + 9216*x*y + 4032*x*z + 2640*x + 2304*y*z + 1512*y + 672*z + 433)",
+        "(24*y + 7)*(3*z + 2)*(13824*x*y*z + 9216*x*y + 4032*x*z + 2640*x + 2304*y*z + 1512*y + 672*z + 433)",
+        "8*(6*x + 1)*(24*y + 7)*(3*z + 2)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  },
+  {
+    "id": 56,
+    "table": "3.2",
+    "type": "tame",
+    "m": "192*x*y*z + 128*x*y + 72*x*z + 46*x + 80*y*z + 53*y + 30*z + 19",
+    "parameters": {
+      "x_min": 0,
+      "y_min": 0,
+      "z_min": 0
+    },
+    "certificate": {
+      "denominators": [
+        "4*(12*x + 5)*(3*z + 2)*(4608*x*y*z + 3072*x*y + 1728*x*z + 1104*x + 1920*y*z + 1272*y + 720*z + 457)",
+        "(8*y + 3)*(3*z + 2)*(4608*x*y*z + 3072*x*y + 1728*x*z + 1104*x + 1920*y*z + 1272*y + 720*z + 457)",
+        "4*(12*x + 5)*(8*y + 3)*(3*z + 2)"
+      ],
+      "symbolic": true,
+      "integrality": "Newton degree-box exact test",
+      "positivity": "nonnegative coefficients and positive constant"
+    }
+  }
+]

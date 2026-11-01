@@ -1,0 +1,9 @@
+N=10000000 K=48 primes=664579 seconds=32.368
+family=0 independent_hits=664578 reversed_first=81 attempted=765828
+family=1 independent_hits=661396 reversed_first=3 attempted=1059315
+family=2 independent_hits=663846 reversed_first=21 attempted=735282
+family=3 independent_hits=661411 reversed_first=50 attempted=1059430
+family=4 independent_hits=664301 reversed_first=2353 attempted=732446
+family=5 independent_hits=659008 reversed_first=2160 attempted=878045
+family=6 independent_hits=659910 reversed_first=659910 attempted=667637
+uncovered_including_2=1 first_uncovered:

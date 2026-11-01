@@ -1,0 +1,299 @@
+## Content from https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem
+
+Title: A higher-dimensional Siegel–Walfisz theoremAll
+
+URL Source: https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem
+
+Markdown Content:
+Processing Math: 100%
+
+Wykorzystujemy pliki cookies aby ułatwić Ci korzystanie ze strony oraz w celach analityczno-statystycznych. [](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+
+[logo](https://www.impan.pl/en "IMPAN")
+
+[](https://www.impan.pl/pl/poczta)[sign_in](https://sites.google.com/impan.pl/intranet-impan/)[![Image 1: Unia Europejska](https://www.impan.pl/static/img/eu-logo.png)](https://www.impan.pl/pl/instytut/dofinansowane-projekty-ue/)
+
+[](https://www.impan.pl/pl/instytut/dofinansowane-projekty-ue/)
+
+[](https://www.impan.pl/pl/instytut/dofinansowane-projekty-ue/)[](https://www.impan.pl/pl/wydawnictwa/czasopisma-i-serie-wydawnicze/acta-arithmetica/all)[](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+
+ A+ CATEGORY SCIENTIFIC UNIT 
+
+*   [Institute](https://www.impan.pl/en)
+    *   [About us](https://www.impan.pl/en/insitute/about-us)
+    *   [Directory Board](https://www.impan.pl/en/insitute/directory-board)
+    *   [Mathematicians](https://www.impan.pl/en/insitute/mathematicians/scientific-staff)
+    *   [Administration staff](https://www.impan.pl/en/insitute/other-staff)
+    *   [Scientific Council](https://www.impan.pl/en/insitute/scientific-council)
+    *   [A+ Category](https://www.impan.pl/en/insitute/a-plus)
+    *   [Guidebook](https://www.impan.pl/en/insitute/guide)
+
+*   [Events](https://www.impan.pl/en/events/news)
+    *   [News](https://www.impan.pl/en/events/news)
+    *   [Newsletter](https://www.impan.pl/en/events/newsletter)
+    *   [](https://www.impan.pl/en/activities/competitions/)
+
+*   [Activities](https://www.impan.pl/en/insitute/about-us)
+    *   [SIMONS SEMESTERS IN IM PAN](https://www.impan.pl/en/activities/semestry-simonsa)
+    *   [Seminars in IMPAN](https://www.impan.pl/en/activities/seminars)
+    *   [Seminars in Warsaw](https://www.impan.pl/en/activities/seminars-in-warsaw)
+    *   [Seminars Newsletter](https://www.impan.pl/en/activities/seminars-newsletter)
+    *   [Conferences](https://www.impan.pl/en/activities/conferences)
+    *   [Faculty Publications](https://www.impan.pl/en/activities/faculty-publications)
+    *   [Banach Center](https://www.impan.pl/en/activities/banach-center)
+    *   [Grants](https://www.impan.pl/en/activities/grants)
+    *   [Awards](https://www.impan.pl/en/activities/awards)
+    *   [Competitions](https://www.impan.pl/en/activities/competitions)
+    *   [International programs](https://www.impan.pl/en/activities/international-programs/current-programs)
+    *   [Announcements](https://www.impan.pl/en/activities/announcements)
+    *   [Library](https://www.impan.pl/en/activities/library/search-engine)
+    *   [Będlewo Conference Center](https://www.impan.pl/en/activities/bedlewo-conference-center/about-center)
+    *   [Research teams and centers](https://www.impan.pl/en/activities/zespoly-i-centra-naukowe)
+    *   [PhD Students](https://www.impan.pl/en/activities/doktoranci)
+
+*   [Publishing house](https://www.impan.pl/en/publishing-house)
+    *   [Journals and Serials](https://www.impan.pl/en/publishing-house/journals-and-series)
+    *   [IMPAN Lecture Notes](https://www.impan.pl/en/publishing-house/impan-lecture-notes)
+    *   [Banach Center Publications](https://www.impan.pl/en/publishing-house/banach-center-publications)
+    *   [Mathematical library](https://www.impan.pl/en/publishing-house/mathematical-library)
+    *   [Other books](https://www.impan.pl/en/publishing-house/books-impan)
+    *   [Mathematical monographies](http://www.springer.com/series/5350)
+    *   [Preprints](https://www.impan.pl/en/publishing-house/preprints)
+    *   [Subscriptions](https://www.impan.pl/en/publishing-house/subscripcions/subskrypcja-2025)
+    *   [Subscription license](https://www.impan.pl/en/publishing-house/subscription-license)
+    *   [Shop contact](https://www.impan.pl/en/publishing-house/shop-contact)
+    *   [For authors](https://www.impan.pl/en/publishing-house/for-authors)
+    *   [](https://www.impan.pl/en/publishing-house/subscription-license)
+
+*   [Mathematical world](https://www.impan.pl/en/mathematical-world)
+    *   [Young Mathematicians Congresses](https://www.impan.pl/en/mathematical-world/young-mathematicians-congresses)
+    *   [Polish Mathematical Publishers](https://www.impan.pl/en/mathematical-world/polish-mathematical-publishers)
+    *   [Lecture notes](https://www.impan.pl/en/mathematical-world/mathematical-notes)
+    *   [College of Deans and Directors](https://www.impan.pl/pl/swiat-matematyki/kolegium-dziekanow-i-dyrektorow)
+    *   [Links](https://www.impan.pl/en/mathematical-world/links)
+    *   [Distingushed Polish Mathematicians](https://www.impan.pl/en/mathematical-world/distingushed-polish-mathematicians)
+
+*   [Other](https://www.impan.pl/en/proequalit-actions)
+    *   [Guest rooms](https://www.impan.pl/en/proequalit-actions/guest-rooms)
+    *   [Declaration of accessibility](https://www.impan.pl/en/proequalit-actions/declaration-of-accessibility)
+    *   [Gender Equality Plan](https://www.impan.pl/en/proequalit-actions/gender-equality-plan)
+    *   [Equal Treatment Committee](https://www.impan.pl/en/proequalit-actions/equal-treatment-committee)
+    *   [Against mobbing](https://www.impan.pl/en/proequalit-actions/against-mobbing)
+    *   [Bids](https://www.impan.pl/en/proequalit-actions/bids)
+    *   [HR STRATEGY](https://www.impan.pl/en/proequalit-actions/hr-strategy)
+    *   [GDPR](https://www.impan.pl/en/proequalit-actions/gdpr)
+    *   [Bank accounts](https://www.impan.pl/en/proequalit-actions/bank-accounts)
+    *   [Regulations](https://www.impan.pl/en/proequalit-actions/regulations/copyright-and-related-right)
+
+[](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+*   [Institute](https://www.impan.pl/en)[+](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+    *   [About us](https://www.impan.pl/en/insitute/about-us)
+    *   [Directory Board](https://www.impan.pl/en/insitute/directory-board)
+    *   [Mathematicians](https://www.impan.pl/en/insitute/mathematicians/scientific-staff)
+    *   [Administration staff](https://www.impan.pl/en/insitute/other-staff)
+    *   [Scientific Council](https://www.impan.pl/en/insitute/scientific-council)
+    *   [A+ Category](https://www.impan.pl/en/insitute/a-plus)
+    *   [Guidebook](https://www.impan.pl/en/insitute/guide)
+
+*   [Events](https://www.impan.pl/en/events/news)[+](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+    *   [News](https://www.impan.pl/en/events/news)
+    *   [Newsletter](https://www.impan.pl/en/events/newsletter)
+    *   [](https://www.impan.pl/en/activities/competitions/)
+
+*   [Activities](https://www.impan.pl/en/insitute/about-us)[+](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+    *   [SIMONS SEMESTERS IN IM PAN](https://www.impan.pl/en/activities/semestry-simonsa)
+    *   [Seminars in IMPAN](https://www.impan.pl/en/activities/seminars)
+    *   [Seminars in Warsaw](https://www.impan.pl/en/activities/seminars-in-warsaw)
+    *   [Seminars Newsletter](https://www.impan.pl/en/activities/seminars-newsletter)
+    *   [Conferences](https://www.impan.pl/en/activities/conferences)
+    *   [Faculty Publications](https://www.impan.pl/en/activities/faculty-publications)
+    *   [Banach Center](https://www.impan.pl/en/activities/banach-center)
+    *   [Grants](https://www.impan.pl/en/activities/grants)
+    *   [Awards](https://www.impan.pl/en/activities/awards)
+    *   [Competitions](https://www.impan.pl/en/activities/competitions)
+    *   [International programs](https://www.impan.pl/en/activities/international-programs/current-programs)
+    *   [Announcements](https://www.impan.pl/en/activities/announcements)
+    *   [Library](https://www.impan.pl/en/activities/library/search-engine)
+    *   [Będlewo Conference Center](https://www.impan.pl/en/activities/bedlewo-conference-center/about-center)
+    *   [Research teams and centers](https://www.impan.pl/en/activities/zespoly-i-centra-naukowe)
+    *   [PhD Students](https://www.impan.pl/en/activities/doktoranci)
+
+*   [Publishing house](https://www.impan.pl/en/publishing-house)[+](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+    *   [Journals and Serials](https://www.impan.pl/en/publishing-house/journals-and-series)
+    *   [IMPAN Lecture Notes](https://www.impan.pl/en/publishing-house/impan-lecture-notes)
+    *   [Banach Center Publications](https://www.impan.pl/en/publishing-house/banach-center-publications)
+    *   [Mathematical library](https://www.impan.pl/en/publishing-house/mathematical-library)
+    *   [Other books](https://www.impan.pl/en/publishing-house/books-impan)
+    *   [Mathematical monographies](http://www.springer.com/series/5350)
+    *   [Preprints](https://www.impan.pl/en/publishing-house/preprints)
+    *   [Subscriptions](https://www.impan.pl/en/publishing-house/subscripcions/subskrypcja-2025)
+    *   [Subscription license](https://www.impan.pl/en/publishing-house/subscription-license)
+    *   [Shop contact](https://www.impan.pl/en/publishing-house/shop-contact)
+    *   [For authors](https://www.impan.pl/en/publishing-house/for-authors)
+    *   [](https://www.impan.pl/en/publishing-house/subscription-license)
+
+*   [Mathematical world](https://www.impan.pl/en/mathematical-world)[+](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+    *   [Young Mathematicians Congresses](https://www.impan.pl/en/mathematical-world/young-mathematicians-congresses)
+    *   [Polish Mathematical Publishers](https://www.impan.pl/en/mathematical-world/polish-mathematical-publishers)
+    *   [Lecture notes](https://www.impan.pl/en/mathematical-world/mathematical-notes)
+    *   [College of Deans and Directors](https://www.impan.pl/pl/swiat-matematyki/kolegium-dziekanow-i-dyrektorow)
+    *   [Links](https://www.impan.pl/en/mathematical-world/links)
+    *   [Distingushed Polish Mathematicians](https://www.impan.pl/en/mathematical-world/distingushed-polish-mathematicians)
+
+*   [Other](https://www.impan.pl/en/proequalit-actions)[+](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+    *   [Guest rooms](https://www.impan.pl/en/proequalit-actions/guest-rooms)
+    *   [Declaration of accessibility](https://www.impan.pl/en/proequalit-actions/declaration-of-accessibility)
+    *   [Gender Equality Plan](https://www.impan.pl/en/proequalit-actions/gender-equality-plan)
+    *   [Equal Treatment Committee](https://www.impan.pl/en/proequalit-actions/equal-treatment-committee)
+    *   [Against mobbing](https://www.impan.pl/en/proequalit-actions/against-mobbing)
+    *   [Bids](https://www.impan.pl/en/proequalit-actions/bids)
+    *   [HR STRATEGY](https://www.impan.pl/en/proequalit-actions/hr-strategy)
+    *   [GDPR](https://www.impan.pl/en/proequalit-actions/gdpr)
+    *   [Bank accounts](https://www.impan.pl/en/proequalit-actions/bank-accounts)
+    *   [Regulations](https://www.impan.pl/en/proequalit-actions/regulations/copyright-and-related-right)
+
+[Contact](https://www.impan.pl/en/contact)
+
+search_
+
+# [Instytut Matematyczny Polskiej Akademii Nauk](https://www.impan.pl/) / [Institute of Mathematics](https://www.impan.pl/en) / [Publishing house](https://www.impan.pl/en/publishing-house) / [Journals and Serials](https://www.impan.pl/en/publishing-house/journals-and-series) / [Acta Arithmetica](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica) / [All issues](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all)
+
+## [Acta Arithmetica](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)
+
+*   [All issues](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all)
+*   [Online First articles](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/online)
+*   [INFORMATION FOR AUTHORS](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/information-for-authors)
+
+[Search for IMPAN publications](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#search-modal)
+
+## A higher-dimensional Siegel–Walfisz theorem
+
+### [Volume 179 / 2017](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/en/publishing-house/journals-and-series/acta-arithmetica/all/179)
+
+ Pierre-Yves Bienvenu  Acta Arithmetica 179 (2017), 79-100  MSC: Primary 11B30.  DOI: 10.4064/aa8600-10-2016  Published online: 28 April 2017 
+
+#### Abstract
+
+The Green–Tao–Ziegler theorem provides asymptotics for the number of prime tuples of the form (ψ 1(n),…,ψ t(n)) when n ranges over the integer vectors of a convex body K⊂[−N,N]d and Ψ=(ψ 1,…,ψ t) is a system of affine-linear forms whose linear coefficients remain bounded (in terms of N). In the t=1 case, the Siegel–Walfisz theorem shows that the asymptotic still holds when the coefficients vary like a power of log N. We prove a higher-dimensional (i.e. t>1) version of this fact.
+
+We provide natural examples where our theorem goes beyond the one of Green and Tao, such as the count of arithmetic progressions of step ⌊log N⌋ times a prime in the primes up to N. We also apply our theorem to the determination of asymptotics for the number of linear patterns in a dense subset of the primes, namely the primes p for which p−1 is squarefree. To the best of our knowledge, this is the first such result in dense subsets of primes save for congruence classes.
+
+#### Authors
+
+*   Pierre-Yves Bienvenu School of Mathematics  
+ University of Bristol  
+ Bristol BS8 1TW, United Kingdom  
+[e-mail](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#)  
+
+[Free download under CC-BY license](https://www.impan.pl/shop/en/publication/transaction/download/product/92171)
+
+[Search for IMPAN publications](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem#search-modal)
+
+*   [![Image 2](https://www.impan.pl/website/var/tmp/image-thumbnails/10000/15976/thumb__homepage_bottom_logos/znaki_strona_www200.png)](https://www.impan.pl/pl/instytut/dofinansowane-projekty)
+*   [![Image 3](https://www.impan.pl/website/var/tmp/image-thumbnails/10000/15958/thumb__homepage_bottom_logos/bip2-2000.jpeg)](http://bip.impan.pl/index.php)
+*   [![Image 4](https://www.impan.pl/website/var/tmp/image-thumbnails/0/14/thumb__homepage_bottom_logos/newsletter.jpeg)](https://www.impan.pl/pl/instytut/o-nas/gazeta)
+*   [![Image 5](https://www.impan.pl/website/var/tmp/image-thumbnails/0/2248/thumb__homepage_bottom_logos/instytut-kategorii-a-plus.jpeg)](https://www.impan.pl/en/insitute/a-plus)
+*   [![Image 6](https://www.impan.pl/website/var/tmp/image-thumbnails/10000/15960/thumb__homepage_bottom_logos/hr_01-2_en-2000.jpeg)](https://www.impan.pl/en/insitute/hr-strategy)
+*   [![Image 7](https://www.impan.pl/website/var/tmp/image-thumbnails/0/17/thumb__homepage_bottom_logos/wcmcs.jpeg)](https://www.impan.pl/en/mathematical-world/organisations/wcnm)
+*   ![Image 8](https://www.impan.pl/website/var/tmp/image-thumbnails/10000/15974/thumb__homepage_bottom_logos/know09d150.jpeg)
+*   [![Image 9](https://www.impan.pl/website/var/tmp/image-thumbnails/10000/15975/thumb__homepage_bottom_logos/ozwrcin_base_colour_rgb-250.png)](https://www.impan.pl/pl/dzialalnosc/biblioteka/ozwrcin)
+*   [![Image 10](https://www.impan.pl/website/var/tmp/image-thumbnails/10000/15973/thumb__homepage_bottom_logos/rcin_colour_rgb160.png)](http://rcin.org.pl/impan/dlibra?action=ChangeLanguageAction&language=en)
+
+## Search for IMPAN publications
+
+all
+
+Query phrase too short. Type at least 4 characters.
+
+*   [Institute](https://www.impan.pl/en)
+    *   [About us](https://www.impan.pl/en/insitute/about-us)
+    *   [Directory Board](https://www.impan.pl/en/insitute/directory-board)
+    *   [Mathematicians](https://www.impan.pl/en/insitute/mathematicians/scientific-staff)
+    *   [Administration staff](https://www.impan.pl/en/insitute/other-staff)
+    *   [Scientific Council](https://www.impan.pl/en/insitute/scientific-council)
+    *   [A+ Category](https://www.impan.pl/en/insitute/a-plus)
+    *   [Guidebook](https://www.impan.pl/en/insitute/guide)
+
+*   [Events](https://www.impan.pl/en/events/news)
+    *   [News](https://www.impan.pl/en/events/news)
+    *   [Newsletter](https://www.impan.pl/en/events/newsletter)
+    *   [](https://www.impan.pl/en/activities/competitions/)
+
+*   [Activities](https://www.impan.pl/en/insitute/about-us)
+    *   [SIMONS SEMESTERS IN IM PAN](https://www.impan.pl/en/activities/semestry-simonsa)
+    *   [Seminars in IMPAN](https://www.impan.pl/en/activities/seminars)
+    *   [Seminars in Warsaw](https://www.impan.pl/en/activities/seminars-in-warsaw)
+    *   [Seminars Newsletter](https://www.impan.pl/en/activities/seminars-newsletter)
+    *   [Conferences](https://www.impan.pl/en/activities/conferences)
+    *   [Faculty Publications](https://www.impan.pl/en/activities/faculty-publications)
+    *   [Banach Center](https://www.impan.pl/en/activities/banach-center)
+    *   [Grants](https://www.impan.pl/en/activities/grants)
+    *   [Awards](https://www.impan.pl/en/activities/awards)
+    *   [Competitions](https://www.impan.pl/en/activities/competitions)
+    *   [International programs](https://www.impan.pl/en/activities/international-programs/current-programs)
+    *   [Announcements](https://www.impan.pl/en/activities/announcements)
+    *   [Library](https://www.impan.pl/en/activities/library/search-engine)
+    *   [Będlewo Conference Center](https://www.impan.pl/en/activities/bedlewo-conference-center/about-center)
+    *   [Research teams and centers](https://www.impan.pl/en/activities/zespoly-i-centra-naukowe)
+    *   [PhD Students](https://www.impan.pl/en/activities/doktoranci)
+
+*   [Publishing house](https://www.impan.pl/en/publishing-house)
+    *   [Journals and Serials](https://www.impan.pl/en/publishing-house/journals-and-series)
+    *   [IMPAN Lecture Notes](https://www.impan.pl/en/publishing-house/impan-lecture-notes)
+    *   [Banach Center Publications](https://www.impan.pl/en/publishing-house/banach-center-publications)
+    *   [Mathematical library](https://www.impan.pl/en/publishing-house/mathematical-library)
+    *   [Other books](https://www.impan.pl/en/publishing-house/books-impan)
+    *   [Mathematical monographies](http://www.springer.com/series/5350)
+    *   [Preprints](https://www.impan.pl/en/publishing-house/preprints)
+    *   [Subscriptions](https://www.impan.pl/en/publishing-house/subscripcions/subskrypcja-2025)
+    *   [Subscription license](https://www.impan.pl/en/publishing-house/subscription-license)
+    *   [Shop contact](https://www.impan.pl/en/publishing-house/shop-contact)
+    *   [For authors](https://www.impan.pl/en/publishing-house/for-authors)
+    *   [](https://www.impan.pl/en/publishing-house/subscription-license)
+
+*   [Mathematical world](https://www.impan.pl/en/mathematical-world)
+    *   [Young Mathematicians Congresses](https://www.impan.pl/en/mathematical-world/young-mathematicians-congresses)
+    *   [Polish Mathematical Publishers](https://www.impan.pl/en/mathematical-world/polish-mathematical-publishers)
+    *   [Lecture notes](https://www.impan.pl/en/mathematical-world/mathematical-notes)
+    *   [College of Deans and Directors](https://www.impan.pl/pl/swiat-matematyki/kolegium-dziekanow-i-dyrektorow)
+    *   [Links](https://www.impan.pl/en/mathematical-world/links)
+    *   [Distingushed Polish Mathematicians](https://www.impan.pl/en/mathematical-world/distingushed-polish-mathematicians)
+
+*   [Other](https://www.impan.pl/en/proequalit-actions)
+    *   [Guest rooms](https://www.impan.pl/en/proequalit-actions/guest-rooms)
+    *   [Declaration of accessibility](https://www.impan.pl/en/proequalit-actions/declaration-of-accessibility)
+    *   [Gender Equality Plan](https://www.impan.pl/en/proequalit-actions/gender-equality-plan)
+    *   [Equal Treatment Committee](https://www.impan.pl/en/proequalit-actions/equal-treatment-committee)
+    *   [Against mobbing](https://www.impan.pl/en/proequalit-actions/against-mobbing)
+    *   [Bids](https://www.impan.pl/en/proequalit-actions/bids)
+    *   [HR STRATEGY](https://www.impan.pl/en/proequalit-actions/hr-strategy)
+    *   [GDPR](https://www.impan.pl/en/proequalit-actions/gdpr)
+    *   [Bank accounts](https://www.impan.pl/en/proequalit-actions/bank-accounts)
+    *   [Regulations](https://www.impan.pl/en/proequalit-actions/regulations/copyright-and-related-right)
+
+*   [Contact](https://www.impan.pl/en/contact)
+    *    ul. Śniadeckich 8  
+ 00-656 Warszawa  
+ tel.: 22 5228100   [how to get here?](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem)
+
+*   [Contact](https://www.impan.pl/en/contact)
+*   [Terms & conditions](https://www.impan.pl/en/instytut/regulaminy/regulamin-oplat-karta-kredytowa-konferencje)
+
+Copyright © 2026 by IMPAN. All rights reserved.
+
+[IT Ideas](http://www.itideas.pl/ "IT Ideas")[NetForms](http://www.netforms.pl/ "NetForms")
+
+## Rewrite code from the image
+
+![Image 11](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem)
+
+[Reload image](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem)
+
+Send
+
+[Reload image](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/179/1/92171/a-higher-dimensional-siegel-walfisz-theorem)
+
+Exit
+
+
+

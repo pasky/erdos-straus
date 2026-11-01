@@ -1,0 +1,1702 @@
+                                                        Congruence Classes of Supporting the Erdös-Straus
+                                                                 Conjecture II: Wild Solutions 1
+
+                                                                                       Xiaoping Xu
+
+                                                     HLM, Institute of Mathematics, Academy of Mathematics & System Sciences
+                                                             Chinese Academy of Sciences, Beijing 100190, P.R. China
+                                                       & School of Mathematics, University of Chinese Academy of Sciences,
+                                                                            Beijing 100049, P.R. China
+
+                                                                                          Abstract
+arXiv:2609.29250v1 [math.NT] 24 Sep 2026
+
+
+
+
+                                                        In 1948, Erdös and Straus formulated a conjecture : for any positive integer
+                                                     n > 2, there exist positive integers n1 , n2 and n3 such that
+                                                                                      4   1   1  1
+                                                                                        =   +   + ,
+                                                                                      n   n1 n2 n3
+                                                     which is still open. It is known that the conjecture holds if one can prove it for
+                                                     any prime n ≡ 1 (mod 24). If n = 24m + 1 and n1 ≤ n2 , n3 , then n1 = 6m + k
+                                                     with 1 ≤ k ≤ 12m. A solution (n1 , n2 , n3 ) of the above equation is called a tame
+                                                     solution if n2 and n3 are factors of (6m + k)(24m + 1). We call n = 24m + 1 wild
+                                                     if it does not have any tame solution. Based on the information in our earlier work
+                                                     on tame solutions posed in arXiv, Howerton found that there are only fourteen wild
+                                                     primes of the form n = 24m + 1 ≤ 2.4 × 1011 . In this paper, we derive thirty-four
+                                                     families of wild solutions of the above equation, which contain the solvability of the
+                                                     fourteen wild primes. Together with our earlier tame polynomial solutions, numeric
+                                                     test shows that they cover all the primes of the form 24m + 1.
+
+                                                     Keywords: Erdös-Straus conjecture; Egyptian fraction; congruence class; tame
+                                                     solution; wild solution; wild prime.
+
+
+                                           1         Introduction
+                                           Ancient Egyptians used sums of unit fractions (whose numerators are 1) to express frac-
+                                           tions due to their ways of distributing food. For instance, 5/8 was interpreted by ancient
+                                           Egyptians as distributing five pancakes fairly among eight people. They cut first four
+                                           pancakes into halves and then cut the last one into eight equal pieces. So each person
+                                           got the same share: 1/2 + 1/8 pancakes. This amazingly interpreted the mathematical
+                                           equation
+                                                                                    5   1 1
+                                                                                       = + .                                    (1.1)
+                                                                                    8   2 8
+                                           So an Egyptian fraction is a sum of distinct unit fractions. By repeatedly applying the
+                                           simple fact
+                                                                              1       1        1
+                                                                                =       +          ,                            (1.2)
+                                                                             k    k + 1 k(k + 1)
+                                               1
+                                                   2010 Mathematical Subject Classification. Primary 11D68: Secondary 11D85, 11A67, 11B75
+
+
+                                                                                               1
+one can easily prove that any fraction is a Egyptian fraction. However, it is very difficult
+to determine if a fraction can be expressed as a sum of fixed number of unit fractions
+(cf. [3] for an excellent exposition and extensive references). For example, it is difficult to
+know if a fraction can be written as a sum of two unit fractions (e.g., cf. [6, 7, 8, 10, 16]).
+In 1948, Erdös and Straus formulated a conjecture : for any positive integer n > 2, there
+exist positive integers n1 , n2 and n3 such that
+                                      4   1   1  1
+                                        =   +   + ,                                        (1.3)
+                                      n   n1 n2 n3
+which is still open up to now. For each n, the number of solution can go to infinity as n
+does. Elscholtz and Tao [3] found excellent bounds for it.
+    Mordell [15] proved that the conjecture holds for positive integers in 834 congruence
+classes modulo 840. Terzi [23] used computer to verify that the conjecture holds for
+positive integers in the congruence classes modulo 120120 except 198 classes. Kotsireas
+[12] verified the conjecture for every n < 1010 . There are other interesting partial results
+on the conjecture or related works (e.g., cf. [1, 2, 4, 11, 13, 14, 16, 17, 18, 19, 20, 21, 22,
+23, 24, 25]).
+    It is known that one only needs to prove the conjecture for any prime number n such
+that n ≡ 1 (mod 24). Suppose that n = 24m + 1 and n1 ≤ n2 , n3 . Then n1 = 6m + k
+with 1 ≤ k ≤ 12m and
+                            4        1         4k − 1
+                                 =       +                  .                              (1.4)
+                         24m + 1   6m + k (6m + k)(24m + 1)
+
+If
+                1           ℑ1                         1           ℑ2
+                   =                           and        =                                (1.5)
+                n2   (6m + k)(24m + 1)                 n2   (6m + k)(24m + 1)
+for some positive integers ℑ1 and ℑ2 such that ℑ1 + ℑ2 = 4k − 1, we call the triple
+(n1 , n2 , n3 ) a tame solution of the Erdös-Straus equation (1.3) for the positive integer n =
+24m + 1. Moreover, we call n = 24m + 1 wild if it does not have any tame solution. Based
+on the information tion in our earlier work on tame solutions posed in arXiv, Howerton
+found that there are only fourteen wild primes of the form n = 24m + 1 ≤ 2.4 × 1011 .
+    By analysing the obtained wild solutions, we find a way of obtaining them as follows.
+In (1.4), we multiply a proper integer ℓ ≥ 2 both to the numerator and denominator of
+the fraction
+                                 4k − 1                  ℓ(4k − 1)
+                                                =⇒                                          (1.6)
+                          (6m + k)(24m + 1)         ℓ(6m + k)(24m + 1)
+and find positive integers ℑ′1 and ℑ′2 such that
+
+                                     ℑ′1 + ℑ′2 = ℓ(4k − 1),                                (1.7)
+
+                                      g.c.d(ℓ, ℑ′1 , ℑ′2 ) = 1                             (1.8)
+and
+               1            ℑ′1                        1            ℑ′2
+                  =                            and        =                                (1.9)
+               n2   ℓ(6m + k)(24m + 1)                 n2   ℓ(6m + k)(24m + 1)
+are unit fractions. We call the integer ℓ a multiplier of the wild solution (n1 , n2 , n3 ).
+Moreover, we call ℑ′1 and ℑ′2 the numerator summands for (n1 , n2 , n3 ). According to our
+definitions, a tame prime of the form 24m + 1 may have wild solutions, but a wild prime
+
+                                                 2
+of the form 24m + 1 only has wild solutions. Based on the information in our earlier
+work on tame solutions posed in arXiv, Howerton [5] found that there are only fourteen
+wild primes of the form n = 24m + 1 ≤ 2.4 × 1011 . In this paper, we derive thirty-four
+families of wild solutions of the above equation according to (1,6)-(1.9), which contain the
+solvability of the fourteen wild primes. Together with our tame polynomial solutions in
+[26], numeric test shows that they cover all the primes of the form 24m + 1. The paper
+is organized as follows.
+   In Section 2, we find a relatively simple wild solution for each of the fourteen wild
+primes of the form 24m + 1. In Section 3, we solve the Erdös-Straus equation for k ≤ 5 by
+the method described in (1.6)-(1.9). Moreover, we solve the equation for k = 6 in Section
+4.
+
+
+2    Solutions for the Fourteen Wild Primes
+Howerton [5] found that there are only wild primes of the form 24m + 1 with m ≤ 109 .
+They are
+
+    409,   577,     5569,    9601,     23929,        83449,   102001,     329617,     712321,   (2.1)
+
+                   1134241,        1724209,     1726201,      5212561,     8813281.             (2.2)
+In the form of n = 24m + 1, the corresponding m’s are as follows:
+
+             17,    24,     232,     400,     997,    3477,   4250,      13734,   29680,        (2.3)
+
+                          47260,     71842,     71925,     217190,      367220.                 (2.4)
+In this section, we derive a relatively simple wild solution for each of them as the starting
+point of this paper.
+    Throughout this paper, we denote by N the set of nonnegative integers. Suppose
+m ≡ 4 (mod 5); that is, m = 4 + 5c for some c ∈ N. We have
+              4        1             3
+                   =       +
+           24m + 1   6m + 1 (6m + 1)(24m + 1)
+                       1               6
+                   =       +
+                     6m + 1 2(30c + 25)(24m + 1)
+                       1           5+1
+                   =       +
+                     6m + 1 10(6c + 5)(24m + 1)
+                       1             1                  1
+                   =       +                   +                   .                            (2.5)
+                     6m + 1 2(6c + 5)(24m + 1) 10(6c + 5)(24m + 1)
+
+Taking m = 24 and c = 4, we get 24m + 1 = 577. 6m + 1 = 145 and
+                               4     1      1        1
+                                  =    +        +          .                                    (2.6)
+                              577   145 58 × 577 290 × 577
+When m = 13734, 24m + 1 = 329617. 6m + 1 = 82405, c = 2746 and
+                     4        1          1              1
+                          =      +              +                .                              (2.7)
+                   329617   82405 32962 × 329617 164810 × 329617
+
+                                                      3
+   Next we assume m ≡ 3 (mod 7); that is, m = 3 + 7c for some c ∈ N. We have
+            4        1            11
+                 =       +
+         24m + 1   6m + 3 (6m + 3)(24m + 1)
+                     1              22
+                 =       +
+                   6m + 3 2(42c + 21)(24m + 1)
+                     1           21 + 1
+                 =       +
+                   6m + 3 42(2c + 1)(24m + 1)
+                     1             1                  1
+                 =       +                   +                   .              (2.8)
+                   6m + 3 2(2c + 1)(24m + 1) 42(2c + 1)(24m + 1)
+
+Taking m = 17 and c = 2, we get 24m + 1 = 409. 6m + 3 = 105 and
+                         4     1      1        1
+                            =    +        +          .                          (2.9)
+                        409   105 10 × 409 210 × 409
+When m = 47260 and c = 6751, we have 24m + 1 = 1134241, 6m + 3 = 283563 and
+                4        1           1                1
+                     =       +               +                 .               (2.10)
+             1134241   283563 27006 × 1134241 567126 × 1134241
+If m = 367220 and c = 52031, we have 24m + 1 = 8813281, 6m + 3 = 2203323 and
+              4         1            1                1
+                   =        +                +                  .              (2.11)
+           8813281   2203323 104063 × 8813281 2185323 × 8813281
+   Suppose m ≡ 11 (mod 17); that is, m = 11 + 17c for some c ∈ N. We have
+            4        1             7
+                 =       +
+         24m + 1   6m + 2 (6m + 3)(24m + 1)
+                     1               35
+                 =       +
+                   6m + 2 5(102c + 68)(24m + 1)
+                     1             34 + 1
+                 =       +
+                   6m + 2 5 × 34(3c + 2)(24m + 1)
+                     1             1                   1
+                 =       +                   +                    .            (2.12)
+                   6m + 2 5(3c + 2)(24m + 1) 170(3c + 2)(24m + 1)
+
+Taking m = 232 and c = 13, we get 24m + 1 = 5569, 6m + 2 = 1394 and
+                         4       1     1       1
+                             =     +       +         .                         (2.13)
+                        5569   1394 1141545 38815930
+When m = 997, we have c = 58, 24m + 1 = 23929, 6m + 2 = 5984 and
+                        4      1      1         1
+                            =     +        +          .                        (2.14)
+                      23929   5984 21057520 715955680
+   Let m = 400. Then 24m+1 = 9601 is a primes. Moreover, 6m+5 = 2405 = 5×13×37.
+
+
+
+
+                                        4
+So
+              4      1       19
+                 =     +
+            9601   2405 2405 × 9601
+                     1           19
+                 =     +
+                   2405 (5 × 13 × 37) × 9601
+                     1             38
+                 =     +
+                   2405 2 × (5 × 13 × 37) × 9601
+                     1           37 + 1
+                 =     +
+                   2405 2 × (5 × 13 × 37) × 9601
+                     1           1                      1
+                 =     +                    +
+                   2405 2 × (5 × 13) × 9601 2 × (5 × 13 × 37) × 9601
+                     1     1           1
+                 =     +         +           .                                 (2.15)
+                   2405 1248130 46180810
+   In the case m = 3477, 24m + 1 = 83449 is a primes. Moreover, 6m + 3 = 20865 =
+3 × 5 × 13 × 107. Therefore,
+           4       1          11
+               =      +
+         83449   20865 20865 × 83449
+                   1               11
+               =      +
+                 20865 (3 × 5 × 13 × 107) × 83449
+                   1               66
+               =      +
+                 20865 6 × (3 × 65 × 107) × 83449
+                   1             65 + 1
+               =      +
+                 20865 6 × (3 × 65 × 107) × 83449
+                   1             1                        1
+               =      +                      +
+                 20865 6 × (3 × 107) × 83449 6 × (3 × 65 × 107) × 83449
+                   1        1             1
+               =      +           +              .                      (2.16)
+                 20865 160722774 10446980310
+   Assume m = 4250, 24m + 1 = 102001 is a primes. Moreover, 6m + 2 = 25502 =
+2 × 41 × 311. Thus
+         4        1          7
+              =      +
+       102001   25502 25502 × 102001
+                  1               7
+              =      +
+                25502 (2 × 41 × 311) × 102001
+                  1                 42
+              =      +
+                25502 6 × (2 × 41 × 311) × 102001
+                  1              41 + 1
+              =      +
+                25502 6 × (2 × 41 × 311) × 102001
+                  1              1                        1
+              =      +                       +
+                25502 6 × (2 × 311) × 102001 6 × (2 × 41 × 311) × 102001
+                  1        1             1
+              =      +           +              .                        (2.17)
+                25502 380667732 15607377012
+     We consider m = 29680, 24m + 1 = 712321 is a primes. Moreover, 6m + 6 = 178086 =
+
+
+                                          5
+2 × 3 × 67 × 443. Thus
+      4            1          23
+            =          +
+    712321      178086 178086 × 712321
+                   1                23
+            =          +
+                178086 (2 × 3 × 67 × 443) × 712321
+                   1                  69
+            =          +
+                178086 3 × (2 × 3 × 67 × 443) × 712321
+                   1                67 + 2
+            =          +
+                178086 3 × (2 × 3 × 67 × 443) × 712321
+                   1                1                           1
+            =          +                          +
+                178086 3 × (2 × 3 × 443) × 712321 3 × (3 × 67 × 443) × 712321
+                   1        1               1
+            =          +           +               .                        (2.18)
+                178086 5680047654 190281596409
+   Now we assume m ≡ 9 (mod 29); equivalently, m = 9 + 29c for some c ∈ N. In this
+case,
+            4        1             15
+                 =       +
+         24m + 1   6m + 4 2(3m + 2)(24m + 1)
+                     1             30
+                 =       +
+                   6m + 4 4(3m + 2)(24m + 1)
+                     1           29 + 1
+                 =       +
+                   6m + 4 116(3c + 1)(24m + 1)
+                     1             1                   1
+                 =       +                  +                     .         (2.19)
+                   6m + 4 4(3c + 1)(24m + 1) 116(3c + 1)(24m + 1)
+Taking m = 71842, we get c = 2477 and 24m + 1 = 1724209 is a wild prime. By the
+above equation,
+               4           1            1                   1
+                    =          +                 +                    .     (2.20)
+            1724209    431056 29728 × 1724209 862112 × 1724209
+When m = 217190, we have c = 7489 and 24m + 1 = 5212561 is a wild prime. According
+to (2.18).,
+              4            1              1               1
+                     =          +               +                   .    (2.21)
+           5212561      1303144 89872 × 5212561 2606288 × 5212561
+   Finally we consider m = 71925, 24m + 1 = 1726201 is a wild primes. Moreover,
+6m + 6 = 431556 = 4 × 3 × 35963. In fact,
+             3 × 35963 = 107889,   23 × 4691 = 107893 = 3 × 35963 + 4.      (2.22)
+Thus
+           4        1           23
+                =       +
+        1726201   431556 431556 × 1726201
+                    1           4691 × 23
+                =       +
+                  431556 4691 × 431556 × 1726201
+                    1             3 × 35963 + 4
+                =       +
+                  431556 4691 × 4 × 3 × 35963 × 1726201
+                    1           1                      1
+                =       +                 +                      .          (2.23)
+                  431556 18764 × 1726201 4691 × 107889 × 1726201
+
+                                         6
+    The above examples suggest us to solve the Erdös-Straus equation (1.3) for wild solu-
+tions under the conditions k ≤ 6. In fact, we solve the equation by the method described
+in (1.6)-(1.9) and under the condition
+                            ℑ′1 |[ℓ(6m + k)],       ℑ′2 |[ℓ(6m + k)].               (2.24)
+In the tame case, the above expression holds as long as we assume that n = 24m + 1 is a
+prime (cf. [26]). Computer shows that it does not hold in general wild case.
+
+
+3      Wild Solutions with k ≤ 5
+In this section, we present the wild solutions for an integer n = 24m + 1 with k =
+1, 2, 3, 4, 5, where
+                         4       1              4k − 1
+                            =        +                           .               (3.1)
+                         n    6m + k (6m + k + 1)(24m + 1)
+Since the case k = 6 is extremely complicated, we will solve it in next section.
+
+3.1     Case k = 1
+In this case, we consider
+                        4     1            3
+                          =       +
+                        n   6m + 1 (6m + 1)(24m + 1)
+                              1            2ℓ × 3
+                          =       +
+                            6m + 1 2ℓ × (6m + 1)(24m + 1)
+                              1        (6ℓ − 1) + 1
+                          =       +                    ,                             (3.2)
+                            6m + 1 2ℓ(6m + 1)(24m + 1)
+where ℓ is a positive integer. Motivated from (2.5), we assume
+                               6m + 1 ≡ 0 (mod 6ℓ − 1).                              (3.3)
+Equivalently,
+                               m + ℓ ≡ 0 (mod 6ℓ − 1).                               (3.4)
+Thus
+                               m ≡ 5ℓ − 1 (mod 6ℓ − 1).                              (3.5)
+When ℓ = 1, we recover the condition m ≡ 4 (mod 5) for (2.5). Hence
+                       m = 5ℓ − 1 + c(6ℓ − 1)           for some c ∈ N.              (3.6)
+    Suppose that m is of the above form. Then
+                 6m + 1 = 30ℓ − 6 + 6c(6ℓ − 1) + 1 = (6c + 5)(6ℓ − 1).               (3.7)
+According to (3.2),
+          4        1        (6ℓ − 1) + 1
+               =       +
+       24m + 1   6m + 1 2ℓ(6m + 1)(24m + 1)
+                   1            (6ℓ − 1) + 1
+               =       +
+                 6m + 1 2ℓ(6c + 5)(6ℓ − 1)(24m + 1)
+                   1             1                        1
+               =       +                     +                          . (3.8)
+                 6m + 1 2ℓ(6c + 5)(24m + 1) 2ℓ(6c + 5)(6ℓ − 1)(24m + 1)
+
+                                                7
+    Theorem 3.1 For any positive integer m of the form (3.6), we have the wild solution
+(3.8) of the Erdös-Straus equation.
+
+
+3.2     Case k = 2
+In this case, we first consider
+                         4     1             7
+                           =       +
+                         n   6m + 2 (6m + 2)(24m + 1)
+                               1             2ℓ × 7
+                           =       +
+                             6m + 2 2ℓ × (6m + 2)(24m + 1)
+                               1        (14ℓ − 1) + 1
+                           =       +                    ,                         (3.9)
+                             6m + 2 4ℓ(3m + 1)(24m + 1)
+
+where ℓ is a positive integer. Motivated from (2.5), we assume
+
+                                  3m + 1 ≡ 0 (mod 14ℓ − 1).                      (3.10)
+
+   It is impossible if ℓ ≡ 2 (mod 3). Assume ℓ = 3r with 0 < r ∈ N, Then the above
+equation becomes
+                              3m + 1 ≡ 0 (mod 42r − 1).                      (3.11)
+Equivalently,
+                                  m + 14r ≡ 0 (mod 42r − 1).                     (3.12)
+Thus
+                                  m ≡ 28r − 1 (mod 42r − 1).                     (3.13)
+So
+                      m = 28r − 1 + c(42r − 1)       for some c ∈ N.             (3.14)
+     Suppose that m is of the above form. Then
+
+                 3m + 1 = 84r − 3 + 3c(42r − 1) + 1 = (3c + 2)(42r − 1).         (3.15)
+
+According to (3.9),
+
+                4        1          (14ℓ − 1) + 1
+                     =        +
+             24m + 1   6m + 2 4ℓ(3m + 1)(24m + 1)
+               1             (42r − 1) + 1
+           =        +
+             6m + 2 12r(3c + 2)(42r − 1)(24m + 1)
+               1              1                        1
+           =        +                      +                           .         (3.16)
+             6m + 2 12r(3c + 2)(24m + 1) 12r(3c + 2)(42r − 1)(24m + 1)
+
+When r = 1 and c = 103, the above equation yields (2.17).
+     Next we assume ℓ = 3r + 1 with r ∈ N, Then Equation (3.10) becomes
+
+                                  3m + 1 ≡ 0 (mod 42r + 13).                     (3.17)
+
+
+                                              8
+Equivalently,
+                               m ≡ 14r + 4 (mod 42r + 13).                        (3.18)
+Hence
+                       m = 14r + 4 + c(42r + 13)     for some c ∈ N.              (3.19)
+   If m is of the above form, then
+
+                 3m + 1 = 42r + 12 + 3c(42r + 13) + 1 = (3c + 1)(42r + 13).       (3.20)
+
+By (3.9),
+
+                   4         1           (14ℓ − 1) + 1
+                        =         +
+                24m + 1   6m + 2 4ℓ(3m + 1)(24m + 1)
+                             1                  (42r + 13) + 1
+                        =         +
+                          6m + 2 4(3r + 1)(3c + 1)(42r + 13)(24m + 1)
+                             1                    1
+                        =         +
+                          6m + 2 4(3r + 1)(3c + 1)(24m + 1)
+                                              1
+                          +                                      .                (3.21)
+                            4(3r + 1)(3c + 1)(42r + 13)(24m + 1)
+
+
+   Now we consider
+                      4     1             7
+                        =       +
+                      n   6m + 2 (6m + 2)(24m + 1)
+                            1             (2ℓ + 1) × 7
+                        =       +
+                          6m + 2 (2ℓ + 1) × (6m + 2)(24m + 1)
+                            1            (14ℓ + 6) + 1
+                        =       +                           ,                     (3.22)
+                          6m + 2 2(2ℓ + 1)(3m + 1)(24m + 1)
+
+where ℓ is a positive integer. Motivated from (2.5), we assume
+
+                                3m + 1 ≡ 0 (mod 7ℓ + 3).                          (3.23)
+
+It is impossible if ℓ ≡ 0 (mod 3). Assume ℓ = 3r + 1 with r ∈ N, Then the above equation
+becomes
+                               3m + 1 ≡ 0 (mod 21r + 10).                         (3.24)
+Equivalently,
+                               m ≡ 7r + 3 (mod 21r + 10).                         (3.25)
+Therefore,
+                       m = 7r + 3 + c(21r + 10)     for some c ∈ N.               (3.26)
+   When m is of the above form,
+
+                 3m + 1 = 21r + 9 + 3c(21r + 10) + 1 = (3c + 1)(21r + 10).        (3.27)
+
+
+
+
+                                             9
+By (3.22),
+
+                   4         1              (14ℓ + 6) + 1
+                        =         +
+                24m + 1   6m + 2 2(2ℓ + 1)(3m + 1)(24m + 1)
+                             1                  2(21r + 10) + 1
+                        =         +
+                          6m + 2 6(2r + 1)(3c + 1)(21r + 10)(24m + 1)
+                             1                    1
+                        =         +
+                          6m + 2 3(2r + 1)(3c + 1)(24m + 1)
+                                              1
+                          +                                      .            (3.28)
+                            6(2r + 1)(3c + 1)(21r + 10)(24m + 1)
+
+
+   Next we assume ℓ = 3r + 2 with r ∈ N, Then Equation (3.23) becomes
+
+                               3m + 1 ≡ 0 (mod 21r + 17).                     (3.29)
+
+Equivalently,
+                             m + 7r + 6 ≡ 0 (mod 21r + 17);                   (3.30)
+that is
+                              m ≡ 14r + 11 (mod 21r + 17);                    (3.31)
+Hence
+                      m = 14r + 11 + c(21r + 17)     for some c ∈ N.          (3.32)
+   Suppose that m is of the above form. Then
+
+                 3m + 1 = 42r + 33 + 3c(21r + 17) + 1 = (3c + 2)(21r + 17).   (3.33)
+
+By (3.22),
+
+                   4         1              (14ℓ + 6) + 1
+                        =         +
+                24m + 1   6m + 2 2(2ℓ + 1)(3m + 1)(24m + 1)
+                             1                  2(21r + 17) + 1
+                        =         +
+                          6m + 2 2(6r + 5)(3c + 2)(21r + 17)(24m + 1)
+                             1                   1
+                        =         +
+                          6m + 2 (6r + 5)(3c + 2)(24m + 1)
+                                              1
+                          +                                      .            (3.34)
+                            2(6r + 5)(3c + 2)(21r + 17)(24m + 1)
+
+When r = 0, the above equation becomes (2.12).
+  Finally we consider
+                      4     1             7
+                        =       +
+                      n   6m + 2 (6m + 2)(24m + 1)
+                            1             (2ℓ + 1) × 7
+                        =       +
+                          6m + 2 (2ℓ + 1) × (6m + 2)(24m + 1)
+                            1            (14ℓ + 5) + 2
+                        =       +                           ,                 (3.35)
+                          6m + 2 2(2ℓ + 1)(3m + 1)(24m + 1)
+
+
+                                            10
+where ℓ is a positive integer. Motivated from (2.15), we assume
+                                3m + 1 ≡ 0 (mod 14ℓ + 5).                         (3.36)
+It is impossible if ℓ ≡ 2 (mod 3). Assume ℓ = 3r with 0 < r ∈ N, Then the above equation
+becomes
+                                3m + 1 ≡ 0 (mod 42r + 5).                         (3.37)
+Equivalently,
+                             m + 14r + 2 ≡ 0 (mod 42r + 5);                       (3.38)
+that is
+                               m ≡ 28r + 3 (mod 42r + 5);                         (3.39)
+Thus
+                       m = 28r + 3 + c(42r + 5)     for some c ∈ N.               (3.40)
+   If m is of the above form, then
+                  3m + 1 = 84r + 9 + 3c(42r + 5) + 1 = (3c + 2)(42r + 5).         (3.41)
+By (3.35),
+                   4         1              (14ℓ + 5) + 2
+                        =         +
+                24m + 1   6m + 2 2(2ℓ + 1)(3m + 1)(24m + 1)
+                             1                  (42r + 5) + 2
+                        =         +
+                          6m + 2 2(6r + 1)(3c + 2)(42r + 5)(24m + 1)
+                             1                    1
+                        =         +
+                          6m + 2 2(6r + 1)(3c + 2)(24m + 1)
+                                             1
+                          +                                    .                  (3.42)
+                            (6r + 1)(3c + 2)(42r + 5)(24m + 1)
+
+   Next we assume ℓ = 3r + 1 with r ∈ N, Then Equation (3.36) becomes
+                               3m + 1 ≡ 0 (mod 42r + 19).                         (3.43)
+Equivalently,
+                               m ≡ 14r + 6 (mod 42r + 19).                        (3.44)
+In this way,
+                       m = 14r + 6 + c(42r + 19)     for some c ∈ N.              (3.45)
+   When m is of the above form,
+                 3m + 1 = 42r + 18 + 3c(42r + 19) + 1 = (3c + 1)(42r + 19).       (3.46)
+According to (3.35),
+                   4         1              (14ℓ + 5) + 2
+                        =         +
+                24m + 1   6m + 2 2(2ℓ + 1)(3m + 1)(24m + 1)
+                             1                  (42r + 19) + 2
+                        =         +
+                          6m + 2 6(2r + 1)(3c + 1)(42r + 19)(24m + 1)
+                             1                    1
+                        =         +
+                          6m + 2 6(2r + 1)(3c + 1)(24m + 1)
+                                              1
+                          +                                      .                (3.47)
+                            3(2r + 1)(3c + 1)(42r + 19)(24m + 1)
+
+                                            11
+    Theorem 3.2 For any positive integer m of the form (3.14), we have the wild so-
+lution (3.16) of the Erdös-Straus equation. If m is of the form (3.19), we have the wild
+solution (3.21) of the Erdös-Straus equation. When m is of the form (3.26), we have the
+wild solution (3.28) of the Erdös-Straus equation. Suppose that m is of the form (3.32),
+we have the wild solution (3.34) of the Erdös-Straus equation. Let m be of the form (3.40),
+we have the wild solution (3.42) of the Erdös-Straus equation. Assume that m is of the
+form (3.45), we have the wild solution (3.47) of the Erdös-Straus equation.
+
+
+3.3    Case k = 3
+In this case, we first consider
+                         4     1            11
+                           =       +
+                         n   6m + 3 (6m + 3)(24m + 1)
+                               1            2ℓ × 11
+                           =       +
+                             6m + 3 6ℓ × (2m + 1)(24m + 1)
+                               1        (22ℓ − 1) + 1
+                           =       +                    ,                            (3.48)
+                             6m + 3 6ℓ(2m + 1)(24m + 1)
+
+where ℓ is a positive integer. Suppose ℓ ≡ 1 (mod 3); that is, ℓ = 3r + 1 for some r ∈ N.
+Then
+                             22ℓ − 1 = 66r + 21 = 3(22r + 7).                      (3.49)
+By (2.16), we assume
+                                  2m + 1 ≡ 0 (mod 22r + 7).                          (3.50)
+Equivalently,
+                                  m ≡ 11r + 3 (mod 22r + 7).                         (3.51)
+Thus
+                       m = 11r + 3 + c(22r + 7)      for some c ∈ N.                 (3.52)
+   Assume that m is of the above form. Then
+
+                 2m + 1 = 22r + 6 + 2c(22r + 7) + 1 = (2c + 1)(22r + 7).             (3.53)
+
+According to (3.48),
+
+                           4          1           (22ℓ − 1) + 1
+                                =          +
+                       24m + 1     6m + 3 6ℓ(2m + 1)(24m + 1)
+                          1                  3(22r + 7) + 1
+                     =         +
+                       6m + 3 6(3r + 1)(2c + 1)(22r + 7)(24m + 1)
+                          1                    1
+                     =         +
+                       6m + 3 2(3r + 1)(2c + 1)(24m + 1)
+                                           1
+                       +                                      .                      (3.54)
+                         6(3r + 1)(2c + 1)(22r + 7)(24m + 1)
+
+When r = 0, the above equation yields (2.8). A subtle point is that we have well used
+the factor “3” in 6m + 3 of the denominator.
+
+                                             12
+   Next we assume ℓ ≡ 0 (mod 3); that is, ℓ = 3r for some 0 < r ∈ N. Then
+                                    22ℓ − 1 = 66r − 1.                         (3.55)
+Motivated from (2.103, we impose
+                                2m + 1 ≡ 0 (mod 66r − 1).                      (3.56)
+Equivalently,
+                                m ≡ 33r − 1 (mod 66r − 1).                     (3.57)
+Thus
+                      m = 33r − 1 + c(66r − 1)      for some c ∈ N.            (3.58)
+   When m is of the above form,
+                 2m + 1 = 66r − 2 + 2c(66r − 1) + 1 = (2c + 1)(66r − 1).       (3.59)
+By (3.48),
+                            4          1          (22ℓ − 1) + 1
+                                 =          +
+                        24m + 1     6m + 3 6ℓ(2m + 1)(24m + 1)
+                           1               (66r − 1) + 1
+                      =         +
+                        6m + 3 18r(2c + 1)(66r − 1)(24m + 1)
+                           1                1
+                      =         +
+                        6m + 3 18r(2c + 1)(24m + 1)
+                                         1
+                        +                                .                     (3.60)
+                          18r(2c + 1)(66r − 1)(24m + 1)
+When r = 1 and c = 53, the above equation yields (2.13).
+
+   Thirdly we assume ℓ ≡ 2 (mod 3); that is, ℓ = 3r + 2 for some r ∈ N. Then
+                                    22ℓ − 1 = 66r + 43.                        (3.61)
+Motivated from (2.13), we impose
+                                2m + 1 ≡ 0 (mod 66r + 43).                     (3.62)
+Equivalently,
+                             m ≡ 33r + 21 (mod 66r + 43).                      (3.63)
+Thus
+                     m = 33r + 21 + c(66r + 43)      for some c ∈ N.           (3.64)
+   If m is of the above form,
+                2m + 1 = 66r + 42 + 2c(66r + 43) + 1 = (2c + 1)(66r + 43).     (3.65)
+Expression (3.48) yields
+                          4          1          (22ℓ − 1) + 1
+                               =          +
+                      24m + 1     6m + 3 6ℓ(2m + 1)(24m + 1)
+                         1                  (66r + 43) + 1
+                    =         +
+                      6m + 3 6(3r + 2)(2c + 1)(66r + 43)(24m + 1)
+                         1                    1
+                    =         +
+                      6m + 3 6(3r + 2)(2c + 1)(24m + 1)
+                                          1
+                      +                                       .                (3.66)
+                        6(3r + 2)(2c + 1)(66r + 43)(24m + 1)
+
+                                            13
+   Now we consider
+                         4     1            11
+                           =       +
+                         n   6m + 3 (6m + 3)(24m + 1)
+                               1            2ℓ × 11
+                           =       +
+                             6m + 3 6ℓ × (2m + 1)(24m + 1)
+                               1        (22ℓ − 3) + 3
+                           =       +                    ,                       (3.67)
+                             6m + 3 6ℓ(2m + 1)(24m + 1)
+
+where ℓ is a positive integer. According to (1.8) with ℑ′1 = 22ℓ − 3 and ℑ′2 = 3, ℓ ̸≡
+0 (mod 3). Suppose ℓ ≡ 1 (mod 3); that is, ℓ = 3r + 1 for some 0 < r ∈ N. Then
+
+                                   22ℓ − 3 = 66r + 19.                          (3.68)
+
+Motivated from (2.8), we assume
+
+                               2m + 1 ≡ 0 (mod 66r + 19).                       (3.69)
+
+Equivalently,
+                              m ≡ 33r + 9 (mod 66r + 19).                       (3.70)
+Thus
+                       m = 33r + 9 + c(66r + 19)    for some c ∈ N.             (3.71)
+   Assume that m is of the above form. Then
+
+                2m + 1 = 66r + 18 + 2c(66r + 19) + 1 = (2c + 1)(66r + 19).      (3.72)
+
+According to (3.67),
+
+                          4          1          (22ℓ − 3) + 3
+                               =          +
+                      24m + 1     6m + 3 6ℓ(2m + 1)(24m + 1)
+                         1                  (66r + 19) + 3
+                    =         +
+                      6m + 3 6(3r + 1)(2c + 1)(66r + 19)(24m + 1)
+                         1                    1
+                    =         +
+                      6m + 3 6(3r + 1)(2c + 1)(24m + 1)
+                                          1
+                      +                                       .                 (3.73)
+                        2(3r + 1)(2c + 1)(66r + 19)(24m + 1)
+
+
+   Secondly we suppose ℓ ≡ 2 (mod 3); that is, ℓ = 3r + 2 for some 0 < r ∈ N. Then
+
+                                   22ℓ − 3 = 66r + 41.                          (3.74)
+
+Motivated from (2.8), we assume
+
+                               2m + 1 ≡ 0 (mod 66r + 41).                       (3.75)
+
+Equivalently,
+                              m ≡ 33r + 20 (mod 66r + 41).                      (3.76)
+
+                                            14
+Thus
+                     m = 33r + 20 + c(66r + 41)       for some c ∈ N.                (3.77)
+   Let m be of the above form. Then
+
+                2m + 1 = 66r + 40 + 2c(66r + 41) + 1 = (2c + 1)(66r + 41).           (3.78)
+
+By (3.67),
+
+                          4          1          (22ℓ − 3) + 3
+                               =          +
+                      24m + 1     6m + 3 6ℓ(2m + 1)(24m + 1)
+                         1                  (66r + 41) + 3
+                    =         +
+                      6m + 3 6(3r + 1)(2c + 1)(66r + 41)(24m + 1)
+                         1                    1
+                    =         +
+                      6m + 3 6(3r + 1)(2c + 1)(24m + 1)
+                                          1
+                      +                                       .                      (3.79)
+                        2(3r + 1)(2c + 1)(66r + 41)(24m + 1)
+
+    Theorem 3.3 For any positive integer m of the form (3.52), we have the wild so-
+lution (3.54) of the Erdös-Straus equation. If m is of the form (3.58), we have the wild
+solution (3.60) of the Erdös-Straus equation. When m is of the form (3.64), we have the
+wild solution (3.66) of the Erdös-Straus equation. Suppose that m is of the form (3.71),
+we have the wild solution (3.73) of the Erdös-Straus equation. Let m be of the form (3.77),
+we have the wild solution (3.79) of the Erdös-Straus equation.
+
+
+3.4    Case k = 4
+In this case, we first consider
+                        4     1            15
+                          =       +
+                        n   6m + 4 (6m + 4)(24m + 1)
+                              1             2ℓ × 15
+                          =       +
+                            6m + 4 2ℓ × 2(3m + 2)(24m + 1)
+                              1        (30ℓ − 1) + 1
+                          =       +                    ,                             (3.80)
+                            6m + 4 4ℓ(3m + 2)(24m + 1)
+
+where ℓ is a positive integer. Motivated from (2.8), we assume
+
+                                  3m + 2 ≡ 0 (mod 30ℓ − 1).                          (3.81)
+
+Equivalently,
+                                  m ≡ 10ℓ − 1 (mod 30ℓ − 1).                         (3.82)
+Thus
+                      m = 10ℓ − 1 + c(30ℓ − 1)       for some c ∈ N.                 (3.83)
+   Assume that m is of the above form. Then
+
+                 3m + 2 = 30ℓ − 3 + 3c(30ℓ − 1) + 2 = (3c + 1)(30ℓ − 1).             (3.84)
+
+
+                                             15
+According to (3.80),
+
+                     4         1           (30ℓ − 1) + 1
+                          =         +
+                  24m + 1   6m + 4 4ℓ(3m + 2)(24m + 1)
+                               1               (30ℓ − 1) + 1
+                          =         +
+                            6m + 4 4ℓ(3c + 1)(30ℓ − 1)(24m + 1)
+                               1                1
+                          =         +
+                            6m + 4 4ℓ(3c + 1)(24m + 1)
+                                            1
+                            +                               .               (3.85)
+                              4ℓ(3c + 1)(30ℓ − 1)(24m + 1)
+
+Taking ℓ = 1, we get (2.19).
+   Next we consider
+                     4     1             15
+                       =       +
+                     n   6m + 4 (6m + 4)(24m + 1)
+                           1              (2ℓ + 1) × 15
+                       =       +
+                         6m + 4 (2ℓ + 1) × 2(3m + 2)(24m + 1)
+                           1           (30ℓ + 14) + 1
+                       =       +                           ,                (3.86)
+                         6m + 4 2(2ℓ + 1)(3m + 2)(24m + 1)
+
+where ℓ is a positive integer. Motivated from (2.8), we assume
+
+                               3m + 2 ≡ 0 (mod 15ℓ + 7).                    (3.87)
+
+Equivalently,
+                               m ≡ 10ℓ + 4 (mod 15ℓ + 7).                   (3.88)
+Thus
+                       m = 10ℓ + 4 + c(15ℓ + 7)    for some c ∈ N.          (3.89)
+   When m is of the above form,
+
+                 3m + 2 = 30ℓ + 12 + 3c(15ℓ + 7) + 2 = (3c + 2)(15ℓ + 7).   (3.90)
+
+By (3.86),
+
+                   4         1              (30ℓ + 14) + 1
+                        =         +
+                24m + 1   6m + 4 2(2ℓ + 1)(3m + 2)(24m + 1)
+                             1                  2(15ℓ + 7) + 1
+                        =         +
+                          6m + 4 2(2ℓ + 1)(3c + 2)(15ℓ + 7)(24m + 1)
+                             1                   1
+                        =         +
+                          6m + 4 (2ℓ + 1)(3c + 2)(24m + 1)
+                                              1
+                          +                                     .           (3.91)
+                            2(2ℓ + 1)(3c + 2)(15ℓ + 7)(24m + 1)
+
+
+
+
+                                           16
+   Finally we consider
+                      4     1             15
+                        =       +
+                      n   6m + 4 (6m + 4)(24m + 1)
+                            1              (2ℓ + 1) × 15
+                        =       +
+                          6m + 4 (2ℓ + 1) × 2(3m + 2)(24m + 1)
+                            1           (30ℓ + 13) + 2
+                        =       +                           ,                      (3.92)
+                          6m + 4 2(2ℓ + 1)(3m + 2)(24m + 1)
+where ℓ is a positive integer. Motivated from (2.15), we assume
+
+                                3m + 2 ≡ 0 (mod 30ℓ + 13).                         (3.93)
+
+Equivalently,
+                                m ≡ 20ℓ + 8 (mod 30ℓ + 13).                        (3.94)
+Thus
+                       m = 20ℓ + 8 + c(30ℓ + 13)     for some c ∈ N.               (3.95)
+   If m is of the above form,
+
+                 3m + 2 = 60ℓ + 24 + 3c(30ℓ + 13) + 2 = (3c + 2)(30ℓ + 13).        (3.96)
+
+Expression (3.92) gives
+                   4         1              (30ℓ + 13) + 2
+                        =         +
+                24m + 1   6m + 4 2(2ℓ + 1)(3m + 2)(24m + 1)
+                             1                   (30ℓ + 13) + 2
+                        =         +
+                          6m + 4 2(2ℓ + 1)(3c + 2)(30ℓ + 13)(24m + 1)
+                             1                    1
+                        =         +
+                          6m + 4 2(2ℓ + 1)(3c + 2)(24m + 1)
+                                              1
+                          +                                     .                  (3.97)
+                            (2ℓ + 1)(3c + 2)(30ℓ + 13)(24m + 1)
+
+
+    Theorem 3.4 For any positive integer m of the form (3.83), we have the wild so-
+lution (3.85) of the Erdös-Straus equation. If m is of the form (3.89), we have the wild
+solution (3.91) of the Erdös-Straus equation. When m is of the form (3.95), we have the
+wild solution (3.97) of the Erdös-Straus equation.
+
+
+3.5    Case k = 5
+In this case, we consider
+                          4     1            19
+                            =       +
+                          n   6m + 5 (6m + 5)(24m + 1)
+                                1            2ℓ × 19
+                            =       +
+                              6m + 5 2ℓ × (6m + 5)(24m + 1)
+                                1        (38ℓ − 1) + 1
+                            =       +                    ,                         (3.98)
+                              6m + 5 2ℓ(6m + 5)(24m + 1)
+
+                                            17
+where ℓ is a positive integer. As the earlier cases, we assume
+
+                               6m + 5 ≡ 0 (mod 38ℓ − 1).                          (3.99)
+
+It is impossible if ℓ ≡ 2 (mod 3). Assume ℓ = 3r with 0 < r ∈ N, Then the above equation
+becomes
+                               6m + 5 ≡ 0 (mod 114r − 1).                        (3.100)
+Equivalently,
+                              m + 95r ≡ 0 (mod 114r − 1).                        (3.101)
+Thus
+                              m ≡ 19r − 1 (mod 114r − 1).                        (3.102)
+So
+                       m = 19r − 1 + c(114r − 1)     for some c ∈ N.             (3.103)
+     When m is of the above form,
+
+                6m + 5 = 114r − 6 + 6c(114r − 1) + 5 = (6c + 1)(114r − 1).       (3.104)
+
+According to (3.98),
+
+                     4         1          (38ℓ − 1) + 1
+                          =         +
+                  24m + 1   6m + 5 2ℓ(6m + 5)(24m + 1)
+                               1              (114r − 1) + 1
+                          =         +
+                            6m + 5 6r(6c + 1)(114r − 1)(24m + 1)
+                               1               1
+                          =         +
+                            6m + 5 6r(6c + 1)(24m + 1)
+                                            1
+                            +                               .                    (3.105)
+                              6r(6c + 1)(114r − 1)(24m + 1)
+
+
+     Suppose ℓ ≡ 1 (mod 3); that is, ℓ = 3r + 1 for some r ∈ N. Then
+
+                                    38ℓ − 1 = 114r + 37.                         (3.106)
+
+Equation (3.99) becomes
+
+                              6m + 5 ≡ 0 (mod 114r + 37).                        (3.107)
+
+Equivalently,
+                             m ≡ 95r + 30 (mod 114r + 37).                       (3.108)
+So
+                     m = 95r + 30 + c(114r + 37)      for some c ∈ N.            (3.109)
+     Let m be of the above form,
+
+          6m + 5 = 570r + 180 + 6c(114r + 37) + 5 = (6c + 5)(114r + 37).         (3.110)
+
+
+
+
+                                            18
+According to (3.98),
+                4         1           (38ℓ − 1) + 1
+                     =         +
+             24m + 1   6m + 5 2ℓ(6m + 5)(24m + 1)
+                          1                   (114r + 37) + 1
+                     =         +
+                       6m + 5 2(3r + 1)(6c + 5)(114r + 37)(24m + 1)
+                          1                    1
+                     =         +
+                       6m + 5 2(3r + 1)(6c + 5)(24m + 1)
+                                            1
+                       +                                       .                  (3.111)
+                         2(3r + 1)(6c + 5)(114r + 37)(24m + 1)
+When r = 0 and c = 10, the above equation gives (2.15).
+
+    Theorem 3.5 For any positive integer m of the form (3.103), we have the wild
+solution (3.105) of the Erdös-Straus equation. If m is of the form (3.109), we have the
+wild solution (3.111) of the Erdös-Straus equation.
+
+
+
+4      Wild Solutions with k = 6
+In this section, we solve the Erös-Straus equation for n = 24m + 1 with k = 6 in (3.1).
+We divide it into the cases of even multiplier and odd multiplier, respectively.
+
+4.1     Case of even multiplier
+In this subcase, we first consider
+                         4     1            23
+                           =       +
+                         n   6m + 6 (6m + 6)(24m + 1)
+                               1            2ℓ × 23
+                           =       +
+                             6m + 6 2ℓ × 6(m + 1)(24m + 1)
+                               1        (46ℓ − 1) + 1
+                           =       +                    ,                            (4.1)
+                             6m + 6 12ℓ(m + 1)(24m + 1)
+where ℓ is a positive integer. Suppose ℓ ≡ 1 (mod 3); that is, ℓ = 3r + 1 for some r ∈ N.
+Then
+                            46ℓ − 1 = 138r + 45 = 3(46r + 15).                       (4.2)
+According to (2.16), we impose
+
+                                m + 1 ≡ 0 (mod 46r + 15).                            (4.3)
+
+Equivalently,
+                              m ≡ 46r + 14 (mod 46r + 15).                           (4.4)
+Thus
+                       m = 46r + 14 + c(46r + 15)    for some c ∈ N.                 (4.5)
+    Assume that m is of the above form. Then
+
+                m + 1 = 46r + 14 + c(46r + 15) + 1 = (c + 1)(46r + 15).              (4.6)
+
+                                            19
+According to (4.1),
+
+                   4         1           (46ℓ − 1) + 1
+                        =         +
+                24m + 1   6m + 6 12ℓ(m + 1)(24m + 1)
+                             1                  3(46r + 15) + 1
+                        =         +
+                          6m + 6 12(3r + 1)(c + 1)(46r + 15)(24m + 1)
+                             1                   1
+                        =         +
+                          6m + 6 4(3r + 1)(c + 1)(24m + 1)
+                                              1
+                          +                                      .                 (4.7)
+                            12(3r + 1)(c + 1)(46r + 15)(24m + 1)
+
+A subtle point is that we have well used the factor “3” in 6m + 6 of the denominator.
+
+   Next we assume ℓ ≡ 0 (mod 3); that is, ℓ = 3r for some 0 < r ∈ N. Then
+
+                                   46ℓ − 1 = 138r − 1.                             (4.8)
+
+We assume
+                               m + 1 ≡ 0 (mod 138r − 1).                           (4.9)
+Equivalently,
+                             m ≡ 138r − 2 (mod 138r − 1).                        (4.10)
+Thus
+                      m = 138r − 2 + c(138r − 1)     for some c ∈ N.             (4.11)
+   When m is of the above form,
+
+                  m + 1 = 138r − 2 + c(138r − 1) + 1 = (c + 1)(138r − 1).        (4.12)
+
+By (4.1),
+
+                     4         1          (46ℓ − 1) + 1
+                          =         +
+                  24m + 1   6m + 6 12ℓ(m + 1)(24m + 1)
+                               1              (138r − 1) + 1
+                          =         +
+                            6m + 6 36r(c + 1)(138r − 1)(24m + 1)
+                               1               1
+                          =         +
+                            6m + 6 36r(c + 1)(24m + 1)
+                                            1
+                            +                               .                    (4.13)
+                              36r(c + 1)(138r − 1)(24m + 1)
+
+
+   Thirdly we assume ℓ ≡ 2 (mod 3); that is, ℓ = 3r + 2 for some r ∈ N. Then
+
+                                   46ℓ − 1 = 138r + 91.                          (4.14)
+
+We impose
+                               m + 1 ≡ 0 (mod 138r + 91).                        (4.15)
+Equivalently,
+                            m ≡ 138r + 90 (mod 138r + 91).                       (4.16)
+
+
+                                            20
+Thus
+                    m = 138r + 90 + c(138r + 91)      for some c ∈ N.           (4.17)
+   If m is of the above form, then
+                m + 1 = 138r + 90 + c(138r + 91) + 1 = (c + 1)(138r + 91).      (4.18)
+Expression (4.1) yields
+               4         1           (46ℓ − 1) + 1
+                    =         +
+            24m + 1   6m + 6 12ℓ(m + 1)(24m + 1)
+                         1                   (138r + 91) + 1
+                    =         +
+                      6m + 6 12(3r + 2)(c + 1)(138r + 91)(24m + 1)
+                         1                    1
+                    =         +
+                      6m + 6 12(3r + 2)(c + 1)(24m + 1)
+                                           1
+                      +                                       .                 (4.19)
+                        12(3r + 2)(c + 1)(138r + 91)(24m + 1)
+
+   Now we consider
+                          4     1            23
+                            =       +
+                          n   6m + 6 (6m + 6)(24m + 1)
+                                1            2ℓ × 23
+                            =       +
+                              6m + 6 2ℓ × 6(m + 1)(24m + 1)
+                                1        (46ℓ − 3) + 3
+                            =       +                    ,                      (4.20)
+                              6m + 6 12ℓ(m + 1)(24m + 1)
+where ℓ is a positive integer. According to (1.8) with ℑ′1 = 46ℓ − 3 and ℑ′2 = 3, ℓ ̸≡
+0 (mod 3). Suppose ℓ ≡ 1 (mod 3); that is, ℓ = 3r + 1 for some r ∈ N. Then
+                                  46ℓ − 3 = 138r + 43.                          (4.21)
+We assume
+                              m + 1 ≡ 0 (mod 138r + 43).                        (4.22)
+Equivalently,
+                             m ≡ 138r + 42 (mod 138r + 43).                     (4.23)
+Thus
+                    m = 138r + 42 + c(138r + 43)      for some c ∈ N.           (4.24)
+   When m is of the above form,
+                m + 1 = 138r + 42 + c(138r + 43) + 1 = (c + 1)(138r + 43).      (4.25)
+Expression (4.20) gives
+               4         1           (46ℓ − 3) + 3
+                    =         +
+            24m + 1   6m + 6 12ℓ(m + 1)(24m + 1)
+                         1                  (138r + 43) + 3
+                    =         +
+                      6m + 6 12(3r + 1)(c + 1)(138r + 43)(24m + 1)
+                         1                    1
+                    =         +
+                      6m + 6 12(3r + 1)(c + 1)(24m + 1)
+                                          1
+                      +                                      .                  (4.26)
+                        4(3r + 1)(c + 1)(138r + 43)(24m + 1)
+
+                                           21
+   We assume ℓ ≡ 2 (mod 3); that is, ℓ = 3r + 2 for some r ∈ N. Then
+                                    46ℓ − 3 = 138r + 89.                            (4.27)
+We impose
+                                 m + 1 ≡ 0 (mod 138r + 89).                         (4.28)
+Equivalently,
+                             m ≡ 138r + 88 (mod 138r + 89).                         (4.29)
+Thus
+                    m = 138r + 89 + c(138r + 89)       for some c ∈ N.              (4.30)
+   If m is of the above form, then
+                m + 1 = 138r + 88 + c(138r + 89) + 1 = (c + 1)(138r + 89).          (4.31)
+Expression (4.20) yields
+                4         1           (46ℓ − 3) + 3
+                     =         +
+             24m + 1   6m + 6 12ℓ(m + 1)(24m + 1)
+                          1                  (138r + 89) + 3
+                     =         +
+                       6m + 6 12(3r + 2)(c + 1)(138r + 89)(24m + 1)
+                          1                    1
+                     =         +
+                       6m + 6 12(3r + 2)(c + 1)(24m + 1)
+                                           1
+                       +                                      .                     (4.32)
+                         4(3r + 2)(c + 1)(138r + 89)(24m + 1)
+
+    Theorem 4.1 For any positive integer m of the form (4.5), we have the wild solution
+(4.7) of the Erdös-Straus equation. If m is of the form (4.11), we have the wild solution
+(4.13) of the Erdös-Straus equation. When m is of the form (4.17), we have the wild
+solution (4.19) of the Erdös-Straus equation. Suppose that m is of the form (4.24), and
+then we have the wild solution (4.26) of the Erdös-Straus equation. Let m be of the form
+(4.30), and then we have the wild solution (4.32) of the Erdös-Straus equation.
+
+
+4.2     Case of odd multiplier
+In this case, we firs consider
+                     4     1             23
+                       =       +
+                     n   6m + 6 (6m + 6)(24m + 1)
+                           1             (2ℓ + 1) × 23
+                       =       +
+                         6m + 6 (2ℓ + 1) × 6(m + 1)(24m + 1)
+                           1          2(23ℓ + 11) + 1
+                       =       +                          ,                         (4.33)
+                         6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+where ℓ is a positive integer. Suppose ℓ ≡ 2 (mod 3); that is, ℓ = 3r + 2 for some r ∈ N.
+Then
+                            23ℓ + 11 = 69r + 57 = 3(23r + 19).                     (4.34)
+
+                                            22
+By (2.16), we impose
+                                m + 1 ≡ 0 (mod 23r + 19).                        (4.35)
+Equivalently,
+                              m ≡ 23r + 18 (mod 23r + 19).                       (4.36)
+Thus
+                       m = 23r + 18 + c(23r + 19)   for some c ∈ N.              (4.37)
+   Assume that m is of the above form. Then
+
+                 m + 1 = 23r + 18 + c(23r + 19) + 1 = (c + 1)(23r + 19).         (4.38)
+
+According to (4.33),
+
+                   4         1            2(23ℓ + 11) + 1
+                        =         +
+                24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                             1                  6(23r + 19) + 1
+                        =         +
+                          6m + 6 6(6r + 5)(c + 1)(23r + 19)(24m + 1)
+                             1                   1
+                        =         +
+                          6m + 6 (6r + 5)(c + 1)(24m + 1)
+                                              1
+                          +                                     .                (4.39)
+                            6(6r + 5)(c + 1)(23r + 19)(24m + 1)
+A subtle point is that we have well used the factor “6” in 6m + 6 of the denominator.
+
+   Next we assume ℓ ≡ 0 (mod 3); that is, ℓ = 3r for some 0 < r ∈ N. Then
+
+                                   23ℓ + 11 = 69r + 11.                          (4.40)
+
+We assume
+                                m + 1 ≡ 0 (mod 69r + 11).                        (4.41)
+Equivalently,
+                              m ≡ 69r + 10 (mod 69r + 11).                       (4.42)
+Thus
+                       m = 69r + 10 + c(69r + 11)   for some c ∈ N.              (4.43)
+   When m is of the above form,
+
+                 m + 1 = 69r + 10 + c(69r + 11) + 1 = (c + 1)(69r + 11).         (4.44)
+
+By (4.33),
+
+                   4         1            2(23ℓ + 11) + 1
+                        =         +
+                24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                             1                  2(69r + 11) + 1
+                        =         +
+                          6m + 6 6(6r + 1)(c + 1)(69r + 11)(24m + 1)
+                             1                    1
+                        =         +
+                          6m + 6 3(6r + 1)(c + 1)(24m + 1)
+                                              1
+                          +                                     .                (4.45)
+                            6(6r + 1)(c + 1)(69r + 11)(24m + 1)
+
+                                            23
+   Let ℓ ≡ 1 (mod 3); that is, ℓ = 3r + 1 for some 0 < r ∈ N. Then
+
+                                   23ℓ + 11 = 69r + 34.                            (4.46)
+
+We assume
+                               m + 1 ≡ 0 (mod 69r + 34).                           (4.47)
+Equivalently,
+                             m ≡ 69r + 33 (mod 69r + 34).                          (4.48)
+Thus
+                     m = 69r + 33 + c(69r + 34)      for some c ∈ N.               (4.49)
+   If m be of the above form, then
+
+                  m + 1 = 69r + 33 + c(69r + 34) + 1 = (c + 1)(69r + 34).          (4.50)
+
+By (4.43),
+
+                   4         1            2(23ℓ + 11) + 1
+                        =         +
+                24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                             1                  2(69r + 34) + 1
+                        =         +
+                          6m + 6 18(2r + 1)(c + 1)(69r + 34)(24m + 1)
+                             1                   1
+                        =         +
+                          6m + 6 9(2r + 1)(c + 1)(24m + 1)
+                                              1
+                          +                                      .                 (4.51)
+                            18(2r + 1)(c + 1)(69r + 34)(24m + 1)
+
+
+   Furthermore, we consider
+                      4     1             23
+                        =       +
+                      n   6m + 6 (6m + 6)(24m + 1)
+                            1             (2ℓ + 1) × 23
+                        =       +
+                          6m + 6 (2ℓ + 1) × 6(m + 1)(24m + 1)
+                            1          (46ℓ + 21) + 2
+                        =       +                          ,                       (4.52)
+                          6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+
+where ℓ is a positive integer. Suppose ℓ ≡ 0 (mod 3); that is, ℓ = 3r for some 0 < r ∈ N.
+Then
+                                  46ℓ + 21 = 3(46r + 7).                           (4.53)
+By (2.16), we impose
+                                m + 1 ≡ 0 (mod 46r + 7).                           (4.54)
+Equivalently,
+                               m ≡ 46r + 6 (mod 46r + 7).                          (4.55)
+Thus
+                       m = 46r + 6 + c(46r + 7)     for some c ∈ N.                (4.56)
+
+
+                                            24
+   Assume that m is of the above form. Then
+
+                   m + 1 = 46r + 7 + c(46r + 7) + 1 = (c + 1)(46r + 7).          (4.57)
+
+According to (4.52),
+                   4         1             (46ℓ + 21) + 2
+                        =         +
+                24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                             1                 3(46r + 7) + 2
+                        =         +
+                          6m + 6 6(6r + 1)(c + 1)(46r + 7)(24m + 1)
+                             1                   1
+                        =         +
+                          6m + 6 2(6r + 1)(c + 1)(24m + 1)
+                                             1
+                          +                                    .                 (4.58)
+                            3(6r + 1)(c + 1)(46r + 7)(24m + 1)
+A subtle point is that we have well used the factor “3” in 6m + 6 of the denominator.
+
+   Next we assume ℓ ≡ 1 (mod 3); that is, ℓ = 3r + 1 for some r ∈ N. Then
+
+                                  46ℓ + 21 = 138r + 67.                          (4.59)
+
+So we impose
+                              m + 1 ≡ 0 (mod 138r + 67).                         (4.60)
+Equivalently,
+                            m ≡ 138r + 66 (mod 138r + 67).                       (4.61)
+Thus
+                    m = 138r + 66 + c(138r + 67)      for some c ∈ N.            (4.62)
+   Let m be of the above form. Then
+
+                m + 1 = 138r + 66 + c(138r + 67) + 1 = (c + 1)(138r + 67).       (4.63)
+
+By (4.52),
+                4         1             (46ℓ + 21) + 2
+                     =         +
+             24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                          1                  (138r + 67) + 2
+                     =         +
+                       6m + 6 18(2r + 1)(c + 1)(138r + 67)(24m + 1)
+                          1                    1
+                     =         +
+                       6m + 6 18(2r + 1)(c + 1)(24m + 1)
+                                           1
+                       +                                      .                  (4.64)
+                         9(2r + 1)(c + 1)(138r + 67)(24m + 1)
+When r = 0 and c = 442, the above equation becomes (2.18).
+
+   Let ℓ ≡ 2 (mod 3); that is, ℓ = 3r + 2 for some r ∈ N. Then
+
+                                 46ℓ + 21 = 138r + 113.                          (4.65)
+
+So we impose
+                              m + 1 ≡ 0 (mod 138r + 113).                        (4.66)
+
+                                           25
+Equivalently,
+                           m ≡ 138r + 112 (mod 138r + 113).                        (4.67)
+Hence
+                  m = 138r + 112 + c(138r + 113)         for some c ∈ N.           (4.68)
+   Assume that m is of the above form. Then
+
+            m + 1 = 138r + 112 + c(138r + 113) + 1 = (c + 1)(138r + 113).          (4.69)
+
+Expression (4.52) yields
+
+               4         1             (46ℓ + 21) + 2
+                    =         +
+            24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                         1                  (138r + 113) + 2
+                    =         +
+                      6m + 6 6(6r + 5)(c + 1)(138r + 113)(24m + 1)
+                         1                   1
+                    =         +
+                      6m + 6 6(6r + 5)(c + 1)(24m + 1)
+                                           1
+                      +                                       .                    (4.70)
+                        3(6r + 5)(c + 1)(138r + 113)(24m + 1)
+
+
+   In addition, we consider
+                    4     1             23
+                      =       +
+                    n   6m + 6 (6m + 6)(24m + 1)
+                          1             (2ℓ + 1) × 23
+                      =       +
+                        6m + 6 (2ℓ + 1) × 6(m + 1)(24m + 1)
+                          1          2(23ℓ + 10) + 3
+                      =       +                          ,                         (4.71)
+                        6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+
+where ℓ is a positive integer. According to (1.8) with ℑ′1 = 2(23ℓ + 10) + 3 and ℑ′2 = 3,
+ℓ ̸≡ 1 (mod 3). Suppose ℓ ≡ 0 (mod 3); that is, ℓ = 3r for some 0 < r ∈ N. Then
+
+                                  23ℓ + 10 = 69r + 10.                             (4.72)
+
+So we impose
+                              m + 1 ≡ 0 (mod 69r + 10).                            (4.73)
+Equivalently,
+                              m ≡ 69r + 9 (mod 69r + 10).                          (4.74)
+Thus
+                    m = 69r + 9 + c(69r + 10)       for some c ∈ N.                (4.75)
+   Assume that m is of the above form. Then
+
+                m + 1 = 69r + 9 + c(69r + 10) + 1 = (c + 1)(69r + 10).             (4.76)
+
+
+
+
+                                           26
+According to (4.71),
+
+                   4         1            2(23ℓ + 10) + 3
+                        =         +
+                24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                             1                  2(69r + 10) + 3
+                        =         +
+                          6m + 6 6(6r + 1)(c + 1)(69r + 10)(24m + 1)
+                             1                    1
+                        =         +
+                          6m + 6 3(6r + 1)(c + 1)(24m + 1)
+                                              1
+                          +                                     .                (4.77)
+                            2(6r + 1)(c + 1)(69r + 10)(24m + 1)
+
+A subtle point is that we have well used the factor “3” in 6m + 6 of the denominator.
+
+   Let ℓ ≡ 2 (mod 3); that is, ℓ = 3r + 2 for some 0 < r ∈ N. Then
+
+                                   23ℓ + 10 = 69r + 56.                          (4.78)
+
+So we impose
+                                m + 1 ≡ 0 (mod 69r + 56).                        (4.79)
+Equivalently,
+                              m ≡ 69r + 55 (mod 69r + 56).                       (4.80)
+Thus
+                       m = 69r + 55 + c(69r + 56)   for some c ∈ N.              (4.81)
+   When m is of the above form,
+
+                 m + 1 = 69r + 55 + c(69r + 56) + 1 = (c + 1)(69r + 56).         (4.82)
+
+By (4.71),
+
+                   4         1            2(23ℓ + 10) + 3
+                        =         +
+                24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                             1                  2(69r + 56) + 3
+                        =         +
+                          6m + 6 6(6r + 5)(c + 1)(69r + 56)(24m + 1)
+                             1                    1
+                        =         +
+                          6m + 6 3(6r + 5)(c + 1)(24m + 1)
+                                              1
+                          +                                     .                (4.83)
+                            2(6r + 5)(c + 1)(69r + 56)(24m + 1)
+
+
+   Next we we assume that m = 2m1 + 1 with m1 ∈ N. We consider
+                       4     1             23
+                         =       +
+                       n   6m + 6 (6m + 6)(24m + 1)
+                             1             (2ℓ + 1) × 23
+                         =       +
+                           6m + 6 (2ℓ + 1) × 6(m + 1)(24m + 1)
+                             1           (46ℓ + 19) + 4
+                         =       +                            ,                  (4.84)
+                           6m + 6 12(2ℓ + 1)(m1 + 1)(24m + 1)
+
+                                            27
+where ℓ is a positive integer. First we suppose
+
+                                   (46ℓ + 19)|[3(m1 + 1)].                         (4.85)
+
+Assume ℓ = 3s + 2. Then
+
+                 46ℓ + 19 = 138s + 111 = 3(46s + 37) =⇒ (46s + 37)|(m1 + 1).       (4.86)
+
+So
+                     m1 = t(46s + 37) + 46s + 36 = 36 + 37t + 46s(t + 1).          (4.87)
+In particular,
+                                 m = 73 + 74t + 92s(t + 1).                        (4.88)
+By (4.84),
+
+                   4      1             (46ℓ + 19) + 4
+                     =         +
+                   n   6m + 6 12(2ℓ + 1)(m1 + 1)(24m + 1)
+                          1                  3(46s + 37) + 4
+                     =         +
+                       6m + 6 12(6s + +5)(t + 1)(46s + 37)(24m + 1)
+                          1                   1
+                     =         +
+                       6m + 6 4(6s + +5)(t + 1)(24m + 1)
+                                           1
+                       +                                      .                    (4.89)
+                         3(6s + +5)(t + 1)(46s + 37)(24m + 1)
+
+When m = 71925, n = 24m + 1 = 1726201 is a prime. Taking s = 781 and t = 0, we have
+2ℓ + 1 = 4691 and
+                       1        1         1             1
+                            =       +           +                ,                 (4.90)
+                    1726201   431556 32390435564 873642925641099
+which coincides with (2.23).
+   Assume 3 ̸ |(46ℓ + 19). Then
+
+     (46ℓ + 19)|(m1 + 1) =⇒ m1 = t(46ℓ + 19) + 46ℓ + 18 = 18 + 19t + 46ℓ(t + 1).   (4.91)
+
+In particular,
+                                 m = 37 + 38t + 92ℓ(t + 1)).                       (4.92)
+By (4.84),
+
+                    4      1              (46ℓ + 19) + 4
+                      =         +
+                    n   6m + 6 12(2ℓ + 1)(m1 + 1)(24m + 1)
+                           1                   (46ℓ + 19) + 4
+                      =         +
+                        6m + 6 12(2ℓ + 1)(t + 1)(46ℓ + 19)(24m + 1)
+                           1                    1
+                      =         +
+                        6m + 6 12(2ℓ + 1)(t + 1)(24m + 1)
+                                            1
+                        +                                     .                    (4.93)
+                          3(2ℓ + 1)(t + 1)(46ℓ + 19)(24m + 1)
+
+
+
+
+                                             28
+   Finally we consider
+                       4     1             23
+                         =       +
+                       n   6m + 6 (6m + 6)(24m + 1)
+                             1             (2ℓ + 1) × 23
+                         =       +
+                           6m + 6 (2ℓ + 1) × 6(m + 1)(24m + 1)
+                             1          (46ℓ + 17) + 6
+                         =       +                          ,                  (4.94)
+                           6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+
+where ℓ is a positive integer. According to (1.8) with ℑ′1 = 46ℓ + 17 and ℑ′2 = 3,
+ℓ ̸≡ 1 (mod 3). Suppose ℓ ≡ 0 (mod 3); that is, ℓ = 3r for some 0 < r ∈ N. Then
+
+                                   46ℓ + 17 = 138r + 17.                       (4.95)
+
+By (2.13), we impose
+                               m + 1 ≡ 0 (mod 138r + 17).                      (4.96)
+Equivalently,
+                             m ≡ 138r + 16 (mod 138r + 17).                    (4.97)
+Thus
+                     m = 138r + 16 + c(138r + 17)      for some c ∈ N.         (4.98)
+   Assume that m is of the above form. Then
+
+                 m + 1 = 138r + 16 + c(138r + 17) + 1 = (c + 1)(138r + 17).    (4.99)
+
+According to (4.84),
+
+                   4         1             (46ℓ + 17) + 6
+                        =         +
+                24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                             1                  (138r + 17) + 6
+                        =         +
+                          6m + 6 6(6r + 1)(c + 1)(138r + 17)(24m + 1)
+                             1                   1
+                        =         +
+                          6m + 6 6(6r + 1)(c + 1)(24m + 1)
+                                              1
+                          +                                     .             (4.100)
+                            (6r + 1)(c + 1)(138r + 17)(24m + 1)
+
+
+   Let ℓ ≡ 2 (mod 3); that is, ℓ = 3r + 2 for some 0 < r ∈ N. Then
+
+                                  46ℓ + 17 = 138r + 109.                      (4.101)
+
+By (2.13), we impose
+                               m + 1 ≡ 0 (mod 138r + 109).                    (4.102)
+Equivalently,
+                            m ≡ 138r + 108 (mod 138r + 109).                  (4.103)
+Thus
+                    m = 138r + 108 + c(138r + 109)      for some c ∈ N.       (4.104)
+
+
+                                            29
+   Assume that m is of the above form. Then
+
+         m + 1 = 138r + 108 + c(138r + 109) + 1 = (c + 1)(138r + 109).             (4.105)
+
+By (4.84),
+
+                4         1             (46ℓ + 17) + 6
+                     =         +
+             24m + 1   6m + 6 6(2ℓ + 1)(m + 1)(24m + 1)
+                          1                  (138r + 109) + 6
+                     =         +
+                       6m + 6 6(6r + 5)(c + 1)(138r + 109)(24m + 1)
+                          1                   1
+                     =         +
+                       6m + 6 6(6r + 5)(c + 1)(24m + 1)
+                                           1
+                       +                                      .                    (4.106)
+                         (6r + 5)(c + 1)(138r + 109)(24m + 1)
+
+
+    Theorem 4.2 For any positive integer m of the form (4.37), we have the wild so-
+lution (4.39) of the Erdös-Straus equation. If m is of the form (4.43), we have the wild
+solution (4.45) of the Erdös-Straus equation. When m is of the form (4.49), we have the
+wild solution (4.51) of the Erdös-Straus equation. Suppose that m is of the form (4.56),
+and then we have the wild solution (4.58) of the Erdös-Straus equation. Let m be of the
+form (4.62), and then we have the wild solution (4.64) of the Erdös-Straus equation.
+    For any positive integer m of the form (4.88), we have the wild solution (4.89) of
+the Erdös-Straus equation. For any positive integer m of the form (4.92), we have the
+wild solution (4.93) of the Erdös-Straus equation. For any positive integer m of the form
+(4.68), we have the wild solution (4.70) of the Erdös-Straus equation. If m is of the form
+(4.75), we have the wild solution (4.77) of the Erdös-Straus equation. When m is of the
+form (4.81), we have the wild solution (4.83) of the Erdös-Straus equation. Suppose that
+m is of the form (4.98), and then we have the wild solution (4.100) of the Erdös-Straus
+equation. Let m be of the form (4.104), and then we have the wild solution (4.1066) of
+the Erdös-Straus equation.
+
+
+
+References
+ [1] K. Bradford, A note on the Erdös-Straus conjecture, Integers 21 (2021), Paper No.
+     A24, 10pp.
+
+ [2] M. Bright and D. Loughran, Brauer-Manin obstruction for Erdös-Straus surfaces,
+     Bull. Lond. Math. Soc. 52 (2020), no. 4, 746–761.
+ [3] C. Elscholtz and T. Tao, Counting the number of solutions to the equations on unit
+     fractions, J. Aust. Math. Soc. 94 (2013), 50–105.
+ [4] T. R. Hagedon, A proof of a conjecture on Egyptian fractions, Amer. Math. Monthly
+     107 (2000), no. 1, 62–63.
+ [5] B. Howerton, The wild primes formula sheet, personal communication, 12 June 2026.
+
+
+                                            30
+ [6] J. Huang and R. Vaughan, Mean value theorems for binary Egyptian fractions, J.
+     Number Theory 121 (2011), no. 9, 1641–1656.
+ [7] J. Huang and R. Vaughan, Mean value theorems for binary Egyptian fractions II,
+     Acta Arith. 115 (2012), no. 3, 287–296.
+ [8] J. Huang and R. Vaughan, On the exceptional set for binary Egyptian fractions,
+     Bull. Lond. Math. Soc. 45 (2013), no. 4. 861–874.
+ [9] C. Jia, The estimate for mean values on prime numbers relative to 4/n = 1/n1 +
+     1/n2 + 1/n3 , Sci. China: Math. 55 (3), (2012), 465–474.
+[10] C. Jia, Mean value from representation of a rational number as sum of two Egyptina
+     fractions, J. Number Theory 132 (2012), no. 4, 701–713.
+[11] E. J. Ionascu and A. Wilson, On the Erdös-Straus conjecture, Rev. Roumaine Math.
+     Pures Appl. 56 (2011), no. 1, 21–30.
+[12] I. Kotsireas, The Erdös-Straus conjecture on Egyptian fractions, Paul Erdös and his
+     mathematics (Budapest, 1999), 140–144, János Nolgai Math. Soc. Budapest, 1999.
+[13] D. Li, On the equation 4/n = 1/x + 1/y + 1/z, J. Number Theory 13 (1981), no. 4,
+     485–494.
+[14] S. Maiti, A study on Erdös-Straus conjecture on Diophantime equation n4 = x1 + y1 + z1 ,
+     arXiv: 2010.00975v1 [math.GM] 30 Dec 2020.
+[15] L. J. Mordell, Diophantime Equations, Academic Press, London/New York, 1969.
+[16] S. Prugsapitak, The Egyptian fraction of the form a1 + 1b = q−1
+                                                                  pq
+                                                                     , Int. J. Math. Comput.
+     Sci. 18 (2023), no. 4, 595–597.
+
+[17] L. Antonio Rosati, Sull’equazione diofantea 4/n = 1/x1 + 1/x2 + 1/x3 , Boll. Uni.
+     Mat. Ital. (3) 9 (1954), 59–63.
+
+[18] J. W. Sander, On 4/n = 1/x + 1/y + 1/z and Rosser’s sieve, Acta Arith. 59 (1991),
+     no. 2, 183–204.
+
+[19] J. W. Sander, On 4/n = 1/x + 1/y + 1/z and Iwanniec’s half-dimensional sieve, J.
+     Number Theory 46 (1994), no. 2, 123–136.
+
+[20] J. W. Sander, Egyptian fractions and the Erdös-Straus conjecture, Nieuw Arch. Wisk
+     (4) 15 (1997), no. 1-2, 43–50.
+
+[21] J. D. Serna, Partial proof without words: shapping some cases of the Erdös-Straus
+     conjecture, College. Math. J. 40 (2015), no. 3, 181.
+
+[22] S. Subburam and A. Togb’e, A note on Erdös-Straus conjecture, Period Math. Hun-
+     gar. 72 (2016), no. 1, 43–49.
+
+[23] D. G. Terzi, On a conjecture by Erdös and Straus, Nordisk Tidsk. Informationsbe-
+     hindling (BIT) 11 (1971), 212–216.
+
+
+
+                                             31
+[24] R. C. Vaughan, On a problem of Erdös, Straus and Schinzel, Mathematika 17 (1970),
+     193–198.
+[25] W. A. webb, On 4/n = 1/x + 1/y + 1/z, Proc. Amer. Math. Soc. 25 (1970), 578–584.
+
+[26] X. Xu, Congruence classes of supporting the Erdös-Straus conjecture I: tame solu-
+     tions, arXiv: 2605.2360[v2] [math.NT] 19 Sep 2026
+
+
+   E-Mail: xiaoping@math.ac.cn
+
+
+
+
+                                          32
+

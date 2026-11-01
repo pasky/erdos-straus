@@ -1,0 +1,649 @@
+## Content from https://arxiv.org/html/1607.06625v1
+
+Title: A higher-dimensional Siegel-Walfisz theorem
+
+URL Source: https://arxiv.org/html/1607.06625v1
+
+Markdown Content:
+Pierre-Yves Bienvenu Address:School of Mathematics, University of Bristol, Bristol BS8 1TW, United Kingdom Email address: [pb14917@bristol.ac.uk](mailto:pb14917@bristol.ac.uk)
+
+Date: August 24, 2026
+
+###### Abstract.
+
+The Green-Tao-Ziegler theorem provides asymptotics for the number of prime tuples of the form (\psi_{1}(n),\ldots,\psi_{t}(n)) when n ranges among the integer vectors of a convex body K\subset[-N,N]^{d} and \Psi=(\psi_{1},\ldots,\psi_{t}) is a system of affine-linear forms whose linear coefficients remain bounded (in terms of N). In the t=1 case, the Siegel-Walfisz theorem shows that the asymptotic still holds when the coefficients vary like a power of \log N. We prove a higher-dimensional (i.e. t>1) version of this fact.
+
+We provide natural examples where our theorem goes beyond the one of Green and Tao, such as the count of arithmetic of progressions of step \lfloor\log N\rfloor times a prime in the primes up to N. We also apply our theorem to the determination of asymptotics for the number of linear patterns in a dense subset of the primes, namely the primes p for which p-1 is squarefree. To the best of our knowledge, this is the first such result in dense subsets of primes save for congruence classes.
+
+## 1. Introduction
+
+The prime number theorem in arithmetic progressions says that
+
+\sum_{n\leq N}\Lambda(qn+b)=1_{(q,b)=1}\frac{q}{\varphi(q)}N+o(N),(1.1)
+
+where \Lambda is the von Mangoldt function and \varphi the Euler totient function, while b and q are two fixed integers. The Siegel-Walfisz theorem affirms that the asymptotic ([1.1](https://arxiv.org/html/1607.06625v1#S1.E1 "In 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem")) holds uniformly in b and q in the regime where q=q(N) is a function of N satisfying q=\log^{O(1)}N and b varies as N\log^{O(1)}N.
+
+Using the notation
+
+\Lambda_{q}(n)=\frac{q}{\varphi(q)}1_{(n,q)=1}
+
+for n\in\mathbb{Z} or n\in\mathbb{Z}/q\mathbb{Z} and multiplicativity, we can rewrite equation ([1.1](https://arxiv.org/html/1607.06625v1#S1.E1 "In 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem")) as
+
+\sum_{n\leq N}\Lambda(qn+b)=N(\prod_{p\mid q}\Lambda_{p}(b)+o(1)).(1.2)
+
+A theorem of Green and Tao [[5](https://arxiv.org/html/1607.06625v1#bib.bib5)], which we now state and which relies on two conjectures later resolved by Green, Tao and Ziegler [[6](https://arxiv.org/html/1607.06625v1#bib.bib6), [7](https://arxiv.org/html/1607.06625v1#bib.bib7)], may be seen as a higher-dimensional analogue of ([1.2](https://arxiv.org/html/1607.06625v1#S1.E2 "In 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem")).
+
+###### Theorem 1.1.
+
+Let L be a constant and \Psi=(\psi_{1},\ldots,\psi_{t}):\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} be a system of affine-linear forms of which no two are affinely related. Suppose that the coefficients of the linear part \dot{\Psi} are bounded by L, while the constant coefficients \psi_{i}(0) satisfy \left\lvert\psi_{i}(0)\right\rvert\leq LN. Let K\subset[-N,N]^{d} be a convex body. Then
+
+\sum_{n\in\mathbb{Z}^{d}\cap K}\prod_{i=1}^{t}\Lambda(\psi_{i}(n))=\beta_{\infty}\prod_{p}\beta_{p}+o_{d,t,L}(N^{d}),
+
+where
+
+\beta_{\infty}=\mathrm{Vol}(K\cap\Psi^{-1}(\mathbb{R}_{+}^{t}))
+
+and
+
+\beta_{p}=\E_{a\in(\mathbb{Z}/p\mathbb{Z})^{d}}\prod_{i=1}^{t}\Lambda_{p}(\psi_{i}(a)).
+
+Above we have used the notation
+
+\E_{a\in A}f(a)=\frac{1}{\left\lvert A\right\rvert}\sum_{a\in A}f(a)
+
+to denote the averaging operator. We also agree that the letter p is reserved for primes, thus \prod_{p} implicitly means \prod_{p\in\mathcal{P}}. The factors \beta_{p} are known as _local factors_.
+
+An interesting extension was obtained by the same authors, together with Ford and Konyagin [[2](https://arxiv.org/html/1607.06625v1#bib.bib2)]. They showed that Theorem [1.1](https://arxiv.org/html/1607.06625v1#S1.Thmtrm1 "Theorem 1.1. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") was still valid when the constant coefficients satisfied the less restrictive condition \left\lvert\psi_{i}(0)\right\rvert\leq N\log^{C}N. This relaxed condition recently allowed Tao and Ziegler [[11](https://arxiv.org/html/1607.06625v1#bib.bib11), Theorem 1.3] to obtain an improvement of the error term o(N^{d}) to o(\mathrm{Vol}(K)) in the case where K=[N]\times[M]^{d-1} with M\gg N\log^{-O(1)}N and \psi_{i}(n)=n_{1}+P_{i}(n_{2},\ldots,n_{d}) for some affine-linear forms P_{1},\ldots,P_{t} whose linear coefficients are bounded.
+
+Here we prove a further extension, allowing unbounded linear coefficients. The impetus for the work came from a discussion on Tao’s blog [[9](https://arxiv.org/html/1607.06625v1#bib.bib9)]. Before stating our theorem, we collect several definitions pertaining to systems of affine-linear forms.
+
+###### Definition 1.1.
+
+A system \Psi=(\psi_{1},\ldots,\psi_{t}):\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} with d,t\geq 2 of affine-linear forms has _finite complexity_ if no form is in the affine-linear span of another one. It is called _admissible_ if it is of finite complexity and if \beta_{p}\neq 0 for all p. In particular, if \Psi is admissible, no prime p divides all coefficients of any form \psi_{i}. A system \Psi^{\prime}=(\psi_{i_{1}},\ldots,\psi_{i_{s}}) for some sequence 1\leq i_{1}<\ldots<i_{s}\leq t is called a _subsystem_ of \Psi.
+
+The system \Psi is called _bounded_ when all its linear coefficients are bounded (in terms of the asymptotic parameter N) and unbounded otherwise. Its _size at scale (N,B)_ is defined as
+
+\left\lVert\Psi\right\rVert_{N,B}=\frac{1}{\log^{B}N}\left(\sum_{i\in[t]}\left\lvert\frac{\psi_{i}(0)}{N}\right\rvert+\sum_{i\in[t],j\in[d]}\left\lvert\dot{\psi}_{i}(e_{j})\right\rvert\right)
+
+where (e_{1},\ldots,e_{d}) is the canonical basis of the lattice \mathbb{Z}^{d} and \dot{\psi}_{i} denotes the linear part of \psi_{i}.
+
+Furthermore, a prime p is called _exceptional_ for \Psi (and we write p\in P_{\Psi}) if there exist i\neq j such that \psi_{i} and \psi_{j} are affinely related modulo p. In particular, if a form \psi_{i} is a nonzero constant modulo p, then p is exceptional.
+
+We highlight that our definition of exceptional prime is different (less restrictive) than that of Green and Tao [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Theorem D.3] and that the size of a system differs from their definition by the initial factor \log^{B}N.
+
+We now check that \prod_{p}\beta_{p} is still convergent in the setting where the coefficients are unbounded. Thus the next lemma plays the role of [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Lemma 1.3].
+
+###### Lemma 1.2.
+
+Let \Psi be a system of affine-linear forms. Then if p is not exceptional,
+
+\beta_{p}=1+O_{d,t}(p^{-2}).
+
+In particular, if \Psi is admissible, the product \prod_{p}\beta_{p} is convergent and nonzero.
+
+###### Proof.
+
+If two forms \psi_{i} and \psi_{j} are not affinely related modulo p, then the probability as a ranges over (\mathbb{Z}/p\mathbb{Z})^{d} that they vanish simultaneously at a is p^{-2}, by elementary linear algebra (see for instance [[1](https://arxiv.org/html/1607.06625v1#bib.bib1), Proposition C.5]). Inclusion-exclusion then yields \beta_{p}=1+O(p^{-2}) for p unexceptional.
+
+Now, if \Psi is admissible, only finitely many primes are exceptional. Indeed, if \psi_{i} and \psi_{j} are affinely related modulo p then all the 2\times 2 minors of the matrix (\dot{\psi}_{k}(e_{\ell}))_{k\in\{i,j\},\ell\in[d]} are divisible by p although at least one these minors has to be nonzero because they are not affinely related as forms over \mathbb{Z}. Moreover, the hypothesis of admissibility implies that \beta_{p}\neq 0 for every prime p, so that the product is convergent and nonzero. ∎
+
+We now state our main theorem.
+
+###### Theorem 1.3.
+
+Let d,t be positive integers and A,B,L be positive constants. Assume \Psi=(\psi_{1},\ldots,\psi_{t}):\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} is an admissible system. Suppose that \left\lVert\Psi\right\rVert_{N,B}\leq L and that K\subset[-N,N]^{d} is a convex body satisfying \mathrm{Vol}(K)\gg N^{d}\log^{-A}N and \Psi(K)\subset\mathbb{R}_{+}^{t}. Then
+
+\sum_{n\in\mathbb{Z}^{d}\cap K}\prod_{i=1}^{t}\Lambda(\psi_{i}(n))=\mathrm{Vol}(K)\prod_{p}\beta_{p}(1+o_{d,t,A,B,L}(1)).(1.3)
+
+Unlike Theorem [1.1](https://arxiv.org/html/1607.06625v1#S1.Thmtrm1 "Theorem 1.1. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"), this theorem is still meaningful when the convex body K\subset[-N,N]^{d} satisfies \mathrm{Vol}(K)=o(N^{d}) and applies even when the linear coefficients are of size polylogarithmic in N.
+
+In some special cases, Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") follows easily from the work of Green and Tao. In fact, Theorem [1.1](https://arxiv.org/html/1607.06625v1#S1.Thmtrm1 "Theorem 1.1. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") is a consequence of an asymptotic for the unbounded system W\Psi+b where \Psi is a bounded system, W=\prod_{p\leq w}p=\log^{1+o(1)}N and b=(b_{1},\ldots,b_{t})\in[W]^{t} is a t-tuple of integers coprime to W. More generally, an unbounded system q\Psi+b with q=\log^{O(1)}N and \Psi bounded is tractable, via an asymptotic for the system \widetilde{W}\Psi+c where \widetilde{W}=Wq.1 1 1 This remark was already exploited by the author in a previous paper [[1](https://arxiv.org/html/1607.06625v1#bib.bib1), Section 2.3]. By decomposing into residue classes, this extends to systems \Psi such that for each j, the coefficients \dot{\psi}_{i}(e_{j}) are bounded multiples of a common coefficient q_{j}. We show an example, corresponding to the count of k-term progressions of primes whose common difference is a multiple of q. We have
+
+\sum_{\begin{subarray}{c}1\leq n,d\\
+n+(k-1)qd\leq N\end{subarray}}\prod_{i=0}^{k-1}\Lambda(n+iqd)=\sum_{a\in[q]}\sum_{\begin{subarray}{c}1\leq n,d\\
+n+(k-1)d\leq\frac{N-a}{q}\end{subarray}}\prod_{i=0}^{k-1}\Lambda(q(n+id)+a)
+
+and are thus left with a system of the form q\Psi+b with \Psi bounded.
+
+We now provide less immediate examples where Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") applies.
+
+###### Example 1.1.
+
+What is the proportion of arithmetic progressions n+d\mathbb{N} whose q_{1}th,\ldots,q_{k}th terms are all primes? Assume that q_{i}=\lfloor\log^{i}N\rfloor. The answer is given by
+
+\sum_{1\leq n,d\leq N}\prod_{i=1}^{k}\Lambda(n+q_{i}d).
+
+For this system, the factors \beta_{p} can be easily expressed, using the notation h(p) for the number of classes modulo p occupied by q_{1},\ldots,q_{k}, as
+
+\beta_{p}=\left(\frac{p}{p-1}\right)^{k}\frac{(p-1)(1+p-h(p))}{p^{2}}.
+
+###### Example 1.2.
+
+We can also count k-terms arithmetic progressions of primes up to N whose common difference is q=\lfloor\log N\rfloor times a prime. This time the sum to consider is
+
+\sum_{1\leq n\leq n+(k-1)qd\leq N}\Lambda(d)\prod_{i=0}^{k-1}\Lambda(n+iqd).
+
+To simplify the expression of the local factors, assume \prod_{p\leq k}p\mid q. Then
+
+\beta_{p}=\left(\frac{p}{p-1}\right)^{k+1}\frac{1}{p^{2}}\left\{\begin{array}[]{cc}(p-1)^{2}&\text{ if }p\mid q\\
+(p-1)(p-k)&\text{ if }p\nmid q.\end{array}\right.
+
+###### Example 1.3.
+
+We provide the asymptotic count of solutions to linear equations in the shifted squarefree primes, that is, primes p for which p-1 is squarefree. As it is not a direct application, we give the details in the final section.
+
+In view of the Siegel-Walfisz theorem ([1.2](https://arxiv.org/html/1607.06625v1#S1.E2 "In 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem")), one may hope to write
+
+\sum_{n\in\mathbb{Z}^{d}\cap K}\prod_{i=1}^{t}\Lambda(\psi_{i}(n))=\mathrm{Vol}(K)\left(\prod_{p}\beta_{p}+o_{d,t,A,B,L}(1)\right)
+
+instead of ([1.3](https://arxiv.org/html/1607.06625v1#S1.E3 "In Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem")), but unfortunately our method does not yield this. Such an estimate is genuinely stronger given that \prod_{p}\beta_{p} might well tend to infinity with N (and possibly the linear coefficients as well). This weaker bound is ultimately due to the ineffectiveness of the Gowers norm estimate [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Theorem 7.2].
+
+To prove Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"), we first get rid of the convex body by decomposing into reasonably small boxes, so that the theorem simply needs to be proven on boxes. In this context, the variables all have the same range and are independent of each other, which makes it possible, after the introduction of the W-trick, to prove a suitable von Neumann theorem.2 2 2 The paper of Green and Tao also proceeds via a destruction of the convex body K in Appendix C, but their method ceases to bear fruit as soon as \mathrm{Vol}(K)=o((\diam K)^{d}). The latter eliminates all but one form, say \psi_{1}, thanks to a pseudorandom majorant. The next step is to equalize all coefficients of the chosen form \psi_{1}, by decomposing the ranges of averaging into congruence classes. We are then left requiring a Gowers norm estimate which was proven by Green and Tao, conditionally on two conjectures later fully resolved by Green, Tao and Ziegler [[6](https://arxiv.org/html/1607.06625v1#bib.bib6), [7](https://arxiv.org/html/1607.06625v1#bib.bib7)].
+
+We assume a certain amount of familiarity with the original arguments of Green and Tao [[5](https://arxiv.org/html/1607.06625v1#bib.bib5)]. Wherever only minor changes are needed to accommodate the unbounded coefficients, we will simply describe what must be changed in the existing arguments.
+
+Asymptotic notation. The main asymptotic parameter throughout the paper is N, and all the standard asymptotic notation o,O,\ll refers to the limit as N\rightarrow\infty. There is an exception: whenever we discuss local factors, the limit is when p\rightarrow\infty, see for instance Lemma [1.2](https://arxiv.org/html/1607.06625v1#S1.Thmtrm2 "Lemma 1.2. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"). Several statements require, sometimes implicitly, that N be large enough, which we always assume. Many other asymptotic parameters are defined in terms of N, such as M,X,Z,Y so that the limit as N\rightarrow\infty is the same as, say, the limit as M\rightarrow\infty. Indices may be added to symbols such as O, in which case they indicate upon which parameters the implied constant depends.
+
+## 2. First reductions
+
+As in [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Theorem 4.1], we show that we can assume that the affine forms not only satisfy \psi_{i}(n)\geq 0 but actually \psi_{i}(n)\geq N^{9/10}. We remark that the set
+
+\{n\in K\cap\mathbb{Z}^{d}:\exists i\in[t]\quad\psi_{i}(n)\leq N^{9/10}\}
+
+contains only O(N^{d-1/10})=o(\mathrm{Vol}(K)N^{-1/20}) elements, so that we can replace K by the convex body K\cap\bigcap_{i=1}^{t}\psi_{i}^{-1}([N^{9/10},+\infty)) in Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"). Moreover, prime powers are so sparse that we can restrict \Lambda to primes, replacing \Lambda by \Lambda^{\prime}=1_{\mathcal{P}}\log. This leads to the first reduction.
+
+###### Proposition 2.1.
+
+Let \Psi=(\psi_{1},\ldots,\psi_{t}):\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} be an admissible system. Suppose that \left\lVert\Psi\right\rVert_{N,B}\leq L and that K\subset[-N,N]^{d} is a convex body satisfying \mathrm{Vol}(K)\gg N^{d}\log^{-A}N and \Psi(K)\subset([N^{9/10},+\infty))^{t}. Then
+
+\sum_{n\in\mathbb{Z}^{d}\cap K}\prod_{i=1}^{t}\Lambda^{\prime}(\psi_{i}(n))=\beta_{\infty}\prod_{p}\beta_{p}\left(1+o_{d,t,A,B,L}(1)\right).
+
+We perform one more elementary reduction, namely we reduce to normal form; for the definition of this notion, we refer to [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Definition 4.2]. The existence of a normal form extension \Psi^{\prime} for a system \Psi follows from [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Lemma 4.4]. We inspect its proof to check that \left\lVert\Psi\right\rVert_{N,B}\leq L implies \left\lVert\Psi^{\prime}\right\rVert_{N,B}\leq L^{\prime} for some constant L^{\prime} depending only on L,B,d,t. With respect to the paper [[5](https://arxiv.org/html/1607.06625v1#bib.bib5)], the change is that the vector f_{d+1},\ldots,f_{d^{\prime}} introduced there will now be of size O_{L}(\log^{C}N) for some constant C=O_{B,d,t}(1). This is because these vectors are obtained by Cramer’s formula, i.e. by computing determinants of matrices of bounded dimensions whose coefficients are O_{L}(\log^{B}N). We claim this procedure reduces Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") to the following proposition, corresponding to [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Theorem 4.5].
+
+###### Proposition 2.2.
+
+Let d,t be positive integers and A,B,L be positive constants. Let \Psi=(\psi_{1},\ldots,\psi_{t}):\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} be an admissible system in normal form. Suppose that \left\lVert\Psi\right\rVert_{N,B}\leq L and that K\subset[-N,N]^{d} is a convex body satisfying \mathrm{Vol}(K)\gg N^{d}\log^{-A}N and \Psi(K)\subset([N^{9/10},+\infty))^{t}. Then
+
+\sum_{n\in\mathbb{Z}^{d}\cap K}\prod_{i=1}^{t}\Lambda(\psi_{i}(n))=\beta_{\infty}\prod_{p}\beta_{p}\left(1+o_{d,t,A,B,L}(1)\right).
+
+We now check that the arguments following [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Theorem 4.5] yield the deduction of Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") from Theorem [2.2](https://arxiv.org/html/1607.06625v1#S2.Thmtrm2 "Proposition 2.2. ‣ 2. First reductions ‣ A higher-dimensional Siegel-Walfisz theorem"). Let \Psi be an admissible system and K a convex body satisfying the hypotheses of Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"). Let f_{d+1},\ldots,f_{d^{\prime}} be the vectors and \Psi^{\prime} the system in normal form produced by the procedure given above. Suppose all f_{i} satisfy f_{i}=O(\log^{C}N). Letting M=N\log^{-C}N, we define an auxiliary convex body K^{\prime} by
+
+K^{\prime}=\{(n,m_{d+1},\ldots,m_{d^{\prime}})\in\mathbb{R}^{d}\times[-M,M]^{d^{\prime}-d}\mid n+\sum_{i=d+1}^{d^{\prime}}m_{i}f_{i}\in K\}
+
+which is included in [-N^{\prime},N^{\prime}]^{d^{\prime}} where N^{\prime}=O(N). Moreover, we still have
+
+\mathrm{Vol}(K^{\prime})=\mathrm{Vol}(K)(2M)^{d^{\prime}-d}\gg N^{\prime d}\log^{-D}N^{\prime}
+
+for some constant D. Finally, the local factors are left unchanged by this operation. Thus if the system \Psi is admissible, so is \Psi^{\prime}, so that Proposition [2.2](https://arxiv.org/html/1607.06625v1#S2.Thmtrm2 "Proposition 2.2. ‣ 2. First reductions ‣ A higher-dimensional Siegel-Walfisz theorem") can be applied to it, which concludes the proof of the reduction.
+
+## 3. Reduction to the case of a box
+
+We show that the main theorem follows from the following very particular case.
+
+###### Proposition 3.1.
+
+Let d,t be positive integers and A,B,L be positive constants. Let \Psi=(\psi_{1},\ldots,\psi_{t}):\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} be an admissible system in normal form. Suppose that \left\lVert\Psi\right\rVert_{M,B}\leq L and that \Psi([M]^{d})\subset([M^{9/10},+\infty))^{t}. Then
+
+\sum_{n\in[M]^{d}}\prod_{i=1}^{t}\Lambda(\psi_{i}(n))=M^{d}\prod_{p}\beta_{p}\left(1+o_{d,t,A,B,L}(1)\right).
+
+###### Proof that Proposition [3.1](https://arxiv.org/html/1607.06625v1#S3.Thmtrm1 "Proposition 3.1. ‣ 3. Reduction to the case of a box ‣ A higher-dimensional Siegel-Walfisz theorem") implies Proposition [2.2](https://arxiv.org/html/1607.06625v1#S2.Thmtrm2 "Proposition 2.2. ‣ 2. First reductions ‣ A higher-dimensional Siegel-Walfisz theorem").
+
+Let K\subset[-N,N]^{d} be a convex body satisfying \mathrm{Vol}(K)\gg N^{d}\log^{-A}N. Let
+
+K^{\prime}=\{x\in K\mid d(x,\partial K)\geq N\log^{-A-1}N\}
+
+and
+
+K^{\prime\prime}=\{x\in\mathbb{R}^{d}\mid d(x,K)\leq N\log^{-A-1}N\}.
+
+These are two convex bodies. The arguments from elementary convex geometry displayed in [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Appendix A] allow one to infer that
+
+\mathrm{Vol}(K^{\prime})=\mathrm{Vol}(K)+O(N^{d}\log^{-A-1}N)=\mathrm{Vol}(K)(1+o(1))
+
+and the same for K^{\prime\prime}. Now let M=N\log^{-A-1}N/\sqrt{d} and consider the grid (M\mathbb{Z})^{d}. Let \mathcal{B}=\{c+[M]^{d}\mid c\in J\} be the collection of boxes defined by this grid that are included in K and \mathcal{B^{\prime}}=\{c+[M]^{d}\mid c\in J^{\prime}\} be the collection of boxes defined by this grid that meet K. Note that
+
+K^{\prime}\subset\bigcup_{B\in\mathcal{B}}B\subset K\subset\bigcup_{B\in\mathcal{B^{\prime}}}B\subset K^{\prime\prime}.(3.1)
+
+The first inclusion is because if a box B from the grid meets K^{\prime}, then it is included in K.
+
+Now let \Psi=(\psi_{1},\ldots,\psi_{t}):\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} be a system of affine-linear forms of finite complexity. Suppose that \left\lVert\Psi\right\rVert_{M,B}\leq L and that \Psi([M]^{d})\subset([M^{9/10},+\infty))^{t}. Then
+
+\sum_{B\in\mathcal{B}}\sum_{n\in B\cap\mathbb{Z}^{d}}\prod_{i\in[t]}\Lambda(\psi_{i}(n))\leq\sum_{n\in K\cap\mathbb{Z}^{d}}\prod_{i\in[t]}\Lambda(\psi_{i}(n))\leq\sum_{B\in\mathcal{B^{\prime}}}\sum_{n\in B\cap\mathbb{Z}^{d}}\prod_{i\in[t]}\Lambda(\psi_{i}(n))
+
+Now if B=c+[M]^{d} with c\in\mathbb{Z}^{d}, letting \Psi_{c}=\Psi+\dot{\Psi}(c), we can write
+
+\sum_{n\in B\cap\mathbb{Z}^{d}}\prod_{i\in[t]}\Lambda(\psi_{i}(n))=\sum_{n\in[M]^{d}}\prod_{i\in[t]}\Lambda(\psi_{c,i}(n)).
+
+We check that the system \Psi_{c} satisfies \left\lVert\Psi_{c}\right\rVert_{M,C}=O(1) for some constant C. Indeed, the linear coefficients are unchanged, so still of size O(\log^{B}N)=O(\log^{B}M), and the constant coefficients are of size O(N\log^{B}N)=O(M\log^{A+B+1}M). Thus C=A+B+1 is good enough. Moreover \Psi_{c}([M]^{d})\subset([N^{9/10},+\infty))^{t}. Thus we can apply Proposition [3.1](https://arxiv.org/html/1607.06625v1#S3.Thmtrm1 "Proposition 3.1. ‣ 3. Reduction to the case of a box ‣ A higher-dimensional Siegel-Walfisz theorem"). We note that the \beta_{p} it produces for a box B=c+[M]^{d} is in fact independent of c, because the translation invariance of \mathbb{Z}/p\mathbb{Z} allows one to write
+
+\E_{a\in(\mathbb{Z}/p\mathbb{Z})^{d}}\prod_{i\in[t]}\Lambda_{p}(\psi_{i}(a)+\dot{\psi_{i}}(c))=\E_{a\in(\mathbb{Z}/p\mathbb{Z})^{d}}\prod_{i\in[t]}\Lambda_{p}(\psi_{i}(a+c))=\E_{a\in(\mathbb{Z}/p\mathbb{Z})^{d}}\prod_{i\in[t]}\Lambda_{p}(\psi_{i}(a)).
+
+Finally,
+
+\left\lvert\mathcal{B}\right\rvert M^{d}\prod_{p}\beta_{p}(1+o(1))\leq\sum_{n\in K\cap\mathbb{Z}^{d}}\prod_{i\in[t]}\Lambda(\psi_{i}(n))\leq\left\lvert\mathcal{B^{\prime}}\right\rvert M^{d}\prod_{p}\beta_{p}(1+o(1))
+
+Because of the inclusions ([3.1](https://arxiv.org/html/1607.06625v1#S3.E1 "In Proof that Proposition implies Proposition . ‣ 3. Reduction to the case of a box ‣ A higher-dimensional Siegel-Walfisz theorem")), we see that
+
+\mathrm{Vol}(K)(1+o(1))=\mathrm{Vol}(K^{\prime})\leq\left\lvert\mathcal{B}\right\rvert M^{d}\leq\left\lvert\mathcal{B^{\prime}}\right\rvert M^{d}\leq\mathrm{Vol}(K^{\prime\prime})=\mathrm{Vol}(K)(1+o(1)).
+
+This completes the proof of Proposition [2.2](https://arxiv.org/html/1607.06625v1#S2.Thmtrm2 "Proposition 2.2. ‣ 2. First reductions ‣ A higher-dimensional Siegel-Walfisz theorem").
+
+∎
+
+## 4. The W-trick
+
+We perform the W-trick in the same spirit as [[5](https://arxiv.org/html/1607.06625v1#bib.bib5)], so as to eliminate biases modulo small primes. We introduce
+
+w=w(N)=\log\log N
+
+and
+
+W=\prod_{p\leq w}p=\log^{1+o(1)}N.
+
+However, a simple one-dimensional example shows that one has to adapt it to our situation where coefficients are unbounded. Indeed, consider the system made of one form in one variable, namely n\mapsto qn+b with q of size roughly \log N. The W-trick consists in writing
+
+\sum_{n\leq N}\Lambda(qn+b)=\sum_{a\in[W],(qa+b,W)=1}\frac{W}{\varphi(W)}\sum_{n\leq N/W}\frac{\varphi(W)}{W}\Lambda(Wqn+qa+b).
+
+But imposing that (qa+b,W)=1 does not ensure that the inner sum is N/W(1+o(1)), because qa+b could well have a common factor greater than w with q: when the coefficients are bounded, their factors are all less than w for large enough N but this is not the case any more in our setting. Moreover the relevant average is not W/\varphi(W) but Wq/\varphi(Wq) which may be different if q has prime factors larger than w.3 3 3 Nevertheless, it is easy to check using Mertens’ theorem that if w=\log\log N and q\leq\log^{B}N that Wq/\varphi(Wq)=(1+o_{B}(1))W/\varphi(W). This suggests that the coefficients of the system have to be taken into account to determine a suitable parameter \widetilde{W} instead of W.
+
+We fix once and for all an admissible system \Psi_{1}=(\psi_{1},\ldots,\psi_{t}):\mathbb{Z}^{d_{1}}\rightarrow\mathbb{Z}^{t_{1}} in normal form satisfying \left\lVert\Psi_{1}\right\rVert_{M,B}\leq L for some constants B,L>0. Let
+
+Q=\prod_{\begin{subarray}{c}i\in[t_{1}],j\in[d_{1}]\\
+\dot{\psi}_{i}(e_{j})\neq 0\end{subarray}}\dot{\psi}_{i}(e_{j})\times\prod_{\begin{subarray}{c}1\leq i<k\leq t_{1}\\
+1\leq j<\ell\leq d_{1}\\
+\dot{\psi}_{i}(e_{j})\dot{\psi}_{k}(e_{\ell})-\dot{\psi}_{i}(e_{\ell})\dot{\psi}_{k}(e_{j})\neq 0\end{subarray}}(\dot{\psi}_{i}(e_{j})\dot{\psi}_{k}(e_{\ell})-\dot{\psi}_{i}(e_{\ell})\dot{\psi}_{k}(e_{j}))(4.1)
+
+be the product of the nonzero minors of size 1 and 2 in the matrix (\dot{\psi}_{i}(e_{j}))_{i,j}; thus Q=O_{L}(\log^{O_{d,t,B}(1)}N). Moreover, if a prime p is exceptional for \Psi_{1}, it must divide Q (see the proof of Lemma [1.2](https://arxiv.org/html/1607.06625v1#S1.Thmtrm2 "Lemma 1.2. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem")).
+
+We now introduce \widetilde{W}=WQ=O(\log^{O(1)}N). The hypothesis that \psi_{i}(n)>N^{9/10} means that if \psi_{i}(n) is to be a prime number, it has to be coprime to \widetilde{W}. Writing
+
+\Lambda^{\prime}_{\widetilde{W},b}(n)=\frac{\varphi(\widetilde{W})}{\widetilde{W}}\Lambda^{\prime}(\widetilde{W}n+b)
+
+we get
+
+\sum_{n\in[M]^{d_{1}}}\prod_{i=1}^{t_{1}}\Lambda^{\prime}(\psi_{i}(n))=\sum_{\begin{subarray}{c}a\in[\tilde{W}]^{d_{1}}\\
+\forall i\in[t_{1}],(\psi_{i}(a),\widetilde{W})=1\end{subarray}}\left(\frac{\widetilde{W}}{\varphi(\widetilde{W})}\right)^{t_{1}}\sum_{n\in[M/\widetilde{W}]^{d_{1}}}\prod_{i=1}^{t_{1}}\Lambda^{\prime}_{\widetilde{W},b_{i}(a)}(\tilde{\psi}_{i}(n))+O(\log^{O(1)}N)(4.2)
+
+where \tilde{\psi}_{i} differs from \psi_{i} only in the constant coefficient (by a multiple of \widetilde{W}) and b_{i}(a)\in[\widetilde{W}] is the reduction mod \widetilde{W} of \psi_{i}(a).
+
+Using the notion of subsystem introduced in Definition [1.1](https://arxiv.org/html/1607.06625v1#S1.Thmdfn1 "Definition 1.1. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"), we reduce Proposition [3.1](https://arxiv.org/html/1607.06625v1#S3.Thmtrm1 "Proposition 3.1. ‣ 3. Reduction to the case of a box ‣ A higher-dimensional Siegel-Walfisz theorem") to the following one.
+
+###### Proposition 4.1.
+
+Let \Psi_{0}=(\psi_{1}^{0},\ldots,\psi_{t_{0}}^{0}):\mathbb{Z}^{d_{0}}\rightarrow\mathbb{Z}^{t_{0}} be a subsystem of \Psi_{1}. Suppose that \Psi_{0}([M]^{d_{0}})\subset([M^{8/10},+\infty))^{t_{0}} and that b_{i}\in[\widetilde{W}] is coprime to \widetilde{W} for any i\in[t_{0}]. Then
+
+\sum_{n\in[M/\widetilde{W}]^{d_{0}}}\prod_{i\in[t_{0}]}(\Lambda^{\prime}_{\widetilde{W},b_{i}}(\psi_{i}^{0}(n))-1)=o((M/\widetilde{W})^{d_{0}})(4.3)
+
+We show how the reduction works, adapting the argument following [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Proposition 5.1].
+
+Applying successively the decomposition ([4.2](https://arxiv.org/html/1607.06625v1#S4.E2 "In 4. The 𝑊-trick ‣ A higher-dimensional Siegel-Walfisz theorem")), the trivial identity x=x-1+1, and Proposition [4.1](https://arxiv.org/html/1607.06625v1#S4.Thmtrm1 "Proposition 4.1. ‣ 4. The 𝑊-trick ‣ A higher-dimensional Siegel-Walfisz theorem") to systems \tilde{\Psi} where \Psi is a subsystem of \Psi_{1}, we have
+
+\displaystyle\sum_{n\in[M]^{d_{1}}}\prod_{i=1}^{t_{1}}\Lambda(\psi_{i}(n))\displaystyle=\sum_{\begin{subarray}{c}a\in[\widetilde{W}]^{d_{1}}\\
+\forall i\in[t_{1}],(\psi_{i}(a),\widetilde{W})=1\end{subarray}}\left(\frac{\widetilde{W}}{\varphi(\widetilde{W})}\right)^{t_{1}}\left(\frac{M}{\widetilde{W}}\right)^{d_{1}}(1+o(1))+O(\log^{O(1)}N)
+\displaystyle=M^{d_{1}}(1+o(1))\E_{a\in[\widetilde{W}]^{d_{1}}}\prod_{i\in[t_{1}]}\Lambda_{\widetilde{W}}(\psi_{i}(a))+O(\log^{O(1)}N).
+
+By the Chinese remainder theorem, and the fact that \Lambda_{p^{k}}(b)=\Lambda_{p}(b), we have
+
+\E_{a\in[\widetilde{W}]^{d_{1}}}\prod_{i\in[t_{1}]}\Lambda_{\widetilde{W}}(\psi_{i}(a))=\prod_{p\mid WQ}\E_{a\in(\mathbb{Z}/p\mathbb{Z})^{d_{1}}}\prod_{i\in[t_{1}]}\Lambda_{p}(\psi_{i}(a))=\prod_{p\mid WQ}\beta_{p}.
+
+Moreover, if a prime p does not divide Q, it is not exceptional for \Psi_{1}. Then Lemma [1.2](https://arxiv.org/html/1607.06625v1#S1.Thmtrm2 "Lemma 1.2. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") implies that \beta_{p}=1+O(p^{-2}), so that
+
+\prod_{p\nmid WQ}\beta_{p}=\prod_{p>w}(1+O(p^{-2}))=1+O(w^{-1}).
+
+This concludes the reduction.
+
+## 5. Reduction to a Gowers norm estimate
+
+Write X=M/\widetilde{W} and fix a system \Psi_{0} and a tuple b_{1},\ldots,b_{t_{0}} satisfying the conditions of Proposition [4.1](https://arxiv.org/html/1607.06625v1#S4.Thmtrm1 "Proposition 4.1. ‣ 4. The 𝑊-trick ‣ A higher-dimensional Siegel-Walfisz theorem"). If t_{0}=1, this proposition follows directly from the one-dimensional Siegel-Walfisz theorem ([1.1](https://arxiv.org/html/1607.06625v1#S1.E1 "In 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem")), so we suppose t_{0}\geq 2. Let Q_{0} be the product of 2\times 2 minors for the system \Psi_{0} as defined by equation ([4.1](https://arxiv.org/html/1607.06625v1#S4.E1 "In 4. The 𝑊-trick ‣ A higher-dimensional Siegel-Walfisz theorem")). In particular, Q_{0}\mid Q. We have to prove
+
+\sum_{n\in[X]^{d}}\prod_{i\in[t_{0}]}F_{i}(\psi_{i}(n))=o(X^{d})
+
+for F_{i}=\Lambda^{\prime}_{\widetilde{W},b_{i}}-1. At this point Green and Tao move to some cyclic group \mathbb{Z}/N^{\prime}\mathbb{Z} with N^{\prime}=O(X), but we cannot do this here without any wrap around, because of the large (unbounded) coefficients.
+
+### 5.1. A pseudorandom majorant
+
+Recall that we have fixed an admissible system
+
+\Psi_{0}=(\psi_{i}^{0})_{i\in[t_{0}]}:\mathbb{Z}^{d_{0}}\longrightarrow\mathbb{Z}^{t_{0}}.
+
+We introduce the notion of a _derived system_. This captures the important properties of the systems that arise from repeated applications of the Cauchy-Schwarz inequality.
+
+###### Definition 5.1.
+
+A system \Psi:\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} of affine-linear forms is said to be _derived_ from \Psi_{0} if the following conditions are all satisfied:
+
+*   •
+d\leq 2d_{0};
+
+*   •
+t\leq 2^{d_{0}}t_{0};
+
+*   •
+\left\lVert\Psi\right\rVert_{N,B}\ll\left\lVert\Psi_{0}\right\rVert_{N,B};
+
+*   •
+any exceptional prime for \Psi divides Q_{0}.
+
+We now define pseudorandomness, based on the so-called linear forms condition; it is a fairly standard notion (see [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Section 6]) but our definition differs slightly to allow unbounded coefficients.
+
+###### Definition 5.2.
+
+We say that a function \nu_{Z}:[Z]\rightarrow\mathbb{R}_{+} satisfies the \Psi_{0}-_linear forms condition_ if for any system \Psi derived from \Psi_{0} we have
+
+\E_{n\in[Z]^{d}}\prod_{i\in[t]}\nu(\psi_{i}(n))=1+o(1).
+
+We also say that \nu is a \Psi_{0}-_pseudorandom measure_.
+
+The next proposition is about the existence of a pseudorandom majorant for a \widetilde{W}-tricked von Mangoldt function.
+
+###### Proposition 5.1.
+
+For any integers b_{1},\ldots,b_{t_{0}} in [\widetilde{W}] coprime to \widetilde{W}, for Z\gg N\log^{-O(1)}N, there exists a \Psi_{0}-pseudorandom measure \nu on [Z] such that
+
+1+\Lambda^{\prime}_{\widetilde{W},b_{1}}+\cdots+\Lambda^{\prime}_{\widetilde{W},b_{t_{0}}}\ll\nu(5.1)
+
+on [Z^{3/5},Z].
+
+The construction of the majorant, identical to [[5](https://arxiv.org/html/1607.06625v1#bib.bib5)], shall be explained in Section [6](https://arxiv.org/html/1607.06625v1#S6 "6. The linear forms condition ‣ A higher-dimensional Siegel-Walfisz theorem").
+
+### 5.2. Generalised von Neumann theorem
+
+In spite of the impossibility to move to a cyclic group, we attempt to prove an analogue of [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Proposition 7.1]. Compared with the setting in a cyclic group, we cannot assume some linear coefficients to be 1, and the range [X] is not translation invariant. Recall that \Psi_{0}:\mathbb{Z}^{d_{0}}\rightarrow\mathbb{Z}^{t_{0}} is a fixed system of affine-linear forms in s-normal form; thus without loss of generality, write its first form as
+
+\psi_{1}(n_{1},\ldots,n_{s+1},y)=q_{1}n_{1}+\cdots+q_{s+1}n_{s+1}+\psi_{1}(0,y)
+
+with q_{i}\neq 0 for all i and \prod_{j\in[s+1]}\dot{\psi_{i}}(e_{j})=0 for all i>1. We have dropped the exponent 0 in the names of the form of the system \Psi_{0} and shall always do so in the sequel. We now state our variant of the von Neumann theorem.
+
+###### Theorem 5.2.
+
+Let f_{1},\ldots,f_{t_{0}}:\mathbb{Z}\rightarrow\mathbb{R} be functions and \nu be a \Psi_{0}-pseudorandom measure such that \left\lvert f_{i}\right\rvert\leq\nu for all i. Then
+
+\left\lvert\E_{n\in[X]^{d}}\prod_{i\in[t_{0}]}f_{i}(\psi_{i}(n))\right\rvert\leq\left\lvert\E_{y\in[X]^{d-s-1}}\E_{n^{(0)},n^{(1)}\in[X]^{s+1}}\prod_{\omega\in\{0,1\}^{s+1}}f_{1}(\sum_{i=1}^{s+1}q_{i}n_{i}^{(\omega_{i})}+\psi_{1}(0,y))\right\rvert^{1/2^{s+1}}+o(1)
+
+We adapt the proof of Proposition 7.1” in [[5](https://arxiv.org/html/1607.06625v1#bib.bib5)] and, for brevity, use the notation from that proof without redefining it. With this notation, the left-hand side equals
+
+\E_{y\in[X]^{d-s-1},x\in[X]^{s+1}}\prod_{B\subseteq[s+1]}F_{B,y}(x_{B}).(5.2)
+
+We observe that
+
+F_{[s+1],y}(x_{[s+1]})=f_{1}(\sum_{i\in[s+1]}q_{i}x_{i}+\psi(0,y)).
+
+We have the bounds
+
+\left\lvert F_{B,y}\right\rvert\leq\nu_{B,y}.
+
+The introduction of the functions F_{B,y},\nu_{B,y}:[X]^{B}\rightarrow\mathbb{N} hides the arithmetic nature of the setting, blurring away the difference between cyclic group and intervals of integers. Thus we can use [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Corollary B.4], with A=[s+1] and X_{\alpha}=[X] for all \alpha\in[s+1]. Hence we bound ([5.2](https://arxiv.org/html/1607.06625v1#S5.E2 "In 5.2. Generalised von Neumann theorem ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) by
+
+\E_{y\in[X]^{d-s-1}}\left\lVert F_{[s+1],y}\right\rVert_{\square(\nu_{[s+1],y})}\prod_{B\subsetneq[s+1]}\left\lVert\nu_{B,y}\right\rVert_{\square(\nu_{B,y})}^{2^{\left\lvert B\right\rvert-(s+1)}},(5.3)
+
+where we recall that
+
+\left\lVert F\right\rVert_{\square(\nu_{B,y})}^{2^{\left\lvert B\right\rvert}}=\E_{x^{(0)},x^{(1)}\in[X]^{B}}\prod_{\omega\in\{0,1\}^{B}}F(x^{(\omega)})\prod_{C\subsetneq B}\nu_{C}((x_{i}^{(\omega_{i})})_{i\in C},y).
+
+By Hölder’s inequality, it suffices to show that
+
+\E_{y\in[X]^{d-s-1}}\left\lVert F_{[s+1],y}\right\rVert_{\square(\nu_{[s+1],y})}^{2^{s+1}}=\E_{y\in[X]^{d-s-1}}\E_{n^{(0)},n^{(1)}\in[X]^{s+1}}\prod_{\omega\in\{0,1\}^{s+1}}f_{1}(\sum q_{i}n_{i}^{(\omega_{i})}+\psi_{1}(0,y))+o(1)(5.4)
+
+and that
+
+\E_{y\in[X]^{d-s-1}}\left\lVert\nu_{B,y}\right\rVert_{\square(\nu_{B,y})}^{2^{\left\lvert B\right\rvert}}=1+o(1)
+
+for all non empty B\subseteq[s+1]. To prove the latter, expand the left-hand side as
+
+\E_{y\in[X]^{d-s-1}}\E_{n^{(0)},n^{(1)}\in[X]^{B}}\prod_{C\subseteq B}\prod_{i:\Omega(i)=C}\prod_{\omega\in\{0,1\}^{C}}\nu(\psi_{i}((n_{j}^{(\omega_{j})})_{j\in\Omega(i)},y)).(5.5)
+
+which is an expression involving the average of \nu on a system
+
+\Psi=(\psi_{i,\omega})_{i\in[t_{0}],\omega\in\{0,1\}^{\Omega(i)}}:\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t}
+
+of linear forms and it easy to check that d\leq 2d_{0} and t\leq 2^{d_{0}}t_{0}. It is also obvious that \left\lVert\Psi\right\rVert_{M,B}\ll\left\lVert\Psi_{0}\right\rVert_{M,B}. Let the prime p be exceptional for \Psi and let us check that it divides Q_{0}; this would mean that \Psi is derived from \Psi_{0} and thus we could apply the linear forms condition. So let \psi_{i,\omega}\neq\psi_{k,\alpha} be two forms that are affinely related modulo p. Then if i\neq k, we conclude that \psi_{i} and \psi_{k} are related and thus the prime is exceptional for \Psi_{0}, which implies that it divides Q_{0}. Otherwise i=k and thus \omega\neq\alpha, in other words there exists j\in[d_{0}] such that \dot{\psi_{i}}(e_{j})\neq 0 and \omega_{j}\neq\alpha_{j}. Thus p must divide \dot{\psi}_{i}(e_{j}) and hence also Q_{0}. By applying the linear forms condition, the term ([5.5](https://arxiv.org/html/1607.06625v1#S5.E5 "In 5.2. Generalised von Neumann theorem ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) is 1+o(1).
+
+Let us look at ([5.4](https://arxiv.org/html/1607.06625v1#S5.E4 "In 5.2. Generalised von Neumann theorem ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")). At this point, Green and Tao use the translation invariance of \mathbb{Z}/N^{\prime}\mathbb{Z} to perform a change of variable which is not possible here, but we make do without it. As the system is in normal form and t\geq 2, the form \psi_{1} does not genuinely use all the variables. Indeed, the form \psi_{2} must also have its set of s+1 variables that it is the only one to use fully, in particular \psi_{1} does not use them all. Let us thus assume that \psi_{1} only uses x_{1},\ldots,x_{d-k} with k\geq 1, which enables us, by a slight abuse of notation, to regard \psi_{1} as a map from \mathbb{Z}^{d-k} to \mathbb{Z}. Upon expanding the norm, the left-hand side of ([5.4](https://arxiv.org/html/1607.06625v1#S5.E4 "In 5.2. Generalised von Neumann theorem ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) becomes
+
+\E_{x^{(0)},x^{(1)}\in[X]^{s+1},y\in[X]^{d-k-s-1}}\prod_{\omega\in\{0,1\}^{s+1}}f_{1}(\sum_{i=1}^{s+1}q_{i}x_{i}^{(\omega_{i})}+\psi_{1}(0,y))\E_{z\in[X]^{k}}\prod_{\omega\in\{0,1\}^{s+1}}\prod_{C\subsetneq[s+1]}\nu_{C,(y,z)}(x_{C}^{(\omega_{C})})
+
+where (y,z) is the vector in \mathbb{Z}^{d-s-1} obtained by concatenating y and z. We want to replace the inner expectation over z, which is a function of (x^{(0)},x^{(1)},y) of average 1, by 1. To do that, by Cauchy-Schwarz, it is enough to prove
+
+\E_{x^{(0)},x^{(1)}\in[X]^{s+1},y\in[X]^{d-k-s-1}}\prod_{\omega\in\{0,1\}^{s+1}}\nu(\sum_{i=1}^{s+1}q_{i}x_{i}^{(\omega_{i})}+\psi_{1}(0,y))=1+o(1)=O(1)
+
+which follows directly from the linear forms condition, and
+
+\E_{x^{(0)},x^{(1)}\in[X]^{s+1},y\in[X]^{d-k-s-1}}\prod_{\omega\in\{0,1\}^{s+1}}\nu(\sum_{i=1}^{s+1}q_{i}x_{i}^{(\omega_{i})}+\psi_{1}(0,y))\left\lvert\E_{z}W(x,y,z)-1\right\rvert^{2}=o(1),
+
+where W(x,y,z)=\prod_{\epsilon\in\{0,1\}^{s+1}}\prod_{C\subsetneq[s+1]}\nu_{C,(y,z)}(x_{C}^{(\epsilon_{C})}). This amounts to
+
+\E_{x^{(0)},x^{(1)}\in[X]^{s+1},y\in[X]^{d-k-s-1}}\prod_{\omega\in\{0,1\}^{s+1}}\nu(\sum_{i=1}^{s+1}q_{i}x_{i}^{(\omega_{i})}+\psi_{1}(0,y))(\E_{z}W(x,y,z))^{j}=1+o(1)
+
+for j=0,1,2. Let us inspect the left-hand side in the most intricate case, namely j=2. Upon expanding the square, we get an expectation over x^{(0)},x^{(1)},y,z^{(0)},z^{(1)}, thus the system is in at most 2d_{0} variables. There are 2^{s+1} forms arising from \psi_{1} and at most 2^{s+2}(t-1) other forms, which means together at most 2^{d_{0}}t_{0} forms. Now the reasoning we used to analyse the average ([5.5](https://arxiv.org/html/1607.06625v1#S5.E5 "In 5.2. Generalised von Neumann theorem ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) also applies here and yields that the system is derived from \Psi_{0}. Thus the linear forms condition applies and equation ([5.4](https://arxiv.org/html/1607.06625v1#S5.E4 "In 5.2. Generalised von Neumann theorem ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) is proven, hence also Theorem [5.2](https://arxiv.org/html/1607.06625v1#S5.Thmtrm2 "Theorem 5.2. ‣ 5.2. Generalised von Neumann theorem ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem").
+
+### 5.3. A Gowers-norm estimate
+
+Together with the existence of a pseudorandom majorant provided by Proposition [5.1](https://arxiv.org/html/1607.06625v1#S5.E1 "In Proposition 5.1. ‣ 5.1. A pseudorandom majorant ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem"), Theorem [5.2](https://arxiv.org/html/1607.06625v1#S5.Thmtrm2 "Theorem 5.2. ‣ 5.2. Generalised von Neumann theorem ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem") reduces Proposition [4.1](https://arxiv.org/html/1607.06625v1#S4.Thmtrm1 "Proposition 4.1. ‣ 4. The 𝑊-trick ‣ A higher-dimensional Siegel-Walfisz theorem") to the following.
+
+###### Proposition 5.3.
+
+Let b\in[\widetilde{W}] be coprime to \widetilde{W}. Let B>0 and d\in\mathbb{N} be constants. Suppose q_{1},\ldots,q_{d} are divisors of Q satisfying q_{i}=O(\log^{B}N) while c=O(N\log^{B}N). Then we have
+
+\E_{x^{(0)},x^{(1)}\in[X]^{d}}\prod_{\omega\in\{0,1\}^{d}}(\Lambda^{\prime}_{\widetilde{W},b}(\sum_{i=1}^{d}q_{i}x_{i}^{(\omega_{i})}+c)-1)=o(1).(5.6)
+
+The progress compared to Proposition [4.1](https://arxiv.org/html/1607.06625v1#S4.Thmtrm1 "Proposition 4.1. ‣ 4. The 𝑊-trick ‣ A higher-dimensional Siegel-Walfisz theorem") is that each variable x_{i}^{(\epsilon)} for i\in[d] and \epsilon\in\{0,1\} is affected throughout the system by one and the same coefficient q_{i}. We now attempt to transform the system so that all variables have the same coefficient Q^{\prime}; the price we pay is that the variables will not have the same ranges any more.
+
+To this effect, we introduce
+
+Q_{i}=\prod_{j\neq i}q_{j}
+
+and variables n_{i}^{(\omega_{i})},m_{i}^{(\omega_{i})} such that x_{i}^{(\omega_{i})}=Q_{i}n_{i}^{(\omega_{i})}+m_{i}^{(\omega_{i})}. Then the left-hand side of equation ([5.6](https://arxiv.org/html/1607.06625v1#S5.E6 "In Proposition 5.3. ‣ 5.3. A Gowers-norm estimate ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) decomposes as
+
+\E_{m_{i}^{(\omega_{i})}\in[q_{i}]}\E_{n_{i}^{(\omega_{i})}\in[X/q_{i}]}\prod_{\omega\in\{0,1\}^{d}}(\Lambda^{\prime}_{\widetilde{W},b}(\sum_{i=1}^{d}Q^{\prime}n_{i}^{(\omega_{i})}+q_{i}m_{i}^{(\omega_{i})}+c)-1)+o(1),
+
+where Q^{\prime}=q_{i}Q_{i} for any i.
+
+We recognise the function
+
+n\mapsto F_{a}(n)=\frac{\varphi(\widetilde{W})}{\widetilde{W}}\Lambda^{\prime}(Q^{\prime}\widetilde{W}{}n+a)=\Lambda^{\prime}_{Q^{\prime}\widetilde{W},a},
+
+where the equality holds because \prod_{p\mid Q^{\prime}}p divides Q and hence \widetilde{W}. The parameters a occurring are
+
+a_{\omega}=\widetilde{W}(\sum_{i=1}^{d}q_{i}m_{i}^{(\omega_{i})}+c)+b
+
+and given that (b,\widetilde{W})=1, we also have (a_{\omega},\widetilde{W})=1 and finally (a_{\omega},\widetilde{W}{}Q^{\prime})=1.
+
+We remark that for any tuple a\in[\widetilde{W}{}Q^{\prime}]^{2^{d}} of integers coprime to \widetilde{W}{}Q^{\prime}, we can create a common \Xi-pseudorandom majorant for the functions 1+F_{a_{\omega}} where \Xi=(\xi_{\omega})_{\omega\in\{0,1\}^{d}} is defined by
+
+\xi_{\omega}=(n_{1}^{(0)},\ldots,n_{d}^{(0)},n_{1}^{(1)},\ldots,n_{d}^{(1)})\longmapsto\sum_{i=1}^{d}n_{i}^{(\omega_{i})}.
+
+In fact we can rewrite Proposition 4.2 with \widetilde{W}{}Q^{\prime} instead of \widetilde{W}, because Q^{\prime} still satisfies Q^{\prime}=O(\log^{O(1)}N), a bound which allows us to control the effect of exceptional primes in Proposition [6.1](https://arxiv.org/html/1607.06625v1#S6.Thmtrm1 "Proposition 6.1. ‣ 6. The linear forms condition ‣ A higher-dimensional Siegel-Walfisz theorem").
+
+Thus we are left to prove that
+
+\E_{n_{i}^{(\omega_{i})}\in[X_{i}]}\prod_{\omega\in\{0,1\}^{d}}(F_{a_{\omega}}(\sum_{i=1}^{d}n_{i}^{(\omega_{i})})-1)=o(1)
+
+where each X_{i} satisfies N\log^{-C}N\ll X_{i}\leq N. Letting Z=\max_{i}X_{i} and K=\prod_{i}[X_{i}], we have K\subset[Z]^{d} and \mathrm{Vol}(K)\gg Z^{d}\log^{-C^{\prime}}Z. Thus we can apply the same reasoning as in Section 2 where we approximated such a convex body by a set of small boxes of equal sides,4 4 4 The reader might object that we then used the positivity of the function to average, which is not available here, but we can just as well use the majorant and the linear forms condition to bound the contribution of the few boxes included in K^{\prime\prime} but not in K^{\prime}. and it suffices to prove that
+
+\E_{n^{(0)},n^{(1)}\in[Y]^{d}}\prod_{\omega\in\{0,1\}^{d}}(F_{a_{\omega}}(\sum_{i=1}^{d}n_{i}^{(\omega_{i})})-1)=o(1)(5.7)
+
+for some Y\gg N\log^{-D}N. Now that the linear forms have bounded coefficients (namely 0 and 1), there is no more objection to the use of Green-Tao’s generalised von Neumann theorem [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Proposition 7.1], as long as the functions 1+\Lambda^{\prime}_{Q^{\prime}\widetilde{W},a_{\omega}} are dominated by a pseudorandom measure, in the sense of Green-Tao [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Definition 6.2]. Green and Tao proved the existence of such a majorant, except that they had W instead of Q^{\prime}\widetilde{W}, but this makes no difference as Q^{\prime}\widetilde{W} is w-smooth and divisible by W. See Section 6 for a review of the construction of a majorant and a closer scrutiny of the role of the linear coefficients in the linear forms condition. Thus equation ([5.7](https://arxiv.org/html/1607.06625v1#S5.E7 "In 5.3. A Gowers-norm estimate ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) follows from the claim
+
+\left\lVert F_{a}-1\right\rVert_{U^{k}([Y^{\prime}])}=\left\lVert\Lambda^{\prime}_{Q^{\prime}\widetilde{W},a}-1\right\rVert_{U^{k}([Y])}=o(1)(5.8)
+
+for any a\in[Q^{\prime}\widetilde{W}] coprime to Q^{\prime}\widetilde{W}. This is almost [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Proposition 7.2]. Compared with that proposition, we have W^{\prime}=Q^{\prime}\widetilde{W}=O(\log^{O(1)}N) instead of W. One can inspect attentively the remainder of the argument of Green and Tao to notice that the required properties of W are
+
+*   •
+that it be divisible by all primes p\leq w for some function w=w(N) tending to infinity;
+
+*   •
+that it be O(\log^{O(1)}N); this is crucial when applying the Möbius-Nilsequence theorem [[6](https://arxiv.org/html/1607.06625v1#bib.bib6)], which comes with a saving of size an arbitrary power of \log N.
+
+These properties are equally satisfied by Q^{\prime}\widetilde{W}. Thus the claim ([5.8](https://arxiv.org/html/1607.06625v1#S5.E8 "In 5.3. A Gowers-norm estimate ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) holds. To complete the proof of Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"), there remains only to prove Proposition [5.1](https://arxiv.org/html/1607.06625v1#S5.Thmtrm1 "Proposition 5.1. ‣ 5.1. A pseudorandom majorant ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem"), which we shall do in the next section.
+
+## 6. The linear forms condition
+
+We recall the notation from [[5](https://arxiv.org/html/1607.06625v1#bib.bib5)]
+
+\Lambda_{\chi,R}(n)=\log R\left(\sum_{d\mid n}\mu(d)\chi\left(\frac{\log d}{\log R}\right)\right)^{2}
+
+for R=N^{\gamma} a small power of N, a smooth function \chi supported on [-1,1] satisfying \chi(0)=1 and \int{\chi^{\prime 2}}=1. The function \Lambda_{\chi,R} is positive and if n is a prime larger than R, then \Lambda_{\chi,R}(n)=\log R, so that \Lambda^{\prime}\leq\gamma^{-1}\Lambda_{\chi,R} on [N^{\gamma},N].
+
+We need to extend the range of application of [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Theorem D.3]. There it is stated only for forms whose constant coefficients are bounded, although it was then applied to other natural systems such as \Phi=W\Psi+c, as the extension was straightforward. In [[2](https://arxiv.org/html/1607.06625v1#bib.bib2), Appendix A], the constant coefficients are allowed to be as large N^{1.01}.
+
+We claim that the estimate can be pushed further.
+
+###### Proposition 6.1.
+
+Let L,B be positive constants and \Psi=(\psi_{1},\ldots,\psi_{t}) an admissible system of affine-linear forms satisfying \left\lVert\Psi\right\rVert_{Z,B}\leq L. Let P_{\Psi} be the set of exceptional primes and X=\sum_{p\in P_{\Psi}}p^{-1/2}. Then
+
+\sum_{n\in[Z]^{d}}\prod_{i\in[t]}\Lambda_{\chi,R}(\psi_{i}(n))=Z^{d}\prod_{p}\beta_{p}(1+o(1)).
+
+We now carefully analyse what needs to be changed in the proof of Theorem D.3 of [[5](https://arxiv.org/html/1607.06625v1#bib.bib5)] when the linear coefficients are of size up to \log^{B}N. As remarked in [[2](https://arxiv.org/html/1607.06625v1#bib.bib2), Appendix A], the first place where the bound on the coefficients is used is page 1833, where it is said that \alpha(p,B)=O(1/p) for p large enough. In fact, as we have assumed from the outset that no form of the system \psi_{i} is divisible by any prime p, this is always the case. This also means that \beta_{p}=1+O(1/p) for all p. The next moment where Green and Tao invoke the size of the coefficients is to get the bound \beta_{p}=1+O(p^{-2}); but in fact it is valid as soon as p is not exceptional, no matter the size of the coefficients. As seen in the proof of Lemma [1.2](https://arxiv.org/html/1607.06625v1#S1.Thmtrm2 "Lemma 1.2. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"), the set P_{\Psi} of exceptional primes is finite but its cardinality may increase to infinity with Z. What we have seen implies that the asymptotic formula
+
+\sum_{n\in[Z]^{d}}\prod_{i\in[t]}\Lambda_{\chi,R}(\psi_{i}(n))=Z^{d}\prod_{p}\beta_{p}(1+e^{O(X)}\log^{-1/20}R)
+
+is still valid, where X=\sum_{p\in P_{\Psi}}p^{-1/2}. It remains to bound X.
+
+If p\in P_{\Psi}, as already seen in Lemma [1.2](https://arxiv.org/html/1607.06625v1#S1.Thmtrm2 "Lemma 1.2. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"), p divides the parameter Q=\log^{O(1)}N introduced in equation ([4.1](https://arxiv.org/html/1607.06625v1#S4.E1 "In 4. The 𝑊-trick ‣ A higher-dimensional Siegel-Walfisz theorem")). Letting \omega(Q)=O(\log Q)=O(\log\log N) be the number of its prime factors, we have
+
+X=\sum_{p\in P_{\Psi}}p^{-1/2}\leq\sum_{p\leq\omega(Q)}p^{-1/2}\leq\sum_{n\ll\log\log N}n^{-1/2}\ll\sqrt{\log\log N}.
+
+Thus e^{O(X)}\ll\log^{1/30}N while \log^{-1/20}R\ll\log^{-1/20}N, which gives e^{O(X)}\log^{-1/20}R=o(1). This completes the verification of Proposition [6.1](https://arxiv.org/html/1607.06625v1#S6.Thmtrm1 "Proposition 6.1. ‣ 6. The linear forms condition ‣ A higher-dimensional Siegel-Walfisz theorem").
+
+From Proposition [6.1](https://arxiv.org/html/1607.06625v1#S6.Thmtrm1 "Proposition 6.1. ‣ 6. The linear forms condition ‣ A higher-dimensional Siegel-Walfisz theorem"), the proof of Proposition [5.1](https://arxiv.org/html/1607.06625v1#S5.Thmtrm1 "Proposition 5.1. ‣ 5.1. A pseudorandom majorant ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem"), that is, the construction of a majorant satisfying the adequate linear forms condition, runs just as in the paper of Green and Tao. We provide it here. Let b_{1},\ldots,b_{t_{0}} be integers in [\widetilde{W}] coprime to \widetilde{W}. Let Z be an asymptotic parameter satisfying Z\gg N\log^{-A}N for some constant A>0. Then, writing
+
+\nu(n)=\frac{1}{t_{0}+1}\left(1+\frac{\varphi(\widetilde{W})}{\widetilde{W}}\sum_{i\in[t_{0}]}\Lambda_{\chi,R}(\widetilde{W}{}n+b_{i})\right),
+
+we have the bound ([5.1](https://arxiv.org/html/1607.06625v1#S5.E1 "In Proposition 5.1. ‣ 5.1. A pseudorandom majorant ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem")) for n\in[Z^{3/5},Z] if \gamma<3/5. To show that \nu is a \Psi_{0}-pseudorandom measure, it is enough to check that for any system \Psi:\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} derived from \Psi_{0}, any s\leq t and any sequence 1\leq j_{1}<\cdots<j_{s}\leq t, we have
+
+\left(\frac{\varphi(\widetilde{W})}{\widetilde{W}}\right)^{s}\E_{n\in[Z^{d}]}\prod_{i\in[s]}\Lambda_{\chi,R}(\widetilde{W}\psi_{j_{i}}(n)+b_{j_{i}})=1+o(1).(6.1)
+
+To this aim, observe that the hypotheses ensure that the system \Phi=(\widetilde{W}\psi_{j_{i}}+b_{j_{i}})_{i\in[s]} is is admissible. Moreover, because \widetilde{W}=O(\log^{O(1)}N), the bound \left\lVert\Phi_{Z,B}\right\rVert=O(1) holds for some B=O(1). So we can use Proposition [6.1](https://arxiv.org/html/1607.06625v1#S6.Thmtrm1 "Proposition 6.1. ‣ 6. The linear forms condition ‣ A higher-dimensional Siegel-Walfisz theorem"). For p\mid\widetilde{W}, the local factor is simply (p/(p-1))^{s} while if p\nmid\widetilde{W}, the prime p is not exceptional for \Psi_{0} and hence for \Phi, which implies \beta_{p}=1+O(p^{-2}) by Lemma [1.2](https://arxiv.org/html/1607.06625v1#S1.Thmtrm2 "Lemma 1.2. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"). Thus
+
+\prod_{p}\beta_{p}=\left(\frac{\widetilde{W}}{\varphi(\widetilde{W})}\right)^{s}\prod_{p>w}(1+O(p^{-2}))=\left(\frac{\widetilde{W}}{\varphi(\widetilde{W})}\right)^{s}(1+O(w^{-1}).
+
+This compensates exactly for the factor (\varphi(\widetilde{W})/\widetilde{W})^{s} and finishes the proof of equation ([6.1](https://arxiv.org/html/1607.06625v1#S6.E1 "In 6. The linear forms condition ‣ A higher-dimensional Siegel-Walfisz theorem")), hence also of Proposition [5.1](https://arxiv.org/html/1607.06625v1#S5.Thmtrm1 "Proposition 5.1. ‣ 5.1. A pseudorandom majorant ‣ 5. Reduction to a Gowers norm estimate ‣ A higher-dimensional Siegel-Walfisz theorem"), and finally of Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem").
+
+In the next section, we give a nice application of our higher-dimensional Siegel-Walfisz theorem.
+
+## 7. Application to the primes p such that p-1 is squarefree
+
+The set of primes p such that p-1 is squarefree is a well-known dense subset of the primes of density \sum_{a}\frac{\mu(a)}{\varphi(a^{2})}=\prod_{p}(1-1/p(p-1)); this is a theorem of Mirsky [[8](https://arxiv.org/html/1607.06625v1#bib.bib8)]. As any dense subset of the primes, it contains arbitrarily long arithmetic progressions, by the Green-Tao theorem [[4](https://arxiv.org/html/1607.06625v1#bib.bib4)]. However, no asymptotic was available so far for the count of k-term progressions in this set, nor in fact in any dense subset of the primes (except residue classes). As a consequence of Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"), we now prove such an asymptotic; in fact, we obtain an asymptotic for the number of solutions in this set of primes to any finite complexity system of equations.
+
+For convenience, let F be the von Mangoldt function restricted to the squarefree shifted primes, that is F(n)=\Lambda(n+1)\mu^{2}(n). Also we denote by \mathbb{N} the set of positive integers.
+
+###### Theorem 7.1.
+
+Let \Psi:\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} be a system of affine-linear forms of finite complexity and K\subset[-N,N]^{d} a convex body. Suppose that the linear coefficients are O(1), the constants ones are O(N) and that \Psi(K)\subset\mathbb{N}^{t}. Then there exists a constant C(\Psi) (possibly equal to 0) such that
+
+\sum_{n\in K\cap\mathbb{Z}^{d}}\prod_{i\in[t]}F(\psi_{i}(n))=C(\Psi)\mathrm{Vol}(K)+o(N^{d}).(7.1)
+
+The constant C(\Psi) will appear explicitly in the proof, but its expression is unpleasant, so we do not give it here. Throughout the proof of this theorem, we will need the notation
+
+\alpha_{\Psi}(k_{1},\ldots,k_{t})=\E_{a\in(\mathbb{Z}/m\mathbb{Z})^{d}}\prod_{i\in[t]}1_{k_{i}\mid\psi_{i}(a)}
+
+where m=\text{lcm}(k_{1},\ldots,k_{t}). Elementary convex geometry reveals that this is the density of points of the lattice \{n\in\mathbb{Z}^{d}:\forall i\in[t]\quad k_{i}\mid\psi_{i}(n)\} per unit volume, in the sense that for any convex body K\subset[-B,B]^{d}, we have that
+
+\sum_{n\in K\cap\mathbb{Z}^{d}}\prod_{i\in[t]}1_{d_{i}\mid\psi_{i}(n)}=\mathrm{Vol}(K)\alpha_{\Psi}(d_{1},\ldots,d_{t})+O(B^{d-1}\text{lcm}(d_{1},\ldots,d_{t})).(7.2)
+
+This follows from simple volume packing arguments (see [[5](https://arxiv.org/html/1607.06625v1#bib.bib5), Appendix A], [[10](https://arxiv.org/html/1607.06625v1#bib.bib10), Appendix C]). We now prove Theorem [7.1](https://arxiv.org/html/1607.06625v1#S7.Thmtrm1 "Theorem 7.1. ‣ 7. Application to the primes 𝑝 such that 𝑝-1 is squarefree ‣ A higher-dimensional Siegel-Walfisz theorem").
+
+###### Proof.
+
+We insert the formula \mu^{2}(n)=\sum_{a^{2}\mid n}\mu(a) in the left-hand side of ([7.1](https://arxiv.org/html/1607.06625v1#S7.E1 "In Theorem 7.1. ‣ 7. Application to the primes 𝑝 such that 𝑝-1 is squarefree ‣ A higher-dimensional Siegel-Walfisz theorem")). Thus
+
+\sum_{n\in K\cap\mathbb{Z}^{d}}\prod_{i\in[t]}F(\psi_{i}(n))=\sum_{(a_{1},\ldots,a_{t})\in\mathbb{N}^{t}}\prod_{i\in[t]}\mu(a_{i})\sum_{\begin{subarray}{c}n\in K\cap\mathbb{Z}^{d}\\
+\forall i\in[t]\,a_{i}^{2}\mid\psi_{i}(n)\end{subarray}}\prod_{i\in[t]}\Lambda(\psi_{i}(n)+1).(7.3)
+
+Now for any a=(a_{1},\ldots,a_{t})\in\mathbb{N}^{t}, we introduce the set
+
+L_{a}=\{n\in\mathbb{Z}^{d}:\forall i\in[t]\quad a_{i}^{2}\mid\psi_{i}(n)\}.
+
+Fix an a for which L_{a}\neq\emptyset and let n_{0}\in L_{a}. Then
+
+L_{a}=n_{0}+\bigcap_{i=1}^{t}\ker g_{i}
+
+where g_{i}:\mathbb{Z}^{d}\rightarrow\prod_{i\in[t]}\mathbb{Z}/a_{i}^{2}\mathbb{Z} is the affine-linear map obtained by applying \dot{\psi_{i}} and then reducing modulo a_{i}^{2}. So L_{a} is an affine sublattice of full rank: indeed, its direction contains \{\prod_{i}a_{i}^{2}e_{1},\ldots,\prod_{i}a_{i}^{2}e_{d}\}. Incidentally, this means that we can suppose that n_{0} satisfies n_{0}\cdot e_{i}\in[\prod_{i}a_{i}^{2}], in particular \left\lVert n_{0}\right\rVert\leq d\log^{2dC}.
+
+As a lattice of full rank, the direction \overrightarrow{L_{a}} of L_{a} has a \mathbb{Z}-basis: there exist f_{1},\ldots,f_{d} such that
+
+L_{a}=\{n_{0}+\sum_{i=1}^{d}m_{i}f_{i}\mid(m_{1},\ldots,m_{d})\in\mathbb{Z}^{d}\}.
+
+Because of a theorem of Mahler, we can assume that \left\lVert f_{i}\right\rVert\leq i\lambda_{i} for i=1,\ldots,d, where \lambda_{1}\leq\cdots\leq\lambda_{d} are the successive minima of the lattice \overrightarrow{L_{a}} with respect to the Euclidean unit ball. Let R^{a} be the affine transformation of \mathbb{R}^{d} defined by R^{a}(0)=n_{0} and \dot{R^{a}}(e_{i})=f_{i} for each i\in[d]. Note that L_{a}\cap K=R^{a}(\mathbb{Z}^{d}\cap K_{a}) where K_{a} is also a convex body. For the notions of geometry of numbers alluded to here, see for instance the notes of Green [[3](https://arxiv.org/html/1607.06625v1#bib.bib3)].
+
+Now if one of the a_{i} is larger than \log^{C}N, then K_{a} is small. Indeed, the set of n\in K\cap\mathbb{Z}^{d} such that there exists i\in[t] and a_{i}>\log^{C}N satisfying a_{i}^{2}\mid\psi_{i}(n) has O(N^{d}\log^{-C}N) elements. This follows from equation ([7.2](https://arxiv.org/html/1607.06625v1#S7.E2 "In 7. Application to the primes 𝑝 such that 𝑝-1 is squarefree ‣ A higher-dimensional Siegel-Walfisz theorem")) combined with the bound \alpha_{\psi_{i}}(a_{i}^{2})\ll a_{i}^{-2}, obtained by multiplicativity, linear algebra (for instance [[1](https://arxiv.org/html/1607.06625v1#bib.bib1), Corollary C.4]) and the fact that the coefficients of \psi_{i} are bounded, and finally \sum_{a>x}a^{-2}\ll x^{-1}. Bounding the contribution to the left-hand side of ([7.3](https://arxiv.org/html/1607.06625v1#S7.E3 "In Proof. ‣ 7. Application to the primes 𝑝 such that 𝑝-1 is squarefree ‣ A higher-dimensional Siegel-Walfisz theorem")) of this exceptional set of n\in K\cap\mathbb{Z}^{d} using F\ll\log, and supposing that C\geq 2t, we obtain
+
+\displaystyle\sum_{n\in K\cap\mathbb{Z}^{d}}\prod_{i\in[t]}F(\psi_{i}(n))\displaystyle=\sum_{\begin{subarray}{c}n\in K\cap\mathbb{Z}^{d}\\
+\forall i\in[t]\,\forall a>\log^{C}N\,a^{2}\nmid\psi_{i}(n)\end{subarray}}\prod_{i\in[t]}F(\psi_{i}(n))+O(N^{d}\log^{-C/2}N)
+\displaystyle=\sum_{1\leq a_{1},\ldots,a_{t}\leq\log^{C}N}\prod_{i\in[t]}\mu(a_{i})\sum_{n\in K\cap L_{a}}\prod_{i\in[t]}\Lambda(\psi_{i}(n)+1)+O(N^{d}\log^{-C/2}N).
+
+For each i\in[t], the map \psi_{i}^{a}:L_{a}\rightarrow\mathbb{Z} defined by
+
+\psi_{i}^{a}(n)=\frac{\psi_{i}(n)}{a_{i}^{2}}
+
+is an affine map. Then introduce \phi_{i}^{a}=\psi_{i}^{a}\circ R^{a}. This defines a system \Phi^{a}:\mathbb{Z}^{d}\rightarrow\mathbb{Z}^{t} of affine-linear forms which is again of finite complexity. Thus the inner sum in the left-hand side of equation ([7.3](https://arxiv.org/html/1607.06625v1#S7.E3 "In Proof. ‣ 7. Application to the primes 𝑝 such that 𝑝-1 is squarefree ‣ A higher-dimensional Siegel-Walfisz theorem")) may be written as
+
+\sum_{n\in K\cap L_{a}}\prod_{i}\Lambda(\psi_{i}(n)+1)=\sum_{m\in K_{a}\cap\mathbb{Z}^{d}}\prod_{i}\Lambda(a_{i}^{2}\phi_{i}^{a}(m)+1).(7.4)
+
+We now apply Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") to the inner sum. One can check that the linear coefficients of \Phi_{a} have size O(\log^{O(1)}N). To do this, it is enough to examine the size of the basis vectors f_{j} of the lattice \overrightarrow{L_{a}}. Indeed,
+
+a_{i}^{2}\left\lvert\dot{\phi_{i}^{a}}(e_{j})\right\rvert=\left\lvert\dot{\psi_{i}}(f_{j})\right\rvert\leq\left\lVert\dot{\psi_{i}}\right\rVert\left\lVert f_{j}\right\rVert\ll\left\lVert f_{j}\right\rVert.
+
+Moreover, the constant coefficients are O(N). As observed, if n_{0}\in L_{a}, the lattice
+
+\{n_{0}+\sum_{i\in[d]}k_{i}a_{i}^{2}e_{i}\mid k\in\mathbb{Z}^{d}\}
+
+is a sublattice of L_{a} and its determinant is \prod_{i}a_{i}^{2}\leq\log^{2dC}N. Hence using Minkowski’s second theorem, one finds that
+
+\prod_{i\in[d]}\left\lVert f_{i}\right\rVert\leq d!\prod_{i\in[d]}\lambda_{i}\ll_{d}\left\lvert\det L_{a}\right\rvert\leq\log^{2dC}N.
+
+Similarly, we obtain the bound
+
+\mathrm{Vol}(K_{a})=\mathrm{Vol}(K)\det(R^{a})^{-1}\geq\mathrm{Vol}(K)\log^{-2dC}N.
+
+Now Theorem [1.3](https://arxiv.org/html/1607.06625v1#S1.Thmtrm3 "Theorem 1.3. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem") tells us that the right-hand side of ([7.4](https://arxiv.org/html/1607.06625v1#S7.E4 "In Proof. ‣ 7. Application to the primes 𝑝 such that 𝑝-1 is squarefree ‣ A higher-dimensional Siegel-Walfisz theorem")) is \mathrm{Vol}(K_{a})\prod_{p}\beta_{p}(1+o(1)) as soon as none of the local factors \beta_{p}(a) corresponding to the system of the forms a_{i}^{2}\phi_{i}^{a}+1 vanishes. Note that if any \beta_{p}(a) is 0, then for all m there exists i\in[t] such that p divides a_{i}^{2}\phi_{i}^{a}(m)+1. In this case, the expression a_{i}^{2}\phi_{i}^{a}(m)+1 cannot be prime unless it is equal to p, which easily implies that
+
+\sum_{m\in K_{a}\cap\mathbb{Z}^{d}}\prod_{i}\Lambda(a_{i}^{2}\phi_{i}^{a}(m)+1)=O(N^{d-1}\log^{O(1)}N).
+
+Moreover, equation ([7.2](https://arxiv.org/html/1607.06625v1#S7.E2 "In 7. Application to the primes 𝑝 such that 𝑝-1 is squarefree ‣ A higher-dimensional Siegel-Walfisz theorem")) reveals that
+
+\mathrm{Vol}(K_{a})=\left\lvert K_{a}\cap\mathbb{Z}^{d}\right\rvert+O(N^{d-1})=\left\lvert K\cap L_{a}\right\rvert+O(N^{d-1})=\mathrm{Vol}(K)\alpha_{\Psi}(a_{1}^{2},\ldots,a_{t}^{2})+O(N^{d-1}\log^{O(1)}N).
+
+Thus the left-hand side of equation ([7.1](https://arxiv.org/html/1607.06625v1#S7.E1 "In Theorem 7.1. ‣ 7. Application to the primes 𝑝 such that 𝑝-1 is squarefree ‣ A higher-dimensional Siegel-Walfisz theorem")) equals
+
+\mathrm{Vol}(K)(1+o(1))\sum_{1\leq a_{1},\ldots,a_{t}\leq\log^{C}N}\alpha_{\Psi}(a_{1}^{2},\ldots,a_{t}^{2})\prod_{p}\beta_{p}(a)\prod_{i\in[t]}\mu(a_{i})+O(N^{d}\log^{-C/2}N).
+
+We claim the sum over a is absolutely convergent. To see this, first observe that the exceptional primes for the system of the forms a_{i}^{2}\phi_{i}^{a}+1 are divisors of a_{i}^{2} or exceptional primes for the system \Phi^{a}; in any case, they are divisors 5 5 5 See equation ([4.1](https://arxiv.org/html/1607.06625v1#S4.E1 "In 4. The 𝑊-trick ‣ A higher-dimensional Siegel-Walfisz theorem")) and the remark following it. of a parameter Q(a)=O(\prod_{i}a_{i}^{O(1)}). For all other primes, we have \beta_{p}=1+O(p^{-2}) by Lemma [1.2](https://arxiv.org/html/1607.06625v1#S1.Thmtrm2 "Lemma 1.2. ‣ 1. Introduction ‣ A higher-dimensional Siegel-Walfisz theorem"), so that
+
+\prod_{p}\beta_{p}(a)\ll\prod_{p\mid Q(a)}\beta_{p}(a)\leq\left(\frac{Q(a)}{\varphi(Q(a))}\right)^{t}\ll(\log\log Q(a))^{t}\ll(\log\log\prod_{i}a_{i})^{t}.
+
+Then note that the sum
+
+\sum_{a_{1},\ldots,a_{t}}(\log\log\prod_{i}a_{i})^{t}\alpha_{\Psi}(a_{1}^{2},\ldots,a_{t}^{2})
+
+is convergent. Indeed, we have the bound
+
+\alpha_{\Psi}(a_{1}^{2},\ldots,a_{t}^{2})=\prod_{p}\alpha_{\Psi}(p^{2v_{p}(a_{1})},\ldots,p^{2v_{p}(a_{t})})\ll\prod_{p}p^{-2v_{p}(\max_{i}a_{i})}=\text{lcm}(a_{1},\ldots,a_{t})^{-2},
+
+where the inequality holds because the forms \psi_{i} have bounded linear coefficients and if p\nmid\psi_{i}, then \alpha_{\psi_{i}}(p^{k})\leq p^{-k} (this is linear algebra and Hensel’s lemma, see [[1](https://arxiv.org/html/1607.06625v1#bib.bib1), Corollary C.4]). The convergence then follows from a trivial bound for the number of t-tuples a of prescribed least common multiple k, namely \tau(k)^{t}. This convergence result implies that
+
+\sum_{1\leq a_{1},\ldots,a_{t}\leq\log^{C}N}\alpha_{\Psi}(a_{1}^{2},\ldots,a_{t}^{2})\prod_{p}\beta_{p}(a)\prod_{i\in[t]}\mu(a_{i})=C(\Psi)+o(1),
+
+where
+
+C(\Psi)=\sum_{(a_{1},\ldots,a_{t})\in\mathbb{N}^{t}}\alpha_{\Psi}(a_{1}^{2},\ldots,a_{t}^{2})\prod_{p}\beta_{p}(a)\prod_{i\in[t]}\mu(a_{i}).
+
+This concludes the proof.
+
+∎
+
+## References
+
+*   [1] P.-Y. Bienvenu. Asymptotics for some polynomial patterns in the primes, preprint. arXiv:1511.07317, November 2015. 
+*   [2] K.Ford, B.Green, S.Konyagin, and T.Tao. Large gaps between consecutive prime numbers, preprint. arXiv:1408.4505, August 2014. 
+*   [3] B.Green. Notes on progressions and convex geometry. http://people.maths.ox.ac.uk/greenbj/papers/convexnotes.pdf. 
+*   [4] B.Green and T.Tao. The primes contain arbitrarily long arithmetic progressions. Ann. of Math. (2), 167(2):481–547, 2008. 
+*   [5] B.Green and T.Tao. Linear equations in primes. Ann. of Math. (2), 171(3):1753–1850, 2010. 
+*   [6] B.Green and T.Tao. The Möbius function is strongly orthogonal to nilsequences. Ann. of Math. (2), 175(2):541–566, 2012. 
+*   [7] B.Green, T.Tao, and T.Ziegler. An inverse theorem for the Gowers U^{s+1}[N]-norm. Ann. of Math. (2), 176(2):1231–1372, 2012. 
+*   [8] L.Mirsky. The number of representations of an integer as the sum of a prime and a k-free integer. Amer. Math. Monthly, 56:17–19, 1949. 
+*   [9] T.Tao. Concatenation theorems for anti-Gowers-uniform functions and Host-Kra characteristic factors; polynomial patterns in primes. https://terrytao.wordpress.com/2016/03/27. 
+*   [10] T.Tao and T.Ziegler. The primes contain arbitrarily long polynomial progressions. Acta Math., 201(2):213–305, 2008. 
+*   [11] T.Tao and T.Ziegler. Polynomial patterns in the primes, preprint. arXiv:1603.07817, March 2016.
+
