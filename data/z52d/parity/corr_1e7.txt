@@ -1,4 +1,4 @@
-N = 82887 primes p = 1 (24), p <= 9999937; Barrucand-Cohn [8|h] == [p = x^2+32y^2] mismatches: 0
+N = 82887 primes p = 1 (24), p <= 9999937; Barrucand-Cohn [8|h] == [p = x^2+32y^2] mismatches: 0 of 82887 checked
 frequencies: {'R2': 0.5028, 'UII': 0.4992, 'BICH': 0.5007, 'EA': 0.502, 'NE': 0.5022} {'b8': 0.499, 'b16': 0.2489, 'q3': 0.4985, 'c2': 0.3319, 'rnd': 0.5012} hq dist [0.2489, 0.2493, 0.2502, 0.2516]
 identity [8|h] == [2 quartic] XOR [p=9 (16)] mismatches: 0
   b8 vs p mod 16: chi2 = 0.4 (df 1), p~0.519
@@ -45,5 +45,12 @@ identity [8|h] == [2 quartic] XOR [p=9 (16)] mismatches: 0
   BICH: p%16=1,b8=0: 0.5001 (n=20830); p%16=1,b8=1: 0.5009 (n=20655); p%16=1,b16=0: 0.5016 (n=31159); p%16=1,b16=1: 0.4973 (n=10326); p%16=9,b8=0: 0.5010 (n=20694); p%16=9,b8=1: 0.5007 (n=20708); p%16=9,b16=0: 0.5014 (n=31101); p%16=9,b16=1: 0.4993 (n=10301)
   EA: p%16=1,b8=0: 0.5007 (n=20830); p%16=1,b8=1: 0.5049 (n=20655); p%16=1,b16=0: 0.5035 (n=31159); p%16=1,b16=1: 0.5005 (n=10326); p%16=9,b8=0: 0.5002 (n=20694); p%16=9,b8=1: 0.5021 (n=20708); p%16=9,b16=0: 0.4994 (n=31101); p%16=9,b16=1: 0.5064 (n=10301)
   NE: p%16=1,b8=0: 0.5061 (n=20830); p%16=1,b8=1: 0.5040 (n=20655); p%16=1,b16=0: 0.5045 (n=31159); p%16=1,b16=1: 0.5068 (n=10326); p%16=9,b8=0: 0.4956 (n=20694); p%16=9,b8=1: 0.5031 (n=20708); p%16=9,b16=0: 0.4980 (n=31101); p%16=9,b16=1: 0.5033 (n=10301)
+
+[E] no deterministic law: classes (p mod 6160, h mod 16) in which Y takes both values; first such pair
+  R2: 1920 of 1920 classes non-constant; first counterexample pair (937, 19417, (937, 4))
+  UII: 1920 of 1920 classes non-constant; first counterexample pair (433, 18913, (433, 12))
+  BICH: 1920 of 1920 classes non-constant; first counterexample pair (433, 18913, (433, 12))
+  EA: 1920 of 1920 classes non-constant; first counterexample pair (433, 18913, (433, 12))
+  NE: 1920 of 1920 classes non-constant; first counterexample pair (1009, 19489, (1009, 4))
 
 max |z| over 5x4 class/Frobenius tests: 2.48  (Bonferroni 5% two-sided threshold for 40 tests ~ 3.23)
