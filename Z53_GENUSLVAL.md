@@ -282,8 +282,9 @@ with X_u as predicted. Full run: 65 slices, u = 1, 5, 13 (and 21), at 409, 577, 
 
 ## 4. (b) Which genus characters can make M_gen small
 
-**Exact decomposition (PROVED, Lemma 2.3 + Prop C).** In each slice, S_u = (2φ(u))⁻¹[Σ_1 + Σ_{η≠1}ε_ηΣ_η], with Σ_1 ≈
-L(1, χ_{−4up})H_u(1)·log X_u > 0 and the 2^{ω(u)+1} − 1 cross terms ε_η L(1, η)L(1, ηχ_D)H_{u,η}(1) of either sign.
+**Exact decomposition (PROVED, Lemma 2.3 + Prop C).** In each slice, S_u = (2φ(u))⁻¹[Σ_1 + Σ_{η≠1}ε_ηΣ_η]. On the slices covered by Prop C,
+Σ_1 = L(1, χ_{−4up})H_u(1)[log X_u + γ_E + L′/L(1, χ_{−4up}) + H_u′/H_u(1)] + O(p^{−δ}) — the additive L′ and H′ terms are kept: no
+bound here makes them uniformly o(L·H·log X_u) as u and p vary (they cancel exactly only in the windows of Thm U) — and the 2^{ω(u)+1} − 1 cross terms ε_η L(1, η)L(1, ηχ_D)H_{u,η}(1) of either sign.
 * **What can make a slice small:** (α) L(1, χ_{−4up}) small (a Siegel-type small class number h(−4up)), or (β) cross terms
   with ε_η = −1 and large L(1, ηχ_D) = L(1, χ_pψ) (i.e. χ_p ψ(ℓ) = +1 at the small primes ℓ). Both occur for individual u at
   attainable p (EVIDENCE: at p = 8 813 281, u = 13: Σ_1 = 4.46 but ε = −1 on (·/13) and χ₋₄(·/13) with Σ = 0.57, 1.81, so the
@@ -364,8 +365,10 @@ L(1, χ_{−4up})H_u(1)·log X_u > 0 and the 2^{ω(u)+1} − 1 cross terms ε_η
 buys: the one-sided target "X(p) ≥ −(1 − ε)M_gen(p)" (H⁻ relative to the genus series) now has an unconditionally
 log²-sized main term, so §7.4's "(L)" half of `SINGLE_P_COUNT`'s (L)/(U) split is closed; (U) is untouched. For §7.3:
 **narrowed/clarified** — the genus part of the class-in-coset layer is written out as explicit L(1, ψ′)L(1, χ_pψ) products per
-slice (Prop C, PROVED for squarefree u ≡ 1 (4), u ≤ p^α, α < 3/5), and it is shown that these cross terms cannot make the genus layer small; what
-remains in §7.3 is entirely the order-≥3 layer X(p) (B2).
+slice (Prop C, PROVED for squarefree u ≡ 1 (4), u ≤ p^α, α < 3/5), and it is shown that these cross terms cannot make the genus layer small. For eventual positivity of the aggregate
+(★) prime count, the genus lower-bound requirement is now met; control of the non-real remainder X(p) remains open. (Thm U
+does not resolve genus obstructions at an individual modulus/coset, does not address every n, and does not supply the
+global closed form, which stays an Assessment in §3.1.)
 
 *Proposed FRONTIER §7 text* (replace item 4; append to item 3):
 > 4. **A polylog lower bound for M_gen(p) — CLOSED (z53, `Z53_GENUSLVAL.md` Thm U, PROVED, internal review).**
@@ -379,7 +382,8 @@ remains in §7.3 is entirely the order-≥3 layer X(p) (B2).
 > layer is an explicit signed sum
 > Σ_η ε_η L(1, η)L(1, ηχ_{−4up})H_η plus the principal class-number term L(1, χ_{−4up})·log (PROVED; numerically within
 > 0.13 % for slices of length ≥ 10⁵, at 10⁵–10⁸ incl. (★)-zero primes). Cross terms can remove ~40 % of a slice (EVIDENCE) but cannot make
-> M_gen = o(log²p) (Thm U). The non-genus (order ≥ 3) part is all that remains of this item.
+> M_gen = o(log²p) (Thm U). For eventual positivity of the aggregate (★) prime count the genus lower-bound requirement is now met;
+> control of the non-real remainder X(p) remains open (per-coset genus forcing and a global genus closed form are not supplied).
 
 **Bottom line.** The genus layer of (★) at a single prime is now under unconditional control: it is ≥ 0.0068·log²p for every
 large p ≡ 1 (4) (effective, Burgess only), and on the slices covered by Prop C (u ≡ 1 (4) squarefree, u ≤ p^α, α < 3/5)
@@ -412,3 +416,13 @@ Prop C**; conductor product f_F f_G = 4up, Burgess applications, squarefree aver
 * R9 observed range of M_gen/M₀ is [0.570, 1.526] (max at 15461), not [0.57, 1.46].
 * R10 "no cross terms at all" → "their constant main terms cancel in the window, leaving O(p^{−δ})".
 A cross-model review is to follow.
+
+**Cross-model review** (`data/z53/xreview/REVIEW_GENUSLVAL.md`; verdict ACCEPT-WITH-FIXES, scope/wording only). Theorem U
+judged correct, unconditional and effective (Burgess checked against arXiv:2511.17778v2 Thm 1.2, including small conductors
+and effective constants); Lemmas 2.1–2.3, Props 2.4, 2.5, C and the T1 audit re-derived; all 65 slices, the §5 windows, the
+census extremes (0.08387, 0.56960 at 8089; 1.52546 at 15461) and the 77.46 % deficit share reproduced; exact rational M_gen(409),
+M_gen(577) and full-slice sums agree. Fixes applied: (1) §7 verdict and proposed FRONTIER item 3 rescoped to "for eventual
+positivity of the aggregate (★) prime count the genus lower-bound requirement is met; control of X(p) remains open" (no
+per-coset or global-closed-form claim); (2) §4 shorthand Σ_1 ≈ L·H·log X replaced by Prop C's full expression with the
+L′ and H′ terms kept. Bankable: Thm U and restricted Prop C; not bankable: global genus formula, per-coset forcing, any
+estimate for X(p). Composite extension and the large-sieve constant remain Assessment.
