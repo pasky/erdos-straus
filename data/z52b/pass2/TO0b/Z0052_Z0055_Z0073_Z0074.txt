@@ -1,0 +1,6 @@
+Z0055 4/n = 2/n+1/n+1/n for odd n<=2000: True
+Z0074 4/p = 1/(p/3)+1/(2p)+1/(2p) for primes 5..400: True
+Z0073 4 is a unit of Z[1/2]: 4/p = 1/(p/4) with p/4 in Z[1/2]; checked:  True
+Z0052: primes l = 1 mod 8 below 1200: 44  with k in {1,3,5,7} giving (l^k+1)/2 with a prime factor 3 mod 4: 44
+  no such k (<=7) for l = []
+  k distribution: {1: 33, 3: 8, 5: 3, 7: 0}

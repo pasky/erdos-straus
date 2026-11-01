@@ -1,0 +1,10 @@
+q=5 A=T n=2 irr=10 fails_monic=2 fails_squareLC=0 monic_only_fail=2 sq_only_fail=0 H=[1, 4] t=0.0s
+  sq_only: []  monic_only: ['102', '141']
+q=5 A=T n=3 irr=40 fails_monic=2 fails_squareLC=0 monic_only_fail=2 sq_only_fail=0 H=[1, 4] t=0.3s
+  sq_only: []  monic_only: ['1032', '1322']
+q=5 A=T n=4 irr=150 fails_monic=1 fails_squareLC=0 monic_only_fail=1 sq_only_fail=0 H=[1, 4] t=9.7s
+  sq_only: []  monic_only: ['10122']
+q=7 A=T n=2 irr=21 fails_monic=6 fails_squareLC=0 monic_only_fail=6 sq_only_fail=0 H=[1, 2, 4] t=0.1s
+  sq_only: []  monic_only: ['101', '113', '122', '131', '152', '164']
+q=7 A=T n=3 irr=112 fails_monic=21 fails_squareLC=0 monic_only_fail=21 sq_only_fail=0 H=[1, 2, 4] t=3.5s
+  sq_only: []  monic_only: ['1002', '1004', '1011', '1062', '1124', '1151', '1152', '1201', '1261', '1262', '1333', '1334']

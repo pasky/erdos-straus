@@ -1,0 +1,12 @@
+(a) odd-denominator 4/n, odd n<=3001: 2-term representable count, 3-term count (n<=301)
+  two odd unit fractions: 969 of 1500 first non-representable: [5, 7, 13, 17, 23, 25, 29, 31, 37, 41, 47, 49]
+  odd 3-term solutions exist for n<=301 (should be none, parity: k even): []
+(b) Z0126 identity 4/n = 2/((n+1)/2) + 1/M + 1/M, M=n(n+1)/2, odd n<=10001:
+  identity holds for all odd n<=10001: True
+(c) Z0108: 3-term representability of m/p for m in {p+1,p+2,p+3,2p+1,2p-1,p-1} over primes 5<=p<=2000:
+  m=p+1: 3-term representable for 301/301 primes
+  m=p+2: 3-term representable for 301/301 primes
+  m=p+3: 3-term representable for 153/301 primes
+  m=2p+1: 3-term representable for 301/301 primes
+  m=2p-1: 3-term representable for 0/301 primes
+  m=p-1: 3-term representable for 2/301 primes

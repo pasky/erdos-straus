@@ -1,0 +1,30 @@
+m  prime?  rep_all  rep_p1mod4  rep_p3mod4  (fraction of primes 5..30000 with m/p 3-term representable)
+  1 c  1.0000  1.0000  1.0000
+  2 P  1.0000  1.0000  1.0000
+  3 P  1.0000  1.0000  1.0000
+  4 c  1.0000  1.0000  1.0000
+  5 P  1.0000  1.0000  1.0000
+  6 c  1.0000  1.0000  1.0000
+  7 P  1.0000  1.0000  1.0000
+  8 c  0.9985  0.9988  0.9982
+  9 c  0.9991  0.9994  0.9988
+ 10 c  0.9978  0.9988  0.9969
+ 12 c  0.9935  0.9888  0.9982
+ 16 c  0.9898  0.9832  0.9963
+ 25 c  0.9753  0.9727  0.9780
+ladder: primes with 1-2 solutions for m=4 (below 30000): 1 [5]
+  m=4: in M(p) for hard primes: 1/1
+  m=8: in M(p) for hard primes: 1/1
+  m=16: in M(p) for hard primes: 0/1
+ladder: primes with 1-2 solutions for m=4 (below 30000): 1 [5]
+  m=4: in M(p) for hard primes: 1/1
+  m=8: in M(p) for hard primes: 1/1
+  m=16: in M(p) for hard primes: 0/1
+fail counts <30000: m=4: 0  m=8: 5  m=16: 33  m=12: 21  m=25: 80
+nesting Fail(8) subset Fail(16): True   Fail(4) empty: True
+  prime 5 fails for m=8? False  m=16? True  cnt4= 2  cnt8= 1  cnt16= 0
+  prime 13 fails for m=8? False  m=16? True  cnt4= 4  cnt8= 3  cnt16= 0
+  prime 17 fails for m=8? True  m=16? True  cnt4= 4  cnt8= 0  cnt16= 0
+  prime 193 fails for m=8? False  m=16? True  cnt4= 6  cnt8= 3  cnt16= 0
+largest primes in Fail(16): [2689, 3169, 3361, 4801, 4993, 5281, 8161, 8641]
+Fail(8) list: [3, 11, 17, 131, 241]
