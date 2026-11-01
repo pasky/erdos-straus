@@ -1,5 +1,7 @@
-// z52d pass2 SK1 (Z0815 proxy): class number h(-4p) of Q(sqrt(-p)) for primes 5<=p<=N via reduced-form count.
-// Output: p h   (D=-4p is a fundamental discriminant for p = 1 mod 4 and for p = 3 mod 4 with -p=1 mod 4 ... p>2 prime: D=-4p fundamental when p = 1 or 2 mod 4 => we use -4p for all odd p, check fundamentality: -4p is fundamental iff -p = 2,3 mod 4 => p = 1 mod 4 only? see note)
+// z52d pass2 SK1 (Z0815 proxy): h(-4p) via reduced-form count. For p = 1 mod 4, -4p is the fundamental discriminant of
+// Q(sqrt(-p)) (h = field class number). For p = 3 mod 4, -4p is NOT fundamental (-p = 1 mod 4): the value is the class
+// number of the non-maximal order of conductor 2, not the field class number.
+// Output: p h   (all odd primes p; use p = 1 mod 4 rows for the field class number)
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

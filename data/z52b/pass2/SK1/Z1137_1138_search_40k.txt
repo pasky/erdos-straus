@@ -1,0 +1,4 @@
+primes 1 mod 4 <=2000: 147; in-box exact (K=40) R>0: 139
+annealer found words for 20 primes, all inside exact set: True; recall 20/139
+tempering found words for 43 primes, all inside exact set: True; recall 43/139
+primes with exact in-box word missed by tempering (first 8): [137, 149, 193, 197, 233, 241, 257, 269]

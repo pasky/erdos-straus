@@ -1,7 +1,8 @@
 // z52d pass2 SK1 (item Z0847): Vmin(p) census at primes p = 1 mod 4 up to N.
 // Vmin(p) = least v >= 3 with v in 4Z or v = -p (mod 8), such that p+v has a divisor d = tv-1 (d = -1 mod v).
 // (Equivalent to the minwords word sieve: tuv - u - v = p  <=>  u*(tv-1) = p+v.)
-// Usage: z52d_p2_SK1_vmin N VMAXSEARCH   ; memory ~4 bytes * N (uint32 spf table).
+// Usage: z52d_p2_SK1_vmin N VMAXSEARCH OUTFILE   (OUTFILE receives 'NONE p' and 'V>87 p Vmin' lines)
+// Memory ~4 bytes * N (uint32 spf table); N=1e9 needs ~4 GB.
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -9,6 +10,7 @@
 typedef unsigned long long u64;
 static uint32_t *spf;
 int main(int argc,char**argv){
+  if(argc<4){ fprintf(stderr,"usage: %s N VMAXSEARCH OUTFILE\n",argv[0]); return 2; }
   u64 N=strtoull(argv[1],0,10); long VS=atol(argv[2]);
   u64 L=N+VS+10;
   spf=calloc(L+1,sizeof(uint32_t)); if(!spf){fprintf(stderr,"alloc\n");return 1;}
@@ -18,7 +20,7 @@ int main(int argc,char**argv){
   u64 cnt[1000]; memset(cnt,0,sizeof cnt);
   u64 nprime=0, nrec=0, maxV=0, over116=0, over87=0, over31=0, none=0;
   u64 recp[200], recv[200]; int nr=0;
-  FILE *big=fopen(argv[3],"w");
+  FILE *big=fopen(argv[3],"w"); if(!big){fprintf(stderr,"cannot open %s\n",argv[3]); return 2;}
   for(u64 p=5;p<=N;p+=4){
     if(spf[p]) continue; // composite (spf set) ; p=1 mod 4 odd
     nprime++;

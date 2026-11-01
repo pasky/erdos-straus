@@ -14,10 +14,11 @@ for n in sorted(U):
     fac=[d for d in range(3,int(n**.5)+1,2) if n%d==0]
     if not fac: continue
     p=fac[0]; q=n//p
+    if p==q: continue   # squares p^2: both factorisations coincide, excluded (distinct primes only)
     if p not in P or q not in P: continue
     inh=U[p]+U[q]; new=U[n]-inh
     rows.append((n,p,q,U[n],U[p],U[q],inh,new))
-print("odd semiprimes pq<=3e4 (p<q):",len(rows))
+print("odd semiprimes pq<=3e4 with distinct primes p<q:",len(rows))
 print("min non-inherited:",min(r[7] for r in rows)," negative count:",sum(1 for r in rows if r[7]<0))
 print("zero non-inherited:",sum(1 for r in rows if r[7]==0),"of",len(rows))
 fr=[r[7]/r[3] for r in rows if r[3]>0]
