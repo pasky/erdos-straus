@@ -1,0 +1,7 @@
+name     n_witness  P(sum2 sq)  P(sum3 sq)   [base: P(sum2)~ all n<=X, P(sum3) all n<=X]
+u           11031   0.6782      0.9184
+B           11031   0.3267      0.8834
+C           11031   0.9702      0.9986
+4uC-1       11031   0.0000      0.5066
+base rate on [1,100000]: P(sum2)=0.2403  P(sum3)=0.8334
+Z3020: H(union indicator) = 0.0634 bits (P(no level<=12)=0.00745, primes<=10^6)

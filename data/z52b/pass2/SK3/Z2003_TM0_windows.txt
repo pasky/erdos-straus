@@ -1,0 +1,6 @@
+primes(=1 mod 4) in [100000,110000] step 1: n=422 mean T/M0=0.0256 worst T/M0=0.3378 at p=102001; min M_BM/log^2p=0.0985 at p=102001
+mod 8 split: p=1 mod 8: n=209 mean M_BM/L2=0.1367 min=0.0985 frac<0.1402=0.4354 | p=5 mod 8: n=213 mean=0.1529 min=0.1489 frac<0.1402=0.0000
+primes(=1 mod 4) in [1000000,1010000] step 1: n=390 mean T/M0=0.0184 worst T/M0=0.3079 at p=1007161; min M_BM/log^2p=0.1034 at p=1007161
+mod 8 split: p=1 mod 8: n=198 mean M_BM/L2=0.1412 min=0.1034 frac<0.1402=0.3182 | p=5 mod 8: n=192 mean=0.1524 min=0.1496 frac<0.1402=0.0000
+primes(=1 mod 4) in [10000000,10010000] step 1: n=282 mean T/M0=0.0146 worst T/M0=0.2419 at p=10008769; min M_BM/log^2p=0.1137 at p=10008769
+mod 8 split: p=1 mod 8: n=152 mean M_BM/L2=0.1439 min=0.1137 frac<0.1402=0.2303 | p=5 mod 8: n=130 mean=0.1523 min=0.1500 frac<0.1402=0.0000

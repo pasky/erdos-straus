@@ -1,0 +1,9 @@
+C<=3:False rough  n=1106954 P(E)=0.0509
+C<=3:False smooth n=342521 P(E)=0.2194
+C<=3:True rough  n=88922 P(E)=0.4596
+C<=3:True smooth n=28603 P(E)=0.8175
+control by tau(N) (C<=3): tau bucket, smooth -> n, P(E)
+tau= 6  smooth n=    246 P=0.341 | rough n=   3980 P=0.360
+tau= 8  smooth n=   8106 P=0.663 | rough n=  23973 P=0.716
+tau=10  smooth n=     29 P=0.552 | rough n=    318 P=0.440
+tau=12  smooth n=  20222 P=0.886 | rough n=  11868 P=0.887
