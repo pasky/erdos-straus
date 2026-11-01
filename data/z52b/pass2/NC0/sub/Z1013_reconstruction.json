@@ -1,0 +1,68 @@
+{
+ "n_primes": 211,
+ "U_enumeration_mismatches": [],
+ "n_mismatch": 0,
+ "slope_logH_vs_logp": {
+  "minH_yz": 0.04400633309715263,
+  "medH_yz": 1.1524289865001347,
+  "maxH_yz": 1.9429015708798887,
+  "maxH_xz": 2.87186210264213,
+  "maxH_xy": 1.8952039129654144
+ },
+ "fraction_solutions_reconstructible_by_modulus_p4": 1.0,
+ "fraction_reconstructible_by_modulus_p2": 0.3161,
+ "fraction_reconstructible_by_modulus_p": 0.1086,
+ "n_solutions_total": 8334,
+ "examples": [
+  {
+   "p": 2909,
+   "U": 81,
+   "minH_yz": 2,
+   "medH_yz": 2909.0,
+   "maxH_yz": 1326504,
+   "maxH_xz": 1026757731,
+   "maxH_xy": 706887,
+   "max_modulus_needed_yz": 3519225724033
+  },
+  {
+   "p": 2917,
+   "U": 47,
+   "minH_yz": 2,
+   "medH_yz": 11668.0,
+   "maxH_yz": 2088572,
+   "maxH_xz": 1035249134,
+   "maxH_xy": 355874,
+   "max_modulus_needed_yz": 8724265998369
+  },
+  {
+   "p": 2953,
+   "U": 44,
+   "minH_yz": 5,
+   "medH_yz": 4429.5,
+   "maxH_yz": 437044,
+   "maxH_xz": 184370555,
+   "maxH_xy": 156509,
+   "max_modulus_needed_yz": 382014915873
+  },
+  {
+   "p": 2957,
+   "U": 79,
+   "minH_yz": 2,
+   "medH_yz": 5914.0,
+   "maxH_yz": 1525812,
+   "maxH_xz": 1078409029,
+   "maxH_xy": 730379,
+   "max_modulus_needed_yz": 4656204518689
+  },
+  {
+   "p": 2969,
+   "U": 51,
+   "minH_yz": 4,
+   "medH_yz": 2969.0,
+   "maxH_yz": 825382,
+   "maxH_xz": 78075793,
+   "maxH_xy": 736312,
+   "max_modulus_needed_yz": 1362510891849
+  }
+ ]
+}

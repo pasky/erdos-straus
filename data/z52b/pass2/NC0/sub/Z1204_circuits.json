@@ -1,0 +1,35 @@
+{
+ "F1_n3mod4": {
+  "identity_checked": true,
+  "numerator_identically_zero": true,
+  "tree_mul": 13,
+  "tree_add": 8,
+  "cse_mul": 9,
+  "cse_add": 5,
+  "cse_temps": 3,
+  "expanded_product_monomials": 4,
+  "naive_expanded_mul": 10
+ },
+ "F2_n2mod4": {
+  "identity_checked": true,
+  "numerator_identically_zero": true,
+  "tree_mul": 14,
+  "tree_add": 6,
+  "cse_mul": 13,
+  "cse_add": 4,
+  "cse_temps": 2,
+  "expanded_product_monomials": 4,
+  "naive_expanded_mul": 14
+ },
+ "F3_n3mod4_dup": {
+  "identity_checked": true,
+  "numerator_identically_zero": true,
+  "tree_mul": 13,
+  "tree_add": 6,
+  "cse_mul": 12,
+  "cse_add": 4,
+  "cse_temps": 2,
+  "expanded_product_monomials": 4,
+  "naive_expanded_mul": 14
+ }
+}

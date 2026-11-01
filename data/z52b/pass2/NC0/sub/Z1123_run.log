@@ -1,0 +1,18 @@
+primes 1 mod 4 <= 3000; x-window 2000; y-window 20000
+p, #x where A survives all tested y, largest refuting y needed (sample)
+(5, 0, 6)
+(13, 0, 19)
+(17, 0, 29)
+(29, 0, 79)
+(37, 0, 126)
+(41, 0, 151)
+(53, 0, 249)
+(61, 0, 327)
+(73, 0, 463)
+(89, 0, 683)
+(97, 0, 809)
+(101, 0, 877)
+total x with A surviving tested y's: 0 over 211 primes
+max refuting y over all primes: 735323
+sanity p=13: 4/13 = 1/4+1/18+1/468 ; A-survivor x=4 ? (True, 19)
+explicit B-reply verified for 422000 (p,x) pairs

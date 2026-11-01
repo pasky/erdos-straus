@@ -1,0 +1,70 @@
+{
+ "n_primes": 8966,
+ "ord_p(10)": {
+  "raw_spearman_with_Uresid": 0.1319,
+  "p_raw": 4.318956222546217e-36,
+  "partial_given_2p_5p": 0.1352,
+  "p_partial": 8.263310454821826e-38
+ },
+ "ord_p(2)": {
+  "raw_spearman_with_Uresid": 0.447,
+  "p_raw": 0.0,
+  "partial_given_2p_5p": 0.1202,
+  "p_partial": 3.437999459515282e-30
+ },
+ "ord_p(3)": {
+  "raw_spearman_with_Uresid": 0.3172,
+  "p_raw": 1.0759901880606699e-208,
+  "partial_given_2p_5p": 0.3627,
+  "p_partial": 6.691324177215958e-277
+ },
+ "null_shuffled_partial_mean_sd": [
+  0.0002,
+  0.01
+ ],
+ "p_mod8=1_partial_given_5p": [
+  0.1883,
+  7.373748354495355e-37,
+  4461
+ ],
+ "p_mod8=5_partial_given_5p": [
+  0.0845,
+  1.3388782403775477e-08,
+  4505
+ ],
+ "partial_given_all_quadratic_symbols_q<=47": [
+  0.0682,
+  1.049535172333879e-10
+ ],
+ "n_covariates": 15,
+ "index_classes_mean_Uresid": {
+  "1": [
+   0.0383,
+   3362
+  ],
+  "2": [
+   0.0164,
+   1693
+  ],
+  "3": [
+   -0.0528,
+   592
+  ],
+  "4": [
+   0.0819,
+   1305
+  ],
+  "6": [
+   -0.0881,
+   290
+  ],
+  "8": [
+   -0.2047,
+   273
+  ],
+  "12": [
+   0.0381,
+   203
+  ]
+ }
+}

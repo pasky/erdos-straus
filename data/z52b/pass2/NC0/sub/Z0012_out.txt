@@ -1,0 +1,4 @@
+  """Z0012: ES over the coordinate ring A = F_5[E minus O] of E: y^2 = x^3 + x + 1 (smooth over F_5), numerator 4.
+principal primes (N irreducible, ord<=7, up to F_5^* scalars): 3186  time=2.5s
+  by degree (= pole order): {3: 6, 5: 136, 7: 2496, 4: 24, 6: 524}
+ES search with ord(X),ord(Y)<=MX=5: failing principal primes = 0 of 3186  time=6.2s

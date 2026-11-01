@@ -1,0 +1,47 @@
+{
+ "n_polynomial_families_found (x,y linear; z poly)": 2,
+ "n_classes": {
+  "3*k + 2": 1,
+  "4*k + 3": 1
+ },
+ "families": [
+  [
+   "k + 1",
+   "3*k + 2",
+   "3*k**2 + 5*k + 2",
+   "3*k + 2"
+  ],
+  [
+   "2*k + 2",
+   "2*k + 2",
+   "4*k**2 + 7*k + 3",
+   "4*k + 3"
+  ]
+ ],
+ "pairs": 1,
+ "pairs_with_common_n_coincidence": 0,
+ "examples": [
+  {
+   "A": [
+    "k + 1",
+    "3*k + 2",
+    "3*k**2 + 5*k + 2",
+    "3*k + 2"
+   ],
+   "B": [
+    "2*k + 2",
+    "2*k + 2",
+    "4*k**2 + 7*k + 3",
+    "4*k + 3"
+   ],
+   "joint_n_coincidences": {},
+   "n_equations": 9,
+   "example_equations": {
+    "x0=y0": "-n - 1",
+    "x0=y1": "-n - 1",
+    "x0=y2": "-(n + 1)*(3*n - 4)",
+    "x1=y0": "n - 1"
+   }
+  }
+ ]
+}

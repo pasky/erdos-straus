@@ -1,0 +1,9 @@
+degree of F in x: 1
+degree of F in y: 1
+degree of F in z: 1
+F(x) = x*(4yz - n(y+z)) - n*y*z  -> linear in x; the other root is never a second solution.
+solutions (n;x<=y<=z) with n<=300: 50602
+R1 moves (g>1): 22195 of 50602; non-decrease counts: {'n': 0, 'maxden': 0, 'sum': 0}
+R2 jumps to a different admissible x (fixed n,y,z): 0 of 50602
+R3 sort: permutation move; orbit size fixed by the multiset, measure-neutral (no termination content).
+Conclusion: only R1 (n decreases) is a non-trivial well-founded step; R2 has no non-trivial moves.

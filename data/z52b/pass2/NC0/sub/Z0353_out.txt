@@ -1,0 +1,26 @@
+n=2: irreducible P (T∤P)=10 failing=2 time=0.0s
+   FAIL: count=2 mean #factors(P-1)=2.000 frac(P-1 irreducible)=0.000 frac(P-1 not irreducible)=1.000
+   ok  : count=8 mean #factors(P-1)=1.375 frac(P-1 irreducible)=0.625 frac(P-1 not irreducible)=0.375
+n=3: irreducible P (T∤P)=40 failing=2 time=0.0s
+   FAIL: count=2 mean #factors(P-1)=2.500 frac(P-1 irreducible)=0.000 frac(P-1 not irreducible)=1.000
+   ok  : count=38 mean #factors(P-1)=2.105 frac(P-1 irreducible)=0.263 frac(P-1 not irreducible)=0.737
+n=4: irreducible P (T∤P)=150 failing=1 time=0.3s
+   FAIL: count=1 mean #factors(P-1)=3.000 frac(P-1 irreducible)=0.000 frac(P-1 not irreducible)=1.000
+   ok  : count=149 mean #factors(P-1)=2.430 frac(P-1 irreducible)=0.168 frac(P-1 not irreducible)=0.832
+n=5: irreducible P (T∤P)=624 failing=0 time=3.4s
+   ok  : count=624 mean #factors(P-1)=2.665 frac(P-1 irreducible)=0.157 frac(P-1 not irreducible)=0.843
+n=6: irreducible P (T∤P)=2580 failing=0 time=38.8s
+   ok  : count=2580 mean #factors(P-1)=2.845 frac(P-1 irreducible)=0.109 frac(P-1 not irreducible)=0.891
+summary: [(2, 2, 10), (3, 2, 40), (4, 1, 150), (5, 0, 624), (6, 0, 2580)]
+failing P (low->high coeffs) and factorisation of P-1 over F_5:
+  n=2 P=[1, 4, 1] [1 + 4T^1 + 1T^2]  P-1 = (4 + 1T^1)^1 * (1T^1)^1
+  n=2 P=[2, 0, 1] [2 + 1T^2]  P-1 = (3 + 1T^1)^1 * (2 + 1T^1)^1
+  n=3 P=[2, 2, 3, 1] [2 + 2T^1 + 3T^2 + 1T^3]  P-1 = (2 + 1T^2)^1 * (3 + 1T^1)^1
+  n=3 P=[2, 3, 0, 1] [2 + 3T^1 + 1T^3]  P-1 = (4 + 1T^1)^1 * (3 + 1T^1)^2
+  n=4 P=[2, 2, 1, 0, 1] [2 + 2T^1 + 1T^2 + 1T^4]  P-1 = (3 + 3T^1 + 1T^2)^1 * (4 + 1T^1)^1 * (3 + 1T^1)^1
+root test: P(a)=1 for some a in F_Q  (failing vs ok), n<=NMAX
+  n=2: fail&root=2 fail&noroot=0 ok&root=3 ok&noroot=5
+  n=3: fail&root=2 fail&noroot=0 ok&root=28 ok&noroot=10
+  n=4: fail&root=1 fail&noroot=0 ok&root=109 ok&noroot=40
+  n=5: fail&root=0 fail&noroot=0 ok&root=476 ok&noroot=148
+  n=6: fail&root=0 fail&noroot=0 ok&root=1970 ok&noroot=610

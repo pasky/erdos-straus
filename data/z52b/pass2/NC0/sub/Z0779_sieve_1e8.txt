@@ -1,0 +1,18 @@
+# N=100000000 triples=18655519715 time_s=147.31
+X=1000 cnt=67 | I3 min=6 q01=6 med=18 zero=0.00000 | R min=2 q01=2 med=10 zero=0.00000 | Uv min=3 q01=3 med=18 zero=0.00000
+X=2000 cnt=122 | I3 min=4 q01=10 med=24 zero=0.00000 | R min=2 q01=2 med=12 zero=0.00000 | Uv min=1 q01=1 med=22 zero=0.00000
+X=4000 cnt=230 | I3 min=8 q01=14 med=30 zero=0.00000 | R min=0 q01=4 med=14 zero=0.00435 | Uv min=7 q01=10 med=25 zero=0.00000
+X=8000 cnt=421 | I3 min=10 q01=14 med=36 zero=0.00000 | R min=0 q01=2 med=16 zero=0.00238 | Uv min=3 q01=8 med=29 zero=0.00000
+X=16000 cnt=785 | I3 min=8 q01=20 med=44 zero=0.00000 | R min=0 q01=4 med=18 zero=0.00127 | Uv min=4 q01=9 med=34 zero=0.00000
+X=32000 cnt=1490 | I3 min=20 q01=26 med=52 zero=0.00000 | R min=2 q01=4 med=20 zero=0.00000 | Uv min=7 q01=11 med=39 zero=0.00000
+X=64000 cnt=2763 | I3 min=14 q01=30 med=62 zero=0.00000 | R min=0 q01=6 med=22 zero=0.00072 | Uv min=3 q01=14 med=44 zero=0.00000
+X=128000 cnt=5279 | I3 min=20 q01=38 med=70 zero=0.00000 | R min=2 q01=6 med=24 zero=0.00000 | Uv min=7 q01=17 med=49 zero=0.00000
+X=256000 cnt=9941 | I3 min=24 q01=44 med=80 zero=0.00000 | R min=0 q01=8 med=26 zero=0.00010 | Uv min=5 q01=20 med=54 zero=0.00000
+X=512000 cnt=18909 | I3 min=28 q01=52 med=92 zero=0.00000 | R min=0 q01=10 med=30 zero=0.00005 | Uv min=9 q01=23 med=60 zero=0.00000
+X=1024000 cnt=35995 | I3 min=30 q01=60 med=104 zero=0.00000 | R min=0 q01=12 med=32 zero=0.00008 | Uv min=7 q01=28 med=66 zero=0.00000
+X=2048000 cnt=68606 | I3 min=36 q01=68 med=116 zero=0.00000 | R min=2 q01=14 med=36 zero=0.00000 | Uv min=10 q01=31 med=73 zero=0.00000
+X=4096000 cnt=131083 | I3 min=34 q01=78 med=130 zero=0.00000 | R min=0 q01=16 med=38 zero=0.00001 | Uv min=10 q01=36 med=79 zero=0.00000
+X=8192000 cnt=251184 | I3 min=50 q01=90 med=142 zero=0.00000 | R min=0 q01=18 med=42 zero=0.00000 | Uv min=11 q01=41 med=86 zero=0.00000
+X=16384000 cnt=481953 | I3 min=52 q01=100 med=158 zero=0.00000 | R min=2 q01=20 med=46 zero=0.00000 | Uv min=11 q01=46 med=94 zero=0.00000
+X=32768000 cnt=925949 | I3 min=46 q01=112 med=172 zero=0.00000 | R min=4 q01=22 med=50 zero=0.00000 | Uv min=17 q01=51 med=102 zero=0.00000
+# saturated cells among p=1(4) primes: 25888

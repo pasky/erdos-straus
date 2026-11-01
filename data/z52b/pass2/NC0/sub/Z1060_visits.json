@@ -1,0 +1,50 @@
+{
+ "product_structure_checked": true,
+ "brute_vs_product_mismatches_of_3000": 0,
+ "achievable_Nq_over_q": {
+  "8": [
+   "0",
+   "1/8",
+   "1/4",
+   "1/2",
+   "1"
+  ],
+  "3": [
+   "0",
+   "1/3",
+   "2/3",
+   "1"
+  ],
+  "5": [
+   "0",
+   "1/5",
+   "2/5",
+   "3/5",
+   "4/5",
+   "1"
+  ],
+  "7": [
+   "0",
+   "2/7",
+   "3/7",
+   "4/7",
+   "6/7",
+   "1"
+  ]
+ },
+ "min_delta_over_all_quadratics": "0",
+ "max_delta": "1",
+ "trapped_mod_8_count": 2,
+ "trapped_mod_8_nonconstant_count": 1,
+ "trapped_mod_3_count": 1,
+ "trapped_mod_3_nonconstant_count": 0,
+ "trapped_mod_5_count": 2,
+ "trapped_mod_5_nonconstant_count": 0,
+ "trapped_mod_7_count": 3,
+ "trapped_mod_7_nonconstant_count": 0,
+ "delta_k2_plus_2": 0.0,
+ "example_k2_plus_2_mod3_values": [
+  0,
+  2
+ ]
+}

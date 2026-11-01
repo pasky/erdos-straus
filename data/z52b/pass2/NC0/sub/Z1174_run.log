@@ -1,0 +1,5 @@
+|G|=840; primes 1mod4 <=2e4: 1124; hard (uncovered) primes: 3; charts: 146
+f_all   |supp f| =   96   |supp fhat| =  840   product =   80640   (>= 840? True)
+f_hard  |supp f| =    2   |supp fhat| =  840   product =    1680   (>= 840? True)
+f_div   |supp f| =  145   |supp fhat| =  840   product =  121800   (>= 840? True)
+random sub-collections of divisor distributions (300 trials): min |supp||supp^| = 1660 (>= 840 required)

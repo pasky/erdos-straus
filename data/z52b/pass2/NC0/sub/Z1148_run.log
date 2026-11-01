@@ -1,0 +1,22 @@
+(A) Boolean binary tensors: 104 GL2 transforms tested
+  functions whose nnz can be reduced by a congruence basis change: 7 of 16
+    (0, 0, 1, 1) rank 1 nnz 2 -> 1 T [[-1, -1], [0, 1]]
+    (0, 1, 0, 1) rank 1 nnz 2 -> 1 T [[-1, -1], [0, 1]]
+    (0, 1, 1, 1) rank 2 nnz 3 -> 2 T [[-1, 0], [1, -1]]
+    (1, 0, 1, 0) rank 1 nnz 2 -> 1 T [[-1, 0], [1, -1]]
+    (1, 1, 0, 0) rank 1 nnz 2 -> 1 T [[-1, 0], [1, -1]]
+    (1, 1, 1, 0) rank 2 nnz 3 -> 2 T [[-1, -1], [0, 1]]
+    (1, 1, 1, 1) rank 1 nnz 4 -> 1 T [[-2, -1], [1, 1]]
+  e.g. equality [a=b]: (2, 2)
+  e.g. parity [a!=b]: (2, 2)
+  all-ones: (4, 1)
+(B) Z/8 CRT tensors, random unimodular congruence search (20000 walks):
+  g=1: nnz base 64, min nnz found 4
+  g=2: nnz base 32, min nnz found 8
+  g=4: nnz base 16, min nnz found 7
+  g=8: nnz base 8, min nnz found 8
+  chart pair I(1,2)/I(2,2): gcd(8,16) = 8, tensor = identity on Z/8, nnz 8
+Proof note: for C_8 / equality (symmetric positive definite congruence orbit) every row of T^T C T has a
+  positive diagonal entry, so nnz >= 8 = nnz(C): the identity-type constraint can never be sparsified.
+Conclusion: congruence sparsifies coarse mod-g tensors (C_1 64->4, C_2 32->8, C_4 16->7) and some Boolean
+  tensors (7/16), but the fine identity tensor C_8 (= the chart-pair constraint on Z/8) and equality [a=b] stay at nnz.

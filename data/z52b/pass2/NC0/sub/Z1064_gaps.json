@@ -1,0 +1,107 @@
+{
+ "S=8": {
+  "period_k": 16,
+  "bad_density": 0.5,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 8
+ },
+ "S=3": {
+  "period_k": 6,
+  "bad_density": 0.333333,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 2
+ },
+ "S=5": {
+  "period_k": 10,
+  "bad_density": 0.4,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 4
+ },
+ "S=7": {
+  "period_k": 14,
+  "bad_density": 0.428571,
+  "max_bad_run_k": 2,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 6
+ },
+ "S=8,3": {
+  "period_k": 48,
+  "bad_density": 0.166667,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 8
+ },
+ "S=8,5": {
+  "period_k": 80,
+  "bad_density": 0.2,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 16
+ },
+ "S=8,7": {
+  "period_k": 112,
+  "bad_density": 0.214286,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 24
+ },
+ "S=3,5": {
+  "period_k": 30,
+  "bad_density": 0.133333,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 4
+ },
+ "S=3,7": {
+  "period_k": 42,
+  "bad_density": 0.142857,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 6
+ },
+ "S=5,7": {
+  "period_k": 70,
+  "bad_density": 0.171429,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 12
+ },
+ "S=8,3,5": {
+  "period_k": 240,
+  "bad_density": 0.066667,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 16
+ },
+ "S=8,3,7": {
+  "period_k": 336,
+  "bad_density": 0.071429,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 24
+ },
+ "S=8,5,7": {
+  "period_k": 560,
+  "bad_density": 0.085714,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 48
+ },
+ "S=3,5,7": {
+  "period_k": 210,
+  "bad_density": 0.057143,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 12
+ },
+ "S=8,3,5,7": {
+  "period_k": 1680,
+  "bad_density": 0.028571,
+  "max_bad_run_k": 1,
+  "covering_radius_k": 1,
+  "bad_classes_mod_lcm": 48
+ }
+}

@@ -1,0 +1,13 @@
+families s<=60: 395; distinct covered sets (p=1 mod 4): 146
+train primes 15948, test primes 7254
+test coverage by union of 146 charts: 0.99049 (uncovered 69)
+sched   mean cost   median      p99          sum unresolved
+LCF        113.08      3.0   4864.0       820250         69
+RR         774.85    382.0   5142.6      5620754         70
+RC          62.97      2.0   1189.2       456760         69
+ORA         54.92      2.0     59.0       398423         69
+per-prime regret vs oracle (mean extra cost):
+  LCF: 58.15
+  RR: 719.92
+  RC: 8.04
+train classes mod 840 seen: 96 ; test primes with unseen class: 0

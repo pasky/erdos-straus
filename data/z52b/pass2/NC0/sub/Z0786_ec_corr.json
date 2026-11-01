@@ -1,0 +1,53 @@
+{
+ "n_primes": 1600,
+ "N=1p": {
+  "mean_count": 0.209,
+  "zero_rate": 0.8356,
+  "spearman_raw": 0.0872,
+  "p_raw": 0.0005,
+  "spearman_resid_count": 0.0476,
+  "p_resid": 0.0572
+ },
+ "N=2p": {
+  "mean_count": 1.196,
+  "zero_rate": 0.4487,
+  "spearman_raw": -0.0194,
+  "p_raw": 0.4382,
+  "spearman_resid_count": -0.0316,
+  "p_resid": 0.2072
+ },
+ "N=4p": {
+  "mean_count": 0.309,
+  "zero_rate": 0.7762,
+  "spearman_raw": 0.0538,
+  "p_raw": 0.0315,
+  "spearman_resid_count": 0.0401,
+  "p_resid": 0.1088
+ },
+ "N=8p": {
+  "mean_count": 0.565,
+  "zero_rate": 0.6512,
+  "spearman_raw": 0.0532,
+  "p_raw": 0.0335,
+  "spearman_resid_count": 0.0379,
+  "p_resid": 0.1299
+ },
+ "N=16p": {
+  "mean_count": 2.279,
+  "zero_rate": 0.265,
+  "spearman_raw": 0.0372,
+  "p_raw": 0.1372,
+  "spearman_resid_count": 0.0335,
+  "p_resid": 0.1806
+ },
+ "N=3p (control)": {
+  "mean_count": 0.907,
+  "spearman_raw": -0.2331,
+  "p_raw": 0.0
+ },
+ "N=p+2 (control)": {
+  "mean_count": 4.159,
+  "spearman_raw": -0.1773,
+  "p_raw": 0.0
+ }
+}

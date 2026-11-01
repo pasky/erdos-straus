@@ -1,0 +1,2 @@
+primes<=1e6 in six Mordell classes mod 840: 2370 largest 999961 smallest [1009, 1129, 1201, 1801, 2521]
+primes<=1e6 total 78498

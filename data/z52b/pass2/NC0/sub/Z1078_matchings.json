@@ -1,0 +1,66 @@
+{
+ "409": {
+  "U": 15,
+  "n_edges_ordered": 90,
+  "left": 34,
+  "right": 34,
+  "max_matching": 34,
+  "det_random_weights_nonzero": true,
+  "solutions_per_matching_max": 34
+ },
+ "577": {
+  "U": 18,
+  "n_edges_ordered": 108,
+  "left": 44,
+  "right": 44,
+  "max_matching": 44,
+  "det_random_weights_nonzero": true,
+  "solutions_per_matching_max": 44
+ },
+ "1009": {
+  "U": 19,
+  "n_edges_ordered": 114,
+  "left": 40,
+  "right": 40,
+  "max_matching": 40,
+  "det_random_weights_nonzero": true,
+  "solutions_per_matching_max": 40
+ },
+ "1609": {
+  "U": 27,
+  "n_edges_ordered": 162,
+  "left": 65,
+  "right": 65,
+  "max_matching": 65,
+  "det_random_weights_nonzero": true,
+  "solutions_per_matching_max": 65
+ },
+ "2017": {
+  "U": 27,
+  "n_edges_ordered": 162,
+  "left": 66,
+  "right": 66,
+  "max_matching": 66,
+  "det_random_weights_nonzero": true,
+  "solutions_per_matching_max": 66
+ },
+ "2521": {
+  "U": 9,
+  "n_edges_ordered": 54,
+  "left": 23,
+  "right": 23,
+  "max_matching": 23,
+  "det_random_weights_nonzero": true,
+  "solutions_per_matching_max": 23
+ },
+ "2953": {
+  "U": 44,
+  "n_edges_ordered": 264,
+  "left": 101,
+  "right": 101,
+  "max_matching": 101,
+  "det_random_weights_nonzero": true,
+  "solutions_per_matching_max": 101
+ },
+ "note": "Every edge (a,b) determines the third denominator c by 1/c = 4/p - 1/a - 1/b, so a matching is nothing but a set of coordinate-disjoint solutions; the determinant (Tutte/Edmonds) test is nonzero iff a full matching exists, i.e. iff some solution exists (for U>0): the encoding adds no constraint beyond the solution set."
+}

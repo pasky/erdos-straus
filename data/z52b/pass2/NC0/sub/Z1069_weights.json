@@ -1,0 +1,63 @@
+{
+ "unweighted": {
+  "O1": 1.1416141040921168,
+  "O2": 0.0,
+  "ESS": 8965.999999999996,
+  "n": 8966,
+  "O1_ratio_to_unweighted": 1.0,
+  "O2_ratio_to_unweighted": 0.0
+ },
+ "w_tau=1/tau(p-1)": {
+  "O1": 1.2342752458919346,
+  "O2": 0.0,
+  "ESS": 6084.115282059931,
+  "n": 8966,
+  "O1_ratio_to_unweighted": 1.0812,
+  "O2_ratio_to_unweighted": 0.0
+ },
+ "w_inv=1/U": {
+  "O1": 0.9976808135524875,
+  "O2": 0.0,
+  "ESS": 6054.961864525151,
+  "n": 8966,
+  "O1_ratio_to_unweighted": 0.8739,
+  "O2_ratio_to_unweighted": 0.0
+ },
+ "w_log=1/log p": {
+  "O1": 1.1297981672628445,
+  "O2": 0.0,
+  "ESS": 8819.804655316708,
+  "n": 8966,
+  "O1_ratio_to_unweighted": 0.9896,
+  "O2_ratio_to_unweighted": 0.0
+ },
+ "R_zero_p_le_3e6": {
+  "unweighted": {
+   "weighted_rate": 0.0007807271916127593,
+   "ESS": 8965.999999999996
+  },
+  "w_tau=1/tau(p-1)": {
+   "weighted_rate": 0.0005030322937889314,
+   "ESS": 6084.115282059931
+  },
+  "w_inv=1/U": {
+   "weighted_rate": 0.0033114345472500667,
+   "ESS": 6054.961864525151
+  },
+  "w_log=1/log p": {
+   "weighted_rate": 0.0010068162629412272,
+   "ESS": 8819.804655316708
+  },
+  "count_R_zero": 7,
+  "n_primes": 8966
+ },
+ "R_zero_primes": [
+  409,
+  577,
+  5569,
+  9601,
+  23929,
+  83449,
+  102001
+ ]
+}

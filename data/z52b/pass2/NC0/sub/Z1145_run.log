@@ -1,0 +1,40 @@
+box x,y,z in [1,8] (B=3 bits each), n=3; bits=9, ancillas=45, total vars=54
+reduced polynomial terms: 322; max degree 2; M=8699697
+(a) gadget penalty zero iff w = uv : OK (4 input cases x 2 values)
+(b) E(forced aux) == F(bits) for all 512 inputs: mismatches = 0
+(d) single-ancilla flips never lower E: violations = 0
+(c) QUBO zero-energy inputs decoded: [(1, 6, 6), (2, 2, 3), (2, 3, 2), (3, 2, 2), (6, 1, 6), (6, 6, 1)]
+    brute-force box solutions:      [(1, 6, 6), (2, 2, 3), (2, 3, 2), (3, 2, 2), (6, 1, 6), (6, 6, 1)]
+    QUBO zero set == brute-force solution set: True
+min over inputs of F: 0 (attained)
+---
+box x,y,z in [1,8] (B=3 bits each), n=2; bits=9, ancillas=45, total vars=54
+reduced polynomial terms: 319; max degree 2; M=11076681
+(a) gadget penalty zero iff w = uv : OK (4 input cases x 2 values)
+(b) E(forced aux) == F(bits) for all 512 inputs: mismatches = 0
+(d) single-ancilla flips never lower E: violations = 0
+(c) QUBO zero-energy inputs decoded: [(1, 2, 2), (2, 1, 2), (2, 2, 1)]
+    brute-force box solutions:      [(1, 2, 2), (2, 1, 2), (2, 2, 1)]
+    QUBO zero set == brute-force solution set: True
+min over inputs of F: 0 (attained)
+---
+box x,y,z in [1,16] (B=4 bits each), n=3; bits=12, ancillas=118, total vars=130
+reduced polynomial terms: 1292; max degree 2; M=793118001
+(a) gadget penalty zero iff w = uv : OK (4 input cases x 2 values)
+(b) E(forced aux) == F(bits) for all 4096 inputs: mismatches = 0
+(d) single-ancilla flips never lower E: violations = 0
+(c) QUBO zero-energy inputs decoded: [(1, 4, 12), (1, 6, 6), (1, 12, 4), (2, 2, 3), (2, 3, 2), (3, 2, 2), (4, 1, 12), (4, 12, 1), (6, 1, 6), (6, 6, 1), (12, 1, 4), (12, 4, 1)]
+    brute-force box solutions:      [(1, 4, 12), (1, 6, 6), (1, 12, 4), (2, 2, 3), (2, 3, 2), (3, 2, 2), (4, 1, 12), (4, 12, 1), (6, 1, 6), (6, 6, 1), (12, 1, 4), (12, 4, 1)]
+    QUBO zero set == brute-force solution set: True
+min over inputs of F: 0 (attained)
+---
+box x,y,z in [1,16] (B=4 bits each), n=5; bits=12, ancillas=118, total vars=130
+reduced polynomial terms: 1331; max degree 2; M=634153817
+(a) gadget penalty zero iff w = uv : OK (4 input cases x 2 values)
+(b) E(forced aux) == F(bits) for all 4096 inputs: mismatches = 0
+(d) single-ancilla flips never lower E: violations = 0
+(c) QUBO zero-energy inputs decoded: [(2, 5, 10), (2, 10, 5), (5, 2, 10), (5, 10, 2), (10, 2, 5), (10, 5, 2)]
+    brute-force box solutions:      [(2, 5, 10), (2, 10, 5), (5, 2, 10), (5, 10, 2), (10, 2, 5), (10, 5, 2)]
+    QUBO zero set == brute-force solution set: True
+min over inputs of F: 0 (attained)
+---

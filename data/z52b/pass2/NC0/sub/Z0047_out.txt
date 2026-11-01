@@ -1,0 +1,9 @@
+validation n=2: irreducible=3 brute-solution-not-in-lemma-set=0
+(expected: brute search bounded to deg<=n+1 for X,Y only) existence differs 3 (1, 2, 0, 1) 2 0
+validation n=3: irreducible=8 brute-solution-not-in-lemma-set=0
+n=2: irreducible P (T∤P)=3; with any solution=3; with a DISTINCT-denominator solution=3; no distinct solution=0  time=0.0s
+n=3: irreducible P (T∤P)=8; with any solution=8; with a DISTINCT-denominator solution=8; no distinct solution=0  time=0.0s
+n=4: irreducible P (T∤P)=18; with any solution=18; with a DISTINCT-denominator solution=18; no distinct solution=0  time=0.5s
+n=5: irreducible P (T∤P)=48; with any solution=48; with a DISTINCT-denominator solution=48; no distinct solution=0  time=5.4s
+n=6: irreducible P (T∤P)=116; with any solution=116; with a DISTINCT-denominator solution=116; no distinct solution=0  time=63.3s
+n=7: irreducible P (T∤P)=312; with any solution=312; with a DISTINCT-denominator solution=312; no distinct solution=0  time=605.9s

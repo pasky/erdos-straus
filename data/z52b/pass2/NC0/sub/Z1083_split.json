@@ -1,0 +1,48 @@
+{
+ "min_max": 2.0,
+ "split_max": {
+  "A": [
+   "2 even",
+   "3 even (all even)",
+   "primitive",
+   "x,y|z",
+   "x|y",
+   "z<=n^1.5"
+  ],
+  "B": [
+   "0 even",
+   "1 even",
+   "isosceles",
+   "all squarefree",
+   "z<=n^2",
+   "some power of 2",
+   "x or y prime",
+   "some coprime pair",
+   "no denom div 3",
+   "some denom div 4"
+  ]
+ },
+ "min_ss": 3504.0,
+ "split_ss": {
+  "A": [
+   "2 even",
+   "3 even (all even)",
+   "primitive",
+   "x,y|z",
+   "x|y",
+   "x or y prime"
+  ],
+  "B": [
+   "0 even",
+   "1 even",
+   "isosceles",
+   "all squarefree",
+   "z<=n^2",
+   "z<=n^1.5",
+   "some power of 2",
+   "some coprime pair",
+   "no denom div 3",
+   "some denom div 4"
+  ]
+ }
+}
