@@ -199,7 +199,7 @@ simplex, and the off-cube argument with uniform error bookkeeping is not written
 treatment of the classes might improve the proved 1/225; not pursued.
 (2) The data show the character sums are square-root size (§7.2), far better than Lemma 1.4; with square-root sums the
 square sieve would give ≈ n^{1/4}-type bounds at the cube. Not claimed.
-(3) Why primality is irrelevant: every step is uniform in n. Consequently the theorem does not by itself imply positivity
+(4) Full Type II (Elsholtz	tao f_II for Consequently the theorem does not by itself imply positivity
 (T1: R(m²) = 0 satisfies every upper bound).
 
 ## 4. The block-shape map (upper side)
@@ -384,10 +384,10 @@ block bound → `Z53_HYPSUMPROD` Props B, C".
 The §7.1 lead "cancellation on the height-tied hyperbola" now has a first theorem (first in this campaign; no prior
 occurrence found in a brief literature search): at the cube, where the elementary p^{1/3}
 lives, the tie can be detected as a perfect-square condition and Heath-Brown's square sieve, with van der Corput
-equidistribution of the strip modulo auxiliary primes, beats the divisor bound by a power, giving R(n) ≪ n^{1/3−1/225} for every
-n. The price is the usual one for upper bounds: the argument is uniform in n, valid at odd squares, and therefore silent on
-existence; it also stops near the cube (the strip is too sparse in the balanced block). Every other tool class surveyed has a
-proved floor at the trivial bound. ES remains open.
+equidistribution of the strip modulo auxiliary primes, beats the divisor bound by a power, giving R(n) ≪ n^{1/3−1/225}(log n)² for
+every n. The price is the usual one for upper bounds: the argument is uniform in n, valid at odd squares, and therefore silent on
+existence; it also stops near the cube (the strip is too sparse in the balanced block). The specific majorants supplied by the
+other surveyed tool classes have proved floors at (or gain only n^{o(1)} over) the trivial bound. ES remains open.
 
 ## 12. Reproduction
 ```
@@ -401,4 +401,21 @@ uv run python $REPO/scripts/z53_hypsumprod_sqmap.py 0.0166666667 sqmap60.json   
 ```
 
 ## 13. Review log
-(TODO: hostile deep review of Theorem 1.)
+**Hostile review 1** (deep-mode subagent, `reviews/z53_hypsumprod_review1.md`). Verdict on Theorem 1: **CORRECT WITH FIXES**,
+no FATAL issue. It independently redid every exponent computation (24/25, 74/225), checked the square sieve (ω(m) bound,
+negative a), the complete sums (8 253 prime cases to q = 43 plus CRT pairs), the half-open interval identity and the
+monotone-AP bound exactly, the derivative g‴ and the λ_h range, Vaaler's coefficients (Ma–Sun Lemma 2.1), both Shiu
+applications (against `sources/shiu-1980.pdf` p. 163, with α = 1/5, β = 1/4), the square-detection bijection for all
+n ≤ 300 (604 points), and reran `rmax 5e8` (byte-identical) and all square-sieve checks. Fixes applied:
+* MAJOR 1: the grid value 0.3272 relabelled a numerical candidate (Remark 1, §4.2); "exactly" claims about the winning
+  region softened (§0, §4.3).
+* MAJOR 2: method-exclusion language restricted to the specific majorants/reductions proved (§0, §9, §10, §11); Cor A′
+  reading now says "by itself implies the tie only at …", with the reviewer's example (n = 5, (x,y) = (3,7), q = 4);
+  §3 Remark 3 and §8.1 now say "does not imply positivity by itself".
+* MINOR 3: 𝓛₁ ∩ 𝓛₂ = {uB | n + u + B} restricted to primes (lcm for composite n; example n = 18).
+* MINOR 4: log factors restored in §6, §11.
+* MINOR 5: cube row of the table separates the grid value 0.3203 from the proved 8/25 (gain 1/75).
+* MINOR 6: log H → log(2H) with the h-sums made explicit (Lemma 1.4).
+* MINOR 7: priority wording: "first in this campaign; no prior occurrence found in a brief search".
+* NIT 8: Prop C stated for integer U, V and with the limits V → ∞, X/V → ∞.
+A cross-model review will follow.
