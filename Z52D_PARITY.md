@@ -184,14 +184,16 @@ function on generic points. For tuv − u − v that group is {id, ρ} ≅ ℤ/2
 orbits of size ≥ 3, or among points fixed by squares, therefore puts the whole generic part into the certificate set,
 and Lemma D refutes that. Only the ℤ/2 case leaves room: that is the parity bookkeeping of Thm 5.1, which localises the
 certificate on the fixed surface Z. The general principle: in coordinates whose level function has a finite symmetry
-group H, generic orbits lie in H-orbits, so every rule with modulus m > |H| puts all generic points into the certificate
-set. Whether that is refutable depends on the analogue of Lemma D; it is checked here only for X.
+group H, generic orbits lie in H-orbits and have size ≤ |H|. So every orbit rule with modulus m > |H| forces every
+generic orbit to meet the certificate set. Whether that is refutable depends on the analogue of Lemma D, which is
+checked here only for X.
 
 ### 2.8 Where the extension does not reach (unchanged residue of INVOLUTION_ES §6)
 
-* **Other auxiliary sets.** Lemma B(iv)/Lemma D use the full X(p) and its swap. For a Γ-stable *subset* Y(p) ⊂ X(p)
-  defined by arbitrary conditions, ρ need not preserve Y(p) ∩ G(p) when the generic action is trivial. Thm C still applies,
-  since its proof only needs one generic non-certificate point in Y(p). Thm D's parity count does not apply.
+* **Other auxiliary sets.** Lemma B(iv) and Lemma D use the full X(p) and its swap. Lemma A still holds on a Γ-stable
+  *subset* Y(p) ⊂ X(p): generic points of Y(p) move only to themselves or their swap. But Y(p) ∖ Z need not be
+  ρ-invariant. Thm C then applies only if Y(p) contains Lemma D's points: x_p for (R1), and both x_p and ρx_p for (R2),
+  for a positive-density set of p. Thm D's parity count fails. For arbitrary Y(p), nothing follows.
 * **ES coordinates.** H = S₃ there (Prop 4.2(a)), and ℤ/3 can act freely on solutions with distinct coordinates (Z2033:
   for p ≡ 1 (4) the S₃ action on solutions is free). But there the set *is* the certificate set, so no windmill content
   arises.
