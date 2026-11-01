@@ -1,0 +1,47 @@
+VERIFIED ANALYTIC LITERATURE EXCERPTS
+All excerpts below are verbatim theorem text from the arXiv PDFs, with line breaks/spacing normalized only. PDF page numbers refer to printed page numbers.
+
+[1] Tsz Ho Chan, “Close points on a modular hyperbola,” arXiv:2506.04087v1, submitted 2025-06-04. PDF p. 2.
+Theorem 1. There exist infinitely many prime numbers p ≡ 1 (mod 4) such that, for some
+ gcd(c_p, p) = 1,
+                         |H_p^{c_p} ∩ B_{X,Y}(⌊0.1 log p⌋)| ≤ 1
+for all 0 ≤ X, Y ≤ p − 1.
+
+[2] Tsz Ho Chan, “Close points on a modular hyperbola,” arXiv:2506.04087v1, submitted 2025-06-04. PDF p. 2.
+Theorem 2. Given any real number ϵ > 0, prime number p > 2, and integer c with
+gcd(c, p) = 1. Let M be a multiplicative closed set with positive lower density δ. Then
+there exists a constant C_{δ,ϵ} > 0 such that
+                         (x + h, y + k) ∈ H_p^c
+for some (x, y) ∈ H_p^c and some h, k ∈ M ∩ [1, C_{δ,ϵ} p^{1/4} exp((log p)^{1/2+ϵ})].
+
+[3] Alexandru Pascadi, “Non-abelian amplification and bilinear forms with Kloosterman sums,” arXiv:2511.08445v2, updated 2026-06-21 (submitted 2025-11-11). PDF p. 2.
+Theorem 1.1. Let c, M, N ∈ Z+ with M, N ≪ c^{1/2+o(1)}. Then for any complex sequences
+(α_m)_{m≤M}, (β_n)_{n≤N} and a ∈ (Z/cZ)^×, one has
+             M   N
+             ∑   ∑       α_m β_n S(am, n; c) ≪ ||α|| ||β|| c^{1−1/700+o(1)}.
+            m=1 n=1
+            (m,n,c)=1
+Moreover, if |α_m| ≤ 1 for all m (so ||α|| ≤ √M), then
+             M   N
+             ∑   ∑       α_m β_n S(am, n; c) ≪ √M ||β|| c^{1−1/276+o(1)}.
+            m=1 n=1
+            (n,c)=1
+
+[4] Yao Zhi, “Five-Term and Higher Congruences Involving Arbitrary Sets and Short Intervals Modulo a Prime,” arXiv:2608.15458v1, submitted 2026-08-16. PDF p. 3.
+Theorem 1.2. Fix s ≥ 1 and ε > 0. For 1 ≤ i ≤ 5, let
+                         M_i ⊆ F_p^*,       |M_i| = M,
+and let
+                         X_i = L_i + {1, . . . , H} ⊆ F_p^*.
+Assume that H ≤ p^{1/2} and
+                         H^{27} M^{26} > p^{14+ε} (H + min{M, p^{1/2}})^{24}.
+Then there exists δ = δ(s, ε) > 0 such that, uniformly for λ ∈ F_p,
+                         T_5(λ) = (H^5 M^5/p)(1 + O(p^{−δ})).
+
+[5] Yao Zhi, “Five-Term and Higher Congruences Involving Arbitrary Sets and Short Intervals Modulo a Prime,” arXiv:2608.15458v1, submitted 2026-08-16. PDF p. 4.
+Theorem 1.4. Fix r ≥ 5, s ≥ 1 and ε > 0. Suppose that
+                         |M_i| = |X_i| = N,       1 ≤ i ≤ r,
+where the M_i ⊆ F_p^* are arbitrary and the X_i are shifted intervals. If
+                         N > p^{α_r+ε},
+then there exists δ = δ(s, r, ε) > 0 such that
+                         T_r(λ) = (N^{2r}/p)(1 + O(p^{−δ}))
+uniformly for λ ∈ F_p. Moreover α_r = 1/3 + 4/(9√r) + O(r^{−1}).

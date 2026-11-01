@@ -1,0 +1,47 @@
+# area<TAB>arXiv API search_query
+a	abs:"divisors in residue classes"
+a	ti:divisors AND ti:"residue classes"
+a	ti:divisors AND ti:"arithmetic progressions" AND cat:math.NT
+a	abs:"Erdos-Hooley" OR abs:"Hooley Delta" OR abs:"Hooley's Delta"
+a	abs:"concentration of divisors"
+a	abs:"divisor in every residue class" OR abs:"divisors in every residue class"
+a	abs:"Lenstra" AND abs:"divisors" AND cat:math.NT
+a	abs:"divisors of shifted primes"
+a	ti:"divisor function" AND ti:"progressions" AND cat:math.NT
+a	abs:"divisor" AND abs:"single modulus" AND cat:math.NT
+a	abs:"Coppersmith" AND abs:"divisors" 
+b	abs:"modular hyperbola"
+b	abs:"modular hyperbolas"
+b	abs:"modular inverses" AND abs:"short intervals"
+b	abs:"xy" AND abs:"congruence" AND abs:"boxes" AND cat:math.NT
+b	abs:"small solutions" AND abs:"congruence" AND cat:math.NT
+b	abs:"Kloosterman" AND abs:"short intervals" AND cat:math.NT
+c	abs:"Kloosterman fractions"
+c	abs:"bilinear forms" AND abs:"Kloosterman"
+c	abs:"trilinear" AND abs:"Kloosterman"
+c	abs:"sums of Kloosterman sums"
+c	abs:"Linnik" AND abs:"Selberg" AND abs:"Kloosterman"
+c	abs:"Kloosterman" AND abs:"amplification"
+c	abs:"type II" AND abs:"Kloosterman" AND abs:"Polya-Vinogradov"
+d	abs:"sum-product" AND abs:"Z/qZ"
+d	abs:"sum-product" AND abs:"composite"
+d	abs:"multiplicative congruences" AND abs:"short intervals"
+d	abs:"Bourgain" AND abs:"Garaev" AND cat:math.NT
+d	abs:"energy" AND abs:"modular" AND abs:"inverses"
+e	abs:"products of primes" AND abs:"arithmetic progression"
+e	abs:"product of two primes" AND abs:"residue class"
+e	abs:"smooth numbers" AND abs:"arithmetic progressions" AND cat:math.NT
+e	abs:"small generators" AND abs:"residue" AND cat:math.NT
+e	abs:"multiplicative" AND abs:"representation" AND abs:"residue classes" AND abs:"small"
+e	abs:"least prime" AND abs:"coset"
+f	abs:"Erdos-Straus" OR abs:"Erdős-Straus" OR abs:"Erdos--Straus" OR abs:"Erdős–Straus"
+f	ti:"Egyptian fraction" OR ti:"Egyptian fractions"
+f	abs:"4/n" AND abs:"unit fractions"
+f	ti:"unit fractions" AND cat:math.NT
+f	abs:"Sierpinski" AND abs:"5/n"
+g	abs:"Zaremba"
+h	abs:"thin basis" OR abs:"thin bases"
+h	abs:"every sufficiently large" AND abs:"powers of 2" AND abs:"prime"
+h	abs:"least primitive root" 
+h	abs:"local-global" AND abs:"sporadic" AND cat:math.NT
+h	abs:"every prime" AND abs:"there exists" AND abs:"log p" AND cat:math.NT
