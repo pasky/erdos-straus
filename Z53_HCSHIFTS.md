@@ -17,7 +17,7 @@ UNSOUND-as-written. This version applies all of its repairs (§8):
 * The BH limit is restricted to the displayed family.
 * Remark 3.1's universal reading is downgraded to Assessment.
 
-The cross-model review is pending.
+A cross-model review (`data/z53/xreview/REVIEW_HCSHIFTS.md`) returned ACCEPT-WITH-FIXES; its fixes are applied (§8).
 
 ## 0. Verdict first: **narrowed**, plus a model-based re-calibration of the target scale
 
@@ -29,9 +29,10 @@ The cross-model review is pending.
   constant)×prime. This is the shape of LOWERTAIL_ROUND2_FABLE Prop 3.3.
 * *Statement.* Such a family has p mod ℓ constant for every odd prime ℓ ≤ ⌊X/4⌋ + 1. So **every member except the least
   satisfies log p > (1/4 + o(1))X**.
-* *Consequence for kills.* One such family certifies HC(p) > X at infinitely many primes only where X < (4 + o(1)) log p.
-  In particular no single family of this shape exhibits infinitely many primes with HC(p) > (4+ε) log p, nor with
-  HC(p) > (log p)^A for any A > 1.
+* *Consequence for kills.* Through its fixed-window factorisation, one such family can *certify* HC(p) > X only for
+  X < (4 + o(1)) log p (except possibly at its least member). So no single family of this shape can certify a growing
+  threshold HC(p) > (4+ε) log p, or HC(p) > (log p)^A for A > 1, at infinitely many members. W bounds the certified
+  window, **not the actual HC** of the members: they may well miss further lines beyond X.
 * *What this leaves open.* An infinite sequence of families each contributing only its least member is not excluded;
   that is no longer a Hypothesis-H mechanism. Nor does W exclude a kill of HC ≤ C log p for C < 4.
 
@@ -47,9 +48,11 @@ The cross-model review is pending.
   under GRH X ≥ (1/4 − o(1)) log p.
 * *Instances (CERTIFIED).* X = 16, 20, 24, 32. **Every instance has HC = 4**, through 14–104 rough-splitting
   certificates.
-* *Together with H4_NOT_POLYLOG.* A proof of T must use, at infinitely many primes, certificates whose divisor and
-  cofactor both exceed exp((log p)^κ) (κ < 1/12; < 1/6 relative to Gallagher). At infinitely many primes, possibly a
-  different set, it must use rough-splitting certificates.
+* *Scope.* Since p ≥ Q_X + 1, these windows satisfy X ≤ (1/2 + o(1)) log p. So W3 constrains only certificates with
+  coordinates in a logarithmic window: a proof of T that certifies within that window must split rough parts at
+  infinitely many primes. Certificates at larger coordinates x ≤ (log p)^A (A > 1) are not excluded by W3.
+* *Together with H4_NOT_POLYLOG.* Every coordinate x ≤ (log p)^A lies below H = exp((log p)^κ) (κ < 1/12; < 1/6 relative
+  to Gallagher). So at infinitely many primes (H4's), any certificate for T has both divisor and cofactor above H.
 
 **4. Anatomy at one p (§3).**
 * *Small divisors (PROVED).* The deterministic small-divisor structure of the window is congruence data (Remark 3.1). That
@@ -60,8 +63,9 @@ The cross-model review is pending.
 * *EVIDENCE, 10⁹–10¹³.*
   * (L1) Line x fires with probability close to 1 − exp(−c·τ(N)/φ(x)) (c = 1 endpoint, 1/2 level). The model
     over-predicts by 3–24 % pooled, more at small τ, and the law is stable across scales.
-  * (L2) After fixing p mod 15015 (held-out, endpoint and level counted separately), the all-miss frequency matches the
-    product of per-line rates within ≈ ±20 % for X ≤ 16. The unconditioned excess is up to ×624.
+  * (L2) After fixing p mod 15015, the held-out all-miss frequency (per coordinate) is 0.97–1.17 × the product of
+    per-line rates for X ≤ 12, and 0.82–1.53 × at X = 15–16; the 1.53 rests on 16 events. In a separate, in-sample run
+    with endpoint and level as separate events, the ratio is 0.95–1.12 for X ≤ 16. The unconditioned excess is up to ×624.
 
 **5. Model consequence (Assessment): the extremal scale of HC is (log p)^{2 log 2 − o(1)} ≈ (log p)^{1.386}, not O(log p).**
 * *The model 𝔐.* Lines are independent given p, with ω of window integers Poisson(log log p) and the fire law (L1); for
@@ -72,10 +76,10 @@ The cross-model review is pending.
 * *(b) Lower scale.* With independent draws across primes, HC(p) > (log p)^{2 log 2 − ε} on a set of counting function
   P^{1−o(1)}. In particular HC(p) > C log p for every C (g = 0.914 at X = log p), so **LOWERTAIL_ROUND2_FABLE
   Conjecture 3.4 (HC ≤ C log p) is false in 𝔐**.
-* *(c) T.* T is consistent with 𝔐 exactly for A ≥ 2 log 2.
-* *(d) Dark range.* For (4+ε) log p ≤ X ≤ (log p)^{2 log 2 − ε}, 𝔐 predicts infinitely many exceedances. No single
-  Theorem-W family can exhibit infinitely many of them (PROVED part). The BH heuristic extends this down to
-  ≍ log p/log log p for the Prop 3.3 family.
+* *(c) T.* T is consistent with 𝔐 + 𝔐× exactly for A ≥ 2 log 2.
+* *(d) Dark range.* For (4+ε) log p ≤ X ≤ (log p)^{2 log 2 − ε}, 𝔐 + 𝔐× predicts infinitely many exceedances. No single
+  Theorem-W family can *certify* such a growing threshold at infinitely many members (PROVED part; W bounds the certified
+  window, not actual HC). The BH heuristic extends this down to ≍ log p/log log p for the Prop 3.3 family.
 
 **6. Numerics (CERTIFIED/EVIDENCE).**
 * *Samples.* HC was computed for 3·10⁶ primes p ≡ 1 (8): 600 000 consecutive from each of 10⁹, …, 10¹³ (HC exact; lines
@@ -200,7 +204,8 @@ G_x = 1 + xQs/(x+1) for x ∈ 𝒞_X, with Q = lcm(24, x(x+1)); at every s with 
 5. *Conclusion.* log p ≤ log Q + log S ≤ (C₂ + o(1))X log X, so X ≥ (1/C₂ − o(1)) log p/log log p. Members are > Q → ∞. ∎
 
 *Assessment (BH first-hit scale for this family).* For the Prop 3.3(a) family, k ≈ (3/4)X, 𝔖 ≤ (C log X)^k and
-log Q = (1+o(1))X. The BH expected number of members ≤ P is ≈ 𝔖P/(Q(log P)^k), which reaches 1 at
+log Q = (5/6 + o(1))X (cross-review: primes ≡ 3 (8) divide Q only up to (X+1)/3; direct lcm computation gives
+log Q/X = 0.829, 0.836, 0.834 at X = 10³, 10⁴, 10⁵; only the lower-order O(X) term is affected). The BH expected number of members ≤ P is ≈ 𝔖P/(Q(log P)^k), which reaches 1 at
 X ≈ (4/3 + o(1)) log P/log log P. This is a typical first-hit threshold for this family, not an exclusion. Other Dickson
 families, for example with refined moduli, may have larger singular series. Theorem W's (1/4 + o(1))X is the only
 family-independent bound proved here.
@@ -241,11 +246,15 @@ reviewer, who also checked (i) at all 440 line instances).
 
 *Reading (Assessment).* W3 is a growing-window, pointwise analogue of the transparent-certificate barrier B4: smooth parts
 plus one opaque rough cofactor certify nothing up to X ≍ log p. The instances show the rough-splitting part restores
-certificates at once. Combined with H4_NOT_POLYLOG Thm 1 (fixed κ < 1/12 effective; κ < 1/6 relative to Gallagher's
-theorem (G); there is no certificate with a coordinate and its numerator both ≤ exp((log p)^κ), infinitely often), a proof
-of T must, at infinitely many primes, fire a line through a divisor d with both d and N/d above exp((log p)^κ). At
-infinitely many primes, possibly a different set, it must fire a line through a rough-splitting divisor. A joint version
-on one set of primes is not claimed.
+certificates at once.
+* *Scope.* Since p ≥ Q_X + 1, these windows have X ≤ (1/2 + o(1)) log p. A proof of T whose certificates lie within the
+  window X ≍ log p must, at the W3 primes, fire a line through a rough-splitting divisor. Certificates at coordinates
+  between X and (log p)^A are not constrained by W3.
+* *With H4.* Combined with H4_NOT_POLYLOG Thm 1 (fixed κ < 1/12 effective; κ < 1/6 relative to Gallagher's theorem (G);
+  there is no certificate with a coordinate and its numerator both ≤ exp((log p)^κ), infinitely often): every coordinate
+  x ≤ (log p)^A is below exp((log p)^κ). So a proof of T must, at H4's primes, fire a line through a divisor d with both d
+  and N/d above exp((log p)^κ). This rests on the imported H4 energy lemma, which is not re-proved here.
+* A joint version on one set of primes is not claimed.
 
 ## 3. Q2: anatomy of the shifted family at one p
 
@@ -365,21 +374,23 @@ Support for 𝔐:
 * (b) Under 𝔐×: for fixed κ < 2, g(κ) < 1, so the primes p ≤ P with HC(p) > (log p)^{κ log 2} number P^{1−o(1)} almost
   surely. In particular, with κ = 1/log 2 (X = log p, g = 0.914), **HC(p) > C log p for a set of primes of counting
   function P^{1−o(1)}, for every C**. LOWERTAIL_ROUND2_FABLE Conjecture 3.4 (HC ≤ C log p) is false in 𝔐 + 𝔐×.
-* (c) Hence in 𝔐 + 𝔐×, limsup log HC(p)/log log p = 2 log 2 ≈ 1.386, and T is consistent with 𝔐 iff A ≥ 2 log 2.
+* (c) Hence in 𝔐 + 𝔐×, limsup log HC(p)/log log p = 2 log 2 ≈ 1.386, and T is consistent with 𝔐 + 𝔐× iff A ≥ 2 log 2.
 * (d) *Dark range.* For (4+ε) log p ≤ X ≤ (log p)^{2 log 2 − ε}, 𝔐 + 𝔐× predicts infinitely many primes with HC > X.
-  * No single Theorem-W family can exhibit infinitely many of them (PROVED).
+  * No single Theorem-W family can certify such a growing threshold at infinitely many members (PROVED; W bounds the
+    certified window, not the actual HC of the members).
   * For the Prop 3.3 family the BH first-hit scale is already log p/log log p (Assessment).
   * In 𝔐 the exceedances come from lightly-hit lines missing at random, not from congruence or primality structure.
 
-**What 𝔐 says a proof of T must do (Assessment).**
+**What 𝔐 suggests about T at the extremes (Assessment; model interpretation only, no arithmetic necessity).**
 * At the extremal primes the window up to ≈ (log p)^{2 log 2} is lightly hit: typical window integers have
   τ ≈ (log p)^{log 2} ≪ φ(x).
-* In 𝔐, the hits that do occur there come predominantly from window integers with τ ≳ φ(x), i.e. ω ≳ (2 − o(1)) log log p,
-  with most prime factors large.
-* So T at the extremes is a *single-p* statement: among (log p)^A shifted integers, some has unusually many prime factors
-  *and* a divisor in the tied class −1 (mod x).
-* Nothing in Remark 3.1 or Lemma C forces this. It is B2 (tied class at one integer) composed with a single-p
-  large-deviation event, the kind of event no sieve gives at a prescribed p (B6).
+* In 𝔐 the hits at the critical scale are carried, on the logarithmic scale, by window integers with
+  ω = (2 − o(1)) log log p. The tilted ω is 2λ − O(√λ), so many hits have τ/φ(x) exponentially small in √λ.
+* Hits with τ ≳ φ(x) are *not* predominant: in the Poisson model their share at x = 2^{2λ} is 0.17, 0.092 and 0.067 for
+  λ = 20, 80, 160 (cross-review computation), decaying like λ^{−1/2}.
+* So in the model, T at the extremes looks like a single-p large-deviation event in the anatomy of the window integers,
+  combined with a tied-class divisor event. Nothing in Remark 3.1 or Lemma C forces it. This is B2 at one integer, not a
+  proved requirement on proofs of T.
 
 ### 3.3 Robustness of the exponent (Assessment)
 
@@ -471,29 +482,32 @@ Nothing passes line 4, as in every previous round.
 >   ≤ X ≥ log p/10.4 (GRH: log p/4) splits the X-rough part of its integer (Prop W3, PROVED rel. Linnik). The certified
 >   instances all have HC = 4.
 > * **Empirical regularities (EVIDENCE, 10⁹–10¹³).**
->   * Line x fires with probability ≈ 1 − exp(−c τ(N)/φ(x)), over-predicted by 3–24 %.
->   * Coordinate misses are nearly independent once p mod 15015 is fixed.
+>   * Line x fires with probability ≈ 1 − exp(−c τ(N)/φ(x)); the model over-predicts by 3–24 %.
+>   * Coordinate misses are close to independent once p mod 15015 is fixed (held-out ratios 0.97–1.17 for X ≤ 12,
+>     0.82–1.53 at X = 15–16 on few events).
 > * **Re-calibration (Assessment).** In the independent-anatomy model fitted to these regularities,
->   P(HC > (log p)^{κ log 2}) = exp(−(log p)^{g(κ)}) with g(κ) = κ(1 + log 2 − log κ) − 1 < 1 for κ < 2, while
+>   P(HC > (log p)^{κ log 2}) = exp(−(log p)^{g(κ)+o(1)}) with g(κ) = κ(1 + log 2 − log κ) − 1 < 1 for 1 < κ < 2, while
 >   HC ≤ (log p)^{2 log 2} eventually.
 >   * So Conjecture 3.4 (HC ≤ C log p) is predicted false (with independent draws across primes).
 >   * The model-consistent target is HC ≤ (log p)^A with A ≥ 2 log 2 ≈ 1.386.
->   * Exceedances in (4+ε) log p ≤ X ≤ (log p)^{2 log 2 − ε} cannot be exhibited by any single H-family.
-> * **Structure (PROVED + Assessment).** The forced small-divisor structure of the window is congruence data. T1's
->   confinement fails at a prime only on "unconfinable" endpoint lines, which still miss by anatomy deficit. A proof of T
->   would need a single-p statement that some window integer has ≳ 2 log log p prime factors *and* a divisor in the tied
->   class.
+>   * The model's exceedances in (4+ε) log p ≤ X ≤ (log p)^{2 log 2 − ε} cannot be *certified* by any single H-family
+>     at infinitely many members (W bounds the certified window, not actual HC).
+> * **Structure (PROVED + Assessment).** Among the structures examined, the forced small-divisor structure of the window
+>   is congruence data. T1's confinement fails at a prime only on "unconfinable" endpoint lines, which still miss by
+>   anatomy deficit. In the model, T at the extremes looks like a single-p anatomy large deviation combined with a
+>   tied-class divisor event (Assessment, not a proved requirement).
 
 **Bottom line.**
 * The kickoff's key observation is now a theorem, scoped to fixed families. A Hypothesis-H/Dickson kill must fix p modulo
-  every prime up to X/4, so one family cannot exhibit infinitely many exceedances beyond (4 + ε) log p. The displayed
+  every prime up to X/4, so one family cannot certify a growing threshold beyond (4 + ε) log p at infinitely many
+  members. This bounds the certified window, not the actual HC. The displayed
   family needs a non-standard uniform Bateman–Horn bound even to reach log p/log log p.
 * This wall is not a source of hope for the polylog target. In the anatomy model built from three scale-stable regularities
   (occupancy law, conditional independence, Poisson ω), HC exceeds (log p)^{2 log 2 − ε} infinitely often anyway, through
   lightly-hit lines, and stays below (log p)^{2 log 2}.
 * So the model-consistent target is HC ≤ (log p)^A with A ≥ 2 log 2, and the C log p conjecture is model-disfavoured.
-* Smooth-part certificates are provably insufficient at X ≍ log p, and all forced small-divisor structure is congruence
-  data. What remains is a large-deviation-plus-tied-class event among the large primes of one shifted integer: B2 at a
+* Smooth-part certificates are provably insufficient within windows X ≍ log p. Among the structures examined, all
+  forced small-divisor structure is congruence data. What remains is a large-deviation-plus-tied-class event among the large primes of one shifted integer: B2 at a
   single p, with no new handle.
 * **Verdict: narrowed.**
 
@@ -550,3 +564,22 @@ Internal hostile review (deep mode, 2026-11-01), verdict UNSOUND-as-written. Ful
 
 All other proofs (W fixed-family, W2, W3, Lemma C(a)–(e), the sub-critical g(κ)) and all numbers were confirmed by the
 reviewer, including an independent re-run of the engine and of W3.
+
+**Cross-model review** (`data/z53/xreview/REVIEW_HCSHIFTS.md`, verdict ACCEPT-WITH-FIXES). The reviewer independently
+reran the engine on all 166 hard primes, the W3 instances, two 600 000-prime samples, the held-out L2, the confinement data,
+the L1 reductions, the wall table and the model script, and found agreement. Required fixes, all applied:
+1. **Major — W quantifiers.** W bounds the window that a fixed family *certifies*, not the actual HC of its members. The
+   wording in §§0, 2.1, 3.2(d), 6 and the bottom line now says "cannot certify a growing threshold (except possibly the
+   least member)".
+2. **Major — W3 inference.** Since X ≤ (1/2 + o(1)) log p, W3 constrains only certificates within logarithmic windows. The
+   claim that every proof of the polylog target must split rough parts is removed; the H4 consequence (valid for all
+   x ≤ (log p)^A) is kept, scoped to the imported H4 lemma.
+3. **Major — model interpretation.** The claim that hits at the critical scale come "predominantly from τ ≳ φ(x)" is
+   wrong: their share is O(λ^{−1/2}) (0.17, 0.092, 0.067 at λ = 20, 80, 160). It is replaced by the logarithmic-scale
+   statement ω = (2 − o(1)) log log p. All "a proof of T must …" statements derived from 𝔐 are removed, and 𝔐× is now
+   explicit in the "iff A ≥ 2 log 2" claims.
+4. **Moderate — L2 headline.** "±20 %" is replaced by the held-out ranges 0.97–1.17 (X ≤ 12) and 0.82–1.53 (X = 15–16;
+   the 1.53 rests on 16 events). The separate-endpoint/level run is identified as in-sample.
+5. **Minor.** log Q = (5/6 + o(1))X for the Prop 3.3 family (it was stated as X; only the lower-order term changes). The
+   FRONTIER formula now carries +o(1) and 1 < κ < 2. "Among the structures examined" is added to the congruence claims.
+
