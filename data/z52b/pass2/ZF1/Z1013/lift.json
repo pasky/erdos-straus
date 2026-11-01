@@ -1,0 +1,84 @@
+{
+ "409": {
+  "U": 15,
+  "n_true_ratios": 12,
+  "H_true_ratios_quartiles": [
+   13,
+   21,
+   409,
+   2045,
+   4499
+  ],
+  "coverage_unit_ratios": {
+   "409": {
+    "covered": 408,
+    "units": 408
+   },
+   "1009": {
+    "covered": 1008,
+    "units": 1008
+   },
+   "1024": {
+    "covered": 0,
+    "units": 512
+   },
+   "840": {
+    "covered": 0,
+    "units": 192
+   }
+  },
+  "m=p^2": {
+   "height_bound": 289,
+   "n_candidates_positive_coprime_pairs_approx": 50775,
+   "true_ratios_recovered": 6,
+   "ratrec_consistency": 6,
+   "recall": 0.5,
+   "precision": 0.00011816838995568685
+  },
+  "m=p^3": {
+   "height_bound": 5848,
+   "n_candidates_positive_coprime_pairs_approx": 20790562,
+   "true_ratios_recovered": 12,
+   "ratrec_consistency": 12,
+   "recall": 1.0,
+   "precision": 5.771849746053041e-07
+  }
+ },
+ "2521": {
+  "U": 9,
+  "n_true_ratios": 9,
+  "H_true_ratios_quartiles": [
+   29,
+   161,
+   5042,
+   17647,
+   68067
+  ],
+  "coverage_unit_ratios": {
+   "2521": {
+    "covered": 2520,
+    "units": 2520
+   },
+   "1009": {
+    "covered": 1008,
+    "units": 1008
+   }
+  },
+  "m=p^2": {
+   "height_bound": 1782,
+   "n_candidates_positive_coprime_pairs_approx": 1930487,
+   "true_ratios_recovered": 3,
+   "ratrec_consistency": 3,
+   "recall": 0.3333,
+   "precision": 1.5540120187289528e-06
+  },
+  "m=p^3": {
+   "height_bound": 89504,
+   "n_candidates_positive_coprime_pairs_approx": 4870083353,
+   "true_ratios_recovered": 9,
+   "ratrec_consistency": 9,
+   "recall": 1.0,
+   "precision": 1.8480176513726294e-09
+  }
+ }
+}

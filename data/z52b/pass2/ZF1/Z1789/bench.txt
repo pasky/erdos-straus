@@ -1,0 +1,12 @@
+# scripts/z52d_p2_ZF1_verifykernel.c (u64), all integers in Mordell-hard classes surviving a static b=1 filter mod G=38798760 (density 1.943e-3), b=1 pairs st<=2e5; 1 core, machine shared (load ~25/24)
+X=1e6  W=3e8 candidates=582926 squares_skipped=3737 prime_misses=20 misses=140 mean_tries=3646.9 cand_per_s=1.016e5 ns_per_integer=19.1
+X=1e12 W=3e8 candidates=582928 squares_skipped=34 prime_misses=16 misses=76 mean_tries=3692.0 cand_per_s=8.62e4 ns_per_integer=22.5
+X=1e15 W=3e8 candidates=582929 squares_skipped=2 prime_misses=8 misses=105 mean_tries=3711.2 cand_per_s=8.89e4 ns_per_integer=21.9
+X=1e18 W=3e8 candidates=582920 squares_skipped=0 prime_misses=6 misses=97 mean_tries=3699.4 cand_per_s=6.76e4 ns_per_integer=28.7
+# scripts/z52d_p2_ZF1_cellkernel128.c (u128 n, fixed cell n = 1 mod G), 20000 consecutive cell members, 1 core
+X0~1e18 misses=15 mean_tries=5658.7 cand_per_s=3.51e4
+X0~1e20 misses=14 mean_tries=5505.2 cand_per_s=2.95e4
+X0~1e24 misses=9  mean_tries=5645.3 cand_per_s=3.96e4
+X0~1e30 misses=5  mean_tries=5392.2 cand_per_s=3.50e4
+X0~1e36 misses=15 mean_tries=5935.9 cand_per_s=3.62e4
+# Mihnea–Dumitru arXiv:2509.00128 §2: R8 = 2 101 514 classes mod G8 = 25 878 772 920 (density 8.12e-5), 140000 Salez prime filters, GMP; [1e17,1e18] "completed in about 2 weeks with a medium setup".

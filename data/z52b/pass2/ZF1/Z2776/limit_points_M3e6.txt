@@ -1,0 +1,9 @@
+point (A,D3)=(1 -2): none up to 3000000
+point (A,D3)=(2 -1): none up to 3000000
+point (A,D3)=(16 1): none up to 3000000
+point (A,D3)=(46 1): none up to 3000000
+point (A,D3)=(4 1): none up to 3000000
+point (A,D3)=(10 1): none up to 3000000
+point (A,D3)=(28 1): L t=3 u=6 m=17
+point (A,D3)=(83 2): E u=3 v=43 m=129
+point (A,D3)=(11 2): E u=3 v=7 m=21

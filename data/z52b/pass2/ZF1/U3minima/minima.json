@@ -1,0 +1,204 @@
+{
+ "decades": [
+  {
+   "lo": 100,
+   "hi": 1000,
+   "method": "all primes p \u2261 1 (4)",
+   "n": 69,
+   "min_U_over_log3": 0.04116,
+   "argmin": 193,
+   "U": 6,
+   "median": 0.1247
+  },
+  {
+   "lo": 1000,
+   "hi": 10000,
+   "method": "all primes p \u2261 1 (4)",
+   "n": 529,
+   "min_U_over_log3": 0.01873,
+   "argmin": 2521,
+   "U": 9,
+   "median": 0.1086
+  },
+  {
+   "lo": 10000,
+   "hi": 100000,
+   "method": "all primes p \u2261 1 (4)",
+   "n": 4174,
+   "min_U_over_log3": 0.0235,
+   "argmin": 20521,
+   "U": 23,
+   "median": 0.1017
+  },
+  {
+   "lo": 100000,
+   "hi": 1000000,
+   "method": "all primes p \u2261 1 (4)",
+   "n": 34392,
+   "min_U_over_log3": 0.02333,
+   "argmin": 471241,
+   "U": 52,
+   "median": 0.0986
+  },
+  {
+   "lo": 1000000,
+   "hi": 10000000,
+   "method": "all Mordell-hard-class primes",
+   "n": 18143,
+   "min_U_over_log3": 0.02785,
+   "argmin": 3830401,
+   "U": 97,
+   "median": 0.061
+  },
+  {
+   "lo": 1000000,
+   "hi": 10000000,
+   "method": "random sample (all classes)",
+   "n": 1510,
+   "min_U_over_log3": 0.03858,
+   "argmin": 1264561,
+   "U": 107,
+   "median": 0.0959
+  },
+  {
+   "lo": 10000000,
+   "hi": 100000000,
+   "method": "random sample (all classes)",
+   "n": 610,
+   "min_U_over_log3": 0.04574,
+   "argmin": 60322081,
+   "U": 263,
+   "median": 0.097
+  },
+  {
+   "lo": 10000000,
+   "hi": 100000000,
+   "method": "model-guided top-1000 hard (S-proxy)",
+   "n": 1000,
+   "min_U_over_log3": 0.03219,
+   "argmin": 37793809,
+   "U": 171,
+   "median": 0.0477
+  },
+  {
+   "lo": 100000000,
+   "hi": 1000000000,
+   "method": "model-guided top-120 hard (S-proxy)",
+   "n": 120,
+   "min_U_over_log3": 0.03547,
+   "argmin": 465751729,
+   "U": 282,
+   "median": 0.0476
+  },
+  {
+   "lo": 1000000000,
+   "hi": 4000000000,
+   "method": "model-guided top-24 hard (S-proxy)",
+   "n": 24,
+   "min_U_over_log3": 0.03731,
+   "argmin": 3769072129,
+   "U": 400,
+   "median": 0.0479
+  },
+  {
+   "lo": 100000000,
+   "hi": 1000000000,
+   "method": "pseudosquare neighbourhoods (Z0762 controls)",
+   "n": 63,
+   "min_U_over_log3": 0.04328,
+   "argmin": 175244281,
+   "U": 296,
+   "median": 0.066
+  },
+  {
+   "lo": 1000000000,
+   "hi": 4000000000,
+   "method": "pseudosquare neighbourhoods (Z0762 controls)",
+   "n": 6,
+   "min_U_over_log3": 0.06469,
+   "argmin": 2805553921,
+   "U": 666,
+   "median": 0.0708
+  }
+ ],
+ "n_primes_total": 101992,
+ "beats_2521_above_2e5": [],
+ "below_0.03_above_2e5": [
+  [
+   471241,
+   52,
+   0.0233
+  ],
+  [
+   3830401,
+   97,
+   0.0278
+  ],
+  [
+   5410441,
+   104,
+   0.0279
+  ],
+  [
+   210961,
+   52,
+   0.0282
+  ],
+  [
+   225289,
+   53,
+   0.0283
+  ],
+  [
+   589681,
+   67,
+   0.0286
+  ],
+  [
+   351289,
+   60,
+   0.0288
+  ],
+  [
+   4889641,
+   106,
+   0.029
+  ],
+  [
+   8628481,
+   120,
+   0.0295
+  ],
+  [
+   733321,
+   73,
+   0.0296
+  ],
+  [
+   6425329,
+   114,
+   0.0296
+  ],
+  [
+   454969,
+   66,
+   0.0298
+  ],
+  [
+   7140961,
+   117,
+   0.0298
+  ],
+  [
+   322921,
+   61,
+   0.0299
+  ],
+  [
+   2405881,
+   95,
+   0.0299
+  ]
+ ],
+ "n_below_0.03_above_2e5": 15
+}

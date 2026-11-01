@@ -1,0 +1,65 @@
+== primes p≡1 (4), 5<=p<=10000000 ==
+ p≡1 (8): #p=165976 words=11808699 nonsq=8353765 frac=0.70742 mean_perprime_frac=0.70839  #p with no nonsq word=0  Hodges-iid prediction sum 2^-W=1.49
+ p≡5 (8): #p=166204 words=12685872 nonsq=9667736 frac=0.76209 mean_perprime_frac=0.76310  #p with no nonsq word=1  Hodges-iid prediction sum 2^-W=2.20
+  [10,100): frac nonsq=0.67647 (words 34)
+  [100,1000): frac nonsq=0.73662 (words 710)
+  [1000,10000): frac nonsq=0.72507 (words 10912)
+  [10000,100000): frac nonsq=0.73005 (words 147061)
+  [100000,1000000): frac nonsq=0.73343 (words 1856789)
+  [1000000,10000000): frac nonsq=0.73597 (words 22479065)
+== primes p≡3 (4), 5<=p<=10000000 ==
+ p≡3 (8): #p=166160 words=11727701 nonsq=3273428 frac=0.27912 mean_perprime_frac=0.27724  #p with no nonsq word=5  Hodges-iid prediction sum 2^-W=3.07
+ p≡7 (8): #p=166237 words=11244989 nonsq=3642120 frac=0.32389 mean_perprime_frac=0.32272  #p with no nonsq word=1  Hodges-iid prediction sum 2^-W=2.65
+  [10,100): frac nonsq=0.53846 (words 26)
+  [100,1000): frac nonsq=0.40946 (words 613)
+  [1000,10000): frac nonsq=0.35354 (words 9750)
+  [10000,100000): frac nonsq=0.32603 (words 134640)
+  [100000,1000000): frac nonsq=0.31069 (words 1726610)
+  [1000000,10000000): frac nonsq=0.30006 (words 21101050)
+== p≡1(4): nonsq fraction by floor(log2 u) (u = smaller leaf weight) ==
+  u in [2^1,2^2): 6085927 words frac=0.69540
+  u in [2^2,2^3): 4212966 words frac=0.76215
+  u in [2^3,2^4): 3512027 words frac=0.75018
+  u in [2^4,2^5): 3013429 words frac=0.74959
+  u in [2^5,2^6): 2472930 words frac=0.74376
+  u in [2^6,2^7): 1982220 words frac=0.74560
+  u in [2^7,2^8): 1491135 words frac=0.74295
+  u in [2^8,2^9): 1010923 words frac=0.73959
+  u in [2^9,2^10): 551423 words frac=0.72978
+  u in [2^10,2^11): 160130 words frac=0.68114
+  u in [2^11,2^12): 1461 words frac=0.52361
+== p≡1(4): nonsq fraction by floor(log2 t) ==
+  t in [2^1,2^2): 3204213 words frac=0.68982
+  t in [2^2,2^3): 2375201 words frac=0.75855
+  t in [2^3,2^4): 2123966 words frac=0.74837
+  t in [2^4,2^5): 1993928 words frac=0.74768
+  t in [2^5,2^6): 1836781 words frac=0.74217
+  t in [2^6,2^7): 1712603 words frac=0.74470
+  t in [2^7,2^8): 1583871 words frac=0.74334
+  t in [2^8,2^9): 1463825 words frac=0.74314
+  t in [2^9,2^10): 1339014 words frac=0.74200
+  t in [2^10,2^11): 1219004 words frac=0.74137
+  t in [2^11,2^12): 1096542 words frac=0.74002
+  t in [2^12,2^13): 976392 words frac=0.73929
+  t in [2^13,2^14): 853668 words frac=0.73747
+  t in [2^14,2^15): 732809 words frac=0.73576
+  t in [2^15,2^16): 614308 words frac=0.73358
+  t in [2^16,2^17): 497471 words frac=0.72876
+  t in [2^17,2^18): 373543 words frac=0.71792
+  t in [2^18,2^19): 267079 words frac=0.73459
+  t in [2^19,2^20): 172067 words frac=0.69351
+  t in [2^20,2^21): 58286 words frac=0.50087
+== p≡1(4) primes with no nonsquare word (ES5 failures in this word set), p<=N: ==
+ 5(W=0)
+== histogram per-prime nonsq fraction, p≡1(4), p in [N/10,N] ==
+ [0.0,0.1): 0
+ [0.1,0.2): 0
+ [0.2,0.3): 22
+ [0.3,0.4): 315
+ [0.4,0.5): 1990
+ [0.5,0.6): 12644
+ [0.6,0.7): 70390
+ [0.7,0.8): 143940
+ [0.8,0.9): 62011
+ [0.9,1.0): 1693
+ [1.0,1.1): 0

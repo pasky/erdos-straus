@@ -1,0 +1,10 @@
+# Z2835: S_{n,k}(N) = ∅ for odd n, complete search (scripts/z52_bank_pencil.c first k 9 9999 2 1; and 10001..49999)
+k=2 n<1e4 zeros: 9 21 57 65 117 201 297 425 945 3465 | 1e4<n<5e4 zeros: 12597 25221 26961 
+k=3 n<1e4 zeros: 13 | 1e4<n<5e4 zeros: 
+k=5 n<1e4 zeros: 21 57 | 1e4<n<5e4 zeros: 
+k=6 n<1e4 zeros: | 1e4<n<5e4 zeros: 
+k=7 n<1e4 zeros: 9 33 45 57 129 417 1245 2805 2925 | 1e4<n<5e4 zeros: 
+control square k=1: zeros among 4996 odd n<1e4: 1262
+control square k=4: zeros among 4996 odd n<1e4: 1250
+control square k=9: zeros among 4996 odd n<1e4: 417
+control (n,k+1..3) non-Mordell, same sizes as Mordell pairs: 298 empty of 11986

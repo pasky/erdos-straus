@@ -1,0 +1,20 @@
+range [1000,3000) p≡1(4) + extra, C≤60: {'primes': 135, 'anyhit': 131, 'anycover': 122, 'anyBS': 122, 'levels_eligible': 621, 'levels_BS': 193, 'levels_cover': 194}
+BS-certified levels by C: [(1, 98), (2, 44), (3, 21), (4, 16), (5, 5), (6, 2), (7, 4), (8, 2), (9, 1)]
+least certifying C per prime (None = not certified): [(1, 98), (2, 17), (3, 6), (5, 1), (None, 13)]
+extra p=409: hit(C≤Cmax)=False fullcover=False BScert=False
+extra p=577: hit(C≤Cmax)=False fullcover=False BScert=False
+extra p=5569: hit(C≤Cmax)=False fullcover=False BScert=False
+extra p=9601: hit(C≤Cmax)=False fullcover=False BScert=False
+range [100000,110000) p≡1(4) + extra, C≤60: {'primes': 425, 'anyhit': 420, 'anycover': 407, 'anyBS': 406, 'levels_eligible': 2606, 'levels_BS': 801, 'levels_cover': 809}
+BS-certified levels by C: [(1, 309), (2, 176), (3, 101), (4, 66), (5, 44), (6, 26), (7, 29), (8, 13), (9, 12), (10, 2), (11, 4), (12, 5), (13, 5), (14, 4), (16, 1), (17, 1), (18, 1), (21, 1), (31, 1)]
+least certifying C per prime (None = not certified): [(1, 309), (2, 68), (3, 16), (4, 4), (5, 6), (8, 2), (21, 1), (None, 19)]
+extra p=102001: hit(C≤Cmax)=False fullcover=False BScert=False
+extra p=23929: hit(C≤Cmax)=False fullcover=False BScert=False
+extra p=83449: hit(C≤Cmax)=False fullcover=False BScert=False
+extra p=102001: hit(C≤Cmax)=False fullcover=False BScert=False
+range [10000000,10006000) p≡1(4) + extra, C≤60: {'primes': 176, 'anyhit': 173, 'anycover': 169, 'anyBS': 169, 'levels_eligible': 1362, 'levels_BS': 390, 'levels_cover': 398}
+BS-certified levels by C: [(1, 142), (2, 70), (3, 46), (4, 30), (5, 26), (6, 16), (7, 14), (8, 14), (9, 9), (10, 6), (11, 3), (12, 4), (13, 3), (14, 2), (15, 2), (16, 1), (19, 1), (22, 1)]
+least certifying C per prime (None = not certified): [(1, 142), (2, 18), (3, 6), (5, 2), (14, 1), (None, 7)]
+extra p=8813281: hit(C≤Cmax)=False fullcover=False BScert=False
+extra p=5212561: hit(C≤Cmax)=False fullcover=False BScert=False
+extra p=1726201: hit(C≤Cmax)=False fullcover=False BScert=False

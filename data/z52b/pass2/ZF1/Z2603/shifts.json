@@ -1,0 +1,66 @@
+{
+ "shift_e3": {
+  "z_lambda": -0.24,
+  "P(l=-1|hard)": 0.4985,
+  "P(l=-1|ctrl)": 0.4997,
+  "z_Nprime": 6.98,
+  "P(prime|hard)": 0.1168,
+  "P(prime|ctrl)": 0.0997
+ },
+ "shift_e7": {
+  "z_lambda": 3.23,
+  "P(l=-1|hard)": 0.5141,
+  "P(l=-1|ctrl)": 0.499,
+  "z_Nprime": -1.09,
+  "P(prime|hard)": 0.0584,
+  "P(prime|ctrl)": 0.0605
+ },
+ "shift_e11": {
+  "z_lambda": -0.31,
+  "P(l=-1|hard)": 0.4992,
+  "P(l=-1|ctrl)": 0.5007,
+  "z_Nprime": -0.16,
+  "P(prime|hard)": 0.0552,
+  "P(prime|ctrl)": 0.0554
+ },
+ "shift_e15": {
+  "z_lambda": 0.07,
+  "P(l=-1|hard)": 0.4998,
+  "P(l=-1|ctrl)": 0.4995,
+  "z_Nprime": -0.73,
+  "P(prime|hard)": 0.1302,
+  "P(prime|ctrl)": 0.1322
+ },
+ "shift_e19": {
+  "z_lambda": 0.38,
+  "P(l=-1|hard)": 0.5037,
+  "P(l=-1|ctrl)": 0.502,
+  "z_Nprime": -1.1,
+  "P(prime|hard)": 0.051,
+  "P(prime|ctrl)": 0.053
+ },
+ "shift_e23": {
+  "z_lambda": 0.47,
+  "P(l=-1|hard)": 0.5028,
+  "P(l=-1|ctrl)": 0.5007,
+  "z_Nprime": 3.03,
+  "P(prime|hard)": 0.0576,
+  "P(prime|ctrl)": 0.0523
+ },
+ "shift_e27": {
+  "z_lambda": -0.62,
+  "P(l=-1|hard)": 0.4973,
+  "P(l=-1|ctrl)": 0.5002,
+  "z_Nprime": 0.97,
+  "P(prime|hard)": 0.1015,
+  "P(prime|ctrl)": 0.0991
+ },
+ "shift_e31": {
+  "z_lambda": -0.9,
+  "P(l=-1|hard)": 0.4953,
+  "P(l=-1|ctrl)": 0.4995,
+  "z_Nprime": -0.29,
+  "P(prime|hard)": 0.0517,
+  "P(prime|ctrl)": 0.0522
+ }
+}

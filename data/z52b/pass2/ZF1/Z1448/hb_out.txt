@@ -1,0 +1,6 @@
+P0=10000 N=P0/4=2500 primes=300 sum|a|^2=1.1287 sum|a|=12.213 mean T=0.358 mean T^2=2.090 max|T|=5.205
+HB shape (M+N)/M*sum|a|^2 (M=#primes-range ~P0) = 1.411  [times (MN)^eps]; Elliott (6) shape (M+N^2 log N)/M*sum|a|^2 = 5.520e+03
+P0=100000 N=P0/4=25000 primes=300 sum|a|^2=1.1394 sum|a|=19.419 mean T=0.474 mean T^2=2.945 max|T|=6.681
+HB shape (M+N)/M*sum|a|^2 (M=#primes-range ~P0) = 1.424  [times (MN)^eps]; Elliott (6) shape (M+N^2 log N)/M*sum|a|^2 = 7.212e+04
+P0=1000000 N=P0/4=250000 primes=300 sum|a|^2=1.1412 sum|a|=28.235 mean T=0.596 mean T^2=3.600 max|T|=8.791
+HB shape (M+N)/M*sum|a|^2 (M=#primes-range ~P0) = 1.427  [times (MN)^eps]; Elliott (6) shape (M+N^2 log N)/M*sum|a|^2 = 8.865e+05

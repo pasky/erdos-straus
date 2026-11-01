@@ -1,0 +1,7 @@
+V = 1000: variables = 168 primes; sample 30 primes p ≡ 1 (4) per scale
+ scale 1e+06: mean #edges(u<v<=1000) 40.9, rank 23.1, #forced primes 20.77 (max 30); D²-upper-bound at X=p^(1/4): mean 0.182 (min 0.000) of max 3.139; at X=V: mean 1.201 (min 0.925); true D²(p^(1/4)) mean 1.454
+ scale 1e+08: mean #edges(u<v<=1000) 40.2, rank 22.5, #forced primes 20.53 (max 26); D²-upper-bound at X=p^(1/4): mean 0.520 (min 0.310) of max 3.676; at X=V: mean 1.193 (min 0.944); true D²(p^(1/4)) mean 1.807
+ scale 1e+10: mean #edges(u<v<=1000) 38.5, rank 22.0, #forced primes 20.00 (max 27); D²-upper-bound at X=p^(1/4): mean 0.897 (min 0.596) of max 4.068; at X=V: mean 1.219 (min 0.916); true D²(p^(1/4)) mean 1.946
+ scale 1e+12: mean #edges(u<v<=1000) 41.6, rank 22.9, #forced primes 21.60 (max 30); D²-upper-bound at X=p^(1/4): mean 1.097 (min 0.902) of max 4.396; at X=V: mean 1.097 (min 0.902); true D²(p^(1/4)) mean 2.231
+ scale 1e+16: mean #edges(u<v<=1000) 40.0, rank 23.0, #forced primes 21.33 (max 29); D²-upper-bound at X=p^(1/4): mean 1.154 (min 0.894) of max 4.396; at X=V: mean 1.154 (min 0.894); true D²(p^(1/4)) mean 2.577
+ scale 1e+20: mean #edges(u<v<=1000) 40.0, rank 23.1, #forced primes 21.23 (max 29); D²-upper-bound at X=p^(1/4): mean 1.157 (min 0.861) of max 4.396; at X=V: mean 1.157 (min 0.861); true D²(p^(1/4)) mean 2.621

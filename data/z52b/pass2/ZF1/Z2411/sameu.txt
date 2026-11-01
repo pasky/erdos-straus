@@ -1,0 +1,4 @@
+X=1e6..1e8, W=1e6, U0=2000:
+X=1000000 W=1000000 U0=2000 mean=26.662 var=123.63 | u<=U0: sum mean_u=21.437 sum Var(r_u)=34.12 sameu_excess=sum(Var-mean)=12.69 | var-2mean=70.31
+X=10000000 W=1000000 U0=2000 mean=34.284 var=186.40 | u<=U0: sum mean_u=25.453 sum Var(r_u)=46.02 sameu_excess=sum(Var-mean)=20.57 | var-2mean=117.84
+X=100000000 W=1000000 U0=2000 mean=44.246 var=284.25 | u<=U0: sum mean_u=30.069 sum Var(r_u)=62.76 sameu_excess=sum(Var-mean)=32.69 | var-2mean=195.75
