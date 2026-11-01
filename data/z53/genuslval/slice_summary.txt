@@ -1,0 +1,5 @@
+X_u in [1e+00,1e+02): n=12  max|err|=1.06e-01 (p=409,u=5)  max rel=0.664
+X_u in [1e+02,1e+03): n=9  max|err|=4.59e-02 (p=5569,u=5)  max rel=0.149
+X_u in [1e+03,1e+04): n=11  max|err|=1.27e-02 (p=10009,u=1)  max rel=0.066
+X_u in [1e+04,1e+05): n=15  max|err|=3.59e-03 (p=1000033,u=5)  max rel=0.014
+X_u in [1e+05,1e+08): n=18  max|err|=1.15e-03 (p=8813281,u=5)  max rel=0.001

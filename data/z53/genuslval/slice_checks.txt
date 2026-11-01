@@ -186,3 +186,121 @@ p=329617 u=13 X=3231 S_u direct=0.290241 (eta-sum 0.290241) closed-form=0.290513
    eta=(./1)chi4^1 eps=+1  Sig=1.092144  pred=1.095146  err=-3.00e-03
    eta=(./13)chi4^0 eps=+1  Sig=0.432237  pred=0.450169  err=-1.79e-02
    eta=(./13)chi4^1 eps=+1  Sig=1.087856  pred=1.072608  err=+1.52e-02
+p=712321 u=1 X=118720 S_u direct=1.875307 (eta-sum 1.875307) closed-form=1.875301 err=+5.66e-06  [L(1,chi_D)=0.9380]
+   eta=(./1)chi4^0 eps=+1  Sig=5.548400  pred=5.549077  err=-6.76e-04
+   eta=(./1)chi4^1 eps=-1  Sig=1.797786  pred=1.798474  err=-6.88e-04
+p=712321 u=5 X=18745 S_u direct=0.411605 (eta-sum 0.411605) closed-form=0.413075 err=-1.47e-03  [L(1,chi_D)=1.2452]
+   eta=(./1)chi4^0 eps=+1  Sig=6.523132  pred=6.519816  err=+3.32e-03
+   eta=(./1)chi4^1 eps=+1  Sig=0.153121  pred=0.154790  err=-1.67e-03
+   eta=(./5)chi4^0 eps=-1  Sig=0.190981  pred=0.193892  err=-2.91e-03
+   eta=(./5)chi4^1 eps=-1  Sig=3.192431  pred=3.176115  err=+1.63e-02
+p=712321 u=13 X=6983 S_u direct=0.091889 (eta-sum 0.091889) closed-form=0.092762 err=-8.73e-04  [L(1,chi_D)=1.0035]
+   eta=(./1)chi4^0 eps=+1  Sig=4.102808  pred=4.099739  err=+3.07e-03
+   eta=(./1)chi4^1 eps=+1  Sig=0.582451  pred=0.581680  err=+7.71e-04
+   eta=(./13)chi4^0 eps=-1  Sig=0.652367  pred=0.653437  err=-1.07e-03
+   eta=(./13)chi4^1 eps=-1  Sig=1.827549  pred=1.801698  err=+2.59e-02
+p=1724209 u=1 X=287368 S_u direct=1.534533 (eta-sum 1.534533) closed-form=1.534945 err=-4.11e-04  [L(1,chi_D)=0.7321]
+   eta=(./1)chi4^0 eps=+1  Sig=4.753196  pred=4.753345  err=-1.49e-04
+   eta=(./1)chi4^1 eps=-1  Sig=1.684129  pred=1.683456  err=+6.74e-04
+p=1724209 u=5 X=45374 S_u direct=0.609434 (eta-sum 0.609434) closed-form=0.609999 err=-5.65e-04  [L(1,chi_D)=1.3995]
+   eta=(./1)chi4^0 eps=+1  Sig=7.812243  pred=7.812394  err=-1.51e-04
+   eta=(./1)chi4^1 eps=+1  Sig=0.178805  pred=0.182578  err=-3.77e-03
+   eta=(./5)chi4^0 eps=-1  Sig=0.141810  pred=0.148556  err=-6.75e-03
+   eta=(./5)chi4^1 eps=-1  Sig=2.973764  pred=2.966420  err=+7.34e-03
+p=1724209 u=13 X=16904 S_u direct=0.307511 (eta-sum 0.307511) closed-form=0.306329 err=+1.18e-03  [L(1,chi_D)=0.9542]
+   eta=(./1)chi4^0 eps=+1  Sig=4.274251  pred=4.273575  err=+6.76e-04
+   eta=(./1)chi4^1 eps=+1  Sig=0.496781  pred=0.495211  err=+1.57e-03
+   eta=(./13)chi4^0 eps=+1  Sig=0.599900  pred=0.592306  err=+7.59e-03
+   eta=(./13)chi4^1 eps=+1  Sig=2.009342  pred=1.990808  err=+1.85e-02
+p=1726201 u=1 X=287700 S_u direct=2.172279 (eta-sum 2.172279) closed-form=2.172919 err=-6.40e-04  [L(1,chi_D)=0.9899]
+   eta=(./1)chi4^0 eps=+1  Sig=6.166016  pred=6.166754  err=-7.38e-04
+   eta=(./1)chi4^1 eps=-1  Sig=1.821458  pred=1.820916  err=+5.42e-04
+p=1726201 u=5 X=45426 S_u direct=0.515444 (eta-sum 0.515444) closed-form=0.515227 err=+2.17e-04  [L(1,chi_D)=1.3260]
+   eta=(./1)chi4^0 eps=+1  Sig=7.400080  pred=7.394077  err=+6.00e-03
+   eta=(./1)chi4^1 eps=+1  Sig=0.144968  pred=0.148476  err=-3.51e-03
+   eta=(./5)chi4^0 eps=-1  Sig=0.196556  pred=0.205144  err=-8.59e-03
+   eta=(./5)chi4^1 eps=-1  Sig=3.224940  pred=3.215590  err=+9.35e-03
+p=1726201 u=13 X=16923 S_u direct=0.090715 (eta-sum 0.090715) closed-form=0.091959 err=-1.24e-03  [L(1,chi_D)=0.9046]
+   eta=(./1)chi4^0 eps=+1  Sig=4.114800  pred=4.113957  err=+8.42e-04
+   eta=(./1)chi4^1 eps=+1  Sig=0.602480  pred=0.609929  err=-7.45e-03
+   eta=(./13)chi4^0 eps=-1  Sig=0.698421  pred=0.691746  err=+6.68e-03
+   eta=(./13)chi4^1 eps=-1  Sig=1.841706  pred=1.825114  err=+1.66e-02
+p=5212561 u=1 X=868760 S_u direct=2.355907 (eta-sum 2.355907) closed-form=2.355741 err=+1.66e-04  [L(1,chi_D)=0.9412]
+   eta=(./1)chi4^0 eps=+1  Sig=6.476566  pred=6.476426  err=+1.40e-04
+   eta=(./1)chi4^1 eps=-1  Sig=1.764752  pred=1.764945  err=-1.93e-04
+p=5212561 u=5 X=137172 S_u direct=0.649280 (eta-sum 0.649280) closed-form=0.649169 err=+1.11e-04  [L(1,chi_D)=1.3440]
+   eta=(./1)chi4^0 eps=+1  Sig=8.390477  pred=8.390389  err=+8.79e-05
+   eta=(./1)chi4^1 eps=+1  Sig=0.115583  pred=0.114765  err=+8.18e-04
+   eta=(./5)chi4^0 eps=-1  Sig=0.194853  pred=0.196047  err=-1.19e-03
+   eta=(./5)chi4^1 eps=-1  Sig=3.116969  pred=3.115755  err=+1.21e-03
+p=5212561 u=13 X=51103 S_u direct=0.077980 (eta-sum 0.077980) closed-form=0.078177 err=-1.97e-04  [L(1,chi_D)=0.6931]
+   eta=(./1)chi4^0 eps=+1  Sig=3.649443  pred=3.647730  err=+1.71e-03
+   eta=(./1)chi4^1 eps=+1  Sig=0.666466  pred=0.666239  err=+2.27e-04
+   eta=(./13)chi4^0 eps=-1  Sig=0.664098  pred=0.663303  err=+7.95e-04
+   eta=(./13)chi4^1 eps=-1  Sig=1.780283  pred=1.774417  err=+5.87e-03
+p=1009 u=1 X=168 S_u direct=0.925240 (eta-sum 0.925240) closed-form=0.915632 err=+9.61e-03  [L(1,chi_D)=0.9890]
+   eta=(./1)chi4^0 eps=+1  Sig=2.860022  pred=2.859665  err=+3.58e-04
+   eta=(./1)chi4^1 eps=-1  Sig=1.009542  pred=1.028402  err=-1.89e-02
+p=1009 u=5 X=26 S_u direct=0.145833 (eta-sum 0.145833) closed-form=0.242735 err=-9.69e-02  [L(1,chi_D)=2.3000]
+   eta=(./1)chi4^0 eps=+1  Sig=3.602778  pred=3.777887  err=-1.75e-01
+   eta=(./1)chi4^1 eps=+1  Sig=0.313889  pred=0.179074  err=+1.35e-01
+   eta=(./5)chi4^0 eps=-1  Sig=0.352778  pred=0.204503  err=+1.48e-01
+   eta=(./5)chi4^1 eps=-1  Sig=2.397222  pred=1.810578  err=+5.87e-01
+p=1009 u=13 X=10 S_u direct=0.166667 (eta-sum 0.166667) closed-form=0.162990 err=+3.68e-03  [L(1,chi_D)=0.6035]
+   eta=(./1)chi4^0 eps=+1  Sig=1.333333  pred=1.204481  err=+1.29e-01
+   eta=(./1)chi4^1 eps=+1  Sig=0.666667  pred=0.661837  err=+4.83e-03
+   eta=(./13)chi4^0 eps=+1  Sig=0.666667  pred=0.821382  err=-1.55e-01
+   eta=(./13)chi4^1 eps=+1  Sig=1.333333  pred=1.224066  err=+1.09e-01
+p=10009 u=1 X=1668 S_u direct=2.301724 (eta-sum 2.301724) closed-form=2.289031 err=+1.27e-02  [L(1,chi_D)=1.5073]
+   eta=(./1)chi4^0 eps=+1  Sig=5.617833  pred=5.619347  err=-1.51e-03
+   eta=(./1)chi4^1 eps=-1  Sig=1.014385  pred=1.041285  err=-2.69e-02
+p=10009 u=5 X=263 S_u direct=0.298763 (eta-sum 0.298763) closed-form=0.310539 err=-1.18e-02  [L(1,chi_D)=1.5729]
+   eta=(./1)chi4^0 eps=+1  Sig=4.547601  pred=4.517159  err=+3.04e-02
+   eta=(./1)chi4^1 eps=+1  Sig=0.161040  pred=0.171350  err=-1.03e-02
+   eta=(./5)chi4^0 eps=-1  Sig=0.337623  pred=0.335821  err=+1.80e-03
+   eta=(./5)chi4^1 eps=-1  Sig=1.980916  pred=1.868373  err=+1.13e-01
+p=10009 u=13 X=98 S_u direct=0.013047 (eta-sum 0.013047) closed-form=0.015491 err=-2.44e-03  [L(1,chi_D)=0.4529]
+   eta=(./1)chi4^0 eps=+1  Sig=1.410357  pred=1.404996  err=+5.36e-03
+   eta=(./1)chi4^1 eps=+1  Sig=1.205732  pred=1.168926  err=+3.68e-02
+   eta=(./13)chi4^0 eps=-1  Sig=1.144405  pred=1.137187  err=+7.22e-03
+   eta=(./13)chi4^1 eps=-1  Sig=1.158553  pred=1.064951  err=+9.36e-02
+p=1000033 u=1 X=166672 S_u direct=1.378067 (eta-sum 1.378067) closed-form=1.377999 err=+6.82e-05  [L(1,chi_D)=0.5655]
+   eta=(./1)chi4^0 eps=+1  Sig=3.597177  pred=3.596230  err=+9.47e-04
+   eta=(./1)chi4^1 eps=-1  Sig=0.841043  pred=0.840232  err=+8.11e-04
+p=1000033 u=5 X=26316 S_u direct=1.139053 (eta-sum 1.139053) closed-form=1.135466 err=+3.59e-03  [L(1,chi_D)=1.2167]
+   eta=(./1)chi4^0 eps=+1  Sig=6.231508  pred=6.227011  err=+4.50e-03
+   eta=(./1)chi4^1 eps=+1  Sig=0.236269  pred=0.230445  err=+5.82e-03
+   eta=(./5)chi4^0 eps=+1  Sig=0.191122  pred=0.181573  err=+9.55e-03
+   eta=(./5)chi4^1 eps=+1  Sig=2.453522  pred=2.444698  err=+8.82e-03
+p=1000033 u=13 X=9804 S_u direct=0.289205 (eta-sum 0.289205) closed-form=0.289325 err=-1.20e-04  [L(1,chi_D)=0.9149]
+   eta=(./1)chi4^0 eps=+1  Sig=4.214933  pred=4.217659  err=-2.73e-03
+   eta=(./1)chi4^1 eps=+1  Sig=1.352956  pred=1.346273  err=+6.68e-03
+   eta=(./13)chi4^0 eps=+1  Sig=0.424145  pred=0.422457  err=+1.69e-03
+   eta=(./13)chi4^1 eps=+1  Sig=0.948884  pred=0.957412  err=-8.53e-03
+p=10000169 u=1 X=1666695 S_u direct=8.312208 (eta-sum 8.312208) closed-form=8.312903 err=-6.95e-04  [L(1,chi_D)=2.1002]
+   eta=(./1)chi4^0 eps=+1  Sig=17.024634  pred=17.025339  err=-7.05e-04
+   eta=(./1)chi4^1 eps=-1  Sig=0.400218  pred=0.399534  err=+6.84e-04
+p=10000169 u=5 X=263162 S_u direct=0.347871 (eta-sum 0.347871) closed-form=0.347947 err=-7.66e-05  [L(1,chi_D)=0.7997]
+   eta=(./1)chi4^0 eps=+1  Sig=4.151101  pred=4.151759  err=-6.58e-04
+   eta=(./1)chi4^1 eps=+1  Sig=0.632863  pred=0.631947  err=+9.15e-04
+   eta=(./5)chi4^0 eps=-1  Sig=0.871397  pred=0.871308  err=+8.97e-05
+   eta=(./5)chi4^1 eps=-1  Sig=1.129601  pred=1.128821  err=+7.80e-04
+p=10000169 u=13 X=98041 S_u direct=0.343960 (eta-sum 0.343960) closed-form=0.344190 err=-2.31e-04  [L(1,chi_D)=1.6675]
+   eta=(./1)chi4^0 eps=+1  Sig=10.346351  pred=10.347265  err=-9.13e-04
+   eta=(./1)chi4^1 eps=+1  Sig=0.150557  pred=0.150451  err=+1.06e-04
+   eta=(./13)chi4^0 eps=-1  Sig=1.841310  pred=1.836635  err=+4.68e-03
+   eta=(./13)chi4^1 eps=-1  Sig=0.400567  pred=0.400514  err=+5.30e-05
+p=100000049 u=1 X=16666675 S_u direct=7.923779 (eta-sum 7.923779) closed-form=7.924078 err=-2.99e-04  [L(1,chi_D)=1.6500]
+   eta=(./1)chi4^0 eps=+1  Sig=16.164807  pred=16.165114  err=-3.07e-04
+   eta=(./1)chi4^1 eps=-1  Sig=0.317249  pred=0.316958  err=+2.92e-04
+p=100000049 u=5 X=2631580 S_u direct=0.606531 (eta-sum 0.606531) closed-form=0.606544 err=-1.32e-05  [L(1,chi_D)=0.8969]
+   eta=(./1)chi4^0 eps=+1  Sig=5.574182  pred=5.574043  err=+1.39e-04
+   eta=(./1)chi4^1 eps=+1  Sig=0.848766  pred=0.848030  err=+7.36e-04
+   eta=(./5)chi4^0 eps=-1  Sig=0.677148  pred=0.676896  err=+2.52e-04
+   eta=(./5)chi4^1 eps=-1  Sig=0.893552  pred=0.892823  err=+7.29e-04
+p=100000049 u=13 X=980392 S_u direct=0.509705 (eta-sum 0.509705) closed-form=0.509634 err=+7.06e-05  [L(1,chi_D)=1.3040]
+   eta=(./1)chi4^0 eps=+1  Sig=10.015671  pred=10.015571  err=+9.96e-05
+   eta=(./1)chi4^1 eps=+1  Sig=0.145232  pred=0.144980  err=+2.52e-04
+   eta=(./13)chi4^0 eps=+1  Sig=1.695155  pred=1.694473  err=+6.82e-04
+   eta=(./13)chi4^1 eps=+1  Sig=0.376863  pred=0.376201  err=+6.62e-04
+DONE

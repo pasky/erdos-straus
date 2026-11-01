@@ -27,8 +27,8 @@ Assessment. Scripts `scripts/z53_genuslval_*`, data `data/z53/genuslval/`. Build
   Σ_η = **L(1, η)·L(1, ηχ_{−4up})·H_{u,η}(1)** (η ≠ 1), explicit signs ε_η = ±1 and explicit Euler products.
   ηχ_{−4up} is (up to Euler factors at 2d) the Kronecker character of conductor (4)(u/d)p: these are precisely the
   products L(1, χ_pψ)·L(1, ψ′) of the brief, ψ the genus character of u/d, ψ′ that of d. **EVIDENCE:** agrees with the
-  exactly computed slice to |err| ≤ 1.2·10⁻³ (relative ≤ 0.5 %) for u ∈ {1, 5, 13, 21} at 8 primes 10⁵ … 10⁸ incl. four
-  (★)-zero primes (§3.2).
+  exactly computed slice (65 slices, u ∈ {1, 5, 13, 21}, 20 primes 409 … 10⁸ incl. all 14 (★)-zero primes): |err| ≤ 1.2·10⁻³
+  (relative ≤ 0.1 %) for the 18 slices with X_u ≥ 10⁵, ≤ 3.6·10⁻³ (≤ 1.4 %) for X_u ∈ [10⁴, 10⁵), error decreasing with X_u (§3.2).
 * **(b) Which genus characters can make M_gen small (§4).** At a single p, M_gen − (principal-genus part) is a signed sum of
   the cross terms ε_η L(1, η)L(1, ηχ_{−4up})H; they carry no log-growth in the slice, and can be large and negative for
   individual u (EVIDENCE: at the (★)-zero prime 8 813 281, the net cross terms of the u = 13 slice remove 38 % of its
@@ -262,7 +262,17 @@ the closed form (L-values by PARI `lfun`, Euler products to ℓ ≤ 2·10⁶):
 
 (At p = 409, X_5 = 10: the asymptotic is not yet operative, err −0.11 — recorded in the data file.) Each η-component is
 matched individually (e.g. 8813281, u = 21: eight components, max |err| 9.8·10⁻³ on values 0.48–4.46). The error falls
-with X_u as predicted.
+with X_u as predicted. Full run: 65 slices, u = 1, 5, 13 (and 21), at 409, 577, 1009, 5569, 9601, 10009, 23929, 83449, 102001,
+329617, 712321, 1000033, 1134241, 1724209, 1726201, 5212561, 8813281, 10000169, 99999989, 100000049
+(`scripts/z53_genuslval_slice_summary.py` -> `data/z53/genuslval/slice_summary.txt`), binned by slice length X_u:
+
+| X_u | slices | max abs err | max rel err |
+|---|---|---|---|
+| [1, 10^2) | 12 | 0.106 (409, u = 5) | 66 % |
+| [10^2, 10^3) | 9 | 0.046 (5569, u = 5) | 15 % |
+| [10^3, 10^4) | 11 | 0.013 (10009, u = 1) | 6.6 % |
+| [10^4, 10^5) | 15 | 0.0036 (1000033, u = 5) | 1.4 % |
+| [10^5, 10^8) | 18 | 0.0012 (8813281, u = 5) | 0.1 % |
 
 ## 4. (b) Which genus characters can make M_gen small
 
@@ -353,8 +363,8 @@ remains in §7.3 is entirely the order-≥3 layer X(p) (B2).
 > X(p) ≥ −(1 − ε)M_gen(p) (= H⁻ relative to the genus series, ES-(★) strength); a sharp constant (observed min 0.084).
 >
 > 3. (append) *(z53, `Z53_GENUSLVAL.md` Prop C.)* In each slice u ≤ p^{3/5−ε} the genus layer is an explicit signed sum
-> Σ_η ε_η L(1, η)L(1, ηχ_{−4up})H_η plus the principal class-number term L(1, χ_{−4up})·log (PROVED; numerically exact to
-> ≤ 0.5 % at 10⁵–10⁸ incl. (★)-zero primes). Cross terms can remove ~40 % of a slice (EVIDENCE) but cannot make
+> Σ_η ε_η L(1, η)L(1, ηχ_{−4up})H_η plus the principal class-number term L(1, χ_{−4up})·log (PROVED; numerically within
+> 0.1 % for slices of length ≥ 10⁵, at 10⁵–10⁸ incl. (★)-zero primes). Cross terms can remove ~40 % of a slice (EVIDENCE) but cannot make
 > M_gen = o(log²p) (Thm U). The non-genus (order ≥ 3) part is all that remains of this item.
 
 **Bottom line.** The genus layer of (★) at a single prime is now under unconditional control: it is ≥ 0.0068·log²p for every
