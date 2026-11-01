@@ -1,0 +1,50 @@
+== test: 15 n in [193, 8813281]; R=0 at 10
+  R>0 but no prime x/y (Rp=0): 3  [n>1e5: 0, n>5e5: 0]
+  mean R/L^2=0.021  mean Rp/L=0.043  sum Rp/sum R=0.231
+  Rs50: share of R=0.1538; frac of R>0 primes with Rs50=0: 0.6000
+  Rs33: share of R=0.0000; frac of R>0 primes with Rs33=0: 1.0000
+  Rs25: share of R=0.0000; frac of R>0 primes with Rs25=0: 1.0000
+  best fixed M: mean |P_M|=0.73, mean |P_M|/L=0.084, max |P_M|/L=0.380; argmax M counts {0: 10, 2: 2, 11: 1, 5: 1, 12: 1}
+  P_M nonempty fraction: M=1: 0.000, M=2: 0.133, M=6: 0.067, M=12: 0.067, M=60: 0.000
+  Cmin: median 5.0, max 11
+== p24: 9732 n in [73, 999961]; R=0 at 9
+  R>0 but no prime x/y (Rp=0): 85  [n>1e5: 56, n>5e5: 32]
+  mean R/L^2=0.140  mean Rp/L=0.835  sum Rp/sum R=0.467
+  Rs50: share of R=0.2780; frac of R>0 primes with Rs50=0: 0.1431
+  Rs33: share of R=0.0342; frac of R>0 primes with Rs33=0: 0.8529
+  Rs25: share of R=0.0033; frac of R>0 primes with Rs25=0: 0.9881
+  best fixed M: mean |P_M|=5.53, mean |P_M|/L=0.435, max |P_M|/L=2.641; argmax M counts {2: 3901, 1: 1714, 3: 1016, 5: 598, 6: 442, 4: 422}
+  P_M nonempty fraction: M=1: 0.514, M=2: 0.827, M=6: 0.782, M=12: 0.682, M=60: 0.328
+  Cmin: median 1.0, max 4016
+== nearsq: 600 n in [1002017, 2852797]; R=0 at 1
+  R>0 but no prime x/y (Rp=0): 0  [n>1e5: 0, n>5e5: 0]
+  mean R/L^2=0.158  mean Rp/L=0.926  sum Rp/sum R=0.407
+  Rs50: share of R=0.2741; frac of R>0 primes with Rs50=0: 0.0902
+  Rs33: share of R=0.0432; frac of R>0 primes with Rs33=0: 0.7863
+  Rs25: share of R=0.0045; frac of R>0 primes with Rs25=0: 0.9866
+  best fixed M: mean |P_M|=7.52, mean |P_M|/L=0.523, max |P_M|/L=3.264; argmax M counts {1: 235, 2: 157, 4: 47, 3: 46, 5: 24, 6: 20}
+  P_M nonempty fraction: M=1: 0.753, M=2: 0.923, M=6: 0.862, M=12: 0.757, M=60: 0.342
+  Cmin: median 1.0, max 14
+== s1e7: 400 n in [10000121, 10013761]; R=0 at 0
+  R>0 but no prime x/y (Rp=0): 0  [n>1e5: 0, n>5e5: 0]
+  mean R/L^2=0.163  mean Rp/L=1.029  sum Rp/sum R=0.391
+  Rs50: share of R=0.2969; frac of R>0 primes with Rs50=0: 0.0250
+  Rs33: share of R=0.0439; frac of R>0 primes with Rs33=0: 0.6900
+  Rs25: share of R=0.0037; frac of R>0 primes with Rs25=0: 0.9875
+  best fixed M: mean |P_M|=8.36, mean |P_M|/L=0.519, max |P_M|/L=2.978; argmax M counts {1: 170, 2: 94, 3: 32, 4: 23, 5: 21, 6: 16}
+  P_M nonempty fraction: M=1: 0.807, M=2: 0.930, M=6: 0.853, M=12: 0.795, M=60: 0.430
+  Cmin: median 1.0, max 21
+== fixedq: j(p,q) = least height at class modulus q; N_q = #solutions with j<=q
+  trivial CRT bound j<=q-2 verified in all rows: True
+      jmin_mean  jmin_max      Nq       L  jmin_mean/q   Nq/L
+q                                                            
+8         2.103         5  14.000  12.696        0.263  1.103
+12        3.241         8  14.069  12.696        0.270  1.108
+16        3.000        11  14.069  12.696        0.188  1.108
+24        5.034        14  12.690  12.696        0.210  0.999
+40        5.897        16  12.552  12.696        0.147  0.989
+60       13.448        41  11.586  12.696        0.224  0.913
+100      20.207        67  11.931  12.696        0.202  0.940
+200      39.345       143  13.379  12.696        0.197  1.054
+400      73.103       294  11.793  12.696        0.183  0.929
+1000    158.172       392  12.931  12.696        0.158  1.018
