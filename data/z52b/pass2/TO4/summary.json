@@ -1,0 +1,21 @@
+{
+  "batch": "TO4",
+  "inputs": 101,
+  "outputs": 101,
+  "outcomes": {"nothing": 91, "covered": 7, "interesting": 3, "needs-compute": 0, "skipped": 0},
+  "cform_full_C_exceptions_le_1e6": [409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321],
+  "cform_K400_zero_le_1e7_count": 26,
+  "cform_K400_zero_all_congruent_1_mod_3": true,
+  "cform_winner_counts_p_1e4_1e7_K400": {"mean": 9.16, "median": 9},
+  "mean_winners_by_p_mod_3_K400": {"p1mod3": 8.61, "p2mod3": 9.70},
+  "N_X_over_logX_p1mod24": {"X30": 1.266, "X100": 1.254, "X300": 1.220, "X400": 1.208},
+  "moments_p1mod24_1e4_1e6": {"mean": 7.236, "var": 7.946, "third_central": 9.348, "fourth_central": 204.0, "P_N0_empirical": 7.3e-4, "P_N0_poisson": 7.2e-4},
+  "legendre_proxy_corr_wins": -0.119,
+  "rich_failures_omega_ge5": {"total": 1314, "gen_contains_minus1": 1218, "gen_avoids_minus1": 96},
+  "min_index_minus1_avoiding_subgroup_C_le_100": {"2": 100},
+  "typeII_min_cd_for_cform_exceptions": {"409": [2,1], "577": [2,1], "5569": [2,1], "9601": [2,1], "23929": [2,1], "83449": [2,2], "102001": [3,22], "329617": [2,2], "712321": [2,1]},
+  "typeI_c1_zero_set_disjoint_from_cform_zero_set_le_1e6": true,
+  "zn_fraction_no_winner_C_le_K_p_1mod24_1e5_1e7": {"K25": 0.00269, "K100": 0.00051, "K400": 0.00012},
+  "e_min_II": {"193": 7, "409": 7, "577": 3, "2521": 23},
+  "mordell_filter_R8": {"size": 2101514, "modulus": 25878772920}
+}
