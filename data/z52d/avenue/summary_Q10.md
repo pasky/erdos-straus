@@ -21,12 +21,11 @@ Z0915, Z1110, Z1212). Best proof-relevant row: **Z0721** (plaus 2, nov 0) = Z067
 2. *Hecke/transport from ℓp, ℓ²p to p* (dead: f(ℓp) > 0 always by scaling ES(ℓ); T1 kills Hecke shapes): Z1508, Z2514,
    Z2726, Z2977, Z3143. 3. *Count congruences / parity laws* (M5/T1): Z2990, Z2527, Z3026, Z1078, Z0442, Z1388.
 4. *Subset-product / zero-sum / Kneser forcing* (B4, LONGSHOT Prop 1.4): Z0124, Z0545, Z1021, Z1055, Z1385, Z1343, Z1050.
-5. *Fixed-p second moment over levels* (cannot certify, see below): Z2511, Z3144. 6. *Fibration/torsor/BM*: Z2939, Z3088, Z3139.
-7. *Finite menus/escalation/identity search* (B1/B2(iii)): Z2935, Z0470, Z1079, Z1080, Z1086, Z1087, Z1088, Z1181.
+5. *Fixed-p level second moment* (fails at most primes): Z2511, Z3144. 6. *Fibration/torsor/BM*: Z2939, Z3088, Z3139. 7. *Finite menus/escalation/identity search* (B1/B2(iii)): Z2935, Z0470, Z1079, Z1080, Z1086, Z1087, Z1088, Z1181.
 
 **New in this pass** (scripts `scripts/z52d_avenue_Q10_*`, timeout 60)
-* Z3144 (PROVED, one line): a fixed-p level-aspect second moment can never certify — the deterministic Chebyshev form needs
-  Σ_C (D_C − E_C)² < Σ E_C² = O(1), but the left side is ≥ R(p)(1 − o(1)) ≫ log²p whenever certificates exist.
+* Z3144 (EVIDENCE + exact identity): the fixed-p level Chebyshev test Σ_C(D_C − E_C)² < Σ_C E_C² (sufficient for (★)) equals
+  Σ_C D_C(D_C − 2E_C) < 0 with D_C even; it holds at only 10/150 primes near 5·10⁴ — not a route (needs hits at levels C ≲ log p).
 * Z0920 (EVIDENCE, 6420 primes ≡ 1 (8) ≤ 3·10⁵): Tunnell counts A, B correlate 0.52 with R/log²p (main-term layer), the cusp
   part A − 2B correlates −0.016; R/2 mod 2 is independent of (A, B) mod 8 (Z2030).
 * Z2990/Z3026: R(p)/2 mod 2, 3, 4 is not constant on any class mod 24/120/840; Z2527: R/2 mod 2 is not in the F₂-span of the
