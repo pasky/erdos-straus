@@ -1,0 +1,2 @@
+(A) families=4800 with_valid_class=2222 valid_unit_classes=44088 classes_that_are_squares_mod_W=0 square_classes_mod_840_touched=0 period_mismatches=0
+(B) square-class primes <= 10000000: 20513; unresolved with e < 4000: 0; max least-e = 107 (p = 8803369); least-e histogram: 3:8590 7:4779 11:4419 15:961 19:766 23:637 27:63 31:183 35:27 39:44 43:7 47:23 51:2 55:4 59:4 63:1 71:2 107:1
