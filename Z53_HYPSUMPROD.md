@@ -14,7 +14,8 @@ E(p) = R(p) − M(p) with M(p) ≍ log²p. Since R ≥ 0, a pointwise bound |E(p
 benchmark question "beat the elementary p^{1/3+o(1)}" is a pure *counting* problem on the tied hyperbola.
 
 1. **Theorem 1 (PROVED; the main new result). R(n) ≪ n^{1/3 − 1/225}(log n)² for all n ≥ 2**, uniformly in n. Hence
-   |E(p)| ≪ p^{1/3−1/225}(log p)², the first power saving over the elementary benchmark p^{1/3+o(1)} (Z52D Thm 1). The
+   |E(p)| ≪ p^{1/3−1/225}(log p)², the first power saving over the elementary benchmark p^{1/3+o(1)} (Z52D Thm 1) in this campaign
+   (a brief literature search found no prior occurrence; priority not certified). The
    extremal (cube) block u, B, C ≍ n^{1/3} has N ≪ n^{8/25+o(1)}.
    * Mechanism: near the cube, u and B are the roots of z² − sz + k with s = u + B = 4Ck − n and k = uB, so a (★) triple
      is exactly a point (C, k) of the thin strip 𝒜 = {(C, k) : 4Ck − n ∈ s-range} at which **f(C, k) = (4Ck − n)² − 4k is a
@@ -24,21 +25,25 @@ benchmark question "beat the elementary p^{1/3+o(1)}" is a pure *counting* probl
    * This *is* tie-aware cancellation: the tie x ≡ y ≡ −1 (mod 4C) of the hyperbola form is exactly the integrality of the
      roots, i.e. the square condition. It is the "non-trivial estimate for #{(x,y) : xy ≡ 1 (4p), x ≡ y ≡ −1 (mod 4C)} in a
      range" asked for in FRONTIER §7.1 — in the near-cube range, which is the range that carries the benchmark.
-   * It is an **upper bound, uniform in n**: it holds verbatim at odd squares (where R = 0) and so can never give positivity.
-     Worth nothing for ES existence; it moves only the error benchmark.
+   * It is an **upper bound, uniform in n**: it holds verbatim at odd squares (where R = 0) and so does not imply positivity
+     by itself. Worth nothing for ES existence; it moves only the error benchmark.
 2. **Block-shape map (§4; PROVED floors + exponent bookkeeping).** Over the simplex of block shapes (u ≍ n^α, B ≍ n^β,
-   C ≍ n^γ, α + β + γ = 1), the square-sieve route beats the trivial exponent min(α, β, γ) exactly in a small neighbourhood of
-   the cube point (gain 1/75 at the cube; region ≈ |α − β| ≲ 0.02, 0.31 ≲ α ≲ 0.335 on the diagonal). Every other surveyed
-   tool class has a PROVED floor at or above the trivial bound in every block:
+   C ≍ n^γ, α + β + γ = 1), the square-sieve route beats the trivial exponent min(α, β, γ) in a small neighbourhood of the
+   cube point (PROVED gain 1/75 at the cube; off the cube the region is from exponent bookkeeping on a grid, not a proof:
+   ≈ |α − β| ≲ 0.02, 0.31 ≲ α ≲ 0.335 on the diagonal). For the other surveyed tool classes, the specific majorants they
+   provide have a PROVED floor at or above the trivial bound in every block (this excludes those majorants, not every
+   argument that uses those tools):
    * λ-uniform modular-hyperbola box bounds (Weil/Kloosterman, Cilleruelo–Garaev, Bourgain–Garaev, KSWX, Shkredov) ≥ c·W
      (Prop B);
    * shift-uniform class-blind divisor counts ≥ (log 2 − o(1))·U, resp. V (Prop C);
    * the Erdős–Turán/ψ route with square-root max-input ≥ (UV)^{1/2} (Z52D Thm 6);
-   * divisor-in-residue-class bounds (Lenstra, CHN, Bernstein) and Shiu: O(1) or O(log n) per fibre, removing only n^{o(1)}.
+   * divisor-in-residue-class bounds (Lenstra, CHN, Bernstein) and Shiu: O(1) or O(log n) per fibre, removing only n^{o(1)}
+     when used as per-fibre majorants (an argument showing most fibres empty is not excluded).
    The balanced block u, B ≍ p^{1/4} is **not** reached (the strip 𝒜 is sparse there; §4.3).
 3. **Lower side (§5; PROVED).** Lemma A: a hyperbola point at height H yields a Type II solution iff x ≡ −1 (mod 4cd) for some
-   factorisation H = c²d; so the tie modulus is always ≥ 4√H. Cor A′: a fixed congruence x ≡ −1 (mod q) certifies only
-   heights H | q²/16 (≤ τ(q²) single integers 4Hn + 1). Weil/Selberg–Hooley give the tie-free count only for γ > 1/2, where the
+   factorisation H = c²d; so the tie modulus is always ≥ 4√H. Cor A′: a fixed congruence x ≡ −1 (mod q) *by itself* implies
+   the tie only at heights H | q²/16 (≤ τ(q²) single integers 4Hn + 1); at other heights certification needs information
+   beyond the congruence (it does not forbid points that happen to be tied, e.g. n = 5, (x,y) = (3,7), q = 4, H = 1). Weil/Selberg–Hooley give the tie-free count only for γ > 1/2, where the
    tie costs a factor ≍ W ≥ p^{1/2} against an error ≥ p^{1/2}.
 4. **Z1855 pieces in unbalanced blocks reduce exactly to B-fibres** (Lemma D; PROVED): each piece count is a
    divisor-in-progression count of the single integer n + B.
@@ -47,8 +52,9 @@ benchmark question "beat the elementary p^{1/3+o(1)}" is a pure *counting* probl
    square-root size (rms ≈ |𝒜|^{1/2}) at primes, test primes, odd squares and near-squares alike.
 
 **Verdict: strengthened** (a genuine new lemma: the §7.1 benchmark p^{1/3} is beaten by a power, via tie-detecting character
-sums) — and simultaneously **narrowed** (every λ-uniform, class-blind or fibre-local tool is floored at the trivial bound; the
-square sieve is upper-bound-only and does not reach the balanced block). ES positivity is untouched.
+sums) — and simultaneously **narrowed** (the λ-uniform and shift-uniform class-blind majorants are floored at the trivial
+bound, per-fibre divisor-in-class majorants gain only n^{o(1)}; the square sieve is upper-bound-only and, in the written
+form, does not reach the balanced block). ES positivity is untouched.
 
 ## 1. Setting, notation, statements attacked
 
@@ -163,7 +169,8 @@ piece λ_h ≤ |hg‴| ≤ 16λ_h with λ_h := (3/32)h(n+S)Q²/W⁴ ≍ hnQ²/W�
   |Σ_{j∈I}ψ(g(j))| ≪ W/(QH) + Σ_{h≤H} h⁻¹[(W/Q)λ_h^{1/6} + (W/Q)^{1/2}λ_h^{−1/6}].
 With n ≍ T³ and W ≤ T^{1+2η}: (W/Q)λ_h^{1/6} ≪ h^{1/6}T^{1/2}W^{1/3}Q^{−2/3} ≤ h^{1/6}T^{5/6+2η/3}Q^{−2/3}, and
 (W/Q)^{1/2}λ_h^{−1/6} ≪ h^{−1/6}W^{7/6}T^{−1/2}Q^{−5/6} ≤ T^{2/3+7η/3}Q^{−5/6}. Summing over h ≤ H:
-  ≪ T^{1+2η}/(QH) + H^{1/6}T^{5/6+2η/3}Q^{−2/3} + T^{2/3+7η/3}Q^{−5/6}log H.
+  ≪ T^{1+2η}/(QH) + H^{1/6}T^{5/6+2η/3}Q^{−2/3} + T^{2/3+7η/3}Q^{−5/6}log(2H)
+(Σ_{h≤H}h^{−1}h^{1/6} ≤ 6H^{1/6}, Σ_{h≤H}h^{−1}h^{−1/6} ≤ 1 + log H ≤ 2 log(2H)).
 Choose H := ⌈T^{1/7}Q^{−2/7}⌉ (≥ 1 as Q ≤ T^{1/2}): the first two terms are ≪ T^{6/7+2η}Q^{−5/7}. Multiply by the Q² classes,
 the 2 endpoints and the O(log T) pieces. ∎
 
@@ -186,11 +193,13 @@ counted by 𝒮_η. With η = 1/75 both parts are ≪ T^{74/75}(log n)² = n^{1/
 
 *Remarks.* (1) The constants 1/25, 1/225 are not optimised. Exponent bookkeeping of the same argument block by block
 (`scripts/z53_hypsumprod_sqmap.py`, a computation of exponents with log factors ignored, not a written proof; it also uses
-the second-derivative and Kusmin–Landau tests where better) gives max over Δ of min(t, θ_sq) ≈ 0.3272, i.e. R(n) ≪ n^{0.3272}
-(δ ≈ 1/160). Better exponent pairs or a Fourier treatment of the classes would improve further; not pursued.
+the second-derivative and Kusmin–Landau tests where better) gives, on a sampled grid, max of min(t, θ_sq) ≈ 0.3272. This is a
+**numerical candidate** for an exponent (δ ≈ 1/160), not a proved bound: a sampled maximum does not bound the continuous
+simplex, and the off-cube argument with uniform error bookkeeping is not written. Better exponent pairs or a Fourier
+treatment of the classes might improve the proved 1/225; not pursued.
 (2) The data show the character sums are square-root size (§7.2), far better than Lemma 1.4; with square-root sums the
 square sieve would give ≈ n^{1/4}-type bounds at the cube. Not claimed.
-(3) Why primality is irrelevant: every step is uniform in n. Consequently the theorem can never feed a positivity argument
+(3) Why primality is irrelevant: every step is uniform in n. Consequently the theorem does not by itself imply positivity
 (T1: R(m²) = 0 satisfies every upper bound).
 
 ## 4. The block-shape map (upper side)
@@ -208,13 +217,14 @@ Cilleruelo–Garaev (GAFA 21 (2011) 892–904, Thm 1: #{xy ≡ λ (p), (x,y) ∈
 uniform in λ, K, L; prime modulus, verified from arXiv:1007.1526); Bourgain–Garaev, KSWX, Shkredov-type bilinear inputs as
 used for box counts — is never below the trivial bound by a power, in any block.
 
-**Proposition C (shift-uniform class-blind floor).** For X ≥ V: X⁻¹Σ_{n₀=1}^{X} #{(u,B) ∈ 𝔅(U,V) : B | n₀ + u}
+**Proposition C (shift-uniform class-blind floor).** For integers U, V ≥ 1 and X ≥ V: X⁻¹Σ_{n₀=1}^{X} #{(u,B) ∈ 𝔅(U,V) : B | n₀ + u}
 ≥ U(Σ_{V<B≤2V}1/B) − UV/X ≥ U(log 2 − 1/V) − UV/X.
 *Proof.* For fixed (u,B), #{n₀ ≤ X : B | n₀ + u} ≥ X/B − 1; sum over the UV pairs and use Σ_{V<B≤2V}1/B ≥ log 2 − 1/V. ∎
 So a bound for 𝓛₂ = {(u,B) : B | n + u} (the class-blind u-fibre relation, i.e. dropping the class −1 (mod 4u) of the
-co-divisor) valid for every shift n ≤ X is ≥ (log 2 − o(1))U; symmetrically ≥ (log 2 − o(1))V for 𝓛₁. Neither beats
-min(U, V) by a power. (The joint relation 𝓛₁ ∩ 𝓛₂ = {uB | n + u + B} is the tie up to the 2-adic condition; that is what
-the square sieve exploits.)
+co-divisor) valid for every shift n ≤ X is ≥ (log 2 − o(1))U (as V → ∞, X/V → ∞); symmetrically ≥ (log 2 − o(1))V for 𝓛₁. Neither
+beats min(U, V) by a power. (For n = p prime and u, B < p, 𝓛₁ ∩ 𝓛₂ = {uB | p + u + B} (Z52D Prop 2; gcd(u,B) | p); for
+composite n one only gets lcm(u, B) | n + u + B, e.g. n = 18, u = B = 2. Up to the 2-adic condition this joint relation is
+the tie, which is what the square sieve exploits.)
 
 ### 4.2 The map
 Exponents base n; "beats trivial" means θ < t(α,β) = min(α, β, γ).
@@ -234,7 +244,7 @@ Square-sieve exponent θ_sq (`scripts/z53_hypsumprod_sqmap.py`; computation of e
 
 | (α, β, γ) | trivial t | θ_sq | gain t − θ_sq |
 |---|---|---|---|
-| (1/3, 1/3, 1/3) cube | 0.3333 | 0.3203 | +0.0130 (= 1/75, Thm 1(c)) |
+| (1/3, 1/3, 1/3) cube | 0.3333 | 0.3203 (grid; Thm 1(c) proves 8/25 = 0.3200) | +0.0130 (grid; proved gain 1/75 = 0.0133) |
 | (0.33, 0.33, 0.34) | 0.330 | 0.3185 | +0.0115 |
 | (0.32, 0.32, 0.36) | 0.320 | 0.3140 | +0.0060 |
 | (0.31, 0.31, 0.38) | 0.310 | 0.3090 | +0.0010 |
@@ -243,16 +253,18 @@ Square-sieve exponent θ_sq (`scripts/z53_hypsumprod_sqmap.py`; computation of e
 | (0.34, 0.34, 0.32) | 0.320 | 0.3235 | −0.0035 (no gain) |
 | (0.25, 0.25, 0.50) balanced | 0.250 | 0.3337 | −0.084 (no gain) |
 
-Global: max over Δ of min(t, θ_sq) ≈ 0.3272 (attained near (0.328, 0.344, 0.328)); the written proof (uniform near-cube
-treatment) gives 74/225 ≈ 0.3289.
+Sampled global: max of min(t, θ_sq) over the grid ≈ 0.3272 (near (0.328, 0.344, 0.328)) — a numerical candidate only; the
+written proof (uniform near-cube treatment) gives the PROVED 74/225 ≈ 0.3289. All rows except the proved cube value are
+exponent computations, not theorems.
 
 ### 4.3 Why the square sieve does not reach the balanced block (Assessment, with the exponent computation)
 The sieve needs 𝒜 (the strip 4Ck − n ∈ s-range) to be equidistributed mod qq′ with a discrepancy below the target. 𝒜 is
 parametrised by C ∈ (W, 2W] with |J_C| ≍ V/W points per C. In the balanced block V/W ≍ p^{−1/4}: only a p^{−1/4} fraction of
 the C carry a point, and the discrepancy is a ψ-sum over all ≍ p^{1/2} values of C, whose van der Corput bounds are ≫ p^{1/4}
 = the trivial bound (θ_sq ≈ 0.334 > 0.25). Re-parametrising 𝒜 by s (for each s ≍ U, C | (n + s)/4) turns it into
-divisors of single integers — B2 again. So the square sieve is effective exactly where 𝒜 is dense along C, i.e. V ≍ W,
-and the U ≍ V requirement comes from |𝒜| ≍ max(U,V): a neighbourhood of the cube.
+divisors of single integers — B2 again. So (in this implementation) the square sieve is effective where 𝒜 is dense along
+C, i.e. V ≍ W, and the U ≍ V requirement comes from |𝒜| ≍ max(U,V): a neighbourhood of the cube. This is a statement
+about the written implementation and its exponent bookkeeping, not an impossibility theorem.
 
 ### 4.4 Z1855 pieces in unbalanced blocks (Lemma D; PROVED)
 Fix B. Z1855's piece for q = B is {m : u := Bm − n ∈ (U, 2U], 4u | m + 1}. Its elements are in bijection (via C = (m + 1)/(4u))
@@ -295,7 +307,7 @@ violates all of them. ∎
   (squares in a thin set cannot be forced from character sums that are uniform in n).
 
 ## 6. Status of the integer-uniform question (S3)
-Theorem 1 is n-uniform, so no integer attains the trivial cap near the cube: every integer n has 𝒮_η(n) ≪ T^{24/25+2η}.
+Theorem 1 is n-uniform, so no integer attains the trivial cap near the cube: every integer n has 𝒮_η(n) ≪ T^{24/25+2η}(log T)².
 The EVIDENCE of §7.1 is consistent (max Q(n) ≤ 22 for all n ≤ 5·10⁸).
 
 ## 7. Computations
@@ -329,13 +341,13 @@ Grid over Δ (step 1/60; fine grid step 0.002 on [0.30, 0.38]²), optimising P =
 
 ## 8. FRONTIER §4 hard screens (for Theorem 1)
 1. **T1 (odd squares).** Not applicable as a positivity screen: Theorem 1 is an upper bound and holds at m² (where R = 0).
-   It is n-uniform, so it *cannot* be a step of a positivity argument — stated explicitly.
+   It is n-uniform, so it does not imply positivity by itself — stated explicitly.
 2. **8/131.** The argument uses only the shape "u, B roots of z² − sz + k with a linear relation between level·k and s"; it
    transfers to numerator-m analogues (upper bounds), so it is numerator-uniform. Harmless for an upper bound; it says
    nothing about 8/131.
 3. **Tied modulus.** Passed in the upper-bound sense: the tie is used (it *is* the square condition), and the moving modulus
-   4C is absorbed into the strip parametrisation (C, k) with auxiliary *fixed* moduli qq′. This is the first tie-aware
-   cancellation estimate in the campaign; it controls a power-size count, not a (log p)² main term (B3 still applies to any
+   4C is absorbed into the strip parametrisation (C, k) with auxiliary *fixed* moduli qq′. To our knowledge it is the first
+   tie-aware cancellation estimate in this campaign; it controls a power-size count, not a (log p)² main term (B3 still applies to any
    positivity use).
 4. **Fixed p.** Passed: pointwise in n; the only averaging is over C along the strip and over auxiliary primes q, q′.
 
@@ -347,9 +359,10 @@ p^{1/3} for E(p) moves; §7.1's "any non-trivial estimate for the tied count in 
 cancellation in tie-detecting character sums; the integer-uniform question (S3) is settled (no integer attains the trivial
 cap). What it does not buy: anything about positivity (upper bound, n-uniform, T1-blind), anything in the balanced block,
 anything near log²p.
-**Narrowed** (scoped theorems): λ-uniform hyperbola tools (Prop B), shift-uniform class-blind fibre counts (Prop C), Lenstra-
-type fibre bounds and Shiu (≤ n^{o(1)} gain), Z1855 piece methods in unbalanced blocks (Lemma D: reduce to B-fibres), and every
-fixed-congruence lower-bound count (Lemma A / Cor A′: only finitely many heights) cannot beat the trivial bound or certify ES.
+**Narrowed** (scoped theorems, each about a specific majorant or reduction, not about every use of the tool): λ-uniform
+hyperbola box majorants are floored at ≍ W (Prop B); shift-uniform class-blind fibre majorants at ≍ U, V (Prop C);
+Lenstra-type and Shiu per-fibre majorants gain only n^{o(1)}; Z1855 pieces in unbalanced blocks reduce exactly to B-fibres
+(Lemma D); a fixed congruence by itself implies the Type II tie only at the ≤ τ(q²) heights H | q²/16 (Lemma A / Cor A′).
 
 ## 10. Proposed FRONTIER §7 text (do NOT edit FRONTIER here)
 Append to §7.1:
@@ -359,16 +372,17 @@ Append to §7.1:
 > square sieve plus equidistribution of the strip mod qq′ gives the saving. This is tie-aware cancellation, but an upper bound
 > uniform in n (valid at squares), so it does nothing for positivity. Block map: the gain exists only near the cube
 > (≤ 1/75); λ-uniform hyperbola concentration bounds are floored at ≍ W, shift-uniform class-blind counts at ≍ U, Lenstra-type
-> and Shiu bounds remove only n^{o(1)}; the balanced block is not reached (sparse strip). Lower side: a hyperbola point gives a
-> Type II solution iff x ≡ −1 mod 4cd for some c²d = height (tie modulus ≥ 4√H), so fixed congruences certify only heights
-> H | q²/16.
+> and Shiu per-fibre bounds remove only n^{o(1)}; the written square sieve does not reach the balanced block (sparse strip).
+> Lower side: a hyperbola point gives a Type II solution iff x ≡ −1 mod 4cd for some c²d = height (tie modulus ≥ 4√H), so a
+> fixed congruence by itself implies the tie only at heights H | q²/16.
 
 In §3 ("Tied modulus") and §2.2 replace "|E(p)| ≪ p^{1/3+o(1)} (best known)" by "|E(p)| ≪ p^{1/3−1/225+o(1)} (z53; square sieve;
 elementary p^{1/3+o(1)})". In §6 add: "λ-uniform hyperbola concentration / class-blind fibre counts → floored at the trivial
 block bound → `Z53_HYPSUMPROD` Props B, C".
 
 ## 11. Bottom line
-The §7.1 lead "cancellation on the height-tied hyperbola" now has its first theorem: at the cube, where the elementary p^{1/3}
+The §7.1 lead "cancellation on the height-tied hyperbola" now has a first theorem (first in this campaign; no prior
+occurrence found in a brief literature search): at the cube, where the elementary p^{1/3}
 lives, the tie can be detected as a perfect-square condition and Heath-Brown's square sieve, with van der Corput
 equidistribution of the strip modulo auxiliary primes, beats the divisor bound by a power, giving R(n) ≪ n^{1/3−1/225} for every
 n. The price is the usual one for upper bounds: the argument is uniform in n, valid at odd squares, and therefore silent on
