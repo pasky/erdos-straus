@@ -17,11 +17,14 @@ stronger concentration form, with an explicit constant and an explicit exception
 
 * **Literature check** (research subagent; verified from source text, §10). The best almost-all-primes lower bound we found is
   Elsholtz–Tao (J. Aust. Math. Soc. 94 (2013), arXiv:1107.1010v6) **Thm 1.8**: f(p) ≫ (log p)^{(log 3)/2 − o(1)} ≈ (log p)^{0.549}
-  on a set of primes of relative density 1. ET **Remark 1.3** calls control of Σ f_II(p)² "out of reach of our methods, as the
+  on a set of primes of relative density 1. ET **Remark 1.3** (about the full f_I, f_II and *their* methods, not an impossibility theorem) calls control of
+  Σ f_II(p)² "out of reach of our methods, as the
   level of the relevant divisor sums becomes too great to handle". Theorem A raises the almost-all exponent from 0.549 to 2. It reaches the
-  true order of **R** (mean ≍ log²p), but not of f_II or f: their mean per prime is ≍ log³p (ET Thm 1.1:
-  Σ_{p≤N} f_II(p) ≍ N log²N), and R is only the c = 1 line of Type II. (Assessment: new as far as we can see. Caveat: an X post we could not open seems to make a
-  similar claim; see §10.)
+  true order of **R** (mean ≍ log²p), but not of f_II, whose mean per prime is ≍ log³p (ET Thm 1.1:
+  Σ_{p≤N} f_II(p) ≍ N log²N). R is only the c = 1 line of Type II. For f, ET prove only
+  N log²N ≪ Σ_{p≤N} f(p) ≪ N log²N log log N, so its mean lies between log³p and log³p·log log p. (Assessment: Theorem A
+  improves the verified ET almost-all lower bound. We make no literature-wide priority claim: an X post we could not open
+  seems to make a similar claim; see §10.)
 * **The idea, in one line.** Only a *lower* bound is needed, so truncate R to the trial-form events m = 4uC−1 ≤ Q = X^{1/4−o(1)},
   weighted by φ(m)/m ≤ 1. All pair correlations then live at level lcm(m,m') ≤ X^{1/2−o(1)}, inside Bombieri–Vinogradov. The
   variance becomes an explicit character sum. In the trial fibration each residue class r mod d is **one lattice cell**
@@ -213,16 +216,20 @@ using σ(n) = nΣ_{e|n}1/e ≤ n(1 + log n). This gives the stated bound. ∎
 ## 7. Proof of Theorem A
 
 Let η ∈ (0,1) and X ≥ X₀(η). By (4.1) and Chebyshev,
-  #{p ≤ X : |N(p) − M| ≥ (η/2)M} ≤ (π(X)V + O(XL^{−8}))/((η/2)²M²) ≤ (4/η²)(1285/L)π(X) + O(XL^{−12}).
+  #{p ≤ X : |N(p) − M| ≥ (η/2)M} ≤ (π(X)V + O(XL^{−8}))/((η/2)²M²) ≤ (4/η²)(1285/L)π(X) + O(η⁻²XL^{−12}).
+(The leading coefficient is 1024a/η² = 5138.14…/η², with a = 5.01772… from Cor. 6.2. The O(η⁻²XL^{−12}) term and
+π(X^{1/2}) = o(π(X)/L) are absorbed into the strict margin up to 6000/η² once X ≥ X₀(η).)
 Let p ∈ (X^{1/2}, X] be outside this set. Then p ≥ (Q+1)²/4 and Lemma 2.1 applies. With Lemma 2.2 and
 log Y ≥ L/4 − (B₀/2)log L − log 4,
   R(p) ≥ 2N(p) ≥ (1 − η/2)·(1/4)log²Y ≥ (1 − η/2)(1 − O(log L/L))·L²/64 ≥ (1 − η)L²/64 ≥ (1−η)(log p)²/64
 for X ≥ X₀(η). The primes p ≤ X^{1/2} number ≤ π(X)/L for large X. So the exceptional set has size
-≤ (5140/η² + 1)π(X)/L. ∎
+≤ (5140/η² + 1)π(X)/L ≤ 6000π(X)/(η²L). ∎
 
-*Remarks.* (i) The rate is O(π(X)/log X). It comes from V ≍ log³Q against M² ≍ log⁴Q; the numerics show V/M² ≈ 1.5/log Q
-(§8), so the variance-plus-Chebyshev estimate cannot do better for this family (a sharper lower-tail
-argument might). (ii) In every fixed class b mod W (W fixed, gcd(b,W) = 1), all but
+*Remarks.* (i) The rate is O(π(X)/log X). It comes from the proved bound V ≪ log³Q against M² ≍ log⁴Q. The numerics (§8,
+EVIDENCE only) suggest V ≍ log³Q, i.e. V/M² ≈ 1.5/log Q. If so, variance-plus-Chebyshev would not improve this rate for
+this family. That is not proved: no lower bound V ≫ log³Q is established, and a sharper lower-tail argument might do better.
+(Simplification noted by the cross-model review: keeping φ(d) in T gives T ≤ Σ_{u,C≤Q}(uC)⁻²Σ_{d|4uC−1}φ(d)
+≤ 4(1 + log Q)², which improves Prop. 6.1's constant. It is not needed.) (ii) In every fixed class b mod W (W fixed, gcd(b,W) = 1), all but
 O_W(π(X; W, b)/log X) primes satisfy the bound, because π(X; W, b) ≫_W π(X). This covers the Mordell classes mod 840 and
 p ≡ 1 (24). (iii) X₀(η) is ineffective: the implied constant in BV depends on Siegel's theorem. (iv) R(p) ≥ 2N(p) also counts only the solutions certified by moduli ≤ X^{1/4}. So (log p)²/64 is a lower bound
 for the *cheap* part of R(p) alone.
@@ -277,8 +284,8 @@ log-simplex are disjoint for p > X/L^{2B}. Each has mass (3/(2π²))(L/2)²(1+o(
 the pair form; FRONTIER §2.2 normalisation for the trial form). BV for each family (as in Lemma 3.1) gives
   Σ_{p≤X} R(p) ≥ (9/(8π²) − o(1))·π(X)·L²,  c₁ = 9/(8π²) ≈ 0.114,
 against the conjectural full mean ≈ 3/(2π²) ≈ 0.152 (the missing quarter is the central triangle, where all three moduli exceed
-X^{1/2}). The Paley–Zygmund route would then need (ii), Σ R(p)² ≪ π(X)L⁴. That is open here, and per ET Rem. 1.3 out of reach
-of divisor-sum methods. Theorem A makes it unnecessary. (Status of c₁: PROVED relative to BV and the main-term
+X^{1/2}). The Paley–Zygmund route would then need (ii), Σ R(p)² ≪ π(X)L⁴. That is open here. ET Rem. 1.3 says the analogous moments of
+the full f_I, f_II are out of reach of *their* methods; this is an analogy, not an impossibility theorem for R. Theorem A makes it unnecessary. (Status of c₁: PROVED relative to BV and the main-term
 asymptotics cited, with max-in-y BV used to discard p ≤ X/L^{2B}; a proof sketch, since the trial-form asymptotic is quoted
 from the repo, not re-proved here. Disjointness uses (4uC−1)(4BC−1) = 4Cp+1 and 4uB(4uC−1) = 4u(p+u).)
 
@@ -312,10 +319,10 @@ in the *upper* tail and is compatible with both.
 class, including the Mordell-hard classes. The exceptional set ≪ π(X)/log X is far weaker than the ES exceptional-set bounds
 (N exp(−c(log N)^{3/4})). Theorem A is a statement about the *size* of the cheap certificate count, not about ES itself.
 **9.5 The full Type II count: log³p for almost all p? (CONJECTURE, with EVIDENCE; precise obstruction.)**
-R is only the c = 1 line of ET's Type II. ET Prop 2.3/2.6 (as in `CONDITIONAL_ES.md` Lemma 1.2): Type II solutions of a prime
-p are (abd, acdp, bcdp) with 4abd = p + e, ce = a + b. The trial fibration of the whole family is the triples P = (a,c,d) with
+R is only the c = 1 line of ET's Type II. ET Prop 2.6 and eqs. (2.13)–(2.22) (cf. `CONDITIONAL_ES.md` Lemma 1.2): Type II solutions of
+a prime p are (abd, acdp, bcdp) with 4abd = p + e, ce = a + b. The trial fibration of the whole family is the triples P = (a,c,d) with
 gcd(a,c) = 1 and m := 4acd − 1, and the event is m | cp + a, i.e. p ≡ −a c⁻¹ (mod m).
-* *Validity and injectivity (PROVED, elementary).* Put b := (cp+a)/m. Then a + b = c(4abd − p), so e := 4abd − p ≥ 1 and
+* *Validity and injectivity (PROVED, elementary; for p ≥ (Q+1)²/4, so that a ≤ Q/4 < p).* Put b := (cp+a)/m. Then a + b = c(4abd − p), so e := 4abd − p ≥ 1 and
   4/p = 1/(abd) + 1/(acdp) + 1/(bcdp). Next, g := gcd(a,b) divides cp, and gcd(g,c) = 1, so g | p; since g ≤ a < p, g = 1.
   So y/z = a/b in lowest terms recovers (a, b, d, c). The a ↔ b fibration is disjoint for p ≥ (Q+1)²/4, since
   p < 4abd = (4acd)(4bcd)/(4c²d). Hence f_II(p) ≥ 2N_II(p), with N_II the φ(m)/m-weighted truncated count. Its mean is
@@ -368,18 +375,19 @@ gcd(a,c) = 1 and m := 4acd − 1, and the event is m | cp + a, i.e. p ≡ −a c
 
 **Proposed FRONTIER §5.1 bullet:**
 * *(z53, `Z53_PZ.md`; PROVED rel. Bombieri–Vinogradov, internal review.)* **R(p) ≥ (1/64 − ε)log²p for all but
-  O_ε(π(X)/log X) primes p ≤ X**, hence f(p) ≥ f_II(p) ≫ log²p for almost all primes. This improves the literature's
-  exponent 0.549 (Elsholtz–Tao Thm 1.8) to 2. That is the order of R's mean; the mean of f_II(p) is ≍ log³p. The method is the variance of the trial-form count
+  O_ε(π(X)/log X) primes p ≤ X**, hence f(p) ≥ f_II(p) ≫ log²p for almost all primes. This improves the verified
+  Elsholtz–Tao almost-all exponent 0.549 (Thm 1.8) to 2. No literature-wide priority claim is made (§10). That is the order of R's mean; the mean of f_II(p) is ≍ log³p. The method is the variance of the trial-form count
   truncated at moduli ≤ X^{1/4}: pair correlations sit at level X^{1/2}, and each residue class mod d is one hyperbolic cell,
   so V ≪ log³Q against M² ≍ log⁴Q. With a uniform cutoff, level 1/4 caps this implementation at κ ≤ 9/(32π²). The full second moment
-  Σ R(p)² (ET Rem. 1.3) remains open and is not needed. B6: nothing pointwise.
+  Σ R(p)² remains open and is not needed (cf. ET Rem. 1.3, which concerns their methods for the full f_I, f_II). B6: nothing pointwise.
 
 **Proposed FRONTIER §7 text (replacing/closing Z2362):**
 * *Z2362 closed (z53, `Z53_PZ.md`):* positive proportion, and in fact density one, with κ = 1/64. Open follow-ups:
   (a) push κ to 9/(32π²) (unweighted trial count + pair fibration; the pair case needs a rigorous cross-splitting fibre
-  lemma, EVIDENCE in §9.2); (b) concentration of R itself (R/M₀ → 1 in density); the natural route is the untruncated variance, which is the
-  difficulty of ET Rem. 1.3; (c) an exceptional set o(π(X)/log X). Variance-plus-Chebyshev cannot give (c) for this family,
-  since V ≍ log³Q numerically; a sharper lower-tail argument might. (d) **Conjecture B** (§9.5): f_II(p) ≫ log³p for
+  lemma, EVIDENCE in §9.2); (b) concentration of R itself (R/M₀ → 1 in density); the natural route is the untruncated variance, analogous to
+  the moments ET Rem. 1.3 calls out of reach of their methods; (c) an exceptional set o(π(X)/log X). Variance-plus-Chebyshev would need V = o(log³Q). The numerics
+  (EVIDENCE only) suggest V ≍ log³Q for this family, but no lower bound on V is proved. A sharper lower-tail argument might
+  work. (d) **Conjecture B** (§9.5): f_II(p) ≫ log³p for
   almost all p, the true order. The same method has room of about log²; the missing piece is a cross-c correlation bound for
   small solutions of 4acd ≡ 1, ac' ≡ a'c (mod D).
 
@@ -407,4 +415,11 @@ it says nothing about any prescribed prime, and therefore nothing about B2.
   large X); the BV prime-power remark was replaced by a standard citation; λ + δ = log Y − log d − log u₀; E_r ≥ 0 (not > 0);
   T is summed over odd d; "every triple gives Type II" is restricted to primes; the numerics are labelled floating-point.
   §9.1's c₁ is labelled a proof sketch relative to the quoted main-term asymptotics.
-* Cross-model review: pending.
+* **Cross-model review** (`data/z53/xreview/REVIEW_PZ.md`; verdict ACCEPT-WITH-FIXES). It re-derived §§3–7 independently
+  and found Theorem A CORRECT (κ = 1/64, C = 6000). It also replicated V exactly in rationals at Q = 11 and Q = 100
+  (`scripts/z53_xrev_pz_exact.py`), and Q = 3000 trial and Q = 1000 Type II with our engines. Required fixes, all applied:
+  (1) §0: only f_II has proved mean order log³p; for f, ET give log³p ≪ mean ≪ log³p·log log p. (2) Rate-optimality claims in
+  §7(i) and §12(c) are downgraded to EVIDENCE, since only V ≪ log³Q is proved. (3) Novelty wording is narrowed to "improves the
+  verified ET almost-all bound", with no priority claim. (4) ET Rem. 1.3 is scoped to their methods for the full f_I, f_II, and
+  the Type II parametrisation now cites ET Prop 2.6 / (2.13)–(2.22). (5) §7 shows the η-dependence of the error term
+  explicitly; §9.5 states p ≥ (Q+1)²/4 before using a < p. The optional sharper T bound (Σ_{d|n}φ(d) = n) is noted in §7.

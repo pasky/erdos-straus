@@ -1,4 +1,4 @@
-// z53_pz_exactV_typeII.c — exact BV-model variance of the truncated FULL Type II family (ET Prop 2.3/2.6 at prime p):
+// z53_pz_exactV_typeII.c — exact BV-model variance of the truncated FULL Type II family (ET Prop 2.6, eqs. (2.13)-(2.22), at prime p):
 //   P = (a,c,d), gcd(a,c)=1, m = 4acd-1 <= Q, event m | c p + a  (p ≡ -a c^{-1} mod m), weight 1/m (c_P = phi(m)/m).
 //   Each firing P gives the Type II solution (abd, acdp, bcdp), b = (cp+a)/m, injectively (gcd(a,b) | c and gcd(a,c)=1).
 //   Prints M = sum 1/m, V = E N^2 - M^2 with E N^2 = sum_{P,P'} phi(g) 1[res == res' mod g]/(m m'), V/M^2, V/log^5 Q.
