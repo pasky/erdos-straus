@@ -2,7 +2,7 @@
 
 Summary (8 items): interesting 4 (Z2306, Z2080, Z2776, Z1894), nothing 4 (Z3072, Z2902, Z1887, Z1797).
 * Z1894: MENU_STERILITY Theorem C (ES for all 3·2^s + 1) fully machine-checked in Lean (`lean/ES/ES/Proth3.lean`).
-* Z2776: I3(3^k + 2) ≥ 1 for all k ≥ 5 by a period-12 exponent covering; 3^k − 2 has a PROVED sterile limit point.
+* Z2776: I3(3^k + 2) ≥ 1 for all k ≥ 3 except k = 4 (period-12 exponent covering); 3^k − 2 has a PROVED sterile limit point.
 * Z2306: parity-invisible certificates are ≈ 1/5 on average; p = 1044877 has only parity-invisible ones (cut N^{1/3}).
 * Z2080: 44 % of Var R(p) comes from the edge lines u = 1 / B = 1 (divisors of p + 1); the interior is near-Poisson.
 
