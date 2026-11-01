@@ -1,0 +1,19 @@
+p=409 box M=12: |elements|=110 rational sols=0 non-rational sols=4 parity=0
+  e.g. ((3, -2), (4, 2), (52, 26))
+  e.g. ((3, 2), (4, -2), (52, -26))
+  e.g. ((4, -2), (3, 2), (52, -26))
+  e.g. ((4, 2), (3, -2), (52, 26))
+p=577 box M=12: |elements|=110 rational sols=0 non-rational sols=4 parity=0
+  e.g. ((5, -1), (10, -7), (202, 142))
+  e.g. ((5, 1), (10, 7), (202, -142))
+  e.g. ((10, -7), (5, -1), (202, 142))
+  e.g. ((10, 7), (5, 1), (202, -142))
+p=1009 box M=12: |elements|=110 rational sols=0 non-rational sols=0 parity=0
+p=13 box M=12: |elements|=110 rational sols=2 non-rational sols=0 parity=0
+p=5 box M=12: |elements|=110 rational sols=2 non-rational sols=0 parity=0
+p=1009 box M=25: |elements|=459 rational sols=0 non-rational sols=16 parity=0
+p=5569 box M=25: |elements|=459 rational sols=0 non-rational sols=20 parity=0
+p=9601 box M=25: |elements|=459 rational sols=0 non-rational sols=20 parity=0
+p=23929 box M=25: |elements|=459 rational sols=0 non-rational sols=24 parity=0
+p=401 box M=25: |elements|=459 rational sols=4 non-rational sols=16 parity=0
+p=100049 box M=25: |elements|=459 rational sols=2 non-rational sols=24 parity=0

@@ -1,0 +1,13 @@
+Z3117: (★)-triples p<3000: 1998; fixed points of u<->B: 0; swap maps triples to triples: 1998/1998
+Z3149: cofactor identity d*e=4Cp+1 and k=e/C=4B-1/C checked on 78 certificates; failures 0
+Z3185 window (1000,10000]: mean R = 12.817; mean M_BM = 10.065; mean M0 (k=0 pair sum) = 10.477; mean R/M0 = 1.230
+Z3185 window (10000,30000]: mean R = 17.026; mean M_BM = 13.910; mean M0 (k=0 pair sum) = 14.356; mean R/M0 = 1.187
+Z3185 window (30000,100000]: mean R = 20.984; mean M_BM = 17.541; mean M0 (k=0 pair sum) = 18.045; mean R/M0 = 1.163
+Z3119 a=2: base P((a/p)=+1)=0.499; (★)-fail symbols (p>1000) [1, 1, 1, 1, 1, 1, 1]; b1-fail symbols [1, 1]
+Z3119 a=3: base P((a/p)=+1)=0.5; (★)-fail symbols (p>1000) [1, 1, 1, 1, 1, 1, 1]; b1-fail symbols [1, 1]
+Z3119 a=5: base P((a/p)=+1)=0.498; (★)-fail symbols (p>1000) [1, 1, 1, 1, 1, -1, 1]; b1-fail symbols [1, 1]
+Z3119 a=7: base P((a/p)=+1)=0.499; (★)-fail symbols (p>1000) [1, 1, -1, 1, 1, 1, 1]; b1-fail symbols [1, 1]
+Z3119 a=11: base P((a/p)=+1)=0.498; (★)-fail symbols (p>1000) [1, 1, 1, 1, 1, -1, 1]; b1-fail symbols [-1, 1]
+Z3119 a=13: base P((a/p)=+1)=0.499; (★)-fail symbols (p>1000) [-1, -1, 1, -1, 1, -1, 1]; b1-fail symbols [1, -1]
+Z3119 a=17: base P((a/p)=+1)=0.498; (★)-fail symbols (p>1000) [-1, 1, -1, 1, 1, 1, 1]; b1-fail symbols [-1, 1]
+Z3119 a=-1: base P((a/p)=+1)=1.0; (★)-fail symbols (p>1000) [1, 1, 1, 1, 1, 1, 1]; b1-fail symbols [1, 1]
