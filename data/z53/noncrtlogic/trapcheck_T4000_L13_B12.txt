@@ -1,0 +1,38 @@
+[X^2+1] mode=trap M=120120 primes p=P(q) found=557; h with relevant primes<=L: 432/768
+   predicted-(+1) tests=240624  violations=0  examples=[]
+   other tests=187152  share of -1 among them=0.511
+[2X^2+1] mode=trap M=120120 primes p=P(q) found=538; h with relevant primes<=L: 368/770
+   predicted-(+1) tests=197984  violations=0  examples=[]
+   other tests=216276  share of -1 among them=0.492
+[3X^2+1] mode=trap M=120120 primes p=P(q) found=554; h with relevant primes<=L: 396/770
+   predicted-(+1) tests=219384  violations=0  examples=[]
+   other tests=207196  share of -1 among them=0.490
+[X^4+1] mode=trap M=120120 primes p=P(q) found=290; h with relevant primes<=L: 161/771
+   predicted-(+1) tests=46690  violations=0  examples=[]
+   other tests=176900  share of -1 among them=0.492
+[Phi5=X^4+X^3+X^2+X+1] mode=trap M=120120 primes p=P(q) found=307; h with relevant primes<=L: 223/771
+   predicted-(+1) tests=68461  violations=0  examples=[]
+   other tests=168236  share of -1 among them=0.500
+[Phi6=X^2-X+1] mode=trap M=120120 primes p=P(q) found=602; h with relevant primes<=L: 444/768
+   predicted-(+1) tests=267288  violations=0  examples=[]
+   other tests=195048  share of -1 among them=0.500
+[2X^3+2X+1] mode=trap M=120120 primes p=P(q) found=408; h with relevant primes<=L: 272/771
+   predicted-(+1) tests=110976  violations=0  examples=[]
+   other tests=203592  share of -1 among them=0.496
+[X+1] mode=trap M=120120 primes p=P(q) found=1093; h with relevant primes<=L: 700/732
+   predicted-(+1) tests=765100  violations=0  examples=[]
+   other tests=34976  share of -1 among them=0.498
+TOTAL violations at trap points: 0
+--- controls (violations EXPECTED) ---
+[X^2-3X+1 (positive real roots)] mode=trap M=120120 primes p=P(q) found=567; h with relevant primes<=L: 370/770
+   predicted-(+1) tests=209790  violations=86184  examples=[('5*X - 12', 120120), ('6*X - 12', 120120), ('8*X - 12', 120120), ('9*X - 12', 120120), ('12*X - 12', 120120)]
+   other tests=226800  share of -1 among them=0.494
+[X^2+1] mode=q4mod8 M=120120 primes p=P(q) found=578; h with relevant primes<=L: 432/768
+   predicted-(+1) tests=249696  violations=95948  examples=[('-12*X - 12', 1621620), ('-4*X - 12', 1621620), ('4*X - 12', 1621620), ('12*X - 12', 1621620), ('-11*X - 11', 1621620)]
+   other tests=194208  share of -1 among them=0.501
+[X^2+1] mode=shift1 M=120120 primes p=P(q) found=590; h with relevant primes<=L: 432/768
+   predicted-(+1) tests=254880  violations=83190  examples=[('-6*X - 12', 360384), ('4*X - 12', 360384), ('8*X - 12', 360384), ('-3*X - 11', 360384), ('2*X - 11', 360384)]
+   other tests=198240  share of -1 among them=0.504
+[X^4+1] mode=q4mod8 M=120120 primes p=P(q) found=301; h with relevant primes<=L: 161/771
+   predicted-(+1) tests=48461  violations=17458  examples=[('-12*X - 12', 3303300), ('12*X - 12', 3303300), ('-11*X - 11', 3303300), ('11*X - 11', 3303300), ('-10*X - 10', 3303300)]
+   other tests=183610  share of -1 among them=0.490

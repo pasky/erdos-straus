@@ -1,0 +1,3 @@
+TMAX=20000000: admissible t found: 322
+admissible: FAIL at 322/322; first few t = [401, 6581, 10333, 14869, 31249, 32323, 35863, 81937, 92849, 104309]
+controls (p prime, same class, t prime, formal values unconstrained): 5000; successes 3064 (0.613); success with QNR prime in N (Lemma CT, Type II x = N): 3064/3064; success window's formal value composite: 3064/3064
