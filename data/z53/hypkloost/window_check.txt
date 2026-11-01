@@ -1,0 +1,13 @@
+Identity (W): Fejer weights, LHS (frequency side) vs RHS (window side)
+  n=10007 U=3 V=3 H=5: LHS=0.571813+1.7e-16i  RHS(trunc)=0.569083  |diff|=2.73e-03  tail<= 1.06e-02
+  n=100003 U=5 V=7 H=20: LHS=2.938692+5.6e-16i  RHS(trunc)=2.933285  |diff|=5.41e-03  tail<= 1.06e-02
+  n=1000003 U=8 V=8 H=40: LHS=44.299619+1.7e-15i  RHS(trunc)=44.294485  |diff|=5.13e-03  tail<= 9.66e-03
+  n=1000033 U=8 V=8 H=200: LHS=176.329118+2.9e-14i  RHS(trunc)=176.327955  |diff|=1.16e-03  tail<= 1.97e-03
+  n=4000001 U=10 V=6 H=100: LHS=258.265075-2.0e-14i  RHS(trunc)=258.263296  |diff|=1.78e-03  tail<= 3.69e-03
+Zero mean of S_h for 0 < h < q_min (exact average over n mod lcm of all q):
+  h=1: E S_h = +0.000000-2.8e-16i ; formula sum_[q|h] e(hs/q) = +0.000000  (q_min=48, L=2880)
+  h=2: E S_h = +0.000000-3.1e-16i ; formula sum_[q|h] e(hs/q) = +0.000000  (q_min=48, L=2880)
+  h=5: E S_h = +0.000000+5.5e-17i ; formula sum_[q|h] e(hs/q) = +0.000000  (q_min=48, L=2880)
+  h=47: E S_h = -0.000000+3.6e-14i ; formula sum_[q|h] e(hs/q) = +0.000000  (q_min=48, L=2880)
+  h=48: E S_h = +1.000000-3.6e-13i ; formula sum_[q|h] e(hs/q) = +1.000000  (q_min=48, L=2880)
+  h=96: E S_h = +2.000000-1.1e-12i ; formula sum_[q|h] e(hs/q) = +2.000000  (q_min=48, L=2880)
