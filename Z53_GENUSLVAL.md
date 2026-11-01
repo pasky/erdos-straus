@@ -341,8 +341,12 @@ L(1, χ_{−4up})H_u(1)·log X_u > 0 and the 2^{ω(u)+1} − 1 cross terms ε_η
   degenerate, as expected. The cross terms (η ≠ 1) cancel in the windows to within these few per cent at p ≤ 10⁸; the proved
   power saving is far below visibility at these sizes (Assessment: the family's proved share, (8/π⁴)·(γ−β)(α₁−α₀) ≈ 0.007 of
   log²p, is ≈ 5 % of M_gen).
-* **Near-squares / composite controls.** The theorem is uniform over primes p ≡ 1 (4); nothing depends on p − m². For
-  composite non-square n the proof is expected to go through (§2.8); for odd squares it provably fails at the identified step.
+* **Near-squares / composite controls (EVIDENCE).** The theorem is uniform over primes p ≡ 1 (4); nothing depends on p − m².
+  From the `BM_LVALUE` census (all p ≡ 1 (4) in [10⁴, 10⁶]): primes with 1 ≤ p − m² ≤ 4 (197 primes) have mean M_gen/M₀ = 1.038,
+  min 0.665; p − m² ≤ 16 (636): 1.043 / 0.637; p − m² ≤ 100 (3777): 1.030 / 0.609; all: 1.017 / 0.604 — no near-square
+  depletion of the genus layer. Composite non-squares (engine `z53_genuslval_family.c` flag M): M_gen/log²n = 0.115
+  (n = 5·101²), 0.111 (5·401²), 0.131 (13·251²), against 0.145 at the prime 1000033; odd squares 401², 1155² give exactly 0 (T1).
+  This is consistent with the composite Assessment of §2.8 (gcd(u, n) = 1 slices still give log²n off the squares).
 
 ## 6. The four FRONTIER §4 hard screens (for Theorem U as an ES ingredient)
 
