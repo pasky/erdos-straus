@@ -46,7 +46,7 @@ def primes_upto(m):
 hits, ntest = [], 0
 factcache = {}
 def factors(D, u):          # monic irreducible factors over Q of Y^D + u^p, as lists of Fraction coefficients
-    key = (D, u)
+    key = (D, u, p)
     if key in factcache: return factcache[key]
     F = pari('factor(Y^%d + (%s)^%d)' % (D, str(u), p))
     out = []

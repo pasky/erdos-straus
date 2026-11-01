@@ -1,4 +1,4 @@
-# z52d_thinfamily_Ap.py — menu A' in full generality (Z52D_THINFAMILY.md §3.5), at mu = 0 of n = c0*2^s + 1:
+# z52d_thinfamily_Ap.py — menu A' in full generality (Z52D_THINFAMILY.md Thm 2, Thm 7, Comp. 8(d)), at mu = 0 of n = c0*2^s + 1:
 #   B' = lam2*n + lam1 = f*h  (lam1, lam2 coprime positive integers; f = 4x - n, h non-constant),
 #   x = (n+f)/4,  y = x*h/lam2,  z = n*x*h/lam1.
 # Capelli: K := (lam1+lam2)/(c0*lam2) is u^p (p odd prime | D) or 4w^4 (4 | D); generated as K = (r/v)^p resp. 4(r/v)^4.

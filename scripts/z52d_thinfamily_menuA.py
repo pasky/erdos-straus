@@ -1,14 +1,14 @@
 # z52d_thinfamily_menuA.py — certified limit-level enumeration for the irreducible-x menus A and A' (Z52D_THINFAMILY.md
-# Thms 3.3, 3.4) at mu = 0 of n = c0*2^s + 1, c0 = F - 1, F = 4^J, for INTEGER u, every odd prime p and every
+# Thm 5 and Thm 7) at mu = 0 of n = c0*2^s + 1, c0 = F - 1, F = 4^J, for INTEGER u, every odd prime p and every
 # 2-adic valuation E = v2(c0 u^p - 1) <= EMAX.
 #   c = c0 u^p - 1 = 2^E c_o (c_o odd),  N = F + c = c0 (1 + u^p),  X X' = N,  X, X' positive integers.
 #   menu A : c_o | (F + X)(1 + X')   <=>  X + F X' + 2F = k c_o (k >= 1);  forces
-#            k^2 c_o <= Q + (Q^2 + 1)/2,  Q = 2F(k + 2^E)           (Thm 3.3; k = 1 gives the global bound CA(E))
+#            k^2 c_o <= Q + (Q^2 + 1)/2,  Q = 2F(k + 2^E)           (Thm 5; k = 1 gives the global bound CA(E))
 #   menu A': c_o | X' + 1  <=>  X = j c_o - F, X' = j' c_o - 1, j j' c_o - j - F j' = 2^E;  forces c_o <= 2^E + F + 1.
 # For each E the admissible u satisfy c0 u^p <= 1 + 2^E * CA(E) and u = c0^{-1/p} (mod 2^E) (x -> x^p is a bijection
 # of (Z/2^E)^x for odd p), so the enumeration over (E, p, u) is finite and complete for E <= EMAX.
 # Output: every (E, p, u) passing the limit-level test of A or A' (necessary conditions; a hit is then fed to the exact
-# factor-shape test of z52d_thinfamily_binom.py).  Positive controls: c0 = 63 (Thm 2.3 family, u = 3, p = 3),
+# factor-shape test of z52d_thinfamily_binom.py).  Positive controls: c0 = 63 (EXP_OPEN Thm 2.3 family, u = 3, p = 3),
 # c0 = 3 (u = 3, p = 3, c = 80).
 # Usage: z52d_thinfamily_menuA.py c0 EMAX
 import sys
@@ -29,7 +29,7 @@ def primes_upto(m):
 def v2(x):
     return (x & -x).bit_length() - 1
 
-def CA(E):                   # Thm 3.3 bound at k = 1:  c_o <= Q + (Q^2+1)/2, Q = 2F(1 + 2^E)
+def CA(E):                   # Thm 5 bound at k = 1:  c_o <= Q + (Q^2+1)/2, Q = 2F(1 + 2^E)
     Q = 2 * F * (1 + 2 ** E); return Q + (Q * Q + 1) // 2
 def CAp(E): return 2 ** E + F + 1
 
@@ -86,21 +86,20 @@ def fv2(x):
     return v
 def in0(x): return Fr(x).denominator % 2 == 1
 def shape_any_D(menu, u, p, c, X, Xp):
-    """D-independent 2-adic shape test (memo Lemma 3.6): every monic proper factor P of Y^D + u^p (any D) lies in Z[Y],
+    """D-independent 2-adic shape test (memo Lemma 6): every monic proper factor P of Y^D + u^p (any D) lies in Z[Y],
     so P(1) is a positive divisor of 1 + u^p and P(0) a signed divisor of u^p; phi0 = X P(0)/P(1).  Returns the list
     of (P(1), P(0)) value pairs passing the Y = 0 conditions of the menu (empty => the limit hit is dead for every D)."""
     ok = []
     for A in (int(t) for t in pari.divisors(1 + u ** p)):
         for l0 in (int(t) for t in pari.divisors(u ** p)):
-            for l in (l0, -l0):
+            for l in (l0,):                      # Lemma 6: l = l_g > 0 (positive leading coefficient), A = g(1) > 0
                 phi0 = Fr(X) * l / A; phi0p = Fr(c0 * u ** p) / phi0
-                if phi0 <= 0 and X > 0 and l > 0: continue
                 x0 = (1 + phi0) / 4
                 if menu == 'A': vals = (x0, (1 + phi0p) / 4, x0 * (1 + phi0p) / c)
                 else: vals = (x0, x0 * phi0p, x0 * phi0p / c)
                 if all(in0(v) for v in vals): ok.append((A, l))
     return ok
-hits = []; ncand = 0; maxp_used = 0
+hits = []; ncand = 0; maxp_used = 0; RES = {}
 for E in range(1, EMAX + 1):
     M = 2 ** E
     Ubound = 1 + M * CA(E)                    # c0 u^p <= Ubound
@@ -111,10 +110,16 @@ for E in range(1, EMAX + 1):
         maxp_used = max(maxp_used, p)
         umax = iroot(Ubound // c0, p)
         # residue r = c0^{-1/p} mod 2^E
-        if E <= 2:
-            rs = [r for r in range(1, M, 2) if (c0 * pow(r, p, M) - 1) % M == 0] if M > 1 else [1]
+        # incremental Hensel lift r_{p,E} from r_{p,E-1} (x -> x^p is a bijection of (Z/2^E)^x, p odd)
+        if E <= 2 or p not in RES:
+            rs = [r for r in range(1, min(M, 8), 2) if (c0 * pow(r, p, M) - 1) % M == 0] if E <= 2 else None
+            if rs is None:
+                inv = pow(c0, -1, M); pp = pow(p, -1, 2 ** (E - 2)); rs = [pow(inv, pp, M)]
         else:
-            inv = pow(c0, -1, M); pp = pow(p, -1, 2 ** (E - 2)); rs = [pow(inv, pp, M)]
+            r0 = RES[p]
+            rs = [r0 if (c0 * pow(r0, p, M) - 1) % M == 0 else r0 + M // 2]
+            assert (c0 * pow(rs[0], p, M) - 1) % M == 0
+        if E >= 2: RES[p] = rs[0] % M
         for r in rs:
             u = r
             while u <= umax:

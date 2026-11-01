@@ -1,5 +1,5 @@
 # z52d_thinfamily_dyadic.py — menu A' of Z52D_THINFAMILY.md with NON-integral u = r/2^i (i >= 1, r odd), c0 = 15:
-#   c = 15 u^p - 1 = c_num / 2^e (e = i p, c_num = 15 r^p - 2^e odd > 0); limit conditions (memo §3.5):
+#   c = 15 u^p - 1 = c_num / 2^e (e = i p, c_num = 15 r^p - 2^e odd > 0); limit conditions (memo Thm 7):
 #   X = j c_num - 16, X'' = 2^e X' = j' c_num - 2^e,  X X'' = 2^{e+4} + c_num   (j, j' >= 1),
 #   equivalently  j j' c_num - 2^e j - 16 j' = 1,  which forces  c_num <= 2^e + 17, i.e. 2^e < 15 r^p <= 2^{e+1} + 17.
 # Exhaustive for e = i p <= EMAX: enumerates all odd r in that window, all divisor pairs of M = 2^{e+4} + c_num, and
@@ -45,7 +45,7 @@ for p in primes(EMAX) + [4]:
                 u = Fr(r, 2 ** i) if p != 4 else None
                 c = Fr(cn, 2 ** e); Xp = Fr(X2, 2 ** e)
                 Kp = Fr(r ** p, 2 ** e)                       # = u^p (resp. 4 w^4 in the sg case)
-                # D-independent shape test (memo Lemma 3.6): P(1)/P(0) = g(1)/l_g, g a primitive integer factor of
+                # D-independent shape test (memo Lemma 6): P(1)/P(0) = g(1)/l_g, g a primitive integer factor of
                 # r^p Z^D + 2^e with positive leading coefficient l_g | r^p and g(1) | r^p + 2^e, g(1) > 0.
                 anyD = []
                 for A in (int(t) for t in pari.divisors(r ** p + 2 ** e)):
