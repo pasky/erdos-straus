@@ -1,0 +1,34 @@
+{
+ "31": {
+  "B": 40,
+  "totally_positive": 154848,
+  "integral_TrInv_mod4_hist": {
+   "3": 6,
+   "2": 4,
+   "1": 8
+  },
+  "n_found": 0,
+  "found": []
+ },
+ "43": {
+  "B": 40,
+  "totally_positive": 145022,
+  "integral_TrInv_mod4_hist": {
+   "1": 6,
+   "3": 3
+  },
+  "n_found": 0,
+  "found": []
+ },
+ "73": {
+  "B": 40,
+  "totally_positive": 183839,
+  "integral_TrInv_mod4_hist": {
+   "1": 2,
+   "2": 1,
+   "3": 3
+  },
+  "n_found": 0,
+  "found": []
+ }
+}

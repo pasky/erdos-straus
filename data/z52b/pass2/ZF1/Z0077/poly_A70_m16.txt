@@ -1,0 +1,16 @@
+m=1  cyclic(square disc)=18  non-cyclic totally real=20968
+m=2  cyclic(square disc)=17  non-cyclic totally real=12369
+m=3  cyclic(square disc)=11  non-cyclic totally real=8695
+m=4  cyclic(square disc)=0  non-cyclic totally real=6709
+m=5  cyclic(square disc)=8  non-cyclic totally real=5450
+m=6  cyclic(square disc)=6  non-cyclic totally real=4591
+m=7  cyclic(square disc)=4  non-cyclic totally real=3965
+m=8  cyclic(square disc)=0  non-cyclic totally real=3495
+m=9  cyclic(square disc)=6  non-cyclic totally real=3114
+m=10  cyclic(square disc)=2  non-cyclic totally real=2819
+m=11  cyclic(square disc)=3  non-cyclic totally real=2567
+m=12  cyclic(square disc)=0  non-cyclic totally real=2367
+m=13  cyclic(square disc)=2  non-cyclic totally real=2182
+m=14  cyclic(square disc)=2  non-cyclic totally real=2031
+m=15  cyclic(square disc)=2  non-cyclic totally real=1898
+m=16  cyclic(square disc)=0  non-cyclic totally real=1788

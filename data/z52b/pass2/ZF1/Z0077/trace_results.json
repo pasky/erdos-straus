@@ -1,0 +1,506 @@
+{
+ "7": {
+  "poly": [
+   1,
+   1,
+   -2,
+   -1
+  ],
+  "disc": 49,
+  "n_tp_units_in_box": 22,
+  "tp_units_with_4_div_Tr_inv": [],
+  "n_tp_units_4div": 0,
+  "box": 14,
+  "n_pos": 5685,
+  "n_solutions": 17,
+  "primes_hit": [
+   2,
+   13
+  ],
+  "primes_hit_by_non_unit_multiple": [
+   2,
+   13
+  ],
+  "sample": [
+   {
+    "x": [
+     -5,
+     -9,
+     11
+    ],
+    "p": 2,
+    "N": 49,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     0,
+     -6,
+     12
+    ],
+    "p": 13,
+    "N": 2808,
+    "content": 6,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     1,
+     1,
+     1
+    ],
+    "p": 2,
+    "N": 7,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     2,
+     -1,
+     0
+    ],
+    "p": 2,
+    "N": 7,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     2,
+     5,
+     4
+    ],
+    "p": 2,
+    "N": 49,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     3,
+     -9,
+     9
+    ],
+    "p": 13,
+    "N": 2457,
+    "content": 3,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     4,
+     -4,
+     1
+    ],
+    "p": 2,
+    "N": 49,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     4,
+     0,
+     -1
+    ],
+    "p": 2,
+    "N": 7,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     5,
+     -5,
+     5
+    ],
+    "p": 13,
+    "N": 1625,
+    "content": 5,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     6,
+     -2,
+     3
+    ],
+    "p": 13,
+    "N": 1183,
+    "content": 1,
+    "unit_times_int": false
+   }
+  ]
+ },
+ "9": {
+  "poly": [
+   1,
+   0,
+   -3,
+   1
+  ],
+  "disc": 81,
+  "n_tp_units_in_box": 15,
+  "tp_units_with_4_div_Tr_inv": [],
+  "n_tp_units_4div": 0,
+  "box": 14,
+  "n_pos": 5689,
+  "n_solutions": 11,
+  "primes_hit": [
+   2,
+   17,
+   19
+  ],
+  "primes_hit_by_non_unit_multiple": [
+   2,
+   17,
+   19
+  ],
+  "sample": [
+   {
+    "x": [
+     1,
+     -1,
+     1
+    ],
+    "p": 2,
+    "N": 9,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     1,
+     2,
+     1
+    ],
+    "p": 2,
+    "N": 9,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     3,
+     -9,
+     6
+    ],
+    "p": 2,
+    "N": 81,
+    "content": 3,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     3,
+     3,
+     12
+    ],
+    "p": 17,
+    "N": 7803,
+    "content": 3,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     6,
+     0,
+     6
+    ],
+    "p": 17,
+    "N": 3672,
+    "content": 6,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     6,
+     6,
+     6
+    ],
+    "p": 19,
+    "N": 4104,
+    "content": 6,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     7,
+     -1,
+     -2
+    ],
+    "p": 2,
+    "N": 9,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     7,
+     5,
+     4
+    ],
+    "p": 17,
+    "N": 2601,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     13,
+     -4,
+     1
+    ],
+    "p": 17,
+    "N": 2601,
+    "content": 1,
+    "unit_times_int": false
+   }
+  ]
+ },
+ "13": {
+  "poly": [
+   1,
+   1,
+   -4,
+   1
+  ],
+  "disc": 169,
+  "n_tp_units_in_box": 8,
+  "tp_units_with_4_div_Tr_inv": [],
+  "n_tp_units_4div": 0,
+  "box": 14,
+  "n_pos": 5647,
+  "n_solutions": 13,
+  "primes_hit": [
+   2,
+   5,
+   31
+  ],
+  "primes_hit_by_non_unit_multiple": [
+   2,
+   5,
+   31
+  ],
+  "sample": [
+   {
+    "x": [
+     -2,
+     14,
+     6
+    ],
+    "p": 5,
+    "N": 200,
+    "content": 2,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     0,
+     5,
+     2
+    ],
+    "p": 2,
+    "N": 13,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     0,
+     6,
+     3
+    ],
+    "p": 5,
+    "N": 135,
+    "content": 3,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     1,
+     -1,
+     1
+    ],
+    "p": 2,
+    "N": 13,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     2,
+     2,
+     1
+    ],
+    "p": 5,
+    "N": 65,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     4,
+     -4,
+     2
+    ],
+    "p": 5,
+    "N": 200,
+    "content": 2,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     4,
+     -1,
+     0
+    ],
+    "p": 5,
+    "N": 65,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     6,
+     -3,
+     0
+    ],
+    "p": 5,
+    "N": 135,
+    "content": 3,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     7,
+     -1,
+     -1
+    ],
+    "p": 5,
+    "N": 65,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     8,
+     -6,
+     1
+    ],
+    "p": 5,
+    "N": 325,
+    "content": 1,
+    "unit_times_int": false
+   }
+  ]
+ },
+ "19": {
+  "poly": [
+   1,
+   1,
+   -6,
+   -7
+  ],
+  "disc": 361,
+  "n_tp_units_in_box": 5,
+  "tp_units_with_4_div_Tr_inv": [],
+  "n_tp_units_4div": 0,
+  "box": 14,
+  "n_pos": 8181,
+  "n_solutions": 7,
+  "primes_hit": [
+   2,
+   7,
+   11,
+   37
+  ],
+  "primes_hit_by_non_unit_multiple": [
+   2,
+   7,
+   11,
+   37
+  ],
+  "sample": [
+   {
+    "x": [
+     -13,
+     -5,
+     7
+    ],
+    "p": 11,
+    "N": 2299,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     -8,
+     -4,
+     3
+    ],
+    "p": 2,
+    "N": 19,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     0,
+     -4,
+     2
+    ],
+    "p": 7,
+    "N": 392,
+    "content": 2,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     2,
+     2,
+     2
+    ],
+    "p": 7,
+    "N": 392,
+    "content": 2,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     3,
+     3,
+     1
+    ],
+    "p": 2,
+    "N": 19,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     4,
+     -5,
+     6
+    ],
+    "p": 37,
+    "N": 26011,
+    "content": 1,
+    "unit_times_int": false
+   },
+   {
+    "x": [
+     5,
+     11,
+     7
+    ],
+    "p": 7,
+    "N": 2527,
+    "content": 1,
+    "unit_times_int": false
+   }
+  ]
+ }
+}
