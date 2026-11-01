@@ -1,13 +1,14 @@
 # z52d Pass 2 — batch TO7 (101 "touched" items, never worked in Pass 1)
 
-**Summary (5 lines).**
-1. Counts: nothing 97, covered 2 (Z2813, Z2852), interesting 2 (Z2614, Z2639), needs-compute 0, skipped 0. Every input line has exactly one output line (`data/z52b/pass2/outcome_TO7.jsonl`).
-2. Real computations were run for ~35 items (e-slice engine over p≤10⁶, k≤400; 4Cp+1 zero-sum data for C≤30, p<2·10⁵; quotient-set energy; Thue pairs p≤5·10⁴; two-square and Legendre-sum controls). Most conceptual/literature items were **not** done in this pass; each says so in `not_done`.
-3. Interesting: Z2614 (QR-richness suppresses slice successes, residue-class-controlled) and Z2639 (mean slice counts differ by ~8–10% across the six Mordell-hard classes mod 840, unexplained by R(p)).
-4. Premise problems recorded: Z2424 (θ=7/64 not in the cited file), Z2810 (cited memo path wrong: BRAINSTORM/z26_kneser_budget.md), Z2713 (claimed subgroup dichotomy is refuted by the data).
-5. Scripts: `scripts/z52d_p2_TO7_*` (C engines `slices.c`, `feat.c`; analyses `an1–4.py`, `qfull.py`, `zs.py`, `thue_energy.py`). Large binary feature file (125 MB) is in /tmp, not committed; `data/z52b/pass2/TO7/` holds the per-prime TSV (1.2 MB) and the zero-sum summary JSON.
+**Summary (lint-fix round, 5 lines).**
+1. Counts now: nothing 67, covered 3 (Z2813, Z2833, Z2852), interesting 3 (Z2596, Z2614, Z2639), needs-compute 28, skipped 0. Lint (`scripts/z52d_pass2_lint.py`): 0 flagged of 101.
+2. Lint round: the 65 flagged items were re-run with real steps (I3 counts to 10⁷ with Poisson and first-moment checks; ES-slot word covering; word/Jacobi identities A·A*≡1 and gcd(4Cp+1,4C′p+1)|(C′−C); level-2 monoid transport; Janson/Borel–Cantelli tails; Halász, GP, entropy, spread, Schreier, Lagrange-convergent and two-term-witness checks). 28 items remain **needs-compute** with a stated estimate; they were not executed in this round.
+3. Interesting: Z2596 (quotient sets contain longer geometric progressions than size-matched random sets, e.g. k=59: 23 vs 13), Z2614 (QR-richness suppresses slice successes within residue classes), Z2639 (class means over mod-840 hard classes differ by ~8–10%, not explained by R(p)).
+4. Corrections recorded: the naive scaling identity F(m)=Σ P(m/k) for 4/m solutions is false (Z2878); the I3 Poisson model underpredicts exceptions (Z2637); the subgroup dichotomy in Z2713 is refuted; Z2424 θ=7/64 absent from its cited file.
+5. Scripts: `scripts/z52d_p2_TO7_*` (new this round: `i3.c`, `i3stat.py`, `words.py`, `monoid*.py`, `cover.py`, `batchB*.py`, `janson.py`, `misc.py`, `lagrange_frac.py`). The I3 count binary (10 MB) is kept in /tmp, not committed.
 
 ---
+
 
 ## Setup and checks
 - Slice engine (`scripts/z52d_p2_TO7_slices.c`): for prime p≡1 (mod 4), k≡3 (mod 4), k≤T: Type I a=1 succeeds iff some divisor b of (kp+1)/4 has b≡−1 (mod k); Type II a=1 iff some divisor b of (p+k)/4 has b≡−1 (mod k) (CONDITIONAL_ES.md Lemma 1.2 with a=1). Validation against repo facts: max minI = 367 (repo: t ≤ 367, max at p=830041 — the engine's argmax is in the same run); Type II a=1 fails at p=193 and p=2521 (repo: same two primes); 2370 hard primes ≤10⁶.
@@ -36,3 +37,8 @@
 - Z2887: p=a²+b²: minI=3 for all p≡5 (mod 8) in range; the (a,b) mod 8 split is only the 2-adic class.
 - Z2884: signed Thue pairs with |uv| | p+u+v: 0.14% of pairs, 1.77× the naive Σ1/|uv| heuristic.
 - Z2560, Z2566, Z2565, Z2443, Z2581, Z2425/2426, Z2905: see outcome file (controls and caveats).
+
+## Lint-round interesting item: Z2596 — longer geometric progressions in quotient sets
+- Q_M={a/b mod k: ab|M} for type-II prime slices k∈{31,43,59,67} at hard primes ≤10⁶ (M≤2.5·10⁵).
+- Longest distinct geometric progression inside Q_M vs a size-matched random subset of (ℤ/k)^×: k=31: 18.8 vs 15.3; k=59: 23.2 vs 13.3; k=43 (ω≤3): 4.4 vs 2.8; k=67 (ω≤3): 3.9 vs 2.6. Max ω among these slices is 5.
+- Reproduce: `scripts/z52d_p2_TO7_batchB2.py Z2596`. Next: check whether the long GPs are cosets of ⟨g⟩ inside Q for k≤199.
