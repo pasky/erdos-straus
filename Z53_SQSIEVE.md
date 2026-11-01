@@ -179,3 +179,56 @@ gives Q^{3/2+κ−λ}n^κW^{λ−κ}V^{−κ} + Q^{3/2} in place of the two thir
 
 *Why 12/37 and not 17/54 (the cube value).* The worst block is the off-cube shape (α, β, γ) = (12/37, 13/37, 12/37): the
 square sieve's main term is |𝒜|/P ≍ V/P with V = max(U, V), while the trivial bound is min(U, W); asymmetry U < V costs.
+
+## 5. Reach: block-shape map, and the balanced block
+
+### 5.1 Where the §4 bound beats the trivial bound (PROVED; exact, no grid)
+For a block (α, β, γ) with α ≤ β the §4 bound has exponent θ_A(β, γ) := max of the linear terms of §4.5 at ρ = ρ*(β, γ), and
+**it beats the trivial exponent t = min(α, γ) by a power wherever θ_A < t, ρ* > 0, 2ρ* < γ** — a polygon cut out by finitely
+many linear inequalities. On the diagonal U = V (α = β, γ = 1 − 2β) the gain region is exactly (from
+`scripts/z53_sqsieve_reach.py`, endpoints solved by hand):
+
+| input for the C-class sums | diagonal gain region (β) | cube exponent | global exponent |
+|---|---|---|---|
+| third-derivative test (Thm A) | (4/13, 14/41) = (0.3077, 0.3415) | 17/54 = 0.3148 | 12/37 = 0.3243 |
+| Bourgain pair (Thm A′) | (55/181, 197/575) = (0.3039, 0.3426) | 59/189 = 0.3122 | 21/65 = 0.3231 |
+| conjectural pair (0, 1/2) (Cor A″) | (1/4, 5/14) = (0.25, 0.3571) | 5/18 = 0.2778 | 4/13 = 0.3077 |
+| HYPSUMPROD (for comparison) | ≈ (0.31, 0.335) (grid) | 8/25 = 0.32 | 74/225 = 0.3289 |
+
+### 5.2 The balanced block (Proposition B2; PROVED, scoped to the §4 implementation)
+Call an *implementation of §4* any argument that (i) applies Lemma 1′ and the square sieve (4.1), (ii) expands S_Q by
+Lemma P, (iii) bounds the dual by the triangle inequality over ℓ and over c₀ mod Q as in §4.4(ii) (with the true weights
+|G_{c₀}(ℓ)|, |a_ℓ(C)| or upper bounds for them), and (iv) bounds the C-class sums by a function of their length alone,
+E_Q(ℓ) ≤ e(W/Q), valid for all ℓ ≥ 1 (as every exponent-pair or k-th-derivative bound is).
+**Proposition B2.** (a) Every such e satisfies e(N) ≥ √N/2. (b) Consequently every implementation of §4 has block exponent
+≥ (2β + γ/2)/3 − o(1) for the dual term, i.e. bound ≥ n^{−o(1)}·min_P max(V/P, P²W^{1/2}) — equal to the Cor A″ value — and
+at the balanced block U = V ≍ n^{1/4}, W ≍ n^{1/2} it is ≥ n^{1/4 − o(1)}: **the trivial exponent; no implementation of §4
+reaches the balanced block, even granting square-root cancellation in every C-sum.**
+*Proof.* (a) For any real x₁, …, x_N and L ≥ 2N − 1, with X_ℓ := Σ_j e(ℓx_j) and the Fejér kernel
+F_L(t) = Σ_{|ℓ|≤L}(1 − |ℓ|/(L+1))e(ℓt) = (L+1)⁻¹|Σ_{m=0}^{L}e(mt)|² ≥ 0:
+Σ_{|ℓ|≤L}(1 − |ℓ|/(L+1))|X_ℓ|² = Σ_{j,j′}F_L(x_j − x_{j′}) ≥ N(L+1). Removing ℓ = 0 (|X₀|² = N²) and using |X_{−ℓ}| = |X_ℓ|:
+2Σ_{ℓ=1}^{L}|X_ℓ|² ≥ N(L+1) − N² ≥ N(L+1)/2, so max_{1≤ℓ≤L}|X_ℓ| ≥ (N/4)^{1/2}. Apply it to x_j = −n/(4Q(c₀ + Qj)), the
+points of a C-class sum of length N: a bound uniform in ℓ ≥ 1 must be ≥ √N/2.
+(b) In §4.4(ii), Σ_{c₀}|G_{c₀}(ℓ)| ≥ … is not needed: the implementation's bound for the dual is at least its value with
+the (smallest admissible) inputs, and already the ℓ-sum gives Σ_{ℓ≠0}Ψ(ℓV/(8QW)) ≥ c·QW/V (Ψ ≥ Ψ(1) > 0 on |x| ≤ 1), so
+the bound is ≥ c(V/(QW))·Q^{3/2}·(QW/V)·e(W/Q) ≥ (c/2)QW^{1/2} when the true Σ_{c₀}|G_{c₀}(ℓ)| ≍ Q^{3/2} (it is, on average
+over ℓ mod Q, by Parseval: Σ_{ℓ mod Q}|G_c(ℓ)|² = Q·#{k mod Q : Q ∤ f(c,k)} ≫ Q² for c outside O(Q/q + Q/q′) classes, and
+|G| ≤ 4√Q). With Q ≥ P² and the sieve main term ≫ V/P (Lemma 1′ is sharp up to constants for the main term, |𝒜| ≍ V), the
+block bound is ≥ c·max(V/P, P²W^{1/2}) ≥ c·V^{2/3}W^{1/6}; at the balanced block W^{1/2} ≍ V, so ≥ c·max(V/P, P²V) ≥ cV. ∎
+*Remarks.* (1) The truth is not the obstruction: in the balanced block at n ≈ 10¹⁶ (|𝒜| ≈ 3 400–3 600) the actual sums have
+rms |S_Q| ≈ |𝒜|^{1/2} over 9 045 pairs q < q′ ∈ (1000, 2000] at a prime, an odd square and a near-square alike (§7.2); with
+|S_Q| ≲ |𝒜|^{1/2+o(1)} for Q up to |𝒜| the sieve would give n^{1/8+o(1)} there. The loss is in (iii)–(iv): summing ℓ first
+undoes Lemma P exactly (it returns the per-C sums, each with ≤ 1 term in the balanced block, since |J_C| ≍ V/W ≍ n^{−1/4}),
+so any improvement must be a *joint* (ℓ, C) — i.e. bilinear — cancellation statement for Σ_{ℓ,C} G_C(ℓ)e(ℓn/(4CQ)).
+(2) Exact reformulation (PROVED, k = m/C): S_Q = Σ_{m∈I} Σ_{C | m, W<C≤2W} Φ((4m − n)/V) χ_Q((4m − n)² − 4m/C), I an interval
+of length ≍ V ≍ n^{1/4} at n/4: a χ_Q-twisted sum over the divisors near √m of the integers of an interval of length m^{1/4}.
+Even the untwisted asymptotic for Σ_{x<m≤x+y}τ(m) is known only for y ≥ x^{θ+ε} with θ the Dirichlet-divisor exponent
+(θ = 131/416 by Huxley 2003; Assessment, not re-verified in this lane), and here y = x^{1/4}.
+(3) Averaging over the moduli (the sieve needs only P₀⁻²Σ_{q≠q′}|S_{qq′}|) does not help through the large sieve: the
+values f(C,k) are |𝒜| ≍ V points of [1, 25V²] (density ≍ 1/V), and the quadratic large sieve (Heath-Brown, Acta Arith. 72
+(1995)) bounds Σ_{Q~P²}|S_Q|² by ≈ (P² + V²)·|𝒜|, i.e. average |S_Q| ≲ V^{3/2}/P, worse than trivial (Assessment; the
+large sieve does not see sparsity). This is the "square sieve + large sieve" option of the brief; the Heath-Brown–Pierce
+paper of that title area (arXiv:1409.3177) in fact uses the large sieve without the square sieve (LIT_CHECK item 6).
+(4) Off-diagonal (U ≪ V) the main term |𝒜|/P ≍ V/P exceeds the trivial min(U, W) unless V/U ≤ P — the sieve candidates
+are all splittings of s ≍ V; no reparametrisation by the symmetric pair (u, B) reduces this (u, B are the only symmetric
+pair of (★); fixing B or u gives linear equations).
