@@ -1,0 +1,341 @@
+REC all R n=5 R=2 Q=2 Qh=2
+REC all Q n=5 R=2 Q=2 Qh=2
+REC all Qh n=5 R=2 Q=2 Qh=2
+REC all R n=14 R=3 Q=3 Qh=3
+REC all Q n=14 R=3 Q=3 Qh=3
+REC all Qh n=14 R=3 Q=3 Qh=3
+REC all R n=20 R=4 Q=4 Qh=4
+REC all Q n=20 R=4 Q=4 Qh=4
+REC all Qh n=20 R=4 Q=4 Qh=4
+REC all R n=26 R=5 Q=5 Qh=5
+REC all Q n=26 R=5 Q=5 Qh=5
+REC all Qh n=26 R=5 Q=5 Qh=5
+REC all R n=41 R=6 Q=6 Qh=6
+REC all Q n=41 R=6 Q=6 Qh=6
+REC all Qh n=41 R=6 Q=6 Qh=6
+REC all R n=74 R=7 Q=0 Qh=7
+REC all Qh n=74 R=7 Q=0 Qh=7
+REC all R n=89 R=8 Q=2 Qh=8
+REC all Qh n=89 R=8 Q=2 Qh=8
+REC all R n=188 R=9 Q=1 Qh=9
+REC all Qh n=188 R=9 Q=1 Qh=9
+REC all R n=209 R=10 Q=0 Qh=10
+REC all Qh n=209 R=10 Q=0 Qh=10
+REC all R n=236 R=11 Q=1 Qh=11
+REC all Qh n=236 R=11 Q=1 Qh=11
+REC all R n=296 R=12 Q=2 Qh=2
+REC all R n=314 R=13 Q=2 Qh=2
+REC all R n=494 R=15 Q=4 Qh=4
+REC all R n=701 R=18 Q=2 Qh=4
+REC all R n=944 R=20 Q=4 Qh=4
+REC all Qh n=1423 R=12 Q=4 Qh=12
+REC all R n=1784 R=21 Q=1 Qh=3
+REC all R n=1889 R=22 Q=0 Qh=4
+REC all R n=2294 R=25 Q=2 Qh=4
+REC all Q n=2866 R=13 Q=8 Qh=10
+REC all R n=3044 R=28 Q=4 Qh=6
+REC all Qh n=3313 R=16 Q=2 Qh=16
+REC all R n=4724 R=30 Q=2 Qh=6
+REC all R n=5354 R=35 Q=4 Qh=6
+REC all R n=8924 R=37 Q=4 Qh=6
+REC all R n=12284 R=39 Q=4 Qh=4
+REC all Q n=13418 R=29 Q=10 Qh=10
+REC all R n=16301 R=42 Q=0 Qh=4
+REC all Qh n=20137 R=24 Q=8 Qh=18
+REC all R n=24254 R=43 Q=4 Qh=4
+REC all R n=24569 R=46 Q=2 Qh=6
+REC all R n=28664 R=47 Q=0 Qh=5
+REC all R n=30224 R=48 Q=0 Qh=6
+REC all R n=31184 R=50 Q=0 Qh=4
+REC all R n=33494 R=51 Q=0 Qh=6
+REC all R n=36854 R=53 Q=0 Qh=8
+REC all R n=45044 R=60 Q=0 Qh=2
+REC all Qh n=65264 R=39 Q=0 Qh=19
+REC all R n=72764 R=63 Q=0 Qh=4
+REC all R n=96524 R=69 Q=2 Qh=8
+REC all R n=135134 R=75 Q=0 Qh=2
+REC all Qh n=151762 R=29 Q=2 Qh=20
+REC all R n=155924 R=78 Q=4 Qh=12
+REC all Q n=214952 R=40 Q=12 Qh=16
+REC all R n=218294 R=81 Q=2 Qh=10
+REC all Qh n=280723 R=40 Q=8 Qh=22
+REC all R n=315314 R=87 Q=4 Qh=10
+REC all R n=329174 R=91 Q=2 Qh=10
+REC all R n=405404 R=99 Q=2 Qh=8
+REC all R n=675674 R=107 Q=0 Qh=0
+REC all Qh n=725604 R=35 Q=12 Qh=24
+REC all R n=855854 R=109 Q=0 Qh=6
+REC all R n=945944 R=116 Q=0 Qh=10
+REC all R n=1044224 R=118 Q=2 Qh=10
+REC all Qh n=1290056 R=48 Q=10 Qh=26
+REC all R n=1306304 R=122 Q=4 Qh=10
+REC all R n=1576574 R=123 Q=0 Qh=6
+REC all R n=1756754 R=125 Q=0 Qh=6
+REC all R n=2027024 R=146 Q=2 Qh=8
+REC all R n=2297294 R=149 Q=0 Qh=6
+REC all Q n=2902776 R=35 Q=14 Qh=18
+REC all R n=3108104 R=156 Q=2 Qh=16
+REC all Qh n=3153632 R=64 Q=4 Qh=28
+REC all R n=3357584 R=158 Q=2 Qh=4
+REC all R n=4279274 R=163 Q=0 Qh=2
+REC all Qh n=5100259 R=66 Q=12 Qh=30
+REC all R n=6081074 R=165 Q=0 Qh=6
+REC all R n=6185024 R=170 Q=0 Qh=6
+REC all R n=6891884 R=175 Q=0 Qh=2
+REC all R n=7702694 R=183 Q=2 Qh=4
+REC all Q n=8809679 R=62 Q=16 Qh=18
+REC all R n=10072754 R=185 Q=2 Qh=6
+REC all R n=11486474 R=225 Q=0 Qh=10
+REC all R n=12837824 R=228 Q=0 Qh=10
+REC all Qh n=16321471 R=68 Q=2 Qh=32
+REC all Qh n=20320826 R=63 Q=10 Qh=34
+REC all R n=23648624 R=230 Q=2 Qh=10
+REC all R n=26801774 R=235 Q=2 Qh=4
+REC all R n=29954924 R=239 Q=0 Qh=10
+REC all Qh n=31027877 R=102 Q=6 Qh=36
+REC all R n=34459424 R=272 Q=2 Qh=8
+REC all R n=43648604 R=273 Q=0 Qh=4
+REC all R n=48243194 R=281 Q=0 Qh=12
+REC all R n=53918864 R=284 Q=4 Qh=14
+REC all R n=57432374 R=285 Q=2 Qh=12
+REC all R n=64189124 R=290 Q=2 Qh=14
+REC all R n=72747674 R=312 Q=2 Qh=9
+REC all Q n=84671160 R=36 Q=21 Qh=23
+REC all R n=98423324 R=313 Q=2 Qh=8
+REC all R n=101846744 R=320 Q=0 Qh=8
+REC all Qh n=105430648 R=95 Q=14 Qh=38
+REC all R n=108783674 R=321 Q=0 Qh=4
+REC all R n=115540424 R=324 Q=0 Qh=6
+REC all R n=130945814 R=347 Q=2 Qh=10
+REC all R n=172297124 R=362 Q=2 Qh=8
+REC all Qh n=175471792 R=84 Q=10 Qh=44
+REC all Q n=199582860 R=45 Q=22 Qh=34
+REC all R n=218243024 R=410 Q=4 Qh=8
+REC all R n=264188924 R=419 Q=4 Qh=6
+REC all R n=369864494 R=425 Q=0 Qh=8
+REC all R n=372296924 R=427 Q=2 Qh=14
+REC all R n=392837444 R=428 Q=0 Qh=6
+REC all R n=402026624 R=434 Q=2 Qh=4
+REC all R n=480134654 R=439 Q=4 Qh=12
+REC odd R n=5 R=2 Q=2 Qh=2
+REC odd Q n=5 R=2 Q=2 Qh=2
+REC odd Qh n=5 R=2 Q=2 Qh=2
+REC odd R n=29 R=4 Q=4 Qh=4
+REC odd Q n=29 R=4 Q=4 Qh=4
+REC odd Qh n=29 R=4 Q=4 Qh=4
+REC odd R n=41 R=6 Q=6 Qh=6
+REC odd Q n=41 R=6 Q=6 Qh=6
+REC odd Qh n=41 R=6 Q=6 Qh=6
+REC odd R n=89 R=8 Q=2 Qh=8
+REC odd Qh n=89 R=8 Q=2 Qh=8
+REC odd R n=209 R=10 Q=0 Qh=10
+REC odd Qh n=209 R=10 Q=0 Qh=10
+REC odd R n=341 R=12 Q=0 Qh=0
+REC odd R n=551 R=14 Q=2 Qh=4
+REC odd R n=701 R=18 Q=2 Qh=4
+REC odd Qh n=1423 R=12 Q=4 Qh=12
+REC odd R n=1559 R=20 Q=2 Qh=4
+REC odd R n=1889 R=22 Q=0 Qh=4
+REC odd R n=3149 R=28 Q=2 Qh=4
+REC odd Qh n=3313 R=16 Q=2 Qh=16
+REC odd Q n=5965 R=24 Q=8 Qh=12
+REC odd R n=6929 R=30 Q=2 Qh=4
+REC odd R n=9701 R=32 Q=6 Qh=6
+REC odd R n=10009 R=34 Q=2 Qh=8
+REC odd R n=16301 R=42 Q=0 Qh=4
+REC odd Qh n=20137 R=24 Q=8 Qh=18
+REC odd R n=24569 R=46 Q=2 Qh=6
+REC odd Q n=46331 R=42 Q=10 Qh=12
+REC odd R n=53129 R=48 Q=0 Qh=0
+REC odd R n=62369 R=52 Q=2 Qh=8
+REC odd R n=90089 R=56 Q=0 Qh=2
+REC odd R n=117389 R=60 Q=0 Qh=4
+REC odd R n=117809 R=62 Q=0 Qh=6
+REC odd R n=122849 R=66 Q=4 Qh=8
+REC odd R n=244529 R=68 Q=0 Qh=4
+REC odd R n=270269 R=80 Q=4 Qh=10
+REC odd Q n=272073 R=34 Q=12 Qh=18
+REC odd Qh n=277133 R=68 Q=6 Qh=20
+REC odd Qh n=280723 R=40 Q=8 Qh=22
+REC odd R n=466829 R=84 Q=0 Qh=6
+REC odd R n=652049 R=86 Q=0 Qh=6
+REC odd R n=733589 R=88 Q=2 Qh=4
+REC odd Qh n=734011 R=48 Q=8 Qh=24
+REC odd R n=778049 R=90 Q=2 Qh=10
+REC odd R n=803249 R=92 Q=4 Qh=12
+REC odd R n=810809 R=96 Q=0 Qh=2
+REC odd R n=1060289 R=100 Q=4 Qh=8
+REC odd R n=1182431 R=106 Q=2 Qh=10
+REC odd R n=1185029 R=108 Q=0 Qh=2
+REC odd Qh n=1441301 R=62 Q=10 Qh=26
+REC odd R n=1531529 R=110 Q=2 Qh=4
+REC odd R n=1767149 R=122 Q=0 Qh=8
+REC odd R n=2432429 R=124 Q=0 Qh=8
+REC odd R n=3028409 R=128 Q=4 Qh=16
+REC odd R n=4054049 R=144 Q=0 Qh=8
+REC odd Q n=4626459 R=30 Q=14 Qh=18
+REC odd Qh n=5100259 R=66 Q=12 Qh=30
+REC odd R n=5135129 R=146 Q=2 Qh=6
+REC odd R n=5675669 R=148 Q=2 Qh=8
+REC odd R n=6756749 R=150 Q=0 Qh=4
+REC odd R n=7657649 R=174 Q=2 Qh=10
+REC odd R n=8558549 R=176 Q=2 Qh=12
+REC odd Q n=8809679 R=62 Q=16 Qh=18
+REC odd R n=13548149 R=180 Q=2 Qh=12
+REC odd R n=13783769 R=192 Q=4 Qh=14
+REC odd Qh n=16321471 R=68 Q=2 Qh=32
+REC odd R n=17027009 R=196 Q=0 Qh=8
+REC odd R n=22972949 R=218 Q=4 Qh=8
+REC odd Qh n=31027877 R=102 Q=6 Qh=36
+REC odd R n=33575849 R=226 Q=2 Qh=12
+REC odd R n=41891849 R=228 Q=0 Qh=4
+REC odd R n=47297249 R=232 Q=0 Qh=8
+REC odd R n=53603549 R=252 Q=0 Qh=10
+REC odd R n=68918849 R=270 Q=4 Qh=6
+REC odd R n=87297209 R=292 Q=0 Qh=10
+REC odd R n=105675569 R=302 Q=2 Qh=12
+REC odd Qh n=110203451 R=82 Q=8 Qh=38
+REC odd R n=142432289 R=304 Q=0 Qh=14
+REC odd R n=145495349 R=320 Q=4 Qh=8
+REC odd R n=160810649 R=324 Q=4 Qh=14
+REC odd Qh n=191636171 R=190 Q=2 Qh=40
+REC odd R n=203693489 R=326 Q=2 Qh=6
+REC odd Q n=228140683 R=70 Q=18 Qh=22
+REC odd R n=237387149 R=336 Q=2 Qh=8
+REC odd R n=261891629 R=352 Q=0 Qh=4
+REC odd R n=317026709 R=354 Q=0 Qh=8
+REC odd R n=385134749 R=356 Q=2 Qh=10
+REC odd R n=399729329 R=362 Q=2 Qh=10
+REC odd R n=427296869 R=372 Q=6 Qh=12
+REC odd R n=436486049 R=418 Q=0 Qh=6
+REC prime1mod4 R n=5 R=2 Q=2 Qh=2
+REC prime1mod4 Q n=5 R=2 Q=2 Qh=2
+REC prime1mod4 Qh n=5 R=2 Q=2 Qh=2
+REC prime1mod4 R n=29 R=4 Q=4 Qh=4
+REC prime1mod4 Q n=29 R=4 Q=4 Qh=4
+REC prime1mod4 Qh n=29 R=4 Q=4 Qh=4
+REC prime1mod4 R n=41 R=6 Q=6 Qh=6
+REC prime1mod4 Q n=41 R=6 Q=6 Qh=6
+REC prime1mod4 Qh n=41 R=6 Q=6 Qh=6
+REC prime1mod4 R n=89 R=8 Q=2 Qh=8
+REC prime1mod4 Qh n=89 R=8 Q=2 Qh=8
+REC prime1mod4 R n=349 R=12 Q=4 Qh=4
+REC prime1mod4 R n=569 R=14 Q=2 Qh=2
+REC prime1mod4 R n=701 R=18 Q=2 Qh=4
+REC prime1mod4 Qh n=1753 R=10 Q=0 Qh=10
+REC prime1mod4 R n=1889 R=22 Q=0 Qh=4
+REC prime1mod4 Qh n=3313 R=16 Q=2 Qh=16
+REC prime1mod4 R n=4289 R=24 Q=0 Qh=2
+REC prime1mod4 R n=7433 R=28 Q=0 Qh=8
+REC prime1mod4 R n=9281 R=30 Q=0 Qh=0
+REC prime1mod4 R n=10009 R=34 Q=2 Qh=8
+REC prime1mod4 R n=16301 R=42 Q=0 Qh=4
+REC prime1mod4 Q n=31649 R=30 Q=8 Qh=12
+REC prime1mod4 R n=40949 R=46 Q=4 Qh=4
+REC prime1mod4 R n=53129 R=48 Q=0 Qh=0
+REC prime1mod4 R n=73709 R=50 Q=0 Qh=4
+REC prime1mod4 R n=85049 R=52 Q=0 Qh=0
+REC prime1mod4 R n=90089 R=56 Q=0 Qh=2
+REC prime1mod4 R n=117389 R=60 Q=0 Qh=4
+REC prime1mod4 R n=117809 R=62 Q=0 Qh=6
+REC prime1mod4 R n=122849 R=66 Q=4 Qh=8
+REC prime1mod4 Qh n=130957 R=28 Q=6 Qh=18
+REC prime1mod4 R n=244529 R=68 Q=0 Qh=4
+REC prime1mod4 R n=270269 R=80 Q=4 Qh=10
+REC prime1mod4 Q n=545933 R=32 Q=10 Qh=16
+REC prime1mod4 R n=589049 R=82 Q=0 Qh=0
+REC prime1mod4 R n=658349 R=84 Q=0 Qh=4
+REC prime1mod4 Qh n=760129 R=40 Q=4 Qh=20
+REC prime1mod4 R n=778049 R=90 Q=2 Qh=10
+REC prime1mod4 R n=810809 R=96 Q=0 Qh=2
+REC prime1mod4 Qh n=825353 R=44 Q=4 Qh=24
+REC prime1mod4 Qh n=1441301 R=62 Q=10 Qh=26
+REC prime1mod4 R n=1632881 R=106 Q=0 Qh=12
+REC prime1mod4 R n=1767149 R=122 Q=0 Qh=8
+REC prime1mod4 Q n=2146457 R=38 Q=12 Qh=16
+REC prime1mod4 R n=2432429 R=124 Q=0 Qh=8
+REC prime1mod4 R n=3846149 R=128 Q=0 Qh=6
+REC prime1mod4 R n=4594589 R=136 Q=0 Qh=4
+REC prime1mod4 R n=5135129 R=146 Q=2 Qh=6
+REC prime1mod4 R n=8378369 R=160 Q=2 Qh=8
+REC prime1mod4 R n=8558549 R=176 Q=2 Qh=12
+REC prime1mod4 Qh n=9221341 R=68 Q=8 Qh=28
+REC prime1mod4 Q n=9405457 R=40 Q=16 Qh=18
+REC prime1mod4 R n=16011449 R=180 Q=0 Qh=10
+REC prime1mod4 R n=17027009 R=196 Q=0 Qh=8
+REC prime1mod4 R n=24386669 R=204 Q=0 Qh=8
+REC prime1mod4 Qh n=24504373 R=78 Q=4 Qh=32
+REC prime1mod4 R n=25675649 R=214 Q=0 Qh=2
+REC prime1mod4 R n=32162129 R=216 Q=2 Qh=8
+REC prime1mod4 R n=41891849 R=228 Q=0 Qh=4
+REC prime1mod4 R n=47297249 R=232 Q=0 Qh=8
+REC prime1mod4 Qh n=48347581 R=74 Q=2 Qh=34
+REC prime1mod4 R n=53603549 R=252 Q=0 Qh=10
+REC prime1mod4 R n=85135049 R=258 Q=2 Qh=12
+REC prime1mod4 R n=99549449 R=276 Q=2 Qh=10
+REC prime1mod4 R n=105675569 R=302 Q=2 Qh=12
+REC prime1mod4 R n=160810649 R=324 Q=4 Qh=14
+REC prime1mod4 Qh n=190206593 R=86 Q=8 Qh=36
+REC prime1mod4 R n=246576329 R=326 Q=0 Qh=10
+REC prime1mod4 R n=272803781 R=338 Q=6 Qh=16
+REC prime1mod4 R n=317026709 R=354 Q=0 Qh=8
+REC prime1mod4 Qh n=393099253 R=108 Q=4 Qh=40
+REC prime1mod4 R n=399729329 R=362 Q=2 Qh=10
+REC prime1mod4 R n=482431949 R=390 Q=0 Qh=6
+DY all lo=1024 maxR=22 at 1889 maxQ=6 at 1417 meanR=7.660
+DY odd lo=1024 maxR=22 at 1889 maxQ=6 at 1417 meanR=7.555
+DY prime1mod4 lo=1024 maxR=22 at 1889 maxQ=4 at 1193 meanR=10.030
+DY all lo=2048 maxR=28 at 3044 maxQ=8 at 2866 meanR=9.078
+DY odd lo=2048 maxR=28 at 3149 maxQ=6 at 2789 meanR=8.951
+DY prime1mod4 lo=2048 maxR=22 at 2441 maxQ=6 at 2789 meanR=11.858
+DY all lo=4096 maxR=35 at 5354 maxQ=8 at 5965 meanR=10.562
+DY odd lo=4096 maxR=30 at 6929 maxQ=8 at 5965 meanR=10.448
+DY prime1mod4 lo=4096 maxR=28 at 7433 maxQ=6 at 5021 meanR=13.725
+DY all lo=8192 maxR=42 at 16301 maxQ=10 at 13418 meanR=12.197
+DY odd lo=8192 maxR=42 at 16301 maxQ=8 at 12927 meanR=12.066
+DY prime1mod4 lo=8192 maxR=42 at 16301 maxQ=6 at 10037 meanR=15.421
+DY all lo=16384 maxR=50 at 31184 maxQ=8 at 19934 meanR=13.946
+DY odd lo=16384 maxR=46 at 24569 maxQ=8 at 20137 meanR=13.830
+DY prime1mod4 lo=16384 maxR=42 at 20789 maxQ=8 at 31649 meanR=17.839
+DY all lo=32768 maxR=60 at 45044 maxQ=10 at 40262 meanR=15.812
+DY odd lo=32768 maxR=52 at 62369 maxQ=10 at 46331 meanR=15.691
+DY prime1mod4 lo=32768 maxR=48 at 53129 maxQ=8 at 56093 meanR=20.136
+DY all lo=65536 maxR=69 at 96524 maxQ=10 at 77718 meanR=17.800
+DY odd lo=65536 maxR=66 at 122849 maxQ=10 at 89167 meanR=17.681
+DY prime1mod4 lo=65536 maxR=66 at 122849 maxQ=8 at 84421 meanR=22.615
+DY all lo=131072 maxR=81 at 218294 maxQ=12 at 214952 meanR=19.910
+DY odd lo=131072 maxR=68 at 244529 maxQ=10 at 164521 meanR=19.789
+DY prime1mod4 lo=131072 maxR=68 at 244529 maxQ=8 at 140297 meanR=25.234
+DY all lo=262144 maxR=99 at 405404 maxQ=12 at 272073 meanR=22.138
+DY odd lo=262144 maxR=84 at 466829 maxQ=12 at 272073 meanR=22.017
+DY prime1mod4 lo=262144 maxR=80 at 270269 maxQ=8 at 266677 meanR=27.980
+DY all lo=524288 maxR=118 at 1044224 maxQ=12 at 725604 meanR=24.487
+DY odd lo=524288 maxR=96 at 810809 maxQ=12 at 793623 meanR=24.366
+DY prime1mod4 lo=524288 maxR=96 at 810809 maxQ=10 at 545933 meanR=30.800
+DY all lo=1048576 maxR=146 at 2027024 maxQ=12 at 1189159 meanR=26.955
+DY odd lo=1048576 maxR=122 at 1767149 maxQ=12 at 1189159 meanR=26.835
+DY prime1mod4 lo=1048576 maxR=122 at 1767149 maxQ=10 at 1148977 meanR=33.850
+DY all lo=2097152 maxR=158 at 3357584 maxQ=14 at 2902776 meanR=29.544
+DY odd lo=2097152 maxR=144 at 4054049 maxQ=12 at 2146457 meanR=29.424
+DY prime1mod4 lo=2097152 maxR=128 at 3846149 maxQ=12 at 2146457 meanR=37.102
+DY all lo=4194304 maxR=183 at 7702694 maxQ=14 at 4626459 meanR=32.253
+DY odd lo=4194304 maxR=174 at 7657649 maxQ=14 at 4626459 meanR=32.133
+DY prime1mod4 lo=4194304 maxR=160 at 8378369 maxQ=10 at 4303813 meanR=40.424
+DY all lo=8388608 maxR=228 at 12837824 maxQ=16 at 8809679 meanR=35.083
+DY odd lo=8388608 maxR=192 at 13783769 maxQ=16 at 8809679 meanR=34.963
+DY prime1mod4 lo=8388608 maxR=180 at 16011449 maxQ=16 at 9405457 meanR=43.928
+DY all lo=16777216 maxR=239 at 29954924 maxQ=16 at 22302412 meanR=38.032
+DY odd lo=16777216 maxR=218 at 22972949 maxQ=14 at 19020707 meanR=37.912
+DY prime1mod4 lo=16777216 maxR=216 at 32162129 maxQ=12 at 18826537 meanR=47.546
+DY all lo=33554432 maxR=290 at 64189124 maxQ=16 at 33599450 meanR=41.102
+DY odd lo=33554432 maxR=252 at 53603549 maxQ=16 at 60983285 meanR=40.982
+DY prime1mod4 lo=33554432 maxR=252 at 53603549 maxQ=14 at 53482333 meanR=51.330
+DY all lo=67108864 maxR=347 at 130945814 maxQ=21 at 84671160 meanR=44.291
+DY odd lo=67108864 maxR=302 at 105675569 maxQ=16 at 71036531 meanR=44.171
+DY prime1mod4 lo=67108864 maxR=302 at 105675569 maxQ=14 at 68486413 meanR=55.244
+DY all lo=134217728 maxR=419 at 264188924 maxQ=22 at 199582860 meanR=47.601
+DY odd lo=134217728 maxR=352 at 261891629 maxQ=18 at 228140683 meanR=47.481
+DY prime1mod4 lo=134217728 maxR=326 at 246576329 maxQ=16 at 183302629 meanR=59.324
+DY all lo=268435456 maxR=439 at 480134654 maxQ=20 at 487870570 meanR=50.813
+DY odd lo=268435456 maxR=418 at 436486049 maxQ=18 at 346905401 meanR=50.692
+DY prime1mod4 lo=268435456 maxR=390 at 482431949 maxQ=16 at 399998561 meanR=63.279
