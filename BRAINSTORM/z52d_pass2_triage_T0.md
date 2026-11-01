@@ -7,10 +7,10 @@ was re-run) `data/z52b/pass2/triage_notes_T0.jsonl`; new check scripts `scripts/
 ## Counts
 | verdict | n | items |
 |---|---|---|
-| REDISCOVERY | 20 | Z0276 Z0284 Z0510 Z0534 Z0559 Z0673 Z0719 Z0739 Z0849 Z0931 Z1415 Z1725 Z1821 Z2003 Z2035 Z2123 Z2941 Z3004 Z3040 Z3065 |
-| EXPLAINED-BY | 17 | Z0353 Z0513 Z0616 Z0692 Z0756 Z0824 Z0835 Z0840 Z0863 Z0879 Z0896 Z1686 Z1927 Z2639 Z2783 Z2997 Z3077 |
-| ARTIFACT | 3 | Z0733 Z0781 Z2966 |
-| ARTIFACT/WEAK | 11 | Z0157 Z0922 Z1468 Z1620 Z1677 Z2357 Z2596 Z2624 Z2720 Z3069 Z3134 |
+| REDISCOVERY | 21 | Z0276 Z0284 Z0510 Z0534 Z0559 Z0673 Z0719 Z0739 Z0849 Z0931 Z1415 Z1468 Z1725 Z1821 Z2003 Z2035 Z2123 Z2941 Z3004 Z3040 Z3065 |
+| EXPLAINED-BY | 18 | Z0353 Z0513 Z0616 Z0692 Z0756 Z0824 Z0835 Z0840 Z0863 Z0879 Z0896 Z1686 Z1927 Z2639 Z2783 Z2966 Z2997 Z3077 |
+| ARTIFACT | 2 | Z0733 Z0781 |
+| ARTIFACT/WEAK | 10 | Z0157 Z0922 Z1620 Z1677 Z2357 Z2596 Z2624 Z2720 Z3069 Z3134 |
 | NEW-CALIBRATION | 1 | Z0666 |
 | NEW-STRUCTURAL | 0 | — |
 | DEPTH | 0 | — |
@@ -29,8 +29,8 @@ or χ_p effects already in RESIDUE_HARDNESS / BM_LVALUE, or numbers that were al
 * Z1927: joint failure of slices B = 1..6 is 3.7× the product of marginals overall but **0.80×** within classes mod 840, so the
   whole excess is residue-class correlation.
 * Z0616: E₁/E₂ correlation −0.139 → **−0.030** within p mod 3. E₁ holds at every p ≡ 2 (3), since 3 | 4p+1.
-* Z2783: the ζ₈ q-rational phase predicts the word sign out of sample at 91.6% (vs 68.9%), but the sign is an exact function
-  of (t,u,v) mod 8 (0 conflicts). The phase is a lossy mod-8 CF statistic.
+* Z2783: the ζ₈ q-rational phase predicts the word sign out of sample at 91.0% (vs 66.8%; exact ℤ[ζ₈] evaluation, 152 poles
+  excluded). But the sign is an exact function of (t,u,v) mod 8 (0 conflicts), so the phase is a lossy mod-8 CF statistic.
 * Z0840: λ(p) = 3 forces p ≡ 1 (24). Within that class the λ gap in median U/log²p shrinks from 0.26 to 0.06.
 * Z0781: zeros vs the swap-Poisson e^{−M/2} (the correct reference, FRONTIER §2.4): 2.6–4.8 expected vs 3 observed, not "30–400×".
 * Z0733: PW's heuristic with constant K ≈ 0.16 (inside MODEL_SPECIFIC §5.3's K_eff 0.09–0.27) matches the 659 window
@@ -45,5 +45,12 @@ or χ_p effects already in RESIDUE_HARDNESS / BM_LVALUE, or numbers that were al
   (RESIDUE_HARDNESS Lemma 2, F₁₆), which RESIDUE_HARDNESS §2.2 already absorbs.
 * Z0824: the "29/68 sign agreement" test is degenerate. The indicators 1[q | p+s] are collinear for s ≡ s′ (mod q).
 * Z0673: the sign layer is recorded, as Lemma CT (FRONTIER B5; PARITY_AUDIT Lemma 3.2), not under "T1_TEMPLATE".
-* Z2966: the "stuck at 54%" result is an artefact of never adding a new prime to M. Mod 9240, Pass-1 H06 leaves only 4 non-square classes uncovered.
+* Z2966: (★)-only coverage is not "stuck". The share of non-square hard classes left uncovered is 28% → 28% → 24% at
+  M = 840, 9240, 120 120, a slow CRT-sieve decay (as in Z1821). Mordell's full menu already covers every non-square class mod 840.
+* Z1468: 4 | t words with t,u,v ≥ 3 are interior (★) words, not all (★) words. Of the 8 misses, 1 is a cap artefact (4561), 6 have
+  only boundary words (u ≤ 2), and 5569 is an R-zero (I3 vs I3_𝒞 split, Z52_BANKED §1(e)).
 * Z2003: the finite-p failure of 0.1402 L² is already stated in BM_LVALUE §3.2 (observed min 0.0969).
+* Z2997: the T log T coefficient is 2(1 − 1/p), which explains the p = 13 "deviation" exactly (2.559 per factor 4).
+
+A cross-model review (gpt-6-astra, deep) of this triage found six defects (Z1468, Z2783, Z2997, Z0534, Z2966, Z0739). All six
+were checked and fixed above and in the notes.

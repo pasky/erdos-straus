@@ -17,3 +17,34 @@ def regcf(p, a):
     while y:
         out.append(x // y); x, y = y, x % y
     return out
+
+# Exact evaluation at q = ζ₈ in ℤ[ζ]/(ζ⁴+1) with projective (num:den) recursion (triage fix: float poles).
+def _mul(a, b):
+    r = [0]*4
+    for i in range(4):
+        for j in range(4):
+            k = i + j
+            if k < 4: r[k] += a[i]*b[j]
+            else: r[k-4] -= a[i]*b[j]
+    return r
+def _add(a, b): return [x+y for x, y in zip(a, b)]
+def _zpow(e):  # ζ^e, e any int
+    e %= 8; r = [0]*4
+    if e < 4: r[e] = 1
+    else: r[e-4] = -1
+    return r
+def _qint(a, s):  # [a]_{ζ^s} = Σ_{k<a} ζ^{sk}
+    r = [0]*4
+    for k in range(a): r = _add(r, _zpow(s*k))
+    return r
+def mgo_zeta8_exact(seq):
+    """Returns complex value of [seq]_{ζ₈}, or raises ZeroDivisionError at an exact pole."""
+    n = len(seq); s = 1 if (n - 1) % 2 == 0 else -1   # q-orientation of the last level
+    num, den = _qint(seq[-1], s), [1, 0, 0, 0]
+    for i in range(n - 2, -1, -1):
+        s = 1 if i % 2 == 0 else -1
+        num, den = _add(_mul(_qint(seq[i], s), num), _mul(_zpow(s*seq[i]), den)), num
+    if not any(den): raise ZeroDivisionError
+    z = cmath.exp(1j*math.pi/4)
+    ev = lambda v: sum(c*z**k for k, c in enumerate(v))
+    return ev(num)/ev(den)
