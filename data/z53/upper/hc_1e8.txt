@@ -1,0 +1,34 @@
+record HC=3 at p=5
+record HC=4 at p=17
+record HC=7 at p=97
+record HC=15 at p=2521
+record HC=64 at p=21841
+X=100000000 primes p=1(4): 2880504 (p=1(8): 1439970); HC>=2000: 0
+record HC=64 at p=21841
+hist: 3:1440534 4:1314911 7:111635 8:9425 12:2352 15:986 16:342 20:190 23:78 24:23 28:7 31:10 32:3 36:2 39:1 44:1 47:2 56:1 64:1
+viol Lemma2.1=0 Lemma2.2=0
+RL=20000000: primes p=1(4) 635170, p=1(8) 317477; Lemma3.1 certificates checked 45499504, viol 0; Lemma4.1 viol 0
+K=1 (4K=4): #S_K=29783  #HC>4K=29783  (among p=1(8) <= RL)
+K=2 (4K=8): #S_K=9327  #HC>4K=1155  (among p=1(8) <= RL)
+K=3 (4K=12): #S_K=4099  #HC>4K=507  (among p=1(8) <= RL)
+K=4 (4K=16): #S_K=2851  #HC>4K=116  (among p=1(8) <= RL)
+K=5 (4K=20): #S_K=1934  #HC>4K=47  (among p=1(8) <= RL)
+K=6 (4K=24): #S_K=1358  #HC>4K=13  (among p=1(8) <= RL)
+K=7 (4K=28): #S_K=1102  #HC>4K=13  (among p=1(8) <= RL)
+K=8 (4K=32): #S_K=930  #HC>4K=7  (among p=1(8) <= RL)
+K=9 (4K=36): #S_K=775  #HC>4K=5  (among p=1(8) <= RL)
+K=10 (4K=40): #S_K=684  #HC>4K=4  (among p=1(8) <= RL)
+K=11 (4K=44): #S_K=597  #HC>4K=3  (among p=1(8) <= RL)
+K=12 (4K=48): #S_K=523  #HC>4K=2  (among p=1(8) <= RL)
+K=13 (4K=52): #S_K=473  #HC>4K=2  (among p=1(8) <= RL)
+K=14 (4K=56): #S_K=439  #HC>4K=1  (among p=1(8) <= RL)
+K=15 (4K=60): #S_K=393  #HC>4K=1  (among p=1(8) <= RL)
+K=16 (4K=64): #S_K=367  #HC>4K=0  (among p=1(8) <= RL)
+K=17 (4K=68): #S_K=345  #HC>4K=0  (among p=1(8) <= RL)
+K=18 (4K=72): #S_K=318  #HC>4K=0  (among p=1(8) <= RL)
+K=19 (4K=76): #S_K=298  #HC>4K=0  (among p=1(8) <= RL)
+K=20 (4K=80): #S_K=282  #HC>4K=0  (among p=1(8) <= RL)
+K=21 (4K=84): #S_K=252  #HC>4K=0  (among p=1(8) <= RL)
+K=22 (4K=88): #S_K=242  #HC>4K=0  (among p=1(8) <= RL)
+K=23 (4K=92): #S_K=232  #HC>4K=0  (among p=1(8) <= RL)
+K=24 (4K=96): #S_K=222  #HC>4K=0  (among p=1(8) <= RL)

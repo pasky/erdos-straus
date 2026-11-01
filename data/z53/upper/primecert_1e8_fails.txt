@@ -1,0 +1,4 @@
+no prime-level C-certificate with q<p: p=3361
+no prime-level C-certificate with q<p: p=66529
+no prime-level C-certificate with q<p: p=1095481
+no prime-level C-certificate with q<p: p=85664329
