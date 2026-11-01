@@ -1,0 +1,12 @@
+# exact BV-model variance V = E N^2 - M^2 (formula of Lemma 4.1), computed by scripts/z53_pz_exactV*.c
+# pair family (unweighted), scripts/z53_pz_exactV.c Q
+Q=100 logQ=4.6052 pairs=40 M=2.620833 V=3.089566 V/M^2=0.449799 V/logQ^3=0.031634
+Q=1000 logQ=6.9078 pairs=646 M=6.630018 V=11.170337 V/M^2=0.254119 V/logQ^3=0.033889
+Q=3000 logQ=8.0064 pairs=2266 M=9.090436 V=18.337834 V/M^2=0.221911 V/logQ^3=0.035731
+Q=10000 logQ=9.2103 pairs=8770 M=12.212875 V=29.642059 V/M^2=0.198734 V/logQ^3=0.037939
+# trial family, weights c=phi(m)/m (the family of Theorem A), scripts/z53_pz_exactV_trial.c Q 1
+Q=100 logQ=4.6052 P=87 M=2.552338 M/logQ^2=0.12035 V=2.098849 V/M^2=0.322185 V/logQ^3=0.021490
+Q=1000 logQ=6.9078 P=1421 M=5.721562 M/logQ^2=0.11991 V=6.943898 V/M^2=0.212116 V/logQ^3=0.021067
+Q=3000 logQ=8.0064 P=5089 M=7.708021 M/logQ^2=0.12025 V=10.887322 V/M^2=0.183246 V/logQ^3=0.021214
+Q=10000 logQ=9.2103 P=19960 M=10.228503 M/logQ^2=0.12058 V=16.702177 V/M^2=0.159643 V/logQ^3=0.021377
+Q=30000 logQ=10.3090 P=68094 M=12.844659 M/logQ^2=0.12086 V=23.540517 V/M^2=0.142683 V/logQ^3=0.021487

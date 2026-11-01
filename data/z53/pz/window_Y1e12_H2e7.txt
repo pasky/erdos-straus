@@ -1,0 +1,6 @@
+# output of: gcc -O2 scripts/z53_pz_window.c; z53pzw 1000000000000 20000000 Q  for Q=100,1000,10000
+Q=100:   Npair mean=2.62132 (M=2.620833) var/mean^2=0.44939 ; Ntrial var/mean^2=0.32392 ; Npair+2Ntrial 0.22663 (all primes, 723063)
+Q=1000:  Npair mean=6.63393 (M=6.630018) var/mean^2=0.25385 ; Ntrial 0.22839 ; sum 0.16523
+Q=10000: Npair mean=12.21317 (M=12.212875) var/mean^2=0.19867 ; Ntrial 0.18013 ; sum 0.13819
+p=1(24) (90499 primes): Q=1e4 Npair mean 9.906 var/mean^2 0.266; Ntrial mean 11.22 var/mean^2 0.156
+odd squares in window: 5, Npair>0 at none (T1 control)
