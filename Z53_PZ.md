@@ -79,7 +79,10 @@ f(t) = log(Y/t)/t, which is decreasing and ≥ 0 on [1,Y]. Then Σ_{u=1}^{⌊Y�
 
 ## 3. Bombieri–Vinogradov input: first and second moments
 
-**BV** (Bombieri 1965, Vinogradov 1965; Davenport, *Multiplicative Number Theory*, Ch. 28; in π-form by partial summation).
+**BV** (Bombieri 1965, A. I. Vinogradov 1965). Verified statement: Tao, 254A Notes 3 (2015), **Theorem 17**:
+Σ_{q≤Q} sup_{a∈(ℤ/q)^×}|Δ(Λ1_{[1,x]}; a (q))| ≪_A x log^{−A}x for Q ≤ x^{1/2}log^{−B}x, B = B(A). The form with max over
+y ≤ x is Davenport, *Multiplicative Number Theory*, Ch. 28. The π-form below follows by partial summation, with prime powers
+and p | q contributing O(x^{1/2}) per q.
 For every A > 0 there is B = B(A) such that
   Σ_{q ≤ X^{1/2}L^{−B}} max_{(a,q)=1} |π(X; q, a) − π(X)/φ(q)| ≪_A X L^{−A}.
 We use A = A₀ = 200, B₀ = B(A₀). Note Q² = X^{1/2}L^{−B₀}.
@@ -181,12 +184,12 @@ and 0 ≤ g(u₀)/d ≤ (λ+δ)/(du₀). Now λ + δ ≤ log(4Y): if Y ≥ d² t
 
 **Proposition 6.1 (PROVED).** With 𝓛 = log(Q+1) + 2 and K₁ := Σ_{d≥2}(1 + log d)²/d² (≈ 4.51),
   V ≤ (16/9)(1 + log 4Q²)(1 + log Q)² + (8ζ(2)/9)𝓛² log Q + 4K₁𝓛² = (32/9 + 8ζ(2)/9 + o(1))·log³Q ≈ 5.02·log³Q.
-*Proof.* Fix an odd d with 1 < d ≤ Q, and r ∈ (ℤ/d)^*. Let (u₀, C₀) ∈ [1,d]² be the least positive representatives of
+*Proof.* For even d, A_r^{(d)} = 0; take Λ_d = 0. Fix an odd d with 1 < d ≤ Q, and r ∈ (ℤ/d)^*. Let (u₀, C₀) ∈ [1,d]² be the least positive representatives of
 (x_r, y_r) = (−r, −(4r)⁻¹) (§4). Note d ≤ Q < 4Y. Since 1/(4uC−1) = 1/(4uC) + 1/(4uC(4uC−1)),
   A_r^{(d)} = H_r/4 + E_r,  0 < E_r ≤ (1/12)Σ_{u≡x_r, C≡y_r} (uC)^{−2} ≤ (1/12)(1/u₀² + ζ(2)/d²)(1/C₀² + ζ(2)/d²).
 (Here 4uC − 1 ≥ 3uC, and Σ_{u≡x}u^{−2} ≤ u₀^{−2} + Σ_{j≥1}(jd)^{−2}.) Since u₀, C₀, d ≥ 1,
 E_r ≤ (1/12)[1/(u₀C₀) + ζ(2)/(du₀) + ζ(2)/(dC₀) + ζ(2)²/d²]. Take Λ_d := Λ/4 with Λ from Lemma 5.2. Using 𝓛 ≥ 3.38,
-ζ(2)/12 ≤ 𝓛/12 and ζ(2)²/12 ≤ (3/4)𝓛. Then Lemma 5.2 gives
+ζ(2)/12 ≤ 𝓛/12 and ζ(2)²/12 ≤ 𝓛/4. Then Lemma 5.2 gives
   |A_r − Λ_d| ≤ (1/3)[1/(u₀C₀) + 𝓛/(dC₀) + 𝓛/(du₀) + 3𝓛(1+log d)/d²].
 Apply (a+b+c+e)² ≤ 4(a²+b²+c²+e²). As r runs over (ℤ/d)^*, the u₀ are distinct elements of [1,d], and so are the C₀. Hence
 Σ_r u₀^{−2}, Σ_r C₀^{−2} < ζ(2). With φ(d) ≤ d:
@@ -209,7 +212,7 @@ Let p ∈ (X^{1/2}, X] be outside this set. Then p ≥ (Q+1)²/4 and Lemma 2.1 a
 log Y ≥ L/4 − (B₀/2)log L − log 4,
   R(p) ≥ 2N(p) ≥ (1 − η/2)·(1/4)log²Y ≥ (1 − η/2)(1 − O(log L/L))·L²/64 ≥ (1 − η)L²/64 ≥ (1−η)(log p)²/64
 for X ≥ X₀(η). The primes p ≤ X^{1/2} number ≤ π(X)/L for large X. So the exceptional set has size
-≤ (5200/η² + 1)π(X)/L. ∎
+≤ (5140/η² + 1)π(X)/L. ∎
 
 *Remarks.* (i) The rate is O(π(X)/log X). It comes from V ≍ log³Q against M² ≍ log⁴Q; the numerics show V/M² ≈ 1.5/log Q
 (§8), so this is the true order of the method. (ii) In every fixed class b mod W (W fixed, gcd(b,W) = 1), all but
