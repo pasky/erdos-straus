@@ -33,7 +33,7 @@ the count without the 4-condition.
      terms. Neither is shown to imply the other, and they bound N(U,U) and N₂ respectively.
    * MIX is not known to be provable. The standard B-process lengthens it, and its double-sum form looks beyond
      classical double-sum bounds (Assessment, §5.3).
-2. **The standard determinant method is vacuous for (★) in every block (Prop D; PROVED relative to the cited theorems).**
+2. **The black-box determinant method gives no saving for (★) in any block (Prop D; PROVED relative to the cited theorems).**
    * For F = kuB − u − B − p, Heath-Brown's affine Theorem 15 (CIME notes, statement taken from the restatements by
      Reuss and by Browning–Heath-Brown) bounds the number of auxiliary polynomials by X = T^ε·exp(2√(Π log B_i/log T)).
      We show X ≥ min(B_i)^{2/√3}. Annals Theorem 14 (checked in the source by the cross-model reviewer), applied to the
@@ -573,13 +573,14 @@ itself turns R2 into a *power-saving* second-order equidistribution hypothesis (
 unlike the beyond-square-root R1 of Z52D (Assessment; neither is shown to imply the other). The computations at
 10¹²–10¹⁸ show square-root cancellation for |h| ≤ U^{1/2}, so R2 looks "true for the expected reasons". But MIX is a
 second-order (p mod u, p mod f(u)) problem, and no method for it is known.
-The obvious algebraic alternative, the determinant method, is provably vacuous here because the box is critical.
+The obvious algebraic alternative, the determinant method used as a black box, gives no saving here because the box
+is critical (other uses of it are not excluded).
 
 The 4-condition is two 2-adic bits riding on a QR colour condition. T1 kills the colour layer but not the 2-cycles, so
-nothing that bounds 2-cycles, from above or below, can see what ES needs. f itself is, to second order, the independent-
-CRT random map, and there is no falsifier: max 7 cycles among 1.9·10⁸ primes.
+nothing that bounds 2-cycles, from above or below, can see what ES needs. f itself matches the tested independent-CRT
+statistics to second order (no random-map law is proved), and there is no falsifier: max 7 cycles among 1.9·10⁸ primes.
 
-R2 is an upper bound. It cannot improve R(p) ≪ p^{1/3} and cannot give positivity, so it should be retired from §7.1's
+R2 is an upper bound. It cannot improve R(p) ≪ p^{1/3} and cannot by itself give positivity, so it should be retired from §7.1's
 ES-relevant list, or kept as a methods test via MIX. ES remains open.
 
 ## 12. Reproduction
@@ -639,4 +640,21 @@ MINOR, repaired:
 * The 10¹⁸ row is within 2σ.
 * The divisor-problem remark now uses Hardy's Ω(x^{1/4}) instead of a dated exponent.
 
-(Cross-model review: pending.)
+**Cross-model review** (GPT/Astra, `data/z53/xreview/REVIEW_HYP2CYCLE.md`, verdict ACCEPT-WITH-FIXES; reproducer
+`scripts/z53_xrev_hyp2cycle_audit.py`). The reviewer independently re-derived Lemma A/B/G, Prop C/C′/S and Theorem R
+(filling in the tail summation), reran the exhaustive scan on [5, 4·10⁹) (189 961 810 primes, max N₂ = 7, max N₄ = 5),
+`brute.py`, the model and pair moments, the square family, and the H = 32/100/180 MIX rows (byte-for-byte), and checked
+HB14 directly in the Annals text and HB15 in Reuss's thesis. Fixes applied:
+1. MIX quantifiers: MIX(η) is now stated as a uniform hypothesis (constants, fourth-root range). "Holds numerically with
+   η ≈ 1/2" is removed: the maxima are 2.68/4.53/4.11·√U, so a literal constant-one MIX(1/2) fails at these inputs; the
+   data are compatible with a conjectural uniform U^{1/2+o(1)} bound, hence MIX(η) for each fixed η < 1/2, and the
+   U^{3/4+ε} output needs that whole family.
+2. Determinant closure scoped to the black-box bound times a uniform per-curve bound (full box or full grid); occupancy
+   pruning and other uses are not excluded; "certifies ≥ … curves" replaced by "its stated upper-bound expression is ≥ …";
+   T = ∏B_i under translation via multi-affinity.
+3. Exact statements: the §0 denominator claim (now: θ_B and Γ_j(θ_u) lie in (1/B)ℤ; counterexample p = 17, U = 2, u = 3);
+   the fixed-difference identity restricted to primes (counterexample n = 15, U = 6, u = 9, B = 12); k ≥ 2 stated for the HJ
+   dictionary (p = 11, U = 3, {4, 5} has k = 1); Prop S's Jacobi statement corrected (A is a unit since
+   (ku−1)(kB−1) = kn + 1).
+4. Labels: p^{o(1)} is now a CONJECTURE; the dynamics "matches tested CRT statistics" (no random-map law); the model ratio
+   no longer claimed to prove that R2 and R2′ are equally hard; "ES-inert" now means no standalone implication.
