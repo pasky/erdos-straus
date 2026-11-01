@@ -29,26 +29,14 @@ This revision follows a cross-model review of the first version; the changes are
 
 ## B. Candidate set F and clusters
 
-F (`z52d_rank_O_F.py`) is the union of four criteria:
-
-| criterion | rows |
-|---|---|
-| c1: plausibility ≥ 2, novelty ≥ 1, yield ≠ none | 33 |
-| c2: ES-yield, status open/unclear/known-true, plausibility ≥ 1 | 76 |
-| c3: new_ingredient ≠ none | 18 |
-| c4: overturned (Z3022 + 4 from the targeted hunt) | 5 |
-
-**|F| = 119.** F has 79 ES-yielding rows: 70 at plausibility ≤ 1 and 9 known-true *restatements*. The 119 rows collapse onto
+F (`z52d_rank_O_F.py`) is the union of c1 (plausibility ≥ 2, novelty ≥ 1, yield ≠ none: 33 rows), c2 (ES-yield, status
+open/unclear/known-true, plausibility ≥ 1: 76), c3 (new_ingredient ≠ none: 18) and c4 (overturned: Z3022 + 4 hunt rows): **|F| = 119**. F has 79 ES-yielding rows: 70 at plausibility ≤ 1 and 9 known-true *restatements*. The 119 rows collapse onto
 **23 clusters** (`clusters.json`), with every F mid in exactly one cluster.
 
-**Scoring (explicit).**
-* EV = Y·P.
-* Y: full ES 1.0 · a pointwise sub-step a proof would need 0.3 · side result (thin family, average, main term) 0.03 · none or superseded 0.
-* P, from my plausibility: 0 → 0, 1 → 0.01, 2 → 0.1, 3 → 0.4. ES-strength statements (statements implying ES for large p) get
-  P = 0.002 if their plausibility is ≥ 1.
-* Ties are broken by h (handle: 0 none, 1 formal escape of the named obstruction, 2 a specific ingredient), then by f (a cheap
-  falsifier exists).
-* Tier (ii) is ordered by hand: P(provable in about a week) × calibration value / cost.
+**Scoring (explicit).** EV = Y·P. Y: full ES 1.0 · pointwise sub-step a proof would need 0.3 · side result (thin family,
+average, main term) 0.03 · none/superseded 0. P from my plausibility: 0 → 0, 1 → 0.01, 2 → 0.1, 3 → 0.4; ES-strength
+statements (implying ES for large p) get P = 0.002 if plausibility ≥ 1. Ties: h (handle: 0 none, 1 formal escape, 2 specific
+ingredient), then f (cheap falsifier exists). Tier (ii) is ordered by hand: P(provable in ~a week) × calibration value / cost.
 
 ### (i) Could be part of a proof of ES — every cluster is at plausibility ≤ 1
 | # | cluster (members) | FRONTIER | EV, h, f | obstruction → does a member beat it? |
@@ -74,14 +62,12 @@ Notes on the handles:
   uniformly power-size**: it is O(1) at p = m² + 1 or m² + 4, and near-square primes are the hardest ones. There, cycle data form a
   fixed polynomial recipe in m, which is B1-exposed under Hypothesis H.
 
-C9 diagnostic (`z52d_rank_O_charobs.py`; EVIDENCE, limited). Inputs: 9 (★)-zeros (409 … 712321), 3 distinct controls each, Type II
-e-slices with e ≤ 400.
-* About half of the obstructed windows are poverty-type: −1 lies in ⟨factors⟩ but not in the ratio set.
-* Subgroup-type windows are almost all killed by an **odd real (genus) character** mod e, mostly χ_{−e} itself (= Jacobi (·/e)).
-* Windows killed only by characters of order ≥ 3 number 0–3 per prime, at hard primes and controls alike.
-* At 5569, 83449, 102001 and 712321 the extra subgroup-type windows lie in the real-character layer.
-* The diagnostic does not measure the Z3003 Fourier products or look for characters shared across windows, so it does **not**
-  falsify C9. It does point the cluster at the genus layer (§7.3/§7.4) rather than at an exceptional higher-order character.
+C9 diagnostic (`z52d_rank_O_charobs.py`; EVIDENCE, limited; 9 (★)-zeros 409 … 712321, 3 distinct controls each, Type II
+e-slices e ≤ 400): about half of the obstructed windows are poverty-type (−1 ∈ ⟨factors⟩ but not in the ratio set); subgroup-type
+windows are almost all killed by an **odd real (genus) character** mod e, mostly χ_{−e} = Jacobi (·/e); windows killed only by
+order-≥ 3 characters number 0–3 per prime, hard and control alike; the hard-prime excess (5569, 83449, 102001, 712321) is in the
+real-character layer. It does not measure Z3003's Fourier products or cross-window characters, so it does **not** falsify C9;
+it points C9 at the genus layer (§7.3/§7.4), not at an exceptional higher-order character.
 
 ### (ii) Side theorems worth a depth lane (cheap / provable / calibrating)
 1. **C6** thin exponential families (Z2969 Z3189 Z0417 Z2031 Z2995 Z2776 Z1557; §7.8, §7.17). Plausibility 2. A recursion in s
@@ -114,25 +100,21 @@ Plans cover the top five tier-(i) clusters plus the top side lane. C9, C20 and t
 
 **C1 (hyperbola cancellation).**
 * *First lemma.* In the balanced block u, B ~ p^{1/4}, N(U,V) = #{4uB | p+u+B} has trivial bound p^{1/4+o(1)} (for each u, B | p+u)
-  against an O(1) heuristic mean. Expand with additive characters mod 4uB and attempt a bilinear dispersion in (u, B). This is the
-  one range where both factors of the modulus vary and neither equals p.
-* *Falsifier.* For ~10⁴ primes near 10¹², compute the block errors N − M_F, their variance against Poisson, and their correlation
-  with F(p).
-* *Paper.* PARITY_AUDIT §2–3; Shparlinski's modular-hyperbola survey, Thm 13.
+  against an O(1) heuristic mean. Expand with additive characters mod 4uB; attempt a bilinear dispersion in (u, B) (the one range
+  where both modulus factors vary and neither is p). *Paper:* PARITY_AUDIT §2–3; Shparlinski's modular-hyperbola survey, Thm 13.
+* *Falsifier.* For ~10⁴ primes near 10¹²: block errors N − M_F, variance vs Poisson, correlation with F(p).
 * *Changes the picture.* A proved saving on one block at one p would be the first class-aware single-integer input. A scoped
   no-go (the dual is at least as long as the original, Z1034) would demote §7.1's "only lead not ruled out".
 
 **C3 (parity).**
-* *Lemma.* Does (J)2 Thm 6.1 extend verbatim to ℤ/3 and S₃ actions by finite affine menus? If so, every finite-group affine menu
-  is closed.
+* *Lemma.* Does (J)2 Thm 6.1 extend verbatim to ℤ/3 and S₃ finite affine menus? If so, all finite-group affine menus are closed.
 * *Falsifier.* For p ≡ 1 (24) < 10⁵, correlate [8 | h(−4p)] and h(−4p) mod 16 with certificate parities (R(p)/2, f_II/6, the
   number of bichromatic forest edges, each mod 2), after conditioning on p mod 16.
 * *Changes the picture.* A correlation would be the first M5 input that sees more than congruence data.
 
 **C14 (class beyond parity).**
-* *Search.* Look for an identity making 4Cp+1 (C = 2, 3, 4) a value or a factor of U_{4C}(P, Q) with P, Q polynomial in p.
-  Without one, the Lucas ±1 reduction never reaches the ES integers.
-* *Then.* Test the joint-Frobenius properties 𝒜 (Z2818) against AMPLIFY_EXCEPTION Thm 3.2's adversary at the T1 point.
+* *Search.* An identity making 4Cp+1 (C = 2, 3, 4) a value or factor of U_{4C}(P, Q), P, Q polynomial in p (else the Lucas ±1
+  reduction never reaches ES integers); then test Z2818's joint-Frobenius 𝒜 against AMPLIFY_EXCEPTION Thm 3.2's adversary at T1.
 * *Changes the picture.* Such an identity would be a class-level forcing mechanism. FRONTIER says none exists.
 
 **C4 (cycle roots).**
@@ -145,17 +127,15 @@ Plans cover the top five tier-(i) clusters plus the top side lane. C9, C20 and t
   the cycle the first p-dependent root source to survive (J)106.
 
 **C2 (one-coordinate window).**
-* *Lemma.* Extend H4_NOT_POLYLOG's construction (energy lemma + Gallagher) from both endpoints to one coordinate (HC(p) or the
-  least level).
-* *Computation.* Record growth by decade to 10⁹, and fit log log p against (log p)^A.
+* *Lemma.* Extend H4_NOT_POLYLOG (energy lemma + Gallagher) from both endpoints to one coordinate (HC(p) or least level).
+  *Computation:* record growth by decade to 10⁹; fit log log p against (log p)^A.
 * *Changes the picture.* If the extension works, §7.2 loses its last polylog target. If it fails, the step that fails is the only
   structural reason a one-coordinate window might be polylog.
 
 **C6 (side: 15·2^s + 1).**
-* Run Berlekamp–Massey on the *proof* certificates of 3·2^s+1 and 63·2^s+1, per residue class of s. If they are recurrent, search
-  the same template on the open u ≡ 7 (8) branch, s ≤ 80.
-* In parallel, run the I3_DEEP exponent-covering harness on 3^k ± 2.
-* *Outcome.* A closed §7.8 or §7.17 family: calibration only, no transfer.
+* Berlekamp–Massey on the *proof* certificates of 3·2^s+1 and 63·2^s+1 per class of s; if recurrent, search that template on
+  the open u ≡ 7 (8) branch, s ≤ 80. In parallel: I3_DEEP exponent coverings on 3^k ± 2. *Outcome:* a closed §7.8/§7.17
+  family — calibration only, no transfer.
 
 ## D. Bottom line (Assessment)
 
