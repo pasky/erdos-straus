@@ -29,7 +29,7 @@ int main(int argc,char**argv){
     if(!qC){ failC++; fprintf(stderr,"no prime-level C-certificate with q<p: p=%llu\n",p); } else { int b=0; while((1ULL<<(b+1))<=qC) b++; hC[b]++; if(qC>recC){recC=qC;recCp=p;}
       double lp=log((double)p), rr=log((double)qC)/log(lp); if(rr>maxrC){maxrC=rr;maxrCp=p;} }
   }
-  printf("X=%llu QM=%llu primes p=1(8): %ld; no q<=QM: Q4 %ld, QC %ld\n",X,QM,n,fail4,failC);
+  printf("X=%llu QM=%llu primes p=1(8): %ld; no prime q<p: Q4 %ld, QC %ld\n",X,QM,n,fail4,failC);
   printf("max Q4=%llu at p=%llu; max log Q4/loglog p = %.3f at p=%llu\n",rec4,rec4p,maxr4,maxr4p);
   printf("max QC=%llu at p=%llu; max log QC/loglog p = %.3f at p=%llu\n",recC,recCp,maxrC,maxrCp);
   printf("Q4 dyadic hist (b: 2^b<=Q4<2^(b+1)):"); for(int b=0;b<64;b++) if(h4[b]) printf(" %d:%ld",b,h4[b]); printf("\n");

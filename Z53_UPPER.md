@@ -31,7 +31,7 @@ What is proved here:
 | L3.1 | **reciprocity constraint**: every divisor d certifying a coordinate c ∈ 𝒞_p (as in L1.1) has (d/p) = −1 | PROVED |
 | C3.2 | no certificate divisor is composed of primes dividing 2m when p ≡ 1 (mod 8m); no finite set of certificate divisors serves all p | PROVED |
 | P3.3 | for infinitely many p every certificate divisor (any c) has a prime factor > (1/(1.02 L₀) − o(1)) log p (L₀ = Linnik exponent) | PROVED (Linnik) |
-| **T4.1** | **for 0 < θ ≤ 1/2: #{p ≤ x : HC(p) > x^θ + 1} ≤ 16 x exp(−0.15 √(θ log x)) for x ≥ x₀(θ); hence HC(p) ≤ p^θ for all p ≤ x outside ≪_θ x exp(−0.1 √(θ log x)) primes** | PROVED (Bombieri–Vinogradov, ineffective x₀) |
+| **T4.1** | **for 0 < θ ≤ 1/2: #{p ≤ x : HC(p) > x^θ + 1} ≤ 16 x exp(−0.15 √(θ log x)) for x ≥ x₀(θ); hence HC(p) ≤ p^θ for all p ≤ x outside ≪_θ x exp(−0.1 √(θ log x)) primes** | PROVED (Bombieri–Vinogradov, ineffective x₀); elementary reproof — a stronger rate is already implied by `EXSET_I3.md` §7 (see below) |
 | T4.2 | for fixed K: #{p ≤ x : HC(p) > 4K} ≪_K x (log x)^{−1−κ(K)}, κ(K) = 2Σ_{k≤K} 1/φ(4k) ≥ log(K+1) | PROVED |
 | T4.3 | polylog bonus: #{p ≤ x : HC(p) > (log x)^A} ≪_{A,ε} x exp(−(1−ε) A (log log x)²) | PROVED (Siegel–Walfisz, ineffective) |
 | §5 | the exact pointwise statement needed; small-prime-supported certificates cannot suffice (PROVED); prime-level certificates fail for some tested p (EVIDENCE) | PROVED parts + EVIDENCE |
@@ -40,8 +40,22 @@ What is proved here:
 So the brief's "weaker milestone" is reached in the *exceptional-set* form: HC(p) ≤ p^θ for every fixed θ > 0 for all p ≤ x outside a
 set of size ≪ x exp(−c√(θ log x)) (T4.1), and HC(p) ≤ (log x)^A outside a set of size ≪ x exp(−(1−ε)A(log log x)²)
 (T4.3). The exceptional sets are explicit (they are contained in the explicit sieve-survivor sets
-𝒮 of §4). Comparison: Vaughan (1970) proved that ES fails for ≪ x exp(−c (log x)^{2/3}) integers n ≤ x — a better rate,
-but with no control of the size of a 𝒞-coordinate (I have not checked whether his solutions have one).
+𝒮 of §4).
+
+**Novelty / prior repo results (corrected after cross-model review).** T4.1 is *not* a new milestone: it is an
+elementary reproof with explicit constants of a weaker form of what the repo already implies. `EXSET_I3.md` §7 (U/ES₅
+transfer) proves an exceptional bound N exp(−c(log N)^{2/3}/(log log N)^{1/3}) using the atoms of `I3_DEEP_ASTRA.md`
+Lemma 8.7 / Thm 8.8 with 4 ∣ u and u ≤ X^{1/6}, log X = O((log N log log N)^{1/3}); so outside that (smaller)
+exceptional set HC ≤ N^{o(1)}, which gives HC(p) ≤ p^θ for every fixed θ > 0 at a *better* rate than T4.1
+(`I3_DEEP_ASTRA.md` §3.4 already transfers the √log prime-modulus sieve to 4-divisible levels). Further:
+`LOWERTAIL_ROUND2_FABLE.md` §§1.2, 3.1–3.3 already has the two coordinate lines (L1.1), the HC = 3/4 characterisation
+(P2.1), the HC ≤ 64 census to 10⁸ and Theorem 3.2 (#{HC > 4} ≪ x/log² x), which is T4.2 at K = 1;
+`FOREST_DEEP_FABLE.md` Props 3.1–3.2 already contain the forced non-residue condition and the finite-cover/Linnik
+logarithmic obstruction (L3.1 is a direct divisor formulation of it, P3.3 a presentation for arbitrary smooth support);
+`notes.md` §§12.1–12.3 already uses growing-dimensional root sieves with Siegel–Walfisz to get a (log log)² exponent for
+ES exceptions. What is new here is only the explicit-window bookkeeping: T4.2 for general fixed K and T4.3 for the
+polylog HC window, with explicit constants. Vaughan's (1970) ES rate x exp(−c(log x)^{2/3}) does not by itself bound HC
+(`I3_DEEP_ASTRA.md` §8.7: its ratio-family witness is a word of bn, not of n).
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -227,7 +241,7 @@ suppose Σ_{q∈P} g(q) log q ≤ G log z. Then
 So with z := Q^{1/s}, s := (e−1)G + 1, L ≥ (1 − 1/e) ∏_{q∈P}(1 + g(q)) ≥ (1−1/e) exp(Σ_P ω(q)/q − Σ_P g(q)²/2)
 (log(1+y) ≥ y − y²/2, g ≥ ω/q). And Σ_{q>16K²} g(q)² ≤ 4(1+2K)²Σ_{n>16K²} n^{−2} ≤ 36K²/(16K² − 1) ≤ 2.4.
 
-**Theorem 4.2.** For fixed K ≥ 1: #{p ≤ x prime : HC(p) > 4K} ≪_K x (log x)^{−1−κ(K)}.
+**Theorem 4.2.** For fixed K ≥ 1: #{p ≤ x prime, p ≡ 1 (mod 4) : HC(p) > 4K} ≪_K x (log x)^{−1−κ(K)}.
 
 *Proof.* Q = √x, P = primes in (16K², z]. G: Σ_{q≤z} g(q) log q ≤ (2 + 4K) Σ_{q ≤ z} log q/q ≤ (4 + 8K) log z (Mertens,
 z ≥ z₀); s = (e−1)(4+8K) + 1 depends on K only. Mertens in progressions for the fixed moduli 4k ≤ 4K:
@@ -237,9 +251,12 @@ log log z = log log x − log(2s). So L ≫_K (log x)^{1+κ(K)}; the primes p �
 So HC(p) ≤ 4K for all p outside an explicit set of relative density ≪_K (log x)^{−κ(K)} with κ(K) ≥ log(K+1): for
 every B, HC(p) ≤ 4⌈e^B⌉ outside ≪_B π(x)(log x)^{−B} primes.
 
-**Theorem 4.3 (polylog window).** For A > 0, 0 < ε < 1 (for ε ≥ 1 the bound is trivial): #{p ≤ x : HC(p) > (log x)^A} ≪_{A,ε} x exp(−(1 − ε)A (log log x)²).
+**Theorem 4.3 (polylog window).** For A > 0, 0 < ε < 1 (for ε ≥ 1 the bound is trivial): #{p ≤ x prime, p ≡ 1 (mod 4) : HC(p) > (log x)^A} ≪_{A,ε} x exp(−(1 − ε)A (log log x)²).
 
-*Proof.* K := ⌊(log x)^A/4⌋, Q = √x, κ := κ(K) ≥ log K = A log log x − O(1); κ ≤ 2Σ_{k≤K}1/k ≤ 2 log K + 2.
+*Proof.* K := ⌊(log x)^A/4⌋, Q = √x, κ := κ(K) ≥ log K = A log log x − O(1); κ ≤ 2H_K ≤ 2 log K + 2, where H_K = Σ_{k≤K} 1/k. [Justification: φ(4k) = 2φ(2k), so
+κ = Σ_{k≤K} 1/φ(2k); and 1/φ(2k) = (1/k)·∏_{ℓ∣k, ℓ odd} ℓ/(ℓ−1) = (1/k) Σ_{d∣k, d odd squarefree} 1/φ(d), whence
+κ = Σ_{d odd sqfree} H_{⌊K/d⌋}/(dφ(d)) ≤ H_K ∏_{ℓ odd prime}(1 + 1/(ℓ(ℓ−1))) < 2H_K (the product is
+(ζ(2)ζ(3)/ζ(6))/(3/2) ≈ 1.296). It does not follow termwise.]
 *Upper bound G.* For m = 4k ≤ 4K and t > 16K² ≥ m², Brun–Titchmarsh (Montgomery–Vaughan) π(t; m, a) ≤ 2t/(φ(m) log(t/m))
 ≤ 4t/(φ(m) log t); partial summation gives Σ_{16K² < q ≤ z, q ≡ −1 (m)} (log q)/q ≤ 4(1 + log z)/φ(m). Hence
 Σ_P ω(q) log q/q ≤ 2 log z + 2Σ_k 4(1+log z)/φ(4k) ≤ (2 + 8κ) log z, G ≤ 4 + 16κ, s ≤ 28κ + 8 = O(A log log x).
@@ -270,12 +287,12 @@ of θ = 1; S_1 is "HC(p) < ∞ for all large p", which implies ES for all large 
 ES-soluble p has a word with a 𝒞_p-coordinate — is not used or proved here). Since p, p + 1, p + 2 ∉ 𝒞_p, L1.2 even gives
 HC(p) < ∞ ⟹ HC(p) ≤ p − 1.
 
-### 5.2 Why each natural route stops (PROVED statements + EVIDENCE)
+### 5.2 Why each natural route stops (PROVED statements + EVIDENCE; the methodological conclusions are Assessment)
 
 1. **Fixed c is a single-integer divisor-in-class problem.** For fixed c the line is "p + c (or cp + 1) has a divisor
    ≡ −1 (mod c)"; it fails whenever p + c and cp + 1 are prime (or products of primes in a subgroup of (ℤ/c)^× missing −1).
-   No unconditional statement controls the factorisation of p + c for a *given* p, so the argument must use the growing
-   family {p + c, cp + 1 : c ≤ p^θ}.
+   No unconditional statement controls the factorisation of p + c for a *given* p, so (Assessment) the argument must use
+   the growing family {p + c, cp + 1 : c ≤ p^θ}.
 2. **Small-prime certificates are provably insufficient** (C3.2, P3.3): for any fixed finite set of primes, and for
    the primes up to ≍ log p, there are infinitely many p where no certificate divisor is supported on those primes. So a
    proof of S_θ must produce certificate divisors with prime factors > (log p)/(1.02 L₀) − O(1) for such p; it cannot
@@ -284,12 +301,17 @@ HC(p) < ∞ ⟹ HC(p) ≤ p − 1.
    pointwise in the tested range). EVIDENCE (`data/z53/upper/primecert_1e8.txt`): among the 1 439 970 primes p ≡ 1 (8) below 10⁸, 760 have no
    prime q < p with q ∣ p + e, e ∣ q + 1, 4 ∣ e (the T4.1 mechanism), and 4 (p = 3361, 66529, 1095481, 85664329) have no
    prime-level certificate of *any* 𝒞-type (e or (q+1)/e ∈ 𝒞_p), although their HC is 7, 8, 15, 15 — witnessed by
-   composite divisors, e.g. 7·3361 + 1 = 34·692 with 34 ≡ −1 (mod 7). Tail
+   composite divisors, e.g. 7·3361 + 1 = 34·692 with 34 ≡ −1 (mod 7). (The computation only searches q < p. For these
+   four p, primes q > p cannot help either, PROVED: by L1.3 a prime-level certificate is a word with m = tu − 1 = q
+   prime; if v ≥ 2 then q = (p+u)/v ≤ (2p+2)/2 = p + 1 (L1.2: u ≤ p + 2), and q > p forces q = p + 1, even — impossible;
+   so v = 1 and (t−1)u = p + 1. Here p + 1 = 2·41², 2·5·6653, 2·547741, 2·5·2693·3181, all odd prime factors ≡ 1 (4), so
+   every divisor u of p + 1 is ≡ 1, 2 (mod 4), u ∉ 𝒞_p, and t = 1 + (p+1)/u ≡ 2 (mod 4) or ≡ 3 (mod 8), t ∉ 𝒞_p
+   (p ≡ 1 (8)); v = 1 ∉ 𝒞_p. Hence these four p have no prime-level certificate at all.) Tail
    statistics (Q₄, Q_C := least prime q giving a prime-level certificate of the respective type): the Q_C tail
    #{p : Q_C(p) ≥ 2^b} roughly halves per doubling of 2^b; the Q₄ tail decays more slowly (ratios ≈ 0.68–0.71 per
-   doubling at b = 10…13). The data *suggest* (not proved) that infinitely many p have no prime-level certificate with
-   q < p, in which case a pointwise proof must exploit composite divisors d of p + c / cp + 1, i.e. *how several prime
-   factors of one shifted integer combine in (ℤ/c)^×*.
+   doubling at b = 10…13). The data *suggest* (not proved) that infinitely many p have no prime-level certificate, in
+   which case some primes need composite certificate divisors d of p + c / cp + 1. (Assessment, not a theorem: a
+   pointwise proof would then have to handle how several prime factors of one shifted integer combine in (ℤ/c)^×.)
 4. **The sieve itself is not pointwise**: Montgomery's sieve bounds the *number* of survivors; it cannot show that a
    given p is not a survivor, and by item 3 survivors of the prime-level sieve with q < p exist in the tested range.
 5. **Least non-residue tools do not directly help.** L3.1 needs (d/p) = −1, and Burgess provides a prime
@@ -342,7 +364,21 @@ difficulty of T_θ is entirely the pointwise nature, not the window.
 `scripts/z53_upper_primecert.c`: prime-level certificates to 10⁸ (§5.2.3), `primecert_1e8*.txt`.
 `scripts/z53_upper_hcpoint.py`: HC(p) with witnessing word for given p (spot checks in §5.2.3).
 
-## 7. Reproduction
+## 7. Review log
+
+- **Subagent referee (deep mode, line by line).** No fatal error; 12 fixable issues (scope of the reciprocity
+  obstruction, S_1 vs ES, prime-level evidence wording, Q₄/Q_C tail statistic, Burgess wording, false subproduct
+  criterion, sieve-gap attribution, T4.3 small primes and ε range, small-parameter constants, θ/2 consequence, Dickson
+  admissibility) — all fixed.
+- **Cross-model review** (`data/z53/xreview/REVIEW_UPPER.md`, ACCEPT-WITH-FIXES). All PROVED items classified CORRECT;
+  both C programs rerun to 10⁸ with byte-identical output. Required fixes applied: (1) §0 novelty rewritten — T4.1 is an
+  elementary reproof, the repo (`EXSET_I3.md` §7, `I3_DEEP_ASTRA.md` Lemma 8.7/Thm 8.8) already implies HC ≤ p^θ outside
+  a smaller exceptional set; the HC census, HC = 3/4 criterion and K = 1 case of T4.2 are from
+  `LOWERTAIL_ROUND2_FABLE.md`; (2) §5.2.3 keeps the q < p scope, adds the boundary argument excluding q > p for the four
+  named primes, methodological judgments labelled Assessment, and the `primecert` output label corrected to "no q<p";
+  (3) p ≡ 1 (mod 4) explicit in T4.2/T4.3 and the bound κ ≤ 2H_K justified.
+
+## 8. Reproduction
 
 ```
 ulimit -v 6000000
