@@ -1,0 +1,71 @@
+{
+ "q=3,k=2": {
+  "proportion_v_q(u)_by_a": {
+   "1": {
+    "0": 0.7,
+    "1": 0.2,
+    "2": 0.1
+   },
+   "2": {
+    "0": 0.7,
+    "1": 0.2,
+    "2": 0.1
+   }
+  },
+  "note": "classes a with q | a not shown; uniform-in-u prediction is (1-1/q)q^-j style"
+ },
+ "q=3,k=3": {
+  "proportion_v_q(u)_by_a": {
+   "1": {
+    "0": 0.7,
+    "1": 0.2,
+    "2": 0.06667,
+    "3": 0.03333
+   },
+   "2": {
+    "0": 0.7,
+    "1": 0.2,
+    "2": 0.06667,
+    "3": 0.03333
+   }
+  },
+  "note": "classes a with q | a not shown; uniform-in-u prediction is (1-1/q)q^-j style"
+ },
+ "q=5,k=2": {
+  "proportion_v_q(u)_by_a": {
+   "1": {
+    "0": 0.80769,
+    "1": 0.15385,
+    "2": 0.03846
+   },
+   "2": {
+    "0": 0.80769,
+    "1": 0.15385,
+    "2": 0.03846
+   }
+  },
+  "note": "classes a with q | a not shown; uniform-in-u prediction is (1-1/q)q^-j style"
+ },
+ "q=7,k=2": {
+  "proportion_v_q(u)_by_a": {
+   "1": {
+    "0": 0.86,
+    "1": 0.12,
+    "2": 0.02
+   },
+   "2": {
+    "0": 0.86,
+    "1": 0.12,
+    "2": 0.02
+   }
+  },
+  "note": "classes a with q | a not shown; uniform-in-u prediction is (1-1/q)q^-j style"
+ },
+ "closed_form_N1_ok": {
+  "3": true,
+  "5": true,
+  "7": true,
+  "11": true,
+  "13": true
+ }
+}
