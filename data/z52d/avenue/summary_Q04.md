@@ -34,8 +34,7 @@ Novelty: 0 → 63, 1 → 50, 2 → 0. Every plaus-3 row is a calibration lemma, 
   to a unit fraction only as 2-term 4/p = 1/m + 1/z, which is impossible at p ≡ 1 (4). Otherwise the residual split is ES itself. **Z0064**: in ℤ_{≥0}[√2], e ∈ 1/C + 1/C forces e ∈ {1, √2, 2}, so no unit mechanism.
 * **Z2909**: 4/p ∉ S₂, so it is isolated in the closure of S₃ and no near-solution argument can exist. **Z0741**: a pointwise law U₈ ≥ c·U₄ is false at 241.
 
-**Corrections.** Z0010: the FF T1 analogue is PROVED for U_q only, and ES_q squares are mostly solvable. Z0239: fixed-level certificates are not
-Chebotarev conditions on p. Z0268: norms are not additive, so there is no 'norm projection'. Z0093: the item's cone contains negatives.
+**Corrections.** Z0010: FF T1 is PROVED for U_q only. Z0239: fixed-level certificates are not Chebotarev conditions on p. Z0268: no norm projection exists.
 
 **Assessment.** Nothing in Q04 escapes B1/B2/B3/T1. Unit-rich cones collapse ES to a covering, with no ℤ shadow, and discrete cones are twin lotteries with no
 transfer. The one new empirical signal (pseudosquare depletion) is adversarial-test material for the lower tail.
