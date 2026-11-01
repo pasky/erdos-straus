@@ -13,6 +13,7 @@ Scripts `scripts/z53_genusredei_*`; data `data/z53/genusredei/` (144 KB).
   120 stratum tests); odd squares and near-squares are detected at z down to −80 and −42 (positive controls).
 * cp3: full proofs (§3–§5): law lemma (PROVED), Joint Realisation Theorem (CONDITIONAL on HC), unconditional partial
   realisation (PROVED), Dickson-hardness of the exact statement (PROVED), exact bounded-level forcing criterion (CONDITIONAL).
+* cp3b: Theorem P (§5.5; pointwise, unconditional, any number of levels) and its census at actual primes (§6.3).
 * cp4: hostile review (§10) and repairs.
 
 ## 1. The statement attacked (precise)
@@ -60,6 +61,10 @@ classes and the parity links?
   by the one-large-factor configuration — exactly the B1 criterion of CLASS_FORCING Prop 3.2. This upgrades CLASS_FORCING
   Thm 6.1 (one-sided; only data with trivial abelian shadow) to an exact criterion for every Chebotarev datum, and shows
   that decorations (spins, quartic symbols, Rédei matrices) cannot change it.
+* (PROVED, §5.5, **Theorem P**) Pointwise at a fixed p and jointly over *any* finite (even growing) family of levels: at every
+  level with |G²| > (2^k − 2)|Σ(s)| (k = number of private factors) the event is not a function of the factors' full quadratic /
+  2-power profile (genus characters, Legendre and quartic symbols at p, the joint Rédei matrix) plus the product laws. Quadratic
+  data can decide the event essentially only at the exponent-2 levels t | 24 (exact census at 12 370 primes, §6.3).
 * (PROVED, §5.4) At odd squares an extra law (L3□) holds, and it is exactly T1; at near-squares p = m² + k representation laws
   appear (the (J)53 deformation). Joint laws beyond (L1)–(L5) arise only from data of p that are not Frobenius data, and the
   ones known are anti-forcing.
@@ -287,9 +292,8 @@ part of h has odd order and its 1 + qℤ_q-part lies in a uniquely 2-divisible g
 the fake residue of ℓ_{j,i} modulo any m by CRT — ℓ_{j,i}·h̃ on the t_j-primary components, ℓ_{j,i} itself on the components prime to
 t_j — the fake data agree with the true data on: (i) the value at every factor of every quadratic character (resp. every character
 of 2-power order) of every conductor; (ii) every residue modulo moduli prime to t_j — in particular the symbols (ℓ/p)_n at n = p,
-all mutual Legendre symbols (ℓ/ℓ′) and (ℓ′/ℓ) between factors (the joint Rédei matrix of all N_j; the reverse symbols via (ii)
-and ℓ mod 4, which is unchanged since squares are 1 mod 4 and odd-order elements are trivial mod 4), and all data of the other
-lines; (iii) the product law at every level and the smooth parts. Hence **at every level satisfying the hypothesis the event
+all mutual Legendre symbols (ℓ/ℓ′) and (ℓ′/ℓ) between factors (the joint Rédei matrix of all N_j: they involve ℓ only through
+its residue modulo the other primes and as a modulus, neither of which is touched), and all data of the other lines; (iii) the product law at every level and the smooth parts. Hence **at every level satisfying the hypothesis the event
 "some divisor of N_j is ≡ −1 (mod t_j)" is not a function of these data**, jointly over all levels.
 *Reading.* This is the pointwise (fixed-n, unconditional, any number of levels) version of "reciprocity forces parity, never
 class": no argument whose input about the factors is their quadratic / 2-power profile (genus characters, Rédei symbols,
@@ -345,7 +349,7 @@ non-residues), ε free: exactly 12 law-compatible configurations. Observed: 0 la
 with counts 1010–1188 for each of the 8 residue-class configurations (a₁ ∈ {1, 7}) and 2169–2328 for each of the 4 non-residue ones
 (a₁ ∈ {5, 11}), i.e. close to equal frequency within each class type, as the free (HC-type) heuristic predicts.
 
-**6.3 Theorem P at actual primes (CERTIFIED for the stated ranges by exhaustive search; scripts `z53_genusredei_twist.py`,
+**6.3 Theorem P at actual primes (exact computation, one engine — EVIDENCE until independently reproduced; scripts `z53_genusredei_twist.py`,
 `…_twistscan.py`, `…_twistlevels.py`; data `twist_X100_1e7_1.04e7.txt`, `twist_levels_X100.txt`).** For all 12 370 primes
 p ≡ 1 (4) in [10⁷, 1.04·10⁷] and the (★) levels C ≤ X = 100 (t = 4C), private primes = primes > X dividing 4Cp + 1 exactly once
 (automatically private: ℓ | N_C, N_{C′} ⟹ ℓ | C − C′). Each level with the event is classified as B1 (−1 ∈ Σ(s) ∪ Σ(s)g: visible
@@ -370,7 +374,10 @@ large prime exceeds every level).
    family. The only such mechanism known is the BM layer ((J)103 Prop 2.2: some level with a non-residue factor) — a parity
    statement. *Push:* is there an ∃-level statement at the next (quartic or odd) layer? Corollary 4.1 says that at each fixed
    level the quartic/odd layer is jointly free even given all decorations, so such a statement would have to come from
-   counting across levels (a lower-tail statement of (★)-type), not from algebra at any level. **Assessment:** this hatch is B2.
+   counting across levels (a lower-tail statement of (★)-type), not from algebra at any level. **Pushed (Theorem P, PROVED):** the
+   algebraic part of this hatch is closed pointwise and unconditionally — at fixed p, even with the full 2-power profile of every
+   factor at every level of an arbitrary finite family, the event at each level with |G²| > (2^k − 2)|Σ(s)| is undetermined; only
+   the odd part of the actual classes decides it. **Assessment:** what remains of this hatch is the counting (lower-tail) form of B2.
 2. **Non-Frobenius data of p.** Prop 5.4(b): representation data (p = m² + k) do impose joint laws — always subgroup restrictions,
    i.e. anti-forcing; under H with irreducible lines they leave Corollary F's criterion unchanged; reducibility is the
    thin-family mechanism, unavailable at a general prime ((J)84 Thm A). Class groups of fields depending on p and the level
@@ -385,11 +392,13 @@ large prime exceeds every level).
    one quadratic link per factor, the cross-line links, and reciprocity — nothing at the quartic or odd layer.
 
 ## 8. Verdict
-**Narrowed** (with a strengthening of CLASS_FORCING §6). FRONTIER §7.6 is answered as a scoped no-go: at every finite set of
+**Narrowed** (with a strengthening of CLASS_FORCING §6 and a new pointwise no-go, Theorem P). FRONTIER §7.6 is answered as a scoped no-go: at every finite set of
 lines/levels and for every Chebotarev datum of p, the joint law of the classes of *all* prime factors, even decorated by all
 n-th power symbols at p and the full joint Rédei matrix, is exactly product + parity + cross-line parity + reciprocity
 (Lemma 3.1 PROVED; Theorem JRT CONDITIONAL on HC; Theorem U PROVED for partial configurations); bounded-level forcing by any such
-data is exactly the B1 congruence criterion (Corollary F, CONDITIONAL on HC). What survives: (i) growing level families (= B2),
+data is exactly the B1 congruence criterion (Corollary F, CONDITIONAL on HC). Pointwise and unconditionally, at any family of
+levels, the 2-power profile of the factors (everything Rédei/spin/genus/quartic-symbol-like) plus the product laws does not
+determine the event at any level with |G²| > (2^k − 2)|Σ(s)| (Theorem P, PROVED). What survives: (i) growing level families (= B2),
 (ii) non-Frobenius representation data of p (anti-forcing only, as far as known). The unconditional exact theorem is
 Dickson-hard (Prop D), so "CONDITIONAL on HC" is the honest ceiling for this kind of no-go.
 What it buys: §7.6 can be removed from the open list (or demoted to "closed relative to HC"); the "class beyond parity" question
@@ -419,7 +428,9 @@ statement across growing level families, not an algebraic law.
 > is exactly the B1 criterion of CLASS_FORCING Prop 3.2 (Corollary F), in every Chebotarev class (upgrading Thm 6.1).
 > Unconditionally: every finite partial configuration occurs with positive density (Theorem U); the exact statement contains an
 > open prime pair (Prop D). Odd squares differ from primes by exactly one extra law (T1); near-squares by representation laws
-> (anti-forcing). EVIDENCE: a free model with only the product law fits bounded-level event rates of primes to 10⁸, with no
+> (anti-forcing). Pointwise and unconditionally (Theorem P): at a fixed p, over any family of levels, the full quadratic/2-power
+> profile of the factors plus the product laws leaves the event undetermined at every level with |G²| > (2^k − 2)|Σ(s)|; an exact
+> census (12 370 primes near 10⁷, C ≤ 100) finds quadratically-determined levels essentially only at C | 6. EVIDENCE: a free model with only the product law fits bounded-level event rates of primes to 10⁸, with no
 > dependence on non-abelian Frobenius data, and detects squares/near-squares at 20–80σ. What remains is growing level families,
 > i.e. B2.
 
@@ -428,5 +439,7 @@ Data at a fixed prime — Frobenius in any fixed field, quartic/spin symbols of 
 factors — constrain the classes of all prime factors of p + 4d / 4Cp + 1 / the e-slice integers jointly by exactly the product law,
 one quadratic link per factor, the cross-line links and reciprocity (PROVED), and nothing else at any bounded set of levels
 (CONDITIONAL on HC; the unconditional exact form is as hard as cousin primes, and the unconditional partial form is PROVED).
+At a single fixed prime, unconditionally, the whole 2-power profile of the factors across any family of levels does not
+determine the B2 event except at tiny groups such as the exponent-2 levels (Theorem P).
 Consequently the joint/higher-genus angle cannot force the B2 class: §7.6 closes as a scoped no-go, odd squares are separated
 from primes by exactly the T1 law, and the only remaining freedom is across growing families of levels — B2 itself. ES remains open.
