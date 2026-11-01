@@ -8,7 +8,8 @@ Brief: `z52bbriefs/z53_depth.md`, lane kickoff `z52bbriefs/z53_lanes.md` §SQSIE
 (Theorem 1: R(n) ≪ n^{1/3−1/225}(log n)², cross-reviewed in `data/z53/xreview/REVIEW_HYPSUMPROD.md`). Scripts
 `scripts/z53_sqsieve_*`, data `data/z53/sqsieve/`.
 
-*Status: CHECKPOINT 1 (skeleton; statements, why open, first lemmas and first falsifier checks).*
+*Status: full draft (checkpoint 1 was commit facb8fc5).* Verdict: (S1) **strengthened** — R(n) ≪ n^{12/37+ε}; (S2) **narrowed**;
+(S3) **dead (scoped)**. See §9.
 
 ## 0. Notation (as in HYPSUMPROD)
 
@@ -295,3 +296,101 @@ the class-blind average; counting integral points of the quadric xy − 4nC = 1 
 tie only at ≤ τ(q²) heights (HYPSUMPROD Cor A′), and such counts are T1-blind (low-conductor universality).
 **Verdict for (S3): dead as scoped** — the square sieve's tie-detection is upper-bound-only (Lemma C3); the only
 square-sensitive ingredient is the BM twist (C1, conductor n); conic/representation lower bounds are B2 or closed items.
+
+## 7. Computations (scripts `scripts/z53_sqsieve_*`, data `data/z53/sqsieve/`, < 50 kB)
+
+### 7.1 Lemma checks (CERTIFIED for the stated finite ranges)
+* `z53_sqsieve_checks.py 23 20000`: Lemma W (a)–(c) for all odd primes q ≤ 23 and all (n, c, ℓ) mod q (27 962 cases; max
+  |G|/√q = 1.931); Lemma C1(ii) for all 87 388 (★) triples with odd n ≤ 20 000 and gcd(uBC, n) = 1 (0 violations; no triple
+  at an odd square).
+* `z53_sqsieve_poisson.py`: Lemma P with Gaussian Φ to ≤ 1.3·10⁻¹¹ (n = 1 000 003, 999 999 937, 998 001 = 999²,
+  8 813 281).
+* `z53_sqsieve_exponents.py`: exact rational vertex check of §4.5 (Thm A, A′ with Bourgain's pair, A″, and the (1/6, 2/3)
+  exponent-pair form); `z53_sqsieve_reach.py`: diagonal reach (§5.1).
+
+### 7.2 Strip statistics (EVIDENCE; `z53_sqsieve_strip.c`; columns: |𝒜|, squares, |𝒜⁻|, rms and max |S_Q| over pairs)
+
+| n | type | block | P (P₀) | |𝒜| | □ | |𝒜⁻| | rms S_Q | max S_Q | √|𝒜| |
+|---|---|---|---|---|---|---|---|---|---|
+| 10 000 000 000 000 753 | prime ≡ 1 (24) | balanced, V = 10⁴, W = 6.25·10⁶ | 1000 (135) | 3 403 | 0 | 1 762 | 57.8 | 217 | 58.3 |
+| 10 000 000 200 000 001 = (10⁸+1)² | odd square | same | 1000 (135) | 3 561 | 0 | 0 | 59.6 | 221 | 59.7 |
+| 10 000 000 200 000 005 | near-square m² + 4 | same | 1000 (135) | 3 561 | 0 | 1 300 | 60.1 | 240 | 59.7 |
+| 1 000 000 000 000 249 | prime ≡ 1 (24) | cube-type, W = 4·10⁴, s ∈ (5·10⁴, 4·10⁵] | 100 (21) | 60 681 | 0 | 30 303 | 233.5 | 673 | 246.3 |
+| 1 000 000 025 191 729 = 31 622 777² | odd square | same | 100 (21) | 60 774 | 0 | 0 | 246.7 | 726 | 246.5 |
+| 1 000 000 025 191 733 | near-square | same | 100 (21) | 60 773 | 0 | 30 081 | 253.5 | 710 | 246.5 |
+| 8 813 281 | test prime (★ fails) | W = 100, s ∈ (150, 1200] | 50 (10) | 177 | 0 | 83 | 12.7 | 30 | 13.3 |
+| 712 321 | test prime (★ fails) | W = 40, s ∈ (60, 500] | 30 (7) | 78 | 0 | 39 | 8.2 | 17 | 8.8 |
+| 1 000 000 007 | prime | W = 300, s ∈ (500, 4000] | 50 (10) | 605 | 1 | 291 | 24.3 | 62 | 24.6 |
+| 1 000 014 129 = 31 623² | odd square | same | 50 (10) | 603 | 0 | 0 | 29.5 | 72 | 24.6 |
+
+(P = 100 runs of the balanced block: `strip_balanced.txt`.) All squares found lie in 𝒜⁻; |𝒜⁻| = 0 at odd squares (C1);
+rms |S_Q| ≈ √|𝒜| everywhere, including the balanced block (Prop B2 Remark 1): the character sums are T1-blind and
+square-root size, exactly as an n-uniform upper-bound input must be. (H) of Lemma C3 holds in every run.
+
+### 7.3 Falsifier F3 (EVIDENCE): see §6 (`lambda_falsifier.txt`).
+
+## 8. FRONTIER §4 hard screens (for Theorem A and for the reverse-direction question)
+1. **T1 (odd squares).** Theorem A is an n-uniform upper bound, true at m² (R = 0); it does not and cannot imply positivity.
+   For the reverse direction, T1 is located exactly: the only square-sensitive ingredient is the BM twist (Theorem C1);
+   all sieve data of auxiliary conductor are T1-blind (§7.2, F3).
+2. **8/131.** The upper-bound argument transfers to other numerators (it uses only the root structure of (u, B) and a
+   linear relation level·k ↔ s): harmless for an upper bound; silent on 8/131.
+3. **Tied modulus.** Used, as in HYPSUMPROD: the tie is the square condition; the moving modulus 4C is absorbed into the
+   strip, and only fixed auxiliary moduli Q appear. The new step is cancellation in the *k*-direction via complete
+   Kloosterman sums, not a tie-breaking lower bound (B2 untouched).
+4. **Fixed p.** Passed: pointwise in n; averages only over C, k (within the strip), ℓ, and the auxiliary primes.
+
+## 9. Verdict
+* **(S1) strengthened.** R(n) ≪_ε n^{12/37+ε} for every n (Theorem A; PROVED relative to Weil's Kloosterman bound and the
+  third-derivative test); n^{21/65+ε} relative to Bourgain's exponent pair (Thm A′); n^{4/13+ε} under the exponent-pair
+  conjecture (Cor A″). The saving over p^{1/3} grows from 1/225 ≈ 0.0044 to 1/111 ≈ 0.0090 (2/195 ≈ 0.0103 with Bourgain).
+  The cube block drops from n^{8/25} to n^{17/54+ε}. What it buys: the FRONTIER error benchmark |E(p)| ≪ p^{θ} improves to
+  θ = 12/37 + ε. What it does not buy: anything about positivity.
+* **(S2) narrowed.** Exact reach of the bound (§5.1); no implementation of the k-Poisson square sieve reaches the balanced
+  block, even with square-root cancellation in every C-sum (Prop B2, PROVED for the specified class); the truth (rms |S_Q|
+  ≈ |𝒜|^{1/2}) is fine, so what is missing is a bilinear (ℓ, C) cancellation estimate — or, equivalently, χ_Q-twisted
+  divisor sums over divisors near √m of integers in an interval of length m^{1/4}.
+* **(S3) dead (scoped).** Square-sieve tie-detection is upper-bound-only (Lemma C3: minorants have non-positive main
+  coefficient, positivity would need signed asymptotics of the auxiliary sums); square-sensitivity enters only through the
+  BM twist (C1); conic/representation-count lower bounds are B2 or closed items (C4). EVIDENCE F3: the detection statistic
+  does not separate primes from odd squares pointwise.
+
+## 10. Proposed FRONTIER §7 text (do NOT edit FRONTIER here)
+Append to §7.1:
+> *(z53, `Z53_SQSIEVE.md`; internal.)* **Square-sieve exponent improved to 12/37.** Smoothing the strip in s and applying
+> Poisson in k *inside* each C turns the χ_{qq′}-twist into complete Kloosterman sums (size √Q) times exponential sums
+> Σ_{C≡c₀ (Q)} e(ℓn/(4CQ)); with the third-derivative test and per-block optimisation, R(n) ≪ n^{12/37+ε} for every n
+> (worst block (α, β, γ) = (12/37, 13/37, 12/37); cube n^{17/54+ε}); n^{21/65+ε} with Bourgain's exponent pair; n^{4/13+ε}
+> under the exponent-pair conjecture. Reach: no k-Poisson implementation reaches the balanced block, even with square-root
+> C-sums (the truth is square-root; a bilinear (ℓ, C) estimate would be needed). Reverse direction: square-sieve minorants
+> have non-positive main coefficient, the only square-sensitive ingredient is the BM twist (−uB/n) = −1, and conic /
+> representation lower bounds are B2: the square sieve cannot touch positivity.
+In §3 ("Tied modulus") and §2.2 replace "p^{1/3−1/225+o(1)}" by "p^{12/37+o(1)} (z53 SQSIEVE; p^{21/65+o(1)} relative to
+Bourgain's exponent pair)". In §6 add: "square-sieve lower bounds / square-sensitive square sieve → minorants have main
+coefficient ≤ 0; square-sensitivity only via the BM twist → `Z53_SQSIEVE` Thm C".
+
+## 11. Bottom line
+The square sieve on the tied hyperbola has more in it than HYPSUMPROD extracted: opening the character in the k-variable
+by Poisson summation, inside each fixed C, produces complete Kloosterman sums of square-root size, and the remaining
+exponential sums in C are classical. This proves R(n) ≪ n^{12/37+ε} for every n (n^{21/65+ε} with Bourgain's exponent pair,
+n^{4/13+ε} conditionally). The route stops short of the balanced block u, B ≍ p^{1/4} for a structural reason, even with
+square-root C-sums: summing the dual frequencies first undoes the Poisson step, and the strip there has ≤ 1 point per C.
+In the reverse direction the square sieve is one-sided in a precise sense — every quadratic minorant has a non-positive
+main coefficient — and the only square-sensitive ingredient is the Brauer–Manin twist. So the square sieve can keep
+improving the error benchmark but cannot reach positivity. ES remains open.
+
+## 12. Reproduction
+```
+cd $REPO
+ulimit -v 4000000; timeout 900 uv run --with sympy python scripts/z53_sqsieve_checks.py 23 20000        # ~2 min
+for a in "1000003 3 5 90 130 100" "999999937 7 11 900 1100 1000" "998001 3 7 90 120 100" "8813281 5 13 180 230 200"; do
+  timeout 600 uv run --with sympy python scripts/z53_sqsieve_poisson.py $a; done
+timeout 60 uv run python scripts/z53_sqsieve_exponents.py; timeout 300 uv run python scripts/z53_sqsieve_reach.py
+gcc -O2 -o /tmp/z53strip scripts/z53_sqsieve_strip.c -lm
+ulimit -v 3000000; timeout 900 /tmp/z53strip 10000000000000753 6250000 20000 40000 1000     # balanced block, ~1 min
+timeout 900 /tmp/z53strip 1000000000000249 40000 50000 400000 100                            # cube-type, ~1 min
+timeout 1500 uv run --with sympy python scripts/z53_sqsieve_lambda.py /tmp/z53strip 1e10 150 40   # F3, ~5 min
+```
+
+## 13. Review log
+(pending)
