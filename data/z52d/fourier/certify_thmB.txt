@@ -1,0 +1,7 @@
+5211721 479 N = 1303050 {2: 1, 3: 1, 5: 2, 7: 1, 17: 1, 73: 1} forced True (q-1)/2 prime True box hits -1: False |H| = 478 of 478 | box size 449
+1714441 503 N = 428736 {2: 6, 3: 1, 7: 1, 11: 1, 29: 1} forced True (q-1)/2 prime True box hits -1: False |H| = 502 of 502 | box size 455
+102001 1907 N = 25977 {3: 1, 7: 1, 1237: 1} forced True (q-1)/2 prime True box hits -1: False |H| = 1906 of 1906 | box size 27
+103681 1619 N = 26325 {3: 4, 5: 2, 13: 1} forced True (q-1)/2 prime True box hits -1: False |H| = 1618 of 1618 | box size 135
+101161 1523 N = 25671 {3: 1, 43: 1, 199: 1} forced True (q-1)/2 prime True box hits -1: False |H| = 1522 of 1522 | box size 21
+1249 59 N = 327 {3: 1, 109: 1} forced True (q-1)/2 prime True box hits -1: False |H| = 58 of 58 | box size 9
+31121 43 N = 7791 {3: 1, 7: 2, 53: 1} forced True (q-1)/2 prime False box hits -1: False |H| = 42 of 42 | box size 37
