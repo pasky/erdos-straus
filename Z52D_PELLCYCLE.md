@@ -8,7 +8,10 @@ Does NOT rule out: … Pell or class-group cycle data".
 
 ## 0. Verdict in one paragraph
 
-**C4 is dead as stated (principal-cycle data of √p used as forest roots), CONDITIONAL on Hypothesis H.** Under H there are
+**C4 is dead as stated, CONDITIONAL on Hypothesis H, in exactly this scope:** the cycle-root statement CR(R) fails
+infinitely often for every root set R ⊆ R3 ∪ U (Def 1.2), even with unrestricted forest exploration (full components). This
+does not exclude arbitrary functions of the cycle data, other forms' orbits, other certificate coordinates, or other growing
+root sets. Under H there are
 infinitely many primes p = m² + 1 ≡ 1 (mod 24) (m = 60t, five quadratics prime) at which every component of F_p meeting the
 full principal-cycle data of √p and of (1+√p)/2 is monochromatic (Theorem 1.1). The data cover:
 * all P_k, Q_k and partial quotients;
@@ -20,20 +23,24 @@ There the Pell cycle adds nothing to the fixed roots {1, 2, 4}. Note that (J)106
 freezing 1, 2, 4 there is exactly what Theorem 1.1 does under H.
 
 The computation on the brief's families plus controls gives (CERTIFIED counts; rates are EVIDENCE):
-* Per root, a cycle element **differs from a random vertex of the same size by ≤ 0.4 pp** (≤ 20 % relative, on a
-  1.5–3 % base). Small effects of both signs reach 2–5σ, but none is a mechanism. Against size-matched draws the pooled
-  difference is −0.09 ± 0.08 pp over 356 primes; against size+colour-matched draws it is +0.22 ± 0.07 pp. The pool is
-  mostly controls; the 16 hard primes alone give no power.
+* Per root, the pooled estimates (356 primes, mostly controls) put cycle elements close to random vertices of the same
+  size: −0.09 ± 0.08 pp against size-matched draws and +0.22 ± 0.07 pp against size+colour-matched draws, on a 1.5–3 % base.
+  Small effects of both signs reach 2–5σ. This is an observation about these samples and estimators, not a proven bound.
+  On the 16 hard primes alone the paired estimates are imprecise (e.g. −0.67 ± 1.08 pp, −1.04 ± 1.05 pp, −0.70 ± 1.07 pp),
+  so no small-difference bound is established there.
 * The Dickson family 2521 + 9240a is no harder than its class-matched controls.
-* At long periods the cycle wins only by multiplicity: hundreds of roots at a ~2 % per-root rate.
+* Assessment: at long periods the cycle's success is consistent with multiplicity alone (hundreds of roots at a ~2 %
+  per-root rate). The data do not prove that no arithmetic effect exists.
 
 Over all 1.44 M primes p ≡ 1 (8) < 10⁸, CR(R0) fails at 98 primes, at a rate that does not visibly decay beyond 2·10⁷,
 including periods in the thousands. CR(R3) fails at 6 primes, all of period ≤ 5. Below 4·10⁷, size-matched random root sets
-fail about equally often (50 cycle vs 39 random for R0; §3.4). If anything the cycle is slightly worse than random.
+fail at a comparable rate (50 cycle vs 39 random for R0; §3.4). A non-significant McNemar test (1.7σ) does not prove equal
+robustness.
 
-The only p-dependent survivor is the all-cycles (class-group) root set. It contains every a < √p with p a square mod a
-(Prop 2.4) and never failed below 2·10⁷. That is FRONTIER §7.2's generic growing-root question, not a Pell mechanism.
-Verdict: **dead** (CONDITIONAL on H), with the narrowing above. ES is open.
+One surviving candidate we investigated is the all-cycles (class-group) root set. This is not an exhaustive list of
+survivors. It contains every a < √p with p a square mod a (Prop 2.4) and never failed below 2·10⁷. Assessment: it is closer
+to FRONTIER §7.2's generic growing-root question than to a Pell mechanism. Verdict: **dead** (CONDITIONAL on H) for
+R ⊆ R3 ∪ U, with the narrowing above. ES is open.
 
 ## 1. The near-square lemma (rank_O decisive test 1)
 
@@ -238,7 +245,7 @@ b + √p > a) and x̄ = (b − √p)/a ∈ (−1, 0). (a) is standard: x ↦ 1/(
 here and not used: below, "c(p) = 2" means only that S and W are all the cycles, and the "class number one" reading is an
 interpretation.) EVIDENCE (`scripts/z52d_pellcycle_cycles.py`, `data/z52d/pellcycle/cycles_table.md`):
 
-| p | c(p) | period S / W | \|S(p)\| | share of S(p) in R0 | in R2 |
+| p | c(p) | period S / W | \|S(p)\| | share of S(p) among Q-values of S | among Q-values of S ∪ W |
 |---:|---:|---|---:|---:|---:|
 | (★)-zeros ≤ 10⁶ except 577 (409, 5569, …, 712321), plus 2521, 3361 | 2 | 21/27 … 1867/1865 | 15 … 521 | 0.53–0.63 | 1.000 |
 | 577 = 24² + 1 | 14 | 1/3 | 16 | 0.062 | 0.188 |
@@ -246,13 +253,19 @@ interpretation.) EVIDENCE (`scripts/z52d_pellcycle_cycles.py`, `data/z52d/pellcy
 | 1 299 601 = 1140² + 1 | 714 | 1/3 | 654 | 0.002 | 0.005 |
 
 **Reading (Assessment).** The principal cycle interpolates between two extremes, and neither helps:
-* When c(p) = 2 (all reduced irrationals lie in S or W), R2 already contains every a < √p with p a square mod a. By Lemma 1.3 every edge has its
+* When c(p) = 2 (all reduced irrationals lie in S or W), the Q-values of S ∪ W, and hence R2, already contain every a < √p
+  with p a square mod a. By Lemma 1.3 every edge has its
   smaller endpoint below √p + 1, so "a cycle root has a bichromatic component" is then nearly a restatement of ES₅ restricted
   to split small endpoints.
 * At near-squares (large class number, regulator ≍ log p), the cycle is a bounded polynomial recipe, and Theorem 1.1 kills
   it under H.
 
-Nothing about the CF dynamics was used in either case. The cycle enters only as a set of integers of size ≤ 2√p.
+(The table measures Q-values only. The full R0 and R2 also contain P-values and partial quotients and so cover more: at
+577, 2/16 and 5/16; at 409, 10/15 for R0; at 1297, 2/22 and 4/22; at 1 299 601, 2/654 and 4/654. These figures are from
+the cross-model review.)
+
+Nothing about the CF dynamics was used in either case. The cycle's P, Q and a data enter only as integers of size ≤ 2√p.
+Bounded convergents in R3 can be larger, e.g. 4m at p = m² + 1.
 
 ## 3. The falsifier computation (rank_A + rank_O decisive test 2)
 
@@ -309,7 +322,8 @@ The paired per-prime difference "cycle rate − baseline rate", mean ± s.e. ove
 | R0 | −0.09 ± 0.08 pp | +0.22 ± 0.07 pp | −0.17 ± 0.07 pp | +0.23 ± 0.06 pp |
 | R3 | −0.12 ± 0.06 pp | +0.03 ± 0.06 pp | −0.18 ± 0.06 pp | +0.04 ± 0.06 pp |
 
-* **Per element, cycle roots differ from random roots by ≤ 0.4 pp** (base rate 1.5–3 %). Pooled effects at ≥ 2σ are
+* **Per element, the pooled estimates put cycle roots close to random roots** (base rate 1.5–3 %). This is a sample- and
+  estimator-specific observation, not a proven bound. Pooled effects at ≥ 2σ are
   listed below; several within-family effects also reach 2–5σ (e.g. R3, CD, depth 2 vs size: −0.14 ± 0.03 pp; see
   `census_tables.md`).
   * R0 vs size+colour: +0.22 ± 0.07 pp, and +0.37 ± 0.12 pp within D. This is plausibly the Q-roots being split integers
@@ -318,16 +332,18 @@ The paired per-prime difference "cycle rate − baseline rate", mean ± s.e. ove
   * R3 vs size: −0.12 ± 0.06 pp (full) and −0.18 ± 0.06 pp (depth 2).
   * R3 vs size+colour: +0.20 ± 0.06 pp in D and +0.16 ± 0.06 pp in CD (within-family).
 
-  The signs go both ways and the sizes are ≤ 0.4 pp, i.e. ≤ 20 % relative. None of this is a mechanism. **Power caveat:** on
-  the hard primes themselves (Z ∪ N, 16 primes) the paired s.e. is ≈ 1 pp on a 1.6 % base, so the test there has
-  essentially no power. The pooled statement rests mostly on the 59 D primes and 281 controls.
+  The pooled signs go both ways and the pooled point estimates are ≤ 0.4 pp; relative to the smallest 1.5 % base that is up
+  to ≈ 27 %. Assessment: none of these looks like a mechanism, but the data do not exclude one. **Power caveat:** on the hard
+  primes themselves (Z ∪ N, 16 primes) the paired estimates include −0.67 ± 1.08 pp (R0 full vs size), −1.04 ± 1.05 pp (R0
+  depth 2) and −0.70 ± 1.07 pp (R3 full vs size+colour). The s.e. is ≈ 1 pp on a 1.6 % base, so no ≤ 0.4 pp bound is
+  established there. The pooled statement rests mostly on the 59 D primes and 281 controls.
 * **The Dickson family is not special for the cycle.**
   * D has the same per-root rate as its class-matched controls CD: 1.66 vs 1.76 % (R0).
   * Both are lower than C24 (2.19 %). D and CD share p ≡ 2521 (mod 9240), i.e. p ≡ 1 (mod 840) and p ≡ 2 (mod 11), and this
     class, not the Dickson factor (p + 11)/12 or the cycle, is the likely source of the depression (Assessment; not
     separated by a p ≡ 1 (840)-only control).
   * Thm 5.1's mechanism (ℓ(p) = 11 isolated) is invisible to the cycle, which hits at every D prime.
-* **Per prime, the cycle wins at long periods only by multiplicity.** All 356 non-H primes have a full-component hit with R0.
+* **Per prime, the cycle's wins at long periods are consistent with multiplicity** (Assessment). All 356 non-H primes have a full-component hit with R0.
   A random root set of the same sizes also hits, with P = 0.990–1.000. This P is inflated because the random sets keep the
   cycle's roots < 8.
   * At the (★)-zeros the R0 hits are few: e.g. 7 of 243 roots at 83 449, 10 of 1118 at 1 726 201, 9 of 1047 at 1 724 209.
@@ -387,8 +403,8 @@ random root set that keeps roots < 8 and replaces each root u ≥ 8 by one unifo
 | [36, 40)·10⁶ | 57,364 | 1 | 2 | 0 | 0 |
 | **total < 4·10⁷** | 608,100 | **50** | **39** | **4** | **5** |
 
-The cycle fails about as often as a random set of the same sizes, and if anything slightly more often. It is not more
-robust, which is the point at issue.
+In this sample the cycle failed at a comparable rate to random sets of the same sizes, nominally slightly more often.
+No robustness advantage was observed. The non-significant paired test below does not prove equal robustness.
 * **R0: 50 vs 39.** The counts are paired: 24 primes fail both ways, 26 fail only for the cycle and 15 only for random sets.
   McNemar gives (26 − 15)/√41 ≈ 1.7σ, not significant. The large overlap shows that failure is driven mainly by the prime,
   largely through the shared roots < 8.
@@ -406,7 +422,7 @@ robust, which is the point at issue.
   28 845 721 and 32 676 361 to 40/100 at 3 819 481. These primes were selected for cycle failure, so that comparison is
   biased.
 * Those long-period failures have many cycles: c(p) = 18, 22, 18, 10 at 1 847 401, 28 237 801, 28 845 721, 32 676 361. The
-  √p cycle covers only 12.5–25 % of S(p).
+  Q-values of the √p cycle cover only 12.5–25 % of S(p).
 * To test whether cycle membership is anti-correlated with lying in a bichromatic component,
   `scripts/z52d_pellcycle_classbias.py 10⁶ 10⁷ 400 11` (`data/z52d/pellcycle/classbias.txt`) uses 400 random primes
   p ≡ 1 (8) in [10⁶, 10⁷].
@@ -434,9 +450,10 @@ p-dependent through "p □ mod a", and not a Pell/CF mechanism.
 
 ## 4. Verdict for the cluster
 
-**Dead (CONDITIONAL on H) for the C4 missing theorem as posed, i.e. principal-cycle data used as forest roots.** The
-computation (EVIDENCE) finds no forest information in the cycle beyond size, colour and multiplicity, at the ≤ 0.4 pp level.
-What survives is no longer C4.
+**Dead (CONDITIONAL on H) for the C4 missing theorem as posed:** CR(R) fails infinitely often for every R ⊆ R3 ∪ U, even
+with unrestricted forest exploration. The verdict does not extend to arbitrary functions of the cycle data or to all Pell
+methods. The computation (EVIDENCE, sample- and estimator-specific) detected no large cycle effect beyond size, colour and
+multiplicity. Small effects of both signs are present, and the hard-prime subsample has no power.
 
 * **Z0596, Z1298** ("some element of the principal reduction cycle yields a bichromatic edge, for every p > p₀"): false i.o.
   under H, for every root set R ⊆ R3 ∪ U (Thm 1.1). Unconditionally, it fails at the explicit primes of §1.3 and §3.4, but
@@ -455,43 +472,52 @@ What survives is no longer C4.
   ω-cycle. Its "factorisation" is p + 1 = 2f₁, p + 2 = 3f₂, …. These are exactly the Dickson-frozen shifts. No descent
   closes there.
 * **Z1687, Z1048, Z0378:** unchanged (already known-false / B2 in the avenue rows).
-* **Narrowed survivor.** p-dependent root sets of growing size that are not a fixed recipe in the near-square parameter. The
-  only cycle-flavoured one is the all-classes set ⊇ S(p) (Prop 2.4). It never failed below 2·10⁷, but it is the HC-type
-  question of §7.2 restricted to split roots, and Pell structure plays no role in it.
+* **Narrowed survivors (not exhaustive).** Untouched are:
+  * p-dependent root sets of growing size that are not a fixed recipe in the near-square parameter;
+  * other functions of the cycle data, and other certificate coordinates.
+
+  The cycle-flavoured candidate investigated here is the all-classes set ⊇ S(p) (Prop 2.4). It never failed below 2·10⁷.
+  Assessment: it is the HC-type question of §7.2 restricted to split roots, and Pell structure plays no visible role in
+  it.
 
 ## 5. Proposed FRONTIER changes (do not edit FRONTIER here)
 
 * **§3 "Rooted constructions …", "Does NOT rule out".** Replace "growing/p-dependent roots, Pell or class-group cycle data" with:
-  "growing p-dependent roots. *Principal-cycle (Pell) data used as forest roots is ruled out under Hypothesis H* (CF/Pell
-  data used as other coordinates, e.g. e-slice windows or divisor classes, is a separate question): at infinitely many near-square
+  "growing p-dependent roots. *Under Hypothesis H, CR(R3 ∪ U) fails infinitely often:* for every root set R ⊆ R3 ∪ U of
+  principal-cycle data (as defined there), even with unrestricted forest exploration, there are infinitely many failures.
+  This does not rule out arbitrary functions of cycle data, CF/Pell data used as other coordinates (e.g. e-slice windows
+  or divisor classes), or Pell methods in general. At infinitely many near-square
   primes p = m² + 1 (m = 60t, five quadratics prime) every component meeting the full principal cycles of √p and (1+√p)/2 —
   all P_k, Q_k, a_k, all convergents ≤ p + 2, and the unit coordinates — is monochromatic (`Z52D_PELLCYCLE.md` Thm 1.1); and
   unconditionally at every prime m² + 1 with 60 | m the cycle roots other than 1, 2, 4 are isolated (Prop 1.6). The union of
-  *all* reduction cycles contains every a < √p with p □ mod a (Prop 2.4) and is a generic growing root set, not excluded."
+  *all* reduction cycles contains every a < √p with p □ mod a (Prop 2.4); it is one surviving candidate, not excluded."
 * **§7.2, sentence "Open: can p-dependent roots, or full reduction-cycle / Pell / class-group data, force a bichromatic
-  edge".** Replace with: "Open: can p-dependent growing root sets force a bichromatic edge? (Principal reduction-cycle / Pell
-  data used as roots cannot, under H: `Z52D_PELLCYCLE.md` Thm 1.1; per root they differ from random vertices of the same
-  size by ≤ 0.4 pp with effects of both signs, EVIDENCE pooled mostly over controls, §3.2; and they fail about as often as
-  size-matched random root sets, §3.4.)"
-* **§6 dead ends, one line.** "Pell / reduction-cycle roots in F_p → near-square primes m² + 1 freeze the cycle to a polynomial
-  recipe; dead under H → Z52D_PELLCYCLE."
+  edge".** Replace with: "Open: can p-dependent growing root sets force a bichromatic edge? (The principal-cycle root menu
+  R3 ∪ U cannot: CR(R) fails infinitely often under H for every R ⊆ R3 ∪ U, even with unrestricted forest exploration
+  (`Z52D_PELLCYCLE.md` Thm 1.1). Arbitrary functions of cycle data are not covered. In finite samples, mostly controls,
+  cycle roots showed per-root hit rates close to random vertices of the same size, EVIDENCE §3.2, §3.4.)"
+* **§6 dead ends, one line.** "Principal-cycle root menu R3 ∪ U (P_k, Q_k, a_k, convergents ≤ p + 2, unit coordinates)
+  in F_p → near-square primes m² + 1 freeze it to a polynomial recipe; CR(R3 ∪ U) fails i.o. under H → Z52D_PELLCYCLE."
 
 ## 6. Bottom line
 
 The C4 question was whether the reduction cycle of √p, a canonical object that exists at every prime, could be the
-p-dependent root source that (J)106 leaves open. It cannot:
+p-dependent root source that (J)106 leaves open. Its specified root menu R3 ∪ U cannot, under H. Arbitrary functions of
+the cycle data are not ruled out.
 * **At near-square primes** p = m² + 1 the cycle is a fixed polynomial recipe in m. When 60 | m, every cycle root ≥ 5 is
   provably isolated (Prop 1.6). Under Hypothesis H the remaining roots 1, 2, 4 can be frozen into a monochromatic component simultaneously. So
-  infinitely many hard primes (≡ 1 mod 24) defeat every principal-cycle root (Thm 1.1).
-* **At long-period primes** each cycle element differs from a random vertex of the same size by ≤ 0.4 pp, with small
-  effects of both signs (e.g. −0.09 ± 0.08 pp vs size, +0.22 ± 0.07 pp vs size+colour, over 356 primes, mostly controls;
-  the 16 hard primes alone have no power). Whole cycles fail about as often as random root sets of the same sizes. The cycle
-  succeeds there only because it contains hundreds of candidates. When S and W are the only cycles, it already contains
+  infinitely many hard primes (≡ 1 mod 24) defeat every root in R3 ∪ U, even with unrestricted exploration (Thm 1.1).
+* **At long-period primes** the pooled estimates put cycle elements close to random vertices of the same size, with
+  small effects of both signs: −0.09 ± 0.08 pp vs size and +0.22 ± 0.07 pp vs size+colour, over 356 primes, mostly
+  controls. The 16 hard primes alone are too imprecise to bound anything. Whole cycles failed at a comparable rate to
+  random root sets of the same sizes; this is not significant and is not proof of equal robustness. Assessment: the
+  cycle's success there is consistent with multiplicity, i.e. with containing hundreds of candidates. When S and W are the only cycles, it already contains
   every split a < √p.
 * **The Dickson family** 2521 + 9240a is neither helped nor hurt beyond its residue class.
 
-So the cycle is a size/multiplicity device, not an arithmetic mechanism. The only p-dependent survivor (all classes) is
-FRONTIER §7.2's generic growing-root question. ES remains open.
+Assessment: in these data the cycle behaves like a size/multiplicity device. No arithmetic mechanism was detected, but
+absence is not proved. The all-classes set is one surviving candidate (not an exhaustive list) and resembles FRONTIER
+§7.2's generic growing-root question. ES remains open.
 
 ## 7. Reproduction
 
@@ -557,3 +583,21 @@ It found no fatal problems. Its fixes, all applied:
 * coverage 12.5–25 %;
 * the draw-collision bias;
 * the census-rerun provenance.
+
+**Cross-model review (GPT/Astra).** The review is copied to `data/z52d/xreview/REVIEW_PELLCYCLE.md`.
+* **Verdict:** ACCEPT-WITH-FIXES. Every proof step was rederived independently: Lemmas 1.2–1.4, Thm 1.1 steps 1–7, the H
+  admissibility, Prop 1.6, Lemma 2.1 and Prop 2.4.
+* **Independent recomputation:** an independent checker reconstructed all 98 R0 failures, all 6 R3 failures, all 356 census
+  primes and the paired statistics. The all-cycles census, the class-bias run and the selected-prime trials were rerun
+  byte-identically. The review did not regenerate the complete 10⁸ search, so the absence of omitted failures rests on the
+  original run.
+* **Required fixes, all applied:**
+  1. The §2 coverage columns measure Q-values of S and S ∪ W, not R0 and R2. They are relabelled, with the actual R0/R2
+     shares added; the script header was renamed accordingly.
+  2. "Dead under H" is now scoped everywhere, including the headlines and the proposed FRONTIER text, to CR(R) for
+     R ⊆ R3 ∪ U with unrestricted forest exploration. Arbitrary functions of cycle data and Pell methods in general are
+     explicitly not covered.
+  3. The empirical "≤ 0.4 pp / only multiplicity / no arithmetic mechanism / only survivor" claims are weakened to
+     sample- and estimator-specific observations and Assessments. The imprecise hard-prime paired estimates are quoted, and
+     the all-classes set is called one candidate rather than the only survivor.
+  4. The §2 size remark is restricted to the P, Q, a data.

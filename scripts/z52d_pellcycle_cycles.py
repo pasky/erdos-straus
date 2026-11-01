@@ -3,7 +3,8 @@ For prime p ≡ 1 (mod 8): enumerate ALL reduced quadratic irrationals x = (P + 
 (reduced: x > 1, -1 < x' < 0  <=>  0 < P < sqrt p, sqrt p - P < Q < sqrt p + P), partition them into CF cycles, and report
   c(p)   = number of cycles,
   |S(p)| = #{1 <= a < sqrt p : x^2 ≡ p (mod a) solvable},
-  cov0   = fraction of S(p) among the Q-values of the sqrt(p) cycle (R0), cov2 = among the sqrt(p) and omega cycles (R2),
+  cov Q(S) = fraction of S(p) among the Q-values of the sqrt(p) cycle, cov Q(S∪W) = among the Q-values of the sqrt(p)
+  and omega cycles (Q-values only: R0 and R2 also contain P-values and partial quotients),
   covall = fraction among all cycles (must be 1 by Prop 2.4(b)).
 Usage: uv run --with sympy python scripts/z52d_pellcycle_cycles.py p1 p2 ...
 """
@@ -33,7 +34,7 @@ def step(p, P, Q):
 
 
 def main():
-    print("| p | c(p) cycles | sizes of the sqrt(p) / omega cycles | |S(p)| | cov R0 | cov R2 | cov all |")
+    print("| p | c(p) cycles | sizes of the sqrt(p) / omega cycles | |S(p)| | cov Q(S) | cov Q(S∪W) | cov Q(all cycles) |")
     print("|---:|---:|---|---:|---:|---:|---:|")
     for p in map(int, sys.argv[1:]):
         red = reduced_all(p)

@@ -1,0 +1,55 @@
+# PELLCYCLE cross-model hostile review
+
+Reviewed `side-agent/depth-pellcycle` at `61f49223ef882ecbe31de37dd17595b4e84b1411`.
+**Verdict: ACCEPT-WITH-FIXES.** The conditional obstruction to the specified forest-root menu is sound. The empirical “only multiplicity / no arithmetic mechanism” conclusion is stronger than the evidence. ES remains OPEN.
+
+## Per-claim audit
+
+| Claim | Classification | Independent derivation / qualification |
+|---|---|---|
+| Lemma 1.2(1–4) | CORRECT | Mutual divisibility gives gcd(u,v) dividing p, hence 1 for unit endpoints; this recovers product divisibility. For a larger neighbour, v≡−p mod u and vw=p+u force w≡−1 mod u. Thus p+u≥(u+1)(u−1). With no larger neighbour, the unique smaller candidate is −p mod u. Substituting v=au−c,w=bu−1 gives (4). |
+| Lemma 1.3 | CORRECT | uv≤p+u+v implies (u−1)(v−1)≤p+1; v−1≥u gives u(u−1)≤p+1 and u<√p+1. |
+| Lemma 1.4: S, W, R3 | CORRECT | Rationalising the successive complete quotients gives exactly the displayed 1- and 3-cycles. S denominators start 1,2m,4m²+1. W numerators start k,k+1,m+1,m²+k; denominators start 1,1,2,2m−1,2m+1,4m,4m²−2m+1. The cutoff m²+3, with m≥8 and 4∣m, gives the claimed set. |
+| Lemma 1.4: fundamental unit / U | CORRECT | ε=m+√p has norm −1. If 1<η<ε is another unit, b√p=η−N(η)η⁻¹≤η+η⁻¹<ε+ε⁻¹=2√p, so b=1. Neither m²−3 nor m²+5 is a square for m≥4. Thus ε is fundamental and U is exactly the listed set. This also makes the mixed-norm comparison in the printed proof explicit. |
+| Thm 1.1, steps 1–2 | CORRECT | Read and re-derived LOWER_TAIL_ASTRA Thm 3.1: factorisations 2f₁,3f₂,4f₃ give exactly the seven displayed edges and eight residue vertices; the remaining vertices are leaves. For root 4 all divisors of 5f₄ are 1 mod 4, whereas a neighbour must be 3 mod 4. |
+| Thm 1.1, steps 3–6 | CORRECT | Parent tests give m−1∣3, k−1∣6, k−4∣70, m−3∣12, all impossible at m=60t. Child equations are u(ab−d)=a+cb+e with (u,d,c,e)=(m,1,1,1),(k,4,1,1),(k+1,4,5,−7),(m−1,1,2,3). Checking the small ab cases and using the stated bounds gives respectively m≤4,k≤7,k+1≤30,m−1≤8, contradictions. |
+| Thm 1.1, step 7 | CORRECT | For u≥m+1, u²−u>p+1 excludes children. Independent reduction of p+u modulo each parent gives exactly the forced divisors 4,9,33,40,10,6,14 in the table. Every parent exceeds its forced divisor at m≥60. The multipliers 4 and 9 are coprime to the relevant parents. |
+| Thm 1.1: H and quantifiers | CORRECT, CONDITIONAL | Each ct²+1 is primitive, irreducible over Q (no real roots), and has positive leading coefficient. The product equals 1 at 0, so no prime divides all values. H therefore supplies unbounded positive t and infinitely many distinct p; hence no eventual CR(R) holds for any pointwise subset R⊆R3∪U. Four quadratics suffice without root 4. Finite instances alone do not refute an arbitrary p₀. |
+| Prop 1.6 | CORRECT, unconditional per prime | Steps 3–7 use none of f₁,…,f₄ being prime. The roots 1,2,4 belong to R3∪U, and every other root is isolated, proving the biconditional. No unconditional infinitude of these near-square primes is claimed. |
+| §1.4 near-square remarks | CORRECT / Assessment | m²+4 prime forces m odd and p≡5 mod 8, so {1,2} suffices. For r∣4m and p≡1 mod 24, parity forces m even and r odd; then r∣m, 3∣m, and the stated residues of r follow. Extension of the isolation proof to other r remains unproved, as labelled. |
+| Lemma 2.1 | CORRECT | Any common divisor of P_k,Q_k divides p; the CF bounds exclude p. Hence p is a nonzero square modulo every odd prime divisor of Q_k. Reciprocity for p≡1 mod 4 and (2/p)=1 prove χ_p(Q_k)=1, including Q₀=1,2 separately. |
+| Prop 2.4(a–c) | CORRECT | Reduced states satisfy 0<P<√p and √p−P<Q<√p+P, giving finiteness. CF has a unique reduced predecessor: choose the unique integer a with −1<a+1/x̄<0. Thus it permutes the states. An interval (√p−a,√p) contains one representative of every residue mod a, proving (b). S and W are distinct cycles: the content gcd(Q,2P,(P²−p)/Q) of their quadratic equations is respectively 1 and 2 and is invariant under CF substitution. Thus c(p)=2 implies (c). The class-number interpretation is not used. |
+| §2 cycle-coverage table | WRONG as labelled; simple fix | The script measures Q(S) and Q(S)∪Q(W), not R0 and R2. At 577 the actual shares are 2/16 and 5/16, not 1/16 and 3/16. At 409 actual R0 coverage is 10/15, not 8/15. The cycle counts and Q-only counts are correct; Prop 2.4 survives. |
+| §3.1 finite enumeration / logarithmic depth | CORRECT | Unique smaller neighbours imply a forest. Only u²−u≤p+1 requires child factorisation. On an increasing path both adjacent vertices are −p mod u, so v_next=a·u+v_prev with a≥1. Fibonacci growth bounds increasing-path length; any simple path consists of at most two such pieces, proving the BFS depth bound. |
+| §§3.2–3.5 numerical results | Confirmed to the extent detailed below | Correct finite counts do not establish a universal per-root effect bound, an equivalence test against random roots, or causation by multiplicity. |
+| §§0,4–6 verdict / proposed FRONTIER edits | CORRECT-WITH-FIX | “Dead under H” is justified for exactly R⊆R3∪U with unrestricted forest exploration. It does not exclude arbitrary functions of cycle data, other forms' orbits, other certificate coordinates, or alternative growing root sets. Those exceptions are partly acknowledged in §4 but must survive the headlines. |
+
+## Decisive numerical checks
+
+All executions used `ulimit -v 6000000` and explicit timeouts. Logs and archived inputs are in `/tmp/xrev_PELLCYCLE/`.
+Independent checker: `scripts/z52d_xrev_pellcycle_check.py`; it imports none of the reviewed code, builds complete sparse forests by small-endpoint divisor enumeration, and computes components before intersecting the independently generated roots.
+
+- Independently reconstructed **all 98 reported R0 failures**, their S/W periods and root-set sizes, and all **six R3 failures**: 429529, 1299601, 11516521, 33177601, 76737601, 84272401. Every recorded classification agrees.
+- Independently reconstructed **all 356 non-H census primes**, for R0–R3: root counts, large-root counts, depth-2/full hit counts, and per-prime success flags all agree. In particular all 356 have an R0 full-component hit.
+- Independently summed the failure archives: 98 R0 and 6 R3; the random archives give **50 versus 39**, overlap **24**, for R0 below 4·10⁷; R3 gives **4 versus 5**, overlap **3**. Discordant counts 26/15 give 11/√41=1.718σ. These random draws were aggregated, not regenerated.
+- Independent bytearray sieve confirms the prime denominators **317477**, **608100**, **1439970** below 2·10⁷, 4·10⁷, 10⁸. I did **not** regenerate the complete 10⁸ failure search, so checking every reported failure does not independently certify absence of omitted failures.
+- Independently recomputed paired R0 differences from stored baseline totals: full **−0.08614±0.08202 pp**, **+0.22210±0.06627 pp**; depth 2 **−0.17259±0.07457**, **+0.23380±0.06299**. R3 full **−0.12109±0.05998**, **+0.02750±0.05824**; depth 2 **−0.17569±0.05701**, **+0.03661±0.05530**. All match rounded memo values. The original analysis rerun is byte-identical to `census_tables.md`.
+- Reran `nearsquare.py 20000 6`: **0 CF/root mismatches**, **3663 isolated-root pairs**, all **six first H-instances** and their eight-vertex components agree, with bichromatic edges elsewhere. Primality checks here are below 2⁶⁴. Reran `nsrate.py 120000`: **1330 primes, exactly the same eight R3∪U failures**, no large-root hit.
+- Independently enumerated all reduced cycles at all **13 primes in cycles_table.md**: counts, periods, split-set sizes and Q-only coverage agree. Actual R0/R2 coverage at 1297 is **2/22,4/22**; at 1299601 it is **2/654,4/654**, not **1/654,3/654**.
+- Reran the **entire all-cycles census below 2·10⁷**: 317477 primes, **0 failures**, maximum rank **28 at 19231801**. This supports the stated finite evidence, not an all-prime theorem.
+- Reran the **400-prime class-bias experiment**: output byte-identical, including **9948**, **5519**, **5275.5**, ratio **1.046**, and monochromatic ratio **0.946**. The ignored within-component dependence still prevents interpreting the crude 4–5σ as a calibrated significance result.
+- Reran all **11 × 100** selected-prime random trials: byte-identical failure counts **35,12,15,40,21,9,12,0,0,0,17**. Selection on cycle failure remains a real bias.
+
+## Source / dependency checks
+
+Read and re-derived `LOWER_TAIL_ASTRA.md` Lemmas 2.1, 2.2, 4.1 and Theorem 3.1 from the reviewed branch, rather than trusting their labels. The obstruction itself only needs graph monochromaticity; no external ES-existence theorem enters.
+Checked the formulation of H against [Skorobogatov–Sofos, arXiv:2005.02998v3](https://arxiv.org/pdf/2005.02998), introduction pp. 1–2, and the explicit [standard statement](https://en.wikipedia.org/wiki/Schinzel%27s_hypothesis_H). The local condition is on the **product**, and it holds here. The paper's “100% of polynomials” theorem is not a theorem about these five specific quadratics and cannot remove the conditional label.
+
+## Required fixes, in priority order
+
+1. **Restrict the empirical claims.** Replace “per root differs by ≤0.4 pp”, “only by multiplicity”, “not an arithmetic mechanism” and “only survivor” by sample/estimator-specific observations or explicitly qualified Assessments. The paired Z∪N differences actually include **−0.668±1.080 pp** (R0 full versus size), **−1.043±1.046 pp** (R0 depth 2), and **−0.703±1.069 pp** (R3 full versus size+colour). Their imprecision does not establish a ≤0.4 pp bound. The ≤20% relative gloss also requires a stated denominator and compatible weighting; 0.4 pp on a 1.5% base is 26.7%. Non-significant McNemar is not proof of equal robustness. Keep the honest power caveat and the positive class association.
+2. **Repair §2 table headings or numbers.** Rename the coverage columns to “Q-values of S” and “Q-values of S∪W”, in both memo and script output, or recompute intersections with the defined R0/R2. The present headings give false numerical statements despite correct underlying Q-only computations.
+3. **Transfer only the exact theorem scope.** FRONTIER may record “CR(R3∪U) fails infinitely often under H”. It must not imply that arbitrary principal-cycle-derived functions or all Pell methods fail. All-classes roots are a surviving investigated candidate, not a proved exhaustive list of survivors; finite comparisons cannot establish the latter.
+4. **Minor wording:** qualify §2's “integers of size ≤2√p” as the P,Q,a data only; R3 includes 4m at p=m²+1 and bounded convergents can be much larger. Keep the finite-census provenance caveats and distinguish an implication valid at every qualifying prime from an unconditional infinitude claim.
+
+After these fixes, **ACCEPT the conditional death of the explicitly defined principal-cycle forest-root statement**. The main mathematical obstruction needs no repair; broader claims about the absence of a Pell mechanism are not proved.

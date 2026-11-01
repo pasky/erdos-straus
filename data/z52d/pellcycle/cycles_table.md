@@ -1,4 +1,4 @@
-| p | c(p) cycles | sizes of the sqrt(p) / omega cycles | |S(p)| | cov R0 | cov R2 | cov all |
+| p | c(p) cycles | sizes of the sqrt(p) / omega cycles | |S(p)| | cov Q(S) | cov Q(S∪W) | cov Q(all cycles) |
 |---:|---:|---|---:|---:|---:|---:|
 | 409 | 2 | 21 / 27 | 15 | 0.533 | 1.000 | 1.000 |
 | 577 | 14 | 1 / 3 | 16 | 0.062 | 0.188 | 1.000 |
