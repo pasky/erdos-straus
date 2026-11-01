@@ -1,0 +1,15 @@
+{
+ "primes": 211,
+ "star_yes": 209,
+ "lopez_yes": 209,
+ "shift_yes": 209,
+ "star_vs_lopez_disagree": [
+  193,
+  409,
+  577,
+  2521
+ ],
+ "star_vs_shift_disagree": [],
+ "star_vs_lopez_disagree_count": 4,
+ "star_vs_shift_disagree_count": 0
+}
