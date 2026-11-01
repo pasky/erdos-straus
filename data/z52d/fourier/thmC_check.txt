@@ -1,0 +1,4 @@
+m=40 k=19 hits(m/2)=0 image=39/40; B=2: max|c|=8.6e-10 bound=8.6e-10; B=6: max|c|=8.04e-06 bound=0.000451; B=12: max|c|=0.0752 bound=0.169; c(chi_1)=0.8551 ≥ 0.8437; sum_(r≠0) c = 1.000000
+m=100 k=49 hits(m/2)=0 image=99/100; B=2: max|c|=4.18e-24 bound=4.18e-24; B=6: max|c|=7.27e-14 bound=2.35e-09; B=12: max|c|=0.00126 bound=0.0102; c(chi_1)=0.9375 ≥ 0.9355; sum_(r≠0) c = 1.000000
+m=400 k=60 hits(m/2)=0 image=121/400; B=2: max|c|=2.36e-29 bound=2.36e-29; B=6: max|c|=8.17e-17 bound=2.72e-11; B=12: max|c|=0.000283 bound=0.00365; c(chi_1)=0.9951 ≥ 0.9951; sum_(r≠0) c = 1.000000
+m=400 k=199 hits(m/2)=0 image=399/400; B=2: max|c|=1.13e-95 bound=1.13e-95; B=6: max|c|=4.38e-54 bound=9.07e-36; B=12: max|c|=1.7e-12 bound=8.21e-09; c(chi_1)=0.9838 ≥ 0.9836; sum_(r≠0) c = 1.000000

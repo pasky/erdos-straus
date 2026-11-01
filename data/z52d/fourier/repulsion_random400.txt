@@ -1,0 +1,5 @@
+n=400 primes; mean x=0.519 mean y=0.149
+corr(x,y) = +0.040  95% CI -0.059..+0.137
+partial corr(x,y | logM_forced, qr) = -0.039  95% CI -0.136..+0.060
+(sanity) partial corr(x, unforced success rate | same) = -0.390
+forced success rate: top-decile x 0.1543  bottom-decile x 0.1498

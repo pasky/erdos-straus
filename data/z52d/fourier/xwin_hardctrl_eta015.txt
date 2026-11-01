@@ -1,0 +1,38 @@
+--- scope all, ETA 0.15
+hard  n=30 mean best_share=0.797 mean best_cov=0.101 BM share=0.414 mean #obstructed=474.4  max best_cov=0.136
+ctrl  n=116 mean best_share=0.838 mean best_cov=0.102 BM share=0.378 mean #obstructed=476.8  max best_cov=0.130
+   mean rank of hard primes in best_cov (uniform expectation 72.5): 66.3
+--- scope forced, ETA 0.15
+hard  n=30 mean best_share=0.792 mean best_cov=0.101 BM share=0.000 mean #obstructed=218.9  max best_cov=0.160
+ctrl  n=116 mean best_share=0.782 mean best_cov=0.107 BM share=0.000 mean #obstructed=224.5  max best_cov=0.148
+   mean rank of hard primes in best_cov (uniform expectation 72.5): 57.9
+409 forced: best ψ ((3, '1/2'),) hit 23/47 (of 154 forced obstructed) BM share 0.0
+577 forced: best ψ ((3, '1/2'),) hit 30/68 (of 214 forced obstructed) BM share 0.0
+5569 forced: best ψ ((3, '1/2'),) hit 39/86 (of 243 forced obstructed) BM share 0.0
+9601 forced: best ψ ((3, '1/2'),) hit 31/80 (of 244 forced obstructed) BM share 0.0
+23929 forced: best ψ ((3, '1/2'),) hit 29/83 (of 240 forced obstructed) BM share 0.0
+83449 forced: best ψ ((3, '1/2'),) hit 30/78 (of 237 forced obstructed) BM share 0.0
+87481 forced: best ψ ((3, '1/2'),) hit 22/77 (of 237 forced obstructed) BM share 0.0
+102001 forced: best ψ ((3, '1/2'),) hit 23/75 (of 234 forced obstructed) BM share 0.0
+118801 forced: best ψ ((3, '1/2'),) hit 22/70 (of 234 forced obstructed) BM share 0.0
+329617 forced: best ψ ((5, '1/2'),) hit 26/53 (of 237 forced obstructed) BM share 0.0
+386401 forced: best ψ ((3, '1/2'),) hit 21/72 (of 228 forced obstructed) BM share 0.0
+496609 forced: best ψ ((3, '1/2'),) hit 24/69 (of 217 forced obstructed) BM share 0.0
+526681 forced: best ψ ((3, '1/2'),) hit 24/71 (of 223 forced obstructed) BM share 0.0
+529489 forced: best ψ ((3, '1/2'),) hit 18/66 (of 227 forced obstructed) BM share 0.0
+532249 forced: best ψ ((3, '1/2'),) hit 21/66 (of 220 forced obstructed) BM share 0.0
+712321 forced: best ψ ((3, '1/2'),) hit 22/64 (of 226 forced obstructed) BM share 0.0
+806521 forced: best ψ ((3, '1/2'),) hit 19/65 (of 226 forced obstructed) BM share 0.0
+878641 forced: best ψ ((3, '1/2'),) hit 20/61 (of 215 forced obstructed) BM share 0.0
+1134241 forced: best ψ ((3, '1/2'),) hit 24/72 (of 213 forced obstructed) BM share 0.0
+1430641 forced: best ψ ((3, '1/2'),) hit 19/66 (of 215 forced obstructed) BM share 0.0
+1450849 forced: best ψ ((3, '1/2'),) hit 22/67 (of 226 forced obstructed) BM share 0.0
+1724209 forced: best ψ ((3, '1/2'),) hit 15/66 (of 219 forced obstructed) BM share 0.0
+1726201 forced: best ψ ((3, '1/2'),) hit 20/62 (of 204 forced obstructed) BM share 0.0
+2451289 forced: best ψ ((3, '1/2'),) hit 16/65 (of 204 forced obstructed) BM share 0.0
+2458369 forced: best ψ ((3, '1/2'),) hit 21/66 (of 210 forced obstructed) BM share 0.0
+5212561 forced: best ψ ((3, '1/2'),) hit 19/60 (of 208 forced obstructed) BM share 0.0
+6569161 forced: best ψ ((3, '1/2'),) hit 16/55 (of 200 forced obstructed) BM share 0.0
+7257721 forced: best ψ ((3, '1/2'),) hit 14/56 (of 202 forced obstructed) BM share 0.0
+8803369 forced: best ψ ((3, '1/2'),) hit 18/57 (of 197 forced obstructed) BM share 0.0
+8813281 forced: best ψ ((3, '1/2'),) hit 15/62 (of 214 forced obstructed) BM share 0.0
