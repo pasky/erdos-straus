@@ -1,0 +1,293 @@
+{
+ "A_calib": [
+  {
+   "name": "p+2q (odd n<=1e5)",
+   "min_count": 2,
+   "argmin_n": 9,
+   "zero_count": 0,
+   "n_tested": 49996,
+   "min_over_log2": 0.17,
+   "median_over_log2": 4.124
+  },
+  {
+   "name": "p+x^2+y^2 (odd n<=1e5)",
+   "min_count": 2,
+   "argmin_n": 9,
+   "zero_count": 0,
+   "n_tested": 49996,
+   "min_over_log2": 0.316,
+   "median_over_log2": 10.712
+  },
+  {
+   "name": "p+squarefree (odd n<=1e5)",
+   "min_count": 1,
+   "argmin_n": 11,
+   "zero_count": 0,
+   "n_tested": 49996,
+   "min_over_log2": 0.174,
+   "median_over_log2": 17.625
+  },
+  {
+   "name": "p+F_k (odd n<=1e5)",
+   "min_count": 0,
+   "argmin_n": 17,
+   "zero_count": 9417,
+   "n_tested": 49996,
+   "min_over_log2": 0.0,
+   "median_over_log2": 0.011
+  }
+ ],
+ "A_prime_in_square_interval": {
+  "n_tested": 19999,
+  "zero_count": 0,
+  "min_count": 2,
+  "argmin_n": 2,
+  "min_over_n_over_logn": 0.644
+ },
+ "A_tetrahedral": {
+  "max_terms_needed": 5,
+  "n_max": 2000,
+  "all_covered_by_5": true,
+  "n_needing_5": 76
+ },
+ "B_splits": [
+  {
+   "name": "p = x^2+2y^2",
+   "n_in": 2347,
+   "n_out": 2356,
+   "mean_log_in": 4.552,
+   "mean_log_out": 4.886,
+   "min_in": 9,
+   "min_out": 34
+  },
+  {
+   "name": "p = x^2+27y^2 (2 cubic residue)",
+   "n_in": 758,
+   "n_out": 3945,
+   "mean_log_in": 4.632,
+   "mean_log_out": 4.736,
+   "min_in": 23,
+   "min_out": 9
+  },
+  {
+   "name": "p = x^2+32y^2",
+   "n_in": 1170,
+   "n_out": 3533,
+   "mean_log_in": 4.564,
+   "mean_log_out": 4.771,
+   "min_in": 9,
+   "min_out": 19
+  },
+  {
+   "name": "p = x^2+64y^2 (2 quartic residue)",
+   "n_in": 1168,
+   "n_out": 3535,
+   "mean_log_in": 4.559,
+   "mean_log_out": 4.773,
+   "min_in": 11,
+   "min_out": 9
+  }
+ ],
+ "B_legendre_patterns_3_5_7": {
+  "n_patterns": 8,
+  "lowest": [
+   [
+    [
+     1,
+     1,
+     1
+    ],
+    565,
+    4.436,
+    9
+   ],
+   [
+    [
+     1,
+     1,
+     -1
+    ],
+    590,
+    4.544,
+    19
+   ],
+   [
+    [
+     1,
+     -1,
+     1
+    ],
+    584,
+    4.708,
+    21
+   ]
+  ],
+  "highest": [
+   [
+    [
+     -1,
+     1,
+     -1
+    ],
+    593,
+    4.76,
+    32
+   ],
+   [
+    [
+     -1,
+     -1,
+     -1
+    ],
+    591,
+    4.883,
+    35
+   ],
+   [
+    [
+     -1,
+     -1,
+     1
+    ],
+    594,
+    4.917,
+    42
+   ]
+  ]
+ },
+ "B_class_number_h(-4p)": {
+  "corr_log_h_log_ES": 0.555,
+  "n": 4703,
+  "h_min": 10,
+  "h_max": 562
+ },
+ "C_sumset_min_H": {
+  "sample": [
+   [
+    5,
+    3,
+    3,
+    1.342
+   ],
+   [
+    7,
+    4,
+    4,
+    1.512
+   ],
+   [
+    11,
+    6,
+    6,
+    1.809
+   ],
+   [
+    13,
+    7,
+    7,
+    1.941
+   ],
+   [
+    17,
+    9,
+    9,
+    2.183
+   ],
+   [
+    19,
+    10,
+    10,
+    2.294
+   ],
+   [
+    23,
+    12,
+    12,
+    2.502
+   ],
+   [
+    29,
+    15,
+    15,
+    2.785
+   ]
+  ],
+  "max_ratio_H_over_sqrt_q": 9.988,
+  "q_max": 397,
+  "H_last": 199
+ },
+ "D_best_three_C": {
+  "best_triple": [
+   1,
+   2,
+   3
+  ],
+  "covered_fraction": 0.9396,
+  "first_C_1_2_3": 0.9396
+ },
+ "E_signed_cubes_4_unrep_by_class_mod9_n<=3000_cubes<=60": {
+  "0": {
+   "tested": 334,
+   "unrep": 0
+  },
+  "1": {
+   "tested": 334,
+   "unrep": 0
+  },
+  "2": {
+   "tested": 334,
+   "unrep": 0
+  },
+  "3": {
+   "tested": 334,
+   "unrep": 0
+  },
+  "4": {
+   "tested": 333,
+   "unrep": 16
+  },
+  "5": {
+   "tested": 333,
+   "unrep": 16
+  },
+  "6": {
+   "tested": 333,
+   "unrep": 0
+  },
+  "7": {
+   "tested": 333,
+   "unrep": 0
+  },
+  "8": {
+   "tested": 333,
+   "unrep": 0
+  }
+ },
+ "E_first_unrep": [
+  148,
+  284,
+  356,
+  571,
+  580,
+  598,
+  626,
+  725,
+  949,
+  1103,
+  1130,
+  1156,
+  1166,
+  1247,
+  1390,
+  1481,
+  1490,
+  1588,
+  1597,
+  1697,
+  1940,
+  2047,
+  2083,
+  2138,
+  2155
+ ]
+}

@@ -1,0 +1,159 @@
+{
+ "controls": [
+  {
+   "name": "x^2+2y^2 vs not, matched on p mod 24",
+   "note": "no class with both sides >=10"
+  },
+  {
+   "name": "x^2+27y^2 (2 cubic res.) vs not, matched on p mod 72",
+   "cls_mod": 72,
+   "classes_used": 6,
+   "weighted_mean_diff": 0.0208,
+   "mean_diff": 0.0212,
+   "frac_classes_positive": 0.833
+  },
+  {
+   "name": "x^2+32y^2 (Barrucand-Cohn 8|h(-4p)) vs not, matched on p mod 96",
+   "cls_mod": 96,
+   "classes_used": 8,
+   "weighted_mean_diff": 0.0183,
+   "mean_diff": 0.0186,
+   "frac_classes_positive": 0.625
+  },
+  {
+   "name": "x^2+64y^2 (2 quartic res.) vs not, matched on p mod 128",
+   "cls_mod": 128,
+   "classes_used": 16,
+   "weighted_mean_diff": 0.0131,
+   "mean_diff": 0.0131,
+   "frac_classes_positive": 0.625
+  }
+ ],
+ "rédei_like_pattern_residuals_matched_mod24": [
+  [
+   [
+    1,
+    1,
+    1
+   ],
+   565,
+   -0.183
+  ],
+  [
+   [
+    -1,
+    1,
+    1
+   ],
+   587,
+   -0.082
+  ],
+  [
+   [
+    -1,
+    1,
+    -1
+   ],
+   593,
+   -0.067
+  ],
+  [
+   [
+    1,
+    1,
+    -1
+   ],
+   590,
+   -0.061
+  ],
+  [
+   [
+    -1,
+    -1,
+    -1
+   ],
+   591,
+   0.056
+  ],
+  [
+   [
+    -1,
+    -1,
+    1
+   ],
+   594,
+   0.092
+  ],
+  [
+   [
+    1,
+    -1,
+    1
+   ],
+   584,
+   0.097
+  ],
+  [
+   [
+    1,
+    -1,
+    -1
+   ],
+   599,
+   0.138
+  ]
+ ],
+ "primroot_density_split_matched_mod24": {
+  "classes": 4,
+  "mean_diff": 0.1621,
+  "frac_pos": 1.0
+ },
+ "h(-4p)_partial_corr_given_logp": 0.1543,
+ "T1_uniform_divisor_forms_at_odd_squares": {
+  "odd_m_le_99": 7200,
+  "typeI_hits_any_f": 1621,
+  "typeI_hits_with_gcd_f_m_1": 0,
+  "typeII_hits": 0
+ },
+ "bilharz_T_primitive_root_density_F3": {
+  "2": [
+   3,
+   2,
+   0.667
+  ],
+  "3": [
+   8,
+   4,
+   0.5
+  ],
+  "4": [
+   18,
+   8,
+   0.444
+  ],
+  "5": [
+   48,
+   22,
+   0.458
+  ],
+  "6": [
+   116,
+   48,
+   0.414
+  ]
+ },
+ "composition_naive_triple_product": {
+  "pairs_tried": 300,
+  "product_triple_hits_4_over_pq": 0
+ },
+ "r4_formula_checked_m<=60": {
+  "all_ok": true,
+  "n": 60
+ },
+ "r4_at_primes_1mod4": {
+  "5": 48,
+  "13": 112,
+  "17": 144,
+  "29": 240
+ }
+}
