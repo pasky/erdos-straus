@@ -1,0 +1,18 @@
+{
+ "n_p1mod4_gt5_le_2e5": 9462,
+ "log_zmin_over_logp_max": 1.8917932665376695,
+ "argmax": 1201,
+ "log_zmin_over_logp_median": 1.5417681266643584,
+ "zmin_over_p2_max": 0.5025996533795494,
+ "zmin_over_p2_argmax": 577,
+ "zmin_over_p2_median": 0.006136932006530949,
+ "zmin_over_p2_p90": 0.021064745976732892,
+ "(xmin-p/4)/log2p_max": 0.11435730711984032,
+ "(xmin-p/4)/log2p_median": 0.005978157936336543,
+ "xmin_over_p_min": 0.25000375073139264,
+ "xmin_over_p_median": 0.2500099254551744,
+ "xmin_over_p_max": 0.3076923076923077,
+ "frac_xmin_within_p/4+p^0.5": 1.0,
+ "frac_xmin_within_p/4+log2p": 1.0,
+ "xmin_minus_p4_over_p_max": 0.057692307692307696
+}

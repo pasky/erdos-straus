@@ -1,0 +1,84 @@
+{
+ "n_primes_le_2e5": 18966,
+ "n_windows_1e6": 305,
+ "n_windows_1e7": 247,
+ "primes_le_2e5_with_U_le_4": [
+  3,
+  5,
+  13,
+  17
+ ],
+ "min_U_p_1e6_window": 116,
+ "min_U_p_1e7_window": 229,
+ "primes_le_2e5_with_U_eq_5_or_6_first": [
+  193
+ ],
+ "least_prime_U6": 193,
+ "least_prime_U_eq_k": {
+  "2": 5,
+  "3": 3,
+  "4": 13,
+  "6": 193,
+  "7": 7,
+  "8": 97,
+  "9": 11,
+  "10": 89,
+  "11": 19
+ },
+ "records_low_U_over_log2_le_2e5": [
+  [
+   3,
+   3,
+   2.4856
+  ],
+  [
+   5,
+   2,
+   0.7721
+  ],
+  [
+   13,
+   4,
+   0.608
+  ],
+  [
+   17,
+   4,
+   0.4983
+  ],
+  [
+   73,
+   7,
+   0.3803
+  ],
+  [
+   193,
+   6,
+   0.2166
+  ],
+  [
+   2521,
+   9,
+   0.1467
+  ]
+ ],
+ "U_over_log2_min_le_2e5": [
+  0.14670725127040377,
+  2521
+ ],
+ "window_min_U_over_log2_1e6": 0.607530850456562,
+ "window_min_U_over_log2_1e7": 0.8814617065532329,
+ "primes_le_2e5_with_k1_zero": 0,
+ "primes_le_2e5_with_k2_zero": 0,
+ "primes_le_2e5_with_both_zero": 0,
+ "primes_1mod4_le_2e5_k1_zero_and_k2_zero": [],
+ "primes_1mod4_le_2e5_k2_zero_count": 0,
+ "primes_1mod4_le_2e5_k1_zero_count": 0,
+ "primes_le_2e5_k3_nonzero": 0,
+ "pearson_k1_k2_p1mod4": 0.810822816817959,
+ "spearman_k1_k2_p1mod4": 0.7881721405693217,
+ "spearman_U_leastQNR_p1mod4": -0.3969873545829362,
+ "spearman_U_numQNR_le_logp_p1mod4": 0.6402818345945388,
+ "spearman_k1_numQNR_le_logp_p1mod4": 0.659537178573039,
+ "pearson_log_U_vs_numQNR_p1mod4": 0.6563956819398156
+}
