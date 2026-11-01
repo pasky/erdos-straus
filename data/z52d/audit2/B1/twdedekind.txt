@@ -1,0 +1,12 @@
+max|odd-chi B1B1 sums|: 7.105427357601002e-15
+R^2 of log(r+rp) on even-in-a sums: {'chi-4/B2': np.float64(0.0), 'chi-8/B2': np.float64(0.001)} both: 0.001
+p=409: #cert=8  R^2(r+r' ~ s)=0.000  ~ s+all twisted=0.002  | twisted alone: {'chi-4': np.float64(0.0), 'chi8': np.float64(0.0), 'chi-8': np.float64(0.0), 'chi12': np.float64(0.001)}
+   AUC(s) cert vs non-cert among QNR: 0.987   AUC(chi-4) cert vs non-cert among QNR: 0.408   AUC(chi8) cert vs non-cert among QNR: 0.381   AUC(chi-8) cert vs non-cert among QNR: 0.394   AUC(chi12) cert vs non-cert among QNR: 0.449   AUC(chi-4/B2) cert vs non-cert among QNR: 0.489   AUC(chi-8/B2) cert vs non-cert among QNR: 0.461
+max|odd-chi B1B1 sums|: 2.1316282072803006e-14
+R^2 of log(r+rp) on even-in-a sums: {'chi-4/B2': np.float64(0.001), 'chi-8/B2': np.float64(0.003)} both: 0.004
+p=1009: #cert=10  R^2(r+r' ~ s)=0.000  ~ s+all twisted=0.009  | twisted alone: {'chi-4': np.float64(0.0), 'chi8': np.float64(0.002), 'chi-8': np.float64(0.0), 'chi12': np.float64(0.002)}
+   AUC(s) cert vs non-cert among QNR: 0.981   AUC(chi-4) cert vs non-cert among QNR: 0.691   AUC(chi8) cert vs non-cert among QNR: 0.355   AUC(chi-8) cert vs non-cert among QNR: 0.528   AUC(chi12) cert vs non-cert among QNR: 0.413   AUC(chi-4/B2) cert vs non-cert among QNR: 0.401   AUC(chi-8/B2) cert vs non-cert among QNR: 0.512
+max|odd-chi B1B1 sums|: 5.684341886080802e-14
+R^2 of log(r+rp) on even-in-a sums: {'chi-4/B2': np.float64(0.001), 'chi-8/B2': np.float64(0.0)} both: 0.001
+p=2521: #cert=4  R^2(r+r' ~ s)=-0.000  ~ s+all twisted=0.003  | twisted alone: {'chi-4': np.float64(-0.0), 'chi8': np.float64(0.0), 'chi-8': np.float64(-0.0), 'chi12': np.float64(0.001)}
+   AUC(s) cert vs non-cert among QNR: 0.988   AUC(chi-4) cert vs non-cert among QNR: 0.544   AUC(chi8) cert vs non-cert among QNR: 0.445   AUC(chi-8) cert vs non-cert among QNR: 0.083   AUC(chi12) cert vs non-cert among QNR: 0.492   AUC(chi-4/B2) cert vs non-cert among QNR: 0.572   AUC(chi-8/B2) cert vs non-cert among QNR: 0.471

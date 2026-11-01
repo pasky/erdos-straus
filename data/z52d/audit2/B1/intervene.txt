@@ -1,0 +1,3 @@
+base outcome True: single-factor class changes flip it in 29627/157788 = 0.188
+base outcome False: single-factor class changes flip it in 34628/120282 = 0.288
+hit slices 2136; hit slices where some single substitution kills the hit: 1316 (0.62)
