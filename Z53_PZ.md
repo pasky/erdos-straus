@@ -31,6 +31,9 @@ stronger concentration form, with an explicit constant and an explicit exception
   (1/4)²), ×2 from the u↔B-symmetric trial fibration, and ×(π²/12) from the φ(m)/m weights. Upgrades: unweighted trial
   fibration ⇒ 3/(16π²) ≈ 0.0190; adding the pair fibration ⇒ 9/(32π²) ≈ 0.0285 (§9.2, sketched, not claimed). Level 1/4 is the
   ceiling of the uniform-cutoff implementation used here (§9.2).
+* **Full Type II (Conjecture B, §9.5):** f_II(p) ≥ (1/(128π²) − ε)log³p for almost all p, which is the true order of f_II.
+  EVIDENCE: the model variance ratio of the analogous truncated family falls from 0.18 to 0.054 for Q = 10²…10⁴, with
+  V ≈ log⁴Q against M² ≍ log⁶Q. The missing ingredient is identified precisely (a cross-c spike-correlation bound).
 * **Positive proportion (the literal Z2362 ask)** follows a fortiori. The full second moment Σ_p R(p)² ≪ π(X) log⁴X is *not*
   proved, and is not needed.
 * **Screens (§11).** T1: passes; the step false at odd squares is BV equidistribution of units. 8/131: passes vacuously
@@ -308,6 +311,29 @@ in the *upper* tail and is compatible with both.
 **9.4 What it says about B2 / hard primes.** Nothing pointwise (B6). Remark (ii) of §7 extends it to every fixed residue
 class, including the Mordell-hard classes. The exceptional set ≪ π(X)/log X is far weaker than the ES exceptional-set bounds
 (N exp(−c(log N)^{3/4})). Theorem A is a statement about the *size* of the cheap certificate count, not about ES itself.
+**9.5 The full Type II count: log³p for almost all p? (CONJECTURE, with EVIDENCE; precise obstruction.)**
+R is only the c = 1 line of ET's Type II. ET Prop 2.3/2.6 (as in `CONDITIONAL_ES.md` Lemma 1.2): Type II solutions of a prime
+p are (abd, acdp, bcdp) with 4abd = p + e, ce = a + b. The trial fibration of the whole family is the triples P = (a,c,d) with
+gcd(a,c) = 1 and m := 4acd − 1, and the event is m | cp + a, i.e. p ≡ −a c⁻¹ (mod m).
+* *Validity and injectivity (PROVED, elementary).* Put b := (cp+a)/m. Then a + b = c(4abd − p), so e := 4abd − p ≥ 1 and
+  4/p = 1/(abd) + 1/(acdp) + 1/(bcdp). Next, g := gcd(a,b) divides cp, and gcd(g,c) = 1, so g | p; since g ≤ a < p, g = 1.
+  So y/z = a/b in lowest terms recovers (a, b, d, c). The a ↔ b fibration is disjoint for p ≥ (Q+1)²/4, since
+  p < 4abd = (4acd)(4bcd)/(4c²d). Hence f_II(p) ≥ 2N_II(p), with N_II the φ(m)/m-weighted truncated count. Its mean is
+  M_II = Σ_{acd ≤ Y, (a,c)=1} 1/(4acd−1) ∼ log³Y/(4π²). This is the true order of f_II (ET Thm 1.1: mean ≍ log³p).
+* **Conjecture B.** For every ε > 0, f_II(p) ≥ (1/(128π²) − ε) log³p for all but o(π(X)) primes p ≤ X.
+* *EVIDENCE.* The exact model variance (`scripts/z53_pz_exactV_typeII.c`, `exactV.txt`) for Q = 10², 3·10², 10³, 3·10³, 10⁴
+  is V/M_II² = 0.178, 0.125, 0.090, 0.069, 0.054, with V/log⁴Q = 0.0081 → 0.0060, so V ≈ log⁴Q ≪ M_II² ≍ log⁶Q. The Parseval
+  upper bound B of Lemma 4.2 (`scripts/z53_pz_parsevalB.c`) also has B/log⁴Q = 0.0074, 0.0068, 0.0062 for Q = 10³, 10⁴, 10⁵.
+  So the proof route of §§4–6 has room of about log²Q.
+* *Obstruction (why it is not proved here).* For each c, the residue class r mod D is again one cell (a ≡ −rc,
+  d ≡ −(4rc²)⁻¹), and Lemma 5.2 applies per c. The "smooth" deviations sum over c by Minkowski to O(𝓛⁵). For cD² > Y, though,
+  the c-cells are sparse: their content is a single point with no main term. The cross-c correlation of these point-spikes is
+  X_D = Σ_{P≠P'} (mm')⁻¹·1[D | m, D | m', ac' ≡ a'c (D), a,d,a',d' ≤ D]. Bounding it with the trivial divisor bound gives only
+  Σ_D φ(D)X_D ≪ 𝓛⁶, a log short. One needs a saving from the congruence ac' ≡ a'c (mod D) among small solutions of
+  4acd ≡ 1 (mod D): a multiplicative-energy estimate for small points on these curves. A cheap rigorous variant (Assessment,
+  sketch only) restricts to c ≤ log X. Cauchy–Schwarz over c then costs only a factor log X, and one gets
+  f_II(p) ≫ log²p·log log p for almost all p. We do not write this out.
+
 ## 10. Literature (research subagent, 2026-11-01; [V] = read in full text, [A] = abstract only)
 
 * Elsholtz–Tao, arXiv:1107.1010v6 [V]. Thm 1.1: N log²N ≪ Σ_{p≤N} f_II(p) ≪ N log²N, and
@@ -353,7 +379,9 @@ class, including the Mordell-hard classes. The exceptional set ≪ π(X)/log X i
   (a) push κ to 9/(32π²) (unweighted trial count + pair fibration; the pair case needs a rigorous cross-splitting fibre
   lemma, EVIDENCE in §9.2); (b) concentration of R itself (R/M₀ → 1 in density); the natural route is the untruncated variance, which is the
   difficulty of ET Rem. 1.3; (c) an exceptional set o(π(X)/log X). Variance-plus-Chebyshev cannot give (c) for this family,
-  since V ≍ log³Q numerically; a sharper lower-tail argument might.
+  since V ≍ log³Q numerically; a sharper lower-tail argument might. (d) **Conjecture B** (§9.5): f_II(p) ≫ log³p for
+  almost all p, the true order. The same method has room of about log²; the missing piece is a cross-c correlation bound for
+  small solutions of 4acd ≡ 1, ac' ≡ a'c (mod D).
 
 **Bottom line.** Z2362 is answered in a stronger form. For almost all primes p, the count R(p) of (★) certificates, and hence
 the number of Type II Erdős–Straus solutions, is at least (1/64 − ε)log²p. That is the order of R's mean; the mean of the
