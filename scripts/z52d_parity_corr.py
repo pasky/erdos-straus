@@ -48,7 +48,8 @@ def cmh(y, z, strata):
     S = defaultdict(lambda: [0, 0, 0, 0])  # a=y1z1, b=y1z0, c=y0z1, d=y0z0
     for yi, zi, s in zip(y, z, strata):
         S[s][(1 - yi) * 2 + (1 - zi)] += 1
-    num = den = var = orn = ord_ = 0.0
+    num = var = 0.0
+    R = Sx = PR = PSQR = QS = 0.0  # Robins-Breslow-Greenland variance of log OR_MH
     for a, b, c, d in S.values():
         n = a + b + c + d
         if n < 2:
@@ -56,10 +57,12 @@ def cmh(y, z, strata):
         r1, c1 = a + b, a + c
         num += a - r1 * c1 / n
         var += r1 * (n - r1) * c1 * (n - c1) / (n * n * (n - 1))
-        orn += a * d / n
-        ord_ += b * c / n
+        Rk, Sk, Pk, Qk = a * d / n, b * c / n, (a + d) / n, (b + c) / n
+        R += Rk; Sx += Sk; PR += Pk * Rk; PSQR += Pk * Sk + Qk * Rk; QS += Qk * Sk
     zsc = num / math.sqrt(var) if var > 0 else float('nan')
-    return zsc, (orn / ord_ if ord_ > 0 else float('nan'))
+    orr = R / Sx if Sx > 0 else float('nan')
+    se = math.sqrt(PR / (2 * R * R) + PSQR / (2 * R * Sx) + QS / (2 * Sx * Sx)) if R > 0 and Sx > 0 else float('nan')
+    return zsc, orr, se
 
 def gcmh(y, zc, K, strata):
     """generalized CMH for binary y vs K-level zc; returns (chi2, df)."""
@@ -89,12 +92,32 @@ def chi2_indep(y, cls):
         chi += (a1 - e1) ** 2 / e1 + (a0 - e0) ** 2 / e0
     return chi, len(T) - 1
 
+from scipy.stats import chi2 as _chi2, norm as _norm
+
 def chi2_sf(x, k):
-    # Wilson-Hilferty approximation of the chi2 upper tail (adequate for a screen)
-    if k <= 0:
-        return float('nan')
-    zz = ((x / k) ** (1 / 3) - (1 - 2 / (9 * k))) / math.sqrt(2 / (9 * k))
-    return 0.5 * math.erfc(zz / math.sqrt(2))
+    """exact chi-square upper tail (scipy)"""
+    return float(_chi2.sf(x, k)) if k > 0 else float('nan')
+
+def p_to_z(pv):
+    """two-sided p-value -> |z| equivalent"""
+    return float(_norm.isf(pv / 2))
+
+def strat_chi2(y, z, strata):
+    """sum over strata of the per-stratum 2x2 Pearson chi2 (heterogeneity-sensitive; strata with n >= 20 only); returns (chi2, df)"""
+    S = defaultdict(lambda: [0, 0, 0, 0])
+    for yi, zi, s in zip(y, z, strata):
+        S[s][2 * yi + zi] += 1
+    tot = 0.0; df = 0
+    for t in S.values():
+        n = sum(t); r1 = t[2] + t[3]; c1 = t[1] + t[3]
+        if n < 20 or r1 in (0, n) or c1 in (0, n):  # Pearson approximation needs non-tiny strata
+            continue
+        df += 1
+        for yi in (0, 1):
+            for zi in (0, 1):
+                e = (r1 if yi else n - r1) * (c1 if zi else n - c1) / n
+                tot += (t[2 * yi + zi] - e) ** 2 / e
+    return tot, df
 
 def main():
     path = sys.argv[1]
@@ -146,21 +169,23 @@ def main():
     for ky, y in Y.items():
         line = []
         for kz, z in Z.items():
-            z1, or1 = cmh(y, z, [p % 16 for p in P])
-            z2, or2 = cmh(y, z, [p % 6160 for p in P])
-            line.append(f"{kz}: {z1:+.2f}/{z2:+.2f} (OR {or2:.3f})")
-            res.append((ky, kz, z1, z2))
+            z1, or1, se1 = cmh(y, z, [p % 16 for p in P])
+            z2, or2, se2 = cmh(y, z, [p % 6160 for p in P])
+            line.append(f"{kz}: {z1:+.2f}/{z2:+.2f} (OR {or2:.3f}, logOR 95% CI [{math.log(or2)-1.96*se2:+.3f},{math.log(or2)+1.96*se2:+.3f}])")
+            res.append((ky, kz, z1, z2, math.log(or2), se2))
         print(f"  {ky}: " + "; ".join(line))
     print("\n[B2] 16-rank beyond the 8-rank: CMH Y vs b16, strata (p mod 16, b8) | (p mod 6160, b8)")
     for ky, y in Y.items():
-        z1, _ = cmh(y, Z['b16'], [(p % 16, b) for p, b in zip(P, Z['b8'])])
-        z2, or2 = cmh(y, Z['b16'], [(p % 6160, b) for p, b in zip(P, Z['b8'])])
-        print(f"  {ky}: {z1:+.2f} | {z2:+.2f} (OR {or2:.3f})")
+        z1, _, _ = cmh(y, Z['b16'], [(p % 16, b) for p, b in zip(P, Z['b8'])])
+        z2, or2, se2 = cmh(y, Z['b16'], [(p % 6160, b) for p, b in zip(P, Z['b8'])])
+        print(f"  {ky}: {z1:+.2f} | {z2:+.2f} (OR {or2:.3f}, logOR 95% CI [{math.log(or2)-1.96*se2:+.3f},{math.log(or2)+1.96*se2:+.3f}])")
+        res.append((ky, 'b16|b8', z1, z2, math.log(or2), se2))
     print("\n[C] generalized CMH: Y vs h(-4p)/4 mod 4 (df 3), strata p mod 16 | p mod 6160")
     for ky, y in Y.items():
         c1, df = gcmh(y, hq, 4, [p % 16 for p in P])
         c2, _ = gcmh(y, hq, 4, [p % 6160 for p in P])
-        print(f"  {ky}: chi2 = {c1:.2f} | {c2:.2f} (df {df}); p~{chi2_sf(c1, df):.3g} | {chi2_sf(c2, df):.3g}")
+        print(f"  {ky}: chi2 = {c1:.2f} | {c2:.2f} (df {df}); p = {chi2_sf(c1, df):.3g} | {chi2_sf(c2, df):.3g}")
+        res.append((ky, 'hq', p_to_z(chi2_sf(c1, df)), p_to_z(chi2_sf(c2, df)), None, None))
     print("\n[D] per-class tables, strata p mod 16 (P(Y=1) by b8, b16)")
     for ky, y in Y.items():
         parts = []
@@ -182,7 +207,31 @@ def main():
             elif key not in seen:
                 seen[key] = (y[i], P[i])
         print(f"  {ky}: {len(both)} of {len(seen)} classes non-constant; first counterexample pair {first}")
-    mx = max(max(abs(a[2]), abs(a[3])) for a in res if a[1] != 'rnd')
-    print(f"\nmax |z| over {len(Y)}x{len(Z)-1} class/Frobenius tests: {mx:.2f}  (Bonferroni 5% two-sided threshold for 40 tests ~ 3.23)")
+    print("\n[F] heterogeneity: sum over p mod 6160 strata of per-stratum 2x2 chi2 (detects stratum-dependent signs)")
+    for ky, y in Y.items():
+        parts = []
+        for kz in ('b8', 'b16', 'rnd'):
+            c, df = strat_chi2(y, Z[kz], [p % 6160 for p in P])
+            parts.append(f"{kz}: {c:.0f}/{df} (z~{(c-df)/math.sqrt(2*df):+.2f})" if df else f"{kz}: n/a (no stratum with n >= 20)")
+        print(f"  {ky}: " + "; ".join(parts))
+    print("\n[G] twisted laws: Y xor Z vs p mod l, l = 13..47 prime (chi2, df l-1)")
+    gz = []
+    for ky, y in Y.items():
+        for kz in ('b8', 'b16'):
+            w = [a ^ b for a, b in zip(y, Z[kz])]
+            for l in (13, 17, 19, 23, 29, 31, 37, 41, 43, 47):
+                c, df = chi2_indep(w, [p % l for p in P])
+                gz.append((p_to_z(chi2_sf(c, df)), ky, kz, l))
+    gz.sort(reverse=True)
+    print(f"  {len(gz)} tests; largest |z|-equivalents: {[(round(a,2),b,c,d) for a,b,c,d in gz[:3]]}")
+    cls = [a for a in res if a[1] != 'rnd']
+    k = len(cls)
+    mx = max(cls, key=lambda a: abs(a[2]))
+    thr1 = _norm.isf(0.05 / (2 * k)); thr2 = _norm.isf(0.05 / (4 * k))
+    print(f"\nSUMMARY: {k} class/control tests ([B] w/o rnd, [B2], [C]); max |z| (p mod 16 strata) = {abs(mx[2]):.2f} ({mx[0]} vs {mx[1]}; "
+          f"6160 strata: {abs(mx[3]):.2f}); Bonferroni 5% two-sided: {thr1:.2f} ({k} tests), {thr2:.2f} (counting both stratifications, {2*k})")
+    ci = [(abs(a[4]) + 1.96 * a[5], a[0], a[1]) for a in res if a[4] is not None and a[1] in ('b8', 'b16', 'b16|b8')]
+    print(f"  class bits: max (|log OR| + 1.96 SE) = {max(ci)[0]:.4f} ({max(ci)[1]} vs {max(ci)[2]}); "
+          f"max |log OR| = {max(abs(a[4]) for a in res if a[4] is not None and a[1] in ('b8','b16','b16|b8')):.4f}")
 
 main()
