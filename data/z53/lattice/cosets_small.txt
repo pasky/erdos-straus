@@ -48,3 +48,7 @@ q=11 n=8 max|H|=11
 q=11 n=9 max|H|=11
 q=11 n=10 max|H|=11
 SUMMARY q=11 tested_t=1331 max|H|=11  min index D'=q^3/|H|=121
+q=6 n=1 max|H|=12
+q=6 n=3 max|H|=12
+q=6 n=5 max|H|=12
+SUMMARY q=6 tested_t=108 max|H|=12  min index D'=q^3/|H|=18
