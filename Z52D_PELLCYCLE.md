@@ -372,9 +372,20 @@ random root set that keeps roots < 8 and replaces each root u ≥ 8 by one unifo
 
 | range | primes | cycle R0 fails | random-R0 fails | cycle R3 fails | random-R3 fails |
 |---|---:|---:|---:|---:|---:|
-RANDFAIL_ROWS
+| [0, 4)·10⁶ | 70,695 | 17 | 11 | 2 | 2 |
+| [4, 8)·10⁶ | 64,043 | 5 | 4 | 0 | 1 |
+| [8, 12)·10⁶ | 62,146 | 3 | 3 | 1 | 1 |
+| [12, 16)·10⁶ | 60,649 | 5 | 5 | 0 | 0 |
+| [16, 20)·10⁶ | 59,944 | 4 | 3 | 0 | 0 |
+| [20, 24)·10⁶ | 59,036 | 3 | 3 | 0 | 0 |
+| [24, 28)·10⁶ | 58,614 | 2 | 4 | 0 | 0 |
+| [28, 32)·10⁶ | 58,132 | 5 | 1 | 0 | 0 |
+| [32, 36)·10⁶ | 57,477 | 5 | 3 | 1 | 1 |
+| [36, 40)·10⁶ | 57,364 | 1 | 2 | 0 | 0 |
+| **total < 4·10⁷** | 608,100 | **50** | **39** | **4** | **5** |
 
-The cycle fails about as often as a random set of the same sizes. It is not more robust, which is the point at issue.
+The cycle fails about as often as a random set of the same sizes: 50 vs 39 for R0, a difference of about 1.2σ treating both
+as Poisson, and 4 vs 5 for R3. It is not more robust, which is the point at issue.
 
 **Selection caveat and class bias (EVIDENCE).**
 * At the R0-failing primes themselves, a fresh random set fails less often. The 100-draw failure counts
@@ -472,14 +483,43 @@ ulimit -v 4000000
 timeout 900  uv run --with sympy python scripts/z52d_pellcycle_nearsquare.py 20000 6     # Lemma 1.4, Prop 1.6, Thm 1.1 instances
 timeout 1800 uv run --with sympy python scripts/z52d_pellcycle_nsrate.py 120000 data/z52d/pellcycle/nearsquare_rate.txt
 for i in $(seq 0 11); do timeout 7200 uv run --with sympy python scripts/z52d_pellcycle_census.py \
-   data/z52d/pellcycle/shards/census_$i.jsonl 60 3 5 $i 12 & done; wait   # then cat shards > census.jsonl
+   /tmp/pcshards/census_$i.jsonl 60 3 5 $i 12 & done; wait   # then cat shards > data/z52d/pellcycle/census.jsonl
 timeout 60   uv run python scripts/z52d_pellcycle_analyze.py data/z52d/pellcycle/census.jsonl
 timeout 900  uv run --with sympy python scripts/z52d_pellcycle_cycles.py 409 577 1297 2521 3361 5569 9601 23929 83449 102001 329617 712321 1299601
 timeout 3600 uv run --with sympy python scripts/z52d_pellcycle_failcensus.py LO HI 0 1 OUT        # chunks of 4e6 up to 1e8
 timeout 3000 uv run --with sympy python scripts/z52d_pellcycle_allcycles.py 1 20000000
+timeout 5400 uv run --with sympy python scripts/z52d_pellcycle_randfail.py LO HI OUT          # chunks of 4e6 up to 4e7
+timeout 1800 uv run --with sympy python scripts/z52d_pellcycle_failrand.py 100 19441 93601 1847401 3819481 13503121 17358961 26120161 28237801 28845721 32676361 36647041
+timeout 1800 uv run --with sympy python scripts/z52d_pellcycle_classbias.py 1000000 10000000 400 11
 ```
 (Run from `scripts/` or with `PYTHONPATH=scripts`; scripts import `z52d_pellcycle_lib`.)
 
 ## 8. Review
 
-REVIEW_PLACEHOLDER
+Round 1: a hostile reviewer subagent rechecked every proof step by hand and recomputed key numbers with independent code. It
+found no fatal problems. Theorem 1.1, Prop 1.6, Lemmas 1.2–1.4, 2.1 and Prop 2.4 were confirmed; the six H-instances,
+1 299 601, 577, the c(p) table and four census rows were recomputed and match. It raised five major and thirteen minor
+points, and all have been fixed:
+* §0 wrongly said R0 fails only at short periods. It does not, and §3.4 now gives the full census with a random control.
+* "every cycle root ≥ 5 is isolated" needs 60 | m, as the counterexample at p = 1297 shows. This is now stated.
+* The Z0465 coverage was overclaimed. It is now scoped to forest roots, with the original e-slice recipe noted as vacuous at
+  m = 60t.
+* The FRONTIER text is scoped to "used as forest roots".
+* §3.2 statistics were restated accurately, with the ≥ 2σ effects listed and the power caveat on the hard primes added.
+* Minor fixes:
+  * the bound u² − u ≤ p + 1;
+  * the C24 count;
+  * the §2 table label;
+  * U = u ± 2;
+  * the convergent routine (affects p = 5 only; the census was rerun bit-identically);
+  * Prop 1.6 restated per prime, plus the "CR ⇒ ¬H" form;
+  * the (J)106/Dickson remark;
+  * the Dickson-depression attribution is now an Assessment;
+  * the unit proof expanded;
+  * f₄ is needed only for the root 4;
+  * the c(p)/class-number reading labelled as interpretation;
+  * the inflated P(any hit) noted;
+  * the 577 root 4;
+  * the ambiguous-form / slice-form scope in §4.
+
+REVIEW_ROUND2

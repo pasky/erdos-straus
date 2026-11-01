@@ -1,0 +1,3 @@
+36856801 505 476 909 1 0
+36993001 233 230 471 1 0
+# SUMMARY primes≡1(8) in [36000000,40000000): 57364; random-R0 failures 2; random-R3 failures 0
