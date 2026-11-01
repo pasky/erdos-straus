@@ -84,7 +84,7 @@ The existing conditional statements are all *ES-specific*:
 * Conjecture 3.4 (HC ≪ log p).
 
 None of the closed items calibrates *which lines and which scale* a hypothesis must control. None separates the hypothesis
-shapes that could possibly work from those that provably cannot, and none asks for a *general* principle with ES as an
+shapes that could possibly work from those that provably cannot (as properties of model line data), and none asks for a *general* principle with ES as an
 instance. Those three questions are the content here. (`git grep`: the Sathe–Selberg "random box" computation exists
 for forced windows with 3^ω in EXSET_CHAR_FORCING §3.2. It is not applied to HC, its extreme-value scale, or hypotheses.)
 
@@ -182,7 +182,7 @@ are independent, and Σ_p 1/p = ∞ over primes p ≡ 1 (8). The second Borel–
   P_{(x,E)} ≥ ½(e^λ/2 − 1)/φ(x) ≥ (¼ − 1/(2 log p))·log p/x ≥ log p/(5x)   (e^λ = log p ≥ 20, φ(x) ≤ x).
 Also Σ_{x∈𝒞, Y<x≤X} 1/x = (1/4 + 1/8) log(X/Y) + O(1) = (3/8)(A − 2 log 2 − 2δ)λ + O(1). Hence
 P(HC(p) > X) ≤ ∏(1 − P_{(x,E)}) ≤ exp(−(3/40)(A − 2 log 2 − 2δ) log p log log p + O(log p)), which is summable over p.
-The first Borel–Cantelli lemma gives (b). (In the statement above read the bound with this O(log p) in the exponent.) ∎
+The first Borel–Cantelli lemma gives (b). ∎
 
 **Remark M (the scale is invisible in practice; EVIDENCE).** Let X*(p) be the least X with Σ_{x∈𝒞, x≤X} (P_E + P_L) ≥ log p.
 This is the Poisson scale: P(all lines ≤ X fail) ≈ e^{−Σ P} reaches 1/p there. For 𝔐 we compute it with the
