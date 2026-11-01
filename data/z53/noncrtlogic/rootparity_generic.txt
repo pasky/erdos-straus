@@ -1,0 +1,3 @@
+deep square-mimicking primes p=1(24) in [1000000,3000000000) with (l/p)=1 for all l<5: 3000 (last p=1335409)
+  roots QR  l in [5,113]: inst=41911  P(edge)=0.310  P(bichrom)=0.174  P(b|e)=0.563  P(bichrom via smaller nbr)=0.036  P(bichrom via larger nbr)=0.155  P(p+l has QNR prime)=0.478  P(larger-bichrom | p+l has QNR prime)=0.324
+  roots QNR l in [5,113]: inst=42089  P(edge)=0.395  P(bichrom)=0.348  P(b|e)=0.879  P(bichrom via smaller nbr)=0.264  P(bichrom via larger nbr)=0.214  P(p+l has QNR prime)=1.000  P(larger-bichrom | p+l has QNR prime)=0.214

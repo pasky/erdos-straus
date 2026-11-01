@@ -1,0 +1,38 @@
+[special] 19 primes; success rate by root (depth<=4, <= 5000 vertices):
+   n_p             10/19
+   qnr2            5/19
+   qnr3            1/19
+   least_QR_prime  4/19
+   one             11/19
+[mordell] 400 primes; success rate by root (depth<=4, <= 5000 vertices):
+   n_p             279/400
+   qnr2            211/400
+   qnr3            214/400
+   least_QR_prime  313/400
+   one             370/400
+[near_sq_q2+1] 131 primes; success rate by root (depth<=4, <= 5000 vertices):
+   n_p             124/131
+   qnr2            101/131
+   qnr3            73/131
+   least_QR_prime  60/131
+   one             128/131
+   p=     409 n_p=  7  n_p:Y(1)  qnr2:Y(2)  qnr3:n(1)  least_QR_prime:n(15)  one:n(15)
+   p=     577 n_p=  5  n_p:Y(1)  qnr2:Y(1)  qnr3:n(1)  least_QR_prime:Y(2)  one:Y(11)
+   p=    5569 n_p= 13  n_p:n(1)  qnr2:Y(1)  qnr3:n(1)  least_QR_prime:n(18)  one:n(18)
+   p=    9601 n_p= 13  n_p:Y(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(1)  one:Y(20)
+   p=   23929 n_p=  7  n_p:Y(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(18)  one:n(18)
+   p=   83449 n_p= 13  n_p:n(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(22)  one:n(22)
+   p=  102001 n_p= 23  n_p:Y(1)  qnr2:n(2)  qnr3:n(1)  least_QR_prime:n(5)  one:n(19)
+   p=  329617 n_p=  5  n_p:Y(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(1)  one:Y(7)
+   p=  712321 n_p= 23  n_p:Y(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(3)  one:Y(8)
+   p= 1134241 n_p=  7  n_p:Y(1)  qnr2:Y(1)  qnr3:n(1)  least_QR_prime:n(1)  one:Y(43)
+   p= 1724209 n_p= 13  n_p:n(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(33)  one:n(34)
+   p= 1726201 n_p= 19  n_p:n(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(1)  one:n(15)
+   p= 5212561 n_p= 11  n_p:n(1)  qnr2:Y(1)  qnr3:n(1)  least_QR_prime:n(9)  one:n(11)
+   p= 8813281 n_p= 17  n_p:n(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(6)  one:Y(15)
+   p=     193 n_p=  5  n_p:Y(1)  qnr2:n(1)  qnr3:Y(1)  least_QR_prime:Y(1)  one:Y(4)
+   p=    2521 n_p= 11  n_p:n(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(1)  one:Y(9)
+   p=   66529 n_p= 13  n_p:Y(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:Y(2)  one:Y(8)
+   p=    3361 n_p= 11  n_p:n(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:Y(2)  one:Y(15)
+   p= 5101441 n_p= 13  n_p:n(1)  qnr2:n(1)  qnr3:n(1)  least_QR_prime:n(6)  one:Y(15)
+odd squares, root 1 (T1 control; must be all 'False'): [(441, False, 9), (1089, False, 9), (1521, False, 5), (2601, False, 7), (3249, False, 20), (4761, False, 7), (7569, False, 14), (8649, False, 15), (12321, False, 9), (15129, False, 20)]
