@@ -1,0 +1,22 @@
+PARI stack size set to 3000000000 bytes, maximum size set to 3000000512
+p=3 h=1 all integer solutions [(0, -1)] ; with r,v>0, v even: []
+p=3 h=3 all integer solutions [] ; with r,v>0, v even: []
+p=3 h=5 all integer solutions [(-2, -5)] ; with r,v>0, v even: []
+p=3 h=15 all integer solutions [(1, 0)] ; with r,v>0, v even: []
+   p=3 done in 0.0s
+p=5 h=1 all integer solutions [(0, -1)] ; with r,v>0, v even: []
+p=5 h=3 all integer solutions [] ; with r,v>0, v even: []
+p=5 h=5 all integer solutions [] ; with r,v>0, v even: []
+p=5 h=15 all integer solutions [(1, 0)] ; with r,v>0, v even: []
+   p=5 done in 0.0s
+p=7 h=1 all integer solutions [(0, -1)] ; with r,v>0, v even: []
+p=7 h=3 all integer solutions [] ; with r,v>0, v even: []
+p=7 h=5 all integer solutions [] ; with r,v>0, v even: []
+p=7 h=15 all integer solutions [(1, 0)] ; with r,v>0, v even: []
+   p=7 done in 0.2s
+p=11 h=1 all integer solutions [(0, -1)] ; with r,v>0, v even: []
+p=11 h=3 all integer solutions [] ; with r,v>0, v even: []
+p=11 h=5 all integer solutions [] ; with r,v>0, v even: []
+p=11 h=15 all integer solutions [(1, 0)] ; with r,v>0, v even: []
+   p=11 done in 313.5s
+(run 'z53_thin15_thue.py 3 40 SG' under timeout 1800: completed p = 3..11; killed by the timeout during p = 13)

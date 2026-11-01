@@ -41,6 +41,11 @@ def limit_divisor_pairs(N, c, X_off, Xp_off, scale):
 
 if mode == 'int':
     ncand = 0; RES = {}
+    # u = 1 is p-independent (a = 14, E = 1, c_o = 7): handled once here; the loop below treats u >= 3 only.
+    for (X, Xp) in limit_divisor_pairs(30, 7, 1, 16, None):
+        nlim += 1
+        h = test(15, Fr(14), Fr(1), menus=('B',)); nexact += len(h)
+        print('LIMIT-HIT u=1 (every p) E=1 X=%d Xp=%d exact-survivors=%s' % (X, Xp, h), flush=True)
     for E in range(1, EMAX + 1):
         M = 2 ** E; bound = 1 + M * (M + 17)          # 15 u^p <= bound
         for p in primes_upto(max(3, int(1.3 * E) + 10)):
@@ -53,9 +58,10 @@ if mode == 'int':
                 r0 = RES[p]
                 RES[p] = r0 if (15 * pow(r0, p, M) - 1) % M == 0 else r0 + M // 2
                 assert (15 * pow(RES[p], p, M) - 1) % M == 0
-            if 15 * 3 ** p > bound and E > 1: continue
+            if 15 * 3 ** p > bound: continue          # no u >= 3 possible for this p
             umax = iroot(bound // 15, p)
             u = RES[p]
+            if u == 1: u += M
             while u <= umax:
                 c = 15 * u ** p - 1
                 if v2(c) == E:
@@ -71,6 +77,7 @@ if mode == 'int':
         if E % 250 == 0: print('.. E=%d, %d candidates' % (E, ncand), flush=True)
     print('menu B, odd integer u, E <= %d: %d candidates (E,p,u), %d limit-level solutions, %d exact survivors, %d flags'
           % (EMAX, ncand, nlim, nexact, len(flags)))
+    if flags: print('INCOMPLETE: unfactored cases'); sys.exit(2)
 elif mode == 'dyadic':
     nw = 0
     for p in primes_upto(EMAX):
@@ -90,6 +97,7 @@ elif mode == 'dyadic':
         print('.. p=%d done, %d windows' % (p, nw), flush=True)
     print('menu B, dyadic u = r/2^i, e = ip <= %d: %d (p,i,r) tested, %d limit-level solutions, %d exact survivors, %d flags'
           % (EMAX, nw, nlim, nexact, len(flags)))
+    if flags: print('INCOMPLETE: unfactored cases'); sys.exit(2)
 elif mode == 'sgdyadic':   # Sophie-Germain shape 1 + a = 60 w^4, w = r/2^i (r odd, i >= 1): e = 4i - 2, c_num = 15 r^4 - 2^e
     nw = 0
     for i in range(1, (EMAX + 2) // 4 + 1):
@@ -107,3 +115,4 @@ elif mode == 'sgdyadic':   # Sophie-Germain shape 1 + a = 60 w^4, w = r/2^i (r o
                 print('LIMIT-HIT SG i=%d r=%d X=%d 2^e X\'=%d exact-survivors=%s' % (i, r, X, Xpp, h), flush=True)
     print('menu B, SG dyadic w = r/2^i, e = 4i-2 <= %d: %d (i,r) tested, %d limit-level solutions, %d exact survivors, %d flags'
           % (EMAX, nw, nlim, nexact, len(flags)))
+    if flags: print('INCOMPLETE: unfactored cases'); sys.exit(2)

@@ -1,0 +1,16 @@
+p=3 h=1 all integer solutions [(0, -1)] ; with r,v>0, v even: []
+p=3 h=3 all integer solutions [] ; with r,v>0, v even: []
+p=3 h=5 all integer solutions [(-2, -5)] ; with r,v>0, v even: []
+p=3 h=15 all integer solutions [(1, 0)] ; with r,v>0, v even: []
+   p=3 done in 0.0s
+p=5 h=1 all integer solutions [(0, -1)] ; with r,v>0, v even: []
+p=5 h=3 all integer solutions [] ; with r,v>0, v even: []
+p=5 h=5 all integer solutions [] ; with r,v>0, v even: []
+p=5 h=15 all integer solutions [(1, 0)] ; with r,v>0, v even: []
+   p=5 done in 0.0s
+p=7 h=1 all integer solutions [(0, -1)] ; with r,v>0, v even: []
+p=7 h=3 all integer solutions [] ; with r,v>0, v even: []
+p=7 h=5 all integer solutions [] ; with r,v>0, v even: []
+p=7 h=15 all integer solutions [(1, 0)] ; with r,v>0, v even: []
+   p=7 done in 0.1s
+SG: r^4 - 13500 k^4 = 1: all integer solutions [[-1, 0], [1, 0]]

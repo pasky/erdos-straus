@@ -77,15 +77,18 @@ prime; then X + 1 and F + X are ℓ-adic units. A: y(1) = F(1 + X′)/4 gives v_
 v_ℓ(X′) ≥ 0. B: x(1) = X′(X + 1)/4 gives v_ℓ(X′) ≥ 0. In these three, v_ℓ(F + a) = v_ℓ(X) + v_ℓ(X′) ≥ v_ℓ(X).
 B′: y(1) = F(X′/a + 1)/4 gives v_ℓ(X′) ≥ v_ℓ(a); if v_ℓ(a) < 0 then v_ℓ(F + a) = v_ℓ(a), so v_ℓ(X) = v_ℓ(F + a) −
 v_ℓ(X′) ≤ 0, impossible; so v_ℓ(a) ≥ 0 and v_ℓ(F + a) ≥ v_ℓ(X). (iii) X/φ = P(1)/P(0); Z52D Lemma 6. ∎
-*Consequence.* For given K (i.e. given (u, p) or w) the set of possible (X, φ) is finite and **independent of D**, and
-each candidate is decided by six exact membership tests. `z53_thin15_menus.py` implements exactly this; its positive
+*Consequence.* For given K (i.e. given (u, p) or w) Lemma 2 yields a finite **candidate superset** of the possible
+(X, φ), **independent of D**, and each candidate is tested exactly against the six local conditions. Zero surviving
+candidates excludes the menu for that K and every D; a surviving candidate is only a *limit-level hit* — a family also
+needs a monic factor P of Y^D + K with P(0)/P(1) = φ/X for some D (review defect 3: for c₀ = 63, K = 27, X = 21 the
+test accepts φ ∈ {3, 27, 63, 567}, of which only φ = 27 is realised at D = 3). `z53_thin15_menus.py` implements this; its positive
 controls recover the II-ac cubic family of 3·2^s + 1 (EXP_OPEN Prop 2.1: menu B, a = 80, (X, X′, φ, φ′) = (84, 1, 63,
 9/7)), the A/A′ hits of c₀ = 3 and the II-ad family of 63·2^s + 1 (menu A, a = 1700, X = 21, X′ = 84).
 
 ### 3.1 Menu B′ (= II-cd)
 
 **Proposition 3 (B′; PROVED).** If B′ is valid near μ = 0 then a = 1/(2^e A₂) with e ≥ 2 and A₂ odd; in particular
-a < 1/4. Consequently:
+a < 1/4 (a = 1/4 would give K = 1/12, neither a p-th power nor 4w⁴). Consequently:
 (a) B′ is empty for integer u and for integer w (there a = 15u^p − 1 ≥ 14, resp. 60w⁴ − 1 ≥ 59).
 (b) Shape u^p (u = r/v, gcd(r, v) = 1): 15r^p − v^p = h with h ∈ {1, 3, 5, 15}, v even, r odd, e = p·v₂(v),
     A₂ = v^p/(h2^e). Each case is an equation |a′x^p − b′y^p| = 1 — (a′, b′) = (15, 1), (5, 3^{p−1}), (3, 5^{p−1}),
@@ -167,21 +170,29 @@ real root ζ of f, 4a(ζ)²d(ζ) = −n(ζ) < 0, impossible since d > 0 on ℝ.
 **Theorem 6 (root degree 2 is sterile; PROVED).** For n = 15Y² + 1 (Y = 2^{s/2}) there is no root family through
 μ = 0 other than ET classes polynomial in n, constant-gap and constant-ratio families — all excluded at μ = 0
 (paper Thm sterile, Theorem W, Cor. ratio). Hence **no rule polynomial in 2^{s/2} reaches μ = 0 of 15·2^s + 1.**
-*Proof.* By Lemma 5 all of a, b, c, d have even degree, i.e. degree 0 or 2. The smallest coordinate has degree D = 2
-(if it were y = acdn or z = bcdn, three of a, b, c, d would be constant: an ET class). Type II: x = abd, so
-(α, β, δ) := (deg a, deg b, deg d) is a permutation of (2, 0, 0), and c·f = a + b with f the gap gives
-deg c + deg f = max(α, β) ∈ {0, 2}. Moving gap means deg f ≥ 1, and deg c is even, so deg f = 2, deg c = 0 when
-max(α, β) = 2 (then three of a, b, c, d are constant: ET class), and deg f = 0 otherwise (constant gap). Type I: the
-smallest coordinate is acd (or bcd), so min(α, β) + deg c + δ = 2. If min(α, β) = 2 then c, d are constant: Z52D's menu
-C, empty at μ = 0 (Z52D Prop 3). Otherwise, say β = 0: (deg c, δ) ∈ {(2, 0), (0, 2)}. (2, 0): b, d constant —
-I-bd: with g := 4abd − 1, cg = n(a + b) and n(a + b) = n(g + 1 + 4b²d)/(4bd), so g | (1 + 4b²d)n, g ∈ {const, const·n},
-an ET class polynomial in n. (0, 2): b, c constant — the mirror of I-ac = menu A′, which needs n + c reducible; but
-15Y² + K (K > 0) is irreducible over ℚ. ∎
+*Proof.* By Lemma 5 all of a, b, c, d have even degree (not necessarily ≤ 2: e.g. Type I with c = d = 1,
+a = (n + 1)/4, b = na + 1 has degrees (2, 4, 0, 0) — a constant-gap family; review defect 4). Since 4/n = Σ 1/x_i with
+positive leading coefficients, the smallest coordinate has degree D = 2 and the other two have degree ≥ 2; we bound
+only the parameters occurring in the smallest coordinate. A coordinate that is a constant multiple of n is excluded
+(constant ratio). *Type II.* If the smallest coordinate is acdn (or bcdn), then a, c, d (or b, c, d) are constant:
+an ET class. Otherwise it is x = abd, so (α, β, δ) := (deg a, deg b, deg d) is a permutation of (2, 0, 0); the gap
+f = 4abd − n satisfies c·f = a + b, so deg c + deg f = max(α, β) ∈ {0, 2}. If max(α, β) = 0 then f is constant. If
+max(α, β) = 2, a moving gap needs deg f ≥ 1, so deg c = 0 (even) and deg f = 2: then three of a, b, c, d are
+constant — an ET class. *Type I* ((abdn, acd, bcd), n(a + b) + c = 4abcd). If abdn is smallest, a, b, d are constant
+and it is a constant multiple of n. Otherwise, say acd is smallest: (α, deg c, δ) is a permutation of (2, 0, 0).
+α = 2: c, d constant — Z52D's menu C, empty at μ = 0 (Z52D Prop 3). deg c = 2: a, d constant — I-ad: with
+g := 4abd − 1 (so b = (g + 1)/(4ad)), cg = n(a + b) = n(g + 1 + 4a²d)/(4ad), hence g | (1 + 4a²d)n and
+g ∈ {const, const·n}: b and c = n(a + b)/g are polynomials in n, an ET class. δ = 2: a, c constant — I-ac = menu A′,
+which needs n + c (c constant) to factor; but 15Y² + 1 + c is irreducible over ℚ. (The case bcd smallest is the mirror
+a ↔ b.) ∎
 *Remarks.* (i) The same bookkeeping for D = 4 leaves, in Type II, only the binomial menus A, B, B′ in SG shape
 (n + a = 15(Y⁴ + 4w⁴)): A-SG is impossible (Z52D Lemma 4(3)), B′-SG is impossible (Prop 3(c)), B-SG is impossible for
-integer w (Prop 4(b)) and certified empty for dyadic w with e ≤ 90 (§5); B-SG with odd-denominator w stays (EVIDENCE:
-w = r/v, r, v ≤ 60, no hit). In Type I, D = 4 leaves one-constant patterns ((deg c, deg d) = (2, 2) with b constant;
-c or d constant with min(α, β) = 2), not treated here. (ii) For D = 6 Lemma 5 leaves the one-constant Type II
+integer w (Prop 4(b)) and certified empty for dyadic w with e ≤ 90 (§5). **B-SG survives** for dyadic w with e > 90
+and for w with an odd prime in the denominator (EVIDENCE: no hit for w = r/v, r, v ≤ 40, `sweep_15_H40_P19.log`; the
+reviewer replayed r, v ≤ 60 for B-SG, 1807 cases, no hit). In Type I, D = 4 leaves A′ in SG shape (Z52D Thm 7: empty
+for integer and even w, certified for dyadic w with e ≤ 66; open beyond and for odd-denominator w) and one-constant
+patterns (e.g. b constant with deg c = deg d = 2; c or d constant with the smallest coordinate's a-part of degree 2);
+this list is not claimed exhaustive and these patterns are not treated here. (ii) For D = 6 Lemma 5 leaves the one-constant Type II
 patterns (α, β, δ, γ) = (2, 2, 2, 0), (0, 4, 2, 2), (2, 4, 0, 2), (4, 2, 0, 2) (and mirrors), i.e. II-c, II-a, II-d with
 quadratic/quartic parameters — the first even degree where a non-binomial Type II family is not excluded by signs.
 (iii) For odd D, Lemma 5 kills the D = 3 patterns "II-a" (a constant, b quadratic, c, d linear) and "II-c" (c constant,
@@ -210,10 +221,26 @@ f linear.
 the Sierpiński-type coverings of the kickoff) contains all n_s, s ∈ S, s ≥ s₁: in exponent space the class
 t ≡ 0 (mod lcm) always survives (s = 60t), because a divisor rule q | n at t ≡ 0 would need q | 15 + 1 = 16, and
 ET classes are excluded by the odd-square argument (paper Thm sterile).
-(b) Consequently a finite certificate for S must contain a rule valid on a whole neighbourhood {s ≡ 0 (mod L), s ≥ s₁}
-of μ = 0, i.e. (if it is a C-finite rule with 2-power roots, Z52D Thm 1) a root family through μ = 0 — exactly the
-object attacked in §3. The covering strategy cannot by itself produce a theorem; it is complete only after such a
-rule exists. (Assessment: rules with other exponential bases, e.g. 3^{t}, are not excluded by (a)–(b); see §6.)
+(b) Consequently, in a finite *congruence covering* — finitely many rules, each valid on a set
+{s ≡ u_i (mod P_i), s ≥ s_i} — some rule is valid on all large multiples of its modulus (paper Lemma compact), i.e. on a
+neighbourhood of μ = 0; if that rule is C-finite with 2-power roots it is a root family through μ = 0 (Z52D Thm 1), the
+object of §3. So the kickoff's covering strategy is complete only after such a rule exists. This necessity statement
+is about that covering architecture only: a proof by other means (rules valid on non-congruence sets, e.g. split by
+the parity of v₂(t), or non-uniform arguments) is not excluded by (a)–(b).
+
+**Proposition 8 (polynomial multi-base certificates collapse; PROVED; argument supplied by the hostile review).** Let
+θ₁, …, θ_k > 1 be reals such that 2, θ₁, …, θ_k are multiplicatively independent (e.g. θ = 3, 5), Y = 2^{s/D},
+Z_j = θ_j^{s/D′}. If x, y, z ∈ ℚ[Y, Z₁, …, Z_k] are positive integers with 4/n = 1/x + 1/y + 1/z for all s in an
+infinite arithmetic progression, then x, y, z ∈ ℚ[Y]: the certificate is a root family (§3).
+*Proof.* Along s = s₀ + Lt, every monomial Y^iZ^j evaluates to C_{ij}·λ_{ij}^t with pairwise distinct positive bases
+λ_{ij} (multiplicative independence), so P := 4xyz − n(xy + yz + zx) evaluates to a real exponential sum Σ c_{ij}λ_{ij}^t
+with distinct bases; such a sum with a non-zero coefficient has at most (#terms − 1) real zeros (Descartes' rule for
+exponential sums), so P = 0 identically. By induction on k it suffices to treat one variable Z over K := ℚ(Y, Z₂, …):
+x, y, z ∈ K[Z] and 1/x + 1/y + 1/z = 4/n ∈ K^×. Let v be the valuation of K(Z) at Z = ∞ (v(1/x) = deg_Z x). If all three
+Z-degrees are positive, v(LHS) > 0 = v(4/n). If exactly two (x, y) are, then 1/x + 1/y = 4/n − 1/z ∈ K has v > 0, so it
+is 0 and x = −y, contradicting positivity at the sampled points. If exactly one (x) is, 1/x ∈ K has v > 0, impossible.
+So all Z-degrees are 0. ∎ (Scope: polynomial, not Laurent, dependence on the Z_j; coefficients constant in s. Laurent
+or rational dependence, and certificates that are not of this exponential-polynomial type, are not covered.)
 
 ## 5. Computations (exact commands; all exact integer/rational arithmetic)
 
@@ -224,8 +251,8 @@ All runs: `ulimit -v 4000000–6000000; timeout ≤ 1800; uv run --with gmpy2 --
 y = Nk/d₁, z = Nk/d₂ (N = nx, k = (d₁ + d₂)/m) and 1/y + 1/z = m/N, 1/x + m/(nx) = 4/n. `z53_thin15_check.py`
 re-checks every line independently (m ≡ 3 (4), d₁ | x, d₂ | x, m | d₁ + d₂, no gaps) and, for t ≤ 10⁴, also the literal
 identity 4xyz = n(xy + yz + zx). Files `cert_t1_10000.txt`, `cert_t10001_30000.txt`, `cert_t30001_50000.txt`
-(≈ 0.7 MB), logs `check_*.log`: **50 000 certificates, t = 1 … 50 000, 0 failures, 0 gaps; m ≤ 131 (m = 3 for 42 %,
-m = 7 for 29 % of t ≤ 10⁴).** With paper Prop 5.12 (60 ∤ s) and s = 0 (n = 16): **ES(15·2^s + 1) holds for every
+(≈ 0.7 MB), logs `check_*.log`: **50 000 certificates, t = 1 … 50 000, 0 failures, 0 gaps; m ≤ 167 (m = 3 for 42.6 %,
+m = 7 for 28.8 % of all t; for t ≤ 10⁴: m ≤ 131, 4250 and 2904 lines).** With paper Prop 5.12 (60 ∤ s) and s = 0 (n = 16): **ES(15·2^s + 1) holds for every
 s ≤ 3 000 000 (CERTIFIED)**; previously only s ≤ 52 (Salez's 10¹⁷) was known for 60 | s.
 *Census* (`z53_thin15_census.py 3000 1000000`, `census_T3000_B1e6.log`): n ≡ 121 (mod 840) (Mordell-hard) for every t;
 71.8 % of t ≤ 3000 have a prime factor < 10⁶ (most often 23, 79, 811, 137, 47); 846 t (first: 2, 3, 4, 11, 13, …) have
@@ -236,23 +263,28 @@ c₀ = 3, u = 3, p = 3: hits in A, A′ and B, including the II-ac cubic family 
 c₀ = 63, u = 3, p = 3: exactly the A hit X = 21, X′ = 84 (EXP_OPEN Thm 2.3). `z53_thin15_sweep.py c₀ H P`
 (u = r/v and SG w = r/v, r, v ≤ H, odd p ≤ P, all four menus): controls `sweep_3_H12_P13_control.log` (11 hits: A, A′,
 B, incl. the SG A′ hit K = 4, a = 11) and `sweep_63_H12_P13_control.log` (4 hits, all A, u = 3).
-For c₀ = 15: H = 24, P = 13: 1508 (K, a) pairs, **0 hits**; SWEEP60.
+For c₀ = 15: H = 24, P = 13: 1508 (K, a) pairs, 0 hits; H = 40, P = 19 (`sweep_15_H40_P19.log`): **5221 (K, a) pairs,
+0 hits** (EVIDENCE for odd-denominator u, w; the H = 60, P = 23 run was killed by its timeout without output and is
+not used).
 
-**5.3 Menu B certification (Prop 4).** `z53_thin15_menuB.py int 3000` (`menuB_int_E3000.log`): every odd integer u,
-odd prime p (all p with 15·3^p ≤ 1 + 2^E(2^E + 17)), E = v₂(15u^p − 1) ≤ 3000 with c_o ≤ 2^E + 17, enumerated via the
-2-adic root u ≡ 15^{−1/p} (mod 2^E) (incremental Hensel lift, asserted); the only candidates are u = 1 (p = 3, 5, 7, 11,
-E = 1), with limit solution (X, X′) = (6, 5), killed by the exact test. Brute-force cross-check of the candidate
-enumeration (`z53_thin15_xcheckB.py 200001 13`: all odd u ≤ 2·10⁵, p ≤ 13): same result.
+**5.3 Menu B certification (Prop 4).** `z53_thin15_menuB.py int 3000` (`menuB_int_E3000.log`, final code): u = 1 is
+handled once, p-independently (a = 14, E = 1, c_o = 7: the single limit solution (X, X′) = (6, 5), killed by the exact
+test, as in Prop 4(d)); then every odd integer u ≥ 3, every odd prime p with 15·3^p ≤ 1 + 2^E(2^E + 17), and every
+E = v₂(15u^p − 1) ≤ 3000 with c_o ≤ 2^E + 17 is enumerated via the 2-adic root u ≡ 15^{−1/p} (mod 2^E) (incremental
+Hensel lift, asserted): **0 candidates** (u ≥ 3). Brute-force cross-check (`z53_thin15_xcheckB.py 200001 13`, all odd
+u ≤ 2·10⁵, p ≤ 13): the only candidates are u = 1 for each p ≤ 13, with (X, X′) = (6, 5). A run aborting on an
+unfactored case prints INCOMPLETE and exits 2 (none occurred).
 `z53_thin15_menuB.py dyadic 72` (`menuB_dyadic_e72.log`): 10 696 791 windows (p, i, r), e = ip ≤ 72; one limit
 solution (u = 1/2, p = 3), killed. `z53_thin15_menuB.py sgdyadic 90` (`menuB_sgdyadic_e90.log`): SG shape
 w = r/2^i, e = 4i − 2 ≤ 90, 3 106 120 windows, no limit solution.
 **CERTIFIED: menu B has no family through μ = 0 of 15·2^s + 1 — for any D — with u an integer and E ≤ 3000, with u
 dyadic and ip ≤ 72, with w an integer, or with w dyadic and 4i − 2 ≤ 90.**
 
-**5.4 Menu B′ Thue equations (Prop 3).** `z53_thin15_thue.py 3 40 SG` (`thue_Bprime.log`; PARI `thueinit(·, 1)`,
+**5.4 Menu B′ Thue equations (Prop 3).** `z53_thin15_thue.py 3 7 SG` and `… 3 40 SG` (PARI `thueinit(·, 1)`,
 unconditional): for p = 3, 5, 7, 11 the equations 15r^p − v^p = h (h = 1, 3, 5, 15) have only the integer solutions
 (0, −1) (h = 1), (1, 0) (h = 15) and, for p = 3, (−2, −5) (h = 5) — none with r, v > 0, v even; r⁴ − 13500k⁴ = 1 has
-only (±1, 0). THUE13. **CERTIFIED: B′ is empty for p ≤ 11 and in SG shape.**
+only (±1, 0) (`thue_Bprime_p3to7_SG.log`; p = 11 from `thue_Bprime_p3to11.log`, 313 s; the p = 13 computation did
+not finish within the 1800 s timeout). **CERTIFIED: B′ is empty for p ≤ 11 and in SG shape.**
 
 **5.5 II-d at D = 3 (§3.4; EVIDENCE).** `z53_thin15_iid3.py 32 16` (`iid3_Q32_R16.log`; symbolic self-test of the
 parametrisation `z53_thin15_iid3_selftest.py`): α, ζ ∈ ℚ with denominator ≤ 32 and value in [−16, −15^{−1/3}),
@@ -274,25 +306,29 @@ C(1) = 4d(1 − α)² — always fails). EVIDENCE only.
   * A D-independent finite exact test (Lemma 2) for all four binomial menus and *rational* u; no hit at small heights.
 * **Sign lemma (Lemma 5, PROVED)**: in any root family the real roots of a, b, c, d lie at or below the largest real root
   of n. Consequences: **no rule polynomial in 2^{s/2} reaches μ = 0 (Thm 6)**; at D = 3 the one-constant patterns II-a
-  and II-c are empty; at D = 4 Type II reduces to B in SG shape with an odd-denominator w; the first non-binomial
+  and II-c are empty; at D = 4 Type II reduces to B in SG shape with w dyadic beyond e = 90 or with an odd-denominator
+  w; the first non-binomial
   Type II patterns not excluded by signs are II-d at D = 3 (EVIDENCE: no hit in 1.3·10⁷ parameter pairs) and the D = 6
   patterns of Theorem 6, Remark (ii).
 * **Covering (Prop 7)**: Sierpiński-type covering congruences cannot work on their own: the class t ≡ 0 always
-  survives, so the kickoff's "complete covering = theorem" route needs a root family through μ = 0 first.
+  survives, so the kickoff's "complete covering = theorem" route needs a rule through μ = 0 first.
+* **Other bases (Prop 8, PROVED)**: certificates polynomial in 2^{s/D} and in exponentials with multiplicatively
+  independent bases (3^{s/D′}, 5^{s/D′}, …) collapse to root families in 2^{s/D}; so "3^s, 5^s-base certificates" of
+  polynomial type are not a new menu.
 
-Surviving routes (where a proof of 60 | s must live): (1) a binomial-menu family at a height beyond the certified
-bounds, or with u (or w) having an odd denominator; (2) B′ for p ≥ 13 (≤ 4 values of u per p); (3) one-constant
-patterns (II-d at D = 3; Type I at D = 4; D ≥ 5); (4) certificates with other exponential bases (Assessment: a
-{2,3}-exponential certificate, polynomial in Y = 2^{s/D} and Z = 3^{t/D′}, specialises at Z = 1 to a 2-power root family
-whose Y = 1 values need only be integral away from 3 — the tests of Lemma 2 with ℤ[1/6] in place of ℤ[1/2] would screen
-it; not done); (5) the kickoff's two-base boundary X = 2^t3^{t′} concerns the Pierpont family (EXP_15 §1) and is not
-touched here.
+Surviving routes for a *congruence-covering* proof of 60 | s (not claimed exhaustive for all conceivable proofs):
+(1) a binomial-menu family at a height beyond the certified bounds, or with u (or w) having an odd denominator
+(A, A′, B), incl. B-SG and A′-SG at D = 4; (2) B′ for p ≥ 13 (≤ 4 values of u per p); (3) non-binomial patterns with
+**at most one** constant parameter (II-d at D = 3; one-constant Type I at D = 4; D ≥ 5; zero-constant patterns such as
+(α, β, δ, γ) = (4, 2, 2, 2) at D = 8 are also not excluded by signs); (4) exponential certificates outside Prop 8
+(Laurent/rational dependence on other bases); (5) the kickoff's two-base boundary X = 2^t3^{t′} concerns the Pierpont
+family (EXP_15 §1) and is not touched here.
 
 **Screens (FRONTIER §4)** — for the thin-family statement; nothing here transfers to primes.
-1. *T1 (odd squares):* the family has squares only at s = 3, 6 (121, 961; A(A + 1) = 15·2^{s−2} forces A ∈ {5, 15}),
-   none with 60 | s. Root families evade the T1 obstruction of ET classes because they are not polynomial in n
-   (Thm sterile's odd square t² is not of the form 15Y^D + 1 with Y in the progression); Theorem 6 shows the sign
-   structure, not T1, is what kills D = 2. Pass (not binding).
+1. *T1 (odd squares):* for s ≥ 1 the family has odd squares only at s = 3, 6 (121, 961; A(A + 1) = 15·2^{s−2} forces
+   A ∈ {5, 15}); s = 0 gives n = 16. None has 60 | s, s ≥ 1. The T1 obstruction of paper Thm sterile works for ET
+   classes because they are polynomial in n (one picks an odd square in the class of n mod M); a root family is
+   polynomial in Y, not in n, and that argument does not apply. Theorem 6 uses signs, not T1. Pass (not binding).
 2. *8/131:* not applicable — every result is specific to 4/n with n = 15·2^s + 1 (F = 16 enters every limit equation).
 3. *Tied modulus:* the binomial menus have fixed moduli (the odd part of a); the forced budget comes from the algebraic
    factorisation n + a = ff′, which has no analogue at a generic prime. Fails as a prime method (by design).
@@ -300,21 +336,24 @@ touched here.
 
 **Proposed FRONTIER §7.8 replacement for the 15·2^s + 1 part** (do not edit FRONTIER from here):
 > 8. **Thin families still open:** 15·2^s + 1 (60 | s), 4^s + 297, 4^s + 33, 4^s + 273.
-> * 15·2^s + 1: ES CERTIFIED for every s ≤ 3·10⁶ (explicit certificates, z53 THIN15). Every two-constant Type I/II rule
->   is one of five binomial menus on n + a = ff′: A (II-ad), A′ (I-ac), B (II-ac), B′ (II-cd), C. C empty, B′ forces
+> * 15·2^s + 1: ES CERTIFIED for every s ≤ 3·10⁶ (explicit certificates, z53 THIN15). Every non-degenerate two-constant
+>   Type I/II rule is in A (II-ad), A′ (I-ac), B (II-ac), B′ (II-cd) — binomial menus on n + a = ff′ — or C (Type I,
+>   (c, d) const; n² + c = ff″). C empty, B′ forces
 >   a ≤ 1/4 and is four Thue equations per p (≤ 1 positive solution each, Bennett; none for p ≤ 11; SG shape empty);
 >   A, A′, B are 2-adic approximation problems, certified empty for integer u up to v₂ = 3000 and for dyadic u to
 >   moderate height (D-independent shape test); B is Ridout-finite for every p including p = 3, A for p = 3 is not.
 > * Sign lemma (PROVED): real roots of a, b, c, d lie below the real root of n; hence no rule polynomial in 2^{s/2} reaches
 >   μ = 0, and at D = 3 the only one-constant Type II pattern left is II-d (EVIDENCE: none at small height).
-> * Open: binomial menus beyond the certified heights or with odd-denominator u; B′ for p ≥ 13; one-constant patterns
->   (II-d at D = 3, Type I at D = 4, D ≥ 5); non-2-power exponential certificates. Covering congruences alone cannot
->   finish (Prop 7): a rule through μ = 0 is necessary. *(z53 THIN15; z52d THINFAMILY.)*
+> * Certificates polynomial in 2^{s/D} and 3^{s/D′}, 5^{s/D′}, … collapse to root families in 2^{s/D} (PROVED).
+> * Open: binomial menus beyond the certified heights or with odd-denominator u; B′ for p ≥ 13; patterns with at most
+>   one constant (II-d at D = 3, Type I at D = 4, D ≥ 5); Laurent/other exponential certificates. In a congruence
+>   covering a rule through μ = 0 is necessary (Prop 7). *(z53 THIN15; z52d THINFAMILY.)*
 
 **Bottom line.** For 15·2^s + 1 with 60 | s this lane adds a large certified range (s ≤ 3·10⁶) and closes most of the
 two-constant binomial landscape around μ = 0: B′ (II-cd) collapses to finitely many Thue equations per exponent, B
 (II-ac) to a 2-adic approximation problem certified empty to large heights, and a new sign lemma removes every rule of
 root degree 2 and two of the three one-constant cubic patterns. No rule through μ = 0 was found, and none of the
-results proves one cannot exist: the remaining room is in non-binomial (one-constant) patterns of root degree ≥ 3, at
-heights beyond the certified bounds, and in non-2-power exponential certificates. ES remains open for the family (and,
+results proves one cannot exist: the remaining room is in non-binomial patterns (at most one constant) of root
+degree ≥ 3, at heights beyond the certified bounds, and in exponential certificates outside the polynomial
+multi-base class (which collapses to root families, Prop 8). ES remains open for the family (and,
 of course, in general).
