@@ -126,9 +126,40 @@ reason.
 * Davenport/zero-sum on the residues of the prime factors of p + u in (ℤ/4u)*: needs ω(p+u) ≳ |(ℤ/4u)*| ≍ u, false for
   typical u.
 
-## 3. Computations
+## 3. Computations (CERTIFIED in the stated ranges; scripts `scripts/z53_wildcard_*`, data `data/z53/wildcard/`)
 
-(scripts/z53_wildcard_*, data/z53/wildcard/)
+### 3.1 Census of the three families, n ≡ 1 (mod 24), n ≤ 2·10⁵ (`z53_wildcard_census.c`, 8 s)
+`gcc -O2 scripts/z53_wildcard_census.c -lm; ./a.out 200000 300 > data/z53/wildcard/census_2e5.txt`.
+(★) and full Type II are enumerated exactly (bounded loops: ak ≤ (N+a+k)/4, h | a+k); Type I is enumerated with the
+WLOG a ≤ b and the restriction a ≤ 300 (so "no Type I" below means none with min(a,b) ≤ 300 — a partial census).
+* Of 8 333 values n ≡ 1 (24): 189 have no (★); 148 have no full Type II; 148 have no Type I (a ≤ 300); 148 have neither.
+* The 148 are **exactly the odd squares ≡ 1 (24) in range** (checked list equality). So in this range the full Type II
+  and Type I exceptional sets among n ≡ 1 (24) are precisely the squares (T1 is sharp), while (★) has 41 further
+  non-square failures: 7 primes — 409, 577, 5569, 9601, 23929, 83449, 102001 — and 34 composites (1345, 1465, 1969, …).
+  The 7 primes are exactly FRONTIER §4 item 14's list in this range (independent reproduction, independent code).
+* Brute-force cross-check in Python (all (u,B) with 4uB − u − B ≤ p): R(409) = R(577) = R(5569) = 0, while e.g.
+  409 = 4·1·13·8 − (1+13)/2 (h = 2), 577 = 4·1·5·29 − (1+5)/2.
+
+### 3.2 Type II counts at the (★)-hard primes versus neighbours (`z53_wildcard_counts.c`; 1.5 + 8 min)
+For each p: R(p) = #{(u,B): u ≤ B, 4uB | p+u+B}; N_II = #{(a,k,h): a ≤ k, h | a+k, 4ak | p+(a+k)/h}; N_a1 = the a = 1 slice;
+N_h2 = the h = 2 layer. Hard primes (`counts_hard.out`) and the six next primes ≡ 1 (24) after each (`counts_ctrl.out`):
+
+| p (hard) | R | N_II | N_a1 | N_h2 | neighbours' N_II (six primes ≡ 1 (24) above p) |
+|---|---|---|---|---|---|
+| 409 | 0 | 7 | 4 | 4 | 10, 7, 7(=577), 7, 5, 9 |
+| 5569 | 0 | 10 | 7 | 3 | 11, 16, 26, 27, 12, 20 |
+| 9601 | 0 | 7 | 2 | 4 | 15, 21, 36, 21, 34, 38 |
+| 23929 | 0 | 39 | 15 | 6 | 37, 39, 13, 38, 36, 33 |
+| 83449 | 0 | 15 | 4 | 2 | 71, 29, 37, 30, 45, 51 |
+| 102001 | 0 | 21 | 9 | 0 | 63, 70, 42, 36, 53, 42 |
+| 329617 | 0 | 30 | 11 | 5 | 61, 75, 48, 83, 64, 60 |
+| 712321 | 0 | 32 | 5 | 8 | 83, 74, 58, 64, 61, 72 |
+
+EVIDENCE: at 7 of the 8 hard primes the *full* Type II count is at or below the minimum of its six neighbours (23929 is the
+exception); the deficit is global across the h-layers, not confined to h = 1. This matches `BM_CORRECTED_COUNT.md` §4
+(positively correlated residuals of (★) and the b = 1 line; 83449 and 329617 are the union minima). Reading: a (★)
+failure is a lower-tail event of one depressed integer, so widening the family (idea 1) buys a larger mean (log³p) but
+no complementarity — exactly the "doubled main term, nothing forced" conclusion already recorded there.
 
 ## 4. Barrier check against FRONTIER §§3–4, §6
 
