@@ -20,7 +20,7 @@ def sols(n, m=4):
             z=((B2//d)+B)//A
             out.append((x,y,z))
     return sorted(set(out))
-if __name__=='__main__':
+if __name__=="__main__":
     n=int(sys.argv[1])
     S=sols(n)
     print(n, len(S))
