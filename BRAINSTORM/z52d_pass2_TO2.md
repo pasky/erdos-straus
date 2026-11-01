@@ -1,11 +1,13 @@
 # z52d Pass 2 — batch TO2 (101 "touched" items; ES is OPEN, nothing here is a proof of ES)
 
-**Summary (5 lines).**
-1. Counts (101 items): interesting 14, covered 15, nothing 72, needs-compute 0, skipped 0. Every input line has one line in `data/z52b/pass2/outcome_TO2.jsonl`.
-2. Interesting (numbers in sections below): Z0510 (chain x|y|z variant fails exactly at primes with (p+1)/2 composed of primes ≡1 mod 4; PROVED criterion), Z0511 (minimal max-denominator exponent ≤ 1.9 for p ≤ 2·10⁵), Z0521 (minimal denominator within 0.114·log²p of p/4), Z0534 ((★) minimal modulus ≈ p/8 at p=184837), Z0543 (bounded-d Type I residue classes cover 99.5% of primes ≡1 mod 24 ≤1e6, d≤50), Z0559/Z0566 (P(U_m(p)=0) calibration; smallest failing m in (m²,2m²) is m=10), Z0616 (slice events E_1,E_2 negatively correlated), Z0628 (R(p) over-dispersed, ≈2× Poisson), Z0673 (no Type I witness with (d/p)=+1 in 13,311 tests), Z0681 (O(n) odd ⟺ n≡2 mod 4 to 30000), Z0692 (log R ~ 0.40·log h(−4p) at fixed size), Z0472 (near-square enrichment of (★)-zero primes), Z0513 (odd exceptions to p+2^a+2^b are only n=3 up to 1e8 with a,b≥0 — conflicts with a literature claim to be checked).
-3. Covered by existing repo depth documents: Z0476, Z0477, Z0479, Z0480, Z0481, Z0486, Z0487, Z0499, Z0531, Z0538, Z0595, Z0598, Z0631, Z0639, Z0691.
-4. Premise problems recorded: Z0519 (smooth ES impossible for p > smoothness bound: denominator argument), Z0482 and Z0522 (mis-cited arXiv ids), Z0473/Z0512 (arXiv:0901.3075 is Sun's mixed-sums paper), Z0473 (repo path wrong), Z0673 (claim not in T1_TEMPLATE.md).
-5. Not done (declared per item in outcome_TO2.jsonl): Vose 1985, Duke 1988, Crocker 1971, Pan 2011, Colliot-Thélène–Wittenberg texts; Q(√2) search (Z0518); U(p) at 2.3·10⁸ (Z0686); 1e7 record extension (Z0685).
+**Summary (5 lines, updated after lint-fix round).**
+1. Counts (101 items): interesting 14, covered 17, nothing 69, needs-compute 1 (Z0685: partial, see below), skipped 0. Lint (`scripts/z52d_pass2_lint.py`): 0 flagged. One line per input item in `data/z52b/pass2/outcome_TO2.jsonl`.
+2. Interesting (sections below): Z0510 (chain x|y|z variant fails exactly at primes with (p+1)/2 composed of primes ≡1 mod 4; PROVED criterion), Z0511 (minimal max-denominator exponent ≤ 1.9 for p ≤ 2·10⁵), Z0521 (minimal denominator within 0.114·log²p of p/4), Z0534 ((★) minimal modulus ≈ p/8 at p=184837), Z0543 (bounded-d Type I residue classes cover 99.5% of primes ≡ 1 mod 24 ≤1e6), Z0559/Z0566 (calibration; smallest failing m in (m²,2m²) is m=10), Z0616 (E_1,E_2 slices negatively correlated), Z0628 (R(p) over-dispersed ≈2× Poisson), Z0673 (no Type I witness with (d/p)=+1 in 13,311 tests), Z0681 (O(n) odd ⟺ n≡2 mod 4 to 30000), Z0692 (log R ~ 0.40·log h(−4p)), Z0472 (near-square enrichment of (★)-zero primes), Z0513 (exceptions to p+2^a+2^b: only n=3 to 1e8 for a,b≥0).
+3. Covered (depth cites): Z0476, Z0477, Z0479, Z0480, Z0481, Z0486, Z0487, Z0499, Z0531, Z0538, Z0595, Z0598, Z0631, Z0639, Z0640, Z0649 (the d=5 character escape is Mordell's identity, FRONTIER.md:30-31), Z0691.
+4. Premise problems recorded: Z0519 (smooth ES impossible for p > smoothness bound), Z0638 (S-integral relaxation trivial already for S={2}: 4/p = 1/(p/2)+1/p+1/p), Z0482 and Z0522 (mis-cited arXiv ids), Z0473/Z0512 (arXiv:0901.3075 is Sun's mixed-sums paper), Z0673 (claim not in T1_TEMPLATE.md).
+5. Needs-compute: Z0685 only — the p≡1 mod 840 record extension to 10⁷ reached the 30-min cap at 2384/3031 primes (no record; min U/log²p = 0.42); estimated ~15 more minutes on 4 cores. Not done for other items: Vose 1985, Duke 1988, Crocker 1971, Pan 2011, Colliot-Thélène–Wittenberg texts (not on arXiv / not fetched).
+
+Lint-fix round (pass2_fix.md): flagged items Z0518, Z0560, Z0602, Z0638, Z0640, Z0649, Z0660, Z0677 redone with computations/lookups (see sections "Lint-fix" below). Also re-run: Z0686 U(232792561)=276 (3.5 min, count program) — previously "not run".
 
 Method: repo count outputs (`data/z52b/raw/*`), new exact C enumerations (`scripts/z52d_p2_TO2_*.c`), analysis scripts `scripts/z52d_p2_TO2_an*.py`; outputs `data/z52b/pass2/TO2/`.
 
@@ -85,3 +87,18 @@ Exact sieve: odd n ≤ 10⁸ not of the form p + 2^a + 2^b (a, b ≥ 0): only n 
 * Z0696 / Z0579 / Z0580: tie-aware Spearman of U(p) with #QNR ≤ log p = +0.66; with least QNR −0.48; with least primitive root −0.42.
 * Z0478, Z0515, Z0527: m-family details above.
 
+
+---
+
+## Lint-fix round (pass2_fix.md)
+
+* **Z0518 (Q(√2), totally positive):** for 18 non-rational totally positive ν (norm ≤20) every tested ν has a solution 4/ν = 1/ξ+1/η+1/ζ with ξ,η,ζ totally positive in Z[√2] (exact check 18/18; `scripts/z52d_p2_TO2_qsqrt2.py`). Rational ν are trivial. EVIDENCE only.
+* **Z0560 (dynamics):** EKL (math/0612721) checked; ES's certificate is a bounded finite word, so EKL's divergent-orbit argument has no orbit to act on. Orbit-length statistic: λ(p) ∈ {2,3} for all 2384 primes p≡1 mod 8 in (17,10⁵) (132/54 below 6000, matching bsA memo).
+* **Z0602 (Romanoff):** odd n ≤10⁷ of the form p+2^k: 92–95% per decade, mean representation count 2.84 per decade (Poisson heuristic 2/ln2 ≈ 2.885). Lower-bound literature: arXiv 2302.06551 (abstract checked).
+* **Z0638 (S-integral):** S={2} already trivial: 4/p = 1/(p/2)+1/p+1/p, with p/2 ∈ Z[1/2].
+* **Z0640 (Farey graph):** memo BRAINSTORM/bsA_farey_graph_metric.md reproduced (λ=2:132, λ=3:54 for p<6000).
+* **Z0649 (character escape):** d=5, a=1, M=21 witnesses every (5/p)=−1 prime (p≡1 mod 24, 528/528 in [10⁴,10⁵)); p≡13 mod 20: f=7, c=(p+7)/20; p≡17 mod 20: f=3. These are the classes outside the Mordell-hard squares mod 840 (squares mod 5 ⇔ (p/5)=+1). For d=7: 78/535 (·) uncovered at a≤200; d=13: 144/533. (ℓ/p)=+1 primes: never covered (all ℓ tested).
+* **Z0660 (divisors ≡ −1 mod m):** fractions for n≤10⁵: 0.864 (m=3), 0.801 (4), 0.730 (5), 0.618 (7), 0.483 (11). Erdős–Hall paper not found on arXiv.
+* **Z0677 (OEIS A073101):** fetched; terms n=2..73 match our D column exactly. D(n)=0 only at n=2 for n ≤ 30000; the Vaughan bound (for U) does not transfer automatically to D.
+* **Z0685 (records, needs-compute):** U(p) for p≡1 mod 840, 10⁶<p≤8.02·10⁶: 2384 of 3031 primes, min U/log²p = 0.42 (p=3830401), no record (record = 0.147 at 2521). Remaining 647 primes in (8.02·10⁶, 10⁷]: ≈15 min more on 4 cores, total ≈45 min > 30-min cap. Data: `data/z52b/pass2/TO2/U_p840_1e6_1e7.txt`.
+* **Z0686:** U(232792561) = 276 (k1=193, k2=83), U/log²p = 0.74, not a record. R = 22.

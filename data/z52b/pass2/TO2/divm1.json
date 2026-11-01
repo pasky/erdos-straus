@@ -1,0 +1,14 @@
+{
+ "N": 100000,
+ "frac_n_with_divisor_1mod_m_minus1_m=2": 1.0,
+ "frac_n_with_divisor_1mod_m_minus1_m=3": 0.8641986419864198,
+ "frac_n_with_divisor_1mod_m_minus1_m=4": 0.8008580085800858,
+ "frac_n_with_divisor_1mod_m_minus1_m=5": 0.7300073000730007,
+ "frac_n_with_divisor_1mod_m_minus1_m=6": 0.7182271822718227,
+ "frac_n_with_divisor_1mod_m_minus1_m=7": 0.6182961829618296,
+ "frac_n_with_divisor_1mod_m_minus1_m=8": 0.6120661206612066,
+ "frac_n_with_divisor_1mod_m_minus1_m=9": 0.5632856328563286,
+ "frac_n_with_divisor_1mod_m_minus1_m=10": 0.5575555755557555,
+ "frac_n_with_divisor_1mod_m_minus1_m=11": 0.48268482684826847,
+ "frac_n_with_divisor_1mod_m_minus1_m=12": 0.5087550875508755
+}

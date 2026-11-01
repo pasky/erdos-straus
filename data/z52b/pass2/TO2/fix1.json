@@ -1,0 +1,69 @@
+{
+ "Z0649_d_ell_families": {
+  "5": {
+   "nonres": 528,
+   "covered_nonres": 528,
+   "covered_res": 0
+  },
+  "7": {
+   "nonres": 535,
+   "covered_nonres": 402,
+   "covered_res": 0
+  },
+  "11": {
+   "nonres": 535,
+   "covered_nonres": 385,
+   "covered_res": 0
+  },
+  "13": {
+   "nonres": 533,
+   "covered_nonres": 312,
+   "covered_res": 0
+  },
+  "17": {
+   "nonres": 525,
+   "covered_nonres": 370,
+   "covered_res": 0
+  },
+  "19": {
+   "nonres": 529,
+   "covered_nonres": 322,
+   "covered_res": 0
+  },
+  "23": {
+   "nonres": 526,
+   "covered_nonres": 207,
+   "covered_res": 0
+  },
+  "29": {
+   "nonres": 512,
+   "covered_nonres": 304,
+   "covered_res": 0
+  },
+  "31": {
+   "nonres": 534,
+   "covered_nonres": 205,
+   "covered_res": 0
+  },
+  "37": {
+   "nonres": 544,
+   "covered_nonres": 50,
+   "covered_res": 0
+  },
+  "41": {
+   "nonres": 532,
+   "covered_nonres": 249,
+   "covered_res": 0
+  },
+  "43": {
+   "nonres": 531,
+   "covered_nonres": 102,
+   "covered_res": 0
+  }
+ },
+ "Z0640_lambda_hist_p1mod8_le_1e5": {
+  "2": 1714,
+  "3": 670
+ },
+ "Z0640_n_primes": 2384
+}
