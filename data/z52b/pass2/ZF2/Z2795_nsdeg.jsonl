@@ -34,3 +34,8 @@
 {"k": 7, "p": 625, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
 {"k": 7, "p": 2025, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
 {"k": 7, "p": 9801, "kind": "odd square (T1)", "box_solutions": 0, "ml_degree": 21, "n_vars": 21, "nonzero": 2097152, "agree": true}
+{"k": 4, "n_vars": 12, "p": 409, "box_solutions": 0, "ml_degree": 12, "ns_degree": 15, "top_coeffs": 1, "nonzero_coeffs": 4096, "agree_two_primes": true, "monomials_total": 4096}
+{"k": 4, "n_vars": 12, "p": 577, "box_solutions": 0, "ml_degree": 12, "ns_degree": 15, "top_coeffs": 1, "nonzero_coeffs": 4096, "agree_two_primes": true, "monomials_total": 4096}
+{"k": 4, "n_vars": 12, "p": 441, "box_solutions": 0, "ml_degree": 12, "ns_degree": 15, "top_coeffs": 1, "nonzero_coeffs": 4096, "agree_two_primes": true, "monomials_total": 4096}
+{"k": 4, "n_vars": 12, "p": 625, "box_solutions": 0, "ml_degree": 12, "ns_degree": 15, "top_coeffs": 1, "nonzero_coeffs": 4096, "agree_two_primes": true, "monomials_total": 4096}
+{"k": 4, "n_vars": 12, "p": 2521, "box_solutions": 0, "ml_degree": 12, "ns_degree": 15, "top_coeffs": 1, "nonzero_coeffs": 4096, "agree_two_primes": true, "monomials_total": 4096}
