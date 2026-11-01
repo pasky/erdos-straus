@@ -36,17 +36,26 @@ def cf_cycle(D, P0, Q0):
     return seq[:i], seq[i:]
 
 
-def convergents(alist, bound):
-    """numerators A_k and denominators B_k of [a0;a1,...] (finite list), stop once both exceed bound."""
-    A1, A0 = 1, alist[0]
+def convergents_until(pre_a, cyc_a, bound):
+    """numerators A_k and denominators B_k of [pre_a; cyc_a, cyc_a, ...] (periodic tail), generated until
+    B_k > bound (then A_k > B_k > bound too, as all partial quotients after a_0 are >= 1 and a_0 >= 1) and all
+    later convergents are larger; returns all (A_k, B_k) produced."""
+    def seq():
+        for a in pre_a:
+            yield a
+        while True:
+            for a in cyc_a:
+                yield a
+    it = seq()
+    a0 = next(it)
+    A1, A0 = 1, a0
     B1, B0 = 0, 1
     out = [(A0, B0)]
-    for a in alist[1:]:
+    while not (B0 > bound and A0 > bound):
+        a = next(it)
         A1, A0 = A0, a * A0 + A1
         B1, B0 = B0, a * B0 + B1
         out.append((A0, B0))
-        if A0 > bound and B0 > bound:
-            break
     return out
 
 
@@ -61,9 +70,8 @@ def cycle_data(p):
         P = {r[0] for r in allrows}
         Q = {abs(r[1]) for r in allrows}
         A = {r[2] for r in allrows}
-        # convergents over pre-period + two periods (all later ones exceed p+2 anyway once B_k > sqrt(p+2))
-        alist = [r[2] for r in pre] + [r[2] for r in cyc] * 2
-        conv = convergents(alist, p + 2)
+        # all convergents until both A_k, B_k exceed p+2 (A_k, B_k are increasing from k = 1 on)
+        conv = convergents_until([r[2] for r in pre], [r[2] for r in cyc], p + 2)
         num = {x for x, _ in conv}
         den = {y for _, y in conv}
         out[name] = dict(pre=pre, cyc=cyc, P=P, Q=Q, a=A, num=num, den=den, period=len(cyc))
@@ -71,7 +79,7 @@ def cycle_data(p):
 
 
 def root_sets(p):
-    """Nested definitions (Z52D_PELLCYCLE.md Def 2.1), all intersected with [1, p+2], 0 and p removed.
+    """Nested definitions (Z52D_PELLCYCLE.md Def 1.2), all intersected with [1, p+2], 0 and p removed.
     R0: P_k, Q_k of the sqrt(p) cycle (whole period incl. k=0)
     R1: R0 + partial quotients a_k of sqrt(p)
     R2: R1 + P_k, Q_k, a_k of the omega=(1+sqrt p)/2 cycle

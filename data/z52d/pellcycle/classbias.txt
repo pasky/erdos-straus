@@ -1,0 +1,4 @@
+400 primes ≡ 1 (8) in [1000000,10000000) seed 11
+split vertices in bichromatic components: 9948; in the sqrt(p) cycle: observed 5519, expected 5275.5 (ratio 1.046)
+split vertices in monochromatic non-trivial components: 2052; in the cycle: observed 1038, expected 1097.3 (ratio 0.946)
+primes with coverage < 0.4 (several cycles): bichromatic split vertices in cycle observed 497, expected 483.6

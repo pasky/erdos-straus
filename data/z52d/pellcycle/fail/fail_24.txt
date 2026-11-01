@@ -1,0 +1,3 @@
+97336801 43 49 44 133 1 0 1
+98771401 151 141 151 336 1 0 1
+# SUMMARY primes≡1(8) in [96000000,100000000) shard 0/1: 54245; R0 failures 2; R3 failures 0; censored roots 0

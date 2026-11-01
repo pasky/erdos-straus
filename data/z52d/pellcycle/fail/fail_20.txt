@@ -1,0 +1,2 @@
+83980801 41 51 42 132 1 0 1
+# SUMMARY primes≡1(8) in [80000000,84000000) shard 0/1: 55000; R0 failures 1; R3 failures 0; censored roots 0

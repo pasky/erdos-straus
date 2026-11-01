@@ -8,24 +8,30 @@ Does NOT rule out: … Pell or class-group cycle data".
 
 ## 0. Verdict in one paragraph
 
-**C4 is dead as stated, CONDITIONAL on Hypothesis H.** The fixed-recipe principal-cycle route is closed; a proof would need a
-growing root source of a different kind. Under H there are infinitely many primes p = m² + 1 ≡ 1 (mod 24) such that every
-component of F_p meeting the full principal-cycle data of √p and of (1+√p)/2 is monochromatic. The data cover all P_k, Q_k
-and partial quotients, all convergent numerators and denominators ≤ p + 2, and the unit coordinates {t, u, t ± 2, u + 2} of
-ε_p (Theorem 1.1). Unconditionally, at every prime p = m² + 1 with 60 | m, all cycle roots except 1, 2, 4 are isolated
-vertices (Prop 1.6). So at near-square primes the Pell cycle adds nothing to the fixed roots {1, 2, 4}, and (J)106 already
-kills those under Dickson.
+**C4 is dead as stated (principal-cycle data of √p used as forest roots), CONDITIONAL on Hypothesis H.** Under H there are
+infinitely many primes p = m² + 1 ≡ 1 (mod 24) (m = 60t, five quadratics prime) at which every component of F_p meeting the
+full principal-cycle data of √p and of (1+√p)/2 is monochromatic (Theorem 1.1). The data cover:
+* all P_k, Q_k and partial quotients;
+* all convergent numerators and denominators ≤ p + 2;
+* the unit coordinates {t, u, t ± 2, u + 2} of ε_p.
 
-At long-period primes the computation (CERTIFIED counts, EVIDENCE as statistics) gives three findings:
+**Unconditionally** (Prop 1.6), at every prime p = m² + 1 with 60 | m, all these roots except 1, 2, 4 are isolated vertices.
+There the Pell cycle adds nothing to the fixed roots {1, 2, 4}. Note that (J)106's Dickson families never reach p = m² + 1;
+freezing 1, 2, 4 there is exactly what Theorem 1.1 does under H.
 
-* A cycle element is a forest root **exactly as good as a random vertex of the same size**. The per-root hit rate in full
-  components is 1.6–2.2 % (cycle) against 1.5–2.3 % (size-matched random); paired difference −0.09 ± 0.08 pp over 356 primes.
-* The Dickson family p = 2521 + 9240a is no harder than same-class controls.
-* The cycle wins at long-period primes only because it has hundreds of elements.
+The computation on the brief's families plus controls gives (CERTIFIED counts; rates are EVIDENCE):
+* Per root, a cycle element is **statistically indistinguishable from a random vertex of the same size** at the
+  0.1–0.4 pp level. The paired difference is −0.09 ± 0.08 pp over 356 primes. The pool is mostly controls; the 16 hard
+  primes alone give no power.
+* The Dickson family 2521 + 9240a is no harder than its class-matched controls.
+* At long periods the cycle wins only by multiplicity: hundreds of roots at a ~2 % per-root rate.
 
-Cycle-root failures occur exactly at short-period primes: 17 for R0 and 2 for R3 among the 70,695 primes p ≡ 1 (8) below
-4·10⁶; §3.4 has the full census to 10⁸. The p-dependent survivor is the all-cycles / class-group root set. It contains every
-a < √p with p a square mod a (Prop 2.4). That is a generic growing root set of FRONTIER §7.2 type, not a Pell mechanism.
+Over all 1.44 M primes p ≡ 1 (8) < 10⁸, CR(R0) fails at 98 primes, at a rate that does not decay, including periods in the
+thousands. CR(R3) fails at 6 primes, all of period ≤ 5. Size-matched random root sets fail about equally often (§3.4).
+
+The only p-dependent survivor is the all-cycles (class-group) root set. It contains every a < √p with p a square mod a
+(Prop 2.4) and never failed below 2·10⁷. That is FRONTIER §7.2's generic growing-root question, not a Pell mechanism.
+Verdict: **dead** (CONDITIONAL on H), with the narrowing above. ES is open.
 
 ## 1. The near-square lemma (rank_O decisive test 1)
 
@@ -44,7 +50,9 @@ a < √p with p a square mod a (Prop 2.4). That is a generic growing root set of
   * R2 = R1 ∪ {P_k, Q_k, a_k of W};
   * R3 = R2 ∪ {convergent numerators and denominators ≤ p + 2 of S and of W}. Convergents are monotone, so only finitely many
     are ≤ p + 2.
-  * **Unit data.** U(p) = {t, u, t ± 2, u + 2} ∩ ℤ_{>0}, where ε_p = (t + u√p)/2 is the fundamental unit (Z0465's recipe).
+  * **Unit data.** U(p) = {t, u, t ± 2, u ± 2} ∩ [1, p + 2], where ε_p = (t + u√p)/2 is the fundamental unit (Z0465's
+    recipe, recast as forest roots). At p = m² + 1, u − 2 = 0 is dropped. U is used only in §1; at long-period primes t and
+    u exceed p + 2.
 * **Cycle-root statement CR(R).** For every prime p ≡ 1 (mod 4), p > p₀, some component of F_p that meets R(p) contains a
   bichromatic edge. This is the missing theorem of Z0596 and Z1298, in forest form.
 * **What is excluded.** The cycle-centre two-squares route ((J)3, p = a² + b² as a binary-form certificate) is not used.
@@ -99,7 +107,9 @@ Convergents. S gives (A, B) = (m, 1), (2m² + 1, 2m), (4m³ + 3m, 4m² + 1), …
 * denominators 1, 1, 2, 2m − 1, 2m + 1, 4m, 4m² − 2m + 1, …, so 1, 2, 2m − 1, 2m + 1 and 4m are ≤ p + 2.
 
 Collecting S and W gives R3. Unit: (m + √p)(m − √p) = −1, so ε = m + √p is a unit of norm −1. It is fundamental in
-ℤ[(1 + √p)/2]: a smaller unit (a + b√p)/2 with b = 1 would need a² = p ± 4 = m² + 5 or m² − 3, impossible for m ≥ 4. ∎
+ℤ[(1 + √p)/2]. For a unit η = (a + b√p)/2 > 1 we have a, b > 0 and b√p = η ∓ η⁻¹, which increases with η, so a unit in
+(1, ε) would have 1 ≤ b < 2, i.e. b = 1. That needs a² = p ± 4 = m² + 5 or m² − 3, and neither is a square for m ≥ 4,
+because (m − 1)² < m² − 3 < m² < m² + 5 < (m + 1)². ∎
 
 (CERTIFIED: `scripts/z52d_pellcycle_nearsquare.py` part (a) checks S, W and R3 ∪ U for every even m ∈ [4, 20000]; 0 mismatches.)
 
@@ -115,7 +125,8 @@ are all prime. Then p ≡ 1 (mod 24), and **every component of F_p that meets R3
 component of {1, 2} is the eight-vertex component of `LOWER_TAIL_ASTRA` Thm 3.1, with all vertices quadratic residues. Every
 other element of R3 ∪ U is an isolated vertex. Hypothesis H applies: the f_i are irreducible (ct² + 1 with c > 0), have
 positive leading coefficients, and ∏f_i(0) = 1, so the product has no fixed prime divisor. So H gives infinitely many such t,
-and CR(R) fails for every R ⊆ R3 ∪ U.
+and CR(R) fails for every R ⊆ R3 ∪ U. For R ⊆ R3 alone, f₄ is not needed: it is used only for the root 4 ∈ U.
+Equivalently, CR(R3 ∪ U) implies that H fails for (f₀, …, f₄), and CR(R3) implies that it fails for (f₀, …, f₃).
 
 *Proof.* Put k = m/2 = 30t and K = k + 1. All roots listed below are > 4 except 1, 2, 4. They are coprime to p, since they
 are < p + 2 and ≠ p.
@@ -165,8 +176,10 @@ Hence every element of R3 ∪ U other than 1, 2, 4 is an isolated vertex. Compon
 {4} and singletons, and all are monochromatic. ∎
 
 **Proposition 1.6 (unconditional part; PROVED).** For every prime p = m² + 1 with 60 | m, the elements of R3(p) ∪ U(p) other
-than 1, 2, 4 are isolated vertices of F_p. So at these primes CR(R3 ∪ U) holds iff a component meeting {1, 2, 4} is
-bichromatic: the cycle contributes nothing beyond the fixed roots of (J)106.
+than 1, 2, 4 are isolated vertices of F_p. So at each such prime, some component meeting R3 ∪ U is bichromatic iff some
+component meeting {1, 2, 4} is: the cycle contributes nothing beyond these fixed roots. (Only 60 | m is proved. For 12 | m
+the statement fails at p = 1297 = 36² + 1, where the root k + 1 = 19 has the edge {14, 19}, which happens to be
+monochromatic. The §1.3 census found no large-root hit for 12 | m ≤ 120000.)
 *Proof.* Steps 3–7 above use only that p = m² + 1 is prime and 60 | m: primality gives gcd(u, p) = 1 in Lemma 1.2, and
 60 | m gives m ≥ 60, 4 | m, k = 30t and K = 30t + 1. ∎
 
@@ -219,18 +232,19 @@ a consecutive integers and hence some b ≡ x₀ (mod a). Then 0 < b < √p, a |
 b + √p > a) and x̄ = (b − √p)/a ∈ (−1, 0). (a) is standard: x ↦ 1/(x − ⌊x⌋) permutes the finite set of reduced irrationals.
 (c) follows from (b). ∎
 
-(c(p) is presumably the number of wide classes of forms of discriminant 4p plus that of discriminant p, but this is not
-used.) EVIDENCE (`scripts/z52d_pellcycle_cycles.py`, `data/z52d/pellcycle/cycles_table.md`):
+(c(p) is presumably the number of wide classes of forms of discriminant 4p plus that of discriminant p. This is not proved
+here and not used: below, "c(p) = 2" means only that S and W are all the cycles, and the "class number one" reading is an
+interpretation.) EVIDENCE (`scripts/z52d_pellcycle_cycles.py`, `data/z52d/pellcycle/cycles_table.md`):
 
 | p | c(p) | period S / W | \|S(p)\| | share of S(p) in R0 | in R2 |
 |---:|---:|---|---:|---:|---:|
-| 409, 2521, 3361, 5569, …, 712321 (all (★)-zeros ≤ 10⁶ except 577) | 2 | 21/27 … 1867/1865 | 15 … 521 | 0.53–0.63 | 1.000 |
+| (★)-zeros ≤ 10⁶ except 577 (409, 5569, …, 712321), plus 2521, 3361 | 2 | 21/27 … 1867/1865 | 15 … 521 | 0.53–0.63 | 1.000 |
 | 577 = 24² + 1 | 14 | 1/3 | 16 | 0.062 | 0.188 |
 | 1297 = 36² + 1 | 22 | 1/3 | 22 | 0.045 | 0.136 |
 | 1 299 601 = 1140² + 1 | 714 | 1/3 | 654 | 0.002 | 0.005 |
 
 **Reading (Assessment).** The principal cycle interpolates between two extremes, and neither helps:
-* When c(p) = 2 (class number one), R2 already contains every a < √p with p a square mod a. By Lemma 1.3 every edge has its
+* When c(p) = 2 (all reduced irrationals lie in S or W), R2 already contains every a < √p with p a square mod a. By Lemma 1.3 every edge has its
   smaller endpoint below √p + 1, so "a cycle root has a bichromatic component" is then nearly a restatement of ES₅ restricted
   to split small endpoints.
 * At near-squares (large class number, regulator ≍ log p), the cycle is a bounded polynomial recipe, and Theorem 1.1 kills
@@ -249,7 +263,7 @@ Nothing about the CF dynamics was used in either case. The cycle enters only as 
     (**mono**), or at `cap` = 10⁵ vertices (**censored**).
   * Depth-2 means a bichromatic edge on a path of length ≤ 2 from the root.
 * **Finite bound for the enumeration (rank_A's request; PROVED).**
-  * A component is enumerated exactly, by factoring p + u only at its vertices with u² − u ≤ p (Lemma 1.2.2). All other
+  * A component is enumerated exactly, by factoring p + u only at its vertices with u² − u ≤ p + 1 (Lemma 1.2.2). All other
     vertices are leaves with a known parent.
   * Depth is O(log p) (`LOWER_TAIL_ASTRA` Lemma 4.1, Fibonacci growth along increasing paths).
   * Edges have smaller endpoint < √p + 1 (Lemma 1.3), and there are no big-integer vertices, since vertices are ≤ p + 2.
@@ -261,7 +275,8 @@ Nothing about the CF dynamics was used in either case. The cycle enters only as 
   * **N:** 2521, 3361.
   * **D:** the first 59 primes p = 2521 + 9240a > 2521 with (p + 11)/12 prime (30 241 … 6 368 881), the family of
     `LOWER_TAIL_ASTRA` Thm 5.1.
-  * **C24:** 221 size-matched controls: for each Z/N/D prime, three random primes ≡ 1 (24) within ±10 % (seeded).
+  * **C24:** 221 size-matched controls: for each Z/N/D prime, up to three random primes ≡ 1 (24) within ±10 % (seeded, not
+    reused). The search finds fewer than three near the smallest test primes, giving 221 rather than 225.
   * **CD:** 60 Dickson-class controls: p ≡ 2521 (9240) with (p + 11)/12 composite, nearest to each D prime.
   * **H:** the six H-instances of §1.3.
 * **Baselines (per root u ≥ 8;** roots < 8 are fixed roots and are reported separately).
@@ -292,33 +307,96 @@ The paired per-prime difference "cycle rate − baseline rate", mean ± s.e. ove
 | R0 | −0.09 ± 0.08 pp | +0.22 ± 0.07 pp | −0.17 ± 0.07 pp | +0.23 ± 0.06 pp |
 | R3 | −0.12 ± 0.06 pp | +0.03 ± 0.06 pp | −0.18 ± 0.06 pp | +0.04 ± 0.06 pp |
 
-* **Per element, cycle roots are random roots.** No family shows a cycle advantage beyond ≈ 0.3 pp on a 1.5–3 % base. The
-  only nominally significant effect is R0 vs size+colour, at ≈ +0.2 pp (≈ 10 % relative). That is the Q-roots being split
-  integers rather than mere residues. It is far too small to matter.
+* **Per element, cycle roots are statistically indistinguishable from random roots at the ≈ 0.1–0.4 pp level** (base rate
+  1.5–3 %). Effects at ≥ 2σ are:
+  * R0 vs size+colour: +0.22 ± 0.07 pp, and +0.37 ± 0.12 pp within D. This is plausibly the Q-roots being split integers
+    rather than mere residues.
+  * R0 vs size at depth 2: −0.17 ± 0.07 pp.
+  * R3 vs size: −0.12 ± 0.06 pp (full) and −0.18 ± 0.06 pp (depth 2).
+  * R3 vs size+colour: +0.20 ± 0.06 pp in D and +0.16 ± 0.06 pp in CD.
+
+  The signs go both ways and the sizes are ≤ 0.4 pp, i.e. ≤ 20 % relative. None of this is a mechanism. **Power caveat:** on
+  the hard primes themselves (Z ∪ N, 16 primes) the paired s.e. is ≈ 1 pp on a 1.6 % base, so the test there has
+  essentially no power. The pooled statement rests mostly on the 59 D primes and 281 controls.
 * **The Dickson family is not special for the cycle.**
   * D has the same per-root rate as its class-matched controls CD: 1.66 vs 1.76 % (R0).
-  * Both are lower than C24 (2.19 %). The depression comes from p ≡ 1 (mod 840), which makes 2, 3, 5, 7 residues, not from
-    the Dickson factor (p + 11)/12 or the cycle.
+  * Both are lower than C24 (2.19 %). D and CD share p ≡ 2521 (mod 9240), i.e. p ≡ 1 (mod 840) and p ≡ 2 (mod 11), and this
+    class, not the Dickson factor (p + 11)/12 or the cycle, is the likely source of the depression (Assessment; not
+    separated by a p ≡ 1 (840)-only control).
   * Thm 5.1's mechanism (ℓ(p) = 11 isolated) is invisible to the cycle, which hits at every D prime.
 * **Per prime, the cycle wins at long periods only by multiplicity.** All 356 non-H primes have a full-component hit with R0.
-  A random root set of the same sizes also hits: P = 0.990–1.000.
+  A random root set of the same sizes also hits, with P = 0.990–1.000. This P is inflated because the random sets keep the
+  cycle's roots < 8.
   * At the (★)-zeros the R0 hits are few: e.g. 7 of 243 roots at 83 449, 10 of 1118 at 1 726 201, 9 of 1047 at 1 724 209.
-  * At 1 726 201, 5 212 561 and 83 449 no root < 8 is in a bichromatic component, so the hit comes from a large cycle root.
-    Random large roots do the same.
-* **Censoring:** 0 censored roots at cap 10⁵. Components are tiny, as expected for a forest with ≍ log²p edges.
+  * At 83 449, 1 726 201 and 5 212 561 no root < 8 is in a bichromatic component, so the hit comes from large cycle roots.
+    The size-matched random large roots also hit at all three, in 5 of 5 draws each, with 38/1195, 54/5570 and 72/9155
+    root-level hits.
+* **Censoring:** 0 censored roots at cap 10⁵. Components are tiny: F_p has few edges, 77 per prime on average for p ≤ 10⁶
+  (`LOWER_TAIL_ASTRA` §6).
 
 ### 3.3 The 577 case
 
 577 = 24² + 1 is a (★)-zero and a near-square: R3 = {1, 2, 12, 13, 23, 24, 25, 47, 48, 49, 96}. Every root ≥ 12 is isolated.
-The only hit is through the component of 1, which contains the edge {3, 29} with (29/577) = −1. Here p + 1 = 2·17² is not of
-the Thm 3.1 shape. So 577 is saved by the fixed root 1, as Prop 1.6 predicts.
+The only R3 hit is through the component of 1, which contains the edge {3, 29} with (29/577) = −1. Here p + 1 = 2·17² is not
+of the Thm 3.1 shape. With U added, the root 4 also hits ({4, 83}). So 577 is saved by the fixed roots 1 and 4, as
+Prop 1.6's mechanism predicts (24 is not divisible by 60, but the large roots are isolated here as well).
 
 ### 3.4 Complete failure census of CR(R0), CR(R3)
 
 `scripts/z52d_pellcycle_failcensus.py`, all primes p ≡ 1 (8) < 10⁸, in chunks of 4·10⁶, with output in
 `data/z52d/pellcycle/fail/`. Primes p ≡ 5 (8) succeed automatically, by the edge {1, 2} from the root Q₀ = 1.
 
-FAILCENSUS_PLACEHOLDER
+**Cycle failures (CERTIFIED).** Over 1,439,970 primes p ≡ 1 (8) < 10⁸, with 0 censored roots:
+* **CR(R0) fails at 98 primes.** Per 2·10⁷ window the counts are 34, 16, 14, 19, 15, so the rate does not visibly decay
+  beyond 2·10⁷.
+  * The first are 19 441, 63 361, 93 601, 429 529, 539 401, 696 361, 928 561, 1 202 041, 1 299 601, ….
+  * R0 failures are **not** confined to short periods: 1 847 401 (period 199, |R0| = 186), 28 845 721 (1357, 1039) and
+    32 676 361 (2929, 2051) all fail. The median of period/√p over the failures is 0.028; the maximum is 0.51.
+* **CR(R3) fails at 6 primes:**
+
+  | p | period of √p | shape |
+  |---|---:|---|
+  | 429 529 | 5 | short period |
+  | 1 299 601 | 1 | 1140² + 1 |
+  | 11 516 521 | 5 | short period |
+  | 33 177 601 | 1 | 5760² + 1 |
+  | 76 737 601 | 1 | 8760² + 1 |
+  | 84 272 401 | 1 | 9180² + 1 |
+
+  All four near-squares have 60 | m, as in Theorem 1.1. They were re-verified with the corrected convergent routine (see
+  below). At 76 737 601 and 84 272 401 the unit root 4 ∈ U rescues, so they are not in the R3 ∪ U list of §1.3.
+
+**Random control (CERTIFIED counts).** `scripts/z52d_pellcycle_randfail.py` builds, at every prime, the same census for the
+random root set that keeps roots < 8 and replaces each root u ≥ 8 by one uniform draw from [⌈0.8u⌉, ⌊1.25u⌋]. Data are in
+`data/z52d/pellcycle/randfail/`. Over p ≡ 1 (8) < 4·10⁷:
+
+| range | primes | cycle R0 fails | random-R0 fails | cycle R3 fails | random-R3 fails |
+|---|---:|---:|---:|---:|---:|
+RANDFAIL_ROWS
+
+The cycle fails about as often as a random set of the same sizes. It is not more robust, which is the point at issue.
+
+**Selection caveat and class bias (EVIDENCE).**
+* At the R0-failing primes themselves, a fresh random set fails less often. The 100-draw failure counts
+  (`scripts/z52d_pellcycle_failrand.py`, `data/z52d/pellcycle/failrand_table.md`) range from 0/100 at 28 237 801,
+  28 845 721 and 32 676 361 to 40/100 at 3 819 481. These primes were selected for cycle failure, so that comparison is
+  biased.
+* Those long-period failures have many cycles: c(p) = 18, 22, 18, 10 at 1 847 401, 28 237 801, 28 845 721, 32 676 361. The
+  √p cycle covers only 13–25 % of S(p).
+* To test whether cycle membership is anti-correlated with lying in a bichromatic component,
+  `scripts/z52d_pellcycle_classbias.py 10⁶ 10⁷ 400 11` (`data/z52d/pellcycle/classbias.txt`) uses 400 random primes
+  p ≡ 1 (8) in [10⁶, 10⁷].
+  * Of the 9,948 split vertices ≤ √p in bichromatic components, 5,519 are √p-cycle Q-values against 5,275.5 expected from
+    the per-prime coverage, a ratio of 1.046.
+  * For split vertices in monochromatic non-trivial components the ratio is 0.946.
+  * So there is no anti-correlation. There is a weak positive association of ≈ 5 % relative, matching the +0.2 pp of §3.2.
+    It is far from a mechanism.
+
+**Implementation note (review fix).** The first version of `root_sets` generated convergents over pre-period + two periods
+only. This misses convergents ≤ p + 2 at p = 5; the reviewer found no other p < 4·10⁵ affected. The routine now runs until
+A_k, B_k > p + 2. The census (§3.2) was rerun with the fixed code and is bit-identical. The 6 R3 failures above were
+rechecked with it; the failure census itself ran with the old routine, which can only miss roots, so R3 failures can only
+be over-counted, and all 6 survive the recheck.
 
 ### 3.5 The all-cycles (class-group) root set
 
@@ -330,14 +408,23 @@ p-dependent through "p □ mod a", and not a Pell/CF mechanism.
 
 ## 4. Verdict for the cluster
 
-**Dead (CONDITIONAL on H) for the C4 missing theorem as posed, with a CERTIFIED computation showing the cycle carries no forest
-information beyond size, colour and multiplicity. What survives is no longer C4.**
+**Dead (CONDITIONAL on H) for the C4 missing theorem as posed, i.e. principal-cycle data used as forest roots.** The
+computation (EVIDENCE) finds no forest information in the cycle beyond size, colour and multiplicity, at the ≤ 0.4 pp level.
+What survives is no longer C4.
 
 * **Z0596, Z1298** ("some element of the principal reduction cycle yields a bichromatic edge, for every p > p₀"): false i.o.
   under H, for every root set R ⊆ R3 ∪ U (Thm 1.1). Unconditionally, it fails at the explicit primes of §1.3 and §3.4, but
   those are finitely many and so do not refute the "p > p₀" form without H.
-* **Z0465** (unit recipe Φ(t, u)): covered, since U ⊆ R3 ∪ U in Thm 1.1. Any fixed recipe built from the cycle data at
-  p = m² + 1 is a fixed polynomial menu in m, and its unconditional reduction is Prop 1.6.
+  * Z0596's alternative "an ambiguous form in the cycle" is covered as a root: ambiguous rows are cycle rows, and their
+    P, Q lie in R0. It is not covered as a two-squares certificate, which is the dead (J)3 route and is excluded.
+  * Z1298's variant "the automorphism orbit of a slice's indefinite binary form" concerns a different form, not the √p
+    cycle, and is not treated here.
+* **Z0465** (unit recipe Φ(t, u)): covered only in rank_O's forest-root recasting, where U ⊆ R3 ∪ U in Thm 1.1.
+  * Z0465's own missing theorem uses Φ(t, u) as an e-slice parameter (e ≡ −p mod 4) or as a divisor class of 4Cp + 1. At
+    p = m² + 1 with 60 | m, all of {2m, 2, 2m ± 2, 4} are even. So that recipe is vacuous there (no e ≡ 3 (4) arises) rather
+    than refuted by Thm 1.1.
+  * Assessment: other fixed recipes in the cycle data at p = m² + 1 (m², m ± 2, 3m, …) are fixed polynomial menus in m and
+    presumably fall to the same casework, but only the 14 listed roots are proved.
 * **Z0385** (Legendre-type descent): Assessment. Thm 1.1 shows the forced object at near-squares is (1, m, 2m) plus the
   ω-cycle. Its "factorisation" is p + 1 = 2f₁, p + 2 = 3f₂, …. These are exactly the Dickson-frozen shifts. No descent
   closes there.
@@ -349,15 +436,16 @@ information beyond size, colour and multiplicity. What survives is no longer C4.
 ## 5. Proposed FRONTIER changes (do not edit FRONTIER here)
 
 * **§3 "Rooted constructions …", "Does NOT rule out".** Replace "growing/p-dependent roots, Pell or class-group cycle data" with:
-  "growing p-dependent roots. *Pell/principal-cycle data is ruled out under Hypothesis H:* at infinitely many near-square
+  "growing p-dependent roots. *Principal-cycle (Pell) data used as forest roots is ruled out under Hypothesis H* (CF/Pell
+  data used as other coordinates, e.g. e-slice windows or divisor classes, is a separate question): at infinitely many near-square
   primes p = m² + 1 (m = 60t, five quadratics prime) every component meeting the full principal cycles of √p and (1+√p)/2 —
   all P_k, Q_k, a_k, all convergents ≤ p + 2, and the unit coordinates — is monochromatic (`Z52D_PELLCYCLE.md` Thm 1.1); and
   unconditionally at every prime m² + 1 with 60 | m the cycle roots other than 1, 2, 4 are isolated (Prop 1.6). The union of
   *all* reduction cycles contains every a < √p with p □ mod a (Prop 2.4) and is a generic growing root set, not excluded."
 * **§7.2, sentence "Open: can p-dependent roots, or full reduction-cycle / Pell / class-group data, force a bichromatic
   edge".** Replace with: "Open: can p-dependent growing root sets force a bichromatic edge? (Principal reduction-cycle / Pell
-  data cannot, under H: `Z52D_PELLCYCLE.md` Thm 1.1; per root they are exactly as good as random vertices of the same size,
-  EVIDENCE §3.2.)"
+  data used as roots cannot, under H: `Z52D_PELLCYCLE.md` Thm 1.1; per root they are statistically indistinguishable from
+  random vertices of the same size at the ±0.1–0.4 pp level, EVIDENCE pooled mostly over controls, §3.2.)"
 * **§6 dead ends, one line.** "Pell / reduction-cycle roots in F_p → near-square primes m² + 1 freeze the cycle to a polynomial
   recipe; dead under H → Z52D_PELLCYCLE."
 
@@ -365,12 +453,13 @@ information beyond size, colour and multiplicity. What survives is no longer C4.
 
 The C4 question was whether the reduction cycle of √p, a canonical object that exists at every prime, could be the
 p-dependent root source that (J)106 leaves open. It cannot:
-* **At near-square primes** p = m² + 1 the cycle is a fixed polynomial recipe in m. Every cycle root ≥ 5 is provably
-  isolated. Under Hypothesis H the remaining roots 1, 2, 4 can be frozen into a monochromatic component simultaneously. So
+* **At near-square primes** p = m² + 1 the cycle is a fixed polynomial recipe in m. When 60 | m, every cycle root ≥ 5 is
+  provably isolated (Prop 1.6). Under Hypothesis H the remaining roots 1, 2, 4 can be frozen into a monochromatic component simultaneously. So
   infinitely many hard primes (≡ 1 mod 24) defeat every principal-cycle root (Thm 1.1).
-* **At long-period primes** each cycle element is exactly as useful as a random vertex of the same size (paired difference
-  −0.09 ± 0.08 pp over 356 primes). The cycle succeeds there only because it contains hundreds of candidates. At class
-  number one it already contains every split a < √p.
+* **At long-period primes** each cycle element is statistically indistinguishable from a random vertex of the same size
+  (paired difference −0.09 ± 0.08 pp over 356 primes, mostly controls; the 16 hard primes alone have no power). The cycle
+  succeeds there only because it contains hundreds of candidates. When S and W are the only cycles, it already contains
+  every split a < √p.
 * **The Dickson family** 2521 + 9240a is neither helped nor hurt beyond its residue class.
 
 So the cycle is a size/multiplicity device, not an arithmetic mechanism. The only p-dependent survivor (all classes) is

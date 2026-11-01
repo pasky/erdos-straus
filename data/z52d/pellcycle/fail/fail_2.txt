@@ -1,3 +1,4 @@
 8570761 7 5 8 39 1 0 1
 10406449 29 31 30 100 1 0 1
 11516521 5 3 6 24 1 1 1
+# SUMMARY primes≡1(8) in [8000000,12000000) shard 0/1: 62146; R0 failures 3; R3 failures 1; censored roots 0

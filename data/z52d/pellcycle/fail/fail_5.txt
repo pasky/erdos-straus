@@ -1,0 +1,4 @@
+21786361 7 5 8 40 1 0 1
+22614601 9 11 10 50 1 0 1
+23653801 311 321 287 585 1 0 1
+# SUMMARY primes≡1(8) in [20000000,24000000) shard 0/1: 59036; R0 failures 3; R3 failures 0; censored roots 0

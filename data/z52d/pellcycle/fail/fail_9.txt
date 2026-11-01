@@ -1,0 +1,2 @@
+36647041 479 501 452 876 1 0 1
+# SUMMARY primes≡1(8) in [36000000,40000000) shard 0/1: 57364; R0 failures 1; R3 failures 0; censored roots 0
