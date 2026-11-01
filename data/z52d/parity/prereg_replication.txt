@@ -1,0 +1,10 @@
+z52d PARITY lane — replication tests fixed after seeing corr_1e8.txt and BEFORE reading any output of the
+independent range (1e8, 2e8] (chunks running in /tmp/pc9 at commit time).
+Largest |z| at <= 1e8 (all below Bonferroni):
+  (i)   NE   vs b16 | (p mod 16, b8)         z = -2.80   [B2]
+  (ii)  R2   vs q3   (control bit), p mod 16 z = -2.55   [B]
+  (iii) UII  vs b8,  p mod 16                z = -2.10   [B]
+  (iv)  BICH vs p mod 5 (congruentiality)    chi2 = 14 / df 3 (p ~ 0.003)   [A]
+  (v)   NE   vs h/4 mod 4 (gen. CMH)         chi2 = 10.0 / df 3 (p ~ 0.018) [C]
+Replication criterion: an effect is called real only if, on (1e8, 2e8] alone, it has the same sign and
+two-sided p < 0.01 (|z| > 2.58; chi2 p < 0.01); otherwise it is recorded as a multiple-testing fluctuation.
