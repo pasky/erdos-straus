@@ -110,18 +110,20 @@ def monic_irreducibles(p, n):
 
 def count_solutions(p, A, P):
     """A, P: tuples low->high, A monic deg k>=1, P monic irreducible deg n>=k, P not dividing A.
-    Returns (number of solution multisets {X,Y,Z} (monic), one witness triple or None)."""
+    Returns (number of distinct solution triples {X,Y,Z} (monic, X the unique denominator of degree n-k),
+    one witness triple or None).  Lemma 1.3 gives (a,b) with Y = kappa*P*X/a, Z = kappa*P*X/b, but kappa is free
+    (any monic kappa with a,b | PX works for the same {Y,Z}), so the (a,b) enumeration over-counts: we dedupe on
+    the triple itself.  Existence is unaffected."""
     f = F(p)
     n = len(P) - 1
     k = len(A) - 1
     assert n >= k >= 1
-    count = 0
+    seen = set()
     witness = None
     for X in f.monics(n - k):
         E = f.add(f.mul(A, X), f.neg(P))
         if not E:
             continue
-        # divisors of P*X (P irreducible, P does not divide X since deg X < n... but X can have factor P only if deg>=n: no)
         fac = f.factor_monic(X) if len(X) > 1 else []
         fac = fac + [(P, 1)]
         divs = f.monic_divisors(fac)
@@ -135,13 +137,14 @@ def count_solutions(p, A, P):
                 _, r = f.divmod(s, E)
                 if r:
                     continue
-                count += 1
+                kappa, _ = f.divmod(s, E)
+                Y, _ = f.divmod(f.mul(kappa, PX), a)
+                Z, _ = f.divmod(f.mul(kappa, PX), b)
+                key = (X,) + tuple(sorted([Y, Z]))
+                seen.add(key)
                 if witness is None:
-                    kappa, _ = f.divmod(s, E)
-                    Y, _ = f.divmod(f.mul(kappa, PX), a)
-                    Z, _ = f.divmod(f.mul(kappa, PX), b)
                     witness = (X, Y, Z)
-    return count, witness
+    return len(seen), witness
 
 
 def s2str(poly):

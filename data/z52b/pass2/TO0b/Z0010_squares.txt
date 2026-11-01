@@ -1,0 +1,9 @@
+q=3 (q mod 4 = 3) deg Q=1: fails 0/3 Q in []  t=0.0s
+q=3 (q mod 4 = 3) deg Q=2: fails 0/3 Q in []  t=0.0s
+q=3 (q mod 4 = 3) deg Q=3: fails 0/8 Q in []  t=1.3s
+q=5 (q mod 4 = 1) deg Q=1: fails 0/5 Q in []  t=0.0s
+q=5 (q mod 4 = 1) deg Q=2: fails 0/10 Q in []  t=0.3s
+q=7 (q mod 4 = 3) deg Q=1: fails 2/7 Q in ['11', '13']  t=0.0s
+q=7 (q mod 4 = 3) deg Q=2: fails 0/21 Q in []  t=3.4s
+q=11 (q mod 4 = 3) deg Q=1: fails 5/11 Q in ['11', '14', '15', '16', '17']  t=0.1s
+q=13 (q mod 4 = 1) deg Q=1: fails 2/13 Q in ['11', '110']  t=0.1s
