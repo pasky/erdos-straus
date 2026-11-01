@@ -1,0 +1,1040 @@
+                                                       THE MAXIMAL ORDER OF ITERATED
+                                                          MULTIPLICATIVE FUNCTIONS
+
+                                                CHRISTIAN ELSHOLTZ, MARC TECHNAU, AND NICLAS TECHNAU
+
+
+                                                  Abstract. Following Wigert, various authors, including Ramanujan,
+arXiv:1709.04799v2 [math.NT] 7 Apr 2019
+
+
+
+
+                                                  Gronwall, Erdős, Ivić, Schwarz, Wirsing, and Shiu, determined the max-
+                                                  imal order of several multiplicative functions, generalizing Wigert’s res-
+                                                  ult
+                                                                                        log x
+                                                                    max log d(n) =              (log 2 + o(1)).
+                                                                     n≤x              log log x
+                                                      On the contrary, for many multiplicative functions, the maximal or-
+                                                  der of iterations of the functions remains widely open. The case of the
+                                                  iterated divisor function was only solved recently, answering a question
+                                                  of Ramanujan from 1915.
+                                                  Here we determine the maximal order of log f (f (n)) for a class of multi-
+                                                  plicative functions f . In particular, this class contains functions count-
+                                                  ing ideals of given norm in the ring of integers of an arbitrary, ﬁxed
+                                                  quadratic number ﬁeld. As a consequence, we determine such maximal
+                                                  orders for several multiplicative f arising as a normalized function count-
+                                                  ing representations by certain binary quadratic forms. Incidentally, for
+                                                  the non-multiplicative function r2 which counts how often a positive in-
+                                                  teger is represented as a sum of two squares, this entails the asymptotic
+                                                  formula                                 √
+                                                                                            log x     √
+                                                                  max log r2 (r2 (n)) =            (c/ 2 + o(1))
+                                                                  n≤x                    log log x
+                                                  with some explicitly given constant c > 0.
+
+
+
+
+                                                                           1. Introduction
+                                          1.1. Maximal orders of multiplicative functions. The study of the
+                                          maximal order of arithmetic functions (for example of the divisor functions
+                                          d or σ) is an integral part of introductory number theory text books. For
+                                          the divisor functions d and σ, satisfactory answers are well known; see,
+                                          for example, Wigert [36] and Gronwall [9]. Their proofs make use of the
+                                          fact that d and σ are multiplicative functions. For the maximal order of
+                                          magnitude of iterated arithmetic functions much less is known. Here are
+                                          some reasons which show that this is generally a very delicate subject:
+                                              (1) The iterate of a multiplicative function need not be multiplicative;
+                                                  for instance, for any pairwise distinct primes p1 , . . . , pr ,
+                                                            d(d(p1 )) · · · d(d(pr ))   d(2)r     2r
+                                                                                      =        =     6= 1.
+                                                               d(d(p1 · · · pr ))       d(2r )   r+1
+                                             Date: 2019/04/09.
+                                             2010 Mathematics Subject Classification. 11N37.
+                                             Key words and phrases. maximal order, arithmetic function, iterated function.
+                                             The third author was supported, while working on this paper, by the Austrian Sci-
+                                          ence Fund (FWF): by either Project W1230 Doctoral Program “Discrete Mathematics”
+                                          or Project Y-901.
+                                                                                      1
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                2
+
+
+   (2) Let a(n) denote the number of abelian groups of order n. By results
+       of Erdős and Ivić [6] it is known that
+                                                                      
+            exp (log x)1/2+o(1) ≪ max a(a(n)) ≪ exp (log x)7/8+o(1) ,
+                                       n≤x
+       leaving a large gap between lower and upper bounds. Improving
+       these bounds would seem to require understanding the multiplicative
+       structure of the number p(n) of unrestricted partitions, about which
+       very little is known beyond certain congruences.
+   (3) Let σ1 (n) = σ(n) be the sum of divisors function, and σk (n) =
+       σ1 (σk−1 (n)) its iterates. Schinzel [30] conjectured that
+                                        σk (n)
+                             lim inf           < ∞.
+                              n→∞         n
+        This is only known for k = 1, 2 and 3 by results of Mąkowski [22]
+        and Maier [21], and conditionally on Schinzel’s Hypothesis H. In light
+        of studying maximal orders of magnitude: the equivalent question
+        lim supn→∞ σkn(n) > 0 is equally open.
+    (4) For the iterated Euler ϕ-function the situation is quite diﬀerent,
+        compared to the iterated σ-function. In view of ϕ(2n ) = 2n−1 and
+        ϕk (2n ) = 2n−k , it is evident that, for any ﬁxed k, the extremal order
+        of magnitude is lim supn→∞ ϕkn(n) ≥ 21k . As Maier [21] points out,
+        the situation changes if one discards such thin sets of prime powers.
+        If one studies large values of ϕk (n) that occur for about logx x values
+        of n ≤ x, then the situation is very similar to the situation with the
+        iterated σ-function, see above.
+        However, there are other non-trivial results on the iterated ϕ-function,
+        e.g. concerning the range of the values of ϕ by Ford [8] and ϕk (Luca
+        and Pomerance [20]). Moreover, it is well known that the iterated
+        ϕ-function has applications to Pratt-trees, see e.g. [3].
+   In the case of multiplicative functions, the maximal order of magnitude
+was initially proved in a number of individual cases: the maximal order of the
+divisor function d has been determined by Wigert [36] and Ramanujan [29].
+They proved that
+                                 log d(n) log log n
+                       lim sup                      = log 2,
+                         n→∞           log n
+where log denotes the logarithm with base e. (Note that for functions of
+this magnitude one typically has an asymptotic for log(f (n)) rather than
+for f (n) itself. From our perspective we will still say that the maximal
+order has been determined.) This study subsequently inﬂuenced (via results
+of Hardy and Ramanujan, Turán and Erdős and Kac) the development of
+probabilistic number theory.
+   Ramanujan studied the multiplicative function δ that counts the number
+of representations of its argument as a sum of two squares ignoring sign, i.e.,
+(1.1)            δ(n) = 41 #{(x, y) ∈ Z × Z | x2 + y 2 = n}.
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                             3
+
+
+If νp denotes the p-adic valuation, then it is well-known (see, e.g., [10, The-
+orem 278]) that
+                         Y                             Y                          
+(1.2)      δ(n) =              (νq (n) + 1) ×                  1
+                                                               2   1 + (−1)νp (n) .
+                     prime q|n                    prime p|n
+                    q≡1 mod 4                    p≡3 mod 4
+
+(To be precise, Ramanujan called this function Q2 (n), but here we follow the
+notation used by Hardy and Wright [10, Theorem 278].) We observe that
+4δ(n) = r2 (n), where r2 (n) is the sum of two squares function which also
+takes care of signs. Ramanujan [28] showed that for some positive constant
+a                                                                    
+                          log 2                                p     
+       max δ(n) = exp           li(2 log x) + O (log x) exp(−a log x) ,
+       n≤x                  2
+where the right hand side can be simpliﬁed to
+                                                         
+                                                  log x
+                         exp (log 2 + o(1))                .
+                                                log log x
+This implies the very same logarithmic maximum order:
+                                log r2 (n) log log n
+                      lim sup                         = log 2.
+                        n→∞             log n
+Knopfmacher [18] and Nicolas [24], who were unaware1 of Ramanujan’s work,
+later also observed this.
+   Ramanujan (see [28, §§ 55–56]) also achieved the very same result
+                                                                      
+                          log 2                               p      
+      max Q̄2 (n) = exp         li(2 log x) + O (log x) exp(−a log x) ,
+       n≤x                  2
+for the function Q̄2 (n) counting non-negative pairs (x, y) with n = x2 + xy +
+y2,
+                             Y                             Y                          
+(1.3)        Q̄2 (n) =                (νq (n) + 1) ×                1
+                                                                    2   1 + (−1)νp (n) .
+                          prime q|n                     prime p|n
+                         q≡1 mod 3                     p≡2 mod 3
+
+Note that this quadratic form corresponds to the Eisenstein lattice Z[e2πi/3 ],
+and non-negative coordinates correspond to a sector of 60 degrees, which
+explains the factor 1/6 in (2.3); for a more conceptual explanation for the
+factor 1/6, see the last display formula before Section 4.
+   Krätzel [19] proved for the number a(n) of non-isomorphic abelian groups
+of order n:
+                              log a(n) log log n  1
+                      lim sup                    = log 5,
+                        n→∞         log n         4
+and Knopfmacher [17] proved for the number β(n) of squareful divisors of
+n:
+                              log β(n) log log n  1
+                      lim sup                    = log 3.
+                        n→∞         log n         3
+  1At that time Ramanujan’s work was unpublished: quite remarkably, the end of
+Ramanujan’s paper [29] of 1915 was not intended to be the end. In fact, Ramanujan’s
+manuscript was considerably longer and due to a shortage of resources during wartime
+the London Mathematical Society printed only part of the manuscript. The second part
+has been recovered and published many years later, ﬁrst in [27], but later with detailed
+annotations by Nicolas and Robin [28], and also [1].
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                4
+
+
+Note that all of the functions a, β and d are prime independent, where
+a multiplicative arithmetic function f is said to be prime independent if
+f (pν ) = f (2ν ) for every prime power pν .
+   A number of authors independently observed that such limits can be
+worked out more generally for the class of prime independent multiplicative
+functions. Of these results we only mention the one by Shiu [32], but there
+are others—see [2, 5, 11, 12, 18, 23, 25, 26, 35].
+   Shiu [32] proved: let f : N → R be a multiplicative function satisfying
+the following conditions:
+    (1) There exist constants A and 0 < θ < 1 such that f (2ν ) ≤ exp(Aν θ )
+         where ν ≥ 1, and
+    (2) for all primes p and all a ≥ 1 one has f (pν ) = f (2ν ) ≥ 1, then the
+         following holds:
+                          log f (n) log log n
+                  lim sup                     = log max(f (2ν ))1/ν .
+                    n→∞          log n              ν≥1
+
+1.2. On iterates of arithmetic functions. The quest for the maximal
+order of the iterated divisor function was raised by Ramanujan [29] in
+his paper on highly composite numbers. At the very end of that paper
+he gave a construction of integers, namely, Nk = ki=1 ppi i −1 , where pi
+                                                      Q
+
+denotes the i-th prime,    and observed that for these integers d(d(Nk )) ≥
+     √                 √
+                         log Nk 
+exp ( 2 log 4 + o(1)) log log Nk holds. Erdős and Kátai [7], Ivić [14] and
+Smati [33, 34] gave results on the maximal order, but a satisfying answer
+on the maximal order of the iterated divisor function was only given al-
+most 100 years after Ramanujan’s paper: Buttkewitz, Elsholtz, Ford and
+Schlage-Puchta [4] proved:
+                                  log d(d(n)) log log n
+                       lim sup           √              = c,
+                        n→∞                log n
+where
+                                  ∞               2 !1/2
+                                  X             1
+(1.4)                  c=     8         log 1 +                .
+                                  l=1
+                                                l
+However, it seems that no similar result is known for either of the functions
+δ or r2 . Neither of these functions is prime independent in the sense deﬁned
+above, but nonetheless they are still quite similar to d (compare (1.2)). For
+the latter reason, results concerning δ and r2 have often been an intuitive
+next step following results concerning d. In fact, let us recall the development
+for sums of multiplicative functions, where Landau investigated the number
+of integers representable as sums of two squares. Subsequently, this was
+generalized many times, for example to the number of integers consisting of
+primes in certain residue classes only, and eventually led to the celebrated
+mean value results of Wirsing and Halász.
+   Motivated by this development, we study a class of multiplicative func-
+tions which includes important functions, such as the divisor function d,
+δ, and—more generally—a number of functions connected with counting
+ideals in quadratic number ﬁelds. In the spirit of Shiu’s theorem, we also
+investigate which hypotheses on the function f and which growth rates of
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                 5
+
+
+f (pν ), depending on ν, allow us to bound the maximum order magnitude
+of f (f (n)). In some cases (including δ, r2 and Q̄2 ), we are able to give an
+asymptotic for the logarithmic size of this maximum.
+1.3. Plan of the paper. The rest of the paper is structured as follows:
+ﬁrst, we present our results in ascending generality. Results for δ, r2 , Q̄2 ,
+and some related functions are presented in Section 2. In Section 3, these
+results are then cast into a more conceptual light from the point of view of
+basic algebraic number theory. All of these results follow from general results
+we describe in Section 4. The rest of the paper deals with supplying all the
+deferred proofs (which mostly concerns our statements from Section 4).
+
+             2. The prototypes: δ, r2 , Q̄2 , and relatives
+   The following result is an immediate consequence of (1.2) and Corol-
+lary 4.3 below.
+Theorem 2.1. Let δ be given by (1.1). Then
+                                 √                    
+                                   log x c       log3 x
+               max log δ(δ(n)) =          √ +O            ,
+               n≤x               log2 x    2     log2 x
+where c is given in (1.4).
+  Incidentally, this implies a result for r2 at no additional eﬀort—even
+though r2 is not multiplicative:
+Corollary 2.2. The assertion of Theorem 2.1 remains valid if δ is replaced
+with r2 , where r2 (n) = 4δ(n) = #{(x, y) ∈ Z × Z | x2 + y 2 = n}.
+Proof. For n ∈ N write δ(n) = 2ν m(n) with some odd integer m(n). Then,
+using multiplicativity of δ and δ(22+ν ) = 1 = δ(2ν ), we have
+            r2 (r2 (n)) = 4δ(22+ν m(n)) = 4δ(22+ν )δ(m(n))
+                      = 4δ(2ν )δ(m(n)) = 4δ(2ν m(n)) = 4δ(δ(n)).
+Hence, log r2 (r2 (n)) = log δ(δ(n)) + 2 log 2 and the assertion of the corollary
+follows from Theorem 2.1.                                                      
+   It turns out that our arguments are not just limited to the binary quad-
+ratic form x2 + y 2 appearing in (1.2). A more reﬁned explanation can be
+found in the next section. Here we content ourselves with stating the next
+result in a very modest form:
+Theorem 2.3. Fix k ∈ {2, 3, 5, 11, 17, 41} and let f (n) be deﬁned by either
+of the following expressions
+                         1              2    2 2
+(2.1)                    4 #{(x, y) ∈ Z | x + y = n},
+                        1              2    2   2
+(2.2)                   2 #{(x, y) ∈ Z | x + 2y = n},
+                     1               2    2       2
+(2.3)                6 #{(x, y) ∈ Z | x + xy + y = n},
+                     1              2     2         2
+                     2 #{(x, y) ∈ Z | x + xy + ky = n}
+for all positive integers n and put f (0) = 1. Then
+                                    √                     
+                                      log x c        log3 x
+                max log f (f (n)) =          √ +O             ,
+                n≤x                 log2 x    2      log2 x
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                      6
+
+
+where c is given in (1.4).
+   Certainly Theorem 2.3 implies Theorem 2.1 (see (2.1)). Moreover, it
+covers the choice f = Q̄2 with Q̄2 deﬁned in (1.3) (see (2.3)). Corollary 2.2
+allows one to drop the factor 14 in (2.1) and the same trick used for proving
+Corollary 2.2 can also be used to show that one can drop the factor 21 in (2.2).
+
+             3. Examples from algebraic number theory
+   Our next objective is to ﬁt Theorem 2.3 into a broader context. We begin
+with some notation. Let K be an arbitrary number ﬁeld and O its ring
+of algebraic integers. The norm of an ideal a ⊆ O is denoted by Na =
+#(O/aO) ∈ N. Consider
+(3.1)                 fK (n) = #{ideals a ⊆ O : Na = n}.
+For two ideals a, b ⊆ O their product ab is deﬁned element-wise and we have
+N(ab) = (Na)(Nb). On combining this with the classical facts that ideals
+of O admit a unique factorisation into prime ideals and that the norm of
+a prime ideal is always a power of a prime in N, one easily deduces that
+fK : N0 → N0 as deﬁned above is multiplicative.
+In order to understand the behaviour of fK on prime powers pν , we start by
+considering any ideal a with Na = pν . By the multiplicativity of the norm,
+the factorisation of a consists only of prime ideals whose norm is again a
+power of p. From algebraic number theory one knows that the number of
+prime ideals p ⊆ O with p dividing Np is ﬁnite. Thus, enumerating the
+prime ideals with said property by p1 , . . . , pk , we may write a = pν11 · · · pνkk
+for some exponents ν1 , . . . , νk ∈ N0 . The condition that Na = n then takes
+the form
+                                    k
+                                    X          log Npj
+(3.2)                                     νj           = ν.
+                                    j=1
+                                                 log p
+On the other hand, this argument also works in the opposite direction.
+Hence, the map
+        {(ν1 , . . . , νk ) ∈ Nk0 : (3.2) holds} −→ {ideals a ⊆ O with Na = pν },
+(3.3)
+                                   (ν1 , . . . , νk ) 7−→ pν11 · · · pνkk
+is bijective. Moreover, one knows that the principal ideal (p) = pO factors
+as (p) = pe11 · · · pekk , so that
+                        k
+                        X          log Npj   N(p)
+(3.4)                         ej           =       = [K : Q],
+                        j=1
+                                     log p   log p
+where the right hand side is the degree of the ﬁeld extension K/Q.
+   If [K : Q] > 2, then (3.2) allows for too much freedom in the choice of
+the exponents ν1 , . . . , νk . Consequently, the value of fK at prime powers pν
+may depend too loosely on the prime p and the quick growth of fK (pν ) as a
+function of ν poses additional problems. The situation becomes appreciably
+better if K is a quadratic extension of Q and we shall henceforth restrict
+ourselves to this case. Then, by (3.4), for any prime p, only one of the
+following three cases may occur:
+       THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                                  7
+
+
+    (1) p is ramiﬁed, that is, (p) = p21 for some prime ideal p1 of O with
+        Np = p;
+    (2) p is split, that is, (p) = p1 p2 with some distinct prime ideals p1 , p2 ⊆
+        O each having norm p;
+    (3) p is inert, that is, (p) = p1 is a prime ideal of O and Np1 = N(p) = p2 .
+>From multiplicativity of fK in combination with the map in (3.3) being
+bijective, it follows that
+                    Y                Y                        Y                           
+(3.5) fK (n) =                1×           (νq (n) + 1) ×               1
+                                                                        2   1 + (−1)νp (n) .
+                 prime p|n         prime q|n                prime p|n
+                 p ramified          q split                 p inert
+
+>From this representation of fK (n), we see that our results from Section 4
+below can be applied to establish the following:
+Theorem 3.1. Suppose that K is some ﬁxed quadratic number ﬁeld and let
+fK be given by (3.1). Then
+                                  √                    
+                                    log x c       log3 x
+            max log fK (fK (n)) =          √ +O             ,
+             n≤x                  log2 x    2     log2 x
+where the implied constant may depend on K, and c is given in (1.4).
+   The missing pieces for the proof of the above theorem are given in Sec-
+tion 5 below.
+   In the remainder of this section we brieﬂy sketch how to obtain The-
+orem 2.3 from Theorem 3.1. To this end, assume that K is some imaginary
+quadratic number ﬁeld with class number one. Then the value fK (n) can
+be viewed as the number of solutions to some binary quadratic equation.
+Indeed, the assumption about the class number implies that all ideals of O
+are principal and K being imaginary quadratic implies that O has ﬁnitely
+many units. Therefore,
+                                 #{ξ ∈ O : N(ξ) = n}
+                       fK (n) =                       .
+                                    #{units in O}
+The celebrated Baker–Heegner–Stark theorem gives a complete classiﬁcation
+(up to isomorphism) of all imaginary quadratic number ﬁelds with class
+number one. Theorem 2.3 then follows immediately by going through that
+list, rewriting the norm equation N(ξ) = n with respect to some integral
+basis and applying Theorem 3.1; here the choice of the integral basis may
+aﬀect the particular form one gets, but any such form can be readily checked
+to be equivalent to one of the ones implicit in Theorem 2.3 by using the well-
+known reduction theory for binary quadratic forms.
+
+                4. Hypotheses and the general results
+   In what follows, we give a description of a class of arithmetic functions
+for which the subsequent reasoning works. The imposed restrictions could
+be relaxed somewhat, but the model cases we primarily aim at are given
+in (1.2), (1.3) and (3.5). The important features here are the following: the
+arithmetic function f to be iterated is multiplicative, acts aﬃnely on the
+exponents of powers of primes q from a certain subset of primes Q ⊆ P (e.g.,
+primes ≡ 1 mod 4 in the case f = δ as seen in (1.2)), and takes only the
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS               8
+
+
+values 0, 1 on powers of primes p ∈ P \ Q (subject to a rule which—under
+the assumptions below—turns out to irrelevant).
+   In [4], the case Q = P with the multiplicative arithmetic function d acting
+as d(pν ) = ν + 1 is studied. In our approach, we assume that f (q ν ) = g(ν)
+for powers of primes q ∈ Q with a function g satisfying suitable axioms
+as listed below. By elaborating on the method of [4], we obtain upper and
+lower bounds on the maximal order of ﬁrst iterates of arithmetic functions f
+which enjoy similar properties as those observed for d and δ, see Theorem 4.1
+and Theorem 4.2.
+   In detail, we start with a strictly increasing sequence of primes (qj )j≥1 .
+By the prime number theorem, the sequence of all primes (pj )j≥1 satisﬁes
+pj = j(log j + log(log j) + O(1)), so it seems reasonable to assume similar
+asymptotics for (qj )j≥1 (see (A.1) below). Set Q = {qj : j ∈ N} and let hQi
+be the monoid (multiplicatively) generated by Q. Furthermore, ﬁx a map
+g : N0 → N with g(0) = 1 and let2
+(4.1)            g† (y) = inf{x ∈ N : g(x) = y} ∈ N ∪ {+∞}.
+Finally, assume that
+ (A.1) (qj )j≥1 satisﬁes the asymptotic expansion
+                       qj = κj(log j + log(log j) + O(1)),
+       where κ > 0 is some constant,
+ (A.2) g is monotonically increasing,
+ (A.3) g(N) ⊇ hQi,
+ (A.4) g† (b) + c∗ bg† (a) ≤ g† (ab) for all a, b ∈ hQi such that q1 ≤ a ≤ b,
+       where c∗ > 1/q1 is some constant,
+ (A.5) g(i)/g(i − 1) = 1 + O(i−1/2−ǫ ) for some ǫ > 0,
+ (A.6) g(x) ≤ cf x for all x ∈ N, where cf > 0 is some constant,
+ (A.7) g† (q) = c† q + O(q/ log q) as Q ∋ q → ∞, where c† > 0 is some
+       constant. (Note that g† (q) is ﬁnite due to (A.3).)
+  Now let f be a multiplicative arithmetic function satisfying
+                                    (
+                               ν        = g(ν)     if p ∈ Q,
+(4.2)                      f (p )
+                                        ∈ {0, 1}   if p ∈
+                                                        /Q
+for a prime power pν ≥ 1. Furthermore, let f (0) = 1. We write
+(4.3)                       M (x) = max log f (f (n)).
+                                          n≤x
+On writing logk for the k-fold iterate of the natural logarithm, our main
+results may now be stated as follows:
+Theorem 4.1. Let M be as in (4.3). Then,
+                       √                         !
+                         log x Cg          log3 x
+(4.4)         M (x) ≤           √     +O             ,
+                       log2 x     κc†      log2 x
+  2The symbol g † was chosen to allude to a pseudo inverse.
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS              9
+
+
+where the implied constant depends on Q, f and
+                               ∞                 2 !1/2
+                               X         g(j)
+(4.5)                Cg =    8     log                      .
+                               j=1
+                                       g(j − 1)
+
+  Throughout this paper, Cg always denotes the constant deﬁned in (4.5).
+We also note in passing that throughout all implied constants may depend
+on the function f and the set Q and an ǫ, where obvious.
+Theorem 4.2. Letting g(ν) = αν + 1 and assuming the above hypotheses,
+the following holds
+                          √                       !
+                            log x  Cg       log3 x
+(4.6)             M (x) ≥         p    +O             .
+                          log2 x   κ/α      log2 x
+  Upon combining Theorem 4.1 and Theorem 4.2, we immediately deduce
+the following corollary:
+Corollary 4.3. Letting g(ν) = αν + 1 for some α ∈ N, and on the above
+hypotheses, it holds that
+                           √                       !
+                             log x  Cg       log3 x
+                   M (x) =         p    +O             .
+                           log2 x   κ/α      log2 x
+   We note in passing that, for Q = P in the setting of Corollary 4.3, the
+function f in (4.2) arises naturally as number of divisors of monic monomials,
+i.e., f (n) = d(nα ).
+
+                        5. Proof of Theorem 3.1
+  We assume the notation of Theorem 3.1 and recall (3.5). In order to use
+Corollary 4.3 to obtain an asymptotic formula for
+                            max log fK (fK (n)),
+                             n≤x
+
+it only remains to verify Assumption (A.1), where qj therein is taken to
+be the j-th smallest prime which splits in K. The next lemma furnishes
+a prime number theorem for such primes and can be used to verify that
+Assumption (A.1) holds with κ = 12 and thereby ﬁnishes the proof of The-
+orem 3.1.
+Lemma 5.1. Suppose that K is some ﬁxed quadratic number ﬁeld. Then
+                                            1 x
+     #{primes q ≤ x which are split in K} =         (1 + O(1/ log x))
+                                            2 log x
+as x → ∞.
+   The above lemma is certainly well-known. Nevertheless, we sketch a proof
+for the convenience of the reader.
+      THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                          10
+
+
+Proof of Lemma 5.1. By [13, Proposition 13.1.3] there is some integer ∆
+such that
+         #{primes q ≤ x which are split in K}
+                                                           
+                                                    ∆
+              = # primes q ≤ x with                         = 1 + O(d(∆))
+                                                    q
+                                                                    
+                  1                   1     X      ∆
+              =     #{primes p ≤ x} +                                     + O(d(∆))
+                  2                   2 primes q≤x q
+         
+where ∆  q denotes the Kronecker symbol. Consequently, the assertion of the
+lemma then follows from the prime number theorem and [15, Corollary 5.29]
+(see also [15, Exercise 6 in §3.5]).                                     
+
+                  6. Notation and auxiliary results
+6.1. Notation. At this point it is convenient to introduce some additional
+notation used throughout the rest of the paper. Let
+               P                   P
+     • Ω(n) = p|n νp (n), ω(n) = p|n 1,
+     • ΠQ (n) = max{m ∈ hQi : m | n},
+     • ΩQ = Ω ◦ ΠQ
+     • ωQ = ω ◦ ΠQ ,
+     • πQ (x) = #{q ∈ Q : q ≤ x}.
+6.2. Auxilliary results. We would like to give the reader our perspective
+on the problem at hand. In order to keep the notation simple, let Q = P for
+the moment. Then, for any positive integer n,
+                                          X                         
+                       log f (f (n)) =             log g q νq (f (n)) .
+                                          q∈Q
+                                         q|f (n)
+
+Vaguely speaking, in order to give estimates on M (x), one needs to exhibit
+some control over the prime factors of integers N , which appear as values
+N = f (n) for n ≤ x. This sort of control is provided by Lemma 6.1.
+   Additionally, one might like to remove g from the above sum and perhaps
+also take advantage of the fact that (weighted) sums of νq (f (N )) over q
+are more readily controlled than values of νq (f (N )) for some individual q.
+Lemma 6.2 makes this happen and is the source of the main term in The-
+orem 4.1 and Theorem 4.2.
+   Finally, Lemma 6.3 is a technical tool used to handle the case when
+N = f (n) does not have suﬃciently many prime factors q with small ex-
+ponent νq (N ).
+Lemma 6.1. For an N ∈ hQi, let mN be the least positive integer m such
+that f (m) = N > 1. Then the following assertions hold:
+    (1) The number mN factors as mN = q1ν1 · · · qrνr with some r ≥ 1, expo-
+        nents ν1 ≥ . . . ≥ νr and the primes q1 , q2 , . . . from Section 4.
+    (2) If N ′ divides N , then mN ′ ≤ mN .
+                  1/s
+    (3) If qj > qr+1k for some j ≤ r, then Ω(g(νj )) ≤ k, where sk = c∗ q1k .
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                                           11
+
+
+Proof. Pick some p ∈    / Q and let ν = νp (mN ). Then 1 < N = f (mN ) =
+f (p )f (mN /p ), so that mN = mN /pν . Hence, ν = 0 and p ∤ mN . Now,
+    ν            ν
+
+writing mN = q1ν1 · · · qrνr , note that one can permute the exponents without
+changing the value under f . Therefore, by minimality of mN , we must have
+ν1 ≥ . . . ≥ νr . This proves (1).
+   Turning to (2), if we write mN = q1ν1 · · · qrνr , then, by (4.2),
+                                                                Y
+(6.1)                            N = f (mN ) =                      g(νj ),
+                                                            j≤r
+
+and since N ′ | N there is a partition νk = νk,1 + . . . + νk,r such that Nj′ =
+Q      νk,j
+  k≤s qk    | g(νj ). By Assumption (A.3) on g, the value Nj′ is attained by
+                                                    ν′           ν′
+g. Hence, we may look at m∗ = q1 1 · · · qr r , where νj′ = g† (Nj′ ). Clearly,
+f (m∗ ) = N ′ , and, by monotonicity of g, νj′ ≤ νj , so that mN ′ ≤ m∗ ≤ mN .
+                                                                                                       1/s
+   To prove (3), let us assume for the sake of contradiction that qj > qr+1k ,
+Ω(g(νj )) > k. Using (6.1) and N ∈ hQi, we have ΩQ (g(νj )) = Ω(g(νj )) > k,
+so that there is a decomposition g(νj ) = ab, where a ≥ q1 , b ≥ q1k . Recalling
+the deﬁnition of g† in (4.1) and using that both a and b are contained in
+hQi, we see that both g† (a) and g† (b) are ﬁnite and we may consider
+                                                                  r
+                                                g † (b) g † (a) Y νi
+                                     m∗ = q j          qr+1          qi .
+                                                                i=1
+                                                                i6=j
+
+Since (A.4) implies
+                                                                                  !
+         †               †             †       g† (ab)†
+        g (b) − νj ≤ g (b) − g (ab) = g (b) 1 − †                                     ≤ −c∗ g† (a)b,
+                                                g (b)
+which, by assumption, is ≤ −c∗ q1k , we infer
+                  m∗      g † (b)−νj g † (a)  −c g † (a)b g † (a)
+                      = qj          qr+1 ≤ qj ∗          qr+1 .
+                  mN
+However, this shows that m∗ < mN , which contradicts the deﬁnition of mN ,
+for we have
+                                                         r
+                                                         Y                 Y
+                     ∗           †              †
+             f (m ) = g(g (b))g(g (a))                          g(νi ) =         g(νi ) = N.
+                             |         {z            } i=1
+                                                                           i≤r
+                                 =ab=g(νj )              i6=j
+
+Hence, we conclude that ΩQ (g(νj )) ≤ k.                                                                 
+Lemma 6.2. Let ν1 , . . . , νt be positive integers. Then
+                                                       1/2
+                             X                Cg X
+(6.2)                            log g(νj ) ≤       jνj      ,
+                             j≤t
+                                              2 j≤t
+where Cg is given by (4.5). If additionally νt ≥ ν, then
+                                           s
+                                                                           1/2
+               X                                1     (log g(ν))2 X
+                     log g(νj ) ≪                   +                  jν j      ,
+               j≤t
+                                               ν 2ǫ        ν       j≤t
+
+with ǫ from (A.5).
+         THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                                                12
+
+
+Proof. (Compare [4, Lemma 3.3].) First note that the right hand side of (6.2)
+is minimal if the νj s are decreasing. Hence, we may subsequently assume
+that ν1 ≥ ν2 ≥ . . . ≥ νt . Let yi = #{j : νj ≥ i} and observe that
+                                                ∞ X                 ∞                   ∞
+                X             XX                X                1X                  1X
+(6.3)                 jνj =                j=              j=          yi (yi + 1) ≥      y2.
+                j≤t           j≤t i≤νj          i=1 j≤yi
+                                                                 2 i=1               2 i=1 i
+By partial summation,
+                                       ∞                                       ∞
+                 X                     X                                       X                g(i)
+(6.4)                  log g(νj ) =          (yi − yi+1 ) log g(i) =                 yi log            .
+                 j≤t                   i=1                                     i=1
+                                                                                              g(i − 1)
+The ﬁrst claim now follows by applying the Cauchy–Schwarz inequality to
+the right hand side, and taking (6.3) into account.
+  Moreover, if νt ≥ ν, then y1 = y2 = . . . = yν and
+                      X            g(i)
+                          yi log          = y1 log g(ν).
+                      i≤A
+                                 g(i − 1)
+By splitting up the sum in (6.4) into sums over the ranges i ≤ ν and i > ν,
+and applying the Cauchy–Schwarz inequality, we obtain
+                               ∞
+                              X           1/2                                                2 1/2
+        X                                           (log g(ν))2 X          g(i)
+              log g(νj ) ≤           yi2                       +     log                                   .
+        j≤t                    i=1
+                                                         ν       i>ν
+                                                                         g(i − 1)
+
+By (A.5) and log(1 + 1/i) < 1/i, the second sum is ≪ ν −2ǫ . In view of (6.3),
+we have established the second claim.                                       
+Lemma 6.3. For every ε > 0, and s := ωQ (n) ≥ 2,
+                                                                     s
+                                                     (cf + ε) log n
+                                     f (n) ≪                               .
+                                                         s log s
+Proof. See [4, Lemma 3.2] and, recalling that there g is x 7→ x + 1, use (A.6)
+instead of x + 1 ≤ 2x.                                                      
+
+                                  7. Proof of Theorem 4.1
+   Let n be a positive integer such that f (f (n)) > 1 and N = ΠQ (f (n)). As
+before, f (f (n)) = f (N ).
+   We now write N as a product of powers of elements in Q and split these
+into two groups according to the size of their exponents. More precisely, we
+write N = N ′ N ′′ , where
+                              N ′ = ub11 · · · ubww ,      N ′′ = v1a1 · · · vsas
+and u1 < . . . < uw , v1 < . . . < vs all belong to Q, are all distinct, and
+ai ≤ (log2 n)K and bi > (log2 n)K , for K = max{6, 2/ǫ}, with ǫ from (A.5).
+   Clearly, log f (N ) = log f (N ′ ) + log f (N ′′ ), so that it suﬃces to deal with
+f (N ′ ) and f (N ′′ ) separately. The main term in (4.4) comes from log f (N ′′ )
+(see (7.3)) and the term log f (N ′ ) is seen to be somewhat smaller (see (7.1)).
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                                       13
+
+
+7.1. Bounding f (N ′ ). Write mN ′ = q1β1 · · · qhβh . Due to Lemma 6.1 (2)
+we have mN ′ ≤ mN ≤ n and, hence, h ≪ log n. Lemma 6.1 (3) yields
+Ω(g(βi )) ≪ log2 h ≪ log3 n for every i. Therefore, there are ≫ bj / log3 n
+values of i such that uj | g(βi ). Furthermore, assuming, as we may, that
+n is suﬃciently large, Lemma 6.2 with ν = ⌊(log2 n)K ⌋ shows that, for
+ǫ′ = K/2 − 2,
+                         X                                               X               1/2
+                 ′                                        − min{ǫK,2}
+         log f (N ) =         log g(bj ) ≪ (log2 n)                                 jbj          .
+                        j≤w                                                   j≤w
+Moreover,
+                       1 X            X uj bj
+                                jbj ≤
+                     log3 n j≤w       j≤w
+                                          log3 n
+                                           X X                 X
+                                      ≪                   p≤         g(βi )
+                                           i≤h p|g(βi )        i≤h
+                                           X
+                                      ≪          βi ≪ log mN ′ ≤ log n.
+                                           i≤h
+Hence,
+                                              p
+                                       ′          (log n) log3 n
+(7.1)                      log f (N ) ≪                          .
+                                                   (log2 n)2
+7.2. Bounding f (N ′′ ). To estimate f (N ′′ ) we may assume that
+                                     √
+                                       log n
+(7.2)                         s>               ,
+                                  (log2 n)K/2
+for otherwise Lemma 6.3 implies that
+                                          √
+                               ′′           log n
+                       log f (N ) ≪                 .
+                                      (log2 n)K/2−1
+We shall prove the following proposition that is crucial for estimating f (N ′ );
+it relates mN ′′ with upper bounds as in Lemma 6.2.
+Proposition 7.1. Let K = max{6, 2/ǫ}, with ǫ from (A.5). Suppose N ′′ =
+v1a1 · · · vsas where u1 < . . . < uw , v1 < . . . < vs all belong to Q, are all
+distinct, and ai ≤ (log2 n)K , and s satisﬁes (7.2). Then,
+                                                 
+                                log3 n                       (log2 n)2 X
+              log mN ′′ ≥ 1 + O                       c† κ                 jaj .
+                                log2 n                           4     j≤s
+
+  Let us suppose for the moment that Proposition 7.1 is proved. We can
+conclude by Lemma 6.1 (2) that
+                                                        
+                                    log3 n                          (log2 n)2 X
+          log n ≥ log mN ′′ ≥ 1 + O                          c† κ                 jaj .
+                                    log2 n                              4     j≤s
+
+Inequality (6.2) implies that
+                                   √                                         !
+                            ′′  log n Cg        log3 n
+(7.3)            log f (N ) ≤         √      +O                                    ,
+                              log2 n    c† κ    log2 n
+which concludes the proof of Theorem 4.1.
+         THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                                  14
+
+
+Proof of Proposition 7.1. Write mN ′′ = q1α1 · · · qrαr for the minimal element
+of f −1 (N ′′ ), as in Lemma 6.1. Our ﬁrst goal is to establish that r cannot be
+too small. By Lemma 6.1, and letting s0 = 1 for the moment, the last sum
+in
+                                            X            X
+(7.4)                          Ω(N ′′ ) =         aj =         Ω(g(αi ))
+                                            j≤s          i≤r
+is seen to be
+        ∞ 
+        X                                                        ∞
+                                                                  X
+                     1/s                1/s                               1/s 
+              k πQ qr+1k−1 − πQ qr+1k               =r+1+               πQ qr+1k =: r + E.
+        k=1                                                       k=1
+To handle E, we split the term for k = 1 from the sum and estimate the
+                                           1/s
+rest trivially, thereby obtaining E ≪ π(qr+11 ). Also, by (7.4), Ω(N ′′ ) ≥ r, so
+that
+                                               1/c q 
+                          Ω(N ′′ ) = r + O π qr+1∗ 1 .
+Hence,
+(7.5)                                r ≤ Ω(N ′′ ) ≤ r + r θ ,
+where θ ∈ (1/c∗ q1 , 1) is some constant (recall that by (A.4) this interval is
+non-empty). In particular, r ≫ s so that by (7.2), r must be large if n is
+suﬃciently large. The next goal is to determine g(αi ) for all i in a suitable
+range. To this end, ﬁrst note that by Lemma 6.1 (3) we ﬁnd that g(αi ) is
+prime for all i > r θ . Let ε = (3K + 1)(log 3 n)/ log2 n, and assume that n is
+suﬃciently large as to ensure that ε < 1 − θ. By (7.2),
+                                                          θ                   X
+(7.6)          2r θ ≤ 2(Ω(N ′′ ))θ ≤ 2 s(log2 n)K                ≤ s1−ε ≤                 aj ,
+                                                                            s−s1−ε <j<s
+for n suﬃciently large. Hence,
+                               X
+(7.7)                                  aj ≤ Ω(N ′′ ) − 2r θ ≤ r − r θ .
+                            j≤s−s1−ε
+
+As explained above, g(αi ) is prime for all  P
+                                                i > r θ and from (7.7) we know
+that this surely is the case for all i ≥ r − k≤j ak , where j ≤ s − s1−ε. Since,
+by Lemma 6.1 (1) the values
+                         P
+                                 g(αi ) are decreasing
+                                               P
+                                                        as i increases, this yields
+that g(αi ) = vj for r − k≤j ak < i ≤ r − k<j ak . By (7.5) and (7.6),
+                    X                                X                        1
+(7.8)          r−         ak = r − Ω(N ′′ ) +             aj+k ≥ s − j − r θ ≥ s1−ε .
+                    k≤j                             k≤s−j
+                                                                              2
+From (A.7) and (A.1) we deduce that
+(7.9)                     g† (qj ) ≥ c† qj + O(qj / log qj ) ≥ c† κj log j
+for all suﬃciently large j. Hence, by (7.9) and (7.8),
+                                       X
+              log mN ′′ ≥ c† κ                      j(log j)aj (log s + O(log3 n)).
+                                  s1−ε ≤j≤s−s1−ε
+        THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                                  15
+
+
+By (7.2), we ﬁnd that the right hand side above exceeds
+                                                            
+                  X                                    log3 n
+                           (1 − ε)(log s)2 jaj 1 + O
+              1−ε      1−ε
+                                                        log s
+               s    ≤j≤s−s
+                               X
+                     ≥                      (1 + O(ε))(log2 n)2 jaj .
+                         s1−ε ≤j≤s−s1−ε
+                                                                                P
+By the choice of ε, we get sε ≫ (log2 n)−K−1 . Also, j≤s jaj ≥ 12 s2 . Now
+recalling that aj ≤ (log2 n)K for every j, we infer that
+                      X                     X                                              
+                                jaj =             jaj + O s2−ε (log2 n)K
+               s1−ε ≤j≤s−s1−ε               j≤s
+                                                                  X
+                                              1
+                                      = 1+O                                         jaj ,
+                                            log2 n                          j≤s
+thus completing the proof.                                                                      
+
+                             8. Proof of Theorem 4.2
+   Recall that the main term in the upper bound in Theorem 4.1 stems from
+an application of Lemma 6.2. Given some large x > 1, we wish to ﬁnd an
+integer n smaller than x, such that
+                                                X
+                         log f (f (n)) =               log g(νq (f (n)))
+                                              q∈Q
+                                             q|f (n)
+
+is large. The idea is to realise equality in Lemma 6.2. Therefore, recalling
+that the inequality was obtained by applying the Cauchy–Schwarz inequality
+to (6.4), we would like to have
+                                                       g(i)
+          #{q ∈ Q : νq (f (n)) ≥ i} ≈ const × log             (i ≥ 1)
+                                                    g(i − 1)
+with some constant, independent of i. Furthermore, to have suitable control
+over f (n) it seems reasonable to choose n such that the factorisation of f (n)
+is known. With this in mind, let ε = ce log 3x
+                                         log2 x for ce suﬃciently large, where
+                           $                 !√         %
+                              8 log g(1)          log x
+                        t=               −ε              ,
+                                  Cg            log2 x
+and consider
+                                                            
+                               1       1
+                   νj := 1 −     +                                 (1 ≤ j ≤ t).
+                               α (α + 1)j/t − 1
+Evidently,
+                                         1      t
+(8.1)                         νj =                + O(1)
+                                     log(α + 1) j
+Letting
+                                    Y Y           g † (q )
+                                                    j
+                              n=                qν1+...+ν j−1 +i
+                                                                 ,
+                                    j≤t i≤νj
+we ﬁnd that                          Y                           Y      ν
+                          f (n) =          g(g† (qj ))νj =             qj j .
+                                     j≤t                         j≤t
+      THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                                     16
+
+
+Now it remains to give a good lower bound on log f (f (n)) and an upper
+bound on n. To obtain the upper bound, let
+                                                              
+                                      t                   1
+(8.2)     yi = #{j : νj ≥ i} =              log 1 +                .
+                                 log(α + 1)         i − 1 + α−1
+Observe that ν1 + . . . + νt ≪ t log t. Using (A.1) we ﬁnd that
+                      log qν1 +...+νt ≤ log t + 2 log2 t + O(1).
+Hence,
+                      X
+           log n ≤            νj g† (qj ) log qν1 +...+νj
+                      j≤t
+                      κ                                       X
+                  ≤      (log t)2 + 3(log 2 t) log t + O(log t)     jνj .
+                      α                                         j≤t
+
+Since yi = O(t/i) and by (8.1) and (4.5),
+     X         1 X
+         jνj =       yi (yi + 1)
+     j≤t
+               2 i≤ν
+                      1
+                             ∞                                            2
+                    t2       X                1
+            =              2
+                                log 1 +                                           + O(t log t)
+              2(log(α + 1)) i=1         i − 1 + α−1
+                      t2 Cg2
+            =                    + O(t log t).
+                 16(log(α + 1))2
+By the deﬁnition of t, log t = 12 log2 x − log3 x + O(1) and log2 t = log3 x +
+O(1). By choosing ce suﬃciently large, we get
+                                                                        2
+                              log3 x                     Cg ce    log3 x
+                 1+O                         1−                                   ≤ 1.
+                              log2 x                 8 log(α + 1) log2 x
+Thus, we infer
+                                                                           2
+                      κ     log3 x                                    εCg
+           log n ≤      1+O                              1−                          log x
+                      α     log2 x                               8 log(α + 1)
+so that n ≤ xκ/α if x is suﬃciently large. Next, we estimate log f (f (n)):
+Using partial summation and (8.2),
+                                    X                     ∞
+                                                          X
+             log f (f (n)) =               log g(νj ) =          (yi − yi+1 ) log g(i)
+                                    j≤t                   i=1
+                                     ∞
+                                    X                 g(i)
+                                =          yi log            .
+                                    i=1
+                                                    g(i − 1)
+      THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS                 17
+
+
+Due to the construction of n the last sum simpliﬁes to:
+             X           g(i)
+                yi log
+            i≤ν
+                       g(i − 1)
+                1
+                                                        2          !
+                        X           t           g(i)
+                    =                     log                 + O(1/i)
+                        i≤ν1
+                               log(α + 1)     g(i − 1)
+                            Cg2
+                    =              t + O(log t)
+                      8 log(α + 1)
+                      √                       
+                         log x           log3 x
+                    =           Cg + O            .
+                      log2 x             log2 x
+Since M (xκ/α ) ≥ log f (f (n)), we infer (4.6). This concludes the proof.
+
+                               Acknowledgements
+   Most parts of the present work were completed whilst M. T. and N. T.
+were working at Würzburg University and Graz University of Technology,
+respectively. The ﬁnancial support of both institutions is highly appreci-
+ated. The authors would like to thank Jan-Christoph Schlage-Puchta for
+comments on an earlier version of this article. Moreover, the detailed sug-
+gestions of the anonymous referee are gratefully acknowledged. In particular,
+the question for further applications turned out to be fruitful.
+
+                                    References
+ [1] G. E. Andrews and B. Berndt. Ramanujan’s lost notebook. Part III,
+     chapter Highly Composite Numbers, pages 359–402. Springer: New-
+     York, 2012.
+ [2] B. Babanazarov and Ya. I. Podzharskij. On the maximal order of arith-
+     metic functions. Izv. Akad. Nauk UzSSR Ser. Fiz.-Mat. Nauk, 1987(1):
+     18–23, and p. 93, 1987.
+ [3] J. Bayless. The Lucas–Pratt primality tree. Math. Comput., 77(261):
+     495–502, 2008.
+ [4] Y. Buttkewitz, C. Elsholtz, K. Ford, and J.-C. Schlage-Puchta. A prob-
+     lem of Ramanujan, Erdős, and Kátai on the iterated divisor function.
+     Int. Math. Res. Not., 2012(17):4051–4061, 2012.
+ [5] A. A. Drozdova and G. A. Freı̆man. The estimation of certain arithmetic
+     functions. Elabuž. Gos. Ped. Inst. Učen. Zap., 3:160–165, 1958.
+ [6] P. Erdős and A. Ivić. On the iterates of the enumerating function of
+     ﬁnite abelian groups. Bull. Acad. Serbe Sci. Arts Cl. Sci. Math. Natur.,
+     (17):13–22, 1989.
+ [7] P. Erdős and I. Kátai. On the growth of dk (n). Fibonacci Quart., 7:
+     267–274, 1969.
+ [8] K. Ford. The distribution of totients. Ramanujan J., 2(1-2):67–151,
+     1998.
+ [9] T. H. Gronwall. Some asymptotic expressions in the theory of numbers.
+     Trans. Amer. Math. Soc., 14(1):113–122, 1913.
+[10] G. H. Hardy and E. M. Wright. An introduction to the theory of numbers.
+     Oxford: Clarendon Press, 1954.
+      THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS               18
+
+
+[11] E. Heppner. Die maximale Ordnung primzahl-unabhängiger multip-
+     likativer Funktionen. Arch. Math. (Basel), 24:63–66, 1973.
+[12] T. Hilberdink. Maximal order of a class of multiplicative functions. Ann.
+     Univ. Sci. Budapest. Sect. Comput., 43:217–237, 2014.
+[13] K. Ireland and M. Rosen. A classical introduction to modern number
+     theory. Springer: New-York, 2nd edition, 1990.
+[14] A. Ivić. On the maximal order of certain arithmetic functions. Filomat,
+     9(3):483–492, 1995.
+[15] H. Iwaniec and E. Kowalski. Analytic number theory. American Math-
+     ematical Society (AMS): Providence, RI, 2004.
+[16] D. G. Kendall and R. A. Rankin. On the number of Abelian groups of
+     a given order. Quart. J. Math. Oxford Ser., 18:197–208, 1947.
+[17] J. Knopfmacher. A prime-divisor function. Proc. Amer. Math. Soc., 40:
+     373–377, 1973.
+[18] J. Knopfmacher. Arithmetical properties of ﬁnite rings and algebras,
+     and analytic number theory. VI. Maximum orders of magnitude. J.
+     Reine Angew. Math., 277:45–62, 1975.
+[19] E. Krätzel. Die maximale Ordnung der Anzahl der wesentlich ver-
+     schiedenen abelschen Gruppen n-ter Ordnung. Quart. J. Math. Oxford
+     Ser. (2), 21:273–275, 1970.
+[20] F. Luca and C. Pomerance. On the range of the iterated Euler func-
+     tion. In Combinatorial number theory. Proceedings of the 3rd ‘Integers
+     Conference 2007’, Carrollton, GA, USA, October 24–27, 2007, pages
+     101–116. Walter de Gruyter: Berlin, 2009.
+[21] H. Maier. On the third iterates of the ϕ- and σ-functions. Colloq. Math.,
+     49(1):123–130, 1984.
+[22] A. Mąkowski. On two conjectures of Schinzel. Elem. Math., 31(6):
+     140–141, 1976.
+[23] J.-L. Nicolas. Grandes valeurs d’une certaine classe de fonctions arith-
+     métiques. Studia Sci. Math. Hungar., 15(1-3):71–77, 1980.
+[24] J.-L. Nicolas. On highly composite numbers. In Ramanujan revisited
+     (Urbana-Champaign, Ill., 1987), pages 215–244. Academic Press: Bo-
+     ston, MA, 1988.
+[25] K. K. Norton. Upper bounds for sums of powers of divisor functions. J.
+     Number Theory, 40(1):60–85, 1992.
+[26] A. G. Postnikov. Introduction to analytic number theory, volume 68
+     of Translations of Mathematical Monographs. American Mathematical
+     Society: Providence, RI, 1988.
+[27] S. Ramanujan. The lost notebook and other unpublished papers.
+     Springer: Berlin, 1988.
+[28] S. Ramanujan. Highly composite numbers. Ramanujan J., 1(2):119–
+     153, 1997. Annotated and with a foreword by Jean-Louis Nicolas and
+     Guy Robin.
+[29] S. Ramanujan. Highly composite numbers [Proc. London Math. Soc. (2)
+     14 (1915), 347–409]. In Collected papers of Srinivasa Ramanujan, pages
+     78–128. AMS Chelsea Publ.: Providence, RI, 2000.
+[30] A. Schinzel. Ungelöste Probleme. Elem. Math., 14:60–61, 1959.
+      THE MAXIMAL ORDER OF ITERATED MULTIPLICATIVE FUNCTIONS             19
+
+
+[31] W. Schwarz and E. Wirsing. The maximal number of non-isomorphic
+     abelian groups of order n. Arch. Math. (Basel), 24:59–62, 1973.
+[32] P. Shiu. The maximum orders of multiplicative functions. Quart. J.
+     Math. Oxford Ser. (2), 31(122):247–252, 1980.
+[33] A. Smati. Sur un problème de S. Ramanujan. C. R. Math. Acad. Sci.
+     Paris, 340(1):1–4, 2005.
+[34] A. Smati. Sur un problème d’Erdős et Kátai. Ann. Univ. Sci. Budapest.
+     Sect. Comput., 29:213–238, 2008.
+[35] D. Suryanarayana and R. Sitaramachandra Rao. On the true maximum
+     order of a class of arithmetical functions. Math. J. Okayama Univ., 17
+     (2):95–101, 1975.
+[36] S. Wigert. Sur l’ordre de grandeur du nombre des diviseurs d’un entier.
+     Ark. Mat., 3(18):1–9, 1907.
+  Christian Elsholtz, Institute of Analysis and Number Theory, Graz Uni-
+versity of Technology, Kopernikusgasse 24, 8010 Graz, Austria
+  E-mail address: elsholtz@math.tugraz.at
+
+  Marc Technau, Institute of Analysis and Number Theory, Graz University
+of Technology, Kopernikusgasse 24, 8010 Graz, Austria
+  E-mail address: mtechnau@math.tugraz.at
+
+  Niclas Technau, Raymond and Beverly Sackler School of Mathematical
+Sciences, Tel Aviv University, 69978 Tel Aviv, Israel
+  E-mail address: niclast@mail.tau.ac.il
+

@@ -1,0 +1,1922 @@
+                                                          ALGEBRAIC TRACE FUNCTIONS OVER THE PRIMES
+
+                                                            ÉTIENNE FOUVRY, EMMANUEL KOWALSKI, AND PHILIPPE MICHEL
+
+
+                                                  Abstract. We study sums over primes of trace functions of ℓ-adic sheaves. Using an extension of
+                                                  our earlier results on algebraic twist of modular forms to the case of Eisenstein series and bounds for
+arXiv:1211.6043v3 [math.NT] 31 Mar 2014
+
+
+
+
+                                                  Type II sums based on similar applications of the Riemann Hypothesis over finite fields, we prove
+                                                  general estimates with power-saving for such sums. We then derive various concrete applications.
+
+
+
+
+                                                                                               Contents
+                                            1. Introduction                                                                                                  1
+                                            2. Algebraic twists of Eisenstein series and sums of type I2                                                    11
+                                            3. Estimating sums of type II                                                                                   19
+                                            4. Sums over primes                                                                                             20
+                                            5. Applications                                                                                                 24
+                                            6. Results from algebraic geometry                                                                              28
+                                            References                                                                                                      35
+
+
+
+
+                                                                                          1. Introduction
+                                             Let f (X) = P (X)/Q(X), where P, Q ∈ Z[X], be a non-constant rational function. If p is a prime
+                                          large enough so that f (X) defines a rational function on Fp by reduction modulo p, it follows from
+                                          the work of Weil that we have the estimate
+                                                                               X        P (n)Q(n) 
+                                                                                      e              ≪ p1/2
+                                                                                             p
+                                                                                    1⩽n⩽p
+                                                                                  (Q(n),p)=1
+
+                                          (where Q(n)Q(n) = 1 (mod p)) which exhibits considerable cancellation in this exponential sum. It
+                                          is a natural question, with many potential applications, to ask whether such cancellation persists
+                                          when the sum is restricted to prime numbers q, either less than p or over shorter intervals (longer
+                                          intervals being usually easier to handle).
+                                             In [14, Théorème 1.1], Fouvry and Michel proved that this is indeed almost always the case:
+                                          Theorem 1.1. Let f = P/Q, with P , Q ∈ Z[X] coprime unitary polynomials. For every prime p
+                                          such that the reduction of f modulo p is not a polynomial of degree ⩽ 1, for every X ⩽ p and every
+
+                                             Date: September 20, 2018, 4:16.
+                                             2010 Mathematics Subject Classification. 11N05, 11N13, 11N32, 11N35, 11F11, 11T23, 11L05.
+                                             Key words and phrases. Sums over primes, Möbius function, Eisenstein series, trace functions of ℓ-adic sheaves,
+                                          Riemann Hypothesis over finite fields.
+                                             Ph. M. was partially supported by the SNF (grant 200021-137488) and the ERC (Advanced Research Grant
+                                          228304). É. F. thanks ETH Zürich, EPF Lausanne and the Institut Universitaire de France for financial support.
+                                                                                                    1
+η < 1/32, we have
+                                   X           P (q)Q(q)      p 7/32
+                                             e              ≪X           p−η ,
+                                                    p           X
+                               q⩽X, prime
+                                (Q(q),p)=1
+where the implicit constant depends only on η and on the degrees of P and Q.
+   Similar estimates were already known when f is a polynomial (of degree > 1), but with the
+exponent η depending on the degree of f and tending to 0 as the latter increased (see, e.g, [21, 24]).
+Thus an important new feature in [14] was to allow for the most general possible rational fractions,
+and for a uniform p-power saving. One of the key input of the proof was an essential use of Deligne’s
+theory of higher dimensional algebraic exponential sums.
+   There are, however, many other functions defined over Fp for which one would like to have similar
+results. For instance, with f (X) = P (X)/Q(X) with P , Q in Z[X] as above, one may naturally
+want to consider                         (
+                                          χ(f (n)) if (p, Q(n)) = 1 ,
+                                K(n) =
+                                          0        if p|Q(n),
+for some non-trivial Dirichlet character χ modulo p of order h ⩾ 2, provided the rational function
+f is not proportional to an h-th power. Nevertheless, the only examples we are aware of concerns
+the case where f is a split polynomial of degree ⩽ 2 not vanishing at 0 which was considered
+by Karatsuba [28–30] (see also [18]). In Corollary 1.12, we will prove a non-trivial bound for an
+(almost) arbitrary rational function f .
+   Beyond additive and multiplicative characters, there are other functions defined over finite fields
+which are now common tools in number theory. A nice example is given by the (normalized) hyper-
+Kloosterman sums in m − 1 variables, introduced by Deligne and studied by Katz in great detail
+in [31], which are defined by
+                                              1 X       X  x1 + · · · + xm 
+                      K(n) = Klm (n; p) = m−1       ···     e                 ,
+                                            p 2 x ···x =n            p
+                                                           1   m
+                                                           xi ∈Fp
+
+for some integer m ⩾ 2. This example was first considered by the third author in [34–36], who
+obtained a modest (yet non-trivial) saving of logloglogp p over the trivial bound O(p/ log p) for the sum
+over primes q < p of Klm (q; p).
+Remark 1.2. One can also wonder about the very recent generalizations of Kloosterman sums Kl̺Ǧ
+associated to the general Kloosterman sheaves defined, for an arbitrary split reductive group Ǧ and
+a representation ̺ of it, by Heinloth, Ngô and Yun [23], where the case of the hyper-Kloosterman
+sums above corresponds to Ǧ = GLn with its standard representation. It is a sign of the generality
+of our results that they do apply very straightforwardly to this case, although the corresponding
+trace functions have not (yet) been made explicit for all1 Ǧ!
+  The common link between all these functions is that they are special cases of the general class of
+functions we called trace weights in [12], with bounded conductors. Precisely, we have the following
+definition:
+Definition 1.3 (Trace weights). For a prime p and a prime ℓ 6= p, an isotypic trace sheaf modulo
+p is a geometrically isotypic ℓ-adic Fourier sheaf F on A1Fp , in the sense of [31, Def. 8.2.2], which
+is pointwise pure of weight 0.
+  1 As Ngô kindly informed us, Yun has computed these sums explicitly for Ǧ = SO(2n + 1) and its standard
+representation: KlSO(3) is the symmetric square of Kl2 and KlSO(2n+1) for n ⩾ 2 is essentially the multiplicative
+convolution of KlSO(3) and of two Kloosterman sums Kln , see [42].
+                                                       2
+  An isotypic trace weight modulo p is the trace function
+                                      K(x) = ι((tr F)(Fp , x))
+for x ∈ Fp of an isotypic trace sheaf F, this trace function being seen as complex-valued by means
+of some fixed isomorphism ι : Q̄ℓ → C.
+  To any middle-extension sheaf F on A1Fp is associated its analytic conductor, a numerical invariant
+which measures the complexity of F. This is a positive integer defined by
+                                                   X
+                           cond(F) = rank(F) +        (1 + Swanx (F)),
+                                                      x
+
+where x ranges over the (finitely many) singularities of F in P1 (Fp ), i.e., those x where F is not
+lisse, and Swanx (F) ⩾ 0 is the Swan conductor of F at x (see [31]). For an isotypic trace weight
+K(n), we define the conductor as the minimal conductor of an isotypic trace sheaf F with trace
+function equal to K(n) on Fp .
+Remark 1.4. For example:
+   - If K(n) = e(P (n)/p) for a polynomial P ∈ Fp [X] of degree < p, the associated sheaf has
+     conductor cond(F) = deg P + 2;
+   - If K(n) = χ(P (n)) where χ is multiplicative and P ∈ Fp [X] a polynomial, then cond(F) is
+     bounded by 2 plus the number of distinct zeros of P in Fp ;
+   - For the hyper-Kloosterman sums K(n) = Klm (n; p), the conductor is m + 3;
+   - For the trace function of the ℓ-adic Kloosterman sheaf associated to the adjoint representa-
+     tion of the split reductive group Ǧ in [23], the conductor is bounded by dim(Ǧ) + 2 + r(Ǧ),
+     where r(Ǧ) is the rank of Ǧ (by [23, p. 4, (3)]: this sheaf is of dimension dim Ad = dim Ǧ,
+     lisse on Gm , tame at 0 and with Swan conductor r(Ǧ) at ∞).
+   Our main result in this paper is an estimate for any sum over primes q of an isotypic trace
+function modulo p, which is universal in quality and gives power-saving whenever the length of the
+sum is roughly comparable with p on a logarithmic scale, in particular allowing some sums over
+shorter intervals q < p1−θ for some θ > 0. The only weights we cannot handle are those where the
+corresponding estimate would be tantamount to a “quasi-Riemann Hypothesis”, i.e., a zero-free
+strip for some Dirichlet L-functions.
+   It will therefore be natural to say that K(n) is an exceptional weight modulo p (for sums over
+primes) if it is proportional to a weight
+                                        Kχ,ψ (n) = χ(n)ψ(n)
+where χ (resp. ψ) is a multiplicative (resp. additive) character modulo p, where either or both may
+be trivial.
+   Similarly, a sheaf F will be called exceptional if it is geometrically isotypic and geometrically
+isomorphic to a sum of copies of a tensor product Lχ ⊗Lψ of a Kummer sheaf with an Artin-Schreier
+sheaf, so that its trace function is exceptional.
+   We state the results both for standard and for smoothed sums over primes. We will consider
+smooth test functions V , compactly supported in [1/2, 2], such that
+(1.1)                                     xj V (j) (x) ≪ Qj
+for some Q ⩾ 1 and for any integer j ⩾ 0, where the implicit constant depends on j.
+Theorem 1.5 (Trace weights vs. primes). Let K be an isotypic trace weight on Fp associated
+to some sheaf F, and assume that F is not exceptional. Let V be a smooth function as above
+satisfying (1.1) for some parameter Q ⩾ 1.
+                                                  3
+  For any X ⩾ 2, we have
+                            X                  q
+(1.2)                                K(q)V           ≪ QX(1 + p/X)1/6 p−η ,
+                                                X
+                           q prime
+                                      X
+(1.3)                                          K(q) ≪ X(1 + p/X)1/12 p−η/2 ,
+                                     q prime
+                                      q⩽X
+
+for any η < 1/24. The implicit constants depend only on η, cond(F) and the implicit constants
+in (1.1). Moreover, the dependency on cond(F) is at most polynomial.
+Remark 1.6. For X = p one gets
+                                         X
+                                                 K(q) ≪ p1−1/48+ε ,
+                                       q prime
+                                         q<p
+
+and for general X these bounds are non-trivial as long as the conductor of F remains bounded
+and the range X is greater that p3/4+ε for some ε > 0. Stronger results are available by different
+methods for special K. For instance, Bourgain [3] and Bourgain-Garaev [5] have obtained bounds
+for
+                                    an + bnk 
+                          K(n) = e              , k ∈ N − {0}, (b, p) = 1,
+                                        p
+which are non-trivial as long as X ⩾ p1/2+ε (see also [17] for a survey of existing methods).
+  Closely related to Theorem 1.5 is the following estimate:
+Theorem 1.7 (Trace weights vs. Möbius). Let µ denote the Möbius function. With the same
+notations and hypotheses as in Theorem 1.5, we have for X ⩾ 2
+                         X              n
+                             µ(n)K(n)V       ≪ QX(1 + p/X)1/6 p−η ,
+                          n
+                                         X
+                                X
+                                    µ(n)K(n) ≪ X(1 + p/X)1/12 p−η/2 ,
+                                 n⩽X
+
+for any η < 1/24, where the implicit constants depend only on η, cond(F) and the implicit constants
+in (1.1), and the dependency on cond(F) is at most polynomial.
+Remark 1.8. The discrepancy in the power-saving exponents between the smoothed and un-
+smoothed sums in Theorem 1.5 and 1.7 is due to the growth of the Sobolev norms of the smooth
+functions approximating the characteristic function of the interval [1, X], which is measured by
+the parameter Q of the smoothed sums. This dependency shows up in the treatment of the sums
+of Type I and I2 below, through Theorem 1.16 and the shape of the packet of Eisenstein series
+involved in the analysis. Any improvement in the exponent of the parameter QW in these state-
+ments will yield an improvement for the unsmoothed sums, but it is also quite possible that other
+more advanced arguments could give such improvements. One should also remark however that
+the smallest range of X for which the sums can be bounded non-trivially (X ≈ p3/4 ) is the same
+for the smoothed and unsmoothed sums (for a fixed smooth function V ).
+Remark 1.9. Jean Bourgain pointed out that Theorem 2 of [6] (along with the Note following it)
+can be used in conjonction with (3.2) and Proposition 3.1 of the present paper to prove that if K
+is an isotypic trace weight, we have, for any ε > 0 and for any X ⩾ p1/2+ε
+                                       X
+                                            µ(n)K(n) = o(X),
+                                        n⩽X
+                                                       4
+where the implicit constant depends on cond(F) and ε. However, this approach does not seem to
+yield a power saving, and does not seem to apply if µ is replaced by Λ or by the characteristic
+function of the primes.
+Remark 1.10. This theorem expresses an orthogonality property (i.e., the absence of correlation)
+between the Möbius function and any isotypic trace weight modulo p with bounded conductor.
+This fits with the philosophy of the “Möbius randomness principle”, formulated vaguely in [26,
+p. 338], and with Sarnak’s recent precise formulation in terms of orthogonality of the Möbius
+function against function with low complexity, in the sense of entropy (see [39]). Our result is
+in a slightly different context than Sarnak’s conjecture, however, since the trace weights K(n) are
+defined modulo p, and an asymptotic statement follows only by taking, for each p, a different weight
+with some bound on the complexity, as measured by the conductor in our case. Thus, our results
+are closer in spirit to those of Green [20] and Bourgain [4], which prove asymptotic orthogonality of
+the Möbius function against, respectively, bounded depth boolean functions, and monotone boolean
+functions on binary hypercubes {0, 1}N identified with {1, . . . , 2N }.
+   In fact, it seems to be a very intriguing question (suggested by Peter Sarnak) to understand
+which functions can arise as small linear combinations of trace functions of low conductor (which,
+by linearity, still satisfy Theorems 1.5 and 1.7). Another natural question is whether trace functions
+have low complexity in a more algorithmic sense, and this does not seem to be easy to answer.
+Only functions such as
+                                            P (n)             P (n) 
+                                  K(n) = e           or K(n) =
+                                               p                   p
+                                 ·
+(for P (X) ∈ Z[X] fixed and ( p ) the Legendre symbol) seem to be obviously of low complexity for
+most meaning of the term, and such functions as
+                                           K(n) = Kl2 (n; p)
+are far from being understood in this respect. One can certainly expect the class of trace weights
+(and linear combinations with small coefficients) to be very rich and fascinating (in this respect,
+there are already hints in Deligne’s conjecture about the number of trace functions with various
+conditions, see [8, 9, 13] for this topic.)
+1.1. First applications. We present here some corollaries of Theorem 1.5 which are obtained by
+applying it to specific weights K. This is only a selection and we expect many more applications.
+We leave to the reader to write down the corresponding statements involving the Möbius function,
+which follow from Theorem 1.7.
+   In the first result, we obtain a power saving in the sum of the error term in the prime number
+theorem in arithmetic progressions over residues classes modulo a prime which are values of some
+fixed polynomial. Precisely, we define E(X; p, a) by
+                                               δp (a)
+                                π(X; p, a) =          π(X) + E(X; p, a),
+                                               ϕ(p)
+where δp (a) = 0 if (a, p) 6= 1 and is 1 otherwise.
+  We will prove in §5.1 :
+Corollary 1.11. Let P ∈ Z[X] be a polynomial whose reduction modulo p is squarefree and non-
+constant.
+  (1) We have
+                         X
+                             E(X; p, P (n)) ≪ X(1 + p/X)1/12 p−η
+                              n∈Fp
+
+for any η < 1/48, where the implicit constant depends only on η and deg P .
+                                                      5
+  (2) We have                   X
+                                          E(X; p, a) ≪ X(1 + p/X)1/12 p−η
+                              a∈P (Fp )
+for any η < 1/48, where the implicit constant depends only on η and deg P .
+  Note that this corollary is trivial if P is linear. The restriction to a squarefree polynomial could
+be relaxed, but some condition is needed in the current state of knowledge since for P = X 2 we
+have the interpretation           X                    X q 
+                                       E(X; p, n2 ) =          + O(1)
+                                                            p
+                                 n∈Fp                      q⩽X
+in terms of average of the Legendre symbol over primes, from which we cannot get power saving
+without using a quasi-Riemann Hypothesis for the corresponding L-function.
+   On the other hand, if we take P = X 2 − 1, the study of either of these sums becomes equivalent
+to that of the sum                         X
+                                               χ(q + 1)
+                                                 q<X
+where q, again, runs over primes. This was estimated, as we recalled, by Karatsuba [28].
+  We can now generalize considerably this result of Karatsuba:
+Corollary 1.12 (Character sums over polynomially-shifted primes). Let f = P/Q be a rational
+function represented as a ratio of integral polynomials. Let χ be a non-trivial Dirichlet character
+of prime modulus p and order h ⩾ 2. Assume that f modulo p is not of the form
+                                                  cX k g(X)h
+for some c ∈ Fp × , some k ∈ Z and some g(X) ∈ Fp (X). We then have
+                           X
+                                χ(f (q))V (q/X) ≪ X(1 + p/X)1/6 p−η
+                           q prime
+                                      X
+                                               χ(f (q)) ≪ X(1 + p/X)1/12 p−η/2
+                                     q prime
+                                      q⩽X
+
+for any η < 1/24, where the implicit constant depends only on η, V and the degrees of P and Q.
+Proof. We will show that Theorem 1.5 is applicable. We first recall (see [31, Chap. 4]) that an
+Artin-Schreier sheaf Lψ (for ψ non trivial) is wildly ramified at ∞ and unramified on A1Fp , while
+a Kummer sheaf Lχ (for χ non-trivial) is tamely ramified at 0 and ∞ and unramified on Gm,Fp .
+Both types of sheaves have rank 1.
+   The weight K(n) = χ(f (n)) is the trace function of the tame, Kummer sheaf Lχ(f ) which has
+(at most) deg P + deg Q singularities, hence conductor bounded in terms of deg P and deg Q.
+Theorem 1.5 therefore applies when Lχ(f ) is not exceptional. We now determine when this is so.
+   The sheaf Lχ(f ) is tamely ramified at x ∈ P1 (Fp ) if and only if x is a zero or a pole of f of order
+not divisible by h. This implies that if Lχ(f ) is geometrically isomorphic to some Lψ ⊗ Lχ′ then ψ
+is trivial (otherwise Lχ(f ) would be wildly ramified at ∞) and the zeros or poles of f distinct from
+0 and ∞ have order divisible by h; this means precisely that f is of the form cX k g(X)h .             
+  One can unify this corollary with Theorem 1.1 for
+                                                      g(n) 
+                                    K(n) = χ(f (n))e         ,
+                                                        p
+getting cancellation for sums over primes provided f (resp. g) satisfies the assumptions of Corol-
+lary 1.12 (resp. Theorem 1.1).
+                                                       6
+1.2. Kloosterman sums at prime arguments. Our last application involves the weights K(n)
+which are related to Kloosterman or hyper-Kloosterman sums Klm . We first spell out two very
+specific corollaries for the standard Kloosterman sum in one variable:
+Corollary 1.13. For every 0 < η < 1/48 there exists C(η) such that for every p, every X ⩾ 2 and
+every integer n coprime with p, one has the inequalities
+                         X
+                                 Kl2 (nq; p) log q ⩽ C(η)X(1 + p/X)1/12 p−η
+                       q<X, q prime
+
+and                                               2nq 
+                     X
+                                Kl2 (n2 q 2 ; p)e        log q ⩽ C(η)X(1 + p/X)1/12 p−η .
+                                                    p
+                 q<X, q prime
+
+   These two bounds improve [27, Lemmas 6.1, 6.2, 6.3] when c = p is a prime and when X is
+near and possibly a bit smaller than p (these results were proved in [27] assuming the Generalized
+Riemann Hypothesis for Dirichlet characters). Using the methods of [27], one can use the second
+bound and the Petersson formula to increase the size of the support of the Fourier transform Φ     b
+of the test functions Φ in the problem of computing the distribution of low-lying zeros (average
+1-level density) of the symmetric square L-functions L(sym2 f, s) for f in the family of holomorphic
+newforms of prime level p → +∞ and weight k: with notation as in [27] (except that they denote the
+                                                                                b in ]−1/2−δ, 1/2+δ[,
+level by N ), there exists δ > 0 such that for any Φ ∈ S(R) with the support of Φ
+one has                                                       Z
+                                1      X
+                                                    2
+                        lim                  D(sym    f, Φ) =     Φ(x)W (Sp)(x)dx.
+                       p→∞ |H ⋆ (p)|                            R
+                               k         ⋆
+                                      f ∈Hk (p)
+
+   The possibility of such an improvement was known to the authors of [27] (see [27, Remark C, p.
+61]), though their method was different.
+   The consideration of powers of hyper-Kloosterman sums allows us to strengthen the results [35,
+36] concerning the existence of hyper-Kloosterman sums with large absolute value modulo a product
+of two primes:
+Corollary 1.14. For any m ⩾ 2, there exists a constant αm > 0 such that
+                        X
+                           Λ2 (c)| Klm (1; c)| ⩾ (αm + om (1))X log X,
+                           c⩽X
+
+were Λ2 (c) = (µ ⋆ log2 )(c) denotes the von Mangoldt function of order 2, which is supported over
+integers with at most two prime factors.
+   This corollary shows that the normalized hyper-Kloosterman sums Klm (1; c) whose modulus is a
+product of at most two primes have their size ≫m 1 for a positive proportion of such moduli (when
+these are weighted by Λ2 ). In [34–36], the lower-bound was of order X, and by adding the missing
+logarithmic factor, we obtain the right order of magnitude. This answers a question of Bombieri to
+the third author from 1996. For Λ2 replaced by Λ3 , a corresponding (easier) statement was proven
+in [16].
+   Another potential application of this corollary (or rather of the techniques used to prove it) is
+to reduce the value of the constant ω in the following statement, which was first established by
+Fouvry and Michel for ω = 23 in [15] subsequently improved to ω = 18 by Sivak-Fischler [40, 41]
+and to ω = 15 by Matomäki [33]:
+Theorem. The sequence (Kl2 (1; c))c⩾1 changes sign infinitely often as c varies over squarefree
+moduli with at most ω prime factors.
+                                                     7
+1.3. Principle of the proof of Theorem 1.5: the combinatorics of sums over primes. We
+start from a general perspective before explaining what features are specific to our case and what
+our new ingredients are. Suppose we are given some oscillatory arithmetic function K, bounded by
+1 in modulus, some smooth function V , compactly supported in ]0, +∞[ and some X ⩾ 2; we wish
+to obtain non-trivial bounds for the sum
+                                       X             n
+                                          Λ(n)K(n)V        ,
+                                        n
+                                                       X
+
+where Λ denotes the von Mangoldt function.
+   Using Heath-Brown’s identity (see, e.g., [26, Prop. 13.3]) and a smooth partition of unity, this
+sum decomposes essentially into a linear combination of sums of the shape
+       XX                             XX
+(1.4)         α1 (m1 ) · · · αk (mk )    V1 (n1 ) · · · Vk (nk )
+        m1 ,··· ,mk                   n1 ,··· ,nk
+                                                                m · · · m n · · · n 
+                                                                  1       k 1       k
+                                                            V                         K(m1 · · · mk n1 · · · nk )
+                                                                          X
+for some integral parameter k ⩾ 2, where the αi (m) are essentially bounded arithmetic functions
+supported in dyadic intervals (say [Mi /2, Mi ]) of short range (i.e. Mi ⩽ X 1/k ), whereas the Vi (n)
+are smooth functions supported in dyadic intervals with arbitrary range (say, [Ni /2, Ni ] with Ni ∈
+[1/2, 2X]), and where
+                                           Y
+                                               Mi Ni ≍ X.
+                                                    i
+   We refer to the ni as the “smooth” variables and the mi as the “non-smooth” variables, as one
+is usually unable to exploit the specific shape of the functions αi , except for the fact that they are
+supported in short ranges.
+   Depending on which estimates and methods are available to bound these sums, according to the
+location of the point (M1 , · · · , Mk , N1 , · · · , Nk ) in the 2k-dimensional cube [1/2, 2X]2k , it is useful
+to classify them into different (not necessarily disjoint) categories, based on the number of “long”
+smooth variables which are available:
+      - If there is one very long smooth variable, say n1 , one usually speaks of sums of type I,
+        with the remaining (smooth and non-smooth variables) combined together into a single
+        non-smooth variable, m, which means that the original sum (1.4) may be written
+                               X      X               mn 
+                                                          1
+                                   βm      V1 (n1 )V        K(mn1 ).
+                                                        X
+                                 m≍M          n1 ≍N1
+
+      - If there are two relatively long smooth variables, say n1 , n2 , one speaks of sums of type I2 ;
+        after combining the remaining (smooth and non-smooth variables) into a single non-smooth
+        variable, the sum can now be rewritten
+                         X        XX                        mn n 
+                                                               1 1
+                              αm         V1 (n1 )V2 (n2 )V         K(mn1 n2 ).
+                                                              X
+                          m≍M        n1 ≍N1
+                                     n2 ≍N2
+
+      - And if there are three relatively long smooth variables, say n1 , n2 , n3 , we will speak of sums
+        of type I3 , and so on.
+   This classification appears more or less explicitly in the work [10] of Fouvry, in the context of
+the average distribution of primes in arithmetic progressions to large moduli. The implementation
+of this strategy depends on the possibility of dealing with the sums of type Ir for r as large as
+possible, a question which becomes increasingly difficult as r increases, since the range of the
+                                                        8
+smooth variables decreases.2 All remaining sums belong then to the class of sums of type II. The
+most direct treatment of these sums –there may be other treatments available, depending on the
+original problem– consists in combining these (short) variables in subsets to form variables with
+larger ranges, in order to obtain bilinear forms involving two non-smooth variables of the type
+                             X X
+                                       αm βn K(mn), where M N ≍ X.
+                               m≍M n≍N
+   One can then “smoothen” one of the variables, say n, by an application of the Cauchy-Schwarz
+inequality, leading to a quadratic form with coefficients with multiplicative correlation sums of the
+function K, namely             XX              X
+                                       αm1 αm2      K(m1 n)K(m2 n).
+                                    m1 ,m2             n
+   Notice here that the fact that the original variables are rather short actually helps, since it offers
+some flexibility in the ways they may be combined to tailor the relative ranges of M and N . This
+is the strategy we will follow in this paper.
+1.4. Sums of type I2 . We can now come to our specific situation and explain our new results for
+sums over primes of trace weights.
+   We will give estimates for sums of type I, I2 and II. In fact, the starting point of this work is a
+very general estimate for sums of type I2 (two long smooth variables of approximately equal size)
+when K is a trace weight, which follows relatively easily from the results of our earlier paper [12].
+Indeed, using Mellin inversion, the estimation of sums of type I2 can be reduced to that of sums of
+the shape
+                                               X               n
+(1.5)                           SV,X (it, K) =    K(n)dit (n)V
+                                                n
+                                                                 X
+where t ∈ R, and (for any u ∈ C) we denote by
+                                                                X  a u
+                                        du (n) = d−u (n) =
+                                                                       b
+                                                                ab=n
+the twisted divisor function.
+  We observe that the arithmetic function n → dit (n) is (up to suitable normalization) the Fourier
+coefficient of the non-holomorphic unitary Eisenstein series
+                                             1 X         ys
+                                   E(z, s) =                    ,
+                                             2       |cz + d|2s
+                                                      (c,d)=1
+
+for s = 12 +it. The main result of our previous paper ([12, Thm 1.2]) is a universal non-trivial bound
+for the analogue of SV,X (it, K) where dit (n) is replaced with the Fourier coefficients of a classical
+cusp form (either holomorphic or not). We will extend the proof to Eisenstein series, obtaining the
+following result:
+Theorem 1.15 (Algebraic twists of Eisenstein series). Let K be an isotypic trace weight associated
+to the ℓ-adic sheaf F modulo p. Let V be a smooth function satisfying (1.1) with parameter Q ⩾ 1.
+If F is not geometrically trivial, then for any X ⩾ 1, we have
+                               X                n                      p 1/2 −η
+                SV,X (it, K) =     K(n)dit (n)V      ≪ (1 + |t|)A QX 1 +        p
+                                n
+                                                 X                       X
+
+  2 For instance, in [10], it is shown that one could prove results on the distribution of primes in long arithmetic
+progressions on average, beyond the Bombieri-Vinogradov Theorem, if one could treat the corresponding sums of
+type Ir for r = 1, . . . , 6. Currently, the sums of type I1 , I2 and I3 can be handled [19].
+                                                        9
+for any η < 1/8 and some A ⩾ 1 possibly depending on η. The implicit constant depends only on
+η, on the implicit constants in (1.1), and polynomially on the conductor of F.
+  In fact, the proof of this theorem will be intertwined with the proof of the following estimate on
+sums of type I2 :
+Theorem 1.16 (Type I2 sums of trace weights). Let K be an isotypic trace weight associated to
+the ℓ-adic sheaf F modulo p. Let M, N, X ⩾ 1 be parameters with X/4 ⩽ M N ⩽ X. Let U , V , W
+be smooth functions satisfying condition (1.1) with respective parameters QU , QV and QW , all ⩾ 1.
+We then have
+     X            m it  m   n   mn                                         p 1/2 −η
+         K(mn)          U     V       W         ≪ (1 + |t|)A (QU + QV )B QW X 1 +         p
+     m,n
+                   n      M       N       X                                         X
+for t ∈ R and for any η < 1/8 and some constants A, B ⩾ 1 depending on η only. The implicit
+constant depends only on η, on the implicit constants in (1.1), and polynomially on the conductor
+of F.
+Remark. (1) Through the techniques of [12], this result depends on deep results of algebraic geom-
+etry, including Deligne’s general form of the Riemann Hypothesis over finite fields, and the theory
+of the ℓ-adic Fourier transform of Deligne, Laumon and Katz.
+   (2) The Polya-Vinogradov method would yield a non trivial bound for the sum above as long
+as max(M, N ) ≫ p1/2 log p. Here we obtain non trivial estimates for M N ≫ p3/4+ε in particular
+when M, N ≫ p3/8+ε .
+   (3) From our point of view, the main innovation in this result, which promises to have other
+applications, is that we handle the divisor function in a fully automorphic manner, instead of
+attempting to use its combinatorial structure as a Dirichlet convolution.
+1.5. Sums of type I and II. Our second main result is a general estimate for sums of type
+II, which gives non-trivial bounds, as long as one of the variables has range slightly greater than
+p1/2 log p and the other has non-trivial range. Precisely:
+Theorem 1.17. Let K be a non-exceptional trace weight modulo p associated to an isotypic ℓ-adic
+sheaf F. Let M, N ⩾ 1 be parameters, and let (αm )m , (βn )n be sequences supported on [M/2, 2M ]
+and [N/2, 2N ] respectively.
+   (1) We have
+             XX                                       1         1     p1/4 log1/2 p 
+(1.6)                αm βn K(mn) ≪ kαkkβk(M N )1/2 1/4 + 1/2 +                        ,
+                m,n
+                                                       p       M           N 1/2
+              (m,p)=1
+
+where                                        X                     X
+                                    kαk2 =       |αm |2 , kβk2 =       |βn |2 .
+                                             m                     n
+  (2) We have
+                        X           X               X         1    p1/2 log p 
+(1.7)                          αm         K(mn) ≪       |αm | N 1/2 +             .
+                                                      m
+                                                                p        N
+                     (m,p)=1        n⩽N
+
+   In both estimates, the implicit constants depend only, and at most polynomially, on the conductor
+of F.
+  This theorem constitutes a significant generalization of results like [35, Cor. 2.11] or [14, Prop. 1.3],
+which were obtained for very specific weights (symmetric powers of Kloosterman sums and additive
+characters of rational functions, respectively). The main difference is that we do not require any
+                                                      10
+knowledge of the geometric monodromy group of F. Instead, it turns out that we can build on the
+same ideas used in [12] to handle algebraic twists of cusp forms. A crucial role is played again by the
+ℓ-adic Fourier transform, and by a geometric invariant of F which we introduced in [12], namely its
+Fourier-Möbius group, which controls the correlation of the trace function of the Fourier transform
+of F with its pullbacks under automorphisms of the projective line. In fact, it is the intersection of
+this group with the standard Borel subgroup of upper-triangular matrices of PGL2 (Fp ) which we
+must understand, the essential point being that this intersection is of size bounded in terms of the
+conductor of F unless F is exceptional. This is the origin of this restriction in Theorem 1.17. It is
+rather remarkable that the upper-triangular matrices in the Fourier-Möbius group were precisely
+those which do not cause any difficulty in [12] (hence in Theorem 1.16).
+Remark 1.18. For the purpose of Theorem 1.5, it is indeed enough to handle sums of type I2 and
+to deal will all others as sums of type II. Other problems may require direct treatment of sums of
+type Ir with r ⩾ 3 (see for instance the beautiful recent work of N. Pitt [38]). One might expect
+that this involves the theory of automorphic forms on GLr .
+Remark 1.19. In [14], the first and third authors obtained bounds which could be stronger than
+(1.6) and (1.7), in particular in ranges of M , N which are shorter than the Polya-Vinogradov
+range p1/2 (see [14, Prop. 1.2 and Thm 1.4]). These bounds were established only for very special
+weights associated to rank one sheaves (additive characters of specific rational functions). It is quite
+conceivable that these results remain valid for more general trace weights, and we hope to come
+back to this question in a later work. From our current level of understanding at least, it seems
+that, instead of the Fourier-Möbius group (or in addition to it), we would need to involve more
+precise information on the underlying sheaf, for example concerning fine details of its ramification
+behavior, and/or its geometric monodromy group.
+1.6. Acknowledgments. Part of this work was done during the 60th birthday conference of Roger
+Heath-Brown at Oxford. We would also like to thank the organizers, Tim Browning, David Ellwood
+and Jonathan Pila for this rich and pleasant week. Roger Heath-Brown has obtained fundamental
+results in the theory of the primes; it is no surprise that, once more, the celebrated “Heath-Brown
+identity” makes a crucial appearance in the present work.
+   This paper has benefited from discussions and comments from Jean Bourgain, Satadal Ganguly,
+Paul Nelson, Richard Pink, Ngô Bao Châu, Peter Sarnak, Igor Shparlinski, Akshay Venkatesh, and
+Zhiwei Yun and it is a pleasure to thank them for their input.
+   Finally, we are thankful to the referees for their careful reading of the manuscript.
+
+              2. Algebraic twists of Eisenstein series and sums of type I2
+   In this section, we will prove Theorem 1.15 and Theorem 1.16 simultaneously. Indeed, the two
+results are very closely related, as we will first clarify.
+   Let M, N, X ⩾ 1 with X/4 ⩽ M N ⩽ 4X. Let t ∈ R be given, as well as three smooth functions
+U , V , W satisfying (1.1) with respective parameters QU , QV , QW , all ⩾ 1. We package these
+parameters by denoting
+                                        P = (U, V, W, M, N, X),
+and we denote                                     m it  m   n   mn 
+                                     X
+                       SP (it, K) =      K(mn)           U    V     W      ,
+                                     m,n
+                                                   n        M   N      X
+which is the sum involved in Theorem 1.16. For later use, we state formally here the trivial bound
+(2.1)                                  SV,X (it, K) ≪ X(log X)
+for the sums SV,X (it, K).
+                                                   11
+  We start with a lemma relating the sums of type SV,X (·, K) and SP (·, K).
+Lemma 2.1. We adopt the above notations and for s ∈ C and x > 0, let
+                                             Ws (x) := W (x)x−s .
+(1) For every ε > 0, there exists C = C(ε), such that we have
+                                            ZZ
+                                        C
+               SP (it, K) ≪ε (QU + QV ) +                |SWt1 ,X (it2 + it, K)|dt1 dt2 .
+                                                     |t1 |,|t2 |⩽X ε
+
+(2) For every ε > 0, one has
+                            SV,X (it, K) ≪ε X ε             max          |SP (it, K)|,
+                                                  P =(U1 ,V1 ,V,M,N,X)
+
+where P runs over parameters (U1 , V1 , V, M, N, X) as above with QU1 = QV1 = 1.
+Proof. (1) Denote by Û and V̂ the Mellin transforms of the smooth functions U and V . These are
+entire functions, which satisfy
+                                                     Q + Q k
+                                                       U       V
+(2.2)                              Û (s), V̂ (s) ≪              ,
+                                                       1 + |s|
+for any k ⩾ 0, where the implicit constants depend on k, Re s and the implicit constants in (1.1).
+   We then have
+                                        Z Z
+                                    1
+                    SP (it, K) =                Û (u)V̂ (v)TW (u, v)N u M v dudv
+                                 (2iπ)2 (0) (0)
+by Mellin inversion, where
+                                           X                                  mn 
+                            TW (u, v) =           K(mn)mit−u n−it−v W                 .
+                                          m,n⩾1
+                                                                               X
+
+  This sum can be expressed as a twist of Eisenstein series (1.5), namely
+                                  TW (u, v) = X −θ1 SWθ1 ,X (θ2 + it, K),
+where
+                                          u+v                    −u + v
+                                      θ1 =         ,      θ2 =          .
+                                               2                   2
+  Thus, by a change of variable, we get
+                      Z Z                                     M θ2  M N θ1
+                   2
+   SP (it, K) =                Û (θ 1 − θ 2 )V̂ (θ 1 + θ 2 )                  SWθ1 ,X (θ2 + it, K)dθ2 dθ1 .
+                (2iπ)2 (0) (0)                                 N        X
+  The function Wθ1 is smooth and compactly supported on [1/2, 2]. For Re θ1 = 0, it satisfies (1.1)
+with parameter
+(2.3)                                        Q(θ1 ) ≪ QW + |θ1 |,
+where the implicit constant is absolute.
+   Using (2.2) for k large enough, and the trivial bound (2.1), the contribution to this double
+integral of the region where |θ1 | ⩾ X ε or |θ2 | ⩾ X ε is
+                                               ≪ (QU + QV )C
+for some C ⩾ 0 depending only on ε, which concludes the proof.
+   (2) By a dyadic partition of unity (using Lemma 4.3 below), and taking into account the support
+condition, we can decompose SV,X (it, K) into O(log X) sums of the shape
+                                                   SP (it, K)
+                                                       12
+where
+                                    P = (U1 , V1 , V, M, N, X)
+with X/4 ⩽ M N ⩽ 4X, and furthermore the functions U1 , V1 satisfy condition (1.1) with parame-
+ters QU1 = QV1 = 1. The result is then immediate.                                            
+2.1. A simple bound. We start with the following simple “convexity” bound for the Eisenstein
+twists SV,X (it, K), which is useful for X ⩾ p, and will indeed imply both Theorem 1.16 and
+Theorem 1.15 for X ⩾ p5/4+ε .
+Lemma 2.2. With the notation and assumptions of Theorem 1.15, we have for any ε > 0,
+                                                ε              1    p 1/2
+(2.4)               SV,X (it, K) ≪ pQX(1 + |t|) (1 + |t|)1/2 QX    +         ,
+                                                                 p X
+where the implicit constant depends on ε and polynomially on cond(F).
+Proof. This is relatively standard, so we will be fairly brief: the idea is to use periodicity of K
+and to represent it in terms of Dirichlet characters, reducing then to easy estimates for moments
+of Dirichlet L-functions.
+   First of all, the contribution to SV,X (it, K) of the integers n divisible by p is
+                              X                    n
+                                     K(0)dit (n)V        ≪cond(F) p−1 X log X.
+                                                     X
+                        n≡0 (mod p)
+
+  Next, for (n, p) = 1, we can write
+                                              1     X
+                                 K(n) =                K̃(χ)χ(n)
+                                          (p − 1)1/2 χ
+where χ runs over the Dirichlet characters modulo p and
+                                            1     X
+                               K̃(χ) =        1/2
+                                                       K(m)χ(m)
+                                       (p − 1)       ×
+                                                      m∈Fp
+
+is the finite-field Mellin transform of K. Thus we get
+                   X                n         1     X        X              n
+                       K(n)dit (n)V       =              K̃(χ)   χ(n)dit (n)V    .
+                                      X     (p − 1)1/2 χ       n
+                                                                               X
+              (n,p)=1
+
+  The contribution of the trivial character χ0 to this sum is estimated by
+                      1              X                 n
+                            K̃(χ 0 )   χ 0 (n)dit (n)V     ≪cond(F) p−1/2 X log X
+                 (p − 1)1/2          n
+                                                        X
+(indeed, since K is a trace weight, we have
+                                  X
+             (p − 1)1/2 K̃(χ0 ) =     K(m) − K(0) = p1/2 K̂(0) − K(0) ≪cond(F) p1/2 ,
+                                m∈Fp
+
+where K̂ denotes the unitarily normalized Fourier transform of K, so that −K̂ is also an isotypic
+trace weight, associated to a sheaf with conductor bounded in terms of that of F only, by the
+properties of the Fourier transform of ℓ-adic sheaves, as explained in [12, §1.4, Prop. 8.2].)
+   For χ non-trivial, denoting by V̂ (s) the Mellin transform of V , we have
+     X         X                n            Z      X
+                                          1
+         K̃(χ)     χ(n)dit (n)V       =                   K̃(χ)L(χ, s + it)L(χ, s − it)V̂ (s)X s ds,
+                n
+                                 X       2iπ
+    χ6=χ0                                  Re s=1/2 χ6=χ0
+
+by a standard application of Mellin inversion and a contour shift.
+                                                 13
+  From (1.1), we get
+                                                            Q j
+(2.5)                                   V̂ (s) ≪j
+                                                           1 + |s|
+for all j ⩾ 0, where the implicit constant depends on j. Now, for any fixed ε > 0, let S = Q, and
+split the s-integral into
+                           Z                Z               Z
+                       1               1               1
+                                ··· =           ··· +            · · · = I1 + I2 ,
+                     2iπ              2iπ             2iπ
+                         Re s=1/2         Re s=1/2               Re s=1/2
+                                          |Im s|⩽S               |Im s|>S
+
+say. To handle I1 , we apply Cauchy’s inequality to obtain
+                    n    X            o Z          X
+              2                     2
+             I1 ≪ XS         |K̃(χ)| × Re s=1/2        |L(χ, s − it)L(χ, s + it)|2 |ds|.
+                            χ              |Im (s)|⩽S χ6=χ0
+
+   By the Parseval identity, the first factor on the right-hand side is ≪ pXS. For the second factor,
+we apply the approximate functional equation to bound the product L(χ, s − it)L(χ, s + it) by sums
+of the shape
+                                         X χ(n)dit (n)  n 
+                                                        W
+                                          n
+                                                 ns         N
+for W rapidly decreasing and N ≪ p(1 + S + |t|) (see, e.g., [26, Th. 5.3]). By a hybrid-large sieve
+estimate (see [37, Th. 6.4], compare with [26, Th. 7.34]), we can get the Lindelöf conjecture on
+average for the integral and sum, and therefore derive
+                  Z          X
+                    Re s=1/2    |L(χ, s − it)L(χ, s + it)|2 |ds| ≪ε (pS(1 + |t|))1+ε .
+                   |Im (s)|⩽S χ6=χ0
+
+  To estimate I2 , we split the interval of integration |Im (s)| ⩾ S into segments 2ν S ⩽ |Im (s)| ⩽
+2 S for ν ⩾ 0. Applying to each segment the last inequality just above with S replaced by 2ν S
+ ν+1
+
+together with the rapid decay of V̂ (s) (see (2.5)), we obtain the same type of bound for I2 after
+summation over ν.                                                                               
+
+   For X ⩾ p3/2 , for instance, the bound in this lemma is stronger than the one claimed in The-
+orem 1.15. Using Lemma 2.1 (1), we then also deduce Theorem 1.16 in this range. We will
+therefore assume for the remainder of this section that X ⩽ p3/2 . Similarly, comparing the bounds
+of Theorems 1.15 and 1.16 with the trivial bounds
+                          SV,X (it, K) ≪ X log X,           SP (it, K) ≪ X log X,
+we may assume that X ⩾ p3/4 .
+
+2.2. Spectral theory and amplification. The most important ingredient in the proof of The-
+orems 1.15 and 1.16, is the following lemma, which is proved with the methods of [12], based on
+the amplification method and Kuznetsov’s formula. It is an averaged version of a bound for the
+amplified second moment of the sums SV,X (it, K). Recall that K is an isotypic trace weight.
+   For τ ∈ R, L ⩾ 1 and u ∈ C, let
+                                           X
+                                 Biτ (u) =     sign(diτ (ℓ))du (ℓ),
+                                             ℓ⩽2L
+                                            ℓ prime
+
+which is the amplifier (of length 2L) adapted to the Eisenstein series E(z, 1/2 + iτ ).
+                                                      14
+Lemma 2.3. For any ε > 0 there exists b = b(ε) ⩾ 0 such that
+      Z
+                                                                                           
+(2.6)     min(|t|2 , |t|−2−2b )|Biτ (it)SV,X (it, K)|2 dt ≪ε pε pLQX + p1/2 L3 QX(X/p + Q)2 ,
+           R
+provided
+                                   pε LQ < p1/4 ,           1 ⩽ L ⩽ X.
+Proof. As in the cuspidal case in [12], we use the amplification method and the Kuznetsov formula,
+exploiting the fact that, for any given τ ∈ R, the Eisenstein series
+                                           1
+                                                  E(z, 1/2 + iτ )
+                                       (p + 1)1/2
+occurs in the continuous spectrum of Hecke eigenforms of level p. More precisely, we have the
+Fourier expansion
+                              θ(1/2 − it) 1/2−it       1       X
+  E(z, 1/2 + it) = y 1/2+it +             y      +               dit (|n|)|n|−1/2 Wit (4π|n|y)e(nx),
+                              θ(1/2 + it)          θ(1/2 + it)
+                                                                      n6=0
+
+where
+                                        θ(s) = π −s Γ(s)ζ(2s),
+and
+                                                Z ∞              
+                                   e−y/2                              x it−1/2
+(2.7)                   Wit (y) =                     e−x xit−1/2 1 +           dx
+                                  Γ(it + 12 )   0                     y
+denotes the Whittaker function (see for instance [25, (3.29)]).
+   We assume that the condition of the lemma are met. Using the notation of [12, Section 4] and
+taking there P = Xp−1 , we obtain as in [12, Prop. 4.1, (4.10)] (with the parameter M given by
+applying [12, Th. 1.14] to the trace weight K, so that M = aN s for some absolute constants a > 0
+and s ⩾ 1) the bound
+             Z
+         1                          1
+(2.8)           φ̃a,b (t)                        |Biτ (it)|2 |SV,X (it, K)|2 dt
+       p+1 R              cosh(πt)|θ(1/2 + it)|2
+                                         X                                     L3 QX  X    2 
+                           ⩽ M (L) − 2        φ̇(k)(k − 1)M (L; k) ≪ pε LQX + 1/2         +Q
+                                                                                 p      p
+                                      k>a−b
+
+for any ε > 0, where 2 ⩽ b < a are odd integers depending on ε and φ̃(t) = φ̃a,b (t) denotes a
+positive function such that
+                                  φ̃(t) ≍a,b (1 + |t|)−2b−2 .
+  We then obtain the desired average estimate from this, using Stirling’s formula and the bound
+                                                       1
+                                   ζ(1 + 2it) ≪           + log(1 + |t|).
+                                                      |t|
+                                                                                                  
+  In order to apply this, we need some lower bound for the amplifier Biτ (it). The following lemma
+gets a suitable bound for t close enough to τ .
+Lemma 2.4. For L large enough, we have
+                                                             L
+                                          Biτ (it) ≫              ,
+                                                           log6 L
+                                                      15
+uniformly for t and τ ∈ R satisfying
+                                                  1                                1
+                                  |t − τ | ≪          ,        and        |τ | ⩽ L 3 .
+                                               log7 L
+Proof. We observe first that for any prime ℓ ⩽ 2L and |t − τ | ≪ log−7 L, we have
+                                              X
+                     |Biτ (it) − Biτ (iτ )| ⩽    |diτ (ℓ) − dit (ℓ)|
+                                                  ℓ⩽2L
+                                                 ℓ prime
+                                                     X
+                                               =2              | cos(τ log ℓ) − cos(t log ℓ)|
+                                                     ℓ⩽2L
+                                                    ℓ prime
+                                                                X                    L
+                                               ⩽ 2|t − τ |               log ℓ ≪          ,
+                                                                                   log7 L
+                                                                ℓ⩽2L
+                                                               ℓ prime
+
+and hence it suffices to prove the lower bound for t = τ .
+  Furthermore, we may clearly assume that τ > 0 (by parity) and that L ⩾ 3. We then have
+                         X                           X                X
+            Biτ (iτ ) =       sign(diτ (ℓ))diτ (ℓ) =    |diτ (ℓ)| = 2   | cos(τ log ℓ)|,
+                         ℓ⩽2L                              ℓ⩽2L                         ℓ⩽2L
+                        ℓ prime                           ℓ prime                      ℓ prime
+
+and since | cos(τ log ℓ)| ⩽ 1 it is enough to prove that
+                                        X                              L
+                                           cos2 (τ log ℓ) ≫
+                                       ℓ∼L
+                                                                     log6 L
+(where ℓ ranges over primes L < ℓ ⩽ 2L) under the assumption of the lemma. We do this by
+finding suitable sub-intervals where τ log ℓ is sufficiently far away from π/2 modulo πZ.
+   Consider the function
+                                              g(x) = τ log x
+for x ∈ [L, 2L]. It is non-decreasing and satisfies
+                                                         h τ τi
+                       g(2L) − g(L) = τ log 2, g ′ (x) ∈      ,     for x ∈ [L, 2L].
+                                                           2L L
+   In particular, if τ log 2 ⩾ 2π, the preimage g −1 ([−π/4, π/4] + πZ) intersects [L, 2L] in ≫ τ
+intervals of length ⩾ πL2τ . From Huxley’s Theorem on primes in short intervals (see, e.g., [26, Th.
+10.4, Th. 10.5] and note that any of the variants of [26, Th. 10.5], going back to Hoheisel, would
+                                                                     L                    5/12−ε for some
+be enough) the number of primes in any such interval is ≫ τ log        L , provided τ ⩽ L
+fixed ε > 0 and L is large enough. Therefore (taking ε = 1/12 and summing over these intervals)
+we obtain
+                                                           L
+                                           |Biτ (iτ )| ≫
+                                                         log L
+provided 2π/ log 2 ⩽ τ ⩽ L .  1/3
+
+   At the other extreme, if 0 ⩽ τ ⩽ 100 1log L , we have
+                                                             1
+                                      cos2 (τ log ℓ) ⩾ cos2
+                                                              50
+for every L ⩽ ℓ ⩽ 2L, and hence Biτ (iτ ) ≫ L/ log L also in that case.
+   Suppose now that
+                                             1               2π
+                                                     ⩽τ ⩽         .
+                                        100 log L           log 2
+                                                          16
+   In that case, g([L, 2L]) is an interval of length at least 1/(200 log L). It is then easy to see (the
+worst case is when the interval is symmetric around π/2 + kπ for some integer k) that there exists
+x0 ∈ [L, 2L] such that
+                                                               1
+                                    cos2 (τ log(x0 )) ⩾                 .
+                                                        2 · 4002 log2 L
+   Using the prime number theorem with sufficiently precise error term, we know that the interval
+[L, 2L] ∩ [x0 − L(log L)−3 , x0 + L(log L)−3 ] contains at least ≫ L/(log L)4 primes, and since
+                    | cos2 (τ log(ℓ)) − cos2 (τ log(x0 ))| ≪ | log(ℓ/x0 )| ≪ (log L)−3
+for these primes, we have
+                                     cos2 (τ log(ℓ)) ≫ log−2 L,
+and therefore by summing over these ℓ we get
+                                                       L
+                                         Biτ (iτ ) ≫
+                                                     log6 L
+in that last case, which concludes the proof.                                                          
+   This lemma and the average bound (2.6) allow us to deduce a first good upper-bound for the
+twists of Eisenstein series, averaged in rather short intervals. It will be convenient for later purposes
+to introduce the notation
+(2.9)         I(τ, p) = {t ∈ R | |t − τ | ⩽ log−7 p},        M(τ, p) = max |SV,X (it, K)|,
+                                                                         t∈I(τ,p)
+                                                 p 1/2 −1/8
+(2.10)                          M (Q, X) = QX 1 +       p     ,
+                                                  X
+so that, for instance, Theorem 1.15 claims that
+                                    SV,X (it, K) ≪ pε (1 + |t|)A M (Q, X)
+for any ε > 0 and A ⩾ 1 depending on ε.
+   For our next result, we recall that we work under the assumptions p3/4 < X < p3/2 and 1 ⩽ Q ⩽
+p. We then have:
+Proposition 2.5. For any ε > 0, there exists B ⩾ 5, depending only on ε, such that for any τ ∈ R
+we have
+                 Z
+(2.11)                 min(|t|2 , 1)|SV,X (it, K)|2 dt ≪ε pε (1 + |τ |)B M (Q, X)2 ,
+                      I(τ,p)
+where the implied constant depends only on ε.
+Proof. Let
+                                                          p1/4−ε
+                                                 L=
+                                                         X/p + Q
+                                              1/3
+as in [12, (4.2)]. If L ≪ 1 or if |τ | > L , the trivial bound (2.1) or the convexity bound (2.4) yield
+stronger results than (2.11) (since B ⩾ 5). With this definition of L, and the above reduction, we
+may apply Lemmas 2.3 and 2.4 to the remaining cases. We obtain
+        Z                                                                pXQ             X     2 
+                         min(|t|2 , |t|−2−2b )|SV,X (it, K)|2 dt ≪ε pε         + p1/2 XQL     +Q
+          |t−τ |⩽log−7 p                                                   L                p
+                                                                                   
+                                                                                  p −1/4
+                                                                 ≪ p ε Q2 X 2 1 +     p   ,
+                                                                                  X
+for some b depending on ε. It only remains to note inequality
+                               min(|t|2 , 1) ≪ (1 + |τ |)2b+2 min(|t|2 , |t|−2b−2 ),
+                                                        17
+for t ∈ I(τ, p), and to choose B(ε) = max(5, 2b + 2), in order to complete the proof of (2.11) in all
+cases.                                                                                             
+   The remaining objective is to derive a pointwise bound for SV,X (it, K), and to do so we must
+relax the zero of order 2 of the weight min(|t|2 , 1) at the origin (for similar issues with estimates of
+L-functions, see e.g. [1]; we could use similar methods, but at the expense of expressing our sums
+in terms of L-functions, and instead we use them directly, and resort to an iterative argument.)
+   The basic mechanism is the following consequence of Proposition 2.5:
+Corollary 2.6. For any τ ∈ R and ε > 0, with notation as above, we have
+               Z                           (
+                                            pε (1 + |τ |)B M (Q, X)     if |τ | ⩾ 1,
+                       |SV,X (it, K)|dt ≪ε   ε          1/3         2/3
+                I(τ,p)                      p M(τ, p) M (Q, X)          if |τ | ⩽ 1.
+Proof. If |τ | ⩾ 1, we just apply the Cauchy-Schwarz inequality to get
+      Z                          Z                       1/2 Z    1/2
+              |SV,X (it, K)|dt ⩽       |SV,X (it, K)|2 dt         dt
+         I(τ,p)                   I(τ,p)                                   I(τ,p)
+                                Z                                              1/2
+                            ≪               min(|t|2 , 1)|SV,X (it, K)|2 dt              ≪ pε (1 + |τ |)B M (Q, X)
+                                  I(τ,p)
+by Proposition 2.5.
+  Now assume |τ | < 1. Let 0 < α < 1/3 be some parameter. By Hölder’s inequality, we get
+     Z                                    Z
+                                     1−2α
+           |SV,X (it, K)|dt ⩽ M(τ, p)        |SV,X (it, K)|2α dt
+         I(τ,p)                                    I(τ,p)
+                                                  Z                                    α Z 2                     1−α
+                                           1−2α                   2                 2
+                            ⩽ M(τ, p)                        |t| |SV,X (it, K)| dt                |t|−2α/(1−α) dt
+                                                    I(τ,p)                                   0
+                                     ε            1−2α                2α
+                            ≪ε,α p M(τ, p)               M (Q, X)
+                                     ε            1−2α
+                            ≪ε,α p M(τ, p)               M (Q, X)2/3 ,
+(since 2α/(1 − α) < 1 and M (Q, X) ⩾ 1). By the trivial bound (2.1), we have
+                            M(τ, p)1−2α ≪ M(τ, p)1/3 (X log X)1−2α−1/3 ,
+and we conclude by taking α = 1/3 − ε.                                                                                     
+2.3. An iterative bound. The following lemma establishes an iterative bound for Eisenstein
+twists.
+Lemma 2.7. Assume that β > 0 is such that
+(2.12)                        SV,X (it, K) ≪ pε (1 + |t|)A X β M (Q, X)1−β
+for X ⩽ p3/2 , any ε > 0, and some A ⩾ 1 depending on ε. Then for any ε > 0, we have
+(2.13)             SV,X (it, K) ≪ pε (1 + |t|)A1 X β/3 M (Q, X)1−β/3
+(2.14)               SP (it, K) ≪ pε (QU + QV )B (1 + |t|)A1 X β/3 M (QW , X)1−β/3
+for A1 , B ⩾ 1 depending on ε.
+Proof. Using Lemma 2.1 (1), we first use the assumption to estimate SP (it, K). For each t1 , we
+split the integral over |t2 | ⩽ pε into ≪ pε integrals over intervals of length log−7 p. For an interval
+I with center at τ with |τ | ⩽ 1, the integral is bounded by
+                                         ≪ pε M1/3 M (QW + |t1 |, X)2/3
+                                                             18
+by Corollary 2.6 applied to Wt1 (see (2.3)), where
+                       M = max |SWt1 ,X (it, K)| ≪ pε X β M (QW + |t1 |, X)1−β
+                             t∈I
+
+by (2.12) and (2.3). Thus each such integral is
+                                   ≪ pε X β/3 M (QW + |t1 |, X)1−β/3 .
+  For intervals centered at τ with 1 ⩽ |τ | ⩽ pε , we obtain the bound ≪ pε (1+|τ |)A M (QW +|t1 |, X),
+which is better, and integrating over |t1 | ⩽ pε , we get (2.14) (note that Q 7→ M (Q, X) is linear).
+  Now, applying Lemma 2.1 (2), we immediately deduce (2.13).                                          
+
+   We are now done: for p3/4 ⩽ X ⩽ p3/2 , we can start applying this lemma with β = 1 by the
+trivial bound (2.1). We deduce that, for any integer k ⩾ 1, we have
+                                                    −k               −k
+                   SV,X (it, K) ≪ pε (1 + |t|)A X 3 M (Q, X)1−3
+                                                                   −k            −k
+                     SP (it, K) ≪ pε (QU + QV )B (1 + |t|)A X 3 M (QW , X)1−3         .
+  Since
+                      −k               −k
+                                                       −k p (1−3−k )/2 −(1−3−k )/8
+                   X 3 M (Q, X)1−3          = XQ1−3    1+               p
+                                                          X
+                                                                     −k
+                                            ⩽ XQ(1 + p/X)1/2 p−1/8 p3 /8 ,
+we therefore obtain Theorems 1.15 and 1.16 by taking k large enough.
+
+                                   3. Estimating sums of type II
+   In this section we prove Theorem 1.17. We will leave the proof of the simpler bound (1.7) to the
+reader, and consider (1.6), proceeding along classical lines. Denoting
+                                          XX
+                                     T =         αm βn K(mn)
+                                                m,n
+                                              (m,p)=1
+
+the bilinear form to estimate, we apply Cauchy’s inequality and deduce that
+                                  XX                   X
+(3.1)             |T |2 ⩽ kβk2              αm1 αm2           K(m1 n)K(m2 n).
+                               M/2⩽m1 ,m2 ⩽2M                N/2⩽n⩽2N
+                                  p∤m1 m2
+
+   The inner correlation coefficients are then treated by completion (i.e., by the Polya-Vinogradov
+method), which gives
+         X                            N                      X            1 N
+(3.2)           K(m1 n)K(m2 n) ≪ |C(m1 , m2 , 0, K)| +              min       ,    |C(m1 , m2 , h, K)|
+                                       p                                   |h| p
+        N/2⩽n⩽2N                                                 0<|h|⩽p/2
+
+where                                                                   hz 
+                                                 X
+                           C(m1 , m2 , h, K) =          K(m1 z)K(m2 z)e      ,
+                                                                         p
+                                                 z∈Fp
+a sum which satisfies the relation
+                             C(m1 , m2 , h, K) = C(m1 /m2 , 1, h/m2 , K).
+  For a trace weight, we have the trivial bound
+                                     |C(m1 , m2 , h, K)| ⩽ cond(F)2 p,
+                                                        19
+but this is not sharp in most cases. In fact, the crucial point is to show that for most parameters
+(m1 , m2 , h), we have a better estimate with square-root cancellation. We provide such a result in
+Theorem 6.3 in Section 6, building on our earlier work in [12].
+Proposition 3.1 (Paucity of large correlations). Let K be an irreducible trace weight modulo p
+which is not p-exceptional, associated to the sheaf F. Then there exists C ⩾ 1, D ⩾ 0, depending
+only polynomially on cond(F), such that
+                                        |C(m, 1, h, K)| ⩽ Cp1/2
+for every pair (m, h) ∈ F×
+                         p × Fp except for those in a set of pairs of cardinality at most D.
+
+  After inserting (3.2) in (3.1), the contribution of all triples (m1 , m2 , h) for which
+                                      |C(m1 , m2 , h, K)| ⩽ Cp1/2
+is at most                                       MN                    
+                                 ≪ kαk2 kβk2        1/2
+                                                        + M p 1/2
+                                                                  log p  .
+                                                p
+  For the remaining triples, we sum over m1 first. For each m1 , the proposition shows that the
+possible (m1 /m2 , h/m1 ) that can occur lie, modulo p, in a finite set E of size bounded in terms of
+the conductor of F only, i.e., m2 modulo p and h are determined by m1 up to a finite number of
+possibilities. We use the trivial bounds
+                                                                1 N N
+                      |C(m1 , m2 , h, K)| ⩽ cond(F)2 p,    min      ,     ⩽ ,
+                                                                 |h| p        p
+and obtain that the contribution of these terms to the right-hand side of (3.1) is
+                                      X X           X
+                           ≪ kβk2 N                          |αm1 ||αm2 |
+                                       (t,h)∈E m1       m1 ,m2
+                                                    m2 ≡tm1 (mod p)
+                                     X X              X
+                         ≪ kβk2 N                              (|αm1 |2 + |αm2 |2 )
+                                    (t,h)∈E m1       m1 ,m2
+                                                 m2 ≡tm1 (mod p)
+                                           M
+                                      ≪N 1+   kβk2 kαk2 ,
+                                            p
+where the implicit constant depends only (polynomially) on cond(F).
+  Combining the two, we get
+                                            1        1     p1/4 log1/2 p 
+                      T ≪ kαkkβk(M N )1/2 1/4 + 1/2 +                      ,
+                                             p     M            N 1/2
+where the implicit constant depends only on the conductor of F. This completes the proof of
+Theorem 1.17.
+
+                                       4. Sums over primes
+  We now finally prove Theorem 1.5, our main result on sums over primes.
+4.1. Smooth sums. We start with the smooth version (1.2). Clearly, it is enough to estimate the
+sum                                      X              n
+                           SV,X (Λ, K) =    Λ(n)K(n)V        ,
+                                         n
+                                                          X
+and we begin by recalling two lemmas. The first one is Heath-Brown’s identity for the von Mangoldt
+function [22]:
+                                                     20
+Lemma 4.1 (Heath-Brown). For any integer J ⩾ 1 and n < 2X, we have
+                   XJ            X                                X
+                          j J
+          Λ(n) = −    (−1)                µ(m1 ) · · · µ(mj )                  log n1 ,
+                            j                                 m ···m n ···n =n
+                          j=1                 m1 ,··· ,mj ⩽Z                       1       j       1       j
+
+
+where Z = X 1/J .
+Remark 4.2. Using instead the analogous formula
+                     XJ             X                                X
+                             j J
+            µ(n) = −    (−1)                µ(m1 ) · · · µ(mj )                                                         1,
+                                j                               m ···m n ···n
+                           j=1                 m1 ,··· ,mj ⩽Z                          1       j       1       j−1 =n
+
+for the Möbius function (valid under the same conditions), one proves Theorem 1.7 using exactly
+the same arguments, so we will not say more about the proof of that result.
+  The second lemma provides a smooth partition of unity (see, e.g., [11, Lemma 2]).
+Lemma 4.3. There exists a sequence (Vl )l⩾0 of smooth functions on [0, +∞[ such that
+   - For any l, Vl is supported in ]2l−1 , 2l+1 [;
+   - For any k, l ⩾ 0, we have
+                                              (k)
+                                        xk Vl (x) ≪k 1,
+     where the implicit constant depends only on k;
+   - For any x ⩾ 1,                       X
+                                               Vl (x) = 1.
+                                                     l⩾0
+
+   Fix some J ⩾ 2. Applying these two lemmas, we see that SV,X (Λ, K) decomposes into a linear
+combination, with coefficients bounded by OJ (log X), of O(log2J X) sums of the shape
+                   X       X
+(4.1) Σ(M , N ) =      ···    α1 (m1 )α2 (m2 ) · · · αJ (mJ )
+                     m1 ,··· ,mJ
+                          X           X                              m · · · m n · · · n 
+                                                                       1       J 1       J
+                      ×         ···       V1 (n1 ) · · · VJ (nJ )V                         K(m1 · · · mJ n1 · · · nJ )
+                           n1 ,··· ,nJ
+                                                                               X
+where
+     - M = (M1 , · · · , MJ ), N = (N1 , · · · , NJ ) are J-uples of parameters in [1/2, 2X]2J which
+       satisfy
+              N1 ⩾ N2 ⩾ · · · ⩾ NJ ,              Mi ⩽ X 1/J ,            M1 · · · MJ N1 · · · NJ ≍J X;
+      - the arithmetic functions m 7→ αi (m) are bounded and supported in [Mi /2, 2Mi ];
+      - the smooth functions Vi (x) are compactly supported in [Ni /2, 2Ni ], and their derivatives
+        satisfy
+                                                  (k)
+                                            y k Vi (y) ≪ 1,
+        for all y ⩾ 1, where the implicit constants depend only on k.
+   We will state different bounds for Σ(M , N ), depending on the relative sizes of the parameters,
+and then optimize the result.
+   For J ⩾ 2, we obtain, by Theorem 1.16 applied to n1 , n2 and trivial summation over the
+remaining variables, the bound
+                                                           p 1/2 −1/8
+(4.2)                       Σ(M , N ) ≪ (pQ)ε QX 1 +              p     .
+                                                         N1 N2
+for any ε > 0, the implicit constant depending on ε and cond(F).
+                                                               21
+   On the other hand, from (1.6) with an integration by parts, we have the bound
+                                                1          1      p1/4 
+(4.3)                  Σ(M , N ) ≪ (pQ)ε QX 1/4 + 1/2 +                    ,
+                                                 p        M      (X/M )1/2
+for any factorization
+                                  M1 · · · MJ N1 · · · NJ = M × N
+where M and N are products of some of the Mi and Nj .
+   Our goal is to choose the best of the two bounds (4.2) and (4.3) for each such configuration of
+the parameters (M , N ). By taking logarithms (in base p), we readily see that the proof of (1.2) is
+reduced to the optimization problem of the next section.
+4.2. An optimization problem. We consider here the following optimization problem. We are
+given a real number x > 0 (we have in mind x = log X/ log p), an integer J ⩾ 3, and parameters
+                              (m, n) = (m1 , · · · , mJ , n1 , · · · , nJ ) ∈ [0, x]2J
+such that
+                     X            X
+(4.4)                      mi +       nj = x,       mi ⩽ x/J,          n1 ⩾ n2 ⩾ · · · ⩾ nJ .
+                       i          j
+
+   We want to estimate from below the quantity
+                         n         1 σ x − σ 1 1               1                   o
+(4.5)    η(m, n) = max max min , ,              −    , − max 0, (1 − (n1 + n2 )) ,
+                            σ        4 2    2     4    8            2
+where σ ranges over all possible sub-sums of the mi and nj for 1 ⩽ i, j ⩽ J, that is over the sums
+                                           X        X
+                                       σ=      mi +     nj
+                                                   i∈I         j∈J
+
+for I, J ranging over all possible subsets of {1, · · · , J}.
+Remark 4.4. One could also try to exploit the estimate (1.7) to improve the result, but we will
+not actually use it.
+   The number η(m, n) represents the maximal power of p that we save over the trivial bound using
+(4.2) and (4.3). The outcome of the discussion in the previous section is that, for x = (log X)/(log p)
+and J ⩾ 3, we have
+                                 ΣJ (M , N ) ≪ (pQ)ε QXp−η(m,n) .
+   By Heath-Brown’s identity, it follows that
+                                        SV,X (Λ, K) ≪ (pQ)ε QXp−η
+where
+                                                η = min η(m, n).
+                                                    (m,n)
+  We will show:
+Proposition 4.5. Let x > 3/4 be given. Provided J is large enough in terms of x, we have the
+inequality
+                                                1 4x − 3 
+                                 η(m, n) ⩾ min      ,        .
+                                                 24   24
+   Combining these lower-bounds with the above estimates, the proof of Theorem 1.5 is concluded,
+noting that x ⩽ 1 means that X ⩽ p, and that
+                                                 p 1/6
+                               Xp−(4x−3)/24 = X          p−1/24 .
+                                                  X
+                                                         22
+Proof of Proposition 4.5. Let δ be a parameter such that
+                                             4x − 3 x − 1/2 1 
+(4.6)                           0 < δ < min         ,       , .
+                                                12      6    4
+   The interval                            h              i
+                                                    1
+                                      Iδ = 2δ, x − − 2δ
+                                                    2
+is then non-empty. If we can find a subsum σ such that σ ∈ Iδ , we then deduce immediately from
+the definition (4.5) that
+                                               1 σ x 1 σ 
+(4.7)                      η(m, n) ⩾ max min , , − −              ⩾ δ.
+                                        σ        4 2 2 4       2
+   We now assume that such a subsum σ does not exist, and attempt to get a lower-bound on
+η(m, n) using the second term in the maximum (4.5). First of all, we claim that, in that case, we
+have
+                                          X
+(4.8)                                          mi < 2δ,
+                                                i⩽J
+
+provided
+                                      x         1
+(4.9)                                   ⩽ x − − 4δ = length(Iδ ),
+                                      J         2
+a condition which we assume from now on.
+   Indeed, if (4.8) were false, using the fact that mi ⩽ x/J and that x/J is then less than the length
+of the interval Iδ , we would be able to find some subsum σ (formed only with some mi ’s) which is
+contained in Iδ , contradicting our current assumption.
+   From (4.4) and (4.8), we get in particular the inequality
+                                             X
+(4.10)                                            nj ⩾ x − 2δ.
+                                            j
+
+   Since, under our assumption (4.6) on δ, we have
+                                               1
+                                     2δ ⩽ x − − 4δ = length(Iδ ),
+                                               2
+this implies that
+                                                 nj ⩽ 2δ
+for any j ⩾ 3 (because otherwise, we would have
+                                            1
+                                       x − − 2δ ⩽ n3 ⩽ n2 ⩽ n1
+                                            2
+since nj ∈/ Iδ , and then, in view of (4.6), we would get
+                                                            3
+                                  n1 + n2 + n3 > 3x −         − 6δ ⩾ x,
+                                                            2
+a contradiction). But now it follows that
+                                                X
+(4.11)                                                nj < 2δ,
+                                                j⩾3
+
+because otherwise, using 4δ ⩽ x − 1/2 − 2δ, we could again obtain a subsum of the nj ’s, j ⩾ 3, in
+Iδ .
+    Combining (4.10) and (4.11), we obtain
+                                          n1 + n2 ⩾ x − 4δ
+                                                       23
+and hence                       1                            1 4x − 3      
+                      1
+                        − max 0, (1 − (n1 + n2 )) ⩾ min ,                 − 2δ .
+                      8           2                             8    8
+  Combining this with (4.7), it follows that for δ satisfying (4.6) and J large enough in terms of x
+and δ so that (4.9) holds, we have
+                                                    1 4x − 3         
+                             η(m, n) ⩾ min δ, min ,               − 2δ ,
+                                                      8      8
+  For x > 3/4, we take
+                                                4x − 3 1 
+                                       δ = min           ,
+                                                   24      24
+and Proposition 4.5 follows.                                                                      
+
+4.3. Sums over intervals. We can now also easily deduce from (1.2) the estimate (1.3) for sums
+over primes in the interval 2 ⩽ q ⩽ X (below all sums over q are restricted to q prime). By a dyadic
+decomposition of the interval [1, X], we are reduced to proving that
+                              X
+(4.12)                             K(q) ≪η,cond(F) X(1 + p/X)1/12 p−η/2
+                           X⩽q⩽2X
+
+for X ⩾ 2 and for any η < 1/24. Since the right-hand side of this bound increases with X, this is
+sufficient to conclude the proof of (1.3).
+   Let ∆ < 1 be some parameter and let V be a smooth function defined on [0, +∞[ such that
+              supp(V ) ⊂ [1 − ∆, 2 + ∆],        0 ⩽ V ⩽ 1,        V (x) = 1 for 1 ⩽ x ⩽ 2,
+and which satisfies
+                                           xj V (j) (x) ≪j Qj ,
+with Q = ∆−1 .
+  By applying (1.2) to V , we get
+                        X                 X       q
+                              K(q) ≪ X∆ +   K(q)V
+                                          q
+                                                   X
+                      X⩽q⩽2X
+
+                                    ≪η,cond(F) X(∆ + ∆−1 (1 + p/X)1/6 p−η )
+for any η < 1/24.
+   If X > p1−6η , we can take
+                                    ∆ = (1 + p/X)1/12 p−η/2 < 1
+and we obtain (4.12). On the other hand, if X ⩽ p1−6η , the bound (4.12) is weaker than the trivial
+bound 2X for p large enough.
+
+                                           5. Applications
+5.1. Primes represented by a polynomial modulo p. In this section we prove Corollaries 1.11
+and 1.12.
+   For the former, we fix a non-constant polynomial P ∈ Z[X], and we consider a prime p such that
+P is non-constant modulo p.
+   For Corollary 1.11, (1), we are dealing with
+                X                      X                     1     X
+                     E(X; p, P (n)) =      π(X; p, P (n)) −                π(X).
+                                                            p−1
+               n∈Fp                   n∈Fp                                 n∈Fp
+                                                                     P (n)6≡0 (mod p)
+                                                   24
+  We denote                                               X
+                                              NP (x) =             1−1
+                                                          n∈Fp
+                                                         P (n)=x
+the “centered” number of representations of x as a value of P modulo p. The formula above allows
+us to write
+             X                    X            X          1                         
+                 E(X; p, P (n)) =     NP (q) +      1−        |{n ∈ Fp | P (n) 6= 0}|
+                                                         p−1
+             n∈Fp                       q⩽X              q⩽X
+
+(where q runs over primes, as before).
+   The second term of the previous expression is trivially bounded by ≪ p−1 X + 1, since P has at
+most deg P zeros modulo p. Thus Corollary 1.11, (1) follows from Theorem 1.5 and from the fact
+– recalled in Section 6.2 below – that NP is a trace function for an ℓ-adic sheaf with no exceptional
+Jordan-Hölder factor (i.e. no such factor is geometrically isomorphic to a tensor product of a
+Kummer sheaf and an Artin-Schreier sheaf).
+   For Corollary 1.11, (2), we write 1P (Fp ) for the characteristic function of the set P (Fp ) of values
+of P modulo p, and we will denote P ∗ (Fp ) = P (Fp ) − {0}, the set of non-zero values of P modulo
+p. A reasoning similar to the previous one leads to
+                           X                    X                  |P ∗ (Fp )|
+                                E(X; p, a) =        1P (Fp ) (q) −             π(X).
+                                                                     p−1
+                         a∈P (Fp )                 q⩽X
+
+  Applying Proposition 6.7 of Section 6.2, the first term on the right-hand side becomes
+                                     X X
+                          c1 π(X) +            ci Ki (q) + O(p−1 X + 1)
+                                            2⩽i⩽k q⩽X
+
+where the implicit constant depends only on deg P , using the notation of that proposition (the
+error term corresponds to the contribution of those q such that q (mod p) is in one of the residue
+classes in the set S of Proposition 6.7; its size is bounded in terms of deg P only.)
+   Using the asymptotic formula (6.3) for the constant c1 , we get
+                          X                     X X
+                                E(X; p, a) =             ci Ki (q) + O(p−1/2 X),
+                         a∈P (Fp )                 2⩽i⩽k q⩽X
+
+and Theorem 1.5 concludes the proof.
+5.2. Large Kloosterman sums with almost prime modulus. In this section we prove Corol-
+lary 1.14. It is sufficient to prove the following:
+Proposition 5.1. For any m ⩾ 2, and δ such that 0 < δ < 1/2, there exists a constant βm > 0
+such that
+                                                                                 X
+                |{(p, q), p, q primes ⩾ X δ , pq ⩽ X, | Klm (1; pq)| ⩾ βm }| ≫       .
+                                                                               log X
+here the implicit constants depend on m and δ only.
+  We recall first the basic strategy from [35]. By the Chinese remainder theorem, we have the
+twisted multiplicativity
+(5.1)                                Klm (1; pq) = Klm (q m ; p) Klm (pm ; q),
+when p and q are distinct primes. Therefore, in order to prove the existence of pairs of primes (p, q)
+for which | Klm (1; pq)| is large, it is sufficient to show that there exists two sets of pairs of primes
+for which | Klm (q m ; p)| and | Klm (pm ; q)| are both large, and that these two sets intersect non-
+trivially. This leads us to proving that, for pairs (p, q) in suitable ranges, the hyper-Kloosterman
+                                                         25
+sums Klm (q m ; p) and Klm (pm ; q) become equidistributed in the interval [−m, m] with respect to a
+suitable measure. Such a statement is an instance of the vertical (or average) Sato-Tate laws of
+Katz and Deligne, but specialized to prime arguments.
+   To state properly these equidistribution statements, we recall that for any prime number p and
+auxiliary prime ℓ 6= p, and for any isomorphism ι : Qℓ ֒→ C, there exists a Qℓ -adic sheaf Kℓm on
+P1Fp (constructed by Deligne and studied by Katz in [31]) such that:
+   (1) The sheaf Kℓm has rank m and is lisse on Gm,Fp , tamely ramified at 0 with a single
+        Jordan block and wildly ramified at ∞ with Swan conductor 1 (in particular, we have
+        cond(Kℓ) = m + 3);
+   (2) The sheaf Kℓm is geometrically irreducible, and its geometric monodromy group is equal to
+        Gm = SLm or Spm depending on whether m is odd or even;
+   (3) The sheaf Kℓm is pointwise pure of weight 0, and for any a ∈ F×p , the trace of the Frobenius
+        at a equals
+                               ι(tr(Fra |Kℓm )) = (−1)m−1 Klm (a; p),
+        and moreover, for any choice of maximal compact subgroup Km of Gm (C), (Fra |Kℓm )
+                                            ♮            ♮
+        defines a unique conjugacy class gm   (a; p) in Km (the space of conjugacy classes of Km )
+        whose trace is equal to (−1) m−1  Klm (a; p).
+  It will be easy to prove the following result using Theorem 1.5:
+Theorem 5.2 (Sato-Tate equidistribution). Given δ < 0, A ⩾ 1, P, Q ⩾ 2 such that
+                                          P 3/4+δ ⩽ Q ⩽ P A ,
+the set of conjugacy classes
+                     ♮
+                   {gm (q m ; p), p 6= q primes, (p, q) ∈ [P, 2P ] × [Q, 2Q]} ⊂ Km
+                                                                                 ♮
+                                                                                   ,
+becomes equidistributed as P → +∞ with respect to the (image of the) probability Haar measure
+         ♮
+µm on Km   .
+Remark 5.3. A similar Sato-Tate equidistribution result over the primes holds for the generalized
+Kloosterman sheaves of Heinloth, Ngô and Yun [23] already mentioned in Remark 1.2.
+  We will sketch the proof below, but for the moment we can conclude from this the proof of
+Corollary 1.14. We pick αm > 0 small enough such that
+                                µm ({g♮ ∈ Km
+                                           ♮
+                                             , | tr(g ♮ )| ⩾ αm }) ⩾ 0.51,
+(such an αm exists because the direct image of the measure µm under the trace map g♮ 7→ | tr(g♮ )|
+is absolutely continuous with respect to the Lebesgue probability measure on [0, m]).
+   Now let δ > 0 be given, let P be large enough and consider Q such that
+                                        P 3/4+δ ⩽ Q ⩽ P 4/3−δ .
+  We then have
+                                               ′                ′
+                                     Q3/4+δ ⩽ P ⩽ Q4/3−δ
+for some δ′ > 0 depending only on δ, and we can apply Theorem 5.2 twice to show that both sets
+                                                                      ♮
+              P1 = {(p, q) ∈ [P, 2P ] × [Q, 2Q], p 6= q primes, | tr(gm (q m ; p))| ⩾ αm }
+                                                                      ♮
+              P2 = {(p, q) ∈ [P, 2P ] × [Q, 2Q], p 6= q primes, | tr(gm (pm ; q))| ⩾ αm }
+satisfy, as P → +∞, the limit
+                           |Pi |
+                                             −→ µm ({g♮ ∈ Km
+                                                           ♮
+                                                             , | tr(g ♮ )| ⩾ αm }) ⩾ 0.51.
+             |{(p, q) ∈ [P, 2P ] × [Q, 2Q]}|
+                                                    26
+   In particular, the two sets have a non-empty intersection for P large enough, and in fact
+                                                        P     Q
+                                         |P1 ∩ P2 | ≫              .
+                                                      log P log Q
+   By (5.1), it follows that
+                                                                                     P      Q
+           |{(p, q) ∈ [P, 2P ] × [Q, 2Q], p 6= q primes, | Klm (1; pq)| ⩾ α2m }| ≫             .
+                                                                                   log P log Q
+   Then we obtain by an easy argument of dyadic partition that for X large enough, we have
+                                                                                             X
+         |{(p, q), p 6= q primes, p, q ⩾ X 4/9 , pq ∈ [X, 2X], | Klm (1; pq)| ⩾ α2m }| ≫         ,
+                                                                                           log X
+as claimed.
+Proof of Theorem 5.2. This is a direct application of the Weyl criterion. Let
+                         XP,Q = {p 6= q primes, (p, q) ∈ [P, 2P ] × [Q, 2Q]}.
+   It is enough to prove that if ̺ is a non-trivial irreducible representation of Gm , we have
+                                   1       X
+                                                        ♮
+(5.2)                                             tr ̺(gm (q m ; p)) −→ 0
+                                |XP,Q |
+                                        (p,q)∈XP,Q
+
+as P → +∞.
+   Now, for each p, we can interpret the sum over q as the sum of the weight
+                                                       ♮
+                                        K̺ (q) = tr ̺(gm (q m ; p))
+modulo p. Now we claim that, for each ̺ 6= 1, the weight K̺ is a non-exceptional irreducible trace
+weight modulo p with conductor bounded by a constant depending only on m and ̺. Assuming
+this, Theorem 1.5 (see (1.3)) gives
+                           X
+                                        ♮               P Q −η    P 1/12
+                                  tr ̺(gm (q m ; p)) ≪       P  1+
+                                                       log P       Q
+                         (p,q)∈XP,Q
+
+for any η < 1/48. Dividing by |XP,Q | ≍ P Q/(log P )(log Q), we get
+                     1      X
+                                         ♮
+                                   tr ̺(gm (q m ; p)) ≪ (log Q)(1 + P/Q)1/2 P −η ,
+                   |XP,Q |
+                           (p,q)∈XP,Q
+
+which tends to 0 provided P 3/4+δ < Q < P A for some δ > 0, A ⩾ 1.
+  To check the claim, we first define
+                                        Kℓ′m = [x 7→ x−m ]∗ Kℓ
+so that, for a ∈ F×
+                  p , we have the trace function
+
+                             ι((tr Kℓ′m )(Fp , a)) = (−1)m−1 Klm (a−m ; p).
+  The function
+                                                    ♮
+                                    K̺ : a 7→ tr(̺(gm (a−m ; p)))
+is then (the restriction to F×                                                                 ′
+                               p of) the irreducible trace weight associated to the sheaf ̺(Kℓm )
+obtained by composing the representation Kℓ′m with the representation ̺. In particular, this sheaf
+is also lisse and geometrically irreducible on Gm , and of rank dim ̺. It is tame at ∞, and its
+Swan conductor at 0 is bounded in terms of m and dim ̺ only (by bounding the largest slope, see
+e.g. [35]), so the conductor is bounded in terms of m and deg ̺ only. Finally, because ̺(Kℓ′m ) is
+irreducible of rank deg ̺ ⩾ 2 (we use here the fact that both SLm and Spm have no non-trivial
+representations of dimension 1), it follows that ̺(Kℓ′m ) is not p-exceptional.                  
+                                                     27
+                             6. Results from algebraic geometry
+6.1. Properties of the Fourier-Möbius group. The goal of this section is to prove Proposi-
+tion 3.1. In order to do so, we must first recall the definition of the Fourier-Möbius group of an
+isotypic sheaf F, and establish a few of its properties which were not necessary in [12].
+   Let p be a prime. Let ℓ 6= p be an auxiliary prime number, ι : Q̄ℓ ≃ C an isomorphism. Let ψ
+be the ℓ-adic additive character such that ι(ψ(x)) = e(x/p) for x ∈ Fp .
+   Given any middle-extension sheaf F on A1Fp , any finite extension k/Fp and any x ∈ P1 (k), we
+denote by
+                                              (tr F)(k, x)
+the trace of the geometric Frobenius of k acting on the stalk of F at x. We also denote by D(F)
+the middle-extension dual of F given by j∗ (j ∗ˇF), where j : U ֒→ P1 is the inclusion of any dense
+open set U on which F is lisse.
+   If F is any Fourier sheaf (in the sense of [31, Def. 8.2.2]) on A1Fp , we denote by FT(F) the Fourier
+transform of F, computed by means of ψ, which satisfies
+                                                      X
+                             (tr FT(F))(Fp , y) = −       (tr F)(Fp , x)ψ(xy)
+                                                   x∈Fp
+
+for any y ∈ Fp . It follows from [31, 8.4.1], that FT(F) is geometrically isotypic (resp. geometrically
+irreducible) if F is isotypic (resp. geometrically irreducible.)
+   Let now F be an isotypic trace sheaf modulo p as in Definition 1.3. In [12], we defined the
+Fourier-Möbius group of F by
+                           GF = {γ ∈ PGL2 (F̄p ) | γ ∗ (FT(F)) ≃ FT(F)},
+where ≃ denotes geometric isomorphism (see [12, Def. 1.14]). Furthermore, we defined the corre-
+lation sums of F by
+                              1 X
+                    C(F; γ) =       (tr FT(F))(Fp , γ · x)(tr FT(F))(Fp , x)
+                              p
+                                    x∈Fp
+
+for γ ∈ PGL2 (Fp ).
+   The crucial link between these two notions is the following result (see [12, Cor. 9.2]) which
+follows from the Riemann Hypothesis over finite fields, and from bounds for the conductor of the
+Fourier transforms of Fourier sheaves.
+Proposition 6.1. Let p be a prime and let F be an isotypic trace sheaf modulo p. There exists
+M ⩾ 1, which depends only, polynomially, on cond(F), such that
+                                                     √
+                                     |ι(C(F; γ))| ⩽ M p
+for all γ ∈
+          / GF .
+  Let then
+                                            BF = GF ∩ B,
+where B ⊂ PGL2 is the upper-triangular Borel subgroup. We deduce from the proposition above:
+Proposition 6.2. Let p be a prime, let F be an isotypic trace sheaf modulo p, and let K(x) =
+ι((tr F)(Fp , x)) denote the trace function of F on Fp . There exists M ⩾ 1, depending only, polyno-
+mially, on cond(F), such that
+                                     X                bx       √
+                                         K(x)K(ax)e         ⩽M p
+                                                        p
+                                   x∈Fp
+                                                   28
+if
+                                                       
+                                                  a b
+(6.1)                                                       ∈
+                                                            / BF .
+                                                  0 1
+Proof. By means of the Plancherel formula for the finite-field Fourier transform, we check easily
+that
+                             X                 bx 
+                                  K(x)K(ax)e         = ι(C(F; γ))
+                                                 p
+                                  x∈Fp
+
+where γ is the upper-triangular matrix in (6.1). Hence the proposition gives the result.          
+
+     It follows now that Proposition 3.1 is a consequence of the next theorem:
+Theorem 6.3. Let p be a prime and let F be an isotypic sheaf. At least one of the following four
+properties holds:
+   (1) The trace function of F is proportional to a delta function at some point a ∈ Fp , or to the
+trace function of a sheaf Lψ(aX) for some a ∈ Fp , i.e., to an additive character;
+   (2) The group BF has dimension ⩾ 1 and F is p-exceptional, i.e., its unique geometrically
+irreducible component is a tensor product Lχ ⊗ Lη for some non-trivial Kummer sheaf Lχ and
+some possibly trivial additive character η;
+   (3) The group BF is finite and
+                                         |BF (Fp )| ⩽ 10 cond(F)2 ;
+
+     (4) The conductor of F is at least (p/10)1/2 .
+  To prove this, we first prove two basic properties of the Fourier-Möbius group and one lemma
+concerning Swan conductors.
+Proposition 6.4. Let k be a finite field, and let F be an ℓ-adic isotypic trace sheaf on A1k . Let G
+be its Fourier transform. Then the subgroup GF ⊂ PGL2 (k̄) is an algebraic subgroup defined over
+k.
+   In particular, for F over Fp , BF is an algebraic subgroup of B defined over Fp .
+     We thank R. Pink for explaining to us how to prove this proposition.
+
+Proof. Let S ⊂ P1 be the divisor of singularities of G, so that U = P1 − S is the largest open set
+on which it is lisse. Because G is non-constant (the sheaf F would have to be a Dirac delta sheaf
+supported on a single point for this to happen, and such a sheaf is not a Fourier sheaf), we have
+S 6= ∅. Let G ⊂ PGL2 be the stabilizer of S, which is a proper algebraic subgroup of PGL2 defined
+over Fp . Then we have a first inclusion GF ⊂ G.
+   Now we work over k̄, and just denote by U its base-change to k̄. We consider the action morphism
+                                           (
+                                             G × U −→ U
+                                       µ :
+                                             (γ, x) 7→ γ · x
+and the second projection p2 : G × U −→ U , and we define the sheaf
+                                            E = µ∗ G ⊗ p∗2 D(G)
+on G × U and the higher direct-image I = R2 p1,! E, which is a sheaf on the algebraic group G/k̄. By
+the base-change theorem for higher-direct images with compact support [7, Arcata, IV, Th. 5.4],
+the stalk of I at a geometric point γ ∈ G(k̄) is naturally isomorphic to Hc2 (U, γ ∗ G ⊗ D(G)).
+                                                      29
+  Furthermore, the constructibility theorem for higher direct images with compact support [7,
+Arcata, IV, Th. 6.2] shows that I is a constructible ℓ-adic sheaf on G. This implies (see also [7,
+Rapport, Prop. 2.5]) that for any d ⩾ 0, the set
+                         {γ ∈ G(k̄) | dim Iγ = dim Hc2 (U, γ ∗ G ⊗ D(G)) = d}
+is constructible in G(k̄), i.e., is a finite union of locally-closed subsets. In particular, the set of all
+γ where
+                                           Hc2 (U, γ ∗ G ⊗ D(G)) 6= 0,
+is constructible. But this set is exactly GF by the co-invariant formula for Hc2 on a curve (see [12, Th.
+9.1]). Since it is well-known that a constructible subgroup of an algebraic group is Zariski-closed
+(see, e.g., [2, Ch. I, Prop. 1.3]) we conclude therefore that GF is a closed subgroup of PGL2 .
+   Finally, GF is defined over k: since F is invariant under the Frobenius automorphism of k, the
+definition implies that if γ ∈ GF , then so does the image of γ under the Frobenius automorphism.
+                                                                                                         
+   Next we need to understand when GF can be “large”. We prove here a bit more than what we
+need for the sake of completeness. We use the notation Tx,y for the maximal torus in PGL2 defined
+as the pointwise stabilizer of {x, y} ⊂ P1 (for x 6= y) and Ux for the unipotent radical of the Borel
+subgroup Bx which is the stabilizer of x ∈ P1 .
+Proposition 6.5. Let F be a geometrically isotypic ℓ-adic Fourier sheaf on A1Fp , with Fourier
+transform G = FTψ (F) with respect to some non-trivial additive character ψ.
+   (1) If there exists x ∈ P1 such that GF ⊃ Ux , then G is geometrically isomorphic to a direct sum
+of copies of Lψ0 (γ0 (X)) for some non-trivial additive character ψ0 , where γ0 ∈ PGL2 is such that
+γ0 · x = ∞. In that case, we have GF = Ux .
+   (2) If there exist x 6= y in P1 such that GF ⊃ Tx,y , then G is geometrically isomorphic to a direct
+sum of copies of Lχ0 (γ0 (X)) for some non-trivial multiplicative character χ0 , where γ0 ∈ PGL2 is
+such that γ0 · x = 0, γ0 · y = ∞. In that case, we have GF = Tx,y if χ0 is not of order 2, and
+GF = Nx,y , the normalizer of Tx,y , if χ20 = 1.
+Proof. (1) The “if” direction is immediate. For the converse, we may first assume that x = ∞, by
+conjugation with a matrix γ0 with γ0 · x = ∞. The assumption is then that
+                                              ∗
+                                           1 t
+                                                  G ≃ G,
+                                           0 1
+for any t ∈ F̄p , where the symbol ≃ denotes geometric isomorphism. Since G is geometrically
+isotypic, we also have                            ∗
+                                               1 t
+                                                      G1 ≃ G1 ,
+                                               0 1
+for t ∈ F̄p , where G1 is the geometrically irreducible component of G. We can then apply [32, Lemma
+2.6.13] to deduce that
+                                                G1 ≃ Lψ0 (X)
+(geometrically) for some additive ℓ-adic character ψ0 , and hence G is a direct sum of copies of this
+Artin-Schreier sheaf. Furthermore, it follows from the classification of Artin-Schreier sheaves that if
+ψ0 is non-trivial and γ ∈  / U∞ , we do not have γ ∗ Lψ0 (X) ≃ Lψ0 (X) , and therefore the Fourier-Möbius
+group is exactly equal to U∞ .
+   (2) As before, we may first conjugate using some γ0 to reduce to the case where x = 0, y = ∞,
+and we may reduce to the case where F and G are geometrically irreducible, so that the assumption
+is                                                         n     o
+                                                   0,∞        a 0
+                                      GF ⊃ T = T        =
+                                                              0 d
+                                                    30
+for all a, d ∈ k̄. By [32, Lemma 2.6.13], again, there exists a multiplicative character χ0 such that
+                                             G ≃ Lχ0 (X) .
+  This character is non-trivial since G is a Fourier sheaf. Now to finish the computation of GF , we
+use the fact that Lχ0 (X) is tamely ramified at 0 and ∞, and hence
+                                                         n     o
+                                               0,∞          0 b
+                                 GF ⊂ N = N        = T∪             ,
+                                                            c 0
+the normalizer of T in PGL2 . Clearly, T ⊂ GLχ0 (X) . If γ ∈ N − T, on the other hand, we have
+γ ∗ Fχ0 (X) ≃ Fχ0 (X −1 ) , and by the classification of Kummer sheaves, it follows that γ ∈ GLχ0 (X) if
+and only if χ0 = χ−1 0 , i.e., if χ0 is of order 2.                                                   
+  The second lemma concerns the size of Swan conductors of lisse sheaves on Gm with some
+non-trivial (multiplicative) translation-invariance property.
+Lemma 6.6. Let k be an algebraic closure of a finite field of characteristic p, and let F be an ℓ-adic
+sheaf for some ℓ 6= p which is lisse on Gm,k . If there exists a 6= 1 in Gm (k) such that F ≃ [×a]∗ F,
+then m | Swan∞ (F), where m is the multiplicative order of a. In particular, if F is not tame at ∞,
+we have Swan∞ (F) ⩾ m.
+Proof. Let V be the generic stalk of F, seen as a representation of the inertia group I = I(∞) at
+∞, and let                                      M
+                                           V =      Vα
+                                                   α∈A
+be the decomposition of V in I-isotypic subspaces. Let Wα denote the irreducible I-representation
+such that Vα is a multiple of Wα .
+  The finite cyclic subgroup G ⊂ Gm (k) of order m generated by a acts on the index set A,
+corresponding to the fact that [×a]∗ V = V as I-representation: we have
+                                          [×aj ]∗ Vα = Vaj ·α ,
+for any integer j ⩾ 0, and in fact even
+                                          [×aj ]∗ Wα = Waj ·α ,
+since Wα is uniquely determined by Vα .
+   Let B ⊂ A be one of the orbits of G. Its size |B| is a divisor of m, and if α ∈ B, we have
+an isomorphism [×a|B| ]∗ Wα = Wα . Since Wα is irreducible, we can apply [31, Prop. 4.1.6 (2)] to
+deduce that
+                                   Swan∞ (Wα ) ≡ 0 (mod m/|B|).
+   Since multiplicative translation by a is an automorphism, it follows that
+                          Swan∞ (Waj ·α ) = Swan∞ (Wα ) ≡ 0 (mod m/|B|)
+for any aj ∈ G. Summing over the orbit, we get
+                                       M 
+                               Swan∞         Vα ≡ 0 (mod m),
+                                             α∈B
+and then summing over the orbits we get
+                                      Swan∞ (V ) ≡ 0 (mod m).
+  If F is wild at infinity, than Swan∞ (V ) 6= 0, and therefore it must be ⩾ m.                       
+  Having dealt with these preliminaries, we can now prove the theorem.
+                                                   31
+Proof of Theorem 6.3. The group B = BF (Fp ) is a finite subgroup of B∩PGL2 (Fp ). We distinguish
+three situations in turn.
+   (1) If B contains a non-trivial unipotent element g, then since g fixes ∞, the reasoning in [12, §9,
+Proof of Th. 1.12] shows that either cond(G) ⩾ p, in which case the fourth case holds by [12, Prop.
+8.2 (1)], or otherwise the trace function of the Fourier transform FTψ (F) is proportional to an
+additive character, so that the trace function of F is proportional to a delta function, and we are
+in the first case.
+   Now, if B contains no unipotent elements, the unipotent radical of BF must also be trivial
+(otherwise it would have non-trivial Fp -points). So, by the structure of B, the connected component
+of the identity B◦F of BF is contained in a conjugate (say D) of the diagonal subgroup in B. Since
+D has dimension 1, there are two further possibilities:
+   (2) If B◦F = D, so that BF ⊃ D, we deduce from Proposition 6.5 (2) that the Fourier transform of
+F is geometrically isomorphic to a direct sum of copies of Lχ(γ(X)) for some multiplicative character
+χ and some γ ∈ B. By Fourier transform, this implies that F is geometrically isomorphic to a direct
+sum of copies of the tensor product Lχ ⊗ Lη for some multiplicative character χ and some additive
+character η. Here χ must be non-trivial because otherwise F would not be a Fourier sheaf, and we
+are in the second case of the statement of the proposition.
+   (3) Otherwise, BF is a finite group so that its finite subgroup B ⊂ D is cyclic, and there exists
+x0 ∈ A1 such that all elements of B fix ∞ and x0 . Let G be the Fourier transform of F. Replacing
+G with G0 = [−x0 ]∗ G, which has the same conductor as G, we can assume that x0 = 0, and hence
+that B can be identified with a finite cyclic subgroup of F×                  1
+                                                               p acting on P by multiplication. Let
+      ×                            ×
+a ∈ Fp be a generator of B ⊂ Fp . There are two subcases:
+   – (3.1) If G0 is not lisse on Gm , there is a non-zero singularity s ∈ Gm of G0 ; the geometric
+isomorphism G0 ≃ [×a]∗ G0 implies that the orbit of s under multiplication by powers of a is also
+contained in the set S of singularities of G0 . This set contains ⩾ |B| elements, and therefore
+                                  cond(G) = cond(G0 ) ⩾ |S| ⩾ |B|
+in that case, and by [12, Prop. 8.2 (1)], we get
+                                    |B| ⩽ cond(G) ⩽ 10 cond(F)2 ,
+i.e., case (3) of the theorem.
+   – (3.2) If G0 is lisse on Gm , we first note that G0 cannot be tame at both 0 and ∞, since the tame
+fundamental group of Gm is abelian and G0 would then be a Kummer sheaf, which we excluded by
+assuming that BF is finite (again from Proposition 6.5, (2)). Up to applying a further automorphism
+x 7→ x−1 , we can assume that G0 is wildly ramified at ∞. We can then apply Lemma 6.6 to G0 ,
+and deduce that
+                                             Swan∞ (G0 ) ⩾ |B|,
+and hence we get again
+                              cond(G) = cond(G0 ) ⩾ Swan∞ (G0 ) ⩾ |B|,
+and conclude as before.                                                                              
+
+6.2. Decomposition of characteristic functions. In this section, we explain the necessary
+properties of the trace weights underlying Corollary 1.11. We recall especially the decomposition
+of the characteristic function of the set of values P (n) of a polynomial P ∈ Fp [X] with n ∈ Fp in
+terms of trace functions. These types of results are well-known, but we give the full proof since we
+require some quantitative information concerning this decomposition.
+Proposition 6.7. Let p be prime and let P ∈ Fp [X] be a non-constant polynomial of degree
+deg P < p. Let P be the set of values of P modulo p and let 1P be its characteristic function.
+                                                   32
+   There exist a finite set S ⊂ Fp with order at most deg P , an integer k ⩾ 1 and a finite number of
+trace functions Ki associated to middle-extension sheaves Fi , 1 ⩽ i ⩽ k, which are pointwise pure
+of weight 0, and algebraic numbers ci ∈ Q̄, such that
+                                         X
+(6.2)                                        ci Ki (x) = 1P (x)
+                                           i
+for all x ∈ Fp − S, and with the following properties:
+   – The constants k, |ci | and cond(Fi ) are bounded in terms of deg P only;
+   – The sheaf F1 is trivial and none of the Fi for i 6= 1 are geometrically trivial, and furthermore
+                                               |P|
+(6.3)                                    c1 =      + O(p−1/2 ),
+                                                p
+where the implicit constant depends only on deg P ;
+  – If P is squarefree, no Fi , i 6= 1, contains an exceptional sheaf as a Jordan-Hölder factor.
+Proof. Let K(x), for x ∈ Fp , denote the characteristic function of the set of values P (y) for y ∈ Fp ,
+so that we are trying to express K as a linear combination of trace weights.
+   Let D̃ ⊂ A1 be the critical points of P , S̃ = P (D̃) ⊂ A1 the set of critical values, so that P
+restricts to a finite étale covering
+                                    V = A1 − D̃ −→ U = A1 − S̃
+and let
+                                                π
+                                           W −→ V −→ U
+be the Galois closure of V . The Galois group G = Gal(W/U ) contains the subgroup H =
+Gal(W/V ), and has order dividing deg(P )!, hence coprime to p.
+   For any x ∈ U (Fp ), the Galois group G permutes the points of the fiber π −1 (x) ⊂ W , and
+this Galois action is isomorphic to the left-translation action on G/H. The Frobenius Frx,p at x,
+seen as an element of G, also permutes the points of the fiber, and the subset of rational points
+π −1 (x) ∩ W (Fp ) correspond bijectively to the fixed points of Frx,p , and hence the number of fixed
+points of Frx,p acting on G/H is equal to the number of conjugates of Frx,p that are in H.
+   More generally, if we consider the function
+                             
+                             G −→
+                                   ( Q̄ℓ
+                         θ :          1 if g is conjugate to some h ∈ H
+                             
+                             g 7→
+                                      0 otherwise,
+the same argument implies that we have
+                                           K(x) = θ(Frx,p )
+for all x ∈ U (Fp ).
+   The function θ is invariant under G-conjugation. Hence, by character theory (since ℓ 6= p,
+the Q̄ℓ -linear representations of G can be identified with the C-linear representations) there exist
+coefficients c̺ such that
+                                                 X
+                                             θ=      c̺ χ̺
+                                                    ̺
+where ̺ runs over isomorphism classes of irreducible Q̄ℓ -linear representations
+                                          ̺ : G −→ GL(V̺ )
+of G and χ̺ = tr ̺ denotes the character of ̺. By composition
+                                                                 ̺
+                           Λ̺ : π1 (U ) −→ π1 (U )/π1 (W ) ≃ G −→ GL(V̺ )
+                                                    33
+each ̺ determines an ℓ-adic lisse sheaf Λ̺ on U which is pointwise pure of weight 0 and satisfies
+                                     χ̺ (Frx,p ) = (tr Λ̺ )(x, Fp )
+for all x ∈ U (Fp ). We therefore obtain
+                                                         X
+                                            K(x) =               c̺ K̺
+                                                             ̺
+
+for x ∈ U (Fp ), where K̺ is the trace function of Λ̺ .
+   We rearrange this slightly for convenience. Let T denote the set of ̺ such that Λ̺ is geometrically
+trivial. We know that K̺ is a constant of weight 0, say α̺ , for ̺ ∈ T, and we define F1 = Q̄ℓ , so
+K1 (x) = 1, and
+                                                 X
+                                            c1 =     c̺ α̺ .
+                                                       ̺∈T
+
+  Then we enumerate arbitrarily
+                                       {̺ ∈
+                                          / T} = {̺2 , . . . , ̺k }
+and take Fi = j∗ Λ̺i where j : U ֒→ A1 is the open immersion, and ci = c̺i . This gives the desired
+decomposition (6.2) with S = S̃(Fp ), which has ⩽ |S̃| ⩽ deg P elements.
+  We now bound the numerical invariants in this decomposition. First, note that the number of
+non-zero summands is at most the number of ̺, i.e, the number of conjugacy classes in G, and
+hence is bounded in terms of deg P only. For any ̺ we have
+                                     1 X                         p
+                            |c̺ | =        θ(g)χ̺ (g) ⩽ dim ̺ ⩽ |G|
+                                    |G|
+                                           g∈G
+
+which is bounded in terms of deg P only (using very trivial bounds |χ̺ (g)| ⩽ dim ̺, |θ(g)| ⩽ 1 and
+the fact that the sum of squares of dim ̺ is equal to |G|). And since p ∤ |G|, all sheaves Λ̺ are
+tame, and since they are unramified outside S, we get
+                                      cond(Λ̺ ) ⩽ |S| + dim ̺
+which is again bounded in terms of deg P only.
+  Moreover, none of the sheaves Λ̺ can contain a Jordan-Hölder factor geometrically isomorphic to
+Lχ(X) ⊗ Lψ(X) with ψ non-trivial, since the Λ̺ are tamely ramified everywhere. If we assume that
+P is squarefree, 0 is not a critical value, and all the sheaves Λ̺ are unramified at 0 and therefore
+cannot have a non-trivial Kummer sheaf as (geometric) Jordan-Hölder factor. Thus the sheaf Fi
+does not contain an exceptional factor in this case.
+  We conclude by proving (6.3): we have
+                                             X
+                          |P ∩ U (Fp )| =         θ(Frx,p )
+                                           x∈U (Fp )
+                                           X            X
+                                       =         c̺               K̺ (x)
+                                            ̺         x∈U (Fp )
+                                                                 X            X
+                                       = c1 |U (Fp )| +                c̺               K̺ (x).
+                                                                 ̺∈T
+                                                                  /         x∈U (Fp )
+
+  For each ̺ which is not geometrically trivial, we can apply the Riemann Hypothesis to the inner
+sum, which shows it is ≪ p1/2 with an implicit constant that depends only on deg P (since the
+                                                        34
+conductor of Λ̺ is bounded in terms of deg P only). Since the number of ̺ and the constants c̺
+are also bounded in terms of deg P only, we obtain
+                                            |P ∩ U (Fp )|
+                                     c1 =                 + O(p1/2 |U (Fp )|−1 ),
+                                              |U (Fp )|
+hence the result since p − deg P ⩽ |U (Fp )| ⩽ p.                                                                     
+
+                                                    References
+ [1] V. Blomer, Subconvexity for twisted L-functions on GL(3), Am. Journ. Math. 134 (2012), no. 5, 1385–1421.
+ [2] A. Borel, Linear algebraic groups, Graduate Texts in Math., vol. 126, Springer, 1991.
+ [3] J. Bourgain, More on the sum-product phenomenon in prime fields and its applications, Int. J. Number Theory
+     1 (2005), no. 1, 1–32.
+ [4]         , On the Fourier-Walsh spectrum of the Moebius function, Israel J. of Math., to appear.
+ [5] J. Bourgain and M. Z. Garaev, Sumsets of reciprocals in prime fields and multilinear Kloosterman sums,
+     arXiv:1211.4184 (2012).
+ [6] J. Bourgain, P. Sarnak, and T. Ziegler, Disjointness of Moebius from horocycle flows, From Fourier analysis and
+     number theory to Radon transforms and geometry, 2013, pp. 67–83.
+ [7] P. Deligne, Cohomologie étale, SGA 4 1/2, Lecture Notes in Mathematics, vol. 569, Springer, 1977.
+ [8]         , letter to V. Drinfeld, dated June 18, 2011.
+ [9] H. Esnault and M. Kerz, A finiteness theorem for Galois representations of function fields over finite fields (after
+     Deligne), Acta Math. Vietnam 37 (2012), 531–562.
+[10] É. Fouvry, Autour du théorème de Bombieri-Vinogradov, Acta Math. 152 (1984), no. 3-4, 219–244.
+[11]         , Sur le problème des diviseurs de Titchmarsh, J. reine angew. Math. 357 (1985), 51–76.
+[12] É. Fouvry, E. Kowalski, and Ph. Michel, Algebraic twists of modular forms and Hecke orbits, Preprint
+     arXiv:1207.0617 (2012).
+[13]         , Counting sheaves using spherical codes, Math. Res. Letters, to appear.
+[14] É. Fouvry and Ph. Michel, Sur certaines sommes d’exponentielles sur les nombres premiers, Ann. Sci. École
+     Norm. Sup. (4) 31 (1998), no. 1, 93–130.
+[15] É Fouvry and Ph. Michel, Sur le changement de signe des sommes de Kloosterman, Ann. of Math. (2) 165
+     (2007), no. 3, 675–715.
+[16] É. Fouvry and Ph. Michel, Sommes de modules de sommes d’exponentielles, Pacific J. Math. 209 (2003), no. 2,
+     261–288, DOI 10.2140/pjm.2003.209.261 (French, with English summary).
+[17] É. Fouvry and I. E. Shparlinski, On a ternary quadratic form over primes, Acta Arith. 150 (2011), no. 3, 285–314.
+[18] J. B. Friedlander, K. Gong, and I. Shparlinskiı̆, Character sums over shifted primes, Mat. Zametki 88 (2010),
+     no. 4, 605–619 (Russian, with Russian summary); English transl., Math. Notes 88 (2010), no. 3-4, 585–598.
+[19] J. B. Friedlander and H. Iwaniec, Incomplete Kloosterman sums and a divisor problem, Ann. of Math. (2) 121
+     (1985), no. 2, 319–350. With an appendix by B.J. Birch and E. Bombieri.
+[20] B.J. Green, On (not) computing the Moebius function using bounded depth circuits, Combinatorics, Probability
+     and Computing 21 (2012), 942–951.
+[21] G. Harman, Trigonometric sums over primes. I, Mathematika 28 (1981), no. 2, 249–254 (1982).
+[22] D. R. Heath-Brown, Prime numbers in short intervals and a generalized Vaughan identity, Canad. J. Math. 34
+     (1982), no. 6, 1365–1377.
+[23] J. Heinloth, B.-C. Ngô, and Z. Yun, Kloosterman sheaves for reductive groups, Ann. of Math. 177 (2013),
+     241–310.
+[24] L. K. Hua, Additive theory of prime numbers, Translations of Mathematical Monographs, Vol. 13, American
+     Mathematical Society, Providence, R.I., 1965.
+[25] H. Iwaniec, Introduction to the spectral theory of automorphic forms, Biblioteca de la Revista Matemática
+     Iberoamericana, Revista Matemática Iberoamericana, Madrid, 1995.
+[26] H. Iwaniec and E. Kowalski, Analytic number theory, American Mathematical Society Colloquium Publications,
+     vol. 53, American Mathematical Society, Providence, RI, 2004.
+[27] H. Iwaniec, W. Luo, and P. Sarnak, Low lying zeros of families of L-functions, Inst. Hautes Études Sci. Publ.
+     Math. 91 (2000), 55–131 (2001).
+[28] A. A. Karatsuba, Sums of characters with prime numbers, Izv. Akad. Nauk SSSR Ser. Mat. 34 (1970), 299–321.
+[29]         , Sums of Legendre symbols of quadratic polynomials with prime numbers, Izv. Akad. Nauk SSSR Ser.
+     Mat. 42 (1978), no. 2, 315–324, 470 (Russian).
+                                                           35
+[30]         , Distribution of pairs of residues and nonresidues of special form, Izv. Akad. Nauk SSSR Ser. Mat. 51
+     (1987), no. 5, 994–1009, 1117–1118 (Russian); English transl., Math. USSR-Izv. 31 (1988), no. 2, 307–323.
+[31] N. M. Katz, Gauss sums, Kloosterman sums, and monodromy groups, Annals of Mathematics Studies, vol. 116,
+     Princeton University Press, Princeton, NJ, 1988.
+[32]         , Rigid local systems, Annals of Mathematics Studies, vol. 139, Princeton University Press, Princeton,
+     NJ, 1993.
+[33] K. Matomäki, A note on signs of Kloosterman sums, Bull. Soc. Math. France 139 (2011), no. 3, 287–295.
+[34] Ph. Michel, Autour des conjectures de Sato-Tate, Thèse de Doctorat ès Sciences, Université de Paris-Sud (1995).
+[35]         , Autour de la conjecture de Sato-Tate pour les sommes de Kloosterman. I, Invent. math. 121 (1995),
+     no. 1, 61–78.
+[36]         , Minorations de sommes d’exponentielles, Duke Math. J. 95 (1998), no. 2, 227–240.
+[37] H. L. Montgomery, Topics in multiplicative number theory, Lecture Notes in Mathematics, vol. 227, Springer,
+     1971.
+[38] N. Pitt, On an analogue of Titchmarsh’s divisor problem for holomorphic cusp forms, J. Amer. Math. Soc. 26
+     (2013), 735–776, DOI http://dx.doi.org/10.1090/S0894-0347-2012-00750-4.
+[39] P. Sarnak, Moebius randomness and dynamics, Not. S. African Math. Soc 43 (2012), 89–97.
+[40] J. Sivak-Fischler, Crible étrange et sommes de Kloosterman, Acta Arith. 128 (2007), no. 1, 69–100, DOI
+     10.4064/aa128-1-4 (French).
+[41]         , Crible asymptotique et sommes de Kloosterman, Bull. Soc. Math. France 137 (2009), no. 1, 1–62.
+[42] Z. Yun, Examples of Kloosterman sheaves, manuscript (2009).
+
+   Université Paris Sud, Laboratoire de Mathématique, Campus d’Orsay, 91405 Orsay Cedex, France
+   E-mail address: etienne.fouvry@math.u-psud.fr
+
+   ETH Zürich – D-MATH, Rämistrasse 101, CH-8092 Zürich, Switzerland
+   E-mail address: kowalski@math.ethz.ch
+
+   EPFL/SB/IMB/TAN, Station 8, CH-1015 Lausanne, Switzerland
+   E-mail address: philippe.michel@epfl.ch
+
+
+
+
+                                                          36
+

@@ -1,0 +1,692 @@
+On Linnik’s approximation to Goldbach’s problem,
+                       II
+                   J. Pintz and I. Z. Ruzsa (Budapest)∗
+
+
+
+
+1       Introduction
+Continuing our work [PR] we examine the following problem, initiated by
+Linnik:
+    What is the smallest integer K such that every sufficiently large even
+integer (N > N0 = N0 (K)) could be written as the sum of two primes and
+K powers of two?
+    Naturally the binary Goldbach conjecture is equivalent with K = 0 and
+N0 = 2. However, Linnik succeeded about 70 years ago in showing the exis-
+tence of such a K (without specifying any bound for it) in two subsequent
+papers [Lin1, Lin2]. The first one assumes the Generalized Riemann Hy-
+pothesis (GRH), the second work is unconditional. The first explicit bounds
+were proven at the end of 1990’s.
+    K = 54000 (Liu, Liu, Wang [LLW2]),
+    K = 25000 (Li [Li1]),
+    K = 2250 (Wang [Wan]),
+    K = 1906 (Li [Li2]
+    Under the assumption of (GRH) these bounds could be reduced to:
+    (GRH) ⇒ K = 770 (Liu, Liu, Wang [LLW1]),
+    (GRH) ⇒ K = 200 (Liu, Liu, Wang [LLW3]),
+    (GRH) ⇒ K = 160 (Wang [Wan]).
+    In [PR] we showed that K = 7 is possible under GRH and announced
+the result of our present work:
+
+Theorem 1. Every sufficiently large even number can be written as a sum
+of two primes and 8 powers of two.
+    ∗
+   Supported by the National Research Development and Innovation Office, NKFIH,
+K 119528.
+
+
+                                      1
+   We mention that independently of us, the results K = 7 (on GRH)
+and K = 13 (unconditionally) were proved by D. R. Heath-Brown and J. C.
+Puchta [HP]. This second bound was improved to K = 12 by C. Elsholtz
+(unpublished) and later independently by Z. Liu and G. Liu [LL].
+   Finally we remark that all these proofs make use of Gallagher’s [Gal]
+important contribution to this problem who significantly simplified Linnik’s
+work in 1975.
+
+
+2       Notation. The explicit formula
+We will follow closely [PR] in our notation. However, in order to apply
+the explicit formula of [Pin2] in its original form, we must attach the usual
+weights log p to the primes. So we will choose an arbitrary ε > 0 and set
+N1 = N 1−ε , N > N0 (ε, k)
+(2.1)                        X                                  p
+   e(α) = e2πiα , S(α) =
+                                                                        
+                                    log p e(pα), L = log2 N − log2 N ,
+                                 N1 <p≤N
+
+where log2 N denotes the logarithm to base 2, and p, p0 , pi will always denote
+primes.
+    Further, let for even N and m
+                          X
+(2.2) rk00 (N ) =                   log p1 log p2 ,
+                      N =p1 +p2 +2ν1 +···+2νk
+                       1≤νi ≤L, pi ∈(N1 ,N )
+                             X
+(2.3)    rk0 (N ) =                         log p,
+                      N =p+2ν1 +···+2νk
+                      1≤νi ≤L, p∈(N1 ,N )
+
+(2.4) rk,k (m) = # m = 2ν1 + · · · + 2νk − 2µ1 − · · · − 2µk : νi , µj ∈ [1, L] .
+                  
+
+    Similarly to (2.1)–(2.3) of [PR] let
+                                                     N
+(2.5)                                 2≤P <Q=          ,
+                                                     P
+and let us define the major (M) and minor (C(M)) arcs, respectively by
+                              q                   
+                         [ [       a    1   a    1
+(2.6)               M=               −    ,   +      ,
+                                   q   qQ q     qQ
+                                q≤p     a=1
+                                      (a,q)=1
+
+
+(2.7)                        C(M) = [1/Q, 1 + 1/Q] \ M.
+
+                                                 2
+   The main difference compared with the results of [Li1], [Li2], [Wan],
+[LLW1], [LLW2], [LLW3] is a
+   (i) much more effective treatment of the exponential sum
+                                                L
+                                                X
+(2.8)                               G(α) =            2ν
+                                                ν=1
+
+and
+    (ii) the possibility of having control of S(α) on M even if we choose P
+               4
+as large as N 9 −ε . Since the estimate of S(α) on the minor arcs does not
+improve if P increases from N 2/5 to N 4/9 we will choose P suitably with
+
+                               P = N 0.4 , N 0.41 .
+                                                
+(2.9)
+
+    While the treatment of G(α), the exponential sum over powers of two
+was fully worked out in [PR] (we have just to apply Corollary 2 there – our
+present Lemma 6), the methods yielding (ii) were worked out in [Pin2] in
+form of the explicit formula. We remark, for comparison, that the choice of
+P was P = N 4/9−ε in√[Pin3] for example. Under the assumption of GRH
+we could choose P = N L−8 (see (2.5) of [PR]). Our present choice (2.9)
+comes very close to it. This explains the surprisingly small loss of just one
+power of two in our present unconditional result compared with the result
+K = 7 of [PR], valid on GRH.
+    In order to introduce the explicit formula let
+                          X
+(2.10)         R(h) :=          log p1 log p2 = R1 (h) + R2 (h)
+                           p1 −p2 =h
+                          pi ∈(N1 ,N )
+
+where
+                    Z                                        Z
+                              2
+(2.11)   R1 (h) =       |S(α)| e(−hα)dα,         R2 (h) =            |S(α)|2 e(−hα)dα.
+                    M                                       C(M)
+
+    The explicit formula evaluates the contribution R1 (h) of the major arcs
+by the aid of so called primitive ‘generalized exceptional characters’ χi be-
+longing to ‘generalized exceptional moduli’ ri ≤ P . These characters are
+defined by the property that the corresponding L(s, χ) functions have ‘gen-
+eralized exceptional zeros’
+                                                  H                  √
+(2.12)          %i = 1 − δi + γi ,       δi ≤         ,    |γi | ≤       N,
+                                                log N
+
+                                           3
+where H is a parameter, which will be chosen as a large constant depending
+on ε. The formula will contain apart from the main term involving the usual
+singular series
+(2.13)
+               Y        1
+                                       Y          1
+                                                         
+  S(h) = 2C0      1+           , C0 =        1−            = 0.66016 . . . ,
+                       p−2                      (p − 1)2
+              p|h                               p>2
+              p>2
+
+a ‘generalized singular series’ for every pair of χi , χj generalized exceptional
+characters, satisfying
+
+(2.14)                           S(χi , χj , h) ≤ S(h).
+
+    An important feature of the explicit formula is that the number of zeros
+(to be counted with multiplicity) is bounded if H is bounded. Their total
+number M is by a density theorem of Jutila [Jut]
+
+(2.15)                                M ≤ Ce3H .
+
+    Apart from the zeros in (2.12) we will include the pole % = 1 of ζ(s) =
+L(s, χ0 ) (χ0 mod 1) into the set E = E(N, H) of ‘generalized exceptional
+                    0
+singularities’ of LL (s, χ) for primitive characters and will consider χ0 as a
+primitive character mod 1, S(m) as S(m, χ0 , χ0 ). Further we define
+                                        X
+(2.16)                 I(h, %i , %j ) =        m%i −1 `%j −1
+                                        m,`∈(N1 ,N )
+                                         m−`=h
+
+for %i , %j ∈ E(X, H). For %i = %j = 1 we obtain the term
+
+(2.17)                  I(h) = I(h, 1, 1) = N − |h| + O(N 1−ε ).
+
+We further define
+
+(2.18)                    A(1) = 1,   A(%i ) = −1 if %i 6= 1.
+
+   After this long preparation we can formulate the result.
+                                                            4
+Theorem   2 (Explicit   formula). For every P0 ≤ N 9 −ε0 we can choose a
+P = P0 N −ε0 , P0 such that for
+                
+
+(2.19)    X X
+ R1 (h) =          S(χi , χj , h)A(%i )A(%j )I(h, %i , %j ) + O(N e−cH ) + O(N1 )
+          %i ∈E %j ∈E
+
+
+                                            4
+where the generalized singular series satisfy (2.14) and
+
+(2.20)                                    S(χi , χj , h) ≤ ε0
+
+unless (with a suitable constant C(ε0 ) depending on ε0 )
+
+(2.21)                              l.c.m.[ri , rj ] | C(ε0 )h.
+
+Further we have R1 (h)  S(h)N for all h ≤ N .
+
+Remark. In the application we will choose first H as large that
+                                                                   εN
+(2.22)                          O(N e−cH ) + O(N1 ) ≤
+                                                                    2
+should hold. Afterwards, let (cf. (2.15))
+                                           ε
+(2.23)                  ε0 =                          ,    C(ε0 ) = C1 (ε).
+                                6(Ce3H + 1)2
+
+Then by the trivial relation
+
+(2.24)                                I(h, %i , %j ) ≤ I(h)
+
+we obtain the following
+
+Corollary 1. For h ≤ εN/4 we have R1 (h)  S(h)N , further
+
+(2.25)                          R1 (h) − S(h)N ≤ εS(h)N
+
+if for i = 1, 2, . . . , M
+
+(2.26)                                         ri - C1 (ε)h,
+
+where the odd square-free part of ri ’s satisfies
+                        Y
+(2.27)           ri0 =        p  L2        (i = 1, 2, . . . , M ).
+                             p|ri , p>2
+
+Proof. The parts (2.25)–(2.26) follow from the explicit formula. In order to
+see (2.27) we first note that if χi is real primitive ( mod ri ) then by Chapter 5
+of [Dav] we have
+
+(2.28)                       ri = Ai ri0       with       Ai = 1, 4 or 8;
+
+
+                                                    5
+further that the existence of a zero with (2.12) implies by [Pin1] or [GS]
+                             1   1
+(2.29)                      √  ⇐⇒ ri  L2 .
+                              ri L
+
+On the other hand, if χi is non-real mod ri > C, then the zero-free region
+ `i = log(ri (|t| + 2))
+
+                                               1
+(2.30)             σ >1−
+                             4 · 104 log(2ri0 ) + (`i log `i )3/4
+                                                                    
+
+
+proved by Iwaniec [Iwa] shows
+
+(2.31)                             log ri  L.
+
+Remark. In our present applications any bound of type
+
+(2.32)                     ri −→ ∞       as N −→ ∞
+
+would be sufficient in place of (2.27).
+     The important point in our Corollary 1 is that although we cannot guar-
+antee the asymptotic formula (2.25) for all relevant values of h but it will be
+true for almost all h values even if h is restricted to a thin set of numbers
+like
+
+(2.33)       h = 2ν1 + · · · + 2ν` − (2µ1 + · · · + 2µ` )       νi , µj ∈ [1, L]
+
+in our present case, where ` will be 1 or k. This is possible since by the
+explicit formula we know exactly (cf. (2.26)) which values of h might be bad
+(depending on the finitely many generalized exceptional moduli).
+    According to this, the contribution of the generalized exceptional moduli
+might be estimated by the aid of the following
+
+Lemma 1. Let m ≤ N be arbitrary, q be an odd squarefree number. Then
+for any η > 0
+                            X
+(2.34)          A(m, q) :=       S(m − 2ν ) ≤ ηL
+                                     ν≤L
+                                    2ν <m
+                                   q|m−2ν
+
+if min(q, N ) > C0 (η).
+
+
+
+                                         6
+Proof. Let, as in the following always, 0 mean summation over odd square-
+                                        P
+free integers. Let, further, for any odd d with [a, b] = l.c.m.[a, b]
+                        Y       1
+                                   , ξ(d) = min ν; 2ν ≡ 1( mod d) .
+                                                 
+(2.35)        k(d) =
+                              p−2
+                         p|d, p>2
+
+Then
+           A(m, q) X0                            X
+(2.36)            ≤   k(d)                                    1
+            2C0
+                           d<m                  ν≤L
+                                          2ν ≡m mod ([d,q])
+                           X0                L        X0               X     X
+                       ≤           k(d)             +    k(d)S(m, d) =     +
+                                          ξ([d, q])                      1     2
+                           d<m                           d<m
+
+where S(m, d) = 1 if there exists a ν ≤ L with d | m−2ν and S(m, d) = 0
+otherwise. Let us choose D = D(η) in such a way that
+                              X0 k(d)    η
+(2.37)                                  < .
+                                   ξ(d)  8
+                                          d>D
+
+This is possible, since the infinite series (2.37) is convergent according to
+Romanov’s basic result (the complete series is, in fact, less than 1.94 – cf.
+    P of [PR]). Since we have trivially ξ(m) ≥ log2 m we obtain from (2.37)
+(8.14)
+by     k(d) ≤ C log x:
+   d≤x
+                       X           X k(d)            X k(d)           C log D η  η
+(2.38)        L−1              ≤                 +                ≤          + ≤
+                           1              ξ(q)             ξ(d)        log q  8  4
+                                   d≤D               d>D
+
+if C0 (η) was chosen large enough. Further we have
+                                                        2
+                              Y
+(2.39)            P (m) :=          (m − 2ν ) ≤ N L ≤ eL .
+                                   2ν <m, ν≤L
+
+                                             log p  L2 :
+                                     P
+Consequently we have by
+                                   p|P (m)
+                                                                 X            
+           X             Y                    1                              1
+(2.40)             ≤                 1+                   exp
+               2                             p−2                             p
+                       2<p|P (m)                                   p|P (m)
+                                                              !
+                                X log p   X 1
+                   ≤ exp                +                         ≤ exp(log log L + O(1))
+                                    p      3
+                                             p
+                               p|P (m)               p≤L
+                                p>L3
+
+                    log L = o(L).
+Hence, (2.36), (2.38) and (2.40) prove our lemma.
+
+                                                  7
+3       Two basic results about primes
+In this and later sections we will closely follow the structure of proof of [PR]
+with the appropriate changes adapted to our present situation when we work
+without any unproved hypothesis.
+    The estimate on the minor arcs is the celebrated result of Vinogradov
+[Vin] which can be proved more easily by the method of Vaughan [Vau].
+
+Lemma 2. For α ∈ C(M) we have
+                                √
+                                   
+                    N      4/5
+(3.1)     S(α)  √ + N         + N P L4  L4 N 4/5 .
+                     P
+    It follows by sieve methods that R(h), the actual number of solution of
+p − p0 = h (cf. (2.10)) is at most constant times more than the expected one.
+The classical result of this type is the following one of Chen Jing Run [Che].
+
+Lemma 3. For N > N0 we have with C ∗ = 3.9171 and h < N
+
+(3.2)                               R(h) ≤ C ∗ S(h)N.
+
+
+4       Numbers of the form p + 2ν
+Similarly to (8.2)–(8.3) of [PR], using the notation (2.1), (2.3), (2.8) we
+introduce
+(4.1)
+                                                        Z1
+                X                            X
+                                                0
+                                                     2
+ S(N ) :=                  log p1 · log p2 =   r1 (n) = |S(α)G(α)|2 dα.
+            p1 −p2 =2m1 −2m2                     n          0
+          pi ∈(N1 ,N ], mi ∈[1,L]
+
+   The following result is Lemma 10 of [PR]. Here and later we omit the
+condition N > N0 , which we assumed at any rate from the beginning.
+
+Lemma 4. S(N ) ≤ 2C2 N L2 with C2 = C0 R0 C ∗ + log2 2 where R0 ∈ (1.936, 1.94).
+
+   Actually we will need only an estimation of the integral of (SG)2 on the
+minor arcs. Lemma 4 serves just as an auxiliary result to show
+
+Lemma 5. With C20 < 4.0826 we have
+                        Z
+(4.2)       S2 (N ) :=      |S(α)G(α)|2 dα ≤ 2C20 N L2 .
+                                C(M)
+
+
+                                           8
+Remark. This is slightly weaker than the corresponding Lemma 11 of
+[PR], valid under GRH, where we had the estimate C20 < 3.9095. However,
+its proof is much more difficult since we cannot use GRH. Here is where the
+explicit formula and Lemma 1 comes into play. Here and later we need the
+definition of the exceptional set H from Corollary 1:
+                         M                                         
+                         [                           εN
+(4.3)         H=              Hi ,     Hi =       h≤    ; ri | C(ε)h .
+                                                      4
+                        i=1
+
+We remark that H may be empty if there are no generalized exceptional
+zeros.
+Proof of Lemma 5. Analogously to (8.17)–(8.22) of [PR] we have (cf. (2.11))
+                    Z1        Z                     X
+(4.4)   S2 (N ) =        −        = S(N ) − 2                 R1 (2ν2 − 2ν1 ) − LR1 (0).
+                    0     M                     1≤ν1 <ν2 ≤L
+
+Now, from Corollary 1 and Lemma 1 we have with the notation ∗ for the
+                                                                P
+condition 1 ≤ ν1 < ν2 ≤ L
+            X∗                                 X∗
+(4.5)     2     R1 (2ν2 − 2ν1 ) = (1 + O(ε))2N    S(2ν2 − 2ν1 )
+                                       X M    X∗                    
+                                                        ν2      ν1
+                                                                   
+                                  +O N              S 2 −2             .
+                                                    i=1 2ν2 −2ν1 ∈Hi
+
+Now the error term is here for any fixed class Hi and for any fixed ν2 at
+most εL
+      M by Lemma 1 if N > C(ε) with a suitable constant ε. On the other
+                             e
+hand, we have by (8.8)–(8.14) of [PR]
+                X∗
+(4.6)         2      S(2ν2 − 2ν1 ) ∼ 2C0 R0 L2 as L → ∞.
+
+Now (4.4)–(4.6) together imply by R1 (0) > 0
+                                                      
+                       2          ∗        log 2
+(4.7)    S2 (N ) ≤ 2N L C0 R0 (C − 1) +          + O(ε)                       Q.E.D.
+                                             2
+Remark. Evaluating R1 (0) the same way as in (8.20) of [PR] we can show
+the relation
+                                                     2 log 2(1 + o(1))
+(4.8)       R1 (0) = (1 + o(1))N log P ≥                               N L,
+                                                             5
+which improves (4.7). This leads still to K = 8 but enables to apply Lemma
+3 with C ∗ = 4 + o(1) obtainable by Selberg’s sieve.
+
+                                              9
+5       Sums of powers of 2
+In this section we quote from [PR] two basic results for sums of powers of
+two. The first one is exactly Corollary 2 of [PR].
+
+Lemma 6. We have (µ(S) is the Lebesgue measure of S)
+                              L
+                              X
+(5.1)             |G(α)| =          e(2j α) < 0.789401L =: c1 L
+                              j=1
+
+
+if α ∈ [0, 1] \ E ∗ where µ(E ∗ )  N −3/5 L−100 .
+
+    Lemma 7 is a consequence of Theorems 1 and 2 of [KP] (for this form
+see Theorem 4 of [PR]). Lemma 8 is the nearly trivial Lemma 12 of [PR]
+(originally Lemma 5 of [Gal]).
+
+Lemma 7. We have for fixed k ≥ 1 and L → ∞
+                            ∞
+                            X
+(5.2)         S(k, L) :=            rk,k (m)S(m) ∼ 2L2k (1 + A(k))
+                           m=−∞
+
+where A(k) is a positive constant depending on k and
+
+(5.3)                         A(4) ∈ (0.003, 0.004).
+
+Lemma 8. rk,k (0) ≤ 2L2k−2 .
+
+
+6       Proof of Theorem 1
+Our crucial estimate, the following Lemma 9 is an exact analogue of Lem-
+ma 13 of [PR]. However, since we are not allowed to use GRH, its proof will
+again use Corollary 1 of the explicit formula
+                                        P     and Lemma 1. We will use also
+the unconditional Lemma 6 of [PR].        will mean that m runs through all
+                                           m
+integers.
+
+Lemma 9. Let c1 = 0.789401, C20 = 4.0826. For N > N0 (k, ε) we have
+          X           2
+               rk0 (m) ≤ 2N L2k 1 + A(k) + C20 c2k−2
+                                                        
+(6.1)                                           1    +ε .
+              m≤N
+
+
+
+
+                                         10
+Proof. Parseval’s identity implies
+                               Z1                                   Z       Z              Z
+                        2                                2
+         X
+                 rk0 (m) ≤           S(α)Gk (α) dα =
+                      
+(6.2)                                                                   +           +                .
+        1≤m≤N                   0                                M      C(M)∩E ∗      C(M)∩C(E ∗ )
+
+Using again Corollary 1, Lemma 1, further Lemma 8, we obtain similarly to
+Lemma 5
+       Z            X           Z
+              k 2
+(6.3)     |SG | =       rk,k (m) |S(α)|2 e(mα)dα
+                          m
+         M                                  M
+                                     Z1                      X
+                    ≤ rk,k (0)            |S(α)|2 dα +              rk,k (m)R1 (m)
+                                     0                       m6=0
+                                                                            X
+                              2k−2
+                    ≤ 2L             · 2N log N + N (1 + O(ε))                     rk,k (m)S(m)
+                                                                            m6=0
+                                         M
+                                                                                                 !
+                                         X                    X
+                                                                                            µk
+                      +O N                                                         S(m − 2 )
+                                         i=1 m=2ν1 +···+2νk −2µ1 −···−2µk−1
+                                                       m−2µk ∈Hi
+                                                                  2k
+                    ≤ N (1 + O(ε))S(k, L) + O(εN L )
+                    ≤ 2N L2k (1 + A(k) + O(ε)).
+
+Using Lemmas 5 and 6 we have
+(6.4) Z                                         Z
+                    k 2
+                 |SG | ≤ (c1 L)          2k−2
+                                                         |S(α)G(α)|2 dα ≤ 2N L2k C20 c2k−2
+                                                                                      1    .
+  C(M)∩C(E ∗ )                                 C(M)
+
+Finally, using |E ∗ |  N −3/5 L−100 from Lemma 6 we conclude by Lemma 2
+                       Z
+(6.5)                      |SGk |2  |E ∗ |N 8/5 L8  L−92 N.
+                   C(M)∩E
+
+    The three estimates (6.3)–(6.5) prove our lemma.
+    Now, the last step of the proof is apart from the different numerical data
+the same as in (10.7)–(10.16) of [PR], so we will be brief.
+    Using the almost trivial consequence of the prime number theorem we
+have
+                              X
+(6.6)                             rk0 (n) ∼ N Lk .
+                                         n≤N
+
+
+                                                    11
+Thus the average value of rk0 (n) is 2Lk for odd n’s. So denoting for an even
+K = 2k (in our case K = 8)
+
+(6.7)                     sk (n) = rk0 (n) − 2Lk        for 2 - n,
+                     P†
+by (6.6) we have (        will denote summation over odd numbers)
+                               X†
+(6.8)                                 sk (m) = o(N Lk ).
+                               m≤N
+
+Our final goal is to show the positivity of
+                        X†
+           00
+(6.9)     rK  (N ) =           rk0 (m)rk0 (n)
+                       m+n=N
+                              X†                X†                 X†
+                  = 4L2k              1 + 4Lk          sk (n) +           sk (m)sk (n)
+                             m+n=N              n≤N               m+n=N
+                                                       X†
+                  = 2L2k N + o(N L2k ) +                    sk (m)sk (n).
+                                                  m+n=N
+
+   However, the last term here is by Cauchy’s inequality, (6.6) and Lemma 9
+
+(6.10)
+   X†                      X†
+         sk (m)sk (n) ≤          s2k (n)
+ m+n=N                     n≤N
+                           X†                     2
+                       =          rk0 (n) − 2Lk
+                           n≤N
+                           X†                       X†                      N
+                       =         (rk0 (n))2 − 4Lk         rk (n) + 4L2k ·
+                                                                            2
+                           n≤N                      n≤N
+                                                      ε                ε
+                       ≤ 2N L2k 1 + A(k) + C20 c2k−2
+                                                1    +    − 2N L 2k
+                                                                      1 −
+                             2k           0 2k−2
+                                                      2                  2
+                       ≤ 2N L · A(k) + C2 c1      + ε := 2N L2k C3 (k).
+
+Now in our case K = 8, k = 4 our constant is by Lemmas 5–7
+
+(6.11)                 C3 (4) = A(4) + C20 c61 + ε < 0.992,
+
+which proves our Theorem 1 in view of (6.9)–(6.10).
+
+
+
+
+                                           12
+References
+[Che] J. R. Chen, On Goldbach’s problem and the sieve methods, Sci. Sinica
+      Ser. A 21 (1978), 701–738.
+[Dav] H. Davenport, Multiplicative number theory, Markham Publishing
+     Co., Chicago, Ill., 1967 vii+189 pp.
+[Gal] P. X. Gallagher, Primes and powers of 2, Invent. Math. 29 (1975),
+      125–142.
+[GS] D. M. Goldfeld and A. Schinzel, On Siegel’s zero, Ann. Scuola Norm.
+     Sup. Pisa Cl. Sci. (4) 2 (1975), no. 4, 571–583.
+[HP] D. R. Heath-Brown and J.-C. Puchta, Integers represented as a sum
+     of primes and powers of two, Asian J. Math. 6 (2002), 535–565.
+[Iwa] H. Iwaniec, On zeros of Dirichlet’s L-series, Invent. Math. 23 (1974),
+      97–104.
+[Jut] M. Jutila, On Linnik’s constant, Math. Scand. 41 (1975), 45–62.
+[KP] A. Khalfalah and J. Pintz, On the representation of Goldbach num-
+     bers by a bounded number of powers of two, Elementare und analytis-
+     che Zahlentheorie, Schr. Wiss. Ges. Johann Wolfgang Goethe Univ.
+     Frankfurt am Main 20 (2006), 129–142.
+[Li1] H. Z. Li, The number of powers of 2 in a representation of large even
+      integers by sums of such powers and of two primes, Acta Arith. 92
+      (2000), 229–237.
+[Li2] H. Z. Li, The number of powers of 2 in a representation of large even
+      integers by sums of such powers and of two primes (II), Acta Arith.
+      96 (2001), 369–379.
+[Lin1] Yu. V. Linnik, Prime numbers and powers of two, Trudy Mat. Inst.
+      Steklov. 38 (1951), 152–169 (in Russian).
+[Lin2] Yu. V. Linnik, Addition of prime numbers with powers of one and
+      the same number, Mat. Sb. (N.S.) 32 (1953), 3–60 (in Russian).
+[LL] Z. Liu and G. Liu, Density of two squares of primes and powers of
+     two, Int. J. Number Theory 7 (2011), no. 5, 1317–1329.
+[LLW1] J. Y. Liu, M. C. Liu and T. Z. Wang, The number of powers of
+    2 in a representation of large even integers (I), Sci. China Ser. A 41
+    (1998), 386–397.
+
+
+
+
+                                    13
+[LLW2] J. Y. Liu, M. C. Liu and T. Z. Wang, The number of powers of 2
+    in a representation of large even integers (II), Sci. China Ser. A 41
+    (1998), 1255–1271.
+[LLW3] J. Y. Liu, M. C. Liu and T. Z. Wang, On the almost Goldbach
+    problem of Linnik, J. Théor. Nombres Bordeaux 11 (1999), 133–147.
+[Pin1] J. Pintz, Elementary methods in the theory of L-functions, II. On the
+      greatest real zero of a real L-function, Acta Arith. 31 (1976), 273–289.
+[Pin2] J. Pintz, A new explicit formula in the additive theory of primes with
+      applications, I. The explicit formula for the Goldbach and Generalized
+      Twin Prime problems, arXiv: 1804.05561
+[Pin3] J. Pintz, A new explicit formula in the additive theory of primes
+      with applications, II. The exceptional set for the Goldbach problems,
+      arXiv: 1804.09084
+[PR] J. Pintz and I. Z. Ruzsa, On Linnik’s approximation to Goldbach’s
+     problem, I. Acta. Arith. 109 (2003), 169–194.
+[Vau] R. C. Vaughan, On Goldbach’s problem, Acta Arith. 22 (1972), 21–48.
+[Vin] I. M. Vinogradov, Representation of an odd number as a sum of three
+      prime numbers, Doklady Akad. Nauk SSSR 15 (1937), 291–294 (Rus-
+      sian).
+[Wan] T. Z. Wang, On Linnik’s almost Goldbach theorem, Sci. China Ser.
+     A 42 (1999), 1155–1172.
+
+János Pintz
+Rényi Mathematical Institute
+of the Hungarian Academy of Sciences
+Budapest, Reáltanoda u. 13–15
+H-1053 Hungary
+e-mail: pintz.janos@renyi.hu
+
+Imre Z. Ruzsa
+Rényi Mathematical Institute
+of the Hungarian Academy of Sciences
+Budapest, Reáltanoda u. 13–15
+H-1053 Hungary
+e-mail: ruzsa@renyi.hu
+
+
+
+
+                                     14
+

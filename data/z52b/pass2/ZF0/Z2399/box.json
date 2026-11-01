@@ -1,0 +1,44 @@
+[
+  {
+    "q": 7,
+    "k": 2,
+    "point_terms": 3,
+    "prime_failure_density": 0.5
+  },
+  {
+    "q": 11,
+    "k": 3,
+    "point_terms": 3,
+    "prime_failure_density": 0.7
+  },
+  {
+    "q": 19,
+    "k": 5,
+    "point_terms": 3,
+    "prime_failure_density": 0.8333333333333334
+  },
+  {
+    "q": 31,
+    "k": 8,
+    "point_terms": 5,
+    "prime_failure_density": 0.8333333333333334
+  },
+  {
+    "q": 127,
+    "k": 32,
+    "point_terms": 7,
+    "prime_failure_density": 0.9444444444444444
+  },
+  {
+    "q": 942479,
+    "k": 235620,
+    "point_terms": 1977,
+    "prime_failure_density": 0.997902338303918
+  },
+  {
+    "q": 999983,
+    "k": 249996,
+    "point_terms": 127,
+    "prime_failure_density": 0.9998729977139589
+  }
+]

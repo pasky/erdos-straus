@@ -1,0 +1,1 @@
+N=1000000 exact_fraction_checks=76115 primes_1mod8=19552 regular_total=2766831 HJ_total=1929022 HJ_QNR_total=1350392 HJ_QNR_zero=0 odd_square_QNR_failures=0
