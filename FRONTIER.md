@@ -675,6 +675,13 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    menus II-ac, I-ac, II-cd; two-base boundary at X = 2^t3^{t′}), 4^s + 297 (not attempted), 4^s + 33, 4^s + 273 ((J)102; routes
    board's champion lane). *Why:* concrete, finite-looking, and the only setting where forced-budget identities have beaten
    every ET covering.
+   *(z52d, `Z52D_THINFAMILY.md`, cross-model reviewed.)* A certificate that is C-finite in 2-power roots is a root family
+   (PROVED), so recurrence fitting adds no new menu (other bases not covered); BM on minimal certificates found no low-order
+   recurrence (EVIDENCE only). For 15·2^s + 1 at μ = 0, moving-gap root families with irreducible smallest coordinate lie
+   in menus A (⊇ II-ad), A′ (⊇ I-ac) or C; C is empty (PROVED); the u ≡ 3 (8) branch of A is empty (PROVED); A and A′ with
+   integer u are certified empty for v₂(c) ≤ 3000 (beyond: Ridout-finite per p ≥ 5, ineffective; p = 3 open). Open:
+   reducible-x families (II-ac/II-cd), the ranges beyond the certified bounds, non-2-power exponential certificates.
+   Formalised: ES(3·2^s + 1) for all s in Lean (`lean/ES/ES/Proth3.lean`, standard axioms; z52d Z1894).
 9. **Uniform multiplicity on the r-generic line** (`SIBLING.md` Conj 4.2; EVIDENCE: r ≤ 61 through depth 4, r = 19 through 6,
    r = 17 through 7) and **r = 17**. Level-1 survival of a non-residue cell is CERTIFIED only for r < 2·10⁴ (and fails for
    r ≤ 13). *Why:* Conj 4.2 on 17 ≤ r < 2^{21.44}, plus level-1 survival where not yet certified, would give sterile r-generic
