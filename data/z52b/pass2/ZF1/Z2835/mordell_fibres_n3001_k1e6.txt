@@ -1,0 +1,24 @@
+Mordell-fibre pairs (n odd 9..3001, 1 <= k <= 1000000, 4k+n^3 = s^2): 55861
+n mod 8 | hypothesis | S(N) empty : count
+   (1, False, False) 12267
+   (1, False, True) 15905
+   (5, False, False) 12079
+   (5, False, True) 8827
+   (5, True, True) 6783
+features (n mod 8, gcd(n,k)=1, (n/l)=1 all odd l|k, (-n/l)=1 all l|s,l∤k) -> [solvable, empty]
+   (1, False, False, False) [3351, 3]
+   (1, False, False, True) [2078, 0]
+   (1, True, True, False) [6838, 9003]
+   (1, True, True, True) [0, 6899]
+   (5, False, False, False) [3179, 1]
+   (5, False, False, True) [2019, 0]
+   (5, True, True, False) [6881, 8826]
+   (5, True, True, True) [0, 6783]
+gcd(n,k)=1 and some bad prime l|s with (-n/l)=-1: (v_l(s) parity, role of 3) -> [solvable, empty]
+   ('all bad e even', '3 among bad') [36, 0]
+   ('all bad e even', '3 not bad') [524, 267]
+   ('all bad e even', 'bad l=3 only') [555, 13]
+   ('some bad e odd', '3 among bad') [3399, 56]
+   ('some bad e odd', '3 not bad') [7671, 17451]
+   ('some bad e odd', 'bad l=3 only') [1534, 42]
+control (n, k+1..3), same sizes, non-Mordell non-square: 298 empty of 11986

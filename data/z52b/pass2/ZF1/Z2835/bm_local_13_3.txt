@@ -1,0 +1,5 @@
+(n,k)=(13,3) 4k+n^3=2209  points=19995  [symbol +1, symbol -1] at l-integral places: {'l=2': [9078, 0], 'other odd l': [95310, 0], 'l|n': [16140, 0], 'l|k': [13373, 0]}
+(n,k)=(17,3) 4k+n^3=4925  points=19998  [symbol +1, symbol -1] at l-integral places: {'l=2': [7379, 1874], 'l|k': [12153, 1189], 'other odd l': [96599, 627], 'l|n': [17213, 0]}
+(n,k)=(21,3) 4k+n^3=9273  points=19996  [symbol +1, symbol -1] at l-integral places: {'other odd l': [90580, 1171], 'l=2': [9257, 0], 'l|k': [9344, 2294], 'l|n': [13107, 0]}
+(n,k)=(13,2) 4k+n^3=2205  points=19996  [symbol +1, symbol -1] at l-integral places: {'l=2': [7376, 1768], 'other odd l': [105542, 1958], 'l|n': [16027, 0]}
+(n,k)=(13,7) 4k+n^3=2225  points=19994  [symbol +1, symbol -1] at l-integral places: {'other odd l': [98798, 662], 'l|k': [15667, 310], 'l|n': [16133, 0], 'l=2': [9095, 0]}
