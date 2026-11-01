@@ -1,0 +1,13 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+HIT u=1/1 SG a=11 menu=A' X=3/2 Xp=10 phi=3/5 phip=20
+HIT u=1/1 SG a=11 menu=A' X=3/2 Xp=10 phi=3 phip=4
+HIT u=3/1 p=3 a=80 menu=B X=84 Xp=1 phi=63 phip=9/7
+HIT u=3/1 p=3 a=80 menu=A X=6 Xp=14 phi=9/7 phip=63
+HIT u=3/1 p=3 a=80 menu=A X=6 Xp=14 phi=81/7 phip=7
+HIT u=3/1 p=3 a=80 menu=B X=14 Xp=6 phi=63 phip=9/7
+HIT u=3/1 p=3 a=80 menu=A X=1 Xp=84 phi=1/7 phip=567
+HIT u=3/1 p=3 a=80 menu=A X=1 Xp=84 phi=9/7 phip=63
+HIT u=3/1 p=3 a=80 menu=A X=21 Xp=4 phi=63 phip=9/7
+HIT u=3/1 p=3 a=80 menu=A' X=21 Xp=4 phi=63 phip=9/7
+HIT u=3/1 p=3 a=80 menu=A X=21 Xp=4 phi=567 phip=1/7
+c0=3 H=12 P=13: 328 (K, a) tested, 11 limit hits; by menu {"A'": 3, 'B': 2, 'A': 6}

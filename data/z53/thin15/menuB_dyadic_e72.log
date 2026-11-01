@@ -1,0 +1,22 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+LIMIT-HIT p=3 i=1 r=1 X=27 2^e X'=5 exact-survivors=[]
+.. p=3 done, 10689157 windows
+.. p=5 done, 10696423 windows
+.. p=7 done, 10696769 windows
+.. p=11 done, 10696782 windows
+.. p=13 done, 10696788 windows
+.. p=17 done, 10696790 windows
+.. p=19 done, 10696791 windows
+.. p=23 done, 10696791 windows
+.. p=29 done, 10696791 windows
+.. p=31 done, 10696791 windows
+.. p=37 done, 10696791 windows
+.. p=41 done, 10696791 windows
+.. p=43 done, 10696791 windows
+.. p=47 done, 10696791 windows
+.. p=53 done, 10696791 windows
+.. p=59 done, 10696791 windows
+.. p=61 done, 10696791 windows
+.. p=67 done, 10696791 windows
+.. p=71 done, 10696791 windows
+menu B, dyadic u = r/2^i, e = ip <= 72: 10696791 (p,i,r) tested, 1 limit-level solutions, 0 exact survivors, 0 flags

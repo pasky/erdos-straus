@@ -1,0 +1,18 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+LIMIT-HIT E=1 p=3 u=1 X=6 Xp=5 exact-survivors=[]
+LIMIT-HIT E=1 p=5 u=1 X=6 Xp=5 exact-survivors=[]
+LIMIT-HIT E=1 p=7 u=1 X=6 Xp=5 exact-survivors=[]
+LIMIT-HIT E=1 p=11 u=1 X=6 Xp=5 exact-survivors=[]
+.. E=250, 4 candidates
+.. E=500, 4 candidates
+.. E=750, 4 candidates
+.. E=1000, 4 candidates
+.. E=1250, 4 candidates
+.. E=1500, 4 candidates
+.. E=1750, 4 candidates
+.. E=2000, 4 candidates
+.. E=2250, 4 candidates
+.. E=2500, 4 candidates
+.. E=2750, 4 candidates
+.. E=3000, 4 candidates
+menu B, odd integer u, E <= 3000: 4 candidates (E,p,u), 4 limit-level solutions, 0 exact survivors, 0 flags

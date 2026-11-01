@@ -1,0 +1,11 @@
+.. 2000 checked (last t=12000), failures 0
+.. 4000 checked (last t=14000), failures 0
+.. 6000 checked (last t=16000), failures 0
+.. 8000 checked (last t=18000), failures 0
+.. 10000 checked (last t=20000), failures 0
+.. 12000 checked (last t=22000), failures 0
+.. 14000 checked (last t=24000), failures 0
+.. 16000 checked (last t=26000), failures 0
+.. 18000 checked (last t=28000), failures 0
+.. 20000 checked (last t=30000), failures 0
+checked 20000 certificates, t = 10001..30000 (s = 60t up to 1800000), product identity literally checked for 0, failures 0, gaps 0
