@@ -36,6 +36,5 @@ Novelty: 0 → 40, 1 → 72, 2 → 1 (Z3005, multiscale induction; plausibility 
 * **Z1911:** the linear u = 1 line '(4C−1) | p+1' fails at p = 73, 193, 313, 337, 409, 457, 577, 673 (< 1000), so Lipshitz-type LGP cannot apply.
 * **Z1842:** K = Ẑ ∖ ∪(identity classes) is strictly larger than the closure of the squares ((J)70 sterile points); Haar(K) = 0.
 * **Z1378 + Q14 Z0954:** every solution at a prime has max ≥ p^{3/2}/2, and (★) solutions have max ≤ n²/2.
-
 **Assessment.** Q15 has no proof architecture beyond B1/B2/B3/B6/M1a/T1. The topology cluster closes on the linking-form identity, and the logic cluster
 yields one plausible meta-theorem (Z0189: ES unprovable in IOpen) and no route. Main outputs are calibration facts and two corrections (Z1414, Z1917 in Q14).
