@@ -1,0 +1,57 @@
+kind,category,approach_or_barrier,fails_at_or_statement,pointer
+barrier,§3,"B1 — formal genericity (congruences, identities, bounded search)",,"`POINTWISE_SIZE.md` Thms M, C, Prop A; (H)-ledger."
+barrier,§3,B2 — divisor-class reduction (the tied-modulus divisor event),,"`reviews/redteam-automorphic-2.md` Lemma 2.1 / Thm 2.2, (I)8."
+barrier,§3,B3 — scale constraint,,"`CONDITIONAL_ES.md` Prop 2.3, Remark 2.4; phase (I) Prop 5.4."
+barrier,§3,B4 — deterministic pigeonhole / large fibres,,"`LONGSHOT_PIGEONHOLE.md` Thm 2.2, `LONGSHOT_FIBRED.md` Thm 3.1."
+barrier,§3,B5 = T1 — the odd-square test,,ET Prop 1.6; `PARITY_AUDIT.md` Lemma 3.2; (J)13 (T1 = Kudla's Diff-parity = Hilbert
+barrier,§3,B6 = T7 — the average leak,,"Any estimate averaged over p, or over a level/discriminant attached to p (spectral large"
+barrier,§3,B-fin — ES is a finite search with moving moduli,,"(J)23, (J)25, (J)28 (`UNIT_ORBIT_ES.md`, `FIXED_MODULUS_SHOTS.md`,"
+barrier,§3,Tied modulus / height-dependent target,,"`PARITY_AUDIT.md` Lemma 2.1′, Assessment 2.2, Remark 3.1; (J)87."
+barrier,§3,"Reciprocity forces parity, never class; the Stickelberger m = 2 coincidence",,"`CLASS_FORCING.md` Thms 2.1, 5.2 ((J)93);"
+barrier,§3,Privacy of large primes,,"`SYNTHESIS_SPARKS8.md` Lemma 2.3 (PROVED): gcd(jp + 1, j′p + 1) | j − j′, so a prime ℓ > J"
+barrier,§3,Positivity obstruction (and why positivity is not the bottleneck),,"(J)52 (`SYNTHESIS_SPARKS4.md`), (J)84 Thm A"
+barrier,§3,Numerator blindness; numerator models with real exceptions,,"(J)41 (`SYNTHESIS_SPARKS3.md`), (J)46/(J)49, (J)86"
+barrier,§3,No BM obstruction / the shape of a disproof,,(J)97 (`DISPROOF_AVENUES.md`).
+barrier,§3,The power ladder is flat,,"(J)108 (`POWER_LADDER_ES.md`). ES_(k): 4/n = 1/x + 1/y + Q^k/Z with Q odd, gcd(Q, n) = 1 and"
+barrier,§3,"gcd(Q, Z) = 1",,"(lowest terms are essential: without them every rung is the same, Remark 1.2). Odd k (Thm 2.1, PROVED): for"
+barrier,§3,The M1a/M1b/M2–M5 pattern: B2 is not any solved problem,,"(J)94 (`B2_ACROSS_FIELDS.md` ""The pattern"", Assessment; 13"
+barrier,§3,Rooted constructions and bounded windows die under Dickson,,"(J)106 (`LOWER_TAIL_ASTRA.md`), (J)83 (`CAP_BOUNDED.md`)."
+dead-end,Analytic / counting at one prime,GRH character-by-character on (★),misses by p^{1−o(1)}; GRH gives M_gen ≥ (1 − o(1)) log log p only,"`CONDITIONAL_ES` §3, (J)98."
+dead-end,Analytic / counting at one prime,Two-sided asymptotic / |X| < M_gen (O260's H_X),false i.o. by Linnik,`BM_CORRECTED_COUNT` Prop 3.1.
+dead-end,Analytic / counting at one prime,"Heegner/CM small-scale equidistribution, GLH, power-scale covering conjectures",scale constraint B3,"`CONDITIONAL_ES` §4, §7."
+dead-end,Analytic / counting at one prime,Spectral/Kuznetsov/Heegner treatment of Type I at fixed p,averages over level (B6); tubes of width 1/p,"(I)3, `POINTWISE_SPECTRAL.md`."
+dead-end,Analytic / counting at one prime,Weil / Selberg–Hooley / bilinear fixed-modulus savings,tied modulus; need p^{1−o(1)} saving,`PARITY_AUDIT` §2.
+dead-end,Analytic / counting at one prime,"H-B, parity-breaking (Friedlander–Iwaniec) at fixed p",collapses into H-A,"`PARITY_FIXED_P.md` (J)6, (J)87."
+dead-end,Analytic / counting at one prime,Fixed-p variance / Janson / level-Poisson second-moment,"critical, far tail fatter than Poisson",(J)103 §3.
+dead-end,Analytic / counting at one prime,"Exceptional set via the audited CRT architectures (caps 3/4 ES, 2/3 U/ES₅, native-only for I3), exactly-covered forcing, divisor switching or CRT-certified Janson chains",capped; constant-loss whole-shift products → θ ≤ log 2; marginal-only transfers → scoped blindness,`BREADTH_Z45.md` §15 (z50).
+dead-end,Analytic / counting at one prime,"Exact identities: no linear relation between 56 ES counts and 54 classical functions (CERTIFIED, that finite dictionary); no finite fixed-level Eisenstein-type identity certifies Type I/II counts (PROVED via T1)","(I)5, (J)7 Thm 9.1. Growing-level identities remain open ((J)10: the T1-respecting W(n) identity exists, positivity is the spin event).",
+dead-end,Analytic / counting at one prime,"Automorphic normal form (theta quotient, weight ½, Serre–Stark)","Eisenstein-only, exact, but does not decide one integer",(J)101.
+dead-end,Analytic / counting at one prime,Dirichlet series / moments / Euler-product hardness laws,averages (B6),`BRAINSTORM/anal_*`.
+dead-end,Analytic / counting at one prime,"Spectral/interlacing, faithful Euler systems, single-character Siegel dichotomy, ultraproduct transfer","displayed mechanisms fail, not universal no-go theorems (Assessment)","`BREADTH_Z45.md` §§1–4 (board #4 addendum, 2026-10-19)."
+dead-end,Algebraic / forcing,"Congruence coverings, identity families, bounded search, seed-component (signed graph) line",B1; seed component sterile under H / Dickson,"`POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS ""line 2: CLOSED""."
+dead-end,Algebraic / forcing,Reciprocity / Chebotarev / Rédei / higher power residues to force the class,parity only,"(J)93, (J)96, (J)104."
+dead-end,Algebraic / forcing,"Non-abelian Frobenius, quartic data",inert on finite witness sets,"(J)96, `MODP_RECIPROCITY.md`."
+dead-end,Algebraic / forcing,Pigeonhole across shifts j or d,privacy of large primes,SS8 Lemma 2.3.
+dead-end,Algebraic / forcing,"Signed solutions then ""reflect to positive""",no |d|- or square-class-preserving move; class-changing transfers are B2,"(J)52, (J)89 Lemma 4.1/Cor 4.2."
+dead-end,Algebraic / forcing,Polynomial auxiliary budgets at a general prime; near-square / CF-norm / A² − pB² windows (coprime cases); p − 1 divisibility data,irreducibility / never Jacobi-forced / sterile point,(J)84 (Props 4.2–4.3).
+dead-end,Algebraic / forcing,Class-group composition / slice-lattice walks (Astra bridge),"add reachability, never existence (3361)",(J)82.
+dead-end,Algebraic / forcing,"Fixed roots, least-non-residue roots in the forest F_n",fail i.o. under Dickson,(J)106.
+dead-end,Algebraic / forcing,"Witness windows bounding *both* forest endpoints, or the covering modulus A, by (log p)^C","false i.o., unconditionally (`H4_NOT_POLYLOG.md`, z49). Only one-coordinate windows (u_min, HC, the least López vertex) remain open.",
+dead-end,Algebraic / forcing,Bounded windows; balanced-lattice caps; GRH cap routes,bounded/slow cap is not ES; cap 0 is B2,"(J)83, (J)85, (J)91."
+dead-end,Algebraic / forcing,Menu ladder from thin families to primes,positive-density rungs collapse to B1/B2,"(J)76, (J)78, (J)79."
+dead-end,Algebraic / forcing,2-adic / Fano pigeonhole beyond 4/p,"used up (forcing only M ∈ {2,3,4}) → (J)57; no global Fano law on the 2-isogeny graph",(J)65.
+dead-end,Algebraic / forcing,Windmills / involutions with finite affine menus,barred (CONDITIONAL),(J)2 Thm 6.1.
+dead-end,Algebraic / forcing,"Fermat / binary-form certificates p = Q(u,v)",miss infinitely many primes of every square class,(J)3.
+dead-end,Geometry / relaxations / transfers,"Brauer–Manin, fibrations, descent, strong approximation","no BM obstruction; ""BM only obstruction"" = ES(n)","(I)7, `GEOMETRY_ES.md`."
+dead-end,Geometry / relaxations / transfers,Finite descent–Brauer on covers with image-integrality,"nonempty at every n≥2, including numerator-8 failures (PROVED, specified smooth-locus scope)","`BRAUER_TWISTS.md` (board #4 addendum, 2026-10-19)."
+dead-end,Geometry / relaxations / transfers,Fixed-q positive pivot rewriting,"q=2,3 trapped despite ES (CERTIFIED); Q3 refuted; q=5 traps board-reported, not all move sets excluded","`Q3_PIVOT.md` (board #4 addendum, 2026-10-19)."
+dead-end,Geometry / relaxations / transfers,Propagation / global-positivity shapes,"supplied mechanisms are restatements or divisor-gated; unrestricted norm descent, integral Y–Δ and rule Λ remain open (Assessment)","`PROPAGATION_CLOSURE.md` (board #4 addendum, 2026-10-19)."
+dead-end,Geometry / relaxations / transfers,"Local + spinor ⇒ global, Siegel–Weil, ternary-form representation inputs",true at odd squares (T1),"(I)1, (I)4."
+dead-end,Geometry / relaxations / transfers,Quaternion orders / supersingular graph / Eichler orders,dictionary only (genus layer),"(I)6, (J)33, (J)35, (J)65."
+dead-end,Geometry / relaxations / transfers,"Transport of ES^{(S)}, V_φ, ES^□ certificates into ES",no transport; ES is a finite search,"(J)25, (J)28."
+dead-end,Geometry / relaxations / transfers,Intermediate power rungs,ladder is flat,(J)108.
+dead-end,Geometry / relaxations / transfers,Zaremba / thin orbits / CF length,needs density; reaches only λ ≍ log p log log p,(J)95.
+dead-end,Geometry / relaxations / transfers,"Amplifying one exception (transport, congruence recombination, non-congruential lifts)",isolated / T1-blocked / collapse to B2,"(J)86, (J)88."
+dead-end,Geometry / relaxations / transfers,Cross-field net (13 fields),no sharp transfer; pattern M1a–M5,(J)94.
+dead-end,Geometry / relaxations / transfers,"Boards: Davenport forcing, √−2 norm shifts, clean-side norm towers, one-child lemma, W_binom, HJ grammars (trap at 193), CEGAR, Λ-damped counts, iso-modulus packets, Fermat splitting, consecutive blocks, mod-8 escape",each refuted or a restatement,"`~/.pi/boards/20261018-es-routes/memo.md` §dead, `…-es-lowertail/memo.md` §dead."
+dead-end,Geometry / relaxations / transfers,"51 brainstorm memos (logic, LLL/Janson, Markoff/Ghosh–Sarnak, tropical, p-adic, motivic, Maynard–Tao, entropy decrement, Kahn–Kalai, …)","none LIVE as an ES route (the one LIVE tag is an obstruction-side function-field result; R290 repair), promise ≤ 2/5",`BRAINSTORM/README.md`.
