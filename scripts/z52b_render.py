@@ -25,6 +25,36 @@ for f in sorted(glob.glob('data/z52b/pass1/outcome_*.jsonl')):
             r = json.loads(l)
             p1[r['mid']] = r
 TRI = json.load(open('data/z52b/pass1/triage_interesting.json')) if glob.glob('data/z52b/pass1/triage_interesting.json') else {}
+# z52d: Pass 2 (redo/complete first-step verdicts) — Haiku pass2 outcomes, overridden by the Opus audit records
+p2 = {}
+for f in sorted(glob.glob('data/z52b/pass2/outcome_*.jsonl')):
+    for l in open(f):
+        if l.strip():
+            r = json.loads(l)
+            r['_src'] = 'pass 2'
+            p2[r['mid']] = r
+for f in sorted(glob.glob('data/z52d/audit/opus_A*.jsonl')):
+    for l in open(f):
+        if l.strip():
+            r = json.loads(l)
+            r['_src'] = 'audit (Opus)'
+            p2[r['mid']] = r
+TRI2 = json.load(open('data/z52b/pass2/triage_interesting.json')) if glob.glob('data/z52b/pass2/triage_interesting.json') else {}
+# z52d: proof-avenue layer (Opus): 'if this were part of a proof of ES, what is the missing theorem?'
+AV = {}
+for f in sorted(glob.glob('data/z52d/avenue/out_*.jsonl')):
+    if 'PILOTH' in f:      # Haiku calibration replica, not a record
+        continue
+    for l in open(f):
+        if l.strip():
+            r = json.loads(l)
+            AV[r['mid']] = r
+AVR = json.load(open('data/z52d/avenue/review.json')) if glob.glob('data/z52d/avenue/review.json') else {}
+
+def final(mid):
+    """Latest first-step record for an item: Opus audit > Pass 2 > Pass 1."""
+    return p2.get(mid) or p1.get(mid)
+
 for it in items:
     s = status.get(it['mid'])
     it['st'] = s['status'] if s else 'unclassified'
@@ -42,8 +72,11 @@ def line(it, pointer=False):
     meta = [it['confidence_not_nonsense'], it['effort']]
     if nl >= 2:
         meta.append(f'{nl} lanes')
-    box = 'x' if r1 and r1['outcome'] in ('nothing', 'covered', 'skipped') else ' '
-    if r1 and r1['outcome'] == 'interesting' and TRI.get(it['mid'], 'NEW').split('-')[0] in ('REDISCOVERY', 'EXPLAINED', 'ARTIFACT', 'ARTIFACT/WEAK'):
+    r2 = p2.get(it['mid'])
+    rf = r2 or r1
+    tri = (TRI2 if r2 else TRI).get(it['mid'], 'NEW')
+    box = 'x' if rf and rf['outcome'] in ('nothing', 'covered', 'skipped') else ' '
+    if rf and rf['outcome'] == 'interesting' and tri.split('-')[0] in ('REDISCOVERY', 'EXPLAINED', 'ARTIFACT', 'ARTIFACT/WEAK'):
         box = 'x'
     out = f"- [{box}] **{it['mid']}** {short(it['title'], 140)} — {short(it['connection'], 260)}\n" \
           f"  *First step:* {short(it['first_step'], 260)} ({', '.join(meta)})"
@@ -54,8 +87,17 @@ def line(it, pointer=False):
     if r1:
         tv = f" [triage: {TRI[it['mid']]}]" if it['mid'] in TRI else ''
         out += f"\n  *Pass 1 → {r1['outcome']}{tv}:* {short(r1['summary'], 300)}"
-        if r1.get('next'):
+        if r1.get('next') and not r2:
             out += f" *Next:* {short(r1['next'], 200)}"
+    if r2:
+        tv = f" [triage: {TRI2[it['mid']]}]" if it['mid'] in TRI2 else ''
+        out += f"\n  *{r2['_src'][0].upper() + r2['_src'][1:]} → {r2['outcome']}{tv}:* {short(r2['summary'], 300)}"
+        if r2.get('next'):
+            out += f" *Next:* {short(r2['next'], 200)}"
+    av = AV.get(it['mid'])
+    if av:
+        out += (f"\n  *Avenue:* {av.get('status')}, plaus {av.get('plausibility')}, novelty {av.get('novelty')}, yield "
+                f"{short(str(av.get('yield')), 40)} — missing theorem: {short(av.get('missing_theorem'), 220)}")
     return out
 
 def area(it):
@@ -118,6 +160,34 @@ if p1:
         if r['outcome'] == 'interesting' and (v is None or v.startswith('NEW') or v.startswith('DEPTH')):
             L.append(f"- **{r['mid']}** ({tri.get(r['mid'], r['outcome'])}) {short(by[r['mid']]['title'], 120)} — {short(r['summary'], 350)} "
                      f"*Next:* {short(r.get('next', ''), 220)}")
+    L.append('')
+if p2 or AV:
+    fin = {it['mid']: final(it['mid']) for it in items}
+    cF = collections.Counter(r['outcome'] if r else 'none' for r in fin.values())
+    L.append(f"## Pass 2 and the proof-avenue layer (wave z52d)\n")
+    L.append(f"- **First-step verdict coverage:** {sum(1 for r in fin.values() if r)}/{len(items)} items have a recorded verdict "
+             f"(latest of Pass 1 / Pass 2 / Opus audit): " + ', '.join(f'{k} {v}' for k, v in cF.most_common()) + '.')
+    L.append('- **Audit** (`data/z52d/audit/`, reports `report_A*.md`): Opus redid 54 random Haiku nothing/skipped/covered verdicts '
+             'blind. 20 AGREE, 29 MISS-MINOR, 2 MISS-MAJOR, 3 HAIKU-WRONG-COVERED; no lost item bore on a proof of ES. '
+             'Pass 2 (`data/z52b/pass2/`, brief-hardened against the audit\'s failure patterns) redid every skipped, every needs-compute, '
+             'every "covered" without a depth citation, and worked the touched items Pass 1 never did.')
+    if AV:
+        cS = collections.Counter(r.get('status') for r in AV.values())
+        L.append(f"- **Proof-avenue layer** (`data/z52d/avenue/`, Opus, {len(AV)} items: every proof-attempt item plus every item a "
+                 "keep-biased structural screen kept): per item the most favourable proof architecture, its missing theorem, and whether "
+                 "that theorem is known-false / circular / harder than a famous open problem / open. Statuses: "
+                 + ', '.join(f'{k} {v}' for k, v in cS.most_common()) + '. Batch summaries: `data/z52d/avenue/summary_*.md`.')
+        surv = sorted([r for r in AV.values() if int(r.get('plausibility', 0)) >= 2 and int(r.get('novelty', 0)) >= 1
+                       and not str(r.get('yield', '')).lower().startswith('none')],
+                      key=lambda r: (-int(r['plausibility']), -int(r['novelty']), r['mid']))
+        by = {it['mid']: it for it in items}
+        L.append(f"- **Survivors** (plausibility ≥ 2, novelty ≥ 1, some proof yield; {len(surv)}). Parent review verdicts in "
+                 "`data/z52d/avenue/review.json` where present:")
+        for r in surv:
+            rv = f" **[{AVR[r['mid']]}]**" if r['mid'] in AVR else ''
+            L.append(f"  - **{r['mid']}**{rv} (plaus {r['plausibility']}, nov {r['novelty']}, {r.get('status')}) "
+                     f"{short(by[r['mid']]['title'], 90)} — *missing theorem:* {short(r.get('missing_theorem'), 260)} "
+                     f"*yield:* {short(str(r.get('yield')), 100)}")
     L.append('')
 L.append('## Contents\n')
 L.append(f'- §1 Start here — multi-lane ({len(start)})')
