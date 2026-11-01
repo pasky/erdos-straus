@@ -49,7 +49,7 @@ or positivity argument.
 **Lemma W (complete twisted sums).** For an odd prime q, c, ℓ, n ∈ ℤ let G^{(q)}_c(ℓ) := Σ_{k mod q} (f(c,k)/q) e(ℓk/q).
 Then |G| ≤ 2√q if q ∤ ℓ; if q | ℓ, G = K_q(c) ∈ {0, −1, q − 1} (HYPSUMPROD Lemma 1.3). Consequently Σ_{c mod q}|G_c(ℓ)| ≤ 2q^{3/2}
 for every ℓ, and for Q = qq′: Σ_{c mod Q}|G^{(Q)}_c(ℓ)| ≤ 4Q^{3/2}.
-*Proof sketch (full proof in §4).* For q ∤ c, q ∤ ℓ complete the square in k and open the Legendre symbol by Gauss sums: the sum
+*Proof sketch (full proof in §4.2).* For q ∤ c, q ∤ ℓ complete the square in k and open the Legendre symbol by Gauss sums: the sum
 becomes a Kloosterman sum S(·,·;q) (or a Ramanujan-type sum of modulus 1 in the degenerate-discriminant case); Weil. For
 q | c it is a Gauss sum (modulus √q). CRT for Q.
 *Check:* `scripts/z53_sqsieve_checks.py 23 20000`: all 27 962 cases (q ≤ 23, all n, c, ℓ mod q) pass; max |G|/√q = 1.931.
@@ -59,7 +59,7 @@ q | c it is a Gauss sum (modulus √q). CRT for Q.
 *Check:* `scripts/z53_sqsieve_poisson.py` (Gaussian Φ): agreement to 10⁻¹¹ at n = 1 000 003, 999 999 937, 998 001 = 999²
 (odd square), 8 813 281 (test prime) (`data/z53/sqsieve/poisson_check.txt`).
 
-**Lemma BM (Brauer–Manin twist in strip coordinates).** n odd, (u,B,C) a (★) triple with gcd(uBC, n) = 1 ⇒ (−uB/n) = −1
+**Lemma BM (= Theorem C1 below; Brauer–Manin twist in strip coordinates).** n odd, (u,B,C) a (★) triple with gcd(uBC, n) = 1 ⇒ (−uB/n) = −1
 (Jacobi). [Known content: `BM_CORRECTED_COUNT.md` Thm 1.1 for primes.] Check: 87 388 coprime triples with odd n ≤ 20 000,
 0 violations.
 
