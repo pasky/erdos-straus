@@ -1,0 +1,79 @@
+{
+ "Z2023": {
+  "l<=5": {
+   "n": 4204,
+   "mean_R": 126.35,
+   "median_R": 125.0,
+   "min_R": 4
+  },
+  "l<=11": {
+   "n": 453,
+   "mean_R": 74.62,
+   "median_R": 76,
+   "min_R": 8
+  },
+  "l<=23": {
+   "n": 124,
+   "mean_R": 59.77,
+   "median_R": 59.0,
+   "min_R": 23
+  },
+  "l>23": {
+   "n": 1,
+   "mean_R": 38,
+   "median_R": 38,
+   "min_R": 38
+  },
+  "pearson_logl_logR": -0.4833,
+  "pearson_logl_logtmin": 0.5667,
+  "n_pairs_tmin": 4782
+ },
+ "Z2050": {
+  "(3,)": {
+   "n_split": 2374,
+   "mean_R_split": 109.26,
+   "median_split": 105.0,
+   "n_nonsplit": 2408,
+   "mean_R_nonsplit": 130.0,
+   "median_nonsplit": 130.0
+  },
+  "(3, 5)": {
+   "n_split": 1169,
+   "mean_R_split": 97.91,
+   "median_split": 93,
+   "n_nonsplit": 3613,
+   "mean_R_nonsplit": 126.76,
+   "median_nonsplit": 125
+  },
+  "(3, 5, 7)": {
+   "n_split": 569,
+   "mean_R_split": 94.64,
+   "median_split": 87,
+   "n_nonsplit": 4213,
+   "mean_R_nonsplit": 123.09,
+   "median_nonsplit": 122
+  },
+  "(3, 5, 7, 11)": {
+   "n_split": 274,
+   "mean_R_split": 92.19,
+   "median_split": 81.0,
+   "n_nonsplit": 4508,
+   "mean_R_nonsplit": 121.38,
+   "median_nonsplit": 120.0
+  },
+  "(3, 5, 7, 11, 13)": {
+   "n_split": 119,
+   "mean_R_split": 93.32,
+   "median_split": 82,
+   "n_nonsplit": 4663,
+   "mean_R_nonsplit": 120.38,
+   "median_nonsplit": 119
+  }
+ },
+ "Z2378": {
+  "frac_tmin_ysmooth_all": 0.9999,
+  "n_all": 39175,
+  "frac_tmin_ysmooth_hard_t_ge30": 0.9937,
+  "n_hard": 158
+ }
+}

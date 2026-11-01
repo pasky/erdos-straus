@@ -1,0 +1,47 @@
+{
+ "(2, 1)": {
+  "deg": 1,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ },
+ "(0, 1)": {
+  "deg": 1,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ },
+ "(1, 1)": {
+  "deg": 1,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ },
+ "(3, 1)": {
+  "deg": 1,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ },
+ "(2, 0, 1)": {
+  "deg": 2,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ },
+ "(0, 1, 1)": {
+  "deg": 2,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ },
+ "(1, 0, 1)": {
+  "deg": 2,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ },
+ "(4, 0, 1)": {
+  "deg": 2,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ },
+ "(2, 1, 1)": {
+  "deg": 2,
+  "monic_solutions_deg_le3": 0,
+  "example": []
+ }
+}

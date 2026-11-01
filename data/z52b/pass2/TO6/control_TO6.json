@@ -1,0 +1,38 @@
+{
+ "mordell_square_mod840": {
+  "n": 273,
+  "mean": 62.77,
+  "median": 62,
+  "n_non": 4509,
+  "mean_non": 123.15,
+  "median_non": 122
+ },
+ "split357_vs_sq840": {
+  "n_split": 569,
+  "frac_also_sq840": 0.4798,
+  "mean_split_not_sq840": 124.04,
+  "mean_split_and_sq840": 62.77
+ },
+ "matched_mod840_split357_minus_nonsplit": {
+  "classes": 0,
+  "weighted_mean_diff": null,
+  "frac_classes_negative": 0.0
+ },
+ "Z2023_within_size_bins": {
+  "[5,1000)": {
+   "n": 79,
+   "pearson": -0.406
+  },
+  "[1000,10000)": {
+   "n": 529,
+   "pearson": -0.688
+  },
+  "[10000,100000)": {
+   "n": 4174,
+   "pearson": -0.656
+  }
+ },
+ "Z2023_resid_after_mod840": {
+  "pearson": -0.015
+ }
+}
