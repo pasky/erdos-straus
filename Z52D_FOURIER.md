@@ -15,7 +15,8 @@ The cluster hoped for three things:
 (b) at hard primes *one character is shared across windows*;
 (c) that character is "exceptional" and repels failure elsewhere, as in Linnik / Deuring–Heilbronn.
 
-* **(a) Refuted in the form an obstruction witness needs.** L(B, η) is the *signed* lemma (the character must push towards
+* **(a) Refuted in the form an obstruction witness needs** (unconditionally for B ≤ 952; for every fixed B only under
+  Dickson). L(B, η) is the *signed* lemma, quantified over obstructed windows with H = G (the character must push towards
   failure, c(χ) ≥ η > 0).
   * Thm B (PROVED): at a forced prime window q with (q−1)/2 free of primes ≤ B, no χ ≠ 1 of order ≤ B has c(χ) > 0.
   * CERTIFIED: 2,110 such obstructed windows with full generated subgroup. Each refutes B < (q−1)/2; the q = 1907
@@ -50,18 +51,22 @@ The cluster hoped for three things:
   * No fixed Dirichlet character of conductor ≤ 200 carries c ≥ 0.15 on more than 16 % of any prime's forced obstructed
     windows. Hard primes are not more
     coherent than controls.
-* **(c′) No repulsion.** The forced-window success rate does not rise with χ_p's exceptionality. On 400 random primes the
+* **(c′) No positive repulsion detected.** In the tested proxy, the forced-window success rate does not rise with χ_p's
+  exceptionality. The proxy is the rate of windows killed by QR factors, not an exceptional-zero measurement. On 400 random primes the
   partial correlation is −0.04 [−0.14, +0.06]. The outcome-selected hard/control set gives −0.18 [−0.34, −0.02].
 
-**Verdict: narrowed to collapse.**
-* The signed bounded-order inverse sub-route is **dead** (theorem + certificate; Dickson for all B). The unsigned version
-  at fixed η is dead (certified for η > 1/63, B ≤ 292; all η under Dickson). Empirically it mostly holds, via χ_{−e} with
-  the success-favouring sign.
-* The sub-route "one exceptional character / Deuring–Heilbronn" is **dead as stated, at EVIDENCE level**. The only
-  window-uniform character found is χ_p (BM), and no repulsion is seen.
+**Verdict: strongly narrowed** (not an unconditional elimination of the cluster).
+* **Signed bounded-order inverse lemma.** Unconditionally refuted for B ≤ 952 (CERTIFIED, plus Thm B). Refuted for every
+  fixed B only CONDITIONALLY on Dickson (Prop B′). The abstract Thm C does not remove that hypothesis.
+* **Unsigned lemma at fixed η.** Unconditionally refuted for B ≤ 292 and η > 1/63 (CERTIFIED). For every B and η only
+  under Dickson (Prop B″). Empirically it mostly holds, via χ_{−e} with the success-favouring sign.
+* **"One exceptional character / Deuring–Heilbronn".** EVIDENCE only, in the tested family and proxy:
+  * No tested non-BM character (conductor ≤ 200) covers more than about 16 % of any surveyed prime's forced obstructions.
+  * No positive repulsion is detected.
+  * This does not exclude non-BM families of larger conductor, other families, or genuine L-function zero repulsion.
 * What remains: §7.3-type genus twists at composite windows, §7.4, and the poverty-type B2 core. That core is ≈ 84 % of
   forced obstructions at hard and control primes alike (82–84 %).
-* Recommendation (Assessment): fold C9 into §7.3; it is not a separate avenue.
+* Recommendation (Assessment): fold C9 into §7.3. Within the tested scope it shows no handle beyond §7.3 plus B2.
 
 ## 1. Statements attacked
 
@@ -141,9 +146,13 @@ Let χ_{−e} := (·/e) (Jacobi). It is odd, since e ≡ 3 (4). Then
 * χ_{−e} *kills* the window (c = 1) iff every prime factor of N is a QR mod p. That forces (e/p) = 1.
 * **The BM character never obstructs a forced window.** At forced windows c(χ_{−e}) = −∏(2b_s+1)⁻¹ < 0.
 * Across windows, χ_{−e} is the single character χ_p evaluated on the prime factors of the consecutive integers
-  N = (p+3)/4, (p+7)/4, …. It is the only window-uniform character family we know (Assessment, §4.2). The reason
-  individual factors see nothing else: by CLASS_FORCING Prop 5.1(c), the only individual-factor link to p is this quadratic
-  one, and by Thm 5.2 no Galois datum of p forbids a class for an individual factor.
+  N = (p+3)/4, (p+7)/4, …. It is the only window-uniform character family we know (Assessment, §4.2).
+* What is proved is the quadratic transfer (Lemma T). That there is no *other* individual-factor link or window-uniform
+  family is an Assessment, made within the reciprocity models of CLASS_FORCING (Prop 5.1(c) treats a specific
+  power-residue/Kummer setting for p + 4d). It is not a general uniqueness theorem.
+* A window analogue of CLASS_FORCING Thm 5.2 does hold. Pick a large unramified prime ℓ ≡ a (mod e), and apply Chebotarev
+  with p ≡ −e (mod ℓ), p ≡ 1 (mod 4). This shows that no fixed Galois datum of p forbids any class a for an individual
+  prime factor of N_e. It still does not prove uniqueness of families.
 * CAP_BOUNDED Thm 1.3 (CONDITIONAL on Dickson) is the extreme case: all windows ≤ M are unforced, and all are χ_p-killed.
 
 *Checks.*
@@ -178,9 +187,12 @@ order. So s^{ord(s)/2} = −1. ∎
 **Theorem B (PROVED).**
 * *Hypotheses:* q is a forced prime window at p, and every prime factor of (q−1)/2 exceeds B.
 * *Claim:* every χ ≠ 1 of (ℤ/q)^* with ord χ ≤ B equals χ_{−q}, and c(χ_{−q}) = −∏_{(s/p)=−1}(2b_s+1)⁻¹ < 0.
-* *Consequence:* if the window is obstructed, L(B, η) and L_odd(B, η) fail there for every η > 0, and
+* *Consequence:* if the window is obstructed **and H = G** (the domain of L), then L(B, η) and L_odd(B, η) fail there for every η > 0, and
   L_abs(B, η) fails for every η > ∏_{(s/p)=−1}(2b_s+1)⁻¹.
 
+*Domain caveat.* Thm B's hypotheses plus obstruction do not imply H = G. For example, at p = 61, q = 31 (forced),
+N = 23 and B = 2, the box {1, 23, 27} misses −1 but |H| = 10 < 30, so this window lies outside L's domain. All certified
+counterexamples, and the constructions of Props B′/B″, do have H = G.
 *Proof.* Since q ≡ 3 (4), q − 1 = 2m with m odd. A divisor d ≤ B of 2m has no odd prime factor ≤ B, so d ∈ {1, 2}. The
 order-2 character is χ_{−q}; apply Prop 1. ∎
 
@@ -361,16 +373,26 @@ y = the forced-window success rate.
 * Hard + control (146 primes; outcome-selected): corr = −0.392. Partial: −0.182 [−0.335, −0.018]. If anything, exceptional
   χ_p goes with *harder* forced windows, matching z45's "pretence makes primes harder on average".
 
-No Deuring–Heilbronn-type repulsion is visible.
+No positive Deuring–Heilbronn-type repulsion is detected *in this proxy*. The test covers a finite sample, and x is a
+QR-factor-kill rate, not an L-function zero. It cannot exclude every Deuring–Heilbronn analogue.
 
 ## 5. Verdict for C9 / A02
-**Narrowed to collapse.**
-* **Killed.**
-  * (a) in its signed bounded-order form, which is what an obstruction witness needs: Thm B (PROVED; CERTIFIED for
-    B ≤ 952, also with box image 94 % of G; Dickson for all B) and Thm C (abstract).
-  * The unsigned form at fixed η, for all B: Prop B″ (Dickson); CERTIFIED only for η > 1/63, B ≤ 292. Empirically
-    the unsigned form mostly holds, via χ_{−e} with the success-favouring sign.
-* **Killed at EVIDENCE level.** (b)/(c′) in the form of a non-BM shared exceptional character (§4.2–4.3).
+**Strongly narrowed** (not an unconditional elimination).
+* **Refuted, with explicit quantifiers.**
+  * (a) in its signed bounded-order form, which is what an obstruction witness needs.
+    * Unconditional: B ≤ 952 (Thm B + CERTIFIED windows, including box image 94 % of G).
+    * Every fixed B: CONDITIONAL on Dickson (Prop B′).
+    * Thm C is the abstract-group analogue and does not remove the Dickson hypothesis for arithmetic windows.
+  * The unsigned form at fixed η.
+    * Unconditional: B ≤ 292, η > 1/63 (CERTIFIED).
+    * Every B and η: Dickson (Prop B″).
+    * Empirically the unsigned form mostly holds, via χ_{−e} with the success-favouring sign.
+* **Not supported by EVIDENCE in the tested scope.** (b)/(c′), a non-BM shared exceptional character:
+  * no tested character (conductor ≤ 200, c ≥ 0.15) covers more than about 16 % of any surveyed prime's forced
+    obstructions;
+  * no positive repulsion is detected in the QR-factor-kill proxy (§4.2–4.3).
+
+  Larger conductors, other families and genuine zero repulsion are not excluded.
 * **Reduced.** The odd real layer is (I)7 (BM; exact share Prop 1; silent at forced windows) plus genus twists (Prop 2).
   The twists are §7.3's kind of object (Assessment).
 * **Not refuted.** The any-order version (§3.6).
@@ -387,13 +409,17 @@ No Deuring–Heilbronn-type repulsion is visible.
     obstructs only unforced windows.
   * Every other odd real obstruction is χ_p twisted by an even genus character of the window, the window analogue of this
     item's other genus characters (Assessment). Subgroup obstructions are 2-primary (PROVED).
-  * A signed bounded-order character inverse lemma is false (Thm B: PROVED; CERTIFIED for B ≤ 952; Dickson for all B).
-  * No non-BM character of conductor ≤ 200 is shared (c ≥ 0.15) across the forced windows of hard primes, and no Deuring–Heilbronn repulsion appears
-    (EVIDENCE: 30 hard / 116 matched / 400 random primes).
-  * So the "regime split / exceptional character" cluster (C9/A02) reduces to this item plus B2 (Assessment).
+  * A signed bounded-order character inverse lemma (over windows with full generated subgroup) is false for B ≤ 952
+    (Thm B: PROVED; CERTIFIED windows), and for every fixed B CONDITIONALLY on Dickson.
+  * No tested non-BM character (conductor ≤ 200, c ≥ 0.15) covers more than about 16 % of any surveyed hard/control
+    prime's forced obstructions. No positive Deuring–Heilbronn repulsion is detected in a QR-factor-kill proxy.
+    (EVIDENCE: 30 hard / 116 matched / 400 random primes; this does not exclude larger conductors or zero repulsion.)
+  * So, within the tested scope, the "regime split / exceptional character" cluster (C9/A02) is strongly narrowed to
+    this item plus B2 (Assessment).
 * **§6 dead ends, add:** "Signed bounded-order Fourier/character inverse for window obstructions (Z3003 route): false
-  (`Z52D_FOURIER` Thm B: CERTIFIED for B ≤ 952, all B only under Dickson; Thm C is the abstract-group analogue). The only shared character found is χ_p (BM), which is silent at forced windows. No repulsion
-  (EVIDENCE). The any-order version is open but carries no target information known to us."
+  for B ≤ 952 (`Z52D_FOURIER` Thm B, CERTIFIED), and for all B only under Dickson; Thm C is the abstract-group analogue.
+  The only shared character found among those tested (conductor ≤ 200) is χ_p (BM), which is silent at forced windows. No
+  positive repulsion is detected in the tested proxy (EVIDENCE). The any-order version is open but carries no target information known to us."
 
 ## 7. Reproduction
 Run everything from `scripts/` with `ulimit -v 8000000`.
@@ -449,3 +475,21 @@ against the data files. Fixed after it:
 * The §6 dead-end qualifier was added.
 * The direction of the rank statistic is now stated.
 * §0 and §5 now agree on the unsigned variant.
+
+## Cross-model review
+A GPT/Astra hostile cross-review (`data/z52d/xreview/REVIEW_FOURIER.md`, verdict ACCEPT-WITH-FIXES) independently
+re-derived every proof and reconstructed all 2,110 + 3,184 Thm B certificates. It found no numerical discrepancy and no
+false core formula. Changes made:
+* **Quantifiers and scope.**
+  * The verdict changed from "narrowed to collapse / dead" to **strongly narrowed**.
+  * The signed lemma is refuted unconditionally for B ≤ 952 and for every fixed B only under Dickson; the unsigned lemma
+    unconditionally for B ≤ 292, η > 1/63. Thm C is marked as not removing the Dickson hypothesis.
+  * The sharing and repulsion results are restated as "no tested character (conductor ≤ 200) covers more than about 16 %"
+    and "no positive repulsion detected in the QR-factor-kill proxy". They do not exclude larger conductors, other
+    families, or genuine zero repulsion.
+  * These changes are propagated to §0, §4.3, §5 and the proposed FRONTIER text in §6.
+* **Thm B.** Its inverse-lemma consequence now requires H = G. A domain caveat cites the window (p, q) = (61, 31), N = 23,
+  which is forced and obstructed but has |H| = 10.
+* **CLASS_FORCING citation.** Narrowed. "No other individual-factor link or family" is now an Assessment within the cited
+  reciprocity models. The window analogue of Thm 5.2 (Chebotarev with p ≡ −e mod ℓ) is stated explicitly, and is noted
+  not to prove uniqueness of families.
