@@ -5,6 +5,8 @@ G(x) = c_0 + 2 sum_{h=1}^H c_h cos(2 pi h x) with G(0) <= 1 and G(r/q) <= 0 for 
 Theorem B(b): if H < q_max/2 then c_0 <= 0.  Theorem B(c): positive c_0 is possible from H ~ q_max/2 on.
 We maximise c_0 by LP (scipy) for small blocks and report max c_0 and G(0) at the optimum, as a function of H.
 (Even G suffices: symmetrising G(x) -> (G(x)+G(-x))/2 preserves the constraints, since T is symmetric, and the mean.)
+NOTE (review F19): coefficients are box-bounded |c_h| <= 10 (an artificial bound, hit for H >= q_max where T is too
+sparse to constrain G); floating-point HiGHS LP: this is EVIDENCE, not an exact certified optimum.
 Usage: uv run --with numpy --with scipy python scripts/z53_hypkloost_certificate_lp.py
 """
 import numpy as np
