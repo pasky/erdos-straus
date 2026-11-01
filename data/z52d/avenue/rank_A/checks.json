@@ -1,0 +1,111 @@
+{
+  "Z1352_Z1473": {
+    "p": 409,
+    "all_star_hits": [],
+    "exhaustive_C_bound": 102,
+    "reason_bound": "p=4CuB-u-B >=4C-2 for positive u,B"
+  },
+  "Z1956": {
+    "p": 409,
+    "C": 1,
+    "X": 819,
+    "Y": 818,
+    "factors": [
+      1,
+      1637
+    ],
+    "weak_congruence_true_but_no_star_hit": true
+  },
+  "Z1296_Z1798": {
+    "progression": "n = 5881 + 9240k, k >= 0",
+    "identity": "x=(3n+1)/11, y=3n, z=3nx",
+    "base_check": [
+      5881,
+      [
+        1604,
+        17643,
+        28299372
+      ]
+    ],
+    "all_n_are_1_mod_840": true
+  },
+  "Z1964": {
+    "non_scaling_move": [
+      [
+        4,
+        [
+          2,
+          4,
+          4
+        ]
+      ],
+      [
+        5,
+        [
+          2,
+          4,
+          20
+        ]
+      ]
+    ]
+  },
+  "Z1325": "Z(beta)=exp(-beta) is entire and zero-free but tends to zero.",
+  "Z0863": {
+    "p": 241,
+    "solutions": [
+      [
+        62,
+        2139,
+        1030998
+      ],
+      [
+        62,
+        2169,
+        134478
+      ],
+      [
+        63,
+        1386,
+        334026
+      ],
+      [
+        63,
+        1446,
+        30366
+      ],
+      [
+        66,
+        693,
+        334026
+      ],
+      [
+        66,
+        723,
+        15906
+      ],
+      [
+        69,
+        482,
+        33258
+      ],
+      [
+        99,
+        154,
+        334026
+      ]
+    ],
+    "all_meet_3": true,
+    "is_global_not_local": "For n=241, (x,y,z)=(n,n,n/2) is a positive rational solution and a 3-adic unit solution."
+  },
+  "Z1942": {
+    "M1_failures_among_test_primes": [
+      73,
+      97,
+      193,
+      241,
+      409,
+      577
+    ],
+    "scope": "Does not prove failure for every fixed M or any density claim."
+  }
+}

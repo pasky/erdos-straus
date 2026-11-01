@@ -1,0 +1,2452 @@
+{
+  "reviewer": "A",
+  "label": "Assessment",
+  "ES_status": "OPEN",
+  "candidate_count": 250,
+  "cluster_count": 79,
+  "scoring": {
+    "formula": "5R + 2H + 2I + N - 3G; rank within bands, never as a probability",
+    "R": "proof relevance: 3 potential full pointwise conclusion, 2 frontier-changing partial theorem, 1 ordinary partial theorem, 0 no ES implication",
+    "H": "plausibility 0–3 of the clean theorem with current/foreseeable tools, not inherited from source",
+    "I": "one-day information gain: 0 slogan/no discriminating test, 1 bounded diagnostic, 2 clear falsifier or first lemma",
+    "N": "new mechanism relative to FRONTIER: 0 existing, 1 variant/audit repair, 2 genuinely distinct",
+    "G": "unsupported bridge burden: 0 direct algebra/known theorem, 1 one difficult named step, 2 several gaps, 3 object/mechanism not defined or global bridge absent",
+    "caveat": "Ordinal expected-proof-value proxy, not calibrated success odds; bands separate proof components from side work and rest. High relevance does not mean a viable proof."
+  },
+  "clusters": [
+    {
+      "id": "A01",
+      "name": "Height-dependent cancellation",
+      "band": "i",
+      "members": [
+        "Z1034",
+        "Z1855",
+        "Z1570",
+        "Z2997",
+        "Z0211",
+        "Z1480",
+        "Z2958",
+        "Z3149",
+        "Z1854",
+        "Z2080",
+        "Z2975",
+        "Z2387",
+        "Z3113"
+      ],
+      "clean_statement": "For some δ>0, at each prime p bound a genuinely class-filtered dyadic block of R(p)-M(p) by cancellation below its current divisor bound; ultimate target: R(p)≥ε M_BM(p) for all p>p0.",
+      "yield_for_ES": "partial: first fixed-p class-aware saving; full only after a one-sided lower bound and effective finite check",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.1; §6 Weil/bilinear/spectral limitations",
+      "obstruction": "B2 tied height/modulus, B3 polylog scale, B6 no averaging p; upper-tail obstruction to two-sided polylog errors",
+      "ingredient_can_beat_obstruction": "No demonstrated saving. Voronoi dualisation, trace-function reorganisation and incidence methods are candidate inputs, not refuted by the failure of the current estimates.",
+      "genuinely_new": "No new target; audit rescues dispersion/incidence and repairs absolute-error targets to one-sided ones.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 19,
+      "label": "Assessment",
+      "assessment": "Best relevance, low tractability. R-M may have positive spikes, so do not demand O(log^A p) absolute error. A p^{2/5-δ} bound is weaker and not refuted by those spikes. Z1854 must use the exact trial range: at p=17 the ordered triple (u,B,C)=(6,1,1) has m=4uC-1=23>p, so the quoted truncated m≤p count is not automatically R(p). Use PARITY_AUDIT and keep boundary/symmetry conventions explicit.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z2080",
+        "Z2975",
+        "Z2387",
+        "Z3113"
+      ],
+      "rank_in_band": 1
+    },
+    {
+      "id": "A02",
+      "name": "Bounded-exponent character obstruction",
+      "band": "i",
+      "members": [
+        "Z3003",
+        "Z2940",
+        "Z1787",
+        "Z0648",
+        "Z0674",
+        "Z2926"
+      ],
+      "clean_statement": "For every sufficiently large p, some admissible window e has -1 in {ab^{-1} mod e: ab|N_e}; prove this via a quantitative inverse theorem for a missing target in the bounded-exponent product set, followed by a theorem excluding simultaneous obstructions across windows.",
+      "yield_for_ES": "full with finite check; an inverse theorem alone is a structural side result",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.3 and §7.13; §6 single-character Siegel dichotomy",
+      "obstruction": "B2 class versus subgroup, B4 sparse bounded exponents, T1, privacy across windows",
+      "ingredient_can_beat_obstruction": "Z3003 supplies an exact Fourier identity, a real handle on failure. It does not give a shared character or cap-0 coverage; subgroup saturation alone is insufficient.",
+      "genuinely_new": "Fourier obstruction certificate is explicit; the global exclusion remains entirely missing.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 19,
+      "label": "Assessment",
+      "assessment": "Keep representation multiplicities and prime-power exponents. For q^a||N, a convenient signed-exponent kernel is Σ_{j=-a}^a χ(q)^j; it is not a subgroup indicator. The source uses the squarefree 1+2Reχ kernel. The max-character sufficient criterion is very strong; cancellation in the whole character sum can certify without it. Z2926 restricted to prime windows needs exceptions (3361), not an all-prime claim.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z0648"
+      ],
+      "rank_in_band": 2
+    },
+    {
+      "id": "A03",
+      "name": "Pell-cycle growing roots",
+      "band": "i",
+      "members": [
+        "Z0596",
+        "Z0465",
+        "Z1298",
+        "Z0385",
+        "Z1687",
+        "Z3053"
+      ],
+      "clean_statement": "For every sufficiently large prime p≡1 mod4, a specified root extracted from the full principal reduction cycle of Q(√p), or its forest component, meets a bichromatic edge of F_p.",
+      "yield_for_ES": "full via ES5 plus finite check, provided the root recipe and traversal are proved",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.2; §6 only CF-norm windows and fixed-root constructions are closed",
+      "obstruction": "B2; fixed-root Dickson obstruction; CF norms are QR windows (JOINT_BUDGET Prop 4.2)",
+      "ingredient_can_beat_obstruction": "Pell data depend on p non-polynomially and primality descent is an actual pointwise precedent; neither supplies the divisor class yet.",
+      "genuinely_new": "Only a specialization of the existing open root source; full-cycle tests differ from the refuted one-step tests.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 19,
+      "label": "Assessment",
+      "assessment": "Z1687 and Z3053 overstate known-false: the cited result concerns norms as windows or fixed roots. Z0596 already reports six failed one-step examples below 30000. Do not repeat that exact test or interpret a bounded component traversal as an exhaustive failure.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 3
+    },
+    {
+      "id": "A04",
+      "name": "Complementary-line switching",
+      "band": "i",
+      "members": [
+        "Z3182"
+      ],
+      "clean_statement": "Construct an explicit, uniformly valid switch from a defined set of wrong-class (★) factor pairs into b=1 certificates, with a defect inequality ensuring R_star(p)+R_b1(p)>0 for every p>p0.",
+      "yield_for_ES": "full with finite check",
+      "plausibility": 1,
+      "frontier": "FRONTIER §2.1 union conjecture; related §7.3; §6 transport limitations are scoped",
+      "obstruction": "B2 on each line; B3 target mass; no known sign-definite defect identity",
+      "ingredient_can_beat_obstruction": "A switch would use relation between two target families, not merely their empirical disjoint failures. No actual map is supplied.",
+      "genuinely_new": "Audit restores a mechanism wrongly called circular; complementary coverage itself is already known as a conjecture.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 19,
+      "label": "Assessment",
+      "assessment": "The count union is a target, but a constructive switch is stronger structure and not equivalent to the union assertion. Prioritize a small algebraic falsifier over extending the census. A switch only on existing successes cannot prove coverage.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z3182"
+      ],
+      "rank_in_band": 4
+    },
+    {
+      "id": "A05",
+      "name": "Growing positive minorants",
+      "band": "i",
+      "members": [
+        "Z1401",
+        "Z2845",
+        "Z2534",
+        "Z3041"
+      ],
+      "clean_statement": "Produce an explicit, independently evaluable lower minorant F(p)>0 of a nonnegative certificate count, using a growing-level identity or a dual combination of proved character-sensitive linear constraints, for every prime p>p0.",
+      "yield_for_ES": "full with finite check; a new valid inequality alone is partial structure",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.3; §6 finite Eisenstein identities versus open growing-level identities",
+      "obstruction": "T1 must be built into the RHS, B2, B3; zeta(0) and twisted charges can have either sign",
+      "ingredient_can_beat_obstruction": "LP duality and Shintani cone formulas are concrete ways to check identities. No nontrivial positive minorant is known; the known W(n) identity leaves a spin positivity problem.",
+      "genuinely_new": "LP dismissal was logically invalid; no new usable constraint has been identified.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": 16,
+      "label": "Assessment",
+      "assessment": "T1 does not prohibit an inequality true for all odd n whose RHS vanishes at squares and is positive at primes. Source Z1401 asserted otherwise. A numerical dual must not include the certificate indicators or the desired conclusion among its assumptions.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z1401"
+      ],
+      "rank_in_band": 5
+    },
+    {
+      "id": "A09",
+      "name": "Forced budgets in exponential families",
+      "band": "i",
+      "members": [
+        "Z2969",
+        "Z3189",
+        "Z3061",
+        "Z0417",
+        "Z2031",
+        "Z2995",
+        "Z1557"
+      ],
+      "clean_statement": "For every exponent s≥0 in the open family n_s=15·2^s+1 (or one explicitly chosen family such as 4^s+297), construct positive integer ES parameters by finitely many exponent classes and verified polynomial-exponential recurrences.",
+      "yield_for_ES": "partial: all members of a named infinite family, including its primes; no general-prime transfer",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.8; §6 thin-family menu transfer is closed, not the family itself",
+      "obstruction": "B1 finite congruence cover may fail; algebraic forced budgets escape it only through p=φ(s); no transfer to free p",
+      "ingredient_can_beat_obstruction": "Known forced-budget proofs and recurrence/folding/primitive-divisor structures provide a concrete handle. Need a new identity on the open branch.",
+      "genuinely_new": "Recursion is a variant of known mechanism, not a new route to arbitrary primes.",
+      "score_components": {
+        "relevance": 2,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 16,
+      "label": "Assessment",
+      "assessment": "Best chance of a real positive theorem in one short lane. Z3061 all (a,b,c) Type-I/II version is false without exclusions: n_s=9^s is an odd square for every positive even s; T1 forbids the asserted types. Restrict to a named nonsquare family. Berlekamp–Massey fit is evidence until symbolic verification and positivity.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 6
+    },
+    {
+      "id": "A08",
+      "name": "Non-CRT averaged lower tail",
+      "band": "i",
+      "members": [
+        "Z2356",
+        "Z2407"
+      ],
+      "clean_statement": "For some δ>0 prove #{primes p≤X:R(p)=0}≪X^{1-δ}, using a class-sensitive bilinear estimate or an arithmetic/product-measure comparison strong enough for a relative-entropy lower-tail bound.",
+      "yield_for_ES": "partial: power-saving exceptional set for (★), not ES at every prime",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.5 and §7.12; §6 CRT supply caps and critical variance",
+      "obstruction": "B6 average yield; CRT cap if the new estimate factors into known congruence marginals; dependence is not Bernoulli independence",
+      "ingredient_can_beat_obstruction": "Bilinearity at fixed C is explicit; entropy is a possible framework only after a proved arithmetic comparison. Neither has been supplied.",
+      "genuinely_new": "The statistical route is not circular merely because it is averaged; both target a genuinely stronger partial theorem.",
+      "score_components": {
+        "relevance": 2,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 14,
+      "label": "Assessment",
+      "assessment": "A successful estimate would change the exceptional-set frontier, not solve ES. Use modulus 4uB in p≡-(u+B) mod4uB; the source next-step modulus 4uBC includes a solution coordinate incorrectly.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z2407"
+      ],
+      "rank_in_band": 7
+    },
+    {
+      "id": "A06",
+      "name": "One-coordinate level bound",
+      "band": "i",
+      "members": [
+        "Z0501",
+        "Z2018",
+        "Z2017",
+        "Z1600",
+        "Z1335",
+        "Z3167",
+        "Z2935",
+        "Z1805"
+      ],
+      "clean_statement": "There exist A,p0 such that every prime p>p0 has C≤(log p)^A with a divisor d|4Cp+1 satisfying d≡-1 mod4C; leave the complementary divisor and other coordinates unrestricted.",
+      "yield_for_ES": "full eventually on (★), plus finite check; quantitative strengthening, not equivalent to ES",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.2 one-coordinate analogue, §2.4; §6 two-endpoint/window-modulus bounds do not apply",
+      "obstruction": "B2; B1 for fixed C only; (★) has finite known zeros; no general factor-count⇒class theorem",
+      "ingredient_can_beat_obstruction": "Anatomy of integers gives distributional intuition, not an every-p input. No member controls actual prime-factor residues.",
+      "genuinely_new": "No new ingredient; preserve level versus witness modulus distinction.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": 13,
+      "label": "Assessment",
+      "assessment": "Z2018 narrower exponent is a separate strengthening within this cluster; Z2935 additionally excludes boundary witnesses. Known zeros require p0 above them, not abandonment of an eventual claim. Z1805 factor-count/Davenport forcing is invalid without bounded-exponent target coverage. Do not call this a broader family than (★), as Z2017 does.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 8
+    },
+    {
+      "id": "A07",
+      "name": "One-coordinate endpoint/window bound",
+      "band": "i",
+      "members": [
+        "Z0148",
+        "Z0534",
+        "Z3087",
+        "Z0847",
+        "Z2363",
+        "Z1406",
+        "Z1850",
+        "Z2145"
+      ],
+      "clean_statement": "For every p>p0 some ES certificate has ONE designated parameter bounded by (log p)^A: specify separately HC/interior endpoint, U-vertex, or e=4x-p; other coordinates remain unrestricted.",
+      "yield_for_ES": "full with finite check for each correctly defined variant",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.2; §7.17 certificate-restricted I3; §7.13 for window/cap distinction",
+      "obstruction": "B2; B1 excludes bounded menus, not growing one-coordinate sets; H4 excludes bounding both endpoints",
+      "ingredient_can_beat_obstruction": "No provable growth bound. Least-QNR seeding in Z2145 adds a character but no class-control theorem.",
+      "genuinely_new": "No new target; source ambiguities are repaired instead of merging level, endpoint and denominator size as equivalent.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": 13,
+      "label": "Assessment",
+      "assessment": "These are related one-coordinate conjectures, not proven equivalent. Z2363 least max-denominator≤polylog p is false since x≥p/4; retain only its level interpretation. The finite I3_C zeros 5,13,17,2521 are not ES5 zeros. Distinguish HC, least U vertex and full e-slices in any computation.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 9
+    },
+    {
+      "id": "A11",
+      "name": "Well-founded certificate transport",
+      "band": "i",
+      "members": [
+        "Z2095",
+        "Z3028",
+        "Z1964",
+        "Z2351"
+      ],
+      "clean_statement": "Define a certificate transport across different n or from structured solutions at mp to p, with a strictly decreasing positive-integer rank and a coverage lemma applying to every prime input.",
+      "yield_for_ES": "full with base cases",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 propagation paragraph expressly retains rule Λ and unrestricted norm descent",
+      "obstruction": "B2 gates on the proposed maps; finite affine menus meet B1; ES surface lacks a known preserving group law",
+      "ingredient_can_beat_obstruction": "No coverage/rank theorem. Non-scaling moves do exist (audit: (2,4,4) at n=4 to (2,4,20) at n=5), so scaling is not a universal impossibility argument.",
+      "genuinely_new": "Audit corrects a false universal rejection; no new uniform rule.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "An existential map chosen after finding an ES solution is vacuous. Specify a rule computed from the smaller witness, then prove integrality and coverage independently.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z1964"
+      ],
+      "rank_in_band": 10
+    },
+    {
+      "id": "A14",
+      "name": "Non-affine congruence/parity forcing",
+      "band": "i",
+      "members": [
+        "Z2921",
+        "Z1386",
+        "Z1771",
+        "Z2609",
+        "Z3094",
+        "Z0469",
+        "Z2033",
+        "Z0556",
+        "Z3101",
+        "Z0441",
+        "Z1650"
+      ],
+      "clean_statement": "Construct finite p-dependent objects with an independently proved nonzero count modulo m, and an action/involution whose surviving orbits or fixed points produce ES certificates.",
+      "yield_for_ES": "full if the count law and certificate extraction are proved",
+      "plausibility": 1,
+      "frontier": "FRONTIER §3 M5; §6 WINDMILL finite-affine no-go is conditional and scoped",
+      "obstruction": "T1; natural ordered counts are even; B1 for finite affine rules; class-number parity may be congruence-only",
+      "ingredient_can_beat_obstruction": "No concrete new object/action. Larger finite groups and genuinely non-affine maps are not covered by an involution-only statement without checking its proof.",
+      "genuinely_new": "Formal group-action extension (Z3101), no positive construction.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "Forced parity of a set defined to be all certificates would be a reformulation. A count on independent objects plus a map would not. Do not accept the source demand that any parity not determined by p mod8 kills the idea: non-congruential dependence is precisely an allowed escape.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 11
+    },
+    {
+      "id": "A15",
+      "name": "Character-sensitive topological index",
+      "band": "i",
+      "members": [
+        "Z2764",
+        "Z2765",
+        "Z3027"
+      ],
+      "clean_statement": "Construct a finite candidate complex K_p with a computable nonzero mod-2 index/Euler invariant, and a fixed-point or complementary-edge theorem extracting a certificate; the construction must degenerate at odd squares.",
+      "yield_for_ES": "full if complex, index and extraction are all proved",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 global-positivity shapes; adjacent to M5, not a numbered §7 problem",
+      "obstruction": "T1; natural complement action works identically at squares; Euler characteristic can be sign-indefinite",
+      "ingredient_can_beat_obstruction": "Shellability/discrete Morse are possible tools but no K_p is specified.",
+      "genuinely_new": "Formal topology packaging; no independently justified invariant.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "Retain as unconstructed, not refuted. Natural divisor-poset Euler sums should first be compared to existing theta/divisor identities.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 12
+    },
+    {
+      "id": "A10",
+      "name": "Full-factor-multiset compatibility",
+      "band": "i",
+      "members": [
+        "Z2818"
+      ],
+      "clean_statement": "Find a stated property A of actual factor multisets of {4Cp+1:C≤K(p)}, prove it for all p>p0, and prove that CRT-consistent, size-correct multisets satisfying A cannot all miss -1.",
+      "yield_for_ES": "full with finite check if both new lemmas hold",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.6; §6 single-factor reciprocity and privacy",
+      "obstruction": "B1 small-factor information, B2 full target; CLASS_FORCING Thm 5.2 leaves individual large-factor classes free",
+      "ingredient_can_beat_obstruction": "No candidate A beyond congruences is presently proved. Joint full-multiset constraints are not excluded by the single-factor theorem.",
+      "genuinely_new": "Exactly an existing frontier question; useful adversary specification, not yet an ingredient.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 10,
+      "label": "Assessment",
+      "assessment": "Keep as a precise residual question. A cannot just be the existential certificate condition, and its T1 behavior must be stated.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 13
+    },
+    {
+      "id": "A12",
+      "name": "Integral Y–Δ normal form",
+      "band": "i",
+      "members": [
+        "Z1153"
+      ],
+      "clean_statement": "For each prime p, an explicit terminating integral positive network rewrite takes four parallel p-resistors to three integer branches, with a proved normal form/confluence invariant.",
+      "yield_for_ES": "full if rewriting and termination are proved",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 integral Y–Δ remains open; PROPAGATION_CLOSURE",
+      "obstruction": "B2 integrality of star–triangle moves, positivity, no known confluence; finite move tests are not universal no-go results",
+      "ingredient_can_beat_obstruction": "Concrete move calculus exists, but no global invariant forcing a three-branch terminal graph.",
+      "genuinely_new": "Existing open mechanism, no new rule.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 10,
+      "label": "Assessment",
+      "assessment": "Prior bounded-depth traps limit the chosen move set only. Ordinary rational Y–Δ equivalence does not preserve integer resistances.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 14
+    },
+    {
+      "id": "A13",
+      "name": "Exception propagation",
+      "band": "i",
+      "members": [
+        "Z2809"
+      ],
+      "clean_statement": "Prove a 4-specific successor law: failure at p implies failure at a prime p′ with p<p′≤p+exp(o((log p)^{2/3})), uniformly; iterate against the exceptional-set upper bound.",
+      "yield_for_ES": "full by contradiction, if the uniform propagation theorem is proved",
+      "plausibility": 1,
+      "frontier": "FRONTIER §5.4 amplification criteria; §6 existing proposed transports fail",
+      "obstruction": "Numerator blindness (8/131,8/241), no transport law, quantitative branching/gap threshold",
+      "ingredient_can_beat_obstruction": "AMPLIFY_EXCEPTION supplies the implication, not the successor mechanism.",
+      "genuinely_new": "No new mechanism.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 10,
+      "label": "Assessment",
+      "assessment": "Not circular as a logical strategy: a local propagation lemma could be structurally stronger than ES. No such lemma is in this candidate layer.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 15
+    },
+    {
+      "id": "A16",
+      "name": "Sparse geometric shrinking targets",
+      "band": "i",
+      "members": [
+        "Z2504",
+        "Z2513",
+        "Z2933",
+        "Z0266"
+      ],
+      "clean_statement": "Specify a p-dependent family of independently existing CM/lattice objects and a target Ω_p with a verified map to certificates; prove a pointwise positive target count at its actual sparse scale.",
+      "yield_for_ES": "full if a target-hitting theorem and integrality map hold",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.1 adjacent; §6 known Heegner/CM and spectral estimates fail at scale",
+      "obstruction": "B3 for bounded-fibre power-size targets, B6 if averaging p; target volume is not proof of an integer point",
+      "ingredient_can_beat_obstruction": "CM points/lattices independently exist; no estimate resolves this target. High fibres or polylog targets are not ruled out by B3 Remark 2.4.",
+      "genuinely_new": "Audit restores an open scope; no new target or stronger equidistribution theorem.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 10,
+      "label": "Assessment",
+      "assessment": "The literal h(D)-sized detector version is blocked if h(D) is power-size and fibres are subpower. This does not refute all arithmetic Riemann–Roch or sparse target mechanisms.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z2504",
+        "Z2513",
+        "Z2933"
+      ],
+      "rank_in_band": 16
+    },
+    {
+      "id": "A17",
+      "name": "Adaptive complementary regimes",
+      "band": "i",
+      "members": [
+        "Z2512",
+        "Z2941",
+        "Z3002",
+        "Z2964"
+      ],
+      "clean_statement": "Give a non-congruential computable statistic separating primes into regimes, with a certificate theorem in each regime; a possible form is failure forcing quadratic residuosity beyond the Burgess least-QNR bound.",
+      "yield_for_ES": "full with finite check if every regime is covered",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.3 and §7.15; §6 Siegel dichotomy supplies no working instance",
+      "obstruction": "B1 fixed congruence splits, B2 on each branch, no repelled/successful branch known",
+      "ingredient_can_beat_obstruction": "No proved hardness statistic implies success in either complementary branch.",
+      "genuinely_new": "No new split with verified content.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 10,
+      "label": "Assessment",
+      "assessment": "(★) zeros have small least QNRs; ES5 zeros must not be inferred from I3_C zeros. Numerics can reject a particular split, not all dichotomies.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 17
+    },
+    {
+      "id": "A18",
+      "name": "Self-levelled theta reciprocity",
+      "band": "i",
+      "members": [
+        "Z0416"
+      ],
+      "clean_statement": "Prove Question R/restricted Hypothesis TG for self-levelled SL2 words, then separately show its allowed sporadics contain no prime beyond an effective threshold.",
+      "yield_for_ES": "partial for reciprocity alone; full only with the additional existence and prime-exclusion theorem",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.11; §6 theta normal forms do not decide coefficients",
+      "obstruction": "B2 class in self-levelled word; T1 exact reciprocity is not existence",
+      "ingredient_can_beat_obstruction": "An exact SL2/theta dictionary exists; no new prime-exclusion input.",
+      "genuinely_new": "Existing named open problem, not a new ingredient.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 10,
+      "label": "Assessment",
+      "assessment": "Do not identify observed U sporadics with a proved theta-sporadic set. Reciprocity must be stated independently of the desired ES conclusion.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 18
+    },
+    {
+      "id": "S03",
+      "name": "Chain-denominator criterion",
+      "band": "ii",
+      "members": [
+        "Z0216"
+      ],
+      "clean_statement": "For p≡1 mod4 prime, a solution with x|y|z exists iff p+1 has a prime divisor ≡3 mod4.",
+      "yield_for_ES": "partial: exact solvable restricted family; none on its complement",
+      "plausibility": 3,
+      "frontier": "New elementary calibration relative to FRONTIER; boundary u=1 of (★)",
+      "obstruction": "Fixed line can fail; distribution of prime failures is a separate sieve question",
+      "ingredient_can_beat_obstruction": "Writing y=ax,z=abx reduces integrality to b=1 or p; b=p yields a -1 mod4 divisor of p+1.",
+      "genuinely_new": "Clean criterion, not a new global ES ingredient.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 3,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 16,
+      "label": "Assessment",
+      "assessment": "Criterion is elementary and checked by the source. Infinite failure/density assertions must not be bundled into its PROVED label without verifying the shifted-prime sieve theorem.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 1
+    },
+    {
+      "id": "S04",
+      "name": "Coprime-pair criterion",
+      "band": "ii",
+      "members": [
+        "Z0867"
+      ],
+      "clean_statement": "For p≡1 mod4 prime, a solution with some coprime denominator pair exists iff p+4 has a prime divisor ≡3 mod4.",
+      "yield_for_ES": "partial: López d=1 subfamily; no coverage of its failures",
+      "plausibility": 3,
+      "frontier": "FRONTIER §2.1 b=1 line; elementary subcase",
+      "obstruction": "B2 at general d; a fixed line has failures",
+      "ingredient_can_beat_obstruction": "Two-term factorisation gives an explicit criterion and construction.",
+      "genuinely_new": "New useful interpretation of an existing line.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 3,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 16,
+      "label": "Assessment",
+      "assessment": "Check the coprimality converse algebra separately from the expected Landau failure density; they have different evidentiary status.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 2
+    },
+    {
+      "id": "S01",
+      "name": "Exponent-two failure taxonomy",
+      "band": "ii",
+      "members": [
+        "Z2409",
+        "Z1561"
+      ],
+      "clean_statement": "For t∈{4,8,12,24} and gcd(N,t)=1, -1 is a divisor residue of N iff it lies in the F2-span of the prime-factor residues; otherwise an odd real character is 1 on every factor.",
+      "yield_for_ES": "none directly; exact baseline for beyond-BM inverse theorems",
+      "plausibility": 3,
+      "frontier": "FRONTIER §7.3; METAPLECTIC_ES Thm K",
+      "obstruction": "Other levels have bounded-exponent gaps not detected by subgroup span; B1 forbids universal fixed-menu coverage",
+      "ingredient_can_beat_obstruction": "Elementary finite-group duality proves the statement; actual factor multiplicities matter only outside exponent two.",
+      "genuinely_new": "Useful explicit taxonomy already derived in this pass, not a proof advance.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 3,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "Bank the exact algebra, but separate it from unproved prime-density asymptotics. Level t=16 is NOT an elementary 2-group.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 3
+    },
+    {
+      "id": "S02",
+      "name": "Fixed-level/joint failure densities",
+      "band": "ii",
+      "members": [
+        "Z1577",
+        "Z2619",
+        "Z2636",
+        "Z1927",
+        "Z3118",
+        "Z2399"
+      ],
+      "clean_statement": "For a specified fixed tuple of levels, establish upper/lower bounds for primes p for which each tp+1 lacks a -1 divisor; first treat t=4,8,12,24 with their exact character-kernel descriptions.",
+      "yield_for_ES": "partial: quantitative densities of restricted failures, not a pointwise ES theorem",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.3 calibration; §6 fixed-menu and averaged results",
+      "obstruction": "Prime-detection/half-dimensional sieve lower bounds; dependence between affine forms; bounded exponents outside t|24",
+      "ingredient_can_beat_obstruction": "Exact exponent-two descriptions make a fixed-depth sieve plausible, not arbitrary joint asymptotics automatic.",
+      "genuinely_new": "Explicit constants/joint dependence could be new; not new ES coverage.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "Downgrade source known-true claims for prime joint densities and every short interval unless a precise theorem is supplied. Z2399 finite congruence menus are easier than factorisation-defined fixed levels; keep that special case distinct.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 4
+    },
+    {
+      "id": "S06",
+      "name": "Allowed-residue denominator restrictions",
+      "band": "ii",
+      "members": [
+        "Z0524",
+        "Z2771"
+      ],
+      "clean_statement": "Classify local obstructions for denominators in a specified residue set S mod q, then test global failure sets with a complete bounded enumerator.",
+      "yield_for_ES": "partial on restricted families; no unrestricted conclusion without a proved transport",
+      "plausibility": 2,
+      "frontier": "Not one §7 problem; calibration for §7.13/§7.15 and numerator blindness",
+      "obstruction": "B2 for restricted universality; local admissibility is not sufficient; bounded number of adaptive powers is not a fixed polynomial menu",
+      "ingredient_can_beat_obstruction": "ET gcd/valuation parametrisations are elementary handles; no general conversion among these worlds is proved.",
+      "genuinely_new": "Primitive k=1 versus m=1 duality and the all-even converse are distinct subtargets, retained separately in member targets.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "This is a family of restriction-classification lemmas, not an assertion that the restrictions are equivalent. Universal conjectures merit plausibility 1; bounded algebra/census merits 3. checks.json supplies M=1 power-of-two failures only, not all-M density.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 5
+    },
+    {
+      "id": "S10",
+      "name": "Effective exceptional-set constants",
+      "band": "ii",
+      "members": [
+        "Z2418",
+        "Z2551"
+      ],
+      "clean_statement": "Produce effective c,C,N0 with E_ES(N)≤C N exp(-c(log N)^{3/4}) for N≥N0, handling an exceptional real character rather than hiding ineffectivity.",
+      "yield_for_ES": "partial: an explicit exceptional-set theorem, not zero exceptions",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.12; internal paper/es-threequarter-note.tex",
+      "obstruction": "Exceptional-modulus loss in sieve supply; Siegel–Walfisz/BV ineffectivity",
+      "ingredient_can_beat_obstruction": "Landau–Page exclusion is a concrete standard repair candidate, subject to checking the supply loss.",
+      "genuinely_new": "Effectivity, not a new exponent or pointwise theorem.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "Source claim that all relevant moduli are polylog or that BMOR alone suffices must be checked against the actual paper. One day should locate the exceptional-modulus deletion lemma, not promise all numerical constants.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 6
+    },
+    {
+      "id": "S11",
+      "name": "Almost-all a²+b⁴ values",
+      "band": "ii",
+      "members": [
+        "Z0240"
+      ],
+      "clean_statement": "Prove #{(a,b):a²+b⁴≤X and ES(a²+b⁴) fails}=o(X^{3/4}/log X), with representation multiplicity handled, hence almost all primes in that thin family are ES-valid.",
+      "yield_for_ES": "partial: thin-family almost-all result; no prescribed prime",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.12 related; not already §7.8 every-exponent result",
+      "obstruction": "B6; uniform local occupancy for the two-dimensional sieve; thin sets cannot inherit ambient density one for free",
+      "ingredient_can_beat_obstruction": "Polynomial residue counts and a two-dimensional large sieve are concrete tools.",
+      "genuinely_new": "Plausible new thin-set restriction theorem.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "The source plausibility 3 is optimistic until the local character-sum loss and dimension supply are checked. The internal ambient exceptional bound alone is far larger than X^{3/4}.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 7
+    },
+    {
+      "id": "S16",
+      "name": "S-integer positive ES",
+      "band": "ii",
+      "members": [
+        "Z0052",
+        "Z0054",
+        "Z0297",
+        "Z0251"
+      ],
+      "clean_statement": "For every integer ℓ≥2 and n≥2, prove positive ES over Z[1/ℓ] using an odd-order half-turn of ℓ modulo a Dirichlet prime q≡3 mod4.",
+      "yield_for_ES": "none for integer ES without exponent-removal transport",
+      "plausibility": 3,
+      "frontier": "FRONTIER §7.13 adjacent; §6 B-fin transport gap; POWER_LADDER_ES one-mute-prime theorem",
+      "obstruction": "B-fin finite integer certificate box versus unbounded unit powers",
+      "ingredient_can_beat_obstruction": "Dirichlet and reciprocity provide the needed q and odd k with q|1+ℓ^k; the unit-sum identity is explicit.",
+      "genuinely_new": "An elementary simplification of an existing relaxation mechanism.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 3,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "For composite ℓ reduce to rad(ℓ); do not assume every nonsquare integer has the same primitive-character modulus. The theorem remains a ring result; no downward transport follows.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 8
+    },
+    {
+      "id": "S21",
+      "name": "I3 exponential covering",
+      "band": "ii",
+      "members": [
+        "Z2776"
+      ],
+      "clean_statement": "Prove I3 for all members of one new family 3^k±2 or 5·3^k+1 beyond explicitly checked exceptions, by a verified finite cover of the exponent.",
+      "yield_for_ES": "none directly unless certificates satisfy the ES coordinate restriction",
+      "plausibility": 3,
+      "frontier": "FRONTIER §7.17; existing I3 exponential families",
+      "obstruction": "Class-free I3 does not imply ES; small k may need exceptions",
+      "ingredient_can_beat_obstruction": "Existing exponent-cover machinery is a direct reusable handle.",
+      "genuinely_new": "New sibling families, not new pointwise ES input.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 3,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "Keep t,u,v≥3 and verify all base cases; small values can fail trivially. Record the certificate coordinate if claiming any ES consequence.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 9
+    },
+    {
+      "id": "S26",
+      "name": "Identity/curve classification and discovery",
+      "band": "ii",
+      "members": [
+        "Z2352",
+        "Z2616",
+        "Z1296",
+        "Z1586",
+        "Z1583",
+        "Z1798"
+      ],
+      "clean_statement": "At a stated degree and parameter class, classify or construct rational/polynomial ES identity families, distinguishing linear p, positive-definite quadratic parameters, Type I versus Type II, and nonconstant levels.",
+      "yield_for_ES": "partial: new explicit families/classes; finite universal cover remains obstructed",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.8 adjacent; §6 B1 only in its proved scope; ident_form_families §§3–6",
+      "obstruction": "B1 finite universal coverage; conditional Gaussian trap for t²+1; nonconstant Type I remains unclassified",
+      "ingredient_can_beat_obstruction": "Coefficient equations and symbolic identity checking are concrete. A square class mod840 alone is not a no-go: checks.json supplies an identity on n=5881 mod9240.",
+      "genuinely_new": "Audit restores actual partial-family work; general classification is not already known.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "Sources Z2352/Z2616 label stronger classification known-true while admitting it is not done. No blanket extension from positive-definite quadratic Type II to every bivariate Type I family. Bounded discovery plausibility3; full classification plausibility1–2.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z1296",
+        "Z1586",
+        "Z1798"
+      ],
+      "rank_in_band": 10
+    },
+    {
+      "id": "S36",
+      "name": "Power-of-two denominator restrictions",
+      "band": "ii",
+      "members": [
+        "Z1942"
+      ],
+      "clean_statement": "For each fixed M, determine whether infinitely many primes fail to have any denominator 2^k m with m|M; start with exact M=1 failures.",
+      "yield_for_ES": "partial on restricted families; no unrestricted conclusion without a proved transport",
+      "plausibility": 2,
+      "frontier": "Not one §7 problem; calibration for §7.13/§7.15 and numerator blindness",
+      "obstruction": "B2 for restricted universality; local admissibility is not sufficient; bounded number of adaptive powers is not a fixed polynomial menu",
+      "ingredient_can_beat_obstruction": "ET gcd/valuation parametrisations are elementary handles; no general conversion among these worlds is proved.",
+      "genuinely_new": "Primitive k=1 versus m=1 duality and the all-even converse are distinct subtargets, retained separately in member targets.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "checks.json certifies M=1 failures. The all-M infinitely-often theorem is not proved by B1 because k grows with p; positive-density claims need a separate counting argument.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z1942"
+      ],
+      "rank_in_band": 11
+    },
+    {
+      "id": "S09",
+      "name": "Explicit BM/QNR constants",
+      "band": "ii",
+      "members": [
+        "Z2858",
+        "Z2901"
+      ],
+      "clean_statement": "Give effective numerical p1,c and a least-odd-QNR range T(p) such that p≥p1 implies M_BM(p)≥c log²p and some t≤T(p) has positive BM level mass.",
+      "yield_for_ES": "none directly; explicit prerequisite/main term only",
+      "plausibility": 3,
+      "frontier": "FRONTIER §2.2 and §7.3; already proved qualitative BM floor",
+      "obstruction": "B2 class inside allowed coset remains untouched",
+      "ingredient_can_beat_obstruction": "Explicit Pólya–Vinogradov/Burgess constants and finite verification are available in principle.",
+      "genuinely_new": "Effective thresholds only.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 3,
+        "one_day_information": 2,
+        "novelty": 0,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 10,
+      "label": "Assessment",
+      "assessment": "Do not claim this would make H^- effective; the lower-tail hypothesis is a separate missing theorem.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 12
+    },
+    {
+      "id": "S29",
+      "name": "Unified local-hardness regression",
+      "band": "ii",
+      "members": [
+        "Z0728",
+        "Z0515",
+        "Z0737",
+        "Z0824",
+        "Z0836",
+        "Z0900",
+        "Z0215",
+        "Z0275",
+        "Z0634",
+        "Z0697",
+        "Z0727",
+        "Z0917",
+        "Z0918",
+        "Z0968",
+        "Z1999",
+        "Z0686",
+        "Z2981",
+        "Z0808",
+        "Z0773"
+      ],
+      "clean_statement": "With a fixed definition of the local-density model and held-out matched-size/residue cells, test whether proposed extra features improve predicted count means/zero rates beyond existing F and BM factors.",
+      "yield_for_ES": "none directly; EVIDENCE about models and informative hard test cases",
+      "plausibility": 3,
+      "frontier": "FRONTIER §2.2 RESIDUE_HARDNESS and BM_LVALUE; §7.15 calibration",
+      "obstruction": "B6; overfitting, local/global confounding; subgroup model omits bounded-exponent failures",
+      "ingredient_can_beat_obstruction": "Existing count data and explicit local factors permit a disciplined residual test.",
+      "genuinely_new": "Possible model corrections (including inverted practical-p-1 ranking), not an independent positivity theorem.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 3,
+        "one_day_information": 2,
+        "novelty": 0,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 10,
+      "label": "Assessment",
+      "assessment": "These are variants of the same conditional-mean/model comparison, not proofs of their fitted causes. Z0634 subgroup membership is only necessary. Z0808/Z0773 are legitimate measurements, wrongly labelled circular; neither justifies a uniform count floor.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z0808",
+        "Z0773"
+      ],
+      "rank_in_band": 13
+    },
+    {
+      "id": "S08",
+      "name": "Main-term secondary coefficients",
+      "band": "ii",
+      "members": [
+        "Z1760"
+      ],
+      "clean_statement": "Compute the log p and constant terms of M0(p)=Σ_{coprime u,B;u+B odd;4uB-u-B≤p}1/φ(4uB), with a rigorously justified error term.",
+      "yield_for_ES": "none directly; improves a calibrated comparison count",
+      "plausibility": 2,
+      "frontier": "FRONTIER §2.2; no new §7 lower-tail input",
+      "obstruction": "Hyperbolic boundary shifts affect secondary terms; claimed O(p^-δ) needs proof",
+      "ingredient_can_beat_obstruction": "Mellin/Euler-product expansion gives an accessible double pole; keep the shifted boundary rather than silently replacing it by 4uB≤p.",
+      "genuinely_new": "Potential new constants, not new existence mechanism.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 9,
+      "label": "Assessment",
+      "assessment": "Plausibility 2, not automatic 3: the leading singularity is straightforward, the strong error and boundary contribution are not supplied.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 14
+    },
+    {
+      "id": "S23",
+      "name": "Long-chain character sign rule",
+      "band": "ii",
+      "members": [
+        "Z2782"
+      ],
+      "clean_statement": "Derive the exact quadratic-character sign of a chain lattice/HJ word from its characteristic covector and signature, for length≥4 as well as the known three-slot case.",
+      "yield_for_ES": "none directly; a dictionary/sign-calibration theorem",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.11 adjacent; §6 lattice/HJ dictionary alone does not force existence",
+      "obstruction": "Correct quadratic refinement and parity conventions; naive coordinate mod4 rule fails at length4",
+      "ingredient_can_beat_obstruction": "van der Blij/Gauss-sum formulas give an explicit algebraic handle.",
+      "genuinely_new": "Long-word bookkeeping may be new; three-word equivalence is not.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 9,
+      "label": "Assessment",
+      "assessment": "Do not classify the side sign theorem as circular merely because short-word existence is ES-strength. Specify the lattice parity conditions before enumerating 512 cells.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 15
+    },
+    {
+      "id": "S34",
+      "name": "Primitive Type-II line",
+      "band": "ii",
+      "members": [
+        "Z0866"
+      ],
+      "clean_statement": "For every p>p0 prime, find coprime a,b and m|(a+b) with p=4ab-(a+b)/m; first prove the primitive-solution parametrisation and audit its failures.",
+      "yield_for_ES": "partial on restricted families; no unrestricted conclusion without a proved transport",
+      "plausibility": 1,
+      "frontier": "Not one §7 problem; calibration for §7.13/§7.15 and numerator blindness",
+      "obstruction": "B2 for restricted universality; local admissibility is not sufficient; bounded number of adaptive powers is not a fixed polynomial menu",
+      "ingredient_can_beat_obstruction": "ET gcd/valuation parametrisations are elementary handles; no general conversion among these worlds is proved.",
+      "genuinely_new": "Primitive k=1 versus m=1 duality and the all-even converse are distinct subtargets, retained separately in member targets.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 9,
+      "label": "Assessment",
+      "assessment": "The universal statement is a genuine strengthening, plausibility1; the finite algebra/census is plausibility3. It is not equivalent to all-even or allowed-residue ES. The exact primitive criterion gives a useful restricted model.",
+      "first_step_plausibility": 3,
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 16
+    },
+    {
+      "id": "S35",
+      "name": "All-even converse",
+      "band": "ii",
+      "members": [
+        "Z0212"
+      ],
+      "clean_statement": "For every prime p, existence of an ES solution with one denominator divisible by4 implies existence of an all-even ES solution.",
+      "yield_for_ES": "partial on restricted families; no unrestricted conclusion without a proved transport",
+      "plausibility": 1,
+      "frontier": "Not one §7 problem; calibration for §7.13/§7.15 and numerator blindness",
+      "obstruction": "B2 for restricted universality; local admissibility is not sufficient; bounded number of adaptive powers is not a fixed polynomial menu",
+      "ingredient_can_beat_obstruction": "ET gcd/valuation parametrisations are elementary handles; no general conversion among these worlds is proved.",
+      "genuinely_new": "Primitive k=1 versus m=1 duality and the all-even converse are distinct subtargets, retained separately in member targets.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 9,
+      "label": "Assessment",
+      "assessment": "The easy reverse implication follows from the 2-adic maximum appearing twice. The converse is a separate transport conjecture; local valuations do not prove it. No uniform conversion is supplied.",
+      "first_step_plausibility": 3,
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 17
+    },
+    {
+      "id": "S12",
+      "name": "Low moments and concentration calibration",
+      "band": "ii",
+      "members": [
+        "Z2362",
+        "Z2432",
+        "Z2461",
+        "Z1074"
+      ],
+      "clean_statement": "Prove first/second moment bounds for a specified R or f over primes (or integers), with correct log powers, sufficient for a positive-density lower bound or a quantitative variance theorem.",
+      "yield_for_ES": "partial: positive density or weak exceptional bound, normally dominated by existing coverage theorems",
+      "plausibility": 2,
+      "frontier": "FRONTIER §6 fixed-p variance/Dirichlet moments; §7.5 asks for much more",
+      "obstruction": "B6; large-lcm off-diagonal pairs; rare upper tails",
+      "ingredient_can_beat_obstruction": "Divisor switching can handle some pair correlations; no uniform high-order moment theorem supplied.",
+      "genuinely_new": "Sharp second moment could be publishable structure, not ES progress by coverage.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Empirical second moments are not known-true theorems. Linnik upper spikes do not themselves rule out good averaged second moments. Positive-density yield and an exact variance law must not be conflated.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 18
+    },
+    {
+      "id": "S13",
+      "name": "Average count asymptotics",
+      "band": "ii",
+      "members": [
+        "Z2597",
+        "Z2040",
+        "Z2481",
+        "Z2086"
+      ],
+      "clean_statement": "Establish a full main-term polynomial for Σ_{n≤N}f(n), or a specified prime/AP count, with justified error; use it to compute conditional count means.",
+      "yield_for_ES": "partial: sharper average counts and arithmetic-progression means",
+      "plausibility": 2,
+      "frontier": "FRONTIER §5.1 and §6 Manin/height-count interpretations",
+      "obstruction": "B6; prime AP asymptotics may need large-modulus divisor switching",
+      "ingredient_can_beat_obstruction": "ET divisor parametrisations give a concrete analytic route; height reinterpretation alone does not add input.",
+      "genuinely_new": "New constants/error terms are possible.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Z2086 fixed-Q constant fractional depression is not implied by a local correction of order 1/log X; it may vanish asymptotically. Also Σ floor(N/den(P)) is not an exact equivalence of leading constants without a Tauberian/partial-summation argument. Drop those automatic implications.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 19
+    },
+    {
+      "id": "S15",
+      "name": "Short-interval solved primes",
+      "band": "ii",
+      "members": [
+        "Z2947",
+        "Z2382"
+      ],
+      "clean_statement": "Combine a uniform interval exceptional bound for the SAME certificate family with a proven lower bound for primes in that interval to ensure at least one solved prime.",
+      "yield_for_ES": "partial: one solved prime per interval, never every prime",
+      "plausibility": 2,
+      "frontier": "FRONTIER §5.1 interval bounds; §7.12 adjacent",
+      "obstruction": "B6; ES versus (★) mismatch; short-interval prime lower bounds in APs require separate inputs",
+      "ingredient_can_beat_obstruction": "Existing interval bounds may prove an ES version; a (★)-only or fixed-840-class version needs its own theorem.",
+      "genuinely_new": "Bookkeeping corollary if hypotheses match.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Do not label the optional Mordell-class BHP version known-true by citing an unrestricted prime interval theorem. Verify the family and progression uniformly.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 20
+    },
+    {
+      "id": "S28",
+      "name": "Divisor-in-progression algorithms",
+      "band": "ii",
+      "members": [
+        "Z1212"
+      ],
+      "clean_statement": "Instantiate a verified Lenstra/Coppersmith divisor-in-AP algorithm for N=4Cp+1, modulus 4C in its proved large-modulus range, and validate the count/range constants.",
+      "yield_for_ES": "none for universal existence; faster finite certificates",
+      "plausibility": 3,
+      "frontier": "FRONTIER §6 B2 finite search remains",
+      "obstruction": "Upper bounds and algorithms do not guarantee a target divisor exists",
+      "ingredient_can_beat_obstruction": "Published fixed-dimension lattice algorithms may speed large-level enumeration.",
+      "genuinely_new": "Engineering/literature-validation payoff only.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 3,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "The source explicitly did not reverify its strongest N^{1/4} threshold; do so before implementing or quoting it as a theorem.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 21
+    },
+    {
+      "id": "S30",
+      "name": "Exact local-density formulas",
+      "band": "ii",
+      "members": [
+        "Z0282",
+        "Z1310",
+        "Z1311",
+        "Z2494",
+        "Z2566",
+        "Z2863"
+      ],
+      "clean_statement": "Compute a specified local p-adic or 2-adic density of ES solutions/words by valuation strata and Hensel lifting, with a rational expression and explicit singular cases.",
+      "yield_for_ES": "none directly; local main-term data",
+      "plausibility": 3,
+      "frontier": "FRONTIER §2.2; §6 local/BM data do not force global points",
+      "obstruction": "T1/global class not captured by naive local product; integrality and coprimality conventions",
+      "ingredient_can_beat_obstruction": "Finite residue counts plus lifting can prove an exact density once the polynomial and strata are specified.",
+      "genuinely_new": "Potential extra local constants; source Z1311 names no polynomial and needs a definition first.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 3,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Known local solubility does not prove every claimed formula. The hard task is specification and singular lifting, not empirical counts alone.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 22
+    },
+    {
+      "id": "S05",
+      "name": "No-3 global failures",
+      "band": "ii",
+      "members": [
+        "Z0863"
+      ],
+      "clean_statement": "Classify the primes lacking an ES solution with 3∤xyz; conjectural list {3,241}, starting with a rigorous explanation of the finite 241 obstruction and a bounded census.",
+      "yield_for_ES": "partial restricted-family theorem if classification were proved; finite/local work yields calibration only",
+      "plausibility": 1,
+      "frontier": "Not a FRONTIER §7 target; related to §7.15 low-count sibling failures",
+      "obstruction": "B2 remains; global restriction is not a 3-adic obstruction",
+      "ingredient_can_beat_obstruction": "Finite exact enumeration is cheap; no mechanism proves only those two exceptions.",
+      "genuinely_new": "Audit-rescued distinct global problem; not logically equivalent to ES.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "checks.json independently enumerates all eight solutions at 241. (241,241,241/2) is a 3-adic-unit solution, excluding a naive local explanation. Do not infer universality from a finite list.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z0863"
+      ],
+      "rank_in_band": 23
+    },
+    {
+      "id": "S07",
+      "name": "Uniform local-depression floor",
+      "band": "ii",
+      "members": [
+        "Z0671",
+        "Z2000"
+      ],
+      "clean_statement": "Define the joint local-density model F_Q(p) exactly and prove F_Q(p)≥c>0 uniformly over the growing admissible pinning moduli Q in the claimed range.",
+      "yield_for_ES": "none directly: a refined main-term floor, not a lower bound on actual solutions",
+      "plausibility": 2,
+      "frontier": "FRONTIER §2.2 RESIDUE_HARDNESS; adjacent to §7.4, but not M_gen itself",
+      "obstruction": "Accumulation of nonuniform higher-order local corrections; B3/B6 main term versus actual count",
+      "ingredient_can_beat_obstruction": "An explicit density formula would permit Euler-product analysis; multiplying fixed-Q first-order expansions is not a uniform proof.",
+      "genuinely_new": "Uniform growing-Q estimate, if true, is stronger than current fitted local factors.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "Do not assert F is already a proven Euler product with a floor. Source Z2000 itself calls its 1/log p formula a conjectural secondary term. First specify the joint model, then test/prove its bound.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 24
+    },
+    {
+      "id": "S18",
+      "name": "Totally-positive unit mechanism",
+      "band": "ii",
+      "members": [
+        "Z0061",
+        "Z0086"
+      ],
+      "clean_statement": "For a specified real quadratic K, determine which totally positive e admit e=1/u+1/v in O_K, and whether suitable units give rational-input ES; start with K=Q(√3) and the mod4 class restriction in Q(√5).",
+      "yield_for_ES": "none for Z without a transport theorem",
+      "plausibility": 2,
+      "frontier": "FRONTIER §6 other-ring transport; other_rings Prop 3.3",
+      "obstruction": "Congruence at one prime ideal is not divisibility by the rational prime ℓ; total positivity in every real embedding",
+      "ingredient_can_beat_obstruction": "Unit groups and finite residue rings are explicit. For split ℓ, η≡-1 at just one prime above ℓ does NOT imply (1+η)/ℓ∈O_K.",
+      "genuinely_new": "Potential broader ring classification; no ES-specific integer mechanism.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "Repair Z0061 before using Chebotarev: require rational divisibility or an algebraic e with a valid mod4 relation for rational n. Q(√5) six-class claim is evidence until proved. General number-field statement is harder than these first cases.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 25
+    },
+    {
+      "id": "S19",
+      "name": "Function-field bounded-menu obstruction",
+      "band": "ii",
+      "members": [
+        "Z2579"
+      ],
+      "clean_statement": "For fixed admissible degree data and sufficiently large finite field size q, instantiate the finite polynomial system behind a specified bounded-menu obstruction using a proved function-field prime-tuple theorem.",
+      "yield_for_ES": "none for Z; proves a model obstruction unconditionally in a different limit",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.10 adjacent, not the fixed F3[T] sterility question",
+      "obstruction": "Separability, admissibility, characteristic exceptions and order of limits q→∞ versus degree→∞",
+      "ingredient_can_beat_obstruction": "Large-q prime-tuple theorems can replace H only after their exact hypotheses are verified.",
+      "genuinely_new": "Unconditional model of a conditional barrier.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "Do not present this as an unconditional integer theorem, or as the fixed-q F3[T] result. Handling 6402 polynomials is more than one routine substitution.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 26
+    },
+    {
+      "id": "S24",
+      "name": "Triangle sandpile relaxation",
+      "band": "ii",
+      "members": [
+        "Z2652",
+        "Z2851"
+      ],
+      "clean_statement": "Construct, for every sufficiently large p≡1 mod4, a triangle multigraph with ab+bc+ca=p and a nonsquare sandpile pairing, under an explicit least-prime-in-coset bound; handle remaining primes separately.",
+      "yield_for_ES": "none without transport from triangles to the ES fan shape",
+      "plausibility": 2,
+      "frontier": "FRONTIER §6 B-fin; analogous to ES-square relaxation",
+      "obstruction": "Existence of q≡3 mod4 with (q/p)=-1 below √(2p); graph vertex count is not fan shape",
+      "ingredient_can_beat_obstruction": "The displayed triangle formula is constructive conditional on q; GRH supplies a polylog q for large p.",
+      "genuinely_new": "Useful graph analogue, but unconditional all-p status is not established in the source.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "Source known-true conflates a GRH asymptotic, a finite census and an unverified unconditional coset bound. Mark CONDITIONAL on that bound (or GRH), with finite exceptions not automatically covered.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 27
+    },
+    {
+      "id": "S25",
+      "name": "Negative-deformation BM failures",
+      "band": "ii",
+      "members": [
+        "Z2626"
+      ],
+      "clean_statement": "Evaluate the relevant Brauer classes on S_{n,-4} at its six recorded failing n, or prove those classes do not obstruct its positive integral adelic set.",
+      "yield_for_ES": "none directly; calibration of genuine versus lottery-type obstructions",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.15; §6 BM geometry",
+      "obstruction": "An apparent cluster/Hecke dictionary need not preserve integrality or positivity; non-density is not nonexistence",
+      "ingredient_can_beat_obstruction": "Explicit equations and low-count failure lists permit finite symbolic/local computations.",
+      "genuinely_new": "Potentially useful near-neighbour models; three distinct model instances, not an equivalence.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "Stop at an exact identification or explicit obstruction; do not infer ES truth from a sibling having no newly found invariant.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 28
+    },
+    {
+      "id": "S37",
+      "name": "Q(sqrt5) unit-sum residue classes",
+      "band": "ii",
+      "members": [
+        "Z0062"
+      ],
+      "clean_statement": "For totally positive integers u,v in Q(√5), prove that odd e=1/u+1/v lies in the six ±square classes mod4, and determine which classes are attained.",
+      "yield_for_ES": "none for Z without a transport theorem",
+      "plausibility": 2,
+      "frontier": "FRONTIER §6 other-ring transport; other_rings Prop 3.3",
+      "obstruction": "Congruence at one prime ideal is not divisibility by the rational prime ℓ; total positivity in every real embedding",
+      "ingredient_can_beat_obstruction": "Unit groups and finite residue rings are explicit. For split ℓ, η≡-1 at just one prime above ℓ does NOT imply (1+η)/ℓ∈O_K.",
+      "genuinely_new": "Potential broader ring classification; no ES-specific integer mechanism.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "A concrete local/global unit-sum classification, distinct from universal existence over arbitrary fields. The source reports finite-box evidence, not a proof; total positivity and integrality of e are essential.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 29
+    },
+    {
+      "id": "S40",
+      "name": "Cluster-fibre geometric identification",
+      "band": "ii",
+      "members": [
+        "Z2687"
+      ],
+      "clean_statement": "Identify the coefficient-N ES5 frieze fibre with a specified twisted A2 log-K3/degree-five-del-Pezzo-complement model, or exhibit the precise boundary/integrality mismatch.",
+      "yield_for_ES": "none directly; calibration of genuine versus lottery-type obstructions",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.15; §6 BM geometry",
+      "obstruction": "An apparent cluster/Hecke dictionary need not preserve integrality or positivity; non-density is not nonexistence",
+      "ingredient_can_beat_obstruction": "Explicit equations and low-count failure lists permit finite symbolic/local computations.",
+      "genuinely_new": "Potentially useful near-neighbour models; three distinct model instances, not an equivalence.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "The identification is a bounded symbolic task. Harpaz non-density is not a pointwise existence theorem; even an exact variety isomorphism needs an integral-model comparison.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 30
+    },
+    {
+      "id": "S41",
+      "name": "Hecke-G4 short-word sibling",
+      "band": "ii",
+      "members": [
+        "Z2799"
+      ],
+      "clean_statement": "Define G4 length-three words with cusp entry p and a precise quadratic-character surrogate, then derive their square-obstruction law and classify finite nonsquare failures.",
+      "yield_for_ES": "none directly; calibration of genuine versus lottery-type obstructions",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.15; §6 BM geometry",
+      "obstruction": "An apparent cluster/Hecke dictionary need not preserve integrality or positivity; non-density is not nonexistence",
+      "ingredient_can_beat_obstruction": "Explicit equations and low-count failure lists permit finite symbolic/local computations.",
+      "genuinely_new": "Potentially useful near-neighbour models; three distinct model instances, not an equivalence.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 6,
+      "label": "Assessment",
+      "assessment": "This is a new sibling definition/sign calculation, not a theorem about the ES surface. Arithmetic versus nonarithmetic Hecke groups do not by themselves settle existence.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 31
+    },
+    {
+      "id": "S14",
+      "name": "Distribution in progressions",
+      "band": "ii",
+      "members": [
+        "Z2379",
+        "Z2400"
+      ],
+      "clean_statement": "Prove an explicit beyond-1/2 distribution estimate for the relevant weighted prime or ES-count progressions, keeping the moving residue and modulus dependence in the theorem.",
+      "yield_for_ES": "partial: averaged sieve inputs, not necessarily a better exceptional-set exponent",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.12; §6 CRT supply-law cap",
+      "obstruction": "B6; well-factorable weight hypotheses and moving residue differ from classical BFI; CRT cap may remain",
+      "ingredient_can_beat_obstruction": "Analytic distribution tools exist, but no cited theorem matches the full displayed parameters.",
+      "genuinely_new": "Potential parameter-range result, not a named standard conjecture⇒ES implication.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": 3,
+      "label": "Assessment",
+      "assessment": "Plausibility reduced from 2: establish an admissible estimate first and show the exceptional-set architecture actually needs its range. No automatic saving beyond 3/4.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 32
+    },
+    {
+      "id": "S31",
+      "name": "Certificate-shape distribution",
+      "band": "ii",
+      "members": [
+        "Z3188",
+        "Z2523",
+        "Z3068",
+        "Z1762",
+        "Z0500"
+      ],
+      "clean_statement": "For a specified certificate measure (all witnesses versus minimal witness), derive or test its average log-coordinate/local-residue distribution and compare against the hyperbolic density model.",
+      "yield_for_ES": "none directly; witness-location calibration or an averaged theorem",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.2 and §6 B6",
+      "obstruction": "B6; minimal witnesses are biased order statistics, not samples from the all-witness measure",
+      "ingredient_can_beat_obstruction": "Explicit 1/φ weights and existing enumerators provide a model; a proof requires joint distribution estimates.",
+      "genuinely_new": "New shape statistics possible, not pointwise control.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 3,
+      "label": "Assessment",
+      "assessment": "Unweighted C_min mod m need not equidistribute (C_min=1 has positive mass). Z3188 should be restated with the actual limiting distribution, not uniformity. Murmurations are not an additional theorem without a trace-family model.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 33
+    },
+    {
+      "id": "S32",
+      "name": "Upper-tail extremal order",
+      "band": "ii",
+      "members": [
+        "Z0710"
+      ],
+      "clean_statement": "Bound max_{n≤X}U(n) above and below on the exp(c log X/log log X) scale, separating a proved order-of-magnitude exponent from an exact constant.",
+      "yield_for_ES": "none for ES lower-tail positivity",
+      "plausibility": 2,
+      "frontier": "FRONTIER §2.2 upper-tail Linnik construction",
+      "obstruction": "Exact constant is not supplied by matching rough divisor bounds",
+      "ingredient_can_beat_obstruction": "Linnik constructions and divisor estimates are concrete.",
+      "genuinely_new": "Potential extremal-count refinement only.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 3,
+      "label": "Assessment",
+      "assessment": "Downgrade the source exact-c known-true claim: its stated upper/lower arguments do not establish a common limiting constant.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 34
+    },
+    {
+      "id": "S33",
+      "name": "Cap-relaxation transference constants",
+      "band": "ii",
+      "members": [
+        "Z2797"
+      ],
+      "clean_statement": "Under Hypothesis W, improve the covering-radius/dual-minimum constants or exponent in the known cap bound, with exact dimension dependence.",
+      "yield_for_ES": "none for cap0; a conditional improvement for a relaxation",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.13; BALANCED_LATTICE",
+      "obstruction": "B-fin; bounded positive cap is not integer ES; W is nonstandard",
+      "ingredient_can_beat_obstruction": "Reverse-Minkowski/transference inequalities may improve the geometry constants, not the class event.",
+      "genuinely_new": "Possible conditional constants only.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 3,
+      "label": "Assessment",
+      "assessment": "First determine whether the new inequality changes an exponent or only a fixed factor. Neither removes the independent W hypothesis.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 35
+    },
+    {
+      "id": "S22",
+      "name": "Numerator-nine complete exception list",
+      "band": "ii",
+      "members": [
+        "Z0735"
+      ],
+      "clean_statement": "Prove 9/n has a three-unit-fraction representation for every n≥20, with explicit verification of exceptions 2,5,11,19 for n≥2.",
+      "yield_for_ES": "none for numerator 4; a complete sibling theorem if achieved",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.15 numerator calibration; no dedicated §7 problem",
+      "obstruction": "Absence of T1 does not imply existence of a finite cover (5/n warns against this); coverage search can stall",
+      "ingredient_can_beat_obstruction": "Bounded identity search is concrete and may find a cover, but no cover or proof of coverability is supplied.",
+      "genuinely_new": "Potential complete numerator classification, not evidence B1 is exactly T1.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 2,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": 2,
+      "label": "Assessment",
+      "assessment": "Downgrade plausibility 2 to 1 for the universal theorem, retain a cheap falsification/cover-search task. No sterile point found is not equivalent to a finite covering.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 36
+    },
+    {
+      "id": "S17",
+      "name": "Depth-one weighted numerator",
+      "band": "ii",
+      "members": [
+        "Z0053"
+      ],
+      "clean_statement": "For each odd ℓ≥5 and prime p∤ℓ, find positive integers x,y,z with 4/p=1/x+1/y+ℓ/z and ℓ∤z; settle a specified ℓ≡1 mod4 first.",
+      "yield_for_ES": "none directly; a relaxation with prescribed third numerator",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 power ladder/transport; no numbered §7 problem",
+      "obstruction": "B-fin; unbounded-power ring proof does not prove exponent-one claim",
+      "ingredient_can_beat_obstruction": "An explicit formula settles ℓ≡3 mod4; no uniform finite cover for ℓ≡1 mod4 is exhibited.",
+      "genuinely_new": "Distinct bounded-depth sibling, not automatically covered by flat power ladder.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": 1,
+      "label": "Assessment",
+      "assessment": "Downgrade source plausibility 3: “finite covering, easy” is not a proof. One counterexample or a genuine cover would be useful calibration.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 37
+    },
+    {
+      "id": "S20",
+      "name": "Function-field average count",
+      "band": "ii",
+      "members": [
+        "Z2598"
+      ],
+      "clean_statement": "For a fixed F_q[T] ES model, prove an asymptotic for the number of certificates summed over degree-n irreducibles, with explicit main term and error in a stated limit.",
+      "yield_for_ES": "none for Z without a sharp transfer",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.10 related but not identical; §6 function-field transfer gap",
+      "obstruction": "Characteristic can remove T1; bounded CF digits do not imply length≤3; a circle method needs enough variables",
+      "ingredient_can_beat_obstruction": "Finite-degree experiments and polynomial parametrisations are concrete, but the quoted general theorems do not yet match the model.",
+      "genuinely_new": "Sibling calibration only.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": -1,
+      "label": "Assessment",
+      "assessment": "These are model subtargets, not equivalent theorems; an average curve count cannot prove every irreducible has a short word. The source known-true label for section counts is unsupported without an actual formula/hypotheses.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 38
+    },
+    {
+      "id": "S27",
+      "name": "Witness-scale lower bounds",
+      "band": "ii",
+      "members": [
+        "Z0652"
+      ],
+      "clean_statement": "For a specified witness coordinate, improve the infinitely-often lower bound toward exp((log p)^{1/3-o(1)}) by sharpening Haar survival and proving the prime transfer with the correct energy hypothesis.",
+      "yield_for_ES": "none directly; sharper obstruction-side quantitative theorem",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.2; H4_NOT_POLYLOG and POINTWISE_OMEGA13",
+      "obstruction": "Coordinate definitions differ; current Haar upper/lower estimates are far apart; transfer costs matter",
+      "ingredient_can_beat_obstruction": "Existing energy architecture is explicit, but a sharper Haar survival theorem is missing.",
+      "genuinely_new": "Possible barrier exponent improvement, not a proof mechanism.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": -1,
+      "label": "Assessment",
+      "assessment": "Do not transfer the heuristic exponent 1/3 between least modulus, endpoint and menu size without a theorem. This is not a cheap numerical fit.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 39
+    },
+    {
+      "id": "S38",
+      "name": "Function-field length-three target",
+      "band": "ii",
+      "members": [
+        "Z0022"
+      ],
+      "clean_statement": "In a specified F_q[T] ES model, determine whether every sufficiently large-degree irreducible has a certificate with Artin/HJ length≤3 and the appropriate sign condition.",
+      "yield_for_ES": "none for Z without a sharp transfer",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.10 related but not identical; §6 function-field transfer gap",
+      "obstruction": "Characteristic can remove T1; bounded CF digits do not imply length≤3; a circle method needs enough variables",
+      "ingredient_can_beat_obstruction": "Finite-degree experiments and polynomial parametrisations are concrete, but the quoted general theorems do not yet match the model.",
+      "genuinely_new": "Sibling calibration only.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": -1,
+      "label": "Assessment",
+      "assessment": "Bounded digits or ordinary function-field Zaremba do not imply bounded length. A small-degree computation is diagnostic only; characteristic and the sign surrogate must be fixed first.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 40
+    },
+    {
+      "id": "S39",
+      "name": "Function-field section counts",
+      "band": "ii",
+      "members": [
+        "Z2483"
+      ],
+      "clean_statement": "For a fixed degree d and explicitly chosen ES total-space compactification over F_q(t), compute the dimension/count of polynomial sections with the required integrality conditions.",
+      "yield_for_ES": "none for Z without a sharp transfer",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.10 related but not identical; §6 function-field transfer gap",
+      "obstruction": "Characteristic can remove T1; bounded CF digits do not imply length≤3; a circle method needs enough variables",
+      "ingredient_can_beat_obstruction": "Finite-degree experiments and polynomial parametrisations are concrete, but the quoted general theorems do not yet match the model.",
+      "genuinely_new": "Sibling calibration only.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": -1,
+      "label": "Assessment",
+      "assessment": "This is a section-count theorem, not an average over target irreducibles. No result in the source proves the claimed universal count; quoted circle-method/free-curve hypotheses must be checked.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 41
+    },
+    {
+      "id": "R07",
+      "name": "Subgroup, smoothness and primitive-divisor forcing",
+      "band": "iii",
+      "members": [
+        "Z2426",
+        "Z0250",
+        "Z1954",
+        "Z0378",
+        "Z0258",
+        "Z0254",
+        "Z1715"
+      ],
+      "clean_statement": "Give an explicit auxiliary factorisation mechanism whose bounded subproducts hit the ES class, with all required valuations and target divisibilities verified.",
+      "yield_for_ES": "full if a universal mechanism is found; known auxiliary facts alone yield none",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.3/§7.13; §6 reciprocity, B4 and polynomial budgets",
+      "obstruction": "B2 class versus subgroup; B4 opaque large factors; primitive divisor rank usually yields ±1, not the required sign",
+      "ingredient_can_beat_obstruction": "Lucas rank can reduce a class to ±1, but no construction forces 4Cp+1 to contain the right primitive divisor. Binomial valuations do not force division of p+u.",
+      "genuinely_new": "E2 non-polynomial primitives and Lucas rank are genuine formal escape possibilities, not actual transfers.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 11,
+      "label": "Assessment",
+      "assessment": "Z2426 D·D^-1 must enforce ab|N, not independent divisors with combined exponents exceeding N. The C=1 Lucas example gives a tautological sign. Z0254 generating all identities does not prove membership for a given prime.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 1
+    },
+    {
+      "id": "R08",
+      "name": "Scale/digit induction without an invariant",
+      "band": "iii",
+      "members": [
+        "Z3005",
+        "Z0482"
+      ],
+      "clean_statement": "Specify a growing-length digit/scale recursion with an invariant implying eventual certificate output for every prime and a valid termination proof.",
+      "yield_for_ES": "full if defined and proved",
+      "plausibility": 1,
+      "frontier": "FRONTIER §3 B1 escape E1/E2; no dedicated §7 target",
+      "obstruction": "T1; privacy limits pooling; finite-state assumptions cannot silently replace a general recursive algorithm",
+      "ingredient_can_beat_obstruction": "Growing length is outside fixed formal runs, but neither an invariant nor a transition rule is given.",
+      "genuinely_new": "Scale induction is new packaging only.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 1,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 9,
+      "label": "Assessment",
+      "assessment": "Z0482 Cobham argument is not a universal no-go: a set containing all squares need not equal the squares; unbounded-state digit algorithms need not be automatic. Retain the open scope but no lane until a rule is specified.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 2
+    },
+    {
+      "id": "R01",
+      "name": "Exact lower-tail/SQ targets without input",
+      "band": "iii",
+      "members": [
+        "Z1891",
+        "Z0604",
+        "Z1426",
+        "Z0771",
+        "Z2681"
+      ],
+      "clean_statement": "Eventual positivity or a quantitative count floor for an ES-implying family; SQ additionally asserts a classification of composite zero counts.",
+      "yield_for_ES": "full if the new positivity theorem is proved, but none from the supplied main terms/dictionaries",
+      "plausibility": 1,
+      "frontier": "FRONTIER §2.4, §7.14/§7.17; §5.5 coprime SQ repair",
+      "obstruction": "B2 and B6; composite Type-I/II coprimality conventions; no standard conjecture supplies the lower tail",
+      "ingredient_can_beat_obstruction": "None beyond already-proved main terms and target equivalences.",
+      "genuinely_new": "No new theorem input.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Z0604 known-true applies only to its main term, not the circle-method lower bound. Z1426 composite square-only statement must respect the documented 105,345,561,5985 counterexamples for coprime categories. Plain I3 does not imply ES.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 3
+    },
+    {
+      "id": "R02",
+      "name": "Geometric/torsor dictionaries",
+      "band": "iii",
+      "members": [
+        "Z0603",
+        "Z1670",
+        "Z2029",
+        "Z2302",
+        "Z2699",
+        "Z2700",
+        "Z2708",
+        "Z2894",
+        "Z2645"
+      ],
+      "clean_statement": "Construct an integral positive point on the ES torsor/fibration at every prime; the known geometric equivalences and local/BM information do not supply existence.",
+      "yield_for_ES": "full if the missing integral-point theorem holds; current dictionary yields none",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 torsors, BM, fibrations; §7.3 remaining divisor class",
+      "obstruction": "B2 integral fibre, no BM obstruction, T1; HIT concerns rational finite covers rather than factorisation of one integer",
+      "ingredient_can_beat_obstruction": "No new homogeneous action, integral Hasse principle or certificate-producing cover is specified.",
+      "genuinely_new": "No new ingredient; Z2645 broad no-go is withdrawn but no actual cover appears.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Known-true labels here belong to dictionaries, not ES. Under x=nX, an integer ES point maps to rational coordinates with denominators dividing n, but positivity/nonzero conditions remain; a geometric isomorphism over Q loses precisely that integral constraint.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z2645"
+      ],
+      "rank_in_band": 4
+    },
+    {
+      "id": "R03",
+      "name": "Unspecified norm/Selmer existence bridge",
+      "band": "iii",
+      "members": [
+        "Z2922",
+        "Z0424",
+        "Z1649"
+      ],
+      "clean_statement": "Specify an order/norm form, abelian variety, or arithmetic module attached to p with a provable existence/nontriviality theorem AND an integral positive map to certificates.",
+      "yield_for_ES": "full if such an object and bridge are found",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 quaternion/genus and class-group dictionaries; related §7.2/§7.3",
+      "obstruction": "B2 integral side conditions, T1, rational points need not give positive integral points",
+      "ingredient_can_beat_obstruction": "None: no order, curve or module is actually defined that has the required bridge.",
+      "genuinely_new": "Audit removes an unjustified universal impossibility claim, not a mathematical gap.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Keep in the rest rather than deleting: exact norm existence is not universally forbidden by B3. But naming a class-number-one order or root number is not yet a research theorem statement.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z2922"
+      ],
+      "rank_in_band": 5
+    },
+    {
+      "id": "R04",
+      "name": "Ring/matrix relaxation transport",
+      "band": "iii",
+      "members": [
+        "Z0091",
+        "Z0338",
+        "Z0084"
+      ],
+      "clean_statement": "Prove a concrete integrality-preserving positive projection from Gaussian-cone or matrix reciprocal solutions to three positive integer unit fractions.",
+      "yield_for_ES": "full if existence in the relaxation and transport are both proved; none currently",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 other-ring transfer/B-fin",
+      "obstruction": "Norms not additive; traces produce variable numerators; positive-definite matrix inverse entries not unit fractions",
+      "ingredient_can_beat_obstruction": "No projection avoids a new divisibility condition. Trace/norm maps give explicit failed candidates, not a no-go for every map.",
+      "genuinely_new": "No new usable transport.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "A constant map chosen from an already-known ES solution is vacuous. Both ring existence and a genuinely constructive projection are needed.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 6
+    },
+    {
+      "id": "R05",
+      "name": "Power-size lifts and short-interval amplification",
+      "band": "iii",
+      "members": [
+        "Z2928",
+        "Z2060",
+        "Z2982"
+      ],
+      "clean_statement": "Build an independent high-multiplicity detector or amplifier with a pointwise error below its main term after division by fibre size, rather than multiplying an unknown certificate count by a large factor.",
+      "yield_for_ES": "full if the independent estimate holds; none from rescaling",
+      "plausibility": 1,
+      "frontier": "FRONTIER §7.1 adjacent; §6 B3 and fixed-p variance",
+      "obstruction": "B3 fibre cancellation; B6 tiny-interval variance not available; two-sided polylog errors can be false",
+      "ingredient_can_beat_obstruction": "High-multiplicity encodings formally escape one B3 hypothesis, but no independent analytic estimate is provided.",
+      "genuinely_new": "No actual lift with a new count theorem.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Z2982 includes the n=p summand: its bound already gives |R(p)-M(p)|≤M(p)/√2, an inadmissible global two-sided polylog target in the stated form. A one-sided amplifier would need a different inequality.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 7
+    },
+    {
+      "id": "R06",
+      "name": "Stability and zero-temperature nonvanishing",
+      "band": "iii",
+      "members": [
+        "Z3103",
+        "Z3104",
+        "Z1325"
+      ],
+      "clean_statement": "Construct class-sensitive interlacing/partition polynomials with a uniform positive certificate-coefficient bound, not merely real-rootedness or nonvanishing at finite temperature.",
+      "yield_for_ES": "full only with that new coefficient bound; current mechanisms yield none",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 interlacing/stable displayed mechanisms fail, general variants remain open",
+      "obstruction": "T1; residue extraction destroys stability; zero-free functions can tend to zero",
+      "ingredient_can_beat_obstruction": "No new common interlacer; group-algebra stability is an unconstructed variant.",
+      "genuinely_new": "Audit exposes the exp(-β) counterexample to the zero-free⇒positive-limit inference.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Do not infer nonexistence of every conceivable stable encoding. Existing counterexamples refute displayed projections, while zero-temperature positivity is the target itself.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z1325"
+      ],
+      "rank_in_band": 8
+    },
+    {
+      "id": "R09",
+      "name": "Abstract limit-measure rigidity",
+      "band": "iii",
+      "members": [
+        "Z2978"
+      ],
+      "clean_statement": "Define an ambient candidate measure even when no certificate exists and prove rigidity of all its prime-subsequence limits strong enough to force a certificate at finite p.",
+      "yield_for_ES": "full only with a new quantitative extraction theorem",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 B1/ultraproduct limitations",
+      "obstruction": "Residue-only measures have square-mimicking Dirichlet subsequences; weak convergence need not detect a vanishingly sparse target",
+      "ingredient_can_beat_obstruction": "No new measure or entropy/recurrence input.",
+      "genuinely_new": "Audit separates a false residue-Haar claim from unexcluded alternative measures.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Even a correct limiting Haar theorem needs quantitative control at the shrinking certificate scale. Merely excluding a hypothetical infinite failure subsequence is not an independently proved rigidity result.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z2978"
+      ],
+      "rank_in_band": 9
+    },
+    {
+      "id": "R10",
+      "name": "Density/mass tools without three-term recovery",
+      "band": "iii",
+      "members": [
+        "Z1262",
+        "Z1646",
+        "Z2446",
+        "Z2716"
+      ],
+      "clean_statement": "Provide a theorem that forces the prescribed three-term target in a sparse p-tied denominator set, rather than an arbitrary configuration or an unbounded-length reciprocal sum.",
+      "yield_for_ES": "full only with a new sparse three-term theorem; named inputs do not yield it",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 additive-density/spectral scale limitations; B2_ACROSS_FIELDS M1/M4",
+      "obstruction": "B3 sparse output, B6 average versus specified p; number-of-terms loss",
+      "ingredient_can_beat_obstruction": "No theorem in the candidate layer bridges these hypotheses. Direct Bloom/PP applications miss the target; a new structured lemma is not universally forbidden.",
+      "genuinely_new": "Audit restores scope but finds no concrete lemma.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "Z2716 product-size argument must use |AB|≥max(|A|,|B|), not |A||B|. Typical subpower output still blocks universal power-size input sets. Moment variants are separately retained in S12, not treated as full proofs.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z1262",
+        "Z1646",
+        "Z2446",
+        "Z2716"
+      ],
+      "rank_in_band": 10
+    },
+    {
+      "id": "R11",
+      "name": "Long-word or extra-term collapse",
+      "band": "iii",
+      "members": [
+        "Z0476",
+        "Z2027",
+        "Z1944"
+      ],
+      "clean_statement": "Construct a positive integral map collapsing long HJ words or ≥4-term Egyptian fractions to an ES three-term certificate at the same p.",
+      "yield_for_ES": "full only with a new collapse theorem; relaxations alone yield none",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 Zaremba length and B-fin transport",
+      "obstruction": "B2 on last merge, B3 sparse short-word set; extra freedom is lost in collapse",
+      "ingredient_can_beat_obstruction": "No collapse rule. Existing relaxation existence is not evidence that the final merge is easy.",
+      "genuinely_new": "No new bridge.",
+      "score_components": {
+        "relevance": 3,
+        "tractability": 1,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 3
+      },
+      "proof_priority_score": 8,
+      "label": "Assessment",
+      "assessment": "The source phrase “no collapse exists” should read “none is known/supplied.” A finite failure of a particular merge does not settle arbitrary transport.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 11
+    },
+    {
+      "id": "R12",
+      "name": "Already-known average coverage",
+      "band": "iii",
+      "members": [
+        "Z2372",
+        "Z2650",
+        "Z0567",
+        "Z0554",
+        "Z2490",
+        "Z2575",
+        "Z3164",
+        "Z2458",
+        "Z2601"
+      ],
+      "clean_statement": "Prove density-one or positive-density coverage by the stated restricted search; compare rigorously with the existing ES and subfamily exceptional-set bounds.",
+      "yield_for_ES": "partial at best, normally weaker than current theorems; restricted subfamily versions may still be unproved",
+      "plausibility": 2,
+      "frontier": "FRONTIER §5.1; §6 B6",
+      "obstruction": "B6; quantitative denominator caps/restricted prime levels require their own bounds",
+      "ingredient_can_beat_obstruction": "Known sieves suffice for some versions, not automatically all restrictions.",
+      "genuinely_new": "No identified improvement over the standing frontier.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 2,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": 3,
+      "label": "Assessment",
+      "assessment": "Z2372 confuses O(p²) certificate moduli with a uniform O(p²) bound on all denominators; a genuine height theorem is needed. Z3164 prime-C almost-all claim needs a proof, not just invoking CRT. Density inheritance into a restricted family is not automatic.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 12
+    },
+    {
+      "id": "R13",
+      "name": "Necessary/local tests already free",
+      "band": "iii",
+      "members": [
+        "Z1316",
+        "Z0081",
+        "Z1493",
+        "Z2989",
+        "Z1048",
+        "Z0730"
+      ],
+      "clean_statement": "For each prime supply the already-known local-solubility, positive class-free-count or QNR-factor precursor in its valid scoped form; this cluster makes no full-class or integral-lifting assertion.",
+      "yield_for_ES": "none from these precursors alone",
+      "plausibility": 3,
+      "frontier": "FRONTIER §7.3/§7.17; §6 genus and least-QNR-root limits",
+      "obstruction": "T1 and B2; local/character information does not determine the full divisor class",
+      "ingredient_can_beat_obstruction": "No new lifting theorem; precursor statements are known in scoped forms.",
+      "genuinely_new": "No new ingredient.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 3,
+        "one_day_information": 0,
+        "novelty": 0,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 3,
+      "label": "Assessment",
+      "assessment": "Z1316 claimed coverage of EVERY interval of length q^{1/2+ε} by three inverse sums does not follow from no local obstruction; check the precise incomplete-Kloosterman error threshold. Z1048 counterexamples concern a specified least-QNR root, not every function of the QNR.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 13
+    },
+    {
+      "id": "R14",
+      "name": "Finite or diagnostic-only tasks",
+      "band": "iii",
+      "members": [
+        "Z0758",
+        "Z1084",
+        "Z3134",
+        "Z2522",
+        "Z2316"
+      ],
+      "clean_statement": "Perform a bounded census, classify sibling failures, or count primes inside a fixed sparse family; none of these tasks contains a mechanism for every p.",
+      "yield_for_ES": "none for full ES; finite certificates/model information or unrelated prime-production theorems",
+      "plausibility": 2,
+      "frontier": "FRONTIER §7.15/§7.17 related; §6 thin-family transfer and local/average limits",
+      "obstruction": "B1 finite verification, B6 averages; primes in a thin sequence can be a famous open problem",
+      "ingredient_can_beat_obstruction": "Finite computation is available; no new global implication.",
+      "genuinely_new": "Diagnostics may correct data, not a priority proof component.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 2,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 3,
+      "label": "Assessment",
+      "assessment": "Z0758 smooth-n explanation is a conjectural model, not a classification. Z2522 Sato–Tate does not prove cross-box cancellation. Z2316 growing menus are not refuted by sparsity of a fixed list, but no growing coverage mechanism is provided.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z2316"
+      ],
+      "rank_in_band": 14
+    },
+    {
+      "id": "R15",
+      "name": "Weak Fermat identity loses the class",
+      "band": "iii",
+      "members": [
+        "Z1956"
+      ],
+      "clean_statement": "Correct the Fermat conversion to require X-Y≡X+Y≡-1 mod4C as well as X²-Y²=4Cp+1 and positive factors.",
+      "yield_for_ES": "none beyond the exact (★) reformulation",
+      "plausibility": 0,
+      "frontier": "FRONTIER §2.1; QUATERNION_ES split binary dictionary",
+      "obstruction": "B2; source weaker X≡-1 mod2C is insufficient",
+      "ingredient_can_beat_obstruction": "None; X=2p+1,Y=2p always satisfies the weak C=1 condition.",
+      "genuinely_new": "Audit correction, not a revived avenue.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 0,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 2,
+      "label": "Assessment",
+      "assessment": "CERTIFIED counterexample p=409 is in checks.json. This overturned verdict contributes to classification-error rate, not to the count of promising rescued methods.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z1956"
+      ],
+      "rank_in_band": 15
+    },
+    {
+      "id": "R16",
+      "name": "Linear-height distinct-term cap is false",
+      "band": "iii",
+      "members": [
+        "Z0138"
+      ],
+      "clean_statement": "For fixed C, seek four DISTINCT positive denominators ≤Cp representing 4/p at every large prime.",
+      "yield_for_ES": "none: false at this height scale",
+      "plausibility": 0,
+      "frontier": "FRONTIER B3/height-scale related; source elementary p-adic obstruction",
+      "obstruction": "For p large relative to C, denominators divisible by p are pa_i with a_i≤C; their reciprocal sum must equal4 after multiplying by p, impossible with distinct positive a_i and only four terms.",
+      "ingredient_can_beat_obstruction": "No escape without raising the height cap or changing distinctness/term count.",
+      "genuinely_new": "A useful false-target calibration only.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 0,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 2,
+      "label": "Assessment",
+      "assessment": "Do not transfer this four-distinct-term obstruction to unrestricted four-term or ordinary three-term representations with larger denominators.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 16
+    },
+    {
+      "id": "R19",
+      "name": "Finite QNR-class identity covering",
+      "band": "iii",
+      "members": [
+        "Z1840"
+      ],
+      "clean_statement": "For every fixed q, cover all primes with (q/p)=-1 by finitely many ET identities; distinguish this from the unrestricted implication (q/p)=-1⇒ES(p).",
+      "yield_for_ES": "none for the stated universal finite-cover architecture; unrestricted implication remains open",
+      "plausibility": 0,
+      "frontier": "FRONTIER §7.9 sterile r-generic points and §6 B1",
+      "obstruction": "Sterile r-generic points exclude the finite-cover proposal for large r; they do not refute ES in those classes",
+      "ingredient_can_beat_obstruction": "No ingredient beyond reciprocity and fixed congruence data.",
+      "genuinely_new": "Audit scope correction, not a new proof method.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 0,
+        "one_day_information": 1,
+        "novelty": 0,
+        "unsupported_bridges": 0
+      },
+      "proof_priority_score": 2,
+      "label": "Assessment",
+      "assessment": "The r≤13 least-QNR coverings are not a theorem that every independent q-nonresidue class is finitely coverable. Keep those quantifiers distinct.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [
+        "Z1840"
+      ],
+      "rank_in_band": 17
+    },
+    {
+      "id": "R17",
+      "name": "Maynard with a distinguished prime",
+      "band": "iii",
+      "members": [
+        "Z1818"
+      ],
+      "clean_statement": "For each m, prove there exist fixed admissible C_1,…,C_k and infinitely many PRIME p for which at least m of 4C_i p+1 are prime.",
+      "yield_for_ES": "none directly; obstruction-side calibration if proved",
+      "plausibility": 1,
+      "frontier": "FRONTIER §6 fixed-menu/H obstruction; not a known unconditional consequence as stated",
+      "obstruction": "Maynard guarantees many primes among forms, not primality of a separately distinguished base form p",
+      "ingredient_can_beat_obstruction": "No argument forcing the base variable to be prime is supplied.",
+      "genuinely_new": "An unsupported known-true claim, not a bankable corollary.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": -1,
+      "label": "Assessment",
+      "assessment": "Downgrade to unclear/conditional on an appropriate prime-tuple input. One cannot silently replace “many prime forms at integer n” by “many forms at prime n.”",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 18
+    },
+    {
+      "id": "R18",
+      "name": "Open-induction countermodel",
+      "band": "iii",
+      "members": [
+        "Z0189"
+      ],
+      "clean_statement": "Construct an actual model of IOpen containing an n≥2 without positive ES denominators, with a proof that the polynomial obstruction survives its coefficient field.",
+      "yield_for_ES": "none for standard integer ES",
+      "plausibility": 1,
+      "frontier": "No FRONTIER §7 item; §6 bounded-polynomial proof obstructions are related only to the logic question",
+      "obstruction": "Z[T] need not model IOpen; coefficient extensions can invalidate Mordell obstruction; varying w in a colouring theorem is not prescribed p",
+      "ingredient_can_beat_obstruction": "No valid IOpen countermodel or applicable partition-regularity theorem is exhibited.",
+      "genuinely_new": "Distinct meta-questions sharing zero ES yield, retained as separate member targets.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": -1,
+      "label": "Assessment",
+      "assessment": "The claim that a weak-arithmetic countermodel means “any ES proof needs non-open induction” requires formalization; it is not automatic from failure of polynomial identities. A colouring of degenerate solutions is not a colouring of all solutions.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 19
+    },
+    {
+      "id": "R20",
+      "name": "Partition regularity of reciprocal ES equation",
+      "band": "iii",
+      "members": [
+        "Z0135"
+      ],
+      "clean_statement": "Determine whether every finite colouring of N has monochromatic x,y,z,w with 1/x+1/y+1/z=4/w.",
+      "yield_for_ES": "none for standard integer ES",
+      "plausibility": 1,
+      "frontier": "No FRONTIER §7 item; §6 bounded-polynomial proof obstructions are related only to the logic question",
+      "obstruction": "Z[T] need not model IOpen; coefficient extensions can invalidate Mordell obstruction; varying w in a colouring theorem is not prescribed p",
+      "ingredient_can_beat_obstruction": "No valid IOpen countermodel or applicable partition-regularity theorem is exhibited.",
+      "genuinely_new": "Distinct meta-questions sharing zero ES yield, retained as separate member targets.",
+      "score_components": {
+        "relevance": 0,
+        "tractability": 1,
+        "one_day_information": 1,
+        "novelty": 1,
+        "unsupported_bridges": 2
+      },
+      "proof_priority_score": -1,
+      "label": "Assessment",
+      "assessment": "This existential w is not a prescribed prime. Nonregularity of x+y+z=4w only blocks the quoted transfer theorem; a colouring that kills (3k,3k,3k,4k) does not kill all solutions.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 20
+    }
+  ]
+}
