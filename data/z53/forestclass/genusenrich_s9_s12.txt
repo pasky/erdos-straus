@@ -1,0 +1,17 @@
+genus-obstructed vertices (a>=4): 213838739, of which non-isolated 0 (Lemma G predicts 0)
+  inSM=1: share genus-obstructed = 0/94823144 = 0.0000
+  inSM=0: share genus-obstructed = 213838739/574180858 = 0.3724
+a in [2^4,2^7) nonisolated  SM MH ratio  blind: 1.142  genus: 0.960  genus>0: 0.960
+a in [2^4,2^7) bichromComp  SM MH ratio  blind: 1.189  genus: 1.003  genus>0: 1.003
+a in [2^7,2^10) nonisolated  SM MH ratio  blind: 1.215  genus: 1.014  genus>0: 1.014
+a in [2^7,2^10) bichromComp  SM MH ratio  blind: 1.241  genus: 1.049  genus>0: 1.049
+a in [2^10,2^13) nonisolated  SM MH ratio  blind: 1.260  genus: 1.015  genus>0: 1.015
+a in [2^10,2^13) bichromComp  SM MH ratio  blind: 1.296  genus: 1.056  genus>0: 1.056
+a in [2^13,2^16) nonisolated  SM MH ratio  blind: 1.323  genus: 1.030  genus>0: 1.030
+a in [2^13,2^16) bichromComp  SM MH ratio  blind: 1.373  genus: 1.081  genus>0: 1.081
+a in [2^16,2^19) nonisolated  SM MH ratio  blind: 1.348  genus: 0.967  genus>0: 0.967
+a in [2^16,2^19) bichromComp  SM MH ratio  blind: 1.410  genus: 1.033  genus>0: 1.033
+a in [2^19,2^22) nonisolated  SM MH ratio  blind: 1.318  genus: 0.930  genus>0: 0.930
+a in [2^19,2^22) bichromComp  SM MH ratio  blind: 1.404  genus: 1.011  genus>0: 1.011
+a in [2^22,2^25) nonisolated  SM MH ratio  blind: nan  genus: nan  genus>0: nan
+a in [2^22,2^25) bichromComp  SM MH ratio  blind: nan  genus: nan  genus>0: nan
