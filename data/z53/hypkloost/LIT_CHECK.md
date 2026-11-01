@@ -27,16 +27,16 @@ Walsh, “Bounded rational points on curves,” was not primary-source verified 
 
 ## 3. Kloosterman fractions
 
-**Duke–Friedlander–Iwaniec (DFI),** “Bilinear forms with Kloosterman fractions,” *Invent. Math.* 128 (1997), 23–43; checked against the local PDF. For their bilinear form `B(M,N)` (the sum over the prescribed m,n ranges, `(m,n)=1`, with coefficients and exponential `e(a \bar m/n)`), Theorem 1 states
-`B(M,N) ≪ ||α||₂ ||β||₂ (M+N)^(1/2) {1+a/(MN)}^(1/2) min(M,N)^(1/2) (MN)^ε`,
-with implied constant depending only on ε. The displayed PDF formula has braces grouping the `(1+a/MN)^(1/2)` factor and `min(M,N)`; as customary the term is `min(M,N)^(1/2)`. This is not a `(1+a/MN)^(1/2)` factor multiplying a different `MN`-power hidden in a; `a` is explicitly present.
+**Duke–Friedlander–Iwaniec (DFI),** “Bilinear forms with Kloosterman fractions,” *Invent. Math.* 128 (1997), 23–43; checked against the local PDF. For their bilinear form `B(M,N)` (the sum over the prescribed m,n ranges, `(m,n)=1`, with coefficients and exponential `e(a \bar m/n)`), Theorem 1 states (CORRECTED after cross-model review, which inspected the rendered printed p. 24 of the local PDF):
+`B(M,N) ≪ ||α||₂ ||β||₂ [ (M+N)^(1/2) + {1+a/(MN)}^(1/2) min(M,N) ] (MN)^ε`,
+with implied constant depending only on ε. **This is a SUM of two terms.** The earlier transcription in this file (a product with min(M,N)^(1/2)) was wrong. The paper itself remarks that Theorem 1 is non-trivial except when one range is much larger than the other or when they are nearly equal.
 
 Theorem 2 states exactly (1.5):
 `B(M,N) ≪ ||α||₂ ||β||₂ (a+MN)^(3/8) (M+N)^(11/48+ε)`,
 “the implied constant depending only on ε.” Thus the dependence is `(a+MN)^(3/8)`, not `(a+MN)^(? )` or merely `(1+a/MN)^(1/2)`. Theorem 1 is (1.4), useful in a different range. **Primary-source caveat:** the extracted notation does not preserve the exact definitions of the ranges M,N; consult the paper’s introduction for those interval/sequence conventions before applying it to a specific sum.
 
 **Bettin–Chandee,** “Trilinear forms with Kloosterman fractions,” arXiv:1502.00769; published *Adv. Math.* 328 (2018), 123 intuitively? The exact volume/pages were not independently checked here (arXiv PDF is primary for theorem). Theorem 1: for `ϑ ≠ 0`, with `A=[A/2,A]`, arbitrary coefficients `ν_a` supported on A, and the coprimality condition `(m,n)=1`,
-`B(M,N,A) ≪ ||α||₂ ||β||₂ ||ν||₂ (1+|ϑ|A/(MN))^(1/2) [ (AMN)^(7/20+ε)(M+N)^(1/4) + (AMN)^(1/4+ε)(AN+AM)^(1/8) ]`.
+`B(M,N,A) ≪ ||α||₂ ||β||₂ ||ν||₂ (1+|ϑ|A/(MN))^(1/2) [ (AMN)^(7/20+ε)(M+N)^(1/4) + (AMN)^(3/8+ε)(AN+AM)^(1/8) ]`. (CORRECTED after cross-model review: the second term is (AMN)^(3/8+ε)(AN+AM)^(1/8), not (AMN)^(1/4+ε)(AN+AM)^(1/8).)
 This transcription is from the fetched PDF’s Theorem 1 (equation (1.2)); implied constant is absolute apart from ε (the paper states the bound with `≪`, and ε-losses). This is trilinear, includes the additional averaging over a, and is not a direct replacement for DFI’s bilinear theorem. In the important regime `|ϑ|A≪MN`, `M≈N`, the authors state a saving over the trivial bound of roughly `min(A^(3/20)N^(1/20),N^(1/8))`.
 
 ## 4. Erdős–Straus solution counts and later literature

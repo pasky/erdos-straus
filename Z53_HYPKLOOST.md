@@ -49,8 +49,13 @@ bounding" that we checked: linear/minorant functionals of the dual, Kloosterman-
    * (b) A bound of the form N ≤ N₁ ≤ (zero-frequency term) + (absolute error) through one relation outputs
      ≥ min(U,V)/2 for the ordinary additive detector. For the coprime Kloosterman-fraction detector it outputs
      ≥ (6/π²)log 2·min(U,V)(1 + o(1)).
-   * (c) The numerator is bp ≥ p, which exceeds UV in a block with hits. So the quoted DFI Thm 1 is never below the trivial
-     bound, DFI Thm 2 only if C̄ ≲ p^{1/37}, and Bettin–Chandee only if C̄ ≲ p^{1/21}.
+   * (c) The numerator is bp ≥ p, which exceeds UV in a block with hits.
+     * DFI Thm 2 can save only if C̄ ≲ p^{1/37}, and Bettin–Chandee only if C̄ ≲ p^{1/21}.
+     * DFI Thm 1 *does* save in skew blocks with max(U,V) > (bp)^{1/2+δ} and min(U,V) → ∞, e.g. U ≈ p^{1/5}, V ≈ p^{3/5},
+       b ≪ 1, a saving of p^{1/10}. (An earlier version misquoted Thm 1 as a product; corrected after the cross-model
+       review.)
+     * Such a saving is for the KF sum K(b) only, not for N. The one-relation ceiling (b) still applies, and coupling
+       the second relation or summing over all b < 2V would need further work.
    * EVIDENCE (F3): fixed-p KF sums for b ≤ 16 are square-root size (rms 0.57–0.99·√(#pairs)). N₁ equals its
      zero-frequency term with sd ≈ 17 at U = V = 1000.
 5. **Prop Q (PROVED bookkeeping; reading Assessment).** In the SL₂ form, (★) at level c selects one Bruhat double coset of
@@ -303,8 +308,9 @@ degree allowance H ≥ H₀.
 *Check of (b)–(c) by linear programming (EVIDENCE).* `scripts/z53_hypkloost_certificate_lp.py` →
 `data/z53/hypkloost/certificate_lp.txt`.
 * For the blocks (U,V) = (2,2), (2,3), (3,3) (q_max = 64, 96, 144) we maximise ĝ_0 over even polynomials of degree H
-  with G ≤ 0 on T_𝔅 and G(0) ≤ 1. This is the closed relaxation of the certificate condition: it allows G(0) = 0, and
-  the H < q_max/2 rows do return G(0) = 0.
+  with G ≤ 0 on T_𝔅 and G(0) ≤ 1. This is the closed relaxation of the certificate condition, which admits G(0) = 0.
+  Below q_max/2 the solver returns mean 0, with G(0) = 0 at H = 30, 46, 63, 70 but G(0) = 1 at H = 31, 47, 71. The
+  theorem only forces nonpositive mean.
 * The solver is floating-point HiGHS with its default tolerances, and we impose the artificial box bound
   |coefficients| ≤ 10. The outputs are approximate.
 * The maximum is 0 for every H < q_max/2 tested (H = 30, 31; 46, 47; 63, 70, 71).
@@ -472,20 +478,29 @@ The ceiling does **not** apply to every use of one relation.
 * Genuinely coupled estimates are not covered: the second relation decomposed into separable pieces, further averaging,
   or weighted joint bounds.
 
-(c) **Numerator obstruction (relative to the quoted statements; necessary conditions only).** Consider
+(c) **Numerator constraints (relative to the source statements as re-checked by the cross-model review; necessary
+conditions only, except the DFI Thm 1 saving, which is an actual saving for K(b)).** Consider
 K(b) = Σ_{u∼U, B∼V, (u,B)=1} α_u β_B e(bp ū/B) with b ≥ 1.
 * The numerator is a = bp ≥ p. In a block containing a hit, 4UV < 4uB ≤ p + u + B ≤ p + 2U + 2V, so a ≥ UV(1 + o(1)).
 * Write ‖·‖ for ℓ²-norms. The Cauchy–Schwarz trivial bound is ‖α‖‖β‖(UV)^{1/2}.
-* *DFI Thm 1* gives ‖α‖‖β‖(U+V)^{1/2}(1 + a/UV)^{1/2}min(U,V)^{1/2}(UV)^ε. Since (U+V)min(U,V) ≥ UV, this is
-  ≥ ‖α‖‖β‖(UV)^{1/2}(a/UV)^{1/2}. It is never below the trivial bound.
+* *DFI Thm 1* (source (1.4), printed p. 24, a *sum*) gives ‖α‖‖β‖[(U+V)^{1/2} + (1 + a/UV)^{1/2}min(U,V)](UV)^ε.
+  * Write s = min(U,V) and L = max(U,V). Up to (UV)^ε, the ratio to the trivial bound is √(1/s + 1/L) + √(s/L + a/L²).
+  * This is < 1 (a power saving) iff s → ∞ polynomially, s/L → 0 and a ≤ L^{2−δ}. With a = bp that requires
+    L ≥ (bp)^{1/2+δ′}.
+  * Example: U ≈ p^{1/5}, V ≈ p^{3/5}, b ≪ 1 gives ratio ≍ p^{−1/10}. Here both sides are < p, UV ≪ p and C̄ ≈ p^{1/5}/4.
+  * The saving disappears for b ≳ L²/p, so it does not cover all detection frequencies b < 2V.
+  * It is a bound for the KF sum K(b), not for N. A route through N₁ alone is still capped by (b).
+  * The earlier statement "never below the trivial bound" rested on a misquotation (product instead of sum) in
+    LIT_CHECK.md and is retracted.
 * *DFI Thm 2* gives ‖α‖‖β‖(a + UV)^{3/8}(U+V)^{11/48+ε}. With a ≥ p and U + V ≥ 2(UV)^{1/2}, it is below the trivial
   bound only if UV > 2^{22/37}p^{36/37}, i.e. C̄ < p^{1/37}.
 * *Bettin–Chandee Thm 1* (trilinear, a = b ∈ [A/2, A], ϑ = p) gives ‖α‖‖β‖‖ν‖(1 + pA/UV)^{1/2}[(AUV)^{7/20+ε}(U+V)^{1/4}
-  + …]. Against the trivial ‖α‖‖β‖‖ν‖(AUV)^{1/2}, the first summand alone gives the ratio
+  + (AUV)^{3/8+ε}(AU+AV)^{1/8}]. The second term was corrected from LIT_CHECK's (AUV)^{1/4+ε} by the cross-model
+  review; that term only adds restrictions. Against the trivial ‖α‖‖β‖‖ν‖(AUV)^{1/2}, the first summand alone gives the ratio
   ≥ (4C̄)^{1/2}A^{7/20}(UV)^{−1/40}. So it can be nontrivial only if 4C̄ < (UV)^{1/20}; with UV = p/(4C̄) this means
   C̄ ≲ p^{1/21}.
-* These are limitations of the displayed upper bounds, not lower bounds for the KF sums. They are necessary, not
-  sufficient, conditions for a saving (ε-losses ignored).
+* The DFI Thm 2 and BC items are limitations of the displayed upper bounds, not lower bounds for the KF sums. They are
+  necessary, not sufficient, conditions for a saving (ε-losses ignored).
 
 *Proof.*
 (a) BB̄ + uū ≡ 1 modulo u and modulo B, hence modulo uB. Also B + u ≤ BB̄ + uū ≤ B(u−1) + u(B−1) < 2uB, so
@@ -500,8 +515,8 @@ BB̄ + uū = 1 + uB. Divide by uB and multiply by ap: apB̄/u = ap/(uB) + ap −
   Σ_{B≤x}φ(B)/B² = (6/π²)log x + C + O(log x/x).
 * For each B ∼ V the number of u ∈ (U, 2U] with u ≡ −p (mod B) is ≥ ⌊U/B⌋ ≥ U/(2V) − 1.
 
-(c) This is arithmetic on the bounds as quoted in `LIT_CHECK.md` §3 (DFI (1.4), (1.5); BC (1.2)), with M = U, N = V,
-a = bp.
+(c) This is arithmetic on DFI (1.4), (1.5) and BC (1.2) as corrected in `LIT_CHECK.md` §3, with M = U, N = V, a = bp.
+* DFI Thm 1: (U+V)^{1/2}/(UV)^{1/2} = √(1/s + 1/L), and (1 + a/UV)^{1/2}s/(UV)^{1/2} = √(s/L + a/L²).
 * DFI Thm 2: p^{3/8}(2(UV)^{1/2})^{11/48} < (UV)^{1/2} ⟺ (UV)^{37/96} > 2^{11/48}p^{3/8} ⟺ UV > 2^{22/37}p^{36/37}.
 * BC: (1 + pA/UV)^{1/2}(AUV)^{7/20}(U+V)^{1/4} ≥ (4C̄A)^{1/2}(AUV)^{7/20}(UV)^{1/8}; divide by (AUV)^{1/2}. ∎
 
@@ -544,7 +559,7 @@ the integer cp + 1. It is only that none is exhibited, and HYP §3.7 / Z1480 rec
 | sawtooth frequencies, Fejér weights, h ≤ H | h | smoothed count over windows of length ≍ UV/H around p (Thm B(a)) | archimedean B6 for this kernel; positive-mean certificates need H ≥ q_max/2 (Thm B(b,c)) |
 | full projection onto conductors d \| M | (d, a) | class average of N over n ≡ p (mod M) (Thm C(a)) | B1 data; positive-mean pairwise certificates need primitive frequencies (Thm C(b)) |
 | conductors d ≤ D ≤ min(U,V)^{1−ε}, smooth weights | (d, a) | universal constant up to O(min^{−A}) (HYP Thm 3), for n coprime to every d ≤ D (e.g. primes p > D) | blind |
-| KF moduli B, inverse ū | (u, B) free | one-relation count N₁; zero mode ≫ min(U,V) (Thm K(b)) | ceiling for main + absolute-error bounds; numerator bp ≥ UV (Thm K(c)) |
+| KF moduli B, inverse ū | (u, B) free | one-relation count N₁; zero mode ≫ min(U,V) (Thm K(b)) | ceiling for main + absolute-error bounds. DFI Thm 1 saves on K(b) in skew blocks with max side > (bp)^{1/2+δ}; this does not lift to N (Thm K(c)) |
 | two-relation KF | (u, B, a, c) | sawtooth kernel × one-sided KF (Thm K(a)) | reduces to rows 1 and 4 for these expansions |
 | Kuznetsov moduli | c | levels with one integer cp + 1 each, or the single modulus p (Prop Q) | no direct fixed-index application exhibited |
 | trial moduli m = 4uC − 1 | m | the original count, through p mod m (O5) | no averaging |
@@ -557,7 +572,7 @@ the integer cp + 1. It is only that none is exhibited, and HYP §3.7 / Z1480 rec
 | Lenstra / Coppersmith–Howgrave-Graham–Nagaraj (PARITY_AUDIT A1–A2) | O(1) divisors of p + u ≡ −1 (mod 4u) when 4u ≥ (p+u)^{1/4+ε}: the same O(1) per u as HYP Thm 1(a). The balanced block u ≍ p^{1/4} sits at the excluded exponent 1/4 |
 | Heath-Brown, Ann. Math. 155 (2002), Thm 14 (as quoted in LIT_CHECK §1), on the homogenisation 4xyz − xw² − yw² − pw³ with box B₁, B₂, B₃ ≥ 1, B₄ = 1 | The form is irreducible over ℚ: it is linear in z with coprime coefficients 4xy and −w²(x+y+pw), so Gauss's lemma applies. The monomial weights are B₁B₂B₃, B₁, B₂, 1, so T = B₁B₂B₃ = V (the coefficient p does not enter T). Hence k ≪_ε (V³/T)^{1/3^{3/2}}V^ε(log p)⁵ = V^{2/(3√3)+ε}(log p)⁵ auxiliary forms, with 2/(3√3) = 0.3849. In a block with hits V ≍ p, so this upper bound is ≈ p^{0.385+ε}, above p^{1/3} before points per curve are counted. This direct application does not give a saving. It does not show that a better determinant-method argument is impossible |
 | Weil / modular hyperbola (Shparlinski Thm 13; KSWX) | error p^{1/2+o(1)} per box (PARITY_AUDIT B1, B4) |
-| DFI / Bettin–Chandee | necessary for any saving: C̄ ≲ p^{1/37}, resp. p^{1/21} (Thm K(c)); main + absolute-error bounds through one relation are ≫ min(U,V) (Thm K(b)) |
+| DFI / Bettin–Chandee | DFI Thm 2 and BC need C̄ ≲ p^{1/37}, resp. p^{1/21}. DFI Thm 1 saves on the KF sum K(b) in skew blocks (max side > (bp)^{1/2+δ}), but main + absolute-error bounds for N through one relation are ≫ min(U,V) (Thm K(b,c)) |
 | Fejér/max-Δ with square-root input, any coordinates | ≫ min(U, V, C̄ + 1) (Thm E) |
 | KMS 2017/2020, Blomer–Pascadi, Bourgain–Garaev | Type II savings q^{1/64}…M^{1/4} of trivial bounds at one modulus. No unit-coefficient bilinear structure in (★) was identified (PARITY_AUDIT B2–B5) |
 
@@ -620,8 +635,10 @@ the integer cp + 1. It is only that none is exhibited, and HYP §3.7 / Z1480 rec
 > * (L′) Conductors. The full conductor projection onto divisors of M is the class average over n ≡ p (mod M). Every
 >   minorant of 1[q | ·] without primitive frequencies has mean ≤ 0.
 > * (K) Kloosterman fractions. Reciprocity turns the second Kloosterman fraction into the archimedean phase.
->   Main + absolute-error bounds through one relation are ≫ min(U,V). The numerator is bp ≥ UV, so the quoted DFI bounds
->   can save only if C̄ ≲ p^{1/37}, and Bettin–Chandee only if C̄ ≲ p^{1/21}.
+>   Main + absolute-error bounds through one relation are ≫ min(U,V). The numerator is bp ≥ UV:
+>   * DFI Thm 2 can save only if C̄ ≲ p^{1/37}, and Bettin–Chandee only if C̄ ≲ p^{1/21};
+>   * DFI Thm 1 does save on the KF sum in skew blocks with max side > (bp)^{1/2+δ}, but that does not yield a saving
+>     for the block count.
 > * (Q) Kuznetsov. In the two displayed natural orientations of the SL₂ form the moduli are p (single) or the levels
 >   (one integer each). No direct fixed-index application was found.
 >
@@ -648,8 +665,9 @@ make precise, it does not.
 * Exact identities identify the smoothing or congruence content of specific truncations:
   * Fejér-weighted frequency sums are smoothed counts over windows of integers around p;
   * the full conductor projection is a class average;
-  * Kloosterman fractions collapse by reciprocity into the sawtooth phase, with a numerator bp too large for the quoted
-    DFI and Bettin–Chandee bounds outside tiny-level blocks.
+  * Kloosterman fractions collapse by reciprocity into the sawtooth phase.
+  * The numerator bp is too large for DFI Thm 2 and Bettin–Chandee outside tiny-level blocks.
+  * DFI Thm 1 saves on single KF sums in skew blocks, but no saving for N follows.
 * Two uncertainty lemmas show that positive-mean certificates need frequencies up to q_max/2 = 8UV (sharp), resp.
   primitive frequencies for every pair that contributes positive mean.
 * What remains:
@@ -751,3 +769,22 @@ findings S01–S08 are addressed in this third version:
 * S07: the 8/131 screen now says that B transfers only qualitatively to odd moduli.
 * S08: the p10 share order, the p12-only sd claim, the sd 16.85 replacing O(17), and the LP's status as a closed
   relaxation with default tolerances.
+
+**Cross-model review** (GPT/Astra, `data/z53/xreview/REVIEW_HYPKLOOST.md`; checker `scripts/z53_xrev_hypkloost_check.py`).
+Verdict ACCEPT-WITH-FIXES.
+* The reviewer independently re-derived and confirmed B (including a citation-free sharpness construction for B(c)), C,
+  E, the reciprocity identity, the one-relation ceiling, Q's bookkeeping, and the Heath-Brown Thm 14 specialisation.
+* It reproduced all numerics: `cond_stats.txt` byte-for-byte, the KF moments, the LP and the window checks.
+
+Fixes applied:
+1. **MAJOR. DFI Thm 1 was misquoted** (a product instead of the sum [(M+N)^{1/2} + (1+a/MN)^{1/2}min(M,N)]). The claim
+   "DFI Thm 1 is never below the trivial bound" is retracted. Thm 1 does save on the KF sum K(b) in skew blocks with
+   max(U,V) > (bp)^{1/2+δ}, e.g. U ≈ p^{1/5}, V ≈ p^{3/5}. This is not a saving for N; the one-relation ceiling K(b)
+   stands.
+   Corrected in K(c), §0, the §6.3 ledger, the §7 table, §9, §10 and LIT_CHECK §3. The C̄ ≲ p^{1/37} restriction now
+   refers to DFI Thm 2 only.
+2. Bettin–Chandee's second term is corrected to (AMN)^{3/8+ε}(AN+AM)^{1/8} in LIT_CHECK and K(c). The first-term
+   restriction C̄ ≲ p^{1/21} stands.
+3. LP prose: below q_max/2 the solver returns mean 0, with G(0) = 0 or 1 depending on the row.
+4. The verdict remains "narrowed". The memo now distinguishes the skew-range saving for a KF sum from the absence of any
+   saving for the block count.
