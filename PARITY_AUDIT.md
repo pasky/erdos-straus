@@ -1,5 +1,7 @@
 # PARITY_AUDIT — hatch H-B: parity-breaking literature audit and single-prime feasibility (task O255)
 
+> **z52d correction (`Z52D_HYPERBOLA.md` Thm 1, cross-model reviewed):** for the (★) count itself the elementary pointwise bound is |E(p)| ≪ p^{1/3+o(1)} (block count N(U,V) ≤ p^{o(1)}min(U, V, p/(UV)+1)); the p^{2/5+o(1)} quoted below is Elsholtz–Tao's bound for the full Type II count. Read every p^{2/5} benchmark in this file accordingly.
+
 Status: checkpoint 2 (O255; hostile review R265 `reviews/parity-audit-review.md`: no FATAL; MAJOR-1–3 and m1–m12 repaired, marked "(R265 repair)"). **ES is not solved here or anywhere.** Labels as in DISCOVERIES.md
 (PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment). Literature excerpts in
 `sources/lit2026f/`. "Cited" = external theorem whose statement we read in the source (or an archived

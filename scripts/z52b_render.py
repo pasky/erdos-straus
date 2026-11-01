@@ -33,12 +33,20 @@ for f in sorted(glob.glob('data/z52b/pass2/outcome_*.jsonl')):
             r = json.loads(l)
             r['_src'] = 'pass 2'
             p2[r['mid']] = r
+# blind Opus audit redos, kept as separate records together with the audit's own comparison verdict
+CMP = {}
+for f in sorted(glob.glob('data/z52d/audit/compare_A*.jsonl')) + sorted(glob.glob('data/z52d/audit2/compare_B*.jsonl')):
+    for l in open(f):
+        if l.strip():
+            r = json.loads(l)
+            CMP[r['mid']] = r
+AUD = {}
 for f in sorted(glob.glob('data/z52d/audit/opus_A*.jsonl')) + sorted(glob.glob('data/z52d/audit2/opus_B*.jsonl')):
     for l in open(f):
         if l.strip():
             r = json.loads(l)
-            r['_src'] = 'audit (Opus)'
-            p2[r['mid']] = r
+            r['_src'] = 'audit (Opus, blind)'
+            AUD[r['mid']] = r
 TRI2 = {}
 for f in sorted(glob.glob('data/z52b/pass2/triage_interesting*.json')):
     TRI2.update(json.load(open(f)))
@@ -54,7 +62,11 @@ for f in sorted(glob.glob('data/z52d/avenue/out_*.jsonl')):
 AVR = json.load(open('data/z52d/avenue/review.json')) if glob.glob('data/z52d/avenue/review.json') else {}
 
 def final(mid):
-    """Latest first-step record for an item: Opus audit > Pass 2 > Pass 1."""
+    """Reconciled first-step record: the blind Opus audit unless its own comparison judged the earlier record better;
+    else Pass 2 > Pass 1."""
+    a = AUD.get(mid)
+    if a and CMP.get(mid, {}).get('verdict') != 'HAIKU-BETTER':
+        return a
     return p2.get(mid) or p1.get(mid)
 
 for it in items:
@@ -75,8 +87,9 @@ def line(it, pointer=False):
     if nl >= 2:
         meta.append(f'{nl} lanes')
     r2 = p2.get(it['mid'])
-    rf = r2 or r1
-    tri = (TRI2 if r2 else TRI).get(it['mid'], 'NEW')
+    ra = AUD.get(it['mid'])
+    rf = final(it['mid'])
+    tri = (TRI if rf is r1 else TRI2).get(it['mid'], 'NEW')
     box = 'x' if rf and rf['outcome'] in ('nothing', 'covered', 'skipped') else ' '
     if rf and rf['outcome'] == 'interesting' and tri.split('-')[0] in ('REDISCOVERY', 'EXPLAINED', 'ARTIFACT', 'ARTIFACT/WEAK'):
         box = 'x'
@@ -96,6 +109,10 @@ def line(it, pointer=False):
         out += f"\n  *{r2['_src'][0].upper() + r2['_src'][1:]} → {r2['outcome']}{tv}:* {short(r2['summary'], 300)}"
         if r2.get('next'):
             out += f" *Next:* {short(r2['next'], 200)}"
+    if ra:
+        cv = CMP.get(it['mid'], {})
+        cvs = f" [vs earlier record: {cv['verdict']} — {short(cv.get('why', ''), 160)}]" if cv else ''
+        out += f"\n  *Audit (Opus, blind) → {ra['outcome']}{cvs}:* {short(ra['summary'], 300)}"
     av = AV.get(it['mid'])
     if av:
         out += (f"\n  *Avenue:* {av.get('status')}, plaus {av.get('plausibility')}, novelty {av.get('novelty')}, yield "
@@ -166,12 +183,7 @@ if p1:
 if p2 or AV:
     fin = {it['mid']: final(it['mid']) for it in items}
     cF = collections.Counter(r['outcome'] if r else 'none' for r in fin.values())
-    def srcof(mid):
-        r = p2.get(mid)
-        if r is not None:
-            return r['_src']
-        return 'pass 1'
-    cSrc = collections.Counter(srcof(it['mid']) for it in items if fin[it['mid']])
+    skipped = sorted(m for m, r in fin.items() if r and r['outcome'] == 'skipped')
     by = {it['mid']: it for it in items}
     L.append("## Wave z52d — audits, Pass 2, proof-avenue layer, depth lanes\n")
     L.append('**Bottom line (Assessment).** No proof avenue for ES was found. Every item now has a first-step verdict and ~94 % have a '
@@ -179,7 +191,9 @@ if p2 or AV:
              'to depth lanes and all came back *narrowed* (scoped no-go theorems), none strengthened. ES remains OPEN.\n')
     L.append(f"- **Coverage.** {sum(1 for r in fin.values() if r)}/{len(items)} items have a first-step verdict "
              "(latest of Pass 1 / Pass 2 / Opus audit; outcomes " + ', '.join(f'{k} {v}' for k, v in cF.most_common()) +
-             "). No `needs-compute` remains; the residual `skipped` are organisational/outreach items.")
+             f"). No `needs-compute` remains. Residual `skipped` ({len(skipped)}): {', '.join(skipped)} — each record states "
+             "its reason (organisational/outreach, or a mathematical dismissal of the item as stated); they are not all "
+             "administrative. Per-item lines show every record (Pass 1, Pass 2, blind audit with its comparison verdict).")
     L.append('- **Audit of Pass 1** (`data/z52d/audit/report_A*.md`): Opus redid 54 random Haiku nothing/skipped/covered verdicts '
              'blind: 20 AGREE, 29 MISS-MINOR, 2 MISS-MAJOR, 3 WRONG-COVERED; content lost was calibration only, never proof-relevant. '
              'Haiku verdicts are reliable as decisions, weak as records (skips of actionable steps, substituted steps, tiny ranges, '
@@ -207,8 +221,9 @@ if p2 or AV:
                  'B2 single-integer lower tail.')
         L.append('- **Depth lanes** (Opus, each cross-reviewed by GPT, fixes applied; FRONTIER §3/§6/§7 updated):')
         L.append('  - `Z52D_HYPERBOLA.md` — §7.1 hyperbola cancellation: **narrowed**. Benchmark p^{1/3}; one-step dualization, '
-                 'Erdős–Turán with square-root input, Cauchy–Schwarz all closed (scoped PROVED); low-conductor part identical at primes '
-                 'and rough squares.')
+                 'Erdős–Turán with square-root input, Cauchy–Schwarz all closed (each PROVED for the stated implementation); for '
+                 'smoothly weighted blocks the low-conductor part has a common leading expression at primes and rough odd squares up to '
+                 'O(m^{−A}) (sharp cutoffs: only O(1/U)).')
         L.append('  - `Z52D_PELLCYCLE.md` — Pell/reduction-cycle forest roots: **dead under H** for the principal-cycle root menu '
                  '(near-square primes m²+1); arbitrary functions of cycle data not covered.')
         L.append('  - `Z52D_FOURIER.md` — bounded-order character obstruction: **strongly narrowed**; signed inverse lemma false for '

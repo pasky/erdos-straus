@@ -266,8 +266,9 @@ ES for a prescribed prime. Fixed-p variance diagnostics were tried and fail ((J)
   rad(Q) | (r+1)/4 ((J)34).
 
 **Tied modulus / height-dependent target.** `PARITY_AUDIT.md` Lemma 2.1′, Assessment 2.2, Remark 3.1; (J)87.
-* *Statement.* Best known pointwise bound: |E(p)| = |R(p) − M(p)| ≪ p^{2/5+o(1)} (PROVED relative to ET Prop 1.7; divisor
-  bound, no cancellation), against M(p) ≍ (log p)². Weil on the modular hyperbola 𝓗 = {xy ≡ 1 (mod 4p)} has error p^{1/2+o(1)}
+* *Statement.* Best known pointwise bound: |E(p)| = |R(p) − M(p)| ≪ p^{1/3+o(1)} (PROVED, elementary block count
+  N(U,V) ≤ p^{o(1)}min(U, V, p/(UV)+1), `Z52D_HYPERBOLA.md` Thm 1; ET Prop 1.7's p^{2/5} is for the full Type II count; no
+  cancellation either way), against M(p) ≍ (log p)². Weil on the modular hyperbola 𝓗 = {xy ≡ 1 (mod 4p)} has error p^{1/2+o(1)}
   even for one box, and (★) is ≍ p height-sub-counts, so Weil does not even bound E(p). Remark 3.1 (Assessment): every result
   beating Weil/Selberg–Hooley averages over a variable *independent of the modulus* (the residue, the moduli q ≤ x^θ with n
   free, the sequence variable). At one p, either the averaged variable *is* the modulus of the class condition ((u,C), (u,B)
@@ -597,7 +598,8 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   rules are (J)2 verbatim, barred given a BH-order lower bound; 2-power class-group data (8-, 16-rank, h mod 16) show no
   association with certificate parities to 2·10⁸ (EVIDENCE) → `Z52D_PARITY.md` Thms C, D (z52d, cross-model reviewed).
 * Signed bounded-order Fourier/character inverse for window obstructions (Z3003 route) → false for B ≤ 952, all B under
-  Dickson; only shared character found is χ_p (BM) → `Z52D_FOURIER.md` Thm B (z52d).
+  Dickson; no tested non-BM character (conductor ≤ 200) covers more than ~16 % of a prime's forced obstructions (EVIDENCE)
+  → `Z52D_FOURIER.md` Thm B, §4 (z52d).
 * Principal-cycle (Pell) root menu R3 ∪ U in F_p → frozen to a polynomial recipe at near-square primes; fails i.o. under H →
   `Z52D_PELLCYCLE.md` Thm 1.1 (z52d).
 * Fermat / binary-form certificates p = Q(u,v) → miss infinitely many primes of every square class → (J)3.
@@ -659,7 +661,8 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    explicit share of the Fourier obstruction mass and obstructs only unforced windows (PROVED); the other odd real obstructions
    are χ_p twisted by even genus characters of the window (Assessment) — i.e. exactly this item. A signed bounded-order
    character inverse lemma for obstructed windows is false for B ≤ 952 (PROVED + CERTIFIED; every B under Dickson), and no
-   tested non-BM character (conductor ≤ 200) is shared across a hard prime's windows (EVIDENCE). The "exceptional
+   tested non-BM character (conductor ≤ 200, mass share c ≥ 0.15) covers more than about 16 % of a surveyed prime's forced
+   obstructions (mean 10 %, mostly (·/3); EVIDENCE, 30 hard / 116 matched / 400 random primes). The "exceptional
    character / regime split" variant thus reduces to this item plus B2.
 4. **A polylog lower bound for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *(z48 update: `LOWERTAIL_DEEP_ASTRA.md` Thm 5.4 gives M_gen(p) ≥ (2/π⁴ − o(1)) log²p from **any fixed Dirichlet zero-free strip**, hence CONDITIONAL on OAI-003 or GRH; an unconditional version and any transfer to R(p) remain open.)* *Why:* M_gen is the finer
    T1-exact main term; with it the one-sided target could be stated relative to the genus series.
