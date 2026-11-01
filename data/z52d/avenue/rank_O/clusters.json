@@ -1,0 +1,880 @@
+{
+ "scoring": "z52d rank_O: cluster F by missing theorem, attach reviewer-O re-judgement, score, write clusters.json.\nScoring (explicit): EV = Y * P.\n  Y (yield for ES of the strongest statement in the cluster): full ES 1.0; pointwise sub-step a proof would\n    need 0.3; structural/thin-family/average/main-term 0.03; none 0.\n  P (from reviewer-O plausibility 0..3): 0 -> 0, 1 -> 0.01, 2 -> 0.1, 3 -> 0.4.\n    Any statement that is ES-strength (implies ES at large p) gets P = 0.002 if its plausibility is >= 1\n    (an ES-strength statement with no handle is not as likely as an open sub-step with no handle).\n  Superseded statements (already known in stronger form) have Y = 0 (no marginal yield).\n  Ties (EV equal; all ES-strength clusters land at 0.002) are broken by\n    h = handle (0 none, 1 formal escape of the named obstruction, 2 specific ingredient that plausibly beats it)\n    f = cheap falsifier exists that would kill or promote the cluster (0/1).\n  Tier (ii) is ordered by hand: P(provable in a ~1-week lane) x calibration value / cost (EV shown for reference).\n  Tiers: (i) could be part of a proof of ES (yield ES or pointwise sub-step);\n         (ii) side theorems worth a depth lane (cheap/provable/calibrating);\n         (iii) the rest.",
+ "n_F": 115,
+ "clusters": [
+  {
+   "id": "C1",
+   "name": "Cancellation on the height-tied modular hyperbola (trial/dual/Voronoi/spectral forms)",
+   "statement": "For every large prime p: #{(x,y): xy = 4Cp+1, x ≡ y ≡ −1 (mod 4C), C ≥ 1} ≥ 1 (one-sided H⁻ form: ≥ ε·M_BM(p)); first step: any bound |R(p) − M(p)| ≪ p^{2/5−δ}, or a power saving on one dyadic height block, obtained by cancellation rather than the divisor bound.",
+   "members": [
+    "Z1034",
+    "Z1855",
+    "Z2997",
+    "Z0211",
+    "Z1480",
+    "Z2958",
+    "Z3149"
+   ],
+   "frontier": "§7.1 (verbatim); PARITY_AUDIT §2–3",
+   "new": "Nothing new in substance: Voronoi/van der Corput-per-piece and a trace-formula-over-levels phrasing; Z1855 makes explicit that the pieces ⌈p/m⌉ = q are the pair form.",
+   "ytype": "substep",
+   "plaus": 1,
+   "h": 1,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "tied modulus / height-dependent target (PARITY_AUDIT Remark 3.1); B3 for the full form (polylog main term needs near-total cancellation of a p^{1/2}-scale error)",
+   "beats": "No member has an ingredient that beats it. The only unexploited structure is the coupling C = (xy−1)/4p itself (formal handle).",
+   "EV": 0.003,
+   "avenue_plaus": {
+    "Z1034": 1,
+    "Z1855": 1,
+    "Z2997": 1,
+    "Z0211": 1,
+    "Z1480": 1,
+    "Z2958": 1,
+    "Z3149": 1
+   },
+   "avenue_status": {
+    "Z1034": "open-plausible",
+    "Z1855": "open-plausible",
+    "Z2997": "open-plausible",
+    "Z0211": "open-plausible",
+    "Z1480": "open-plausible",
+    "Z2958": "open-plausible",
+    "Z3149": "open-plausible"
+   },
+   "rank": 1,
+   "yield": "ES for the one-sided form; sub-step (first class-aware single-integer input) for any power saving"
+  },
+  {
+   "id": "C4",
+   "name": "Pell / reduction-cycle / E2-primitive roots for the forest or the e-slices",
+   "statement": "For every prime p ≡ 1 (24), p > p₀, some element of the principal reduction cycle of ℚ(√p) (convergent P_k/Q_k of √p, ambiguous form), or another explicit non-quasi-polynomial primitive Φ(p) (fundamental unit, binomial/factorial data), is a root whose forest component contains a bichromatic edge (an ES₅ certificate).",
+   "members": [
+    "Z0596",
+    "Z0465",
+    "Z1298",
+    "Z0385",
+    "Z1687",
+    "Z1048",
+    "Z0378"
+   ],
+   "frontier": "§7.2 (Astra open question: Pell/class-group cycle data); §3 B1 hatch E2; (J)84 Prop 4.2 kills the coprime CF-norm WINDOW use only; (J)106 kills fixed and least-QNR roots (Dickson)",
+   "new": "Z0596: Legendre-type descent that uses primality of p (as for N(ε_p) = −1) — the one item whose proof template is a pointwise theorem at primes. The cycle supplies a power-size (≍ regulator) p-dependent auxiliary set (an M1b-type input B2 otherwise lacks).",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 1,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "B2 (each root is one tied divisor event); (J)84 Prop 4.2 for window uses; the Dickson constructions of (J)106 do not control cycle data (that is the escape)",
+   "beats": "Formal only: E2 primitives escape B1 Thm M and the Dickson root constructions; nothing ties the cycle to the class.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z0596": 1,
+    "Z0465": 1,
+    "Z1298": 1,
+    "Z0385": 1,
+    "Z1687": 0,
+    "Z1048": 0,
+    "Z0378": 1
+   },
+   "avenue_status": {
+    "Z0596": "unclear",
+    "Z0465": "unclear",
+    "Z1298": "open-plausible",
+    "Z0385": "open-plausible",
+    "Z1687": "known-false",
+    "Z1048": "known-false",
+    "Z0378": "open-plausible"
+   },
+   "rank": 2,
+   "yield": "ES (via ES₅)"
+  },
+  {
+   "id": "C3",
+   "name": "Parity / count-congruence / topological index (windmill family)",
+   "statement": "For every prime p ≡ 1 (24) a p-dependent finite set S_p with a group action (involution, ℤ/m, S₃) or a mod-2-acyclic complex whose fixed points / critical cells are ES certificates and whose count is ≢ 0 by a formula that sees (·/p) (it must vanish at odd squares).",
+   "members": [
+    "Z2921",
+    "Z1386",
+    "Z1771",
+    "Z2609",
+    "Z3094",
+    "Z0469",
+    "Z2033",
+    "Z0556",
+    "Z3101",
+    "Z2764",
+    "Z2765",
+    "Z3027",
+    "Z0441",
+    "Z1650"
+   ],
+   "frontier": "§6 dead end for finite affine involution menus ((J)2 Thm 6.1, CONDITIONAL on H); M5 row of B2_ACROSS_FIELDS; WINDMILL.md (~7000 weights tested)",
+   "new": "Z3101: m > 2 group actions (not covered by (J)2); Z3094: class-number parity as the parity source; Z2764/Z2765: acyclicity/Euler-characteristic form (Z2765 notes χ reduces to D⁻ − D⁺, i.e. Theorem K data).",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 1,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "M5/T1 (count must vanish at m², so must see (·/p)); B1-type bar for finite affine menus; genus parity of h(−4p) is congruence data",
+   "beats": "Only formally: Rédei 4-/8-rank of Cl(−4p) is not congruence data in p; no member builds S_p from it.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z2921": 1,
+    "Z1386": 1,
+    "Z1771": 1,
+    "Z2609": 1,
+    "Z3094": 1,
+    "Z0469": 1,
+    "Z2033": 1,
+    "Z0556": 1,
+    "Z3101": 1,
+    "Z2764": 1,
+    "Z2765": 1,
+    "Z3027": 1,
+    "Z0441": 1,
+    "Z1650": 1
+   },
+   "avenue_status": {
+    "Z2921": "open-plausible",
+    "Z1386": "open-plausible",
+    "Z1771": "open-plausible",
+    "Z2609": "open-plausible",
+    "Z3094": "unclear",
+    "Z0469": "open-plausible",
+    "Z2033": "unclear",
+    "Z0556": "unclear",
+    "Z3101": "open-plausible",
+    "Z2764": "unclear",
+    "Z2765": "unclear",
+    "Z3027": "unclear",
+    "Z0441": "open-plausible",
+    "Z1650": "open-plausible"
+   },
+   "rank": 3,
+   "yield": "ES"
+  },
+  {
+   "id": "C14",
+   "name": "Class forcing beyond parity (full factor multiset, Stickelberger, Lucas primitive divisors, twisted Dedekind reciprocity)",
+   "statement": "A property 𝒜 of the joint factorisations of {4Cp+1}_C (or a Lucas/cyclotomic rank-of-apparition structure, or a twisted reciprocity law involving χ(d) of the divisor itself), provable for all large p, that forces −1 into some D_C.",
+   "members": [
+    "Z2818",
+    "Z1649",
+    "Z2534",
+    "Z1954",
+    "Z0250"
+   ],
+   "frontier": "§7.6 (full-factor-multiset realisation), §7.7 (general-m Stickelberger); §6 reciprocity/Rédei forcing → parity only",
+   "new": "Z1954: Lucas primitive divisors reduce the class mod n to ±1 with the sign a quadratic character — a genuine class-reduction mechanism, but it needs 4Cp+1 to share a primitive divisor with U_{4C}(P,Q) (restates rank of apparition) and is tautological at C = 1.",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 1,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "CLASS_FORCING Thm 2.1 / TWO_POWER_LADDER (parity, never class); privacy of large primes",
+   "beats": "Partially: the Lucas ±1 reduction is the only class-level (not parity-level) forcing seen in the 2,995 rows; it does not reach linear-in-p integers.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z2818": 1,
+    "Z1649": 1,
+    "Z2534": 1,
+    "Z1954": 1,
+    "Z0250": 1
+   },
+   "avenue_status": {
+    "Z2818": "open-plausible",
+    "Z1649": "unclear",
+    "Z2534": "unclear",
+    "Z1954": "open-plausible",
+    "Z0250": "open-plausible"
+   },
+   "rank": 4,
+   "yield": "ES (if 𝒜 exists); closing lemmas otherwise"
+  },
+  {
+   "id": "C2",
+   "name": "One-coordinate polylog witness window (HC, least level C, Vmin, u_min, a_min)",
+   "statement": "∃A ∀ prime p ≡ 1 (24), p > p₀: some ES certificate has its designated coordinate (forest HC(p), least Type II level over all lines, Vmin, I3 interior endpoint u, least e-slice a_min) ≤ (log p)^A.",
+   "members": [
+    "Z0148",
+    "Z0534",
+    "Z2017",
+    "Z3087",
+    "Z3167",
+    "Z1600",
+    "Z0847",
+    "Z1335",
+    "Z2363",
+    "Z1406",
+    "Z1850"
+   ],
+   "frontier": "§7.2 (one-coordinate target HC(p) ≪ (log p)^A); two-endpoint/witness-modulus versions are dead (H4_NOT_POLYLOG; POINTWISE_OMEGA13 Thm 5.1); (★)-only version false at 14 primes",
+   "new": "Nothing beyond bookkeeping; Z1600 isolates the regime C ≤ (log p)^{log 2} where τ(4Cp+1) can exceed φ(4C).",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 0,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "Landau-type single-integer lower tail; B2 at each window value; possible extension of H4_NOT_POLYLOG energy construction to one coordinate",
+   "beats": "None. Value is as a clean falsification target.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z0148": 1,
+    "Z0534": 1,
+    "Z2017": 1,
+    "Z3087": 1,
+    "Z3167": 1,
+    "Z1600": 1,
+    "Z0847": 1,
+    "Z1335": 1,
+    "Z2363": 1,
+    "Z1406": 1,
+    "Z1850": 1
+   },
+   "avenue_status": {
+    "Z0148": "open-plausible",
+    "Z0534": "open-plausible",
+    "Z2017": "open-plausible",
+    "Z3087": "open-plausible",
+    "Z3167": "open-plausible",
+    "Z1600": "open-plausible",
+    "Z0847": "open-plausible",
+    "Z1335": "open-plausible",
+    "Z2363": "open-plausible",
+    "Z1406": "open-plausible",
+    "Z1850": "open-plausible"
+   },
+   "rank": 5,
+   "yield": "ES (it implies ES)"
+  },
+  {
+   "id": "C20",
+   "name": "High-multiplicity lift (B3 Remark 2.4 hatch)",
+   "statement": "A natural lifted variety/weight with fibres ≫ p^δ over each ES solution of 4/p (e.g. solutions of 4/(pk), k ≤ p^δ, k dividing two denominators) whose weighted count has a power-size main term and power-saving error at each p.",
+   "members": [
+    "Z2060"
+   ],
+   "frontier": "B3 \"does NOT rule out\" (high-multiplicity encodings); not a §7 item",
+   "new": "Names the hatch; no candidate lift.",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 0,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "B3 (fibres must be p^δ); Z3125 (lift needs enough free variables); the collapse to a sum of ES(p) indicators",
+   "beats": "No.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z2060": 1
+   },
+   "avenue_status": {
+    "Z2060": "open-plausible"
+   },
+   "rank": 6,
+   "yield": "ES"
+  },
+  {
+   "id": "C15",
+   "name": "Amplified second moment over a polylog family around p",
+   "statement": "Σ_{|n−p|≤H}|R(n) − M(n)|²|A_p(n)|² ≤ ½(M(p)A_p(p))² with an amplifier A_p built from (p/ℓ), ℓ ≤ L, H polylog.",
+   "members": [
+    "Z2982"
+   ],
+   "frontier": "§6 fixed-p variance / level-Poisson second moment → critical ((J)103 §3)",
+   "new": "Bookkeeping showing H must be polylog.",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 0,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "B6 at polylog scale; amplifier is congruence data (B1); variance at polylog windows is the pointwise problem",
+   "beats": "No.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z2982": 1
+   },
+   "avenue_status": {
+    "Z2982": "open-plausible"
+   },
+   "rank": 7,
+   "yield": "ES (above p₀)"
+  },
+  {
+   "id": "C10",
+   "name": "Propagation / closure / induction (Graham-type maps, rule Λ, Y–Δ moves, scale induction, composition descent)",
+   "statement": "A finite set of maps T_i with T_i(n) < n and rules turning ES certificates at T_i(n) (or at smaller scales/levels) into one at n, valid for every large prime n — used with strong induction.",
+   "members": [
+    "Z2095",
+    "Z2809",
+    "Z1153",
+    "Z3028",
+    "Z3005",
+    "Z2351",
+    "Z3022"
+   ],
+   "frontier": "§6 Propagation/global-positivity shapes (PROPAGATION_CLOSURE: rule Λ, integral Y–Δ \"remain open\"); (J)86 amplification criterion",
+   "new": "Z3022 overturned in Task A: B1/Mordell–Schinzel do not cover inductive closure (recursion depth grows with p); the real bars are privacy (affine shifts do not transport divisors) and numerator 8 (8/131).",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 0,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "privacy of large primes (SS8 Lemma 2.3); numerator blindness; T1 if outputs are ET-normalised",
+   "beats": "No. Note the Z3016/Z3187 \"thin polynomial image\" argument is wrong for strong induction from all smaller n; the privacy argument is the valid one (Assessment).",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z2095": 1,
+    "Z2809": 1,
+    "Z1153": 1,
+    "Z3028": 1,
+    "Z3005": 1,
+    "Z2351": 1,
+    "Z3022": 0
+   },
+   "avenue_status": {
+    "Z2095": "unclear",
+    "Z2809": "unclear",
+    "Z1153": "open-plausible",
+    "Z3028": "unclear",
+    "Z3005": "unclear",
+    "Z2351": "unclear",
+    "Z3022": "known-false"
+   },
+   "rank": 8,
+   "yield": "ES"
+  },
+  {
+   "id": "C16",
+   "name": "Positivity of an exact algebraic expression (Shintani ζ(0, 𝔞) combinations, interlacing families)",
+   "statement": "R(p) (or a positive minorant) = Σ_j w_j ζ(0, 𝔞_j) over narrow ideal classes of real quadratic fields attached to word traces (or a real-rooted interlacing average over windows), with an independent positivity proof at non-squares.",
+   "members": [
+    "Z2845",
+    "Z3104"
+   ],
+   "frontier": "§6 exact identities (finite fixed-level excluded; growing-level open, (J)10); §6 spectral/interlacing (displayed mechanisms fail)",
+   "new": "Shintani cone decomposition as an exact finite handle (Z2845).",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 0,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "T1 (identity must see (·/p)); positivity of a signed combination = spin event (B2)",
+   "beats": "No.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z2845": 1,
+    "Z3104": 1
+   },
+   "avenue_status": {
+    "Z2845": "unclear",
+    "Z3104": "unclear"
+   },
+   "rank": 9,
+   "yield": "ES"
+  },
+  {
+   "id": "C9",
+   "name": "Regime split / exceptional-character dichotomy (Linnik three principles, Deuring–Heilbronn, Fourier character witness)",
+   "statement": "Finitely many regimes covering all large p (by lnr(p), a pretentious distance, or a shared obstructing character), each with its own pointwise existence theorem; in the Linnik form: obstructed windows are killed by ONE exceptional character, which then repels success elsewhere.",
+   "members": [
+    "Z2940",
+    "Z3003",
+    "Z2941",
+    "Z2512",
+    "Z3002",
+    "Z2964",
+    "Z1787"
+   ],
+   "frontier": "Reduces to §7.3 (class beyond the BM layer); regime splits by bounded congruence data are B1",
+   "new": "Z3003: an exact Fourier identity giving a quantitative character witness for every obstructed e-slice. Rank_O falsifier (scripts/z52d_rank_O_charobs.py, EVIDENCE): at 9 (★)-zeros vs 27 controls, e ≤ 400, obstructed windows are ≈half poverty-type and the subgroup-type ones are mostly the quadratic (genus/BM) character χ_{−e}; non-quadratic subgroup obstructions show no excess at hard primes. No shared exceptional character beyond the quadratic layer.",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 0,
+   "f": 0,
+   "tier": "i",
+   "obstruction": "B2 in every regime; B1 for congruence-defined splits; poverty (B4) dominates failures (also out_Q11 Z1596: 179/183 rich (★) level failures are poverty-type)",
+   "beats": "No. The only shared character is the quadratic one, which is the already-free BM layer.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z2940": 1,
+    "Z3003": 1,
+    "Z2941": 1,
+    "Z2512": 1,
+    "Z3002": 1,
+    "Z2964": 1,
+    "Z1787": 1
+   },
+   "avenue_status": {
+    "Z2940": "unclear",
+    "Z3003": "open-plausible",
+    "Z2941": "open-plausible",
+    "Z2512": "open-plausible",
+    "Z3002": "open-plausible",
+    "Z2964": "unclear",
+    "Z1787": "open-plausible"
+   },
+   "rank": 10,
+   "yield": "ES"
+  },
+  {
+   "id": "C6",
+   "name": "Thin exponential families by recursion / exponent covering / Diophantine finiteness",
+   "statement": "ES for all n_s = 15·2^s+1 (and 4^s+297, 4^s+33, 4^s+273), and I3 for 3^k ± 2, 5·3^k+1: certificates recurrent in s on residue classes of s, or exponent coverings, or Subspace/Bennett finiteness of the failure branch; similarly (12^m−1)/11, (8^m−1)/7 by cyclotomic factorisation.",
+   "members": [
+    "Z2969",
+    "Z3189",
+    "Z0417",
+    "Z2031",
+    "Z2995",
+    "Z2776",
+    "Z1557"
+   ],
+   "frontier": "§7.8 (thin families still open), §7.17 (I3 thin families); §4 line 16 (no transfer to primes)",
+   "new": "Berlekamp–Massey on PROOF certificates of 3·2^s+1/63·2^s+1 (not minimal ones) to find a recurrent template; Niederreiter folding for CF of a/2^k; BHV/Lucas for families with Lucas-like side numbers.",
+   "ytype": "side",
+   "plaus": 2,
+   "h": 2,
+   "f": 1,
+   "tier": "ii",
+   "obstruction": "(J)22 Cor 1.5 / (J)68 Lemma 3.1 (no finite ET covering — parameters must grow with s); u ≡ 7 (8) valuation branch is a 2-adic approximation problem",
+   "beats": "Yes for the family (recursion in s escapes the finite-covering no-go); irrelevant to primes ((J)84 Thm A).",
+   "EV": 0.003,
+   "avenue_plaus": {
+    "Z2969": 1,
+    "Z3189": 2,
+    "Z0417": 2,
+    "Z2031": 1,
+    "Z2995": 2,
+    "Z2776": 3,
+    "Z1557": 2
+   },
+   "avenue_status": {
+    "Z2969": "unclear",
+    "Z3189": "open-plausible",
+    "Z0417": "open-plausible",
+    "Z2031": "open-plausible",
+    "Z2995": "open-plausible",
+    "Z2776": "open-plausible",
+    "Z1557": "open-plausible"
+   },
+   "rank": 11,
+   "yield": "partial (one thin family; no transfer to primes)"
+  },
+  {
+   "id": "C13",
+   "name": "Primitive ES (gcd(x,y,z) = 1) as a cleaner ES-strength target",
+   "statement": "PROVED (Z0866, elementary; rank_O re-checked numerically: 0 primitive Type I among 439 Type I solutions, p < 400): at p ≡ 1 (4) Type I is never primitive and primitive solutions are exactly p = 4ab − (a+b)/m, gcd(a,b) = 1, m | a+b. Open: every large prime p ≡ 1 (12) is of that form.",
+   "members": [
+    "Z0866"
+   ],
+   "frontier": "not in FRONTIER (dual of (★): (★) is m = 1, primitive is k = 1)",
+   "new": "The k ↔ m duality between (★) and primitive solutions; explains why all 110 primitive failures ≤ 10⁵ are ≡ 1 (12).",
+   "ytype": "side",
+   "plaus": 3,
+   "h": 0,
+   "f": 1,
+   "tier": "ii",
+   "obstruction": "B2 (single-integer lottery with smaller mean)",
+   "beats": "n/a (side theorem)",
+   "EV": 0.012,
+   "avenue_plaus": {
+    "Z0866": 1
+   },
+   "avenue_status": {
+    "Z0866": "open-plausible"
+   },
+   "rank": 12,
+   "yield": "side (structure lemma + census); the open statement is ES-strength"
+  },
+  {
+   "id": "C8",
+   "name": "Explicit / effective constants (BM-free layer via explicit Burgess, explicit M_BM, effective 3/4, explicit Vaughan)",
+   "statement": "Explicit (c, p₁) in M_BM(p) ≥ c(log p)² for p ≥ p₁; explicit t ≤ 4ℓ(p) ≤ T_expl(p) with M_t^lev > 0; effective constants in E(N) ≪ N exp(−c(log N)^{3/4}) (remove the Landau–Page modulus from BV).",
+   "members": [
+    "Z2418",
+    "Z2858",
+    "Z2901",
+    "Z2551"
+   ],
+   "frontier": "§5.2, §5.1 (not §7)",
+   "new": "Bookkeeping only; prerequisite for any eventual \"large p + finite check\".",
+   "ytype": "side",
+   "plaus": 3,
+   "h": 0,
+   "f": 0,
+   "tier": "ii",
+   "obstruction": "none for the statements (B3/B6 for ES)",
+   "beats": "n/a",
+   "EV": 0.012,
+   "avenue_plaus": {
+    "Z2418": 3,
+    "Z2858": 3,
+    "Z2901": 3,
+    "Z2551": 3
+   },
+   "avenue_status": {
+    "Z2418": "open-plausible",
+    "Z2858": "known-true",
+    "Z2901": "known-true",
+    "Z2551": "open-plausible"
+   },
+   "rank": 13,
+   "yield": "partial (explicit main terms / effective averages)"
+  },
+  {
+   "id": "C17",
+   "name": "Numerator 9: finite covering ⇔ no sterile point (is B1 exactly T1?)",
+   "statement": "9/n = 1/x+1/y+1/z for all n ≥ 20 via finitely many polynomial/congruence identities (exceptions exactly {2,5,11,19}); equivalently numerator 9 has no square-mimicking sterile profinite point.",
+   "members": [
+    "Z0735"
+   ],
+   "frontier": "§3 numerator blindness (full T1 only for 4 | M; fails for M = 3,5,6,7,11,19 — 9 not listed)",
+   "new": "Calibration of B1: if numerator 9 (no T1) is finitely coverable, B1 is \"exactly T1\".",
+   "ytype": "side",
+   "plaus": 2,
+   "h": 0,
+   "f": 1,
+   "tier": "ii",
+   "obstruction": "a sterile point for m = 9 (unknown)",
+   "beats": "n/a",
+   "EV": 0.003,
+   "avenue_plaus": {
+    "Z0735": 2
+   },
+   "avenue_status": {
+    "Z0735": "unclear"
+   },
+   "rank": 14,
+   "yield": "side (calibration)"
+  },
+  {
+   "id": "C5",
+   "name": "Local-factor floor at pseudosquare-type primes (main term)",
+   "statement": "inf_p F(p) ≥ c > 0 for the RESIDUE_HARDNESS local-density factor, uniformly along p ≡ 1 (mod primorials) and p QR mod all ℓ ≤ (log p)^A; i.e. M_F(p) ≫ log²p everywhere.",
+   "members": [
+    "Z0671",
+    "Z2000",
+    "Z2981"
+   ],
+   "frontier": "§2.2 (RESIDUE_HARDNESS; z52c); not §7",
+   "new": "Pseudosquares as the native hardest list; first-order factor product → 1 along primorial classes (Z2000 sketch).",
+   "ytype": "side",
+   "plaus": 2,
+   "h": 0,
+   "f": 1,
+   "tier": "ii",
+   "obstruction": "B3 (main term only); F is itself a CONJECTURE closed form",
+   "beats": "n/a",
+   "EV": 0.003,
+   "avenue_plaus": {
+    "Z0671": 2,
+    "Z2000": 2,
+    "Z2981": 3
+   },
+   "avenue_status": {
+    "Z0671": "open-plausible",
+    "Z2000": "open-plausible",
+    "Z2981": "known-true"
+   },
+   "rank": 15,
+   "yield": "partial (main term only)"
+  },
+  {
+   "id": "C7a",
+   "name": "Non-CRT exceptional-set input from bilinear structure in (u,B)",
+   "statement": "Type II/bilinear asymptotics for primes p = 4uBC − u − B with (u,B) in bilinear boxes giving #{p ≤ X : R(p) = 0} ≪ X^{1−δ}.",
+   "members": [
+    "Z2356"
+   ],
+   "frontier": "§7.12 (θ > 3/4 needs non-CRT input)",
+   "new": "Bilinear structure at fixed C as candidate non-CRT information.",
+   "ytype": "side",
+   "plaus": 1,
+   "h": 1,
+   "f": 1,
+   "tier": "ii",
+   "obstruction": "B6; CRT supply cap if bilinear input reduces to forced classes",
+   "beats": "Possibly (the only member addressing the CRT cap).",
+   "EV": 0.0003,
+   "avenue_plaus": {
+    "Z2356": 1
+   },
+   "avenue_status": {
+    "Z2356": "open-plausible"
+   },
+   "rank": 16,
+   "yield": "partial (power-saving exceptional set; nothing at fixed p)"
+  },
+  {
+   "id": "C7b",
+   "name": "Almost-all ES on thin prime sets / short intervals",
+   "statement": "ES (or (★)) for almost all primes a² + b⁴ (2-D large sieve, Friedlander–Iwaniec count); a (★)-prime in every [x, x + x^{0.525}].",
+   "members": [
+    "Z0240",
+    "Z2947"
+   ],
+   "frontier": "§5.1 (extensions of the averaged results)",
+   "new": "Thin-set version is new and provable.",
+   "ytype": "side",
+   "plaus": 3,
+   "h": 0,
+   "f": 0,
+   "tier": "ii",
+   "obstruction": "B6",
+   "beats": "n/a",
+   "EV": 0.012,
+   "avenue_plaus": {
+    "Z0240": 3,
+    "Z2947": 3
+   },
+   "avenue_status": {
+    "Z0240": "open-plausible",
+    "Z2947": "known-true"
+   },
+   "rank": 17,
+   "yield": "partial (averages)"
+  },
+  {
+   "id": "C18",
+   "name": "Growing-length digit/CF recursion (B1 E1 hatch) — Cobham closing lemma",
+   "statement": "A finite-rule recursion along the base-b digits (or CF) of p, run ≍ log p steps, outputs a certificate for every prime; closing lemma: its success set is automatic, so its failure set is automatic and contains no structured square set by Cobham.",
+   "members": [
+    "Z0482"
+   ],
+   "frontier": "B1 \"Does NOT rule out\" E1",
+   "new": "Cobham-type closing argument (proposed).",
+   "ytype": "side",
+   "plaus": 2,
+   "h": 0,
+   "f": 0,
+   "tier": "ii",
+   "obstruction": "T1 (squares are not k-automatic)",
+   "beats": "n/a",
+   "EV": 0.003,
+   "avenue_plaus": {
+    "Z0482": 1
+   },
+   "avenue_status": {
+    "Z0482": "open-plausible"
+   },
+   "rank": 18,
+   "yield": "closing lemma (none for ES)"
+  },
+  {
+   "id": "C12",
+   "name": "Relaxation then transport (Gaussian-cone ES, matrix ES, abelian-variety root numbers)",
+   "statement": "(a) a relaxed solution exists at every p and (b) a natural (Galois-equivariant / ℚ-linear) map sends relaxed solutions to ℕ-solutions.",
+   "members": [
+    "Z0084",
+    "Z0091",
+    "Z0338",
+    "Z0424"
+   ],
+   "frontier": "§6 transport of ES^{(S)}, V_φ, ES^□ → no transport; §4 line 12",
+   "new": "Z0338 proposes a closing lemma (equivariant maps factor through the trace ⇒ B2 divisibility 2Re ξ | N(ξ)).",
+   "ytype": "none",
+   "plaus": 0,
+   "h": 0,
+   "f": 1,
+   "tier": "iii",
+   "obstruction": "B-fin / B2 at the transport step",
+   "beats": "No.",
+   "EV": 0.0,
+   "avenue_plaus": {
+    "Z0084": 1,
+    "Z0091": 1,
+    "Z0338": 1,
+    "Z0424": 1
+   },
+   "avenue_status": {
+    "Z0084": "unclear",
+    "Z0091": "unclear",
+    "Z0338": "unclear",
+    "Z0424": "unclear"
+   },
+   "rank": 19,
+   "yield": "ES only via unknown transport"
+  },
+  {
+   "id": "C19",
+   "name": "Question R / Rickards–Stange local-global for self-levelled SL₂ words",
+   "statement": "Self-levelled SL₂ words obey a local–global principle up to the theta-multiplier obstruction plus a finite sporadic set, primes outside it.",
+   "members": [
+    "Z0416"
+   ],
+   "frontier": "§7.11",
+   "new": "None.",
+   "ytype": "ES",
+   "plaus": 0,
+   "h": 0,
+   "f": 0,
+   "tier": "iii",
+   "obstruction": "M1a (RS-type theorems need power-size orbits; ES words are polylog)",
+   "beats": "No.",
+   "EV": 0.0,
+   "avenue_plaus": {
+    "Z0416": 1
+   },
+   "avenue_status": {
+    "Z0416": "open-plausible"
+   },
+   "rank": 20,
+   "yield": "ES"
+  },
+  {
+   "id": "C11",
+   "name": "Restatements: torsor/Cox ring, BM/strong approximation, U_n ≅ U_1, fixed-level Hasse, singular series, thin-orbit collapse, meta-survey",
+   "statement": "ES(p) ⟺ an integral point on the universal torsor / inside the BM set / with denominators dividing p; no existence input.",
+   "members": [
+    "Z0603",
+    "Z1670",
+    "Z2029",
+    "Z2302",
+    "Z2699",
+    "Z2700",
+    "Z2708",
+    "Z0604",
+    "Z0476",
+    "Z1891"
+   ],
+   "frontier": "§6 Brauer–Manin, descent, strong approximation; §2.4; (J)95",
+   "new": "None (status known-true = dictionary).",
+   "ytype": "none",
+   "plaus": 0,
+   "h": 0,
+   "f": 0,
+   "tier": "iii",
+   "obstruction": "B2 / M3",
+   "beats": "No.",
+   "EV": 0.0,
+   "avenue_plaus": {
+    "Z0603": 3,
+    "Z1670": 3,
+    "Z2029": 3,
+    "Z2302": 3,
+    "Z2699": 3,
+    "Z2700": 3,
+    "Z2708": 3,
+    "Z0604": 3,
+    "Z0476": 3,
+    "Z1891": 1
+   },
+   "avenue_status": {
+    "Z0603": "known-true",
+    "Z1670": "known-true",
+    "Z2029": "known-true",
+    "Z2302": "known-true",
+    "Z2699": "known-true",
+    "Z2700": "known-true",
+    "Z2708": "known-true",
+    "Z0604": "known-true",
+    "Z0476": "known-true",
+    "Z1891": "open-plausible"
+   },
+   "rank": 21,
+   "yield": "none beyond restatement"
+  },
+  {
+   "id": "C7c",
+   "name": "Moments / positive proportion / energy (superseded density statements)",
+   "statement": "Paley–Zygmund or moment-LP lower bounds for #{p : R(p) ≫ log²p}; Σf² via incidences/energy.",
+   "members": [
+    "Z2362",
+    "Z2432",
+    "Z2461",
+    "Z1074"
+   ],
+   "frontier": "superseded by §5.1 (density 1 with exp(−c(log N)^{3/4}))",
+   "new": "Z2461: energy at Cauchy–Schwarz minimum (EVIDENCE) — closes decoupling.",
+   "ytype": "none",
+   "plaus": 3,
+   "h": 0,
+   "f": 0,
+   "tier": "iii",
+   "obstruction": "B6",
+   "beats": "n/a",
+   "EV": 0.0,
+   "avenue_plaus": {
+    "Z2362": 3,
+    "Z2432": 2,
+    "Z2461": 3,
+    "Z1074": 3
+   },
+   "avenue_status": {
+    "Z2362": "open-plausible",
+    "Z2432": "open-plausible",
+    "Z2461": "known-true",
+    "Z1074": "known-true"
+   },
+   "rank": 22,
+   "yield": "partial (density), superseded"
+  },
+  {
+   "id": "C7d",
+   "name": "Other averaged inputs (levels beyond 1/2, Type III, sieves at fixed depth, Smith/CKMP spin, Collatz/Tao, Guth–Maynard, value-set counts)",
+   "statement": "Distribution/sieve/density statements averaged over p or n.",
+   "members": [
+    "Z2379",
+    "Z2400",
+    "Z2372",
+    "Z2650",
+    "Z0554",
+    "Z2490",
+    "Z1577",
+    "Z2382",
+    "Z2575",
+    "Z2597",
+    "Z2619",
+    "Z2636",
+    "Z3164",
+    "Z2601"
+   ],
+   "frontier": "§5.1; §7.12 CRT cap (D)24 not moved by better levels",
+   "new": "None that moves the 3/4 cap.",
+   "ytype": "none",
+   "plaus": 2,
+   "h": 0,
+   "f": 0,
+   "tier": "iii",
+   "obstruction": "B6; CRT supply cap",
+   "beats": "No.",
+   "EV": 0.0,
+   "avenue_plaus": {
+    "Z2379": 2,
+    "Z2400": 2,
+    "Z2372": 3,
+    "Z2650": 2,
+    "Z0554": 3,
+    "Z2490": 3,
+    "Z1577": 3,
+    "Z2382": 3,
+    "Z2575": 3,
+    "Z2597": 2,
+    "Z2619": 3,
+    "Z2636": 3,
+    "Z3164": 3,
+    "Z2601": 3
+   },
+   "avenue_status": {
+    "Z2379": "open-plausible",
+    "Z2400": "open-plausible",
+    "Z2372": "known-true",
+    "Z2650": "open-plausible",
+    "Z0554": "known-true",
+    "Z2490": "known-true",
+    "Z1577": "known-true",
+    "Z2382": "known-true",
+    "Z2575": "known-true",
+    "Z2597": "open-plausible",
+    "Z2619": "open-plausible",
+    "Z2636": "known-true",
+    "Z3164": "known-true",
+    "Z2601": "known-true"
+   },
+   "rank": 23,
+   "yield": "partial (averages; constants), superseded or cap-bound"
+  }
+ ]
+}
