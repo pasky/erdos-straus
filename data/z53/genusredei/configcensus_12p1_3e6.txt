@@ -1,0 +1,15 @@
+# p < 3000000 line 12p+1, two large factors, s=1: instances 17932 law violations 0
+# a1 a2 q1 q2 eps count
+1 1 0 0 -1 1047
+1 1 0 0 1 1052
+1 1 1 1 -1 1010
+1 1 1 1 1 1031
+5 5 0 0 -1 2261
+5 5 0 0 1 2169
+7 7 0 0 -1 1225
+7 7 0 0 1 1214
+7 7 1 1 -1 1088
+7 7 1 1 1 1188
+11 11 0 0 -1 2319
+11 11 0 0 1 2328
+# distinct configurations: 12 (law-compatible: 12)
