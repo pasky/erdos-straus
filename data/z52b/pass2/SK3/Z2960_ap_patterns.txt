@@ -1,0 +1,9 @@
+AP triples tested: 935
+nontrivial 3-AP hits (AP primes): 1402  control (non-AP third prime): 0
+hits with >=2 coordinates constant across the triple (affine family, structural): 1402
+generic hits (at most one coordinate constant): 0
+sample hits (p,D,count): [(208457, 120, 2), (176201, 60, 4), (282677, 120, 2), (58453, 120, 2), (277097, 60, 2)]
+
+real	0m2.846s
+user	0m2.308s
+sys	0m0.028s

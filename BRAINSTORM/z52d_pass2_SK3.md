@@ -2,9 +2,9 @@
 
 Summary (5 lines)
 1. Outcomes over 85 input lines (one output line each, `data/z52b/pass2/outcome_SK3.jsonl`): nothing 82, interesting 1 (Z2003), skipped 2 (Z2005 board-round process item; Z2872 meta transfer table), covered 0, needs-compute 0.
-2. Computed: Z2363 least (★) level sweep to 8.6·10⁷ (reproduces the 14 census failing primes exactly); Z2003 T/M₀ windows at 10⁵–10⁷; Z2148 smoothness control; Z2139 SL₂ unipotent orbit (0 of 100,197 moves); Z2240 boundary strata (13.1%); Z2317 independence check; Z2912 square-sum check; Z2135 parity rules (arXiv:2003.13229 full text).
+2. Computed: Z2363 least (★) level sweep to 8.6·10⁷ (reproduces the 14 census failing primes exactly); Z2003 T/M₀ windows at 10⁵–10⁷; Z2148 smoothness control; Z2139 SL₂ unipotent orbit (0 of 100,197 moves); Z2240 boundary strata (13.1%); Z2317 independence check; Z2912 square-sum check; Z2135 parity rules (arXiv:2003.13229 full text). Lint fix round: Z2929 level-sum fluctuation (spread ~T^0.37); Z2960 3-AP search (1,402 hits, all affine families, 0 generic); Z3060 Fejér weights (positivity = existence; signed weights ruled out at the 14 census primes).
 3. Interesting: Z2003 — a finite-size caveat on BM_LVALUE's constant 0.1402 (p≡1 mod 8), see §Z2003 below.
-4. Honest scope: about 60 items are analysis or assessment only (no compute; a short identity or argument is written in the record, labelled as such). Items whose step needs an undefined object (families, maps, r(·) in S₃(p), Thm K series) are `nothing` with the missing definition named in `not_done`.
+4. Honest scope: about 57 items are analysis or assessment only (no compute; a short identity or argument is written in the record, labelled as such). Items whose step needs an undefined object (families, maps, r(·) in S₃(p), Thm K series) are `nothing` with the missing definition named in `not_done`.
 5. All 16 Pass-1 `covered` verdicts were downgraded: their citations were idea lists (BRAINSTORM/z52b_*.md, ES_CONNECTIONS_TODO) or abstracts without the item's step. No Pass-2 `covered` was issued (none met rule 4).
 
 ## Z2003 — interesting: finite-size status of the p≡1 (mod 8) constant

@@ -1,0 +1,8 @@
+census primes: R_C(p)=0 for all C<200 (checked): 14
+primes = 1 mod 4 <= 1e5: 4783; W_X>0 vs 'some level<=X': mismatches = 0
+zeros of W_X (no level <= 40): 14; largest few: [46237, 49669, 60217, 64081, 83449, 98017]
+min W_X over primes with W>0 (relative to sum of w): 0.04878048780487809
+
+real	0m0.916s
+user	0m0.755s
+sys	0m0.017s

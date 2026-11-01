@@ -1,0 +1,11 @@
+primes: 117
+T=  25: mean E_T =   -14.448  std E_T =    5.815
+T=  50: mean E_T =   -22.007  std E_T =    8.163
+T= 100: mean E_T =   -31.658  std E_T =   10.619
+T= 200: mean E_T =   -42.303  std E_T =   13.366
+T= 400: mean E_T =   -54.406  std E_T =   16.221
+fitted exponent of std_p E_T vs T: 0.367  (0.5 = independent level errors; 1.0 = no cancellation)
+
+real	0m1.525s
+user	0m1.697s
+sys	0m0.104s
