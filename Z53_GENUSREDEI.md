@@ -262,6 +262,44 @@ parametrisation and every L_j(φ(u)) is irreducible, the one-factor configuratio
 criterion of Corollary F (now evaluated on the restricted classes) still decides bounded-level forcing — compare POINTWISE_SIZE
 Thm C (formal odd-square principle, CONDITIONAL on H); reducible L_j∘φ is the thin-family mechanism ((J)74, (J)84 Thm A).
 
+### 5.5 Theorem P (pointwise twisting: 2-power data never decide the class, at any number of levels; PROVED)
+JRT/Corollary F vary p. This section fixes the integer and asks the information question directly: is the event at a level
+a function of the *2-power profile* of the factors (everything quadratic/Rédei/spin-type about them), jointly over any —
+possibly growing — family of levels?
+
+*Setting.* Fix an odd integer n ≥ 3 (e.g. a prime p), a finite set J of lines with levels t_j and N_j := L_j(n),
+gcd(N_j, t_j) = 1, G_j := (ℤ/t_j)^×. A prime ℓ is *private to j* if ℓ ∥ N_j, ℓ ∤ N_{j′} and ℓ ∤ t_{j′} for all j′ ≠ j. Choose private
+primes ℓ_{j,1}, …, ℓ_{j,k_j} of N_j (any subset) and put s_j := N_j/∏_iℓ_{j,i}, g_j := ∏_iℓ_{j,i} mod t_j, Σ(s_j) ⊂ G_j the classes of
+divisors of s_j. Let H_j ≤ G_j be a subgroup. An *H-profile-compatible assignment* gives each ℓ_{j,i} a class a′_{j,i} ∈ ℓ_{j,i}H_j with
+∏_ia′_{j,i} = g_j (and leaves everything else unchanged).
+
+**Theorem P.** If −1 ∉ Σ(s_j) ∪ Σ(s_j)·g_j and (2^{k_j} − 2)·|Σ(s_j)| < |H_j|, then some H-profile-compatible assignment has
+−1 ∉ Σ(s_j)·Σ(a′_{j,1}, …, a′_{j,k_j}) (Σ(·) = subset products). The choices at different j are independent, so this holds
+simultaneously at every j ∈ J satisfying the hypothesis, however large J is.
+*Proof.* V := {(h_1, …, h_k) ∈ H^k : ∏h_i = 1} ≅ H^{k−1}; a′_i := a_ih_i. The fake subset products are a′_S = a_S·h_S (S ⊆ {1..k},
+h_S := ∏_{i∈S}h_i); a′_∅ = 1 and a′_{full} = g_j are fixed and excluded by hypothesis. For ∅ ≠ S ≠ full, h ↦ h_S is a surjective
+homomorphism V → H (take i ∈ S, i′ ∉ S, h_i = x, h_{i′} = x⁻¹, others 1), so the h ∈ V with −1 ∈ Σ(s_j)·a_Sh_S, i.e. h_S ∈ a_S⁻¹·(−Σ(s_j)⁻¹),
+number at most |Σ(s_j)|·|V|/|H|. Summing over the 2^k − 2 subsets leaves a good h when (2^k − 2)|Σ(s_j)| < |H|. ∎
+
+**Corollary P′ (what the fake shares with the truth).** Take H_j = G_j² (resp. H_j = the odd-order part of G_j). Every h ∈ H_j lifts
+to h̃ ∈ ∏_{q|t_j}ℤ_q^× that is a square (resp. a 2^E-th power for every E): take h = x², h̃ := x̃² (resp. for odd q, the Teichmüller
+part of h has odd order and its 1 + qℤ_q-part lies in a uniquely 2-divisible group; for q = 2 the odd part is trivial). Defining
+the fake residue of ℓ_{j,i} modulo any m by CRT — ℓ_{j,i}·h̃ on the t_j-primary components, ℓ_{j,i} itself on the components prime to
+t_j — the fake data agree with the true data on: (i) the value at every factor of every quadratic character (resp. every character
+of 2-power order) of every conductor; (ii) every residue modulo moduli prime to t_j — in particular the symbols (ℓ/p)_n at n = p,
+all mutual Legendre symbols (ℓ/ℓ′) and (ℓ′/ℓ) between factors (the joint Rédei matrix of all N_j; the reverse symbols via (ii)
+and ℓ mod 4, which is unchanged since squares are 1 mod 4 and odd-order elements are trivial mod 4), and all data of the other
+lines; (iii) the product law at every level and the smooth parts. Hence **at every level satisfying the hypothesis the event
+"some divisor of N_j is ≡ −1 (mod t_j)" is not a function of these data**, jointly over all levels.
+*Reading.* This is the pointwise (fixed-n, unconditional, any number of levels) version of "reciprocity forces parity, never
+class": no argument whose input about the factors is their quadratic / 2-power profile (genus characters, Rédei symbols,
+4-/8-ranks expressed through such symbols, spins and quartic symbols at p, governing-field Frobenii that are functions of these)
+plus the product laws can decide the B2 event at a level with |G_j²| > (2^{k_j} − 2)|Σ(s_j)| (resp. |G_j,odd| > …). It cannot
+fail at levels where G_j² is tiny — e.g. the exponent-2 levels t | 24 (C | 6 on the (★) line), where the class *is* its quadratic
+profile; that is exactly CLASS_FORCING's X2 tier. It does not say the event is undecidable — the actual odd-part classes of the
+factors decide it — only that they are the irreducible input (B2). It does not cover non-abelian Frobenius data of the factors
+that are not functions of residues (cf. Remark 4.2).
+
 ## 6. Computation (EVIDENCE): does any hidden joint law show up at bounded levels?
 
 **6.1 Free-model event test.**
@@ -306,6 +344,20 @@ and (ℓ₁/ℓ₂). The laws predict a₂ = a₁⁻¹ = a₁, (ℓ/p) = (−3/�
 non-residues), ε free: exactly 12 law-compatible configurations. Observed: 0 law violations, exactly the 12 configurations,
 with counts 1010–1188 for each of the 8 residue-class configurations (a₁ ∈ {1, 7}) and 2169–2328 for each of the 4 non-residue ones
 (a₁ ∈ {5, 11}), i.e. close to equal frequency within each class type, as the free (HC-type) heuristic predicts.
+
+**6.3 Theorem P at actual primes (CERTIFIED for the stated ranges by exhaustive search; scripts `z53_genusredei_twist.py`,
+`…_twistscan.py`, `…_twistlevels.py`; data `twist_X100_1e7_1.04e7.txt`, `twist_levels_X100.txt`).** For all 12 370 primes
+p ≡ 1 (4) in [10⁷, 1.04·10⁷] and the (★) levels C ≤ X = 100 (t = 4C), private primes = primes > X dividing 4Cp + 1 exactly once
+(automatically private: ℓ | N_C, N_{C′} ⟹ ℓ | C − C′). Each level with the event is classified as B1 (−1 ∈ Σ(s) ∪ Σ(s)g: visible
+from the X-smooth part and the product law), *protected* (a product-1 twist by squares kills the event: by Theorem P's bound, or
+by exhaustive search over (G²)^{k−1} where the bound is not met), or Q (every such twist keeps the event: determined by the
+quadratic profile). Result: 12 287 primes have a B1 level; of the other 83, one has no event at C ≤ 100, **23 have every event
+level protected** (their (★) certificates at C ≤ 100 are invisible to all quadratic data of the factors), and 59 have a Q-level;
+the 88 Q-levels sit at C = 1 (21), 2 (16), 3 (22), 6 (15) — the exponent-2 levels, 74 of 88 — and sporadically at
+C ∈ {4, 5, 8, 11, 12, 14, 20, 21} (14), versus 256 protected levels spread over C = 4…100. With X = 300 (bound only, no exhaustive
+search; `twist_X300_1e7_1.04e7_boundonly.txt`): 8 primes lack a B1 level, 1 has all event levels protected by the bound alone.
+*Reading.* Pointwise, quadratic data decide the (★) event essentially only at the exponent-2 levels; everywhere else the odd part
+of the private factors' classes is the irreducible input.
 
 *Scope.* EVIDENCE only; finite ranges, one weighting scheme; the event model ignores sizes of divisors (irrelevant here: every
 large prime exceeds every level).

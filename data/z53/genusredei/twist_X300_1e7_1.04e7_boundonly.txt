@@ -1,0 +1,10 @@
+# X=300 primes p≡1(4) in [10000000,10400000): 12370; with no B1-visible event level: 8
+#  among those: event levels by class {'P2': 10, 'Podd': 0, 'U': 14}; primes whose event levels are all protected (P2/Podd): 1; no event level at all: 0
+10046809 {'B1': 0, 'P2': 2, 'Podd': 0, 'U': 0, 'none': 298}
+10110481 {'B1': 0, 'P2': 1, 'Podd': 0, 'U': 2, 'none': 297}
+10140301 {'B1': 0, 'P2': 2, 'Podd': 0, 'U': 2, 'none': 296}
+10215781 {'B1': 0, 'P2': 2, 'Podd': 0, 'U': 2, 'none': 296}
+10222369 {'B1': 0, 'P2': 1, 'Podd': 0, 'U': 3, 'none': 296}
+10306081 {'B1': 0, 'P2': 0, 'Podd': 0, 'U': 2, 'none': 298}
+10330321 {'B1': 0, 'P2': 1, 'Podd': 0, 'U': 1, 'none': 298}
+10380661 {'B1': 0, 'P2': 1, 'Podd': 0, 'U': 2, 'none': 297}
