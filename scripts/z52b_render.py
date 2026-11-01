@@ -33,13 +33,15 @@ for f in sorted(glob.glob('data/z52b/pass2/outcome_*.jsonl')):
             r = json.loads(l)
             r['_src'] = 'pass 2'
             p2[r['mid']] = r
-for f in sorted(glob.glob('data/z52d/audit/opus_A*.jsonl')):
+for f in sorted(glob.glob('data/z52d/audit/opus_A*.jsonl')) + sorted(glob.glob('data/z52d/audit2/opus_B*.jsonl')):
     for l in open(f):
         if l.strip():
             r = json.loads(l)
             r['_src'] = 'audit (Opus)'
             p2[r['mid']] = r
-TRI2 = json.load(open('data/z52b/pass2/triage_interesting.json')) if glob.glob('data/z52b/pass2/triage_interesting.json') else {}
+TRI2 = {}
+for f in sorted(glob.glob('data/z52b/pass2/triage_interesting*.json')):
+    TRI2.update(json.load(open(f)))
 # z52d: proof-avenue layer (Opus): 'if this were part of a proof of ES, what is the missing theorem?'
 AV = {}
 for f in sorted(glob.glob('data/z52d/avenue/out_*.jsonl')):
