@@ -455,7 +455,7 @@ counting/lower-tail statement across growing level families, not an algebraic la
   only as no-go — they do not and cannot certify a given p (B6 respected); no pointwise non-determination at a fixed p is claimed.
 
 ## 10. Review
-Hostile deep-mode reviewer subagent (full report `reviews/z53-genusredei-review.md`): **2 FATAL,
+Hostile deep-mode reviewer subagent (full report `data/z53/genusredei/review_hostile.md`): **2 FATAL,
 11 MAJOR, 3 MINOR**, all repaired in place (marks "(R-rev)"):
 * FATAL 1 — (L1) cancelled the non-invertible s_j mod T (counterexample p + 4, s = 5, a = 49 satisfied the old laws but is never
   realised). Fixed: (L1) is ∏a = g := L(p)/s mod T; JRT Step 5 already used this form.
