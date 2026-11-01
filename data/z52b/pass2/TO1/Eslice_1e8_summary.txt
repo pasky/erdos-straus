@@ -1,0 +1,21 @@
+# least slice index E(p)=min(4x-p) over ES solutions, all primes p = 1 mod 4 below 10^8 (z52d_p2_TO1_es.c, mode E; full table 35 MB not kept; regenerate: gcc -O2 scripts/z52d_p2_TO1_es.c && ./a.out 100000000 E)
+# checked: 49 sampled primes (incl. all records) recomputed exactly with sympy (scripts/z52d_p2_TO1_exactE.py): all agree
+primes: 2880504
+records (p, E):
+   5 3 E/log^2 p=1.158
+   73 7 E/log^2 p=0.380
+   1129 11 E/log^2 p=0.223
+   1201 23 E/log^2 p=0.457
+   21169 31 E/log^2 p=0.312
+   118801 59 E/log^2 p=0.432
+   8803369 107 E/log^2 p=0.418
+distribution (E: count) for E<=31: [(3, 2591132), (7, 235146), (11, 35358), (15, 7618), (19, 6125), (23, 3383), (27, 589), (31, 811)]
+tail P(E>=t):  {11: 0.01882518, 19: 0.00390557, 27: 0.00060476, 35: 0.00011873, 51: 1.007e-05, 59: 4.17e-06, 71: 3.5e-07, 107: 3.5e-07}
+[1e0,1e1): n=1 max E=3 at p=5 frac E<=3=1.000 frac E>=11=0.0000
+[1e1,1e2): n=10 max E=7 at p=73 frac E<=3=0.900 frac E>=11=0.0000
+[1e2,1e3): n=69 max E=7 at p=193 frac E<=3=0.884 frac E>=11=0.0000
+[1e3,1e4): n=529 max E=23 at p=1201 frac E<=3=0.858 frac E>=11=0.0265
+[1e4,1e5): n=4174 max E=31 at p=21169 frac E<=3=0.875 frac E>=11=0.0280
+[1e5,1e6): n=34392 max E=59 at p=118801 frac E<=3=0.886 frac E>=11=0.0249
+[1e6,1e7): n=293005 max E=107 at p=8803369 frac E<=3=0.893 frac E>=11=0.0210
+[1e7,1e8): n=2548324 max E=63 at p=90108841 frac E<=3=0.900 frac E>=11=0.0185
