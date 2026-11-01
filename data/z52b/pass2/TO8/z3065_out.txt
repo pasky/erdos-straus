@@ -1,0 +1,4 @@
+pairs (C<= 60, d<= 3000, d≡-1 mod 4C): 3484; s in [1,2000] uncovered: 9; first uncovered: [1, 3, 6, 13, 661, 783, 843, 1573, 1948]
+number of covering pairs per s (distribution, first 10): [(0, 9), (1, 45), (2, 74), (3, 139), (4, 206), (5, 271), (6, 281), (7, 261), (8, 219), (9, 188)]
+least certificate (C,d) for s=1..12: [None, (1, 7), None, (3, 11), (1, 7), None, (8, 31), (1, 7), (6, 23), (2, 23), (1, 7), (1, 19)]
+s where only C=1 hits: [36, 85, 121, 293, 689, 975, 1213, 1443, 1535, 1679, 1876]

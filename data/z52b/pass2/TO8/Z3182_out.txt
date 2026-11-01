@@ -1,0 +1,7 @@
+p=409: (★)-triples=0, b=1 pairs=4; B,4uC: image∩b1=0/0; u,4BC: image∩b1=0/0; 4uB,C?: image∩b1=0/0; u+B,4C: image∩b1=0/0
+p=577: (★)-triples=0, b=1 pairs=7; B,4uC: image∩b1=0/0; u,4BC: image∩b1=0/0; 4uB,C?: image∩b1=0/0; u+B,4C: image∩b1=0/0
+p=193: (★)-triples=4, b=1 pairs=0; B,4uC: image∩b1=0/4; u,4BC: image∩b1=0/4; 4uB,C?: image∩b1=0/2; u+B,4C: image∩b1=0/2
+p=2521: (★)-triples=2, b=1 pairs=0; B,4uC: image∩b1=0/2; u,4BC: image∩b1=0/2; 4uB,C?: image∩b1=0/1; u+B,4C: image∩b1=0/1
+p=1009: (★)-triples=6, b=1 pairs=2; B,4uC: image∩b1=0/6; u,4BC: image∩b1=0/6; 4uB,C?: image∩b1=0/3; u+B,4C: image∩b1=0/3
+p=10009: (★)-triples=34, b=1 pairs=19; B,4uC: image∩b1=0/34; u,4BC: image∩b1=0/34; 4uB,C?: image∩b1=0/17; u+B,4C: image∩b1=8/17
+p=5569: (★)-triples=0, b=1 pairs=7; B,4uC: image∩b1=0/0; u,4BC: image∩b1=0/0; 4uB,C?: image∩b1=0/0; u+B,4C: image∩b1=0/0

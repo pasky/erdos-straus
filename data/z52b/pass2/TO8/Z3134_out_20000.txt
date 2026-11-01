@@ -1,0 +1,8 @@
+Z3134 (1, 1, 1, 0) exceptions n<=20000: 112; largest 6: [5110, 5850, 6336, 7966, 8430, 19600]; density in last third: 0.0002
+Z3134 (1, 1, 1, 1) exceptions n<=20000: 113; largest 6: [5111, 5851, 6337, 7967, 8431, 19601]; density in last third: 0.0002
+Z3134 (1, 1, 1, -1) exceptions n<=20000: 111; largest 6: [5109, 5849, 6335, 7965, 8429, 19599]; density in last third: 0.0002
+Z3134 (1, 2, 1, 0) exceptions n<=20000: 50; largest 6: [131, 143, 188, 213, 295, 815]; density in last third: 0.0000
+Z3134 (1, 1, 2, 0) exceptions n<=20000: 50; largest 6: [131, 143, 188, 213, 295, 815]; density in last third: 0.0000
+Z3134 (2, 1, 1, 0) exceptions n<=20000: 755; largest 6: [18645, 18723, 19515, 19600, 19695, 19953]; density in last third: 0.0072
+Z3134 (1, 2, 2, 0) exceptions n<=20000: 568; largest 6: [19175, 19283, 19501, 19683, 19745, 19791]; density in last third: 0.0098
+Z3134 (1, 1, 3, 0) exceptions n<=20000: 54; largest 6: [154, 190, 385, 445, 1054, 1720]; density in last third: 0.0000

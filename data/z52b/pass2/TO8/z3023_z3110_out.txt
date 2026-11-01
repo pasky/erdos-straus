@@ -1,0 +1,6 @@
+Z3023: primes ≡1 (4), 5≤p<3000: 211  least-k distribution: [(0, 183), (1, 24), (2, 1), (3, 1), (5, 2)]
+max least-k: 5  at p: [1201, 2521]
+primes with k>=3: [(1201, 5), (2521, 5), (2689, 3)]
+Z3110 p=409: C<=300: new primes 317, with 4C | q+1 (certificate-type) 0, frequency 0.000
+Z3110 p=10009: C<=300: new primes 377, with 4C | q+1 (certificate-type) 9, frequency 0.024
+Z3110 p=999029: C<=300: new primes 443, with 4C | q+1 (certificate-type) 6, frequency 0.014

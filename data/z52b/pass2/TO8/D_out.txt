@@ -1,0 +1,28 @@
+Z3067: primes 1e3<p<=2e4 (1045): mean R = 14.49
+  L=10: mean R_L=1.953 (fraction of R 0.1247); #primes with R_L=0: 215
+  L=50: mean R_L=5.996 (fraction of R 0.4011); #primes with R_L=0: 18
+  L=200: mean R_L=9.410 (fraction of R 0.6395); #primes with R_L=0: 2
+  window (1000,5000]: L=10 mean R_L/R = 0.1520; L=50: 0.4843
+  window (5000,10000]: L=10 mean R_L/R = 0.1238; L=50: 0.3995
+  window (10000,20000]: L=10 mean R_L/R = 0.1120; L=50: 0.3619
+Z3134 (a,b,c,d)= (1, 1, 1, 0) : exceptions n<=3000: 112  largest: [1818, 1870, 2022, 2316, 2392]
+Z3134 (a,b,c,d)= (1, 1, 1, 1) : exceptions n<=3000: 113  largest: [1819, 1871, 2023, 2317, 2393]
+Z3134 (a,b,c,d)= (1, 2, 1, 0) : exceptions n<=3000: 51  largest: [188, 213, 295, 815, 1428]
+Z3134 (a,b,c,d)= (2, 1, 1, 0) : exceptions n<=3000: 532  largest: [2936, 2943, 2961, 2968, 2988]
+Z3134 (a,b,c,d)= (1, 1, 2, 0) : exceptions n<=3000: 51  largest: [188, 213, 295, 815, 1428]
+Z3134 (a,b,c,d)= (1, 2, 2, 0) : exceptions n<=3000: 330  largest: [2925, 2933, 2959, 2965, 2995]
+Z3134 (a,b,c,d)= (1, 1, 1, -1) : exceptions n<=3000: 111  largest: [1817, 1869, 2021, 2315, 2391]
+Z3076 window (1000,10000]: min B1/log²p = 0.0000, 1st pct = 0.0187, median = 0.1469
+Z3076 window (10000,100000]: min B1/log²p = 0.0000, 1st pct = 0.0406, median = 0.1436
+Z3076 window (100000,1e+06]: min B1/log²p = 0.0065, 1st pct = 0.0498, median = 0.1425
+Z3174 class 241 mod 840: primes≤1e6 405; min R = 2; #R=0: 0; #R<=2: 3
+Z3174 class 337 mod 840: primes≤1e6 415; min R = 0; #R=0: 1; #R<=2: 4
+Z3174 class 409 mod 840: primes≤1e6 412; min R = 0; #R=0: 2; #R<=2: 7
+Z3174 class 457 mod 840: primes≤1e6 420; min R = 2; #R=0: 0; #R<=2: 3
+Z3174 class 577 mod 840: primes≤1e6 405; min R = 0; #R=0: 1; #R<=2: 4
+Z3174 class 1 mod 840: primes≤1e6 395; min R = 0; #R=0: 1; #R<=2: 8
+Z3174 class 121 mod 840: primes≤1e6 409; min R = 2; #R=0: 0; #R<=2: 6
+Z3174 class 169 mod 840: primes≤1e6 388; min R = 2; #R=0: 0; #R<=2: 4
+Z3174 class 289 mod 840: primes≤1e6 384; min R = 0; #R=0: 1; #R<=2: 6
+Z3174 class 361 mod 840: primes≤1e6 394; min R = 0; #R=0: 2; #R<=2: 6
+Z3174 class 529 mod 840: primes≤1e6 400; min R = 0; #R=0: 1; #R<=2: 3

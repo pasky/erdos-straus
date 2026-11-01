@@ -1,0 +1,37 @@
+Z3056: 8/n three-term reps: {131: False, 241: False}  4/n: {131: True, 241: True}
+   trial-form counts R_8(n) (should be 0 iff no (u,B,C) with 8uBC-u-B=n): {131: 0, 241: 0, 11: 0, 13: 2, 17: 0, 19: 0, 23: 0, 29: 2, 37: 0, 41: 2}
+   R_4(n) controls: {131: 8, 241: 2, 409: 0}
+   odd n<400 with 8/n no 3-term: [3, 11, 17, 131, 241]  mismatch R_8>0 vs 3-term: [5, 7, 9, 15, 19, 21, 23, 25, 31, 33]
+Z3064: m=2: no exceptions n<=300
+Z3064: m=3: no exceptions n<=300
+Z3064: m=4: no exceptions n<=300
+Z3064: m=5: no exceptions n<=300
+Z3064: m=6: no exceptions n<=300
+Z3064: m=7: no exceptions n<=300
+Z3064: m=8: #exceptions n<=300 = 4, largest 241, first [11, 17, 131, 241]
+Z3064: m=9: #exceptions n<=300 = 2, largest 19, first [11, 19]
+Z3064: m=10: #exceptions n<=300 = 5, largest 181, first [11, 43, 61, 67]
+Z3064: m=11: #exceptions n<=300 = 1, largest 37, first [37]
+Z3064: m=12: #exceptions n<=300 = 8, largest 193, first [13, 25, 29, 31]
+Z3064: m=13: #exceptions n<=300 = 7, largest 281, first [14, 53, 61, 67]
+Z3064: m=14: #exceptions n<=300 = 5, largest 257, first [17, 19, 29, 59]
+Z3064: m=15: #exceptions n<=300 = 18, largest 271, first [16, 17, 19, 23]
+Z3064: m=16: #exceptions n<=300 = 16, largest 262, first [17, 22, 23, 33]
+Z3064: m=17: #exceptions n<=300 = 9, largest 281, first [19, 23, 41, 43]
+Z3064: m=18: #exceptions n<=300 = 22, largest 281, first [19, 22, 23, 29]
+Z3064: m=19: #exceptions n<=300 = 12, largest 229, first [23, 26, 29, 41]
+Z3064: m=20: #exceptions n<=300 = 27, largest 241, first [21, 22, 23, 27]
+Z3064: m=21: #exceptions n<=300 = 13, largest 269, first [22, 23, 26, 29]
+Z3064: m=22: #exceptions n<=300 = 28, largest 283, first [23, 25, 27, 31]
+Z3064: m=23: #exceptions n<=300 = 25, largest 278, first [25, 26, 29, 31]
+Z3064: m=24: #exceptions n<=300 = 38, largest 293, first [25, 26, 29, 31]
+Z3064: m=25: #exceptions n<=300 = 36, largest 277, first [26, 27, 29, 31]
+Z3064: m=26: #exceptions n<=300 = 27, largest 281, first [27, 28, 29, 33]
+Z3064: m=27: #exceptions n<=300 = 31, largest 277, first [28, 29, 31, 33]
+Z3064: m=28: #exceptions n<=300 = 35, largest 289, first [29, 31, 34, 38]
+Z3064: m=29: #exceptions n<=300 = 34, largest 295, first [30, 31, 32, 35]
+Z3064: m=30: #exceptions n<=300 = 50, largest 283, first [31, 32, 33, 34]
+Z3116: p, #(★)-solutions, sum of 1/denominator over distinct denominators (first 8): [(5, 2, 0.8), (13, 2, 0.308), (17, 2, 0.235), (29, 4, 0.276), (37, 2, 0.108), (41, 6, 0.209), (53, 4, 0.151), (61, 4, 0.131)]
+   max harmonic over p<400: (5, 2, 0.8)  min nonzero: (241, 2, 0.016597510373443983)
+Z3094: h(-4p) parity is always even? True ; h(-4p) mod 4 vs p mod 8: True (checked p%8==1 <=> 4|h)
+   R(p)/2 odd fraction among these primes: 0.555  ; correlation with h/2 parity: 0.55
