@@ -1,0 +1,67 @@
+{
+ "N": 200000,
+ "n_primes_1mod8": 4466,
+ "counts": {
+  "interior": 4466,
+  "boundary": 0,
+  "fail": 0
+ },
+ "median_logU_over_log2_interior_p>1e3": -0.0338,
+ "mean_U_over_log3_interior_p>1e3": 0.0872,
+ "n_interior_p>1e3": 4429,
+ "median_logU_over_log2_boundary_p>1e3": NaN,
+ "mean_U_over_log3_boundary_p>1e3": NaN,
+ "n_boundary_p>1e3": 0,
+ "boundary_only_primes_le2e5_first": [],
+ "boundary_only_count": 0,
+ "hardest12_U_over_log3_class": [
+  [
+   2521,
+   "interior"
+  ],
+  [
+   20521,
+   "interior"
+  ],
+  [
+   87481,
+   "interior"
+  ],
+  [
+   76441,
+   "interior"
+  ],
+  [
+   21841,
+   "interior"
+  ],
+  [
+   92401,
+   "interior"
+  ],
+  [
+   67369,
+   "interior"
+  ],
+  [
+   44641,
+   "interior"
+  ],
+  [
+   66529,
+   "interior"
+  ],
+  [
+   176401,
+   "interior"
+  ],
+  [
+   3361,
+   "interior"
+  ],
+  [
+   132721,
+   "interior"
+  ]
+ ]
+}

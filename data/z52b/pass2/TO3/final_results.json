@@ -1,0 +1,226 @@
+{
+ "Z0918": {
+  "n": 8966,
+  "rho_hn_resU": 0.142,
+  "rho_hn_resk2": 0.373,
+  "rho_h_resU": 0.081,
+  "nss_equals_h4p_over_2_all": true,
+  "note": "exact check p<=1200 (p=1 mod 4): #supersingular j in F_p = h(-4p)/2 for all 95 primes"
+ },
+ "Z0924_decades_word_census": {
+  "[10,100)": {
+   "R0": 16,
+   "I3_0": 48,
+   "Uv0": 10
+  },
+  "[100,1000)": {
+   "R0": 53,
+   "I3_0": 38,
+   "Uv0": 38
+  },
+  "[1000,10000)": {
+   "R0": 169,
+   "I3_0": 16,
+   "Uv0": 129
+  },
+  "[10000,100000)": {
+   "R0": 442,
+   "I3_0": 2,
+   "Uv0": 360
+  },
+  "[100000,1000000)": {
+   "R0": 1077,
+   "I3_0": 0,
+   "Uv0": 972
+  },
+  "[1000000,3000001)": {
+   "R0": 972,
+   "I3_0": 1,
+   "Uv0": 927
+  }
+ },
+ "Z0970_membership": {
+  "193": {
+   "in_U_top30": false,
+   "in_fail8": false,
+   "in_fail12": true,
+   "in_fail16": true,
+   "in_fail20": false,
+   "in_fail24": true,
+   "in_A400619": false,
+   "in_Rzero": false,
+   "in_TypeA": true
+  },
+  "241": {
+   "in_U_top30": false,
+   "in_fail8": true,
+   "in_fail12": false,
+   "in_fail16": true,
+   "in_fail20": true,
+   "in_fail24": true,
+   "in_A400619": false,
+   "in_Rzero": false,
+   "in_TypeA": false
+  },
+  "577": {
+   "in_U_top30": false,
+   "in_fail8": false,
+   "in_fail12": true,
+   "in_fail16": true,
+   "in_fail20": false,
+   "in_fail24": true,
+   "in_A400619": false,
+   "in_Rzero": true,
+   "in_TypeA": false
+  },
+  "1201": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": true,
+   "in_fail20": true,
+   "in_fail24": true,
+   "in_A400619": true,
+   "in_Rzero": false,
+   "in_TypeA": false
+  },
+  "2521": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": true,
+   "in_fail16": true,
+   "in_fail20": true,
+   "in_fail24": true,
+   "in_A400619": false,
+   "in_Rzero": false,
+   "in_TypeA": true
+  },
+  "3361": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": true,
+   "in_fail20": false,
+   "in_fail24": true,
+   "in_A400619": false,
+   "in_Rzero": false,
+   "in_TypeA": false
+  },
+  "21169": {
+   "in_U_top30": false,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": false,
+   "in_fail24": false,
+   "in_A400619": true,
+   "in_Rzero": false,
+   "in_TypeA": false
+  },
+  "409": {
+   "in_U_top30": false,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": false,
+   "in_fail24": true,
+   "in_A400619": false,
+   "in_Rzero": true,
+   "in_TypeA": false
+  },
+  "5569": {
+   "in_U_top30": false,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": false,
+   "in_fail24": false,
+   "in_A400619": false,
+   "in_Rzero": true,
+   "in_TypeA": false
+  },
+  "9601": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": false,
+   "in_fail24": false,
+   "in_A400619": false,
+   "in_Rzero": true,
+   "in_TypeA": false
+  },
+  "12601": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": false,
+   "in_fail24": false,
+   "in_A400619": false,
+   "in_Rzero": false,
+   "in_TypeA": false
+  },
+  "66529": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": false,
+   "in_fail24": true,
+   "in_A400619": false,
+   "in_Rzero": false,
+   "in_TypeA": true
+  },
+  "20521": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": false,
+   "in_fail24": false,
+   "in_A400619": false,
+   "in_Rzero": false,
+   "in_TypeA": false
+  },
+  "21841": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": true,
+   "in_fail24": true,
+   "in_A400619": false,
+   "in_Rzero": false,
+   "in_TypeA": false
+  },
+  "118801": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": false,
+   "in_fail20": false,
+   "in_fail24": false,
+   "in_A400619": true,
+   "in_Rzero": false,
+   "in_TypeA": false
+  },
+  "83449": {
+   "in_U_top30": true,
+   "in_fail8": false,
+   "in_fail12": false,
+   "in_fail16": true,
+   "in_fail20": false,
+   "in_fail24": false,
+   "in_A400619": false,
+   "in_Rzero": true,
+   "in_TypeA": false
+  }
+ },
+ "Z0700_residual_decomposition": {
+  "rho_resU_res_logeps": -0.51,
+  "rho_resU_res_logh": -0.008,
+  "rho_resU_res_logL1": -0.692,
+  "frac_hreal_equals_1": 0.795
+ }
+}
