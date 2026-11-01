@@ -209,12 +209,16 @@ F_L(t) = Σ_{|ℓ|≤L}(1 − |ℓ|/(L+1))e(ℓt) = (L+1)⁻¹|Σ_{m=0}^{L}e(mt)
 Σ_{|ℓ|≤L}(1 − |ℓ|/(L+1))|X_ℓ|² = Σ_{j,j′}F_L(x_j − x_{j′}) ≥ N(L+1). Removing ℓ = 0 (|X₀|² = N²) and using |X_{−ℓ}| = |X_ℓ|:
 2Σ_{ℓ=1}^{L}|X_ℓ|² ≥ N(L+1) − N² ≥ N(L+1)/2, so max_{1≤ℓ≤L}|X_ℓ| ≥ (N/4)^{1/2}. Apply it to x_j = −n/(4Q(c₀ + Qj)), the
 points of a C-class sum of length N: a bound uniform in ℓ ≥ 1 must be ≥ √N/2.
-(b) In §4.4(ii), Σ_{c₀}|G_{c₀}(ℓ)| ≥ … is not needed: the implementation's bound for the dual is at least its value with
-the (smallest admissible) inputs, and already the ℓ-sum gives Σ_{ℓ≠0}Ψ(ℓV/(8QW)) ≥ c·QW/V (Ψ ≥ Ψ(1) > 0 on |x| ≤ 1), so
-the bound is ≥ c(V/(QW))·Q^{3/2}·(QW/V)·e(W/Q) ≥ (c/2)QW^{1/2} when the true Σ_{c₀}|G_{c₀}(ℓ)| ≍ Q^{3/2} (it is, on average
-over ℓ mod Q, by Parseval: Σ_{ℓ mod Q}|G_c(ℓ)|² = Q·#{k mod Q : Q ∤ f(c,k)} ≫ Q² for c outside O(Q/q + Q/q′) classes, and
-|G| ≤ 4√Q). With Q ≥ P² and the sieve main term ≫ V/P (Lemma 1′ is sharp up to constants for the main term, |𝒜| ≍ V), the
-block bound is ≥ c·max(V/P, P²W^{1/2}) ≥ c·V^{2/3}W^{1/6}; at the balanced block W^{1/2} ≍ V, so ≥ c·max(V/P, P²V) ≥ cV. ∎
+(b) Fix Q = qq′ with 11 ≤ q < q′ and Q ≤ W. *Weights.* Φ̂(0) = ∫Φ ≥ 3, so |Φ̂(ξ)| ≥ 1 for |ξ| ≤ ξ₀ (ξ₀ > 0 depending only on Φ);
+hence |a_ℓ(C)| ≥ V/(8QW) for 1 ≤ ℓ ≤ L₀ := ξ₀QW/V and all C ∈ (W, 2W]. *Kloosterman weights.* Call c mod Q good if
+q ∤ c, q′ ∤ c, c ∉ D_q ∪ D_{q′}; at most 2q′ + 2q classes are bad, and Q − 2q − 2q′ ≥ Q/2 as (q − 4)(q′ − 4) ≥ 16. For good c,
+|K_q(c)| = |K_{q′}(c)| = 1, so Lemma W gives |G_c(ℓ)| ≤ 4√Q for every ℓ; and Parseval gives Σ_{ℓ mod Q}|G_c(ℓ)|² =
+Q·#{k mod Q : (f(c,k), Q) = 1} ≥ Q·(q − 2)(q′ − 2) ≥ Q²/2 (f(c,·) has ≤ 2 roots mod q). Hence Σ_{ℓ mod Q}Σ_{c good}|G_c(ℓ)| ≥
+(Q/2)(Q²/2)/(4√Q) = Q^{5/2}/16, and any block of Q consecutive ℓ carries Σ_ℓΣ_{c₀}|G_{c₀}(ℓ)| ≥ Q^{5/2}/16.
+*Assembly.* The implementation's dual bound is ≥ Σ_{1≤ℓ≤L₀}(V/(8QW))Σ_{c₀}|G_{c₀}(ℓ)|·e(W/Q) ≥ (V/(8QW))·⌊L₀/Q⌋·(Q^{5/2}/16)·
+(W/Q)^{1/2}/2 ≫ Q·W^{1/2} once L₀ ≥ Q (i.e. W ≥ V/ξ₀). Its bound for S₁ is ≥ its ℓ = 0 term ≫ V. With Q > P² and P₀ ≤ P,
+the block bound is ≫ max(V/P, P²W^{1/2}) ≥ V^{2/3}W^{1/6}, whose exponent is (2β + γ/2)/3; at the balanced block
+W ≍ V² (≥ V/ξ₀ for n ≥ n₀) this is ≫ max(V/P, P²V) ≥ V ≍ n^{1/4}. ∎
 *Remarks.* (1) The truth is not the obstruction: in the balanced block at n ≈ 10¹⁶ (|𝒜| ≈ 3 400–3 600) the actual sums have
 rms |S_Q| ≈ |𝒜|^{1/2} over 9 045 pairs q < q′ ∈ (1000, 2000] at a prime, an odd square and a near-square alike (§7.2); with
 |S_Q| ≲ |𝒜|^{1/2+o(1)} for Q up to |𝒜| the sieve would give n^{1/8+o(1)} there. The loss is in (iii)–(iv): summing ℓ first
