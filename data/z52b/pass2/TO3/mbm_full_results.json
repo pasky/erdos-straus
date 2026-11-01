@@ -1,0 +1,145 @@
+{
+ "n_primes": 12371,
+ "M_range": [
+  8.213,
+  26.489
+ ],
+ "bins_zero_test": [
+  {
+   "M_bin": [
+    8,
+    10
+   ],
+   "n": 32,
+   "obs_R0": 0,
+   "exp_R0_poisson": 0.0034,
+   "mean_R": 8.75,
+   "mean_M": 9.24,
+   "frac_R_le2": 0.0312
+  },
+  {
+   "M_bin": [
+    10,
+    12
+   ],
+   "n": 147,
+   "obs_R0": 1,
+   "exp_R0_poisson": 0.0024,
+   "mean_R": 11.88,
+   "mean_M": 11.19,
+   "frac_R_le2": 0.0476
+  },
+  {
+   "M_bin": [
+    12,
+    14
+   ],
+   "n": 496,
+   "obs_R0": 2,
+   "exp_R0_poisson": 0.0011,
+   "mean_R": 15.85,
+   "mean_M": 13.19,
+   "frac_R_le2": 0.006
+  },
+  {
+   "M_bin": [
+    14,
+    16
+   ],
+   "n": 976,
+   "obs_R0": 0,
+   "exp_R0_poisson": 0.0003,
+   "mean_R": 17.81,
+   "mean_M": 15.07,
+   "frac_R_le2": 0.0051
+  },
+  {
+   "M_bin": [
+    16,
+    18
+   ],
+   "n": 1624,
+   "obs_R0": 0,
+   "exp_R0_poisson": 0.0001,
+   "mean_R": 20.0,
+   "mean_M": 17.07,
+   "frac_R_le2": 0.0043
+  },
+  {
+   "M_bin": [
+    18,
+    20
+   ],
+   "n": 2243,
+   "obs_R0": 0,
+   "exp_R0_poisson": 0.0,
+   "mean_R": 22.85,
+   "mean_M": 19.06,
+   "frac_R_le2": 0.0013
+  },
+  {
+   "M_bin": [
+    20,
+    25
+   ],
+   "n": 6738,
+   "obs_R0": 0,
+   "exp_R0_poisson": 0.0,
+   "mean_R": 26.18,
+   "mean_M": 22.15,
+   "frac_R_le2": 0.0003
+  },
+  {
+   "M_bin": [
+    25,
+    40
+   ],
+   "n": 115,
+   "obs_R0": 0,
+   "exp_R0_poisson": 0.0,
+   "mean_R": 22.45,
+   "mean_M": 25.5,
+   "frac_R_le2": 0.0
+  }
+ ],
+ "total_obs_R0": 3,
+ "total_exp_R0_poisson": 0.0073,
+ "NB_fit_mean_c_times_M_and_k": {
+  "c": 1.1803,
+  "k": 12.4211,
+  "nll": 43210.89
+ },
+ "NB_expected_R0_total": 0.093,
+ "Poisson_fit_c_meanR_over_M": 1.1795,
+ "Poisson_expected_R0_total_with_c": 0.0012,
+ "R_value_hist_obs_vs_NB": {
+  "0": {
+   "obs": 3,
+   "NB": 0.1
+  },
+  "2": {
+   "obs": 25,
+   "NB": 2.4
+  },
+  "4": {
+   "obs": 64,
+   "NB": 14.9
+  },
+  "6": {
+   "obs": 113,
+   "NB": 48.9
+  },
+  "8": {
+   "obs": 217,
+   "NB": 111.7
+  },
+  "10": {
+   "obs": 351,
+   "NB": 200.5
+  },
+  "12": {
+   "obs": 517,
+   "NB": 303.6
+  }
+ }
+}

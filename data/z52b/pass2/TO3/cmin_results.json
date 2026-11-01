@@ -1,0 +1,156 @@
+{
+ "n_primes_1mod4_le1e8": 2880504,
+ "n_no_word": 14,
+ "cmin_hist_head": {
+  "1": 2272168,
+  "2": 413605,
+  "3": 92929,
+  "4": 29749,
+  "5": 31807,
+  "6": 13124,
+  "7": 3264,
+  "8": 6592,
+  "9": 3047,
+  "10": 1765,
+  "11": 3652,
+  "12": 1025
+ },
+ "max_cmin_by_X": {
+  "1000": {
+   "max": 20,
+   "argmax": 157,
+   "frac_cmin_gt3": 0.05
+  },
+  "10000": {
+   "max": 40,
+   "argmax": 4789,
+   "frac_cmin_gt3": 0.06404
+  },
+  "100000": {
+   "max": 557,
+   "argmax": 98017,
+   "frac_cmin_gt3": 0.05917
+  },
+  "1000000": {
+   "max": 23105,
+   "argmax": 184837,
+   "frac_cmin_gt3": 0.05116
+  },
+  "10000000": {
+   "max": 23105,
+   "argmax": 184837,
+   "frac_cmin_gt3": 0.04208
+  },
+  "100000000": {
+   "max": 41027,
+   "argmax": 85664329,
+   "frac_cmin_gt3": 0.03534
+  }
+ },
+ "Z0853_tail_vs_independence_p<=2e5": {
+  "1": {
+   "emp_P_Cmin_gt_c": 0.25298,
+   "indep_prod": 0.25376
+  },
+  "2": {
+   "emp_P_Cmin_gt_c": 0.09502,
+   "indep_prod": 0.12947
+  },
+  "3": {
+   "emp_P_Cmin_gt_c": 0.05703,
+   "indep_prod": 0.08552
+  },
+  "4": {
+   "emp_P_Cmin_gt_c": 0.04434,
+   "indep_prod": 0.05904
+  },
+  "5": {
+   "emp_P_Cmin_gt_c": 0.02685,
+   "indep_prod": 0.04505
+  },
+  "6": {
+   "emp_P_Cmin_gt_c": 0.01938,
+   "indep_prod": 0.03667
+  },
+  "7": {
+   "emp_P_Cmin_gt_c": 0.0176,
+   "indep_prod": 0.02998
+  },
+  "8": {
+   "emp_P_Cmin_gt_c": 0.01426,
+   "indep_prod": 0.02548
+  },
+  "9": {
+   "emp_P_Cmin_gt_c": 0.01248,
+   "indep_prod": 0.02217
+  },
+  "10": {
+   "emp_P_Cmin_gt_c": 0.0117,
+   "indep_prod": 0.0193
+  },
+  "11": {
+   "emp_P_Cmin_gt_c": 0.00991,
+   "indep_prod": 0.01714
+  },
+  "12": {
+   "emp_P_Cmin_gt_c": 0.00913,
+   "indep_prod": 0.01553
+  },
+  "13": {
+   "emp_P_Cmin_gt_c": 0.00847,
+   "indep_prod": 0.01394
+  },
+  "14": {
+   "emp_P_Cmin_gt_c": 0.00769,
+   "indep_prod": 0.01269
+  },
+  "15": {
+   "emp_P_Cmin_gt_c": 0.00713,
+   "indep_prod": 0.01178
+  },
+  "16": {
+   "emp_P_Cmin_gt_c": 0.00668,
+   "indep_prod": 0.01082
+  },
+  "17": {
+   "emp_P_Cmin_gt_c": 0.00602,
+   "indep_prod": 0.01001
+  },
+  "18": {
+   "emp_P_Cmin_gt_c": 0.00568,
+   "indep_prod": 0.0094
+  },
+  "19": {
+   "emp_P_Cmin_gt_c": 0.00535,
+   "indep_prod": 0.00875
+  },
+  "20": {
+   "emp_P_Cmin_gt_c": 0.00479,
+   "indep_prod": 0.00825
+  }
+ },
+ "Z0853_P_E_C": {
+  "1": 0.7462,
+  "2": 0.4898,
+  "3": 0.3394,
+  "4": 0.3097,
+  "5": 0.2369,
+  "6": 0.186,
+  "7": 0.1824,
+  "8": 0.1503,
+  "9": 0.1298,
+  "10": 0.1293,
+  "11": 0.1121,
+  "12": 0.0941,
+  "13": 0.1025,
+  "14": 0.0895,
+  "15": 0.0713,
+  "16": 0.082,
+  "17": 0.0747,
+  "18": 0.0612,
+  "19": 0.0687,
+  "20": 0.0578
+ },
+ "check_Cmin_vs_E_C_agreement_fraction": 0.9952,
+ "check_agreement_note": "compares min{C<=20: E_C} with C_min (C_min > 20 counted as 21 -> excluded from equality if any)"
+}

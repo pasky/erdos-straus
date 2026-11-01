@@ -1,0 +1,117 @@
+{
+ "n_forms": 135,
+ "n_forms_nonconstant": 66,
+ "DMAX": 12,
+ "NMAX": 6000,
+ "n_primes": 372,
+ "baseline_rho_resU_resL1": -0.752,
+ "best_by_abs_rho": [
+  {
+   "form": [
+    1,
+    2,
+    6,
+    0,
+    0,
+    -1
+   ],
+   "det": 11,
+   "rho_resU": -0.68,
+   "rho_resL1": 0.847
+  },
+  {
+   "form": [
+    1,
+    2,
+    6,
+    0,
+    0,
+    1
+   ],
+   "det": 11,
+   "rho_resU": -0.68,
+   "rho_resL1": 0.847
+  },
+  {
+   "form": [
+    2,
+    2,
+    3,
+    0,
+    0,
+    0
+   ],
+   "det": 12,
+   "rho_resU": 0.622,
+   "rho_resL1": -0.782
+  },
+  {
+   "form": [
+    2,
+    2,
+    3,
+    -1,
+    -1,
+    0
+   ],
+   "det": 7,
+   "rho_resU": 0.613,
+   "rho_resL1": -0.858
+  },
+  {
+   "form": [
+    2,
+    2,
+    3,
+    -1,
+    -1,
+    1
+   ],
+   "det": 7,
+   "rho_resU": 0.613,
+   "rho_resL1": -0.858
+  },
+  {
+   "form": [
+    2,
+    2,
+    3,
+    -1,
+    0,
+    -1
+   ],
+   "det": 7,
+   "rho_resU": 0.613,
+   "rho_resL1": -0.858
+  },
+  {
+   "form": [
+    2,
+    2,
+    3,
+    -1,
+    0,
+    1
+   ],
+   "det": 7,
+   "rho_resU": 0.613,
+   "rho_resL1": -0.858
+  },
+  {
+   "form": [
+    2,
+    2,
+    3,
+    -1,
+    1,
+    -1
+   ],
+   "det": 7,
+   "rho_resU": 0.613,
+   "rho_resL1": -0.858
+  }
+ ],
+ "median_abs_rho": 0.278,
+ "frac_abs_rho_gt_0_3": 0.455,
+ "n_forms_beating_L1_baseline": 0
+}

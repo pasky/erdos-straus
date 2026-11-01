@@ -1,0 +1,1 @@
+for k in 2 3 4 5 6 7 8 9 10 11 12; do m=$((4*k)); ./exists $m 2 10000000 1 > ex_m${m}_1e7.txt; echo "m=$m k=$k fails=$(awk '$2==0' ex_m${m}_1e7.txt | wc -l) last=$(awk '$2==0{l=$1} END{print l}' ex_m${m}_1e7.txt)"; done

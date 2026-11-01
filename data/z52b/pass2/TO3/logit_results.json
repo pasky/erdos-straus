@@ -1,0 +1,185 @@
+{
+ "n_primes": 108283,
+ "R0_primes_le3e6": [
+  409,
+  577,
+  5569,
+  9601,
+  23929,
+  83449,
+  102001,
+  329617,
+  712321,
+  1134241,
+  1724209,
+  1726201
+ ],
+ "Z0802_Z0803_zero_quantiles": {
+  "409": {
+   "leastQNR": 7,
+   "L1_quantile": 0.875,
+   "qnr_quantile": 0.875,
+   "h4_over_sqrt_quantile_mod8": 0.25,
+   "h4_over_sqrt": 0.7911
+  },
+  "577": {
+   "leastQNR": 5,
+   "L1_quantile": 0.75,
+   "qnr_quantile": 0.75,
+   "h4_over_sqrt_quantile_mod8": 0.0,
+   "h4_over_sqrt": 0.333
+  },
+  "5569": {
+   "leastQNR": 13,
+   "L1_quantile": 0.984,
+   "qnr_quantile": 0.984,
+   "h4_over_sqrt_quantile_mod8": 0.071,
+   "h4_over_sqrt": 0.4288
+  },
+  "9601": {
+   "leastQNR": 13,
+   "L1_quantile": 0.981,
+   "qnr_quantile": 0.961,
+   "h4_over_sqrt_quantile_mod8": 0.208,
+   "h4_over_sqrt": 0.4899
+  },
+  "23929": {
+   "leastQNR": 7,
+   "L1_quantile": 0.929,
+   "qnr_quantile": 0.888,
+   "h4_over_sqrt_quantile_mod8": 0.307,
+   "h4_over_sqrt": 0.5689
+  },
+  "83449": {
+   "leastQNR": 13,
+   "L1_quantile": 0.995,
+   "qnr_quantile": 0.973,
+   "h4_over_sqrt_quantile_mod8": 0.132,
+   "h4_over_sqrt": 0.4293
+  },
+  "102001": {
+   "leastQNR": 23,
+   "L1_quantile": 0.998,
+   "qnr_quantile": 0.998,
+   "h4_over_sqrt_quantile_mod8": 0.37,
+   "h4_over_sqrt": 0.5761
+  },
+  "329617": {
+   "leastQNR": 5,
+   "L1_quantile": 0.859,
+   "qnr_quantile": 0.751,
+   "h4_over_sqrt_quantile_mod8": 0.126,
+   "h4_over_sqrt": 0.3971
+  },
+  "712321": {
+   "leastQNR": 23,
+   "L1_quantile": 0.996,
+   "qnr_quantile": 0.997,
+   "h4_over_sqrt_quantile_mod8": 0.38,
+   "h4_over_sqrt": 0.5972
+  },
+  "1134241": {
+   "leastQNR": 7,
+   "L1_quantile": 0.947,
+   "qnr_quantile": 0.877,
+   "h4_over_sqrt_quantile_mod8": 0.436,
+   "h4_over_sqrt": 0.6498
+  },
+  "1724209": {
+   "leastQNR": 13,
+   "L1_quantile": 0.987,
+   "qnr_quantile": 0.969,
+   "h4_over_sqrt_quantile_mod8": 0.201,
+   "h4_over_sqrt": 0.4661
+  },
+  "1726201": {
+   "leastQNR": 19,
+   "L1_quantile": 0.997,
+   "qnr_quantile": 0.993,
+   "h4_over_sqrt_quantile_mod8": 0.412,
+   "h4_over_sqrt": 0.6302
+  }
+ },
+ "Z0802_n_zeros_L1_quantile_gt_0.85": 11,
+ "Z0843_logistic": {
+  "logL1": {
+   "coef": [
+    4.164
+   ],
+   "se": [
+    1.025
+   ],
+   "intercept": -13.124,
+   "auc_in_sample": 0.925
+  },
+  "logh4_over_sqrtp": {
+   "coef": [
+    -1.583
+   ],
+   "se": [
+    0.685
+   ],
+   "intercept": -9.913,
+   "auc_in_sample": 0.714
+  },
+  "logL1_logh4": {
+   "coef": [
+    4.059,
+    -0.696
+   ],
+   "se": [
+    1.045,
+    0.947
+   ],
+   "intercept": -13.421,
+   "auc_in_sample": 0.928
+  },
+  "logL1_logh4_qnr": {
+   "coef": [
+    1.031,
+    -0.899,
+    1.854
+   ],
+   "se": [
+    1.631,
+    1.103,
+    0.95
+   ],
+   "intercept": -13.732,
+   "auc_in_sample": 0.937
+  }
+ },
+ "Z0843_logistic_with_legendre47": {
+  "coef_logL1": -23.63,
+  "coef_logh": 0.369,
+  "n_features": 17,
+  "note": "only 12 events; coefficients not significant individually"
+ },
+ "Z0843_auc_single": {
+  "L1": 0.925,
+  "h4": 0.714
+ },
+ "Z0805_two_line_model": {
+  "coef": [
+   3.387,
+   -0.077,
+   0.289
+  ],
+  "sd_logR": 0.368,
+  "expected_R0_model": 0.0,
+  "observed_R0": 12
+ },
+ "Z0805_joint_R0_and_Uv0": {
+  "expected_joint_indep": 0.0,
+  "observed_joint": 0,
+  "Uv_coef": [
+   4.152,
+   -0.219,
+   0.068
+  ],
+  "sd_logUv": 0.314,
+  "Uv0_observed": 0,
+  "expected_Uv0": 0.0
+ },
+ "Z0805_corr_logL1_logL4": -0.31
+}

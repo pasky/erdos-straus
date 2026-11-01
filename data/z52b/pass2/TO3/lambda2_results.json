@@ -1,0 +1,79 @@
+{
+ "Z0840_criterion_check_p1mod8_le3000": {
+  "n": 101,
+  "mismatches": [],
+  "n_mismatch": 0,
+  "lambda2_count": 72,
+  "lambda3_count": 29
+ },
+ "Z0840_U_over_log2_lambda2": {
+  "n": 3215,
+  "median": 1.0333,
+  "mean": 1.0469,
+  "min": 0.2333
+ },
+ "Z0840_U_over_log2_lambda3": {
+  "n": 1214,
+  "median": 0.776,
+  "mean": 0.7762,
+  "min": 0.1467
+ },
+ "Z0840_U_over_log3_lambda2": {
+  "n": 3215,
+  "median": 0.093,
+  "mean": 0.0939,
+  "min": 0.0235
+ },
+ "Z0840_U_over_log3_lambda3": {
+  "n": 1214,
+  "median": 0.0697,
+  "mean": 0.0697,
+  "min": 0.0187
+ },
+ "Z0840_hardest30_lambda": {
+  "lambda2": 9,
+  "lambda3": 21
+ },
+ "Z0840_hardest10": [
+  [
+   2521,
+   3
+  ],
+  [
+   20521,
+   2
+  ],
+  [
+   87481,
+   2
+  ],
+  [
+   76441,
+   3
+  ],
+  [
+   21841,
+   2
+  ],
+  [
+   92401,
+   2
+  ],
+  [
+   67369,
+   3
+  ],
+  [
+   44641,
+   3
+  ],
+  [
+   66529,
+   3
+  ],
+  [
+   176401,
+   3
+  ]
+ ]
+}
