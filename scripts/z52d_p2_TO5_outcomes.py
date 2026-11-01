@@ -615,6 +615,115 @@ add('Z1988','nothing',
  "None.",
  "None.")
 
+
+# ================= lint-fix round (pass2_fix.md): overrides; later add() calls replace earlier records =================
+F1=S+'fix1.py'; F2=S+'fix2.py'; F3=S+'fix3.py'; F4=S+'fix4.py'
+add('Z1873','nothing',
+ "Failure sets on p≡1 (mod 4), p≤10^6: (★) has 9 failures (409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321). Statements S_K='some B-slice with B≤K succeeds' (each success gives a certificate, so each implies R≥1 and ES; B≥3 with no gcd filter, so approximately) have failure counts 5013 (K=1), 1979 (K=2), 1051 (K=3), 675 (K=4), 374 (K=5), 237 (K=6). Failure sets are nested, so S_6 is the weakest listed statement and it still has 237 failures ≤10^6 (0.6%); none of the listed statements is failure-free.",
+ [F1,S+'analyze.py',DAT+'mbm_1e6.txt',DAT+'certs2_1e6.txt'],
+ "Infinite-range behaviour and the B≥3 gcd filter not checked; only the listed statements, not a full lattice.",
+ "Add the gcd filter to the B≥3 slices and extend K to see whether the failure count of S_K tends to 0.")
+add('Z1896','nothing',
+ "The swap (u,B)→(B,u) on the trial set P(p) is free: a fixed point needs u=B, forcing u=B=1 with u+B even, which is excluded. Zero fixed points were counted (3000 primes checked). Hence the mod-2 count of P(p) is even (R even for all 39175 primes ≡1 mod 4, p≤10^6, Z1810), but a free involution yields only this parity; a degree-type or Sperner argument built on it gives Σ ≡ 0 (mod 2) and no existence statement.",
+ [F4,DAT+'mbm_1e6.txt'],
+ "No Sperner labelling constructed (the parity content is all that a free involution carries).",
+ "None unless a degree ≠ 0 map is proposed.")
+add('Z1912','nothing',
+ "Lemma (proof attempt, checked on the definition): D(N,m) := ∃ d | N with d ≡ −1 (mod m) has an NP witness (the divisor d). For the complement, a witness is a factorisation N = ∏ q_i^{e_i} with each q_i prime certified by a Pratt certificate; this has size poly(log N) and the divisor set is then enumerated in time d(N)·poly(log N) = N^{o(1)}. Hence D(N,m) ∈ NP ∩ coNP, so the ES slice predicate has no complexity barrier beyond the availability of factorisations. Nothing computed; the statement is a lemma with the argument above.",
+ [],
+ "No computation; the NP∩coNP claim uses the standard Pratt-certificate fact (not re-proved here).",
+ "None.")
+add('Z1708','nothing',
+ "Splitting of x³−x−1 mod p (3 roots ⇔ split completely in the S_3 splitting field; roots counted by deg gcd(x^p−x, f), verified against brute force) over p≡1 (mod 4), p≤10^6: P(split) = 0.166 overall (Chebotarev 1/6) and 0.181 among the 105 hard primes (n small, not significant). Raw means R/M: 1.122 (split) vs 1.196 (one root), but this difference is entirely the quadratic character (−23/p): within (−23/p)=+1 the 3-root class has mean R/M 1.122 and the 0-root class 1.128. The non-abelian splitting carries no signal beyond ℚ(√−23).",
+ [F2,DAT+'mbm_1e6.txt'],
+ "Other non-abelian fields (e.g. x³−2) not tested.",
+ "Test a second cubic field with a different quadratic subfield if a non-abelian signal is wanted.")
+add('Z1712','nothing',
+ "Model check: the Weierstrass model E_N: Y²=X(X²+(N²−6N−3)X+16N) and the plane cubic C_N: (x+y+z)(xy+yz+zx)=N xyz have equal point counts over F_q for all 24 pairs (N,q), q∈{5,7,11,13}. Premise check: 'E_n attached to 4/n' is ill-defined: N=4(x+y+z)/n depends on the solution, and distinct solutions give distinct curves (p=37: 9 solutions → 9 distinct N). So there is no single curve per n, and the requested root-number/rank correlation has no well-defined input as stated.",
+ [F3,'BRAINSTORM/elliptic_fibration_es.md'],
+ "No rank or root-number computation (the object was ill-defined at the first step, so none was run).",
+ "Restate the test per ES point (curve E_N for N=4(x+y+z)/n) and compute root numbers there.")
+add('Z1730','nothing',
+ "Heilbronn-type check: the mean Euclid/CF length of a/p over a∈[1,p) has slope 0.8440 in ln p on primes p∈[10³,10⁴] (Heilbronn constant 12 ln2/π² = 0.8428). The fraction of a with CF length ≤3 is a size-decreasing function of p (corr with ln p = −0.66) and its correlation with R/M (+0.19, p≤10^4) is confounded by size; no partial correlation done.",
+ [F2,F4],
+ "Partial correlation of the length-≤3 fraction with R/M after controlling ln p; Baladi–Vallée counts for ES₅ words not defined in the repo.",
+ "Compute the partial correlation and identify the ES₅ word count it should match.")
+add('Z1734','nothing',
+ "Random-multiplicative model: approximating T(p) by sum_{m even ≤ p/4} (m/p)W(m), W(m)=2^ω(m)/(4φ(m)) (checked to ~10^-3 against exact T(p) at three primes near 10^5), and replacing (m/p) by a random completely multiplicative sign f: model spread matches the real spread on p∈(9·10^5,10^6]: sd 1.83 (300 draws) vs 1.81 real; quantiles 5/50/95%: model (−1.47, −0.04, 4.40), real (−1.58, −0.02, 4.66). The Rademacher model reproduces the distribution of T; no extra cancellation beyond it is visible.",
+ [F3],
+ "Only the first-order model with the W approximation; no test of a Harper-type better-than-√ cancellation claim beyond the spread.",
+ "Compare higher moments and the joint law with R/M.")
+add('Z1761','nothing',
+ "Greedy Egyptian depth of every a/p (p≡1 mod 4, p≤2000, 147 primes): depth distribution 1:147, 2:1138, 3:10229, 4:29050, 5:42165, 6:32652, 7:14762,…; the average fraction of a with greedy depth ≤3 is 0.144. For a=4 the depth is 3 for 79 of 147 primes. The 'functional graph mod p' of the greedy map is not well defined (the denominator grows at each step, so the remainder leaves the set {a/p}); the depth distribution is the object that exists, and hard primes (only 2 in range) show no difference.",
+ [F2],
+ "No hard-prime sample large enough to test depth against hardness.",
+ "Extend the depth census to hard primes up to 10^5.")
+add('Z1768','nothing',
+ "Data-based evader thresholds among the 395 primes p≡1 (mod 840), p≤10^6: the smallest prime with no certificate of modulus 4uB ≤ Q is 2521 for Q≤200, 3361 for Q=500, 12601 for Q≥1000. The fraction of these primes with no certificate of modulus ≤Q is 1.00 (Q≤50), 0.88 (Q=100), 0.69 (Q=200), 0.50 (Q=500), 0.35 (Q=1000), 0.13 (Q=5000): evaders are common at every size checked, so no menu of size Q up to 5000 is complete for this class at p≤10^6.",
+ [F1,DAT+'certs2_1e6.txt'],
+ "No CRT-constructed evader (the data-based threshold is the observed minimum, not the CRT minimum).",
+ "Run the CRT construction for Q up to 200 and compare with these thresholds.")
+add('Z1773','nothing',
+ "Search programs over the pair set P(p) (p≡1 mod 4, p≤5000, 327 primes with a certificate; 2 without): 'scan pairs in a fixed order and stop at the first certificate'. Mean number of pairs examined: 31.2 for order by u+B, 35.5 for uB, 70.5 for B-then-u, 70.5 for u-then-B, 36.3 for max(u,B); medians are 1 for all orders, maxima 1280–2854. The order by u+B is the cheapest of those tested.",
+ [F4],
+ "Only five orders tested; no learned or LLM-guided synthesis run.",
+ "Test orders from the slice-success tables (Z1856) in a larger search.")
+add('Z1780','nothing',
+ "ω(4Cp+1) over the 3420 slices (C≤30) of the hard primes and the (★)-failures: ω ∈ {1,…,6} with 443, 1250, 1194, 453, 77, 3 slices. Exhaustive subset enumeration then costs at most 2^6 = 64 subset products per slice, so exact enumeration is cheaper than any lattice reduction here; the size constraint d < √N is automatic in enumeration.",
+ [F2],
+ "No LLL run (not needed for exact enumeration at these ω).",
+ "None.")
+add('Z1850','nothing',
+ "I3 words tuv−u−v=p with t,u,v≥3 (I3_DEEP_ASTRA.md definition, ordered endpoints). Least endpoint u(p) over p≡1 (mod 4), p≤10^6: u=3 for 94.2%, max 13 (at p=2521); the primes 5, 13, 17 have no word (t,u,v≥3 forces tuv−u−v≥21). Model test: P(no word with endpoint ≤U) observed vs product of marginal word densities: U=4: 0.0272 vs 0.0146; U=6: 0.0030 vs 0.0016; U=10: 1.0·10⁻⁴ vs 2.4·10⁻⁵. The absence events are positively correlated (factor ≈2–4), so the independent Jacobsthal-type product underestimates persistence.",
+ [F1,'I3_DEEP_ASTRA.md'],
+ "Only p≤10^6 (the FABLE value 39 is quoted at 10^9 and not re-checked); no residue-class Jacobsthal model beyond the product test.",
+ "Extend to 10^8 with the same loop and fit the correlation factor.")
+add('Z1871','nothing',
+ "Dossier of necessary conditions (p≡1 mod 4, p≤10^6, 39175 primes): forcing-line cell C0 = {(3/p)=(5/p)=(7/p)=+1} has density 12.36%; Mordell square classes mod 840 have 6.05%; all B=1..6 slices fail for 237 primes (0.6%); C0 ∧ all six slices fail for 170 primes. All five (★)-failures in C0 (5569, 9601, 83449, 102001, 712321) lie in the Mordell square classes; the other four (★)-failures (409, 577, 23929, 329617) are outside C0 and so are ES-true by F_3/F_5/F_7 forcing. The 170-prime set is the dossier candidate list for a counterexample, not a counterexample.",
+ [F1,S+'analyze.py'],
+ "Not all PROVED conditions in the repo included (only forcing lines, Mordell classes and the slice tests).",
+ "Add the T1 and Brauer-Manin conditions as filters.")
+add('Z1910','nothing',
+ "Search for identities 4xyz = n(T)(xy+yz+zx) over ℤ[T] with x,y,z linear (coefficients in [−3,3], positive leading coefficient) and n(T) quadratic (coefficients in [−3,3], positive leading coefficient): zero non-degenerate identities. The only identities that appear with zero entries are degenerate and were excluded.",
+ [F4],
+ "Linear n(T) and higher-degree x,y,z not searched; the box is small.",
+ "Extend the search to degree-2 x,y,z and to linear n(T), where identities are known to exist.")
+add('Z1940','nothing',
+ "Same search for signed identities 4/n = 1/x+1/y−1/z over ℤ[T] (x,y,z positive for large T, n quadratic positive leading): zero non-degenerate identities in the box. At odd squares signed solutions are abundant (n=9: 16 with x,y,z≤4n, e.g. 4/9 = 1/3+1/6−1/18; n=25: 38; n=49: 60; n=81: 98), so the sign breaks the T1 obstruction at the cost of positivity.",
+ [F4,F3],
+ "Only the quadratic-n box searched.",
+ "Test whether signed solutions at odd squares can be made to satisfy an extra positivity-preserving condition.")
+add('Z1946','nothing',
+ "Type I (p divides exactly one denominator) and Type II (exactly two) counts over all positive unordered solutions of 4/p, for the 44 primes p≡1 (mod 4), p≤500: no triple has p dividing all three denominators (proof: 1/x'+1/y'+1/z'=4 has no positive solution). Normalised correlation corr(f_I/log³p, f_II/log³p) = +0.66 (both driven by size, so no complementarity). The R=0 prime 409 has f_I=9, f_II=6.",
+ [F3],
+ "Ordered counts and the Elsholtz–Tao trial-form cross-check not done; range p≤500 only.",
+ "Extend to p≤5000 with the trial form and test complementarity after size normalisation.")
+add('Z1812','nothing',
+ "Solutions of 4/(kp)=1/x+1/y+1/z (unordered) for p∈{13,17,29,37,53,409} and k up to 12–20: the descent solutions (k dividing all three denominators, i.e. the 4/p solutions scaled) number 4, 4, 7, 9, 13, 15 respectively and are a vanishing fraction: p=13, k=12 has 378 solutions of which 4 descend. Transports from kp to p are therefore not tautological in the typical case, and the descent reading does not reduce the problem.",
+ [F3],
+ "Only k≤20 and p≤409.",
+ "Test whether non-descending solutions can be lifted by a gcd condition.")
+add('Z1813','nothing',
+ "Same enumeration as Z1812: the non-descending solutions are those where k does not divide all three denominators (e.g. p=13, k=2: 16 of 20 solutions; p=409, k=2: 63 of 78). The partial-gcd subclass (k divides exactly two) was not separated.",
+ [F3],
+ "Partial-gcd subclasses not counted separately.",
+ "Count denominators divisible by k in each solution.")
+add('Z1837','nothing',
+ "For 4C=24, (Z/24)^× ≅ (Z/2)^3 via (χ_{−4},χ_8,χ_{−3}). Over all 39175 primes p≡1 (mod 4), p≤10^6, the subproduct criterion (−1 is a divisor residue of 24p+1) and the F_2-span criterion (−1 lies in the F_2-span of the classes of the prime factors of 24p+1) agree on every prime: 8159 positive, 31016 negative, 0 disagreements. For this modulus the linear-algebra test is exact in range (not proved).",
+ [F2],
+ "Only C=6 (4C=24); no proof of the equivalence.",
+ "Check the span/subproduct equivalence for 4C=8,12 and in a larger range.")
+add('Z1688','nothing',
+ "Tropical points in [−3,3]³ of 4xyz = n(xy+yz+zx) with v_p(n)=1 (condition: min{a+b+c, 1+a+b, 1+b+c, 1+a+c} attained twice): 96 points; up to permutation the multisets are {0,0,1}, {0,1,1}, {0,2,2}, {1,1,1}, {1,2,2}, {2,2,2}. Realised valuation multisets of all positive solutions of 4/p for p≡1 (mod 4), p<120: only {0,0,1} (79 solutions, Type I) and {0,1,1} (47, Type II). The tropical variety is strictly larger: {1,1,1} is excluded by 1/x'+1/y'+1/z'=4 (no positive solution), and the {·,2,2} patterns (p² | two denominators) were not realised for p<120; only the {1,1,1} exclusion is proved here.",
+ [F4],
+ "Tropical cones beyond the box [−3,3]³ not enumerated.",
+ "None.")
+add('Z1704','nothing',
+ "Analytic check of the first step: the factorisations of a C-slice N_C=4Cp+1 = de with d≡e≡−1 (mod 4C) are the data of a binary quadratic object whose discriminant depends on C through N_C; there is no single discriminant D(p) attached to p alone among the slices. Assessment: a geodesic/equidistribution route needs a fixed D(p), so this route is not yet defined.",
+ [S+'certs.c'],
+ "No geodesic or class-number computation.",
+ "Propose a D(p) that is independent of C (none identified).")
+
 # ---- verify coverage and write
 ids=[json.loads(l)['mid'] for l in open(B) if l.strip()]
 missing=[m for m in ids if m not in O]; extra=[m for m in O if m not in ids]

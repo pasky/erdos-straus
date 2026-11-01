@@ -6,7 +6,7 @@ ES is OPEN; nothing here proves or disproves ES. Labels: EVIDENCE = numerics; As
 1. Outcomes (101 lines in `data/z52b/pass2/outcome_TO5.jsonl`): nothing 93, interesting 6, covered 2, needs-compute 0, skipped 0.
 2. Covered: Z1808 (|T|=o(M0), BM_CORRECTED_COUNT §2), Z1926 (B=1 slice criterion, B1_LINE.md; verified on all 39175 primes ≡1 (4) ≤10^6).
 3. Interesting: Z1821/Z1822 (prime-modulus slices: uncovered fraction ~ L^{-1/2}; Σ τ/ℓ ~ ½ log L, not log²), Z1725 (Janson exponent only polynomial in box size), Z1687 (CF-period/regulator association with R/M), Z1802 (hard primes cluster in class 409 mod 840 and the all-QR Legendre cell), Z1827 (small-factor bias of random slice models), Z1927 (shift-slice failures positively correlated, ×3.7).
-4. Many items were handled analytically only (see `not_done` per line); 'nothing' with 'Assessment' is used where the step was a reasoning check.
+4. Lint-fix round (pass2_fix.md): the 3 lint stubs (Z1873, Z1896, Z1912) and all 13 records whose summary said 'not executed' (Z1708, Z1712, Z1730, Z1734, Z1761, Z1768, Z1773, Z1780, Z1850, Z1871, Z1910, Z1940, Z1946) plus Z1704, Z1812, Z1813, Z1837, Z1688 were redone with computations (`scripts/z52d_p2_TO5_fix{1,2,3,4}.py`). Lint: 0 flagged of 101. Needs-compute: 0 (no item exceeds the 30-min/4-core cap; the fix-round runs took ≤4 min each).
 5. Data: `data/z52b/pass2/TO5/` (mbm_1e6, certs2_1e6, hardest_100, nsq_mbm_4e6, controls; 4.6 MB). Scripts: `scripts/z52d_p2_TO5_*`.
 
 ## Reproduction
@@ -56,3 +56,22 @@ Over 4783 primes ≡1 (4), p≤10^5: corr(log period of √p, R/M) = −0.12; pa
 - Z1742/Z1703: greedy 4/p has 3-term expansions for ~half of p≤10^5 (trivial structure); Farey adjacency of unit fractions needs consecutive denominators.
 - Z1770: the pair form needs no factoring; the premise that certificate search needs factoring is false for it.
 - Z1845/Z1846 (near-squares m²+k): offsets have mixed signs across k after own-cell control; no robust family effect. Same-range control (200 primes in (10^6,4·10^6]) mean 1.150.
+
+## Lint-fix round — new results (all reproducible with `scripts/z52d_p2_TO5_fix{1,2,3,4}.py`)
+- **Z1850 (I3 endpoints):** least u(p)=3 for 94.2% of p≡1 (4) ≤10^6, max 13 (p=2521); primes 5,13,17 have no I3 word. Absence of words with endpoint ≤U is positively correlated: P(none, U=4) = 0.0272 vs product of marginals 0.0146.
+- **Z1768 (evaders):** among p≡1 (840) ≤10^6, the fraction with no certificate of modulus 4uB≤Q falls 1.00 (Q≤50) → 0.88 (100) → 0.50 (500) → 0.13 (5000); smallest such prime 2521 (Q≤200), 12601 (Q≥1000).
+- **Z1871 (dossier):** forcing cell C0 = {(3/p)=(5/p)=(7/p)=+1} 12.4%; the five (★)-failures in C0 are exactly the Mordell-class failures; the other four are forced by F_3/F_5/F_7. 170 primes ≤10^6 satisfy C0 and all six B-slice failures (candidate list only).
+- **Z1873 (ES-implying statements):** failure counts S_K = {some B-slice ≤K succeeds}: 5013, 1979, 1051, 675, 374, 237 for K=1..6 (approximate for B≥3); none failure-free.
+- **Z1708 (cubic splitting):** the raw R/M difference by splitting type is entirely the character (−23/p); within (−23/p)=+1, 3 roots vs 0 roots gives 1.122 vs 1.128.
+- **Z1910/Z1940 (ℤ[T] identities):** no non-degenerate identity for quadratic n in the box [−3,3]; at odd squares signed solutions abound (n=9: 16 with x,y,z ≤ 4n).
+- **Z1946 (Type I/II):** 44 primes ≤500: corr(f_I, f_II)/log³p = +0.66; no complementarity; no triple divisible by p (proof).
+- **Z1812/1813 (4/(kp)):** descent solutions are a vanishing fraction (p=13,k=12: 4 of 378).
+- **Z1837 (F_2, 4C=24):** subproduct and F_2-span criteria agree on all 39175 primes ≤10^6 (8159 positive).
+- **Z1688 (tropical):** tropical points include spurious patterns {1,1,1}, {0,2,2}, {1,2,2}, {2,2,2}; realised patterns for p<120 are only {0,0,1} and {0,1,1}.
+- **Z1712 (curves):** E_N model verified (24/24 counts); premise false: n does not determine N, since each solution gives its own N=4(x+y+z)/n.
+- **Z1734 (random multiplicative):** the Rademacher model reproduces the spread of T(p) at p≈10^6 (sd 1.83 vs 1.81).
+- **Z1730 (CF length):** Heilbronn slope 0.844 vs 0.843.
+- **Z1773 (search orders):** order by u+B needs 31 pairs on average (uB: 36; B-then-u: 71).
+- **Z1780 (ω):** ω(4Cp+1) ≤ 6 for C≤30 on hard slices; exact subset enumeration suffices.
+- **Z1896:** the swap involution has no fixed points; the parity content is the only consequence.
+- **Z1912:** lemma D(N,m) ∈ NP ∩ coNP (Pratt-certified factorisations); the argument is a proof sketch, not computed.
