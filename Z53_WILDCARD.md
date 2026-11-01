@@ -1,7 +1,7 @@
 # Z53_WILDCARD — from-scratch attack on the tied divisor event
 
 **ES is OPEN; nothing here claims it proved or disproved.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE /
-CONJECTURE / Assessment. Status: **Checkpoint 1 (idea list, pre-FRONTIER)**. Lane rule: ideas generated before reading
+CONJECTURE / Assessment. Status: **final draft, pre-review**. Lane rule: ideas generated before reading
 FRONTIER §§3–4, §6; the barrier check comes in §4 below.
 
 ## 0. The statement attacked
@@ -193,6 +193,42 @@ the same wall with a log³p mean.
 candidates were idea 7 (non-principal genus forms escape *T1*) — killed instead by §2.4, unconditionally — and idea 5's
 non-CRT targets, which are precisely the gap §7.12/z50 already names. No false kill found.
 
+### 4.1 One small PROVED addition: privacy extends to the whole Type II family
+
+**Lemma 4.1.** For (h, a) ≠ (h′, a′) with h, h′ ≤ H, a, a′ ≤ A, gcd(hp + a, h′p + a′) divides h′a − ha′ (≠ 0 unless
+(h,a), (h′,a′) are proportional, in which case the larger pair is a non-coprime pair and reduces to the smaller one by
+§2.2). *Proof.* h′(hp + a) − h(h′p + a′) = h′a − ha′. ∎ Hence a prime ℓ > 2AH divides at most one of the integers hp + a
+with h ≤ H, a ≤ A: SS8 Lemma 2.3 (privacy of large primes, stated there for jp + 1 and p + 4d) holds verbatim for the
+full Type II family in (II-i) coordinates. Consequence (Assessment, same as §3's reading): widening (★) to the full
+family adds layers but no cross-layer leverage for a deterministic mechanism — each layer is its own private lottery.
+
 ## 5. Verdict / proposed §7 text
 
-(pending)
+**Verdict: narrowed (modestly) / inconclusive as a route.** No from-scratch idea survived the barrier map, and no
+false kill was found. What the lane adds:
+1. PROVED (scoped): no polynomial identity in a binary-form parametrisation of p beyond congruence menus, by degree count
+   (§2.4) — closes the "non-principal genus escapes T1" thought unconditionally, independent of T1.
+2. PROVED: privacy of large primes extends to the full Type II family (Lemma 4.1).
+3. CERTIFIED (2·10⁵, n ≡ 1 (24)): full Type II and Type I (min(a,b) ≤ 300) fail exactly at the odd squares; (★) fails at
+   41 further n, 7 of them primes — an independent reproduction of the item-14 list by independent code.
+4. EVIDENCE: at 7 of 8 hard primes the full Type II count is ≤ the minimum of six neighbours; (★)-failure is a global
+   deficit across the h-layers (consistent with `BM_CORRECTED_COUNT.md` §4's positive correlation).
+5. A unified residue form of the full family, (II-v): ∃ d ≡ 3 (4), h | (d+1)/4 with h·(−hp mod d) | (d+1)/4 — the
+   (★) form ρ_p(d) | (d+1)/4 is h = 1. Bookkeeping, not a route.
+
+**Hard screens for the best idea (full Type II as target).** T1: pass (vanishes at squares for every h). 8/131: fail
+(the numerator-8 family fails at 131, 241; nothing 4-specific supplied). Tied modulus: fail (4ah tied to hp + a).
+Fixed p: fail (no single-integer input).
+
+**Proposed FRONTIER §7 text (do not edit FRONTIER; for the integrator):** under §6 *Algebraic / forcing* add one line:
+"Polynomial identities p = Q(x,y) = 4CuB − u − B with C, u, B ∈ ℚ[x,y] (any binary form Q, any genus) → only congruence
+menus, by degree count (`Z53_WILDCARD.md` §2.4, PROVED); privacy of large primes holds on the full Type II family
+(hp + a, Lemma 4.1)." Under §3 *Privacy* add the pointer. No new §7 target is proposed: the from-scratch sweep
+(11 ideas, `Z53_WILDCARD.md` §1/§4) landed entirely inside B1/B2/B5/B6 and the forest/genus items.
+
+**Bottom line.** A fresh number theorist, told only the statement, rediscovers in order: the Jacobi obstruction and the
+forced non-residue (d/p) = −1, the full Elsholtz–Tao Type II/Type I families with their log³p means, the covering/large-
+sieve density view, the genus/ray-class reading, the forest of mutual-divisibility pairs, and the degree-count death of
+identities — and finds each already mapped. The only thing the wider family buys over (★) is a larger mean; the
+computations show the hard primes are hard on every layer at once, so there is no complementarity to exploit. The wall
+remains: a divisor of one integer in one moving class at one prime, below a (log p)² main term.
