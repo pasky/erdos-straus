@@ -1,0 +1,9 @@
+Thm A (third-derivative): diagonal gain for b in [0.30770, 0.34145] (grid 1/20000; endpoints are roots of linear eqs)
+    b=1/4: r*=-1/24 (-0.0417), sieve exponent=5/12 (0.41667), trivial=1/4
+    b=1/3: r*=1/54 (0.0185), sieve exponent=17/54 (0.31481), trivial=1/3
+Bourgain (13/84,55/84): diagonal gain for b in [0.30390, 0.34260] (grid 1/20000; endpoints are roots of linear eqs)
+    b=1/4: r*=-13/336 (-0.0387), sieve exponent=17/42 (0.40476), trivial=1/4
+    b=1/3: r*=4/189 (0.0212), sieve exponent=59/189 (0.31217), trivial=1/3
+conjectural (0,1/2): diagonal gain for b in [0.25005, 0.35710] (grid 1/20000; endpoints are roots of linear eqs)
+    b=1/4: r*=0 (0.0000), sieve exponent=1/4 (0.25000), trivial=1/4
+    b=1/3: r*=1/18 (0.0556), sieve exponent=5/18 (0.27778), trivial=1/3
