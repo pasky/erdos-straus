@@ -390,7 +390,7 @@ large p ≡ 1 (4) (effective, Burgess only), and on the slices covered by Prop C
 it is an explicit sum of class-number terms and products
 L(1, ψ′)L(1, χ_pψ) with explicit signs and Euler factors, verified numerically to 10⁸. This closes FRONTIER §7.4 as posed
 and shows that no configuration of quadratic characters can starve the expected count. It does not touch the order-≥3
-characters, which carry the entire remaining difficulty (B2/B3): R(p) = M_gen(p) + X(p) and nothing here bounds X(p).
+characters, whose control (the non-real remainder) remains open (B2/B3): R(p) = M_gen(p) + X(p) and nothing here bounds X(p).
 **ES remains OPEN.**
 
 ## 8. Review log
