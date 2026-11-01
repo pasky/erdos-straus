@@ -1,0 +1,4 @@
+h_min (ES Type II)   mean 8.8  median 3  99% 71  max 2495 (at p=2031121)
+g_box (ES^box)       mean 7.8  median 3  99% 43  max 139 (at p=9665041)
+max h_min/log^2 p = 11.83 ; max h_min/log^3 p = 0.814 ; max g_box/log^2 p = 1.46
+fraction with h_min <= g_box: 0.918

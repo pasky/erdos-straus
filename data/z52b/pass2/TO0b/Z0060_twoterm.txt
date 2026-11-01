@@ -1,0 +1,3 @@
+primes 3..399: 2-term 4/p = 1/a+1/b solvable iff p = 3 mod 4 : True  (count solvable 40 of 77 )
+non-prime examples: 4/9 = (3, 9) ; 4/15 = (4, 60) ; 4/21 = (6, 42)
+BI identity check: (u+ubar)/(u*ubar) = 4 = 4

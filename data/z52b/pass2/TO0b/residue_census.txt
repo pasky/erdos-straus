@@ -1,0 +1,20 @@
+(a) m, classes mod 24 with zero representable primes (of those present), count of primes in class:
+  m=5: fails 0; classes mod 24 fully failing: []
+  m=6: fails 0; classes mod 24 fully failing: []
+  m=7: fails 0; classes mod 24 fully failing: []
+  m=8: fails 5; classes mod 24 fully failing: []
+  m=9: fails 3; classes mod 24 fully failing: []
+  m=10: fails 7; classes mod 24 fully failing: []
+  m=12: fails 21; classes mod 24 fully failing: []
+  m=16: fails 33; classes mod 24 fully failing: []
+  m=25: fails 80; classes mod 24 fully failing: []
+(b) p=1 mod 4 < 1e5 (n=4783): mean #solutions 119.679; zero-solution primes: 0 (check 4-sol count, p>5 only)
+  by omega(p+3) 2:105.25(1620) 3:119.95(2397) 4:149.27(737) 5:198.10(21)
+  by omega((p+1)/2) 1:107.39(698) 2:116.30(1990) 3:125.44(1719) 4:133.68(365)
+  by omega(p-1) 2:127.56(837) 3:121.12(2261) 4:114.58(1480) 5:109.79(199)
+(c) filter profile (cols: p total no1mod3 pnx sz chain):
+   5 2 0 2 0 1
+   13 4 0 4 0 1
+   17 4 3 4 0 1
+   241 8 7 8 0 1
+   2521 9 2 9 0 0
