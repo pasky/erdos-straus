@@ -1,0 +1,130 @@
+{
+  "seed": 52041031,
+  "source_rows": 2995,
+  "excluded_batch": "PILOTH",
+  "negative_population": 1308,
+  "strata": {
+    "P00": {
+      "population": 40,
+      "sample": 2
+    },
+    "P01": {
+      "population": 43,
+      "sample": 2
+    },
+    "P02": {
+      "population": 65,
+      "sample": 2
+    },
+    "P03": {
+      "population": 60,
+      "sample": 2
+    },
+    "P04": {
+      "population": 53,
+      "sample": 1
+    },
+    "P05": {
+      "population": 49,
+      "sample": 2
+    },
+    "P06": {
+      "population": 38,
+      "sample": 1
+    },
+    "PILOT": {
+      "population": 24,
+      "sample": 1
+    },
+    "Q00": {
+      "population": 46,
+      "sample": 1
+    },
+    "Q01": {
+      "population": 55,
+      "sample": 2
+    },
+    "Q02": {
+      "population": 42,
+      "sample": 1
+    },
+    "Q03": {
+      "population": 37,
+      "sample": 2
+    },
+    "Q04": {
+      "population": 37,
+      "sample": 1
+    },
+    "Q05": {
+      "population": 57,
+      "sample": 1
+    },
+    "Q06": {
+      "population": 66,
+      "sample": 1
+    },
+    "Q07": {
+      "population": 53,
+      "sample": 2
+    },
+    "Q08": {
+      "population": 61,
+      "sample": 2
+    },
+    "Q09": {
+      "population": 57,
+      "sample": 1
+    },
+    "Q10": {
+      "population": 65,
+      "sample": 1
+    },
+    "Q11": {
+      "population": 60,
+      "sample": 1
+    },
+    "Q12": {
+      "population": 39,
+      "sample": 2
+    },
+    "Q13": {
+      "population": 37,
+      "sample": 2
+    },
+    "Q14": {
+      "population": 65,
+      "sample": 1
+    },
+    "Q15": {
+      "population": 40,
+      "sample": 1
+    },
+    "Q16": {
+      "population": 37,
+      "sample": 2
+    },
+    "Q17": {
+      "population": 34,
+      "sample": 1
+    },
+    "Q18": {
+      "population": 19,
+      "sample": 1
+    },
+    "Q19": {
+      "population": 29,
+      "sample": 1
+    }
+  },
+  "gate_counts": [
+    115,
+    76,
+    53
+  ],
+  "original_union": 221,
+  "audit_rescues": [],
+  "candidate_count": 221,
+  "new_ingredient_rule": "literal case-insensitive != none; explanatory none (...) strings retained",
+  "sample_design": "equal batch allocation + seeded random extra strata, uniform without replacement within batch"
+}
