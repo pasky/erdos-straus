@@ -29,25 +29,27 @@ mean is O(1): ≈ 3(log 2)²/π² ≈ 0.146.
    d ≤ D part L_D(n) equals J·Σ_{d≤D, d odd} μ²(d)/d² + O_A(min(U,V)^{−A}). This holds for every integer n coprime to all
    d ≤ D: every prime p > D, and every odd square m² with m free of prime factors ≤ D (Thm 3).
    * Consequence (Cor 3.2). (★) vanishes at squares (T1), so at such squares the high-conductor remainder
-     H_D = N_w − L_D equals −L_D + O(min^{−A}). Hence any bound on H_D that holds for all D-rough n is useless. A proof of
-     N > 0 must use the primality of p beyond D-roughness inside the conductor range > min(U,V)^{1−ε}.
+     H_D = N_w − L_D equals −L_D + O(min^{−A}). So a uniform estimate |H_D(n)| ≤ X, valid for all D-rough n, cannot be used
+     with the common leading term L_D to prove N > 0 with a margin bounded away from 0. Such a positivity argument has to use
+     the primality of p beyond D-roughness. (Such bounds can still serve upper-bound purposes.)
    * Corollary 4 (PROVED, for the product local model). In any block with min(U, V) → ∞, the class-conditioned model M_q
-     (p mod q, q fixed) is flat in the class up to O_q(min(U,V)^{−1/2+ε}). So in that model F(p) cannot enter the main term
-     of an interior block.
+     (p mod q, q fixed) is flat in the class up to O_q(min(U,V)^{−1+ε}), uniformly in p. So in that pair-product model F(p)
+     cannot enter the main term of a block with min(U, V) → ∞.
    * Check: with smooth weights at 12 primes near 10¹², L₄₀(p) agrees with the prediction 0.0200825840 to relative 6·10⁻⁹
      (45-digit recomputation by the reviewer: spread 1.3·10⁻¹⁰). This is consistent with the error term.
 4. **PROVED. No free variable at high conductor (Thm 5).** All but a τ(q)/K fraction of the frequencies mod q = 4uB have conductor
    ≥ q/K. Each such conductor is shared by ≤ K·p^{o(1)} pairs (u, B).
-   * At fixed conductor the sum over the residue a is complete (a Ramanujan sum), and evaluating it returns the original
-     indicator. So a complete-sum or Poisson step *at fixed conductor* has ≤ K·p^{o(1)} terms to act on. This is Z1034's
+   * At fixed conductor d the sum over the residue a is complete and equals the Ramanujan sum c_d(n). Only summing these over
+     all d | q returns the original indicator. So a complete-sum or Poisson step *at fixed conductor* has ≤ K·p^{o(1)} terms to act on. This is Z1034's
      "dual at least as long as the original" in this precise, scoped sense.
    * It does not exclude cancellation *across* conductors. That would be a different method, and none is known.
 5. **Thm 6 (ψ / exponential-sum route).**
    * PROVED: N is given exactly by sawtooth functions of F = (p + u + B)/(4uB), and Erdős–Turán/Vaaler gives
      N ≤ UV/(H+1) + 1/16 + 2.5·max_{1≤h≤H} |S_h|.
-   * PROVED: for H ≥ 2UV, max |S_h| ≥ (UV)^{1/2}/2. Square-root bounds feed into this inequality to give only ≍ (UV)^{1/2}.
-     That is ≥ min(U, V), so it never beats Thm 1, and in the balanced block it equals the trivial bound p^{1/4}.
-   * This closes the implementation that bounds the frequency side by max |S_h|. It does not close cancellation between
+   * PROVED: for H ≥ 2UV, max |S_h| ≥ (UV)^{1/2}/2. Square-root bounds fed into this inequality give only ≍ (UV)^{1/2}. That
+     is ≥ min(U, V), so it never beats Thm 1, and in the balanced block it equals the trivial bound p^{1/4}.
+   * So max-bounds with H ≥ 2UV have a provable square-root floor, and square-root max input gives no power saving for any H.
+   * Still open: beyond-square-root max-bounds on a shorter segment H ≈ (UV)^{1/2+η} (R1), and cancellation between
      frequencies.
    * Assessment (full-box stationary-phase count): the 2D Poisson (B-process) dual of S_h has ≈ 0.016·h²ρ²·UV terms, with
      ρ = p/(UV)². It is shorter than the original only for h ≲ 7.9/ρ; in the balanced block, only h ≤ 7 out of the
@@ -65,14 +67,15 @@ mean is O(1): ≈ 3(log 2)²/π² ≈ 0.146.
        p ≥ 0.43).
      * Boundary R − N_int: c = 1.00 ± 0.01, class χ² up to 2546 on 5 df. RESIDUE_HARDNESS's mod-7 factors reappear there with
        the predicted 1/L rescaling.
-   * **The Brauer term is negligible in the block** (|T| ≤ 0.02, sd 5·10⁻⁴).
+   * **The Brauer term is negligible in the block** at 10¹² (|T| ≤ 0.02, sd 5·10⁻⁴; at 10⁸, |T| ≤ 0.053, sd 0.004).
    * The interior carries only 3.8 % of R(p) at 10¹². It is **empty for 9.8 % of primes**; swap-Poisson predicts 9.85 %.
 
 **Verdict: narrowed.** Four specific implementations of the cluster's first lemma are closed by scoped theorems:
 
 * one-step dualization at fixed conductor (Poisson/Voronoi/Ramanujan in (u, B), (u, C) or the divisor form; Thm 5, §3.7);
 * dispersion by Cauchy–Schwarz in the function variable (Prop 2);
-* bounding the Fourier side of the majorant by max |S_h|, including Weil-quality (square-root) input (Thm 6);
+* the majorant route with max |S_h| input, when that input is square-root size (any H), or when H ≥ 2UV (Thm 6). This leaves
+  R1 open;
 * a main term built from low-conductor or class-conditioned local data. That data is p-independent up to negligible error and
   agrees at rough squares (Thm 3, Cor 3.2), and the product model is class-flat (Cor 4). The data agree.
 
@@ -93,7 +96,8 @@ independently.
   (§3); cancellation across conductors or frequencies is not excluded.
 * **(S1′) A01's specific test.** "A p^{2/5−δ} block bound." **Status: PROVED trivially** (Thm 1); the test is vacuous.
 * **(S2) Z1034 no-go.** "The Voronoi/Ramanujan dual is at least as long as the original." **Status: PROVED in the scoped sense
-  of Thm 5** (at fixed conductor ≥ q/K there are ≤ K·p^{o(1)} terms, and the complete a-sum returns the original indicator)
+  of Thm 5** (at fixed conductor ≥ q/K there are ≤ K·p^{o(1)} terms; the complete a-sum gives c_d(n), and summing over d | q
+  returns the original indicator)
   **and §3.7** (divisor/Voronoi form: one integer per modulus). The B-process length (Thm 6(e)) and the conductor-block ratio
   D³/(UV)² (§3.5) are Assessment computations.
 * **(S3) Falsifier.** Over ~10⁴ primes near 10¹² (we used 10⁵), compute the block errors N − M_F, compare the variance with
@@ -221,7 +225,8 @@ run in u on 𝓛₁, or in B on 𝓛₂. Either way it has no off-diagonal term.
 
 *Reading (Assessment).* The heuristic for a random partial map gives E[#2-cycles] ≍ Σ_{x,y} 1/(xy) = (log 2)². With the
 4-condition and the adm density this is the observed mean ≈ 0.146. The cluster plan's "bilinear dispersion in (u, B), the one
-range where both modulus factors vary" has no room in this block: each divisibility relation is the graph of a function.
+range where both modulus factors vary" has no room in this block *in the Cauchy–Schwarz implementation of (c)*: each
+divisibility relation is the graph of a function.
 
 ### 3.3 The low-conductor part is a universal constant (Theorem 3; PROVED)
 
@@ -274,9 +279,11 @@ L_D(n) := Σ_{d ≤ D} Σ_{(u,B): d | 4uB} (W/q)·c_d(n + u + B). Then
   Lemma 3.2.
 * By Thm 3, L_D(m²) = L_D(p) + O(min(U,V)^{−A}) for every prime p > D.
 * So the high-conductor part H_D := N_w − L_D equals −J·Σ_{d≤D, d odd} μ²(d)/d² + O(min(U,V)^{−A}) at every such square.
-* Consequence. Suppose a bound |H_D(n)| ≤ X is proved for all n coprime to every d ≤ D. Then the squares force
-  X ≥ L_D − O(min^{−A}), so the bound cannot give N > 0. Any proof of N(U,V) > 0 must use the primality of p, beyond
-  D-roughness, in the conductor range > min(U,V)^{1−ε}.
+* Consequence. Suppose a bound |H_D(n)| ≤ X is proved uniformly for all n coprime to every d ≤ D. Then the squares force
+  X ≥ L_D − O(min^{−A}). So the positivity strategy "N ≥ L_D − X > 0", built on the common leading term, cannot produce a
+  margin bounded away from 0. A positivity argument of that shape must use the primality of p, beyond D-roughness, in the
+  conductor range > min(U,V)^{1−ε}.
+  * This does not restrict other strategies. Such uniform bounds remain usable for upper bounds.
 * This concerns the low-conductor *leading term*. The exact low-conductor values at different n differ by
   O(min(U,V)^{−A}); they are not literally equal.
 
@@ -297,7 +304,7 @@ p ≈ 10¹² in 12 different classes mod 840.
   integral version is 0.14484. The maximal relative deviation is 0.47 %, consistent with the O(D/U) boundary error of sharp
   cutoffs.
 
-### 3.4 The class-conditioned local model is flat in interior blocks (Corollary 4; PROVED, tail estimate in outline)
+### 3.4 The class-conditioned pair-product model is flat in interior blocks (Corollary 4; PROVED)
 
 Fix q ≥ 1 and a unit r mod q. The class-conditioned prime local density of the block is
 
@@ -309,8 +316,8 @@ p ≡ r (mod q).
 * For non-adm pairs this probability is 0, because −(u+B) is then not a unit mod 4uB.
 * Hence M_q(r) = E[N_w(p)] with N_w summed over **all** pairs. This is the "M_F" of the brief.
 
-**Corollary 4.** max_{r, r′} |M_q(r) − M_q(r′)| ≪_{q,ε,w} J·min(U, V)^{−1/2+ε}. So in this product model the RESIDUE_HARDNESS
-factor (q | 840·16·11·13) has no main-term effect on a block with min(U, V) → ∞.
+**Corollary 4.** max_{r, r′} |M_q(r) − M_q(r′)| ≪_{q,ε,w} min(U, V)^{−1+ε}, uniformly in p. So in this pair-product model the
+RESIDUE_HARDNESS factor (q | 840·16·11·13) has no main-term effect on a block with min(U, V) → ∞.
 
 *Proof.* Take D = min(U,V)^{1−ε} and write E[N_w] = E[L_D(p)] + E[H_D(p)].
 
@@ -329,28 +336,36 @@ with d₁ composed of the primes dividing q and gcd(d₂, q) = 1.
     P(ℓ^i | p + a) = ℓ^{j−i}·1[ℓ^j | r + a] for i ≥ j.
   * Hence E = ℓ^j·1[…] − ℓ^j·1[…] = 0.
   * If d₁ | q then c_{d₁}(p + a) = c_{d₁}(r + a), so |E[c_{d₁}]| ≤ d₁ ≤ q.
-* *Combining.* |E[H_D]| ≤ q·τ(q)·T(D/q), where T(X) := Σ_{(u,B)∈𝔅} (W/(4uB)) Σ_{d₂ | 4uB, d₂ > X} gcd(u+B, d₂)/φ(d₂).
+* *Combining.* Because of μ(d₂), only squarefree d₂ contribute. There are ≤ τ(q) choices of d₁ | q, each with
+  |c_{d₁}| ≤ q and d₂ > D/q. Hence |E[H_D]| ≤ q·τ(q)·T(D/q), where
+  T(X) := Σ_{(u,B)∈𝔅} (W/(4uB)) Σ_{d₂ | 4uB, d₂ > X, d₂ squarefree} gcd(u+B, d₂)/φ(d₂).
 
-(iii) *Tail lemma: T(X) ≪_ε J·(X^{−1/2+ε} + p^ε/min(U,V)).* Outline:
-* Write gcd(a, d₂) = Σ_{e | gcd(a,d₂)} φ(e) and swap the sums.
-* For an odd prime ℓ | e: ℓ | d₂ | 4uB and ℓ | u + B force ℓ | u and ℓ | B. So, with e′ the odd part of e, the pairs counted
-  satisfy e′ | u, e′ | B and d₂ | 4uB. That is, u = e′u₁, B = e′B₁, and d₂″ := d₂/gcd(d₂, 4e′²) divides u₁B₁.
-* Over the block, the weighted count of such pairs is ≪ J·τ(d₂″)/(e′²d₂″), plus boundary terms that contribute
-  ≪ p^ε/min(U,V) in total.
-* Since gcd(d₂, 4e′²) ≤ 4e′·gcd(d₂/e′, e′), the main part is ≪ J·Σ_{d₂>X} τ(d₂)²·σ*(d₂)/(d₂φ(d₂)), where
-  σ*(d) := Σ_{e|d} gcd(d/e, e).
-* σ* is multiplicative with σ*(ℓ^k) ≤ (k+1)ℓ^{k/2}, so σ*(d) ≤ τ(d)·s(d)^{1/2}, with s(d) the square-full part of d.
-* The resulting series converges, and its tail beyond X is ≪ X^{−1/2+ε}.
+(iii) *Tail lemma: for X ≥ 3, T(X) ≪ (log 2UV)⁸·(log log X)/X.*
+* *Per pair.* Let d₂ | 4uB be squarefree.
+  * An odd prime ℓ dividing both d₂ and u + B divides u or B (since ℓ | 4uB), hence both. So
+    gcd(u+B, d₂) ≤ 2·rad(gcd(u,B)) ≤ 2·gcd(u,B).
+  * There are ≤ τ(4uB) ≤ 3τ(u)τ(B) such d₂.
+  * For d₂ > X, 1/φ(d₂) ≪ (log log X)/X.
+  * So the inner sum is ≪ gcd(u,B)τ(u)τ(B)(log log X)/X.
+* *Sum over pairs.* Since W ≤ 1, write g = gcd(u,B), u = gu′, B = gB′ and use τ(gu′) ≤ τ(g)τ(u′):
+  Σ_{𝔅} gcd(u,B)τ(u)τ(B)/(uB) ≤ Σ_{g≤2U} τ(g)²/g · Σ_{u′≤2U} τ(u′)/u′ · Σ_{B′≤2V} τ(B′)/B′ ≪ (log 2UV)⁸. ∎
 
-With X = D/q this gives |E[H_D]| ≪_q J·min(U,V)^{−1/2+ε}, uniformly in r. ∎
+*(Review-2 fix: an earlier outline wrongly lifted prime divisibility to prime powers. Restricting to squarefree d₂, which the
+factor μ(d₂) allows, removes the problem, and the crude per-pair bound needs no boundary bookkeeping.)*
 
-*Scope.* This is a statement about the product (long-p-window) model, not about the count in an actual window of primes. The
-model is apt when the block's level range in C is long compared with q, as in the balanced block (C ≍ p^{1/2}).
-* In a block with bounded C, RESIDUE_HARDNESS's level term does create class dependence (its Lemma 1: the level
-  c* = −(4r)⁻¹ carries q extra cells). The same holds for blocks with min(u, B) ≲ q, through its pair term.
-* So, at the level of this model, F(p) is located in the boundary strips min(u, B, C) ≲ q. These are single-integer
-  divisor-class counts (fixed u: divisors of p + u; fixed C: divisors of 4Cp + 1).
-* The data in §5 show the same confinement empirically. That is EVIDENCE; the corollary does not prove it for prime counts.
+With X = D/q and D = min(U,V)^{1−ε}, this gives |E[H_D]| ≪_q (log 2UV)⁸·min(U,V)^{−1+ε}, uniformly in r and in p. Adding (i),
+whose error is O(min^{−A}), proves the corollary after renaming ε. ∎
+
+*Scope.* Corollary 4 is a statement about the **pair-product densities** M_q(r). These depend on U, V, q, W and r, but not on
+the size of p or on any restriction on C. It is not a statement about counts in an actual window of primes.
+* The class dependence of RESIDUE_HARDNESS comes from two sources: its *level term* (its Lemma 1: the level c* = −(4r)⁻¹
+  carries q extra cells, which matters when C ranges over fewer than ≍ q values) and its *pair term* (small shifts B or
+  u < q).
+  * The level term needs a level-conditioned model; M_q does not see it.
+  * The pair term is visible in M_q only for blocks with min(U, V) ≲ q, outside the corollary's range.
+* The picture "F(p) is confined to the boundary strips min(u, B, C) ≲ q" is therefore a *synthesis*: Cor 4 for interior
+  pair-product densities, RESIDUE_HARDNESS's level and pair terms for the strips, and the EVIDENCE of §5. It is not a theorem.
+  The strips are single-integer divisor-class counts (fixed u: divisors of p + u; fixed C: divisors of 4Cp + 1).
 
 ### 3.5 No free variable at fixed high conductor (Theorem 5; PROVED; the length ratio is an Assessment computation)
 
@@ -372,7 +387,8 @@ balanced block those are ≍ p^{1/2}.
 * Each conductor is attached to ≤ K·p^{o(1)} pairs, and these pairs form a set of factorisations of kd, not an interval or a
   lattice. So a Poisson, Weil, Pólya–Vinogradov or large-sieve step *at fixed modulus* has no variable of length
   > K·p^{o(1)} to act on.
-* The a-sum is already complete, and evaluating it returns the original indicator 1[q | n].
+* The a-sum is already complete. It evaluates to c_d(n), and only the sum over all d | q returns the original indicator
+  1[q | n].
 * In this sense the dual of the dominant range, taken conductor by conductor, is the original problem. That is Z1034's "dual at
   least as long as the original" in precise form.
 
@@ -385,13 +401,14 @@ populated.
 * Take d ~ D with U^{1−ε} ≤ D ≤ 16UV and a split d = d₁d₂ with d₁ | 4u, d₂ | B and gcd(d₁′, d₂) = 1, where
   d₁′ = d₁/gcd(d₁, 4). Assume d₁′ ≤ U and d₂ ≤ V, so that the lattice is populated. Write u = d₁′u′ and B = d₂B′.
   * For adm pairs the odd parts of d₁ and d₂ are automatically coprime.
-  * Non-coprime splits, and splits with a spacing exceeding its interval, need separate bookkeeping. They are not covered
-    here: their congruence windows are not independent, and their lattices contain O(1) points.
+  * Non-coprime splits, and splits with a spacing exceeding its interval, are left unanalysed. Their congruence windows are
+    not independent, and their lattices need not be small.
 * The pairs on such a split form a lattice with ≍ (U/d₁′)(V/d₂) ≍ UV/D points.
 * The phase e(a(u+B)/d) = e(a d₁′u′/d)·e(a d₂B′/d) is linear in (u′, B′). Poisson in u′ (length U/d₁′) makes the u′-sum
   negligible unless ‖a d₁′/d‖ ≲ p^ε d₁′/U. That puts a mod (d/d₁′) in a window of ≍ p^ε d/U residues. Likewise a mod (d/d₂)
   must lie in a window of ≍ p^ε d/V residues.
-* By CRT that leaves ≍ (D/U)(D/V) = D²/(UV) frequencies a per conductor (up to p^ε).
+* The two moduli d/d₁′ and d/d₂ have gcd g := gcd(d₁, 4) ≤ 4. By generalised CRT (with a compatibility condition mod g, a
+  bounded factor), that leaves ≍ (D/U)(D/V) = D²/(UV) frequencies a per conductor, up to p^ε.
 * So dual/original ≍ D³/(UV)². The dual is shorter only for D < (UV)^{2/3} = p^{1/3} (balanced block). By (a), that range
   carries ≤ (UV)^{2/3}·p^{o(1)}/(UV) = p^{−1/6+o(1)} of the frequencies. Below U^{1−ε} the dual is empty except for the main term
   (Thm 3).
@@ -621,11 +638,13 @@ swap-Poisson noise of size √M. It does sharpen what "class-aware" can mean.
 * **Closed (scoped theorems).** Each item below is closed as an *implementation*. None is an impossibility theorem for
   cancellation in general.
   * One-step dualization at fixed conductor: Poisson, Voronoi or Ramanujan in (u, B), (u, C) or the divisor form. At conductor
-    ≥ q/K there are ≤ K·p^{o(1)} terms, and the complete a-sum returns the original indicator (Thm 5, §3.7). The B-process
+    ≥ q/K there are ≤ K·p^{o(1)} terms; the complete a-sum gives c_d(n), and summing over d | q gives back 1[q | n] (Thm 5,
+    §3.7). The B-process
     count (Thm 6e, Assessment) shows the 2D dual is longer than the original except for h ≲ 7.9/ρ.
   * Dispersion by Cauchy–Schwarz in the function variable in the balanced block (Prop 2).
-  * Bounding the majorant's Fourier side by max_h |S_h|. Weil-quality (square-root) input then gives ≍ (UV)^{1/2} ≥ min(U, V),
-    which never beats the elementary bound in any block (Thm 6c).
+  * The majorant route with max_h |S_h| input: square-root input gives ≍ (UV)^{1/2} ≥ min(U, V), which never beats the
+    elementary bound in any block, and for H ≥ 2UV a square-root floor is proved (Thm 6b, c). Beyond-square-root input on a
+    short segment (R1) is not excluded.
   * A main term built from the low-conductor part or the class-conditioned product model. It is p-independent up to
     O(min^{−A}) and agrees at rough squares (Thm 3, Cor 3.2), and the product model is class-flat (Cor 4). The data agree.
 * **Vacuous.** A01's p^{2/5−δ} block target, since every block is ≪ p^{1/3+o(1)} (Thm 1).
@@ -653,10 +672,11 @@ Replace §7.1 by:
 >    * The elementary benchmark is p^{1/3+o(1)}, not p^{2/5} (Thm 1; AGENT_REPORT_O178). Blocks satisfy
 >      N(U,V) ≤ p^{o(1)}min(U, V, p/(UV) + 1), and the balanced block u, B ≍ p^{1/4} satisfies N ≤ p^{1/4}.
 >    * PROVED: in the additive-character expansion of any block, the conductor ≤ min(U,V)^{1−ε} part equals a universal constant
->      up to O(min(U,V)^{−A}) at every prime and every rough odd square. Since (★) vanishes at squares, any bound on the
->      high-conductor remainder that holds for all rough n is useless. Primality must be used at conductor > min(U,V)^{1−ε}.
->    * At conductor ≥ q/K each conductor carries ≤ K·p^{o(1)} pairs, and the a-sum is complete. So one-step
->      dualization at fixed conductor returns the original problem.
+>      up to O(min(U,V)^{−A}) at every prime and every rough odd square. Since (★) vanishes at squares, a uniform bound on the
+>      high-conductor remainder valid for all rough n cannot prove positivity with a margin from the common leading term. Such
+>      an argument must use primality at conductor > min(U,V)^{1−ε}.
+>    * At conductor ≥ q/K each conductor carries ≤ K·p^{o(1)} pairs, and the a-sum is complete (it gives c_d(n)). So one-step
+>      dualization at fixed conductor has nothing to act on.
 >    * The Erdős–Turán/Vaaler route with max-bounds needs beyond-square-root cancellation of S_h = Σ e(h(p+u+B)/(4uB)) on
 >      h ≤ (UV)^{1/2+η}. Square-root bounds give exactly the trivial bound.
 >    * The balanced block is a count of the 2-cycles of the remainder map x ↦ (−p mod x) on (U, 2U] that satisfy the
@@ -678,8 +698,8 @@ In FRONTIER §3 ("Tied modulus") and in PARITY_AUDIT Lemma 2.1′, replace "|E(p
 
 The cluster's first lemma asked for a class-aware power saving by cancellation on one balanced block at fixed p. That block
 sits at the self-dual scale of every standard transform:
-* the dominant conductors of the additive-character dual carry p^{o(1)} pairs each, and the complete a-sum returns the original
-  indicator;
+* the dominant conductors of the additive-character dual carry p^{o(1)} pairs each, and the complete a-sum at each conductor
+  only gives c_d(n);
 * the Voronoi form has one integer per modulus;
 * the modular-hyperbola box is at Weil's area-p^{3/2} threshold;
 * the 2D B-process shortens only about seven frequencies;
@@ -746,3 +766,25 @@ It found 2 CRITICAL, 6 MAJOR and 4 MINOR issues, all repaired:
 
 The reviewer confirmed as correct: Lemma 0, Thm 1 and the p^{2/5} → p^{1/3} correction, Lemma 3.1, Thm 3 itself,
 (2.2)/(2.3), Thm 5, and Thm 6(a)/(b).
+
+**Hostile review 2** (deep-mode subagent, second pass on the repairs). It found 1 CRITICAL, 4 MAJOR and 3 MINOR issues, all
+repaired:
+* CRITICAL: Cor 4's tail outline lifted e | u + B, e | 4uB to e | u, e | B for prime powers. The counterexample is u = 12,
+  B = 15, e = 9. → The tail lemma was re-proved using μ(d₂) (squarefree d₂ only) and a crude per-pair bound. The corollary
+  improves to ≪ min(U,V)^{−1+ε}, uniformly in p, with no boundary bookkeeping.
+* MAJOR: the boundary terms were unproved and p^ε was not uniform. → Eliminated by the new proof.
+* MAJOR: Cor 3.2's "any bound is useless / any proof must use primality" over-reached. → Restricted to the positivity strategy
+  "leading term minus a uniform remainder bound" with a margin; upper-bound uses noted.
+* MAJOR: "max-bound implementation closed" conflicted with R1. → Now distinguished: square-root max input (any H) and
+  max-bounds with H ≥ 2UV are closed; the short-segment beyond-square-root case (R1) stays open. Prop 2's reading is scoped to
+  the Cauchy–Schwarz implementation.
+* MAJOR: the pair-product model cannot see C-restrictions. → The scope paragraph was rewritten. Boundary confinement of F is
+  now a synthesis (Cor 4 + RESIDUE_HARDNESS level/pair terms + EVIDENCE), not a consequence of Cor 4.
+* MINOR: the §3.5 CRT moduli share gcd ≤ 4 (bounded compatibility factor), and excluded splits are "unanalysed", not
+  "O(1) points". The complete a-sum gives c_d(n), and only the sum over d | q gives the indicator; the prose was fixed
+  throughout. The Brauer-term numbers are attributed to the 10¹² window.
+
+The reviewer confirmed as correct: the global unit model, the vanishing of E[c_{ℓ^k}] for k > j ≥ 1 (5 450 small cases
+checked), the d₁/d₂ independence, Prop 2's hypotheses and examples, the Z1855 fix, the B-process relabelling, and all §5
+numbers (best Vaaler bound 13 448.184 at H = 508).
+
