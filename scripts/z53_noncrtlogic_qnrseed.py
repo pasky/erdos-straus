@@ -95,6 +95,8 @@ def sqrt2p_seed(p, maxsteps=10 ** 6):
         steps += 1
         if Q > 1:
             n = int(Q)
+            while n % 2 == 0:      # strip the 2-part first (review finding 15)
+                n //= 2
             l = 3
             while l * l <= n:
                 if n % l == 0:
@@ -105,8 +107,10 @@ def sqrt2p_seed(p, maxsteps=10 ** 6):
                 l += 2
             if n > 1 and n % 8 in (3, 5) and (best is None or n < best):
                 best = n
-        if Q == 1 or steps > maxsteps:
+        if Q == 1:
             break
+        if steps > maxsteps:
+            raise RuntimeError(f"CF period of sqrt(2p) not finished within {maxsteps} steps at p={p}")
     return best
 
 
@@ -124,6 +128,7 @@ def main():
         nprimes += 1
         sols = star_solutions(p, spf)
         npl = least_qnr(p)
+        seed['all'] = seed.get('all', 0) + 1
         if not sols:
             zero.append({'p': p, 'n_p': npl})
             continue
@@ -154,9 +159,11 @@ def main():
             if n:
                 print(f"{l:3d} | {st:5s}  | {n:6d} | {u / n:.4f}  | {f / n:.4f}")
     sd = seed
-    print(f"seed: primes {sd['n']}; P(some solution uses n_p) = {sd['used_n'] / sd['n']:.4f}; "
+    print(f"seed: primes with R(p)>0: {sd['n']} of {sd['all']}; P(some solution uses n_p | R>0) = {sd['used_n'] / sd['n']:.4f}, "
+          f"unconditional {sd['used_n'] / sd['all']:.4f}; "
           f"sqrt(2p)-seed s_p: none {sd['s_none']}, s_p = n_p {sd['s_eq_n']}, "
-          f"P(some solution uses s_p) = {sd['used_s'] / max(1, sd['n'] - sd['s_none']):.4f}")
+          f"P(some solution uses s_p | R>0, s_p exists) = {sd['used_s'] / max(1, sd['n'] - sd['s_none']):.4f} "
+          f"(denominator {sd['n'] - sd['s_none']})")
 
 
 if __name__ == '__main__':

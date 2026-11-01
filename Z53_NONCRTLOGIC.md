@@ -4,24 +4,28 @@ ES is OPEN; nothing here proves or disproves it. Labels: PROVED / CONDITIONAL (o
 CONJECTURE / Assessment. Internal results, internally reviewed only. Lane NONCRTLOGIC of wave z53
 (`z52bbriefs/z53_depth.md`, `z53_lanes.md` §NONCRTLOGIC). Scripts `scripts/z53_noncrtlogic_*`, data `data/z53/noncrtlogic/`.
 
-*Status: final draft (checkpoint 1 committed earlier); hostile review: see §10.*
+*Status: final, after one hostile (deep-mode) review whose findings are applied (§10); awaiting cross-model review.*
 
-## 0. Verdict (preliminary)
+## 0. Verdict
 
 **Narrowed, with two barrier-strengthening theorems.** (A) Theorems M/C of `POINTWISE_SIZE.md` extend to programs that call
 *arbitrary* finite-valued oracles (any function of p with values in a fixed finite set — Frobenius classes in fixed fields,
 power-residue symbols, h(p) mod m, any predicate), with **no extra hypothesis beyond H for a finite polynomial family**. This
-closes the "fixed non-abelian Frobenius information" item (E3) of `POINTWISE_SIZE.md` §4.2, which was open (a proposed
+closes the "fixed non-abelian Frobenius information" item (E3) of `POINTWISE_SIZE.md` §4.2 for witness procedures with finite
+formal tree, which was open (a proposed
 Schinzel–Chebotarev hypothesis H_K is not needed). (T) Theorem C (the formal odd-square principle) holds not only for linear
 P but for **every** primitive irreducible P with P(0) = 1 and no positive real root, at explicit "trap points"; the proof is
 Hilbert reciprocity in Q(β), β a root of the reversed polynomial. Consequences: any bounded use of the full continued-fraction /
 Pell / unit data of √p (killed at p = q² + 1: long cycles elsewhere are irrelevant), of ⌊c·p^θ⌋ for rational c, θ, of
-ord_p(a), of the factorisations of p ± 1, fails for infinitely many p ≡ 1 (24) (CONDITIONAL on H). At a trap point every
-polynomial value is a quadratic residue mod p (unconditional), so the escape boundary is exactly **"produce a non-polynomial
-integer carrying a quadratic non-residue"**; the cheapest such primitive with full factorisation control is the least
-non-residue n_p, and procedures seeded by it reduce, value by value, to bounded procedures on the r-generic line (FRONTIER
-§7.9). Numerically a non-residue seed doubles to triples forest-certificate rates, but only through parity; conditioned on
-parity the tied-class divisor event is not more likely (§6, EVIDENCE). Taxonomy in §5, verdict in §7, proposed FRONTIER text in §8.
+ord_p(a), of the factorisations of p ± 1, fails for infinitely many p ≡ 1 (24) (CONDITIONAL on H). The engine is one
+unconditional lemma (T4): at a trap point, for each fixed finite family of polynomials and a class refined accordingly, every
+value h(q) prime to p = P(q) is a quadratic residue mod p. Hence a **necessary** condition for any procedure to succeed at the
+admissible primes of every trap point is that it generate integers that are not given by finitely many polynomials and carry a
+non-residue prime factor (not sufficient; and non-formality alone does not give a non-residue). The cheapest primitive doing
+this with full factorisation control is the least non-residue n_p; procedures seeded by it reduce, value by value, to bounded
+procedures on the r-generic line (FRONTIER §7.9). Numerically a non-residue forest root doubles to triples certificate rates;
+the gain is associated with parity (no F1) and small congruence coincidences, and conditional on "not F1" the tied-class rate is
+*lower* for non-residue roots (§6, EVIDENCE; the causal reading is heuristic). Taxonomy §5, verdict §7, FRONTIER text §8.
 
 ## 1. Precise statements attacked
 
@@ -64,14 +68,16 @@ equals the formal run along the branch selected by the actual oracle answers, ev
 the formal output of that branch at q.
 (b)–(d) The existence statements of Theorem M(b)–(d) hold verbatim for the union family S.
 (e) If moreover Π is correct and witness-producing, and either P is linear and q* square-mimicking and universally
-nondegenerate (Theorem C's setting) or (P, q*) is a trap point (Theorem T below), then there are explicit finite S′ ⊇ S,
+nondegenerate (Theorem C's setting) or q* is a universally nondegenerate trap point for P (Theorem T below; more generally
+the local form T′), then there are explicit finite S′ ⊇ S,
 Λ′ ⊇ Λ such that **every (S′, Λ′)-admissible q has Π(P(q)) = FAIL**; under H for S′ there are infinitely many such q.
 
 *Proof.* (a) Induction along the actual run, with invariant "the actual registers equal the formal registers of the current
 tree node, evaluated at q". All non-oracle steps are Theorem M(a)'s steps verbatim (the thresholds are finitely many: one per
 node of the finite tree). At an oracle step the actual arguments are the formal arguments evaluated at q, so the actual
 answer is some a ∈ 𝒜; the actual run moves to child a, whose register b = a agrees. Lists and loops: same lists, same
-iterations. The run reaches a leaf after finitely many steps because the tree is finite. (b)–(d): admissibility for the union
+iterations. The run reaches a leaf after finitely many steps because the tree is finite (every branch halts — including
+non-oracle loops; "finite tree" is a hypothesis on all computation, not only on the number of oracle calls). (b)–(d): admissibility for the union
 data is an H-type condition on one finite family; Theorem M(b)–(d)'s proofs use only the family and the point.
 (e) Apply the proof of Theorem C (or of Theorem T) to Π′ = Π followed by FACTOR of the output denominators, with S′, Λ′ the
 union over all leaves of the enlargements made there. At an admissible q the actual output is the formal output of *some*
@@ -81,8 +87,9 @@ correctness would make it a positive solution, contradicting Lemma CT(a). ∎
 
 *Remarks.* (1) No hypothesis on how the answers are distributed is used: the answers need not be equidistributed or even
 consistent; each branch is killed on the common admissible set. In particular no Schinzel–Chebotarev hypothesis H_K is
-needed. (2) The answer set must be finite *per call*; the number of calls must be bounded along every formal branch (this is
-what "finite tree" means).
+needed. (2) The answer set must be finite *per call*, and every branch of the formal tree must halt. (3) Correctness
+constrains only the branches actually realised at admissible q; unrealised branches may output anything. The conclusion of
+(e) is about the realised branch.
 
 **Corollary A1 (E3 closed at the witness-procedure level).** Fixed non-abelian Frobenius data — FROB_K(p) or FROB_K(r) for any
 formal prime r and any fixed finite Galois K/ℚ, m-th power-residue symbols (a/p)_m of formal a, Artin symbols, "is 2 a cube mod
@@ -92,19 +99,23 @@ formal u, m) are finite-information oracles. Every correct witness-producing pro
 is finite fails for infinitely many p ≡ 1 (24), CONDITIONAL on H for one finite family (PROVED implication). This answers
 POINTWISE_SIZE §4.2 (E3) negatively, without H_K.
 
-**Corollary A2 (divisor-valued oracles).** Suppose an oracle value g(p) always divides a formal register value F (F ≠ 0
-formally). At admissible q, g(p) is then one of the formal divisors of F (the list DIVISORS(F) of `POINTWISE_SIZE` (F5)), so
-g = "the j-th formal divisor", j ≤ |DIVISORS(F)| — a finite-information oracle. Hence killed (CONDITIONAL on H). Instances:
+**Corollary A2 (divisor-valued oracles).** Suppose an oracle value g(p) is always a positive divisor of a formal register
+value F (F ≠ 0 formally; for signed divisors add a sign bit). Replace the call by: FACTOR/DIVISORS(F) (formal, enlarging the
+tree data), then a finite-information oracle returning the *index* j of g(p) in the formal list (j ≤ |DIVISORS(F)|, a bound
+fixed by the branch; out-of-range ⇒ FAIL). At admissible q the formal list evaluated at q is the actual divisor list, so the
+modified program computes the same values; the output g itself is not finite-valued, its index is. Hence killed (CONDITIONAL
+on H). Instances:
 ord_p(a) and the index (p − 1)/ord_p(a) for every fixed (or formal) a — at p = 24q + 1 with q prime, ord_p(2) ∈ {q, 2q, 3q,
-4q, 6q, 12q} and *which* one is a non-abelian Frobenius datum, irrelevant by Theorem A; ord_m(a) for formal m (it divides
-φ(m), formal once m is FACTORed: φ(K∏r_h^e) = φ(K)∏r_h^{e−1}(r_h − 1) with r_h − 1 = (h − C_h)/C_h polynomial);
+4q, 6q, 12q} and *which* one is a non-abelian Frobenius datum, irrelevant by Theorem A; ord_m(a) for formal m ≥ 1 and formal
+a with gcd(a, m) = 1 (it divides φ(m), formal once m is FACTORed: φ(K∏r_h^e) = φ(K)∏r_h^{e−1}(r_h − 1) beyond the thresholds
+where the r_h are distinct and prime to K, with r_h − 1 = (h − C_h)/C_h polynomial);
 gcd(p − 1, ·), the multiplicative structure of F_p^× (cyclic of order p − 1, formal). ord_ℓ(p) for fixed ℓ is a congruence.
 
 **Corollary A3 (bounded advice).** For every bounded witness-producing program Π and every B, the program "Π with B bits of
-arbitrary advice depending on p" fails i.o. (CONDITIONAL on H): advice is a finite-information oracle with |𝒜| = 2^B.
-(Upper side, Assessment: if X_win(C) of POINTWISE_SIZE §8 holds, log₂(C log p) bits of advice — the index of a successful
-window — suffice for a bounded per-window program, so the "advice complexity" of ES witnesses is between ω(1) and
-O(log log p) conjecturally.)
+arbitrary advice depending on p" fails i.o. (CONDITIONAL on H): advice is a finite-information oracle with |𝒜| = 2^B. So no
+constant advice bound suffices (a worst-case statement: easy primes may need no advice). (Upper side, Assessment: if X_win(C)
+of POINTWISE_SIZE §8 holds, ⌈log₂(C log p)⌉ bits — the index of a successful window — suffice for a fixed bounded per-window
+decoder, so the worst-case advice for such decoders is unbounded and conjecturally O(log log p).)
 
 ## 3. Theorem T — trap families: Theorem C for nonlinear P (PROVED; existence CONDITIONAL on H)
 
@@ -117,7 +128,7 @@ h^∨(X) := X^d h(1/X) ∈ ℤ[X]. For x ∈ K^× let T(x) be the set of real pl
 *Linear sanity check.* P = 24X + 1: R = X + 24, β = −24, K = ℚ, π_q = 1 + 24q = p. Everything below then reduces to
 Theorem C.
 
-**Lemma T1 (the prime 𝔭_q).** If p = P(q) is prime, then 𝔭 := π_qO_K is a prime ideal of norm p, O_K/𝔭 ≅ F_p, and qβ ≡ 1
+**Lemma T1 (the prime 𝔭_q).** If p = P(q) is an odd prime, then 𝔭 := π_qO_K is a prime ideal of norm p, O_K/𝔭 ≅ F_p, and qβ ≡ 1
 (mod 𝔭). For h ∈ ℤ[X] of degree d with p ∤ h(q): (h(q)/p) = [β/𝔭]^d · [h^∨(β)/𝔭], where [x/𝔭] ≡ x^{(p−1)/2} (mod 𝔭) is
 the quadratic residue symbol.
 *Proof.* |N(π_q)| = p is prime, so π_qO_K is prime of residue degree 1. π_q = 1 − qβ ∈ 𝔭 gives qβ ≡ 1, so β is a unit mod
@@ -126,8 +137,9 @@ equals the residue symbol of h(q) at 𝔭 (O_K/𝔭 = F_p), and [·/𝔭] is mul
 
 **Lemma T2 (Hilbert reciprocity).** Let x ∈ O_K∖{0} with x ∉ 𝔭 (p is odd). Then [x/𝔭] = ∏_{v∈T(x)} (x, π_q)_v (quadratic
 Hilbert symbols of K).
-*Proof.* Product formula ∏_v (x, π_q)_v = 1 over all places of K (Hilbert reciprocity; standard, e.g. Neukirch, *Algebraic
-Number Theory*, Ch. VI Thm 8.1 — theorem number quoted from memory, not re-checked). Complex places contribute 1. A finite
+*Proof.* Product formula ∏_v (x, π_q)_v = 1 over all places of K for the quadratic Hilbert symbol (Hilbert reciprocity law;
+standard — Neukirch, *Algebraic Number Theory*, Ch. VI, "the product formula for the Hilbert symbol"; the theorem number is
+not quoted because it was not re-checked here). Complex places contribute 1. A finite
 v ∉ T(x), v ≠ 𝔭 is odd, and x, π_q are v-units there ((π_q) = 𝔭), so (x, π_q)_v = 1. At 𝔭, x is a unit and π_q a uniformiser,
 so (x, π_q)_𝔭 = [x/𝔭] (tame symbol at an odd place). All symbols are ±1. ∎
 
@@ -148,9 +160,12 @@ p ∤ h(q): **(h(q)/p) = +1.**
 T2 is 1. The consequence is Lemma T1 with x = β and x = h^∨(β): 𝔭 ∤ β since qβ ≡ 1, and 𝔭 ∤ h^∨(β) since
 β^d h(q) ≡ h^∨(β) and p ∤ h(q) (in particular h^∨(β) ≠ 0). ∎
 
-*Reading.* At a trap point **every polynomial value is a quadratic residue** mod p — exactly what is true at an odd square
-m² for every integer prime to m. Primality of the values is not needed for this; it is needed only to make a procedure's run
-formal (Theorem M).
+*Reading (quantifiers matter).* For each **fixed finite** family of polynomials, on the class refined by the primes of that
+family, every value h(q) prime to p is a quadratic residue mod p — what is true at an odd square m² for every integer prime to
+m. This is a statement about the **whole value**: an unfactored value can still contain non-residue prime factors (e.g.
+P = X² + 1, q = 24, p = 577, h = X + 1: h(q) = 25 = 5² and (5/577) = −1, although the only relevant prime is 2 and 8 | q).
+Lemma CT needs non-residue *prime factors*; that is why Theorem T works with formal primes (FACTOR + admissibility), exactly
+as Theorem C does.
 
 **Lemma T5 (existence of universally nondegenerate trap points; PROVED).** For every P as in the setting there is a trap
 point q* that is nondegenerate for every h ∈ 𝒫, with q*_2 ∈ 8ℤ₂ and q*_3 ∈ 3ℤ₃.
@@ -181,7 +196,14 @@ actual output is the formal output of some leaf at q (Theorem A(a)). A p-free de
 primes ℓ of constants (ℓ ∈ Λ′; (ℓ/p) = +1 by Lemma T4 with h = ℓ constant) and formal primes r_h(q) = h(q)/C_h, h ≠ P
 ((r_h/p) = (h(q)/p)(C_h/p) = +1 by Lemma T4 twice). So every prime factor is a residue, contradicting Lemma CT(a) (p ≡ 1 (4)) if
 the output were a SUCCESS; by correctness the output is FAIL. Existence: Theorem M(b) (whose proof needs only C_P = 1 and
-nondegeneracy, not linearity). Admissible p ≡ P(q*) is a unit square at 2 and 3, hence ≡ 1 (8), ≡ 1 (3). ∎
+nondegeneracy, not linearity). With 2, 3 ∈ Λ′ at the trap precision, admissible p is a unit square at 2 and 3, hence
+≡ 1 (8), ≡ 1 (3). ∎
+
+**Theorem T′ (local form; PROVED).** The proof uses the trap condition only at the primes of Λ′. Hence: if Π's formal tree at
+(P, q*) is defined and finite (q* need not be universally nondegenerate) and 1 − q*_ℓβ ∈ (O_v^×)² for every v above every prime
+ℓ ∈ Λ′ (computed from the tree as above), then every (S′, Λ′)-admissible q has Π(P(q)) = FAIL. The universally nondegenerate
+trap points of Lemma T5 are one way to satisfy this for all programs at once (they are what makes Corollary C1-type statements
+"for every bounded program" possible).
 
 **Examples of trap families** (all with P(0) = 1, no positive real root): 24X + 1 (Theorem C); **X² + 1** (β = ±i; the trap
 condition is 8 | q at 2, 3 | q at 3, 5 | q at 5 (computed: 1 ∓ 2q must both be nonzero squares mod 5); q ≡ 0 works at every
@@ -196,12 +218,14 @@ non-residue mod p since (q+2)(q−2) ≡ −8).
 (1 + √p)/2 (all P_k, Q_k, a_k, the period lengths 1 and 3, all convergent numerators/denominators ≤ p + 2), the fundamental unit
 ε_p = q + √p, ⌊√p⌋ = q, ⌊c√p⌋ for rational c, and the sign of {√p} − θ for rational θ are given by fixed polynomials in q on
 the class (`Z52D_PELLCYCLE.md` Lemma 1.4; Lemma D). Hence every correct witness-producing program that uses these primitives
-(plus bounded computation and finite-information oracles) and has finite formal tree at a trap point for X² + 1 fails for
-infinitely many primes p = q² + 1 ≡ 1 (24) (CONDITIONAL on H). This covers **arbitrary program-computable functions of the
-cycle data**, the gap left open by Z52D_PELLCYCLE (which killed the forest root menu R3 ∪ U). *Long cycles are not an escape:*
-a correct ES procedure must also succeed at the short-cycle primes q² + 1, and there its cycle-data input is frozen. The same
-holds for √(kp) for any single fixed k ≥ 1 on the trap family kX² + 1 (√(k(kq²+1)) = √((kq)² + k) is of Richaud–Degert type,
-√(m² + r) = [m; 2m/r, 2m] with r | 2m).
+(plus bounded computation and finite-information oracles) and has finite formal tree at a universally nondegenerate trap
+point for X² + 1 fails for infinitely many primes p = q² + 1 ≡ 1 (24) (CONDITIONAL on H). (The unit enters as its coordinate
+pair (t, u) = (2q, 2) of ε = (t + u√p)/2, integer registers.) This covers **every function of the cycle data computed by a
+program with finite formal tree** — the gap left open by Z52D_PELLCYCLE (which killed the forest root menu R3 ∪ U). *Long cycles
+are not an escape:* a correct ES procedure must also succeed at the short-cycle primes q² + 1, and there its cycle-data input is
+frozen. For a single fixed k ≥ 2 the same holds for the continued-fraction data (all P_k, Q_k, a_k, period) of √(kp) on the
+trap family kX² + 1: √(k(kq² + 1)) = √((kq)² + k) is of Richaud–Degert type, √(m² + r) = [m; \overline{2m/r, 2m}] for r | 2m
+(here 2m/r = 2q). (The fundamental unit / maximal-order data for general non-squarefree k are not claimed.)
 
 **Corollary T2 (archimedean primitives).** (i) For rational c_j, θ_j > 0 (j ≤ k), let b = lcm of the denominators of the θ_j
 and N a prime ≡ 1 (mod b). On P = Φ_N (trap family), c_jP(q)^{θ_j} = G_j(q) + c_{j,0} + ε_j(q) with G_j ∈ ℚ[X], c_{j,0} ∈ ℚ and
@@ -215,19 +239,29 @@ within 1 of G_i(q), so deg G_i = nθ and lc G_i = cL^θ.) Consequently **⌊p^θ
 log P(q) = n log q + O(1) cannot stay within 1 of a polynomial, constant or not). Individually,
 ⌊√(2p)⌋ is killed on 2X² + 1. So archimedean escape is cheap — but see §5.
 
-**Corollary T3 (QNR-valued oracles escape every trap point; PROVED).** If an oracle O satisfies (O(p)/p) = −1 for all primes p
-(e.g. n_p, the least primitive root g_p ≥ n_p, the least prime ℓ ≡ a (mod m) with (ℓ/p) = −1), then for every trap family
-P, every polynomial G ∈ ℚ[X] and every trap point, O(P(q)) ≠ G(q) for all q in a refined trap class with P(q) prime and q
-large: by Lemma T4 G(q) (cleared of denominators, whose primes are added to Λ) is a residue. So such O has no finite-menu
-formal semantics at any trap point. Conversely, by Lemma CT a successful output contains a non-residue prime, so by Lemma T4 the
-output denominators cannot be given on a refined trap class by finitely many polynomials: success at trap points requires
-the program to generate **integers that are not polynomial in q and carry a non-residue prime factor**. This is the exact escape boundary of B1 at trap points:
-*escape ⟺ generation of a non-formal quadratic non-residue.*
+**Corollary T3 (QNR-valued oracles at trap points).** Let O satisfy (O(p)/p) = −1 for all primes p (e.g. n_p, the least
+primitive root g_p, the least prime ℓ ≡ a (mod m) with (ℓ/p) = −1).
+(a) *Pointwise incompatibility (PROVED, unconditional).* For every trap family P, every trap point, and every finite set
+G_1, …, G_m ∈ ℚ[X], there is a refined trap class (refined by the primes of the G_i and their denominators) such that
+O(P(q)) ∉ {G_1(q), …, G_m(q)} for every q in it with P(q) prime: by Lemma T4 each G_i(q) prime to p is a residue.
+(b) *No finite-menu semantics (CONDITIONAL on H — or Dirichlet when P is linear).* If the refined class contains infinitely
+many q with P(q) prime, (a) shows O has no finite-menu formal semantics there. (Without such primes the statement is vacuous; an
+oracle defined only on primes can be extended arbitrarily on composites, so the all-integer form of (F9) does not help.)
+(c) *Necessary condition for success (from Theorem T).* A correct program with finite formal tree at a trap point fails at all
+its admissible q. So a procedure that succeeds at the admissible primes of every trap point must have an undefined or
+infinite formal tree there, and (Lemma CT) its output must contain non-residue prime factors not supplied by formal primes or
+constants — i.e. it must generate non-formal integers carrying non-residue prime factors. This is a **necessary** condition,
+not a characterisation: non-formality does not imply producing a non-residue (O(p) = 2^{⌊√(log p)⌋} is non-formal on every
+polynomial family yet a residue at p ≡ 1 (8)), and producing a non-residue does not produce a certificate.
 
-## 4. First falsifier (CERTIFIED computations)
+## 4. First falsifier (exact computations; primality status as stated)
 
 **(F1) Lemma T4 on actual primes** — `scripts/z53_noncrtlogic_trapcheck.py 4000 13 12`
-(output `data/z53/noncrtlogic/trapcheck_T4000_L13_B12.txt`). q = 120120·t (t ≤ 4000; M = 8·3·5·7·11·13), p = P(q) prime; test
+(output `data/z53/noncrtlogic/trapcheck_T4000_L13_B12.txt`). Exact Jacobi-symbol computations. Primality: gmpy2 (BPSW-type
+probable-prime test); all accepted values below 2^64 (families X² + 1, 2X² + 1, 3X² + 1, Φ₆, X + 1 and the control
+X² − 3X + 1, all three modes) were re-checked deterministically with sympy.isprime — 0 failures
+(`scripts/z53_noncrtlogic_primecert.py`, `data/z53/noncrtlogic/primecert.txt`): CERTIFIED for these rows. The rows X⁴ + 1,
+Φ₅, 2X³ + 2X + 1 involve values ≥ 2^64 and are EVIDENCE on BPSW-probable primes. q = 120120·t (t ≤ 4000; M = 8·3·5·7·11·13), p = P(q) prime; test
 polynomials h = a + bX (|a|, |b| ≤ 12) and 147 quadratics; "predicted +1" when every prime of 2·lc(P)·Res(R, h^∨) is ≤ 13.
 
 | family P | primes p | h predicted +1 | symbol tests | violations |
@@ -245,15 +279,18 @@ polynomials h = a + bX (|a|, |b| ≤ 12) and 147 quadratics; "predicted +1" when
 | *control* X² + 1, q ≡ 24 (mod M) (odd trap conditions violated) | 590 | 432 | 254 880 | 83 190 |
 | *control* X⁴ + 1, q ≡ 4 (mod 8) | 301 | 161 | 48 461 | 17 458 |
 
-For h *not* predicted, the share of −1 is 0.48–0.50 in every family (the statement is not vacuous). Each control violates
+For h *not* predicted, the share of −1 is 0.48–0.51 in every family (the statement is not vacuous). Each control violates
 exactly one hypothesis of Lemma T4 and fails massively.
 
-**(F2) End-to-end toy for Theorem T at X² + 1** — `scripts/z53_noncrtlogic_gausstoy.py 20000000 5000` (output
-`data/z53/noncrtlogic/gausstoy_2e7.txt`). Program Π_CF: q := ⌊√p⌋ (CF datum a₀); for windows e ∈ {3, q − 1, 2q − 1} search
+**(F2) End-to-end toy for Theorem T′ (local form) at X² + 1** — `scripts/z53_noncrtlogic_gausstoy.py 20000000 5000` (output
+`data/z53/noncrtlogic/gausstoy_2e7.txt`). *Scope:* the class q ≡ 0 (mod 120) with t = q/120 prime satisfies the trap condition
+at Λ′ = {2, 3, 5}, the only primes relevant to this program's formal family; it is **not** a global trap point (at 13 the trap
+condition forces q ≡ 0, 3, 10 (mod 13), which would change C_X or C_{X²+4}). So this tests Theorem T′, not the universal-point
+form. All 322 admissible tuples are below 2^64 and were re-checked deterministically (0 failures; CERTIFIED). Program Π_CF: q := ⌊√p⌋ (CF datum a₀); for windows e ∈ {3, q − 1, 2q − 1} search
 coprime a, b with ab | N = (p + e)/4, e | a + b, and output the explicit Type II solution (checked exactly with rationals).
 At p = q² + 1, q = 120t, the formal family is {X² + 1, X, X + 1, X + 2, X² + 4} (relevant trap primes 2, 3, 5). Admissible t
 (t, 120t + 1, 60t + 1, 3600t² + 1, p all prime), t < 2·10⁷: **322 found, Π_CF = FAIL at 322/322** (Theorem T predicts FAIL).
-Controls (first 5000 prime p = q² + 1 in the same class, formal values unconstrained): success 3064 (61 %); every success has a
+Controls (the first 5000 t prime with p = (120t)² + 1 prime, other formal values unconstrained): success 3064 (61 %); every success has a
 non-residue prime in N (Lemma CT) and occurs at a window whose formal value is composite (3064/3064).
 
 **(F3) Independent (★) census cross-check** (by-product of §6, `scripts/z53_noncrtlogic_qnrseed.py`, exhaustive
@@ -276,17 +313,19 @@ semantics where stated.
 | ord_p(a) (fixed or formal a), (p − 1)/ord_p(a), ord_m(a), gcds with p − 1 | killed | divisor of a formal value | Cor A2 |
 | prime factors / factorisation of p − 1, p + 1, any fixed f(p) | killed | formal FACTOR | Thm M, C, T |
 | ⌊c·p^θ⌋, any finite set with c, θ ∈ ℚ_{>0} | killed | formal on the trap family Φ_N (N prime, b \| N − 1) | Thm T, Cor T2(i) |
-| ⌊√(kp)⌋ and the full CF/Pell/unit data of √(kp) (and (1+√(kp))/2 when relevant) for **one** fixed k | killed — **long cycles irrelevant** | formal on the trap family kX² + 1 (Richaud–Degert) | Thm T, Cor T1 |
+| ⌊√p⌋ and the full CF/Pell/unit data of √p and (1+√p)/2; for one fixed k ≥ 2, ⌊√(kp)⌋ and the CF data of √(kp) | killed — **long cycles irrelevant** | formal on the trap families X² + 1, kX² + 1 (Richaud–Degert) | Thm T, Cor T1 |
 | Cornacchia data: the representation p = x² + ky² for one fixed k ≥ 1 | killed | (x, y) = (1, q) on kX² + 1 | Thm T, Cor T4 |
 | ⌊√(2p)⌋ alone | killed | trap family 2X² + 1 | Cor T2 |
 | (⌊√p⌋, ⌊√(2p)⌋) jointly (hence CF data of √p and √(2p) jointly); ⌊p^θ⌋, θ ∉ ℚ; ⌊log p⌋ | **escape**: no formal semantics on any polynomial family | leading-coefficient obstruction | Cor T2(ii), PROVED |
-| n_p, least primitive root g_p, least prime ≡ a (m) with (ℓ/p) = −1, any QNR-valued oracle | **escape every trap point** | values are non-residues; trap points are QR-transparent | Cor T3, PROVED |
-| h(±p), regulator, discrete logs (as unbounded integers) | open (not proved formal on any trap family; not proved to escape) | Siegel growth makes constancy impossible; exact polynomiality not excluded unconditionally | Assessment |
+| n_p, least primitive root g_p, least prime ≡ a (m) with (ℓ/p) = −1, any QNR-valued oracle | **escape every trap point** | values are non-residues; Lemma T4 | Cor T3: pointwise PROVED; "no semantics" CONDITIONAL on H (Dirichlet for linear P) |
+| h(±p), regulator (via a specified integer encoding, e.g. ⌊R_p⌋), discrete logs | open: neither shown formal on a trap family nor shown to escape | — (e.g. Siegel bounds h(−p) or h(p)R_p, not h(p) alone; a discrete log can be constant) | Assessment |
 
 **Corollary T4 (Fermat/Cornacchia certificates; PROVED transfer, CONDITIONAL on H).** For fixed k ≥ 1, a prime p has at most
-one representation p = x² + ky² with x, y > 0 (for k = 1 up to order) (standard; e.g. Cox, *Primes of the form x² + ny²* —
-uniqueness of representation by the principal form, statement from memory). On the trap family p = kq² + 1 (kX² + 1 ∈ 𝒫,
-P(0) = 1, no real roots) the representation is (1, q) (or (q, 1)), a formal value. So the route of
+one representation p = x² + ky² with x, y > 0 (for k = 1 up to order). (Proof, k ≥ 2: from two representations,
+p | (x₁y₂ + x₂y₁)(x₁y₂ − x₂y₁) (as (x₁y₂)² ≡ (x₂y₁)² mod p); by Cauchy–Schwarz √k(x₁y₂ + x₂y₁) ≤ √(x₁² + ky₁²)·√(ky₂² + x₂²) = p,
+so 0 < x₁y₂ + x₂y₁ < p and |x₁y₂ − x₂y₁| < p; hence x₁y₂ = x₂y₁, and with gcd(x_i, y_i) = 1 the representations coincide.)
+On the trap family p = kq² + 1 (kX² + 1 ∈ 𝒫, P(0) = 1, no real roots) the representation is (x, y) = (1, q) (for k = 1 also
+(q, 1)), a formal value. So the route of
 `BRAINSTORM/gon_fermat_certificates.md` — "find p = Q(u, v) by geometry of numbers, then a bounded Theorem-M procedure" — fails
 i.o. under H for every fixed principal form x² + ky²: the step left open there ("Theorem C is PROVED only for linear P; the
 extension to quadratic P is not proved") is Theorem T. (Forms with many representations let the procedure *choose* — that
@@ -295,20 +334,24 @@ choice is again a "which divisor" event; not covered.)
 **Answer to S3 (long cycles).** Not an escape (Cor T1, CONDITIONAL on H). Correctness is a for-all-p requirement, and the
 adversary uses the short-cycle primes q² + 1; a procedure that branches on "period > K" is using a finite-information oracle.
 Long cycles help only together with an escaping primitive that handles the short-cycle primes — and then the burden is on that
-primitive. The CF *norms* Q_k of √p are moreover QNR-blind at every prime (JOINT_BUDGET Prop 4.2: ℓ | Q_k, ℓ ∤ B ⇒ (p/ℓ) = 1),
-so by Lemma CT they can never be the non-residue source of a certificate, at any cycle length; only partial quotients and the P_k
-(uncontrolled integers below 2√p) can.
+primitive. The *odd parts* of the CF norms Q_k of √p are QNR-blind at every prime p ≡ 1 (4) (odd ℓ | Q_k with ℓ ∤ B ⇒
+(p/ℓ) = 1 ⇒ (ℓ/p) = 1; cf. JOINT_BUDGET Prop 4.2), and for p ≡ 1 (8) — in particular p ≡ 1 (24) — the whole norm is (2 is a
+residue). So for such p they can never be the non-residue source of a certificate, at any cycle length; only partial quotients
+and the P_k (uncontrolled integers below 2√p) can. (For p ≡ 5 (8) the 2-part can be: p = 13, √13 has norm 4 = |3² − 13| and
+4/13 = 1/4 + 1/26 + 1/52 — reviewer's example.)
 
 ## 6. Second half (S2): what the escaping primitives buy
 
 **Proposition S (n_p-seeding reduces to the r-generic line; PROVED, existence CONDITIONAL on H).** Let Π call n_p (any number
 of times) and otherwise use formal primitives and finite-information oracles. Fix a prime r ≥ 5 and P = 24X + 1. Call q* ∈ Ẑ
-*r-generic* if 24q*_ℓ + 1 is a nonzero square mod ℓ for every prime 3 ≤ ℓ < r and a non-square mod r. Then every prime
-p ≡ 24q* + 1 (mod 24∏_{3≤ℓ≤r} ℓ) has n_p = r ((2/p) = 1 as p ≡ 1 (8), (ℓ/p) = (p/ℓ) as p ≡ 1 (4)); so n_p has constant formal
-semantics at q*, and Theorem A applies: if Π's formal tree at an r-generic universally nondegenerate q* is finite, Π(p) is its
-formal output at every admissible q. Hence an n_p-seeded procedure proves ES for all large p only if, for **every** prime r and
-every such r-generic point, its formal output is SUCCESS. Theorem C does not decide this (r is a non-residue, and formal values
-h(q) with v_r(H_h) odd are non-residues), which is exactly why n_p escapes.
+*r-generic* if 24q*_ℓ + 1 is a **unit** in ℤ_ℓ for every ℓ (so C_P = 1), a unit square for every ℓ ≠ r (in particular ≡ 1 (8)
+at ℓ = 2), and a non-square unit at ℓ = r. Then every prime p ≡ 24q* + 1 (mod 8∏_{3≤ℓ≤r} ℓ) has n_p = r ((2/p) = 1 as
+p ≡ 1 (8); (ℓ/p) = (p/ℓ) as p ≡ 1 (4)); so n_p has constant formal semantics at q*, and Theorem A applies: if Π's formal tree at
+an r-generic universally nondegenerate q* is finite, Π(p) at every admissible q is the formal output of the branch realised
+there. Hence (under H) an n_p-seeded procedure of this kind proves ES for all large p only if, for **every** prime r and every
+such r-generic point, the realised branches output SUCCESS. Theorem C does not decide this: at such a point a normalised formal
+prime r_h = h(q)/C_h has (r_h/p) = (−1)^{v_r(H_h) + v_r(C_h)} (Theorem C's computation with exactly one non-square prime r),
+so non-residue formal primes are available — which is exactly why n_p escapes.
 * For congruence-only seeding the answer is known: by (J)70 = `STERILE_LOWER.md` Thm 6.3 (PROVED, computer-assisted), for every
   prime r ≥ 2^{21.4375} no finite set of ET Prop 1.9 classes covers all large primes with least non-residue r; so every
   procedure that, given n_p = r, certifies by a finite menu of ET Prop 1.9 classes fails i.o. (unconditional: Dirichlet
@@ -316,12 +359,15 @@ h(q) with v_r(H_h) odd are non-residues), which is exactly why n_p escapes.
 * With FACTOR the question is FRONTIER §7.9's (uniform multiplicity / sterility on the r-generic line). **So the cheapest
   escaping primitive with complete factorisation control (n_p is a prime) buys exactly the quadratic layer, and what remains is
   the r-generic sterility problem — a B2-type statement** (Assessment, matching FRONTIER's own reading of §7.9).
-* n_p is by definition a function of the Legendre symbols (ℓ/p) of small primes ℓ; so are g_p and every "least prime with a
-  prescribed symbol". These primitives are the quadratic layer, delivered unboundedly (CLASS_FORCING Thm 2.1: the quadratic
-  layer never determines the class). Archimedean escapers (Cor T2(ii)) deliver integers with *no* factorisation control —
-  E1 lottery tickets.
+* Scope of the reduction: it uses that n_p = r is fixed by a *finite prefix* of quadratic symbols; it applies equally to "least
+  prime ≡ a (mod m) with a prescribed symbol". It does **not** apply to the least primitive root g_p (fixing g_p needs
+  order/power-residue data: mod 97, 5 and 28 are both non-residues, of orders 96 and 32 — reviewer's example; that is
+  finite-information Frobenius data at a fixed value, so a g_p analogue of Prop S would use Theorem A, but it is not worked out
+  here). n_p and the prescribed-symbol searches are the quadratic layer, delivered unboundedly (CLASS_FORCING Thm 2.1: the
+  quadratic layer never determines the class). Archimedean escapers (Cor T2(ii)) deliver integers with *no* factorisation
+  control — E1 lottery tickets (Assessment).
 
-**EVIDENCE (the seed supplies the colour, not the divisor event).**
+**EVIDENCE (associations; the causal reading is heuristic).**
 1. *Forest roots: colour factor vs divisor-class factor* (`scripts/z53_noncrtlogic_rootparity.py 1000000 3000000 61`,
    `scripts/z53_noncrtlogic_rootparity_deep.py A B LMIN 113 3000`; outputs `data/z53/noncrtlogic/rootparity_*.txt`). For a prime
    root ℓ of F_p, an edge to a larger neighbour w is w | p + ℓ with w ≡ −p (mod ℓ); writing p + ℓ = w·w′ one has w′ ≡ −1 (mod ℓ)
@@ -334,27 +380,35 @@ h(q) with v_r(H_h) odd are non-residues), which is exactly why n_p escapes.
    |---|---|---|---|---|---|---|---|
    | the 3000 primes p ≡ 1 (24) in [10⁶, 1.34·10⁶], ℓ ∈ [5, 113] | residue | 41 911 | 0.174 | 0.036 | 0.155 | 0.478 | **0.324** |
    | same | non-residue | 42 089 | 0.348 | 0.264 | 0.214 | 1 | **0.214** |
-   | 3000 deeply square-mimicking p ((ℓ/p) = 1 ∀ ℓ < 29; p ≤ 6.0·10⁷), ℓ ∈ [29, 113] | residue | 28 848 | 0.093 | 0.004 | 0.091 | 0.302 | **0.301** |
+   | the first 3000 deeply square-mimicking p ≡ 1 (24) above 10⁶ ((ℓ/p) = 1 ∀ ℓ < 29; up to p = 60 428 281), ℓ ∈ [29, 113] | residue | 28 848 | 0.093 | 0.004 | 0.091 | 0.302 | **0.301** |
    | same | non-residue | 34 152 | 0.285 | 0.180 | 0.160 | 1 | **0.160** |
 
    (Mordell-hard primes in [10⁶, 3·10⁶), ℓ ∈ [11, 61], direct neighbours: P(bichromatic) 0.174 residue vs 0.453 non-residue.)
-   A non-residue root doubles to triples the certificate rate. The gain is (a) smaller-neighbour edges r = (−p mod ℓ),
-   r | p + ℓ — congruence events between p mod ℓ and p mod r whose colour is fixed by the sign identity (B1 data; their
-   probability ≍ Σ_{r<ℓ} 1/r·(…)/ℓ decays as the root grows), and (b) the removal of F1. **Conditioned on not-F1, the
-   tied-class factor is *not* improved by seeding — it is lower (0.214 vs 0.324; 0.160 vs 0.301)**, consistent with a residue
-   p + ℓ carrying an even, hence typically larger, number of non-residue prime factors. So the seed supplies parity and nothing
-   about the class (EVIDENCE; the explanation is an Assessment).
+   A non-residue root doubles to triples the certificate rate. The gain sits in (a) smaller-neighbour edges r = (−p mod ℓ),
+   r | p + ℓ — congruence events between p mod ℓ and p mod r (B1-type data), and (b) the larger-edge certificates, whose
+   necessary condition "not F1" a non-residue root guarantees. **Conditioned on not-F1, the larger-edge certificate rate is
+   lower for non-residue roots (0.214 vs 0.324; 0.160 vs 0.301).** These are aggregate associations between different
+   populations of (p, ℓ) (the conditioned populations still differ in parity and factorisation structure), not a causal
+   decomposition. Heuristic reading (Assessment): the seed's advantage is parity (no F1) plus small congruence coincidences; it
+   does not make the tied-class event itself more likely; a residue p + ℓ that is not F1 carries an even, hence typically larger,
+   number of non-residue prime factors.
 2. *Which (★) certificates use n_p* (`scripts/z53_noncrtlogic_qnrseed.py`, `data/z53/noncrtlogic/qnrseed_*.txt`): all
-   43 442 primes p ≡ 1 (24) in [300, 5·10⁶), all (★) solutions. For each small prime ℓ the share of solutions with ℓ | uBC is
-   larger when ℓ is a non-residue than when it is a residue (e.g. ℓ = 11: 0.216 vs 0.185 on [10⁶, 5·10⁶)), and larger still when
-   ℓ = n_p (0.267) — consistent with Lemma CT (every certificate needs a non-residue) plus the absence of smaller competing
-   non-residues, both quadratic-layer facts. P(some (★) solution uses n_p) = 0.960 ([300, 10⁶)) and 0.978 ([10⁶, 5·10⁶)): the
-   n_p-seeded sub-count is *more* often zero (2–4 % of primes) than the full count (12 zeros among 43 442 primes) — seeding
-   restricts the lottery, it does not force it. The CF-norm generator s_p (least prime ≡ ±3 (8) dividing a norm of √(2p), a
-   non-residue by construction) equals n_p for 70 % of primes and is used by a (★) solution slightly less often (0.945).
-3. *Test primes* (`scripts/z53_noncrtlogic_forestroot.py 4 5000`, `data/z53/noncrtlogic/forestroot_d4.txt`; BFS depth ≤ 4,
-   ≤ 5000 vertices): at the 14 (★)-zero primes plus 193, 2521, 66529, 3361, 5101441, a bichromatic edge is reached from the
-   root n_p at 10/19, from 1 at 11/19, from the least residue prime at 4/19; at 400 Mordell-hard primes < 10⁷: 279, 370, 313/400.
+   43 442 primes p ≡ 1 (24) in [300, 5·10⁶), all (★) solutions. Statistics per small prime ℓ, split into three categories
+   (ℓ = n_p; ℓ a non-residue other than n_p; ℓ a residue), over primes with R(p) > 0; "share" is the unweighted mean over primes
+   of the per-prime share of solutions with ℓ | uBC. On [10⁶, 5·10⁶) for ℓ = 11: share 0.267 (ℓ = n_p, 4175 primes), 0.216
+   (other non-residue, 12 717), 0.185 (residue, 16 819). Non-residue ℓ have larger shares than residue ℓ for every ℓ, as Lemma
+   CT suggests; ℓ = n_p usually has the largest share (fewer competing small non-residues), but not always (ℓ = 37: 0.049 on
+   15 primes vs 0.051), and these are associations only. P(some (★) solution uses n_p) = 0.9588 unconditionally (0.9597 given
+   R > 0) on [300, 10⁶) and 0.9775 (0.9776) on [10⁶, 5·10⁶): the n_p-seeded sub-count vanishes at 2–4 % of primes, the full
+   count at 12 of 43 442 — seeding restricts the lottery, it does not force it. The CF-norm generator s_p (least prime
+   ≡ ±3 (8) dividing a norm of √(2p), automatically a non-residue) exists for 33 212 of the 33 711 primes with R > 0 in
+   [10⁶, 5·10⁶), equals n_p for 23 630, and is used by a (★) solution at 0.945 of those (0.930 on [300, 10⁶), 9054 primes).
+   (Script fixed after review: the 2-part of a norm is now stripped before trial division and unfinished periods raise an
+   error; all numbers above are from the fixed rerun and coincide with the pre-fix values.)
+3. *Test primes* (`scripts/z53_noncrtlogic_forestroot.py 4 5000 data/z53/noncrtlogic/forestroot_d4.json`, printed output
+   `data/z53/noncrtlogic/forestroot_d4.txt`; BFS depth ≤ 4, ≤ 5000 vertices): at the 14 (★)-zero primes plus 193, 2521, 66529,
+   3361, 5101441, a bichromatic edge is reached from the root n_p at 10/19, from 1 at 11/19, from the least residue prime > 3
+   at 4/19; at 400 Mordell-hard primes < 10⁷: 279, 370, 313/400.
    At 131 trap-family primes q² + 1 (24 | q; *actual* primes, not admissible): 124/131 from n_p, 128/131 from 1 — the trap is
    formal; actual near-square primes are easy, as Theorem T predicts (failure needs all formal values prime). Odd-square control
    (n = m², 10 values): no bichromatic unit edge from root 1 (T1), and n_p does not exist.
@@ -368,24 +422,26 @@ CONDITIONAL on H).
   positive real root); Theorem T (Theorem C for all such P — the first nonlinear instance of the formal odd-square principle in
   the repo); Corollaries T1–T4 (Pell/CF/unit data of one radicand, rational-archimedean primitives, Cornacchia certificates,
   QNR oracles).
-* *What it buys.* B1's "does not rule out" list shrinks: E3 is gone; E2 is now characterised at trap points — escape ⟺ a
-  non-polynomial integer carrying a quadratic non-residue; the brief's list sorts as in §5. Z52D_PELLCYCLE's remaining gap
-  ("arbitrary functions of cycle data") and `gon_fermat_certificates.md`'s open step are closed (CONDITIONAL on H).
-* *What survives.* (i) QNR-valued primitives (n_p, g_p, …): reduce value-by-value to the r-generic line (Prop S) — open with
-  FACTOR (FRONTIER §7.9); (ii) archimedean primitives with irrational relations (no control); (iii) class numbers/regulators
-  as integers (status open); (iv) E1 searches and E4 Boolean/counting certificates (untouched, as before).
-* Not obtained: any lower-bound mechanism. The lane's honest answer to "a lower-bound mechanism not built from congruence data":
-  the only *controlled* non-congruence input that the logic admits is the quadratic layer (non-residues), and that is exactly
-  the layer CLASS_FORCING shows is not the class.
+* *What it buys.* B1's "does not rule out" list shrinks: E3 is gone (for finite-tree witness procedures); E2 gets a necessary
+  condition at trap points — success there requires non-formal integers carrying non-residue prime factors; the brief's list
+  sorts as in §5. Z52D_PELLCYCLE's remaining gap (functions of the cycle data computed with finite formal tree) and
+  `gon_fermat_certificates.md`'s open step (quadratic P) are closed (CONDITIONAL on H).
+* *What survives.* (i) QNR-valued primitives: n_p and prescribed-symbol searches reduce value-by-value to the r-generic line
+  (Prop S) — open with FACTOR (FRONTIER §7.9); g_p not reduced here; (ii) archimedean primitives with irrational relations (no
+  factorisation control); (iii) class numbers/regulators/discrete logs as integers (status open); (iv) E1 searches and E4
+  Boolean/counting certificates (untouched, as before).
+* Not obtained: any lower-bound mechanism. Assessment: the only *controlled* non-congruence input this logic identifies is the
+  quadratic layer (non-residues), the layer CLASS_FORCING shows does not determine the class; the forest data (§6) are
+  consistent with the seed helping only through parity.
 
 **FRONTIER §4 hard screens** for the best positive idea in reach (n_p-seeded certificates):
-1. *T1 squares:* passes — n_p does not exist at m² (and Lemma T4 is the precise reason every formal mechanism fails there and at
-   trap points).
+1. *T1 squares:* passes — n_p does not exist at m² (and Lemma T4 + FACTOR is the reason every formal mechanism fails at trap
+   points, as at squares).
 2. *8/131:* not a constraint on the no-go theorems (a barrier may be numerator-uniform; Theorems A/T use Lemma CT, proved for
    numerator 4 only — a numerator-m analogue was not checked here). The n_p-seeded forest certificate is 4-specific through the
    five-slice sign law (bichromatic ⟺ certificate is the m = 4 χ-fibre, (J)32).
 3. *Tied modulus:* **fails** — after seeding, the certificate event (a divisor w′ ≡ −1 (mod ℓ) of p + ℓ that is a
-   non-residue) is the B2 event; §6 EVIDENCE 1 shows the seed removes F1 but does not raise the class factor.
+   non-residue) is the B2 event; §6 EVIDENCE 1 is consistent with the seed removing F1 without raising the class factor.
 4. *Fixed p:* passes (n_p is pointwise; Lemma T4 is pointwise at each admissible p).
 
 ## 8. Proposed FRONTIER text (do not edit FRONTIER directly)
@@ -394,32 +450,33 @@ CONDITIONAL on H).
 arbitrary finite-valued oracles — fixed non-abelian Frobenius data, power-residue and Artin symbols, h(p) mod m, any predicate —
 under H alone (Thm A; the old E3 item is closed without a Schinzel–Chebotarev hypothesis), to divisor-valued oracles such as
 ord_p(a) (Cor A2), and to every nonlinear family P ∈ 𝒫 with P(0) = 1 and no positive real root (Thm T, via Hilbert reciprocity
-in ℚ(β), β a root of XⁿP(1/X); at its trap points every polynomial value is a quadratic residue mod p, unconditionally). Hence the
-full Pell/CF/unit data of √(kp) for one fixed k (long cycles are irrelevant: the kill is at Richaud–Degert primes kq² + 1),
-⌊c·p^θ⌋ for rational c, θ, and Cornacchia representations by x² + ky² are all inside B1 (CONDITIONAL on H). *Does NOT rule out:*
-(E1) p-dependent growing searches; (E2′) primitives producing non-polynomial integers with a quadratic non-residue factor —
-at trap points this is exactly the escape condition; the cheapest, n_p, reduces value-by-value to the r-generic line (§7.9);
+in ℚ(β), β a root of XⁿP(1/X); at its trap points, for each fixed finite family, every polynomial value prime to p is a
+quadratic residue mod p, unconditionally). Hence the full Pell/CF/unit data of √p, and the CF data of √(kp) for one fixed k
+(long cycles are irrelevant: the kill is at Richaud–Degert primes kq² + 1), ⌊c·p^θ⌋ for rational c, θ, and Cornacchia
+representations by x² + ky² are all inside B1 (CONDITIONAL on H). *Does NOT rule out:* (E1) p-dependent growing searches;
+(E2′) primitives producing non-formal integers with quadratic non-residue prime factors — at trap points this is a necessary
+condition for success (not a characterisation); the cheapest, n_p, reduces value-by-value to the r-generic line (§7.9);
 archimedean primitives with irrational relations ((⌊√p⌋, ⌊√(2p)⌋), ⌊p^θ⌋ with θ ∉ ℚ) escape but carry no factorisation
-control; class numbers as integers are unresolved."
+control; class numbers, regulators and discrete logs as integers are unresolved."
 
-*For §6 (dead ends), add:* "Bounded procedures using fixed non-abelian Frobenius data, orders ord_p(a), Pell/CF/unit data of one
-radicand (any cycle length), ⌊c·p^θ⌋ (c, θ ∈ ℚ), or Fermat/Cornacchia representations by one principal form → killed under H →
-`Z53_NONCRTLOGIC.md` Thms A, T."
+*For §6 (dead ends), add:* "Witness procedures with finite formal tree using fixed non-abelian Frobenius data, orders
+ord_p(a), Pell/CF/unit data of √p or CF data of one √(kp) (any cycle length), ⌊c·p^θ⌋ (c, θ ∈ ℚ), or Fermat/Cornacchia
+representations by one principal form → killed under H → `Z53_NONCRTLOGIC.md` Thms A, T."
 
 *For §7.9, add:* "This is also the exact residue of the non-CRT question for the cheapest escaping primitive: procedures seeded
 by the least non-residue reduce, for each value r, to bounded procedures on the r-generic line (`Z53_NONCRTLOGIC.md` Prop S)."
 
 **Bottom line.** The logic angle gives a clean map rather than a mechanism. Every primitive whose information about p is
 bounded, divides something polynomial, or becomes polynomial on *some* family with P(0) = 1 and no positive real root is dead
-under H — this now includes non-abelian Frobenius data (no H_K needed), multiplicative orders, the entire Pell/continued-fraction
-data of √p however long its cycle, rational powers ⌊c·p^θ⌋, and Cornacchia representations. The reason is one unconditional
-lemma: at such "trap points" every polynomial value is a quadratic residue mod p, so the formal world looks like an odd square.
-Escaping is therefore *equivalent* to manufacturing a non-polynomial integer with a non-residue factor. That is cheap — the
-least non-residue does it with perfect factorisation control — but what it buys is precisely the quadratic layer: n_p-seeded
-procedures reduce to the r-generic sterility problem, and numerically a non-residue seed doubles to triples forest-certificate
-rates only through parity (and small congruence coincidences); conditioned on parity, the tied-class divisor event is no more
-likely — in fact less. ES remains open; target 5's obstruction is now sharply "the
-class beyond the quadratic layer", i.e. B2.
+for witness procedures with finite formal tree, under H — this now includes non-abelian Frobenius data (no H_K needed),
+multiplicative orders, the entire Pell/continued-fraction data of √p however long its cycle, rational powers ⌊c·p^θ⌋, and
+Cornacchia representations. The reason is one unconditional lemma: at such "trap points" every polynomial value (of a fixed
+family, prime to p) is a quadratic residue mod p, so the formal world looks like an odd square. Succeeding there therefore
+*requires* manufacturing non-formal integers with non-residue prime factors (necessary, not sufficient). The least non-residue
+does this with perfect factorisation control, but what it buys is the quadratic layer: n_p-seeded procedures reduce to the
+r-generic sterility problem, and numerically a non-residue forest root doubles to triples certificate rates while, conditional on
+"not F1", the tied-class rate is lower — consistent with (not a proof of) "parity only". ES remains open; target 5's obstruction
+is sharpened to "the class beyond the quadratic layer", i.e. B2.
 
 ## 9. Reproducibility
 
@@ -432,9 +489,44 @@ python scripts/z53_noncrtlogic_qnrseed.py 1000000 5000000 47 data/z53/noncrtlogi
 python scripts/z53_noncrtlogic_rootparity.py 1000000 3000000 61                                               # seconds
 python scripts/z53_noncrtlogic_rootparity_deep.py 1000000 3000000000 29 113 3000 > data/z53/noncrtlogic/rootparity_deep.txt  # ~2 min
 python scripts/z53_noncrtlogic_rootparity_deep.py 1000000 3000000000 5 113 3000  > data/z53/noncrtlogic/rootparity_generic.txt
-python scripts/z53_noncrtlogic_forestroot.py 4 5000 data/z53/noncrtlogic/forestroot_d4.json                   # seconds
+python scripts/z53_noncrtlogic_forestroot.py 4 5000 data/z53/noncrtlogic/forestroot_d4.json > data/z53/noncrtlogic/forestroot_d4.txt
+python scripts/z53_noncrtlogic_primecert.py 20000000 4000 > data/z53/noncrtlogic/primecert.txt                  # ~3 min
 ```
 (The `.txt` files are the printed outputs; the qnrseed `.txt` files hold stdout of the corresponding runs.)
 
 ## 10. Review log
-TODO (hostile review pending).
+
+**Hostile review (deep-mode subagent, full text `data/z53/noncrtlogic/REVIEW_hostile_deep.md`).** Verified as correct: Theorem A's
+core (branch induction, union data, no H_K needed); A2's reduction; Lemmas T1–T5 (incl. 1 + 8O_v ⊂ squares in every 2-adic
+field, ramified included — checked by the reviewer on 4080 constructions; the Weil count; the nondegeneracy construction);
+Theorem T with its full hypotheses (Theorem M(b) genuinely allows nonlinear P); Cor T2; T1 at k = 1; the RD identity; the
+Gaussian trap conditions at 2, 3, 5; Cornacchia uniqueness; the forest larger-edge criterion; the (J)70 quotation. The reviewer
+reproduced all saved outputs byte-for-byte except the ~10-min upper (★) range, and ran an independent Lemma T4 check on
+P = 5X² + 1 (153 primes, 114 444 symbol tests, 0 violations). Findings and fixes:
+1. MAJOR — "escape ⟺ non-formal QNR" false (2^{⌊√log p⌋} is non-formal but a residue) → biconditionals removed everywhere;
+   Cor T3(c) now states a necessary condition only.
+2. MAJOR — Cor T3 "no semantics" needs infinitely many primes in the refined class → split into (a) pointwise, unconditional,
+   and (b) CONDITIONAL on H (Dirichlet for linear P); taxonomy row relabelled.
+3. MAJOR — QR *values* vs QR *prime factors* (p = 577, h(q) = 25 = 5²) → Lemma T4 "Reading" rewritten with explicit quantifiers;
+   the converse is now derived from Theorem T (FACTOR + admissibility), not from T4 alone.
+4. MAJOR — Prop S lacked C_P = 1 and its character remark was wrong under the old r-generic definition → r-generic now means
+   unit everywhere, unit square at ℓ ≠ r, non-square unit at r; character rule corrected to include C_h.
+5. MAJOR — Prop S does not cover g_p or arbitrary QNR oracles → scope restricted to n_p and finite-prefix prescribed-symbol
+   searches.
+6. MAJOR — (F2) is not an instance of the *global* trap point (at 13 the trap condition changes the constants) → stated and
+   proved Theorem T′ (local form: trap conditions only at Λ′), of which (F2) is an instance; scope note added.
+7. MAJOR — "CERTIFIED" on probable primes → all values < 2^64 re-checked with a deterministic test
+   (`scripts/z53_noncrtlogic_primecert.py`, 0 failures; covers (F2) entirely and the degree-≤ 2 rows of (F1)); the rows with
+   values ≥ 2^64 relabelled EVIDENCE on BPSW-probable primes.
+8. MAJOR — "only parity / nothing about the class" overstated → reworded as aggregate associations with a heuristic reading.
+9. MAJOR — CF norms are QNR-blind only in their odd part (p = 13: norm 4, 4/13 = 1/4 + 1/26 + 1/52) → restricted to p ≡ 1 (8).
+10.–20. MINOR/NIT — tree semantics with unrealised branches (Remark (3)); A(e) trap alternative now requires universal
+   nondegeneracy (or T′); A2 domain conditions and index reduction made explicit; A3 reworded as worst-case; taxonomy last row
+   rationale corrected (Siegel bounds h(−p), h(p)R_p, not h(p)); (★)/seed statistics relabelled (conditioning on R > 0,
+   unweighted means, category definitions, ℓ = 37 exception); even CF norms now 2-stripped in the seed script and unfinished
+   periods raise errors (rerun: numbers unchanged); F1 share 0.48–0.51; F2 controls are "t prime"; deep sample ends at
+   60 428 281; "least residue prime > 3"; Cor T1 general-k claims restricted to CF data; T4 coordinate swap only for k = 1
+   (uniqueness proof added); T1 needs p odd; T2 reference no longer quotes an unchecked theorem number; RD repeating block
+   marked; trapcheck docstring and forestroot command synchronised.
+
+Cross-model review: pending (to be applied when sent).

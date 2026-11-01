@@ -1,0 +1,7 @@
+(F2) admissible t < 20000000: 322; all values < 2^64; deterministic re-check failures: 0
+(F1) X^2+1: gmpy2-accepted values < 2^64 re-checked 1725, failures 0, values >= 2^64: 0
+(F1) 2X^2+1: gmpy2-accepted values < 2^64 re-checked 1595, failures 0, values >= 2^64: 0
+(F1) 3X^2+1: gmpy2-accepted values < 2^64 re-checked 1151, failures 0, values >= 2^64: 0
+(F1) X^2-X+1: gmpy2-accepted values < 2^64 re-checked 1186, failures 0, values >= 2^64: 0
+(F1) X+1: gmpy2-accepted values < 2^64 re-checked 2197, failures 0, values >= 2^64: 0
+(F1) X^2-3X+1: gmpy2-accepted values < 2^64 re-checked 1141, failures 0, values >= 2^64: 0

@@ -6,14 +6,14 @@ root; R(X) = X^n P(1/X) (monic), beta a root of R.  If q = 0 mod 8 and q = 0 mod
 dividing lc(P) * Res(R, h^v) (h^v = reversed h), and p = P(q) is prime with p not dividing h(q), then the
 Legendre symbol (h(q)/p) = +1.
 
-The script takes q = M*t (M = 8 * prod of odd primes <= L), keeps prime p = P(q), and for every test
+The script takes q = M*t (M = 8 * prod of odd primes <= L), keeps (BPSW-probable) prime p = P(q), and for every test
 polynomial h (all a + bX, |a|,|b| <= B, plus a + bX + cX^2 for small coefficients) whose relevant primes
 (2 * lc(P) * Res(R, h^v)) are all <= L, checks (h(q)/p) = +1.  It also reports, for h whose relevant primes
 are NOT all <= L, how often the symbol is -1 (sanity: the claim is not vacuous).
 
 Controls: (a) P = X^2 - 3X + 1 (P(0) = 1 but positive real roots: the real place breaks the trap);
           (b) q = 4 mod 8 instead of 0 mod 8 (2-adic trap condition violated);
-          (c) q = M*t + 1 shift (q not 0 mod small odd l).
+          (c) q = M*t + 24 shift (q not 0 mod 5, 7, 11, 13).
 
 Usage: uv run --with sympy --with gmpy2 python scripts/z53_noncrtlogic_trapcheck.py [T] [L] [B]
 """

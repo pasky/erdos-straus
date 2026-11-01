@@ -37,4 +37,4 @@ primes p=1(24) in [1000000,5000000): 33714; (*)-zero: [1134241, 1724209, 1726201
  47 | LEAST  |      1 | 0.0000  | 0.0000
  47 | QNR    |  16910 | 0.4524  | 0.0480
  47 | QR     |  16800 | 0.3302  | 0.0287
-seed: primes 33711; P(some solution uses n_p) = 0.9776; sqrt(2p)-seed s_p: none 499, s_p = n_p 23630, P(some solution uses s_p) = 0.9452
+seed: primes with R(p)>0: 33711 of 33714; P(some solution uses n_p | R>0) = 0.9776, unconditional 0.9775; sqrt(2p)-seed s_p: none 499, s_p = n_p 23630, P(some solution uses s_p | R>0, s_p exists) = 0.9452 (denominator 33212)
