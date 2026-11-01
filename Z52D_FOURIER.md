@@ -18,16 +18,18 @@ The cluster hoped for three things:
 * **(a) Refuted in the form an obstruction witness needs.** L(B, η) is the *signed* lemma (the character must push towards
   failure, c(χ) ≥ η > 0).
   * Thm B (PROVED): at a forced prime window q with (q−1)/2 free of primes ≤ B, no χ ≠ 1 of order ≤ B has c(χ) > 0.
-  * CERTIFIED: 2,110 such obstructed windows with full generated subgroup, for every B ≤ 952. Under Dickson's conjecture
+  * CERTIFIED: 2,110 such obstructed windows with full generated subgroup. Each refutes B < (q−1)/2; the q = 1907
+    window covers every B ≤ 952. Under Dickson's conjecture
     this extends to every B (Prop B′). Two certified windows have boxes covering 94 % and 91 % of the group, so box size
     is not the reason.
   * Thm C (PROVED): the same in abstract cyclic groups, where the box image can be the whole group minus the target. There
     the obstruction sits on characters of order ≍ |G|.
   * Census (EVIDENCE, 56,590 forced obstructed windows with H = G): L(12, 0.1) fails at ≈ 40 % (≈ 48 % for odd χ). With
     box ≥ |G| it fails at 58–67 %.
-  * The *unsigned* variant (|c| ≥ η, closer to Z3003's pigeonhole witness) mostly holds in the data: 93–100 % for B = 2,
-    η = 0.1. It holds only through the BM character χ_{−e}, which at forced windows pushes towards *success* (Prop 1). It is
-    refuted for η > 1/63 (B ≤ 292, CERTIFIED), and for every B and η conditionally on Dickson (Prop B″).
+  * The *unsigned* variant (|c| ≥ η, closer to Z3003's pigeonhole witness) mostly holds in the data: 93–99 % for B = 2,
+    η = 0.1. It holds mostly through the BM character χ_{−e} alone (88–98 %), which at forced windows pushes towards
+    *success* (Prop 1); the rest comes through other order-2 real characters at composite e. At fixed η it is refuted for
+    η > 1/63 (B ≤ 292, CERTIFIED), and for every B and η conditionally on Dickson (Prop B″).
   * The any-order variant is not refuted; §3.6 says why it seems uninformative (Assessment).
 * **(c) The real layer is (I)7 plus genus twists.**
   * By the Jacobi transfer ((J)83 Lemma 1.1), the window's BM character χ_{−e} = (·/e) equals χ_p = (·/p) on every prime
@@ -45,14 +47,16 @@ The cluster hoped for three things:
   * At forced windows χ_p is silent, and no hard-prime class is significantly *larger*. Poverty-type: +2.1 raw / +1.3
     adjusted (t = 0.8). Genus-twist kills: −2.3 raw / −2.6 adjusted (t = −2.3). Non-real kills: −0.9 raw / −1.2 adjusted
     (t = −2.0). Hard primes simply have fewer forced windows: −4.7 raw / −5.3 adjusted (t = −3.6).
-  * No fixed Dirichlet character covers more than 16 % of any prime's forced obstructed windows. Hard primes are not more
+  * No fixed Dirichlet character of conductor ≤ 200 carries c ≥ 0.15 on more than 16 % of any prime's forced obstructed
+    windows. Hard primes are not more
     coherent than controls.
 * **(c′) No repulsion.** The forced-window success rate does not rise with χ_p's exceptionality. On 400 random primes the
   partial correlation is −0.04 [−0.14, +0.06]. The outcome-selected hard/control set gives −0.18 [−0.34, −0.02].
 
 **Verdict: narrowed to collapse.**
 * The signed bounded-order inverse sub-route is **dead** (theorem + certificate; Dickson for all B). The unsigned version
-  survives only as a restatement of Prop 1.
+  at fixed η is dead (certified for η > 1/63, B ≤ 292; all η under Dickson). Empirically it mostly holds, via χ_{−e} with
+  the success-favouring sign.
 * The sub-route "one exceptional character / Deuring–Heilbronn" is **dead as stated, at EVIDENCE level**. The only
   window-uniform character found is χ_p (BM), and no repulsion is seen.
 * What remains: §7.3-type genus twists at composite windows, §7.4, and the poverty-type B2 core. That core is ≈ 84 % of
@@ -161,7 +165,7 @@ Let χ_{−e} := (·/e) (Jacobi). It is odd, since e ≡ 3 (4). Then
 * ψ = 1 is (I)7 (§3.2). The twists are not (I)7. They are the window analogue of §7.3's "other genus characters" — the same
   kind of object, not the same sum, since §7.3 works in level coordinates (Assessment).
 * Even real characters also carry signed mass (§2), but by Cor 2.2 they cannot separate −1 from 1.
-* EVIDENCE: kills that use no real character have least orders 4, 8, 16, 32 only. There are 855 such windows in the
+* EVIDENCE: kills that use no real character have least orders 4, 8, 16, 32 only. There are 846 such windows in the
   hard/control scan and 912 in the random scan. Being a 2-power is Prop 2(iii); the counts and the maximum 32 are data.
 
 **Prop 3** (known; CAP_POINTWISE (J)64). At a forced *prime* window q, −1 ∈ H.
@@ -192,11 +196,12 @@ code in `z52d_fourier_certify.py`).
   * In total, 57 (hard/control) and 190 (random) Thm B windows have M ≥ |G|.
 * *Unsigned.*
   * At 2,066 of the 2,110 windows, |c(χ_{−q})| = 1/3: one p-non-residue factor, so L_abs(2, η ≤ 1/3) *holds* there.
-  * The smallest value is 1/63, at (1005913, 587): N = 3·5³·11·61. The p-non-residue factors are 5³, 11 and 61, so
+  * The hard/control minimum is 1/27, at (1134241, 179). Across both scans the smallest value is 1/63, found in the random
+    scan at (1005913, 587): N = 3·5³·11·61. The p-non-residue factors are 5³, 11 and 61, so
     |c| = 1/(7·3·3); the Prop 1 value −1/63 was checked exactly. This refutes L_abs(B, η) for η > 1/63 and B ≤ 292.
 
 **Prop B′ (CONDITIONAL on Dickson's conjecture for two linear forms).** For every B there are infinitely many (p, q) as in
-Thm B with N prime and ⟨N⟩ = G.
+Thm B with N prime, ⟨N⟩ = G, and the window obstructed.
 *Proof.*
 1. Dirichlet gives a prime q > 3 with q ≡ 3 (mod 8) and q ≡ 2 (mod ℓ) for each odd prime ℓ ≤ B. Then ℓ ∤ q − 1 and
    (q−1)/2 is odd, so every prime factor of (q−1)/2 exceeds B.
@@ -208,8 +213,8 @@ Thm B with N prime and ⟨N⟩ = G.
    (q/p) = (p/q) = (4g/q) = −1, so the window is forced. Also N = (p+q)/4 ≡ g, so H = G.
 5. The box is {1, N, N⁻¹}. It misses −1 because ord g = q − 1 > 2. ∎
 
-**Prop B″ (CONDITIONAL on Dickson for two linear forms).** For every B and every odd k there are forced windows as in
-Thm B with |c(χ_{−q})| = 3^{−k}. Hence L_abs(B, η) fails for every B and every η > 0.
+**Prop B″ (CONDITIONAL on Dickson for two linear forms).** For every B and every odd k there are obstructed forced windows as
+in Thm B, with H = G and |c(χ_{−q})| = 3^{−k}. Hence L_abs(B, η) fails for every B and every η > 0.
 *Proof.*
 1. Take q as in Prop B′ with also q > 2k + 2. Let g be a primitive root.
 2. By Dirichlet, take distinct odd primes r₂, …, r_k ≡ g (mod q), and put C = r₂⋯r_k.
@@ -219,7 +224,7 @@ Thm B with |c(χ_{−q})| = 3^{−k}. Hence L_abs(B, η) fails for every B and e
    * ℓ = q: f₂ ≡ g and f₁ ≡ 4Cg, both nonzero.
    * ℓ = r_i: f₁ ≡ −q ≢ 0, and f₂ has one root.
    * every other ℓ ≥ 3: at most 2 roots.
-5. Dickson gives infinitely many t with p = f₁(t) and N₁ = f₂(t) prime. Then p ≡ 1 (mod 8) and N = C·N₁, which has k
+5. Dickson gives infinitely many t with p = f₁(t) and N₁ = f₂(t) prime; take t large, so that N₁ ∉ {r_i}. Then p ≡ 1 (mod 8) and N = C·N₁, which has k
    distinct prime factors, all ≡ g (mod q).
 6. The window is forced: (q/p) = (p/q) = (4N/q) = (g/q)^k = −1, since k is odd.
 7. The box image is {g^j : |j| ≤ k}. It misses −1 = g^{(q−1)/2}, since k < (q−1)/2. Also H = G.
@@ -263,7 +268,8 @@ Bohr / low-frequency structure, not bounded order. `thmC_check.txt` checks (m, k
   and 577 only e < 3p is used, so counts are normalised **per 500 windows**.
 * Random set: 400 primes p ≡ 1 (24) in [10⁶, 10⁷] (`z52d_fourier_random.py`, seed 52041), e ≤ 1000; 100,000 windows.
 
-**Window classes per 500 windows** (F = forced, U = unforced):
+**Window classes per 500 windows**, pooled over all windows of the group (F = forced, U = unforced). The excess table in
+§4.2 instead averages per-prime rates, so its differences can differ by up to 0.3:
 
 | | F-ok | F-sub | F-pov | U-ok | U-sub | U-pov |
 |---|---|---|---|---|---|---|
@@ -288,7 +294,9 @@ Share of obstructed **forced** windows with H = G at which L(B, η) holds (all �
 | control (19,437) | .33 \| .31 | .52 \| .45 | .62 \| .52 | .48 \| .37 | .58 \| .49 |
 | random (32,117) | .34 \| .32 | .51 \| .45 | .63 \| .52 | .48 \| .36 | .59 \| .50 |
 
-* **Unsigned, B = 2, η = 0.1:** L_abs holds at .99 (hard), .98 (control) and .93 (random). All of it comes from |c(χ_{−e})|.
+* **Unsigned, B = 2, η = 0.1:** L_abs holds at .99 (hard), .98 (control) and .93 (random). |c(χ_{−e})| ≥ 0.1
+  alone accounts for .98 / .96 / .88; the remaining windows (42 / 384 / 1,631) go through other order-2 real characters at
+  composite e.
 * **Large boxes.** Forced windows with H = G and box at least the group size:
 
   | box condition | set | obstructed / windows | L(12, .1) holds (all \| odd) |
@@ -312,10 +320,10 @@ where c(ψ) ≥ η.
 
 **Coverage of forced obstructed windows, η = 0.15.**
 * The best single ψ covers on average 10.1 % (hard) vs 10.7 % (control); the maxima are 16.0 % vs 14.8 %.
-* Hard primes' mean rank is 57.9, against 72.5 expected.
+* Hard primes' mean rank in ascending coverage is 57.9, against 72.5 expected; lower means *less* coherent.
 * Measured only on windows where ψ is defined (best ψ with ≥ 8 such windows), the share is 0.79 vs 0.78 — no difference.
-* The best ψ is (·/3) at 29 of 30 hard primes and (·/5) at 329617. These are odd real characters at windows 3 | e
-  (resp. 5 | e), i.e. genus twists in Prop 2's sense.
+* The best ψ is (·/3) at 29 of 30 hard primes and (·/5) at 329617. (·/3) is an odd real character at windows 3 | e (a
+  genus twist in Prop 2's sense). (·/5) is an *even* real genus character, since 5 ≡ 1 (4).
 * At η = 0.3: 7.5 % vs 8.1 % on average; maxima 11.0 % vs 13.1 %.
 
 **Structural remark (Assessment).** A fixed ψ is defined only at windows f | e, which have relative density ≤ 1/3. The only
@@ -360,7 +368,8 @@ No Deuring–Heilbronn-type repulsion is visible.
 * **Killed.**
   * (a) in its signed bounded-order form, which is what an obstruction witness needs: Thm B (PROVED; CERTIFIED for
     B ≤ 952, also with box image 94 % of G; Dickson for all B) and Thm C (abstract).
-  * The unsigned form at fixed η, for all B: Prop B″ (Dickson); CERTIFIED only for η > 1/63.
+  * The unsigned form at fixed η, for all B: Prop B″ (Dickson); CERTIFIED only for η > 1/63, B ≤ 292. Empirically
+    the unsigned form mostly holds, via χ_{−e} with the success-favouring sign.
 * **Killed at EVIDENCE level.** (b)/(c′) in the form of a non-BM shared exceptional character (§4.2–4.3).
 * **Reduced.** The odd real layer is (I)7 (BM; exact share Prop 1; silent at forced windows) plus genus twists (Prop 2).
   The twists are §7.3's kind of object (Assessment).
@@ -379,11 +388,11 @@ No Deuring–Heilbronn-type repulsion is visible.
   * Every other odd real obstruction is χ_p twisted by an even genus character of the window, the window analogue of this
     item's other genus characters (Assessment). Subgroup obstructions are 2-primary (PROVED).
   * A signed bounded-order character inverse lemma is false (Thm B: PROVED; CERTIFIED for B ≤ 952; Dickson for all B).
-  * No non-BM character is shared across the forced windows of hard primes, and no Deuring–Heilbronn repulsion appears
+  * No non-BM character of conductor ≤ 200 is shared (c ≥ 0.15) across the forced windows of hard primes, and no Deuring–Heilbronn repulsion appears
     (EVIDENCE: 30 hard / 116 matched / 400 random primes).
   * So the "regime split / exceptional character" cluster (C9/A02) reduces to this item plus B2 (Assessment).
 * **§6 dead ends, add:** "Signed bounded-order Fourier/character inverse for window obstructions (Z3003 route): false
-  (`Z52D_FOURIER` Thm B, C). The only shared character found is χ_p (BM), which is silent at forced windows. No repulsion
+  (`Z52D_FOURIER` Thm B: CERTIFIED for B ≤ 952, all B only under Dickson; Thm C is the abstract-group analogue). The only shared character found is χ_p (BM), which is silent at forced windows. No repulsion
   (EVIDENCE). The any-order version is open but carries no target information known to us."
 
 ## 7. Reproduction
@@ -425,3 +434,18 @@ Fixed after review:
   replaces "real" where meant. "Only shared character" is labelled Assessment. Prior work (z45 §5.2, rank_O charobs) is
   credited. Minor number fixes: 2.10/2.54, median 0.42–1.0.
 * **Reproducibility.** `z52d_fourier_random.py`, `z52d_fourier_thmC_check.py` and `z52d_fourier_thmB_count.py` were added.
+
+A second hostile pass (fresh subagent) checked Props B′ and B″ (correct) and re-verified every number in §0, §3.4, §4 and §5
+against the data files. Fixed after it:
+* The unsigned variant holds mostly, not only, via χ_{−e}: .98 / .96 / .88 from χ_{−e} alone, the rest through other real
+  characters.
+* (·/5) is even, not a twist.
+* 855 → 846.
+* The 1/27 (hard/control) vs 1/63 (random) minima are now separated.
+* The B-range is stated per window.
+* "Obstructed, H = G" was added to the statements of Props B′ and B″.
+* Pooled vs per-prime averaging is now stated.
+* Conductor and η scopes were added to the sharing claims.
+* The §6 dead-end qualifier was added.
+* The direction of the rank statistic is now stated.
+* §0 and §5 now agree on the unsigned variant.
