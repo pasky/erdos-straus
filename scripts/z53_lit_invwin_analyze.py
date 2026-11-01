@@ -27,3 +27,18 @@ for q in (0.5, 0.9, 0.99):
     print(f"  residual-D top {100*(1-q):.0f}%: mean y {y[rD > thr].mean():.4f} vs rest {y[rD <= thr].mean():.4f}")
 low = y < np.quantile(y, 0.01)
 print(f"lowest-1% y (n={low.sum()}): mean D {D[low].mean():.4f} vs all {D.mean():.4f}; mean residual-D {rD[low].mean():+.5f} (sd {rD.std():.5f})")
+
+# Near-square control (added after hostile review): p within K of a perfect square ((J)53/(J)55 near-square deficit).
+import math
+K = 100
+dist = np.array([min(int(x) - math.isqrt(int(x)) ** 2, (math.isqrt(int(x)) + 1) ** 2 - int(x)) for x in p])
+ns = dist <= K
+print(f"near-square (|p - m^2| <= {K}): n = {ns.sum()}; mean y {y[ns].mean():.4f} vs rest {y[~ns].mean():.4f}; "
+      f"mean D {D[ns].mean():.4f} vs rest {D[~ns].mean():.4f}; mean residual-D {rD[ns].mean():+.5f} vs rest {rD[~ns].mean():+.5f}")
+X2 = np.column_stack([X, ns.astype(float)])
+def resid2(v):
+    beta, *_ = np.linalg.lstsq(X2, v, rcond=None); return v - X2 @ beta
+print(f"partial corr(y, D | covariates + near-square) = {stats.pearsonr(resid2(y), resid2(D))[0]:+.4f}")
+b, *_ = np.linalg.lstsq(np.column_stack([X2, D]), y, rcond=None)
+print(f"OLS y ~ covariates + near-square + D: coef(near-square) = {b[-2]:+.4f}, coef(D) = {b[-1]:+.4f}")
+print(f"cov(ry, rD)/cov(y, D) = {np.cov(ry, rD)[0,1] / np.cov(y, D)[0,1]:.4f}")

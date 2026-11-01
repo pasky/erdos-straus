@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""z53 LIT F2 follow-up: is the excess inverse-discrepancy of hard primes explained by small divisors of p ± 1?
+"""z53 LIT F2 follow-up (revised: t(n) uses the same window N = N(hard p) as the stored D values): is the excess inverse-discrepancy of hard primes explained by small divisors of p ± 1?
 Reads data/z53/lit/inverse_window.tsv; for each hard prime and its 200 prime24 controls computes
 t(n) = #{x ≤ N : x | n−1} + #{x ≤ N : x | n+1} (N = floor(log² n)), fits D ~ a + b·t on the controls (OLS),
 and reports the hard prime's residual z-score. Also reports the rank of D among controls with |t_c − t| ≤ 1.

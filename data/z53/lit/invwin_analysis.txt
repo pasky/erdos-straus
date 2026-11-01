@@ -6,3 +6,7 @@ partial corr(y, D | covariates) = -0.0191 (p-value 1.25e-06); Spearman of residu
   residual-D top 10%: mean y 0.1394 vs rest 0.1430
   residual-D top 1%: mean y 0.1348 vs rest 0.1427
 lowest-1% y (n=644): mean D 0.0881 vs all 0.0672; mean residual-D +0.00656 (sd 0.02134)
+near-square (|p - m^2| <= 100): n = 2858; mean y 0.1393 vs rest 0.1428; mean D 0.0696 vs rest 0.0671; mean residual-D +0.00136 vs rest -0.00006
+partial corr(y, D | covariates + near-square) = -0.0189
+OLS y ~ covariates + near-square + D: coef(near-square) = -0.0035, coef(D) = -0.0400
+cov(ry, rD)/cov(y, D) = 0.0772

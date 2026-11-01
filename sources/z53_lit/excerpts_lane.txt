@@ -43,47 +43,47 @@ k∑
 a=1
 ====================================================================================================
 arXiv:2304.07953 | id: http://arxiv.org/abs/2304.07953v1 | published: 2023-04-17T02:42:34Z | updated: 2023-04-17T02:42:34Z | title: On the distribution of modular inverses from short intervals
-[pypdf text, PAGE 2, anchor '^3\\.1\\. Proof of Theorem 1\\.1']
-3.1. Proof of Theorem 1.1 6
-3.2. Proof of Theorem 1.2 7
-4. Proof of results about bounds with small polynomial saving 8
-4.1. Proof of Theorem 1.3 8
-4.2. Proof of Theorem 1.4 9
-5. Comments 9
-Acknowledgement 9
-References 10
-1. Introduction
-1.1. Motivation. Given a prime p and a positive integer N < p, we
-consider the sequence of modular inverses
-(1.1) x, x = 1,...,N,
-deﬁned by the conditions
-xx ≡ 1 (mod p) and 1 ⩽x<p.
-There is an extensive literature dedicated to studying the distri-
-bution of the sequence ( 1.1), with application to an amazingly large
-variety of problems in number theory and beyond, see the survey [ 26]
-and also more recent works [ 1, 6, 7, 15, 29].
-When N /greaterorequalslant p1/2+ε, the classical Weil bound of Kloosterman sums,
-see [ 16, Theorem 11.11], immediately implies that the elements of
-the sequence ( 1.1), are suﬃciently uniformly distributed in interval
-[1,p − 1]. For smaller values of N < p1/2 the problem becomes much
-more diﬃcult and only signiﬁcantly weaker results are known, see, fo r
-example, [ 5, 17, 18, 20–22]. It is known from the work of Bourgain and
-Garaev [ 5] that one has the uniformity of distribution in the range
-(1.2) p1/2 /greaterorequalslantN /greaterorequalslant exp ((logp)2/3 (log logp)c),
-where c > 3 is any ﬁxed constant. The constant 2 /3 that appears
-in (log p)2/3 is the best known up to the date, while the constant c is
-claimed to be improved in Korolev [ 22, Theorem 2] (the reader should
-be aware, however, that the proof of [ 22, Lemma 2] contains a gap,
-while the results of Snurnitsyn [27] are, unfortunately, incorrect). In the
-range of N just below p1/2, and a nontrivial bound is given by Fouvry,
-Kowalski, Michel, Raju, Rivat an Soundararajan [ 11, Corollary 1.7].
-=== PAGE 3 ===
-MODULAR INVERSES FROM SHORT INTER V ALS 3
-Here we approach the question from a diﬀerent direction and ask
-what are the largest possible values of N for which the sequence ( 1.1)
-is not uniformly distributed or is rather poorly distributed.
-1.2. Formal set-up and notation. As usual, we measure the quality
-of the distribution of the sequence ( 1.1) via its discrepancy
+[pypdf text, PAGE 6, anchor '^3\\.1\\. Proof of Theorem 1\\.1\\. Let us']
+3.1. Proof of Theorem 1.1. Let us ﬁx some real A /greaterorequalslant 1. It is more
+convenient to get a lower bound on Dp(2N), which, of course is an
+equivalent question.
+For a suﬃciently large integer N, let S be the set of (2 N)1/A-smooth
+numbers in the interval [ N, 2N]. Then, by Lemma 2.3, we have
+(3.1) # S =ρ(A)N +o(N) /greaterorequalslant 0.5ρ(A)N,
+provided that N is large enough.
+Next, let
+m = lcm[s : s ∈ S ]
+=== PAGE 7 ===
+MODULAR INVERSES FROM SHORT INTER V ALS 7
+be the least common multiple of the elements of S. By the prime
+number theorem m is a product of at most
+π
+(
+(2N)1/A) ≪N 1/A/ logN
+prime powers qr with a prime q ⩽ (2N)1/A and such that qr ⩽ 2N.
+Therefore,
+m ⩽ (2N)O(N 1/A/ log N) = exp (O (N 1/A)).
+One can easily see there is a matching lower bound on m, thus
+logm ≍N 1/A.
+Therefore, by Lemma 2.1 there is a prime number p with
+p ≡ −1 (mod m) and log p ≍ logm ≍N 1/A.
+We now take
+(3.2) α0 = 2N
+in the deﬁnition of the discrepancy Dp(2N) in ( 1.3).
+Next we observe that for the above choice of p, for every s ∈ S we
+haves = (p + 1)/s and thus
+(3.3) s/p ⩽ (1 + 1/p)/s ⩽ 2/s ⩽ 2/N =α0.
+This, together with ( 3.1) implies that
+(3.4) Ap(2N,α 0) /greaterorequalslant #S /greaterorequalslant 0.5ρ(A)N
+and hence
+1
+2NAp(2N,α 0) −α0 /greaterorequalslant 0.25ρ(A) − 2/N /greaterorequalslant 0.2ρ(A)
+provided that N is large enough and hence Dp(2N) ≫ 1.
+3.2. Proof of Theorem 1.2. We continue to work with 2 N instead
+of N and we use the same construction of p and N as in Theorem 1.1
+We also choose α0 as in ( 3.2) so we have ( 3.4).
+We now assume that k /greaterorequalslant 8/ρ(A), so that we see from ( 3.4) that
+2N/(k + 1) ⩽ 0.5Ap(2N,α 0).
 ====================================================================================================
 arXiv:2511.08445 | id: http://arxiv.org/abs/2511.08445v2 | published: 2025-11-11T16:47:34Z | updated: 2026-06-21T16:51:23Z | title: Non-abelian amplification and bilinear forms with Kloosterman sums
 [pypdf text, PAGE 3, anchor '^Theorem 1\\.1\\.']
@@ -217,6 +217,12 @@ p≤q1/3
 h(p)χ(p)<0
 1
 p ≤ cqε/100 .
+====================================================================================================
+arXiv:2511.08445 | id: http://arxiv.org/abs/2511.08445v2 | published: 2025-11-11T16:47:34Z | updated: 2026-06-21T16:51:23Z | title: Non-abelian amplification and bilinear forms with Kloosterman sums
+[pypdf text, PAGE 2, anchor 'best one could hope for']
+best one could hope for is the perfect-orthogonality bound∥α∥∥β∥co(1)p(M+N)c, but making
+any improvement over (1.2) for balanced sums (M≈N) is notoriously difficult; a key range is
+M≈N≈ √c, when the trivial bounds match. We note that while many applications [32, 33]
 ====================================================================================================
 arXiv:2606.30567 | id: http://arxiv.org/abs/2606.30567v1 | published: 2026-06-29T17:09:28Z | updated: 2026-06-29T17:09:28Z | title: Products of prime ideals in ray class groups
 [pypdf text, PAGE 2, anchor '^Theorem 1\\.1\\.']
@@ -437,3 +443,11 @@ w(y)2dy = 1.
 Then, we have the asymptotic equality, as d→∞ ,
 ∑
 1≤a≤d
+====================================================================================================
+arXiv:2605.27833 | Matomäki–Teräväinen | Theorem 1.1 condition (1.1), read with `pdftotext -layout` (pypdf drops the fraction):
+  unless there exists a character χ (mod q) of order at most two such that the sign of h pretends to be χ in the sense that
+      Σ_{p ≤ q^{1/3}, h(p)χ(p) < 0} 1/p  ≤  c / q^{ε/100}.      (1.1)
+====================================================================================================
+arXiv:2601.00292 | Dong–Robles–Zeindler | abs page https://arxiv.org/abs/2601.00292 (2026-11-01): v2 "withdrawn by Dirk Zeindler";
+  Comments: "We accidentally missed a factor of L^2 in equation (2.53), which turns L^5 into L^7. The rest of the argument is still
+  valid, but does not lead to an improved bound as claimed. We acknowlede Alexandru Pascadi for discovering this error so fast"

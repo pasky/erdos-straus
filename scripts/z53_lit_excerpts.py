@@ -9,14 +9,14 @@ pypdf text has broken spacing/ligatures; Z53_LIT.md quotes were read from these 
 import re
 
 ITEMS = [  # (arXiv id, anchor regex, number of lines)
-    ("2304.07953", r"^Theorem 1\.1\.", 40), ("2304.07953", r"^3\.1\. Proof of Theorem 1\.1", 40),
+    ("2304.07953", r"^Theorem 1\.1\.", 40), ("2304.07953", r"^3\.1\. Proof of Theorem 1\.1\. Let us", 40),
     ("2511.08445", r"^Theorem 1\.1\.", 14),
     ("2609.37434", r"^The EOS conjecture remains open", 10), ("2609.37434", r"^Result Range", 12),
     ("2609.37434", r"^Second, the exponent", 8),
     ("2610.19597", r"^Theorem1\.1", 16), ("2610.19597", r"^Theorem1\.2", 6), ("2610.19597", r"^Theorem1\.3", 4),
     ("2610.19597", r"^Theorem1\.4", 6),
     ("2301.07679", r"^Theorem 1\.1\.", 6), ("2301.07679", r"^Theorem 1\.3\.", 6),
-    ("2605.27833", r"^Theorem 1\.1\.", 12),
+    ("2605.27833", r"^Theorem 1\.1\.", 12), ("2511.08445", r"best one could hope for", 3),
     ("2606.30567", r"^Theorem 1\.1\.", 12),
     ("2302.06409", r"^Theorem 1\. Let", 4), ("2302.06409", r"^Theorem 2\. Let", 10),
     ("2411.17823", r"^Theorem 1\.1\.", 6),
