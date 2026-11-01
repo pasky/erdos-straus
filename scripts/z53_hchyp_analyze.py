@@ -14,12 +14,13 @@ def load(fn):
     return n,rows,hist
 for fn in sys.argv[1:]:
     n,rows,hist=load(fn)
-    hcs=[int(l.split()[1]) for l in open(fn+'.hc')]
+    # HC = 0 in the .hc file means 'no success for x <= Xmax' (censored); decode as Xmax+1
+    hcs=[(int(l.split()[1]) or 10**9) for l in open(fn+'.hc')]
     ps=[int(l.split()[0]) for l in open(fn+'.hc')]
     L=math.log(sum(ps)/len(ps)); L2=math.log(L)
     print(f"== {fn}: n={n}  log p~{L:.2f}  (log p)^log2={L**math.log(2):.1f}  (log p)^(2log2)={L**(2*math.log(2)):.1f}")
     srt=sorted(hcs); q=lambda a: srt[min(len(srt)-1,int(a*len(srt)))]
-    print(f"  HC: max={srt[-1]} (at p={ps[hcs.index(srt[-1])]})  q99={q(.99)} q999={q(.999)}  P(HC>4)={sum(h>4 for h in hcs)/n:.4f} P(HC>8)={sum(h>8 for h in hcs)/n:.5f} P(HC>16)={sum(h>16 for h in hcs)/n:.5f} P(HC>32)={sum(h>32 for h in hcs)/n:.6f}")
+    print(f"  HC (10**9 = censored, no success <= Xmax): max={srt[-1]} (at p={ps[hcs.index(srt[-1])]})  q99={q(.99)} q999={q(.999)}  P(HC>4)={sum(h>4 for h in hcs)/n:.4f} P(HC>8)={sum(h>8 for h in hcs)/n:.5f} P(HC>16)={sum(h>16 for h in hcs)/n:.5f} P(HC>32)={sum(h>32 for h in hcs)/n:.6f}")
     print("  bin [a,2a): meanP_E meanP_L  | x*P_E/logp  x*P_L/logp | #lines")
     a=4
     while a<=2048:

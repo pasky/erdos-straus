@@ -6,49 +6,53 @@ only. Scripts `scripts/z53_hchyp_*`, data `data/z53/hchyp/` (4 MB). Kickoff: `z5
 
 ## 0. Verdict first
 
-**Verdict: NARROWED.** No standard conjecture is shown to give HC(p) ≪ (log p)^A, and none is found to. What this lane
-adds:
+**Verdict (Assessment): NARROWED.** No standard conjecture is shown to give HC(p) ≪ (log p)^A, and none is found to. No
+hypothesis that is both natural and not ES-specific survives review in a form known to be free of counterexamples. What
+this lane adds:
 
-1. **The target's scale is (log p)^{2 log 2}, not log p (Theorem M, PROVED in an explicit Kubilius model 𝔐).** In 𝔐, almost
-   surely HC(p) ≤ (log p)^A for all large p when A > 2 log 2 ≈ 1.386, and HC(p) > (log p)^θ for infinitely many p when
-   θ < 2 log 2. So Fable's Conjecture 3.4 (HC ≤ C log p) has 𝔐-probability 0, and the correct form of the FRONTIER §7.2
-   target is S_A with A > 2 log 2. The deviation from linear growth is invisible at accessible heights. In 𝔐 the Poisson
-   scale X*(p) has local exponent 0.9–1.0 at log p ≈ 18–28 and only 1.2 at log p = 1600. In the data
-   X*/log p = 3.42–3.45 is constant for log p ∈ [18, 36] (EVIDENCE, §6).
-2. **Two barriers for hypotheses (Cor M3, M4, PROVED).**
-   * *Model-null barrier.* No property of line data that 𝔐 satisfies with positive probability can imply S_θ for
-     θ < 2 log 2. This disposes of every "typical-behaviour" (Erdős–Hall-regime) hypothesis.
-   * *Planted barrier.* No hypothesis robust under changing one prime per dyadic block implies S_A. This is B6 made exact
-     for this target: a hypothesis must bound the joint failure of ≳ (log p)^{2 log 2} lines with frequency < 1 per block.
-3. **Fixed windows: the Landau saving is (log y)^{−1/2} per line (Theorem U, PROVED modulo Henriot).**
-   #{p ≤ y : HC(p) > X} ≪_X y (log y)^{−1−ℓ(X)/2}, where ℓ(X) counts the lines with coordinate ≤ X. This generalises Fable's
-   Thm 3.2 (X = 4). A version uniform in X with constants C^{ℓ(X)} would be 𝔐-false (Remark U): beyond x ≍ log log p, line
-   failure is generic and not confinement.
-4. **Hypothesis catalogue (§5).** Five candidate shapes, each given (i)–(v).
-   * Erdős–Hall-type equidistribution: dead by M3.
-   * Uniform high-dimensional Landau sieve: controls confinement only, so irrelevant beyond the Kneser regime.
-   * Kubilius/Elliott/Chowla/Hardy–Littlewood with error terms: dead by M4.
-   * ES-specific lower tails (H⁻_BM, H⁻mom, the joint-failure bound LT): imply S_A trivially but are ES in disguise
-     (Prop 5.1).
-   * The general principle **GLT**, "the Cramér–Granville principle for divisor lotteries": the weakest *non-ES-specific*
-     principle found. It implies S_A for every A > 2 log 2 (Thm 5.3, modulo a stated alignment gap) and is false over
-     integers (squares).
-   * Prop 5.5 (CONDITIONAL on Hardy–Littlewood F): the unrestricted GLT is false. T1 transports to the primes m² + 1, so
-     the principle must exclude quadratically aligned families. Lemma N shows that every fixed quadratic family aligns only
-     O_f(√X) ES lines.
-   * GLT is not implied by GRH/GLH/EH/Chowla–Elliott/Hooley R*/Hardy–Littlewood (each fails at an identified step, §5.6).
-     Its nearest standard relative is Cramér's prime-gap conjecture: same shape (pointwise, polylog window, expected
-     count ≍ log x, local-factor correction), same unprovability.
-5. **Numerics (EVIDENCE, CERTIFIED controls).** Primes p ≡ 1 (8): 20 000 each at 10⁸, 10¹⁰, 10¹², 10¹⁴, 10 000 at
+1. **The model scale is (log p)^{2 log 2} (Theorem M, PROVED in an explicit Kubilius model 𝔐).** In 𝔐, almost surely
+   HC(p) ≤ (log p)^A for all large p when A > 2 log 2 ≈ 1.386, and HC(p) > (log p)^θ for infinitely many p when
+   θ < 2 log 2. The boundary A = 2 log 2 is not decided.
+   * So Fable's Conjecture 3.4 (HC ≤ C log p) has 𝔐-probability 0, and the model-consistent form of the FRONTIER §7.2
+     target is S_A with A > 2 log 2.
+   * This is a model statement; it neither refutes Conjecture 3.4 for actual primes nor fixes the arithmetic exponent.
+   * The deviation from linear growth is invisible at accessible heights. In the model's upper-bound surrogate, X*/log p
+     moves only from 2.5 to 4.3 between log p = 18 and 1600. In the data, X*/log p = 3.42–3.45 for log p ∈ [18, 36]
+     (EVIDENCE, §6).
+2. **Two barriers for properties of model line data (Cor M3, M4, PROVED; scope stated there).**
+   * *Model-null barrier.* No property that 𝔐 satisfies with positive probability formally implies S_θ for
+     θ < 2 log 2. This covers every "typical-behaviour" (Erdős–Hall-regime) statement about line data.
+   * *Planted barrier.* No block-robust 𝔐-almost-sure property implies S_A. This is B6 made exact for S_A.
+3. **Fixed windows: Theorem U (PROVED modulo Henriot).** #{p ≤ y : HC(p) > X} ≪_X y (log y)^{−1−ℓ(X)/2}, where ℓ(X) is
+   the number of lines with coordinate ≤ X. This extends Fable's Thm 3.2 (X = 4).
+   * A version uniform in X with constants C^{ℓ(X)} would imply an 𝔐-null statement (Remark U).
+   * In 𝔐 the confinement rate (log p)^{−1/2} is the right per-line rate only for small x; beyond, failure is driven by
+     too few prime factors, and beyond (log p)^{log 2} it is generic.
+4. **Hypothesis catalogue (§5).**
+   * Erdős–Hall-type statements: blocked by M3.
+   * Uniform high-dimensional Landau sieve: controls confinement only.
+   * Averaged Kubilius/Elliott/Chowla/Hardy–Littlewood statements: blocked by M4, as properties of line data.
+   * ES-specific lower tails: sufficient, but their content is about the ES lines alone. The bare count version is
+     literally S_A (Prop 5.1).
+   * A *general* lottery lower-tail principle: the first draft was **refuted in review** by a local-obstruction family.
+     Any correct form needs three features: local admissibility with local-factor-conditioned masses, dependence
+     control, and a quadratic-alignment clause of either parity (§5.3).
+   * Prop 5.5 (CONDITIONAL on Hardy–Littlewood F) shows the alignment clause is necessary: T1 transports to the primes
+     m² + 1.
+   * Lemma N (PROVED): a fixed quadratic aligns only O_f(√X) ES lines, and quadratics of height ≤ (log x)^{1/10} align
+     o(mass). Uniform unalignment is open.
+   * Nearest standard-type relative (Assessment): Cramér's prime-gap conjecture.
+5. **Numerics (EVIDENCE; CERTIFIED controls).** Primes p ≡ 1 (8): 20 000 each at 10⁸, 10¹⁰, 10¹², 10¹⁴, 10 000 at
    4·10¹⁵, all lines x ≤ 2048.
-   * Per-line success is P_x ≈ c·log p/x in the mean regime (c ≈ 1.3 endpoint, 0.7 level), with a rising onset, as 𝔐
-     predicts.
-   * The lower tail of the number of successful lines is *sub-Poissonian* at primes (min/mean ≥ 0.3).
-   * Integers and near-squares are heavier: X*/log p ≈ 4.1 and 5.5. Near-squares lose exactly the lines Lemma N predicts.
-   * Odd squares: all 2·768 lines fail at all 5 000 squares tested (CERTIFIED T1 control).
+   * Per-line success follows 𝔐's shape: P_x ≈ c·log p/x in the mean regime (c ≈ 1.3 endpoint, 0.7 level), with an onset
+     that moves out with p.
+   * Counts of successful lines are overdispersed at large X. The deep lower tail is untested.
+   * Integers and near-squares are harder (X*/log p ≈ 4.1 and 5.5). Every forced near-square failure observed is an
+     aligned line.
+   * Odd squares: all 1536 lines fail at all 5 000 squares tested (CERTIFIED T1 control).
 
-**Promise:** 1/5 as a conditional route (the principle is clean but non-standard, and no route to it is visible); 3/5 as
-calibration (it changes the §7.2 target and kills a class of hypotheses in one stroke).
+**Promise (Assessment):** 1/5 as a conditional route (no natural general hypothesis survives in a counterexample-free
+form); 3/5 as calibration. It changes the model-consistent §7.2 target and blocks two broad classes of hypothesis shapes.
 
 ## 1. The statement attacked
 
@@ -108,7 +112,8 @@ theorem; Erdős 1965 for k < 2^{(1−ε)log log x}).
   squares;
 * correlations between lines through p mod small ℓ.
 
-§6 shows the per-line success curve of actual primes has 𝔐's shape, within a factor ≈ 0.6–1.0 (EVIDENCE).
+§6 shows that the per-line success curve of actual primes has the qualitative shape of a cyclic surrogate of 𝔐, with the
+same onset (EVIDENCE).
 
 ### 3.2 One line
 
@@ -121,7 +126,7 @@ Then ½·min(1, (2^k − 1)/n) ≤ P(h ∈ Σ) ≤ min(1, (2^k − 1)/n).
   Conditionally on (g_i)_{i≠j}, the element g_J is uniform, so P(g_I = h, g_J = h) = P(g_I = h)/n = 1/n². If J ⊂ I,
   swap the roles.
 * Hence EZ² = EZ + (2^k − 1)(2^k − 2)/n² ≤ EZ + (EZ)².
-* Paley–Zygmund then gives P(Z > 0) ≥ (EZ)²/EZ² ≥ EZ/(1 + EZ) ≥ ½ min(1, EZ). ∎
+* For k ≥ 1, Paley–Zygmund then gives P(Z > 0) ≥ (EZ)²/EZ² ≥ EZ/(1 + EZ) ≥ ½ min(1, EZ). For k = 0 both sides are 0. ∎
 
 Write U(λ, n) := E min(1, (2^k − 1)/n) for k ~ Poisson(λ).
 
@@ -137,8 +142,9 @@ and 1 − 2Q(a/2) − a log 2 = −Q(a).
 (ii) U ≥ E[(2^k − 1)1(2^k ≤ n)]/n ≥ (e^λ P(Poi(2λ) ≤ log₂ n) − 1)/n. Here log₂ n ≥ (2 + δ/log 2)λ, so
 P(Poi(2λ) > log₂ n) ≤ e^{−2λQ(1 + δ/(2 log 2))} ≤ ½ for large λ. ∎
 
-Reading: for x = (log p)^θ (so φ(x) ≈ x), P(line succeeds) = (log p)^{−Q(θ/log 2)+o(1)} for log 2 ≤ θ ≤ 2 log 2. For
-θ ≥ 2 log 2 + δ it is ≍ log p/φ(x); there the probability is carried by the N with ω(N) ≈ 2 log log N, which carry the
+Reading: for x = (log p)^θ (so φ(x) = (log p)^{θ+o(1)}), P(line succeeds) ≤ (log p)^{−Q(θ/log 2)+o(1)} for
+log 2 ≤ θ ≤ 2 log 2. The matching lower bound follows from the single term k = ⌈aλ⌉ (Stirling and M1); it is not needed
+below. For θ ≥ 2 log 2 + δ the probability is ≍ log p/φ(x), carried by the N with ω(N) ≈ 2 log log N, which carry the
 mean of τ.
 
 ### 3.3 The extreme-value scale of HC
@@ -148,11 +154,13 @@ mean of τ.
 (b) For every A > 2 log 2: 𝔐-almost surely HC(p) ≤ (log p)^A for all but finitely many p.
 More precisely:
 * for log 2 < θ < 2 log 2, −log P(HC(p) > (log p)^θ) ≤ (log p)^{max(log 2 + η, θ − Q(θ/log 2)) + o(1)} for every η > 0;
-* for A > 2 log 2 + 2δ, P(HC(p) > (log p)^A) ≤ exp(−(3/40)(A − 2 log 2 − 2δ) log p log log p) for large p.
+* for A > 2 log 2 + 2δ, P(HC(p) > (log p)^A) ≤ exp(−(3/40)(A − 2 log 2 − 2δ) log p log log p + O(log p)).
+The boundary case A = 2 log 2 is not decided, even in 𝔐.
 
 *Proof.* Put λ = λ_p, X = (log p)^θ, and P_ι := P(line ι succeeds). For x ≥ 3 we have −1 ≠ 1 in G_x.
 
-(a) *Small lines.* For every line, 1 − P_ι ≥ P(k_ι = 0) = e^{−λ}. Fix 0 < η < 1 − log 2 and Y := (log p)^{log 2 + η}.
+(a) Since the event in (a) is monotone in θ, it suffices to treat log 2 < θ < 2 log 2.
+*Small lines.* For every line, 1 − P_ι ≥ P(k_ι = 0) = e^{−λ}. Fix 0 < η < 1 − log 2 and Y := (log p)^{log 2 + η}.
 The ≤ 2Y lines with x ≤ Y contribute at most 2Yλ to −log ∏_ι(1 − P_ι).
 
 *Middle lines, Y < x ≤ X.* By Rosser–Schoenfeld, φ(x) ≥ x/(e^γ log log x + 3/log log x). So
@@ -171,19 +179,21 @@ are independent, and Σ_p 1/p = ∞ over primes p ≡ 1 (8). The second Borel–
 
 (b) Fix δ > 0 with 2 log 2 + 2δ < A, and put Y := (log p)^{2 log 2 + 2δ}, X := (log p)^A. For x ∈ 𝒞 ∩ (Y, X] and large p,
 φ(x) ≥ (log p)^{2 log 2 + δ}. Lemmas M1 and M2(ii) give, for the endpoint line alone,
-  P_{(x,E)} ≥ ½(e^λ/2 − 1)/φ(x) ≥ log p/(5x)   (e^λ = log p ≥ 20, φ(x) ≤ x).
-Also Σ_{x∈𝒞, Y<x≤X} 1/x = (1/4 + 1/8) log(X/Y) + O(1/Y) = (3/8)(A − 2 log 2 − 2δ)λ + o(1). Hence
-P(HC(p) > X) ≤ ∏(1 − P_{(x,E)}) ≤ exp(−(3/40)(A − 2 log 2 − 2δ) log p log log p), which is summable over p. The first
-Borel–Cantelli lemma gives (b). ∎
+  P_{(x,E)} ≥ ½(e^λ/2 − 1)/φ(x) ≥ (¼ − 1/(2 log p))·log p/x ≥ log p/(5x)   (e^λ = log p ≥ 20, φ(x) ≤ x).
+Also Σ_{x∈𝒞, Y<x≤X} 1/x = (1/4 + 1/8) log(X/Y) + O(1) = (3/8)(A − 2 log 2 − 2δ)λ + O(1). Hence
+P(HC(p) > X) ≤ ∏(1 − P_{(x,E)}) ≤ exp(−(3/40)(A − 2 log 2 − 2δ) log p log log p + O(log p)), which is summable over p.
+The first Borel–Cantelli lemma gives (b). (In the statement above read the bound with this O(log p) in the exponent.) ∎
 
 **Remark M (the scale is invisible in practice; EVIDENCE).** Let X*(p) be the least X with Σ_{x∈𝒞, x≤X} (P_E + P_L) ≥ log p.
-This is the Poisson scale: P(all lines ≤ X fail) ≈ e^{−Σ P} reaches 1/p there. In 𝔐 (with the
-M1-upper value, `z53_hchyp_xstar_model.py`) X*/log p = 2.55, 2.46, 2.48, 2.68, 2.96, 3.33, 3.79, 4.33 at
-log p = 18.4, 27.6, 50, 100, 200, 400, 800, 1600. The local exponent d log X*/d log log p is 0.91 → 1.20, and it tends to
-2 log 2 only extremely slowly. The data (§6) give X*/log p = 3.42, 3.43, 3.44, 3.44, 3.45 at log p = 18.4, 23.0, 27.6,
-32.2, 35.9. The census maximum of HC over all p ≤ 10⁸ is 64 (Fable §3.2), against X*(10⁸) = 63. So the data are in 𝔐's
-pre-asymptotic regime, where HC_max looks linear in log p. Fable's linear Conjecture 3.4 is a correct description of the
-observable range but, by Theorem M(a), an 𝔐-null statement asymptotically.
+This is the Poisson scale: P(all lines ≤ X fail) ≈ e^{−Σ P} reaches 1/p there. For 𝔐 we compute it with the
+*upper-bound surrogate* P_ι := U (M1's upper value; `z53_hchyp_xstar_model.py`): X*/log p = 2.55, 2.46, 2.48, 2.68, 2.96,
+3.33, 3.79, 4.33 at log p = 18.4, 27.6, 50, 100, 200, 400, 800, 1600. With the half-surrogate P_ι := U/2 the values are
+7.4 → 17.8. The finite-difference slopes Δ log X*/Δ log log p are 0.91 → 1.20 (U) and 1.10 → 1.25 (U/2). By Theorem M they
+must tend to 2 log 2, but only extremely slowly. The data (§6) give X*/log p = 3.42, 3.43, 3.44, 3.44, 3.45 at log p = 18.4, 23.0, 27.6,
+32.2, 35.9. The census maximum of HC over all p ≤ 10⁸ is 64 (Fable §3.2), against X*(10⁸) = 63. So the data look like 𝔐's
+pre-asymptotic regime, where HC_max looks linear in log p. Fable's linear Conjecture 3.4 describes the observable range
+well, but by Theorem M(a) it is an 𝔐-null statement asymptotically. This is a statement about the model; it does not
+refute Conjecture 3.4 for actual primes (Assessment).
 
 **Corollary M3 (model-null barrier; PROVED).** Let 𝒲 be the space of *line data*: for each prime p ≡ 1 (8) and each line ι,
 a finite sequence in G_x. Give 𝒲 the law of 𝔐. For θ < 2 log 2, the set S_θ := {w : HC_w(p) ≤ (log p)^θ for all large p}
@@ -198,8 +208,12 @@ encoded in the line data is not covered. Such an argument would have to show tha
 prime ≡ 1 (8) in (2^j, 2^{j+1}]) by setting k_ι = 0 for every line with x ≤ (log p)^A. Then S_A fails surely under 𝔐^♯.
 Call 𝐇 *block-robust* if changing w at ≤ 1 prime per dyadic block keeps w in 𝐇. A block-robust 𝐇 with 𝔐(𝐇) = 1 has
 𝔐^♯(𝐇) = 1 (the coupling changes one prime per block). Therefore no block-robust 𝔐-almost-sure 𝐇 implies S_A.
-Averaged statements whose error term exceeds 1 per dyadic block are block-robust. This is B6 made exact for S_A: a useful
-hypothesis must bound the joint failure of all lines up to ≳ (log p)^{2 log 2} with frequency < 1 per block.
+*Which averaged statements are block-robust.* Take statements of the form
+"for all large y, #{p ∈ (y, 2y] : E_p} ≤ B(y)", where E_p depends only on the line data at p. Such a statement is
+block-robust if it holds 𝔐-a.s. with slack ≥ 1 in every block. Statements with saturated inequalities, unbounded
+observables, or errors accumulated over many blocks need a separate check.
+*Reading (Assessment).* This is B6 made exact for S_A: a useful hypothesis of this kind must bound the joint failure of all
+lines up to ≳ (log p)^{2 log 2} with frequency < 1 per block.
 
 ## 4. The fixed-window (Kneser) regime
 
@@ -248,34 +262,46 @@ O(√y). ∎
 
 *Sharpness (Assessment).* Every line has an index-2 subgroup without −1: χ₋₄ for 4 | x, and an odd Legendre character
 for x ≡ 7 (8), since such x has a prime factor ≡ 3 (mod 4). So (log y)^{−1/2} per line is the expected confinement rate.
-The data (P(HC > 4) = 0.083 → 0.042 from 10⁸ to 4·10¹⁵, §6) decay as slowly as (log)^{−1}-type laws do. A matching lower
-bound would need a half-dimensional lower-bound sieve for primes in several forms, which is not attempted here.
+EVIDENCE: P(HC > 4) = 0.083 → 0.042 from 10⁸ to 4·10¹⁵ (§6). Over that range log p only doubles, so the decay rate
+cannot be read off. A matching lower bound would need a half-dimensional lower-bound sieve for primes in several forms,
+which is not attempted here.
 
 **Remark U (why the Landau saving cannot be uniform).** Suppose the implied constant in Theorem U were ≤ C^{ℓ(X)} uniformly
 for X ≤ log y. With X = 8 log y/log log y this would give a count < 1, i.e. HC(p) ≤ 8 log p/log log p for all large p.
-That is S_θ for every θ > 1, which Cor M3 says 𝔐 violates almost surely. The proof shows the culprit: Lemma K allows
-r − 2 exceptional primes, and for H = {1} that is φ(x) − 2. Once x ≫ log log p, this exceeds ω(N), the Rankin factor
-s^{−(r−2)} explodes, and failure becomes the generic outcome (the lottery) rather than confinement. So **the per-line
-saving (log p)^{−1/2} is real only in the Kneser regime x ≲ log log p.** This is the precise form of the dimension barrier
-for HC. It also kills the "high-dimensional Landau" hypothesis of §5.2.
+That is S_θ for every θ > 1, which Cor M3 says 𝔐 violates almost surely. The proof shows where the estimate breaks: Lemma K allows r − 2 exceptional primes, and for H = {1} that is
+φ(x) − 2. Once φ(x) ≫ log log p this exceeds the typical ω(N), and the Rankin factor s^{−(r−2)} makes the Kneser–Rankin
+estimate ineffective.
+
+In 𝔐 the line still succeeds with probability → 1 up to x ≈ (log p)^{log 2 − ε} (Erdős–Hall regime). Its failure
+probability, ≈ (log p)^{−Q(a)} from the ω-deficit with a = log φ(x)/(λ log 2) < 1, exceeds the confinement rate
+(log p)^{−1/2} as soon as Q(a) < ½, i.e. a ≲ 0.19, φ(x) ≳ (log p)^{0.13} (model computation, Assessment). So **the per-line
+saving (log p)^{−1/2} of Theorem U is the right rate only for small x** (fixed x, or x up to a small power of log p in 𝔐).
+Beyond that, failure is driven by too few prime factors rather than by confinement, and above (log p)^{log 2} it is the
+generic outcome (the lottery). This is the precise form of the dimension barrier for HC. It also disposes of the
+"high-dimensional Landau" hypothesis of §5.2.
 
 ## 5. Hypotheses: what each shape can and cannot do
 
 ### 5.1 The regimes of a line, and what it takes
 
-For a line at x and a prime p (λ = log log p) there are four regimes:
-* **Kneser regime, x ≲ λ.** Failure is confinement up to boundedly many primes (Lemma K). It has Landau probability
-  ≍ (log p)^{−1/2} (Theorem U).
-* **Typical regime, λ ≪ x ≤ (log p)^{log 2−ε}.** Success is typical (Erdős–Hall). Failure comes from an ω-deficit or from
-  confinement.
-* **Lottery regime, x ≥ (log p)^{log 2+ε}.** Failure is typical. Success has probability (log p)^{−Q(θ/log 2)} up to
-  θ = 2 log 2, and ≍ log p/x beyond.
-* **S_A needs** about log p expected successes, i.e. lines up to (log p)^{2 log 2+o(1)} (Theorem M). These lines are deep
-  in the lottery regime, where success comes from the *rare* integers N with ω(N) ≈ 2 log log p.
+For a line at x and a prime p (λ = log log p) there are three regimes. They are described in 𝔐 (Assessment for actual
+primes):
+* **Small x (Kneser/Landau regime): fixed x, or x up to about (log p)^{0.13}.** Failure is dominated by confinement
+  (Lemma K). Theorem U gives the upper rate (log y)^{−1/2} per line for fixed X.
+* **Typical regime, up to (log p)^{log 2−ε}.** Success is typical (Erdős–Hall). Failure comes mainly from an ω-deficit.
+* **Lottery regime, beyond (log p)^{log 2+ε}.** Failure is typical. Success has probability ≤ (log p)^{−Q(θ/log 2)+o(1)}
+  up to θ = 2 log 2, and ≍ log p/x beyond.
 
-**Proposition 5.1 (PROVED, logic: "ES in disguise").** For events E_p, the statement
-"∀ large y: #{p ∈ (y, 2y] : E_p} ≤ B(y)" with B(y) → 0 is equivalent to "E_p fails for all large p". So an averaged
-hypothesis *about the ES lines* implies S_A only if it is equivalent to S_A, up to a finite census.
+**What S_A needs.** About log p expected successes, i.e. lines up to (log p)^{2 log 2+o(1)} in 𝔐 (Theorem M). These lines
+are deep in the lottery regime, where success comes from the *rare* integers N with ω(N) ≈ 2 log log p.
+
+**Proposition 5.1 (PROVED, elementary logic).** Let E_p be events and B(y) ≥ 0 with B(y) → 0. Then the count statement
+"∀ large y: #{p ∈ (y, 2y] : E_p} ≤ B(y)" is equivalent to "E_p fails for all large p".
+*Proof.* A count is a non-negative integer, so it is < 1 iff it is 0. ∎
+So the *particular* hypothesis "the joint-failure count of the ES lines tends to 0" is just S_A restated. Stronger
+quantitative hypotheses — moments, relative lower tails such as H⁻_BM, H⁻mom, MF₁ — are not equivalent to S_A. They are
+sufficient strengthenings whose extra content concerns the ES lines alone. This is the sense in which they are "ES in
+disguise" (Assessment).
 
 ### 5.2 Catalogue
 
@@ -283,171 +309,167 @@ Columns: (i) implication; (ii) T1; (iii) 8/131; (iv) numerics; (v) strength.
 
 **H_EH — Erdős–Hall-type equidistribution.** "The divisors of N are equidistributed mod q for most q", or "for most N",
 or "for most lines x ≤ (log p)^θ at every p".
-* (i) Cannot imply S_θ for θ < 2 log 2: it is 𝔐-typical (Cor M3). It is also tied-modulus: one N with many q is not the
-  ES shape, since each line has its own N (B2).
+* (i) As a statement about line data that 𝔐 satisfies, it cannot formally imply S_θ for θ < 2 log 2 (Cor M3). It is
+  also tied-modulus: the ES shape is not one N with many q, since each line has its own N (B2).
 * (ii) At squares every line fails, but H_EH speaks only of typical N, and squares have density 0. So squares do not
   refute it, and it cannot see T1.
-* (iii) n/a. (iv) Data: P_x matches 𝔐 (§6).
-* (v) Dead (M3).
+* (iii) n/a. (iv) The per-line rates have 𝔐's shape (§6).
+* (v) Blocked by M3 (scope as stated there).
 
 **H_Lan — uniform high-dimensional Landau sieve ("MLD").** "Joint confinement of k lines has frequency ≤ C^k ∏(log)^{−1/2},
 uniformly for k up to log x/log log x."
-* (i) It bounds confinement only. Beyond x ≍ λ, failure ≠ confinement (Remark U), so it does not imply S_A. Taken as a
-  failure bound, it would be 𝔐-false.
-* (ii) Over integers it is false at squares (all levels are BM-confined, and √x squares ≫ the bound).
-* (iii) — (iv) — (v) Irrelevant or false.
+* (i) It bounds confinement only. Beyond small x, failure is mostly not confinement (Remark U), so it does not imply S_A.
+  Read as a bound on *failure*, it would imply HC ≪ log p/log log p, which is 𝔐-null.
+* (ii) Over integers it is false at squares (all levels are BM-confined, and √x squares exceed the bound).
+* (iii) — (iv) — (v) Does not reach S_A.
 
 **H_Kub — joint Kubilius / Elliott / Chowla / Hardy–Littlewood with error terms.**
-* (i) Block-robust, so no implication (Cor M4).
+* (i) In their averaged form these are block-robust statements, so they cannot formally imply S_A (Cor M4, with the
+  scope stated there).
 * (ii) Fine. (iii) Fine. (iv) —
-* (v) Dead (M4).
+* (v) Blocked by M4.
 
-**LT — ES-specific joint lower tail.** "#{p ∈ (x, 2x] : all lines ≤ (log x)^A fail} ≤ x exp(−c𝓜)", with 𝓜 the 𝔐-mass.
-H⁻_BM, H⁻mom and MF₁ are of this kind.
-* (i) Implies S_A trivially. Every count bound → 0 is equivalent to the conclusion (Prop 5.1).
+**LT — ES-specific joint lower tail.** "#{p ∈ (x, 2x] : all lines ≤ (log x)^A fail} ≤ x exp(−c𝓜)", with 𝓜 the 𝔐-mass of
+those lines.
+* (i) Implies S_A trivially. Its count bound tends to 0, so it is S_A restated (Prop 5.1).
 * (ii) Fine (stated for primes). (iii) Has a threshold.
-* (iv) Near tail consistent (§6).
+* (iv) No deep-tail event observed (§6). That cannot test it.
 * (v) ES in disguise.
 
-**GLT — general lottery lower-tail principle (§5.3).**
-* (i) Implies S_A for A > 2 log 2 (Thm 5.3, modulo the alignment gap).
-* (ii) False over integers (squares) and false unrestricted (Prop 5.5, conditional on Hardy–Littlewood F). It needs a
-  quadratic-alignment clause, which is exactly T1.
-* (iii) Has a threshold. The 8/n analogue follows eventually, with no contradiction at 131 or 241.
-* (iv) Consistent: sub-Poissonian tail, X* tracks 𝓜 (§6).
-* (v) Not ES-specific. Logically stronger than ES. Not implied by any standard conjecture (§5.6).
+**GLT — a general lottery lower-tail principle (§5.3).**
+* (i) A correct general formulation would imply S_A through its instance LT. **No formulation known to be free of
+  counterexamples is available.** The first draft was refuted in review (§5.3).
+* (ii) Necessarily false over integers (squares). It needs a quadratic-alignment clause (Prop 5.5).
+* (iii) Has a threshold.
+* (iv) —
+* (v) Its role is motivation for LT, not a hypothesis one can adopt.
 
-### 5.3 The principle GLT ("Cramér–Granville for divisor lotteries")
+### 5.3 Toward a general principle, and why it is delicate
 
-**Lotteries.** A *lottery line* is λ = (F, q, c) with F(n) = an + b ∈ ℤ[n], a ≥ 1, q ≥ 3, and c ∈ (ℤ/q)^× ∖ {1}. Its event at
-n is W_λ(n): "F(n) is coprime to q and has a divisor ≡ c (mod q)". Its model mass at height x is
-P^𝔐_λ(x) := U(log log x, φ(q)) (Lemma M1's upper value). A family 𝓕 has mass 𝓜(𝓕; x) := Σ_{λ∈𝓕} P^𝔐_λ(x). The ES lines are
-the lottery lines E_x = (n + x, x, −1) and L_x = (xn + 1, x, −1).
+The kickoff asks for a hypothesis that is *not* ES in disguise. The natural candidate is a general far-lower-tail
+principle for *divisor lotteries*: families of events "F(n) has a divisor in a prescribed class mod q", evaluated at
+primes. LT would be its instance for the ES family.
 
-**Quadratic alignment.** Let f ∈ ℤ[m] be quadratic and put G := F∘f. The line λ is *aligned with f* if:
-* the discriminant Δ of G is not a square;
-* the Kronecker character χ_Δ is odd (Δ < 0);
-* χ_Δ has conductor dividing q; and
-* χ_Δ(c) = −1.
+**Lotteries and model mass.** A *lottery line* is λ = (F, q, c) with F(n) = an + b ∈ ℤ[n], a ≥ 1, q ≥ 3, and
+c ∈ (ℤ/q)^× ∖ {1}. Its event at n is W_λ(n): "F(n) is coprime to q and has a divisor ≡ c (mod q)". Its *model mass* at
+height x is P^𝔐_λ(x) := U(log log x, φ(q)) (Lemma M1's upper value), and a family has mass 𝓜(𝓕; x) := Σ_λ P^𝔐_λ(x). The
+ES lines are E_x = (n + x, x, −1) and L_x = (xn + 1, x, −1).
 
-Then for every m with G(m) coprime to 2·lead(G)·Δ, every prime factor ℓ of G(m) has χ_Δ(ℓ) = 1, because Δ is a square
-mod ℓ. Hence every divisor has χ_Δ = 1 ≠ χ_Δ(c), and W_λ(f(m)) fails: **λ is forced to fail along f.**
+**First draft (refuted).** The first draft of this memo stated GLT(c, η): for every η-unaligned family (definition
+below), #{p ∈ (x, 2x] : no line holds} ≤ x·e^{−cη𝓜}.
 
-Conversely, suppose the prime factors of the values of G lie, up to finitely many, in ker ψ for a character ψ mod q. For
-ℓ ∤ 2·lead(G)·Δ we have ℓ | G(m) for some m ⟺ Δ is a square mod ℓ ⟺ χ_Δ(ℓ) = 1. So ψ(ℓ) = 1 for almost all primes in
-the index-≤2 subgroup K = {χ_Δ = 1} of (ℤ/lcm(q, cond χ_Δ))^×. Every class of K contains infinitely many primes
-(Dirichlet), so ψ is trivial on K, i.e. ψ ∈ {1, χ_Δ}. Hence the definition captures *every* way a quadratic family can
-force a line (PROVED; elementary plus Dirichlet).
+*Counterexample (from the review).* Take λ_j = (5jn, 5, 4), j ≤ (log x)²/5. Every event fails at every prime, because
+5 | F_j(p). No line is aligned with any quadratic, since no odd quadratic character has conductor dividing 5. Yet
+𝓜 ≍ (log x)², so GLT would predict < 1 failure against ≍ x/log x actual failures.
 
-**GLT(c, η) [CONJECTURE shape; nonstandard].** Let x be large and let 𝓕 be a family of lottery lines with a, |b|, q ≤ (log x)^B.
-Suppose 𝓕 is *η-unaligned*: for every quadratic f ∈ ℤ[m] with non-square discriminant, the lines of 𝓕 aligned with f
-carry mass ≤ (1 − η)𝓜(𝓕; x). Then
-  #{p ∈ (x, 2x] prime : no line of 𝓕 holds at p} ≤ x·exp(−c·η·𝓜(𝓕; x)),
-for x ≥ x₀(c, η, B).
+The defect is that the model mass ignores *local admissibility*. Nested or proportional lines cause a similar problem:
+the forms 5jn are pairwise proportional. A constant c < 1 cannot absorb a local obstruction of probability 1.
 
-The two clauses match the two known reasons for joint failure: *local factors* (absorbed in c < 1) and *quadratic
-alignment* (T1 and its deformations, excluded explicitly).
+**Necessary features of any correct formulation (Assessment; partly PROVED).**
+1. *Local admissibility.* For every prime n coprime to q, F(n) must be coprime to q. The model mass must then be computed
+   conditionally on the residues of n modulo small primes, i.e. a local-factor mixture. The ES lines satisfy the
+   coprimality: for r | x, p + x ≡ p and xp + 1 ≡ 1 (mod r).
+2. *Dependence control.* The forms must be primitive and pairwise non-proportional, so that their large prime factors
+   are private (SYNTHESIS_SPARKS8 Lemma 2.3). Nested targets (q | q′, c′ ≡ c mod q on the same F) must be merged.
+   The ES forms are primitive and pairwise non-proportional (Theorem U's proof).
+3. *Quadratic alignment, of either parity.* Let f ∈ ℤ[m] be an irreducible quadratic and G := F∘f, with non-square
+   discriminant Δ. Let χ_Δ be the primitive character of ℚ(√Δ). The line λ is *aligned with f* if cond(χ_Δ) | q and
+   χ_Δ(c) = −1. If so, for every m with G(m) coprime to 2·lead(G)·Δ, every prime factor of G(m) has χ_Δ = 1, because
+   Δ is a square mod ℓ. So W_λ(f(m)) fails.
+   * For c = −1 (the ES case) only odd χ_Δ (Δ < 0) can align.
+   * For general c, even characters can align as well. The review's example: F(n) = n, q = 5, c = 2, f = m² − 5.
+   * Exceptional primes (those dividing 2·lead·Δ; for ES lines with x ≡ 7 (8), the prime 2) can let a line escape.
+     Alignment forces failure only on the m for which these primes do not help.
+4. *What alignment captures (PROVED, elementary + Dirichlet).* Suppose a character ψ mod q contains, in its kernel,
+   almost all prime divisors of the values of G. Then ψ ∈ {1, χ_Δ}. Indeed, for ℓ ∤ 2·lead(G)·Δ, ℓ divides some G(m)
+   iff χ_Δ(ℓ) = 1. Every class of the subgroup K = {χ_Δ = 1} contains infinitely many primes, so ψ is trivial on K.
+   This classifies *character confinement of all values along f*. It does not classify every possible cause of joint
+   divisor-class failure.
 
-**Theorem 5.3 (PROVED implication).** Suppose GLT(c, η) holds for some c, η > 0 and B ≥ A. Suppose also that
+**Proposition 5.5 (CONDITIONAL on Hardy–Littlewood Conjecture F for m² + 1, in the weak form
+#{m : m² + 1 ∈ (x, 2x] prime} ≫ √x/log x).** A principle with features 1–2 but without feature 3 is false.
 
-  **(UA)** the ES family 𝓕_X := {E_x, L_x : x ∈ 𝒞 ∩ [4, X]}, X := (log x)^A, is η-unaligned for all large x.
+*Proof.* Take 𝓕 := {λ_a = (a(n − 1) + 1, a, −1) : a ∈ 𝒞 ∩ [4, (log x)^A]}, A > 2 log 2. The forms are primitive and pairwise
+non-proportional.
+* Local admissibility: for r | a, F_a(n) ≡ 1 (mod r).
+* At a prime p = m² + 1 (so m is even), F_a(p) = am² + 1 is odd and coprime to a.
+* Let χ be the primitive character of ℚ(√−a). For a ∈ 𝒞 it is odd with conductor dividing a: for a = 4b it is that of
+  ℚ(√−b), of conductor dividing 4b; for a ≡ 7 (8) the discriminant is −sqfree(a), which divides a.
+* Every prime ℓ | am² + 1 has −a ≡ (m⁻¹)² mod ℓ, hence χ(ℓ) = 1. So every divisor d has χ(d) = 1 ≠ χ(−1), and no divisor
+  is ≡ −1 (mod a). Every line fails at every such prime.
+* The mass of 𝓕 is that of the level lines, ≫ log x log log x (Theorem M(b) computation).
+* So any bound x·e^{−c𝓜} = o(1) contradicts the ≫ √x/log x failures. ∎
 
-Then S_A holds for every A > 2 log 2, hence ES(p) for all large p.
+Each λ_a is aligned with f = m² + 1 (Δ = −4a), so feature 3 removes exactly this family. T1 transported to near-squares is
+what the alignment clause is for.
 
-*Proof.* 𝓕_X has a, |b|, q ≤ X. The computation in Theorem M(b) gives
-𝓜(𝓕_X; x) ≥ (1/5 − o(1))(3/8)(A − 2 log 2 − 2δ) log x log log x. GLT bounds the number of p ∈ (x, 2x] at which every line
-fails by x·exp(−cη𝓜) < 1 for large x. So the count is 0, i.e. HC(p) ≤ (log x)^A ≤ (log p)^A for all p ∈ (x, 2x]. ∎
-
-**Lemma N (PROVED; the partial verification of (UA)).** Let f(m) = αm² + βm + γ with α ≥ 1 and D = β² − 4αγ ≠ 0. Among
-x ∈ 𝒞 ∩ [4, X]:
+**Lemma N (PROVED; how much of the ES family a quadratic can align).** Let f(m) = αm² + βm + γ with α ≥ 1 and
+D = β² − 4αγ ≠ 0. Among x ∈ 𝒞 ∩ [4, X]:
 * the endpoint lines E_x aligned with f number ≤ τ(|D|)(2√(αX) + √|D| + 1);
 * the level lines L_x aligned with f number ≤ τ(4α)(2√α + √(X|D|) + 1) if D < 0, and ≤ 4α/D if D > 0.
-
-In particular, for fixed f there are O_f(√X) aligned lines. Their mass is O_f((log x)^{(log 2)/2+o(1)}) + O_f(log x/(log x)^{(log 2)/2}),
-which is o(𝓜(𝓕_X; x)). Hence (UA) holds against every *fixed* quadratic, and against every quadratic of height
-≤ (log x)^{1/10}.
+For fixed f this is O_f(√X).
 
 *Proof.*
-*E_x.* Here G = f + x and Δ = D − 4αx. Alignment needs Δ < 0 and conductor | x. The squarefree kernel c of |Δ| divides
-the conductor, hence x, hence D (c | 4αx − D). Write 4αx − D = cs² with c | D squarefree. For x ≤ X we need
+*E_x.* Here G = f + x and Δ = D − 4αx. Alignment needs Δ < 0 and cond(χ_Δ) | x. The squarefree kernel c of |Δ| divides
+the conductor, hence x, hence D (because c | 4αx − D). Write 4αx − D = cs² with c | D squarefree. For x ≤ X we need
 s ≤ √((4αX + |D|)/c). Summing over c | D gives the bound.
 
 *L_x.* Here G = xf + 1 and Δ = x(xD − 4α). Alignment needs xD < 4α and conductor | x. Then every prime with odd exponent
-in x(4α − xD) divides x. Primes dividing both x and 4α − xD divide 4α, so 4α − xD = d s² with d | rad(4α).
+in x(4α − xD) divides x. Primes dividing both x and 4α − xD divide 4α, so 4α − xD = ds² with d | rad(4α).
 * If D < 0, then x = (ds² − 4α)/|D| ≤ X forces s ≤ √((4α + X|D|)/d).
-* If D > 0, then x < 4α/D.
+* If D > 0, then x < 4α/D. ∎
 
-*Mass.* Use the trivial bound U(λ, φ(x)) ≤ E[2^k]/φ(x) = log x/φ(x) ≤ 2 log x·log log x/x for the lines above
-Y := (log x)^{log 2}, and mass ≤ 1 per line below Y.
-* Aligned E-lines are x = (cs² + D)/(4α), quadratically spaced in s. Those ≤ Y number ≤ τ(|D|)(2√(αY) + √|D| + 1). Those
-  > Y have Σ 1/x ≤ Σ_{c|D} Σ_{s ≥ s₀(c)} 4α/(cs² + D) ≪ τ(|D|)√(α/Y), since s₀(c) ≫ √(4αY/c).
-* Aligned L-lines with D < 0 are x = (ds² − 4α)/|D|. Those > Y have Σ 1/x ≪ τ(4α)√(|D|/Y). With D > 0 there are
-  < 4α/D of them in total.
+*Mass of the aligned lines.* Use mass ≤ 1 per line below Y := (log x)^{log 2}, and above Y the trivial bound
+U ≤ log x/φ(x) ≤ 2 log x log log x/x.
+* The aligned E-lines x = (cs² + D)/(4α) are quadratically spaced in s. Above Y, Σ 1/x ≪ τ(|D|)√(α/Y).
+* The aligned L-lines with D < 0 are x = (ds² − 4α)/|D|. Above Y, Σ 1/x ≪ τ(4α)√(|D|/Y).
+* For fixed f the aligned mass is O_f(√Y + log x·log log x·Y^{−1/2}) = O_f((log x)^{1−(log 2)/2+o(1)}).
+* For height ≤ (log x)^{1/10} (so α ≤ (log x)^{0.1}, |D| ≤ 5(log x)^{0.2}) the lines below Y number
+  ≤ (log x)^{(log 2)/2+0.1+o(1)}, and the lines above Y have mass ≤ (log x)^{1+0.1−(log 2)/2+o(1)} ≤ (log x)^{0.76}.
 
-For fixed f this is O_f(√Y + log x·log log x·Y^{−1/2}). For height ≤ (log x)^{1/10} we have α ≤ (log x)^{0.1}
-and |D| ≤ 5(log x)^{0.2}. Then the lines below Y number ≤ (log x)^{(log 2)/2 + 0.1 + o(1)}, and the lines above Y have mass
-≤ (log x)^{1 + 0.1 − (log 2)/2 + o(1)} ≤ (log x)^{0.76}. Both are o(log x), while 𝓜(𝓕_X; x) ≫ log x log log x.
-(For larger heights the congruence conditions on s, ignored here, would have to be used.) ∎
+Both are o(𝓜(𝓕_X; x)) = o(log x log log x). So against every fixed quadratic, and every quadratic of height
+≤ (log x)^{1/10}, the ES family is unaligned in mass. For larger heights the bounds above become vacuous (the congruence
+conditions on s would be needed), and **uniform unalignment (UA) is not proved.**
 
-*The gap in (UA).* For quadratics of large height the bounds above become vacuous. Heavy alignment needs |D| small
-compared with X²α. Each prime lies on quadratics f = αm² + βm + γ with D = M² − 4αp, so only primes within O(αX²) of a
-scaled square αm² can be heavily aligned. A uniform version of Lemma N over (α, D) is **not proved here**. The spacing
-argument (squares near |D| are ≥ 2√(c|D|) apart) suggests it holds (Assessment).
+**What survives (Assessment).**
+* LT (§5.2) implies S_A trivially (Prop 5.1), but it is ES-specific.
+* A general principle would need features 1–3 *and* a proof that these exhaust the conspiracies. No such formulation
+  is available.
+* A candidate shape is: *for locally admissible, dependence-controlled families that are unaligned in mass with every
+  irreducible quadratic, the joint-failure frequency is ≤ x·exp(−c·𝓜_loc)* (𝓜_loc the local-factor-conditioned mass).
+  It is offered as a research target. It is not offered as a plausible hypothesis, because the review's counterexample
+  shows how easily such statements fail.
+* *Analogy (Assessment).* The closest standard-type relative is Cramér's conjecture: every interval [y, y + C(log y)²]
+  contains a prime. That conjecture is pointwise, has a polylog window, and has expected count ≍ log y. Granville's
+  model predicts that the maximal gap constant is at least 2e^{−γ}, a correction coming from small primes — the analogue
+  of local factors here.
+* Like Cramér's conjecture, this target is currently unproved and beyond known methods. Unlike Cramér's, it must also
+  exclude quadratic conspiracies, because ES lotteries carry T1.
 
-**Proposition 5.5 (CONDITIONAL on Hardy–Littlewood Conjecture F for m² + 1, in the weak form
-#{m : m² + 1 ∈ (x, 2x] prime} ≫ √x/log x).** The unrestricted principle, GLT without the alignment clause, is false for
-every c > 0.
+### 5.4 Standard conjectures: why no implication is established (Assessment)
 
-*Proof.* Take 𝓕 := {λ_a = (a(n − 1) + 1, a, −1) : a ∈ 𝒞 ∩ [4, (log x)^A]}.
-* At p = m² + 1 we get F_a(p) = am² + 1. By T1 in the coordinate form (Fable §1.3, the level-line case; a ∈ 𝒞), am² + 1
-  has no divisor ≡ −1 (mod a). So every line fails at every such prime.
-* The mass of 𝓕 is that of the level lines, ≫ log x log log x for A > 2 log 2 (Theorem M(b) computation).
-* So the unrestricted bound x·exp(−c𝓜) = o(1) contradicts ≫ √x/log x failures. ∎
+This table is an Assessment. It records why the *known implementations* of each conjecture do not supply the needed
+lower tail. It is not a non-implication theorem: Cor M3/M4 concern formal implications between properties of model line
+data, and no standard conjecture has been represented as such a property.
 
-Each λ_a here is aligned with f = m² + 1 (Δ = −4a, χ_{−4a} with conductor | a for a ∈ 𝒞), so GLT itself is not
-contradicted. T1 transported to near-squares is exactly what the alignment clause must remove.
-
-**(ii) T1.**
-* Over integers, every GLT-type bound fails at squares: 5 000 odd squares ≈ 10⁸, all lines fail, CERTIFIED §6; there
-  are √x squares against the bound x·e^{−c𝓜} = x^{−ω(1)}.
-* The statement is for primes. The step false at squares is the joint-failure bound itself, since at squares failure is
-  forced by alignment with f = m².
-
-**(iii) 8/131.**
-* The numerator-8 level lines (8Cn + 1 has a divisor ≡ −1 (mod 8C), giving 8/n = 1/(uBC) + 1/(nBC) + 1/(nuC)) are
-  lottery lines.
-* So GLT gives 8/p for p > p₀. At p = 131 and 241 the bound x·e^{−c𝓜} exceeds 1, so there is no contradiction: GLT is
-  numerator-uniform *with a threshold* (screening line 2's allowed escape).
-* It says nothing 4-specific. That is consistent with it being a statement about lotteries, not about Egyptian fractions.
-
-**(v) Strength (honest).**
-* GLT is logically stronger than ES (it bounds counts at every height).
-* It is not ES-specific: it would equally give eventual 8/n, ES₅, I3-type and U-type statements, any finite union of
-  tied-class divisor lotteries with model mass ≫ log x.
-* It is consistent with 𝔐 (Theorem M(b) is its 𝔐-shadow), with every computation here, and with the near-square
-  deformations (Lemma N, §6).
-* Its closest standard relative is **Cramér's conjecture** (every interval [y, y + C(log y)²] contains a prime). That
-  conjecture is also pointwise, has a polylog window, and has expected count ≍ log y. In Granville's corrected form the
-  maximal gaps are ≈ 2e^{−γ}(log y)², a constant-factor correction coming from small primes — the analogue of c < 1 here.
-* Like Cramér's conjecture, GLT is beyond GRH and every known method. Unlike Cramér, it needs an explicit exclusion of
-  quadratic conspiracies, because ES lotteries carry T1.
-
-### 5.4 Standard conjectures: the exact failing step
-
-| conjecture | what it controls | failing step for S_A |
+| conjecture | what it controls | where the known implementations stop |
 |---|---|---|
-| GRH (Dirichlet, Dedekind) | sums over n at fixed χ; least QNR ≤ 2 log²p | Pointwise only in the colour layer. The BM layer is pointwise free: some level 4 \| t ≤ 4ℓ(p) has M_t^lev(p) > 0 ((J)103), and GRH gives ℓ(p) ≤ 2 log²p. But a line that is not BM-forced still fails generically beyond x ≍ log log p (Remark U). The lottery needs the class of a divisor, which no character sum at one p fixes (CLASS_FORCING Thm 2.1). |
-| GLH | subconvexity / moments of L at fixed conductor | Same as GRH: values of L-functions control averages of line events over p (block-robust, M4). |
-| EH / BFI (level x^{1−ε}) | divisor functions in APs averaged over q ≤ x^{1−ε} | Gives single-line statistics on average over p (Titchmarsh-type). The joint law of k lines needs k-fold divisor correlations, and already Σ τ(n)τ(n+h₁)τ(n+h₂) has no individual-shift asymptotic (Blomer, BLMS 49 (2017), "challenging open problem"; Browning's conjecture proved only on average over h). Block-robust in any case (M4). |
-| Chowla / Elliott (MRT 2015; Tao 2016) | k-point correlations of bounded multiplicative functions, k fixed | Fixed k with o(x) error: block-robust (M4). No uniformity in k growing with x is known or stated (checked: MRT, Tao, Tao–Teräväinen all have k fixed). |
+| GRH (Dirichlet, Dedekind) | sums over n at fixed χ; least QNR ≤ 2 log²p | Pointwise only in the colour layer. The BM layer is pointwise free: some level 4 \| t ≤ 4ℓ(p) has M_t^lev(p) > 0 ((J)103), and GRH gives ℓ(p) ≤ 2 log²p. But a line that is not BM-forced still fails generically beyond x ≈ (log p)^{log 2} in 𝔐 (§5.1). The lottery needs the class of a divisor, which no character sum at one p fixes (CLASS_FORCING Thm 2.1). |
+| GLH | subconvexity / moments of L at fixed conductor | Same as GRH: values of L-functions control averages of line events over p (the block-robust shape of M4). |
+| EH / BFI (level x^{1−ε}) | divisor functions in APs averaged over q ≤ x^{1−ε} | Gives single-line statistics on average over p (Titchmarsh-type). The joint law of k lines needs k-fold divisor correlations, and already Σ τ(n)τ(n+h₁)τ(n+h₂) has no individual-shift asymptotic (Blomer, BLMS 49 (2017), "challenging open problem"; Browning's conjecture proved only on average over h). As averaged statements they have the block-robust shape of M4. |
+| Chowla / Elliott (MRT 2015; Tao 2016) | k-point correlations of bounded multiplicative functions, k fixed | Fixed k with o(x) error: the block-robust shape of M4. No uniformity in k growing with x is known or stated (checked: MRT, Tao, Tao–Teräväinen all have k fixed). |
 | Hooley R* / Kloosterman bounds | Σ_c S(m,n;c)/c at fixed (m,n) | No fixed-(m,n) Kloosterman sum arises at one p (SINGLE_P_COUNT Prop 6.1); tied modulus. |
-| Hardy–Littlewood k-tuples / Bateman–Horn | prime values of fixed forms, k fixed | Fixed k: block-robust. In the uniform-in-k direction, Maier (Michigan Math. J. 32 (1985)) and Friedlander–Granville (Ann. Math. 129 (1989), Cor 2) show relative-error uniformity fails at polylog length. Bateman–Horn/HL-F *refutes* the unrestricted principle (Prop 5.5). |
-| Inverse large sieve (Green–Harper GAFA 2014 Conj 1.7; Walsh Duke 2012) | sets occupying ≤ (p+1)/2 classes are quadratic images or small | Philosophically the same clause as GLT's alignment ("quadratic = the only conspiracy"), but for a different regime: the failure set of the ES lines is not a set with few residues mod every p. No implication. |
-| Cramér / Granville gap conjecture | primes in windows of length (log y)² | No implication either way. The analogy is of shape only (§5.3 (v)). |
+| Hardy–Littlewood k-tuples / Bateman–Horn | prime values of fixed forms, k fixed | Fixed k: the block-robust shape of M4. In the uniform-in-k direction, Maier (Michigan Math. J. 32 (1985)) and Friedlander–Granville (Ann. Math. 129 (1989), Cor 2) show relative-error uniformity fails at polylog length. HL-F *refutes* a principle without the alignment clause (Prop 5.5). |
+| Inverse large sieve (Green–Harper GAFA 2014 Conj 1.7; Walsh Duke 2012) | sets occupying ≤ (p+1)/2 classes are quadratic images or small | Philosophically the same clause as feature 3 of §5.3 ("quadratic = the only conspiracy"), but for a different regime: the failure set of the ES lines is not a set with few residues mod every p. No implication. |
+| Cramér / Granville gap conjecture | primes in windows of length (log y)² | No implication either way. The analogy is of shape only (§5.3, Assessment). |
 
-**Answer to the kickoff's last question:** none of GRH, GLH, EH, Chowla–Elliott, Hooley R* implies any hypothesis of the
-needed shape. By Cor M3/M4, each of them is either 𝔐-typical (it cannot give S_θ for θ < 2 log 2) or block-robust (it
-cannot give S_A at all). Each of them would have to be supplemented by a far-lower-tail statement of GLT type.
+**Answer to the kickoff's last question (Assessment).** No implication from GRH, GLH, EH, Chowla–Elliott or Hooley R* to S_A
+(or to R(p) ≥ 1) is established here, and none is known.
+* Every implementation of these conjectures that this lane or the campaign found produces either typical-behaviour
+  statements about line data or averaged statements of the block-robust shape.
+* Cor M3/M4 show that statements of those two kinds, *as properties of line data*, cannot formally give S_θ
+  (θ < 2 log 2) or S_A respectively.
+* What is missing in every case is a far-lower-tail input for the joint failure of ≳ (log p)^{2 log 2} lines.
 
 ## 6. Numerics (EVIDENCE unless marked CERTIFIED)
 
@@ -459,14 +481,16 @@ divisor-residue BFS). For each n and each x ∈ 𝒞 ∩ [4, 2048] it tests E_x 
 
 | bin | 10⁸ (L = 18.4) | 10¹² (27.6) | 10¹⁴ (32.2) | 4·10¹⁵ (35.9) | integers 10¹² |
 |---|---|---|---|---|---|
-| [4,8) | 0.26 / 0.24 | 0.18 / 0.17 | 0.15 / 0.15 | 0.14 / 0.13 | 0.17 / 0.15 |
+| [4,8) | 0.26 / 0.24 | 0.18 / 0.17 | 0.15 / 0.14 | 0.14 / 0.13 | 0.17 / 0.15 |
 | [16,32) | 0.65 / 0.47 | 0.50 / 0.38 | 0.45 / 0.35 | 0.41 / 0.33 | 0.46 / 0.34 |
 | [64,128) | 1.06 / 0.62 | 0.96 / 0.59 | 0.91 / 0.56 | 0.87 / 0.54 | 0.84 / 0.50 |
 | [256,512) | 1.17 / 0.63 | 1.25 / 0.68 | 1.24 / 0.68 | 1.23 / 0.68 | 1.04 / 0.56 |
 | [1024,2048) | 1.08 / 0.59 | 1.29 / 0.68 | 1.34 / 0.70 | 1.37 / 0.72 | 1.07 / 0.56 |
 
-In 𝔐 (Monte Carlo in ℤ/φ(x), `z53_hchyp_model.py`) the same normalisation at log p = 27.6 is 0.12, 0.33, 0.69, 1.09, 1.42.
-Shape and onset agree; the level-line constant is ≈ ½ the endpoint one. The plateau (P_x ∝ log p/x) is the mean regime,
+A *cyclic surrogate* of 𝔐 (`z53_hchyp_model.py`: Monte Carlo in the additive group ℤ/φ(x) with target φ(x) − 1, not in
+(ℤ/x)^× with target −1) gives the same normalisation at the single points x = 4, 16, 64, 256, 1024 and log p = 27.6 as
+0.12, 0.33, 0.69, 1.09, 1.42. These are point values, not bin averages. Shape and onset agree qualitatively; the
+level-line constant is ≈ ½ the endpoint one. The plateau (P_x ∝ log p/x) is the mean regime,
 and its onset moves out with p as Theorem M says.
 
 **HC and the Poisson scale X*** (X* = least X with Σ_{x≤X}(P_E + P_L) ≥ log p, from the empirical P_x):
@@ -486,9 +510,14 @@ and its onset moves out with p as Theorem M says.
 
 The odd-square row is **CERTIFIED** (T1 control): 0 successes in 5 000 × 768 × 2 line tests.
 
-**Joint failure vs independence.** F(X)/∏_{x≤X}(1 − P_x) = 2.6–3.3 at X = 7–8 and 10–50 at X = 15–16 (counts 1–20; all
-scales). Line failures are *positively associated* at small X, consistent with a shared local factor (p mod small primes;
-y8 "clean levels"). GLT's constant c < 1 is designed for exactly this.
+**Joint failure vs independence.** F(X)/∏_{x≤X}(1 − P_x), where F(X) is the observed number of primes with no success
+up to X:
+* X = 7: 2.66–3.25 (all five prime samples);
+* X = 8: 2.12–4.98;
+* X = 12: 1.7–9.3;
+* X = 15–16: 9.7–50 where the count is non-zero (counts 1–4; zero at 10¹⁴ and 4·10¹⁵).
+So there is excess cumulative joint failure relative to the independence benchmark at small X. This is consistent with a
+shared local factor (p mod small primes; y8 "clean levels"). Any lower-tail principle must allow for it (Assessment).
 
 **Lower tail of Z(X)** (successful lines up to X):
 
@@ -502,75 +531,86 @@ y8 "clean levels"). GLT's constant c < 1 is designed for exactly this.
 | integers 10⁸ | 2048 | 51.3 | 3.22 | 14 (0.27) | 2.5e−4 / 2.6e−8 |
 | near-squares m²+24 | 2048 | 61.3 | 1.24 | 31 (0.51) | 0 / 8e−10 |
 
-At primes the near tail is Poisson-like (X = 64) and the observed spread at large X is sub-Poissonian. Integers have a
-much heavier tail. All of the low-Z integers in the 10⁸ sample are divisible by 3. Then xn + 1 is never divisible by 3,
-which is a local factor that primes cannot have (p ∤ 3). This is a local-factor mixture effect, the reason GLT is stated
-for primes with c < 1.
+At X = 64 the observed near tail of primes is close to the Poisson value. At X = 2048 the variance/mean ratios
+(2.18, 1.56, 1.30) show **overdispersion**. No event with Z ≤ mean/3 was observed, but 10⁴–2·10⁴ samples cannot test
+probabilities of 10⁻⁹–10⁻¹⁶. The deep tail is therefore untested.
 
-**Near-square forcing (Lemma N in the data).** For p = m² + 24 the lines with zero successes in 5 000 primes include:
-* L₁₅, L₉₂, L₃₉₂ (24x + 1 = 19², 47², 97²);
-* L₇, L₁₂, L₄₀ with only 1/13, 1/17, 1/31-type residual success. Those are the m divisible by s, where the gcd exception
-  of the alignment applies: 13 | m makes 13 ≡ −1 (mod 7) a divisor of 7p + 1;
-* E_8, E_12, E_24, E_40, E_48, E_72, E_76, E_84, … These are exactly the x with x + 24 = c·s², c | 24, and
-  disc ℚ(√−(x+24)) | x. For example, x = 12: 36 = 6², ℚ(i); x = 24: 48 = 3·4², ℚ(√−3).
+Integers have a visibly heavier tail. The five integers with Z(2048) ≤ 17 in the 10⁸ sample (100010625, 100041825,
+100062081, 100100265, 100105281) are all divisible by 3. For such n, xn + 1 is never divisible by 3, a local situation
+primes cannot have. A local-factor mixture is the natural explanation (Assessment); it is why §5.3 requires
+local-factor-conditioned masses.
 
-The aligned set is sparse (O(√X)), and the near-square X* (5.4 log p) is larger than for generic primes (3.4 log p), but
-finite.
+**Near-square forcing (Lemma N in the data; recomputed by the reviewer).** For p = m² + 24 and x ≤ 2048:
+* *Endpoint lines.* 55 are aligned with f = m² + 24 by the conductor criterion (x + 24 = c·s², c | 24,
+  disc ℚ(√−(x+24)) | x). Of these, 40 have zero successes in 5 000 primes; E_8, E_12, E_24, E_40, E_48, E_72, E_76, E_84
+  are among them. For example, x = 12: 36 = 6², ℚ(i); x = 24: 48 = 3·4², ℚ(√−3).
+* *Level lines.* 27 are aligned (24x + 1 a square), and 12 have zero successes: x = 15, 92, 376, 392, 551, 672, 876, 1247,
+  1335, 1520, 1552, 1855.
+* *Containment.* Every zero-success line is aligned. The converse fails because of exceptional primes. E_172 is aligned
+  yet has 122 successes, and E_176 has 389. L_7, L_12, L_40 (24x + 1 = 13², 17², 31²) have 377, 197, 45 successes. In
+  the sample, the numbers of m divisible by 13, 17, 31 are 377, 288, 156. For L_7 the residual successes match the
+  exception 13 | m (13 ≡ −1 mod 7). For L_12 and L_40, divisibility is necessary but not sufficient.
+
+So the aligned set is sparse (O(√X)), and alignment explains every observed forced failure. The near-square X* (5.4 log p)
+is larger than for generic primes (3.4 log p), but finite.
 
 ## 7. Verdict, screens, proposed FRONTIER text, bottom line
 
-**Verdict: NARROWED.**
-* *Killed* (scoped theorems):
-  * every hypothesis shape that 𝔐 satisfies with positive probability, for any target S_θ with θ < 2 log 2, including
-    Conjecture 3.4 itself (Cor M3);
-  * every block-robust (averaged) hypothesis, for any S_A (Cor M4);
-  * the uniform high-dimensional Landau sieve beyond the Kneser regime (Remark U);
-  * the unrestricted general lottery principle (Prop 5.5, CONDITIONAL on HL-F).
-* *Survives:* a general far-lower-tail principle with a quadratic-alignment clause (GLT). It implies S_A for every
-  A > 2 log 2, modulo the uniform-alignment gap (UA). It is the divisor-lottery analogue of Cramér's conjecture, and no
-  standard conjecture implies it.
-* *Strengthened* (small, PROVED): Theorem U, the fixed-window bound with exponent ℓ(X)/2, extending Fable Thm 3.2;
-  Theorem M, the model scale (log p)^{2 log 2}.
+**Verdict (Assessment): NARROWED.**
+* *Blocked* (scoped theorems; scope as stated in each):
+  * properties of line data that 𝔐 satisfies with positive probability, for any S_θ with θ < 2 log 2, including
+    Conjecture 3.4 (Cor M3);
+  * block-robust 𝔐-almost-sure properties, for any S_A (Cor M4);
+  * a general lottery principle without a quadratic-alignment clause (Prop 5.5, CONDITIONAL on HL-F), and the first-draft
+    principle with it but without local admissibility (review counterexample, §5.3).
+* *Survives:* ES-specific far-lower-tail hypotheses (LT, H⁻mom, H⁻_BM type). They are sufficient but ES-specific. A
+  research target for a general principle is described in §5.3, with three necessary features, the alignment Lemma N, and
+  the open uniform-alignment gap.
+* *Strengthened* (small, PROVED): Theorem U, the fixed-window bound with exponent ℓ(X)/2, extending Fable Thm 3.2; and
+  Theorem M with Cor M3/M4, the model calibration and the barriers.
 
-**The four hard screens (for GLT ⟹ S_A).**
-1. *T1 squares.* PASSES as a hypothesis: stated for primes; the integer version is false at squares, and the alignment
-   clause is T1. As a mechanism there is nothing to pass: GLT *assumes* the lottery.
-2. *8/131.* PASSES by threshold: numerator-uniform, with x₀; at 131 and 241 the bound is > 1.
-3. *Tied modulus.* FAILS as a mechanism. GLT does not break the tied modulus; it postulates the far tail of the tied
-   lottery. This is the honest reading: the hypothesis is where the tied modulus is hidden.
-4. *Fixed p.* Formally PASSES. The step that recovers one p is "count < 1", which is legitimate only because the bound is
-   < 1 per block (M4 is the matching barrier). Every hypothesis that reaches a fixed p must have this shape or be
-   pointwise.
+**The four hard screens (for "LT-type hypothesis ⟹ S_A").**
+1. *T1 squares.* Square-sensitive: stated for primes, and the integer versions fail at squares (CERTIFIED for 5 000
+   squares). As a mechanism there is nothing to test, because the hypothesis *assumes* the lottery's tail.
+2. *8/131.* Any such hypothesis has a threshold. Whether a numerator-8 analogue holds, and whether 131 and 241 lie below
+   its range, is not established here.
+3. *Tied modulus.* FAILS as a mechanism. The hypothesis does not break the tied modulus; it postulates the far tail of
+   the tied lottery.
+4. *Fixed p.* Formally passes. The step that recovers one p is "count < 1", legitimate only because the bound is < 1 per
+   block (M4 is the matching barrier).
 
-**Proposed FRONTIER §7.2 addendum (do not edit FRONTIER here; text for the curator).**
-> *(z53, `Z53_HCHYP.md`.)* The right scale for HC is (log p)^{2 log 2}, not log p. In the uniform-residue Kubilius model
-> almost surely HC(p) ≤ (log p)^A eventually for A > 2 log 2, and HC(p) > (log p)^θ infinitely often for θ < 2 log 2
-> (PROVED in the model, Thm M). So Conjecture 3.4 (HC ≪ log p) is model-null, and the target should read A > 2 log 2.
-> Numerically the difference is invisible: X*/log p = 3.42–3.45 for log p ∈ [18, 36], and in the model the local exponent
-> is still 1.2 at log p = 1600.
-> Barriers (PROVED): no hypothesis that the model satisfies with positive probability formally implies HC ≤ (log p)^θ for
-> θ < 2 log 2 (this kills Erdős–Hall-type statements), and no block-robust averaged hypothesis implies S_A at all.
-> Fixed windows: #{p ≤ y : HC(p) > X} ≪_X y(log y)^{−1−ℓ(X)/2} (PROVED mod Henriot; uniformity in X is model-false beyond
-> x ≍ log log p).
-> The weakest non-ES-specific sufficient principle found is a "Cramér–Granville principle for divisor lotteries" (GLT):
-> joint failure of a quadratically unaligned family of tied-class divisor events has frequency ≤ x·e^{−c·(model mass)}.
-> Over integers it is false (squares); unrestricted it is false given Hardy–Littlewood F (near-squares m² + 1 carry T1),
-> so it needs a quadratic-alignment clause. It implies S_A given uniform unalignment of the ES lines, which is proved
-> only for quadratics of bounded height. No standard conjecture (GRH, GLH, EH, Chowla–Elliott, Hooley R*, HL) implies it.
+**Proposed FRONTIER §7.2 addendum (text for the curator; do not edit FRONTIER here).**
+> *(z53, `Z53_HCHYP.md`.)*
+> * **Model scale (Thm M, PROVED in the model).** In the uniform-residue Kubilius model, almost surely
+>   HC(p) ≤ (log p)^A for all large p when A > 2 log 2, and HC(p) > (log p)^θ infinitely often when θ < 2 log 2. So
+>   Conjecture 3.4 (HC ≪ log p) is model-null, and the model-consistent target is A > 2 log 2. This does not refute
+>   Conj 3.4 for actual primes.
+> * **Invisible in practice (EVIDENCE).** X*/log p = 3.42–3.45 for log p ∈ [18, 36].
+> * **Barriers (PROVED, as properties of model line data).** Model-typical properties cannot formally imply
+>   HC ≤ (log p)^θ for θ < 2 log 2, and block-robust properties cannot imply S_A.
+> * **Fixed windows (PROVED mod Henriot).** #{p ≤ y : HC(p) > X} ≪_X y(log y)^{−1−ℓ(X)/2}.
+> * **General principles.** A general "lottery lower-tail" principle needs local admissibility, dependence control and a
+>   quadratic-alignment clause. Without the last it is false given Hardy–Littlewood F, because T1 lives on m² + 1.
+>   No counterexample-free formulation is known. Uniform unalignment of the ES lines is open beyond height (log x)^{1/10}.
+> * **Standard conjectures.** No implication from GRH, GLH, EH, Chowla–Elliott, Hooley R* or HL is established, and none
+>   is known.
 
-**Bottom line.**
-* The conditional route to HC(p) ≪ (log p)^A is now fully mapped. The exponent must exceed 2 log 2. The lines that carry
-  the conclusion lie deep in the lottery regime, where success comes from rare highly factorable values of p + x and
-  xp + 1.
-* Every hypothesis that is "typical" in the Kubilius sense, or robust to one exceptional prime per dyadic block, provably
-  cannot do it. That covers all standard conjectures.
-* What remains is a far-lower-tail principle. Its only natural general form is a Cramér-type conjecture for divisor
-  lotteries, with an explicit clause excluding quadratic conspiracies (the T1 family and its near-square deformations).
-* It is clean and plausible, and every test here agrees with it. It is also as far beyond current technology as Cramér's
-  conjecture.
-* So no conditional theorem "ES ⟸ standard conjecture" emerges, and one now knows exactly why. The live mathematical
-  questions it leaves are: the uniform alignment lemma (UA), a lower-bound sieve showing Theorem U is sharp, and any
-  far-tail input for a single lottery family.
+**Bottom line (Assessment).**
+* The conditional route to HC(p) ≪ (log p)^A is now mapped in the Kubilius model. The model-consistent exponent is
+  > 2 log 2, and the lines that carry the conclusion lie deep in the lottery regime, where success comes from rare highly
+  factorable values of p + x and xp + 1.
+* Properties of line data that the model satisfies with positive probability cannot formally give HC ≤ (log p)^θ for
+  θ < 2 log 2. Properties robust to one changed prime per dyadic block cannot give S_A at all.
+* The standard conjectures, through every implementation known here, supply only such properties. What remains is a
+  far-lower-tail input.
+* Its ES-specific forms are sufficient but are ES restated with extra quantitative content. A general form must at least
+  respect local admissibility, control dependence, and exclude quadratic conspiracies (T1 and its near-square
+  deformations). Review showed how easily a natural-looking formulation fails.
+* So no conditional theorem "ES ⟸ standard conjecture" emerges. The live questions are:
+  * a counterexample-free general formulation;
+  * the uniform alignment lemma (UA);
+  * a lower-bound sieve showing Theorem U is sharp;
+  * any far-tail input for a single lottery family.
 
 ## 8. Reproduction
 
@@ -591,4 +631,33 @@ cd scripts && python3 z53_hchyp_xstar_model.py         # model X* and local expo
 
 ## 9. Review record
 
-TODO (hostile review pending).
+Hostile internal review (deep-mode subagent, 2026-11-01; read the memo, re-ran the T1 control and test primes, recomputed
+tables). Verdict before repair: MAJOR-REPAIRS-NEEDED; the model theorem and Theorem U "largely survive". Repairs made:
+* **GLT refuted as first stated.** Counterexample: lines (5jn, 5, 4), a local obstruction with probability 1. GLT's status
+  is withdrawn and §5.3 is rewritten as necessary features plus a research target.
+* Alignment widened to characters of either parity (example F = n, q = 5, c = 2, f = m² − 5); the primitive character is
+  made explicit; exceptional primes, including 2, are discussed.
+* The claimed "only primes near scaled squares can be heavily aligned" is deleted.
+* Prop 5.5: the even-m argument is supplied (Fable's T1 statement assumes m odd).
+* Statements about standard conjectures are relabelled Assessment; M3/M4 are scoped to properties of model line data.
+* The model exponent is no longer stated as an arithmetic necessity; "boundary undecided" is added.
+* The M4 block-robustness application is restricted to count statements with slack ≥ 1.
+* Remark U corrected: failure is not generic right after x ≫ log log p. Only the Kneser–Rankin estimate becomes
+  ineffective there; failure becomes generic beyond (log p)^{log 2}.
+* Prop 5.1 restricted to the bare count statement with B ≥ 0.
+* Lemma N mass now keeps the log log factor.
+* M1 k = 0 case; M2 lower bound noted; M(a) small θ by monotonicity; M(b) error O(log p) made explicit.
+* "Sub-Poissonian" withdrawn: the large-X counts are overdispersed and the deep tail is untested.
+* Near-square statement changed from equality to containment, with the reviewer's counts.
+* Independence-ratio ranges corrected.
+* The cyclic Monte Carlo and the X* computations are labelled as surrogates.
+* One table entry corrected (10¹⁴ [4,8): 0.15 / 0.14).
+* "Low-Z" defined; Cramér analogy labelled Assessment ("currently unproved"; Granville's constant as a lower-bound
+  prediction).
+* Section cross-references fixed.
+* Scripts now decode HC = 0 as censored (no success ≤ X_max) and handle all-zero samples.
+
+The review confirmed: Lemma K and Theorem U (forms primitive and non-proportional, index-2 subgroups, exponent, X = 4
+check); M1/M2 calculations; Theorem M(a)/(b) up to the listed completions; Remark U arithmetic; the HC/X* and Z-tail
+numbers; T1 control 300/300 squares with 0 successes in 57 600 line tests; HC test values 7, 4, 15, 64, 39. A cross-model
+review is expected to follow.
