@@ -17,7 +17,6 @@ is unnecessary on the L(1, χ_p) axis, since M_BM ≥ 0.92·M₀ unconditionally
 is large where F is small (p ≡ 1 mod many q). B3.
 Open, plaus 1, with ES yield: Z0378 (Bertrand-style explicit F(p), the only row using B1's E2 escape hatch, still B2 at the end),
 Z0385 (Legendre-style 'ES unit' = FRONTIER §7.2 Pell data), Z0250 (Zsigmondy replacement), Z1891 (supersaturation), Z2363 (= Z1335 window).
-
 **Recurring missing theorems**
 1. *Random/subset-product/PD models of the level event* (calibration; correct only when conditioned on ∏ ≡ 1 mod 4C):
    Z1533, Z1827, Z1828, Z1904, Z2560, Z2580; T1-blind multiplicative-rank model refuted (Z2406, Pass 1 H06).
