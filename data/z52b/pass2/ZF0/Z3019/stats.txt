@@ -1,0 +1,28 @@
+collision N=4 hit_p=13 hit_e=3 fail_p=5 fail_e=11 starN=0
+collision N=5 hit_p=17 hit_e=3 fail_p=13 fail_e=7 starN=1
+collision N=6 hit_p=17 hit_e=7 fail_p=13 fail_e=11 starN=1
+collision N=8 hit_p=29 hit_e=3 fail_p=13 fail_e=19 starN=1
+collision N=10 hit_p=29 hit_e=11 fail_p=13 fail_e=27 starN=1
+collision N=11 hit_p=41 hit_e=3 fail_p=13 fail_e=31 starN=1
+collision N=12 hit_p=41 hit_e=7 fail_p=13 fail_e=35 starN=1
+collision N=14 hit_p=41 hit_e=15 fail_p=17 fail_e=39 starN=1
+collision N=18 hit_p=53 hit_e=19 fail_p=29 fail_e=43 starN=1
+collision N=16 hit_p=61 hit_e=3 fail_p=17 fail_e=47 starN=0
+collision N=20 hit_p=73 hit_e=7 fail_p=29 fail_e=51 starN=1
+collision N=21 hit_p=73 hit_e=11 fail_p=29 fail_e=55 starN=1
+collision N=23 hit_p=89 hit_e=3 fail_p=29 fail_e=63 starN=1
+collision N=24 hit_p=89 hit_e=7 fail_p=29 fail_e=67 starN=0
+collision N=26 hit_p=89 hit_e=15 fail_p=29 fail_e=75 starN=1
+collision N=30 hit_p=89 hit_e=31 fail_p=37 fail_e=83 starN=1
+collision N=25 hit_p=97 hit_e=3 fail_p=29 fail_e=71 starN=0
+collision N=28 hit_p=97 hit_e=15 fail_p=29 fail_e=83 starN=1
+collision N=27 hit_p=101 hit_e=7 fail_p=29 fail_e=79 starN=1
+collision N=29 hit_p=101 hit_e=15 fail_p=37 fail_e=79 starN=1
+total=332180 hits=5834457 no_hit=0 max_first_e=107 argmax=8803369
+property=0 fail=15424727 hit=5834457 primes_with_hit_property=332180
+property=1 fail=1534696 hit=48867 primes_with_hit_property=44524
+property=2 fail=13890031 hit=5785590 primes_with_hit_property=332179
+property=3 fail=10601 hit=4237 primes_with_hit_property=4237
+property=4 fail=15408058 hit=5826705 primes_with_hit_property=332179
+property=5 fail=8563882 hit=5232441 primes_with_hit_property=332163
+cpu=8.482

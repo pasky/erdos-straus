@@ -1,0 +1,357 @@
+{
+  "fits": {
+    "100": {
+      "points": 7,
+      "A": 7.326107435504196,
+      "intercept": -10.732532867754445,
+      "R2": 0.9050903860842415
+    },
+    "1000": {
+      "points": 6,
+      "A": 8.983774162124947,
+      "intercept": -15.045677223038817,
+      "R2": 0.9181089758264898
+    },
+    "10000": {
+      "points": 5,
+      "A": 10.486923811337856,
+      "intercept": -19.08455043797158,
+      "R2": 0.9022644727434113
+    }
+  },
+  "independent_checks": {
+    "5": {
+      "minC": 1,
+      "witness": [
+        1,
+        2,
+        1
+      ],
+      "hard_list": false
+    },
+    "13": {
+      "minC": 2,
+      "witness": [
+        1,
+        2,
+        2
+      ],
+      "hard_list": false
+    },
+    "37": {
+      "minC": 5,
+      "witness": [
+        1,
+        2,
+        5
+      ],
+      "hard_list": false
+    },
+    "157": {
+      "minC": 20,
+      "witness": [
+        1,
+        2,
+        20
+      ],
+      "hard_list": false
+    },
+    "409": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "577": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "2521": {
+      "minC": 11,
+      "witness": [
+        2,
+        29,
+        11
+      ],
+      "hard_list": true
+    },
+    "3109": {
+      "minC": 23,
+      "witness": [
+        2,
+        17,
+        23
+      ],
+      "hard_list": false
+    },
+    "4357": {
+      "minC": 39,
+      "witness": [
+        4,
+        7,
+        39
+      ],
+      "hard_list": false
+    },
+    "4789": {
+      "minC": 40,
+      "witness": [
+        5,
+        6,
+        40
+      ],
+      "hard_list": false
+    },
+    "5569": {
+      "minC": null,
+      "witness": null,
+      "hard_list": true
+    },
+    "9601": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "19141": {
+      "minC": 141,
+      "witness": [
+        1,
+        34,
+        141
+      ],
+      "hard_list": false
+    },
+    "21169": {
+      "minC": 2,
+      "witness": [
+        4,
+        683,
+        2
+      ],
+      "hard_list": true
+    },
+    "23929": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "26209": {
+      "minC": 149,
+      "witness": [
+        4,
+        11,
+        149
+      ],
+      "hard_list": false
+    },
+    "43969": {
+      "minC": 1,
+      "witness": [
+        21,
+        530,
+        1
+      ],
+      "hard_list": true
+    },
+    "60217": {
+      "minC": 251,
+      "witness": [
+        3,
+        20,
+        251
+      ],
+      "hard_list": false
+    },
+    "83449": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "98017": {
+      "minC": 557,
+      "witness": [
+        4,
+        11,
+        557
+      ],
+      "hard_list": false
+    },
+    "102001": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "132721": {
+      "minC": 2,
+      "witness": [
+        24,
+        695,
+        2
+      ],
+      "hard_list": true
+    },
+    "184837": {
+      "minC": 23105,
+      "witness": [
+        1,
+        2,
+        23105
+      ],
+      "hard_list": false
+    },
+    "329617": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "471241": {
+      "minC": 1,
+      "witness": [
+        6,
+        20489,
+        1
+      ],
+      "hard_list": true
+    },
+    "583801": {
+      "minC": 1,
+      "witness": [
+        21,
+        7034,
+        1
+      ],
+      "hard_list": true
+    },
+    "712321": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "1092961": {
+      "minC": 5,
+      "witness": [
+        4,
+        13835,
+        5
+      ],
+      "hard_list": true
+    },
+    "1134241": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "1724209": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "1726201": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "2451289": {
+      "minC": 6,
+      "witness": [
+        13,
+        7882,
+        6
+      ],
+      "hard_list": true
+    },
+    "4889641": {
+      "minC": 1,
+      "witness": [
+        60,
+        20459,
+        1
+      ],
+      "hard_list": true
+    },
+    "5101441": {
+      "minC": 6,
+      "witness": [
+        19,
+        11212,
+        6
+      ],
+      "hard_list": true
+    },
+    "5212561": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "8628481": {
+      "minC": 11,
+      "witness": [
+        26,
+        7549,
+        11
+      ],
+      "hard_list": true
+    },
+    "8813281": {
+      "minC": null,
+      "witness": null,
+      "hard_list": false
+    },
+    "11814001": {
+      "minC": 8636,
+      "witness": [
+        9,
+        38,
+        8636
+      ],
+      "hard_list": false
+    },
+    "20322481": {
+      "minC": 12,
+      "witness": [
+        29,
+        14610,
+        12
+      ],
+      "hard_list": true
+    },
+    "20445289": {
+      "minC": 13106,
+      "witness": [
+        6,
+        65,
+        13106
+      ],
+      "hard_list": false
+    },
+    "28175101": {
+      "minC": 4163,
+      "witness": [
+        36,
+        47,
+        4163
+      ],
+      "hard_list": false
+    },
+    "37117609": {
+      "minC": 2,
+      "witness": [
+        14,
+        334393,
+        2
+      ],
+      "hard_list": true
+    },
+    "85664329": {
+      "minC": 41027,
+      "witness": [
+        18,
+        29,
+        41027
+      ],
+      "hard_list": false
+    }
+  },
+  "small_full_prime_checks": 609,
+  "note": "Zeros mean K=infinity, not missing/censored data. Fits exclude all infinity values."
+}
