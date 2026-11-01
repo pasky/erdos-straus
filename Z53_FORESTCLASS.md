@@ -334,6 +334,12 @@ p ≡ 5 (8) all hit at root 1.
   * in [10⁷, 10⁸) (14): 10049713, 12570721, 12943393, 16433113, 19306057, 20072497, 20880553, 22711753, 51703633,
     57360697, 59774233, 89954593, 93727657, 98719993.
   * Rate per prime: 2·10⁻⁴ below 10⁷, 1.1·10⁻⁵ in [10⁷, 10⁸).
+  * The failures are ticket-starved (EVIDENCE, `scripts/z53_forestclass_smnquantile.py`, `smn_fail_quantiles.txt`). We
+    rank |SMN(p)|/√p among the primes p′ ≡ 1 (8) within ±10 % of p. For the 47 failures that have such a window, the
+    mean quantile is 0.056; 35 of the 47 lie at or below 0.05 and 38 at or below 0.10. For |SM(p)|/√p, a proxy for h(−4p)/√p, the mean
+    quantile is 0.053. Assessment: SMN fails where Cl(−4p) has few small minima, i.e. where −p is a non-square modulo
+    many small primes (small L(1, χ_{−4p})). This is a loaded lottery, not a structural obstruction. It matches the
+    observation that the (★)-zeros have small h(−4p) (`BRAINSTORM/z52b_fingerprint.md` item 131).
 * At 19441 the bichromatic components are {7, 26, 68, …}, {20, 39, 499} and {38, 129}. They contain SP roots and
   non-residues, but no SM root.
 * SP's success comes from small roots: 4, 8, 3, … are in SP whenever p ≡ 1 (24), and the maximal first-hit rank is 28.
