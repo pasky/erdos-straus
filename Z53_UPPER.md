@@ -15,8 +15,9 @@ Notation. p ≡ 1 (mod 4) prime. A *word* of p is (t, u, v) ∈ ℕ³ (ℕ = {1,
 
 **The target is not proved.** The pointwise statement "HC(p) ≪ p^θ for all large p" (any θ < 1, a fortiori polylog)
 implies the Erdős–Straus conjecture for every sufficiently large prime p ≡ 1 (mod 4) (Theorem 1 of LOWERTAIL_ROUND2_FABLE
-§1.1), and by Lemma 1.2 below HC(p) < ∞ already forces HC(p) ≤ p + 2. So the retargeted goal is "ES for large p, plus a
-saving of p^{1−θ} in the size of one coordinate"; it is at least as hard as ES for large primes, which is open. I did not
+§1.1), and by Lemma 1.2 below HC(p) < ∞ already forces HC(p) ≤ p − 1. So the retargeted goal is "HC(p) < ∞ for all
+large p (which implies ES there), plus a saving of p^{1−θ} in the size of one coordinate"; it is at least as hard as ES
+for large primes p ≡ 1 (4), which is open. I did not
 find a pointwise argument, and §5 records exactly where the direct route stops and which statement would be needed.
 
 What is proved here:
@@ -28,7 +29,7 @@ What is proved here:
 | L1.3 | words ⟷ pairs (m, e) with e ∣ m + 1, m ∣ p + e (u = e, t = (m+1)/e, v = (p+e)/m) | PROVED |
 | P2.1 | HC(p) = 3 iff p ≡ 5 (mod 8); for p ≡ 1 (8): HC(p) ≥ 4, and HC(p) = 4 iff (p+4)(4p+1) has a prime factor ≡ 3 (mod 4) | PROVED |
 | L3.1 | **reciprocity constraint**: every divisor d certifying a coordinate c ∈ 𝒞_p (as in L1.1) has (d/p) = −1 | PROVED |
-| C3.2 | no certificate divisor is composed of primes dividing 2m when p ≡ 1 (mod 8m); no finite congruence covering exists | PROVED |
+| C3.2 | no certificate divisor is composed of primes dividing 2m when p ≡ 1 (mod 8m); no finite set of certificate divisors serves all p | PROVED |
 | P3.3 | for infinitely many p every certificate divisor (any c) has a prime factor > (1/(1.02 L₀) − o(1)) log p (L₀ = Linnik exponent) | PROVED (Linnik) |
 | **T4.1** | **for 0 < θ ≤ 1/2: #{p ≤ x : HC(p) > x^θ + 1} ≤ 16 x exp(−0.15 √(θ log x)) for x ≥ x₀(θ); hence HC(p) ≤ p^θ for all p ≤ x outside ≪_θ x exp(−0.1 √(θ log x)) primes** | PROVED (Bombieri–Vinogradov, ineffective x₀) |
 | T4.2 | for fixed K: #{p ≤ x : HC(p) > 4K} ≪_K x (log x)^{−1−κ(K)}, κ(K) = 2Σ_{k≤K} 1/φ(4k) ≥ log(K+1) | PROVED |
@@ -135,9 +136,11 @@ such that every certificate divisor of p (for every c) has a prime factor ℓ > 
 p ≤ C₀M^{L₀} (Linnik). By L3.1 a certificate divisor d has (d/p) = −1, so some prime ℓ ∣ d has (ℓ/p) = −1; by C3.2
 (m = ∏_{ℓ≤Y} ℓ), ℓ > Y. log p ≤ log C₀ + L₀(log 8 + 1.02Y). The primes obtained are > M → ∞, so infinitely many. ∎
 
-Meaning: any proof of a pointwise bound must use prime factors of p + c / cp + 1 larger than ≍ log p — information not
-determined by p modulo any modulus ≤ p^{O(1)} built from small primes. This is the reciprocity form of the "square
-classes" (Mordell–Schinzel) obstruction, written for the HC lines.
+Meaning: for infinitely many p, every certificate divisor (for every c, of any size) has a prime factor larger than
+≍ log p; a pointwise argument cannot get by with certificate divisors supported on the primes ≤ Y ≍ log p (nor on any
+fixed finite set of primes, C3.2). This is the reciprocity form of the "square classes" (Mordell–Schinzel) obstruction,
+written for the HC lines. (It is *not* a claim about all congruence-based reasoning: p itself is determined by its
+residue modulo 2^{⌈log₂ p⌉+1}, say.)
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -154,7 +157,7 @@ For a prime q put E_q := {e ∈ ℕ : 4 ∣ e, e ∣ q + 1} (empty unless q ≡ 
 Ω_q := {−e mod q : e ∈ E_q}.
 
 *Distinctness.* Elements of E_q lie in [4, q+1]; −e ≡ −e′ (mod q) with 4 ≤ e < e′ ≤ q + 1 would force q ∣ e′ − e ∈ [1, q−3].
-So ω(q) = τ*(q). Also τ*(q) ≤ τ(q+1) < q (τ(n) ≤ 2√n; check q = 3: τ* = 1).
+So ω(q) = τ*(q). Also τ*(q) < q: τ*(2) = 0, τ*(3) = 1, and τ*(q) ≤ τ(q+1) ≤ 2√(q+1) < q for q ≥ 7 (q = 5: τ* = 0).
 
 *Sieve property.* If p ≡ −e (mod q) for some e ∈ E_q, then q ∣ p + e, e ∣ q + 1, and by L1.3 the word
 ((q+1)/e, e, (p+e)/q) has u = e ∈ 4ℕ ⊂ 𝒞_p: HC(p) ≤ e ≤ q + 1. Hence if HC(p) > Q + 1 then p mod q ∉ Ω_q for every prime
@@ -181,8 +184,7 @@ the (r choose 2) pairs bounds the rest. ∎
 
 **Theorem 4.1.** Let 0 < θ ≤ 1/2. For x ≥ x₀(θ):
   #{p ≤ x prime, p ≡ 1 (4) : HC(p) > x^θ + 1} ≤ 16 · x · exp(−0.15 √(θ log x)).
-Consequently #{p ≤ x prime, p ≡ 1 (4) : HC(p) > p^θ} ≪_θ x exp(−0.1 √(θ log x)), and the same holds for every θ ∈ (0, 1)
-(monotonicity in θ).
+Consequently, for every θ ∈ (0, 1), #{p ≤ x prime, p ≡ 1 (4) : HC(p) > p^θ} ≪_θ x exp(−0.1 √(θ log x)).
 
 *Proof.* Q := x^θ ≤ √x, N := x, 𝒩 := {p ≤ x prime, p ≡ 1 (4) : HC(p) > Q + 1}. By the sieve property and the large sieve,
 |𝒩| ≤ (x + Q²)/L ≤ 2x/L. Put a_q := τ*(q)/q ≤ g(q). For r ≥ 2 and y_r := Q^{1/r}, every product of r distinct primes
@@ -193,8 +195,8 @@ x ≥ x₀(θ) Lemma 4.1 gives S := Σ_{q ≤ y_r} a_q ≥ c₁ log y_r = Λ/r. 
 (r choose 2) T₀ S^{r−2} ≤ (r²T₀/(2S²)) S^r ≤ S^r/2 and Lemma 4.2 gives e_r ≥ S^r/(2·r!) ≥ (S/r)^r/2 ≥ (Λ/r²)^r/2 ≥ 4^r/2
 (r! ≤ r^r; Λ/r² ≥ 4). With r ≥ √Λ/2 − 1: L ≥ 2^{2r−1} ≥ 2^{√Λ − 3} = exp((log 2)√Λ)/8.
 √Λ = √(c₁)√(θ log x) ≥ 0.2236 √(θ log x), and (log 2)·0.2236 > 0.15. So |𝒩| ≤ 2x/L ≤ 16 x exp(−0.15 √(θ log x)).
-For the consequence: a prime p ∈ (2√x, x] with HC(p) > p^θ has HC(p) > (2√x)^θ ≥ x^{θ/2} + 1, so it lies in the set of
-the theorem with θ/2; the primes ≤ 2√x are O(√x). 0.15/√2 > 0.1. ∎
+For the consequence (any θ ∈ (0,1)): a prime p ∈ (2√x, x] with HC(p) > p^θ has HC(p) > (2√x)^θ ≥ x^{θ/2} + 1, so it
+lies in the set of the theorem with parameter θ/2 ∈ (0, 1/2); the primes ≤ 2√x are O(√x). 0.15/√2 > 0.1. ∎
 
 Remarks. (a) x₀(θ) is ineffective (Bombieri–Vinogradov rests on Siegel's theorem); a Brun–Titchmarsh/Siegel–Walfisz
 version with moduli ≤ (log y)^N gives only a (log log)² exponent, cf. T4.3. (b) Only u-coordinates in 4ℕ and *prime*
@@ -234,19 +236,20 @@ log log z = log log x − log(2s). So L ≫_K (log x)^{1+κ(K)}; the primes p �
 So HC(p) ≤ 4K for all p outside an explicit set of relative density ≪_K (log x)^{−κ(K)} with κ(K) ≥ log(K+1): for
 every B, HC(p) ≤ 4⌈e^B⌉ outside ≪_B π(x)(log x)^{−B} primes.
 
-**Theorem 4.3 (polylog window).** For A > 0, ε > 0: #{p ≤ x : HC(p) > (log x)^A} ≪_{A,ε} x exp(−(1 − ε)A (log log x)²).
+**Theorem 4.3 (polylog window).** For A > 0, 0 < ε < 1 (for ε ≥ 1 the bound is trivial): #{p ≤ x : HC(p) > (log x)^A} ≪_{A,ε} x exp(−(1 − ε)A (log log x)²).
 
 *Proof.* K := ⌊(log x)^A/4⌋, Q = √x, κ := κ(K) ≥ log K = A log log x − O(1); κ ≤ 2Σ_{k≤K}1/k ≤ 2 log K + 2.
 *Upper bound G.* For m = 4k ≤ 4K and t > 16K² ≥ m², Brun–Titchmarsh (Montgomery–Vaughan) π(t; m, a) ≤ 2t/(φ(m) log(t/m))
 ≤ 4t/(φ(m) log t); partial summation gives Σ_{16K² < q ≤ z, q ≡ −1 (m)} (log q)/q ≤ 4(1 + log z)/φ(m). Hence
-Σ_P ω(q) log q/q ≤ 2 log z + 2Σ_k 4(1+log z)/φ(4k) ≤ (2 + 8κ) log z, G ≤ 4 + 16κ, s ≤ 28κ + 7 = O(A log log x).
+Σ_P ω(q) log q/q ≤ 2 log z + 2Σ_k 4(1+log z)/φ(4k) ≤ (2 + 8κ) log z, G ≤ 4 + 16κ, s ≤ 28κ + 8 = O(A log log x).
 *Lower bound.* Siegel–Walfisz with exponent N := ⌈2A/ε⌉: π(t; m, a) = li(t)/φ(m) + O_N(t exp(−c_N√log t)) for
 m ≤ (log t)^N. For m = 4k put y₁(m) := max(16K², exp(m^{1/N})); partial summation gives
 Σ_{y₁ < q ≤ z, q ≡ −1 (m)} 1/q ≥ (log log z − log log y₁)/φ(m) − O_N(exp(−(c_N/2) m^{1/(2N)})).
 log log y₁ ≤ max(log(3 + 2 log K), (1/N) log 4K) ≤ (ε/2) log log x + O(1) for large x. Summing 2× over k ≤ K (the error
 terms sum to O_N(1)): Σ_P ω(q)/q ≥ κ (log log z − (ε/2) log log x − O(1)) − O_N(1), with
 log log z = log log x − log(2s) = log log x − O(log log log x). So Σ_P ω/q ≥ (1 − ε/2 − o(1)) A (log log x)², and
-L ≥ (1−1/e) e^{−1.2} exp((1 − ε/2 − o(1)) A (log log x)²). The large sieve gives the claim (z ≥ y₁ holds since
+L ≥ (1−1/e) e^{−1.2} exp((1 − ε/2 − o(1)) A (log log x)²). The large sieve, applied to the primes p ∈ (Q, x] (Ω_q ∋ 0, so p = q must be excluded; the primes ≤ Q add
+O(√x)), gives the claim (z ≥ y₁ holds since
 log z = log x/(2s) ≫ (log x)/(log log x) while log y₁ ≤ (log x)^{A/N} + O(log log x)). ∎
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -262,7 +265,9 @@ By L1.1, the target T_θ is literally:
 
 Equivalently (L1.3): there is a modulus m ∈ ℕ and e ∣ m + 1 with m ∣ p + e such that e or (m+1)/e lies in 𝒞_p ∩ [1, p^θ]
 (the third coordinate (p+e)/m could also be the small 𝒞-element). By L1.2, "≤ p^θ" may be replaced by "< ∞" at the cost
-of θ = 1; S_1 is ES for large p.
+of θ = 1; S_1 is "HC(p) < ∞ for all large p", which implies ES for all large p ≡ 1 (4) (the converse — every
+ES-soluble p has a word with a 𝒞_p-coordinate — is not used or proved here). Since p, p + 1, p + 2 ∉ 𝒞_p, L1.2 even gives
+HC(p) < ∞ ⟹ HC(p) ≤ p − 1.
 
 ### 5.2 Why each natural route stops (PROVED statements + EVIDENCE)
 
@@ -270,36 +275,40 @@ of θ = 1; S_1 is ES for large p.
    ≡ −1 (mod c)"; it fails whenever p + c and cp + 1 are prime (or products of primes in a subgroup of (ℤ/c)^× missing −1).
    No unconditional statement controls the factorisation of p + c for a *given* p, so the argument must use the growing
    family {p + c, cp + 1 : c ≤ p^θ}.
-2. **Congruence data is provably insufficient** (C3.2, P3.3): for any fixed modulus, and for smooth parts up to
-   ≍ log p, there are infinitely many p where no certificate divisor is built from those primes. Any proof must control
-   prime factors > (log p)/(1.02 L₀) of the shifted family. (For windows c ≤ p^θ the family is determined by p modulo
-   numbers up to p^{1+θ}, so this is not a contradiction with S_θ — but it removes every argument that uses only "p mod M"
-   for M built from small primes, including all polynomial-identity coverings.)
-3. **Prime-level certificates are insufficient even heuristically**, so the sieve mechanism of T4.1 cannot become
-   pointwise. EVIDENCE (`data/z53/upper/primecert_1e8.txt`): among the 1 439 970 primes p ≡ 1 (8) below 10⁸, 760 have no
+2. **Small-prime certificates are provably insufficient** (C3.2, P3.3): for any fixed finite set of primes, and for
+   the primes up to ≍ log p, there are infinitely many p where no certificate divisor is supported on those primes. So a
+   proof of S_θ must produce certificate divisors with prime factors > (log p)/(1.02 L₀) − O(1) for such p; it cannot
+   consist of finitely many fixed-divisor congruence families.
+3. **Prime-level certificates do not cover all tested primes** (the mechanism of T4.1 alone does not even work
+   pointwise in the tested range). EVIDENCE (`data/z53/upper/primecert_1e8.txt`): among the 1 439 970 primes p ≡ 1 (8) below 10⁸, 760 have no
    prime q < p with q ∣ p + e, e ∣ q + 1, 4 ∣ e (the T4.1 mechanism), and 4 (p = 3361, 66529, 1095481, 85664329) have no
    prime-level certificate of *any* 𝒞-type (e or (q+1)/e ∈ 𝒞_p), although their HC is 7, 8, 15, 15 — witnessed by
-   composite divisors, e.g. 7·3361 + 1 = 34·692 with 34 ≡ −1 (mod 7). The tail #{p : Q₄(p) ≥ 2^b} roughly halves per
-   doubling of 2^b, i.e. prime-level failure behaves like a power p^{−δ} with δ ≈ 0.4, whose sum over primes diverges.
-   So a pointwise proof must exploit composite divisors d of p + c / cp + 1, i.e. *how several prime factors of one
-   shifted integer combine in (ℤ/c)^×*.
+   composite divisors, e.g. 7·3361 + 1 = 34·692 with 34 ≡ −1 (mod 7). Tail
+   statistics (Q₄, Q_C := least prime q giving a prime-level certificate of the respective type): the Q_C tail
+   #{p : Q_C(p) ≥ 2^b} roughly halves per doubling of 2^b; the Q₄ tail decays more slowly (ratios ≈ 0.68–0.71 per
+   doubling at b = 10…13). The data *suggest* (not proved) that infinitely many p have no prime-level certificate with
+   q < p, in which case a pointwise proof must exploit composite divisors d of p + c / cp + 1, i.e. *how several prime
+   factors of one shifted integer combine in (ℤ/c)^×*.
 4. **The sieve itself is not pointwise**: Montgomery's sieve bounds the *number* of survivors; it cannot show that a
-   given p is not a survivor, and by item 3 survivors of the prime-level sieve with q < p do exist.
-5. **Least non-residue tools do not help.** L3.1 needs (d/p) = −1, and Burgess provides a prime ℓ ≤ p^{1/(4√e)+ε} with
-   (ℓ/p) = −1. But a certificate with d = ℓ needs p ≡ −e (mod ℓ) for one of the ≤ τ(ℓ+1) admissible e, a set of size
-   ℓ^{o(1)} inside the (ℓ−1)/2 non-residues; character-sum methods (Burgess, Weil) only detect sets of size ≫ ℓ^{1/4+ε}.
-   With composite d the needed event is "p mod d in a set of size d^{o(1)}" again.
+   given p is not a survivor, and by item 3 survivors of the prime-level sieve with q < p exist in the tested range.
+5. **Least non-residue tools do not directly help.** L3.1 needs (d/p) = −1, and Burgess provides a prime
+   ℓ ≤ p^{1/(4√e)+ε} with (ℓ/p) = −1. But a certificate with d = ℓ needs p ≡ −e (mod ℓ) for one of the ≤ τ(ℓ+1)
+   admissible e, a set of size ℓ^{o(1)} inside the (ℓ−1)/2 non-residues, with no interval or algebraic structure that
+   the known character-sum estimates (Burgess, Weil) could exploit to force a hit. With composite d the needed event is
+   again "p mod d in a sparse divisor-defined set".
 
 ### 5.3 The weakest statement that would suffice (and what I could prove about it)
 
 The cleanest sufficient statement suggested by 5.2.3 is a **divisor-subproduct statement**: for N ∈ ℕ and c ≥ 3 coprime
 to N let Σ_c(N) ⊂ (ℤ/c)^× be the set of classes of the positive divisors of N (= subproducts of the multiset of classes of
 the prime factors of N, with multiplicity). Then S_θ ⟺ "∃ c ∈ 𝒞_p ∩ [3, p^θ] with −1 ∈ Σ_c(p + c) ∪ Σ_c(cp + 1)".
-A zero-sum/additive-combinatorics route would be: if the classes of prime factors of N generate a subgroup H ∋ −1 and
-the multiset is long relative to |H| with no class of very large multiplicity, results on subsequence products of long
-sequences in finite abelian groups give Σ_c(N) ⊇ H, so −1 ∈ Σ_c(N) (I did not pin down the exact length needed; the
-point is only that a length ≍ |H| is required). This turns S_θ into: *for some c ≤ p^θ with small |(ℤ/c)^×| (c = 4, 8, 12, 16, 20, 24 …),
-p + c or cp + 1 has ≳ φ(c) prime factors spread over a subgroup containing −1.* That is a lower bound on ω(p + c) for a
+A zero-sum/additive-combinatorics route would need a precise theorem of the form "a sequence in a finite abelian group
+G that is long and *not concentrated on a proper subgroup or its cosets* has all of a subgroup H ∋ −1 among its subproducts".
+Length plus bounded multiplicity alone is not enough (referee's example: in (ℤ/52)^× of order 24, four copies of each
+element of H₀ = {1, 3, 9, 27, 29, 35} plus one 15 has length 25, multiplicity ≤ 4, generates the group, yet all
+subproducts lie in H₀ ∪ 15H₀ ∌ −1). One *stronger* sufficient condition would then be: *for some c ≤ p^θ with small
+φ(c) (c = 4, 8, 12, …), p + c or cp + 1 has ≳ φ(c) prime factors whose classes are spread (not concentrated on a coset
+structure missing −1).* That is a lower bound on ω(p + c) for a
 single p and some small c, which is out of reach (Sylvester–Schur-type theorems give one large prime factor per block of
 consecutive integers, not many prime factors of one), and P2.1(ii) shows that already c = 4 is exactly "p + 4 or 4p + 1
 has a prime factor ≡ 3 (mod 4)" — a statement that fails for ≈ 8.7% of the primes p ≡ 1 (8) below 10⁸ (125 059 of
@@ -308,9 +317,11 @@ has a prime factor ≡ 3 (mod 4)" — a statement that fails for ≈ 8.7% of the
 ### 5.4 Heuristic size (EVIDENCE, not used)
 
 The expected number of pairs (c, d) witnessing a coordinate c ≤ X is ≍ log X · log p (divisor counting in the classes
-−1 mod c, Σ_{c ≤ X} τ(N_c)/φ(c)). A Dickson-type model (all of p + c, cp + 1, c ≤ X, simultaneously "prime-like") has
-probability ≈ (log p)^{−cX}, summable over p once X ≥ (1+ε) log p/(c log log p): so HC(p) = (log p)^{1+o(1)} at worst is
-the natural conjecture; data: HC(p) ≤ 64 for p < 10⁸ (§6). In particular any θ > 0 is a huge margin heuristically; the
+−1 mod c, Σ_{c ≤ X} τ(N_c)/φ(c)). A Dickson-type model — all of p + c, cp + 1 (c ∈ 𝒞_p, c ≤ X) equal to their forced
+small-prime parts times a single large prime, the small parts chosen admissibly so that no certificate arises from
+them (literal simultaneous primality is impossible: odd c ∈ 𝒞_p makes both even, and 3 divides p + 4 or p + 8 for every
+prime p > 3, …) — has probability ≈ (log p)^{−c′X} for some c′ > 0, summable over p once X ≳ log p/log log p. So the
+natural CONJECTURE is HC(p) ≪ log p (or a bit less) in the worst case; data: HC(p) ≤ 64 for p < 10⁸ (§6). In particular any θ > 0 is a huge margin heuristically; the
 difficulty of T_θ is entirely the pointwise nature, not the window.
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -325,7 +336,8 @@ difficulty of T_θ is entirely the pointwise nature, not the window.
 - L3.1: all certificate divisors for all c ∈ 𝒞_p, c ≤ 64, all p ≤ 2·10⁷: 45 499 504 checked, 0 violations.
 - Sieve sets (T4.2 mechanism, p ≡ 1 (8), p ≤ 2·10⁶, `hc_1e7.txt`): #𝒮_K (no prime q ≡ −1 (4k) divides (p+4k)(4kp+1),
   k ≤ K) vs #{HC > 4K}: K=1: 4010/4010; K=2: 1332/196; K=4: 436/27; K=8: 174/5; K=16: 75/0; K=24: 52/0. The containment
-  {HC > 4K} ⊂ 𝒮_K holds (0 violations); the gap shows how much composite divisors add.
+  {HC > 4K} ⊂ 𝒮_K holds (0 violations); the gap comes from composite certificate divisors *and* from odd coordinates
+  c ≡ −p (8) that 𝒮_K ignores (e.g. p = 6841 ∈ 𝒮_2 has HC = 7 via the prime divisor 41 ≡ −1 (mod 7) of 7p + 1).
 `scripts/z53_upper_primecert.c`: prime-level certificates to 10⁸ (§5.2.3), `primecert_1e8*.txt`.
 `scripts/z53_upper_hcpoint.py`: HC(p) with witnessing word for given p (spot checks in §5.2.3).
 
