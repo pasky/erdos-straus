@@ -328,8 +328,8 @@ gcd(a,c) = 1 and m := 4acd − 1, and the event is m | cp + a, i.e. p ≡ −a c
 * *Obstruction (why it is not proved here).* For each c, the residue class r mod D is again one cell (a ≡ −rc,
   d ≡ −(4rc²)⁻¹), and Lemma 5.2 applies per c. The "smooth" deviations sum over c by Minkowski to O(𝓛⁵). For cD² > Y, though,
   the c-cells are sparse: their content is a single point with no main term. The cross-c correlation of these point-spikes is
-  X_D = Σ_{P≠P'} (mm')⁻¹·1[D | m, D | m', ac' ≡ a'c (D), a,d,a',d' ≤ D]. Bounding it with the trivial divisor bound gives only
-  Σ_D φ(D)X_D ≪ 𝓛⁶, a log short. One needs a saving from the congruence ac' ≡ a'c (mod D) among small solutions of
+  X_D = Σ_{P≠P'} (mm')⁻¹·1[D | m, D | m', ac' ≡ a'c (D), a,d,a',d' ≤ D]. With the divisor-bound accounting we tried, Σ_D φ(D)X_D comes out only
+  ≲ 𝓛⁶ (heuristic accounting), a log short. One needs a saving from the congruence ac' ≡ a'c (mod D) among small solutions of
   4acd ≡ 1 (mod D): a multiplicative-energy estimate for small points on these curves. A cheap rigorous variant (Assessment,
   sketch only) restricts to c ≤ log X. Cauchy–Schwarz over c then costs only a factor log X, and one gets
   f_II(p) ≫ log²p·log log p for almost all p. We do not write this out.
@@ -394,4 +394,17 @@ it says nothing about any prescribed prime, and therefore nothing about B2.
 
 ## 13. Review log
 
-*(pending: hostile reviewer subagent; cross-model review.)*
+* **Hostile internal review (deep-mode subagent, 2026-11-01).** No FATAL issue. Verified OK: Lemma 2.1 (injectivity and
+  disjointness); Lemmas 3.1–3.2 (CRT, units, level, exponents 159/161/9/170); Lemmas 4.1–4.2 (orthogonality, primitive
+  regrouping, Parseval); the one-cell sign C ≡ −(4r)⁻¹; Lemmas 5.1–5.2 (edge cases, integral directions; an independent check
+  of 10 000 random cells passed); Prop. 6.1 (K₁ ≈ 4.509); §7; §8 reruns (Q = 10³, 3·10³ reproduce the table); f(p) ≥ f_II(p) ≥ R(p)
+  checked against ET's normalisation f = 3f_I + 3f_II.
+  MAJOR findings, repaired: (1) we had said Theorem A reaches "the true average order" of f. The mean of f_II(p) is ≍ log³p,
+  so Theorem A reaches the order of R only; the wording is fixed in §§0, 10, 12. The ET Markov statement is also corrected.
+  (2) Unwarranted necessity and impossibility claims (on concentration of R, on the o(π/log) exceptional set, and on the
+  level-1/4 "ceiling") were rescoped to "this implementation / variance-plus-Chebyshev".
+  MINOR findings, repaired: exact constants in Cor. 6.2 (a = 5.0177…, 64a = 321.13…, 256a = 1284.54…; 1285 and 5140 hold for
+  large X); the BV prime-power remark was replaced by a standard citation; λ + δ = log Y − log d − log u₀; E_r ≥ 0 (not > 0);
+  T is summed over odd d; "every triple gives Type II" is restricted to primes; the numerics are labelled floating-point.
+  §9.1's c₁ is labelled a proof sketch relative to the quoted main-term asymptotics.
+* Cross-model review: pending.
