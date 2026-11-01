@@ -1,0 +1,23 @@
+q=5 N=1000000 x_steps=0 seconds=6.040
+r=1 admissible=200000 certified=199896 inherited=176696 unresolved=104 first_exact_failure=13 coprime6_admissible=66666 coprime6_certified=66562 coprime6_first_failure=13
+r=2 admissible=199999 certified=199767 inherited=177017 unresolved=232 first_exact_failure=11 coprime6_admissible=66666 coprime6_certified=66434 coprime6_first_failure=11
+r=3 admissible=200000 certified=199808 inherited=177017 unresolved=192 first_exact_failure=19 coprime6_admissible=66666 coprime6_certified=66474 coprime6_first_failure=19
+r=4 admissible=200000 certified=199841 inherited=176673 unresolved=159 first_exact_failure=2 coprime6_admissible=66667 coprime6_certified=66521 coprime6_first_failure=17
+q=7 N=1000000 x_steps=0 seconds=76.662
+r=1 admissible=142857 certified=142186 inherited=122870 unresolved=671 first_exact_failure=6 coprime6_admissible=47619 coprime6_certified=47013 coprime6_first_failure=13
+r=2 admissible=142857 certified=142139 inherited=122606 unresolved=718 first_exact_failure=5 coprime6_admissible=47620 coprime6_certified=46942 coprime6_first_failure=5
+r=3 admissible=142857 certified=142358 inherited=122751 unresolved=499 first_exact_failure=53 coprime6_admissible=47619 coprime6_certified=47126 coprime6_first_failure=53
+r=4 admissible=142857 certified=141939 inherited=122460 unresolved=918 first_exact_failure=3 coprime6_admissible=47619 coprime6_certified=46772 coprime6_first_failure=17
+r=5 admissible=142857 certified=142249 inherited=122167 unresolved=608 first_exact_failure=2 coprime6_admissible=47618 coprime6_certified=47167 coprime6_first_failure=37
+r=6 admissible=142857 certified=141500 inherited=122851 unresolved=1357 first_exact_failure=29 coprime6_admissible=47618 coprime6_certified=46270 coprime6_first_failure=29
+q=11 N=1000000 x_steps=0 seconds=412.739
+r=1 admissible=90909 certified=88774 inherited=74101 unresolved=2135 first_exact_failure=5 coprime6_admissible=30303 coprime6_certified=28392 coprime6_first_failure=5
+r=2 admissible=90909 certified=87839 inherited=74452 unresolved=3070 first_exact_failure=10 coprime6_admissible=30302 coprime6_certified=27893 coprime6_first_failure=43
+r=3 admissible=90909 certified=88990 inherited=74166 unresolved=1919 first_exact_failure=15 coprime6_admissible=30302 coprime6_certified=28459 coprime6_first_failure=37
+r=4 admissible=90909 certified=88853 inherited=73564 unresolved=2056 first_exact_failure=9 coprime6_admissible=30303 coprime6_certified=28690 coprime6_first_failure=31
+r=5 admissible=90909 certified=88662 inherited=74275 unresolved=2247 first_exact_failure=3 coprime6_admissible=30303 coprime6_certified=28288 coprime6_first_failure=25
+r=6 admissible=90909 certified=88591 inherited=74209 unresolved=2318 first_exact_failure=19 coprime6_admissible=30303 coprime6_certified=28609 coprime6_first_failure=19
+r=7 admissible=90909 certified=88982 inherited=74119 unresolved=1927 first_exact_failure=2 coprime6_admissible=30303 coprime6_certified=29005 coprime6_first_failure=13
+r=8 admissible=90909 certified=89015 inherited=74356 unresolved=1894 first_exact_failure=7 coprime6_admissible=30304 coprime6_certified=28862 coprime6_first_failure=7
+r=9 admissible=90909 certified=88625 inherited=74503 unresolved=2284 first_exact_failure=23 coprime6_admissible=30303 coprime6_certified=28092 coprime6_first_failure=23
+r=10 admissible=90909 certified=88977 inherited=74170 unresolved=1932 first_exact_failure=6 coprime6_admissible=30303 coprime6_certified=28947 coprime6_first_failure=17
