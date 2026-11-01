@@ -1,0 +1,23 @@
+{
+ "frac_zmin_gt_p^k": {
+  "1.5": 0.7426175912254799,
+  "1.75": 0.0035330099135203546,
+  "1.9": 0.0,
+  "2.0": 0.0
+ },
+ "max_k_needed_over_primes_gt_5_le_2e5": 1.8917932665376695,
+ "spearman_U_vs_least_primitive_root": -0.42040767534067447,
+ "spearman_U_vs_least_QNR_recomputed": -0.48474506727590005,
+ "max_least_primitive_root_le_2e5": 69,
+ "max_least_QNR_le_2e5": 29,
+ "mean_U_by_least_QNR_(3,5,7,>=11)": [
+  141.0530303030303,
+  115.44714765100672,
+  95.69179229480737,
+  74.72458410351202
+ ],
+ "n_p1mod4": 9462,
+ "spearman_U_numQNR_le_logp": 0.656082825656171,
+ "spearman_k1_numQNR_le_logp": 0.6752686459273483,
+ "pearson_logU_numQNR": 0.6573054349975258
+}
