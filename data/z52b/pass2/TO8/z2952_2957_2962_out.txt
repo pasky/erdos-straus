@@ -1,0 +1,14 @@
+== Z2952: for p in hard set and controls, C<=100 with L_C=0: is -1 in <prime factors of 4Cp+1> mod 4C ?
+{'fail_levels': 1276, 'fail_minus1_in_group': 296, 'pos_levels': 24} (fail_minus1_in_group = levels with L_C=0 where -1 is in the generated subgroup, i.e. algebraic-only obstruction not ruled out; the rest are combinatorial)
+== Z2957: sum over certificates (u,C) of lambda(d), d=4uC-1 | 4Cp+1 ; compare with R(p)
+p=409: R=0, sum lambda(d) over certificates d=0, ratio=0.000
+p=577: R=0, sum lambda(d) over certificates d=0, ratio=0.000
+p=1009: R=6, sum lambda(d) over certificates d=-2, ratio=-0.333
+p=10009: R=34, sum lambda(d) over certificates d=2, ratio=0.059
+p=100049: R=38, sum lambda(d) over certificates d=0, ratio=0.000
+== Z2962: R on composite n=p*p' (odd) vs R(p), R(p')
+n=409*577=235993: R(n)=20, R(p)=0, R(q)=0
+n=409*5569=2277721: R(n)=34, R(p)=0, R(q)=0
+n=577*1009=582193: R(n)=34, R(p)=0, R(q)=6
+n=1009*10009=10099081: R(n)=20, R(p)=6, R(q)=34
+n=5569*9601=53467969: R(n)=60, R(p)=0, R(q)=0
