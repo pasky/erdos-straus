@@ -350,6 +350,10 @@ with d₁ composed of the primes dividing q and gcd(d₂, q) = 1.
 * *Sum over pairs.* Since W ≤ 1, write g = gcd(u,B), u = gu′, B = gB′ and use τ(gu′) ≤ τ(g)τ(u′):
   Σ_{𝔅} gcd(u,B)τ(u)τ(B)/(uB) ≤ Σ_{g≤2U} τ(g)²/g · Σ_{u′≤2U} τ(u′)/u′ · Σ_{B′≤2V} τ(B′)/B′ ≪ (log 2UV)⁸. ∎
 
+*Illustration* (EVIDENCE, `scripts/z52d_hyperbola_cor4check.py`, sharp cutoffs): the relative class spread
+max_r M_q(r)/min_r M_q(r) − 1 is 0.080, 0.016 and 0.0028 for q = 7 at U = V = 50, 200 and 800, and 0.095, 0.013 and 0.0021 for
+q = 16. This decays roughly like 1/U, as the corollary predicts.
+
 *(Review-2 fix: an earlier outline wrongly lifted prime divisibility to prime powers. Restricting to squarefree d₂, which the
 factor μ(d₂) allows, removes the problem, and the crude per-pair bound needs no boundary bookkeeping.)*
 
