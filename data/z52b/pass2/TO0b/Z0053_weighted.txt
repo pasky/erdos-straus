@@ -1,0 +1,3 @@
+l=5: primes 5..399: 76 tested, failures [] (count 0); example for p=5: (5, 7, (12, 420))
+l=7: primes 5..399: 76 tested, failures [] (count 0); example for p=5: (5, 9, (46, 2070))
+l=11: primes 5..399: 76 tested, failures [] (count 0); example for p=5: (5, 14, (71, 4970))

@@ -1,0 +1,4 @@
+n = 1 mod 3, 3 not| n, n<=200: 4-term all-1-mod-3 solution found for 66 of 66
+examples: [(4, (4, 4, 4, 4)), (7, (4, 4, 16, 112)), (10, (4, 7, 142, 9940)), (13, (4, 19, 208, 3952)), (16, (7, 10, 142, 9940)), (19, (7, 16, 196, 14896))]
+no solution found (within bounded search) for: []
+n = 7 check: 4/7 = 1/4 + 1/7 + 1/7 + 1/28 : True

@@ -1,0 +1,3 @@
+candidate X: 557
+residual cases with N != 0 checked: 557
+Int(Z)-valued, positive identities found: 0

@@ -1,0 +1,3 @@
+primes 1 mod 4 < 30000: 1611; count-equal 1611; existence-equal 1611
+mismatches (p, #8sol, #allEven4sol): []
+#4-solutions with some den = 0 mod 8 >0 but no 8-solution: []  (c8 counts all-even with den=0 mod 8, so this should be empty if c8>0 <=> 8-sol)

@@ -1,0 +1,7 @@
+Z0091 p=5: cone solutions (collective cone) (entries |Re|,|Im|<=14, unordered pairs A<=B) = 4; real-part ES hits = 4; norm ES hits = 0; example real-part hit ((2, 0), (4, 0), (20, 0))
+Z0091 p=13: cone solutions (collective cone) (entries |Re|,|Im|<=14, unordered pairs A<=B) = 1; real-part ES hits = 1; norm ES hits = 0; example real-part hit ((5, 0), (10, 0), (130, 0))
+Z0091 p=17: cone solutions (collective cone) (entries |Re|,|Im|<=14, unordered pairs A<=B) = 0; real-part ES hits = 0; norm ES hits = 0; example real-part hit None
+Z0091 p=29: cone solutions (collective cone) (entries |Re|,|Im|<=14, unordered pairs A<=B) = 0; real-part ES hits = 0; norm ES hits = 0; example real-part hit None
+Z0091 p=37: cone solutions (collective cone) (entries |Re|,|Im|<=14, unordered pairs A<=B) = 0; real-part ES hits = 0; norm ES hits = 0; example real-part hit None
+Z0091 p=41: cone solutions (collective cone) (entries |Re|,|Im|<=14, unordered pairs A<=B) = 0; real-part ES hits = 0; norm ES hits = 0; example real-part hit None
+Z0178: pure Ford-form (N<p, b<p) holds for all primes 5..3000 except [5, 17] (repo claim: 5,17,41,241 up to 8000); witnesses (b,N,e,a): p=41 (12, 24, 7, 2), p=241 (66, 84, 23, 3)

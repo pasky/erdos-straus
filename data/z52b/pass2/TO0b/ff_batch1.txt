@@ -1,0 +1,20 @@
+Z0006 q=3 A=1: n=1:0/3 n=2:0/3 n=3:0/8 n=4:0/18
+Z0006 q=3 A=2: n=1:0/3 n=2:0/3 n=3:0/8 n=4:0/18
+Z0006 q=3 A=3: n=1:0/3 n=2:0/3 n=3:0/8 n=4:0/18
+Z0006 q=3 A=4: n=1:0/3 n=2:0/3 n=3:0/8 n=4:0/18
+Z0006 q=5 A=1: n=1:0/5 n=2:0/10 n=3:0/40 n=4:0/150
+Z0006 q=5 A=2: n=1:0/5 n=2:0/10 n=3:0/40 n=4:0/150
+Z0006 q=5 A=3: n=1:0/5 n=2:0/10 n=3:0/40 n=4:0/150
+Z0006 q=5 A=4: n=1:5/5 n=2:10/10 n=3:40/40 n=4:150/150
+Z0006 q=7 A=1: n=1:0/7 n=2:0/21 n=3:0/112
+Z0006 q=7 A=2: n=1:0/7 n=2:0/21 n=3:0/112
+Z0006 q=7 A=3: n=1:0/7 n=2:0/21 n=3:0/112
+Z0006 q=7 A=4: n=1:7/7 n=2:21/21 n=3:112/112
+Z0010/26 q=3 deg Q=1 (deg P=2) parity=odd: fails 0/3; witness deg X dist {1: 3}  t=0.0s
+Z0010/26 q=3 deg Q=2 (deg P=4) parity=even: fails 0/3; witness deg X dist {3: 3}  t=0.0s
+Z0010/26 q=3 deg Q=3 (deg P=6) parity=odd: fails 0/8; witness deg X dist {5: 8}  t=1.5s
+Z0010/26 q=7 deg Q=1 (deg P=2) parity=odd: fails 2/7; witness deg X dist {1: 5}  t=0.0s
+Z0010/26 q=7 deg Q=2 (deg P=4) parity=even: fails 0/21; witness deg X dist {3: 21}  t=4.1s
+Z0041 q=3 A=T^2 n=3: fails 3  P: ['1021', '1112', '1222']  P mod T^2 (low->high): [(1, 2), (2, 1), (2, 2)]  P(0): [1, 2, 2]
+Z0041 q=3 A=T^2 n=4: fails 2  P: ['12112', '11122']  P mod T^2 (low->high): [(2, 1), (2, 2)]  P(0): [2, 2]
+Z0041 q=3 A=T^2 n=5: fails 2  P: ['121111', '110122']  P mod T^2 (low->high): [(1, 1), (2, 2)]  P(0): [1, 2]

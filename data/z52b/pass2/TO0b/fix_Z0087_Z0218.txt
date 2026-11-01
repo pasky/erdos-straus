@@ -1,0 +1,4 @@
+Z0087: l=193 -> (5, 11), l=337 -> (5, 11) (j <= 12; divisor e=3 mod 4 of 1+l^j; Lemma 3.1 with eta=l^j, kappa=(1+l^j)/e, u=kappa/eta, v=kappa)
+Z0087: odd primes l<400 with NO e=3 mod 4 divisor of 1+l^j for j<=12: [] (count 0)
+Z0218: M values over 1559 ES triples (p<=300): min M = 80, median 89434800; M <= 1848 (largest known idoneal): 11 triples
+  for M in the known idoneal list the idoneal test is only meaningful when M<=1848 (list complete there by the literature; Weinberger: at most one more idoneal number exists)

@@ -1,0 +1,9 @@
+l=5: primes 5..399: 76 tested, failures [] (count 0); example for p=5: (5, 7, (12, 420))
+l=7: primes 5..399: 76 tested, failures [] (count 0); example for p=5: (5, 9, (46, 2070))
+l=11: primes 5..399: 76 tested, failures [] (count 0); example for p=5: (5, 14, (71, 4970))
+Z0128 signed ES with one negative term, z in [p^2, 4p^2], primes 5..89:
+  primes with a solution in that window: 22 of 22
+  examples (p, z_max_found, count): [(5, 30, 1), (7, 182, 2), (11, 330, 1), (13, 546, 2), (17, 357, 1), (19, 627, 2), (23, 1978, 4), (29, 1885, 2), (31, 3596, 4), (37, 4440, 2), (41, 5453, 3), (43, 6923, 3)]
+  failing primes: []
+Z0146 fraction of reduced a/b (b<=120, a<=b) representable as 3 unit fractions: 2603 / 4385 = 0.5936
+  by a/b bin (0.1 wide):  {0.0: '216/216', 0.1: '437/441', 0.2: '392/438', 0.3: '377/439', 0.4: '307/439', 0.5: '289/438', 0.6: '261/440', 0.7: '149/439', 0.8: '136/439', 0.9: '37/440', 1.0: '2/216'}

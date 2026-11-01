@@ -1,0 +1,12 @@
+eta = eps^5 = 362 + 209*sqrt3
+kappa = (1+eta)/11 = 33 + 19*sqrt3  integral coords: True
+kappa totally positive: (65.90896534380866, 0.09103465619133289)  eta totally positive: (723.9986187818954, 0.0013812181046546357)
+1/u + 1/v == 11 : True
+n=5: x=4, identity 4/n = 1/x + 1/(u n x) + 1/(v n x) holds: True; u,v totally positive: True (65.90896534380866, 0.09103465619133289)
+n=9: x=5, identity 4/n = 1/x + 1/(u n x) + 1/(v n x) holds: True; u,v totally positive: True (65.90896534380866, 0.09103465619133289)
+n=13: x=6, identity 4/n = 1/x + 1/(u n x) + 1/(v n x) holds: True; u,v totally positive: True (65.90896534380866, 0.09103465619133289)
+n=17: x=7, identity 4/n = 1/x + 1/(u n x) + 1/(v n x) holds: True; u,v totally positive: True (65.90896534380866, 0.09103465619133289)
+n=21: x=8, identity 4/n = 1/x + 1/(u n x) + 1/(v n x) holds: True; u,v totally positive: True (65.90896534380866, 0.09103465619133289)
+n=101: x=28, identity 4/n = 1/x + 1/(u n x) + 1/(v n x) holds: True; u,v totally positive: True (65.90896534380866, 0.09103465619133289)
+n=1001: x=253, identity 4/n = 1/x + 1/(u n x) + 1/(v n x) holds: True; u,v totally positive: True (65.90896534380866, 0.09103465619133289)
+ALL OK: True
