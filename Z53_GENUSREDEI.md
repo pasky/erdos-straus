@@ -74,6 +74,11 @@ classes and the parity links?
   "(ℓ/p)_4", "mutual symbol": no hits in CLASS_FORCING / TWO_POWER_LADDER / bsB_redei_oddpart).
 * The closed item "bounded-level reciprocity along forced progressions with one varying level prime gives only parity" is the
   one-prime case; here all prime factors vary jointly, across several lines, with p-relative decorations.
+* *Novelty (Assessment).* The realisation technique (HC for linear forms after fixing a CRT residue and the small primes) is that
+  of CLASS_FORCING Thm 6.1 / B1_LINE Thm 4.2. New here: the complete list of pointwise joint laws for decorated configurations
+  (Lemma 3.1, including the p-relative symbols and the cross-line law (L4)), the realisation of *every* law-compatible
+  configuration (not one), the abelian-part computation that makes this work for every Chebotarev datum (Step 3(b)), the
+  resulting iff-criterion (Corollary F), the unconditional partial theorem (Thm U), and the Dickson-hardness remark (Prop D).
 
 ## 3. The five laws (PROVED, elementary)
 
@@ -248,12 +253,14 @@ divisors) lies in ker χ_j ∌ −1: no event at that level. This is T1 (B5) in 
 every prime factor is ≡ 1 (mod 4): no event at that level.
 *Proof.* (a) ℓ | α_jm² + β_j; ℓ | α_j or ℓ | m would give ℓ | β_j, contradicting gcd(α_j, β_j) = gcd(m, β_j) = 1; ℓ | β_j would give
 ℓ | α_jm². So −α_jβ_j ≡ (α_jm)² (mod ℓ). (b) γ_jL_j(p) = α_jm² + c²; ℓ | m would give ℓ | c; so −α_j ≡ (c/m)² (mod ℓ). ∎
-*Reading.* (a) is the only law that separates odd squares from primes at a bounded set of lines: at primes the left side
-(ℓ/p) of (L3) is free (JRT), at squares it is identically 1. (b) shows that *data of p which are not Frobenius data* — here the
+*Reading.* (a) is the law that separates odd squares from primes at a bounded set of lines: at primes the left side
+(ℓ/p) of (L3) is free (JRT), at squares it is identically 1; (L1), (L4), (L5) hold verbatim at squares. That (a) is the *only*
+extra law at squares would need a polynomial analogue of JRT along p = m² (Hypothesis H) — plausible, not proved here (Assessment). (b) shows that *data of p which are not Frobenius data* — here the
 polynomial representation p = m² + k — can impose joint laws beyond (L1)–(L5). Both laws are subgroup restrictions
-("all factors in ker χ"), which can only remove configurations: under Hypothesis H, if every L_j(φ(u)) (p = φ(u) a polynomial
-parametrisation) is irreducible, the one-factor configuration survives and Corollary F's criterion is unchanged (this is
-POINTWISE_SIZE Thm C / B1_LINE Thm 4.2 in the present language); reducible L_j∘φ is the thin-family mechanism ((J)74, (J)84).
+("all factors in ker χ"), which can only remove configurations. *(Assessment.)* Under Hypothesis H, if p = φ(u) is a polynomial
+parametrisation and every L_j(φ(u)) is irreducible, the one-factor configuration should survive along the family, so the
+criterion of Corollary F (now evaluated on the restricted classes) still decides bounded-level forcing — compare POINTWISE_SIZE
+Thm C (formal odd-square principle, CONDITIONAL on H); reducible L_j∘φ is the thin-family mechanism ((J)74, (J)84 Thm A).
 
 ## 6. Computation (EVIDENCE): does any hidden joint law show up at bounded levels?
 
