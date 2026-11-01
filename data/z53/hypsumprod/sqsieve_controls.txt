@@ -1,0 +1,15 @@
+n=1000000025191729 W=40000 S=(50000,400000] |A|=60774 squares(f>0)=0 f=0:0
+max|S_Q|=614 rms=256.6  |A|=60774  sqrt|A|=246.5  ratio max|S|/|A|=0.0101
+n=1000000025191733 W=40000 S=(50000,400000] |A|=60773 squares(f>0)=0 f=0:0
+max|S_Q|=597 rms=259.0  |A|=60773  sqrt|A|=246.5  ratio max|S|/|A|=0.0098
+n=1000000000000037 W=40000 S=(50000,400000] |A|=60676 squares(f>0)=0 f=0:0
+max|S_Q|=636 rms=272.6  |A|=60676  sqrt|A|=246.3  ratio max|S|/|A|=0.0105
+n=8813281 W=100 S=(150,1200] |A|=177 squares(f>0)=0 f=0:0
+brute: unordered u<B: 0, u==B: 0  -> MATCH
+max|S_Q|=31 rms=12.3  |A|=177  sqrt|A|=13.3  ratio max|S|/|A|=0.1751
+n=8812969 W=100 S=(150,1200] |A|=184 squares(f>0)=0 f=0:0
+brute: unordered u<B: 0, u==B: 0  -> MATCH
+max|S_Q|=27 rms=12.7  |A|=184  sqrt|A|=13.6  ratio max|S|/|A|=0.1467
+n=8814961 W=100 S=(150,1200] |A|=180 squares(f>0)=0 f=0:0
+brute: unordered u<B: 0, u==B: 0  -> MATCH
+max|S_Q|=26 rms=11.0  |A|=180  sqrt|A|=13.4  ratio max|S|/|A|=0.1444
