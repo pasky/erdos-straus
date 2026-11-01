@@ -1,0 +1,37 @@
+PARI stack size set to 1000000000 bytes, maximum size set to 1000001536
+LIMIT-HIT ('A', 1, 3, 1, 14, 5, 6) shape(any D): []
+LIMIT-HIT ("A'", 1, 3, 1, 14, 5, 6) shape(any D): []
+LIMIT-HIT ('A', 1, 5, 1, 14, 5, 6) shape(any D): []
+LIMIT-HIT ("A'", 1, 5, 1, 14, 5, 6) shape(any D): []
+.. E = 100 done, 171 candidates so far
+.. E = 200 done, 334 candidates so far
+.. E = 300 done, 500 candidates so far
+.. E = 400 done, 664 candidates so far
+.. E = 500 done, 824 candidates so far
+.. E = 600 done, 990 candidates so far
+.. E = 700 done, 1153 candidates so far
+.. E = 800 done, 1312 candidates so far
+.. E = 900 done, 1472 candidates so far
+.. E = 1000 done, 1634 candidates so far
+.. E = 1100 done, 1795 candidates so far
+.. E = 1200 done, 1955 candidates so far
+.. E = 1300 done, 2120 candidates so far
+.. E = 1400 done, 2281 candidates so far
+.. E = 1500 done, 2443 candidates so far
+.. E = 1600 done, 2604 candidates so far
+.. E = 1700 done, 2769 candidates so far
+.. E = 1800 done, 2930 candidates so far
+.. E = 1900 done, 3095 candidates so far
+.. E = 2000 done, 3259 candidates so far
+.. E = 2100 done, 3420 candidates so far
+.. E = 2200 done, 3582 candidates so far
+.. E = 2300 done, 3743 candidates so far
+.. E = 2400 done, 3904 candidates so far
+.. E = 2500 done, 4059 candidates so far
+.. E = 2600 done, 4226 candidates so far
+.. E = 2700 done, 4391 candidates so far
+.. E = 2800 done, 4553 candidates so far
+.. E = 2900 done, 4713 candidates so far
+.. E = 3000 done, 4878 candidates so far
+c0=15 EMAX=3000: 4878 candidates (E, p, u) tested (p up to 5669), 4 limit-level hits
+EXIT 0

@@ -1,0 +1,20 @@
+PARI stack size set to 1000000000 bytes, maximum size set to 1000001536
+LIMIT-HIT ('A', 1, 3, 1, 2, 1, 6) shape(any D): []
+LIMIT-HIT ('A', 1, 3, 1, 2, 2, 3) shape(any D): []
+LIMIT-HIT ('A', 1, 3, 1, 2, 3, 2) shape(any D): []
+LIMIT-HIT ('A', 1, 3, 1, 2, 6, 1) shape(any D): []
+LIMIT-HIT ("A'", 1, 3, 1, 2, 1, 6) shape(any D): []
+LIMIT-HIT ("A'", 1, 3, 1, 2, 2, 3) shape(any D): []
+LIMIT-HIT ("A'", 1, 3, 1, 2, 3, 2) shape(any D): []
+LIMIT-HIT ("A'", 1, 3, 1, 2, 6, 1) shape(any D): []
+LIMIT-HIT ('A', 4, 3, 3, 80, 1, 84) shape(any D): [(7, 1), (7, 9)]
+LIMIT-HIT ('A', 4, 3, 3, 80, 6, 14) shape(any D): [(14, 3), (14, 27)]
+LIMIT-HIT ('A', 4, 3, 3, 80, 21, 4) shape(any D): [(1, 3), (1, 27)]
+LIMIT-HIT ("A'", 4, 3, 3, 80, 1, 84) shape(any D): []
+LIMIT-HIT ("A'", 4, 3, 3, 80, 6, 14) shape(any D): []
+LIMIT-HIT ("A'", 4, 3, 3, 80, 21, 4) shape(any D): [(1, 3)]
+.. E = 100 done, 114 candidates so far
+.. E = 200 done, 223 candidates so far
+.. E = 300 done, 332 candidates so far
+.. E = 400 done, 444 candidates so far
+c0=3 EMAX=400: 444 candidates (E, p, u) tested (p up to 757), 14 limit-level hits

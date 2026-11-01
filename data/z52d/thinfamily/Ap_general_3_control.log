@@ -1,0 +1,5 @@
+PARI stack size set to 1000000000 bytes, maximum size set to 1000001536
+HIT (3, '27', 80, 1, '21', 1, 3)
+HIT ('sg', '4', 11, 1, '3/2', 1, 2)
+HIT ('sg', '4', 11, 1, '3/2', 5, 2)
+c0=3 menu A' general: 229 (lam1, lam2) pairs, 568620 (pair, shape, X) tests, 3 D-independent hits
