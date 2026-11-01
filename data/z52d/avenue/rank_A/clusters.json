@@ -203,7 +203,7 @@
         "Z2995",
         "Z1557"
       ],
-      "clean_statement": "For each s in the open family n_s=15·2^s+1 (or one explicitly chosen family such as 4^s+297), construct positive integer ES parameters by finitely many exponent classes and verified polynomial-exponential recurrences.",
+      "clean_statement": "For every exponent s≥0 in the open family n_s=15·2^s+1 (or one explicitly chosen family such as 4^s+297), construct positive integer ES parameters by finitely many exponent classes and verified polynomial-exponential recurrences.",
       "yield_for_ES": "partial: all members of a named infinite family, including its primes; no general-prime transfer",
       "plausibility": 2,
       "frontier": "FRONTIER §7.8; §6 thin-family menu transfer is closed, not the family itself",
@@ -219,7 +219,7 @@
       },
       "proof_priority_score": 16,
       "label": "Assessment",
-      "assessment": "Best chance of a real positive theorem in one short lane. Z3061 all (a,b,c) Type-I/II version is false without exclusions: 4^s+0 is an odd/even issue, and n_s=9^s is an odd square; T1 forbids the asserted types. Restrict to a named nonsquare family. Berlekamp–Massey fit is evidence until symbolic verification and positivity.",
+      "assessment": "Best chance of a real positive theorem in one short lane. Z3061 all (a,b,c) Type-I/II version is false without exclusions: n_s=9^s is an odd square for every positive even s; T1 forbids the asserted types. Restrict to a named nonsquare family. Berlekamp–Massey fit is evidence until symbolic verification and positivity.",
       "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
       "audit_rescues": [],
       "rank_in_band": 6
@@ -905,62 +905,6 @@
       "rank_in_band": 10
     },
     {
-      "id": "S34",
-      "name": "Primitive Type-II line",
-      "band": "ii",
-      "members": [
-        "Z0866"
-      ],
-      "clean_statement": "For every p>p0 prime, find coprime a,b and m|(a+b) with p=4ab-(a+b)/m; first prove the primitive-solution parametrisation and audit its failures.",
-      "yield_for_ES": "partial on restricted families; no unrestricted conclusion without a proved transport",
-      "plausibility": 2,
-      "frontier": "Not one §7 problem; calibration for §7.13/§7.15 and numerator blindness",
-      "obstruction": "B2 for restricted universality; local admissibility is not sufficient; bounded number of adaptive powers is not a fixed polynomial menu",
-      "ingredient_can_beat_obstruction": "ET gcd/valuation parametrisations are elementary handles; no general conversion among these worlds is proved.",
-      "genuinely_new": "Primitive k=1 versus m=1 duality and the all-even converse are distinct subtargets, retained separately in member targets.",
-      "score_components": {
-        "relevance": 1,
-        "tractability": 2,
-        "one_day_information": 2,
-        "novelty": 1,
-        "unsupported_bridges": 1
-      },
-      "proof_priority_score": 11,
-      "label": "Assessment",
-      "assessment": "The universal statement is a genuine strengthening, plausibility1; the finite algebra/census is plausibility3. It is not equivalent to all-even or allowed-residue ES. The exact primitive criterion gives a useful restricted model.",
-      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
-      "audit_rescues": [],
-      "rank_in_band": 11
-    },
-    {
-      "id": "S35",
-      "name": "All-even converse",
-      "band": "ii",
-      "members": [
-        "Z0212"
-      ],
-      "clean_statement": "For every prime p, existence of an ES solution with one denominator divisible by4 implies existence of an all-even ES solution.",
-      "yield_for_ES": "partial on restricted families; no unrestricted conclusion without a proved transport",
-      "plausibility": 2,
-      "frontier": "Not one §7 problem; calibration for §7.13/§7.15 and numerator blindness",
-      "obstruction": "B2 for restricted universality; local admissibility is not sufficient; bounded number of adaptive powers is not a fixed polynomial menu",
-      "ingredient_can_beat_obstruction": "ET gcd/valuation parametrisations are elementary handles; no general conversion among these worlds is proved.",
-      "genuinely_new": "Primitive k=1 versus m=1 duality and the all-even converse are distinct subtargets, retained separately in member targets.",
-      "score_components": {
-        "relevance": 1,
-        "tractability": 2,
-        "one_day_information": 2,
-        "novelty": 1,
-        "unsupported_bridges": 1
-      },
-      "proof_priority_score": 11,
-      "label": "Assessment",
-      "assessment": "The easy reverse implication follows from the 2-adic maximum appearing twice. The converse is a separate transport conjecture; local valuations do not prove it. No uniform conversion is supplied.",
-      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
-      "audit_rescues": [],
-      "rank_in_band": 12
-    },
-    {
       "id": "S36",
       "name": "Power-of-two denominator restrictions",
       "band": "ii",
@@ -988,7 +932,7 @@
       "audit_rescues": [
         "Z1942"
       ],
-      "rank_in_band": 13
+      "rank_in_band": 11
     },
     {
       "id": "S09",
@@ -1017,7 +961,7 @@
       "assessment": "Do not claim this would make H^- effective; the lower-tail hypothesis is a separate missing theorem.",
       "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
       "audit_rescues": [],
-      "rank_in_band": 14
+      "rank_in_band": 12
     },
     {
       "id": "S29",
@@ -1066,7 +1010,7 @@
         "Z0808",
         "Z0773"
       ],
-      "rank_in_band": 15
+      "rank_in_band": 13
     },
     {
       "id": "S08",
@@ -1094,7 +1038,7 @@
       "assessment": "Plausibility 2, not automatic 3: the leading singularity is straightforward, the strong error and boundary contribution are not supplied.",
       "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
       "audit_rescues": [],
-      "rank_in_band": 16
+      "rank_in_band": 14
     },
     {
       "id": "S23",
@@ -1120,6 +1064,64 @@
       "proof_priority_score": 9,
       "label": "Assessment",
       "assessment": "Do not classify the side sign theorem as circular merely because short-word existence is ES-strength. Specify the lattice parity conditions before enumerating 512 cells.",
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 15
+    },
+    {
+      "id": "S34",
+      "name": "Primitive Type-II line",
+      "band": "ii",
+      "members": [
+        "Z0866"
+      ],
+      "clean_statement": "For every p>p0 prime, find coprime a,b and m|(a+b) with p=4ab-(a+b)/m; first prove the primitive-solution parametrisation and audit its failures.",
+      "yield_for_ES": "partial on restricted families; no unrestricted conclusion without a proved transport",
+      "plausibility": 1,
+      "frontier": "Not one §7 problem; calibration for §7.13/§7.15 and numerator blindness",
+      "obstruction": "B2 for restricted universality; local admissibility is not sufficient; bounded number of adaptive powers is not a fixed polynomial menu",
+      "ingredient_can_beat_obstruction": "ET gcd/valuation parametrisations are elementary handles; no general conversion among these worlds is proved.",
+      "genuinely_new": "Primitive k=1 versus m=1 duality and the all-even converse are distinct subtargets, retained separately in member targets.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 9,
+      "label": "Assessment",
+      "assessment": "The universal statement is a genuine strengthening, plausibility1; the finite algebra/census is plausibility3. It is not equivalent to all-even or allowed-residue ES. The exact primitive criterion gives a useful restricted model.",
+      "first_step_plausibility": 3,
+      "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
+      "audit_rescues": [],
+      "rank_in_band": 16
+    },
+    {
+      "id": "S35",
+      "name": "All-even converse",
+      "band": "ii",
+      "members": [
+        "Z0212"
+      ],
+      "clean_statement": "For every prime p, existence of an ES solution with one denominator divisible by4 implies existence of an all-even ES solution.",
+      "yield_for_ES": "partial on restricted families; no unrestricted conclusion without a proved transport",
+      "plausibility": 1,
+      "frontier": "Not one §7 problem; calibration for §7.13/§7.15 and numerator blindness",
+      "obstruction": "B2 for restricted universality; local admissibility is not sufficient; bounded number of adaptive powers is not a fixed polynomial menu",
+      "ingredient_can_beat_obstruction": "ET gcd/valuation parametrisations are elementary handles; no general conversion among these worlds is proved.",
+      "genuinely_new": "Primitive k=1 versus m=1 duality and the all-even converse are distinct subtargets, retained separately in member targets.",
+      "score_components": {
+        "relevance": 1,
+        "tractability": 1,
+        "one_day_information": 2,
+        "novelty": 1,
+        "unsupported_bridges": 1
+      },
+      "proof_priority_score": 9,
+      "label": "Assessment",
+      "assessment": "The easy reverse implication follows from the 2-adic maximum appearing twice. The converse is a separate transport conjecture; local valuations do not prove it. No uniform conversion is supplied.",
+      "first_step_plausibility": 3,
       "member_target_scope": "Shared output theorem or expressly scoped specializations; not an assertion of logical equivalence. Original individual statements are preserved in F.jsonl.",
       "audit_rescues": [],
       "rank_in_band": 17
@@ -2219,7 +2221,7 @@
         "Z1048",
         "Z0730"
       ],
-      "clean_statement": "Use local solubility, a positive class-free count, or one QNR factor as an ES precursor, then prove the currently missing divisor-class or integral lifting step.",
+      "clean_statement": "For each prime supply the already-known local-solubility, positive class-free-count or QNR-factor precursor in its valid scoped form; this cluster makes no full-class or integral-lifting assertion.",
       "yield_for_ES": "none from these precursors alone",
       "plausibility": 3,
       "frontier": "FRONTIER §7.3/§7.17; §6 genus and least-QNR-root limits",

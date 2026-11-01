@@ -5,6 +5,7 @@ Members share a target or a stated specialization of it, not necessarily an
 iff-equivalent conjecture. Exact source targets remain in F.jsonl; corrections
 and quantifier distinctions below are part of the clustering.
 """
+import copy
 import json
 from pathlib import Path
 
@@ -96,13 +97,13 @@ cluster('A08','Non-CRT averaged lower tail','i','Z2356 Z2407',
 'A successful estimate would change the exceptional-set frontier, not solve ES. Use modulus 4uB in p≡-(u+B) mod4uB; the source next-step modulus 4uBC includes a solution coordinate incorrectly.')
 cluster('A09','Forced budgets in exponential families','i',
 'Z2969 Z3189 Z3061 Z0417 Z2031 Z2995 Z1557',
-'For each s in the open family n_s=15·2^s+1 (or one explicitly chosen family such as 4^s+297), construct positive integer ES parameters by finitely many exponent classes and verified polynomial-exponential recurrences.',
+'For every exponent s≥0 in the open family n_s=15·2^s+1 (or one explicitly chosen family such as 4^s+297), construct positive integer ES parameters by finitely many exponent classes and verified polynomial-exponential recurrences.',
 'partial: all members of a named infinite family, including its primes; no general-prime transfer',2,
 'FRONTIER §7.8; §6 thin-family menu transfer is closed, not the family itself',
 'B1 finite congruence cover may fail; algebraic forced budgets escape it only through p=φ(s); no transfer to free p',
 'Known forced-budget proofs and recurrence/folding/primitive-divisor structures provide a concrete handle. Need a new identity on the open branch.',
 'Recursion is a variant of known mechanism, not a new route to arbitrary primes.',(2,2,1,1),
-'Best chance of a real positive theorem in one short lane. Z3061 all (a,b,c) Type-I/II version is false without exclusions: 4^s+0 is an odd/even issue, and n_s=9^s is an odd square; T1 forbids the asserted types. Restrict to a named nonsquare family. Berlekamp–Massey fit is evidence until symbolic verification and positivity.')
+'Best chance of a real positive theorem in one short lane. Z3061 all (a,b,c) Type-I/II version is false without exclusions: n_s=9^s is an odd square for every positive even s; T1 forbids the asserted types. Restrict to a named nonsquare family. Berlekamp–Massey fit is evidence until symbolic verification and positivity.')
 cluster('A10','Full-factor-multiset compatibility','i','Z2818',
 'Find a stated property A of actual factor multisets of {4Cp+1:C≤K(p)}, prove it for all p>p0, and prove that CRT-consistent, size-correct multisets satisfying A cannot all miss -1.',
 'full with finite check if both new lemmas hold',1,
@@ -533,7 +534,7 @@ cluster('R12','Already-known average coverage','iii',
 'No identified improvement over the standing frontier.',(1,0,0,2),
 'Z2372 confuses O(p²) certificate moduli with a uniform O(p²) bound on all denominators; a genuine height theorem is needed. Z3164 prime-C almost-all claim needs a proof, not just invoking CRT. Density inheritance into a restricted family is not automatic.')
 cluster('R13','Necessary/local tests already free','iii','Z1316 Z0081 Z1493 Z2989 Z1048 Z0730',
-'Use local solubility, a positive class-free count, or one QNR factor as an ES precursor, then prove the currently missing divisor-class or integral lifting step.',
+'For each prime supply the already-known local-solubility, positive class-free-count or QNR-factor precursor in its valid scoped form; this cluster makes no full-class or integral-lifting assertion.',
 'none from these precursors alone',3,
 'FRONTIER §7.3/§7.17; §6 genus and least-QNR-root limits',
 'T1 and B2; local/character information does not determine the full divisor class',
@@ -612,7 +613,7 @@ cluster('R19','Finite QNR-class identity covering','iii','Z1840',
 # a common target and their differences are stated explicitly above.
 def split(source, cid, mids, name, statement, assessment):
     parent = next(c for c in CLUSTERS if c['id']==source)
-    child = dict(parent)
+    child = copy.deepcopy(parent)
     chosen = mids.split()
     assert set(chosen) < set(parent['members'])
     parent['members'] = [m for m in parent['members'] if m not in chosen]
@@ -650,6 +651,15 @@ split('R18','R20','Z0135','Partition regularity of reciprocal ES equation',
 'Determine whether every finite colouring of N has monochromatic x,y,z,w with 1/x+1/y+1/z=4/w.',
 'This existential w is not a prescribed prime. Nonregularity of x+y+z=4w only blocks the quoted transfer theorem; a colouring that kills (3k,3k,3k,4k) does not kill all solutions.')
 next(c for c in CLUSTERS if c['id']=='R18').update(name='Open-induction countermodel', clean_statement='Construct an actual model of IOpen containing an n≥2 without positive ES denominators, with a proof that the polynomial obstruction survives its coefficient field.')
+
+# For restricted universal conjectures distinguish easy algebra/census from the
+# actual clean theorem; the source frequently scored only the former.
+for cid in ['S34', 'S35']:
+    c = next(c for c in CLUSTERS if c['id']==cid)
+    c['plausibility'] = 1
+    c['first_step_plausibility'] = 3
+    c['score_components']['tractability'] = 1
+    c['proof_priority_score'] -= 2
 
 
 def main():

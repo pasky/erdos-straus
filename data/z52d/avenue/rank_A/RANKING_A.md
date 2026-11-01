@@ -3,12 +3,13 @@ Assessment throughout; exact finite checks are CERTIFIED. No other reviewer’s 
 
 ## Selection and negative audit
 - Source: 2995 rows, PILOTH excluded; gates: 115 / 76 / 53, union 221; audit adds 29 unique rows → **250 candidates, 79 clusters**.
-- Selection is literal and keep-biased: `none (...)` differs from `none`, so explanatory no-yield/no-ingredient rows survive. They are re-judged, not sold as positive candidates.
+- Selection is literal and keep-biased: `none (...)` differs from `none`. Semantic-prefix sensitivity gives gates 33 / 76 / 18, union 114 (144 with audit rescues); all are included in the broader 250. Literal extras are re-judged, not sold as positive candidates.
 - Seed **52041031**; 40 of 1,308 plausibility-0 negatives, stratified over all 28 batches (1 per batch, 12 seeded extra allocations; uniform sampling within batch). No harder-than-open row happened to be sampled.
 - **12/40 = 30% strict verdict overturns; 18/40 = 45% partial/scope corrections; 10/40 upheld.** Broad negative-label defect rate: **75%**. Population-weighted estimates: **34.10% strict, 76.91% broad**.
 - These are false-negative/overrejection rates for the LABELS, not estimates of successful proof ideas. Some overturns expose a useless wrong dictionary (Z1956); no audit certifies a viable full proof. Small per-batch samples do not support a precise population confidence claim.
 - Strong rescues: Z1401 (prime-sensitive LP not refuted by T1), Z2080/Z2933 (failure of current estimates ≠ false theorem), Z3182/Z1964 (a constructive switch/descent ≠ its conclusion), Z2407 (an averaged theorem is not circular).
 - Exact checks: (★) has no hit at 409; weak Fermat condition nevertheless holds there; all eight 241 solutions meet 3 but a 3-adic-unit solution exists; an identity covers n≡5881 mod9240⊂1 mod840; non-scaling 4→5 transport exists.
+- Validation passes: source hashes/fields, exact candidate partition, scores/ranks, audit weighting, report length. Existing chain criterion check rerun to 20,000 (161/161 match); coprime-pair criterion rerun to 600 (16/16 match).
 
 ## Scoring
 Ordinal expected-proof-value proxy **S=5R+2H+2I+N−3G**: R relevance (0 none,1 ordinary partial,2 frontier-changing partial,3 full target); H plausibility 0–3; I one-day information 0–2; N novelty 0–2; G unsupported-bridge burden 0–3. Not success probabilities.
@@ -19,7 +20,7 @@ Each line gives cluster ID, score S, plausibility H, and judgement; member mids,
 - **A01** S=19, H=1: A fixed-p class-filtered cancellation saving is the best analytic target; repair false two-sided polylog estimates to one-sided bounds.
 - **A02** S=19, H=1: Bounded-exponent Fourier obstruction is an exact handle; need a new inverse theorem AND an arithmetic exclusion, not subgroup generation.
 - **A03** S=19, H=1: Full Pell-cycle roots remain open; norms-as-windows and the already-tested one-step recipes do not work.
-- **A04** S=19, H=1: An explicit wrong-class→other-line switch could prove coverage; no map exists yet, but “circular” was an unjustified dismissal.
+- **A04** S=19, H=1: An explicit wrong-class→other-line switch could prove coverage; no map is supplied, but “circular” was an unjustified dismissal.
 - **A05** S=16, H=1: A growing, character-sensitive LP/identity minorant is not refuted by T1; no nontrivial positive constraint library is supplied.
 - **A09** S=16, H=2: A verified recurrence/forced budget for 15·2^s+1 is the likeliest positive theorem; it covers one family, not general primes.
 - **A08** S=14, H=1: Bilinear/entropy lower tails might beat the CRT exceptional-set cap; no arithmetic independence/comparison theorem is supplied.
@@ -46,13 +47,13 @@ Each line gives cluster ID, score S, plausibility H, and judgement; member mids,
 - **S16** S=11, H=3: S-integer positive ES has an elementary Dirichlet/unit proof; unbounded unit powers give no transport back to Z.
 - **S21** S=11, H=3: Exponent coverings for new I3 families are cheap positive sibling work; keep small exceptions and the missing ES coordinate restriction.
 - **S26** S=11, H=2: Bounded-degree curve/identity classification can reach Mordell-hard classes; nonconstant Type I cases remain open.
-- **S34** S=11, H=2: Primitive Type-II p=4ab-(a+b)/m is a distinct restricted target; exact parametrisation/census cheap, universal positivity hard.
-- **S35** S=11, H=2: All-even converse is a genuine transport question; the necessary 2-adic valuation pattern does not prove it.
 - **S36** S=11, H=2: M=1 power-of-two-denominator failures are certified; all fixed M needs a new argument because the exponent adapts to p.
 - **S09** S=10, H=3: Explicit BM/QNR thresholds are feasible bookkeeping; the divisor class inside the positive coset remains missing.
 - **S29** S=10, H=3: One held-out local-hardness/residual-model audit subsumes nineteen correlations; results are EVIDENCE, not positivity.
 - **S08** S=9, H=2: Compute secondary coefficients of M0 with the shifted hyperbolic boundary; useful constants, no actual-count lower bound.
 - **S23** S=9, H=2: A correct long-chain characteristic/Gauss-sum sign formula is concrete algebra; it does not produce a short word.
+- **S34** S=9, H=1: Primitive Type-II p=4ab-(a+b)/m is a distinct restricted target; exact parametrisation/census cheap, universal positivity hard.
+- **S35** S=9, H=1: All-even converse is a genuine transport question; the necessary 2-adic valuation pattern does not prove it.
 - **S12** S=8, H=2: Prove sharp low moments rather than promote numerical variance; positive-density coverage is already weaker than the frontier.
 - **S13** S=8, H=2: Average-count/AP asymptotics may sharpen constants; fixed-Q secondary depression need not persist as a constant fractional deficit.
 - **S15** S=8, H=2: One solved prime per short interval needs matching family/AP hypotheses; unrestricted BHP does not establish the optional mod840 claim.

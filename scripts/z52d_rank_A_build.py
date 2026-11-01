@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Reproducible independent R=A selection; stdlib only, bounded input size."""
+import argparse
 import collections
+import hashlib
 import json
 import random
 from pathlib import Path
@@ -33,11 +35,21 @@ def gates(r):
             r.get('new_ingredient', 'none').strip().lower() != 'none']
 
 
+def semantic_gates(r):
+    """Sensitivity check only: collapse explanatory 'none (...)' to none."""
+    return [r['plausibility'] >= 2 and r['novelty'] >= 1 and not r['yield'].strip().lower().startswith('none'),
+            gates(r)[1],
+            not r.get('new_ingredient', 'none').strip().lower().startswith('none')]
+
+
 def dump(path, rows):
     path.write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows))
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--reading', action='store_true', help='also write disposable human reading aids')
+    args = parser.parse_args()
     OUT.mkdir(exist_ok=True)
     rows = load()
     strata = collections.defaultdict(list)
@@ -66,19 +78,27 @@ def main():
     for r in rows:
         g = gates(r)
         if any(g) or r['mid'] in overturned:
-            candidates.append(dict(r, selection_gates=[i + 1 for i, yes in enumerate(g) if yes], audit_rescue=r['mid'] in overturned))
+            candidates.append(dict(r, selection_gates=[i + 1 for i, yes in enumerate(g) if yes],
+                                   semantic_selection_gates=[i + 1 for i, yes in enumerate(semantic_gates(r)) if yes],
+                                   audit_rescue=r['mid'] in overturned))
     dump(OUT / 'F.jsonl', candidates)
     stats = dict(seed=SEED, source_rows=len(rows), excluded_batch='PILOTH',
+                 master_sha256=hashlib.sha256(Path('data/z52b/master.jsonl').read_bytes()).hexdigest(),
                  negative_population=sum(map(len, strata.values())),
                  strata={b: {'population': len(strata[b]), 'sample': quota[b]} for b in names},
                  gate_counts=[sum(gates(r)[i] for r in rows) for i in range(3)],
                  original_union=sum(any(gates(r)) for r in rows),
                  audit_rescues=sorted(overturned), candidate_count=len(candidates),
                  new_ingredient_rule='literal case-insensitive != none; explanatory none (...) strings retained',
-                 sample_design='equal batch allocation + seeded random extra strata, uniform without replacement within batch')
+                 sample_design='equal batch allocation + seeded random extra strata, uniform without replacement within batch',
+                 semantic_sensitivity=dict(gate_counts=[sum(semantic_gates(r)[i] for r in rows) for i in range(3)],
+                     original_union=sum(any(semantic_gates(r)) for r in rows),
+                     with_audit=sum(any(semantic_gates(r)) or r['mid'] in overturned for r in rows)),
+                 source_sha256={str(path): hashlib.sha256(path.read_bytes()).hexdigest()
+                     for path in sorted(BASE.glob('out_*.jsonl')) if path.stem != 'out_PILOTH'})
     (OUT / 'selection.json').write_text(json.dumps(stats, indent=2) + '\n')
-    master = {r['mid']: r for r in map(json.loads, Path('data/z52b/master.jsonl').read_text().splitlines())}
-    for name, data in [('sample_reading', sample), ('candidate_reading', candidates)]:
+    master = {r['mid']: r for r in map(json.loads, Path('data/z52b/master.jsonl').read_text().splitlines())} if args.reading else {}
+    for name, data in ([('sample_reading', sample), ('candidate_reading', candidates)] if args.reading else []):
         with (OUT / (name + '.txt')).open('w') as f:
             for r in data:
                 m = master[r['mid']]

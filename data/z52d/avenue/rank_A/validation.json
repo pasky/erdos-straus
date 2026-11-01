@@ -1,0 +1,28 @@
+{
+  "label": "CERTIFIED structural validation; not mathematical certification of candidate conjectures",
+  "sources": 2995,
+  "candidates": 250,
+  "clusters": 79,
+  "bands": {
+    "i": 18,
+    "ii": 41,
+    "iii": 20
+  },
+  "report_lines": 116,
+  "audit": {
+    "strict_overturn": {
+      "sample_count": 12,
+      "sample_rate": 0.3,
+      "stratum_weighted_rate": 0.3409785932721712
+    },
+    "including_partial": {
+      "sample_count": 30,
+      "sample_rate": 0.75,
+      "stratum_weighted_rate": 0.7691131498470948
+    }
+  },
+  "candidate_source_fields_preserved": true,
+  "candidate_partition_exact": true,
+  "input_hashes_verified": true,
+  "scores_and_ranks_verified": true
+}
