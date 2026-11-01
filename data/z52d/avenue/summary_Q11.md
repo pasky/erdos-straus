@@ -35,7 +35,6 @@ Z2850, Z2851, Z0233. Best open row: **Z1600** (plaus 1): *some level C ≤ (log 
   τ of a TRIANGLE multigraph with non-square sandpile pairing (a ≡ √(−p) mod q, b = q − a, c = (a²+p)/q − a). The pairing ladder
   bottoms out at 3 vertices: ES₅'s cost is the fan shape, not the vertex count (the ES^□ one-Dirichlet-prime mechanism, B-fin).
 * Z2655/Z0517: of the U(n) sporadics only 105 is idoneal (h(−4n) = 48, 24, 80, 240, 424 with |Cl[2]| = 8, 4, 16, 16, 8 for the rest).
-* Z2607: the reciprocal-coordinate arrangement of U_n is n-independent, so matroid Hodge invariants cannot see T1.
-* Z0263: Type II max denominator ≥ p^{3/2}√C/2; θ < 2 caps are lower tails with main term c(θ)log²p (heuristic θ* = 3/2).
+* Z2607: U_n's reciprocal arrangement is n-independent (no T1). Z0263: Type II max denominator ≥ p^{3/2}√C/2 (heuristic θ* = 3/2).
 
 **Assessment.** Q11 sharpens B4 empirically (poverty, not confinement, is the generic failure) but no row escapes B2/B4/T1.
