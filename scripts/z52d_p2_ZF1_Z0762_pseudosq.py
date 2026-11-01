@@ -1,7 +1,7 @@
 """Z0762 (ZF1 finisher): R, Uv, I3, W and U at all 20 pseudosquares (OEIS A002189) ≤ 10¹⁰ vs class-matched controls.
 Word columns (W, I3, R, Uv): n ≤ 1e8 from the census binary (scripts/z52d_p2_TO3_census_bin.c output, /tmp/z52/big/
 words1e8.bin, NOT in repo); n > 1e8 from scripts/z52d_p2_ZF1_words1.c (single-n, verified equal to the census at 5 n).
-Controls for words: all non-square n ≡ P (mod 840) with |n/P − 1| < 5% (n ≤ 1e8) or the 100 nearest primes ≡ P (840)
+Controls for words: the 100 nearest non-square n ≡ P (mod 840) (n ≤ 1e8) or the 100 nearest primes ≡ P (840)
 (n > 1e8; file data/z52b/pass2/ZF1/Z0762/words_big.txt).
 U(n): primes via scripts/z52d_p2_ZF1_fastU.c, composites via scripts/z52b_fingerprint_count.c / z52d_p2_ZF1_segcount.c;
 controls = primes ≡ P (mod 840) near P (U of primes; composite P compared with composite controls separately).
@@ -26,12 +26,13 @@ wres = {}
 for P in PS:
     L2 = math.log(P) ** 2
     if P <= 10**8:
-        lo, hi = int(P * 0.95), int(P * 1.05)
-        ns = np.arange(lo, hi + 1); ns = ns[(ns % 840 == P % 840)]
-        r = np.floor(np.sqrt(ns)).astype(np.int64); ns = ns[r * r != ns]; ns = ns[ns != P]
+        # the 100 nearest non-square n ≡ P (mod 840), n ≠ P (at most ±5% when P is large)
+        k = np.arange(-200, 201); ns = P + 840 * k; ns = ns[(ns > 1) & (ns <= 10**8) & (ns != P)]
+        r = np.floor(np.sqrt(ns)).astype(np.int64); ns = ns[r * r != ns]
+        ns = ns[np.argsort(np.abs(ns - P))][:100]; ns = ns[np.abs(ns / P - 1) < 0.05] if P > 2 * 10**6 else ns
         vals = {c: np.asarray(W[ns, i]).astype(float) for i, c in enumerate(cols)}
         mine = {c: float(W[P, i]) for i, c in enumerate(cols)}
-        ctl = 'all non-square n ≡ P (840), ±5%'
+        ctl = '100 nearest non-square n ≡ P (840)'
     else:
         ctrl = [n for n in big if n != P and n % 840 == P % 840 and abs(n / P - 1) < 0.05]
         vals = {c: np.array([big[n][c] for n in ctrl], float) for c in cols}
@@ -53,7 +54,8 @@ for fn in ('U_controls.txt',): readU(os.path.join(D, fn))
 ures = {}
 for P in PS:
     if P not in U: continue
-    ctrl = [n for n in U if n != P and n % 840 == P % 840 and abs(n / P - 1) < 0.3 and n not in COMPOSITE]
+    ctrl = sorted([n for n in U if n != P and n % 840 == P % 840 and n not in COMPOSITE], key=lambda n: abs(n - P))[:40]
+    ctrl = [n for n in ctrl if abs(n / P - 1) < 0.5]
     v = np.array([U[n] for n in ctrl], float)
     l3 = math.log(P) ** 3
     ures[str(P)] = dict(U=U[P], U_over_log3=round(U[P] / l3, 4), composite=COMPOSITE.get(P), n_prime_ctrl=len(ctrl),
