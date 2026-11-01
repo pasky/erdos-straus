@@ -10,13 +10,14 @@
 #include <string.h>
 #include <math.h>
 typedef unsigned long long u64;
-static unsigned char *star, *t2, *t1, *comp;
+static unsigned char *star, *t2, *t2c, *t1, *comp;
+static u64 gcdu(u64 a,u64 b){while(b){u64 t=a%b;a=b;b=t;}return a;}
 #define SET(A,i) (A[(i)>>3] |= (1u<<((i)&7)))
 #define GET(A,i) ((A[(i)>>3]>>((i)&7))&1)
 int main(int argc,char**argv){
   u64 N = argc>1? strtoull(argv[1],0,10): 1000000;
   size_t bytes=(N>>3)+2;
-  star=calloc(bytes,1); t2=calloc(bytes,1); t1=calloc(bytes,1); comp=calloc(bytes,1);
+  star=calloc(bytes,1); t2=calloc(bytes,1); t2c=calloc(bytes,1); t1=calloc(bytes,1); comp=calloc(bytes,1);
   // sieve composites
   for(u64 i=2;i*i<=N;i++) if(!GET(comp,i)) for(u64 j=i*i;j<=N;j+=i) SET(comp,j);
   // (*) and Type II: n = 4akC - s/h, s=a+k, h|s.  (h=1 -> star)
@@ -28,7 +29,7 @@ int main(int argc,char**argv){
         if(s%h) continue;
         u64 sub=s/h;
         for(u64 C=1;;C++){ u64 v=base*C; if(v<=sub) continue; v-=sub; if(v>N) break;
-          if(h==1) SET(star,v); SET(t2,v); }
+          if(h==1) SET(star,v); SET(t2,v); if(gcdu(v,a*k*C)==1) SET(t2c,v); }
       }
     }
   }
@@ -49,19 +50,19 @@ int main(int argc,char**argv){
     }
   }
   // report
-  u64 c_all=0,c_nostar=0,c_not2=0,c_not1=0,c_none=0, p_all=0,p_nostar=0,p_not2=0,p_not1=0,p_none=0;
-  printf("# n  prime? square? star t2 t1   (only n ≡ 1 mod 24 missing some family)\n");
+  u64 c_all=0,c_nostar=0,c_not2=0,c_not1=0,c_none=0, p_all=0,p_nostar=0,p_not2=0,p_not1=0,p_none=0, c_not2c=0;
+  printf("# n  prime? square? star t2 t1 t2coprime  (25 <= n <= N, n ≡ 1 mod 24, missing some family; t2coprime = Type II with gcd(n,akC)=1)\n");
   for(u64 n=25;n<=N;n+=24){
     int pr=!GET(comp,n), sq=((u64)sqrt((double)n))*((u64)sqrt((double)n))==n || ((u64)sqrt((double)n)+1)*((u64)sqrt((double)n)+1)==n;
-    int s=GET(star,n), a=GET(t2,n), b=GET(t1,n);
+    int s=GET(star,n), a=GET(t2,n), b=GET(t1,n), ac=GET(t2c,n); if(!ac) c_not2c++;
     c_all++; if(pr)p_all++;
     if(!s){c_nostar++; if(pr)p_nostar++;}
     if(!a){c_not2++; if(pr)p_not2++;}
     if(!b){c_not1++; if(pr)p_not1++;}
     if(!a&&!b){c_none++; if(pr)p_none++;}
-    if(!s||!a||!b) printf("%llu %d %d %d %d %d\n",n,pr,sq,s,a,b);
+    if(!s||!a||!b||!ac) printf("%llu %d %d %d %d %d %d\n",n,pr,sq,s,a,b,ac);
   }
-  printf("# totals n≡1(24)<=%llu: all=%llu nostar=%llu noT2=%llu noT1=%llu none=%llu\n",N,c_all,c_nostar,c_not2,c_not1,c_none);
+  printf("# totals n≡1(24)<=%llu: all=%llu nostar=%llu noT2=%llu noT1=%llu none=%llu noT2coprime=%llu\n",N,c_all,c_nostar,c_not2,c_not1,c_none,c_not2c);
   printf("# primes: all=%llu nostar=%llu noT2=%llu noT1=%llu none=%llu\n",p_all,p_nostar,p_not2,p_not1,p_none);
   return 0;
 }
