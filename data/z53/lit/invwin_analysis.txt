@@ -1,0 +1,8 @@
+n = 64380 primes p ≡ 1 (24) in [2000113, 9999937]; zeros of R: [5212561, 8813281]
+mean y = 0.1426; corr(y, D): Pearson -0.1668, Spearman -0.1469
+R^2 of covariates for y: 0.1234; for D: 0.4814
+partial corr(y, D | covariates) = -0.0191 (p-value 1.25e-06); Spearman of residuals -0.0245
+  residual-D top 50%: mean y 0.1423 vs rest 0.1430
+  residual-D top 10%: mean y 0.1394 vs rest 0.1430
+  residual-D top 1%: mean y 0.1348 vs rest 0.1427
+lowest-1% y (n=644): mean D 0.0881 vs all 0.0672; mean residual-D +0.00656 (sd 0.02134)

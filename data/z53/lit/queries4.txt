@@ -1,0 +1,19 @@
+genus	abs:"Landau-Siegel" OR abs:"Siegel zero" OR abs:"Siegel zeros"
+genus	abs:"4-rank" AND abs:"class group" AND cat:math.NT
+genus	abs:"8-rank" AND cat:math.NT
+genus	abs:"governing field" OR abs:"governing fields"
+genus	abs:"spin" AND abs:"prime ideals" AND cat:math.NT
+genus	abs:"Redei" AND cat:math.NT
+genus	abs:"L(1,chi)" AND abs:"lower bound" AND cat:math.NT
+forest	abs:"continued fraction" AND abs:"period" AND abs:"sqrt" AND cat:math.NT
+forest	abs:"negative Pell" AND cat:math.NT
+forest	abs:"Kloosterman" AND abs:"continued fraction" AND cat:math.NT
+forest	abs:"Gauss map" AND abs:"rational" AND abs:"Euclidean algorithm"
+lattice	abs:"Coppersmith" AND cat:math.NT
+lattice	abs:"small roots" AND abs:"lattice" AND abs:"divisor"
+lattice	abs:"Thue" AND abs:"lemma" AND abs:"congruence" AND cat:math.NT
+noncrt	abs:"least quadratic non-residue" AND abs:"Burgess"
+noncrt	abs:"primitive roots" AND abs:"short interval"
+hc	abs:"shifted primes" AND abs:"smooth" AND cat:math.NT
+hc	abs:"consecutive integers" AND abs:"prime factors" AND cat:math.NT
+hc	abs:"Sylvester" AND abs:"Schur" AND cat:math.NT

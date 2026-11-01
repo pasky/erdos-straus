@@ -1,0 +1,439 @@
+====================================================================================================
+arXiv:2304.07953 | id: http://arxiv.org/abs/2304.07953v1 | published: 2023-04-17T02:42:34Z | updated: 2023-04-17T02:42:34Z | title: On the distribution of modular inverses from short intervals
+[pypdf text, PAGE 3, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1. For any ﬁxed A> 1 and any suﬃciently large positive
+integerN there exists a prime number p with
+(logp)A ≍N
+such that Dp(N) ≫ 1.
+Using [23, Chapter 1, Theorem 1] which is a version of the celebrated
+Erd˝ os–Tur´ an–Koksma inequality (see, for example, [9, Theorem 1.21]),
+given Lemma 2.5 below), which bound the discrepancy in terms of ex-
+ponential sums, we obtain the following estimate on certain L1-moment
+of exponential sums with reciprocals.
+=== PAGE 4 ===
+4 MOUBARIZ Z. GARAEV AND I. E. SHPARLINSKI
+Theorem 1.2. For any ﬁxed A> 1 there exists an integer k0 > 0 such
+that the following holds: for any suﬃciently large integer N there exists
+a prime number p with
+(logp)A ≍N
+such that
+k∑
+a=1
+⏐⏐⏐⏐⏐∑x⩽N ep(ax)⏐⏐⏐⏐⏐ ≫kN,
+for any k0 ⩽k ⩽N.
+Next we consider the case when the discrepancy may be nontrivial
+but admits only a small power saving.
+Theorem 1.3. For any ﬁxed positive γ < 1 there exist positive con-
+stantsc1 andc2 such that the following holds: for any suﬃciently large
+integer N there exists a prime number p such that
+exp
+(
+c1(logp log logp)γ/(1+γ))>N > exp (c2(logp log logp)γ/(1+γ))
+and
+Dp(N) ≫N −γ.
+We then derive an analogue of Theorem 1.2.
+Theorem 1.4. For any ﬁxed positive γ < 1 there exist positive con-
+stants c1, c2 and β such that the following holds: for any suﬃciently
+large integer N there is a prime number p such that
+exp
+(
+c1(logp log logp)γ/(1+γ))>N > exp (c2(logp log logp)γ/(1+γ))
+and
+k∑
+a=1
+====================================================================================================
+arXiv:2304.07953 | id: http://arxiv.org/abs/2304.07953v1 | published: 2023-04-17T02:42:34Z | updated: 2023-04-17T02:42:34Z | title: On the distribution of modular inverses from short intervals
+[pypdf text, PAGE 2, anchor '^3\\.1\\. Proof of Theorem 1\\.1']
+3.1. Proof of Theorem 1.1 6
+3.2. Proof of Theorem 1.2 7
+4. Proof of results about bounds with small polynomial saving 8
+4.1. Proof of Theorem 1.3 8
+4.2. Proof of Theorem 1.4 9
+5. Comments 9
+Acknowledgement 9
+References 10
+1. Introduction
+1.1. Motivation. Given a prime p and a positive integer N < p, we
+consider the sequence of modular inverses
+(1.1) x, x = 1,...,N,
+deﬁned by the conditions
+xx ≡ 1 (mod p) and 1 ⩽x<p.
+There is an extensive literature dedicated to studying the distri-
+bution of the sequence ( 1.1), with application to an amazingly large
+variety of problems in number theory and beyond, see the survey [ 26]
+and also more recent works [ 1, 6, 7, 15, 29].
+When N /greaterorequalslant p1/2+ε, the classical Weil bound of Kloosterman sums,
+see [ 16, Theorem 11.11], immediately implies that the elements of
+the sequence ( 1.1), are suﬃciently uniformly distributed in interval
+[1,p − 1]. For smaller values of N < p1/2 the problem becomes much
+more diﬃcult and only signiﬁcantly weaker results are known, see, fo r
+example, [ 5, 17, 18, 20–22]. It is known from the work of Bourgain and
+Garaev [ 5] that one has the uniformity of distribution in the range
+(1.2) p1/2 /greaterorequalslantN /greaterorequalslant exp ((logp)2/3 (log logp)c),
+where c > 3 is any ﬁxed constant. The constant 2 /3 that appears
+in (log p)2/3 is the best known up to the date, while the constant c is
+claimed to be improved in Korolev [ 22, Theorem 2] (the reader should
+be aware, however, that the proof of [ 22, Lemma 2] contains a gap,
+while the results of Snurnitsyn [27] are, unfortunately, incorrect). In the
+range of N just below p1/2, and a nontrivial bound is given by Fouvry,
+Kowalski, Michel, Raju, Rivat an Soundararajan [ 11, Corollary 1.7].
+=== PAGE 3 ===
+MODULAR INVERSES FROM SHORT INTER V ALS 3
+Here we approach the question from a diﬀerent direction and ask
+what are the largest possible values of N for which the sequence ( 1.1)
+is not uniformly distributed or is rather poorly distributed.
+1.2. Formal set-up and notation. As usual, we measure the quality
+of the distribution of the sequence ( 1.1) via its discrepancy
+====================================================================================================
+arXiv:2511.08445 | id: http://arxiv.org/abs/2511.08445v2 | published: 2025-11-11T16:47:34Z | updated: 2026-06-21T16:51:23Z | title: Non-abelian amplification and bilinear forms with Kloosterman sums
+[pypdf text, PAGE 3, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1.Letc, M, N∈Z + withM, N≪c 1/2+o(1). Then for any complex sequences
+(αm)m≤M,(β n)n≤N anda∈(Z/cZ) ×, one has
+MX
+m=1
+NX
+n=1
+(m,n,c)=1
+αmβnS(am, n;c)≪ ∥α∥∥β∥c1− 1700 +o(1).
+Moreover, if|α m| ≤1for allm(so∥α∥ ≤
+√
+M), then
+MX
+m=1
+NX
+====================================================================================================
+arXiv:2609.37434 | id: http://arxiv.org/abs/2609.37434v1 | published: 2026-09-29T12:58:34Z | updated: 2026-09-29T12:58:34Z | title: Products of two elements of Granville's random model in residue classes
+[pypdf text, PAGE 1, anchor '^The EOS conjecture remains open']
+The EOS conjecture remains open even under the Generalized Riemann Hypothesis
+(GRH). To see why, consider the natural approach of using Dirichlet characters modulo
+qto detect the congruencep 1p2 ≡amodq. The principal characterχ 0 produces the
+main termπ(q) 2/φ(q), whereas by Parseval the mean square of the sums Pp⩽q χ(p) over
+χ̸=χ 0 equals (1 +o(1))π(q), so bounding the error terms by absolute values yields a
+total that exceeds the main term by the factorφ(q)/π(q)≫logq/log logq. The loss
+comes from the sum over the characters, not from any single character. The square-root
+saving in each individual sum, which is all that GRH provides, does not recover this loss.
+The EOS conjecture is also resistant to sieve methods, which can produce products
+of two almost primes in a given class but not products of two primes, since integers with
+====================================================================================================
+arXiv:2609.37434 | id: http://arxiv.org/abs/2609.37434v1 | published: 2026-09-29T12:58:34Z | updated: 2026-09-29T12:58:34Z | title: Products of two elements of Granville's random model in residue classes
+[pypdf text, PAGE 2, anchor '^Result Range']
+Result Range ofqReference
+|Sq,2(q)|⩾(1/64 +o(1))φ(q)qprime [23]
+Sq,48(q) = (Z/qZ) × qprime [23]
+Sq,3(q3/2+ε) = (Z/qZ)× qlarge [1,16,17]
+|Sq,2(q)|⩾(3/8 +o(1))φ(q)qcube-free [22]
+Sq,6(q) = (Z/qZ) × qlarge prime [22]
+Sq,3(q6/5+ε) = (Z/qZ)× allq[22]
+|Sq,2(q)|⩾(2/3−ε)φ(q)qlarge [15]
+Sq,3(q) = (Z/qZ) × qlarge cube-free [15]
+Sq,3(q2+ε) = (Z/qZ)× qsmooth or non-exceptional prime [12]
+Table 1.Products ofkprimes in reduced classes moduloq;ε >0 is fixed
+and “large” meansq⩾q 0(ε) whereεappears.
+====================================================================================================
+arXiv:2609.37434 | id: http://arxiv.org/abs/2609.37434v1 | published: 2026-09-29T12:58:34Z | updated: 2026-09-29T12:58:34Z | title: Products of two elements of Granville's random model in residue classes
+[pypdf text, PAGE 3, anchor '^Second, the exponent']
+Second, the exponent 34 is sharp for the method, and the reason is a deterministic one.
+The proof reduces to counting lattice points on the hyperbolan 1n2 ≡amodqin boxes
+of side lengthN≍q Θ, where completion and the Weil–Estermann bound give an error
+O(q1/2+o(1)) against a main term of size roughlyN 2/q; these balance atN=q 3/4. Any
+saving on incomplete Kloosterman sums would lower the exponent, but below Θ = 12 the
+statement certainly fails.
+Third, the probabilistic content of our argument is minimal. The count is a sum of
+independent Bernoulli variables over orbits ofn7→a¯n, so the probability that there
+====================================================================================================
+arXiv:2610.19597 | id: http://arxiv.org/abs/2610.19597v1 | published: 2026-10-14T05:12:05Z | updated: 2026-10-14T05:12:05Z | title: On the Erdős--Odlyzko--Sárközy conjecture for prime-power moduli
+[pypdf text, PAGE 2, anchor '^Theorem1\\.1']
+Theorem1.1 (Ternary case, prime-power moduli).For any fixed primep, there are
+constantsγ 1,C 1 >0andc 1 >0such that the following holds. Letq=p γ withγ⩾γ 1
+and suppose that a realq • ⩽qsatisfies
+logq • ⩾C 1(logq) 2/3(log logq) 4/3.(1.1)
+Then for everya∈(Z/qZ) × we have
+X
+ℓ1,ℓ2⩽q, ℓ3⩽q•
+ℓ1ℓ2ℓ3≡amodq
+logℓ 1 ·logℓ 2 ·logℓ 3 = q2q•
+φ(q)
+
+1 +O
+
+exp
+
+− c1 logq •
+====================================================================================================
+arXiv:2610.19597 | id: http://arxiv.org/abs/2610.19597v1 | published: 2026-10-14T05:12:05Z | updated: 2026-10-14T05:12:05Z | title: On the Erdős--Odlyzko--Sárközy conjecture for prime-power moduli
+[pypdf text, PAGE 2, anchor '^Theorem1\\.2']
+Theorem1.2 (Binary case, prime-power moduli).For any fixed primep, there are
+constantsγ 2 andC 2 >0such that for every modulusq=p γ withγ⩾γ 2 we have
+
+
+(Z/qZ)× \EOS 2(q)
+
+====================================================================================================
+arXiv:2610.19597 | id: http://arxiv.org/abs/2610.19597v1 | published: 2026-10-14T05:12:05Z | updated: 2026-10-14T05:12:05Z | title: On the Erdős--Odlyzko--Sárközy conjecture for prime-power moduli
+[pypdf text, PAGE 3, anchor '^Theorem1\\.3']
+Theorem1.3 (Ternary case, general moduli).There is a constantC >0, depending
+only onσ 0, such that underQRH[q, σ 0]everya∈(Z/qZ) × is the productℓ 1ℓ2ℓ3 of three
+primes withℓ 1, ℓ2 ⩽qandℓ 3 ⩽C(logq) 2/(1−σ0).
+Theorem 1.3 is derived from an asymptotic formula similar to that of Theorem 1.1;
+====================================================================================================
+arXiv:2610.19597 | id: http://arxiv.org/abs/2610.19597v1 | published: 2026-10-14T05:12:05Z | updated: 2026-10-14T05:12:05Z | title: On the Erdős--Odlyzko--Sárközy conjecture for prime-power moduli
+[pypdf text, PAGE 3, anchor '^Theorem1\\.4']
+Theorem1.4 (Binary case, general moduli).UnderQRH[q, σ 0]we have
+
+
+(Z/qZ)× \EOS 2(q)
+
+ ≪φ(q)q −2(1−σ0)(logq) 3.
+====================================================================================================
+arXiv:2301.07679 | id: http://arxiv.org/abs/2301.07679v3 | published: 2023-01-18T17:57:15Z | updated: 2024-02-15T13:29:23Z | title: Products of primes in arithmetic progressions
+[pypdf text, PAGE 1, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1. (i) Let q ∈ N be cube-free and sufficiently large. Then
+E3(q) = Z×q .
+(ii) Let ε >0 and let q ∈ N be sufficiently large in terms of ε. Then
+E3(q1+ε) = Z×q .
+Previously, Walker had shown in [26] that E48(q) = Z×q and later in [25] that E20(q) =
+Z×q . This was improved independently by Szab´ o [23] and Zhao [28] to E6(q) = Z×q
+====================================================================================================
+arXiv:2301.07679 | id: http://arxiv.org/abs/2301.07679v3 | published: 2023-01-18T17:57:15Z | updated: 2024-02-15T13:29:23Z | title: Products of primes in arithmetic progressions
+[pypdf text, PAGE 2, anchor '^Theorem 1\\.3\\.']
+Theorem 1.3. Let ε >0 and let q ∈ N be sufficiently large in terms of ε.
+(i) We have
+|E2(q)| ≥
+ 2
+3 − ε
+
+====================================================================================================
+arXiv:2605.27833 | id: http://arxiv.org/abs/2605.27833v1 | published: 2026-05-27T01:44:41Z | updated: 2026-05-27T01:44:41Z | title: Linnik's problem for multiplicative functions
+[pypdf text, PAGE 1, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1.Letε >0be sufficiently small, letc >0, and letq∈Nbe sufficiently
+large in terms ofεandc. Leth:N→Rbe a multiplicative function such thath(p)̸= 0
+for everyp∤q. Then
+R(h;q)≤q 2+ε,
+unless there exists a characterχ(modq)of order at most two such that the sign ofh
+pretends to beχin the sense that
+(1.1)
+X
+p≤q1/3
+h(p)χ(p)<0
+1
+p ≤ cqε/100 .
+====================================================================================================
+arXiv:2606.30567 | id: http://arxiv.org/abs/2606.30567v1 | published: 2026-06-29T17:09:28Z | updated: 2026-06-29T17:09:28Z | title: Products of prime ideals in ray class groups
+[pypdf text, PAGE 2, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1.AssumeCS(α)andL b(α0). Letκ >0be fixed. ForQsufficiently large, if
+X≥Q max(1,3α,4α0)+κ,thenE 3(X;q) =G.
+We also prove the following two-prime density result.
+Theorem 1.2.AssumeCS(α)andL b(α0). Letκ>0be fixed, and letε>0be sufficiently small.
+ForQsufficiently large in terms ofε, the following hold.
+(i)IfX≥Q max(1,3α,4α0)+κ,then|E 2(X;q)|≥ ( 23−ε)|G|.
+(ii)IfX≥Q max(1,4α,4α0)+κ,then|E 2(X;q)|≥ ( 1116−ε)|G|.
+For a general fixed number fieldK, Wu’s subconvexity theorem for HeckeL-functions [26],
+together with the admissible Ramanujan exponentθ= 7/64 of Blomer–Brumley [3], gives
+α=α 0 = 103256;
+see Proposition 2.4. Hence Theorem 1.1 gives
+E3(X;q) =GwheneverX≥Q 103/64+κ,103/64≈1.609.
+====================================================================================================
+arXiv:2302.06409 | id: http://arxiv.org/abs/2302.06409v1 | published: 2023-02-13T14:46:02Z | updated: 2023-02-13T14:46:02Z | title: Kloosterman sums do not correlate with periodic functions
+[pypdf text, PAGE 1, anchor '^Theorem 1\\. Let']
+Theorem 1. Letm,n ∈ Z\{0} be two non-zero integers and F a periodic function. Then,
+we have ∑
+c≤C
+S(m,n ;c)√c F (c) ≪m,n,F C 1− 932 +o(1).
+====================================================================================================
+arXiv:2302.06409 | id: http://arxiv.org/abs/2302.06409v1 | published: 2023-02-13T14:46:02Z | updated: 2023-02-13T14:46:02Z | title: Kloosterman sums do not correlate with periodic functions
+[pypdf text, PAGE 2, anchor '^Theorem 2\\. Let']
+Theorem 2. Let m,n ∈ Z\{0} be two non-zero integers. Further let a,q,Q ∈ N be
+integers with q |Q and (a,Q/q ) = 1 . Then, we have
+∑
+c≤C
+c≡aq mod(Q)
+S(m,n ;c)
+c
+≪m,n (QC)o(1)
+(
+(q,Q/q )1/3
+====================================================================================================
+arXiv:2411.17823 | id: http://arxiv.org/abs/2411.17823v3 | published: 2024-11-26T19:02:50Z | updated: 2025-08-21T14:29:27Z | title: Triple sums of Kloosterman sums and the discrepancy of modular inverses
+[pypdf text, PAGE 3, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1. Let M, N, Xě 1 be real numbers. Then
+KpM, N; Xqď
+`
+M N X`p M Nq2{3X 7{6˘pM N Xqop1q,
+as M N XÑ8 .
+Remark 1.2. Using the trivial bound |Sp0, n; cq| ď gcdpc, nq for Ramanujan sums,
+====================================================================================================
+arXiv:2608.27732 | id: http://arxiv.org/abs/2608.27732v1 | published: 2026-08-27T21:46:09Z | updated: 2026-08-27T21:46:09Z | title: Trilinear Kloosterman fractions II: subdyadic intervals and nearly balanced convolutions
+[pypdf text, PAGE 1, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1.Letk≥1be an integer andM, N≥1be given. SetX=M N. Let
+αm andβ n be two sequences of real numbers supported respectively on[M,2M]and
+[N,2N]. Suppose thatβ= (β n)is Siegel–Walfisz and suppose that|α m| ≤τk(m)
+and|β n| ≤τk(n)for all integersm, n≥1. Then, for everyε >0and everyA >0,
+(1)
+X
+Q≤q≤2Q
+(q,a)=1
+
+
+
+ X
+====================================================================================================
+arXiv:2607.07710 | id: http://arxiv.org/abs/2607.07710v1 | published: 2026-07-02T09:15:04Z | updated: 2026-07-02T09:15:04Z | title: A problem of D. H. Lehmer in short intervals. I
+[pypdf text, PAGE 2, anchor '^Theorem 1\\.']
+Theorem 1.Let1⩽𝑁⩽𝑞−1. Suppose that𝑞is squarefree and has only prime factors not
+exceeding𝑞𝜂 with𝜂>0sufficiently small. For all𝑚∈Z + and𝜀>0,we have
+𝐿(𝑁,𝑞)= 12𝑁𝜑(𝑞)𝑞−1+𝑂(𝑁 𝜆−𝜅+𝑂(𝜂) 𝑞𝜅+𝜀),
+where
+(𝜅,𝜆)=
+ 1
+2𝑚+2−2, 2𝑚+2−𝑚−32𝑚+2−2 .
+The implied constant depends at most on𝑚,𝜂and𝜀.
+By taking𝑚sufficiently large and𝜀sufficiently small, Theorem 1 gives an asymptotic for-
+mula for all𝑁≫𝑞 𝜀, provided that𝜂is sufficiently small in terms of𝜀. This allows us to derive
+the following immediate consequence.
+Corollary 1.Under the hypotheses of Theorem 1, for any𝜀>0, there exists an integer𝑎with
+1⩽𝑎≪𝑞 𝜀 such that(𝑎,𝑞)=1and2∤𝑎+ ¯𝑎.
+Finally, we also mention that, as one may see from the subsequent proof, one may replace
+the interval[1,𝑁]by(𝑀,𝑀+𝑁]in Theorem 1, for any given𝑀. On the other hand, the
+statements in Theorem 1 and Corollary 1 would fail if𝑞is prime, in which case we revisit this
+====================================================================================================
+arXiv:2212.14646 | id: http://arxiv.org/abs/2212.14646v1 | published: 2022-12-30T12:01:32Z | updated: 2022-12-30T12:01:32Z | title: On Korobov bound concerning Zaremba's conjecture
+[pypdf text, PAGE 2, anchor '^Theorem 1 Let']
+Theorem 1 Let q be a positive suﬃciently large integer with suﬃciently larg e prime factors.
+Then there is a positive integer a, (a,q ) = 1 and
+M =O(logq/ log logq) (4)
+such that a
+q = [0;c1,...,c s], c j ⩽M, ∀j ∈ [s]. (5)
+Also, if q is a suﬃciently large square–free number, then (4), (5) take place.
+====================================================================================================
+arXiv:2508.17979 | id: http://arxiv.org/abs/2508.17979v2 | published: 2025-08-25T12:45:30Z | updated: 2025-09-04T06:53:36Z | title: The divisor function along arithmetic progressions and binary cubic polynomials
+[pypdf text, PAGE 1, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1. There exists a constant B > 1 such that uniformly for ε > 0, a ∈ Z, and
+Q < X2/3+ε, we have
+∆(X; q, a) ≪ X 1−ε(log X)B
+q
+for all but O(√εQ) moduli q ∈ (Q, 2Q] with (a, q) = 1.
+In particular, for any A >0 and Q ≤ X 2/3(log X)A we have
+∆(X; q, a) ≪ Xq(log X)A
+2020 Mathematics Subject Classification. 11N37.
+====================================================================================================
+arXiv:2508.17979 | id: http://arxiv.org/abs/2508.17979v2 | published: 2025-08-25T12:45:30Z | updated: 2025-09-04T06:53:36Z | title: The divisor function along arithmetic progressions and binary cubic polynomials
+[pypdf text, PAGE 2, anchor '^Theorem 1\\.2\\.']
+Theorem 1.2. For C(X, Y) = XY 2 + 1 we have
+X
+n1,n2≤X
+d(C(n1, n2)) =
+
+1 + O
+====================================================================================================
+arXiv:1908.00378 | id: http://arxiv.org/abs/1908.00378v3 | published: 2019-08-01T13:17:55Z | updated: 2022-12-12T18:47:39Z | title: Equal sums in random sets and the concentration of divisors
+[pypdf text, PAGE 2, anchor '^Theorem 1\\. Let']
+Theorem 1. Letε> 0 be ﬁxed. Then
+∆(n) /greaterorequalslant (log logn)η−ε
+for almost all n, whereη = 0.35332277270132346711... .
+The constant η, which we believe to be sharp, is described in relation ( 1.3) below, just after the
+====================================================================================================
+arXiv:2306.08615 | id: http://arxiv.org/abs/2306.08615v4 | published: 2023-06-14T16:19:26Z | updated: 2023-11-09T04:40:04Z | title: An upper bound on the mean value of the Erdős-Hooley Delta function
+[pypdf text, PAGE 2, anchor '^Theorem 1 \\(Mean']
+Theorem 1 (Mean value bound). F orx /greaterorequalslant 1, we have
+∑
+n⩽x
+====================================================================================================
+arXiv:2512.13669 | id: http://arxiv.org/abs/2512.13669v3 | published: 2025-12-15T18:56:05Z | updated: 2026-08-26T16:20:44Z | title: Poisson--Dirichlet approximation for counting integers with divisors in an interval
+[pypdf text, PAGE 2, anchor '^Theorem 1\\.Let']
+Theorem 1.Letδ := 1− 1+log2 2log 2 . We have
+H(x, y, z) =x·h
+  logy
+logx , logzlogx  +O  x(logy min)δ(log2 ymin)3/2 
+for all3⩽y < z⩽x/3, withy min := min{y, x/z}.
+====================================================================================================
+arXiv:2608.27356 | id: http://arxiv.org/abs/2608.27356v1 | published: 2026-08-27T16:53:12Z | updated: 2026-08-27T16:53:12Z | title: Integers divisible by a shifted prime in a given interval
+[pypdf text, PAGE 2, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1.Let3≤y < z≤x, and letz ′ = min{z, x/y} → ∞asx→ ∞. Letε, η∈
+(0,1/10)be small and fixed. LetQ(ρ) =ρlog(ρ/e) + 1andγ 0 =Q(2) = log 4−1. Set
+u= log(z/y)logz , u ′ = log(z/y)logz ′ , γ= log(1/u)log logz ′
+such thaty=z 1−u andu= (logz ′)−γ. Then the following holds.
+(i) Ifu≤(logz ′)−(γ0+η), or equivalentlyγ > γ0 +η, then fory≥z−z 17/30+ε
+x−1H ∗(x, y, z) =u(1 +oε,η(1)).
+(ii) Ifγ∈(η, γ 0 −η), then
+x−1H ∗(x, y, z)≍η (logz ′)−Q( 1+γlog 2)(log logz ′)−1/2 .
+(iii) (First transition) If|γ−γ 0| ≤0.01, then
+x−1H ∗(x, y, z)≍
+====================================================================================================
+arXiv:2410.03991 | id: http://arxiv.org/abs/2410.03991v1 | published: 2024-10-05T00:55:26Z | updated: 2024-10-05T00:55:26Z | title: Binary and ternary congruences involving intervals and sets modulo a prime
+[pypdf text, PAGE 2, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1. LetM = ⌊p14/29⌋ and H = ⌊p14/29+ε⌋. Then any inte-
+ger λ can be represented in the form
+m1
+xs1 + m2xs2 + m3xs3 ≡λ modp, m i ∈ M, xi ∈ H, i = 1, 2, 3.
+We note that the problem of obtaining an asymptotic formula for
+====================================================================================================
+arXiv:2410.03991 | id: http://arxiv.org/abs/2410.03991v1 | published: 2024-10-05T00:55:26Z | updated: 2024-10-05T00:55:26Z | title: Binary and ternary congruences involving intervals and sets modulo a prime
+[pypdf text, PAGE 3, anchor '^Theorem 1\\.2\\.']
+Theorem 1.2. Let 0<ε< 0.1, M = ⌊p1/2⌋ and H = ⌊p1/2(logp)6+ε⌋.
+Then for all but π(X)/X 0.01ε primes p ⩽ X, any integer λ can be
+represented in the form
+m1
+x1
++ m2
+x2
+≡λ modp, m i ∈ M, xi ∈ H, i = 1, 2.
+====================================================================================================
+arXiv:2410.03991 | id: http://arxiv.org/abs/2410.03991v1 | published: 2024-10-05T00:55:26Z | updated: 2024-10-05T00:55:26Z | title: Binary and ternary congruences involving intervals and sets modulo a prime
+[pypdf text, PAGE 4, anchor '^Theorem 1\\.3\\.']
+Theorem 1.3. Let I and J be subsets of F∗p consisting on ⌊√8p⌋
+consecutive integers modulo p. Then any integer λ can be represented
+in the form
+m1
+x1
+====================================================================================================
+arXiv:2304.08689 | id: http://arxiv.org/abs/2304.08689v1 | published: 2023-04-18T01:52:03Z | updated: 2023-04-18T01:52:03Z | title: On some congruences and exponential sums
+[pypdf text, PAGE 3, anchor '^Theorem 1\\.1\\.']
+Theorem 1.1. Letε> 0 be ﬁxed. Assume that cardinalities H andM
+of an interval H as in (1.1) and a set M as in (1.2) satisfy
+H /greaterorequalslantp2/3, HM /greaterorequalslantp1+ε
+or
+H <p2/3, M /greaterorequalslantp1/3, HM 1/4 /greaterorequalslantp3/4+ε.
+Then there is some η >0 which depends only on ε such that
+# (HM) = p +O
+(
+p1−η).
+It is easy to see from the proof of Theorem 1.1 that one can take
+====================================================================================================
+arXiv:2610.15483 | id: http://arxiv.org/abs/2610.15483v1 | published: 2026-10-11T09:35:35Z | updated: 2026-10-11T09:35:35Z | title: On the OpenAI proof that Landau-Siegel zeros do not exist
+[pypdf text, PAGE 2, anchor '^Theorem1\\.1\\.']
+Theorem1.1.There are absolute constantsq 0 ⩾9andδ 0 >0such that for every
+primitive real Dirichlet characterχof conductorq⩾q 0, every real zeroβ∈(0,1)of
+L(s, χ)satisfies
+(1−β) logq⩾δ 0.
+One can takeq 0 = 1010 andδ 0 = 3.0×10 −3. Consequently, there is an absolute constant
+c >0such that(1−β) logq⩾cfor every real zeroβ∈(0,1)ofL(s, χ), for every
+primitive real Dirichlet characterχof conductorq⩾3. By the computation of [5], one
+can takec= 3.0×10 −3.
+=== PAGE 3 ===
+ON THE OPENAI PROOF THAT LANDAU–SIEGEL ZEROS DO NOT EXIST 3
+====================================================================================================
+arXiv:2610.21099 | id: http://arxiv.org/abs/2610.21099v1 | published: 2026-10-15T02:01:25Z | updated: 2026-10-15T02:01:25Z | title: A simpler proof that there are no Landau--Siegel zeros
+[pypdf text, PAGE 1, anchor '^Theorem 1\\.']
+Theorem 1.There is an absolute constantc >0such that, for every primitive nonprincipal
+real Dirichlet characterχ(n) = (q/n), whereqis a fundamental discriminant, every real zero
+β∈(0,1)ofL(s, χ),
+(1−β) log|q| ≥c.
+The argument has much in common with OpenAI [3] who consider polynomials that vanish
+modulo many primes when evaluated at linear forms. Our main difference is to replace the
+====================================================================================================
+arXiv:2205.02354 | id: http://arxiv.org/abs/2205.02354v2 | published: 2022-05-04T23:20:05Z | updated: 2023-02-24T17:13:53Z | title: Variance of the k-fold divisor function in arithmetic progressions for individual modulus
+[pypdf text, PAGE 6, anchor '^Theorem 1 \\(Full']
+Theorem 1 (Full main term with power-saving error term). Fix parameters
+(1.14) k≥ 3, δ >0,
+and
+(1.15) c∈ [k− 1 +δ,k−δ].
+Ford≥ 1, put
+X =dc.
+6
+=== PAGE 7 ===
+Letw(y) be a smooth function with support in [1, 2] such that
+∫
+w(y)2dy = 1.
+Then, we have the asymptotic equality, as d→∞ ,
+∑
+1≤a≤d
