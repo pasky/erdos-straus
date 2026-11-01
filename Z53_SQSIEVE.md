@@ -9,7 +9,8 @@ Brief: `z52bbriefs/z53_depth.md`, lane kickoff `z52bbriefs/z53_lanes.md` §SQSIE
 `scripts/z53_sqsieve_*`, data `data/z53/sqsieve/`.
 
 *Status: full draft, hostile review 1 applied (checkpoint 1 was commit facb8fc5).* Verdict: (S1) **strengthened** —
-R(n) ≪ n^{12/37+ε}; (S2) **narrowed**; (S3) **narrowed** (closed for quadratic σ-minorants; open otherwise). See §9.
+R(n) ≪ n^{12/37+ε}; (S2) **narrowed**; (S3) **narrowed** (under (H), quadratic σ-minorants have no positive diagonal main term; a lower bound needs signed
+auxiliary-sum information; open otherwise). See §9.
 
 ## 0. Notation (as in HYPSUMPROD)
 
@@ -157,7 +158,8 @@ use Ψ(x) ≪ |x|^{−2}; for M < 1 use Ψ(ℓ/M) ≪ M²ℓ^{−2} ≤ M^{1+σ}
   = Q n^{1/6}W^{1/2}V^{−1/6} + Q^{1/2}V^{1/6}W n^{−1/6} + Q^{3/2}. ∎
 *Remark (where the gain over HYPSUMPROD comes from).* HYPSUMPROD bounded Σ_{c₀,k₀}|E(c₀,k₀)| — absolute values over all Q²
 residue classes of the strip discrepancy — and lost Q² · (per-class discrepancy). Here the character is Fourier-expanded in
-k *before* any absolute value: the k₀-sum becomes a complete Kloosterman-type sum (size √Q, Lemma W) and only the c₀-classes
+k *before* any absolute value: the k₀-sum becomes a complete Kloosterman-type sum (aggregate Σ_{c₀}|G_{c₀}(ℓ)| ≪ Q^{3/2}, Lemma W; individually √Q-size
+except at exceptional frequencies/classes) and only the c₀-classes
 (Q of them) are summed absolutely; smoothing in s removes the Vaaler truncation. Net effect at the cube: discrepancy
 Q·T^{5/6} instead of T^{6/7}Q^{9/7} (T = n^{1/3}).
 
@@ -182,7 +184,7 @@ For Theorem A′ replace (iii) by the exponent-pair bound E_Q(ℓ) ≪ (|ℓ|n/W
 phase is −X/(j + c₀/Q) with X = ℓn/(4Q²), j in an interval of length ≤ N := W/Q; after peeling off ≤ 1 boundary term the
 j-range lies in a dyadic interval (N′, 2N′] with N′ ≍ N, and for N ≥ N₀ the shifted phase lies in the Graham–Kolesnik class
 F(N′, P, s = 2, y = X, ε) (relative derivative error O(1/N)); the condition y ≥ N′² is |ℓ|n ≥ 4W²·O(1), which holds because
-γ ≤ 13/37 + o(1) < 1/2 in Case 2 (and for S₁); ℓ < 0 by complex conjugation. Then (iv)
+γ ≤ 1 − 2θ* + o(1) < 1/2 in Case 2 for every θ* = 4/(13 − 4κ) > 1/4 (and for S₁); ℓ < 0 by complex conjugation. Then (iv)
 gives Q^{3/2+κ−λ}n^κW^{λ−κ}V^{−κ} + Q^{3/2} in place of the two third-derivative terms, i.e. P²n^κW^{1/2}V^{−κ} when
 λ − κ = 1/2; ρ* := ((1 + κ)β − κ − γ/2)/3 and the same vertex check with θ* = 4/(13 − 4κ) (script; Bourgain:
 21/65; conjectural κ = 0: 4/13). ∎
@@ -206,7 +208,8 @@ many linear inequalities. On the diagonal U = V (α = β, γ = 1 − 2β) the ga
 | HYPSUMPROD (for comparison) | ≈ (0.31, 0.335) (grid) | 8/25 = 0.32 | 74/225 = 0.3289 |
 
 ### 5.2 The balanced block (Proposition B2; PROVED, scoped to the §4 implementation)
-Call an *implementation of §4* any argument that (i) applies Lemma 1′ and the square sieve (4.1), (ii) expands S_Q by
+Call an *implementation of §4* any argument that (o) uses auxiliary moduli Q = qq′ ≤ W (the case Q > W is not covered
+by B2), (i) applies Lemma 1′ and the square sieve (4.1), (ii) expands S_Q by
 Lemma P, (iii) bounds the dual by the triangle inequality over ℓ and over c₀ mod Q and by Abel summation as in §4.4(ii)
 (with the true weights |G_{c₀}(ℓ)|, |a_ℓ(C)| or upper bounds for them), and (iv) bounds the C-class sums, for every ℓ with
 |ℓ| ≥ ℓ₁ := 16W²/n (the range where the phase has |derivative| ≥ 1 in j), by E_Q(ℓ) ≤ e_ℓ(W/Q) with e_ℓ(N) ≥ c√N for a
@@ -232,8 +235,8 @@ Q·#{k mod Q : (f(c,k), Q) = 1} ≥ Q·(q − 2)(q′ − 2) ≥ Q²/2 (f(c,·) 
 (Q/2)(Q²/2)/(4√Q) = Q^{5/2}/16, and any block of Q consecutive ℓ carries Σ_ℓΣ_{c₀}|G_{c₀}(ℓ)| ≥ Q^{5/2}/16.
 *Assembly.* The implementation's dual bound is ≥ Σ_{ℓ₁≤ℓ≤L₀}(V/(8QW))Σ_{c₀}|G_{c₀}(ℓ)|·e_ℓ(W/Q). Since UVW < n/2 and
 U ≥ 1/2, W < n/V, so ℓ₁ = 16W²/n < 16W/V ≤ L₀/2 once Q ≥ 32/ξ₀ (P ≥ P₁); and L₀ ≥ 2Q when W ≥ 2V/ξ₀. So [ℓ₁, L₀] contains
-≥ L₀/(2Q) − 1 ≥ L₀/(4Q) disjoint blocks of Q consecutive integers, and the bound is ≥ (V/(8QW))·(L₀/(4Q))·(Q^{5/2}/16)·
-c(W/Q − 1)^{1/2} ≫ Q·W^{1/2}. Its bound for S₁ is ≥ its ℓ = 0 term ≫ V. With Q > P² and P₀ ≤ P, the block bound is
+≥ ⌊L₀/(2Q)⌋ ≥ L₀/(4Q) complete disjoint blocks of Q consecutive integers (as L₀ − ℓ₁ ≥ L₀/2 and L₀/(2Q) ≥ 1), and, using
+the assumed e_ℓ(W/Q) ≥ c(W/Q)^{1/2}, the bound is ≥ (V/(8QW))·(L₀/(4Q))·(Q^{5/2}/16)·c(W/Q)^{1/2} ≫ Q·W^{1/2}. Its bound for S₁ is ≥ its ℓ = 0 term ≫ V. With Q > P² and P₀ ≤ P, the block bound is
 ≫ max(V/P, P²W^{1/2}) ≥ V^{2/3}W^{1/6}; at the balanced block W ≍ V² (≥ 2V/ξ₀ for n ≥ n₀) this is ≫ max(V/P, P²V) ≥ V. ∎
 *Remarks.* (1) The truth is not the obstruction: in the balanced block at n ≈ 10¹⁶ (|𝒜| ≈ 3 400–3 600) the actual sums have
 rms |S_Q| ≈ |𝒜|^{1/2} over 9 045 pairs q < q′ ∈ (1000, 2000] at a prime, an odd square and a near-square alike (§7.2); with
@@ -246,8 +249,10 @@ Even the untwisted asymptotic for Σ_{x<m≤x+y}τ(m) is known only for y ≥ x^
 (θ = 131/416 by Huxley 2003; Assessment, not re-verified in this lane), and here y = x^{1/4}.
 (3) Averaging over the moduli (the sieve needs only P₀⁻²Σ_{q≠q′}|S_{qq′}|) does not help through the large sieve: the
 values f(C,k) are |𝒜| ≍ V points of [1, 25V²] (density ≍ 1/V), and the quadratic large sieve (Heath-Brown, Acta Arith. 72
-(1995)) bounds Σ_{Q~P²}|S_Q|² by ≈ (P² + V²)·|𝒜|, i.e. average |S_Q| ≲ V^{3/2}/P, worse than trivial (Assessment; the
-large sieve does not see sparsity). This is the "square sieve + large sieve" option of the brief. (The Heath-Brown–Pierce
+(1995)) bounds Σ_{Q~P²}|S_Q|² by ≈ (P² + V²)·|𝒜|, i.e. average |S_Q| ≲ V^{3/2}/P, worse than trivial (Assessment, not a
+proved exclusion: applying Heath-Brown's squarefree-variable inequality requires grouping the possibly negative f-values by
+signed squarefree kernels and bounding the coefficient L² mass, which we have not done; the heuristic is that the large
+sieve does not see sparsity). This is the "square sieve + large sieve" option of the brief. (The Heath-Brown–Pierce
 paper on class-number moments, arXiv:1409.3177, in fact uses the large sieve without the square sieve; LIT_CHECK item 6.)
 (4) Off-diagonal (U ≪ V) the main term |𝒜|/P ≍ V/P exceeds the trivial min(U, W) unless V/U ≤ P — the sieve candidates
 are all splittings of s ≍ V; no reparametrisation by the symmetric pair (u, B) reduces this (u, B are the only symmetric
@@ -273,8 +278,10 @@ x(x + 1)(y + 1) ≡ (x + 1)(1 + x) = (x + 1)²; gcd(x + 1, n) = gcd(4Cu, n) = 1,
 = (uB/n). Hence (−uB/n) = (−1/n)(x/n) = −1. ∎ *Check:* 87 388 coprime triples, odd n ≤ 20 000: no violation
 (`data/z53/sqsieve/checks.txt`); in every computed strip all squares lie in 𝒜⁻ and |𝒜⁻| = 0 at odd squares (§7).
 
-So a square-sensitive square sieve must carry the weight (1 − (−k/n))/2 — a character of conductor n, i.e. the BM layer,
-whose main term is already free pointwise (FRONTIER §2.2, §4 item 13). The auxiliary characters (·/qq′) of the sieve have
+So one available square-sensitive weight is (1 − (−k/n))/2 — a Jacobi symbol of modulus n (for composite n its primitive
+conductor can be smaller; at odd squares it is principal on units), i.e. the BM layer; necessity/uniqueness of such a
+weight is not proved. Its
+main term is already free pointwise (FRONTIER §2.2, §4 item 13). The auxiliary characters (·/qq′) of the sieve have
 conductor ≤ 4P² = n^{o(1)}-to-n^{0.06}; their complete sums (Lemma W) and the ℓ = 0 terms of S_Q depend on n only through
 n mod Q and the block parameters (PROVED, by inspection of Lemma W and §4.4(i)). This is the closed "low-conductor
 universality" phenomenon in strip form.
@@ -285,17 +292,25 @@ D(x) = a₀ + a₁x + a₂x² be a *minorant*: D(σ(a)) ≤ 1_□(a) for all a �
 σ-values ±x₀ for some x₀ ≥ √P₀ and ±ε₀ for some ε₀ ∈ {0, 1}. Then a₀ + a₂(P₀ − ν(a)) ≤ 0 for all a ∈ supp w, and
   D⁺·Σ_{m≥1} w(m²) ≥ Σ_a w(a)D(σ(a)) = Σ_a w(a)(a₀ + a₂(P₀ − ν(a))) + a₁·Σ_{q∈𝒫}S_q + a₂·Σ_{q≠q′}S_{qq′},
   D⁺ := max(0, max_{□∈supp w} D(σ)), S_Q := Σ_a w(a)(a/Q),
-so the first sum on the right is ≤ 0: **a positive lower bound must come entirely from a signed lower bound for
-a₁·Σ_q S_q + a₂·Σ_{q≠q′}S_{qq′}** — the auxiliary character sums, which the upper-bound sieve only needs small in absolute value.
+so the first (diagonal) sum on the right is ≤ 0: **under (H) and ν ≤ P₀ − 1 there is no positive diagonal main term; a
+positive lower bound must come from signed information on a₁·Σ_q S_q + a₂·Σ_{q≠q′}S_{qq′}** — the auxiliary character sums,
+which the upper-bound sieve only needs small in absolute value. This is an obstruction for *unsigned* (absolute-value)
+inputs only; it does not close quadratic-minorant methods that use signed inputs.
 *Proof.* D(x) + D(−x) = 2(a₀ + a₂x²), and D ≤ 0 at σ-values of non-squares. If a₂ ≥ 0: a₀ + a₂(P₀ − ν) ≤ a₀ + a₂P₀ ≤
 a₀ + a₂x₀² ≤ 0. If a₂ < 0: a₀ + a₂(P₀ − ν) ≤ a₀ + a₂ε₀² ≤ 0 since P₀ − ν ≥ 1 ≥ ε₀². The identity is σ(a)² = (P₀ − ν(a)) + Σ_{q≠q′}(a/qq′) summed
 against w; the inequality is the minorant property (squares contribute ≤ D⁺ each, non-squares ≤ 0). ∎
 (H) holds in every strip computed in §7 (with x₀ the least integer ≥ √P₀ with x₀ ≡ P₀ (mod 2), ε₀ ∈ {0, 1}: σ = 0, or both
 σ = ±1, and both σ = ±x₀ are realised by non-squares; flag "(H):1" in all 14 runs, `strip_*.txt`; CERTIFIED for those runs).
+(H) is only checked on these finite strips, not proved for general application weights.
 *Reading (Assessment).* Heath-Brown's upper bound uses the majorant D = (2σ/P₀)², main coefficient ≈ 4/P₀ > 0; minorants
-are forced to main coefficient ≤ 0. The signed combination would have to be shown ≥ (const)·P₀² at a prime and must be
-≤ 0 at odd squares; each S_{qq′} is a sum of |𝒜| terms of square-root size (EVIDENCE §7), and each square contributes
-≈ P₀² to Σ_{q≠q′}S_{qq′}, so the needed signed accuracy is o(1) per pair on average — the count itself.
+are forced to main coefficient ≤ 0, so positivity must come from a signed lower bound for the auxiliary sums at a prime.
+At odd squares only diagonal + signed part must be ≤ 0; the signed part alone need not be (cross-model counterexample:
+at n = 10 000 000 200 000 001 = (10⁸+1)², balanced strip, P = 1000, the minorant D(x) = x² − 1681 has diagonal −5 505 666,
+signed part +21 872, total −5 483 794). And signed inputs can certify positivity in small examples satisfying (H)
+(primes {3,5,7,11,13}, weight 2 at a = 1 and 1 at a ∈ {2,19,23,79}, D = (x² − 9)/16: Σ wD = 1 > 0;
+`scripts/z53_xrev_sqsieve_scope.py`). With D normalised (e.g. max D on squares = 1), each square contributes ≈ |a₂|P₀²
+to a₂Σ_{q≠q′}S_{qq′} while each S_{qq′} is a sum of |𝒜| terms of square-root size (EVIDENCE §7): the needed signed
+accuracy is then of the order of the count itself (heuristic).
 
 **Falsifier F3 (EVIDENCE; `scripts/z53_sqsieve_lambda.py`).** Z := (Σ_𝒜 σ(f)² − P₀|𝒜|)/P₀² = #□·(1 − o(1)) + noise. Over 150
 primes p ≡ 1 (24) and 150 odd squares near 10¹⁰ (cube strips, |𝒜| ≈ 1 300, P₀ = 10): sd(Z) = 4.86 (primes), 4.87 (squares)
@@ -305,23 +320,27 @@ n-average does not resolve the square contribution at this sample size: mean Z i
 of 0.94 ≈ 1.7 standard errors, but prime strips *without* squares already average −2.32, so most of the gap is not the
 squares (and n-averages are excluded by B6/T7 anyway).
 
-**Proposition C4 (the other lower-bound routes reduce to closed items; PROVED identities + pointers).**
+**Proposition C4 (the other named lower-bound routes; PROVED identities + Assessment pointers).**
 (a) *Conic parametrisation.* For fixed C, f(C,k) = r² with s = 4Ck − n is C(s² − r²) = n + s, i.e.
 (2Cs − 1)² − (2Cr)² = 4Cn + 1 with factor pair (2C(s − r) − 1, 2C(s + r) − 1) = (4Cu − 1, 4CB − 1): integral points of the conic
 family are exactly the tied divisors d ≡ −1 (mod 4C) of the single integers 4Cn + 1 (FRONTIER §2.1 divisor form). A sieve
 lower bound over the family is a lower bound for B2 itself.
-(b) *Representation counts (Duke/Iwaniec type).* At each level 4C the generating series is an Eisenstein/theta quotient
-with no cusp forms (`METAPLECTIC_ES.md` Thm K), so a "main term + cusp bound" route has nothing to bound and its main term is
-the class-blind average; counting integral points of the quadric xy − 4nC = 1 with *fixed*-level congruences certifies the
-tie only at ≤ τ(q²) heights (HYPSUMPROD Cor A′), and such counts are T1-blind (low-conductor universality).
-**Verdict for (S3): closed for Heath-Brown-type quadratic σ-minorants (Lemma C3, PROVED under (H)); open otherwise.**
-The square-sensitive ingredient identified is the BM twist (C1, conductor n); conic/representation lower bounds are B2 or
-closed items (C4). Assessment: we see no route by which the square sieve's tie-detection could reach positivity, but this
+(b) *Representation counts (Duke/Iwaniec type; Assessment).* The PROVED content of `METAPLECTIC_ES.md` Thm K is a
+Dirichlet-character divisor decomposition of each level series (odd-character part a theta quotient, even part a divisor
+sum); its modular normalisation and "main term" readings are Assessment there. HYPSUMPROD Cor A′ (PROVED) says only that a
+fixed congruence x ≡ −1 (mod q) implies the tie for *all integers x* exactly at heights H | q²/16. We read these as saying
+that a "main term + cusp bound" route and fixed-level congruence counts on xy − 4nC = 1 do not carry the moving tie; this is
+not an exclusion of all representation-count methods.
+**Verdict for (S3): narrowed.** Under (H) and ν ≤ P₀ − 1, quadratic σ-minorants have no positive diagonal main term
+(Lemma C3), so a lower bound requires signed auxiliary-sum information; signed-input routes remain open. One available
+square-sensitive weight is the BM twist (C1, modulus n); the conic route is B2 itself (C4(a)), representation counts per
+C4(b) (Assessment). Assessment: we see no route by which the square sieve's tie-detection could reach positivity, but this
 is not a theorem.
 
 ## 7. Computations (scripts `scripts/z53_sqsieve_*`, data `data/z53/sqsieve/`, < 50 kB)
 
-### 7.1 Lemma checks (CERTIFIED for the stated finite ranges)
+### 7.1 Lemma checks (exact-arithmetic checks CERTIFIED for the stated finite ranges; floating-point Fourier/Poisson/
+Kloosterman/CRT checks are numerical EVIDENCE without rigorous error bounds — the lemmas have analytic proofs)
 * `z53_sqsieve_checks.py 23 20000`: Lemma W (a)–(c) for all odd primes q ≤ 23 and all (n, c, ℓ) mod q (27 962 cases; max
   |G|/√q = 1.931); Lemma W(d) (CRT factorisation) in 273 594 cases (Q ∈ {15, 35, 33, 77}, all c, ℓ mod Q, n over the even
   residues mod Q; max error 1.9·10⁻¹⁴) and the Kloosterman identity H = S(−d, −4̄ℓ²; q) of Lemma W(b) for all d, ℓ ≢ 0,
@@ -375,10 +394,10 @@ square-root size, exactly as an n-uniform upper-bound input must be. (H) of Lemm
   block, even with square-root cancellation in every C-sum (Prop B2, PROVED for the specified class); the truth (rms |S_Q|
   ≈ |𝒜|^{1/2}) is fine, so what is missing is a bilinear (ℓ, C) cancellation estimate — or, equivalently, χ_Q-twisted
   divisor sums over divisors near √m of integers in an interval of length m^{1/4}.
-* **(S3) narrowed: closed for quadratic σ-minorants, open otherwise.** Heath-Brown-type quadratic minorants have
-  non-positive main coefficient (Lemma C3, PROVED under (H)), so a lower bound would need signed estimates of the
-  auxiliary sums; the square-sensitive ingredient identified is the BM twist (C1); conic/representation-count lower bounds
-  are B2 or closed items (C4). EVIDENCE F3: the detection statistic does not separate primes from odd squares pointwise.
+* **(S3) narrowed.** Under (H) (checked on finite strips only) and ν ≤ P₀ − 1, Heath-Brown-type quadratic minorants have
+  no positive diagonal main term (Lemma C3, PROVED), so a lower bound requires signed auxiliary-sum information — an
+  obstruction for unsigned inputs, not a closure of signed-input methods. One available square-sensitive weight is the BM
+  twist (C1); the conic route is B2 (C4(a)); representation counts per C4(b) (Assessment). EVIDENCE F3: the detection statistic does not separate primes from odd squares pointwise.
   Assessment (not a theorem): no route from the square sieve's tie-detection to positivity is visible.
 
 ## 10. Proposed FRONTIER §7 text (do NOT edit FRONTIER here)
@@ -388,23 +407,28 @@ Append to §7.1:
 > Σ_{C≡c₀ (Q)} e(ℓn/(4CQ)); with the third-derivative test and per-block optimisation, R(n) ≪ n^{12/37+ε} for every n
 > (worst block (α, β, γ) = (12/37, 13/37, 12/37); cube n^{17/54+ε}); n^{21/65+ε} with Bourgain's exponent pair; n^{4/13+ε}
 > under the exponent-pair conjecture. Reach: no k-Poisson implementation reaches the balanced block, even with square-root
-> C-sums (the truth is square-root; a bilinear (ℓ, C) estimate would be needed). Reverse direction: Heath-Brown-type
-> quadratic minorants have non-positive main coefficient (Lemma C3), so any lower bound must come from signed estimates of
-> the auxiliary character sums; the only square-sensitive ingredient identified is the BM twist (−uB/n) = −1; conic /
+> C-sums, for implementations with Q ≤ W and standard C-sum bounds (Prop B2; the truth is square-root; a bilinear (ℓ, C)
+> estimate would be needed). Reverse direction: under a realised-σ-values
+> hypothesis (H), Heath-Brown-type quadratic minorants have no positive diagonal main term (Lemma C3), so a lower bound
+> requires signed auxiliary-sum information (signed-input routes remain open); one available square-sensitive weight is
+> the BM twist (−uB/n) = −1; conic /
 > representation lower bounds are B2. (Internal, unrefereed; the k-Poisson step is the standard square-sieve technique,
 > new here only in its application to this strip; no predecessor found in a literature search.)
 In §3 ("Tied modulus") and §2.2 replace "p^{1/3−1/225+o(1)}" by "p^{12/37+o(1)} (z53 SQSIEVE; p^{21/65+o(1)} relative to
-Bourgain's exponent pair)". In §6 add: "square-sieve lower bounds via quadratic minorants → main coefficient ≤ 0 (signed
-auxiliary-sum estimates needed); square-sensitive ingredient identified: the BM twist → `Z53_SQSIEVE` §6".
+Bourgain's exponent pair)". In §6 add: "square-sieve lower bounds via quadratic minorants with unsigned inputs → no positive
+diagonal main term under (H) (signed auxiliary-sum information needed); one square-sensitive weight: the BM twist →
+`Z53_SQSIEVE` §6".
 
 ## 11. Bottom line
 The square sieve on the tied hyperbola has more in it than HYPSUMPROD extracted: opening the character in the k-variable
-by Poisson summation, inside each fixed C, produces complete Kloosterman sums of square-root size, and the remaining
+by Poisson summation, inside each fixed C, produces complete Kloosterman sums (square-root size in aggregate over classes), and the remaining
 exponential sums in C are classical. This proves R(n) ≪ n^{12/37+ε} for every n (n^{21/65+ε} with Bourgain's exponent pair,
-n^{4/13+ε} conditionally). The route stops short of the balanced block u, B ≍ p^{1/4} for a structural reason, even with
-square-root C-sums: summing the dual frequencies first undoes the Poisson step, and the strip there has ≤ 1 point per C.
-In the reverse direction the square sieve is one-sided in a precise sense — every quadratic minorant has a non-positive
-main coefficient — and the square-sensitive ingredient we can identify is the Brauer–Manin twist. Our assessment (not a
+n^{4/13+ε} conditionally). Implementations of this route (auxiliary moduli Q ≤ W, triangle inequality over the dual
+frequencies and classes, standard C-sum bounds) stop short of the balanced block u, B ≍ p^{1/4}, even with square-root
+C-sums (Prop B2): summing the dual frequencies first undoes the Poisson step, and the strip there has ≤ 1 point per C.
+In the reverse direction the square sieve is one-sided in a precise sense — under a realised-σ-values hypothesis (H),
+every quadratic minorant has no positive diagonal main term, so signed auxiliary-sum information would be needed (such
+routes remain open) — and one available square-sensitive weight is the Brauer–Manin twist. Our assessment (not a
 theorem) is that the square sieve can keep improving the error benchmark but gives no visible route to positivity. ES
 remains open.
 
@@ -441,3 +465,16 @@ reproduced the scripts and two strips byte-for-byte. Fixes applied:
   (sketched) literature result.
 * F7, F8, F9: §1 aligned with §6/§9; Q ≤ W in Prop D not needed; C3 coefficients renamed a₀, a₁, a₂; HYPSUMPROD cube bound
   carries (log n)²; Lemma P holds for Schwartz Φ; CRT and Kloosterman checks added to `z53_sqsieve_checks.py`; timings.
+**Cross-model review** (`data/z53/xreview/REVIEW_SQSIEVE.md`; independent script `scripts/z53_xrev_sqsieve_scope.py`).
+Verdict **ACCEPT-WITH-FIXES**: Theorem A survives (every block and error term re-derived, worst block (12/37, 13/37, 12/37),
+cube 17/54, θ = 4/(13 − 4κ), all §5.1 endpoints re-solved; all scripts reproduced byte-for-byte). Fixes applied:
+(1) Lemma C3 is now stated as an unsigned-input obstruction under (H) and ν ≤ P₀ − 1, not a closure of quadratic-minorant
+methods; the false claim that the signed combination must be ≤ 0 at odd squares is removed (reviewer's counterexample at
+(10⁸+1)² and a small signed-positive example recorded); the P₀²-accuracy reading is now normalised and labelled heuristic;
+(H) is flagged as checked only on finite strips (§1 status, §6, §9, §10, §11). (2) Prop B2: Q ≤ W added to the
+implementation class; the block-counting step now uses ⌊L₀/(2Q)⌋ ≥ L₀/(4Q) and e_ℓ(W/Q) ≥ c(W/Q)^{1/2} directly; FRONTIER
+text and bottom line carry the implementation restrictions. (3) C4(b) restricted to the PROVED content of METAPLECTIC_ES
+Thm K and HYPSUMPROD Cor A′ (rest Assessment); "must carry" → "one available square-sensitive weight"; modulus n vs
+conductor distinguished; Lemma W summaries use the aggregate Σ_c|G_c(ℓ)| ≪ Q^{3/2}; B2 Remark 3 (large sieve) relabelled
+as an unproved Assessment with the missing kernel-grouping step named. (4) Floating-point checks labelled EVIDENCE; Theorem
+A′ uses γ ≤ 1 − 2θ* < 1/2 for general κ.
