@@ -1,0 +1,18 @@
+n=10000000000000753 W=6250000 s in (20000,40000] P=100 P0=21 |A|=3403 squares=0 coprime_squares=0 of_which_BM(-k/n)=-1:0 |A-|=1762
+  S_Q over 210 pairs: max|S_Q|=255 rms=55.5 sqrt|A|=58.3
+  Lambda=sum sigma^2=71438  (P0*|A|=71463; squares contribute 0; (Lambda-P0|A|)/P0^2=-0.057)  nonsquare sigma range [-17,15], x0=5: sigma in{0,+-1}:1 sigma=+x0:1 sigma=-x0:1
+n=10000000000000753 W=6250000 s in (20000,40000] P=1000 P0=135 |A|=3403 squares=0 coprime_squares=0 of_which_BM(-k/n)=-1:0 |A-|=1762
+  S_Q over 9045 pairs: max|S_Q|=217 rms=57.8 sqrt|A|=58.3
+  Lambda=sum sigma^2=459540  (P0*|A|=459405; squares contribute 0; (Lambda-P0|A|)/P0^2=0.007)  nonsquare sigma range [-43,43], x0=13: sigma in{0,+-1}:1 sigma=+x0:1 sigma=-x0:1
+n=10000000200000001 W=6250000 s in (20000,40000] P=100 P0=21 |A|=3561 squares=0 coprime_squares=0 of_which_BM(-k/n)=-1:0 |A-|=0
+  S_Q over 210 pairs: max|S_Q|=197 rms=63.6 sqrt|A|=59.7
+  Lambda=sum sigma^2=73679  (P0*|A|=74781; squares contribute 0; (Lambda-P0|A|)/P0^2=-2.499)  nonsquare sigma range [-15,15], x0=5: sigma in{0,+-1}:1 sigma=+x0:1 sigma=-x0:1
+n=10000000200000001 W=6250000 s in (20000,40000] P=1000 P0=135 |A|=3561 squares=0 coprime_squares=0 of_which_BM(-k/n)=-1:0 |A-|=0
+  S_Q over 9045 pairs: max|S_Q|=221 rms=59.6 sqrt|A|=59.7
+  Lambda=sum sigma^2=502247  (P0*|A|=480735; squares contribute 0; (Lambda-P0|A|)/P0^2=1.180)  nonsquare sigma range [-41,39], x0=13: sigma in{0,+-1}:1 sigma=+x0:1 sigma=-x0:1
+n=10000000200000005 W=6250000 s in (20000,40000] P=100 P0=21 |A|=3561 squares=0 coprime_squares=0 of_which_BM(-k/n)=-1:0 |A-|=1300
+  S_Q over 210 pairs: max|S_Q|=180 rms=62.6 sqrt|A|=59.7
+  Lambda=sum sigma^2=76056  (P0*|A|=74781; squares contribute 0; (Lambda-P0|A|)/P0^2=2.891)  nonsquare sigma range [-17,16], x0=5: sigma in{0,+-1}:1 sigma=+x0:1 sigma=-x0:1
+n=10000000200000005 W=6250000 s in (20000,40000] P=1000 P0=135 |A|=3561 squares=0 coprime_squares=0 of_which_BM(-k/n)=-1:0 |A-|=1300
+  S_Q over 9045 pairs: max|S_Q|=240 rms=60.1 sqrt|A|=59.7
+  Lambda=sum sigma^2=486943  (P0*|A|=480735; squares contribute 0; (Lambda-P0|A|)/P0^2=0.341)  nonsquare sigma range [-35,49], x0=13: sigma in{0,+-1}:1 sigma=+x0:1 sigma=-x0:1

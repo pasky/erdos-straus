@@ -1,0 +1,98 @@
+[Thm A (3rd-derivative test)] vertex a=12/37 b=13/37 g=12/37: r*=1/37 (0.02703); max term=12/37 (0.32432); 0<r, 2r<g: True; OK=True
+      main b-r                         = 12/37 = 0.32432
+      3rd-deriv 2r+1/6+g/2-b/6         = 12/37 = 0.32432
+      3rd-deriv(2) r+b/6+g-1/6         = 9/37 = 0.24324
+      Q^{3/2}: 3r                      = 3/37 = 0.08108
+      V/W: b-g                         = 1/37 = 0.02703
+      V/Q: b-2r                        = 11/37 = 0.29730
+      Sw/P: 1/6+g/2-b/6-r              = 9/37 = 0.24324
+      Sw/P: b/6+g-1/6-r                = 7/37 = 0.18919
+[Thm A (3rd-derivative test)] vertex a=12/37 b=12/37 g=13/37: r*=4/333 (0.01201); max term=104/333 (0.31231); 0<r, 2r<g: True; OK=True
+      main b-r                         = 104/333 = 0.31231
+      3rd-deriv 2r+1/6+g/2-b/6         = 104/333 = 0.31231
+      3rd-deriv(2) r+b/6+g-1/6         = 167/666 = 0.25075
+      Q^{3/2}: 3r                      = 4/111 = 0.03604
+      V/W: b-g                         = -1/37 = -0.02703
+      V/Q: b-2r                        = 100/333 = 0.30030
+      Sw/P: 1/6+g/2-b/6-r              = 92/333 = 0.27628
+      Sw/P: b/6+g-1/6-r                = 151/666 = 0.22673
+[Thm A (3rd-derivative test)] vertex a=25/74 b=25/74 g=12/37: r*=29/1332 (0.02177); max term=421/1332 (0.31607); 0<r, 2r<g: True; OK=True
+      main b-r                         = 421/1332 = 0.31607
+      3rd-deriv 2r+1/6+g/2-b/6         = 421/1332 = 0.31607
+      3rd-deriv(2) r+b/6+g-1/6         = 157/666 = 0.23574
+      Q^{3/2}: 3r                      = 29/444 = 0.06532
+      V/W: b-g                         = 1/74 = 0.01351
+      V/Q: b-2r                        = 98/333 = 0.29429
+      Sw/P: 1/6+g/2-b/6-r              = 167/666 = 0.25075
+      Sw/P: b/6+g-1/6-r                = 64/333 = 0.19219
+[Thm A (3rd-derivative test)] PASSED: every block has min(trivial, sieve) <= theta* = 12/37 = 0.324324
+
+[Bourgain pair (13/84,55/84) [eps dropped]] vertex a=21/65 b=23/65 g=21/65: r*=2/65 (0.03077); max term=21/65 (0.32308); 0<r, 2r<g: True; OK=True
+      main b-r                         = 21/65 = 0.32308
+      pair 2r+k+g/2-k b                = 21/65 = 0.32308
+      Q^{3/2}: 3r                      = 6/65 = 0.09231
+      V/W: b-g                         = 2/65 = 0.03077
+      V/Q: b-2r                        = 19/65 = 0.29231
+      Sw/P: k+g/2-k b-r                = 3/13 = 0.23077
+[Bourgain pair (13/84,55/84) [eps dropped]] vertex a=21/65 b=21/65 g=23/65: r*=113/8190 (0.01380); max term=2533/8190 (0.30928); 0<r, 2r<g: True; OK=True
+      main b-r                         = 2533/8190 = 0.30928
+      pair 2r+k+g/2-k b                = 2533/8190 = 0.30928
+      Q^{3/2}: 3r                      = 113/2730 = 0.04139
+      V/W: b-g                         = -2/65 = -0.03077
+      V/Q: b-2r                        = 242/819 = 0.29548
+      Sw/P: k+g/2-k b-r                = 1097/4095 = 0.26789
+[Bourgain pair (13/84,55/84) [eps dropped]] vertex a=22/65 b=22/65 g=21/65: r*=407/16380 (0.02485); max term=5137/16380 (0.31361); 0<r, 2r<g: True; OK=True
+      main b-r                         = 5137/16380 = 0.31361
+      pair 2r+k+g/2-k b                = 5137/16380 = 0.31361
+      Q^{3/2}: 3r                      = 407/5460 = 0.07454
+      V/W: b-g                         = 1/65 = 0.01538
+      V/Q: b-2r                        = 473/1638 = 0.28877
+      Sw/P: k+g/2-k b-r                = 979/4095 = 0.23907
+[Bourgain pair (13/84,55/84) [eps dropped]] PASSED: every block has min(trivial, sieve) <= theta* = 21/65 = 0.323077
+
+[conjectural pair (0,1/2) [eps dropped]] vertex a=4/13 b=5/13 g=4/13: r*=1/13 (0.07692); max term=4/13 (0.30769); 0<r, 2r<g: True; OK=True
+      main b-r                         = 4/13 = 0.30769
+      pair 2r+k+g/2-k b                = 4/13 = 0.30769
+      Q^{3/2}: 3r                      = 3/13 = 0.23077
+      V/W: b-g                         = 1/13 = 0.07692
+      V/Q: b-2r                        = 3/13 = 0.23077
+      Sw/P: k+g/2-k b-r                = 1/13 = 0.07692
+[conjectural pair (0,1/2) [eps dropped]] vertex a=4/13 b=4/13 g=5/13: r*=1/26 (0.03846); max term=7/26 (0.26923); 0<r, 2r<g: True; OK=True
+      main b-r                         = 7/26 = 0.26923
+      pair 2r+k+g/2-k b                = 7/26 = 0.26923
+      Q^{3/2}: 3r                      = 3/26 = 0.11538
+      V/W: b-g                         = -1/13 = -0.07692
+      V/Q: b-2r                        = 3/13 = 0.23077
+      Sw/P: k+g/2-k b-r                = 2/13 = 0.15385
+[conjectural pair (0,1/2) [eps dropped]] vertex a=9/26 b=9/26 g=4/13: r*=5/78 (0.06410); max term=11/39 (0.28205); 0<r, 2r<g: True; OK=True
+      main b-r                         = 11/39 = 0.28205
+      pair 2r+k+g/2-k b                = 11/39 = 0.28205
+      Q^{3/2}: 3r                      = 5/26 = 0.19231
+      V/W: b-g                         = 1/26 = 0.03846
+      V/Q: b-2r                        = 17/78 = 0.21795
+      Sw/P: k+g/2-k b-r                = 7/78 = 0.08974
+[conjectural pair (0,1/2) [eps dropped]] PASSED: every block has min(trivial, sieve) <= theta* = 4/13 = 0.307692
+
+[pair (1/6,2/3) via exponent-pair form] vertex a=12/37 b=13/37 g=12/37: r*=1/37 (0.02703); max term=12/37 (0.32432); 0<r, 2r<g: True; OK=True
+      main b-r                         = 12/37 = 0.32432
+      pair 2r+k+g/2-k b                = 12/37 = 0.32432
+      Q^{3/2}: 3r                      = 3/37 = 0.08108
+      V/W: b-g                         = 1/37 = 0.02703
+      V/Q: b-2r                        = 11/37 = 0.29730
+      Sw/P: k+g/2-k b-r                = 9/37 = 0.24324
+[pair (1/6,2/3) via exponent-pair form] vertex a=12/37 b=12/37 g=13/37: r*=4/333 (0.01201); max term=104/333 (0.31231); 0<r, 2r<g: True; OK=True
+      main b-r                         = 104/333 = 0.31231
+      pair 2r+k+g/2-k b                = 104/333 = 0.31231
+      Q^{3/2}: 3r                      = 4/111 = 0.03604
+      V/W: b-g                         = -1/37 = -0.02703
+      V/Q: b-2r                        = 100/333 = 0.30030
+      Sw/P: k+g/2-k b-r                = 92/333 = 0.27628
+[pair (1/6,2/3) via exponent-pair form] vertex a=25/74 b=25/74 g=12/37: r*=29/1332 (0.02177); max term=421/1332 (0.31607); 0<r, 2r<g: True; OK=True
+      main b-r                         = 421/1332 = 0.31607
+      pair 2r+k+g/2-k b                = 421/1332 = 0.31607
+      Q^{3/2}: 3r                      = 29/444 = 0.06532
+      V/W: b-g                         = 1/74 = 0.01351
+      V/Q: b-2r                        = 98/333 = 0.29429
+      Sw/P: k+g/2-k b-r                = 167/666 = 0.25075
+[pair (1/6,2/3) via exponent-pair form] PASSED: every block has min(trivial, sieve) <= theta* = 12/37 = 0.324324
+
