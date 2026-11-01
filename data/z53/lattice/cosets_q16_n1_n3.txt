@@ -1,0 +1,4 @@
+q=16 n=1 max|H|=128
+SUMMARY q=16 tested_t=256 max|H|=128  min index D'=q^3/|H|=32
+q=16 n=3 max|H|=128
+SUMMARY q=16 tested_t=256 max|H|=128  min index D'=q^3/|H|=32

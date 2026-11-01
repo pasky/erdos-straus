@@ -1,7 +1,7 @@
 /* z53_lattice_cosets.c — brute force: largest coset t+H (H subgroup of (Z/q)^3) contained in
    V_n(Z/q) = { (u,B,C) : 4CuB - u - B - n == 0 mod q }, over all t in V_n and (optionally sampled) n mod q.
    Prints, per q, max |H| over n,t, and the implied minimal index D' = q^3/|H| (for exactness modulus D = q).
-   Usage: z53_lattice_cosets q [nstep] [tstep]   (nstep/tstep >1 subsample n and t).  */
+   Usage: z53_lattice_cosets q [nstep] [tstep] [nstart]   (nstep/tstep >1 subsample n and t).  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,11 +41,11 @@ static void dfs(int *Hl,int hn,int start,int depth){
   free(out); free(inH);
 }
 int main(int argc,char**argv){
-  q=atoi(argv[1]); int nstep=argc>2?atoi(argv[2]):1; int tstep=argc>3?atoi(argv[3]):1;
+  q=atoi(argv[1]); int nstep=argc>2?atoi(argv[2]):1; int tstep=argc>3?atoi(argv[3]):1; int nstart=argc>4?atoi(argv[4]):0;
   Q3=q*q*q; inS=malloc(Q3); good=malloc(Q3); goodlist=malloc(sizeof(int)*Q3);
   int globalbest=0; long long ntested=0;
   int histo[64]; memset(histo,0,sizeof histo);
-  for(int n=0;n<q;n+=nstep){
+  for(int n=nstart;n<q;n+=nstep){
     if(q%2==0 && n%2==0) continue; /* n odd */
     int nbest=0;
     for(int ti=0;ti<Q3;ti+=tstep){ int tu,tB,tC; dec(ti,&tu,&tB,&tC);

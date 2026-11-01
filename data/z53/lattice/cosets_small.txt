@@ -1,0 +1,50 @@
+q=2 n=1 max|H|=4
+SUMMARY q=2 tested_t=4 max|H|=4  min index D'=q^3/|H|=2
+q=3 n=0 max|H|=3
+q=3 n=1 max|H|=3
+q=3 n=2 max|H|=3
+SUMMARY q=3 tested_t=27 max|H|=3  min index D'=q^3/|H|=9
+q=4 n=1 max|H|=16
+q=4 n=3 max|H|=16
+SUMMARY q=4 tested_t=32 max|H|=16  min index D'=q^3/|H|=4
+q=5 n=0 max|H|=5
+q=5 n=1 max|H|=5
+q=5 n=2 max|H|=5
+q=5 n=3 max|H|=5
+q=5 n=4 max|H|=5
+SUMMARY q=5 tested_t=125 max|H|=5  min index D'=q^3/|H|=25
+q=7 n=0 max|H|=7
+q=7 n=1 max|H|=7
+q=7 n=2 max|H|=7
+q=7 n=3 max|H|=7
+q=7 n=4 max|H|=7
+q=7 n=5 max|H|=7
+q=7 n=6 max|H|=7
+SUMMARY q=7 tested_t=343 max|H|=7  min index D'=q^3/|H|=49
+q=8 n=1 max|H|=64
+q=8 n=3 max|H|=64
+q=8 n=5 max|H|=64
+q=8 n=7 max|H|=64
+SUMMARY q=8 tested_t=256 max|H|=64  min index D'=q^3/|H|=8
+q=9 n=0 max|H|=27
+q=9 n=1 max|H|=9
+q=9 n=2 max|H|=9
+q=9 n=3 max|H|=27
+q=9 n=4 max|H|=9
+q=9 n=5 max|H|=9
+q=9 n=6 max|H|=27
+q=9 n=7 max|H|=9
+q=9 n=8 max|H|=9
+SUMMARY q=9 tested_t=729 max|H|=27  min index D'=q^3/|H|=27
+q=11 n=0 max|H|=11
+q=11 n=1 max|H|=11
+q=11 n=2 max|H|=11
+q=11 n=3 max|H|=11
+q=11 n=4 max|H|=11
+q=11 n=5 max|H|=11
+q=11 n=6 max|H|=11
+q=11 n=7 max|H|=11
+q=11 n=8 max|H|=11
+q=11 n=9 max|H|=11
+q=11 n=10 max|H|=11
+SUMMARY q=11 tested_t=1331 max|H|=11  min index D'=q^3/|H|=121

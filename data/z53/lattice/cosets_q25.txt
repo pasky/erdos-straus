@@ -1,0 +1,26 @@
+q=25 n=0 max|H|=125
+q=25 n=1 max|H|=25
+q=25 n=2 max|H|=25
+q=25 n=3 max|H|=25
+q=25 n=4 max|H|=25
+q=25 n=5 max|H|=125
+q=25 n=6 max|H|=25
+q=25 n=7 max|H|=25
+q=25 n=8 max|H|=25
+q=25 n=9 max|H|=25
+q=25 n=10 max|H|=125
+q=25 n=11 max|H|=25
+q=25 n=12 max|H|=25
+q=25 n=13 max|H|=25
+q=25 n=14 max|H|=25
+q=25 n=15 max|H|=125
+q=25 n=16 max|H|=25
+q=25 n=17 max|H|=25
+q=25 n=18 max|H|=25
+q=25 n=19 max|H|=25
+q=25 n=20 max|H|=125
+q=25 n=21 max|H|=25
+q=25 n=22 max|H|=25
+q=25 n=23 max|H|=25
+q=25 n=24 max|H|=25
+SUMMARY q=25 tested_t=15625 max|H|=125  min index D'=q^3/|H|=125
