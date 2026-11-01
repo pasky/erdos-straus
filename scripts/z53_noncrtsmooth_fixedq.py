@@ -1,8 +1,9 @@
 # z53 NONCRTSMOOTH: fixed class modulus q threshold (Theorem B).
 # For prime p and q in 4N, j(p,q) := least j >= 1 such that 4/(jp)-type equation q*u*B - u - B = j*p has a solution,
 # i.e. q*j*p + 1 has a divisor x ≡ -1 (mod q) (then y = (qjp+1)/x ≡ -1 (mod q) automatically).
-# Trivial CRT bound (Thm B(a)): j(p,q) <= q - 1 when p does not divide q(q-1).
-# Also N_J(p,q) = #{(j, x) : j <= J, x | qjp+1, x ≡ -1 (mod q)} (ordered pairs (x,y)).
+# Trivial CRT bound (Thm B(a)): j(p,q) <= q - 2 when p does not divide q(q-1); trivial_ok checks the CRT witness has
+# cofactor in [1, q-2] and that jmin <= q-2.
+# Also N_q = #{(j, x) : j <= q, x | qjp+1, x ≡ -1 (mod q)}: ordered witnesses (x,y), not distinct cofactors j.
 # Usage: uv run --with cypari2 python scripts/z53_noncrtsmooth_fixedq.py OUT.csv
 import sys, cypari2, math
 pari = cypari2.Pari(); pari.allocatemem(2*10**9)
@@ -23,7 +24,8 @@ for p in primes:
         # trivial construction check: x = q-1, y ≡ -1 (q), y ≡ (q-1)^{-1} (p), y < qp
         x = q - 1
         y = int(pari.chinese(pari.Mod(-1, q), pari.Mod(pow(x, -1, p), p)).lift())
-        ok = (x * y - 1) % (q * p) == 0 and (x * y - 1) // (q * p) <= q - 1
+        k = (x * y - 1) // (q * p)
+        ok = (x * y - 1) % (q * p) == 0 and 1 <= k <= q - 2 and jmin is not None and jmin <= q - 2
         rows.append(f'{p},{q},{jmin},{cnt_q4},{cnt_q},{int(ok)}')
     print(p, file=sys.stderr, flush=True)
 open(out, 'w').write('\n'.join(rows) + '\n')

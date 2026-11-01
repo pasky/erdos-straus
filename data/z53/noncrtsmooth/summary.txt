@@ -1,41 +1,66 @@
 == test: 15 n in [193, 8813281]; R=0 at 10
-  R>0 but no prime x/y (Rp=0): 3  [n>1e5: 0, n>5e5: 0]
-  mean R/L^2=0.021  mean Rp/L=0.043  sum Rp/sum R=0.231
+  "x or y prime" empty while R>0: 3 [n>1e5: 0, n>5e5: 0]; largest 66529
+  "x and y both prime" empty while R>0: 5 of 5 (1.000)
+  mean R/L^2=0.021; unordered means /L: either-prime 0.021, both-prime 0.0000
+  n>5e5 unordered Rp/2: mean 0.67, var/mean 2.000
+  n>5e5 unordered Rbp/2: mean 0.00, var/mean 0.000
   Rs50: share of R=0.1538; frac of R>0 primes with Rs50=0: 0.6000
   Rs33: share of R=0.0000; frac of R>0 primes with Rs33=0: 1.0000
   Rs25: share of R=0.0000; frac of R>0 primes with Rs25=0: 1.0000
-  best fixed M: mean |P_M|=0.73, mean |P_M|/L=0.084, max |P_M|/L=0.380; argmax M counts {0: 10, 2: 2, 11: 1, 5: 1, 12: 1}
-  P_M nonempty fraction: M=1: 0.000, M=2: 0.133, M=6: 0.067, M=12: 0.067, M=60: 0.000
+  Re33: share of R=0.6154; frac of R>0 primes with Re33=0: 0.2000
+  Re25: share of R=0.1538; frac of R>0 primes with Re25=0: 0.6000
+  M chosen per p to maximise |P_M(p)|: mean |P_M|=0.73, mean |P_M|/L=0.084, max |P_M|/L=0.380; argmax M counts {0: 10, 2: 2, 11: 1, 5: 1, 12: 1}; share of argmax in 1..6: 0.200
+  P_M nonempty fraction (M fixed): M=1: 0.000, M=2: 0.133, M=6: 0.067, M=12: 0.067, M=60: 0.000
   Cmin: median 5.0, max 11
+  second engine (PARI divisor form): 15 of 15 n compared (R, Rp, Rbp): mismatches 0
 == p24: 9732 n in [73, 999961]; R=0 at 9
-  R>0 but no prime x/y (Rp=0): 85  [n>1e5: 56, n>5e5: 32]
-  mean R/L^2=0.140  mean Rp/L=0.835  sum Rp/sum R=0.467
+  "x or y prime" empty while R>0: 85 [n>1e5: 56, n>5e5: 32]; largest 997201
+  "x and y both prime" empty while R>0: 4614 of 9723 (0.475)
+  mean R/L^2=0.140; unordered means /L: either-prime 0.417, both-prime 0.0557
+  n>5e5 unordered Rp/2: mean 5.81, var/mean 1.054
+  n>5e5 unordered Rbp/2: mean 0.74, var/mean 0.920
   Rs50: share of R=0.2780; frac of R>0 primes with Rs50=0: 0.1431
   Rs33: share of R=0.0342; frac of R>0 primes with Rs33=0: 0.8529
   Rs25: share of R=0.0033; frac of R>0 primes with Rs25=0: 0.9881
-  best fixed M: mean |P_M|=5.53, mean |P_M|/L=0.435, max |P_M|/L=2.641; argmax M counts {2: 3901, 1: 1714, 3: 1016, 5: 598, 6: 442, 4: 422}
-  P_M nonempty fraction: M=1: 0.514, M=2: 0.827, M=6: 0.782, M=12: 0.682, M=60: 0.328
+  Re33: share of R=0.4981; frac of R>0 primes with Re33=0: 0.0267
+  Re25: share of R=0.2635; frac of R>0 primes with Re25=0: 0.1372
+  M chosen per p to maximise |P_M(p)|: mean |P_M|=5.53, mean |P_M|/L=0.435, max |P_M|/L=2.641; argmax M counts {2: 3901, 1: 1714, 3: 1016, 5: 598, 6: 442, 4: 422}; share of argmax in 1..6: 0.832
+  P_M nonempty fraction (M fixed): M=1: 0.514, M=2: 0.827, M=6: 0.782, M=12: 0.682, M=60: 0.328
   Cmin: median 1.0, max 4016
+  second engine (PARI divisor form): 9732 of 9732 n compared (R, Rp, Rbp): mismatches 0
 == nearsq: 600 n in [1002017, 2852797]; R=0 at 1
-  R>0 but no prime x/y (Rp=0): 0  [n>1e5: 0, n>5e5: 0]
-  mean R/L^2=0.158  mean Rp/L=0.926  sum Rp/sum R=0.407
+  "x or y prime" empty while R>0: 0 [n>1e5: 0, n>5e5: 0]
+  "x and y both prime" empty while R>0: 292 of 599 (0.487)
+  mean R/L^2=0.158; unordered means /L: either-prime 0.463, both-prime 0.0489
+  n>5e5 unordered Rp/2: mean 6.66, var/mean 0.943
+  n>5e5 unordered Rbp/2: mean 0.70, var/mean 0.952
   Rs50: share of R=0.2741; frac of R>0 primes with Rs50=0: 0.0902
   Rs33: share of R=0.0432; frac of R>0 primes with Rs33=0: 0.7863
   Rs25: share of R=0.0045; frac of R>0 primes with Rs25=0: 0.9866
-  best fixed M: mean |P_M|=7.52, mean |P_M|/L=0.523, max |P_M|/L=3.264; argmax M counts {1: 235, 2: 157, 4: 47, 3: 46, 5: 24, 6: 20}
-  P_M nonempty fraction: M=1: 0.753, M=2: 0.923, M=6: 0.862, M=12: 0.757, M=60: 0.342
+  Re33: share of R=0.5361; frac of R>0 primes with Re33=0: 0.0017
+  Re25: share of R=0.3287; frac of R>0 primes with Re25=0: 0.0250
+  M chosen per p to maximise |P_M(p)|: mean |P_M|=7.52, mean |P_M|/L=0.523, max |P_M|/L=3.264; argmax M counts {1: 235, 2: 157, 4: 47, 3: 46, 5: 24, 6: 20}; share of argmax in 1..6: 0.882
+  P_M nonempty fraction (M fixed): M=1: 0.753, M=2: 0.923, M=6: 0.862, M=12: 0.757, M=60: 0.342
   Cmin: median 1.0, max 14
+  second engine (PARI divisor form): 538 of 600 n compared (R, Rp, Rbp): mismatches 0
 == s1e7: 400 n in [10000121, 10013761]; R=0 at 0
-  R>0 but no prime x/y (Rp=0): 0  [n>1e5: 0, n>5e5: 0]
-  mean R/L^2=0.163  mean Rp/L=1.029  sum Rp/sum R=0.391
+  "x or y prime" empty while R>0: 0 [n>1e5: 0, n>5e5: 0]
+  "x and y both prime" empty while R>0: 156 of 400 (0.390)
+  mean R/L^2=0.163; unordered means /L: either-prime 0.514, both-prime 0.0557
+  n>5e5 unordered Rp/2: mean 8.29, var/mean 0.907
+  n>5e5 unordered Rbp/2: mean 0.90, var/mean 0.913
   Rs50: share of R=0.2969; frac of R>0 primes with Rs50=0: 0.0250
   Rs33: share of R=0.0439; frac of R>0 primes with Rs33=0: 0.6900
   Rs25: share of R=0.0037; frac of R>0 primes with Rs25=0: 0.9875
-  best fixed M: mean |P_M|=8.36, mean |P_M|/L=0.519, max |P_M|/L=2.978; argmax M counts {1: 170, 2: 94, 3: 32, 4: 23, 5: 21, 6: 16}
-  P_M nonempty fraction: M=1: 0.807, M=2: 0.930, M=6: 0.853, M=12: 0.795, M=60: 0.430
+  Re33: share of R=0.5254; frac of R>0 primes with Re33=0: 0.0000
+  Re25: share of R=0.3127; frac of R>0 primes with Re25=0: 0.0100
+  M chosen per p to maximise |P_M(p)|: mean |P_M|=8.36, mean |P_M|/L=0.519, max |P_M|/L=2.978; argmax M counts {1: 170, 2: 94, 3: 32, 4: 23, 5: 21, 6: 16}; share of argmax in 1..6: 0.890
+  P_M nonempty fraction (M fixed): M=1: 0.807, M=2: 0.930, M=6: 0.853, M=12: 0.795, M=60: 0.430
   Cmin: median 1.0, max 21
-== fixedq: j(p,q) = least height at class modulus q; N_q = #solutions with j<=q
-  trivial CRT bound j<=q-2 verified in all rows: True
+  second engine (PARI divisor form): 20 of 400 n compared (R, Rp, Rbp): mismatches 0
+== fixedq: kappa(p,q) = least cofactor at class modulus q; N_q = # ordered witnesses (kappa<=q, x)
+  CRT witness has cofactor in [1, q-2] and jmin <= q-2 in all rows: True 290
+ -- all 29 primes
       jmin_mean  jmin_max      Nq       L  jmin_mean/q   Nq/L
 q                                                            
 8         2.103         5  14.000  12.696        0.263  1.103
@@ -48,3 +73,29 @@ q
 200      39.345       143  13.379  12.696        0.197  1.054
 400      73.103       294  11.793  12.696        0.183  0.929
 1000    158.172       392  12.931  12.696        0.158  1.018
+ -- 19 primes near 1e6
+      jmin_mean  jmin_max      Nq       L  jmin_mean/q   Nq/L
+q                                                            
+8         1.737         4  16.947  13.837        0.217  1.225
+12        2.368         6  16.421  13.837        0.197  1.187
+16        2.105         4  16.000  13.837        0.132  1.156
+24        4.368        12  13.263  13.837        0.182  0.959
+40        6.158        16  13.579  13.837        0.154  0.981
+60       10.316        22  13.158  13.837        0.172  0.951
+100      14.789        34  12.842  13.837        0.148  0.928
+200      31.000       143  13.789  13.837        0.155  0.997
+400      68.158       294  13.368  13.837        0.170  0.966
+1000    159.263       392  13.684  13.837        0.159  0.989
+ -- 10 (★)-failures
+      jmin_mean  jmin_max    Nq       L  jmin_mean/q   Nq/L
+q                                                          
+8           2.8         5   8.4  10.529        0.350  0.798
+12          4.9         8   9.6  10.529        0.408  0.912
+16          4.7        11  10.4  10.529        0.294  0.988
+24          6.3        14  11.6  10.529        0.262  1.102
+40          5.4        12  10.6  10.529        0.135  1.007
+60         19.4        41   8.6  10.529        0.323  0.817
+100        30.5        67  10.2  10.529        0.305  0.969
+200        55.2       134  12.6  10.529        0.276  1.197
+400        82.5       167   8.8  10.529        0.206  0.836
+1000      156.1       384  11.5  10.529        0.156  1.092
