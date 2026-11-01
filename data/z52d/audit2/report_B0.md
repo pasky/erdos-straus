@@ -1,20 +1,17 @@
 # z52d audit2 — shard B0 (16 Haiku Pass-2 records vs blind Opus redo)
 
-ES remains OPEN. Files: `opus_B0.jsonl` (blind Phase 1, committed before Haiku records were opened), `compare_B0.jsonl`,
-scripts `scripts/z52d_audit2_B0_*`.
+ES remains OPEN. Files: `opus_B0.jsonl` (blind, committed before opening Haiku's), `compare_B0.jsonl`, `scripts/z52d_audit2_B0_*`.
 
 **Verdict counts (16):** AGREE 7 · MISS-MINOR 7 · MISS-MAJOR 1 · HAIKU-BETTER 1 · HAIKU-WRONG-COVERED 0.
 Outcomes: Haiku 16/16 `nothing`. Opus: 9 `covered`, 7 `nothing`, 0 `interesting`; content scores are 2 for Z2112 and 1 for the other 15.
 No item in this shard is an ES lead under either reading.
 
-**MISS-MAJOR**
-- Z2112 (semi-integral Markoff, Mitankin–Uhlemann): Haiku read only the abstract. The ES pair has the same boundary triangle as
+**MISS-MAJOR** — Z2112 (semi-integral Markoff, Mitankin–Uhlemann): Haiku read only the abstract. The ES pair has the same boundary triangle as
   Markoff, so MU Thm 2.15 applies verbatim. Strict Darmon-2 points are solutions of ES_{nq²} with the q-part in one coordinate:
   abundant for n ≥ 2, while at n = 1 they are exactly the Type I solutions of odd squares (empty by T1) and Campana points exist. Calibration
   value only.
 
-**HAIKU-BETTER**
-- Z2764 (Smith theory): Haiku's fixed-p word complex is F₂-acyclic with trivial forced fixed points, a sharper reason than my
+**HAIKU-BETTER** — Z2764 (Smith theory): Haiku's fixed-p word complex is F₂-acyclic with trivial forced fixed points, a sharper reason than my
   off-target all-n' complex. Haiku did miss the covering memo (invol_topological Lemma T).
 
 **Patterns in Haiku's failures**
