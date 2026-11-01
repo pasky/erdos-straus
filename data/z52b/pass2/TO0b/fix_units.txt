@@ -1,0 +1,6 @@
+Z0056: eta=g^j (2<=g<=200, j<=8): 895 cases; with a 3-mod-4 divisor e of 1+eta and u=kappa/eta in Z_{>0}: 0 (first [])
+Z0064: semiring cone Z>=0[sqrt2], u,v coords<=24: e in C with e = 3 mod 4 O_K found: [] (count 0); e = 1/u+1/v in C occurs for []
+  all e in C of the form 1/u+1/v (u,v in C, coords<=24): count 3; residue classes (a mod 4, b mod 4) hit: [(0, 1), (1, 0), (2, 0)]; with a = 3 mod 4 and b = 0 mod 4: []
+Z0086: primes l=3 mod 4, l<=3000, with eps^j = -1 mod l O_K for some j: 132; of these split in Q(sqrt3): 54; first split: [(11, 5, True), (59, 29, True), (83, 41, True), (107, 53, True), (131, 65, True), (179, 89, True)]
+  inert-or-split count of l=3 mod4 total (<=3000): 218
+Z0078: a/b = 4/p - 1/x over p<=100 (p=1 mod 4), 252 fractions: every unordered solution pair (y<=z) gives integer k=(y+z)/a with yz=kb and (y-z)^2=k(ka^2-4b) a square, and conversely; mismatches 0 (first None)

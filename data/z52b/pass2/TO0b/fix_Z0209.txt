@@ -1,0 +1,3 @@
+Z0209 n=5: rho_2(1)=1, rho_2(2)=5/4, rho_3(1)=10/9, rho_3(2)=4/3, rho_5(1)=61/25; ES solutions (x<=y<=z) = 2
+Z0209 n=13: rho_2(1)=1, rho_2(2)=5/4, rho_3(1)=10/9, rho_3(2)=4/3, rho_5(1)=26/25; ES solutions (x<=y<=z) = 4
+Z0209 n=17: rho_2(1)=1, rho_2(2)=5/4, rho_3(1)=10/9, rho_3(2)=4/3, rho_5(1)=26/25; ES solutions (x<=y<=z) = 4

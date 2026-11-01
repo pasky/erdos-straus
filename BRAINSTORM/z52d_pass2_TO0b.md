@@ -1,8 +1,8 @@
-# z52d Pass 2, batch TO0b (99 items): summary
+# z52d Pass 2, batch TO0b (99 items): summary (after lint-fix round)
 
-Counts: nothing 93, interesting 4, covered 2 (Z0006, Z0147), needs-compute 0, skipped 0. 51 items carry a computation, literature, identity or argument step (several partial; each line's not_done says what is missing); 48 are recorded `nothing` with summary 'Not executed' (no step run). This is an honest partial batch: the full 99-item protocol was not carried out, see §0.
-Interesting: Z0005 (square-class leading coefficients remove every monic failure), Z0114 and Z0115 (premises false as stated), Z0214 (odd prime squares are harder than 4).
-Full per-item lines: data/z52b/pass2/outcome_TO0b.jsonl (99 lines, one per input). Scripts: scripts/z52d_p2_TO0b_*. Data: data/z52b/pass2/TO0b/.
+Counts: nothing 89, interesting 8, covered 2 (Z0006, Z0147), needs-compute 0, skipped 0. Interesting: Z0005, Z0086 (proof of positive ES over Z[sqrt3] for n = 1 mod 4), Z0087 (|S| = 1 mechanism for all odd l < 400), Z0094 (Gaussian cone not multiplicatively closed), Z0114, Z0115 (premises false), Z0178 (repo's pure-Ford list contradicted), Z0214 (odd prime squares are harder than 4).
+Lint (scripts/z52d_pass2_lint.py): 0 flagged of 99 after the fix round for the 19 stub records. Known gap: 29 records still have summaries beginning 'Not executed' (Z0018-Z0024, Z0033, Z0036, Z0039, Z0040, Z0044, Z0048, Z0054, Z0058, Z0061, Z0062, Z0068, Z0072, Z0079, Z0089, Z0096, Z0176, Z0177, Z0189, Z0194, Z0204, Z0215, Z0250, Z0251). The lint regex does not match 'Not executed', so they pass lint but violate the fix brief; they need a follow-up round.
+Full per-item lines: data/z52b/pass2/outcome_TO0b.jsonl (99 lines). Scripts: scripts/z52d_p2_TO0b_*, scripts/z52d_p2_fix_TO0b_*.
 
 ## 0. Method and limits
 - FF engine: scripts/z52d_p2_TO0b_ff.py. exists_general is lemma-free (ultrametric bound + divisor enumeration) and was cross-checked against the repo's Lemma-1.3 engine and data/ffl/fail_q*.txt (identical fail sets on 13 (q,A,n) cases). A bug found in the Lemma-1.3 counter (kappa is free, so (a,b) pairs over-count triples) is fixed in count_solutions (dedup on triples; brute ordered count = 2*unordered - #(Y=Z) verified on 40 irreducibles).
@@ -28,3 +28,17 @@ Over primes 5 <= p < 30000, 4/p is 3-term representable for all p; 9/p fails for
 - FF: mean solution multisets per irreducible P, A = T, scale as ~0.9 n^3 / q for n >= 4 (q = 3, 5, 7); FUNCTIONFIELD_ES.md §7.1 law confirmed with exact counts.
 - Z0060: 2-term 4/p = 1/a + 1/b over Z is solvable iff p = 3 (mod 4) (checked p < 400); the Bradford-Ionascu identity 4 = 1/u + 1/ubar (u = -4+3sqrt2) is verified.
 - Literature: Niederreiter's FF Zaremba-type bound (arXiv:1704.02640 Thm 4.2.1) for q != 2.
+
+## 6. Fix round (19 stub records; scripts/z52d_p2_fix_TO0b_*)
+- Z0086 (interesting): explicit proof route for D = 3: eps^5 = 362+209 sqrt3 = -1 mod 11 O_K, kappa = 33+19 sqrt3 totally positive, 1/u+1/v = 11 with u = kappa/eta, v = kappa; identity verified exactly for several n = 1 mod 4 (scripts/z52d_p2_fix_TO0b_Z0086_check.py).
+- Z0087 (interesting): for every odd prime l < 400 some j <= 12 has a divisor e = 3 mod 4 of 1+l^j (l = 193, 337 need j = 5, e = 11).
+- Z0094 (interesting): the Bradford-Ionascu Gaussian cone is not multiplicatively closed ((1+i)(-1-2i) = 1-3i).
+- Z0178 (interesting): the pure Ford criterion holds for p = 41 (b = 12, N = 24, e = 7, a = 2) and p = 241 (b = 66, N = 84, e = 23, a = 3); only 5 and 17 fail up to 3000.
+- Z0037: no Int(Z)-polynomial identity for 4/(4t+1) with X in a box of degree <= 2; the same code finds 3 identities for 4t+3 (control).
+- Z0056, Z0064: integer and semiring replacements of the unit fail (size argument; {1, 2, sqrt2} only).
+- Z0075, Z0105: proof-level statements (collapse criterion; local leading-coefficient dictionary).
+- Z0078, Z0186: exact reparametrisations (square-discriminant bijection; Dedekind sums reduce to x+y+z).
+- Z0083, Z0084: Prop 2.2 encodings, existence checks only.
+- Z0088, Z0166: Brandt level 1 vs ES counts (coincidence only at p = 97); lambda(p) <= 3 confirmed to 3*10^4.
+- Z0091: Gaussian cone search in a bounded box; element-wise reading is trivial, collective reading gives only real solutions.
+- Z0191, Z0209, Z0218: literature (none found), fixed-n local densities, idoneal test (0 of 1559 M-values idoneal).
