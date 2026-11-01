@@ -1,6 +1,6 @@
 {
  "scoring": "z52d rank_O: cluster F by missing theorem, attach reviewer-O re-judgement, score, write clusters.json.\nScoring (explicit): EV = Y * P.\n  Y (yield for ES of the strongest statement in the cluster): full ES 1.0; pointwise sub-step a proof would\n    need 0.3; structural/thin-family/average/main-term 0.03; none 0.\n  P (from reviewer-O plausibility 0..3): 0 -> 0, 1 -> 0.01, 2 -> 0.1, 3 -> 0.4.\n    Any statement that is ES-strength (implies ES at large p) gets P = 0.002 if its plausibility is >= 1\n    (an ES-strength statement with no handle is not as likely as an open sub-step with no handle).\n  Superseded statements (already known in stronger form) have Y = 0 (no marginal yield).\n  Ties (EV equal; all ES-strength clusters land at 0.002) are broken by\n    h = handle (0 none, 1 formal escape of the named obstruction, 2 specific ingredient that plausibly beats it)\n    f = cheap falsifier exists that would kill or promote the cluster (0/1).\n  Tier (ii) is ordered by hand: P(provable in a ~1-week lane) x calibration value / cost (EV shown for reference).\n  Tiers: (i) could be part of a proof of ES (yield ES or pointwise sub-step);\n         (ii) side theorems worth a depth lane (cheap/provable/calibrating);\n         (iii) the rest.",
- "n_F": 115,
+ "n_F": 119,
  "clusters": [
   {
    "id": "C1",
@@ -47,50 +47,6 @@
    "yield": "ES for the one-sided form; sub-step (first class-aware single-integer input) for any power saving"
   },
   {
-   "id": "C4",
-   "name": "Pell / reduction-cycle / E2-primitive roots for the forest or the e-slices",
-   "statement": "For every prime p ≡ 1 (24), p > p₀, some element of the principal reduction cycle of ℚ(√p) (convergent P_k/Q_k of √p, ambiguous form), or another explicit non-quasi-polynomial primitive Φ(p) (fundamental unit, binomial/factorial data), is a root whose forest component contains a bichromatic edge (an ES₅ certificate).",
-   "members": [
-    "Z0596",
-    "Z0465",
-    "Z1298",
-    "Z0385",
-    "Z1687",
-    "Z1048",
-    "Z0378"
-   ],
-   "frontier": "§7.2 (Astra open question: Pell/class-group cycle data); §3 B1 hatch E2; (J)84 Prop 4.2 kills the coprime CF-norm WINDOW use only; (J)106 kills fixed and least-QNR roots (Dickson)",
-   "new": "Z0596: Legendre-type descent that uses primality of p (as for N(ε_p) = −1) — the one item whose proof template is a pointwise theorem at primes. The cycle supplies a power-size (≍ regulator) p-dependent auxiliary set (an M1b-type input B2 otherwise lacks).",
-   "ytype": "ES",
-   "plaus": 1,
-   "h": 1,
-   "f": 1,
-   "tier": "i",
-   "obstruction": "B2 (each root is one tied divisor event); (J)84 Prop 4.2 for window uses; the Dickson constructions of (J)106 do not control cycle data (that is the escape)",
-   "beats": "Formal only: E2 primitives escape B1 Thm M and the Dickson root constructions; nothing ties the cycle to the class.",
-   "EV": 0.002,
-   "avenue_plaus": {
-    "Z0596": 1,
-    "Z0465": 1,
-    "Z1298": 1,
-    "Z0385": 1,
-    "Z1687": 0,
-    "Z1048": 0,
-    "Z0378": 1
-   },
-   "avenue_status": {
-    "Z0596": "unclear",
-    "Z0465": "unclear",
-    "Z1298": "open-plausible",
-    "Z0385": "open-plausible",
-    "Z1687": "known-false",
-    "Z1048": "known-false",
-    "Z0378": "open-plausible"
-   },
-   "rank": 2,
-   "yield": "ES (via ES₅)"
-  },
-  {
    "id": "C3",
    "name": "Parity / count-congruence / topological index (windmill family)",
    "statement": "For every prime p ≡ 1 (24) a p-dependent finite set S_p with a group action (involution, ℤ/m, S₃) or a mod-2-acyclic complex whose fixed points / critical cells are ES certificates and whose count is ≢ 0 by a formula that sees (·/p) (it must vanish at odd squares).",
@@ -118,7 +74,7 @@
    "f": 1,
    "tier": "i",
    "obstruction": "M5/T1 (count must vanish at m², so must see (·/p)); B1-type bar for finite affine menus; genus parity of h(−4p) is congruence data",
-   "beats": "Only formally: Rédei 4-/8-rank of Cl(−4p) is not congruence data in p; no member builds S_p from it.",
+   "beats": "Only formally: the 4-rank of Cl(−4p) is congruential (fixed for p ≡ 1 (8)), but 8 | h(−4p) ⟺ p = x² + 32y² (Barrucand–Cohn) is a non-abelian Chebotarev condition, and the 16-rank has no governing field. Those higher 2-power layers are non-congruential parity sources, although (J)96 calls non-abelian Frobenius inert on finite witness sets. No member builds S_p from them.",
    "EV": 0.002,
    "avenue_plaus": {
     "Z2921": 1,
@@ -152,7 +108,7 @@
     "Z0441": "open-plausible",
     "Z1650": "open-plausible"
    },
-   "rank": 3,
+   "rank": 2,
    "yield": "ES"
   },
   {
@@ -190,8 +146,52 @@
     "Z1954": "open-plausible",
     "Z0250": "open-plausible"
    },
-   "rank": 4,
+   "rank": 3,
    "yield": "ES (if 𝒜 exists); closing lemmas otherwise"
+  },
+  {
+   "id": "C4",
+   "name": "Pell / reduction-cycle / E2-primitive roots for the forest or the e-slices",
+   "statement": "For every prime p ≡ 1 (24), p > p₀, some element of the principal reduction cycle of ℚ(√p) (convergent P_k/Q_k of √p, ambiguous form), or another explicit non-quasi-polynomial primitive Φ(p) (fundamental unit, binomial/factorial data), is a root whose forest component contains a bichromatic edge (an ES₅ certificate).",
+   "members": [
+    "Z0596",
+    "Z0465",
+    "Z1298",
+    "Z0385",
+    "Z1687",
+    "Z1048",
+    "Z0378"
+   ],
+   "frontier": "§7.2 (Astra open question: Pell/class-group cycle data); §3 B1 hatch E2; (J)84 Prop 4.2 kills the coprime CF-norm WINDOW use only; (J)106 kills fixed and least-QNR roots (Dickson)",
+   "new": "Z0596: Legendre-type descent that uses primality of p (as for N(ε_p) = −1) — the one item whose proof template is a pointwise theorem at primes. CAUTION (review): the period of √p is NOT uniformly power-size: it is ≫ R/log p and can be O(1) (p = m²+1, m²+4), and near-square primes are exactly the hardest (T1 deformation). There the cycle data are a fixed polynomial recipe in m, so a B1/Hypothesis-H construction should defeat them. Reduced convergents have gcd(Q_k, P_k² − pQ_k²) = 1, so the coprime-norm window use is the only one and it is dead ((J)84 Prop 4.2).",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 0,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "B2 (each root is one tied divisor event); (J)84 Prop 4.2 for window uses; the Dickson constructions of (J)106 do not control cycle data (that is the escape)",
+   "beats": "Formal only and only for long-period p: E2 primitives escape B1 Thm M and the (J)106 Dickson root constructions there, but near-square primes have O(1)-length cycles, and nothing ties the cycle to the class.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z0596": 1,
+    "Z0465": 1,
+    "Z1298": 1,
+    "Z0385": 1,
+    "Z1687": 0,
+    "Z1048": 0,
+    "Z0378": 1
+   },
+   "avenue_status": {
+    "Z0596": "unclear",
+    "Z0465": "unclear",
+    "Z1298": "open-plausible",
+    "Z0385": "open-plausible",
+    "Z1687": "known-false",
+    "Z1048": "known-false",
+    "Z0378": "open-plausible"
+   },
+   "rank": 4,
+   "yield": "ES (via ES₅)"
   },
   {
    "id": "C2",
@@ -250,6 +250,50 @@
    "yield": "ES (it implies ES)"
   },
   {
+   "id": "C9",
+   "name": "Regime split / exceptional-character dichotomy (Linnik three principles, Deuring–Heilbronn, Fourier character witness)",
+   "statement": "Finitely many regimes covering all large p (by lnr(p), a pretentious distance, or a shared obstructing character), each with its own pointwise existence theorem; in the Linnik form: obstructed windows are killed by ONE exceptional character, which then repels success elsewhere.",
+   "members": [
+    "Z2940",
+    "Z3003",
+    "Z2941",
+    "Z2512",
+    "Z3002",
+    "Z2964",
+    "Z1787"
+   ],
+   "frontier": "Reduces to §7.3 (class beyond the BM layer); regime splits by bounded congruence data are B1",
+   "new": "Z3003: an exact Fourier identity giving a quantitative character witness for every obstructed e-slice. Rank_O limited diagnostic (scripts/z52d_rank_O_charobs.py, EVIDENCE; 9 (★)-zeros vs 27 distinct controls, Type II e-slices e ≤ 400): about half of the obstructed windows are poverty-type. Subgroup-type windows are almost all killed by an odd REAL (genus) character mod e, mostly χ_{−e} itself. Only 0–3 windows per prime are killed solely by characters of order ≥ 3, at hard primes and controls alike. The hard-prime excess of subgroup-type windows (5569, 83449, 102001, 712321) sits in the real-character layer. It does not measure Fourier concentration or common characters across windows, so it does not falsify C9; it points C9 toward §7.3/§7.4 (genus layer).",
+   "ytype": "ES",
+   "plaus": 1,
+   "h": 0,
+   "f": 1,
+   "tier": "i",
+   "obstruction": "B2 in every regime; B1 for congruence-defined splits; poverty (B4) dominates failures (also out_Q11 Z1596: 179/183 rich (★) level failures are poverty-type)",
+   "beats": "No member supplies one. In the diagnostic, the obstructions that differ between hard and control primes are genus-layer (real) characters, i.e. §7.3/§7.4.",
+   "EV": 0.002,
+   "avenue_plaus": {
+    "Z2940": 1,
+    "Z3003": 1,
+    "Z2941": 1,
+    "Z2512": 1,
+    "Z3002": 1,
+    "Z2964": 1,
+    "Z1787": 1
+   },
+   "avenue_status": {
+    "Z2940": "unclear",
+    "Z3003": "open-plausible",
+    "Z2941": "open-plausible",
+    "Z2512": "open-plausible",
+    "Z3002": "open-plausible",
+    "Z2964": "unclear",
+    "Z1787": "open-plausible"
+   },
+   "rank": 6,
+   "yield": "ES"
+  },
+  {
    "id": "C20",
    "name": "High-multiplicity lift (B3 Remark 2.4 hatch)",
    "statement": "A natural lifted variety/weight with fibres ≫ p^δ over each ES solution of 4/p (e.g. solutions of 4/(pk), k ≤ p^δ, k dividing two denominators) whose weighted count has a power-size main term and power-saving error at each p.",
@@ -272,7 +316,7 @@
    "avenue_status": {
     "Z2060": "open-plausible"
    },
-   "rank": 6,
+   "rank": 7,
    "yield": "ES"
   },
   {
@@ -298,7 +342,7 @@
    "avenue_status": {
     "Z2982": "open-plausible"
    },
-   "rank": 7,
+   "rank": 8,
    "yield": "ES (above p₀)"
   },
   {
@@ -312,10 +356,14 @@
     "Z3028",
     "Z3005",
     "Z2351",
-    "Z3022"
+    "Z3022",
+    "Z3016",
+    "Z3187",
+    "Z3115",
+    "Z0223"
    ],
    "frontier": "§6 Propagation/global-positivity shapes (PROPAGATION_CLOSURE: rule Λ, integral Y–Δ \"remain open\"); (J)86 amplification criterion",
-   "new": "Z3022 overturned in Task A: B1/Mordell–Schinzel do not cover inductive closure (recursion depth grows with p); the real bars are privacy (affine shifts do not transport divisors) and numerator 8 (8/131).",
+   "new": "Z3022 overturned in Task A, and Z3016/Z3187/Z3115/Z0223 in the targeted hunt: B1/Mordell–Schinzel and the thin-image argument do not cover strong induction from all smaller n (recursion depth grows with p). The real bars are privacy (affine shifts do not transport divisors; Assessment), numerator 8 (8/131), and T1 for transports that preserve Type I/II.",
    "ytype": "ES",
    "plaus": 1,
    "h": 0,
@@ -331,7 +379,11 @@
     "Z3028": 1,
     "Z3005": 1,
     "Z2351": 1,
-    "Z3022": 0
+    "Z3022": 0,
+    "Z3016": 0,
+    "Z3187": 0,
+    "Z3115": 0,
+    "Z0223": 0
    },
    "avenue_status": {
     "Z2095": "unclear",
@@ -340,9 +392,13 @@
     "Z3028": "unclear",
     "Z3005": "unclear",
     "Z2351": "unclear",
-    "Z3022": "known-false"
+    "Z3022": "known-false",
+    "Z3016": "known-false",
+    "Z3187": "known-false",
+    "Z3115": "known-false",
+    "Z0223": "circular"
    },
-   "rank": 8,
+   "rank": 9,
    "yield": "ES"
   },
   {
@@ -370,50 +426,6 @@
    "avenue_status": {
     "Z2845": "unclear",
     "Z3104": "unclear"
-   },
-   "rank": 9,
-   "yield": "ES"
-  },
-  {
-   "id": "C9",
-   "name": "Regime split / exceptional-character dichotomy (Linnik three principles, Deuring–Heilbronn, Fourier character witness)",
-   "statement": "Finitely many regimes covering all large p (by lnr(p), a pretentious distance, or a shared obstructing character), each with its own pointwise existence theorem; in the Linnik form: obstructed windows are killed by ONE exceptional character, which then repels success elsewhere.",
-   "members": [
-    "Z2940",
-    "Z3003",
-    "Z2941",
-    "Z2512",
-    "Z3002",
-    "Z2964",
-    "Z1787"
-   ],
-   "frontier": "Reduces to §7.3 (class beyond the BM layer); regime splits by bounded congruence data are B1",
-   "new": "Z3003: an exact Fourier identity giving a quantitative character witness for every obstructed e-slice. Rank_O falsifier (scripts/z52d_rank_O_charobs.py, EVIDENCE): at 9 (★)-zeros vs 27 controls, e ≤ 400, obstructed windows are ≈half poverty-type and the subgroup-type ones are mostly the quadratic (genus/BM) character χ_{−e}; non-quadratic subgroup obstructions show no excess at hard primes. No shared exceptional character beyond the quadratic layer.",
-   "ytype": "ES",
-   "plaus": 1,
-   "h": 0,
-   "f": 0,
-   "tier": "i",
-   "obstruction": "B2 in every regime; B1 for congruence-defined splits; poverty (B4) dominates failures (also out_Q11 Z1596: 179/183 rich (★) level failures are poverty-type)",
-   "beats": "No. The only shared character is the quadratic one, which is the already-free BM layer.",
-   "EV": 0.002,
-   "avenue_plaus": {
-    "Z2940": 1,
-    "Z3003": 1,
-    "Z2941": 1,
-    "Z2512": 1,
-    "Z3002": 1,
-    "Z2964": 1,
-    "Z1787": 1
-   },
-   "avenue_status": {
-    "Z2940": "unclear",
-    "Z3003": "open-plausible",
-    "Z2941": "open-plausible",
-    "Z2512": "open-plausible",
-    "Z3002": "open-plausible",
-    "Z2964": "unclear",
-    "Z1787": "open-plausible"
    },
    "rank": 10,
    "yield": "ES"
@@ -638,21 +650,21 @@
   },
   {
    "id": "C18",
-   "name": "Growing-length digit/CF recursion (B1 E1 hatch) — Cobham closing lemma",
-   "statement": "A finite-rule recursion along the base-b digits (or CF) of p, run ≍ log p steps, outputs a certificate for every prime; closing lemma: its success set is automatic, so its failure set is automatic and contains no structured square set by Cobham.",
+   "name": "Growing-length digit/CF recursion (B1 E1 hatch)",
+   "statement": "A finite-rule recursion along the base-b digits (or CF) of p, run ≍ log p steps, outputs a certificate for every prime.",
    "members": [
     "Z0482"
    ],
    "frontier": "B1 \"Does NOT rule out\" E1",
-   "new": "Cobham-type closing argument (proposed).",
-   "ytype": "side",
-   "plaus": 2,
+   "new": "Z0482 proposes a Cobham-type closing lemma. It is UNSUPPORTED (review): recursions with growing registers are not finite-state, and non-automaticity of the squares does not stop an automatic set from containing them.",
+   "ytype": "ES",
+   "plaus": 0,
    "h": 0,
    "f": 0,
-   "tier": "ii",
-   "obstruction": "T1 (squares are not k-automatic)",
-   "beats": "n/a",
-   "EV": 0.003,
+   "tier": "iii",
+   "obstruction": "T1 (the recursion must detect non-squareness); B1 if the rules are digit-local",
+   "beats": "No.",
+   "EV": 0.0,
    "avenue_plaus": {
     "Z0482": 1
    },
@@ -660,7 +672,7 @@
     "Z0482": "open-plausible"
    },
    "rank": 18,
-   "yield": "closing lemma (none for ES)"
+   "yield": "ES (formally)"
   },
   {
    "id": "C12",
