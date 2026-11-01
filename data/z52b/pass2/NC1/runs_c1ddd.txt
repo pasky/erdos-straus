@@ -1,0 +1,10 @@
+  C<=2 run length 3 first reached at p=4729
+  C<=2 run length 4 first reached at p=7129
+  C<=2 run length 5 first reached at p=557449
+  C<=2 run length 6 first reached at p=14472649
+  C<=2 run length 7 first reached at p=476870257
+primes≡1 mod 24 in (25,1000000000]: 6354932
+C<=2: fraction with no witness = 0.12093 ; maximal-run histogram(len:count) C<=5: fraction with no witness = 0.02201 ; maximal-run histogram(len:count) C<=10: fraction with no witness = 0.00595 ; maximal-run histogram(len:count) 1:606180 2:68593 3:7301 4:725 5:60 6:7 7:1 8:0 9:0 10:0 11:0 
+C<=2: longest run with no witness = 7 primes (ending at p=476870257, starting after p=476869009)
+C<=5: longest run with no witness = 4 primes (ending at p=14472529, starting after p=14471929)
+C<=10: longest run with no witness = 3 primes (ending at p=204652081, starting after p=204651817)

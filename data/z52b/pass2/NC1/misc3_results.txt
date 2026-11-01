@@ -1,0 +1,3 @@
+Z1351 lemma checks 228228 violations 0
+Z1464 frac Cmin=1 0.7753 Cmin=2 0.1476 Cmin<=2 0.923
+Z1707 {'D=5': {'reps': 556, 'witness_at_C=y': 0.061, 'base_rate_same_C_all_primes': 0.078}, 'D=8': {'reps': 556, 'witness_at_C=y': 0.124, 'base_rate_same_C_all_primes': 0.146}, 'D=12': {'reps': 555, 'witness_at_C=y': 0.094, 'base_rate_same_C_all_primes': 0.123}, 'D=13': {'reps': 444, 'witness_at_C=y': 0.041, 'base_rate_same_C_all_primes': 0.051}}

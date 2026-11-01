@@ -1,0 +1,77 @@
+{
+ "gcd_lemma": {
+  "pairs_checked": 162400,
+  "violations": 0,
+  "statement": "gcd(4Cp+1,4C2p+1) divides 4(C2-C)"
+ },
+ "residue_determinacy": {
+  "M=24,C<=2": {
+   "classes": 4,
+   "pure_classes": 2,
+   "primes_in_mixed_classes_frac": 0.4982
+  },
+  "M=24,C_min==1": {
+   "classes": 4,
+   "pure_classes": 2,
+   "primes_in_mixed_classes_frac": 0.4982
+  },
+  "M=120,C<=2": {
+   "classes": 17,
+   "pure_classes": 11,
+   "primes_in_mixed_classes_frac": 0.3726
+  },
+  "M=120,C_min==1": {
+   "classes": 17,
+   "pure_classes": 9,
+   "primes_in_mixed_classes_frac": 0.4982
+  },
+  "M=840,C<=2": {
+   "classes": 97,
+   "pure_classes": 73,
+   "primes_in_mixed_classes_frac": 0.2463
+  },
+  "M=840,C_min==1": {
+   "classes": 97,
+   "pure_classes": 57,
+   "primes_in_mixed_classes_frac": 0.4143
+  },
+  "M=2520,C<=2": {
+   "classes": 289,
+   "pure_classes": 217,
+   "primes_in_mixed_classes_frac": 0.2463
+  },
+  "M=2520,C_min==1": {
+   "classes": 289,
+   "pure_classes": 169,
+   "primes_in_mixed_classes_frac": 0.4143
+  }
+ },
+ "greedy_first_term": {
+  "primes": 600,
+  "two_term_completion_ok": 282,
+  "frac": 0.47
+ },
+ "class_number_corr": {
+  "primes": 4783,
+  "pearson_h_over_sqrtp_vs_R_over_log2p": 0.4639
+ },
+ "pell_candidates": {
+  "D=5": {
+   "primes_with_small_rep": 556,
+   "C=y or y^2 witness": 53
+  },
+  "D=8": {
+   "primes_with_small_rep": 556,
+   "C=y or y^2 witness": 87
+  },
+  "D=12": {
+   "primes_with_small_rep": 555,
+   "C=y or y^2 witness": 56
+  },
+  "D=13": {
+   "primes_with_small_rep": 444,
+   "C=y or y^2 witness": 26
+  }
+ },
+ "note": "Z1707 entries here are superseded by misc3_results.txt (matched-C control)"
+}
