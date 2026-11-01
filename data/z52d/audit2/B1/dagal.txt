@@ -1,0 +1,4 @@
+solutions 8334 touched by a Dagal move 0 Dagal edges 0
+mean #components Dagal graph / #solutions 39.497630331753555 39.497630331753555
+pivot graph: primes with 1 component 4 of 211  mean comps 8.364928909952607
+largest #pivot comps [(18, 62, 2141), (18, 79, 2957), (18, 81, 2909), (19, 59, 2549), (23, 70, 1949)]
