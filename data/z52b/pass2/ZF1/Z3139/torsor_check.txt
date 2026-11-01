@@ -1,0 +1,10 @@
+Cayley sigma3(t) divisible by master relation R: True | quotient factors: e12*e13*e14*e23*e24*e34*l1**2*l2**2*l3**2*l4**2
+diagonal 12: two expressions agree mod R: True num/R = 1
+diagonal 13: two expressions agree mod R: True num/R = 1
+diagonal 23: two expressions agree mod R: True num/R = 1
+(x,y,z,t4) = [a*b*d*n, a*c*d, b*c*d, -n/4]  ET pi^I_n = (abdn, acd, bcd), t4 should be -n/4
+master relation -> -4*a*b*c*d + a*n + b*n + c   (ET (2.3): 4abcd = na + nb + c)
+diag 23|14:  d*c = a + b
+diag 13|24:  d*b = a*n + c
+diag 12|34:  d*a = b*n + c
+Type II chart (x,y,z,t4) = [a*b*d, a*c*d*n, b*c*d*n, -n/4] ; master -> -4*a*b*c*d + a + b + c*n  (ET Prop 2.7: 4abcd = a + b + nc)
