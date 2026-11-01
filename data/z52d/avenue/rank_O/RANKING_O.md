@@ -30,7 +30,7 @@ This revision follows a cross-model review of the first version; the changes are
 ## B. Candidate set F and clusters
 
 F (`z52d_rank_O_F.py`) is the union of c1 (plausibility ≥ 2, novelty ≥ 1, yield ≠ none: 33 rows), c2 (ES-yield, status
-open/unclear/known-true, plausibility ≥ 1: 76), c3 (new_ingredient ≠ none: 18) and c4 (overturned: Z3022 + 4 hunt rows): **|F| = 119**. F has 79 ES-yielding rows: 70 at plausibility ≤ 1 and 9 known-true *restatements*. The 119 rows collapse onto
+open/unclear/known-true, plausibility ≥ 1: 76), c3 (new_ingredient ≠ none: 18) and c4 (overturned: Z3022 + 4 hunt rows): **|F| = 119**. F has 83 ES-yielding rows: 74 at plausibility ≤ 1 and 9 known-true *restatements*. The 119 rows collapse onto
 **23 clusters** (`clusters.json`), with every F mid in exactly one cluster.
 
 **Scoring (explicit).** EV = Y·P. Y: full ES 1.0 · pointwise sub-step a proof would need 0.3 · side result (thin family,
