@@ -1,0 +1,6 @@
+odd n ≤ 1201: 159617 solutions round-tripped; types {'I': 14929, 'II': 5823, None: 138865, 'star_nonET': 287}; (★) solutions 1657 (cform == ET-II c=1)
+41 primes: 469 C-form certificates round-tripped
+ok
+f_II(1009): bs_adv_count 16 == es_forms ordered count (checked)
+f_II(2521): bs_adv_count 6 == es_forms ordered count (checked)
+f_II(409): bs_adv_count 12 == es_forms ordered count (checked)

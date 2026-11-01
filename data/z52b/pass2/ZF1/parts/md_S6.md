@@ -1,0 +1,77 @@
+# ZF1 / shard S6 — interesting items
+
+## Z2306 — Parity problem: which ES certificates are invisible to a sieve? {#Z2306}
+
+**What.** For a prime p and level C put N_C = 4Cp + 1, q = 4C, r_C = #{d | N_C : d ≡ −1 (mod q)} (FRONTIER §2.1
+divisor form). Split N_C = s·r with s the N^{1/3}-smooth part and r the rough part (all prime factors > N^{1/3}, so
+Ω(r) ≤ 2).
+
+* **Lemma (PROVED, elementary).** Since N_C ≡ 1 (mod q), r ≡ s⁻¹ (mod q). If Ω(r) ≤ 1, every divisor of N_C is d or
+  d·r with d | s, hence r_C > 0 ⇔ ∃ d | s with d ≡ −1 or d ≡ −s (mod q): success is a function of (s, C), i.e. of
+  data a sieve of level N^{1/3} sees. The only extra information is how r = r₁r₂ splits when Ω(r) = 2 — Selberg's
+  parity datum (a sieve cannot tell Ω(r) = 1 from Ω(r) = 2).
+* **Numbers (EVIDENCE; `scripts/z52d_p2_ZF1_Z3072_omega.c`, tables in `data/z52b/pass2/ZF1/Z3072/summary.txt`).**
+  - Same sieve stratum, different parity: τ(s) = 2, C ∈ [10,100): P(success) = 0.0058 (Ω(r)=1) vs 0.0360 (Ω(r)=2);
+    τ(s) = 1: 0 vs 0.0227; τ(s) ∈ [3,4]: 0.028 vs 0.070; τ(s) ∈ [5,8]: 0.069 vs 0.122 (300 primes > 10⁹, C ≤ 10⁵).
+  - Liouville marginal is blind: P(success | λ(N_C) = +1) = P(… = −1) = 0.00022 at 10⁹ (also at 10⁶), because
+    λ(N) = λ(s)λ(r) flips sign with s.
+  - Fraction of successful levels decided by s (visible): 85.5 % (10⁹, C ≤ 10⁵), 80.7 % (all C, 3642 primes in
+    [10⁶, 1.1·10⁶]), 82.1 % (all C, 282 primes near 10⁷); by Ω(N): 46 % at Ω = 2, 64 % at 3, 80 % at 4, ≥ 99 % at Ω ≥ 7.
+  - **p = 1044877** (≡ 757 mod 840) has exactly 5 certificate levels C = 1, 3, 68, 3958, 130610, and every one is
+    parity-invisible, e.g. N₁ = 29·167·863 with d = 167 (z = 161), N₃ = 5²·263·1907, N₆₈ = 3²·5·7·683·1321 (d = 9247 =
+    7·1321), N₃₉₅₈ = 5·31663·104491, N₁₃₀₆₁₀ = 3·11·31663·522439. It is the only such prime among 3642 in [10⁶, 1.1·10⁶];
+    none among 282 near 10⁷ (min 4 visible levels) or 450 near 10⁹ restricted to C ≤ 10⁵.
+* **T1 is not a parity phenomenon** (PROVED, elementary): for n = m² odd the sequence C ↦ 4Cm² + 1 has the same local
+  densities ρ(ℓ) = 1 (ℓ ∤ 2m) as C ↦ 4Cp + 1, yet r_C = 0 for every C and every Ω — the obstruction is the quadratic
+  class of the divisor relative to q (genus), not the parity of Ω.
+
+**Why it might matter.** Parity costs ES on average only ≈ 1/5 of the certificates, so it is not the main barrier; but
+it is not negligible pointwise: there are primes (1044877) where a level-N^{1/3} sieve sees no certificate at all, so a
+pure-sieve proof of R(p) > 0 at this cut is impossible (Assessment: unless it raises the cut or uses bilinear/type-II
+information on r = r₁r₂).
+
+**Reproduce.** `gcc -O2 -o omega scripts/z52d_p2_ZF1_Z3072_omega.c -lm; ./omega 275001 < data/z52b/pass2/ZF1/Z3072/primes_1e6_full.txt`
+(lines `P p #successC #visibleC`; ~3 min), then `python3 scripts/z52d_p2_ZF1_Z3072_summ.py <out>`.
+
+**Next.** Scan the cut z = N^θ (θ = 1/4 … 1/2; θ = 1/2 makes every certificate visible trivially) and count zero-visible
+primes in [10⁶, 10⁷] to see whether parity-invisible primes thin out with p.
+
+## Z2080 — Linnik/Bredihin dispersion vs. ES: where the dispersion inequality sits, and the ES second moment by level C {#Z2080}
+
+**Literature (read).** Friedlander–Iwaniec, *On a theorem of Bredihin and Linnik*, arXiv:1807.06648 (5 pp.): new proof of
+Bredihin's S(x) = #{p ≤ x, p ≡ 3 (8), p = a² + b² + 1} = c·x/log x + O(x(log log x/log x)²), originally obtained by
+extending Linnik's dispersion solution of the Hardy–Littlewood problem n = p + x² + y² (Linnik's book, ch. 7). In the
+modern proof the dispersion step is replaced by two inputs: (i) Dirichlet divisor switching (their (2.2)–(2.4)):
+λ(n) = Σ_{a|n, a≤y} χ(a) + Σ_{b|n, b<n/y} χ(b), smoothed so only b < 2√X occur; (ii) the Bombieri–Friedlander–Iwaniec
+estimate (their (3.1)): Σ_{q ≤ √x (log x)^A, (q,a)=1} |π(x; q, a) − π(x)/φ(q)| ≪ x(log log x/log x)², **for a fixed
+residue a ≠ 0**, constant depending on a. In Linnik's problem the residue is n (fixed) and the long variable is the
+prime p ≤ n — the average over p is native to the problem.
+
+**ES side (Assessment + PROVED bookkeeping).** R(p) = Σ_{(u,C)} 1[p ≡ −u (mod 4uC − 1)] (trial form): at a fixed p there
+is no long prime variable at all, and the residue −u is tied to the modulus. After divisor switching the moduli needed
+are ≤ √(4Cp) for level C, i.e. up to ≈ p^{2/3} even after choosing the best of the three symmetric pairings; so even
+the p-averaged count Σ_{p≤X} R(p) is beyond BV (level 1/2) and violates BFI's fixed-a hypothesis. Only an almost-all
+statement could come out of a dispersion argument, and those are known (Vaughan; FRONTIER §1).
+
+**Second moment by C (EVIDENCE; `scripts/z52d_p2_ZF1_Z2080_disp.c`, `…_analyse.py`; all 30 899 / 27 101 primes
+p ≡ 1 (4) in [10⁷, 1.1·10⁷] and [10⁸, 1.01·10⁸]).** With S = R/2 (unordered (★) solutions):
+* Var S / E S = 2.28 (10⁷), 2.70 (10⁸); after removing p mod 840 class means 1.67, 2.08; mod 9240: 1.49, 1.88.
+* Per level: C = 1: Var/Mean 3.81, C = 2: 2.64, C = 3..8: 1.3–1.8, every dyadic bucket C ≥ 32: 0.96–1.09 (Poisson).
+  Cross-level covariances carry 33 % (10⁷) / 38 % (10⁸) of Var S although mean pairwise correlation is only 0.012.
+* **The over-dispersion has an exact source:** the edge lines u = 1 or B = 1 are B(4C − 1) = p + 1, i.e.
+  E(p) = #{d | p + 1 : d ≡ 3 (mod 4)} unordered solutions (PROVED, one line) — a Titchmarsh-divisor-problem object.
+  E has mean 5.3 / 6.0 and Var/Mean 5.5 / 7.3 and explains 44 % of Var S at both heights; the interior S − E has
+  Var/Mean 1.69 / 1.94 (1.39 / 1.65 after mod 840), and corr(E, S − E) = −0.13.
+  Smooth weights vanishing at the simplex boundary (Z2902) reproduce this: Var/Poisson drops from 5.0–5.9 (sharp R) to
+  1.9–2.4, and the Mordell-hard-class deficit of R (0.74–0.78 of the mean) almost disappears (0.91–0.99).
+
+**Why it might matter.** The part of R(p) that fluctuates wildly is exactly the part a Linnik/BV dispersion argument
+*can* handle on average (Σ_p τ-type(p+1) is the Titchmarsh divisor problem, solved by BV/BFI with fixed residue
+a = −1); the interior is nearly Poisson but has tied residues. A lower-tail heuristic should model R = E(p) + (interior),
+with E controlled by the divisor structure of p + 1 and the interior close to Poisson with index ≈ 1.4–1.9.
+
+**Reproduce.** `gcc -O2 -o disp scripts/z52d_p2_ZF1_Z2080_disp.c; ./disp 10000000 1000000 > d.txt` (0.7 s);
+`uv run --with numpy --with sympy python scripts/z52d_p2_ZF1_Z2080_analyse.py d.txt edge`. Outputs:
+`data/z52b/pass2/ZF1/Z2080/analysis_1e7.txt`, `analysis_1e8.txt`.
+
+**Next.** Fit the zero-probability of the interior part alone (index ≈ 1.5 Poisson) against the census zeros of (★).
