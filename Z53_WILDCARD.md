@@ -155,6 +155,10 @@ N_h2 = the h = 2 layer. Hard primes (`counts_hard.out`) and the six next primes 
 | 329617 | 0 | 30 | 11 | 5 | 61, 75, 48, 83, 64, 60 |
 | 712321 | 0 | 32 | 5 | 8 | 83, 74, 58, 64, 61, 72 |
 
+Near-square controls (p = m² + k ≡ 1 (24), k ≤ 64, m ≈ 300–335; `counts_nearsq.out`): (p, R, N_II) = (91873, 11, 45),
+(94273, 6, 27), (99241, 10, 44), (99289, 9, 39), (105649, 12, 43), (106993, 9, 64), (112249, 12, 39) — ordinary values at
+this scale (the near-square deficit of (J)53/(J)55 is a few σ on averages, not visible on seven primes).
+
 EVIDENCE: at 7 of the 8 hard primes the *full* Type II count is at or below the minimum of its six neighbours (23929 is the
 exception); the deficit is global across the h-layers, not confined to h = 1. This matches `BM_CORRECTED_COUNT.md` §4
 (positively correlated residuals of (★) and the b = 1 line; 83449 and 329617 are the union minima). Reading: a (★)
