@@ -22,8 +22,8 @@ CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z53_genusx_*`, 
   divisors the BM component of the genus expansion is exactly −(w″/p) (Lemma 2). Each w and each w″ lies on at most one shell
   point (Lemma 4.1), so the exact counts R, G are sums over the free variable w of a function of (p mod w, ⌊p/w⌋); the plain
   Cauchy–Schwarz expansion over the shell is diagonal (Lemma 4.3); the genus event is itself a (★)-shaped tied event for x² + pt
-  (Lemma 4.4); on the part of the shell with w″ ≥ √p, interval information on χ_p of any strength is consistent with the
-  square value of the BM shell sum (Prop 4.6, scoped).
+  (Lemma 4.4); on the part of the shell with w″ ≥ √p, interval-sum magnitude bounds on χ_p, down to |Σ_I| ≤ 5, are
+  consistent with the square value of the BM shell sum (Prop 4.6, scoped).
 * **Falsifier (EVIDENCE; §5).** Exact engine, *standard* window (U₀, U₁, Y, X) = (p^{1/12}, p^{1/3}/2, p^{1/3}, p^{2/3}/4) —
   outside Theorem X's hypotheses, so the layer names are proxies there — at 10⁸–10¹² (900 random primes, 120 near-squares,
   the 14 (★)-zero primes, 150 odd squares). Direct M^cls/M = 1.01 at 10¹⁰ (T_u numerically small also here); mean G/M̂ =
@@ -96,13 +96,13 @@ ES-(★)-strength on a subfamily. The lane's sub-statements, in order:
 
 ## 3. Theorem X: the order-≥3 characters mod 8u carry no density main term (PROVED)
 
-**External input (Bu₁): Burgess, prime modulus.** For every r ≥ 1 and ε > 0 there is an effective C = C(r, ε) such that for
+**External input (Bu₁): Burgess, prime modulus.** For every integer r ≥ 1 and ε > 0 there is an effective C = C(r, ε) such that for
 every prime p, every non-principal χ mod p and all M ≥ 0, N ≥ 1: |Σ_{M<n≤M+N} χ(n)| ≤ C N^{1−1/r} p^{(r+1)/(4r²)+ε}.
 (Burgess, Proc. LMS (3) 12 (1962) 179–192 and 13 (1963) 524–536; Iwaniec–Kowalski Thm 12.6; the cube-free version quoted
 in `Z53_GENUSLVAL` §2.1 from arXiv:2511.17778 contains it.) Put τ_r := (r + 1)/(4r) + rε (so N ≥ p^{τ_r + ε} gives a saving
 N^{−ε/r}·… below; τ_r → 1/4 as r → ∞ with rε → 0).
 
-**Theorem X.** Fix r ≥ 1, ε ∈ (0, 1/100) and exponents with
+**Theorem X.** Fix an integer r ≥ 1, ε ∈ (0, 1/100) and exponents with
   (C1) γ < 1 − α₁,  (C2*) β > 2α₁ + τ_r + 4ε,  (C4) α₁ < 1/5.
 There is δ = δ(r, ε, α₁, β) > 0 such that, uniformly in u ∈ 𝒰 and in the unit class s mod 4u,
   Σ_{w ∈ 𝒮_u ∩ (Y, X], w ≡ s (4u)} ρ_u(w) = 𝔐_u + O(p^{−δ}/u),   𝔐_u independent of s.        (X.1)
@@ -209,8 +209,8 @@ require each component separately.
 N ≥ √p and 𝒲 := {w″ : (u, w) ∈ 𝔖, N < w″ ≤ 2N}. Then
 (a) |𝒲 ∩ I| ≤ p|I|/(2N²) + 2 for every interval I ⊂ (N, 2N];
 (b) there is f : ℤ ∩ (N, 2N] → {±1} with f ≡ +1 on 𝒲 and |Σ_{n∈I} f(n)| ≤ 5 for **every** interval I.
-Consequently every hypothesis on χ_p that constrains only its sums over intervals in (N, 2N] (or smoothly weighted sums, by
-partial summation), of any strength down to O(1), is satisfied by f, while replacing (w″/p) by f(w″) gives the BM shell sum
+Consequently every *magnitude upper bound* on the interval sums of χ_p in (N, 2N] (or on smoothly weighted sums, by partial
+summation) that is compatible with |Σ_I f| ≤ 5 — i.e. of any strength down to O(1) — is satisfied by f, while replacing (w″/p) by f(w″) gives the BM shell sum
 over this box its odd-square value −Σ_{(u,w)∈𝔖, w″∈(N,2N]} 1/φ(u).
 *Proof.* (a) w″ ∈ (N₁, N₁ + L] (N₁ ≥ N) and 2ww″ ∈ (p, p + U₁] give w ∈ (p/(2(N₁ + L)), (p + U₁)/(2N₁)], of length ≤ pL/(2N²)
 + U₁/(2N) < pL/(2N²) + 1/2 (U₁ < √p ≤ N); by injectivity (Lemma 4.1) |𝒲 ∩ I| ≤ #integers there ≤ pL/(2N²) + 3/2.
@@ -221,14 +221,18 @@ interval sums S(b) − S(a) lie in [−5, 5]. ∎
 *Range.* The box meets 𝔖 only if some w ≤ (p + U₁)/(2√p), i.e. β < 1/2. This holds for Thm U's optimal window (β ↓ 1/3)
 and for the standard window of §5; it fails for Theorem X's optimised window (β → 17/30), where the proposition says
 nothing (some admissible Theorem X windows have β < 1/2, e.g. α₀ = 0.09, α₁ = 0.10, β = 0.49, γ = 0.80 with r = 10, ε = 10⁻⁴).
-*Scope.* f is not multiplicative and has no prescribed sums on progressions mod q > 2; arguments using the complete
+*Scope.* Only magnitude bounds are covered: exact signed interval data would determine f, and magnitude-only scope is
+essential (f(n) = (−1)^{n+1} already equals +1 on every odd w″ and has interval sums ≤ 1). f is not multiplicative and has no
+prescribed sums on progressions mod q > 2; arguments using the complete
 multiplicativity of χ_p jointly with the shell's arithmetic (as Thm U/Theorem X do for the *density*) are not covered.
 That is the escape hatch.
 
 **Remark 4.7 (cubic/quartic characters, cubic large sieve; Assessment only).** For χ₂ mod w of order k ∈ {3, 4, 6}, k-th power
 reciprocity in ℚ(ζ_k) rewrites χ₂(−p·ū) as a Hecke character with p (split, p ≡ 1 (24)) in its conductor, evaluated at the
 prime ideals above w — "p in the conductor" as in Thm U. So the *centred* bounded-order density layers on the w-side
-(B^{(k)} − B^gen, B^{(k)} := projection of B onto χ₂ with χ₂^k = 1, which contains the principal and genus characters) look
+(B^{(k′)} − B^gen with k′ = lcm(2, k), B^{(k′)} := projection of B onto χ₂ with χ₂^{k′} = 1, which contains the principal and
+genus characters; for the pure cubic layer use B^{(3)} − B^{(1)} instead — χ₂³ = 1 does not contain the quadratic characters,
+e.g. mod 7 it selects exponents 0, 2, 4 of a generator while the quadratic character has exponent 3) look
 amenable to Hecke-L/Burgess bounds over ℚ(ζ_k) on windows (not written out, not claimed). This would not touch T_w or T_uw,
 which involve all χ₂ mod w (orders up to λ(w)) at once. Heath-Brown's cubic large sieve (Israel J. Math. 120 (2000), Thm 2,
 as restated in Dunn–Radziwiłł, arXiv:2109.07463, (1.11): for β_b **supported on squarefree** b ∈ ℤ[ω],
@@ -342,15 +346,17 @@ For Theorem X (as an ES ingredient) and for the localisation X_𝔉 = T_w + T_uw
   so the exact counts are sums over the free variable w of a function of (p mod w, ⌊p/w⌋) (Lemma 4.1) and the u-sum of
   1[w | p + u] at fixed w has ≤ 1 term (Cor 4.2); the unweighted Cauchy–Schwarz expansion over the shell is diagonal
   (Lemma 4.3); the genus event is a (★)-shaped tied event for x² + pt (Lemma 4.4); its T1 content is the Legendre symbol
-  (w″/p) (Lemma 2), and on the part of the shell with w″ ≥ √p interval information on χ_p of any strength is consistent with
-  the square value of the BM shell sum (Prop 4.6; multiplicativity + shell arithmetic not covered; vacuous on Theorem X's
+  (w″/p) (Lemma 2), and on the part of the shell with w″ ≥ √p interval-sum magnitude bounds on χ_p (down to O(1)) are
+  consistent with the square value of the BM shell sum (Prop 4.6; multiplicativity + shell arithmetic not covered; vacuous on Theorem X's
   optimised window).
 * *EVIDENCE (standard window, proxies):* var(G − M̂) ≈ 10 %, var(R − G) ≈ 90 % of var(R − M̂) at 10⁹–10¹², the latter at
   ≈ 0.8–1.0 × swap-Poisson; at 6 of the 9 informative (★)-zero primes the genus layer of exact divisors is normal or high
-  (G/M̂ ≥ 0.84) and the deficit is R − G = −G.
-* What is still missing for (H⁻_𝔉): a fixed-p lower bound for the class-within-genus layer over exact divisors (B2, in our
-  Assessment), plus (X-w), which needs cancellation of real characters (·/p), (·/d), d | u, along the shell — the 2-cycle-type
-  structure of FRONTIER §7.1.
+  (G/M̂ ≥ 0.83; 0.8394 at 1134241) and the deficit is R − G = −G.
+* What is still missing for (H⁻_𝔉) (Assessment): both exact-divisor layers T_w and T_uw are unresolved. One sufficient
+  programme is a fixed-p lower bound for the class-within-genus layer over exact divisors (B2-shaped, in our Assessment;
+  no B2 equivalence is proved — Lemma 4.4 is a tied-divisor reformulation only) together with (X-w), for which one
+  sufficient route is cancellation of the real characters (·/p), (·/d), d | u, along the shell — the 2-cycle-type structure
+  of FRONTIER §7.1. Separate (X-w), (X-uw) bounds are not necessary individually (the layers could compensate).
 
 *Proposed FRONTIER §7 text* (append to item 3, "Beyond the BM layer"; and to item 4):
 > 3. *(z53b, `Z53_GENUSX.md`, internal review.)* On the Thm U family (u ≡ 1 (4) squarefree in (p^{α₀}, p^{α₁}], B = 2w,
@@ -361,7 +367,7 @@ For Theorem X (as an ES ingredient) and for the localisation X_𝔉 = T_w + T_uw
 > divisor inside its genus coset) + O(p^{−δ}log p). PROVED structure: each divisor lies on ≤ 1 shell point (so exact counts
 > are sums over w of functions of (p mod w, ⌊p/w⌋)); the plain Cauchy–Schwarz expansion over the shell is diagonal; the genus
 > event is itself a (★)-shaped tied event for x² + pt; its T1 content is the Legendre symbol (w″/p) of the level divisor,
-> which interval information on χ_p cannot control on the part w″ ≥ √p. EVIDENCE (10⁸–10¹², standard window, proxies):
+> which interval-sum magnitude bounds on χ_p cannot control on the part w″ ≥ √p. EVIDENCE (10⁸–10¹², standard window, proxies):
 > R − G carries ≈ 90 % of var(R − M) at swap-Poisson level, G − M ≈ 10 %.
 >
 > 4. (append) The transfer X(p) ≥ −(1 − ε)M_gen(p) is open; on the Thm U family (Theorem X windows) its order-≥3-mod-8u
@@ -405,3 +411,14 @@ M = M^cls = 0 at the square checked. Fixes applied:
 * R14 Zero-excess ratios corrected (0.86–1.52); table headings sd((R − M̂)/M̂).
 * R15 Labels added claim by claim (identities PROVED, checks CERTIFIED, statistics EVIDENCE, method verdicts Assessment).
 A cross-model review is to follow.
+
+**Cross-model review** (`data/z53/xreview/REVIEW_GENUSX.md`; verdict ACCEPT-WITH-FIXES, Theorem X survives; independent
+re-derivation of Theorem X and of every PROVED identity in §§1, 4; Burgess source and effectivity rechecked against
+arXiv:2511.17778v2; all saved engine windows, direct densities, variance tables and ladders reproduced by
+`scripts/z53_xrev_genusx_check.py`, incl. an independent all-pairs CRT computation at p = 100000049). Fixes applied:
+(1) r is a positive integer in (Bu₁) and Theorem X; C1, C2*, C4 (+ C3 for positivity) kept in every exported claim;
+(2) Remark 4.7: the centred layer is B^{(lcm(2,k))} − B^gen (or B^{(3)} − B^{(1)} for the pure cubic layer), since χ³ = 1 does
+not contain the quadratic characters; (3) "B2" kept explicitly as Assessment with both T_w and T_uw unresolved; §7 now says
+"one sufficient route is such cancellation", not a componentwise necessity; (4) Prop 4.6 restricted to interval-sum
+*magnitude* bounds compatible with |Σf| ≤ 5 (exact signed data would determine f; example f(n) = (−1)^{n+1} recorded);
+(5) "G/M̂ ≥ 0.84" → "≥ 0.83" (1134241 has 0.8394); standard-window data are not presented as validating Theorem X.
