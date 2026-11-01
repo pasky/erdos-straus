@@ -1,0 +1,48 @@
+menu M840
+  x=100000 uncovered=273 dens=0.002730 uncov_primes=273 |B|=9319 (primes 9319) S_B=1.548194 S_Bprime=1.548194 S_Bcomp=0.000000
+  x=1000000 uncovered=2370 dens=0.002370 uncov_primes=2370 |B|=76128 (primes 76128) S_B=1.562216 S_Bprime=1.562216 S_Bcomp=0.000000
+  x=10000000 uncovered=20602 dens=0.002060 uncov_primes=20513 |B|=644066 (primes 644066) S_B=1.572236 S_Bprime=1.572236 S_Bcomp=0.000000
+menu 3
+  x=100000 uncovered=13580 dens=0.135800 uncov_primes=4785 |B|=4807 (primes 4807) S_B=1.023664 S_Bprime=1.023664 S_Bcomp=0.000000
+  x=1000000 uncovered=123585 dens=0.123585 uncov_primes=39232 |B|=39266 (primes 39266) S_B=1.030901 S_Bprime=1.030901 S_Bcomp=0.000000
+  x=10000000 uncovered=1141508 dens=0.114151 uncov_primes=332195 |B|=332384 (primes 332384) S_B=1.036073 S_Bprime=1.036073 S_Bcomp=0.000000
+menu 7
+  x=100000 uncovered=5394 dens=0.053940 uncov_primes=3178 |B|=7356 (primes 6414) S_B=1.122582 S_Bprime=1.099753 S_Bcomp=0.022828
+  x=1000000 uncovered=46409 dens=0.046409 uncov_primes=26133 |B|=60702 (primes 52365) S_B=1.133757 S_Bprime=1.109398 S_Bcomp=0.024359
+  x=10000000 uncovered=409258 dens=0.040926 uncov_primes=221429 |B|=517398 (primes 443150) S_B=1.141804 S_Bprime=1.116295 S_Bcomp=0.025509
+menu 11
+  x=100000 uncovered=3675 dens=0.036750 uncov_primes=2527 |B|=8031 (primes 7065) S_B=1.155548 S_Bprime=1.116065 S_Bcomp=0.039483
+  x=1000000 uncovered=31104 dens=0.031104 uncov_primes=20902 |B|=66151 (primes 57596) S_B=1.167726 S_Bprime=1.126668 S_Bcomp=0.041058
+  x=10000000 uncovered=270195 dens=0.027019 uncov_primes=177131 |B|=563598 (primes 487448) S_B=1.176492 S_Bprime=1.134254 S_Bcomp=0.042238
+menu 15
+  x=100000 uncovered=2554 dens=0.025540 uncov_primes=1878 |B|=8544 (primes 7714) S_B=1.164763 S_Bprime=1.126490 S_Bcomp=0.038273
+  x=1000000 uncovered=21467 dens=0.021467 uncov_primes=15650 |B|=70046 (primes 62848) S_B=1.177654 S_Bprime=1.138057 S_Bcomp=0.039596
+  x=10000000 uncovered=184696 dens=0.018470 uncov_primes=132847 |B|=595260 (primes 531732) S_B=1.186913 S_Bprime=1.146331 S_Bcomp=0.040582
+menu 23
+  x=100000 uncovered=1669 dens=0.016690 uncov_primes=1351 |B|=8874 (primes 8241) S_B=1.177835 S_Bprime=1.143384 S_Bcomp=0.034451
+  x=1000000 uncovered=14054 dens=0.014054 uncov_primes=11342 |B|=72604 (primes 67156) S_B=1.191188 S_Bprime=1.155742 S_Bcomp=0.035446
+  x=10000000 uncovered=120639 dens=0.012064 uncov_primes=96639 |B|=615665 (primes 567940) S_B=1.200763 S_Bprime=1.164576 S_Bcomp=0.036187
+menu 31
+  x=100000 uncovered=1404 dens=0.014040 uncov_primes=1170 |B|=8991 (primes 8422) S_B=1.179544 S_Bprime=1.145652 S_Bcomp=0.033893
+  x=1000000 uncovered=11759 dens=0.011759 uncov_primes=9810 |B|=73596 (primes 68688) S_B=1.193091 S_Bprime=1.158298 S_Bcomp=0.034793
+  x=10000000 uncovered=100831 dens=0.010083 uncov_primes=83627 |B|=623763 (primes 580952) S_B=1.202794 S_Bprime=1.167335 S_Bcomp=0.035459
+menu 63
+  x=100000 uncovered=790 dens=0.007900 uncov_primes=682 |B|=9246 (primes 8910) S_B=1.185163 S_Bprime=1.150583 S_Bcomp=0.034580
+  x=1000000 uncovered=6506 dens=0.006506 uncov_primes=5713 |B|=75774 (primes 72785) S_B=1.199127 S_Bprime=1.163994 S_Bcomp=0.035133
+  x=10000000 uncovered=56077 dens=0.005608 uncov_primes=49115 |B|=641447 (primes 615464) S_B=1.209105 S_Bprime=1.173567 S_Bcomp=0.035538
+menu 127
+  x=100000 uncovered=363 dens=0.003630 uncov_primes=327 |B|=9457 (primes 9265) S_B=1.188668 S_Bprime=1.155361 S_Bcomp=0.033307
+  x=1000000 uncovered=3054 dens=0.003054 uncov_primes=2817 |B|=77211 (primes 75681) S_B=1.202885 S_Bprime=1.169300 S_Bcomp=0.033585
+  x=10000000 uncovered=26456 dens=0.002646 uncov_primes=24417 |B|=653470 (primes 640162) S_B=1.213050 S_Bprime=1.179258 S_Bcomp=0.033792
+menu 255
+  x=100000 uncovered=167 dens=0.001670 uncov_primes=149 |B|=9542 (primes 9443) S_B=1.189905 S_Bprime=1.156714 S_Bcomp=0.033190
+  x=1000000 uncovered=1452 dens=0.001452 uncov_primes=1372 |B|=77845 (primes 77126) S_B=1.204241 S_Bprime=1.170924 S_Bcomp=0.033317
+  x=10000000 uncovered=12542 dens=0.001254 uncov_primes=11899 |B|=659336 (primes 652680) S_B=1.214497 S_Bprime=1.181077 S_Bcomp=0.033420
+menu 1023
+  x=100000 uncovered=43 dens=0.000430 uncov_primes=36 |B|=9604 (primes 9556) S_B=1.190296 S_Bprime=1.157247 S_Bcomp=0.033048
+  x=1000000 uncovered=295 dens=0.000295 uncov_primes=279 |B|=78385 (primes 78219) S_B=1.204731 S_Bprime=1.171658 S_Bcomp=0.033073
+  x=10000000 uncovered=2400 dens=0.000240 uncov_primes=2329 |B|=663619 (primes 662250) S_B=1.215054 S_Bprime=1.181960 S_Bcomp=0.033094
+menu 4095
+  x=100000 uncovered=29 dens=0.000290 uncov_primes=22 |B|=9611 (primes 9570) S_B=1.190331 S_Bprime=1.157295 S_Bcomp=0.033036
+  x=1000000 uncovered=78 dens=0.000078 uncov_primes=69 |B|=78516 (primes 78429) S_B=1.204789 S_Bprime=1.171742 S_Bcomp=0.033047
+  x=10000000 uncovered=398 dens=0.000040 uncov_primes=384 |B|=664527 (primes 664195) S_B=1.215126 S_Bprime=1.182074 S_Bcomp=0.033052
