@@ -1,0 +1,8 @@
+Z3078: least m with no 3-term rep of m/p (m<60), p≡1(4), 5≤p<400: [(8, 2), (9, 1), (10, 2), (11, 1), (12, 5), (13, 2), (14, 2), (15, 4), (17, 2), (18, 4), (19, 1), (20, 1)]
+   examples: [(5, 9), (13, 12), (17, 8), (29, 12), (37, 11), (41, 17), (53, 13), (61, 10), (73, 12), (89, 20), (97, 12), (101, 21)]
+Z3186 p=409: windows e<200 with -1 unreachable: []; mean dist (reachable) 9.92; mean omega(N_e) 1.94
+Z3186 p=577: windows e<200 with -1 unreachable: []; mean dist (reachable) 9.28; mean omega(N_e) 2.00
+Z3186 p=5569: windows e<200 with -1 unreachable: []; mean dist (reachable) 10.90; mean omega(N_e) 2.34
+Z3186 p=9601: windows e<200 with -1 unreachable: []; mean dist (reachable) 7.82; mean omega(N_e) 2.38
+Z3186 p=1009: windows e<200 with -1 unreachable: []; mean dist (reachable) 9.04; mean omega(N_e) 2.10
+Z3186 p=10009: windows e<200 with -1 unreachable: []; mean dist (reachable) 5.90; mean omega(N_e) 2.38

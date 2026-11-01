@@ -28,6 +28,10 @@ int main(int argc, char **argv) {
             for (long C = 1; C <= 200 && C <= (p + 2) / 4; C++) { long L = Lcount(p, C); if (L & 1) { nodd++; printf(" o%ld", C); } if (L) npos++; }
             printf(" | nodd=%ld npos=%ld\n", nodd, npos); }
         return 0; }
+    if (strcmp(spec, "ellr") == 0) { // Z3066: restricted count R_l(p) = #{(u,C): (4uC-1)|(p+u), l | (4uC-1)}; l from env ELL
+        long l = atol(getenv("ELL")); long p; while (scanf("%ld", &p) == 1) { long R = 0;
+            for (long C = 1; C <= (p + 2) / 4; C++) for (long u = 1; (4 * u * C - 1) <= p + u; u++) { long m = 4 * u * C - 1; if ((p + u) % m == 0 && m % l == 0) R++; }
+            printf("%ld %ld\n", p, R); } return 0; }
     if (strcmp(spec, "b1") == 0) { long p; while (scanf("%ld", &p) == 1) printf("%ld %ld\n", p, B1count(p)); return 0; }
     long *cl = NULL; long ncl = 0;
     int all = strcmp(spec, "all") == 0;
