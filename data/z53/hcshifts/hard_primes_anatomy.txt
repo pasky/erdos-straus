@@ -1,0 +1,9 @@
+== samp_1e9.txt
+   HC>=20: n=56 mean log2 tau = 3.15, mean H = 22.07, median H = 20.29, mean #{ell<=13: p=1 mod ell} = 2.21, mean #{ell<=23: (p/ell)=1} = 6.75
+   random: n=3000 mean log2 tau = 3.80, mean H = 43.39, median H = 40.58, mean #{ell<=13: p=1 mod ell} = 1.10, mean #{ell<=23: (p/ell)=1} = 4.01
+== samp_1e11.txt
+   HC>=20: n=23 mean log2 tau = 3.11, mean H = 22.85, median H = 20.00, mean #{ell<=13: p=1 mod ell} = 2.35, mean #{ell<=23: (p/ell)=1} = 6.78
+   random: n=3000 mean log2 tau = 3.99, mean H = 52.10, median H = 48.00, mean #{ell<=13: p=1 mod ell} = 1.09, mean #{ell<=23: (p/ell)=1} = 4.01
+== samp_1e13.txt
+   HC>=20: n=5 mean log2 tau = 3.21, mean H = 30.57, median H = 27.88, mean #{ell<=13: p=1 mod ell} = 2.60, mean #{ell<=23: (p/ell)=1} = 6.80
+   random: n=3000 mean log2 tau = 4.14, mean H = 60.85, median H = 54.17, mean #{ell<=13: p=1 mod ell} = 1.10, mean #{ell<=23: (p/ell)=1} = 4.02
