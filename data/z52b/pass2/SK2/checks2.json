@@ -1,0 +1,7 @@
+{
+ "Z1308_C1_identity_ok": 1125,
+ "Z1308_C1_identity_bad": 0,
+ "Z1767_primes_1mod4_le_1e5": 4783,
+ "Z1767_with_certificate_C_le_500": 4776,
+ "Z1767_with_certificate_C_ge_p^(1/3)/4_le_500": 4660
+}
