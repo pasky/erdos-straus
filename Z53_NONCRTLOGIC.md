@@ -69,7 +69,7 @@ the formal output of that branch at q.
 (b)–(d) The existence statements of Theorem M(b)–(d) hold verbatim for the union family S.
 (e) If moreover Π is correct and witness-producing, and either P is linear and q* square-mimicking and universally
 nondegenerate (Theorem C's setting) or q* is a universally nondegenerate trap point for P (Theorem T below; more generally
-the local form T′), then there are explicit finite S′ ⊇ S,
+the local form T′ with its augmented-family hypotheses on Π⁺), then there are explicit finite S′ ⊇ S,
 Λ′ ⊇ Λ such that **every (S′, Λ′)-admissible q has Π(P(q)) = FAIL**; under H for S′ there are infinitely many such q.
 
 *Proof.* (a) Induction along the actual run, with invariant "the actual registers equal the formal registers of the current
@@ -138,15 +138,16 @@ equals the residue symbol of h(q) at 𝔭 (O_K/𝔭 = F_p), and [·/𝔭] is mul
 **Lemma T2 (Hilbert reciprocity).** Let x ∈ O_K∖{0} with x ∉ 𝔭 (p is odd). Then [x/𝔭] = ∏_{v∈T(x)} (x, π_q)_v (quadratic
 Hilbert symbols of K).
 *Proof.* Product formula ∏_v (x, π_q)_v = 1 over all places of K for the quadratic Hilbert symbol (Hilbert reciprocity law;
-standard — Neukirch, *Algebraic Number Theory*, Ch. VI, "the product formula for the Hilbert symbol"; the theorem number is
-not quoted because it was not re-checked here). Complex places contribute 1. A finite
+Milne, *Class Field Theory*, Ch. V Example 5.4 (p. 179), with the local Hilbert-symbol properties of Ch. III Thm 4.4 /
+Remark 4.5 — locator verified by the cross-model reviewer). Complex places contribute 1. A finite
 v ∉ T(x), v ≠ 𝔭 is odd, and x, π_q are v-units there ((π_q) = 𝔭), so (x, π_q)_v = 1. At 𝔭, x is a unit and π_q a uniformiser,
 so (x, π_q)_𝔭 = [x/𝔭] (tame symbol at an odd place). All symbols are ±1. ∎
 
 **Definition (trap point).** q* ∈ Ẑ is a *trap point for P* if for every prime ℓ and every place v | ℓ of K,
 1 − q*_ℓ β ∈ (O_v^×)² (a unit square). (Unit squares are open in K_v^×, so for each ℓ there is E with: q ≡ q*_ℓ (mod ℓ^E) ⇒
 1 − qβ ∈ (O_v^×)² for all v | ℓ.) Then P(q*_ℓ) = N(1 − q*_ℓβ) is a unit square in ℤ_ℓ for every ℓ, so a trap point is square-mimicking for P; in
-particular C_P = 1 and every admissible p is ≡ 1 (mod 8) and ≡ 1 (mod 3).
+particular C_P = 1, and — after including 2 and 3 in Λ at trap precision (Theorem M's admissibility does not include them
+automatically; Theorem T's Λ′ does) — every admissible p is ≡ 1 (mod 8) and ≡ 1 (mod 3).
 
 **Lemma T3 (real places).** If q > 0 then π_q is positive at every real place of K. *Proof.* A real embedding σ sends β to a
 real root β_σ of R, and 1/β_σ is a real root of P, hence negative; so 1 − qβ_σ > 1. ∎
@@ -199,9 +200,13 @@ the output were a SUCCESS; by correctness the output is FAIL. Existence: Theorem
 nondegeneracy, not linearity). With 2, 3 ∈ Λ′ at the trap precision, admissible p is a unit square at 2 and 3, hence
 ≡ 1 (8), ≡ 1 (3). ∎
 
-**Theorem T′ (local form; PROVED).** The proof uses the trap condition only at the primes of Λ′. Hence: if Π's formal tree at
-(P, q*) is defined and finite (q* need not be universally nondegenerate) and 1 − q*_ℓβ ∈ (O_v^×)² for every v above every prime
-ℓ ∈ Λ′ (computed from the tree as above), then every (S′, Λ′)-admissible q has Π(P(q)) = FAIL. The universally nondegenerate
+**Theorem T′ (local form; PROVED).** The proof uses the trap condition only at the primes of Λ′. Let Π⁺ be Π with FACTOR of
+every nonzero SUCCESS denominator appended on **every** leaf. Hypotheses: the whole formal tree of **Π⁺** at (P, q*) is defined
+and finite — equivalently q* is nondegenerate for P and for every irreducible factor in the augmented family S′ of Π⁺ (q* need
+not be universally nondegenerate), and C_P = 1 — and 1 − q*_ℓβ ∈ (O_v^×)² for every v above every prime ℓ ∈ Λ′, where Λ′, the
+original transfer precisions and the trap precisions are all computed from Π⁺ (not merely from Π: an output polynomial can be
+produced by ring operations without ever being FACTORed, and definedness of Π's tree does not check its nondegeneracy). Then
+every (S′, Λ′)-admissible q has Π(P(q)) = FAIL. The universally nondegenerate
 trap points of Lemma T5 are one way to satisfy this for all programs at once (they are what makes Corollary C1-type statements
 "for every bounded program" possible).
 
@@ -283,8 +288,9 @@ For h *not* predicted, the share of −1 is 0.48–0.51 in every family (the sta
 exactly one hypothesis of Lemma T4 and fails massively.
 
 **(F2) End-to-end toy for Theorem T′ (local form) at X² + 1** — `scripts/z53_noncrtlogic_gausstoy.py 20000000 5000` (output
-`data/z53/noncrtlogic/gausstoy_2e7.txt`). *Scope:* the class q ≡ 0 (mod 120) with t = q/120 prime satisfies the trap condition
-at Λ′ = {2, 3, 5}, the only primes relevant to this program's formal family; it is **not** a global trap point (at 13 the trap
+`data/z53/noncrtlogic/gausstoy_2e7.txt`). *Scope:* the inputs are q = 120t with t > 5 prime, i.e. the finite local valuation classes v₂(q) = 3, v₃(q) = v₅(q) = 1
+(so C_X = 120 and, for the augmented family {X² + 1, X, X + 1, X + 2, X² + 4} of Π⁺, the point is nondegenerate with the stated
+constants); these satisfy the trap condition at Λ′ = {2, 3, 5}, the only primes relevant to Π⁺'s formal family; it is **not** a global trap point (at 13 the trap
 condition forces q ≡ 0, 3, 10 (mod 13), which would change C_X or C_{X²+4}). So this tests Theorem T′, not the universal-point
 form. All 322 admissible tuples are below 2^64 and were re-checked deterministically (0 failures; CERTIFIED). Program Π_CF: q := ⌊√p⌋ (CF datum a₀); for windows e ∈ {3, q − 1, 2q − 1} search
 coprime a, b with ab | N = (p + e)/4, e | a + b, and output the explicit Type II solution (checked exactly with rationals).
@@ -318,15 +324,20 @@ semantics where stated.
 | ⌊√(2p)⌋ alone | killed | trap family 2X² + 1 | Cor T2 |
 | (⌊√p⌋, ⌊√(2p)⌋) jointly (hence CF data of √p and √(2p) jointly); ⌊p^θ⌋, θ ∉ ℚ; ⌊log p⌋ | **escape**: no formal semantics on any polynomial family | leading-coefficient obstruction | Cor T2(ii), PROVED |
 | n_p, least primitive root g_p, least prime ≡ a (m) with (ℓ/p) = −1, any QNR-valued oracle | **escape every trap point** | values are non-residues; Lemma T4 | Cor T3: pointwise PROVED; "no semantics" CONDITIONAL on H (Dirichlet for linear P) |
-| h(±p), regulator (via a specified integer encoding, e.g. ⌊R_p⌋), discrete logs | open in general: neither shown formal on some trap family nor shown to escape all of them. On X² + 1 (the family that freezes the Pell data): ⌊R_p⌋ = ⌊log(q + √p)⌋ is not formal (PROVED, as for ⌊log p⌋), and h(p) is not a finite menu of polynomials (see below) | — (Siegel bounds h(−p) or h(p)R_p, not h(p) alone; a discrete log can be constant) | Assessment; X² + 1 statements as labelled |
+| h(±p), regulator (via a specified integer encoding, e.g. ⌊R_p⌋), discrete logs | open in general: neither shown formal on some trap family nor shown to escape all of them. On X² + 1 (the family that freezes the Pell data): ⌊R_p⌋ = ⌊log(q + √p)⌋ is not formal (PROVED, as for ⌊log p⌋); every fixed finite menu of rational polynomials agrees with h(q² + 1) at only finitely many prime inputs (constant menus: unconditional, Siegel; positive-degree menus: CONDITIONAL on GRH); "no prime-input formal semantics" on a class additionally needs infinitely many primes q² + 1 there (CONDITIONAL on H) — **not** a blanket proved escape | — (Siegel bounds h(−p) or h(p)R_p, not h(p) alone; a discrete log can be constant) | Assessment; X² + 1 statements as labelled |
 
 *h(p) on X² + 1.* For prime p = q² + 1 (q even ≥ 4), ε_p = q + √p is fundamental (Z52D_PELLCYCLE Lemma 1.4), so h(p) =
 √p·L(1, χ_p)/(2 log(q + √p)) (class number formula, h(p)R_p = (√p/2)L(1, χ_p)). If h(p) ∈ {G_1(q), …, G_m(q)} (G_i ∈ ℚ[X]) for
 infinitely many such q, some G_i agrees infinitely often. A constant G_i would give L(1, χ_p) ≪ log p/√p, contradicting
 Siegel's L(1, χ) ≫_ε p^{−ε} (unconditional, ineffective). Since L(1, χ_p) ≪ log p, h(p) ≪ q, so deg G_i = 1 and then
-L(1, χ_p) ≍ log q along the subsequence, contradicting Littlewood's GRH bound L(1, χ_p) ≪ log log p. So on X² + 1, h(p) has no
-finite-menu formal semantics (CONDITIONAL on GRH for the degree-1 case; unconditional for constant menus). Hence the trap family
-that kills the Pell data does not freeze h(p); whether some other trap family does is open.
+L(1, χ_p) ≍ log q along the subsequence, contradicting Littlewood's GRH bound L(1, χ_p) ≤ (2e^γ + o(1)) log log p (e.g.
+Lamzouri, arXiv:1501.01003, eq. (1.3)). **Proved statement:** every fixed finite menu of rational polynomials agrees with
+h(q² + 1) at only finitely many prime inputs p = q² + 1 — unconditionally for constant menus (Siegel, ineffective), CONDITIONAL
+on GRH for menus containing positive-degree polynomials. To conclude that h(p) has *no prime-input formal semantics* on a given
+congruence/trap class one additionally needs infinitely many primes q² + 1 in that class (CONDITIONAL on H; GRH does not supply
+them) — otherwise eventual prime-input semantics is vacuous, the same issue as Cor T3(b). (An all-integer version would need a
+separate argument over squarefree discriminants; not given.) So, under GRH + H, the trap family that kills the Pell data does
+not freeze h(p); whether some other trap family does is open.
 
 **Corollary T4 (Fermat/Cornacchia certificates; PROVED transfer, CONDITIONAL on H).** For fixed k ≥ 1, a prime p has at most
 one representation p = x² + ky² with x, y > 0 (for k = 1 up to order). (Proof, k ≥ 2: from two representations,
@@ -458,7 +469,8 @@ CONDITIONAL on H).
 *For §3 B1, replace the "Does NOT rule out" bullet by:* "(z53, `Z53_NONCRTLOGIC.md`.) Theorems M/C extend to programs with
 arbitrary finite-valued oracles — fixed non-abelian Frobenius data, power-residue and Artin symbols, h(p) mod m, any predicate —
 under H alone (Thm A; the old E3 item is closed without a Schinzel–Chebotarev hypothesis), to divisor-valued oracles such as
-ord_p(a) (Cor A2), and to every nonlinear family P ∈ 𝒫 with P(0) = 1 and no positive real root (Thm T, via Hilbert reciprocity
+ord_p(a) (Cor A2) — all for witness-producing procedures with a defined finite formal tree, the kill being for one fixed
+finite menu/family at a time and the existence of failures CONDITIONAL on H — and to every nonlinear family P ∈ 𝒫 with P(0) = 1 and no positive real root (Thm T, via Hilbert reciprocity
 in ℚ(β), β a root of XⁿP(1/X); at its trap points, for each fixed finite family, every polynomial value prime to p is a
 quadratic residue mod p, unconditionally). Hence the full Pell/CF/unit data of √p, and the CF data of √(kp) for one fixed k
 (long cycles are irrelevant: the kill is at Richaud–Degert primes kq² + 1), ⌊c·p^θ⌋ for rational c, θ, and Cornacchia
@@ -538,4 +550,14 @@ P = 5X² + 1 (153 primes, 114 444 symbol tests, 0 violations). Findings and fixe
    (uniqueness proof added); T1 needs p odd; T2 reference no longer quotes an unchecked theorem number; RD repeating block
    marked; trapcheck docstring and forestroot command synchronised.
 
-Cross-model review: pending (to be applied when sent).
+**Cross-model review** (`data/z53/xreview/REVIEW_NONCRTLOGIC.md`; verdict ACCEPT-WITH-FIXES). Independently re-derived
+Theorems A and T (all lemmas CORRECT), reproduced every saved output byte-for-byte, and found no counterexample or numerical
+discrepancy. Required fixes, all applied: (1) Theorem T′ now states its closure hypotheses on the augmented program Π⁺
+(nondegeneracy of the whole augmented family S′, C_P = 1, Λ′ and precisions computed from Π⁺); A(e)'s T′ alternative refers to
+them; (F2) is described by its finite local valuation classes (t > 5 prime). (2) The h(p)-on-X² + 1 statement now has explicit
+quantifiers: finite menus agree at only finitely many prime inputs (constant: Siegel; positive degree: GRH), while "no
+prime-input semantics" additionally needs infinitely many primes q² + 1 (H) — in the paragraph and the taxonomy row; no blanket
+proved escape. (3) Trap-point residue wording: p ≡ 1 (24) only after including 2, 3 in Λ at trap precision. (4) The unchecked
+Neukirch pointer replaced by Milne, CFT V Ex. 5.4 / III Thm 4.4; Littlewood's GRH bound cited (Lamzouri eq. (1.3)); the
+proposed FRONTIER text carries the finite-tree / witness-producing / fixed-finite-menu / H-existence qualifiers, and the
+seed's "parity only" reading stays an Assessment.
