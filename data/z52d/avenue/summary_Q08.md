@@ -6,8 +6,8 @@ batch: analytic-technique transfers (Z25xx–Z31xx), geometry/sibling worlds (Z0
 | status | 0 | 1 | 2 | 3 | Σ |
 |---|---|---|---|---|---|
 | known-true (gap named) | 0 | 0 | 1 | 30 | 31 |
-| known-false | 31 | 0 | 0 | 0 | 31 |
-| circular | 27 | 1 | 0 | 0 | 28 |
+| known-false | 30 | 0 | 0 | 0 | 30 |
+| circular | 28 | 1 | 0 | 0 | 29 |
 | open-plausible | 0 | 12 | 1 | 1 | 14 |
 | unclear | 5 | 0 | 1 | 0 | 6 |
 | harder-than-open | 3 | 0 | 0 | 0 | 3 |
@@ -28,10 +28,10 @@ Novelty: 0 → 61, 1 → 50, 2 → 2 (Z0119 calibration lemma; Z2965 Faltings, p
 **New in this pass** (`scripts/z52d_avenue_Q08_ap_smooth.py`, < 60 s)
 * **Z0119 (PROVED)**: 4/n = 1/x + 1/(x+d) + 1/(x+2d), d ≥ 1, forces 4 | n (2-adic valuation of 4y(y² − d²) = n(3y² − d²)). Checked for n < 2000.
 * **Z0705 (PROVED)**: in every solution for a prime p the largest denominator is divisible by p (explains Pass 1's 'minz ∈ pℤ'; 1227 solutions checked).
-* **Z3089 (PROVED)**: at p ≡ m² (mod Q) no divisor d | Q of 4Cp+1 is ≡ −1 (mod 4C) (T1): smooth-divisor certificates die on a positive-density set (77 primes, C ≤ 40: 0 hits).
+* **Z3089**: by Lemma CT a certificate divisor needs a prime ℓ with (ℓ/p) = −1, so y-smooth certificates fail whenever y < lnr(p): i.o. for y = o(log p·log₃p).
 * **Z2949/Z2970/Z3066/Z3170** (cheap falsifications): the 14 (★)-failures ≤ 10¹⁰ have least non-residues 5–23 (577: 5, 409: 7). Three have (p/11) = −1,
-  and 78 pairs satisfy p < p′ < p². So 'failure ⇒ QR at small primes', 'at most one failure in [X, X²]' and '(★) on (p/ℓ) = −1' are false.
-* **Z0098**: cone |x|_v ≥ 1 is trivial (4/p = 1/((p−1)/4) − 2/(p(p−1))). **Z0638**: ℤ[1/2], ℤ[1/3] have one-line identities. **Z2958/Z3149**: k_d = complementary divisor.
+  and 78 pairs satisfy p < p′ < p². So 'failure ⇒ QR at small primes' and '(★) on (p/ℓ) = −1' are false; no repulsion is seen in range.
+* **Z0098**: cone |x|_v ≥ 1 is trivial (4/p = 1/((p−1)/4) − 4/(p(p−1))). **Z0638**: ℤ[1/2], ℤ[1/3] have one-line identities. **Z2958/Z3149**: k_d = complementary divisor.
 
 **Corrections.** Z2578 (large-q FF ES is false for most P, ff_erdos_straus Thm 2.1). Z2963: M_BM needs an upper bound on L(1, χ_p), so Siegel points
 the wrong way, and BM_LVALUE already gives ≥ 0.92 M₀. Z2631: the slice window has length ≍ p, not polylog. Z2644: per-(c,d) density is not Chebotarev.
