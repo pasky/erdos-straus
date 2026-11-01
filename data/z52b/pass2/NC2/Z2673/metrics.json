@@ -1,0 +1,5 @@
+{
+  "two_vertex_matrices_tested": 99,
+  "determinant_preservation_failures": 0,
+  "note": "blow-down convention for a -1 vertex; does not identify repo transport law"
+}

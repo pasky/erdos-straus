@@ -1,0 +1,6 @@
+{
+  "level_r": 1,
+  "p_1mod4_le_101_units_tested": 604,
+  "phase_vs_legendre_mismatches": 0,
+  "note": "normalized quadratic Gauss-sum proxy; not Jeffrey lens-space WRT invariant"
+}

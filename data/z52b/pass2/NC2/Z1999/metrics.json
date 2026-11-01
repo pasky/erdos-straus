@@ -1,0 +1,15 @@
+{
+  "N": 10000,
+  "family_n": 2067,
+  "range_max": 99910061,
+  "controls": 2067,
+  "definition": "exact ordered-pair R from divisors of 4p+1; non-family primes p=1 mod4 stratified to same p mod840 counts",
+  "family_mean": 7.378809869375907,
+  "family_median": 4,
+  "family_min_fraction": 0.1185292694726657,
+  "control_mean": 8.729559748427674,
+  "control_median": 6,
+  "control_min_fraction": 0.13159167876149008,
+  "mann_whitney_u_p": 0.0007164664521442743,
+  "family_min_R_in_combined": "see family_min_fraction"
+}

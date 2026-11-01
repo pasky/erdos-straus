@@ -1,0 +1,60 @@
+{
+  "p_1mod4_le_10000_with_L3": 608,
+  "pairs": 23312,
+  "sum_range": [
+    -50,
+    26
+  ],
+  "first": [
+    {
+      "p": 13,
+      "count": 4,
+      "character_sum": 0
+    },
+    {
+      "p": 17,
+      "count": 2,
+      "character_sum": -2
+    },
+    {
+      "p": 29,
+      "count": 2,
+      "character_sum": -2
+    },
+    {
+      "p": 37,
+      "count": 8,
+      "character_sum": -4
+    },
+    {
+      "p": 41,
+      "count": 2,
+      "character_sum": -2
+    },
+    {
+      "p": 53,
+      "count": 8,
+      "character_sum": -4
+    },
+    {
+      "p": 61,
+      "count": 10,
+      "character_sum": -2
+    },
+    {
+      "p": 73,
+      "count": 12,
+      "character_sum": -4
+    },
+    {
+      "p": 89,
+      "count": 6,
+      "character_sum": -6
+    },
+    {
+      "p": 97,
+      "count": 14,
+      "character_sum": 2
+    }
+  ]
+}

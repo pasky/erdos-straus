@@ -1,0 +1,1 @@
+Z2535 exact Type-I witness counts for p=5,13,17,29 with 1≤c,d≤20: 1,3,2,5. Reproduce: `uv run --with numpy --with sympy python scripts/z52d_p2_NC2_round2_checks.py` (line marked Z2535). This validates a finite brute-force ground truth only; no LLL hit-rate claim.

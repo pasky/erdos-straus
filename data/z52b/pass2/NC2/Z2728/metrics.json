@@ -1,0 +1,5 @@
+{
+  "d1_d2_pairs_divisible_by4": 435,
+  "negative_discriminants": 0,
+  "note": "only checks the algebraic trace-2 discriminant; no Hecke intersection multiplicities"
+}

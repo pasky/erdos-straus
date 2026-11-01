@@ -1,0 +1,124 @@
+{
+  "torus_point_counts": [
+    {
+      "q": 3,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 3,
+      "n": 1,
+      "count": 3,
+      "divisible_by_q": true
+    },
+    {
+      "q": 5,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 5,
+      "n": 1,
+      "count": 13,
+      "divisible_by_q": false
+    },
+    {
+      "q": 7,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 7,
+      "n": 1,
+      "count": 31,
+      "divisible_by_q": false
+    },
+    {
+      "q": 11,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 11,
+      "n": 1,
+      "count": 91,
+      "divisible_by_q": false
+    },
+    {
+      "q": 13,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 13,
+      "n": 1,
+      "count": 133,
+      "divisible_by_q": false
+    },
+    {
+      "q": 17,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 17,
+      "n": 1,
+      "count": 241,
+      "divisible_by_q": false
+    },
+    {
+      "q": 19,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 19,
+      "n": 1,
+      "count": 307,
+      "divisible_by_q": false
+    },
+    {
+      "q": 23,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 23,
+      "n": 1,
+      "count": 463,
+      "divisible_by_q": false
+    },
+    {
+      "q": 29,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 29,
+      "n": 1,
+      "count": 757,
+      "divisible_by_q": false
+    },
+    {
+      "q": 31,
+      "n": 0,
+      "count": 0,
+      "divisible_by_q": true
+    },
+    {
+      "q": 31,
+      "n": 1,
+      "count": 871,
+      "divisible_by_q": false
+    }
+  ]
+}

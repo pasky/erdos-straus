@@ -1,0 +1,28 @@
+{
+  "positive_chain_weight_triples_det_lt100": 393,
+  "distinct_prime_determinants": 21,
+  "prime_determinants": [
+    7,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    97
+  ],
+  "note": "Gram determinant enumeration only; no Z^4 vector embedding claimed"
+}

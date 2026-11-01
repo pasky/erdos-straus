@@ -1,0 +1,40 @@
+{
+  "limit": 10000000,
+  "statistic": "R(p)/(log p)^2",
+  "R_definition": "ordered divisor pairs x,y=3 mod4, xy=4p+1",
+  "classes": {
+    "840": {
+      "count": 3426,
+      "mean": 0.01329282562256896,
+      "control_count": 3426,
+      "control_mean": 0.023455046651933015,
+      "difference": -0.010162221029364055,
+      "welch_se": 0.0005612938485347158,
+      "standard_errors": -18.104992698375394,
+      "welch_p": 2.33409483282556e-71,
+      "control_definition": "for 840: p mod840 !=1 (no same-class control possible); deeper: complementary to target inside p=1 mod840"
+    },
+    "9240": {
+      "count": 345,
+      "mean": 0.010434680976702849,
+      "control_count": 345,
+      "control_mean": 0.013943323155129821,
+      "difference": -0.003508642178426972,
+      "welch_se": 0.0012941089468693147,
+      "standard_errors": -2.711241728847495,
+      "welch_p": 0.006875258349886978,
+      "control_definition": "for 840: p mod840 !=1 (no same-class control possible); deeper: complementary to target inside p=1 mod840"
+    },
+    "120120": {
+      "count": 23,
+      "mean": 0.010422986027084054,
+      "control_count": 23,
+      "control_mean": 0.02216318644654327,
+      "difference": -0.011740200419459215,
+      "welch_se": 0.0054866512640026404,
+      "standard_errors": -2.1397752207226057,
+      "welch_p": 0.03935757647404875,
+      "control_definition": "for 840: p mod840 !=1 (no same-class control possible); deeper: complementary to target inside p=1 mod840"
+    }
+  }
+}

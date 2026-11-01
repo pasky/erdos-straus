@@ -1,0 +1,20 @@
+{
+  "max_prime": 1997,
+  "all_p_lt": 2000,
+  "length3_pairs": 3440,
+  "sample_size_by_legendre": {
+    "1": 934,
+    "-1": 2506
+  },
+  "mean_sum_d_by_legendre": {
+    "1": "5267721/467",
+    "-1": "9462363/1253"
+  },
+  "sample_variance_by_legendre": {
+    "1": 306224636.8611855,
+    "-1": 89535885.19320178
+  },
+  "L(p,1)_closed_form_checks": 4227,
+  "recursion": "d(p,q,i)=((2i+1-p-q)^2-pq)/(4pq)-d(q,p mod q,i mod q), q=1 closed form",
+  "sign_split_consistency": "no established selector; group means determine empirical split"
+}

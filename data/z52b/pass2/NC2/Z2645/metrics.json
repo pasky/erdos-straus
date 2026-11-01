@@ -1,0 +1,10 @@
+{
+  "fixed_parameter_test": "for fixed c,d,a, Type-I equation ef-4da^2=1 has no p variable; p enters via side condition 2h | p+f",
+  "example_fixed_d_a": {
+    "d": 1,
+    "a": 1,
+    "ef": 5,
+    "p_specialization_condition": "2h divides p+f"
+  },
+  "conclusion": "no finite cover in p defined by the proposed fixed-parameter equation"
+}

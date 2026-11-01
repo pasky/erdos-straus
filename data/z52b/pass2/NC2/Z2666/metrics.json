@@ -1,0 +1,6 @@
+{
+  "triples_n_le_2000": 31226,
+  "prime_n_triples": 6486,
+  "prime_1mod4_qnr_A": 2506,
+  "genus_classes_computed": false
+}

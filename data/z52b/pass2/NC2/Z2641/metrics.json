@@ -1,0 +1,15 @@
+{
+  "defined_response": "number of unordered positive triples x<=y<=z<=40 solving 4xyz-n(xy+yz+zx)=-4",
+  "n_range": [
+    1,
+    500
+  ],
+  "triples_found": 8,
+  "distinct_n": 4,
+  "first_n": [
+    3,
+    6,
+    12,
+    18
+  ]
+}

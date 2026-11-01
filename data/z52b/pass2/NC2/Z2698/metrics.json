@@ -1,0 +1,5 @@
+{
+  "defined_check": "compare candidate class at k=0 vs square k≠0 as reported in Z52_BANKED §1(a)",
+  "result": "source records ramification at singular point at k=0; no generic Q(k) class/residue computation performed",
+  "generic_residue_values": null
+}
