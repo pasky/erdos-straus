@@ -32,3 +32,13 @@ for cls in (1,5):
 # squares: A at odd squares nonzero while R = 0
 sq=[m*m for m in range(31,300,2)]
 print('odd squares: R=0 all?',all(R[n]==0 for n in sq),' min A at odd squares',min(A[n] for n in sq))
+# Z2030: does R/2 mod 2 depend on (A mod 8, B mod 8) for p = 1 (8)?
+m=ps%8==1
+from collections import Counter
+c=Counter()
+for p in ps[m]:
+    c[(int(A[p])%8,int(Bc[p])%8,int(R[p]//2)%2)]+=1
+keys=sorted(set(k[:2] for k in c))
+for k in keys:
+    a,b=c[k+(0,)],c[k+(1,)]
+    if a+b>50: print(k,'R/2 even',a,'odd',b,'frac odd %.2f'%(b/(a+b)))
