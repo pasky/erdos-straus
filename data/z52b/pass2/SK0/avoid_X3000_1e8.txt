@@ -1,0 +1,32 @@
+chunk done: total_samples=5000000 elapsed=6.6s
+chunk done: total_samples=10000000 elapsed=13.5s
+chunk done: total_samples=15000000 elapsed=20.1s
+chunk done: total_samples=20000000 elapsed=26.3s
+chunk done: total_samples=25000000 elapsed=32.5s
+chunk done: total_samples=30000000 elapsed=38.9s
+chunk done: total_samples=35000000 elapsed=45.5s
+chunk done: total_samples=40000000 elapsed=52.1s
+chunk done: total_samples=45000000 elapsed=58.3s
+chunk done: total_samples=50000000 elapsed=64.7s
+chunk done: total_samples=55000000 elapsed=71.2s
+chunk done: total_samples=60000000 elapsed=78.3s
+chunk done: total_samples=65000000 elapsed=85.5s
+chunk done: total_samples=70000000 elapsed=92.5s
+chunk done: total_samples=75000000 elapsed=99.6s
+chunk done: total_samples=80000000 elapsed=106.7s
+chunk done: total_samples=85000000 elapsed=114.0s
+chunk done: total_samples=90000000 elapsed=120.9s
+chunk done: total_samples=95000000 elapsed=127.7s
+chunk done: total_samples=100000000 elapsed=134.6s
+families=36771 samples=100000000
+X=    10 survivors=100000000 delta=1.000e+00 expected_count_at_0.028model=71047181.36 ln(delta)/(lnX)^3=0.0000
+X=    18 survivors=64159836 delta=6.416e-01 expected_count_at_0.028model=50859015.56 ln(delta)/(lnX)^3=-0.0184
+X=    32 survivors=36823370 delta=3.682e-01 expected_count_at_0.028model=31173984.10 ln(delta)/(lnX)^3=-0.0240
+X=    56 survivors=20086081 delta=2.009e-01 expected_count_at_0.028model=16100995.58 ln(delta)/(lnX)^3=-0.0246
+X=   100 survivors=7770512 delta=7.771e-02 expected_count_at_0.028model=6491944.87 ln(delta)/(lnX)^3=-0.0262
+X=   178 survivors=1599825 delta=1.600e-02 expected_count_at_0.028model=2032725.54 ln(delta)/(lnX)^3=-0.0297
+X=   316 survivors= 391344 delta=3.913e-03 expected_count_at_0.028model=480054.42 ln(delta)/(lnX)^3=-0.0291
+X=   562 survivors=  79187 delta=7.919e-04 expected_count_at_0.028model=81945.76 ln(delta)/(lnX)^3=-0.0281
+X=  1000 survivors=  11823 delta=1.182e-04 expected_count_at_0.028model=9812.17 ln(delta)/(lnX)^3=-0.0274
+X=  1778 survivors=   1142 delta=1.142e-05 expected_count_at_0.028model=802.05 ln(delta)/(lnX)^3=-0.0272
+X=  3000 survivors=    104 delta=1.040e-06 expected_count_at_0.028model=57.42 ln(delta)/(lnX)^3=-0.0268

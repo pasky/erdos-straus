@@ -1,0 +1,24 @@
+block k=2 count=2 mean_r2=2.500 mean/ln n=1.553 zeros=0
+block k=3 count=4 mean_r2=4.000 mean/ln n=1.820 zeros=0
+block k=4 count=8 mean_r2=5.875 mean/ln n=2.074 zeros=0
+block k=5 count=16 mean_r2=7.500 mean/ln n=2.145 zeros=0
+block k=6 count=32 mean_r2=9.438 mean/ln n=2.261 zeros=0
+block k=7 count=64 mean_r2=10.719 mean/ln n=2.206 zeros=0
+block k=8 count=128 mean_r2=12.539 mean/ln n=2.260 zeros=0
+block k=9 count=256 mean_r2=13.918 mean/ln n=2.230 zeros=0
+block k=10 count=512 mean_r2=15.430 mean/ln n=2.226 zeros=0
+block k=11 count=1024 mean_r2=16.936 mean/ln n=2.221 zeros=0
+block k=12 count=2048 mean_r2=18.312 mean/ln n=2.201 zeros=0
+block k=13 count=4096 mean_r2=19.819 mean/ln n=2.199 zeros=0
+block k=14 count=8192 mean_r2=21.197 mean/ln n=2.184 zeros=0
+block k=15 count=16384 mean_r2=22.654 mean/ln n=2.179 zeros=0
+block k=16 count=32768 mean_r2=24.092 mean/ln n=2.172 zeros=0
+block k=17 count=65536 mean_r2=25.511 mean/ln n=2.165 zeros=0
+block k=18 count=131072 mean_r2=26.953 mean/ln n=2.160 zeros=0
+block k=19 count=262144 mean_r2=28.367 mean/ln n=2.154 zeros=0
+block k=20 count=524288 mean_r2=29.808 mean/ln n=2.150 zeros=0
+block k=21 count=1048576 mean_r2=31.230 mean/ln n=2.146 zeros=0
+block k=22 count=2097152 mean_r2=32.662 mean/ln n=2.142 zeros=0
+block k=23 count=805696 mean_r2=34.738 mean/ln n=2.179 zeros=0
+odd n<=10000000 with r2=0 (first 40): 3
+total 1

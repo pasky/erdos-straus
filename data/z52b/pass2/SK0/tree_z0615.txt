@@ -1,0 +1,17 @@
+items with exactly one outcome tag: 165 features (>=5 uses): 8
+outcome counts: [('open', 37), ('proved-all', 33), ('proved', 25), ('false-io', 10), ('almost-all', 8), ('false', 7), ('conditional', 4), ('proved-none', 3), ('partial', 3), ('proved-finite', 3), ('proved-ff', 3), ('finite-exceptions', 2), ('density-proved', 2), ('proved-large', 2), ('classified', 2), ('proved-classes', 2), ('false-io?', 1), ('positive-density', 1), ('proved-almost-all-p', 1), ('claimed-all', 1), ('false-as-stated', 1), ('proved-squares+sporadic', 1), ('proved-special', 1), ('almost-all-strong', 1), ('open-sporadic', 1), ('density-100', 1), ('finite-up-to-one', 1), ('undecidable-general', 1), ('proved-exists', 1), ('proved-with-special-case', 1), ('proved-constraint', 1), ('distribution', 1), ('likely-false', 1), ('density-zero?', 1), ('proved-family', 1)]
+majority baseline: 0.224 depth-3 tree 5-fold CV accuracy: 0.255 [np.float64(0.242), np.float64(0.242), np.float64(0.364), np.float64(0.242), np.float64(0.182)]
+|--- count:zero <= 0.50
+|   |--- obst:covering <= 0.50
+|   |   |--- count:power <= 0.50
+|   |   |   |--- class: open
+|   |   |--- count:power >  0.50
+|   |   |   |--- class: proved-all
+|   |--- obst:covering >  0.50
+|   |   |--- count:O(1) <= 0.50
+|   |   |   |--- class: false-io
+|   |   |--- count:O(1) >  0.50
+|   |   |   |--- class: false-io
+|--- count:zero >  0.50
+|   |--- class: open
+

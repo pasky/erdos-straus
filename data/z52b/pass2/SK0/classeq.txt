@@ -1,0 +1,7 @@
+4-term solutions of 1 = sum 1/a_i (a1<=..<=a4): 14 max denominator: 42
+[(2, 3, 7, 42), (2, 3, 8, 24), (2, 3, 9, 18), (2, 3, 10, 15), (2, 3, 12, 12), (2, 4, 5, 20), (2, 4, 6, 12), (2, 4, 8, 8), (2, 5, 5, 10), (2, 6, 6, 6), (3, 3, 4, 12), (3, 3, 6, 6), (3, 4, 4, 6), (4, 4, 4, 4)]
+C4 (|G|=4, all centralizers 4): centralizers [4, 4, 4, 4] sum 1/c = 1  in S4: True
+C2xC2 (|G|=4): centralizers [4, 4, 4, 4] sum 1/c = 1  in S4: True
+D10 (|G|=10; classes {e},{r,r^-1},{r^2,r^-2},{reflections}: sizes 1,2,2,5): centralizers [2, 5, 5, 10] sum 1/c = 1  in S4: True
+A4 (|G|=12; classes e,(12)(34)-type size3, two 3-cycle classes size4): centralizers [3, 3, 4, 12] sum 1/c = 1  in S4: True
+3-term solutions of 1 = sum 1/a_i: [(2, 3, 6), (2, 4, 4), (3, 3, 3)]

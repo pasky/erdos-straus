@@ -1,0 +1,8 @@
+primes checked: 45 violations: [] 0
+min over reps of lcm / bound, worst five (ratio, p, min-lcm, bound):
+(0.00624512099921936, 13, 52, 8326.5)
+(0.010025062656641603, 11, 44, 4389.0)
+(0.03508771929824561, 7, 28, 798.0)
+(0.043010752688172046, 5, 10, 232.5)
+(0.15384615384615385, 3, 6, 39.0)
+ratio of max-lcm over reps to bound, five largest:
