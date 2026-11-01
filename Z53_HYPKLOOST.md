@@ -714,3 +714,19 @@ The reviewer recomputed all F1 moments and the KF statistics, and checked the C 
 computation. Its independent bootstrap intervals are compatible with ours.
 
 A cross-model review is to follow.
+
+**Second pass** (deep-mode subagent; appended to `REVIEW_internal.md`). It rechecked the repaired proofs of B and C, the
+BC threshold, the additive detection in Q and the HB arithmetic, and reproduced `cond_stats.txt` byte-for-byte. Its
+findings S01–S08 are addressed in this third version:
+* S01 (MAJOR): positivity of a negative-mean certificate needs A(p) > −|𝒫|ĝ_0, not A(p) > 0. The survivor lists now say
+  so, and the reviewer's p = 17 example is added.
+* S02: the expectation is |𝒫|·ĝ_0, and the pairwise quantifier is "every pair contributing positive mean".
+* S03: the conductor example's support is {1, 2, 3, 4, 8}. This also corrects the first review's slip.
+* S04 (MAJOR): the coprime KF expansion now assumes 2U, 2V < p (counterexample p = 5, (15,10) recorded). The zero mode is
+  given with its uniform error O(U log(2m)/m), with a proof sketch for both aspect ratios.
+* S05: HYP Thm 5's τ-bound needs UV ≤ p; the ledger row now carries the coprimality hypothesis.
+* S06: the global "no method known" and "survivor must avoid them" claims are removed, and the Kuznetsov FRONTIER bullet
+  is scoped to the two displayed orientations.
+* S07: the 8/131 screen now says that B transfers only qualitatively to odd moduli.
+* S08: the p10 share order, the p12-only sd claim, the sd 16.85 replacing O(17), and the LP's status as a closed
+  relaxation with default tolerances.
