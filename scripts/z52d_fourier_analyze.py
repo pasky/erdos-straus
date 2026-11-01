@@ -11,6 +11,7 @@ print('windows', len(R), 'primes', len({r['p'] for r in R}))
 T = Counter((grp(r), r['forced'], r['type']) for r in R)
 for g in ('hard', 'ctrl'):
     n = len({r['p'] for r in R if grp(r) == g})
+    if n == 0: continue
     print(g, n, 'primes; per prime:', {f"{'F' if f else 'U'}-{t}": round(T[(g, f, t)] / n, 1)
                                        for f in (True, False) for t in ('ok', 'sub', 'pov')})
 # 2. real layer
@@ -19,9 +20,10 @@ print('THEOREM CHECK kill_jac at forced windows (must be 0):', len(bad))
 badp = [r for r in R if r['type'] == 'sub' and r['forced'] and r['prime_e']]
 print('THEOREM CHECK subgroup-type at forced PRIME windows (must be 0):', len(badp))
 sgn = [r for r in R if r['type'] != 'ok' and ((r['c_jac'] < 0) != r['forced'])]
-print('THEOREM CHECK sign c(chi_-e) = -(e/p) (must be 0 violations):', len(sgn))
+print('THEOREM CHECK sign c(chi_-e) = (e/p), i.e. negative exactly at forced windows (must be 0 violations):', len(sgn))
 for g in ('hard', 'ctrl'):
     n = len({r['p'] for r in R if grp(r) == g})
+    if n == 0: continue
     S = [r for r in R if grp(r) == g and r['type'] == 'sub']
     c = Counter(('F' if r['forced'] else 'U') + ':' + ('jac' if r['kill_jac'] else 'realother' if r['kill_real'] else
                                                        f"nonreal") for r in S)
@@ -46,6 +48,7 @@ for g in ('hard', 'ctrl'):
         print(line)
     # dependence on M
     W = [r for r in R if grp(r) == g and r['type'] != 'ok' and r['Hfull']]
+    if not W: continue
     byM = defaultdict(list)
     for r in W:
         byM[min(r['M'], 243)].append(r)

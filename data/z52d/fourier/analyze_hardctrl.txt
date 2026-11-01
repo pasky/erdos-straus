@@ -3,7 +3,7 @@ hard 30 primes; per prime: {'F-ok': 13.7, 'F-sub': 36.5, 'F-pov': 186.6, 'U-ok':
 ctrl 116 primes; per prime: {'F-ok': 17.3, 'F-sub': 39.6, 'F-pov': 184.8, 'U-ok': 5.9, 'U-sub': 187.4, 'U-pov': 64.9}
 THEOREM CHECK kill_jac at forced windows (must be 0): 0
 THEOREM CHECK subgroup-type at forced PRIME windows (must be 0): 0
-THEOREM CHECK sign c(chi_-e) = -(e/p) (must be 0 violations): 0
+THEOREM CHECK sign c(chi_-e) = (e/p), i.e. negative exactly at forced windows (must be 0 violations): 0
 hard sub-type kill classes per prime {'F:nonreal': 3.7, 'F:realother': 32.83, 'U:jac': 195.43, 'U:nonreal': 1.63, 'U:realother': 10.67}
    nonreal-only kill min orders [(4, 148), (8, 8), (16, 4)]
 ctrl sub-type kill classes per prime {'F:nonreal': 4.5, 'F:realother': 35.13, 'U:jac': 175.41, 'U:nonreal': 1.49, 'U:realother': 10.54}
