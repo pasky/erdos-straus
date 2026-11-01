@@ -1,0 +1,11 @@
+N=100000000 odd n>=3 with R(n)=0: 6008 ; odd squares 4999 ; non-square 1009 (primes 24, squarefree 673, non-squarefree 336)
+Omega(n) histogram of non-square zeros: 1:24 2:130 3:260 4:292 5:172 6:97 7:23 8:11
+Omega(squarefree kernel k), n=m^2 k: 1:61 2:254 3:338 4:262 5:80 6:14
+decade [1e1,1e2): nonsquare zeros 7  primes 2
+decade [1e2,1e3): nonsquare zeros 20  primes 4
+decade [1e3,1e4): nonsquare zeros 68  primes 4
+decade [1e4,1e5): nonsquare zeros 145  primes 2
+decade [1e5,1e6): nonsquare zeros 239  primes 4
+decade [1e6,1e7): nonsquare zeros 299  primes 6
+decade [1e7,1e8): nonsquare zeros 229  primes 0
+decade [1e8,1e9): nonsquare zeros 0  primes 0
