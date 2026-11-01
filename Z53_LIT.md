@@ -33,14 +33,15 @@ precisely (§6.4). The sweep did produce material that changes what other lanes 
    existentially chosen p. Caveat: the class −1 itself makes (★) *easy*, since any s ≡ 3 (mod 4) dividing p + 1 gives the
    u = 1 certificate. A kill must use the Linnik-lcm mechanism with a different class. With that caveat, this is a
    published, explicit-scale template for how far a Dickson-free congruence construction reaches at growing windows.
-   Lemma L2 (§6.2, PROVED) shows the statistic depends only on p mod lcm(1..N). Note that this modulus exceeds p, so it is
-   *not* bounded congruence data. F2 (§6.3, EVIDENCE) finds a raw correlation r = −0.167 between D_p(⌊log²p⌋) and
+   Lemma L2 (§6.2, PROVED): the anchors k_x/x depend only on p mod lcm(1..N), and the inverse positions x̄/p differ from
+   them by ≤ 1/p, so D_p(N) is within 1/p of a function of p mod lcm(1..N). At N ≍ log²p this modulus exceeds p (the
+   residue then determines p), so this is *not* bounded congruence data. F2 (§6.3, EVIDENCE) finds a raw correlation r = −0.167 between D_p(⌊log²p⌋) and
    R(p)/log²p over 64 380 primes, falling to r = −0.019 after adjusting both for small-divisor covariates of p ± 1.
 2. **Quantified limit for "Type II at fixed modulus" (HYPKLOOST, HYPSUMPROD):** Pascadi, arXiv:2511.08445v2, Thm 1.1 (PDF
    p. 3) is new to the repo. It bounds bilinear Kloosterman sums S(am, n; c) with arbitrary coefficients for **every**
    modulus c (so c = 4p is allowed), M, N ≪ c^{1/2+o(1)}, with saving c^{1/700}. Lemma L1 (§6.1, PROVED) is scoped to
-   length-independent bounds ‖α‖‖β‖c^{1−η} at dual lengths ≤ c^{1/2}. Such bounds give an asymptotic for a
-   modular-hyperbola box count beyond Weil only if **η > 1/4**, which is exactly the perfect-orthogonality level that
+   the argument "Poisson + length-independent bound ‖α‖‖β‖c^{1−η} at dual lengths ≤ c^{1/2}". Its guaranteed error envelope
+   gives a power-scale gain over Weil for modular-hyperbola box asymptotics only if **η > 1/4**, which is exactly the perfect-orthogonality level that
    Pascadi calls "the best one could hope for" at M = N = √c. Even perfect orthogonality (a length-dependent bound) would
    reach only boxes of area ≥ q^{4/3+o(1)}. Separately, Dong–Robles–Zeindler arXiv:2601.00292 (claimed improvement of DFI
    to a 1/12 saving) is **withdrawn** (v2 comment: a missed factor L², "does not lead to an improved bound"). Do not use it.
@@ -128,15 +129,15 @@ add nothing to it.
 
 | z53 lane | items to read (verified) | what they give / why they do not close the target |
 |---|---|---|
-| HYPKLOOST (§7.1) | Pascadi 2511.08445 Thm 1.1; Steiner 2302.06409 Thms 1–2; Blomer–Risager–Shparlinski 2411.17823 Thm 1.1; Wright 2608.27732 Thm 1.1; **DRZ 2601.00292 withdrawn** | Pascadi: every modulus, arbitrary supports, saving c^{1/700} (for prime or interval-supported cases the repo's KMS p^{1/64} and Blomer–Pascadi c^{1/32} are stronger). L1 (scoped to length-independent bounds) shows η > 1/4 is needed for box asymptotics beyond Weil; Pascadi's own benchmark ('the best one could hope for', perfect orthogonality ‖α‖‖β‖√((M+N)c)) is η = 1/4 at M = N = √c. Steiner: Σ_{c≤C, c≡a (Q)} S(m,n;c)/c ≪_{m,n} …, with **implied constants depending on m, n** (uniform version: his Thm 18). For m, n ≍ p it is useless unless that dependence is polynomially small. BRS: triple sums over c ~ X, i.e. averaged over moduli (B6 if the modulus is p-attached; free here). Wright: dispersion over q ~ Q (B6). |
-| HYPSUMPROD (§7.1) | Garaev–Shparlinski 2304.07953 Thms 1.1–1.4; Garaev–Shparlinski 2304.08689 Thm 1.1; Garaev–Pardo–Shparlinski 2410.03991 Thms 1.1–1.3; Zhi 2608.15458 Thms 1.2, 1.4; Chan 2506.04087 Thms 1–2; Shen 2607.07710 Thm 1 | GS Thm 1.3/1.4: for some p, **no square-root cancellation** in Σ_{x≤N} e_p(a x̄) at N ≤ exp((log p)^{1/3}) (their remark p. 5). So no bound with square-root (or better) cancellation can hold for all p at those lengths. This is a literature obstruction to "short-segment beyond square root" at polylog/subexponential length. GPS Thm 1.3: m₁/x₁ + m₂/x₂ ≡ λ (p) is solvable for intervals of length ⌊√(8p)⌋ (power size). Shen: Lehmer-type parity condition on (x, x̄) in very short intervals, **only for smooth squarefree q** (q = 4p excluded). |
+| HYPKLOOST (§7.1) | Pascadi 2511.08445 Thm 1.1; Steiner 2302.06409 Thms 1–2; Blomer–Risager–Shparlinski 2411.17823 Thm 1.1; Wright 2608.27732 Thm 1.1; **DRZ 2601.00292 withdrawn** | Pascadi: every modulus, arbitrary supports, saving c^{1/700} (for prime or interval-supported cases the repo's KMS p^{1/64} and Blomer–Pascadi c^{1/32} are stronger). L1 (scoped to Poisson + length-independent bounds; envelope comparison) shows η > 1/4 is needed for a power-scale gain over Weil in box asymptotics; Pascadi's own benchmark ('the best one could hope for', perfect orthogonality ‖α‖‖β‖√((M+N)c)) is η = 1/4 at M = N = √c. Steiner: Σ_{c≤C, c≡a (Q)} S(m,n;c)/c ≪_{m,n} …, with **implied constants depending on m, n** (uniform version: his Thm 18). For m, n ≍ p it is useless unless that dependence is polynomially small. BRS: triple sums over c ~ X, i.e. averaged over moduli (B6 if the modulus is p-attached; free here). Wright: dispersion over q ~ Q (B6). |
+| HYPSUMPROD (§7.1) | Garaev–Shparlinski 2304.07953 Thms 1.1–1.4; Garaev–Shparlinski 2304.08689 Thm 1.1; Garaev–Pardo–Shparlinski 2410.03991 Thms 1.1–1.3; Zhi 2608.15458 Thms 1.2, 1.4; Chan 2506.04087 Thms 1–2; Shen 2607.07710 Thm 1 | GS Thm 1.3/1.4: for existentially constructed (p, N) with N ≤ exp((log p)^{1/3}), **max over a** of |Σ_{x≤N} e_p(a x̄)| shows no square-root cancellation (their remark p. 5). So no bound with square-root (or better) cancellation, uniform in p and in the frequency a, can hold at those lengths; nothing follows for a prescribed frequency or for every length. This is a literature obstruction to "short-segment beyond square root" at polylog/subexponential length. GPS Thm 1.3: m₁/x₁ + m₂/x₂ ≡ λ (p) is solvable for intervals of length ⌊√(8p)⌋ (power size). Shen: Lehmer-type parity condition on (x, x̄) in very short intervals, **only for smooth squarefree q** (q = 4p excluded). |
 | HYP2CYCLE (§7.1) | Kala–Miska 2212.07198 (abstract); Battistoni–Grenié–Molteni 2401.13118, Korolev 2403.08616 (abstracts) | CF-period moments of √d are averages over d (B6). Kala–Miska is a pointwise structural statement about partial quotients of √p, √2p (for each a, only finitely many p have a an odd number of times in the period); there is no visible link to 2-cycles of x ↦ (−p mod x). |
 | HCSHIFTS / FORESTCLASS (§7.2) | **Garaev–Shparlinski 2304.07953 Thm 1.1 + proof §3.1**; Lemma L2 + F2 here; Fan–Pomerance 2401.10427, Abi Abdallah et al. 2608.27356, Haddad 2512.13669 (averaged) | GS is the unconditional Linnik-lcm template: a ρ(A) fraction of a (log p)^A window is controlled by congruences, for existentially chosen p (the class −1 they use makes (★) easy; a kill needs another class). To control the *whole* window one needs the non-smooth members too; they carry prime factors > N^{1/A}, and fixing their residues needs p modulo all primes up to 2N, a modulus e^{(2+o(1))N}, far larger than p = e^{O(N^{1/A})}. That is the HCSHIFTS observation, now with a published construction to cite. The averaged divisor-in-interval results are B6. |
 | HCHYP (§7.2/§7.4) | Banks 2609.37434 §1 (EOS open under GRH, with reason); Banks–Shparlinski 2610.19597 Thms 1.3–1.4 (QRH-conditional); Matomäki–Teräväinen 2605.27833 Thm 1.1 | MT: for multiplicative h, every reduced class a mod q contains squarefree n₁, n₂ ≤ q^{2+ε} with h(n₁) < 0 < h(n₂), **unless** some real χ mod q satisfies Σ_{p≤q^{1/3}, h(p)χ(p)<0} 1/p ≤ c/q^{ε/100} (sgn h strongly pretends to be χ). This is a pointwise class-level theorem whose only exceptional alternative is a real-character one, at power scale with free n (M1a/M4). Assessment: it is the closest analogue found of "only the quadratic layer obstructs"; an analogy to T1, not an identification. It is not ES-transferable (the n are not divisors of a tied integer). |
 | GENUSLVAL (§7.3/§7.4) | Banks 2610.15483 Thm 1.1; Kerr 2610.21099 Thm 1; Guo 2610.30476 (abstract) | Real zeros only, explicit constants: (1 − β) log q ≥ 3·10⁻³ (Banks, q ≥ 3 with Lu–Zaman–Zhao). This is not a zero-free strip (Thm 5.4 needs one). The OAI-003 quasi-RH (7/8) claim is separate and still has no independent human write-up found. |
 | GENUSREDEI (§7.3/§7.6) | Koymans–Pagano 2005.14157 (abstract); Xu–Zhu 2608.00387 (abstract); Xu 2609.03238, 2609.23419 (abstracts); Fischer–Uttenthal 2512.14901 (abstract); Koymans–Morgan–Smit 2101.03407 (title) | Higher Rédei reciprocity gives the solubility of N_d(x, y) = l **as d varies** (averaged, B6). Xu–Zhu: 4-ranks of Q(√−d), Q(√−d₀d) are asymptotically independent over d, a correlated-pair statement, averaged. Fischer–Uttenthal: spins, conditional on a short character-sum conjecture. **No pointwise-in-p joint-class statement found**; this supports the §7.6 expectation that joint realisation is free, but proves nothing. |
 | NONCRTSMOOTH (target 5) | Matomäki–Teräväinen 2301.07679 Thm 1.1; Banks–Shparlinski 2610.19597 Thms 1.1–1.4; Banks 2609.37434 Thm 1.1 + Table 1; Xie 2606.30567 Thm 1.1; Martin–Parvardi 2008.10198 (abstract) | The best "every class mod q" product theorems use free primes and power counts. Even the two-prime binary case is open under GRH (item 3 above). Assessment (analogy only, no reduction): a tied two-modulus representation statement looks harder than EOS on every axis (§6.6); no theorem of that shape was found. |
-| NONCRTLOGIC (target 5) | Garaev–Shparlinski 2304.07953 (via L2); Ford–Gabdullin–Granville 2410.04649 (abstract) | L2: inverse statistics on a window x ≤ N are functions of p mod lcm(1..N). For N ≍ log²p that modulus exceeds p, so they are a growing p-dependent family (B1's E1 hatch), **not** bounded congruence data; L2 does not kill them. F2 found their (★)-predictive content small after small-divisor adjustment (EVIDENCE). FGG: least primitive root ≤ p^{1/4−δ(p)} for a density-one explicit set of primes (B6). |
+| NONCRTLOGIC (target 5) | Garaev–Shparlinski 2304.07953 (via L2); Ford–Gabdullin–Granville 2410.04649 (abstract) | L2: on a window x ≤ N the anchors k_x/x depend only on p mod lcm(1..N), and the inverse positions differ from them by ≤ 1/p. For N ≍ log²p that modulus exceeds p, so they are a growing p-dependent family (B1's E1 hatch), **not** bounded congruence data; L2 does not kill them. F2 found their (★)-predictive content small after small-divisor adjustment (EVIDENCE). FGG: least primitive root ≤ p^{1/4−δ(p)} for a density-one explicit set of primes (B6). |
 | LATTICE | Baird–Kerr–Shparlinski 2310.20342 (abstract); Gao–Feng–Hu–Pan 2512.19076 (abstract); Hales 2410.05030 (repo) | Many-variable Coppersmith heuristics hold "with high probability" (averaged); rank-3 lattices give factoring/power-divisor *algorithms*. Upper bounds and algorithms, not existence (same gap as PARITY_AUDIT A1–A2). |
 | WILDCARD | §6.4 table | — |
 
@@ -170,7 +171,7 @@ that the class version Δ_m is dominated by the trivial class.
 ### (b) Modular hyperbola, boxes, short segments, modular inverses
 | item | statement | new? | verdicts · barrier |
 |---|---|---|---|
-| **Garaev–Shparlinski, arXiv:2304.07953v1** | Thm 1.1 (p. 3): ∀ A > 1, ∀ large N, ∃ prime p, (log p)^A ≍ N, D_p(N) ≫ 1. Thm 1.2: Σ_{a≤k}\|Σ_{x≤N} e_p(a x̄)\| ≫ kN. Thms 1.3–1.4: ∃ p with exp(c₁(log p log log p)^{γ/(1+γ)}) > N > exp(c₂(…)) and D_p(N) ≫ N^{−γ} | new | 7.1: obstruction: no bound with square-root (or better) cancellation can hold uniformly in p for N ≤ exp((log p)^{1/3}) (Thm 1.4 with γ → 1/2; authors' remark p. 5); 7.2: kill-side template (§0 item 1); T5: the construction is a Linnik prime in a class mod lcm (L2: the statistic depends on p mod lcm(1..N)) · existential p, not a prescribed one |
+| **Garaev–Shparlinski, arXiv:2304.07953v1** | Thm 1.1 (p. 3): ∀ A > 1, ∀ large N, ∃ prime p, (log p)^A ≍ N, D_p(N) ≫ 1. Thm 1.2: Σ_{a≤k}\|Σ_{x≤N} e_p(a x̄)\| ≫ kN. Thms 1.3–1.4: ∃ p with exp(c₁(log p log log p)^{γ/(1+γ)}) > N > exp(c₂(…)) and D_p(N) ≫ N^{−γ} | new | 7.1: obstruction: no bound with square-root (or better) cancellation can hold uniformly in p and a for N ≤ exp((log p)^{1/3}) (Thm 1.4 with γ → 1/2, max over invertible a, existential (p, N); authors' remark p. 5); 7.2: kill-side template (§0 item 1); T5: the construction is a Linnik prime in a class mod lcm (L2: anchors depend on p mod lcm(1..N), positions within 1/p) · existential (p, N), not a prescribed one; Thms 1.2/1.4 concern the max (or sum) over frequencies a, not a prescribed a |
 | Garaev–Shparlinski, arXiv:2304.08689v1 | Thm 1.1: #(HM) = p + O(p^{1−η}) for interval H, arbitrary set M, if H ≥ p^{2/3}, HM ≥ p^{1+ε} or (H < p^{2/3}, M ≥ p^{1/3}, HM^{1/4} ≥ p^{3/4+ε}) | new | power-size sets (B3), free sets (M4) |
 | Garaev–Pardo–Shparlinski, arXiv:2410.03991v1 | Thm 1.1: λ ≡ Σ_{i≤3} m_i/x_i^s (p), \|M\| = ⌊p^{14/29}⌋, H = ⌊p^{14/29+ε}⌋. Thm 1.2: binary, s = 1, for almost all p, \|M\| = ⌊√p⌋, H = ⌊√p(log p)^{6+ε}⌋. Thm 1.3: binary with m_i ∈ I, x_i ∈ J, intervals of length ⌊√(8p)⌋ | new | Egyptian-fraction-shaped congruences mod p with free power-size sets; B3, M4; Thm 1.2 B6 |
 | Zhi, arXiv:2608.15458v1 | Thms 1.2, 1.4: T_r(λ) = (N^{2r}/p)(1 + O(p^{−δ})) for r ≥ 5 sets × shifted intervals, N > p^{α_r+ε}, α_r = 1/3 + 4/(9√r) + O(1/r) | new (subagent) | B3, M4 |
@@ -182,7 +183,7 @@ that the class version Δ_m is dominated by the trivial class.
 ### (c) Kloosterman fractions, bilinear / trilinear Kloosterman sums, sums over moduli
 | item | statement | new? | verdicts · barrier |
 |---|---|---|---|
-| **Pascadi, arXiv:2511.08445v2** | Thm 1.1 (PDF p. 3): for c, M, N ∈ ℤ⁺, M, N ≪ c^{1/2+o(1)}, a ∈ (ℤ/c)^×: Σ_{m≤M,n≤N,(m,n,c)=1} α_mβ_n S(am, n; c) ≪ ‖α‖‖β‖c^{1−1/700+o(1)}; if \|α_m\| ≤ 1: Σ_{(n,c)=1} … ≪ √M‖β‖c^{1−1/276+o(1)}. p. 2: the trivial bound is ‖α‖‖β‖c^{o(1)}min(c, √(MN c)); "the best one could hope for is the perfect-orthogonality bound ‖α‖‖β‖c^{o(1)}√((M+N)c)" | new | 7.1: every modulus, so c = 4p is allowed; L1 (§6.1) shows length-independent savings η ≤ 1/4 give no box asymptotics beyond Weil · tied modulus + L1 |
+| **Pascadi, arXiv:2511.08445v2** | Thm 1.1 (PDF p. 3): for c, M, N ∈ ℤ⁺, M, N ≪ c^{1/2+o(1)}, a ∈ (ℤ/c)^×: Σ_{m≤M,n≤N,(m,n,c)=1} α_mβ_n S(am, n; c) ≪ ‖α‖‖β‖c^{1−1/700+o(1)}; if \|α_m\| ≤ 1: Σ_{(n,c)=1} … ≪ √M‖β‖c^{1−1/276+o(1)}. p. 2: the trivial bound is ‖α‖‖β‖c^{o(1)}min(c, √(MN c)); "the best one could hope for is the perfect-orthogonality bound ‖α‖‖β‖c^{o(1)}√((M+N)c)" | new | 7.1: every modulus, so c = 4p is allowed; L1 (§6.1): within Poisson + length-independent bounds, savings η ≤ 1/4 give no power-scale gain over Weil's box-asymptotic threshold · tied modulus + L1 |
 | Steiner, arXiv:2302.06409v1 | Thm 1: Σ_{c≤C} S(m,n;c)F(c)/√c ≪_{m,n,F} C^{1−9/32+o(1)} for periodic F; Thm 2: Σ_{c≤C, c≡aq (Q)} S(m,n;c)/c ≪_{m,n} (QC)^{o(1)}(…C^{1/6} + …) | new | 7.1: sums over moduli c with fixed (m, n); for ES at fixed p the natural Kloosterman sums have modulus 4p (fixed), and in SL₂ form the class a ≡ d ≡ −1 (mod c) is a single residue, so no Kloosterman sum over c arises (§6.1 remark). The implied constant depends on m, n · B6/tied |
 | Blomer–Risager–Shparlinski, arXiv:2411.17823v3 | Thm 1.1: K(M,N;X) ≪ (MNX + (MN)^{2/3}X^{7/6})(MNX)^{o(1)} (triple sums of Kloosterman sums; discrepancy of modular inverses mod c ~ X) | new | averaged over c · B6 if c is attached to p |
 | Wright, arXiv:2608.27732v1 | Thm 1.1: equidistribution of α ⋆ β in APs on average over q ~ Q, for N^{56/23}X^{−17/23+ε} ≤ Q ≤ NX^{−ε}; sharpens Bettin–Chandee on subdyadic intervals | new | B6 (average over q) |
@@ -199,7 +200,7 @@ that the class version Δ_m is dominated by the trivial class.
 
 **Answer to Q(b,c,d): no.** Every new bound is either an average over moduli or residues (B6), a power-size free-set
 statement (B3/M4), or a fixed-modulus bilinear bound. Lemma L1 shows that length-independent bounds of the last kind cannot beat
-Weil for hyperbola box counts unless η > 1/4. The one new pointwise statement about short segments (Garaev–Shparlinski Thms 1.3–1.4) is an
+Weil (at power scale, as an envelope comparison within that argument) for hyperbola box counts unless η > 1/4. The one new pointwise statement about short segments (Garaev–Shparlinski Thms 1.3–1.4) is an
 *obstruction*.
 
 ### (e) Multiplicative representation of residues by primes / smooth numbers
@@ -245,12 +246,16 @@ binary statement with free primes (EOS) is open, also under GRH. See §6.6 (Asse
   large squarefree q, and q = pⁿ for large n) has a with all partial quotients O(log q/log log q). This improves Korobov's
   O(log q). It is pointwise; the good-numerator count is a power of q (as in Korobov's method).
 * **Why this cannot run at a polylog count.** *Remark Z (PROVED, elementary, about the shape of the estimate).* Suppose an
-  incidence count I = Σ_{s∈S,a∈A,b∈B} 1_{sa=b} modulo q satisfies I = 𝔐 + O(q^ε√(|A||B|)N^{1−η}) with 𝔐 = φ(q)|A||B|N/q²,
-  |S| = N, and 0 < η < 1/2 (Zhang (3.7)). Eliminating √(|A||B|) = q√𝔐/√(φ(q)N) gives
-  error/𝔐 = q^{1+ε}N^{1/2−η}/√(φ(q)𝔐) ≥ q^{1/2+ε}N^{1/2−η}/√𝔐. So the estimate certifies I > 0 only if
-  𝔐 > q^{2+2ε}N^{1−2η}/φ(q) ≥ q^{1+2ε}. **The expected incidence count must exceed the modulus.** *Assessment:* no
-  encoding of (★) into such an incidence count is known. For any encoding modulo q ≥ p^c, the polylog expected count of
-  ES falls short of this requirement by a power of p. This is FRONTIER M1a/B3 for this method. Expansion also holds at odd
+  incidence count I = Σ_{s∈S,a∈A,b∈B} 1_{sa=b} modulo q satisfies I = 𝔐 + O(U), where 𝔐 = φ(q)|A||B|N/q², |S| = N,
+  0 < η < 1/2, and U := q^ε√(|A||B|)N^{1−η} is the error-envelope scale (Zhang (3.7); his theorem is for the structured
+  sets (3.2)/(3.5)). Eliminating √(|A||B|) = q√𝔐/√(φ(q)N) gives
+  U/𝔐 = q^{1+ε}N^{1/2−η}/√(φ(q)𝔐) ≥ q^{1/2+ε}N^{1/2−η}/√𝔐. So this envelope certifies I > 0 (U = o(𝔐), up to the implied
+  constants and a growing margin) only if 𝔐 ≫ q^{2+2ε}N^{1−2η}/φ(q) ≥ q^{1+2ε}. **The expected incidence count must exceed
+  the modulus.** This is a statement about the envelope, not a lower bound for the actual error. *Assessment:* no encoding
+  of (★) into such an incidence count is known. For an encoding modulo q ≥ p^c **whose expected incidence count is itself
+  polylog in p** (e.g. bounded or polylog multiplicity of incidences per ES witness), this envelope cannot certify
+  positivity. Encodings with a power-size reservoir, many incidences per witness and an extraction rule (the (T) route of
+  §6.4) are **not** excluded by Remark Z. This is FRONTIER M1a/B3 for this method. Expansion also holds at odd
   squares, so the method is T1-blind.
 
 ### (h) Every-n theorems with small witness counts — see §6.4.
@@ -278,15 +283,17 @@ a = λ. That theorem holds for every modulus with η = 1/700, under the restrict
 Hence BB(1/700) holds for q = 4p. The repo's KMS (prime modulus, p^{1/64} at √p) and Blomer–Pascadi (c^{1/32} at √c, for
 intervals) give larger η in their settings. L1 only uses η ≤ 1/4.
 
-**Claim.** Write 𝒩 = MT + E with MT = φ(q)ŵ₁(0)ŵ₂(0)XY/q². Weil gives |E| ≪ q^{1/2+o(1)}; BB(η) gives |E| ≪ √(XY)·q^{−η+o(1)}.
-Consequently:
-(i) the BB(η) bound is smaller than the Weil bound only when XY < q^{1+2η};
-(ii) the BB(η) bound is o(MT) only when XY > q^{2−2η+o(1)};
-(iii) the two ranges intersect only if η > 1/4.
+**Claim.** Assume w₁, w₂ ≥ 0 with positive integrals ŵ₁(0), ŵ₂(0) > 0. Write 𝒩 = MT + E with
+MT = φ(q)ŵ₁(0)ŵ₂(0)XY/q² = XY q^{−1−o(1)}. Weil gives the envelope |E| ≪ q^{1/2+o(1)}; BB(η) gives the envelope
+|E| ≪ √(XY)·q^{−η+o(1)}. Consequently, at fixed-power precision (comparisons up to factors q^{o(1)}):
+(i) the BB(η) envelope is below the Weil envelope by a power of q only when XY ≤ q^{1+2η−δ} for some fixed δ > 0;
+(ii) the BB(η) envelope is below MT by a power of q only when XY ≥ q^{2−2η+δ};
+(iii) both can hold for some (X, Y) only if η > 1/4.
 
 So, for η ≤ 1/4, the specific argument "complete both variables (Poisson) and bound the dual bilinear form by a
-length-independent BB(η)" never yields an asymptotic for a smoothed box count beyond what Weil gives (threshold
-XY > q^{3/2+o(1)}).
+length-independent BB(η)" gives no power-scale gain over the Weil threshold XY > q^{3/2+o(1)} for asymptotics of a
+smoothed box count. These are comparisons of guaranteed upper-bound envelopes: they do not show that the actual error is
+large, do not decide logarithmic/endpoint improvements, and do not cover other completion methods.
 
 *Proof.* Poisson summation in both variables modulo q gives
   𝒩 = (XY/q²) Σ_{h,k ∈ ℤ} ŵ₁(hX/q) ŵ₂(kY/q) S(h, λk; q).
@@ -310,13 +317,14 @@ and ‖β‖₂² ≪ q/Y. BB(η) bounds this part of E by
 The terms with d ≤ q/X give ≪ q^{2+o(1)}/(XY); for larger d, Fourier decay again makes them ≪ q^{2+o(1)}/(XY). So the
 Weil part is ≪ (XY/q²)·q^{1/2+o(1)}·q²/(XY) = q^{1/2+o(1)}.
 
-*Comparisons.* (i) √(XY)q^{−η} < q^{1/2} ⟺ XY < q^{1+2η}. (ii) √(XY)q^{−η} = o(XY/q^{1+o(1)}) ⟺ XY > q^{2−2η+o(1)},
-using φ(q)/q = q^{−o(1)}. (iii) 1 + 2η > 2 − 2η ⟺ η > 1/4. ∎
+*Comparisons* (at fixed power margins δ > 0, ignoring q^{o(1)}). (i) √(XY)q^{−η} ≤ q^{1/2−δ/2} ⟺ XY ≤ q^{1+2η−δ}.
+(ii) √(XY)q^{−η} ≤ q^{−δ/2}·XY/q ⟺ XY ≥ q^{2−2η+δ}, using MT = XY q^{−1−o(1)} (positive bump integrals,
+φ(q)/q = q^{−o(1)}). (iii) Both hold for some XY only if 1 + 2η − δ ≥ 2 − 2η + δ, i.e. η ≥ 1/4 + δ/2 > 1/4. ∎
 
 *Remark (perfect orthogonality).* Pascadi (p. 2) calls ‖α‖‖β‖c^{o(1)}√((M+N)c) "the best one could hope for". This bound
 is length-dependent. Inserted in the same argument with M = q/X, N = q/Y, it gives
-|E| ≪ (XY/q²)·√(q/X)√(q/Y)·√((q/X + q/Y)q)·q^{o(1)} = √(X + Y)·q^{o(1)}, which beats MT once (for X = Y) X > q^{2/3+o(1)},
-i.e. area q^{4/3}. So even an optimal bilinear estimate keeps this method above area q^{4/3}. At the balanced point
+|E| ≪ (XY/q²)·√(q/X)√(q/Y)·√((q/X + q/Y)q)·q^{o(1)} = √(X + Y)·q^{o(1)}, which is below MT by a power once XY ≥ q^{1+δ}·√(X+Y); since X + Y ≥ 2√(XY), the
+best area threshold is q^{4/3} (power scale), attained for balanced boxes. So even an optimal bilinear estimate keeps this method above area q^{4/3}. At the balanced point
 M = N = √c the perfect-orthogonality bound corresponds to η = 1/4, consistent with (iii).
 
 *Scope.* L1 concerns smoothed box counts with sides ≥ q^{1/2+ε}, the range where the dual lengths fit, and one specific
@@ -339,12 +347,16 @@ k_x ≡ −p^{−1} (mod x), and
 modulo x gives p k_x ≡ −1 (mod x). Divide by xp. ∎
 
 *Consequences.*
-(a) For N < p, the configuration {x̄/p : x ≤ N} equals {k_x/x : x ≤ N}, each point shifted by 1/(xp) ≤ 1/p. The data
-(k_x)_{x≤N} depends only on p mod lcm(1,…,N). For N ≍ log²p this modulus is ≈ e^{N}, far larger than p. So this is a
+(a) For N < p, the configuration {x̄/p : x ≤ N} equals {k_x/x : x ≤ N}, each point shifted by 1/(xp) ≤ 1/p. The anchors
+(k_x)_{x≤N} depend only on p mod lcm(1,…,N); the inverse positions themselves do **not** (cross-model review: N = 2, p = 5
+and p = 11 have the same residue mod 2 and the same anchors (0, 1/2), but star discrepancies 2/5 and 5/11). For N ≍ log²p this modulus is ≈ e^{N}, far larger than p. So this is a
 growing p-dependent family of residues (B1's E1 hatch), not bounded congruence data. **L2 does not place such statistics
 inside B1's no-go**; it only identifies what they are made of. Statistics that are Lipschitz in the point positions
-(e.g. Weyl sums Σ e(a x̄/p) for bounded a) change by O(aN/p) under the shift. Discontinuous statistics such as the
-sup-discrepancy need not be stable.
+change little under the shift: Weyl sums Σ e(a x̄/p) by O(aN/p), and the star discrepancy by at most 1/p, since
+D* = max_i max(i/N − t_i, t_i − (i−1)/N) over ordered points is 1-Lipschitz in the maximal displacement. So D_p(N) is
+within 1/p of a function of p mod lcm(1,…,N), for fixed N. (Individual threshold counts need not be stable.) At N ≍ log²p,
+lcm(1,…,N) = e^{(1+o(1))N} ≫ p, so "a function of the residue" is then trivially true (the residue determines p). This is
+fixed-N invariance, not a restriction at the target scale.
 (b) Dual (Farey) form of the (★) trial event. For x ≡ 3 (mod 4) with x < p, there is a (★) triple with 4uC − 1 = x if
 and only if some e with 4 | e and e | x + 1 satisfies e ≡ k_x (mod x).
 *Proof.* Take e = 4C and u = (x + 1)/e. Then 4Cp ≡ −1 (mod x) and 4Cu ≡ 1 (mod x), so x | p + u, and B = (p + u)/x ≥ 1.
@@ -456,13 +468,16 @@ text; the rest were discarded by title or abstract. No literature item found sup
 height-tied hyperbola, or a pointwise divisor-in-class lower bound.
 
 Scoped statements obtained:
-* (PROVED, L1) length-independent fixed-modulus bilinear Kloosterman bounds give box asymptotics beyond Weil only if the
-  saving exponent exceeds 1/4. Even perfect orthogonality stops at area q^{4/3}. The new general-modulus Pascadi bound
+* (PROVED, L1) within the argument "Poisson + length-independent bilinear bound", the guaranteed error envelope gives box
+  asymptotics with a power-scale gain over Weil only if the saving exponent exceeds 1/4; with perfect orthogonality the
+  envelope threshold is area q^{4/3}. (Envelope comparisons; other methods and log-scale improvements not excluded.) The new general-modulus Pascadi bound
   has η = 1/700.
-* (PROVED, L2) inverse statistics on windows are functions of p mod lcm(1..N), a growing family. (EVIDENCE, F2) their
+* (PROVED, L2) window anchors k_x/x depend only on p mod lcm(1..N) and inverse positions are within 1/p of them (so the
+  star discrepancy is within 1/p of a function of that residue); at N ≍ log²p the modulus exceeds p, a growing family. (EVIDENCE, F2) their
   correlation with (★)-hardness is mostly shared with small-divisor covariates of p ± 1; it is heterogeneous across hard
   primes; and it is nearly independent of the near-square deficit.
-* (PROVED, Remark Z) a Zhang-type incidence estimate certifies existence only when the expected count exceeds the modulus.
+* (PROVED, Remark Z) a Zhang-type error envelope certifies existence only when the expected incidence count exceeds the
+  modulus; this excludes encodings with polylog expected incidence count, not thick-reservoir/extraction encodings.
 * (Assessment) the representation-theorem literature (EOS) offers no statement that keeps the tie, the polylog count or
   "divisors of one integer".
 
@@ -488,16 +503,17 @@ None passes all four. That is expected for literature tools; the table records w
 *§7.1, append:*
 > (z53 LIT, `Z53_LIT.md` §6.1) Pascadi arXiv:2511.08445 bounds bilinear Kloosterman sums S(am, n; c) with arbitrary
 > coefficients for every modulus (saving c^{1/700}; for bounded α, with (n, c) = 1, c^{1/276}). For the specific argument
-> "Poisson in both variables + a length-independent bilinear bound ‖α‖‖β‖q^{1−η}", modular-hyperbola box asymptotics
-> beyond Weil need η > 1/4. Even the perfect-orthogonality bound stops at area q^{4/3} (PROVED, elementary). Garaev–Shparlinski
-> arXiv:2304.07953 Thms 1.3–1.4: for some p, sums of e_p(a x̄) over x ≤ N admit no square-root cancellation at
-> N ≤ exp((log p)^{1/3}). The DFI improvement arXiv:2601.00292 is withdrawn.
+> "Poisson in both variables + a length-independent bilinear bound ‖α‖‖β‖q^{1−η}", the guaranteed error envelope gives a
+> power-scale gain over Weil for modular-hyperbola box asymptotics only if η > 1/4; with the perfect-orthogonality bound the
+> envelope threshold is area q^{4/3} (PROVED, elementary; envelope comparisons, other methods not excluded). Garaev–Shparlinski
+> arXiv:2304.07953 Thms 1.3–1.4: for existentially constructed (p, N) with N ≤ exp((log p)^{1/3}), max over a of
+> |Σ_{x≤N} e_p(a x̄)| admits no square-root cancellation (no prescribed-frequency or every-length obstruction follows). The DFI improvement arXiv:2601.00292 is withdrawn.
 
 *§7.2, append:*
-> (z53 LIT §§0, 6.2–6.3) Unconditional kill-side template: Garaev–Shparlinski arXiv:2304.07953 Thm 1.1 picks p ≡ −1
+> (z53 LIT §§0, 6.2–6.3) Unconditional kill-side template: Garaev–Shparlinski arXiv:2304.07953 Thm 1.1 picks (existentially) p ≡ −1
 > (mod lcm of the N^{1/A}-smooth s ∈ [N, 2N]) with (log p)^A ≍ N, controlling a ρ(A) fraction of a polylog window by
-> congruences (the class −1 itself makes (★) easy; a kill needs another class). Inverse statistics on windows are functions
-> of p mod lcm(1..N) (x̄/p = k_x/x + 1/(xp), k_x ≡ −p̄ mod x; PROVED). Their correlation with (★)-hardness (r = −0.17 over
+> congruences (the class −1 itself makes (★) easy; a kill needs another class). Window anchors depend only
+> on p mod lcm(1..N), and inverse positions are within 1/p of them (x̄/p = k_x/x + 1/(xp), k_x ≡ −p̄ mod x; PROVED). Their correlation with (★)-hardness (r = −0.17 over
 > 64 380 primes in [2·10⁶, 10⁷]) drops to −0.02 after small-divisor covariates of p ± 1 (EVIDENCE).
 
 *§3 M-table / §1:* replace the (J)103 sentence by the §6.4 wording. *Add to the M2 row:* "If the OAI-003 quasi-RH claim is
@@ -526,10 +542,12 @@ of a divisor of one p-tied integer, and no new ES result after Cao–Xu (2026-10
 
 Each is averaged, power-scale with free objects, or, for the specific arguments analysed (L1, Remark Z), structurally
 unable to reach the height-tied event. The lane's mathematical output is negative but sharp:
-* L1: length-independent bilinear fixed-modulus bounds need η > 1/4 to beat Weil on hyperbola boxes, and perfect
-  orthogonality stops at area q^{4/3};
-* Remark Z: Zhang-type incidence estimates need an expected count above the modulus;
-* L2 + F2: inverse-window discrepancy tracks (★)-hardness only weakly beyond p ± 1 small-divisor data;
+* L1: within Poisson + length-independent bilinear bounds, the error envelope beats Weil's box threshold by a power only
+  if η > 1/4, and with perfect orthogonality the envelope threshold is area q^{4/3} (other methods not excluded);
+* Remark Z: Zhang-type error envelopes need an expected incidence count above the modulus (thick-reservoir encodings
+  not excluded);
+* L2 + F2: inverse-window discrepancy tracks (★)-hardness only weakly beyond p ± 1 small-divisor data (descriptive
+  association, no mechanism);
 * (J)103 survives once worded as "no polylog every-n theorem without a thick object, rigidity/squeeze, an M2 character
   event or a designed set".
 
@@ -569,4 +587,19 @@ items were addressed in this version:
 17. Coverage wording is "none found"; the GS proof excerpt anchor is fixed (`excerpts_lane.txt`); the MT condition and the
     DRZ withdrawal text are appended there.
 
-A cross-model review is expected next; this section will record its fixes.
+**Cross-model review** (`data/z53/xreview/REVIEW_LIT.md`, branch side-agent/z53-xrev-lit; verdict ACCEPT-WITH-FIXES;
+independent check script `scripts/z53_xrev_lit_check.py`). The reviewer re-derived L1, L2 and Remark Z, re-fetched 13
+PDFs, and reproduced F2a/F2b byte-for-byte (plus an independent R and exact-rational D check at 34 primes). Required
+fixes, all applied:
+1. (Major) Remark Z's ES transfer now assumes a polylog expected *incidence* count; thick-reservoir/extraction encodings
+   are explicitly left open (§5(g), §7).
+2. L2 summaries corrected (§§0, 4, 5(b), 6.2, 7, 9): only the anchors k_x/x depend on p mod lcm(1..N); positions differ by
+   ≤ 1/p (counterexample p = 5, 11, N = 2 recorded). The false "sup-discrepancy need not be stable" is replaced by the
+   1-Lipschitz bound: D_p(N) is within 1/p of a function of the residue; at N ≍ log²p this is trivial (lcm > p).
+3. L1 restated at fixed-power precision with positive bump integrals, as comparisons of guaranteed error envelopes (no
+   exact iff/"never"; log improvements and other methods not excluded); perfect-orthogonality threshold q^{4/3} via
+   X + Y ≥ 2√(XY).
+4. GS wording keeps the max over a and the existential (p, N); no prescribed-frequency or every-length obstruction; the
+   class −1 caveat is kept.
+5. Remark Z uses the envelope ratio U/𝔐 with constants/margins; EOS stays an analogy, preprints unrefereed, coverage
+   "none found".
