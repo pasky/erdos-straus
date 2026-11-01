@@ -2,10 +2,10 @@
 Inputs: TSVs from scripts/z52d_hyperbola_falsifier.c (columns p Nbal T MQ Nint Su SC R), the block / interior class-blind
 densities M0 (scripts/z52d_hyperbola_m0.c, z52d_hyperbola_m0int.c), RESIDUE_HARDNESS model tables (data/z52c/rh/model_tables.json).
 Output: data/z52d/hyperbola/falsifier_stats.json (+ printed summary).
-Usage: uv run --with numpy --with scipy python scripts/z52d_hyperbola_analyze.py /tmp/hyp"""
+Usage: uv run --with numpy --with scipy python scripts/z52d_hyperbola_analyze.py [dir]   (default data/z52d/hyperbola, reads out_<w>.tsv[.gz])"""
 import sys, json, numpy as np
 from scipy.stats import poisson, chi2
-D = sys.argv[1] if len(sys.argv) > 1 else '/tmp/hyp'
+D = sys.argv[1] if len(sys.argv) > 1 else 'data/z52d/hyperbola'
 MT = json.load(open('data/z52c/rh/model_tables.json')); REF = '1e6'
 COMP = [(840, 1), (16, 1), (8, -1), (11, 1), (13, 1)]
 
@@ -21,7 +21,10 @@ def logF(P, fam='S'):
 
 
 def load(fn):
-    rows = [l.split() for l in open(fn) if len(l.split()) == 8 and len(l.split()[0]) <= 19]  # complete lines only
+    import gzip, os
+    op = (lambda f: gzip.open(f, 'rt')) if not os.path.exists(fn) and os.path.exists(fn + '.gz') else open
+    if op is not open: fn = fn + '.gz'
+    rows = [l.split() for l in op(fn) if len(l.split()) == 8 and len(l.split()[0]) <= 19]  # complete lines only
     d = {k: np.array([float(r[i]) for r in rows]) for i, k in enumerate(['p', 'Nbal', 'T', 'MQ', 'Nint', 'Su', 'SC', 'R']) if i}
     d['p'] = np.array([int(r[0]) for r in rows], dtype=np.int64)           # exact (p up to 1e18 > 2^53)
     return d
@@ -76,6 +79,7 @@ for w, fn, U in WIN:
     r['balanced'] = dict(mean_N=round(float(N.mean()), 5), M0=M0, z_mean=round(float((N.mean() - M0)/se), 2), var=round(float(N.var()), 5),
                          var_over_mean=round(float(N.var()/N.mean()), 4), var_over_2M0=round(float(N.var()/(2*M0)), 4),
                          max_N=int(N.max()), hist={int(k): int((N == k).sum()) for k in np.unique(N)}, gof=gof_swap(N, M0),
+                         gof_fitted_mean=gof_swap(N, float(N.mean())),
                          odd_N=int((N % 2 == 1).sum()))
     sel1 = (P % 4 == 1)
     if (X['MQ'] != 0).any():
