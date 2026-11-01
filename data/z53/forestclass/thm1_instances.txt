@@ -1,0 +1,33 @@
+# Theorem 1 CERTIFIED instances (scripts/z53_forestclass_thm1inst.py); "INSTANCE" = every component of F_p meeting
+# {1..H} ∪ {K least non-residues} explored completely (z52d_pellcycle_lib.explore, depth None) and found monochromatic.
+# $ thm1inst.py 8 1 11 2 5 20000
+# H=8 K=1 q=11 c=2 modulus Q=5821200 p0=529201
+INSTANCE p=20304874801 s=3488 least_NR=[11] dickson_forms_all_prime=False
+INSTANCE p=20473689601 s=3517 least_NR=[11] dickson_forms_all_prime=False
+INSTANCE p=50016279601 s=8592 least_NR=[11] dickson_forms_all_prime=False
+INSTANCE p=58084462801 s=9978 least_NR=[11] dickson_forms_all_prime=False
+INSTANCE p=87004184401 s=14946 least_NR=[11] dickson_forms_all_prime=False
+# tested 2954 primes in the class, found 5
+# $ thm1inst.py 8 2 11 2 3 20000
+# H=8 K=2 q=11 c=2 modulus Q=12930462745200 p0=8228476292401
+INSTANCE p=41062447692302401 s=3175 least_NR=[11, 22] dickson_forms_all_prime=False
+INSTANCE p=124554445638058801 s=9632 least_NR=[11, 22] dickson_forms_all_prime=False
+INSTANCE p=679335949720864801 s=52537 least_NR=[11, 22] dickson_forms_all_prime=False
+# tested 8074 primes in the class, found 3
+# $ thm1inst.py 8 3 11 2 3 20000
+# H=8 K=3 q=11 c=2 modulus Q=197616262134891600 p0=179651147395356001
+INSTANCE p=8368042654987245266401 s=42344 least_NR=[11, 22, 33] dickson_forms_all_prime=False
+INSTANCE p=11358371933612424957601 s=57476 least_NR=[11, 22, 33] dickson_forms_all_prime=False
+INSTANCE p=12651177520498885804801 s=64018 least_NR=[11, 22, 33] dickson_forms_all_prime=False
+# tested 8341 primes in the class, found 3
+# $ thm1inst.py 3 1 11 2 3 3000000 dickson      (theorem's exact hypothesis: all forms (p+x)/(1+x) prime)
+# H=3 K=1 q=11 c=2 modulus Q=27720 p0=2521
+INSTANCE p=21679561 s=782 least_NR=[11] dickson_forms_all_prime=True
+INSTANCE p=25061401 s=904 least_NR=[11] dickson_forms_all_prime=True
+INSTANCE p=36814681 s=1328 least_NR=[11] dickson_forms_all_prime=True
+# tested 391 primes in the class, found 3
+# $ thm1inst.py 5 1 11 2 2 6000000 dickson
+# H=5 K=1 q=11 c=2 modulus Q=138600 p0=113401
+INSTANCE p=13911395401 s=100370 least_NR=[11] dickson_forms_all_prime=True
+INSTANCE p=17676603001 s=127536 least_NR=[11] dickson_forms_all_prime=True
+# tested 27016 primes in the class, found 2

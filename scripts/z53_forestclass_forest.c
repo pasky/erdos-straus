@@ -60,6 +60,30 @@ static void add_edge(u64 u,u64 v,int bi){ if(nedges==capedges){ capedges=capedge
 /* stratified global counts */
 #define NB 32
 static u64 strat[3][8][2][2][NB][3];
+/* genus-count strata: chi, a mod 8, inSM, log2 bucket, genus bucket gb -> count, nonisolated, inBichrom */
+#define NG 44
+static u64 gstrat[3][8][2][NB][NG][3];
+static uint8_t *gbuck; /* per small vertex genus bucket */
+/* genus count g(u) = #{d | n+u : d in (-n)G^2 mod u}; mu = g*|X|/phi(u); bucket 0 if g=0 else 1+clamp(floor(2 log2 mu)+20) */
+static int genus_bucket(u64 n, u64 u, u64 *pr, int *ex, int k){
+  if(u<3) return 1+20;
+  u64 x=u; int v2=0; while(!(x&1)){ x>>=1; v2++; }
+  uint32_t L[16]; int nl=0; u64 phi=1;
+  while(x>1){ u64 l=spf[x]; int e=0; while(x%l==0){ x/=l; e++; } L[nl++]=(uint32_t)l; phi*=(l-1); for(int i=1;i<e;i++) phi*=l; }
+  if(v2>=1) phi*= (1ULL<<(v2-1));
+  int r=nl+(v2==2?1:0)+(v2>=3?2:0);
+  u64 c=(u-(n%u))%u;
+  #define BITS(q) ({ unsigned b_=0; for(int i_=0;i_<nl;i_++) if(jacobi((q)%L[i_],L[i_])==-1) b_|=1u<<i_; \
+     if(v2==2){ if(((q)&3)==3) b_|=1u<<nl; } if(v2>=3){ if(((q)&3)==3) b_|=1u<<nl; if(((q)&7)==3||((q)&7)==5) b_|=1u<<(nl+1);} b_; })
+  unsigned tb=BITS(c);
+  static u64 st[1<<12], nw[1<<12]; int S=1<<r; for(int i=0;i<S;i++) st[i]=0; st[0]=1;
+  for(int j=0;j<k;j++){ unsigned b=BITS(pr[j]%u); u64 od=(u64)(ex[j]+1)/2, ev=(u64)ex[j]/2+1;
+    for(int i=0;i<S;i++) nw[i]=st[i]*ev+st[i^b]*od; for(int i=0;i<S;i++) st[i]=nw[i]; }
+  u64 g=st[tb]; if(getenv("Z53DBG")) printf("G %lu %lu %lu %lu\n", n, u, g, phi>>0);
+  if(!g) return 0;
+  double mu=(double)g*(double)S/(double)phi; int bb=(int)floor(2*log2(mu))+20; if(bb<0) bb=0; if(bb>NG-2) bb=NG-2; return 1+bb;
+}
+
 
 static int ndivlist; static u64 divs[1<<16];
 static void gen_divs(u64 *pr, int *ex, int k){
@@ -79,7 +103,7 @@ int main(int argc, char **argv){
     if(need>plim){ free(primes); plim=need*2; sieve_primes(plim); }
     build_spf((uint32_t)Us+2);
     uf=realloc(uf,sizeof(int32_t)*(Us+2)); for(u64 i=0;i<=Us+1;i++) uf[i]=(int32_t)i;
-    nedges=0;
+    nedges=0; gbuck=realloc(gbuck,Us+3);
     /* segmented factorisation of n+u, u in [1,Us] */
     const u64 B=1<<16; u64 *rem=malloc(B*sizeof(u64)); uint32_t (*fl)[24]=malloc(B*sizeof(*fl)); uint8_t *fc=malloc(B);
     uint32_t *nmod=malloc(sizeof(uint32_t)*nprimes); int np=0; while(np<nprimes && primes[np]<=need) { nmod[np]=(uint32_t)(n%primes[np]); np++; }
@@ -93,6 +117,7 @@ int main(int argc, char **argv){
         for(int j=0;j<fc[i];j++){ u64 l=fl[i][j]; int e=0; while(m%l==0){ m/=l; e++; } pr[k]=l; ex[k]=e; k++; }
         if(m>1){ pr[k]=m; ex[k]=1; k++; }
         if(fc[i]>=24){ fprintf(stderr,"too many factors\n"); exit(1); }
+        if(u<=R) gbuck[u]=(uint8_t)genus_bucket(n,u,pr,ex,k);
         gen_divs(pr,ex,k);
         if(ndivlist>=(1<<16)){ fprintf(stderr,"too many divisors\n"); exit(1); }
         for(int j=0;j<ndivlist;j++){ u64 D=divs[j]; if(D%u != (u-1)%u) continue; u64 v=N/D; if(v==u) continue;
@@ -136,7 +161,7 @@ int main(int argc, char **argv){
       int inset[NSET]={1,sm,sp,c==-1,sm&&c==-1,sq};
       int isbi=cbi[findr((int32_t)a)]; int d=dep[a];
       int b=0; { u64 y=a; while(y>1){ y>>=1; b++; } }
-      if(b<NB) { u64 *s=strat[c+1][a%8][sm][sp][b]; s[0]++; s[1]+=noniso[a]; s[2]+=isbi; }
+      if(b<NB) { u64 *s=strat[c+1][a%8][sm][sp][b]; s[0]++; s[1]+=noniso[a]; s[2]+=isbi; u64 *g=gstrat[c+1][a%8][sm][b][gbuck[a]]; g[0]++; g[1]+=noniso[a]; g[2]+=isbi; }
       for(int k=0;k<NSET;k++) if(inset[k]){ cnt[k]++; if(isbi){ hit[k]++; if(d<=1) h1[k]++; if(d<=2) h2[k]++; if(!first[k]){ first[k]=a; frank[k]=cnt[k]; } if(a>100 && !first100[k]){ first100[k]=a; frank100[k]=cnt[k]; } } }
     }
     if(!quiet){
@@ -148,5 +173,8 @@ int main(int argc, char **argv){
   }
   if(stratfile){ FILE *f=fopen(stratfile,"w"); fprintf(f,"# chi amod8 inSM inSP log2bucket count nonisolated inBichromComp\n");
     for(int c=0;c<3;c++) for(int m=0;m<8;m++) for(int a=0;a<2;a++) for(int b=0;b<2;b++) for(int k=0;k<NB;k++){ u64 *s=strat[c][m][a][b][k]; if(s[0]) fprintf(f,"%d %d %d %d %d %lu %lu %lu\n",c-1,m,a,b,k,s[0],s[1],s[2]); }
+    fclose(f);
+    char gf[4096]; snprintf(gf,sizeof gf,"%s.genus",stratfile); f=fopen(gf,"w"); fprintf(f,"# chi amod8 inSM log2bucket genusbucket count nonisolated inBichromComp\n");
+    for(int c=0;c<3;c++) for(int m=0;m<8;m++) for(int a=0;a<2;a++) for(int k=0;k<NB;k++) for(int g=0;g<NG;g++){ u64 *s=gstrat[c][m][a][k][g]; if(s[0]) fprintf(f,"%d %d %d %d %d %lu %lu %lu\n",c-1,m,a,k,g,s[0],s[1],s[2]); }
     fclose(f); }
   return 0; }
