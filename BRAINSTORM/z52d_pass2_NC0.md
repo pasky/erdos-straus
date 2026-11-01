@@ -1,10 +1,11 @@
 # z52d Pass 2 — batch NC0 (81 needs-compute items)
 
-Summary: 81/81 items recorded (one line each in data/z52b/pass2/outcome_NC0.jsonl). Outcomes: covered=2, interesting=10, needs-compute=3, nothing=66.
-Interesting: Z0739, Z0848, Z0863, Z0814, Z0922, Z0651, Z0353, Z0323, Z0896, Z0961.
-Not done (cap or missing infrastructure): Z0272, Z0292 (needs-compute); Z0779 segmented 1e10 and Z0948 3e4 partial sums not finished; Z0687 rank of L(1,χ_p) not run.
-Premise corrections: Z0012 (4/P ∈ Frac(A) for every P), Z0357 (relaxation is not lattice-free), Z1188 (Lean project does exist), Z0863 3-adic hypothesis refuted by unit-solvability mod 81, Z0848 independence premise (model predicts a finite tail).
-Process: 1 subagent group (G1) was aborted at the cap; its 7 finished items were kept, the remaining items were run by the coordinator. Scripts: scripts/z52d_p2_NC0_*; data: data/z52b/pass2/NC0/.
+Summary: 81/81 items recorded (one line each in data/z52b/pass2/outcome_NC0.jsonl). Outcomes: covered=2, interesting=11, needs-compute=6, nothing=62.
+Interesting: Z0739, Z0848, Z0863, Z0814, Z0922, Z0651, Z0353, Z0323, Z0896, Z0961, Z0157.
+Needs-compute (partial results + estimate, beyond the 30-min cap): Z0687, Z0524, Z0779, Z1013, Z0272, Z0292.
+Fix round (pass2_fix): Z0272, Z0292 re-recorded; Z0357, Z0470, Z0609, Z0157, Z0779, Z0948, Z0524, Z0474, Z0651, Z0687, Z0949, Z0093, Z0264, Z1013, Z1088, Z1120 updated with the main step actually run (or a partial plus an estimate).
+Premise corrections: Z0012 (4/P ∈ Frac(A) for every P); Z0357 (the slice body is non-convex; the hull of integer solutions is not flat); Z0093 (the cone is vacuous for K totally imaginary); Z0651 (record-setters not near-squares); Z0863 (3-adic obstruction refuted by unit-solvability mod 81); Z0848 (independence model predicts a finite tail).
+Process: subagent group G1 was aborted at the cap; its finished items were kept and the remainder run by the coordinator. Scripts: scripts/z52d_p2_NC0_*; data: data/z52b/pass2/NC0/ (sub/ for subagent outputs).
 
 ## Interesting items
 ### Z0739 — Last-failure sequence by numerator m (7..48) is not in OEIS
@@ -38,10 +39,10 @@ Evidence: scripts/z52d_p2_NC0_families.py, data/z52b/pass2/NC0/families_summary.
 Next: Get the family table for all 50+ families over p≤1e6 and fit log(last exception) on (log mean, CV) jointly.
 
 ### Z0651 — Result: least certificate-family size s(p) has a p-independent distribution (median 22, 99% ≤ ~200) and the CRT model predicts its maximum
-Chunked least-family computation for all hard-class primes (p≡1,121,169,289,361,529 mod 840) in [1e7,1e9): ~1.57 M primes, all solved with s≤5000 (0 unsolved). Median s = 22 and 99% quantile 197–230 in every 1e7 block, matching the 1e8 values in the item. Maximum over [1e7,1e8) was 2814 at 53049049 (as in the item); the new maximum in [1e8,1e9) is s = 3092 at p = 393858721 (second 2451 at 486915361). The CRT model predicts ≈3·10³ for 1e9, consistent with this.
+Chunked least-family computation for all hard-class primes in [1e7,1e9) (~1.57 M primes, 0 unsolved for s≤5000): median s = 22 and 99% quantile 197–230 in every 1e7 block. Max over [1e7,1e8) is 2814 at 53049049 (as in pass 1); new record in [1e8,1e9): s = 3092 at 393858721, consistent with the CRT model's ~3e3 at 1e9. The record-setters are not near-squares: k/(2√p) = 0.48 for 53049049 and 0.13 for 393858721, against a hard-class median of 0.22 (9% below 0.05; scripts/z52d_p2_NC0_Z0651_nearsq.py).
 
-Evidence: scripts/z52d_p2_NC0_leastfam_chunk.py, data/z52b/pass2/NC0/leastfam_*.json, data/z52b/pass2/NC0/leastfam_*.log
-Next: Check whether 393858721 and 53049049 are near-square (cf. NEAR_SQUARE.md) and whether their minimal certificate families are the same type.
+Evidence: scripts/z52d_p2_NC0_leastfam_chunk.py, data/z52b/pass2/NC0/leastfam_*.json, scripts/z52d_p2_NC0_Z0651_nearsq.py
+Next: Test whether the record-setters' certificate families share a type.
 
 ### Z0353 — FF analogue of hard-prime structure: P with P − 1 'smooth' (many small-degree factors)
 Ran the F_q[T] ES engine (A=T, 3 monic denominators) over all monic irreducible P with T∤P: q=5 deg≤6 (failures 2,2,1,0,0), q=7 deg≤5 (failures 6,21,25,16 of 21,112,588,3360). At q=7, n=4,5 the failure rate rises monotonically with the number of irreducible factors of P−1 (n=5: 0/560 at 1 factor, 2/1162, 6/1057, 5/448, 3/133 at 5 factors; mean #factors 3.56 failing vs 2.53 ok). The 'P−1 has an F_5-root' pattern found at q=5 fails at q=7 (9 of 68 failing P have no root), and there is no degree-matched control yet.
@@ -67,6 +68,12 @@ Partial Spearman of the U-residual (8966 primes p=1 mod 4, p<=2e5) with ord_p(10
 Evidence: scripts/z52d_p2_NC0_Z0961.py, data/z52b/pass2/NC0/sub/Z0961_partial.json, data/z52b/pass2/NC0/sub/md_G2.md (section Z0961)
 Next: Add mod-840 fixed effects and quartic/octic residue symbols of 10 (and 3) as controls; if partial >=0.05 survives, write it up as a higher-character signature (FRONTIER 2.1).
 
+### Z0157 — Brieskorn links: ES solutions never give integral homology spheres
+PROVED: pairwise-coprime ES denominators are impossible (x | n·yz with gcd(x,yz)=1 forces xyz | n, and then 4 = m(xy+yz+zx) has no solution). Milnor–Orlik (checked on A2, A4, E6, E8 and Ẽ8 links) for all 9,438 unordered ES triples with n ≤ 120: Σc_k is even, ≥2, and never 0 (range 2–126). So Δ(t) vanishes at t=1 for every ES triple, the link is never a rational homology sphere, and its H_1 is infinite (b_1 ≥ 1 by the Milnor/Brieskorn correspondence, not checked against a source).
+
+Evidence: scripts/z52d_p2_NC0_Z0157.py, scripts/z52d_p2_NC0_Z0157_h1.py, scripts/z52d_p2_NC0_Z0157_es.py
+Next: Compare Σc_k − 2 with the Seifert base genus of Σ(x,y,z) (Neumann–Raymond) to make b_1 explicit.
+
 ## All outcomes
 - Z0739 [needs-compute→interesting] Last-failure sequence by numerator m (7..48) is not in OEIS
 - Z0752 [needs-compute→nothing] Last 16/p failure 83449 and last 12/p failure 12241: next-term prediction
@@ -80,20 +87,20 @@ Next: Add mod-840 fixed effects and quartic/octic residue symbols of 10 (and 3) 
 - Z0651 [needs-compute→interesting] Result: least certificate-family size s(p) has a p-independent distribution (median 22, 99
 - Z0687 [needs-compute→needs-compute] U(232 792 561) = 276: the lcm(1..19)+1 prime is hard but not extreme
 - Z0264 [needs-compute→nothing] Categorified ES over N[T]: identities with non-negative coefficient polynomials, evaluated
-- Z0524 [needs-compute→nothing] Between: Ternary Egyptian for numerators m with all denominators in an AP
+- Z0524 [needs-compute→needs-compute] Between: Ternary Egyptian for numerators m with all denominators in an AP
 - Z0470 [needs-compute→nothing] Feature: finite escalation / certificate threshold (290, 451, Graham's 77)
 - Z0609 [needs-compute→nothing] Feature: structure of the exceptional set at composite n
 - Z0353 [needs-compute→interesting] FF analogue of hard-prime structure: P with P − 1 'smooth' (many small-degree factors)
 - Z0047 [needs-compute→nothing] ES over F_q[T] with the extra condition 'distinct denominators' — equivalent or not?
 - Z0323 [needs-compute→interesting] k-term FF: ES_q with 4 monic terms — does an FF finite covering exist for all q?
 - Z0773 [needs-compute→nothing] ESC(p) as a certificate count at primes — calibrate ESC(p)/log²p
-- Z0779 [needs-compute→nothing] A segmented word sieve to 10¹⁰ for per-n counts
+- Z0779 [needs-compute→needs-compute] A segmented word sieve to 10¹⁰ for per-n counts
 - Z0786 [needs-compute→nothing] Number of elliptic curves of conductor p (or 4p, 8p, 16p) vs U(p)
 - Z0896 [needs-compute→interesting] Signed sibling 4/n = 1/x + 1/y − 1/z: count fingerprint
 - Z0917 [needs-compute→covered] Type number of quaternion orders vs ES counts
 - Z0961 [needs-compute→interesting] Hardness vs the order of 10 mod p (decimal period) — category check
 - Z0989 [needs-compute→nothing] Resultants between identities
-- Z1013 [needs-compute→nothing] Rational reconstruction
+- Z1013 [needs-compute→needs-compute] Rational reconstruction
 - Z1017 [needs-compute→nothing] Semigroup holes
 - Z1060 [needs-compute→nothing] Polynomial recurrence selectors
 - Z1064 [needs-compute→nothing] CRT covering radius
@@ -144,7 +151,7 @@ Next: Add mod-840 fixed effects and quartic/octic residue symbols of 10 (and 3) 
 - Z0012 [needs-compute→nothing] Genus-1 coordinate rings: ES over F_q[x,y]/(E) with sign at the point at infinity
 - Z0093 [needs-compute→nothing] ES in rings of integers of CM fields with cone from the maximal real subfield
 - Z0154 [needs-compute→nothing] Riemann–Hurwitz integrality: a surface subgroup of Δ(x,y,z) of index d needs n | d(n − 4)
-- Z0157 [needs-compute→nothing] Brieskorn links: ES solutions never give integral homology spheres
+- Z0157 [needs-compute→interesting] Brieskorn links: ES solutions never give integral homology spheres
 - Z0272 [needs-compute→needs-compute] ES on average over number fields: for random real quadratic K, how often does rational ES 
 - Z0292 [needs-compute→needs-compute] Spectral world: ES as a statement about eigenvalues of the Laplacian on the triangle orbif
 - Z0357 [needs-compute→nothing] ES as an integer-programming feasibility problem: divisor enumeration per p; flatness idea
