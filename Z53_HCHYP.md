@@ -22,7 +22,8 @@ this lane adds:
 2. **Two barriers for properties of model line data (Cor M3, M4, PROVED; scope stated there).**
    * *Model-null barrier.* No property that 𝔐 satisfies with positive probability formally implies S_θ for
      θ < 2 log 2. This covers every "typical-behaviour" (Erdős–Hall-regime) statement about line data.
-   * *Planted barrier.* No block-robust 𝔐-almost-sure property implies S_A. This is B6 made exact for S_A.
+   * *Planted barrier.* No block-robust 𝔐-almost-sure property implies S_A. This is B6 made exact for S_A,
+     and covers asymptotic-error averaged statements (error scale → ∞) read as properties of line data.
 3. **Fixed windows: Theorem U (PROVED modulo Henriot).** #{p ≤ y : HC(p) > X} ≪_X y (log y)^{−1−ℓ(X)/2}, where ℓ(X) is
    the number of lines with coordinate ≤ X. This extends Fable's Thm 3.2 (X = 4).
    * A version uniform in X with constants C^{ℓ(X)} would imply an 𝔐-null statement (Remark U).
@@ -32,8 +33,8 @@ this lane adds:
    * Erdős–Hall-type statements: blocked by M3.
    * Uniform high-dimensional Landau sieve: controls confinement only.
    * Averaged Kubilius/Elliott/Chowla/Hardy–Littlewood statements: blocked by M4, as properties of line data.
-   * ES-specific lower tails: sufficient, but their content is about the ES lines alone. The bare count version is
-     literally S_A (Prop 5.1).
+   * ES-specific lower tails: sufficient, but their content is about the ES lines alone. The count version LT(A, c),
+     with event HC(p) > (log p)^A, is S_A restated (Prop 5.1).
    * A *general* lottery lower-tail principle: the first draft was **refuted in review** by a local-obstruction family.
      Any correct form needs three features: local admissibility with local-factor-conditioned masses, dependence
      control, and a quadratic-alignment clause of either parity (§5.3).
@@ -188,8 +189,10 @@ The first Borel–Cantelli lemma gives (b). ∎
 This is the Poisson scale: P(all lines ≤ X fail) ≈ e^{−Σ P} reaches 1/p there. For 𝔐 we compute it with the
 *upper-bound surrogate* P_ι := U (M1's upper value; `z53_hchyp_xstar_model.py`): X*/log p = 2.55, 2.46, 2.48, 2.68, 2.96,
 3.33, 3.79, 4.33 at log p = 18.4, 27.6, 50, 100, 200, 400, 800, 1600. With the half-surrogate P_ι := U/2 the values are
-7.4 → 17.8. The finite-difference slopes Δ log X*/Δ log log p are 0.91 → 1.20 (U) and 1.10 → 1.25 (U/2). By Theorem M they
-must tend to 2 log 2, but only extremely slowly. The data (§6) give X*/log p = 3.42, 3.43, 3.44, 3.44, 3.45 at log p = 18.4, 23.0, 27.6,
+7.4 → 17.8. The finite-difference slopes Δ log X*/Δ log log p are 0.91 → 1.20 (U) and 1.10 → 1.25 (U/2). The estimates behind
+Theorem M place the mass-crossing scale between (log p)^{2 log 2 − ε} and (log p)^{2 log 2 + ε} for large p, for either
+surrogate. So log X*/log log p → 2 log 2. Convergence of the finite-difference slopes themselves is not proved; the
+table only shows that the approach is slow. The data (§6) give X*/log p = 3.42, 3.43, 3.44, 3.44, 3.45 at log p = 18.4, 23.0, 27.6,
 32.2, 35.9. The census maximum of HC over all p ≤ 10⁸ is 64 (Fable §3.2), against X*(10⁸) = 63. So the data look like 𝔐's
 pre-asymptotic regime, where HC_max looks linear in log p. Fable's linear Conjecture 3.4 describes the observable range
 well, but by Theorem M(a) it is an 𝔐-null statement asymptotically. This is a statement about the model; it does not
@@ -208,10 +211,18 @@ encoded in the line data is not covered. Such an argument would have to show tha
 prime ≡ 1 (8) in (2^j, 2^{j+1}]) by setting k_ι = 0 for every line with x ≤ (log p)^A. Then S_A fails surely under 𝔐^♯.
 Call 𝐇 *block-robust* if changing w at ≤ 1 prime per dyadic block keeps w in 𝐇. A block-robust 𝐇 with 𝔐(𝐇) = 1 has
 𝔐^♯(𝐇) = 1 (the coupling changes one prime per block). Therefore no block-robust 𝔐-almost-sure 𝐇 implies S_A.
-*Which averaged statements are block-robust.* Take statements of the form
-"for all large y, #{p ∈ (y, 2y] : E_p} ≤ B(y)", where E_p depends only on the line data at p. Such a statement is
-block-robust if it holds 𝔐-a.s. with slack ≥ 1 in every block. Statements with saturated inequalities, unbounded
-observables, or errors accumulated over many blocks need a separate check.
+*Which averaged statements are block-robust (corrected after cross-model review).* "Holds 𝔐-a.s. with slack ≥ 1" is
+**not** enough. A sliding interval (y, 2y] can meet two dyadic blocks, so planting can change its count by 2. Moreover,
+almost-sure slack concerns typical members of 𝐇, not invariance of all members.
+
+What does work is the class of *asymptotic error statements*. Take statements "#{p ∈ I : E_p} = M(I) + O(E(I))" over
+intervals I = (y, 2y] or [1, y], with E_p depending only on the line data at p and the O-constant arbitrary. Planting
+changes such a count by ≤ 2 (sliding interval) or ≤ log₂ y + 1 (initial segment). So the statement is invariant under
+planting whenever E(I) → ∞ (for (y, 2y]), resp. E(I)/log y → ∞ (for [1, y]): the changed error is still O(E). Statements
+of this class are block-robust in the sense of M4.
+
+Whether a given standard conjecture, *as an arithmetic statement*, can be encoded as such a property of line data is a
+separate question that is not addressed here.
 *Reading (Assessment).* This is B6 made exact for S_A: a useful hypothesis of this kind must bound the joint failure of all
 lines up to ≳ (log p)^{2 log 2} with frequency < 1 per block.
 
@@ -266,18 +277,22 @@ EVIDENCE: P(HC > 4) = 0.083 → 0.042 from 10⁸ to 4·10¹⁵ (§6). Over that 
 cannot be read off. A matching lower bound would need a half-dimensional lower-bound sieve for primes in several forms,
 which is not attempted here.
 
-**Remark U (why the Landau saving cannot be uniform).** Suppose the implied constant in Theorem U were ≤ C^{ℓ(X)} uniformly
+**Remark U (a uniform Landau saving would be model-null).** Suppose the implied constant in Theorem U were ≤ C^{ℓ(X)} uniformly
 for X ≤ log y. With X = 8 log y/log log y this would give a count < 1, i.e. HC(p) ≤ 8 log p/log log p for all large p.
-That is S_θ for every θ > 1, which Cor M3 says 𝔐 violates almost surely. The proof shows where the estimate breaks: Lemma K allows r − 2 exceptional primes, and for H = {1} that is
+That is S_θ for every θ > 1, which 𝔐 violates almost surely (Theorem M(a)). So such uniformity would be a statement
+the Kubilius model violates. This is *not* an arithmetic impossibility: M3 cannot rule out a uniform estimate for actual
+primes. The proof shows where the estimate breaks: Lemma K allows r − 2 exceptional primes, and for H = {1} that is
 φ(x) − 2. Once φ(x) ≫ log log p this exceeds the typical ω(N), and the Rankin factor s^{−(r−2)} makes the Kneser–Rankin
 estimate ineffective.
 
-In 𝔐 the line still succeeds with probability → 1 up to x ≈ (log p)^{log 2 − ε} (Erdős–Hall regime). Its failure
-probability, ≈ (log p)^{−Q(a)} from the ω-deficit with a = log φ(x)/(λ log 2) < 1, exceeds the confinement rate
-(log p)^{−1/2} as soon as Q(a) < ½, i.e. a ≲ 0.19, φ(x) ≳ (log p)^{0.13} (model computation, Assessment). So **the per-line
-saving (log p)^{−1/2} of Theorem U is the right rate only for small x** (fixed x, or x up to a small power of log p in 𝔐).
-Beyond that, failure is driven by too few prime factors rather than by confinement, and above (log p)^{log 2} it is the
-generic outcome (the lottery). This is the precise form of the dimension barrier for HC. It also disposes of the
+*Heuristic picture in 𝔐 (Assessment, not proved).* The line still succeeds with probability → 1 up to
+x ≈ (log p)^{log 2 − ε} (Erdős–Hall regime). Write a = log φ(x)/(λ log 2) < 1. The ω-deficit alone (k < aλ) gives a
+failure probability of order (log p)^{−Q(a)+o(1)}; this is a lower bound for failure. On (0, 1), Q is decreasing with
+Q(0) = 1, so (log p)^{−Q(a)} exceeds the confinement rate (log p)^{−1/2} as soon as Q(a) < ½, i.e. for a **above**
+a* ≈ 0.187, i.e. φ(x) ≳ (log p)^{0.13}. So the per-line saving (log p)^{−1/2} of Theorem U should be the right rate
+only for small x (fixed x, or x up to a small power of log p in 𝔐). The precise transition at (log p)^{0.13}, and the
+claim that the ω-deficit *dominates* beyond it, would need a matching upper bound for failure, which is not supplied.
+Above (log p)^{log 2}, failure is the generic outcome (the lottery; PROVED in 𝔐 via Lemma M2(i)). This is the precise form of the dimension barrier for HC. It also disposes of the
 "high-dimensional Landau" hypothesis of §5.2.
 
 ## 5. Hypotheses: what each shape can and cannot do
@@ -286,9 +301,10 @@ generic outcome (the lottery). This is the precise form of the dimension barrier
 
 For a line at x and a prime p (λ = log log p) there are three regimes. They are described in 𝔐 (Assessment for actual
 primes):
-* **Small x (Kneser/Landau regime): fixed x, or x up to about (log p)^{0.13}.** Failure is dominated by confinement
-  (Lemma K). Theorem U gives the upper rate (log y)^{−1/2} per line for fixed X.
-* **Typical regime, up to (log p)^{log 2−ε}.** Success is typical (Erdős–Hall). Failure comes mainly from an ω-deficit.
+* **Small x (Kneser/Landau regime): fixed x, and heuristically x up to about (log p)^{0.13}.** Failure comes through
+  confinement (Lemma K). Theorem U gives the upper rate (log y)^{−1/2} per line for fixed X.
+* **Typical regime, up to (log p)^{log 2−ε}.** Success is typical (Erdős–Hall). Heuristically, failure comes mainly from
+  an ω-deficit (Remark U; the domination is not proved).
 * **Lottery regime, beyond (log p)^{log 2+ε}.** Failure is typical. Success has probability ≤ (log p)^{−Q(θ/log 2)+o(1)}
   up to θ = 2 log 2, and ≍ log p/x beyond.
 
@@ -324,14 +340,20 @@ uniformly for k up to log x/log log x."
 * (iii) — (iv) — (v) Does not reach S_A.
 
 **H_Kub — joint Kubilius / Elliott / Chowla / Hardy–Littlewood with error terms.**
-* (i) In their averaged form these are block-robust statements, so they cannot formally imply S_A (Cor M4, with the
-  scope stated there).
+* (i) Their averaged *asymptotic-error* forms, read as properties of line data, are block-robust in the corrected sense
+  of M4. So in that reading they cannot formally imply S_A. The actual arithmetic conjectures have not been encoded as
+  such properties; this is an Assessment, not a non-implication theorem.
 * (ii) Fine. (iii) Fine. (iv) —
-* (v) Blocked by M4.
+* (v) Blocked by M4 in the line-data reading only.
 
-**LT — ES-specific joint lower tail.** "#{p ∈ (x, 2x] : all lines ≤ (log x)^A fail} ≤ x exp(−c𝓜)", with 𝓜 the 𝔐-mass of
-those lines.
-* (i) Implies S_A trivially. Its count bound tends to 0, so it is S_A restated (Prop 5.1).
+**LT(A, c) — ES-specific joint lower tail.** Fix c > 0 and A > 2 log 2, so that the bound below tends to 0 by the
+Theorem M(b) mass computation. The statement is: for all large x,
+  #{p ∈ (x, 2x] prime, p ≡ 1 (8) : HC(p) > (log p)^A} ≤ x·exp(−c·𝓜_A(x)),
+where 𝓜_A(x) is the 𝔐-mass of the lines x′ ∈ 𝒞, x′ ≤ (log x)^A.
+* (i) Implies S_A, and in this form it is S_A restated (Prop 5.1; the event uses (log p)^A, as S_A does).
+  The variant with "all lines ≤ (log x)^A fail" inside the count is strictly stronger: evaluating at x = p/2 gives
+  HC(p) ≤ (log(p/2))^A eventually. For abstract HC values (e.g. the largest element of 𝒞 below (log p)^A) this stronger
+  statement fails while S_A holds. The variant still suffices for S_A, but it is not equivalent to it.
 * (ii) Fine (stated for primes). (iii) Has a threshold.
 * (iv) No deep-tail event observed (§6). That cannot test it.
 * (v) ES in disguise.
@@ -510,8 +532,9 @@ and its onset moves out with p as Theorem M says.
 
 The odd-square row is **CERTIFIED** (T1 control): 0 successes in 5 000 × 768 × 2 line tests.
 
-**Joint failure vs independence.** F(X)/∏_{x≤X}(1 − P_x), where F(X) is the observed number of primes with no success
-up to X:
+**Joint failure vs independence.** We compare F(X) with ∏_{x≤X}(1 − P_x). Here F(X) is the observed number of primes with
+no success up to X, and P_x := P̂(E_x ∨ L_x) is the empirical probability that *either* line at x succeeds. So the two
+lines at the same x are not treated as independent. The ratios are:
 * X = 7: 2.66–3.25 (all five prime samples);
 * X = 8: 2.12–4.98;
 * X = 12: 1.7–9.3;
@@ -641,7 +664,7 @@ tables). Verdict before repair: MAJOR-REPAIRS-NEEDED; the model theorem and Theo
 * Prop 5.5: the even-m argument is supplied (Fable's T1 statement assumes m odd).
 * Statements about standard conjectures are relabelled Assessment; M3/M4 are scoped to properties of model line data.
 * The model exponent is no longer stated as an arithmetic necessity; "boundary undecided" is added.
-* The M4 block-robustness application is restricted to count statements with slack ≥ 1.
+* The M4 block-robustness application was restricted (later corrected again by the cross-model review, see below).
 * Remark U corrected: failure is not generic right after x ≫ log log p. Only the Kneser–Rankin estimate becomes
   ineffective there; failure becomes generic beyond (log p)^{log 2}.
 * Prop 5.1 restricted to the bare count statement with B ≥ 0.
@@ -661,3 +684,22 @@ The review confirmed: Lemma K and Theorem U (forms primitive and non-proportiona
 check); M1/M2 calculations; Theorem M(a)/(b) up to the listed completions; Remark U arithmetic; the HC/X* and Z-tail
 numbers; T1 control 300/300 squares with 0 successes in 57 600 line tests; HC test values 7, 4, 15, 64, 39. A cross-model
 review is expected to follow.
+
+**Cross-model review** (`data/z53/xreview/REVIEW_HCHYP.md`, script `scripts/z53_xrev_hchyp_check.py`; verdict
+ACCEPT-WITH-FIXES).
+
+*Confirmed.* M1, M2, Theorem M(a)/(b), M3, the M4 theorem, Lemma K, Theorem U (Henriot 2012 / 2014 erratum New Thm 5
+checked from the primary source), Prop 5.1, Prop 5.5 (conditional), Lemma N and its mass bounds, and the §1 dictionary.
+
+*Reproduced.* The reviewer reran the full odd-square and 10⁸ samples byte-identically and reproduced all X* and Z
+summaries, the near-square counts, and the surrogate tables.
+
+*Fixes applied:*
+1. The M4 application now uses asymptotic-error statements. "Slack ≥ 1" was false for sliding intervals, which can meet
+   two blocks. H_Kub is narrowed to the line-data reading.
+2. LT is stated with explicit c > 0, A > 2 log 2 and the event HC(p) > (log p)^A, so that it is equivalent to S_A. The
+   "(log x)^A inside the count" variant is noted as strictly stronger.
+3. Remark U is retitled "model-null", not arithmetic impossibility. The direction is corrected (Q(a) < ½ for a *above*
+   ≈ 0.187), and the (log p)^{0.13} transition and the ω-deficit domination are marked heuristic (also in §5.1).
+4. The surrogate X* claim is weakened to log X*/log log p → 2 log 2; finite-difference slopes are not claimed to
+   converge. The independence benchmark is defined with P_x = P̂(E_x ∨ L_x).
