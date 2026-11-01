@@ -32,17 +32,27 @@ mean is O(1): ≈ 3(log 2)²/π² ≈ 0.146.
      H_D = N_w − L_D equals −L_D + O(min^{−A}). So a uniform estimate |H_D(n)| ≤ X, valid for all D-rough n, cannot be used
      with the common leading term L_D to prove N > 0 with a margin bounded away from 0. Such a positivity argument has to use
      the primality of p beyond D-roughness. (Such bounds can still serve upper-bound purposes.)
-   * Corollary 4 (PROVED, for the product local model). In any block with min(U, V) → ∞, the class-conditioned model M_q
-     (p mod q, q fixed) is flat in the class up to O_q(min(U,V)^{−1+ε}), uniformly in p. So in that pair-product model F(p)
-     cannot enter the main term of a block with min(U, V) → ∞.
-   * Check: with smooth weights at 12 primes near 10¹², L₄₀(p) agrees with the prediction 0.0200825840 to relative 6·10⁻⁹
-     (45-digit recomputation by the reviewer: spread 1.3·10⁻¹⁰). This is consistent with the error term.
-4. **PROVED. No free variable at high conductor (Thm 5).** All but a τ(q)/K fraction of the frequencies mod q = 4uB have conductor
-   ≥ q/K. Each such conductor is shared by ≤ K·p^{o(1)} pairs (u, B).
+   * Smoothness of the weights is essential to the O(m^{−A}) error, where m := min(U, V). With sharp cutoffs, already
+     L₁ = J − (log 2)/(8U) + O(U⁻²) at U = V.
+   * Corollary 4 (PROVED, for the pair-product local model, which is not a statement about counts of actual primes). The
+     class-conditioned model M_q (p mod q, q fixed) is flat in the class up to O_q(‖W‖_∞·(log 2UV)⁸·m^{−1+ε}), uniformly
+     in p.
+     * Under a polynomial aspect bound max(U, V) ≤ m^A (constants depending on A) this is O_{q,A,ε}(m^{−1+ε}). The balanced
+       block U = V is the case A = 1.
+     * Within that range, F(p) cannot enter the main term of the model for a block with m → ∞.
+     * The error here is polynomial, unlike the superpolynomial error of Thm 3.
+   * Check: with smooth weights at 12 primes near 10¹², L₄₀(p) agrees with the prediction 0.0200825840 at all nine printed
+     decimals. Review 1 reported a 45-digit spread of 1.3·10⁻¹⁰, consistent with the error term; the cross-model review did not
+     re-certify that figure.
+4. **PROVED. No free variable at fixed high conductor (Thm 5).** All but a τ(q)/K fraction of the frequencies mod q = 4uB
+   have conductor ≥ q/K. Each such conductor is shared by ≤ K·p^{o(1)} pairs (u, B).
+   * This concerns the *count* of frequencies. It says nothing about where the signed contribution sits: by Thm 3 a tiny
+     fraction of the frequencies, the low conductors, carries the whole main term.
    * At fixed conductor d the sum over the residue a is complete and equals the Ramanujan sum c_d(n). Only summing these over
      all d | q returns the original indicator. So a complete-sum or Poisson step *at fixed conductor* has ≤ K·p^{o(1)} terms to act on. This is Z1034's
      "dual at least as long as the original" in this precise, scoped sense.
-   * It does not exclude cancellation *across* conductors. That would be a different method, and none is known.
+   * It does not exclude cancellation *across* conductors, or any Poisson/Voronoi/spectral method other than the evaluated
+     fixed-conductor step. Those would be different methods, and none is known.
 5. **Thm 6 (ψ / exponential-sum route).**
    * PROVED: N is given exactly by sawtooth functions of F = (p + u + B)/(4uB), and Erdős–Turán/Vaaler gives
      N ≤ UV/(H+1) + 1/16 + 2.5·max_{1≤h≤H} |S_h|.
@@ -70,14 +80,18 @@ mean is O(1): ≈ 3(log 2)²/π² ≈ 0.146.
    * **The Brauer term is negligible in the block** at 10¹² (|T| ≤ 0.02, sd 5·10⁻⁴; at 10⁸, |T| ≤ 0.053, sd 0.004).
    * The interior carries only 3.8 % of R(p) at 10¹². It is **empty for 9.8 % of primes**; swap-Poisson predicts 9.85 %.
 
-**Verdict: narrowed.** Four specific implementations of the cluster's first lemma are closed by scoped theorems:
+**Verdict: narrowed.** Four specific implementations of the cluster's first lemma are closed by scoped theorems. "Closed" means
+only the explicitly evaluated step; no general impossibility for cancellation is claimed.
 
 * one-step dualization at fixed conductor (Poisson/Voronoi/Ramanujan in (u, B), (u, C) or the divisor form; Thm 5, §3.7);
 * dispersion by Cauchy–Schwarz in the function variable (Prop 2);
 * the majorant route with max |S_h| input, when that input is square-root size (any H), or when H ≥ 2UV (Thm 6). This leaves
   R1 open;
-* a main term built from low-conductor or class-conditioned local data. That data is p-independent up to negligible error and
-  agrees at rough squares (Thm 3, Cor 3.2), and the product model is class-flat (Cor 4). The data agree.
+* a main term built from low-conductor or class-conditioned local data.
+  * With smooth weights the low-conductor data is p-independent up to O(m^{−A}) and agrees at rough squares (Thm 3,
+    Cor 3.2).
+  * The pair-product model is class-flat under a polynomial aspect bound (Cor 4).
+  * The finite-range data agree. That F lives in the strips is empirical and model-scoped, not a theorem about actual counts.
 
 What survives:
 * cancellation across conductors or across frequencies, for which no method is known;
@@ -155,7 +169,8 @@ N(U, U) = #{x ∈ (U, 2U] : f(x) ≠ ⊥, f(f(x)) = x, 4 | (p + x + f(x))/(x f(x
 * The block maps by (u, B) ↦ (x, y) = (4Cu − 1, 4CB − 1) into {xy ≡ 1 (mod 4p)}. Since x = (p + u)/B and y = (p + B)/u,
   the image lies in [(p+U)/(2V), (p+2U)/V] × [(p+V)/(2U), (p+2V)/U]. The class condition is x ≡ −1 (mod (xy − 1)/p)
   (FRONTIER §7.1).
-* In the balanced block this box has area ≍ p^{3/2}. That is (up to constants) the **self-dual box** of the modular hyperbola
+* (Scale comparison only: a count for the containing box is not a count with the height/class restriction.) In the balanced
+  block this box has area ≍ p^{3/2}. That is (up to constants) the **self-dual box** of the modular hyperbola
   mod 4p: 2D Poisson maps an X × Y box with ≈ XY/(4p) points to (4p/X)(4p/Y) dual terms, and the two agree at XY = (4p)^{3/2}.
 * It is also exactly Shparlinski's area-m^{3/2} threshold ("out of reach" below it; PARITY_AUDIT row B1). The box main term
   ≍ p^{1/2}/8 is already below the Weil error p^{1/2+o(1)} before the height condition is imposed.
@@ -266,6 +281,10 @@ L_D(n) := Σ_{d ≤ D} Σ_{(u,B): d | 4uB} (W/q)·c_d(n + u + B). Then
 
   L_D(n) = J·Σ_{d ≤ D, d odd} μ²(d)/d² + O_{ε,A,w}(min(U,V)^{−A}),  J := (1/4)∫w₁(t)dt/t·∫w₂(t)dt/t.
 
+*Remark (smoothness is essential).* The superpolynomial error depends on smooth weights. With sharp cutoffs, U = V and D = 1,
+L₁ = (H_{2U} − H_U)²/4 = J − (log 2)/(8U) + O(U⁻²) (cross-model review), so the error is only O(1/U). In applications p > D
+is automatic, because UV ≤ p.
+
 *Proof.*
 * Group (u, B) by (α, β) = (u mod d, B mod d). Then L_D = Σ_{d≤D} Σ_{(α,β): d | 4αβ} c_d(n + α + β)·Σ_{u≡α, B≡β (d)} W/(4uB).
 * Apply Poisson to g(x) = w₁(x/U)/x, whose transform satisfies ĝ(ξ) ≪_A (U|ξ|)^{−A}. This gives
@@ -316,8 +335,16 @@ p ≡ r (mod q).
 * For non-adm pairs this probability is 0, because −(u+B) is then not a unit mod 4uB.
 * Hence M_q(r) = E[N_w(p)] with N_w summed over **all** pairs. This is the "M_F" of the brief.
 
-**Corollary 4.** max_{r, r′} |M_q(r) − M_q(r′)| ≪_{q,ε,w} min(U, V)^{−1+ε}, uniformly in p. So in this pair-product model the
-RESIDUE_HARDNESS factor (q | 840·16·11·13) has no main-term effect on a block with min(U, V) → ∞.
+**Corollary 4.** Write m = min(U, V). Then
+
+  max_{r, r′} |M_q(r) − M_q(r′)| ≪_{q,ε,w} ‖W‖_∞·(log 2UV)⁸·m^{−1+ε},
+
+uniformly in p.
+* If max(U, V) ≤ m^A for a fixed A, this is ≪_{q,A,ε,w} m^{−1+ε}. The balanced block U = V is the case A = 1.
+* So within that aspect range, the RESIDUE_HARDNESS factor (q | 840·16·11·13) has no main-term effect on the pair-product model
+  of a block with m → ∞.
+* For arbitrary aspect ratios (e.g. V = exp(U)) the log⁸(2UV) factor is not absorbed, and this proof does not give decay. No
+  counterexample is claimed.
 
 *Proof.* Take D = min(U,V)^{1−ε} and write E[N_w] = E[L_D(p)] + E[H_D(p)].
 
@@ -347,7 +374,8 @@ with d₁ composed of the primes dividing q and gcd(d₂, q) = 1.
   * There are ≤ τ(4uB) ≤ 3τ(u)τ(B) such d₂.
   * For d₂ > X, 1/φ(d₂) ≪ (log log X)/X.
   * So the inner sum is ≪ gcd(u,B)τ(u)τ(B)(log log X)/X.
-* *Sum over pairs.* Since W ≤ 1, write g = gcd(u,B), u = gu′, B = gB′ and use τ(gu′) ≤ τ(g)τ(u′):
+* *Sum over pairs.* Bound W ≤ ‖W‖_∞ (this factor multiplies the final bound). Write g = gcd(u,B), u = gu′, B = gB′ and use
+  τ(gu′) ≤ τ(g)τ(u′):
   Σ_{𝔅} gcd(u,B)τ(u)τ(B)/(uB) ≤ Σ_{g≤2U} τ(g)²/g · Σ_{u′≤2U} τ(u′)/u′ · Σ_{B′≤2V} τ(B′)/B′ ≪ (log 2UV)⁸. ∎
 
 *Illustration* (EVIDENCE, `scripts/z52d_hyperbola_cor4check.py`, sharp cutoffs): the relative class spread
@@ -357,7 +385,8 @@ q = 16. This decays roughly like 1/U, as the corollary predicts.
 *(Review-2 fix: an earlier outline wrongly lifted prime divisibility to prime powers. Restricting to squarefree d₂, which the
 factor μ(d₂) allows, removes the problem, and the crude per-pair bound needs no boundary bookkeeping.)*
 
-With X = D/q and D = min(U,V)^{1−ε}, this gives |E[H_D]| ≪_q (log 2UV)⁸·min(U,V)^{−1+ε}, uniformly in r and in p. Adding (i),
+With X = D/q and D = min(U,V)^{1−ε}, this gives |E[H_D]| ≪_q ‖W‖_∞(log 2UV)⁸·min(U,V)^{−1+ε}, uniformly in r and in p. Under
+max(U,V) ≤ m^A the log factor is ≪ m^ε. Adding (i),
 whose error is O(min^{−A}), proves the corollary after renaming ε. ∎
 
 *Scope.* Corollary 4 is a statement about the **pair-product densities** M_q(r). These depend on U, V, q, W and r, but not on
@@ -375,7 +404,7 @@ the size of p or on any restriction on C. It is not a statement about counts in 
 
 **Theorem 5.** Let q = 4uB and K ≥ 1.
 (a) #{h mod q : the reduced denominator of h/q is ≤ q/K} ≤ τ(q)·q/K.
-(b) For every d, #{(u,B) ∈ 𝔅 : d | 4uB, 4uB ≤ Kd} ≤ Σ_{k≤K} τ(kd/4)·1[4 | kd] ≤ K·max_{m ≤ 4KUV} τ(m) = K·p^{o(1)} (for UV ≤ p).
+(b) For every d, #{(u,B) ∈ 𝔅 : d | 4uB, 4uB ≤ Kd} ≤ Σ_{k≤K} τ(kd/4)·1[4 | kd] ≤ K·max_{t ≤ 4UV} τ(t) = K·p^{o(1)} (for UV ≤ p; each contributing kd/4 = uB ≤ 4UV).
 (c) For fixed (u, B) and d, the sum over a in (2.1) is complete and equals c_d(n). Moreover Σ_{d|q} c_d(n) = q·1[q | n].
 
 *Proof.*
@@ -386,8 +415,9 @@ the size of p or on any restriction on C. It is not a statement about counts in 
 
 (c) Standard. ∎
 
-*Reading (scoped).* In the dual (2.1), all but a τ/K fraction of the frequency count sits on conductors d ≥ 4UV/K. In the
-balanced block those are ≍ p^{1/2}.
+*Reading (scoped).* In the dual (2.1), all but a τ/K fraction of the frequency *count* sits on conductors d ≥ 4UV/K. In the
+balanced block those are ≍ p^{1/2}. This is not a statement about the signed contribution: by Thm 3 the low conductors, a
+vanishing fraction of the frequencies, carry the main term.
 * Each conductor is attached to ≤ K·p^{o(1)} pairs, and these pairs form a set of factorisations of kd, not an interval or a
   lattice. So a Poisson, Weil, Pólya–Vinogradov or large-sieve step *at fixed modulus* has no variable of length
   > K·p^{o(1)} to act on.
@@ -422,7 +452,9 @@ populated.
 Let Δ_H := max_{1≤h≤H} |S_h| with S_h = Σ_{𝔅} e(hF) as in (E3).
 
 **Theorem 6.**
-(a) (PROVED; uses Selberg's majorant.) For 1 ≤ H ≤ 4UV, N(U,V) ≤ UV/(H+1) + 1/16 + 2.5·Δ_H.
+(a) (PROVED.) For 1 ≤ H ≤ 4UV, N(U,V) ≤ UV/(H+1) + 1/16 + 2.5·Δ_H.
+* A stronger elementary version, which needs no citation (cross-model review): since 1[t ∈ ℤ] ≤ K_H(t)/(H+1) with the Fejér
+  kernel, N ≤ UV/(H+1) + H·Δ_H/(H+1).
 
 (b) (PROVED.) For H + 1 ≥ 2UV, Σ_{1≤|h|≤H} |S_h|² ≥ (H+1)UV/2. Hence Δ_H ≥ (UV)^{1/2}/2.
 
@@ -432,7 +464,8 @@ Let Δ_H := max_{1≤h≤H} |S_h| with S_h = Σ_{𝔅} e(hF) as in (E3).
 * Square-root bounds Δ_H ≪ (UV)^{1/2} give only N ≪ (UV)^{1/2}. This is ≥ min(U, V), so it never beats Thm 1. In the balanced
   block it equals the trivial bound U.
 * The "asymptotic" version of the route takes H ≥ 2UV, so that the majorant's main term UV/(H+1) is ≤ 1/2, i.e. comparable to
-  M. By (b), that version provably outputs ≥ 1.25·(UV)^{1/2}.
+  M. By (b), that version of inequality (a) outputs ≥ 1.25·(UV)^{1/2}. The constant 1.25 is specific to inequality (a).
+* For shorter H, beyond-square-root input is sufficient, not necessary.
 
 (d) (EVIDENCE.) At p = 10¹² + 39, U = V = 1000, sharp sums (`scripts/z52d_hyperbola_expsum.c`,
 `data/z52d/hyperbola/expsum_p1e12p39.tsv`):
@@ -639,33 +672,42 @@ swap-Poisson noise of size √M. It does sharpen what "class-aware" can mean.
 
 **Narrowed.**
 
-* **Closed (scoped theorems).** Each item below is closed as an *implementation*. None is an impossibility theorem for
-  cancellation in general.
-  * One-step dualization at fixed conductor: Poisson, Voronoi or Ramanujan in (u, B), (u, C) or the divisor form. At conductor
-    ≥ q/K there are ≤ K·p^{o(1)} terms; the complete a-sum gives c_d(n), and summing over d | q gives back 1[q | n] (Thm 5,
-    §3.7). The B-process
-    count (Thm 6e, Assessment) shows the 2D dual is longer than the original except for h ≲ 7.9/ρ.
-  * Dispersion by Cauchy–Schwarz in the function variable in the balanced block (Prop 2).
-  * The majorant route with max_h |S_h| input: square-root input gives ≍ (UV)^{1/2} ≥ min(U, V), which never beats the
-    elementary bound in any block, and for H ≥ 2UV a square-root floor is proved (Thm 6b, c). Beyond-square-root input on a
-    short segment (R1) is not excluded.
-  * A main term built from the low-conductor part or the class-conditioned product model. It is p-independent up to
-    O(min^{−A}) and agrees at rough squares (Thm 3, Cor 3.2), and the product model is class-flat (Cor 4). The data agree.
+* **Closed (scoped theorems).** Each item below closes only the explicitly evaluated step. None is an impossibility theorem for
+  cancellation in general, or for Poisson/Voronoi/spectral methods other than the step evaluated.
+  * *One-step dualization at fixed conductor* (Poisson, Voronoi or Ramanujan in (u, B), (u, C) or the divisor form).
+    * At conductor ≥ q/K there are ≤ K·p^{o(1)} terms. The complete a-sum gives c_d(n), and summing over d | q gives back
+      1[q | n] (Thm 5, §3.7).
+    * This is a statement about the *frequency count*, not about the signed contribution: by Thm 3 the low conductors carry
+      the main term.
+    * The B-process count (Thm 6e, Assessment) indicates that the 2D dual is longer than the original except for h ≲ 7.9/ρ.
+      It does not rule out cancellation in a longer dual.
+  * *Dispersion by Cauchy–Schwarz in the function variable* in the balanced block (Prop 2).
+  * *The majorant route with max_h |S_h| input.*
+    * Square-root input gives ≍ (UV)^{1/2} ≥ min(U, V), which never beats the elementary bound in any block.
+    * For H ≥ 2UV a square-root floor is proved (Thm 6b, c).
+    * Beyond-square-root input on a short segment (R1) is not excluded.
+  * *A main term built from the low-conductor part or the class-conditioned pair-product model.*
+    * For smoothly weighted blocks the low-conductor part is p-independent up to O(m^{−A}) and agrees at rough squares
+      (Thm 3, Cor 3.2); with sharp cutoffs the error is O(1/U).
+    * The pair-product model is class-flat up to a polynomial error under max(U, V) ≤ m^A (Cor 4).
+    * The finite-range data agree. That F lives in the strips is empirical and model-scoped, not a theorem about actual
+      counts.
 * **Vacuous.** A01's p^{2/5−δ} block target, since every block is ≪ p^{1/3+o(1)} (Thm 1).
 * **Survives.**
   * (R0) cancellation across conductors or across frequencies; no method known.
   * (R1) beyond-square-root bounds for S_h on h ≤ (UV)^{1/2+η}. This is sufficient, not equivalent, and the evidence is
     against it at 10¹².
   * (R2) the 2-cycle bound with the 4-condition, which is equivalent to the balanced-block count.
+  * Z1855-type piece analysis in unbalanced blocks, which is undecided.
 * **Untested side theorem.** (R3) a determinant-method upper bound. It is worth nothing for ES.
 
 Members:
-* Z1034, Z0211, Z2958 and Z3149: mark the proposed first step as executed. The outcome is that one-step dualization is
-  self-dual at fixed conductor, and the hyperbola box is at the self-dual/Weil threshold. This is "covered by
-  Z52D_HYPERBOLA", not refuted.
+* Z1034, Z0211, Z2958 and Z3149: mark the proposed first step as executed. The outcome is that the one-step fixed-conductor
+  dualization has nothing to act on, and the hyperbola box is at the self-dual/Weil scale (a scale comparison only). This is
+  "covered by Z52D_HYPERBOLA", not refuted.
 * Z1855: its pieces are long (≍ p^{1/2}), but within the balanced block each piece contributes ≤ 1 term. The route is
   undecided in unbalanced blocks.
-* Z1480: the spectral restatement of Thm 5 (one coefficient per level).
+* Z1480: the spectral restatement of Thm 5 (one coefficient per level). This is bookkeeping, not a no-go for spectral methods.
 * Z2997: unaffected, and already closed.
 
 ## 7. Proposed FRONTIER §7 text (do not edit FRONTIER here)
@@ -673,50 +715,61 @@ Members:
 Replace §7.1 by:
 
 > 1. **Cancellation on the height-tied hyperbola — rescoped (z52d, `Z52D_HYPERBOLA.md`).**
->    * The elementary benchmark is p^{1/3+o(1)}, not p^{2/5} (Thm 1; AGENT_REPORT_O178). Blocks satisfy
+>    * PROVED: the elementary benchmark is p^{1/3+o(1)}, not p^{2/5} (Thm 1; AGENT_REPORT_O178). Blocks satisfy
 >      N(U,V) ≤ p^{o(1)}min(U, V, p/(UV) + 1), and the balanced block u, B ≍ p^{1/4} satisfies N ≤ p^{1/4}.
->    * PROVED: in the additive-character expansion of any block, the conductor ≤ min(U,V)^{1−ε} part equals a universal constant
->      up to O(min(U,V)^{−A}) at every prime and every rough odd square. Since (★) vanishes at squares, a uniform bound on the
->      high-conductor remainder valid for all rough n cannot prove positivity with a margin from the common leading term. Such
->      an argument must use primality at conductor > min(U,V)^{1−ε}.
->    * At conductor ≥ q/K each conductor carries ≤ K·p^{o(1)} pairs, and the a-sum is complete (it gives c_d(n)). So one-step
->      dualization at fixed conductor has nothing to act on.
->    * The Erdős–Turán/Vaaler route with max-bounds needs beyond-square-root cancellation of S_h = Σ e(h(p+u+B)/(4uB)) on
->      h ≤ (UV)^{1/2+η}. Square-root bounds give exactly the trivial bound.
->    * The balanced block is a count of the 2-cycles of the remainder map x ↦ (−p mod x) on (U, 2U] that satisfy the
->      4-condition. Dispersion in the function variable is empty.
->    * EVIDENCE (10⁵ primes at 10¹²): block errors are swap-Poisson, and |S_h| is square-root size. The interior
->      (u, B, C ≥ p^{1/4}) is class-blind (log-F coefficient −0.02 ± 0.03, against 1.00 ± 0.01 for the boundary strips) and is
->      empty for 9.8 % of primes.
->    * What remains open is cancellation across conductors or frequencies, or a 2-cycle bound. No method is known for either.
->      *Why it stays listed:* it is the exact form of B2 at its self-dual scale. It should no longer be called "the only lead
->      not ruled out"; it is a lead whose standard implementations are ruled out.
+>    * PROVED, for **smoothly weighted** blocks with p > D (automatic, since UV ≤ p): in the additive-character expansion,
+>      the conductor ≤ D = m^{1−ε} part (m = min(U,V)) equals a universal constant up to O(m^{−A}). This holds at every prime
+>      and every D-rough odd square. With sharp cutoffs the error is only O(1/U).
+>      * Since (★) vanishes at squares, a uniform bound on the high-conductor remainder valid for all rough n cannot prove
+>        positivity with a fixed margin from the common leading term.
+>      * This does not restrict prime-specific bounds or upper-bound arguments.
+>    * PROVED (frequency count only): at conductor ≥ q/K each conductor carries ≤ K·p^{o(1)} pairs, and the a-sum is complete
+>      (it gives c_d(n)). So the one-step dualization at fixed conductor has nothing to act on.
+>      * This says nothing about where the signed contribution sits.
+>      * It does not exclude cross-conductor cancellation or other Poisson/Voronoi/spectral methods.
+>    * PROVED (for the stated max-bound implementation): the Erdős–Turán/Fejér route with max_h |S_h| input, where
+>      S_h = Σ e(h(p+u+B)/(4uB)), needs beyond-square-root input on h ≤ (UV)^{1/2+η}. Square-root input gives only the
+>      trivial bound. Cancellation between frequencies is not excluded.
+>    * PROVED: the balanced block counts the 2-cycles of the remainder map x ↦ (−p mod x) on (U, 2U] that satisfy the
+>      4-condition. Cauchy–Schwarz in the function variable has no off-diagonal.
+>    * PROVED (pair-product model only, under max(U,V) ≤ m^A): the class-conditioned local density is class-flat up to
+>      O(m^{−1+ε}).
+>    * EVIDENCE (10⁵ primes at 10¹², finite range): block errors look swap-Poisson, and |S_h| is square-root size. The interior
+>      (u, B, C ≥ 1000) shows no F-signal (log-F coefficient −0.02 ± 0.03, against 1.00 ± 0.01 for the boundary strips) and
+>      is empty for 9.8 % of primes. This is not an asymptotic class-blindness theorem for actual primes.
+>    * Assessment: the 2D B-process dual is longer than the original except for h ≲ 7.9·(UV)²/p (full-box stationary-phase
+>      count).
+>    * Open: cancellation across conductors or frequencies, a short-segment beyond-square-root bound, a 2-cycle bound, and
+>      unbalanced-block piece analysis. *Why it stays listed:* it is the exact form of B2 at its self-dual scale. It should no
+>      longer be called "the only lead not ruled out"; it is a lead whose standard one-step implementations are closed.
 
 In FRONTIER §3 ("Tied modulus") and in PARITY_AUDIT Lemma 2.1′, replace "|E(p)| ≪ p^{2/5+o(1)}" by "≪ p^{1/3+o(1)}
 (elementary; ET's p^{2/5} is for full Type II)". In §2.2, after the RESIDUE_HARDNESS bullet, add:
 
-> In the product local model, interior blocks are class-flat (Z52D_HYPERBOLA Cor 4). Empirically, the factor lives in the
-> boundary strips min(u, B, C) ≲ q.
+> In the pair-product local model, interior blocks with polynomially bounded aspect ratio are class-flat (Z52D_HYPERBOLA
+> Cor 4). Empirically, at 10⁸ and 10¹², the factor's effect sits in the boundary strips min(u, B, C) ≲ q. This is evidence,
+> not a theorem about actual counts.
 
 ## 8. Bottom line
 
-The cluster's first lemma asked for a class-aware power saving by cancellation on one balanced block at fixed p. That block
-sits at the self-dual scale of every standard transform:
-* the dominant conductors of the additive-character dual carry p^{o(1)} pairs each, and the complete a-sum at each conductor
-  only gives c_d(n);
-* the Voronoi form has one integer per modulus;
-* the modular-hyperbola box is at Weil's area-p^{3/2} threshold;
-* the 2D B-process shortens only about seven frequencies;
-* square-root (Weil-quality) bounds fed through Erdős–Turán reproduce exactly the trivial bound p^{1/4};
-* dispersion in the function variable is empty.
+The cluster's first lemma asked for a class-aware power saving by cancellation on one balanced block at fixed p. The specific
+one-step implementations that were evaluated all fail at that block's scale:
+* At the dominant conductors of the additive-character dual (dominant by frequency *count*), each conductor carries p^{o(1)}
+  pairs, and the complete a-sum at each conductor only gives c_d(n).
+* The Voronoi form has one integer per modulus.
+* The containing modular-hyperbola box is at Weil's area-p^{3/2} scale (a scale comparison).
+* The 2D B-process shortens only about seven frequencies (Assessment).
+* Square-root (Weil-quality) bounds fed through Erdős–Turán reproduce exactly the trivial bound p^{1/4}.
+* Dispersion in the function variable is empty.
 
-The low-conductor part of the expansion is the same, up to a negligible error, at primes and at rough squares. So whatever
-distinguishes primes must come from the high-conductor part. The class factor F(p) is absent from the interior both in the
-product model and in the data; it lives in the boundary strips. A01's numerical target was vacuous, because the elementary
-bound is p^{1/3}, not p^{2/5}.
+For smoothly weighted blocks, the low-conductor part of the expansion agrees, up to O(m^{−A}), at primes and at rough squares.
+So a positivity argument built on the common leading term must take its prime-specific input from the high-conductor part.
+The class factor F(p) is flat in the interior pair-product model (polynomial aspect) and shows no signal in the interior data
+at 10⁸–10¹². In the data its effect sits in the boundary strips. That is evidence, not a theorem about actual counts.
 
-Not excluded: cancellation across conductors or frequencies, for which no method is known, and an equivalent 2-cycle bound. At
-10¹² the relevant sums are square-root size. §7.1 should be rescoped. ES remains open.
+A01's numerical target was vacuous, because the elementary bound is p^{1/3}, not p^{2/5}. Not excluded: cancellation across
+conductors or frequencies, for which no method is known; a short-segment beyond-square-root bound; an equivalent 2-cycle bound;
+and the unbalanced Z1855 blocks. At 10¹² the relevant sums are square-root size. §7.1 should be rescoped. ES remains open.
 
 ## 9. Reproduction
 
@@ -791,4 +844,31 @@ repaired:
 The reviewer confirmed as correct: the global unit model, the vanishing of E[c_{ℓ^k}] for k > j ≥ 1 (5 450 small cases
 checked), the d₁/d₂ independence, Prop 2's hypotheses and examples, the Z1855 fix, the B-process relabelling, and all §5
 numbers (best Vaaler bound 13 448.184 at H = 508).
+
+**Cross-model review** (GPT/Astra, `data/z52d/xreview/REVIEW_HYPERBOLA.md`, verdict ACCEPT-WITH-FIXES).
+
+The reviewer independently reproduced:
+* Lemma 3.1 for 1 966 cases;
+* 204 small-case enumerations;
+* the statistics from all 160 000 rows;
+* M₀, M₀_int and all 4 000 exponential sums.
+
+Changes made:
+1. **Cor 4 quantifiers.** The bound now keeps its factor ‖W‖_∞(log 2UV)⁸. Decay ≪ m^{−1+ε} is claimed only under a polynomial
+   aspect bound max(U,V) ≤ m^A (the balanced block is A = 1). No decay is claimed for arbitrary aspect ratios. Propagated to
+   §§0, 6–8.
+2. **Smoothness.** The O(m^{−A}) low-conductor statement is now explicitly for smoothly weighted blocks. A sharp-cutoff remark
+   was added (L₁ = J − (log 2)/(8U) + O(U⁻²)). The polynomial error of the product model is distinguished from the
+   superpolynomial error of Thm 3. The §7 text inherits all of this.
+3. **Implementation-specific verdicts.**
+   * Thm 5 is stated as frequency-count concentration, not signed-contribution concentration.
+   * "Closed/self-dual" now means only the evaluated fixed-conductor or max-bound step. Other Poisson/Voronoi/spectral
+     methods, cross-conductor cancellation, short-segment R1 and unbalanced Z1855 are explicitly open.
+   * "F lives in the strips" is labelled empirical/model-scoped.
+   * The E5 box comparison is labelled a scale comparison.
+4. **Minor.**
+   * Thm 5(b) now uses max_{t≤4UV} τ(t).
+   * ‖W‖_∞ was added to the tail lemma.
+   * Thm 6(a) gains the reviewer's citation-free Fejér proof, and the 1.25 floor is tied to inequality (a).
+   * The 45-digit spread is marked as not re-certified.
 
