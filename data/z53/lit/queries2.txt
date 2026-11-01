@@ -1,0 +1,38 @@
+e	abs:"Odlyzko" AND abs:"Sarkozy"
+e	abs:"products of two primes" AND cat:math.NT
+e	abs:"product of three primes" AND cat:math.NT
+e	abs:"short products" AND cat:math.NT
+e	abs:"smooth numbers" AND abs:"residue classes" AND cat:math.NT
+e	abs:"least quadratic non-residue" OR abs:"least quadratic nonresidue"
+b	abs:"Lehmer" AND abs:"inverse" AND cat:math.NT
+b	abs:"modular inverses" AND cat:math.NT
+b	abs:"multiplicative inverses" AND abs:"intervals" AND cat:math.NT
+b	abs:"hyperbola" AND abs:"congruence" AND cat:math.NT
+b	abs:"incidences" AND abs:"prime fields" AND abs:"hyperbola"
+c	abs:"Kloosterman" AND abs:"composite moduli" AND cat:math.NT
+c	abs:"Kloosterman" AND abs:"arbitrary moduli" AND cat:math.NT
+c	abs:"Selberg-Hooley" OR abs:"Selberg--Hooley"
+c	abs:"divisor function" AND abs:"large moduli"
+c	abs:"Titchmarsh divisor"
+c	abs:"Deshouillers" AND abs:"Iwaniec" AND cat:math.NT
+c	abs:"dispersion" AND abs:"Kloosterman" AND cat:math.NT
+a	abs:"divisors" AND abs:"shifted primes" AND cat:math.NT
+a	abs:"Erdos-Hall" OR abs:"Erdős-Hall" OR abs:"Erdős–Hall"
+a	ti:"concentration of divisors" OR abs:"equal sums in random sets"
+a	abs:"divisor in" AND abs:"interval" AND cat:math.NT
+a	abs:"divisors" AND abs:"residue class" AND abs:"almost all" AND cat:math.NT
+a	abs:"Hooley" AND abs:"divisors" AND cat:math.NT
+a	abs:"propinquity" AND abs:"divisors"
+f	abs:"Erdos problem" AND abs:"Lean"
+f	abs:"Egyptian" AND abs:"Lean"
+f	abs:"unit fractions" AND abs:"three" AND cat:math.NT
+f	abs:"Erdos" AND abs:"Straus" AND cat:math.NT
+f	abs:"Schinzel" AND abs:"unit fractions"
+f	abs:"Diophantine equation" AND abs:"4/n"
+g	abs:"Korobov" AND abs:"partial quotients"
+g	abs:"bounded partial quotients" AND abs:"denominator"
+h	abs:"additive basis" AND abs:"representation function" AND cat:math.NT
+h	abs:"Erdos-Tetali" OR abs:"Erdős-Tetali" OR abs:"Erdős–Tetali"
+h	abs:"local-global" AND abs:"exceptions" AND abs:"squares" AND cat:math.NT
+h	abs:"every integer" AND abs:"represented" AND abs:"logarithmic" AND cat:math.NT
+h	abs:"least prime" AND abs:"primitive root" AND abs:"GRH"

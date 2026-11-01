@@ -1,0 +1,15 @@
+au	au:Shkredov
+au	au:Shparlinski AND cat:math.NT
+au	au:Garaev
+au	au:Kerr_B
+au	au:Pascadi
+au	au:Teravainen
+au	au:Koukoulopoulos
+au	au:Elsholtz
+au	au:Merikoski
+au	au:Drappeau
+au	au:Matomaki
+au	au:Xi_P AND cat:math.NT
+au	au:Bettin
+au	au:Banks_W
+au	au:Chan_T AND cat:math.NT

@@ -1,0 +1,16 @@
+star0        409 t= 14 ctrl_mean_t= 16.1 slope=+0.0085 resid_z=+0.04 matched(n=60) P(D_c>=D)=0.42
+star0        577 t= 17 ctrl_mean_t= 16.6 slope=+0.0080 resid_z=-0.41 matched(n=53) P(D_c>=D)=0.51
+star0       5569 t= 18 ctrl_mean_t= 20.1 slope=+0.0056 resid_z=+0.24 matched(n=38) P(D_c>=D)=0.29
+star0       9601 t= 25 ctrl_mean_t= 20.6 slope=+0.0054 resid_z=+0.39 matched(n=23) P(D_c>=D)=0.13
+star0      23929 t= 12 ctrl_mean_t= 21.2 slope=+0.0039 resid_z=+0.50 matched(n=15) P(D_c>=D)=0.53
+star0      83449 t= 25 ctrl_mean_t= 23.0 slope=+0.0036 resid_z=+1.92 matched(n=25) P(D_c>=D)=0.00
+star0     102001 t= 32 ctrl_mean_t= 23.4 slope=+0.0034 resid_z=+0.36 matched(n=8) P(D_c>=D)=0.12
+star0     329617 t= 31 ctrl_mean_t= 23.4 slope=+0.0031 resid_z=+0.87 matched(n=14) P(D_c>=D)=0.14
+star0     712321 t= 44 ctrl_mean_t= 24.6 slope=+0.0024 resid_z=+0.46 matched(n=1) P(D_c>=D)=0.00
+star0    8813281 t= 49 ctrl_mean_t= 27.4 slope=+0.0018 resid_z=+2.30 matched(n=2) P(D_c>=D)=0.00
+b1fail       193 t= 11 ctrl_mean_t= 14.6 slope=+0.0107 resid_z=+1.52 matched(n=49) P(D_c>=D)=0.06
+b1fail      2521 t= 30 ctrl_mean_t= 18.6 slope=+0.0061 resid_z=+3.53 matched(n=4) P(D_c>=D)=0.00
+b1fail     66529 t= 40 ctrl_mean_t= 22.0 slope=+0.0031 resid_z=+0.71 matched(n=5) P(D_c>=D)=0.40
+other       3361 t= 28 ctrl_mean_t= 18.9 slope=+0.0057 resid_z=+0.98 matched(n=12) P(D_c>=D)=0.33
+other    5101441 t= 27 ctrl_mean_t= 26.3 slope=+0.0020 resid_z=+1.45 matched(n=21) P(D_c>=D)=0.10
+mean residual z over 15 hard primes: +0.99  (sum/sqrt(n) = +3.84)
