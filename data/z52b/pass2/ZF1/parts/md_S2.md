@@ -14,3 +14,16 @@ l. 297–307 and 497–541.
 that caveat cheaply (same for the log log and m/n notes, which use BV the same way — not re-derived). It does NOT give
 any calibration: N·exp(−c(log N)^{3/4}) → ∞, so no version can certify "no counterexample below X" (§5).
 **Next.** Write the lemma into the note and get it reviewed; optionally make Shiu's constant explicit.
+
+## Z3054 — Siegel inventory: Goldfeld is a power too weak; Tatuzawa nearly suffices (Assessment)
+**What.** All ES-side Siegel uses (table: `data/z52b/pass2/ZF1/Z3054/siegel_inventory.md`). The only L(1,χ) LOWER
+bound is inside Pollack IJNT 2014 Thm 1.4 (CAP_DOWN Cor 2.1, e*(n) ≪ n₀^{1/4+ε}; ASTRA_BRIDGE q₀(p) ≪ p^{1/4+ε}):
+it needs L(1, χ_{−4n₀}) ≫ W^{−ε²/640L²}. Goldfeld–Oesterlé (h(D) > (1/55) log|D| ∏…, verified) gives only
+n₀^{−1/2+o(1)} — making the argument run would push the exponent from 1/4+ε to ≥ 640/ε². Tatuzawa
+(L(1,χ) ≥ (ε/10)q^{−ε} with one possible exception) instead gives effectivity outside ≤ 1 (n ≡ 1 (8)) resp. ≤ 2
+(n ≡ 5 (8)) unknown square classes n₀. Other Siegel uses: BV-based notes (removable, Z2418), Siegel's integral-point
+theorem in INVOLUTION_ES2 (different theorem), BM main term (needs upper bounds only).
+**Reproduce.** Read Pollack §4 (`sources/pollack_ijnt2014_generalsplit6.pdf`, l. ~1195–1390 of pdftotext output).
+**Why it might matter.** It answers "is the ineffective→effective route blocked?": no, but Goldfeld is not the tool;
+no ES main term needs an L(1,χ) lower bound at all, so a Goldfeld-type auxiliary L-function has no slot.
+**Next.** Remark in CAP_DOWN Cor 2.1 + reviewer check of ξ⁺ in case (b).
