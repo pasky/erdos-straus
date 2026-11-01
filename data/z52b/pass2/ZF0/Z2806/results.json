@@ -1,0 +1,407 @@
+{
+  "convention": "gamma=[[tu-1,p],[t,tv-1]], t,u,v>=2",
+  "prime_count": 44,
+  "word_count": 602,
+  "nonempty_fibres": 43,
+  "right_L_overlap_total": 0,
+  "max_borel_density": 0.02564102564102564,
+  "gauss_ratio_max_error_p_lt100": 1.1116949273443706e-15,
+  "rows": [
+    {
+      "p": 5,
+      "words": 0,
+      "distinct_mod4p": 0,
+      "distinct_modp": 0,
+      "borel_size": 20,
+      "right_L_overlap": 0,
+      "sign_sum": 0
+    },
+    {
+      "p": 13,
+      "words": 4,
+      "distinct_mod4p": 4,
+      "distinct_modp": 4,
+      "borel_size": 156,
+      "right_L_overlap": 0,
+      "sign_sum": 0
+    },
+    {
+      "p": 17,
+      "words": 2,
+      "distinct_mod4p": 2,
+      "distinct_modp": 2,
+      "borel_size": 272,
+      "right_L_overlap": 0,
+      "sign_sum": -2
+    },
+    {
+      "p": 29,
+      "words": 2,
+      "distinct_mod4p": 2,
+      "distinct_modp": 2,
+      "borel_size": 812,
+      "right_L_overlap": 0,
+      "sign_sum": -2
+    },
+    {
+      "p": 37,
+      "words": 8,
+      "distinct_mod4p": 8,
+      "distinct_modp": 8,
+      "borel_size": 1332,
+      "right_L_overlap": 0,
+      "sign_sum": -4
+    },
+    {
+      "p": 41,
+      "words": 2,
+      "distinct_mod4p": 2,
+      "distinct_modp": 2,
+      "borel_size": 1640,
+      "right_L_overlap": 0,
+      "sign_sum": -2
+    },
+    {
+      "p": 53,
+      "words": 8,
+      "distinct_mod4p": 8,
+      "distinct_modp": 8,
+      "borel_size": 2756,
+      "right_L_overlap": 0,
+      "sign_sum": -4
+    },
+    {
+      "p": 61,
+      "words": 10,
+      "distinct_mod4p": 10,
+      "distinct_modp": 10,
+      "borel_size": 3660,
+      "right_L_overlap": 0,
+      "sign_sum": -2
+    },
+    {
+      "p": 73,
+      "words": 12,
+      "distinct_mod4p": 12,
+      "distinct_modp": 12,
+      "borel_size": 5256,
+      "right_L_overlap": 0,
+      "sign_sum": -4
+    },
+    {
+      "p": 89,
+      "words": 6,
+      "distinct_mod4p": 6,
+      "distinct_modp": 6,
+      "borel_size": 7832,
+      "right_L_overlap": 0,
+      "sign_sum": -6
+    },
+    {
+      "p": 97,
+      "words": 14,
+      "distinct_mod4p": 14,
+      "distinct_modp": 14,
+      "borel_size": 9312,
+      "right_L_overlap": 0,
+      "sign_sum": 2
+    },
+    {
+      "p": 101,
+      "words": 8,
+      "distinct_mod4p": 8,
+      "distinct_modp": 8,
+      "borel_size": 10100,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 109,
+      "words": 10,
+      "distinct_mod4p": 10,
+      "distinct_modp": 10,
+      "borel_size": 11772,
+      "right_L_overlap": 0,
+      "sign_sum": -6
+    },
+    {
+      "p": 113,
+      "words": 8,
+      "distinct_mod4p": 8,
+      "distinct_modp": 8,
+      "borel_size": 12656,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 137,
+      "words": 10,
+      "distinct_mod4p": 10,
+      "distinct_modp": 10,
+      "borel_size": 18632,
+      "right_L_overlap": 0,
+      "sign_sum": -2
+    },
+    {
+      "p": 149,
+      "words": 8,
+      "distinct_mod4p": 8,
+      "distinct_modp": 8,
+      "borel_size": 22052,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 157,
+      "words": 20,
+      "distinct_mod4p": 20,
+      "distinct_modp": 20,
+      "borel_size": 24492,
+      "right_L_overlap": 0,
+      "sign_sum": -12
+    },
+    {
+      "p": 173,
+      "words": 16,
+      "distinct_mod4p": 16,
+      "distinct_modp": 16,
+      "borel_size": 29756,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 181,
+      "words": 12,
+      "distinct_mod4p": 12,
+      "distinct_modp": 12,
+      "borel_size": 32580,
+      "right_L_overlap": 0,
+      "sign_sum": -4
+    },
+    {
+      "p": 193,
+      "words": 18,
+      "distinct_mod4p": 18,
+      "distinct_modp": 18,
+      "borel_size": 37056,
+      "right_L_overlap": 0,
+      "sign_sum": -2
+    },
+    {
+      "p": 197,
+      "words": 10,
+      "distinct_mod4p": 10,
+      "distinct_modp": 10,
+      "borel_size": 38612,
+      "right_L_overlap": 0,
+      "sign_sum": -6
+    },
+    {
+      "p": 229,
+      "words": 22,
+      "distinct_mod4p": 22,
+      "distinct_modp": 22,
+      "borel_size": 52212,
+      "right_L_overlap": 0,
+      "sign_sum": -2
+    },
+    {
+      "p": 233,
+      "words": 12,
+      "distinct_mod4p": 12,
+      "distinct_modp": 12,
+      "borel_size": 54056,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 241,
+      "words": 14,
+      "distinct_mod4p": 14,
+      "distinct_modp": 14,
+      "borel_size": 57840,
+      "right_L_overlap": 0,
+      "sign_sum": 2
+    },
+    {
+      "p": 257,
+      "words": 12,
+      "distinct_mod4p": 12,
+      "distinct_modp": 12,
+      "borel_size": 65792,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 269,
+      "words": 12,
+      "distinct_mod4p": 12,
+      "distinct_modp": 12,
+      "borel_size": 72092,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 277,
+      "words": 24,
+      "distinct_mod4p": 24,
+      "distinct_modp": 24,
+      "borel_size": 76452,
+      "right_L_overlap": 0,
+      "sign_sum": -16
+    },
+    {
+      "p": 281,
+      "words": 8,
+      "distinct_mod4p": 8,
+      "distinct_modp": 8,
+      "borel_size": 78680,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 293,
+      "words": 16,
+      "distinct_mod4p": 16,
+      "distinct_modp": 16,
+      "borel_size": 85556,
+      "right_L_overlap": 0,
+      "sign_sum": -12
+    },
+    {
+      "p": 313,
+      "words": 28,
+      "distinct_mod4p": 28,
+      "distinct_modp": 28,
+      "borel_size": 97656,
+      "right_L_overlap": 0,
+      "sign_sum": 0
+    },
+    {
+      "p": 317,
+      "words": 20,
+      "distinct_mod4p": 20,
+      "distinct_modp": 20,
+      "borel_size": 100172,
+      "right_L_overlap": 0,
+      "sign_sum": -16
+    },
+    {
+      "p": 337,
+      "words": 26,
+      "distinct_mod4p": 26,
+      "distinct_modp": 26,
+      "borel_size": 113232,
+      "right_L_overlap": 0,
+      "sign_sum": -10
+    },
+    {
+      "p": 349,
+      "words": 22,
+      "distinct_mod4p": 22,
+      "distinct_modp": 22,
+      "borel_size": 121452,
+      "right_L_overlap": 0,
+      "sign_sum": -10
+    },
+    {
+      "p": 353,
+      "words": 12,
+      "distinct_mod4p": 12,
+      "distinct_modp": 12,
+      "borel_size": 124256,
+      "right_L_overlap": 0,
+      "sign_sum": -12
+    },
+    {
+      "p": 373,
+      "words": 26,
+      "distinct_mod4p": 26,
+      "distinct_modp": 26,
+      "borel_size": 138756,
+      "right_L_overlap": 0,
+      "sign_sum": -10
+    },
+    {
+      "p": 389,
+      "words": 14,
+      "distinct_mod4p": 14,
+      "distinct_modp": 14,
+      "borel_size": 150932,
+      "right_L_overlap": 0,
+      "sign_sum": -6
+    },
+    {
+      "p": 397,
+      "words": 24,
+      "distinct_mod4p": 24,
+      "distinct_modp": 24,
+      "borel_size": 157212,
+      "right_L_overlap": 0,
+      "sign_sum": -12
+    },
+    {
+      "p": 401,
+      "words": 18,
+      "distinct_mod4p": 18,
+      "distinct_modp": 18,
+      "borel_size": 160400,
+      "right_L_overlap": 0,
+      "sign_sum": -6
+    },
+    {
+      "p": 409,
+      "words": 16,
+      "distinct_mod4p": 16,
+      "distinct_modp": 16,
+      "borel_size": 166872,
+      "right_L_overlap": 0,
+      "sign_sum": 0
+    },
+    {
+      "p": 421,
+      "words": 14,
+      "distinct_mod4p": 14,
+      "distinct_modp": 14,
+      "borel_size": 176820,
+      "right_L_overlap": 0,
+      "sign_sum": -6
+    },
+    {
+      "p": 433,
+      "words": 24,
+      "distinct_mod4p": 24,
+      "distinct_modp": 24,
+      "borel_size": 187056,
+      "right_L_overlap": 0,
+      "sign_sum": -8
+    },
+    {
+      "p": 449,
+      "words": 12,
+      "distinct_mod4p": 12,
+      "distinct_modp": 12,
+      "borel_size": 201152,
+      "right_L_overlap": 0,
+      "sign_sum": 0
+    },
+    {
+      "p": 457,
+      "words": 26,
+      "distinct_mod4p": 26,
+      "distinct_modp": 26,
+      "borel_size": 208392,
+      "right_L_overlap": 0,
+      "sign_sum": 2
+    },
+    {
+      "p": 461,
+      "words": 12,
+      "distinct_mod4p": 12,
+      "distinct_modp": 12,
+      "borel_size": 212060,
+      "right_L_overlap": 0,
+      "sign_sum": -12
+    }
+  ]
+}
