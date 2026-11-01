@@ -1,0 +1,4 @@
+8570761 7 8 39 1 0
+10406449 29 30 100 1 1
+11516521 5 6 24 1 0
+# SUMMARY primes≡1(8) in [8000000,12000000): 62146; random-R0 failures 3; random-R3 failures 1

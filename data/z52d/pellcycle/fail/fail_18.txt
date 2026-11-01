@@ -1,0 +1,2 @@
+72999361 171 189 171 397 1 0 1
+# SUMMARY primes≡1(8) in [72000000,76000000) shard 0/1: 55227; R0 failures 1; R3 failures 0; censored roots 0

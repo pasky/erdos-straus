@@ -1,0 +1,1 @@
+# SUMMARY primes≡1(8) in [1,20000000): 317477; S(p)-root failures 0; max number of S(p)-roots tried before the first hit: 28 (at p=19231801)

@@ -1,0 +1,2 @@
+primes p=m^2+1, 12|m, m<=120000: 1330; every R3∪U component monochromatic: 8; components of 1,2,4 monochromatic: 8
+cycle-dead primes (first 60): 1299601 33177601 476985601 973440001 2134440001 2813241601 4292870401 11833088401

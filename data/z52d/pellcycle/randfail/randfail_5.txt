@@ -1,0 +1,4 @@
+21786361 7 8 40 1 0
+22024081 135 131 262 1 0
+22614601 9 10 50 1 0
+# SUMMARY primes≡1(8) in [20000000,24000000): 59036; random-R0 failures 3; random-R3 failures 0
