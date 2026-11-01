@@ -1,0 +1,6 @@
+U=60 N2 pairs=1091 EN=0.362083 EN(N-1)=0.117230 ratio=0.8942 var/mean=0.9617
+U=60 N4 pairs=730 EN=0.072320 EN(N-1)=0.006397 ratio=1.2232 var/mean=1.0161
+U=100 N2 pairs=3072 EN=0.363779 EN(N-1)=0.123472 ratio=0.9330 var/mean=0.9756
+U=100 N4 pairs=2040 EN=0.072567 EN(N-1)=0.006171 ratio=1.1720 var/mean=1.0125
+U=200 N2 pairs=12107 EN=0.363628 EN(N-1)=0.127932 ratio=0.9675 var/mean=0.9882
+U=200 N4 pairs=8095 EN=0.072702 EN(N-1)=0.006104 ratio=1.1549 var/mean=1.0113
