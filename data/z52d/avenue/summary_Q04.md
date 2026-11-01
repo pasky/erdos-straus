@@ -27,8 +27,8 @@ Novelty: 0 → 63, 1 → 50, 2 → 0. Every plaus-3 row is a calibration lemma, 
 7. *Strengthened targets* (stronger than ES, circular): Z3064, Z3154, Z0262, Z0356, Z0141 (growing S).
 
 **New in this pass** (scripts `scripts/z52d_avenue_Q04_*.py`, timeout 60–120)
-* **Z0762 (EVIDENCE)**: at the 11 Lehmer pseudosquares ≤ 1.1·10⁶, R/L² averages 0.07, against 0.14 for neighbouring non-squares ≡ 1 (8).
-  There are zeros at 2641 and 18001. BM_LVALUE's T ∝ L(1, χ)² is maximal there, but T ≤ 0.08·M₀ asymptotically. Next: R/M_BM at A002189 ≤ 10¹⁰.
+* **Z0762 (EVIDENCE)**: at the 16 Lehmer pseudosquares ≤ 4.9·10⁷, R is 0.63× neighbouring non-squares ≡ 1 (8), and 0.65× Mordell-class controls (n ≥ 8089).
+  There are zeros at 2641 and 18001, and R is 12–40 above 5·10⁵ (no collapse). Probably main-term (QR at 11, 13, …). Next: R/M_BM at A002189 ≤ 10¹⁰.
 * **Z0276 (PROVED + checked p < 700)**: in the Eisenstein-norm world all three denominators have equal 3-adic valuation K ≥ 1. So that world is
   4·3^K/p = Σ 1/m_i (numerator 12 at K = 1), which explains its 90% failure rate. **Z0564 (PROVED)**: a Gaussian conjugate pair combines
   to a unit fraction only as 2-term 4/p = 1/m + 1/z, which is impossible at p ≡ 1 (4). Otherwise the residual split is ES itself. **Z0064**: in ℤ_{≥0}[√2], e ∈ 1/C + 1/C forces e ∈ {1, √2, 2}, so no unit mechanism.

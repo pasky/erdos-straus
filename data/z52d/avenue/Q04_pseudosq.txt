@@ -1,0 +1,18 @@
+       73 R=   2  ctrl mean=   2.0 sd=  0.0 P(ctrl<=R)=1.0000  R/L2=0.109 ctrl/L2=0.109  mordell-class ctrl/L2=nan (n=0) P(c2<=R)=nan
+      241 R=   2  ctrl mean=   2.0 sd=  0.0 P(ctrl<=R)=1.0000  R/L2=0.066 ctrl/L2=0.066  mordell-class ctrl/L2=nan (n=0) P(c2<=R)=nan
+     1009 R=   6  ctrl mean=   6.8 sd=  2.7 P(ctrl<=R)=0.4000  R/L2=0.125 ctrl/L2=0.142  mordell-class ctrl/L2=0.125 (n=1) P(c2<=R)=1.000
+     2641 R=   0  ctrl mean=   9.8 sd=  5.1 P(ctrl<=R)=0.0833  R/L2=0.000 ctrl/L2=0.158  mordell-class ctrl/L2=0.081 (n=2) P(c2<=R)=0.500
+     8089 R=  16  ctrl mean=  10.9 sd=  5.7 P(ctrl<=R)=0.8537  R/L2=0.198 ctrl/L2=0.134  mordell-class ctrl/L2=0.198 (n=1) P(c2<=R)=1.000
+    18001 R=   0  ctrl mean=  13.1 sd=  7.1 P(ctrl<=R)=0.0225  R/L2=0.000 ctrl/L2=0.137  mordell-class ctrl/L2=0.094 (n=6) P(c2<=R)=0.167
+    53881 R=   2  ctrl mean=  15.8 sd=  8.2 P(ctrl<=R)=0.0112  R/L2=0.017 ctrl/L2=0.133  mordell-class ctrl/L2=0.099 (n=15) P(c2<=R)=0.133
+    87481 R=  12  ctrl mean=  17.0 sd=  8.4 P(ctrl<=R)=0.3410  R/L2=0.093 ctrl/L2=0.131  mordell-class ctrl/L2=0.095 (n=25) P(c2<=R)=0.560
+   117049 R=   8  ctrl mean=  18.1 sd=  8.7 P(ctrl<=R)=0.1325  R/L2=0.059 ctrl/L2=0.133  mordell-class ctrl/L2=0.105 (n=31) P(c2<=R)=0.161
+   515761 R=  12  ctrl mean=  22.7 sd= 10.5 P(ctrl<=R)=0.1770  R/L2=0.069 ctrl/L2=0.131  mordell-class ctrl/L2=0.109 (n=145) P(c2<=R)=0.283
+  1083289 R=  12  ctrl mean=  25.3 sd= 11.2 P(ctrl<=R)=0.1232  R/L2=0.062 ctrl/L2=0.131  mordell-class ctrl/L2=0.113 (n=304) P(c2<=R)=0.151
+  3206641 R=  12  ctrl mean=  29.3 sd= 12.8 P(ctrl<=R)=0.0695  R/L2=0.053 ctrl/L2=0.130  mordell-class ctrl/L2=0.113 (n=909) P(c2<=R)=0.097
+  3818929 R=  20  ctrl mean=  29.9 sd= 13.0 P(ctrl<=R)=0.2597  R/L2=0.087 ctrl/L2=0.130  mordell-class ctrl/L2=0.115 (n=1082) P(c2<=R)=0.312
+  9257329 R=  40  ctrl mean=  33.5 sd= 14.1 P(ctrl<=R)=0.7379  R/L2=0.155 ctrl/L2=0.130  mordell-class ctrl/L2=0.117 (n=2631) P(c2<=R)=0.856
+ 22000801 R=  18  ctrl mean=  37.1 sd= 15.3 P(ctrl<=R)=0.0932  R/L2=0.063 ctrl/L2=0.130  mordell-class ctrl/L2=0.119 (n=6265) P(c2<=R)=0.087
+ 48473881 R=  30  ctrl mean=  40.6 sd= 16.5 P(ctrl<=R)=0.3030  R/L2=0.096 ctrl/L2=0.130  mordell-class ctrl/L2=0.120 (n=13817) P(c2<=R)=0.315
+mean ratio R/ctrl over pseudosquares: 0.6331486054462732
+n>=8089: mean R/ctrl 0.6040020621636584  mean R/mordell-ctrl 0.6484799844548527
