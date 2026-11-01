@@ -5,9 +5,9 @@ ES is OPEN. Rows: `out_Q12.jsonl`. Per-row labels are Assessments unless they ci
 | status | 0 | 1 | 2 | 3 | Σ |
 |---|---|---|---|---|---|
 | known-true (gap named) | 0 | 0 | 0 | 67 | 67 |
-| known-false | 28 | 0 | 0 | 0 | 28 |
+| known-false | 27 | 0 | 0 | 0 | 27 |
 | circular | 12 | 0 | 0 | 0 | 12 |
-| unclear | 3 | 3 | 0 | 0 | 6 |
+| unclear | 4 | 3 | 0 | 0 | 7 |
 Novelty: 0 → 59, 1 → 54, 2 → 0. All plaus-3 rows are calibration lemmas or main-term statements (yield none).
 **Plausibility ≥ 2 AND novelty ≥ 1 with any yield beyond calibration**: only **Z3164** (*almost all primes have a (★) certificate with prime
 level C*). That is an exceptional-set statement on existing CRT/sieve lines (B6) with no pointwise content. The other 35 such rows are calibration.
@@ -26,15 +26,15 @@ Z2973 (Smith-type profile distribution, B6), all plaus 1.
 * **Z1521 (PROVED, three lines).** Type I with d ∈ {1, 2, 3} is impossible at every p ≡ 1 (24) (gcd(c, p) = 1). The reasons: divisors of p² + 4c² are
   ≡ 1 (4), of p² + 8c² are ≡ 1, 3 (8), of p² + 12c² are ≡ 1 (3), while f ≡ −p forces 3 (4), 7 (8), 2 (3). In general a finite d-set D is sterile on
   p ≡ 1 (mod 4∏D), which explains Pass 1's "0 of 267". Fixed imaginary quadratic fields are genus characters (B1/B5).
-* **Z1937 (falsified).** No forced non-zero count residue: on primes ≡ 1 (24), R(p) takes every residue its evenness allows mod m ≤ 12 (< 12 000;
-  zeros 409, 577, 5569, 9601 reproduce the census), and the full unordered count f(p) hits 0 mod every m ≤ 12 (< 2500).
+* **Z1937 (whole-class forms falsified).** On primes ≡ 1 (24), R(p) takes every residue its evenness allows mod m ≤ 12 (< 12 000; zeros 409,
+  577, 5569, 9601 reproduce the census), and f(p) hits 0 mod every m ≤ 12 (< 2500). Sub-progressions and partial counts were not tested (row: unclear).
 * **Z0707 (falsified).** minlcm(p)/p is non-practical for 68 of 194 primes < 1200 (37 → 10: 40 = 37 + 2 + 1). The min-lcm solution usually uses p itself.
 * **Z0939 (explained, checked).** For p ≡ 5 (8) the lex-first solution ((p+3)/4, (px₀+2)/3, px₀y₀/2) is the max-z solution, since x₀ is even and
   px₀ ≡ 1 (3). Verified at all 109 such primes < 3000. So A257843 is confined to p ≡ 1 (8): a 2-adic parity fact.
 * **Z0861** is answered by P00 Z0216 (chain failures ⟺ (p+1)/2 has no prime ≡ 3 (4); density ≍ (log x)^{−1/2}).
-**Corrections / cautions.** Z1620: "c(p) as X → ∞" is ill-posed, because (★) is a finite search (C ≲ p/4). Z0934: k(p) ≤ C log p (A392469's
-empirical law) is very likely false i.o. On the Type II side it is refuted by OMEGA13 Thm 5.1. On the Type I side (atoms mod 4k − 1) it is not checked
-as a written theorem. Z2944: S₁(p) ≤ R(p), so S₁ = 0 at every (★)-failure. Z2349: Salez uses 7 filters, not an infinite family (Pass 1).
+**Corrections / cautions.** Z1620: (★) is a finite search (C ≲ p/4), so the normalised log-density c(p) is 0 at every p; only the unnormalised
+total is ⟺ R(p) ≥ 1. Z0934: Type I cannot give small k (p | 4k − 1). On the (★) sublattice k ≥ witness/4, so OMEGA13 Thm 5.1 makes k(p) ≤ C log p
+very likely false i.o. (the h > 1 Type II lines are unchecked). Z2944: S₁(p) ≤ R(p), so S₁ = 0 at every (★)-failure. Z2349: Salez uses 7 filters, not an infinite family (Pass 1).
 **Assessment.** Q12 contains no architecture escaping B1/B2/B3/B6, privacy or the reciprocity-parity barrier. The batch's value is calibration:
 hardness is one local axis (F) plus lottery noise; certificates are privately supplied by large primes; fixed fields/menus/procedures are sterile on
 the Mordell-hard classes for the reasons the barrier map states.

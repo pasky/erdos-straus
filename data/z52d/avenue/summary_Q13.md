@@ -29,8 +29,8 @@ on the 14 (★)-sterile primes and 2521.
 * **Z1007/Z0838 correction.** Pass 1's 'five-slice' helper (`scripts/z52b_p1_U06_e.py`, `cf_len` counts the leading 0) counts
   {A : regular CF of A/p has ≤ 2 non-zero quotients} = {1} ∪ divisors of p − 1, not ES₅ certificates. The "47 % all-even" parity bias is
   divisor parity of p − 1 = 2^k m′: the share (k − 1)/(k + 1) averages ≈ 0.47. Z0838's Spearman 0.049 is τ(p − 1)-type vs U and says nothing about ES₅.
-* **Z0977 (PROVED, one line).** Consecutive first denominators x, x + 1 give coprime e-slice integers: N = x (Type II), or N differing by p with
-  p ∤ N (Type I). Neighbouring trials share no prime factors, so the 'coupling' idea dies by privacy.
+* **Z0977 (elementary).** 'x succeeds' means (px)² has a divisor ≡ −px (mod 4x − p), which depends on p (shared) and the factorisation of x.
+  Consecutive x are coprime, so neighbouring trials share no prime factors beyond p, and the 'coupling' idea dies by privacy.
 * **Z1977.** The denumerant involution n ↦ g_t − n is centred at the unknown certificate g_t(u, v) = p, so it cannot seed a windmill.
 * **Z3192.** Compactness via limiting divisor-class measures fails twice. For fixed K, avoiding limits exist under H. For growing K, a certificate is
   an atom of vanishing mass, invisible to weak limits.
