@@ -356,8 +356,8 @@ square-root size, exactly as an n-uniform upper-bound input must be. (H) of Lemm
 ## 8. FRONTIER §4 hard screens (for Theorem A and for the reverse-direction question)
 1. **T1 (odd squares).** Theorem A is an n-uniform upper bound, true at m² (R = 0); it does not and cannot imply positivity.
    For the reverse direction, T1 is located in strip coordinates: the square-sensitive ingredient identified is the BM
-   twist (Theorem C1);
-   all sieve data of auxiliary conductor are T1-blind (§7.2, F3).
+   twist (Theorem C1); the auxiliary-conductor sums S_Q behave the same at odd squares, near-squares, test primes and
+   primes (EVIDENCE §7.2, F3).
 2. **8/131.** The upper-bound argument transfers to other numerators (it uses only the root structure of (u, B) and a
    linear relation level·k ↔ s): harmless for an upper bound; silent on 8/131.
 3. **Tied modulus.** Used, as in HYPSUMPROD: the tie is the square condition; the moving modulus 4C is absorbed into the
