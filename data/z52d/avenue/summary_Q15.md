@@ -17,7 +17,7 @@ Novelty: 0 → 40, 1 → 72, 2 → 1 (Z3005, multiscale induction; plausibility 
 * **Z0189** (plausibility 2): *some discretely ordered ring model of IOpen contains n (e.g. 840T + 1) with no positive solution*, so ES is unprovable in open induction.
   This is the logic shadow of POINTWISE_SIZE Thm M; Z1843 adds that a nonstandard counterexample must lie in the sterile set K.
 * **Z2797** (plausibility 2): sharper transference for the balanced-lattice cap route (CONDITIONAL on Hypothesis W; caps, not ES).
-* Z1770: Buss witnessing gives 'ES ∈ S¹₂ ⇒ poly-time certificate finder', which is not known. The rest (Z2660, Z1378, Z1414, Z1778, Z0880, …) are calibration.
+* Z1770 (Buss witnessing: ES ∈ S¹₂ ⇒ poly-time certificate finder, not known) and the rest (Z2660, Z1378, Z1414, Z1778, …) are calibration.
 
 **Recurring missing theorems**
 1. *ES₅ restated in lens-space/knot/quantum language* (circular): Z2657, Z2658, Z2661, Z2672, Z2683, Z2685, Z2719, Z2720, Z2783, Z2839, Z2848, Z2849.
