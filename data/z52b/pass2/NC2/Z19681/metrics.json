@@ -1,0 +1,21 @@
+{
+  "limit": 100000,
+  "primes": 4783,
+  "definition": "R(p)=# ordered positive (u,B) with (4u-1)(4B-1)=4p+1; exact factor-divisor count",
+  "seed": 19681,
+  "train": 3826,
+  "test": 957,
+  "R_range": [
+    0,
+    32
+  ],
+  "weighted_kernel_test_R2": 0.6234141752655677,
+  "mod840_kernel_test_R2": 0.5855110029098363,
+  "mod840_class_mean_test_R2": 0.5842989775972545,
+  "ridge_lambda": 0.001,
+  "modulus_weight_squared_coef_norm": {
+    "17": 3.597663559399791,
+    "19": 9.30500641974111,
+    "840": 33108.113887979125
+  }
+}

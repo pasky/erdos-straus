@@ -3,23 +3,23 @@
   "primes_1mod4": 609,
   "cd_pairs": 400,
   "observations": 243600,
-  "witness_definition": "exists proper nontrivial divisor 1<f\u2264sqrt(p\u00b2+4c\u00b2d); operational refinement because the item does not specify a residue condition",
+  "witness_definition": "exists divisor f of p\u00b2+4c\u00b2d with 1<f<p\u00b2+4c\u00b2d and f \u2261 -p (mod 4cd) (item predicate f | p\u00b2+4c\u00b2d, f \u2261 -p mod 4cd)",
   "discriminant": "order discriminant D=\u221216c\u00b2d, primitive positive reduced binary quadratic forms; not fundamental discriminant",
   "class_number_range": [
     1,
     192
   ],
-  "witness_observations": 207365,
+  "witness_observations": 9371,
   "witness_h_parity_counts": {
-    "odd": 522,
-    "even": 206843
+    "odd": 0,
+    "even": 9371
   },
   "no_witness_h_parity_counts": {
-    "odd": 87,
-    "even": 36148
+    "odd": 609,
+    "even": 233620
   },
-  "fraction_odd_witness": 0.0025173004123164467,
-  "fraction_odd_no_witness": 0.002400993514557748,
-  "chi_square": 0.1673186950212862,
-  "chi_square_p": 0.6825058455101833
+  "fraction_odd_witness": 0.0,
+  "fraction_odd_no_witness": 0.0026000196389003925,
+  "chi_square": 24.425848657780026,
+  "chi_square_p": 7.722555447715486e-07
 }

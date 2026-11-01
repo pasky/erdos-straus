@@ -1,0 +1,53 @@
+{
+  "primes_with_both_classes": 133,
+  "mean_S_over_p2_QR": 0.008616150946726178,
+  "mean_S_over_p2_QNR": 0.005605191297769522,
+  "primes_QR_greater": 87,
+  "primes_QNR_greater": 46,
+  "sign_test_p": 0.0004772225240720664,
+  "mean_per_prime_diff": 0.002618577495144828,
+  "largest_p": 1997,
+  "diff_first_10": [
+    [
+      13,
+      0.0059
+    ],
+    [
+      37,
+      0.0114
+    ],
+    [
+      53,
+      -0.0008
+    ],
+    [
+      61,
+      0.0062
+    ],
+    [
+      73,
+      0.0083
+    ],
+    [
+      97,
+      0.0041
+    ],
+    [
+      109,
+      0.0171
+    ],
+    [
+      137,
+      -0.0022
+    ],
+    [
+      157,
+      0.0086
+    ],
+    [
+      173,
+      -0.0017
+    ]
+  ],
+  "definition": "S(p,A)=sum_i d(L(p,A),i) divided by p^2; A runs over length-3 residues with gcd(A,p)=1; compared within each prime p=1 mod 4 with 5<=p<2000"
+}

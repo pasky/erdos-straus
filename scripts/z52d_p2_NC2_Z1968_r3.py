@@ -22,7 +22,7 @@ mods=[3,4,5,7,8,11,12,13,840]
 # Residue indicator feature concatenation realizes the stated sum kernel. Ridge selected by 5-fold CV on training.
 X=np.concatenate([(P[:,None]%m==np.arange(m)[None,:]).astype(float)/math.sqrt(m) for m in mods],axis=1)
 def fit_eval(X):
- xt=X[tr]; yt=y[tr]; xm=xt.mean(0)
+ xt=X[tr]; ym=y[tr].mean(); yt=y[tr]-ym; xm=xt.mean(0)
  xt=xt-xm; xv=X[te]-xm
  folds=np.array_split(rng.permutation(len(tr)),5); vals=[]
  for lam in [1e-4,.001,.01,.1,1,10,100]:
@@ -31,7 +31,7 @@ def fit_eval(X):
    a=np.setdiff1d(np.arange(len(tr)),v); coef=np.linalg.solve(xt[a].T@xt[a]+lam*np.eye(xt.shape[1]),xt[a].T@yt[a]); errs.extend((yt[v]-xt[v]@coef)**2)
   vals.append((np.mean(errs),lam))
  lam=min(vals)[1]; coef=np.linalg.solve(xt.T@xt+lam*np.eye(xt.shape[1]),xt.T@yt)
- pred=xv@coef; base=y[te].mean()
+ pred=xv@coef+ym; base=y[te].mean()
  return 1-np.sum((y[te]-pred)**2)/np.sum((y[te]-base)**2),lam,coef,xm
 full=fit_eval(X)
 # Nonnegative modulus-specific relevance via CV-tuned group ridge; weights summarized by squared coefficient norm.

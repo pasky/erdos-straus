@@ -25,7 +25,8 @@ for p in primerange(5,10001):
    # Operational divisor-type witness: the Type-I form has a proper nontrivial divisor.
    # The item does not specify a residue constraint; do not import one from a different certificate family.
    val=p*p+4*c*c*d
-   witness=not isprime(val)
+   from sympy import divisors as _dv
+   witness=any(1<f<val and (f+p)%(4*c*d)==0 for f in _dv(val))
    parity=ds[c,d]%2; total+=1
    if witness:
     witnesses+=1
@@ -39,5 +40,5 @@ try:
  chi,pval=float(chi),float(pval)
 except ValueError:
  chi,pval=None,None
-out={'prime_limit':10000,'primes_1mod4':sum(1 for p in primerange(5,10001) if p%4==1),'cd_pairs':400,'observations':total,'witness_definition':'exists proper nontrivial divisor 1<f≤sqrt(p²+4c²d); operational refinement because the item does not specify a residue condition','discriminant':'order discriminant D=−16c²d, primitive positive reduced binary quadratic forms; not fundamental discriminant','class_number_range':[min(ds.values()),max(ds.values())],'witness_observations':witnesses,'witness_h_parity_counts':{'odd':yes_odd,'even':yes_even},'no_witness_h_parity_counts':{'odd':no_odd,'even':no_even},'fraction_odd_witness':yes_odd/witnesses if witnesses else None,'fraction_odd_no_witness':no_odd/(total-witnesses),'chi_square':chi,'chi_square_p':pval}
+out={'prime_limit':10000,'primes_1mod4':sum(1 for p in primerange(5,10001) if p%4==1),'cd_pairs':400,'observations':total,'witness_definition':'exists divisor f of p²+4c²d with 1<f<p²+4c²d and f ≡ -p (mod 4cd) (item predicate f | p²+4c²d, f ≡ -p mod 4cd)','discriminant':'order discriminant D=−16c²d, primitive positive reduced binary quadratic forms; not fundamental discriminant','class_number_range':[min(ds.values()),max(ds.values())],'witness_observations':witnesses,'witness_h_parity_counts':{'odd':yes_odd,'even':yes_even},'no_witness_h_parity_counts':{'odd':no_odd,'even':no_even},'fraction_odd_witness':yes_odd/witnesses if witnesses else None,'fraction_odd_no_witness':no_odd/(total-witnesses),'chi_square':chi,'chi_square_p':pval}
 outdir=Path('data/z52b/pass2/NC2/Z2485'); outdir.mkdir(parents=True,exist_ok=True); (outdir/'metrics.json').write_text(json.dumps(out,indent=2)+'\n'); print(json.dumps(out))

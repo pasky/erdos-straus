@@ -1,0 +1,26 @@
+{
+ "primes": 609,
+ "pairs": 400,
+ "odd_h_pairs": 1,
+ "odd_h_pairs_detail": [
+  [
+   1,
+   1,
+   1,
+   0.0
+  ]
+ ],
+ "mean_witness_rate_odd_h": 0.0,
+ "mean_witness_rate_even_h": 0.038565214349502656,
+ "table_witness_ge_half": [
+  [
+   0,
+   1
+  ],
+  [
+   1,
+   398
+  ]
+ ],
+ "fisher_p": 1.0
+}
