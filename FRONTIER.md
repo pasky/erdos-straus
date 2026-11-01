@@ -266,11 +266,12 @@ ES for a prescribed prime. Fixed-p variance diagnostics were tried and fail ((J)
   rad(Q) | (r+1)/4 ((J)34).
 
 **Tied modulus / height-dependent target.** `PARITY_AUDIT.md` Lemma 2.1′, Assessment 2.2, Remark 3.1; (J)87.
-* *Statement.* Best known pointwise bound: |E(p)| = |R(p) − M(p)| ≪ p^{1/3+o(1)} (PROVED, elementary block count
+* *Statement.* Previous elementary pointwise benchmark: |E(p)| = |R(p) − M(p)| ≪ p^{1/3+o(1)} (PROVED, elementary block count
   N(U,V) ≤ p^{o(1)}min(U, V, p/(UV)+1), `Z52D_HYPERBOLA.md` Thm 1; ET Prop 1.7's p^{2/5} is for the full Type II count; no
   cancellation either way), against M(p) ≍ (log p)². *(z53, cross-model reviewed:)* now R(n) ≪_ε n^{12/37+ε} for every n
-  (`Z53_SQSIEVE.md` Thm A, PROVED rel. Weil's Kloosterman bound and the third-derivative test; first power saving
-  n^{1/3−1/225} in `Z53_HYPSUMPROD.md` Thm 1): near the cube the tie is a perfect-square condition, detected by Heath-Brown's
+  (`Z53_SQSIEVE.md` Thm A, PROVED rel. Weil's Kloosterman bound and the third-derivative test; preceded by
+  R(n) ≪ n^{1/3−1/225}(log n)² for n ≥ 2 in `Z53_HYPSUMPROD.md` Thm 1, the first power saving in this campaign; external
+  priority is unverified): near the cube the tie is a perfect-square condition, detected by Heath-Brown's
   square sieve. Upper bound uniform in n, valid at odd squares — silent on positivity. Weil on the modular hyperbola 𝓗 = {xy ≡ 1 (mod 4p)} has error p^{1/2+o(1)}
   even for one box, and (★) is ≍ p height-sub-counts, so Weil does not even bound E(p). Remark 3.1 (Assessment): every result
   beating Weil/Selberg–Hooley averages over a variable *independent of the modulus* (the residue, the moduli q ≤ x^θ with n
@@ -503,11 +504,13 @@ no single-prime lower-tail mechanism is known.
   (Thm 4.5), and X^{1/A+o(1)} at cap (log X)^A/4 for every A > 1 (Heath-Brown). These concern the cap relaxation only;
   cap 0 (ES) lacks the power-dense class supply that drives them.
 * *(z53, `Z53_PZ.md` Thm A; PROVED rel. Bombieri–Vinogradov and elementary divisor sums; cross-model reviewed.)* For every
-  η ∈ (0, 1): #{p ≤ X : R(p) < (1 − η)(log p)²/64} ≪ η^{−2} π(X)/log X. So R(p) ≫ log²p, hence f(p) ≫ log²p, for almost all
+  η ∈ (0, 1), once X ≥ X₀(η) (ineffective): #{p ≤ X : R(p) < (1 − η)(log p)²/64} ≪ η^{−2} π(X)/log X. So R(p) ≫ log²p, hence f(p) ≫ log²p, for almost all
   primes — vs. ET Thm 1.8's (log p)^{0.549} on a density-1 set of primes. Truncation to trial moduli 4uC − 1 ≤ X^{1/4−o(1)}
   keeps every pair correlation inside BV. The full second moment of R is *not* proved. Average statement; says nothing
-  about a prescribed p (B6). CERTIFIED check: R(p) ≥ 1 for all primes p ≡ 1 (4) in [10⁷, 1.6·10⁸], and the share with R(p) < log²p/64 falls
-  from 5·10⁻⁵ to 3·10⁻⁶ across the four dyadic windows (this session's independent check).
+  about a prescribed p (B6). EVIDENCE (one-engine check, independent session computation, not part of the PZ memo's
+  cross-review; `scripts/z53_summary_rcheck.c`, output `data/z53/summary/rcheck_1e7_1.6e8.txt`): in the four dyadic
+  windows from 10⁷ to 1.6·10⁸, primes p ≡ 1 (4) with R(p) < log²p/64 number 16/302990, 10/581517, 6/1117686 and
+  7/2152350; no R(p) = 0 occurred.
 
 **5.2 Unconditional, pointwise — for relaxations or thin families, not ES.**
 * The BM main term: M_BM(p) ≥ (3/(16π²) − o(1))(log p)² (Burgess) for every large prime; five-slice analogue
@@ -541,19 +544,28 @@ no single-prime lower-tail mechanism is known.
   Nair–Tenenbaum, energy bound); the Haar avoider exponent and the tail exponent of W over primes are both 3.
 * Infinitely many 3·2^s + 1 etc. lie outside every finite ET covering ((J)22 Cor 1.5, (J)68).
 * *(z53, cross-model reviewed.)* **B1 with oracles** (`Z53_NONCRTLOGIC.md` Thms A, T). Theorems M/C of `POINTWISE_SIZE` extend to
-  programs calling *any* finite-valued oracle of p: Frobenius classes in fixed fields, power-residue symbols, h(p) mod m, or
-  any predicate. This needs only H for a finite polynomial family, and the scope is witness procedures with a finite
-  formal tree. The formal odd-square principle holds for every primitive irreducible P with P(0) = 1 and no positive real
-  root, by Hilbert reciprocity in ℚ(β) at explicit trap points. So bounded use of CF/Pell/unit data of √p, ⌊cp^θ⌋ (rational c, θ),
-  ord_p(a), or the factorisations of p ± 1 fails i.o. under H (CONDITIONAL on H). This closes item E3 of `POINTWISE_SIZE` §4.2
-  for that scope. Necessary (not sufficient) condition to escape: generate integers outside finitely many polynomials that
-  carry a non-residue prime factor.
-* *(z53, `Z53_LATTICE.md` Thm A; PROVED; cross-model reviewed.)* For odd n ≥ 6.8·10¹⁷ there is no convex Thue/Minkowski
-  scheme for (★) in the coordinates (u, B, C). Such a scheme would need a full-rank lattice coset, an exactness modulus and
-  a convex body in the positive octant meeting Thue's conditions; efficient exactness cosets do not exist (index ≥
-  D^{4/3}/277), and convex bodies inside the exactness shell are tiny. In hyperbola coordinates the class can no longer be
-  imposed by a lattice (Prop D). Polynomial encodings either pin to congruence data or designate prime factors (Thm B,
-  the B4 shape). This scopes the M1b Assessment; nonconvex, nonlinear and lower-rank schemes are not covered.
+  programs calling arbitrary finite-valued oracles of p: Frobenius classes in fixed fields, power-residue symbols, h(p) mod m,
+  or any predicate. For each correct witness-producing procedure in the stated formal language, with a defined finite formal
+  tree at the specified trap point, Thms A/T prove failure at every sufficiently large admissible input; infinitely many
+  prime failures are CONDITIONAL on H for the augmented finite polynomial family. Arbitrary finite-valued oracles are
+  allowed; Boolean/counting certificates and growing searches are not excluded. The formal odd-square principle holds for
+  every primitive irreducible P with P(0) = 1 and no positive real root, by Hilbert reciprocity in ℚ(β) at explicit trap
+  points (nonlinear traps only in that scope). Individual primitive reductions enumerated there: bounded use of
+  CF/Pell/unit data of √p, ⌊cp^θ⌋ (rational c, θ), ord_p(a), or the factorisations of p ± 1 fails at every sufficiently
+  large admissible input, and at infinitely many primes CONDITIONAL on H. This closes item E3 of `POINTWISE_SIZE` §4.2 for
+  that scope. *Necessary condition (Cor T3(c), Prop S).* For a witness procedure to succeed at admissible primes of every
+  trap point, it must escape a fixed finite formal menu and produce non-formal integers carrying non-residue prime factors
+  (necessary, not sufficient; non-formality alone does not supply them). This is a pointwise trap/admissibility statement;
+  prime infinitude is conditional on H. The least non-residue supplies a fully factored non-residue, and its bounded
+  finite-tree procedures reduce value by value to the r-generic line.
+* *(z53, `Z53_LATTICE.md` Thm A; PROVED; cross-model reviewed.)* For odd n ≥ 6.8·10¹⁷, no Def. 1.1 full-rank
+  convex Thue scheme in (u, B, C), with its exactness/size conditions and positive-octant covering or Minkowski hypothesis,
+  exists. Such a scheme would need a full-rank lattice coset, an exactness modulus and a convex body in the positive octant
+  meeting Thue's conditions; efficient exactness cosets do not exist (index ≥ D^{4/3}/277), and convex bodies inside the
+  exactness shell are small (vol K ≤ 15.12D²/n when D ≤ n/17). No full-rank coset imposes 4C | X+1 at all its points with
+  C ≥ 1; deriving the class only at selected points is not excluded (Prop D). For degree ≤ δ encodings and odd exactness
+  primes ℓ > 3δ with positive-dimensional coset image mod ℓ, Thm B pins the image to a point or forces ℓ to divide u, B, C,
+  X or Y (the B4 shape); it is structural, not a general nonlinear no-go. This scopes the M1b Assessment; nonconvex, nonlinear and lower-rank schemes are not covered.
 * **Forest witnesses are not polylog** (`H4_NOT_POLYLOG.md`, z49; cross-reviewed SOUND).
   * PROVED, relative to the internal OMEGA10/11 energy lemma: infinitely many primes p have no forest edge with larger
     endpoint in [4, exp((log p)^κ)], and A_min(p) > exp((log p)^κ).
@@ -601,12 +613,22 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Automorphic normal form (theta quotient, weight ½, Serre–Stark) → Eisenstein-only, exact, but does not decide one integer → (J)101.
 * Dirichlet series / moments / Euler-product hardness laws → averages (B6) → `BRAINSTORM/anal_*`.
 * Spectral/interlacing, faithful Euler systems, single-character Siegel dichotomy, ultraproduct transfer → displayed mechanisms fail, not universal no-go theorems (Assessment) → `BREADTH_Z45.md` §§1–4 (board #4 addendum, 2026-10-19).
-* (z53) Summing the hyperbola dual over conductors or frequencies at fixed p (Fejér windows, full conductor projection,
-  Kloosterman fractions within the DFI/Bettin–Chandee ranges) → smoothed counts, class averages, numerator too large →
-  `Z53_HYPKLOOST.md`. λ-uniform box bounds and class-blind fibre counts → floored at the trivial block bound →
-  `Z53_HYPSUMPROD.md` Props B, C. Square sieve with unsigned quadratic minorants toward positivity → no positive diagonal
-  under (H) → `Z53_SQSIEVE.md` Lemma C3. One prescribed class modulus (fixed-modulus multiplicative representation) → at
-  most a (log p)^{2+η} gain over trivial CRT → `Z53_NONCRTSMOOTH.md` Thm B.
+* (z53) Summing the hyperbola dual over conductors or frequencies at fixed p → `Z53_HYPKLOOST.md` (scoped):
+  * Fejér-weighted frequency sums are window-smoothed counts; the full unweighted projection onto conductors dividing M
+    is a class average. Arbitrary weighted cross-conductor sums are not covered (Thms B, C).
+  * Kloosterman fractions: DFI Theorem 2 and Bettin–Chandee require, respectively, C̄ ≲ p^{1/37} and C̄ ≲ p^{1/21} for
+    their displayed bounds to save (necessary conditions only, ignoring ε-losses). DFI Theorem 1 does save on skew KF
+    sums, e.g. U ≍ p^{1/5}, V ≍ p^{3/5}, bounded b; no saving for the tied block count follows here (K(c)).
+* (z53) λ-uniform box majorants and shift-uniform class-blind fibre majorants → floored at the trivial block bound →
+  `Z53_HYPSUMPROD.md` Props B, C (other uses of the tools are not excluded).
+* (z53) Square sieve toward positivity → `Z53_SQSIEVE.md` Lemma C3: under (H) and ν(a) ≤ P₀−1 on the support of
+  nonnegative weights, quadratic σ-minorants have no positive diagonal main term. (H) is checked on finite strips only,
+  not proved for general application weights. Signed auxiliary-sum inputs remain open.
+* (z53) One prescribed class modulus (fixed-modulus multiplicative representation) → `Z53_NONCRTSMOOTH.md` Cor B1: for
+  fixed η > 0 and one q = q(X) ∈ 4ℕ with q ≤ X^{1/2}, prescribed independently of p, all but o(π(X)) primes p ≤ X have no
+  E(q,κ) with κ ≤ q/(log X)^{2+η}. This limits an almost-all guarantee at that q, not simultaneously over q; for fixed q
+  the threshold eventually falls below 1. Aggregation over q is the remaining Type II route (Assessment), not a necessity
+  for every ES proof: ES is Type I or Type II.
 
 *Algebraic / forcing*
 * Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS "line 2: CLOSED".
@@ -633,11 +655,23 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Principal-cycle (Pell) root menu R3 ∪ U in F_p → frozen to a polynomial recipe at near-square primes; fails i.o. under H →
   `Z52D_PELLCYCLE.md` Thm 1.1 (z52d).
 * Fermat / binary-form certificates p = Q(u,v) → miss infinitely many primes of every square class → (J)3.
-* (z53) Bounded procedures with any finite-valued oracle of p (Frobenius, power residues, h(p) mod m, bounded CF/Pell data)
-  → B1 under H (`Z53_NONCRTLOGIC.md` Thms A, T). Joint Rédei / factor-multiset forcing at bounded levels → exactly B1
-  (CONDITIONAL on BHC; `Z53_GENUSREDEI.md`). Bounded class-group roots in F_p → die under Dickson (`Z53_FORESTCLASS.md`
-  Thm 1). Polynomial identities Q(x, y) = 4CuB − u − B on a full-rank coset → only congruence menus, by degree count
-  (`Z53_WILDCARD.md` Prop 2.4). Convex Thue/Minkowski schemes in (u, B, C) → none for n ≥ 6.8·10¹⁷ (`Z53_LATTICE.md` Thm A).
+* (z53) Witness procedures with arbitrary finite-valued oracles of p (Frobenius, power residues, h(p) mod m, bounded
+  CF/Pell data) → `Z53_NONCRTLOGIC.md` Thms A, T: for each correct witness-producing procedure in the stated formal
+  language, with a defined finite formal tree at the specified trap point, failure at every sufficiently large admissible
+  input (PROVED); infinitely many prime failures are CONDITIONAL on H for the augmented finite polynomial family.
+  Boolean/counting certificates and growing searches are not excluded.
+* (z53) Joint Rédei / factor-multiset forcing → `Z53_GENUSREDEI.md`: for a fixed finite family of lines satisfying §1
+  and an admissible datum Π in a fixed finite Galois field, five necessary pointwise laws are PROVED; completeness for
+  complete decorated configurations with squarefree rough parts is CONDITIONAL on BHC (JRT); under BHC, bounded-level
+  forcing from Π alone is exactly B1 (F), while prescribed factor decorations can additionally force events.
+* (z53) Class-group roots in F_p → `Z53_FORESTCLASS.md` Cor 1.1: the bounded menus enumerated there fail infinitely often
+  under Dickson (CONDITIONAL), even with unrestricted component exploration. Arbitrary bounded class-group functions,
+  other p-dependent split classes and individual real-cycle prefixes are not covered.
+* (z53) Identities → `Z53_WILDCARD.md` Prop 2.4: for a ℚ-irreducible binary quadratic form Q, identities
+  Q(x,y) = 4CuB−u−B with nonzero C, u, B ∈ ℚ[x,y] taking positive integer values on a full-rank coset give only fixed
+  congruence menus. Rational functions, thin loci and nonpolynomial choices are not covered.
+* (z53) Convex lattice schemes → `Z53_LATTICE.md` Thm A: for odd n ≥ 6.8·10¹⁷, no Def. 1.1 full-rank convex Thue scheme
+  in (u, B, C), with its exactness/size conditions and positive-octant covering or Minkowski hypothesis, exists.
 
 *Geometry / relaxations / transfers*
 * Brauer–Manin, fibrations, descent, strong approximation → no BM obstruction; "BM only obstruction" = ES(n) → (I)7, `GEOMETRY_ES.md`.
@@ -675,38 +709,54 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    *(z53, five lanes, each cross-model reviewed; `Z53_SUMMARY.md` §1.)*
    * **Upper side moved (PROVED).** R(n) ≪_ε n^{12/37+ε} for every n (`Z53_SQSIEVE.md` Thm A, rel. Weil + third-derivative test;
      n^{21/65+ε} with Bourgain's exponent pair; n^{4/13+ε} under the exponent-pair conjecture). This builds on
-     `Z53_HYPSUMPROD.md` Thm 1, n^{1/3−1/225}. Near the cube, a (★) triple is a point (C, k) of a thin strip where
+     `Z53_HYPSUMPROD.md` Thm 1, R(n) ≪ n^{1/3−1/225}(log n)² for n ≥ 2, the first power saving in this campaign; external
+     priority is unverified. Near the cube, a (★) triple is a point (C, k) of a thin strip where
      (4Ck − n)² − 4k is a square, and Heath-Brown's square sieve detects the tie. The bound is uniform in n and valid at
-     squares. The gain lives near the cube only: no k-Poisson square-sieve implementation reaches the balanced block
-     (`Z53_SQSIEVE.md` Prop B2, scoped). The missing input is a bilinear (ℓ, C) cancellation, equivalently χ_Q-twisted
-     divisor sums near √m of integers in an interval of length m^{1/4}. Lower-bound use: Heath-Brown-type quadratic
-     minorants have no positive diagonal under the auxiliary hypothesis (H) (Lemma C3). This obstructs unsigned inputs
-     only.
+     squares. The gain lives near the cube. Proposition B2 excludes a balanced-block power saving only for the §4
+     k-Poisson implementation with Q = qq′ ≤ W, triangle inequalities over frequencies and residue classes, Abel
+     summation, and C-sum majorants e_ℓ(W/Q) ≥ c√(W/Q) for |ℓ| ≥ 16W²/n. Other implementations remain unexcluded. The
+     missing input is a bilinear (ℓ, C) cancellation, equivalently χ_Q-twisted
+     divisor sums near √m of integers in an interval of length m^{1/4}. Lower-bound use (Lemma C3): under (H) and ν(a) ≤ P₀−1 on
+     the support of nonnegative weights, quadratic σ-minorants have no positive diagonal main term. (H) is checked on
+     finite strips only, not proved for general application weights. Signed auxiliary-sum inputs remain open.
    * **Floors for other tools (PROVED, scoped to the stated majorants; `Z53_HYPSUMPROD.md` Props B, C).**
-     * λ-uniform hyperbola box bounds (Weil, Cilleruelo–Garaev, Bourgain–Garaev, Shkredov) are ≥ c·W.
-     * Shift-uniform class-blind divisor counts are ≥ (log 2 − o(1))·U.
+     * λ-uniform hyperbola box majorants (Weil, Cilleruelo–Garaev, Bourgain–Garaev, Shkredov) are ≥ c·W.
+     * Shift-uniform class-blind fibre majorants are ≥ (log 2 − o(1))·U. Here the majorant is valid for every shift
+       n₀ ≤ X, with V → ∞ and X/V → ∞; this is not a pointwise lower bound for the actual fibre count.
+     * Other uses of these tools are not excluded.
      * Lenstra/CHN/Shiu per-fibre bounds remove only n^{o(1)}.
    * **Cross-conductor sums (`Z53_HYPKLOOST.md`; narrowed).**
-     * Fejér-weighted frequency sums are smoothed counts over windows of integers.
-     * The full conductor projection is a class average.
-     * Kloosterman fractions collapse by reciprocity to a sawtooth phase whose numerator is too large for DFI and
-       Bettin–Chandee outside tiny-level blocks. This is restricted to the quoted theorems' ranges.
-     * Uncertainty lemmas (PROVED): positive-mean certificates need frequencies up to q_max/2 = 8UV.
+     * Fejér-weighted frequency sums are window-smoothed counts; the full unweighted projection onto conductors dividing
+       M is a class average (Thms B, C). Arbitrary weighted cross-conductor sums are not covered.
+     * Kloosterman fractions collapse by reciprocity to a sawtooth phase (K(c)). DFI Theorem 2 and Bettin–Chandee
+       require, respectively, C̄ ≲ p^{1/37} and C̄ ≲ p^{1/21} for their displayed bounds to save (necessary conditions
+       only, ignoring ε-losses). DFI Theorem 1 does save on skew KF sums, e.g. U ≍ p^{1/5}, V ≍ p^{3/5}, bounded b; no
+       saving for the tied block count follows here.
+     * Uncertainty lemmas (PROVED): common-polynomial frequency certificates with positive mean require degree
+       H ≥ q_max/2 = 8UV; pairwise conductor certificates require primitive frequencies for each pair contributing
+       positive mean. These are restrictions on the specified certificate classes, not all positivity arguments.
      * Survives: positivity from the top of the spectrum using primality; negative-mean certificates; joint or
        nonlinear methods.
-   * **2-cycle count R2 (`Z53_HYP2CYCLE.md` Thm R; PROVED).**
+   * **2-cycle target R2 (PROVED reduction; R2 CONDITIONAL on uniform MIX; `Z53_HYP2CYCLE.md` Thm R).**
      * A power-saving second-order equidistribution hypothesis MIX (in (p mod u, p mod f(u))) implies R2. No method for
        MIX is known.
-     * The determinant method is vacuous here because the box is critical.
-     * T1 kills the colour layer, not the 2-cycles. So R2 is an upper-bound methods test, not ES-relevant
-       (Assessment).
-   * **Fixed-modulus multiplicative representation (`Z53_NONCRTSMOOTH.md` Thm B; PROVED).** For a class modulus q ≤ X^{1/2}
-     prescribed independently of p, all but o(π(X)) primes have no two-modulus solution with κ ≤ q/(log X)^{2+η}. So
-     one prescribed class modulus has at most a (log p)^{2+η} factor to gain over the trivial CRT construction. The ES
-     content is the aggregation over q.
-   * **Convergence (Assessment).** `Z53_GENUSX.md` Lemma 4.1 shows that the exact-divisor remainder of the genus
-     analysis is again a sum over a free w of functions of (p mod w, ⌊p/w⌋), the x ↦ −p mod x structure of this item. Every
-     z53 route reached that structure or B2.
+     * The displayed HB14/HB15 black-box auxiliary-curve bounds times a uniform per-curve bound, on a full box or full
+       grid, give no power saving (Prop D). Occupancy pruning, specific-curve arguments and other implementations
+       remain open.
+     * T1 kills the colour layer, not the 2-cycles. So R2 is an upper-bound methods test that has no standalone ES
+       implication; indirect use in a larger argument is not excluded (Assessment).
+   * **Fixed-modulus multiplicative representation (`Z53_NONCRTSMOOTH.md` Thm B, Cor B1; PROVED).** For fixed η > 0 and
+     one q = q(X) ∈ 4ℕ with q ≤ X^{1/2}, prescribed independently of p, all but o(π(X)) primes p ≤ X have no E(q,κ) with
+     κ ≤ q/(log X)^{2+η}. This limits an almost-all guarantee at that q, not simultaneously over q; for fixed q the
+     threshold eventually falls below 1. Aggregation over q is the remaining Type II route (Assessment), not a necessity
+     for every ES proof: ES is Type I or Type II.
+   * **Genus exact layers (`Z53_GENUSX.md` Lemma 4.1).** Lemma 4.1 rewrites the exact subfamily counts R_𝔉 and G_𝔉 as
+     sums over free w of functions of (p mod w, ⌊p/w⌋). The unresolved centred layers are T_w = G_𝔉 − M_𝔉 and
+     T_uw = R_𝔉 − G_𝔉 − T_u; they also subtract density terms. Assessment: these are B2-shaped gaps connected to this
+     item, not a proved B2 equivalence or universal convergence theorem. Both layers remain open; separate bounds
+     suffice but are not individually necessary, since they could compensate.
+   * **Assessment.** No lane supplied single-prime positivity; the scoped obstructions leave undeveloped survivors,
+     including those retained by WILDCARD and LIT.
 2. **Growing roots in the forest F_p** (edge uv ⇔ uv | p + u + v). Fixed roots and the least-non-residue root fail i.o. under
    Dickson, and the component of 1 can be as small as 8 vertices i.o. (CONDITIONAL on Dickson, `LOWER_TAIL_ASTRA.md` Thms 3.1,
    5.1) — so Fable's spark "|comp(1)| ≫ (log p)² unconditionally" is false under Dickson and the growth claim behind it was
@@ -725,31 +775,47 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    * The open target is one-coordinate: HC(p) ≪ (log p)^A, with HC(p) ≤ 64 CERTIFIED to 10⁸ and Landau-type.
    * Inverse-problem and global-identity searches were negative (`FOREST_INVERSE.md`).
    *(z53 update, five lanes, cross-model reviewed.)*
-   * **Kills stop at X ≍ log p (`Z53_HCSHIFTS.md` Thm W; PROVED).**
-     * Every Hypothesis-H/Dickson family that factors all window integers p + x, xp + 1 (x ∈ 𝒞 ∩ [4, X]) fixes p modulo
-       every prime ℓ ≤ X/4. So one such family can certify HC(p) > X at infinitely many members only for
-       X < (4 + o(1)) log p.
+   * **Fixed-family certification wall (`Z53_HCSHIFTS.md` Thm W; PROVED).**
+     * For each fixed polynomial family satisfying W's prime-valued factorisation hypotheses throughout a fixed window X,
+       p is constant modulo every odd prime ℓ ≤ ⌊X/4⌋+1. Every member except possibly the least satisfies
+       log p > (1/4+o(1))X. This bounds the certified window, not actual HC(p); a sequence of families contributing
+       their least members and other certification mechanisms are not excluded.
      * Under a non-standard uniform Bateman–Horn bound, the reach is HC > c log p/log log p i.o. (CONDITIONAL).
-     * Smooth-part certificates die at X ≍ log p: at infinitely many primes every certificate with coordinate
-       ≤ log p/10.4 splits the rough part of its integer (Prop W3, rel. Linnik).
-   * **Conjecture 3.4 (HC ≪ log p) should be replaced (Assessment, model-based).** In the independent-anatomy model
-     fitted to data at 10⁹–10¹³, HC ≤ C log p is predicted false i.o. The model-consistent target is HC(p) ≤ (log p)^A with
-     A ≥ 2 log 2 ≈ 1.386 (`Z53_HCSHIFTS.md` §6; `Z53_HCHYP.md` Thm M / Cor M3, model statements only: in that model, no property of the
-     line data that holds with positive probability implies HC ≤ (log p)^θ for θ < 2 log 2, Conjecture 3.4 included).
+     * Smooth-part certificates (Prop W3, PROVED relative to Linnik): at infinitely many primes there is a window
+       X ≥ (1/10.4−o(1))log p in which every certificate with coordinate x ∈ 𝒞, x ≤ X splits the (X+1)-rough part
+       nontrivially. No exclusion at larger polylogarithmic coordinates follows.
+   * **Model-based recalibration (Assessment).** HCSHIFTS's occupancy model (`Z53_HCSHIFTS.md` §3.2, fitted to data at
+     10⁹–10¹³), with independent draws across primes for the infinitely-often conclusion, predicts HC > C log p
+     infinitely often and eventual HC ≤ (log p)^A for A ≥ 2 log 2. HCHYP's distinct uniform-residue model
+     (`Z53_HCHYP.md` Thm M) proves failure below 2 log 2 and eventual success above it; equality is undecided there. Its
+     Cor M3 is a non-implication in the model's line-data space, not an arithmetic non-implication or refutation of
+     Conjecture 3.4 (HC ≪ log p). Model-motivated target: HC(p) ≤ (log p)^A with A > 2 log 2 ≈ 1.386; equality is also
+     consistent with HCSHIFTS's occupancy model, but undecided in HCHYP.
    * **No standard conjecture is shown to imply the target (`Z53_HCHYP.md`; narrowed).** HCHYP gives a hypothesis catalogue,
-     not a non-implication theorem. Only ES-specific far-lower-tail hypotheses (LT, H⁻_BM type) suffice.
+     not a non-implication theorem. The sufficient hypotheses identified here are ES-specific far-lower-tail assumptions
+     (LT, H⁻_BM type); no exhaustive non-implication theorem is claimed.
    * **Exceptional set (`Z53_UPPER.md` T4.1–T4.3; PROVED rel. BV/Siegel–Walfisz).**
-     * #{p ≤ x : HC(p) > x^θ + 1} ≤ 16x exp(−0.15√(θ log x)).
-     * #{p ≤ x : HC(p) > (log x)^A} ≪ x exp(−(1 − ε)A(log log x)²).
+     * For fixed 0 < θ ≤ 1/2 and x ≥ x₀(θ), #{p ≤ x prime : p ≡ 1 (4), HC(p) > x^θ+1} ≤ 16x exp(−0.15√(θ log x)); x₀ is
+       ineffective.
+     * For fixed A > 0 and 0 < ε < 1, #{p ≤ x prime : p ≡ 1 (4), HC(p) > (log x)^A} ≪_{A,ε} x exp(−(1−ε)A(log log x)²),
+       with ineffective constants.
      * Correct, but not an advance on existing exceptional-set rates (cross-model review).
-     * Pointwise HC(p) ≪ p^θ for any θ < 1 already implies ES for large p and is open. Its expected count of hits is
-       still ≍ θ² log²p, so the power window does not escape the polylog lottery.
+     * For fixed 0 < θ < 1, pointwise HC(p) ≪ p^θ is open and would imply ES for sufficiently large primes. UPPER §5.4
+       heuristically estimates ≍ log X·log p certificate pairs up to coordinate X, hence ≍ θ log²p at X = p^θ; this
+       supplies no pointwise lower bound.
    * **Class-group roots (`Z53_FORESTCLASS.md`).**
-     * Bounded parts are congruence data and die under Dickson (Thm 1).
-     * Unbounded parts escape B1 (Prop 2). A class-group root never has a genus obstruction to having a neighbour
-       (Lemma G, PROVED).
-     * Their measured advantage is consistent with that genus layer alone (EVIDENCE).
-     * The all-cycles root set never fails to 10⁸ (CERTIFIED); the reduced-form set fails once (19441).
+     * The bounded menus enumerated in Cor 1.1 fail infinitely often under Dickson (CONDITIONAL), even with unrestricted
+       component exploration. Arbitrary bounded class-group functions, other p-dependent split classes and individual
+       real-cycle prefixes are not covered.
+     * The full reduced-form minimum set of discriminant −4p cannot be enumerated by a fixed finite list of
+       polynomial-valued roots (Prop 2, PROVED relative to Siegel). No corresponding cardinality/escape result is
+       established for truncated SM, SMN or SP, positive discriminants, or polynomially indexed growing enumerations.
+     * Lemma G (PROVED): for a ∈ SM, a ≥ 3, the target genus coset contains at least τ(p+a)/[G:G²] divisors. This
+       removes the genus obstruction, not the exact-class obstruction; arbitrary SP roots are not covered.
+     * EVIDENCE: the measured SM advantage is consistent with a genus explanation; genus-conditioned MH point estimates
+       are 0.930–1.081, without an established confidence interval or detection threshold.
+     * CERTIFIED for primes p ≡ 1 (8), p ≤ 10⁸: SP has no failures; SM fails only at 19441. SP/SM are the filters
+       a ≤ ⌊√p⌋+1 with p/−p square mod a, respectively; failure means no root reaches a bichromatic component.
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
    BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
    can obstruct (the (★)-failure n = 7 at t = 12; (J)103 §2 Reading). *Why:* it is the next layer after the one proved free.
@@ -761,23 +827,30 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    obstructions (mean 10 %, mostly (·/3); EVIDENCE, 30 hard / 116 matched / 400 random primes). The "exceptional
    character / regime split" variant thus reduces to this item plus B2.
    *(z53, cross-model reviewed.)*
-   * **Genus layer per slice (`Z53_GENUSLVAL.md` Prop C; PROVED).** In each u-slice with u ≡ 1 (4) squarefree and
-     u ≤ p^α (α < 3/5), the genus layer is an explicit signed sum Σ_η ε_η L(1, η)L(1, ηχ_{−4up})H_η plus a class-number
-     term. It agrees numerically within 0.13 % for long slices, including at (★)-zero primes. Cross terms can remove
-     ~40 % of a slice (EVIDENCE) but cannot make M_gen small (Thm U, item 4).
+   * **Genus layer per slice (`Z53_GENUSLVAL.md` Prop C; PROVED).** For squarefree u ≡ 1 (4), u ≤ p^α with fixed
+     α < 3/5, Prop C gives an L-value approximation to S_u with power-saving additive error. The nonprincipal sum runs over
+     η ≠ 1 and has prefactor 1/(2φ(u)); the principal term retains L′ and H′ terms. EVIDENCE: maximum relative error
+     0.1292 % in 18 tested slices with X_u ≥ 10⁵, including (★)-zero primes; net cross terms remove about 38 % in one
+     displayed slice. Aggregate M_gen(p) = o(log²p) is excluded by Thm U (item 4).
    * **Density-level class control on a subfamily (`Z53_GENUSX.md` Thm X; PROVED, unconditional, effective).**
      * On the Thm U family with window conditions (C1), (C2*), (C4), all characters of order ≥ 3 mod 8u contribute only
        their genus value to the density main term (T_u = O(p^{−δ} log p)). The input is Burgess mod p, class by class.
      * With (C3) the exact-class density main term is ≥ (c − o(1)) log²p, with c up to ≈ 0.0019.
-     * Not controlled: the two exact-divisor layers (class of w″ in its genus coset; genus layer minus density). These
-       are sums over a free w of functions of (p mod w, ⌊p/w⌋) (Lemma 4.1).
-     * EVIDENCE at 10⁹–10¹²: they carry ≈ 90 % and ≈ 10 % of the variance and look ≈ swap-Poisson.
+     * Not controlled: the two exact-divisor layers. Lemma 4.1 rewrites the exact subfamily counts R_𝔉 and G_𝔉 as sums
+       over free w of functions of (p mod w, ⌊p/w⌋). The unresolved centred layers are T_w = G_𝔉 − M_𝔉 and
+       T_uw = R_𝔉 − G_𝔉 − T_u; they also subtract density terms.
+     * Assessment: these are B2-shaped gaps connected to §7.1, not a proved B2 equivalence or universal convergence
+       theorem. Both layers remain open; separate bounds suffice but are not individually necessary, since they could
+       compensate.
+     * EVIDENCE in standard-window samples outside Theorem X's hypotheses, at scales 10⁹–10¹²: var(R_𝔉 − G_𝔉) is about
+       88–93 % and var(G_𝔉 − M̂) about 9–10 % of var(R_𝔉 − M̂). Only the former is compared with swap-Poisson, with
+       variance/(2·mean G_𝔉) ≈ 0.81–1.02. These proxy statistics do not validate Theorem X.
 4. **CLOSED (z53).** `Z53_GENUSLVAL.md` Thm U (PROVED, unconditional, effective; cross-model reviewed CORRECT): M_gen(p) ≥
-   (2/(3π⁴) − o(1))(log p)² ≈ 0.0068 log²p for all primes p ≡ 1 (4). It uses Burgess for cube-free conductors on Thm 5.4's
+   (2/(3π⁴) − o(1))(log p)² ≈ 0.0068 log²p at every sufficiently large prime p ≡ 1 (4). It uses Burgess for cube-free conductors on Thm 5.4's
    subfamily with sharp windows. The square-sensitive step is that ηχ_{−4up} is non-principal because p divides its
    conductor, and this is the step that fails at odd squares. Still open: the transfer X(p) ≥ −(1 − ε)M_gen(p), which is
-   ES-(★) strength (see item 3), and the sharp constant (observed min 0.084). *Original item:* **A polylog lower bound
-   for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *(z48 update: `LOWERTAIL_DEEP_ASTRA.md` Thm 5.4 gives M_gen(p) ≥ (2/π⁴ − o(1)) log²p from **any fixed Dirichlet zero-free strip**, hence CONDITIONAL on OAI-003 or GRH; an unconditional version and any transfer to R(p) remain open.)* *Why:* M_gen is the finer
+   ES-(★) strength (see item 3), and the sharp constant (observed min 0.084, sample-specific). *Original item:* **A polylog lower bound
+   for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *(z48 update: `LOWERTAIL_DEEP_ASTRA.md` Thm 5.4 gives M_gen(p) ≥ (2/π⁴ − o(1)) log²p from **any fixed Dirichlet zero-free strip**, hence CONDITIONAL on OAI-003 or GRH; at z48 an unconditional version and transfer were open; z53 closes the genus lower bound only.)* *Why:* M_gen is the finer
    T1-exact main term; with it the one-sided target could be stated relative to the genus series.
 5. **BM-corrected Harris/FKG inequality over primes** ((J)103 §3; recorded there only as a
    CONJECTURE shape, T1-consistent). *Why:* the only variance loophole identified. *Caution:* it would imply a power-saving
@@ -785,13 +858,17 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
 6. **Full-factor-multiset realisation** (`CLASS_FORCING.md` §6): can fixed Frobenius data of p restrict the classes of *all*
    prime factors of p + 4d jointly (Thm 5.2 excludes single factors)? *Why:* the precise residue of "reciprocity forces
    parity never class".
-   *(z53, `Z53_GENUSREDEI.md`, cross-model reviewed.)* This is now **closed relative to BHC for fixed finite families of
-   levels**. Here BHC is a Bateman–Horn–Chebotarev hypothesis, not HC(p).
-   * Take finitely many lines, any Frobenius datum of p, and the joint decorated configuration of the large prime
-     factors: their classes, power symbols at p and the joint Rédei matrix.
-   * This configuration obeys exactly five pointwise laws (PROVED). Under BHC every configuration obeying them occurs
-     i.o. (Thm JRT, CONDITIONAL). Every finite partial configuration occurs with positive density (unconditional).
-   * So bounded-level forcing from the datum of p is exactly the B1 criterion.
+   *(z53, `Z53_GENUSREDEI.md`, cross-model reviewed.)* This is now **CONDITIONALLY closed (relative to BHC) for fixed
+   finite families of levels**; only the pointwise laws and the partial-configuration result below are unconditional. Here BHC is a Bateman–Horn–Chebotarev hypothesis, not HC(p).
+   * Objects: a fixed finite family of lines satisfying §1, an admissible Frobenius datum Π of p in a fixed finite
+     Galois field, and the joint decorated configuration of the large prime factors (their classes, power symbols at p
+     and the joint Rédei matrix).
+   * PROVED: five necessary pointwise laws.
+   * CONDITIONAL on BHC: completeness for complete decorated configurations with squarefree rough parts (JRT).
+   * Unconditionally (U): finite partial configurations satisfying (L3), (L5) occur on a positive-lower-density set of
+     primes; residual cofactors need not be prime or squarefree.
+   * CONDITIONAL on BHC (F): bounded-level forcing from Π alone is exactly B1; prescribed factor decorations can
+     additionally force events.
    * Open: growing level families (B2), p-dependent class-group data, repeated large factors.
 7. **General-m Stickelberger identity** (`TWO_POWER_LADDER.md`; proved for m = 3, 4 only). *Why:* would close the
    higher-reciprocity route at every layer, or reveal an exceptional m.
@@ -808,12 +885,18 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    Formalised: ES(3·2^s + 1) for all s in Lean (`lean/ES/ES/Proth3.lean`, standard axioms; z52d Z1894).
    *(z53, `Z53_THIN15.md`, cross-model reviewed; narrowed.)*
    * ES(15·2^s + 1) is CERTIFIED for s ≤ 3·10⁶.
-   * Menu II-cd (B′) gives four Thue equations per p, each with at most one positive solution (Bennett).
-   * Menu II-ac (B) is Ridout-finite for every p, now including p = 3 (ineffective). It is certified empty in the
-     stated ranges.
+   * Menu II-cd (B′): in B′'s odd-power shape, each fixed odd prime exponent p gives four Thue equations, each with at
+     most one positive solution (Bennett); SG shape is separately excluded.
+   * Menu II-ac (B): B's odd-integer-u branch is Ridout-finite for each fixed odd prime exponent p, including 3,
+     ineffectively and non-uniformly in p; general rational-u finiteness is not proved. B is certified empty for integer
+     u with E ≤ 3000, dyadic u with ip ≤ 72, integer w, and dyadic SG w with 4i−2 ≤ 90.
    * Sign lemma (PROVED): no rule polynomial in 2^{s/2} reaches μ = 0.
-   * Covering congruences alone cannot work: the class t ≡ 0 always survives.
-   * Open: rules through μ = 0 with other bases or non-binomial shapes, and the D = 3 II-d and D = 6 patterns.
+   * ET/divisor-class coverings alone fail: residue 0 survives. A general finite congruence covering must include a rule
+     valid on all sufficiently large multiples of a modulus; such coverings are not excluded.
+   * Polynomial dependence on multiplicatively independent extra exponential bases collapses to the 2-power variable,
+     giving a μ = 0 root family only on a residue-0 progression.
+   * Open: Laurent/rational dependence, binomial menus beyond certified ranges and non-binomial patterns including
+     D = 3 II-d and D = 6.
 9. **Uniform multiplicity on the r-generic line** (`SIBLING.md` Conj 4.2; EVIDENCE: r ≤ 61 through depth 4, r = 19 through 6,
    r = 17 through 7) and **r = 17**. Level-1 survival of a non-residue cell is CERTIFIED only for r < 2·10⁴ (and fails for
    r ≤ 13). *Why:* Conj 4.2 on 17 ≤ r < 2^{21.44}, plus level-1 survival where not yet certified, would give sterile r-generic
