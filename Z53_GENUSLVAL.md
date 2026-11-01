@@ -16,8 +16,8 @@ Assessment. Scripts `scripts/z53_genuslval_*`, data `data/z53/genuslval/`. Build
   `LOWERTAIL_DEEP_ASTRA` Thm 5.4; observed min M_gen/log²p = 0.084 over the sampled p ≡ 1 (4) in [10³, 10⁷], EVIDENCE.)
 * **How.** Thm 5.4's genus-exact subfamily (u, 2w), (2w, u) with sharp windows u ∈ (p^{α₀}, p^{α₁}], w ∈ (p^β, p^γ]. The
   window *difference* kills every constant term, so of the 2^{ω(u)+1} genus characters η mod 4u only η = 1 survives
-  (Prop 2.4); η·χ_{−4up} is never principal **because p divides its conductor** (the only place primality enters; it is
-  exactly what fails at odd squares, §2.8). Burgess needs w-windows longer than (conductor of η)^{1/4}·(conductor of
+  (Prop 2.4); η·χ_{−4up} is never principal **because p divides its conductor** (the decisive square-sensitive use of
+  primality; it is exactly what fails at odd squares, §2.8). Burgess needs w-windows longer than (conductor of η)^{1/4}·(conductor of
   ηχ_D)^{1/4} = (4up)^{1/4} — the two conductors multiply to 4up, not to 16u²p (§2.5) — and the average of L(1, χ_{−4up})
   over u is done by Burgess in u for the short part and per-u Burgess tails for the long part (Prop 2.5).
 * **Proposition C (PROVED; §3): the u-slice closed form.** For squarefree u ≡ 1 (4), u ≤ p^{α} with α < (1 − τ)/(1 + τ)
@@ -28,12 +28,14 @@ Assessment. Scripts `scripts/z53_genuslval_*`, data `data/z53/genuslval/`. Build
   ηχ_{−4up} is (up to Euler factors at 2d) the Kronecker character of conductor (4)(u/d)p: these are precisely the
   products L(1, χ_pψ)·L(1, ψ′) of the brief, ψ the genus character of u/d, ψ′ that of d. **EVIDENCE:** agrees with the
   exactly computed slice (65 slices, u ∈ {1, 5, 13, 21}, 20 primes 409 … 10⁸ incl. all 14 (★)-zero primes): |err| ≤ 1.2·10⁻³
-  (relative ≤ 0.1 %) for the 18 slices with X_u ≥ 10⁵, ≤ 3.6·10⁻³ (≤ 1.4 %) for X_u ∈ [10⁴, 10⁵), error decreasing with X_u (§3.2).
+  (relative ≤ 0.13 %) for the 18 slices with X_u ≥ 10⁵, ≤ 3.6·10⁻³ (≤ 1.4 %) for X_u ∈ [10⁴, 10⁵), error decreasing with X_u (§3.2).
 * **(b) Which genus characters can make M_gen small (§4).** At a single p, M_gen − (principal-genus part) is a signed sum of
   the cross terms ε_η L(1, η)L(1, ηχ_{−4up})H; they carry no log-growth in the slice, and can be large and negative for
   individual u (EVIDENCE: at the (★)-zero prime 8 813 281, the net cross terms of the u = 13 slice remove 38 % of its
   principal-genus mass, driven by η = (·/13), (·/13)χ₋₄ with ε_η = −1). Theorem U shows that no configuration of the genus characters can make M_gen(p) = o(log²p) for
-  p ≥ p₀ (unconditional, effective): it is excluded. The principal-genus part itself is never small on average over u.
+  p ≥ p₀ (unconditional, effective): it is excluded. The principal-genus part itself is never small on average over u. EVIDENCE (u = 1 mod 4
+  squarefree slices, the 14 failure primes vs matched controls): the principal term carries about 77 % of their mean
+  deficit; the chi_{-4} and BM-like chi_{-4}(./u) cross components are the most depressed ones (mean percentiles 7 and 21).
 * **Not a step toward (★) at one prime (B2/B3).** M_gen is the expected count; R(p) = M_gen + X with X the order-≥3 part.
   Theorem U improves the *main-term* side only: the target H⁻ relative to M_gen (X(p) ≥ −(1 − ε)M_gen(p)) now has an
   unconditionally log²-sized right-hand side, but X is untouched. **ES remains OPEN.**
@@ -100,7 +102,7 @@ z := y^{1/2}(K_F/K_G)^{r/2}; the hypothesis y^κ ≥ K_F K_G (and K_F, K_G ≥ 1
 r K_G (z/y)^κ = r K_F z^{−κ} = r(K_F K_G y^{−κ})^{1/2}, K_F K_G y^{−κ} ≤ (K_F K_G y^{−κ})^{1/2} and
 (K_F + K_G)y^{−κ} ≤ 2K_FK_G y^{−κ} ≤ 2(K_FK_Gy^{−κ})^{1/2}; total ≤ (2r + 3)(…)^{1/2}.
 (b) Now 𝔉(t) = log t + γ_E + r₁(t), |r₁(t)| ≤ 1/t (t ≥ 1). Substituting and collecting exactly as in `BM_LVALUE` Lemma 2.4:
-Φ(y) = L_G(log y + γ_E) + L′(1, G) + [−Σ_{a≤z}(1/a)r_G(y/a) − log(y/z)·r_G(y/z) − r′_G(y/z) + Σ_{b≤y/z}(G(b)/b)r₁(y/b)
+Φ(y) = L_G(log y + γ_E) + L′(1, G) + [−Σ_{a≤z}(1/a)r_G(y/a) − log(y/z)·r_G(y/z) + r′_G(y/z) + Σ_{b≤y/z}(G(b)/b)r₁(y/b)
 + r₁(z)r_G(y/z)], where L′(1, G) = −Σ_b G(b)log b/b and r′_G(t) := Σ_{b>t}G(b)log b/b. (Check: the coefficient of
 log z cancels between Σ_{a≤z}(1/a)L_G and −𝔉(z)L_G; the b-sum gives (log y + γ_E)(L_G − r_G(y/z)) − Σ_{b≤y/z}G(b)log b/b.)
 Bounds: K_G y^{−κ}(1 + r z^κ); K_G(z/y)^κ log y; (r + 1)K_G(z/y)^κ(1 + log y); Σ_{b≤y/z}(1/b)(b/y) ≤ 1/z; K_G(z/y)^κ/z. ∎
@@ -115,7 +117,7 @@ and each is genus-matched (p·a ∈ □ mod q) iff
 Consequently, for w also squarefree, the genus weight of the two pairs equals
   (2^{ω(u)}/φ(u))·(2^{ω(w)}1[(i)]/φ(w))·2·2^{−ω(u)−1} Σ_{η∈𝔈_u} ε_η η(w),
 with 𝔈_u := {η_{d,j} := (·/d)·χ₋₄^j : d | u, j ∈ {0, 1}} (Jacobi symbol (·/d)), ε_{d,j} := (−2p/d)·χ₋₄(w₀)^j ∈ {±1}, ε_{1,0} = 1.
-*Proof.* 4·u·2w − u − 2w < 8uw ≤ p; gcd(u, 2w) = 1; u + 2w odd. q = 8uw with 8 ‖ q, so (ℤ/q)^× ≅ (ℤ/8)^× × ∏_{ℓ|uw}(ℤ/ℓ)^×
+*Proof.* 4·u·2w − u − 2w < 8uw ≤ p; gcd(u, 2w) = 1; u + 2w odd. q = 8uw with 8 ‖ q, so (ℤ/q)^× ≅ (ℤ/8)^× × ∏_{ℓ|uw}(ℤ/ℓ^{v_ℓ(uw)})^×
 (uw squarefree odd for the weight; for the matching conditions only the primes matter), s(q) = 4·2^{ω(uw)}, φ(q) = 4φ(u)φ(w).
 A unit is a square mod q iff it is ≡ 1 mod 8 and a quadratic residue mod each odd ℓ | q. With a = −(u + 2w): a ≡ −u (mod ℓ | w)
 gives (i) ((−up/ℓ) = (D/ℓ)); a ≡ −2w (mod ℓ | u) gives (ii); p·a ≡ 1 (mod 8) ⟺ a ≡ p ⟺ 2w ≡ −(p + u) (mod 8) ⟺ (iii)
@@ -125,7 +127,7 @@ mismatches on all runs of `scripts/z53_genuslval_family.c`, §5.)
 
 ### 2.5 Proposition 2.4 (windowed sums: only η = 1 survives)
 
-Let 0 < α₁ < 1, 𝒰 := {u squarefree, u ≡ 1 (4), U₀ < u ≤ U₁}, U_i = p^{α_i}, and put Y = p^β, X = p^γ with
+Let 0 < α₁ < 1, 𝒰 := {u squarefree, u ≡ 1 (4), U₀ < u ≤ U₁}, U_i = p^{α_i}, and put Y = p^β, X = p^γ with β < γ and
   γ < 1 − α₁ (so 8uw ≤ p for large p),  β > τ(1 + α₁) + 4ε.
 For u ∈ 𝒰 and η ∈ 𝔈_u let
   S_η(u) := Σ_{Y<w≤X, w ∈ 𝒮_u} η(w)·2^{ω(w)}1[χ_D(ℓ) = 1 ∀ℓ | w]/φ(w),  𝒮_u := {w odd squarefree, gcd(w, up) = 1}.
@@ -201,21 +203,23 @@ averages over the free variable w at fixed u, Prop 2.5 averages over the free va
 
 ### 2.8 T1 audit: the step that fails at odd squares (PROVED)
 
-M_gen(m²) = 0 (`SINGLE_P_COUNT` Prop 2.2(b)), so the argument must break at n = m². Primality of p is used in exactly one
-place: Prop 2.4(2), "ηχ_D is non-principal since p | f_G". For n = m² (gcd(m, 2u) = 1), D = −4um² has χ_D = χ_{−4u}·1[gcd(·, m) = 1]
-and for η = η_{u,1} = χ₋₄(·/u) the product ηχ_D is principal (on integers coprime to 2um). Then Φ_η acquires a log term and S_η has
-main term ε_η·L(1, χ_{−4u})·H′·log(X/Y) of the same size as the η = 1 term; and its sign is forced: ε_{u,1} = (−2m²/u)χ₋₄(w₀) =
-(−2/u)χ₋₄(−(m² + u)/2) = −1 for u ≡ 1 and u ≡ 5 (mod 8) alike (m² ≡ 1 mod 8). So the two poles cancel, exactly as in
+M_gen(m²) = 0 (`SINGLE_P_COUNT` Prop 2.2(b)), so the argument must break at n = m². The decisive square-sensitive use of
+primality is Prop 2.4(2), "ηχ_D is non-principal since p | f_G" (primality is also used, harmlessly, for D = −4up to be
+fundamental and for gcd(u, p) = gcd(w, p) = 1). For n = m² (gcd(m, 2u) = 1), D = −4um² has χ_D = χ_{−4u}·1[gcd(·, m) = 1]
+and for η = η_{u,1} = χ₋₄(·/u) the product ηχ_D is principal (on integers coprime to 2um). In fact every w in the support of S_1
+(all ℓ | w split, i.e. χ_{−4u}(ℓ) = 1) has η_{u,1}(w) = χ_{−4u}(w) = 1, so **S_{η_{u,1}} = S_1 exactly**, while its sign is forced:
+ε_{u,1} = (−2m²/u)χ₋₄(w₀) = (−2/u)χ₋₄(−(m² + u)/2) = −1 for u ≡ 1 and u ≡ 5 (mod 8) alike (m² ≡ 1 mod 8). So the two signed
+contributions cancel identically, exactly as in
 `LOWERTAIL_DEEP_ASTRA` §5.4 "T1 audit". (Prop 2.5 is true at squares as well; it is not where T1 enters.) For non-square
-n ≡ 1 (4), ηχ_D is non-principal (its conductor contains the odd squarefree kernel of n or u/d), and the same argument
-should give M_gen(n) ≫ (local factor at the primes of n)·log²n (Assessment; not written out, not needed).
+n ≡ 1 (4) and u coprime to n, ηχ_D is non-principal (its conductor contains the odd squarefree kernel of n or u/d; the
+coprimality is needed: n = 45, u = 5, η = χ₋₄ makes ηχ_{−4un} principal on its support), and the same argument should give M_gen(n) ≫ (local factor at the primes of n)·log²n (Assessment; not written out, not needed).
 
 ## 3. Closed forms of the genus layer (the brief's L(1, χ_pψ)·L(1, ψ′) products)
 
 ### 3.1 Proposition C (u-slice closed form; PROVED)
 
-For squarefree u ≡ 1 (4) let S_u(p) := Σ_{B even, (u,B)∈𝒫(p)} (s(q)/φ(q))1[p·a ∈ □] (one order; M_gen = 2Σ_{u odd}S_u).
-On this slice B = 2w with w odd (p + u ≡ 2 (4) forces 2 ‖ B), X_u := ⌊(p + u)/(2(4u − 1))⌋, and Lemma 2.3 (whose proof never
+For every odd u let S_u(p) := Σ_{B even, (u,B)∈𝒫(p)} (s(q)/φ(q))1[p·a ∈ □] (the u-slice, one order; since every pair has
+exactly one even entry and the summand is symmetric, M_gen = 2Σ_{u odd}S_u). Now let u ≡ 1 (4) be squarefree. On this slice B = 2w with w odd (p + u ≡ 2 (4) forces 2 ‖ B), X_u := ⌊(p + u)/(2(4u − 1))⌋, and Lemma 2.3 (whose proof never
 used w squarefree; for general w, s(q)/φ(q) = 2^{ω(u)+ω(w)}/(φ(u)φ(w)) still) gives exactly
   S_u(p) = (2φ(u))⁻¹ Σ_{η∈𝔈_u} ε_η Σ_η(X_u),  Σ_η(X) := Σ_{w≤X, w odd, gcd(w,u)=1} η(w)·2^{ω(w)}1[χ_D(ℓ) = 1 ∀ℓ|w]/φ(w).
 **Claim.** If u ≤ p^{α} with 1 − α > τ(1 + α) + 5ε (τ = (r + 1)/(4r) + rε; as r → ∞, ε → 0 this allows every α < 3/5),
@@ -238,8 +242,10 @@ k = 2 if p + u ≡ 4 (8) and k ≥ 3 if p + u ≡ 0 (8), weight 2^{1−k}, and c
 times a log. Each other genus character η = η_{d,j} of the slice contributes the product **L(1, ψ′)·L(1, χ_pψ)** with
 ψ′ = η of conductor (4)d and χ_pψ of conductor (4)(u/d)p — no log, explicit sign ε_η = (−2p/d)χ₋₄(w₀)^j, explicit Euler
 factor. For d = u, j = 1 the second factor is L(1, χ_p)(1 − χ_p(2)/2) up to Euler factors: this is the slice's share of the
-BM term T(p) ≈ (σ/4)E L(1, χ_p)² of `BM_LVALUE` (which arises after summing χ_p(u)L(1, χ_{−4u})/u over u). So the whole
-genus layer is "BM plus all other (d, j)", each an L(1)·L(1) product — the class-in-coset layer of FRONTIER §7.3 written out.
+BM term T(p) ≈ (σ/4)E L(1, χ_p)² of `BM_LVALUE` (which arises after summing χ_p(u)L(1, χ_{−4u})/u over u). So on every slice
+covered by Prop C (squarefree u ≡ 1 (4), u ≤ p^α) the genus layer is "BM share plus all other (d, j)", each an L(1)·L(1)
+product — the genus part of the class-in-coset layer of FRONTIER §7.3 written out there. The other slices (u ≡ 3 (4),
+non-squarefree u, large u) are not covered by a proved closed form here (next paragraph).
 
 *Global form (Assessment, not fully written).* Splitting 𝒫(p) by the hyperbola at u ≍ p^{3/5−ε} (resp. B ≍ p^{2/5+ε}) and
 using the mirror slices (B fixed, u summed; conductors ≤ 8Bp, characters mod 8w) gives M_gen(p) as a sum of ≍ p^{3/5}
@@ -268,7 +274,7 @@ with X_u as predicted. Full run: 65 slices, u = 1, 5, 13 (and 21), at 409, 577, 
 
 | X_u | slices | max abs err | max rel err |
 |---|---|---|---|
-| [1, 10^2) | 12 | 0.106 (409, u = 5) | 66 % |
+| [1, 10^2) | 12 | 0.106 (409, u = 5: exact slice 0, closed form 0.106) | 66 % (among nonzero exact slices) |
 | [10^2, 10^3) | 9 | 0.046 (5569, u = 5) | 15 % |
 | [10^3, 10^4) | 11 | 0.013 (10009, u = 1) | 6.6 % |
 | [10^4, 10^5) | 15 | 0.0036 (1000033, u = 5) | 1.4 % |
@@ -284,7 +290,7 @@ L(1, χ_{−4up})H_u(1)·log X_u > 0 and the 2^{ω(u)+1} − 1 cross terms ε_η
   slice is (4.46 + 0.69 − 0.57 − 1.81)/24 = 0.115, i.e. the net cross term −1.69 removes 38 % of the principal mass
   Σ_1 = 4.46; at 102001, u = 13 the slice is 0.062).
 * **What cannot happen (PROVED, Theorem U):** neither (α) nor (β) can make M_gen(p) itself o(log²p) for p ≥ p₀ — the windowed
-  subfamily has no cross terms at all (they are constants, cancelled by the window), and (α) is excluded on average over u by
+  subfamily is immune to them (their constant main terms cancel in the window difference, leaving O(p^{−δ}) errors), and (α) is excluded on average over u by
   Prop 2.5 (Burgess in u), which does not care about one exceptional character. So at a single large p **no genus character
   configuration can make M_gen small**; this is unconditional and effective. Quantitatively M_gen(p)/M₀(p) ≥ (2/(3π⁴))/(3/(2π²))
   − o(1) = 4/(9π²) − o(1) ≈ 0.045 (M₀ = (3/(2π²) + o(1))log²p, `BM_CORRECTED` Thm 2.2).
@@ -295,18 +301,20 @@ L(1, χ_{−4up})H_u(1)·log X_u > 0 and the 2^{ω(u)+1} − 1 cross terms ε_η
 * **Assessment (not proved).** Heuristically (`SINGLE_P_COUNT` §4.1 and the slice formula), M_gen − M₀ ≈ (log p)·Σ_{ψ}c_ψ
   L(1, χ_pψ) + O(L(1, χ_p)²): its χ_p-dependence is an infinite weighted family of twisted L-values L(1, χ_pψ), ψ running over the
   genus characters of the cofactor, not finitely many. Under GRH each is ≪ log log p, which suggests M_gen ~ M₀; the observed
-  M_gen/M₀ ∈ [0.57, 1.46] reflects L(1, χ_pψ) of size up to ≈ 5 at 10⁷ (hard primes are QR-rich, `BM_LVALUE` §3.3).
+  M_gen/M₀ ∈ [0.570, 1.526] (sampled p ≡ 1 (4), 10³ ≤ p ≤ 10⁷; max at p = 15461) reflects L(1, χ_pψ) of size up to ≈ 5 at 10⁷ (hard primes are QR-rich, `BM_LVALUE` §3.3).
 * **Which characters do it at the (★)-zero primes (EVIDENCE; `scripts/z53_genuslval_decomp{.c,_stats.py}` →
   `data/z53/genuslval/decomp_stats.txt`, `decomp_raw.tsv`).** Exact decomposition (Lemma 2.3, no asymptotics) of the part of
   M_gen coming from all squarefree u ≡ 1 (4) slices, by genus character type: P (η = 1, principal genus), C4 (η = χ₋₄; product
   L(1, χ₋₄)L(1, χ_{up}) up to Euler factors), CBM (η = χ₋₄(·/u), u > 1; ηχ_D = χ_p, the BM-like product L(1, χ_{−4u})L(1, χ_p)),
-  CU0 (η = (·/u)), CMIX (1 < d < u). Each of the 14 (★)-zero primes against 60 random primes p′ ≡ 1 (8) in [0.9p, 1.1p]
-  (seed 53); mean percentile of the failures: **P 26, C4 6, CBM 20, CU0 35, CMIX 68, total 7**. At 11 of 14 failures C4 is at
-  percentile ≤ 4, and at 9 of 14 (all six failures ≥ 712321 among them) CBM is at ≤ 3; 577 and 329617 go the other way (CBM
-  at percentile 100 / 83). Typical sizes at 10⁶–10⁷ (per log²p): P ≈ 0.040–0.045 for controls vs 0.035–0.039 at failures; C4 ≈ −0.001
-  vs −0.0028 … −0.0043; CBM ≈ 0 vs −0.0016 … −0.0040. **Reading:** at the hard primes the genus deficit is carried mainly by two specific cross characters, χ₋₄ and the
-  BM-like χ₋₄(·/u), whose second L-factor L(1, χ_pψ) is large (QR-richness of p) and whose sign ε_η is −1 on the dominant
-  small-u slices; the principal class-number term is only moderately low. This identifies "which genus characters" at
+  CU0 (η = (·/u)), CMIX (1 < d < u). Each of the 14 (★)-zero primes against up to 60 random primes p′ ≡ 1 (8) in
+  [0.9p, 1.1p] (all of them when fewer: 3, 5, 27, 48 controls for 409, 577, 5569, 9601; 60 otherwise; seed 53); percentile =
+  share of controls strictly below the failure (unrounded). Mean percentile of the failures: **P 26.8, C4 7.3, CBM 21.2,
+  CU0 36.8, CMIX 70.2, total 9.5**. C4 is at percentile ≤ 5 at 10 of 14 failures, CBM at ≤ 3.3 at 7 of 14 (577 and 329617 go
+  the other way: 100 / 76.7). **Mean deficit (control mean − failure)/log²p: P +0.0092, C4 +0.0027, CBM +0.0018, CU0 −0.0001,
+  CMIX −0.0018; total +0.0118.** **Reading:** in this restricted family the principal class-number term P carries most of
+  the net deficit (≈ 77 %); C4 (χ₋₄) and the BM-like χ₋₄(·/u) are the *conspicuously* depressed cross components (lowest
+  percentiles, ≈ 39 % of the deficit together, partly offset by CMIX) — their second L-factor L(1, χ_pψ) is large at
+  QR-rich p and their sign ε_η is −1 on the dominant small-u slices. This identifies "which genus characters" at
   attained sizes; by Theorem U their combined effect is bounded away from killing M_gen as p → ∞.
 * **What Siegel / Stephens / Burgess / GRH give (brief (a)).** Siegel (ineffective): each slice's principal term is
   ≫_ε p^{−ε}·log p — useless for log². Landau–Page/Tatuzawa: at most one exceptional u — superseded by the averaging of
@@ -352,23 +360,26 @@ L(1, χ_{−4up})H_u(1)·log X_u > 0 and the 2^{ω(u)+1} − 1 cross terms ε_η
 buys: the one-sided target "X(p) ≥ −(1 − ε)M_gen(p)" (H⁻ relative to the genus series) now has an unconditionally
 log²-sized main term, so §7.4's "(L)" half of `SINGLE_P_COUNT`'s (L)/(U) split is closed; (U) is untouched. For §7.3:
 **narrowed/clarified** — the genus part of the class-in-coset layer is written out as explicit L(1, ψ′)L(1, χ_pψ) products per
-slice (Prop C, PROVED for u ≤ p^{3/5−ε}), and it is shown that these cross terms cannot make the genus layer small; what
+slice (Prop C, PROVED for squarefree u ≡ 1 (4), u ≤ p^α, α < 3/5), and it is shown that these cross terms cannot make the genus layer small; what
 remains in §7.3 is entirely the order-≥3 layer X(p) (B2).
 
 *Proposed FRONTIER §7 text* (replace item 4; append to item 3):
 > 4. **A polylog lower bound for M_gen(p) — CLOSED (z53, `Z53_GENUSLVAL.md` Thm U, PROVED, internal review).**
 > M_gen(p) ≥ (2/(3π⁴) − o(1))(log p)² ≈ 0.0068 log²p for all primes p ≡ 1 (4), unconditionally and effectively (Burgess for
 > cube-free conductors on `LOWERTAIL_DEEP_ASTRA` Thm 5.4's subfamily with sharp windows; the strip version gives 2/π⁴).
-> The only primality step (ηχ_{−4up} non-principal) is the one that fails at odd squares. Open: the transfer to R(p), i.e.
+> The decisive square-sensitive step (ηχ_{−4up} non-principal because p divides its conductor) is the one that fails at
+> odd squares. Open: the transfer to R(p), i.e.
 > X(p) ≥ −(1 − ε)M_gen(p) (= H⁻ relative to the genus series, ES-(★) strength); a sharp constant (observed min 0.084).
 >
-> 3. (append) *(z53, `Z53_GENUSLVAL.md` Prop C.)* In each slice u ≤ p^{3/5−ε} the genus layer is an explicit signed sum
+> 3. (append) *(z53, `Z53_GENUSLVAL.md` Prop C.)* In each u-slice with u ≡ 1 (4) squarefree, u ≤ p^α (α < 3/5), the genus
+> layer is an explicit signed sum
 > Σ_η ε_η L(1, η)L(1, ηχ_{−4up})H_η plus the principal class-number term L(1, χ_{−4up})·log (PROVED; numerically within
-> 0.1 % for slices of length ≥ 10⁵, at 10⁵–10⁸ incl. (★)-zero primes). Cross terms can remove ~40 % of a slice (EVIDENCE) but cannot make
+> 0.13 % for slices of length ≥ 10⁵, at 10⁵–10⁸ incl. (★)-zero primes). Cross terms can remove ~40 % of a slice (EVIDENCE) but cannot make
 > M_gen = o(log²p) (Thm U). The non-genus (order ≥ 3) part is all that remains of this item.
 
 **Bottom line.** The genus layer of (★) at a single prime is now under unconditional control: it is ≥ 0.0068·log²p for every
-large p ≡ 1 (4) (effective, Burgess only), and slice by slice it is an explicit sum of class-number terms and products
+large p ≡ 1 (4) (effective, Burgess only), and on the slices covered by Prop C (u ≡ 1 (4) squarefree, u ≤ p^α, α < 3/5)
+it is an explicit sum of class-number terms and products
 L(1, ψ′)L(1, χ_pψ) with explicit signs and Euler factors, verified numerically to 10⁸. This closes FRONTIER §7.4 as posed
 and shows that no configuration of quadratic characters can starve the expected count. It does not touch the order-≥3
 characters, which carry the entire remaining difficulty (B2/B3): R(p) = M_gen(p) + X(p) and nothing here bounds X(p).
@@ -376,4 +387,24 @@ characters, which carry the entire remaining difficulty (B2/B3): R(p) = M_gen(p)
 
 ## 8. Review log
 
-(pending)
+**Internal hostile review** (deep-mode subagent, no edits by the reviewer; it re-derived every step of §2 and Prop C, checked
+the Burgess quotation against the arXiv:2511.17778 abstract, recomputed the census minima 0.08386956 / 0.56960370 at
+p = 8089, reproduced the §5 window comparisons and the four small-prime M_gen values). **Verdict: no fatal flaw in Theorem U or
+Prop C**; conductor product f_F f_G = 4up, Burgess applications, squarefree averaging, Euler factors, optimisation values
+1/12, 1/24 and 9/(10π⁴) confirmed; no hidden average over p; effectivity confirmed. Issues and fixes:
+* R1 (major) global closed-form wording exceeded Prop C (only squarefree u ≡ 1 (4), u ≤ p^α) → restrictions restored in §0,
+  §3.1 "Reading", §7 (verdict, FRONTIER text, bottom line); S_u now defined for all odd u before M_gen = 2Σ S_u.
+* R2 (major) control sample: 409, 577, 5569, 9601 had only 3, 5, 28, 48 controls and one control outside the interval → script
+  fixed (enumerate all primes ≡ 1 (8) in the interval, sample ≤ 60), rerun; denominators, unrounded percentiles and counts
+  (C4 ≤ 5 at 10/14, CBM ≤ 3.3 at 7/14) corrected.
+* R3 (major) "deficit carried mainly by two cross characters" confused percentiles with size → mean component deficits added
+  (P +0.0092 of +0.0118 per log²p, ≈ 77 %); reading rewritten (C4, BM-like are the conspicuously depressed cross components).
+* R4 sign of r′_G in Lemma 2.2(b) (bound unaffected) → fixed.
+* R5 T1 audit: the sign belongs to the signed contribution; now proved exactly: S_{η_{u,1}} = S_1 at squares, ε_{u,1} = −1.
+* R6 "only use of primality" → "decisive square-sensitive use" (primality also gives D fundamental, coprimality); the
+  composite-n Assessment now requires gcd(u, n) = 1 (counterexample n = 45, u = 5 otherwise).
+* R7 CRT factor (ℤ/ℓ^{v_ℓ})^× for non-squarefree w; β < γ added to Prop 2.4.
+* R8 relative error 0.13 % (not 0.1 %) for X_u ≥ 10⁵; zero exact slice at (409, u = 5) flagged.
+* R9 observed range of M_gen/M₀ is [0.570, 1.526] (max at 15461), not [0.57, 1.46].
+* R10 "no cross terms at all" → "their constant main terms cancel in the window, leaving O(p^{−δ})".
+A cross-model review is to follow.
