@@ -1,0 +1,7 @@
+primes p≡1(4), 5<=p<=300000: 12980 primes; shape-B count == word count mismatches: 0; nonsquare mismatches: 0
+total shape-B 1074814, nonsquare 785992 (frac 0.7313); primes with no nonsquare shape-B: 1
+min over p of [min over certificate B of max regular CF digit of p/B] / p^(1/3) (p>1000) = 0.8802 at p=1069
+
+real	4m44.051s
+user	4m40.826s
+sys	0m0.117s
