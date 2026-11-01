@@ -488,8 +488,8 @@ Z53DBG=1 /tmp/z53fc -q < list | uv run --with sympy python scripts/z53_forestcla
 uv run --with sympy python scripts/z53_forestclass_thm1inst.py H K q c NFOUND [maxtries] [dickson]
 ```
 
-**Review.** A hostile deep-mode subagent reviewed the first full draft (report kept outside the repo,
-`/tmp/z53_forestclass_review.md`; verdict REJECT as written, with Theorem 1 and the numbers sound). It re-derived
+**Review.** A hostile deep-mode subagent reviewed the first full draft (report
+`data/z53/forestclass/REVIEW_round1.md`; verdict REJECT as written, with Theorem 1 and the numbers sound). It re-derived
 Theorem 1, Cor 1.1, Prop 2(i), Lemma G, the SM colour formula and Prop 3(i)–(iii), and reproduced the numbers
 independently:
 * its own forest checker at 11 primes, including 19441, 2521 and 3361;
