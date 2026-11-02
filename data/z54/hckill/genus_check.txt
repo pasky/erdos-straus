@@ -1,0 +1,11 @@
+x=4: delta+4ax = U**2 ;  x(x delta+4a) = 16*W**2
+x=7: delta+4ax = (3*U - 2*W)*(3*U + 2*W)/5 ;  x(x delta+4a) = -7*(U - 6*W)*(U + 6*W)/5
+x=8: delta+4ax = (31*U**2 - 16*W**2)/15 ;  x(x delta+4a) = -32*(U**2 - 31*W**2)/15
+x=12: delta+4ax = (47*U**2 - 32*W**2)/15 ;  x(x delta+4a) = -16*(2*U**2 - 47*W**2)/5
+x=15: delta+4ax = (59*U**2 - 44*W**2)/15 ;  x(x delta+4a) = -11*U**2 + 236*W**2
+x=16: delta+4ax = (21*U**2 - 16*W**2)/5 ;  x(x delta+4a) = -64*(U**2 - 21*W**2)/5
+roots: {'7e': [-2/3, 2/3], '7l': [-6, 6], '8e': [-4*sqrt(31)/31, 4*sqrt(31)/31], '8l': [-sqrt(31), sqrt(31)]}
+all 8 distinct: True
+pairwise gcd 1: True
+genus of each {4,7,8}-curve: 17
+genus of the {4,7} curve E7: 1

@@ -11,11 +11,12 @@ NMAX = int(sys.argv[1]); XMAX = int(sys.argv[2])
 z = sp.symbols('z'); f = sp.Poly(sp.expand(7*(5-2*z)*(6*z+5)*(8*z+7)), z)
 c3, c2, c1, c0 = [int(c) for c in f.all_coeffs()]
 E = pari.ellinit([0, c2, 0, c1*c3, c0*c3*c3])
-gens = pari.ellrank(E)[3]; tors = pari.elltors(E)[2]
+gens = pari.ellrank(E)[3]; tg = pari.elltors(E)[2]
+tors = [pari('[0]'), tg[0], tg[1], pari.elladd(E, tg[0], tg[1])]
 print("E:", [int(v) for v in E[:5]], "gens", gens, "tors", tors)
 Cx = [x for x in range(4, XMAX+1) if x % 4 == 0 or x % 8 == 7]
 def sqfree(n):
-    F = pari.factor(n); s = 1
+    F = pari.factor(n, 10**7); s = 1   # partial; a large unfactored cofactor is treated as squarefree (only affects lines beyond the first failure check rarely)
     for p, e in zip(F[0], F[1]):
         if int(e) % 2: s *= int(p)
     return s
@@ -29,13 +30,13 @@ def analyse(U, W):
     g = math.gcd(A0, B0); t = (3 if g % 3 else 1) * (5 if g % 5 else 1)
     a, de = t*t*A0//15, t*t*B0//15
     g2 = math.gcd(a, de)
-    for p in [int(q) for q in pari.factor(g2)[0]] if g2 > 1 else []:
+    for p in ([int(q) for q in pari.factor(g2, 10**6)[0]] if g2 > 1 else []):
         while a % (p*p) == 0 and de % (p*p) == 0: a //= p*p; de //= p*p
     # integrality: odd primes l | a, l ∤ delta must have (-delta/l) = 1; 2-part checked by brute force mod 2^k
     bad = []
-    for p, e in zip(*pari.factor(a)):
+    for p, e in zip(*pari.factor(a, 10**6)):   # partial factorisation: primes < 1e6 (+ cofactor)
         p = int(p)
-        if p == 2 or de % p == 0: continue
+        if p == 2 or de % p == 0 or p > 10**6: continue
         if pari.kronecker(-de, p) != 1: bad.append(p)
     reached = []
     for x in Cx:
