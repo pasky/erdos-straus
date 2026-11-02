@@ -1,0 +1,4 @@
+L1: n=1 mod 4, n<=4000: 50968 words, mismatches 0
+L2: primes p=1 mod 8 < 12000: 29820 (coordinate-in-C, level) pairs, Jacobi violations 0
+L3: bad 0
+L4: 7744 constructions, bad 0

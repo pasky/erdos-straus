@@ -1,0 +1,26 @@
+record HC=3 at p=5 (how=3)
+record HC=4 at p=17 (how=3)
+record HC=7 at p=97 (how=3)
+record HC=15 at p=2521 (how=2)
+record HC=64 at p=21841 (how=2)
+N=100000000 primes(1mod4)=2880504 maxHC=64 at p=21841 ; max HC/(log p)^3=0.7196 at p=5 ; #violations HC>(log p)^3: 0
+fired: U only 219521, T only 221366, both 2439617
+HC=3 count=1440534
+HC=4 count=1314911
+HC=7 count=111635
+HC=8 count=9425
+HC=12 count=2352
+HC=15 count=986
+HC=16 count=342
+HC=20 count=190
+HC=23 count=78
+HC=24 count=23
+HC=28 count=7
+HC=31 count=10
+HC=32 count=3
+HC=36 count=2
+HC=39 count=1
+HC=44 count=1
+HC=47 count=2
+HC=56 count=1
+HC=64 count=1
