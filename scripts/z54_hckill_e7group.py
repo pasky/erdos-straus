@@ -11,7 +11,9 @@ NMAX = int(sys.argv[1]); XMAX = int(sys.argv[2])
 z = sp.symbols('z'); f = sp.Poly(sp.expand(7*(5-2*z)*(6*z+5)*(8*z+7)), z)
 c3, c2, c1, c0 = [int(c) for c in f.all_coeffs()]
 E = pari.ellinit([0, c2, 0, c1*c3, c0*c3*c3])
-gens = pari.ellrank(E)[3]; tg = pari.elltors(E)[2]
+gens = pari.ellrank(E)[3]
+gens = pari.ellsaturation(E, gens, 100)   # saturate (ellrank's point is 3x the saturated one)
+tg = pari.elltors(E)[2]
 tors = [pari('[0]'), tg[0], tg[1], pari.elladd(E, tg[0], tg[1])]
 print("E:", [int(v) for v in E[:5]], "gens", gens, "tors", tors)
 Cx = [x for x in range(4, XMAX+1) if x % 4 == 0 or x % 8 == 7]

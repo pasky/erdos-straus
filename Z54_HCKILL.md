@@ -29,7 +29,7 @@ X ≍ log p/log log p CONDITIONAL on a non-standard uniform Bateman–Horn bound
      (Prop F6, PROVED; scoped to quadratic F; it does not cover x² + y⁴-type or other constructions).
    * One-variable families p = (y² + δ)/(4a): the formal square-class conditions for line 4 form a rational conic
      (PROVED; Theorem Q is one integral-admissible point); for lines {4, 7} an elliptic curve E₇ of conductor 735 and
-     rank 1 (CERTIFIED by PARI 2-descent bounds [1, 1]); none of the 10 smallest points gives an integral family
+     rank 1 (CERTIFIED by PARI 2-descent bounds [1, 1]); none of the 17 smallest ratios gives an integral family
      (EVIDENCE); for lines {4, 7, 8} four curves of genus 17, hence **finitely many formal ratios (a : δ)** (PROVED,
      Faltings). Existence of any admissible family beyond X = 4 is undetermined. No family confines a prime line
      q ≡ 7 (8) with q ∤ δ (Prop F5, PROVED), so no single quadratic family certifies a growing window.
@@ -179,15 +179,16 @@ is −7, so the formal line-7 conditions are 9U² − 4W² ∈ 35ℚ^{×2} and 3
 through (U, W, r) = (4, 1, 2) by U/W = 4(5m² − 5m − 1)/(5m² + 1) turns the first into
   E₇ : Y² = 7(m − 1)(5m − 7)(5m + 1)(7m + 1),
 a curve of genus 1 with rational points, an elliptic curve of conductor 735 with torsion ℤ/2 × ℤ/2 and **rank 1**
-(PARI `ellrank` bounds [1, 1]; (−1440, 31200) on the model [0, 532, 0, −1599360, 553190400] is a point of infinite
-order, not certified to be a generator). So infinitely many formal ratios (a : δ) satisfy the line-4 and line-7
-square-class conditions.
-EVIDENCE (`data/z54/hckill/e7_points.txt`, `scripts/z54_hckill_e7group.py`): the points nG + T, |n| ≤ 9, T torsion, give
-10 distinct ratios; 5 fail the real condition 1 < U/W < 4, and each of the other 5 gives an a with an odd prime factor
-ℓ < 10⁶, ℓ ∤ δ, with (−δ/ℓ) = −1 (ℓ = 31, 1123, 1483, 4507, 31307, …). Since δ + a = W_eff² (an integer square after
-scaling), ℓ | a gives δ ≡ W_eff² (mod ℓ), so these are primes ℓ ≡ 3 (mod 4); then 4a | y² + δ is impossible and the
-shape gives no integers. (The script's line-7 recheck uses partial factorisation and is unreliable for the 100+-digit
-numbers; E₇ membership holds by construction.) Whether any point of E₇ is integral-admissible is undetermined.
+(PARI `ellrank` bounds [1, 1]). ellrank's point (−1440, 31200) on the model [0, 532, 0, −1599360, 553190400] equals 3H
+for H = (480, −4320); `ellsaturation` (all primes ≤ 100) returns H, ĥ(H) = 0.3446. So infinitely many formal ratios
+(a : δ) satisfy the line-4 and line-7 square-class conditions.
+EVIDENCE (`data/z54/hckill/e7_points.txt`, `scripts/z54_hckill_e7group.py`): the points nH + T, |n| ≤ 16, T torsion,
+give 17 distinct ratios; 10 fail the real condition 1 < U/W < 4, and each of the other 7 gives an a with an odd prime
+factor ℓ < 10⁶, ℓ ∤ δ, with (−δ/ℓ) = −1 (e.g. ℓ = 19 for the smallest, (a, δ) = (2109, 5460); others 3, 31, 1123,
+1483, …). Since δ + a = W_eff² (an integer square after scaling), ℓ | a gives δ ≡ W_eff² (mod ℓ), so these are primes
+ℓ ≡ 3 (mod 4) (ℓ ∤ W_eff); then 4a | y² + δ is impossible and the shape gives no integers. (The script's line-7 recheck
+uses partial factorisation and is unreliable for the 100+-digit numbers; E₇ membership holds by construction. A first
+run enumerated only multiples of 3H; corrected.) Whether any point of E₇ is integral-admissible is undetermined.
 Assessment: a ∝ (U − W)(U + W) would need both factors free of such primes, heuristically probability ≍ (ĥn²)⁻¹ at the
 n-th point, a convergent sum — so finitely many, possibly none.
 
@@ -376,7 +377,7 @@ is a prime-pattern condition. For growing X there are ≈ 3X/8 lines, i.e. ≈ 3
 > confinement-or-anatomy events. **Theorem Q** (PROVED): every prime 5m² + 1 with 4 | m has HC ≥ 7, so K(4) follows
 > from Bunyakovsky for 720k² + 1 alone (CERTIFIED on 5 719 primes ≤ 10¹²). Formal quadratic confinement shapes: a
 > two-variable quadratic confines at most one window integer; lines {4,7} ↔ the rank-1 elliptic curve E₇ (no integral
-> shape among 10 small points, EVIDENCE); lines {4,7,8} ↔ genus-17 curves, finitely many ratios (Faltings); existence
+> shape among 17 small ratios, EVIDENCE); lines {4,7,8} ↔ genus-17 curves, finitely many ratios (Faltings); existence
 > beyond X = 4 undetermined. **Theorem E** (CONDITIONAL on EH(1 − η₀), some absolute η₀ > 0; FI-2009 template):
 > ≫ x/(log x)² primes p ≤ x have HC(p) > 4 (true order). With BV the same sieve gives only "no 3-mod-4 prime factor
 > below x^ζ, ζ < 1/4" (PROVED); in that implementation the gap is a level deficit or a parity-type switched count. The
@@ -416,7 +417,8 @@ proof of HC ≤ X must certify from lines ≥ 7 at those primes.
   example removed, scope narrowed (primitive points, quadratic F only); (4) Theorem E Step 4 repaired (k ≥ q₁ retained,
   Y ≥ z, auxiliary cutoff w = x^{1/100}, level Y^{1/2}); (5) **Friedlander–Iwaniec 2009 added**; Theorem E presented
   as their template, novelty claim reduced; (6) scope of Faltings/K(7)/Dickson statements weakened; (7) labels split;
-  (8) 𝒫 q-sum factor 1/2; (9) 10 (not 9) distinct E₇ ratios; (10) "infinite-order point", W_eff; (11) the predicted
+  (8) 𝒫 q-sum factor 1/2; (9) E₇ ratio count corrected (and, after the review, the enumeration redone with the
+  saturated generator H, G = 3H: 17 ratios); (10) "infinite-order point", W_eff; (11) the predicted
   integral is the shifted-log one; (12) no "generic tail" claim for the family; (13) half-dimension count; (14) vector
   sieve optimality argument, threshold cosh²(1/2); (15) Dickson infinitude vs HL density separated; (16) "formal shapes";
   (17) 0 < ζ; (18) generator script checked in.
