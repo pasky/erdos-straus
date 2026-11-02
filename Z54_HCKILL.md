@@ -188,7 +188,10 @@ factor ℓ < 10⁶, ℓ ∤ δ, with (−δ/ℓ) = −1 (e.g. ℓ = 19 for the s
 1483, …). Since δ + a = W_eff² (an integer square after scaling), ℓ | a gives δ ≡ W_eff² (mod ℓ), so these are primes
 ℓ ≡ 3 (mod 4) (ℓ ∤ W_eff); then 4a | y² + δ is impossible and the shape gives no integers. (The script's line-7 recheck
 uses partial factorisation and is unreliable for the 100+-digit numbers; E₇ membership holds by construction. A first
-run enumerated only multiples of 3H; corrected.) Whether any point of E₇ is integral-admissible is undetermined.
+run enumerated only multiples of 3H; corrected.) No simple congruence obstruction is visible: the necessary condition
+A′ ≡ 1 (mod 4) for A′ = (U² − W²) stripped of 2, 3, 5 holds at the real points n = −9, −13, −17 and fails at the
+other real points with |n| ≤ 20 (`scripts/z54_hckill_e7mod.py`, `e7_mod.txt`). Whether any point of E₇ is integral-admissible
+is undetermined.
 Assessment: a ∝ (U − W)(U + W) would need both factors free of such primes, heuristically probability ≍ (ĥn²)⁻¹ at the
 n-th point, a convergent sum — so finitely many, possibly none.
 
