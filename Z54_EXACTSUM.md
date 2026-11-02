@@ -54,6 +54,8 @@ Lemma 2, Theorem X, Lemma 4.1) and `Z53_GENUSLVAL.md` (cited **GL**: Theorem U).
   * Conductors f < u^{1/2}, taken together, carry ≤ 1.7 % of var(R − G) in every window tested.
   * For q ≥ 11 the frequency sums W(a,q) have median rms_a|W| equal to 0.98–1.04 × the random-phase benchmark √(Σu⁻²).
   * At the (★)-zero primes with G > 0, the deficit R − G = −G sits predominantly at the top conductor f = u.
+  * Across u, var(R − G)/mean(Σ_u t_u²) = 0.83–1.19: the per-u terms look uncorrelated, i.e. random-model
+    cancellation only.
 * **Verdict: narrowed.**
   * *Dead as a scoped theorem.* Bounding the kickoff's exponential sums block by block with n-uniform estimates fails by
     P^{α₁−o(1)} (Theorem N).
@@ -406,6 +408,16 @@ Full table (all scales, near-squares, composites, hard primes): `stats_profile.t
 * The per-u triangle ratio mean(Σ_u|t_u|)/mean(R + G) is 0.84–0.90 (std), 0.99–1.00 (dyad) and 0.52–0.82 (thx): little
   cancellation inside a single u.
 
+**Cross-u structure (the survivor; `data/z54/exactsum/diag_crossu.txt`).** Let t_u be u's part of R − G. Compare
+var(R − G) = var(Σ_u t_u) with the diagonal mean(Σ_u t_u²), over the same random primes.
+* Ratios: 1.19, 0.97, 0.92 (std, at 10¹⁰, 10¹², 10¹⁴) and 0.99, 0.83, 1.15 (dyad); mean(R − G) is within ±0.44.
+* Within sampling error (150–200 primes per cell), the per-u terms behave as uncorrelated with mean ≈ 0. The data show
+  no systematic cross-u (anti)correlation that a structural argument could exploit.
+* So the slice sums cancel only at the square-root (random-model) level: |R − G| ≈ √(Σ_u t_u²) ≍ log p against the
+  target o(log²p).
+* Assessment: proving even this weaker-than-needed cancellation across the integers p + u is the B2 content of the
+  survivor.
+
 **Odd squares.** R = G = 0, and indeed the conductor pieces cancel across f | u at each shell point (Lemma 3.3). They do
 not cancel blockwise: mean Σ_f |D_f| is 3.31 (std window) and 0.96 (dyadic).
 
@@ -433,6 +445,7 @@ near 10⁸ and have 2–5 terms per q, so they are uninformative here.
 * In dyadic slices its variance sits in conductor blocks that each see one (or at most three) integers p + u.
 * The low-conductor part, which exponential sums in p/w certify (§4), carries ≤ 1.7 % of the variance in every window
   tested.
+* Across u, the per-u terms look uncorrelated, so the slice sums show only random-model cancellation.
 
 ## 7. Screens, verdict, FRONTIER text, bottom line
 

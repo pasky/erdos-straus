@@ -1,0 +1,6 @@
+std R1e10 200 var(R-G)=6.494 mean(sum t_u^2)=5.453 ratio=1.191 mean(R-G)=-0.273
+std R1e12 150 var(R-G)=8.281 mean(sum t_u^2)=8.546 ratio=0.969 mean(R-G)=-0.436
+std R1e14 150 var(R-G)=12.736 mean(sum t_u^2)=13.907 ratio=0.916 mean(R-G)=0.044
+dyad R1e10 200 var(R-G)=0.855 mean(sum t_u^2)=0.867 ratio=0.985 mean(R-G)=-0.007
+dyad R1e12 150 var(R-G)=0.817 mean(sum t_u^2)=0.984 ratio=0.831 mean(R-G)=-0.089
+dyad R1e14 150 var(R-G)=1.619 mean(sum t_u^2)=1.412 ratio=1.146 mean(R-G)=0.040

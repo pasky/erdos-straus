@@ -7,7 +7,7 @@
 // Output: R, G, identity check, and the D-mass bucketed
 //   (A) by rho = log f / log u  : [0,.25) [.25,.5) [.5,.75) [.75,1) {1}
 //   (B) by m_f = #{u in calU : f | u} (number of integers n+u feeding block f): 1, 2-3, 4-15, 16-63, >=64
-//   plus sum_f |D_f| (triangle inequality over conductor blocks) and sum_u |t_u| (over u).
+//   plus sum_f |D_f| (triangle inequality over conductor blocks), sum_u |t_u| and sum_u t_u^2 (t_u = u's part of R-G).
 // Usage: z54_exactsum_cond n U0 U1 Y X [dumpfile]
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
     if (!ok) continue; inU[u] = 1; }
   for (ll u = 1; u <= U1; u++) if (inU[u]) for (ll f = 1; f * f <= u; f++) if (u % f == 0) { mf[f]++; if (f * f != u) mf[u / f]++; }
   double *Df = calloc(U1 + 1, sizeof(double));
-  double R = 0, G = 0, bA[5] = {0}, bB[5] = {0}, sumAbsTu = 0, maxerr = 0;
+  double R = 0, G = 0, bA[5] = {0}, bB[5] = {0}, sumAbsTu = 0, sumTu2 = 0, maxerr = 0;
   ll nshell = 0, nshell3 = 0, nhit = 0, ngen = 0, nU = 0;
   for (ll u = U0 + 1; u <= U1; u++) {
     if (!inU[u]) continue; nU++;
@@ -86,13 +86,13 @@ int main(int argc, char **argv) {
       double err = fabs(tot - (cls - gen)); if (err > maxerr) maxerr = err;
       tu += cls - gen;
     }
-    sumAbsTu += fabs(tu);
+    sumAbsTu += fabs(tu); sumTu2 += tu * tu;
   }
   double sumAbsDf = 0; for (ll f = 2; f <= U1; f++) sumAbsDf += fabs(Df[f]);
   if (dump) { for (ll f = 2; f <= U1; f++) if (Df[f] != 0) fprintf(dump, "%lld\t%d\t%.9g\n", f, mf[f], Df[f]); fclose(dump); }
   printf("n=%lld U0=%lld U1=%lld Y=%lld X=%lld nU=%lld shell=%lld shell3=%lld hits=%lld gen=%lld R=%.0f G=%.6f RG=%.6f "
-         "A0=%.6f A1=%.6f A2=%.6f A3=%.6f Atop=%.6f B1=%.6f B2=%.6f B3=%.6f B4=%.6f B5=%.6f sumAbsDf=%.6f sumAbsTu=%.6f maxerr=%.3g\n",
+         "A0=%.6f A1=%.6f A2=%.6f A3=%.6f Atop=%.6f B1=%.6f B2=%.6f B3=%.6f B4=%.6f B5=%.6f sumAbsDf=%.6f sumAbsTu=%.6f sumTu2=%.6f maxerr=%.3g\n",
          n, U0, U1, Y, X, nU, nshell, nshell3, nhit, ngen, R, G, R - G, bA[0], bA[1], bA[2], bA[3], bA[4], bB[0], bB[1], bB[2], bB[3], bB[4],
-         sumAbsDf, sumAbsTu, maxerr);
+         sumAbsDf, sumAbsTu, sumTu2, maxerr);
   return 0;
 }
