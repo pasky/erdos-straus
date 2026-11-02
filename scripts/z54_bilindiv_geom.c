@@ -2,7 +2,7 @@
    For each n (stdin), U = floor(n^{1/4}) (or argv[1] if > 0):
      E1 points (k,m): n+2U < k*m <= n+4U, U^2 < m <= 4U^2  (all, including D < 0)
      L3 = #lines (in the (k,m)-plane) containing >= 3 points of E1; Lmax = max #points of E1 on one line;
-     W  = max #points of E1 with k in a window of length floor(U^{2/3}) (Pick: such points are collinear, §4.5)
+     W  = max #points of E1 with k in a half-open window k_j <= k < k_j + floor(U^{2/3}) (floor via pow, may undershoot by 1) (Pick: such points are collinear, §4.5)
      P1 = #{(u,B) in (U,2U]^2 : B | n+u};  A1 = #{u : n+u has a divisor in (U,2U]};  A2 = |dom f| = #{u : some B in (U,2U] has u | n+B}
    Prints: n U |E1| L3 Lmax W P1 A1 A2 (P1, A1, A2 also divided by U), cov3 = #E1 points on some line with >= 3 points, dir = direction of a longest line  */
 #include <stdio.h>
@@ -18,7 +18,7 @@ int main(int argc,char**argv){ long Ufix=argc>1?atol(argv[1]):0; char line[128];
     u64 klo=(n+2*U)/(4*U2); if(klo<1) klo=1; u64 khi=(n+4*U)/U2+1;
     long cap=16*U+100, E=0; i64 *K=malloc(sizeof(i64)*cap), *M=malloc(sizeof(i64)*cap);
     for(u64 k=klo;k<=khi;k++){ u64 r=n%k; u64 s=r?k-r:0; if(!(s>2*U&&s<=4*U)) continue; u64 m=(n+s)/k; if(!(m>U2&&m<=4*U2)) continue;
-      if(E<cap){K[E]=(i64)k;M[E]=(i64)m;E++;} }
+      if(E>=cap){fprintf(stderr,"E1 capacity exceeded at n=%llu\n",n); return 2;} K[E]=(i64)k;M[E]=(i64)m;E++; }
     /* lines: for each i, directions to j>i, normalised; a line with t points is seen from its first point with t-1 equal directions */
     dir *D=malloc(sizeof(dir)*E); long L3=0; long Lmax=(E>=2)?2:E; char *cov=calloc(E+1,1); i64 ba=0,bb=0;
     for(long i=0;i<E;i++){ long c=0; for(long j=i+1;j<E;j++){ i64 a=K[j]-K[i], b=M[j]-M[i]; i64 g=gcdl(a,b); a/=g; b/=g; if(a<0||(a==0&&b<0)){a=-a;b=-b;} D[c].a=a; D[c].b=b; c++; }

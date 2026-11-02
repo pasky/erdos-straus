@@ -18,8 +18,8 @@ int main(void){ char line[128];
   while(fgets(line,sizeof line,stdin)){ u64 n=strtoull(line,0,10); u64 U=iroot4(n); u64 U2=U*U; if(16*U*U*U>n) continue;
     u64 klo=(n+2*U)/(4*U2); if(klo<1) klo=1; u64 khi=(n+4*U)/U2+1; long cap=16*U+100,E=0; i64 *K=malloc(sizeof(i64)*cap),*M=malloc(sizeof(i64)*cap); long cyc[64]; int nc=0;
     for(u64 k=klo;k<=khi;k++){ u64 r=n%k; u64 s=r?k-r:0; if(!(s>2*U&&s<=4*U)) continue; u64 m=(n+s)/k; if(!(m>U2&&m<=4*U2)) continue;
-      i64 D=(i64)(s*s)-(i64)(4*m); if(D>=1){ u64 w=isq((u64)D); if(w*w==(u64)D){ u64 a=(s-w)/2,b=(s+w)/2; if(a>U&&a<=2*U&&b>U&&b<=2*U&&nc<64) cyc[nc++]=E; } }
-      K[E]=(i64)k; M[E]=(i64)m; E++; }
+      i64 D=(i64)(s*s)-(i64)(4*m); if(D>=1){ u64 w=isq((u64)D); if(w*w==(u64)D){ u64 a=(s-w)/2,b=(s+w)/2; if(a>U&&a<=2*U&&b>U&&b<=2*U){ if(nc>=64){fprintf(stderr,"cycle cap at n=%llu\n",n); return 3;} cyc[nc++]=E; } } }
+      if(E>=cap){fprintf(stderr,"E1 capacity exceeded at n=%llu\n",n); return 2;} K[E]=(i64)k; M[E]=(i64)m; E++; }
     if(nc>0){ dir*D=malloc(sizeof(dir)*E); printf("%llu %llu %ld %d",n,U,E,nc); for(int c=0;c<nc;c++) printf(" r=%ld",richness(cyc[c],E,K,M,D)); printf(" ctrl=%ld\n",richness((long)(n%E),E,K,M,D)); free(D); }
     free(K); free(M); }
   return 0; }
