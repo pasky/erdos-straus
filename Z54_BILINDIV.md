@@ -164,6 +164,16 @@ range. Hence N(U, U) ≪ p^{(1−η)/4+ε}, and TD(η) for every η < 1/2 would 
 Shiu's theorem would replace U^{ε} by a power of log p; its exact statement was not re-verified here
 (`data/z54/bilindiv/LIT_CHECK.md` item 2), so it is not used.
 
+**Remark 4.1 (the small-difference range is free; smooth form of TD).**
+* *Small differences (PROVED).* The 2-cycles with B − u = w ∈ [1, W₀] number at most Σ_{w≤W₀} τ(p + w) ≪ W₀U^{ε}.
+  Indeed u | p + B = p + u + w gives u | p + w, so u is a divisor of p + w and B = u + w is then determined. With
+  W₀ = U^{1−η} this range is within the target.
+* *Consequence.* TD is needed only on {k ∈ E1 : D_k ≥ W₀²}, i.e. for W := w_k ∈ [U^{1−η}, 4U]. There the curvature
+  |hW_k″| ≪ hU³·U^{3η}.
+* *Smooth form.* Theorem T's proof works verbatim with the sharp indicator of E1⁺ replaced by a smooth partition of
+  unity in (s/U, m/U², w/W) over dyadic W ∈ [U^{1−η}, 4U]. The hypothesis then reads |Σ_k Φ_W(k)e(hw_k)| ≤ U^{1−η}
+  for each smooth piece Φ_W. Prop 4.3 below treats the top piece W ≍ U.
+
 ### 4.2 What TD is, and how it compares with MIX (Assessment unless labelled)
 
 * **First order** (PROVED identity). T(h) = Σ_k G_h(k, θ_k), with θ_k := {−p/k}, s_k = kθ_k, and
@@ -174,7 +184,8 @@ Shiu's theorem would replace U^{ε} by a power of log p; its exact statement was
 * **Curvature** (PROVED identity: W_k″(θ) = −4(kp + 1)/W_k(θ)³, from differentiating W² = k²θ² − 4p/k − 4θ twice). In
   the top range W_k ≍ U (equivalently D_k ≍ U², which Prop 4.3 isolates) one has |hW_k″| ≍ hU³. Across the window of
   width ≍ 1/U the function hW_k sweeps an interval of length ≍ hU. Smaller W (pairs with u close to B) give larger
-  curvature and need a dyadic decomposition in W; that range is not analysed here.
+  curvature and need a dyadic decomposition in W. W ≤ U^{1−η} is free (Remark 4.1); the intermediate range is not
+  analysed here.
 * **Critical scale.** In the top range, resolving the event needs the joint law of (k, θ_k) at resolution ≍ 1/(hU²).
   That means Weyl sums Σ_k e(νp/k) with ν up to ≍ hU² and k ≍ U². The phase f(k) = νp/k has f′ ≍ hU² and
   f″ = 2νp/k³ ≍ h ≥ 1. The B-process maps the k-sum (length ≍ U²) to a dual of length ≍ f″·U² ≍ hU², so it is
@@ -513,7 +524,7 @@ distribution.
 * **Survives:**
   * joint (ν, k) cancellation (Assessment: the additive analogue of SQSIEVE's bilinear (ℓ, C) estimate);
   * TD and MIX themselves;
-  * the small-W range of TD;
+  * the intermediate range U^{1−η} ≤ W = w_k ≪ U of TD (W ≤ U^{1−η} is free by Remark 4.1);
   * bounds on the number of rich lines;
   * counting the actual auxiliary curves;
   * Salberger and p-adic determinant variants;
@@ -604,3 +615,4 @@ timeout 900 /tmp/z54cyc < $I/p10big.txt; timeout 900 /tmp/z54cyc < $I/p12big.txt
   19. "As it must be" deleted; input generator script added; timeouts ≤ 900; window documented; buffer guards added to
       the C scripts (outputs unchanged).
   20. Corollary T strengthened to U^{1−η+ε} (δ = U^{−η+ρ}).
+* *Added after review.* Remark 4.1: the small-difference range is free, and TD has a smooth form.
