@@ -103,3 +103,31 @@ for x in range(4, 101, 4):
                 cnt4 += 1
                 bad4 += (t * u * v - u - v != n) or min(t, u, v) < 1
 print(f"L4: {cnt4} constructions, bad {bad4}")
+
+# L5 explicit Mordell-type words of Prop 3.1 (p = 1 mod 8)
+bad5 = 0
+cnt5 = 0
+for p in primerange(11, 300000):
+    if p % 8 != 1:
+        continue
+    W = []
+    if p % 3 == 2: W.append((1, 4, (p + 4) // 3))
+    if p % 7 == 3: W.append((2, 4, (p + 4) // 7))
+    if p % 7 == 5: W.append((4, 2, ((4 * p + 1) // 7 + 1) // 4))
+    if p % 5 == 3: W.append((3, 7, (p + 7) // 20))
+    if p % 5 == 2: W.append((7, 3, ((7 * p + 1) // 20 + 1) // 7))
+    if p % 7 == 6: W.append((1, 8, (p + 8) // 7))
+    for w in W:
+        cnt5 += 1
+        t, u, v = w
+        bad5 += (t * u * v - u - v != p) or min(w) < 1
+    qr = all(pow(p, (q - 1) // 2, q) == 1 for q in (3, 5, 7))
+    bad5 += (len(W) == 0) != qr
+print(f"L5: {cnt5} Mordell words checked, bad {bad5}")
+
+# L6 odd squares n = m^2 have no coordinate in C_n at all (all x <= n+2 tested; coordinates never exceed n+2)
+bad6 = 0
+for m in range(3, 46, 2):
+    n = m * m
+    bad6 += sum(1 for x in range(2, n + 3) if inC(x, n) and (U(n, x) or T(n, x)))
+print(f"L6: odd squares 9..{45*45}: coordinates in C_n found: {bad6}")
