@@ -1,0 +1,21 @@
+=== /tmp/z54d/scan_1e12c.txt: N=2572700 p in [1e+12, 1e+12]
+X=  8 #(D=0)=10830 obs fail=  1840 (genus-dead 1840, class 0) | cL=0.5: expected(all)=2103.3 class obs/exp=0/263.3=0.00 | cL=1.0: expected(all)=1921.8 class obs/exp=0/81.8=0.00
+     S-bins (cL=0.5): (1,2]: n=694 obs=0 exp=153.9; (2,3]: n=1060 obs=0 exp=75.1; (3,4]: n=759 obs=0 exp=22.5; (4,5]: n=300 obs=0 exp=4.3; (5,6]: n=1344 obs=0 exp=6.3; (6,8]: n=1471 obs=0 exp=1.2; (8,10]: n=490 obs=0 exp=0.1; (10,15]: n=1651 obs=0 exp=0.0; (15,1e+09]: n=1221 obs=0 exp=0.0
+X= 12 #(D=0)=3093 obs fail=   545 (genus-dead 545, class 0) | cL=0.5: expected(all)=615.1 class obs/exp=0/70.1=0.00 | cL=1.0: expected(all)=567.0 class obs/exp=0/22.0=0.00
+     S-bins (cL=0.5): (1,2]: n=176 obs=0 exp=39.2; (2,3]: n=295 obs=0 exp=20.9; (3,4]: n=213 obs=0 exp=6.3; (4,5]: n=91 obs=0 exp=1.4; (5,6]: n=411 obs=0 exp=1.9; (6,8]: n=398 obs=0 exp=0.3; (8,10]: n=144 obs=0 exp=0.0; (10,15]: n=470 obs=0 exp=0.0; (15,1e+09]: n=350 obs=0 exp=0.0
+X= 16 #(D=0)=3093 obs fail=    59 (genus-dead 33, class 26) | cL=0.5: expected(all)=79.7 class obs/exp=26/46.7=0.56 maxS(class fail)=3.00 | cL=1.0: expected(all)=56.7 class obs/exp=26/23.7=1.10 maxS(class fail)=5.00
+     S-bins (cL=0.5): (0,1]: n=54 obs=15 exp=23.7; (1,2]: n=81 obs=9 exp=12.7; (2,3]: n=85 obs=2 exp=5.7; (3,4]: n=103 obs=0 exp=2.5; (4,5]: n=123 obs=0 exp=1.2; (5,6]: n=141 obs=0 exp=0.5; (6,8]: n=323 obs=0 exp=0.3; (8,10]: n=337 obs=0 exp=0.0; (10,15]: n=746 obs=0 exp=0.0; (15,1e+09]: n=1067 obs=0 exp=0.0
+X= 20 #(D=0)=3093 obs fail=    15 (genus-dead 7, class 8) | cL=0.5: expected(all)=21.8 class obs/exp=8/14.8=0.54 maxS(class fail)=3.50 | cL=1.0: expected(all)=13.4 class obs/exp=8/6.4=1.25 maxS(class fail)=5.00
+     S-bins (cL=0.5): (0,1]: n=15 obs=4 exp=6.0; (1,2]: n=21 obs=2 exp=3.6; (2,3]: n=49 obs=1 exp=2.9; (3,4]: n=55 obs=1 exp=1.3; (4,5]: n=70 obs=0 exp=0.6; (5,6]: n=84 obs=0 exp=0.3; (6,8]: n=194 obs=0 exp=0.2; (8,10]: n=264 obs=0 exp=0.0; (10,15]: n=706 obs=0 exp=0.0; (15,1e+09]: n=1628 obs=0 exp=0.0
+X= 24 #(D=0)=1272 obs fail=     1 (genus-dead 0, class 1) | cL=0.5: expected(all)=1.8 class obs/exp=1/1.8=0.55 maxS(class fail)=1.46 | cL=1.0: expected(all)=0.5 class obs/exp=1/0.5=2.20 maxS(class fail)=2.91
+     S-bins (cL=0.5): (1,2]: n=4 obs=1 exp=0.8; (2,3]: n=7 obs=0 exp=0.5; (3,4]: n=9 obs=0 exp=0.2; (4,5]: n=14 obs=0 exp=0.1; (5,6]: n=22 obs=0 exp=0.1; (6,8]: n=43 obs=0 exp=0.0; (8,10]: n=71 obs=0 exp=0.0; (10,15]: n=202 obs=0 exp=0.0; (15,1e+09]: n=900 obs=0 exp=0.0
+X= 28 #(D=0)=1272 obs fail=     0 (genus-dead 0, class 0) | cL=0.5: expected(all)=0.9 class obs/exp=0/0.9=0.00 | cL=1.0: expected(all)=0.2 class obs/exp=0/0.2=0.00
+     S-bins (cL=0.5): (1,2]: n=2 obs=0 exp=0.3; (2,3]: n=1 obs=0 exp=0.1; (3,4]: n=8 obs=0 exp=0.2; (4,5]: n=14 obs=0 exp=0.2; (5,6]: n=11 obs=0 exp=0.0; (6,8]: n=44 obs=0 exp=0.0; (8,10]: n=64 obs=0 exp=0.0; (10,15]: n=194 obs=0 exp=0.0; (15,1e+09]: n=934 obs=0 exp=0.0
+X= 32 #(D=0)=1272 obs fail=     0 (genus-dead 0, class 0) | cL=0.5: expected(all)=0.1 class obs/exp=0/0.1=0.00 | cL=1.0: expected(all)=0.0 class obs/exp=0/0.0=0.00
+     S-bins (cL=0.5): (2,3]: n=2 obs=0 exp=0.1; (4,5]: n=2 obs=0 exp=0.0; (5,6]: n=1 obs=0 exp=0.0; (6,8]: n=14 obs=0 exp=0.0; (8,10]: n=27 obs=0 exp=0.0; (10,15]: n=140 obs=0 exp=0.0; (15,1e+09]: n=1086 obs=0 exp=0.0
+X= 40 #(D=0)=1272 obs fail=     0 (genus-dead 0, class 0) | cL=0.5: expected(all)=0.0 class obs/exp=0/0.0=0.00 | cL=1.0: expected(all)=0.0 class obs/exp=0/0.0=0.00
+     S-bins (cL=0.5): (6,8]: n=4 obs=0 exp=0.0; (8,10]: n=12 obs=0 exp=0.0; (10,15]: n=70 obs=0 exp=0.0; (15,1e+09]: n=1186 obs=0 exp=0.0
+X= 48 #(D=0)=1272 obs fail=     0 (genus-dead 0, class 0) | cL=0.5: expected(all)=0.0 class obs/exp=0/0.0=0.00 | cL=1.0: expected(all)=0.0 class obs/exp=0/0.0=0.00
+     S-bins (cL=0.5): (8,10]: n=1 obs=0 exp=0.0; (10,15]: n=23 obs=0 exp=0.0; (15,1e+09]: n=1248 obs=0 exp=0.0
+X= 64 #(D=0)=1272 obs fail=     0 (genus-dead 0, class 0) | cL=0.5: expected(all)=0.0 class obs/exp=0/0.0=0.00 | cL=1.0: expected(all)=0.0 class obs/exp=0/0.0=0.00
+     S-bins (cL=0.5): (10,15]: n=5 obs=0 exp=0.0; (15,1e+09]: n=1267 obs=0 exp=0.0

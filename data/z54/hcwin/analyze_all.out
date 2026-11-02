@@ -1,0 +1,117 @@
+=== /tmp/z54d/stat_1e9.txt: N=50000  log n in [20.72,20.73]  HC==0(no line<=Xmax): 0
+X=    8 fail=    81 (1.62e-03)  mean Lam/logn=0.287 Gam/logn=0.217 LamOut/logn=0.274 | failures: max Lam/logn=0.290 max Gam/logn=0.000 | outer-cert share among succ: 0.771
+      fit P(fail)=exp(-c*mass): c_Lam=1.080 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.5,6250,81,1.75)  (3.8,6250,0,nan)  (4.0,6250,0,nan)  (4.2,6250,0,nan)  (5.0,6250,0,nan)  (5.0,6250,0,nan)  (5.5,6250,0,nan)  (6.0,6250,0,nan)
+X=   16 fail=     5 (1.00e-04)  mean Lam/logn=0.556 Gam/logn=0.389 LamOut/logn=0.501 | failures: max Lam/logn=0.579 max Gam/logn=0.048 | outer-cert share among succ: 0.929
+      fit P(fail)=exp(-c*mass): c_Lam=0.800 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (4.9,6250,5,1.44)  (6.6,6250,0,nan)  (7.2,6250,0,nan)  (8.0,6250,0,nan)  (8.4,6250,0,nan)  (9.0,6250,0,nan)  (9.7,6250,0,nan)  (10.7,6250,0,nan)
+X=   32 fail=     0 (0.00e+00)  mean Lam/logn=1.010 Gam/logn=0.725 LamOut/logn=0.823 | outer-cert share among succ: 0.979
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.694 Gam/logn=1.232 LamOut/logn=1.266 | outer-cert share among succ: 0.996
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.581 Gam/logn=1.925 LamOut/logn=1.817 | outer-cert share among succ: 1.000
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.609 Gam/logn=2.745 LamOut/logn=2.486 | outer-cert share among succ: 1.000
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.711 Gam/logn=3.640 LamOut/logn=3.268 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.849 Gam/logn=4.561 LamOut/logn=4.167 | outer-cert share among succ: 1.000
+=== /tmp/z54d/stat_1e11.txt: N=50000  log n in [25.33,25.33]  HC==0(no line<=Xmax): 0
+X=    8 fail=    49 (9.80e-04)  mean Lam/logn=0.235 Gam/logn=0.183 LamOut/logn=0.224 | failures: max Lam/logn=0.237 max Gam/logn=0.000 | outer-cert share among succ: 0.773
+      fit P(fail)=exp(-c*mass): c_Lam=1.170 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.6,6250,49,1.86)  (4.0,6250,0,nan)  (4.0,6250,0,nan)  (4.7,6250,0,nan)  (5.0,6250,0,nan)  (5.0,6250,0,nan)  (5.8,6250,0,nan)  (6.0,6250,0,nan)
+X=   16 fail=     2 (4.00e-05)  mean Lam/logn=0.458 Gam/logn=0.331 LamOut/logn=0.410 | failures: max Lam/logn=0.474 max Gam/logn=0.000 | outer-cert share among succ: 0.928
+      fit P(fail)=exp(-c*mass): c_Lam=0.880 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (5.3,6250,2,1.52)  (6.9,6250,0,nan)  (7.8,6250,0,nan)  (8.0,6250,0,nan)  (9.0,6250,0,nan)  (9.1,6250,0,nan)  (10.0,6250,0,nan)  (10.9,6250,0,nan)
+X=   32 fail=     0 (0.00e+00)  mean Lam/logn=0.842 Gam/logn=0.622 LamOut/logn=0.673 | outer-cert share among succ: 0.978
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.438 Gam/logn=1.076 LamOut/logn=1.036 | outer-cert share among succ: 0.995
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.237 Gam/logn=1.718 LamOut/logn=1.487 | outer-cert share among succ: 1.000
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.195 Gam/logn=2.506 LamOut/logn=2.034 | outer-cert share among succ: 1.000
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.246 Gam/logn=3.388 LamOut/logn=2.674 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.341 Gam/logn=4.306 LamOut/logn=3.409 | outer-cert share among succ: 1.000
+=== /tmp/z54d/stat_1e13.txt: N=50000  log n in [29.93,29.93]  HC==0(no line<=Xmax): 0
+X=    8 fail=    32 (6.40e-04)  mean Lam/logn=0.199 Gam/logn=0.158 LamOut/logn=0.190 | failures: max Lam/logn=0.200 max Gam/logn=0.000 | outer-cert share among succ: 0.773
+      fit P(fail)=exp(-c*mass): c_Lam=1.240 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.9,6250,32,1.83)  (4.0,6250,0,nan)  (4.0,6250,0,nan)  (5.0,6250,0,nan)  (5.0,6250,0,nan)  (5.0,6250,0,nan)  (6.0,6250,0,nan)  (6.0,6250,0,nan)
+X=   16 fail=     1 (2.00e-05)  mean Lam/logn=0.389 Gam/logn=0.289 LamOut/logn=0.347 | failures: max Lam/logn=0.359 max Gam/logn=0.000 | outer-cert share among succ: 0.928
+      fit P(fail)=exp(-c*mass): c_Lam=0.940 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (5.7,6250,1,1.53)  (7.2,6250,0,nan)  (8.0,6250,0,nan)  (8.5,6250,0,nan)  (9.0,6250,0,nan)  (9.6,6250,0,nan)  (10.0,6250,0,nan)  (11.2,6250,0,nan)
+X=   32 fail=     0 (0.00e+00)  mean Lam/logn=0.722 Gam/logn=0.546 LamOut/logn=0.570 | outer-cert share among succ: 0.978
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.250 Gam/logn=0.955 LamOut/logn=0.877 | outer-cert share among succ: 0.995
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=1.979 Gam/logn=1.552 LamOut/logn=1.258 | outer-cert share among succ: 0.999
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=2.877 Gam/logn=2.307 LamOut/logn=1.721 | outer-cert share among succ: 1.000
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=3.883 Gam/logn=3.170 LamOut/logn=2.263 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=4.945 Gam/logn=4.082 LamOut/logn=2.885 | outer-cert share among succ: 1.000
+=== /tmp/z54d/stat_4e15.txt: N=20000  log n in [35.93,35.93]  HC==0(no line<=Xmax): 0
+X=    8 fail=     8 (4.00e-04)  mean Lam/logn=0.166 Gam/logn=0.134 LamOut/logn=0.158 | failures: max Lam/logn=0.167 max Gam/logn=0.000 | outer-cert share among succ: 0.770
+      fit P(fail)=exp(-c*mass): c_Lam=1.310 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (3.1,2500,8,1.86)  (4.0,2500,0,nan)  (4.3,2500,0,nan)  (5.0,2500,0,nan)  (5.0,2500,0,nan)  (5.2,2500,0,nan)  (6.0,2500,0,nan)  (6.0,2500,0,nan)
+X=   16 fail=     1 (5.00e-05)  mean Lam/logn=0.326 Gam/logn=0.248 LamOut/logn=0.289 | failures: max Lam/logn=0.292 max Gam/logn=0.000 | outer-cert share among succ: 0.928
+      fit P(fail)=exp(-c*mass): c_Lam=0.860 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (6.1,2500,1,1.29)  (7.5,2500,0,nan)  (8.0,2500,0,nan)  (9.0,2500,0,nan)  (9.0,2500,0,nan)  (10.0,2500,0,nan)  (10.3,2500,0,nan)  (11.3,2500,0,nan)
+X=   32 fail=     0 (0.00e+00)  mean Lam/logn=0.610 Gam/logn=0.471 LamOut/logn=0.474 | outer-cert share among succ: 0.978
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.071 Gam/logn=0.836 LamOut/logn=0.730 | outer-cert share among succ: 0.994
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=1.725 Gam/logn=1.381 LamOut/logn=1.049 | outer-cert share among succ: 0.999
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=2.555 Gam/logn=2.092 LamOut/logn=1.434 | outer-cert share among succ: 1.000
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=3.510 Gam/logn=2.927 LamOut/logn=1.886 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=4.534 Gam/logn=3.826 LamOut/logn=2.404 | outer-cert share among succ: 1.000
+=== /tmp/z54d/int_1e11.txt: N=20000  log n in [25.33,25.33]  HC==0(no line<=Xmax): 0
+X=    8 fail=    52 (2.60e-03)  mean Lam/logn=0.234 Gam/logn=0.168 LamOut/logn=0.219 | failures: max Lam/logn=0.237 max Gam/logn=0.000 | outer-cert share among succ: 0.691
+      fit P(fail)=exp(-c*mass): c_Lam=1.010 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.1,2500,52,1.86)  (3.1,2500,0,nan)  (4.0,2500,0,nan)  (4.0,2500,0,nan)  (4.7,2500,0,nan)  (5.0,2500,0,nan)  (5.2,2500,0,nan)  (6.0,2500,0,nan)
+X=   16 fail=     1 (5.00e-05)  mean Lam/logn=0.453 Gam/logn=0.312 LamOut/logn=0.396 | failures: max Lam/logn=0.415 max Gam/logn=0.000 | outer-cert share among succ: 0.921
+      fit P(fail)=exp(-c*mass): c_Lam=0.880 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (4.8,2500,1,1.64)  (6.3,2500,0,nan)  (7.0,2500,0,nan)  (7.9,2500,0,nan)  (8.1,2500,0,nan)  (9.0,2500,0,nan)  (9.5,2500,0,nan)  (10.6,2500,0,nan)
+X=   32 fail=     0 (0.00e+00)  mean Lam/logn=0.816 Gam/logn=0.577 LamOut/logn=0.632 | outer-cert share among succ: 0.979
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.367 Gam/logn=0.990 LamOut/logn=0.959 | outer-cert share among succ: 0.996
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.071 Gam/logn=1.546 LamOut/logn=1.355 | outer-cert share among succ: 0.999
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=2.898 Gam/logn=2.215 LamOut/logn=1.834 | outer-cert share among succ: 1.000
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=3.785 Gam/logn=2.943 LamOut/logn=2.389 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=4.703 Gam/logn=3.697 LamOut/logn=3.024 | outer-cert share among succ: 1.000
+=== /tmp/z54d/near24_1e10.txt: N=5000  log n in [23.03,25.01]  HC==0(no line<=Xmax): 0
+X=    8 fail=    10 (2.00e-03)  mean Lam/logn=0.248 Gam/logn=0.137 LamOut/logn=0.248 | failures: max Lam/logn=0.257 max Gam/logn=0.000 | outer-cert share among succ: 0.607
+      fit P(fail)=exp(-c*mass): c_Lam=1.040 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (1.8,625,10,2.33)  (2.9,625,0,nan)  (3.0,625,0,nan)  (3.0,625,0,nan)  (3.6,625,0,nan)  (4.0,625,0,nan)  (4.0,625,0,nan)  (4.2,625,0,nan)
+X=   16 fail=     4 (8.00e-04)  mean Lam/logn=0.479 Gam/logn=0.227 LamOut/logn=0.437 | failures: max Lam/logn=0.489 max Gam/logn=0.042 | outer-cert share among succ: 0.905
+      fit P(fail)=exp(-c*mass): c_Lam=0.620 c_Gam=2.290
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (3.4,625,4,1.48)  (4.5,625,0,nan)  (5.0,625,0,nan)  (5.3,625,0,nan)  (6.0,625,0,nan)  (6.0,625,0,nan)  (6.4,625,0,nan)  (7.1,625,0,nan)
+X=   32 fail=     0 (0.00e+00)  mean Lam/logn=0.890 Gam/logn=0.521 LamOut/logn=0.720 | outer-cert share among succ: 0.966
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.482 Gam/logn=0.937 LamOut/logn=1.085 | outer-cert share among succ: 0.995
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.310 Gam/logn=1.539 LamOut/logn=1.562 | outer-cert share among succ: 1.000
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.276 Gam/logn=2.288 LamOut/logn=2.130 | outer-cert share among succ: 1.000
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.332 Gam/logn=3.113 LamOut/logn=2.798 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.424 Gam/logn=3.984 LamOut/logn=3.562 | outer-cert share among succ: 1.000
+=== /tmp/z54d/near120_1e10.txt: N=5000  log n in [23.03,24.77]  HC==0(no line<=Xmax): 0
+X=    8 fail=   127 (2.54e-02)  mean Lam/logn=0.250 Gam/logn=0.095 LamOut/logn=0.250 | failures: max Lam/logn=0.261 max Gam/logn=0.000 | outer-cert share among succ: 0.595
+      fit P(fail)=exp(-c*mass): c_Lam=0.610 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (0.8,625,127,2.00)  (1.8,625,0,nan)  (2.0,625,0,nan)  (2.0,625,0,nan)  (2.5,625,0,nan)  (3.0,625,0,nan)  (3.0,625,0,nan)  (3.2,625,0,nan)
+X=   16 fail=     8 (1.60e-03)  mean Lam/logn=0.482 Gam/logn=0.218 LamOut/logn=0.426 | failures: max Lam/logn=0.503 max Gam/logn=0.043 | outer-cert share among succ: 0.776
+      fit P(fail)=exp(-c*mass): c_Lam=0.560 c_Gam=2.610
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.8,625,8,1.54)  (4.0,625,0,nan)  (4.8,625,0,nan)  (5.0,625,0,nan)  (5.5,625,0,nan)  (6.0,625,0,nan)  (6.4,625,0,nan)  (7.3,625,0,nan)
+X=   32 fail=     0 (0.00e+00)  mean Lam/logn=0.887 Gam/logn=0.434 LamOut/logn=0.720 | outer-cert share among succ: 0.942
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.500 Gam/logn=0.847 LamOut/logn=1.101 | outer-cert share among succ: 0.980
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.325 Gam/logn=1.436 LamOut/logn=1.584 | outer-cert share among succ: 0.998
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.290 Gam/logn=2.129 LamOut/logn=2.154 | outer-cert share among succ: 1.000
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.354 Gam/logn=2.925 LamOut/logn=2.826 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.451 Gam/logn=3.758 LamOut/logn=3.594 | outer-cert share among succ: 1.000
+=== /tmp/z54d/sq_1e10.txt: N=5000  log n in [23.03,23.22]  HC==0(no line<=Xmax): 5000
+X=    8 fail=  5000 (1.00e+00)  mean Lam/logn=0.257 Gam/logn=0.000 LamOut/logn=0.245 | failures: max Lam/logn=0.261 max Gam/logn=0.000
+X=   16 fail=  5000 (1.00e+00)  mean Lam/logn=0.490 Gam/logn=0.000 LamOut/logn=0.428 | failures: max Lam/logn=0.521 max Gam/logn=0.000
+X=   32 fail=  5000 (1.00e+00)  mean Lam/logn=0.877 Gam/logn=0.000 LamOut/logn=0.688 | failures: max Lam/logn=1.022 max Gam/logn=0.000
+X=   64 fail=  5000 (1.00e+00)  mean Lam/logn=1.448 Gam/logn=0.000 LamOut/logn=1.035 | failures: max Lam/logn=1.713 max Gam/logn=0.000
+X=  128 fail=  5000 (1.00e+00)  mean Lam/logn=2.178 Gam/logn=0.000 LamOut/logn=1.468 | failures: max Lam/logn=2.614 max Gam/logn=0.000
+X=  256 fail=  5000 (1.00e+00)  mean Lam/logn=3.008 Gam/logn=0.000 LamOut/logn=1.982 | failures: max Lam/logn=3.589 max Gam/logn=0.000
+X=  512 fail=  5000 (1.00e+00)  mean Lam/logn=3.899 Gam/logn=0.000 LamOut/logn=2.583 | failures: max Lam/logn=4.684 max Gam/logn=0.000
+X= 1024 fail=  5000 (1.00e+00)  mean Lam/logn=4.819 Gam/logn=0.000 LamOut/logn=3.269 | failures: max Lam/logn=5.779 max Gam/logn=0.000
+/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0046/scripts/z54_hcwin_analyze.py:74: RuntimeWarning: invalid value encountered in scalar divide
+  f"({mm:.1f},{k},{ff},{(-math.log(ff/k)/mm if ff else float('nan')):.2f})" for mm, k, ff in cur))
+=== /tmp/z54d/hard.txt: N=166  log n in [6.01,33.48]  HC==0(no line<=Xmax): 0
+X=    8 fail=   151 (9.10e-01)  mean Lam/logn=0.303 Gam/logn=0.017 LamOut/logn=0.303 | failures: max Lam/logn=0.766 max Gam/logn=0.000 | outer-cert share among succ: 0.267
+      fit P(fail)=exp(-c*mass): c_Lam=0.020 c_Gam=3.000
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,20,20,nan)  (1.6,20,5,0.89)
+X=   16 fail=   145 (8.73e-01)  mean Lam/logn=0.566 Gam/logn=0.046 LamOut/logn=0.516 | failures: max Lam/logn=1.101 max Gam/logn=0.087 | outer-cert share among succ: 0.333
+      fit P(fail)=exp(-c*mass): c_Lam=0.010 c_Gam=0.270
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.5,21,21,-0.00)  (1.0,21,17,0.21)  (1.0,20,20,-0.00)  (3.0,20,3,0.62)
+X=   32 fail=     8 (4.82e-02)  mean Lam/logn=1.038 Gam/logn=0.297 LamOut/logn=0.870 | failures: max Lam/logn=1.900 max Gam/logn=0.489 | outer-cert share among succ: 0.399
+      fit P(fail)=exp(-c*mass): c_Lam=0.150 c_Gam=0.650
+      Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.6,21,2,0.92)  (4.0,21,3,0.49)  (4.9,21,2,0.48)  (5.6,21,1,0.54)  (6.3,21,0,nan)  (6.9,21,0,nan)  (7.8,20,0,nan)  (9.7,20,0,nan)
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.725 Gam/logn=0.683 LamOut/logn=1.325 | outer-cert share among succ: 0.675
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.623 Gam/logn=1.229 LamOut/logn=1.909 | outer-cert share among succ: 0.904
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.642 Gam/logn=1.863 LamOut/logn=2.583 | outer-cert share among succ: 0.994
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.754 Gam/logn=2.582 LamOut/logn=3.372 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.876 Gam/logn=3.312 LamOut/logn=4.246 | outer-cert share among succ: 1.000

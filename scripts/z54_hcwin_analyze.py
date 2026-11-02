@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """z54 HCWIN: calibrate the conditioned class-lottery hypothesis Lot against data from z54_hcwin_lines.c.
 
-Input file rows: n HC  then for X in TH (8,16,...,1024): Lam Gam Z LamOut Zout.
+Input file rows: n HC  then for X in TH (8,16,...,1024): Lam Gam Z LamOut Zout GE GL.
 For each window X: P(HC > X | mass bin) for mass = Lam (anatomy) and Gam (genus), fit of -log P(fail) ~ c*mass,
 max mass among failures (the Lot falsifier), outer-certificate share, mass/log n quantiles.
 Usage: python3 z54_hcwin_analyze.py file [file ...]
@@ -10,6 +10,7 @@ import sys, math
 import numpy as np
 
 TH = [8, 16, 32, 64, 128, 256, 512, 1024]
+W = 7
 
 def load(fn):
     rows = []
@@ -21,8 +22,8 @@ def load(fn):
             if len(a) < 2:
                 continue
             rows.append([float(v) for v in a])
-    nt = (len(rows[0]) - 2) // 5
-    A = np.array([r[:2 + 5 * nt] for r in rows if len(r) >= 2 + 5 * nt])
+    nt = (len(rows[0]) - 2) // W
+    A = np.array([r[:2 + W * nt] for r in rows if len(r) >= 2 + W * nt])
     return A, nt
 
 def fail_curve(mass, fail, nbins=12):
@@ -54,7 +55,7 @@ def main():
         print(f"=== {fn}: N={len(n)}  log n in [{L.min():.2f},{L.max():.2f}]  HC==0(no line<=Xmax): {(hc==0).sum()}")
         for t in range(nt):
             X = TH[t]
-            lam = A[:, 2 + 5 * t]; gam = A[:, 3 + 5 * t]; Z = A[:, 4 + 5 * t]; lo = A[:, 5 + 5 * t]; zo = A[:, 6 + 5 * t]
+            lam = A[:, 2 + W * t]; gam = A[:, 3 + W * t]; Z = A[:, 4 + W * t]; lo = A[:, 5 + W * t]; zo = A[:, 6 + W * t]
             fail = (hc == 0) | (hc > X)
             nf = int(fail.sum())
             line = f"X={X:5d} fail={nf:6d} ({nf/len(n):.2e})  mean Lam/logn={np.mean(lam/L):.3f} Gam/logn={np.mean(gam/L):.3f} LamOut/logn={np.mean(lo/L):.3f}"

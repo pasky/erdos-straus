@@ -140,16 +140,18 @@ static void report(const char*of,const char*tag){
   fclose(f);
 }
 // scan mode: light per-prime record for joint-failure calibration at small windows.
-// per prime: p HC then for X in SX: GE GL (untruncated genus sums over E resp. L lines with x <= X); lines up to 64.
+// per prime: p HC then for X in SX: GE GL D (untruncated genus sums over E resp. L lottery lines (x not dividing 24) with
+// x <= X; D = number of deterministic lines x | 24, x <= X, with g > 0, each of which succeeds); lines up to 64.
 static const int SX[]={8,12,16,20,24,28,32,40,48,64}; 
 #define NSX 10
 static void scan(u64 n){
-  double GE[NSX]={0},GL[NSX]={0}; u64 HC=0;
+  double GE[NSX]={0},GL[NSX]={0}; int D[NSX]={0}; u64 HC=0;
   for(int x=4;x<=64;x++){ if(!inC(x)) continue;
+    int det = (24%x==0); // G_x of exponent 2: genus = class, success iff g > 0 (deterministic line)
     for(int ty=0;ty<2;ty++){ u64 N= ty==0 ? n+x : (u64)x*n+1; LineRes R; doline(N,x,&R);
       if(R.c>0 && (HC==0||(u64)x<HC)) HC=x;
-      for(int t=0;t<NSX;t++) if(x<=SX[t]){ if(ty==0) GE[t]+=R.gm; else GL[t]+=R.gm; } } }
-  fprintf(pout,"%llu %llu",n,HC); for(int t=0;t<NSX;t++) fprintf(pout," %.3g %.3g",GE[t],GL[t]); fprintf(pout,"\n");
+      for(int t=0;t<NSX;t++) if(x<=SX[t]){ if(det){ if(R.g>0) D[t]++; } else if(ty==0) GE[t]+=R.gm; else GL[t]+=R.gm; } } }
+  fprintf(pout,"%llu %llu",n,HC); for(int t=0;t<NSX;t++) fprintf(pout," %.3g %.3g %d",GE[t],GL[t],D[t]); fprintf(pout,"\n");
 }
 int main(int argc,char**argv){
   init_small();
