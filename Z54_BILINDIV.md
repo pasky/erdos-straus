@@ -150,7 +150,7 @@ H = U^{3η/4} ≤ U^η. Then N₂ ≤ 4U^{−η/2}U^{1+ε/2} + 8U^{−η/2}·U^{
   further Poisson step in k (phase −νp/k − μk, stationary at k* = √(νp/μ)), T(h) becomes a 2D sum over (ν, μ) ≍ (hU², hU²)
   with leading phase −2√(p·νμ) and amplitude ≍ U^{−3/2}h^{−1}: a Voronoi-type piece of the divisor problem at x ≍ p,
   n = νμ ≍ h²p, at the hyperbola point ν ≍ μ ≍ √n, with factorisation-dependent lower-order phases. Square-root
-  cancellation there gives ≍ U^{1/2}; per-ν exponent pairs give ≫ U^{2}. So the missing joint cancellation is a
+  cancellation there gives ≍ U^{1/2}; per-ν exponent pairs give ≫ U^{3/2} (any pair has κ + λ ≥ 1/2). So the missing joint cancellation is a
   bilinear divisor-problem-type estimate.
 * **Relation to MIX.** Neither TD nor MIX is shown to imply the other. Both ask only for a power saving in a sum of
   ≍ U terms, and both are numerically of square-root size (§6.1; Z53_HYP2CYCLE §5.3).
@@ -349,6 +349,15 @@ P₁, A1, A2, their ratios to U, cov3 (#points on lines with ≥ 3 points), and 
 * Odd squares and near-squares at 10¹² look like primes in every column (cov3 slightly higher). Note that n and n + 4
   have almost the same strip, so the near-square control m² + 4 nearly duplicates the odd square m² here.
 
+### 6.5 Do tie events sit on the major arcs? (EVIDENCE; `z54_bilindiv_cyclines.c`, `cyclines.txt.gz`)
+For every 2-cycle level k, r(k) := the largest number of E1 points on a line through (k, m_k); control: one E1 point per
+prime chosen by index n mod |E1|.
+* 8 000 consecutive primes from 10¹⁰ (U = 316): 2 921 cycles; r ≥ 3 for 10.0 % of cycles vs 10.8 % of controls (r ≥ 4:
+  5.5 % vs 6.4 %).
+* 4 000 consecutive primes from 10¹² (U = 1000): 1 437 cycles; r ≥ 3 for 4.8 % vs 5.2 % (r ≥ 4: 2.6 % vs 3.0 %).
+Tie events are *not* concentrated on the strip's major arcs: they are distributed like generic E1 points, so line
+geometry has no bias to exploit (falsifier for a "major-arc" route: negative).
+
 ### 6.4 Fixed-modulus relaxation of the AP form (EVIDENCE; `z54_bilindiv_untied.py`, `untied.txt`)
 At p = 100000081 and 100000097 (U = 100, 7 500 levels): N_rel(1) = 5253 and 4792 (0.53U², 0.48U²); N_rel(4) ≈ 0.45–0.49U²;
 N_rel(12) ≈ 0.40–0.44U²; N_rel(840) ≈ 0.31–0.34U²; N_rel(27720) ≈ 0.28–0.30U². The true count is N₂ = O(1).
@@ -380,8 +389,8 @@ N_rel(12) ≈ 0.40–0.44U²; N_rel(840) ≈ 0.31–0.34U²; N_rel(27720) ≈ 0.
   * one-sided anatomy filters retain ≫ U^{1−ε} (Prop 5.3);
   * the black-box determinant method with any pruning is dominated box by box by the elementary per-fibre count
     (Prop 5.4);
-  * strip geometry is collinear at scale U^{2/3} (Prop 5.5). Its major arcs carry ≈ 3–10 % of E1 (EVIDENCE); the rest
-    lies on no line with ≥ 3 points.
+  * strip geometry is collinear at scale U^{2/3} (Prop 5.5). Its major arcs carry ≈ 3–10 % of E1, and tie events sit
+    on them at the generic rate (EVIDENCE §6.5); the rest lies on no line with ≥ 3 points.
 * **Survives:** joint (ν, k) cancellation (the additive analogue of SQSIEVE's bilinear (ℓ, C) estimate); TD or MIX
   themselves; the major-arc part (a power saving there looks reachable, Assessment, but buys nothing on the minor arcs);
   counting the actual auxiliary curves; Salberger/p-adic determinant variants.
