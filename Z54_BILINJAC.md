@@ -290,6 +290,14 @@ one-variable arguments).** Let a ≢ 0 mod Q. Poisson in k gives
     ≫ V√Q, already above the trivial V.
   * The inequality's exact constants were not re-verified (LIT_CHECK §4). Opening the Kloosterman sum reverts the Poisson
     step, so the inequality sees only near-coincidences of the y's and no strip structure.
+* *Averaging over the moduli: the 2-D additive large sieve (Assessment).* The square sieve may use the mean over Q of
+  |S_Q| instead of the maximum. By Lemma 2.2 and Parseval, |S_Q| ≤ (Σ_{(a,b)}|T_Q(a,b)|²)^{1/2}. The multidimensional
+  additive large sieve (Huxley's form; statement not re-verified here) bounds Σ_{Q≤R}Σ_{(a,b) mod Q}|T_Q(a,b)|² by
+  ≪ (R + X₁^{1/2})²(R + X₂^{1/2})²·Σω², where X₁ ≍ W and X₂ ≍ n/W are the sides of the box holding the strip
+  (both ≍ V²), after reducing non-primitive (a,b) to divisors of Q. With R = 4P² and #Q ≍ P²/log²P, the mean of |S_Q| is
+  then ≪ n^ε(P⁴ + V²)V^{1/2}/P. This is ≫ V² for every P (minimum near P ≍ V^{1/2}), a deficit of V^{1+η} against
+  the target. The large sieve sees the V² × V² box, not the ≍ V points of the strip: the additive-character
+  counterpart of Prop M.
 * *Determinant method.* Closed in black-box form by HYP2CYCLE Prop D (criticality V/T = 1).
 
 ## 6. Summary of deficits at the balanced block (exponents of V = n^{1/4}; the target is V^{1−η})
@@ -302,6 +310,7 @@ one-variable arguments).** Let a ≢ 0 mod Q. Poisson in k gives
 | PV / Burgess | a-variable: no interval; Q-variable: bound only non-squares | no direct input | PROVED (identity remark) |
 | DFI Thm 1 / Thm 2 | (u,B)-box Kloosterman fractions, a ≍ hn | × V / × V^{35/48} above trivial | PROVED (arithmetic) |
 | double large sieve | (F3) opened | ≍ V^{3/2}Q^{1/2} (diagonal alone ≫ V√Q) | Assessment |
+| 2-D additive large sieve over Q (averaged TS) | Lemma 2.2 + Parseval | mean |S_Q| ≪ (P⁴+V²)V^{1/2}/P ≥ V²: × V | Assessment (bound expression) |
 | exponent-pair majorants on C-sums | (F3)/(F4) per h or ℓ | V^{κ+2λ} ≥ V; Bourgain V^{41/28}; conjectural pair V^{1} | PROVED (bound expression); cf. B2 |
 | full divisor exponent (Li–Yang), if it transferred | T_Q(0,0) only | V^{4θ*} = V^{1.258} (worse than elementary V^{1+o(1)}) | Assessment (lit.) |
 | additive expansion + square-root T_Q | Thm R | N ≪ n^{5/24+ε} | CONDITIONAL (twisted Jutila-type) |
