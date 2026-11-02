@@ -80,16 +80,21 @@ Consequently, for `y=o(x)` and any fixed `η>0`, the standard subtraction of the
 \]
 uniformly for `y≥x^{θ*+η}`: choose the error-term epsilon smaller than `η`, and note the main-term Taylor remainder is `O(y²/x)=o(y)`. Thus the cited pointwise error exponent supports `θ=0.3144831759741…` in the usual `y=o(x)` short-interval formulation. It does **not** prove that this is an optimal/the best possible threshold. I found no verified pointwise result below `0.3` in the sources fetched for this check; absence from this search is not a nonexistence claim.
 
-### (b) Mean square of short differences
+### (b) Mean square of short differences (CORRECTED after hostile review 1; re-fetched and read by the lane author)
 
-**Bibliography:** M. Jutila, “On the divisor problem for short intervals,” *Annales Universitatis Turkuensis, Series A I* **186** (1984), 23–30. **Exact Jutila statement — NOT VERIFIED (reason):** the original paper was not fetched here. A reliable later source, A. Ivić, “On the mean square of the divisor function in short intervals,” *Journal de Théorie des Nombres de Bordeaux* **21** (2009), no. 2, 251–261, https://jtnb.centre-mersenne.org/item/10.5802/jtnb.669.pdf, was fetched and explicitly reports the Jutila result as its equations (1.8), (1.10).
-
-From Ivić’s transcription of Jutila: for `X^ε≤h≤X^{1/2}`, `L=log X`,
-\[
-\int_X^{2X}(\Delta(x+h)-\Delta(x))^2dx
-=\frac{8}{\pi^2}Xh\log^3(\sqrt X/h)+O(XhL^{5/2}\sqrt L).
-\]
-Ivić attributes this to Jutila and says Jutila proves the integral equals the expression in his (1.8). Since Ivić is the fetched source, this is verified as a faithful *secondary-source transcription*, not independently checked against Jutila’s original. Endpoint qualifications in that exposition are `X^ε≤h≤X^{1/2}`; the asymptotically useful range is stated there as `X^ε≤h≤X^{1/2−ε}`.
+**Source fetched:** A. Ivić, "On the mean square of the divisor function in short intervals", *J. Théor. Nombres Bordeaux*
+**21** (2009), no. 2, 251–261, https://jtnb.centre-mersenne.org/item/10.5802/jtnb.669.pdf (printed pp. 252–254, text
+extracted with pypdf). VERIFIED from source:
+* (1.7) (Coppola–Salerno, discrete; Jutila, continuous, for k = 2): for X^ε ≤ h ≤ ½√X, L = log X,
+  Σ_2(X,h) := Σ_{X≤x≤2X}(Δ(x+h) − Δ(x))² = (8/π²) X h log³(√X/h) + O(X h L^{5/2}√L).
+* (1.8) is Jutila's integral representation of I_2(X,h) := ∫_X^{2X}(Δ(x+h) − Δ(x))²dx (a Voronoi-type series) + O_ε(X^{1+ε}h^{1/2});
+  (1.9): I_2(X,h) ≍ X h log³(√X/h) for X^ε ≤ h ≤ X^{1/2−ε}. (1.10) concerns the zeta mean-square error E, not Δ.
+* (1.12): Δ(x+h) − Δ(x) = Ω(√h log^{3/2}(√x/h)) for x^ε ≤ h ≤ x^{1/2−ε}.
+* (1.13) **Jutila's conjecture**: Δ(x+h) − Δ(x) ≪_ε x^ε √h for x^ε ≤ h ≤ x^{1/2−ε} ("close to best possible, in view of (1.12)").
+* (1.14) (Ivić): for 1 ≪ U ≤ ½√T, ∫_T^{2T}(Δ(x+U) − Δ(x))²dx = T U Σ_{j=0}^{3} c_j log^j(√T/U) + O_ε(T^{1/2+ε}U²) + O_ε(T^{1+ε}U^{1/2}),
+  c₃ = 8π^{−2}.
+The earlier transcription in this file (attributing the (1.7)-type asymptotic to the continuous I_2 via (1.8)/(1.10)) was
+wrong; use (1.9), (1.14) for the continuous mean square, and (1.13) for the pointwise conjecture.
 
 ## 6. Optional: Erdős–Straus representation counts
 
@@ -105,5 +110,5 @@ Ivić attributes this to Jutila and says Jutila proves the integral equals the e
 | 3 | No | DFI theorem text inaccessible from fetched journal page. |
 | 4 | No | Bombieri–Iwaniec PDF extraction omitted the formula in Lemma 2.4. |
 | 5(a) | Yes, as implication | Li–Yang establish `Δ(X)≪εX^{0.3144831759741…+ε}`, implying interval asymptotics above that power for `y=o(x)`. |
-| 5(b) | Partial | Ivić (2009) reproduces Jutila’s mean-square asymptotic and range; original not independently checked. |
+| 5(b) | Yes (Ivić 2009, read) | Mean square (1.9)/(1.14) ≍ Xh log³; omega (1.12); Jutila's pointwise conjecture (1.13) Δ(x+h)−Δ(x) ≪ x^ε√h. |
 | 6 | No | No newer solution-count exponent verified. |

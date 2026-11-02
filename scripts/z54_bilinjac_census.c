@@ -18,10 +18,11 @@ int main(int argc,char**argv){
     ll mx=u>B?u:B, mn=u<B?u:B;
     double lo=pow((double)mx,4)/16.0, hi=16.0*pow((double)mn,4);
     if(lo>=hi) continue;
-    ll C0=(ll)((lo+u+B)/(4.0*u*B)); if(C0<1) C0=1;
-    for(ll C=C0;;C++){ ll n=4*u*B*C-u-B; if(n>X) break; if((double)n>=hi+1) break; if(n<1) continue;
-      double r=pow((double)n,0.25);
-      if(u> r/2 && u<=2*r && B> r/2 && B<=2*r){ if(cnt[n]<255) cnt[n]++; }
+    ll C0=(ll)((lo+u+B)/(4.0*u*B))-1; if(C0<1) C0=1;  /* float start, widened by one step */
+    for(ll C=C0;;C++){ ll n=4*u*B*C-u-B; if(n>X) break; if((double)n>=hi+16) break; /* float range only prunes; membership is the exact test below */ if(n<1) continue;
+      /* exact integer test: n^{1/4}/2 < x <= 2 n^{1/4}  <=>  n < 16 x^4  and  x^4 <= 16 n   (x = u, B) */
+      ll mn4=mn*mn*mn*mn, mx4=mx*mx*mx*mx;
+      if(n < 16*mn4 && mx4 <= 16*n){ if(cnt[n]==255){fprintf(stderr,"counter saturation at n=%lld\n",n);return 3;} cnt[n]++; }
     }
   }
   /* sieve primes */
