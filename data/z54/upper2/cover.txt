@@ -1,0 +1,22 @@
+M=840 X=64: classes 48, uncovered 6
+  |Q(M)| = 6; uncovered == Q: True; Q subset of uncovered: True
+  least covering x histogram: [(4, 32), (7, 8), (8, 2), (None, 6)]
+  uncovered: [1, 121, 169, 289, 361, 529]
+M=840 X=100000: classes 48, uncovered 6
+  |Q(M)| = 6; uncovered == Q: True; Q subset of uncovered: True
+  least covering x histogram: [(4, 32), (7, 8), (8, 2), (None, 6)]
+  uncovered: [1, 121, 169, 289, 361, 529]
+M=9240 X=64: classes 480, uncovered 38
+  |Q(M)| = 30; uncovered == Q: False; Q subset of uncovered: True
+  least covering x histogram: [(4, 352), (7, 64), (8, 16), (12, 6), (31, 4), (None, 38)]
+  uncovered: [1, 169, 289, 361, 529, 841, 961, 1369, 1681, 1849, 2041, 2209, 2521, 2641, 2689, 2809, 3361, 3481, 3529, 3721, 3889, 4321, 4369, 4489, 5041, 5161, 5209, 5329, 5569, 6169, 6241, 6889, 7009, 7561, 7681, 7921, 8089, 8761]
+M=9240 X=100000: classes 480, uncovered 38
+  |Q(M)| = 30; uncovered == Q: False; Q subset of uncovered: True
+  least covering x histogram: [(4, 352), (7, 64), (8, 16), (12, 6), (31, 4), (None, 38)]
+  uncovered: [1, 169, 289, 361, 529, 841, 961, 1369, 1681, 1849, 2041, 2209, 2521, 2641, 2689, 2809, 3361, 3481, 3529, 3721, 3889, 4321, 4369, 4489, 5041, 5161, 5209, 5329, 5569, 6169, 6241, 6889, 7009, 7561, 7681, 7921, 8089, 8761]
+M=120120 X=64: classes 5760, uncovered 274
+  |Q(M)| = 180; uncovered == Q: False; Q subset of uncovered: True
+  least covering x histogram: [(4, 4224), (7, 896), (8, 256), (12, 48), (16, 12), (24, 24), (31, 26), (None, 274)]
+M=120120 X=200000: classes 5760, uncovered 242
+  |Q(M)| = 180; uncovered == Q: False; Q subset of uncovered: True
+  least covering x histogram: [(4, 4224), (7, 896), (8, 256), (12, 48), (16, 12), (24, 24), (31, 26), (71, 32), (None, 242)]
