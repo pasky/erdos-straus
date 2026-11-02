@@ -95,7 +95,7 @@ and N₂ counts the split ones (D a nonzero square with the size condition).
 | level k (this memo) | E1 | ≤ Σ_{s∈(2U,4U]} τ(p+s) ≪ U^{1+ε}; measured 2.72U | w_k ∈ ℤ, prob ≍ 1/U | **first**, but window width 1/U (critical) |
 | (u, B) ∈ 𝔅 (Z52D R1) | all of 𝔅 | U² | uB \| p+u+B, prob ≍ 1/U² | first in each variable; needs beyond-√ |
 | (X, Y) mod-p hyperbola | XY ≡ 1 (p) in [p^{3/4}]² | ≍ U² (Weil-critical box) | k \| X+1, prob ≍ 1/U² | — |
-| k-form AP n = kp+1 | divisors X ∈ (kU,2kU] of n ≡ 1 (mod p) | ≍ U² (EVIDENCE, §6.4) | X ≡ −1 (mod (n−1)/p) | tied modulus |
+| k-form AP n = kp+1 | divisors X ∈ (kU,2kU] of n ≡ 1 (mod p) | ≍ U² (EVIDENCE, §6.3) | X ≡ −1 (mod (n−1)/p) | tied modulus |
 
 **Exponent bookkeeping in p.** U ≍ p^{1/4}, levels k ≍ p^{1/2}, m = uB ≍ p^{1/2}, X, Y ≍ p^{3/4}, n = kp+1 ≍ p^{3/2}. The
 trivial bound is p^{1/4} and the expected count is p^{0}.
@@ -211,7 +211,7 @@ The progression has modulus q = p and length x/q ≍ U², with x ≍ U²p ≍ p^
     can impose it only through a fixed Q, as X ≡ −1 (mod gcd(k, Q)). The relaxed count
     N_rel(Q) = Σ_k #{X | kp+1 : X ∈ (kU, 2kU], X ≡ −1 (mod gcd(k,Q))} ≥ N₂ has model main term
     ≍ U²·E[1/φ(gcd(k,Q))] ≥ (φ(Q)/Q)·c·U² ≫ U²/log log Q, which exceeds the trivial bound by ≍ U.
-    EVIDENCE (§6.4): at p ≈ 10⁸ (U = 100), N_rel(1) ≈ 0.48–0.53U² and N_rel(27720) ≈ 0.28–0.30U².
+    EVIDENCE (§6.3): at p ≈ 10⁸ (U = 100), N_rel(1) ≈ 0.48–0.53U² and N_rel(27720) ≈ 0.28–0.30U².
 **Deficit.** The best such a tool could output is ≍ U²/log log Q. That exceeds the trivial bound by a full factor
 p^{1/4}, and the untied asymptotic is at the x^{2/3} endpoint.
 
@@ -254,7 +254,7 @@ is the *coincidence* of the two conditions.
     P₁ ≥ U/6 − O(U^{14/15}) by (a).
     Cauchy–Schwarz gives P₁² ≤ #{u : p+u has a divisor in (U,2U]}·Σ_u τ(p+u)², and Σ_u τ(p+u)² ≤ U·max_{n≤2p}τ(n)²
     ≪ U^{1+ε}. ∎
-EVIDENCE (§6.3): P₁/U = |dom f|/U = 0.66–0.73 (expected log 2 ≈ 0.693), and (b)'s count is 0.33–0.38U at 10¹² and 10¹⁴.
+EVIDENCE (§6.2): P₁/U = |dom f|/U = 0.66–0.73 (expected log 2 ≈ 0.693), and (b)'s count is 0.33–0.38U at 10¹² and 10¹⁴.
 The values are identical in law at primes, odd squares and near-squares.
 **Deficit.** The full power U^{1−o(1)}. Ford's (log y)^{−δ}(log log y)^{−3/2} saving is for the ambient density over all
 n ≤ x; at a single p it is at most logarithmic, and Prop 5.3(b) shows nothing better than U^{1−ε} can come from the
@@ -305,7 +305,7 @@ freedom.
     √x − √(x − y) ≤ √y, the set {2U < s(t) ≤ 4U} has total length ≤ 2√(2U/(ab)) and contains ≤ 2√(2U/(ab)) + 2
     integers. A fixed k determines m, since the strip has vertical width 2U/k < 1 (k ≥ p/(4U²) > 4U); a fixed m
     determines k (horizontal width 2U/m < 1). ∎
-EVIDENCE (§6.3): lines with ≥ 3 points of E1 exist ("major arcs" at rational slopes b/a of small height, e.g.
+EVIDENCE (§6.2): lines with ≥ 3 points of E1 exist ("major arcs" at rational slopes b/a of small height, e.g.
 directions (5, −11), (2, −21), (7, −29)). The longest have 6–18 points. They carry 2.9–6.9 % of E1 at primes with
 U = 1000 (4–10 % at odd squares and near-squares) and 2.5–3.4 % at U = 3162; the absolute number grows only like
 ≈ U^{1/4}. The remaining ≳ 90–97 % of E1 points lie on no line with ≥ 3 points of E1.
@@ -318,7 +318,7 @@ so this is not stated as a theorem.
 line covering can exploit: covering them by lines needs ≳ |E1|/2 lines (EVIDENCE). Exponent pairs and Bombieri–Iwaniec
 enter only through Prop 4.3, at f″ = 2νp/k³ ≍ h ≥ 1 (the B-process is self-dual for h ≍ 1).
 
-## 6. Computations (scripts `scripts/z54_bilindiv_*`, data `data/z54/bilindiv/`, < 20 kB)
+## 6. Computations (scripts `scripts/z54_bilindiv_*`, data `data/z54/bilindiv/`, ≈ 40 kB)
 
 ### 6.1 TD falsifier (EVIDENCE; `z54_bilindiv_td.c`)
 Columns: n, U, |E1|, |E1⁺|, N₂, N₄, max_h|T(h)|/√|E1⁺|, argmax, rms_h, |T(1)|/√|E1⁺| (`td_falsifier.txt`, `td_extended.txt`).
@@ -340,7 +340,7 @@ Columns: n, U, |E1|, |E1⁺|, N₂, N₄, max_h|T(h)|/√|E1⁺|, argmax, rms_h,
 * Cross-check: N₂ from the strip form agrees with brute force at 300 consecutive primes > 10⁸
   (`z54_bilindiv_brute.py`; 0 mismatches, ΣN₂ = 113).
 
-### 6.3 Geometry and anatomy filters (EVIDENCE; `z54_bilindiv_geom.c`, `geom.txt`)
+### 6.2 Geometry and anatomy filters (EVIDENCE; `z54_bilindiv_geom.c`, `geom.txt`)
 Columns: n, U, |E1|, L3 (#lines with ≥ 3 points of E1), Lmax, W (max # of points in a k-window of length ⌊U^{2/3}⌋),
 P₁, A1, A2, their ratios to U, cov3 (#points on lines with ≥ 3 points), and the direction of a longest line.
 * 10¹² (U = 1000), 20 primes: L3 = 20–46, Lmax = 7–18, W = Lmax in 13/20 cases and W ≤ Lmax in all
@@ -349,7 +349,11 @@ P₁, A1, A2, their ratios to U, cov3 (#points on lines with ≥ 3 points), and 
 * Odd squares and near-squares at 10¹² look like primes in every column (cov3 slightly higher). Note that n and n + 4
   have almost the same strip, so the near-square control m² + 4 nearly duplicates the odd square m² here.
 
-### 6.5 Do tie events sit on the major arcs? (EVIDENCE; `z54_bilindiv_cyclines.c`, `cyclines.txt.gz`)
+### 6.3 Fixed-modulus relaxation of the AP form (EVIDENCE; `z54_bilindiv_untied.py`, `untied.txt`)
+At p = 100000081 and 100000097 (U = 100, 7 500 levels): N_rel(1) = 5253 and 4792 (0.53U², 0.48U²); N_rel(4) ≈ 0.45–0.49U²;
+N_rel(12) ≈ 0.40–0.44U²; N_rel(840) ≈ 0.31–0.34U²; N_rel(27720) ≈ 0.28–0.30U². The true count is N₂ = O(1).
+
+### 6.4 Do tie events sit on the major arcs? (EVIDENCE; `z54_bilindiv_cyclines.c`, `cyclines.txt.gz`)
 For every 2-cycle level k, r(k) := the largest number of E1 points on a line through (k, m_k); control: one E1 point per
 prime chosen by index n mod |E1|.
 * 8 000 consecutive primes from 10¹⁰ (U = 316): 2 921 cycles; r ≥ 3 for 10.0 % of cycles vs 10.8 % of controls (r ≥ 4:
@@ -357,10 +361,6 @@ prime chosen by index n mod |E1|.
 * 4 000 consecutive primes from 10¹² (U = 1000): 1 437 cycles; r ≥ 3 for 4.8 % vs 5.2 % (r ≥ 4: 2.6 % vs 3.0 %).
 Tie events are *not* concentrated on the strip's major arcs: they are distributed like generic E1 points, so line
 geometry has no bias to exploit (falsifier for a "major-arc" route: negative).
-
-### 6.4 Fixed-modulus relaxation of the AP form (EVIDENCE; `z54_bilindiv_untied.py`, `untied.txt`)
-At p = 100000081 and 100000097 (U = 100, 7 500 levels): N_rel(1) = 5253 and 4792 (0.53U², 0.48U²); N_rel(4) ≈ 0.45–0.49U²;
-N_rel(12) ≈ 0.40–0.44U²; N_rel(840) ≈ 0.31–0.34U²; N_rel(27720) ≈ 0.28–0.30U². The true count is N₂ = O(1).
 
 ## 7. FRONTIER §4 hard screens (best idea: Theorem T / TD)
 1. **T1 (odd squares).** Theorem T is an n-uniform upper bound and holds at odd squares, where N₂ can be positive
@@ -390,7 +390,7 @@ N_rel(12) ≈ 0.40–0.44U²; N_rel(840) ≈ 0.31–0.34U²; N_rel(27720) ≈ 0.
   * the black-box determinant method with any pruning is dominated box by box by the elementary per-fibre count
     (Prop 5.4);
   * strip geometry is collinear at scale U^{2/3} (Prop 5.5). Its major arcs carry ≈ 3–10 % of E1, and tie events sit
-    on them at the generic rate (EVIDENCE §6.5); the rest lies on no line with ≥ 3 points.
+    on them at the generic rate (EVIDENCE §6.4); the rest lies on no line with ≥ 3 points.
 * **Survives:** joint (ν, k) cancellation (the additive analogue of SQSIEVE's bilinear (ℓ, C) estimate); TD or MIX
   themselves; the major-arc part (a power saving there looks reachable, Assessment, but buys nothing on the minor arcs);
   counting the actual auxiliary curves; Salberger/p-adic determinant variants.
@@ -430,6 +430,8 @@ timeout 1500 /tmp/z54td 178 < /tmp/p18.txt
 timeout 1500 /tmp/z54geom < /tmp/p14.txt                           # O(|E1|^2 log): ~10 s per prime at 1e14
 timeout 600 uv run python scripts/z54_bilindiv_brute.py < /tmp/p8.txt   # cross-check
 timeout 900 uv run --with sympy python scripts/z54_bilindiv_untied.py 100000081 1 4 12 840 27720
+gcc -O2 -o /tmp/z54cyc scripts/z54_bilindiv_cyclines.c -lm
+timeout 1500 /tmp/z54cyc < /tmp/p10big.txt; timeout 1500 /tmp/z54cyc < /tmp/p12big.txt   # 8000 / 4000 consecutive primes after 1e10 / 1e12; ~10 s
 ```
 
 ## 12. Review log
