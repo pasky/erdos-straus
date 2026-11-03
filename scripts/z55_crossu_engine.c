@@ -7,6 +7,11 @@
 //   N_c := 2 #{points: j = c mod u}                     (so N_1 = R)
 //   G_c := 2 sum_points 1[j in c * squares] / |G^2|      (genus-coset prediction for N_c; G_1 = G)
 //   E_c := 2 sum_points 1/phi(u)  (gcd(c,u)=1)         (uniform prediction)
+//   V_c := 4 sum_{points, j in c*squares} (1/|G^2|)(1 - 1/|G^2|)   (model variance of N_c - G_c: independent points,
+//          j uniform in its coset)  -- V_1 = VRG.
+// Checks on every point of S_3 (counters badj, badA, badB; nA = points where d^{-1} mod n exists):
+//   badj: u*(u^{-1} mod d) = 1 + j d ;  badA: Lemma A(c) (d^{-1} mod n = (2w+jn)/u, (d dbar-1)/n = u^{-1} mod d,
+//   j = floor(u dbar/n)) ;  badB: Lemma B (second ceiling remainder (-d) mod u is j^{-1} mod u).
 // Also: histogram of j/u in NB bins (all points, and genus points only), and per-u dump (optional).
 // Usage: z55_crossu_engine n U0 U1 Y X [dumpfile]   -> key=value lines
 #include <stdio.h>
@@ -42,10 +47,10 @@ int main(int argc, char **argv) {
     for (ll v = s; v <= n + U1; v += q) { ll i = v - (n + U0 + 1); int e = 0; while (rem[i] % q == 0) { rem[i] /= q; e++; }
       if (F[i].k < MAXF) { F[i].pr[F[i].k] = q; F[i].ex[F[i].k] = e; F[i].k++; } } }
   for (ll i = 0; i < L; i++) if (rem[i] > 1) { F[i].pr[F[i].k] = rem[i]; F[i].ex[F[i].k] = 1; F[i].k++; }
-  double Nc[NC], Gc[NC], Ec[NC]; for (int c = 0; c < NC; c++) Nc[c] = Gc[c] = Ec[c] = 0;
+  double Nc[NC], Gc[NC], Ec[NC], VC[NC]; for (int c = 0; c < NC; c++) Nc[c] = Gc[c] = Ec[c] = VC[c] = 0;
   double HB[NB], HBg[NB]; for (int b = 0; b < NB; b++) HB[b] = HBg[b] = 0;
   double VRG = 0, sumphi = 0; // model variance of R - G (genus-conditioned): sum 1/|G^2| (1 - 1/|G^2|) over genus pts
-  ll nshell = 0, nsh3 = 0, ngen = 0, nhit = 0, nanti = 0, badj = 0; ll nu = 0;
+  ll nshell = 0, nsh3 = 0, ngen = 0, nhit = 0, nanti = 0, badj = 0, badA = 0, badB = 0, nA = 0; ll nu = 0;
   for (ll u = U0 + 1; u <= U1; u++) {
     if (u % 4 != 1) continue;
     ll up[32]; int ku = 0; ll t = u; int sqf = 1;
@@ -70,7 +75,14 @@ int main(int argc, char **argv) {
       // class index j = -d^{-1} mod u ; check Lemma A: u * (u^{-1} mod d) = 1 + j d
       ll dinv = egcd_inv(d % u, u); if (dinv < 0) { badj++; continue; }
       ll j = (u - dinv) % u; if (j == 0) j = u; // j in [1,u) (u>1); j==u impossible
-      { ll uinv = egcd_inv(u % d, d); i128 lhs = (i128)u * uinv; i128 rhs = (i128)1 + (i128)j * d; if (lhs != rhs) badj++; }
+      { ll uinv = egcd_inv(u % d, d); i128 lhs = (i128)u * uinv; i128 rhs = (i128)1 + (i128)j * d; if (lhs != rhs) badj++;
+        // Lemma A(c): dbar = d^{-1} mod n (when it exists) equals (2w + j n)/u, (d dbar - 1)/n = uinv, j = floor(u dbar / n)
+        ll dbar = egcd_inv(d % n, n);
+        if (dbar >= 0) { nA++; i128 num = (i128)2 * w + (i128)j * n; if (num % u != 0 || num / u != dbar) badA++;
+          i128 dd = (i128)d * dbar - 1; if (dd % n != 0 || dd / n != uinv) badA++;
+          if ((i128)u * dbar / n != j) badA++; }
+        // Lemma B: second ceiling remainder of (p,d) is (-d) mod u, and it equals j^{-1} mod u
+        ll r2 = ((-(d % u)) % u + u) % u; if ((ll)((i128)r2 * j % u) != 1) badB++; }
       // genus: j in squares mod u (per prime)
       int isq = 1; for (int i = 0; i < ku; i++) { ll l = up[i]; if (mpow(j % l, (l - 1) / 2, l) != 1) { isq = 0; break; } }
       if (isq) { ngen++; VRG += (1.0 / g2) * (1.0 - 1.0 / g2); }
@@ -84,15 +96,15 @@ int main(int argc, char **argv) {
         if (j == cc) Nc[c] += 2;
         // j in c * squares <=> j * c^{-1} square <=> (j c / l) = 1 for all l | u
         int ok = 1; for (int i = 0; i < ku; i++) { ll l = up[i]; ll v = (ll)((i128)(j % l) * (cc % l) % l); if (mpow(v, (l - 1) / 2, l) != 1) { ok = 0; break; } }
-        if (ok) Gc[c] += 2.0 / g2;
+        if (ok) { Gc[c] += 2.0 / g2; VC[c] += 4.0 * (1.0 / g2) * (1.0 - 1.0 / g2); }
       }
       if (dump) fprintf(dump, "%lld %lld %lld %lld %d\n", u, w, d, j, isq);
     }
   }
-  printf("n=%lld U0=%lld U1=%lld Y=%lld X=%lld nu=%lld nshell=%lld nsh3=%lld ngen=%lld nhit=%lld nanti=%lld badj=%lld\n",
-         n, U0, U1, Y, X, nu, nshell, nsh3, ngen, nhit, nanti, badj);
+  printf("n=%lld U0=%lld U1=%lld Y=%lld X=%lld nu=%lld nshell=%lld nsh3=%lld ngen=%lld nhit=%lld nanti=%lld badj=%lld badA=%lld badB=%lld nA=%lld\n",
+         n, U0, U1, Y, X, nu, nshell, nsh3, ngen, nhit, nanti, badj, badA, badB, nA);
   printf("R=%.6f G=%.6f VRG=%.6f sumphi=%.6f\n", Nc[0], Gc[0], 4 * VRG, 2 * sumphi);
-  for (int c = 0; c < NC; c++) printf("N%lld=%.6f G%lld=%.6f E%lld=%.6f\n", CL[c], Nc[c], CL[c], Gc[c], CL[c], Ec[c]);
+  for (int c = 0; c < NC; c++) printf("N%lld=%.6f G%lld=%.6f E%lld=%.6f V%lld=%.6f\n", CL[c], Nc[c], CL[c], Gc[c], CL[c], Ec[c], CL[c], VC[c]);
   for (int b = 0; b < NB; b++) printf("HB%d=%.0f HBg%d=%.0f\n", b, HB[b], b, HBg[b]);
   if (dump) fclose(dump);
   return 0;

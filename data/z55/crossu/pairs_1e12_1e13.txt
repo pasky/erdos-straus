@@ -1,3 +1,5 @@
-files=300 hits=769 mean_u(hits)=1205.9 mean_u(null)=1277.1
-HH: pairs=967 gcd(u)>1: 0.1241  gcd(d)>1: 0.2213  |u1-u2|<=U1/20: 0.4043  u|u': 0.01965
-NN: pairs=948 gcd(u)>1: 0.1215  gcd(d)>1: 0.1938  |u1-u2|<=U1/20: 0.3697  u|u': 0.01762
+files=300 hits=769 mean_u(hits)=1205.9 mean_u(null)=1401.7 pairs_H=967 pairs_N=964
+gcd(u1,u2)>1     hits  12.41%  null  11.26%  diff  +1.15%  bootstrap 95% CI of diff [-1.44%, +3.99%]
+gcd(d1,d2)>1     hits  22.13%  null  19.13%  diff  +3.00%  bootstrap 95% CI of diff [-1.00%, +7.58%]
+|u1-u2|<=U1/20   hits  40.43%  null  36.11%  diff  +4.33%  bootstrap 95% CI of diff [-0.35%, +8.77%]
+u|u'             hits   1.96%  null   1.36%  diff  +0.60%  bootstrap 95% CI of diff [-0.34%, +1.79%]
