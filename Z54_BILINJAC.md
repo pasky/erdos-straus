@@ -96,10 +96,12 @@ No lower bound for |𝒜| is proved. The statement |𝒜| ≍ V is a heuristic (
   * For a < 0, (a/Q) = (−1/Q)(|a|/Q). The transposed form, with the strip value as modulus, arises after splitting off
     signs and powers of 2 and applying reciprocity to the odd part; it is the same kind of object.
 * **(F6) Pair form.** N(U,V,W) = #{(u,B) ∈ (U,2U]×(V,2V] : 4uB | n + u + B, (n + u + B)/(4uB) ∈ (W,2W]}. If
-  gcd(u,B) = 1, then 4uB | n + u + B is equivalent to [u | n + B, B | n + u, 4 | (n + u + B)/(uB)] (HYP2CYCLE's 2-cycle
-  form).
+  gcd(u,B) = 1, then u | n + B and B | n + u together imply uB | n + u + B, and 4uB | n + u + B is then equivalent to
+  [u | n + B, B | n + u, 4 | (n + u + B)/(uB)] (HYP2CYCLE's 2-cycle form). (The third condition alone, read as "the
+  quotient is an integer divisible by 4", is already equivalent to 4uB | n + u + B, with or without coprimality.)
   * gcd(u,B) divides n, so coprimality is automatic at a prime n = p > 4V.
-  * Without coprimality the equivalence fails: u = 3, B = 6, n = 15 satisfies the bracket but 72 ∤ 24.
+  * Without coprimality the two divisibilities u | n + B, B | n + u do not imply uB | n + u + B: u = 3, B = 6, n = 15
+    satisfies both, but (n + u + B)/(uB) = 4/3.
   * Every solution is a factorisation m = 4uBC of an integer m ∈ (n, n + 4V] with u + B = m − n. So any approach to (T)
     concerns the multiplicative structure of the integers in an interval of length 4n^{1/4} (a restatement).
 
@@ -290,14 +292,13 @@ one-variable arguments).** Let a ≢ 0 mod Q. Poisson in k gives
     ≫ V√Q, already above the trivial V.
   * The inequality's exact constants were not re-verified (LIT_CHECK §4). Opening the Kloosterman sum reverts the Poisson
     step, so the inequality sees only near-coincidences of the y's and no strip structure.
-* *Averaging over the moduli: the 2-D additive large sieve (Assessment).* The square sieve may use the mean over Q of
-  |S_Q| instead of the maximum. By Lemma 2.2 and Parseval, |S_Q| ≤ (Σ_{(a,b)}|T_Q(a,b)|²)^{1/2}. The multidimensional
-  additive large sieve (Huxley's form; statement not re-verified here) bounds Σ_{Q≤R}Σ_{(a,b) mod Q}|T_Q(a,b)|² by
-  ≪ (R + X₁^{1/2})²(R + X₂^{1/2})²·Σω², where X₁ ≍ W and X₂ ≍ n/W are the sides of the box holding the strip
-  (both ≍ V²), after reducing non-primitive (a,b) to divisors of Q. With R = 4P² and #Q ≍ P²/log²P, the mean of |S_Q| is
-  then ≪ n^ε(P⁴ + V²)V^{1/2}/P. This is ≫ V² for every P (minimum near P ≍ V^{1/2}), a deficit of V^{1+η} against
-  the target. The large sieve sees the V² × V² box, not the ≍ V points of the strip: the additive-character
-  counterpart of Prop M.
+* *Averaging over the moduli (heuristic only; no inequality asserted).* The square sieve may use the mean over Q of
+  |S_Q| instead of the maximum, and by Lemma 2.2 and Parseval |S_Q| ≤ (Σ_{(a,b)}|T_Q(a,b)|²)^{1/2}. A multidimensional
+  additive large sieve over the moduli would see the V² × V² box holding the strip rather than its ≍ V points, so we
+  expect it to lose, as the additive counterpart of Prop M. An earlier draft displayed an all-Q inequality and a V^{1+η}
+  deficit. That inequality is false as written: it counts every (a,b) mod Q for every Q ≤ R, so (0,0) and the
+  non-primitive frequencies recur. Its deficit is therefore withdrawn (cross-model review, Fix 1). A correct version
+  (primitive frequencies, or explicit denominator multiplicities for Q = qq′) needs a new derivation, not given here.
 * *Determinant method.* Closed in black-box form by HYP2CYCLE Prop D (criticality V/T = 1).
 
 ## 6. Summary of deficits at the balanced block (exponents of V = n^{1/4}; the target is V^{1−η})
@@ -310,7 +311,6 @@ one-variable arguments).** Let a ≢ 0 mod Q. Poisson in k gives
 | PV / Burgess | a-variable: no interval; Q-variable: bound only non-squares | no direct input | PROVED (identity remark) |
 | DFI Thm 1 / Thm 2 | (u,B)-box Kloosterman fractions, a ≍ hn | × V / × V^{35/48} above trivial | PROVED (arithmetic) |
 | double large sieve | (F3) opened | ≍ V^{3/2}Q^{1/2} (diagonal alone ≫ V√Q) | Assessment |
-| 2-D additive large sieve over Q (averaged TS) | Lemma 2.2 + Parseval | mean |S_Q| ≪ (P⁴+V²)V^{1/2}/P ≥ V²: × V | Assessment (bound expression) |
 | exponent-pair majorants on C-sums | (F3)/(F4) per h or ℓ | V^{κ+2λ} ≥ V; Bourgain V^{41/28}; conjectural pair V^{1} | PROVED (bound expression); cf. B2 |
 | full divisor exponent (Li–Yang), if it transferred | T_Q(0,0) only | V^{4θ*} = V^{1.258} (worse than elementary V^{1+o(1)}) | Assessment (lit.) |
 | additive expansion + square-root T_Q | Thm R | N ≪ n^{5/24+ε} | CONDITIONAL (twisted Jutila-type) |
@@ -507,3 +507,16 @@ reproduced byte-for-byte), but several claims were overstated. Fixes applied:
   stands). The summariser tags the P-choice by run order and prints V, W, |𝒜| ranges.
 * F12: the evidence wording was changed to "consistent with"; "as they must be" removed; the weakness of the E rms
   statistic noted; the CFS/PV/Burgess exclusions are scoped to direct application.
+**Cross-model review** (`data/z54/xreview/REVIEW_BILINJAC.md`; independent checks `scripts/z54_xrev_bilinjac_check.py`).
+Verdict **ACCEPT-WITH-FIXES**; "narrowed" confirmed.
+* The reviewer audited Lemma 2.1, Lemma 2.2, Prop M/M′, Thm R/R′, the §5 calibration and the DFI and exponent-pair
+  arithmetic, and found them correct as scoped.
+* The census, the full 10¹⁴ strip file and one Poisson-shell run reproduced byte-for-byte, and the independent
+  enumeration and Fourier checks agree.
+* Fixes applied:
+  1. The all-Q 2-D additive large-sieve inequality in §5.5 was false as written ((0,0) and non-primitive frequencies
+     repeat across Q). It is withdrawn: it remains a heuristic remark only, with no inequality or deficit, and its §6
+     row was removed.
+  2. (F6): the bracket remark is corrected. The 4 | quotient condition alone is already equivalent to divisibility; the
+     (3, 6, 15) example shows only that u | n + B and B | n + u do not imply uB | n + u + B.
+  3. LIT_CHECK §2(b): CFS's C(α) is corrected to √α + (1/2π)Σk^{−2}∫₀^α √y[…]dy. The main application is unaffected.

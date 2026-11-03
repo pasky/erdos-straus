@@ -50,9 +50,9 @@ S(X,Y)=\frac{2}{\pi^2}C(Y/X)X^{3/2}
 \]
 For `α≥0`, the paper defines
 \[
-C(α)=\frac{\sqrt α}{2π}+\frac1{2π}\sum_{k=1}^\infty\frac1{k^2}\int_0^{α}\! y\left(1-\cos\frac{2πk^2}{y}+\sin\frac{2πk^2}{y}\right)dy.
+C(α)=\sqrt α+\frac1{2π}\sum_{k=1}^\infty\frac1{k^2}\int_0^{α}\! \sqrt y\left(1-\cos\frac{2πk^2}{y}+\sin\frac{2πk^2}{y}\right)dy.
 \]
-(Formula transcribed from displayed definition; the other equivalent expression in the paper is omitted.) The character is the Jacobi symbol, including its usual zero values; both summation variables are odd, not necessarily squarefree.
+(Formula transcribed from displayed definition; CORRECTED after cross-model review against CFS p. 2; the other equivalent expression in the paper is omitted.) The character is the Jacobi symbol, including its usual zero values; both summation variables are odd, not necessarily squarefree.
 
 ## 3. Duke–Friedlander–Iwaniec, Kloosterman fractions
 
