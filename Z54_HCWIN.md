@@ -19,8 +19,8 @@ not a factorisation.
      g(κ) = κ log 2 − κ log κ + κ − 1 < 1. This is an upper bound; for κ ≤ 1 the bound o(log T) is trivial.
    * For κ > 2, the average is ≫_θ log T · log log T.
    So 2 log 2 separates two proved regimes of an arithmetic quantity. The boundary itself is not decided.
-   * Mechanism (Rankin): E_p τ(p+x)^s ≍ (log p)^{2^s−1}, so the mean of τ is carried by ω ≈ 2 log log p. The exponents
-     match the model's g(κ) (HCSHIFTS §3.2).
+   * Mechanism (Rankin): E_p τ(p+x)^s ≪ (log p)^{2^s−1} (with ≍ at s = 1), so the mean of τ is carried by
+     ω ≈ 2 log log p. The exponents match the model's g(κ) (HCSHIFTS §3.2).
    * It is an average over p (B6), so it only *calibrates* the threshold.
 2. **What is provable at a single p (Theorem A; PROVED, elementary).**
    * Turán–Kubilius over the window variable x is exact, but only for primes ≤ X^{1/2}. The provable single-p anatomy is
@@ -121,7 +121,8 @@ lines x | 24 of Lemma 1.1(b).
 * **(Q1)** The arithmetic origin of 2 log 2. Target form: Anat(A, C): Λ(p, (log p)^A) ≥ C log p for all large p.
 * **(Q2)** The part of Anat provable at one p.
 * **(Q3)** The weakest clean class hypothesis, and S_A conditional on it plus anatomy. Can it be per-line?
-* **(Q4)** Numerics to 10¹³, at hard primes, with odd squares, near-squares and the §4 item-14 primes as controls.
+* **(Q4)** Numerics to 10¹³ and beyond, at hard primes (the HCSHIFTS list, which contains the 14 (★)-zero primes of
+  §4 item 14 and 2521, 3361, 66529, 21841), with odd squares and near-squares as controls.
 
 ## 2. Why this is not already closed
 
@@ -214,9 +215,10 @@ The remaining mass comes from divisors d ∈ (X, √p] of p + x, i.e. from latti
 *Assessment.* Pointwise Anat(A, C) at polylogarithmic X is beyond current methods. It is a class-blind, ES-independent
 statement about divisors of integers in a polylogarithmic window at a prime. It is part of a *sufficient* route to S_A
 (Theorem S), not a proved necessary condition: S_A needs only one successful line, and no implication S_A ⟹ Anat is
-claimed. Its sieve-theoretic part is blocked by parity: a window in which every integer free of prime factors ≤ X
-is prime is consistent with upper-bound sieve information: Brun–Titchmarsh and the Selberg sieve bound the primes and the
-X-rough integers of the window by the same (2 + o(1))X/log X, and no lower bound separates them.
+claimed. Sieve methods meet the parity obstruction here. Consider a window in which every integer free of prime
+factors ≤ √X is prime. Upper-bound sieve information cannot exclude it: the Selberg upper bound for those integers and the
+Brun–Titchmarsh bound for the primes of the window are the same (2 + o(1))X/log X. In such a window the √X-rough integers
+all have τ = 2.
 
 ## 4. Theorem B — the anatomy threshold 2 log 2, on average over primes
 
