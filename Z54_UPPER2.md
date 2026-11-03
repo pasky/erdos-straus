@@ -18,10 +18,12 @@ computation, script + data named), EVIDENCE (numerics/heuristics, not proofs).
 1. **The target is not proved, and cannot be expected to be proved by the methods available here.** By the repo's
    Theorem 1 the target implies the Erdős–Straus conjecture for all but finitely many primes p ≡ 1 (mod 4) (hence, with
    the trivial p ≡ 3 (4) and p = 2 cases, for all but finitely many primes) — an open problem since 1948. The same is true
-   for *every* weaker uniform bound "HC(p) ≤ F(p) for all large p" (F = p^θ, θ < 1, included): any finite bound
-   for all large p is already the open existence statement. So the brief's milestone "HC(p) ≤ p^θ for all p" is exactly as
-   hard as the target. §6 states exactly which pointwise statement is missing (it is *equivalent* to the target, (★) in
-   §6.1) and proves two structural reasons why it lies beyond congruence/sieve arguments (Props 6.2, 6.3).
+   for *every* weaker uniform bound "HC(p) ≤ F(p) for all large p" (F = p^θ with 0 < θ < 1 included): any finite
+   bound for all large p already implies eventual Erdős–Straus. So the brief's milestone "HC(p) ≤ p^θ for all p" would
+   also resolve that open problem (only the forward implications are proved; the relative difficulty of the polynomial
+   and polylogarithmic bounds is not established). §6 states exactly which pointwise statement is missing (it is
+   *equivalent* to the target, (★) in §6.1) and proves two structural obstructions: fixed-level congruence coverings
+   cannot work, and the integer sifted set of §4 is never empty (Props 6.2, 6.3).
 2. **PROVED, for all p in explicit residue classes (§3):** HC(p) = 3 for p ≡ 5 (8); HC(p) ≥ 4 for p ≡ 1 (8); HC(p) ≤ 8 for
    every prime p ≡ 1 (8), p > 7, that is a quadratic non-residue modulo at least one of 3, 5, 7 — i.e. for all primes
    p ≡ 1 (4) outside the six classes 1, 121, 169, 289, 361, 529 (mod 840) (Mordell's classes) — with six explicit words.
@@ -32,13 +34,13 @@ computation, script + data named), EVIDENCE (numerics/heuristics, not proofs).
    * (Thm 4.4 + Cor 4.5) #{p ≤ N : p ≡ 1 (4), HC(p) > (log p)³} ≤ N·exp(−0.8 (log log N)²) + √N for N ≥ N₀
      (N₀ ineffective, via Siegel–Walfisz). So the target holds for all primes outside a set that is sparser than
      N/(log N)^K for every K.
-4. **PROVED structural obstructions (§2, §6):** (Lemma J) every certificate carries a Jacobi symbol −1: if x ∈ 𝒞_p is a
-   coordinate via a divisor d (of p + x or of xp + 1, d ≡ −1 mod x), then (p/d′) = −1 for the odd part d′ of d.
+4. **PROVED structural obstructions (§2, §6):** (Lemma J) for p ≡ 1 (mod 8) every certificate carries a Jacobi symbol
+   −1: if x ∈ 𝒞_p is a coordinate via a divisor d (of p + x or of xp + 1, d ≡ −1 mod x), then (p/d′) = −1 for the odd part d′ of d.
    Consequences: (Prop 6.2) **no odd square n = m² has any word with a coordinate in 𝒞_n**, so any proof of the target
-   must use the non-squareness of p (a parity-type input that sieve methods do not supply); (Prop 6.3) no finite list of
-   congruence rules covers all primes, and there are infinitely many primes every certificate of which uses a level with a
-   prime factor > c·log p.
-5. **CERTIFIED (§5):** HC(p) ≤ 64 ≤ (log p)³ for all primes 5 ≤ p ≤ 10⁹, p ≡ 1 (4) (25 423 491 primes; max HC = 64 at
+   must use the non-squareness of p (in particular the integer sifted sets of §4 are never empty); (Prop 6.3) no finite
+   set of fixed-level tests (congruence rules p ≡ −x mod d, xp ≡ −1 mod d) covers all primes, and there are infinitely
+   many primes every certificate of which uses a level with a prime factor > c·log p.
+5. **CERTIFIED (§5):** HC(p) ≤ 64 and HC(p) ≤ (log p)³ for all primes 5 ≤ p ≤ 10⁹, p ≡ 1 (4) (25 423 491 primes; max HC = 64 at
    p = 21 841 only; max HC/(log p)³ = 0.72 at p = 5). So the target statement holds for every p ≤ 10⁹.
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -64,8 +66,9 @@ Hence **HC(n) = min{x ∈ 𝒞_n : (U) or (T) holds for x}** (note 1 ∉ 𝒞_n 
 divisor ≡ 3 (mod 4) iff it has a prime factor ≡ 3 (mod 4), the case x = 4 reads: *4 is a coordinate iff n + 4 or 4n + 1
 has a prime factor ≡ 3 (mod 4).*
 
-CERTIFIED (`scripts/z54_upper2_lemmas.py`, L1; `data/z54/upper2/lemmas_4000.txt`): for all n ≡ 1 (4), n ≤ 4000, and all
-2 ≤ x ≤ n + 2 (every coordinate of a word of n is ≤ n + 2), the predicate (U)∨(T) equals "x is a coordinate of a word
+CERTIFIED (`scripts/z54_upper2_lemmas.py`, L1; `data/z54/upper2/lemmas_4000.txt`): for all n ≡ 1 (4), 5 ≤ n ≤ 4000, and all
+2 ≤ x ≤ n + 2 (every coordinate of a word of n is ≤ n + 2: t = (n+u+v)/(uv) ≤ n + 2; if t ≥ 2 then (t−1)u ≤ n + 1 by
+(tu−1)v = n + u; if t = 1 then (u−1) | n + 1; v symmetrically), the predicate (U)∨(T) equals "x is a coordinate of a word
 found by brute-force enumeration" (50 968 words, 0 mismatches).
 
 The "level" of the certificate is d (in (U): d = tu − 1 with u = x; in (T): d = tu − 1, and also d* = tv − 1).
@@ -107,8 +110,8 @@ CERTIFIED (`lemmas.py` L2): all 29 820 (coordinate in 𝒞_p, level) pairs of al
 (c) Consequently HC(p) ≤ 8 for every prime p ≡ 1 (mod 4), p > 7, with p ≢ 1, 121, 169, 289, 361, 529 (mod 840); the
 excluded classes are exactly the p ≡ 1 (8) that are quadratic residues modulo 3, 5 and 7.
 
-*Proof.* (a) For p ≡ 5 (8), 𝒞_p = 4ℕ ∪ (8ℕ + 3), whose least element is 3. p + 3 ≡ 0 (mod 8), so v = (p+3)/2 ∈ ℕ and
-1·3·v − 3 − v = 2v − 3 = p. (b) For p ≡ 1 (8), 𝒞_p = 4ℕ ∪ (8ℕ + 7), and 1, 2, 3 ∉ 𝒞_p, so HC(p) ≥ 4. Each listed word
+*Proof.* (a) For p ≡ 5 (8), 𝒞_p = 4ℕ ∪ (8ℤ_{≥0} + 3), whose least element is 3. p + 3 ≡ 0 (mod 8), so v = (p+3)/2 ∈ ℕ and
+1·3·v − 3 − v = 2v − 3 = p. (b) For p ≡ 1 (8), 𝒞_p = 4ℕ ∪ (8ℤ_{≥0} + 7), and 1, 2, 3 ∉ 𝒞_p, so HC(p) ≥ 4. Each listed word
 is checked by expanding tuv − u − v, and its integrality from the congruence: (1,4,v): 3v − 4 = p, 3 | p + 4 ⟸ p ≡ 2 (3).
 (2,4,v): 7v − 4 = p, 7 | p + 4 ⟸ p ≡ 3 (7). (4,2,v): this is Lemma 1.2 (T) with x = 4, d = 7: 7 | 4p+1 ⟸ p ≡ 5 (7), and
 d* = (4p+1)/7 ≡ 3 (mod 4) because 4p+1 ≡ 1 and 7 ≡ 3 (mod 4), so v = (d*+1)/4 ∈ ℕ. (3,7,v): 20v − 7 = p, 20 | p + 7 ⟸
@@ -148,7 +151,7 @@ For a finite D ⊂ 4ℕ put ω_D(q) := #{x ∈ D : x | q + 1} and
 By Lemma 4.1, 𝒮_N(D) avoids ω_D(q) classes mod q for every prime q (ω_D(2) = 0). Put g(q) := ω_D(q)/(q − ω_D(q)); by
 ω_D(q) ≤ q/2, ω_D(q)/q ≤ g(q) ≤ 2ω_D(q)/q.
 
-**Lemma 4.2 (lower bound for J).** Let G(z) := ∏_{q≤z}(1 + g(q)). If log Q ≥ log z·((e−1)·log G(z) + log 2), then
+**Lemma 4.2 (lower bound for J).** Let z ≥ 2, G(z) := ∏_{q≤z}(1 + g(q)). If log Q ≥ log z·((e−1)·log G(z) + log 2), then
 J(Q) ≥ G(z)/2.
 *Proof.* h(m) := μ²(m)∏_{q|m} g(q) ≥ 0, so J(Q) ≥ Σ_{m | P(z), m ≤ Q} h(m) = G(z) − Σ_{m|P(z), m>Q} h(m), P(z) = ∏_{q≤z} q.
 With σ = 1/log z (Rankin): Σ_{m|P(z), m>Q} h(m) ≤ Q^{−σ} Σ_{m|P(z)} h(m) m^σ = Q^{−σ} ∏_{q≤z}(1 + g(q)q^σ)
@@ -177,7 +180,8 @@ claim add the O_K(1) primes p < exp(X₀^{1/3}). ∎
 *Proof.* Write L₂ := log log N, X := (log N)², ω := ω_{D_N}, and let N be large.
 *(i) Upper bound for Σ ω(q)/q.* For x ∈ D_N, the primes q ≡ −1 (mod x) with q ≤ x² are among jx − 1, 1 ≤ j ≤ x, so
 contribute ≤ Σ_{j≤x} 2/(jx) ≤ (2/x)(1 + log x). For q > x² use (BT) with log(t/x) ≥ ½ log t (t ≥ x²) and partial summation:
-Σ_{x²<q≤z, q≡−1(x)} 1/q ≤ π(z;x,−1)/z + ∫_{x²}^{z} π(t;x,−1) t^{−2} dt ≤ (4/φ(x))(1 + log log z).
+Σ_{x²<q≤z, q≡−1(x)} 1/q ≤ π(z;x,−1)/z + ∫_{x²}^{z} π(t;x,−1) t^{−2} dt ≤ (4/φ(x))(1 + log log z)
+(for z ≤ x² this sum is empty and the bound is trivial; z ≥ e assumed).
 So Σ_{q≤z} ω(q)/q ≤ Σ_{x∈D_N} (6 + 2 log x + 4 log log z)/φ(x) ≤ (6 + 2 log X + 4L₂)·C₀ log X ≤ C₃ L₂² for z ≤ N, and
 log G(z) ≤ 2Σ ω(q)/q ≤ 2C₃ L₂².
 *(ii) Choice of z.* Q = √N, log z := log Q/(2(e−1)C₃L₂² + 1). Then Lemma 4.2 applies: J(Q) ≥ G(z)/2, and
@@ -200,11 +204,12 @@ log G(z) ≥ Σ ω(q)/q − ½Σ g(q)² ≥ 0.9 L₂² for large N.
 HC(p) > (log p)³ implies that no word of p has a coordinate in D_N ⊆ 𝒞_p ∩ [1, (log p)³], i.e. p ∈ 𝒮_N(D_N). ∎
 
 *Remarks.* (1) Only the u-coordinates x ∈ 4ℕ and prime levels d = q are used; the T-tests, composite levels and the
-8ℕ + 7 part of 𝒞_p would improve constants only. (2) The method is capped: with a window D of polylogarithmic size,
-J(Q) ≤ G(Q) ≤ exp(O((log log N)²)), so N·exp(−O((log log N)²)) is the limit of the large sieve here, and no sieve bound
-can reach |𝒮_N| = 0 for the integer set: 𝒮_N(D) contains every odd square ≤ N (Prop 6.2), so |𝒮_N(D)| ≥ ½√N − 1.
-(3) The Vaughan-type bound N·exp(−c(log N)^{2/3}) for the Erdős–Straus exceptional set uses certificates whose small
-parameters are not polylogarithmic, and does not bound HC.
+8ℤ_{≥0} + 7 part of 𝒞_p are not used (their effect on the bounds is not analysed here). (2) This construction is
+capped: with the classes of Lemma 4.1 and a window D of polylogarithmic size, J(Q) ≤ ∏_{q≤Q}(1 + g(q)) ≤
+exp(O((log log N)²)) (by §4(i)-type bounds), so N·exp(−O((log log N)²)) is the limit of this large-sieve argument, and
+no bound for the integer set can reach 0: 𝒮_N(D) contains every odd square ≤ N (Prop 6.2), so |𝒮_N(D)| ≥ ½√N − 1.
+(3) The known Erdős–Straus exceptional-set bounds (Vaughan: N·exp(−c(log N)^{2/3})) are about the existence of *some*
+solution and do not by themselves bound HC; the bound of Cor 4.5 is weaker in size but controls HC ≤ (log p)³.
 
 ## 5. Census (CERTIFIED)
 
@@ -237,7 +242,8 @@ individual prime one cannot even guarantee that a single shifted number p + x ha
 residue class (e.g. "p + 4 or 4p + 1 has a prime factor ≡ 3 (4)", which is (★) for x = 4, is expected to fail for
 ≍ N/(log N)² primes p ≤ N). (★) needs the *disjunction* over many x; proving that a disjunction of such events holds for
 *every* prime is a sifted-set-is-empty statement, and §4 shows exactly how far sieve upper bounds go (the sifted set is
-small, Thm 4.4, but never shown empty). Two proved reasons why (★) is beyond congruence- and sieve-type arguments:
+small, Thm 4.4, but never shown empty). Two proved obstructions, limiting what congruence coverings and integer sieves
+can give:
 
 ### 6.2 Squares have no certificate at all (Proposition 6.2, PROVED)
 
@@ -247,8 +253,9 @@ small, Thm 4.4, but never shown empty). Two proved reasons why (★) is beyond c
 CERTIFIED (`lemmas.py` L6): all odd squares 9 … 2025, all x ≤ n + 2: no 𝒞-coordinate.
 
 *Consequence.* Any proof of (★) must use that p is not a square — more precisely the existence, for each p, of a prime
-q with (p/q) = −1 *dividing one of the numbers p + x, xp + 1 in the right way*. Arguments that treat p only through its
-residues modulo small moduli, or through upper-bound sieve weights that do not distinguish p from m², cannot conclude.
+q with (p/q) = −1 *dividing one of the numbers p + x, xp + 1 in the right way*. In particular, any argument that proves
+the conclusion for every n ≡ 1 (8) in a set defined only by conditions also satisfied by odd squares (e.g. the integer
+sifted set 𝒮_N(D) of §4) is impossible; an argument must use non-squareness (or primality) of p essentially.
 (For primes the existence of non-residues q is trivial; the content of (★) is their appearance as divisors of the
 shifted numbers.)
 
@@ -258,8 +265,9 @@ Call a *fixed-level test* a triple (kind, x, d) with kind ∈ {U, T}, x ≡ 0 (4
 p if d | p + x (U) or d | xp + 1 (T) — a condition on p mod d.
 
 **Proposition 6.3.** (a) For every finite set 𝒯 of fixed-level tests, no test of 𝒯 fires on any n ≡ 1 (mod 8L),
-L := lcm of the levels in 𝒯; by Dirichlet there are infinitely many such primes. Hence no finite list of congruence rules
-proves HC(p) < ∞ (let alone ≤ (log p)³) for all p ≡ 1 (8).
+L := lcm of the levels in 𝒯; by Dirichlet there are infinitely many such primes. Hence no finite set of fixed-level
+tests proves HC(p) < ∞ (let alone ≤ (log p)³) for all p ≡ 1 (8). (This excludes covering by fixed-level tests only, not
+every argument that uses congruences.)
 (b) There is an absolute c > 0 and infinitely many primes p ≡ 1 (8) such that the level d of *every* certificate of p
 (any x ∈ 𝒞_p, any size) has a prime factor q > c log p with (p/q) = −1.
 *Proof.* (a) n ≡ 1 (mod d′) for each level, so (n/d′) = (1/d′) = 1, contradicting Lemma 2.1. (b) Let y be large,
@@ -274,11 +282,13 @@ So the certificates required by (★) cannot all come from a bounded set of smal
 
 Fixing two coordinates (a ≤ b) of a word fixes the word and turns its existence into one congruence for p modulo
 ab − 1 or ab. Let μ(p) := min over words of p with a coordinate in 𝒞_p ∩ [1, (log p)³] of the product of its two
-smallest coordinates (`scripts/z54_upper2_modulus.c`, `data/z54/upper2/mu.txt`; cross-checked against an independent
-factorization-based computation to 10⁶):
-* all p ≤ 10⁸: max μ = 2320 (p = 58 649 809), records μ/(log p)² rising slowly (0.7 → 7.3); mean log μ/log p = 0.088;
-* samples of 10⁵ consecutive primes p ≡ 1 (4) from 10¹⁰, 10¹², 10¹⁴, 10¹⁶, 10¹⁸: max μ = 693, 1302, 1524, 576, 635; the
-  target bound HC(p) ≤ (log p)³ held for every sampled prime (μ < ∞ includes this).
+smallest coordinates (`scripts/z54_upper2_modulus.c`, `data/z54/upper2/mu.txt`; cross-checked against the independent
+factorization-based `scripts/z54_upper2_modulus_fac.c` for all p ≤ 10⁶: same records, same max 288, same mean,
+`data/z54/upper2/mu_crosscheck_1e6.txt`):
+* all p ≤ 10⁸: max μ = 2320 (p = 58 649 809), at successive μ-records μ/(log p)² is
+not monotone (it first falls from 0.77 to 0.25 and later climbs to 7.25 at the last record); mean log μ/log p = 0.088;
+* samples of 10⁵ consecutive primes p ≡ 1 (4) from 10¹⁰, 10¹², 10¹⁴, 10¹⁶, 10¹⁸: max μ = 693, 1302, 1524, 576, 635; μ(p) < ∞
+  for every sampled prime, i.e. HC(p) ≤ (log p)³ held for all 5·10⁵ sampled primes (EVIDENCE beyond 10⁹).
 So in the observed range every prime has a "small" congruence certificate. Heuristically (each pair (a, b) removes one
 class of density ≍ 1/(ab), so certificates with ab ≤ Y leave density ≈ exp(−c(log Y)²)), the worst-case μ(p) should
 eventually exceed every power of log p, i.e. for the worst primes the certificate of (★) will have its x small but its
@@ -289,7 +299,7 @@ other two coordinates large — the "middle factorization" regime of 6.1–6.3. 
 | milestone | status |
 |---|---|
 | HC(p) ≤ (log p)³ for all large p | open; equivalent to (★); implies Erdős–Straus for all but finitely many primes |
-| HC(p) ≤ p^θ (θ < 1) for all large p | open; equally implies ES for all large primes (any finite bound does) |
+| HC(p) ≤ p^θ (0 < θ < 1) for all large p | open; would also imply ES for all large primes (any finite bound does) |
 | HC(p) ≤ 8 on explicit classes | PROVED (Prop 3.1): all p ≡ 1 (4) outside 6 classes mod 840 |
 | HC(p) bounded off a set of size N/(log N)^K | PROVED (Thm 4.3), any K, X₀ = 4⌈e^{2K+2}⌉ |
 | HC(p) ≤ (log p)³ off a set of size N e^{−0.8(log log N)²} + √N | PROVED (Cor 4.5) |
