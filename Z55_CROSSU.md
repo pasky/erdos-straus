@@ -27,8 +27,10 @@ Standing range assumption (GX §4): Y ≥ U₁ and 8U₁X ≤ p, so d > 4U₁ �
 
 **Statement attacked (CONJECTURE; not claimed).**
   (CU)  R_𝔉(p) − G_𝔉(p) = o(log² p) as p → ∞ through primes p ≡ 1 (24), on a window family with M_𝔉 ≫ log² p.
-*CONDITIONAL implication:* (CU) together with GX Thm U (M_𝔉 ≫ log² p, PROVED) and (X-w) (G_𝔉 − M_𝔉 = o(log² p), open)
-gives R_𝔉 > 0, i.e. (★), for all large p. The kickoff asks for ANY mechanism producing cancellation of R − G *summed
+*CONDITIONAL implication:* (CU) together with Theorem U of `Z53_GENUSLVAL.md` (M_𝔉 ≥ (c − o(1)) log² p with c > 0 on
+its admissible windows, PROVED; GX cites it) and (X-w) (G_𝔉 − M_𝔉 = o(log² p), open), all three on one common
+admissible window, gives R_𝔉 = M + (G − M) + (R − G) > 0, i.e. (★), for all large p. The numerical window of §5 is
+not asserted to satisfy Theorem U's hypotheses. The kickoff asks for ANY mechanism producing cancellation of R − G *summed
 over u at fixed p*, tested first numerically at 10⁹–10¹². Weaker sub-targets considered: (CU′) R_𝔉 ≥ εG_𝔉 for all large
 p; (CU″) the same for a twisted or signed variant that still implies (★).
 
@@ -106,11 +108,15 @@ u = 5 has q_u = 2), then f ≥ 2/3 at hits and f ≥ −1/3 at genus non-hits, s
 f∘σ = −f at a hit, and (ii) cancelling the weight of one hit pointwise needs at least 2 genus non-hits, and at least
 q·(1 − 1/q_u) of them if their moduli all have q_{u′} ≥ q. At q_u = 2 (u = 5, windows with U₀ < 5) a hit and a genus
 non-hit have opposite weights ±1/2 and a sign-reversing bijection can exist (reviewer's example p = 1 007 633 689,
-U₁ = 5). *Scope.* This excludes hit-to-single-non-hit pairing (when q_u ≥ 3) and gives the stated lower bound on the
-size of a cancelling group; it does not obstruct bounded-size groups (at q = 3, 2/3 − 1/3 − 1/3 = 0), and a uniform
-obstruction to bounded groups would need q_min → ∞, which fails in every window (u = 21 has q = 3). It says nothing
-about transformations exposing approximate or grouped cancellation, or positivity inequalities. In particular it does
-**not** close "pairing/switching/descent" as a class; it quantifies what such a map would have to do.
+U₁ = 5). *Growth of q_u (PROVED, elementary; cross-model review fix 1).* For squarefree odd u,
+q_u/√u = ∏_{ℓ|u} (ℓ − 1)/(2√ℓ) ≥ (1/√3)(2/√5) = 2/√15, since every factor with ℓ ≥ 7 exceeds 1 and 3, 5 occur at most
+once. Hence on a window with U₀ → ∞ (e.g. the standard U₀ ≈ p^{1/12}), q_min := min_{u ∈ 𝒰} q_u ≥ (2/√15)√U₀ → ∞.
+Consequently, for any fixed K, once q_min > K + 1 a hit (weight ≥ 1 − 1/q_min) cannot be cancelled exactly by K genus
+non-hits (total magnitude ≤ K/q_min): bounded-size exact zero-sum groups containing a hit are excluded on moving
+windows for all large p. Only a *fixed* lower cutoff that admits u = 21 (q = 3) need not have growing q_min. *Scope.*
+This is a pointwise, exact-cancellation obstruction for bounded groups; it says nothing about large groups,
+approximate or grouped cancellation, or positivity inequalities. In particular it does **not** close
+"pairing/switching/descent" as a class; it quantifies what such a map would have to do.
 
 **4.2 Switching w ↔ d (PROVED identity; Assessment on use).** Where d is odd squarefree in (Y, X] with gcd(d, up) = 1,
 (u, d) ∈ 𝔖 with level w; it lies in 𝔖₃ iff w ≡ 3 (4). On that domain the switch is a partial involution of 𝔖 with
@@ -205,8 +211,9 @@ classes and the six random-prime samples, read off `stats.txt`):
   lie in [−1.78, +2.35]. Under the independent-fibre model the 18 classes are not independent of each other (they
   share the same shell), but three |z| ≈ 2 among 18 is unremarkable.
 * Cross-class correlations: the largest |ρ| among the 153 pairs of classes is 0.24, 0.22, 0.21, 0.27, 0.24, 0.24 at
-  10⁹,…,10¹⁴ (n = 200, 200, 150, 150, 150, 150), against ≈ 0.24–0.28 expected for the maximum of 153 independent
-  sample correlations (√(2 ln 306)/√n). No pair involving c = 1 exceeds 0.26.
+  10⁹,…,10¹⁴ (n = 200, 200, 150, 150, 150, 150), against ≈ 0.24–0.28 for the maximum of 153 independent sample
+  correlations (√(2 ln 306)/√n) — a heuristic benchmark scale, not a calibrated null test (the classes share the
+  shell). No pair involving c = 1 exceeds 0.26.
 * Index marginal: the pooled j/u histogram (10 bins, all 𝔖₃ points) has maximum deviation from 0.1 of 0.0018, 0.0035,
   0.0014, 0.0009, 0.0008, 0.0005 at 10⁹,…,10¹⁴ (N up to 1.6·10⁶). Restricted to genus points the histogram is not
   flat (e.g. bins 0.108, 0.103, 0.102, 0.093, 0.097, 0.097, 0.094, 0.106, 0.100, 0.102 at 10¹²): the perfect squares
@@ -214,7 +221,8 @@ classes and the six random-prime samples, read off `stats.txt`):
   composite u ≡ 1 (4), which was not analysed. These are binned marginals only; they do not test uniformity on every
   unit class at each u.
 * Controls. Odd squares n = m²: N_c = G_c = V_c = 0 on every square for exactly the seven classes
-  c ∈ {1, 4, 9, 16, 25, −1, −4}, i.e. those with Jacobi symbol (c/u) = +1 for every u ≡ 1 (4). This is forced (PROVED,
+  c ∈ {1, 4, 9, 16, 25, −1, −4}, i.e. those with Jacobi symbol (c/u) = +1 for every u ≡ 1 (4) coprime to c (e.g.
+  (9/21) = 0, and such summands are zero by the Lemma C convention). This is forced (PROVED,
   elementary): the identity of §4.10 holds for every odd n ≡ 1 (4) coprime to d, (d/n) = −(j/u), and at n = m² the left
   side is +1, so (j/u) = −1 on all of 𝔖₃ — in particular the genus is empty (GX Lemma 3.3) and no class with (c/u) = +1
   is populated. The remaining eleven classes fluctuate with sd-ratio
@@ -244,7 +252,8 @@ resamples) of the hit-minus-null difference.
   u | u′          :  hits  2.0 %  null  1.4 %  diff +0.6 %  [−0.3, +1.8]
 (mean u: hits 1 206, null 1 402). All four differences are positive but each 95 % interval contains 0; the closeness
 statistic is at the edge. EVIDENCE: no structure established; a weak excess of close-u hit pairs is not excluded by
-this sample. Data: `data/z55/crossu/pairs_1e12_1e13.txt`.
+this sample. Neither F1 nor F2 establishes or refutes (CU): they are finite descriptive experiments against heuristic
+benchmarks. Data: `data/z55/crossu/pairs_1e12_1e13.txt`.
 
 ## 6. Screens, verdict, FRONTIER text, bottom line
 
@@ -262,7 +271,8 @@ this sample. Data: `data/z55/crossu/pairs_1e12_1e13.txt`.
 **Verdict: inconclusive on the target; narrowed only by elementary reformulations.**
 * *PROVED, structural.* Lemma A (three forms of the class index), Lemma B (length-3 ceiling expansion), Lemma C
   (twisted layers = ES-type representation counts for 1/(cp); G = their square-twisted average); §4.1 weight bound
-  (no pointwise sign-reversing bijection when q_u ≥ 3); §4.2 switching index j ↦ 2p̄/j; §4.3 no coordinate-fibre
+  (no pointwise sign-reversing bijection when q_u ≥ 3; no exact cancellation of a hit by a bounded number of genus
+  non-hits on moving windows, as q_u ≥ (2/√15)√U₀); §4.2 switching index j ↦ 2p̄/j; §4.3 no coordinate-fibre
   Vieta involution; §4.10 (d/p) = −(j/u). These are reformulations and small scoped facts, not closures of mechanism
   classes.
 * *EVIDENCE.* At 10⁹–10¹⁴ the hit class is not distinguished from 17 other classes of the index by means, variances or
@@ -285,7 +295,9 @@ this sample. Data: `data/z55/crossu/pairs_1e12_1e13.txt`.
 > * *Elementary facts (PROVED, scoped).* For windows with q_u = |□_u| ≥ 3 no bijection of the shell reverses the
 >   weight of a hit pointwise (a hit must be balanced by ≥ 2 genus non-hits); divisor switching acts on the index by
 >   j ↦ 2p̄/j (it can reverse a hit's sign; no cancellation follows); the ES surface xyz = x + y + p is multilinear,
->   so no one-coordinate Vieta involution exists.
+>   so no one-coordinate Vieta involution exists. On moving windows q_u ≥ (2/√15)√U₀ → ∞, so for every fixed K a
+>   hit cannot be cancelled exactly by K genus non-hits for large p (bounded exact groups excluded; large groups,
+>   approximate cancellation and positivity maps are not).
 > * *Assessment.* Kloosterman equidistribution mod p places the hit at d̄/p = 1/u + 2w/(up), one value per sparse-shell
 >   point, below Weil resolution; incidence, determinant, entropy and Heilbronn-type statistics are polynomial-size
 >   or averaged tools. No positivity transfer from genus points to hits was found.
@@ -298,7 +310,8 @@ this sample. Data: `data/z55/crossu/pairs_1e12_1e13.txt`.
 hyperbola mod p, SL₂ words and continued fractions, Dedekind sums, the c-twisted ES equations — exhibits the same
 integer, the class index j ∈ [1, u), and the exact layer is Σ f_u(j) over the shell with f_u supported on {1} ∪ □_u.
 A hit carries weight 1 − 1/q_u and a genus non-hit −1/q_{u′}, so pointwise cancellation needs at least two (and at
-least q(1 − 1/q_u) if all moduli have q_{u′} ≥ q) genus non-hits per hit, and no pairing found here does it; the standard fixed-p equidistribution tool resolves d̄ mod p at scale p^{1/2}, not 1.
+least q(1 − 1/q_u) if all moduli have q_{u′} ≥ q) genus non-hits per hit — on moving windows more than any fixed
+number, since q_u ≥ (2/√15)√U₀ — and no pairing found here does it; the standard fixed-p equidistribution tool resolves d̄ mod p at scale p^{1/2}, not 1.
 Numerically the hit class is not special among the classes of the index. The lane found no cross-u mechanism; it
 leaves the precise target in index form. **ES remains OPEN.**
 
@@ -323,7 +336,18 @@ separated, §1 implication marked CONDITIONAL, (CU) labelled CONJECTURE, review 
 **Second hostile pass** (`data/z55/crossu/review_hostile_pass2.md`; verdict "accept with fixes"; all 13 original
 findings given explicit dispositions, the q_u ≥ 3 arithmetic, the Jacobi identity (d/p) = −(j/u), the corrected
 threshold, the engine checks and all quoted statistics independently re-verified). Six residual items applied:
-R1 §4.1 scope sentence (bounded groups not obstructed; q_min → ∞ fails) and bottom line; R2 §4.2 setwise-vs-multiset
+R1 §4.1 scope sentence and bottom line (the pass-2 wording "q_min → ∞ fails in every window" was itself wrong and
+is corrected by the cross-model review, see below); R2 §4.2 setwise-vs-multiset
 wording; R3 the seven vanishing classes at squares (now explained as a PROVED consequence of (d/n) = −(j/u)), control
 spreads stated separately, "share" not "partition"; R4 §3 heading; R5 §4.11 distinction between full-(★) positivity and
 R_𝔉 ≥ εG_𝔉; R6 reproduction recipe for the pair run.
+
+**Cross-model review** (`data/z55/xreview/REVIEW_CROSSU.md`, audit script `scripts/z55_xrev_crossu_check.py`; verdict
+ACCEPT-WITH-FIXES; every PROVED claim independently re-derived, all 1 339 rows replayed field-for-field, seven
+independent shell enumerations, pair run reproduced byte-for-byte). Fixes applied: (1) §4.1 — the pass-2 sentence
+"q_min → ∞ fails in every window" was wrong: q_u ≥ (2/√15)√u for squarefree odd u, so on moving windows q_min → ∞ and
+bounded-size exact cancelling groups containing a hit are excluded for large p (also in §6, the FRONTIER text and the
+bottom line); (2) Theorem U's source corrected to `Z53_GENUSLVAL.md` with the common-window hypothesis made explicit
+in §1, and the coprime-u quantifier added to the square-vanishing classes; (3) caveats kept explicit: the maximum-
+correlation scale is a heuristic benchmark, the pair null is descriptive, and neither experiment establishes or refutes
+(CU). No cross-u cancellation theorem or mechanism-class closure is banked.
