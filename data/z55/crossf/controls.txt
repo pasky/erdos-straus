@@ -1,0 +1,14 @@
+# hits(N) on the standard window at odd squares N = m^2 (Jacobi obstruction, Z55_CROSSF Lemma 1.2) and composite non-squares N = 1 (4); shell = #(u,w) with w | N+u in window
+square 100020001 0 86
+square 100060009 0 105
+square 100140049 0 85
+square 100180081 0 91
+square 100260169 0 87
+square 1000014129 0 139
+square 1000267129 0 202
+composite 100000001 0 73
+composite 100000005 1 37
+composite 100000009 0 73
+composite 100000013 1 83
+composite 100000017 0 47
+composite 100000021 0 38
