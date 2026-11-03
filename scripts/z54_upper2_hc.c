@@ -32,13 +32,13 @@ static int hasdiv(u64 n,u64 x){ factor(n); u64 divs[1<<14]; int nd=1; divs[0]=1;
   for(int j=0;j<nd;j++) if(divs[j]%x==x-1) return 1; return 0;}
 int main(int argc,char**argv){ u64 N=strtoull(argv[1],0,10);
   char*s=calloc(N+1,1); for(u64 i=2;i*i<=N;i++) if(!s[i]) for(u64 j=i*i;j<=N;j+=i) s[j]=1;
-  long hist[4096]={0}; long cntU=0,cntT=0,cntBoth=0; u64 maxhc=0,argmax=0; double maxratio=0; u64 argratio=0; long nprimes=0; long viol=0;
+  long hist[4096]={0}; long cntU=0,cntT=0,cntBoth=0; u64 maxhc=0,argmax=0; double maxratio=0; u64 argratio=0; long nprimes=0; long viol=0; long nohc=0; /* NOHC counts as a violation and forces exit 2 */
   for(u64 p=5;p<=N;p+=4){ if(s[p]) continue; nprimes++;
     u64 hc=0; int how=0;
     for(u64 x=1;x<4096;x++){ if(!(x%4==0 || (x+p)%8==0)) continue;
       int U=hasdiv(p+x,x), T=hasdiv(x*p+1,x);
       if(U||T){hc=x;how=(U?1:0)|(T?2:0);break;} }
-    if(!hc){printf("NOHC p=%llu\n",p);continue;}
+    if(!hc){printf("NOHC p=%llu\n",p);viol++;nohc++;continue;}
     hist[hc]++; if(how==1)cntU++; else if(how==2)cntT++; else cntBoth++;
     if(p%8==5 && hc!=3) printf("ANOMALY p=%llu hc=%llu\n",p,hc);
     if(hc>maxhc){maxhc=hc;argmax=p;printf("record HC=%llu at p=%llu (how=%d)\n",hc,p,how);fflush(stdout);}
@@ -48,4 +48,5 @@ int main(int argc,char**argv){ u64 N=strtoull(argv[1],0,10);
   printf("N=%llu primes(1mod4)=%ld maxHC=%llu at p=%llu ; max HC/(log p)^3=%.4f at p=%llu ; #violations HC>(log p)^3: %ld\n",N,nprimes,maxhc,argmax,maxratio,argratio,viol);
   printf("fired: U only %ld, T only %ld, both %ld\n",cntU,cntT,cntBoth);
   for(int i=0;i<4096;i++) if(hist[i]) printf("HC=%d count=%ld\n",i,hist[i]);
+  if(nohc){fprintf(stderr,"FAIL: %ld primes with no C-coordinate below 4096\n",nohc);return 2;}
   return 0;}

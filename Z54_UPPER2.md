@@ -15,7 +15,8 @@ computation, script + data named), EVIDENCE (numerics/heuristics, not proofs).
 
 ## 0. Verdict
 
-1. **The target is not proved, and cannot be expected to be proved by the methods available here.** By the repo's
+1. **The target is not proved; no uniform pointwise argument is supplied** (*Assessment:* it does not look reachable by
+   the methods used here; this is a judgment, not a theorem — the target remains open, not refuted). By the repo's
    Theorem 1 the target implies the Erdős–Straus conjecture for all but finitely many primes p ≡ 1 (mod 4) (hence, with
    the trivial p ≡ 3 (4) and p = 2 cases, for all but finitely many primes) — an open problem since 1948. The same is true
    for *every* weaker uniform bound "HC(p) ≤ F(p) for all large p" (F = p^θ with 0 < θ < 1 included): any finite
@@ -42,6 +43,28 @@ computation, script + data named), EVIDENCE (numerics/heuristics, not proofs).
    many primes every certificate of which uses a level with a prime factor > c·log p.
 5. **CERTIFIED (§5):** HC(p) ≤ 64 and HC(p) ≤ (log p)³ for all primes 5 ≤ p ≤ 10⁹, p ≡ 1 (4) (25 423 491 primes; max HC = 64 at
    p = 21 841 only; max HC/(log p)³ = 0.72 at p = 5). So the target statement holds for every p ≤ 10⁹.
+
+### 0.1 Relation to prior repo results (added after cross-model review; attribution per `REVIEW_UPPER2.md`)
+
+This memo was written from first principles without reading the Z53 memos; the cross-model review compared it with the
+repo. Much of it is an **independent reproof of existing results**, sometimes in weaker form:
+* Lemma R (1.2), the coordinate bound, HC = 3 / HC ≥ 4 and the precise missing pointwise statement (★) are already in
+  `Z53_UPPER.md` §§1–2, 5; the coordinate reformulation and HC criterion originate in `LOWERTAIL_ROUND2_FABLE.md` §§1.2, 3.1.
+* Lemma J for primes, the fixed-level non-covering (Prop 6.3(a)) and a Linnik-type obstruction with a stronger constant
+  (Prop 6.3(b)) are already `Z53_UPPER.md` Lemma 3.1, Cor 3.2, Prop 3.3; earlier covering versions are in
+  `FOREST_DEEP_FABLE.md` §§3.1–3.2. The general-n Jacobi proof here is packaging, not a new prime obstruction.
+* **Prop 6.2 (odd squares have no certificate) is not new:** the identical statement is `LOWERTAIL_ROUND2_FABLE.md` §1.3,
+  with a larger census.
+* The sieve theorems are **weaker** than existing ones: `Z53_UPPER.md` Thm 4.2 gives the fixed-window prime bound
+  N/(log N)^{1+2Σ 1/φ(4k)} (stronger than Thm 4.3 here at the same window), and its Thm 4.3 gives the polylog-window
+  exponent (1−ε)A (with A = 2, ε = 1/4 and the √N split, exponent 1.5 for the (log p)³ target, vs 0.8 here). The
+  integer-survivor formulation here is a scope change, not a new sieve mechanism, and using U-tests only loses strength.
+* Mordell's six classes mod 840 are classical and already in the repo; the ≤ 10⁸ census is `LOWERTAIL_ROUND2_FABLE.md`
+  §3.2 and `Z53_UPPER.md` §6.
+
+Creditable additions: the census extension to 10⁹ (§5), the μ statistic and its data (§6.4), the explicit covering
+tabulations mod 9240 / 120120 (§3), and a self-contained reproof. This memo is **not** a new exceptional-set milestone
+and **not** a kill of the HC target.
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -237,12 +260,14 @@ By Lemma 1.2 the target is **equivalent** to:
 d ≡ −1 (mod x) of p + x or of xp + 1.
 
 (p ≡ 5 (8) is settled by Prop 3.1(a).) This is the statement I would need. It is a *pointwise* statement about the
-multiplicative structure of the ≍ (log p)³ integers p + x, xp + 1 attached to one prime p. Unconditionally, for an
-individual prime one cannot even guarantee that a single shifted number p + x has a prime factor in a prescribed
-residue class (e.g. "p + 4 or 4p + 1 has a prime factor ≡ 3 (4)", which is (★) for x = 4, is expected to fail for
-≍ N/(log N)² primes p ≤ N). (★) needs the *disjunction* over many x; proving that a disjunction of such events holds for
-*every* prime is a sifted-set-is-empty statement, and §4 shows exactly how far sieve upper bounds go (the sifted set is
-small, Thm 4.4, but never shown empty). Two proved obstructions, limiting what congruence coverings and integer sieves
+multiplicative structure of the ≍ (log p)³ integers p + x, xp + 1 attached to one prime p. *Assessment (not a
+theorem):* no known unconditional result guarantees, for every individual prime, that a single shifted number p + x has
+a prime factor in a prescribed residue class (e.g. "p + 4 or 4p + 1 has a prime factor ≡ 3 (4)", which is (★) for x = 4,
+is heuristically expected to fail for ≍ N/(log N)² primes p ≤ N). (★) needs the *disjunction* over many x, i.e. that the
+**prime** exception tail of §4 is eventually empty. §4 shows how far *this particular* large-sieve argument goes (the
+sifted set is small, Thm 4.4); for the **integer** survivor set 𝒮_N(D) emptiness is impossible (Prop 6.2), but eventual
+emptiness of the prime tail is not excluded by anything proved here — no uniform pointwise argument is supplied, and
+growing-level congruence arguments or prime-sensitive sieves are not ruled out. Two proved obstructions, limiting what congruence coverings and integer sieves
 can give:
 
 ### 6.2 Squares have no certificate at all (Proposition 6.2, PROVED)
@@ -301,15 +326,29 @@ other two coordinates large — the "middle factorization" regime of 6.1–6.3. 
 | HC(p) ≤ (log p)³ for all large p | open; equivalent to (★); implies Erdős–Straus for all but finitely many primes |
 | HC(p) ≤ p^θ (0 < θ < 1) for all large p | open; would also imply ES for all large primes (any finite bound does) |
 | HC(p) ≤ 8 on explicit classes | PROVED (Prop 3.1): all p ≡ 1 (4) outside 6 classes mod 840 |
-| HC(p) bounded off a set of size N/(log N)^K | PROVED (Thm 4.3), any K, X₀ = 4⌈e^{2K+2}⌉ |
-| HC(p) ≤ (log p)³ off a set of size N e^{−0.8(log log N)²} + √N | PROVED (Cor 4.5) |
+| HC(p) bounded off a set of size N/(log N)^K | PROVED (Thm 4.3), any K, X₀ = 4⌈e^{2K+2}⌉; reproof, weaker than `Z53_UPPER.md` Thm 4.2 |
+| HC(p) ≤ (log p)³ off a set of size N e^{−0.8(log log N)²} + √N | PROVED (Cor 4.5); reproof, weaker than `Z53_UPPER.md` Thm 4.3 (exponent 1.5) |
 | all p ≤ 10⁹ | CERTIFIED (§5) |
 
 ## 7. Reproduction
 
 All with `ulimit -v 6000000` and `timeout`.
 * `gcc -O2 -o z54hc scripts/z54_upper2_hc.c -lm; ./z54hc 1000000000` → `data/z54/upper2/hc_1e9.txt` (~2 min; `hc_1e8.txt` 11 s).
+  A prime with no 𝒞-coordinate below 4096 is printed as `NOHC`, counted as a violation, and makes the program exit 2
+  (hardening after review; output byte-identical on the archived 10⁸ run).
 * `uv run --with sympy python scripts/z54_upper2_lemmas.py 4000` → `lemmas_4000.txt` (L1–L6, ~40 s).
 * `uv run --with sympy python scripts/z54_upper2_cover.py m X` for (m, X) ∈ {105, 1155, 15015} × {64, large} → `cover.txt`;
   per-class rules mod 840 in `rules_840.txt`.
 * `gcc -O2 -o z54mu scripts/z54_upper2_modulus.c -lm; ./z54mu all 100000000; ./z54mu sample 10^k 100000` → `mu.txt`.
+
+## 8. Review log
+
+* **Internal line-by-line review** (deep-mode subagent): proofs sound; fixes applied (p ≡ 1 (8) hypothesis of Lemma J in
+  §0, scope of the obstructions, n-range of L1, z ≥ 2 in Lemma 4.2, z ≤ x² case in 4.4(i), μ-record wording, 0 < θ < 1).
+* **Cross-model review** (`data/z54/xreview/REVIEW_UPPER2.md`, verdict ACCEPT-WITH-FIXES): all numbered PROVED results
+  confirmed correct; the 10⁹ census, lemma checks, covering counts and μ data reproduced byte-identically. Required fixes
+  applied: (1) prior-results comparison §0.1 (most results are reproofs of `Z53_UPPER.md` / `LOWERTAIL_ROUND2_FABLE.md` /
+  `FOREST_DEEP_FABLE.md`; Prop 6.2 not new; sieve theorems weaker than Z53's); (2) §0 item 1 and §6.1 methodological
+  judgments relabelled as Assessment, with the integer survivor set (never empty) distinguished from the prime
+  exception tail (eventual emptiness not excluded); fixed-level tests only are excluded; (3) `z54_upper2_hc.c` now counts
+  `NOHC` as a violation and exits nonzero.
