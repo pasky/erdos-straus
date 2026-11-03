@@ -270,29 +270,34 @@ the character sum over conductors dividing g but not 8P(z) is φ(g)1[a ≡ a′ 
 z = (log x)² and every p ≡ 1 (4): M_z(p) ≥ c₁(αᵢ, β, γ)·log²x/(log z)² for x ≥ x₀.
 *Proof.* Choose e₂ as in Lemma 4.2, so that u ≡ 1 (8), w ≡ e₂ (4) force p ≡ a (8). The fundamental lemma (e.g.
 Iwaniec–Kowalski Cor. 6.10/Lemma 6.3; here z = (log x)² = t^{o(1)} for t ≥ x^{α₀}) gives
-#{n ≤ t : n ≡ e (8), P⁻(n) ≥ z} = (1 + o(1))(t/4)∏_{3≤ℓ<z}(1 − 1/ℓ) ≫ t/log z uniformly for t ≥ x^{α₀}, and
-similarly mod 4. Non-squarefree z-rough n ≤ t number ≤ Σ_{ℓ≥z} t/ℓ² ≪ t/z = o(t/log z). Partial summation:
+#{n ≤ t : n ≡ e (8), P⁻(n) ≥ z} = (1 + o(1))(t/8)∏_{3≤ℓ<z}(1 − 1/ℓ) ≫ t/log z uniformly for t ≥ x^{α₀}
+(sieve level D = t^{1/2}, log D/log z → ∞ uniformly), and with t/4 for a unit class mod 4. Non-squarefree z-rough n ≤ t number ≤ Σ_{ℓ≥z} t/ℓ² ≪ t/z = o(t/log z). Partial summation:
 Σ_{u} 1/u ≫ (α₁ − α₀)log x/log z over z-rough squarefree u ≡ 1 (8) in (U₀, U₁], and Σ_w 1/w ≫ (γ − β)log x/log z over
 z-rough squarefree w ≡ e₂ (4) in (Y, X]. Pairs with gcd(u, w) > 1 share a prime ≥ z and have total weight
 ≤ Σ_{ℓ≥z}(Σ_{ℓ|u}1/u)(Σ_{ℓ|w}1/w) ≪ log²x/z. So M_z(p) ≥ 2Σ 1/(uw) ≫ log²x/(log z)². ∎
 
 **Hypothesis HW.** For z = (log x)²: W_z(x) = o(log³x/(log log x)⁴).
 
-**Theorem A′ (CONDITIONAL on HW).** For windows with θ < 1/2, all but o(π(x)) primes p ≡ 1 (4) up to x satisfy
-R_𝔉(p) ≥ ½·M_z(p) ≫ log²p/(log log p)². *Proof.* Chebyshev with Lemma 4.3(b) and Lemma 4.4:
-#{p ∈ (x/2, x] : R_x(p) < ½M_z(p)} ≤ 4xW_z/(c₁²log⁴x/(log z)⁴) = o(x/log x). ∎
+**Theorem A′ (CONDITIONAL on HW).** For windows with θ < 1/2: for each dyadic x, all but o(x/log x) primes
+p ∈ (x/2, x], p ≡ 1 (4), satisfy R_𝔉(p) ≥ R_x(p) ≥ ½·M_{z,x}(p) (M_{z,x} := M_z built from 𝔉_x); hence all but o(π(x))
+primes p ≡ 1 (4) up to x have R_𝔉(p) ≫ log²p/(log log p)². *Proof.* Chebyshev with Lemma 4.3(b) (valid for p > Q, i.e.
+all p ∈ (x/2, x] for x ≥ x₀) and Lemma 4.4: #{p ∈ (x/2, x] : R_x(p) < ½M_{z,x}(p)} ≤ 4xW_z·(log z)⁴/(c₁²log⁴x) = o(x/log x)
+(log z = 2 log log x); sum over dyadic x. ∎
 
 *Why HW is easier than HV (Assessment).* W_z is a sum of non-negative terms — the Haar probability that two hits share a
 prime ≥ z — so only an **upper bound** is needed, no cancellation. Its pieces: the diagonal (≤ Σ 1/φ(uw) ≪ log²x);
 the pairs where (u′, w′) shares u (they need w′ ≡ w (mod 4u), a power saving 1/u ≤ x^{−α₀}); the "independent-like" part
-≪ log⁴x·Σ_{ℓ≥z}ℓ⁻² ≪ log²x/log log x; and near-diagonal configurations, which the joint dyadic count
-#{(v, k) ∈ [V, 2V] × [K, 2K] : k ≡ λv (mod m)} ≤ VK/m + min(V, K) handles (giving the ≪ log²x bound of §4.3(ii) in the
-no-cross-share case). If moreover β > 3α₁ (admissible, e.g. (α₀, α₁, β, γ) = (0.07, 0.08, 0.28, 0.41) with r = 1000,
-ε = 10⁻⁶: (C2) needs β > 0.2714, (C3) α₀ > 0.0682), then every w-side cofactor range has length ≥ Y/U₁² ≫ U₁ ≥ every
-u-side modulus, and a w-side share g₂₂ > U₁ forces u = u′ (compatibility u ≡ u′ (mod g₂₂)), which collapses the 4-cycle of
-congruences k₁ ≡ λv (g₂₂), k₁ ≡ λt (g₂₁), k₂ ≡ λt (g₁₁), k₂ ≡ λv (g₁₂) into cases each bounded by the dyadic count. A
-complete write-up of this case analysis is the one missing piece for an unconditional almost-all theorem; I did not finish
-and review it within the time box, so HW stays a hypothesis here.
+≪ log⁴x·Σ_{ℓ≥z}ℓ⁻² ≪ log²x/log log x; and near-diagonal configurations, for which a joint dyadic count
+#{(v, k) ∈ (V, 2V] × (K, 2K] : k ≡ λv (mod m)} ≪ VK/m + min(V, K) + 1 ((λ, m) = 1) is the natural tool (it gives the
+≪ log²x bound of §4.3(ii) in the no-cross-share case). Proposed route (not established): with u = g₁₁g₁₂k₁,
+u′ = g₁₁g₂₁v, w = g₂₁g₂₂k₂, w′ = g₁₂g₂₂t, compatibility is the 4-cycle k₁ ≡ λ₁v (g₂₂), k₁ ≡ λ₂t (g₂₁),
+k₂ ≡ λ₃t (g₁₁), k₂ ≡ λ₄v (g₁₂) with separate unit multipliers (λ₁ = g₁₂/g₂₁ mod g₂₂, λ₂ = 2g₂₂/g₁₁ mod g₂₁,
+λ₃ = g₁₂/g₂₁ mod g₁₁, λ₄ = g₁₁/(2g₂₂) mod g₁₂). First treat u = u′ (then w′ ≡ w (mod 4u): a factor 1/u ≤ x^{−α₀}).
+For u ≠ u′, g₂₂ | u − u′ forces g₂₂ < U₁, and also g₂₁ ≤ U₁; if β > 3α₁ (admissible, e.g.
+(α₀, α₁, β, γ) = (0.07, 0.08, 0.28, 0.41) with r = 1000, ε = 10⁻⁶: (C2) needs β > 0.271354, (C3) α₀ > 0.06818) the w-side
+cofactors k₂, t then live at scale ≥ Y/U₁² ≫ U₁, above every u-side modulus. Whether every resulting case sums to the
+required bound is not checked; a complete case analysis is the missing piece for an unconditional almost-all theorem,
+so HW stays a hypothesis here.
 
 ## 5. T1 audit and screens
 
@@ -332,3 +337,10 @@ Theorem A restricted to p ≡ 1 (4); (4) Lemma 4.2 decimals made directed inequa
 (reviewer computation; the example thresholds are 0.28003 and 0.071307, still below β = 0.29 and α₀ = 0.075);
 (5) §5 wording on explicit primes. The reviewer also recommends quoting the large sieve in the N − 1 + Q² form (done in
 Lemma 4.1's reference line).
+
+**Second hostile review (§4.5 only, deep-mode subagent).** Lemma 4.3(a),(b) valid (exact bracket factorisation, no
+missing constant); Lemma 4.4 valid after correcting the mod-8 sieve density t/4 → t/8; Theorem A′ deduction correct and
+still CONDITIONAL; example window admissible (C2 RHS 0.271354, C3 RHS 0.06818). Fixed: density constant; the dyadic
+count now carries the +1 term and the coprimality hypothesis; the 4-cycle uses separate multipliers λ₁…λ₄; the
+cofactor-scale claim is stated only after the u = u′ case is removed and phrased as a proposed route; Theorem A′ now
+states the dyadic comparison with M_{z,x}.
