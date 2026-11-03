@@ -27,6 +27,6 @@ def E(c, logx):  # int_{log x}^inf e^{s - c s^2}/(2s) ds
 print('\nPoisson model: hits ~ Poisson(c log^2 p).  E(x) = expected # primes p = 1 (4), p > x, with hits = 0.')
 for c in [1 / (3 * mp.pi ** 4), mp.mpf('0.0030')]:
     tot = E(c, mp.log(10 ** 8)); xs = mp.findroot(lambda L: mp.log(E(c, L)), 1 / c - 8)
-    print('c=%.6f: E(1e8)=%s  E(1e18)=%s  E(1e60)=%s  E(1e100)=%s  peak at log10 p=%.1f  E=1 at log10 p=%.1f' % (
+    print('c=%.6f: E(1e8)=%s  E(1e18)=%s  E(1e60)=%s  E(1e100)=%s  peak of integrand (s=(1+sqrt(1-8c))/(4c)) at log10 p=%.1f  E=1 at log10 p=%.1f' % (
         float(c), mp.nstr(tot, 4), mp.nstr(E(c, mp.log(10 ** 18)), 4), mp.nstr(E(c, mp.log(10 ** 60)), 4),
-        mp.nstr(E(c, mp.log(10 ** 100)), 4), float(1 / (2 * c) / mp.log(10)), float(xs / mp.log(10))))
+        mp.nstr(E(c, mp.log(10 ** 100)), 4), float((1 + mp.sqrt(1 - 8 * c)) / (4 * c) / mp.log(10)), float(xs / mp.log(10))))
