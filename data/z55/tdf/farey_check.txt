@@ -1,0 +1,12 @@
+U=6 h=1: #coeffs=623  G=9.4059  Lemma4 bound=16677.1  ratio=5.64e-04
+Lemma 1 max |T_direct - T_farey| over 4 test n: 1.61e-11
+Theorem LS: sum_(M<n<=M+N)|T_n|^2 = 28352.02  <=  (N+16U^4) G = 223258.66   ratio=1.270e-01
+  (mean |T_n|^2 = 9.451, mean |E1+| = 9.771)
+U=10 h=1: #coeffs=2805  G=15.8419  Lemma4 bound=27958.6  ratio=5.67e-04
+Lemma 1 max |T_direct - T_farey| over 4 test n: 2.08e-10
+Theorem LS: sum_(M<n<=M+N)|T_n|^2 = 30810.43  <=  (N+16U^4) G = 2566391.38   ratio=1.201e-02
+  (mean |T_n|^2 = 15.405, mean |E1+| = 16.029)
+U=10 h=3: #coeffs=2805  G=16.1280  Lemma4 bound=2187958.6  ratio=7.37e-06
+Lemma 1 max |T_direct - T_farey| over 4 test n: 1.72e-10
+Theorem LS: sum_(M<n<=M+N)|T_n|^2 = 32827.86  <=  (N+16U^4) G = 2612738.31   ratio=1.256e-02
+  (mean |T_n|^2 = 16.414, mean |E1+| = 16.029)
