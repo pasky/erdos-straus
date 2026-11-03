@@ -1,0 +1,3 @@
+files=300 hits=769 mean_u(hits)=1205.9 mean_u(null)=1277.1
+HH: pairs=967 gcd(u)>1: 0.1241  gcd(d)>1: 0.2213  |u1-u2|<=U1/20: 0.4043  u|u': 0.01965
+NN: pairs=948 gcd(u)>1: 0.1215  gcd(d)>1: 0.1938  |u1-u2|<=U1/20: 0.3697  u|u': 0.01762
