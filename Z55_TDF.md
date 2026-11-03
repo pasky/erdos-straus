@@ -43,10 +43,10 @@ N₂ ≪ U^{1−η} trivially; DC is open too.
 
 ## 1. What was attacked
 
-1. **Pointwise, via the Farey/Poisson dual** (§2.1 identity, used pointwise). Stops: the dual has ≍ hU² relevant
-   terms per level and is self-dual (§3.1).
+1. **Pointwise, via the Farey/Poisson dual** (§2.1 identity, used pointwise). Stops: the dual has ≍ U⁴ terms whose
+   phases are the distribution of n mod d, d ≍ √n — self-dual (§3.1).
 2. **Pointwise, via exponent pairs after the θ-expansion** (Z54 §4.3 style). Stops: no exponent pair, including the
-   conjectural limit (0, 1/2), reaches p ≥ 16U³ (§3.2, Assessment with a PROVED bookkeeping identity).
+   conjectural limit (0, 1/2), reaches p ≥ 16U³ (§3.2, Assessment with a PROVED elementary inequality).
 3. **Pointwise, via the h-mean square / density of w_k mod 1.** Reduces TD to the weaker density hypothesis DC, which
    also gives N₂ ≪ U^{1−η} directly. Stops: DC is an upper bound for the clustering of √D_k mod 1 at scale U^{−η},
    the same lattice-point problem in thin curvilinear regions (§3.3).
