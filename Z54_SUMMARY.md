@@ -44,13 +44,14 @@ or the twisted Jutila-type equidistribution TS. None is shown to be necessary.
 
 Lanes: EXACTSUM (exponential sums in the free variable w) and EXACTSPIN (spins, Rédei symbols, power residues).
 
-**Scoped no-go (EXACTSUM Theorem N, PROVED).** On a fixed window with α₁ ≤ β, bounding the exponential sums frequency
-by frequency, or conductor by conductor, with n-uniform estimates and the triangle inequality, costs at least
-P^{α₁−o(1)}. Prime-sensitive, one-sided and grouped-block methods are not excluded.
+**Scoped no-go (EXACTSUM Theorem N, PROVED).** Fix U_i = P^{α_i}, Y = P^β, X = P^γ with 0 < α₀ < α₁ ≤ β < γ,
+8U₁X ≤ P, U₁ > 3U₀ and X ≥ 12Y. For sufficiently large P, bounds on |D_f(n)| or |W(a,q)(n)| uniform over n ≡ 1 (24)
+in [P, 2P], summed by the triangle inequality, cost at least P^{α₁−o(1)}. Prime-sensitive, one-sided and grouped-block
+methods are not excluded.
 
 **Small positive results (EXACTSUM).**
-* Lemma 4.1 / Cor 4.2 (PROVED relative to an exponent pair with κ > 0) control the plain exact shell in progressions,
-  with a power saving uniform in the modulus.
+* Lemma 4.1 / Cor 4.2 (PROVED relative to an exponent pair with κ > 0) give modulus-uniform error bounds for the plain
+  exact shell under Lemma 4.1's hypotheses; power savings are certified only in the low-conductor ranges of §4.
 * There are windows where Thm U, Thm X (with (C4) relaxed to (C4′)) and this control coexist; they exist already with
   a classical van der Corput pair (Prop 4.3). For every tabulated non-conjectural pair they lie in the extreme corner
   C ≤ p^{0.025}.
@@ -61,7 +62,7 @@ moduli 4u. That is B2 in tied form. In the data (EVIDENCE, non-reconciled window
 comparable to u.
 
 **Spin route (EXACTSPIN, PROVED identities).**
-* At prime u = ℓ, the order-k part of the class of the level divisor is the Ramanujan sum c_k of a power-residue
+* For fixed k ≥ 3 and prime u = ℓ with k | ℓ − 1, the order-k part of the class of the level divisor is the Ramanujan sum c_k of a power-residue
   symbol. Its p-factor is a Frobenius in ℚ(ζ_k, p^{1/k}), a field that depends only on p.
 * For k = 3 and k = 4 the symbol is written out explicitly: for k = 3 as an anticyclotomic character of the angle of the
   prime above u (with a ramified factor at 3); for k = 4 with anticyclotomic angle factors plus quadratic "Rédei-type"
@@ -69,10 +70,12 @@ comparable to u.
 * R − G splits as S₂ + S_o; both parts vanish at odd squares (via the empty genus), but the individual order-k layers
   Δ_k with 4 ∤ k need not.
 
-No bounded-degree identification of the full layer was found, and no bound on T_uw follows. The direct
-complete-fibre averaging is excluded by the fibre sizes (Lemma 4.5).
+No bounded-degree identification of the full layer was found, and no bound on T_uw follows. Assessment:
+the fibre sizes exclude only direct complete-fibre averaging in the original coordinates (Lemma 4.5); transformed sums
+and other Type I decompositions are not excluded.
 
-**Status.** Narrowed. The remaining object is cross-u cancellation of tied events, i.e. B2.
+**Status.** Narrowed. Assessment: cross-u cancellation of tied events remains a route, described as B2 in tied form; no
+equivalence with B2 is proved.
 
 ## 3. Gap 3 — growing-window HC (target A > 2 log 2)
 
@@ -86,7 +89,7 @@ often", is equivalent to P(4,15): infinitely many such p with p + 4 and 4p + 1 b
 **Theorem Q (PROVED, an explicit near-square kill family).** Every prime p = 5m² + 1 with 4 | m has HC(p) ≥ 7.
 * The family is infinite under Bunyakovsky for the single polynomial 720k² + 1.
 * CERTIFIED for all 5,719 such primes ≤ 10¹².
-* I re-checked 628 of them independently (`scripts/z54_summary_thmQ_check.py`, `data/z54/summary/thmQ_check.txt`; one engine, EVIDENCE). Controls: about 7.5 % of random primes p ≡ 1 (8) near 10⁹ have HC > 4.
+* I re-checked 628 of them independently (`scripts/z54_summary_thmQ_check.py`, `data/z54/summary/thmQ_check.txt`; one engine, EVIDENCE). Controls: 181/2410 (about 7.5 %) of all primes p ≡ 1 (8) in [10⁹, 10⁹ + 200000) have HC > 4.
 
 **Conditional kill (Theorem E, CONDITIONAL on EH(1 − η₀) for some absolute, uncomputed η₀ > 0; implied by the standard
 Elliott–Halberstam conjecture).**
@@ -95,19 +98,22 @@ Elliott–Halberstam conjecture).**
 * Within this sieve implementation (Assessment), closing the gap needs either level θ₀ or prime detection in a
   switched sequence; unconditional K(4) is open.
 * The direct confinement-sieve implementation gives no K(7) lower bound even at level 1 (Assessment, scoped).
-* A two-variable quadratic confines at most one window integer on a full-rank coset (Prop F6). One-variable quadratic
-  families can confine both line-4 integers (Theorem Q), but no single one certifies a growing window (Prop F5), and for
+* A two-variable quadratic with nondegenerate quadratic part confines at most one window integer on a full-rank lattice
+  coset (Prop F6). One-variable families p = (y² + δ)/(4a), with integers a, δ ≥ 1, can confine both line-4 integers
+  (Theorem Q), but no fixed such family confines an unbounded window (Prop F5), and for
   the lines {4, 7, 8} only finitely many formal ratios exist (Prop F4, Faltings).
 
 **Where 2 log 2 comes from (HCWIN Theorem B, PROVED rel. Henriot and BV).**
 * 2 log 2 separates two proved regimes of the truncated divisor mass of the window integers, averaged over p. This is an
   average (B6) and only calibrates the threshold.
-* At a single p, Turán–Kubilius over the window variable x is exact only for primes ≤ √X.
+* At a single prime p, Theorem A1 proves a Turán–Kubilius variance bound over x for 8 < X < p, counting odd primes ≤ z
+  with 3 ≤ z ≤ √X; this is the proved range, not a necessary cutoff for every possible argument.
 
 **HCWIN conditional theorems (PROVED implications, hypotheses open).**
 * Theorem C (model statement): the conjunction "some line is K-big at every large p" and "every K-big line succeeds"
-  has probability 0 in the model, for fixed K and for K(p) → ∞. That class hypotheses must be joint is Assessment.
-* Theorem S: anatomy plus a conditioned lottery Lot(C) gives HC ≤ (log p)^A.
+  has probability 0 in the model, for fixed K ≥ 1 and for each fixed deterministic function K(p) ≥ 1 with K(p) → ∞. That class hypotheses must be joint is Assessment.
+* Theorem S: Anat_Λ(A, C) ∧ Lot_Λ(C), or Anat_Γ(A, C) ∧ Lot_Γ(C), gives HC(p) ≤ (log p)^A for all sufficiently large
+  primes p ≡ 1 (8), provided X_max(p) ≥ (log p)^A.
 * Theorem D: the class-layer hypothesis Lot_Λ(C) (with window cap exp(3√(C log p))) *alone* gives
   HC(p) ≤ exp(√(8C log p) + O(1)) = p^{o(1)} for all large primes p ≡ 1 (8). This beats the open HC ≪ p^θ, but only
   under that hypothesis, which is ES-strength.
@@ -122,22 +128,23 @@ Elliott–Halberstam conjecture).**
   results, its sieve theorems weaker than Z53's. New: the census HC(p) ≤ 64 for all primes p ≡ 1 (4) up to 10⁹
   (CERTIFIED), and the μ data.
 
-**Status.** Every kill K(X) implies P(4,15) = K(4). P(4,15) is open unconditionally and holds under EH(1 − η₀) or under
-Bunyakovsky for 720k² + 1; for fixed X ≥ 7, K(X) still rests on Dickson. On the upper side there is a sufficient route
+**Status.** Every kill K(X) with X ≥ 4 implies P(4,15) = K(4). P(4,15) is open unconditionally and holds under EH(1 − η₀) or under
+Bunyakovsky for 720k² + 1; for fixed X ≥ 7, Dickson remains the recorded sufficient route to K(X). On the upper side there is a sufficient route
 through pointwise anatomy plus an open single-p class lottery.
 
 ## 4. Honest assessment
 
 Wave z54 converted each "best gap" into a sharper named missing statement:
 * **Gap 1:** TD, MIX, or twisted Jutila-type equidistribution (each sufficient, none shown necessary).
-* **Gap 2:** cross-u cancellation of tied events, which is B2.
+* **Gap 2:** cross-u cancellation of tied events (Assessment: B2 in tied form, not a proved equivalence).
 * **Gap 3:** P(4,15) on the kill side, and Lot on the upper side.
 
 The genuinely new mathematics is modest:
-* an exact reduction of HC-unboundedness;
+* an exact reduction of K(4) to P(4,15), a necessary condition for HC-unboundedness;
 * a Bunyakovsky-conditional near-square kill family, Theorem Q;
 * a kill conditional on EH (standard but unproved);
 * a first-order sufficient condition TD;
 * the explicit spin and Kummer description of the class layer, at prime u and per fixed order.
 
-None of it touches positivity at a prescribed prime.
+No unconditional positivity theorem for all sufficiently large primes p ≡ 1 (8) is obtained; Theorems S and D give that
+conclusion only under their open hypotheses.
