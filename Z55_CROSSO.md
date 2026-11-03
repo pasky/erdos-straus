@@ -9,8 +9,8 @@ Definitions as in `Z53_GENUSX.md` §1 and Lemma 4.1 (Theorem U family 𝔉 = �
 
 ## 0. Summary
 
-* **Reformulation (PROVED, §1).** (u, w) ∈ 𝔉 is a hit (8uw | p + u + 2w) iff 4Cp + 1 = (4uC − 1)(8wC − 1) with
-  C = (p + u + 2w)/(8uw); every hit has Jacobi symbols (d/p) = (e/p) = −1 for both factors d = 4uC − 1, e = 8wC − 1
+* **Reformulation (PROVED, §1).** (u, w) ∈ 𝔉 is a hit (8uw | p + u + 2w) iff C := (p + u + 2w)/(8uw) is a positive
+  integer, and then 4Cp + 1 = (4uC − 1)(8wC − 1); every hit has Jacobi symbols (d/p) = (e/p) = −1 for both factors d = 4uC − 1, e = 8wC − 1
   (this is exactly the square obstruction: at n = m² the same computation gives a contradiction, so R(m²) = 0).
   CERTIFIED on 60 primes near 10⁶ (engine = brute force; all 29 hits have (d/p) = (e/p) = −1) and 200 odd squares (R = 0).
 * **Pointwise attack (§2, Assessment).** Each of the three fibrations (fix u / fix w / fix C) turns R(p) into "a single
@@ -20,13 +20,20 @@ Definitions as in `Z53_GENUSX.md` §1 and Lemma 4.1 (Theorem U family 𝔉 = �
 * **Theorem P (PROVED, unconditional; §3).** For any exponents 0 < α₀ < α₁ < β < γ with θ := α₁ + γ < 1/2 — in particular
   for Theorem-U-admissible windows such as (α₀, α₁, β, γ) = (0.075, 0.1, 0.29, 0.39) — a positive proportion of the primes
   p ≡ 1 (4) in every dyadic interval (x/2, x], x ≥ x₀, have **R_𝔉(p) ≥ 2** (R is even). Explicit proportion
-  ≥ 2μ(1 − 2θ)/(2(1 − 2θ) + 32μ) − o(1), μ = ¼·log(α₁/α₀)·log(γ/β) (≈ 0.0012 for the example window).
+  ≥ 2μ(1 − 2θ)/(2(1 − 2θ) + 32μ) − o(1), μ = ¼·log(α₁/α₀)·log(γ/β) (example window: μ ≈ 0.02131, guaranteed
+  proportion ≈ 0.00118).
   Inputs: Bombieri–Vinogradov, Brun–Titchmarsh, Mertens; the subfamily with u, w prime.
 * **Theorem A (CONDITIONAL on HV; §4).** For the same windows, with M̃(p) the explicit mod-8 density of the family
   (M̃(p) ≥ c₀ log²p, PROVED, Lemma 4.2), PROVED (Lemma 4.1, dual large sieve):
   Σ_{x/2<p≤x} |R_x(p) − M̃(p)|² ≤ x·V₈(x), where V₈(x) is an explicit prime-free pair sum (the Haar variance of the
-  family). **If V₈(x) = o(log³x) (hypothesis HV)**, then R_𝔉(p) ≥ (1 − ε)M̃(p) ≫ log²p for all but o(π(x)) primes p ≤ x.
+  family). **If V₈(x) = o(log³x) (hypothesis HV)**, then R_𝔉(p) ≥ (1 − ε)M̃_x(p) ≫ log²p for all but o(π(x)) primes p ≡ 1 (4),
+  p ≤ x (for p ≡ 3 (4), R_𝔉(p) = 0 trivially).
   EVIDENCE for HV: Var(R − M̃) ≈ 2·M̃ (Poisson value for the even count R) over random primes, at four window scales (§4.4).
+* **Theorem A′ (CONDITIONAL on HW; §4.5).** Moving the characters of (log x)²-smooth conductor into the main term M_z
+  (M_z ≫ log²x/(log log x)², PROVED) leaves a remainder whose variance is bounded by a sum W_z of *non-negative* terms
+  (pairs of family members sharing a prime ≥ (log x)²). HW (W_z = o(log³x/(log log x)⁴)) is a pure upper-bound count,
+  no cancellation needed; under it almost all p ≡ 1 (4) have R_𝔉(p) ≫ log²p/(log log p)². A case-analysis sketch for HW
+  is given (windows with β > 3α₁ simplify it); not completed.
 * **Verdict: target not reached (ES remains OPEN).** Banked: Theorem P (unconditional, positive proportion);
   Theorem A as a clean reduction of "almost all p" to a prime-free combinatorial variance bound.
 
@@ -184,13 +191,14 @@ d² | n define one class mod kd², counted as t/(kd²) + O(1); d sharing a prime
 d ≤ √t). Partial summation gives Σ_{n∈(T₀,T₁], sqfree, n≡e (k)} 1/n = c·log(T₁/T₀) + O_k(T₀^{−1/2}) with that density c.
 For w (k = 4): c = (6/π²)(1/4)(4/3) = 2/π², so Σ_B 1/w = (2/π²)log(X/Y) + O(1). For A″ (the condition gcd(u, K) = 1
 and u ≡ 1 (8) is a union of φ(K) unit classes mod 8K): density κ = (1/π²)∏_{ℓ|K} ℓ/(ℓ + 1) = (1/π²)(3/4)(5/6)(7/8)(11/12)(13/14)
-≈ 0.04716, so Σ_{A″} 1/u = κ log(U₁/U₀) + O(1).
+= 0.0471644…, so Σ_{A″} 1/u = κ log(U₁/U₀) + O(1).
 *Inner sum.* For u ∈ A′ and an odd prime ℓ | u (ℓ ≤ U₁ < Y): Σ_{w∈B, ℓ|w} 1/w ≤ ℓ⁻¹Σ_{odd w′ ∈ (Y/ℓ, X/ℓ]} 1/w′ ≤
 ℓ⁻¹(½log(X/Y) + 1). Hence Σ_{w∈B,(w,u)=1} 1/w ≥ (2/π²)log(X/Y) − (3/10)(½log(X/Y) + 1) − O(1) ≥ 0.0526·log(X/Y) − O(1)
 (2/π² − 3/20 = 0.0526).
 *Outer sum.* Σ_{u∈A″∖A′} 1/u ≤ (10/3)Σ_{u∈A″}(1/u)Σ_{ℓ|u}1/ℓ ≤ (10/3)Σ_{ℓ≥17}ℓ⁻²·(½log(U₁/U₀) + 1)
 (primes ℓ | u ∈ A″ are ≥ 17; Σ_{u∈A″, ℓ|u} 1/u ≤ ℓ⁻¹Σ_{odd u′ ≤ U₁/ℓ, u′ > U₀/ℓ} 1/u′ ≤ ℓ⁻¹(½log(U₁/U₀) + 1)).
-Σ_{ℓ≥17} ℓ⁻² = 0.452247 − (1/4 + 1/9 + 1/25 + 1/49 + 1/121 + 1/169) = 0.016547, so this is ≤ 0.02758·log(U₁/U₀) + O(1), and
+Σ_{ℓ≥17} ℓ⁻² = 0.0165465… < 0.016547 (certified: the prime sum over 17 ≤ ℓ ≤ 2·10⁶ plus the integer tail bound
+Σ_{n>2·10⁶} n⁻² < 1/(2·10⁶) is < 0.016546991; reviewer check, §7), so this is ≤ 0.02758·log(U₁/U₀) + O(1), and
 Σ_{A′} 1/u ≥ (0.04716 − 0.02758)log(U₁/U₀) − O(1) = 0.01958·log(U₁/U₀) − O(1).
 Multiplying: M̃_x(p) ≥ 2·0.01958·0.0526·log(U₁/U₀)log(X/Y) − O(log x) ≥ 0.002(α₁ − α₀)(γ − β)log²x for x ≥ x₀. ∎
 
@@ -241,6 +249,51 @@ value at every scale (no growth with the mean), consistent with V₈ ≍ (mean) 
 is lower because n can share factors with q; irrelevant for primes.) The windows here are not exponent windows and the
 sizes are small; this is evidence about the variance structure, not about the asymptotic constant.
 
+### 4.5 A z-local variant: almost-all from a pure upper-bound count (reduction PROVED; HW CONDITIONAL)
+
+The only place where HV needs *cancellation* is the pairs sharing small primes (their weight is ≍ log⁴x·Σ_ℓℓ⁻²,
+only the difference φ(h)1[·] − 1 is small). This can be avoided by moving the small-prime characters into the main term.
+Let z = z(x) → ∞ (below z := (log x)²) and P(z) := ∏_{ℓ<z} ℓ. Put
+  M_z(p) := Σ_{χ*: f(χ*) | 8·P(z)} c(χ*)χ*(p) = Σ_{(u,w)∈𝔉_x} (2φ(8m)/φ(q))·1[p ≡ a (mod 8m)],  m = m_{uw} := gcd(uw, P(z))
+(the second form: for f | gcd(q, 8P(z)) = 8m the characters with conductor dividing 8m are the characters mod 8m).
+
+**Lemma 4.3 (PROVED).** (a) M_z(p) ≥ 0 termwise, and M_z(p) ≥ Σ_{(u,w)∈𝔉_x, P⁻(uw)≥z} (2/(φ(u)φ(w)))1[p ≡ a (8)].
+(b) Σ_{x/2<p≤x} |R_x(p) − M_z(p)|² ≤ x·W_z(x), where, with h = gcd(uw, u′w′),
+  W_z(x) := Σ_{pairs: h has a prime factor ≥ z} 1[a ≡ a′ (8)]·φ(h)1[a ≡ a′ (h)]/(φ(uw)φ(u′w′))   (all terms ≥ 0).
+*Proof.* (a) For P⁻(uw) ≥ z, m = 1 and 2φ(8)/φ(q) = 2/(φ(u)φ(w)). (b) As in Lemma 4.1, R_x − M_z = Σ_{f∤ 8P(z)} c(χ*)χ*(p),
+and the large sieve gives ≤ x·Σ_{f∤8P(z)}|c|². Expanding as in Lemma 4.1, with g = 8h and h = h_s h_L (h_s := gcd(h, P(z))),
+the character sum over conductors dividing g but not 8P(z) is φ(g)1[a ≡ a′ (g)] − φ(8h_s)1[a ≡ a′ (8h_s)]
+= 4·1[a ≡ a′ (8)]·φ(h_s)1[a ≡ a′ (h_s)]·(φ(h_L)1[a ≡ a′ (h_L)] − 1). This vanishes if h_L = 1 and is
+≤ 4·1[a≡a′(8)]φ(h)1[a ≡ a′ (h)] otherwise; with the normalisation 4/(φ(q)φ(q′)) = 1/(4φ(uw)φ(u′w′)) this gives ≤ W_z. ∎
+
+**Lemma 4.4 (lower bound for the z-rough part; PROVED with the fundamental lemma of sieve theory as input).** For
+z = (log x)² and every p ≡ 1 (4): M_z(p) ≥ c₁(αᵢ, β, γ)·log²x/(log z)² for x ≥ x₀.
+*Proof.* Choose e₂ as in Lemma 4.2, so that u ≡ 1 (8), w ≡ e₂ (4) force p ≡ a (8). The fundamental lemma (e.g.
+Iwaniec–Kowalski Cor. 6.10/Lemma 6.3; here z = (log x)² = t^{o(1)} for t ≥ x^{α₀}) gives
+#{n ≤ t : n ≡ e (8), P⁻(n) ≥ z} = (1 + o(1))(t/4)∏_{3≤ℓ<z}(1 − 1/ℓ) ≫ t/log z uniformly for t ≥ x^{α₀}, and
+similarly mod 4. Non-squarefree z-rough n ≤ t number ≤ Σ_{ℓ≥z} t/ℓ² ≪ t/z = o(t/log z). Partial summation:
+Σ_{u} 1/u ≫ (α₁ − α₀)log x/log z over z-rough squarefree u ≡ 1 (8) in (U₀, U₁], and Σ_w 1/w ≫ (γ − β)log x/log z over
+z-rough squarefree w ≡ e₂ (4) in (Y, X]. Pairs with gcd(u, w) > 1 share a prime ≥ z and have total weight
+≤ Σ_{ℓ≥z}(Σ_{ℓ|u}1/u)(Σ_{ℓ|w}1/w) ≪ log²x/z. So M_z(p) ≥ 2Σ 1/(uw) ≫ log²x/(log z)². ∎
+
+**Hypothesis HW.** For z = (log x)²: W_z(x) = o(log³x/(log log x)⁴).
+
+**Theorem A′ (CONDITIONAL on HW).** For windows with θ < 1/2, all but o(π(x)) primes p ≡ 1 (4) up to x satisfy
+R_𝔉(p) ≥ ½·M_z(p) ≫ log²p/(log log p)². *Proof.* Chebyshev with Lemma 4.3(b) and Lemma 4.4:
+#{p ∈ (x/2, x] : R_x(p) < ½M_z(p)} ≤ 4xW_z/(c₁²log⁴x/(log z)⁴) = o(x/log x). ∎
+
+*Why HW is easier than HV (Assessment).* W_z is a sum of non-negative terms — the Haar probability that two hits share a
+prime ≥ z — so only an **upper bound** is needed, no cancellation. Its pieces: the diagonal (≤ Σ 1/φ(uw) ≪ log²x);
+the pairs where (u′, w′) shares u (they need w′ ≡ w (mod 4u), a power saving 1/u ≤ x^{−α₀}); the "independent-like" part
+≪ log⁴x·Σ_{ℓ≥z}ℓ⁻² ≪ log²x/log log x; and near-diagonal configurations, which the joint dyadic count
+#{(v, k) ∈ [V, 2V] × [K, 2K] : k ≡ λv (mod m)} ≤ VK/m + min(V, K) handles (giving the ≪ log²x bound of §4.3(ii) in the
+no-cross-share case). If moreover β > 3α₁ (admissible, e.g. (α₀, α₁, β, γ) = (0.07, 0.08, 0.28, 0.41) with r = 1000,
+ε = 10⁻⁶: (C2) needs β > 0.2714, (C3) α₀ > 0.0682), then every w-side cofactor range has length ≥ Y/U₁² ≫ U₁ ≥ every
+u-side modulus, and a w-side share g₂₂ > U₁ forces u = u′ (compatibility u ≡ u′ (mod g₂₂)), which collapses the 4-cycle of
+congruences k₁ ≡ λv (g₂₂), k₁ ≡ λt (g₂₁), k₂ ≡ λt (g₁₁), k₂ ≡ λv (g₁₂) into cases each bounded by the dyadic count. A
+complete write-up of this case analysis is the one missing piece for an unconditional almost-all theorem; I did not finish
+and review it within the time box, so HW stays a hypothesis here.
+
 ## 5. T1 audit and screens
 
 * **T1.** Theorem P and Theorem A are density statements, which are not contradicted by squares (they are 0 % of
@@ -250,7 +303,8 @@ sizes are small; this is evidence about the variance structure, not about the as
   which are non-square classes by Lemma 1.1), Theorem A via the restriction to n = p coprime to every q (needed for
   χ(p) = χ*(p)). Lemma 4.1 itself holds over all integers coprime to all q; the information "R(m²) = 0" is consistent with
   it since the squares in (x/2, x] number O(√x).
-* **Pointwise target:** not reached; no claim implies ES for any explicit prime.
+* **Pointwise target:** not reached; no claim establishes the pointwise target for every sufficiently large prime
+  (individual hits, e.g. at p = 100000049, of course give ES solutions for those primes).
 * **8/131, tied modulus (B2), fixed p (B6):** Theorems P and A are averages over p (they do not pass B6 in the pointwise
   sense, by design); §2 records the B2 wall at fixed p.
 
@@ -259,10 +313,22 @@ sizes are small; this is evidence about the variance structure, not about the as
 * PROVED: Lemma 1.1/Cor 1.2 (hits ↔ factorisations 4Cp + 1 = de, both factors non-residues mod p; squares have none);
   **Theorem P** (positive proportion of primes p ≡ 1 (4) with R_𝔉(p) ≥ 2, for Theorem-U-admissible windows with α₁ + γ < 1/2);
   Lemma 4.1 (large-sieve reduction of the variance over primes to the prime-free V₈) and Lemma 4.2 (M̃ ≫ log²x).
-* CONDITIONAL: **Theorem A** (almost all p have R_𝔉(p) ≥ (1 − ε)M̃(p) ≫ log²p) on HV: V₈(x) = o(log³x).
+* CONDITIONAL: **Theorem A** (almost all p ≡ 1 (4) have R_𝔉(p) ≥ (1 − ε)M̃(p) ≫ log²p) on HV: V₈(x) = o(log³x);
+  **Theorem A′** (almost all p ≡ 1 (4) have R_𝔉(p) ≫ log²p/(log log p)²) on HW, a pure upper-bound count (no
+  cancellation) for pairs of family members sharing a prime ≥ (log x)²; reductions Lemma 4.3/4.4 PROVED.
+* Next step (Assessment): prove HW by the case analysis sketched in §4.5 (windows with β > 3α₁ simplify it); that
+  would make the almost-all statement unconditional. It would still not touch the pointwise target.
 * EVIDENCE: HV holds with room (Var ≈ Poisson); §4.4.
 * NOT PROVED: the target R_𝔉(p) ≥ 1 for every large p. **ES remains OPEN.**
 
 ## 7. Review log
 
-(filled after the hostile review)
+**Hostile review (deep-mode subagent, line by line; 2026-11-03).** No fatal error. Lemma 1.1/Cor 1.2, Theorem P (four
+cases exhaustive, constants and BV/BT normalisations correct, example window Theorem-U admissible), Lemma 4.1 (exact
+normalisation (4/(16φφ′))·(4φ(h)1[8h] − 4·1[8]) = stated summand), Lemma 4.2, the identity V₈ = Var₁(H) + Var₅(H) and
+the elementary bound in §4.3(ii) all survive; Theorem A's conditional deduction is correct. Fixed after review:
+(1) §0 "iff" now requires C ∈ ℤ_{>0}; (2) §0 example numbers μ vs proportion disambiguated; (3) §0 statement of
+Theorem A restricted to p ≡ 1 (4); (4) Lemma 4.2 decimals made directed inequalities, Σ_{ℓ≥17}ℓ⁻² certified < 0.016547
+(reviewer computation; the example thresholds are 0.28003 and 0.071307, still below β = 0.29 and α₀ = 0.075);
+(5) §5 wording on explicit primes. The reviewer also recommends quoting the large sieve in the N − 1 + Q² form (done in
+Lemma 4.1's reference line).
