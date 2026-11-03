@@ -8,14 +8,14 @@ Scripts `scripts/z55_tdf_*`, data `data/z55/tdf/`.
 **Verdict: TD(η) is NOT proved, for any η > 0.** What is proved is the *n-averaged* form: the mean square of
 T_n(h) over any interval of integers n of length ≥ 16U⁴ is ≪ (h⁴ + log U)·U, i.e. square-root size on average (up to
 the logarithmic and h-dependent factors)
-(Theorem LS, §2). Consequently TD(η) with C₀ = 1 holds for all primes p in the fourth-root range outside a set of
-size O(U^{3+7η} log U) — for every η < 1/7 this is o(π(U⁴)) (Corollary 2.4). The averaged statement is *not* a
+(Theorem LS, §2). Consequently, for each fixed U, TD(η) with C₀ = 1 holds for all primes p in the fourth-root range
+of that U outside a set of size O(U^{3+7η} log U) — for every η < 1/7 this is o(π(U⁴)) (Corollary 2.4). The averaged statement is *not* a
 better bound for N₂ on average (Markov on the first moment is better, §2.5); its content is about T itself.
 The pointwise statement sits at the self-dual point of the Dirichlet divisor problem (divisors d ≍ √x of integers in an
 interval of length x^{1/4}), where not even the lattice-point count |E1| has a provable asymptotic (§3, Assessment).
 A pointwise constant-factor bound N₂ ≤ (log 2/2)U + O(U^{14/15}) is proved (Prop 2.6). §3.3 records that TD(η) can be
-weakened to a non-oscillatory density hypothesis DC(U^{−η}) (no clustering of w_k mod 1 at scale U^{−η}), which gives
-N₂ ≪ U^{1−η} trivially; DC is open too.
+weakened to a non-oscillatory density hypothesis DC_ε(U^{−η}) (no clustering of w_k mod 1 at scale U^{−η}, up to
+U^{ε}), which gives N₂ ≪_ε U^{1−η+ε} trivially; DC_ε is open too.
 
 ## 0. Notation and the object
 
@@ -47,8 +47,8 @@ N₂ ≪ U^{1−η} trivially; DC is open too.
    phases are the distribution of n mod d, d ≍ √n — self-dual (§3.1).
 2. **Pointwise, via exponent pairs after the θ-expansion** (Z54 §4.3 style). Stops: no exponent pair, including the
    conjectural limit (0, 1/2), reaches p ≥ 16U³ (§3.2, Assessment with a PROVED elementary inequality).
-3. **Pointwise, via the h-mean square / density of w_k mod 1.** Reduces TD to the weaker density hypothesis DC, which
-   also gives N₂ ≪ U^{1−η} directly. Stops: DC is an upper bound for the clustering of √D_k mod 1 at scale U^{−η},
+3. **Pointwise, via the h-mean square / density of w_k mod 1.** Reduces TD to the weaker density hypothesis DC_ε,
+   which also gives N₂ ≪_ε U^{1−η+ε} directly. Stops: DC_ε is an upper bound for the clustering of √D_k mod 1 at scale U^{−η},
    the same lattice-point problem in thin curvilinear regions (§3.3).
 4. **n-averaged, via the large sieve.** Succeeds: Theorem LS (§2). This is the proved content of the lane.
 
@@ -152,7 +152,8 @@ second. ∎
 
 *Numerical check (floating point, EVIDENCE; `data/z55/tdf/farey_check.txt`):* with M = U⁴, N = 2000–3000 the ratio
 LHS/((N + 16U⁴)𝒢) is 0.13 (U = 6) and 0.012 (U = 10) — consistent, and mean_n |T_n|² is close to 𝒢 already on these
-short windows (where the large sieve gives nothing), EVIDENCE that the n-average is of square-root size at every scale.
+short windows (where the large sieve gives nothing), EVIDENCE that the n-average is of square-root size on these
+sampled short windows as well.
 
 **Corollary 2.2 (exceptional set; PROVED).** Let 0 < η ≤ 1/2, H ≥ 1. Then
 
@@ -215,7 +216,7 @@ against the trivial N₂ ≤ U/2. (Not a power saving; recorded because it is th
 
 ## 3. Why the pointwise statement resists (Assessment; heuristic unless marked PROVED)
 
-Everything in this section is an assessment of methods. Only the two displayed facts marked PROVED are claimed as
+Everything in this section is an assessment of methods. Only the facts explicitly marked PROVED are claimed as
 theorems; the size statements are stationary-phase heuristics.
 
 ### 3.1 Self-duality
@@ -250,20 +251,30 @@ arguments exploiting the ν- and k-variables jointly.
 
 Z54 Theorem T needs only Σ_{h≤H}|T(h)| ≤ HU^{1−η}, and (PROVED inequality)
 Σ_{h≤H}|T(h)|² = Σ_{k,k′∈E1⁺} Σ_{h≤H} e(h(w_k − w_{k′})) ≤ Σ_{k,k′} min(H, ‖w_k − w_{k′}‖^{−1}).
-Consider the *density hypothesis* DC(t₀): #{k ∈ E1⁺ : w_k mod 1 ∈ I} ≪ U|I| for every interval I of length ≥ t₀.
+Consider the *density hypothesis* DC(t₀): #{k ∈ E1⁺ : w_k mod 1 ∈ I} ≪ U|I| for every interval I of length ≥ t₀,
+and its ε-relaxation DC_ε(t₀): #{k ∈ E1⁺ : w_k mod 1 ∈ I} ≪_ε U^{1+ε}|I| for every such I. (DC includes the total-mass
+statement |E1⁺| ≪ U, which is not proved; only |E1⁺| ≪_ε U^{1+ε} is, §0.)
 * (PROVED) DC(1/H) gives Σ_{h≤H}|T(h)|² ≪ U² log(2H): the pairs with ‖w_k − w_{k′}‖ ≤ 1/H number ≪ U²/H and contribute
   ≪ U²; those with ‖·‖ ∈ (j/H, (j+1)/H] number ≪ U²/H and contribute ≪ U²/j. Through Theorem T (δ = U^{−η},
-  H = U^{η+ε}) this gives N₂ ≪ U^{1−η/2+ε} — a power saving, but with half the exponent.
-* (PROVED, trivial) DC(U^{−η}) applied to the single interval I = [−U^{−η}, U^{−η}] gives N₂ ≪ U^{1−η} directly, since
-  the 2-cycles are exactly the k ∈ E1⁺ with w_k ∈ ℤ (Z54 Lemma A). So the h-average route is dominated by the direct
-  one, and TD(η) ⟹ DC(U^{−η}) (Erdős–Turán) ⟹ N₂ ≪ U^{1−η}: DC is the sieve-type (non-oscillatory) weakening of TD.
-* DC is still open. Unwound, #{k : w_k mod 1 ∈ I} counts lattice points (m, k) in a union of ≍ U thin curvilinear
+  H = U^{η+ε}) this gives N₂ ≪ U^{1−η/2+ε} — a power saving, but with half the exponent. (With DC_ε in place of DC
+  the same holds with an extra U^{ε}.)
+* (PROVED, trivial) DC_ε(U^{−η}) applied to the single interval I = [−U^{−η}, U^{−η}] gives N₂ ≪_ε U^{1−η+ε}
+  directly, since the 2-cycle levels form a *subset* of {k ∈ E1⁺ : w_k ∈ ℤ} (Z54 Lemma A; the inclusion is strict in
+  general because Lemma A also requires the roots (s_k ± w_k)/2 to lie in (U, 2U] — e.g. U = 10, p = 16139, k = 77,
+  m = 210, s = 31, D = 11² has roots 10 and 21; `scripts/z55_xrev_tdf_check.py`). So the h-average route is dominated by
+  the direct one.
+* (PROVED) TD(η) ⟹ DC_ε(U^{−η}) ⟹ N₂ ≪_ε U^{1−η+ε}. Indeed, with M := |E1⁺| and H := ⌊U^{η}⌋, the Erdős–Turán
+  inequality gives, for every interval I, #{k : w_k mod 1 ∈ I} ≤ |I|M + C(M/H + Σ_{h≤H} h^{−1}|T(h)|)
+  ≤ |I|M + C(MU^{−η} + C₀U^{1−η}(1 + log H)); for |I| ≥ U^{−η} this is ≪ |I|(M + U log U) ≪_ε U^{1+ε}|I| by
+  §0. Note that TD(η) controls only the nonzero Fourier modes and does not improve the zero mode M beyond U^{1+ε}, so
+  TD(η) ⟹ DC(U^{−η}) (with U rather than U^{1+ε}) is NOT claimed; this is why DC_ε is the right weakening.
+* DC_ε is still open. Unwound, #{k : w_k mod 1 ∈ I} counts lattice points (m, k) in a union of ≍ U thin curvilinear
   regions {c² ≤ (km − n)² − 4m ≤ (c + t)²} ∩ strip (c = j + α, j ≤ 4U), each of area ≍ t, i.e. divisors of n + s in
   ≍ U moving short intervals of length ≍ Ut at height ≍ U². Bounds for lattice points near curves (Huxley–Sargos type,
   Mλ_r^{2/(r(r+1))} with M = U², λ_r ≍ U^{2−2r}) give ≫ U^{4/3} per unit t, far above the trivial U; the pointwise
   divisor bound gives only U^{1+ε}. Note that the equal-discriminant multiplicity is harmless (PROVED:
   r(D) := #{k ∈ E1⁺ : D_k = D} ≤ τ(n² − D) for n ≍ U⁴, since m | n + s gives m | n² − s² and 4m = s² − D gives
-  m | s² − D, so m | n² − D, and distinct k give distinct m), but DC is about clusters of *distinct* discriminants with
+  m | s² − D, so m | n² − D, and distinct k give distinct m), but DC_ε is about clusters of *distinct* discriminants with
   nearby √D mod 1 — the square discriminants being the cluster at 0.
 
 ### 3.4 Directions, not alternatives
@@ -299,5 +310,23 @@ M ≍ √n, the Voronoi dual of (a).
 | Corollaries 2.2–2.4 (exceptional sets; TD(η) for almost all n, almost all primes, η < 1/7, each fixed U) | PROVED |
 | Prop 2.6 (N₂ ≤ (log 2/2)U + O(U^{14/15}), pointwise) | PROVED (constant factor only) |
 | TD(η) for all primes in the fourth-root range | OPEN (not proved here) |
-| §3 (self-duality, exponent-pair range, clustering) | Assessment (heuristic sizes); only the two items marked PROVED are theorems |
+| §3 (self-duality, exponent-pair range, density/clustering) | Assessment (heuristic sizes); only the claims explicitly marked PROVED (§3.2 exponent-pair inequality; §3.3 kernel bound, DC ⇒ h-mean-square, DC_ε ⇒ N₂ bound, TD ⇒ DC_ε, r(D) ≤ τ(n² − D)) are theorems |
 | §4 sizes | EVIDENCE |
+
+## 6. Review log
+
+* **Hostile review 1 (deep subagent).** Found: small-U definitional mismatch (least residue vs congruence form), |E1⁺| bound
+  not uniform in arbitrary n, an arithmetic slip in Lemma 2.3, ν_{d,r} ≤ 3U/d valid only for d ≤ U (Lemma 2.5 now split
+  into three ranges), a false "<1 %" numerical claim, the sharp-cutoff expansion in §3.2 wrongly called exact, an
+  inequality chain and an example value in §3.2, a mis-stated pair-correlation hypothesis in §3.3, and over-labelled
+  floating-point checks. All applied (commit d495dd00).
+* **Hostile review 2 (deep subagent).** Found: density control at scale 1/H does give a (half-exponent) saving; the
+  density hypothesis gives N₂ ≪ U^{1−η} directly; 𝒢 ≍ U is EVIDENCE not PROVED; interval endpoints in Cor 2.3; the
+  Markov comparison threshold; "for each fixed U". All applied (commit b48b37e0).
+* **Cross-model review** (`data/z55/xreview/REVIEW_TDF.md`, verdict ACCEPT-WITH-FIXES; independent reproduction of all
+  numerics and of 𝒢 by a CRT computation; sources for the dual large sieve and the exponent pair checked). Required
+  fixes: (1) TD ⟹ DC was a gap at the stated normalisation, since TD controls only nonzero Fourier modes and the zero mode
+  |E1⁺| is known only ≪ U^{1+ε} — replaced by DC_ε with the Erdős–Turán derivation written out; (2) 2-cycle levels are a
+  *subset* of the square-discriminant levels, not equal (explicit admissible counterexample U = 10, p = 16139, k = 77,
+  from `scripts/z55_xrev_tdf_check.py`); (3) label wording ("only the two…"), "at every scale", and "for each fixed U"
+  in the opening summary. All applied in this commit.
