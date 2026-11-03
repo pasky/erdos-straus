@@ -168,6 +168,31 @@ N₂(p, U) ≪_ε U^{1−η+ε}.
 * Primality plays no role anywhere in §2 (consistent with the brief's warning: the statement is an upper bound and does
   not imply ES; at odd squares n = m² the argument proceeds identically).
 
+### 2.6 A pointwise constant-factor bound (PROVED; modest)
+
+**Proposition 2.6 (PROVED).** In the fourth-root range (p prime, c₁p^{1/4} ≤ U ≤ c₂p^{1/4}, 16U³ ≤ p),
+
+  N₄(p, U) ≤ N₂(p, U) ≤ (log 2 / 2)·U + O_{c₁,c₂}(U^{14/15}) = 0.3466…U + O(U^{14/15}),
+
+against the trivial N₂ ≤ U/2. (Not a power saving; recorded because it is the only *pointwise* improvement found.)
+*Proof.*
+* *Vertex-disjointness.* For u ∈ (U, 2U] there is at most one B ∈ (U, 2U] with B ≡ −p (mod u), since the interval has
+  length U < u. Hence each u lies in at most one 2-cycle {u, B}, and both members of a 2-cycle lie in
+  dom f := {u ∈ (U, 2U] : some B ∈ (U, 2U] has u | p + B}. So N₂ ≤ |dom f|/2.
+* *Exact form.* u ∈ dom f iff (p + U, p + 2U] contains a multiple of u, and it contains at most one, so
+  |dom f| = Σ_{U<u≤2U} (⌊(p + 2U)/u⌋ − ⌊(p + U)/u⌋) = UΣ_{U<u≤2U} 1/u + Σ_u [ψ((p + U)/u) − ψ((p + 2U)/u)],
+  with ψ(x) := x − ⌊x⌋ − 1/2. The first term is U log 2 + O(1).
+* *ψ-sums.* For x ∈ {p + U, p + 2U} and H ≥ 1, the standard consequence of Vaaler's inequality (Graham–Kolesnik,
+  *Van der Corput's method*, Thm A.6, and the bound derived from it, Σ_{u∈J}ψ(g(u)) ≪ |J|/H +
+  Σ_{1≤h≤H} h^{−1}|Σ_{u∈J} e(hg(u))|; the implied constant is absolute) and the exponent pair (κ, λ) = (1/14, 11/14) = A²(1/2, 1/2)
+  applied to g(u) = hx/u on (U, 2U] (F/U ≍ hx/U² ≍ hU² in the fourth-root range) give
+  Σ_{U<u≤2U} e(hx/u) ≪ (hU²)^{1/14} U^{11/14} = h^{1/14}U^{13/14}, hence
+  Σ_u ψ(x/u) ≪ U/H + H^{1/14}U^{13/14} ≪ U^{14/15} with H = U^{1/15}. (This is the same estimate as Z54 Prop 5.3(a),
+  there via Titchmarsh's fourth-derivative test, which gives the identical exponents.)
+* So |dom f| = U log 2 + O(U^{14/15}) and N₂ ≤ |dom f|/2. ∎
+
+*EVIDENCE consistency:* Z54 §6.2 reports |dom f|/U = 0.66–0.73 at 10¹²–10¹⁴ (log 2 = 0.693).
+
 ## 3. Why the pointwise statement resists (Assessment, with PROVED bookkeeping)
 
 ### 3.1 Self-duality
@@ -236,6 +261,7 @@ variables (Z54 §4.3's "joint cancellation"); (c) square-root cancellation in Σ
 | Lemma 2.3, 2.4, 2.4′ (bounds for A_{d,r}; explicit Kusmin–Landau), 2.5 (𝒢 ≤ 2700h⁴U + 32U log 2U) | PROVED |
 | Theorem LS (mean square over n ≤ (N + 16U⁴)𝒢) | PROVED (+ CERTIFIED numerically) |
 | Corollaries 2.2–2.4 (exceptional sets; TD(η) for almost all n, almost all primes, η < 1/7) | PROVED |
+| Prop 2.6 (N₂ ≤ (log 2/2)U + O(U^{14/15}), pointwise) | PROVED (constant factor only) |
 | TD(η) for all primes in the fourth-root range | OPEN (not proved here) |
 | §3 (self-duality, exponent-pair range, clustering) | Assessment; the displayed identities/inequalities PROVED where marked |
 | §4 sizes | EVIDENCE |
