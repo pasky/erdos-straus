@@ -25,11 +25,12 @@ X ≍ log p/log log p CONDITIONAL on a non-standard uniform Bateman–Horn bound
    p = 5m² + 1 with 4 | m has HC(p) ≥ 7. So K(4) follows from Bunyakovsky for f(k) = 720k² + 1 alone. CERTIFIED on all
    5 719 such primes ≤ 10¹².
 3. **Algebraic (quadratic-family) confinement: classification of formal shapes (§2).**
-   * Two-variable quadratic polynomials: at most one window integer can be confined identically on a lattice coset
+   * Two-variable quadratic polynomials: at most one window integer can be confined identically on a full-rank lattice coset
      (Prop F6, PROVED; scoped to quadratic F; it does not cover x² + y⁴-type or other constructions).
    * One-variable families p = (y² + δ)/(4a): the formal square-class conditions for line 4 form a rational conic
      (PROVED; Theorem Q is one integral-admissible point); for lines {4, 7} an elliptic curve E₇ of conductor 735 and
-     rank 1 (CERTIFIED by PARI 2-descent bounds [1, 1]); none of the 17 smallest ratios gives an integral family
+     rank 1 (CERTIFIED by PARI 2-descent bounds [1, 1]); none of 17 sampled ratios (|n| ≤ 16, torsion translates;
+     not a height-minimality certificate) gives an integral family
      (EVIDENCE); for lines {4, 7, 8} four curves of genus 17, hence **finitely many formal ratios (a : δ)** (PROVED,
      Faltings). Existence of any admissible family beyond X = 4 is undetermined. No family confines a prime line
      q ≡ 7 (8) with q ∤ δ (Prop F5, PROVED), so no single quadratic family certifies a growing window.
@@ -145,22 +146,30 @@ Every integer-valued quadratic with positive leading coefficient and negative di
 variable, p = (y² + δ)/(4a) with integers a, δ ≥ 1 and y in a progression (4ap = y² + δ). Then
   4a(p + x) = y² + (δ + 4ax),  4ax(xp + 1) = (xy)² + x(xδ + 4a).
 **Definition.** The family *confines line x* on a nonempty union 𝒴 of residue classes of y if (i) p(y) ∈ ℤ and
-p(y) ≡ 1 (mod 8) for y ∈ 𝒴, and (ii) there are odd real characters χ_e, χ_l mod x such that for every y ∈ 𝒴 every prime
-factor ℓ of N_x^e(y) has χ_e(ℓ) = 1 and every prime factor of N_x^l(y) has χ_l(ℓ) = 1. (Then no divisor is ≡ −1 (mod x).
-This is confinement on all values, not only prime ones.) fd(−n) denotes the fundamental discriminant of −n.
+p(y) ≡ 1 (mod 8) and gcd(p(y), x) = 1 for y ∈ 𝒴 (so both window integers are coprime to x, as they are at every prime
+p > x), and (ii) there are odd real characters χ_e, χ_l mod x such that for every y ∈ 𝒴 every prime factor ℓ of N_x^e(y)
+has χ_e(ℓ) = 1 and every prime factor of N_x^l(y) has χ_l(ℓ) = 1. (Then no divisor is ≡ −1 (mod x). This is confinement
+on all values, not only prime ones.) fd(−n) denotes the fundamental discriminant of −n; for |D| | x, χ_D^{(x)} denotes
+χ_D induced to modulus x (zero at primes dividing x).
 
 **Prop F1 (PROVED).** (⇒) If the family confines line x on some 𝒴, then D_e := fd(−(δ + 4ax)) and D_l := fd(−x(xδ + 4a))
-satisfy |D| | x, χ_e = χ_{D_e}, χ_l = χ_{D_l}, and D ≡ 1 (mod 8) when x ≡ 7 (mod 8). (⇐) Conversely, if these
-conditions hold, then for y in the family every prime ℓ ∤ 2a·g·D (g as below) dividing N_x^∗ has χ_D(ℓ) = 1; the family
-confines line x on 𝒴 iff 𝒴 can be chosen (nonempty, with (i)) to avoid the finitely many classes of y for which a prime
-ℓ | 2agD with χ_D(ℓ) ≠ 1 divides N_x^∗.
+satisfy |D| | x, χ_e = χ_{D_e}^{(x)}, χ_l = χ_{D_l}^{(x)} (equality of primitive inducing characters, induced to
+modulus x), and D ≡ 1 (mod 8) when x ≡ 7 (mod 8). (⇐) Conversely, if these conditions hold, then for y in the family every
+prime ℓ ∤ 2axgD (g as below) dividing N_x^∗ has χ_D^{(x)}(ℓ) = 1; the family confines line x on 𝒴 iff 𝒴 can be chosen
+(nonempty, with (i), including gcd(p(y), x) = 1) to avoid the finitely many classes of y for which a prime ℓ | 2axgD with
+χ_D^{(x)}(ℓ) ≠ 1 divides N_x^∗. (Cross-review counterexample to the earlier wording without induction/coprimality:
+x = 20, a = 5, δ = 39600, y = 10t, p = 5t² + 1980: both primitive characters are χ₋₄ and the old test passed, but
+5 | p + 20 always and every character mod 20 vanishes at 5. With (i) such shapes are excluded; F2–F5 at lines 4, 7, 8 and
+Theorem E are unaffected.)
 *Proof.* (⇐) δ + 4ax = |D_e|g² with 2g ∈ ℤ, so 16a(p + x) = (2y)² + |D_e|(2g)². A prime ℓ ∤ 2agD_e dividing p + x has
-D_e ≡ (2y/2g)² (mod ℓ), so χ_{D_e}(ℓ) = 1; χ_{D_e} is a character mod x (|D_e| | x) and odd (D_e < 0). For x ≡ 7 (8),
+D_e ≡ (2y/2g)² (mod ℓ), so χ_{D_e}(ℓ) = 1, and χ_{D_e}^{(x)}(ℓ) = 1 when also ℓ ∤ x; χ_{D_e}^{(x)} is a character mod x
+(|D_e| | x) and odd (D_e < 0). Primes dividing x are kept out of N_x^∗ by gcd(p(y), x) = 1. For x ≡ 7 (8),
 N_x^e is even and 2 must satisfy χ(2) = 1, i.e. D_e ≡ 1 (mod 8). The remaining primes are the stated local conditions.
 Level line: the same with 4ax(xp + 1) = (xy)² + x(xδ + 4a). (⇒) Suppose χ_e ≠ χ_{D_e} as characters on primes. Both are
 real, so by Chebotarev in the biquadratic field infinitely many primes ℓ have χ_{D_e}(ℓ) = 1, χ_e(ℓ) = −1. For such ℓ not
 dividing 2a·(numerators/denominators)·(modulus of 𝒴), y² ≡ −(δ + 4ax) (mod ℓ) has two solutions, which meet every class
-of 𝒴 by CRT; then ℓ | N_x^e(y) with χ_e(ℓ) = −1, a contradiction. So χ_e = χ_{D_e}, whose conductor |D_e| must divide x,
+of 𝒴 by CRT; then ℓ | N_x^e(y) with χ_e(ℓ) = −1, a contradiction. So the primitive character inducing χ_e is χ_{D_e},
+whose conductor |D_e| must therefore divide x, and χ_e = χ_{D_e}^{(x)},
 and the 2-adic condition is forced as in (⇐). Same for the level line. ∎
 
 **Prop F2 (PROVED; line 4, formal).** If the family confines line 4, then, up to a common rational square factor,
@@ -213,7 +222,8 @@ lines q ≡ 7 (8), and no single quadratic family certifies HC > X for all X (it
 **Prop F6.** Let F(s, t) ∈ ℚ[s, t] be quadratic with nondegenerate quadratic part, and N_i = λ_iF + μ_i (λ_i, μ_i ∈ ℚ^×)
 affine functions of F with μ_i/λ_i pairwise distinct (e.g. p + x and xp + 1 for x ∈ 𝒞). Then at most one N_i has the
 property "every prime factor ℓ outside a finite set satisfies χ_i(ℓ) = 1 for some real χ_i ≠ 1, for all (s, t) in a
-lattice coset".
+full-rank lattice coset" (full rank is needed for the CRT step; restricting F to a rank-one coset is a one-variable
+family and can recover Theorem Q).
 *Proof.* Complete squares: F = Q(s′, t′) + c with Q a nondegenerate binary quadratic form and s′, t′ affine in s, t. Then
 N_i = λ_i(Q + e_i), e_i = c + μ_i/λ_i, and e_i = 0 for at most one i. For e_i ≠ 0 and every prime ℓ not dividing
 2·disc(Q)·e_i·(all denominators/numerators)·(coset modulus), Q(s′, t′) ≡ −e_i (mod ℓ) is solvable (a nondegenerate
@@ -226,8 +236,10 @@ confined by one two-variable quadratic, so Theorem Q-type kills need a one-varia
 
 ## 3. Sieve analysis: which steps are tractable
 
-Hypothesis **EH(θ)**: for every A, Σ_{q ≤ x^θ} max_{(c,q)=1} |π(x; q, c) − li(x)/φ(q)| ≪_A x/(log x)^A. BV gives
-EH(1/2 − ε). (FI 2009's A(θ) is the ψ-version with max over y ≤ x, at Q = x^{θ−ε}.)
+Hypothesis **EH(θ)** (θ < 1 fixed): for every A, Σ_{q ≤ x^θ} max_{(c,q)=1} |π(x; q, c) − li(x)/φ(q)| ≪_{A,θ} x/(log x)^A.
+BV gives EH(1/2 − ε); the standard Elliott–Halberstam conjecture (e.g. Ford's notes, (7.6), Conj. 7.3, with an extra max
+over y ≤ x) implies EH(θ) for every fixed θ < 1. FI 2009's A(θ) is the ψ-version with max over y ≤ x at Q = x^{θ−ε};
+translating between the fixed-exponent versions needs a small exponent margin, which does not affect "some θ₀ < 1".
 
 ### 3.1 Theorem E (CONDITIONAL on EH(1 − η₀) for an absolute η₀ > 0)
 
@@ -244,10 +256,13 @@ coincide iff ℓ | 15) and ν(3) = 1; every root is a unit mod ℓ. Then
 with c_b ≡ 1 (8), ≡ b (d), and |r_d| ≤ ν(d)·max_c|π(x; 8d, c) − li(x)/φ(8d)|. Since ν(d) ≤ 2^{ω(d)}, Cauchy–Schwarz with the
 trivial bound max_c|…| ≪ x/φ(q) and EH(θ) give Σ_{d < D} μ²(d)3^{ω(d)}|r_d| ≪_A x/(log x)^A. The density satisfies the
 linear (κ = 1) sieve axioms: 0 ≤ g(ℓ) ≤ 1/2, and ∏_{w ≤ ℓ < z, ℓ ∈ 𝒫}(1 − g(ℓ))⁻¹ = (log z/log w)(1 + O(1/log w)) since
-Σ_{ℓ ∈ 𝒫, ℓ < y} 2/ℓ = log log y + O(1) (Mertens in progressions mod 4).
+∏_{ℓ ∈ 𝒫, ℓ < y}(1 − 1/ℓ)² = c/log y·(1 + O(1/log y)) (Mertens' product in the progression 3 mod 4; exponent 1 because
+there are two roots on half the primes).
 
-*Step 2 (lower bound).* The Jurkat–Richert linear sieve (Halberstam–Richert, *Sieve Methods*, Thm 8.4, as commonly
-cited; equivalently Iwaniec's Rosser sieve) gives, for s = log D/log z ≥ 2,
+*Step 2 (lower bound).* The beta (Rosser–Iwaniec) linear sieve under the product-condition axiom
+∏_{w≤ℓ<z}(1 − g(ℓ))⁻¹ ≤ (log z/log w)^κ(1 + K/log w), κ = 1, β = 2 (as stated in Nath–Xie, arXiv:2501.16723, (3.4) and
+Lemma 3.6, verified by the cross-review; the Jurkat–Richert theorem of Halberstam–Richert's book is the classical form,
+theorem numbering not independently verified) gives, for s = log D/log z ≥ 2,
   S(𝒜, 𝒫, z) ≥ X·V(z)·(f(s) − o(1)) − Σ_{d<D, d|P(z)} 3^{ω(d)}|r_d|,  f(s) = 2e^γ log(s − 1)/s (2 ≤ s ≤ 4),
 V(z) = ∏_{ℓ ∈ 𝒫_z}(1 − g(ℓ)) ≍ 1/log x. Here s = (1 − η)/(1/2 − η) + o(1) = 2 + 2η/(1 − 2η) + o(1), so s − 2 ≥ 2η and
 f(s) ≥ e^γ(s − 2)/s ≥ (2e^γ/3)η (log(1 + u) ≥ u/2 for 0 ≤ u ≤ 1). Hence S(𝒜, 𝒫, z) ≥ c₁η·x/(log x)², c₁ > 0 absolute,
@@ -264,11 +279,15 @@ q₁ ∈ 𝒫, z ≤ q₁ ≤ k ≤ Y := (x + 4)/(mq₁), k (= q₂) prime, mq�
 k ∈ [q₁, Y] by the primes ℓ < w := x^{1/100} at k ≡ 0, at k ≡ 4(mq₁)⁻¹ (ℓ ∤ 2mq₁), and, for ℓ ∈ 𝒫, ℓ ∤ 15mq₁, at
 k ≡ 15(4mq₁)⁻¹: at most 3 classes, fewer than ℓ for every ℓ, sieve dimension ≤ 5/2. All three quantities exceed w on
 the triples counted (k ≥ q₁ ≥ z > w; p ≥ k; 4p + 1 has no 𝒫-prime below z > w), so every such k survives. The
-Brun/Selberg upper-bound sieve for an interval of integers (Halberstam–Richert Thm 2.2, as commonly cited; remainders
-|R_d| ≤ ω(d), level Y^{1/2} ≥ w^{20}), with constants depending only on the dimension, gives
+upper-bound sieve for an interval of integers under the product-condition axiom of dimension ≤ 5/2 (K. Ford, *Sieve
+Methods* lecture notes 2023, Thm 2.4, verified by the cross-review: uniform in the coefficients, remainder
+O(w log²w) using |r_d| ≤ 3^{ω(d)}, negligible against Y(log x)^{−5/2}; deleting roots at ℓ | m only improves the axiom),
+with constants depending only on the dimension, gives
   #k ≪ Y∏_{ℓ<w}(1 − ω(ℓ)/ℓ) ≪ Y·h(m)·(log x)^{−5/2},  h(m) = ∏_{ℓ | m}(1 + 2/ℓ)
-(only ℓ | m change ω, since q₁ > w; the ℓ | m are ≡ 1 (mod 4)). Summing,
-  |Bᵉ| ≪ x(log x)^{−5/2}·Σ_{m ∈ S, m ≤ 5x^{2η}} h(m)/m·Σ_{q ∈ 𝒫, z ≤ q ≤ 2√x} 1/q.
+(only ℓ | m change ω, since q₁ > w; the ℓ | m are ≡ 1 (mod 4), ℓ ≥ 5, and contribute (ℓ − 1)/(ℓ − 2) ≤ 1 + 2/ℓ relative
+to the generic factor; local root counts: one at 2, two at 3, two at split ℓ ∤ m, three at inert ℓ ≥ 7, one at ℓ | m).
+Summing,
+  |Bᵉ| ≪ x(log x)^{−5/2}·Σ_{m ∈ S, m ≤ 5x^{2η}} h(m)/m·Σ_{q ∈ 𝒫, z ≤ q ≤ 3√x} 1/q.
 The q-sum is (1/2)log((1/2)/(1/2 − η)) + o(1) ≤ 2η. The m-sum is ≤ ∏_{ℓ ≡ 1 (4), ℓ ≤ 5x^{2η}}(1 + (1 + 2/ℓ)/(ℓ − 1))
 ≪ (log x^{2η})^{1/2} ≪ (η log x)^{1/2} (x ≥ x₀(η)). So |Bᵉ| ≤ C₂η^{3/2}x/(log x)², C₂ absolute. Bˡ is identical with
 4p + 1 = mq₁k: k runs over the class mq₁k ≡ 1 (mod 4) (substitute k = k₀ + 4j), p = (mq₁k − 1)/4 prime and
@@ -277,8 +296,8 @@ p + 4 = (mq₁k + 15)/4 sifted; ranges m ≤ 5x^{2η}, z ≤ q₁ ≤ k ≤ (4x 
 *Step 5.* #target ≥ (c₁η − 2C₂η^{3/2})x/(log x)². Take η₀ = min(1/10, (c₁/4C₂)²). ∎
 
 *Remarks.* (i) EH is used only for primes in progressions with the CRT-coherent residues of (n + 4)(4n + 1), with
-divisor weights; no Type II input beyond that. (ii) η₀ is not computed (it depends on c₁, C₂). (iii) This is the
-Friedlander–Iwaniec 2009 template (their §6 replaces r by the S-indicator b on one shift and sifts by 𝒫 to √x, "because,
+divisor weights; no Type II input beyond that. (ii) η₀ is not computed (it depends on c₁, C₂). (iii) Theorem E is an independently written adaptation of the
+Friedlander–Iwaniec 2009 template, not a citation: FI prove a different, r-weighted statement for the pair (p − 2, p + 2) (their §6 replaces r by the S-indicator b on one shift and sifts by 𝒫 to √x, "because,
 if n ≡ 1 (mod 4) has one prime factor from P, it must have a second one"); here both shifts carry the S-indicator, which
 the linear sieve plus the η^{3/2}-vs-η comparison handles. (iv) Density statement only; no prescribed prime is touched
 (on the kill side none is needed).
@@ -288,7 +307,9 @@ the linear sieve plus the η^{3/2}-vs-η comparison handles. (iv) Density statem
 **Prop A.** For each fixed ζ with 0 < ζ < 1/4, #{p ≤ x : p ≡ 1 (8), (p + 4)(4p + 1) has no prime factor ≡ 3 (mod 4) below
 x^ζ} ≫_ζ x/(log x)². At these primes line 4 can fire only through prime factors ≡ 3 (mod 4) of size ≥ x^ζ (at least two
 of them in p + 4 or in 4p + 1).
-*Proof.* Steps 1–2 with D = x^{1/2}(log x)^{−B} (BV), z = x^ζ, s → 1/(2ζ) > 2, f(s) > 0. ∎
+*Proof.* Steps 1–2 with D = x^{1/2}(log x)^{−B} (BV; B chosen so the weighted errors are absorbed), z = x^ζ,
+s → 1/(2ζ) > 2, f(s) > 0 (for ζ < 1/8, s > 4: use the general positive linear-sieve f, not the explicit formula on
+[2, 4]). ∎
 
 *The gap in this implementation (Assessment, with PROVED sieve-function arithmetic).* With θ = 1/2 the linear sieve needs
 z < x^{1/4}; the survivors then include N = q₁q₂m with q₁ ∈ [x^ζ, x^{1/2}] and m up to x^{1−2ζ}. In the half-dimensional
@@ -380,7 +401,7 @@ is a prime-pattern condition. For growing X there are ≈ 3X/8 lines, i.e. ≈ 3
 > confinement-or-anatomy events. **Theorem Q** (PROVED): every prime 5m² + 1 with 4 | m has HC ≥ 7, so K(4) follows
 > from Bunyakovsky for 720k² + 1 alone (CERTIFIED on 5 719 primes ≤ 10¹²). Formal quadratic confinement shapes: a
 > two-variable quadratic confines at most one window integer; lines {4,7} ↔ the rank-1 elliptic curve E₇ (no integral
-> shape among 17 small ratios, EVIDENCE); lines {4,7,8} ↔ genus-17 curves, finitely many ratios (Faltings); existence
+> shape among 17 sampled ratios, EVIDENCE); lines {4,7,8} ↔ genus-17 curves, finitely many ratios (Faltings); existence
 > beyond X = 4 undetermined. **Theorem E** (CONDITIONAL on EH(1 − η₀), some absolute η₀ > 0; FI-2009 template):
 > ≫ x/(log x)² primes p ≤ x have HC(p) > 4 (true order). With BV the same sieve gives only "no 3-mod-4 prime factor
 > below x^ζ, ζ < 1/4" (PROVED); in that implementation the gap is a level deficit or a parity-type switched count. The
@@ -425,4 +446,13 @@ proof of HC ≤ X must certify from lines ≥ 7 at those primes.
   integral is the shifted-log one; (12) no "generic tail" claim for the family; (13) half-dimension count; (14) vector
   sieve optimality argument, threshold cosh²(1/2); (15) Dickson infinitude vs HL density separated; (16) "formal shapes";
   (17) 0 < ζ; (18) generator script checked in.
-* Cross-model review: pending.
+* **Cross-model review** (`data/z54/xreview/REVIEW_HCKILL.md`, checker `scripts/z54_xrev_hckill_check.py`): verdict
+  ACCEPT-WITH-FIXES. It audited Theorem E step by step under ordinary EH (survives), re-ran the census to 10¹¹, the
+  family, the HC controls and E₇/genus independently (all agree). Fixes applied: (1) **F1's local converse was false as
+  written** (counterexample x = 20, a = 5, δ = 39600: primes dividing x but not the conductor); repaired by inducing χ_D
+  to modulus x, adding 2axgD to the exceptional primes and requiring gcd(p(y), x) = 1 in the definition; F2–F5 and
+  Theorem E unaffected; (2) sieve citations replaced by verified product-condition statements (Nath–Xie (3.4)/Lemma 3.6;
+  Ford's notes Thm 2.4), with the local root counts and uniformity recorded; Mertens exponent 1 made explicit;
+  (3) EH(θ) stated for fixed θ with its relation to standard EH and FI's A(θ); Theorem E marked as an independent
+  adaptation, not FI's theorem; "17 sampled ratios" (not smallest); F6 requires a full-rank coset; q₁-range 3√x;
+  Prop A remark for ζ < 1/8.
