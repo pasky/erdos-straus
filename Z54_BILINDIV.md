@@ -106,8 +106,11 @@ an integer. N₂(p, U) equals each of:
 the class of t and ᾱ = s_k − α. Then p + ᾱ = p + s_k − α = kαᾱ − α = α(kᾱ − 1), so α | p + ᾱ in A_k. Thus E1 is the set
 of "2-cycles in rank-two algebras".
 * A_k is an order in a quadratic étale algebra when D_k ≠ 0.
-* It is split, A_k ≅ ℤ × ℤ, exactly when D_k is a nonzero square. Lemma A's count consists of split k with the size
-  condition.
+* It is *rationally* split, A_k ⊗ ℚ ≅ ℚ × ℚ, exactly when D_k is a nonzero square. Lemma A's count consists of such k
+  with the size condition.
+* Rational splitting is not integral splitting. If the roots are u < B, evaluation at (u, B) identifies A_k with the
+  order {(a, b) ∈ ℤ² : a ≡ b (mod B − u)}, of index B − u in ℤ². So A_k ≅ ℤ × ℤ only when D_k = 1. Example:
+  p = 100000037, U = 100, k = 5176, roots 115 and 168, D = 53², index 53. This reading is not used in Theorem T.
 * D_k = 0 gives a nonreduced algebra and corresponds to u = B, which is excluded.
 
 **Table 3.2 (candidate sets and tie events).** Each entry carries its own label.
@@ -154,11 +157,13 @@ range. Hence N(U, U) ≪ p^{(1−η)/4+ε}, and TD(η) for every η < 1/2 would 
 *Proof.*
 * *Size of E1.* Each k ∈ E1 is a divisor of p + s_k with s_k ∈ (2U, 4U], and k determines s_k. Hence
   |E1⁺| ≤ |E1| ≤ Σ_{s∈(2U,4U]} τ(p + s) ≪_ε U^{1+ε/2}, using τ(n) ≪ n^{o(1)} and p ≍ U⁴.
+* *Convention.* Without loss of generality 0 < ε ≤ 1.
 * *Parameters.* Fix 0 < ρ < min(η, ε)/2 and take δ := U^{−η+ρ}, which is ≤ 1/2 for U ≥ U₀(η, ρ). Apply Theorem T with ρ/2
   in place of ε, so that H = U^{η−ρ/2} ≤ U^{η}.
 * *Main term.* 4δ|E1⁺| ≪ U^{1−η+ρ+ε/2}.
 * *Frequency terms.* 8δΣ_{h≤H}|T(h)| ≤ 8δH·C₀U^{1−η} = 8C₀U^{1−η+ρ/2}.
-* *Tail.* It is ≪ U^{1+ε/2−ρA/2}, which is ≤ U^{1−η} once A ≥ 4/ρ.
+* *Tail.* It is ≪ U^{1+ε/2−ρA/2}, which is ≤ U^{1−η} once A ≥ (2η + ε)/ρ (for instance A ≥ 4/ρ, given ε ≤ 1 and
+  η ≤ 1/2).
 * *Small U.* For U < U₀ the bound is trivial (N₂ ≤ U/2). ∎
 
 Shiu's theorem would replace U^{ε} by a power of log p; its exact statement was not re-verified here
@@ -241,9 +246,11 @@ insofar as they satisfy (iii).
 
 **Proposition 4.3.** In the fourth-root range, for U ≥ U₀ and 1 ≤ h ≤ U, every implementation gives |T_φ(h)| ≤ Σ_ν b_ν
 with Σ_{|ν|≥ν₁} b_ν ≥ c·h^{1/2}U^{3/2}, where c > 0 depends on φ, c₀, c₁, c₂.
-* The reverse order — summing ν first, then the triangle inequality over k — gives exactly Σ_k φ(s_k/U), the trivial
-  bound.
-* So in this class neither order beats the trivial size ≍ U.
+* The reverse order — summing ν first, then the triangle inequality over k — gives exactly the nonnegative weighted
+  count Σ_k φ(s_k/U) ≤ |E1| ≪ U^{1+ε} (PROVED identity and upper bound). This order performs no cancellation at all.
+  Its size ≍ U is a model/EVIDENCE size (§6.1), not a proved lower bound, so it is not claimed as a proved obstruction.
+* So in this class the forward order is short by h^{1/2}U^{1/2} relative to ≍ U (PROVED under (iii)), and the reverse
+  order is the uncancelled count.
 * The missing input is a *joint* (ν, k) cancellation, of size h^{1/2}U^{1/2+η} beyond per-line square root. This is the
   additive-twist analogue of SQSIEVE's missing bilinear (ℓ, C) estimate.
 
@@ -277,7 +284,7 @@ with Σ_{|ν|≥ν₁} b_ν ≥ c·h^{1/2}U^{3/2}, where c > 0 depends on φ, c�
 Here 𝒦 is the level range; X ≡ −1 (mod k) forces n/X ≡ −1 (mod k), since n ≡ 1 (mod k).
 * The progression has modulus q = p and length x/q ≍ U², with x ≍ U²p ≍ p^{3/2}. So q ≍ x^{2/3}: the 2/3 endpoint.
 * The classical asymptotic for Σ_{n≤x, n≡a (q)} τ(n) holds uniformly for q < x^{2/3−ε}, with error (q^{1/2} + x^{1/3})x^ε.
-  This is as quoted in Fouvry–Iwaniec (Acta Arith. 61 (1992)); VERIFIED-PRIMARY in `LIT_CHECK.md` item 3.
+  This is as quoted in Fouvry–Iwaniec (Acta Arith. 61 (1992), 271–287, eqs. (3), (5)); VERIFIED-PRIMARY in `LIT_CHECK.md` item 3.
 * Here both error terms are ≍ p^{1/2+ε}, against a main term ≍ U² log p ≍ p^{1/2} log p. So direct insertion fails by
   p^{ε}, even for the *untied* divisor sum along this progression.
 * Fouvry–Iwaniec's Theorem 1 goes beyond x^{2/3} only *on average*. For squarefree r ≤ x^{3/8} with (a, r) = 1, it
@@ -349,14 +356,22 @@ one-sided event at a single p.
 Z53_HYP2CYCLE Prop D concerns F = kuB − u − B − p. On any translated box |x_i − c_i| ≤ B_i with radii 2 ≤ B₁, B₂, B₃
 (for u, B, k), it shows that the auxiliary-surface bound X of Heath-Brown's Theorem 15 satisfies X ≥ min(B_i)^{2/√3}.
 That statement is taken from the restatements by Reuss and by Browning–Heath-Brown; the multi-affine F keeps
-T = B₁B₂B₃ under translation. The displayed expression is ≥ 1 because log‖F‖ ≥ log p ≥ 1.
+T = B₁B₂B₃ under translation. F is absolutely irreducible: it is linear in k, and uB and u + B + p are coprime.
+
+*Height of the translated polynomial.* The coefficient norm need not stay ≥ p under translation. Translating at the
+solution (115, 168, 5176) for p = 100000037 gives norm 869567 < p. For an integer translation (a, b, c), the translated
+F has quadratic coefficients a, b, c, linear coefficients bc − 1, ac − 1, ab, and constant abc − a − b − p. If M is its
+coefficient norm, then p ≤ M³ + 3M. Since p ≥ 16U³ ≥ 128, this gives M ≥ 3, so log M > 1 and the displayed HB15
+expression is ≥ 1. Non-integral centres are handled by moving to an integer centre and padding each radius by ≤ 1/2.
 
 **Proposition 5.4 (domination by the elementary per-fibre bound; PROVED relative to HB15 as restated).**
 * *Setup.* Let 16U³ ≤ p and let Sol := {(u, B, k) : u < B, {u,B} a 2-cycle at level k}, the unordered pairs.
 * *One solution per fibre.* Every value of u, every value of B and every value of k carries at most one point of Sol.
   So a box Q with side lengths a, b, c satisfies |Q ∩ Sol| ≤ min(a, b, c) + 1.
-* *Comparison.* X(Q) ≥ max(1, (min(a,b,c)/2)^{2/√3}) ≥ (min(a, b, c) + 1)/5 ≥ |Q ∩ Sol|/5. The first inequality uses
-  Prop D with radii (side)/2 when all sides are ≥ 4, and X ≥ 1 otherwise.
+* *Comparison* (piecewise). Let t := min(a, b, c).
+  * If all sides are ≥ 4, Prop D with radii (side)/2 gives X(Q) ≥ (t/2)^{2/√3} ≥ t/2 ≥ (t + 1)/5.
+  * Otherwise X(Q) ≥ 1 > (t + 1)/5, using the height bound above.
+  * In both cases X(Q) ≥ (t + 1)/5 ≥ |Q ∩ Sol|/5.
 * *Consequence.* Take any family 𝒬′ of boxes covering Sol, with any occupancy pruning. Any bound obtained from HB15 as a
   black box (X(Q) times a per-curve bound ≥ 1) is at least a fifth of the elementary per-fibre bound
   Σ_{Q∈𝒬′}(min side(Q) + 1) on the same family. So the black-box determinant method is dominated box by box by
@@ -616,3 +631,21 @@ timeout 900 /tmp/z54cyc < $I/p10big.txt; timeout 900 /tmp/z54cyc < $I/p12big.txt
       the C scripts (outputs unchanged).
   20. Corollary T strengthened to U^{1−η+ε} (δ = U^{−η+ρ}).
 * *Added after review.* Remark 4.1: the small-difference range is free, and TD has a smooth form.
+
+**Cross-model review** (`data/z54/xreview/REVIEW_BILINDIV.md`; check script `scripts/z54_xrev_bilindiv_check.py`).
+Verdict **ACCEPT-WITH-FIXES**.
+* *Survives.* Theorem T and its conditional power saving, Prop 4.3's forward-order obstruction under (iii), Prop 5.3,
+  and Props 5.4–5.5.
+* *Reproduced.* All TD rows (with an independent enumeration in m and direct Fourier evaluation), the brute cross-check,
+  the fixed-Q counts and the cyclines statistics.
+* *Fixes applied.*
+  1. §3: the false assertion "A_k ≅ ℤ × ℤ iff D is a nonzero square" is replaced. Rational splitting holds iff D is a
+     nonzero square; integrally, A_k is the order a ≡ b (mod B − u), of index B − u, and is ℤ² only when D = 1. This also
+     corrects review-1 fix 1.
+  2. §5.4: translated-height justification (p ≤ M³ + 3M ⇒ log M > 1), absolute irreducibility, integer centres with
+     padding, and a piecewise short-side comparison.
+  3. §4.3: the reverse order is stated as the uncancelled count ≤ |E1| ≪ U^{1+ε}; its ≍ U size is model/EVIDENCE, not
+     a proved obstruction.
+  4. Corollary T: ε ≤ 1 without loss of generality, and tail exponent A ≥ (2η + ε)/ρ.
+  5. Fouvry–Iwaniec pagination 271–287.
+
