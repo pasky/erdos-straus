@@ -1,0 +1,1 @@
+odd squares n<=10000000000: 50000 checked, 0 with Omega_Q(n+4)+Omega_Q(4n+1)>0

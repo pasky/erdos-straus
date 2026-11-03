@@ -1,0 +1,4 @@
+# weighted U: pen=1.0; minimise r = 1/lam + 1/th with Hw>0; conclusion omega_Q(N2) < r
+best r = (10.444889058367453, (0.42, 0.008, 0.3, 0.14061620813569625, 0.2832909676395437, 2.012624863264685))
+# weighted U: pen=2.35; minimise r = 1/lam + 1/th with Hw>0; conclusion omega_Q(N2) < r
+best r = (17.070139451709377, (0.46, 0.004, 0.21, 0.08124641958837026, 0.18478639764390553, 2.2721199553350635))
