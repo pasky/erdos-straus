@@ -1,0 +1,2 @@
+FAMILY p=1+kL L=29682952539240 k<=70 primes: 13 fail: 0 max HC 7 at p=29682952539241
+hist: 4:9 7:4
