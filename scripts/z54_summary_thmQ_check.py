@@ -11,8 +11,7 @@ for m in range(4,40001,4):
     cnt+=1
     if fires(p,4): bad+=1; print("counterexample",p)
 print(cnt,"primes checked, x=4 fires at",bad)
-# control: random primes 1 mod 8 how often x=4 fails
-import random
+# control: all primes p = 1 mod 8 in [1e9, 1e9+2e5) (deterministic, not random): how often line x=4 fails
 c=0;f=0
 for p in range(10**9+1,10**9+200000,8):
     if isprime(p):
