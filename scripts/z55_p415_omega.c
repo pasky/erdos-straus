@@ -1,5 +1,6 @@
 // z55 P415: for primes p <= X, p = 1 (mod 8): exact Omega_Q(p+4), Omega_Q(4p+1) (Q = primes = 3 mod 4, with
-// multiplicity) and the least Q-prime factor of 4p+1.  Exact: all Q-primes l <= sqrt(4X+1) are divided out; the
+// multiplicity) and (for the x^delta tests only) a lower bound for the least Q-prime factor of 4p+1 (if no Q-prime
+// <= sqrt(4X+1) divides it, the stored value is the cofactor, which exceeds every tested cutoff x^delta, delta <= 1/4).  Exact: all Q-primes l <= sqrt(4X+1) are divided out; the
 // cofactor then holds at most one Q-prime (> sqrt N), present iff cofactor = 3 (mod 4).
 // Mode "int": same statistics over ALL n = 1 (mod 8) (integer control) instead of primes.
 // Mode "sq": control over odd squares n = m^2 (theory: Omega_Q(n+4) = Omega_Q(4n+1) = 0 always).

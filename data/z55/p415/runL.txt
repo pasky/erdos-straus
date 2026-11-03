@@ -1,12 +1,12 @@
 # product linear sieve + switching: pen=1.0, switched level=BV
-theta* ~ 0.996175691485405 (thz, H, T1) = (0.494, 1.1943712994316735e-08, 0.014497753447763651)
+theta* ~ 0.9961682707071304 (thz, H, T1) = (0.4943, 3.2501613608793e-08, 0.013428925456350153)
 # product linear sieve + switching: pen=1.0, switched level=same
-theta* ~ 0.9763735979795456 (thz, H, T1) = (0.46699999999999997, 2.3331561738171303e-08, 0.07398855683055541)
+theta* ~ 0.9763717502355576 (thz, H, T1) = (0.46730000000000005, 9.812726409208494e-09, 0.07298351381385779)
 # product linear sieve + switching: pen=2.35, switched level=BV
 theta* ~ 0.999308779835701 (thz, H, T1) = (0.499, 9.781861405946946e-09, 0.0023295854490387696)
 # product linear sieve + switching: pen=2.35, switched level=same
-theta* ~ 0.995434045791626 (thz, H, T1) = (0.493, 1.9039503668105695e-08, 0.01672030703739448)
+theta* ~ 0.9954291582107544 (thz, H, T1) = (0.4933, 4.897488834615382e-08, 0.015657844741332333)
 # product linear sieve + switching: pen=5.0, switched level=BV
-no success at theta=1
+theta* ~ 0.9998462796211243 (thz, H, T1) = (0.4998, 1.0054141371773455e-08, 0.0004385961988872863)
 # product linear sieve + switching: pen=5.0, switched level=same
-theta* ~ 0.9990475326776505 (thz, H, T1) = (0.498, 1.1408805152338108e-08, 0.005416489108440833)
+theta* ~ 0.9989770501852036 (thz, H, T1) = (0.4985, 1.0081984814711009e-08, 0.003517898884819966)

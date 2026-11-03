@@ -99,7 +99,7 @@ def H_U(th1, th2, theta=0.5, lam=0.5, pen=1.0, ngrid=200):
     for k in range(1, ngrid):
         s1 = 1 + k * ((theta / th1) - 1) / ngrid
         s2 = (theta - s1 * th1) / th2
-        if s2 <= 0: break
+        if s2 < 1: break  # lower vector sieve needs s_i >= beta_i = 1
         v = fvec(s1, s2) - T1
         if v > best[0]: best = (v, s1, s2)
     return best
@@ -112,9 +112,9 @@ def H_E(th1, th2, theta, lam=0.5, pen=1.0, ngrid=200):
     best = (-1e9, None, None)
     smax = theta / th1
     for k in range(1, ngrid):
-        s1 = 0.5 + k * (smax - 0.5) / ngrid
+        s1 = 1 + k * (smax - 1) / ngrid
         s2 = (theta - s1 * th1) / th2
-        if s2 <= 0: break
+        if s2 < 1: break  # s_i >= beta_i = 1
         v = fvec(s1, s2) - T1 - T2
         if v > best[0]: best = (v, s1, s2)
     return best, T1, T2
@@ -149,10 +149,9 @@ def runE(pen, lam_mode):
     print(f"# E(theta): pen={pen}, switched level={lam_mode}; minimal theta with H_E>0 over th1,th2 in (1/4,1/2]")
     def ok(theta):
         lam = 0.5 if lam_mode == 'BV' else theta
-        for i in range(1, 50):
-            th1 = 0.25 + i * 0.005
-            for j in range(1, i + 1):
-                th2 = 0.25 + j * 0.005
+        grid = [0.25 + i * 0.01 for i in range(1, 24)] + [0.48 + i * 0.002 for i in range(1, 10)] + [0.4985, 0.499, 0.4995, 0.4999]
+        for i, th1 in enumerate(grid):
+            for th2 in grid[:i + 1]:
                 (v, s1, s2), T1, T2 = H_E(th1, th2, theta, lam=lam, pen=pen, ngrid=80)
                 if v > 0: return (th1, th2, v, s1, s2, T1, T2)
         return None
@@ -197,8 +196,8 @@ def runLin(pen, lam_mode):
     def ok(theta):
         lam = 0.5 if lam_mode == 'BV' else min(theta, 1.0)
         best = None
-        for i in range(1, 250):
-            thz = 0.25 + i * 0.001
+        for i in range(1, 2500):
+            thz = 0.25 + i * 0.0001
             v, T1 = H_lin(thz, theta, lam, pen)
             if v > 0 and (best is None or v > best[1]): best = (thz, v, T1)
         return best
