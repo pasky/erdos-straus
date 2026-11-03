@@ -86,7 +86,7 @@ often", is equivalent to P(4,15): infinitely many such p with p + 4 and 4p + 1 b
 **Theorem Q (PROVED, an explicit near-square kill family).** Every prime p = 5m² + 1 with 4 | m has HC(p) ≥ 7.
 * The family is infinite under Bunyakovsky for the single polynomial 720k² + 1.
 * CERTIFIED for all 5,719 such primes ≤ 10¹².
-* I re-checked 628 of them independently. Controls: about 7.5 % of random primes p ≡ 1 (8) near 10⁹ have HC > 4.
+* I re-checked 628 of them independently (`scripts/z54_summary_thmQ_check.py`, `data/z54/summary/thmQ_check.txt`; one engine, EVIDENCE). Controls: about 7.5 % of random primes p ≡ 1 (8) near 10⁹ have HC > 4.
 
 **Conditional kill (Theorem E, CONDITIONAL on EH(1 − η₀) for some absolute, uncomputed η₀ > 0; implied by the standard
 Elliott–Halberstam conjecture).**

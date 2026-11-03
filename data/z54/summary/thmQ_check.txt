@@ -1,0 +1,2 @@
+628 primes p=5m^2+1, 4|m, m<=40000: line x=4 fires at 0 (HC>=7 consistent with Theorem Q)
+control: 181/2410 primes p=1 mod 8 in [1e9,1e9+2e5) have line 4 not firing
