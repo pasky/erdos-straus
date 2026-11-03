@@ -72,8 +72,9 @@ depends on it, so no averaging over the fibre variable produces an equidistribut
 `Z53_GENUSX` Theorem X do is average the *density* ρ_u(w), not the divisibility). I tried: (a) short-interval divisor
 asymptotics (the u-range p^{α₁} is far below the p^{0.31} needed even for plain τ(p + u), and the class condition is
 not a divisor-function twist); (b) parametrising p = a² + b² and looking for an identity 4C(a² + b²) + 1 = (4CA − 1)(4CB − 1)
-with polynomial A, B, C: at b = 0 it would represent odd squares, contradicting Cor 1.2 unless positivity fails there,
-and a² + b² + (lower order) is irreducible in a, so no such identity with C independent of a exists; (c) the least
+with polynomial A, B, C: at b = 0 it would represent odd squares, contradicting Cor 1.2 unless positivity/integrality fails
+there, so any such identity must degenerate on b = 0; I found none (e.g. with C constant, 4C(a² + b²) + 1 is irreducible in
+ℚ[a, b]); (c) the least
 quadratic non-residue: Lemma 1.1 says every hit lives on non-residues d, but producing a non-residue (Burgess) does not
 produce the divisibility d | 4Cp + 1. None gave a pointwise statement; I therefore turned to averages over p, where the
 remainders R − M can be controlled, which is the brief's "natural line" with p as the averaging variable.
