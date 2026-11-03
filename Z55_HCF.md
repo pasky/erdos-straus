@@ -18,10 +18,11 @@ For p ≡ 5 (mod 8), HC(p) = 3 (Z53_UPPER P2.1), so everything below concerns p 
 **The target is not proved.** It implies the Erdős–Straus conjecture for all large primes (Z53_UPPER §0, §5.1), and
 every route I pushed ends at the same wall: a pointwise statement needs a divisor of one *specific* integer
 (p + c or cp + 1, c ≤ (log p)^A) in a *specific* class mod c, and no information about p other than congruences and
-"p is not a square" (reciprocity) is available; congruence information is useless by the square-class obstruction, and
+"p is not a square" (reciprocity) is available; finite congruence information cannot cover (square-class obstruction, and T3.1 below), and
 the non-square information gives one non-residue prime ℓ_p with no control on which shifted number it divides.
 
-What is proved here (all elementary, all checked numerically):
+What is proved here (the exclusion arguments are elementary; P3.4 uses Linnik's theorem, the infinitude statements
+Dirichlet's; all checked numerically):
 
 | # | statement | status |
 |---|-----------|--------|
@@ -30,7 +31,7 @@ What is proved here (all elementary, all checked numerically):
 | L2.1 | for c ∈ {7, 15} and p ≡ 1 (8): c is a coordinate ⟺ the odd part of p + c or of cp + 1 has a prime factor q with (q/c) = −1 (the reciprocity constraint L3.1 is *sufficient* at these c) | PROVED, CERTIFIED (8 932 cases) |
 | **T3.1** | **for every finite set S of primes ≥ 11, every 1 ≤ R < (min S − 1)/3, and every C, Y: infinitely many primes p ≡ 1 (mod 8) with p ≡ R (mod ℓ^{J}) for ℓ ∈ S and p ≡ 1 (mod ℓ′^{a}) for the other primes ℓ′ ≤ Y have no certificate (c, d) with c ≤ C and d supported on S ∪ {primes ≤ Y}** | PROVED, CERTIFIED (§5) |
 | C3.2 | no finite family of certificate congruences covers {p ≡ 1 (mod 840), p ≡ R (mod ℓ)} for any prime ℓ ≥ 11 and non-residue R < (ℓ−1)/3 — a class **containing no squares**, on which the Jacobi obstruction alone no longer excludes divisors with an odd power of ℓ | PROVED |
-| C3.3 | profinite form: the point (1 at primes ∉ S, R at primes of S) lies in no HC certificate class, for any set S of primes ≥ 11 and R < (min S − 1)/3 (e.g. R = 2, S = all primes ≡ ±3 (mod 8), ≥ 11: a point that is a non-residue at every prime of S) | PROVED |
+| C3.3 | profinite form: the point (1 at primes ∉ S, R at primes of S) lies in no HC certificate class, for any set S of primes ≥ 11 and 1 ≤ R < (min S − 1)/3 (e.g. R = 2, S = all primes ≡ ±3 (mod 8), ≥ 11: a point that is a non-residue at every prime of S, hence not in any square class) | PROVED |
 | P3.4 | (Linnik) for every A there are infinitely many p ≡ 1 (8) that are non-residues modulo every prime ℓ ≡ ±3 (8) in [11, κ′_A log p] and for which every certificate with c ≤ κ_A (log p)^A has a prime factor > κ′_A log p | PROVED |
 | §4 | where a proof must use primality; the "square test" of the brief is necessary but not sufficient for *covering-type* arguments (T3.1 gives a second test) | Assessment |
 
@@ -157,8 +158,9 @@ Remarks. (a) The hypotheses c ∈ 𝒞_p and c < p enter only through L3.1 (Step
 the primes of 𝒫 are required to be residues mod p (p ≡ 1 (mod ℓ′)); Steps 3–6 are pure arithmetic in (c, d) and
 use about the primes of S only p ≡ R (mod ℓ^{J_ℓ}). In particular R may be a residue or a non-residue mod the
 primes of S; the non-residue case is the one that the Jacobi obstruction does not already cover (Cor 3.2).
-(b) ℓ₀ ≥ 11 is sharp: for S = {ℓ}, ℓ ∈ {3, 5, 7} and R the least non-residue, the admissibility equations of
-Steps 5–6 *do* have solutions (ℓ = 3: (c, d) = (4, 3), (4, 15), (7, 6); ℓ = 5: (8, 15), (7, 20); ℓ = 7: (4, 7),
+(b) The threshold 11 is the point where the *non-residue* specialisation (Cor 3.2) becomes available: for
+S = {ℓ}, ℓ ∈ {3, 5, 7}, no non-residue R < (ℓ−1)/3 exists, and with R the least non-residue the admissibility
+equations of Steps 5–6 *do* have solutions (ℓ = 3: (c, d) = (4, 3), (4, 15), (7, 6); ℓ = 5: (8, 15), (7, 20); ℓ = 7: (4, 7),
 (4, 35); script §5), examples of the certificates appearing in Mordell's mod-840 covering.
 (c) The single-prime case S = {ℓ} with (R/ℓ) = −1 gives Steps 2 and 4 in the form "j odd, j ≤ J" (as in the first
 version of this memo); the set version costs nothing extra.
@@ -182,7 +184,7 @@ S) such that no prime in U has a certificate with c ≤ C, d ∈ 𝒟.
 for Y, M, J large; with C ≥ c and Y ≥ the primes of d, T3.1 (applied to S ∩ [1, Y]) excludes them. ∎
 
 **Proposition 3.4 (non-residue-rich primes still need a large prime in every bounded certificate).** Let L₀ be an
-admissible Linnik exponent (least prime in a coprime class mod N is ≤ C₀N^{L₀}; L₀ = 5 is admissible, Xylouris 2011).
+admissible Linnik exponent (least prime in a coprime class mod N is ≤ C₀N^{L₀}; L₀ = 5 is admissible, Xylouris, Bonner Math. Schriften 404 (2011); 5.5 Heath-Brown 1992).
 For every A ≥ 0 there are constants κ_A, κ′_A > 0 and infinitely many primes p ≡ 1 (mod 8) such that
 (i) (ℓ/p) = −1 for every prime ℓ ≡ ±3 (mod 8) with 11 ≤ ℓ ≤ Y := κ′_A log p (so p is a non-residue modulo roughly
 half of the primes up to κ′_A log p), and
@@ -191,14 +193,15 @@ One may take κ′_A = 1/(L₀(1.02 + 1.26(A + 1))) and κ_A = (κ′_A)^A /2 fo
 
 *Proof.* Let Y be large, R := 2, S := {primes in [11, Y]}, 𝒫 = {2, 3, 5, 7}, C := ⌊Y^A⌋ (C := 3 if A = 0), and let
 N := M∏_{ℓ∈S} ℓ^{J_ℓ} be the modulus of T3.1. The least power of ℓ′ exceeding C + 1 is ≤ ℓ′(C+1), so
-M ≤ 210(C+1)⁴ (2^{a(2)} ≤ 2(C+1) as C ≥ 3) and ℓ^{J_ℓ} ≤ 2ℓ(C + 1). Hence, using C + 1 ≤ 2Y^A,
-  log N ≤ log 210 + 4 log(C+1) + θ(Y) + π(Y) log(2(C+1)) ≤ 1.02 Y + 1.26 (Y/log Y)(A log Y + 1.39) + O(A log Y)
+M ≤ 210(C+1)⁴ (2^{a(2)} ≤ 2(C+1) as C ≥ 3) and ℓ^{J_ℓ} ≤ 2ℓ(C + 1). Hence, using C + 1 ≤ 4Y^A (also for A = 0),
+  log N ≤ log 210 + 4 log(C+1) + θ(Y) + π(Y) log(2(C+1)) ≤ 1.02 Y + 1.26 (Y/log Y)(A log Y + log 8) + O(A log Y + 1)
        ≤ (1.02 + 1.26A) Y (1 + o(1))
-(Rosser–Schoenfeld: θ(Y) < 1.02Y, π(Y) < 1.26 Y/log Y). By Linnik there is a prime p in the class of T3.1 with
+(Rosser–Schoenfeld: θ(Y) < 1.02Y for all Y > 0, π(Y) < 1.26 Y/log Y for all Y > 1). By Linnik there is a prime p in the class of T3.1 with
 p ≤ C₀N^{L₀}, so log p ≤ L₀(1.02 + 1.26A)Y(1 + o(1)), i.e. Y ≥ κ′ log p with κ′ := 1/(L₀(1.02 + 1.26(A+1))) for
 Y large; and for A > 0, C = ⌊Y^A⌋ ≥ Y^A/2 ≥ (κ′ log p)^A/2 = κ_A (log p)^A (for A = 0 take κ₀ = 3). (i): p ≡ 2 (mod ℓ) for ℓ ∈ S, and (2/ℓ) = −1 for
 ℓ ≡ ±3 (mod 8), so (ℓ/p) = (p/ℓ) = −1 for those ℓ. (ii) is T3.1: a certificate with c ≤ C whose d is supported on
-𝒫 ∪ S = {primes ≤ Y} does not exist. Letting Y → ∞ gives infinitely many p (p > N → ∞). ∎
+𝒫 ∪ S = {primes ≤ Y} does not exist (T3.1 applies: p ≡ 1 (mod M), p ≠ 1, so p > M > C). Every prime ≤ Y divides N
+while p is coprime to N, so p > Y; letting Y → ∞ gives infinitely many p. ∎
 
 Compare Z53_UPPER P3.3: there, p ≡ 1 (mod 8∏_{ℓ≤Y}ℓ) (a square-like point: all small primes are residues) and the
 conclusion holds for *every* c; here p is a non-residue modulo about half of the primes up to Y and the conclusion
@@ -206,10 +209,11 @@ holds for c ≤ (log p)^A. The large prime factor q > Y of the certificate divis
 of the certificate, and it is not determined by p modulo any number built from the primes ≤ Y.
 
 **What T3.1 rules out.** The class of squares is the classical sterile set for ES congruence coverings
-(Mordell–Schinzel; Z53_UPPER C3.2 in the HC setting: on p ≡ 1 (mod 8m) no certificate divisor is 2m-smooth). On the
-class p ≡ R (mod ℓ) with (R/ℓ) = −1, p is a *non*-residue mod ℓ, so (d/p) = −1 is attainable with ℓ ∣ d, and the
-Jacobi obstruction only says that ℓ must appear in d to an odd power. T3.1 shows the obstruction persists:
-a certificate containing ℓ must satisfy d ≡ −1 (mod c) *and* d ∣ p + c, and with all other prime factors of d forced
+(Mordell–Schinzel; Z53_UPPER C3.2 in the HC setting: on p ≡ 1 (mod 8m) no certificate divisor is supported on the
+primes dividing 2m). On the class p ≡ R (mod ℓ) with (R/ℓ) = −1, p is a *non*-residue mod ℓ, so (d/p) = −1 is
+attainable with ℓ ∣ d, and the Jacobi obstruction only says that, when the other primes of d are residues mod p,
+ℓ must appear in d to an odd power. T3.1 shows the obstruction persists: a certificate containing ℓ must satisfy
+d ≡ −1 (mod c) *and* d ∣ p + c (or d ∣ cp + 1), and with all other prime factors of d forced
 into divisors of c + 1 (Step 1), the two conditions have no common solution unless L ≤ 3R + 1. Consequences for the
 target problem:
 1. "HC(p) ≤ F(ℓ_p)" with ℓ_p the least non-residue prime is **not** provable by a finite certificate family for
@@ -218,7 +222,7 @@ target problem:
    whose divisors involve primes outside every fixed finite set, i.e. factorisation information about p + c or cp + 1
    that is not a congruence condition on p. (T3.1 says nothing about arguments with growing moduli or unbounded
    certificate families.) Prop 3.4 makes this quantitative: even with ≍ log p/log log p small non-residue primes
-   at hand, no certificate with c ≤ (log p)^A is built from primes ≤ κ′ log p.
+   at hand, no certificate with c ≤ κ_A (log p)^A is built from primes ≤ κ′_A log p.
 2. For covering-type arguments the brief's "square test" (the argument must fail at odd squares n = m²) is necessary
    but not sufficient: a finite covering must also fail at the profinite points of Cor 3.3, which are not squares
    (with R = 2 and S = {primes ≡ ±3 (mod 8), ≥ 11}, x_ℓ is a non-residue at every ℓ ∈ S). A covering of the class {p ≡ 1 (840), p ≡ 2 (11)} with bounded c
@@ -234,8 +238,9 @@ the class −1 (mod c). The available inputs about p and what each gives:
 * *Congruences p mod M.* They determine the ℓ-adic valuations of p + c and cp + 1 for ℓ ∣ M up to the precision of M
   (exactly, if M is taken with large enough exponents relative to the valuation in question), hence by Prop 1.2 they
   decide the question when the cofactor of the known part is prime; and the set of p (mod M) on which they force a
-  certificate is never everything: the square classes (Z53_UPPER C3.2) and the non-residue points of C3.2 above are
-  uncovered for every M. Any argument whose only input is p mod M is dead.
+  certificate is never everything: the square classes (Z53_UPPER C3.2) and the non-residue points of Cor 3.3 above are
+  uncovered for every M. So no finite family of certificate congruences (fixed c's and d's) proves the target; an
+  argument reading only p mod M would have to let M grow with p and cannot be a fixed covering.
 * *p is not a square* (⟺ p is prime, for the purposes of the reciprocity law). Via L3.1 this is the statement that a
   certificate divisor must contain a prime ℓ with (ℓ/p) = −1; the least such ℓ_p is ≤ p^{1/(4√e)+ε} (Burgess), ≤ 2log²p
   under GRH. The information "ℓ_p = ℓ, p ≡ R (mod ℓ)" is again a congruence, and T3.1 says it is not enough.
@@ -278,4 +283,5 @@ p < 5·10⁴: 39 695 cases, 0 mismatches.
 **HC(p) ≤ 64 for all 49 109 660 primes p ≡ 1 (mod 4), p ≤ 2·10⁹**; the record HC = 64 at p = 21 841 is not beaten
 (extends the 10⁸ census of Z53_UPPER §6 by a factor 20). Histogram tail among p ≡ 1 (8): HC = 32: 16, 36: 10, 39: 7,
 40: 2, 44: 6, 47: 3, 52: 1, 56: 1, 64: 1. Consistent with the heuristic "worst case ≍ log p" of Z53_UPPER §5.4
-(2·10⁹ ≈ e^{21.4}); any A ≥ 1 in the target has a large numerical margin.
+(2·10⁹ ≈ e^{21.4}; HC(21 841) = 64 > log 21 841 ≈ 10, so the heuristic is about the growth rate, not a pointwise
+inequality).

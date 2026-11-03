@@ -3,7 +3,7 @@
 
 Lemma 2.1 (2-adic box, c in {7, 15}): for p == 1 (mod 8) prime, c is a coordinate (certificate exists on the U- or
 T-line) iff the odd part of p+c or of cp+1 has a prime factor q with Jacobi (q/c) = -1.
-Prop 2.2 (prime cofactor): for 4 | c, if p + c = s*q with q prime, q > s... (any factorization N = s*q with q prime
+Prop 1.2 (prime cofactor): for 4 | c, if p + c = s*q with q prime, q > s... (any factorization N = s*q with q prime
 not dividing s): some d | p+c with d == -1 (mod c) exists iff s has a divisor == -1 or == -p (mod c).
 """
 import sys
@@ -42,10 +42,10 @@ def check_prop22(X):
                 lhs = has_cert(N, c)
                 rhs = any(t % c == c-1 or t % c == (-p) % c for t in divisors(s))
                 if lhs != rhs:
-                    bad += 1; print('P2.2 mismatch', p, c, q, s, lhs, rhs)
+                    bad += 1; print('P1.2 mismatch', p, c, q, s, lhs, rhs)
     return n, bad
 
 if __name__ == '__main__':
     X = int(sys.argv[1]) if len(sys.argv) > 1 else 200000
     print('Lemma 2.1 (c=7,15), p<%d: (cases, mismatches) =' % X, check_lemma21(X))
-    print('Prop 2.2 (4|c<=64, prime cofactor), p<%d: (cases, mismatches) =' % X, check_prop22(X//4))
+    print('Prop 1.2 (4|c<=64, prime cofactor), p<%d: (cases, mismatches) =' % (X//4), check_prop22(X//4))
