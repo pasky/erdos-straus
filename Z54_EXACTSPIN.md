@@ -1,7 +1,7 @@
 # Z54_EXACTSPIN — spins, Kummer and Rédei-type symbols over the free variable w in the exact class layer T_uw
 
-Status: z54 depth lane EXACTSPIN (gap 2, algebraic angle). Internal; internally hostile-reviewed (review log §9);
-cross-model review to follow. **ES is OPEN; nothing here proves or disproves ES, or (★), at any infinite set of primes.**
+Status: z54 depth lane EXACTSPIN (gap 2, algebraic angle). Internal; internally hostile-reviewed and cross-model
+reviewed (review log §9). **ES is OPEN; nothing here proves or disproves ES, or (★), at any infinite set of primes.**
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z54_exactspin_*`, data
 `data/z54/exactspin/`. Builds on `Z53_GENUSX.md` (notation, Thm X, Lemmas 1, 2, 4.1–4.6) and `Z53_GENUSLVAL.md` (Thm U).
 
@@ -19,7 +19,8 @@ Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. S
 ## 1. Setting and the precise statement attacked
 
 Notation of `Z53_GENUSX` §1:
-* p ≡ 1 (4) is prime, and γ < 1 − α₁.
+* p ≡ 1 (4) is prime, γ < 1 − α₁, and the standing hypotheses of GENUSX §4 hold: Y ≥ U₁ (β > α₁) and p ≥ p₀ large enough
+  that 8U₁X ≤ p. Orders k are always ≥ 3 below.
 * The Thm U family is 𝔉 = {(u, w)}: u ∈ 𝒰 (squarefree, u ≡ 1 (4), U₀ < u ≤ U₁, gcd(u, p) = 1), and w ∈ 𝒮_u ∩ (Y, X]
   (odd squarefree, gcd(w, up) = 1).
 * The shell is 𝔖 = {(u, w) ∈ 𝔉 : w | p + u}. On 𝔖, w″ := (p + u)/(2w) is odd and prime to u.
@@ -89,7 +90,8 @@ conventions (in particular gcd(u, m) = 1), S₂ = S_o = 0 *pointwise*.
 the S₂ factor is φ(u)⁻¹Σ_{ψ₂²≠1}Σ_{ψ_o}ψ₂ψ_o(x), and the S_o factor is φ(u)⁻¹Σ_{ψ₂²=1}Σ_{ψ_o≠1}ψ₂ψ_o(x).
 (c) Both terms of (a) contain 1[x ∈ G²] or 1[x₂ = 1] (which implies x ∈ G²). At n = m²: gcd(w″, u) | gcd(n, u) = 1 and,
 for ℓ | u, 2ww″ ≡ m² (mod ℓ). By Jacobi reciprocity (u ≡ 1 (4)),
-(−w″/u) = (w″/u) = (u/w″) = ((2ww″ − m²)/w″) = (−1/w″) = −1 when w″ ≡ 3 (4) (gcd(w″, m) = 1 because gcd(w″, u) = 1).
+(−w″/u) = (w″/u) = (u/w″) = ((2ww″ − m²)/w″) = (−m²/w″) = (−1/w″) = −1 when w″ ≡ 3 (4). Here gcd(w″, m) = 1 follows from
+the shell equation 2ww″ = m² + u: a common prime of w″ and m would divide u, contradicting gcd(u, m) = 1.
 So some ℓ | u has (−w″/ℓ) = −1, i.e. x ∉ G². This is Thm U §2.8 / GENUSX Lemma 2 at squares. ∎
 
 **Lemma 3.2 (order-k layers at squares).** For every k ≥ 3 and x ∈ G_u,
@@ -130,7 +132,8 @@ characters of (ℤ/ℓ)^× of exact order k are x ↦ (x/𝔩)_k^j, j ∈ (ℤ/k
 and
   (x/𝔩)_k = (−w″/𝔩)_k = (−p/(2w) / 𝔩)_k = (−1/𝔩)_k·(p/𝔩)_k·(2w/𝔩)_k⁻¹.
 The power-residue symbol (a/𝔩)_k is the Frobenius at 𝔩 acting on a^{1/k}. So the order-k class at prime u is the common
-value at 𝔩 of the Kummer symbols of the two (generally different) Kummer extensions ℚ(ζ_k, (−w″)^{1/k}) and
+value at 𝔩 (k ≥ 3, p > ℓ > k on the family for large p) of the Kummer symbols of the two (generally different) Kummer
+extensions ℚ(ζ_k, (−w″)^{1/k}) and
 ℚ(ζ_k, (−p/(2w))^{1/k}). The second is ramified at p, the first is not; only their Frobenius at 𝔩 agrees. In the product
 form, the p-factor (p/𝔩)_k is the Frobenius of 𝔩 in the Kummer field ℚ(ζ_k, p^{1/k}), which depends only on p. The
 w-factor is the Frobenius of 𝔩 in ℚ(ζ_k, (2w)^{1/k}), which depends on the free variable. Replacing 𝔩 by a conjugate
@@ -264,8 +267,10 @@ So on non-cube c, Δ₃^{pr} is a weighted covariance, fibre by fibre, between t
 each fibre by Lemma 4.3) and the weight Φ_cν. In torus coordinates α/c ∈ ℂ/ℤ[ω], this is the equidistribution of the roots
 of N α ≡ −p (mod c), *twisted by the cubic symbol*, in a disc of radius √U₁/c around 0. It is a Hooley /
 Duke–Friedlander–Iwaniec-type question for the fixed polynomial N(α) + p, compatible with B6 (p fixed, the modulus c free),
-but at a shrinking scale: the expected number of roots of one fibre in the disc is ≍ |𝔑(c)|·U₁/c² = c^{o(1)}U₁/c, which is
-< 1 on the shell. The cube moduli c ≤ (p + U₁)/(2Y) number at most ((p + U₁)/(2Y))^{1/3}.
+but at a shrinking scale: the heuristic expected number of roots of one fibre in the disc is ≍ |𝔑(c)|·U₁/c² = c^{o(1)}U₁/c.
+On the shell c = w″ ≥ p/(2X) ≥ p^{1−γ}/2 and U₁ = p^{α₁}, so U₁/c ≤ 2p^{−(1−γ−α₁)}; the strict gap 1 − γ − α₁ > 0 (C1) absorbs
+the c^{o(1)} Euler product and makes this expected count < 1 for large p (an expectation, not a proved bound). The cube
+moduli c ≤ (p + U₁)/(2Y) number at most ((p + U₁)/(2Y))^{1/3}; on them the identity holds but the fibre mean is not 0.
 *Proof.* Lemma 4.2(a) with 3 ∤ w″ gives (x/π)₃ = (π/c)₃ with c = w″, constant on π + cℤ[ω]. The two primary primes π, π̄
 above ℓ lie in different cosets, satisfy the same conditions, and give the same Re. The shell point's Δ₃ term is
 2·(ℓ − 1)⁻¹·2Re(x/π)₃ = Σ_{π,π̄} ν·Re(·). The vanishing is Lemma 4.3 with m = c. ∎
@@ -303,7 +308,7 @@ Sources (from the papers' theorem statements, `data/z54/exactspin/lit_spins.md`;
 | requirement | FIMR / KM | here | status |
 |---|---|---|---|
 | kind of symbol | quadratic symbol (α/𝔞^σ) of an ideal against a Galois conjugate | k-th power symbol (π_u/w)_k of the prime above the residual u = r_w against the free modulus (Lemmas 4.2, 4.4) | different: no identification with (generalised) spins supplied |
-| base field / automorphism | totally real cyclic, n ≥ 3, σ ≠ σ⁻¹ (KM: inverse-free S) | ℚ(ζ₃), ℚ(i): imaginary quadratic, the only non-trivial automorphism satisfies σ = σ⁻¹ | ✗ (the hypotheses are not met) |
+| base field / automorphism | FIMR: totally real cyclic, n ≥ 3, σ ≠ σ⁻¹. KM: a totally complex dihedral degree-8 field (Compositio) and general Galois K, possibly totally complex, with inverse-free S (Duke) | ℚ(ζ₃), ℚ(i): imaginary quadratic, the only non-trivial automorphism satisfies σ = σ⁻¹ | ✗ (the hypotheses are not met) |
 | field fixed, constants uniform | constants depend on K | the p-part needs the conductor-p twist (ℚ(ζ_k, p^{1/k})); uniformity in p not provided | ✗ |
 | bounded order | one fixed n | fixed k per layer; the full class needs every order (Lemma 3.3) | ✗ for the layer |
 | summation set | all prime ideals of K (boxes for Type I) | the shell, with small fibres (Lemma 4.5) | ✗ for the direct approach |
@@ -313,21 +318,26 @@ Sources (from the papers' theorem statements, `data/z54/exactspin/lit_spins.md`;
 (i) *PROVED.* On the exact shell, every fixed-modulus fibre has ≤ 6τ(u) points and every fixed-argument fibre is one
 integer's divisor set (Lemma 4.5). Characters of order dividing a fixed K do not reconstruct the class event outside the
 finite menu 𝒰_K (Lemma 3.3).
-(ii) *Assessment.* The cited spin theorems do not apply as stated: wrong kind of symbol and base field (table), no
+(ii) *Assessment.* The cited spin theorems do not apply as stated: no matching spin representation of the layer is
+supplied; our base fields ℚ(ζ₃), ℚ(i) have only an involution (incompatible with KM's inverse-free condition and with FIMR's
+cyclic degree ≥ 3); the shell weights do not match their summation sets (table); no
 uniformity in p or in the order, and no identified Type I/II structure in the summation set. Finitely many fixed-order
 estimates (Sp-k) would alone leave the high-order remainder of Lemma 3.3 uncontrolled.
 (iii) *Formal exponent heuristic only.* FIMR's exponent satisfies ν ≤ 1/(n²(12n + 1)) when δ ≤ 2/n. Ignoring ε and the
-field-dependent constants, a bound of shape x^{1−ν} with this ν would be non-trivial only while ν log x → ∞, i.e. for
-n ≲ (log x)^{1/3}. No theorem with growing fields exists to which this applies; this only indicates the order of the gap.
+field-dependent constants, a relative saving x^{−ν} with this ν tends to 0 only if ν log x → ∞, which forces n = o((log x)^{1/3})
+(a necessary condition only; the upper bound on ν gives no sufficient range). No theorem with growing fields to which this
+applies was supplied or located; this only indicates the order of the gap.
 
 **Proposition 5.2 (a limitation of the smooth Fourier majorant for the cubic layer; PROVED, scoped).**
 *Setting.* Use the coordinates of Prop 4.6.
-* Take a dyadic block c ∈ (C, 2C], gcd(c, 6p) = 1, with the perfect cubes excluded throughout. (Each cube carries a
-  non-vanishing zero mode; their total is O(r²C^{4/3+o(1)}), relative size C^{−2/3+o(1)}.)
-* Fix f₀ ∈ C_c^∞ supported in the unit disc, and put f_r(z) := f₀(z/r) on the torus 𝕋 := ℂ/ℤ[ω], with r := C^{θ−1}.
+* Take a dyadic block c ∈ (C, 2C], gcd(c, 6p) = 1, with the perfect cubes excluded throughout. (On a cube modulus the zero Fourier
+  mode does not vanish; the sum of these zero modes is O(r²C^{4/3+o(1)}). This bounds only the zero modes, not the whole
+  contribution of cube moduli in a shrinking disc, whose other modes would need separate control; we keep cubes excluded.)
+* Fix f₀ ∈ C_c^∞, f₀ ≥ 0, ∫f₀ > 0, supported in the unit disc, and put f_r(z) := f₀(z/r) on the torus 𝕋 := ℂ/ℤ[ω], with r := C^{θ−1}.
 * Then |f̂_r(m)| ≪_B r²(1 + r|m|)^{−B} uniformly. Put
   N_f(C) := Σ_c Σ_{α∈𝔑(c)} f_r(α/c) and D_f(C) := Σ_c Σ_{α∈𝔑(c)} f_r(α/c)(α/c)₃.
-* N_f(C) has expected size C^{2+o(1)}r².
+* Heuristically (equidistribution of roots), N_f(C) has expected size C^{2+o(1)}r²; no lower bound for N_f(C) is proved,
+  and the normalisation below is relative to this expected size.
 * On the Thm U shell the relevant θ satisfies θ ≤ 1/2. Indeed c = w″ > 4U₁ (GENUSX Lemma 4.1), so a block containing shell
   points has U₁ < C/2 and disc radius √U₁/c < C^{−1/2}.
 
@@ -356,9 +366,9 @@ The transfer from the smooth disc to Φ_cν is open. Any such route would reach 
    this connects to Kubota's metaplectic covers of SL₂ over ℤ[ω], ℤ[i], and to their spectral theory, is speculative and
    not developed. Any result would again be per fixed order.
 2. *Quartic layer as a product over the prime factors of w.* By Lemma 4.4, at prime u the quartic symbol is
-   ε·(ℓ/ρ)₄⁻¹(π_u/ρ)₂·∏_{q|w}(π_u/q)₄⁻¹. Each split q = κκ̄ contributes (π_u/κ)₂(−p/κ)₄⁻¹; each inert q contributes the
-   angle factor Ξ_q(θ)⁻¹. At fixed u this is a twisted divisor sum of p + u (B2). Across u, the field ℚ(i, √π_u) moves. A
-   fixed-p joint-spin theorem over a family of fields indexed by u ≤ p^{α₁} is not available.
+   ε·(ℓ/ρ)₄⁻¹(π_u/ρ)₂·∏_{q|w}(π_u/q)₄⁻¹. Since (π_u/q)₄ = (π_u/κ)₂(−p/κ)₄⁻¹ for split q = κκ̄ (Lemma 4.4(c)), each split q
+   contributes the inverted factor (π_u/κ)₂(−p/κ)₄ to the product; each inert q contributes the angle factor Ξ_q(θ)⁻¹. At fixed u this is a twisted divisor sum of p + u (B2). Across u, the field ℚ(i, √π_u) moves. A
+   fixed-p joint-spin theorem over a family of fields indexed by u ≤ p^{α₁} was not supplied or located.
 3. *Dual windows.* If the class modulus u is the long variable (u ≫ w), Lemma 4.3 can be used in the variable π with w fixed,
    and bounded-order layers become density-level. Controlling them would need a Burgess-type bound for Hecke characters of
    conductor ≍ pw over boxes in ℤ[ω] (rows of length ≥ (pw)^{1/4+ε}). No such theorem with this conductor uniformity was
@@ -368,8 +378,11 @@ The transfer from the smooth disc to Φ_cν is open. Any such route would reach 
 ## 6. Falsifier F: are the spin layers biased? (EVIDENCE; identities CERTIFIED on these runs)
 
 **Design.** A spin *law* would be a bias of the class of w″ inside its genus coset forced by higher reciprocity. It would
-show up as a non-zero sample mean of the layers in units of their random-model standard deviation. A cancellation
-statement (Sp-k) would then be false or would need a main term. The statistic is one aggregate per prime, averaged over
+show up as a non-zero sample mean of the layers in units of their random-model standard deviation. Such a detection would
+*not* by itself falsify (Sp-k): a bias of size b·log p against a model standard deviation ≍ log p gives a non-zero mean z
+but is still o(log²p). Falsifying (Sp-k) needs a lower bound on the log²p scale along an unbounded sequence of p, which a
+finite sample cannot give. The falsifier therefore tests only for a residue-class bias (a spin law), not the cancellation
+estimate. The statistic is one aggregate per prime, averaged over
 sampled primes. It cannot detect a p-dependent bias that changes sign across p, and it does not test pointwise
 independence.
 
@@ -479,8 +492,8 @@ statements.
   * For k = 3 (Lemma 4.2, including the ramified factor (3/π)₃^{−v}): (x/π)₃ = Ξ_p(θ)Ξ_{2w₁}(θ)⁻¹(3/π)₃^{−v}. This is an
     anticyclotomic character of the angle θ = π_u/π̄_u modulo p·2w₁ — with π_u the primary generator of a fixed prime above
     u; the conjugate prime gives the conjugate value.
-  * For k = 4 (Lemma 4.4): (x/π)₄ = ε(π, w)(π/p)₄(π/w)₄⁻¹, with (π/p)₄ = (u/ρ)₄⁻¹(π_u/ρ)₂. A split prime κ | w contributes
-    (π_u/κ)₂(−p/κ)₄⁻¹, and an inert prime contributes an angle factor.
+  * For k = 4 (Lemma 4.4): (x/π)₄ = ε(π, w)(π/p)₄(π/w)₄⁻¹, with (π/p)₄ = (u/ρ)₄⁻¹(π_u/ρ)₂. For a split prime q = κκ̄ | w,
+    (π_u/q)₄ = (π_u/κ)₂(−p/κ)₄⁻¹ (so it enters (x/π)₄ as (π_u/κ)₂(−p/κ)₄); an inert prime contributes an angle factor.
 * *Q1, full layer.* No bounded-degree identification is established. The displayed construction at prime u uses
   ℚ(ζ_{u−1}).
 * *Decomposition (PROVED).* R_𝔉 − G_𝔉 = S₂ + S_o with S₂ = Σ_{4|k}Δ_k and S_o = Σ_{4∤k}Δ_k. Both vanish pointwise off the
@@ -500,13 +513,13 @@ statements.
   * S₂ and S_o each carry ≈ ½ of var(R − G).
   * A small positive offset of R − G (+0.03σ, pooled) is unexplained.
 * *What survives (Assessment).*
-  * A fixed-p theory of symbols over a *moving* family of fields indexed by u ≤ p^{α₁}; no such theorem is known.
+  * A fixed-p theory of symbols over a *moving* family of fields indexed by u ≤ p^{α₁}; none was supplied or located.
   * Signed or non-Fourier methods for the twisted 2-dimensional root problem, e.g. a hermitian-form/metaplectic approach
     (§5 hatch 1), which would still be per fixed order.
   * Type II structure in the residual map w ↦ r_w. EXACTSUM's exponential-sum angle attacks the same map analytically.
 
 *Proposed FRONTIER §7 text* (append to item 3, after the GENUSX entry):
-> *(z54, `Z54_EXACTSPIN.md`, internal hostile review applied; cross-model review pending.)* Higher-order symbols on the
+> *(z54, `Z54_EXACTSPIN.md`, internal hostile review and cross-model review applied.)* Higher-order symbols on the
 > exact class layer.
 > * R_𝔉 − G_𝔉 = S₂ + S_o, with S₂ = Σ_{4|k}Δ_k (characters of order divisible by 4) and S_o = Σ_{k≥3, 4∤k}Δ_k (PROVED).
 >   Both vanish pointwise at odd squares, but only via the empty genus; the individual Δ_k with 4 ∤ k do not.
@@ -515,7 +528,8 @@ statements.
 >     ℚ(ζ_k, p^{1/k}).
 >   * For k = 3, (x/π)₃ = Ξ_p(θ)Ξ_{2w₁}(θ)⁻¹(3/π)₃^{−v}: an anticyclotomic character of the angle θ = π_u/π̄_u, with a
 >     ramified factor at 3.
->   * For k = 4, (x/π)₄ = ε(π, w)(π/p)₄(π/w)₄⁻¹, with (π/p)₄ = (u/ρ)₄⁻¹(π_u/ρ)₂ and split-prime factors (π_u/κ)₂(−p/κ)₄⁻¹.
+>   * For k = 4, (x/π)₄ = ε(π, w)(π/p)₄(π/w)₄⁻¹, with (π/p)₄ = (u/ρ)₄⁻¹(π_u/ρ)₂ and, for split q = κκ̄ | w,
+>     (π_u/q)₄ = (π_u/κ)₂(−p/κ)₄⁻¹.
 >   * No bounded-degree identification of the full layer is established.
 > * Scoped limitations (PROVED as stated).
 >   * Complete sums over norm fibres vanish, but on the (★) support each fixed-modulus fibre has ≤ 6τ(u) points (the level
@@ -523,15 +537,19 @@ statements.
 >   * Fixed orders do not reconstruct the class outside a finite menu of u.
 >   * The cubic layer is a twisted equidistribution problem for roots of N(α) ≡ −p (mod c) in discs of radius ≤ c^{−1/2};
 >     the smooth Fourier majorant would need better-than-square-root input there.
-> * FIMR / Koymans–Milovic do not apply as stated: quadratic spins in totally real cyclic fields of degree ≥ 3, versus
->   k-th power symbols over ℚ(ζ₃), ℚ(i), with no uniformity in p or the order (Assessment). B6 is not the obstruction.
-> * EVIDENCE (10⁹–10¹⁴): no significant sample-average bias at any listed order ≤ 24 (|mean z| ≤ 0.18, sd ≈ 1). S₂ and S_o
->   each carry ≈ ½ of var(R − G).
+> * FIMR / Koymans–Milovic do not apply as stated (Assessment): no matching spin representation of the layer is supplied;
+>   the base fields ℚ(ζ₃), ℚ(i) have only an involution (FIMR needs cyclic degree ≥ 3, KM an inverse-free set of
+>   automorphisms); the shell weights do not match their summation sets; and conductor-p and order uniformity are missing.
+>   B6 is not the obstruction.
+> * EVIDENCE (10⁹–10¹⁴): no significant individual-sample bias at any listed order ≤ 24 (|mean z| ≤ 0.18, sd ≈ 1); a pooled
+>   +0.03σ (3.0 se) offset of R − G is unexplained. Such tests detect residue-class bias only; they cannot falsify an
+>   o(log²p) bound. S₂ and S_o each carry ≈ ½ of var(R − G).
 
 **Bottom line.** At every fixed order, the class of the level divisor inside its genus coset has an explicit Kummer
 description at prime u. Its p-factor is a Frobenius in ℚ(ζ_k, p^{1/k}), a field depending only on p. In the cubic and
 quartic cases the coupling to the free variable is an anticyclotomic character of the angle of the prime above u, read
-modulo w; this coupling carries the tie. Numerically no sample-average bias appears in any layer up to 10¹⁴. But this
+modulo w; this coupling carries the tie. Numerically no significant individual-sample bias appears in any layer up to 10¹⁴ (a pooled +0.03σ offset of R − G
+is unexplained); such tests cannot falsify an o(log²p) bound. But this
 does not produce a bound:
 * the cited spin theorems do not apply as stated (different symbol, base field, uniformity and summation set);
 * the direct complete-fibre averaging is unavailable on the (★) support, because there the level divisor always exceeds
@@ -587,4 +605,16 @@ Fixes applied (finding numbers in brackets):
 * [22] Precedents are credited (§2).
 * [23] Stale checkpoint counts, a dangling lemma reference, and the "non-squares" wording are fixed.
 
-A cross-model review is to follow.
+**Cross-model review** (`data/z54/xreview/REVIEW_EXACTSPIN.md`, script `scripts/z54_xrev_exactspin_check.py`; verdict
+ACCEPT-WITH-FIXES; every lemma independently re-derived as CORRECT or CORRECT-WITH-FIX; all tables, square controls and the
+24 dictionary runs reproduced; extra global (3/π)₃ check over 181 cubic u, all 9 classes mod 9). Fixes applied:
+(1) the FRONTIER synopsis no longer attributes FIMR's totally-real cyclic restriction to Koymans–Milovic (KM covers a
+totally complex dihedral field and general Galois fields with inverse-free S); the obstruction is stated as no matching
+spin representation, involution-only base fields, non-matching shell weights and missing conductor/order uniformity;
+"no theorem exists" → "none supplied/located". (2) §6 Design: a detected standardized bias would not falsify (Sp-k)
+(b·log p bias is still o(log²p)); the falsifier tests residue-class bias only, and the pooled 3.0-se offset is kept in
+the export. (3) Props 4.6/5.2: f₀ ≥ 0 with ∫f₀ > 0, the size of N_f is an expectation (no lower bound proved), the cube
+term bounds only zero modes (cubes stay excluded), and the expected count < 1 uses the strict gap 1 − γ − α₁ > 0.
+(4) Hatch 2 / §8 / FRONTIER: a split q = κκ̄ | w has (π_u/q)₄ = (π_u/κ)₂(−p/κ)₄⁻¹ and enters (x/π)₄ inverted, as
+(π_u/κ)₂(−p/κ)₄. (5) Standing hypotheses Y ≥ U₁, 8U₁X ≤ p (p large), k ≥ 3 made explicit; Cor 5.1(iii) states the
+necessary condition n = o((log x)^{1/3}); the square proof derives gcd(w″, m) = 1 from 2ww″ = m² + u.
