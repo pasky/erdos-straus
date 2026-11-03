@@ -1,0 +1,66 @@
+== gen10 (3000 consecutive primes after 1e10, U=316, H=32)
+samples=96000 mean|T|^2/|E1+|=0.9962
+t=0.5 emp=7.788e-01 rayleigh=7.788e-01
+t=1.0 emp=3.653e-01 rayleigh=3.679e-01
+t=1.5 emp=1.037e-01 rayleigh=1.054e-01
+t=2.0 emp=1.842e-02 rayleigh=1.832e-02
+t=2.5 emp=1.875e-03 rayleigh=1.930e-03
+t=3.0 emp=1.146e-04 rayleigh=1.234e-04
+t=3.5 emp=0.000e+00 rayleigh=4.785e-06
+t=4.0 emp=0.000e+00 rayleigh=1.125e-07
+t=4.5 emp=0.000e+00 rayleigh=1.605e-09
+== sq10 (600 odd squares (2i+1)^2, i=50000..50599, U=316, H=32)
+samples=19200 mean|T|^2/|E1+|=1.0052
+t=0.5 emp=7.789e-01 rayleigh=7.788e-01
+t=1.0 emp=3.680e-01 rayleigh=3.679e-01
+t=1.5 emp=1.055e-01 rayleigh=1.054e-01
+t=2.0 emp=1.948e-02 rayleigh=1.832e-02
+t=2.5 emp=2.448e-03 rayleigh=1.930e-03
+t=3.0 emp=2.604e-04 rayleigh=1.234e-04
+t=3.5 emp=5.208e-05 rayleigh=4.785e-06
+t=4.0 emp=0.000e+00 rayleigh=1.125e-07
+t=4.5 emp=0.000e+00 rayleigh=1.605e-09
+== nsq10
+samples=19200 mean|T|^2/|E1+|=0.9965
+t=0.5 emp=7.786e-01 rayleigh=7.788e-01
+t=1.0 emp=3.707e-01 rayleigh=3.679e-01
+t=1.5 emp=1.022e-01 rayleigh=1.054e-01
+t=2.0 emp=1.839e-02 rayleigh=1.832e-02
+t=2.5 emp=2.396e-03 rayleigh=1.930e-03
+t=3.0 emp=2.083e-04 rayleigh=1.234e-04
+t=3.5 emp=0.000e+00 rayleigh=4.785e-06
+t=4.0 emp=0.000e+00 rayleigh=1.125e-07
+t=4.5 emp=0.000e+00 rayleigh=1.605e-09
+== nrat10
+samples=16000 mean|T|^2/|E1+|=0.9993
+t=0.5 emp=7.863e-01 rayleigh=7.788e-01
+t=1.0 emp=3.716e-01 rayleigh=3.679e-01
+t=1.5 emp=1.044e-01 rayleigh=1.054e-01
+t=2.0 emp=1.762e-02 rayleigh=1.832e-02
+t=2.5 emp=1.313e-03 rayleigh=1.930e-03
+t=3.0 emp=6.250e-05 rayleigh=1.234e-04
+t=3.5 emp=0.000e+00 rayleigh=4.785e-06
+t=4.0 emp=0.000e+00 rayleigh=1.125e-07
+t=4.5 emp=0.000e+00 rayleigh=1.605e-09
+== n4p10
+samples=12800 mean|T|^2/|E1+|=0.9874
+t=0.5 emp=7.734e-01 rayleigh=7.788e-01
+t=1.0 emp=3.647e-01 rayleigh=3.679e-01
+t=1.5 emp=1.030e-01 rayleigh=1.054e-01
+t=2.0 emp=1.656e-02 rayleigh=1.832e-02
+t=2.5 emp=1.250e-03 rayleigh=1.930e-03
+t=3.0 emp=0.000e+00 rayleigh=1.234e-04
+t=3.5 emp=0.000e+00 rayleigh=4.785e-06
+t=4.0 emp=0.000e+00 rayleigh=1.125e-07
+t=4.5 emp=0.000e+00 rayleigh=1.605e-09
+== sq10b (3000 odd squares (2i+1)^2, i=50600..53599, U~316-339, H=32)
+samples=96000 mean|T|^2/|E1+|=1.0060
+t=0.5 emp=7.784e-01 rayleigh=7.788e-01
+t=1.0 emp=3.690e-01 rayleigh=3.679e-01
+t=1.5 emp=1.080e-01 rayleigh=1.054e-01
+t=2.0 emp=1.930e-02 rayleigh=1.832e-02
+t=2.5 emp=1.979e-03 rayleigh=1.930e-03
+t=3.0 emp=1.458e-04 rayleigh=1.234e-04
+t=3.5 emp=1.042e-05 rayleigh=4.785e-06
+t=4.0 emp=0.000e+00 rayleigh=1.125e-07
+t=4.5 emp=0.000e+00 rayleigh=1.605e-09

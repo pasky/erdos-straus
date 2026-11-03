@@ -1,0 +1,9 @@
+P0=100000000 primes=200 U~100 checks_failed=0 mean|E1|=271.88 mean|E1+|=151.30
+  T=0: mean sum_|tau|<=T N^[tau] = 1.695  (ratio to T: 1.695)
+  T=1: mean sum_|tau|<=T N^[tau] = 2.760  (ratio to T: 2.760)
+  T=4: mean sum_|tau|<=T N^[tau] = 5.715  (ratio to T: 1.429)
+  T=16: mean sum_|tau|<=T N^[tau] = 19.860  (ratio to T: 1.241)
+  T=64: mean sum_|tau|<=T N^[tau] = 73.835  (ratio to T: 1.154)
+  delta=0.02: mean A(delta) = 6.440  vs 2*delta*|E1+| = 6.052
+  delta=0.05: mean A(delta) = 15.415  vs 2*delta*|E1+| = 15.130
+  delta=0.1: mean A(delta) = 30.785  vs 2*delta*|E1+| = 30.260
