@@ -39,7 +39,7 @@ Definitions from `Z53_GENUSX.md` §1, §4 (family 𝔉, R_𝔉, M_𝔉, G_𝔉, 
 
 ## 1. Exact forms of hits(p) (PROVED)
 
-Throughout p ≡ 1 (mod 4) is prime, windows satisfy (C1) γ < 1 − α₁ (so 8uw ≤ p) and p ≥ p₀(window) so that U₁ := p^{α₁} < Y := p^β
+Throughout p ≡ 1 (mod 4) is prime and windows satisfy (C1) γ < 1 − α₁ (so 8uw ≤ p for p ≥ p₀(window)); U₁ := p^{α₁} < Y := p^β
 is *not* assumed unless stated (Lemma 1.3(ii) covers both cases). 𝒰 := {u ≡ 1 (4) squarefree, U₀ < u ≤ U₁}; 𝒲 := {w odd
 squarefree, Y < w ≤ X}. For (u, w) ∈ 𝔉 with w | p + u put n_u := (p + u)/2 (odd, since p + u ≡ 2 (4)) and w″ := n_u/w.
 
@@ -53,8 +53,8 @@ satisfying them (gcd(w, up) = 1 is then automatic: gcd(w, u) | gcd(p + u, u) = 1
 *Proof.* (a)⟺(b): w″ ≡ −1 (4u) ⟺ (p + u) = 2ww″ ≡ −2w (mod 8uw) (w is a unit mod 4u, and the factor 2 is carried along:
 2ww″ ≡ −2w (8uw) ⟺ ww″ ≡ −w (4uw) ⟺ w″ ≡ −1 (4u)). (b)⟺(c): p + u + 2w = 8uwC. (c)⟹ 4Cp + 1 = 32uwC² − 4uC − 8wC + 1 =
 (4uC − 1)(8wC − 1), and w″ = (p + u)/(2w) = (8uwC − 2w)/(2w) = 4uC − 1. (c)⟺(d): p + 2w = u(8wC − 1). (a)⟺(e): if (a) holds,
-d = w″ = 4uC − 1 ≡ 3 (4), p ≡ −u (mod d) and 0 < u ≤ U₁ < p^{1−γ}/2 < d (d = (p+u)/(2w) > p/(2X)), so u is the least residue
-of −p mod d; conversely (e) gives p + u = 2dw with d ≡ −1 (4u). ∎
+d = w″ = 4uC − 1 ≡ 3 (4), p ≡ −u (mod d) and 0 < u < 4u − 1 ≤ d, so u is the least residue of −p mod d; conversely (e) gives
+p + u ≡ 0 (mod d) with p + u ≡ 2 (4) and d odd, so w = (p + u)/(2d) is an integer and w″ = d ≡ −1 (4u). ∎
 *Check (CERTIFIED).* `scripts/z55_crossf_count.py --brute` computes hits by (a) (factoring n_u), by (c) (no factorisation:
 loop over (u, C)) and by (e) (loop over d) and agrees on all test primes (`data/z55/crossf/validate_forms.tsv`), and with the
 z53 engine's R on 52 primes at 10⁹–10^{12} (`xcheck_vs_z53.tsv`, 0 mismatches). The two exhaustive scanners of §3 (u-form
