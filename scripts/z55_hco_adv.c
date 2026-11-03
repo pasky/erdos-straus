@@ -42,7 +42,7 @@ static u64 witness(u64 N,u64 c){
   for(int i=1;i<F.nf;i++){u64 t=F.f[i];int j=i-1;while(j>=0&&F.f[j]>t){F.f[j+1]=F.f[j];j--;}F.f[j+1]=t;}
   // group
   u64 pr[64]; int ex[64]; int ng=0; for(int i=0;i<F.nf;){u64 q=F.f[i];int e=0;while(i<F.nf&&F.f[i]==q){e++;i++;} pr[ng]=q;ex[ng]=e;ng++;}
-  // enumerate divisors directly (counts small: tau(N) <= ~ 7000 for N < 2^63)
+  // enumerate divisors directly into a 2^15 buffer (guarded below; max tau(N) is 17280 for N < 1e14, ~161280 for N < 2^63)
   static __thread u64 dv[1<<15]; int nd=1; dv[0]=1;
   for(int g=0;g<ng;g++){ int cur=nd; u64 pe=1; if((long)cur*(ex[g]+1) > (1<<15)){ fprintf(stderr,"tau overflow N=%llu\n",N); exit(2);} for(int j=1;j<=ex[g];j++){ pe*=pr[g]; for(int k=0;k<cur;k++) dv[nd++]=dv[k]*pe; } }
   for(int i=0;i<nd;i++) if(dv[i]%c==c-1) return dv[i];

@@ -1,126 +1,126 @@
-21841 64 ncert 2 min modulus 575 ratio log(mod)/log(p) = 0.636
-92401 47 ncert 2 min modulus 47 ratio log(mod)/log(p) = 0.337
-691681 56 ncert 1 min modulus 4872 ratio log(mod)/log(p) = 0.631
-7378849 44 ncert 2 min modulus 747 ratio log(mod)/log(p) = 0.418
-83816041 47 ncert 2 min modulus 1268 ratio log(mod)/log(p) = 0.392
-404315521 44 ncert 4 min modulus 4575 ratio log(mod)/log(p) = 0.425
-407188321 52 ncert 3 min modulus 988 ratio log(mod)/log(p) = 0.348
-813642481 44 ncert 6 min modulus 967 ratio log(mod)/log(p) = 0.335
-819173161 47 ncert 5 min modulus 281 ratio log(mod)/log(p) = 0.275
-846671401 44 ncert 3 min modulus 4180 ratio log(mod)/log(p) = 0.406
-988314721 44 ncert 1 min modulus 98340 ratio log(mod)/log(p) = 0.555
-1538670961 44 ncert 2 min modulus 219 ratio log(mod)/log(p) = 0.255
-2591127361 44 ncert 2 min modulus 4135 ratio log(mod)/log(p) = 0.384
-3014346241 55 ncert 2 min modulus 96524 ratio log(mod)/log(p) = 0.526
-3702250561 44 ncert 3 min modulus 131 ratio log(mod)/log(p) = 0.221
-3997176121 48 ncert 1 min modulus 22127 ratio log(mod)/log(p) = 0.453
-4506054001 44 ncert 3 min modulus 2111 ratio log(mod)/log(p) = 0.344
-5538829321 44 ncert 5 min modulus 836 ratio log(mod)/log(p) = 0.300
-14110236001 44 ncert 4 min modulus 2244 ratio log(mod)/log(p) = 0.330
-19143648001 44 ncert 1 min modulus 615 ratio log(mod)/log(p) = 0.271
-19212879841 44 ncert 4 min modulus 79595 ratio log(mod)/log(p) = 0.477
-20543822209 44 ncert 4 min modulus 17203 ratio log(mod)/log(p) = 0.411
-21634765441 47 ncert 7 min modulus 281 ratio log(mod)/log(p) = 0.237
-23473850401 47 ncert 4 min modulus 37787 ratio log(mod)/log(p) = 0.441
-24544524601 44 ncert 6 min modulus 219 ratio log(mod)/log(p) = 0.225
-25921072321 44 ncert 2 min modulus 139875 ratio log(mod)/log(p) = 0.494
-26666038081 44 ncert 4 min modulus 835 ratio log(mod)/log(p) = 0.280
-26850846289 44 ncert 2 min modulus 546171 ratio log(mod)/log(p) = 0.550
-30153809401 44 ncert 4 min modulus 395 ratio log(mod)/log(p) = 0.248
-33257638801 55 ncert 4 min modulus 274 ratio log(mod)/log(p) = 0.232
-35450182849 44 ncert 2 min modulus 6116 ratio log(mod)/log(p) = 0.359
-35550443161 47 ncert 3 min modulus 9541 ratio log(mod)/log(p) = 0.377
-36044722921 44 ncert 1 min modulus 44351 ratio log(mod)/log(p) = 0.440
-38756671321 47 ncert 3 min modulus 21102 ratio log(mod)/log(p) = 0.408
-45153097201 44 ncert 4 min modulus 107316 ratio log(mod)/log(p) = 0.472
-45689850361 44 ncert 2 min modulus 46287 ratio log(mod)/log(p) = 0.438
-50783542681 47 ncert 1 min modulus 598404 ratio log(mod)/log(p) = 0.540
-57128428009 47 ncert 1 min modulus 1598 ratio log(mod)/log(p) = 0.298
-61183788241 47 ncert 2 min modulus 6156 ratio log(mod)/log(p) = 0.351
-74569832929 44 ncert 2 min modulus 6687 ratio log(mod)/log(p) = 0.352
-75329493121 44 ncert 8 min modulus 747 ratio log(mod)/log(p) = 0.264
-77100106561 44 ncert 7 min modulus 43 ratio log(mod)/log(p) = 0.150
-82074947161 47 ncert 4 min modulus 798 ratio log(mod)/log(p) = 0.266
-85343810161 44 ncert 1 min modulus 395 ratio log(mod)/log(p) = 0.238
-87476309761 47 ncert 2 min modulus 152232 ratio log(mod)/log(p) = 0.474
-91781907361 47 ncert 2 min modulus 892 ratio log(mod)/log(p) = 0.269
-92353433761 44 ncert 12 min modulus 131 ratio log(mod)/log(p) = 0.193
-94542544321 44 ncert 6 min modulus 263 ratio log(mod)/log(p) = 0.220
-95750020081 44 ncert 2 min modulus 1275 ratio log(mod)/log(p) = 0.283
-98059708321 44 ncert 2 min modulus 13375 ratio log(mod)/log(p) = 0.375
-105247979281 44 ncert 2 min modulus 42372 ratio log(mod)/log(p) = 0.420
-111087622801 44 ncert 2 min modulus 615 ratio log(mod)/log(p) = 0.252
-116059172161 44 ncert 6 min modulus 6555 ratio log(mod)/log(p) = 0.345
-116492839681 44 ncert 3 min modulus 219 ratio log(mod)/log(p) = 0.211
-128199254089 47 ncert 2 min modulus 89064 ratio log(mod)/log(p) = 0.446
-134851997281 44 ncert 4 min modulus 61863 ratio log(mod)/log(p) = 0.431
-135963591121 44 ncert 1 min modulus 70884 ratio log(mod)/log(p) = 0.436
-163157634721 44 ncert 4 min modulus 1671 ratio log(mod)/log(p) = 0.287
-166575282721 44 ncert 2 min modulus 8755 ratio log(mod)/log(p) = 0.351
-182285244961 44 ncert 3 min modulus 5015 ratio log(mod)/log(p) = 0.329
-201830307121 44 ncert 2 min modulus 4311 ratio log(mod)/log(p) = 0.322
-203583192121 44 ncert 6 min modulus 1143 ratio log(mod)/log(p) = 0.270
-216235162081 44 ncert 6 min modulus 18567 ratio log(mod)/log(p) = 0.377
-220660680241 44 ncert 6 min modulus 219 ratio log(mod)/log(p) = 0.206
-222982924921 44 ncert 3 min modulus 395 ratio log(mod)/log(p) = 0.229
-227692113289 47 ncert 4 min modulus 51981 ratio log(mod)/log(p) = 0.415
-231794559361 44 ncert 3 min modulus 747 ratio log(mod)/log(p) = 0.253
-239727099361 47 ncert 1 min modulus 3027316 ratio log(mod)/log(p) = 0.570
-243513950761 44 ncert 10 min modulus 43 ratio log(mod)/log(p) = 0.143
-255455936761 44 ncert 5 min modulus 615 ratio log(mod)/log(p) = 0.244
-256446302641 47 ncert 4 min modulus 892 ratio log(mod)/log(p) = 0.259
-277541057641 47 ncert 1 min modulus 47 ratio log(mod)/log(p) = 0.146
-278150452441 44 ncert 2 min modulus 518055 ratio log(mod)/log(p) = 0.499
-296811891601 44 ncert 2 min modulus 19843 ratio log(mod)/log(p) = 0.375
-302957055241 44 ncert 3 min modulus 22307 ratio log(mod)/log(p) = 0.379
-303473468929 47 ncert 3 min modulus 799 ratio log(mod)/log(p) = 0.253
-307476099841 44 ncert 3 min modulus 11220 ratio log(mod)/log(p) = 0.353
-340367430001 44 ncert 2 min modulus 27411 ratio log(mod)/log(p) = 0.385
-342374889481 44 ncert 1 min modulus 131 ratio log(mod)/log(p) = 0.184
-346450187521 47 ncert 2 min modulus 1620888 ratio log(mod)/log(p) = 0.538
-362882490601 44 ncert 12 min modulus 219 ratio log(mod)/log(p) = 0.202
-376385616721 47 ncert 4 min modulus 286558 ratio log(mod)/log(p) = 0.471
-384604098649 47 ncert 3 min modulus 5076 ratio log(mod)/log(p) = 0.320
-386680544881 47 ncert 7 min modulus 6814 ratio log(mod)/log(p) = 0.331
-391095389281 44 ncert 1 min modulus 4575 ratio log(mod)/log(p) = 0.316
-393267033721 44 ncert 10 min modulus 1539 ratio log(mod)/log(p) = 0.275
-398916931009 47 ncert 3 min modulus 21572 ratio log(mod)/log(p) = 0.374
-406919231401 47 ncert 2 min modulus 34356 ratio log(mod)/log(p) = 0.391
-409542753481 44 ncert 4 min modulus 5543 ratio log(mod)/log(p) = 0.322
-424252771849 52 ncert 1 min modulus 76699 ratio log(mod)/log(p) = 0.420
-439005057121 44 ncert 2 min modulus 3651 ratio log(mod)/log(p) = 0.306
-452292210049 44 ncert 1 min modulus 1068231 ratio log(mod)/log(p) = 0.517
-461081759041 44 ncert 2 min modulus 1539 ratio log(mod)/log(p) = 0.273
-490485024121 44 ncert 3 min modulus 2244 ratio log(mod)/log(p) = 0.287
-510251324521 47 ncert 2 min modulus 5498 ratio log(mod)/log(p) = 0.319
-511526736361 55 ncert 1 min modulus 421520 ratio log(mod)/log(p) = 0.480
-516164483641 44 ncert 3 min modulus 2111 ratio log(mod)/log(p) = 0.284
-544119175609 44 ncert 3 min modulus 42459 ratio log(mod)/log(p) = 0.394
-555621465961 44 ncert 2 min modulus 6291 ratio log(mod)/log(p) = 0.323
-560068181401 44 ncert 2 min modulus 18260 ratio log(mod)/log(p) = 0.363
-589427113081 44 ncert 4 min modulus 1275 ratio log(mod)/log(p) = 0.264
-589488099841 44 ncert 1 min modulus 153780 ratio log(mod)/log(p) = 0.441
-593853473929 48 ncert 2 min modulus 2447 ratio log(mod)/log(p) = 0.288
-600105704641 44 ncert 1 min modulus 1042404 ratio log(mod)/log(p) = 0.511
-621929160241 44 ncert 4 min modulus 4839 ratio log(mod)/log(p) = 0.312
-655611480001 47 ncert 2 min modulus 987 ratio log(mod)/log(p) = 0.253
-679040728081 44 ncert 2 min modulus 219 ratio log(mod)/log(p) = 0.198
-712480384729 44 ncert 1 min modulus 20196 ratio log(mod)/log(p) = 0.363
-712917322849 55 ncert 1 min modulus 12980 ratio log(mod)/log(p) = 0.347
-725100909121 48 ncert 2 min modulus 83759 ratio log(mod)/log(p) = 0.415
-725607121201 44 ncert 7 min modulus 43 ratio log(mod)/log(p) = 0.138
-738122115889 47 ncert 5 min modulus 47 ratio log(mod)/log(p) = 0.141
-768388040281 44 ncert 2 min modulus 1044075 ratio log(mod)/log(p) = 0.506
-797664252961 44 ncert 1 min modulus 2424180 ratio log(mod)/log(p) = 0.536
-818789590249 60 ncert 2 min modulus 483060 ratio log(mod)/log(p) = 0.477
-828405178561 52 ncert 2 min modulus 81379 ratio log(mod)/log(p) = 0.412
-832537491361 44 ncert 4 min modulus 43867 ratio log(mod)/log(p) = 0.389
-842068210201 47 ncert 3 min modulus 123939 ratio log(mod)/log(p) = 0.427
-844772955601 56 ncert 2 min modulus 346079 ratio log(mod)/log(p) = 0.464
-883516351369 47 ncert 1 min modulus 3336 ratio log(mod)/log(p) = 0.295
-915298549201 44 ncert 2 min modulus 836 ratio log(mod)/log(p) = 0.244
-915805615201 55 ncert 2 min modulus 53074 ratio log(mod)/log(p) = 0.395
-968696373241 44 ncert 1 min modulus 20196 ratio log(mod)/log(p) = 0.359
-969197074561 44 ncert 8 min modulus 3387 ratio log(mod)/log(p) = 0.294
-974280319321 44 ncert 4 min modulus 395 ratio log(mod)/log(p) = 0.217
-985314625201 47 ncert 14 min modulus 3524 ratio log(mod)/log(p) = 0.296
+21841 64 ncert 2 mu 575 ratio 0.636 via T d d 575 e 2431 smallside 575 composite
+92401 47 ncert 2 mu 47 ratio 0.337 via U e d 92448 e 1 smallside 1 one
+691681 56 ncert 1 mu 4872 ratio 0.631 via U e d 7951 e 87 smallside 87 composite
+7378849 44 ncert 2 mu 747 ratio 0.418 via T d d 747 e 434631 smallside 747 composite
+83816041 47 ncert 2 mu 1268 ratio 0.392 via T d d 1268 e 3106746 smallside 1268 composite
+404315521 44 ncert 4 mu 4575 ratio 0.425 via T d d 4575 e 3888499 smallside 4575 composite
+407188321 52 ncert 3 mu 988 ratio 0.348 via U e d 21430967 e 19 smallside 19 prime
+813642481 44 ncert 6 mu 967 ratio 0.335 via T d d 967 e 37021995 smallside 967 prime
+819173161 47 ncert 5 mu 281 ratio 0.275 via T d d 281 e 137014728 smallside 281 prime
+846671401 44 ncert 3 mu 4180 ratio 0.406 via U e d 8912331 e 95 smallside 95 composite
+988314721 44 ncert 1 mu 98340 ratio 0.555 via U e d 442199 e 2235 smallside 2235 composite
+1538670961 44 ncert 2 mu 219 ratio 0.255 via U d d 219 e 7025895 smallside 219 composite
+2591127361 44 ncert 2 mu 4135 ratio 0.384 via T d d 4135 e 27571851 smallside 4135 composite
+3014346241 55 ncert 2 mu 96524 ratio 0.526 via T d d 96524 e 1717594 smallside 96524 composite
+3702250561 44 ncert 3 mu 131 ratio 0.221 via U d d 131 e 28261455 smallside 131 prime
+3997176121 48 ncert 1 mu 22127 ratio 0.453 via U d d 22127 e 180647 smallside 22127 composite
+4506054001 44 ncert 3 mu 2111 ratio 0.344 via T d d 2111 e 93920595 smallside 2111 prime
+5538829321 44 ncert 5 mu 836 ratio 0.300 via U e d 291517335 e 19 smallside 19 prime
+14110236001 44 ncert 4 mu 2244 ratio 0.330 via U e d 276671295 e 51 smallside 51 composite
+19143648001 44 ncert 1 mu 615 ratio 0.271 via U d d 615 e 31127883 smallside 615 composite
+19212879841 44 ncert 4 mu 79595 ratio 0.477 via U d d 79595 e 241383 smallside 79595 composite
+20543822209 44 ncert 4 mu 17203 ratio 0.411 via T d d 17203 e 52544799 smallside 17203 prime
+21634765441 47 ncert 7 mu 281 ratio 0.237 via U d d 281 e 76992048 smallside 281 prime
+23473850401 47 ncert 4 mu 37787 ratio 0.441 via T d d 37787 e 29197104 smallside 37787 composite
+24544524601 44 ncert 6 mu 219 ratio 0.225 via U d d 219 e 112075455 smallside 219 composite
+25921072321 44 ncert 2 mu 139875 ratio 0.494 via T d d 139875 e 8153903 smallside 139875 composite
+26666038081 44 ncert 4 mu 835 ratio 0.280 via U d d 835 e 31935375 smallside 835 composite
+26850846289 44 ncert 2 mu 546171 ratio 0.550 via T d d 546171 e 2163127 smallside 546171 composite
+30153809401 44 ncert 4 mu 395 ratio 0.248 via T d d 395 e 3358905351 smallside 395 composite
+33257638801 55 ncert 4 mu 274 ratio 0.232 via U d d 274 e 121378244 smallside 274 composite
+35450182849 44 ncert 2 mu 6116 ratio 0.359 via U e d 255037287 e 139 smallside 139 prime
+35550443161 47 ncert 3 mu 9541 ratio 0.377 via U e d 175125336 e 203 smallside 203 composite
+36044722921 44 ncert 1 mu 44351 ratio 0.440 via U d d 44351 e 812715 smallside 44351 prime
+38756671321 47 ncert 3 mu 21102 ratio 0.408 via T d d 21102 e 86321844 smallside 21102 composite
+45153097201 44 ncert 4 mu 107316 ratio 0.472 via U e d 18512955 e 2439 smallside 2439 composite
+45689850361 44 ncert 2 mu 46287 ratio 0.438 via T d d 46287 e 43432355 smallside 46287 composite
+50783542681 47 ncert 1 mu 598404 ratio 0.540 via U e d 3988654 e 12732 smallside 12732 composite
+57128428009 47 ncert 1 mu 1598 ratio 0.298 via U e d 1680247884 e 34 smallside 34 composite
+61183788241 47 ncert 2 mu 6156 ratio 0.351 via T d d 6156 e 467127688 smallside 6156 composite
+74569832929 44 ncert 2 mu 6687 ratio 0.352 via T d d 6687 e 490664371 smallside 6687 composite
+75329493121 44 ncert 8 mu 747 ratio 0.264 via U d d 747 e 100842695 smallside 747 composite
+77100106561 44 ncert 7 mu 43 ratio 0.150 via U d d 43 e 1793025735 smallside 43 prime
+82074947161 47 ncert 4 mu 798 ratio 0.266 via T d d 798 e 4833988116 smallside 798 composite
+85343810161 44 ncert 1 mu 395 ratio 0.238 via U d d 395 e 216060279 smallside 395 composite
+87476309761 47 ncert 2 mu 152232 ratio 0.474 via T d d 152232 e 27007374 smallside 152232 composite
+91781907361 47 ncert 2 mu 892 ratio 0.269 via T d d 892 e 4836042204 smallside 892 composite
+92353433761 44 ncert 12 mu 131 ratio 0.193 via T d d 131 e 31019473935 smallside 131 prime
+94542544321 44 ncert 6 mu 263 ratio 0.220 via U d d 263 e 359477355 smallside 263 prime
+95750020081 44 ncert 2 mu 1275 ratio 0.283 via U d d 1275 e 75098055 smallside 1275 composite
+98059708321 44 ncert 2 mu 13375 ratio 0.375 via T d d 13375 e 322588947 smallside 13375 composite
+105247979281 44 ncert 2 mu 42372 ratio 0.420 via U e d 109291775 e 963 smallside 963 composite
+111087622801 44 ncert 2 mu 615 ratio 0.252 via T d d 615 e 7947732363 smallside 615 composite
+116059172161 44 ncert 6 mu 6555 ratio 0.345 via T d d 6555 e 779039447 smallside 6555 composite
+116492839681 44 ncert 3 mu 219 ratio 0.211 via U d d 219 e 531930775 smallside 219 composite
+128199254089 47 ncert 2 mu 89064 ratio 0.446 via T d d 89064 e 67652081 smallside 89064 composite
+134851997281 44 ncert 4 mu 61863 ratio 0.431 via T d d 61863 e 95913355 smallside 61863 composite
+135963591121 44 ncert 1 mu 70884 ratio 0.436 via U e d 84397015 e 1611 smallside 1611 composite
+163157634721 44 ncert 4 mu 1671 ratio 0.287 via U d d 1671 e 97640715 smallside 1671 composite
+166575282721 44 ncert 2 mu 8755 ratio 0.351 via U d d 8755 e 19026303 smallside 8755 composite
+182285244961 44 ncert 3 mu 5015 ratio 0.329 via T d d 5015 e 1599312219 smallside 5015 composite
+201830307121 44 ncert 2 mu 4311 ratio 0.322 via U d d 4311 e 46817515 smallside 4311 composite
+203583192121 44 ncert 6 mu 1143 ratio 0.270 via T d d 1143 e 7836973275 smallside 1143 composite
+216235162081 44 ncert 6 mu 18567 ratio 0.377 via T d d 18567 e 512433195 smallside 18567 composite
+220660680241 44 ncert 6 mu 219 ratio 0.206 via U d d 219 e 1007583015 smallside 219 composite
+222982924921 44 ncert 3 mu 395 ratio 0.229 via T d d 395 e 24838604295 smallside 395 composite
+227692113289 47 ncert 4 mu 51981 ratio 0.415 via T d d 51981 e 205873864 smallside 51981 composite
+231794559361 44 ncert 3 mu 747 ratio 0.253 via U d d 747 e 310300615 smallside 747 composite
+239727099361 47 ncert 1 mu 3027316 ratio 0.570 via U d d 3027316 e 79188 smallside 3027316 composite
+243513950761 44 ncert 10 mu 43 ratio 0.143 via U d d 43 e 5663115135 smallside 43 prime
+255455936761 44 ncert 5 mu 615 ratio 0.244 via U d d 615 e 415375507 smallside 615 composite
+256446302641 47 ncert 4 mu 892 ratio 0.259 via T d d 892 e 13512305184 smallside 892 composite
+277541057641 47 ncert 1 mu 47 ratio 0.146 via U e d 277541057688 e 1 smallside 1 one
+278150452441 44 ncert 2 mu 518055 ratio 0.499 via T d d 518055 e 23624171 smallside 518055 composite
+296811891601 44 ncert 2 mu 19843 ratio 0.375 via U d d 19843 e 14958015 smallside 19843 prime
+302957055241 44 ncert 3 mu 22307 ratio 0.379 via U d d 22307 e 13581255 smallside 22307 prime
+303473468929 47 ncert 3 mu 799 ratio 0.253 via U e d 17851380528 e 17 smallside 17 prime
+307476099841 44 ncert 3 mu 11220 ratio 0.353 via U e d 1205788627 e 255 smallside 255 composite
+340367430001 44 ncert 2 mu 27411 ratio 0.385 via T d d 27411 e 546356095 smallside 27411 composite
+342374889481 44 ncert 1 mu 131 ratio 0.184 via U d d 131 e 2613548775 smallside 131 prime
+346450187521 47 ncert 2 mu 1620888 ratio 0.538 via T d d 1620888 e 10045826 smallside 1620888 composite
+362882490601 44 ncert 12 mu 219 ratio 0.202 via T d d 219 e 72907897655 smallside 219 composite
+376385616721 47 ncert 4 mu 286558 ratio 0.471 via T d d 286558 e 61733136 smallside 286558 composite
+384604098649 47 ncert 3 mu 5076 ratio 0.320 via U e d 3561149062 e 108 smallside 108 composite
+386680544881 47 ncert 7 mu 6814 ratio 0.331 via U d d 6814 e 56747952 smallside 6814 composite
+391095389281 44 ncert 1 mu 4575 ratio 0.316 via U d d 4575 e 85485331 smallside 4575 composite
+393267033721 44 ncert 10 mu 1539 ratio 0.275 via U d d 1539 e 255534135 smallside 1539 composite
+398916931009 47 ncert 3 mu 21572 ratio 0.374 via U d d 21572 e 18492348 smallside 21572 composite
+406919231401 47 ncert 2 mu 34356 ratio 0.391 via T d d 34356 e 556677258 smallside 34356 composite
+409542753481 44 ncert 4 mu 5543 ratio 0.322 via U d d 5543 e 73884675 smallside 5543 composite
+424252771849 52 ncert 1 mu 76699 ratio 0.420 via U d d 76699 e 5531399 smallside 76699 composite
+439005057121 44 ncert 2 mu 3651 ratio 0.306 via U d d 3651 e 120242415 smallside 3651 composite
+452292210049 44 ncert 1 mu 1068231 ratio 0.517 via U d d 1068231 e 423403 smallside 1068231 composite
+461081759041 44 ncert 2 mu 1539 ratio 0.273 via T d d 1539 e 13182324495 smallside 1539 composite
+490485024121 44 ncert 3 mu 2244 ratio 0.287 via U e d 9617353415 e 51 smallside 51 composite
+510251324521 47 ncert 2 mu 5498 ratio 0.319 via U d d 5498 e 92806716 smallside 5498 composite
+511526736361 55 ncert 1 mu 421520 ratio 0.480 via U e d 66744094 e 7664 smallside 7664 composite
+516164483641 44 ncert 3 mu 2111 ratio 0.284 via U d d 2111 e 244511835 smallside 2111 prime
+544119175609 44 ncert 3 mu 42459 ratio 0.394 via U d d 42459 e 12815167 smallside 42459 composite
+555621465961 44 ncert 2 mu 6291 ratio 0.323 via U d d 6291 e 88320055 smallside 6291 composite
+560068181401 44 ncert 2 mu 18260 ratio 0.363 via U e d 1349561883 e 415 smallside 415 composite
+589427113081 44 ncert 4 mu 1275 ratio 0.264 via U d d 1275 e 462295775 smallside 1275 composite
+589488099841 44 ncert 1 mu 153780 ratio 0.441 via U e d 168666123 e 3495 smallside 3495 composite
+593853473929 48 ncert 2 mu 2447 ratio 0.288 via T d d 2447 e 11648944319 smallside 2447 prime
+600105704641 44 ncert 1 mu 1042404 ratio 0.511 via U e d 25330535 e 23691 smallside 23691 composite
+621929160241 44 ncert 4 mu 4839 ratio 0.312 via U d d 4839 e 128524315 smallside 4839 composite
+655611480001 47 ncert 2 mu 987 ratio 0.253 via U e d 31219594288 e 21 smallside 21 composite
+679040728081 44 ncert 2 mu 219 ratio 0.198 via T d d 219 e 136428274135 smallside 219 composite
+712480384729 44 ncert 1 mu 20196 ratio 0.363 via U e d 1552244847 e 459 smallside 459 composite
+712917322849 55 ncert 1 mu 12980 ratio 0.347 via U e d 3020836114 e 236 smallside 236 composite
+725100909121 48 ncert 2 mu 83759 ratio 0.415 via U d d 83759 e 8656991 smallside 83759 composite
+725607121201 44 ncert 7 mu 43 ratio 0.138 via U d d 43 e 16874584215 smallside 43 prime
+738122115889 47 ncert 5 mu 47 ratio 0.141 via U e d 738122115936 e 1 smallside 1 one
+768388040281 44 ncert 2 mu 1044075 ratio 0.506 via U d d 1044075 e 735951 smallside 1044075 composite
+797664252961 44 ncert 1 mu 2424180 ratio 0.536 via U e d 14477979 e 55095 smallside 55095 composite
+818789590249 60 ncert 2 mu 483060 ratio 0.477 via U e d 101700359 e 8051 smallside 8051 composite
+828405178561 52 ncert 2 mu 81379 ratio 0.412 via T d d 81379 e 529338887 smallside 81379 composite
+832537491361 44 ncert 4 mu 43867 ratio 0.389 via T d d 43867 e 835061655 smallside 43867 prime
+842068210201 47 ncert 3 mu 123939 ratio 0.427 via U e d 319328104 e 2637 smallside 2637 composite
+844772955601 56 ncert 2 mu 346079 ratio 0.464 via U d d 346079 e 2440983 smallside 346079 prime
+883516351369 47 ncert 1 mu 3336 ratio 0.295 via U d d 3336 e 264843031 smallside 3336 composite
+915298549201 44 ncert 2 mu 836 ratio 0.244 via U e d 48173607855 e 19 smallside 19 prime
+915805615201 55 ncert 2 mu 53074 ratio 0.395 via T d d 53074 e 949039244 smallside 53074 composite
+968696373241 44 ncert 1 mu 20196 ratio 0.359 via U e d 2110449615 e 459 smallside 459 composite
+969197074561 44 ncert 8 mu 3387 ratio 0.294 via T d d 3387 e 12590691255 smallside 3387 composite
+974280319321 44 ncert 4 mu 395 ratio 0.217 via T d d 395 e 108527427975 smallside 395 composite
+985314625201 47 ncert 14 mu 3524 ratio 0.296 via T d d 3524 e 13141256352 smallside 3524 composite
