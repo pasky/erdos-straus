@@ -102,7 +102,8 @@ e.g. 2^{10} ∣ 3049 + 23.) The general statement about which non-residue primes
 ## 3. Theorem N: a non-residue class that no finite certificate family covers (PROVED)
 
 **Theorem 3.1.** Let ℓ ≥ 11 be a prime and R an integer with 1 ≤ R < (ℓ − 1)/3 and (R/ℓ) = −1 (such R exists for
-every ℓ ≥ 11: R = 2 for ℓ = 11, 13, 19, R = 3 for ℓ = 17, and for ℓ ≥ 23 the least non-residue is < √ℓ + 1 ≤ (ℓ−1)/3).
+every ℓ ≥ 11: R = 2 for ℓ = 11, 13, 19, R = 3 for ℓ = 17, and for ℓ ≥ 23 the least non-residue n is < √ℓ + 1 ≤ (ℓ−1)/3 —
+classical: with m := ⌈ℓ/n⌉, 0 < mn − ℓ < n is a residue, so m is a non-residue, m ≥ n, and n(n−1) < ℓ).
 Let C ≥ 3 and Y ≥ 2 be arbitrary. Define
   𝒫 := {primes ℓ′ ≤ Y, ℓ′ ≠ ℓ} ∪ {2}; for ℓ′ ∈ 𝒫 let a(ℓ′) be the least integer with ℓ′^{a(ℓ′)} > C + 1, except
   a(2) := max(3, least a with 2^a > C + 1); M := ∏_{ℓ′ ∈ 𝒫} ℓ′^{a(ℓ′)}; J := the least integer with ℓ^J > R(C + 1).
@@ -225,3 +226,9 @@ margin of §5.4 of Z53_UPPER (true size of the worst case ≍ log p) and the exc
 `scripts/z55_hcf_lemmas_check.py` → `data/z55/hcf/lemmas_check.txt`: Lemma 2.1 for all p ≡ 1 (8), p < 2·10⁵,
 c ∈ {7, 15}: 8 932 cases, 0 mismatches. Prop 1.2 (line U, 4 ∣ c ≤ 64, every prime q ∥ p + c, s = (p+c)/q) for
 p < 5·10⁴: 39 695 cases, 0 mismatches.
+
+`scripts/z53_upper_hc.c` (unchanged, rerun with X = 2·10⁹, no reciprocity/sieve checks) → `data/z55/hcf/hc_2e9.txt`:
+**HC(p) ≤ 64 for all 49 109 660 primes p ≡ 1 (mod 4), p ≤ 2·10⁹**; the record HC = 64 at p = 21 841 is not beaten
+(extends the 10⁸ census of Z53_UPPER §6 by a factor 20). Histogram tail among p ≡ 1 (8): HC = 32: 16, 36: 10, 39: 7,
+40: 2, 44: 6, 47: 3, 52: 1, 56: 1, 64: 1. Consistent with the heuristic "worst case ≍ log p" of Z53_UPPER §5.4
+(2·10⁹ ≈ e^{21.4}); any A ≥ 1 in the target has a large numerical margin.

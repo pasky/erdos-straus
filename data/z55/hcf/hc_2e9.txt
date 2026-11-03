@@ -1,0 +1,11 @@
+record HC=3 at p=5
+record HC=4 at p=17
+record HC=7 at p=97
+record HC=15 at p=2521
+record HC=64 at p=21841
+X=2000000000 primes p=1(4): 49109660 (p=1(8): 24553378); HC>=2000: 0
+record HC=64 at p=21841
+hist: 3:24556282 4:22708535 7:1673773 8:127183 12:27726 15:10441 16:3109 20:1675 23:585 24:206 28:51 31:47 32:16 36:10 39:7 40:2 44:6 47:3 52:1 56:1 64:1
+viol Lemma2.1=0 Lemma2.2=0
+RL=0: primes p=1(4) 0, p=1(8) 0; Lemma3.1 certificates checked 0, viol 0; Lemma4.1 viol 0
+K=1 (4K=4): #S_K=0  #HC>4K=0  (among p=1(8) <= RL)
