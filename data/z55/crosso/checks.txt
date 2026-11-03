@@ -1,0 +1,3 @@
+(1)(2) primes checked 60, brute mismatches 0, hits 29, all hits (d/p)=-1
+(3) odd squares 200: nonzero R (std window) 0, (wide window) 0
+(4) composite non-squares with R>0 (std window): 48 of 200
