@@ -6,12 +6,16 @@ Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / Assessment. Brief: `z52bbr
 Scripts `scripts/z55_tdf_*`, data `data/z55/tdf/`.
 
 **Verdict: TD(η) is NOT proved, for any η > 0.** What is proved is the *n-averaged* form: the mean square of
-T_n(h) over any interval of integers n of length ≥ 16U⁴ is ≪ (h⁴ + log U)·U, i.e. square-root size on average
+T_n(h) over any interval of integers n of length ≥ 16U⁴ is ≪ (h⁴ + log U)·U, i.e. square-root size on average (up to
+the logarithmic and h-dependent factors)
 (Theorem LS, §2). Consequently TD(η) with C₀ = 1 holds for all primes p in the fourth-root range outside a set of
 size O(U^{3+7η} log U) — for every η < 1/7 this is o(π(U⁴)) (Corollary 2.4). The averaged statement is *not* a
 better bound for N₂ on average (Markov on the first moment is better, §2.5); its content is about T itself.
 The pointwise statement sits at the self-dual point of the Dirichlet divisor problem (divisors d ≍ √x of integers in an
 interval of length x^{1/4}), where not even the lattice-point count |E1| has a provable asymptotic (§3, Assessment).
+A pointwise constant-factor bound N₂ ≤ (log 2/2)U + O(U^{14/15}) is proved (Prop 2.6). §3.3 records that TD(η) can be
+weakened to a non-oscillatory density hypothesis DC(U^{−η}) (no clustering of w_k mod 1 at scale U^{−η}), which gives
+N₂ ≪ U^{1−η} trivially; DC is open too.
 
 ## 0. Notation and the object
 
@@ -43,8 +47,9 @@ interval of length x^{1/4}), where not even the lattice-point count |E1| has a p
    terms per level and is self-dual (§3.1).
 2. **Pointwise, via exponent pairs after the θ-expansion** (Z54 §4.3 style). Stops: no exponent pair, including the
    conjectural limit (0, 1/2), reaches p ≥ 16U³ (§3.2, Assessment with a PROVED bookkeeping identity).
-3. **Pointwise, via the h-mean square / pair correlation of w_k mod 1.** Stops: needs an upper bound for the clustering
-   of √D_k mod 1 at scale U^{−η}, which is the same lattice-point problem in thin curvilinear regions (§3.3).
+3. **Pointwise, via the h-mean square / density of w_k mod 1.** Reduces TD to the weaker density hypothesis DC, which
+   also gives N₂ ≪ U^{1−η} directly. Stops: DC is an upper bound for the clustering of √D_k mod 1 at scale U^{−η},
+   the same lattice-point problem in thin curvilinear regions (§3.3).
 4. **n-averaged, via the large sieve.** Succeeds: Theorem LS (§2). This is the proved content of the lane.
 
 ## 2. Theorem LS: the mean square over n (PROVED)
@@ -130,12 +135,12 @@ Total ≤ 486h⁴U + 725 + 45U + 32U log(2U) ≤ 2700h⁴U + 32U log(2U) for U �
 *Remark (what 𝒢 is; PROVED identity, EVIDENCE sizes).* T_n(h) is periodic in n with period L = lcm(1, …, 4U²), and
 by orthogonality of the distinct reduced fractions, (1/L)Σ_{n mod L} |T_n(h)|² = 𝒢 exactly. So 𝒢 is the true mean
 square of T over a full period. Numerically 𝒢 is close to the mean of |E1⁺| over the sampled windows (U = 6: 𝒢 = 9.41
-vs 9.77; U = 10: 15.84 vs 16.03), and the denominators d ≤ 2U carry 7–9 % of 𝒢 in these examples. The h⁴ in Lemma
+vs 9.77; U = 10: 15.84 vs 16.03), and the denominators d ≤ 2U carry 6.8–9.3 % of 𝒢 in these examples. The h⁴ in Lemma
 2.5 is an artefact of the crude edge-part bound; it is harmless for the corollaries (h ≤ U^{η} with η small).
 
 ### 2.4 The theorem and its corollaries
 
-**Theorem LS (PROVED).** For all integers M, N ≥ 1, U ≥ 2, h ≥ 1,
+**Theorem LS (PROVED).** For all integers M (any sign) and N ≥ 1, U ≥ 2, h ≥ 1,
 
   Σ_{M < n ≤ M+N} |T_n(h)|² ≤ (N + 16U⁴) · 𝒢 ≤ (N + 16U⁴)(2700 h⁴ U + 32 U log(2U)).
 
@@ -155,15 +160,17 @@ short windows (where the large sieve gives nothing), EVIDENCE that the n-average
 
 *Proof.* Chebyshev: the count is ≤ U^{2η−2} Σ_{h≤H} Σ_n |T_n(h)|², and Σ_{h≤H} h⁴ ≤ H⁵. ∎
 
-**Corollary 2.3 (almost all n in the fourth-root range; PROVED).** Fix 0 < η < 1/7 and 0 < c₁ < c₂. For all integers
+**Corollary 2.3 (almost all n in the fourth-root range, for each fixed U; PROVED).** Fix 0 < η < 1/7 and
+0 < c₁ < c₂, and fix U. For all integers
 n ∈ [U⁴/c₂⁴, U⁴/c₁⁴] outside an exceptional set of size ≪_{c₁} U^{3+7η} log U, one has |T_n(h)| ≤ U^{1−η} for all
 1 ≤ h ≤ U^{η}; i.e. TD(η) with C₀ = 1 holds at n. The exceptional set is o(U⁴/log U), while the interval contains
 ≍_{c₁,c₂} U⁴/log U primes.
-*Proof.* Corollary 2.2 with M = ⌊U⁴/c₂⁴⌋, N = ⌈U⁴/c₁⁴⌉, H = ⌊U^{η}⌋: (N + 16U⁴)U^{2η−1}(2700U^{5η} + 32U^{η}log 2U)
+*Proof.* Corollary 2.2 with M = ⌈U⁴/c₂⁴⌉ − 1, N = ⌈U⁴/c₁⁴⌉ − M (so that (M, M+N] ⊇ [U⁴/c₂⁴, U⁴/c₁⁴] ∩ ℤ), H = ⌊U^{η}⌋: (N + 16U⁴)U^{2η−1}(2700U^{5η} + 32U^{η}log 2U)
 ≪ U^{3+7η} log U. ∎
 
-**Corollary 2.4 (almost all primes; PROVED).** For 0 < η < 1/7, TD(η) with C₀ = 1 holds for every prime p in the
-fourth-root range except for ≪ U^{3+7η} log U of them (out of ≍ U⁴/log U). For those p, Z54 Corollary T gives
+**Corollary 2.4 (almost all primes, for each fixed U; PROVED).** For 0 < η < 1/7 and each fixed U, TD(η) with C₀ = 1
+holds for every prime p in the fourth-root range of that U except for ≪ U^{3+7η} log U of them (out of ≍ U⁴/log U).
+No exceptional set simultaneous over all admissible U is claimed. For those p, Z54 Corollary T gives
 N₂(p, U) ≪_ε U^{1−η+ε}.
 *Proof.* A subset of Corollary 2.3's good set; Z54 Cor T needs only TD(η) at the given p. ∎
 
@@ -173,8 +180,8 @@ N₂(p, U) ≪_ε U^{1−η+ε}.
   of the size of the whole range, so for windows N ≪ U⁴ the theorem only gives the exceptional-set bound
   ≪ U^{4+2η−1}(…) regardless of N: one cannot localise the average to n ∈ [p, p + p^{1−δ}].
 * For N₂ on average it is weaker than the trivial first moment: Σ_{M<n≤M+N} N₂(n, U) ≤ Σ_{u,B ∈ (U,2U]} (N/(uB) + 1)
-  ≪ N + U², so for N ≥ U² one has #{n : N₂(n, U) > U^{1−η}} ≪ N U^{η−1} (Markov), while Corollary 2.4 gives only
-  N U^{7η−1}.
+  ≪ N + U², so for N ≥ U² one has #{n : N₂(n, U) > U^{1−η+ε}} ≪ N U^{η−ε−1} (Markov), while Corollary 2.4 reaches
+  the same threshold U^{1−η+ε} only outside a set of size ≪ N U^{7η−1} log U.
 * Its value is as a statement about T: the "square-root size" of T(h) seen numerically (Z54 §6.1, §4 below) is
   PROVED in mean square over n, with the exceptional set bounded by a power. The pointwise problem is entirely about the
   individual n.
@@ -214,7 +221,8 @@ theorems; the size statements are stationary-phase heuristics.
 ### 3.1 Self-duality
 
 For a single n, Lemma 2.1 writes T_n(h) as a sum over ≍ U⁴ reduced fractions b/d, d ≤ 4U², with
-Σ|Γ(b/d)|² = 𝒢 ≍ U (upper bound PROVED, Lemma 2.5; lower bound EVIDENCE). If the coefficients were of comparable size,
+Σ|Γ(b/d)|² = 𝒢, where 𝒢 ≪ (h⁴ + log U)U is PROVED (Lemma 2.5) and 𝒢 ≍ U is EVIDENCE. If the coefficients were of
+comparable size,
 each would be ≍ U^{−3/2}, |T_n| ≍ U^{1/2} would be square-root cancellation in the dual, and |T_n| ≤ U^{1−η} would need
 cancellation by a factor U^{3/2+η} among ≍ U⁴ dual terms with phases e(nb/d). Since these phases are the distribution
 of n mod d for d ≍ U² ≍ √n, this is the original question again: the problem is self-dual at the fourth-root range
@@ -238,19 +246,25 @@ for every exponent pair including the conjectural limit. Examples: (1/6, 2/3) ne
 n ≤ U^{1.875}. This locates the range where Z54 Prop 4.3's implementation class would work; it says nothing about
 arguments exploiting the ν- and k-variables jointly.
 
-### 3.3 Averaging over h / pair correlation
+### 3.3 Averaging over h, and the density form of TD
 
-Z54 Theorem T needs only Σ_{h≤H}|T(h)| ≤ HU^{1−η}, and Σ_{h≤H}|T(h)|² = Σ_{k,k′∈E1⁺} Σ_{h≤H} e(h(w_k − w_{k′})) is H
-times a (Dirichlet-kernel) pair correlation of the points w_k mod 1 at scale 1/H. A bound Σ_{h≤H}|T(h)|² ≪ HU^{2−2η}
-is therefore a statement that the *centred* pair correlation of {w_k mod 1} at scale U^{−η} is ≪ U^{2−2η} (ordinary
-density control, #{pairs with ‖w_k − w_{k′}‖ ≤ t} ≪ U²t, is not enough: it gives Σ_h|T(h)|² ≪ U² log H, i.e. no
-saving). The coincident pairs are harmless: **PROVED**, r(D) := #{k ∈ E1⁺ : D_k = D} ≤ τ(n² − D) for n ≍ U⁴ (each k
-with D_k = D gives a distinct m with m | n + s, hence m | n² − s², and 4m = s² − D gives m | s² − D, so
-m | n² − D; distinct k give distinct m), so Σ_D r(D)² ≤ U^{ε}Σ_D r(D) ≪ U^{1+ε}. The non-coincident pairs at scale t unwind to lattice points (m, k) in a union
-of ≍ U thin curvilinear regions {c² ≤ (km − n)² − 4m ≤ (c + t)²} ∩ strip, each of area ≍ t; bounds for lattice points
-near curves (Huxley–Sargos type, Mλ_r^{2/(r(r+1))} with M = U², λ_r ≍ U^{2−2r}) give ≫ U^{4/3} per unit t, far above
-the trivial U, and in any case control density only, not the centred correlation. So this route needs the same
-equidistribution of n mod m at window scale that is the problem.
+Z54 Theorem T needs only Σ_{h≤H}|T(h)| ≤ HU^{1−η}, and (PROVED inequality)
+Σ_{h≤H}|T(h)|² = Σ_{k,k′∈E1⁺} Σ_{h≤H} e(h(w_k − w_{k′})) ≤ Σ_{k,k′} min(H, ‖w_k − w_{k′}‖^{−1}).
+Consider the *density hypothesis* DC(t₀): #{k ∈ E1⁺ : w_k mod 1 ∈ I} ≪ U|I| for every interval I of length ≥ t₀.
+* (PROVED) DC(1/H) gives Σ_{h≤H}|T(h)|² ≪ U² log(2H): the pairs with ‖w_k − w_{k′}‖ ≤ 1/H number ≪ U²/H and contribute
+  ≪ U²; those with ‖·‖ ∈ (j/H, (j+1)/H] number ≪ U²/H and contribute ≪ U²/j. Through Theorem T (δ = U^{−η},
+  H = U^{η+ε}) this gives N₂ ≪ U^{1−η/2+ε} — a power saving, but with half the exponent.
+* (PROVED, trivial) DC(U^{−η}) applied to the single interval I = [−U^{−η}, U^{−η}] gives N₂ ≪ U^{1−η} directly, since
+  the 2-cycles are exactly the k ∈ E1⁺ with w_k ∈ ℤ (Z54 Lemma A). So the h-average route is dominated by the direct
+  one, and TD(η) ⟹ DC(U^{−η}) (Erdős–Turán) ⟹ N₂ ≪ U^{1−η}: DC is the sieve-type (non-oscillatory) weakening of TD.
+* DC is still open. Unwound, #{k : w_k mod 1 ∈ I} counts lattice points (m, k) in a union of ≍ U thin curvilinear
+  regions {c² ≤ (km − n)² − 4m ≤ (c + t)²} ∩ strip (c = j + α, j ≤ 4U), each of area ≍ t, i.e. divisors of n + s in
+  ≍ U moving short intervals of length ≍ Ut at height ≍ U². Bounds for lattice points near curves (Huxley–Sargos type,
+  Mλ_r^{2/(r(r+1))} with M = U², λ_r ≍ U^{2−2r}) give ≫ U^{4/3} per unit t, far above the trivial U; the pointwise
+  divisor bound gives only U^{1+ε}. Note that the equal-discriminant multiplicity is harmless (PROVED:
+  r(D) := #{k ∈ E1⁺ : D_k = D} ≤ τ(n² − D) for n ≍ U⁴, since m | n + s gives m | n² − s² and 4m = s² − D gives
+  m | s² − D, so m | n² − D, and distinct k give distinct m), but DC is about clusters of *distinct* discriminants with
+  nearby √D mod 1 — the square discriminants being the cluster at 0.
 
 ### 3.4 Directions, not alternatives
 
@@ -282,7 +296,7 @@ M ≍ √n, the Voronoi dual of (a).
 | Lemma 2.1 (Farey expansion), 2.2 (Parseval) | PROVED (+ floating-point check, EVIDENCE) |
 | Lemma 2.3, 2.4, 2.4′ (bounds for A_{d,r}; explicit Kusmin–Landau), 2.5 (𝒢 ≤ 2700h⁴U + 32U log 2U) | PROVED |
 | Theorem LS (mean square over n ≤ (N + 16U⁴)𝒢) | PROVED (+ floating-point check, EVIDENCE) |
-| Corollaries 2.2–2.4 (exceptional sets; TD(η) for almost all n, almost all primes, η < 1/7) | PROVED |
+| Corollaries 2.2–2.4 (exceptional sets; TD(η) for almost all n, almost all primes, η < 1/7, each fixed U) | PROVED |
 | Prop 2.6 (N₂ ≤ (log 2/2)U + O(U^{14/15}), pointwise) | PROVED (constant factor only) |
 | TD(η) for all primes in the fourth-root range | OPEN (not proved here) |
 | §3 (self-duality, exponent-pair range, clustering) | Assessment (heuristic sizes); only the two items marked PROVED are theorems |
