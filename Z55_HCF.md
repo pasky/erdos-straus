@@ -29,7 +29,7 @@ Dirichlet's; all checked numerically):
 | P1.1 | symmetric criterion for line U: c (2 ≤ c < p) is a u-coordinate ⟺ ∃ v ≥ 1 with cv ∣ p + c + v ⟺ p + c has a divisor ≡ −p (mod c) | PROVED |
 | P1.2 | if p + c = s·q with q prime, q ∤ s, then c is certified on line U ⟺ s has a divisor ≡ −1 or ≡ −p (mod c); on line T (cp + 1 = s·q) ⟺ s has a divisor ≡ −1 (mod c) | PROVED, CERTIFIED (39 695 cases) |
 | L2.1 | for c ∈ {7, 15} and p ≡ 1 (8): c is a coordinate ⟺ the odd part of p + c or of cp + 1 has a prime factor q with (q/c) = −1 (the reciprocity constraint L3.1 is *sufficient* at these c) | PROVED, CERTIFIED (8 932 cases) |
-| **T3.1** | **for every finite set S of primes ≥ 11, every 1 ≤ R < (min S − 1)/3, and every C, Y: infinitely many primes p ≡ 1 (mod 8) with p ≡ R (mod ℓ^{J}) for ℓ ∈ S and p ≡ 1 (mod ℓ′^{a}) for the other primes ℓ′ ≤ Y have no certificate (c, d) with c ≤ C and d supported on S ∪ {primes ≤ Y}** | PROVED, CERTIFIED (§5) |
+| **T3.1** | **for every finite set S of primes ≥ 11, every 1 ≤ R < (min S − 1)/3, and every C, Y: infinitely many primes p ≡ 1 (mod 8) with p ≡ R (mod ℓ^{J}) for ℓ ∈ S and p ≡ 1 (mod ℓ′^{a}) for the other primes ℓ′ ≤ Y have no certificate (c, d) with c ≤ C and d supported on S ∪ {primes ≤ Y}** | PROVED; admissibility equations CERTIFIED, large-prime samples EVIDENCE (§5) |
 | C3.2 | no finite family of certificate congruences covers {p ≡ 1 (mod 840), p ≡ R (mod ℓ)} for any prime ℓ ≥ 11 and non-residue R < (ℓ−1)/3 — a class **containing no squares**, on which the Jacobi obstruction alone no longer excludes divisors with an odd power of ℓ | PROVED |
 | C3.3 | profinite form: the point (1 at primes ∉ S, R at primes of S) lies in no HC certificate class, for any set S of primes ≥ 11 and 1 ≤ R < (min S − 1)/3 (e.g. R = 2, S = all primes ≡ ±3 (mod 8), ≥ 11: a point that is a non-residue at every prime of S, hence not in any square class) | PROVED |
 | P3.4 | (Linnik) for every A there are infinitely many p ≡ 1 (8) that are non-residues modulo every prime ℓ ≡ ±3 (8) in [11, κ′_A log p] and for which every certificate with c ≤ κ_A (log p)^A has a prime factor > κ′_A log p | PROVED |
@@ -205,8 +205,8 @@ while p is coprime to N, so p > Y; letting Y → ∞ gives infinitely many p. �
 
 Compare Z53_UPPER P3.3: there, p ≡ 1 (mod 8∏_{ℓ≤Y}ℓ) (a square-like point: all small primes are residues) and the
 conclusion holds for *every* c; here p is a non-residue modulo about half of the primes up to Y and the conclusion
-holds for c ≤ (log p)^A. The large prime factor q > Y of the certificate divisor is in both cases the entire content
-of the certificate, and it is not determined by p modulo any number built from the primes ≤ Y.
+holds for c ≤ κ_A(log p)^A. The large prime factor q > Y of the certificate divisor is in both cases a necessary
+component of the certificate, and it is not determined by p modulo any number built from the primes ≤ Y.
 
 **What T3.1 rules out.** The class of squares is the classical sterile set for ES congruence coverings
 (Mordell–Schinzel; Z53_UPPER C3.2 in the HC setting: on p ≡ 1 (mod 8m) no certificate divisor is supported on the
@@ -241,16 +241,18 @@ the class −1 (mod c). The available inputs about p and what each gives:
   certificate is never everything: the square classes (Z53_UPPER C3.2) and the non-residue points of Cor 3.3 above are
   uncovered for every M. So no finite family of certificate congruences (fixed c's and d's) proves the target; an
   argument reading only p mod M would have to let M grow with p and cannot be a fixed covering.
-* *p is not a square* (⟺ p is prime, for the purposes of the reciprocity law). Via L3.1 this is the statement that a
+* *p is not a square* (the hypothesis actually used by the reciprocity argument L3.1, together with gcd(d, p) = 1;
+  non-squareness is weaker than primality). Via L3.1 this is the statement that a
   certificate divisor must contain a prime ℓ with (ℓ/p) = −1; the least such ℓ_p is ≤ p^{1/(4√e)+ε} (Burgess), ≤ 2log²p
   under GRH. The information "ℓ_p = ℓ, p ≡ R (mod ℓ)" is again a congruence, and T3.1 says it is not enough.
 * *Primality itself* enters the HC problem only through non-squareness (reciprocity, L3.1) and through coprimality
   gcd(p, c) = 1 for c < p (used in P1.1, P1.2, L1.1); the HC lines make sense for every n ≡ 1 (mod 4) coprime to c,
   and the sieve/exceptional-set theorems of Z53_UPPER §4 use primality only through Bombieri–Vinogradov /
-  Siegel–Walfisz for the *count* of p. A pointwise argument would need a property of the specific integers p + c,
-  cp + 1 that is not a congruence: their factorisation. Prop 1.2 shows the relevant unknown is exactly whether the
-  cofactor of the known small part is prime or splits with a factor in a prescribed class; there is no known tool
-  that controls this for one given p and (log p)^A shifts.
+  Siegel–Walfisz for the *count* of p. Among the techniques analysed here, a fixed finite certificate covering cannot
+  suffice (T3.1); a possible alternative input is factorisation information about the specific integers p + c,
+  cp + 1 (growing-modulus congruence reasoning is not excluded by T3.1). Prop 1.2 shows the relevant unknown is
+  exactly whether the cofactor of the known small part is prime or splits with a factor in a prescribed class; I know
+  of no tool that controls this for one given p and (log p)^A shifts.
 
 I therefore record no CONDITIONAL theorem either: every hypothesis I could formulate that implies the target
 ("some p + c, c ≤ (log p)^A, has a prime factor ≡ −1 (mod c)", "some (p + c)/s_c splits with a factor in class …")
@@ -260,7 +262,7 @@ margin of §5.4 of Z53_UPPER (true size of the worst case ≍ log p) and the exc
 
 ---------------------------------------------------------------------------------------------------------------------
 
-## 5. Computations (CERTIFIED)
+## 5. Computations (CERTIFIED for the small-range and algebraic checks; the large-CRT samples are EVIDENCE)
 
 `scripts/z55_hcf_thmN_check.py` → `data/z55/hcf/thmN_check.txt`:
 * (a) admissibility equations of T3.1 Steps 5–6: for each ℓ ∈ {3, 5, 7, 11, …, 47}, R the least non-residue, all
@@ -268,12 +270,17 @@ margin of §5.4 of Z53_UPPER (true size of the worst case ≍ log p) and the exc
   c ≡ −R^{−1} (mod ℓ^j). Result: **0 solutions for every ℓ ≥ 11**; for ℓ = 3, 5, 7 the solutions listed in Remark (b).
 * (b) direct test: for ℓ ∈ {11, 13, 17}, Y = 23, C = 40, 20 random primes in the class of T3.1 (moduli ≈ 10^{22});
   every certificate divisor d of every c ≤ 40 (2 071 / 2 399 / 2 291 divisors, found by factoring p + c and cp + 1)
-  has a prime factor outside {ℓ} ∪ {primes ≤ 23}. **0 violations.**
+  has a prime factor outside {ℓ} ∪ {primes ≤ 23}. **0 violations.** (EVIDENCE: the sampled p and the factor leaves
+  exceed 2⁶⁴ and are probable primes (sympy BPSW), not certified primes.)
 
 `scripts/z55_hcf_thmN_multi.py` → `data/z55/hcf/thmN_multi.txt`: the set form of T3.1 with S = all primes in
 [11, Y], R ∈ {2, 3}: (Y, C) = (23, 40), (31, 24), (23, 40); 10 primes each in the class of T3.1 (moduli ≈ 10^{19}–10^{24});
 all 1 168 / 1 653 / 1 170 certificate divisors with c ≤ C have a prime factor > Y. **0 violations.** (For R = 2 the
-primes are non-residues modulo 11, 13, 19 (, 29).)
+primes are non-residues modulo 11, 13, 19 (, 29). EVIDENCE for the same probable-prime reason.)
+
+`scripts/z55_xrev_hcf_check.py` (cross-model reviewer's script): the core algebra of T3.1 Steps 5–6 for all
+c = 3..5000, R = 1..12 and all L > 3R + 1 (including composite L): no solutions (2 863 580 / 2 855 400 U/T cases);
+odd-c Prop 1.2 checks (3 375 U, 4 295 T cases, p < 10⁴), 0 mismatches.
 
 `scripts/z55_hcf_lemmas_check.py` → `data/z55/hcf/lemmas_check.txt`: Lemma 2.1 for all p ≡ 1 (8), p < 2·10⁵,
 c ∈ {7, 15}: 8 932 cases, 0 mismatches. Prop 1.2 (line U, 4 ∣ c ≤ 64, every prime q ∥ p + c, s = (p+c)/q) for
@@ -285,3 +292,16 @@ p < 5·10⁴: 39 695 cases, 0 mismatches.
 40: 2, 44: 6, 47: 3, 52: 1, 56: 1, 64: 1. Consistent with the heuristic "worst case ≍ log p" of Z53_UPPER §5.4
 (2·10⁹ ≈ e^{21.4}; HC(21 841) = 64 > log 21 841 ≈ 10, so the heuristic is about the growth rate, not a pointwise
 inequality).
+
+---------------------------------------------------------------------------------------------------------------------
+
+## 6. Review log
+
+* Two hostile deep-mode subagent reviews during the lane (23 findings, all applied: scope of P1.1, Cor 3.3
+  neighbourhood quantifier, L2.1 failure examples, P3.4 infinitude and A = 0 estimates, wording of consequences).
+* **Cross-model review** (`data/z55/xreview/REVIEW_HCF.md`, `scripts/z55_xrev_hcf_check.py`): ACCEPT-WITH-FIXES;
+  all claims independently reconstructed (T3.1, C3.2, C3.3, P3.4, P1.1, P1.2, L2.1), Xylouris and
+  Rosser–Schoenfeld citations checked against the sources, all Python outputs reproduced byte-identically, census
+  rerun to 10⁶ (the 2·10⁹ run was not reproduced). Required fixes applied: large-CRT samples relabelled EVIDENCE
+  (probable primes above 2⁶⁴); §4 necessity claims scoped to the techniques analysed (non-squareness ≠ primality;
+  growing-modulus reasoning not excluded; large prime factor is a necessary component, not the whole certificate).
