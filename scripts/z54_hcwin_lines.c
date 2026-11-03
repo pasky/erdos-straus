@@ -5,7 +5,10 @@
 //            mind = min over certificate divisors d of min(d, N/d)  (0 if c = 0);  o_T = #{d | N : min(d,N/d) <= T}.
 // Window masses at X (lines with x <= X):  Lam = sum min(1, tau/phi(x)),  Gam = sum min(1, g/|G_x^2|),
 //            Z = #successful lines, LamOut = sum min(1, o_X/phi(x)), Zout = #lines with mind <= X (outer certificate).
-// Output per n (one line):  n HC  then for each X in {8,16,...,1024} (up to Xmax): Lam Gam Z LamOut Zout GE GL
+// Output per n (one line):  n HC preL preG preS  then for each X in {8,16,...,1024} (up to Xmax): Lam Gam Z LamOut Zout GE GL
+//   (preL/preG/preS = Lambda, Gamma and S = sum_E m + sum_L m/2 over lottery lines, all over the lines with x < HC, i.e. the
+//    largest window masses at which n still fails; over all lines if HC = 0. Lam uses tau of the full N; the genus, class
+//    and outer data use the part of N coprime to x (identical at primes p > x). Lines stop at x < n.)
 //   (GE, GL = untruncated sums of m = g/|G_x^2| over E-lines, resp. L-lines, with x <= X)
 // Output <out>.lines : per (type, dyadic j of x, bin of log2(m)) counts and successes, m = g/|G^2| (and m' = tau/phi).
 //
@@ -87,21 +90,26 @@ static int XMAX, nth;
 #define NJ 13
 #define NB 61
 static long binC[2][NJ][NB], binS[2][NJ][NB], binC2[2][NJ][NB], binS2[2][NJ][NB];
+static double binP1[2][NJ][NB], binPh[2][NJ][NB]; // per G-bin sums of 1-exp(-m) and 1-exp(-m/2) over the actual lines
 static long confined[2][NJ], confsucc[2][NJ], linecount[2][NJ];
 static int mbin(double m){ if(m<=0) return 0; double l=log2(m); int b=(int)floor(l*2)+31; if(b<1)b=1; if(b>=NB)b=NB-1; return b; }
 
-typedef struct { double tau, g, gm, mo[NT]; long c; u64 mind; } LineRes;
+typedef struct { double tau, taufull, g, gm, mo[NT]; long c; u64 mind; } LineRes;
 static void doline(u64 N,int x,LineRes*R){
   // only divisors coprime to x matter (d = -1 mod x forces gcd(d,x)=1): strip primes of x (never needed at primes p > x)
+  // tau of the ORIGINAL N is kept separately (taufull) for the anatomy mass Lambda; genus/class/outer use the x-coprime part.
+  u64 P[MAXF]; int E[MAXF]; double taufull=-1;
+  if(gcdu(N,(u64)x)>1){ int k0=factor(N,P,E); taufull=1; for(int i=0;i<k0;i++) taufull*=(E[i]+1); }
   { u64 g; while((g=gcdu(N,(u64)x))>1) N/=g; }
-  u64 P[MAXF]; int E[MAXF]; int k=factor(N,P,E);
+  int k=factor(N,P,E);
   double tau=1; for(int i=0;i<k;i++) tau*=(E[i]+1);
+  if(taufull<0) taufull=tau;
   // genus DP
   int r=rk[x]; int S=1<<r; double cnt[1<<12], nw[1<<12]; for(int s=0;s<S;s++)cnt[s]=0; cnt[0]=1;
   for(int i=0;i<k;i++){ unsigned v=vec(x,P[i]); double ev=E[i]/2+1, od=(E[i]+1)/2;
     for(int s=0;s<S;s++) nw[s]=cnt[s]*ev+cnt[s^v]*od; for(int s=0;s<S;s++)cnt[s]=nw[s]; }
   double g=cnt[vec(x,(u64)x-1)];
-  R->tau=tau; R->g=g; R->gm=g*(double)S/(double)phi_[x];
+  R->tau=tau; R->taufull=taufull; R->g=g; R->gm=g*(double)S/(double)phi_[x];
   // class count via divisors
   int nd=ndivs(P,E,k); long c=0; u64 mind=0; for(int t=0;t<nth;t++)R->mo[t]=0;
   if(nd<0){ fprintf(stderr,"too many divisors N=%llu\n",N); exit(2); }
@@ -114,18 +122,23 @@ static FILE *pout;
 static long nn=0;
 static void process(u64 n){
   double Lam[NT]={0},Gam[NT]={0},LO[NT]={0},GE[NT]={0},GL[NT]={0}; long Z[NT]={0},ZO[NT]={0}; u64 HC=0;
+  // running masses over all lines with x < HC (the largest masses at which n still fails); S uses lottery lines only
+  double rL=0,rG=0,rS=0, preL=-1,preG=-1,preS=-1;
   for(int x=4;x<=XMAX;x++){ if(!inC(x)) continue; if((u64)x>=n) break;
+    if(HC==0){ preL=rL; preG=rG; preS=rS; }
     for(int ty=0;ty<2;ty++){ u64 N= ty==0 ? n+x : (u64)x*n+1; LineRes R; doline(N,x,&R);
       int succ = R.c>0; if(succ && (HC==0||(u64)x<HC)) HC=x;
-      double ph=phi_[x]; double lam=R.tau/ph; if(lam>1)lam=1; double gam=R.gm; if(gam>1)gam=1;
+      double ph=phi_[x]; double lam=R.taufull/ph; if(lam>1)lam=1; double gam=R.gm; if(gam>1)gam=1;
+      rL+=lam; rG+=gam; if(!(24%x==0 || x==7 || x==15)) rS += ty==0 ? R.gm : R.gm/2;
       for(int t=0;t<nth;t++) if(x<=TH[t]){ Lam[t]+=lam; Gam[t]+=gam; Z[t]+=succ; if(ty==0) GE[t]+=R.gm; else GL[t]+=R.gm; double lo=R.mo[t]/ph; LO[t]+= lo>1?1:lo; if(succ && R.mind<=(u64)TH[t]) ZO[t]++; }
       int j=0; while((2<<j)<=x) j++; if(j>=NJ) j=NJ-1;
-      int b=mbin(R.gm); binC[ty][j][b]++; binS[ty][j][b]+=succ;
+      int b=mbin(R.gm); binC[ty][j][b]++; binS[ty][j][b]+=succ; binP1[ty][j][b]+=1-exp(-R.gm); binPh[ty][j][b]+=1-exp(-R.gm/2);
       int b2=mbin(R.tau/ph); binC2[ty][j][b2]++; binS2[ty][j][b2]+=succ;
       linecount[ty][j]++; if(R.g==0){ confined[ty][j]++; confsucc[ty][j]+=succ; }
     }
   }
-  fprintf(pout,"%llu %llu",n,HC);
+  if(HC==0){ preL=rL; preG=rG; preS=rS; }
+  fprintf(pout,"%llu %llu %.3f %.3f %.3f",n,HC,preL,preG,preS);
   for(int t=0;t<nth;t++) fprintf(pout," %.2f %.2f %ld %.2f %ld %.3g %.3g",Lam[t],Gam[t],Z[t],LO[t],ZO[t],GE[t],GL[t]);
   fprintf(pout,"\n"); nn++;
 }
@@ -133,7 +146,7 @@ static void report(const char*of,const char*tag){
   char fn[600]; snprintf(fn,sizeof fn,"%s.lines",of); FILE*f=fopen(fn,"w");
   fprintf(f,"# %s n=%ld Xmax=%d ; rows: kind type j bin lo2 count succ   (kind G: m=g/|G^2| ; kind T: m=tau/phi ; bin 0 = m=0)\n",tag,nn,XMAX);
   for(int ty=0;ty<2;ty++) for(int j=0;j<NJ;j++){
-    for(int b=0;b<NB;b++) if(binC[ty][j][b]) fprintf(f,"G %c %d %d %.1f %ld %ld\n","EL"[ty],j,b,(b-31)/2.0,binC[ty][j][b],binS[ty][j][b]);
+    for(int b=0;b<NB;b++) if(binC[ty][j][b]) fprintf(f,"G %c %d %d %.1f %ld %ld %.2f %.2f\n","EL"[ty],j,b,(b-31)/2.0,binC[ty][j][b],binS[ty][j][b],binP1[ty][j][b],binPh[ty][j][b]);
     for(int b=0;b<NB;b++) if(binC2[ty][j][b]) fprintf(f,"T %c %d %d %.1f %ld %ld\n","EL"[ty],j,b,(b-31)/2.0,binC2[ty][j][b],binS2[ty][j][b]);
     if(linecount[ty][j]) fprintf(f,"C %c %d lines %ld genus_confined %ld confined_succ %ld\n","EL"[ty],j,linecount[ty][j],confined[ty][j],confsucc[ty][j]);
   }
@@ -141,13 +154,16 @@ static void report(const char*of,const char*tag){
 }
 // scan mode: light per-prime record for joint-failure calibration at small windows.
 // per prime: p HC then for X in SX: GE GL D (untruncated genus sums over E resp. L lottery lines (x not dividing 24) with
-// x <= X; D = number of deterministic lines x | 24, x <= X, with g > 0, each of which succeeds); lines up to 64.
+// x <= X; D = number of deterministic lines (x | 24 or x in {7,15}), x <= X, with g > 0, each of which succeeds);
+// lines up to 64.
 static const int SX[]={8,12,16,20,24,28,32,40,48,64}; 
 #define NSX 10
 static void scan(u64 n){
   double GE[NSX]={0},GL[NSX]={0}; int D[NSX]={0}; u64 HC=0;
   for(int x=4;x<=64;x++){ if(!inC(x)) continue;
-    int det = (24%x==0); // G_x of exponent 2: genus = class, success iff g > 0 (deterministic line)
+    // deterministic lines (memo Lemma 1.1(b), Lemma 1.2): x | 24 (G_x of exponent 2) and x in {7,15} (8 | N and G_x^2 in <2>,
+    // ord_x(2) <= 4, so the powers of 2 sweep the genus coset): success iff g > 0.
+    int det = (24%x==0) || x==7 || x==15;
     for(int ty=0;ty<2;ty++){ u64 N= ty==0 ? n+x : (u64)x*n+1; LineRes R; doline(N,x,&R);
       if(R.c>0 && (HC==0||(u64)x<HC)) HC=x;
       for(int t=0;t<NSX;t++) if(x<=SX[t]){ if(det){ if(R.g>0) D[t]++; } else if(ty==0) GE[t]+=R.gm; else GL[t]+=R.gm; } } }

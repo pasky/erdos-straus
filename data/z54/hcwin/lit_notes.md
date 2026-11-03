@@ -26,7 +26,7 @@ PDF: https://www.pollack-math.net/brunmultiplicative4.pdf
 
 ### (b) Henriot, "Nair–Tenenbaum bounds uniform with respect to the discriminant", Math. Proc. Camb. Phil. Soc. 152 (2012) 405–424 — VERIFIED (arXiv v1 text)
 arXiv: https://arxiv.org/abs/1102.1643 . Erratum: Math. Proc. Camb. Phil. Soc. 157(2) (2014) — https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/nairtenenbaum-uniform-with-respect-to-the-discriminanterratum/B0BD208D979495FE06B8192209E710EA
-(erratum text NOT seen — its abstract says "all the results claimed may be recovered"; whether constants/Δ_D change: UNVERIFIED. For linear Q, D*=1 so Δ_D*=1 and the discriminant issue is moot.)
+(Erratum, checked in the internal review of Z54_HCWIN: it replaces the bad-prime quantity D* by a*·D*, a* = leading coefficient, so D* = 1 alone does NOT make the correction moot for Q = aX + 1. In this application the bound survives: at primes ℓ | a the form aX + 1 has no roots, so there is no dangerous local contribution; the erratum also states that the upper bounds of the original Thm 5/corollaries remain valid.)
 - **Theorem 4** (arXiv numbering): f∈M, Q∈Z[X] irreducible, degree g, disc D, 0<α,δ<1. Uniformly in x ≥ c0‖Q‖^δ, x^α < y ≤ x:
   Σ_{x<n≤x+y} f(|Q(n)|) ≪ Δ_D y ∏_{p≤x}(1−ρ(p)/p) exp(Σ_{g<p≤x, p∤D} f(p)ρ(p)/p); constants depend on α,δ,A,B (and g) only. ‖Q‖ = sum of |coefficients|.
 - **Theorem 7** (primes): under the hypotheses of Thm 5 (Q primitive, F∈M_k(A,B,ε), ε < α/(50g(g+1/δ))), with Q(0) ≠ 0, uniformly in x ≥ c0‖Q‖^δ, x^α ≤ y ≤ x:

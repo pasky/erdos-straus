@@ -2,8 +2,8 @@
 """z54 HCWIN: joint-failure calibration of the conditioned lottery (scan files of z54_hcwin_lines.c, mode scan).
 
 Row: p HC  GE(X) GL(X) D(X) for X in SX = 8,12,16,20,24,28,32,40,48,64  (untruncated genus masses m = g/|G_x^2| summed
-over E- resp. L- *lottery* lines (x not dividing 24) with x <= X; D = number of deterministic lines x | 24 (G_x of
-exponent 2, genus = class) with g > 0 -- each of them succeeds).
+over E- resp. L- *lottery* lines with x <= X; D = number of deterministic lines with g > 0 -- each of them succeeds;
+deterministic = x | 24 (G_x of exponent 2) or x in {7, 15} (8 | N and the powers of 2 sweep the genus coset)).
 Lottery-with-independence prediction, for primes with D = 0: P(HC > X | data) = exp(-(GE + cL*GL)), cL = level-line
 constant (pairing d <-> N/d).
 Prints per X: observed failures, expected sum, ratio, split of observed failures into genus-dead (GE+GL == 0) and

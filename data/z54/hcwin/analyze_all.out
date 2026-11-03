@@ -1,4 +1,7 @@
-=== /tmp/z54d/stat_1e9.txt: N=50000  log n in [20.72,20.73]  HC==0(no line<=Xmax): 0
+=== /tmp/z54e/stat_1e9.txt: N=50000  log n in [20.72,20.73]  HC==0(no line<=Xmax): 0
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 0.8312 at n=1001719681 HC=28; 99.99%-quantile 0.4826
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 0.1316 at n=1001719681 HC=28; 99.99%-quantile 0.0000
+    max preS (largest mass over x < HC, i.e. at a failing window) = 3.2270 at n=1001719681 HC=28; 99.99%-quantile 0.0000
 X=    8 fail=    81 (1.62e-03)  mean Lam/logn=0.287 Gam/logn=0.217 LamOut/logn=0.274 | failures: max Lam/logn=0.290 max Gam/logn=0.000 | outer-cert share among succ: 0.771
       fit P(fail)=exp(-c*mass): c_Lam=1.080 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.5,6250,81,1.75)  (3.8,6250,0,nan)  (4.0,6250,0,nan)  (4.2,6250,0,nan)  (5.0,6250,0,nan)  (5.0,6250,0,nan)  (5.5,6250,0,nan)  (6.0,6250,0,nan)
@@ -11,7 +14,10 @@ X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.581 Gam/logn=1.925 LamOut/logn=1
 X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.609 Gam/logn=2.745 LamOut/logn=2.486 | outer-cert share among succ: 1.000
 X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.711 Gam/logn=3.640 LamOut/logn=3.268 | outer-cert share among succ: 1.000
 X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.849 Gam/logn=4.561 LamOut/logn=4.167 | outer-cert share among succ: 1.000
-=== /tmp/z54d/stat_1e11.txt: N=50000  log n in [25.33,25.33]  HC==0(no line<=Xmax): 0
+=== /tmp/z54e/stat_1e11.txt: N=50000  log n in [25.33,25.33]  HC==0(no line<=Xmax): 0
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 0.4738 at n=100004027281 HC=20; 99.99%-quantile 0.3159
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=100000000057 HC=4; 99.99%-quantile 0.0000
+    max preS (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=100000000057 HC=4; 99.99%-quantile 0.0000
 X=    8 fail=    49 (9.80e-04)  mean Lam/logn=0.235 Gam/logn=0.183 LamOut/logn=0.224 | failures: max Lam/logn=0.237 max Gam/logn=0.000 | outer-cert share among succ: 0.773
       fit P(fail)=exp(-c*mass): c_Lam=1.170 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.6,6250,49,1.86)  (4.0,6250,0,nan)  (4.0,6250,0,nan)  (4.7,6250,0,nan)  (5.0,6250,0,nan)  (5.0,6250,0,nan)  (5.8,6250,0,nan)  (6.0,6250,0,nan)
@@ -24,7 +30,10 @@ X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.237 Gam/logn=1.718 LamOut/logn=1
 X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.195 Gam/logn=2.506 LamOut/logn=2.034 | outer-cert share among succ: 1.000
 X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.246 Gam/logn=3.388 LamOut/logn=2.674 | outer-cert share among succ: 1.000
 X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.341 Gam/logn=4.306 LamOut/logn=3.409 | outer-cert share among succ: 1.000
-=== /tmp/z54d/stat_1e13.txt: N=50000  log n in [29.93,29.93]  HC==0(no line<=Xmax): 0
+=== /tmp/z54e/stat_1e13.txt: N=50000  log n in [29.93,29.93]  HC==0(no line<=Xmax): 0
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 0.4259 at n=10000002216961 HC=23; 99.99%-quantile 0.2673
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=10000000000129 HC=4; 99.99%-quantile 0.0000
+    max preS (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=10000000000129 HC=4; 99.99%-quantile 0.0000
 X=    8 fail=    32 (6.40e-04)  mean Lam/logn=0.199 Gam/logn=0.158 LamOut/logn=0.190 | failures: max Lam/logn=0.200 max Gam/logn=0.000 | outer-cert share among succ: 0.773
       fit P(fail)=exp(-c*mass): c_Lam=1.240 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.9,6250,32,1.83)  (4.0,6250,0,nan)  (4.0,6250,0,nan)  (5.0,6250,0,nan)  (5.0,6250,0,nan)  (5.0,6250,0,nan)  (6.0,6250,0,nan)  (6.0,6250,0,nan)
@@ -37,7 +46,10 @@ X=  128 fail=     0 (0.00e+00)  mean Lam/logn=1.979 Gam/logn=1.552 LamOut/logn=1
 X=  256 fail=     0 (0.00e+00)  mean Lam/logn=2.877 Gam/logn=2.307 LamOut/logn=1.721 | outer-cert share among succ: 1.000
 X=  512 fail=     0 (0.00e+00)  mean Lam/logn=3.883 Gam/logn=3.170 LamOut/logn=2.263 | outer-cert share among succ: 1.000
 X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=4.945 Gam/logn=4.082 LamOut/logn=2.885 | outer-cert share among succ: 1.000
-=== /tmp/z54d/stat_4e15.txt: N=20000  log n in [35.93,35.93]  HC==0(no line<=Xmax): 0
+=== /tmp/z54e/stat_4e15.txt: N=20000  log n in [35.93,35.93]  HC==0(no line<=Xmax): 0
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 0.2923 at n=4000000002059161 HC=20; 99.99%-quantile 0.1670
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=4000000000000073 HC=4; 99.99%-quantile 0.0000
+    max preS (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=4000000000000073 HC=4; 99.99%-quantile 0.0000
 X=    8 fail=     8 (4.00e-04)  mean Lam/logn=0.166 Gam/logn=0.134 LamOut/logn=0.158 | failures: max Lam/logn=0.167 max Gam/logn=0.000 | outer-cert share among succ: 0.770
       fit P(fail)=exp(-c*mass): c_Lam=1.310 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (3.1,2500,8,1.86)  (4.0,2500,0,nan)  (4.3,2500,0,nan)  (5.0,2500,0,nan)  (5.0,2500,0,nan)  (5.2,2500,0,nan)  (6.0,2500,0,nan)  (6.0,2500,0,nan)
@@ -50,20 +62,26 @@ X=  128 fail=     0 (0.00e+00)  mean Lam/logn=1.725 Gam/logn=1.381 LamOut/logn=1
 X=  256 fail=     0 (0.00e+00)  mean Lam/logn=2.555 Gam/logn=2.092 LamOut/logn=1.434 | outer-cert share among succ: 1.000
 X=  512 fail=     0 (0.00e+00)  mean Lam/logn=3.510 Gam/logn=2.927 LamOut/logn=1.886 | outer-cert share among succ: 1.000
 X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=4.534 Gam/logn=3.826 LamOut/logn=2.404 | outer-cert share among succ: 1.000
-=== /tmp/z54d/int_1e11.txt: N=20000  log n in [25.33,25.33]  HC==0(no line<=Xmax): 0
+=== /tmp/z54e/int_1e11.txt: N=20000  log n in [25.33,25.33]  HC==0(no line<=Xmax): 0
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 0.4146 at n=100000013625 HC=20; 99.99%-quantile 0.3356
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=100000000001 HC=4; 99.99%-quantile 0.0000
+    max preS (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=100000000001 HC=4; 99.99%-quantile 0.0000
 X=    8 fail=    52 (2.60e-03)  mean Lam/logn=0.234 Gam/logn=0.168 LamOut/logn=0.219 | failures: max Lam/logn=0.237 max Gam/logn=0.000 | outer-cert share among succ: 0.691
       fit P(fail)=exp(-c*mass): c_Lam=1.010 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (2.1,2500,52,1.86)  (3.1,2500,0,nan)  (4.0,2500,0,nan)  (4.0,2500,0,nan)  (4.7,2500,0,nan)  (5.0,2500,0,nan)  (5.2,2500,0,nan)  (6.0,2500,0,nan)
 X=   16 fail=     1 (5.00e-05)  mean Lam/logn=0.453 Gam/logn=0.312 LamOut/logn=0.396 | failures: max Lam/logn=0.415 max Gam/logn=0.000 | outer-cert share among succ: 0.921
       fit P(fail)=exp(-c*mass): c_Lam=0.880 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (4.8,2500,1,1.64)  (6.3,2500,0,nan)  (7.0,2500,0,nan)  (7.9,2500,0,nan)  (8.1,2500,0,nan)  (9.0,2500,0,nan)  (9.5,2500,0,nan)  (10.6,2500,0,nan)
-X=   32 fail=     0 (0.00e+00)  mean Lam/logn=0.816 Gam/logn=0.577 LamOut/logn=0.632 | outer-cert share among succ: 0.979
-X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.367 Gam/logn=0.990 LamOut/logn=0.959 | outer-cert share among succ: 0.996
-X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.071 Gam/logn=1.546 LamOut/logn=1.355 | outer-cert share among succ: 0.999
-X=  256 fail=     0 (0.00e+00)  mean Lam/logn=2.898 Gam/logn=2.215 LamOut/logn=1.834 | outer-cert share among succ: 1.000
-X=  512 fail=     0 (0.00e+00)  mean Lam/logn=3.785 Gam/logn=2.943 LamOut/logn=2.389 | outer-cert share among succ: 1.000
-X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=4.703 Gam/logn=3.697 LamOut/logn=3.024 | outer-cert share among succ: 1.000
-=== /tmp/z54d/near24_1e10.txt: N=5000  log n in [23.03,25.01]  HC==0(no line<=Xmax): 0
+X=   32 fail=     0 (0.00e+00)  mean Lam/logn=0.823 Gam/logn=0.577 LamOut/logn=0.632 | outer-cert share among succ: 0.979
+X=   64 fail=     0 (0.00e+00)  mean Lam/logn=1.401 Gam/logn=0.990 LamOut/logn=0.959 | outer-cert share among succ: 0.996
+X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.149 Gam/logn=1.546 LamOut/logn=1.355 | outer-cert share among succ: 0.999
+X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.060 Gam/logn=2.215 LamOut/logn=1.834 | outer-cert share among succ: 1.000
+X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.042 Gam/logn=2.943 LamOut/logn=2.389 | outer-cert share among succ: 1.000
+X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.072 Gam/logn=3.697 LamOut/logn=3.024 | outer-cert share among succ: 1.000
+=== /tmp/z54e/near24_1e10.txt: N=5000  log n in [23.03,25.01]  HC==0(no line<=Xmax): 0
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 0.5576 at n=20849916049 HC=23; 99.99%-quantile 0.5233
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 0.0842 at n=20849916049 HC=23; 99.99%-quantile 0.0623
+    max preS (largest mass over x < HC, i.e. at a failing window) = 2.5000 at n=20849916049 HC=23; 99.99%-quantile 1.5002
 X=    8 fail=    10 (2.00e-03)  mean Lam/logn=0.248 Gam/logn=0.137 LamOut/logn=0.248 | failures: max Lam/logn=0.257 max Gam/logn=0.000 | outer-cert share among succ: 0.607
       fit P(fail)=exp(-c*mass): c_Lam=1.040 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (1.8,625,10,2.33)  (2.9,625,0,nan)  (3.0,625,0,nan)  (3.0,625,0,nan)  (3.6,625,0,nan)  (4.0,625,0,nan)  (4.0,625,0,nan)  (4.2,625,0,nan)
@@ -76,7 +94,10 @@ X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.310 Gam/logn=1.539 LamOut/logn=1
 X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.276 Gam/logn=2.288 LamOut/logn=2.130 | outer-cert share among succ: 1.000
 X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.332 Gam/logn=3.113 LamOut/logn=2.798 | outer-cert share among succ: 1.000
 X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.424 Gam/logn=3.984 LamOut/logn=3.562 | outer-cert share among succ: 1.000
-=== /tmp/z54d/near120_1e10.txt: N=5000  log n in [23.03,24.77]  HC==0(no line<=Xmax): 0
+=== /tmp/z54e/near120_1e10.txt: N=5000  log n in [23.03,24.77]  HC==0(no line<=Xmax): 0
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 0.7705 at n=13989921961 HC=31; 99.99%-quantile 0.7556
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 0.0862 at n=11776807561 HC=23; 99.99%-quantile 0.0859
+    max preS (largest mass over x < HC, i.e. at a failing window) = 2.9090 at n=13989921961 HC=31; 99.99%-quantile 2.7045
 X=    8 fail=   127 (2.54e-02)  mean Lam/logn=0.250 Gam/logn=0.095 LamOut/logn=0.250 | failures: max Lam/logn=0.261 max Gam/logn=0.000 | outer-cert share among succ: 0.595
       fit P(fail)=exp(-c*mass): c_Lam=0.610 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (0.8,625,127,2.00)  (1.8,625,0,nan)  (2.0,625,0,nan)  (2.0,625,0,nan)  (2.5,625,0,nan)  (3.0,625,0,nan)  (3.0,625,0,nan)  (3.2,625,0,nan)
@@ -89,18 +110,24 @@ X=  128 fail=     0 (0.00e+00)  mean Lam/logn=2.325 Gam/logn=1.436 LamOut/logn=1
 X=  256 fail=     0 (0.00e+00)  mean Lam/logn=3.290 Gam/logn=2.129 LamOut/logn=2.154 | outer-cert share among succ: 1.000
 X=  512 fail=     0 (0.00e+00)  mean Lam/logn=4.354 Gam/logn=2.925 LamOut/logn=2.826 | outer-cert share among succ: 1.000
 X= 1024 fail=     0 (0.00e+00)  mean Lam/logn=5.451 Gam/logn=3.758 LamOut/logn=3.594 | outer-cert share among succ: 1.000
-=== /tmp/z54d/sq_1e10.txt: N=5000  log n in [23.03,23.22]  HC==0(no line<=Xmax): 5000
+=== /tmp/z54e/sq_1e10.txt: N=5000  log n in [23.03,23.22]  HC==0(no line<=Xmax): 5000
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 5.7864 at n=10394414209 HC=0; 99.99%-quantile 5.7824
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=10000200001 HC=0; 99.99%-quantile 0.0000
+    max preS (largest mass over x < HC, i.e. at a failing window) = 0.0000 at n=10000200001 HC=0; 99.99%-quantile 0.0000
 X=    8 fail=  5000 (1.00e+00)  mean Lam/logn=0.257 Gam/logn=0.000 LamOut/logn=0.245 | failures: max Lam/logn=0.261 max Gam/logn=0.000
-X=   16 fail=  5000 (1.00e+00)  mean Lam/logn=0.490 Gam/logn=0.000 LamOut/logn=0.428 | failures: max Lam/logn=0.521 max Gam/logn=0.000
-X=   32 fail=  5000 (1.00e+00)  mean Lam/logn=0.877 Gam/logn=0.000 LamOut/logn=0.688 | failures: max Lam/logn=1.022 max Gam/logn=0.000
-X=   64 fail=  5000 (1.00e+00)  mean Lam/logn=1.448 Gam/logn=0.000 LamOut/logn=1.035 | failures: max Lam/logn=1.713 max Gam/logn=0.000
-X=  128 fail=  5000 (1.00e+00)  mean Lam/logn=2.178 Gam/logn=0.000 LamOut/logn=1.468 | failures: max Lam/logn=2.614 max Gam/logn=0.000
-X=  256 fail=  5000 (1.00e+00)  mean Lam/logn=3.008 Gam/logn=0.000 LamOut/logn=1.982 | failures: max Lam/logn=3.589 max Gam/logn=0.000
-X=  512 fail=  5000 (1.00e+00)  mean Lam/logn=3.899 Gam/logn=0.000 LamOut/logn=2.583 | failures: max Lam/logn=4.684 max Gam/logn=0.000
-X= 1024 fail=  5000 (1.00e+00)  mean Lam/logn=4.819 Gam/logn=0.000 LamOut/logn=3.269 | failures: max Lam/logn=5.779 max Gam/logn=0.000
-/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0046/scripts/z54_hcwin_analyze.py:74: RuntimeWarning: invalid value encountered in scalar divide
+X=   16 fail=  5000 (1.00e+00)  mean Lam/logn=0.491 Gam/logn=0.000 LamOut/logn=0.428 | failures: max Lam/logn=0.521 max Gam/logn=0.000
+X=   32 fail=  5000 (1.00e+00)  mean Lam/logn=0.884 Gam/logn=0.000 LamOut/logn=0.688 | failures: max Lam/logn=1.022 max Gam/logn=0.000
+X=   64 fail=  5000 (1.00e+00)  mean Lam/logn=1.488 Gam/logn=0.000 LamOut/logn=1.035 | failures: max Lam/logn=1.713 max Gam/logn=0.000
+X=  128 fail=  5000 (1.00e+00)  mean Lam/logn=2.264 Gam/logn=0.000 LamOut/logn=1.468 | failures: max Lam/logn=2.614 max Gam/logn=0.000
+X=  256 fail=  5000 (1.00e+00)  mean Lam/logn=3.183 Gam/logn=0.000 LamOut/logn=1.982 | failures: max Lam/logn=3.608 max Gam/logn=0.000
+X=  512 fail=  5000 (1.00e+00)  mean Lam/logn=4.173 Gam/logn=0.000 LamOut/logn=2.583 | failures: max Lam/logn=4.684 max Gam/logn=0.000
+X= 1024 fail=  5000 (1.00e+00)  mean Lam/logn=5.200 Gam/logn=0.000 LamOut/logn=3.269 | failures: max Lam/logn=5.786 max Gam/logn=0.000
+/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0046/scripts/z54_hcwin_analyze.py:80: RuntimeWarning: invalid value encountered in scalar divide
   f"({mm:.1f},{k},{ff},{(-math.log(ff/k)/mm if ff else float('nan')):.2f})" for mm, k, ff in cur))
-=== /tmp/z54d/hard.txt: N=166  log n in [6.01,33.48]  HC==0(no line<=Xmax): 0
+=== /tmp/z54e/hard.txt: N=166  log n in [6.01,33.48]  HC==0(no line<=Xmax): 0
+    max preL/logn (largest mass over x < HC, i.e. at a failing window) = 2.9055 at n=21841 HC=64; 99.99%-quantile 2.8909
+    max preG/logn (largest mass over x < HC, i.e. at a failing window) = 1.0236 at n=21841 HC=64; 99.99%-quantile 1.0159
+    max preS (largest mass over x < HC, i.e. at a failing window) = 9.7040 at n=21841 HC=64; 99.99%-quantile 9.6219
 X=    8 fail=   151 (9.10e-01)  mean Lam/logn=0.303 Gam/logn=0.017 LamOut/logn=0.303 | failures: max Lam/logn=0.766 max Gam/logn=0.000 | outer-cert share among succ: 0.267
       fit P(fail)=exp(-c*mass): c_Lam=0.020 c_Gam=3.000
       Gam bins (mean, n, fail, -log(Pfail)/mean):  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,21,21,nan)  (0.0,20,20,nan)  (1.6,20,5,0.89)
