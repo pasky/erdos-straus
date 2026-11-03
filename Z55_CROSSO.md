@@ -15,7 +15,8 @@ Definitions as in `Z53_GENUSX.md` §1 and Lemma 4.1 (Theorem U family 𝔉 = �
   CERTIFIED on 60 primes near 10⁶ (engine = brute force; all 29 hits have (d/p) = (e/p) = −1) and 200 odd squares (R = 0).
 * **Pointwise attack (§2, Assessment).** Each of the three fibrations (fix u / fix w / fix C) turns R(p) into "a single
   integer (p + u, p + 2w or 4Cp + 1) has a divisor in a residue class whose modulus is tied to the fibre variable". I found
-  no pointwise handle on that; identity-type constructions (e.g. via p = a² + b²) are excluded by the T1 obstruction.
+  no pointwise handle on that; identity-type constructions (e.g. via p = a² + b²) that stay positive and integral at odd squares are excluded by
+  the T1 obstruction (others must degenerate at b = 0; I found none).
   Everything below averages over p.
 * **Theorem P (PROVED, unconditional; §3).** For any exponents 0 < α₀ < α₁ < β < γ with θ := α₁ + γ < 1/2 — in particular
   for Theorem-U-admissible windows such as (α₀, α₁, β, γ) = (0.075, 0.1, 0.29, 0.39) — a positive proportion of the primes
@@ -70,12 +71,16 @@ non-squares near 10⁶ have R > 0.
 
 ## 2. The pointwise attack (Assessment)
 
-The three exact fibrations of the hit set {(u, w, C) : p = 8uwC − u − 2w} are:
-* fix u: hits ↔ divisors w″ ≡ −1 (mod 4u) of (p + u)/2 in a range (R ≈ Σ_u #{divisors of p + u in a class mod 4u});
-* fix w: hits ↔ divisors 8Cw − 1 of p + 2w, the cofactor being u ∈ 𝒰 (`Z53_GENUSX` Lemma 4.1: one u per w);
-* fix C: hits ↔ divisors d ≡ −1 (mod 4C) of 4Cp + 1 (the cofactor is then automatically ≡ −1 mod 4C).
+The three fibrations of the hit set {(u, w, C) : p = 8uwC − u − 2w}, (u, w) ∈ 𝔉(p), are (in each case *together with*
+the induced family restrictions — integrality, window, parity, squarefreeness, coprimality of the recovered u and w):
+* fix u: hits ↔ divisors w″ ≡ −1 (mod 4u) of (p + u)/2 with w = (p + u)/(2w″) ∈ (Y, X] odd squarefree, gcd(w, up) = 1;
+* fix w: hits ↔ divisors 8Cw − 1 of p + 2w whose cofactor u = (p + 2w)/(8Cw − 1) lies in 𝒰 with gcd(w, u) = 1
+  (`Z53_GENUSX` Lemma 4.1: one u per w);
+* fix C: hits ↔ divisors d ≡ −1 (mod 4C) of 4Cp + 1 with u = (d + 1)/(4C) ∈ 𝒰 and w = ((4Cp + 1)/d + 1)/(8C) an
+  integer in the w-window with (u, w) ∈ 𝔉(p). The divisor class alone is not sufficient: p = 5, C = 1, d = 7 satisfies
+  it but gives w = 1/2 (cross-model review R2).
 In every fibration the modulus of the class is tied to the fibre variable, and the integer whose divisors are counted
-depends on it, so no averaging over the fibre variable produces an equidistribution statement (what Theorem U and
+depends on it; I found no averaging argument over the fibre variable that produces an equidistribution statement (what Theorem U and
 `Z53_GENUSX` Theorem X do is average the *density* ρ_u(w), not the divisibility). I tried: (a) short-interval divisor
 asymptotics (the u-range p^{α₁} is far below the p^{0.31} needed even for plain τ(p + u), and the class condition is
 not a divisor-function twist); (b) parametrising p = a² + b² and looking for an identity 4C(a² + b²) + 1 = (4CA − 1)(4CB − 1)
@@ -291,7 +296,7 @@ the pairs where (u′, w′) shares u (they need w′ ≡ w (mod 4u), a power sa
 #{(v, k) ∈ (V, 2V] × (K, 2K] : k ≡ λv (mod m)} ≪ VK/m + min(V, K) + 1 ((λ, m) = 1) is the natural tool (it gives the
 ≪ log²x bound of §4.3(ii) in the no-cross-share case). Proposed route (not established): with u = g₁₁g₁₂k₁,
 u′ = g₁₁g₂₁v, w = g₂₁g₂₂k₂, w′ = g₁₂g₂₂t, compatibility is the 4-cycle k₁ ≡ λ₁v (g₂₂), k₁ ≡ λ₂t (g₂₁),
-k₂ ≡ λ₃t (g₁₁), k₂ ≡ λ₄v (g₁₂) with separate unit multipliers (λ₁ = g₁₂/g₂₁ mod g₂₂, λ₂ = 2g₂₂/g₁₁ mod g₂₁,
+k₂ ≡ λ₃t (g₁₁), k₂ ≡ λ₄v (g₁₂) with separate unit multipliers (λ₁ = g₂₁/g₁₂ mod g₂₂ — from g₁₂k₁ ≡ g₂₁v (mod g₂₂), λ₂ = 2g₂₂/g₁₁ mod g₂₁,
 λ₃ = g₁₂/g₂₁ mod g₁₁, λ₄ = g₁₁/(2g₂₂) mod g₁₂). First treat u = u′ (then w′ ≡ w (mod 4u): a factor 1/u ≤ x^{−α₀}).
 For u ≠ u′, g₂₂ | u − u′ forces g₂₂ < U₁, and also g₂₁ ≤ U₁; if β > 3α₁ (admissible, e.g.
 (α₀, α₁, β, γ) = (0.07, 0.08, 0.28, 0.41) with r = 1000, ε = 10⁻⁶: (C2) needs β > 0.271354, (C3) α₀ > 0.06818) the w-side
@@ -323,7 +328,9 @@ so HW stays a hypothesis here.
   cancellation) for pairs of family members sharing a prime ≥ (log x)²; reductions Lemma 4.3/4.4 PROVED.
 * Next step (Assessment): prove HW by the case analysis sketched in §4.5 (windows with β > 3α₁ simplify it); that
   would make the almost-all statement unconditional. It would still not touch the pointwise target.
-* EVIDENCE: HV holds with room (Var ≈ Poisson); §4.4.
+* EVIDENCE: finite prime samples are consistent with Poisson-scale variance (§4.4); HV remains untested
+  asymptotically (fixed non-exponent windows, primes rather than Haar units, sampling noise e.g. the ratio 2.334 at
+  400 samples).
 * NOT PROVED: the target R_𝔉(p) ≥ 1 for every large p. **ES remains OPEN.**
 
 ## 7. Review log
@@ -341,6 +348,17 @@ Lemma 4.1's reference line).
 **Second hostile review (§4.5 only, deep-mode subagent).** Lemma 4.3(a),(b) valid (exact bracket factorisation, no
 missing constant); Lemma 4.4 valid after correcting the mod-8 sieve density t/4 → t/8; Theorem A′ deduction correct and
 still CONDITIONAL; example window admissible (C2 RHS 0.271354, C3 RHS 0.06818). Fixed: density constant; the dyadic
-count now carries the +1 term and the coprimality hypothesis; the 4-cycle uses separate multipliers λ₁…λ₄; the
+count now carries the +1 term and the coprimality hypothesis; the 4-cycle uses separate multipliers λ₁…λ₄ (but λ₁
+was still printed inverted — corrected after the cross-model review, R1); the
 cofactor-scale claim is stated only after the u = u′ case is removed and phrased as a proposed route; Theorem A′ now
 states the dyadic comparison with M_{z,x}.
+
+**Cross-model review** (`data/z55/xreview/REVIEW_CROSSO.md`, audit script `scripts/z55_xrev_crosso_check.py`):
+ACCEPT-WITH-FIXES. Theorem P, Lemmas 1.1/4.1–4.4, Cor 1.2 and the conditional Theorems A/A′ confirmed (constants
+re-derived; exact rational census modulo 120120 confirms V₈ = Var₁(H) + Var₅(H) and the W_z bound; all saved numerics
+reproduced exactly; Σ_{ℓ≥17}ℓ⁻² < 0.016546990740823 certified). Fixed: R1 the four-cycle multiplier λ₁ was inverted
+(now g₂₁/g₁₂ mod g₂₂; counterexample (33, 455), (145, 399) in the review) — this affected only the proposed HW route;
+R2 the §2 fibrations now carry the induced family restrictions (fixed-C example p = 5, C = 1, d = 7); R3 wording:
+"HV holds with room" replaced by a finite-sample statement, the identity-construction dismissal restricted to identities
+that stay positive/integral at odd squares, and the fibration remark framed as "no argument found". Verdict unchanged:
+strengthened on average; pointwise target not reached; ES OPEN.
