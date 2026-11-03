@@ -1,0 +1,36 @@
+record mu=2 at p=5
+record mu=3 at p=17
+record mu=6 at p=73
+record mu=8 at p=241
+record mu=12 at p=1009
+record mu=18 at p=1201
+record mu=30 at p=2521
+record mu=44 at p=3049
+record mu=59 at p=21121
+record mu=67 at p=21841
+record mu=84 at p=43969
+record mu=87 at p=76441
+record mu=88 at p=93601
+record mu=191 at p=118801
+record mu=224 at p=121081
+record mu=285 at p=351289
+record mu=288 at p=361321
+N=1000000 primes=39175 max mu=288 mean log mu/log p=0.1195
+record mu=2 at p=5 (log mu/log p=0.431, mu/(log p)^2=0.77)
+record mu=3 at p=17 (log mu/log p=0.388, mu/(log p)^2=0.37)
+record mu=6 at p=73 (log mu/log p=0.418, mu/(log p)^2=0.33)
+record mu=8 at p=241 (log mu/log p=0.379, mu/(log p)^2=0.27)
+record mu=12 at p=1009 (log mu/log p=0.359, mu/(log p)^2=0.25)
+record mu=18 at p=1201 (log mu/log p=0.408, mu/(log p)^2=0.36)
+record mu=30 at p=2521 (log mu/log p=0.434, mu/(log p)^2=0.49)
+record mu=44 at p=3049 (log mu/log p=0.472, mu/(log p)^2=0.68)
+record mu=59 at p=21121 (log mu/log p=0.409, mu/(log p)^2=0.59)
+record mu=67 at p=21841 (log mu/log p=0.421, mu/(log p)^2=0.67)
+record mu=84 at p=43969 (log mu/log p=0.414, mu/(log p)^2=0.73)
+record mu=87 at p=76441 (log mu/log p=0.397, mu/(log p)^2=0.69)
+record mu=88 at p=93601 (log mu/log p=0.391, mu/(log p)^2=0.67)
+record mu=191 at p=118801 (log mu/log p=0.449, mu/(log p)^2=1.40)
+record mu=224 at p=121081 (log mu/log p=0.462, mu/(log p)^2=1.64)
+record mu=285 at p=351289 (log mu/log p=0.443, mu/(log p)^2=1.75)
+record mu=288 at p=361321 (log mu/log p=0.443, mu/(log p)^2=1.76)
+range lo=5 primes=39175 : max mu=288, max log mu/log p=0.4717 at p=3049, mean log mu/log p=0.1195
