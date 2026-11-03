@@ -585,6 +585,17 @@ no single-prime lower-tail mechanism is known.
   contradicts Vaughan (exponent 3/4 with the internal note); one successor in (p, p + f(p)] with f = e^{o((log p)^{2/3})}
   suffices for linear-scale branching. These are sharp "would suffice" targets for a disproof-by-propagation or a
   proof-by-contradiction; no propagation law is known.
+* *(z54; cross-model reviewed.)* Class-layer hypothesis for HC: Lot_Λ(C) (∃p₀ ∀ prime p > p₀, p ≡ 1 (8),
+  ∀X ≤ X_max(p) = exp(3√(C log p)): Λ(p, X) ≥ C log p ⟹ HC(p) ≤ X; ES-specific, open, B2 restated for a joint family)
+  ⟹ HC(p) ≤ exp(√(8C log p) + O(1)) = p^{o(1)} for every sufficiently large prime p ≡ 1 (8) (`Z54_HCWIN.md` Thm D,
+  CONDITIONAL; the needed anatomy mass is supplied unconditionally by Thm A2). Since finite HC(p) gives ES(p) (§7.2),
+  Lot_Λ(C) is ES-strength.
+* *(z54; not ES — kill side and upper-bound side.)* EH(1 − η₀) for some absolute, uncomputed η₀ ∈ (0, 1/10] (implied by
+  the standard Elliott–Halberstam conjecture) ⟹ #{p ≤ x : p ≡ 1 (8), p + 4 and 4p + 1 have all prime factors ≡ 1 (4)}
+  ≫ x/(log x)², hence ≫ x/(log x)² primes p ≤ x with HC(p) > 4, i.e. the kill K(4) (`Z54_HCKILL.md` Thm E,
+  CONDITIONAL). TD(η), 0 < η ≤ 1/2 (|T(h)| ≤ C₀U^{1−η} for 1 ≤ h ≤ U^η, uniformly for primes p and U in the fourth-root
+  range) ⟹ N₂(p, U) ≪ U^{1−η+ε}, hence balanced block N(U, U) ≪ p^{(1−η)/4+ε} (`Z54_BILINDIV.md` Thm T / Cor T,
+  CONDITIONAL; an upper bound, silent on positivity; §7 item 1).
 
 **5.5 Standing conjectures with evidence** (CONJECTURE; EVIDENCE ranges in brackets).
 SQ: for odd n, V_I(n) ∪ V_II(n) empty (ET N-points, no coprimality) ⟺ n square [odd non-squares ≤ 10⁷] (z52 repair: with the
@@ -629,6 +640,17 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   E(q,κ) with κ ≤ q/(log X)^{2+η}. This limits an almost-all guarantee at that q, not simultaneously over q; for fixed q
   the threshold eventually falls below 1. Aggregation over q is the remaining Type II route (Assessment), not a necessity
   for every ES proof: ES is Type I or Type II.
+* (z54) Norm-only character-side inputs to the balanced-block square sieve → `Z54_BILINJAC.md` Prop M, Cor M′: used
+  directly, Heath-Brown's real-character large sieve (square-class ℓ²-mass D(w)) returns ≥ √D(w) ≥ M_s(w) (the square
+  mass), adding nothing to its input, and sup-norm/support/range bilinear Jacobi bounds (HB Cor 4) return ≥ (1 − 1/P₀) × the trivial bound.
+  Inputs using more than these norms are not excluded.
+* (z54) Balanced block via divisor/geometry tools, specified implementations only → `Z54_BILINDIV.md` Props 4.3, 5.1,
+  5.3, 5.4 (see §7 item 1); joint (ν, k) cancellation, actual auxiliary-curve counts, Salberger/p-adic variants and AP
+  methods with p-dependent moduli remain open.
+* (z54) Exact layer R_𝔉 − G_𝔉 bounded block by block → `Z54_EXACTSUM.md` Theorem N: on a fixed window
+  0 < α₀ < α₁ ≤ β < γ with 8U₁X ≤ P, U₁ > 3U₀, X ≥ 12Y, n-uniform bounds (over n ≡ 1 (24) in [P, 2P]) on the conductor blocks D_f or frequency sums W(a,q), summed by the
+  triangle inequality, total ≥ P^{α₁−o(1)} (from prime f ≡ 1 (4) in (U₁/3, U₁]). Prime-sensitive, one-sided and
+  grouped-block (cross-u) methods are not excluded.
 
 *Algebraic / forcing*
 * Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS "line 2: CLOSED".
@@ -672,6 +694,14 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   congruence menus. Rational functions, thin loci and nonpolynomial choices are not covered.
 * (z53) Convex lattice schemes → `Z53_LATTICE.md` Thm A: for odd n ≥ 6.8·10¹⁷, no Def. 1.1 full-rank convex Thue scheme
   in (u, B, C), with its exactness/size conditions and positive-octant covering or Minkowski hypothesis, exists.
+* (z54) Quadratic-family confinement of growing HC windows → `Z54_HCKILL.md` Props F4–F6: a two-variable quadratic F
+  (nondegenerate quadratic part, full-rank lattice coset) confines at most one window integer (F6); one-variable families
+  p = (y² + δ)/(4a) admit only finitely many formal ratios (a : δ) confining all of 𝒞 ∩ [4, X], X ≥ 8 (F4, Faltings),
+  and none confines a prime line q ≡ 7 (8) with q ∤ δ (F5). Higher-degree (x² + y⁴-type) constructions are not covered.
+* (z54) Spin theorems / direct complete-fibre averaging on the exact class layer → `Z54_EXACTSPIN.md` Lemma 4.5,
+  Cor 5.1, Prop 5.2 (scoped): fixed-modulus fibres on the (★) support have ≤ 6τ(u) points; FIMR/Koymans–Milovic
+  hypotheses are not met (Assessment); the smooth Fourier majorant for the cubic layer needs better-than-square-root (W).
+  Transformed sums, signed or non-Fourier methods are not excluded.
 
 *Geometry / relaxations / transfers*
 * Brauer–Manin, fibrations, descent, strong approximation → no BM obstruction; "BM only obstruction" = ES(n) → (I)7, `GEOMETRY_ES.md`.
@@ -757,6 +787,65 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
      suffice but are not individually necessary, since they could compensate.
    * **Assessment.** No lane supplied single-prime positivity; the scoped obstructions leave undeveloped survivors,
      including those retained by WILDCARD and LIT.
+   *(z54, two lanes, each with internal hostile and cross-model review; upper-bound work only, silent on positivity;
+   `Z54_SUMMARY.md` §1.)*
+   * **Jacobi-symbol side (`Z54_BILINJAC.md`; narrowed).** N(U, V, W) counts (★) triples with u ∈ (U, 2U], B ∈ (V, 2V],
+     C ∈ (W, 2W], U ≤ V; the balanced block has U ≍ V ≍ n^{1/4}, W ≍ n^{1/2}, trivial bound N ≤ n^{1/4+o(1)}.
+     * Prop M / Cor M′ (PROVED; Cor M′ relative to the statements quoted in its LIT_CHECK, for their *direct* use as inputs
+       to the square sieve's (Q, a) form, the only Jacobi-symbol bilinear form present): inputs seeing the weights only
+       through the square-class ℓ²-mass D(w) (Heath-Brown's real-character large sieve, Cor 2) return ≥ √D(w) ≥ M_s(w),
+       adding nothing to the bound on D(w) they need; inputs depending only on sup-norm, support and range (HB Cor 4, any
+       sup-norm bilinear Jacobi bound for coefficients of modulus ≤ 1) return ≥ (1 − 1/P₀) × the trivial bound. Direct
+       CFS does not apply (Assessment); PV/Burgess bound only the non-square part (PROVED identity remark, not a no-go for
+       weighted or completed uses). Inputs using more than these norms are not excluded.
+     * After Poisson the (ℓ, C) coefficients are Kloosterman sums, not Jacobi symbols (PROVED identity (F3)).
+     * Thm R (PROVED): for W ≥ 2V and (log n)² ≤ P ≤ V, uniformly in odd n ≥ n₀(ε),
+       N(U, V, W) ≪_ε n^ε[V/P + P²·max|T_Q(a, b)|], the max over Q = qq′ (q ≠ q′ primes in (P, 2P]) and
+       (a, b) ≢ (0, 0) mod Q, T_Q the additively twisted strip sums. So TS(δ; V^{δ/3}) (|T_Q| ≤ V^{1−δ}, fixed δ ∈ (0, 1])
+       gives N ≪ n^ε V^{1−δ/3}, and |T_Q| ≪ V^{1/2+ε} for Q ≤ 4V^{1/3} gives N ≪ n^{5/24+ε} (CONDITIONAL). TS is
+       sufficient; it is necessary only for twist-blind S_Q-bounds (Prop R′). Joint use of the Kloosterman structure,
+       weighted Fourier estimates and averages over the moduli are not covered.
+     * Assessment: square-root TS is a twisted, dyadic analogue of Jutila's conjecture Δ(x+h) − Δ(x) ≪ x^ε√h at
+       h = x^{1/4} (no implication either way is proved). The checked literature (search-limited) gives no power-saving
+       pointwise bound even for the untwisted strip count. Exponent-pair majorants on the C-sums give V^{κ+2λ} ≥ V
+       (PROVED as a computation of that bound expression only).
+     * CERTIFIED: N_bal(n) := #{(★) triples with n^{1/4}/2 < u, B ≤ 2n^{1/4}} ≤ 20 for every odd n ≤ 10⁹ (maximum at
+       n = 635 674 641; 14 over primes p ≡ 1 (24)). EVIDENCE (10¹⁰–10¹⁴): S_Q, T_Q and the (ℓ, C) shells are
+       consistent with square-root cancellation.
+   * **Divisor/geometry side (`Z54_BILINDIV.md`; narrowed, one new sufficient condition).** p prime, 16U³ ≤ p;
+     N₂(p, U) := #{{u, B} ⊂ (U, 2U], u ≠ B : uB | p + u + B} (2-cycles; the balanced (★) block is N(U, U) = 2N₄,
+     N₄ ≤ N₂ the sub-count with 4 | (p + u + B)/(uB)); E1⁺ := lattice points (k, m) with p + 2U < km ≤ p + 4U,
+     U² < m ≤ 4U², D := (km − p)² − 4m ≥ 1; T(h) := Σ_{E1⁺} e(h√D).
+     * Theorem T (PROVED): for every ε > 0, A ≥ 2 and 0 < δ ≤ 1/2, with H = U^ε/δ,
+       N₂ ≤ 4δ|E1⁺| + 8δΣ_{1≤h≤H}|T(h)| + C(ψ, ε, A)|E1⁺|U^{−εA}; and |E1⁺| ≪_ε U^{1+ε}.
+     * Corollary T (CONDITIONAL on TD(η), 0 < η ≤ 1/2: |T(h)| ≤ C₀U^{1−η} for 1 ≤ h ≤ U^η, uniformly for primes p and U in
+       the fourth-root range c₁p^{1/4} ≤ U ≤ c₂p^{1/4}): N₄ ≤ N₂ ≪ U^{1−η+ε}, hence N(U, U) ≪ p^{(1−η)/4+ε}. Pairs with
+       B − u ≤ U^{1−η} number ≪ U^{1−η+ε} (Remark 4.1, PROVED), so TD is needed only where √D ≥ U^{1−η}.
+     * TD is first order (one remainder phase per level); z53's MIX is second order; neither is shown to imply the other.
+       EVIDENCE: max_h|T(h)|/√|E1⁺| ≤ 3.2 at 10¹²–10¹⁸ (h ≤ 20, extended runs to h ≤ 178), at primes, odd squares and
+       near-squares.
+     * Scoped closures, each for the specified implementation only:
+       * Prop 4.3 (PROVED): for the smoothed top-range sub-sum T_φ (not T itself), implementations that expand in the
+         remainder phase, use the triangle inequality over the frequency ν, and bound each k-sum with |ν| ≥ hU no better
+         than square root (an assumption defining the class) give Σ_{|ν|≥hU} b_ν ≫ h^{1/2}U^{3/2} (fourth-root range,
+         1 ≤ h ≤ U). The reverse order is the uncancelled count ≤ |E1| ≪ U^{1+ε}; its size ≍ U is EVIDENCE only.
+       * Prop 5.1(a) (PROVED): the untied divisor-in-AP form has modulus q = p at the endpoint q ≍ x^{2/3}, where direct
+         insertion of the classical asymptotic fails by p^ε; a fixed-Q relaxation (Q fixed independently of p) has
+         CRT-model main term ≍ U² (Prop 5.1(b), Assessment).
+       * Prop 5.3 (PROVED): each one-sided divisibility (anatomy) filter keeps ≫ U^{1−ε} values of u.
+       * Prop 5.4 (PROVED relative to HB15 as restated): any black-box HB15 bound (auxiliary-surface count × per-curve
+         bound ≥ 1), with any occupancy pruning, is ≥ 1/5 of Σ(min side + 1) on the same boxes, i.e. of "≤ 1 solution
+         per u". Counting the actual auxiliary curves, Salberger's global method and p-adic variants are not covered.
+       * Prop 5.5 (PROVED): E1 points with k in a window of length ⌊cU^{2/3}⌋ are collinear; a line of primitive direction
+         (a, −b), a, b ≥ 1, carries ≤ 2√(2U/(ab)) + 2 of them. EVIDENCE: lines with ≥ 3 points carry 2.5–9.7 % of E1,
+         with no detected enrichment of tie events.
+     * Missing (Assessment): a joint (ν, k) cancellation (the additive analogue of the bilinear (ℓ, C) estimate), or
+       TD/MIX themselves.
+   * **Convergence note (Assessment).** Both gap-1 lanes end at a joint/bilinear cancellation (TS, TD or MIX) that no lane
+     supplied; these are sufficient conditions, none shown necessary. The z54 exact-layer lanes (item 3) end at cross-u
+     cancellation within a dyadic slice, among ≍ U distinct integers p + u with moving moduli 4u: B2 in tied form,
+     connected to this item. As for z53, this is not a proved B2 equivalence; `Z54_EXACTSUM.md` Theorem N excludes only
+     n-uniform block-by-block bounds.
 2. **Growing roots in the forest F_p** (edge uv ⇔ uv | p + u + v). Fixed roots and the least-non-residue root fail i.o. under
    Dickson, and the component of 1 can be as small as 8 vertices i.o. (CONDITIONAL on Dickson, `LOWER_TAIL_ASTRA.md` Thms 3.1,
    5.1) — so Fable's spark "|comp(1)| ≫ (log p)² unconditionally" is false under Dickson and the growth claim behind it was
@@ -816,6 +905,67 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
        are 0.930–1.081, without an established confidence interval or detection threshold.
      * CERTIFIED for primes p ≡ 1 (8), p ≤ 10⁸: SP has no failures; SM fails only at 19441. SP/SM are the filters
        a ≤ ⌊√p⌋+1 with p/−p square mod a, respectively; failure means no root reaches a bichromatic component.
+   *(z54, three lanes, each with internal hostile and cross-model review; `Z54_SUMMARY.md` §3.)*
+   * **Kill side (`Z54_HCKILL.md`; strengthened conditionally, narrowed).** S := {n ≥ 1 : all prime factors ≡ 1 (4)};
+     K(X): infinitely many primes p ≡ 1 (8) with HC(p) > X.
+     * Lemma 1.1 (PROVED): for prime p, [p ≡ 1 (8) and HC(p) > 4] ⟺ [p ≡ 1 (8), p + 4 ∈ S, 4p + 1 ∈ S]. So
+       K(4) = K(5) = K(6) = P(4,15), and every K(X), X ≥ 4, implies P(4,15). Lemma 1.2 (PROVED): among x ∈ 𝒞 exactly the
+       lines x | 24 (4, 8, 12, 24) are pure subgroup conditions. Remark 1.3 (PROVED identity): P(4,15) is an S-refined
+       det-15 analogue of Friedlander–Iwaniec's hyperbolic prime number theorem.
+     * Theorem Q (PROVED): every prime p = 5m² + 1 with 4 | m has 12 | m and HC(p) ≥ 7; hence K(4) is CONDITIONAL on
+       Bunyakovsky for the single polynomial 720k² + 1. CERTIFIED: all 5 719 such primes ≤ 10¹² have HC(p) ≥ 7.
+     * Theorem E (CONDITIONAL on EH(1 − η₀), some absolute uncomputed η₀ ∈ (0, 1/10]; implied by standard EH):
+       #{p ≤ x : p ≡ 1 (8), p + 4 ∈ S, 4p + 1 ∈ S} ≫ x/(log x)² (x ≥ x₀), the order of the unconditional upper bound (`LOWERTAIL_ROUND2_FABLE.md` Thm 3.2). An
+       independent adaptation of the Friedlander–Iwaniec 2009 template, not a citation. With BV the same implementation
+       proves only Prop A (PROVED rel. BV): for fixed 0 < ζ < 1/4, ≫_ζ x/(log x)² primes p ≡ 1 (8) with (p + 4)(4p + 1)
+       free of prime factors ≡ 3 (4) below x^ζ. Assessment: in this implementation the gap is a level deficit (θ₀ vs 1/2)
+       or a parity-type switched count; unconditional K(4) is open (no unconditional source located, coverage-limited).
+     * Quadratic confinement (PROVED unless labelled): a two-variable quadratic F (nondegenerate quadratic part) confines at
+       most one of the window integers λ_iF + μ_i on a full-rank lattice coset (Prop F6; quadratic F only). One-variable
+       families p = (y² + δ)/(4a): line 4's formal square-class conditions form a rational conic (Prop F2; Theorem Q is one
+       integral point); lines {4, 7} give the elliptic curve E₇ of conductor 735 and rank 1 (Prop F3; rank CERTIFIED by
+       PARI bounds [1, 1]; none of 17 sampled ratios gives an integral family, EVIDENCE); lines {4, 7, 8} give genus-17
+       curves, so only finitely many formal ratios (a : δ) confine all of 𝒞 ∩ [4, X], X ≥ 8 (Prop F4, Faltings). A family
+       confining a prime line q ≡ 7 (8) has q | δ (Prop F5), so no single one-variable family certifies a growing window.
+       Existence of any admissible family beyond X = 4 is undetermined.
+     * K(7) (Assessment, scoped to the direct confinement-sieve implementation): four half-dimensional conditions give
+       dimension 2 and s = 2 < β₂ ≈ 4.27, so no lower bound even at level 1. For fixed X ≥ 7 Dickson remains the recorded
+       route.
+     * CERTIFIED exact counts of primes p ≡ 1 (8) with HC(p) > 4 to 10¹¹ (65 618 311 at 10¹¹); EVIDENCE: their ratio to the
+       half-dimensional prediction rises 0.81 → 0.966 from 10⁵ to 10¹¹ (the asymptotic is CONJECTURE).
+   * **Upper side, three layers (`Z54_HCWIN.md`; narrowed, one conditional strengthening).** For p ≡ 1 (8):
+     Λ(p, X) := Σ_{lines at x ∈ 𝒞, x ≤ X} min(1, τ(N)/φ(x)) (anatomy mass); Γ(p, X) the genus mass, Γ = 0 on every line at
+     odd squares (Lemma 1.1(d), PROVED).
+     * Theorem B (PROVED rel. Henriot's uniform Nair–Tenenbaum bound and BV): with X = (log T)^θ, κ = θ/log 2, the sum of
+       Λ(p, X) over primes p ≡ 1 (8) in (T, 2T] is ≤ π*(T)(log T)^{g(κ)+o(1)} = o(π*(T) log T) for 1 < κ < 2 (upper bound
+       only; g(κ) = κ log 2 − κ log κ + κ − 1), and ≥ c(θ)π*(T) log T log log T for κ > 2. So 2 log 2 separates two proved
+       regimes of an average (B6); the boundary is undecided.
+     * Theorem A (PROVED): Turán–Kubilius over the window variable sees only primes ≤ X^{1/2} (A1: for 3 ≤ z ≤ X^{1/2},
+       |ω_z(N_x) − μ_z| > t√(1 + log log z) for only O(|𝒳|/t²) x ≤ X); and Λ_E(p, X) ≥ (1/8)log²X − O(log X) for every odd
+       p and 6 ≤ X < p (A2, outer layer; holds at squares). Pointwise Anat at polylogarithmic X: no known approach
+       (Assessment).
+     * Theorem C (PROVED in the HCHYP model 𝔐 only): for each fixed K and each K(p) → ∞, the conjunction [for all large p
+       some line is K-big, 2^k ≥ Kφ(x)] ∧ [for all large p every K-big line succeeds] has 𝔐-probability 0, at every
+       window. That a model-compatible class hypothesis must be joint is Assessment. Prop M′ (𝔐 only):
+       HC(p) ≤ (log p)^{2 log 2} eventually, 𝔐-a.s. (HCHYP's boundary case, in the model).
+     * Lot_Λ(C): ∃p₀ ∀ prime p > p₀, p ≡ 1 (8), ∀X ≤ X_max(p): Λ(p, X) ≥ C log p ⟹ HC(p) ≤ X; Lot_Γ(C) the same with Γ.
+       Prop L (𝔐 only): Lot_Γ(C) a.s. for C > 2, Lot_Λ(C) for C > 4. Theorem S (PROVED implication): Anat(A, C) ∧ Lot(C)
+       (same mass, X_max ≥ (log p)^A) ⟹ HC(p) ≤ (log p)^A for all large p ≡ 1 (8); a sufficient route only, S_A does not
+       imply Anat.
+     * Theorem D (CONDITIONAL on Lot_Λ(C) with X_max(p) = exp(3√(C log p))): every sufficiently large prime p ≡ 1 (8) has
+       HC(p) ≤ exp(√(8C log p) + O(1)) = p^{o(1)}. Lot is ES-specific, open and B2 restated for a joint family, not a
+       mechanism (§5.4).
+     * EVIDENCE (10⁹–4·10¹⁵): for genus mass m ≥ ½ a line fires with probability within about four percentage points of
+       1 − e^{−m} (endpoint) or 1 − e^{−m/2} (level), pooled over x ∈ [64, 1024); small m falls short. In consecutive-prime
+       samples at 10¹¹–4·10¹⁵ every failure occurs at Γ = 0. Finite data cannot test the eventual Lot.
+   * **Unprimed attempt (`Z54_UPPER2.md`; target HC(p) ≤ (log p)³ not proved, not refuted).** Mostly an independent
+     reproof of `Z53_UPPER.md` / `LOWERTAIL_ROUND2_FABLE.md` results, its sieve theorems weaker than Z53's (its §0.1).
+     * Prop 3.1 (PROVED; Mordell's classes are classical): HC(p) ≤ 8 for every prime p ≡ 1 (8), p > 7, outside the six
+       classes 1, 121, 169, 289, 361, 529 (mod 840), via six explicit words.
+     * New: CERTIFIED HC(p) ≤ 64 and HC(p) ≤ (log p)³ for all primes 5 ≤ p ≤ 10⁹, p ≡ 1 (4) (max 64 at p = 21 841 only).
+       EVIDENCE: HC(p) ≤ (log p)³ in five samples of 10⁵ consecutive primes p ≡ 1 (4) starting at 10¹⁰, 10¹², …, 10¹⁸.
+     * Prop 6.3(a) (PROVED; already `Z53_UPPER.md` Cor 3.2) excludes covering by finitely many fixed-level tests only;
+       growing-level congruence arguments and prime-sensitive sieves are not excluded.
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
    BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
    can obstruct (the (★)-failure n = 7 at t = 12; (J)103 §2 Reading). *Why:* it is the next layer after the one proved free.
@@ -845,6 +995,60 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
      * EVIDENCE in standard-window samples outside Theorem X's hypotheses, at scales 10⁹–10¹²: var(R_𝔉 − G_𝔉) is about
        88–93 % and var(G_𝔉 − M̂) about 9–10 % of var(R_𝔉 − M̂). Only the former is compared with swap-Poisson, with
        variance/(2·mean G_𝔉) ≈ 0.81–1.02. These proxy statistics do not validate Theorem X.
+   *(z54, two lanes on the exact layer R_𝔉 − G_𝔉 = T_u + T_uw, each with internal hostile and cross-model review;
+   `Z54_SUMMARY.md` §2. Setting of `Z53_GENUSX.md` §1: U_i = p^{α_i}, Y = p^β, X = p^γ, 8U₁X ≤ p, Y ≥ U₁.)*
+   * **Exponential sums in p/w (`Z54_EXACTSUM.md`; narrowed).**
+     * Identities (PROVED, Props 3.1, 3.2): R_𝔉/2 = Σ_{q odd squarefree}Σ_{a mod* q}W(a, q), with
+       W(a, q) = Σ_{u∈𝒰, q|u}u⁻¹Σ_w e(a(⌈p/w⌉ + 2)/(2q)) over shell w with ⌈p/w⌉ ≡ 6 (8); and R_𝔉 − G_𝔉 = Σ_{f>1}D_f, D_f
+       the part from primitive non-real characters mod f of the level divisor w″. Lemma 3.3 (PROVED): at odd squares
+       R = G = M = M^cls = 0, so T_u = T_w = T_uw = 0; T1 does not constrain upper bounds for T_uw, and the
+       square-sensitive input of this route is Thm U.
+     * Theorem N (PROVED; scoped no-go): fixed window 0 < α₀ < α₁ ≤ β < γ with 8U₁X ≤ P, U₁ > 3U₀, X ≥ 12Y. For P ≥ P₀
+       and every prime f ≡ 1 (4) in (U₁/3, U₁], some n ∈ [P, 2P], n ≡ 1 (24), has D_f(n) ≥ 1 and Σ_{a mod* f}W(a, f)(n) ≥ 1/2;
+       block f sees only the integer n + f. Hence bounds on |D_f(n)| (resp. |W(a, q)(n)|) valid for all such n, summed by
+       the triangle inequality, total ≥ (1/3 − o(1))U₁/log U₁ (resp. ≥ (1/6 − o(1))U₁/log U₁) = P^{α₁−o(1)}, against the
+       target o(log²P). Not excluded: bounds using the primality of p, one-sided estimates, bounds combining blocks before
+       absolute values (cross-u), other transformations; composite f and f ≤ U₁/3 are not covered by the construction.
+     * Lemma 4.1, Cor 4.2 (PROVED relative to an exponent pair (κ, λ) with κ > 0): for a dyadic box u ∼ U, k ∼ K with
+       2U ≤ p, K² ≤ p, H* ≥ 1 and K ≥ qJ₀, the number of (u, k) with f | u, k ≡ c (mod q), k | p + u (f | q odd,
+       gcd(c, f) = 1) equals its density up to O(E + 1), E = (p^κK^{λ−κ})^{1/(1+κ)}, uniformly in q, f, c. This is the
+       *plain* shell: transfer to the squarefree-w GX layers is Assessment, not carried out, and no certified bound for
+       the GX layers is obtained.
+     * Prop 4.3 (PROVED arithmetic): windows satisfying Thm U, Thm X (with GX's (C4) relaxed to the inequality (C4′) its
+       proof uses) and Lemma 4.1's condition at the worst box exist with the classical pair A³B = (1/30, 13/15), e.g.
+       (α₀, α₁, β, γ) = (0.200, 0.204, 0.7925, 0.7955); on that example Cor 4.2 certifies the plain-shell conductor-d
+       blocks (f = d, q = 8d) only for d ≤ p^θ, any fixed θ < 1/2800 (a sufficient range, not a barrier). All such windows have class-hit level C ≤ p^{(1−2κ−λ)/(4(λ−κ))}, ≤ p^{0.025} for every
+       tabulated non-conjectural pair.
+     * EVIDENCE (10⁹–10¹⁴, non-reconciled windows): in dyadic u-slices, blocks fed by one integer p + u carry
+       ≈ 0.90–1.03 of var(R − G) (blocks fed by ≥ 16 integers ≤ 0.0035); for q ≥ 11 the W(a, q) have median rms at the
+       random-phase benchmark. Cross-u decorrelation is a finite-sample heuristic.
+     * Survives (Assessment): cross-u cancellation within a dyadic slice, i.e. B2 in tied form.
+   * **Higher-order symbols (`Z54_EXACTSPIN.md`; narrowed).** Standing hypotheses of GENUSX §4 (Y ≥ U₁, 8U₁X ≤ p, p large);
+     orders k ≥ 3.
+     * Lemmas 3.1, 3.2 (PROVED): R_𝔉 − G_𝔉 = S₂ + S_o with S₂ = Σ_{4|k}Δ_k (characters of order divisible by 4) and
+       S_o = Σ_{k≥3, 4∤k}Δ_k. Both vanish pointwise off the genus, hence at odd squares (gcd(u, m) = 1), via the empty
+       genus; Δ_k with 4 | k also vanish there, Δ_k with 4 ∤ k need not (CERTIFIED nonzero Δ₃, Δ₅, Δ₆, Δ₇ on 600 squares).
+     * Dictionary at prime u = ℓ (PROVED; finite CERTIFIED checks on 3 817 cubic and 7 822 quartic shell points at 24
+       primes): the order-k part is the Ramanujan sum c_k of (−w″/𝔩)_k = (−1/𝔩)_k(p/𝔩)_k(2w/𝔩)_k⁻¹, whose p-factor is the
+       Frobenius of 𝔩 in ℚ(ζ_k, p^{1/k}) (Lemma 4.1). For k = 3, (x/π)₃ = Ξ_p(θ)Ξ_{2w₁}(θ)⁻¹(3/π)₃^{−v}, an anticyclotomic
+       character of the angle θ = π/π̄ with a ramified factor at 3 (Lemma 4.2). For k = 4, (x/π)₄ = ε(π, w)(π/p)₄(π/w)₄⁻¹
+       with (π/p)₄ = (ℓ/ρ)₄⁻¹(π/ρ)₂, and (π/q)₄ = (π/κ)₂(−p/κ)₄⁻¹ for split q = κκ̄ | w (Lemma 4.4). No bounded-degree
+       identification of the full layer is established, and none is excluded.
+     * Scoped limitations (PROVED as stated): complete sums of the cubic symbol over a norm fibre vanish when the modulus
+       m is prime to 3 and not a cube (quartic: m odd with some prime to an odd power) (Lemma 4.3), but on the (★) support every fixed-modulus fibre has
+       ≤ 6τ(u) points and every fixed-argument fibre is one integer's divisor set (Lemma 4.5): this excludes only the
+       direct complete-fibre average. Characters of order dividing a fixed K do not reconstruct the class event outside a
+       finite menu 𝒰_K of u (Lemma 3.3). The cubic prime-u layer (3 ∤ w″) is a twisted equidistribution problem for roots
+       of N(α) ≡ −p (mod c) in shrinking discs (Prop 4.6, identity); the smooth Fourier majorant with triangle inequalities
+       in m and c needs a twisted Weyl bound (W) ≪ C^{2−δ}|m|^A with δ > (1 − θ)(2 + A) ≥ 1 (θ ≤ 1/2 on the shell), cube moduli excluded (Prop 5.2) — a limitation of that majorant only.
+     * Assessment: FIMR / Koymans–Milovic do not apply as stated (no matching spin representation of the layer is
+       supplied; the base fields ℚ(ζ₃), ℚ(i) have only an involution; shell weights do not match their summation sets;
+       conductor-p and order uniformity are missing). B6 is not the obstruction.
+     * EVIDENCE (10⁹–10¹⁴): no significant individual-sample bias at any listed order ≤ 24 (|mean z| ≤ 0.18); a pooled
+       +0.03σ (3.0 se) offset of R − G is unexplained. Such tests detect residue-class bias only and cannot falsify an
+       o(log²p) bound. S₂ and S_o each carry ≈ ½ of var(R − G).
+     * Survives (Assessment): a fixed-p theory of symbols over a moving family of fields indexed by u ≤ p^{α₁}; signed or
+       non-Fourier methods for the root problem (per fixed order); Type II structure in w ↦ r_w.
 4. **CLOSED (z53).** `Z53_GENUSLVAL.md` Thm U (PROVED, unconditional, effective; cross-model reviewed CORRECT): M_gen(p) ≥
    (2/(3π⁴) − o(1))(log p)² ≈ 0.0068 log²p at every sufficiently large prime p ≡ 1 (4). It uses Burgess for cube-free conductors on Thm 5.4's
    subfamily with sharp windows. The square-sensitive step is that ηχ_{−4up} is non-principal because p divides its
