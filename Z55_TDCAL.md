@@ -17,7 +17,8 @@ proved, and none of TD, TS, MIX is proved or refuted. What is new:
 1. **Averaging over n is free (Prop A, PROVED).** For every window of Y consecutive integers,
    Σ_n N₂(n, U) ≤ Σ_{M} τ(M)² over an M-window of length Y + 2U. So R2 holds on average over any p^{η/4+ε} consecutive
    n, and fails for at most O(X^{(3+η)/4+ε}) primes p ≤ X. Every "on average over p" form of TD or R2 is therefore
-   worthless for the balanced block; the whole difficulty is a single n.
+   worthless for the balanced block; the whole difficulty is a single n. Pointwise, the first-order law of θ_u gives
+   only the constant N₂ ≤ (1 − log 2 + o(1))U ≈ 0.307U (Remark A‴), not a power saving.
 2. **Band localization (Theorem B, PROVED).** Expand everything in the remainder phases θ_m = {−p/m}, m ≍ U² (one strip
    point per m). The strip count and the twisted sums TS use only frequencies |ν| ≤ U^{1+ε}. The TD sums at w ≍ W use only
    ν ∈ [hU³/(2W), 64hU³/W] ⊂ [hU²/8, ∞). These bands are disjoint, up to O(U^{−A}). The count and TS are window-resolution
@@ -136,6 +137,22 @@ Consequently, for X ≍ U⁴ and every ε > 0:
 * Each is counted at most min(u, ⌊(u − B/2)⌋ + 1) ≤ U₀ + 1 times.
 So the U-average is a weighted count of the same objects in a box of twice the size; it cannot yield a pointwise saving
 that the larger box does not already have. (Assessment: "TD for a positive-density set of U" has the same status.)
+
+**Remark A‴ (the first-order constant; PROVED relative to Titchmarsh Thm 5.13 as used in BILINDIV Prop 5.3).** In the
+fourth-root range, N₂(p, U) ≤ (1 − log 2)U + O(U^{1−3/56+ε}) ≈ 0.307U.
+*Proof.*
+* In a 2-cycle {B < u}, B ≡ −p (mod u) and U < B < u, so B = r_u and θ_u = B/u > U/u. The larger element determines
+  the cycle (B = r_u). Hence N₂ ≤ Z := #{u ∈ (U, 2U] : θ_u > U/u}.
+* Split (U, 2U] into U^{1/2} blocks I of length L = U^{1/2}. On a block U/u varies by O(U^{−1/2}), so
+  Z ≤ Σ_I [L(1 − min_{I}U/u) + L·𝒟_I] = U(1 − log 2) + O(U^{1/2}) + LΣ_I𝒟_I, where 𝒟_I is the discrepancy of
+  (θ_u)_{u∈I}.
+* Erdős–Turán: 𝒟_I ≪ 1/H + Σ_{h≤H}h^{−1}L^{−1}|Σ_{u∈I}e(hp/u)|. For f(u) = hp/u, f⁗ = 24hp/u⁵ ≍ h/U on I, with
+  bounded ratio. The fourth-derivative test (k = 4, K = 8) gives |Σ_I e(f)| ≪ L(h/U)^{1/14} + L^{3/4}(U/h)^{1/14}.
+* With L = U^{1/2} and H = U^{1/15}: 𝒟_I ≪ U^{−1/15} + U^{−1/15}log U + U^{−1/8+1/14}log U ≪ U^{−3/56}log U.
+* Summing over the U^{1/2} blocks gives the claim. ∎
+The smaller elements satisfy the other first-order condition θ_B = (u − B)/B ≤ (2U − B)/B, of density 2 log 2 − 1 ≈ 0.386.
+The pairing u ↔ B is second order (MIX). So ≈ 0.307U is what the first-order law of θ_u alone gives (Assessment).
+This is a constant-factor improvement on the trivial U/2 and has no bearing on a power saving.
 
 *Reading (Assessment).*
 * R2 is elementary on average over any window of U^{η+ε} = p^{η/4+ε} consecutive n.
