@@ -368,7 +368,10 @@ P(δ) := #{(k, k′) ∈ (E1⁺)² : ‖w_k − w_{k′}‖ ≤ δ}.
 * For τ = 0, N^{[0]} counts the strip points with D a square, and N₂ ≤ N^{[0]} (Lemma A also asks for roots in (U, 2U]).
 * For τ ≠ 0, N^{[τ]} counts divisors m of p + s that lie |τ|/4 away from ((s − j)/2)((s + j)/2).
 * A sharp-order bound Σ_{|τ|≤13Uδ}N^{[τ]} ≪ U^{1−η+ε} at δ = U^{−η} is therefore a *stronger* sufficient condition for
-  NC(η). The converse fails: |w − j| = |τ|/(w + j), so points with small w in the τ-window need not be δ-near integers.
+  NC(η). The reverse point-set inclusion fails, since |w − j| = |τ|/(w + j): points with small w in the τ-window need not
+  be δ-near integers. Example: p = 100000007, U = 100, s = 298, m = 10433 gives D = 47072, j = 217, τ = −17; at δ = 0.02,
+  |τ| ≤ 13Uδ = 26 but |√D − 217| ≈ 0.0392 > δ. No converse implication between the uniform bounds is established
+  (or excluded).
 (iii) *The displayed elementary estimate for τ-windows.* For every T ≥ 0,
   Σ_{|τ|≤T} N^{[τ]}(p, U) = Σ_{(s,m)∈E1⁺} #{j ∈ ℕ : |D − j²| ≤ T} ≤ |E1| + 2T·Σ_{(s,m)∈E1⁺} D^{−1/2}
                         ≪_ε U^{1+ε} + T·U^{1/2+ε}.
@@ -378,9 +381,11 @@ P(δ) := #{(k, k′) ∈ (E1⁺)² : ‖w_k − w_{k′}‖ ≤ δ}.
 * Contrast Prop A: in the shift n the elementary bound (Y + 2U)U^ε is of sharp order as soon as Y ≥ U.
 (iv) *Pair correlation.* N₂² ≤ P(δ) for every δ > 0. With the Fejér kernel F_H(x) = Σ_{|h|<H}(1 − |h|/H)e(hx) ≥ 0,
   Σ_{|h|<H}(1 − |h|/H)|T(h)|² = Σ_{k,k′}F_H(w_k − w_{k′})   (the h = 0 term is |E1⁺|²).
-* Consequently, a bound Σ_{k,k′}F_{2H}(w_k − w_{k′}) ≤ |E1⁺|² + O(H·U^{2−2η}), with H = U^{η}, gives
-  Σ_{1≤h≤H}|T(h)|² ≪ HU^{2−2η}. Cauchy–Schwarz then gives Σ_{1≤h≤H}|T(h)| ≪ HU^{1−η}, which is the input of Theorem T
-  with δ ≍ U^{−η+ρ} (H = U^{ρ/2}/δ ≤ U^{η}, as in Corollary T).
+* Consequently, let H₀ := ⌊U^η⌋ be the Fejér cutoff. A bound Σ_{k,k′}F_{2H₀}(w_k − w_{k′}) ≤ |E1⁺|² + O(H₀U^{2−2η})
+  gives Σ_{1≤h≤H₀}|T(h)|² ≪ H₀U^{2−2η}, and Cauchy–Schwarz gives Σ_{1≤h≤H₀}|T(h)| ≪ H₀U^{1−η}.
+* Theorem T is run with δ′ := U^{−η+ρ} and the different Fourier cutoff H₁ := U^{ρ/2}/δ′ = U^{η−ρ/2} ≤ H₀ (as in
+  Corollary T). The partial sum Σ_{1≤h≤H₁}|T(h)| is bounded by the same right side H₀U^{1−η}. Multiplying by 8δ′ gives
+  O(U^{1−η+ρ}); the main term 4δ′|E1⁺| and the tail are handled as in D(i). So N₂ ≪ U^{1−η+ε} for every ε > 0.
 * So this pair-correlation bound is one *sufficient* input; it is not shown to be necessary.
 * (Assessment: it is a power-saving second-order statement, comparable in kind to MIX; no implication is claimed.)
 
@@ -511,7 +516,7 @@ prime families (48 000 further pairs) are in `tail.txt`.
    when no m ∈ (U², 4U²] divides n. Prime-only: S(b), and TS_{N₂}'s formula k = ⌈p/m⌉. EVIDENCE: T(h) at odd squares is
    compatible with the same Gaussian model (§10.3).
 2. **8/131.** Numerator-blind (N₄ ≤ N₂); not an ES step.
-3. **Tied modulus.** NC is the tie relaxed to tolerance U^{1−η} in w. The tie is not broken; it is bounded from above.
+3. **Tied modulus.** NC is the tie relaxed to distance U^{−η} in w (equivalently |D − j²| ≲ U^{1−η} at w ≍ U). The tie is not broken; it is bounded from above.
 4. **Fixed p.** Prop A and Cor A′ are averages, presented as calibration and not as a fixed-p result. Thm B, Prop C,
    Prop D, Remark A‴ and NC are pointwise in p.
 
@@ -572,7 +577,7 @@ strip. The strip count and the twisted sums ask only *whether* they fall in it, 
 * Against the per-frequency benchmark TD needs a larger factor than square-root Jutila on that slice. Against the
   whole-sum random model it asks the same as the untwisted count. Numerically T(h) is compatible with random phases.
 * Averaging over n gives R2's conclusion for free and so needs no TD.
-* What Theorem T's route really needs at one p is NC, an upper bound for near-ties at tolerance U^{1−η}, which is weaker
+* What Theorem T's route really needs at one p is NC, an upper bound for near-ties at distance U^{−η} in w (discriminant tolerance |D − j²| ≲ U^{1−η} at w ≍ U), which is weaker
   in form than TD. The displayed elementary estimates stop short of it by at least U^{η}.
 Nothing here touches positivity, and ES remains open.
 
@@ -632,3 +637,14 @@ timeout 1500 uv run --with sympy python scripts/z55_tdcal_check.py 100000000 200
   21. Metadata fixed: pooled vs per-prime rms, U range 300–339, generic vs structured samples, [X, X + Y) convention.
   22. Labels split. Theorem H contains PROVED items only, and the Li–Yang wording is corrected.
   23. Reproduction made exact, with input scripts added.
+
+**Cross-model review** (`data/z55/xreview/REVIEW_TDCAL.md`). Verdict **ACCEPT-WITH-FIXES**.
+* *Survives.* All propositions and the "narrowed (calibrated)" verdict survive independent re-derivation, including the
+  Titchmarsh/Erdős–Turán constant, the DFI/BC exponents and the band estimates.
+* *Reproduced.* All numerics.
+* *Fixes applied.*
+  1. §8(ii): "the converse fails" now reads "reverse point-set inclusion fails; no converse implication between the
+     uniform bounds is established". The reviewer's explicit example is recorded.
+  2. §8(iv): the Fejér cutoff H₀ = ⌊U^η⌋ and the Fourier cutoff H₁ = U^{η−ρ/2} are now separated, and the ε-lossy
+     sufficiency is reproved.
+  3. §12 item 3 and §15: NC's tolerance is distance U^{−η} in w (U^{1−η} is the discriminant scale at w ≍ U).
