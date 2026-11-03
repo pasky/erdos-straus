@@ -201,10 +201,11 @@ The remaining mass comes from divisors d ∈ (X, √p] of p + x, i.e. from latti
 * The best pointwise asymptotic Σ_{p<n≤p+X} τ(n) ~ X log p follows, by subtracting two values of Δ, for
   X ≥ p^{θ*+ε}, with θ* = 0.31448… (Li–Yang, arXiv:2308.14859, Thm 1.2; this improves Huxley's 131/416). That is a
   sufficient range for an unweighted asymptotic. It is not a theorem that every lower-bound or weighted/truncated
-  approach needs it. Λ also involves the level integers xp + 1, the weights 1/φ(x) and the truncation. Do not cite Bourgain–Watt 517/1648: its arXiv comment withdraws Thms 1–3.
+  approach needs it. Λ also involves the level integers xp + 1, the weights 1/φ(x) and the truncation. Do not cite
+  Bourgain–Watt 517/1648: its arXiv comment withdraws Thms 1–3.
 * Jutila's mean square, ∫_T^{2T}(Δ(x+U) − Δ(x))² dx ≪ TU log³(√T/U) + T log⁴T for 1 ≤ U ≤ T^{1/2}/2 (as quoted in
-  Ivić–Zhai, arXiv:1209.0872, Thm B and (2.3)), gives Σ_{x<n≤x+U} τ(n) ~ U log x for *almost all* x once
-  U/log T → ∞, for almost all starting points x (real or integer). Passing to almost all *primes* needs more:
+  Ivić–Zhai, arXiv:1209.0872, Thm B and (2.3)), gives Σ_{x<n≤x+U} τ(n) ~ U log x for almost all starting points
+  x ∈ [T, 2T] (real or integer) once U/log T → ∞. Passing to almost all *primes* needs more:
   Chebyshev's inequality gives an exceptional measure ≪ T(log T/U + log²T/U²), which is o(T/log T) only when
   U/(log T)² → ∞ (and then only with a suitable tolerance). Either way this is an average (B6), not a single p.
 * For polylogarithmic X the literature search (`data/z54/hcwin/lit_notes.md` Q3) found nothing pointwise beyond the
