@@ -42,9 +42,10 @@ u := (s − w)/2, B := (s + w)/2 (real; u + B = s, uB = m). Then e(hw) = e(2hB) 
   T_n(h) = Σ_{D≥1} N_D·e(h√D),  N_D := #{s ∈ (2U, 4U] : s ≡ D (mod 2), m := (s² − D)/4 ∈ (U², 4U²], m | n + s}.
 *Proof.* w = 2B − s = s − 2u. For the second form, (k, m) ↦ (D, s) is injective (m = (s² − D)/4, k = (n + s)/m) and its
 image is exactly the set counted by N_D (s² − D = 4m forces s ≡ D mod 2). ∎
-The phase e(h√D) varies on the scale ≍ U/h in D (d√D/dD = 1/(2√D), D ≤ 12U²), while the ≍ 1.5U points D lie in
-[1, 12U²]. So TD says: the discriminants D of the strip points are equidistributed at scale U^{1−η}·(1/h) in D, against
-the phase √D. (Remark, used nowhere below.)
+Remark (Assessment; used nowhere below). In the bulk range D ≍ U² the phase e(h√D) changes by O(1) when D moves by
+≍ √D/h ≍ U/h. The strip points number ≈ 1.5U in total (EVIDENCE, Table 5.1). In this language TD asks for cancellation
+in the Fourier sums Σ_D N_D e(h√D), i.e. equidistribution of √D mod 1 weighted by N_D. It does not ask for
+equidistribution of D in short windows.
 
 ## 2. Lemma V: the r-sums
 
@@ -65,7 +66,9 @@ m ∈ (U², 4U²] and all θ ∈ ℝ.
   (w ∈ [2^j, 2^{j+1}) there).
 * *Small j (4^j ≤ √m).* Then |R_j| ≤ 3/4 + 1 < 2, so |Σ_{R_j}| ≤ 1. Such j satisfy j ≤ (log₂ m)/4 ≤ (2 + 2log₂U)/4,
   so there are at most 2 + log₂U of them.
-* *Large j (4^j > √m).* Then |R_j| ≤ (7/4)·4^j/√m. The second-derivative test (van der Corput; Titchmarsh, *Theory of
+* *Large j (4^j > √m).* Then |R_j| ≤ (7/4)·4^j/√m. Remove the first integer r_j^- of R_j (|e(g(r_j^-))| = 1).
+  Apply the test below on [a, b] = [r_j^-, max R_j], where the bounds on g'' hold. The extra 1 is absorbed into
+  √h·2^{j/2} (≥ 1). The second-derivative test (van der Corput; Titchmarsh, *Theory of
   the Riemann zeta-function*, Thm 5.9: if λ ≤ |g''| ≤ αλ on [a, b] then Σ_{a<n≤b} e(g(n)) ≪ α(b − a)λ^{1/2} + λ^{−1/2},
   absolute implied constant) gives
   |Σ_{R_j}| ≪ (7/4)(4^j/√m)·(4hm)^{1/2}2^{−3(j+1)/2} + 2^{3(j+1)/2}(4hm)^{−1/2} ≪ √h·2^{j/2} + 2^{3j/2}/√(hm).
@@ -96,15 +99,16 @@ Note: Lemma V fails at h = 0 (θ = 0 gives |S| ≍ U); h ≥ 1 is used.
   Σ_{N₀<n≤N₀+N} |T_n(h)|² ≤ (N − 1 + Q²)·Σ_{q≤Q}Σ*_a |C(a/q)|².
 * *Coefficients.* By Lemma V, |f̂_m(b)| ≤ C_V√(hU)/m. Hence
   |C(a/q)| ≤ C_V√(hU)·Σ_{m∈(U²,4U²], q|m} 1/m = (C_V√(hU)/q)·Σ_{l∈(U²/q, 4U²/q]} 1/l ≤ 2.39·C_V√(hU)/q,
-  using Σ_{l∈(A,4A]} 1/l ≤ 1/(⌊A⌋+1) + log(4A/(⌊A⌋+1)) ≤ 1 + log 4 for A > 0.
+  using Σ_{l∈(A,4A]} 1/l ≤ 1 + log 4 for every A > 0. Indeed the sum is 0 if the range is empty. Otherwise
+  l₀ := ⌊A⌋ + 1 ≤ 4A, and the sum is ≤ 1/l₀ + log(4A/l₀) ≤ 1 + log 4 because l₀ > A.
 * *Sum.* Σ_{q≤Q}Σ*_a |C(a/q)|² ≤ Σ_{q≤Q} φ(q)·5.72C_V²hU/q² ≤ 5.72C_V²hU(1 + log Q). ∎
 
 Primality is not used. EVIDENCE (`data/z55/tdo/scan_*.txt`): the empirical mean of |T|²/U is ≈ 1.5 at every scale
-(Table 6.1), i.e. the bound is the right order up to C·17·log.
+(Table 5.1), i.e. the bound is the right order up to C·17·log.
 
 ## 4. Theorem A: almost all primes, all U simultaneously
 
-**Boundary counts.** For U₀ ≥ 9 and 1 ≤ G ≤ U₀ put
+**Boundary counts.** For integers U₀ ≥ 9 and 1 ≤ G ≤ U₀ put
   B_n(U₀, G) := #{(s, m) ∈ ℤ²: s ∈ (2U₀, 4U₀+4G], m ∈ (U₀², 4(U₀+G)²], m | n + s, and
                [s ∈ S_∂ or m ∈ M_∂]},
   S_∂ := (2U₀, 2U₀+2G] ∪ (4U₀, 4U₀+4G],  M_∂ := (U₀², (U₀+G)²] ∪ (4U₀², 4(U₀+G)²].
@@ -120,7 +124,8 @@ m ∈ (4U₀², 4U²]. All four sets are inside S_∂ or M_∂. ∎
   Σ_{N₀<n≤N₀+N} B_n(U₀, G)² ≪ (N + 256U₀⁴)(G² + G log U₀ + U₀), absolute implied constant.
 *Proof.* B_n ≤ B¹_n + B²_n with B¹_n := #{(s,m): s ∈ S_∂, m ∈ M₀, m | n+s} and
 B²_n := #{(s,m): s ∈ S₀, m ∈ M_∂, m | n+s}, where S₀ := (2U₀, 4U₀+4G], M₀ := (U₀², 4(U₀+G)²]. Since
-|S₀| ≤ 6U₀ < U₀² < m (U₀ ≥ 9), for each m at most one s in S₀ has m | n + s, as in Lemma 1.1. So, for S ∈ {S_∂, S₀} and
+S₀ ⊂ [0, sup S₀] with sup S₀ = 4U₀ + 4G ≤ 8U₀ < U₀² < m (U₀ ≥ 9), S₀ is contained in [0, m). So the only s ∈ S₀ with
+m | n + s is s = r_m(n), if r_m(n) ∈ S₀, as in Lemma 1.1. So, for S ∈ {S_∂, S₀} and
 M ∈ {M₀, M_∂}, the count Σ_{m∈M} 1_S(r_m(n)) has the finite Fourier expansion of §3 with f_m := 1_S and
 f̂_m(b) = (1/m)E_S(−b/m), E_S(θ) := Σ_{s∈S}e(θs). Grouping as in §3 (Q := 4(U₀+G)² ≤ 16U₀²):
 C(a/q) = (Σ_{m∈M, q|m} 1/m)·E_S(a/q), and Σ_n(count)² ≤ (N + Q²)Σ_{q≤Q}Σ*_a|C(a/q)|². Since S is a union of at most two
@@ -141,8 +146,8 @@ is ≪_{η,c₁,c₂} X^{1−η/4}. The same holds with "primes" replaced by "in
   G := ⌈U_*^{1−3η}⌉, H₀ := (κU_*)^η, and grid points U₀ := ⌈U_*⌉ + jG ≤ κU_* (j ≥ 0); there are ≪ U_*^{3η} of them.
   For X ≥ X₀: U_* ≥ 9 and G ≤ U_*.
 * *Exceptional sets at a grid point.* Let 𝓔₁(U₀) := {n ∈ (X, 2X]: ∃h ≤ H₀, |T_{n,U₀}(h)| > U_*^{1−η}}. By Theorem M
-  (N = X, U₀ ≤ κU_*, X ≍ U_*⁴), |𝓔₁(U₀)| ≤ Σ_{h≤H₀}C(X + 16U₀⁴)hU₀ log(4U₀²)/U_*^{2−2η} ≪ X·U_*^{−1+4η}log U_*.
-  Let 𝓔₂(U₀) := {n: B_n(U₀, G) > U_*^{1−η}}. By Lemma 4.2, |𝓔₂(U₀)| ≪ X(G² + G log U_* + U_*)/U_*^{2−2η}
+  (N₀ = ⌊X⌋, N = ⌊2X⌋ − ⌊X⌋ ≤ X + 1, U₀ ≤ κU_*, X ≍ U_*⁴), |𝓔₁(U₀)| ≤ Σ_{h≤H₀}C(X + 16U₀⁴)hU₀ log(4U₀²)/U_*^{2−2η} ≪ X·U_*^{−1+4η}log U_*.
+  Let 𝓔₂(U₀) := {n ∈ (X, 2X]: B_n(U₀, G) > U_*^{1−η}}. By Lemma 4.2 (same N₀, N), |𝓔₂(U₀)| ≪ X(G² + G log U_* + U_*)/U_*^{2−2η}
   ≪ X(U_*^{−4η} + U_*^{−1+2η}).
 * *Union over the grid.* Σ_{U₀}(|𝓔₁| + |𝓔₂|) ≪ X(U_*^{−1+7η}log U_* + U_*^{−η} + U_*^{−1+5η}) ≪ X·U_*^{−η} ≪ X^{1−η/4},
   using η < 1/8 (so −1 + 7η < −η).
@@ -152,9 +157,11 @@ is ≪_{η,c₁,c₂} X^{1−η/4}. The same holds with "primes" replaced by "in
 
 **Remark 4.3 (downstream value; PROVED).** The almost-all-p form of the *conclusion* of Corollary T needs none of the
 above. For U₀ ≤ U ≤ U₀ + G, N₂(n, U) ≤ #{(u, B) ∈ (U₀, 2U₀+2G]²: uB | n + u + B}, whose sum over n ∈ (X, 2X] is
-≤ Σ_{u,B}(X/(uB) + 1) ≪ X. Markov at level U^{1−η} plus a union over ≪ U^{3η} grid points gives N₂(p, U) ≤ U^{1−η} for
-all admissible U, for all but ≪ X·U^{−1+4η} primes p ∈ (X, 2X]. So Theorem A adds nothing for the (★) block. The open
-content of TD is the **pointwise** (every p) statement.
+≤ Σ_{u,B}(X/(uB) + 1) ≪ X (with U₀, G, the grid and U_* as in the proof of Theorem A). Apply Markov at the fixed level
+U_*^{1−η} at each grid point, then a union over the ≪ U_*^{3η} grid points. For all but O(X·U_*^{−1+4η}) primes
+p ∈ (X, 2X] this gives N₂(p, U) ≤ U_*^{1−η} ≤ U^{1−η} for all admissible U. That is stronger than the almost-all form of
+Corollary T's conclusion (U^{1−η+ε}). So Theorem A adds nothing for the (★) block. The open content of TD is the
+**pointwise** (every p) statement.
 
 ## 5. Numerics (EVIDENCE)
 
@@ -189,12 +196,13 @@ Sanity check: p = 100000037, U = 100 gives |E1| = 253 and N₂ = 1, matching Z54
   * The dual frequencies ν ≍ hU² must be summed with absolute values.
   * After a Poisson step in m the problem is self-dual at the fourth-root point: the phase νp/m has second derivative
     ≍ h ≥ 1 on m ≍ U².
-* A pointwise saving would need joint cancellation in a two-dimensional sum of Voronoi type, e.g.
-  Σ_{ν,μ≍U} e(2√(pνμ) + …) ≪ U^{3/2−η}, against a trivial bound of U² and a square-root size of U. This is the
-  N ≍ √x block of the Dirichlet-divisor Voronoi series at the strength θ ≤ 1/4 − η′. Known exponents (θ ≈ 0.315) give
-  only ≈ U^{1.76} for this block.
-* Status: TD is at least as hard as the pointwise asymptotic for divisor sums in intervals of length x^{1/4} (a
-  heuristic equivalence, not a proved implication).
+* A heuristic two-variable Poisson/stationary-phase computation (not carried out rigorously here) suggests the
+  following. The natural route to a pointwise saving needs joint cancellation in a two-dimensional sum of Voronoi type,
+  roughly Σ_{ν,μ≍U} e(2√(pνμ) + …) ≪ U^{3/2−η}. The trivial bound is U², and square-root size is U.
+* The heuristic analogy is the dyadic block n ≍ √x of the Voronoi series for Δ(x+y) − Δ(x), y = x^{1/4}. The
+  exponent-pair and Bourgain-type bounds we know give only about U^{2−3/84} for such a block via one-variable sums.
+* None of this is a proved necessity or hardness reduction. No implication between TD and short-interval divisor
+  asymptotics is claimed.
 
 ## 7. Files
 
