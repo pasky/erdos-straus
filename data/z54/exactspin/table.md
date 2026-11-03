@@ -1,4 +1,4 @@
-| sample | N | mean G/log²p | mean R/mean G | P(R=0) | var S₂/var(R−G) | var S_o/var(R−G) | z(S₂) mean, sd | z(S_o) mean, sd | z(R−G) mean, sd | max_k |mean z(Δ_k)|/se | sd z(Δ_k) range | orders ≤24 share (model / emp.) |
+| sample | N | mean G/log²p | mean R/mean G | P(R=0) | var S₂/var(R−G) | var S_o/var(R−G) | z(S₂) mean, sd | z(S_o) mean, sd | z(R−G) mean, sd | max_k |mean z(Δ_k)|/se | sd z(Δ_k) range | listed orders Σ_k marginal var (model / emp.) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | rand_1e9 | 2000 | 0.0051 | 1.024 | 0.301 | 0.53 | 0.51 | +0.016, 0.99 | +0.016, 0.98 | +0.024, 0.97 | 1.5 | 0.96–1.04 | 0.43 / 0.46 |
 | rand_1e10 | 2000 | 0.0057 | 1.006 | 0.210 | 0.52 | 0.52 | -0.007, 1.02 | +0.020, 1.01 | +0.009, 1.00 | 1.2 | 0.97–1.03 | 0.37 / 0.38 |
@@ -9,6 +9,8 @@
 | nearsq_1e10 | 200 | 0.0049 | 0.991 | 0.315 | 0.55 | 0.40 | +0.081, 1.04 | -0.125, 0.92 | -0.034, 1.00 | 2.5 | 0.92–1.07 | 0.35 / 0.34 |
 | nearsq_1e12 | 200 | 0.0059 | 1.029 | 0.075 | 0.50 | 0.52 | +0.011, 1.01 | +0.047, 1.04 | +0.040, 1.01 | 1.8 | 0.93–1.12 | 0.27 / 0.26 |
 | nearsq_1e14 | 200 | 0.0063 | 0.963 | 0.055 | 0.50 | 0.56 | -0.041, 0.96 | -0.055, 0.98 | -0.070, 0.94 | 1.0 | 0.93–1.06 | 0.19 / 0.20 |
+
+largest |mean z| over all layers and samples: 0.178 (nearsq_1e10, 6), 0.129 (nearsq_1e12, 16), 0.125 (nearsq_1e10, Sodd), 0.119 (nearsq_1e12, 3), 0.117 (nearsq_1e12, 8)
 
 pooled random primes: N=8600, mean z(R-G) = +0.0325 (se 0.0108)
 squares_1e10 N=200 max|R|,|G|,|S2|,|So| = 0.0 0.0 0.0 0.0 ; mean |D_k| for k=3,5,6,7: 0.240 0.154 0.240 0.138 ; max |D_k|, 4|k: 0.0

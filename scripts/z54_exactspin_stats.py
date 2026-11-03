@@ -25,16 +25,17 @@ for t in sorted(by, key=lambda s: (s.split('_')[0], float(s.split('_')[1].replac
     vRG = np.var(RG)
     print('   mean S2/G=%.4f  mean Sodd/G=%.4f | var share S2=%.3f Sodd=%.3f cov=%.3f | z(S2): mean %.3f sd %.3f ; z(Sodd): mean %.3f sd %.3f ; z(R-G): mean %.3f sd %.3f' % (
         np.mean(S2)/np.mean(G), np.mean(So)/np.mean(G), np.var(S2)/vRG, np.var(So)/vRG, 2*np.cov(S2,So)[0,1]/vRG,
-        np.mean(S2/np.sqrt(VG2+1e-300)), np.std(S2/np.sqrt(VG2+1e-300)), np.mean(So/np.sqrt(VGo+1e-300)), np.std(So/np.sqrt(VGo+1e-300)),
+        np.mean(S2[VG2>0]/np.sqrt(VG2[VG2>0])), np.std(S2[VG2>0]/np.sqrt(VG2[VG2>0])), np.mean(So[VGo>0]/np.sqrt(VGo[VGo>0])), np.std(So[VGo>0]/np.sqrt(VGo[VGo>0])),
         np.mean(RG/np.sqrt(VG2+VGo)), np.std(RG/np.sqrt(VG2+VGo))))
     zs = []
     for k in KL:
         D, V = arr(rs, 'D%d' % k), arr(rs, 'V%d' % k)
-        z = D/np.sqrt(V+1e-300)
-        zs.append('k=%d: <D/G>=%+.3f <z>=%+.3f(se %.3f) sd(z)=%.2f' % (k, np.mean(D)/np.mean(G), np.mean(z), np.std(z)/math.sqrt(N), np.std(z)))
+        ok = V > 0   # rows with zero model variance (no character of order k on the shell) have D = 0 and are excluded
+        z = D[ok]/np.sqrt(V[ok])
+        zs.append('k=%d: <D/G>=%+.3f <z>=%+.3f(se %.3f) sd(z)=%.2f nvalid=%d' % (k, np.mean(D)/np.mean(G), np.mean(z), np.std(z)/math.sqrt(ok.sum()), np.std(z), ok.sum()))
     for i in range(0, len(zs), 3): print('   ' + ' | '.join(zs[i:i+3]))
 # bounded-order variance share (uniform model and empirical); listed orders only
-print('\n== bounded-order variance share (orders k in KL, k<=24; uniform-class model and empirical across primes)')
+print('\n== listed-order variance statistic (orders k in KL only; model: mean over n of sum_k V_k / VRu (x uniform on G); empirical: sum_k var(D_k) / var(R-G), marginal variances, no cross-covariances)')
 for t in sorted(by):
     rs = by[t]
     VRu = arr(rs, 'VRu')

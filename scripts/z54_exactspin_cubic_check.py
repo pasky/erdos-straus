@@ -97,7 +97,8 @@ def quart_sym_q(pi, q):  # (pi/q)_4, q odd rational prime not dividing N(pi)
     return j % 4
 def quart_sym_n(pi, n): return sum(quart_sym_q(pi, q) * e for q, e in factorint(n).items()) % 4
 # ---------- run ----------
-n3 = bad3 = badac = bad3sup = 0; t3 = {}; n4 = 0; table = {}; bad4 = 0
+RHO = gprimary(p)
+n3 = bad3 = badac = bad3sup = 0; t3 = {}; n3w2 = bad3w2 = 0; bad4eps = bad4b = bad4c = n4c = bad4ac = 0; n4 = 0; table = {}; bad4 = 0
 for (u, w, w2, isq, hit) in pts:
     if not isprime(u): continue
     x = (-w2) % u
@@ -115,6 +116,9 @@ for (u, w, w2, isq, hit) in pts:
         t3.setdefault(k9, j3)
         n3 += 1
         if jx != (jp - jw - v3 * j3) % 3: bad3 += 1
+        if w2 % 3 != 0:                      # w'' version of 4.2(a): (x/pi)_3 = (pi/w'')_3
+            n3w2 += 1
+            if jx != cub_sym_n(pi, w2): bad3w2 += 1
         for q in list(factorint(2 * w1 * p).keys()):
             if cub_sym_q(pi, q) != anticyc_q(pi, q): badac += 1
     if u % 4 == 1:
@@ -126,5 +130,35 @@ for (u, w, w2, isq, hit) in pts:
         key = ((pi[0] % 16, pi[1] % 16), w % 4)
         if key in table and table[key] != eps: bad4 += 1
         table.setdefault(key, eps); n4 += 1
+        # explicit eps formula: eps = (-1/pi)_4 (2/pi)_4^{-1} [ (-1/pi)_4^{-1} if w = 3 mod 4 ]
+        jm1 = 0 if ((u - 1) // 4) % 2 == 0 else 2
+        v2 = pow(2, (u - 1) // 4, u); j2 = [t for t in range(4) if pow(ir, t, u) == v2][0]
+        epsf = (jm1 - j2 - (jm1 if w % 4 == 3 else 0)) % 4
+        if epsf != eps: bad4eps += 1
+        # 4.4(b): (pi/p)_4 = (l/rho)_4^{-1} (pi/rho)_2, rho primary of norm p, i = -a/b mod rho
+        rho = RHO; irho = (-rho[0] * pow(rho[1], -1, p)) % p
+        pim = (pi[0] + pi[1] * irho) % p
+        jl = [t for t in range(4) if pow(irho, t, p) == pow(u, (p - 1) // 4, p)][0]
+        s2 = 0 if pow(pim, (p - 1) // 2, p) == 1 else 2
+        if jp != (-jl + s2) % 4: bad4b += 1
+        # 4.4(c) and quartic anticyclotomic forms for every prime q | w
+        for q in factorint(w):
+            jq = quart_sym_q(pi, q)
+            if q % 4 == 1:
+                n4c += 1
+                r = sqrt_mod(-1, q); a = (pi[0] + pi[1] * r) % q          # kappa = (q, i - r)
+                sq = 0 if pow(a, (q - 1) // 2, q) == 1 else 2
+                jmp = [t for t in range(4) if pow(r, t, q) == pow((-p) % q, (q - 1) // 4, q)][0]
+                if jq != (sq - jmp) % 4: bad4c += 1
+                bb = (pi[0] - pi[1] * r) % q                              # pibar mod kappa
+                th = a * pow(bb, -1, q) % q
+                jac = [t for t in range(4) if pow(r, t, q) == pow(th, (q - 1) // 4, q)][0]
+            else:
+                Ninv = pow(u, -1, q); inv = ((pi[0] * Ninv) % q, (-pi[1] * Ninv) % q)   # pi^{-1} = pibar / N
+                t_ = gmul((pi[0], -pi[1]), inv, q)                                         # pibar/pi
+                jac = gidx(gpow(t_, (q + 1) // 4, q), q)
+            if jq != jac: bad4ac += 1
 print(f'p={p} cubic: {n3} shell points (u prime = 1 mod 3), reciprocity mismatches {bad3}, anticyclotomic-form mismatches {badac}, (3/pi)_3 not a function of pi mod 9: {bad3sup}; '
-      f'quartic: {n4} points, eps not a function of (pi mod 16, w mod 4): {bad4} (table size {len(table)})')
+      f'quartic: {n4} points, eps not a function of (pi mod 16, w mod 4): {bad4} (table size {len(table)}); '
+      f'cubic w2-version: {n3w2} points, mismatches {bad3w2}; quartic explicit-eps mismatches {bad4eps}, 4.4(b) mismatches {bad4b}, '
+      f'4.4(c): {n4c} split factors, mismatches {bad4c}; quartic anticyclotomic-form mismatches {bad4ac}')
