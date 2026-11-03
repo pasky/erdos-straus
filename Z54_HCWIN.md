@@ -24,8 +24,9 @@ not a factorisation.
    * It is an average over p (B6), so it only *calibrates* the threshold.
 2. **What is provable at a single p (Theorem A; PROVED, elementary).**
    * Turán–Kubilius over the window variable x is exact, but only for primes ≤ X^{1/2}. The provable single-p anatomy is
-     therefore ω_{≤√X}(N_x) = log log X + O(√log log X) for almost all x ≤ X: ≍ log log log p prime factors at
-     polylogarithmic X, against the ≈ 2 log log p the model uses.
+     therefore: outside O(|𝒳|/t²) exceptional x ≤ X, |ω_{≤√X}(N_x) − log log X| ≤ t√(1 + log log X) + O(1). Letting
+     t → ∞ slowly gives density one. That is ≍ log log log p prime factors at polylogarithmic X, against the
+     ≈ 2 log log p the model uses.
    * Pointwise, Λ(p, X) ≥ (1/8) log²X − O(log X) for every prime (indeed every odd integer) p > X, from the "outer
      layer" (divisors d ≤ x/2 of p + x; congruence data). At polylogarithmic X this is only O((log log p)²).
    * Beyond that the question is a pointwise short-interval divisor-type problem with no known approach (Assessment,
@@ -47,11 +48,14 @@ not a factorisation.
 5. **Numerics (EVIDENCE; CERTIFIED controls).** About 1.7·10⁵ primes with all lines x ≤ 1024, plus 6.5·10⁶ primes with
    lines x ≤ 64, at heights 10⁹–4·10¹⁵.
    * *Per-line law.* For genus mass m ≥ ½, pooled over x ∈ [64, 1024), an endpoint line succeeds with probability within
-     about 3 percentage points of 1 − e^{−m}, and a level line within about 3 points of 1 − e^{−m/2} (pairing d ↔ N/d).
+     about four percentage points of 1 − e^{−m}, and a level line within about four points of 1 − e^{−m/2} (pairing
+     d ↔ N/d), in these pooled bins (largest deviations 2.4 points for E and 3.9 points for L).
      This holds at every height. At small m both fall short of the law (factors 0.5–0.85).
-   * *Joint failures.* Given the genus masses, class failures at x ≤ 64 lie between the two marginal surrogates
-     (observed/predicted 0.3–0.9 and 0.7–1.7). There is no gross joint excess, but independence is not established.
-   * *Where failures happen.* In the random samples at 10¹¹–4·10¹⁵ every failure occurs while Γ = 0. Of the 145 listed
+   * *Joint failures.* Given the genus masses, the class failures at x ≤ 64 show no clear systematic excess over the
+     two marginal lottery surrogates. Observed/predicted is 0.31–0.94 (cL = ½) and 0.67–1.71 (cL = 1) in the 10⁹
+     scan, and 0.75–1.16 and 1.47–4.15 at 10¹². The counts are low (≤ 25 at 10¹²), and independence is not
+     established.
+   * *Where failures happen.* In the samples of consecutive primes p ≡ 1 (8) at 10¹¹–4·10¹⁵ every failure occurs while Γ = 0. Of the 145 listed
      hard primes with HC ≥ 20, 95 have Γ(p, 16) = 0. The one high-mass failure is p = 21841 (Γ = 1.02 log p at
      X = 60–63).
    * *Odd squares.* Λ is prime-like, while Γ = 0 on all 3.84·10⁶ lines (CERTIFIED).
@@ -156,8 +160,9 @@ Throughout this section p is a prime, 8 < X < p, and 𝒳 := 𝒞 ∩ [4, X]. No
 **Theorem A1 (Turán–Kubilius over the window; PROVED).** Let 3 ≤ z ≤ X^{1/2} and
 ω_z(n) := #{ℓ ≤ z odd prime, ℓ ≠ p : ℓ | n}. Put μ_z := Σ_{3≤ℓ≤z} 1/ℓ = log log z + O(1). Then
   Σ_{x∈𝒳} (ω_z(N_x^F) − μ_z)² ≪ |𝒳| (1 + log log z),
-so #{x ∈ 𝒳 : |ω_z(N_x^F) − μ_z| > t√(1 + log log z)} ≪ |𝒳|/t². (The same proof works for any additive function
-supported on odd primes ≤ z, with variance ≪ |𝒳| Σ_{ℓ≤z}|f(ℓ)|²/ℓ.)
+so #{x ∈ 𝒳 : |ω_z(N_x^F) − μ_z| > t√(1 + log log z)} ≪ |𝒳|/t². (The same proof works for strongly additive sums
+F(n) = Σ_{ℓ≤z odd prime, ℓ∣n} f(ℓ), centred at Σ_{ℓ≤z} f(ℓ)/ℓ, with variance ≪ |𝒳| Σ_{ℓ≤z}|f(ℓ)|²/ℓ + (Σ_{ℓ≤z}|f(ℓ)|)². It
+does not extend to general additive functions with prime-power values, which this right-hand side does not see.)
 
 *Proof.* Expand ω_z = Σ_ℓ 1[ℓ | N] and use Lemma A1 with q = ℓ and q = ℓℓ′.
 * Σ_x ω_z = |𝒳| μ_z + O(π(z)).
@@ -469,7 +474,7 @@ HC values at 193, 409, 577, 2521, 3361, 5569, 9601, 21841, 66529, 83449 and 8813
 * Genus-confined lines are common at primes: 47 % (10⁹), 41 % (10¹³) and 39 % (4·10¹⁵) of all lines x ≤ 1024, and 48 %
   at m² + 24.
 * Ratio of mean Γ to mean Λ at X = 64:
-  * 0.73–0.78 at random primes (all four heights);
+  * 0.73–0.78 at the consecutive-prime samples (all four heights);
   * 0.63 at m² + 24 and 0.56 at m² + 120;
   * 0.40 at the hard primes.
   Near-squares and hard primes keep their Λ but lose Γ.
@@ -488,7 +493,9 @@ actual lines (`z54_hcwin_perline.py`). Pooled over x ∈ [64, 1024), observed ra
 | 4 | 0.991 | 0.984 | 0.979 | 0.988 | 0.925 | 0.914 | 0.911 | 0.894–0.895 |
 
 (Each cell has between 2 500 and 1.4·10⁶ lines.)
-* For m ≥ ½ the observed rate is within about 3 percentage points of the law, at every height, for both line types.
+* For m ≥ ½ the observed rate is within about four percentage points of the law in these pooled bins, at every height,
+  for both line types. The largest deviations over all pooled bins with m ≥ ½ are 2.4 points (E) and 3.9 points (L, at
+  10⁹, m-bin 2^{1.5}, 13 921 lines; that bin is not displayed in the table).
 * For small m the observed rate is systematically *below* the law: by a factor of about 0.75–0.85 (E) and 0.5–0.75 (L)
   at m ≈ 2^{−5}–2^{−3}.
 * Individual dyadic blocks scatter more (e.g. 0.947 on 432 lines at 10⁹, E, x ∈ [256, 512), m-bin 2). At small x
@@ -533,13 +540,13 @@ windows, not only the dyadic grid):
 Reading (EVIDENCE):
 * (i) Below X = 16 every failure is genus-dead: all lines ≤ X have g = 0. With x | 24, 7, 15 deterministic, there is no
   lottery line below 16 at all.
-* (ii) Where lotteries occur, the class failures sit between the two surrogates:
+* (ii) Where lotteries occur, the class failures are compared with the two surrogates (not every row lies between them):
   * observed/predicted is 0.31–0.94 with cL = ½ and 0.67–1.71 with cL = 1 (10⁹);
   * it is 0.75–1.16 and 1.47–4.2 respectively (10¹², counts ≤ 25).
-  At these small x the marginal laws are not calibrated (§7.3), so the data show **no gross joint-failure excess given
-  the genus masses**. This contrasts with the raw ×3–×80 of HCSHIFTS (L2), which conditioned on nothing; HCSHIFTS'
+  At these small x the marginal laws are not calibrated (§7.3), and the counts are low. The data show **no clear
+  systematic joint-failure excess given the genus masses**. This contrasts with the raw ×3–×80 of HCSHIFTS (L2), which conditioned on nothing; HCSHIFTS'
   stratification by p mod 15015 removed most of it too. They do not establish independence or negative dependence.
-* (iii) In the random samples at 10¹¹–4·10¹⁵ *every* failure occurs at Γ = 0: the prime fails exactly while all its
+* (iii) In the samples of consecutive primes at 10¹¹–4·10¹⁵ *every* failure occurs at Γ = 0: the prime fails exactly while all its
   lines are genus-dead. At 10⁹ and at near-squares, failures occur with Γ ≤ 0.14 log p.
 * (iv) The hard primes of the HCSHIFTS list are mostly genus-starved: of the 145 with HC ≥ 20, 95 have Γ(p, 16) = 0. The
   exception is 21841 (HC = 64, the record below 10⁸). It still fails at Γ = 10.2 = 1.02 log p and S = 9.7 (windows
@@ -575,15 +582,16 @@ Reading (EVIDENCE):
 >   for θ ≤ log 2 it is trivially o(log p)). For θ > 2 log 2 it is ≫ log p log log p. The boundary is not decided.
 > * At one p only the outer layer is provable. Turán–Kubilius over the window variable sees primes ≤ √X only, and
 >   Λ(p, X) ≥ (1/8) log²X − O(log X) pointwise, at every odd integer including squares (Thm A, PROVED). Pointwise Anat
->   at polylogarithmic X is a short-interval divisor-type problem with no known approach (Assessment; the best pointwise
->   unweighted divisor asymptotic needs X ≥ p^{0.3145}).
+>   at polylogarithmic X is a short-interval divisor-type problem with no known approach (Assessment; the cited Δ-bound
+>   supplies a sufficient range X ≥ p^{θ*+ε}, θ* = 0.31448…, for the unweighted divisor asymptotic).
 > * In the Kubilius model, the conjunction "some line has τ ≥ Kφ(x)" ∧ "every such line fires" has probability 0 for
 >   every K (Thm C, model-only). A model-compatible class hypothesis must therefore be joint (Assessment).
 > * Lot_Λ(C) alone implies HC(p) ≤ exp(√(8C log p) + O(1)) = p^{o(1)} (Thm D, CONDITIONAL). In the model Lot holds a.s.
 >   for C > 4 (C > 2 for Γ), and S_{2 log 2} holds a.s. (Prop M′, deciding HCHYP's boundary in the model only).
-> * EVIDENCE (10⁹–4·10¹⁵): for genus mass m ≥ ½ a line fires with probability within ≈ 3 points of 1 − e^{−m}
+> * EVIDENCE (10⁹–4·10¹⁵): for genus mass m ≥ ½ a line fires with probability within ≈ 4 points of 1 − e^{−m}
 >   (endpoint) or 1 − e^{−m/2} (level), pooled over x ∈ [64, 1024). Small m falls short. Joint class failures at x ≤ 64
->   show no gross excess over the lottery surrogates. In random samples at 10¹¹–4·10¹⁵ all failures occur at Γ = 0.
+>   show no clear systematic excess over the lottery surrogates (low counts). In consecutive-prime samples at
+>   10¹¹–4·10¹⁵ all failures occur at Γ = 0.
 >   Odd squares have prime-like Λ and Γ ≡ 0 (CERTIFIED).
 
 ## 10. Bottom line
@@ -661,4 +669,13 @@ the composite-control τ bug, are superseded.)
   * the failure masses now taken over *all* windows (per-prime pre-HC masses), with the 21841 counterexample to the
     first draft's "max 0.49" reported (32).
   Items 2, 5, 7, 9, 11, 15, 18, 21, 23, 27, 30 and 33 were confirmed by the reviewer.
-* Cross-model review: pending.
+* **Cross-model review** (`data/z54/xreview/REVIEW_HCWIN.md`; helpers `scripts/z54_xrev_hcwin_check.py`,
+  `scripts/z54_xrev_hcwin_joint.py`): ACCEPT-WITH-FIXES. The reviewer re-derived all numbered results, regenerated the
+  squares, the 10⁹ sample, the hard list and the 10¹² scan (byte-identical or count-identical), and checked Henriot
+  (with its erratum), Li–Yang and Ivić–Zhai from the sources. Fixes applied:
+  * A1's parenthesis restricted to strongly additive sums, and the §0 summary quantifier corrected (Chebyshev
+    exceptions; density one only with t → ∞);
+  * the per-line precision restated as "about four percentage points" (a 3.9-point level bin);
+  * the joint summary restated with both heights, low counts and "no clear systematic excess";
+  * §9 "needs X ≥ p^{0.3145}" replaced by a sufficient-range statement;
+  * the "random samples" are now called consecutive-prime samples.
