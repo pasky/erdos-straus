@@ -183,7 +183,7 @@ loses the second condition d ≡ −1 (mod t′): the transported point has the 
 ## 5. Falsifiers (EVIDENCE; identities CERTIFIED on the runs as stated)
 
 ### 5.1 F1: the twisted layers at 10⁹–10¹⁴
-Engine `scripts/z55_crossu_engine.c` (window as GX §5: (U₀,U₁,Y,X) = (p^{1/12}, p^{1/3}/2, p^{1/3}, p^{2/3}/4); shell
+Engine `scripts/z55_crossu_engine.c` (compile `gcc -O2 -o /tmp/z55cu scripts/z55_crossu_engine.c -lm`; window as GX §5: (U₀,U₁,Y,X) = (p^{1/12}, p^{1/3}/2, p^{1/3}, p^{2/3}/4); shell
 enumeration as `z53_genusx_engine.c`). On every point of 𝔖₃ it computes j and checks: u·(u^{−1} mod d) = 1 + jd
 (`badj`); Lemma A(c) — d^{−1} mod n = (2w + jn)/u, (d·d̄ − 1)/n = u^{−1} mod d, j = ⌊u d̄/n⌋ — whenever d^{−1} mod n
 exists (`badA`, `nA`); Lemma B — ((−d) mod u)·j ≡ 1 (mod u) (`badB`). All three counters are 0 on all 1 339 runs
