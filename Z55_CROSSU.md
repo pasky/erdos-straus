@@ -44,7 +44,7 @@ p; (CU″) the same for a twisted or signed variant that still implies (★).
   and ask whether the class event becomes a non-tied event in some coordinates. §3 shows that in every coordinate
   system the per-point weight is a function of one residue, the class index j of Lemma A.
 
-## 3. The class index (PROVED; identities checked on every point of every run, §5)
+## 3. The class index (PROVED; the specific finite checks performed are listed in §5.1)
 
 **Lemma A (class index).** Let (u, w) ∈ 𝔖 with u > 1, d = (p + u)/(2w). Let ū_d ∈ [1, d) be the inverse of u mod d
 and put j := (u·ū_d − 1)/d. Then
@@ -106,9 +106,11 @@ u = 5 has q_u = 2), then f ≥ 2/3 at hits and f ≥ −1/3 at genus non-hits, s
 f∘σ = −f at a hit, and (ii) cancelling the weight of one hit pointwise needs at least 2 genus non-hits, and at least
 q·(1 − 1/q_u) of them if their moduli all have q_{u′} ≥ q. At q_u = 2 (u = 5, windows with U₀ < 5) a hit and a genus
 non-hit have opposite weights ±1/2 and a sign-reversing bijection can exist (reviewer's example p = 1 007 633 689,
-U₁ = 5). *Scope.* This excludes only maps that cancel *pointwise with bounded multiplicity and bounded q*; it says
-nothing about transformations exposing approximate or grouped cancellation, or positivity inequalities. In particular
-it does **not** close "pairing/switching/descent" as a class; it quantifies what such a map would have to do.
+U₁ = 5). *Scope.* This excludes hit-to-single-non-hit pairing (when q_u ≥ 3) and gives the stated lower bound on the
+size of a cancelling group; it does not obstruct bounded-size groups (at q = 3, 2/3 − 1/3 − 1/3 = 0), and a uniform
+obstruction to bounded groups would need q_min → ∞, which fails in every window (u = 21 has q = 3). It says nothing
+about transformations exposing approximate or grouped cancellation, or positivity inequalities. In particular it does
+**not** close "pairing/switching/descent" as a class; it quantifies what such a map would have to do.
 
 **4.2 Switching w ↔ d (PROVED identity; Assessment on use).** Where d is odd squarefree in (Y, X] with gcd(d, up) = 1,
 (u, d) ∈ 𝔖 with level w; it lies in 𝔖₃ iff w ≡ 3 (4). On that domain the switch is a partial involution of 𝔖 with
@@ -116,7 +118,9 @@ index j′ ≡ 2p^{−1}·j^{−1} (mod u). (Proof: 2wd ≡ p (mod u) gives w^{�
 2p^{−1}j^{−1}.) So a hit goes to a hit iff u | p − 2, and to a genus non-hit iff 2p ∈ □_u and p ≢ 2 (mod u) — the
 switch *can* reverse the sign of a hit's weight (reviewer's example p = 1 063 647 049, u = 89: (89, 23343, 22783, j = 1)
 ↔ (89, 22783, 23343, j = 32), weights +43/44 and −1/44). It is not weight-negating in general, and it acts on the
-index multiset at fixed u by j ↦ 2p̄/j, a permutation that preserves |{j ∈ □_u}| iff 2p ∈ □_u. *Assessment:* no
+index multiset at fixed u by j ↦ 2p̄/j, a unit-group map that preserves the subgroup □_u setwise iff 2p ∈ □_u and
+otherwise sends □_u to the coset 2p̄□_u (the switchable points are merely permuted, so the genus count of the
+switchable multiset is unchanged in either case). *Assessment:* no
 cancellation follows; whether a signed combination of a point and its switch has smaller fluctuation was not tested.
 
 **4.3 Vieta/Markoff moves (PROVED, scoped).** With x = u, y = 2w, z = t the hits are the positive integer points of
@@ -170,8 +174,9 @@ coset at fixed u and cannot distinguish the hit class from the other classes ins
 with the exact layer is −(R − G) itself. A fixed f(u) or f(w) reweights fibres; no reweighting that exposes
 cancellation was found (Assessment).
 
-**4.11 Positivity transfer (CU′) (Assessment).** R ≥ εG would follow from a map taking genus points (u, w, x), x ≠ ±1,
-to hits anywhere in the full (★) count. The natural move t ↦ t x̄² (mod d) transports d | x² + pt to d | 1 + pt′ but
+**4.11 Positivity transfer (CU′) (Assessment).** Positivity of the full (★) count would follow from any map taking
+some genus point (u, w, x), x ≠ ±1, to a hit anywhere (non-empty genus support suffices); R_𝔉 ≥ εG_𝔉 would need
+targets inside the family and a uniform bound on the weighted multiplicity of the map. The natural move t ↦ t x̄² (mod d) transports d | x² + pt to d | 1 + pt′ but
 loses the second condition d ≡ −1 (mod t′): the transported point has the right modulus but an uncontrolled class
 (a class-changing transfer, FRONTIER §4 item 11). No transfer found.
 
@@ -198,7 +203,7 @@ classes and the six random-prime samples, read off `stats.txt`):
   z = +1.54, −1.59, −0.01, −1.72, −1.88, +0.14 at 10⁹,…,10¹⁴; sd-ratio 1.04, 1.05, 0.97, 0.93, 0.92, 0.95. Pooled
   over the 1 000 primes: z₁ = −1.61, z₋₁ = +2.16, z₂ = −0.12, z₄ = −0.05, z₁₂ = +2.04, z₂₅ = +2.35; the 18 pooled values
   lie in [−1.78, +2.35]. Under the independent-fibre model the 18 classes are not independent of each other (they
-  partition the same shell), but three |z| ≈ 2 among 18 is unremarkable.
+  share the same shell), but three |z| ≈ 2 among 18 is unremarkable.
 * Cross-class correlations: the largest |ρ| among the 153 pairs of classes is 0.24, 0.22, 0.21, 0.27, 0.24, 0.24 at
   10⁹,…,10¹⁴ (n = 200, 200, 150, 150, 150, 150), against ≈ 0.24–0.28 expected for the maximum of 153 independent
   sample correlations (√(2 ln 306)/√n). No pair involving c = 1 exceeds 0.26.
@@ -208,9 +213,14 @@ classes and the six random-prime samples, read off `stats.txt`):
   j = x² < u all lie in □_u and sit at small j/u, and the remaining shape is that of the quadratic residues of
   composite u ≡ 1 (4), which was not analysed. These are binned marginals only; they do not test uniformity on every
   unit class at each u.
-* Controls. Odd squares: N_c = G_c = 0 for the square classes c ∈ {1, 4, 9, 16, 25} (empty genus, GX Lemma 3.3), while
-  the non-square classes fluctuate with sd-ratio ∈ [0.84, 1.08] as at primes — the T1 vanishing is a property of the
-  genus coset, not of the fluctuation of the exact layer. Near-squares and composites: ranges as at primes (smaller n).
+* Controls. Odd squares n = m²: N_c = G_c = V_c = 0 on every square for exactly the seven classes
+  c ∈ {1, 4, 9, 16, 25, −1, −4}, i.e. those with Jacobi symbol (c/u) = +1 for every u ≡ 1 (4). This is forced (PROVED,
+  elementary): the identity of §4.10 holds for every odd n ≡ 1 (4) coprime to d, (d/n) = −(j/u), and at n = m² the left
+  side is +1, so (j/u) = −1 on all of 𝔖₃ — in particular the genus is empty (GX Lemma 3.3) and no class with (c/u) = +1
+  is populated. The remaining eleven classes fluctuate with sd-ratio
+  ∈ [0.84, 1.08] as at primes — the T1 vanishing is a property of the genus coset, not of the fluctuation of the
+  exact layer. Near-squares and composites (n = 60, 60, 50): sd-ratio spreads 0.71–1.25, 0.85–1.15, 0.78–1.28,
+  broadly comparable to the prime samples but wider.
   Hard primes (19): the 14 (★)-zero primes have R = 0; the five smallest have 𝔖₃ = ∅, 83449 and 102001 have one
   off-genus point (G = 0), the other seven have G = 0.10–1.90; p = 3361 has R = G = 2, p = 5101441 has R = 2, G = 1.52.
   Mean R − G = −0.39, sample sd 0.68. The family's deficit at these primes is that of a 0–26-point shell.
@@ -220,8 +230,11 @@ classes of the index; the tests detect residue-class bias and cross-class correl
 support an o(log² p) bound.
 
 ### 5.2 F2: structure of the firing set
-`scripts/z55_crossu_pairs.py` on per-point dumps of the 300 primes at 10¹²–10¹³ (dumps regenerated by the engine's
-optional sixth argument; 769 hits, 967 hit pairs with u₁ ≠ u₂). Descriptive null: |H| distinct genus points drawn
+`scripts/z55_crossu_pairs.py` on per-point dumps of the 300 primes at 10¹²–10¹³ (769 hits, 967 hit pairs with
+u₁ ≠ u₂). Reproduction (dumps not stored, ≈ 60 MB): for each n in `data/z53/genusx/primes_1e12.txt` and
+`data/z54/exactsum/primes_1e13.txt`, run `/tmp/z55cu n U0 U1 Y X DUMPDIR/n.txt` with the window from
+`z55_crossu_run.window(n)` (the same values as in `main.tsv`), then `python scripts/z55_crossu_pairs.py DUMPDIR 20 200`
+(seed 1). Descriptive null: |H| distinct genus points drawn
 without replacement with probability ∝ 2^{ω(u)}/φ(u) (the G-weight of a hit), 20 draws per prime; this is a benchmark,
 not the exact conditional law of the independent-genus model. Uncertainty: bootstrap over the 300 primes (200
 resamples) of the hit-minus-null difference.
@@ -284,8 +297,8 @@ this sample. Data: `data/z55/crossu/pairs_1e12_1e13.txt`.
 **Bottom line.** Every fresh coordinate system for the tied event — divisor switching, the level t, the modular
 hyperbola mod p, SL₂ words and continued fractions, Dedekind sums, the c-twisted ES equations — exhibits the same
 integer, the class index j ∈ [1, u), and the exact layer is Σ f_u(j) over the shell with f_u supported on {1} ∪ □_u.
-A hit carries weight 1 − 1/q_u and a genus non-hit −1/q_{u′}, so pointwise cancellation needs many points per hit and
-no pairing found here does it; the standard fixed-p equidistribution tool resolves d̄ mod p at scale p^{1/2}, not 1.
+A hit carries weight 1 − 1/q_u and a genus non-hit −1/q_{u′}, so pointwise cancellation needs at least two (and at
+least q(1 − 1/q_u) if all moduli have q_{u′} ≥ q) genus non-hits per hit, and no pairing found here does it; the standard fixed-p equidistribution tool resolves d̄ mod p at scale p^{1/2}, not 1.
 Numerically the hit class is not special among the classes of the index. The lane found no cross-u mechanism; it
 leaves the precise target in index form. **ES remains OPEN.**
 
@@ -306,3 +319,11 @@ the false "j ≤ √u" parenthetical replaced; 9 orthogonality claim withdrawn, 
 → "determine", interval → exact equality, u = 1 excluded, Lemma C unit convention; 11 the engine's checks enumerated
 precisely (Lemma A(c)/B now machine-checked on all runs; Lemma C not); 12 hard-prime description corrected; 13 labels
 separated, §1 implication marked CONDITIONAL, (CU) labelled CONJECTURE, review reference fixed.
+
+**Second hostile pass** (`data/z55/crossu/review_hostile_pass2.md`; verdict "accept with fixes"; all 13 original
+findings given explicit dispositions, the q_u ≥ 3 arithmetic, the Jacobi identity (d/p) = −(j/u), the corrected
+threshold, the engine checks and all quoted statistics independently re-verified). Six residual items applied:
+R1 §4.1 scope sentence (bounded groups not obstructed; q_min → ∞ fails) and bottom line; R2 §4.2 setwise-vs-multiset
+wording; R3 the seven vanishing classes at squares (now explained as a PROVED consequence of (d/n) = −(j/u)), control
+spreads stated separately, "share" not "partition"; R4 §3 heading; R5 §4.11 distinction between full-(★) positivity and
+R_𝔉 ≥ εG_𝔉; R6 reproduction recipe for the pair run.
