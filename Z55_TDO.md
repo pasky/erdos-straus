@@ -39,9 +39,9 @@ the lattice point (k, m). ∎
 
 **Lemma 1.2 (phase identities; PROVED).** For a strip point put s = km − n, D = s² − 4m ≥ 1, w = √D, and
 u := (s − w)/2, B := (s + w)/2 (real; u + B = s, uB = m). Then e(hw) = e(2hB) = e(−2hu), since hs ∈ ℤ. Moreover
-  T_n(h) = Σ_{D≥1} N_D·e(h√D),  N_D := #{s ∈ (2U, 4U] : s ≡ D (mod 2), m := (s² − D)/4 ∈ (U², 4U²], m | n + s}.
+  T_n(h) = Σ_{D≥1} N_D·e(h√D),  N_D := #{s ∈ (2U, 4U] : D ≡ s² (mod 4), m := (s² − D)/4 ∈ (U², 4U²], m | n + s}.
 *Proof.* w = 2B − s = s − 2u. For the second form, (k, m) ↦ (D, s) is injective (m = (s² − D)/4, k = (n + s)/m) and its
-image is exactly the set counted by N_D (s² − D = 4m forces s ≡ D mod 2). ∎
+image is exactly the set counted by N_D (s² − D = 4m forces D ≡ s² mod 4, which is exactly the condition m ∈ ℤ; divisibility is in ℤ). ∎
 Remark (Assessment; used nowhere below). In the bulk range D ≍ U² the phase e(h√D) changes by O(1) when D moves by
 ≍ √D/h ≍ U/h. The strip points number ≈ 1.5U in total (EVIDENCE, Table 5.1). In this language TD asks for cancellation
 in the Fourier sums Σ_D N_D e(h√D), i.e. equidistribution of √D mod 1 weighted by N_D. It does not ask for
@@ -66,10 +66,11 @@ m ∈ (U², 4U²] and all θ ∈ ℝ.
   (w ∈ [2^j, 2^{j+1}) there).
 * *Small j (4^j ≤ √m).* Then |R_j| ≤ 3/4 + 1 < 2, so |Σ_{R_j}| ≤ 1. Such j satisfy j ≤ (log₂ m)/4 ≤ (2 + 2log₂U)/4,
   so there are at most 2 + log₂U of them.
-* *Large j (4^j > √m).* Then |R_j| ≤ (7/4)·4^j/√m. Remove the first integer r_j^- of R_j (|e(g(r_j^-))| = 1).
-  Apply the test below on [a, b] = [r_j^-, max R_j], where the bounds on g'' hold. The extra 1 is absorbed into
+* *Large j (4^j > √m).* Then |R_j| ≤ (7/4)·4^j/√m. If |R_j| ≤ 1, then |Σ_{R_j}| ≤ 1 ≤ √h·2^{j/2}
+  trivially. This case occurs, e.g. U = 5, m = 89, j = 2, R_j = {20}. Otherwise remove the first integer r_j^- of R_j
+  (|e(g(r_j^-))| = 1). Apply the test below on [a, b] = [r_j^-, max R_j], where b − a ≥ 1 and the bounds on g'' hold. The extra 1 is absorbed into
   √h·2^{j/2} (≥ 1). The second-derivative test (van der Corput; Titchmarsh, *Theory of
-  the Riemann zeta-function*, Thm 5.9: if λ ≤ |g''| ≤ αλ on [a, b] then Σ_{a<n≤b} e(g(n)) ≪ α(b − a)λ^{1/2} + λ^{−1/2},
+  the Riemann zeta-function*, Thm 5.9: if λ ≤ |g''| ≤ αλ on [a, b] with b ≥ a + 1 then Σ_{a<n≤b} e(g(n)) ≪ α(b − a)λ^{1/2} + λ^{−1/2},
   absolute implied constant) gives
   |Σ_{R_j}| ≪ (7/4)(4^j/√m)·(4hm)^{1/2}2^{−3(j+1)/2} + 2^{3(j+1)/2}(4hm)^{−1/2} ≪ √h·2^{j/2} + 2^{3j/2}/√(hm).
 * *Sum over j.* Over 2^j < 4U both are geometric in j and dominated by the largest term:
@@ -193,7 +194,7 @@ Sanity check: p = 100000037, U = 100 gives |E1| = 253 and N₂ = 1, matching Z54
   residue p mod m; Weyl differencing in m) ends at ≥ |E1| ≍ U, even with square-root inputs in each variable. The
   reasons are the following.
   * The candidate set has density 1/U in m.
-  * The dual frequencies ν ≍ hU² must be summed with absolute values.
+  * The attempted implementation sums the dual frequencies ν ≍ hU² with absolute values.
   * After a Poisson step in m the problem is self-dual at the fourth-root point: the phase νp/m has second derivative
     ≍ h ≥ 1 on m ≍ U².
 * A heuristic two-variable Poisson/stationary-phase computation (not carried out rigorously here) suggests the
@@ -203,6 +204,19 @@ Sanity check: p = 100000037, U = 100 gives |E1| = 253 and N₂ = 1, matching Z54
   exponent-pair and Bourgain-type bounds we know give only about U^{2−3/84} for such a block via one-variable sums.
 * None of this is a proved necessity or hardness reduction. No implication between TD and short-interval divisor
   asymptotics is claimed.
+
+## Review log
+
+* **Internal hostile review** (deep subagent). It found 2 major and 6 minor issues, and all were applied in commit
+  0011e787. The majors were over-claims in §6 and in the D-form remark. The minors were the vdC endpoint, the empty
+  harmonic range, integrality, the exceptional-set ranges, and the threshold in Remark 4.3.
+* **Cross-model review** (`data/z55/xreview/REVIEW_TDO.md`, check script `scripts/z55_xrev_tdo_check.py`).
+  * Verdict: ACCEPT-WITH-FIXES. Theorems M and A and Remark 4.3 were re-derived independently.
+  * All stored numerics were reproduced exactly. The Titchmarsh Thm 5.9 citation was checked and needs b ≥ a + 1.
+  * Applied: the singleton large-j blocks in Lemma V are handled trivially, and b ≥ a + 1 is added to the quotation.
+  * Applied: N_D is now defined with D ≡ s² (mod 4), the integrality condition.
+  * Applied: the scope wording in §6 now reads "the attempted implementation sums …".
+  * No statement or exponent changed.
 
 ## 7. Files
 
