@@ -35,8 +35,9 @@ Lemma 2, Theorem X, Lemma 4.1) and `Z53_GENUSLVAL.md` (cited **GL**: Theorem U).
       every non-conjectural pair tabulated, and C ≤ p^{0.0075} in the example.
   * *Certified range.* Lemma 4.1 certifies only the low-conductor blocks; the GX conductor-d blocks need
     d^{(2+κ−λ)/(1+κ)} ≤ p^{−δ}U/E.
-    * Explicit window: d ≤ p^{0.00036}.
-    * Under the exponent-pair conjecture with K ≈ U: d ≤ U^{1/3}.
+    * Explicit window: d ≤ p^{θ} for any fixed θ < 1/2800 ≈ 0.000357, e.g. θ = 0.00035.
+    * Under the exponent-pair conjecture with K ≈ U: limiting reach exponent d ≈ U^{1/3}. A power-saving statement
+      needs a fixed margin below 1/3, with the p-saving and the exponent-pair ε-losses retained.
     * This is a sufficient range for this implementation, not a proved barrier.
     * Lemma 4.1 concerns the *plain* shell. Its transfer to the GX layers (squarefree w, weights) is Assessment.
 * **Scoped no-go (Theorem N, PROVED, §5).** Fix a window with α₁ ≤ β. Consider bounds for the conductor blocks D_f, or
@@ -49,18 +50,24 @@ Lemma 2, Theorem X, Lemma 4.1) and `Z53_GENUSLVAL.md` (cited **GL**: Theorem U).
 * **Falsifier (EVIDENCE, §6).**
   * Data: 1 000 random primes p ≡ 1 (24) at 10⁹–10¹⁴, near-squares, 150 odd squares, 50 composites, the 14 (★)-zero
     primes and the item-14 test primes.
-  * In dyadic u-slices, blocks fed by one integer p + u carry 0.90–1.03 of var(R − G). Blocks fed by ≤ 3 integers,
-    taken together, carry 0.96–1.02; blocks fed by ≥ 16 integers carry ≤ 0.003.
-  * Conductors f < u^{1/2}, taken together, carry ≤ 1.7 % of var(R − G) in every window tested.
+  * In dyadic u-slices, blocks fed by one integer p + u carry ≈ 0.90–1.03 of var(R − G). Blocks fed by ≤ 3 integers,
+    taken together, carry ≈ 0.96–1.02; blocks fed by ≥ 16 integers carry ≤ 0.0035.
+  * The relative bucket f < u^{1/2}, taken together, carries ≤ 1.7 % of var(R − G) in every (non-reconciled) window
+    tested.
+    * This is a measured bucket, not the certified range of §4. The certified cutoff p^{0.00035} is below 2 at the sizes
+      tested.
+    * A smaller signed sub-bucket need not have smaller variance.
+    * Any relevance to the theorem is Assessment.
   * For q ≥ 11 the frequency sums W(a,q) have median rms_a|W| equal to 0.98–1.04 × the random-phase benchmark √(Σu⁻²).
   * At the (★)-zero primes with G > 0, the deficit R − G = −G sits predominantly at the top conductor f = u.
-  * Across u, var(R − G)/mean(Σ_u t_u²) = 0.83–1.19: the per-u terms look uncorrelated, i.e. random-model
-    cancellation only.
+  * Across u, var(R − G)/mean(Σ_u t_u²) = 0.83–1.19. Heuristically (finite-sample), the per-u terms look
+    uncorrelated. This is not an asymptotic statement or a B2 equivalence.
 * **Verdict: narrowed.**
   * *Dead as a scoped theorem.* Bounding the kickoff's exponential sums block by block with n-uniform estimates fails by
     P^{α₁−o(1)} (Theorem N).
   * *Proved, small.* Lemma 4.1 and Prop 4.3 give low-conductor control of the plain shell on windows compatible with
-    Theorems U and X. That control certifies only a negligible part of the measured variance (EVIDENCE).
+    Theorems U and X. Assessment: that control reaches only a negligible part of the measured variance (measured on non-reconciled windows,
+    in a different bucket).
   * *Survives (Assessment).* Cross-u cancellation inside dyadic slices, i.e. among the different integers p + u: B2 in
     tied form.
 * **ES remains OPEN.**
@@ -266,8 +273,11 @@ k ∈ (p^{1−γ}, 2p^{1−β}]; on it K² ≤ p and K > U hold for large p (dya
 k mod 8d (it fixes w″ = k/2 mod 4d, hence both w″ mod 4 and the character of w″ mod d), so q = 8d. Apply Lemma 4.1 to
 the classes c mod 8d with gcd(c, d) = 1. By the criterion after Cor 4.2 it is certified when
 d^{(2+κ−λ)/(1+κ)} ≪ p^{−δ}U/E.
-* In the example, (2 + κ − λ)/(1 + κ) = 35/31, so d ≤ p^{0.00036}.
-* Under the exponent-pair conjecture (κ, λ) → (0, 1/2) with K ≈ U: U/E ≈ U^{1/2}, so d ≤ U^{1/3}.
+* In the example, (2 + κ − λ)/(1 + κ) = 35/31 and η = 1/2480, so d ≤ p^{θ} is certified for any fixed θ < (31/35)η =
+  1/2800 ≈ 0.000357 (e.g. θ = 0.00035, leaving any 0 < δ < 1/124000).
+  * Cross-model review: the earlier 0.00036 exceeds 1/2800 and is not certified.
+* Under the exponent-pair conjecture (κ, λ) → (0, 1/2) with K ≈ U: U/E ≈ U^{1/2}, giving the limiting reach exponent
+  d ≈ U^{1/3}. A power-saving version needs a fixed margin below 1/3.
 * The inequality E ≥ K^{(κ+λ)/(1+κ)} ≥ K^{1/2} (using p ≥ K² and λ ≥ 1/2) is correct. Following the review, it is not
   turned into a barrier.
 
@@ -282,8 +292,11 @@ d^{(2+κ−λ)/(1+κ)} ≪ p^{−δ}U/E.
 * *squarefree w*. This needs a count of integers in (p + U, p + 2U] divisible by e² with e > p^{η}, of
   Filaseta–Trifonov type, with U = p^{0.2}. That input is not verified here.
 
-If the transfer holds, then on these windows X_𝔉 reduces to the conductor > p^{η′} parts of T_w and T_uw. By §6 that is
-essentially all of the measured variance.
+CONDITIONAL on the transfer, plus an analogous low-conductor estimate for the density side, X_𝔉 on these windows reduces
+to the conductor > p^{η′} parts of T_w and T_uw. A low-conductor D_f estimate alone does not bound T_w = G − M.
+
+Whether this is "most of the variance" on 𝔚 windows is Assessment. §6 measures different, non-reconciled windows and a
+different (relative) bucket. No certified bound for the squarefree GX layers is obtained here.
 
 ## 5. Top conductors are single integers: the scoped no-go (PROVED)
 
@@ -399,7 +412,10 @@ agree with GX's engine on the tested primes.
 Full table (all scales, near-squares, composites, hard primes): `stats_profile.txt`.
 
 **Readings.**
-* Across all dyadic-slice samples: m_f = 1 carries 0.90–1.03, m_f ≤ 3 carries 0.96–1.02, and m_f ≥ 16 carries ≤ 0.003.
+* Across all dyadic-slice samples (approximate intervals):
+  * m_f = 1 carries ≈ 0.90–1.03 (0.896…–1.029…);
+  * m_f ≤ 3 carries ≈ 0.96–1.02 (0.962…–1.022…);
+  * m_f ≥ 16 carries ≤ 0.0035 (maximum 0.00344, dyad 10¹³).
 * Over all groups, ρ < 1/2 carries ≤ 0.017 (maximum 0.0163, std composites).
 * In the standard window the long blocks (m_f ≥ 16) carry a growing share, 0.08 → 0.45 from 10¹⁰ to 10¹⁴. Each long
   block is dominated by its smallest u, because the weights are 1/φ(u). The dyadic slices remove this effect.
@@ -413,8 +429,9 @@ var(R − G) = var(Σ_u t_u) with the diagonal mean(Σ_u t_u²), over the same r
 * Ratios: 1.19, 0.97, 0.92 (std, at 10¹⁰, 10¹², 10¹⁴) and 0.99, 0.83, 1.15 (dyad); mean(R − G) is within ±0.44.
 * Within sampling error (150–200 primes per cell), the per-u terms behave as uncorrelated with mean ≈ 0. The data show
   no systematic cross-u (anti)correlation that a structural argument could exploit.
-* So the slice sums cancel only at the square-root (random-model) level: |R − G| ≈ √(Σ_u t_u²) ≍ log p against the
-  target o(log²p).
+* Heuristically, then, the slice sums cancel at the square-root (random-model) level, |R − G| ≈ √(Σ_u t_u²) ≍ log p,
+  against the target o(log²p).
+* This is a finite-sample heuristic, not an established asymptotic.
 * Assessment: proving even this weaker-than-needed cancellation across the integers p + u is the B2 content of the
   survivor.
 
@@ -443,9 +460,9 @@ near 10⁸ and have 2–5 terms per q, so they are uninformative here.
 **Reading (EVIDENCE).**
 * The class-within-genus layer fluctuates roughly like swap-Poisson draws.
 * In dyadic slices its variance sits in conductor blocks that each see one (or at most three) integers p + u.
-* The low-conductor part, which exponential sums in p/w certify (§4), carries ≤ 1.7 % of the variance in every window
-  tested.
-* Across u, the per-u terms look uncorrelated, so the slice sums show only random-model cancellation.
+* The measured relative bucket f < u^{1/2} carries ≤ 1.7 % of the variance in every window tested. This is distinct
+  from the certified range of §4 (Assessment on its relevance).
+* Across u, the per-u terms look uncorrelated in these samples (heuristic).
 
 ## 7. Screens, verdict, FRONTIER text, bottom line
 
@@ -470,9 +487,9 @@ near 10⁸ and have 2–5 terms per q, so they are uninformative here.
   * Transferring this control to the GX layers (squarefree w) is Assessment.
 * *Survives (Assessment).* Cross-u cancellation within a dyadic slice, among ≍ U different integers p + u with moving
   moduli 4u: B2 in tied form.
-  * The certified range of the implementation is conductor d ≤ p^{0.00036} on the explicit window, or ≤ U^{1/3} under the
-    exponent-pair conjecture.
-  * The variance-carrying blocks have conductor comparable to u.
+  * The certified range of the implementation is conductor d ≤ p^{θ}, any fixed θ < 1/2800, on the explicit window. Under
+    the exponent-pair conjecture the limiting reach exponent is U^{1/3}.
+  * In the data (non-reconciled windows) the variance-carrying blocks have conductor comparable to u.
 
 **Proposed FRONTIER §7 text** (append to item 1, "Genus exact layers"):
 > *(z54, `Z54_EXACTSUM.md`, internal review.)* Exponential sums in p/w on the exact layers.
@@ -487,9 +504,12 @@ near 10⁸ and have 2–5 terms per q, so they are uninformative here.
 >   inequality its proof uses) and this control exist with classical pairs, e.g. A³B and
 >   (α₀, α₁, β, γ) = (0.200, 0.204, 0.7925, 0.7955). All such windows have level C ≤ p^{0.025}. Transfer to the
 >   squarefree-w layers is open.
-> * *EVIDENCE (10¹⁰–10¹⁴).* In dyadic u-slices about 90 % or more of var(R − G) sits in conductor blocks fed by one
->   integer p + u, and ≤ 1.7 % sits at conductor < u^{1/2}. For q ≥ 11 the frequency sums have median size equal to the
->   random-phase benchmark.
+>   No certified bound for the squarefree GX layers is obtained. Theorem N does not exclude prime-only, one-sided or
+>   grouped-block methods.
+> * *EVIDENCE (10¹⁰–10¹⁴, non-reconciled windows).* In dyadic u-slices about 90 % or more of var(R − G) sits in
+>   conductor blocks fed by one integer p + u. The relative bucket f < u^{1/2} carries ≤ 1.7 %; this is not the
+>   certified range. For q ≥ 11 the frequency sums have median size equal to the random-phase benchmark. The cross-u
+>   decorrelation is a finite-sample heuristic.
 > * *Survives (Assessment).* Cross-u cancellation: B2 in tied form.
 
 **Bottom line.** The exponential-sum angle on the exact layer of the Thm U family can be carried out, but what it
@@ -546,4 +566,24 @@ Fixes applied:
 * R13 Stats script: undefined ratios at R + G = 0 are no longer regularised. Squares are reported by mean |bucket|, and
   triangle ratios are ratios of aggregate means.
 
-A cross-model review is to follow.
+**Cross-model review** (`data/z54/xreview/REVIEW_EXACTSUM.md`; reproducer `scripts/z54_xrev_exactsum_check.py`).
+Verdict ACCEPT-WITH-FIXES. The reviewer independently checked:
+* Props 3.1 and 3.2, Lemma 3.3 (including an independent check of M = M^cls = 0 at squares), Lemma 4.1, Cor 4.2,
+  Prop 4.3(a)–(c) and Theorem N (constants and example);
+* the 1 000 prime inputs, all profile groups (with summed buckets), the 19 hard inputs (exact rationals) and engine
+  reruns.
+
+Fixes applied:
+* (1) The certified cutoff on the explicit window was corrected from p^{0.00036} (not certified, since
+  η − (35/31)·0.00036 < 0) to "any fixed θ < 1/2800, e.g. 0.00035". The EPC reach is now stated as a limiting exponent
+  1/3.
+* (2) The measured relative bucket f < u^{1/2} on non-reconciled windows is now separated from the certified range. Its
+  relevance is Assessment.
+* (3) The strict ceiling "m_f ≥ 16 ≤ 0.003" was replaced by ≤ 0.0035 (max 0.00344), and two-decimal intervals are marked
+  approximate.
+* (4) Export scope:
+  * no certified bound for the squarefree GX layers;
+  * the reduction to high-conductor parts is CONDITIONAL, and a low-D_f estimate alone does not bound T_w;
+  * cross-u decorrelation is a finite-sample heuristic;
+  * Theorem N does not exclude prime-only, one-sided or grouped-block methods.
+* For q = 8d the classes used are c ≡ 6 (8) with gcd(c, d) = 1, with Lemma 4.1 applied directly (already in §4(d)).
