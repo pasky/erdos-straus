@@ -18,8 +18,11 @@ HC(p) = 3 (`Z53_UPPER.md` P2.1(i)), so everything below concerns p ≡ 1 (mod 8)
 conjecture for all large primes p ≡ 1 (mod 8), which is open. I attacked it directly (§2). Each route stops at
 the same point (Assessment). A pointwise proof must show that, for the given p, one of the polylog-many fixed integers
 p + c, cp + 1 has a divisor in a prescribed residue class whose modulus c varies with the integer. In the hard cases
-(§4), the least congruence modulus of a certificate at c = HC(p) is usually of mid size: median p^{0.35}, up to
-p^{0.64}. I know of no pointwise technique that reaches such divisors (Assessment).
+(§4), the least congruence modulus of a certificate *at c = HC(p)* is usually of mid size: median p^{0.35}, up to
+p^{0.64}. However, the cross-model review found that 101 of the 126 hard primes have a certificate with c, μ ≤ log²p
+at some larger c (§4, E4.1). So whether polylogarithmic-modulus certificates could suffice over the whole allowed
+c-window is an open question. No method found here settles it either way (Assessment). The target is an ES-sufficient,
+coordinate-constrained statement: it implies ES for those p, but ES is not known to imply it.
 
 What this lane delivers:
 
@@ -28,8 +31,8 @@ What this lane delivers:
 | C3.1 | **HC(p) ≤ 64 for every prime p ≡ 1 (mod 4), p < 10¹²** (previous range: 10⁸). The maximum 64 is attained only at p = 21 841; the maximum over [10⁸, 10¹²) is 60, at p = 818 789 590 249 | CERTIFIED (`z55_hco_census.c`; histogram and verification in §3) |
 | L2.1 | for p ∤ k with (k/p) = −1, p + 4k has an odd number (with multiplicity) of prime factors ℓ with (ℓ/p) = −1, and (ℓ/p) = (−k/ℓ) for each prime ℓ ∣ p + 4k (this is where primality enters; false-premise at squares) | PROVED (+ checked: 234 541 cases, 0 violations) |
 | P2.2 | every certificate is a single congruence p ≡ a (mod μ) (times the condition p ≡ −c (mod 8) if c is odd), with μ = min(d, c·e) on the U-line and μ = min(d, e) on the T-line, e = N/d; for infinitely many p no certificate has μ ≤ log p/(1.02 L₀) − O(1) | PROVED (elementary + Linnik) |
-| E4.1 | among the 126 primes p < 10¹² with HC(p) ≥ 44, the least certificate modulus μ at c = HC(p) lies in [p^{0.138}, p^{0.636}], median p^{0.346}. 101 of the 126 have μ > (log p)². So mid-size divisors carry most worst cases (at c = HC(p)) | EVIDENCE |
-| E4.2 | "locally square" primes p ≡ 1 (mod 8∏_{3≤q≤y} q), y = 13, 23, 29, 31, 37 (p ≤ 2.4·10¹² for y = 13, ≤ 2.2·10¹⁵ otherwise): P(HC > 4) ≈ 3.8× and P(HC > 8) ≈ 12–14× the global [0, 10¹²) values (y ≤ 31), but max HC is 47, 32, 23, 15, 7 respectively (samples of 3.8·10⁶, 4·10⁵, 1.5·10⁴, 525, 13 primes; the decrease follows the sample size) | EVIDENCE |
+| E4.1 | among the 126 primes p < 10¹² with HC(p) ≥ 44, the least certificate modulus μ at c = HC(p) lies in [p^{0.138}, p^{0.636}], median p^{0.346}. 101 of the 126 have μ > (log p)². So mid-size divisors carry most worst cases *at c = HC(p)*. Over the window c, μ ≤ ⌊log²p⌋ (any c), however, 101/126 have a small-modulus certificate (cross-model review) | EVIDENCE |
+| E4.2 | "locally square" primes p ≡ 1 (mod 8∏_{3≤q≤y} q), y = 13, 23, 29, 31, 37 (p ≤ 2.4·10¹² for y = 13, ≤ 2.2·10¹⁵ otherwise): P(HC > 4) ≈ 3.8× and P(HC > 8) ≈ 12–14× the global [0, 10¹²) values (y ≤ 31), but max HC is 47, 32, 23, 15, 7 respectively (samples of 3.8·10⁶, 4·10⁵, 1.5·10⁴, 525, 13 primes; the decrease is compatible with the shrinking samples, but family and height also change, so no cause is established) | EVIDENCE |
 | E4.3 | tail fractions decrease with height: P(HC > 4) 0.087 → 0.056, P(HC > 16) 2.2·10⁻⁴ → 2.0·10⁻⁵ from [0, 10⁸) to [9.52·10¹¹, 10¹²) | EVIDENCE |
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -37,8 +40,10 @@ What this lane delivers:
 ## 1. Reformulation used throughout
 
 For p ≡ 1 (mod 8) and c ∈ 𝒞_p (c ≥ 4), put N_U := p + c, N_T := cp + 1. The line at c succeeds iff N_U or N_T has a
-divisor d ≡ −1 (mod c). Every such d is coprime to c, so only the residues mod c of the prime factors of N matter.
-The line succeeds iff some sub-multiset of these residues (taken with multiplicity) has product −1 in G_c := (ℤ/cℤ)^×.
+divisor d ≡ −1 (mod c). Every such d is coprime to c, so only the prime factors of N coprime to c matter, through their
+residues mod c. (N may have prime factors sharing a factor with c, e.g. p = 17, c = 68, p + c = 85 = 5·17; these
+cannot occur in d and are discarded.) The line succeeds iff some sub-multiset of the residues of the prime factors of N
+coprime to c (taken with multiplicity) has product −1 in G_c := (ℤ/cℤ)^×.
 Thus HC(p) ≤ X is a statement about the joint multiplicative structure of the ≍ X integers p + c, cp + 1 (c ≤ X).
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -120,8 +125,12 @@ so (d/p) = (c/p)(e/p) = 1, a contradiction. ∎
 **EVIDENCE (E4.1, §4):** there are 126 primes p < 10¹² with HC(p) ≥ 44. For these, the least-modulus certificate at
 c = HC(p) has log μ / log p ∈ [0.138, 0.636], median 0.346, and μ > (log p)² for 101 of them. Assessment: a pointwise
 proof will in typical hard cases have to produce, for the specific p, a divisor of size p^θ (0 < θ < 1) in a prescribed
-class modulo c, for one of the integers p + c, cp + 1. This is only suggested by the data at c = HC(p); a proof may use
-any c ≤ (log p)^A, and the only proved lower bound on μ is Cor 2.3.
+class modulo c, for one of the integers p + c, cp + 1. This is only suggested by the data at c = HC(p), and it is
+**not supported over the full c-window**. The cross-model review (`scripts/z55_xrev_hco_window.py`) found small-modulus
+certificates with c, μ ≤ ⌊log²p⌋ for 101 of the 126 primes: 25 at c = HC(p) and 76 more at larger c. Examples: at
+p = 21 841, μ = 67 via (c, d, e) = (68, 67, 327) on the U-line; at p = 691 681, μ = 71 via (71, 691 752, 1). Cor 2.3
+excludes only μ ≲ log p for special p, not polylogarithmic moduli. Whether congruence-type certificates with polylog
+moduli could cover all p is open; no method found here decides it.
 
 ### 2.3 Other routes tried (Assessment, short)
 
@@ -129,7 +138,7 @@ any c ≤ (log p)^A, and the only proved lower bound on μ is Cor 2.3.
   {p + c : c ≤ H}: for example, many of these integers have a prime factor ≡ 3 (mod 4) below H^ε. The required class,
   though, is −1 modulo the *shift c itself*. A small prime ℓ is by itself a certificate divisor only when c ∣ ℓ + 1 and ℓ ∣ p + c or ℓ ∣ cp + 1. Products of
   several small primes give other local certificates. That is a
-  local certificate again (P2.2 with μ = ℓ), and C3.2-type primes kill it.
+  local certificate again (P2.2 with μ = ℓ), and C3.2-type primes kill it for moduli ≲ log p (Cor 2.3), though not for polylogarithmic moduli.
 * **Norm-form structure of p.** p = a² + b² (and p = x² − 2y² when p ≡ 1 (8)) factors p + c only for shifts
   c = −b² + (square), c = 2y², …. These are of size ≍ √p or p. Composition of forms moves the factorisation to cp with
   c of size p. None of these gives a small c. Quartic data (a, b mod q) carries information beyond p mod q. But the
@@ -238,7 +247,9 @@ five runs used the τ-guarded binary (the `adv_L*.err` files are empty):
 
 Compare the global [0, 10¹²) values from §3, P(HC > 4) = 0.0585 and P(HC > 8) = 8.27·10⁻⁴. The local obstruction
 raises P(HC > 4) about 3.8× and P(HC > 8) about 12–14× (rows y ≤ 31; the y = 37 row has only 13 primes). HC still stays
-small, and the decrease of max HC down the table follows the sample size. This fits §2.2 (Assessment): the mechanism is not local.
+small. The decrease of max HC down the table is compatible with the shrinking samples, but family and height change
+too, so no cause is established. Assessment: the HC-raising effect of the local obstruction is moderate. Model
+projections (E4.3) are heuristic.
 
 **E4.3 (tails decrease with height).** Per-chunk tail fractions are in the §3 table. P(HC > 4) falls from 0.087 (below
 10⁸) to 0.0564 (last chunk). This is consistent with the Kubilius-model picture of `Z53_HCHYP.md` (more prime
@@ -251,18 +262,35 @@ maximum.
 
 ## 5. What a proof would need (one paragraph)
 
-(Assessment throughout.) Cor 2.3 proves that for infinitely many p every certificate has modulus μ > c₀ log p. E4.1
-suggests that at c = HC(p) the usable modulus is typically p^θ with 0 < θ < 1. So a proof of the target very likely
-needs a pointwise statement of this type: for every large prime p there are c ≤ (log p)^A in 𝒞_p and
-N ∈ {p + c, cp + 1} with a divisor ≡ −1 (mod c) whose congruence modulus is not polylogarithmic. It must also fail for
-p = m²; Lemma 2.1 is the only primality input I found. No current method gives pointwise
-control of medium-size divisors of a specific integer in a residue class, even averaged over a polylog family of
-shifts. Under this lane's analysis the target is equivalent in difficulty to ES for p ≡ 1 (mod 8) with a polylog
-coordinate. That is an Assessment, not a theorem.
+(Assessment throughout.) Cor 2.3 proves that for infinitely many p every certificate has modulus μ > c₀ log p. That
+is only a logarithmic obstruction: it rules out neither polylogarithmic moduli nor every congruence-based approach. E4.1
+shows mid-size moduli at c = HC(p). Over the full window c, μ ≤ ⌊log²p⌋, though, 101/126 hard primes have a
+small-modulus certificate (cross-model review). So it is **open** which of two pointwise statements a proof needs:
+(a) a polylog-modulus covering, i.e. every large p lies in some certificate class with c, μ ≤ (log p)^{A′}; or
+(b) control of medium-size divisors of the specific integers p + c, cp + 1. No method found here gives either. Any
+argument must fail for p = m², and Lemma 2.1 is the only primality input I found. The target is an ES-sufficient,
+coordinate-constrained statement (HC(p) < ∞ implies ES for p). I do not claim it is equivalent to ES: the converse,
+that ES forces a small 𝒞_p-coordinate, is not proved here. Status of the target: open/inconclusive, not shown hopeless.
 
 ---------------------------------------------------------------------------------------------------------------------
 
-## 6. Files
+## 6. Review log
+
+* Two internal hostile subagent reviews; all findings applied (T-line modulus in P2.2, the explicit Linnik constant in
+  Cor 2.3, evidence corrections, archiving, a guarded rerun of the pre-guard chunks).
+* **Cross-model review** (`data/z55/xreview/REVIEW_HCO.md`, verdict ACCEPT-WITH-FIXES). It accepts L2.1, P2.2 and
+  Cor 2.3 and passes the C3.1 audit; E4.1–E4.3 and the QNR statistics were reproduced. Required fixes, all applied:
+  - §§0/2.2/5 narrowed: non-polylog μ is no longer claimed necessary. Its window check (`scripts/z55_xrev_hco_window.py`)
+    found certificates with c, μ ≤ ⌊log²p⌋ for 101/126 hard primes, 76 of them at c > HC(p).
+  - The target is now called ES-sufficient, not ES-equivalent.
+  - §1 now discards prime factors not coprime to c.
+  - The causal wording in E4.2 is removed.
+
+---------------------------------------------------------------------------------------------------------------------
+
+## 7. Files
+
+* `data/z55/xreview/REVIEW_HCO.md`, `scripts/z55_xrev_hco_window.py` — cross-model review and its window check.
 
 * `scripts/z55_hco_census.c` — HC census (segmented, OpenMP); `scripts/z55_hco_runcensus.sh` — chunk driver.
 * `scripts/z55_hco_verify.py` — independent sympy verification (certificate + minimality) of all HC ≥ 44 records.
