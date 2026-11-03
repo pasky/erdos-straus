@@ -16,3 +16,7 @@ samp = [p for p in primerange(10**11, 10**11 + 2 * 10**6) if p % 8 == 1]
 g = Counter(lqnr(p) for p in samp)
 print("all p=1(8) in [1e11,1e11+2e6] (n=%d):" % len(samp), sorted(g.items())[:8], "...")
 print("  fraction with least QNR >= 7: %.3f" % (sum(v for k, v in g.items() if k >= 7) / len(samp)))
+a = sum(v for k, v in g.items() if k >= 17); b = sum(v for k, v in g.items() if k >= 11)
+print("  sample P(n_p >= 17 | n_p >= 11) = %d/%d = %.3f" % (a, b, a / b))
+a = sum(v for k, v in h.items() if k >= 17); b = sum(v for k, v in h.items() if k >= 11)
+print("  HC>=44: P(n_p >= 17 | n_p >= 11) = %d/%d = %.3f" % (a, b, a / b))

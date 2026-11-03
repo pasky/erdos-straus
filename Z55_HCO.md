@@ -16,7 +16,7 @@ HC(p) = 3 (`Z53_UPPER.md` P2.1(i)), so everything below concerns p ≡ 1 (mod 8)
 **The target is NOT proved.** HC(p) < ∞ already gives a solution of 4/p = 1/x + 1/y + 1/z (brief; Theorem 1 of
 `LOWERTAIL_ROUND2_FABLE.md` §1.1), so "HC(p) ≤ (log p)^A for every large p ≡ 1 (mod 4)" contains the Erdős–Straus
 conjecture for all large primes p ≡ 1 (mod 8), which is open. I attacked it directly (§2). Each route stops at
-the same point. A pointwise proof must show that, for the given p, one of the polylog-many fixed integers
+the same point (Assessment). A pointwise proof must show that, for the given p, one of the polylog-many fixed integers
 p + c, cp + 1 has a divisor in a prescribed residue class whose modulus c varies with the integer. In the hard cases
 (§4), the least congruence modulus of a certificate at c = HC(p) is usually of mid size: median p^{0.35}, up to
 p^{0.64}. I know of no pointwise technique that reaches such divisors (Assessment).
@@ -26,7 +26,7 @@ What this lane delivers:
 | # | statement | status |
 |---|-----------|--------|
 | C3.1 | **HC(p) ≤ 64 for every prime p ≡ 1 (mod 4), p < 10¹²** (previous range: 10⁸). The maximum 64 is attained only at p = 21 841; the maximum over [10⁸, 10¹²) is 60, at p = 818 789 590 249 | CERTIFIED (`z55_hco_census.c`; histogram and verification in §3) |
-| L2.1 | for k with (k/p) = −1, p + 4k has an odd number (with multiplicity) of prime factors ℓ with (ℓ/p) = −1, and (ℓ/p) = (−k/ℓ) for each prime ℓ ∣ p + 4k (this is where primality enters; false-premise at squares) | PROVED (+ checked: 234 541 cases, 0 violations) |
+| L2.1 | for p ∤ k with (k/p) = −1, p + 4k has an odd number (with multiplicity) of prime factors ℓ with (ℓ/p) = −1, and (ℓ/p) = (−k/ℓ) for each prime ℓ ∣ p + 4k (this is where primality enters; false-premise at squares) | PROVED (+ checked: 234 541 cases, 0 violations) |
 | P2.2 | every certificate is a single congruence p ≡ a (mod μ) (times the condition p ≡ −c (mod 8) if c is odd), with μ = min(d, c·e) on the U-line and μ = min(d, e) on the T-line, e = N/d; for infinitely many p no certificate has μ ≤ log p/(1.02 L₀) − O(1) | PROVED (elementary + Linnik) |
 | E4.1 | among the 126 primes p < 10¹² with HC(p) ≥ 44, the least certificate modulus μ at c = HC(p) lies in [p^{0.138}, p^{0.636}], median p^{0.346}. 101 of the 126 have μ > (log p)². So mid-size divisors carry most worst cases (at c = HC(p)) | EVIDENCE |
 | E4.2 | "locally square" primes p ≡ 1 (mod 8∏_{3≤q≤y} q), y = 13, 23, 29, 31, 37 (p ≤ 2.4·10¹² for y = 13, ≤ 2.2·10¹⁵ otherwise): P(HC > 4) ≈ 3.8× and P(HC > 8) ≈ 12–14× the global [0, 10¹²) values (y ≤ 31), but max HC is 47, 32, 23, 15, 7 respectively (samples of 3.8·10⁶, 4·10⁵, 1.5·10⁴, 525, 13 primes; the decrease follows the sample size) | EVIDENCE |
@@ -69,7 +69,7 @@ with (k/p) = −1, with 0 parity violations and 0 violations of (ℓ/p) = (−k/
 *Where the route stops.* A certificate at c = 4k needs a divisor d ≡ −1 in G_{4k}. Lemma 2.1 gives a divisor d (a single
 prime) with χ(d) = −1 for one quadratic character χ = (−k/·) of G_{4k}, and χ(−1) = −1. Hitting the element −1 needs
 the values of *all* characters of G_{4k}. When |G_c| = 2 one character is enough, and that happens only for c ∈ {3, 4, 6}.
-In 𝒞_p (p ≡ 1 (8)) this leaves c = 4. There (4/p) = 1, so the lemma's hypothesis fails. For c = 4k, k ≥ 2, the
+In 𝒞_p (p ≡ 1 (8)) this leaves c = 4. There k = 1 and (k/p) = (1/p) = 1, so the lemma's hypothesis fails. For c = 4k, k ≥ 2, the
 information is a single bit. The other characters of the prime factors of p + 4k are pointwise uncontrolled: I know of no
 result that pins down the residue modulo 4k of a prime factor of one given integer (Assessment). A second use of primality would be the exact residue
 p mod q for a non-residue prime q. This is no stronger: a certificate that depends only on p mod q is a congruence
@@ -90,7 +90,7 @@ T-line: d ∣ cp′ + 1 ⟺ p′ ≡ −c̄ (mod d), where c c̄ ≡ 1 (mod d); 
 cp′ + 1 ≡ −e (mod ce) ⟺ p′ ≡ −(e + 1)/c (mod e).
 We call μ := min(d, ce) (U-line), μ := min(d, e) (T-line) the *modulus* of the certificate. To conclude HC(p′) ≤ c one
 also needs c ∈ 𝒞_{p′}. This is automatic if 4 ∣ c; if c is odd it is the extra condition p′ ≡ −c (mod 8). So the full
-condition is one class modulo lcm(μ, 8).
+condition is one class mod μ (4 ∣ c), resp. one class mod lcm(μ, 8) (c odd).
 
 *Proof.* gcd(c, d) = 1 because d ≡ −1 (mod c), so c̄ exists. The first equivalence on each line is immediate. For the
 second: if e ∣ M and M/e = m, then m ≡ −1 (mod c) ⟺ c ∣ m + 1 ⟺ ce ∣ e(m + 1) = M + e. Conversely, if ce ∣ M + e then
@@ -98,7 +98,7 @@ e ∣ M and c ∣ M/e + 1. Apply this with M = p′ + c or M = cp′ + 1. On the
 ce ∣ cp′ + 1 + e ⟺ e ∣ p′ + (e + 1)/c. ∎
 
 Since d·(ce) = cN and d·e = N, μ ≤ √(cN) ≤ X√p + 1 for c ≤ X, N ≤ Xp + 1. So for each p with HC(p) ≤ X, p lies in
-one of its own certificate classes with modulus ≤ lcm(X√p + 1, 8). (This describes the certificates of each p; it is
+one of its own certificate classes with modulus ≤ 8(X√p + 1). (This describes the certificates of each p; it is
 not a fixed covering, since the bound depends on p.) The moduli cannot all be small, at least for special p:
 
 **Corollary 2.3 (PROVED, given Linnik).** For infinitely many primes p ≡ 1 (mod 8), no certificate of p (for any c) has
@@ -127,7 +127,8 @@ any c ≤ (log p)^A, and the only proved lower bound on μ is Cor 2.3.
 
 * **Pointwise short-interval sieves.** Upper-bound sieves are uniform in the shift, so they do give pointwise facts about
   {p + c : c ≤ H}: for example, many of these integers have a prime factor ≡ 3 (mod 4) below H^ε. The required class,
-  though, is −1 modulo the *shift c itself*. A small prime ℓ helps line c only when c ∣ ℓ + 1 and ℓ ∣ p + c. That is a
+  though, is −1 modulo the *shift c itself*. A small prime ℓ is by itself a certificate divisor only when c ∣ ℓ + 1 and ℓ ∣ p + c or ℓ ∣ cp + 1. Products of
+  several small primes give other local certificates. That is a
   local certificate again (P2.2 with μ = ℓ), and C3.2-type primes kill it.
 * **Norm-form structure of p.** p = a² + b² (and p = x² − 2y² when p ≡ 1 (8)) factors p + c only for shifts
   c = −b² + (square), c = 2y², …. These are of size ≍ √p or p. Composition of forms moves the factorisation to cp with
@@ -184,7 +185,9 @@ Further checks. (d) The prime enumeration was checked with the same segmented si
 π(10¹²; 4, 1) = 18 803 924 340, equal to the census total. (e) Divisor-array bound. The divisor buffer holds 2¹⁵
 entries; a guard aborting on τ(N) > 2¹⁵ was added after the chunks below 2.52·10¹¹ (and the chunk running at that
 moment) had already run. Those chunks only factor N ≤ 64·3.02·10¹¹ + 1 < 2·10¹³ (every scan stopped at c = HC(p) ≤ 64).
-Every N < 10¹⁴ has τ(N) ≤ 17 280 < 2¹⁵, so the guard could not have fired there.
+Every N < 10¹⁴ has τ(N) ≤ 17 280 < 2¹⁵, so the guard could not have fired there. To remove any doubt, all 8 pre-guard
+chunks ([0, 3.02·10¹¹)) were rerun with the guarded binary (`scripts/z55_hco_rerun_guarded.sh`). The outputs are
+identical (sorted) to the archived ones in all 8 cases (`data/z55/hco/rerun_guarded.txt`).
 
 Per-chunk tail fractions (p ≡ 1 (8); full list in `data/z55/hco/aggregate_1e12.txt`):
 
@@ -218,7 +221,7 @@ So most, but not all, of the worst cases (at c = HC(p)) are carried by mid-size 
 High-HC primes are quadratically "locally square" (`scripts/z55_hco_qnrstats.py`, `data/z55/hco/qnrstats.txt`).
 HC(p) > 8 forces p into the six square classes mod 840 (brief), so the least quadratic non-residue n_p is ≥ 11 for all 126.
 Beyond this forced part: 100 of the 126 (79%) have n_p ≥ 17. Among all p ≡ 1 (8) in [10¹¹, 10¹¹ + 2·10⁶] with
-n_p ≥ 11 the fraction is 596/2409 ≈ 25%. Examples: p − 1 = 2⁴·3·5·7·13 at 21 841 (n_p = 11), 2⁵·3·5·11·131 at
+n_p ≥ 11, the fraction with n_p ≥ 17 is 596/2409 ≈ 25% (both conditional fractions are printed in `qnrstats.txt`). Examples: p − 1 = 2⁴·3·5·7·13 at 21 841 (n_p = 11), 2⁵·3·5·11·131 at
 691 681 (n_p = 29).
 
 **E4.2 (adversarial families).** `scripts/z55_hco_adv.c`, primes p = 1 + kL with L = 8∏_{3≤q≤y} q. For such p,
@@ -235,13 +238,13 @@ five runs used the τ-guarded binary (the `adv_L*.err` files are empty):
 
 Compare the global [0, 10¹²) values from §3, P(HC > 4) = 0.0585 and P(HC > 8) = 8.27·10⁻⁴. The local obstruction
 raises P(HC > 4) about 3.8× and P(HC > 8) about 12–14× (rows y ≤ 31; the y = 37 row has only 13 primes). HC still stays
-small, and the decrease of max HC down the table follows the sample size. This fits §2.2: the mechanism is not local.
+small, and the decrease of max HC down the table follows the sample size. This fits §2.2 (Assessment): the mechanism is not local.
 
 **E4.3 (tails decrease with height).** Per-chunk tail fractions are in the §3 table. P(HC > 4) falls from 0.087 (below
 10⁸) to 0.0564 (last chunk). This is consistent with the Kubilius-model picture of `Z53_HCHYP.md` (more prime
 factors per line as p grows). That model predicts eventual growth of max HC like (log p)^{2 log 2 + o(1)}. The census
 maximum is flat at 64 (≤ 60 above 10⁸). (log p)^{2 log 2} grows from ≈ 57 at 10⁸ to ≈ 100 at 10¹², so above 10⁸ the
-observed maximum stays below it. The model's own Poisson scale X* (`Z53_HCHYP.md` §6) is ≈ 3.4 log p ≈ 63–95 here, also above the observed
+observed maximum stays below it. The empirical Poisson scale X* (`Z53_HCHYP.md` §6, computed from empirical line probabilities) is ≈ 3.4 log p ≈ 63–95 here, also above the observed
 maximum.
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -268,7 +271,7 @@ coordinate. That is an Assessment, not a theorem.
 * `scripts/z55_hco_certsize.py` — least certificate modulus μ at c = HC(p).
 * `scripts/z55_hco_parity_check.py` — numerical check of Lemma 2.1 (`data/z55/hco/parity_check.txt`).
 * `scripts/z55_hco_picount.c` — π(10¹²) cross-check of the prime enumeration (`data/z55/hco/picount_1e12.txt`).
-* `scripts/z55_hco_rerun_guarded.sh` — reruns the pre-guard chunks with the guarded binary
+* `scripts/z55_hco_rerun_guarded.sh` — reruns the 8 pre-guard chunks with the guarded binary (all identical)
   (`data/z55/hco/rerun_guarded.txt`).
 * `scripts/z55_hco_qnrstats.py` — least non-residue statistics (`data/z55/hco/qnrstats.txt`).
 * `data/z55/hco/census_*.txt` (tiling [0, 10¹²)), `data/z55/hco/adv_L*.txt` (+ empty `.err`), `adv_L8_check.txt`,
