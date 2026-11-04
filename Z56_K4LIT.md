@@ -322,7 +322,8 @@ uses primality of the base variable, which the data do not contain. No claim is 
 2. **Novelty (Assessment).** Lemma P is a folklore-type construction with a hidden prime above the level. Prop P′ is
    an immediate corollary of Iwaniec's Theorem 1. The infimum-exponent statement for parity-forced κ = 1/2 data was not
    located in this form. It corrects the shorthand "no parity barrier, only level" in lit_B and lit_C. At BV level there
-   is a barrier, namely the parity of the small 𝒬-primes. It disappears as soon as the level exceeds 1/2.
+   is a barrier, namely the parity of the small 𝒬-primes. For single-component full data it disappears at every fixed
+   level above 1/2 (Prop P′).
 
 ---------------------------------------------------------------------------------------------------------------------
 ## 4. Judgement: methods ranked, and a concrete plan (all Assessment unless labelled)
