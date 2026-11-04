@@ -102,7 +102,9 @@ mod q and X that of order ≥ 3; R*(p) = R(p). **T1 lives entirely in the genus 
 **Census** (CERTIFIED to 10⁸ by two independent engines, extended to 10¹⁰ by one): among primes p ≡ 1 (4), (★) fails at
 exactly **14 primes ≤ 10¹⁰**, from 409 to 8 813 281 ((J)89, `B1_LINE.md` §3.6); the b = 1 line (López 2024 Type A: p + 4d has a divisor ≡ −1 (mod 4d)) fails exactly
 at 193, 2521, 66529 among primes p ≡ 1 (4) ≤ 10¹¹; the union of the two lines never fails ≤ 10⁸ ((J)89, (J)90). Note: (★)
-failing is *not* ES failing.
+failing is *not* ES failing. *(z56.)* Two further independent engines (`Z56_FAMDESIGN.md` §4.3 decider, `Z56_PRIMET1.md` §4.2
+sieve) reproduce exactly these 14 zeros and find none in (8 813 281, 10¹⁰]; their cross-reviews checked stored outputs and
+samples, not a full 10¹⁰ rerun.
 
 ### 2.2 The Brauer–Manin main term (PROVED, unconditional; `BM_CORRECTED_COUNT.md` §§1–2, (J)100)
 
@@ -505,7 +507,14 @@ no single-prime lower-tail mechanism is known.
   cap 0 (ES) lacks the power-dense class supply that drives them.
 * *(z53, `Z53_PZ.md` Thm A; PROVED rel. Bombieri–Vinogradov and elementary divisor sums; cross-model reviewed.)* For every
   η ∈ (0, 1), once X ≥ X₀(η) (ineffective): #{p ≤ X : R(p) < (1 − η)(log p)²/64} ≪ η^{−2} π(X)/log X. So R(p) ≫ log²p, hence f(p) ≫ log²p, for almost all
-  primes — vs. ET Thm 1.8's (log p)^{0.549} on a density-1 set of primes. Truncation to trial moduli 4uC − 1 ≤ X^{1/4−o(1)}
+  primes — vs. ET Thm 1.8's (log p)^{0.549} on a density-1 set of primes. This comparison is **not a priority claim**:
+  Akaka (Zenodo 22754703, v0.7, 2026-09-14; unrefereed, declared AI-assisted, Lean certificate claimed, not checked here;
+  `LITERATURE_2026.md` §2.4) claims the stronger almost-all-primes statement R_II(p) ≥ c(log p)³ for the full strict
+  Type II count, outside O(N/(log N)⁴) primes p ≤ N. PZ concerns only the c = 1 line R(p), which is disjoint from the
+  family Akaka's proof actually counts, so his claim does not imply PZ (`paper/es-count-note` §1.4); as a statement about
+  f_II or f, PZ is superseded if Akaka's claim is correct. *(z56: written
+  up as `paper/es-count-note` Thm C; internal + one cross-model referee, MAJOR REVISION for this omission, applied; not
+  posted.)* Truncation to trial moduli 4uC − 1 ≤ X^{1/4−o(1)}
   keeps every pair correlation inside BV. The full second moment of R is *not* proved. Average statement; says nothing
   about a prescribed p (B6). EVIDENCE (one-engine check, independent session computation, not part of the PZ memo's
   cross-review; `scripts/z53_summary_rcheck.c`, output `data/z53/summary/rcheck_1e7_1.6e8.txt`): in the four dyadic
@@ -544,10 +553,18 @@ no single-prime lower-tail mechanism is known.
   * For X ≍ U⁴, at most O_ε(U^{η+ε}) integers in any window of U consecutive integers have N₂(n, U) > U^{1−η}.
   * #{p ≤ X : N₂(p, U_p) > U_p^{1−η}} ≪ X^{(3+η)/4+ε}, with U_p = ⌊p^{1/4}⌋.
   * So R2's conclusion holds on average with no TD-type input. Averaged TD itself is not addressed.
+* *(z56, `Z56_FAMTRY.md` Thm A; PROVED rel. Bombieri–Vinogradov and Montgomery's large sieve; cross-model reviewed
+  CORRECT.)* #{p ≤ X : R(p) = 0} ≤ X·exp(−0.08√log X) for X ≥ X₀ (ineffective), with the same bound in every interval of
+  length X. The argument never uses primality: it bounds the odd n ≤ X avoiding the hit classes at every prime modulus
+  ℓ ≤ √X, a set containing all odd squares, so it cannot go below √X. Novelty unverified. Average statement (B6).
 
 **5.2 Unconditional, pointwise — for relaxations or thin families, not ES.**
 * The BM main term: M_BM(p) ≥ (3/(16π²) − o(1))(log p)² (Burgess) for every large prime; five-slice analogue
   ≥ (45/(32π²) − o(1))L² ((J)100, (J)105). Main terms only.
+  *(z56, `Z56_FAMDESIGN.md` Thm V; PROVED rel. Burgess and Heath-Brown's quadratic large sieve; cross-model reviewed
+  CORRECT.)* The genus main term: M_gen(p) ≥ (5/(4π²) − o(1))log²p = (5/6 − o(1))M₀(p) for every large prime p ≡ 1 (4)
+  (29/(30π²) ≈ 0.0979 with Burgess only, effective p₀), M₀ = (3/(2π²) + o(1))log²p the expected (★) count. Main term
+  only; see §7 item 3.
 * The BM layer is pointwise free: for odd n, some t ≡ 0 (4), t ≤ 4ℓ(n), has M_t^lev(n) > 0 iff n is not a square ((J)103).
   *(z52.)* So is the genus layer: every non-square n ≡ 1 (4) has a level t = 4r at which no odd real character mod t
   obstructs (GT1, PROVED rel. Dirichlet; Linnik-size t; `Z52_BANKED.md` §1(b)). Only the class of the divisor remains.
@@ -567,6 +584,11 @@ no single-prime lower-tail mechanism is known.
 * Function fields: one mute place makes the ES variant over F_q[T] a theorem at every P, unconditionally and effectively
   (Bilharz/Weil; (J)30) — even where ES_q itself has no finite covering. ES over F_q[T] is a theorem in several
   small-characteristic cases ((J)4).
+* *(z56, `LEAN_Z56.md`; Lean 4 + mathlib, no `sorry`/`native_decide`, standard axioms, 31 theorems audited; no cross-model
+  review.)* Machine-checked in `lean/ES/ES/HC.lean`: the five slot identities (certificate ⟹ ES); FABLE Thm 1 in both
+  directions for every n ≡ 1 (4); Z53_UPPER Lemma 1.1 lines U/T; Theorem Q (4 | m, p = 5m² + 1 prime ⟹ HC(p) ≥ 7);
+  HCKILL Lemma 1.1 for every n ≡ 1 (8); UPPER2 Prop 3.1 (HC(p) ≤ 8 for primes p > 7, p ≡ 1 (4), outside the six classes
+  mod 840). Elementary statements only; infinitude claims and censuses are not formalised.
 
 **5.3 Obstruction-side theorems** (useful because they bound what coverings can do).
 * Sterile Mordell points exist on the r-generic line for every prime r ≥ 2^{21.44} ≈ 2.8·10⁶: no finite ET covering handles
@@ -707,6 +729,26 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   * (H⁻_𝔉) fails at every zero with M_𝔉 > 0; positivity of M_𝔉 was certified at all 192 469 recorded exhaustive-scan
     zeros, not asserted here for every sampled zero;
   * larger p₀ is open. Assessment: the model's expected-count crossover is ≈ 10¹²⁴.
+* (z56) Union over size windows of the (★) count, via the exact links of Lemma L or a pointwise variance across windows →
+  `Z56_FAMATTACK.md` Lemma L, Prop V, F1 (method-scoped, not a theorem killing union or variance routes): the analysed links
+  are positive (the switch maps a hit at u to one at u′ = B), size-only, quadratic or congruence-level; a pointwise variance
+  criterion implies a weighted first-moment lower bound (PROVED); EVIDENCE: some negative window pairs, but net positive
+  residual covariance and excess joint emptiness. Not covered: non-size windows, signed cross-level identities, other links.
+* (z56) A transfer X ≥ −(1 − ε)M_gen asserted uniformly for all non-square n ≡ 1 (4) → false: 285 non-square composites
+  n ≤ 7 999 801 have R(n) = 0, with M_gen up to 24.3 at 810 001 = 241·3361 (CERTIFIED; `Z56_FAMATTACK.md` §3.5). Eventual
+  and prime-only statements are not refuted.
+* (z56) Bounds on the whole-integer avoider set of (★) → `Z56_FAMTRY.md` §3.5(i), §4.4: it contains (1/2 + o(1))√X odd
+  squares up to X, so such bounds stop at √X (PROVED); log L(Q) ≍ √log Q is optimal for that specific large-sieve
+  denominator only. Sieves counting primes, prime weights and off-square refinements are not covered.
+* (z56) Central-slice asymptotics (CNT-type) as a route to gap 1 → `Z56_CENTRAL.md` Thm L, Cor L1 (CONDITIONAL on EPC): a
+  uniform, length-decoupled CNT_unif would give SID, a pointwise power-saving asymptotic for Σ_{x<n≤x+x^{1/4}} d(n), not
+  established in the checked sources (Assessment). The fixed tied/prime CNT is not shown equivalent to SID.
+* (z56) One-component data-only semi-linear sieve for S-membership at level < 1/2 → `Z56_K4LIT.md` Lemma P (PROVED, for
+  admissible densities g(q) = (1 + c_q)/(q + c_q), 0 ≤ c_q ≤ C/q): sequences with the same data and no element in S exist;
+  above 1/2 S-mass is forced (Prop P′). Not covered: joint two-component data, switching, primality of p.
+* (z56) Multiplicative comparison model for Type II on a\*_n = r\*(n + 4)r\*(4n + 1) → `Z56_K4BILIN.md` Lemma N (PROVED):
+  fails every Type II hypothesis with logarithmic saving (inert-prime shift classes). W-tricked or other comparison models
+  are not ruled out.
 
 *Algebraic / forcing*
 * Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS "line 2: CLOSED".
@@ -777,6 +819,14 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   certificate with modulus μ ≤ log p/(1.02L₀) − O(1).
   * This is logarithmic only; polylogarithmic moduli are not excluded.
   * EVIDENCE: 101 of the 126 hard primes below 10¹² have a certificate with c, μ ≤ ⌊log²p⌋.
+* (z56) Fixed finite coverings of the primes ≡ 1 (8) by solvable (★) classes, or finite polynomial menus → `Z56_FAMTRY.md`
+  Prop 2.2 (PROVED): every such finite menu (polynomial menus: with eventual positive integral validity on the stated
+  classes) misses all primes ≡ 1 (mod 8·lcm q_i). Growing/infinite congruence families and
+  prime-sensitive arguments are not excluded.
+* (z56) The tried algebraic families for P(4,15) → `Z56_K4TRY.md` §4.1–4.2: p(m, n) = (n² − m² + 4)² + m² − 4 has both
+  shifts sums of two squares but is thinner than a² + b⁴ (no prime-value theorem applies); fixing (u, s) gives lattice lines
+  (Theorem Q is one); "automatic confinement" of SL₂(ℤ)-norms is false (PROVED counterexample). Scoped to these
+  parametrisations; other algebraic families and methods are not excluded.
 
 *Geometry / relaxations / transfers*
 * Brauer–Manin, fibrations, descent, strong approximation → no BM obstruction; "BM only obstruction" = ES(n) → (I)7, `GEOMETRY_ES.md`.
@@ -979,6 +1029,26 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
        TD only for n < U³; joint-variable methods are not excluded.
      * Missing: a joint (ν, m) estimate below the per-frequency benchmark, or an arithmetic proof of NC or DC_ε at
        one p.
+   *(z56, `Z56_CENTRAL.md`; internal hostile reviews + cross-model review; calibration, upper-bound only; `Z56_SUMMARY.md`
+   §4.)* How hard is the central slice? SID := a pointwise power-saving asymptotic for Σ_{x<n≤x+x^{1/4}} d(n).
+   * Thm L (PROVED identity): D(x, y) − Main = E_band(δ) − 2F_L + O(1), with E_band the band m ∈ (x^{1/2−δ}, x^{1/2+δ}] and
+     F_L = Σ_{m≤x^{1/2−δ}}[ψ((x+y)/m) − ψ(x/m)]. CONDITIONAL on EPC: F_L ≪ x^{1/4−δ/2+ε}; hence SID ⟺ a power saving for
+     some central band, and CNT_unif ⟹ SID (likewise CNT_poly, constants polynomial in the band position).
+   * CNT_unif / CNT_poly are stronger than TDCAL's CNT (all real x, length decoupled from position, uniform thresholds);
+     CNT_unif contains CNT only for K > max(1, 2c₂, 1/(2c₁)). The fixed tied/prime CNT is not shown equivalent to SID.
+   * Cor L3 (PROVED; Trudgian–Yang pair (715/10238, 7955/10238)): this argument gives the equivalence unconditionally for
+     δ > 6387/28960 ≈ 0.2205 (finite pair search, no optimality claim).
+   * Thm U (PROVED implication): power-saving short-interval asymptotics for τ_t(n) = Σ_{de=n}(d/e)^{it}, uniformly in
+     |t| ≤ x^c, imply CNT_unif. Thm E (CONDITIONAL on EPC): the converse. So under EPC, CNT_unif ⟺ the x^{1/4}
+     short-interval asymptotic for the small-twist family τ_t (t = 0: SID), existence of exponents only.
+   * Prop P (PROVED rel. de la Bretèche–Tenenbaum 2025 Cor 1.2): |E1(p, U)| ≪ U(log log U)^{5/2} pointwise (was U^{1+ε}).
+     Cor P2 (PROVED implication, localized Fejér): TD(η) ⟹ DC(2U^{−η}) with a (log log U)^{5/2} loss.
+   * SID "not established" is Assessment (search-limited): the cited Ivić–Zhai bounds help only for lengths ≥ x^{1/3},
+     Jutila's conjecture is open, and Δ = Ω(x^{1/4}) blocks the endpoint route. Remark H: the dual phase's Hessian has rank
+     one (PROVED); non-applicability of 2D methods is Assessment.
+   * EVIDENCE: identity residual ≤ 0.632 at 10¹⁰ (2 400 cases); slice errors at the √y scale, no slice distinguished.
+   * Assessment: the count enters gap 1 only as a zero mode, for which Prop P suffices; CNT-type asymptotics are
+     SID-hard (modulo EPC and uniformity) and should not be on the route to TD/NC.
 2. **Growing roots in the forest F_p** (edge uv ⇔ uv | p + u + v). Fixed roots and the least-non-residue root fail i.o. under
    Dickson, and the component of 1 can be as small as 8 vertices i.o. (CONDITIONAL on Dickson, `LOWER_TAIL_ASTRA.md` Thms 3.1,
    5.1) — so Fable's spark "|comp(1)| ≫ (log p)² unconditionally" is false under Dickson and the growth claim behind it was
@@ -1175,6 +1245,46 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
        * P1.2: for c ∈ 𝒞_p, 3 ≤ c < p, and N = sq with q prime and q ∤ s: on U, success is equivalent to a divisor of s
          being −1 or −p modulo c; on T, it is equivalent to a divisor of s being −1 modulo c.
        * The large-CRT samples for T3.1 are EVIDENCE (BPSW probable primes).
+   *(z56, four lanes on unconditional K(4) = P(4,15), each with internal hostile and cross-model review; `Z56_SUMMARY.md`
+   §2.)* **K(4) NOT proved; narrowed.** Theorem U (z55) remains the unconditional state for the fixed pair (4, 1).
+   * **Generic shifts (`Z56_K4TRY.md` Thm AA; PROVED, unconditional; rel. Barban–Davenport–Halberstam, the linear beta
+     sieve, Ford's upper sieve).** For every ε ∈ (0, 1) there are η ∈ (0, 1/10], c > 0, x₀ such that for x ≥ x₀ and
+     H = x^{1−η}, all but at most εH² admissible pairs (a, b) ∈ [1, H]² (a ≡ 0 (4), b ≡ 1 (4), 3 | ab(a − b)) have
+     #{p ≤ x : p ≡ 1 (8), p + a ∈ S, 4p + b ∈ S} ≥ c·x/(log x)². It never selects a fixed pair; nothing about (4, 1).
+   * **Dense sequence (`Z56_K4BILIN.md`).** a\*_n := r\*(n + 4)r\*(4n + 1)·1[n ≡ 97 (120)]; a\*_p > 0 ⟺ p is a P(4,15)
+     prime in that class.
+     * Lemma T\* (PROVED rel. FI 2009 Lemma 4.1 = Smith): level x^{1/6−ε} for moduli coprime to 30, density
+       g\*(ℓ) = 1/(ℓ + 2χ₋₄(ℓ)).
+     * Prop P (PROVED): ≫ x/(log x)⁹ integers n ≡ 97 (120) with n + 4, 4n + 1 ∈ S, Ω(n) ≤ 12 and all prime factors
+       > x^{1/13} (roughness holds for this constructed subset only). No ES content: n is not prime.
+     * Lemma N (PROVED, negative): see §6. The implication (TII_W) ⟹ P(4,15) (V′) is only proposed: it also needs two
+       unproved model lemmas (model Type I, model prime mass) and a weighted Harman sieve.
+     * Assessment (one architecture): the FI full-range budget is > 3/4 for primes in CRT-mixed classes; dispersion
+       gives ≈ 0.617 for a single fixed residue (Lichtman; abstract-only tag), 1/2 + δ for mixed residues. Diagnostics to
+       10¹⁰ cannot validate an all-coefficient Type II statement.
+   * **Chen-type switching on 4p + 1 (`Z56_K4CHEN.md`).** Lemma D (PROVED): exact reduction of the configurations with
+     ≥ r + 2 𝒬-factors (all ≥ x^ζ) to a direct and a switched part. Prop K6: C(6) (≫ x/(log x)² primes p ≡ 1 (8),
+     p + 4 ∈ S, Ω_𝒬(4p + 1) ≤ 6) in the BV-level model, CONDITIONAL on Hypothesis MT (BV-type remainder control for the
+     structured switched sets and local-factor/main-term evaluation ≤ 2.35 × model); its numerical inequality rests on a
+     floating-point (not interval-certified) integral enclosure. Model (Assessment): 10 → 6 surviving pen 2.35, 4 only on
+     a knife-edge; C(2) grid witnesses at level 0.68 (0.65 with switched sums at level θ); no C(0) witness through level 1
+     (P415's ≈ 0.996 stands). **No unconditional explicit Ω_𝒬 bound follows.**
+   * **Literature calibration (`Z56_K4LIT.md`; Assessment from provenance-tagged sources, bounded searches).** Neither
+     P(4,15) nor its det-1 analogue was located as an unconditional theorem. FI 2009 Thm 4 (Σ Λ(n)r(n−2)r(n+2) ≍ x) has its
+     lower bound under A(θ) for one fixed θ < 1 sufficiently close to 1 (upper bound unconditional); Sedunova 2026 still
+     calls it conditional. Nath–Xie v3: Ω(p + 2) ≤ 9 (P415 cited v1's 11). No 2018–2026 result located supplies the input.
+     * Lemma P + Prop P′ (PROVED; P′ rel. Iwaniec 1976 Thm 1): for one parity-forced semi-linear component with admissible
+       density, data at every fixed level < 1/2 cannot guarantee an element of S; at every fixed level > 1/2 they force
+       S-mass ≫ X(log x)^{−1/2}. Endpoint open; nothing for joint data.
+     * (★K) (BV for {r\*(4p+1)} in classes p ≡ −4 (mod d), semi-linear weights): an incomplete research specification,
+       not a proved implication.
+     * Assessment: every exact two-component sieve implementation audited needs EH-strength input (Theorem Q's
+       Bunyakovsky route is a different hypothesis). Not a theorem that K(4) is hard.
+   * **Hybrid route (`Z56_K4TRY.md` §2; Assessment, model only).** r\* on one shift, semi-linear sieve + switching on the
+     other: model level 0.908 (pen 1) / 0.958 (pen 2.35). No conditional theorem (the hypothesis is only outlined; local
+     densities and Lemma S unproved). The det-1 comparison is an analogy, not a reduction.
+   * CERTIFIED (`Z56_K4TRY.md` §5, cross-review byte-identical): among the 2 769 023 primes p ≡ 1 (8), p ≤ 2·10⁸, 232 258
+     have p + 4, 4p + 1 ∈ S. EVIDENCE: model switched masses agree in order only (relative deviations −1 % to −19.5 %).
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
    BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
    can obstruct (the (★)-failure n = 7 at t = 12; (J)103 §2 Reading). *Why:* it is the next layer after the one proved free.
@@ -1352,11 +1462,49 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
          excluded;
        * these tests cannot support or falsify (CU).
      * Assessment: no cross-u mechanism was found. B2 in tied form survives.
+   *(z56, three lanes on a big-main-term family and on full (★) positivity, each with internal hostile and cross-model
+   review; `Z56_SUMMARY.md` §3.)* **(★) at every large prime NOT proved.** M₀(p) = (3/(2π²) + o(1))log²p is the expected
+   (★) count.
+   * **Big family (`Z56_FAMDESIGN.md`).** Solutions (o, e, C), o odd, e even, p = 4oeC − o − e;
+     𝔊* := {(o, e) : max(o, e)⁴ > min(o, e)·p} (integer inequality, o = 1 allowed).
+     * Theorem V (PROVED; Burgess + Heath-Brown's quadratic large sieve): for every η > 0 and every prime p ≡ 1 (4),
+       p ≥ p₀(η, λ), the genus main term of the pairs of 𝔊* with min(o, e) > p^λ is ≥ ((3/π²)·area(G_λ) − η)log²p.
+       With Burgess only (λ = 1/15): 29/(30π²) ≈ 0.0979, effective p₀; with HB the constant → 5/(4π²) ≈ 0.1267 as λ → 0.
+       Hence M_gen(p) ≥ (5/(4π²) − o(1))log²p = (5/6 − o(1))M₀(p), 18.5 × Thm U's constant. On compact rectangles inside
+       the region it is an asymptotic. Cor V1: 64/(45π⁴) ≈ 0.0146 on Thm U's admissible trapezoid.
+     * The excluded density-area sixth is the Burgess corner max(o, e) ≤ (min(o, e)·p)^{1/4} (C ≳ p^{1/3}), where the
+       cross terms are not controlled by this argument (no impossibility or optimality theorem). Every solution with
+       64C³ ≤ p lies in 𝔊* (PROVED).
+     * CERTIFIED: R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹⁰, the last 564 661 441 (R = 2, its unique solution in
+       the corner); none at the 57 806 sampled primes above 10¹⁰ up to 10¹⁴. Burgess-only family: 317 zeros ≤ 10¹⁰, last
+       6 122 428 657. The cross-review reproduced the stored unions and the four zeros above 10⁷ but did not rescan
+       (10⁶, 10¹⁰].
+     * EVIDENCE: mean R_𝔊*/log²p ≈ 0.134 → 0.126 (≤ 10⁷ → 10¹⁴), var/mean 2.4 → 4.9. Assessment (crude two-parameter
+       fit): expected-count crossover ~10^{8.3}, vs ~10¹¹⁸ for the standard Thm U window.
+     * Main term only: the order-≥3 remainder (B2) is untouched. Assessment: 𝔊* and its complete-level part
+       H3 = {64C³ ≤ p} are the recommended targets for problem CROSS.
+   * **Joint attack (`Z56_FAMATTACK.md`).**
+     * Prop T (PROVED, effective): tiled Thm U gives M_gen ≥ (64/(45π⁴) − ε)log²p (as Cor V1; superseded in size by
+       Thm V). Prop T′ (PROVED): tiled GENUSX Thm X gives an exact-class density main term ≥ (28/(75π⁴) − ε)log²p ≈ 0.0038
+       log²p with T_u = O(p^{−δ}log p) on every tile. Lower-bound coefficients, not ceilings.
+     * Thm J (PROVED reduction): R(p) ≥ Σ_t M^cls_t + Σ_t E_t over a finite tiling, so eventual (★) follows from the tiled
+       exact-layer bound (CU_𝒯): Σ_t (T_w + T_uw)_t ≥ −(1 − ε)Σ_t M^cls_t (CONJECTURE-strength; sufficient, not
+       necessary; vacuous at odd squares).
+     * Lemma L, Prop V (PROVED) and F1 (EVIDENCE): see §6. The registered F1 kill condition was not met.
+     * CERTIFIED: among n ≡ 1 (4), n ≤ 7 999 801, R(n) = 0 exactly at 13 primes, all 1 413 odd squares and 285 non-square
+       composites (M_gen up to 24.3); at the prime zero 8 813 281, M_gen = 29.1.
+     * Assessment: every joint inequality found reduces to (CU_𝒯), B2 in tied form.
+   * **Tryhard (`Z56_FAMTRY.md`).** Theorem A (PROVED; §5.1): #{p ≤ X : R(p) = 0} ≤ X·exp(−0.08√log X), B6. Lemma 1.4
+     (PROVED): R(p) ≥ 1 iff some d ≡ 3 (4) has (−p mod d) nonzero and dividing (d + 1)/4. Prop 2.1 (PROVED): p ≡ 5 (8),
+     2 (3), 5 or 6 (7) ⟹ R(p) ≥ 1. EVIDENCE: 422 primes p ≡ 1 (8) in [10⁷, 10⁸] have no prime-modulus hit — finite only;
+     no theorem here forces composite or linear-size moduli eventually.
 4. **CLOSED (z53).** `Z53_GENUSLVAL.md` Thm U (PROVED, unconditional, effective; cross-model reviewed CORRECT): M_gen(p) ≥
    (2/(3π⁴) − o(1))(log p)² ≈ 0.0068 log²p at every sufficiently large prime p ≡ 1 (4). It uses Burgess for cube-free conductors on Thm 5.4's
    subfamily with sharp windows. The square-sensitive step is that ηχ_{−4up} is non-principal because p divides its
    conductor, and this is the step that fails at odd squares. Still open: the transfer X(p) ≥ −(1 − ε)M_gen(p), which is
-   ES-(★) strength (see item 3), and the sharp constant (observed min 0.084, sample-specific). *Original item:* **A polylog lower bound
+   ES-(★) strength (see item 3), and the sharp constant (observed min 0.084, sample-specific). *(z56: the proved asymptotic
+   lower-bound constant is now 5/(4π²) ≈ 0.1267, i.e. (5/6 − o(1))M₀, by `Z56_FAMDESIGN.md` Thm V; only the Burgess-only constant
+   29/(30π²) comes with an effective p₀, and the observed small-p minimum 0.084 lies below both asymptotic constants.)* *Original item:* **A polylog lower bound
    for M_gen(p)** unconditionally (GRH gives only log log p; (J)98). *(z48 update: `LOWERTAIL_DEEP_ASTRA.md` Thm 5.4 gives M_gen(p) ≥ (2/π⁴ − o(1)) log²p from **any fixed Dirichlet zero-free strip**, hence CONDITIONAL on OAI-003 or GRH; at z48 an unconditional version and transfer were open; z53 closes the genus lower bound only.)* *Why:* M_gen is the finer
    T1-exact main term; with it the one-sided target could be stated relative to the genus series.
 5. **BM-corrected Harris/FKG inequality over primes** ((J)103 §3; recorded there only as a
@@ -1452,6 +1600,26 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     fails only at 2, 9, 21, 165, 945, 1197) and ES over ℤ[i] with first-quadrant denominators (up to reflection, six
     Gaussian-prime failures, none for 10⁴ < N ≤ 10⁶) have failures only in low-count cells. This is consistent with
     lottery-type failures; no further invariant was found (Assessment). No prime T1 was found.
+    *(z56, `Z56_PRIMET1.md`; EVIDENCE lane; internal hostile review + cross-model review; `Z56_SUMMARY.md` §5.)* A
+    pre-registered (local git provenance), held-out search over 16 invariant families plus one added by amendment: h(−4p)
+    and its 2-, 3-, 5-parts; h(p); regulator and Pell period; L(1, χ_p) beyond q ≤ 1000; least non-residue; ord_p 2, ord_p 3;
+    Frobenius in x³ − x − 1 and x⁴ − x − 1; Gaussian/Eisenstein Hecke angles; the Sato–Tate angle of 11a1; p-adic depth;
+    Legendre symbols beyond 1000; smoothness of p ± 1; generalised near-squares. Data: 6.7·10⁶ primes p ≡ 1 (24) in
+    [10⁷, 10¹⁰] with exact R, 25 000 at 10¹²–10¹³, the hardest 0.01 % of (10⁹, 10¹⁰], the 14 zeros, HC at 10¹².
+    * Everything that predicts hardness beyond the pre-registered local model is local data, the BM or genus-layer L-values
+      (h(−4p): ≈ +4.7 % of E[R] per SD given exact BM, missing from the BM-only model), near-squares, or the u = 1 / B = 1
+      tickets 2τ₃(p + 1). The other families show no *linear* association once local shadows are modelled; a small
+      nonlinear Hecke-angle signal is consistent with square-offset near-squares (augmented-null replication pending).
+    * One unexplained candidate association (A9): large prime factors of p − 1, ≈ +0.6 % of E[R] per SD. Pre-specified
+      two-feature confirmation on B₂₃: p_Holm = 0.01397 over 2 tests; post-hoc complete-null robustness 0.004058 over 2,
+      0.03043 over 15 rerun families (not a second independent confirmation); underpowered at 10¹²–10¹³ (p ≈ 0.87). No
+      mechanism; confounding by local data at larger moduli unresolved. A small bulk association, not an observed kill.
+    * Invariant-free test T2T (sensitivity analysis, not a bound): the disjoint ticket families 4Cp + 1 and p + u show no
+      positive residual correlation given local data (ρ̂ = −0.005, 99 % CI [−0.011, 0.001]); opposite-sign factors can
+      mask coupling, so this excludes no common factor.
+    * All Holm levels are blockwise; no study-wide alpha plan. Rare, nonlinear, density-zero or unsampled-range mechanisms
+      (10¹⁰–10¹² mostly unsampled) are not excluded. Assessment: consistent with "local main term × lottery" in the
+      sampled ranges; nothing about a fixed prime (B6).
 16. *(Housekeeping item resolved, R290 repair:* the (★) constants (log p)²/8 and 3/(2π²)(log p)² are the all-integer and the
     prime densities of the same ordered count; see §2.2 and `reviews/frontier-review.md` task (2).)
 17. **Conjecture I3** (z48/z49): every n > 2 433 600 is tuv − u − v with t, u, v ≥ 3. It is sign-free, prime-free and
