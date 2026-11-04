@@ -100,7 +100,7 @@ for n in range(5, 1200, 4):  # all n = 1 mod 4 (primes and composites)
     check(hc_words == HC(n), f"HC def n={n}")
 print(f"[1] words/slots/identities/lines: {nwords} words, {nslots} slot words, n<1200")
 
-# 2. Reciprocity lemma (Jacobi (d/n) = -1 for every certificate divisor), all n = 1 mod 4
+# 2. Lemma 2.7 (Jacobi (d/n) = -1 for every certificate divisor), all n = 1 mod 4
 ncert = 0
 for n in range(5, 3000, 4):
     for c in range(3, 80):
@@ -156,7 +156,7 @@ for p, h in REC.items():
     check(HC(p, 200) == h, f"record HC({p})={h}")
 print(f"[6] {len(REC)} census records with HC>=52 recomputed")
 
-# 7. Theorem 6.1 (no small-support certificate on a non-square class): random primes
+# 7. Theorem N (no small-support certificate on a non-square class): random primes
 #    p = 1 mod M, p = R mod l^J, every certificate (c,d), c <= C, has a prime factor
 #    of d outside S u {primes <= Y}.  (Probable primes: evidence only.)
 random.seed(1)
@@ -192,8 +192,8 @@ for (ell, R, C, Y) in [(11, 2, 24, 13), (13, 2, 24, 13), (17, 3, 20, 11)]:
                 for d in divisors(N):
                     if (d + 1) % c == 0:
                         check(not set(factorint(d)) <= allowed,
-                              f"Thm6.1 ell={ell} p={p} c={c} d={d}")
-print("[7] Theorem 6.1 random samples (probable primes)")
+                              f"ThmN ell={ell} p={p} c={c} d={d}")
+print("[7] Theorem N random samples (probable primes)")
 
 if FAIL:
     print(f"{len(FAIL)} FAILURES")
