@@ -1,0 +1,4 @@
+# A7 label=S3 n=353214 outcome z'=(Y - tau3(p+1))/s(mu); coefficients in z-units per SD (x mean s/mu = 0.229 for relative E[Y] effect)
+test	df	F	p_raw	p_holm	coef_omega	coef_logP+/L
+p+1 part	2	18.735	7.312e-09	7.312e-09	+0.06757	+0.03300
+p-1 part	2	115.984	4.417e-51	8.835e-51	+0.10859	+0.05256

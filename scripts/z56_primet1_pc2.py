@@ -23,6 +23,7 @@ def tests(y, mu, Z):
     t = b / math.sqrt((e @ e) / (len(r) - 2) / (zc @ zc)); pc = 2 * stats.norm.sf(abs(t))
     h = pit(y, mu) < 0.01
     a = np.array([[np.sum(h & (Z == 1)), np.sum(~h & (Z == 1))], [np.sum(h & (Z == 0)), np.sum(~h & (Z == 0))]], float)
+    a = a + 0.5  # Haldane correction (zero cells occur for strongly depleted small subclasses)
     lor = math.log(a[0, 0] * a[1, 1] / (a[0, 1] * a[1, 0])); se = math.sqrt((1 / a).sum()); pt = 2 * stats.norm.sf(abs(lor / se))
     return pc, pt, math.exp(lor)
 

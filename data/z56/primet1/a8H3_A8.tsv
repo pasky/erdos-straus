@@ -1,0 +1,6 @@
+# A8 label=h3p-exploratory n=1175949; z-units per SD (x 0.231 = relative effect on E[Y]); mean omega<=1000(p-1)=3.470, omega>1000(p-1)=0.887
+group	df	F	p_raw	p_holm	coefs
+(a) omega<=1000(p-1)	0	-inf	nan	1.000e+00	-5.69362
+(b) >1000 part of p-1	2	469.173	2.100e-204	8.398e-204	+0.00586 +0.09870
+(c) omega<=1000(p+1)	0	-inf	nan	1.000e+00	+21.31400
+(d) >1000 part of p+1	2	53.902	3.906e-24	1.172e-23	-0.00235 +0.04988

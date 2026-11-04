@@ -1,0 +1,4 @@
+# A7 label=h3p-exploratory n=1175949 outcome z'=(Y - tau3(p+1))/s(mu); coefficients in z-units per SD (x mean s/mu = 0.231 for relative E[Y] effect)
+test	df	F	p_raw	p_holm	coef_omega	coef_logP+/L
+p+1 part	2	38.192	2.593e-17	2.593e-17	+0.04881	+0.02784
+p-1 part	2	446.574	1.346e-194	2.693e-194	+0.11206	+0.05600

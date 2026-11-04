@@ -213,6 +213,16 @@ z′ := (Y − τ₃(p+1))/s(μ̂) with s(μ) = √(μ + μ²/k̂) (the u = 1 sl
 (53 ≤ q ≤ 997) + f₁⁺, f₋₁⁺ := Σ_{1000<q≤20000, q∣p∓1} (log q)/q; tests (a) p + 1 part {ω(p+1), log P⁺(p+1)/L} and (b) p − 1
 part {ω(p−1), log P⁺(p−1)/L}; Holm over the 2 tests. The same is run on h₃′ as a labelled exploratory comparison.
 
+**Amendments 7–8 (after A7 on S₃; exploratory runs A8, A9 on h₃′ only).** A7 (S₃) is significant for both parts, but its
+null lacked the per-q indicators of 𝓛⁺⁺ and the prime-power depth (G14). Exploration on h₃′: with per-q indicators
+(53 ≤ q ≤ 997) the ≤ 1000 parts of ω(p ± 1) are linear in the null (rank 0, untestable as interactions); adding the
+1000-smooth parts of p ∓ 1 (local p-adic data at q ≤ 1000) and one-hots mod 64, 27, 25, 49, the p + 1 part beyond 1000
+vanishes (F = 0.66) and the p − 1 part beyond 1000 drops to F = 14 (+0.7 % and +0.6 % of E[Y] per SD for ω_{>1000}(p−1)
+and log P⁺(p−1)/L). **Final confirmatory test A9** (registered now, before touching its data) on **B₂₃** := {p ∈ Bulk2 :
+splitmix64(p) mod 64 = 3} (789 181 primes in (10⁹, 10¹⁰], never used), μ̂ from 𝓛 refitted on Bulk2 h64 = 2: outcome z′, the
+A9 null (𝓛 design, per-q (q/p), 1[p ≡ ±1 (q)] for 53 ≤ q ≤ 997, μ̂/s, f₁⁺, f₋₁⁺, log of the 1000-smooth parts of p ∓ 1 over
+L, one-hots mod 64, 27, 25, 49); tests (b′) {ω_{>1000}(p−1), log P⁺(p−1)/L} and (d′) the same for p + 1; Holm over 2.
+
 ## 4. Results
 
 ### 4.1 Primary block on C (as pre-registered; EVIDENCE)
