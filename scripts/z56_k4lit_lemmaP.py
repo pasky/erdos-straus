@@ -11,6 +11,8 @@ A contains NO element of S (every element has the Q-prime q).  We report
     (lower, parity-odd model), s = log(level)/log z,
   * #(seq ∩ S).
 Usage: uv run --with numpy python scripts/z56_k4lit_lemmaP.py [log10_x=12] [theta=0.45] [log10_xN=8]
+Supported (documented) runs only: (12, 0.45, 8) and (13, 0.49, 7). No range/coprimality guards for other arguments
+(the f formula is valid on [1,3]; tested d must be coprime to the hidden primes, i.e. d <= D).
 """
 import sys, math
 import numpy as np

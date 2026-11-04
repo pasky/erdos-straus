@@ -57,7 +57,7 @@ searches documented in the reports". No search is claimed to be exhaustive.
     * Indlekofer 1974: B₂(x) ≫ x/log x [P-sub, page image];
     * Hooley 1973/74 [Sec].
 
-### H2. Sieve data plus forced parity certify S exactly above level 1/2 (Lemma P and Prop P′)
+### H2. Sieve data plus forced parity: counterexamples below level 1/2, a guarantee above it (Lemma P, Prop P′)
 **Literature [P-me].** Iwaniec, *The half dimensional sieve*, Acta Arith. 29 (1976):
 * **Theorem 2** treats sequences with odd parts ≡ 1 (mod 4) sifted by primes ≡ 3 (mod 4), where the parity of Ω_𝒬 is
   fixed by the congruence. The *upper* bound's main term becomes the main term of an asymptotic. Its relative error is
@@ -68,16 +68,20 @@ searches documented in the reports". No search is claimed to be exhaustive.
 **What this lane adds (§3).**
 * **Lemma P (PROVED).** Take the semi-linear sieve by 𝒬, any density g(q) = 1/q + O(1/q²) with g(q) ≥ 1/q (this
   includes 1/q and the shifted-prime density 1/(q − 1)), and level D = x^{1/2−ε}. Then there is a sequence on
-  n ≡ 1 (mod 4) with exactly these sieve data (admissible remainders) and **no element in S**. The mechanism is a
-  hidden 𝒬-prime above the level. A variant with data restricted to d | P(z) works whenever zD ≤ x^{1−ε}.
+  n ≡ 1 (mod 4) with the same local density (and remainders within the stated bound) and **no element in S**. The
+  mechanism is a hidden 𝒬-prime above the level. A variant with data restricted to d | P(z) works whenever
+  zD ≤ x^{1−ε}, with D ≥ 1.
 * **Prop P′ (PROVED relative to Iwaniec 1976 Thm 1).** Conversely, full data at a fixed level D = x^θ with θ > 1/2
   force positive S-mass ≫ X(log x)^{−1/2} for every parity-forced sequence.
-* **So the data-only threshold for certifying S-membership of one parity-forced component is exactly level 1/2.**
-  Bombieri–Vinogradov gives 1/2 − ε, missing by ε. Iwaniec 1972 bridges the gap with switching, which uses the primality
-  of p and is not part of the sieve data.
+* **So, for these densities and remainder hypotheses, 1/2 is the infimum exponent for a uniform single-component
+  guarantee.** There are counterexamples at every fixed exponent below 1/2, and positivity at every fixed exponent
+  above it. The endpoint itself is not settled here. Bombieri–Vinogradov gives 1/2 − ε. Iwaniec 1972 obtains an exact
+  shift at that level with switching, which uses the primality of p and is not part of the sieve data. This is not a
+  claim that switching is necessary.
 
 **Reading (Assessment, about known implementations, not a necessity theorem).** For two components no data-only
-threshold is known. Lemma P applied to one component gives only a lower bound of 1/2 for the threshold. The product
+threshold is known. Lemma P establishes only the single-component obstruction and gives no lower bound for a
+threshold with the actual joint data; constructing a compatible joint counterexample is a separate problem. The product
 linear sieve with joint data works above level 1; the vector sieve needs level > cosh²(1/2) ≈ 1.27 (HCKILL). The
 switched implementations found need ≈ 0.996 (P415 ledger, model, sufficient level found). FI 2009 needs A(θ) with θ near 1.
 
@@ -127,7 +131,7 @@ switched implementations found need ≈ 0.996 (P415 ledger, model, sufficient le
 * **The route may be vacuous.** Banks, arXiv:2610.15483 (Oct 2026) [Abs], gives an explicit-constant account of an
   "OpenAI manuscript" claiming (1 − β)log q ≥ 3·10⁻³ for all q ≥ 3. It is unrefereed and we do not rely on it.
 
-### H5. The cheapest missing estimate located is (★K) (proposed route, Assessment, §4.2)
+### H5. The cheapest missing estimate identified is (★K) (incomplete specification, Assessment, §4.2)
 * **Statement.** (★K) is a Bombieri–Vinogradov theorem at level x^{1/2−η} for the Titchmarsh-type sequence
   {r*(4p+1)}_p in the classes p ≡ −4 (mod d), with semi-linear sieve weights.
 * **What it would give.** FI's template would give P(4,15) with (★K) plus a switched companion (★K′). This is a
@@ -141,7 +145,7 @@ switched implementations found need ≈ 0.996 (P415 ledger, model, sufficient le
 **What this lane provides.**
 * A provenance-tagged map (§2).
 * Lemma P with its converse Prop P′, which give a sharp data-only threshold of 1/2 for one component.
-* A precise research specification (★K).
+* An incomplete research specification (★K), with its to-do list.
 
 **The judgement (Assessment).** Unconditional K(4) is *known-hard in the practical sense*. Every implementation
 audited needs EH-strength input. Its det-1 analogue has been conditional since 2009, and that status was reaffirmed in
@@ -162,7 +166,9 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
 * **(I) Identity 1_S(N) = (1 + i^{Ω_𝒬(N)})/2 on the stated range.** PROVED (§4.3).
 * **(K) "(★K) + (★K′) ⟹ P(4,15)".** Assessment: a proposed route with a sketch (§4.2), not a proved implication.
 * **(B) The level "budget" readings and the ranking (§4.1).** Assessment.
-* **Literature items.** Statements of cited theorems, with provenance tags.
+* **Literature items.** Each cited result is PROVED relative to its source (the source's own theorem; CONDITIONAL
+  where the source is conditional, e.g. FI 2009 Thm 4 on A(θ)). Provenance is tagged separately. Search and
+  applicability summaries (H1, H3, H4, §§7–8) are Assessment.
 
 **Why this is not already closed.**
 * P415 and HCKILL ran bounded literature checks (`data/z55/p415/lit_report.md`, `data/z54/hckill/lit_report.md`). This
@@ -215,7 +221,7 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
 * **Admissible densities.** We take g(q) = (1 + c_q)/(q + c_q) on 𝒬 with constants 0 ≤ c_q ≤ C/q. This gives:
   * c_q = 0: g = 1/d, the density of the integers;
   * c_q = 1/(q − 2): g(q) = 1/(q − 1), the single-component local density of p + 4 and of 4p + 1 over primes
-    p ≡ 1 (8) (at q = 3 this is c₃ = 1, g = 1/2).
+    p ≡ 1 (8). At q = 3 this is c₃ = 1, g = 1/2, so this case needs C ≥ 3.
 * **Parity-forced.** 𝒜 is *parity-forced* if a_n > 0 ⟹ n ≡ 1 (mod 4). Then n is odd and Ω_𝒬(n) is even.
 * **P(z).** P(z) = ∏_{q∈𝒬, q<z} q.
 
@@ -224,8 +230,8 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
   * **(i)** 𝒜 is parity-forced;
   * **(ii)** no element in S;
   * **(iii)** Σ_{d≤D, d 𝒬-composed sqfree} |r_d| ≪_{ε,C} X·x^{−ε/5};
-  * **(iv)** X ≍_C x/log x.
-* **(b) Data restricted to d | P(z).** For x^ε ≤ z and zD ≤ x^{1−ε}, the same holds with the sum in (iii) over
+  * **(iv)** X ≍_{ε,C} x/log x (in case (a) the constants depend on C only).
+* **(b) Data restricted to d | P(z).** For D ≥ 1 (free), x^ε ≤ z and zD ≤ x^{1−ε}, the same holds with the sum in (iii) over
   d | P(z), d ≤ D.
 
 **Construction.** Let H = D in case (a) and H = z in case (b), and let E = x^{ε/2}.
@@ -236,8 +242,8 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
 *Proof.*
 1. **Parity and S.** Every n with a_n > 0 is n = qm with q ≡ m ≡ 3 (mod 4). So n ≡ 1 (mod 4), and q | n with
    q ∈ 𝒬, hence n ∉ S.
-2. **Coprimality.** Every d in the data has all prime factors < H: they are ≤ D in case (a) and < z in case (b).
-   Hence (d, q) = 1 and d | qm ⟺ d | m. Also e ≤ E < H, so the hidden q never divides e.
+2. **Coprimality.** Every d in the data has all prime factors ≤ H in case (a) (they are ≤ D) and < H in case (b)
+   (they are < z), while every hidden prime is > H. Hence (d, q) = 1 and d | qm ⟺ d | m. Also e ≤ E < H, so the hidden q never divides e.
 3. **One hidden prime.** For Y = x/q,
    Σ_{m≤Y, m≡3 (4), d|m} w(m) = Σ_{e≤E} c_e·#{m ≤ Y : m ≡ 3 (4), [d, e] | m} = (Y/4)Σ_{e≤E} c_e/[d, e] + O(Σ_{e≤E} c_e).
    This holds because d, e are odd, so the conditions define one class mod 4[d, e]. Moreover
@@ -257,7 +263,7 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
    * The first part of |r_d| sums to ≪ D·π(2H)(log x)^C over d ≤ D. In case (a) this is ≪ D²(log x)^C ≤ x^{1−2ε}(log x)^C.
      In case (b) it is ≪ Dz(log x)^C ≤ x^{1−ε}(log x)^C.
    * The second part sums to ≪ X E^{−1/2}Σ_{d≤D} d⁻¹∏_{q′|d}(1 + Cq′^{−1/2}) ≪ X x^{−ε/4} log x. The last step uses
-     Σ_{d≤D} h(d)/d ≤ ∏_{q′≤D}(1 + h(q′)/q′) ≪_C log D for h(q′) = 1 + Cq′^{−1/2}.
+     Σ_{d≤D} h(d)/d ≤ ∏_{q′≤D}(1 + h(q′)/q′) ≪_C log(2D) for h(q′) = 1 + Cq′^{−1/2}.
    * Comparing with X ≍ x/log x gives (iii), with room to spare. ∎
 
 **Prop P′ (PROVED relative to Iwaniec 1976 Theorem 1 [P-me]).** Suppose:
@@ -267,29 +273,35 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
 * Σ_{d<D, d|P(√x)} |r_d| ≪ X(log x)^{−1} for D = x^θ with θ > 1/2 fixed.
 
 Then Σ_{n∈S} a_n ≥ X·W(√x)·(f(2θ) − o(1)), where W(z) = ∏_{q∈𝒬, q<z}(1 − g(q)). In particular the sum is
-≫_θ X(log x)^{−1/2} > 0.
+≫_{θ,C} X(log x)^{−1/2} > 0, for the densities of Lemma P (in general ≫_{θ,g}, with fixed sieve-hypothesis
+constants K, L).
 
 *Proof.* Let n < x have a_n > 0 and (n, P(√x)) = 1. Then Ω_𝒬(n) is even. If it were ≥ 2, then n ≥ (√x)² = x, a
 contradiction. So n ∈ S, and Σ_{n∈S} a_n ≥ S(𝒜, √x). Apply Iwaniec's Thm 1 lower bound with z = √x and s = 2θ, so
 that z^s = D:
 S ≥ Ω(z)X{1 − f_I(s)/√s + O(e^{2K−s}(log z)^{−γ})} − Σ_{d<D}|R(𝒜, d)|.
-Here 1 − f_I(s)/√s = f(s) for s ∈ (1, 2]; for s > 2 it continues by the delay-differential equation and stays
-positive. Also Ω(z) = W(z) ≍ (log x)^{−1/2}. ∎
+Here 1 − f_I(s)/√s = f(s) for s ∈ (1, 2]. For s > 2 it stays positive and tends to 1, by Iwaniec §4, equations
+(4.3)–(4.4), and Lemma 7 (explicit up to s = 3). Also Ω(z) = W(z) ≍_g (log x)^{−1/2}. Theorem 1 is stated for finite
+sets. Its proof rests on pointwise sieve inequalities, which may be multiplied by a_n ≥ 0 and summed, so it applies
+verbatim to weighted sequences. ∎
 
 **Reading (both PROVED statements).** The data in question are the sieve data for one parity-forced component with
 density 1/q + O(1/q²) on 𝒬.
-* At level x^{1/2−ε} these data can **never** certify a single element of S. The barrier is the parity of the 𝒬-primes
+* At any fixed level x^{1/2−ε}, the stated hypotheses (density g with g(q) ≥ 1/q, remainders within the stated
+  bound, forced parity) alone do not guarantee a single element of S. The obstruction is the parity of the 𝒬-primes
   *below the level*, which congruences do not fix.
-* At any fixed level x^θ with θ > 1/2 they **always** certify ≫ X(log x)^{−1/2} of S-mass.
+* At any fixed level x^θ with θ > 1/2, the hypotheses of Prop P′ guarantee ≫ X(log x)^{−1/2} of S-mass.
 
-So the data-only threshold is exactly 1/2. BV supplies 1/2 − ε. That is why Iwaniec 1972, Theorem U, Nath–Xie and
-FI 2009 all add *switching*: an upper bound for the configurations N = qq′m, obtained by sieving the prime variable
-p = N − 4 in the switched sequence. Switching uses primality of the base variable, which the data do not contain.
+So 1/2 is the infimum exponent for a uniform guarantee; the endpoint is not settled here. BV supplies 1/2 − ε. The
+audited unconditional implementations (Iwaniec 1972, Theorem U, Nath–Xie, FI 2009) all add *switching*: an upper bound
+for the configurations N = qq′m, obtained by sieving the prime variable p = N − 4 in the switched sequence. Switching
+uses primality of the base variable, which the data do not contain. No claim is made that switching is necessary.
 * **What this does not cover.** It does not cover the joint data of (p + 4, 4p + 1). Their joint density h(d₁, d₂)
   has h(q, q) = 0 for q ∈ 𝒬, q ≠ 3, and h(3, 3) = 1/2.
-* **Joint-data threshold.** For joint data Lemma P (on one component) gives only the lower bound 1/2. The product
-  linear sieve gives sufficiency above level 1. Whether data-only certification of "both in S" is possible for
-  1/2 < θ ≤ 1 is not settled here.
+* **Joint-data threshold.** Lemma P gives only the single-component obstruction. It gives no lower bound for a
+  threshold with the actual joint data, and constructing a compatible joint counterexample is a separate problem. The
+  product linear sieve with joint data gives sufficiency above level 1 (Assessment from HCKILL's setup). Nothing is
+  settled below that.
 
 **Remarks.**
 1. **Numerics (EVIDENCE).** The hidden-prime example with g = 1/d is in `scripts/z56_k4lit_lemmaP.py`, with output in
@@ -350,11 +362,13 @@ p = N − 4 in the switched sequence. Switching uses primality of the base varia
 * The full-family constructions are excluded (P415 A1/A2). What remains are Bunyakovsky slices.
 * Probability: 0, unconditionally.
 
-### 4.2 Proposed route via (★K) (Assessment: a research specification and sketch, not a proved implication)
+### 4.2 Proposed route via (★K) (Assessment: an incomplete research specification and sketch, not a proved implication)
 
 **The primitive weight (PROVED identity).** For odd N, r*(N) = 4Σ_{e|N} μ²(e)χ₋₄(e) = 4·2^{ω(N)}·1_S(N).
-* *Proof.* Both sides are multiplicative in the prime factorisation of N, and ∏_{ℓ|N}(1 + χ₋₄(ℓ)) = 2^{ω(N)} if
-  N ∈ S and 0 otherwise. The primitive count is 4·2^{ω(N)} on S. ∎
+* *Proof.* After division by 4, both sides are multiplicative. For r*/4 the local factors are: a split prime power
+  ℓ^a contributes 2, since the Gaussian factor is π^a or π̄^a but not a mix (a mix would force a common divisor);
+  an inert prime factor contributes 0, since it divides both coordinates. Units give the factor 4, including at N = 1.
+  On the other side, Σ_{e|N} μ²(e)χ₋₄(e) = ∏_{ℓ|N}(1 + χ₋₄(ℓ)), which is 2^{ω(N)} if N ∈ S and 0 otherwise. ∎
 
 **(★K), specification.** Let λ_d be the upper or lower semi-linear β-sieve weights of level D = x^{1/2−η}. They are
 supported on squarefree d composed of 𝒬-primes q ≠ 3. Put 𝒫 = {p ≤ x prime : p ≡ 1 (8), p ≢ 2 (3)}. Discarding
@@ -382,7 +396,15 @@ and Lemma 4.1.
 * Sieve N₁ by the semi-linear lower sieve to z₁ = x^{θ₁}, with level D, using (★K).
 * Bound the two-large-prime configurations in N₁ via (★K′).
 
-The contest O(η^{3/2}) against ≍ η^{1/2} of P415 Steps 4–5 is unchanged. The output is a positive weighted sum
+The intended comparison is the contest O(η^{3/2}) against ≍ η^{1/2} of P415 Steps 4–5. That it survives the
+r*-weighting is **not established**. Still to do:
+* the mass asymptotic for 𝒳;
+* the local densities g*;
+* the switched bound (★K′) with its parameter dependence;
+* the complementary-divisor analysis. The primitive coefficients μ²(e)χ₋₄(e) are not symmetric under e ↔ N/e, so
+  FI's small-divisor evaluation does not transfer automatically.
+
+If all this goes through, the output is a positive weighted sum
 Σ_{p: N₁∈S} r*(N₂) ≫ x/(log x)^{3/2}, which gives infinitude. Cauchy–Schwarz with
 Σ_{p≤x} r*(4p+1)² ≤ 16Σ_{n≤4x+1} τ(n)² ≪ x log³x gives a count ≫ x/(log x)^6. This is the FI 2009 §§6–7 structure
 transplanted. FI's own hypothesis is A(θ) with a divisor-function weight. It motivates (★K) but is not identical to it:
@@ -484,19 +506,21 @@ The original BFI, Linnik, Hooley, Opera de Cribro and FI 2003 texts were not rea
 >   * The closest unconditional results are Iwaniec 1972 (p + 4 ∈ S), Nath–Xie v3 (p − 1 SOTS, Ω(p + 2) ≤ 9) and
 >     Theorem U.
 > * No 2018–2026 parity-breaking or Type II result located supplies the missing input.
->   * Norm-form full-family constructions are excluded by P415 A1/A2.
+>   * Full-family constructions satisfying P415 A1/A2 are excluded.
 >   * The 2026 GMPP result on n² + h averages over the shift.
->   * The beyond-1/2 prime levels need a single fixed residue (≤ 5/8) or smooth moduli (≤ 1/2 + 1/40). Our
->     residues are coupled.
+>   * The audited unconditional beyond-1/2 prime levels need a single fixed residue (≤ 5/8, weighted) or smooth
+>     moduli (≤ 1/2 + 1/40). Our residues are coupled.
 >   * Siegel-zero inputs are too weak.
 >
-> **Lemma P + Prop P′ (PROVED).** For one parity-forced semi-linear component, with density 1/q + O(1/q²) on 𝒬,
-> sieve data certify S-membership iff the level exceeds 1/2.
-> * Below 1/2, a hidden 𝒬-prime gives a sequence with identical data and no element in S.
-> * Above 1/2, the S-mass is ≫ X(log x)^{−1/2} (from Iwaniec 1976 Thm 1).
+> **Lemma P + Prop P′ (PROVED).** Take one parity-forced semi-linear component, with density
+> g(q) = 1/q + O(1/q²) ≥ 1/q on 𝒬 and the stated remainder bounds.
+> * At every fixed level below 1/2, a hidden 𝒬-prime gives a sequence with the same local density, admissible
+>   remainders and no element in S.
+> * At every fixed level above 1/2, the S-mass is ≫ X(log x)^{−1/2} (from Iwaniec 1976 Thm 1).
+> * The endpoint is open. Nothing is claimed for joint data.
 >
-> So BV misses by ε, and exact S-shifts at BV level come from switching (Iwaniec 1972). For two shifts the audited
-> implementations need level ≈ 1 (Assessment).
+> So BV misses by ε. The audited unconditional implementations obtain exact S-shifts at BV level by switching
+> (Iwaniec 1972); for two shifts they need level ≈ 1 (Assessment).
 >
 > **Research specification (★K) (Assessment).** BV at level 1/2 for {r*(4p+1)} in classes p ≡ −4 (mod d), with
 > semi-linear weights; together with a switched companion, this is an FI-template route to P(4,15). Opened up, it is
@@ -510,19 +534,20 @@ Unconditional K(4) = P(4,15) was not located in the literature. Its closest rela
 prime-norm problem on SL₂(ℤ), with p ± 2 both sums of two squares. That problem has been proved only under an
 EH-strength hypothesis since 2009, and was described as conditional again in 2026.
 
-This lane makes the "it's only a level problem" diagnosis precise for one component. Sieve data plus the
-congruence-forced parity certify S-membership exactly when the level exceeds 1/2:
-* below 1/2, a hidden 𝒬-prime defeats any data-only argument (Lemma P);
-* above 1/2, Iwaniec's sieve succeeds (Prop P′).
+This lane makes the "it's only a level problem" diagnosis precise for one component, with sieve data plus the
+congruence-forced parity:
+* at every fixed level below 1/2, the stated hypotheses do not guarantee any element of S, because a hidden 𝒬-prime
+  defeats them (Lemma P);
+* at every fixed level above 1/2, Iwaniec's sieve guarantees S-mass (Prop P′).
 
-Bombieri–Vinogradov sits at 1/2 − ε, so each exact S-shift in the literature is bought with switching. Two exact
-shifts need about level 1 in every implementation audited.
+Bombieri–Vinogradov sits at 1/2 − ε, and the audited unconditional implementations obtain each exact S-shift with
+switching. Two exact shifts need about level 1 in every implementation audited.
 
 No recent breakthrough located supplies this:
-* norm-form prime theorems fail the confinement lemmas;
+* full-family constructions on the norm-form prime theorems fail the confinement lemmas (P415 A1/A2);
 * GMPP-type parity breaking averages over the shift;
-* the fixed-residue levels stop at 5/8 and do not allow coupled residues;
-* Siegel-zero inputs give ≈ 1/2 uniformly.
+* the audited unconditional fixed-residue weighted levels stop at 5/8 and do not allow coupled residues;
+* the residue-uniform Siegel-zero inputs give ≈ 1/2 (a fixed-residue 2/3 is recalled by Wright [Sec]).
 
 The cheapest missing input is the research specification (★K), a BV theorem for the Titchmarsh-type sequence r*(4p+1).
 
@@ -570,4 +595,15 @@ the explicit Ω bound, and stop direct attacks. No step toward ES.
   * (v) **lit_C §2.8.** The Lü–Wang–Wu assessment is a reader's Assessment, not a verification or a refutation.
   * (vi) **lit_B / lit_C.** "No parity barrier" is to be read as: no barrier for the *total* Ω_𝒬 parity. At BV level
     there is the hidden-prime barrier of Lemma P.
+* **Round-2 internal re-review** (`internal_review.md`, "Re-review (round 2)"). Verdict MAJOR REVISION, no FATAL.
+  Weighted Lemma P was audited step by step and passes; Prop P′ passes, including s > 2. Fixes applied:
+  * R1: "iff" / "exactly" / "never" replaced by the infimum-exponent reading, with the endpoint open; "identical data"
+    replaced by "same local density, stated remainders".
+  * R2: the joint lower-bound inference was deleted.
+  * R3: D ≥ 1 is stated in (b); X ≍_{ε,C}; log(2D); ≤ H vs < H; C ≥ 3 for the shifted-prime case.
+  * R4: ≫_{θ,C}; the weighted extension of Iwaniec Thm 1 is stated; §4, (4.3)–(4.4) and Lemma 7 are cited for s > 2.
+  * R5: the r*/4 multiplicativity proof is written out; (★K) is relabelled an incomplete specification, with a to-do
+    list including the e ↔ N/e asymmetry.
+  * R6: literature-status labels are added in §1; universal phrases in §§7–8 are scoped.
+  * The script docstring now lists the supported runs.
 * **Cross-model review:** pending.
