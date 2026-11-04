@@ -29,7 +29,7 @@ the class, and **a\*_p > 0 for a prime p ⟺ p is a P(4,15) prime in the class 9
    it vanishes on the shift classes of every inert ℓ and is doubled-weight on those of every split ℓ. Hence the
    natural multiplicative comparison model fails every Type II hypothesis with logarithmic saving (explicit 0/1
    coefficients force mn ≡ −4 (mod ℓ)); more generally any comparison model must carry the residue information of
-   every inert prime ℓ ≤ (log x)^{A/2}/(log log x) if a saving (log x)^{−A} is required. The first draft's (TII\*) was
+   every inert prime ℓ ≤ (log x)^{A/2}/(log log x)² if a saving (log x)^{−A} is required. The first draft's (TII\*) was
    false for this reason and is withdrawn.
 4. **Route D — the corrected missing estimate (§4, CONDITIONAL / Assessment).** The natural target is (TII_W): Type II
    smallness of a\* − λν_W on m ∈ (x^{1/6−5ε}, x^{2/3−5ε}), where ν_W is the W-tricked local model (all shift-class
@@ -216,7 +216,8 @@ Not written out in full; label accordingly.
 Let E_n := a\*_n − λ_Wν_W(n), N ≤ x^{1/2}, β supported on (N, 2N], |β_n| ≤ τ(n), |α_m| ≤ τ(m). Then
   |Σ_{m,n} α_m β_n E_{mn}|² ≤ (Σ_{m ≤ x/N} τ(m)²)·Σ_{n₁,n₂ ∈ (N,2N]} τ(n₁)τ(n₂)|Σ_{m ≤ x/max(n₁,n₂)} E_{mn₁}E_{mn₂}|,
 so (TII_W) at this split follows from Σ_{n₁,n₂}τ(n₁)τ(n₂)|Σ_m E_{mn₁}E_{mn₂}| ≪ xN(log x)^{−2A−C}. Expanding: (a) the
-a\*a\* part is, for n₁ ≢ n₂ … with n₁ ≡ n₂ (mod 120) units (else no m has both mn_i ≡ 97), the one-variable correlation
+a\*a\* part is, for n₁ ≠ n₂ (both units with n₁ ≡ n₂ (mod 120); otherwise no m has mn₁ ≡ mn₂ ≡ 97), the one-variable
+correlation
 Σ_m r\*(n₁m + 4)r\*(4n₁m + 1)r\*(n₂m + 4)r\*(4n₂m + 1)1[mn₁ ≡ 97 (120)] — four affine forms in one variable with distinct
 roots (pairwise non-proportional), coefficients of size N; its main term is a pair-dependent singular series which must
 cancel against (b) the two mixed terms, Type I sums of a\* to moduli ≈ n_i twisted by ν_W(mn_j) (twisted Type I at
