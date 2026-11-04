@@ -118,9 +118,9 @@ p\log p$ rare divisibility events, each tied to its own modulus, whose
 expected total is of order $(\log p)^2$ (\S\ref{subsec:genus-intro}).
 It vanishes at some primes: among primes $p\equiv1\pmod4$ below $10^7$
 we find $R(p)=0$ exactly for
-\[
-p=409,\ 577,\ 5569,\ 9601,\ 23929,\ 83449,\ 102001,\ 329617,\ 712321,\ 1134241,\ 1724209,\ 1726201,\ 5212561,\ 8813281
-\]
+\begin{gather*}
+409,\ 577,\ 5569,\ 9601,\ 23929,\ 83449,\ 102001,\\ 329617,\ 712321,\ 1134241,\ 1724209,\ 1726201,\ 5212561,\ 8813281
+\end{gather*}
 (a direct computation; \S\ref{sec:numerics}).  These primes have other
 solutions of \eqref{eq:ES}, so $R(p)\ge1$ is strictly stronger than the
 conjecture at $p$.  Nothing below shows $R(p)\ge1$ for any prescribed
@@ -627,9 +627,14 @@ $<1$ contains at most one integer),
  H}\frac1h\Bigl(\frac WQ\lambda_h^{1/6}+\Bigl(\frac WQ\Bigr)^{1/2}
  \lambda_h^{-1/6}+1\Bigr).
 \]
-Here $(W/Q)\lambda_h^{1/6}\ll h^{1/6}T^{1/2}W^{1/3}Q^{-2/3}\le
-h^{1/6}T^{5/6+2\eta/3}Q^{-2/3}$ and $(W/Q)^{1/2}\lambda_h^{-1/6}\ll
-W^{7/6}T^{-1/2}Q^{-5/6}\le T^{2/3+7\eta/3}Q^{-5/6}$.  Summing over $h$
+Here
+\[
+ \frac WQ\lambda_h^{1/6}\ll h^{\frac16}T^{\frac12}W^{\frac13}Q^{-\frac23}\le
+ h^{\frac16}T^{\frac56+\frac{2\eta}3}Q^{-\frac23},\qquad
+ \Bigl(\frac WQ\Bigr)^{\frac12}\lambda_h^{-\frac16}\ll
+ W^{\frac76}T^{-\frac12}Q^{-\frac56}\le T^{\frac23+\frac{7\eta}3}Q^{-\frac56}.
+\]
+Summing over $h$
 and choosing $H=\lceil T^{1/7}Q^{-2/7}\rceil$ gives
 $\ll T^{6/7+2\eta}Q^{-5/7}+T^{2/3+7\eta/3}Q^{-5/6}+\log T$ for each piece,
 class and endpoint.  Multiplying by $Q^2$ classes, two endpoints and
@@ -744,11 +749,11 @@ $M>0$ we have $\sum_{\ell\ne0}\Psi(\ell/M)|\ell|^\sigma\ll M^{1+\sigma}$
 (for $M\ge1$ split at $|\ell|=M$ and use $\Psi(x)\ll|x|^{-2}$; for $M<1$
 use $\Psi(\ell/M)\ll M^2\ell^{-2}\le M^{1+\sigma}\ell^{-2}$).  With
 $M=8QW/V$:
-\[
+\begin{multline*}
  \frac{V}{QW}Q^{3/2}\Bigl[\Bigl(\frac{QW}V\Bigr)^{7/6}n^{1/6}W^{1/3}Q^{-2/3}
- +\Bigl(\frac{QW}V\Bigr)^{5/6}n^{-1/6}W^{7/6}Q^{-5/6}+\frac{QW}V\Bigr]
+ +\Bigl(\frac{QW}V\Bigr)^{5/6}n^{-1/6}W^{7/6}Q^{-5/6}+\frac{QW}V\Bigr]\\
  =Qn^{1/6}W^{1/2}V^{-1/6}+Q^{1/2}V^{1/6}Wn^{-1/6}+Q^{3/2}.\qedhere
-\]
+\end{multline*}
 \end{proof}
 
 \subsection{Proof of Theorem~\ref{thm:A}}
@@ -909,3 +914,983 @@ $\sum_{\ell,C}G_C(\ell)e(\ell n/(4CQ))$.  We do not formalise or pursue
 this.
 \end{remark}
 
+\section{The genus main term}\label{sec:genus}
+
+Throughout this section $p\equiv1\pmod4$ is prime and $\Mgen(p)$ is
+defined by \eqref{eq:Mgen}.  The interpretation of $\Mgen$ is as
+follows.  For $(u,B)\in\cP(p)$ both $p$ and $a$ are units modulo $q$
+(Lemma~\ref{lem:pair}), and
+$\mathbf 1[p\equiv a\ (q)]=\varphi(q)^{-1}\sum_{\chi\bmod q}\chi(p)\bar\chi(a)$.
+The real characters modulo $q$ are the characters of
+$(\Z/q\Z)^\times/((\Z/q\Z)^\times)^2$, so their part of the sum is
+$\varphi(q)^{-1}\sum_{\chi^2=1}\chi(pa)=\frac{s(q)}{\varphi(q)}\mathbf
+1[pa\in((\Z/q\Z)^\times)^2]$.  Summing over $\cP(p)$ gives $\Mgen(p)$,
+and $R(p)-\Mgen(p)$ is the contribution of characters of order $\ge3$.
+
+\subsection{A genus-exact subfamily}
+For a squarefree $u\equiv1\pmod4$ with $p\nmid u$ put $D=D_u:=-4up$, a
+fundamental discriminant ($-up\equiv3\pmod4$ and $up$ is squarefree).
+Let $w_0:=-(p+u)/2$, an odd integer, and
+\[
+ \cE_u:=\bigl\{\eta_{d,j}:=\leg{\cdot}{d}\chi_{-4}^j:\ d\mid u,\ j\in\{0,1\}\bigr\},\qquad
+ \eps_{d,j}:=\leg{-2p}{d}\chi_{-4}(w_0)^j\in\{\pm1\},
+\]
+where $\leg\cdot d$ is the Jacobi symbol (a primitive character of
+conductor $d$ for squarefree odd $d$; trivial for $d=1$).  Note
+$\eta_{1,0}=1$ and $\eps_{1,0}=1$.  For odd $w$ coprime to $up$ put
+\[
+ \rho_u(w):=\frac{2^{\omega(w)}}{\varphi(w)}\,\mathbf 1\bigl[\chi_D(\ell)=1\
+ \text{for every prime}\ \ell\mid w\bigr].
+\]
+
+\begin{lemma}\label{lem:subfamily}
+Let $u\equiv1\pmod4$ be squarefree and $w$ odd with $\gcd(w,u)=1$,
+$p\nmid uw$ and $8uw\le p$.  Then $(u,2w)$ and $(2w,u)$ are distinct
+elements of $\cP(p)$, both with $q=8uw$ and $a=-(u+2w)$, and each
+contributes
+\[
+ \frac{2^{\omega(u)}}{\varphi(u)}\,\rho_u(w)\,2^{-\omega(u)-1}
+ \sum_{\eta\in\cE_u}\eps_\eta\,\eta(w)
+\]
+to $\Mgen(p)$.  Hence the two together contribute
+$\varphi(u)^{-1}\rho_u(w)\sum_{\eta\in\cE_u}\eps_\eta\eta(w)$.
+\end{lemma}
+\begin{proof}
+$4u\cdot2w-u-2w<8uw\le p$, $\gcd(u,2w)=1$ and $u+2w$ is odd.  As
+$8\,\|\,q$ and $uw$ is odd, $(\Z/q\Z)^\times\cong(\Z/8\Z)^\times\times
+\prod_{\ell\mid uw}(\Z/\ell^{v_\ell(uw)}\Z)^\times$, so
+$s(q)=4\cdot2^{\omega(uw)}$ and $\varphi(q)=4\varphi(u)\varphi(w)$.  A unit
+is a square modulo $q$ iff it is $\equiv1\pmod8$ and a quadratic residue
+modulo every prime $\ell\mid uw$.  For $\ell\mid w$, $a\equiv-u$, and
+$\leg{-up}{\ell}=\chi_D(\ell)$; for $\ell\mid u$, $a\equiv-2w$; and
+$pa\equiv1\pmod 8$ iff $a\equiv p\pmod8$ iff $2w\equiv-(p+u)\pmod 8$ iff
+$w\equiv w_0\pmod 4$ (note $p+u\equiv2\pmod4$).  So the genus condition
+is: $\chi_D(\ell)=1$ for all $\ell\mid w$; $\leg{-2pw}{\ell}=1$ for all
+$\ell\mid u$; and $\chi_{-4}(w)=\chi_{-4}(w_0)$.  Since $\gcd(w,u)=1$ the
+last two conditions have indicator
+$\prod_{\ell\mid u}\frac12(1+\leg{-2p}{\ell}\leg w\ell)\cdot\frac12(1+\chi_{-4}(w_0)\chi_{-4}(w))
+=2^{-\omega(u)-1}\sum_{\eta\in\cE_u}\eps_\eta\eta(w)$.
+\end{proof}
+
+\subsection{Analytic inputs}
+\begin{citedthm}[Burgess \cite{Burgess62,Burgess63}; {\cite[Thm.~12.6]{IK}}]\label{cit:burgess}
+For every integer $r\ge1$ and $\eps>0$ there is $C(r,\eps)$ such that for
+every primitive Dirichlet character $\chi$ of cube-free conductor $f>1$,
+all real $M\ge0$ and $N\ge1$,
+\[
+ \Bigl|\sum_{M<n\le M+N}\chi(n)\Bigr|\le C(r,\eps)N^{1-1/r}f^{(r+1)/(4r^2)+\eps}.
+\]
+The constant $C(r,\eps)$ is effectively computable: an explicit version
+is \cite[Thm.~1.2]{HLMLT} (for $f\ge\max(10^{1143},2^{4r-2})$, with
+additional factors that are $O_{r,\eps}(f^\eps)$ effectively; smaller $f$
+are covered by $|\sum\chi(n)|\le\min(N,f)\le f^{1/r}N^{1-1/r}$).
+\end{citedthm}
+
+Fix an integer $r\ge3$ and $\eps\in(0,\frac1{100})$, and put
+\[
+ \kappa:=\frac1r,\qquad\theta:=\frac{r+1}{4r^2}+\eps,\qquad
+ \tau:=r\theta=\frac{r+1}{4r}+r\eps .
+\]
+Implied constants in this section depend only on $r,\eps$ and on fixed
+exponents introduced below; all of them are effective.
+
+\begin{lemma}\label{lem:tails}
+Let $\chi=\chi^*\cdot\mathbf 1[\gcd(\cdot,e)=1]$ with $\chi^*$ primitive of
+cube-free conductor $f>1$ and $e\ge1$.  Put
+$K:=(1+r)\tau(e)C(r,\eps)f^\theta$.  Then for $t\ge1$
+\[
+ \Bigl|\sum_{n>t}\frac{\chi(n)}n\Bigr|\le Kt^{-\kappa},\qquad
+ \Bigl|\sum_{n>t}\frac{\chi(n)\log n}n\Bigr|\le(r+1)Kt^{-\kappa}(1+\log t).
+\]
+\end{lemma}
+\begin{proof}
+Replacing $e$ by its radical, $S(v):=\sum_{n\le v}\chi(n)=\sum_{g\mid
+e}\mu(g)\chi^*(g)\sum_{m\le v/g}\chi^*(m)$, so $|S(v)|\le\tau(e)C(r,\eps)
+v^{1-\kappa}f^\theta$.  By partial summation
+$\sum_{n>t}\chi(n)/n=-S(t)/t+\int_t^\infty S(v)v^{-2}dv$, which is at most
+$\tau(e)Cf^\theta(t^{-\kappa}+rt^{-\kappa})$.  Similarly, with
+$d(\log v/v)=(1-\log v)v^{-2}dv$ and
+$\int_t^\infty v^{-1-\kappa}(1+\log v)dv=rt^{-\kappa}(1+r+\log t)$, the
+second sum is at most $\tau(e)Cf^\theta t^{-\kappa}(1+r)(r+\log t)$.
+\end{proof}
+
+For arithmetic functions $F,G$ and $y>0$ write
+$\Phi_{F,G}(y):=\sum_{ab\le y}F(a)G(b)/(ab)$ (so $\Phi(y)=0$ for $y<1$),
+$L(1,F)=\sum F(a)/a$ and $L'(1,G)=-\sum_bG(b)\log b/b$ when these
+converge.
+
+\begin{lemma}[hyperbola method]\label{lem:hyperbola}
+\begin{enumerate}
+\item[(a)] Let $F,G$ be as in Lemma~\ref{lem:tails} with constants
+$K_F,K_G\ge1$.  If $y^\kappa\ge K_FK_G$ then
+$|\Phi_{F,G}(y)-L(1,F)L(1,G)|\le(2r+3)(K_FK_Gy^{-\kappa})^{1/2}$.
+\item[(b)] Let $F\equiv1$ and $G$ as in Lemma~\ref{lem:tails} with
+constant $K_G$.  For $1\le z\le y$,
+\[
+ \bigl|\Phi_{1,G}(y)-L(1,G)(\log y+\gamma_E)-L'(1,G)\bigr|\le
+ 5r^2K_G(z/y)^\kappa(1+\log y)+2/z .
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Let $\mathfrak F(t)=\sum_{a\le t}F(a)/a$, $\mathfrak G(t)=\sum_{b\le
+t}G(b)/b$.  For $1\le z\le y$, Dirichlet's hyperbola identity is
+$\Phi(y)=\sum_{a\le z}\frac{F(a)}a\mathfrak G(\frac ya)+\sum_{b\le
+y/z}\frac{G(b)}b\mathfrak F(\frac yb)-\mathfrak F(z)\mathfrak G(\frac yz)$.
+
+(a) Write $\mathfrak F=L_F-r_F$, $\mathfrak G=L_G-r_G$, with
+$|r_F(t)|\le K_Ft^{-\kappa}$, $|r_G(t)|\le K_Gt^{-\kappa}$ for $t\ge1$.
+Substituting, all products of $L$'s combine to $L_FL_G$ and
+\[
+ \Phi(y)-L_FL_G=-\sum_{a\le z}\frac{F(a)}ar_G\Bigl(\frac ya\Bigr)
+ -\sum_{b\le y/z}\frac{G(b)}br_F\Bigl(\frac yb\Bigr)-r_F(z)r_G\Bigl(\frac yz\Bigr).
+\]
+As $\sum_{a\le z}a^{\kappa-1}\le1+rz^\kappa$, the three terms are at most
+$K_Gy^{-\kappa}(1+rz^\kappa)$, $K_Fy^{-\kappa}(1+r(y/z)^\kappa)$ and
+$K_FK_Gy^{-\kappa}$.  Take $z=y^{1/2}(K_F/K_G)^{r/2}$; the hypothesis and
+$K_F,K_G\ge1$ give $1\le z\le y$.  Then
+$rK_Gy^{-\kappa}z^\kappa=rK_Fz^{-\kappa}=r(K_FK_Gy^{-\kappa})^{1/2}$, and the
+remaining terms total $\le3K_FK_Gy^{-\kappa}\le3(K_FK_Gy^{-\kappa})^{1/2}$.
+
+(b) Now $\mathfrak F(t)=\log t+\gamma_E+r_1(t)$ with $|r_1(t)|\le1/t$ for
+$t\ge1$.  Write $r'_G(t)=\sum_{b>t}G(b)\log b/b$.  Substituting and
+collecting terms,
+\begin{align*}
+\Phi(y)={}&L_G(\log y+\gamma_E)+L'(1,G)
+-\sum_{a\le z}\frac1ar_G\Bigl(\frac ya\Bigr)-\log\frac yz\,r_G\Bigl(\frac yz\Bigr)
++r'_G\Bigl(\frac yz\Bigr)\\
+&+\sum_{b\le y/z}\frac{G(b)}br_1\Bigl(\frac yb\Bigr)+r_1(z)r_G\Bigl(\frac yz\Bigr).
+\end{align*}
+(The coefficient of $\log z$ cancels between $L_G\mathfrak F(z)$ and
+$-\mathfrak F(z)L_G$; the $b$-sum gives $(\log y+\gamma_E)(L_G-r_G(y/z))
++L'(1,G)+r'_G(y/z)$.)  The five error terms are bounded by
+$K_Gy^{-\kappa}(1+rz^\kappa)$, $K_G(z/y)^\kappa\log y$,
+$(r+1)K_G(z/y)^\kappa(1+\log y)$, $\sum_{b\le y/z}b^{-1}(b/y)\le1/z$ and
+$K_G(z/y)^\kappa/z$; their sum is at most the stated bound.
+\end{proof}
+
+\subsection{Windowed sums: only the principal genus character survives}
+Fix exponents $0<\alpha_0<\alpha_1$ and $\beta<\gamma$, put
+$U_i=p^{\alpha_i}$, $Y=p^\beta$, $X=p^\gamma$, and
+\[
+ \cU:=\{u\ \text{squarefree}:\ u\equiv1\ (4),\ U_0<u\le U_1\},\qquad
+ \cS_u:=\{w\ \text{odd squarefree}:\ \gcd(w,up)=1\}.
+\]
+For $u\in\cU$ and $\eta\in\cE_u$ let
+$S_\eta(u):=\sum_{w\in\cS_u\cap(Y,X]}\eta(w)\rho_u(w)$.
+
+\begin{proposition}\label{prop:window}
+Assume $\gamma<1-\alpha_1$ and $\beta>\tau(1+\alpha_1)+4\eps$.  There is
+$\delta=\delta(r,\eps,\alpha_1,\beta)>0$ such that, uniformly for $u\in\cU$
+and $\eta\in\cE_u$,
+\[
+ S_\eta(u)=\mathbf 1[\eta=1]\,H_u\,L(1,\chi_{D_u})\,(\gamma-\beta)\log p
+ +O(p^{-\delta}),\qquad
+ H_u:=\frac6{\pi^2}\prod_{\ell\mid2up}\frac{\ell}{\ell+1}.
+\]
+\end{proposition}
+\begin{proof}
+\emph{(1) Factorisation.}  For $w\in\cS_u$,
+$\sum_{b\mid w}\chi_D(b)=\prod_{\ell\mid w}(1+\chi_D(\ell))=2^{\omega(w)}
+\mathbf 1[\chi_D(\ell)=1\ \forall\ell\mid w]$.  So $\rho_u(w)=g(w)/w$ with
+$g(w):=\mathbf 1_{\cS_u}(w)\frac{w}{\varphi(w)}\sum_{b\mid w}\chi_D(b)$, a
+multiplicative function.  Define $h$ by $g=1*\chi_D*h$.  Comparing local
+factors (with $Y_\ell=\ell^{-s}$): for $\ell\mid2up$ we have
+$\chi_D(\ell)=0$ and $h(\ell)=-1$, $h(\ell^k)=0$ for $k\ge2$; for
+$\chi_D(\ell)=1$ the factor of $h$ is
+$(1+\frac{2\ell}{\ell-1}Y_\ell)(1-Y_\ell)^2$, so $h(\ell)=\frac2{\ell-1}$,
+$h(\ell^2)=-\frac{3\ell+1}{\ell-1}$, $h(\ell^3)=\frac{2\ell}{\ell-1}$; for
+$\chi_D(\ell)=-1$ it is $(1-Y_\ell)(1+Y_\ell)$, so $h(\ell^2)=-1$ and the
+other values vanish.  Consequently, for fixed $0\le\theta'<\frac12$,
+\[
+ \sum_{c\ge1}|h(c)|c^{\theta'-1}\le2^{\omega(2up)}\prod_{\ell\ge3}
+ \bigl(1+2\ell^{\theta'-1}/(\ell-1)+5\ell^{2\theta'-2}+3\ell^{3\theta'-3}\bigr)
+ =p^{o(1)}.
+\]
+At $s=1$ each factor with $\ell\nmid2up$ equals $1-\ell^{-2}$, so
+$\sum_ch(c)/c=\prod_{\ell\mid2up}(1-\ell^{-1})\prod_{\ell\nmid2up}(1-\ell^{-2})=H_u$.
+Since $\eta$ is completely multiplicative,
+\[
+ S_\eta(u)=\sum_{c\ge1}\frac{\eta(c)h(c)}c\bigl[\Phi_\eta(X/c)-\Phi_\eta(Y/c)\bigr],
+ \qquad\Phi_\eta:=\Phi_{\eta,\eta\chi_D}.
+\]
+
+\emph{(2) The characters.}  For odd $n$, $\chi_D(n)=\chi_{-4}(n)\leg
+nu\leg np$ by quadratic reciprocity ($u\equiv p\equiv1\pmod 4$), and
+$\chi_D(n)=0$ for even $n$.  Hence for $\eta=\eta_{d,j}$
+\[
+ \eta\chi_D(n)=\chi_{-4}(n)^{j+1}\leg{n}{u/d}\leg np\mathbf 1[\gcd(n,2d)=1],
+\]
+so $\eta\chi_D=\chi^*\mathbf 1[\gcd(\cdot,2d)=1]$ with $\chi^*$ primitive
+of conductor $f_G=4^{1-j}(u/d)p$.  Since $p\mid f_G$, \emph{$\eta\chi_D$ is
+non-principal for every $\eta\in\cE_u$}.  The character $\eta$ is
+principal iff $(d,j)=(1,0)$, and otherwise primitive of conductor
+$f_F=4^jd$.  In all cases $f_Ff_G=4up$, and both conductors are
+cube-free.
+
+\emph{(3) $\eta\ne1$.}  Lemma~\ref{lem:tails} applies to $F=\eta$ with
+$K_F=(1+r)Cf_F^\theta$ and to $G=\eta\chi_D$ with
+$K_G=(1+r)\tau(2d)Cf_G^\theta$, so $K_FK_G\le p^{\theta(1+\alpha_1)+o(1)}$.
+Let $C_0=p^\eps$.  For $c\le C_0$ both $X/c$ and $Y/c$ are $\ge
+p^{\beta-\eps}$, and $(p^{\beta-\eps})^\kappa\ge K_FK_Gp^{\kappa\eps}$ for
+large $p$ because $\beta>\tau(1+\alpha_1)+2\eps$.  Lemma~\ref{lem:hyperbola}(a)
+gives $|\Phi_\eta(X/c)-\Phi_\eta(Y/c)|\le2(2r+3)p^{-\kappa\eps/2}$: the
+constant $L(1,F)L(1,G)$ cancels.  For $c>C_0$ we use
+$|\Phi_\eta(y)|\le\sum_{m\le y}\tau(m)/m\le(1+\log y)^2$ and
+$\sum_{c>C_0}|h(c)|/c\le C_0^{-1/4}\sum_c|h(c)|c^{-3/4}=p^{-\eps/4+o(1)}$.
+Altogether $S_\eta(u)=O(p^{-\delta})$.
+
+\emph{(4) $\eta=1$.}  Apply Lemma~\ref{lem:hyperbola}(b) with $G=\chi_D$
+(primitive of conductor $4up$, $K_G=(1+r)C(4up)^\theta$), $z=p^\eps$ and
+$y\in\{X/c,Y/c\}$, $c\le C_0$.  Then
+$K_G(z/y)^\kappa\le p^{\kappa(2\eps-\beta)+\theta(1+\alpha_1)+o(1)}\le
+p^{-\kappa\eps+o(1)}$, so
+$\Phi_1(X/c)-\Phi_1(Y/c)=L(1,\chi_D)\log(X/Y)+O(p^{-\kappa\eps/2})$: the
+constants $L(1,\chi_D)\gamma_E+L'(1,\chi_D)$ cancel in the difference.
+Summing over $c\le C_0$ with weights $h(c)/c$, using
+$\sum_{c\le C_0}h(c)/c=H_u+O(p^{-\eps/4+o(1)})$, $L(1,\chi_D)\ll\log p$, and
+the bound for $c>C_0$ from (3), gives the claim.
+\end{proof}
+
+\subsection{An average of $L(1,\chi_{-4up})$}
+\begin{proposition}\label{prop:Lavg}
+Let $0<\alpha_0<\alpha_1<1$ with $\alpha_0>\tau^2(1+\alpha_1)+3\eps$.  Then
+\[
+ \sum_{u\in\cU}\frac{L(1,\chi_{-4up})}{u}\ge\frac2{\pi^2}(\alpha_1-\alpha_0)\log p-O(1).
+\]
+\end{proposition}
+\begin{proof}
+Put $\nu=\tau(1+\alpha_1)+\eps$ and $N=p^\nu$.  For odd $n$ and
+$u\in\cU$, $\chi_{-4up}(n)=\chi_{-4p}(n)\leg un$ (reciprocity, $u\equiv1\
+(4)$), and $\chi_{-4up}(n)=0$ for even $n$.  By Lemma~\ref{lem:tails}
+(conductor $4up$),
+\[
+ L(1,\chi_{-4up})=\sum_{\substack{n\le N\\ n\ \mathrm{odd}}}\frac{\chi_{-4p}(n)}n\leg un+\varrho_u,
+ \qquad|\varrho_u|\le(1+r)C(4up)^\theta N^{-\kappa}.
+\]
+Since $\kappa\nu=\theta(1+\alpha_1)+\kappa\eps$, we get
+$\sum_{u\in\cU}|\varrho_u|/u\le p^{-\kappa\eps+o(1)}$.  In the main part
+exchange the sums: it equals $\sum_{n\le N\ \mathrm{odd}}\chi_{-4p}(n)
+V(n)/n$ with $V(n)=\sum_{u\in\cU}\leg un/u$.
+
+If $n=m^2$ then $\leg u{m^2}=\mathbf 1[\gcd(u,m)=1]\ge0$ and
+$\chi_{-4p}(m^2)\in\{0,1\}$, so these terms are nonnegative and we keep only
+$n=1$.  Squarefree $u\equiv1\pmod4$ have counting function
+$\frac2{\pi^2}x+O(\sqrt x)$, so
+$V(1)=\frac2{\pi^2}(\alpha_1-\alpha_0)\log p+O(1)$.
+
+If $n$ is not a square, write $n=n_1m^2$ with $n_1>1$ squarefree.  For
+squarefree $u$,
+$\mathbf 1[u\equiv1\ (4)]\leg un=\frac12(\psi_1(u)+\psi_2(u))$ with
+$\psi_1=\leg\cdot{n_1}\mathbf 1[\gcd(\cdot,2m)=1]$ and
+$\psi_2=\chi_{-4}\leg\cdot{n_1}\mathbf 1[\gcd(\cdot,m)=1]$, completely
+multiplicative with primitive parts of cube-free conductors $n_1$, $4n_1>1$.
+Writing $\mu^2(u)=\sum_{e^2\mid u}\mu(e)$ and using the partial-sum bound
+of Lemma~\ref{lem:tails},
+\[
+ \Bigl|\sum_{u\le t}\mu^2(u)\psi_i(u)\Bigr|\le\sum_{e\le\sqrt
+ t}\Bigl|\sum_{v\le t/e^2}\psi_i(v)\Bigr|\le\zeta(2-2\kappa)\tau(2m)C(4n_1)^\theta
+ t^{1-\kappa}
+\]
+($r\ge3$ gives $2-2\kappa>1$).  Partial summation over $(U_0,U_1]$ gives
+$|V(n)|\le(2+r)\zeta(2-2\kappa)\tau(2m)C(4n)^\theta U_0^{-\kappa}$.  Hence
+$\sum_{n\le N\ \text{non-square}}|V(n)|/n\le p^{o(1)}U_0^{-\kappa}N^\theta=
+p^{\theta\nu-\kappa\alpha_0+o(1)}$, and $\theta\nu-\kappa\alpha_0<0$ because
+$\alpha_0>\tau\nu=\tau^2(1+\alpha_1)+\tau\eps$.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:B}}
+\begin{theorem}\label{thm:U}
+Let $r\ge3$ be an integer, $\eps\in(0,\frac1{100})$, $\tau=\frac{r+1}{4r}+r\eps$,
+and let $0<\alpha_0<\alpha_1$, $\beta<\gamma$ satisfy
+\[
+ \text{(C1)}\ \gamma<1-\alpha_1,\qquad
+ \text{(C2)}\ \beta>\tau(1+\alpha_1)+4\eps,\qquad
+ \text{(C3)}\ \alpha_0>\tau^2(1+\alpha_1)+3\eps .
+\]
+Then $\Mgen(p)\ge(c-o(1))(\log p)^2$ as $p\to\infty$ through primes
+$p\equiv1\pmod4$, where $c=\frac8{\pi^4}(\gamma-\beta)(\alpha_1-\alpha_0)$, and
+the $o(1)$ is effective.
+\end{theorem}
+\begin{proof}
+For $u\in\cU$ and $w\in\cS_u\cap(Y,X]$, Lemma~\ref{lem:subfamily}
+applies: $8uw\le8p^{\alpha_1+\gamma}\le p$ for large $p$ by (C1), and
+$p\nmid uw$.  Distinct $(u,w)$ give distinct pairs (the odd entry is $u$).
+Since all terms of $\Mgen$ are nonnegative,
+\[
+ \Mgen(p)\ge\sum_{u\in\cU}\frac1{\varphi(u)}\sum_{\eta\in\cE_u}\eps_\eta S_\eta(u)
+ =:M_{\cF}(p).
+\]
+By Proposition~\ref{prop:window}, $|\cE_u|=2^{\omega(u)+1}$ and
+$\sum_{u\le U_1}2^{\omega(u)+1}/\varphi(u)\ll(\log p)^2$,
+\[
+ M_\cF(p)=(\gamma-\beta)\log p\sum_{u\in\cU}\frac{H_uL(1,\chi_{-4up})}{\varphi(u)}+O(p^{-\delta}(\log p)^2).
+\]
+For squarefree odd $u$ and $p\nmid u$,
+$H_u/\varphi(u)=\frac4{\pi^2}\frac p{p+1}\cdot\frac1u\prod_{\ell\mid
+u}(1-\ell^{-2})^{-1}\ge\frac4{\pi^2}\frac p{p+1}\cdot\frac1u$, and
+$L(1,\chi_{-4up})>0$.  Proposition~\ref{prop:Lavg} gives
+$M_\cF(p)\ge(\gamma-\beta)\frac4{\pi^2}\frac2{\pi^2}(\alpha_1-\alpha_0)(\log
+p)^2-O(\log p)$.  Every constant is effective; positivity of
+$L(1,\chi)$ is used only through its sign.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:B}]
+As $r\to\infty$ and $\eps\to0$ we have $\tau\to\frac14$, and with the
+margins removed the conditions read $\gamma<1-\alpha_1$,
+$\beta>\frac{1+\alpha_1}4$, $\alpha_0>\frac{1+\alpha_1}{16}$.  Then
+$(\gamma-\beta)(\alpha_1-\alpha_0)\to\frac{(3-5\alpha_1)(15\alpha_1-1)}{64}$,
+which is maximal at $\alpha_1=\frac13$ with value $\frac1{12}$.  Given
+$\eps'>0$, fix $r$, $\eps$ and admissible exponents with
+$\frac8{\pi^4}(\gamma-\beta)(\alpha_1-\alpha_0)>\frac2{3\pi^4}-\eps'/2$, and
+apply Theorem~\ref{thm:U}.
+\end{proof}
+
+\begin{remark}\label{rem:U}
+(1) With $r=3$ alone ($\tau=\frac13$) the optimum is at $\alpha_1=\frac5{16}$
+and gives the constant $\frac1{3\pi^4}$.  Under a fixed zero-free strip
+for the relevant $L$-functions one could let $\beta,\alpha_0\to0$ and
+obtain $\frac2{\pi^4}$; we do not use this.  The constant is not
+optimised: we discard the squares $n=m^2>1$ in
+Proposition~\ref{prop:Lavg}, the factor $\prod_{\ell\mid
+u}(1-\ell^{-2})^{-1}$, all $u\equiv3\pmod 4$ and all $B\equiv0\pmod4$.
+
+(2) \emph{The step that fails at odd squares.}  $\Mgen(m^2)=0$ for odd
+$m$, so the argument must break if $p$ is replaced by $m^2$.  The
+decisive place is step~(2) of Proposition~\ref{prop:window}.  With $p$
+replaced by $m^2$ and $\gcd(m,2u)=1$, $\chi_{-4um^2}$ agrees with
+$\chi_{-4u}$ on integers prime to $m$, and the character
+$\eta_{u,1}\chi_{-4um^2}$ is principal on its support.  In fact every $w$
+counted by $\rho_u$ has $\eta_{u,1}(w)=\chi_{-4u}(w)=1$, so
+$S_{\eta_{u,1}}=S_1$, while
+$\eps_{u,1}=\leg{-2}{u}\chi_{-4}(-(m^2+u)/2)=-1$ for $u\equiv1$ and for
+$u\equiv5\pmod8$ (as $m^2\equiv1\pmod 8$).  So the principal term is
+cancelled exactly.  At a prime $p$ this cannot happen because $p$
+divides the conductor of $\eta\chi_{-4up}$.
+
+(3) The proof never evaluates an $L$-function at a single small
+modulus and never averages over $p$: Proposition~\ref{prop:window}
+averages over $w$ at fixed $u$ and $p$, and Proposition~\ref{prop:Lavg}
+averages over $u$ at fixed $p$.
+\end{remark}
+
+\subsection{The genus layer of a slice}
+For odd $u$ let $S_u(p):=\sum_{B:\,(u,B)\in\cP(p)}\frac{s(q)}{\varphi(q)}
+\mathbf 1[pa\in((\Z/q\Z)^\times)^2]$ ($q=4uB$, $a=-(u+B)$); every pair in
+$\cP(p)$ has exactly one even entry and the summand is symmetric, so
+$\Mgen(p)=2\sum_{u\ \mathrm{odd}}S_u(p)$.
+
+\begin{proposition}\label{prop:C}
+Let $u\equiv1\pmod4$ be squarefree with $u\le p^{\alpha}$, where
+$1-\alpha>\tau(1+\alpha)+5\eps$ (for suitable $r,\eps$ this allows every
+fixed $\alpha<\frac35$).  Put $D=-4up$ and $X_u=\lfloor
+(p+u)/(2(4u-1))\rfloor$.  Then, with $\delta=\delta(r,\eps,\alpha)>0$,
+\[
+ S_u(p)=\frac1{2\varphi(u)}\sum_{\eta\in\cE_u}\eps_\eta\Sigma_\eta+O(p^{-\delta}),
+\]
+where, with $H_{u,\eta}(s):=\prod_\ell h_\ell(\eta(\ell)\ell^{-s})$,
+$h_\ell(Y)=1-Y$ for $\ell\mid2up$, $h_\ell(Y)=1+\frac{2Y}{\ell-1}-\frac{(\ell+1)Y^2}{\ell-1}$
+if $\chi_D(\ell)=1$, $h_\ell(Y)=1-Y^2$ if $\chi_D(\ell)=-1$, and $H_u=H_{u,1}$,
+\begin{align*}
+ \Sigma_1&=L(1,\chi_D)H_u(1)(\log X_u+\gamma_E)+L'(1,\chi_D)H_u(1)+L(1,\chi_D)H_u'(1),\\
+ \Sigma_\eta&=L(1,\eta)\,L(1,\eta\chi_D)\,H_{u,\eta}(1)\qquad(\eta\ne1).
+\end{align*}
+For $\eta=\eta_{d,j}\ne1$, $L(1,\eta)=L(1,\chi_{d^*})$ ($j=0$) or
+$L(1,\chi_{-4d^*})$ ($j=1$), where $d^*=(-1)^{(d-1)/2}d$, and
+$L(1,\eta\chi_D)=L(1,\chi_{D'})\prod_{\ell\mid2d}(1-\chi_{D'}(\ell)/\ell)$ with
+$D'=-4(ep)^*$ ($j=0$) or $D'=(ep)^*$ ($j=1$), $e=u/d$.
+\end{proposition}
+\begin{proof}
+In the slice, $u+B$ is odd, so $B$ is even.  If $4\mid B$ then $8\mid q$
+and the genus condition forces $a\equiv p\pmod 8$, hence $-u\equiv p\equiv
+1\pmod4$, impossible; so $B=2w$ with $w$ odd.  The condition
+$4uB-u-B\le p$ is $w\le X_u$, and $X_u<p$ so $p\nmid w$; and
+$\gcd(w,u)=1$.  The proof of Lemma~\ref{lem:subfamily} did not use that
+$w$ is squarefree (for $\ell^k\,\|\,w$ the group $(\Z/\ell^k)^\times$ is
+cyclic, and a unit is a square modulo $\ell^k$ iff modulo $\ell$), so
+\[
+ S_u(p)=\frac1{2\varphi(u)}\sum_{\eta\in\cE_u}\eps_\eta\Sigma_\eta(X_u),\qquad
+ \Sigma_\eta(X):=\sum_{\substack{w\le X\\ \gcd(w,2up)=1}}\eta(w)
+ \frac{2^{\omega(w)}}{\varphi(w)}\mathbf 1[\chi_D(\ell)=1\ \forall\ell\mid w].
+\]
+The summand is $\eta(w)g(w)/w$ with $g$ multiplicative, supported on
+integers prime to $2up$, with local series $1+\frac{2\ell}{\ell-1}\frac{Y}{1-Y}$
+at split $\ell$ and $1$ at inert $\ell$.  So $g=1*\chi_D*h$ with
+$\sum_kh(\ell^k)Y^k=h_\ell(Y)$ as stated (the split factor is
+$(1+\frac{2\ell}{\ell-1}\frac Y{1-Y})(1-Y)^2$), all $|h(\ell^k)|\le2$ and
+$h(\ell^k)=0$ for $k\ge3$; hence $\sum_c|h(c)|c^{-3/4}(1+\log
+c)=p^{o(1)}$.  As before
+$\Sigma_\eta(X)=\sum_c\frac{\eta(c)h(c)}c\Phi_\eta(X/c)$.  Put
+$y_0=(4up)^\tau p^{3\eps}$.  For $c\le X/y_0$, Lemma~\ref{lem:hyperbola}
+gives $\Phi_\eta(X/c)=L(1,\eta)L(1,\eta\chi_D)+O(p^{-\kappa\eps})$ for
+$\eta\ne1$ (part (a); $K_FK_G\le(4up)^\theta p^{o(1)}$), and
+$\Phi_1(X/c)=L(1,\chi_D)(\log(X/c)+\gamma_E)+L'(1,\chi_D)+O(p^{-\kappa\eps})$
+(part (b) with $z=p^\eps$).  The terms with $c>X/y_0$, and the tails
+$c>X/y_0$ of the $c$-sums of the main terms, are
+$\ll(X/y_0)^{-1/4}p^{o(1)}(\log p)^3$, using $|\Phi_\eta(y)|\le(1+\log
+y)^2$ and $|L(1,\cdot)|\ll\log p$, $|L'(1,\cdot)|\ll(\log p)^2$ for the
+characters involved (conductors $\le4up$).  Finally $X_u/y_0\ge
+p^{1-\alpha-\tau(1+\alpha)-3\eps}/32\ge p^{\eps}$ for large $p$, and
+$\sum_c\frac{h(c)}c(\log X-\log c)=H_u(1)\log X+H_u'(1)$.  The
+identification of $L(1,\eta)$ and $L(1,\eta\chi_D)$ follows from
+step~(2) of Proposition~\ref{prop:window} and
+$\leg nd=\leg{d^*}n$ for odd $n>0$.
+\end{proof}
+
+\begin{remark}
+Proposition~\ref{prop:C} writes the genus layer of each slice
+$u\equiv1\pmod4$ squarefree, $u\le p^{\alpha}$, as a principal
+``class-number'' term ($L(1,\chi_{-4up})=\pi h(-4up)/\sqrt{4up}$, times a
+logarithm) plus $2^{\omega(u)+1}-1$ cross terms of either sign, each a
+product of two quadratic $L$-values whose second factor has $p$ in its
+conductor.  For $d=u$, $j=1$ the second factor is
+$L(1,\chi_p)\cdot(1-\chi_p(2)/2)$ up to Euler factors.  The cross terms can
+be large and negative for individual slices; the windows of
+Theorem~\ref{thm:U} are chosen so that their constant main terms
+cancel.  The additive terms $L'(1,\chi_D)H_u(1)$ and $L(1,\chi_D)H_u'(1)$
+in $\Sigma_1$ are kept: we have no bound making them uniformly
+$o(L(1,\chi_D)H_u(1)\log X_u)$ as $u$ and $p$ vary.  We have checked the
+formula numerically against the exact slice sums (see
+\S\ref{sec:numerics}).  We do not give a closed form for slices with
+$u\equiv3\pmod4$, non-squarefree $u$, or $u>p^{3/5}$.
+\end{remark}
+
+\subsection{Characters of order at least three modulo $8u$}\label{subsec:classD}
+We keep the windows and the family of Theorem~\ref{thm:U}:
+$\cF=\cF(p)=\{(u,w):u\in\cU,\ w\in\cS_u\cap(Y,X]\}$, each $(u,w)$
+standing for the two pairs $(u,2w),(2w,u)$ with $q=8uw$, $a=-(u+2w)$.  By
+the Chinese remainder theorem, $\mathbf 1[p\equiv a\ (q)]=A_u(w)B_u(w)$ with
+\[
+ A_u(w):=\mathbf 1[p\equiv a\ (\mathrm{mod}\ 8u)],\qquad
+ B_u(w):=\mathbf 1[p\equiv a\ (\mathrm{mod}\ w)]=\mathbf 1[w\mid p+u].
+\]
+The real-character (genus) parts of these two indicators, i.e.\ their
+projections onto the real characters modulo $8u$ and modulo $w$, are
+\[
+ A^{\rm gen}_u(w)=\frac{1}{2\varphi(u)}\sum_{\eta\in\cE_u}\eps_\eta\eta(w),
+ \qquad B^{\rm gen}_u(w)=\rho_u(w)
+\]
+(Lemma~\ref{lem:subfamily} and its proof).  Thus the subfamily's
+contributions to $R(p)$ and to $\Mgen(p)$ are
+$R_\cF=2\sum_\cF A_uB_u$ and $M_\cF=2\sum_\cF A^{\rm gen}_u\rho_u$.  Define
+the intermediate quantity
+\[
+ \Mcls_\cF(p):=2\sum_{(u,w)\in\cF}A_u(w)\rho_u(w),
+\]
+in which the condition modulo $8u$ is the exact class condition (all
+characters modulo $8u$, of every order), while the condition modulo $w$
+is replaced by its genus density.
+
+\begin{theorem}\label{thm:D}
+Let $r\ge1$ be an integer, $\eps\in(0,\frac1{100})$,
+$\tau=\frac{r+1}{4r}+r\eps$, and assume
+\[
+ \text{(C1)}\ \gamma<1-\alpha_1,\qquad
+ \text{(C2$^*$)}\ \beta>2\alpha_1+\tau+4\eps,\qquad
+ \text{(C4)}\ \alpha_1<\tfrac15 .
+\]
+There is $\delta>0$ such that, uniformly in $u\in\cU$ and in the unit
+class $s\bmod 4u$,
+\begin{equation}\label{eq:X1}
+ \sum_{\substack{w\in\cS_u\cap(Y,X]\\ w\equiv s\,(4u)}}\rho_u(w)=\mathfrak M_u+O(p^{-\delta}/u),
+\end{equation}
+with $\mathfrak M_u$ independent of $s$.  Consequently
+$\Mcls_\cF(p)-M_\cF(p)=O(p^{-\delta}\log p)$.  If moreover $r\ge3$ and (C3)
+of Theorem~\ref{thm:U} holds, then
+$\Mcls_\cF(p)\ge(c-o(1))(\log p)^2$ with
+$c=\frac8{\pi^4}(\gamma-\beta)(\alpha_1-\alpha_0)$; admissible windows give
+every constant below $c_X=\frac{121}{640\pi^4}=0.00194\ldots$.  All
+constants are effective.
+\end{theorem}
+
+Only Burgess's bound for the Legendre symbol modulo the prime $p$ is used
+in the proof of \eqref{eq:X1}.  The theorem says that on $\cF$ the
+characters of order $\ge3$ modulo $8u$, weighted by the genus density at
+$w$, carry no main term.  It says nothing about the exact divisibility
+$w\mid p+u$, which is where the rest of $R_\cF-M_\cF$ lives.
+
+\begin{proof}
+Let $q=4u$, $s$ a unit modulo $q$, and $h$ as in
+Proposition~\ref{prop:window}(1), so that $\rho_u(w)=\sum_{abc=w}\frac1a
+\frac{\chi_D(b)}b\frac{h(c)}c$.  As $w\equiv s$ forces $\gcd(abc,q)=1$,
+\[
+ \sum_{w\equiv s}\rho_u(w)=\sum_{\gcd(c,q)=1}\frac{h(c)}c\bigl[\Phi_{s\bar
+ c}(X/c)-\Phi_{s\bar c}(Y/c)\bigr],\qquad
+ \Phi_t(y):=\sum_{\substack{ab\le y\\ ab\equiv t\,(q)}}\frac{\chi_D(b)}{ab}.
+\]
+Fix $\theta'=\frac12-\eps$, so $\sum_c|h(c)|c^{\theta'-1}=p^{o(1)}$, and let
+$C_0=p^\eps$.  We use the elementary estimate
+\begin{equation}\label{eq:APharm}
+ \Bigl|\sum_{\substack{T_1<a\le T_2\\ a\equiv v\,(q)}}\frac1a-\frac1q\log\frac{T_2}{T_1}\Bigr|\le\frac1{T_1}\qquad(T_1>0),
+\end{equation}
+which follows by comparing the sum with $\frac1q\int dt/t$.
+
+\emph{(i) Large $c$.}  For $C_0<c\le Y/q$, the bracket is at most
+$\sum_{Y/c<m\le X/c,\,m\equiv t}\tau(m)/m\le p^{o(1)}(c/Y+q^{-1}\log(X/Y))
+\le p^{o(1)}/u$, and $\sum_{c>C_0}|h(c)|/c\le C_0^{-\theta'}p^{o(1)}$.
+For $c>Y/q$ the bracket is $\le(1+\log X)^2$ and $\sum_{c>Y/q}|h(c)|/c\le
+(Y/q)^{-\theta'}p^{o(1)}=p^{-\theta'(\beta-\alpha_1)+o(1)}$.  By (C2$^*$)
+and $\tau\ge\frac14$, $\beta-\alpha_1>\alpha_1+\frac14+4\eps$, and by (C4)
+and $\eps<\frac1{100}$, $(\frac12-\eps)(\alpha_1+\frac14+4\eps)\ge\alpha_1+\frac\eps2$.
+So both ranges contribute $O(p^{-\min(\eps\theta',\eps/2)+o(1)}/u)$.
+
+\emph{(ii) Small $c$.}  Let $c\le C_0$ and $B_0:=qp^{\tau+\eps}$.  For
+$y\ge1$ we have the exact identity
+\[
+ \Phi_t(y)=\sum_{b\le B_0}\frac{\chi_D(b)}b\,\alpha_{t\bar b}(y/b)
+ +\sum_{a\le y/B_0}\frac1a\bigl[\beta_{t\bar a}(y/a)-\beta_{t\bar a}(B_0)\bigr],
+\]
+where $\alpha_v(T)=\sum_{a\le T,\,a\equiv v}1/a$ and
+$\beta_v(T)=\sum_{b\le T,\,b\equiv v}\chi_D(b)/b$ (if $\chi_D(b)\ne0$ then
+$b$ is a unit modulo $q$, and then so is $a$).
+
+\emph{Second part.}  For a unit $v$ modulo $q$ and $b\equiv v$, $b$ odd and
+prime to $u$, so $\chi_D(b)=\chi_{-4}(b)\leg bu\leg bp=\chi_{-4}(v)\leg
+vu\leg bp$.  Writing $b=v_0+qk$ ($1\le v_0\le q$), $\leg bp=\leg
+qp\leg{k+v_0\bar q}p$, where $\bar q$ is the inverse of $q$ modulo $p$.
+Burgess's bound for the Legendre symbol modulo $p$, with $r$ and $\eps$,
+bounds every sum of $\leg{k+v_0\bar q}{p}$ over $K$ consecutive $k$ by
+$CK^{1-1/r}p^{\tau/r}$.  Partial summation against the decreasing weight
+$1/(v_0+qk)$, for $k$ beyond $k_0\ge B_0/q-1$, gives
+$|\beta_v(T)-\beta_v(B_0)|\le(r+2)Cp^{\tau/r}k_0^{-1/r}/q\le2(r+2)Cp^{-\eps/r}/q$.
+Hence the second part is $O(p^{-\eps/r+o(1)}/u)$ for $y\in\{X/c,Y/c\}$.
+
+\emph{First part.}  By \eqref{eq:APharm} with $T_1=Y/(cb)\ge Y/(C_0B_0)\ge1$,
+\[
+ \sum_{b\le B_0}\frac{\chi_D(b)}b\Bigl[\alpha_{t\bar b}\Bigl(\frac X{cb}\Bigr)-\alpha_{t\bar
+ b}\Bigl(\frac Y{cb}\Bigr)\Bigr]=\frac1q\log\frac XY\cdot\Lambda(B_0)+O\Bigl(\frac{cB_0}Y\Bigr),
+ \quad\Lambda(B_0):=\sum_{b\le B_0}\frac{\chi_D(b)}b,
+\]
+and $cB_0/Y\le4u\,p^{2\eps+\tau-\beta}\ll p^{-\eps}/u$ by (C2$^*$).  The
+main term does not depend on $t$.  Summing over $c\le C_0$ we obtain
+\eqref{eq:X1} with
+$\mathfrak M_u=q^{-1}\log(X/Y)\Lambda(B_0)\sum_{c\le C_0,\,(c,q)=1}h(c)/c$ and
+any $\delta<\min(\eps/r,\eps\theta',\eps/2)$.
+
+\emph{(iii) Consequences.}  On $\cS_u$,
+$A_u(w)=\mathbf 1[w\equiv s_u\ (4u)]$ for the unit class $s_u$ determined by
+$w\equiv w_0\pmod 4$ and $2w\equiv-p\pmod u$.  By the proof of
+Lemma~\ref{lem:subfamily}, $A_u^{\rm gen}(w)=|\cC|^{-1}\mathbf 1[w\in\cC]$
+with $\cC=s_u((\Z/4u\Z)^\times)^2$, $|\cC|=\varphi(u)/2^{\omega(u)}$.  By
+\eqref{eq:X1},
+$\sum_w(A_u-A_u^{\rm gen})(w)\rho_u(w)=O(p^{-\delta}/u)$; summing over $u\le
+U_1$ gives $\Mcls_\cF-M_\cF=O(p^{-\delta}\log p)$.  Since
+$\tau\alpha_1\le2\alpha_1$, (C2$^*$) implies (C2) of Theorem~\ref{thm:U}, and
+with (C3) the proof of that theorem gives $M_\cF\ge(c-o(1))(\log p)^2$.
+Letting $r\to\infty$, $\eps\to0$, $\gamma\uparrow1-\alpha_1$,
+$\beta\downarrow2\alpha_1+\frac14$, $\alpha_0\downarrow\frac{1+\alpha_1}{16}$, the
+product $(\gamma-\beta)(\alpha_1-\alpha_0)$ tends to
+$\frac{(3/4-3\alpha_1)(15\alpha_1-1)}{16}$, maximal at
+$\alpha_1=\frac{19}{120}<\frac15$ with value $\frac{121}{5120}$.
+\end{proof}
+
+\section{Almost all primes}\label{sec:almostall}
+
+\subsection{A truncated count}
+Let $X$ be large and $L=\log X$.  Fix $A_0=200$ and let $B_0=B(A_0)$ be
+the exponent in the Bombieri--Vinogradov theorem below.  Put
+\[
+ Q:=X^{1/4}L^{-B_0/2},\qquad Y:=\frac{Q+1}4,
+\]
+\[
+ \cT:=\{(u,C)\in\N^2:\ m_{uC}:=4uC-1\le Q\}=\{(u,C):uC\le Y\}.
+\]
+For odd $n$ define the weighted truncated count
+\[
+ N(n):=\sum_{(u,C)\in\cT}c_{uC}\,\mathbf 1[m_{uC}\mid n+u],\qquad
+ c_{uC}:=\frac{\varphi(m_{uC})}{m_{uC}}\in(0,1].
+\]
+Since $\gcd(u,4uC-1)=1$, the event $m\mid n+u$ is $n\equiv-u\pmod m$ with
+$-u$ a unit modulo $m$.
+
+\begin{lemma}\label{lem:trunc}
+If $p$ is prime and $p\ge(Q+1)^2/4$, then $R(p)\ge2N(p)$.
+\end{lemma}
+\begin{proof}
+If $(u,C)\in\cT$ and $m=4uC-1\mid p+u$, then $B:=(p+u)/m\in\N$ satisfies
+$4uBC-u-B=Bm-u=p$, so $(u,B,C)$ is a triple counted by $R(p)$ with
+$4uC-1\le Q$, and different $(u,C)$ give different triples.  Applying the
+involution of Lemma~\ref{lem:basic}(ii) gives as many triples with
+$4BC-1\le Q$.  No triple has both: $4uC\le Q+1$ and $4BC\le Q+1$ would
+give $p<4uBC\le(4uC)(4BC)/4\le(Q+1)^2/4$.  Since $c_{uC}\le1$, the claim
+follows.
+\end{proof}
+
+\begin{lemma}\label{lem:mean}
+$M:=\sum_{(u,C)\in\cT}c_{uC}/\varphi(m_{uC})=\sum_{uC\le Y}\frac1{4uC-1}\ge\frac18\log^2Y$.
+\end{lemma}
+\begin{proof}
+$1/(4uC-1)>1/(4uC)$ and $\sum_{C\le Y/u}1/C\ge\log(Y/u)$, so $M\ge\frac14\sum_{u\le
+Y}\log(Y/u)/u$.  The function $t\mapsto\log(Y/t)/t$ is decreasing and
+nonnegative on $[1,Y]$, so the sum is $\ge\int_1^Y\log(Y/t)\,dt/t=\frac12\log^2Y$.
+\end{proof}
+
+\subsection{First and second moments}
+\begin{citedthm}[Bombieri--Vinogradov \cite{Bombieri,AIV}; {\cite[Thm.~17.1]{IK}}, {\cite[Ch.~28]{Davenport}}]\label{cit:bv}
+For every $A>0$ there is $B=B(A)$ such that
+\[
+ \sum_{q\le x^{1/2}(\log x)^{-B}}\ \max_{y\le x}\ \max_{\gcd(a,q)=1}
+ \Bigl|\pi(y;q,a)-\frac{\pi(y)}{\varphi(q)}\Bigr|\ll_A\frac{x}{(\log x)^A}.
+\]
+\end{citedthm}
+(The standard statement is for $\psi(y;q,a)$; the form for $\pi$ follows
+by partial summation, at the cost of enlarging $B$.  The implied
+constant is ineffective.)  Write
+$E(X;q,a):=\pi(X;q,a)-\pi(X)/\varphi(q)$;
+trivially $|E(X;q,a)|\le3X/\varphi(q)$ for $q\le X$.  We use the
+classical bounds $\sum_{m\le x}\tau(m)^k\ll_kx(\log x)^{2^k-1}$,
+$m/\varphi(m)\ll\log\log m$, $\tau(ab)\le\tau(a)\tau(b)$ and
+$\varphi(ab)\ge\varphi(a)\varphi(b)$.  Let
+$r(m):=\#\{(u,C):4uC-1=m\}\le\tau(m+1)$.  Note $Q^2=X^{1/2}L^{-B_0}$.
+
+\begin{lemma}\label{lem:moment1}
+$S_1:=\sum_{p\le X}N(p)=\pi(X)M+O(XL^{-90})$.
+\end{lemma}
+\begin{proof}
+We have $S_1=\sum_{(u,C)\in\cT}c_{uC}\pi(X;m,-u)=\pi(X)M+\sum
+c_{uC}E(X;m,-u)$.  The error is at most $\sum_{m\le Q}r(m)\max_a|E(X;m,a)|$,
+which by Cauchy--Schwarz is at most
+\[
+ \Bigl(\sum_mr(m)^2\frac{3X}{\varphi(m)}\Bigr)^{1/2}
+ \Bigl(\sum_{m\le Q}\max_a|E(X;m,a)|\Bigr)^{1/2}\ll(XL^5)^{1/2}(XL^{-200})^{1/2}.
+\]
+\end{proof}
+
+Call $P=(u,C)$ and $P'=(u',C')$ in $\cT$ \emph{compatible} if $u\equiv
+u'\pmod{\gcd(m_P,m_{P'})}$.
+
+\begin{lemma}\label{lem:moment2}
+$S_2:=\sum_{p\le X}N(p)^2=\pi(X)\sum_{P,P'\ \mathrm{compatible}}
+\frac{c_Pc_{P'}}{\varphi(\lcm(m_P,m_{P'}))}+O(XL^{-10})$.
+\end{lemma}
+\begin{proof}
+The system $p\equiv-u\ (m)$, $p\equiv-u'\ (m')$ is solvable iff $P,P'$ are
+compatible, and then it is a single unit class modulo $\lcm(m,m')\le
+Q^2$.  Let $\nu(k):=\#\{(P,P'):\lcm(m_P,m_{P'})=k\}\le\varrho(k)^2$ with
+$\varrho(k)=\sum_{m\mid k}r(m)$.  By H\"older,
+$\varrho(k)^4\le\tau(k)^3\sum_{m\mid k}\tau(m+1)^4$, so
+\[
+ \sum_{k\le Q^2}\frac{\varrho(k)^4}{\varphi(k)}\le
+ \sum_{m\le Q^2}\frac{\tau(m+1)^4\tau(m)^3}{\varphi(m)}
+ \sum_{j\le Q^2}\frac{\tau(j)^3}{\varphi(j)}\ll L^{161}\cdot L^9,
+\]
+using $\sum_{m\le x}\tau(m+1)^4\tau(m)^3\le(\sum\tau(m+1)^8)^{1/2}(\sum\tau(m)^6)^{1/2}
+\ll x(\log x)^{159}$ and partial summation.  By Cauchy--Schwarz as in
+Lemma~\ref{lem:moment1}, the total error is
+$\ll(XL^{170})^{1/2}(XL^{-200})^{1/2}=XL^{-15}$.
+\end{proof}
+
+\subsection{The variance}
+\begin{lemma}\label{lem:varid}
+Let $(q_P,a_P,\beta_P)_{P}$ be a finite family with $\gcd(a_P,q_P)=1$ and
+$\beta_P\ge0$.  For a primitive character $\psi$ of conductor $d$ put
+$S_\psi=\sum_{P:\,d\mid q_P}\beta_P\bar\psi(a_P)/\varphi(q_P)$.  Then
+\[
+ \sum_{\substack{P,P'\\ a_P\equiv a_{P'}\,(\gcd(q_P,q_{P'}))}}\frac{\beta_P\beta_{P'}}{\varphi(\lcm(q_P,q_{P'}))}
+ =\sum_\psi|S_\psi|^2,
+\]
+the sum running over all primitive characters, including $\psi=1$.
+\end{lemma}
+\begin{proof}
+$\varphi(\lcm(q,q'))\varphi(\gcd(q,q'))=\varphi(q)\varphi(q')$, so the left
+side is
+\[
+ \sum_{P,P'}\frac{\beta\beta'\varphi(g)\mathbf 1[a\equiv a'\ (g)]}{\varphi(q)\varphi(q')},
+ \qquad g=\gcd(q,q').
+\]  By orthogonality
+$\varphi(g)\mathbf 1[a\equiv a'\ (g)]=\sum_{\chi\bmod g}\bar\chi(a)\chi(a')$,
+and each $\chi\bmod g$ is induced by a unique primitive $\psi$ of
+conductor $d\mid g$, with $\chi(a)=\psi(a)$ for $a$ prime to $g$.  Exchange
+the sums; $d\mid g$ iff $d\mid q$ and $d\mid q'$.
+\end{proof}
+
+With $q_P=m_P$, $a_P=-u$, $\beta_P=c_P$ we have $\beta_P/\varphi(q_P)=1/m_P$,
+the term $\psi=1$ equals $M^2$, and by Lemmas~\ref{lem:moment1},
+\ref{lem:moment2}, \ref{lem:varid},
+\begin{equation}\label{eq:var}
+ \sum_{p\le X}(N(p)-M)^2=S_2-2MS_1+M^2\pi(X)=\pi(X)\,V+O(XL^{-8}),
+ \qquad V:=\sum_{d>1}\ \sideset{}{^*}\sum_{\psi\bmod d}|S_\psi|^2,
+\end{equation}
+where $S_\psi=\sum_{(u,C)\in\cT:\,d\mid m_{uC}}\bar\psi(-u)/m_{uC}$ and
+$\sum^*$ is over primitive characters.
+
+\begin{lemma}\label{lem:parseval}
+For $d>1$ and $r\in(\Z/d\Z)^\times$ let
+$A_r^{(d)}:=\sum_{(u,C)\in\cT:\,d\mid 4uC-1,\ u\equiv-r\,(d)}\frac1{4uC-1}$.
+Then for any real numbers $\Lambda_d$,
+$V\le\sum_{1<d\le Q}\varphi(d)\sum_{r}(A^{(d)}_r-\Lambda_d)^2$.
+\end{lemma}
+\begin{proof}
+For $d>1$ primitive characters are non-principal, so
+$\sum^*_\psi|S_\psi|^2\le\sum_{\chi\ne\chi_0}|T_\chi|^2$ with
+$T_\chi=\sum_r\bar\chi(r)A_r^{(d)}$.  By orthogonality
+$\sum_{\chi}|T_\chi|^2=\varphi(d)\sum_r(A_r^{(d)})^2$, and removing $\chi_0$
+gives $\varphi(d)\sum_r(A_r-\bar A)^2\le\varphi(d)\sum_r(A_r-\Lambda_d)^2$,
+$\bar A$ the mean.  Terms with $d>Q$ vanish.
+\end{proof}
+
+\emph{The one-cell structure.}  If $d\mid4uC-1$ then $d$ is odd and
+prime to $u$ and $C$; for odd $d>1$ the conditions $u\equiv-r$, $d\mid
+4uC-1$ are equivalent to
+\[
+ u\equiv x_r:=-r,\qquad C\equiv y_r:=-(4r)^{-1}\pmod d .
+\]
+So $A^{(d)}_r$ is a sum over a single lattice cell of the hyperbolic
+region $uC\le Y$.  For even $d$, $A^{(d)}_r=0$.
+
+\subsection{Hyperbolic progression sums}
+For $d\ge1$ and $x,y\in\Z$ let $u_0,C_0\in[1,d]$ be the least positive
+integers with $u_0\equiv x$, $C_0\equiv y\pmod d$.
+
+\begin{lemma}\label{lem:hyp1}
+For $Z>0$ let $h(Z)=\sum_{1\le C\le Z,\,C\equiv y\,(d)}1/C$.  Then
+$|h(Z)-\mathbf 1[C_0\le Z]/C_0-\frac1d\log^+(Z/d)|\le2/d$.
+\end{lemma}
+\begin{proof}
+If $Z<C_0+d$ then $h(Z)=\mathbf 1[C_0\le Z]/C_0$ and $\log^+(Z/d)<\log2$.
+Otherwise let $J=\lfloor(Z-C_0)/d\rfloor\ge1$ and $\vartheta=C_0/d\in(0,1]$;
+then $h(Z)=1/C_0+\frac1d\sum_{j=1}^J(j+\vartheta)^{-1}$, and comparison with
+integrals puts $\sum_{j=1}^J(j+\vartheta)^{-1}$ between $\log((J+1)/2)$
+and $1+\log(J+1)$.  Since $\log(J+1)\in[\log(Z/d)-\log2,\log(Z/d)+\log2]$,
+the sum differs from $\log(Z/d)$ by at most $1+\log2<2$.
+\end{proof}
+
+\begin{lemma}\label{lem:hyp2}
+Let $Y\ge1$, $d\le4Y$,
+$H:=\sum_{u\equiv x,\,C\equiv y\,(d);\ uC\le Y}\frac1{uC}$,
+$\Lambda:=\frac1{2d^2}(\log^+(Y/d^2))^2$ and $\mathcal L:=\log(4Y)+2$.  Then
+\[
+ |H-\Lambda|\le\frac1{u_0C_0}+\frac{\mathcal L}{dC_0}+\frac{\mathcal L}{du_0}
+ +\frac{3\mathcal L(1+\log d)}{d^2}.
+\]
+\end{lemma}
+\begin{proof}
+$H=\sum_{u\equiv x,\,u\le Y}u^{-1}h(Y/u)$; inserting Lemma~\ref{lem:hyp1}
+gives $H=H_1+H_2+H_3$ with
+$H_1=C_0^{-1}\sum_{u\equiv x,\,u\le Y/C_0}u^{-1}$,
+$H_2=d^{-1}\sum_{u\equiv x,\,u\le Y/d}u^{-1}\log(Y/(ud))$ and
+$|H_3|\le\frac2d\sum_{u\equiv x,\,u\le Y}u^{-1}$.  By Lemma~\ref{lem:hyp1}
+for $u$, $\sum_{u\equiv x,\,u\le Z}u^{-1}\le u_0^{-1}+(\log^+(Z/d)+2)/d$, so
+$|H_1|\le\frac1{u_0C_0}+\frac{\log^+(Y/d)+2}{dC_0}$ and
+$|H_3|\le\frac2{du_0}+\frac{2(\log^+(Y/d)+2)}{d^2}$.  For $H_2$ let
+$g(t)=\log(Y/(td))/t$, nonnegative and non-increasing on $(0,Y/d]$.  If
+$u_0>Y/d$ then $H_2=0$ and $Y<d^2$, so $\Lambda=0$.  Otherwise
+$dH_2=g(u_0)+\sum_{j=1}^Jg(u_0+jd)$, $J=\lfloor(Y/d-u_0)/d\rfloor$, and
+comparison with integrals gives
+$\frac1{2d}(\log^+\frac Y{(u_0+d)d})^2\le\sum_{j\ge1}g(u_0+jd)\le\frac1{2d}\log^2\frac
+Y{u_0d}$.  With $\lambda=\log^+(Y/d^2)$ and $\delta=\log(d/u_0)\in[0,\log d]$
+we have $0\le\log\frac Y{u_0d}\le\lambda+\delta$ and
+$\log^+\frac{Y}{(u_0+d)d}\ge(\lambda-\log 2)^+$; since $d\Lambda=\lambda^2/(2d)$,
+\[
+ |dH_2-g(u_0)-d\Lambda|\le\frac{\lambda\delta+\delta^2/2+\lambda\log2}d,
+ \qquad0\le\frac{g(u_0)}d\le\frac{\lambda+\delta}{du_0}.
+\]
+Now $\lambda+\delta\le\log(4Y)$, $\log^+(Y/d)\le\log Y$, and
+$\lambda\delta+\delta^2/2+\lambda\log2\le\log(4Y)(1.5\log d+1)$.  Collecting
+terms gives the claim.
+\end{proof}
+
+\begin{proposition}\label{prop:V}
+$V\le\frac49\bigl[4(1+\log Q)^2+2\zeta(2)\mathcal L^2\log Q+9K_1\mathcal L^2\bigr]
+=\bigl(\tfrac{8\zeta(2)}9+o(1)\bigr)\log^3Q$, where $\mathcal L=\log(Q+1)+2$
+and $K_1=\sum_{d\ge2}(1+\log d)^2/d^2$.
+\end{proposition}
+\begin{proof}
+Take $\Lambda_d=0$ for even $d$.  Fix odd $d\in(1,Q]$ and $r$, and let
+$(u_0,C_0)\in[1,d]^2$ represent $(x_r,y_r)$.  Note $d\le Q<4Y$.  Since
+$\frac1{4uC-1}=\frac1{4uC}+\frac1{4uC(4uC-1)}$, we have
+$A^{(d)}_r=H_r/4+E_r$ with $H_r$ the sum $H$ of Lemma~\ref{lem:hyp2} for
+the cell, and
+$0\le E_r\le\frac1{12}\sum_{\rm cell}(uC)^{-2}\le\frac1{12}(u_0^{-2}+\zeta(2)d^{-2})(C_0^{-2}+\zeta(2)d^{-2})$.
+Take $\Lambda_d=\Lambda/4$.  Using $\zeta(2)\le\mathcal L$ and
+$\zeta(2)^2\le3\mathcal L$, Lemma~\ref{lem:hyp2} gives
+\[
+ |A_r^{(d)}-\Lambda_d|\le\frac13\Bigl[\frac1{u_0C_0}+\frac{\mathcal L}{dC_0}+\frac{\mathcal
+ L}{du_0}+\frac{3\mathcal L(1+\log d)}{d^2}\Bigr].
+\]
+Square with $(a+b+c+e)^2\le4(a^2+b^2+c^2+e^2)$.  As $r$ runs over
+$(\Z/d\Z)^\times$, the $u_0$ are distinct elements of $[1,d]$, and so are
+the $C_0$; so $\sum_ru_0^{-2},\sum_rC_0^{-2}<\zeta(2)$.  With $\varphi(d)\le
+d$ and $\sum_{2\le d\le Q}1/d\le\log Q$,
+\[
+ V\le\frac49\Bigl[T+2\zeta(2)\mathcal L^2\log Q+9K_1\mathcal L^2\Bigr],\qquad
+ T:=\sum_{\substack{1<d\le Q\\ d\ \mathrm{odd}}}\varphi(d)\sum_r\frac1{(u_0C_0)^2}.
+\]
+The map $(d,r)\mapsto(u_0,C_0)$ lands in pairs with $d\mid4u_0C_0-1$ and
+$u_0,C_0\le Q$, and $r\equiv-u_0$ is determined by $(d,u_0)$.  Hence
+$T\le\sum_{u,C\le Q}(uC)^{-2}\sum_{d\mid4uC-1}\varphi(d)=\sum_{u,C\le
+Q}\frac{4uC-1}{(uC)^2}\le4(1+\log Q)^2$.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:C}}
+By Lemma~\ref{lem:mean}, $M\ge\frac18\log^2Y$ with $\log Y=\log
+Q+O(1)$, and $\log Q=\frac L4-\frac{B_0}2\log L$.  So
+Proposition~\ref{prop:V} gives
+\[
+ \frac V{M^2}\le\frac{64\cdot\frac{8\zeta(2)}9+o(1)}{\log Q}
+ =\frac{\frac{2048\zeta(2)}9+o(1)}{L}\le\frac{375}{L}
+\]
+for large $X$ ($\frac{2048\zeta(2)}9=374.3\ldots$).  Let $\eta\in(0,1)$.  By
+\eqref{eq:var} and Chebyshev's inequality,
+\[
+ \#\{p\le X:|N(p)-M|\ge\tfrac\eta2M\}\le\frac{\pi(X)V+O(XL^{-8})}{(\eta/2)^2M^2}
+ \le\frac{1500}{\eta^2}\frac{\pi(X)}{L}+O(\eta^{-2}XL^{-12}).
+\]
+Let $p\in(X^{1/2},X]$ be outside this set.  Then $p\ge(Q+1)^2/4$, and by
+Lemmas~\ref{lem:trunc} and \ref{lem:mean}
+\[
+ R(p)\ge2N(p)\ge\Bigl(1-\frac\eta2\Bigr)\frac14\log^2Y\ge
+ \Bigl(1-\frac\eta2\Bigr)\Bigl(1-O\Bigl(\frac{\log L}{L}\Bigr)\Bigr)\frac{L^2}{64}
+ \ge(1-\eta)\frac{(\log p)^2}{64}
+\]
+for $X\ge X_0(\eta)$.  The primes $p\le X^{1/2}$ number $\le\pi(X)/L$ for
+large $X$, and $O(\eta^{-2}XL^{-12})\le\pi(X)/L$ for $X\ge X_0(\eta)$.  So
+the exceptional set has at most $(1500\eta^{-2}+2)\pi(X)/L\le
+1600\eta^{-2}\pi(X)/L$ elements.  Finally $f(p)\ge3f_{\rm II}(p)$ by
+\cite[(1.4)]{ET} and $f_{\rm II}(p)\ge R(p)$ by Lemma~\ref{lem:basic}(iii).
+\qed
+
+\begin{remark}\label{rem:C}
+(1) The same proof applies within any fixed reduced residue class $b\bmod
+W$: all but $O_W(\pi(X;W,b)/\log X)$ primes $p\equiv b\pmod W$, $p\le X$,
+satisfy the bound, because $\pi(X;W,b)\gg_W\pi(X)$.  This includes the
+six classes modulo $840$ that contain all potential counterexamples.
+
+(2) The constant $\frac1{64}$ is $2\cdot\frac18\cdot(\frac14)^2$: level
+$\frac14$, the $u\leftrightarrow B$ symmetry, and the mean $\frac18\log^2Y$.
+The weights $\varphi(m)/m$ lose a further constant factor (heuristically
+$\pi^2/12$) relative to the unweighted count.  We have not tried to
+remove this loss or to add the other fibrations of $R$.
+
+(3) Only the solutions certified by moduli $\le X^{1/4-o(1)}$ are used,
+so $(\log p)^2/64$ is a lower bound for this ``cheap'' part of $R(p)$.
+The full second moment $\sum_{p\le X}R(p)^2$ is not estimated.  The rate
+$\pi(X)/\log X$ comes from the bound $V\ll\log^3Q$ against
+$M^2\asymp\log^4Q$; numerically $V$ seems to be of order $\log^3Q$ for
+this family (\S\ref{sec:numerics}), so Chebyshev's inequality alone would
+not improve the rate, but we have no lower bound for $V$.
+\end{remark}
+
+\section{Numerical remarks}\label{sec:numerics}
+None of the theorems depends on computation.  The following checks were
+made with the short programs \texttt{es-count-note.checks.c} and
+\texttt{es-count-note.checks.py} next to this file (the latter performs the
+exact exponent bookkeeping of Theorems~\ref{thm:main-upper}
+and~\ref{thm:pairs}), and serve only as sanity checks.
+\begin{itemize}
+\item \emph{Zeros of $R$.}  Enumerating all triples with
+$4uBC-u-B\le10^7$, the primes $p\equiv1\pmod 4$ below $10^7$ with
+$R(p)=0$ are exactly the fourteen listed in \S\ref{sec:intro}, and
+$R(m^2)=0$ for every odd square $m^2\le10^7$ (Lemma~\ref{lem:squares}).
+\item \emph{The genus main term.}  Direct evaluation of
+\eqref{eq:Mgen} gives $\Mgen(409)=3.99907$, $\Mgen(577)=5.35239$,
+$\Mgen(8089)=6.79081$ ($=0.0839\,(\log p)^2$), $\Mgen(1000033)=27.737$
+($=0.1453\,(\log p)^2$) and $\Mgen(8813281)=29.083$ ($=0.1137\,(\log
+p)^2$), and $\Mgen(n)=0$ for $n=31^2,35^2,99^2$.  The ratios
+$\Mgen(p)/(\log p)^2$ are thus more than ten times the constant
+$2/(3\pi^4)=0.00684$ of Theorem~\ref{thm:B}.  Note that $p=8813281$ has
+$R(p)=0$: its genus count is not small, and the vanishing comes from
+the characters of order $\ge3$.  In earlier internal computations, the
+closed form of Proposition~\ref{prop:C} (with $L$-values computed
+numerically) agreed with the exact slice sums to within $0.13\%$ for all
+eighteen tested slices of length $X_u\ge10^5$ ($u\in\{1,5,13,21\}$,
+primes up to $10^8$, including the fourteen primes above), with errors
+decreasing in $X_u$.
+\item \emph{The variance of \S\ref{sec:almostall}.}  The exact model
+variance $V$ (the right side of Lemma~\ref{lem:varid} minus $M^2$,
+computed by a double sum over $\cT$ with the program
+\texttt{scripts/z53\_pz\_exactV\_trial.c} of the accompanying repository) is $V=2.0988$, $6.9439$, $10.887$
+for $Q=10^2,10^3,3\cdot10^3$, i.e.\ $V/\log^3Q\approx0.021$ in each case,
+while $M/\log^2Q\approx0.120$.  So the bound of
+Proposition~\ref{prop:V} has the right order but a constant about $70$
+times too large.
+\end{itemize}
+
+\section{Concluding remarks}\label{sec:concl}
+\begin{enumerate}
+\item The three main results concern the same count $R(p)$, whose mean
+over primes is of order $(\log p)^2$ and whose positivity at every large
+prime would imply the Erd\H{o}s--Straus conjecture for large primes.
+Each result is of a kind compatible with the odd-square obstruction
+(Lemma~\ref{lem:squares}): an upper bound uniform in $n$
+(Theorem~\ref{thm:A}), a lower bound for a main term that vanishes at
+squares (Theorem~\ref{thm:B}), and an average over primes
+(Theorem~\ref{thm:C}).  None of them gives $R(p)\ge1$ at a prescribed
+prime.
+\item Theorem~\ref{thm:B} reduces the lower-bound problem for $R(p)$ to
+the remainder $X(p)=R(p)-\Mgen(p)$, the contribution of characters of
+order $\ge3$.  On the subfamily of \S\ref{sec:genus},
+Theorem~\ref{thm:D} disposes of the part of $X$ that involves only
+characters modulo $8u$ at density level.  The rest of $R_\cF-M_\cF$
+involves the exact divisibility $w\mid p+u$; we have no method for it.
+\item For the upper bound, the natural next step is the balanced block
+$u,B\asymp n^{1/4}$, where Remark~\ref{rem:balanced} indicates that a
+genuinely bilinear estimate is needed.  An upper bound
+$R(n)\ll n^{1/4+\eps}$ would follow from such an estimate together with
+the cube analysis.
+\item For Theorem~\ref{thm:C}, improving $\frac1{64}$ towards the
+expected mean $\frac3{2\pi^2}$, or proving the analogous bound
+$f_{\rm II}(p)\gg(\log p)^3$ for almost all $p$ (the true order of
+$f_{\rm II}$ on average), would require control of correlations at
+larger level.
+\end{enumerate}
+
+\begin{thebibliography}{99}
+\bibitem{Bombieri} E.~Bombieri, On the large sieve, \emph{Mathematika}
+\textbf{12} (1965), 201--225.
+\bibitem{Bourgain} J.~Bourgain, Decoupling, exponential sums and the
+Riemann zeta function, \emph{J. Amer. Math. Soc.} \textbf{30} (2017),
+205--224; arXiv:1408.5794.
+\bibitem{BL} M.~Bright and D.~Loughran, Brauer--Manin obstruction for
+Erd\H{o}s--Straus surfaces, \emph{Bull. London Math. Soc.} \textbf{52}
+(2020), 746--761; arXiv:1908.02526.
+\bibitem{Burgess62} D.~A.~Burgess, On character sums and $L$-series,
+\emph{Proc. London Math. Soc. (3)} \textbf{12} (1962), 193--206.
+\bibitem{Burgess63} D.~A.~Burgess, On character sums and $L$-series.~II,
+\emph{Proc. London Math. Soc. (3)} \textbf{13} (1963), 524--536.
+\bibitem{Davenport} H.~Davenport, \emph{Multiplicative Number Theory},
+3rd ed., Graduate Texts in Math.\ 74, Springer, 2000.
+\bibitem{EP} C.~Elsholtz and S.~Planitzer, The number of solutions of
+the Erd\H{o}s--Straus equation and sums of $k$ unit fractions,
+\emph{Proc. Roy. Soc. Edinburgh Sect. A} \textbf{150} (2020),
+1401--1427; arXiv:1805.02945.
+\bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to
+the Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math.
+Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010.
+\bibitem{GK} S.~W.~Graham and G.~Kolesnik, \emph{Van der Corput's Method
+of Exponential Sums}, London Math. Soc. Lecture Note Ser.\ 126, Cambridge
+Univ. Press, 1991.
+\bibitem{HLMLT} E.~Hasanalizade, H.~Lin, G.~Martin, A.~Luna
+Mart\'inez and E.~Trevi\~no, Explicit Burgess inequalities for cubefree
+moduli, arXiv:2511.17778.
+\bibitem{HB84} D.~R.~Heath-Brown, The square sieve and consecutive
+square-free numbers, \emph{Math. Ann.} \textbf{266} (1984), 251--259.
+\bibitem{HBP} D.~R.~Heath-Brown and L.~B.~Pierce, Counting rational
+points on smooth cyclic covers, arXiv:1109.1455 (J. Number Theory,
+2012).
+\bibitem{IK} H.~Iwaniec and E.~Kowalski, \emph{Analytic Number Theory},
+Amer. Math. Soc. Colloq. Publ.\ 53, 2004.
+\bibitem{Mordell} L.~J.~Mordell, \emph{Diophantine Equations}, Academic
+Press, London, 1969.
+\bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new
+modular equations and checking up to $N=10^{17}$, arXiv:1406.6307.
+\bibitem{Shiu} P.~Shiu, A Brun--Titchmarsh theorem for multiplicative
+functions, \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem{Titchmarsh} E.~C.~Titchmarsh, \emph{The Theory of the Riemann
+Zeta-Function}, 2nd ed., revised by D.~R.~Heath-Brown, Oxford Univ.
+Press, 1986.
+\bibitem{TY} T.~S.~Trudgian and A.~Yang, Toward optimal exponent pairs,
+arXiv:2306.05599.
+\bibitem{Vaaler} J.~D.~Vaaler, Some extremal functions in Fourier
+analysis, \emph{Bull. Amer. Math. Soc. (N.S.)} \textbf{12} (1985),
+183--216.
+\bibitem{Vaughan} R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and
+Schinzel, \emph{Mathematika} \textbf{17} (1970), 193--198.
+\bibitem{AIV} A.~I.~Vinogradov, The density hypothesis for Dirichlet
+$L$-series, \emph{Izv. Akad. Nauk SSSR Ser. Mat.} \textbf{29} (1965),
+903--934; corrigendum \textbf{30} (1966), 719--720.
+\bibitem{Yamamoto} K.~Yamamoto, On the Diophantine equation
+$4/n=1/x+1/y+1/z$, \emph{Mem. Fac. Sci. Kyushu Univ. Ser. A} \textbf{19}
+(1965), 37--47.
+\end{thebibliography}
+\end{document}
