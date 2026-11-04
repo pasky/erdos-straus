@@ -1,0 +1,6 @@
+/tmp/z56fa_1e8.txt u-windows: R^2 by covariates [0.401 0.084 0.049 0.076 0.115]; residual corr (01)-0.080 (02)-0.033 (03)-0.033 (04)-0.048 (12)+0.048 (13)+0.102 (14)+0.102 (23)+0.176 (24)+0.225 (34)+0.336; resid off-diag cov share +0.026; se 0.0030
+/tmp/z56fa_1e8.txt C-windows: R^2 by covariates [0.344 0.099 0.129 0.318 0.486]; residual corr (01)+0.035 (02)+0.058 (03)+0.008 (04)+0.007 (12)+0.409 (13)+0.206 (14)-0.006 (23)+0.201 (24)-0.003 (34)-0.032; resid off-diag cov share +0.265; se 0.0030
+/tmp/z56fa_1e8.txt total unordered: R^2 by covariates 0.366; corr(total, logL(chi_p)) -0.256, corr(total, logL(chi_-4p)) +0.372
+/tmp/z56fa_1e9.txt u-windows: R^2 by covariates [0.368 0.075 0.052 0.073 0.11 ]; residual corr (01)-0.065 (02)-0.023 (03)-0.024 (04)-0.030 (12)+0.064 (13)+0.106 (14)+0.106 (23)+0.212 (24)+0.262 (34)+0.396; resid off-diag cov share +0.059; se 0.0046
+/tmp/z56fa_1e9.txt C-windows: R^2 by covariates [0.313 0.089 0.11  0.272 0.398]; residual corr (01)+0.056 (02)+0.085 (03)+0.033 (04)-0.001 (12)+0.449 (13)+0.274 (14)-0.000 (23)+0.271 (24)+0.004 (34)-0.058; resid off-diag cov share +0.310; se 0.0046
+/tmp/z56fa_1e9.txt total unordered: R^2 by covariates 0.325; corr(total, logL(chi_p)) -0.239, corr(total, logL(chi_-4p)) +0.355

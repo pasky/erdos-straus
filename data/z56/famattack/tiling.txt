@@ -1,0 +1,6 @@
+Area Omega_U = 8/45 0.17777777777777778  c_tile(U) = 8/pi^4 * A = 0.014600508095551058  vs Thm U 2/(3pi^4) = 0.006843988169789558
+Area Omega_X = 7/150 0.04666666666666667  c_tile(X) = 0.003832633375082153  vs c_X = 0.0019409122700262576
+HB-large-sieve variant (alpha0 -> 0, Assessment): area 9/40  c = 0.018478768058431808
+full M0 coefficient 3/(2pi^2) = 0.15198177546350666 ; tile share = 0.09606749263866102
+|Omega_U| grid = 0.17767175  |Omega_U ∪ Omega_U^T| = 0.3220291875  |∩| = 0.0333143125
+Assessment upper bound (3/pi^2)*|Ω∪Ω^T| = 0.09788513533464097  share of M0: 0.644058375
