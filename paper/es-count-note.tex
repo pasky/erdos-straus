@@ -43,7 +43,8 @@
 For an integer $n\ge2$ let $R(n)$ be the number of triples $(u,B,C)$ of
 positive integers with $4uBC-u-B=n$.  Each such triple gives the
 solution $4/n=1/(uBC)+1/(nBC)+1/(nuC)$ of the Erd\H{o}s--Straus equation;
-these form one line inside the Type~II solutions of Elsholtz and Tao.
+for prime $n$ these form one line inside the Type~II solutions of
+Elsholtz and Tao.
 We prove three estimates for $R$.  (i)~For every $n$,
 $R(n)\ll_\eps n^{12/37+\eps}$, a power saving over the divisor-bound
 benchmark $n^{1/3+o(1)}$.  The proof applies Heath-Brown's square sieve
@@ -60,8 +61,8 @@ real Dirichlet characters satisfies
 $\Mgen(p)\ge(2/(3\pi^4)-o(1))(\log p)^2$ for every sufficiently large
 $p$, unconditionally and effectively.  The proof combines Burgess's
 bound for cube-free conductors with a windowed hyperbola method in which
-all non-principal genus characters cancel.  We also write the genus
-layer of each short slice as an explicit sum of products
+all non-principal genus characters cancel.  We also give an asymptotic
+formula for the genus layer of each short slice in terms of products
 $L(1,\psi)L(1,\psi')$ of quadratic $L$-values, and show that on the same
 subfamily the characters of order at least three modulo the small
 modulus carry no density main term.  (iii)~For all but
@@ -110,9 +111,11 @@ A triple counted by $R(n)$ gives the solution
 \end{equation}
 In Elsholtz--Tao's parametrisation of Type~II solutions
 \cite[Prop.~2.6, (2.13)--(2.22)]{ET} this is the slice $c=1$, with
-$(a,b,d)=(u,B,C)$ and $e=u+B$.  For a prime $p$ the map from triples to
-solutions is injective and its image consists of Type~II solutions, so
-$f_{\rm II}(p)\ge R(p)$ (Lemma~\ref{lem:basic}).  The count $R(p)$ is
+$(a,b,d)=(B,u,C)$ and $e=u+B$.  The solution \eqref{eq:sol} is of
+Type~II when $\gcd(n,uBC)=1$, in particular for every prime $n=p$ (but
+not in general: $n=6$, $(u,B,C)=(1,1,2)$ gives $(2,12,12)$).  For a prime
+$p$ the map from triples to solutions is injective, so $f_{\rm
+II}(p)\ge R(p)$ (Lemma~\ref{lem:basic}).  The count $R(p)$ is
 the natural ``first line'' of Type~II solutions: it is a sum of $\asymp
 p\log p$ rare divisibility events, each tied to its own modulus, whose
 expected total is of order $(\log p)^2$ (\S\ref{subsec:genus-intro}).
@@ -186,7 +189,7 @@ squares, where $R(n)=0$.  It is an upper bound only, and does not bear on
 the existence of solutions.
 
 \subsection{The genus main term at every large prime}\label{subsec:genus-intro}
-For a prime $p$ write
+For an odd prime $p$ write
 $\cP(p)=\{(u,B)\in\N^2:\gcd(u,B)=1,\ u+B\ \text{odd},\ 4uB-u-B\le p\}$, and
 for $(u,B)\in\cP(p)$ put $q=4uB$, $a=-(u+B)$; then $a$ and $p$ are units
 modulo $q$ and $R(p)=\sum_{(u,B)\in\cP(p)}\mathbf 1[p\equiv a\ (\mathrm{mod}\ q)]$
@@ -222,9 +225,12 @@ cube-free conductor, and works because $p$ divides the conductor of
 each twisted character $\eta\chi_{-4up}$.  An average of
 $L(1,\chi_{-4up})$ over $u$, again by Burgess, finishes the proof.  No
 zero-free region, no Siegel-type bound and no averaging over $p$ is used.
-Section~\ref{sec:genus} also contains two complements: an exact
-evaluation of each genus slice as a signed sum of products of two
-quadratic $L$-values (Proposition~\ref{prop:C}), and a density-level
+Section~\ref{sec:genus} also contains two complements: a uniform
+asymptotic formula, with power-saving additive error, for the genus
+layer of each short slice $u\equiv1\pmod 4$ squarefree, $u\le p^{3/5-\eps}$,
+as a principal term (involving $L(1,\chi_{-4up})$ and $L'(1,\chi_{-4up})$) plus a
+signed sum of products of two quadratic $L$-values
+(Proposition~\ref{prop:C}), and a density-level
 statement that the characters of order $\ge3$ modulo $8u$ carry no main
 term on the subfamily (Theorem~\ref{thm:D}).
 
@@ -257,8 +263,11 @@ $4uC-1\le X^{1/4-o(1)}$, so that all pair correlations fall within the
 range of Bombieri--Vinogradov.  In the resulting variance each residue
 class modulo $d$ is a single lattice cell of a hyperbolic region, which
 makes it $O(\log^3 X)$ against a squared mean of order $\log^4X$.  The
-order $(\log p)^2$ is that of the mean of $R$, not of $f_{\rm II}$, whose
-mean over primes is of order $(\log p)^3$ \cite[Thm.~1.1]{ET}.
+order $(\log p)^2$ is the natural order of $R$: the number of triples
+with $4uBC-u-B\le X$ lies between $\#\{uBC\le X/4\}$ and $\#\{uBC\le
+X/2\}$, so the average of $R(n)$ over $n\le X$ is $\asymp(\log X)^2$.  By
+contrast, the mean of $f_{\rm II}(p)$ over primes is of order $(\log p)^3$
+\cite[Thm.~1.1]{ET}.
 
 \subsection{What is and is not proved}
 All four theorems are proved here in full, relative to the cited
@@ -294,9 +303,9 @@ know of are Elsholtz--Tao's $f_{\rm I}(n)\ll n^{3/5+o(1)}$,
 $f_{\rm II}(n)\ll n^{2/5+o(1)}$ \cite[Prop.~1.7]{ET} and the bound
 $O_\eps(n^\eps (n^3/m^2)^{1/5})$ of Elsholtz--Planitzer \cite[Thm.~1]{EP}
 for representations of $m/n$.  The square sieve was introduced in
-\cite{HB84}; combining a power sieve with a $q$-analogue of van der
-Corput's method is a known technique for counting points on curves
-\cite{HBP}.  The variance-over-primes argument of Theorem~\ref{thm:C} is
+\cite{HB84}; the combination of a power sieve with a $q$-analogue of van der
+Corput's method has been used to count rational points on cyclic covers
+of projective space \cite{HBP}.  The variance-over-primes argument of Theorem~\ref{thm:C} is
 a Tur\'an--Kubilius-type estimate for a non-additive divisor count; the
 closest classical analogue we know is Barban's inequality for shifted
 primes, used by Elsholtz--Tao in the proof of their Theorem~1.8.
@@ -308,8 +317,8 @@ through the residue of $a$).  For a discriminant $D$, $\chi_D=\leg D\cdot$
 is the Kronecker symbol, and $\chi_{-4}$ is the non-principal character
 modulo~$4$.  $\tau$, $\omega$, $\varphi$, $\mu$ are the divisor function,
 the number of distinct prime factors, Euler's function and the M\"obius
-function.  $\psi(x)=x-\lfloor x\rfloor-\frac12$.  The letters $\ell$ and $q$
-always denote primes.  Implied constants are absolute unless indicated
+function.  $\psi(x)=x-\lfloor x\rfloor-\frac12$ and $\log^+x=\max(\log x,0)$.
+Implied constants are absolute unless indicated
 by subscripts; $n^{o(1)}$ absorbs factors such as $\tau(m)$ for
 $m\le n^{O(1)}$.
 
@@ -345,10 +354,9 @@ both $a$ and $p$ are units modulo $q$.
 Given a triple, $4uB-u-B\le 4uBC-u-B=p$; $u+B\equiv p\equiv 1\pmod 2$;
 and $\gcd(u,B)$ divides $4uBC-u-B=p$ and is at most $u<p$, so it is~$1$.
 Clearly $p\equiv a\pmod q$.  Conversely, if $(u,B)\in\cP(p)$ and $q\mid
-p-a=p+u+B$ then $C:=(p+u+B)/(4uB)$ is a positive integer.  Finally
+p-a=p+u+B$ then $C:=(p+u+B)/(4uB)$ is a positive integer.  Finally, for $(u,B)\in\cP(p)$,
 $\gcd(u+B,4uB)=1$ because $u+B$ is odd and $\gcd(u+B,u)=\gcd(B,u)=1$; and
-$p\nmid q$ because $u,B<p$ (if $u\ge p$ then $u(4BC-1)=p+B$ forces
-$B(4pC-1)\le 2p$, impossible).
+$p\nmid q$ because $p\ge4uB-u-B\ge2uB$ gives $u,B\le p/2$.
 \end{proof}
 
 \begin{lemma}[odd squares]\label{lem:squares}
@@ -445,6 +453,7 @@ P_0+\sum_{q\ne q'}\leg a{qq'}$.
 \end{proof}
 
 \subsection{Complete character sums}
+In this section $q,q'$ denote odd primes and $\ell\in\Z$ is a frequency.
 For an odd prime $q$ and $c,\ell\in\Z$ put
 \[
  K_q(c):=\sum_{k\bmod q}\leg{f(c,k)}q,\qquad
@@ -841,7 +850,8 @@ derivatives with
 $|g^{(r+1)}(x)-\frac{d^r}{dx^r}(yx^{-\sigma})|\le c|\frac{d^r}{dx^r}(yx^{-\sigma})|$
 on $I$ for $0\le r\le P-1$.  (We take this formulation from
 \cite[\S1.1]{TY}, which restates \cite[Ch.~3]{GK}.)  The pair
-$(\frac16,\frac23)=A(0,1)$ is an exponent pair \cite[Ch.~3]{GK}.
+$(\frac16,\frac23)=AB(0,1)=A(\frac12,\frac12)$ is an exponent pair
+\cite[Ch.~3]{GK}, \cite[\S1.2]{TY}.
 
 \begin{theorem}\label{thm:pairs}
 Let $(\kappa,\kappa+\frac12)$ be an exponent pair with $0\le\kappa<\frac14$.
@@ -897,8 +907,9 @@ exponent pair conjecture), we get $R(n)\ll_\eps n^{4/13+\eps}$.
 
 \begin{remark}[where the method stops]\label{rem:balanced}
 The bound beats the trivial exponent $\min(\alpha,\gamma)$ only near the
-cube; on the diagonal $\alpha=\beta$ the gain region is
-$\beta\in(\frac4{13},\frac{14}{41})$.  At the ``balanced'' block
+cube; on the diagonal $\alpha=\beta$ the gain region of the bound in
+the proof of Theorem~\ref{thm:main-upper} is
+$\beta\in(\frac4{13},\frac{14}{41})$ (a computation with its exponents).  At the ``balanced'' block
 $u,B\asymp n^{1/4}$, $C\asymp n^{1/2}$ the strip has $O(1)$ points per
 value of $C$ ($|J_C|\asymp V/W\asymp n^{-1/4}$), and summing the dual
 frequencies $\ell$ before $C$ undoes the Poisson step.  Heuristically:
@@ -917,8 +928,8 @@ this.
 
 \section{The genus main term}\label{sec:genus}
 
-Throughout this section $p\equiv1\pmod4$ is prime and $\Mgen(p)$ is
-defined by \eqref{eq:Mgen}.  The interpretation of $\Mgen$ is as
+Throughout this section $p\equiv1\pmod4$ is prime, $\Mgen(p)$ is
+defined by \eqref{eq:Mgen}, and $\ell$ always denotes a prime.  The interpretation of $\Mgen$ is as
 follows.  For $(u,B)\in\cP(p)$ both $p$ and $a$ are units modulo $q$
 (Lemma~\ref{lem:pair}), and
 $\mathbf 1[p\equiv a\ (q)]=\varphi(q)^{-1}\sum_{\chi\bmod q}\chi(p)\bar\chi(a)$.
@@ -993,16 +1004,17 @@ all real $M\ge0$ and $N\ge1$,
 \[
  \Bigl|\sum_{M<n\le M+N}\chi(n)\Bigr|\le C(r,\eps)N^{1-1/r}f^{(r+1)/(4r^2)+\eps}.
 \]
-The constant $C(r,\eps)$ is effectively computable: an explicit version
-is \cite[Thm.~1.2]{HLMLT} (for $f\ge\max(10^{1143},2^{4r-2})$, with
-additional factors that are $O_{r,\eps}(f^\eps)$ effectively; smaller $f$
-are covered by $|\sum\chi(n)|\le\min(N,f)\le f^{1/r}N^{1-1/r}$).
+The constant $C(r,\eps)$ is effectively computable.  For $r=1$ this is
+the P\'olya--Vinogradov inequality.  For $r\ge2$ an explicit version is
+\cite[Thm.~1.2]{HLMLT} (in v2: for $f\ge\max(10^{1143},2^{4r-2})$, with
+additional factors that are $O_{r,\eps}(f^\eps)$ effectively); smaller $f$
+are covered by $|\sum\chi(n)|\le\min(N,f)\le f^{1/r}N^{1-1/r}$.
 \end{citedthm}
 
 Fix an integer $r\ge3$ and $\eps\in(0,\frac1{100})$, and put
 \[
  \kappa:=\frac1r,\qquad\theta:=\frac{r+1}{4r^2}+\eps,\qquad
- \tau:=r\theta=\frac{r+1}{4r}+r\eps .
+ \varpi:=r\theta=\frac{r+1}{4r}+r\eps .
 \]
 Implied constants in this section depend only on $r,\eps$ and on fixed
 exponents introduced below; all of them are effective.
@@ -1093,7 +1105,7 @@ For $u\in\cU$ and $\eta\in\cE_u$ let
 $S_\eta(u):=\sum_{w\in\cS_u\cap(Y,X]}\eta(w)\rho_u(w)$.
 
 \begin{proposition}\label{prop:window}
-Assume $\gamma<1-\alpha_1$ and $\beta>\tau(1+\alpha_1)+4\eps$.  There is
+Assume $\gamma<1-\alpha_1$ and $\beta>\varpi(1+\alpha_1)+4\eps$.  There is
 $\delta=\delta(r,\eps,\alpha_1,\beta)>0$ such that, uniformly for $u\in\cU$
 and $\eta\in\cE_u$,
 \[
@@ -1146,7 +1158,7 @@ $K_F=(1+r)Cf_F^\theta$ and to $G=\eta\chi_D$ with
 $K_G=(1+r)\tau(2d)Cf_G^\theta$, so $K_FK_G\le p^{\theta(1+\alpha_1)+o(1)}$.
 Let $C_0=p^\eps$.  For $c\le C_0$ both $X/c$ and $Y/c$ are $\ge
 p^{\beta-\eps}$, and $(p^{\beta-\eps})^\kappa\ge K_FK_Gp^{\kappa\eps}$ for
-large $p$ because $\beta>\tau(1+\alpha_1)+2\eps$.  Lemma~\ref{lem:hyperbola}(a)
+large $p$ because $\beta>\varpi(1+\alpha_1)+2\eps$.  Lemma~\ref{lem:hyperbola}(a)
 gives $|\Phi_\eta(X/c)-\Phi_\eta(Y/c)|\le2(2r+3)p^{-\kappa\eps/2}$: the
 constant $L(1,F)L(1,G)$ cancels.  For $c>C_0$ we use
 $|\Phi_\eta(y)|\le\sum_{m\le y}\tau(m)/m\le(1+\log y)^2$ and
@@ -1167,13 +1179,13 @@ the bound for $c>C_0$ from (3), gives the claim.
 
 \subsection{An average of $L(1,\chi_{-4up})$}
 \begin{proposition}\label{prop:Lavg}
-Let $0<\alpha_0<\alpha_1<1$ with $\alpha_0>\tau^2(1+\alpha_1)+3\eps$.  Then
+Let $0<\alpha_0<\alpha_1<1$ with $\alpha_0>\varpi^2(1+\alpha_1)+3\eps$.  Then
 \[
  \sum_{u\in\cU}\frac{L(1,\chi_{-4up})}{u}\ge\frac2{\pi^2}(\alpha_1-\alpha_0)\log p-O(1).
 \]
 \end{proposition}
 \begin{proof}
-Put $\nu=\tau(1+\alpha_1)+\eps$ and $N=p^\nu$.  For odd $n$ and
+Put $\nu=\varpi(1+\alpha_1)+\eps$ and $N=p^\nu$.  For odd $n$ and
 $u\in\cU$, $\chi_{-4up}(n)=\chi_{-4p}(n)\leg un$ (reciprocity, $u\equiv1\
 (4)$), and $\chi_{-4up}(n)=0$ for even $n$.  By Lemma~\ref{lem:tails}
 (conductor $4up$),
@@ -1209,17 +1221,17 @@ of Lemma~\ref{lem:tails},
 $|V(n)|\le(2+r)\zeta(2-2\kappa)\tau(2m)C(4n)^\theta U_0^{-\kappa}$.  Hence
 $\sum_{n\le N\ \text{non-square}}|V(n)|/n\le p^{o(1)}U_0^{-\kappa}N^\theta=
 p^{\theta\nu-\kappa\alpha_0+o(1)}$, and $\theta\nu-\kappa\alpha_0<0$ because
-$\alpha_0>\tau\nu=\tau^2(1+\alpha_1)+\tau\eps$.
+$\alpha_0>\varpi\nu=\varpi^2(1+\alpha_1)+\varpi\eps$.
 \end{proof}
 
 \subsection{Proof of Theorem~\ref{thm:B}}
 \begin{theorem}\label{thm:U}
-Let $r\ge3$ be an integer, $\eps\in(0,\frac1{100})$, $\tau=\frac{r+1}{4r}+r\eps$,
+Let $r\ge3$ be an integer, $\eps\in(0,\frac1{100})$, $\varpi=\frac{r+1}{4r}+r\eps$,
 and let $0<\alpha_0<\alpha_1$, $\beta<\gamma$ satisfy
 \[
  \text{(C1)}\ \gamma<1-\alpha_1,\qquad
- \text{(C2)}\ \beta>\tau(1+\alpha_1)+4\eps,\qquad
- \text{(C3)}\ \alpha_0>\tau^2(1+\alpha_1)+3\eps .
+ \text{(C2)}\ \beta>\varpi(1+\alpha_1)+4\eps,\qquad
+ \text{(C3)}\ \alpha_0>\varpi^2(1+\alpha_1)+3\eps .
 \]
 Then $\Mgen(p)\ge(c-o(1))(\log p)^2$ as $p\to\infty$ through primes
 $p\equiv1\pmod4$, where $c=\frac8{\pi^4}(\gamma-\beta)(\alpha_1-\alpha_0)$, and
@@ -1249,7 +1261,7 @@ $L(1,\chi)$ is used only through its sign.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:B}]
-As $r\to\infty$ and $\eps\to0$ we have $\tau\to\frac14$, and with the
+As $r\to\infty$ and $\eps\to0$ we have $\varpi\to\frac14$, and with the
 margins removed the conditions read $\gamma<1-\alpha_1$,
 $\beta>\frac{1+\alpha_1}4$, $\alpha_0>\frac{1+\alpha_1}{16}$.  Then
 $(\gamma-\beta)(\alpha_1-\alpha_0)\to\frac{(3-5\alpha_1)(15\alpha_1-1)}{64}$,
@@ -1260,7 +1272,7 @@ apply Theorem~\ref{thm:U}.
 \end{proof}
 
 \begin{remark}\label{rem:U}
-(1) With $r=3$ alone ($\tau=\frac13$) the optimum is at $\alpha_1=\frac5{16}$
+(1) With $r=3$ alone ($\varpi=\frac13$) the optimum is at $\alpha_1=\frac5{16}$
 and gives the constant $\frac1{3\pi^4}$.  Under a fixed zero-free strip
 for the relevant $L$-functions one could let $\beta,\alpha_0\to0$ and
 obtain $\frac2{\pi^4}$; we do not use this.  The constant is not
@@ -1295,7 +1307,7 @@ $\Mgen(p)=2\sum_{u\ \mathrm{odd}}S_u(p)$.
 
 \begin{proposition}\label{prop:C}
 Let $u\equiv1\pmod4$ be squarefree with $u\le p^{\alpha}$, where
-$1-\alpha>\tau(1+\alpha)+5\eps$ (for suitable $r,\eps$ this allows every
+$1-\alpha>\varpi(1+\alpha)+5\eps$ (for suitable $r,\eps$ this allows every
 fixed $\alpha<\frac35$).  Put $D=-4up$ and $X_u=\lfloor
 (p+u)/(2(4u-1))\rfloor$.  Then, with $\delta=\delta(r,\eps,\alpha)>0$,
 \[
@@ -1334,7 +1346,7 @@ $(1+\frac{2\ell}{\ell-1}\frac Y{1-Y})(1-Y)^2$), all $|h(\ell^k)|\le2$ and
 $h(\ell^k)=0$ for $k\ge3$; hence $\sum_c|h(c)|c^{-3/4}(1+\log
 c)=p^{o(1)}$.  As before
 $\Sigma_\eta(X)=\sum_c\frac{\eta(c)h(c)}c\Phi_\eta(X/c)$.  Put
-$y_0=(4up)^\tau p^{3\eps}$.  For $c\le X/y_0$, Lemma~\ref{lem:hyperbola}
+$y_0=(4up)^\varpi p^{3\eps}$.  For $c\le X/y_0$, Lemma~\ref{lem:hyperbola}
 gives $\Phi_\eta(X/c)=L(1,\eta)L(1,\eta\chi_D)+O(p^{-\kappa\eps})$ for
 $\eta\ne1$ (part (a); $K_FK_G\le(4up)^\theta p^{o(1)}$), and
 $\Phi_1(X/c)=L(1,\chi_D)(\log(X/c)+\gamma_E)+L'(1,\chi_D)+O(p^{-\kappa\eps})$
@@ -1343,7 +1355,7 @@ $c>X/y_0$ of the $c$-sums of the main terms, are
 $\ll(X/y_0)^{-1/4}p^{o(1)}(\log p)^3$, using $|\Phi_\eta(y)|\le(1+\log
 y)^2$ and $|L(1,\cdot)|\ll\log p$, $|L'(1,\cdot)|\ll(\log p)^2$ for the
 characters involved (conductors $\le4up$).  Finally $X_u/y_0\ge
-p^{1-\alpha-\tau(1+\alpha)-3\eps}/32\ge p^{\eps}$ for large $p$, and
+p^{1-\alpha-\varpi(1+\alpha)-3\eps}/32\ge p^{\eps}$ for large $p$, and
 $\sum_c\frac{h(c)}c(\log X-\log c)=H_u(1)\log X+H_u'(1)$.  The
 identification of $L(1,\eta)$ and $L(1,\eta\chi_D)$ follows from
 step~(2) of Proposition~\ref{prop:window} and
@@ -1396,10 +1408,10 @@ is replaced by its genus density.
 
 \begin{theorem}\label{thm:D}
 Let $r\ge1$ be an integer, $\eps\in(0,\frac1{100})$,
-$\tau=\frac{r+1}{4r}+r\eps$, and assume
+$\varpi=\frac{r+1}{4r}+r\eps$, and assume
 \[
  \text{(C1)}\ \gamma<1-\alpha_1,\qquad
- \text{(C2$^*$)}\ \beta>2\alpha_1+\tau+4\eps,\qquad
+ \text{(C2$^*$)}\ \beta>2\alpha_1+\varpi+4\eps,\qquad
  \text{(C4)}\ \alpha_1<\tfrac15 .
 \]
 There is $\delta>0$ such that, uniformly in $u\in\cU$ and in the unit
@@ -1443,11 +1455,11 @@ $\sum_{Y/c<m\le X/c,\,m\equiv t}\tau(m)/m\le p^{o(1)}(c/Y+q^{-1}\log(X/Y))
 \le p^{o(1)}/u$, and $\sum_{c>C_0}|h(c)|/c\le C_0^{-\theta'}p^{o(1)}$.
 For $c>Y/q$ the bracket is $\le(1+\log X)^2$ and $\sum_{c>Y/q}|h(c)|/c\le
 (Y/q)^{-\theta'}p^{o(1)}=p^{-\theta'(\beta-\alpha_1)+o(1)}$.  By (C2$^*$)
-and $\tau\ge\frac14$, $\beta-\alpha_1>\alpha_1+\frac14+4\eps$, and by (C4)
+and $\varpi\ge\frac14$, $\beta-\alpha_1>\alpha_1+\frac14+4\eps$, and by (C4)
 and $\eps<\frac1{100}$, $(\frac12-\eps)(\alpha_1+\frac14+4\eps)\ge\alpha_1+\frac\eps2$.
 So both ranges contribute $O(p^{-\min(\eps\theta',\eps/2)+o(1)}/u)$.
 
-\emph{(ii) Small $c$.}  Let $c\le C_0$ and $B_0:=qp^{\tau+\eps}$.  For
+\emph{(ii) Small $c$.}  Let $c\le C_0$ and $B_0:=qp^{\varpi+\eps}$.  For
 $y\ge1$ we have the exact identity
 \[
  \Phi_t(y)=\sum_{b\le B_0}\frac{\chi_D(b)}b\,\alpha_{t\bar b}(y/b)
@@ -1463,9 +1475,9 @@ vu\leg bp$.  Writing $b=v_0+qk$ ($1\le v_0\le q$), $\leg bp=\leg
 qp\leg{k+v_0\bar q}p$, where $\bar q$ is the inverse of $q$ modulo $p$.
 Burgess's bound for the Legendre symbol modulo $p$, with $r$ and $\eps$,
 bounds every sum of $\leg{k+v_0\bar q}{p}$ over $K$ consecutive $k$ by
-$CK^{1-1/r}p^{\tau/r}$.  Partial summation against the decreasing weight
+$CK^{1-1/r}p^{\varpi/r}$.  Partial summation against the decreasing weight
 $1/(v_0+qk)$, for $k$ beyond $k_0\ge B_0/q-1$, gives
-$|\beta_v(T)-\beta_v(B_0)|\le(r+2)Cp^{\tau/r}k_0^{-1/r}/q\le2(r+2)Cp^{-\eps/r}/q$.
+$|\beta_v(T)-\beta_v(B_0)|\le(r+2)Cp^{\varpi/r}k_0^{-1/r}/q\le2(r+2)Cp^{-\eps/r}/q$.
 Hence the second part is $O(p^{-\eps/r+o(1)}/u)$ for $y\in\{X/c,Y/c\}$.
 
 \emph{First part.}  By \eqref{eq:APharm} with $T_1=Y/(cb)\ge Y/(C_0B_0)\ge1$,
@@ -1474,7 +1486,7 @@ Hence the second part is $O(p^{-\eps/r+o(1)}/u)$ for $y\in\{X/c,Y/c\}$.
  b}\Bigl(\frac Y{cb}\Bigr)\Bigr]=\frac1q\log\frac XY\cdot\Lambda(B_0)+O\Bigl(\frac{cB_0}Y\Bigr),
  \quad\Lambda(B_0):=\sum_{b\le B_0}\frac{\chi_D(b)}b,
 \]
-and $cB_0/Y\le4u\,p^{2\eps+\tau-\beta}\ll p^{-\eps}/u$ by (C2$^*$).  The
+and $cB_0/Y\le4u\,p^{2\eps+\varpi-\beta}\ll p^{-\eps}/u$ by (C2$^*$).  The
 main term does not depend on $t$.  Summing over $c\le C_0$ we obtain
 \eqref{eq:X1} with
 $\mathfrak M_u=q^{-1}\log(X/Y)\Lambda(B_0)\sum_{c\le C_0,\,(c,q)=1}h(c)/c$ and
@@ -1488,7 +1500,7 @@ with $\cC=s_u((\Z/4u\Z)^\times)^2$, $|\cC|=\varphi(u)/2^{\omega(u)}$.  By
 \eqref{eq:X1},
 $\sum_w(A_u-A_u^{\rm gen})(w)\rho_u(w)=O(p^{-\delta}/u)$; summing over $u\le
 U_1$ gives $\Mcls_\cF-M_\cF=O(p^{-\delta}\log p)$.  Since
-$\tau\alpha_1\le2\alpha_1$, (C2$^*$) implies (C2) of Theorem~\ref{thm:U}, and
+$\varpi\alpha_1\le2\alpha_1$, (C2$^*$) implies (C2) of Theorem~\ref{thm:U}, and
 with (C3) the proof of that theorem gives $M_\cF\ge(c-o(1))(\log p)^2$.
 Letting $r\to\infty$, $\eps\to0$, $\gamma\uparrow1-\alpha_1$,
 $\beta\downarrow2\alpha_1+\frac14$, $\alpha_0\downarrow\frac{1+\alpha_1}{16}$, the
@@ -1508,7 +1520,7 @@ the exponent in the Bombieri--Vinogradov theorem below.  Put
 \[
  \cT:=\{(u,C)\in\N^2:\ m_{uC}:=4uC-1\le Q\}=\{(u,C):uC\le Y\}.
 \]
-For odd $n$ define the weighted truncated count
+For $n\in\N$ define the weighted truncated count
 \[
  N(n):=\sum_{(u,C)\in\cT}c_{uC}\,\mathbf 1[m_{uC}\mid n+u],\qquad
  c_{uC}:=\frac{\varphi(m_{uC})}{m_{uC}}\in(0,1].
@@ -1690,7 +1702,7 @@ $g(t)=\log(Y/(td))/t$, nonnegative and non-increasing on $(0,Y/d]$.  If
 $u_0>Y/d$ then $H_2=0$ and $Y<d^2$, so $\Lambda=0$.  Otherwise
 $dH_2=g(u_0)+\sum_{j=1}^Jg(u_0+jd)$, $J=\lfloor(Y/d-u_0)/d\rfloor$, and
 comparison with integrals gives
-$\frac1{2d}(\log^+\frac Y{(u_0+d)d})^2\le\sum_{j\ge1}g(u_0+jd)\le\frac1{2d}\log^2\frac
+$\frac1{2d}(\log^+\frac Y{(u_0+d)d})^2\le\sum_{j=1}^Jg(u_0+jd)\le\frac1{2d}\log^2\frac
 Y{u_0d}$.  With $\lambda=\log^+(Y/d^2)$ and $\delta=\log(d/u_0)\in[0,\log d]$
 we have $0\le\log\frac Y{u_0d}\le\lambda+\delta$ and
 $\log^+\frac{Y}{(u_0+d)d}\ge(\lambda-\log 2)^+$; since $d\Lambda=\lambda^2/(2d)$,
@@ -1765,7 +1777,7 @@ the exceptional set has at most $(1500\eta^{-2}+2)\pi(X)/L\le
 
 \begin{remark}\label{rem:C}
 (1) The same proof applies within any fixed reduced residue class $b\bmod
-W$: all but $O_W(\pi(X;W,b)/\log X)$ primes $p\equiv b\pmod W$, $p\le X$,
+W$: all but $O_W(\eta^{-2}\pi(X;W,b)/\log X)$ primes $p\equiv b\pmod W$, $p\le X$,
 satisfy the bound, because $\pi(X;W,b)\gg_W\pi(X)$.  This includes the
 six classes modulo $840$ that contain all potential counterexamples.
 
@@ -1803,12 +1815,15 @@ p)^2$), and $\Mgen(n)=0$ for $n=31^2,35^2,99^2$.  The ratios
 $\Mgen(p)/(\log p)^2$ are thus more than ten times the constant
 $2/(3\pi^4)=0.00684$ of Theorem~\ref{thm:B}.  Note that $p=8813281$ has
 $R(p)=0$: its genus count is not small, and the vanishing comes from
-the characters of order $\ge3$.  In earlier internal computations, the
-closed form of Proposition~\ref{prop:C} (with $L$-values computed
-numerically) agreed with the exact slice sums to within $0.13\%$ for all
-eighteen tested slices of length $X_u\ge10^5$ ($u\in\{1,5,13,21\}$,
-primes up to $10^8$, including the fourteen primes above), with errors
-decreasing in $X_u$.
+the characters of order $\ge3$.  In earlier internal computations (65 slices,
+$u\in\{1,5,13,21\}$, twenty primes from $409$ to about $10^8$), the
+formula of Proposition~\ref{prop:C}, with $L$-values computed
+numerically, agreed with the exact slice sums to within $0.13\%$ for all
+eighteen slices of length $X_u\ge10^5$; these involve the primes
+$712321$, $1000033$, $1134241$, $1724209$, $1726201$, $5212561$,
+$8813281$, $10000169$, $99999989$ and $100000049$, six of which have
+$R(p)=0$.  The errors decrease with $X_u$; short slices are not in the
+asymptotic range.
 \item \emph{The variance of \S\ref{sec:almostall}.}  The exact model
 variance $V$ (the right side of Lemma~\ref{lem:varid} minus $M^2$,
 computed by a double sum over $\cT$ with the program
@@ -1821,9 +1836,11 @@ times too large.
 
 \section{Concluding remarks}\label{sec:concl}
 \begin{enumerate}
-\item The three main results concern the same count $R(p)$, whose mean
-over primes is of order $(\log p)^2$ and whose positivity at every large
-prime would imply the Erd\H{o}s--Straus conjecture for large primes.
+\item The three main results concern the same count $R(p)$, whose
+average over all integers is of order $(\log n)^2$, whose average over
+primes is at least of that order (Theorem~\ref{thm:C}), and whose
+positivity at every large prime would imply the Erd\H{o}s--Straus
+conjecture for large primes.
 Each result is of a kind compatible with the odd-square obstruction
 (Lemma~\ref{lem:squares}): an upper bound uniform in $n$
 (Theorem~\ref{thm:A}), a lower bound for a main term that vanishes at
@@ -1836,13 +1853,15 @@ order $\ge3$.  On the subfamily of \S\ref{sec:genus},
 Theorem~\ref{thm:D} disposes of the part of $X$ that involves only
 characters modulo $8u$ at density level.  The rest of $R_\cF-M_\cF$
 involves the exact divisibility $w\mid p+u$; we have no method for it.
-\item For the upper bound, the natural next step is the balanced block
-$u,B\asymp n^{1/4}$, where Remark~\ref{rem:balanced} indicates that a
-genuinely bilinear estimate is needed.  An upper bound
-$R(n)\ll n^{1/4+\eps}$ would follow from such an estimate together with
-the cube analysis.
+\item For the upper bound, the method stops near the cube; at the
+balanced block $u,B\asymp n^{1/4}$ Remark~\ref{rem:balanced} indicates
+that a genuinely bilinear estimate would be needed.  Even with the
+conjectural exponent pair the cube block gives only $n^{5/18+\eps}$, so a
+bound of the shape $R(n)\ll n^{1/4+\eps}$ would need new ideas in every
+block.
 \item For Theorem~\ref{thm:C}, improving $\frac1{64}$ towards the
-expected mean $\frac3{2\pi^2}$, or proving the analogous bound
+heuristically predicted mean $\frac3{2\pi^2}(\log p)^2$ (the sum over
+$(u,B)\in\cP(p)$ of the densities $1/\varphi(4uB)$), or proving the analogous bound
 $f_{\rm II}(p)\gg(\log p)^3$ for almost all $p$ (the true order of
 $f_{\rm II}$ on average), would require control of correlations at
 larger level.
@@ -1875,7 +1894,7 @@ of Exponential Sums}, London Math. Soc. Lecture Note Ser.\ 126, Cambridge
 Univ. Press, 1991.
 \bibitem{HLMLT} E.~Hasanalizade, H.~Lin, G.~Martin, A.~Luna
 Mart\'inez and E.~Trevi\~no, Explicit Burgess inequalities for cubefree
-moduli, arXiv:2511.17778.
+moduli, arXiv:2511.17778v2.
 \bibitem{HB84} D.~R.~Heath-Brown, The square sieve and consecutive
 square-free numbers, \emph{Math. Ann.} \textbf{266} (1984), 251--259.
 \bibitem{HBP} D.~R.~Heath-Brown and L.~B.~Pierce, Counting rational
