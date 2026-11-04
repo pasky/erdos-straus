@@ -265,7 +265,7 @@ All n ≡ 1 (4), 5 ≤ n ≤ 7 999 801 (the run hit its 1700 s timeout there; ra
 13 primes (the known ones ≤ 8·10⁶), 1 413 odd squares (all of them), 285 non-square composites
 (`data/z56/famattack/zeros_n1mod4_le8e6.txt`, `compzeros_summary.txt`). Per decade (by ⌊log₁₀ n⌋ = 1…6): 1, 8, 24, 60,
 95, 97 (the last decade only to 8·10⁶). The composite zeros were known to exist (BRAINSTORM `z52b_fingerprint.md`
-#88–#89); new here are the counts to 8·10⁶ and their genus masses: exact M_gen(n) at all 299 non-square zeros n ≡ 1 (4) below 8.9·10⁶ (285 composites, 14 primes incl. 8 813 281;
+#88–#89); new here are the counts to 8·10⁶ and their genus masses: exact M_gen(n) at 299 non-square zeros (all 285 composite zeros ≤ 7 999 801 and the 14 prime zeros incl. 8 813 281;
 `mgen_nonsquare_zeros.txt`; R*(n) = 0 at all): composite median 8.0, maximum 24.25 (n = 810 001 = 241·3361), 22.9
 (2 956 321 = 211·14011), 21.7 (752 257 = 11²·6217); the 14 prime zeros have M_gen from 4.0 (409) to 29.1 (8 813 281).
 Matched controls (`mgen_zero_vs_controls.txt`, 24 triples near 4–8·10⁶): composite zeros mean M_gen/log²n 0.047, the
