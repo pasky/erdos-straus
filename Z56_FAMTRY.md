@@ -233,7 +233,20 @@ manageable (shared prime factors are tempered by the compatibility condition u �
 Bombieri–Vinogradov weighted by τ(q)^{2k}, which I can only justify for fixed k, giving (log X)^{−2k}; k → ∞ with the
 needed uniformity is out of reach. STOPS at polylog, worse than Theorem A.
 
-### 4.5 Conditional routes considered
+### 4.5 Which moduli carry the hits (EVIDENCE, `dmin_1e8.txt`, `qmin_1e8.txt`)
+
+Every hit (u, B, C) gives three congruences on p: p ≡ −u (mod 4uC−1), p ≡ −B (mod 4BC−1), p ≡ −(u+B) (mod 4uB), and
+since (4uC)(4BC)(4uB) = 4(4uBC)² = 4(p+u+B)², the smallest of the three moduli is ≤ (4(p+u+B)²)^{1/3} ≤ 1.6·p^{2/3} (PROVED,
+trivial). But in any *single* form the least modulus can be huge: among primes p ≡ 1 (8) in [10⁷, 10⁸] (no (★)-zeros there)
+* pair form q = 4uB: 94.2 % have q_min ≤ 10³, 99.2 % ≤ 10⁴, 99.93 % ≤ 10⁵, but max q_min = 6 627 800 ≈ p/14 at
+  p = 92 722 897, whose only hits with C < 200 are (u, B, C) = (20, 583163, 2), (165, 70298, 2), …, (25, 66278, 14) — all
+  with B ≍ p, i.e. small d = 4uC − 1 (159, 1319, …);
+* divisor form d = 4uC − 1: max d_min = 2 953 943 ≈ p/29 at p = 85 664 329 (hit u = 18, B = 29, C = 41027 — small 4uB = 2088);
+* prime d only: max d_min^pr ≈ p/2, and 422 primes have no prime-d hit at all.
+Typical sizes: mean log q_min / log log p ≈ 1.44 and decreasing with p, so q_min is typically polylog, but the tail is
+polynomial. Any "all p" argument therefore has to handle hits whose moduli are of size ≍ p in every single form.
+
+### 4.6 Conditional routes considered
 
 * Elliott–Halberstam / GRH do not change the picture: they improve c in Theorem A (moduli up to X^{1−ε}, better BV
   levels) but cannot remove the √X floor of §4.4(i).
@@ -256,7 +269,8 @@ needed uniformity is out of reach. STOPS at polylog, worse than Theorem A.
 **Where it stops.** Every local condition implied by R(p) = 0 is shared with odd squares, and every sieve-type counting
 argument is blind to the difference between a prime and a square at the level of X^{1/2}. The missing ingredient is a
 *single-p* argument that exploits (d | p) = −1 for many d — i.e. a statement about the joint distribution of p mod ℓ over
-primes ℓ with (ℓ | p) = −1 that is not an average over p. I know no tool that does this. If one only wants "all but
-finitely many" from a *different* input, the cleanest sufficient statement is: for every large p there is a prime
-ℓ ≡ 3 (mod 4), ℓ < p, with (−p mod ℓ) ∣ (ℓ+1)/4 (Lemma 1.4 restricted to prime d) — a Linnik-type assertion about the
-sequence of least residues of −p, and the natural target for any future attempt.
+primes ℓ with (ℓ | p) = −1 that is not an average over p. I know no tool that does this. A tempting sufficient target — "for every large p there is a *prime* ℓ ≡ 3 (4) with
+(−p mod ℓ) ∣ (ℓ+1)/4" (Lemma 1.4 restricted to prime d) — is **probably false**: 422 primes p ≡ 1 (8) in [10⁷, 10⁸] have no
+prime-modulus hit at all (`census_1e8.txt`, column R_pr = 0; the proportion decays only like the sieve bound), so composite
+moduli d, i.e. genuinely two-dimensional (u, C) structure, are indispensable even for "all but finitely many". The correct
+target is Lemma 1.4 as stated (all d ≡ 3 (4)), with the information in §4.5 about which d actually occur.
