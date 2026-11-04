@@ -133,10 +133,62 @@ disproof shape: a prime T1 must push the expected count to zero, i.e. an effect 
 few percent on E[R]. Conversely, a null bounds only effects above the MDEs at the tested heights.
 
 ### 3.9 Amendments (dated relative to outcomes)
-*(none yet)*
+**Amendment 1 (written after seeing the primary results on C, §4.1; BEFORE any computation on the reserve split
+h(p) = 2).** The primary block flagged 11 of 16 families (§4.1). The effect table shows three things the pre-registered
+local model 𝓛 does not contain although they are *known or mechanical* explanations: (a) 𝓛 used L(1, χ_p) truncated
+at Q₀, whereas the known M_BM uses the exact L-value; (b) 𝓛 has p mod 16, 9, 35 but not the deeper prime powers
+(p mod 64, 27, 25, 49 — local by the §1 definition); (c) R contains the u = 1 / B = 1 slice, which is exactly
+2τ₃(p + 1), τ₃(n) := #{m ∣ n : m ≡ 3 (mod 4)} — a ticket count, so any factorisation statistic of p + 1 is partly the
+outcome itself. In addition G6 (regulator vs period) looks like a near-square effect that 𝓛's crude κ-features miss,
+extended to rational approximations x/y of √p (generalised near-squares). So, on the **untouched reserve h = 2**:
+* 𝓛⁺ := 𝓛 design + exact τ_ex := E_{Q₀}(χ_p)L(1, χ_p)²/(4L²) (L(1, χ_p) = 2h(p) log ε_p/√p), τ_ex², one-hot p mod 64, 27, 25,
+  49 (collinear columns handled by pseudo-inverse). All tests below use 𝓛⁺ as an *in-sample regression null* on h = 2 (the
+  residual r and the hard flag still come from the D-fitted 𝓛).
+* **A1(G), A2(G)** for G1–G16: OLS F-test of r on [𝓛⁺, X_G] vs [𝓛⁺]; logistic score test of 1[hard] on [𝓛⁺, X_G] vs [𝓛⁺].
+* **A3:** new family **G17** (generalised near-square): with a_i the partial quotients of √p and q_i the convergent
+  denominators, Γ(p) := max{log a_{i+1} : i ≥ 1, q_i ≤ 1000}/L and log(a₁)/L (2 features); tests: G17 cont/tail
+  with null 𝓛⁺; G6 cont/tail with null [𝓛⁺, G17] (does G17 absorb G6?).
+* **A4:** G16 cont/tail with null [𝓛⁺, τ₃(p+1), log(1 + τ₃(p+1))] (is the p ± 1 signal the u = 1 ticket?).
+* Holm over the whole A-block (16 + 16 + 4 + 2 = 38 tests), FWER 0.05. A family is a candidate non-lottery signal iff it is
+  Holm-significant here AND sign-consistent in S1 (nominal p < 0.05). G17 by construction is a near-square variant: if
+  significant it is reported as an *extension of the known near-square explanation*, not as a prime T1, unless its
+  effect on the zero/tail rate is of the size §3.8 requires.
 
 ## 4. Results
-*(to be filled)*
+
+### 4.1 Primary block on C (as pre-registered; EVIDENCE)
+C = 1 566 421 primes p ∈ 𝒫₂₄ ∩ [10⁷, 10⁹] (h = 1); 𝓛 fitted on D (1 568 230 primes, h = 0): 325 parameters, NB shape
+k̂ = 58.5, Pearson dispersion of Y vs Poisson 1.48. Out-of-sample on C: mean r = −0.0006, sd r = 0.998, corr(log μ̂,
+log(Y + ½)) = 0.653 (D: 0.653); P(u < 0.01) = 0.81 % (12 725 hard primes), P(u < 0.001) = 0.072 %. Full tables:
+`data/z56/primet1/primary_C_tests.tsv`, `primary_C_effects.tsv`.
+
+| family | P-cont p_Holm | P-tail p_Holm | largest effect on E[Y] per SD (± se) | largest tail OR per SD |
+|---|---|---|---|---|
+| G1 h(−4p) | 3e−25 | 9e−18 | +0.18 % (0.02) | 1.08 |
+| G2 v₂(h(−4p)) | 1 | 1 | +0.04 % | 0.997 / 1.016 |
+| G3 3, 5 ∣ h(−4p) | 1 | 1 | +0.03 % | 0.99 |
+| G4 h(p) > 1 | 1 | 1 | 0.00 % | 1.00 |
+| G5 L-tail beyond Q₀ | 4e−23 | 0.49 | −0.19 % (0.02) | 0.98 |
+| G6 regulator, period | 6e−9 | 4e−62 | ±4.5 % (collinear pair) | 4.0 / 0.29 |
+| G7 n(p) | 0.079 | < 1e−300 | −0.04 % | 1.38 |
+| G8 ord_p(2) | 1 | 0.0043 | −0.06 % | ≤ 1.06 |
+| G9 ord_p(3) | 1 | 0.00065 | −0.02 % | ≤ 1.06 |
+| G10 x³ − x − 1 | 1 | 0.0043 | +0.01 % | 0.97 |
+| G11 x⁴ − x − 1 | 0.0043 | 1 | +0.07 % | 1.00 |
+| G12 Hecke angles | 1 | 1 | −0.04 % | ≤ 1.015 |
+| G13 Sato–Tate 11a1 | 1 | 1 | −0.02 % | ≤ 1.006 |
+| G14 deeper 2/3/5/7-adic depth | < 1e−300 | 2e−55 | −0.65 % (27 ∣ p−1) | 1.09 |
+| G15 (q/p), 1009 ≤ q ≤ 1061 | 0.0043 | 1 | −0.08 % | 1.01 |
+| G16 smoothness of p ± 1 | < 1e−300 | < 1e−300 | −6.3 % (log P⁺(p+1)/L) | 2.01 |
+
+*Reading (Assessment, written before Amendment 1 was run).* Every family whose effect exceeds 0.1 % of E[Y] has an
+obvious local, known or mechanical candidate explanation: G14 is local by definition (prime powers ≤ Q₀ that 𝓛 did not
+include); G1/G5/G15 are L-value effects (𝓛 truncated L(1, χ_p) at Q₀; the known M_BM uses the exact value); G16's
+p + 1 part is a ticket (R ⊇ the u = 1 slice 2τ₃(p+1)); G6 is collinear regulator/period and is a near-square signature;
+G7–G10 are pure tail effects of invariants whose local shadows (Legendre symbols of small primes, (p/23)) enter 𝓛
+only additively in the mean, not in the tail shape. The non-congruence invariants with no local shadow at all — G2
+(Cl(−4p)[2^∞]), G3, G4, G12 (Hecke angles), G13 (Sato–Tate) — are null in both tests. Amendment 1 (§3.9) tests
+these explanations on the untouched reserve.
 
 ## 5. Verdict, screens, FRONTIER text
 *(to be filled)*
