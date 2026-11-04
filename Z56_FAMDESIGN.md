@@ -34,8 +34,11 @@ o ≡ 1 (4) squarefree, k = 1, e′ squarefree. The Thm U family 𝔉 is U ∩ (
 U ∩ {p^{1/12} < o ≤ p^{1/3}/2, p^{1/3} < e/2 ≤ p^{2/3}/4}.
 
 *Densities.* M₀(p) := Σ_{𝒫(p)} 1/φ(4uB) = (3/(2π²) + o(1))L² (`BM_CORRECTED_COUNT` Thm 2.2) is the expected count at a
-random prime; per unit (a, b)-area (both orders) the pair density is 3/π² for type A. Assessment (elementary mean-value
-computation, §2): 2/π² for S and 1/π² for U.
+random prime; per unit (a, b)-area (both orders) the pair density is 3/π² for type A. For S and U (Assessment; elementary
+mean-value computation, not needed for any proof): a pair contributes 2·(2/φ(q)) = 2^{1−k}/(φ(o)φ(e′)) on average over
+primes p ≡ 1 (4) if it is 2-adically compatible ((o ≡ 1 (4), k = 1) or (o ≡ 3 (4), k ≥ 2); Σ_{k≥2}2^{1−k} = 1) and 0
+otherwise; Σ_{e′ odd squarefree, (e′,o)=1} 1/φ(e′) ~ (φ(o)/(2o))·log and Σ_{o odd squarefree} 1/o ~ (4/π²)·log give 2/π²
+for S, and half of it, 1/π², for U (only o ≡ 1 (4)).
 
 **Targets of the lane (brief).** (i) a family 𝔊 with an unconditional M_𝔊(p) ≥ (c − o(1))L² at every large prime
 p ≡ 1 (4), c as large as possible; (ii) a small empirical zero set of R_𝔊; (iii) an exploitable remainder.
@@ -48,9 +51,18 @@ main-term engineering (B3): it does **not** touch the order-≥3 remainder (B2) 
 
 * **Corollary V1 (PROVED; from Thm U's proof by tiling).** U ∩ ℛ₁(1/15), ℛ₁(λ) := {a > λ, b > (1+a)/4, a + b < 1}:
   M ≥ (64/(45π⁴) − o(1))L² ≈ 0.0146 L².
+  *Proof.* Thm U's proof (`Z53_GENUSLVAL` §2.4–2.7) bounds, for each rectangle (α₀, α₁] × (β, γ] satisfying its (C1)–(C3)
+  with margins, the contribution of the U-type pairs with u ∈ (p^{α₀}, p^{α₁}], w = e/2 ∈ (p^β, p^γ] from below by
+  ((8/π⁴)(α₁ − α₀)(γ − β) − o(1))L² (its last display bounds the subfamily sum, all of whose terms are ≥ 0). A closed
+  rectangle inside the open set ℛ₁(1/15) satisfies (C1) γ < 1 − α₁ and (C2) β > (1 + α₁)/4 with margin, and (C3)
+  α₀ > (1 + α₁)/16 once α₁ − α₀ is small, because a > 1/15 ⟺ a > (1 + a)/16. Tile ℛ₁(1/15) from inside by finitely many
+  disjoint such rectangles, add the bounds (disjoint pair sets, nonnegative terms), and use
+  area(ℛ₁(1/15)) = ∫_{1/15}^{3/5}(3/4 − 5a/4)da = 8/45. ∎ (Thm U optimised a single rectangle; its admissible set is the
+  trapezoid.)
 * **Theorem V (PROVED; §3).** For every η > 0 and every prime p ≡ 1 (4), p ≥ p₀(η, λ):
   M_{A∩G_λ}(p) ≥ ((3/π²)·area(G_λ) − η)L²; with λ = 1/15 using Burgess only (constant **29/(30π²) ≈ 0.0979**,
-  p₀ effective), and for every fixed λ > 0 using also Heath-Brown's quadratic large sieve (constant → **5/(4π²) ≈ 0.1267**).
+  p₀ effective), and for every fixed λ > 0 using also Heath-Brown's quadratic large sieve (constant → **5/(4π²) ≈ 0.1267**
+  as λ → 0: for each η choose λ with (3/π²)(area(G) − area(G_λ)) < η/2).
   On every closed rectangle Q ⊂ G_λ the asymptotic M_{A∩Q}(p) = ((3/π²)area(Q) + o(1))L² holds (no p-dependent
   fluctuation in the main term). **Corollary:** M_gen(p) ≥ (5/(4π²) − o(1))L² = (5/6 − o(1))·M₀(p) — 18.5 × Thm U's
   constant; the uncaptured sixth is exactly the Burgess corner K.
@@ -143,9 +155,9 @@ change). **p | f_G, so ηχ is non-principal for every η ∈ 𝔈_o** (the deci
 square-sensitive step, §3.8). Writing d = g·d₂ with d₂ | s (the primes of d not dividing o₁ divide s): do₁/g² = d₂²o₁ ≤ o,
 hence **f_F·f_G ≤ 16·o·p**. All conductors are 4^{≤1}·(odd squarefree): cube-free, so (Bu) applies.
 (b) is identical with χ := χ_{E_e}, m odd coprime to e′p, η = (·/d′)ψ of conductor f_F = d′·f_ψ ≤ 8d′, and for odd n
-χ_{E_e}(n) = ψ₁(n)(n/e′₁)(n/p) with ψ₁ a character mod 8, so ηχ = χ*_G·1[gcd(n, 2g′) = 1] with
-χ*_G = ψ₂·(·/(d′e′₁/g′²))·(·/p), g′ = gcd(d′, e′₁), conductor ≤ 8e′p·(…) and f_F f_G ≤ 64e′p; p | f_G. Conductors
-8·(odd squarefree) occur: use (Bu8).
+χ_{E_e}(n) = ψ₁(n)(n/e′₁)(n/p) with ψ₁ a character mod 8, so ηχ = χ*_G·1[gcd(·, e_G) = 1] (e_G | 2g′ squarefree) with
+χ*_G = ψ₂·(·/(d′e′₁/g′²))·(·/p), g′ = gcd(d′, e′₁), ψ₂ mod 8; f_G ≤ 8(d′e′₁/g′²)p, and with d′ = g′d′₂, d′₂ | t:
+f_F f_G ≤ 64·d′₂²e′₁·p ≤ 64e′p; p | f_G. Conductors 8·(odd squarefree) occur: use (Bu8).
 (3) *η ≠ 1.* As Prop 2.4(3): K_F K_G ≤ p^{o(1)}(f_F f_G)^θ ≤ p^{o(1)}(16op)^θ; for c ≤ C₀ := p^{ε}, (y/c)^κ ≥
 (Y₀p^{−2ε})^κ = (16op)^{θ}p^{4κε} ≥ K_FK_G p^{κε}·p^{κε} for large p, so Lemma 2.2(a) gives |Φ_η(x/c) − Φ_η(y/c)| ≤
 2(2r + 3)p^{−κε/2}; the c > C₀ part is ≤ 2(1 + log p)²C₀^{−1/4}Σ_c|h(c)|c^{−3/4} = p^{−ε/4+o(1)}. (4) *η = 1.* Lemma 2.2(b)
@@ -229,29 +241,230 @@ M_gen(p) ≥ (5/(4π²) − o(1))L² = (5/6 − o(1))M₀(p).
 gives the weaker but shorter bound (2/π²)·area (same structure as Thm U's (8/π⁴)·area for type U). The difference
 3/π² vs 2/π² is the contribution of the square terms n = s² > 1 and of the split-prime Euler factors.
 
+### 3.7′ Numerical check of the slice constants (EVIDENCE)
+
+`scripts/z56_famdesign_slicecheck.{c,py}` → `slicecheck.txt`: exact slice sums 𝒮₁(o; Y, X) (all k) and 𝒮₂(e; Y, X) by direct
+summation of Lemma 3.2's weights, against the predicted main terms ½(1 − 1/p)(1/o)𝓛(χ_{D_o}; 2op)log(X/Y) and
+½(1 − 1/p)(1/e)𝓛(χ_{E_e}; 2pe′)log(X/Y) (PARI `lfun`, Euler products to 10⁶), with Y = 4(16op)^{1/4} resp. 4(64e′p)^{1/4},
+X = p/(8o) resp. p/(8e), at p = 100 000 049 and 1 000 000 009, for o ∈ {1, 3, 5, 7, 9, 11, 15, 21, 25, 27, 45, 105} (both classes
+mod 4, non-squarefree o) and e ∈ {2, 4, 6, 8, 10, 12, 16, 18, 24, 50, 90} (k = 1…4, non-squarefree e′): all 46 ratios lie in
+[0.909, 1.045], 42 of them within 3 %. This checks the bookkeeping (2-adic weights 2^{2−k}, the ½ and the Euler factors).
+
 ### 3.8 T1 audit (where the proof fails at odd squares; PROVED)
 
 M_gen(m²) = 0 (`SINGLE_P_COUNT` Prop 2.2(b)), so the proof must break at n = m². The decisive step is Prop 3.4(2):
 "p | f_G, so ηχ is non-principal". At n = m² (gcd(m, 2o) = 1) the field is ℚ(√(−o₁)), χ_{D_o} = χ_{−o₁ or −4o₁}·1[(·, m)=1],
-and for d = o₁ and the j with χ₋₄^j(·/o₁)χ_{D_o} principal (on integers coprime to 2om) the character ηχ is principal:
-a second pole appears with sign ε_{k,o₁,j}; as in `Z53_GENUSLVAL` §2.8 it equals −1 and cancels the η = 1 pole identically.
-Mirror statement for region 2 (η = (·/e′₁)ψ). Prop 3.6 is true at squares as well (it is not where T1 enters).
+and χ(n) = χ₋₄(n)^{1+[o₁≡3 (4)]}(n/o₁) on odd n coprime to m (no factor (n/p)). Hence η_{o₁,j}χ is principal (on integers
+coprime to 2om) for j ≡ 1 + [o₁ ≡ 3 (4)] (mod 2), and this j is always available: o ≡ 1 (4) ⟹ o₁ ≡ 1 (4), j = 1 ∈ J₁;
+o ≡ 3 (4) ⟹ o₁ ≡ 3 (4), j = 0 ∈ J_k (k ≥ 2). So a second pole appears in Prop 3.4(3); since every weight W vanishes at
+n = m² (M_gen(m²) = 0), it cancels the η = 1 pole exactly (cf. the explicit sign computation in `Z53_GENUSLVAL` §2.8 for
+type U). Mirror statement for region 2 (η = (·/e′₁)ψ with suitable ψ). Prop 3.6 is true at squares as well (it is not
+where T1 enters).
 
-## 4. Scans (CERTIFIED counts, EVIDENCE statistics)
+## 4. Scans: zero sets and means of the actual counts (target (ii))
 
-(to come)
+### 4.1 Engines and validation (CERTIFIED)
 
-## 5. Remainder structure (iii)
+* `scripts/z56_famdesign_scan.c` enumerates **all** (★) solutions (o, e, C) of each odd n (three exhaustive loops by
+  which of P = min(o, e), Q = max(o, e), C is smallest; cost ≈ 3n^{2/3}) and counts hits_𝔊 = R_𝔊/2 for the columns
+  all | F0 | F1 | F2U | F2S | F3U | F3S | F4 | F4L | K | H3 | HC (definitions in §6; G-membership by Q⁴ > P·n computed
+  with long-double logarithms, boundary ties being measure-zero; squarefreeness by trial division to n^{1/3} plus a
+  perfect-square test of the cofactor). Validation: (a) total count = brute force R(n) for every odd n ≤ 3000
+  (`scripts/z56_famdesign_brute.py`, 1 498 values, 0 mismatches); (b) the (★) zeros among primes p ≡ 1 (4) ≤ 10⁷ are
+  exactly the 14 census primes 409 … 8 813 281 (FRONTIER §2.1); (c) column F0 equals CROSSF's independent C-form scanner
+  line by line on [10⁸, 1.02·10⁸], [10⁹, 10⁹ + 2·10⁶], [10¹⁰, 10¹⁰ + 2·10⁶] (54 198 + 48 139 + 43 439 primes, 0 mismatches).
+* `scripts/z56_famdesign_decide.c`: exhaustive *decision* of hits ≥ 1 for HC, H3, F4, F4L over all primes in a range
+  (segmented sieve; level scan C = 1, 2, … using that every solution with 64C³ ≤ p lies in G (§1); exact full count as
+  fallback). It reproduces the full-scan zero lists exactly on [10³, 10⁸] (607 + 262 primes, identical lines).
+* `scripts/z56_famdesign_mgen.c`: exact M_gen(p) split into G and K (Lemma 3.2 weights; reproduces `Z53_GENUSLVAL`'s
+  M_gen(409, 577, 5569, 9601) = 3.9991, 5.3524, 6.2407, 7.9262).
 
-(to come)
+### 4.2 Zero counts (CERTIFIED) and means (EVIDENCE)
+
+Primes p ≡ 1 (4); entries = number (fraction) of primes with hits_𝔊(p) = 0. Exhaustive ranges up to the 10¹² window;
+the 10¹³ / 10¹⁴ rows are samples (next prime ≡ 1 (4) after 10^k + j·step, as in CROSSF). `data/z56/famdesign/stats.txt`.
+
+| family | ≤ 10⁷ (332 180) | (10⁷, 10⁸] (2 548 324) | [10⁸, +2·10⁶] (54 198) | [10⁹, +2·10⁶] (48 139) | [10¹⁰, +2·10⁶] (43 439) | [10¹¹, +6·10⁵] (11 876) | [10¹², +1.1·10⁵] (1 991) | 10¹³ (400) | 10¹⁴ (100) |
+|---|---|---|---|---|---|---|---|---|---|
+| F0 (Thm U std window) | 196 739 (59.2 %) | 1 112 729 (43.7 %) | 21 233 (39.2 %) | 16 757 (34.8 %) | 10 333 (23.8 %) | 1 856 (15.6 %) | 169 (8.5 %) | 19 (4.8 %) | 6 (6 %) |
+| F1 (U ∩ ℛ₁(1/15)) | 76 670 (23.1 %) | 294 831 (11.6 %) | 4 843 (8.9 %) | 2 074 (4.3 %) | 783 (1.8 %) | 151 (1.3 %) | 11 (0.55 %) | 0 | 0 |
+| F2U (U ∩ G_{1/15}) | 22 555 (6.8 %) | 47 857 (1.9 %) | 632 (1.2 %) | 178 (0.37 %) | 30 (0.07 %) | 2 | 1 | 0 | 0 |
+| F2S (S ∩ G_{1/15}) | 1 019 (0.31 %) | 758 (0.03 %) | 6 | 1 | 0 | 0 | 0 | 0 | 0 |
+| F3U (U ∩ G) | 1 603 (0.48 %) | 2 704 (0.11 %) | 37 | 11 | 1 | 0 | 0 | 0 | 0 |
+| F3S (S ∩ G) | 111 | 39 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| **F4L (A ∩ G_{1/15})** | 255 | 47 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| **F4 = 𝔊* (A ∩ G)** | 34 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| H3 (A, 64C³ ≤ p) | 456 | 184 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
+| HC (A, C ≤ log²p) | 51 | 28 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| K (Burgess corner) | 6 449 (1.9 %) | 17 253 (0.68 %) | 238 | 54 | 20 | 2 | 0 | 0 | 0 |
+| all (R) | 14 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+Means R_𝔊/L² (= 2·hits/L², EVIDENCE) against the asymptotic density (3/π², 2/π², 1/π² per unit area for A, S, U; areas
+§1; Assessment for S and U, Theorem V for A):
+
+| family | ≤ 10⁷ | 10⁸ | 10¹⁰ | 10¹² | 10¹⁴ | density × area |
+|---|---|---|---|---|---|---|
+| F0 | 0.005 | 0.006 | 0.006 | 0.006 | 0.006 | (1/π²)(1/12) = 0.0084 |
+| F1 | 0.014 | 0.015 | 0.017 | 0.016 | 0.016 | (1/π²)(8/45) = 0.0180 |
+| F2S | 0.064 | 0.061 | 0.062 | 0.062 | 0.059 | (2/π²)(29/90) = 0.0653 |
+| F3S | 0.099 | 0.096 | 0.094 | 0.093 | 0.090 | (2/π²)(5/12) = 0.0844 |
+| F4L | 0.087 | 0.087 | 0.090 | 0.091 | 0.088 | (3/π²)(29/90) = 0.0979 |
+| F4 | 0.134 | 0.132 | 0.131 | 0.130 | 0.126 | (3/π²)(5/12) = 0.1267 |
+| H3 | 0.080 | 0.080 | 0.081 | 0.082 | 0.081 | (3/π²)(5/18) = 0.0844 |
+| HC | 0.105 | 0.093 | 0.081 | 0.072 | 0.064 | → 0 (area → 0; ≍ log L/L) |
+| K | 0.033 | 0.031 | 0.030 | 0.029 | 0.028 | (3/π²)(1/12) = 0.0253 |
+| all | 0.166 | 0.163 | 0.161 | 0.159 | 0.155 | 3/(2π²) = 0.1520 |
+
+Variance/mean of hits (EVIDENCE): F0 1.02–1.08 (CROSSF's near-Poisson), but 1.6–2.3 for F2S/F4L, 1.8–3.4 for F3S/H3 and
+2.5 → 4.9 (10⁷ → 10¹⁴) for F4 and the full count: the large families are strongly overdispersed (solutions cluster on
+integers with many divisors), so P(hits = 0) ≫ e^{−mean} (§4.4).
+
+### 4.3 The top family's zero set (CERTIFIED)
+
+* **F4 = A ∩ G: exactly 37 zeros among primes p ≡ 1 (4) ≤ 10⁸** (`zeros_le1e8.txt`): the 14 (★)-zero primes, 20 primes
+  ≤ 4.7·10⁶ whose (★) solutions all lie in the corner, and 11 814 001, 20 445 289, **85 664 329**, each with R = 2 and its
+  unique solution in K: (o, e, C) = (9, 38, 8636), (65, 6, 13106), (29, 18, 41027). [DECIDE-F4]
+* F4L: 302 zeros ≤ 10⁸ (last 85 664 329). [DECIDE-F4L] H3: 640 zeros ≤ 10⁸ (last 99 122 929), one more at
+  101 824 969. [DECIDE-H3] HC: 79 zeros ≤ 10⁸ (last 93 412 201). [DECIDE-HC]
+* Controls: all 10 odd squares 10001², …, 1000001² have hits = 0 in **every** family (T1; CROSSO Cor 1.2); the
+  19 FRONTIER §4 item-14 test primes behave as recorded there (the 14 (★)-zeros are zeros of every family; 193, 2521,
+  66529, 3361, 5101441 have R = 4, 2, 8, 2, 10); 493 prime near-squares p = m² + k (1 ≤ k ≤ 16) near 10⁸, 10⁹, 10¹⁰
+  (`controls.txt`) have no zero in F2S, F3S, F4L, F4, with means 7–14 % below the generic window means (the known
+  near-square depletion, FRONTIER §4 item 15).
+
+### 4.4 Model scale of the last zero (Assessment; model only)
+
+A binned Poisson-ML fit of P(hits_𝔊 = 0) = exp(b − c_eff L²) on all primes in [10⁵, 10⁸]
+(`scripts/z56_famdesign_zerofit.py`, `zerofit.txt`), extrapolated with E(x) = ∫_{log x}^∞ e^{s+b−c_eff s²}/(2s) ds:
+
+| family | zeros in [10⁵, 10⁸] | c_eff | E(> 10⁸) | E(x*) = 1 at x* ≈ |
+|---|---|---|---|---|
+| F0 | 1 305 402 | 0.0036 | 2·10²⁹ | 10¹¹⁸ (CROSSF's Poisson model: 10¹²⁴) |
+| F1 | 368 856 | 0.0080 | 9·10¹² | 10⁵² |
+| F2S | 1 551 | 0.025 | 2·10³ | 10¹⁵ |
+| F3S | 115 | 0.030 | 49 | 10^{11.4} |
+| F4L | 204 | 0.036 | 27 | 10^{10.2} |
+| **F4** | 22 | 0.039 | 1.5 | **10^{8.3}** |
+| H3 | 516 | 0.029 | 260 | 10^{12.6} |
+| all | 8 | 0.041 | 0.36 | < 10⁸ |
+
+c_eff is well below the mean coefficient (e.g. 0.039 vs 0.065 for F4) because of the overdispersion. The fit is crude
+(two parameters, F4 has only 22 zeros in the fit range) and says nothing certain beyond the data; it only shows that for
+the large families "R_𝔊 ≥ 1 for p ≥ p₀" is a statement whose expected exceptions end at *computable* sizes, unlike the
+Thm U family (CROSSF §4).
+
+### 4.5 Is the G-part of the main term rigid? (EVIDENCE)
+
+Theorem V says M_{A∩Q}(p) = (3/π²)area(Q)L²(1 + o(1)) on rectangles Q inside G: no class-number fluctuation survives in G.
+`scripts/z56_famdesign_mgen_run.py` (exact M_gen split, seeded random primes; `mgen_split.tsv`) gives, as
+mean ± sd [min, max] of M_G/M₀,G and M_K/M₀,K (M₀,· = density part 2/φ(4oe) of the same region):
+
+| set | M_G/M₀,G | M_K/M₀,K | M_G/L² |
+|---|---|---|---|
+| 14 (★)-zero primes | 0.877 ± 0.080 [0.743, 1.071] | **0.279 ± 0.259** [0.000, 0.861] | 0.101 ± 0.007 |
+| 40 random p ∈ [10⁶, 2·10⁶] | 1.022 ± 0.122 [0.886, 1.388] | 1.081 ± 0.204 [0.470, 1.516] | 0.121 ± 0.014 |
+| 40 random p ∈ [10⁷, 2·10⁷] | 0.974 ± 0.074 [0.841, 1.154] | 0.999 ± 0.217 [0.316, 1.332] | 0.116 ± 0.009 |
+| 20 random p ∈ [10⁸, 2·10⁸] | 1.010 ± 0.122 [0.853, 1.302] | 1.120 ± 0.104 [0.917, 1.273] | 0.122 ± 0.015 |
+| 3 random p ∈ [10⁹, 2·10⁹] | 1.069 ± 0.108 | 1.100 ± 0.124 | 0.129 ± 0.013 |
+
+Reading: at attainable sizes the G-part still fluctuates by ≈ 10 % (the proved error terms are p^{−δ} with tiny δ and
+the windows near ∂G are not yet asymptotic), but the (★)-zero primes are distinguished mainly by a **depleted corner**
+(M_K at 28 % of its density, vs ≈ 88 % for M_G): the genus deficit of the hardest primes sits where Theorem V says it
+can (the Burgess corner). Exact counts vs genus parts at the same primes (`mcorr.txt`): R_G/M_G has mean 1.05–1.26 and
+sd 0.27–0.38 at 10⁶–10⁸; corr(R_G, M_G) = 0.39, 0.41, 0.66 at 10⁶, 10⁷, 10⁸.
+
+## 5. Remainder structure (target (iii))
+
+Notation as in `Z53_GENUSX` Lemma 1: X_𝔊 := R_𝔊 − M_𝔊 is the order-≥3 part. Facts (PROVED, elementary) and readings
+(Assessment):
+
+1. **Slice form (all families; PROVED identities).** In region-1 slices (o fixed) the exact count is
+   #{e ∈ window : e | p + o, (p + o)/e ≡ −1 (mod 4o)} — divisors of the single integer p + o in one class mod 4o; in
+   region-2 slices (e fixed) it is #{o ∈ window : o | p + e, (p + e)/o ≡ −1 (mod 4e)}; at fixed C it is
+   #{d | 4Cp + 1 : d ≡ −1 (mod 4C), cofactor conditions} (cf. `Z55_CROSSF` Lemma 1.3, which is form-independent). So
+   every family has the tied single-integer structure (B2); no family design removes it.
+2. **𝔊* contains every complete C-layer with 64C³ ≤ p (PROVED, §1).** Hence
+   R_{𝔊*}(p) ≥ R_{H3}(p) = Σ_{C ≤ (p/64)^{1/3}} D⁻_{4C}(4Cp + 1), D⁻_t(N) := #{d | N : d ≡ −1 (mod t)}, and on H3 the exact
+   count at each level is **window-free**: D⁻_{4C}(N) = φ(4C)⁻¹Σ_{χ mod 4C}χ(−1)σ_χ(N), σ_χ(N) = Σ_{d|N}χ(d) multiplicative
+   in N (the level-t theta-quotient normal form of FRONTIER §2.3 applies level by level). The order-≥3 remainder of H3 in
+   level coordinates is Σ_C φ(4C)⁻¹Σ_{χ mod 4C, ord χ ≥ 3}χ(−1)σ_χ(4Cp + 1): a sum over the free variable C of complete
+   multiplicative twisted divisor functions of the linear sequence 4Cp + 1, with modulus 4C *not attached to p*.
+   H3 carries ≈ 62 % of R_{𝔊*} (EVIDENCE: means 0.081 vs 0.130; asymptotically (5/18)/(5/12) = 2/3). The Thm U family has
+   no complete layer (both u and w are windowed, and u is restricted mod 4 and squarefree).
+   (Caveat: the genus split in level coordinates — characters of order ≤ 2 mod 4C — is a different decomposition of the
+   same count from the pair-coordinate M_gen of Theorem V; Theorem V bounds the latter on H3, (3/π²)·(5/18) = 5/(6π²).)
+3. **The remaining third of 𝔊*** (C ∈ (p^{1/3}/4, p^{3/4}), windowed slices) has the Thm-U-type structure of item 1.
+4. **Where the deficits sit (EVIDENCE, §4.5).** At the (★)-zero primes the genus layer is depleted mostly in the corner K,
+   which 𝔊* excludes; within 𝔊* the remainder has sd ≈ 0.3·M_G at 10⁶–10⁸ and the counts are overdispersed
+   (var/mean 2.5–4.9), i.e. solutions cluster on the integers p + o, p + e, 4Cp + 1 with many divisors.
+5. **Assessment for FAMATTACK.** The most exploitable piece is H3: complete levels, multiplicative σ_χ, free modulus 4C,
+   main term ≥ (5/(6π²) − o(1))L² unconditionally (Theorem V(b) restricted to {a + b > 2/3}; (7/(10π²)) with Burgess only),
+   and its own zero set ends early (640 zeros ≤ 10⁸, last 99 122 929; [DECIDE-H3]). Positivity of H3 is still B2: it needs a
+   lower bound for Σ_C D⁻_{4C}(4Cp + 1) at one p, i.e. control of the order-≥3 characters mod 4C on the prime factors of
+   4Cp + 1 jointly in C — the HC-type problem with a log²p (not log p) main term.
 
 ## 6. Ranked table of families
 
-(to come)
+c_prov = proved constant in M_𝔊(p) ≥ (c_prov − o(1))L² (both orders; L = log p); c_dens = asymptotic density × area
+(Theorem V for A; Assessment for S, U); "R/L²" = observed mean at 10¹²; zeros = CERTIFIED counts (§4.2–4.3); x* = fitted
+model scale of the last zero (§4.4, Assessment).
+
+| rank | family | definition | c_prov (label; inputs) | c_dens | R/L² @10¹² | zeros ≤ 10⁸ (last) | beyond 10⁸ | x* | remainder structure |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | **𝔊* = F4** | all pairs, max(o,e) > (min·p)^{1/4} | **5/(4π²) ≈ 0.1267** (PROVED; Burgess + HB) | 0.1267 | 0.130 | 37 (85 664 329) | [DECIDE-F4] | 10^{8.3} | ⅔ complete C-layers (H3) + ⅓ windowed slices |
+| 2 | F4L | 𝔊* ∩ {min(o,e) > p^{1/15}} | **29/(30π²) ≈ 0.0979** (PROVED; Burgess only, effective) | 0.0979 | 0.091 | 302 (85 664 329) | [DECIDE-F4L] | 10^{10.2} | as 𝔊*, small-min slices removed |
+| 3 | H3 | all solutions with 64C³ ≤ p | 5/(6π²) ≈ 0.0844 (PROVED, HB); 7/(10π²) ≈ 0.0709 (Burgess) | 0.0844 | 0.082 | 640 (99 122 929) | [DECIDE-H3] | 10^{12.6} | complete levels: Σ_C D⁻_{4C}(4Cp+1), σ_χ multiplicative, free modulus 4C |
+| 4 | F3S | S ∩ G | 20/(3π⁴) ≈ 0.068 (n = 1 version; Assessment: same proof) | 0.0844 | 0.093 | 150 (97 661 089) | 1 at 100 038 481 | 10^{11.4} | as 𝔊*, squarefree |
+| 5 | HC | all solutions with C ≤ log²p | none at L² scale (area → 0) | → 0 | 0.072 ↓ | 79 (93 412 201) | [DECIDE-HC] | 10^{12.5} | complete levels C ≤ L² (HC-type) |
+| 6 | F2S | S ∩ G_{1/15} | 232/(45π⁴) ≈ 0.0529 (n = 1; Assessment) | 0.0653 | 0.062 | 1 777 (99 989 117) | 6 at 10⁸, 1 at 10⁹ | 10¹⁵ | |
+| 7 | F3U | U ∩ G | 10/(3π⁴) ≈ 0.0342 (n = 1; Assessment) | 0.0422 | 0.053 | 4 307 | 37, 11, 1 at 10⁸, 10⁹, 10¹⁰ | — | |
+| 8 | F2U | U ∩ G_{1/15} | 116/(45π⁴) ≈ 0.0265 (n = 1; Assessment) | 0.0326 | 0.029 | 70 412 | 2 at 10¹¹, 1 at 10¹² | — | |
+| 9 | F1 | U ∩ ℛ₁(1/15) (Thm U tiled) | 64/(45π⁴) ≈ 0.0146 (PROVED, Cor V1) | 0.0180 | 0.016 | 371 501 | 11 at 10¹² | 10⁵² | Thm U type |
+| 10 | F0 | Thm U standard window | 2/(3π⁴) ≈ 0.0068 (PROVED, `Z53_GENUSLVAL`) | 0.0084 | 0.006 | 1 309 468 | 8.5 % at 10¹², 4.8 % at 10¹³ | 10¹¹⁸ | Thm U type (CROSSF) |
+| — | full (★) | all solutions | M_gen ≥ (5/(4π²) − o(1))L² (Cor. of Thm V) | 0.152 | 0.159 | 14 (8 813 281; none in (8.8·10⁶, 10¹⁰]) | — | — | includes the corner |
+| — | K | Burgess corner | none (Assessment: Burgess wall) | 0.0253 | 0.029 | 23 702 | 2 at 10¹¹ | 10^{33.7} | the L(1, χ_pψ) layer |
+
+Recommendation (Assessment): for an attack on positivity use **𝔊*** (largest proved constant, earliest end of
+zeros) or **H3** (complete levels, cleanest remainder); the Thm U rectangle should be retired as a target.
 
 ## 7. Screens, verdict, proposed FRONTIER text, bottom line
 
-(to come)
+**FRONTIER §4 hard screens for Theorem V / 𝔊* as an ES ingredient.**
+1. *T1 (squares):* passes — §3.8 names the false step at n = m² (non-principality of ηχ_{D_o} because p | its conductor);
+   CERTIFIED: hits = 0 at every tested odd square in every family.
+2. *8/131:* not applicable — Theorem V concerns the numerator-4 genus main term and asserts no solutions; used as an ES
+   method it inherits screen 3's failure.
+3. *Tied modulus (B2):* **fails** — main term only (B3); the order-≥3 remainder X_𝔊* is untouched, so R_𝔊* ≥ 1 does not
+   follow.
+4. *Fixed p (B6):* passes — every average is over a free variable at fixed p (e or o inside a slice, o or e across slices,
+   Burgess character by character, HB over the moduli n₁ of the L-series coefficients); nothing is averaged over p.
+
+**Verdict: strengthened (main-term side).** New and PROVED: (1) Theorem V — the unconditional genus main term of the
+non-corner (★) family is (5/(4π²) − o(1))L², i.e. **at least 5/6 of M₀** (Thm U: 4.5 %); with Burgess only, 29/45 of M₀,
+effectively; on rectangles inside G it is an asymptotic with no p-dependent fluctuation. (2) The exact obstruction to more:
+the excluded sixth is the Burgess corner max(o, e) ≤ (min(o, e)·p)^{1/4}, where the slice cross terms are products of
+χ_p-twisted sums shorter than p^{1/4} (Assessment: the GRH/zero-free-strip gap of `Z53_GENUSLVAL` §4; under GRH the whole
+triangle would be admissible). (3) CERTIFIED: the top family's count vanishes at 37 primes ≤ 10⁸, last 85 664 329
+[DECIDE-SUMMARY]; the model scale of its last zero is ~10^{8}–10^{10} (Assessment), versus ~10¹²⁰ for the Thm U family.
+What it buys: problem CROSS can now be posed on a family whose main term is 18 × larger and whose positivity has
+checkable content. What it does not buy: anything about the order-≥3 remainder (B2). **ES remains OPEN.**
+
+**Proposed FRONTIER §7 text** (do not edit FRONTIER here):
+> 4′. **Genus main term: 5/6 of M₀ unconditionally (z56, `Z56_FAMDESIGN.md` Thm V; PROVED, internal review).** For every
+> prime p ≡ 1 (4), p ≥ p₀: M_gen restricted to the pairs with max(o, e) > (min(o, e)·p)^{1/4} (the family 𝔊*) is
+> ≥ (5/(4π²) − o(1))log²p (Burgess + Heath-Brown's quadratic large sieve; 29/(30π²) with Burgess only, effective), so
+> M_gen(p) ≥ (5/6 − o(1))M₀(p) (Thm U: 4.5 %). Proof: Thm U's slices tiled over the region, plus mirror slices (e fixed),
+> all arithmetic types, and the exact Euler-product average. The excluded "Burgess corner" (both entries ≲ p^{1/3},
+> C ≳ p^{1/3}) is where the L(1, χ_pψ) cross terms cannot be averaged unconditionally. CERTIFIED: R_𝔊*(p) = 0 at exactly
+> 37 primes p ≡ 1 (4) ≤ 10⁸ (last 85 664 329) [DECIDE]. Open: the remainder X_𝔊* (B2); 𝔊* and its complete-level part
+> H3 = {64C³ ≤ p} are the recommended targets for problem CROSS.
+
+**Bottom line.** The Thm U rectangle captured 4.5 % of the expected (★) count; the whole region where Burgess can see the
+genus characters captures 5/6 of it (Theorem V, PROVED; 64 % with Burgess alone), and the missing sixth is exactly the
+large-C corner where the class-number cross terms live — which is also where the (★)-zero primes lose most of their genus
+mass. The family 𝔊* has a main term ≈ 0.127·log²p, an empirical zero set that ends at 85 664 329 within the ranges checked
+[DECIDE], and two-thirds of it consists of complete level sets Σ_C D⁻_{4C}(4Cp + 1). The order-≥3 remainder (B2) is
+untouched; **ES remains OPEN.**
 
 ## 8. Review log
 

@@ -1,0 +1,5 @@
+test n=14  R_G/M_G 0.000  R_K/M_K 0.000  corr(R_G,M_G) nan  corr(R_K,M_K) nan  corr(R,Mgen) nan  sd(R_G/M_G) 0.000
+1e6  n=40  R_G/M_G 1.242  R_K/M_K 0.911  corr(R_G,M_G) 0.39  corr(R_K,M_K) 0.58  corr(R,Mgen) 0.42  sd(R_G/M_G) 0.385
+1e7  n=40  R_G/M_G 1.258  R_K/M_K 1.193  corr(R_G,M_G) 0.41  corr(R_K,M_K) 0.50  corr(R,Mgen) 0.55  sd(R_G/M_G) 0.381
+1e8  n=20  R_G/M_G 1.052  R_K/M_K 1.053  corr(R_G,M_G) 0.66  corr(R_K,M_K) 0.35  corr(R,Mgen) 0.71  sd(R_G/M_G) 0.269
+1e9  n= 3  R_G/M_G 1.004  R_K/M_K 0.760  corr(R_G,M_G) 0.92  corr(R_K,M_K) 0.87  corr(R,Mgen) 0.93  sd(R_G/M_G) 0.112
