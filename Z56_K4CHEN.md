@@ -174,7 +174,7 @@ not established here.** P415's pen = 2.35 is Nath–Xie's *majorised* constant f
 s₂ = 2.832187 (θ₁s₁ + ζs₂ = 0.499), a + b = 0.499. By (i) S ≥ (0.33513 − o(1))𝒰; by MT with pen = 2.35,
 T₁ ≤ (0.22094 + o(1))𝒰 and T^sw(0) ≤ (2.35·14.7411·F(1)√0.45·M + o(1))𝒰 = (0.07700 + o(1))𝒰, where
 M = Σ_{j≥8 even} d_j(1) at ζ = 0.008 is taken as the largest of the grid values 2.2002·10⁻³ (n = 2000), 2.1974·10⁻³
-(4000), 2.1959·10⁻³ (8000), with the j ≥ 27 tail bounded by Σ_j F(1)ζ^{−1/2}(log(1/ζ)/2)^{j−1}/j! (< 10⁻²⁰).
+(4000), 2.1959·10⁻³ (8000), with the j ≥ 27 tail bounded by Σ_j F(1)ζ^{−1/2}(log(1/ζ)/2)^{j−1}/j! = 1.5·10⁻¹⁷ (included).
 Margin 0.33513 − 0.22094 − 0.07700 = +0.0372 > 0 (`z56_k4chen_k6.py`, `data/z56/k4chen/k6_witness.txt`;
 floating point, sieve functions from the P415 DDE solver with step 10⁻⁴, whose errors are ≲ 10⁻⁷ per the internal
 review's independent quadrature; not interval-certified). As 𝒰 ≫ x/(log x)², the count is ≫ x/(log x)². ∎
