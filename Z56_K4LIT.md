@@ -66,8 +66,10 @@ searches documented in the reports". No search is claimed to be exhaustive.
   type), with a main-term error O(ε^γ). It does not claim EH is necessary.
 
 **What this lane adds (§3).**
-* **Lemma P (PROVED).** Take the semi-linear sieve by 𝒬, any density g(q) = 1/q + O(1/q²) with g(q) ≥ 1/q (this
-  includes 1/q and the shifted-prime density 1/(q − 1)), and level D = x^{1/2−ε}. Then there is a sequence on
+* **Lemma P (PROVED).** Take the semi-linear sieve by 𝒬, a density in the admissible family of §3, g(q) = (1 + c_q)/(q + c_q) with 0 ≤ c_q ≤ C/q (so 1/q ≤ g(q) < 1 and g(q) = 1/q + O(1/q²) with fixed constants), and level D = x^{1/2−ε}.
+  This family includes 1/q and the shifted-prime density 1/(q − 1).
+  A bare condition "g ≥ 1/q, g = 1/q + O(1/q²)" is **not** enough for the converse; see the cross-model review F1,
+  where g(3) = 1 gives a counterexample. Then there is a sequence on
   n ≡ 1 (mod 4) with the same local density (and remainders within the stated bound) and **no element in S**. The
   mechanism is a hidden 𝒬-prime above the level. A variant with data restricted to d | P(z) works whenever
   zD ≤ x^{1−ε}, with D ≥ 1.
@@ -83,7 +85,7 @@ searches documented in the reports". No search is claimed to be exhaustive.
 threshold is known. Lemma P establishes only the single-component obstruction and gives no lower bound for a
 threshold with the actual joint data; constructing a compatible joint counterexample is a separate problem. The product
 linear sieve with joint data works above level 1; the vector sieve needs level > cosh²(1/2) ≈ 1.27 (HCKILL). The
-switched implementations found need ≈ 0.996 (P415 ledger, model, sufficient level found). FI 2009 needs A(θ) with θ near 1.
+switched implementations found need ≈ 0.996 (P415 ledger, model, sufficient level found). FI 2009 needs A(θ) for one fixed θ < 1 sufficiently close to 1.
 
 ### H3. None of the 2018–2026 parity-breaking or Type II results located supplies the missing input (Assessment, per lit_C)
 * **Prime = norm with a thin coordinate.** This covers Friedlander–Iwaniec a² + b⁴, Heath-Brown–Li, Maynard
@@ -126,8 +128,9 @@ switched implementations found need ≈ 0.996 (P415 ledger, model, sufficient le
   * Tao–Teräväinen arXiv:2109.06291 Thm 1.6 allows at most two Λ-factors, and they say three-point divisor
     correlations are not understood.
   * Merikoski arXiv:2108.01355 Thm 15 needs Type I and Type-I-χ inputs at exponent > 0.61634, plus comparison-sequence
-    hypotheses. For r(n+4)r(4n+1) only Weil-bound levels of type x^{1/12} are available, by analogy with FI 2009
-    Lemma 4.2 (det 1).
+    hypotheses. No adequate Type-I / Type-I-χ theorem for the det-15 sequence r(n+4)r(4n+1) was located. For the
+    det-1 analogue r(n−2)r(n+2), the known levels are x^{1/12} (FI 2009 Lemma 4.2) and x^{1/6} (Sedunova). Their
+    transfer to det 15 is unproved (§4.4).
 * **The route may be vacuous.** Banks, arXiv:2610.15483 (Oct 2026) [Abs], gives an explicit-constant account of an
   "OpenAI manuscript" claiming (1 − β)log q ≥ 3·10⁻³ for all q ≥ 3. It is unrefereed and we do not rely on it.
 
@@ -148,8 +151,9 @@ switched implementations found need ≈ 0.996 (P415 ledger, model, sufficient le
   guarantee of S-mass; the endpoint is open.
 * An incomplete research specification (★K), with its to-do list.
 
-**The judgement (Assessment).** Unconditional K(4) is *known-hard in the practical sense*. Every implementation
-audited needs EH-strength input. Its det-1 analogue has been conditional since 2009, and that status was reaffirmed in
+**The judgement (Assessment).** Unconditional K(4) is *known-hard in the practical sense*. Every exact
+two-component **sieve** implementation audited needs EH-strength input. The separate Bunyakovsky route (Theorem Q)
+has a different hypothesis, not shown to be EH-equivalent. Its det-1 analogue has been conditional since 2009, and that status was reaffirmed in
 2026. No 2018–2026 result located supplies the input. This is not a theorem that K(4) is hard.
 
 **Recommendation (Assessment).**
@@ -167,8 +171,10 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
 * **(I) Identity 1_S(N) = (1 + i^{Ω_𝒬(N)})/2 on the stated range.** PROVED (§4.3).
 * **(K) "(★K) + (★K′) ⟹ P(4,15)".** Assessment: a proposed route with a sketch (§4.2), not a proved implication.
 * **(B) The level "budget" readings and the ranking (§4.1).** Assessment.
-* **Literature items.** Each cited result is PROVED relative to its source (the source's own theorem; CONDITIONAL
-  where the source is conditional, e.g. FI 2009 Thm 4 on A(θ)). Provenance is tagged separately. Search and
+* **Literature items.** Each is a reported theorem or claim of its source. CONDITIONAL is marked where the source is
+  conditional, e.g. FI 2009 Thm 4 on A(θ). An item is accepted as an input only where explicitly stated. In
+  particular, the abstract-only, unrefereed 2026 breakthroughs (Lü–Wang–Wu, Banks, GMPP) are reported claims, not
+  inputs. Provenance is tagged separately. Search and
   applicability summaries (H1, H3, H4, §§7–8) are Assessment.
 
 **Why this is not already closed.**
@@ -195,7 +201,7 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
 | b*(p − 1) = 1, i.e. (p − 1)/2 ∈ S, in short intervals | (x, x + x^θ], θ ≥ 10/11 | proved | Matomäki 2007 Thm 1 [P-sub] |
 | Σ_p r(p − a) asymptotic | yes | proved | Linnik 1960 [Sec]; FI 2009 Thm 5 via BFI Thm 9 [P-me] |
 | p − 1 SOTS & Ω(p + 2) ≤ 9 | ≫ x/(log x)^{5/2} | proved | Nath–Xie v3 Thm 1.1 [P-me] |
-| p − 2, p + 2 both SOTS (det 1) | Λ-weighted ≍ x | lower bound conditional on A(θ), θ → 1; upper bound unconditional | FI 2009 Thms 2–4 [P-me]; Sedunova 2026 [Abs]; Kontorovich 2014 §3.6.2 [P-sub] |
+| p − 2, p + 2 both SOTS (det 1) | Λ-weighted ≍ x | lower bound conditional on A(θ) for one fixed θ < 1 sufficiently close to 1; upper bound unconditional | FI 2009 Thms 2–4 [P-me]; Sedunova 2026 [Abs]; Kontorovich 2014 §3.6.2 [P-sub] |
 | n ± 2 SOTS, n squarefree, ω(n) ≤ 7 | representation-weighted ≫ x/log x | proved (level x^{1/6} for r(n−2)r(n+2)) | Sedunova 2026 Thm 2; Thm 3: R(θ) ⟹ ≤ ⌊2/θ⌋ factors [P-sub] |
 | integers n, n + 1 both SOTS | ≫ x/log x | proved | Indlekofer 1974 [P-sub]; Hooley 1974 [Sec] |
 | integers n, n + h, n + k SOTS | infinitely many | proved | Hooley 1973 [Sec] |
@@ -287,7 +293,10 @@ sets. Its proof rests on pointwise sieve inequalities, which may be multiplied b
 verbatim to weighted sequences. ∎
 
 **Reading (both PROVED statements).** The data in question are the sieve data for one parity-forced component with
-density 1/q + O(1/q²) on 𝒬.
+density in the admissible family above (0 ≤ c_q ≤ C/q).
+* **Why the restriction matters.** For the bare condition "g(q) = 1/q + O(1/q²)" the upper-half reading fails. Take
+  a_n = 1[n < x, n ≡ 9 (12)] with g(3) = 1: it has admissible data at D = x^{3/4}, but every element is divisible by
+  3, so none is in S (cross-model review F1). Prop P′'s sieve hypotheses exclude g(3) = 1.
 * At any fixed level x^{1/2−ε}, the stated hypotheses (density g with g(q) ≥ 1/q, remainders within the stated
   bound, forced parity) alone do not guarantee a single element of S. The obstruction is the parity of the 𝒬-primes
   *below the level*, which congruences do not fix.
@@ -361,8 +370,10 @@ uses primality of the base variable, which the data do not contain. No claim is 
 * Probability: ≈ 0.
 
 **6. Algebraic families / prime-value theorems.**
-* The full-family constructions are excluded (P415 A1/A2). What remains are Bunyakovsky slices.
-* Probability: 0, unconditionally.
+* The full-family constructions satisfying the hypotheses of P415 A1/A2 are excluded. What remains of those are
+  Bunyakovsky slices.
+* No applicable unconditional construction was located under the audited hypotheses. A1/A2 do not exclude every use
+  of prime-value technology.
 
 ### 4.2 Proposed route via (★K) (Assessment: an incomplete research specification and sketch, not a proved implication)
 
@@ -414,8 +425,14 @@ FI use r on different forms with their own local factors.
 
 **Why (★K) is hard (Assessment).**
 * Opening r* by the identity gives primes in classes modulo d·e, with d ≤ x^{1/2−η} and squarefree e | 4p + 1.
-  After switching e ↔ (4p + 1)/e, e is ≤ √x, so the total modulus is up to ≈ x.
-* On the primitive support we have (d, e) = 1, with d composed of 𝒬-primes and e of split primes. The residue is
+* **Unproved step.** A complementary-divisor reduction to e ≤ √x is *not* established. The primitive coefficients are
+  not symmetric: for N = 25, the coefficients at the complementary divisors 1 and 25 are 1 and 0. A hyperbola split
+  leaves coefficients that depend on the large complementary divisor.
+* "Total modulus ≈ x" is therefore the *intended critical range* of a still-missing reduction, not an established
+  equivalence.
+* On the final primitive support, (d, e) = 1 with d composed of 𝒬-primes and e of split primes. This does not hold
+  termwise when Σ μ²(e)χ₋₄(e) is opened over all e, and reimposing that support would assume the confinement sought.
+  For coprime d, e the residue is
   then a ≡ −4 (mod d) and 4a + 1 ≡ 0 (mod e), i.e. a ≡ −4 + 15d·\overline{4d} (mod de). The inverse is taken modulo
   e; check: 4a + 1 ≡ −15 + 15·4d·\overline{4d} ≡ 0 (mod e). Before primitive cancellation, common factors require
   (d, e) | 15 and modulus lcm(d, e).
@@ -503,7 +520,8 @@ The original BFI, Linnik, Hooley, Opera de Cribro and FI 2003 texts were not rea
 >
 > **Literature calibration** (Assessment from provenance-tagged sources; bounded searches).
 > * Neither P(4,15) nor its det-1 analogue was located as an unconditional theorem.
->   * The det-1 analogue is FI 2009 Thm 4, Σ Λ(n)r(n−2)r(n+2) ≍ x. Its lower bound needs A(θ) with θ → 1, and it was
+>   * The det-1 analogue is FI 2009 Thm 4, Σ Λ(n)r(n−2)r(n+2) ≍ x. Its lower bound is proved under A(θ) for one
+>     fixed θ < 1 sufficiently close to 1; full EH is not shown to be necessary. It was
 >     reaffirmed as conditional in 2026 (Sedunova arXiv:2609.28200).
 >   * The closest unconditional results are Iwaniec 1972 (p + 4 ∈ S), Nath–Xie v3 (p − 1 SOTS, Ω(p + 2) ≤ 9) and
 >     Theorem U.
@@ -514,8 +532,8 @@ The original BFI, Linnik, Hooley, Opera de Cribro and FI 2003 texts were not rea
 >     moduli (≤ 1/2 + 1/40). Our residues are coupled.
 >   * Siegel-zero inputs are too weak.
 >
-> **Lemma P + Prop P′ (PROVED).** Take one parity-forced semi-linear component, with density
-> g(q) = 1/q + O(1/q²) ≥ 1/q on 𝒬 and the stated remainder bounds.
+> **Lemma P + Prop P′ (PROVED).** Take one parity-forced semi-linear component, with density g(q) = (1 + c_q)/(q + c_q),
+> 0 ≤ c_q ≤ C/q, on 𝒬 (this includes 1/q and 1/(q − 1)), and the stated remainder bounds.
 > * At every fixed level below 1/2, a hidden 𝒬-prime gives a sequence with the same local density, admissible
 >   remainders and no element in S.
 > * At every fixed level above 1/2, the S-mass is ≫ X(log x)^{−1/2} (from Iwaniec 1976 Thm 1).
@@ -533,8 +551,8 @@ The original BFI, Linnik, Hooley, Opera de Cribro and FI 2003 texts were not rea
 ## 8. Bottom line
 
 Unconditional K(4) = P(4,15) was not located in the literature. Its closest relative is Friedlander–Iwaniec's
-prime-norm problem on SL₂(ℤ), with p ± 2 both sums of two squares. That problem has been proved only under an
-EH-strength hypothesis since 2009, and was described as conditional again in 2026.
+prime-norm problem on SL₂(ℤ), with p ± 2 both sums of two squares. Since 2009 that problem has been proved only
+under A(θ) for one fixed θ < 1 sufficiently close to 1 (an EH-strength hypothesis), and was described as conditional again in 2026.
 
 This lane makes the "it's only a level problem" diagnosis precise for one component, with sieve data plus the
 congruence-forced parity:
@@ -543,7 +561,8 @@ congruence-forced parity:
 * at every fixed level above 1/2, Iwaniec's sieve guarantees S-mass (Prop P′).
 
 Bombieri–Vinogradov sits at 1/2 − ε, and the audited unconditional implementations obtain each exact S-shift with
-switching. Two exact shifts need about level 1 in every implementation audited.
+switching. Two exact shifts need about level 1 in every exact two-component sieve implementation audited.
+(Theorem Q's Bunyakovsky route is a different, non-sieve hypothesis.)
 
 No recent breakthrough located supplies this:
 * full-family constructions on the norm-form prime theorems fail the confinement lemmas (P415 A1/A2);
@@ -553,7 +572,8 @@ No recent breakthrough located supplies this:
 
 The cheapest missing input is the research specification (★K), a BV theorem for the Titchmarsh-type sequence r*(4p+1).
 
-Verdict: **narrowed**. K(4) is EH-hard for every method audited; that is a judgement, not a theorem. Bank Theorem U and
+Verdict: **narrowed**. K(4) is EH-hard for every exact two-component sieve method audited; that is an Assessment,
+not a theorem. Bank Theorem U and
 the explicit Ω bound, and stop direct attacks. No step toward ES.
 
 ## 9. Review log and errata to the literature reports
@@ -608,4 +628,22 @@ the explicit Ω bound, and stop direct attacks. No step toward ES.
     list including the e ↔ N/e asymmetry.
   * R6: literature-status labels are added in §1; universal phrases in §§7–8 are scoped.
   * The script docstring now lists the supported runs.
-* **Cross-model review:** pending.
+* **Cross-model review** (`data/z56/xreview/REVIEW_K4LIT.md`). Verdict ACCEPT-WITH-FIXES. Lemma P(a), Lemma P(b),
+  Prop P′, the r* identity, the §4.3 identity and the CRT formula are CORRECT; the numerics reproduced byte-for-byte.
+  Fixes applied:
+  * **F1.** The density scope is now explicit everywhere: the admissible family 0 ≤ c_q ≤ C/q. The review's
+    counterexample n ≡ 9 (12) with g(3) = 1 shows that the bare "≥ 1/q, 1/q + O(1/q²)" shorthand is insufficient for
+    the reading above level 1/2.
+  * **F2.** The complementary-divisor step e ↔ (4p+1)/e is no longer performed in prose. It is flagged as unproved,
+    with the N = 25 asymmetry. The split-prime support is noted to be not termwise, and total modulus ≈ x is described
+    as the intended range of a missing reduction.
+  * **F3.**
+    * The algebraic-families entry "Probability 0" is replaced by "no applicable construction located under the
+      audited hypotheses".
+    * The det-15 Type-I statement is scoped: "not located"; the det-1 levels 1/12 and 1/6 are given; the transfer is
+      unproved.
+    * "EH-hard" is scoped to exact two-component sieve implementations, with the Bunyakovsky route noted as separate.
+  * **F4.** Literature items are "reported theorem/claim of the source", accepted as inputs only where stated. FI's
+    hypothesis is quoted as "one fixed θ < 1 sufficiently close to 1".
+  * The review also notes that the inherited P415/HCKILL constants and any explicit K4CHEN bound are not recertified
+    here. "Bank" in the recommendation means record as reported by those lanes.
