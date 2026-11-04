@@ -298,11 +298,14 @@ square through local factors at the primes of m — irrelevant for the audit.)
 * `scripts/z56_famdesign_scan.c` enumerates **all** (★) solutions (o, e, C) of each odd n (three exhaustive loops by
   which of P = min(o, e), Q = max(o, e), C is smallest; cost ≈ 3n^{2/3}) and counts hits_𝔊 = R_𝔊/2 for the columns
   all | F0 | F1 | F2U | F2S | F3U | F3S | F4 | F4L | K | H3 | HC (definitions in §6). Membership tests are exact integer
-  inequalities (Q⁴ > P·n, P^{15} > n, 64C³ ≤ n in 128-bit arithmetic); the HC cutoff ⌊log²n⌋ is computed in long double
-  with an abort if |log²n − round(log²n)| < 10⁻⁹ (never triggered); squarefreeness by trial division to n^{1/3} plus a
+  inequalities (Q⁴ > P·n and P^{15} > n in 128-bit arithmetic with explicit overflow guards; 64C³ ≤ n as the
+  overflow-free C ≤ ⌊⌊⌊n/64⌋/C⌋/C⌋); the HC cutoff ⌊log²n⌋ is computed in long double with an abort if
+  |log²n − round(log²n)| < 10⁻¹²; squarefreeness by trial division to n^{1/3} plus a
   perfect-square test of the cofactor. (First runs used long-double logarithms for the membership tests; every scan, sample, control and decision
-  run of this memo was repeated with the exact integer tests and the outputs are byte-identical. The HC tie guard, first
-  set at 10⁻⁹, fired once, at p = 5 498 061 937 where log²p = 502.99999999953; long double resolves ≈ 10⁻¹⁵ there, so it
+  run of this memo was repeated with the integer tests and the outputs are byte-identical, except the H3 column of the
+  10¹³/10¹⁴ samples: there the first integer version computed 64C³ in signed 128-bit arithmetic, which overflows for
+  C ≥ 1 385 297 844 440 (cross-model review); those samples were rerun with the overflow-free test, see §4.2. The HC
+  tie guard, first set at 10⁻⁹, fired once, at p = 5 498 061 937 where log²p = 502.99999999953; long double resolves ≈ 10⁻¹⁵ there, so it
   was set to 10⁻¹² and the chunk rerun, identical.) Validation: (a) total count = brute force R(n) for every odd n ≤ 3000
   (`scripts/z56_famdesign_brute.py`, 1 498 values, 0 mismatches); (b) the (★) zeros among primes p ≡ 1 (4) ≤ 10⁷ are
   exactly the 14 census primes 409 … 8 813 281 (FRONTIER §2.1); (c) column F0 equals CROSSF's independent C-form scanner
@@ -345,7 +348,7 @@ Means R_𝔊/L² (= 2·hits/L², EVIDENCE) against the asymptotic density (3/π�
 | F3S | 0.099 | 0.096 | 0.094 | 0.093 | 0.090 | (2/π²)(5/12) = 0.0844 |
 | F4L | 0.087 | 0.087 | 0.090 | 0.091 | 0.088 | (3/π²)(29/90) = 0.0979 |
 | F4 | 0.134 | 0.132 | 0.131 | 0.130 | 0.126 | (3/π²)(5/12) = 0.1267 |
-| H3 | 0.080 | 0.080 | 0.081 | 0.082 | 0.081 | (3/π²)(5/18) = 0.0844 |
+| H3 | 0.080 | 0.080 | 0.081 | 0.082 | 0.080 | (3/π²)(5/18) = 0.0844 |
 | HC | 0.105 | 0.093 | 0.081 | 0.072 | 0.064 | → 0 (area → 0; ≍ log L/L) |
 | K | 0.033 | 0.031 | 0.030 | 0.029 | 0.028 | (3/π²)(1/12) = 0.0253 |
 | all | 0.166 | 0.163 | 0.161 | 0.159 | 0.155 | 3/(2π²) = 0.1520 |
@@ -498,7 +501,8 @@ checkable content. What it does not buy: anything about the order-≥3 remainder
 > ≥ (5/(4π²) − o(1))log²p (Burgess + Heath-Brown's quadratic large sieve; 29/(30π²) with Burgess only, effective), so
 > M_gen(p) ≥ (5/6 − o(1))M₀(p) (Thm U: 4.5 %). Proof: Thm U's slices tiled over the region, plus mirror slices (e fixed),
 > all arithmetic types, and the exact Euler-product average. The excluded "Burgess corner" (both entries ≲ p^{1/3},
-> C ≳ p^{1/3}) is where the L(1, χ_pψ) cross terms cannot be averaged unconditionally. CERTIFIED: R_𝔊*(p) = 0 at exactly
+> C ≳ p^{1/3}) is where the L(1, χ_pψ) cross terms are not controlled by this argument (no impossibility or optimality
+> theorem is proved). CERTIFIED: R_𝔊*(p) = 0 at exactly
 > 38 primes p ≡ 1 (4) ≤ 10¹⁰ (last 564 661 441; no zero in the sampled windows up to 10¹⁴). Open: the remainder X_𝔊* (B2); 𝔊* and its complete-level part
 > H3 = {64C³ ≤ p} are the recommended targets for problem CROSS.
 
@@ -533,4 +537,17 @@ Verdict **ACCEPT-WITH-FIXES**; findings and fixes:
 6. (major) overclaims: "no fluctuation survives in G", "the uncaptured sixth", the ⅔ share of actual counts → restricted to
    compact rectangles / density-area shares / Assessment; H3's genus bound now goes through its pair-coordinate definition.
 7. (minor) numeric ranges (var/mean of F4L up to 2.74; near-square deficits 10–16 %) → corrected.
-No fatal flaw was found in Theorem V. A cross-model review is to follow.
+No fatal flaw was found in Theorem V.
+
+**Cross-model review** (`data/z56/xreview/REVIEW_FAMDESIGN.md`, audit script `scripts/z56_xrev_famdesign_check.py`; verdict
+ACCEPT-WITH-FIXES). Theorem V, Cor V1, Lemmas 3.1–3.5, Props 3.4/3.6 (Burgess and HB versions), the T1 audit, the areas and
+constants were independently re-derived and judged CORRECT; the F4/F4L zero unions (38 / 317), the four F4 zeros above 10⁷,
+the 46 slice sums and all scanner columns at n ≤ 3000 were reproduced. Required fixes, all applied: (1) the H3 test
+64C³ ≤ n overflowed signed 128-bit arithmetic for C ≥ 1 385 297 844 440 (e.g. (p, o, e, C) = (100000000000097, 1, 6,
+4166666666671), a corner pair counted in H3) in `z56_famdesign_scan.c` and the fallback of `z56_famdesign_decide.c` →
+replaced by the overflow-free C ≤ ⌊⌊⌊n/64⌋/C⌋/C⌋; the 10¹³ and 10¹⁴ samples were rerun: 10¹³ unchanged, 10¹⁴ H3 changed
+at 53 of 100 primes (4 233 → 4 158 hits, mean R_H3/L² 0.081 → 0.080, still no zero), all other columns byte-identical;
+the "exact integer tests" claim in §4.1 is restated accordingly (the overflow cannot occur below C ≈ 1.4·10¹², hence not in
+any range ≤ 10¹²); (2) the proposed FRONTIER sentence now says the corner cross terms "are not controlled by this argument"
+(no impossibility claim); (3) the HC tie-guard value is stated consistently (10⁻¹²). The reviewer did not independently
+rescan (10⁶, 10¹⁰] or the bulk windows, nor rerun the fits/genus statistics (EVIDENCE/Assessment).

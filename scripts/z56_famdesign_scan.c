@@ -73,7 +73,7 @@ static void classify(ll n, ll o, ll e, ll C, long *cnt) {
   if (G) cnt[7]++;
   if (G && lam) cnt[8]++;
   if (!G) cnt[9]++;
-  if ((i128)64 * C * C * C <= n) cnt[10]++;          // H3: C-strip, 4C <= n^{1/3} (all divisors of each layer)
+  if (C <= n / 64 / C / C) cnt[10]++;                 // H3: 64C^3 <= n, overflow-free (all divisors of each layer)
   if (C <= cHC) cnt[11]++;                             // HC: polylog layer C <= floor(log^2 n)
 }
 static void count(ll n, long *cnt) {

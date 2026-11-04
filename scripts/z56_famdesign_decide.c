@@ -22,7 +22,7 @@ static void full(ll n, long *c) {
   for (int i = 0; i < 5; i++) c[i] = 0;
   #define REC(o_, e_, C_) do { ll o = (o_), e = (e_), CC = (C_); ll P = o < e ? o : e, Q = o < e ? e : o; \
     int G = gtest(P, Q, n), lam = lamtest(P, n); \
-    c[0]++; if (CC <= cHC) c[1]++; if ((i128)64 * CC * CC * CC <= n) c[2]++; if (G) c[3]++; if (G && lam) c[4]++; } while (0)
+    c[0]++; if (CC <= cHC) c[1]++; if (CC <= n / 64 / CC / CC) c[2]++; if (G) c[3]++; if (G && lam) c[4]++; } while (0)
   for (ll P = 1; 4 * P * P * P - 2 * P <= n; P++)
     for (ll Q = P; ; Q++) { i128 lhs = (i128)4 * P * Q * Q - P - Q; if (lhs > n) break; ll m = 4 * P * Q, N = n + P + Q;
       if (divides(m, N)) { ll C = N / m; if (C >= Q) REC((P & 1) ? P : Q, (P & 1) ? Q : P, C); } }
