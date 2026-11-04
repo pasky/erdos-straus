@@ -129,9 +129,10 @@ prime.
 Two classical facts frame everything that follows.
 \begin{enumerate}
 \item \emph{Odd squares.}  $R(m^2)=0$ for every odd $m$
-(Lemma~\ref{lem:squares}; this is the case $c=1$ of Elsholtz--Tao's
-Proposition~1.6, which goes back to Schinzel and Yamamoto
-\cite{Yamamoto}; see also Bright--Loughran \cite[Cor.~1.4]{BL}).  Hence
+(Lemma~\ref{lem:squares}).  This is the analogue for our family of
+Elsholtz--Tao's Proposition~1.6 (odd squares have no Type~I or Type~II
+solutions), which goes back to Schinzel and Yamamoto \cite{Yamamoto};
+see also Bright--Loughran \cite[Cor.~1.4]{BL}.  Hence
 every argument that proves a positive lower bound for $R(n)$ must
 contain a step that is false at odd squares.  Upper bounds and averages
 over $n$ are not subject to this constraint, and this is why they are
@@ -199,8 +200,8 @@ characters modulo $q$ and keeping only the real characters gives
 so that $R(p)=\Mgen(p)+X(p)$, where $X(p)$ is the contribution of the
 characters of order at least~$3$.  Every term of $\Mgen$ is
 nonnegative, $\Mgen(p)$ depends on $p$ only through quadratic data, and
-$\Mgen(m^2)=0$ at odd squares (the same reciprocity computation as for
-$R$).  It is the ``genus'' expected count.
+the same expression with $p$ replaced by an odd square vanishes
+identically (Remark~\ref{rem:Mgensq}).  It is the ``genus'' expected count.
 
 \begin{introthm}\label{thm:B}
 For every $\eps>0$ there is an effectively computable $p_0(\eps)$ such
@@ -513,7 +514,7 @@ We first show how the square sieve beats the divisor bound using only
 Lemma~\ref{lem:complete}(a).
 
 \begin{citedthm}[Vaaler; {\cite[Thm.~A.6]{GK}, \cite{Vaaler}}]\label{cit:vaaler}
-For every integer $H\ge1$ there are real $a_h$ ($1\le|h|\le H$) with
+For every integer $H\ge1$ there are complex numbers $a_h$ ($1\le|h|\le H$) with
 $|a_h|\le1/(2\pi|h|)$ such that for all real $x$
 \[
  \Bigl|\psi(x)-\sum_{1\le|h|\le H}a_he(hx)\Bigr|\le\frac1{2H+2}
@@ -926,6 +927,18 @@ $(\Z/q\Z)^\times/((\Z/q\Z)^\times)^2$, so their part of the sum is
 $\varphi(q)^{-1}\sum_{\chi^2=1}\chi(pa)=\frac{s(q)}{\varphi(q)}\mathbf
 1[pa\in((\Z/q\Z)^\times)^2]$.  Summing over $\cP(p)$ gives $\Mgen(p)$,
 and $R(p)-\Mgen(p)$ is the contribution of characters of order $\ge3$.
+
+\begin{remark}\label{rem:Mgensq}
+For every pair with $\gcd(u,B)=1$ and $u+B$ odd, the Kronecker character
+$\chi_{-4uB}$ (a character modulo $q=4uB$) satisfies
+$\chi_{-4uB}(a)=-1$: indeed $\chi_{-4uB}(-1)=-1$, and since
+$B\equiv-u\pmod{u+B}$, $\chi_{-4uB}(u+B)=\leg{-uB}{u+B}=\leg{u^2}{u+B}=1$.
+So $a$ is never a square modulo $q$.  Consequently, if $p$ is replaced by
+an odd square $m^2$ in \eqref{eq:Mgen} (terms with $\gcd(m,q)>1$ being
+$0$), every term vanishes: $m^2a$ is a square unit only if $a$ is.  Only
+the single character $\chi_{-4uB}$, not the full real-character
+expansion, is needed for this vanishing.
+\end{remark}
 
 \subsection{A genus-exact subfamily}
 For a squarefree $u\equiv1\pmod4$ with $p\nmid u$ put $D=D_u:=-4up$, a
