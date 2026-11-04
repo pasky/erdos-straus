@@ -1,5 +1,6 @@
 # F1 refinement: remove the global (genus/BM) main-term driver before measuring cross-window association.
-# Covariates: one-hot p mod l (l in 8,3,5,7,...,31) plus log L_Y(1,chi_p), log L_Y(1,chi_{-4p}) (Euler products to Y)
+# Covariates: one-hot p mod l (l in 8,3,5,7,...,31) plus log L_Y(1,chi_p), log L_Y(1,chi_{-4p}) -- truncated Euler-product
+# PROXIES over primes l < Y = 20000 (including the factor at 2 for chi_p; chi_{-4p}(2) = 0)
 # and their squares. Report residual correlations for u-windows and C-windows, and the residual off-diagonal covariance share.
 import sys, numpy as np
 sys.path.insert(0, 'scripts')
@@ -12,6 +13,9 @@ def logL(p, Y, twist4=False):
         r = p % l; chi = np.where(r == 0, 0, np.where(sq[r] == 1, 1, -1)).astype(float)
         if twist4: chi *= (1 if l % 4 == 1 else -1)
         s -= np.log1p(-chi / l)
+    if not twist4:  # Euler factor at 2 for chi_p (p ≡ 1 mod 4): chi_p(2) = (2/p) = +1 iff p ≡ 1 mod 8; chi_{-4p}(2) = 0
+        chi2 = np.where(p % 8 == 1, 1.0, -1.0)
+        s -= np.log1p(-chi2 / 2)
     return s
 for fn in sys.argv[1:]:
     p, R, g = load(fn); N = len(p); se = 1/np.sqrt(N)

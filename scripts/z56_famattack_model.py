@@ -3,9 +3,12 @@
 import sys
 from mpmath import mp, quad, exp, inf, findroot, log
 mp.dps = 30
-def T(c, L0): return quad(lambda L: exp(L - c * L * L) / (2 * L), [L0, 1 / (2 * c), inf])
+def T(c, L0):
+    f = lambda L: exp(L - c * L * L) / (2 * L)
+    s = 1 / (2 * c)
+    return quad(f, [L0, s, inf]) if L0 < s else quad(f, [L0, inf])
 for c in map(float, sys.argv[1:]):
-    tot = quad(lambda L: exp(L - c * L * L) / (2 * L), [2, 1 / (2 * c), inf])
+    tot = T(c, log(5))  # zero primes counted from t = 5
     lo, hi = 1 / (2 * c), 10 / c
     for _ in range(80):
         mid = (lo + hi) / 2

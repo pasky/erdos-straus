@@ -1,4 +1,4 @@
-c = 0.08080: total expected zero primes ≈ 11.76; tail count = 1 at p ≈ 10^3.83
+c = 0.08080: total expected zero primes ≈ 12.27; tail count = 1 at p ≈ 10^3.83
 c = 0.00730: total expected zero primes ≈ 1.148e+14; tail count = 1 at p ≈ 10^57.0
 c = 0.00924: total expected zero primes ≈ 9.778e+10; tail count = 1 at p ≈ 10^44.6
 c = 0.00342: total expected zero primes ≈ 5.583e+30; tail count = 1 at p ≈ 10^124.1

@@ -1,0 +1,27 @@
+/tmp/z56fa_1e8.txt: N=108397; eligible cells 14: 01:0.13 02:0.11 03:0.06 04:0.22 10:0.09 11:0.13 12:0.15 13:0.67 20:0.10 21:0.15 22:0.67 30:0.12 31:0.67 40:0.57
+  k=2: 300 subsets; pooled joint-empty count observed 2411398 vs within-840 independence 2389652.6 (ratio 1.009); median per-subset obs/exp 1.000; frac obs>exp 0.48; frac obs=0 0.00
+  k=3: 300 subsets; pooled joint-empty count observed 682112 vs within-840 independence 654390.8 (ratio 1.042); median per-subset obs/exp 1.004; frac obs>exp 0.56; frac obs=0 0.00
+  k=4: 300 subsets; pooled joint-empty count observed 137098 vs within-840 independence 124182.8 (ratio 1.104); median per-subset obs/exp 1.070; frac obs>exp 0.69; frac obs=0 0.00
+  k=5: 300 subsets; pooled joint-empty count observed 42680 vs within-840 independence 35976.0 (ratio 1.186); median per-subset obs/exp 1.277; frac obs>exp 0.82; frac obs=0 0.00
+  k=6: 300 subsets; pooled joint-empty count observed 12274 vs within-840 independence 8611.6 (ratio 1.425); median per-subset obs/exp 1.733; frac obs>exp 0.89; frac obs=0 0.00
+  k=7: 300 subsets; pooled joint-empty count observed 3596 vs within-840 independence 1891.5 (ratio 1.901); median per-subset obs/exp 2.454; frac obs>exp 0.92; frac obs=0 0.04
+  k=8: 300 subsets; pooled joint-empty count observed 1105 vs within-840 independence 345.2 (ratio 3.201); median per-subset obs/exp 4.491; frac obs>exp 0.86; frac obs=0 0.11
+  all eligible cells jointly empty: observed 0.00000 (0 primes), within-840 independence 0.000000, ratio 0.00
+/tmp/z56fa_1e9.txt: N=48139; eligible cells 12: 01:0.09 02:0.09 04:0.16 11:0.07 12:0.08 13:0.53 20:0.06 21:0.09 22:0.56 30:0.08 31:0.56 40:0.48
+  k=2: 300 subsets; pooled joint-empty count observed 749726 vs within-840 independence 742383.8 (ratio 1.010); median per-subset obs/exp 0.999; frac obs>exp 0.32; frac obs=0 0.00
+  k=3: 300 subsets; pooled joint-empty count observed 172763 vs within-840 independence 164474.2 (ratio 1.050); median per-subset obs/exp 1.003; frac obs>exp 0.52; frac obs=0 0.00
+  k=4: 300 subsets; pooled joint-empty count observed 30149 vs within-840 independence 28123.2 (ratio 1.072); median per-subset obs/exp 1.085; frac obs>exp 0.61; frac obs=0 0.00
+  k=5: 300 subsets; pooled joint-empty count observed 6046 vs within-840 independence 5268.1 (ratio 1.148); median per-subset obs/exp 1.112; frac obs>exp 0.61; frac obs=0 0.10
+  k=6: 300 subsets; pooled joint-empty count observed 1200 vs within-840 independence 755.6 (ratio 1.588); median per-subset obs/exp 1.060; frac obs>exp 0.53; frac obs=0 0.32
+  k=7: 300 subsets; pooled joint-empty count observed 238 vs within-840 independence 156.5 (ratio 1.520); median per-subset obs/exp 0.000; frac obs>exp 0.30; frac obs=0 0.65
+  k=8: 300 subsets; pooled joint-empty count observed 36 vs within-840 independence 22.7 (ratio 1.585); median per-subset obs/exp 0.000; frac obs>exp 0.11; frac obs=0 0.89
+  all eligible cells jointly empty: observed 0.00000 (0 primes), within-840 independence 0.000000, ratio 0.00
+/tmp/z56fa_1p2e9.txt: N=23928; eligible cells 13: 01:0.08 02:0.07 04:0.16 10:0.05 11:0.08 12:0.08 13:0.57 20:0.06 21:0.08 22:0.56 30:0.07 31:0.55 40:0.48
+  k=2: 300 subsets; pooled joint-empty count observed 306083 vs within-840 independence 300957.3 (ratio 1.017); median per-subset obs/exp 1.000; frac obs>exp 0.49; frac obs=0 0.00
+  k=3: 300 subsets; pooled joint-empty count observed 63338 vs within-840 independence 59963.5 (ratio 1.056); median per-subset obs/exp 1.059; frac obs>exp 0.67; frac obs=0 0.00
+  k=4: 300 subsets; pooled joint-empty count observed 16532 vs within-840 independence 15044.8 (ratio 1.099); median per-subset obs/exp 1.196; frac obs>exp 0.69; frac obs=0 0.03
+  k=5: 300 subsets; pooled joint-empty count observed 2663 vs within-840 independence 1919.9 (ratio 1.387); median per-subset obs/exp 1.247; frac obs>exp 0.60; frac obs=0 0.22
+  k=6: 300 subsets; pooled joint-empty count observed 379 vs within-840 independence 217.6 (ratio 1.742); median per-subset obs/exp 0.545; frac obs>exp 0.44; frac obs=0 0.50
+  k=7: 300 subsets; pooled joint-empty count observed 133 vs within-840 independence 50.2 (ratio 2.648); median per-subset obs/exp 0.000; frac obs>exp 0.26; frac obs=0 0.73
+  k=8: 300 subsets; pooled joint-empty count observed 26 vs within-840 independence 7.6 (ratio 3.419); median per-subset obs/exp 0.000; frac obs>exp 0.08; frac obs=0 0.92
+  all eligible cells jointly empty: observed 0.00000 (0 primes), within-840 independence 0.000000, ratio 0.00
