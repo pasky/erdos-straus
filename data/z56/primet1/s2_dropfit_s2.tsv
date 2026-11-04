@@ -1,0 +1,20 @@
+# controls: same p mod 35, p mod 16, nearest mu among PIT >= 0.01 (each used once)
+# S2 matched sets: 4979 hard primes, 14682 controls; G17 post-hoc (not in Holm)
+family	df	LR	p_raw	p_holm(G1-G16)	ORs
+G1	1	16.902	3.936e-05	5.117e-04	log(h4/sqrt p):OR/sd=0.899
+G2	2	6.410	4.057e-02	4.462e-01	v2(h4)=3:OR/sd=0.969 v2(h4)>=4:OR/sd=1.018
+G3	2	1.294	5.235e-01	1.000e+00	3|h4:OR/sd=1.010 5|h4:OR/sd=0.984
+G4	1	0.928	3.354e-01	1.000e+00	h(p)>1:OR/sd=1.016
+G5	1	2.526	1.120e-01	1.000e+00	logL1-logL1_Q0:OR/sd=1.027
+G6	2	27.900	8.742e-07	1.224e-05	log(reg/sqrt p):OR/sd=4.911 log(cflen/sqrt p):OR/sd=0.222
+G7	1	345.275	4.529e-77	6.794e-76	log n(p):OR/sd=2.048
+G8	4	2.854	5.825e-01	1.000e+00	v2(i2)=2:OR/sd=1.009 v2(i2)>=3:OR/sd=1.001 3|i2:OR/sd=1.011 log i2:OR/sd=1.019
+G9	4	4.134	3.882e-01	1.000e+00	v2(i3)=2:OR/sd=0.981 v2(i3)>=3:OR/sd=0.967 3|i3:OR/sd=0.983 log i3:OR/sd=1.047
+G10	2	6.302	4.281e-02	4.462e-01	r3=1:OR/sd=0.956 r3=3:OR/sd=0.992
+G11	3	4.628	2.012e-01	1.000e+00	r4=1:OR/sd=1.006 r4=2:OR/sd=1.032 r4=4:OR/sd=1.024
+G12	4	4.353	3.603e-01	1.000e+00	cos4theta:OR/sd=0.990 cos8theta:OR/sd=0.985 cos6psi:OR/sd=0.983 cos12psi:OR/sd=0.977
+G13	2	2.455	2.931e-01	1.000e+00	t:OR/sd=1.023 4t^2-1:OR/sd=0.987
+G14	5	15.380	8.855e-03	1.063e-01	v2(p-1)=5:OR/sd=1.041 v2(p-1)>=6:OR/sd=1.032 27|p-1:OR/sd=1.025 25|p-1:OR/sd=1.044 49|p-1:OR/sd=1.021
+G15	10	8.135	6.157e-01	1.000e+00	leg1009:OR/sd=1.024 leg1013:OR/sd=1.001 leg1019:OR/sd=1.008 leg1021:OR/sd=0.987 leg1031:OR/sd=1.003 leg1033:OR/sd=1.001 leg1039:OR/sd=0.988 leg1049:OR/sd=1.025 leg1051:OR/sd=1.016 leg1061:OR/sd=0.981
+G16	4	640.765	2.327e-137	3.723e-136	logP+(p-1)/L:OR/sd=0.931 omega(p-1):OR/sd=0.933 logP+(p+1)/L:OR/sd=2.093 omega(p+1):OR/sd=1.568
+G17	2	71.928	2.405e-16	nan	Gamma:OR/sd=0.996 log(a1)/L:OR/sd=1.142

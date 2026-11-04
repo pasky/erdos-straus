@@ -71,9 +71,16 @@ def clogit_lr(sets, case, X):
     LR = 2 * (ll1 - ll0); df = np.linalg.matrix_rank(H)
     return LR, stats.chi2.sf(LR, max(df, 1)), df, b
 
-def test(out, featf, cff):
+def test(out, featf, cff, dropfit=False):
     from z56_primet1_tests import families, holm, FAMS
     arr = np.load(out + '_sets.npy'); feat = np.load(featf)
+    if dropfit:  # post-review sensitivity: remove every prime of the local-model fitting split (splitmix64 mod 64 = 2)
+        from z56_primet1_split import splitmix64
+        h = splitmix64(arr['p']) % np.uint64(64)
+        badsets = set(arr['set'][(arr['case'] == 1) & (h == np.uint64(2))].tolist())
+        arr = arr[(h != np.uint64(2)) & np.array([x not in badsets for x in arr['set']])]
+        print('dropfit: sets removed', len(badsets), 'rows left', len(arr), file=sys.stderr)
+        out = out + '_dropfit'
     fi = {int(x): i for i, x in enumerate(feat['p'])}; feat = feat[np.array([fi[int(x)] for x in arr['p']])]
     cf = np.loadtxt(cff, dtype=np.int64); cfd = {int(r[0]): r[1:] for r in cf}
     cfa = np.array([cfd[int(x)] for x in arr['p']], dtype=float)
@@ -87,6 +94,7 @@ def test(out, featf, cff):
         rows.append((g, df, LR, pv, ' '.join(f'{n}:OR/sd={math.exp(x):.3f}' for n, x in zip(F[g][1], b))))
     adj = holm([r[3] for r in rows[:16]]) .tolist() + [float('nan')]
     with open(out + '_s2.tsv', 'w') as f:
+        f.write('# controls: same p mod 35, p mod 16, nearest mu among PIT >= 0.01 (each used once)\n')
         f.write(f'# S2 matched sets: {int(arr["case"].sum())} hard primes, {int((arr["case"]==0).sum())} controls; G17 post-hoc (not in Holm)\n')
         f.write('family\tdf\tLR\tp_raw\tp_holm(G1-G16)\tORs\n')
         for r, a in zip(rows, adj): f.write('%s\t%d\t%.3f\t%.3e\t%.3e\t%s\n' % (r[0], r[1], r[2], r[3], a, r[4]))
@@ -94,4 +102,4 @@ def test(out, featf, cff):
 
 if __name__ == '__main__':
     if sys.argv[1] == 'select': select(sys.argv[2], sys.argv[3], sys.argv[4])
-    else: test(sys.argv[2], sys.argv[3], sys.argv[4])
+    else: test(sys.argv[2], sys.argv[3], sys.argv[4], dropfit=len(sys.argv) > 5 and sys.argv[5] == '--dropfit')

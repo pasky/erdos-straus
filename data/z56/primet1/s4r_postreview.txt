@@ -1,0 +1,8 @@
+S4b-r (complete null) n_eval=588309	R2_oos=0.000108	null mean=-0.000106 max=-0.000048	p=0.0050	AUC_lowtail=0.4972	null mean=0.5001 max=0.5120	p=0.7612
+S4b-r (complete null) fams=G12 n_eval=588309	R2_oos=0.000183	null mean=-0.000170 max=-0.000077	p=0.0050	AUC_lowtail=0.5028	null mean=0.5000 max=0.5093	p=0.2488
+S4b-r (complete null) fams=G2,G3,G4,G10,G13 n_eval=588309	R2_oos=-0.000051	null mean=-0.000049 max=0.000002	p=0.5373	AUC_lowtail=0.4958	null mean=0.5003 max=0.5097	p=0.8856
+S4b-r (complete null) fams=G8,G9 n_eval=588309	R2_oos=-0.000079	null mean=-0.000063 max=0.000016	p=0.7960	AUC_lowtail=0.5031	null mean=0.4996 max=0.5110	p=0.1791
+S4b-r (complete null) fams=G2,G3,G4,G10,G12,G13 n_eval=588309	R2_oos=0.000124	null mean=-0.000158 max=-0.000094	p=0.0050	AUC_lowtail=0.5000	null mean=0.5001 max=0.5127	p=0.5075
+Gaussian b<10 124 mean e/sd -0.27 z -3.01 one-sided p 0.0013117910826963793
+Eisenstein y<10 109 mean e/sd -0.503 z -5.26 one-sided p 7.374551728382699e-08
+either 233 mean e/sd -0.379 z -5.79 one-sided p 3.5278073387315936e-09
