@@ -229,6 +229,20 @@ theorem ES_of_HCle {n X : ℕ} (hn : n % 4 = 1) (h : HCle n X) : ESProp n := by
   obtain ⟨x, -, hx, hc⟩ := h
   exact ES_of_isCoord hn hx hc
 
+/-- `ES₅(n) ⟺ HC(n) < ∞` (FABLE §3.1): some word of `n` has a slot iff some coordinate of some word lies in `𝒞_n`. -/
+theorem ES5_iff_HC_finite {n : ℕ} (hn : n % 4 = 1) :
+    (∃ t u v, Word n t u v ∧ Slot t u v) ↔ ∃ X, HCle n X := by
+  constructor
+  · rintro ⟨t, u, v, hw, hs⟩
+    rcases (slot_iff_coord hn hw).mp hs with h | h | h
+    · exact ⟨t, t, le_refl t, h, t, u, v, hw, Or.inl rfl⟩
+    · exact ⟨u, u, le_refl u, h, t, u, v, hw, Or.inr (Or.inl rfl)⟩
+    · exact ⟨v, v, le_refl v, h, t, u, v, hw, Or.inr (Or.inr rfl)⟩
+  · rintro ⟨X, x, -, hx, t, u, v, hw, rfl | rfl | rfl⟩
+    · exact ⟨_, u, v, hw, (slot_iff_coord hn hw).mpr (Or.inl hx)⟩
+    · exact ⟨t, _, v, hw, (slot_iff_coord hn hw).mpr (Or.inr (Or.inl hx))⟩
+    · exact ⟨t, u, _, hw, (slot_iff_coord hn hw).mpr (Or.inr (Or.inr hx))⟩
+
 /-! ### (a) Z53_UPPER Lemma 1.1: the coordinate lines (U) and (T) -/
 
 /-- **Line (U).** `c` is the `u`-coordinate of a word of `n` iff `n + c` has a divisor `d ≡ −1 (mod c)`. -/

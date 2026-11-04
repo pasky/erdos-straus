@@ -7,6 +7,7 @@ import ES.HC
 #print axioms ESHC.ES_of_coord
 #print axioms ESHC.ES_of_isCoord
 #print axioms ESHC.ES_of_HCle
+#print axioms ESHC.ES5_iff_HC_finite
 #print axioms ESHC.coordU_iff
 #print axioms ESHC.coordT_iff
 #print axioms ESHC.isCoord_iff_fires
