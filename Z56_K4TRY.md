@@ -71,17 +71,15 @@ Sedunova's P₇-type route adds nothing here.
 
 For odd n ≡ 1 (mod 4): χ(n/d) = χ(n)χ(d) = χ(d), so pairing d with n/d,
   r(n) = 8 Σ_{d | n, d < √n} χ(d) + 4·[n = □]·χ(√n).   (2.1)
-r*(n) = Σ_{g² | n, g odd} μ(g) r(n/g²) (Möbius over the content of (a, b)); for n ∈ S, r*(n) = 4·2^{ω(n)} ≥ 8, and
-r*(n) = 0 for n ∉ S. So for p ≡ 1 (8),
-  𝒮(x; z) := Σ_{p ≤ x, p ≡ 1 (8), (p + 4, 𝒬(z)) = 1} r*(4p + 1)/8 ≤ #{p ≤ x : p ≡ 1 (8), (p + 4, 𝒬(z)) = 1, 4p + 1 ∈ S}·2^{ω(4p+1)−1},
-and (parity reduction, P415 Step 1, z = x^{θ_z} with θ_z > 1/4): every p counted has p + 4 ∈ S or p + 4 = mqq′ with
-m ∈ S, q ≤ q′ in 𝒬, q ≥ z. Hence
-  #{p ≤ x : p ≡ 1 (8), p + 4 ∈ S, 4p + 1 ∈ S} ≥ 𝒮(x; z)/max 2^{ω−1} … — more usefully, with the weight kept:
-  Σ_{p: N₁, N₂ ∈ S} r*(N₂)/8 ≥ 𝒮(x; z) − T₁,  T₁ := Σ_{p ≤ x, p ≡ 1 (8), p+4 = mqq′ as above} r*(4p + 1)/8.   (2.2)
-Every term of the left side is ≥ 1, so a positive lower bound for 𝒮 − T₁ gives P(4,15) (with ≫ x/(log x)^{3/2}
-weighted mass; the unweighted count is ≫ x/(log x)^{3/2}/max 2^{ω} ≥ x^{1−ε}, or ≫ x/(log x)² after the standard
-removal of p with 2^{ω(4p+1)} > (log x)^{1/2}·C, which has weighted mass o(𝒮) by Cauchy–Schwarz against Σ r*² ≪ x log x
-— this last step is routine but not written out).
+r*(n) = Σ_{g² | n, g odd} μ(g) r(n/g²) (Möbius over the content of (a, b)); for n ∈ S, n > 1, r*(n) = 4·2^{ω(n)} ≥ 8,
+and r*(n) = 0 for n ∉ S. Put, for z = x^{θ_z} with θ_z > 1/4,
+  𝒮(x; z) := Σ_{p ≤ x, p ≡ 1 (8), (p + 4, 𝒬(z)) = 1} r*(4p + 1)/8.
+By the parity reduction (P415 Step 1) every p in this sum has p + 4 ∈ S or p + 4 = mqq′ with m ∈ S, q ≤ q′ in 𝒬,
+q ≥ z. Hence
+  Σ_{p ≤ x, p ≡ 1 (8), N₁, N₂ ∈ S} r*(N₂)/8 = 𝒮(x; z) − T₁,  T₁ := Σ_{p ≤ x, p ≡ 1 (8), p+4 = mqq′ as above} r*(4p + 1)/8.   (2.2)
+Every term of the left side is ≥ 1, so 𝒮 − T₁ → ∞ gives P(4,15). The quantitative *unweighted* count is not addressed:
+from a weighted mass ≫ x/(log x)^{3/2} and Σ_{p≤x} r*(4p+1)² ≪ x log x, Cauchy–Schwarz gives only ≫ x/(log x)⁴, and a
+weight-tail argument would be needed for the expected x/(log x)² (not supplied; irrelevant for infinitude).
 
 **Main term (CONDITIONAL on 𝒟 below).** Expanding r* by Möbius (g ≤ x^δ; the tail Σ_{g > x^δ} #{p : g² | 4p + 1}·
 2^{ω} ≪ x^{1−δ+ε} is negligible), r by (2.1), and 1_{(p+4, 𝒬(z))=1} by the semi-linear lower sieve of level x^{θ_e},
@@ -158,8 +156,10 @@ bound and Ford's upper-bound sieve exactly as cited in HCKILL Theorem E Steps 2 
 a ≡ 0 (mod 4), b ≡ 1 (mod 4) and 3 | ab(a − b). For every ε ∈ (0, 1) there exist η = η(ε) ∈ (0, 1/10], c = c(ε) > 0 and
 x₀(ε) such that for x ≥ x₀ and H := x^{1−η}, all but at most εH² admissible pairs (a, b) ∈ [1, H]² satisfy
   #{p ≤ x : p ≡ 1 (mod 8), p + a ∈ S, 4p + b ∈ S} ≥ c·x/(log x)².
-(The pair (4, 1) is admissible. Non-admissible pairs with 3 ∤ ab(a − b) have no such p > 3 at all: p ≡ 1 (3) forces
-3 | 4p + b or p ≡ 2 (3) forces 3 | p + a.)
+(The pair (4, 1) is admissible. Non-admissible pairs, 3 ∤ ab(a − b), have no such p > 3 at all: the roots −a, −b of
+(n + a)(4n + b) mod 3 are then the two nonzero classes, so 3 | (p + a)(4p + b) for every p > 3.) Throughout, 𝒫_H :=
+{(a, b) ∈ [1, H]² : a ≡ 0 (4), b ≡ 1 (4)} (so 4a − b ≡ −1 (4) is never 0); admissible pairs form a subset of 𝒫_H of size
+(7/144)H² + O(H).
 
 *Proof.* Fix η ∈ (0, 1/10] (chosen in Step 5), z = x^{1/2−η}, D = x^{1−η}/8, w = x^{1/100}, X = li(x)/4,
 E(x; q, c) := π(x; q, c) − li(x)/φ(q).
@@ -169,8 +169,9 @@ d | 𝒬(z) let R(d) = {β mod d : (β + a)(4β + b) ≡ 0 (d), (β, d) = 1}, ν
 ν(3) ≤ 1 by admissibility (the roots −a, −b·4⁻¹ ≡ −b mod 3 coincide or one is 0). Then
   |𝒜_d| = Σ_{β ∈ R(d)} π(x; 8d, c_β) + O(ω(d)) = g(d)X + r_d,  g(d) = ν(d)/φ(d),  |r_d| ≤ Σ_{β∈R(d)}|E(x; 8d, c_β)| + O(ω(d)),
 where c_β ≡ 1 (8), ≡ β (d) (φ(8d) = 4φ(d), d odd; the O(ω(d)) counts primes p | d). Since 0 ≤ g(ℓ) ≤ 2/(ℓ − 1) ≤ 1/2
-for ℓ ≥ 5 and g(3) ≤ 1/2, the one-sided linear-sieve axiom ∏_{w′≤ℓ<z}(1 − g(ℓ))⁻¹ ≤ ∏_{w′≤ℓ<z, ℓ∈𝒬}(1 − 2/(ℓ−1))⁻¹ =
-(log z/log w′)(1 + K/log w′) holds with K absolute (Mertens in the progression 3 mod 4), uniformly in (a, b).
+for ℓ ≥ 5 and g(3) ≤ 1/2, the one-sided linear-sieve axiom ∏_{w′≤ℓ<z}(1 − g(ℓ))⁻¹ ≤ 2^{[w′ ≤ 3]}·∏_{w′≤ℓ<z, ℓ∈𝒬, ℓ≥7}(1 − 2/(ℓ−1))⁻¹
+≤ (log z/log w′)(1 + K/log w′) holds with K absolute (Mertens in the progression 3 mod 4 for ℓ ≥ 7; the factor at 3 is
+absorbed in K), uniformly in (a, b).
 
 *Step 2 (lower bound).* The linear beta sieve (as in Theorem E Step 2; its o(1) depends only on κ, K, hence is uniform
 in (a, b)) gives, with s = log D/log z = (1 − η)/(1/2 − η) + o(1) ≥ 2 + 2η,
@@ -178,8 +179,9 @@ in (a, b)) gives, with s = log D/log z = (1 − η)/(1/2 − η) + o(1) ≥ 2 + 
 V(z) = ∏_{ℓ∈𝒬,ℓ<z}(1 − g(ℓ)) ≥ (1/2)∏_{ℓ∈𝒬, 7≤ℓ<z}(1 − 2/(ℓ−1)) ≍ 1/log x, f_lin(s) ≥ (2e^γ/3)η. So
   S(𝒜, 𝒬, z) ≥ c₁η·x/(log x)² − R_{a,b}  (x ≥ x₀(η)), c₁ absolute.   (3.1)
 
-*Step 2′ (the remainder on average over (a, b); the only place BDH enters).* Claim: for every B > 0,
-  Σ_{(a,b) ∈ [1,H]²} R_{a,b} ≪_B H² x (log x)^{−B}  (x ≥ x₀(B, η)).   (3.2)
+*Step 2′ (the remainder on average over (a, b) ∈ 𝒫_H; the only place BDH enters).* Claim: for every B > 0,
+  Σ_{(a,b) ∈ 𝒫_H} R_{a,b} ≪_B H² x (log x)^{−B}  (x ≥ x₀(B, η)).   (3.2)
+(R_{a,b} is defined for every pair in 𝒫_H by the same formula; only Step 2's lower bound needs admissibility.)
 The O(ω(d)) terms contribute ≪ H² Σ_{d<D} 3^{ω(d)}ω(d) ≪ H² x^{1−η}(log x)³. For the main terms: each β ∈ R(d)
 corresponds to a factorisation d = d₁d₂ with β ≡ −a (d₁), β ≡ −b·4⁻¹ (d₂) (take d₁ = ∏{ℓ | d : ℓ | β + a}; primes
 dividing both β + a and 4β + b divide 4a − b and give the same root either way), so Σ_{β∈R(d)}|E(x; 8d, c_β)| ≤
@@ -191,10 +193,16 @@ over [1, H] ∩ 4ℤ and b over [1, H] ∩ (1 + 4ℤ), the pair (a mod d₁, b m
 𝔈₂(q) := Σ_{c (q)*}|E(x; q, c)|². By Cauchy–Schwarz over d,
   Σ_{d<D} 3^{ω(d)}τ(d)(H²/(16d) + H)𝔈(8d) ≤ [H²(Σ_d 9^{ω(d)}τ(d)²·8/d)^{1/2} + H(Σ_{d<D} 9^{ω(d)}τ(d)²·8d)^{1/2}]·(Σ_{q≤8D}𝔈₂(q))^{1/2}
   ≪ (H² + HD)(log x)^{C}·(Σ_{q≤8D}𝔈₂(q))^{1/2} ≪ H²(log x)^{C}(Σ_{q≤8D}𝔈₂(q))^{1/2}  (D ≤ H).
-BDH for ψ at height t and the partial summation E_π(x; q, c) = E_ψ(x; q, c)/log x + ∫₂^x E_ψ(t; q, c)dt/(t log²t), with
-Cauchy–Schwarz on the integral and the trivial bound Σ_{q≤Q}Σ_c|E_ψ(t; q, c)|² ≪ t²(log t)^{C′} for t ≤ Q(log x)^{A+1},
-give Σ_{q ≤ 8D} 𝔈₂(q) ≪ x²(log x)^{−A} + x^{2−2η}(log x)^{C′} (8D = x^{1−η} ≤ x(log x)^{−A−1}). Taking A = 2B + 2C + 2
-proves (3.2). Consequently, for x ≥ x₀, all but at most H²(log x)^{−B/2} pairs have R_{a,b} ≤ x(log x)^{−B/2} ≤
+It remains to bound Σ_{q ≤ Q}𝔈₂(q), Q := 8D = x^{1−η}. With E_θ(t; q, c) := θ(t; q, c) − t/φ(q) (θ = Chebyshev's
+function over primes), partial summation gives E_π(x; q, c) = E_θ(x; q, c)/log x + ∫₂^x E_θ(t; q, c) dt/(t log²t) +
+O(1/φ(q)) (the O-term is (li(2) − 2/log 2)/φ(q)), so by Cauchy–Schwarz on the integral (∫₂^x dt/(t log²t) ≤ 2)
+  Σ_{q≤Q}𝔈₂(q) ≪ (log x)^{−2}Σ_{q,c}|E_θ(x; q, c)|² + ∫₂^x Σ_{q≤Q,c}|E_θ(t; q, c)|² dt/(t log²t) + 1.
+For the inner sums: (i) |ψ(t; q, c) − θ(t; q, c)| ≤ Σ_{p^k≤t, k≥2} log p ≪ √t log t, so Σ_{q≤Q}Σ_c|ψ − θ|² ≪ Qt log²t, and
+BDH for ψ gives Σ_{q≤Q}Σ_c|E_θ(t; q, c)|² ≪ t²(log t)^{−A} + Qt log²t whenever Q ≤ t(log t)^{−A−1}; (ii) crudely, for all t,
+Σ_c θ(t; q, c)² ≤ θ(t)·max_c θ(t; q, c) ≤ 2t(t/q + 1)log t and Σ_q (t/φ(q))² ≪ t², so Σ_{q≤Q}Σ_c|E_θ(t; q, c)|² ≪
+(t² + Qt) log²(2tQ). Split the integral at t₀ := Q(log x)^{A+1}: the part t ≤ t₀ is ≪ (t₀² + Qt₀)(log x)² ≪
+x^{2−2η}(log x)^{2A+4} by (ii); the part t ≥ t₀ (where Q ≤ t(log t)^{−A−1}) is ≪ ∫_{t₀}^x (t(log t)^{−A−2} + Q) dt ≪
+x²(log x)^{−A−2} + x^{2−η} by (i). Hence Σ_{q≤Q}𝔈₂(q) ≪ x²(log x)^{−A}, and A = 2B + 2C + 2 proves (3.2). Consequently, for x ≥ x₀, all but at most H²(log x)^{−B/2} pairs have R_{a,b} ≤ x(log x)^{−B/2} ≤
 (c₁η/2)x/(log x)² (B ≥ 6, x large).   (3.3)
 
 *Step 3 (survivors).* For p counted in S(𝒜, 𝒬, z) and N ∈ {p + a, 4p + b}: N ≡ 1 (4) (a ≡ 0, b ≡ 1 mod 4, p ≡ 1 mod 8),
@@ -217,20 +225,20 @@ where the generic ω(ℓ) (2 at split ℓ, 3 at inert ℓ ≥ 7, 2 at ℓ = 3, 1
 h(m) := ∏_{ℓ|m}(1 + 6/ℓ), K_{a,b} := ∏_{ℓ | ab(4a−b)}(1 + 6/ℓ). Summing over (m, q₁), Σ_{q₁∈𝒬, z≤q₁≤√(2x)} 1/q₁ =
 (1/2)log((1/2)/(1/2 − η)) + o(1) ≤ 2η and Σ_{m∈S, m≤5x^{2η}} h(m)/m ≤ ∏_{ℓ≡1(4), ℓ≤5x^{2η}}(1 + (1 + 6/ℓ)/(ℓ − 1)) ≪
 (η log x)^{1/2} (Mertens in the progression 1 mod 4), so
-  |Bᵉ| ≤ C₂ K_{a,b} η^{3/2} x/(log x)²,  C₂ absolute;   (3.4)
+  |Bᵉ ∩ {p > w}| ≤ C₂ K_{a,b} η^{3/2} x/(log x)²,  C₂ absolute;   (3.4)
 Bˡ (4p + b = mq₁k, k in the class with mq₁k ≡ b (4), p = (mq₁k − b)/4, p + a = (mq₁k − b + 4a)/4 sifted) is identical.
 
-*Step 4′ (the local factor is bounded on average).* Σ_{(a,b)∈[1,H]²} K_{a,b} ≤ C₃H², C₃ absolute. Indeed, with
-n = ab(4a − b) ≠ 0, |n| ≤ 5H³, and L := 100 log H: ∏_{ℓ|n, ℓ>L}(1 + 6/ℓ) ≤ exp(6ω(n)/L) ≤ exp(6·log(5H³)/(L log 2)) ≤ 2
+*Step 4′ (the local factor is bounded on average).* Σ_{(a,b)∈𝒫_H} K_{a,b} ≤ C₃H², C₃ absolute. Indeed, with
+n = ab(4a − b) ≠ 0 (4a − b is odd), |n| ≤ 5H³, and L := 100 log H: ∏_{ℓ|n, ℓ>L}(1 + 6/ℓ) ≤ exp(6ω(n)/L) ≤ exp(6·log(5H³)/(L log 2)) ≤ 2
 (ω(n) ≤ log|n|/log 2), and ∏_{ℓ|n, ℓ≤L}(1 + 6/ℓ) = Σ_{d | n, d | P(L)} μ²(d)6^{ω(d)}/d. For squarefree d, the number of
 (a, b) mod d with d | ab(4a − b) is ≤ ∏_{ℓ|d}(3ℓ) (three lines mod ℓ), so #{(a, b) ∈ [1,H]² : d | n(a,b)} ≤
 3^{ω(d)} d (H/d + 1)². Hence Σ_{a,b} K_{a,b} ≤ 2 Σ_{d | P(L)} 18^{ω(d)}(H/d + 1)² ≤ 2[4H² Σ_d 18^{ω(d)}/d² + 4·19^{π(L)}]
 ≤ C₃H², since 19^{π(L)} = exp(O(log H/log log H)) = H^{o(1)}.
 
-*Step 5 (choice).* Given ε: K := 4C₃/ε, η := min(1/10, (c₁/(8C₂K))²), B := 6, c := c₁η/4. By Markov and Step 4′ at
-most C₃H²/K = εH²/4 pairs have K_{a,b} > K; by (3.3) at most H²(log x)^{−3} ≤ εH²/4 pairs (x large) have R_{a,b} >
-(c₁η/2)x/(log x)². For every other admissible pair, (3.1), (3.3), (3.4):
-  #target ≥ (c₁η/2 − 2C₂Kη^{3/2})x/(log x)² − 2w ≥ (c₁η/4)x/(log x)²  (x ≥ x₀(ε)). ∎
+*Step 5 (choice).* Given ε: K := 4C₃/ε, η := min(1/10, (c₁/(8C₂K))²), B := 6, c := c₁η/8. By Markov and Step 4′ at
+most C₃H²/K = εH²/4 pairs of 𝒫_H have K_{a,b} > K; by (3.3) at most H²(log x)^{−3} ≤ εH²/4 pairs (x large) have R_{a,b} >
+(c₁η/2)x/(log x)². For every other admissible pair, (3.1), (3.3), (3.4) (plus the ≤ 2w discarded primes p ≤ w):
+  #target ≥ (c₁η/2 − 2C₂Kη^{3/2})x/(log x)² − 2w ≥ (c₁η/4)x/(log x)² − 2w ≥ (c₁η/8)x/(log x)²  (x ≥ x₀(ε)). ∎
 
 *Remarks.* (i) EH enters Theorem E only through Step 1's remainder; averaging over the residue pair (a mod d₁,
 b mod d₂) converts it into a mean square over *all* classes, which BDH controls to level x^{1−η} — this is the whole
@@ -249,9 +257,11 @@ lattice lines in (v, t). The line u = 1 with s = 2(m + n), t = 2(m − n) gives 
 D = −2n, i.e.
   p(m, n) := A² + B² − 4 = (n² − m² + 4)² + m² − 4,  p + 4 = (n² − m² + 4)² + m²,  4p + 1 = (2n² − 2m² + 7)² + 4n²
 (checked symbolically and for |m|, |n| ≤ 50 in `scripts/z56_k4try_family.py`). Both shifts are automatically sums of
-two squares; they are in S when gcd(4 + n², m) and gcd(7 − 2m², n) have no 𝒬-factor; p ≡ 1 (8) iff m ≡ 2 (4), n odd.
+two squares; they are in S when n is odd and gcd(4 + n², m), gcd(7 − 2m², n) have no 𝒬-factor (m = n = 2 gives p = 16,
+p + 4 = 20 ∉ S); p ≡ 1 (8) iff m ≡ 2 (4), n odd.
 Theorem Q's p = 5m² + 1 is the line (u, s) = (−1, 2) (A = 2m − 1, B = m + 2, C = 4m − 1, D = 2m + 2). The family has
-≍ √x·log x members below x (for m ≤ √x, n ranges over an interval of length ≍ √x/m), thinner than a² + b⁴ (x^{3/4}),
+≈ √x·log x parameter pairs below x (heuristic: for x^{1/4} ≪ m ≤ √x, n ranges over an interval of length ≍ √x/m;
+numerically 0.30·√x·log x at x = 10⁸; not a proved count of distinct values), thinner than a² + b⁴ (x^{3/4}),
 and is not a norm form in the sense of Maynard; no prime-value theorem applies (Assessment). More generally every
 polynomial family on the quadric is contained in finitely many lines over each (u, s), i.e. in Bunyakovsky slices, and
 the full point set (≍ x log x points, multiplicity r(p+4)r(4p+1)) is the whole problem.
@@ -321,4 +331,20 @@ gcc -O2 -o z56_census scripts/z56_k4try_census.c -lm; ./z56_census 10000000  > d
 
 ## 8. Review log
 
-(filled after the hostile line-by-line review)
+* Hostile line-by-line review (deep-mode subagent, no edits; this session). Findings and fixes applied:
+  (1) MAJOR — Step 2′'s ψ→π conversion was stated for ψ (prime powers) and used a crude bound false for Q ≫ t;
+  rewritten via θ with ψ − θ controlled separately, the crude bound (t² + Qt)log²(2tQ), and the split at t₀ = Q(log x)^{A+1}.
+  (2) MAJOR — averaging domain in Steps 2′/4′ was the full square (where b = 4a makes K_{a,b} undefined); now 𝒫_H
+  (a ≡ 0, b ≡ 1 mod 4) throughout, which also fixes the multiplicity count. (3) MINOR — Step 1's Mertens product
+  contained the factor at 3; isolated. (4) MINOR — Step 5 slack for the 2w discarded primes; c := c₁η/8, (3.4) now
+  bounds Bᵉ ∩ {p > w}. (5) MINOR — non-admissibility explanation had the residues the wrong way round in one case;
+  reworded. (6) MAJOR — §2.1 displayed an unweighted bound omitting T₁ (counterexample x = 73); removed, (2.2) kept
+  as an identity. (7) MAJOR — §2.1's claimed Cauchy–Schwarz weight-tail removal was unsupported; removed, replaced by
+  the honest statement (Cauchy–Schwarz gives only ≫ x/(log x)⁴ unweighted). (8) NIT — r*(1) = 4; n > 1 added.
+  (9) MINOR — §4.1 S-membership needs n odd (m = n = 2 counterexample); added. (10) MINOR — §4.1 point count
+  downgraded to a heuristic for parameter pairs with the numeric constant. Verified as correct by the reviewer:
+  admissibility ⇔ ν(3) ≤ 1 ⇔ ≤ 2 classes at 3; Step 2′ combinatorics and Cauchy–Schwarz chain; Step 3; Step 4
+  survival, uniformity in a ≤ x^{1−η}, local-factor ratios, q₁- and m-sums, Ford's remainder; Step 4′ after the
+  domain fix; identities (2.1), r*, §4.1, §4.2; the family script runs.
+* Not independently verified: the FI 2009 statement itself (read from the Bourgain–Kontorovich and Sedunova abstracts
+  only); the model constants of §2.2 (inherited from P415's unaudited model); Lemma S is explicitly unproved.
