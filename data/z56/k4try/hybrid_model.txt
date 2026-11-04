@@ -1,0 +1,15 @@
+# B(thz) = F(1/thz) - F(1) sqrt(thz): Buchstab mass of the two-Q-factor configurations (units W(z))
+  thz=0.250  B=0.24718
+  thz=0.260  B=0.23236
+  thz=0.280  B=0.20374
+  thz=0.300  B=0.17650
+  thz=0.350  B=0.11468
+  thz=0.400  B=0.06261
+  thz=0.450  B=0.02226
+  thz=0.480  B=0.00566
+  thz=0.490  B=0.00200
+  thz=0.499  B=0.00006
+mode=same  pen=1.00: minimal sufficient total level L = 0.9080851078033447  (thz, margin, (s, f(s), switched)) = (0.36460000000000004, 2.3729331050104108e-07, (1.1192679862955148, 0.48229453344716544, 0.48229429615385494))
+mode=same  pen=2.35: minimal sufficient total level L = 0.9583193063735962  (thz, margin, (s, f(s), switched)) = (0.4378, 2.6399395014475857e-07, (1.046869132877104, 0.3161967844895821, 0.31619652049563196))
+mode=gauss pen=1.00: minimal sufficient total level L = 0.9885122179985046  (thz, margin, (s, f(s), switched)) = (0.4828, 3.621698058120515e-08, (1.0118314374451214, 0.1625203777456355, 0.1625203415286549))
+mode=gauss pen=2.35: minimal sufficient total level L = 0.9951476454734802  (thz, margin, (s, f(s), switched)) = (0.4927, 1.325276048902424e-07, (1.0049678211355393, 0.10578980488847269, 0.1057896723608678))
