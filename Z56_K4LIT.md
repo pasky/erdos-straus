@@ -219,8 +219,10 @@ a_n > 0 ⟹ n ≡ 1 (mod 4); then Ω_𝒬(n) is even. The comparison sequence is
 sequence with the given main term X·g and with Σ_{d≤D}|r_d| ≤ X x^{−ε/2} (or the restricted data of (b)). Every such
 Λ satisfies Λ ≤ 0 in the ranges of (a) or (b). In other words, *sieve data at level ≤ x^{1/2−ε} plus forced total
 parity can never certify a single element of S.* The same holds for data restricted to d | P(z) whenever
-zD ≤ x^{1−ε}. Applied to each component of a vector sieve (product of two such sequences), the same holds for "both
-components in S".
+zD ≤ x^{1−ε}. For P(4,15) this means the following. No argument that uses, for the component N₂, only its
+single-component sieve data at these levels plus N₂ ≡ 1 (mod 4) can certify N₂ ∈ S. A fortiori it cannot certify
+"both components in S". (A vector example matching the exact joint density h(d₁, d₂) of (p + 4, 4p + 1), which has
+h(q, q) = 0, is not constructed here.)
 
 *Proof.*
 * **(i)** n = qm with q ≡ 3 and m ≡ 3 (mod 4), so n ≡ 9 ≡ 1 (mod 4) and n is odd.
@@ -237,9 +239,7 @@ components in S".
   "Admissible" in (a) means Σ|r_d| ≤ X x^{−ε/2}, which holds for x large since x^{−2ε} = o(x^{−ε/2}). In (b) it
   means Σ|r_d| ≪ X x^{−ε} log x. If z·D ≤ x^{1−2ε}, this is again ≤ X x^{−ε/2} for x large. That is the range stated in
   (b) with ε replaced by 2ε.
-* **Consequence.** 𝒜 meets all the hypotheses and Σ_{n∈S} a_n = 0 by (ii). For the vector version take pairs
-  (n₁, n₂) ∈ 𝒜 × 𝒜′ with product weights: the joint data are X X′/(d₁d₂) plus remainders bounded by the cross terms.
-  ∎
+* **Consequence.** 𝒜 meets all the hypotheses and Σ_{n∈S} a_n = 0 by (ii). ∎
 
 **Remarks.**
 1. **Which function is realised.** The sifted mass of the example is S(𝒜, z) = Σ_q #{m ≤ x/q : m ≡ 3 (4), (m, P(z)) = 1}.
