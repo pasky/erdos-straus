@@ -26,8 +26,8 @@ positive, size-only, congruence-level or quadratic, and the measured window depe
   (H_jk = H_kj), a positive link; (b) privacy: a prime ℓ ∤ u − u′ divides at most one of n + u, n + u′; (c) for p ≡ 1 (4),
   p ∤ u, a parity law places an odd number of prime factors of the *odd part* of p + u in the coset {χ_{−4u} = −1} when
   (u/p)(2/p)^{v₂(p+u)} = −1. Small-prime congruences (B1) are the remaining obvious link. Whether other exact links exist
-  is not decided here (Assessment: none of the analysed links relates the class mod 4u of a divisor of p + u to the class
-  mod 4u′ of a divisor of p + u′).
+  is not decided here (Assessment: apart from the switch (a), which maps a hit at u to a hit at u′ = B, none of the
+  analysed links forces a first hit when all windows are empty).
 * **Prop V (PROVED, elementary; §2.4).** A pointwise variance bound across windows that excludes R(p) = 0 implies a
   weighted first-moment lower bound for R(p); a dual-large-sieve variance bound over p gives one prime only the whole
   sum. So a variance criterion is at least as strong as a weighted positivity statement (no claim that it is harder to
@@ -38,11 +38,12 @@ positive, size-only, congruence-level or quadratic, and the measured window depe
     u(0,1), u(0,2), u(0,4), C(3,4) at 10⁸; u(0,1), C(3,4) at 10⁹ and in the hold-out.
   * Exploratory follow-up (Assessment): C(3,4) are both congruence-determined windows (4uB ≤ p^{0.4}); u(0,1) shrinks to
     −0.024 under 1330 residue columns, is not explained by the tested linear medium-prime proxies, and couples only the
-    small-u lines to the next window. Magnitudes −0.02…−0.08, against positive pair correlations up to +0.48 (C-windows,
-    disjoint integers 4Cp + 1; +0.45 after truncated-Euler-product L-value proxies).
+    small-u lines to the next window. Magnitudes: u-window lead −0.02…−0.08; C(3,4) −0.15 (10⁸, within 840), −0.157 /
+    −0.125 with L-proxy controls (10⁸ / 10⁹). Positive pair correlations reach +0.48 (C-windows, disjoint integers
+    4Cp + 1; +0.45 after truncated-Euler-product L-value proxies).
   * Multivariate: joint emptiness of k randomly chosen grid windows is *more* frequent than within-mod-840 conditional
     independence predicts, increasingly with k (pooled ratios 1.01 at k = 2 up to 1.6–3.4 at k = 8, all three datasets).
-  * Reading: the data show no compensation between windows at this resolution; they show reinforcement. EVIDENCE only;
+  * Reading: some negative pairs, but net positive residual covariance and excess pooled joint emptiness. EVIDENCE only;
     it says nothing about a pointwise theorem, and it measures full-count windows, not the signed layers E_t.
 * **Near-squares (EVIDENCE; §3.4).** At 965 primes p = m² + k ∈ [10⁹, 1.2·10⁹], pooled per-window counts are 0.79–0.95 of
   generic class-matched means (two baselines), total 0.84–0.86: a deficit spread over all windows (not every window for
@@ -173,8 +174,10 @@ mod 4u, which is what a hit needs. (d) places an odd number of prime factors of 
 {χ_{−4u} = −1} when (u/p)(2/p)^e = −1; the BM layer is already pointwise free (FRONTIER §2.4, (J)103 Prop 2.2) and the
 genus layer is what Thm U bounds. Small-prime congruences are B1. On Thm X tiles the proved statement is only
 T_u = O(p^{−δ}log p) (density-level class term); dependence of the exact layers T_w, T_uw across tiles is not
-controlled by anything here. We found no exact relation between the class mod 4u of a divisor of n + u and the class
-mod 4u′ of a divisor of n + u′ (u ≠ u′) beyond small primes and the parity law (d); CLASS_FORCING Thm 2.1 is the
+controlled by anything here. The switch (b) is itself an exact cross-class relation: a hit m | n + u, m ≡ −1 (4u), gives
+(n + B)/u ≡ −1 (mod 4B) at u′ = B = (n + u)/m; but it only relocates an existing hit. None of the links analysed here
+forces a first hit when all windows are empty; beyond (b), small primes and the parity law (d) we found no relation
+between divisor classes of different integers n + u, n + u′. CLASS_FORCING Thm 2.1 is the
 analogous statement for total-product classes under specified Frobenius information. No theorem excluding other links
 is claimed.
 
@@ -192,8 +195,9 @@ Let R_j ≥ 0, M_j > 0, w_j ≥ 0 (j = 1…J) be reals, V ≥ 0.
 positivity statement of B2 strength); Prop V does not say that proving such a criterion is harder, only that it is not
 a weaker target. CROSSO Lemma 4.1's bound Σ_{x/2<p≤x}|R − M̃|² ≤ x·V₈(x) yields at one prime only |X(p₀)|² ≤ x·V₈(x),
 which excludes R(p₀) = 0 only if V₈(x) < M̃(p₀)²/x — far beyond HV (V₈ = o(log³x)). Under a Poisson model,
-E Σ_j w_j(R_j − M_j)² = Σ_j w_jM_j, which is below Σ_j w_jM_j² only if the windows have M_j > 1 (EVIDENCE: F1's u-windows
-have var/mean 1.1–4.7, C-windows 0.5–2.3, §3.2).
+E Σ_j w_j(R_j − M_j)² = Σ_j w_jM_j, which is below Σ_j w_jM_j² iff Σ_j w_jM_j(M_j − 1) > 0 (M_j > 1 for all j is
+sufficient, not necessary; e.g. w = (1, 1), M = (2, 1/2)). (EVIDENCE: F1's u-windows have var/mean 1.1–4.7, C-windows
+0.5–2.3, §3.2.)
 
 ## 3. Computed
 
@@ -285,17 +289,21 @@ mechanism. Not pursued further.
   residue control.
 Reading (Assessment): most plausibly a short-range congruence/positional competition between the small-u lines and
 the next window (small primes placed in p + u for u ≤ p^{0.1} versus p^{0.1} < u ≤ p^{0.2}); not identified. Its size
-(−0.02…−0.08) is small against positive pair correlations up to +0.48, the net residual covariance is positive, and
-multivariate joint emptiness exceeds the within-840 independence prediction. **Conclusion (EVIDENCE, scoped):** at this
-resolution the full-count windows show no compensation and net reinforcement. This is about full-count windows, not
+(−0.02…−0.08) is small against positive pair correlations up to +0.48; C(3,4) is larger (−0.15 within 840 at 10⁸;
+−0.157 / −0.125 with L-proxy controls at 10⁸ / 10⁹) but congruence-determined. The net residual covariance is positive,
+and multivariate joint emptiness exceeds the within-840 independence prediction. **Conclusion (EVIDENCE, scoped):** at
+this resolution the full-count windows show some negative pairs, but net positive residual covariance and excess pooled
+joint emptiness. This is about full-count windows, not
 the signed exact layers E_t of Thm J, and about frequencies over primes, not about any single prime.
 
 ### 3.3 Why C-windows (disjoint integers 4Cp + 1) are positively linked
 
 By Lemma L(b) each hit is a divisor event of n + u, n + B and 4Cn + 1 at once. A divisor-rich n + u with small u (an HC
 line) produces hits at every scale of C (its divisors m = 4uC − 1 of all sizes), so C-windows built on disjoint
-integers 4Cp + 1 still share the integers n + u. Within window 0 the two C-halves correlate +0.50…+0.57. No coordinate
-system makes all three integers of a hit window-disjoint (they are tied by the three factorisations of Lemma L(b)).
+integers 4Cp + 1 still share the integers n + u. Within window 0 the two C-halves correlate +0.50…+0.57. In the
+partitions tested here (size windows in u = min(u, B), and in C) the three integers of a hit are never all
+window-disjoint, since they are tied by the three factorisations of Lemma L(b); no claim is made about every possible
+partition.
 
 ### 3.4 Near-square primes (EVIDENCE; FRONTIER §4 item 15)
 
@@ -332,8 +340,9 @@ Expected tail count T(x) = ∫_x^∞ e^{−c log²t}dt/(2 log t) of zero primes 
 their lower limit): c = 0.0808 (full count, measured mean/log²p at 10⁸–10⁹): 12.3 zeros in total (observed 14),
 T = 1 at 10^{3.8} (the observed tail to 8.8·10⁶ is fatter: mean variation across p);
 c = 0.0073 (tiled genus family, c_tile/2): 1.1·10¹⁴ zeros, T = 1 at 10^{57}; c = 0.00924: 10^{44.6}; c = 1/(3π⁴):
-5.6·10³⁰ zeros, T = 1 at 10^{124.1} (reproduces CROSSF). A provable family is "checkable" only with a mean near the full
-count's; Prop T's proved coefficient (9.6 % of the mean) is far from that.
+5.6·10³⁰ zeros, T = 1 at 10^{124.1} (reproduces CROSSF). Assessment: this model, run with the proved coefficient,
+suggests an impractical cutoff; a Poisson tail integral is neither a deterministic checking threshold nor a bound on the
+true family mean.
 
 ## 4. Where it stops — the step that would make it work
 
@@ -384,16 +393,19 @@ Test primes (item 14): all 14 (★)-zero primes have R = 0 in every window (engi
   (positive), privacy (sizes only), a parity law for the odd part of p + u (BM coset only; needs p ≡ 1 (4), p ∤ u), small
   congruences (B1); other links not excluded. A pointwise variance criterion across windows implies a weighted lower
   bound for R(p) (not a weaker target). Over ≈ 180 000 primes at 10⁸–1.2·10⁹, the pre-registered falsifier triggered
-  leads (negative pairs, all |r| ≤ 0.08, congruence-sensitive) but full-count windows are net positively dependent
+  leads (negative pairs: the u-window lead |r| ≤ 0.08; C(3,4) up to −0.157, congruence-determined) but full-count windows
+  are net positively dependent
   (C-windows up to +0.45 after controls) and joint emptiness of k windows exceeds within-mod-840 independence (pooled
   ratio up to 1.6–3.4 at k = 8). Assessment: a union argument would need a mechanism relating the classes of large prime
   factors of different integers at one p; none is known.
 * **Calibration (CERTIFIED counts).** 285 non-square composite n ≡ 1 (4) ≤ 7 999 801 have R(n) = 0, with M_gen up to 24.3
   (810 001 = 241·3361): a transfer X ≥ −(1 − ε)M_gen asserted uniformly for non-squares is false at these n.
 
-*§6 dead-end line.* (z56) Positivity from the union over size windows of the (★) count, or from a pointwise variance
-across windows → `Z56_FAMATTACK.md` Lemma L, Prop V, F1: the analysed exact links are positive, size-only, quadratic or
-congruence-level; a variance criterion is a first-moment statement; the data show net reinforcement. Not covered:
+*§6 dead-end line (method-scoped, not a theorem killing union or variance routes).* (z56) Positivity from the union over
+size windows of the (★) count via the links of Lemma L, or from a pointwise variance across windows →
+`Z56_FAMATTACK.md` Lemma L, Prop V, F1: the analysed exact links are positive (the switch only relocates hits), size-only,
+quadratic or congruence-level; a variance criterion implies a first-moment statement; the data show some negative pairs
+but net positive residual covariance and excess joint emptiness. Not covered:
 non-size windows, signed cross-level identities, links outside Lemma L.
 
 ## 7. Bottom line
@@ -441,4 +453,13 @@ result-invalidating bug in either C engine (brute-force and rational square-clas
 16. *Model integral cutoff / tail quadrature* (MINOR). → Total from t = 5 (12.3, was 11.8 from t = e²); tails integrated
     from their lower limit; crossover exponents unchanged.
 
-A cross-model review is expected to follow.
+
+**Cross-model review** (`data/z56/xreview/REVIEW_FAMATTACK.md`, at 9e52e1f3; verdict ACCEPT-WITH-FIXES). Props T, T′,
+Thm J, Lemma L and Prop V(i)–(iii) independently reconstructed and judged CORRECT; census, genus masses, F1 statistics,
+near-square ratios and model integrals reproduced with independent code (`scripts/z56_xrev_famattack_census.c`,
+`_check.py`). Required fixes, all applied: (1) the "−0.02…−0.08 / all |r| ≤ 0.08" compression omitted C(3,4) (−0.15,
+−0.157, −0.125) → both reported in §0, §3.2, §6, and "no compensation" replaced by "some negative pairs, but net positive
+residual covariance and excess pooled joint emptiness"; (2) the switch is itself an exact cross-class relation → §0,
+§2.3 now say no analysed link forces a first hit when all windows are empty; §3.3's "no coordinate system" restricted to
+the tested partitions; §6 dead-end line marked method-scoped; (3) Poisson criterion after Prop V corrected to
+Σ w_jM_j(M_j − 1) > 0; (4) the "checkable only with mean near the full count" sentence replaced by an Assessment.
