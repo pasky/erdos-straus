@@ -15,8 +15,9 @@ prime p ≡ 1 (mod 4). (R(p) ≥ 1 ⇒ 4/p = 1/(uBC) + 1/(pBC) + 1/(puC), so thi
   exceptional-set bound is already in the project's or the published literature (the lane rules forbade reading the
   barrier memos); treat novelty as unverified.
 * Data (§4.5): the hits of "hard" primes can have modulus ≍ p in any single form (pair form 4uB up to p/14, divisor form
-  d up to p/29 below 10⁸), and 422 primes in [10⁷, 10⁸] have no prime-modulus hit at all — any proof must use composite
-  moduli with their non-multiplicative class structure, which is exactly what the sieves cannot see.
+  d up to p/29 below 10⁸), and 422 primes in [10⁷, 10⁸] have no prime-modulus hit at all. These are finite observations:
+  they show that the product-class sieves used here (which only see prime-modulus hits) miss some primes, not that every
+  method must handle composite moduli or linear-size moduli eventually.
 * Reformulations (§1) make the problem a *Linnik-type divisibility* statement: for a prime p, R(p) ≥ 1 iff some modulus
   d ≡ 3 (mod 4) has (−p mod d) dividing (d+1)/4. Every proof route I tried (finite residue coverings, polynomial
   identities in p, consecutive-integer factorisation structure, Jacobi/genus reciprocity) either runs into the square
@@ -53,8 +54,8 @@ d ≡ −1 mod u and (d−1)/2 odd). For u = 2^k u' with u' odd: (2 | d) = 1 bec
 Hence (n | d) = (−u | d) = −1. A square coprime to d has symbol +1, so R(m²) = 0 (gcd(m, d) = 1 is forced: d | m² + u with
 gcd(u,d)=1). For p ≡ 1 (mod 4), (p | d) = (d | p) by reciprocity. ∎
 
-**Lemma 1.4 (Linnik-type form).** For an odd n, R(n) ≥ 1 ⟺ there is d ≡ 3 (mod 4), 3 ≤ d ≤ (4n+1)/3, such that the least
-positive residue r_d(n) := (−n mod d) ∈ [1, d−1] divides (d+1)/4.
+**Lemma 1.4 (Linnik-type form).** For an odd n, R(n) ≥ 1 ⟺ there is d ≡ 3 (mod 4), 3 ≤ d ≤ (4n+1)/3, such that the residue
+r_d(n) := (−n mod d) ∈ [0, d−1] is non-zero and divides (d+1)/4 (if d | n the test fails for that d).
 
 *Proof.* In (1.3), u ≤ (d+1)/4 < d and n ≡ −u (mod d), so u = r_d(n). Range: d ≤ n + u ≤ n + (d+1)/4 gives d ≤ (4n+1)/3. ∎
 
@@ -79,9 +80,9 @@ n ≡ 1 (mod M) lies in ∪_i {a_i mod q_i}, and by Dirichlet there are infinite
 **Remark 2.3 (polynomial identities).** Any identity of the form "(u, B, C) = polynomials in p, valid for p in a residue
 class" (e.g. C = (p+3)/8, (u,B) = (1,2) on p ≡ 5 (8); C = (p+7)/24, (u,B) = (1,6) on p ≡ 17 (24); in general (u,B) fixed,
 C = (p+u+B)/(4uB) on p ≡ −(u+B) (4uB)) makes its class a solvable class, so Prop. 2.2 applies: no finite family of such
-identities covers the primes ≡ 1 (8), and none is valid on a class containing 1 (mod M). So **any proof must use that p is
-not a square in a way that is not a congruence condition** — i.e. the arithmetic of p itself (e.g. its quadratic character
-d ↦ (d | p)).
+identities covers the primes ≡ 1 (8), and none is valid on a class containing 1 (mod M). So a proof cannot consist of a *fixed finite* menu of
+congruence conditions/polynomial identities; it must use that p is not a square in some other way (growing or infinite
+families of congruences, or the arithmetic of p itself, e.g. its quadratic character d ↦ (d | p), are not excluded).
 
 EVIDENCE (`census_1e7.txt`): among primes p ≡ 1 (8) in [10⁶, 10⁷], R = 0 for 5 of 146 424; restricted to prime moduli
 d (any size) the count R_pr = 0 for 143; restricted to prime d ≤ √p (the family the large sieve of §3 uses), R_sq = 0
@@ -158,13 +159,15 @@ for X ≥ X₀ (the constant: √(2/25)/(e·√(log 2)) = 0.2828/(2.7183·0.8326
 S(X, √X) contains all odd squares ≤ X (Lemma 1.3), so **no refinement of this sieve can push the bound below √X**; the
 Montgomery bound (X + Q²)/L(Q) is also ≥ X/Q² ≥ 1 regardless — the sieve is structurally unable to give "all p".
 (ii) The exponent ½ in exp(−c√log X) is the natural limit of the prime-modulus large sieve here: Σ_{ℓ ≤ t} ω(ℓ)/ℓ ≍ log t
-(growing "dimension"), and Σ_{q≤Q} μ²(q)ω(q)/q = exp((1+o(1))·κ√log Q)-type for such ω. Numerically (`data/z56/famtry/L_1e8.txt`)
+(growing "dimension"), and log Σ_{q≤Q} μ²(q)ω(q)/q = Θ(√log Q) for such ω (two-sided order only, §4.4(ii); no asymptotic
+constant is proved here). Numerically (`data/z56/famtry/L_1e8.txt`)
 log L(Q)/√log Q ≈ 0.92–0.95 for Q = 10⁷–10⁸ and still rising slowly — versus 0.125 proved (for L(Q); 0.088 after Q = √X).
 (iii) Composite moduli d ≡ 3 (4) in (1.3) carry τ((d+1)/4) further classes with Σ_{d≤Q} τ((d+1)/4)/d ≍ log²Q, which
 heuristically would give exp(−c log²X) — but these class sets are not products of classes modulo the prime factors of d, so
-neither Montgomery's inequality nor the Selberg sieve applies to them (the Cauchy–Schwarz lower bound
-Σ_{a mod d}|S(a/d)|² ≥ d|S|²/(d − ω(d)) holds for every d, but after removing the non-reduced fractions no usable lower bound
-for Σ*_{a mod d} survives; see §4.3). This is exactly where the "almost all" → "all" gap sits.
+the product-class forms of Montgomery's inequality and of the Selberg sieve used here do not see them (the
+Cauchy–Schwarz lower bound Σ_{a mod d}|S(a/d)|² ≥ d|S|²/(d − ω(d)) holds for every d, but after removing the non-reduced
+fractions I found no usable lower bound for Σ*_{a mod d}; see §4.4(iii)). This is an unsolved obstacle for the sieves I
+tried, not a proved impossibility for all sieve methods.
 (iv) Concretely at X = 10⁸: L(10⁴) = 11.03, bound 2X/L ≈ 1.8·10⁷, whereas |S(10⁸, 10⁴) ∩ {primes ≡ 1 (4)}| ≤ 32 971
 (`census_1e8.txt`, column R_sq = 0 counts primes with no hit at prime moduli ≤ √p, a superset) — the inequality is far
 from tight at computable sizes, as expected.
@@ -209,8 +212,9 @@ By Lemma 1.3 the hits are the pairs (d, u) with d ≡ 3 (4), (d | p) = −1, u |
 with (ℓ | p) = −1. The residue p mod ℓ is a non-residue; it lies in G_ℓ for "probability" τ((ℓ+1)/4)/((ℓ−1)/2). One can
 average this over ℓ (that is what the large sieve of §3 exploits, and also what gives M_gen-type main terms), but for a
 *fixed* p there is no mechanism tying the actual residue p mod ℓ to the divisor set of (ℓ+1)/4: the map ℓ ↦ p mod ℓ (ℓ
-over primes with (ℓ|p) = −1) is as "random" as anything in analytic number theory, and no equidistribution statement
-in ℓ gives information for a single p beyond what the large sieve already extracts. I could not find any identity
+over primes with (ℓ|p) = −1) is as "random" as anything in analytic number theory, and I know of no equidistribution
+statement in ℓ that gives information for a single p beyond what the large sieve already extracts (this is a statement
+about what I tried, not a theorem). I could not find any identity
 linking p mod ℓ₁ and p mod ℓ₂ to (ℓ₁+1)/4, (ℓ₂+1)/4 (tried: ℓ₂ = (ℓ₁+1)/4·k − 1 chains — "if u | (ℓ₁+1)/4 then also
 u | (ℓ₂+1)/4 when 4u | ℓ₂ + 1" — these only re-express that u is fixed and C varies, i.e. (1.1) with u fixed: p + u must
 have a prime factor ≡ −1 (mod 4u); nothing forces it).
@@ -260,11 +264,14 @@ polynomial. Any "all p" argument working in one fixed form therefore has to hand
 
 ### 4.6 Conditional routes considered
 
-* Elliott–Halberstam / GRH do not change the picture: they improve c in Theorem A (moduli up to X^{1−ε}, better BV
-  levels) but cannot remove the √X floor of §4.4(i).
-* A Cramér-type hypothesis ("the residues −p mod ℓ, ℓ ≡ 3 (4), ℓ ≤ p, behave like independent uniform non-residues")
-  would give R(p) ≥ 1 for all p ≥ p₀ with failure probability Σ_p exp(−c log²p) < ∞ — but this is a model, not a hypothesis
-  one can state as a theorem input. Not pursued as a "CONDITIONAL" result because the hypothesis is not standard.
+* Elliott–Halberstam (level 1 − ε in Lemma 3.2) would only improve the constant c₀, hence c, in Theorem A; GRH gives
+  effective error terms (and an effective X₀) but not EH's level. Neither removes the √X floor of §4.4(i). No conditional
+  theorem is established here.
+* Random models: with *prime* moduli only ("−p mod ℓ, ℓ ≡ 3 (4), independent uniform non-residues", hit probability
+  2ω(ℓ)/(ℓ−1)) the expected number of hits is Σ_ℓ 2ω(ℓ)/(ℓ−1) = Θ(log p), so the model's failure probability is only
+  p^{−c} — not summable without knowing c > 1 — and this is consistent with the slowly decaying prime-d failure counts in
+  §4.5. Only the model with *all* d ≡ 3 (4) (Lemma 1.4; expected hits ≍ log²p) predicts failure probability exp(−c log²p)
+  and hence finitely many exceptions. Either way a model's almost-sure conclusion is not a theorem input; not pursued.
 
 ## 5. Status and what would be needed
 
@@ -281,9 +288,22 @@ polynomial. Any "all p" argument working in one fixed form therefore has to hand
 **Where it stops.** Every local condition implied by R(p) = 0 is shared with odd squares, and every sieve-type counting
 argument is blind to the difference between a prime and a square at the level of X^{1/2}. The missing ingredient is a
 *single-p* argument that exploits (d | p) = −1 for many d — i.e. a statement about the joint distribution of p mod ℓ over
-primes ℓ with (ℓ | p) = −1 that is not an average over p. I know no tool that does this. A tempting sufficient target — "for every large p there is a *prime* ℓ ≡ 3 (4) with
+primes ℓ with (ℓ | p) = −1 that is not an average over p. I know no tool that does this (a statement about my search, not a barrier theorem). A tempting sufficient target — "for every large p there is a *prime* ℓ ≡ 3 (4) with
 (−p mod ℓ) ∣ (ℓ+1)/4" (Lemma 1.4 restricted to prime d) — is not supported by the data: 422 primes p ≡ 1 (8) in
 [10⁷, 10⁸] have no prime-modulus hit at all (`census_1e8.txt`, column R_pr = 0; the proportion 0.1 % → 0.03 % per decade
 decays slowly, as the sieve heuristic predicts), so composite moduli are needed for some observed primes; whether prime
-moduli suffice eventually is open but I would not bet on it. The safer target is Lemma 1.4 as stated (all d ≡ 3 (4)),
+moduli suffice eventually is open (the prime-only random model of §4.6 predicts they do not, but that is a model). The safer target is Lemma 1.4 as stated (all d ≡ 3 (4)),
 with the information in §4.5 about which d actually occur.
+
+## 6. Review log
+
+* Two hostile deep-mode subagent passes (before commit 4fdc551d): fixed Remark 2.3 (wrong classification), §4.1 square
+  caveats, a false counting bound in §4.3, overclaims in §4.4(iii)/(iv), BV wording, constants, data labels.
+* **Cross-model review** (`data/z56/xreview/REVIEW_FAMTRY.md`, verdict ACCEPT-WITH-FIXES, Theorem A CORRECT): applied all
+  required fixes — (1) universal "any proof must…"/"sieves cannot see" claims narrowed to the fixed finite coverings and the
+  product-class sieves actually used (summary, Remark 2.3, §3.5(iii), §4.2, §5); (2) `scripts/z56_famtry_dmin.c` running-maximum
+  bug fixed (no-hit primes reset the maximum) and `dmin_1e8.txt` regenerated — corrected lower-decade maxima 4759@9433,
+  44563@89113, 483619@943057 (prime d) and 64255@706801, 60759@4617649 (all d); top decade and histogram unchanged;
+  (3) §4.6 random-model statement corrected (prime-only model gives Θ(log p) expected hits, failure p^{−c}, not exp(−c log²p));
+  EH separated from GRH; (4) §3.5(ii) asymptotic replaced by the proved two-sided order; Lemma 1.4 residue convention made
+  explicit. Novelty of Theorem A remains unverified (literature not checked, per lane rules).
