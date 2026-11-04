@@ -16,39 +16,46 @@ Checkpoint 1: commit 0cede3da.
 **Verdict: narrowed (calibrated two-sidedly), with one small pointwise strengthening.** No pointwise power saving for
 the central slice is proved; none is refuted. What is new:
 
-1. **Hardness (Theorem L + Cor. L1; CONDITIONAL on the exponent pair conjecture EPC).** The short-interval divisor sum
-   splits *exactly* (up to O(1)) as D(x, y) − Main = E_band(δ) − 2F_L, where E_band is the central band
-   m ∈ (x^{1/2−δ}, x^{1/2+δ}] and F_L a sum of ψ-differences over m ≤ x^{1/2−δ}. Under EPC, F_L ≪ x^{1/4−δ/2+ε}.
-   Consequently, **under EPC**:
+1. **Hardness (Theorem L: identity PROVED; consequences CONDITIONAL on the exponent pair conjecture EPC).** The
+   short-interval divisor sum splits *exactly* (up to O(1)) as D(x, y) − Main = E_band(δ) − 2F_L, where E_band is the
+   central band m ∈ (x^{1/2−δ}, x^{1/2+δ}] and F_L a sum of ψ-differences over m ≤ x^{1/2−δ} (PROVED). Under EPC,
+   F_L ≪ x^{1/4−δ/2+ε}. Consequently, **under EPC** (CONDITIONAL):
    * SID (a pointwise power-saving asymptotic for Σ_{x<n≤x+x^{1/4}} d(n)) ⟺ a power saving for some central band;
-   * a band-uniform version of CNT (the TDCAL central-slice asymptotic, for all slice positions
-     A ∈ [x^{1/2−δ}, x^{1/2+δ}]) ⟹ SID; so does fixed-band CNT whose constant grows at most polynomially in the
-     band position A/√x (Cor. L1′).
-   SID is open (Assessment, search-limited, LIT_CHECK §3): the best pointwise short-difference bounds (Ivić–Zhai Thm 1)
-   beat the trivial bound only for lengths ≥ x^{1/3}, and Jutila's conjecture is listed as open. Since Δ(x) = Ω(x^{1/4}),
-   SID cannot follow from any pointwise bound on Δ, even the conjectural x^{1/4+ε}. Unconditionally (with the exponent
-   pair A(Bourgain)), the same equivalence holds only for bands of width x^{±δ}, δ > 123/556 ≈ 0.221 (Cor. L3).
-2. **Upper calibration (Theorem U, PROVED).** CNT (sharp bands, any position, uniformly) follows from power-saving
-   short-interval asymptotics for the *twisted* divisor functions τ_t(n) = Σ_{de=n}(d/e)^{it} (coefficients of
-   ζ(s+it)ζ(s−it)), uniformly for |t| ≤ x^c. The case t = 0 is SID. So CNT is sandwiched: SID + EPC ⇐ CNT_unif ⇐ {SID_t}.
-3. **Pointwise upper bound of the right order up to loglog (Prop P, PROVED relative to de la Bretèche–Tenenbaum 2025,
+   * CNT_unif ⟹ SID, where CNT_unif is the central-slice asymptotic for every real x, with the length y ≍ x^{1/4}
+     decoupled from the slice position A, uniformly for A ∈ [x^{1/2−δ}, x^{1/2+δ}] (Cor. L1);
+   * likewise CNT_poly ⟹ SID (Cor. L1′): the same, with constants allowed to grow polynomially in the position A/√x.
+   These hypotheses are stronger than TDCAL's CNT, which is restricted to primes and to the tied choice
+   x = p + 2U, y = 2U, A = U²; passing from CNT to CNT_unif or CNT_poly is an additional requirement, not automatic.
+   SID: Assessment (search-limited, LIT_CHECK §3), not established in the checked sources: the cited Ivić–Zhai
+   estimates improve on the trivial bound only for lengths ≥ x^{1/3} (the global Δ exponent 0.31448… helps only for
+   lengths ≥ x^{0.3145}), and Jutila's conjecture is listed as open. Since Δ(x) = Ω(x^{1/4}), the endpoint route
+   |Δ(x+y) − Δ(x)| ≤ |Δ(x+y)| + |Δ(x)| cannot give SID, even with the conjectural sup bound x^{1/4+ε}.
+   Unconditionally (PROVED, with the Trudgian–Yang exponent pair (715/10238 + ε, 7955/10238 + ε)), the same equivalence
+   holds for bands of width x^{±δ} with δ > 6387/28960 ≈ 0.2205 (Cor. L3).
+2. **Upper calibration (Theorem U, PROVED implication).** CNT_unif (sharp bands at every position
+   A ∈ [x^{1/2−δ}, x^{1/2+δ}], δ < 1/4) follows from power-saving short-interval asymptotics for the *twisted* divisor
+   functions τ_t(n) = Σ_{de=n}(d/e)^{it} (coefficients of ζ(s+it)ζ(s−it)), uniformly for |t| ≤ x^c. The case t = 0 is
+   SID. So CNT_unif is sandwiched: {SID_t}_{|t|≤x^c} ⟹ CNT_unif ⟹ (EPC ⟹ SID).
+3. **Pointwise upper bound of the right order up to log log (Prop P, PROVED relative to de la Bretèche–Tenenbaum 2025,
    Cor. 1.2).** |E1(p, U)| ≪ U(log log U)^{5/2} pointwise, improving the campaign's ≪ U^{1+ε} (BILINDIV §2; TDF §3.3).
-   The same holds for every band (A, θA], θ ≤ e², and every length y ≥ x^{ε}.
+   The same holds for every band (A, θA], θ ≤ e², and every length y ≥ x^{ε}. With a localized Fejér argument
+   (Cor. P2, PROVED implication) TD(η) ⟹ DC(2U^{−η}) with a (log log U)^{5/2} loss instead of U^{ε}.
 4. **Degenerate-Hessian remark (PROVED computation; Assessment reading).** The natural two-variable dual phase of the
-   central slice, 2√(xhn), is homogeneous of degree 1, so its Hessian vanishes identically; two-dimensional
-   exponential-sum methods requiring a non-degenerate Hessian do not apply directly (§7).
+   central slice, 2√(xhn), is homogeneous of degree 1, so its Hessian *determinant* vanishes identically (the Hessian has
+   rank one); two-dimensional exponential-sum methods requiring a non-degenerate Hessian do not apply directly (§7).
 5. **EVIDENCE (`data/z56/central/slices_*.txt`).** Exact slice decompositions at x ≈ 10¹⁰, 10¹², 10¹⁴, 10¹⁶ (generic
-   primes, odd squares, near-squares, test primes). The identity of Theorem L(i) holds with residual ≤ 0.32 (direct
-   check at 10¹⁰). Dyadic slice errors have rms 0.55–1.8·√(y log 2), growing with M; no slice is distinguished. Odd squares
-   show a systematic negative bias of ≈ −0.6√(y log 2) per dyadic slice (§8).
+   primes, odd squares, near-squares, test primes). The identity of Theorem L(i) holds with residual ≤ 0.632 (direct
+   check at 10¹⁰, 2400 cases). Dyadic slice errors have rms ≈ 0.52–2.56·√(y log 2), broadly growing with M; no slice is
+   distinguished. Odd squares and near-squares have a negative mean error in every dyadic slice (§8).
 
-**Answers to the kickoff.** (a) A hardness calibration is proved *modulo EPC and band-uniformity*: band-uniform CNT ⟹
-SID, a known open statement beyond the Ω-barrier of the Dirichlet divisor problem. An unconditional reduction to a named
-open statement for the *fixed* band is not obtained; Theorem U shows CNT is no harder than the twisted SID family.
-(b) The central slice is not easier in any way found: under EPC it is exactly the part of the x^{1/4} short-interval
-divisor problem that per-frequency methods cannot reach (TDCAL Prop C), and the only pointwise statement obtained is
-the upper bound of Prop P. **For gap 1 (Assessment):** the count enters TD/NC only as a zero mode, for which Prop P
-suffices up to (log log U)^{5/2}; a CNT-type asymptotic should not be on the route to gap 1.
+**Answers to the kickoff.** (a) A hardness calibration is proved *modulo EPC and a uniform, length-decoupled form of
+CNT*: CNT_unif (or CNT_poly) ⟹ SID under EPC, and SID is a statement beyond the Ω-barrier of the Dirichlet divisor
+problem that is not established in the checked literature. An unconditional reduction to a named open statement for the
+*fixed* tied band is not obtained; Theorem U shows CNT_unif is no harder than the twisted SID family. (b) The central
+slice is not easier in any way found: under EPC it is exactly the part of the x^{1/4} short-interval divisor problem
+that per-frequency methods cannot reach (TDCAL Prop C), and the only pointwise statement obtained is the upper bound of
+Prop P. **For gap 1 (Assessment):** the count enters TD/NC only as a zero mode, for which Prop P suffices up to
+(log log U)^{5/2}; a CNT-type asymptotic should not be on the route to gap 1.
 
 ## 1. Notation and statements attacked
 
@@ -59,20 +66,24 @@ suffices up to (log log U)^{5/2}; a CNT-type asymptotic should not be on the rou
   Main(x, y) := (x+y)log(x+y) − x log x + (2γ − 1)y = y log x + 2γy + O(y²/x).
 * TDCAL Lemma S(a): with x = p + 2U, y = 2U one has |E1(p, U)| = S(x, y; U², 4). In the fourth-root range
   (c₁p^{1/4} ≤ U ≤ c₂p^{1/4}, 16U³ ≤ p) the slice position U² is ≍ √x.
-* **CNT(η)** (TDCAL): |E1(p, U)| = 2U log 4 + O(U^{1−η}) uniformly in the fourth-root range. Open.
+* **CNT(η)** (TDCAL): |E1(p, U)| = 2U log 4 + O(U^{1−η}) uniformly in the fourth-root range (primes p only; tied
+  x = p + 2U, y = 2U, A = U², θ = 4). Status: Assessment, not established (TDCAL §7).
 * **CNT_unif(η, δ; K)** (band-uniform, length decoupled from position): there is C with |E(x, y; A, θ)| ≤ C y^{1−η}
   for all large x, all y ∈ [x^{1/4}/K, Kx^{1/4}], all A ∈ [x^{1/2−δ}, x^{1/2+δ}] and all θ ∈ (1, 4].
-  CNT_unif at A ≍ √x contains the count part of CNT (with y and A decoupled).
+  Status: Assessment, not established. CNT_unif is *stronger* than CNT: it asks for all real x, y decoupled from A,
+  and uniformity in the position; at A = U², y = 2U, θ = 4, x = p + 2U it contains CNT.
 * **SID(η)**: D(x, y) = Main(x, y) + O(x^{(1−η)/4}) for all large x and y ∈ [x^{1/4}/K, Kx^{1/4}].
-  *Status (Assessment, search-limited; LIT_CHECK §3, VERIFIED-PRIMARY quotes):* open.
+  *Status (Assessment, search-limited; LIT_CHECK §3, VERIFIED-PRIMARY quotes):* not established in the checked sources.
   * Ivić–Zhai (arXiv 1209.0872, Thm 1): Δ(x+U) − Δ(x) ≪ x^{1/4+ε}U^{1/4} and ≪ x^{2/9+ε}U^{1/3}; at U = x^{1/4} these
-    are x^{5/16+ε} and x^{11/36+ε}, above the trivial x^{1/4+ε}; their p. 6 remark: improvement only for U ≥ x^{1/3}.
+    are x^{5/16+ε} and x^{11/36+ε}, above the trivial x^{1/4+ε}; their p. 6 remark: these estimates improve on the trivial one only for U ≥ x^{1/3}. (The global bound
+    Δ ≪ x^{0.31448…+ε} of Li–Yang already helps for U ≥ x^{0.3145}; neither reaches U = x^{1/4}.)
   * Jutila's conjecture Δ(x+h) − Δ(x) ≪ x^ε√h (x^ε ≤ h ≤ x^{1/2−ε}) is stated as a conjecture by Ivić (JTNB 21 (2009),
     (1.13)) and by Ivić–Zhai (Conj. 3). Ivić (1.12): Δ(x+h) − Δ(x) = Ω(√h log^{3/2}(√x/h)), so SID(η) can hold only for
-    η ≤ 1/2.
+    η < 1/2 (the logarithm excludes η = 1/2).
   * Δ(x) = Ω(x^{1/4}) (Hardy; VERIFIED-SECONDARY via Li–Yang (1.3) and Cramér's mean square quoted by Ivić–Zhai). Hence
-    |Δ(x+y) − Δ(x)| ≤ 2 sup|Δ| can never give SID, even with the conjectured sup bound x^{1/4+ε}.
-* **EPC** (exponent pair conjecture): (ε, ½ + ε) is an exponent pair for every ε > 0. Named as a conjecture by
+    the endpoint route |Δ(x+y) − Δ(x)| ≤ |Δ(x+y)| + |Δ(x)| can never give SID, even with the conjectured sup bound
+    x^{1/4+ε}.
+* **EPC** (exponent pair conjecture; CONJECTURE): (ε, ½ + ε) is an exponent pair for every ε > 0. Named as a conjecture by
   Trudgian–Yang (arXiv 2306.05599, p. 2). Exponent pairs as in Saito et al. (arXiv 2312.15642, Def. 18).
 
 **Targets (kickoff).** (a) Prove that a pointwise power-saving asymptotic for the central slice implies a known open
@@ -124,26 +135,32 @@ SID(η′) holds for every η′ < min(η, 2δ).
 yΣ_{L<m≤L′}1/m = 2δy log x + O(y/L). So |E_band| ≤ JCy^{1−η} + O(1) ≪ y^{1−η}log x. By Theorem L(iii),
 D − Main ≪ y^{1−η}log x + x^{1/4−δ/2+ε}. With y ≍ x^{1/4} this is O(x^{(1−η′)/4}) for η′ < min(η, 2δ). ∎
 
-**Corollary L1′ (fixed bands with polynomial uniformity suffice; CONDITIONAL on EPC).** Call CNT_poly(η, B; K) the
-statement: there is C with |E(x, y; λ√x, θ)| ≤ C(λ + λ^{−1})^B y^{1−η} for all large x, y ∈ [x^{1/4}/K, Kx^{1/4}],
-θ ∈ (1, 4] and λ ∈ [x^{−1/8}, x^{1/8}]. (This is fixed-band CNT for every fixed position λ, with the implied constant
-growing at most polynomially in the position.) Then CNT_poly(η, B; K) ⟹ SID(η′) for every η′ < min(η/(2B + 1), 1/4).
+**Corollary L1′ (fixed bands with polynomial uniformity suffice; CONDITIONAL on EPC).** For η > 0, B ≥ 0 call CNT_poly(η, B; K)
+the statement: there is C with |E(x, y; λ√x, θ)| ≤ C(λ + λ^{−1})^B y^{1−η} for all large x, y ∈ [x^{1/4}/K, Kx^{1/4}],
+θ ∈ (1, 4] and λ ∈ [x^{−1/8}, x^{1/8}]. (This is a uniform statement for all real x, with y decoupled from the position and a common threshold; it is
+implied by CNT_unif(η, 1/8; K) with B = 0. It is *not* implied by fixed-band CNT for each fixed λ, whose constants and
+thresholds could depend on λ arbitrarily.) Then CNT_poly(η, B; K) ⟹ SID(η′) for every η′ < min(η/(2B + 1), 1/4).
 *Proof.* Take δ := min(η/(4B + 2), 1/8). On the band of Corollary L1 every A_i = λ_i√x has λ_i + λ_i^{−1} ≤ 2x^{δ}, so
 |E(x, y; A_i, θ_i)| ≤ C2^Bx^{Bδ}y^{1−η} ≪ y^{1−η+4Bδ} (y ≍ x^{1/4}). Summing over J ≪ log x bands and using Theorem
 L(iii): D − Main ≪ y^{1−η+4Bδ}log x + y^{1−2δ}x^{ε}. Since 1 − η + 4Bδ ≤ 1 − 2δ (equality if δ = η/(4B + 2)), both terms are ≪ y^{1−2δ}x^{ε}, and 2δ = min(η/(2B + 1), 1/4). ∎
-*Reading (Assessment).* Any proof of CNT by a method with explicit dependence on the slice position would deliver
-CNT_poly for some B. So, modulo EPC, essentially any proof of fixed-band CNT would prove SID.
+*Reading (Assessment).* CNT_poly allows the constant to deteriorate polynomially as the band leaves √x, which is
+weaker than CNT_unif. Obtaining it from a proof of TDCAL's CNT would additionally require removing the restriction to
+primes and to the tied choice of (x, y, A), and uniform thresholds; these are extra requirements, not consequences.
 
 **Corollary L2 (converse; CONDITIONAL on EPC).** SID(η) implies |E_band(x, y; δ)| ≪ x^{(1−η)/4} + x^{1/4−δ/2+ε} for
 y ≍ x^{1/4}. So under EPC: SID ⟺ "for some δ > 0, the central band of width x^{±δ} has a power saving".
 (Immediate from Theorem L(iii).) It gives nothing for a *fixed* sub-band: sub-bands could cancel.
 
-**Corollary L3 (unconditional range).** The pair A(13/84 + ε, 55/84 + ε) = (13/194 + O(ε), 76/97 + O(ε)) is an exponent
-pair (Bourgain, arXiv 1408.5794 Thm 6, VERIFIED-PRIMARY; A-process, Trudgian–Yang (1.10)). In (ii) the exponent is
-< 1/4 iff ½ − δ < (1 − 3κ)/(4(λ − κ)) = 155/556 (at ε = 0), i.e. δ > 123/556 ≈ 0.2212. So, **unconditionally**, for
-δ ∈ (123/556, 1/4), SID ⟺ a power saving for the band (x^{1/2−δ}, x^{1/2+δ}]; and CNT_unif(η, δ) ⟹ SID.
-* Among the A/B-words of length ≤ 9 from (0, 1) and from Bourgain's pair, A(Bourgain) maximises (1 − 3κ)/(4(λ − κ))
-  (`scripts/z56_central_pairs.py`; next best 0.2762). With EPC the value is ½.
+**Corollary L3 (unconditional range; PROVED).** (715/10238 + ε, 7955/10238 + ε) is an exponent pair for every ε > 0
+(Trudgian–Yang, arXiv 2306.05599, Lemma 1.1, (1.6); VERIFIED-PRIMARY, read by the author in the PDF). In (ii) the
+exponent is < 1/4 iff ½ − δ < θ(κ, λ) := (1 − 3κ)/(4(λ − κ)), and at ε = 0 this pair has θ = 8093/28960 ≈ 0.27945.
+So, **unconditionally**, for δ ∈ (6387/28960, 1/4) (6387/28960 ≈ 0.22055; ε small enough), F_L ≪ x^{1/4−c(δ)} with
+c(δ) > 0; hence SID ⟺ a power saving for the band (x^{1/2−δ}, x^{1/2+δ}], and CNT_unif(η, δ) ⟹ SID.
+* *Finite search (CERTIFIED for the stated finite set; exact rational arithmetic, `scripts/z56_central_pairs.py`).*
+  Over all A/B-words of length ≤ 9 applied to the seeds (0, 1), Bourgain's (13/84, 55/84) and the four pairs of
+  Trudgian–Yang (1.6), the largest θ is 8093/28960 (the TY pair itself), then 14848/53141 ≈ 0.27941 (another TY pair)
+  and 155/556 ≈ 0.27878 (A(Bourgain) = (13/194, 76/97)). No claim is made that this is the best known pair for θ.
+  With EPC, θ → ½.
 
 *Reading (Assessment).*
 * Under EPC, per-frequency methods control every dyadic slice m ≍ M with M ≤ x^{1/2−δ}; the slice error is ≪ M^{1/2}x^ε.
@@ -152,8 +169,8 @@ pair (Bourgain, arXiv 1408.5794 Thm 6, VERIFIED-PRIMARY; A-process, Trudgian–Y
 * Band-uniformity is the price of the reduction. A proof of CNT at A ≍ √x would plausibly extend to A = x^{1/2±δ} for
   small δ: moving off the self-dual point only makes the dual sums longer, which per-frequency methods exploit. This is
   Assessment, not a theorem; fixed-band CNT might in principle be easier.
-* Unconditionally the central band is *not* the only obstacle: the slices x^{0.279} ≲ M ≤ x^{1/2−δ} are beyond known
-  exponent pairs too (Cor. L3). Under EPC they are not.
+* Unconditionally the central band is *not* the only obstacle: slices with x^{0.2795} ≲ M ≤ x^{1/2−δ} are not reached by
+  the exponent pairs searched (Cor. L3). Under EPC they are.
 * Proving CNT_unif would therefore prove "EPC ⟹ SID". No argument for that implication is known (Assessment): EPC gives
   Δ(x) ≪ x^{1/4+ε}, which falls short of SID by the Ω-barrier, and EPC applied per frequency stops at the benchmark.
 
@@ -161,14 +178,19 @@ pair (Bourgain, arXiv 1408.5794 Thm 6, VERIFIED-PRIMARY; A-process, Trudgian–Y
 
 For real t put τ_t(n) := Σ_{de=n}(d/e)^{it} (so |τ_t(n)| ≤ d(n) and τ_0 = d), D_t(x, y) := Σ_{x<n≤x+y}τ_t(n), and
   M_t(x, y) := ∫_x^{x+y}[ζ(1+2it)u^{it} + ζ(1−2it)u^{−it}]du (t ≠ 0),  M_0(x, y) := ∫_x^{x+y}(log u + 2γ)du.
-(M_t is the derivative-in-x of the residues of ζ(s+it)ζ(s−it)x^s/s at s = 1 ± it; the integrand is continuous at
-t = 0 because the poles cancel.)
+(The integrand of M_t is the u-derivative of the residues of ζ(s+it)ζ(s−it)u^s/s at s = 1 ± it, so M_t is the
+difference of those residue main terms between x + y and x; the integrand is continuous at t = 0 because the poles
+cancel.)
 
 **Hypothesis TW(η, c; K).** There is C with |D_t(x, y) − M_t(x, y)| ≤ C y^{1−η} for all large x, all
-y ∈ [x^{1/4}/K, Kx^{1/4}] and all real |t| ≤ x^c. (TW contains SID(η) as t = 0. Status: open; LIT_CHECK §5 found no
-pointwise short-interval result for τ_t.)
+y ∈ [x^{1/4}/K, Kx^{1/4}] and all real |t| ≤ x^c. (TW contains SID(η) as t = 0. Status: Assessment, search-limited: not established in
+the checked sources; LIT_CHECK §5 found no pointwise short-interval result for τ_t.)
 
-**Theorem U (PROVED).** TW(η, c; K) implies CNT_unif(η′, δ; K) for every δ < 1/4 and every η′ < min(η, 2c).
+**Theorem U (PROVED implication).** Let η, c > 0. Then TW(η, c; K) implies CNT_unif(η′, δ; K) for every
+0 < δ < 1/4 and every η′ < min(η, 2c).
+*Parameter reduction.* TW(η, c; K) contains SID(η), which by Ivić's Ω-result (1.12) forces η < 1/2; and TW(η, c)
+implies TW(η, min(c, 1/2)) while min(η, 2 min(c, 1/2)) = min(η, 2c) for η < 1/2. So we may and do assume
+0 < η < 1/2 and 0 < c ≤ 1/2; then η′ < 1/2 and all O(1)-type errors below are absorbed.
 
 *Proof.* Fix A ∈ [x^{1/2−δ}, x^{1/2+δ}], θ ∈ (1, 4], y in range, and put a := log(A/√x), b := log(θA/√x), so
 |a|, |b| ≤ δ log x + log 4.
@@ -184,8 +206,9 @@ pointwise short-interval result for τ_t.)
   * the integral terms give −∫_1^∞{v}v^{−2}[(g + g′)(L₀ − log v) + (g − g′)(log v − L₀)]dv, using
     (1/2π)∫ĝ(t)e^{itw}dt = g(w) and (1/2π)∫ĝ(t)(it)e^{itw}dt = g′(w). Substituting v = e^{L₀∓w}, this is bounded by
     u^{−1/2}∫(|g| + |g′|)(w)(e^{w} + e^{−w})dw ≤ 2u^{−1/2}e^{V}(‖g‖₁ + ‖g′‖₁).
-* *Sandwich.* Let w := x^{−c/2} (≥ y/(2x) for large x, as c ≤ 1/2 may be assumed). Choose smooth g₊, g₋ with values in
-  [0, 1], |g_±^{(j)}| ≪_j w^{−j}, g₊ = 1 on [a − w, b + w], supp g₊ ⊂ [a − 2w, b + 2w]; and, if b − a > 4w,
+* *Sandwich.* Let w := x^{−c/2} (≥ y/(2x) for large x, since c ≤ 1/2). Choose smooth g₊, g₋ with values in
+  [0, 1], monotone on each transition region (each of length w), |g_±^{(j)}| ≪_j w^{−j} (so ‖g_±^{(j)}‖₁ ≪_j w^{1−j}
+  for j ≥ 1, uniformly in θ), g₊ = 1 on [a − w, b + w], supp g₊ ⊂ [a − 2w, b + 2w]; and, if b − a > 4w,
   g₋ = 1 on [a + 2w, b − 2w], supp g₋ ⊂ [a + w, b − w] (else g₋ := 0). For n ∈ (x, x+y],
   log(m/√n) = log(m/√x) − ½log(n/x) with 0 ≤ ½log(n/x) ≤ y/(2x) ≤ w. Hence
   g₋(log(m/√n)) ≤ 1[A < m ≤ θA] ≤ g₊(log(m/√n)) for every divisor m of n, and S_{g₋} ≤ S(x, y; A, θ) ≤ S_{g₊}.
@@ -227,21 +250,36 @@ In particular |E1(p, U)| ≪ U(log log U)^{5/2} for every prime p and U in the f
 * An alternative route with exponent 11/4 is Nair–Tenenbaum (VERIFIED-SECONDARY via Henriot) applied to Δ_H, which lies
   in their class because Δ_H(mn) ≤ τ(m)Δ_H(n) (Hall–Tenenbaum Lemma 61.1, VERIFIED-SECONDARY), together with
   Koukoulopoulos–Tao Thm 1 (VERIFIED-PRIMARY).
-* The Δ_H route cannot give O(U): Σ_{n≤x}Δ_H(n) ≫ x(log log x)^{1+η−ε} (Ford–Koukoulopoulos–Tao Thm 2,
-  VERIFIED-PRIMARY). Whether |E1| ≪ U pointwise is open here (Assessment: no mechanism for concentration is visible).
+* The dominating sum ΣΔ_H cannot be O(y) uniformly: on long intervals Σ_{n≤x}Δ_H(n) ≫ x(log log x)^{1+η−ε}
+  (Ford–Koukoulopoulos–Tao Thm 2, VERIFIED-PRIMARY). This limits the Δ_H route only; it does not disprove |E1| ≪ U,
+  which is not established here (Assessment: no mechanism for concentration in every short interval is visible).
 * *What it buys for gap 1.*
-  * The zero mode of every Fourier argument on E1⁺ is now ≪ U(log log U)^{5/2}. TDF §3.3's DC_ε(t₀) can be replaced by
-    DC with a (log log U)^{5/2} loss, and TD(η) ⇒ "DC up to (log log U)^{5/2}" holds with the same proof as TD ⇒ DC_ε.
+  * The zero mode of every Fourier argument on E1⁺ is now ≪ U(log log U)^{5/2}.
+  * Cor. P2 below: TD(η) ⇒ DC(2U^{−η}) up to a (log log U)^{5/2} loss. (TDF §3.3's Erdős–Turán proof of TD ⇒ DC_ε
+    would keep a factor log U from Σ_h 1/h; a localized Fejér argument removes it.)
   * TDCAL Prop D(iii): Σ_{|τ|≤T}N^{[τ]} ≤ |E1| + 2TΣD^{−1/2} ≪ U(log log U)^{5/2} + TU^{1/2+ε}. The second term is
     unchanged, so the gap to the model order T persists for T ≤ U^{1/2}.
   * N₂ itself gains nothing: N₂ ≤ (1 − log 2 + o(1))U is already known (TDCAL Remark A‴).
+
+**Corollary P2 (PROVED implication; uses Prop P).** Let 0 < η < 1, put H := ⌊U^η⌋, and assume TD(η) at (p, U):
+|T(h)| ≤ C₀U^{1−η} for 1 ≤ h ≤ U^η, where T(h) = Σ_{k∈E1⁺}e(hw_k) (TDCAL §1). Then for every interval I ⊂ ℝ with
+|I| ≥ 1/H, #{k ∈ E1⁺ : w_k mod 1 ∈ I} ≪ (1 + C₀)·U|I|(log log U)^{5/2}, the implied constant absolute (U ≥ U₀).
+*Proof.*
+* Fejér kernel F_H(v) := Σ_{|h|<H}(1 − |h|/H)e(hv) = H^{−1}(sin πHv/sin πv)² ≥ 0. For ‖v‖ ≤ 1/(2H), sin(πH|v|) ≥ 2H|v|
+  (concavity of sin on [0, π/2]) and |sin πv| ≤ π|v|, so F_H(v) ≥ 4H/π².
+* For an interval J of length 1/H with centre α: #{k : w_k mod 1 ∈ J} ≤ (π²/4H)Σ_{k∈E1⁺}F_H(w_k − α)
+  = (π²/4H)Σ_{|h|<H}(1 − |h|/H)e(−hα)T(h) ≤ (π²/4H)(|E1⁺| + 2Σ_{1≤h<H}|T(h)|) ≤ (π²/4)(|E1⁺|/H + 2C₀U^{1−η}).
+* By Prop P, |E1⁺| ≪ U(log log U)^{5/2}; with H ≥ U^η/2 the right side is ≪ (1 + C₀)U^{1−η}(log log U)^{5/2}.
+* Cover I by ⌈H|I|⌉ ≤ 2H|I| intervals of length 1/H and multiply: ≪ (1 + C₀)H|I|U^{1−η}(log log U)^{5/2}
+  ≤ (1 + C₀)U|I|(log log U)^{5/2}. ∎
 
 ## 6. Where the proofs stop (escape hatches)
 
 * Theorem L uses EPC only to discard non-central slices; the central band is untouched. Any unconditional hardness
   theorem for the *fixed* band would need a mechanism that moves divisors between positions. ℤ-linear maps cannot do
   this: the form km has square discriminant, so its integral automorphism group is finite (Assessment; standard).
-* Theorem U's hypothesis is a *family* statement. Its t = 0 member is SID. Whether finitely many t suffice is open.
+* Theorem U's hypothesis is a *family* statement. Its t = 0 member is SID. Whether finitely many t suffice is not
+  addressed here.
 * Prop P is first-order: it bounds the count, not its fluctuation. A pointwise O(U) bound, and any pointwise lower
   bound |E1| ≫ U, are open (Assessment: the elementary near-diagonal families (M − j)(M + j + t) give only O(1) points
   at every x).
@@ -251,13 +289,16 @@ In particular |E1(p, U)| ≪ U(log log U)^{5/2} for every prime p and U in the f
 **Remark H (PROVED computation; Assessment reading).** After Vaaler truncation in ψ and the B-process in m (stationary
 phase at m ≍ √x), the frequency-h piece of the central slice has dual variable n ≍ h and phase ±2√(xhn) (standard; this
 is the self-duality of TDO §6 / TDF §3.1, not re-derived here with error terms). The function Φ(h, n) := 2√(xhn) is
-homogeneous of degree 1 in (h, n), so by Euler's relation its Hessian annihilates (h, n) and det ∇²Φ ≡ 0. Explicitly,
+homogeneous of degree 1 in (h, n), so by Euler's relation its Hessian annihilates (h, n) and det ∇²Φ ≡ 0 (the
+Hessian itself has rank one for h, n > 0). Explicitly,
 Φ_hh = −½√x h^{−3/2}n^{1/2}, Φ_nn = −½√x n^{−3/2}h^{1/2}, Φ_hn = ½√x(hn)^{−1/2}, and Φ_hhΦ_nn − Φ_hn² = 0.
 *Reading (Assessment).* Double-exponential-sum methods that need a non-degenerate Hessian (two-dimensional exponent
-pairs, Huxley–Kolesnik double sums) do not apply directly. Along the degenerate rays h/n = const the phase is linear; it
-collapses to Σ_N τ_c(N)e(2√(xN)) with τ_c the central divisor count, whose Voronoi dual has its stationary point
-at n = x, i.e. back to the short interval of length ≍ x^{1/4}. This is consistent with Theorem L: the central band
-sits at the fixed point of the duality.
+pairs, Huxley–Kolesnik double sums) do not apply directly. Along the degenerate rays h/n = const the phase is linear.
+*Formally* (not a derivation: Vaaler and stationary phase leave (h, n)-dependent weights, so grouping by N = hn gives a
+weighted, restricted divisor coefficient to which no standard Voronoi formula applies as is), the sum collapses to
+Σ_N τ_c(N)e(2√(xN)) with τ_c a central divisor count, and the Voronoi dual of the unrestricted analogue has its
+stationary point at n = x, i.e. back at the short interval of length ≍ x^{1/4}. This formal picture is consistent with
+Theorem L: the central band sits at the fixed point of the duality.
 
 ## 8. Computations (EVIDENCE; `scripts/z56_central_slices.c`, `data/z56/central/slices_*.txt`, summary `stats.txt`)
 
@@ -267,14 +308,21 @@ y = 2U (TDCAL's convention), so the central band (U², 4U²] is exactly E1. Fami
 c ∈ (2U, 4U] the least with p prime (the interval (x, x + y] then contains N²); `test` = FRONTIER §4 item-14 primes
 (409, …, 8 813 281) and 193, 2521, 66529, 3361, 5101441. For each x the program computes D(x, y) exactly by the
 hyperbola identity, the fixed band error Ec := E(x, y; U², 4) = |E1| − yΣ1/m, F_L and E_band for δ ∈ {0.05, 0.10,
-0.15, 0.20}, and the dyadic slice errors E_M over (M, 2M], M = y·2^j ≤ √x. Exactness was checked against a direct
+0.15, 0.20}, and the dyadic slice errors E_M over (M, 2M], M = y·2^j ≤ √x. Output conventions are in the header of
+the C file: it prints FLc = −F_L, and, outside the direct runs, the *proxy* Derr − 2FLc = E_band + O(1) (Theorem L(i))
+in place of E_band. Exactness was checked against a direct
 sympy enumeration at x = 10⁸ + 7 (D − Main = −247.0226, Ec = −60.2514 both ways).
 
 *Identity check (CERTIFIED for these inputs).* At 10¹⁰ (600 inputs) E_band was also computed directly (loop to
-x^{1/2+δ}); the residual D − Main − (E_band − 2F_L) has max |·| = 0.316 over all 2400 (x, δ) pairs, as Theorem L(i)
-predicts (O(1), here ≤ 1 + y/L + y²/x). At larger x, E_band is *defined* through the identity.
+x^{1/2+δ}); the residual D − Main − (E_band − 2F_L) has max |·| = 0.632 over all 2400 (x, δ) pairs (attained at x = 10000000651,
+δ = 0.20), as Theorem L(i) predicts: the exact residual is R + 2y(H(L) − log L − γ) − [(x+y)log(1 + y/x) − y] with
+R ∈ {0, 1}, which is O(1 + y/L + y²/x). (With harmonic centring of the band the maximum is 0.316; the first draft
+reported that variant by mistake.) At larger x the program prints the proxy Derr − 2FLc = E_band + O(1) instead.
 
-**Table 8.1** (rms and mean in units of √y; n = number of x).
+**Table 8.1** (rms and mean in units of √y, each observation normalised by its own y; n = number of x; the y and model
+columns give the first sample only — the full ranges are in `stats.txt`: sq10/nsq10 span x ≈ 10¹⁰–2.5·10¹¹,
+y = 632–1410, model 10.26–12.80; other families have y within 1 % of the first). E_band columns at 10¹² and above are
+the proxy.
 
 | family | n | y | mean (D−Main) | rms (D−Main) | Ivić leading model √((8/π²)log³(√x/y)) | mean Ec | rms Ec | rms F_L, δ = .05/.10/.15/.20 |
 |---|---|---|---|---|---|---|---|---|
@@ -293,31 +341,33 @@ predicts (O(1), here ≤ 1 + y/L + y²/x). At larger x, E_band is *defined* thro
 
 **Table 8.2** (dyadic slice errors, rms / mean in units of √(y log 2), the Bernoulli-model sd; first and last slices).
 
-| family | slices | rms, M = y … ≈√x | mean (range over slices) |
+| family | slices | rms, first … last common slice (min–max over slices) | mean (min … max over slices) |
 |---|---|---|---|
-| gen 10¹⁰ | 8 | 0.56 … 1.54 | −0.19 … +0.18 |
-| gen 10¹⁴ | 11 | 0.54 … 2.56 | −0.05 … +1.14 |
-| gen 10¹⁶ | 13 | 0.52 … 1.86 | −0.74 … +0.05 |
-| sq 10¹⁰ | 8 | 0.85 … 1.66 | −0.67 … −0.60 |
-| sq 10¹⁶ | 13 | 0.67 … 1.55 | −1.12 … −0.29 |
-| nsq 10¹⁶ | 13 | 0.84 … 2.00 | −1.09 … −0.46 |
-(Full rows in `stats.txt`.)
+| gen 10¹⁰ | 8 | 0.56 … 1.54 (0.56–1.54) | −0.19 … +0.18 |
+| gen 10¹⁴ | 11 | 0.54 … 2.56 (0.54–2.56) | −0.05 … +1.14 |
+| gen 10¹⁶ | 13 | 0.52 … 1.69 (0.52–1.86) | −0.74 … +0.05 |
+| sq 10¹⁰ | 8 | 0.85 … 1.66 (0.85–1.66) | −0.67 … −0.60 |
+| sq 10¹⁶ | 13 | 0.67 … 1.55 (0.67–1.63) | −1.12 … −0.29 |
+| nsq 10¹⁰ | 8 | 0.65 … 1.60 (0.65–1.60) | −0.37 … −0.12 |
+| nsq 10¹⁶ | 13 | 0.84 … 2.00 (0.84–2.22) | −1.09 … −0.46 |
+(Slices are indexed j = 0, 1, … up to the largest index common to all inputs of the family; full rows in `stats.txt`.)
 
 *Readings (EVIDENCE unless marked).*
-* The central fixed band has error rms ≈ 2.3–3.9·√y at every scale, with no visible growth from 10¹⁰ to 10¹⁶; this
+* The central fixed band has error rms ≈ 2.3–3.9·√y at every scale tested, with no visible growth from 10¹⁰ to 10¹⁶; this
   matches TDCAL §10.4 (sd ≈ 2.2–3.3·√U = 1.6–2.3·√y there, other sample). Nothing distinguishes the central band from
   other slices except its position.
-* Slice errors grow from 0.55 (M ≈ y; the Bernoulli value there is √(log 2 − ½)/√(log 2) ≈ 0.53) to ≈ 1.5–2.6 near √x:
-  the m's are positively correlated (integers with many divisors), not independent.
-* F_L, the EPC-controlled part, is a decreasing function of δ as expected, and is far below the EPC-type majorant.
-* **Squares and near-squares (T1 controls).** Both families have a negative mean in *every* dyadic slice, ≈ −0.3 to
-  −1.1·√(y log 2), and a total mean of −4 to −19·√y. The central band carries ≈ −0.5 to −1.2·√y of it.
+* Slice rms values broadly grow (not monotonically in every row) from ≈ 0.52–0.56 at M = y in the generic families
+  (the independent-Bernoulli value there is √((log 2 − ½)/log 2) ≈ 0.53) to ≈ 1.5–2.6 near √x: the m's are positively
+  correlated (integers with many divisors), not independent.
+* The sample rms of F_L decreases with δ in every family (fewer slices); individual values of F_L are not monotone in δ.
+* **Squares and near-squares (T1 controls).** Both families have a negative mean in *every* dyadic slice, between
+  −0.12 and −1.12·√(y log 2), and a total mean of −3.5 to −19·√y. The central band carries −0.18 to −1.22·√y of it.
   *Heuristic (Assessment):* at x = N² the Voronoi terms with square index n = r² have aligned phases
   e(2√(nx)) = e(2rN) = 1; those with r ≍ x^{1/4} feel the shift y, and their coherent sum is of size
   ≍ x^{1/8}(log x)^{O(1)} ≍ √y·polylog. This is consistent with Ivić's Ω(√h log^{3/2}) and does not threaten CNT(η) for
   η < 1/2. No test of the polylog exponent was made.
-* Test primes (`slices_test.txt`, U = 4–54): |Ec| ≤ 19.3 (at 5101441, y = 94); the largest relative value is
-  Ec = +17.3 at 329617 (y = 46). These scales are too small to say anything; they are recorded as the required control.
+* Test primes (`slices_test.txt`, U = 3–54; p = 193 has U = 3, outside TDCAL's U ≥ 4 convention, the count is still
+  well defined): max |Ec| = 19.30 (p = 5101441, y = 94); max |Ec|/√y = 2.55 (p = 329617, Ec = +17.26, y = 46). These scales are too small to say anything; they are recorded as the required control.
 
 ## 9. FRONTIER §4 hard screens
 
@@ -333,25 +383,29 @@ predicts (O(1), here ≤ 1 + y/L + y²/x). At larger x, E_band is *defined* thro
 Append to §7.1 after the z55 TDCAL bullets:
 > * **How hard is the central slice? (`Z56_CENTRAL.md`, z56; internal; calibration, upper-bound only.)**
 >   * Thm L (PROVED identity): D(x, y) − Main = E_band(δ) − 2F_L + O(1), where E_band is the band
->     m ∈ (x^{1/2−δ}, x^{1/2+δ}] and F_L = Σ_{m≤x^{1/2−δ}}[ψ((x+y)/m) − ψ(x/m)]. Under EPC, F_L ≪ x^{1/4−δ/2+ε}. Hence
->     (CONDITIONAL on EPC) a band-uniform CNT, or fixed-band CNT with constants polynomial in the band position, ⟹ SID (pointwise power saving for Σ_{x<n≤x+x^{1/4}}d(n), open; Ivić–Zhai's
->     bounds help only for lengths ≥ x^{1/3}, Jutila's conjecture open, Δ = Ω(x^{1/4}) blocks sup-norm routes), and
->     SID ⟺ power saving for some central band. Unconditionally (pair A(Bourgain)) only for δ > 123/556.
->   * Thm U (PROVED): power-saving short-interval asymptotics for τ_t(n) = Σ_{de=n}(d/e)^{it}, uniformly in |t| ≤ x^c,
->     imply CNT for all band positions. So CNT is sandwiched between SID-with-twists and (EPC ⟹ SID).
+>     m ∈ (x^{1/2−δ}, x^{1/2+δ}] and F_L = Σ_{m≤x^{1/2−δ}}[ψ((x+y)/m) − ψ(x/m)]. Under EPC, F_L ≪ x^{1/4−δ/2+ε}.
+>   * Hence (CONDITIONAL on EPC) SID ⟺ a power saving for some central band, and CNT_unif ⟹ SID; so does CNT_poly
+>     (constants polynomial in the band position). Here SID = pointwise power saving for Σ_{x<n≤x+x^{1/4}}d(n); it is
+>     not established in the checked sources (the cited Ivić–Zhai bounds help only for lengths ≥ x^{1/3}, Jutila's
+>     conjecture is open, and Δ = Ω(x^{1/4}) blocks the endpoint route). CNT_unif/CNT_poly are stronger than TDCAL's
+>     CNT (all real x, length decoupled from position, uniform thresholds).
+>   * Unconditionally (Trudgian–Yang pair (715/10238, 7955/10238)) the equivalence holds only for δ > 6387/28960 ≈ 0.2205.
+>   * Thm U (PROVED implication): power-saving short-interval asymptotics for τ_t(n) = Σ_{de=n}(d/e)^{it}, uniformly in
+>     |t| ≤ x^c, imply CNT_unif. So CNT_unif is sandwiched between SID-with-twists and (EPC ⟹ SID).
 >   * Prop P (PROVED rel. de la Bretèche–Tenenbaum 2025 Cor. 1.2): |E1(p, U)| ≪ U(log log U)^{5/2} pointwise (was
->     U^{1+ε}); TD ⟹ DC holds with a (log log U)^{5/2} loss.
->   * Assessment: the count enters gap 1 only as a zero mode; CNT-type asymptotics are SID-hard and should not be on
->     the route to TD/NC.
+>     U^{1+ε}). Cor. P2 (PROVED implication, localized Fejér): TD(η) ⟹ DC(2U^{−η}) with a (log log U)^{5/2} loss.
+>   * Assessment: the count enters gap 1 only as a zero mode; CNT-type asymptotics are SID-hard (modulo EPC and
+>     uniformity) and should not be on the route to TD/NC.
 
 ## 11. Bottom line
 The central slice of the x^{1/4} short-interval divisor problem is, modulo the exponent pair conjecture, the whole of
 that problem: everything outside a band of width x^{±δ} around √x is per-frequency-easy under EPC, and the band carries
-the rest exactly (Theorem L). A band-uniform version of CNT, or fixed-band CNT with constants polynomial in the band position, would thus prove SID given EPC, a pointwise statement beyond
-the Ω-barrier of the Dirichlet divisor problem that no known method reaches. In the other direction, CNT follows from
-twisted versions of SID (Theorem U). So CNT is SID-hard, up to EPC and uniformity, and no easier structure was found.
-What is pointwise and unconditional is an upper bound of the right order up to (log log U)^{5/2} (Prop P), which is
-all that the zero mode of the gap-1 Fourier arguments needs. Nothing here touches positivity, and ES remains open.
+the rest exactly (Theorem L). A uniform, length-decoupled version of CNT (CNT_unif, or CNT_poly with constants
+polynomial in the band position) would thus prove SID given EPC: a pointwise statement beyond the Ω-barrier of the
+Dirichlet divisor problem that no checked source reaches. In the other direction, CNT_unif follows from twisted versions
+of SID (Theorem U). So CNT is SID-hard, up to EPC and uniformity, and no easier structure was found. What is pointwise
+and unconditional is an upper bound of the right order up to (log log U)^{5/2} (Prop P), which is all that the zero mode
+of the gap-1 Fourier arguments needs (Cor. P2). Nothing here touches positivity, and ES remains open.
 
 ## 12. Reproduction
 All runs under `ulimit -v 2000000`, each with the shown `timeout`; one core each; total ≈ 1 h CPU.
@@ -368,6 +422,36 @@ for f in gen sq nsq; do grep " ${f}16$" /tmp/in16.txt > /tmp/${f}16; timeout 180
 timeout 600 /tmp/z56sl < /tmp/intest.txt > $D/slices_test.txt
 timeout 120 uv run python scripts/z56_central_stats.py $D/slices_e1*.txt > $D/stats.txt
 ```
+The stored e12–e16 and test files were produced by the first version of `z56_central_slices.c` (four band columns
+Eband Eband_h FLc resid_h; non-direct runs print the proxy in both Eband columns and nan residuals); the current
+version adds the Theorem-L residual column. All shared columns are identical (the review reran three e10 inputs
+byte-identically with the first version; `slices_e10.txt` was regenerated with the current version).
 
 ## 13. Review log
-(TODO)
+**Hostile review 1** (deep-mode subagent; `reviews/z56_central_review1.md`). Verdict **CORRECT-WITH-FIXES**
+(4 MAJOR, 8 MINOR, 1 NIT). Confirmed: Theorem L(i)–(iii) and Cor. L1/L1′/L2/L3 as quantified; Theorem U (Fourier
+normalisation, ζ-identity signs, b(u) bound, sandwich direction, ĝ bounds); Prop P (covering, dlB–T Cor. 1.2 exponent
+5/2 re-read in the PDF); Remark H derivatives; all Table 8.1 entries (stats regenerated byte-identically; three e10
+inputs rerun identically; sympy check reproduced). Fixes applied:
+1. (MAJOR) Cor. L1′: the claim that any proof of fixed-band CNT gives CNT_poly is deleted; CNT_poly is now stated as a
+   uniform all-x, length-decoupled hypothesis (B ≥ 0), stronger than TDCAL's prime/tied CNT; the gap is listed as an
+   extra requirement (§0, §3, §10, §11).
+2. (MAJOR) Unconditional range: Trudgian–Yang Lemma 1.1 (1.6) pair (715/10238, 7955/10238) gives θ = 8093/28960 and
+   δ > 6387/28960 ≈ 0.2205 (re-read in the PDF); the search now includes the TY pairs as seeds and is labelled a finite
+   search with no optimality claim.
+3. (MAJOR) TD ⇒ DC with a loglog loss now has its own proof (Cor. P2, localized Fejér kernel); the "same proof" claim
+   is withdrawn.
+4. (MAJOR) Identity residual: the program now computes the Theorem-L residual (log-centred band); the reported max is
+   0.632 (was 0.316, the harmonic-centred variant). The C header's equations are corrected and the large-x band column
+   is called a proxy.
+5. Sup-norm and literature wording narrowed ("endpoint route"; "the cited Ivić–Zhai estimates"; Li–Yang reaches
+   x^{0.3145}; "not established in the checked sources"; SID(η) needs η < 1/2).
+6. Pair search evaluates all words of length ≤ 9.
+7.–9. Table 8.2 corrected (gen16 last common slice 1.69; ranges), readings corrected (rms of F_L decreases, not F_L;
+   bias ranges −0.12 … −1.12), first-sample labelling and full ranges for Table 8.1, test-prime U range 3–54 and the
+   normalisation of the "largest" value.
+10. Remark H: "Hessian determinant vanishes" (rank one); the τ_c/Voronoi collapse is labelled a formal analogy.
+11. Theorem U: η, c > 0 explicit; reduction to η < 1/2, c ≤ 1/2 justified; taper construction uniform in θ.
+12. Label pass: EPC is CONJECTURE; Cor. L3 PROVED with the finite search CERTIFIED; CNT/TW/SID statuses are
+    Assessment; the sandwich is written {SID_t} ⟹ CNT_unif ⟹ (EPC ⟹ SID).
+13. M_t described as a difference of residue main terms.

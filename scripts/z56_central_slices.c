@@ -1,13 +1,16 @@
-/* z56 CENTRAL: decomposition of the short-interval divisor sum D(x,y) into dyadic m-slices.
-   Input lines: "x y U" (U>0: central band (U^2,4U^2]; tag column optional ignored after).
-   For each input prints:
-     x y U Derr Ec F[d] for delta in {0.05,0.10,0.15,0.20} , then EM for dyadic blocks.
-   Derr = D(x,y) - [(x+y)log(x+y) - x log x + (2g-1)y]   (D exact via hyperbola identity)
-   Ec   = #{(k,m): x<km<=x+y, U^2<m<=4U^2} - y*sum_{U^2<m<=4U^2} 1/m
-   Eband(delta) = #{L<m<=L'} - y*log(L'/L)   with L=x^{1/2-delta}, L'=x^{1/2+delta}  (real cutoffs)
-   FL(delta)   = sum_{m<=L} [psi((x+y)/m)-psi(x/m)] = sum_{m<=L}(floor-floor) - y*H(L)   (sign: count minus mean)
-   Identity check (Thm L(i)): Derr = Eband + 2*FLc + O(1), FLc = sum_{m<=L} count - y*H_L... printed residual.
-   EM_j = sum_{M<m<=2M} count - y*sum 1/m, M = y*2^j, j=0.. while M<=sqrt(x).
+/* z56 CENTRAL: decomposition of the short-interval divisor sum D(x,y) into m-slices (Z56_CENTRAL.md Thm L).
+   Input lines: "x y U [tag]"; central band (U^2,4U^2].
+   Output per input: tag x y U Derr Ec | for delta in {0.05,0.10,0.15,0.20}: Eband Eband_h FLc resid resid_h | ... || E_M ...
+   Derr   = D(x,y) - [(x+y)log(x+y) - x log x + (2g-1)y]   (D exact via the hyperbola identity)
+   Ec     = #{(k,m): x<km<=x+y, U^2<m<=4U^2} - y*sum_{U^2<m<=4U^2} 1/m
+   FLc    = sum_{m<=L} (floor((x+y)/m)-floor(x/m)) - y*H(L) = -F_L,  F_L = sum_{m<=L}[psi((x+y)/m)-psi(x/m)],
+            L = x^{1/2-delta}, H(L) = sum_{m<=L} 1/m
+   Eband  = #{(k,m): x<km<=x+y, L<m<=L'} - 2 delta y log x   (Thm L's E_band; L' = x^{1/2+delta})
+   Eband_h= same count - y*sum_{L<m<=L'} 1/m                 (harmonic-centred variant)
+   resid  = Derr - (Eband + 2 FLc)   = Thm L(i) residual (O(1));  resid_h = Derr - (Eband_h + 2 FLc)
+   Without Z56_DIRECT the band count is not computed (loop only to max(sqrt(x+y),4U^2)); then the program prints
+   the proxy Derr - 2 FLc (= E_band + O(1) by Thm L(i)) in both Eband columns and nan residuals.
+   E_M = sum_{M<m<=2M} count - y*sum 1/m, M = y*2^j, j = 0.. while M <= sqrt(x).
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,11 +51,11 @@ int main(void){
     printf("%s %llu %llu %llu %.4Lf %.4Lf", tag[0]?tag:"-", x,y,U,Derr,Ec);
     for(int i=0;i<4;i++){
       long double FLc = cntL[i] - (long double)y*hL[i];
-      long double Eband, Eband_h, resid;
+      long double Eband, Eband_h, resid, resid_h;
       if(direct){ Eband = cntB[i] - (long double)y*((0.5L+dl[i])*lx - (0.5L-dl[i])*lx);
-                  Eband_h = cntB[i] - (long double)y*hB[i]; resid = Derr - (Eband_h + 2*FLc); }
-      else { Eband_h = Derr - 2*FLc; Eband = Eband_h; resid = NAN; } /* via Thm L(i) identity (exact up to O(1)) */
-      printf(" | %.4Lf %.4Lf %.4Lf %.3Lf", Eband, Eband_h, FLc, resid);
+                  Eband_h = cntB[i] - (long double)y*hB[i]; resid = Derr - (Eband + 2*FLc); resid_h = Derr - (Eband_h + 2*FLc); }
+      else { Eband_h = Derr - 2*FLc; Eband = Eband_h; resid = NAN; resid_h = NAN; } /* proxy, = E_band + O(1) */
+      printf(" | %.4Lf %.4Lf %.4Lf %.4Lf %.4Lf", Eband, Eband_h, FLc, resid, resid_h);
     }
     printf(" ||");
     for(int j=0;j<nb;j++) printf(" %.3Lf", cM[j]-(long double)y*hM[j]);
