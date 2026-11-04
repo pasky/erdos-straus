@@ -28,15 +28,27 @@ def Lsw(lam):
 
 
 _MC = {}
+CAP = os.environ.get('K4CAP', '0') == '1'   # P415's cap a <= th1 in T1 (unnecessary; default off)
+
+
+def T1u(zeta, lamsw, th1, pen):
+    best = 1e18
+    for i in range(1, 400):
+        a = lamsw * i / 400; b = lamsw - a
+        if CAP and a > th1: break
+        best = min(best, pen * (2 / a) * Fv(b / zeta))
+    return best
+
+
 def Mge(k, zeta):
-    key = round(zeta, 6)
-    if key not in _MC: _MC[key] = masses(zeta, jmax=max(16, k + 4), n=2000)
+    jm = max(16, k + 4); key = (round(zeta, 6), jm)
+    if key not in _MC: _MC[key] = masses(zeta, jmax=jm, n=2000)
     m = _MC[key]
     return sum(m[j] for j in range(k, len(m)) if j % 2 == 0)
 
 
 def margin(r, th1, zeta, theta=0.5, lamsw=0.5, pen=1.0, ns=60):
-    T1 = best_upper(zeta, lamsw, th1, pen) * B(th1)
+    T1 = T1u(zeta, lamsw, th1, pen) * B(th1)
     TC = pen * Lsw(lamsw) * Fv(1) * math.sqrt(th1) * Mge(r + 2, zeta)
     smax = (theta - zeta) / th1
     best = (-1e9, None)

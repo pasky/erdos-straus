@@ -15,8 +15,8 @@ from z56_k4chen_lp import Uup
 from z56_k4chen_switch import Lsw
 Fv, fvec, B = P.Fv, P.fvec, P.B
 F1 = Fv(1.0)
-NT = 40
 NS = int(os.environ.get('K4NS', '60000'))
+JCAP = 40
 
 
 class Model:
@@ -28,23 +28,31 @@ class Model:
         self.Dsum = al.sum(axis=1); self.Dpref = L ** (k - 1) / (math.factorial(k - 1) * 2 ** (k - 1)) / NS
         lg = np.linspace(1e-4, theta, 400)
         self.Ugrid = (lg, np.array([Uup(l, th1, zeta, n=60) for l in lg]))
-        # switched part: j-configs, j >= k even
-        xg, wg = np.polynomial.legendre.leggauss(NT)
+        # switched part: j-configs, j >= k even.  Last factor a integrated analytically (internal review #12):
+        # condition "sum of the k-1 smallest of all j factors > tau"  <=>  S_{k-1} > tau and a > tau - S_{k-2};
+        # int_l^H (H-a)^{-1/2} da/a = 2 atanh(sqrt(1 - l/H))/sqrt(H),  H = 1 - sigma,  l = max(zeta, tau - S_{k-2}).
         self.sw = []
-        for j in range(k, min(int(1 / zeta), 26) + 1):
+        self.jcap = min(int(1 / zeta), JCAP)
+        for j in range(k, self.jcap + 1):
             if j % 2: continue
             a = zeta * np.exp(rng.random((NS, j - 1)) * L)
             sig = a.sum(axis=1); ok = sig < 1 - zeta; a = np.sort(a[ok], axis=1); sig = sig[ok]
-            T = np.sqrt(1 - sig - zeta)
-            t = (xg[None, :] + 1) / 2 * T[:, None]
-            last = 1 - sig[:, None] - t * t
-            qw = (wg[None, :] / 2 * T[:, None]) * 2 / last
             cs = np.concatenate([np.zeros((len(a), 1)), np.cumsum(a, axis=1)], axis=1)
-            Skm1 = cs[:, k - 1] if j - 1 >= k - 1 else np.full(len(a), np.inf)
-            Skm2 = cs[:, k - 2]
-            small = np.minimum(Skm1[:, None], Skm2[:, None] + last)   # sum of k-1 smallest of all j factors
+            Skm1 = cs[:, k - 1]; Skm2 = cs[:, k - 2]
             pref = L ** (j - 1) / (2 ** j * math.factorial(j)) * F1 * math.sqrt(zeta) / NS
-            self.sw.append((small, qw, pref))
+            self.sw.append((Skm1, Skm2, 1 - sig, pref))
+
+    @staticmethod
+    def _lastint(H, l):
+        r = np.clip(1 - l / H, 0, 1)
+        return np.where(H > l, 2 * np.arctanh(np.sqrt(np.minimum(r, 1 - 1e-16))) / np.sqrt(H), 0.0)
+
+    def tailbound(self):
+        """bound for the omitted j > jcap terms: d_j <= F(1) zeta^{-1/2} (log(1/zeta)/2)^(j-1)/j! (review #12)."""
+        L = math.log(1 / self.zeta); tot = 0.0
+        for j in range(self.jcap + 1, self.jcap + 200):
+            tot += math.exp(math.log(F1 / math.sqrt(self.zeta)) + (j - 1) * math.log(L / 2) - math.lgamma(j + 1))
+        return tot
 
     def U(self, lam):
         lg, ug = self.Ugrid
@@ -56,7 +64,12 @@ class Model:
         return float(self.Dpref * self.U(self.theta - self.Dsum[m]).sum())
 
     def Unc(self, tau):
-        return float(sum(pref * (qw * (small > tau)).sum() for small, qw, pref in self.sw))
+        tot = 0.0
+        for Skm1, Skm2, H, pref in self.sw:
+            l = np.maximum(self.zeta, tau - Skm2)
+            v = np.where(Skm1 > tau, self._lastint(H, l), 0.0)
+            tot += pref * v.sum()
+        return float(tot) + self.tailbound()
 
 
 def best_main(th1, zeta, theta, ns=80):

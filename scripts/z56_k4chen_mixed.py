@@ -13,7 +13,7 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import z55_p415_sieve as P
 from z56_k4chen_lp import Uup
-from z56_k4chen_switch import Lsw
+from z56_k4chen_switch import Lsw, T1u
 Fv, fvec, best_upper, B = P.Fv, P.fvec, P.best_upper, P.B
 F1 = Fv(1.0)
 NT = 48  # quadrature points for the last factor
@@ -59,6 +59,7 @@ def wfam(kind, lam, y):
 
 def cost_w(kind, lam, y, th1, zeta, theta, n=200):
     tot = 0.0; hi = min(y, theta - 1e-3)
+    if y > theta - 1e-3: raise ValueError('weight support beyond the level cutoff')
     if hi <= zeta: return 0.0
     # log-spaced midpoint rule
     e = np.linspace(math.log(zeta), math.log(hi), n + 1)
@@ -92,7 +93,7 @@ def run(r, theta=0.5, lamsw=0.5, pen=1.0, th1s=None, zetas=None, kinds=('richert
             if theta - zeta <= th1: continue
             M, arg = best_main(th1, zeta, theta)
             if arg is None: continue
-            T1 = best_upper(zeta, lamsw, th1, pen) * B(th1)
+            T1 = T1u(zeta, lamsw, th1, pen) * B(th1)
             K = pen * Ls * F1 * math.sqrt(th1)
             if M - T1 <= best[0]: continue
             base = (M - T1 - K * C.mass(), dict(kind='none'))

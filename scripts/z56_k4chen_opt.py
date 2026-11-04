@@ -15,8 +15,8 @@ _M = {}
 CAP = os.environ.get('K4CAP', '0') == '1'   # P415's extra constraint a <= th1 (not needed, see memo)
 
 def Mge(k, zeta):
-    key = round(zeta, 5)
-    if key not in _M: _M[key] = masses(key, jmax=max(18, k + 4), n=1500)
+    jm = max(18, k + 4); key = (round(zeta, 5), jm)
+    if key not in _M: _M[key] = masses(key[0], jmax=jm, n=1500)
     m = _M[key]; return sum(m[j] for j in range(k, len(m)) if j % 2 == 0)
 
 

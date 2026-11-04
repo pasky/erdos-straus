@@ -10,29 +10,28 @@ import z55_p415_sieve as P
 
 
 def masses(zeta, jmax=14, n=4000):
-    # grid on u in (0,1]; d_0 singular at 0 -> integrate with substitution handled by fine grid + analytic first step
-    h = 1.0 / n
-    u = (np.arange(n) + 1) * h            # right endpoints
+    """d_j(1), j = 0..jmax.  Grid aligned with zeta: h = zeta/m (m integer), so the cutoff a >= zeta falls on a cell
+    boundary (z56 internal review finding 1: the earlier non-aligned grid dropped a partial cell).  Values at u = 1 by
+    linear interpolation.  Odd j are auxiliary masses (integers = 3 mod 4), not part of the parity-even sequence."""
+    m = max(1, int(round(zeta * n)))
+    h = zeta / m
+    N = int(math.ceil(1.0 / h)) + 1
+    u = (np.arange(N) + 1) * h            # right endpoints of cells ((i)h, (i+1)h]
     F1 = P.Fv(1.0)
-    d = [F1 * np.sqrt(zeta / u)]
+    prev_avg = F1 * math.sqrt(zeta) * 2 * (np.sqrt(u) - np.sqrt(u - h)) / h   # exact cell averages of d_0
+    out = [np.interp(1.0, u, F1 * np.sqrt(zeta / u))]
     for j in range(1, jmax + 1):
-        prev = d[-1]
-        cur = np.zeros(n)
-        # cur(u_i) = (1/(2j)) sum over a in [zeta, u_i): prev(u_i - a) da / a ; use cell-averaged prev
-        # cell average of prev on ((m)h,(m+1)h]: for j-1 = 0 use exact sqrt integral
-        if j == 1:
-            avg = F1 * math.sqrt(zeta) * 2 * (np.sqrt(u) - np.sqrt(u - h)) / h
-        else:
-            avg = prev
-        ia0 = int(math.ceil(zeta / h))
-        for i in range(n):
-            # a = (i - m) h for m = 0..i-ia0 ; prev at index m-1 ... approximate: v = u_i - a in cells
-            ms = np.arange(0, i - ia0 + 1)
-            if len(ms) == 0: continue
-            a = u[i] - (ms + 0.5) * h        # midpoint of a-cell matching v-cell m
-            cur[i] = np.sum(avg[ms] / a) * h / (2 * j)
-        d.append(cur)
-    return [float(x[-1]) for x in d]
+        cur = np.zeros(N)
+        # cur(u_i) = (1/(2j)) int_zeta^{u_i} prev(u_i - a) da/a ; a-cells [ (i-mm)h, (i-mm+1)h ) paired with v-cell mm
+        for i in range(N):
+            mmax = i - m          # v = u_i - a <= u_i - zeta  -> v-cell index <= i - m
+            if mmax < 0: continue
+            ms = np.arange(0, mmax + 1)
+            a = u[i] - (ms + 0.5) * h
+            cur[i] = np.sum(prev_avg[ms] / a) * h / (2 * j)
+        out.append(float(np.interp(1.0, u, cur)))
+        prev_avg = cur
+    return out
 
 
 if __name__ == "__main__":
