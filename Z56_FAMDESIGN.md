@@ -310,7 +310,8 @@ square through local factors at the primes of m — irrelevant for the audit.)
 * `scripts/z56_famdesign_decide.c`: exhaustive *decision* of hits ≥ 1 for HC, H3, F4, F4L over all primes in a range
   (segmented sieve; level scan C = 1, 2, … using that every solution with 64C³ ≤ p lies in G (§1); exact full count as
   fallback). It reproduces the full-scan zero lists exactly on [10³, 10⁸] (607 + 225 primes, identical lines).
-* `scripts/z56_famdesign_mgen.c`: exact M_gen(p) split into G and K (Lemma 3.2 weights; reproduces `Z53_GENUSLVAL`'s
+* `scripts/z56_famdesign_mgen.c`: M_gen(p) split into G and K by exhaustive enumeration of all pairs with Lemma 3.2's
+  weights, summed in long double (EVIDENCE-grade numerics, not exact rationals; reproduces `Z53_GENUSLVAL`'s
   M_gen(409, 577, 5569, 9601) = 3.9991, 5.3524, 6.2407, 7.9262).
 
 ### 4.2 Zero counts (CERTIFIED) and means (EVIDENCE)
@@ -510,4 +511,26 @@ untouched; **ES remains OPEN.**
 
 ## 8. Review log
 
-(to come)
+**Internal hostile review** (deep-mode subagent, no edits by the reviewer; report `data/z56/famdesign/internal_review.md`,
+summarised here). It re-derived §3.1–3.7 (Bu8, s(q), φ(q), all 2-adic cases, the
+prefactors 2^{2−k}, ½, ¼, the convolution and local factors, the conductor bounds, non-principality, both uses of
+`Z53_GENUSLVAL` Lemma 2.2, the Euler-factor identity of Lemma 3.5, truncation, the square-diagonal constant
+∏_{ℓ odd}(1 + ℓ⁻²) = 12/π², the Burgess condition, the Heath-Brown argument — checking HB's Theorem 1 against the paper —,
+the rectangle conditions, the tiling and the areas 5/12, 29/90, 8/45 and constants 0.09794, 0.12665, 0.01460), spot-checked
+all data files, re-ran the scanner on [5, 2·10⁵] (matches the stored zero rows) and an independent enumeration to 3000.
+Verdict **ACCEPT-WITH-FIXES**; findings and fixes:
+1. (minor) conductor algebra: "do₁/g² = d₂²o₁" was false (it is d²o₁/g² = d₂²o₁) → fixed; T_o stated for K ≥ 3.
+2. (major as written) Prop 3.6(b) stated an O(K) error, which after multiplication by the slice length is O(ε log²p)
+   → the proof's uniform O(2^{−k}) per k gives O(1); stated and justified.
+3. (major) G was defined as an open subset of (0,1)², excluding o = 1, while the scanners used the integer test → the family
+   𝔊* is now defined by the integer inequality Q⁴ > P·p (o = 1 allowed), G is its interior region for the integration, and
+   the "64C³ ≤ p ⟹ in 𝔊*" proof is written with PQ = (p + P + Q)/(4C) > p^{2/3}.
+4. (minor) the sentence "Prop 3.6 is true at squares as well" was false (local factors at the primes of m change the
+   constant) → removed; the T1 audit now shows the extra pole is always available (j ∈ J_k) and uses M_gen(m²) = 0 for the
+   sign.
+5. (major) "CERTIFIED" classification used floating-point logarithms → all membership tests replaced by exact integer
+   inequalities; every scan, sample, control and decision run repeated: byte-identical outputs (§4.1).
+6. (major) overclaims: "no fluctuation survives in G", "the uncaptured sixth", the ⅔ share of actual counts → restricted to
+   compact rectangles / density-area shares / Assessment; H3's genus bound now goes through its pair-coordinate definition.
+7. (minor) numeric ranges (var/mean of F4L up to 2.74; near-square deficits 10–16 %) → corrected.
+No fatal flaw was found in Theorem V. A cross-model review is to follow.
