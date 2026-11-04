@@ -1,0 +1,6 @@
+# T2T label=High n_total=25000 n_eval=12474
+n=12474	rho=-0.0121043	lo99=-0.0351576	hi99=0.0109619	p_gt_0005=0.971944	sigma2=-0.000998041	sigma2_hi99=0.000638912	mean1=39.7074	mean2=38.6138	phi1=3.7303	phi2=2.57535
+planted sigma_H=0.0: sigma2_hat mean=-0.00046 (true 0.00000), rho mean=-0.0060
+planted sigma_H=0.02: sigma2_hat mean=0.00012 (true 0.00040), rho mean=0.0013
+planted sigma_H=0.05: sigma2_hat mean=0.00261 (true 0.00250), rho mean=0.0308
+planted sigma_H=0.1: sigma2_hat mean=0.00995 (true 0.01000), rho mean=0.1097

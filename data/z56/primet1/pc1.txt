@@ -1,0 +1,1 @@
+PC1 p mod 13 (df 11): P-cont F=5319.44 p=0.000e+00; P-tail LR=2326.62 p=0.000e+00; n_hard=12457

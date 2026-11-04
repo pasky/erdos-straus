@@ -1,0 +1,2 @@
+S4-all	R2_oos=0.095933	null_R2 mean=-0.093127 max=-0.091870	p=0.0050	AUC_oos=0.6813	null_AUC mean=0.5002 max=0.5071	p=0.0050
+S4b-shadowfree	R2_oos=0.000192	null_R2 mean=-0.000139 max=-0.000085	p=0.0050	AUC_oos=0.5172	null_AUC mean=0.5000 max=0.5064	p=0.0050

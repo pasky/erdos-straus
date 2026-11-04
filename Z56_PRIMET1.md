@@ -204,6 +204,15 @@ PARI, GRH-conditional for the real fields), their squares and pairwise products 
 G2, G3, G4, G6, G8, G9, G10, G11, G12, G13, G15, G16 (+τ₃ in the null), G17′; tail null = compact 𝓛⁺ + the 14 columns
 + f₋₁ + log(a₁)/L. Holm over the 26 tests; same decision rule.
 
+**Amendment 6 (after A6; before computing any invariant on S₃).** A6 leaves exactly one Holm-significant family, G16
+(factorisation of p ± 1), with τ₃(p+1) already in the null. Two non-global explanations remain to be excluded: (i) the
+u = 1 ticket enters R exactly as τ₃(p+1), but a linear-plus-log covariate adjustment of a *standardised* residual need not
+remove it exactly; (ii) "q ∣ p ∓ 1" for 1000 < q is local data at a larger modulus (F-type shift effects, tickets
+4Cp + 1 with 4C ≡ ∓1 (mod q)). Test **A7** on **S₃** (fresh for invariants; its counts were used only in T2T): outcome
+z′ := (Y − τ₃(p+1))/s(μ̂) with s(μ) = √(μ + μ²/k̂) (the u = 1 slice removed exactly); null = 𝓛 design + μ̂/s(μ̂) + f₁, f₋₁
+(53 ≤ q ≤ 997) + f₁⁺, f₋₁⁺ := Σ_{1000<q≤20000, q∣p∓1} (log q)/q; tests (a) p + 1 part {ω(p+1), log P⁺(p+1)/L} and (b) p − 1
+part {ω(p−1), log P⁺(p−1)/L}; Holm over the 2 tests. The same is run on h₃′ as a labelled exploratory comparison.
+
 ## 4. Results
 
 ### 4.1 Primary block on C (as pre-registered; EVIDENCE)

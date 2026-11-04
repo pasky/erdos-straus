@@ -1,0 +1,6 @@
+# T2T label=S3 n_total=353214 n_eval=176733
+n=176733	rho=-0.0049608	lo99=-0.011088	hi99=0.00116676	p_gt_0005=0.999986	sigma2=-0.000639048	sigma2_hi99=-7.21855e-05	mean1=20.1455	mean2=18.9198	phi1=2.54765	phi2=1.58122
+planted sigma_H=0.0: sigma2_hat mean=0.00039 (true 0.00000), rho mean=0.0039
+planted sigma_H=0.02: sigma2_hat mean=0.00052 (true 0.00040), rho mean=0.0052
+planted sigma_H=0.05: sigma2_hat mean=0.00252 (true 0.00250), rho mean=0.0236
+planted sigma_H=0.1: sigma2_hat mean=0.01017 (true 0.01000), rho mean=0.0873
