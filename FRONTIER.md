@@ -517,17 +517,20 @@ no single-prime lower-tail mechanism is known.
     (0.075, 0.1, 0.29, 0.39).
   * Conclusion: a proportion ≥ 2μ(1 − 2θ)/(2(1 − 2θ) + 32μ) − o(1) of the primes p ≡ 1 (4) in every dyadic
     (x/2, x], x ≥ x₀, have R_𝔉(p) ≥ 2, where μ = ¼·log(α₁/α₀)·log(γ/β). The example window gives ≈ 0.00118.
-  * Theorem A (CONDITIONAL on HV): on the same windows and for every ε > 0, all but o(π(x)) primes p ≡ 1 (4), p ≤ x,
-    have R_𝔉(p) ≥ (1 − ε)M̃_x(p) ≫ log²p. HV says
+  * Theorem A (CONDITIONAL on HV): for the same fixed exponent windows and every 0 < ε < 1, all but o(x/log x) primes
+    p ≡ 1 (4) in (x/2, x] satisfy R_𝔉(p) ≥ (1 − ε)M̃_x(p) ≫ log²p. Dyadic summation gives R_𝔉(p) ≫ log²p for all but
+    o(π(x)) primes p ≡ 1 (4), p ≤ x. HV says
     V₈(x) = o(log³x), where V₈ is an explicit prime-free pair sum, the Haar variance of the family. The reduction is
     PROVED by the dual large sieve.
-  * Theorem A′ (CONDITIONAL on HW, a nonnegative pair count at z = (log x)²): almost all p ≡ 1 (4) have
+  * Theorem A′ (CONDITIONAL on HW: W_z(x) = o(log³x/(log log x)⁴), where W_z is the nonnegative pair sum at
+    z = (log x)²): almost all p ≡ 1 (4) have
     R_𝔉(p) ≫ log²p/(log log p)².
   * HV and HW are open. EVIDENCE for HV exists only in fixed non-exponent windows.
   * Not pointwise (B6). Compare the certified zeros in §7 item 3.
 * *(z55, `Z55_TDO.md`, `Z55_TDF.md`; PROVED; cross-model reviewed; upper bound only.)*
   * TD in mean square: Σ_{N₀<n≤N₀+N}|T_n(h)|² ≤ C(N + 16U⁴)hU(1 + log 4U²) (TDO Thm M). TDF Thm LS gives the bound
-    (N + 16U⁴)(2700h⁴U + 32U log 2U).
+    (N + 16U⁴)(2700h⁴U + 32U log 2U). The variables are integers: U ≥ 5, h ≥ 1, N₀ ≥ 0, N ≥ 1 for TDO; U ≥ 2, h ≥ 1,
+    N ≥ 1 and any signed starting integer for TDF.
   * TDO Thm A: fix 0 < η < 1/8 and 0 < c₁ ≤ c₂. For X ≥ X₀(η, c₁, c₂), all but ≪_{η,c₁,c₂} X^{1−η/4} primes
     p ∈ (X, 2X] satisfy |T_{p,U}(h)| ≤ 2U^{1−η} for every integer U in their fourth-root range and every
     1 ≤ h ≤ U^η.
@@ -535,7 +538,8 @@ no single-prime lower-tail mechanism is known.
     in that U's fourth-root range. No exceptional set uniform in U is claimed there.
   * Primality is not used. There is no new consequence for the (★) block, whose almost-all bound already follows from
     a first moment (TDO Remark 4.3).
-* *(z55, `Z55_TDCAL.md` Prop A, Cor A′; PROVED; cross-model reviewed; upper bound only.)*
+* *(z55, `Z55_TDCAL.md` Prop A, Cor A′; PROVED; cross-model reviewed; upper bound only.)* For integers X ≥ 0, Y ≥ 1,
+  U ≥ 2; the exceptional-set conclusions assume fixed 0 < η < 1 and ε > 0.
   Σ_{X<n≤X+Y}N₂(n, U) ≤ Σ_{X+2U<M≤X+Y+4U}τ(M)².
   * For X ≍ U⁴, at most O_ε(U^{η+ε}) integers in any window of U consecutive integers have N₂(n, U) > U^{1−η}.
   * #{p ≤ X : N₂(p, U_p) > U_p^{1−η}} ≪ X^{(3+η)/4+ε}, with U_p = ⌊p^{1/4}⌋.
@@ -685,8 +689,10 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   16U³ ≤ n (Assessment for the route). Joint (ν, k) methods are not covered.
 * (z55) Per-frequency benchmark class for the strip count and TD (triangle inequality over ν, majorants
   ≥ c‖c(ν)‖₂) → `Z55_TDCAL.md` Prop C:
-  * the smoothed count is bounded only by ≍ U (PROVED);
-  * the TD top piece is bounded only by ≫ h^{1/2}U^{3/2} (via BILINDIV Prop 4.3);
+  * for nonzero nonnegative test functions φ, Φ, the nonzero-frequency benchmark is ≍ U, so every bound for the
+    smoothed count minus its main term in this class is at least ≫ U (PROVED);
+  * the TD top piece is bounded only by ≫ h^{1/2}U^{3/2} (via BILINDIV Prop 4.3). This uses BILINDIV's smoothed
+    level-parametrized weights and 1 ≤ h ≤ U, not the sharp sum T(h);
   * not excluded: joint (ν, m) estimates below the benchmark, spectral methods on other transforms, arithmetic NC
     bounds.
 * (z55) Pointwise genus-character minorants of the exact class count → `Z55_CROSSF.md` §2.4(a): no pointwise Fourier
@@ -698,7 +704,8 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * (z55) "R_𝔉(p) ≥ 1 for all p ≥ p₀" on the standard-window Thm U family with p₀ ≤ 1.000005·10¹⁵ →
   `Z55_CROSSF.md` §3: false.
   * CERTIFIED zeros up to 1 000 005 280 000 049, e.g. 5.4 % of a 10¹³ sample;
-  * (H⁻_𝔉) is false at those zeros (M_𝔉 > 0 certified);
+  * (H⁻_𝔉) fails at every zero with M_𝔉 > 0; positivity of M_𝔉 was certified at all 192 469 recorded exhaustive-scan
+    zeros, not asserted here for every sampled zero;
   * larger p₀ is open. Assessment: the model's expected-count crossover is ≈ 10¹²⁴.
 
 *Algebraic / forcing*
@@ -942,27 +949,34 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
        (U², 4U²]. That is a central slice (divisors ≍ √x) of the short-interval divisor problem at length ≍ x^{1/4}.
      * Assessment (search-limited): no checked source gives a power-saving pointwise asymptotic for this slice.
        Li–Yang's Δ(x) ≪ x^{0.31448…+ε} reaches only lengths ≥ x^{0.31448…+ε}.
-     * Lemma S(c) (PROVED): every strip point has m | p² − D, so TD is trivial for w ≤ U^{(1−η)/2}.
-     * Thm B (PROVED): the natural smooth expansions in θ_m = {−p/m} carry, up to O(U^{−A}),
+     * Lemma S(c) (PROVED): every strip point has m | p² − D. The contribution to T(h) from w ≤ U^{(1−η)/2} is
+       O_ε(U^{1−η+ε}) for every integer h ≥ 1; this is not sharp TD(η) for the full sum.
+     * Thm B (PROVED): fix the smooth test functions of TDCAL §6, 0 < σ ≤ 1, 0 < ε < 1 and A > 0; take sufficiently
+       large U and integer 1 ≤ h ≤ U. Then the natural smooth expansions in θ_m = {−p/m} carry, up to O(U^{−A}),
        * for smoothed CNT and TS_{N₂}: only |ν| ≤ U^{1+ε};
        * for a smoothed TD piece at w ≍ W ∈ [U^σ, 4U]: only ν ∈ [hU³/(2W), 64hU³/W].
      * These bands are disjoint for these particular expansions but depend on the representation (Remark B2). No
        implication between TD and short-interval divisor statements is established either way.
      * Prop C (PROVED; one row Assessment): the benchmark class is "triangle inequality over ν with majorants
-       ≥ c‖c(ν)‖₂". In it the smoothed count is bounded only by ≍ U. The targets need further factors:
+       ≥ c‖c(ν)‖₂". In it, for nonzero nonnegative test functions φ, Φ, the nonzero-frequency benchmark is ≍ U, so
+       every bound for the smoothed count minus its main term in this class is at least ≫ U. The targets need further
+       factors:
        * U^η for CNT(η);
        * U^{1/2} for the central-slice square root;
-       * h^{1/2}U^{1/2+η} for the TD(η) top piece (via BILINDIV Prop 4.3);
+       * h^{1/2}U^{1/2+η} for the TD(η) top piece (via BILINDIV Prop 4.3). This uses BILINDIV's smoothed
+         level-parametrized weights and 1 ≤ h ≤ U, not the sharp sum T(h);
        * the piece-W row is Assessment.
      * Prop E (PROVED identity): the direct completion of m | p + s exhibits no Kloosterman sum. No spectral-method
        exclusion is made.
    * **EVIDENCE.**
      * At 10¹⁰, T(h)/√|E1⁺| is compatible with the unit complex-Gaussian model (TDCAL §10): 96 000 generic (p, h),
        structured prime families, odd squares.
-     * |T(h)| ≍ √U at 10⁸–10¹⁴ (TDO Table 5.1).
+     * In four samples of 200 consecutive primes near 10⁸, 10¹⁰, 10¹² and 10¹⁴, with h = 1,…,8, the mean of
+       |T(h)|²/U is 1.45–1.53 (TDO Table 5.1; EVIDENCE, not a pointwise bound).
    * **Assessment.**
      * Pointwise TD sits at a self-dual point (TDO §6, TDF §3.1).
-     * One-variable exponent pairs reach TD only for n < U³ (§6, TDF §3.2).
+     * In TDF §3.2's specific heuristic θ-expansion bound expression, a one-variable exponent-pair estimate would give
+       TD only for n < U³; joint-variable methods are not excluded.
      * Missing: a joint (ν, m) estimate below the per-frequency benchmark, or an arithmetic proof of NC or DC_ε at
        one p.
 2. **Growing roots in the forest F_p** (edge uv ⇔ uv | p + u + v). Fixed roots and the least-non-residue root fail i.o. under
@@ -1099,12 +1113,13 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
          #{p ≤ x : p ≡ 1 (8), p + 4 ∈ S, 4p + 1 has no prime factor ≡ 3 (4) below x^δ} ≥ c·x/(log x)² for x ≥ x₀.
        * Hence Ω_𝒬(4p + 1) < 1/δ + 1 (and even) for these p. The same holds with the shifts exchanged.
        * K(4) = P(4,15) needs Ω_𝒬(4p + 1) = 0.
-       * The model sizes δ ≈ 0.031 and Ω_𝒬 ≤ 10 are unaudited Assessment.
+       * Unaudited Assessment: the unweighted model suggests δ ≈ 0.031; a separate Richert-weighted model, using
+         δ = 0.008, suggests Ω_𝒬(4p + 1) ≤ 10. Neither is proved.
      * Level ledger (Assessment; model numerics; sufficient levels found, not barriers, not audited):
        * the product linear sieve with switching (HCKILL Thm E route) needs ≈ 0.996 under ordinary EH with BV
          switching, and ≈ 0.976 only with an additional GEH-type switched input;
        * the vector sieve with switching needs ≈ 1.22, which is above 1 and unusable;
-       * known levels fall far short: BV 1/2; Lichtman 66/107, for fixed residues only;
+       * known levels fall far short: BV 1/2; Lichtman 66/107, for fixed residues and well-factorable weights only;
        * suggested routes (not a necessity theorem): EH-strength level in CRT-varying classes, or Type II input for the
          det-15 shell.
      * Lemmas A1, A2 (PROVED):
@@ -1129,8 +1144,9 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
      * HCO (PROVED):
        * Lemma 2.1: if (k/p) = −1, then p + 4k has an odd number (with multiplicity) of prime factors ℓ with
          (ℓ/p) = −1.
-       * Prop 2.2: every certificate is one congruence class, of modulus μ = min(d, ce) on the U-line and min(d, e) on
-         the T-line.
+       * Prop 2.2: each certificate lies in a fixed-divisor or fixed-cofactor congruence family, with μ = min(d, ce) on
+         U and μ = min(d, e) on T, e = N/d. For odd c, also impose p′ ≡ −c (mod 8); the full condition is then a class
+         modulo lcm(μ, 8), not μ alone.
        * Cor 2.3 (given Linnik): infinitely many p ≡ 1 (8) have no certificate with μ ≤ log p/(1.02L₀) − O(1). This is
          logarithmic only; polylogarithmic moduli are not excluded.
      * EVIDENCE (HCO E4.1): for the 126 primes p < 10¹² with HC ≥ 44, the least modulus at c = HC(p) lies in
@@ -1138,14 +1154,15 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
        * Over the window c, μ ≤ ⌊log²p⌋, however, 101 of the 126 have a small-modulus certificate (cross-model
          review).
        * It is open whether a proof needs a polylog-modulus covering or control of mid-size divisors.
-       * E4.3: P(HC > 4) falls from 0.087 on [0, 10⁸) to 0.056 on [9.52·10¹¹, 10¹²), and the maximum stays flat at 64.
+       * E4.3 (EVIDENCE): among primes p ≡ 1 (8), P(HC > 4) is 0.087 on [0, 10⁸) and 0.056 on [9.52·10¹¹, 10¹²). The
+         cumulative maximum stays 64; the maximum above 10⁸ is 60, and the final window's maximum is 47.
      * HCF Theorem 3.1 (PROVED; elementary plus Dirichlet):
-       * Inputs: a finite set S of primes ≥ 11, an integer 1 ≤ R < (min S − 1)/3, and arbitrary C, Y.
+       * Inputs: a nonempty finite set S of primes ≥ 11, an integer 1 ≤ R < (min S − 1)/3, and arbitrary C ≥ 3, Y ≥ 2.
        * Conclusion: infinitely many primes p ≡ 1 (8) with p ≡ R (mod ℓ^{J_ℓ}) for ℓ ∈ S, and p ≡ 1 (mod ℓ′^{a(ℓ′)})
          for the other primes ℓ′ ≤ Y, have no certificate (c, d) with c ≤ C and d supported on S ∪ {primes ≤ Y}.
        * Cor 3.2: no finite family of certificate congruences covers {p ≡ 1 (840), p ≡ R (ℓ)}, for prime ℓ ≥ 11 and a
          non-residue R < (ℓ − 1)/3. Such a class contains no squares. Cor 3.3 is the profinite form.
-       * Prop 3.4 (rel. Linnik): for every A, infinitely many p ≡ 1 (8) are non-residues mod every prime ℓ ≡ ±3 (8) in
+       * Prop 3.4 (rel. Linnik): for every A ≥ 0, infinitely many p ≡ 1 (8) are non-residues mod every prime ℓ ≡ ±3 (8) in
          [11, κ′_A log p], and all their certificates with c ≤ κ_A(log p)^A have a prime factor > κ′_A log p.
        * Consequence: HC(p) ≤ F(ℓ_p), with ℓ_p the least non-residue prime, cannot be proved by a finite certificate
          family for each value of ℓ_p. Already ℓ_p = 11, p ≡ 2 (11) is uncoverable. So the GRH route cannot be
@@ -1153,8 +1170,10 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
        * HC ≤ F(ℓ_p) itself is not refuted. Growing moduli and unbounded certificate families are not excluded.
        * For covering-type arguments, the odd-square test is necessary but not sufficient (Assessment).
      * HCF (PROVED):
-       * L2.1: for c ∈ {7, 15}, the reciprocity constraint is also sufficient.
-       * P1.2: when the cofactor is prime, success at c is a congruence condition on the known part.
+       * L2.1: for prime p ≡ 1 (8), p > 15, and c ∈ {7, 15}, c is a word coordinate iff the odd part of p + c or
+         cp + 1 has a prime factor q with (q/c) = −1.
+       * P1.2: for c ∈ 𝒞_p, 3 ≤ c < p, and N = sq with q prime and q ∤ s: on U, success is equivalent to a divisor of s
+         being −1 or −p modulo c; on T, it is equivalent to a divisor of s being −1 modulo c.
        * The large-CRT samples for T3.1 are EVIDENCE (BPSW probable primes).
 3. **Beyond the BM layer.** Control the class of the level divisor inside the coset {χ_{−t} = −1} at a single n, beyond the
    BM character: the coset has φ(t)/2 classes, exactly one (−1) good, and still contains the other genus characters, which
@@ -1249,7 +1268,9 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    * **Certified recalibration (`Z55_CROSSF.md` §3; CERTIFIED counts).**
      * Window: the z53 engine's standard window, the boundary approached by strict Thm U windows:
        U₀ = round(p^{1/12} − ½), U₁ = ⌊p^{1/3}/2⌋, Y = ⌊p^{1/3}⌋, X = ⌊p^{2/3}/4⌋ (decreased until 8U₁X ≤ p).
-     * Exhaustive ranges (two scanners agree on the 10⁸ range; cross-model rerun byte-identical): primes p ≡ 1 (4)
+     * Exhaustive ranges (two scanners agree on the 10⁸ range; the cross-review reran that range byte-identically,
+       independently recounted 512 sampled primes at 10⁸ and 10¹⁰, and audited the remaining counts from saved data; it
+       did not rerun the 10¹⁵ zeros): primes p ≡ 1 (4)
        with hits(p) = R_𝔉(p)/2 = 0:
 
        | range | zero primes | fraction |
@@ -1277,19 +1298,22 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
        * (H⁻_𝔉) of `Z53_GENUSX.md`, X_𝔉 ≥ −(1 − ε)M_𝔉, is false at every zero with M_𝔉 > 0. The cross-model review
          certified M_𝔉 > 0 at all 192 469 recorded exhaustive-scan zeros.
        * Eventual positivity with unspecified p₀ is not refuted.
-     * EVIDENCE: hits(p) is approximately Poisson, with resolved overdispersion (var/mean 1.03–1.07). mean/log²p
-       rises from 0.0025 to 0.0034, towards 1/(3π⁴) = 0.003422, which is half of Thm U's lower-bound coefficient and
-       not a proved mean.
+     * EVIDENCE: the five exhaustive scans have approximately Poisson-shaped hit counts with resolved overdispersion,
+       var/mean ≈ 1.03–1.07. The smaller samples at 10¹³–10¹⁶ have ratios ≈ 1.06, 1.02, 1.08, 0.83. Across the nine
+       datasets mean/log²p ranges approximately from 0.00249 to 0.00335, non-monotonically. The model constant
+       1/(3π⁴) ≈ 0.003422 is half of Thm U's lower-bound coefficient, not a proved mean.
      * Assessment (model only): model hits ~ Poisson(c log²p) with c = 1/(3π⁴).
        * It predicts ≈ 5.6·10³⁰ zero primes, concentrated near 10⁶³.
        * The expected tail count is 1 near p ≈ 10¹²⁴. This is an expected-count crossover for this standard-window
          model with its assumed c, not a certified last exception; no theorem forces a proof's p₀.
-       * Under the model, a proof of CROSS through this family alone has p₀ ≳ 10¹²⁴ and is not numerically checkable
-         below it.
-       * Checkable content for "all large p" would need a larger main-term constant (≳ 0.1·log²p) or another positivity
-         mechanism.
+       * Assessment: this model has an expected-tail-count crossover near 10¹²⁴, not a proved lower bound on a proof's
+         threshold or a last-exception prediction with a specified confidence. Exhaustive testing to that scale is
+         infeasible; an effective proof's explicit constants could still be checked. Enlarging the family's mean or
+         finding another positivity mechanism is a suggested route, not a necessity theorem.
    * **Exact forms (`Z55_CROSSF.md` Lemmas 1.1–1.3, `Z55_CROSSO.md` Lemma 1.1; PROVED).**
-     * A pair is a hit iff p = 8uwC − u − 2w, iff 4Cp + 1 = (4uC − 1)(8wC − 1).
+     * For (u, w) ∈ 𝔉(p), a hit is equivalent to the existence of an integer C ≥ 1 with p = 8uwC − u − 2w,
+       equivalently 4Cp + 1 = (4uC − 1)(8wC − 1). All recovered variables retain the family's integrality, window,
+       parity, squarefreeness and coprimality restrictions.
      * Both factors are non-residues mod p, so R(m²) = 0 at odd squares.
      * Each one-variable section (fixing u, w, C or d) is a single-integer divisor-in-progression event.
      * Assessment (non-bankable): the averages found reach only density level or the principal character.
@@ -1299,23 +1323,33 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
      * Theorems A, A′: almost all, CONDITIONAL on HV resp. HW. Both are open; the case analysis for HW is only
        sketched.
    * **Cross-u cancellation (`Z55_CROSSU.md`; inconclusive on (CU), narrowed only by reformulations).**
-     * (CU): R_𝔉 − G_𝔉 = o(log²p). CONJECTURE, not claimed.
-     * CONDITIONAL: (CU) together with Thm U and (X-w), on one common admissible window, gives (★) for all large p.
+     * Target (CU) (CONJECTURE, not proved): R_𝔉(p) − G_𝔉(p) = o(log²p) as p → ∞ through primes p ≡ 1 (24), on a window
+       with M_𝔉 ≫ log²p.
+     * CONDITIONAL: (CU), Z53_GENUSLVAL Theorem U and (X-w), on one common admissible window, give (★) for all
+       sufficiently large primes in that progression.
+     * Standing hypotheses for these reformulations: U₀ ≥ 1, Y ≥ U₁, 8U₁X ≤ p, and the stated family restrictions.
+       Here 𝔖₃ is the shell restricted to d ≡ 3 (4).
      * Lemma A (PROVED; class index): on a shell point with level d put j := (u·(u⁻¹ mod d) − 1)/d ∈ [1, u).
        * Then j ≡ −d⁻¹ (mod u), and at primes j = ⌊u·(d⁻¹ mod p)/p⌋.
-       * A shell point is a hit iff j = 1, and lies in the genus iff j ∈ □_u.
+       * On 𝔖₃, an exact hit is equivalent to j = 1, and genus membership is equivalent to j ∈ □_u.
        * On 𝔖₃, (d/p) = −(j/u).
-     * Lemma B (PROVED): hits are exactly the length-3 ceiling Euclidean expansions of (p, d).
-     * Lemma C (PROVED): the twisted layers N_c count the representations
-       1/(cp) = 1/(2wtu) + 1/(2wtp) + 1/(ctup), and G is their square-twisted average.
+     * Lemma B (PROVED): on 𝔖₃, exact hits are precisely the shell points whose ceiling Euclidean expansion of (p, d)
+       has length 3.
+     * Lemma C (PROVED): for c > 0, N_c is twice the number of representations
+       1/(cp) = 1/(2wtu) + 1/(2wtp) + 1/(ctup), with positive integral t and (u, w) ∈ 𝔖₃; summands with gcd(c, u) > 1
+       are zero. Fibrewise, G|_u = q_u⁻¹ Σ_{c∈□_u} N_c|_u, where q_u = |□_u|. This is not an average over one fixed
+       global set of c.
      * §4.1 (PROVED, scoped): q_u = |□_u| ≥ (2/√15)√u for odd squarefree u.
        * So on moving windows (U₀ → ∞) and for each fixed K, a hit cannot be cancelled exactly by K genus non-hits for
          large p.
        * Large groups, approximate cancellation and positivity maps are not excluded.
-     * Switching acts on the index by j ↦ 2p̄/j. It can reverse a hit's sign, but no cancellation follows.
+     * On the switchable domain where d is odd squarefree in (Y, X] and gcd(d, up) = 1, swapping w and d gives
+       j′ ≡ 2p⁻¹j⁻¹ (mod u); for a switch within 𝔖₃, both d and w must be 3 (mod 4). It can reverse a hit's sign, but no cancellation follows.
      * EVIDENCE (10⁹–10¹⁴, 1 000 primes plus controls):
        * the hit class is not distinguished among 18 index classes;
-       * firing-set pair statistics are within bootstrap uncertainty of a genus-weighted sample;
+       * for 300 primes at 10¹²–10¹³, firing-set pair differences have bootstrap intervals containing zero against a
+         descriptive genus-weighted benchmark, not the exact conditional law; a weak excess of close-u pairs is not
+         excluded;
        * these tests cannot support or falsify (CU).
      * Assessment: no cross-u mechanism was found. B2 in tied form survives.
 4. **CLOSED (z53).** `Z53_GENUSLVAL.md` Thm U (PROVED, unconditional, effective; cross-model reviewed CORRECT): M_gen(p) ≥
