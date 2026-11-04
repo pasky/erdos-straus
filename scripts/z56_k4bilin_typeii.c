@@ -65,19 +65,20 @@ int main(int argc,char**argv){
   /* (B) quantities */
   double Ac = 0; for(long n=1;n<=X;n++) if(a[n]) Ac += (double)a[n]*(1+lam[n]);
   printf("# B(N) = sum_m |sum_{N<n<=2N, mn<=X} mu(mn) w_mn| / sum_n w_n ;  T(N) = same with |.| inside\n");
-  printf("# logN/logX      N   B_a        T_a       R_a(random-sign ref)  B_b        T_b       B_ctrl     T_ctrl\n");
-  for(double t=0.20; t<=0.501; t+=0.05){
-    long N = (long)pow((double)X,t);
-    double Ba=0,Ta=0,Bb=0,Tb=0,Bc=0,Tc=0,Ra=0;
+  double Ast=0; for(long n=1;n<=X;n++) if(bS[n]) Ast += 16.0*(double)(1L<<wex[n]);
+  printf("# logN/logX      N   B_a        T_a       R_a(random-sign ref)  B_b        T_b       B_ctrl     T_ctrl     B_a*       T_a*\n");
+  for(int it=0; it<=6; it++){ double t = 0.20 + 0.05*it;
+    long N = (it==6)? (long)floor(sqrt((double)X)) : (long)pow((double)X,t);
+    double Ba=0,Ta=0,Bb=0,Tb=0,Bc=0,Tc=0,Ra=0,Bs=0,Ts=0;
     for(long m=1; m*(N+1)<=X; m++){
       if(m%2==0||m%3==0||m%5==0) continue;
       long n2 = 2*N; if(m*n2>X) n2 = X/m;
-      double sa=0,sb=0,sc=0,qa=0;
+      double sa=0,sb=0,sc=0,qa=0,ss=0;
       for(long n=N+1;n<=n2;n++){ long k=m*n; if(!a[k]) continue; int mm=mu[k]; if(!mm) continue;
-        sa += mm*(double)a[k]; Ta += a[k]; qa += (double)a[k]*a[k]; if(bS[k]){ sb+=mm; Tb+=1; } double c=(double)a[k]*(1+lam[k]); sc += mm*c; Tc += c; }
-      Ba+=fabs(sa); Bb+=fabs(sb); Bc+=fabs(sc); Ra += sqrt(2.0/M_PI*qa);
+        sa += mm*(double)a[k]; Ta += a[k]; qa += (double)a[k]*a[k]; if(bS[k]){ sb+=mm; Tb+=1; double v=16.0*(double)(1L<<wex[k]); ss+=mm*v; Ts+=v; } double c=(double)a[k]*(1+lam[k]); sc += mm*c; Tc += c; }
+      Ba+=fabs(sa); Bb+=fabs(sb); Bc+=fabs(sc); Bs+=fabs(ss); Ra += sqrt(2.0/M_PI*qa);
     }
-    printf("%6.2f %10ld  %.3e  %.3e  %.3e  %.3e  %.3e  %.3e  %.3e\n", t, N, Ba/A, Ta/A, Ra/A, Bb/B, Tb/B, Bc/Ac, Tc/Ac);
+    printf("%6.2f %10ld  %.3e  %.3e  %.3e  %.3e  %.3e  %.3e  %.3e  %.3e  %.3e\n", t, N, Ba/A, Ta/A, Ra/A, Bb/B, Tb/B, Bc/Ac, Tc/Ac, Bs/Ast, Ts/Ast);
   }
   return 0;
 }
