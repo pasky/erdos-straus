@@ -8,7 +8,8 @@ Brief: `z52bbriefs/z53_depth.md` (rules), kickoff `z52bbriefs/z56_lanes.md` §4 
 (Lemma S(a), Thm B, Prop C, Prop D), `Z54_BILINJAC.md` (Thm R, §5), `Z55_TDO.md` §6, `Z55_TDF.md` §3. Scripts
 `scripts/z56_central_*`, data `data/z56/central/` (< 1 MB). Literature: `data/z56/central/LIT_CHECK.md` (research
 subagent, every statement quoted from the source with page/number; the items this memo relies on were re-read by the
-author in the fetched PDFs: dlB–T Cor. 1.2, Saito et al. Lemma 19, Trudgian–Yang p. 2, Ivić–Zhai Thm 1 and p. 6).
+author in the fetched PDFs: dlB–T Cor. 1.2, Saito et al. Lemma 19, Trudgian–Yang p. 2 and Lemma 1.1, Ivić–Zhai Thm 1
+and p. 6).
 Checkpoint 1: commit 0cede3da.
 
 ## 0. Summary and verdict
@@ -166,12 +167,14 @@ c(δ) > 0; hence SID ⟺ a power saving for the band (x^{1/2−δ}, x^{1/2+δ}],
 * Under EPC, per-frequency methods control every dyadic slice m ≍ M with M ≤ x^{1/2−δ}; the slice error is ≪ M^{1/2}x^ε.
   At the central band they give only the benchmark ≍ U (TDCAL Prop C). So, modulo EPC, the *whole* difficulty of SID is
   concentrated in the central band, and the central band is where per-frequency technology is blind.
-* Band-uniformity is the price of the reduction. A proof of CNT at A ≍ √x would plausibly extend to A = x^{1/2±δ} for
-  small δ: moving off the self-dual point only makes the dual sums longer, which per-frequency methods exploit. This is
-  Assessment, not a theorem; fixed-band CNT might in principle be easier.
+* Uniformity is the price of the reduction. Heuristically, a method proving CNT at A ≍ √x for all real x would have no
+  reason to fail at A = x^{1/2±δ} for small δ (moving off the self-dual point only lengthens the dual sums, which
+  per-frequency methods exploit). This is Assessment, not a theorem: TDCAL's CNT (primes, tied parameters, fixed band)
+  might in principle be easier than CNT_unif.
 * Unconditionally the central band is *not* the only obstacle: slices with x^{0.2795} ≲ M ≤ x^{1/2−δ} are not reached by
   the exponent pairs searched (Cor. L3). Under EPC they are.
-* Proving CNT_unif would therefore prove "EPC ⟹ SID". No argument for that implication is known (Assessment): EPC gives
+* Proving CNT_unif would therefore prove "EPC ⟹ SID". No argument for that implication is given in the checked sources
+  (Assessment): EPC gives
   Δ(x) ≪ x^{1/4+ε}, which falls short of SID by the Ω-barrier, and EPC applied per frequency stops at the benchmark.
 
 ## 4. Theorem U: CNT follows from twisted short-interval divisor asymptotics
