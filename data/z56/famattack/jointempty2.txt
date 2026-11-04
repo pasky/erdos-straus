@@ -1,0 +1,14 @@
+/tmp/z56fa_1e8.txt u-windows: R^2 by covariates [0.404 0.082 0.049 0.075 0.115]; residual corr (01)-0.078 (02)-0.032 (03)-0.032 (04)-0.047 (12)+0.049 (13)+0.102 (14)+0.102 (23)+0.176 (24)+0.225 (34)+0.336; resid off-diag cov share +0.029; se 0.0030
+/tmp/z56fa_1e8.txt C-windows: R^2 by covariates [0.338 0.099 0.129 0.336 0.648]; residual corr (01)+0.037 (02)+0.059 (03)+0.011 (04)-0.022 (12)+0.409 (13)+0.210 (14)-0.011 (23)+0.203 (24)-0.006 (34)-0.157; resid off-diag cov share +0.264; se 0.0030
+/tmp/z56fa_1e8.txt total unordered: R^2 by covariates 0.366; corr(total, logL(chi_p)) -0.189, corr(total, logL(chi_-4p)) +0.372
+/tmp/z56fa_1e9.txt u-windows: R^2 by covariates [0.371 0.072 0.052 0.073 0.11 ]; residual corr (01)-0.064 (02)-0.022 (03)-0.023 (04)-0.030 (12)+0.065 (13)+0.107 (14)+0.107 (23)+0.213 (24)+0.262 (34)+0.396; resid off-diag cov share +0.061; se 0.0046
+/tmp/z56fa_1e9.txt C-windows: R^2 by covariates [0.308 0.089 0.109 0.273 0.638]; residual corr (01)+0.057 (02)+0.087 (03)+0.036 (04)-0.035 (12)+0.449 (13)+0.274 (14)-0.010 (23)+0.272 (24)-0.007 (34)-0.125; resid off-diag cov share +0.308; se 0.0046
+/tmp/z56fa_1e9.txt total unordered: R^2 by covariates 0.326; corr(total, logL(chi_p)) -0.172, corr(total, logL(chi_-4p)) +0.355
+/tmp/z56fa_1e8.txt strata p mod 840 x 1x1 L-bins (96 strata, median size 1133): k=2: 1.009  k=4: 1.121  k=6: 1.597  k=8: 3.213
+/tmp/z56fa_1e8.txt strata p mod 120 x 3x3 L-bins (76 strata, median size 397): k=2: 1.013  k=4: 1.096  k=6: 1.436  k=8: 3.977
+/tmp/z56fa_1e8.txt strata p mod 840 x 3x3 L-bins (377 strata, median size 122): k=2: 1.016  k=4: 1.147  k=6: 1.486  k=8: 3.149
+/tmp/z56fa_1e8.txt strata p mod 24 x 5x5 L-bins (60 strata, median size 767): k=2: 1.016  k=4: 1.169  k=6: 1.683  k=8: 4.066
+/tmp/z56fa_1e9.txt strata p mod 840 x 1x1 L-bins (96 strata, median size 502): k=2: 1.008  k=4: 1.094  k=6: 1.359  k=8: 2.077
+/tmp/z56fa_1e9.txt strata p mod 120 x 3x3 L-bins (77 strata, median size 178): k=2: 1.011  k=4: 1.147  k=6: 1.353  k=8: 3.069
+/tmp/z56fa_1e9.txt strata p mod 840 x 3x3 L-bins (344 strata, median size 59): k=2: 1.007  k=4: 1.061  k=6: 1.146  k=8: 1.249
+/tmp/z56fa_1e9.txt strata p mod 24 x 5x5 L-bins (58 strata, median size 372): k=2: 1.010  k=4: 1.108  k=6: 1.448  k=8: 2.366

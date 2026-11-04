@@ -253,7 +253,11 @@ number of primes with all k cells empty, divided by the within-p-mod-840 conditi
 | hold-out | 1.02 | 1.06 | 1.10 | 1.39 | 1.74 | 2.65 | 3.42 |
 
 (subsets overlap, so the pooled counts are not independent; descriptive only.) The baseline removes only p mod 840, so
-global drivers (L-values, near-squareness) are part of what this measures; that is the point — they act on all windows.
+global drivers (L-values, near-squareness) are part of what this measures. With richer strata (`_jointempty2.py`,
+`jointempty2.txt`: p mod 120 or 24 × 3×3 or 5×5 quantile bins of the two L-proxies, median stratum size 178–767) the
+pooled ratios stay above 1: k = 6: 1.35–1.68, k = 8: 2.1–4.1 (10⁸ and 10⁹). Only with very small strata (p mod 840 × 3×3,
+median 59 at 10⁹; the per-stratum products are then fitted to the same few primes) does it drop to 1.15 / 1.25. Cells
+in the same u-row share their integers p + u (Lemma L(a)), so part of this is the shared-integer link of Lemma L(b).
 
 **Registered outcome.** The rule (checkpoint 1, commit d99773fc) was: a within-stratum pooled correlation below −4 s.e.
 in any pair is a lead; all pairs ≥ −2 s.e. kills "compensation through disjointness". The kill condition is **not met**;

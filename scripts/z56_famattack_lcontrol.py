@@ -17,7 +17,8 @@ def logL(p, Y, twist4=False):
         chi2 = np.where(p % 8 == 1, 1.0, -1.0)
         s -= np.log1p(-chi2 / 2)
     return s
-for fn in sys.argv[1:]:
+def main():
+  for fn in sys.argv[1:]:
     p, R, g = load(fn); N = len(p); se = 1/np.sqrt(N)
     cols = [np.ones(N)]
     for l in (8, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31):
@@ -36,3 +37,6 @@ for fn in sys.argv[1:]:
             print(f"{fn} {name}: R^2 by covariates {np.round(r2,3)}; residual corr " + " ".join(f"({i}{j}){C[i,j]:+.3f}" for i in range(5) for j in range(i+1,5)) + f"; resid off-diag cov share {off/cov.sum():+.3f}; se {se:.4f}")
         else:
             print(f"{fn} total unordered: R^2 by covariates {r2[0]:.3f}; corr(total, logL(chi_p)) {np.corrcoef(X[:,0], L1)[0,1]:+.3f}, corr(total, logL(chi_-4p)) {np.corrcoef(X[:,0], L2)[0,1]:+.3f}")
+
+if __name__ == '__main__':
+    main()
