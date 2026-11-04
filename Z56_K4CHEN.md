@@ -10,7 +10,7 @@ n ≡ 1 (4)); 𝒜 = {p ≤ x prime, p ≡ 1 (8)}, X = li(x)/4; W(z) = ∏_{q∈
 𝔊 = (9/8)∏_{q∈𝒬,q≥7} q²(q − 3)/(q − 1)³ (P415 Step 2). z₁ = x^{θ₁}, z₂ = x^ζ. **Unit 𝒰 := 𝔊·X·W(z₁)·W(z₂) ≍
 x/(log x)²**; all "margins" below are in units of 𝒰.
 
-## 0. Verdict: **strengthened at model level + narrowed** — new mechanism; C(6) at BV level, robust in the model
+## 0. Verdict: **strengthened at model level + narrowed** — new mechanism; C(6) in the BV-level model, robust there
 
 Target family **C(r)** (r even): ≫ x/(log x)² primes p ≤ x, p ≡ 1 (8), with p + 4 ∈ S and Ω_𝒬(4p + 1) ≤ r.
 C(0) is a quantitative strengthening of P(4,15), hence implies K(4) (HCKILL Lemma 1.1). P415 Theorem U is C(r₀) for an
@@ -32,11 +32,12 @@ unspecified r₀; its model gave r = 10.
    | C(10) | | | Richert, r < 10.44 |
    So the model bound improves **10 → 6, with margin surviving any inflation of the switched constants up to 2.35**,
    and **→ 4 only on a knife-edge** (needs the switched constants within ≈ 10 % of the model).
-3. **Conditional theorem (§2.3).** **Theorem K6:** C(6) holds, CONDITIONAL on **Hypothesis MT** (remainder control
-   by BV-type theorems for the structured switched sets, and upper bounds whose main terms are at most 2.35 × the
-   model values) and otherwise relative to BV and Nath–Xie's vector sieve. The numerical inequality is a
-   deterministic floating-point computation with grid-refined masses and an explicit tail bound (not
-   interval-certified). Not an unconditional explicit constant: MT is the "constant audit" P415 flagged as missing,
+3. **Conditional numerical witness (§2.3).** **Proposition K6:** C(6) in the BV-level model, CONDITIONAL on
+   **Hypothesis MT** (remainder control by BV-type theorems for the structured switched sets, *and* local-factor /
+   main-term evaluation giving upper bounds at most 2.35 × the model values) and otherwise relative to BV and
+   Nath–Xie's vector sieve. The numerical inequality rests on the cross-reviewer's positive log-box enclosure of the
+   mass integral (a genuine integral enclosure in exact real arithmetic, evaluated in ordinary floating point; not
+   interval-certified), lower margin +0.0355. Not an unconditional explicit constant: MT is the "constant audit" P415 flagged as missing,
    *plus* the convolution remainder input.
 4. **Additive weights (§1, EVIDENCE).** The tested finite LPs (piecewise-constant w ≥ 0, conservative covering
    constraints, finite parameter grids) return Richert's linear weight and, under P415's T₁ convention (cap a ≤ θ₁),
@@ -54,7 +55,7 @@ unspecified r₀; its model gave r = 10.
 Chen's switching on the *second* shift that P415 and Nath–Xie did not make — lowers the 𝒬-anatomy deficit of
 4p + 1 from ≤ 10 to ≤ 6 with a margin that survives a 2.35-fold inflation of every switched constant, and to ≤ 4 only
 on a knife-edge, at BV level. The Chen analogue C(2) needs level ≈ 0.65–0.68 in the tested implementations, and K(4)
-itself is untouched (≈ 0.996). PROVED: Lemma D and the normalisation lemma; Theorem K6 is CONDITIONAL on MT; all
+itself is untouched (≈ 0.996). PROVED: Lemma D and the normalisation lemma; Proposition K6 is CONDITIONAL on MT; all
 numbers are model-level. No step toward ES.
 
 ## 0.1 Statements attacked; why not already closed
@@ -74,7 +75,9 @@ numbers are model-level. No step toward ES.
 w ≥ 0 piecewise constant on cells of width h, zero from α_max = 0.48 on. Cost (P415 §1.4 model):
 ½∫ w(α)U(1/2 − α)dα/α, U(λ) = min_{t₁θ₁+t₂ζ=λ} F(t₁)F(t₂). Constraint (parity): every multiset of r + 2 numbers
 α_i ≥ ζ (left cell endpoints, conservative) with Σα_i ≤ 1 has Σw(α_i) ≥ 1 — then W > 0 forces Ω_𝒬(N₂) ≤ r for
-𝒬-squarefree N₂ (repeated 𝒬-primes ≥ z₂ are O(x^{1−ζ}) exceptions). Solved by cutting planes with a knapsack
+𝒬-squarefree N₂ (repeated 𝒬-primes ≥ z₂ are O(x^{1−ζ}) exceptions). (At finite x the true constraint is
+Σα_i ≤ log(4x + 1)/log x = 1 + O(1/log x); the LP uses the asymptotic boundary Σα_i ≤ 1, a relaxation justified
+only in the x → ∞ model, e.g. by running it with the boundary 1 + η for fixed small η — not done here.) Solved by cutting planes with a knapsack
 separation oracle (DP; checked against exhaustive enumeration on 200 random small instances by the internal review);
 the final w is re-checked by the oracle and rescaled (homogeneous constraints), so every reported cost is feasible
 (numerical LP tolerances, not a formal certificate).
@@ -123,7 +126,8 @@ analytic bound (ii) of §2.2 needs τ < θ − ε (θ the level).
 
 Fix ε > 0 small, s₁, s₂ ≥ 1 with θ₁s₁ + ζs₂ = 1/2 − ε, and a + b = 1/2 − ε for each switched sum.
 
-(i) **Main term (PROVED relative to BV and Nath–Xie Prop. 3.10; = P415 Step 2):**
+(i) **Main term (PROVED relative to BV and Nath–Xie Prop. 3.10; = P415 Step 2; the remainder needed there is
+τ(d₁d₂)⁴-weighted up to D^{1+ε′}, absorbed by the fixed slack ε):**
 S(z₁, z₂) ≥ (fvec(s₁, s₂) − o(1))𝒰, fvec = f(s₁)F(s₂) + F(s₁)f(s₂) − F(s₁)F(s₂).
 
 (ii) **Direct term (part of Hypothesis MT):** for each Q the count is primes p ≡ −4̄ (mod Q) with N₁ sifted by
@@ -166,18 +170,26 @@ product constraints need the usual dyadic/Perron separation); (b) *main-term eva
 asymptotics uniform in the sieve moduli, and local-factor averaging. **pen = 1 is the locally consistent candidate,
 not established here.** P415's pen = 2.35 is Nath–Xie's *majorised* constant for their problem, not an evaluation.
 
-### 2.3 Conditional theorem
+### 2.3 Conditional numerical witness
 
-**Theorem K6 (CONDITIONAL on Hypothesis MT; otherwise relative to BV and Nath–Xie Prop. 3.10).** C(6) holds:
-≫ x/(log x)² primes p ≤ x, p ≡ 1 (8), have p + 4 ∈ S and Ω_𝒬(4p + 1) ≤ 6.
+**Proposition K6 (C(6) in the BV-level model; CONDITIONAL on Hypothesis MT; otherwise relative to BV and Nath–Xie
+Prop. 3.10).** If MT holds, then ≫ x/(log x)² primes p ≤ x, p ≡ 1 (8), have p + 4 ∈ S and Ω_𝒬(4p + 1) ≤ 6.
+No unconditional explicit Ω_𝒬 bound (6, 8 or 10) is claimed.
 *Proof.* Lemma D with τ = 0 (so T^dir = 0, pure switching), ε = 10⁻³, θ₁ = 0.45, ζ = 0.008, s₁ = 1.058539,
 s₂ = 2.832187 (θ₁s₁ + ζs₂ = 0.499), a + b = 0.499. By (i) S ≥ (0.33513 − o(1))𝒰; by MT with pen = 2.35,
 T₁ ≤ (0.22094 + o(1))𝒰 and T^sw(0) ≤ (2.35·14.7411·F(1)√0.45·M + o(1))𝒰 = (0.07700 + o(1))𝒰, where
 M = Σ_{j≥8 even} d_j(1) at ζ = 0.008 is taken as the largest of the grid values 2.2002·10⁻³ (n = 2000), 2.1974·10⁻³
 (4000), 2.1959·10⁻³ (8000), with the j ≥ 27 tail bounded by Σ_j F(1)ζ^{−1/2}(log(1/ζ)/2)^{j−1}/j! = 1.5·10⁻¹⁷ (included).
-Margin 0.33513 − 0.22094 − 0.07700 = +0.0372 > 0 (`z56_k4chen_k6.py`, `data/z56/k4chen/k6_witness.txt`;
-floating point, sieve functions from the P415 DDE solver with step 10⁻⁴, whose errors are ≲ 10⁻⁷ per the internal
-review's independent quadrature; not interval-certified). As 𝒰 ≫ x/(log x)², the count is ≫ x/(log x)². ∎
+Margin 0.33513 − 0.22094 − 0.07700 = +0.0372 (`z56_k4chen_k6.py`, `data/z56/k4chen/k6_witness.txt`). *Taking
+the largest of three mesh values is not an error bound* (cross-review fix 1); the inequality is instead secured by
+the cross-reviewer's independent script `scripts/z56_xrev_k4chen_check.py` (imports none of the lane's scripts): F
+by adaptive quadrature from the explicit f on [1, 3]; the mass integral bounded above and below by positive log-bin
+convolutions with extrema of the analytically integrated, unimodal last-factor kernel on each box. With the fixed
+admissible split a = 0.470, b = 0.029: main 0.335134490646, T₁ = 0.222697990938, mass bracket
+[0.002189856962, 0.002198489084] (n = 8000; [0.002176670032, 0.002211191579] at n = 2000), omitted-j tail
+1.514·10⁻¹⁷; positivity needs M < 0.003212967154, and the **lower margin is +0.035501** (+0.035057 at n = 2000).
+These bounds are integral enclosures in exact real arithmetic, implemented in ordinary floating point (not
+interval-certified). As 𝒰 ≫ x/(log x)², the count is ≫ x/(log x)². ∎
 *Not claimed:* C(4) (margins +0.047 MC / +0.0135 deterministic at pen = 1 vanish by pen = 1.2).
 
 ## 3. Masses (the "truth" side of the model)
@@ -192,7 +204,8 @@ Selberg–Delange C_S = [L(1,χ₋₄)·½·P]^{1/2}/Γ(1/2) = (P/8)^{1/2}, P :=
 ∏_{q<z}(1 − q^{−2}) ~ (2e^{−γ}/log z)(π/4)P (Mertens; L(1,χ₋₄) = π/4), so c_W = (πe^{−γ}P/2)^{1/2} and
 (A/2)c_W = ½(e^γ/π)^{1/2}(πe^{−γ}P/2)^{1/2} = (P/8)^{1/2}. Finally (y/4)W(√y)F(2) ~ (y/4)c_W√2(log y)^{−1/2}·2A/√2
 = (A/2)c_W·y(log y)^{−1/2}. ∎
-(Every n ≡ 1 (4) with no 𝒬-prime below √y lies in S by parity; this is the classical extremality of the
+(Every n ≤ y, n ≡ 1 (4), with no 𝒬-prime ≤ √y lies in S by parity — the cutoff must be inclusive: n = 9 = y has
+no 𝒬-prime *below* 3 but is not in S; the asymptotic is unaffected; this is the classical extremality of the
 parity-restricted integer sequence for F — not a statement about arbitrary half-dimensional sequences. P415's check
 B(θ) = (F(1)/4)√θ·C(θ) is the two-factor version.)
 
@@ -306,15 +319,18 @@ values > 1/2 are hypotheticals. (66/107 would not reach C(2) on the tested grids
 > 4p + 1 as the variable); their Buchstab mass is small (factorial suppression). In the P415 model the deficit improves
 > from Ω_𝒬(4p + 1) ≤ 10 to **≤ 6** (margin survives a 2.35-fold inflation of all switched constants) and to **≤ 4 on
 > a knife-edge** (pen ≤ 1.1), at BV level; the tested finite LPs over additive weights return Richert's weight and reach
-> ≤ 8 at best marginally. **Theorem K6** (C(6)) is CONDITIONAL on Hypothesis MT (BV-type remainder control for the
-> structured switched sets + switched main terms ≤ 2.35 × model). **Grid witnesses** (not barriers): C(2) (the Chen
+> ≤ 8 at best marginally. **Proposition K6** (C(6) in the BV-level model) is CONDITIONAL on Hypothesis MT (BV-type
+> remainder control for the structured switched sets + local-factor/main-term evaluation ≤ 2.35 × model); no
+> unconditional explicit Ω_𝒬 bound follows. **Grid witnesses** (not barriers): C(2) (the Chen
 > analogue) at level 0.68 (0.65 with switched sums at the same level); no C(0) = K(4)-type witness through level 1 in
 > this scheme — P415's ≈ 0.996 stands. Known beyond-1/2 levels (BFI, Maynard, Lichtman) do not apply as stated
 > (CRT-varying residues, semi-linear weights, composite switched sequences).
 
 ## 8. Reproduction (all under `timeout ≤ 1800`, `ulimit -v 4000000–6000000`, `uv run --with numpy --with scipy`)
 
-* LP: `python scripts/z56_k4chen_lp.py demo` (and the inline runs recorded in `lp_bv.txt`, `lp_nocap.txt`).
+* LP: `python scripts/z56_k4chen_lp.py demo` — **always P415-capped** T₁ (`best_upper`) → `lp_bv.txt`. The uncapped
+  LP margins (`lp_nocap.txt`) come from an inline run: `solve_lp(θ₁, ζ, 0.5, 8, h=0.002)` for the cost,
+  `z56_k4chen_direct.best_main` for the main term and `z56_k4chen_direct.T1of` for the uncapped T₁.
 * Masses: `python scripts/z56_k4chen_mass.py 0.1 0.03 0.008` (§3.2 table and Σ_even check).
 * K6 witness: `python scripts/z56_k4chen_k6.py` → `k6_witness.txt` (≈ 10 min).
 * Pure switching: `python scripts/z56_k4chen_switch.py 8,6,4 0.5 0.5 1.0` (grid) → `switch_bv.txt`;
@@ -323,7 +339,9 @@ values > 1/2 are hypotheticals. (66/107 would not reach C(2) on the tested grids
   (files in `old_quadrature/` are the pre-review version, kept for the record).
 * Ledger: `K4NS=20000 python scripts/z56_k4chen_ledger.py r bv|same θ-list` → `ledger2/`.
 * Weights + switching and MC validation: `python scripts/z56_k4chen_mixed.py validate | r θ λ pen`.
-All scripts default to the uncapped T₁ (`K4CAP=1` for P415's convention); sieve functions from
+Cap conventions per script: `lp.py` always capped; `direct.py`, `k6.py`, `ledger.py` always uncapped;
+`switch.py`, `opt.py`, `mixed.py` uncapped by default, capped with `K4CAP=1`. Independent cross-check:
+`python scripts/z56_xrev_k4chen_check.py` (cross-review). Sieve functions from
 `scripts/z55_p415_sieve.py` (F, f by the delay-differential system, step 10⁻⁴).
 
 ## 9. Review log
@@ -333,13 +351,25 @@ All scripts default to the uncapped T₁ (`K4CAP=1` for P415's convention); siev
   (main-term level), the MC prefactors and order statistic, the LP oracle and the §3.2 table confirmed; required
   runs reproduced. Fixes applied: (1) **mass-grid bug** (non-aligned cutoff cell, exploited by the optimiser) fixed
   in `z56_k4chen_mass.py`; all pure-switching numbers recomputed (old file removed); cache keys include the
-  truncation order; (2) Theorem K6 now rests on a deterministic pure-switching witness with explicit level slack
+  truncation order; (2) K6 (then "Theorem K6") now rests on a deterministic pure-switching witness with explicit level slack
   ε = 10⁻³, grid-refined masses and a tail bound (+0.0372 at pen 2.35), labelled floating point, not
   interval-certified; MC error statements corrected (≈ 1–3 %); (3) Hypothesis MT restated to include the
   convolution remainder input and the uniform main-term evaluation; "pen = 1 standard" → "locally consistent
   candidate"; the SW remark for 1_S corrected; (10) odd d_j declared auxiliary, Poisson language weakened; (12) last
   factor of Unc integrated analytically, tail bound added; (14) "additive weights exhausted" → finite-LP evidence,
   §7 now retains the uncapped C(8) LP witness; (16) ledger values stated as grid witnesses / crossings, "fails at
-  every level ≤ 1" withdrawn, τ-range of Lemma D extended; (17) cap convention unified (all scripts uncapped by
-  default), mixed scan saved; (18) unsupported "Fouvry–Grupp-type" attribution removed, composite switched sequences
+  every level ≤ 1" withdrawn, τ-range of Lemma D extended; (17) cap convention made explicit (see §8 for the per-script behaviour), mixed scan saved; (18) unsupported "Fouvry–Grupp-type" attribution removed, composite switched sequences
   noted; (19) F(1) = 1.5059, C(0) vs P(4,15) wording, percentage ranges corrected; Lemma D diagonal q = q′ noted.
+* **Cross-model review** (`data/z56/xreview/REVIEW_K4CHEN.md`, with the independent script
+  `scripts/z56_xrev_k4chen_check.py`): ACCEPT-WITH-FIXES. Lemma D, E, the main-term constant 𝔊, the normalisation
+  lemma (with an endpoint fix), D(τ)'s normalisation, L = 3√3λ^{−3/2}, the cap removal at main-term level, the
+  masses/tail bound, the LP and ledger witnesses and the §5.2 scope all confirmed; decisive margins reproduced.
+  Fixes applied: (1) K6 relabelled **Proposition K6 — a conditional numerical witness**; its inequality now rests on
+  the reviewer's positive log-box integral enclosure (lower margin +0.0355; floating point, not interval-certified)
+  instead of "largest of three mesh values"; (2) hypothesis firewall: MT explicitly includes remainder control *and*
+  local-factor/main-term evaluation, the title is "C(6) in the BV-level model", no unconditional explicit Ω_𝒬 bound;
+  (3) §8 now documents the actual per-script cap behaviour (`lp.py` always capped, `direct.py` always uncapped) and
+  the inline uncapped-LP recipe; (4) the √y endpoint sentence uses an inclusive cutoff; the LP's finite-x boundary
+  log(4x + 1)/log x is stated as an asymptotic relaxation; when inheriting P415 Theorem U, primes p ≤ w must be
+  discarded before "p prime ⇒ survival below w" is used in its Step 3 (an O(w) loss, negligible); Nath–Xie's
+  τ⁴-weighted remainder noted in §2.2(i).
