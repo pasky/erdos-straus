@@ -32,13 +32,15 @@ C(0) = P(4,15) = K(4) (HCKILL Lemma 1.1). P415 Theorem U = C(r₀) for an unspec
    So the model bound improves **10 → 6 robustly** (any switched-constant inflation up to the P415 illustrative
    multiplier 2.35 is absorbed) and **→ 4 only in the exact pen = 1 model** (needs the switched constants within 10 %).
 3. **Conditional theorem (§2.3).** C(6) holds **CONDITIONAL on Hypothesis MT** (the asymptotic main terms of the
-   upper/switched sieves equal the stated model values up to a factor ≤ 2.35 for switched sums and ≤ 1 + o(1) for
-   unswitched vector upper sieves; this is the standard Chen-type evaluation, not written out here) and otherwise
+   upper/switched sieves are at most 2.35 × the stated model values; pen = 1 + o(1) is the standard Chen-type
+   evaluation, not written out here) and otherwise
    relative only to BV, Nath–Xie's vector sieve and Bombieri–Vinogradov for convolutions. Not a PROVED explicit
    constant: Hypothesis MT is exactly the "constant audit" P415 flagged as missing.
 4. **Additive weights are exhausted (§1, EVIDENCE/Assessment).** An LP over *all* additive weights w ≥ 0 with the
-   parity covering constraint reproduces P415's Richert number (C(10) yes, C(8) no at BV; the optimum *is* a Richert
-   linear weight). Improvements must come from switching/products, as in item 1.
+   parity covering constraint reproduces P415's Richert number under P415's conventions (C(10) yes, C(8) no at BV;
+   the optimum *is* a Richert linear weight). Removing P415's unnecessary cap a ≤ θ₁ in the switched T₁ (§2.2(iii))
+   lets the same LP weights reach C(8) only on a knife-edge (+0.018). Improvements must come from
+   switching/products, as in item 1.
 5. **Level ledger (§5; best sufficient levels found on grids, not barriers).** C(4): BV (thin), ≥ 0.55 comfortable;
    **C(2) — the Chen analogue: level ≈ 0.675 with BV-level switching, ≈ 0.645 if the switched sums also have that
    level** (grid between 0.67/0.68 resp. 0.64/0.65); Lichtman's 66/107 = 0.617 does not suffice even if it were
@@ -75,8 +77,11 @@ and rescaled (constraints are homogeneous), so every reported cost is feasible.
   h = 0.002) over θ₁ ∈ {0.41, 0.42, 0.43} × ζ ∈ {0.006, 0.008, 0.01}; cost converges in h
   (0.3035, 0.3022, 0.3015 at h = 0.004, 0.002, 0.001). `data/z56/k4chen/lp_bv.txt`.
 * The optimal w is linear, w(α) = λ(1 − α/y)₊ with y ≈ 0.34 (r = 8) — Richert's weight.
-Reading: additive weights reproduce P415 and cannot reach C(8) in this model. (Why: covering configurations of r + 1
-tiny factors plus one huge one forces w(ζ) ≥ 1/(r + 1), and the cost ½∫_ζ w/α grows like log(1/ζ)/r.)
+Reading: additive weights reproduce P415 and cannot reach C(8) in this model *with P415's T₁ convention* (cap a ≤ θ₁).
+(Why: covering configurations of r + 1 tiny factors plus one huge one forces w(ζ) ≥ 1/(r + 1), and the cost
+½∫_ζ w/α grows like log(1/ζ)/r.) With the cap removed (§2.2(iii)), the same LP weights give C(8) with margin
++0.018 (θ₁ = 0.40, ζ = 0.008; T₁ = 0.264 instead of 0.314; `data/z56/k4chen/lp_nocap.txt`) — a knife-edge, far
+below the switching margins of §4.
 
 ## 2. The switching scheme
 
@@ -141,7 +146,8 @@ cofactor; BV for convolutions applies after the standard dyadic separation of th
 switched set {p₁p₂p₃}). Main term: |𝒩_k(τ) ∩ [1, 4x+1], n ≡ 5 (32)| is an integer count with a Selberg–Delange
 asymptotic (S-part) and PNT (𝒬-primes), equal to (x/8)·W(z₂)·(mass)·(1 + o(1)) with the masses of §3.
 
-**Hypothesis MT.** (a) (ii) holds with the stated main term; (b) (iii), (iv) hold with some pen ≤ 2.35.
+**Hypothesis MT.** The upper bounds (ii), (iii), (iv) hold with their main terms multiplied by some pen ≤ 2.35
+(the model value is pen = 1).
 *Assessment:* in a Chen-type evaluation the switched main term is exactly (loss) × (the local-density product of the
 same event computed from the n-side); the 2-adic bookkeeping matches (n ≡ 5 (32) ⇔ p = (n − 1)/4 ≡ 1 (8); x/8
 values times 2/log x for the odd number (n − 1)/4 gives X = x/(4 log x)), and at odd ℓ both sides are the CRT
@@ -153,10 +159,10 @@ inconsistencies, P415 §1.4), not an evaluation.
 
 **Theorem K6 (CONDITIONAL on Hypothesis MT; otherwise relative to BV, Nath–Xie Prop. 3.10, BV for convolutions and
 standard upper sieves).** C(6) holds: ≫ x/(log x)² primes p ≤ x, p ≡ 1 (8), have p + 4 ∈ S and Ω_𝒬(4p + 1) ≤ 6.
-*Proof.* Lemma D with θ₁ = 0.44, ζ = 0.006, s₁ = 1.0951, s₂ = 3.025, τ = 0.42 (the pen = 1.5 optimum; at
-pen = 2.35 use θ₁ = 0.46, s₁ = 1.049, s₂ = 2.9125, τ = 0.45) and (i)–(iv): the margin is
-fvec − pen(T₁⁰ + K·Unc) − D ≥ +0.07 (pen = 2.35) > 0 in units 𝒰 (§4; floating-point evaluation with Monte-Carlo
-masses, relative MC error ≲ 1 %, i.e. ≲ 10⁻³ in the margin). Since 𝒰 ≫ x/(log x)², the count is ≫ x/(log x)². ∎
+*Proof.* Lemma D with θ₁ = 0.46, ζ = 0.006, s₁ = 1.049, s₂ = 2.9125, τ = 0.45 (the pen = 2.35 row of §4) and
+(i)–(iv): with all three upper main terms inflated by 2.35, the margin is fvec − 2.35(T₁⁰ + K·Unc + D⁰) =
+0.311 − 0.156 − 0.058 − 2.35·0.026 ≥ +0.035 > 0 in units 𝒰 (§4 table gives +0.070 with D uninflated;
+floating-point evaluation with Monte-Carlo masses, relative MC error ≲ 1 %, i.e. ≲ 10⁻³ in the margin). Since 𝒰 ≫ x/(log x)², the count is ≫ x/(log x)². ∎
 *Not claimed:* C(4) (its margin +0.045 at pen = 1 is below every plausible slack; it disappears at pen = 1.2).
 
 ## 3. Masses (the "truth" side of the model)
