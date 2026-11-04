@@ -1,5 +1,8 @@
 # Lit-C: 2018–2026 parity-breaking / Type II results in thin or multiplicatively constrained settings — what can feed P(4,15)?
 
+> **Errata (z56 K4LIT internal review):** see `Z56_K4LIT.md` §9 — errata there override this report (Dimitrov local-density issue; Banks/Lü–Wang–Wu unrefereed, conditional readings; Sedunova counts are representation-weighted; Siegel-zero ≤0.52 levels are residue-uniform; "no parity barrier" means total-Ω_𝒬 parity only — at BV level there is the hidden-prime barrier, Lemma P).
+
+
 Target: **P(4,15)**: infinitely many primes p ≡ 1 (mod 8) with p+4 ∈ S and 4p+1 ∈ S
 (S = {n : every prime factor ≡ 1 mod 4}). Equivalent: lattice points of the det-15 shell
 (det M = 15, ‖M‖² = 16p+34). Det-1 analogue: p−2, p+2 sums of two squares (Friedlander–Iwaniec hyperbolic PNT).

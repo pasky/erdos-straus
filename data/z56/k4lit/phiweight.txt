@@ -1,0 +1,9 @@
+Y=20000000, E=2000, #e=309
+d=   3: ratio*phi(d) = 0.99997   (ratio*d = 1.49996)
+d=   7: ratio*phi(d) = 0.99994   (ratio*d = 1.16660)
+d=  11: ratio*phi(d) = 0.99992   (ratio*d = 1.09992)
+d=  19: ratio*phi(d) = 0.99992   (ratio*d = 1.05547)
+d=  21: ratio*phi(d) = 0.99989   (ratio*d = 1.74980)
+d=  33: ratio*phi(d) = 0.99987   (ratio*d = 1.64978)
+d=  57: ratio*phi(d) = 0.99986   (ratio*d = 1.58311)
+d= 231: ratio*phi(d) = 0.99972   (ratio*d = 1.92445)

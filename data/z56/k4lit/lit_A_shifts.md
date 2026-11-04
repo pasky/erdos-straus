@@ -1,5 +1,8 @@
 # lit_A_shifts — primes with half-dimensional (sum-of-two-squares / S) conditions on shifts
 
+> **Errata (z56 K4LIT internal review):** see `Z56_K4LIT.md` §9 — errata there override this report (Dimitrov local-density issue; Banks/Lü–Wang–Wu unrefereed, conditional readings; Sedunova counts are representation-weighted; Siegel-zero ≤0.52 levels are residue-uniform; "no parity barrier" means total-Ω_𝒬 parity only — at BV level there is the hidden-prime barrier, Lemma P).
+
+
 Scope: questions (A1)–(A3) for P(4,15) = "∞ many primes p ≡ 1 (mod 8) with p+4 ∈ S and 4p+1 ∈ S".
 Notation: S = {n : every prime factor ≡ 1 mod 4}; SOTS = sum of two squares; for **odd** n,
 "n = ξ²+η² with (ξ,η)=1" ⇔ n ∈ S. All quotes below were read by me from the source file named
