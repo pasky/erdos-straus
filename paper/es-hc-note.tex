@@ -952,5 +952,325 @@ Iwaniec's determinant-$1$ problem (Remark~\ref{rem:shell}) has the same
 conditional status.
 \end{remark}
 
-%%CONTINUE%%
+\section{Dickson-type constructions and their reach}\label{sec:dickson}
+
+\emph{Dickson's conjecture} \cite{Dickson} asserts: if $a_is+b_i$
+($1\le i\le k$) are linear forms with integers $a_i\ge1$, $b_i$, and no
+prime divides $\prod_i(a_is+b_i)$ for every $s$, then for infinitely many
+$s\in\N$ all $a_is+b_i$ are prime.
+
+\begin{proposition}\label{prop:dickson}
+Assume Dickson's conjecture.  For every $X\ge4$ there are infinitely many
+primes $p\equiv1\pmod{24}$ with $\HC(p)>X$.
+\end{proposition}
+
+\begin{proof}
+Let $\cC_X=\{x\in[4,X]:\ 4\mid x\text{ or }x\equiv7\ (8)\}$ and
+$Q=\operatorname{lcm}(24,\ x(x+1):x\in\cC_X)$.  Consider the forms
+$p(s)=1+Qs$, $F_x(s)=1+Qs/(x+1)$ and $G_x(s)=1+xQs/(x+1)$ for
+$x\in\cC_X$, so that $p+x=(x+1)F_x$ and $xp+1=(x+1)G_x$.  All forms take
+the value $1$ at $s=0$, hence have no fixed prime divisor.  Let $s$ be
+large with all forms prime.  Then $p\equiv1\pmod{24}$, so
+$\cC_p\cap[1,X]=\cC_X$.  Let $x\in\cC_X$.  As $x(x+1)\mid Q$, we have
+$F_x\equiv G_x\equiv1\pmod x$, and $F_x,G_x>x+1$ are primes.  The
+divisors of $p+x$ are $e$ and $eF_x$ with $e\mid x+1$, and $eF_x\equiv
+e\pmod x$; a divisor $\equiv-1\pmod x$ would give $e\mid x+1$ with
+$e\equiv-1\pmod x$, i.e.\ $e=x-1$ (impossible for $x\ge4$, as
+$x-1\nmid x+1$) or $e\ge2x-1>x+1$.  The same holds for $xp+1$.  So no
+certificate has $c\le X$.
+\end{proof}
+
+The primes produced are $\equiv1$ modulo every prime $\ell\le X+1$, so
+$\log p\ge(1+o(1))X$.  The next theorem shows that this is forced for any
+construction of this shape.
+
+\begin{thmW}
+Let $X\ge8$, let $P\in\Z[s]$ be nonconstant and let $\mathcal V\subseteq\N$
+be infinite, such that $P(s)$ is a prime $\equiv1\pmod 8$ exceeding $X$
+for every $s\in\mathcal V$.  Suppose that for every $x\in4\N\cap[4,X]$
+there is an identity
+$P(s)+x=c_x\prod_if_{x,i}(s)^{e_{x,i}}$ in $\Z[s]$, with $c_x\in\Z\setminus\{0\}$
+and nonconstant $f_{x,i}$, and nonzero integers $C_{x,i}$ such that
+$f_{x,i}(s)/C_{x,i}$ is prime for every $s\in\mathcal V$.  Then for every
+odd prime $\ell\le\lfloor X/4\rfloor+1$ the residue of $P(s)$ modulo $\ell$
+is the same for all $s\in\mathcal V$.  Consequently every element of
+$P(\mathcal V)$ except possibly the least satisfies
+$\log P(s)>\sum_{3\le\ell\le\lfloor X/4\rfloor+1}\log\ell=(\tfrac14+o(1))X$.
+\end{thmW}
+
+\begin{proof}
+Fix an odd prime $\ell\le\lfloor X/4\rfloor+1$; then $\ell\le X$.  A
+nonconstant polynomial takes each value finitely often, so we may choose
+$s\in\mathcal V$ with $|f_{x,i}(s)|>\ell|C_{x,i}|$ for all $x,i$.  Let
+$p=P(s)$ and $a\equiv p\pmod\ell$, $1\le a\le\ell-1$ (as $p>X\ge\ell$).
+Choose $1\le k\le\ell-1$ with $4k\equiv-a\pmod\ell$ and put $x=4k\le X$.
+Then $\ell\mid p+x=c_x\prod_if_{x,i}(s)^{e_{x,i}}$.  If $\ell\mid
+f_{x,i}(s)=C_{x,i}r$ with $r$ prime and $\ell\nmid C_{x,i}$, then $\ell=r$
+and $|f_{x,i}(s)|=\ell|C_{x,i}|$, contrary to the choice of $s$.  Hence
+$\ell\mid c_x$ or $\ell\mid C_{x,i}$ for some $i$.  In either case $\ell$
+divides $P(s')+x$ for every $s'\in\mathcal V$, i.e.\ $P(s')\equiv-x\equiv
+a\pmod\ell$.  The elements of $P(\mathcal V)$ therefore lie in one class
+modulo $\Pi=\prod_{3\le\ell\le\lfloor X/4\rfloor+1}\ell$, so all but the
+least exceed $\Pi$; finally $\log\Pi=(1/4+o(1))X$ by the prime number
+theorem.
+\end{proof}
+
+The family of Proposition~\ref{prop:dickson} satisfies the hypotheses
+($c_x=x+1$, $f_{x,1}=F_x$).  So a fixed polynomial family whose window
+integers factor as fixed constants times primes can certify $\HC(p)>X$
+only when $X<(4+o(1))\log p$, apart from its least member.  Theorem~W
+bounds what such a family certifies, not the actual $\HC$ of its members,
+and it does not apply to sequences of families or to mechanisms like
+Theorem~Q, where the window integers are not products of primes of a
+fixed shape.
+
+\section{Coverings fail on non-square classes}\label{sec:cover}
+
+By Lemma~\ref{lem:lines} a certificate $(c,d)$ of a prime $p$ is a
+congruence condition on $p$: $p\equiv-c\pmod d$ (U-line) or
+$p\equiv-\bar c\pmod d$ (T-line), together with $c\in\cC_p$, which is a
+condition modulo $8$.  Corollary~\ref{cor:squares} shows that a finite set
+of such congruences cannot cover the primes in a square class.  The
+following theorem gives classes without squares that cannot be covered
+either.
+
+\begin{thmN}
+Let $\Lambda$ be a nonempty finite set of primes with
+$\ell_0:=\min\Lambda\ge11$, and let $R$ be an integer with
+$1\le R<(\ell_0-1)/3$.  Let $C\ge3$ and $Y\ge2$.  Put
+$\cT=(\{\text{primes}\le Y\}\setminus\Lambda)\cup\{2\}$; for
+$\ell'\in\cT$ let $a(\ell')$ be the least integer with
+$\ell'^{a(\ell')}>C+1$, except that $a(2)$ is the maximum of $3$ and this
+number; put $M=\prod_{\ell'\in\cT}\ell'^{a(\ell')}$; and for $\ell\in\Lambda$
+let $J_\ell$ be the least integer with $\ell^{J_\ell}>R(C+1)$.  Then every
+prime $p>C$ with
+\[
+p\equiv1\pmod M\quad\text{and}\quad p\equiv R\pmod{\ell^{J_\ell}}\ (\ell\in\Lambda)
+\]
+has no certificate $(c,d)$ with $c\le C$ and all prime factors of $d$ in
+$\cT\cup\Lambda$.  There are infinitely many such primes, all
+$\equiv1\pmod8$.
+\end{thmN}
+
+\begin{proof}
+Infinitude follows from Dirichlet's theorem, since $\gcd(R,\ell)=1$ for
+$\ell\in\Lambda$.  Let $p$ be such a prime; then $p\equiv1\pmod8$ and
+$\cC_p=4\N\cup(7+8\Z_{\ge0})$.  Suppose $(c,d)$ is a certificate with
+$c\le C$, so $4\le c\le C$, $d\equiv-1\pmod c$, and $d\mid N$ where $N=p+c$
+or $N=cp+1$.  Write $d=Ls$ with $L=\prod_{\ell\in\Lambda}\ell^{j_\ell}$ and
+$s$ composed of primes of $\cT$.  Note $N\equiv c+1\pmod{\ell'^{a(\ell')}}$
+for $\ell'\in\cT$, since $p\equiv1$ there.
+
+\emph{Step 1: $s\mid c+1$.}  Let $\ell'\mid s$.  If
+$\ell'^{a(\ell')}\mid s$, then $\ell'^{a(\ell')}\mid N$, so
+$\ell'^{a(\ell')}\mid c+1$, impossible as $0<c+1<\ell'^{a(\ell')}$.  So
+$s\mid M$, hence $N\equiv c+1\pmod s$ and $s\mid c+1$.  Put
+$m=(c+1)/s\in\N$.
+
+\emph{Step 2: $L\ge\ell_0$.}  By Lemma~\ref{lem:recip}, $(d/p)=-1$.  For odd
+$\ell'\in\cT$, $(\ell'/p)=(p/\ell')=(1/\ell')=1$, and $(2/p)=1$; so
+$(s/p)=1$ and $L\ne1$.
+
+\emph{Step 3: $L\equiv-m\pmod c$.}  From $Ls\equiv-1$ and $sm=c+1\equiv1\pmod c$:
+$L\equiv Lsm\equiv-m$.
+
+\emph{Step 4: $c\equiv-R\pmod L$ on the U-line and $Rc\equiv-1\pmod L$ on
+the T-line.}  Let $\ell\in\Lambda$ with $j=j_\ell\ge1$ and
+$j_0=\min(j,J_\ell)$.  Then $\ell^{j_0}\mid N$ and $p\equiv R\pmod{\ell^{j_0}}$,
+so $c+R\equiv0$ (U) or $Rc+1\equiv0$ (T) modulo $\ell^{j_0}$.  If $j>J_\ell$,
+this gives $c+R\ge\ell^{J_\ell}>R(C+1)$, so $c>RC\ge C$, or
+$Rc+1>R(C+1)$, so $c>C$; both are impossible.  Hence $j\le J_\ell$ for all
+$\ell$, and the Chinese remainder theorem gives the claim modulo $L$.
+
+\emph{Step 5: the U-line is impossible.}  Write $c+R=(i+1)L$ with $i\ge0$.
+Modulo $c$, Step~3 gives $-(i+1)m\equiv R$, so $(i+1)m+R=kc$ with $k\in\N$.
+As $m\mid c+1$, the number $kc-R=(i+1)m$ divides $(i+1)(c+1)$; put
+$g=(i+1)(c+1)/(kc-R)\in\N$.  Then $c(gk-i-1)=i+1+gR>0$, so
+$e:=gk-i-1\ge1$ and $g\le gk=e+i+1$.  Hence
+$ce=i+1+gR\le Re+(R+1)(i+1)$, i.e.\ $(c-R)e\le(R+1)(i+1)$, which gives
+$c\le R+(R+1)(i+1)$ (trivially if $c\le R$).  With $c=(i+1)L-R$ this is
+$L\le R+1+2R/(i+1)\le3R+1<\ell_0$, contradicting Step~2.
+
+\emph{Step 6: the T-line is impossible.}  Write $Rc+1=nL$, $n\in\N$.
+Modulo $c$, $nL\equiv1$ and Step~3 give $nm+1=kc$ with $k\in\N$.  As
+$m\mid c+1$, $kc-1=nm$ divides $n(c+1)$; put $g=n(c+1)/(kc-1)\in\N$.  Then
+$c(gk-n)=g+n>0$, so $e:=gk-n\ge1$, $g\le e+n$, and $ce\le e+2n$; hence
+$c\le2n+1$.  With $c=(nL-1)/R$ this gives $L\le2R+(R+1)/n\le3R+1<\ell_0$,
+again a contradiction.
+\end{proof}
+
+\begin{corollary}\label{cor:nonsquare}
+Let $\ell\ge11$ be prime.  Then there is a quadratic non-residue $R$
+modulo $\ell$ with $1\le R<(\ell-1)/3$.  For any such $R$, every $C\ge3$
+and every finite set $\mathcal D\subset\N$, there are infinitely many
+primes $p\equiv1\pmod{840}$, $p\equiv R\pmod\ell$, having no certificate
+$(c,d)$ with $c\le C$ and $d\in\mathcal D$.  In particular no finite set of
+certificate congruences covers the primes of the class
+$\{p\equiv1\ (\mathrm{mod}\ 840),\ p\equiv R\ (\mathrm{mod}\ \ell)\}$,
+which contains no squares.
+\end{corollary}
+
+\begin{proof}
+For $\ell=11,13,19$ take $R=2$, and for $\ell=17$ take $R=3$.  For
+$\ell\ge23$ let $n$ be the least quadratic non-residue and
+$m'=\lceil\ell/n\rceil$.  Then $0<m'n-\ell<n$, so $m'n-\ell$ is a residue
+and $m'$ is a non-residue; thus $m'\ge n$, and $n\le m'<\ell/n+1$ gives
+$n(n-1)<\ell$, so $n<\sqrt\ell+1\le(\ell-1)/3$.  For the second claim
+apply Theorem~N with $\Lambda=\{\ell\}$ and $Y\ge7$ at least the largest
+prime factor of the elements of $\mathcal D$; then $2,3,5,7\in\cT$ and
+$840\mid M$.  A square $\equiv R\pmod\ell$ would make $R$ a residue.
+\end{proof}
+
+\begin{remark}
+(i) Steps~3--6 use about the primes of $\Lambda$ only $p\equiv R$; the
+non-residue condition is not needed for Theorem~N, only for the conclusion
+that the class contains no squares.  In a square class the Jacobi
+obstruction (Corollary~\ref{cor:squares}) already excludes every
+certificate divisor supported on small primes; in the classes of
+Corollary~\ref{cor:nonsquare} it does not, since $(\ell/p)=-1$, and the
+obstruction comes from the size conditions $d\equiv-1\pmod c$, $d\mid N$.
+(ii) For $\Lambda=\{3\},\{5\},\{7\}$ no non-residue $R<(\ell-1)/3$ exists, and
+the equations of Steps~5--6 do have solutions, for example $(c,d)=(4,3)$,
+$(8,15)$, $(4,7)$; these are certificates in Mordell's covering modulo
+$840$.  (iii) Theorem~N allows $\Lambda$ to be large: with $R=2$ and
+$\Lambda$ the primes $\equiv\pm3\pmod 8$ in $[11,Y]$ one obtains primes
+that are non-residues modulo all these $\ell$ and still have no
+certificate with $c\le C$ supported on the primes $\le Y$.
+(iv) Consequently a bound $\HC(p)\le F(\ell_p)$ in terms of the least
+prime non-residue $\ell_p$ of $p$ cannot be proved by a finite certificate
+family for each value of $\ell_p$: already $\ell_p=11$, $p\equiv2\pmod{11}$
+is not coverable.  Arguments whose moduli grow with $p$ are not excluded.
+\end{remark}
+
+\section{Computations}\label{sec:census}
+
+\begin{computation}\label{comp:census}
+For every prime $p\equiv1\pmod4$ with $p<10^{12}$ we have $\HC(p)\le64$.
+There are $18\,803\,924\,340$ such primes; $9\,401\,972\,490$ of them are
+$\equiv5\pmod 8$ (where $\HC=3$) and $9\,401\,951\,850$ are $\equiv1\pmod8$.
+For the latter the distribution of $\HC$ is:
+\begin{center}
+\small
+\begin{tabular}{rrrrrrrr}
+\toprule
+$\HC$&count&$\HC$&count&$\HC$&count&$\HC$&count\\
+\midrule
+4&8\,851\,945\,528&20&169\,702&36&336&52&3\\
+7&511\,181\,865&23&49\,652&39&348&55&5\\
+8&31\,048\,619&24&11\,842&40&56&56&2\\
+12&5\,448\,736&28&3\,024&44&80&60&1\\
+15&1\,687\,276&31&3\,086&47&31&64&1\\
+16&400\,730&32&924&48&3&&\\
+\bottomrule
+\end{tabular}
+\end{center}
+The value $64$ occurs only at $p=21\,841$ (certificate $(64,575)$:
+$575\mid64p+1$).  The largest value on $[10^8,10^{12})$ is $60$, at
+$p=818\,789\,590\,249$.
+\end{computation}
+
+\emph{Method.}  A segmented sieve enumerates the primes.  For each
+$p\equiv1\pmod8$ the program scans $c\in\cC_p$ upwards from $4$, factors
+$p+c$ and $cp+1$ completely (trial division below $1000$, Brent--Pollard
+$\rho$, and the Miller--Rabin test with the first twelve primes as bases,
+which is deterministic below $3.18\cdot10^{23}$ \cite{SW}; all numbers are
+below $4\cdot10^{15}$), enumerates all divisors, and stops at the first
+divisor $\equiv-1\pmod c$.  By Lemma~\ref{lem:lines} this computes
+$\HC(p)$ exactly.
+
+\emph{Checks.}  (a) The same sieve counts $\pi(10^{12})=37\,607\,912\,018$,
+the known value, and $\pi(10^{12};4,1)$ equals the total above.  (b)
+Below $10^9$ an independently written program gives the identical
+histogram.  (c) All $126$ primes below $10^{12}$ with $\HC(p)\ge44$ were
+re-verified in Python (certificate valid and no smaller $c\in\cC_p$
+certified), and the $12$ primes with $\HC(p)\ge52$ were recomputed once
+more by the independent script \texttt{es-hc-note.check.py}.  (d) For this
+note the program was rerun on $[0,10^9)$ and on the last block
+$[9.52\cdot10^{11},10^{12})$; both outputs agree with the archived ones.
+The full range was not recomputed independently.
+
+\emph{Remarks.}  (i) By Proposition~\ref{prop:slots} every prime
+$p\equiv1\pmod4$ below $10^{12}$ has a solution of \eqref{eq:ES} built
+from a word with a coordinate at most $64$; the Erd\H{o}s--Straus
+conjecture itself is verified much further \cite{Salez,MD}.  (ii) The
+proportion of primes $p\equiv1\pmod8$ with $\HC(p)>4$ is $0.0868$ below
+$10^8$ and $0.0564$ on $[9.52\cdot10^{11},10^{12})$; the number with
+$\HC(p)>4$ below $10^{12}$ is $550\,006\,322\approx0.420\,x/(\log x)^2$.
+The counts below $10^5,10^6,\dots,10^{11}$ are $295$, $2\,226$,
+$16\,125$, $125\,059$, $986\,400$, $7\,962\,940$, $65\,618\,311$, with ratio
+to $x/(\log x)^2$ between $0.39$ and $0.43$, consistent with the order in
+Proposition~\ref{prop:upper4} and Theorem~E.  (iii) All $5\,719$ primes
+$p=80k^2+1\le10^{12}$ (the primes of Theorem~Q) were checked to have
+$\HC(p)\ge7$, as the theorem predicts.
+
+\section{Open problems}\label{sec:open}
+
+\begin{problem}
+Prove \eqref{eq:P415} unconditionally, i.e.\ $\HC(p)>4$ for infinitely many
+primes $p$.  By Theorem~U it suffices to remove the boundedly many prime
+factors from $\cQ$ of $4p+1$.
+\end{problem}
+
+\begin{problem}
+Is $\HC$ unbounded?  For every fixed $X\ge7$ the only route we know is
+Dickson's conjecture (Proposition~\ref{prop:dickson}).
+\end{problem}
+
+\begin{problem}
+Prove $\HC(p)\le F(p)$ for all large primes $p$, for some function $F$.
+Any such bound proves the Erd\H{o}s--Straus conjecture for all large
+primes.  The data suggest that $F$ could be a power of $\log p$; Theorem~N
+shows that a proof cannot consist of a fixed finite family of certificate
+congruences, even away from the square classes.
+\end{problem}
+
+\begin{problem}
+Does every large prime have a certificate $(c,d)$ with $c$ and $d$
+bounded by a power of $\log p$?  A positive answer would be a covering
+whose moduli grow polylogarithmically, which Theorem~N does not exclude.
+On the other hand $d\le\kappa\log p$ does not suffice for a small absolute
+$\kappa>0$: let $m=\prod_{\ell\le Y}\ell$; Linnik's theorem \cite{HB}
+gives a prime $p\equiv1\pmod{8m}$ with $\log p\ll Y$, and by
+Corollary~\ref{cor:squares}(b) every certificate divisor of $p$ has a
+prime factor $>Y$.
+\end{problem}
+
+\begin{thebibliography}{99}
+\bibitem{Bombieri} E.~Bombieri, On the large sieve, Mathematika 12 (1965),
+201--225.
+\bibitem{Dickson} L.~E.~Dickson, A new extension of Dirichlet's theorem on
+prime numbers, Messenger of Math.\ 33 (1904), 155--161.
+\bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94
+(2013), 50--105; arXiv:1107.1010.
+\bibitem{Ford} K.~Ford, \emph{Sieve Methods}, lecture notes, University of
+Illinois, 2023, \url{https://ford126.web.illinois.edu/sieve2023.pdf}.
+\bibitem{FI09} J.~Friedlander and H.~Iwaniec, Hyperbolic prime number
+theorem, Acta Math.\ 202 (2009), 1--19.
+\bibitem{OdC} J.~Friedlander and H.~Iwaniec, \emph{Opera de Cribro}, AMS
+Colloquium Publications 57, 2010 (cited as quoted in \cite{NX}).
+\bibitem{HB} D.~R.~Heath-Brown, Zero-free regions for Dirichlet
+$L$-functions, and the least prime in an arithmetic progression, Proc.\
+London Math.\ Soc.\ (3) 64 (1992), 265--338.
+\bibitem{Lopez} M.~A.~L\'opez, A complete congruence system for the
+Erd\H{o}s--Straus conjecture, arXiv:2404.01508v3 (2024).
+\bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
+evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
+\bibitem{Mordell} L.~J.~Mordell, \emph{Diophantine Equations}, Academic
+Press, 1969 (cited via \cite{ET}).
+\bibitem{NX} K.~Nath and L.~Xie, Almost primes and primes that are sums of
+two squares plus 1, arXiv:2501.16723 (v1 2025, v3 2026); the numbering of
+Lemma~3.6, Proposition~3.10 and (3.4) is the same in v1 and v3.
+\bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
+equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
+\bibitem{Schinzel} A.~Schinzel, On sums of three unit fractions with
+polynomial denominators, Funct.\ Approx.\ Comment.\ Math.\ 28 (2000),
+187--194 (cited via \cite{ET}).
+\bibitem{SW} J.~Sorenson and J.~Webster, Strong pseudoprimes to twelve
+prime bases, Math.\ Comp.\ 86 (2017), 985--1003.
+\bibitem{Win} Anonymous, companion note \texttt{paper/es-window-note.tex}
+in this repository (the window statistic $a_{\min}(p)$), 2026.
+\bibitem{Yamamoto} K.~Yamamoto, On the Diophantine equation
+$4/n=1/x+1/y+1/z$, Mem.\ Fac.\ Sci.\ Kyushu Univ.\ Ser.\ A 19 (1965), 37--47.
+\end{thebibliography}
 \end{document}
