@@ -98,3 +98,39 @@ that Ford's Thm 2.4 is printed on p. 18 of the current PDF; the paper cites theo
   not externally refereed.
 * The census is a computation by one program, with the cross-checks listed in §7; not a proof-grade certificate
   of the full range.
+
+## 6. Cross-model referee (z56 XREF)
+
+Report: `paper/es-hc-note.XREFEREE.md` (reviewed commit `22bcb876`). Recommendation **minor revision**; every
+result classified CORRECT (conditional theorems relative to their hypotheses; the census as computational
+evidence); no GAP/WRONG. Required changes and their handling:
+
+1. **Yamamoto attribution (Lemma 2.7 / Cor 2.8).** *Applied.* After Cor 2.8 the paper now says that Lemma 2.7 and
+   Cor 2.8 are Yamamoto's quadratic-character obstruction [Yamamoto, Lemma 4] written for the two certificate
+   lines, that 2.8(a) corresponds to his Theorem 2 (perfect squares excluded), that he lists the six classes
+   mod 840 (§3), and that the only new feature is the statistic HC. The introduction now names Theorems E, U, N
+   as the main contributions and §§2–3 as infrastructure (Yamamoto's obstruction, López's 4ℕ-coordinates).
+   (Yamamoto's lemma/theorem numbers are taken from the referee's OCR inspection; I did not re-inspect the scan.)
+2. **Failure exit status of the census tools.** *Applied via a checked wrapper* (the scripts under `scripts/`
+   belong to earlier lanes and are left untouched): `paper/es-hc-note.census-check.sh` exits nonzero on a
+   checksum mismatch, any nonzero `fail:` counter or `FAIL` line, a tiling/histogram inconsistency
+   (`z55_hco_aggregate.py` asserts), totals differing from those printed in the paper, a π(10¹²) mismatch, or
+   any bad record in `z55_hco_verify.py` (whose last line is parsed); `RERUN=1` also recompiles and reruns
+   [0, 10⁹) and compares bin by bin with the independent program. Run on this commit: CENSUS CHECKS PASSED.
+3. **η fixed before x → ∞.** *Applied* in the proofs of Theorems E and U: x₀, o(1) terms, sieve/EH error
+   constants and log z₁ ≍ log z₂ may depend on the fixed parameters; only the main- and switched-term constants
+   used to choose η are absolute.
+4. **Stable supplement.** *Partially applied.* `paper/es-hc-note.supplement.sha256` is a SHA-256 manifest of the
+   census program, aggregator, verifier, prime-count program, independent 10⁹ program and all block outputs;
+   §7 lists the files, the wrapper and the manifest, and states that a stable public archive must accompany any
+   submission and has not been made (nothing is posted; that is the user's decision).
+
+Minor comments: "the strongest story is E/U/N" — agreed, stated in the introduction (see 1). "Shorten repeated
+warnings, move computational detail to the supplement" — not done beyond that: the scope statements are kept
+deliberately, and the computational section is already short (≈1 page). "Explicit δ unnecessary", "cosh²(1/2)
+correctly scoped" — no change needed. HAL-04994962 (inaccessible to the referee) — not cited.
+
+Akaka, Zenodo 22754703 (`LITERATURE_2026.md` §2.4; an unrefereed almost-all-primes lower bound
+R_II(p) ≥ c(log p)³ for strict solution counts): concerns solution *counts* on a density-one set of primes,
+which this note does not study (its density statements concern HC > 4, i.e. the two-shift event, and the
+census concerns HC). No positioning is needed here; it is relevant to the count note (PAPERCOUNT), not this one.

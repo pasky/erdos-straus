@@ -178,6 +178,12 @@ $18\,803\,924\,340$ primes $p\equiv1\pmod4$ below $10^{12}$; the value
 $64$ occurs only at $p=21\,841$.
 \end{enumerate}
 
+The main contributions are the two-shift formulation \eqref{eq:P415}
+with Theorems~E and~U, and Theorem~N.  Sections~\ref{sec:words}
+and~\ref{sec:classes} are infrastructure; the reciprocity obstruction there
+is Yamamoto's \cite{Yamamoto}, and the coordinates divisible by $4$ are
+L\'opez's \cite{Lopez}.
+
 \subsection*{What is not proved}
 We do not prove the Erd\H{o}s--Straus conjecture, nor $\HC(p)<\infty$ for
 all large $p\equiv1\pmod4$, nor any bound $\HC(p)\le F(p)$ for all large
@@ -412,9 +418,16 @@ $d$ has $(d/n)=1$, contrary to Lemma~\ref{lem:recip}.  (c) Apply (b) with
 $m$ the product of the elements of $\mathcal D$, and Dirichlet's theorem.
 \end{proof}
 
-Part (a) is the certificate form of the vanishing of Type~I and Type~II
-solutions at odd squares \cite[Prop.~1.6]{ET}.  It implies that any proof
-that $\HC(p)<\infty$ must use a property of $p$ that fails at odd squares.
+Lemma~\ref{lem:recip} and Corollary~\ref{cor:squares} are not new in
+substance: they are the quadratic-character obstruction of Yamamoto
+\cite[Lemma~4]{Yamamoto}, written for the two certificate lines, and part
+(a) corresponds to his exclusion of perfect squares
+\cite[Thm.~2]{Yamamoto} (Yamamoto also lists the six classes modulo $840$,
+\cite[\S3]{Yamamoto}); see also the vanishing of Type~I and Type~II
+solutions at odd squares \cite[Prop.~1.6]{ET}.  What is new here is only
+the coordinate statistic $\HC$ to which they are applied.  Part (a)
+implies that any proof that $\HC(p)<\infty$ must use a property of $p$
+that fails at odd squares.
 
 \section{Explicit classes}\label{sec:classes}
 
@@ -679,8 +692,11 @@ primes $p\le x$.
 
 \begin{proof}
 Let $\eta\in(0,1/10]$, to be fixed at the end as an absolute constant, and
-assume $\EH(1-\eta)$.  Constants $c_1,C_2,\dots$ are absolute, and $x\ge
-x_0(\eta)$.  Put $z=x^{1/2-\eta}$, $D=x^{1-\eta}/8$, $X=\li(x)/4$.
+assume $\EH(1-\eta)$.  Throughout, $\eta$ is fixed before $x\to\infty$:
+the threshold $x_0(\eta)$, the $o(1)$ terms and the error constants of the
+sieve and of $\EH$ may depend on $\eta$, whereas the constants
+$c_1,C_2,\dots$ of the main and switched terms, which are used to choose
+$\eta$, are absolute.  Put $z=x^{1/2-\eta}$, $D=x^{1-\eta}/8$, $X=\li(x)/4$.
 
 \emph{Step 1 (setup).}  Let $\cA$ consist of the primes $p\le x$,
 $p\equiv1\pmod8$, and let $\cA_d$ ($d$ squarefree, composed of primes of
@@ -837,8 +853,12 @@ $h\ge0$.  We use it the same way.
 Let $\eta\in(0,1/4]$, put $\theta_1=(1-\eta)/2\in[3/8,1/2)$,
 $S_0=\lceil 22801/\eta\rceil$, $\delta=\eta/(8S_0)$, $\varepsilon=\eta/16$,
 and $z_1=x^{\theta_1}$, $z_2=x^{\delta}$, $D=x^{1/2-2\varepsilon}$,
-$X=\li(x)/4$.  The constants $K_1,K_2,\dots$ are absolute; the final choice
-of $\eta$ is absolute, and $x\ge x_0(\eta)$.
+$X=\li(x)/4$.  The parameters $\eta,S_0,\delta,\varepsilon$ are fixed before
+$x\to\infty$; the threshold $x_0(\eta)$, the $o(1)$ terms, the error
+constants of Cited Theorem~\ref{cit:vector} and the comparability
+$\log z_1\asymp\log z_2$ may depend on them.  Only the constants
+$K_1,K_2,\dots$ of the main and switched terms, used to choose $\eta$,
+must be (and are) absolute; the final choice of $\eta$ is then absolute.
 
 \emph{Step 1 (parity).}  Let $\mathcal W=\{(p+4,4p+1):\ p\le x,\
 p\equiv1\ (8)\}$, $\mathcal P_1=\mathcal P_2=\cQ$, and
@@ -1226,7 +1246,14 @@ check \nolinkurl{scripts/z55_hco_aggregate.py} with output
 \nolinkurl{scripts/z55_hco_verify.py}, the independent program of check~(b)
 \nolinkurl{scripts/z54_upper2_hc.c} with output
 \nolinkurl{data/z54/upper2/hc_1e9.txt}, and the reruns of check~(d) with
-their commands in \nolinkurl{paper/es-hc-note.census-rerun.txt}.
+their commands in \nolinkurl{paper/es-hc-note.census-rerun.txt}.  The
+script \nolinkurl{paper/es-hc-note.census-check.sh} checks the SHA-256
+manifest \nolinkurl{paper/es-hc-note.supplement.sha256} of all these files,
+the failure counters of every block, the tiling and the totals printed
+above, and reruns the record verification; it exits with nonzero status on
+any failure.  A stable public archive of this supplement (commit, commands,
+block manifest, outputs, checksums) would have to accompany any
+submission; none has been made.
 
 \emph{Remarks.}  (i) By Proposition~\ref{prop:slots} every prime
 $p\equiv1\pmod4$ below $10^{12}$ has a solution of \eqref{eq:ES} built
