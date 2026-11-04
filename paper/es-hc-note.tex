@@ -154,7 +154,7 @@ With Proposition~\ref{prop:upper4} this is the true order.
 \item \emph{Theorem U} (unconditional).  There are absolute $\delta>0$ and
 $c>0$ with
 \[
-\#\{p\le x:\ p\equiv1\ (8),\ p+4\in\cS,\ 4p+1\ \text{has no prime factor in}\ \cQ\ \text{below}\ x^{\delta}\}\ge c\,\frac{x}{(\log x)^2}
+\#\Bigl\{p\le x:\ \begin{array}{l}p\equiv1\ (8),\ p+4\in\cS,\ 4p+1\text{ has no}\\ \text{prime factor in }\cQ\text{ below }x^{\delta}\end{array}\Bigr\}\ge c\,\frac{x}{(\log x)^2}
 \]
 for large $x$.  For these $p$, $4p+1$ has a bounded number of prime
 factors in $\cQ$; \eqref{eq:P415} needs that number to be $0$.
@@ -583,8 +583,8 @@ where $V(z)=\prod_{\ell\mid P(z)}(1-g(\ell))$, $\beta_{1/2}=1$,
 $\beta_1=2$, and
 \begin{align*}
 &F_1(s)=\frac{2e^\gamma}s\ (1\le s\le3),\qquad f_1(s)=\frac{2e^\gamma\log(s-1)}s\ (2\le s\le4);\\
-&F_{1/2}(s)=2\Bigl(\frac{e^\gamma}{\pi s}\Bigr)^{1/2}\ (0<s\le2),\qquad
-f_{1/2}(s)=\Bigl(\frac{e^\gamma}{\pi s}\Bigr)^{1/2}2\operatorname{arccosh}\sqrt s\ (1\le s\le3),
+&F_{1/2}(s)=2\Bigl(\frac{e^\gamma}{\pi s}\Bigr)^{1/2}\ (0<s\le2),\\
+&f_{1/2}(s)=\Bigl(\frac{e^\gamma}{\pi s}\Bigr)^{1/2}2\operatorname{arccosh}\sqrt s\ (1\le s\le3),
 \end{align*}
 and for $s>2$, resp.\ $s>1$,
 $(\sqrt sF_{1/2}(s))'=f_{1/2}(s-1)/(2\sqrt s)$ and
@@ -730,19 +730,22 @@ $a$, i.e.\ dividing $m$ (as $q_1>w$).  With $X=Y$ and
 $g(\ell)=\omega(\ell)/\ell$, we have
 $|r_d|\le\prod_{\ell\mid d}\omega(\ell)\le3^{\omega(d)}$, and
 \eqref{eq:Omega} holds with $\kappa=5/2$ and an absolute $B$ (bound $g$ by
-$\omega^*/\ell$); here $|r_d|\le\prod_{\ell\mid d}\omega(\ell)$.  Cited
-Theorem~\ref{cit:upper} gives
+$\omega^*/\ell$).  Cited Theorem~\ref{cit:upper} gives
 \[
-\#\{p\in B^{\mathrm e}\text{ with these }m,q_1\}\le C\,Y\prod_{\ell\le w}\Bigl(1-\frac{\omega^*(\ell)}\ell\Bigr)\,h(m)+\sum_{d\le w}3^{\omega(d)}
-\le C_3\frac{Y\,h(m)}{(\log x)^{5/2}}+C\,w(\log w)^2,
+\begin{split}
+\#\{p\in B^{\mathrm e}\text{ with these }m,q_1\}&\le C\,Y\prod_{\ell\le w}\Bigl(1-\frac{\omega^*(\ell)}\ell\Bigr)\,h(m)+\sum_{d\le w}3^{\omega(d)}\\
+&\le C_3\frac{Y\,h(m)}{(\log x)^{5/2}}+C\,w(\log w)^2,
+\end{split}
 \]
 where $h(m)=\prod_{\ell\mid m}\frac{\ell-1}{\ell-2}$ accounts for
 $(1-\frac1\ell)/(1-\frac2\ell)$ at $\ell\mid m$.  The pairs $(m,q_1)$
 number $\ll\sum_{m\le5x^{2\eta}}\sqrt{x/m}\ll x^{1/2+\eta}$, so the second
 term contributes $\ll x^{0.61+o(1)}$.  For the first term,
 \[
-\sum_{\substack{q\in\cQ\\ z\le q\le\sqrt{2x}}}\frac1q=\frac12\log\frac{1/2}{1/2-\eta}+O\Bigl(\frac1{\log x}\Bigr)\le2\eta,\qquad
+\begin{gathered}
+\sum_{\substack{q\in\cQ\\ z\le q\le\sqrt{5x}}}\frac1q=\frac12\log\frac{1/2}{1/2-\eta}+O\Bigl(\frac1{\log x}\Bigr)\le2\eta,\\
 \sum_{\substack{m\in\cS\\ m\le5x^{2\eta}}}\frac{h(m)}m\le\prod_{\substack{\ell\equiv1\,(4)\\ \ell\le5x^{2\eta}}}\Bigl(1+\frac1{\ell-2}\Bigr)\le C_4(\eta\log x)^{1/2},
+\end{gathered}
 \]
 using $\sum_{j\ge1}h(\ell^j)\ell^{-j}=1/(\ell-2)$.  Hence
 $|B^{\mathrm e}|\le C_2\eta^{3/2}x/(\log x)^2$.  For $B^{\mathrm l}$ write
@@ -775,7 +778,7 @@ $(p+4)(4p+1)$ free of prime factors in $\cQ$ below $x^\zeta$
 There are absolute constants $\delta\in(0,1/100]$ and $c>0$ such that for
 $x\ge x_0$
 \[
-\#\{p\le x:\ p\equiv1\ (\mathrm{mod}\ 8),\ p+4\in\cS,\ 4p+1\text{ has no prime factor in }\cQ\text{ below }x^\delta\}\ge c\,\frac x{(\log x)^2}.
+\#\Bigl\{p\le x:\ \begin{array}{l}p\equiv1\ (\mathrm{mod}\ 8),\ p+4\in\cS,\ 4p+1\text{ has}\\ \text{no prime factor in }\cQ\text{ below }x^\delta\end{array}\Bigr\}\ge c\,\frac x{(\log x)^2}.
 \]
 For these $p$, $\Omega_\cQ(4p+1)\le\log(4x+1)/(\delta\log x)<1/\delta+1$,
 and $\Omega_\cQ(4p+1)$ is even.
@@ -793,23 +796,29 @@ d_1\mid m,\ d_2\mid n\}$.
 Suppose that $\#\mathcal W_{\mathbf d}=h(\mathbf d)X+r(\mathbf d)$ with $h$
 multiplicative on pairs, that for all primes $\ell$
 \begin{equation}\label{eq:A2}
-h(\ell,1)+h(1,\ell)-1<h(\ell,\ell)\le h(\ell,1)+h(1,\ell),\quad h(\ell,1),h(1,\ell)\le\frac{C_1}\ell,\quad h(\ell,\ell)\le\frac{C_1}{\ell^2},
+\begin{gathered}
+h(\ell,1)+h(1,\ell)-1<h(\ell,\ell)\le h(\ell,1)+h(1,\ell),\\
+h(\ell,1),h(1,\ell)\le C_1/\ell,\qquad h(\ell,\ell)\le C_1/\ell^2,
+\end{gathered}
 \end{equation}
 and that $h_1(d)=h(d,1)$ and $h_2(d)=h(1,d)$ satisfy \eqref{eq:NX34} on
 $\mathcal P_1$, $\mathcal P_2$ with dimensions $\kappa_1,\kappa_2$.  Let
 $\log z_1\asymp\log z_2$, $z_0=\exp((\log z_1z_2)^{1/3})$,
 $\sigma_i=\log D/\log z_i\ll1$.  Then for every $\varepsilon'>0$
 \[
-S(\mathcal W;\mathbf z)\ge XV(z_0,h^*)V_1(z_1,z_0)V_2(z_2,z_0)\,\mathfrak f(\sigma_1,\sigma_2)\bigl(1+O((\log D)^{-1/6})\bigr)
--O_{\varepsilon'}\Bigl(\sum_{\substack{d_1d_2\le D^{1+\varepsilon'}\\ d_i\mid P_i(z_i)}}\tau(d_1d_2)^4|r(d_1,d_2)|\Bigr),
+\begin{split}
+S(\mathcal W;\mathbf z)\ge{}&XV(z_0,h^*)V_1(z_1,z_0)V_2(z_2,z_0)\,\mathfrak f(\sigma_1,\sigma_2)\bigl(1+O((\log D)^{-1/6})\bigr)\\
+&-O_{\varepsilon'}\Bigl(\sum_{\substack{d_1d_2\le D^{1+\varepsilon'}\\ d_i\mid P_i(z_i)}}\tau(d_1d_2)^4|r(d_1,d_2)|\Bigr),
+\end{split}
 \]
 where $V_i(z_i,z_0)=\prod_{\ell\in\mathcal P_i,\,z_0\le\ell<z_i}(1-h_i(\ell))$,
 $V(z_0,h^*)=\prod_{\ell<z_0}(1-h^*(\ell))$ with
 $h^*(\ell)=h(\ell,1)+h(1,\ell)-h(\ell,\ell)$ for
 $\ell\in\mathcal P_1\cap\mathcal P_2$ (in general \cite[(3.10)]{NX}), and
 \[
-\mathfrak f(\sigma_1,\sigma_2)=\sup\Bigl\{f_{\kappa_1}(s_1)F_{\kappa_2}(s_2)+f_{\kappa_2}(s_2)F_{\kappa_1}(s_1)-F_{\kappa_1}(s_1)F_{\kappa_2}(s_2):\ \frac{s_1}{\sigma_1}+\frac{s_2}{\sigma_2}=1,\ s_i\ge\beta_{\kappa_i}\Bigr\}.
+\mathfrak f(\sigma_1,\sigma_2)=\sup\bigl\{f_1^\flat F_2^\flat+f_2^\flat F_1^\flat-F_1^\flat F_2^\flat:\ s_1/\sigma_1+s_2/\sigma_2=1,\ s_i\ge\beta_{\kappa_i}\bigr\},
 \]
+with $F_i^\flat=F_{\kappa_i}(s_i)$ and $f_i^\flat=f_{\kappa_i}(s_i)$.
 \end{citedthm}
 
 \cite{NX} state $h$ with values in $(0,1]$; their own application
@@ -854,8 +863,11 @@ Theorem~\ref{cit:vector} is $\ll x(\log x)^{-4}$.
 The product: $h^*(3)=1/2$ and $h^*(q)=2/(q-1)$ for $q\ge7$, so
 \[
 \frac{V(z_0,h^*)V_1(z_1,z_0)V_2(z_2,z_0)}{W(z_1)W(z_2)}
-=\frac98\prod_{\substack{q\in\cQ\\ 7\le q<z_0}}\frac{q^2(q-3)}{(q-1)^3}\prod_{i=1,2}\prod_{\substack{q\in\cQ\\ z_0\le q<z_i}}\Bigl(1-\frac1{(q-1)^2}\Bigr)
-\to\mathfrak G:=\frac98\prod_{\substack{q\in\cQ\\ q\ge7}}\frac{q^2(q-3)}{(q-1)^3}>0.
+=\frac98\prod_{\substack{q\in\cQ\\ 7\le q<z_0}}\frac{q^2(q-3)}{(q-1)^3}\prod_{i=1,2}\prod_{\substack{q\in\cQ\\ z_0\le q<z_i}}\Bigl(1-\frac1{(q-1)^2}\Bigr),
+\]
+which tends to
+\[
+\mathfrak G:=\frac98\prod_{\substack{q\in\cQ\\ q\ge7}}\frac{q^2(q-3)}{(q-1)^3}>0.
 \]
 In $\mathfrak f(\sigma_1,\sigma_2)$ take $s_2=S_0$ and
 $s_1=(1/2-2\varepsilon-S_0\delta)/\theta_1$; then
@@ -863,7 +875,10 @@ $s_1\theta_1+s_2\delta=1/2-2\varepsilon$ as required, and
 $s_1=\frac{1-\eta/2}{1-\eta}\in[1+\eta/2,\,7/6]$.  Write $F=F_{1/2}$,
 $f=f_{1/2}$.  By Lemma~\ref{lem:semilinear},
 \[
-f(s_1)F(S_0)+F(s_1)f(S_0)-F(s_1)F(S_0)=f(s_1)F(S_0)-F(s_1)(F-f)(S_0)\ge f(s_1)-F(1)\cdot\frac{1.51}{\sqrt{S_0}},
+\begin{split}
+f(s_1)F(S_0)+F(s_1)f(S_0)-F(s_1)F(S_0)&=f(s_1)F(S_0)-F(s_1)(F-f)(S_0)\\
+&\ge f(s_1)-F(1)\cdot1.51\,S_0^{-1/2},
+\end{split}
 \]
 and $f(s_1)\ge F(1)\sqrt{\eta/2}/(7/6)\ge0.6F(1)\eta^{1/2}$ while
 $1.51/\sqrt{S_0}\le\eta^{1/2}/100$.  Therefore
@@ -901,7 +916,10 @@ $1/(2(1-\eta))\le2/3$.  Let
 $H(t)=\sum_{m\in\cS,m\le t}h(m)/m\le\prod_{\ell\equiv1\,(4),\,\ell\le t}(1+\frac1{\ell-2})\le K_5(\log3t)^{1/2}$.
 Partial summation gives
 \[
-\sum_{\substack{m\in\cS\\ m\le e^{\eta L}}}\frac{h(m)}m\Bigl(\eta-\frac{\log m}L\Bigr)=\frac1L\int_1^{e^{\eta L}}H(t)\frac{dt}t\le\frac{K_5}L\int_0^{\eta L}(\log3+u)^{1/2}du\le2K_5\,\eta^{3/2}L^{1/2}
+\begin{split}
+\sum_{\substack{m\in\cS\\ m\le e^{\eta L}}}\frac{h(m)}m\Bigl(\eta-\frac{\log m}L\Bigr)&=\frac1L\int_1^{e^{\eta L}}H(t)\frac{dt}t\\
+&\le\frac{K_5}L\int_0^{\eta L}(\log3+u)^{1/2}du\le2K_5\,\eta^{3/2}L^{1/2}
+\end{split}
 \]
 for $\eta L\ge2$, while $\frac{K_4}{L}H(2x)=O(L^{-1/2})$.  Altogether
 \[
