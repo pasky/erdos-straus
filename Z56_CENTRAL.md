@@ -37,6 +37,9 @@ the central slice is proved; none is refuted. What is new:
    A ∈ [x^{1/2−δ}, x^{1/2+δ}], δ < 1/4) follows from power-saving short-interval asymptotics for the *twisted* divisor
    functions τ_t(n) = Σ_{de=n}(d/e)^{it} (coefficients of ζ(s+it)ζ(s−it)), uniformly for |t| ≤ x^c. The case t = 0 is
    SID. So CNT_unif is sandwiched: {SID_t}_{|t|≤x^c} ⟹ CNT_unif ⟹ (EPC ⟹ SID).
+   **Theorem E (CONDITIONAL on EPC)** gives the converse: CNT_unif ⟹ the twisted family. Hence (Cor. E1), *under
+   EPC, CNT_unif is equivalent to power-saving short-interval asymptotics at length x^{1/4} for the coefficients of
+   ζ(s+it)ζ(s−it), |t| ≤ x^c* (some exponents), whose t = 0 member is SID.
 3. **Pointwise upper bound of the right order up to log log (Prop P, PROVED relative to de la Bretèche–Tenenbaum 2025,
    Cor. 1.2).** |E1(p, U)| ≪ U(log log U)^{5/2} pointwise, improving the campaign's ≪ U^{1+ε} (BILINDIV §2; TDF §3.3).
    The same holds for every band (A, θA], θ ≤ e², and every length y ≥ x^{ε}. With a localized Fejér argument
@@ -230,6 +233,47 @@ problem at length x^{1/4}: (SID with all small twists t) ⟹ CNT_unif ⟹ (EPC �
 home of the central slice: a band of divisors in log-scale is a Fourier integral over t of τ_t. Nothing indicates that
 the central restriction makes the problem easier.
 
+### 4.1 Theorem E: the converse under EPC, hence an equivalence
+
+**Theorem E (CONDITIONAL on EPC).** Let η > 0 and 0 < δ < 1/4. Then CNT_unif(η, δ; K) implies TW(η″, c; K) with
+c := min(η/16, δ/4) and every η″ < min(δ, η/4).
+**Corollary E1 (CONDITIONAL on EPC).** With Theorem U: under EPC, "CNT_unif(η, δ; K) for some η, δ > 0" ⟺
+"TW(η, c; K) for some η, c > 0". In words: modulo EPC, the uniform central-slice asymptotic is *equivalent* to
+power-saving short-interval asymptotics at length x^{1/4} for the coefficients of ζ(s+it)ζ(s−it), |t| ≤ x^c; the
+member t = 0 is SID.
+
+*Proof of Theorem E.* Fix y ∈ [x^{1/4}/K, Kx^{1/4}] and real t with |t| ≤ x^c; L, L′, P, P₁, P₂, P₃, Q as in the proof
+of Theorem L(i). D_t(x, y) = Σ_{(k,m)∈P}(m/k)^{it}, since τ_t(n) = Σ_{km=n}(m/k)^{it} (τ_t is real, being symmetric).
+* *Non-central part.* As P₃ = Q up to ≤ 1 point and Q is the image of P₁ under (k, m) ↦ (m, k), the contribution of
+  P₁ ∪ P₃ is Σ_{(k,m)∈P₁}2cos(t log(m/k)) + O(1). For km = n ∈ (x, x+y], log(m/k) = log(m²/x) − log(n/x) with
+  0 ≤ log(n/x) ≤ y/x, so this equals Σ_{m≤L}c_m(⌊(x+y)/m⌋ − ⌊x/m⌋) + O(|t|(y/x)|P|), c_m := 2cos(t log(m²/x)).
+  Write the floor difference as y/m − [ψ((x+y)/m) − ψ(x/m)]. On each dyadic block (N, 2N], |c_m| ≤ 2 and the total
+  variation of c_m is ≤ 4|t|log 2, so by Abel summation and Saito et al. Lemma 19 with (κ, λ) = (ε′, ½ + ε′) (any
+  N < N′ ≤ 2N), |Σ_{N<m≤2N}c_m ψ(z/m)| ≪ (1 + |t|)x^{ε}N^{1/2}. Summing over blocks as in Theorem L(ii)–(iii): the
+  ψ-part is ≪ (1 + |t|)x^{1/4−δ/2+ε}. Also |P| = D(x, y) ≪ yx^{ε}.
+* *Central part.* Let w := x^{−η/8} and cut (L, L′] into consecutive bands B_j = (A_j, θ_jA_j], A₀ = L,
+  A_{j+1} = θ_jA_j, θ_j = e^{w} except the last (θ ∈ (1, e^{w}]); there are J ≤ 2δ log x/w + 1 bands, all with
+  A_j ∈ [L, L′] and θ_j ∈ (1, 4]. For m ∈ B_j and n = km ∈ (x, x+y], log(m/k) = log(m²/n) lies within 2w + y/x of
+  φ_j := 2log A_j − log x, so (m/k)^{it} = e^{itφ_j} + O(|t|(w + y/x)). By CNT_unif, S_j := S(x, y; A_j, θ_j) =
+  yΣ_{m∈B_j}1/m + O(y^{1−η}). Also |(m²/x)^{it} − e^{itφ_j}| ≤ 2|t|w on B_j. Hence
+  Σ_{P₂}(m/k)^{it} = yΣ_{L<m≤L′}(m²/x)^{it}/m + O(Jy^{1−η} + |t|(w + y/x)yx^{ε} + |t|wy log x).
+* *Main term.* Altogether D_t(x, y) = Main_t + (errors above), where
+  Main_t := y[Σ_{m≤L}((m²/x)^{it} + (m²/x)^{−it})/m + Σ_{L<m≤L′}(m²/x)^{it}/m]
+          = y[x^{−it}Σ_{m≤L′}m^{−1+2it} + x^{it}Σ_{m≤L}m^{−1−2it}].
+  Euler–Maclaurin, Σ_{m≤X}m^{−s} = ζ(s) − X^{1−s}/(s − 1) + O(|s|X^{−σ}/σ + X^{−σ}) (σ = Re s > 0, s ≠ 1), at
+  s = 1 ∓ 2it gives Main_t = y[ζ(1−2it)x^{−it} + ζ(1+2it)x^{it}] + y[(L′²/x)^{it} − (x/L²)^{it}]/(2it) + O(y(1 + |t|)/L),
+  and L′²/x = x/L² = x^{2δ}, so the middle term vanishes. (At t = 0 read the bracket as its limit log x + 2γ; all
+  error terms are uniform in t.) Finally G(u) := ζ(1+2it)u^{it} + ζ(1−2it)u^{−it} has G′(u) ≪ (1 + |t|)log(2 + |t|)/u
+  (for |t| ≤ 1 use ζ(1+2it) = 1/(2it) + γ + O(|t|)), so M_t(x, y) = yG(x) + O(y²(1 + |t|)log(2 + |t|)/x).
+* *Bookkeeping.* With |t| ≤ x^c, w = x^{−η/8} and y ≍ x^{1/4}, the errors are
+  ≪ y^{1−2δ+4c+4ε} + y^{1−η+η/2}log x + y^{1−4(η/8−c)+4ε} + (lower order). With c = min(η/16, δ/4) these are
+  ≪ y^{1−min(δ, η/4)+4ε}. ∎
+
+*Reading (Assessment).* Corollary E1 is the cleanest form of the calibration: modulo EPC, a uniform central-slice
+asymptotic *is* the x^{1/4} short-interval divisor problem for the small-twist family τ_t, nothing less and nothing
+more. Its t = 0 member is SID. Removing EPC leaves the two implications of Theorems U (unconditional) and E (needs the
+non-central slices).
+
 ## 5. Proposition P: a pointwise upper bound of the right order up to log log
 
 Let Δ_H(n) := max_{v∈ℝ} #{d | n : e^v < d ≤ e^{v+1}} (Hooley's Δ-function; notation Δ_H to avoid clashing with the
@@ -394,7 +438,8 @@ Append to §7.1 after the z55 TDCAL bullets:
 >     CNT (all real x, length decoupled from position, uniform thresholds).
 >   * Unconditionally (Trudgian–Yang pair (715/10238, 7955/10238)) the equivalence holds only for δ > 6387/28960 ≈ 0.2205.
 >   * Thm U (PROVED implication): power-saving short-interval asymptotics for τ_t(n) = Σ_{de=n}(d/e)^{it}, uniformly in
->     |t| ≤ x^c, imply CNT_unif. So CNT_unif is sandwiched between SID-with-twists and (EPC ⟹ SID).
+>     |t| ≤ x^c, imply CNT_unif. Thm E (CONDITIONAL on EPC): the converse. So under EPC, CNT_unif ⟺ the x^{1/4}
+>     short-interval asymptotic for the small-twist family τ_t (t = 0: SID).
 >   * Prop P (PROVED rel. de la Bretèche–Tenenbaum 2025 Cor. 1.2): |E1(p, U)| ≪ U(log log U)^{5/2} pointwise (was
 >     U^{1+ε}). Cor. P2 (PROVED implication, localized Fejér): TD(η) ⟹ DC(2U^{−η}) with a (log log U)^{5/2} loss.
 >   * Assessment: the count enters gap 1 only as a zero mode; CNT-type asymptotics are SID-hard (modulo EPC and
@@ -406,7 +451,7 @@ that problem: everything outside a band of width x^{±δ} around √x is per-fre
 the rest exactly (Theorem L). A uniform, length-decoupled version of CNT (CNT_unif, or CNT_poly with constants
 polynomial in the band position) would thus prove SID given EPC: a pointwise statement beyond the Ω-barrier of the
 Dirichlet divisor problem that no checked source reaches. In the other direction, CNT_unif follows from twisted versions
-of SID (Theorem U). So CNT is SID-hard, up to EPC and uniformity, and no easier structure was found. What is pointwise
+of SID (Theorem U), and under EPC is equivalent to them (Theorem E). So CNT is SID-hard, up to EPC and uniformity, and no easier structure was found. What is pointwise
 and unconditional is an upper bound of the right order up to (log log U)^{5/2} (Prop P), which is all that the zero mode
 of the gap-1 Fourier arguments needs (Cor. P2). Nothing here touches positivity, and ES remains open.
 
