@@ -10,43 +10,51 @@ r*(n) = #{(a,b) : a² + b² = n, gcd(a,b) = 1}; for odd n, r*(n) = 4·2^{ω(n)}�
 β = 2) lower function. P(4,15) := "infinitely many primes p ≡ 1 (8) with N₁, N₂ ∈ S" (= K(4) by HCKILL Lemma 1.1).
 Only `Z55_P415.md`, `Z54_HCKILL.md` (Theorems U, E, Q, Remark 1.3) were read, per the lane brief.
 
-## 0. Verdict: **not proved**; one unconditional theorem for generic shifts, one new conditional route (model only)
+## 0. Verdict: **not proved**; one unconditional theorem for generic shifts, one proposed weighted route (model only)
 
-1. **The target contains an open problem of Friedlander–Iwaniec (first-hand check, §1).** By HCKILL Remark 1.3,
+1. **The target is the det-15 analogue of an open problem of Friedlander–Iwaniec (first-hand check, §1; analogy, not a reduction).** By HCKILL Remark 1.3,
    #{p : N₁, N₂ ∈ S} is the primitive-point count of the determinant-15 shell at height 16p + 34, the analogue of
    Friedlander–Iwaniec's *Hyperbolic prime number theorem* (Acta Math. 202 (2009)): primes p = ‖γ‖², γ ∈ SL₂(ℤ), i.e.
    p ± 2 both sums of two squares. I verified from the published abstracts of Bourgain–Kontorovich (C. R. Acad. Sci.
    Paris 348 (2010) 947–950) and Sedunova (arXiv:2609.28200, Sept 2026) that FI's *upper* bound is unconditional while
    the *lower* bound (infinitude) rests on Elliott–Halberstam; the current unconditional state of the det-1 problem is
-   "square-free distances" (asymptotic) and "distances with ≤ 7 prime factors" (Sedunova). So P(4,15) is at least as
-   hard as an open FI problem; every route below either assumes a level of distribution or changes the problem.
+   "square-free distances" (asymptotic) and "distances with ≤ 7 prime factors" (Sedunova). No reduction between det 1
+   and det 15 is supplied in either direction; the analogy only explains why the methods tried here (sieve on two
+   shifts, r-weights) stop where FI's did. Every route below either assumes a level of distribution or changes the problem.
 2. **Theorem AA (PROVED, unconditional; generic shifts).** For every ε > 0 there are η, c > 0 such that, with
    H = x^{1−η}, all but at most εH² *admissible* pairs (a, b) ∈ [1, H]² (a ≡ 0 (4), b ≡ 1 (4), 3 | ab(a − b)) have
    #{p ≤ x : p ≡ 1 (8), p + a ∈ S, 4p + b ∈ S} ≥ c·x/(log x)² (§3). It is Theorem E's proof with Barban–Davenport–
-   Halberstam in place of EH: the *only* obstruction to P(4,15) is the level of distribution of primes in the
-   CRT-coherent residue classes of the one pair (a, b) = (4, 1); for a generic pair the same sieve closes. Not a step
-   toward (4, 1) itself.
+   Halberstam in place of EH: within this sieve implementation the input that fails for the one pair (a, b) = (4, 1)
+   is the level of distribution of primes in its CRT-coherent residue classes; after averaging over both shifts the
+   same sieve closes. This is not a necessity statement about (4, 1) and not a step toward it.
 3. **Hybrid route (Assessment; model numbers, not a theorem).** Weight one shift exactly by r*(4p + 1) (cost: level
    1/2 by the hyperbola trick, no sieve loss) and sift the other, p + 4, by the semi-linear sieve beyond x^{1/4} with
    Iwaniec switching. In P415's model this needs total level **0.908** (pen 1) / **0.958** (pen 2.35) — versus
    0.976–0.996 for the product sieve (P415 §2(b)) and ≈ 1.22 for the vector sieve (§2(a)) — provided the hypothesis
    also covers the switched sums (§2). With the switched sums bounded without any primes-in-progressions input
    (Poisson in ℤ[i] + Weil; route only) the loss factor is too large and the model level returns to 0.989–0.995.
-   The rigorous version with unspecified constants has exactly Theorem E's strength (EH(1 − η₁)); the *missing
-   lemma* is an r*-weighted switched bound uniform for q ≈ √x (Lemma S, §2.3, **not proved**).
+   **No conditional theorem is claimed for this route**: the hypothesis 𝒫 covering the actual expansion (compatible
+   CRT classes, moving hyperbola endpoints) is only outlined, the weighted local densities are not evaluated, and the
+   r*-weighted switched bound uniform for q ≈ √x (Lemma S, §2.3) is **not proved**. Even if all were supplied, the
+   rigorous strength with unspecified constants would be Theorem E's (EH(1 − η₁)).
 4. **Direct-attack notes (§4, PROVED identities; negative).** Polynomial two-parameter confinement family on the
    det-15 quadric: p(m, n) = (n² − m² + 4)² + m² − 4 has p + 4 = (n² − m² + 4)² + m², 4p + 1 = (2n² − 2m² + 7)² + 4n²,
    and p ≡ 1 (8) on m ≡ 2 (4), n odd — but it is thinner than Friedlander–Iwaniec's a² + b⁴ (≍ √x·log x points
-   below x), so no prime-value theorem applies; every polynomial family on the quadric is a union of lines
-   (Bunyakovsky slices, Theorem Q being the line (u, s) = (−1, 2)). A tempting "automatic confinement" for
+   below x), so no known prime-value theorem applies; fixing (u, s) on the quadric gives a lattice line (Theorem Q
+   is the line (u, s) = (−1, 2)), which is an observation about this parametrisation, not an exclusion of other
+   algebraic families or methods. A tempting "automatic confinement" for
    SL₂(ℤ)-norms is false (counterexample recorded) — a warning for future lanes.
 5. **EVIDENCE (§5).** Census to 2·10⁸: the empirical switched mass T(θ)/A(θ) (share of survivors of 𝒬-sifting to
-   x^θ that have exactly two 𝒬-factors) agrees with the model's B(θ)/F(1/θ) to within 5 % for θ ∈ [0.25, 0.45],
-   supporting the model ledgers of P415 and §2. The r*-mean on the target set is ≈ 2.13 (in units of 8).
+   x^θ that have exactly two 𝒬-factors) agrees with the model's B(θ)/F(1/θ) to within 0.7 percentage points
+   (relative deviations −1 % at θ = 0.25 growing to −20 % at θ = 0.45, where the mass itself is 0.02), supporting
+   the order of the model ledgers of P415 and §2 but not their small-mass tail. The r*-mean on the target set is
+   2.133 at 10⁷ and 2.323 at 2·10⁸ (in units of 8).
 
-**Bottom line (Assessment).** No unconditional progress on (4, 1) is possible with the tools used here (confirmed
-state of the art for the det-1 twin). The one new rigorous statement is that generic shift pairs are fine (Theorem
-AA). The hybrid route lowers the *model* level requirement from ≈ 0.98 to ≈ 0.91 but not the rigorous one.
+**Bottom line (Assessment).** The tools used here (two-shift sieves at BV level, r-weights, polynomial families)
+made no unconditional progress on (4, 1), consistent with the state of the det-1 analogue; this is a scoped
+failure of these methods, not an impossibility statement. The one new rigorous statement is that generic shift
+pairs are fine (Theorem AA). The hybrid route lowers the *model* level requirement from ≈ 0.98 to ≈ 0.91; it is
+not a theorem, conditional or otherwise.
 
 ## 1. Setting; the det-1 twin and what is known about it (first-hand)
 
@@ -81,23 +89,29 @@ Every term of the left side is ≥ 1, so 𝒮 − T₁ → ∞ gives P(4,15). Th
 from a weighted mass ≫ x/(log x)^{3/2} and Σ_{p≤x} r*(4p+1)² ≪ x log x, Cauchy–Schwarz gives only ≫ x/(log x)⁴, and a
 weight-tail argument would be needed for the expected x/(log x)² (not supplied; irrelevant for infinitude).
 
-**Main term (CONDITIONAL on 𝒟 below).** Expanding r* by Möbius (g ≤ x^δ; the tail Σ_{g > x^δ} #{p : g² | 4p + 1}·
+**Main term (ROUTE ONLY; no hypothesis is stated precisely enough to carry a theorem).** Expanding r* by Möbius (g ≤ x^δ; the tail Σ_{g > x^δ} #{p : g² | 4p + 1}·
 2^{ω} ≪ x^{1−δ+ε} is negligible), r by (2.1), and 1_{(p+4, 𝒬(z))=1} by the semi-linear lower sieve of level x^{θ_e},
-𝒮(x; z) is a sum of primes in progressions to moduli 8g²·d·e with g ≤ x^δ, d ≤ 2√x (χ-weighted, from (2.1)) and e | 𝒬(z),
-e ≤ x^{θ_e} (sieve weights), in the residue class c ≡ 1 (8), c ≡ −4 (e), 4c + 1 ≡ 0 (g²d). Define
+𝒮(x; z) becomes a sum of prime counts in progressions to moduli 8g²·d·e with g ≤ x^δ, d ≤ √(4p+1)/g (χ-weighted, from
+(2.1) applied to (4p+1)/g² — so the hyperbola cutoff moves with p and one gets π at p-dependent endpoints, not
+π(x; ·, ·)), e | 𝒬(z), e ≤ x^{θ_e} (sieve weights), in the class c ≡ 1 (8), c ≡ −4 (e), 4c + 1 ≡ 0 (g²d). The class exists
+only for compatible tuples: a prime ℓ | gcd(e, gd) needs −4 ≡ −4⁻¹ (ℓ), i.e. ℓ | 15, so e.g. g = e = 7 is incompatible
+(c ≡ 3 vs c ≡ 5 mod 7) and such tuples contribute nothing — but d sharing factors with g does occur and must be kept.
+A usable hypothesis would have to be stated for exactly this expansion (compatible tuples, moving endpoints, the g²d
+part); the following **schematic** form is what the model numbers in §2.2 presuppose, not a conjecture I am prepared
+to formulate as a theorem input:
 
-**Hypothesis 𝒟(θ_e).** For every A > 0: Σ_{g ≤ x^δ} Σ_{e ≤ x^{θ_e}, e | 𝒬(z)} 3^{ω(e)} |Σ_{d ≤ 2√x, (d, 2ge) = 1} χ(d)·
-(π(x; 8g²de, c) − li(x)/φ(8g²de))| ≪_A x(log x)^{−A}, c = c(g, d, e) as above.
+**Hypothesis 𝒟(θ_e) (schematic).** For every A > 0: Σ_{g ≤ x^δ} Σ_{e ≤ x^{θ_e}, e | 𝒬(z)} 3^{ω(e)} |Σ_{d ≤ 2√x/g} χ(d)·
+(π(y; 8g²de, c) − li(y)/φ(8g²de))| ≪_A x(log x)^{−A}, uniformly in y ≤ x, over compatible tuples (g, d, e), c = c(g, d, e).
 
-𝒟(θ_e) follows from EH(1/2 + θ_e + 2δ + ε) (all residues) by the triangle inequality and Cauchy–Schwarz; its extra
+Such a statement would follow from EH(1/2 + θ_e + 2δ + ε) (all residues, max over y ≤ x) by the triangle inequality and Cauchy–Schwarz; its extra
 structure is that the long variable d carries only the periodic weight χ(d) (residue classes mod 4) — the shape in
 which unconditional "level 1 − ε" results exist for a *fixed* residue (Fouvry; BFI I), but **not** with the present
 CRT two-shift residue (−4 mod e, −4⁻¹ mod d); the literature check (MathOverflow 513733, BFI I Thm 10 as quoted there)
-confirms that even uniformity in a single large residue is not available as a black box. So 𝒟 is a weakening of EH
-in form, not a known theorem in any range θ_e > 0.
+confirms that even uniformity in a single large residue is not available as a black box. So 𝒟 is EH-shaped with
+extra structure, not a known theorem in any range θ_e > 0, and not yet a precisely stated conjecture.
 
-Under 𝒟(θ_e), the semi-linear lower sieve (Nath–Xie Prop. 3.10 with one component, i.e. the standard κ = 1/2 beta
-sieve) gives, with s = θ_e/θ_z > 1 and 𝔐 := lim (1/X) Σ_{p ≡ 1 (8)} r*(4p + 1)/8 (a convergent Euler product, positive),
+Under such a hypothesis, the semi-linear lower sieve (Nath–Xie Prop. 3.10 with one component, i.e. the standard κ = 1/2
+beta sieve) is *expected* to give, with s = θ_e/θ_z > 1 and 𝔐 := lim (1/X) Σ_{p ≡ 1 (8)} r*(4p + 1)/8 (a convergent Euler product, positive),
   𝒮(x; z) ≥ (𝔐′ + o(1)) X W(z) f(s),  X = li(x)/4, 𝔐′ = 𝔐·(local correction at ℓ = 3: 3 | p + 4 ⟹ 3 | 4p + 1 ⟹ r* = 0,
 so sifting by 3 is free; and at ℓ ∈ 𝒬, ℓ ≥ 7, the conditional mean of r*(4p+1) given ℓ | p + 4 is 𝔐(1 + O(1/ℓ)), which
 keeps the κ = 1/2 product condition).   (2.3)
@@ -126,12 +140,15 @@ switching); vector sieve ≈ 1.22. **Reading (Assessment):** replacing one sieve
 ≈ 0.07–0.09 in the model level when the switched sums get the same level, and nothing when they do not. These are
 sufficient levels of one implementation in a model, not barriers and not audited constants.
 
-### 2.3 Why the rigorous version is no stronger than Theorem E; the missing lemma
+### 2.3 Why a rigorous version could not be stronger than Theorem E; the missing pieces
 
-Rigorously (unspecified sieve constants, as in Theorems U/E) the only mechanism is "loss → 0 faster than main":
+Even granting (a) a correctly formulated hypothesis for the expansion of §2.1, (b) the weighted local-density
+evaluation (2.3), and (c) Lemma S below, the rigorous mechanism (unspecified sieve constants, as in Theorems U/E)
+would be "loss → 0 faster than main":
 main ≍ √(s − 1), T₁ ≤ K₂(1 − 2θ_z)^{3/2}. With 1 − 2θ_z = η and s − 1 = t this needs t ≫ η³ and gives
 L = 1/2 + (1 + t)(1 − η)/2 = 1 − η/2 + O(η³) < 1: i.e. 𝒟(1/2 − η/2 + O(η³)) ⟹ P(4,15) — the same shape as Theorem E
-(EH(1 − η₀)), since 𝒟(1/2 − η′) ⟸ EH(1 − η′ + ε). No rigorous gain.
+(EH(1 − η₀)), since a level-(1/2 + θ_e) hypothesis of this type follows from EH(1/2 + θ_e + ε). No rigorous gain is
+possible; none of (a)–(c) is supplied here, and **no conditional theorem is claimed**.
 
 **Lemma S (NOT PROVED; the obstacle).** Uniformly for m ∈ S, m ≤ x^{2η}, q ∈ 𝒬, z ≤ q ≤ √x, with Y = (x+4)/(mq):
   Σ_{k ≤ Y, k prime, mqk − 4 prime ≡ 1 (8)} r*(4mqk − 15) ≪ Y·h(m)/(log x)²   (h(m) = ∏_{ℓ|m}(1 + O(1/ℓ))).
@@ -146,13 +163,18 @@ conic N(α) ≡ −15 (mod 4mq) with the sieve conditions on k = (N(α) + 15)/(4
 hyperbola, Kloosterman sum; inert ℓ: norm-one torus, Hasse–Davenport reduces it to a Kloosterman sum) gives main +
 O(M^{1/2+ε}) per modulus M = 4mq·e, hence an upper-bound sieve of level e ≤ x^{1/6} relative to Y ≈ √x — enough for an
 absolute constant K₂, but not written out here (prime-power moduli from m, gcd terms, and uniformity in m, q all need
-care). If Lemma S holds, Theorem H (𝒟(1/2 − η₁) ⟹ P(4,15)) follows by Theorem E's Step 5 verbatim.
+care). Lemma S alone would not close the route: (a) and (b) above are also missing.
 
 ## 3. Theorem AA: generic shift pairs (PROVED, unconditional)
 
 **Theorem AA (PROVED relative to: Barban–Davenport–Halberstam (Davenport, *Multiplicative Number Theory*, Ch. 29,
 ψ-version Σ_{q≤Q}Σ_{a (q)*}|ψ(x; q, a) − x/φ(q)|² ≪ x²(log x)^{−A} for Q ≤ x(log x)^{−A−1}); the linear beta sieve lower
-bound and Ford's upper-bound sieve exactly as cited in HCKILL Theorem E Steps 2 and 4).** Call (a, b) *admissible* if
+bound and Ford's upper-bound sieve exactly as cited in HCKILL Theorem E Steps 2 and 4). Source locators, checked by
+the cross-review: [S1] BDH in the form Σ_{q≤Q}Σ_{c*}|ψ(t;q,c) − t/φ(q)|² ≪_M tQ log t for t(log t)^{−M} ≤ Q ≤ t (e.g.
+E. Smith, arXiv:1210.3862, eq. (1) and Thm 1 with K = ℚ) — for smaller Q enlarge to Q′ = t(log t)^{−A−1} and use
+positivity; [S2] Nath–Xie arXiv:2501.16723, (3.4), Lemma 3.6, Remark 3.7, §5 (beta sieve with product condition,
+weights of absolute value ≤ 1, f(s) = 2e^γ log(s−1)/s on [2, 4]; pp. 19–20 Mertens in progressions); [S3] K. Ford,
+Sieve Methods 2023, p. 18 (Ω) and Thm 2.4 (uniform upper bound, remainder Σ_{d≤z}|r_d|).** Call (a, b) *admissible* if
 a ≡ 0 (mod 4), b ≡ 1 (mod 4) and 3 | ab(a − b). For every ε ∈ (0, 1) there exist η = η(ε) ∈ (0, 1/10], c = c(ε) > 0 and
 x₀(ε) such that for x ≥ x₀ and H := x^{1−η}, all but at most εH² admissible pairs (a, b) ∈ [1, H]² satisfy
   #{p ≤ x : p ≡ 1 (mod 8), p + a ∈ S, 4p + b ∈ S} ≥ c·x/(log x)².
@@ -198,10 +220,11 @@ function over primes), partial summation gives E_π(x; q, c) = E_θ(x; q, c)/log
 O(1/φ(q)) (the O-term is (li(2) − 2/log 2)/φ(q)), so by Cauchy–Schwarz on the integral (∫₂^x dt/(t log²t) ≤ 2)
   Σ_{q≤Q}𝔈₂(q) ≪ (log x)^{−2}Σ_{q,c}|E_θ(x; q, c)|² + ∫₂^x Σ_{q≤Q,c}|E_θ(t; q, c)|² dt/(t log²t) + log x
 (the last term is Σ_q φ(q)·O(φ(q)^{−2})).
-For the inner sums: (i) |ψ(t; q, c) − θ(t; q, c)| ≤ Σ_{p^k≤t, k≥2} log p ≪ √t log t, so Σ_{q≤Q}Σ_c|ψ − θ|² ≪ Qt log²t, and
+For the inner sums: (i) Δ_c := ψ(t; q, c) − θ(t; q, c) ≥ 0 and Σ_c Δ_c ≤ ψ(t) − θ(t) ≤ Σ_{p^k≤t, k≥2} log p ≪ √t log t, so
+Σ_c Δ_c² ≤ (Σ_c Δ_c)² ≪ t log²t and Σ_{q≤Q}Σ_c|ψ − θ|² ≪ Qt log²t (a pointwise bound alone would not give this), and
 BDH for ψ gives Σ_{q≤Q}Σ_c|E_θ(t; q, c)|² ≪ t²(log t)^{−A} + Qt log²t whenever Q ≤ t(log t)^{−A−1}; (ii) crudely, for all t,
-Σ_c θ(t; q, c)² ≤ θ(t)·max_c θ(t; q, c) ≤ 2t(t/q + 1)log t and Σ_q (t/φ(q))² ≪ t², so Σ_{q≤Q}Σ_c|E_θ(t; q, c)|² ≪
-(t² + Qt) log²(2tQ). Split the integral at t₀ := Q(log x)^{A+1}: the part t ≤ t₀ is ≪ (t₀² + Qt₀)(log x)² ≪
+Σ_c θ(t; q, c)² ≤ θ(t)·max_c θ(t; q, c) ≤ 2t(t/q + 1)log t and Σ_{q≤Q}Σ_c (t/φ(q))² = Σ_{q≤Q} t²/φ(q) ≪ t² log(2Q), so
+Σ_{q≤Q}Σ_c|E_θ(t; q, c)|² ≪ (t² + Qt) log²(2tQ). Split the integral at t₀ := Q(log x)^{A+1}: the part t ≤ t₀ is ≪ (t₀² + Qt₀)(log x)² ≪
 x^{2−2η}(log x)^{2A+4} by (ii); the part t ≥ t₀ (where Q ≤ t(log t)^{−A−1}) is ≪ ∫_{t₀}^x (t(log t)^{−A−2} + Q) dt ≪
 x²(log x)^{−A−2} + x^{2−η} by (i). Hence Σ_{q≤Q}𝔈₂(q) ≪ x²(log x)^{−A}, and A = 2B + 2C + 2 proves (3.2). Consequently, for x ≥ x₀, all but at most H²(log x)^{−B/2} pairs have R_{a,b} ≤ x(log x)^{−B/2} ≤
 (c₁η/2)x/(log x)² (B ≥ 6, x large).   (3.3)
@@ -263,9 +286,10 @@ p + 4 = 20 ∉ S); p ≡ 1 (8) iff m ≡ 2 (4), n odd.
 Theorem Q's p = 5m² + 1 is the line (u, s) = (−1, 2) (A = 2m − 1, B = m + 2, C = 4m − 1, D = 2m + 2). The family has
 ≈ √x·log x parameter pairs below x (heuristic: for x^{1/4} ≪ m ≤ √x, n ranges over an interval of length ≍ √x/m;
 numerically 0.30·√x·log x at x = 10⁸; not a proved count of distinct values), thinner than a² + b⁴ (x^{3/4}),
-and is not a norm form in the sense of Maynard; no prime-value theorem applies (Assessment). More generally every
-polynomial family on the quadric is contained in finitely many lines over each (u, s), i.e. in Bunyakovsky slices, and
-the full point set (≍ x log x points, multiplicity r(p+4)r(4p+1)) is the whole problem.
+and is not a norm form in the sense of Maynard; no known prime-value theorem applies (Assessment). Fixing (u, s) gives
+a lattice line in (v, t) whenever uv + st = 15 is solvable, so one-variable slices are Bunyakovsky problems; this
+describes the parametrisation and does not exclude other multivariable families or methods. The full point set
+(≍ x log x points, multiplicity r(p+4)r(4p+1)) is the whole problem.
 
 **4.2 A false shortcut (recorded as a warning).** For M = (w, x; y, z) ∈ SL₂(ℤ), ‖M‖² ± 2 = (w ± z)² + (x ∓ y)², so
 p ≡ 1 (4) prime has p + 4 a sum of two squares iff p + 2 = ‖M‖² for some M ∈ SL₂(ℤ). One is tempted to conclude that
@@ -273,16 +297,21 @@ p ≡ 1 (4) prime has p + 4 a sum of two squares iff p + 2 = ‖M‖² for some 
 w² + x² ≡ −1 (mod q) is solvable for every odd q; M = (2, 1; 1, 1) has ‖M‖² + 2 = 9 ∉ S. So the SL₂ reformulation is
 exactly r(p+4) > 0 (HCKILL Remark 1.3) and nothing more.
 
-**4.3 Where the direct count breaks (Assessment, two lines).** Σ_p r(p+4)r(4p+1) = 16Σ_{d₁≤√x, d₂≤2√x} χ(d₁d₂)·
-π(x; [8d₁d₂], c) + lower order: moduli up to 2x with the residue determined by the split (d₁, d₂) — the balanced
-bilinear range √x × √x where neither BFI-type dispersion (fixed residue) nor the multiplicative large sieve saves
-anything. This is the det-15 copy of the FI obstruction (§1).
+**4.3 Where the direct count breaks (Assessment, schematic).** Expanding both r-weights by (2.1) (coefficient 8 each,
+with p-dependent cutoffs √(p+4), √(4p+1)) writes Σ_p r(p+4)r(4p+1) schematically as a χ(d₁d₂)-weighted sum of prime
+counts in progressions to lcm-type moduli 8[d₁, d₂] with d₁ ≲ √x, d₂ ≲ 2√x and the residue determined by the split
+(d₁, d₂) (compatible only when common primes divide 15): moduli up to ≈ 2x in the balanced bilinear range √x × √x,
+where neither BFI-type dispersion (fixed residue) nor the multiplicative large sieve saves anything. Not an identity;
+the det-15 analogue of the FI obstruction (§1).
 
 ## 5. Numerics (CERTIFIED counts by `scripts/z56_k4try_census.c`; EVIDENCE for the model)
 
 `z56_k4try_census X` builds a least-prime-factor table to 4X + 2 and, for primes p ≤ X, p ≡ 1 (8), reports
-A₁(θ) = #{p : N₂ ∈ S, N₁ has no 𝒬-factor < X^θ}, T₁(θ) = A₁(θ) − #{N₁, N₂ ∈ S} (by parity: N₁ = mqq′ with q, q′ ≥ X^θ),
-and the mirror A₂, T₂. Model: T/A ≈ B(θ)/F(1/θ) (`data/z56/k4try/model_masses.txt`).
+A₁(θ) = #{p : N₂ ∈ S, N₁ has no 𝒬-factor < z}, z = ⌊X^θ⌋ (the implemented cutoff), T₁(θ) = A₁(θ) − #{N₁, N₂ ∈ S}
+(by parity N₁ has an even number ≥ 2 of 𝒬-factors ≥ z; exactly two is forced for θ > 1/3 by N₁ ≤ X + 4 < z³, and at
+θ ≤ 1/3 four-factor cases are possible in principle), and the mirror A₂, T₂ (N₂ ≤ 4X + 1; at θ = 0.25 four-factor
+survivors do occur: the cross-review found 1 at 10⁷, p = 8 588 497 with 4p + 1 = 59²·71·139, and 4 at 2·10⁸ — so T₂
+means "≥ 2 𝒬-factors", not exactly two). Model: T/A ≈ B(θ)/F(1/θ) (`data/z56/k4try/model_masses.txt`).
 
 X = 10⁷ (`census_1e7.txt`): 165 976 primes; N₁ ∈ S: 38 696; N₂ ∈ S: 37 142; both: 16 125; Σ_{both} r*(N₂)/8 = 34 400
 (mean 2.133).
@@ -306,19 +335,22 @@ X = 2·10⁸ (`census_2e8.txt`): 2 769 023 primes; N₁ ∈ S: 595 516; N₂ ∈
 | 0.45 | 0.017 | 0.022 | 0.040 |
 
 Reading: the Buchstab masses used in P415's and §2's ledgers are the right order at these heights (N₂ ≤ 4x has
-effectively smaller θ, hence larger masses; the model's F, B are x → ∞ limits, so a few per cent drift is expected).
+effectively smaller θ, hence larger masses, and at θ = 0.25 also ≥ 4-factor cases; the model's F, B are x → ∞ limits).
+Relative deviations of T₁/A₁ from B/F at 2·10⁸ for θ = 0.25, 0.30, 0.35, 0.40, 0.45: −1.1 %, −3.5 %, −4.2 %, −10.0 %,
+−19.5 % (cross-review arithmetic): the order and the θ ≤ 0.35 values are confirmed, the small-mass tail less so.
 Family §4.1: `family_check.txt` — symbolic identities, the mod-8 criterion, 9 740 members with |m|, |n| ≤ 50 and clean
 gcds all have both shifts 𝒬-free, and 55 624 members below 10⁸ (≈ 0.3·√x·log x).
 Odd-square control: not applicable (no statement here implies ES).
 
 ## 6. What would close P(4,15) (Assessment, inherited and sharpened)
 
-* A level-of-distribution input for primes in the CRT classes of (p + 4)(4p + 1): EH(1 − η₀) (Theorem E), or the
-  structured 𝒟(1/2 − η₁) plus Lemma S (§2.3); in the model, 𝒟 at total level ≈ 0.91 with the switched sums covered.
-* Or a genuinely new idea for the balanced bilinear range — the same thing FI's det-1 problem needs (Sedunova's
+* A level-of-distribution input for primes in the CRT classes of (p + 4)(4p + 1): EH(1 − η₀) (Theorem E). The hybrid
+  route (§2) would need, in addition to a precisely formulated weighted hypothesis, the local-density evaluation and
+  Lemma S; in the model it would use total level ≈ 0.91 with the switched sums covered. No theorem is attached to it.
+* Or a genuinely new idea for the balanced bilinear range — the same thing FI's det-1 analogue needs (Sedunova's
   2026 progress is on almost-primes and square-free distances only).
-* Not: algebraic families (Lemmas A1/A2 of P415 plus §4.1 here), averaging over shifts (Theorem AA shows the generic
-  case is easy, which is why it says nothing about (4, 1)).
+* Not helped by: the algebraic families tried (Lemmas A1/A2 of P415 plus §4.1 here — a scoped failure, not an
+  exclusion), or averaging over shifts (Theorem AA closes the generic case and says nothing about (4, 1)).
 
 ## 7. Reproduction (every command under `timeout` and `ulimit -v 6000000`)
 
@@ -347,5 +379,14 @@ gcc -O2 -o z56_census scripts/z56_k4try_census.c -lm; ./z56_census 10000000  > d
   admissibility ⇔ ν(3) ≤ 1 ⇔ ≤ 2 classes at 3; Step 2′ combinatorics and Cauchy–Schwarz chain; Step 3; Step 4
   survival, uniformity in a ≤ x^{1−η}, local-factor ratios, q₁- and m-sums, Ford's remainder; Step 4′ after the
   domain fix; identities (2.1), r*, §4.1, §4.2; the family script runs.
-* Not independently verified: the FI 2009 statement itself (read from the Bourgain–Kontorovich and Sedunova abstracts
-  only); the model constants of §2.2 (inherited from P415's unaudited model); Lemma S is explicitly unproved.
+* Not independently verified by me: the FI 2009 statement itself (read from the Bourgain–Kontorovich and Sedunova
+  abstracts; confirmed from the paper by the cross-review); the model constants of §2.2 (inherited from P415's
+  unaudited model); Lemma S is explicitly unproved.
+* **Cross-model review** (`data/z56/xreview/REVIEW_K4TRY.md`, ACCEPT-WITH-FIXES; all required fixes applied): Theorem AA
+  survives with sources [S1]–[S3] audited at source level; Step 2′ repaired (ℓ¹→ℓ² for ψ − θ, residue multiplicity
+  log(2Q) in the crude bound); hybrid route demoted to a proposed route with no conditional theorem (𝒟 shown to have
+  incompatible tuples, e.g. g = e = 7, and moving hyperbola endpoints; local densities unevaluated; Lemma S unproved);
+  hardness/impossibility language replaced by analogy and scoped failure; §4.3 equality replaced by a schematic
+  description (coefficients 64, lcm moduli); numerics corrected (relative deviations up to −19.5 %, r*-mean 2.323 at
+  2·10⁸; floor(X^θ) cutoff stated; T₂ at θ = 0.25 includes four-factor survivors, 1 at 10⁷ and 4 at 2·10⁸);
+  line-decomposition claim scoped to the parametrisation.
