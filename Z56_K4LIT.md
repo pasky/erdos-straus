@@ -144,7 +144,8 @@ switched implementations found need ≈ 0.996 (P415 ledger, model, sufficient le
 ### Verdict: **narrowed** (literature-calibrated)
 **What this lane provides.**
 * A provenance-tagged map (§2).
-* Lemma P with its converse Prop P′, which give a sharp data-only threshold of 1/2 for one component.
+* Lemma P with its converse Prop P′. For one component, 1/2 is the infimum exponent for a uniform data-only
+  guarantee of S-mass; the endpoint is open.
 * An incomplete research specification (★K), with its to-do list.
 
 **The judgement (Assessment).** Unconditional K(4) is *known-hard in the practical sense*. Every implementation
@@ -213,7 +214,7 @@ audited needs EH-strength input. Its det-1 analogue has been conditional since 2
   can be handled by an application of Cauchy's inequality."
 
 ---------------------------------------------------------------------------------------------------------------------
-## 3. Lemma P and Prop P′: the data-only threshold for S-membership is level 1/2
+## 3. Lemma P and Prop P′: below level 1/2 no data-only guarantee of S-membership, above it a guarantee
 
 **Setting.** We work with a finite sequence 𝒜 = (a_n)_{n≤x} with a_n ≥ 0.
 * **Data.** For squarefree 𝒬-composed d put 𝒜_d = Σ_{d|n} a_n and r_d = 𝒜_d − X·g(d), for a mass X > 0 and a
@@ -319,7 +320,7 @@ uses primality of the base variable, which the data do not contain. No claim is 
    * The density-adjusting weight w with c_q = 1/(q − 2) gives ratio·φ(d) = 0.9997–1.0000 for d ∈ {3, 7, 11, 19, 21,
      33, 57, 231} (`scripts/z56_k4lit_phiweight.py`, Y = 2·10⁷, E = 2000; `data/z56/k4lit/phiweight.txt`).
 2. **Novelty (Assessment).** Lemma P is a folklore-type construction with a hidden prime above the level. Prop P′ is
-   an immediate corollary of Iwaniec's Theorem 1. The sharp threshold statement for parity-forced κ = 1/2 data was not
+   an immediate corollary of Iwaniec's Theorem 1. The infimum-exponent statement for parity-forced κ = 1/2 data was not
    located in this form. It corrects the shorthand "no parity barrier, only level" in lit_B and lit_C. At BV level there
    is a barrier, namely the parity of the small 𝒬-primes. It disappears as soon as the level exceeds 1/2.
 
@@ -563,7 +564,7 @@ the explicit Ω bound, and stop direct attacks. No step toward ES.
   * **F2.** The density was generalised: Lemma P now covers g(q) = 1/(q − 1), the shifted-prime single-component
     density, via the weight w. Scope is single-component. The joint exception h(3, 3) = 1/2 is restored.
   * **F3.** "Disappears only at EH" was false. It is replaced by Prop P′: positivity of S-mass from data above level
-    1/2, a sharp threshold. "Switching is the only input" and the per-shift budget are now Assessment statements about
+    1/2. (Round 2 weakened "sharp threshold" to "infimum exponent; endpoint open".) "Switching is the only input" and the per-shift budget are now Assessment statements about
     audited implementations. A1/A2 are scoped to full-family constructions.
   * **F4.** (★K) is now consistently r*, with the primitive identity proved and the q = 3 exclusion stated. (★K′) is
     specified as a switched upper bound with the r*-weight; the τ-majorant shortcut is withdrawn. The route is labelled
