@@ -215,3 +215,10 @@ y ≈ x^{1/4}** → UNVERIFIED (Chamizo, Filaseta–Trifonov 1996 not accessed).
 | 4 | Bourgain (13/84+ε, 55/84+ε) | VERIFIED-PRIMARY | arXiv 1408.5794 Thm 6 |
 | 5 | twisted divisor short intervals | UNVERIFIED | nothing found |
 | 6 | hyperbola-neighbourhood count, y≈x^{1/4} | UNVERIFIED (no such result found) | related: C–JU JTNB 2000 Thm 4 & question (α ⩾ 1/4 for 2 points); C–JU 1998 Thm 1.3; Huxley–Sargos Thm 1 (derived bound x^{1/3} only) |
+
+---------------------------------------------------------------------------------------------------
+## Addendum (lane author, after hostile review 1)
+**Trudgian–Yang, arXiv:2306.05599, Lemma 1.1 (1.6) — VERIFIED-PRIMARY** (read in /tmp/lit/2306.05599.pdf, p. 3,
+`pdftotext -layout`): "Lemma 1.1. The following are exponent pairs for any ε > 0: (4742/38463 + ε, 35731/51284 + ε),
+(18/199 + ε, 593/796 + ε), (2779/38033 + ε, 58699/76066 + ε), (715/10238 + ε, 7955/10238 + ε)." Used in Z56_CENTRAL
+Cor. L3 (θ = 8093/28960 for the last pair).
