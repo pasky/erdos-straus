@@ -193,6 +193,17 @@ One pre-specified test: H₀: ρ ≤ 0.005 vs ρ > 0.005 on S₃ (one-sided, α 
 families without a local shadow or ticket content in their own definition: G2, G3, G4, G8, G9, G10, G12, G13 (G10 keeps
 its (p/23) shadow; noted).
 
+**Amendment 5 (after the Amendment-1 battery and the continuous part of A5 on h = 2; before touching its data).** On h = 2
+the part of L(1, χ_{−4p}) beyond Q₀ (G1′) is strongly significant (F = 160), and G6, G15, G16 (with τ₃) remain. All of
+these are consistent with the *exact* genus-layer L-values mattering, which is a known main-term mechanism: for
+p ≡ 1 (8) the real characters of the genus layer evaluated at p are (d/p) for fundamental d, and M_gen is a weighted sum of
+them, i.e. of L-value data of the four fields ℚ(√p), ℚ(√−p), ℚ(√2p), ℚ(√−2p). So a battery **A6** on the fresh sample
+**h₃′** := {p ∈ Bulk1 : splitmix64(p) mod 16 ∈ {7, 11, 15}} (disjoint from S₃ and from everything else), null
+**𝓛⁺⁺⁺** := 𝓛⁺⁺ + ℓ_d := log L(1, χ_dχ_p) exactly for d ∈ {1, −4, 8, −8} (via h(p) log ε_p, h(−4p), h(−8p), h(8p) log ε_{8p};
+PARI, GRH-conditional for the real fields), their squares and pairwise products (14 columns). Families (cont + tail):
+G2, G3, G4, G6, G8, G9, G10, G11, G12, G13, G15, G16 (+τ₃ in the null), G17′; tail null = compact 𝓛⁺ + the 14 columns
++ f₋₁ + log(a₁)/L. Holm over the 26 tests; same decision rule.
+
 ## 4. Results
 
 ### 4.1 Primary block on C (as pre-registered; EVIDENCE)
