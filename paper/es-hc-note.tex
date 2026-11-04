@@ -1,0 +1,413 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{thmQ}{Theorem Q}
+\newtheorem*{thmE}{Theorem E}
+\newtheorem*{thmU}{Theorem U}
+\newtheorem*{thmW}{Theorem W}
+\newtheorem*{thmN}{Theorem N}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{computation}[theorem]{Computation}
+\newtheorem{citedthm}[theorem]{Cited theorem}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{problem}{Problem}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\HC}{\operatorname{HC}}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\EH}{\mathrm{EH}}
+\title[The least certificate coordinate for Erd\H{o}s--Straus]{The least
+certificate coordinate for the Erd\H{o}s--Straus equation at a prime:
+a two-shift reduction, partial sieve results, and covering obstructions}
+\author{Anonymous}
+\date{Draft, November 2026; internal checks only, not externally refereed}
+\emergencystretch=3em
+\begin{document}
+\begin{abstract}
+For an integer $n\equiv1\pmod 4$ call a triple $(t,u,v)$ of positive
+integers with $tuv-u-v=n$ a \emph{word} of $n$, and let $\cC_n$ be the set
+of positive integers that are $\equiv0\pmod4$ or $\equiv-n\pmod8$.  A word
+with a coordinate in $\cC_n$ yields an explicit solution of
+$4/n=1/x+1/y+1/z$, and $c\in\cC_n$ is a coordinate of a word if and only if
+$n+c$ or $cn+1$ has a divisor $\equiv-1\pmod c$.  We study the least such
+coordinate $\HC(p)$ at primes $p$.  It equals $3$ for $p\equiv5\pmod8$
+and is at most $8$ unless $p$ lies in one of Mordell's six classes modulo
+$840$.  For $p\equiv1\pmod8$ we show: $\HC(p)>4$ holds exactly when $p+4$
+and $4p+1$ have only prime factors $\equiv1\pmod4$; every prime
+$p=5m^2+1$ with $4\mid m$ has $\HC(p)\ge7$; under the Elliott--Halberstam
+conjecture at some level $1-\eta_0<1$ there are $\gg x/(\log x)^2$ primes
+$p\le x$ with $\HC(p)>4$, which is the true order; and unconditionally
+$\gg x/(\log x)^2$ primes $p\le x$, $p\equiv1\pmod 8$, have $p+4$ composed
+of primes $\equiv1\pmod4$ and $4p+1$ free of primes $\equiv3\pmod4$ below
+$x^{\delta}$ for an absolute $\delta>0$.  We show that no finite family of
+fixed certificates covers the primes in a class
+$p\equiv1\pmod{840}$, $p\equiv R\pmod\ell$ with $R$ a small quadratic
+non-residue modulo a prime $\ell\ge11$; such classes contain no squares,
+so this obstruction is not the classical one at squares.  We also bound
+the reach of Dickson-type constructions of primes with large $\HC$.  A
+computation gives $\HC(p)\le64$ for every prime $p\equiv1\pmod4$ below
+$10^{12}$.  The Erd\H{o}s--Straus conjecture remains open; nothing here
+proves that $\HC(p)$ is finite for all large $p$, nor that it is unbounded.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+The Erd\H{o}s--Straus conjecture asserts that for every integer $n\ge2$
+\begin{equation}\label{eq:ES}
+\frac4n=\frac1x+\frac1y+\frac1z
+\end{equation}
+has a solution in positive integers.  It is open.  It suffices to treat
+primes, and classical polynomial identities settle every prime outside
+the residue classes $1,121,169,289,361,529\pmod{840}$ (Mordell
+\cite{Mordell}; see \cite[p.~8]{ET}).  Finite families of such identities
+cannot settle any class consisting of squares
+(Yamamoto~\cite{Yamamoto}, Schinzel~\cite{Schinzel}; see
+\cite[Prop.~1.6 and the discussion before Prop.~1.9]{ET}).  The equation
+has been verified numerically for $n\le10^{17}$ \cite{Salez}, and a recent
+preprint reports $n\le10^{18}$ \cite{MD}.  On average there are many
+solutions: Elsholtz and Tao \cite[Thm.~1.1]{ET} show
+$N(\log N)^2\ll\sum_{p\le N}f(p)\ll N(\log N)^2\log\log N$ for the number
+$f(p)$ of solutions.
+
+This note isolates one family of explicit solutions and studies the size
+of its smallest parameter.  For $n\equiv1\pmod4$ a \emph{word} of $n$ is a
+triple $(t,u,v)\in\N^3$ with
+\[
+tuv-u-v=n,
+\]
+and we put
+\[
+\cC_n:=\{x\in\N:\ x\equiv0\ (\mathrm{mod}\ 4)\ \text{or}\ x\equiv-n\ (\mathrm{mod}\ 8)\}.
+\]
+If some coordinate of a word lies in $\cC_n$, then one of five explicit
+identities solves \eqref{eq:ES} (Proposition~\ref{prop:slots}).  The
+coordinate $c\in\cC_n$ occurs in a word exactly when $n+c$ or $cn+1$ has
+a positive divisor $d\equiv-1\pmod c$ (Lemma~\ref{lem:lines}); we call
+such a pair $(c,d)$ a \emph{certificate} and define
+\[
+\HC(n):=\min\{c:\ (c,d)\ \text{is a certificate for}\ n\}\in\N\cup\{\infty\}.
+\]
+So $\HC(p)<\infty$ implies that \eqref{eq:ES} is solvable for $n=p$.  We
+do not know whether the converse holds.  The coordinates divisible by
+$4$ are the ``Type~A'' and ``Type~B'' solutions of L\'opez \cite{Lopez},
+who conjectures that every prime has one (Remark~\ref{rem:lopez}).
+
+$\HC(p)=3$ for $p\equiv5\pmod 8$, so the interesting primes are
+$p\equiv1\pmod 8$, where $\cC_p=\{4,7,8,12,15,16,20,23,\dots\}$.  A
+uniform bound $\HC(p)\le F(p)$ for all large $p$, for any function $F$,
+would prove the Erd\H{o}s--Straus conjecture for all large primes.  We
+prove no such bound.  Our results concern the following questions: how
+small is $\HC$ on explicit classes, how often and by which mechanism can
+it be large, and what can a covering argument achieve.
+
+\subsection*{Results}
+Throughout, $\cQ$ is the set of primes $\equiv3\pmod4$ and $\cS$ is the
+set of positive integers all of whose prime factors are $\equiv1\pmod4$.
+
+\begin{enumerate}
+\item\emph{Basic structure (\S\ref{sec:words}).}  Every certificate divisor
+$d$ for $n$ has Jacobi symbol $(d/n)=-1$ (Lemma~\ref{lem:recip}).  Hence
+$\HC(m^2)=\infty$ for every odd $m$, and certificates supported on primes
+dividing $2m$ never occur when $n\equiv1\pmod{8m}$.
+\item\emph{Explicit classes (\S\ref{sec:classes}).}  $\HC(p)\le8$ for every
+prime $p>7$, $p\equiv1\pmod 4$, outside Mordell's six classes modulo
+$840$ (Proposition~\ref{prop:mordell}), and
+$\#\{p\le x:\ p\equiv1\ (8),\ \HC(p)>4\}\ll x/(\log x)^2$
+(Proposition~\ref{prop:upper4}).
+\item\emph{The first threshold (\S\ref{sec:kill}).}  For $p\equiv1\pmod8$,
+$\HC(p)>4$ if and only if $p+4\in\cS$ and $4p+1\in\cS$
+(Lemma~\ref{lem:K4}).  So ``$\HC(p)>4$ for infinitely many $p$'' is the
+two-shift prime problem
+\begin{equation}\label{eq:P415}
+\text{infinitely many primes } p\equiv1\ (\mathrm{mod}\ 8)\ \text{with}\ p+4\in\cS\ \text{and}\ 4p+1\in\cS,
+\end{equation}
+an analogue of the hyperbolic prime number theorem of Friedlander and
+Iwaniec \cite{FI09} (Remark~\ref{rem:shell}).  We prove:
+\begin{itemize}
+\item \emph{Theorem Q.} Every prime $p=5m^2+1$ with $4\mid m$ has
+$\HC(p)\ge7$.  Hence \eqref{eq:P415} follows from Bunyakovsky's conjecture
+for the single polynomial $720k^2+1$.
+\item \emph{Theorem E.} There is an absolute $\eta_0>0$ such that the
+Elliott--Halberstam hypothesis $\EH(1-\eta_0)$ implies
+$\#\{p\le x:\ p\equiv1\ (8),\ p+4\in\cS,\ 4p+1\in\cS\}\gg x/(\log x)^2$.
+With Proposition~\ref{prop:upper4} this is the true order.
+\item \emph{Theorem U} (unconditional).  There are absolute $\delta>0$ and
+$c>0$ with
+\[
+\#\{p\le x:\ p\equiv1\ (8),\ p+4\in\cS,\ 4p+1\ \text{has no prime factor in}\ \cQ\ \text{below}\ x^{\delta}\}\ge c\,\frac{x}{(\log x)^2}
+\]
+for large $x$.  For these $p$, $4p+1$ has a bounded number of prime
+factors in $\cQ$; \eqref{eq:P415} needs that number to be $0$.
+\end{itemize}
+\item\emph{Dickson-type constructions (\S\ref{sec:dickson}).}  Under
+Dickson's conjecture $\HC$ is unbounded (Proposition~\ref{prop:dickson}).
+Theorem~W shows that a fixed polynomial family of this kind can certify
+$\HC(p)>X$ only for $X<(4+o(1))\log p$, except possibly at its least
+member.
+\item\emph{Coverings (\S\ref{sec:cover}).}  \emph{Theorem N}: let
+$\ell\ge11$ be prime and $R$ a quadratic non-residue modulo $\ell$ with
+$1\le R<(\ell-1)/3$.  For every $C$ and every finite set $\mathcal D$ of
+integers there are infinitely many primes $p\equiv1\pmod{840}$,
+$p\equiv R\pmod\ell$, having no certificate $(c,d)$ with $c\le C$ and
+$d\in\mathcal D$.  The class contains no squares.
+\item\emph{Computation (\S\ref{sec:census}).}  $\HC(p)\le64$ for all
+$18\,803\,924\,340$ primes $p\equiv1\pmod4$ below $10^{12}$; the value
+$64$ occurs only at $p=21\,841$.
+\end{enumerate}
+
+\subsection*{What is not proved}
+We do not prove the Erd\H{o}s--Straus conjecture, nor $\HC(p)<\infty$ for
+all large $p$, nor any bound $\HC(p)\le F(p)$ for all large $p$.  We do not
+prove \eqref{eq:P415}: Theorems~Q and~E are conditional and Theorem~U
+leaves a bounded number of prime factors from $\cQ$ in $4p+1$.  Theorem~W
+limits one construction only; it does not bound $\HC$.  Theorem~N excludes
+fixed finite certificate families only; arguments whose moduli grow with
+$p$ are not excluded.  The computation is a finite verification
+(\S\ref{sec:census} describes the checks); the Erd\H{o}s--Straus
+conjecture itself is verified much further \cite{Salez,MD}.
+
+\subsection*{Relation to the literature}
+The solutions in Proposition~\ref{prop:slots}(c) are of Type~I or Type~II
+in the sense of \cite{ET}; for instance the words with $4\mid t$ are the
+case $c=1$ of the characterisation $4abcd=a+b+nc$ of Type~II solvability
+in \cite[Prop.~2.7]{ET}.  The divisor criterion of Lemma~\ref{lem:lines}
+for $c\equiv0\pmod 4$ is L\'opez's Type~A condition
+$p\equiv-4d\pmod{4dn-1}$ and its level analogue \cite{Lopez}.  Theorem~E
+adapts the method of Friedlander--Iwaniec \cite[Thm.~4, \S6]{FI09}, who
+treat $\sum_{n\le x}\Lambda(n)r(n-2)r(n+2)$ under a level-of-distribution
+hypothesis.  Theorem~U adapts the vector sieve of Nath and Xie
+\cite{NX}, who obtain primes $p=m^2+n^2+1$ with $\Omega(p+2)$ bounded.  We
+did not find the statements of Theorems~Q, E, U or N in the literature; our
+search was limited to arXiv and web-indexed sources (MathSciNet and
+zbMATH were not searched).  A related one-parameter statistic,
+the least $a\equiv3\pmod4$ for which $(p+a)/4$ is a denominator of a
+solution, is studied in the companion note \cite{Win}.
+
+\subsection*{Conventions}
+$p$ and $q$ denote primes, $\ell$ usually denotes a prime, $(\cdot/\cdot)$
+is the Jacobi symbol, and $\Omega_\cQ(n)$ is the number of prime factors of
+$n$ in $\cQ$, counted with multiplicity.  Constants called absolute do not
+depend on any parameter.
+
+\section{Words, certificates and the statistic \texorpdfstring{$\HC$}{HC}}\label{sec:words}
+
+\begin{lemma}\label{lem:word}
+Let $n\in\Z$ and $t,u,v\in\N$, and put $A=tu-1$, $A^*=tv-1$.
+\begin{enumerate}
+\item[(a)] The following are equivalent: $tuv-u-v=n$; $vA=n+u$;
+$uA^*=n+v$; $AA^*=tn+1$.
+\item[(b)] If $n\ge1$ and $(t,u,v)$ is a word of $n$, then $A,A^*\ge1$ and
+$t,u,v\le n+2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $vA-u=tuv-u-v$, symmetrically for $uA^*$, and
+$AA^*=t(tuv-u-v)+1$ with $t\ne0$.  (b) If $tu=1$ then $tuv-u-v=-1$, so
+$A\ge1$; likewise $A^*\ge1$.  $t=(n+u+v)/(uv)\le n+2$.  By symmetry let
+$u\le v$.  Then $v(tu-1)=n+u\le n+v$, so $v(tu-2)\le n$; if $tu\ge3$ this
+gives $v\le n$, and if $tu=2$ then $v=n+u\le n+2$.
+\end{proof}
+
+\begin{proposition}\label{prop:slots}
+Let $n\equiv1\pmod4$, $n\ge5$, and let $(t,u,v)$ be a word of $n$, with
+$A=tu-1$, $A^*=tv-1$.
+\begin{enumerate}
+\item[(a)] If one of $t,u,v$ lies in $\cC_n$, then $4$ divides one of the
+five numbers $t,u,v,A,A^*$.
+\item[(b)] Conversely, if $4$ divides one of $t,u,v,A,A^*$, then one of
+$t,u,v$ lies in $\cC_n$.
+\item[(c)] If $4$ divides one of $t,u,v,A,A^*$, then \eqref{eq:ES} has the
+following solution:
+\begin{align*}
+t=4s:&\quad \frac4n=\frac1{suv}+\frac1{nsv}+\frac1{nsu};\\
+u=4r:&\quad \frac4n=\frac1{rA^*}+\frac1{tnr}+\frac1{tnrA^*};\\
+A=4a:&\quad \frac4n=\frac1{av}+\frac1{avA^*}+\frac1{naA^*};
+\end{align*}
+and symmetrically for $v=4r$ and $A^*=4a$ (exchange $u\leftrightarrow v$,
+$A\leftrightarrow A^*$).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(c) Using Lemma~\ref{lem:word}(a): for $t=4s$,
+$\frac{1}{suv}+\frac{1}{nsv}+\frac{1}{nsu}=\frac{n+u+v}{nsuv}=\frac{tuv}{nsuv}=\frac4n$.
+For $u=4r$, the sum is $\frac{tn+A^*+1}{tnrA^*}=\frac{t(n+v)}{tnrA^*}
+=\frac{uA^*}{nrA^*}=\frac4n$, since $A^*+1=tv$.  For $A=4a$, the sum is
+$\frac{nA^*+n+v}{navA^*}=\frac{ntv+v}{navA^*}=\frac{v\,AA^*}{navA^*}=\frac4n$,
+since $AA^*=tn+1$.
+
+(a) If the coordinate in $\cC_n$ is divisible by $4$ there is nothing to
+prove.  Suppose $u\equiv-n\pmod8$ with $u$ odd.  Then
+$vA=n+u\equiv0\pmod8$, so $v$ or $A$ is divisible by $4$.  The case of $v$
+is symmetric.  If $t\equiv-n\pmod 8$ with $t$ odd, then
+$AA^*=tn+1\equiv1-n^2\equiv0\pmod8$, since $n$ is odd; so $4\mid A$ or
+$4\mid A^*$.
+
+(b) We may assume that none of $t,u,v$ is divisible by $4$ and, by
+symmetry, that $4\mid A=tu-1$.  Then $t$ and $u$ are odd and $n=vA-u$.  If
+$8\mid A$, or if $A\equiv4\pmod8$ and $v$ is even, then $n\equiv-u\pmod8$,
+so $u\in\cC_n$.  Otherwise $A\equiv4\pmod8$ and $v$ is odd, so
+$n\equiv4-u\pmod 8$ and $tu\equiv5\pmod8$.  As $n\equiv1\pmod4$ we get
+$u\equiv3\pmod4$.  If $u\equiv3\pmod8$ then $t\equiv7$ and $n\equiv1\pmod
+8$; if $u\equiv7\pmod8$ then $t\equiv3$ and $n\equiv5\pmod8$.  In both
+cases $t\equiv-n\pmod8$, so $t\in\cC_n$.
+\end{proof}
+
+So a word of $n$ has a coordinate in $\cC_n$ if and only if one of its five
+quantities $t,u,v,A,A^*$ is divisible by $4$, and each such word gives an
+explicit solution of \eqref{eq:ES}.  All denominators in (c) are positive.
+
+\begin{lemma}\label{lem:lines}
+Let $n\ge1$ and $c\ge2$.
+\begin{enumerate}
+\item[(U)] $c$ is the second (equivalently, by the symmetry
+$(t,u,v)\mapsto(t,v,u)$, the third) coordinate of a word of $n$ if and
+only if $n+c$ has a positive divisor $d\equiv-1\pmod c$.  Given $d$, the
+word is $\bigl((d+1)/c,\ c,\ (n+c)/d\bigr)$.
+\item[(T)] $c$ is the first coordinate of a word of $n$ if and only if
+$cn+1$ has a positive divisor $d\equiv-1\pmod c$.  Given $d$, the word is
+$\bigl(c,\ (d+1)/c,\ (e+1)/c\bigr)$ with $e=(cn+1)/d$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(U) If $(t,c,v)$ is a word, $d=tc-1\ge1$ divides $n+c$ by
+Lemma~\ref{lem:word}(a), and $d\equiv-1\pmod c$.  Conversely $d+1$ is a
+positive multiple of $c$, so $t=(d+1)/c\in\N$, and $v=(n+c)/d$ satisfies
+$v(tc-1)=n+c$.  (T) If $(c,u,v)$ is a word, $d=cu-1$ divides $cn+1$ by
+Lemma~\ref{lem:word}(a).  Conversely, $de=cn+1\equiv1\pmod c$ and
+$d\equiv-1$ give $e\equiv-1\pmod c$, so $u=(d+1)/c$ and $v=(e+1)/c$ are
+positive integers with $(cu-1)(cv-1)=cn+1$.
+\end{proof}
+
+\begin{definition}\label{def:HC}
+Let $n\equiv1\pmod4$.  A \emph{certificate} for $n$ is a pair $(c,d)$ with
+$c\in\cC_n$ and $d$ a positive divisor of $n+c$ or of $cn+1$ satisfying
+$d\equiv-1\pmod c$; we call $d$ a \emph{certificate divisor}.  The
+\emph{U-line} and the \emph{T-line} at $c$ are the integers $n+c$ and
+$cn+1$.  We put $\HC(n):=\min\{c:(c,d)\text{ a certificate}\}$, with
+$\min\emptyset=\infty$.
+\end{definition}
+
+Since $1,2\notin\cC_n$, Lemma~\ref{lem:lines} shows that $\HC(n)$ is the
+least element of $\cC_n$ that is a coordinate of some word of $n$, and by
+Proposition~\ref{prop:slots} $\HC(n)<\infty$ implies that \eqref{eq:ES}
+is solvable.
+
+\begin{remark}\label{rem:lopez}
+A word with $4\mid u$ corresponds to a divisor $d=4kn'-1$ of $p+4k$, i.e.\
+$p\equiv-4k\pmod{4kn'-1}$; a word with $4\mid t$, $t=4k$, $u=n'$
+corresponds to $p\equiv-n'\pmod{4kn'-1}$.  These are L\'opez's Type~A and
+Type~B solutions \cite[Thms.~4 and~7]{Lopez}, and his Conjecture~1 is
+equivalent to: every prime has a word with a coordinate divisible by $4$.
+Our $\cC_p$ also contains the odd classes $\equiv-p\pmod 8$.
+\end{remark}
+
+\begin{proposition}\label{prop:small}
+Let $p\equiv1\pmod4$ be prime.
+\begin{enumerate}
+\item[(a)] $\HC(p)\ge3$, and $\HC(p)=3$ if and only if $p\equiv5\pmod8$;
+then $(1,3,(p+3)/2)$ is a word.
+\item[(b)] If $p\equiv1\pmod8$, then $\HC(p)\ge4$, and $\HC(p)=4$ if and
+only if $(p+4)(4p+1)$ has a prime factor $\equiv3\pmod4$.  If $\HC(p)>4$
+then $\HC(p)\ge7$.
+\item[(c)] If $\HC(p)<\infty$ then $\HC(p)\le p-1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) $1,2\notin\cC_p$ because $-p$ is odd and $\not\equiv1\pmod 8$.  $3\in\cC_p$
+iff $p\equiv5\pmod8$, and then $d=2\mid p+3$ with $2\equiv-1\pmod 3$.
+(b) For $p\equiv1\pmod 8$, $\cC_p=4\N\cup(7+8\Z_{\ge0})$, so its two least
+elements are $4$ and $7$.  The numbers $p+4$ and $4p+1$ are odd; an odd
+number has a divisor $\equiv3\pmod4$ iff it has a prime factor
+$\equiv3\pmod4$, because products of numbers $\equiv1\pmod4$ are
+$\equiv1\pmod4$.  (c) By Lemma~\ref{lem:word}(b) every coordinate is
+$\le p+2$, and $p,p+1,p+2\notin\cC_p$: they are $\equiv1,2,3\pmod4$, and
+the odd ones are not $\equiv-p\pmod8$ since $2p,\,2p+2\not\equiv0\pmod8$.
+\end{proof}
+
+\subsection{Reciprocity}
+The following lemma is the only arithmetic property of $p$ beyond
+congruences that enters the covering results; it is the certificate form
+of the classical obstruction at squares.
+
+\begin{lemma}\label{lem:recip}
+Let $n\equiv1\pmod4$ be a positive integer and $(c,d)$ a certificate for
+$n$.  Then $\gcd(d,n)=1$ and $(d/n)=-1$.
+\end{lemma}
+
+\begin{proof}
+Since $d\equiv-1\pmod c$, $\gcd(c,d)=1$.  Write $d=2^ad'$ with $d'$ odd.
+If $d\mid n+c$ then $n\equiv-c\pmod{d'}$; if $d\mid cn+1$ then
+$n\equiv-\bar c\pmod{d'}$ with $c\bar c\equiv1\pmod{d'}$.  As
+$(\bar c/d')=(c/d')$, in both cases $(n/d')=(-c/d')$, which is $\pm1$.  By
+Jacobi reciprocity and $n\equiv1\pmod4$, $(d'/n)=(n/d')$; this is nonzero,
+so $\gcd(n,d')=1$, and $\gcd(n,2)=1$.  Hence
+\begin{equation}\label{eq:recip1}
+\Bigl(\frac dn\Bigr)=\Bigl(\frac2n\Bigr)^a\Bigl(\frac{-c}{d'}\Bigr).
+\end{equation}
+
+\emph{Case $4\mid c$.}  Then $d\equiv-1\pmod 4$, so $a=0$, $d'=d\equiv3\pmod4$
+and $(-1/d)=-1$.  Write $c=4k$, $k=2^bk'$ with $k'$ odd.  If $b\ge1$ then
+$8\mid c\mid d+1$, so $d\equiv7\pmod8$ and $(2/d)=1$.  By reciprocity, as
+$(d-1)/2$ is odd, $(k'/d)=(d/k')(-1)^{(k'-1)/2}$, and $d\equiv-1\pmod{k'}$
+gives $(d/k')=(-1/k')=(-1)^{(k'-1)/2}$; so $(k'/d)=1$.  Hence $(c/d)=1$
+and $(-c/d)=-1$, and \eqref{eq:recip1} gives $(d/n)=-1$.
+
+\emph{Case $c$ odd.}  Then $c\equiv-n\pmod 8$, so $c\equiv3\pmod 4$.  By
+reciprocity $(c/d')=(d'/c)(-1)^{(d'-1)/2}=(d'/c)(-1/d')$, so
+$(-c/d')=(d'/c)$.  From $2^ad'\equiv-1\pmod c$ we get
+$(2/c)^a(d'/c)=(-1/c)=-1$.  Since $c\equiv-n\pmod 8$ and $(2/m)$ depends
+only on $\pm m\bmod 8$, $(2/c)=(2/n)$.  So \eqref{eq:recip1} gives
+$(d/n)=(2/n)^a\cdot(-(2/n)^a)=-1$.
+\end{proof}
+
+For a prime $p$ the lemma says that every certificate divisor is a
+quadratic non-residue modulo $p$; in particular it has a prime factor that
+is a non-residue.
+
+\begin{corollary}\label{cor:squares}
+\begin{enumerate}
+\item[(a)] If $m$ is odd, then $m^2$ has no certificate: $\HC(m^2)=\infty$.
+\item[(b)] Let $m\ge1$ and $n\equiv1\pmod{8m}$.  Then no certificate
+divisor of $n$ has all its prime factors among the primes dividing $2m$.
+\item[(c)] For every finite set $\mathcal D\subset\N$ there are infinitely
+many primes $p$ having no certificate $(c,d)$ with $d\in\mathcal D$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) $(d/m^2)=(d/m)^2\in\{0,1\}$.  (b) $(2/n)=1$ as $n\equiv1\pmod8$, and
+for an odd prime $\ell\mid m$, $(\ell/n)=(n/\ell)=(1/\ell)=1$.  So such a
+$d$ has $(d/n)=1$, contrary to Lemma~\ref{lem:recip}.  (c) Apply (b) with
+$m$ the product of the elements of $\mathcal D$, and Dirichlet's theorem.
+\end{proof}
+
+Part (a) is the certificate form of the vanishing of Type~I and Type~II
+solutions at odd squares \cite[Prop.~1.6]{ET}.  It implies that any proof
+that $\HC(p)<\infty$ must use a property of $p$ that fails at odd squares.
+
+%%CONTINUE%%
+\end{document}
