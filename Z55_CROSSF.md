@@ -23,11 +23,11 @@ Definitions from `Z53_GENUSX.md` §1, §4 (family 𝔉, R_𝔉, M_𝔉, G_𝔉, 
   by these identities; we did not find one.
 * **The scale of "sufficiently large" (CERTIFIED counts + EVIDENCE + model, §3–4).** Exhaustive scans of all primes p ≡ 1 (4) in
   [10⁸, 10⁸ + 2·10⁶] and [10^k, 10^k + 10⁷] for k = 9, 10, 11, and of the first 58 878 such primes above 10^{12} (768 371 primes;
-  two independent scanners agree line by line on the 10⁸ range) plus samples at 10^{13} and beyond (§6): hits(p) is
+  two independent scanners agree line by line on the 10⁸ range) plus samples at 10^{13}–10^{16} (11 171 primes): hits(p) is
   approximately Poisson-shaped with resolved overdispersion (variance/mean = 1.03–1.07; P(hits = 0) = e^{−mean}·(1.02–1.06)),
   with mean/log²p rising 0.0025 → 0.0034 towards 1/(3π⁴) = 0.003422, half of Thm U's optimised *lower-bound* coefficient
   (used below as the model constant; the data approach it from below). **Zero fractions: 39 % at 10⁸, 24 % at 10^{10}, 9.4 % at
-  10^{12}, ≈ 5 % at 10^{13}** (§3). Under the model hits ~ Poisson(c log²p), c = 1/(3π⁴), the expected number of primes with
+  10^{12}, 5.4 % at 10^{13}, 1.7 % at 10^{15}** (§3). Under the model hits ~ Poisson(c log²p), c = 1/(3π⁴), the expected number of primes with
   hits(p) = 0 is ≈ 5.6·10^{30}, concentrated near p ≈ 10^{63}, with the last one expected near **p ≈ 10^{124}** (§4).
   Hence (Assessment, model-based): Problem CROSS is expected to be true only from p₀ ≈ 10^{124} on; the hypothesis (H⁻_𝔉)
   X_𝔉 ≥ −(1 − ε)M_𝔉 of `Z53_GENUSX` is *false* at every zero prime with M_𝔉 > 0 (X_𝔉 = −M_𝔉 there: e.g. p = 10000169, M_𝔉 = 1.17),
@@ -151,7 +151,7 @@ memo quantifies what the target asks for.
 beyond the int64 input range) — both with the standard window U₀ = round(p^{1/12} − ½),
 U₁ = ⌊p^{1/3}/2⌋, Y = ⌊p^{1/3}⌋, X = ⌊p^{2/3}/4⌋ (X decreased until 8U₁X ≤ p), exactly `scripts/z53_genusx_run.py`'s. The
 outputs agree line by line on [10⁸, 1.02·10⁸] (54 198 primes). Scans: all primes p ≡ 1 (4) in [10^k, 10^k + 10^7] (k = 8: +2·10⁶;
-k = 12: the first 58 878 primes, time-boxed); samples at 10^{13}–10^{18} (`scripts/z55_crossf_bigscan.sh`, one prime per step).
+k = 12: the first 58 878 primes, time-boxed); samples at 10^{13}–10^{16} (`scripts/z55_crossf_bigscan.sh`, one prime per step).
 Summary `data/z55/crossf/stats.txt` (`scripts/z55_crossf_stats.py`):
 
 | range | N primes | mean hits | var/mean | P(hits = 0) | e^{−mean} | mean/log²p |
@@ -161,9 +161,15 @@ Summary `data/z55/crossf/stats.txt` (`scripts/z55_crossf_stats.py`):
 | [10^{10}, +10⁷] | 217 331 | 1.457 | 1.03 | 0.238 | 0.233 | 0.00275 |
 | [10^{11}, +10⁷] | 197 020 | 1.909 | 1.04 | 0.153 | 0.148 | 0.00298 |
 | [10^{12}, +3.3·10⁶] | 58 878 | 2.427 | 1.05 | 0.094 | 0.088 | 0.00318 |
-| 10^{13}– samples | see §6 | | | | | |
+| 10^{13} sample (step 10⁵) | 8 290 | 2.958 | 1.06 | 0.054 | 0.052 | 0.00330 |
+| 10^{14} sample (step 10⁶) | 2 238 | 3.478 | 1.02 | 0.035 | 0.031 | 0.00335 |
+| 10^{15} sample (step 10⁷) | 535 | 3.903 | 1.08 | 0.017 (9 zeros) | 0.020 | 0.00327 |
+| 10^{16} sample (step 10⁸) | 108 | 4.454 | 0.83 | 0 | 0.012 | 0.00328 |
 
-(The sampled rows at 10^{13} and beyond are in §6, from `stats.txt` after the time-boxed runs stopped.)
+(Samples: the next prime ≡ 1 (4) at or after 10^k + j·step, j = 0, 1, …, time-boxed at 1700 s each; the 10^{17}–10^{18} runs of
+`z55_crossf_bigscan.sh` were stopped with too few primes to be useful and are not kept. Largest certified zero primes:
+1000005280000049 (10^{15}; also 1000004470000057), 10000481500117 (10^{13}), re-checked independently by the PARI u-form
+script `scripts/z55_crossf_count.py` together with two 9-hit primes, `data/z55/crossf/xcheck_zeros_1e12_1e13.tsv`.)
 
 **Readings.** (1) hits(p) is approximately Poisson-shaped, with *resolved* overdispersion: variance/mean = 1.03–1.07 and
 P(0) = e^{−mean}·(1.02–1.06), both excesses many standard errors above an iid Poisson null at N ≈ 10⁵. Hypothesis (EVIDENCE):
@@ -218,6 +224,30 @@ E(10^{100}) ≈ 5.9·10^{18}; E(x) = 1 at **x ≈ 10^{124}** (log x ≈ 286 ≈ 
   Burgess (p in the conductor: density only), Kloosterman/Weil (principal character only, §2.3) nor sieving (§2.4(b))
   reached it; other rearrangements are not excluded by anything proved here.
 
-## 6. Review log and final numbers
+## 6. Review log
 
-(filled after the hostile review and the completion of the sampled scans)
+**Hostile review (deep-mode subagent, no edits by the reviewer).** It re-derived Lemmas 1.1–1.3 ("the factorisation,
+automatic gcd, reciprocity signs and square obstruction are correct; d = 4uC − 1 > u directly"), brute-forced forms (a)/(c)/(e)
+on all 1 125 primes p ≡ 1 (4) below 20 000 in two hand-chosen windows (446 hits, identical sets), audited both scanners
+("cscan's C-bounds conservatively contain every valid C; scan's distinct-prime subsets correctly allow prime powers in the
+cofactor"), recomputed every number of the §3 table from the data files (all match; 768 371 primes in the exhaustive scans),
+confirmed the 52 z53 cross-checks, re-evaluated E(x) (5.58·10^{30}; E = 1 at log₁₀x = 124.11) and confirmed that no step of
+Thm U's proof uses U₁ ≤ Y. Its findings and the fixes applied: (1) the constant 1/(3π⁴) is half a *lower-bound* coefficient,
+not a proved mean — reworded throughout, model constant labelled as such; (2) model predictions had been stated as
+necessities ("any proof must …", "no effective version can be true") — rewritten as what the model predicts; (3) the
+"no free variable" conclusions were labelled PROVED although only the identities are — identities keep PROVED, conclusions
+downgraded to Assessment with the explicit caveat that dispersion/transformed forms are not excluded; (4) the long-u
+example had γ > α₁ — replaced by (0.1, 0.45, 0.4, 0.44), and the "(u, 2w) swap" sentence removed; (5) the large-sieve
+paragraph was not a proof (p-dependent forbidden sets, missing lower bound for the restricted divisor sum) — reduced to an
+explicitly heuristic remark; (6) C-average sketch: restrictions C < d, gcd(d, 4p) = 1 and the exponent margin added, kept as
+sketch; (7) "Poisson to the accuracy of the data" contradicted the data (overdispersion is 8–11 standard errors) — reworded,
+mixture explanation labelled a hypothesis; (8) summary coverage corrected (10⁸ range is 2·10⁶ long; 10^{12} is the first
+58 878 primes; two-scanner agreement is on the 10⁸ range); (9) integrand peak corrected to s = (1 + √(1 − 8c))/(4c), the
+c = 0.1 example to x ≈ 800; (10) the "≥ a·c log²p" variant now carries its own rate function; (11) "(H⁻) false at zero
+primes" now requires M_𝔉 > 0; (12) the summary's d-form now lists the w-condition; (13) scanner cost corrected to p^{2/3}log p.
+Reviewer's verdict after fixes (paraphrase of its overall verdict): no ES proof is claimed; keep the lemmas and the counts;
+the methodological and asymptotic conclusions had to be, and now are, scoped as Assessment / model predictions.
+
+**Bottom line.** Problem CROSS is not proved. The exact structure of R_𝔉 (four forms, Jacobi obstruction, single-integer
+sections) is PROVED and elementary; the certified counts show hits(p) = 0 at the Poisson-predicted rate at every scale up to
+10^{15}; the Poisson model places the end of the exceptions near 10^{124}. **ES remains OPEN.**

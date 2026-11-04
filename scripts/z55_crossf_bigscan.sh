@@ -8,5 +8,5 @@ run 13 20000 100000
 run 14 10000 1000000
 run 15 4000 10000000
 run 16 1500 100000000
-run 17 800 1000000000
-run 18 400 10000000000
+run 17 800 1000000000   # stopped early in the lane run (too few primes per 1700 s to be useful)
+run 18 400 10000000000  # idem
