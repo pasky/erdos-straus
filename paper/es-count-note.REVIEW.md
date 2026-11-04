@@ -51,6 +51,9 @@ V ≤ (8ζ(2)/9 + o(1))log³Q and the admissible constant c₀ = 1600 (the memo'
   @brianakaka ("density-one lower bound for strict Erdős–Straus solution counts", seen only as a search snippet in z53) could
   not be opened; possible concurrent claim, unverified. The paper therefore states only that the search found nothing and
   makes no stronger priority claim.
+  **Superseded by the cross-model review (below):** the X-post lead is the public Zenodo record 22754703 (Akaka, v0.7),
+  already archived in the repository and discussed in `LITERATURE_2026.md` §2.4. The "search found nothing" account was
+  untenable for almost-all lower bounds; the paper now cites and compares that preprint.
 
 ## Referee report (hostile, deep mode; verbatim)
 
@@ -131,3 +134,56 @@ the exponents" of the proof (rechecked numerically).
 * Not claimed: ES; R(p) ≥ 1 at any prescribed prime; any bound for X(p) = R(p) − M_gen(p) beyond Thm 4.12's density statement;
   the balanced-block barrier (heuristic remark only); priority beyond "the search found nothing".
 * Not externally refereed. Nothing has been posted.
+
+
+## Cross-model referee (`paper/es-count-note.XREFEREE.md`, MAJOR REVISION) and responses
+
+Verdict: all proofs CORRECT (Thm 3.14 CORRECT-WITH-FIX); major revision for the missing literature comparison.
+
+**Required 1 — Akaka, Zenodo 22754703 (v0.7, 14 Sep 2026), Theorem 1. Done.** Read the archived PDF
+(`sources/lit2026/akaka-zenodo-22754703-v0.7.pdf`, §§1–5). Changes:
+* Abstract: the sentence "improves the almost-all exponent 0.549 of Elsholtz–Tao to 2 for the solution count" is removed and
+  replaced by: for the full Type II count Akaka has claimed (unrefereed) the stronger bound ≫ (log p)³ by a related
+  variance/BV method; that claim concerns a different, disjoint subfamily and does not bound R(p).
+* After Theorem C: its content is the bound for the line R; as a statement about f_II or f it is superseded, if correct,
+  by Akaka Thm 1.
+* §1.4: new paragraph "Comparison with Akaka's preprint": statement of his Thm 1 (R_II(p) ≥ c(log p)³ off O(N/(log N)⁴)
+  primes, strict x < y < z), labelled unrefereed / declared AI-assisted / Lean certificate claimed / not checked by us /
+  nothing depends on it; it gives a smaller exceptional set and the true order of f_II. **Disjointness (proved in the
+  text):** his family is y = pM, M = 3abu, s = 3a²u, coprime a < b, recovered by M = y/p, s = (4M−1)x − pM, so 0 < s/M = a/b < 1;
+  for a triple counted by R(p) this decoder gives s/M = B or u (an integer), so the families are disjoint and a bound for his
+  count or for f_II gives none for R. Method comparison: shared truncation to small moduli, primitive-character variance
+  over the unit group (his (10) ↔ our Lemmas 5.6–5.7), weighted BV with a divisor-moment multiplicity budget (his Lemma 4 ↔
+  our Lemma 5.5); different variance bound (his conductor ranges: Pólya–Vinogradov / determinant collisions / gcd sums;
+  ours: one hyperbolic cell per residue class, Lemmas 5.8–5.9).
+* §1.6: search account rewritten (no earlier bound below n^{1/3}, no genus result; for almost-all bounds the related item
+  is Akaka, which claims more for the full Type II count and nothing for R; no earlier almost-all bound for R itself
+  found; "bounded search, not a priority certificate").
+* §7(4): the full-Type-II cubic bound is no longer presented as an untouched target; it is "claimed by Akaka; an
+  independent check would be worthwhile".
+* Bibliography: entry [Akaka] with Zenodo URL, "unrefereed, declared AI-assisted".
+
+**Required 2 — Thm 3.14 rounding. Done.** a = c₀/Q ∈ (0,1] for 1 ≤ c₀ ≤ Q; for W/Q ≥ 1, N = ⌈W/Q⌉ ≤ 2W/Q gives
+y/N² ≥ ℓn/(16W²) ≥ n^c/4 ≥ 1; W/Q < 1 (and N < N₀) handled by the trivial bound. No exponent changes.
+
+**Required 3 — overclaims. Done.** §6: the three variance values are now "consistent with V of order log³Q …; three
+samples do not establish the order". §7(4): "would require control of correlations at larger level" replaced by a list of
+possible routes (remove weights, add fibrations, enlarge truncation — only the last needs correlations beyond level
+X^{1/2}).
+
+**Required 4 — HLMLT author order. Done.** Now Hasanalizade, Lin, Luna Martínez, Martin, Treviño (title-page order of v2);
+this reverses my earlier response to referee item 7.
+
+**Minor comments.**
+* 65-slice percentages not reproducible from the adjacent check files: agreed; §6 now names the generator
+  `scripts/z53_genuslval_slice.{c,py}` (needs PARI/GP), its output `data/z53/genuslval/slice_checks.txt`, and says it was not
+  regenerated for this note. The claim stays labelled as an internal sanity check, not a result.
+* "Theorem D" vs number 4.12: the paper never uses the letter D in text; it refers to Theorem 4.12 throughout and the
+  scope sentence reads "Theorems A–C and 4.12". The name "Theorem D" occurs only in this review file (name map above).
+* Keep the corrected Type II qualification, odd-prime domain, slice wording, derivative terms, heuristic balanced-block
+  remark: kept unchanged.
+* Access limits (IK Thm 17.1, GK Thm A.6 via restatements; Heath-Brown Thm 1 not accessed but Lemma 3.2 is proved in full):
+  noted; no change needed.
+
+Status after this revision: the bankable list above is unchanged, except that Theorem C is now positioned as a statement
+about the line R only; its consequence for f_II and f is (if Akaka's claim is correct) superseded.

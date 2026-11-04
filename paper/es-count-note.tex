@@ -69,9 +69,11 @@ modulus carry no density main term.  (iii)~For all but
 $O_\eta(\pi(X)/\log X)$ primes $p\le X$ we have
 $R(p)\ge(1-\eta)(\log p)^2/64$.  This is a variance bound over primes
 by Bombieri--Vinogradov for a truncated count, in which every residue
-class becomes a single hyperbolic lattice cell.  It improves the
-almost-all exponent $0.549$ of Elsholtz--Tao to $2$ for the solution
-count.  The Erd\H{o}s--Straus conjecture remains open: (i) is an upper
+class becomes a single hyperbolic lattice cell.  For the full count of
+Type~II solutions, Akaka has claimed (unrefereed preprint, 2026) the
+stronger almost-all bound $\gg(\log p)^3$ by a related
+variance/Bombieri--Vinogradov method; that claim concerns a different,
+disjoint subfamily and does not bound $R(p)$.  The Erd\H{o}s--Straus conjecture remains open: (i) is an upper
 bound and holds at odd squares, where $R=0$; (ii) concerns a main term
 and not $R(p)$ itself; (iii) says nothing about any prescribed prime.
 \end{abstract}
@@ -252,6 +254,10 @@ In particular $f(p)\ge 3f_{\rm II}(p)\ge 3R(p)\gg(\log p)^2$ for all
 primes outside a set of relative density zero.
 \end{introthm}
 
+The content of Theorem~\ref{thm:C} is the bound for the single line
+$R$.  As a statement about $f_{\rm II}$ or $f$ it is superseded, if
+correct, by the claim of Akaka \cite[Thm.~1]{Akaka} discussed below.
+
 Elsholtz and Tao prove $f(p)\ge(\log p)^{(\log3)/2-o(1)}$ with
 $(\log 3)/2=0.549\ldots$ for all primes in a set of relative density one
 \cite[Thm.~1.8]{ET}, and remark that higher moments of $f_{\rm I}(p)$,
@@ -268,6 +274,34 @@ with $4uBC-u-B\le X$ lies between $\#\{uBC\le X/4\}$ and $\#\{uBC\le
 X/2\}$, so the average of $R(n)$ over $n\le X$ is $\asymp(\log X)^2$.  By
 contrast, the mean of $f_{\rm II}(p)$ over primes is of order $(\log p)^3$
 \cite[Thm.~1.1]{ET}.
+
+\emph{Comparison with Akaka's preprint.}  Akaka \cite[Thm.~1]{Akaka}
+claims that the number $R_{\rm II}(p)$ of Type~II solutions with
+$x<y<z$ satisfies $R_{\rm II}(p)\ge c(\log p)^3$ for all but
+$O(N/(\log N)^4)$ primes $p\le N$.  This is an unrefereed, declared
+AI-assisted preprint with a claimed Lean certificate; we have not
+checked it, and nothing below depends on it.  If correct, it gives the
+true average order of $f_{\rm II}$ for almost all primes and a smaller
+exceptional set than Theorem~\ref{thm:C}, and so supersedes the
+consequence of Theorem~\ref{thm:C} for $f_{\rm II}$ and $f$.  It does not
+imply Theorem~\ref{thm:C}: his count is restricted to the family
+$y=pM$, $M=3abu$, $s=3a^2u$, $12abu-1\mid p+12a^2u$ with coprime $a<b$,
+recovered from a solution through $M=y/p$ and $s=(4M-1)x-pM$, and his
+family has $0<s/M=a/b<1$.  A triple counted by $R(p)$, with $y$ either
+of $pBC$, $puC$, has $s/M=B$ or $u$, an integer; so the two families
+are disjoint, and a lower bound for his count (or for $f_{\rm II}$) gives
+none for $R(p)$.  The methods overlap substantially: both truncate to
+moduli below a small power of $X$, compute the variance over the unit
+group by decomposing into primitive characters (his (10), our
+Lemmas~\ref{lem:varid} and~\ref{lem:parseval}), and transfer to primes by
+Bombieri--Vinogradov with a divisor-moment budget for repeated moduli
+(his Lemma~4, our Lemma~\ref{lem:moment2}).  They differ in the variance
+bound: Akaka splits the conductors into ranges (P\'olya--Vinogradov for
+small conductors, a determinant collision count for intermediate ones,
+gcd sums for large ones), while here each residue class modulo $d$ is a
+single cell of the hyperbolic region $uC\le Y$ and
+Lemmas~\ref{lem:hyp1}--\ref{lem:hyp2} give the variance bound
+directly.
 
 \subsection{What is and is not proved}
 Theorems~\ref{thm:A}--\ref{thm:C} and~\ref{thm:D} are proved here in full, relative to the cited
@@ -296,9 +330,12 @@ A search of the arXiv and the web (queries on Erd\H{o}s--Straus
 solution counts, Type~II counts, square sieve applications, and
 divisor counts in residue classes; details in the accompanying review
 file) found no earlier pointwise bound for $R(n)$ or for any Type~II
-family below $n^{1/3}$, no almost-all lower bound of order $(\log p)^2$
-for primes, and no unconditional lower bound for a genus main term of
-this kind.  We make no stronger priority claim.  The pointwise bounds we
+family below $n^{1/3}$, and no unconditional lower bound for a genus
+main term of this kind.  For almost-all lower bounds, the one directly
+related item is Akaka's preprint \cite{Akaka}, compared above: it claims
+more for the full Type~II count, with an overlapping method, and nothing
+for $R$.  We found no earlier almost-all lower bound for the line $R$
+itself.  This is a bounded search, not a priority certificate.  The pointwise bounds we
 know of are Elsholtz--Tao's $f_{\rm I}(n)\ll n^{3/5+o(1)}$,
 $f_{\rm II}(n)\ll n^{2/5+o(1)}$ \cite[Prop.~1.7]{ET} and the bound
 $O_\eps(n^\eps (n^3/m^2)^{1/5})$ of Elsholtz--Planitzer \cite[Thm.~1]{EP}
@@ -864,13 +901,15 @@ Proposition~\ref{prop:strip} by the exponent pair.  In Case~2 we have
 $\gamma\le1-2\theta^*+o(1)<\frac12$, so $|\ell|n\ge 4W^2\cdot n^{c}$ for
 every $\ell\ne0$ and some $c>0$.  For $\ell>0$ the sum defining $E_Q(\ell)$
 is $\sum_je(g(j))$ with $g(x)=-Y/(x+a)$, $Y=\ell n/(4Q^2)$,
-$a=c_0/Q\in[0,1)$ (taking $1\le c_0\le Q$), and $j+a\in(W/Q,2W/Q]$.  After
+$a=c_0/Q\in(0,1]$ (taking $1\le c_0\le Q$), and $j+a\in(W/Q,2W/Q]$.  After
 removing at most one boundary term, $j$ lies in an interval
 $I\subseteq[N,2N]$, $N=\lceil W/Q\rceil$, and
 $g'(x)=Y(x+a)^{-2}$ satisfies the derivative conditions with $\sigma=2$,
 $y=Y$, since $(x/(x+a))^{2+r}=1+O_r(1/N)$; this needs $N\ge N_0$, and for
-$N<N_0$ we use the trivial bound.  Also $y\ge N^2$ because $\ell n\ge
-4W^2$.  The case $\ell<0$ follows by complex conjugation.  Hence
+$N<N_0$ (in particular for $W/Q<1$) we use the trivial bound.  For
+$W/Q\ge1$ we have $N\le2W/Q$, hence
+$y/N^2\ge\frac{\ell n}{4Q^2}\cdot\frac{Q^2}{4W^2}=\frac{\ell n}{16W^2}\ge
+\frac{n^c}4\ge1$ for large $n$, so $y\ge N^2$.  The case $\ell<0$ follows by complex conjugation.  Hence
 $E_Q(\ell)\ll(|\ell|n/W^2)^\kappa(W/Q)^{\kappa+1/2}+1$, and step (iv)
 gives the contribution
 $\frac V{QW}Q^{3/2}(n/W^2)^\kappa(W/Q)^{\kappa+1/2}M^{1+\kappa}\asymp
@@ -1815,7 +1854,11 @@ p)^2$), and $\Mgen(n)=0$ for $n=31^2,35^2,99^2$.  The ratios
 $\Mgen(p)/(\log p)^2$ are thus more than ten times the constant
 $2/(3\pi^4)=0.00684$ of Theorem~\ref{thm:B}.  Note that $p=8813281$ has
 $R(p)=0$: its genus count is not small, and the vanishing comes from
-the characters of order $\ge3$.  In earlier internal computations (65 slices,
+the characters of order $\ge3$.  In earlier internal computations (generator
+\texttt{scripts/z53\_genuslval\_slice.\{c,py\}} of the accompanying
+repository, which needs PARI/GP for the $L$-values; output
+\texttt{data/z53/genuslval/slice\_checks.txt}; not regenerated for this
+note) (65 slices,
 $u\in\{1,5,13,21\}$, twenty primes from $409$ to about $10^8$), the
 formula of Proposition~\ref{prop:C}, with $L$-values computed
 numerically, agreed with the exact slice sums to within $0.13\%$ for all
@@ -1830,8 +1873,10 @@ computed by a double sum over $\cT$ with the program
 \texttt{scripts/z53\_pz\_exactV\_trial.c} of the accompanying repository) is $V=2.0988$, $6.9439$, $10.887$
 for $Q=10^2,10^3,3\cdot10^3$, i.e.\ $V/\log^3Q\approx0.021$ in each case,
 while $M/\log^2Q\approx0.120$.  So the bound of
-Proposition~\ref{prop:V} has the right order but a constant about $70$
-times too large.
+These three values are consistent with $V$ being of order $\log^3Q$
+(the order of the bound of Proposition~\ref{prop:V}, whose constant is
+then about $70$ times too large); three samples do not establish the
+order.
 \end{itemize}
 
 \section{Concluding remarks}\label{sec:concl}
@@ -1859,15 +1904,23 @@ that a genuinely bilinear estimate would be needed.  Even with the
 conjectural exponent pair the cube block gives only $n^{5/18+\eps}$, so a
 bound of the shape $R(n)\ll n^{1/4+\eps}$ would need new ideas in every
 block.
-\item For Theorem~\ref{thm:C}, improving $\frac1{64}$ towards the
-heuristically predicted mean $\frac3{2\pi^2}(\log p)^2$ (the sum over
-$(u,B)\in\cP(p)$ of the densities $1/\varphi(4uB)$), or proving the analogous bound
-$f_{\rm II}(p)\gg(\log p)^3$ for almost all $p$ (the true order of
-$f_{\rm II}$ on average), would require control of correlations at
-larger level.
+\item For Theorem~\ref{thm:C}, one may try to improve $\frac1{64}$
+towards the heuristically predicted mean $\frac3{2\pi^2}(\log p)^2$ (the
+sum over $(u,B)\in\cP(p)$ of the densities $1/\varphi(4uB)$), for
+instance by removing the weights $\varphi(m)/m$, adding the other
+fibrations of $R$, or enlarging the truncation; the last would need
+control of pair correlations beyond the level $X^{1/2}$ used here.  For
+the full Type~II count, the almost-all bound $f_{\rm II}(p)\gg(\log
+p)^3$ (its true average order) is claimed by Akaka \cite{Akaka}; an
+independent check of that claim would be worthwhile.
 \end{enumerate}
 
 \begin{thebibliography}{99}
+\bibitem{Akaka} B.~Akaka, A cubic lower bound for strict
+Erd\H{o}s--Straus solution counts at almost all primes, working preprint
+v0.7, 14 September 2026, Zenodo record 22754703
+(\url{https://zenodo.org/records/22754703}); unrefereed, declared
+AI-assisted.
 \bibitem{Bombieri} E.~Bombieri, On the large sieve, \emph{Mathematika}
 \textbf{12} (1965), 201--225.
 \bibitem{Bourgain} J.~Bourgain, Decoupling, exponential sums and the
@@ -1892,8 +1945,8 @@ Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010.
 \bibitem{GK} S.~W.~Graham and G.~Kolesnik, \emph{Van der Corput's Method
 of Exponential Sums}, London Math. Soc. Lecture Note Ser.\ 126, Cambridge
 Univ. Press, 1991.
-\bibitem{HLMLT} E.~Hasanalizade, H.~Lin, G.~Martin, A.~Luna
-Mart\'inez and E.~Trevi\~no, Explicit Burgess inequalities for cubefree
+\bibitem{HLMLT} E.~Hasanalizade, H.~Lin, A.~Luna Mart\'inez,
+G.~Martin and E.~Trevi\~no, Explicit Burgess inequalities for cubefree
 moduli, arXiv:2511.17778v2.
 \bibitem{HB84} D.~R.~Heath-Brown, The square sieve and consecutive
 square-free numbers, \emph{Math. Ann.} \textbf{266} (1984), 251--259.
