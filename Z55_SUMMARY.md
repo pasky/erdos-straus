@@ -162,8 +162,10 @@ sufficiently large prime p ≡ 1 (4). Each hit gives an ES solution. **Not prove
     with its assumed c, not a certified last exception; no theorem forces a proof's p₀.
   * With c = 0.003 the crossover is ≈ 10¹⁴²; with the GRH coefficient it is ≈ 10^{39.9}.
   * For R_𝔉 ≥ a·c·log²p: log p₀ ≈ 1/(c·I(a/2)).
-  * Recommendation: the family's constant is too thin. Enlarge the main term (≳ 0.1·log²p) or find another positivity
-    mechanism before "all large p" has checkable content.
+  * Recommendation (Assessment): the model's crossover near 10¹²⁴ is an expected-tail-count crossover, not a proved
+    lower bound on a proof's threshold. Exhaustive testing to that scale is infeasible, but an effective proof's explicit
+    constants could still be checked. Enlarging the family's mean (≳ 0.1·log²p) or finding another positivity mechanism
+    is a suggested route, not a necessity theorem.
 
 **CROSSO: averaged versions (strengthened on average; pointwise target not reached).**
 * **Lemma 1.1 / Cor 1.2 (PROVED).** Both factors of 4Cp + 1 = de are non-residues mod p, and R(m²) = 0 for odd squares.
