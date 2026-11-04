@@ -15,8 +15,9 @@ prime p ≡ 1 (mod 4). (R(p) ≥ 1 ⇒ 4/p = 1/(uBC) + 1/(pBC) + 1/(puC), so thi
   d ≡ 3 (mod 4) has (−p mod d) dividing (d+1)/4. Every proof route I tried (finite residue coverings, polynomial
   identities in p, consecutive-integer factorisation structure, Jacobi/genus reciprocity) either runs into the square
   obstruction or gives only "almost all" (§4). §5 lists where each line stops.
-* All numerics are CERTIFIED by `scripts/z56_famtry_census.c` (re-derives the 14 (★)-zeros ≤ 10⁷ independently, all odd
-  squares have R = 0, mean R(p)/log²p → 0.145).
+* Numerics: `scripts/z56_famtry_census.c` re-derives the 14 (★)-zeros ≤ 10⁸ independently and finds R(m²) = 0 for all odd
+  m² ≤ 10⁸ (CERTIFIED: zero/non-zero is exact; the counters saturate at 255, so the printed means are lower bounds);
+  the sample mean of R(p) over primes p ≡ 1 (4), p ≤ 10⁸, is 0.146·log²(10⁸) (EVIDENCE).
 
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE as in the rules.
 
@@ -46,11 +47,10 @@ d ≡ −1 mod u and (d−1)/2 odd). For u = 2^k u' with u' odd: (2 | d) = 1 bec
 Hence (n | d) = (−u | d) = −1. A square coprime to d has symbol +1, so R(m²) = 0 (gcd(m, d) = 1 is forced: d | m² + u with
 gcd(u,d)=1). For p ≡ 1 (mod 4), (p | d) = (d | p) by reciprocity. ∎
 
-**Lemma 1.4 (Linnik-type form).** For an odd n, R(n) ≥ 1 ⟺ there is d ≡ 3 (mod 4), 7 ≤ d ≤ 4(n+1)/3, such that the least
+**Lemma 1.4 (Linnik-type form).** For an odd n, R(n) ≥ 1 ⟺ there is d ≡ 3 (mod 4), 3 ≤ d ≤ 4(n+1)/3, such that the least
 positive residue r_d(n) := (−n mod d) ∈ [1, d−1] divides (d+1)/4.
 
-*Proof.* In (1.3), u ≤ (d+1)/4 < d and n ≡ −u (mod d), so u = r_d(n). Range: d ≤ n + u ≤ n + (d+1)/4 gives d ≤ (4n+1)/3.
-For n ≡ 1 (mod 4) the modulus d = 3 needs n ≡ 2 (mod 3) with u = 1, fine; the bound d ≥ 3 is harmless. ∎
+*Proof.* In (1.3), u ≤ (d+1)/4 < d and n ≡ −u (mod d), so u = r_d(n). Range: d ≤ n + u ≤ n + (d+1)/4 gives d ≤ (4n+1)/3. ∎
 
 So: **R(p) ≥ 1 iff some modulus d ≡ 3 (4) has "−p mod d" a divisor of (d+1)/4.** Heuristically, for each d the chance
 is τ((d+1)/4)/d, Σ_d τ((d+1)/4)/d ≈ (1/8)log²D, and the events for different d are nearly independent ⇒ failure
@@ -70,11 +70,12 @@ n ≡ a_i (mod q_i) has R(n) ≥ 1 ("solvable classes"). Then their union misses
 Lemma 1.3; so no solvable class a_i (q_i) contains the whole class 1 (mod M), i.e. a_i ≢ 1 (mod q_i) for every i. Hence no
 n ≡ 1 (mod M) lies in ∪_i {a_i mod q_i}, and by Dirichlet there are infinitely many primes p ≡ 1 (mod M) ⊂ 1 (mod 8). ∎
 
-**Remark 2.3 (polynomial identities).** The same obstruction kills "C = (p + a)/b, 4Cp + 1 = (linear)(linear)": a factorisation
-4p² + 4ap + b = (2p + α)(2p + β) over ℤ needs α + β = 2a, αβ = b, and the resulting d ≡ −1 (mod 4C) condition is a
-congruence on p which, by Prop. 2.2, cannot hold on a class containing squares. Concretely the only linear solutions are
-a = 3, b = 8 (p ≡ 5 mod 8) and a = −3, b = 8 (p ≡ 5 mod 8 again). So **any proof must use that p is not a square in a
-way that is not a congruence condition** — i.e. the arithmetic of p itself (e.g. its quadratic character d ↦ (d | p)).
+**Remark 2.3 (polynomial identities).** Any identity of the form "(u, B, C) = polynomials in p, valid for p in a residue
+class" (e.g. C = (p+3)/8, (u,B) = (1,2) on p ≡ 5 (8); C = (p+7)/24, (u,B) = (1,6) on p ≡ 17 (24); in general (u,B) fixed,
+C = (p+u+B)/(4uB) on p ≡ −(u+B) (4uB)) makes its class a solvable class, so Prop. 2.2 applies: no finite family of such
+identities covers the primes ≡ 1 (8), and none is valid on a class containing 1 (mod M). So **any proof must use that p is
+not a square in a way that is not a congruence condition** — i.e. the arithmetic of p itself (e.g. its quadratic character
+d ↦ (d | p)).
 
 EVIDENCE (`census_1e7.txt`): among primes p ≡ 1 (8) in [10⁶, 10⁷], R = 0 for 5 of 146 424; restricted to prime moduli
 d (any size) the count R_pr = 0 for 143; restricted to prime d ≤ √p (the family the large sieve of §3 uses), R_sq = 0
@@ -114,13 +115,14 @@ X + Q².) Since ω(ℓ)/(ℓ − ω(ℓ)) ≥ ω(ℓ)/ℓ,
 *Proof.* For every prime ℓ ∈ (Y, 2Y], ω(ℓ) ≥ #{d ≤ Y^{1/3} : 4d | ℓ + 1}: if ℓ ≢ 3 (mod 4) the right side is 0; otherwise
 each such d is a divisor of (ℓ+1)/4. Hence
  Σ_{Y<ℓ≤2Y} ω(ℓ) ≥ Σ_{d ≤ Y^{1/3}} [π(2Y; 4d, −1) − π(Y; 4d, −1)].
-Bombieri–Vinogradov (for A = 2): Σ_{q ≤ x^{1/2}(log x)^{−3}} max_{(a,q)=1} max_{y ≤ x} |π(y;q,a) − li(y)/φ(q)| ≪ x(log x)^{−2}.
-Apply it with x = 2Y; all moduli q = 4d ≤ 4Y^{1/3} are ≤ x^{1/2}(log x)^{−3} for Y large. Thus
+Bombieri–Vinogradov: for A = 2 there is B = B(2) with Σ_{q ≤ x^{1/2}(log x)^{−B}} max_{(a,q)=1} max_{y ≤ x} |π(y;q,a) − li(y)/φ(q)| ≪ x(log x)^{−2}.
+Apply it with x = 2Y and a = −1 (coprime to 4d); all moduli q = 4d ≤ 4Y^{1/3} are ≤ x^{1/2}(log x)^{−B} for Y large. Thus
  Σ_{Y<ℓ≤2Y} ω(ℓ) ≥ (li(2Y) − li(Y))·Σ_{d ≤ Y^{1/3}} 1/φ(4d) − O(Y/(log Y)²).
 Now li(2Y) − li(Y) = ∫_Y^{2Y} dt/log t ≥ Y/log(2Y), and Σ_{d ≤ Y^{1/3}} 1/φ(4d) ≥ Σ_{d ≤ Y^{1/3}} 1/(4d) ≥ (1/4)·log(Y^{1/3}) = (log Y)/12.
 So Σ_{Y<ℓ≤2Y} ω(ℓ) ≥ (Y/12)·(log Y/log 2Y) − O(Y/(log Y)²) ≥ Y/12.5 for Y ≥ Y₀, and A(Y) ≥ (1/(2Y))·Y/12.5 = 1/25. ∎
 
-(Numerically A(2^j) ≈ 0.43 for j ≥ 15, `data/z56/famtry/c0_2pow29.txt`; the lemma's 1/25 is a crude but rigorous bound.
+(Numerically A(2^j) ≈ 0.43 for j ≥ 15, `data/z56/famtry/c0_2pow29.txt` — its cumulative column omits ℓ = 3 and is not used;
+the lemma's 1/25 is a crude but rigorous bound.
 Using moduli up to Y^{1/2−ε} in BV would give 1/17; the true value is the Titchmarsh-type constant ≈ 0.43 — EVIDENCE.)
 
 ### 3.4 Lower bound for L(Q)
@@ -150,14 +152,17 @@ S(X, √X) contains all odd squares ≤ X (Lemma 1.3), so **no refinement of thi
 Montgomery bound (X + Q²)/L(Q) is also ≥ X/Q² ≥ 1 regardless — the sieve is structurally unable to give "all p".
 (ii) The exponent ½ in exp(−c√log X) is the natural limit of the prime-modulus large sieve here: Σ_{ℓ ≤ t} ω(ℓ)/ℓ ≍ log t
 (growing "dimension"), and Σ_{q≤Q} μ²(q)ω(q)/q = exp((1+o(1))·κ√log Q)-type for such ω. Numerically (`data/z56/famtry/L_1e8.txt`)
-log L(Q)/√log Q ≈ 0.92–0.95 for Q = 10⁷–10⁸ — the true constant is ≈ 1, versus 0.125 proved.
+log L(Q)/√log Q ≈ 0.92–0.95 for Q = 10⁷–10⁸ and still rising slowly — versus 0.125 proved (for L(Q); 0.088 after Q = √X).
 (iii) Composite moduli d ≡ 3 (4) in (1.3) carry τ((d+1)/4) further classes with Σ_{d≤Q} τ((d+1)/4)/d ≍ log²Q, which
 heuristically would give exp(−c log²X) — but these class sets are not products of classes modulo the prime factors of d, so
 neither Montgomery's inequality nor the Selberg sieve applies to them (the Cauchy–Schwarz lower bound
 Σ_{a mod d}|S(a/d)|² ≥ d|S|²/(d − ω(d)) holds for every d, but after removing the non-reduced fractions no usable lower bound
 for Σ*_{a mod d} survives; see §4.3). This is exactly where the "almost all" → "all" gap sits.
-(iv) Concretely at X = 10⁸: L(10⁴) = 11.03, bound 2X/L ≈ 1.8·10⁷ versus the true |S(10⁸, 10⁴) ∩ primes ≡ 1 (4)| = 32 971
-(`census_1e8.txt`, column R_sq = 0) — the inequality is far from tight at computable sizes, as expected.
+(iv) Concretely at X = 10⁸: L(10⁴) = 11.03, bound 2X/L ≈ 1.8·10⁷, whereas |S(10⁸, 10⁴) ∩ {primes ≡ 1 (4)}| ≤ 32 971
+(`census_1e8.txt`, column R_sq = 0 counts primes with no hit at prime moduli ≤ √p, a superset) — the inequality is far
+from tight at computable sizes, as expected.
+(v) The constant: |E(X)| ≤ √X + 2e³X·exp(−0.0884√log X) is ≤ X·exp(−0.08√log X) only once exp(0.0084√log X) > 41, i.e.
+log X > 2·10⁵; X₀ is in any case ineffective (BV). The statement is purely asymptotic.
 
 ## 4. Attempts at "every p" and where each one stops
 
@@ -179,12 +184,13 @@ e.g. in (c), 7 is a product of the classes present iff some factor is ≡ 7 or b
 is ≡ 3, so "no 7 and not both 3, 5" ⟺ all factors in {1, 3}. (d): p ≡ 1 (3) ⇒ 3 | 8p + 1, and 3 ≡ 3 (8) excludes the
 {1, 5} option. ∎
 
-These are strong (each has density ≍ (log p)^{−1/2}-type), but they are **all satisfied by every odd square n = m²** in
-place of p (Lemma 1.3), and so is (f) in full. Hence no finite or infinite list of such local/factorisation conditions
-can ever be contradictory by itself. **A proof must use a global property of p that squares lack.** The only such handle
-I see is the quadratic character d ↦ (d | p): for p prime half of the d ≡ 3 (4) have (d | p) = −1 and then p mod d is one
-of the (φ(d)/2) non-residues, of which G_d is a subset of size τ((d+1)/4); for a square all (d | m²) = +1 and G_d is
-unreachable. But "(d | p) = −1 for about half of all d" is far from forcing p mod d ∈ G_d for a single d (§4.2).
+These are strong (each has density ≍ (log p)^{−1/2}-type), but the underlying no-hit conditions — (f) in full, and
+"n mod d ∉ G_d for all d" in (a) — are **satisfied by every odd square n = m²** (Lemma 1.3); only the cosmetic
+reformulations that use gcd(p, 6·7⋯) = 1 (such as "p ≡ 1 (mod 3)" or "3 | 8p + 1") fail for squares divisible by 3 or 7.
+Hence no finite or infinite list of such local/factorisation conditions can ever be contradictory by itself.
+**A proof must use a global property of p that squares lack.** The only such handle I see is the quadratic character
+d ↦ (d | p): for p prime half of the d ≡ 3 (4) have (d | p) = −1 and then p mod d is one of the φ(d)/2 non-residues, of
+which G_d is a subset of size τ((d+1)/4); for a square (d | m²) ∈ {0, +1} and G_d is unreachable. But "(d | p) = −1 for about half of all d" is far from forcing p mod d ∈ G_d for a single d (§4.2).
 
 ### 4.2 The genus/Jacobi handle (where it stops)
 
@@ -201,27 +207,31 @@ have a prime factor ≡ −1 (mod 4u); nothing forces it).
 ### 4.3 Consecutive integers p + 1, …, p + U
 
 Form (1.1) with small u says: some p + u (u ≤ U) has a divisor ≡ −1 (mod 4u). Primes > U divide at most one of the
-p + u, and the product Π_{u≤U}(p+u) has at least U(1 − log U/log p) prime factors > U (counted with multiplicity), so
-"on average one large prime per p + u". But their classes mod 4u are unconstrained, and squares m² show that *all* of
-m² + u (u ≤ U, any U) can avoid the class −1 (mod 4u). I found no inequality (e.g. of Erdős–Woods / "consecutive
+p + u, and heuristically each p + u has about one prime factor > U. But their classes mod 4u are unconstrained, and
+squares m² show that *all* of m² + u (u ≤ U, any U) can avoid the class −1 (mod 4u). I found no inequality (e.g. of Erdős–Woods / "consecutive
 integers with the same prime factors" type, or via Størmer/Pell) that distinguishes p from m² here. STOPS.
 
-### 4.4 Sieve limits (PROVED remarks)
+### 4.4 Sieve limits ((i), (ii) PROVED; (iii), (iv) are failed attempts, not theorems)
 
-(i) Any sieve that uses only the hit classes (prime or composite moduli) and the size of the sifted set is capped by
-|E(X)| ≥ #{odd squares ≤ X} ≍ √X. Montgomery's bound (X + Q²)/L(Q) with Q ≤ √X cannot even reach below X/Q² ≥ 1.
-(ii) Prime moduli only: Σ_{ℓ ≤ t} ω(ℓ)/ℓ ≍ log t, so log L(Q) ≍ √log Q (upper bound by Rankin's trick: Σ_{q ≤ Q} μ²ω(q)/q
-≤ Q^{σ} Π_ℓ (1 + ω(ℓ)/ℓ^{1+σ}) = exp(σ log Q + (c+o(1))/σ) with σ = 1/√log Q). So Theorem A's shape is best possible for
-this sieve; only the constant (0.08 proved vs ≈ 0.6 true, `L_1e8.txt`) can improve.
-(iii) Composite moduli d ≡ 3 (4) carry non-product class sets. Writing F(q) := Σ_{d|q} J(d), J(d) := Σ*_{a (d)} |Ŝ(a/d)|²,
-Cauchy–Schwarz gives F(q) ≥ |S|²·q/(q − ω(q)) for *every* q with ω(q) excluded classes, but to use the large-sieve
-inequality Σ_{d ≤ Q} J(d) ≤ (X + Q²)|S| one needs non-negative weights c_q with Σ_{q ≤ Q, d | q} c_q ≤ 1 for all d > 1,
-and then Σ_q c_q ω(q)/q is dominated by the prime q (for q = ℓ₁ℓ₂ one needs c_q ≲ 1/π(Q/ℓ₁)). So the composite classes
-are invisible to the large sieve; the Selberg Λ² sieve needs the same multiplicative structure. STOPS.
-(iv) Moment method (E[(R_Q − λ)^{2k}]/λ^{2k}) with composite moduli: the main terms are fine (shared prime factors only
-rescale by (1 − 1/ℓ) because of the compatibility condition u ≡ u′ (mod ℓ)), but the error terms need
-Bombieri–Vinogradov weighted by τ(q)^{2k}, which is available only for fixed k and then gives (log X)^{−2k}; k → ∞ would
-need savings exp(−(log X)^{1+ε}) in BV. STOPS at polylog, worse than Theorem A.
+(i) Any sieve that uses only the hit classes (prime or composite moduli) bounds the full sifted set S(X, Q) of integers, and
+|S(X, Q)| ≥ #{odd squares ≤ X} ≍ √X (Lemma 1.3). So no such argument can show that the exceptional *primes* are finite in
+number; Montgomery's bound (X + Q²)/L(Q) with Q ≤ √X cannot even reach below X/Q² ≥ 1.
+(ii) Prime moduli only: Σ_{ℓ ≤ t} ω(ℓ)/ℓ ≍ log t (lower bound Lemma 3.2; upper bound Σ_{ℓ≤t} τ((ℓ+1)/4) ≤ 2Σ_{d≤√t} π(t;4d,−1)
+≪ t by Brun–Titchmarsh), so log L(Q) ≍ √log Q: the upper bound is Rankin's trick, Σ_{q ≤ Q} μ²(q)ω(q)/q ≤ Q^{σ} Π_ℓ (1 + ω(ℓ)/ℓ^{1+σ})
+≤ exp(σ log Q + c/σ) with σ = √(c/log Q), and ω(ℓ)/(ℓ − ω(ℓ)) ≤ 2ω(ℓ)/ℓ for ℓ ≥ 7 changes only c. So Theorem A's shape is best
+possible for this sieve; only the constant (0.08 proved vs ≈ 0.95/√2 observed at 10⁸, `L_1e8.txt`) can improve.
+(iii) Composite moduli d ≡ 3 (4) carry non-product class sets (one class −u mod d per divisor u of (d+1)/4). Attempt: with
+F(q) := Σ_{d|q} J(d), J(d) := Σ*_{a (d)} |Ŝ(a/d)|², Cauchy–Schwarz gives F(q) ≥ |S|²·q/(q − ω(q)) for *every* q with ω(q)
+excluded classes; combining these with non-negative weights c_q and the large-sieve inequality Σ_{d ≤ Q} J(d) ≤ (X + Q²)|S|
+requires Σ_{q ≤ Q, d | q} c_q ≤ 1 for all d > 1 and yields |S| ≤ (X+Q²)/Σ_q c_q ω(q)/(q−ω(q)). This is a linear programme;
+I did not solve it, but with weights supported on primes it gives only Σ_ℓ ω(ℓ)/(ℓ−ω(ℓ)) ≍ log Q, and every composite
+weight I tried helped less than that — i.e. this route is *worse* than Montgomery's multiplicative L(Q) = exp(≍√log Q),
+because the multiplicative structure is what produces the products over several primes. I found no way to make either the large sieve or the Selberg Λ² sieve see
+the composite classes; this is an unsolved obstacle, not a proved impossibility. STOPS.
+(iv) Moment method (E[(R_Q − λ)^{2k}]/λ^{2k}) with composite moduli (sketch, not a theorem): the main terms look
+manageable (shared prime factors are tempered by the compatibility condition u ≡ u′ (mod ℓ)), but the error terms need
+Bombieri–Vinogradov weighted by τ(q)^{2k}, which I can only justify for fixed k, giving (log X)^{−2k}; k → ∞ with the
+needed uniformity is out of reach. STOPS at polylog, worse than Theorem A.
 
 ### 4.5 Conditional routes considered
 
@@ -240,8 +250,8 @@ need savings exp(−(log X)^{1+ε}) in BV. STOPS at polylog, worse than Theorem 
 | #{p ≤ X : R(p) = 0} ≤ X exp(−0.08√log X) for X ≥ X₀ (ineffective, via BV) | PROVED (§3) |
 | Same for #{odd n ≤ X with no hit at prime moduli ≤ √X} (contains all odd squares) | PROVED (§3) |
 | R(p) ≥ 1 for all large p ≡ 1 (4) | OPEN — not proved here |
-| 14 zeros ≤ 10⁸ (independent engine), mean R(p) ≈ 0.146 log²p, R(m²) = 0 for all odd m² ≤ 10⁸ | CERTIFIED (`census_1e8.txt`) |
-| A(2^j) ≈ 0.43, log L(Q)/√log Q ≈ 0.95 at Q = 10⁸ | EVIDENCE |
+| 14 zeros ≤ 10⁸ (independent engine), R(m²) = 0 for all odd 3 ≤ m ≤ 9999 | CERTIFIED (`census_1e8.txt`) |
+| sample mean R(p) ≈ 0.146 log²X over p ≤ 10⁸; A(2^j) ≈ 0.43; log L(Q)/√log Q ≈ 0.95 at Q = 10⁸ | EVIDENCE |
 
 **Where it stops.** Every local condition implied by R(p) = 0 is shared with odd squares, and every sieve-type counting
 argument is blind to the difference between a prime and a square at the level of X^{1/2}. The missing ingredient is a
