@@ -1,0 +1,14 @@
+# z56 PRIMET1 census cross-check (scripts/z56_primet1_rsieve.c, pair sieve; CERTIFIED by this engine, validated against
+# z52b_p1_H03_rcount.c (all p ≡ 1 (24) ≤ 3·10^4) and z56_primet1_rone.c (358 214 primes ≤ 10^9, 0 mismatches)).
+# All primes p ≡ 1 (24) in [1, 10^8]: R(p) = 0 exactly at the 14 known primes 409 … 8 813 281.
+# All 50 521 668 primes p ≡ 1 (24) in (10^9, 10^10]: no zero; min R = 2 at p = 1 397 190 001 (= 37379² + 360, ≡ 19² mod 840).
+# R(p) <= 6 in (10^9, 10^10]:
+1327670401 6
+1397190001 2
+1517269777 6
+1517539321 6
+2508625681 6
+3529680169 6
+6805241881 6
+7169413681 6
+# [10^7, 10^9] (all 6 272 045 primes ≡ 1 (24), file r_1e7_1e9): no zero, min R = 2 (e.g. 11 814 001, 564 661 441). Hence the three sieve runs cover [1, 10^10] and reproduce exactly the 14 known zeros (an independent engine for the 10^8–10^10 part of the census).

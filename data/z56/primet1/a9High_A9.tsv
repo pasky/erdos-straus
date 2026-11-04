@@ -1,0 +1,4 @@
+# A9 label=High-1e12-1e13 n=25000; z-units per SD (x 0.186 = relative effect on E[Y]); mean omega<=1000(p-1)=3.480, omega>1000(p-1)=1.290
+group	df	F	p_raw	p_holm	coefs
+(b') p-1 beyond 1000	2	0.140	8.694e-01	1.000e+00	+0.02275 +0.02614
+(d') p+1 beyond 1000	2	0.248	7.800e-01	1.000e+00	-0.02993 -0.02536

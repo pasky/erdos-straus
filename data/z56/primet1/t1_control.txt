@@ -1,0 +1,6 @@
+# T1 control: R*(m^2) (gcd(u,B)=1 version, rone g) and R(m^2) at 199 odd squares m^2, gcd(m,6)=1, m<400 and 10^6<m<10^6+200: all zero.
+25 0
+49 0
+121 0
+1000390038025 0
+1000398039601 0

@@ -7,8 +7,8 @@ balanced_binary	beta=0.005	1.00	0.40	0.955
 balanced_binary	beta=0.01	1.00	1.00	0.904
 balanced_binary	beta=0.02	1.00	1.00	0.806
 balanced_binary	beta=0.05	1.00	1.00	0.585
-hidden_subclass	pi=0.01,rho=0.5	1.00	1.00	130.589
-hidden_subclass	pi=0.001,rho=0.5	1.00	1.00	130.505
-hidden_subclass	pi=0.001,rho=0.25	1.00	1.00	6787.051
-hidden_subclass	pi=0.0001,rho=0.25	1.00	1.00	8708.633
-hidden_subclass	pi=0.0001,rho=0.1	1.00	0.00	inf
+hidden_subclass	pi=0.01,rho=0.5	1.00	1.00	130.583
+hidden_subclass	pi=0.001,rho=0.5	1.00	1.00	130.479
+hidden_subclass	pi=0.001,rho=0.25	1.00	1.00	6640.084
+hidden_subclass	pi=0.0001,rho=0.25	1.00	1.00	6495.170
+hidden_subclass	pi=0.0001,rho=0.1	1.00	1.00	32186.806
