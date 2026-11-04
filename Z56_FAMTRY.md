@@ -47,7 +47,7 @@ d ≡ −1 mod u and (d−1)/2 odd). For u = 2^k u' with u' odd: (2 | d) = 1 bec
 Hence (n | d) = (−u | d) = −1. A square coprime to d has symbol +1, so R(m²) = 0 (gcd(m, d) = 1 is forced: d | m² + u with
 gcd(u,d)=1). For p ≡ 1 (mod 4), (p | d) = (d | p) by reciprocity. ∎
 
-**Lemma 1.4 (Linnik-type form).** For an odd n, R(n) ≥ 1 ⟺ there is d ≡ 3 (mod 4), 3 ≤ d ≤ 4(n+1)/3, such that the least
+**Lemma 1.4 (Linnik-type form).** For an odd n, R(n) ≥ 1 ⟺ there is d ≡ 3 (mod 4), 3 ≤ d ≤ (4n+1)/3, such that the least
 positive residue r_d(n) := (−n mod d) ∈ [1, d−1] divides (d+1)/4.
 
 *Proof.* In (1.3), u ≤ (d+1)/4 < d and n ≡ −u (mod d), so u = r_d(n). Range: d ≤ n + u ≤ n + (d+1)/4 gives d ≤ (4n+1)/3. ∎
@@ -144,8 +144,9 @@ Finally J ≥ log Q/log 2 − 1 gives √J ≥ √(log Q/log 2) − 1, and (√(
 
 Take Q := √X. By Lemma 3.1, E(X) ∖ [1, Q] ⊂ S(X, Q) (we don't even need p > Q, but it costs nothing). By §3.2,
 |S(X, Q)| ≤ 2X/L(Q). Lemma 3.2 gives the hypothesis of Lemma 3.3 with c₀ = 1/25 (and some j₀), so for X ≥ X₀
- |E(X)| ≤ √X + 2X·exp(3 − (√(2/25)/(e√log 2))·√(log √X)) = √X + 2e³·X·exp(−0.0884…·√log X) ≤ X·exp(−0.08√log X)
-for X ≥ X₀ (the constant: √(2/25)/(e·√(log 2)) = 0.2828/(2.7183·0.8326) = 0.1250, divided by √2 for log Q = ½ log X gives 0.0884). ∎
+ |E(X)| ≤ √X + 2X·exp(3 − (√(2/25)/(e√log 2))·√(log √X)) = √X + 2e³·X·exp(−0.0883…·√log X) ≤ X·exp(−0.08√log X)
+for X ≥ X₀ (the constant: √(2/25)/(e·√(log 2)) = 0.2828/(2.7183·0.8326) = 0.1250, divided by √2 for log Q = ½ log X gives
+1/(5e√log 2) = 0.08837…). ∎
 
 **Remarks.** (i) The argument never uses that p is prime (only that the sifted integers are odd), and the sifted set
 S(X, √X) contains all odd squares ≤ X (Lemma 1.3), so **no refinement of this sieve can push the bound below √X**; the
@@ -161,8 +162,9 @@ for Σ*_{a mod d} survives; see §4.3). This is exactly where the "almost all" �
 (iv) Concretely at X = 10⁸: L(10⁴) = 11.03, bound 2X/L ≈ 1.8·10⁷, whereas |S(10⁸, 10⁴) ∩ {primes ≡ 1 (4)}| ≤ 32 971
 (`census_1e8.txt`, column R_sq = 0 counts primes with no hit at prime moduli ≤ √p, a superset) — the inequality is far
 from tight at computable sizes, as expected.
-(v) The constant: |E(X)| ≤ √X + 2e³X·exp(−0.0884√log X) is ≤ X·exp(−0.08√log X) only once exp(0.0084√log X) > 41, i.e.
-log X > 2·10⁵; X₀ is in any case ineffective (BV). The statement is purely asymptotic.
+(v) The constant: |E(X)| ≤ √X + 2e³X·exp(−a√log X) with a = 1/(5e√log 2) = 0.08837…, which is ≤ X·exp(−0.08√log X)
+certainly once exp(0.0083√log X) > 41, i.e. log X > 2·10⁵ (sufficient, not necessary); X₀ is in any case ineffective (BV).
+The statement is purely asymptotic.
 (vi) Short intervals (PROVED, same proof): Montgomery's inequality holds for S ⊂ [Y+1, Y+X] with the same right-hand side, and
 Lemma 3.1 has no size condition, so #{p ∈ (Y, Y+X] : R(p) = 0} ≤ X·exp(−c√log X) uniformly in Y ≥ 0 for X ≥ X₀ (the √X term
 is not even needed). The exceptional primes are thus sparse in *every* window of length X, not just on average up to X.
@@ -239,15 +241,16 @@ needed uniformity is out of reach. STOPS at polylog, worse than Theorem A.
 ### 4.5 Which moduli carry the hits (EVIDENCE, `dmin_1e8.txt`, `qmin_1e8.txt`)
 
 Every hit (u, B, C) gives three congruences on p: p ≡ −u (mod 4uC−1), p ≡ −B (mod 4BC−1), p ≡ −(u+B) (mod 4uB), and
-since (4uC)(4BC)(4uB) = 4(4uBC)² = 4(p+u+B)², the smallest of the three moduli is ≤ (4(p+u+B)²)^{1/3} ≤ 1.6·p^{2/3} (PROVED,
-trivial). But in any *single* form the least modulus can be huge: among primes p ≡ 1 (8) in [10⁷, 10⁸] (no (★)-zeros there)
+since (4uC)(4BC)(4uB) = 4(4uBC)² = 4(p+u+B)² and u + B ≤ (p+4)/3 (from uB ≥ u+B−1), the smallest of the three moduli is
+≤ (4(p+u+B)²)^{1/3} ≤ (64/9)^{1/3}(p+1)^{2/3} < 1.93·(p+1)^{2/3} (PROVED, trivial). But in any *single* form the least modulus can be huge: among primes p ≡ 1 (8) in [10⁷, 10⁸] (no (★)-zeros there)
 * pair form q = 4uB: 94.2 % have q_min ≤ 10³, 99.2 % ≤ 10⁴, 99.93 % ≤ 10⁵, but max q_min = 6 627 800 ≈ p/14 at
-  p = 92 722 897, whose only hits with C < 200 are (u, B, C) = (20, 583163, 2), (165, 70298, 2), …, (25, 66278, 14) — all
-  with B ≍ p, i.e. small d = 4uC − 1 (159, 1319, …);
+  p = 92 722 897, whose only hits with C < 200 are, up to exchanging u ↔ B, (u, B, C) = (20, 583163, 2), (165, 70298, 2), …,
+  (25, 66278, 14) — all with B ≍ p, i.e. small d = 4uC − 1 (159, 1319, …);
 * divisor form d = 4uC − 1: max d_min = 2 953 943 ≈ p/29 at p = 85 664 329 (hit u = 18, B = 29, C = 41027 — small 4uB = 2088);
 * prime d only: max d_min^pr ≈ p/2, and 422 primes have no prime-d hit at all.
 Typical sizes: mean log q_min / log log p ≈ 1.44 and decreasing with p, so q_min is typically polylog, but the tail is
-polynomial. Any "all p" argument therefore has to handle hits whose moduli are of size ≍ p in every single form.
+polynomial. Any "all p" argument working in one fixed form therefore has to handle hits whose modulus in that form is ≍ p
+(for some primes; the three forms are large for different primes).
 
 ### 4.6 Conditional routes considered
 
@@ -273,7 +276,8 @@ polynomial. Any "all p" argument therefore has to handle hits whose moduli are o
 argument is blind to the difference between a prime and a square at the level of X^{1/2}. The missing ingredient is a
 *single-p* argument that exploits (d | p) = −1 for many d — i.e. a statement about the joint distribution of p mod ℓ over
 primes ℓ with (ℓ | p) = −1 that is not an average over p. I know no tool that does this. A tempting sufficient target — "for every large p there is a *prime* ℓ ≡ 3 (4) with
-(−p mod ℓ) ∣ (ℓ+1)/4" (Lemma 1.4 restricted to prime d) — is **probably false**: 422 primes p ≡ 1 (8) in [10⁷, 10⁸] have no
-prime-modulus hit at all (`census_1e8.txt`, column R_pr = 0; the proportion decays only like the sieve bound), so composite
-moduli d, i.e. genuinely two-dimensional (u, C) structure, are indispensable even for "all but finitely many". The correct
-target is Lemma 1.4 as stated (all d ≡ 3 (4)), with the information in §4.5 about which d actually occur.
+(−p mod ℓ) ∣ (ℓ+1)/4" (Lemma 1.4 restricted to prime d) — is not supported by the data: 422 primes p ≡ 1 (8) in
+[10⁷, 10⁸] have no prime-modulus hit at all (`census_1e8.txt`, column R_pr = 0; the proportion 0.1 % → 0.03 % per decade
+decays slowly, as the sieve heuristic predicts), so composite moduli are needed for some observed primes; whether prime
+moduli suffice eventually is open but I would not bet on it. The safer target is Lemma 1.4 as stated (all d ≡ 3 (4)),
+with the information in §4.5 about which d actually occur.
