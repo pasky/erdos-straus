@@ -22,7 +22,8 @@ the central slice is proved; none is refuted. What is new:
    Consequently, **under EPC**:
    * SID (a pointwise power-saving asymptotic for Σ_{x<n≤x+x^{1/4}} d(n)) ⟺ a power saving for some central band;
    * a band-uniform version of CNT (the TDCAL central-slice asymptotic, for all slice positions
-     A ∈ [x^{1/2−δ}, x^{1/2+δ}]) ⟹ SID.
+     A ∈ [x^{1/2−δ}, x^{1/2+δ}]) ⟹ SID; so does fixed-band CNT whose constant grows at most polynomially in the
+     band position A/√x (Cor. L1′).
    SID is open (Assessment, search-limited, LIT_CHECK §3): the best pointwise short-difference bounds (Ivić–Zhai Thm 1)
    beat the trivial bound only for lengths ≥ x^{1/3}, and Jutila's conjecture is listed as open. Since Δ(x) = Ω(x^{1/4}),
    SID cannot follow from any pointwise bound on Δ, even the conjectural x^{1/4+ε}. Unconditionally (with the exponent
@@ -122,6 +123,16 @@ SID(η′) holds for every η′ < min(η, 2δ).
 θ ∈ (1, 4]. There are J ≤ 1 + δ log x/log 2 of them, all with A_i ∈ [L, L′]. Their main terms add up to
 yΣ_{L<m≤L′}1/m = 2δy log x + O(y/L). So |E_band| ≤ JCy^{1−η} + O(1) ≪ y^{1−η}log x. By Theorem L(iii),
 D − Main ≪ y^{1−η}log x + x^{1/4−δ/2+ε}. With y ≍ x^{1/4} this is O(x^{(1−η′)/4}) for η′ < min(η, 2δ). ∎
+
+**Corollary L1′ (fixed bands with polynomial uniformity suffice; CONDITIONAL on EPC).** Call CNT_poly(η, B; K) the
+statement: there is C with |E(x, y; λ√x, θ)| ≤ C(λ + λ^{−1})^B y^{1−η} for all large x, y ∈ [x^{1/4}/K, Kx^{1/4}],
+θ ∈ (1, 4] and λ ∈ [x^{−1/8}, x^{1/8}]. (This is fixed-band CNT for every fixed position λ, with the implied constant
+growing at most polynomially in the position.) Then CNT_poly(η, B; K) ⟹ SID(η′) for every η′ < min(η/(2B + 1), 1/4).
+*Proof.* Take δ := min(η/(4B + 2), 1/8). On the band of Corollary L1 every A_i = λ_i√x has λ_i + λ_i^{−1} ≤ 2x^{δ}, so
+|E(x, y; A_i, θ_i)| ≤ C2^Bx^{Bδ}y^{1−η} ≪ y^{1−η+4Bδ} (y ≍ x^{1/4}). Summing over J ≪ log x bands and using Theorem
+L(iii): D − Main ≪ y^{1−η+4Bδ}log x + y^{1−2δ}x^{ε}. Since 1 − η + 4Bδ ≤ 1 − 2δ (equality if δ = η/(4B + 2)), both terms are ≪ y^{1−2δ}x^{ε}, and 2δ = min(η/(2B + 1), 1/4). ∎
+*Reading (Assessment).* Any proof of CNT by a method with explicit dependence on the slice position would deliver
+CNT_poly for some B. So, modulo EPC, essentially any proof of fixed-band CNT would prove SID.
 
 **Corollary L2 (converse; CONDITIONAL on EPC).** SID(η) implies |E_band(x, y; δ)| ≪ x^{(1−η)/4} + x^{1/4−δ/2+ε} for
 y ≍ x^{1/4}. So under EPC: SID ⟺ "for some δ > 0, the central band of width x^{±δ} has a power saving".
@@ -323,7 +334,7 @@ Append to §7.1 after the z55 TDCAL bullets:
 > * **How hard is the central slice? (`Z56_CENTRAL.md`, z56; internal; calibration, upper-bound only.)**
 >   * Thm L (PROVED identity): D(x, y) − Main = E_band(δ) − 2F_L + O(1), where E_band is the band
 >     m ∈ (x^{1/2−δ}, x^{1/2+δ}] and F_L = Σ_{m≤x^{1/2−δ}}[ψ((x+y)/m) − ψ(x/m)]. Under EPC, F_L ≪ x^{1/4−δ/2+ε}. Hence
->     (CONDITIONAL on EPC) a band-uniform CNT ⟹ SID (pointwise power saving for Σ_{x<n≤x+x^{1/4}}d(n), open; Ivić–Zhai's
+>     (CONDITIONAL on EPC) a band-uniform CNT, or fixed-band CNT with constants polynomial in the band position, ⟹ SID (pointwise power saving for Σ_{x<n≤x+x^{1/4}}d(n), open; Ivić–Zhai's
 >     bounds help only for lengths ≥ x^{1/3}, Jutila's conjecture open, Δ = Ω(x^{1/4}) blocks sup-norm routes), and
 >     SID ⟺ power saving for some central band. Unconditionally (pair A(Bourgain)) only for δ > 123/556.
 >   * Thm U (PROVED): power-saving short-interval asymptotics for τ_t(n) = Σ_{de=n}(d/e)^{it}, uniformly in |t| ≤ x^c,
@@ -336,7 +347,7 @@ Append to §7.1 after the z55 TDCAL bullets:
 ## 11. Bottom line
 The central slice of the x^{1/4} short-interval divisor problem is, modulo the exponent pair conjecture, the whole of
 that problem: everything outside a band of width x^{±δ} around √x is per-frequency-easy under EPC, and the band carries
-the rest exactly (Theorem L). A band-uniform version of CNT would thus prove SID given EPC, a pointwise statement beyond
+the rest exactly (Theorem L). A band-uniform version of CNT, or fixed-band CNT with constants polynomial in the band position, would thus prove SID given EPC, a pointwise statement beyond
 the Ω-barrier of the Dirichlet divisor problem that no known method reaches. In the other direction, CNT follows from
 twisted versions of SID (Theorem U). So CNT is SID-hard, up to EPC and uniformity, and no easier structure was found.
 What is pointwise and unconditional is an upper bound of the right order up to (log log U)^{5/2} (Prop P), which is
