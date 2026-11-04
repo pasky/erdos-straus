@@ -28,13 +28,15 @@ the class, and **a\*_p > 0 for a prime p ⟺ p is a P(4,15) prime in the class 9
 3. **Lemma N (PROVED; negative; found by the internal review for ℓ = 7).** a\* is *not* locally multiplicative in n:
    it vanishes on the shift classes of every inert ℓ and is doubled-weight on those of every split ℓ. Hence the
    natural multiplicative comparison model fails every Type II hypothesis with logarithmic saving (explicit 0/1
-   coefficients force mn ≡ −4 (mod ℓ)); more generally any comparison model must carry the residue information of
-   every inert prime ℓ ≤ (log x)^{A/2}/(log log x)² if a saving (log x)^{−A} is required. The first draft's (TII\*) was
-   false for this reason and is withdrawn.
-4. **Route D — the corrected missing estimate (§4, CONDITIONAL / Assessment).** The natural target is (TII_W): Type II
-   smallness of a\* − λν_W on m ∈ (x^{1/6−5ε}, x^{2/3−5ε}), where ν_W is the W-tricked local model (all shift-class
-   information at primes ℓ < W = (log x)^{B}). Theorem V′ (CONDITIONAL; implication given in outline): (TII_W) ⟹
-   P(4,15). Cauchy–Schwarz (Prop D, a *sufficient* strategy, not a necessity) converts (TII_W) into one-variable
+   coefficients force mn ≡ −4 (mod ℓ)); more generally any comparison model ν with ν ≫ (log log x)^{−2} on the shift
+   class of an inert prime ℓ ≤ (log x)^{A/2}/(log log x)² fails Type II with saving (log x)^{−A}. The comparison must
+   address this local obstruction (W-tricking is one natural way; other coefficient restrictions / models are not
+   ruled out). The first draft's (TII\*) was false for this reason and is withdrawn.
+4. **Route D — a candidate corrected target (§4, Assessment).** A natural target is (TII_W): Type II smallness of
+   a\* − λν_W on m ∈ (x^{1/6−5ε}, x^{2/3−5ε}), mn ≤ x, where ν_W is the W-tricked local model (all shift-class
+   information at primes ℓ < W = (log x)^{B}). Proposed implication V′ (NOT a theorem; CONDITIONAL on (TII_W) **and** two
+   unproved model lemmas — a divisor-weighted Type I comparison of a\* with λ_Wν_W and the model prime mass
+   λ_WΣ_{√x<p≤x}ν_W(p) ≫ x/log x — plus a weighted Harman sieve): ⟹ P(4,15). Cauchy–Schwarz (Prop D, a *sufficient* strategy, not a necessity) converts (TII_W) into one-variable
    four-fold r\*-correlations with W-local singular series plus twisted Type I to level ≈ the smaller factor; no
    applicable estimate of either kind was found (coverage-limited).
 5. **Route P — prime-variable bilinear input (§5).** In the Friedlander–Iwaniec architecture with the full hyperbola
@@ -49,15 +51,16 @@ the class, and **a\*_p > 0 for a prime p ⟺ p is a P(4,15) prime in the class 9
    prime correlations along m ↦ (mn_i − 1)/4 — twin-prime-type. A diagnosis of that attempt, not an impossibility proof.
 7. **Diagnostics (§6; integer counts exact, ratios floating point).** To 10¹⁰ the a\*-mass of primes, of P₂ = pq in each
    0.05-band of log p/log x for log p/log x ∈ [0.05, 0.5), of Ω = 3, of n ∈ S and of λ(n) = ±1 matches the
-   multiplicative model to within 0.4 % (most within 0.1 %); FI's bilinear quantity (B) (γ ≡ 1) shows random-sign
+   multiplicative model to within approximately 0.4 % (most within about 0.1 %); FI's bilinear quantity (B) (γ ≡ 1) shows random-sign
    cancellation for a, a\*, 1_S-pairs once the inner sums are long, and none for Selberg's control a(1 + λ). These are
    tests with coefficients equidistributed modulo small primes; by Lemma N they *cannot* validate an all-coefficient
    Type II statement — they only show no global (non-local) bias at these scales.
 
 **Bottom line (Assessment).** K(4) is a level problem in the prime variable (solved under EH(θ₀), HCKILL Thm E) and a
 Type II problem in the dense variable (a\* has level x^{1/6} unconditionally and gives P₁₂, Prop P). In the dense
-formulation the Type II target must be W-tricked (Lemma N); in that form it is the natural pseudorandomness statement
-and is consistent with all diagnostics, but no available method addresses it. In the prime formulation the FI
+formulation the Type II comparison must address the local obstruction of Lemma N (e.g. by W-tricking); the W-tricked
+target is a natural pseudorandomness statement, consistent with the (non-probative) diagnostics, but its implication to
+P(4,15) still needs two model lemmas and no available method addresses it. In the prime formulation the FI
 architecture needs > 3/4 for primes in CRT-mixed classes; known bilinear results stop at ≈ 0.617 (single residue).
 
 ## 1. Statements attacked; why not closed
@@ -106,8 +109,10 @@ square and FI 2009 (3.1)/(4.5) gives r(v) = 8Σ_{kl = v, k < √v} χ(k). The (e
 (d | n = e₁²u − 4; e₂²k | N₂ = 4e₁²u − 15; n ≡ 97 (120)). Here k | v, so (k, 30de₁) = 1 (a common prime of k and e₁ would
 divide (N₁, N₂) = 1); k and e₂ may share primes. The moduli d, e₂²k, 120 are pairwise coprime and the three residues
 are units, so u runs over one reduced class c mod q = 120·d·e₂²·k, with 8 | q and χ(c) = χ(101) = 1. Upper endpoint:
-q ≪ d·E·√x ≤ x^{2/3+8η} < (x + 4)/e₁² (as e₁² ≤ E), so the input applies there. Lower endpoint y₀ = (k²e₂² + 15)/(4e₁²):
-if y₀ ≥ q use the input, else the trivial O(x^{η}) (main term at y₀ < q is O(1) as well). Errors:
+with Y = (x + 4)/e₁² and e₁ ≤ E (so only e₁² ≤ E²), q/Y ≪ d e₁²e₂/√x ≤ dE²/√x ≤ x^{−1/3+16η} < 1 for η < 1/48, so the
+input applies there. Lower endpoint y₀ = (k²e₂² + 15)/(4e₁²):
+if y₀ ≥ q use the input, else bound the sum trivially by O(x^{η}) (at most one term) and the main term by O(x^{δ})
+(its Euler product ∏_{p|q}(1 − χ(p)/p) ≪ q^{δ} is not uniformly O(1); any fixed δ ≤ η suffices). Errors:
   Σ_{e₁e₂≤E} Σ_{k ≤ 2√x/e₂} [(120de₂²k)^{−1/2}(x/e₁²)^{2/3+η} + x^{η}] ≪ d^{−1/2}x^{11/12+η}Σ e₁^{−4/3}e₂^{−3/2} + x^{1/2+η}E
   ≪ d^{−1/2}x^{11/12+η} + x^{1/2+9η}.
 Summed over d ≤ x^{1/6−ε}: ≪ x^{1−ε/2+η} + x^{2/3+9η}.
@@ -144,7 +149,9 @@ arXiv:2404.08502 Cor. 1.3; nothing comparable was found for r).
 Nath–Xie arXiv:2501.16723 (3.4)/Lemma 3.6 and used in HCKILL Thm E Step 2; the Shiu/Halberstam–Richert mean-value upper
 bound for nonnegative multiplicative functions).** For x ≥ x₀,
   #{n ≤ x : n ≡ 97 (mod 120), n + 4 ∈ S, 4n + 1 ∈ S, Ω(n) ≤ 12} ≫ x/(log x)⁹,
-and every n counted has all prime factors > x^{1/13}.
+and in fact there are ≫ x/(log x)⁹ such n which additionally have all prime factors > x^{1/13}. (Roughness is a property
+of the constructed sifted subset only: e.g. n = 97 lies in the displayed set for every x ≥ 97 but is not x^{1/13}-rough
+for x ≥ 97¹³.)
 
 *Proof.* Sift (a\*_n)_{n≤x} by the primes ℓ ≥ 7 (2, 3, 5 never divide n). Fix 0 < ε < 1/780, D = x^{1/6−ε}; Lemma T\*
 gives Σ_{d < D, d | P(z)}|r\*_d| ≪ x^{1−ε/10}, and g\*(ℓ) = 1/ℓ + O(1/ℓ²) < 1 satisfies the dimension-one product axiom
@@ -184,7 +191,7 @@ The number of pairs is ≍ MN/(120ℓ)² ≍ x/ℓ². Since c_p ≥ (p − 1)/(p
 (inert ℓ) and doubled (split ℓ) residue classes modulo every prime; Type II comparisons with arbitrary divisor-bounded
 coefficients see them. This is a local obstruction to a *formulation*, not to K(4).
 
-### 4.2 The corrected target (TII_W) and Theorem V′ (CONDITIONAL; implication in outline)
+### 4.2 A candidate target (TII_W) and the proposed implication V′ (not a theorem)
 
 Local densities: for ℓ ≥ 7 inert, δ_ℓ(c) = 0 on the two shift classes and ℓ/(ℓ − 2) elsewhere; for ℓ split, δ_ℓ(c) =
 2ℓ/(ℓ + 2) on the shift classes and ℓ/(ℓ + 2) elsewhere (mean 1 over ℤ/ℓ; δ_ℓ(0)/ℓ = g\*(ℓ)). Formally a\* is
@@ -192,14 +199,20 @@ proportional to ∏_ℓ δ_ℓ(n mod ℓ) — it is "entirely local", and pseudo
 truncated product. For W ≥ 7 put
   ν_W(n) := 1[n ≡ 97 (120)]·∏_{7 ≤ ℓ < W} δ_ℓ(n mod ℓ)·∏_{ℓ ≥ W, ℓ | n} c_ℓ.
 **(TII_W)** For W = (log x)^{B}, α = 1/6 − 5ε and all |α_m| ≤ τ(m), |β_n| ≤ τ(n):
-  Σ_{x^{α} < m < x^{α+1/2}} Σ_n α_m β_n (a\*_{mn} − λ_W ν_W(mn)) ≪ x(log x)^{−A}   (λ_W := Σ_{n≤x} a\*_n / Σ_{n≤x} ν_W(n)).
-By Lemma N, (TII_W) with saving (log x)^{−A} is impossible unless B ≥ A/2 (roughly); with B ≥ A it is not refuted by
+  Σ_{x^{α} < m < x^{α+1/2}} Σ_{n: mn ≤ x} α_m β_n (a\*_{mn} − λ_W ν_W(mn)) ≪ x(log x)^{−A}
+  (λ_W := Σ_{n≤x} a\*_n / Σ_{n≤x} ν_W(n)).
+Lemma N shows that *some* local residue information is needed; it does not by itself yield a necessary exponent for W
+(ν_W vanishes on earlier inert shift classes, so it need not satisfy N's uniform lower bound on an omitted prime's
+class; an averaged model-mass argument would be needed — not done). With B ≥ A, (TII_W) is not refuted by
 single-prime conspiracies (an adversary at an inert ℓ ≥ W gains ≪ x/ℓ²), and a large-sieve heuristic bounds
 simultaneous conspiracies at ℓ ∈ [W, min(M, N)^{1/2}] by ≪ x/W (Assessment).
 
-**Theorem V′ (CONDITIONAL on (TII_W) with B, A large; the implication is given in outline only).** (TII_W) implies
-Σ_{p ≤ x} a\*_p ≫ x/log x, hence P(4,15) with ≫ x/(log x)⁹ primes p ≤ x, p ≡ 97 (120).
-*Outline.* Harman's sieve (Fundamental Theorem; *Prime-detecting sieves* Thm 3.1 as restated in Teräväinen's notes,
+**Proposed implication V′ (NOT established; CONDITIONAL on (TII_W) with B, A large AND on the two model lemmas
+(ML1) Type I comparison: Σ_{m ≤ x^{1/6−4ε}} c_m Σ_{n: mn≤x}(a\*_{mn} − λ_Wν_W(mn)) ≪ x(log x)^{−A} for |c_m| ≤ τ(m), and
+(ML2) model prime mass: λ_W Σ_{√x<p≤x} ν_W(p) ≫ x/log x with uniform errors; plus a weighted Harman sieve).** Under these,
+Σ_{p ≤ x} a\*_p ≫ x/log x, hence P(4,15) with ≫ x/(log x)⁹ primes p ≤ x, p ≡ 97 (120). The a\*-half of (ML1) follows from
+Lemma T\*; the ν_W-half of (ML1) and (ML2) are **not proved** (see the gap below).
+*Outline (heuristic for the model side).* Harman's sieve (Fundamental Theorem; *Prime-detecting sieves* Thm 3.1 as restated in Teräväinen's notes,
 VERIFIED-2nd; stated for sets, the combinatorial proof is linear in the sequences — a weighted version is assumed
 here, Assessment) with 𝒜 = (a\*_n), ℬ = (λ_Wν_W(n)), β = 1/2, Type II = (TII_W), Type I with M = x^{1/6−4ε} > x^{α}:
 Σ_{m≤M} c_m Σ_n(a\*_{mn} − λ_Wν_W(mn)) — Lemma T\* (all d coprime to 30) gives Σ_{m≤M}τ(m)|r\*_m| ≪ x^{1−η/3} (Cauchy–
@@ -208,8 +221,13 @@ elementary except that ν_W is periodic modulo P(W) = ∏_{7≤ℓ<W}ℓ, a huge
 Σ_{q | P(W)}∏_{ℓ|q}(δ_ℓ − 1) gives class functions mod q with sup-norm ≤ ∏_{ℓ|q}(2 + O(1/ℓ)) and mean O(∏ 1/ℓ); q ≤ x^{1/3}
 is exact counting, q > x^{1/3} is ≪ x·exp(−c log x/log log x) by Rankin's trick (Σ_{q|P(W), q>Q}3^{ω(q)}/q ≤
 Q^{−σ}∏_{ℓ<W}(1 + 3ℓ^{σ−1}), σ = 1/log W). The same expansion plus Bombieri–Vinogradov (q ≤ x^{1/2}(log x)^{−C}) and Rankin
-(larger q) evaluates Σ_p ν_W(p) ≫ x/log x. Harman then gives Σ_{√x<p≤x}a\*_p = λ_W Σ_{√x<p≤x}ν_W(p) + O(x(log x)^{3−A}).
-Not written out in full; label accordingly.
+(larger q) would evaluate Σ_p ν_W(p). Harman then gives Σ_{√x<p≤x}a\*_p = λ_W Σ_{√x<p≤x}ν_W(p) + O(x(log x)^{3−A}).
+*Gap (cross-model review).* The Rankin bound Σ_{q>Q}C^{ω(q)}/q controls complete-period averages only, not
+Σ_{t≤x}Σ_{q>Q}|h_q(t)| (h_q = ∏_{ℓ|q}(δ_ℓ − 1)), its progression variants or the prime sum: the periods q | P(W) =
+exp((log x)^{B+o(1)}) exceed x, incomplete-period errors are unaccounted, and "q ≤ x^{1/3} is exact counting" ignores the
+floor errors summed against the m-coefficients. (Also the complete-residue mean of |δ_ℓ − 1| is 4/ℓ at inert ℓ and
+4(ℓ − 2)/(ℓ(ℓ + 2)) at split ℓ, so 3^{ω} should be C^{ω}.) A fundamental-lemma / truncation argument might repair this; it
+is absent, so V′ is recorded as a proposed implication only.
 
 ### 4.3 Prop D (PROVED inequality; a sufficient strategy, not a necessity)
 
@@ -280,7 +298,7 @@ All: `gcc -O2`, `ulimit -v 6000000`, `timeout` ≤ 1700 s; each < 1 min. Reprodu
 Σ_p a_p = 95 296, Σ_p a\*_p = 82 688).
 1. **PNT in the dense sequence** (`scripts/z56_k4bilin_typeii.c`; `typeii_<X>_c<class>.txt`). Asymptotic-sieve prediction
    Σ_p a_p log p = H·A (H over all primes, g(ℓ) = (ℓ − χ)/(ℓ(ℓ + χ)), FI Lemma 4.2 form): 0.980 (10⁶), 1.0025 (10⁸),
-   1.0033 (4·10⁸); for a\* with H\* = 3.44604: 0.972, 1.0037, 1.0038 — within 0.4 %. P(4,15) primes ≡ 97 (120) up to
+   1.0033 (4·10⁸); for a\* with H\* = 3.44604: 0.972, 1.0037, 1.0038 — within approximately 0.4 % (rounded floating-point ratios). P(4,15) primes ≡ 97 (120) up to
    4·10⁸: 105 771 (exact).
 2. **(B)-test** (FI's bilinear quantity with γ ≡ 1 only): B(N) = Σ_m|Σ_{N<n≤2N, mn≤x} μ(mn)w_{mn}|/Σw, T(N) the same with
    |·| inside, R_a the random-sign reference Σ_m(2/π · Σ_n a²)^{1/2}/Σa. At x = 4·10⁸, N = 20 000 = √x (FI's range stops
@@ -315,14 +333,14 @@ Kill side: the screens are upper-side ES tests and are "not applicable" rather t
 > *(z56, `Z56_K4BILIN.md`; kill side, Type II lane; internally reviewed, one FATAL draft error withdrawn.)* With
 > a\*_n = r\*(n + 4)r\*(4n + 1) on n ≡ 97 (120) (a\*_p > 0 ⟺ p is a P(4,15) prime there): **Lemma T\*** (PROVED rel. Smith /
 > FI 2009 Lemma 4.1): level x^{1/6−ε}, density g\*(ℓ) = 1/(ℓ + 2χ₋₄(ℓ)). **Prop P** (PROVED): ≫ x/(log x)⁹ integers n ≡ 1 (8),
-> Ω(n) ≤ 12, with n + 4, 4n + 1 ∈ S (dual of P415 Thm U; no ES content). **Lemma N** (PROVED): a\* vanishes on the shift
-> classes of inert primes, so Type II for a\* must be W-tricked (an explicit 0/1-coefficient counterexample kills the
-> multiplicative comparison model). Corrected target (TII_W) on [x^{1/6}, x^{2/3}] ⟹ P(4,15) (Theorem V′, CONDITIONAL,
-> outline); by Cauchy–Schwarz one sufficient route needs one-variable four-fold r\*-correlations with local singular series
+> Ω(n) ≤ 12 and all prime factors > x^{1/13}, with n + 4, 4n + 1 ∈ S (dual of P415 Thm U; no ES content). **Lemma N** (PROVED): a\* vanishes on the shift
+> classes of inert primes, so a Type II comparison must address this local obstruction (an explicit 0/1-coefficient
+> counterexample kills the multiplicative comparison model). Candidate target: the W-tricked (TII_W) on [x^{1/6}, x^{2/3}];
+> its implication to P(4,15) (V′) is only proposed — it also needs two unproved model lemmas (model Type I, model prime mass); by Cauchy–Schwarz one sufficient route needs one-variable four-fold r\*-correlations with local singular series
 > and twisted Type I to ≈ √x — none available. **Prime route:** the FI architecture's full-range budget is > 3/4 for primes
 > in CRT-mixed classes (model 0.76–1.0; 0.908 in P415's GEH-switched model vs 0.976 there); dispersion gives ≈ 0.617 for a
 > single residue, 1/2 + δ for mixed residues. Diagnostics to 10¹⁰: a\* matches its multiplicative model on primes and P₂
-> bands to ≤ 0.4 %, FI's (B) shows random-sign cancellation (Selberg control none) — averaged tests, not Type II proofs.
+> bands to approximately 0.4 %, FI's (B) shows random-sign cancellation (Selberg control none) — averaged tests, not Type II proofs.
 
 ## 9. Reproduction
 
@@ -349,3 +367,13 @@ Kill side: the screens are upper-side ES tests and are "not applicable" rather t
   as diagnostics; B-test now also run for a\* (`typeii_*` regenerated), "0.3 %" → "0.4 %", B = T for the control at
   every N with varying value; t = 0.2 rows noted as uninformative; (7) ε < 1/780 for Ω ≤ 12; novelty credited to P415
   Prop C / Sedunova; "composite" → "not required to be prime"; transfer to other classes not claimed.
+* **Cross-model review** (`data/z56/xreview/REVIEW_K4BILIN.md`; check script `scripts/z56_xrev_k4bilin_check.py`):
+  ACCEPT-WITH-FIXES; T\*, P, N, D, the Route P budget and all numerics confirmed (byte-identical reruns, independent
+  trial-division checks, residue enumeration of g\*). Fixes applied: (1) Theorem V′ downgraded to a *proposed implication*
+  with the two missing model lemmas (ML1 model Type I, ML2 model prime mass) and a weighted Harman sieve as explicit extra
+  hypotheses; the Rankin/periodicity gap recorded; mn ≤ x put into (TII_W) and the Type I sum; the claimed necessary
+  W-exponent (B ≥ A/2 from Lemma N) withdrawn; §§0, 4, 8 updated; (2) Prop P's universal roughness claim corrected
+  (roughness holds for the constructed ≫ x/(log x)⁹ subset; counterexample n = 97); (3) Lemma T\*: the e₁² ≤ E typo
+  replaced by q/Y ≤ x^{−1/3+16η} (η < 1/48), and the small-endpoint main term bounded by O(x^{δ}) instead of O(1);
+  (4) "must be W-tricked" → "must address the local obstruction" (alternatives not ruled out); "0.4 %" → "approximately
+  0.4 %" for rounded floating diagnostics.
