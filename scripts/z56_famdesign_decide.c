@@ -10,14 +10,19 @@
 #include <stdlib.h>
 #include <math.h>
 typedef long long ll; typedef __int128 i128;
+
+// exact integer membership tests (no floating point): Q^4 > P*n, P^15 > n
+static int gtest(long long P, long long Q, long long n) { if (Q > 3000000000LL) return 1; __int128 q2 = (__int128)Q * Q; return q2 * q2 > (__int128)P * n; }
+static int lamtest(long long P, long long n) { __int128 a = 1; for (int i = 0; i < 15; i++) { a *= P; if (a > n) return 1; } return a > n; }
+static long long hccut(long long n) { long double L = logl((long double)n), s = L * L; if (fabsl(s - roundl(s)) < 1e-12L) { fprintf(stderr, "HC cutoff tie at %lld\n", n); exit(3); } return (long long)floorl(s); }
 static inline int divides(ll m, ll n) { ll q = (ll)((double)n / (double)m + 0.5); return q * m == n; }
-static long double Ln;
+static long double Ln; static ll cHC;
 // full count (same enumeration as z56_famdesign_scan.c), returning counts all, HC, H3, F4, F4L
 static void full(ll n, long *c) {
   for (int i = 0; i < 5; i++) c[i] = 0;
   #define REC(o_, e_, C_) do { ll o = (o_), e = (e_), CC = (C_); ll P = o < e ? o : e, Q = o < e ? e : o; \
-    long double lP = logl((long double)P), lQ = logl((long double)Q); int G = 4 * lQ > Ln + lP, lam = 15 * lP > Ln; \
-    c[0]++; if ((long double)CC <= Ln * Ln) c[1]++; if ((i128)64 * CC * CC * CC <= n) c[2]++; if (G) c[3]++; if (G && lam) c[4]++; } while (0)
+    int G = gtest(P, Q, n), lam = lamtest(P, n); \
+    c[0]++; if (CC <= cHC) c[1]++; if ((i128)64 * CC * CC * CC <= n) c[2]++; if (G) c[3]++; if (G && lam) c[4]++; } while (0)
   for (ll P = 1; 4 * P * P * P - 2 * P <= n; P++)
     for (ll Q = P; ; Q++) { i128 lhs = (i128)4 * P * Q * Q - P - Q; if (lhs > n) break; ll m = 4 * P * Q, N = n + P + Q;
       if (divides(m, N)) { ll C = N / m; if (C >= Q) REC((P & 1) ? P : Q, (P & 1) ? Q : P, C); } }
@@ -30,13 +35,13 @@ static void full(ll n, long *c) {
 }
 // level scan: returns bitmask of decided-positive families (1=HC, 2=H3, 4=F4, 8=F4L) using levels C <= cmax
 static int levels(ll n, ll cmax) {
-  int got = 0; long double L2 = Ln * Ln;
+  int got = 0;
   for (ll C = 1; C <= cmax; C++) {
     // all P >= 1 with P <= Q: P(4PC - 1) <= n + P
     for (ll P = 1; ; P++) { ll m = 4 * P * C - 1; if ((i128)P * m > n + P) break; ll N = n + P;
       if (divides(m, N)) { ll Q = N / m; if (Q >= P) {
-        got |= 2 | 4; if ((long double)C <= L2) got |= 1;
-        if (15 * logl((long double)P) > Ln) got |= 8;
+        got |= 2 | 4; if (C <= cHC) got |= 1;
+        if (lamtest(P, n)) got |= 8;
         if (got == 15) return got; } } }
   }
   return got;
@@ -55,7 +60,7 @@ int main(int argc, char **argv) {
       for (ll j = s; j <= hi; j += q) seg[j - lo] = 0; }
     for (ll p = lo; p <= hi; p++) {
       if (!seg[p - lo] || (p & 3) != 1) continue;
-      N++; Ln = logl((long double)p);
+      N++; Ln = logl((long double)p); cHC = hccut(p);
       ll cmax = (ll)cbrtl((long double)p / 64.0L); while ((i128)64 * (cmax + 1) * (cmax + 1) * (cmax + 1) <= p) cmax++;
       while (cmax > 0 && (i128)64 * cmax * cmax * cmax > p) cmax--;
       int got = levels(p, cmax);

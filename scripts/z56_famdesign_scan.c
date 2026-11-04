@@ -44,20 +44,24 @@ static int sqfree(ll n) {
   if (n > 1) { ll r = isqrt_ll(n); if (r * r == n) return 0; }
   return 1;
 }
+
+// exact integer membership tests (no floating point): Q^4 > P*n, P^15 > n
+static int gtest(long long P, long long Q, long long n) { if (Q > 3000000000LL) return 1; __int128 q2 = (__int128)Q * Q; return q2 * q2 > (__int128)P * n; }
+static int lamtest(long long P, long long n) { __int128 a = 1; for (int i = 0; i < 15; i++) { a *= P; if (a > n) return 1; } return a > n; }
+static long long hccut(long long n) { long double L = logl((long double)n), s = L * L; if (fabsl(s - roundl(s)) < 1e-12L) { fprintf(stderr, "HC cutoff tie at %lld\n", n); exit(3); } return (long long)floorl(s); }
 static inline int divides(ll m, ll n) { ll q = (ll)((double)n / (double)m + 0.5); return q * m == n; }
 
 #define NF 12
-static ll cU0, cU1, cY, cX; static long double Ln;
+static ll cU0, cU1, cY, cX, cHC; static long double Ln;
 static void classify(ll n, ll o, ll e, ll C, long *cnt) {
   int k = 0; ll ep = e; while ((ep & 1) == 0) { ep >>= 1; k++; }
   int so = sqfree(o), se = sqfree(ep);
   int U = (o % 4 == 1) && so && k == 1 && se;
   int S = so && se;
   ll P = o < e ? o : e, Q = o < e ? e : o;
-  long double lP = logl((long double)P), lQ = logl((long double)Q), lo = logl((long double)o), le = logl((long double)e);
-  int G = 4 * lQ > Ln + lP;
-  int lam = 15 * lP > Ln;
-  int R1 = (4 * le > Ln + lo) && (15 * lo > Ln);
+  int G = gtest(P, Q, n);
+  int lam = lamtest(P, n);
+  int R1 = gtest(o, e, n) && lamtest(o, n);
   int F0 = U && o > cU0 && o <= cU1 && (e / 2) > cY && (e / 2) <= cX;
   cnt[0]++;
   if (F0) cnt[1]++;
@@ -70,11 +74,12 @@ static void classify(ll n, ll o, ll e, ll C, long *cnt) {
   if (G && lam) cnt[8]++;
   if (!G) cnt[9]++;
   if ((i128)64 * C * C * C <= n) cnt[10]++;          // H3: C-strip, 4C <= n^{1/3} (all divisors of each layer)
-  if ((long double)C <= Ln * Ln) cnt[11]++;            // HC: polylog layer C <= log^2 n
+  if (C <= cHC) cnt[11]++;                             // HC: polylog layer C <= floor(log^2 n)
 }
 static void count(ll n, long *cnt) {
   for (int i = 0; i < NF; i++) cnt[i] = 0;
   Ln = logl((long double)n);
+  cHC = hccut(n);
   { double t = pow((double)n, 1.0 / 12) - 0.5; cU0 = (ll)floor(t + 0.5); if (cU0 < 1) cU0 = 1; }
   cU1 = (ll)(pow((double)n, 1.0 / 3) / 2); cY = (ll)pow((double)n, 1.0 / 3); cX = (ll)(pow((double)n, 2.0 / 3) / 4);
   while ((i128)8 * cU1 * cX > n) cX--;

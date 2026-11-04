@@ -12,6 +12,11 @@ typedef long long ll;
 static int *spf; static ll lim;
 static void build(ll n) { lim = n; spf = calloc(n + 1, sizeof(int));
   for (ll i = 2; i <= n; i++) if (!spf[i]) { for (ll j = i; j <= n; j += i) if (!spf[j]) spf[j] = (int)i; } }
+
+// exact integer membership tests (no floating point): Q^4 > P*n, P^15 > n
+static int gtest(long long P, long long Q, long long n) { if (Q > 3000000000LL) return 1; __int128 q2 = (__int128)Q * Q; return q2 * q2 > (__int128)P * n; }
+static int lamtest(long long P, long long n) { __int128 a = 1; for (int i = 0; i < 15; i++) { a *= P; if (a > n) return 1; } return a > n; }
+static long long hccut(long long n) { long double L = logl((long double)n), s = L * L; if (fabsl(s - roundl(s)) < 1e-12L) { fprintf(stderr, "HC cutoff tie at %lld\n", n); exit(3); } return (long long)floorl(s); }
 static int jacobi(ll a, ll n) { // n odd positive
   a %= n; if (a < 0) a += n; int t = 1;
   while (a) { while ((a & 1) == 0) { a >>= 1; ll r = n & 7; if (r == 3 || r == 5) t = -t; }
@@ -28,15 +33,14 @@ int main(void) {
     long double L = logl((long double)p);
     long double M0 = 0, M0G = 0, Mg = 0, MG = 0, MK = 0, MGl = 0, M0Gl = 0;
     for (ll o = 1; 4 * o * 2 - o - 2 <= p; o += 2) {
-      fac fo; factor(o, &fo); long double lo = logl((long double)o);
+      fac fo; factor(o, &fo);
       for (ll e = 2; 4 * o * e - o - e <= p; e += 2) {
         int k = 0; ll ep = e; while ((ep & 1) == 0) { ep >>= 1; k++; }
         fac fe; factor(ep, &fe);
         int cop = 1; for (int i = 0; i < fo.np && cop; i++) if (ep % fo.pr[i] == 0) cop = 0;
         if (!cop) continue;
-        long double le = logl((long double)e);
-        long double lP = lo < le ? lo : le, lQ = lo < le ? le : lo;
-        int G = 4 * lQ > L + lP, lam = 15 * lP > L;
+        ll P = o < e ? o : e, Q = o < e ? e : o;
+        int G = gtest(P, Q, p), lam = lamtest(P, p);
         long double dens = 2.0L / ((long double)(1LL << (k + 1)) * fo.phi * fe.phi); // 2/phi(4oe)
         M0 += dens; if (G) M0G += dens; if (G && lam) M0Gl += dens;
         if (((o + e + p) & 7) != 0) continue;                       // (iii)
