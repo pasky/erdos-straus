@@ -163,6 +163,9 @@ for Σ*_{a mod d} survives; see §4.3). This is exactly where the "almost all" �
 from tight at computable sizes, as expected.
 (v) The constant: |E(X)| ≤ √X + 2e³X·exp(−0.0884√log X) is ≤ X·exp(−0.08√log X) only once exp(0.0084√log X) > 41, i.e.
 log X > 2·10⁵; X₀ is in any case ineffective (BV). The statement is purely asymptotic.
+(vi) Short intervals (PROVED, same proof): Montgomery's inequality holds for S ⊂ [Y+1, Y+X] with the same right-hand side, and
+Lemma 3.1 has no size condition, so #{p ∈ (Y, Y+X] : R(p) = 0} ≤ X·exp(−c√log X) uniformly in Y ≥ 0 for X ≥ X₀ (the √X term
+is not even needed). The exceptional primes are thus sparse in *every* window of length X, not just on average up to X.
 
 ## 4. Attempts at "every p" and where each one stops
 
