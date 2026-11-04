@@ -43,7 +43,7 @@ a two-shift reduction, partial sieve results, and covering obstructions}
 \emergencystretch=3em
 \begin{document}
 \begin{abstract}
-For an integer $n\equiv1\pmod 4$ call a triple $(t,u,v)$ of positive
+For a positive integer $n\equiv1\pmod 4$ call a triple $(t,u,v)$ of positive
 integers with $tuv-u-v=n$ a \emph{word} of $n$, and let $\cC_n$ be the set
 of positive integers that are $\equiv0\pmod4$ or $\equiv-n\pmod8$.  A word
 with a coordinate in $\cC_n$ yields an explicit solution of
@@ -66,7 +66,8 @@ so this obstruction is not the classical one at squares.  We also bound
 the reach of Dickson-type constructions of primes with large $\HC$.  A
 computation gives $\HC(p)\le64$ for every prime $p\equiv1\pmod4$ below
 $10^{12}$.  The Erd\H{o}s--Straus conjecture remains open; nothing here
-proves that $\HC(p)$ is finite for all large $p$, nor that it is unbounded.
+proves that $\HC(p)$ is finite for all large primes $p\equiv1\pmod4$, nor
+that it is unbounded.
 \end{abstract}
 \maketitle
 
@@ -80,7 +81,7 @@ has a solution in positive integers.  It is open.  It suffices to treat
 primes, and classical polynomial identities settle every prime outside
 the residue classes $1,121,169,289,361,529\pmod{840}$ (Mordell
 \cite{Mordell}; see \cite[p.~8]{ET}).  Finite families of such identities
-cannot settle any class consisting of squares
+cannot settle any primitive residue class $r\bmod q$ with $r$ a square
 (Yamamoto~\cite{Yamamoto}, Schinzel~\cite{Schinzel}; see
 \cite[Prop.~1.6 and the discussion before Prop.~1.9]{ET}).  The equation
 has been verified numerically for $n\le10^{17}$ \cite{Salez}, and a recent
@@ -114,8 +115,10 @@ who conjectures that every prime has one (Remark~\ref{rem:lopez}).
 
 $\HC(p)=3$ for $p\equiv5\pmod 8$, so the interesting primes are
 $p\equiv1\pmod 8$, where $\cC_p=\{4,7,8,12,15,16,20,23,\dots\}$.  A
-uniform bound $\HC(p)\le F(p)$ for all large $p$, for any function $F$,
-would prove the Erd\H{o}s--Straus conjecture for all large primes.  We
+uniform bound $\HC(p)\le F(p)<\infty$ for all sufficiently large primes
+$p\equiv1\pmod4$, for any function $F$, would prove the
+Erd\H{o}s--Straus conjecture for all sufficiently large primes (primes
+$p\equiv3\pmod4$ are settled by a classical identity).  We
 prove no such bound.  Our results concern the following questions: how
 small is $\HC$ on explicit classes, how often and by which mechanism can
 it be large, and what can a covering argument achieve.
@@ -177,8 +180,10 @@ $64$ occurs only at $p=21\,841$.
 
 \subsection*{What is not proved}
 We do not prove the Erd\H{o}s--Straus conjecture, nor $\HC(p)<\infty$ for
-all large $p$, nor any bound $\HC(p)\le F(p)$ for all large $p$.  We do not
-prove \eqref{eq:P415}: Theorems~Q and~E are conditional and Theorem~U
+all large $p\equiv1\pmod4$, nor any bound $\HC(p)\le F(p)$ for all large
+$p\equiv1\pmod4$.  We do not prove \eqref{eq:P415}: the infinitude
+consequence of Theorem~Q and the conclusion of Theorem~E are
+conditional, and Theorem~U
 leaves a bounded number of prime factors from $\cQ$ in $4p+1$.  Theorem~W
 limits one construction only; it does not bound $\HC$.  Theorem~N excludes
 fixed finite certificate families only; arguments whose moduli grow with
@@ -187,10 +192,12 @@ $p$ are not excluded.  The computation is a finite verification
 conjecture itself is verified much further \cite{Salez,MD}.
 
 \subsection*{Relation to the literature}
-The solutions in Proposition~\ref{prop:slots}(c) are of Type~I or Type~II
-in the sense of \cite{ET}; for instance the words with $4\mid t$ are the
-case $c=1$ of the characterisation $4abcd=a+b+nc$ of Type~II solvability
-in \cite[Prop.~2.7]{ET}.  The divisor criterion of Lemma~\ref{lem:lines}
+For a prime $n=p$ every solution of \eqref{eq:ES} is of Type~I or
+Type~II in the sense of \cite{ET}, so this applies to the solutions in
+Proposition~\ref{prop:slots}(c); for instance the words $(4d,a,b)$ with
+$4\mid t$ are the case $c=1$ of the characterisation ``$4abcd=a+b+nc$
+with $abd$ coprime to $n$'' of Type~II solvability in
+\cite[Prop.~2.7]{ET} (the coprimality is automatic at primes).  The divisor criterion of Lemma~\ref{lem:lines}
 for $c\equiv0\pmod 4$ is L\'opez's Type~A condition
 $p\equiv-4d\pmod{4dn-1}$ and its level analogue \cite{Lopez}.  Theorem~E
 adapts the method of Friedlander--Iwaniec \cite[Thm.~4, \S6]{FI09}, who
@@ -302,7 +309,7 @@ positive integers with $(cu-1)(cv-1)=cn+1$.
 \end{proof}
 
 \begin{definition}\label{def:HC}
-Let $n\equiv1\pmod4$.  A \emph{certificate} for $n$ is a pair $(c,d)$ with
+Let $n\ge1$, $n\equiv1\pmod4$.  A \emph{certificate} for $n$ is a pair $(c,d)$ with
 $c\in\cC_n$ and $d$ a positive divisor of $n+c$ or of $cn+1$ satisfying
 $d\equiv-1\pmod c$; we call $d$ a \emph{certificate divisor}.  The
 \emph{U-line} and the \emph{T-line} at $c$ are the integers $n+c$ and
@@ -793,8 +800,9 @@ For $\mathbf d=(d_1,d_2)$ let $\mathcal W_{\mathbf d}=\{(m,n)\in\mathcal W:
 d_1\mid m,\ d_2\mid n\}$.
 
 \begin{citedthm}[Vector sieve; {\cite[Prop.~3.10]{NX}}]\label{cit:vector}
-Suppose that $\#\mathcal W_{\mathbf d}=h(\mathbf d)X+r(\mathbf d)$ with $h$
-multiplicative on pairs, that for all primes $\ell$
+Suppose that $\#\mathcal W_{\mathbf d}=h(\mathbf d)X+r(\mathbf d)$ with
+$h$ multiplicative on pairs, $0\le h\le1$, $h(1,1)=1$, that for all
+primes $\ell$
 \begin{equation}\label{eq:A2}
 \begin{gathered}
 h(\ell,1)+h(1,\ell)-1<h(\ell,\ell)\le h(\ell,1)+h(1,\ell),\\
@@ -998,17 +1006,18 @@ $x-1\nmid x+1$) or $e\ge2x-1>x+1$.  The same holds for $xp+1$.  So no
 certificate has $c\le X$.
 \end{proof}
 
-The primes produced are $\equiv1$ modulo every prime $\ell\le X+1$, so
-$\log p\ge(1+o(1))X$.  The next theorem shows that this is forced for any
-construction of this shape.
+The primes produced are $\equiv1\pmod Q$, and $Q$ is divisible by every
+prime $\ell\le X/4$ (because $4\ell\in\cC_X$), so
+$\log p>(1/4+o(1))X$.  The next theorem shows that a restriction of this
+type is forced for every construction of this shape.
 
 \begin{thmW}
 Let $X\ge8$, let $P\in\Z[s]$ be nonconstant and let $\mathcal V\subseteq\N$
 be infinite, such that $P(s)$ is a prime $\equiv1\pmod 8$ exceeding $X$
 for every $s\in\mathcal V$.  Suppose that for every $x\in4\N\cap[4,X]$
 there is an identity
-$P(s)+x=c_x\prod_if_{x,i}(s)^{e_{x,i}}$ in $\Z[s]$, with $c_x\in\Z\setminus\{0\}$
-and nonconstant $f_{x,i}$, and nonzero integers $C_{x,i}$ such that
+$P(s)+x=c_x\prod_if_{x,i}(s)^{e_{x,i}}$ in $\Z[s]$, with $c_x\in\Z\setminus\{0\}$,
+exponents $e_{x,i}\in\N$ and nonconstant $f_{x,i}$, and nonzero integers $C_{x,i}$ such that
 $f_{x,i}(s)/C_{x,i}$ is prime for every $s\in\mathcal V$.  Then for every
 odd prime $\ell\le\lfloor X/4\rfloor+1$ the residue of $P(s)$ modulo $\ell$
 is the same for all $s\in\mathcal V$.  Consequently every element of
@@ -1207,6 +1216,18 @@ note the program was rerun on $[0,10^9)$ and on the last block
 $[9.52\cdot10^{11},10^{12})$; both outputs agree with the archived ones.
 The full range was not recomputed independently.
 
+\emph{Files.}  In the repository of this note: the census program
+\texttt{scripts/z55\_hco\_census.c} (it scans $c<4000$ and reports a
+failure line if no certificate is found; none occurred), the block
+outputs \texttt{data/z55/hco/census\_*.txt}, the aggregation and tiling
+check \texttt{scripts/z55\_hco\_aggregate.py} with output
+\texttt{data/z55/hco/aggregate\_1e12.txt}, the prime count
+\texttt{data/z55/hco/picount\_1e12.txt}, the record verification
+\texttt{scripts/z55\_hco\_verify.py}, the independent program of check~(b)
+\texttt{scripts/z54\_upper2\_hc.c} with output
+\texttt{data/z54/upper2/hc\_1e9.txt}, and the reruns of check~(d) with
+their commands in \texttt{paper/es-hc-note.census-rerun.txt}.
+
 \emph{Remarks.}  (i) By Proposition~\ref{prop:slots} every prime
 $p\equiv1\pmod4$ below $10^{12}$ has a solution of \eqref{eq:ES} built
 from a word with a coordinate at most $64$; the Erd\H{o}s--Straus
@@ -1235,15 +1256,17 @@ Dickson's conjecture (Proposition~\ref{prop:dickson}).
 \end{problem}
 
 \begin{problem}
-Prove $\HC(p)\le F(p)$ for all large primes $p$, for some function $F$.
-Any such bound proves the Erd\H{o}s--Straus conjecture for all large
+Prove $\HC(p)\le F(p)$ for all sufficiently large primes
+$p\equiv1\pmod4$, for some finite-valued function $F$.  Any such bound
+proves the Erd\H{o}s--Straus conjecture for all sufficiently large
 primes.  The data suggest that $F$ could be a power of $\log p$; Theorem~N
 shows that a proof cannot consist of a fixed finite family of certificate
 congruences, even away from the square classes.
 \end{problem}
 
 \begin{problem}
-Does every large prime have a certificate $(c,d)$ with $c$ and $d$
+Does every sufficiently large prime $p\equiv1\pmod4$ have a certificate
+$(c,d)$ with $c$ and $d$
 bounded by a power of $\log p$?  A positive answer would be a covering
 whose moduli grow polylogarithmically, which Theorem~N does not exclude.
 On the other hand $d\le\kappa\log p$ does not suffice for a small absolute
