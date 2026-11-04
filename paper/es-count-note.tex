@@ -1,0 +1,911 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{introthm}{Theorem}
+\renewcommand{\theintrothm}{\Alph{introthm}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{citedthm}[theorem]{Cited theorem}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cB}{\mathfrak B}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cE}{\mathfrak E}
+\newcommand{\cF}{\mathfrak F}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\Mgen}{M_{\mathrm{gen}}}
+\newcommand{\Mcls}{M^{\mathrm{cls}}}
+\newcommand{\sq}{\square}
+\DeclareMathOperator{\lcm}{lcm}
+\title[Counting Erd\H{o}s--Straus solutions on one Type~II line]{Counting Erd\H{o}s--Straus solutions on one Type~II line: a pointwise bound below $n^{1/3}$, an unconditional genus main term, and $(\log p)^2$ for almost all primes}
+\author{Anonymous}
+\date{Draft, 4 November 2026; internal checks only, not externally refereed}
+\begin{document}
+\begin{abstract}
+For an integer $n\ge2$ let $R(n)$ be the number of triples $(u,B,C)$ of
+positive integers with $4uBC-u-B=n$.  Each such triple gives the
+solution $4/n=1/(uBC)+1/(nBC)+1/(nuC)$ of the Erd\H{o}s--Straus equation;
+these form one line inside the Type~II solutions of Elsholtz and Tao.
+We prove three estimates for $R$.  (i)~For every $n$,
+$R(n)\ll_\eps n^{12/37+\eps}$, a power saving over the divisor-bound
+benchmark $n^{1/3+o(1)}$.  The proof applies Heath-Brown's square sieve
+to the quadratic $(4Ck-n)^2-4k$, whose square values are exactly the
+solutions, followed by Poisson summation, Weil's bound for Kloosterman
+sums and van der Corput's third-derivative test.  A cruder version of
+the same argument, using only complete quadratic character sums, gives
+$n^{1/3-1/225}(\log n)^2$.  Any exponent pair $(\kappa,\kappa+\frac12)$
+with $\kappa<\frac14$ gives $n^{4/(13-4\kappa)+\eps}$, so the exponent is
+$21/65$ relative to Bourgain's exponent pair and $4/13$ under the
+exponent pair conjecture.  (ii)~For primes $p\equiv1\pmod4$, the part
+$\Mgen(p)$ of the natural expected count of solutions that comes from
+real Dirichlet characters satisfies
+$\Mgen(p)\ge(2/(3\pi^4)-o(1))(\log p)^2$ for every sufficiently large
+$p$, unconditionally and effectively.  The proof combines Burgess's
+bound for cube-free conductors with a windowed hyperbola method in which
+all non-principal genus characters cancel.  We also write the genus
+layer of each short slice as an explicit sum of products
+$L(1,\psi)L(1,\psi')$ of quadratic $L$-values, and show that on the same
+subfamily the characters of order at least three modulo the small
+modulus carry no density main term.  (iii)~For all but
+$O_\eta(\pi(X)/\log X)$ primes $p\le X$ we have
+$R(p)\ge(1-\eta)(\log p)^2/64$.  This is a variance bound over primes
+by Bombieri--Vinogradov for a truncated count, in which every residue
+class becomes a single hyperbolic lattice cell.  It improves the
+almost-all exponent $0.549$ of Elsholtz--Tao to $2$ for the solution
+count.  The Erd\H{o}s--Straus conjecture remains open: (i) is an upper
+bound and holds at odd squares, where $R=0$; (ii) concerns a main term
+and not $R(p)$ itself; (iii) says nothing about any prescribed prime.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{The equation and the count}
+The Erd\H{o}s--Straus conjecture asserts that for every integer $n\ge2$
+\begin{equation}\label{eq:ES}
+ \frac4n=\frac1x+\frac1y+\frac1z
+\end{equation}
+has a solution in positive integers.  It has been verified for
+$n\le10^{17}$ \cite{Salez}.  A solution for $n$ gives one for every
+multiple of $n$, so it suffices to treat primes.  The classes
+$n\equiv 0,2,3\pmod 4$ have polynomial solutions, and Mordell's
+identities \cite{Mordell} leave only primes in the six classes
+$1,121,169,289,361,529\pmod{840}$.  Vaughan \cite{Vaughan} showed that
+the number of exceptions up to $N$ is $\ll N\exp(-c(\log N)^{2/3})$.
+The conjecture is open, and nothing in this paper proves it for any new
+integer.
+
+Elsholtz and Tao \cite{ET} call a solution of \eqref{eq:ES}
+\emph{Type~I} if $n\mid x$ and $n$ is coprime to $y,z$, and
+\emph{Type~II} if $n\mid y,z$ and $n$ is coprime to $x$.  They write
+$f(n)$, $f_{\rm I}(n)$, $f_{\rm II}(n)$ for the numbers of ordered
+solutions of each kind, and show \cite[(1.4)]{ET} that
+$f(p)=3f_{\rm I}(p)+3f_{\rm II}(p)$ for odd primes $p$.  We study the
+following one-parameter subfamily of Type~II solutions.  For $n\ge 2$
+let
+\begin{equation}\label{eq:Rdef}
+ R(n):=\#\{(u,B,C)\in\N^3:\ 4uBC-u-B=n\}.
+\end{equation}
+A triple counted by $R(n)$ gives the solution
+\begin{equation}\label{eq:sol}
+ \frac4n=\frac1{uBC}+\frac1{nBC}+\frac1{nuC}.
+\end{equation}
+In Elsholtz--Tao's parametrisation of Type~II solutions
+\cite[Prop.~2.6, (2.13)--(2.22)]{ET} this is the slice $c=1$, with
+$(a,b,d)=(u,B,C)$ and $e=u+B$.  For a prime $p$ the map from triples to
+solutions is injective and its image consists of Type~II solutions, so
+$f_{\rm II}(p)\ge R(p)$ (Lemma~\ref{lem:basic}).  The count $R(p)$ is
+the natural ``first line'' of Type~II solutions: it is a sum of $\asymp
+p\log p$ rare divisibility events, each tied to its own modulus, whose
+expected total is of order $(\log p)^2$ (\S\ref{subsec:genus-intro}).
+It vanishes at some primes: among primes $p\equiv1\pmod4$ below $10^7$
+we find $R(p)=0$ exactly for
+\[
+p=409,\ 577,\ 5569,\ 9601,\ 23929,\ 83449,\ 102001,\ 329617,\ 712321,\ 1134241,\ 1724209,\ 1726201,\ 5212561,\ 8813281
+\]
+(a direct computation; \S\ref{sec:numerics}).  These primes have other
+solutions of \eqref{eq:ES}, so $R(p)\ge1$ is strictly stronger than the
+conjecture at $p$.  Nothing below shows $R(p)\ge1$ for any prescribed
+prime.
+
+Two classical facts frame everything that follows.
+\begin{enumerate}
+\item \emph{Odd squares.}  $R(m^2)=0$ for every odd $m$
+(Lemma~\ref{lem:squares}; this is the case $c=1$ of Elsholtz--Tao's
+Proposition~1.6, which goes back to Schinzel and Yamamoto
+\cite{Yamamoto}; see also Bright--Loughran \cite[Cor.~1.4]{BL}).  Hence
+every argument that proves a positive lower bound for $R(n)$ must
+contain a step that is false at odd squares.  Upper bounds and averages
+over $n$ are not subject to this constraint, and this is why they are
+the kind of result we can prove.
+\item \emph{The divisor bound.}  Fixing the smallest of $u,B,C$
+reduces $R(n)$ to divisor counts of single integers of size
+$n^{O(1)}$, which gives $R(n)\ll n^{1/3+o(1)}$
+(Lemma~\ref{lem:trivial}).  Elsholtz and Tao prove
+$f_{\rm II}(n)\ll n^{2/5+o(1)}$ for the full Type~II count
+\cite[Prop.~1.7]{ET} and remark that this ``appears to be the limit of
+what one can obtain purely from the divisor bound''.  Their bound
+concerns a larger family and is not comparable with ours.
+\end{enumerate}
+
+\subsection{An upper bound below the divisor bound}
+\begin{introthm}\label{thm:A}
+For every $\eps>0$ and every integer $n\ge2$,
+\[
+ R(n)\ll_\eps n^{12/37+\eps}\qquad(12/37=0.3243\ldots).
+\]
+Moreover:
+\begin{enumerate}
+\item[(a)] $R(n)\ll n^{1/3-1/225}(\log n)^2$ for $n\ge 2$, by an argument
+that uses only the evaluation of complete quadratic character sums (no
+Kloosterman sums), Vaaler's lemma, the third-derivative test and Shiu's
+theorem (Theorem~\ref{thm:first}).
+\item[(b)] If $(\kappa,\kappa+\frac12)$ is an exponent pair with
+$0\le\kappa<\frac14$, then $R(n)\ll_\eps n^{4/(13-4\kappa)+\eps}$
+(Theorem~\ref{thm:pairs}).  The pair $(\frac16,\frac23)$ recovers
+$12/37$.  Bourgain's pair $(\frac{13}{84}+\eps,\frac{55}{84}+\eps)$
+\cite[Thm.~6]{Bourgain} gives $R(n)\ll_\eps n^{21/65+\eps}$, relative to
+that theorem (see Remark~\ref{rem:bourgain}).  The exponent pair
+conjecture, that $(\eps,\frac12+\eps)$ is an exponent pair, would give
+$R(n)\ll_\eps n^{4/13+\eps}$.
+\end{enumerate}
+\end{introthm}
+
+The key observation is that near the ``cube'' $u,B,C\asymp n^{1/3}$, which
+carries the divisor-bound benchmark, a solution is a point $(C,k)$,
+$k=uB$, of a thin strip at which the quadratic
+\[
+ f(C,k)=(4Ck-n)^2-4k
+\]
+is a perfect square: $u$ and $B$ are the roots of $z^2-(4Ck-n)z+k$.
+Heath-Brown's square sieve \cite{HB84} turns this into character sums
+$\sum\leg{f(C,k)}{qq'}$ over the strip.  Applying Poisson summation in
+$k$ inside each fixed $C$ turns the character into complete Kloosterman
+sums times exponential sums in $C$, to which the third-derivative test
+applies.  The argument uses no property of $n$ and holds verbatim at odd
+squares, where $R(n)=0$.  It is an upper bound only, and does not bear on
+the existence of solutions.
+
+\subsection{The genus main term at every large prime}\label{subsec:genus-intro}
+For a prime $p$ write
+$\cP(p)=\{(u,B)\in\N^2:\gcd(u,B)=1,\ u+B\ \text{odd},\ 4uB-u-B\le p\}$, and
+for $(u,B)\in\cP(p)$ put $q=4uB$, $a=-(u+B)$; then $a$ and $p$ are units
+modulo $q$ and $R(p)=\sum_{(u,B)\in\cP(p)}\mathbf 1[p\equiv a\ (\mathrm{mod}\ q)]$
+(Lemma~\ref{lem:pair}).  Expanding each indicator into Dirichlet
+characters modulo $q$ and keeping only the real characters gives
+\begin{equation}\label{eq:Mgen}
+ \Mgen(p):=\sum_{(u,B)\in\cP(p)}\frac{s(q)}{\varphi(q)}\,
+ \mathbf 1\bigl[pa\in((\Z/q\Z)^\times)^2\bigr],\qquad
+ s(q):=\bigl|(\Z/q\Z)^\times/((\Z/q\Z)^\times)^2\bigr|,
+\end{equation}
+so that $R(p)=\Mgen(p)+X(p)$, where $X(p)$ is the contribution of the
+characters of order at least~$3$.  Every term of $\Mgen$ is
+nonnegative, $\Mgen(p)$ depends on $p$ only through quadratic data, and
+$\Mgen(m^2)=0$ at odd squares (the same reciprocity computation as for
+$R$).  It is the ``genus'' expected count.
+
+\begin{introthm}\label{thm:B}
+For every $\eps>0$ there is an effectively computable $p_0(\eps)$ such
+that every prime $p\equiv1\pmod 4$ with $p\ge p_0(\eps)$ satisfies
+\[
+ \Mgen(p)\ \ge\ \Bigl(\frac{2}{3\pi^4}-\eps\Bigr)(\log p)^2 .
+\]
+\end{introthm}
+
+The proof (\S\ref{sec:genus}) uses a subfamily of pairs
+$(u,2w),(2w,u)$ with $u$ and $w$ in sharp windows.  On it the genus
+condition factors into a character in $w$ of conductor dividing $4u$
+times the condition $\chi_{-4up}(\ell)=1$ at each prime $\ell\mid w$.  The
+window \emph{difference} cancels every constant term of the hyperbola
+method, so of the $2^{\omega(u)+1}$ genus characters only the principal
+one survives.  This cancellation needs Burgess's bound for characters of
+cube-free conductor, and works because $p$ divides the conductor of
+each twisted character $\eta\chi_{-4up}$.  An average of
+$L(1,\chi_{-4up})$ over $u$, again by Burgess, finishes the proof.  No
+zero-free region, no Siegel-type bound and no averaging over $p$ is used.
+Section~\ref{sec:genus} also contains two complements: an exact
+evaluation of each genus slice as a signed sum of products of two
+quadratic $L$-values (Proposition~\ref{prop:C}), and a density-level
+statement that the characters of order $\ge3$ modulo $8u$ carry no main
+term on the subfamily (Theorem~\ref{thm:D}).
+
+Theorem~\ref{thm:B} is a statement about $\Mgen$, not about $R$.  It
+shows that no configuration of quadratic characters can make the
+expected count small at a large prime.  It gives no information on the
+remainder $X(p)$, and $R(p)\ge1$ does not follow from it.
+
+\subsection{Almost all primes}
+\begin{introthm}\label{thm:C}
+There is an absolute constant $c_0$ such that for every
+$\eta\in(0,1)$ and $X\ge X_0(\eta)$
+\[
+ \#\Bigl\{p\le X\ \text{prime}:\ R(p)<(1-\eta)\frac{(\log p)^2}{64}\Bigr\}
+ \ \le\ \frac{c_0}{\eta^2}\cdot\frac{\pi(X)}{\log X};
+\]
+$c_0=1600$ is admissible.  The threshold $X_0(\eta)$ is ineffective.
+In particular $f(p)\ge 3f_{\rm II}(p)\ge 3R(p)\gg(\log p)^2$ for all
+primes outside a set of relative density zero.
+\end{introthm}
+
+Elsholtz and Tao prove $f(p)\ge(\log p)^{(\log3)/2-o(1)}$ with
+$(\log 3)/2=0.549\ldots$ for all primes in a set of relative density one
+\cite[Thm.~1.8]{ET}, and remark that higher moments of $f_{\rm I}(p)$,
+$f_{\rm II}(p)$ ``seem \ldots out of reach of our methods, as the level
+of the relevant divisor sums becomes too great to handle''
+\cite[Rem.~1.3]{ET}.  Theorem~\ref{thm:C} bypasses the second moment of
+$R$ itself.  It keeps only the solutions certified by moduli
+$4uC-1\le X^{1/4-o(1)}$, so that all pair correlations fall within the
+range of Bombieri--Vinogradov.  In the resulting variance each residue
+class modulo $d$ is a single lattice cell of a hyperbolic region, which
+makes it $O(\log^3 X)$ against a squared mean of order $\log^4X$.  The
+order $(\log p)^2$ is that of the mean of $R$, not of $f_{\rm II}$, whose
+mean over primes is of order $(\log p)^3$ \cite[Thm.~1.1]{ET}.
+
+\subsection{What is and is not proved}
+All four theorems are proved here in full, relative to the cited
+classical inputs (Weil's bound, the third-derivative test, exponent
+pairs where stated, Burgess's bound, Bombieri--Vinogradov,
+Brun--Titchmarsh-type and divisor-sum bounds).  They are not externally
+refereed.  We state their limits explicitly.
+\begin{itemize}
+\item The Erd\H{o}s--Straus conjecture is \emph{not} proved; nor is
+$R(p)\ge1$ for all large $p$, nor for any prescribed prime.
+\item Theorem~\ref{thm:A} is an upper bound uniform in $n$; it is true
+at odd squares, where $R=0$.  It improves only the size of the
+fluctuations that $R(p)$ could have.
+\item Theorem~\ref{thm:B} bounds the real-character part $\Mgen(p)$ of
+the expected count.  The remainder $X(p)=R(p)-\Mgen(p)$ is not
+controlled: a lower bound $X(p)\ge-(1-\eps)\Mgen(p)$ for all large $p$
+would, with Theorem~\ref{thm:B}, prove the conjecture for all large
+primes, and we have no approach to it.  Theorem~\ref{thm:D} controls
+only a density version of part of $X$.
+\item Theorem~\ref{thm:C} is an average over $p$; the fourteen primes
+listed above are compatible with it.
+\end{itemize}
+
+\subsection{Literature}
+A search of the arXiv and the web (queries on Erd\H{o}s--Straus
+solution counts, Type~II counts, square sieve applications, and
+divisor counts in residue classes; details in the accompanying review
+file) found no earlier pointwise bound for $R(n)$ or for any Type~II
+family below $n^{1/3}$, no almost-all lower bound of order $(\log p)^2$
+for primes, and no unconditional lower bound for a genus main term of
+this kind.  We make no stronger priority claim.  The pointwise bounds we
+know of are Elsholtz--Tao's $f_{\rm I}(n)\ll n^{3/5+o(1)}$,
+$f_{\rm II}(n)\ll n^{2/5+o(1)}$ \cite[Prop.~1.7]{ET} and the bound
+$O_\eps(n^\eps (n^3/m^2)^{1/5})$ of Elsholtz--Planitzer \cite[Thm.~1]{EP}
+for representations of $m/n$.  The square sieve was introduced in
+\cite{HB84}; combining a power sieve with a $q$-analogue of van der
+Corput's method is a known technique for counting points on curves
+\cite{HBP}.  The variance-over-primes argument of Theorem~\ref{thm:C} is
+a Tur\'an--Kubilius-type estimate for a non-additive divisor count; the
+closest classical analogue we know is Barban's inequality for shifted
+primes, used by Elsholtz--Tao in the proof of their Theorem~1.8.
+
+\subsection{Notation}
+$\N=\{1,2,\dots\}$.  $e(x)=e^{2\pi ix}$.  $\leg{a}{b}$ is the Jacobi
+symbol for odd $b>0$ (Legendre for prime $b$; for $a<0$ it is defined
+through the residue of $a$).  For a discriminant $D$, $\chi_D=\leg D\cdot$
+is the Kronecker symbol, and $\chi_{-4}$ is the non-principal character
+modulo~$4$.  $\tau$, $\omega$, $\varphi$, $\mu$ are the divisor function,
+the number of distinct prime factors, Euler's function and the M\"obius
+function.  $\psi(x)=x-\lfloor x\rfloor-\frac12$.  The letters $\ell$ and $q$
+always denote primes.  Implied constants are absolute unless indicated
+by subscripts; $n^{o(1)}$ absorbs factors such as $\tau(m)$ for
+$m\le n^{O(1)}$.
+
+\section{Preliminaries on $R(n)$}\label{sec:prelim}
+
+\begin{lemma}\label{lem:basic}
+Let $n\ge2$.
+\begin{enumerate}
+\item[(i)] Every triple $(u,B,C)$ counted by $R(n)$ satisfies
+$n<4uBC\le 2n$; in particular $u,B,C\le n/2$.
+\item[(ii)] $(u,B,C)\mapsto(B,u,C)$ is an involution of the solution set.
+\item[(iii)] If $n=p$ is prime, \eqref{eq:sol} maps the solution set
+injectively into the Type~II solutions of $4/p$; hence
+$f_{\rm II}(p)\ge R(p)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i) $u+B\le 2uB\le 2uBC$, so $n=4uBC-(u+B)\ge 2uBC$; and $n<4uBC$.
+(ii) is clear.  (iii) Multiplying \eqref{eq:sol} by $nuBC$ turns it into
+$4uBC=n+u+B$, so \eqref{eq:sol} holds.  By (i),
+$u,B,C<p$, so $p\nmid uBC$ while $p$ divides $pBC$ and $puC$: the
+solution is of Type~II.  From $(x,y,z)=(uBC,pBC,puC)$ we recover
+$u=px/y$, $B=px/z$ and $C=x/(uB)$.
+\end{proof}
+
+\begin{lemma}[pair form]\label{lem:pair}
+Let $p$ be an odd prime.  The map $(u,B,C)\mapsto(u,B)$ is a bijection
+from the triples counted by $R(p)$ onto the pairs $(u,B)\in\cP(p)$ with
+$p\equiv a\pmod q$, where $q=4uB$ and $a=-(u+B)$.  For $(u,B)\in\cP(p)$,
+both $a$ and $p$ are units modulo $q$.
+\end{lemma}
+\begin{proof}
+Given a triple, $4uB-u-B\le 4uBC-u-B=p$; $u+B\equiv p\equiv 1\pmod 2$;
+and $\gcd(u,B)$ divides $4uBC-u-B=p$ and is at most $u<p$, so it is~$1$.
+Clearly $p\equiv a\pmod q$.  Conversely, if $(u,B)\in\cP(p)$ and $q\mid
+p-a=p+u+B$ then $C:=(p+u+B)/(4uB)$ is a positive integer.  Finally
+$\gcd(u+B,4uB)=1$ because $u+B$ is odd and $\gcd(u+B,u)=\gcd(B,u)=1$; and
+$p\nmid q$ because $u,B<p$ (if $u\ge p$ then $u(4BC-1)=p+B$ forces
+$B(4pC-1)\le 2p$, impossible).
+\end{proof}
+
+\begin{lemma}[odd squares]\label{lem:squares}
+Let $n\ge3$ be odd and let $(u,B,C)$ be a triple counted by $R(n)$.  Put
+$x=4Cu-1$, $y=4CB-1$.  Then $xy=4Cn+1$ and $\leg nx=-1$.  In particular
+$R(m^2)=0$ for every odd $m\ge 3$.  If moreover $\gcd(uBC,n)=1$, then
+$\leg{-uB}{n}=-1$.
+\end{lemma}
+\begin{proof}
+$xy=16C^2uB-4C(u+B)+1=4C(4uBC-u-B)+1=4Cn+1$.  Hence $\gcd(x,n)=1$ and
+$4Cn\equiv-1\pmod x$.  As $x\equiv3\pmod 4$, $\leg{4Cn}{x}=\leg{-1}{x}=-1$.
+Write $C=2^aC'$ with $C'$ odd.  If $a\ge1$ then $8\mid 4C\mid x+1$, so
+$\leg 2x=1$.  By reciprocity
+$\leg{C'}{x}=\leg{x}{C'}(-1)^{\frac{C'-1}2\cdot\frac{x-1}2}$; since
+$x\equiv-1\pmod{C'}$ and $\frac{x-1}2$ is odd, this equals
+$(-1)^{\frac{C'-1}2}(-1)^{\frac{C'-1}2}=1$.  So $\leg Cx=1$ and
+$\leg nx=-1$.  For $n=m^2$ this contradicts $\leg{m^2}{x}=1$.
+For the last claim, reciprocity gives
+$\leg xn=\leg nx(-1)^{\frac{n-1}2\cdot\frac{x-1}2}=-\leg{-1}n$.  Modulo
+$n$ we have $xy\equiv1$, hence $x(x+1)(y+1)\equiv(x+1)^2$, and
+$\gcd(x+1,n)=\gcd(4Cu,n)=1$, so
+$\leg xn=\leg{(x+1)(y+1)}n=\leg{16C^2uB}n=\leg{uB}n$.  Therefore
+$\leg{-uB}n=\leg{-1}n\leg xn=-1$.
+\end{proof}
+
+\begin{lemma}[divisor-bound benchmark]\label{lem:trivial}
+Let $\mathfrak B(U,V,W)$ be the set of triples counted by $R(n)$ with
+$u\in(U,2U]$, $B\in(V,2V]$, $C\in(W,2W]$, and $N(U,V,W)$ its size.
+Then $N(U,V,W)\ll_\eps n^{\eps}\min(U,V,W)$, and $R(n)\ll_\eps n^{1/3+\eps}$.
+\end{lemma}
+\begin{proof}
+For fixed $u$, $B(4uC-1)=n+u$, so $B$ is a divisor of $n+u$ and $C$ is
+determined by $B$.  For fixed $C$, $x=4Cu-1$ is a divisor of
+$4Cn+1\le 2n^2+1$ and determines $u$ and then $B$.  The case of fixed $B$
+is symmetric.  The divisor bound gives the first claim.  By
+Lemma~\ref{lem:basic}(i), $\min(u,B,C)\le(n/2)^{1/3}$; fixing the
+smallest coordinate in the same way gives the second.
+\end{proof}
+
+Dyadic blocks will be indexed by $U,V,W\in\{2^{j}/2:j\ge0\}$, so that
+every triple lies in exactly one block.  By Lemma~\ref{lem:basic}(i),
+nonempty blocks satisfy $n/32<UVW<n/2$, and there are $O((\log n)^3)$ of
+them.
+
+\section{The upper bound: square detection on a strip}\label{sec:upper}
+
+\subsection{Square detection}
+For integers $C,k$ put
+\begin{equation}\label{eq:fdef}
+ f(C,k):=(4Ck-n)^2-4k=16C^2k^2-(8Cn+4)k+n^2 .
+\end{equation}
+
+\begin{lemma}\label{lem:detect}
+Let $(u,B,C)$ be a triple counted by $R(n)$, and put $k=uB$, $s=u+B$.
+Then $4Ck-n=s$ and $f(C,k)=(u-B)^2$.  Conversely, if $C\ge1$, $4Ck-n>0$
+and $f(C,k)=r^2$ with $r\in\Z_{\ge0}$, then $u=(s-r)/2$, $B=(s+r)/2$ with
+$s=4Ck-n$ are positive integers with $4uBC-u-B=n$, $u+B=s$, $uB=k$.  In
+particular every $(C,k)$ is the image of at most two triples, namely
+$(u,B,C)$ and $(B,u,C)$.  Triples with $u=B$ number at most $\tau(n)$.
+\end{lemma}
+\begin{proof}
+$4Ck-s=4uBC-u-B=n$ and $f=s^2-4uB=(u-B)^2$.  Conversely $4Ck=n+s>0$
+gives $k\ge1$; $s^2-r^2=4k>0$ with $s>0$ gives $0\le r<s$ and
+$s\equiv r\pmod 2$, so $u\ge1$; then $u+B=s$, $uB=(s^2-r^2)/4=k$ and
+$4uBC-u-B=4Ck-s=n$.  Since $\{u,B\}$ is the root set of
+$z^2-sz+k$, the preimages are as stated.  If $u=B$ then
+$u(4uC-2)=n$, so $u\mid n$, and $u$ determines $C$.
+\end{proof}
+
+\subsection{The square sieve}
+We use the following variant of Heath-Brown's square sieve
+\cite[Thm.~1]{HB84}, with explicit constants and a support condition on
+positive squares only.  (Heath-Brown's theorem assumes $w(a)=0$ for
+$|a|\ge e^{P_0}$; the proof below is his.)
+
+\begin{lemma}\label{lem:sqsieve}
+Let $\cP$ be a set of $P_0\ge1$ odd primes and
+$w:\Z\setminus\{0\}\to[0,\infty)$ finitely supported, with $w(a)=0$ for
+every perfect square $a>2^{P_0}$.  Then
+\[
+ \sum_{m\ge1}w(m^2)\ \le\ \frac4{P_0}\sum_a w(a)
+ +\frac4{P_0^2}\sum_{\substack{q,q'\in\cP\\ q\neq q'}}
+ \Bigl|\sum_a w(a)\leg{a}{qq'}\Bigr| .
+\]
+\end{lemma}
+\begin{proof}
+Let $a=m^2$ with $1\le m\le 2^{P_0/2}$.  Then $m$ has at most
+$\log_2m\le P_0/2$ prime factors, so
+$\sigma(a):=\sum_{q\in\cP}\leg aq=\#\{q\in\cP:q\nmid m\}\ge P_0/2$.  Hence
+$\sum_mw(m^2)\le\frac4{P_0^2}\sum_aw(a)\sigma(a)^2$ (the added terms are
+$\ge0$).  Expanding,
+$\sigma(a)^2=\sum_q\leg aq^2+\sum_{q\ne q'}\leg a{qq'}\le
+P_0+\sum_{q\ne q'}\leg a{qq'}$.
+\end{proof}
+
+\subsection{Complete character sums}
+For an odd prime $q$ and $c,\ell\in\Z$ put
+\[
+ K_q(c):=\sum_{k\bmod q}\leg{f(c,k)}q,\qquad
+ G_c^{(q)}(\ell):=\sum_{k\bmod q}\leg{f(c,k)}q e\Bigl(\frac{\ell k}q\Bigr),
+\]
+and for $Q=qq'$ with distinct odd primes $q,q'$ let
+$G^{(Q)}_c(\ell):=\sum_{k\bmod Q}\leg{f(c,k)}{Q}e(\ell k/Q)$.  Let
+$D_q:=\{c\in\Z: q\mid 4cn+1\}$, a single residue class modulo $q$ (empty
+if $q\mid n$).
+
+\begin{citedthm}[Weil; {\cite[Thm.~11.11, Cor.~11.12]{IK}}]\label{cit:weil}
+For a prime $q$ and integers $a,b$ with $q\nmid ab$, the Kloosterman sum
+$S(a,b;q)=\sum_{x\bmod q,\,x\not\equiv0}e((ax+b\bar x)/q)$ satisfies
+$|S(a,b;q)|\le2\sqrt q$.
+\end{citedthm}
+
+\begin{lemma}\label{lem:complete}
+Let $q$ be an odd prime and $c,\ell\in\Z$.
+\begin{enumerate}
+\item[(a)] $K_q(c)=0$ if $q\mid c$; $K_q(c)=q-1$ if $c\in D_q$ (then
+$q\nmid c$); and $K_q(c)=-1$ otherwise.  In particular
+$|K_q(c)|\le 1+q\mathbf 1_{D_q}(c)$.
+\item[(b)] If $q\nmid\ell$ then $|G_c^{(q)}(\ell)|\le 2\sqrt q$.
+\item[(c)] $\sum_{c\bmod q}|G_c^{(q)}(\ell)|\le 2q^{3/2}$ for every $\ell$.
+\item[(d)] For $Q=qq'$, $G_c^{(Q)}(\ell)=G_c^{(q)}(\ell\bar q')\,
+G_c^{(q')}(\ell\bar q)$, where $q'\bar q'\equiv1\pmod q$ and
+$q\bar q\equiv1\pmod{q'}$.  Hence
+$\sum_{c\bmod Q}|G_c^{(Q)}(\ell)|\le4Q^{3/2}$ for every $\ell$, and
+$K(c):=G^{(Q)}_c(0)=K_q(c)K_{q'}(c)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) If $q\mid c$ then $f(c,k)\equiv n^2-4k$ runs over all residues once,
+so the sum is $\sum_t\leg tq=0$.  If $q\nmid c$, $f(c,\cdot)$ is a
+quadratic polynomial with leading coefficient $16c^2$, a nonzero
+square, and discriminant $(8cn+4)^2-64c^2n^2=16(4cn+1)$.  Completing the
+square, $f(c,k)\equiv16c^2((k-r)^2-\delta)$ with $\delta\equiv0$ iff
+$c\in D_q$, so $K_q(c)=\sum_x\leg{x^2-\delta}q$.  If $\delta\equiv0$ this is
+$q-1$.  If $\delta\not\equiv0$ it equals
+$\sum_x(\#\{y:y^2\equiv x^2-\delta\}-1)=\#\{(x,y):(x-y)(x+y)\equiv\delta\}-q
+=(q-1)-q=-1$.
+
+(b) If $q\mid c$, substitute $t=n^2-4k$: $G=e(\bar4\ell n^2/q)\sum_t\leg
+tq e(-\bar4\ell t/q)$, a Gauss sum of modulus $\sqrt q$.  If $q\nmid c$,
+put $A=16c^2$, $r\equiv(8cn+4)(2A)^{-1}$ and $d\equiv16(4cn+1)(4A^2)^{-1}
+\pmod q$; then $f(c,k)\equiv A((k-r)^2-d)$ and $\leg Aq=1$, so
+$G=e(\ell r/q)H$ with $H=\sum_x\leg{x^2-d}{q}e(\ell x/q)$.  If $d\equiv0$
+then $H=\sum_{x\ne0}e(\ell x/q)=-1$.  If $d\not\equiv0$, use
+$\#\{y:y^2\equiv x^2-d\}=1+\leg{x^2-d}q$ and $\sum_xe(\ell x/q)=0$ to get
+$H=\sum_{x^2-y^2\equiv d}e(\ell x/q)$.  With $v=x+y$, $x-y=d\bar v$, this is
+$\sum_{v\ne0}e(\bar2\ell(v+d\bar v)/q)=S(\bar2\ell,\bar2\ell d;q)$, and
+Weil's bound applies since $q\nmid\ell d$.
+
+(c) For $q\nmid\ell$ apply (b) to each class $c$.  For $q\mid\ell$, by
+(a) one class contributes $0$, at most one contributes $q-1$ and the
+others $1$ each: total $\le2q-3$.
+
+(d) The Jacobi symbol is $\leg\cdot q\leg\cdot{q'}$,
+$1/(qq')\equiv\bar q'/q+\bar q/q'\pmod 1$, and $f(c,k)\bmod q$ depends only
+on $k\bmod q$; the sum factors by the Chinese remainder theorem.  Since
+$G^{(q)}_c$ depends only on $c\bmod q$, the sum over $c\bmod Q$ is the
+product of two sums as in (c).
+\end{proof}
+
+\subsection{A first step}\label{subsec:first}
+We first show how the square sieve beats the divisor bound using only
+Lemma~\ref{lem:complete}(a).
+
+\begin{citedthm}[Vaaler; {\cite[Thm.~A.6]{GK}, \cite{Vaaler}}]\label{cit:vaaler}
+For every integer $H\ge1$ there are real $a_h$ ($1\le|h|\le H$) with
+$|a_h|\le1/(2\pi|h|)$ such that for all real $x$
+\[
+ \Bigl|\psi(x)-\sum_{1\le|h|\le H}a_he(hx)\Bigr|\le\frac1{2H+2}
+ \sum_{|h|\le H}\Bigl(1-\frac{|h|}{H+1}\Bigr)e(hx).
+\]
+\end{citedthm}
+Summing over $x=g(j)$, $j\in I$ ($|I|=N$), and using that the right side is
+nonnegative, one obtains
+\begin{equation}\label{eq:vaaler}
+ \Bigl|\sum_{j\in I}\psi(g(j))\Bigr|\le\frac N{2H+2}
+ +\sum_{h=1}^H\Bigl(\frac1{\pi h}+\frac1{H+1}\Bigr)
+ \Bigl|\sum_{j\in I}e(hg(j))\Bigr| .
+\end{equation}
+
+\begin{citedthm}[Third-derivative test; {\cite[Thm.~5.11]{Titchmarsh}}]\label{cit:3d}
+Let $g$ be real with continuous derivatives up to order three on
+$[a,b]$, $b-a\ge1$, and $\lambda\le|g'''(x)|\le h\lambda$ there (with
+$g'''$ of constant sign).  Then
+$\sum_{a<j\le b}e(g(j))\ll h^{1/2}(b-a)\lambda^{1/6}+(b-a)^{1/2}\lambda^{-1/6}$,
+with an absolute implied constant.
+\end{citedthm}
+
+\begin{citedthm}[Shiu; {\cite[Thm.~1]{Shiu}}]\label{cit:shiu}
+Fix $0<\alpha,\beta<\frac12$.  For $1\le k<y^{1-\alpha}$, $x^\beta<y\le x$
+and $\gcd(a,k)=1$,
+$\sum_{x-y<m\le x,\ m\equiv a\,(k)}\tau(m)\ll\frac{y}{\varphi(k)}\frac1{\log
+x}\exp\Bigl(\sum_{\ell\le x,\ \ell\nmid k}\frac2\ell\Bigr)$.
+\end{citedthm}
+(Shiu's theorem is stated for a class of multiplicative functions
+containing $\tau$; we only need $\tau$.)
+
+\begin{theorem}\label{thm:first}
+For $n\ge2$, $R(n)\ll n^{1/3-1/225}(\log n)^2$.
+\end{theorem}
+
+\begin{proof}
+Let $T=n^{1/3}$, $\eta=1/75$, and assume $n$ is large.
+
+\emph{Small coordinates.}  Triples with $u<T^{1-\eta}$ number at most
+$\sum_{n<m\le n+T^{1-\eta}}\tau(m)\ll T^{1-\eta}\log n$ (Shiu with $k=1$),
+because $B$ is a divisor of $n+u$ and determines $C$; likewise for
+$B<T^{1-\eta}$.  Triples with $C<T^{1-\eta}$ number at most
+$\sum_{C<T^{1-\eta}}\tau(4Cn+1)$, which is a sum of $\tau(m)$ over
+$m\equiv1\pmod{4n}$, $m\le x:=4nT^{1-\eta}+1$.  Shiu's theorem with $k=4n$
+($k<x^{1-\alpha}$ for small $\alpha$) and
+$\exp(\sum_{\ell\le x,\ell\nmid k}2/\ell)\ll(\log x)^2(\varphi(k)/k)^2$
+bounds this by $\ll T^{1-\eta}\log n$.  Since $T^{1-\eta}=n^{1/3-1/225}$,
+it remains to bound the number $\cS$ of triples with
+$\min(u,B,C)\ge T^{1-\eta}$.
+
+\emph{Ranges.}  For such a triple let $M=\max(u,B,C)$.  Then
+$4uBC\ge4T^{2-2\eta}M$ and $4uBC=n+u+B\le n+2M$, so $M\le T^{1+2\eta}/2$.
+Hence $C\in\cC:=[T^{1-\eta},T^{1+2\eta}/2]$ and $s=u+B\in(S_1,S_2]$ with
+$S_1=2T^{1-\eta}-1$, $S_2=T^{1+2\eta}$.  Let
+$\cA:=\{(C,k)\in\Z^2: C\in\cC,\ 4Ck-n\in(S_1,S_2]\}$.  By
+Lemma~\ref{lem:detect},
+\[
+ \cS\le 2\#\{(C,k)\in\cA: f(C,k)\ \text{a nonzero square}\}+\tau(n).
+\]
+
+\emph{Sieve.}  Let $P=T^{1/25}$, $\cP$ the primes in $(P,2P]$ and
+$P_0=|\cP|\gg P/\log P$.  Apply Lemma~\ref{lem:sqsieve} to
+$w(a)=\#\{(C,k)\in\cA:f(C,k)=a\}$ ($a\ne0$); the condition holds since
+$f\le S_2^2\le T^{2+4\eta}\le2^{P_0}$.  As $\leg0Q=0$,
+\begin{equation}\label{eq:sieve1}
+ \#\{(C,k)\in\cA:f\ \text{nonzero square}\}\le\frac4{P_0}|\cA|
+ +4\max_{q\ne q'\in\cP}|S_{qq'}|,\qquad
+ S_Q:=\sum_{(C,k)\in\cA}\leg{f(C,k)}{Q}.
+\end{equation}
+For $C\in\cC$ let $J_C=((n+S_1)/(4C),(n+S_2)/(4C)]$, of length
+$|J_C|=(S_2-S_1)/(4C)$; then $|\cA|\le\sum_{C\in\cC}(|J_C|+1)\ll
+T^{1+2\eta}\log T$.
+
+\emph{Main term and discrepancy.}  Fix $Q=qq'$.  For residues
+$c_0,k_0\bmod Q$, the number of $k\in J_C$ with $k\equiv k_0$ is
+$|J_C|/Q-\psi(\beta_C)+\psi(\alpha_C)$, where
+$\alpha_C=((n+S_1)/(4C)-k_0)/Q$ and $\beta_C=((n+S_2)/(4C)-k_0)/Q$.  As
+$f(C,k)\bmod Q$ depends only on $(C\bmod Q,k\bmod Q)$,
+\[
+ S_Q=\sum_{C\in\cC}\frac{|J_C|}{Q}K(C)+\sum_{c_0,k_0\bmod Q}
+ \leg{f(c_0,k_0)}{Q}E(c_0,k_0),\quad
+ E(c_0,k_0):=\sum_{\substack{C\in\cC\\ C\equiv c_0\,(Q)}}
+ \bigl(\psi(\alpha_C)-\psi(\beta_C)\bigr).
+\]
+By Lemma~\ref{lem:complete}(a,d),
+$|K(C)|\le(1+q\mathbf 1_{D_q}(C))(1+q'\mathbf 1_{D_{q'}}(C))$.  Since
+$|J_C|$ decreases in $C$, a residue class modulo $m$ satisfies
+$\sum_{C\equiv c\,(m)}|J_C|\le m^{-1}\Sigma_J+J_{\max}$, where
+$\Sigma_J=\sum_{C\in\cC}|J_C|\ll T^{1+2\eta}\log T$ and
+$J_{\max}\le T^{3\eta}$.  Expanding the product bound for $|K|$, the first
+sum is at most $Q^{-1}(4\Sigma_J+3QJ_{\max})\ll
+T^{1+2\eta}\log T/Q+T^{3\eta}$.
+
+\emph{The discrepancy.}  We claim that for $Q\le T^{1/2}$
+\begin{equation}\label{eq:disc}
+ \sum_{c_0,k_0\bmod Q}|E(c_0,k_0)|\ll
+ \bigl(T^{6/7+2\eta}Q^{9/7}+T^{2/3+7\eta/3}Q^{7/6}\bigr)\log T .
+\end{equation}
+Split $\cC$ into $O(\log T)$ dyadic pieces $(W,2W]$ with
+$T^{1-\eta}/2\le W\le T^{1+2\eta}/2$; note $Q\le T^{1/2}\le W$.  Fix a
+piece, a class $(c_0,k_0)$ and an endpoint $S\in\{S_1,S_2\}$.  Writing
+$C=c_0+Qj$, $j$ runs over an interval $I$ of $\le 2W/Q$ integers, and the
+relevant $\psi$-values are $\psi(g(j))$ with
+$g(j)=(n+S)/(4Q(c_0+Qj))-k_0/Q$.  For $h\ge1$,
+$|(hg)'''(j)|=\frac32h(n+S)Q^2C^{-4}\in[\lambda_h,16\lambda_h]$ with
+$\lambda_h=\frac3{32}h(n+S)Q^2W^{-4}\asymp hT^3Q^2W^{-4}$.  By
+\eqref{eq:vaaler} and Cited Theorem~\ref{cit:3d} (an interval of length
+$<1$ contains at most one integer),
+\[
+ \Bigl|\sum_{j\in I}\psi(g(j))\Bigr|\ll\frac{W}{QH}+\sum_{h\le
+ H}\frac1h\Bigl(\frac WQ\lambda_h^{1/6}+\Bigl(\frac WQ\Bigr)^{1/2}
+ \lambda_h^{-1/6}+1\Bigr).
+\]
+Here $(W/Q)\lambda_h^{1/6}\ll h^{1/6}T^{1/2}W^{1/3}Q^{-2/3}\le
+h^{1/6}T^{5/6+2\eta/3}Q^{-2/3}$ and $(W/Q)^{1/2}\lambda_h^{-1/6}\ll
+W^{7/6}T^{-1/2}Q^{-5/6}\le T^{2/3+7\eta/3}Q^{-5/6}$.  Summing over $h$
+and choosing $H=\lceil T^{1/7}Q^{-2/7}\rceil$ gives
+$\ll T^{6/7+2\eta}Q^{-5/7}+T^{2/3+7\eta/3}Q^{-5/6}+\log T$ for each piece,
+class and endpoint.  Multiplying by $Q^2$ classes, two endpoints and
+$O(\log T)$ pieces gives \eqref{eq:disc} (the $Q^2\log^2T$ from the term
+$\log T$ is dominated).
+
+\emph{Assembly.}  $Q\le4P^2\le T^{1/2}$.  By the above,
+$\max_Q|S_Q|\ll T^{1+2\eta}\log T/P^2+T^{3\eta}
++(T^{6/7+2\eta}P^{18/7}+T^{2/3+7\eta/3}P^{7/3})\log T$, and so
+\[
+ \cS\ll\frac{\log P}{P}T^{1+2\eta}\log T+T^{6/7+2\eta}P^{18/7}\log T
+ +T^{2/3+7\eta/3}P^{7/3}\log T+\tau(n).
+\]
+With $P=T^{1/25}$ the first two terms are $\ll T^{24/25+2\eta}(\log
+T)^2=T^{74/75}(\log T)^2$, since $\frac67+\frac{18}{175}=\frac{24}{25}$;
+the third is $\le T^{0.88}$.  As $T^{74/75}=n^{1/3-1/225}$, the theorem
+follows.
+\end{proof}
+
+\begin{remark}
+The same argument restricted to the cube block $U=V\asymp(n/4)^{1/3}$
+(where $\eta=0$ in all size bounds) gives $N(U,U,W)\ll
+n^{8/25}(\log n)^2$.  The loss in \eqref{eq:disc} comes from taking
+absolute values over all $Q^2$ residue classes.  The next subsections
+avoid this by opening the character in the $k$-variable.
+\end{remark}
+
+\subsection{Poisson summation in $k$}
+Fix $\Phi\in C_c^\infty(\R)$ with $0\le\Phi\le1$, $\Phi=1$ on $[1,4]$
+and $\mathrm{supp}\,\Phi\subset[\frac12,5]$.  Let
+$\hat\Phi(\xi)=\int\Phi(t)e(-\xi t)\,dt$ and
+$\Psi(x):=\sup_{|\xi|\ge|x|}(|\hat\Phi(\xi)|+|\xi\hat\Phi'(\xi)|)$; then $\Psi$
+is non-increasing in $|x|$ and $\Psi(x)\ll_A(1+|x|)^{-A}$ for every $A$.
+Write $\chi_Q=\leg\cdot Q$ for $Q=qq'$, and $\chi_1\equiv1$,
+$G^{(1)}\equiv1$.
+
+\begin{lemma}\label{lem:poisson}
+For integers $C\ge1$, $Q\in\{1\}\cup\{qq'\}$ and real $V>0$,
+\[
+ \sum_{k\in\Z}\Phi\Bigl(\frac{4Ck-n}V\Bigr)\chi_Q(f(C,k))
+ =\sum_{\ell\in\Z}a_\ell(C)\,e\Bigl(-\frac{\ell n}{4CQ}\Bigr)G^{(Q)}_C(\ell),
+ \qquad a_\ell(C):=\frac V{4CQ}\hat\Phi\Bigl(\frac{\ell V}{4CQ}\Bigr).
+\]
+\end{lemma}
+\begin{proof}
+Write $k=k_0+Qj$ with $k_0\bmod Q$; $\chi_Q(f(C,k))$ depends only on
+$k_0$.  Poisson summation in $j$ applied to
+$x\mapsto\Phi((4CQx+4Ck_0-n)/V)$, with the substitution
+$t=(4CQx+4Ck_0-n)/V$, gives
+$\sum_\ell\frac V{4CQ}\hat\Phi(\frac{\ell V}{4CQ})e(-\frac{\ell
+n}{4CQ})e(\frac{\ell k_0}Q)$.  Multiply by $\chi_Q(f(C,k_0))$ and sum over
+$k_0$.  The $\ell$-series converges absolutely.
+\end{proof}
+
+\begin{proposition}\label{prop:strip}
+Let $V,W\ge1$, $Q\in\{1\}\cup\{qq'\}$, and
+\[
+ S_Q:=\sum_{C\in(W,2W]}\sum_{k\in\Z}\Phi\Bigl(\frac{4Ck-n}{V}\Bigr)\chi_Q(f(C,k)).
+\]
+Then, with an implied constant depending only on $\Phi$,
+\begin{equation}\label{eq:strip}
+ |S_Q|\ll\frac VQ+\frac VW+Q\,n^{1/6}W^{1/2}V^{-1/6}
+ +Q^{1/2}V^{1/6}W\,n^{-1/6}+Q^{3/2}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+By Lemma~\ref{lem:poisson},
+$S_Q=\sum_\ell\sum_{C\in(W,2W]}a_\ell(C)e(\varphi_\ell(C))G_C(\ell)$
+with $\varphi_\ell(C)=-\ell n/(4CQ)$ and $G=G^{(Q)}$.
+
+\emph{(i) $\ell=0$.}  $G_C(0)=K(C)$ (or $1$ if $Q=1$), and
+$|a_0(C)|\le V\hat\Phi(0)/(4QW)$.  By Lemma~\ref{lem:complete}(a,d),
+$\sum_{C\in(W,2W]}|K(C)|\le W+q(\frac Wq+1)+q'(\frac W{q'}+1)+Q(\frac
+WQ+1)\le4W+3Q$, so the $\ell=0$ term is $\ll V/Q+V/W$ (and $\ll V$ if
+$Q=1$).
+
+\emph{(ii) $\ell\ne0$.}  Grouping $C$ by $c_0\equiv C\pmod Q$, the
+$\ell$-th term is at most
+$\sum_{c_0\bmod Q}|G_{c_0}(\ell)|\cdot|\sum_{C\equiv c_0}a_\ell(C)e(\varphi_\ell(C))|$.
+For $C\in(W,2W]$ we have $|\xi|\ge|\ell|V/(8QW)$ where
+$\xi=\ell V/(4CQ)$, hence $|a_\ell(C)|\le\frac V{4QW}\Psi(\frac{\ell
+V}{8QW})$; and
+$\frac{d}{dC}a_\ell(C)=-\frac V{4QC^2}(\hat\Phi(\xi)+\xi\hat\Phi'(\xi))$,
+so $\int_W^{2W}|a_\ell'|\le\frac V{8QW}\Psi(\frac{\ell V}{8QW})$.  Partial
+summation gives
+\[
+ \Bigl|\sum_{C\equiv c_0}a_\ell(C)e(\varphi_\ell(C))\Bigr|\le\frac{3V}{8QW}
+ \Psi\Bigl(\frac{\ell V}{8QW}\Bigr)E_Q(\ell),\quad
+ E_Q(\ell):=\max_{c_0}\max_{J}\Bigl|\sum_{\substack{C\in J\\ C\equiv
+ c_0\,(Q)}}e(\varphi_\ell(C))\Bigr|,
+\]
+$J$ running over subintervals of $(W,2W]$.  With
+Lemma~\ref{lem:complete}(d),
+\[
+ \bigl|S_Q-(\ell=0\ \text{term})\bigr|\le\frac{3V}{2QW}Q^{3/2}
+ \sum_{\ell\ne0}\Psi\Bigl(\frac{\ell V}{8QW}\Bigr)E_Q(\ell).
+\]
+
+\emph{(iii) Third-derivative test.}  Write $C=c_0+Qj$; $j$ runs over an
+interval of length $\le W/Q$, and $g(j)=\varphi_\ell(c_0+Qj)$ has
+$g'''(j)=\frac32\ell nQ^2C^{-4}$, so $\lambda_3\le|g'''|\le16\lambda_3$
+with $\lambda_3=\frac3{32}|\ell|nQ^2W^{-4}$.  Cited
+Theorem~\ref{cit:3d} (and the trivial bound for intervals of length
+$<1$) gives
+\[
+ E_Q(\ell)\ll|\ell|^{1/6}n^{1/6}W^{1/3}Q^{-2/3}
+ +|\ell|^{-1/6}n^{-1/6}W^{7/6}Q^{-5/6}+1 .
+\]
+
+\emph{(iv) The $\ell$-sum.}  For $\sigma\in\{\frac16,0,-\frac16\}$ and
+$M>0$ we have $\sum_{\ell\ne0}\Psi(\ell/M)|\ell|^\sigma\ll M^{1+\sigma}$
+(for $M\ge1$ split at $|\ell|=M$ and use $\Psi(x)\ll|x|^{-2}$; for $M<1$
+use $\Psi(\ell/M)\ll M^2\ell^{-2}\le M^{1+\sigma}\ell^{-2}$).  With
+$M=8QW/V$:
+\[
+ \frac{V}{QW}Q^{3/2}\Bigl[\Bigl(\frac{QW}V\Bigr)^{7/6}n^{1/6}W^{1/3}Q^{-2/3}
+ +\Bigl(\frac{QW}V\Bigr)^{5/6}n^{-1/6}W^{7/6}Q^{-5/6}+\frac{QW}V\Bigr]
+ =Qn^{1/6}W^{1/2}V^{-1/6}+Q^{1/2}V^{1/6}Wn^{-1/6}+Q^{3/2}.\qedhere
+\]
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:A}}
+\begin{theorem}\label{thm:main-upper}
+For every $\eps>0$ and $n\ge2$, $R(n)\ll_\eps n^{12/37+\eps}$.  The cube
+block satisfies $N(U,U,U)\ll_\eps n^{17/54+\eps}$.
+\end{theorem}
+\begin{proof}
+It suffices to bound $N(U,V,W)$ for each of the $O((\log n)^3)$ nonempty
+blocks; by symmetry (Lemma~\ref{lem:basic}(ii)) assume $U\le V$.  Put
+$\alpha=\log U/\log n$, $\beta=\log V/\log n$, $\gamma=\log W/\log n$;
+then $|\alpha+\beta+\gamma-1|\le5/\log n$.  Let $\theta^*=12/37$.
+
+\emph{Case 1: $\min(\alpha,\gamma)\le\theta^*$.}  Lemma~\ref{lem:trivial}
+gives $N\ll_\eps n^{\theta^*+\eps}$.
+
+\emph{Case 2: $\alpha,\gamma>\theta^*$.}  Then $\beta\ge\alpha>\theta^*$.
+\emph{Smoothed detection.}  Put
+$\omega(C,k)=\mathbf 1_{(W,2W]}(C)\Phi((4Ck-n)/V)$ and
+$w(a)=\sum_{f(C,k)=a}\omega(C,k)$ for $a\ne0$.  A block triple with
+$u\ne B$ has $s=u+B\in(U+V,2U+2V]\subset(V,4V]$, so its image $(C,k)$
+under Lemma~\ref{lem:detect} has $\omega(C,k)=1$ and $f(C,k)\ge1$.
+Hence $N\le2\sum_{m\ge1}w(m^2)+\tau(n)$.  If $\omega(C,k)\ne0$ then
+$4Ck-n\in[V/2,5V]$, so $k\ge1$ and $f(C,k)<(4Ck-n)^2\le25V^2$.
+
+\emph{Parameters.}  Let
+$\rho^*:=\frac13\bigl(\frac76\beta-\frac16-\frac\gamma2\bigr)$, $P=n^{\rho^*}$,
+and $\cP$ the primes in $(P,2P]$; so $Q=qq'\in(P^2,4P^2]$.  We check
+below that $\rho^*\ge4/333$, so $P_0=|\cP|\gg n^{\rho^*}/\log n$ and
+$2^{P_0}\ge25V^2$ for $n\ge n_0$.  Lemma~\ref{lem:sqsieve} and
+Proposition~\ref{prop:strip} (with $Q=1$ for $\sum_aw(a)\le S_1$, and
+$\sum_aw(a)\chi_Q(a)=S_Q$ as $\chi_Q(0)=0$) give
+\begin{align*}
+ N\ll\ &\frac{\log n}{P}\Bigl[V+\frac VW+n^{1/6}W^{1/2}V^{-1/6}
+ +V^{1/6}Wn^{-1/6}+1\Bigr]\\
+ &+\frac V{P^2}+\frac VW+P^2n^{1/6}W^{1/2}V^{-1/6}+PV^{1/6}Wn^{-1/6}
+ +P^3+\tau(n).
+\end{align*}
+
+\emph{Exponents.}  Up to $O(1/\log n)$ and the factor $\log n$, the
+terms have exponents (base $n$)
+\[
+ \beta-\rho^*,\ \beta-\gamma-\rho^*,\ d-\rho^*,\ e-\rho^*,\ -\rho^*,\
+ \beta-2\rho^*,\ \beta-\gamma,\ 2\rho^*+d,\ \rho^*+e,\ 3\rho^*,
+\]
+where $d=\frac16+\frac\gamma2-\frac\beta6$ and $e=\frac\beta6+\gamma-\frac16$, and
+$\tau(n)=n^{o(1)}$.  The choice of $\rho^*$ balances
+$\beta-\rho^*=2\rho^*+d$, and with $\beta=1-\alpha-\gamma$,
+\[
+ \beta-\rho^*=\frac{11\beta+1+3\gamma}{18}=\frac{12-11\alpha-8\gamma}{18}
+ <\frac{12-19\theta^*}{18}=\theta^* .
+\]
+After substituting $\beta=1-\alpha-\gamma$, every exponent in the list
+is an affine function of $(\alpha,\gamma)$, and the region
+$\{\alpha\ge\theta^*,\gamma\ge\theta^*,\beta\ge\alpha\}$ is the triangle
+with vertices $(\alpha,\beta,\gamma)=(\frac{12}{37},\frac{13}{37},\frac{12}{37})$,
+$(\frac{12}{37},\frac{12}{37},\frac{13}{37})$,
+$(\frac{25}{74},\frac{25}{74},\frac{12}{37})$.  At these vertices the
+maximum of the listed exponents is $\frac{12}{37}$, $\frac{104}{333}$,
+$\frac{421}{1332}$ respectively (exact rational arithmetic; the maximum is
+attained by $\beta-\rho^*$ and $2\rho^*+d$), and $\rho^*$ equals
+$\frac1{37}$, $\frac4{333}$, $\frac{29}{1332}$; in particular
+$\rho^*\ge\frac4{333}$ on the triangle.  The $O(1/\log n)$ discrepancy
+between $\alpha+\beta+\gamma$ and $1$ changes each term by a bounded
+factor.  Hence $N\ll_\eps n^{12/37+\eps}$ in Case~2.  At the cube
+$\alpha=\beta=\gamma=\frac13$ we get $\rho^*=\frac1{54}$ and
+$N\ll_\eps n^{17/54+\eps}$.
+\end{proof}
+
+\begin{remark}
+The worst block is not the cube but
+$(\alpha,\beta,\gamma)=(\frac{12}{37},\frac{13}{37},\frac{12}{37})$: the
+sieve's main term is $|\cA|/P\asymp V/P$ with $V=\max(U,V)$, while the
+trivial bound is $\min(U,W)$.
+\end{remark}
+
+\subsection{Exponent pairs}\label{subsec:pairs}
+We use the definition of exponent pairs of Graham and Kolesnik
+\cite[Ch.~3]{GK}: $(\kappa,\lambda)$ is an exponent pair if for every
+$\sigma>0$ there are $P$ and $c<\frac12$ such that
+$\sum_{j\in I}e(g(j))\ll(y/N^\sigma)^\kappa N^\lambda$ whenever $y\ge N^\sigma$,
+$I\subseteq[N,2N]$ is an interval, and $g$ has $P$ continuous
+derivatives with
+$|g^{(r+1)}(x)-\frac{d^r}{dx^r}(yx^{-\sigma})|\le c|\frac{d^r}{dx^r}(yx^{-\sigma})|$
+on $I$ for $0\le r\le P-1$.  (We take this formulation from
+\cite[\S1.1]{TY}, which restates \cite[Ch.~3]{GK}.)  The pair
+$(\frac16,\frac23)=A(0,1)$ is an exponent pair \cite[Ch.~3]{GK}.
+
+\begin{theorem}\label{thm:pairs}
+Let $(\kappa,\kappa+\frac12)$ be an exponent pair with $0\le\kappa<\frac14$.
+Then $R(n)\ll_\eps n^{4/(13-4\kappa)+\eps}$.
+\end{theorem}
+\begin{proof}
+Put $\theta^*=4/(13-4\kappa)\in(\frac14,\frac13)$ and argue as in the proof
+of Theorem~\ref{thm:main-upper}, replacing step (iii) of
+Proposition~\ref{prop:strip} by the exponent pair.  In Case~2 we have
+$\gamma\le1-2\theta^*+o(1)<\frac12$, so $|\ell|n\ge 4W^2\cdot n^{c}$ for
+every $\ell\ne0$ and some $c>0$.  For $\ell>0$ the sum defining $E_Q(\ell)$
+is $\sum_je(g(j))$ with $g(x)=-Y/(x+a)$, $Y=\ell n/(4Q^2)$,
+$a=c_0/Q\in[0,1)$ (taking $1\le c_0\le Q$), and $j+a\in(W/Q,2W/Q]$.  After
+removing at most one boundary term, $j$ lies in an interval
+$I\subseteq[N,2N]$, $N=\lceil W/Q\rceil$, and
+$g'(x)=Y(x+a)^{-2}$ satisfies the derivative conditions with $\sigma=2$,
+$y=Y$, since $(x/(x+a))^{2+r}=1+O_r(1/N)$; this needs $N\ge N_0$, and for
+$N<N_0$ we use the trivial bound.  Also $y\ge N^2$ because $\ell n\ge
+4W^2$.  The case $\ell<0$ follows by complex conjugation.  Hence
+$E_Q(\ell)\ll(|\ell|n/W^2)^\kappa(W/Q)^{\kappa+1/2}+1$, and step (iv)
+gives the contribution
+$\frac V{QW}Q^{3/2}(n/W^2)^\kappa(W/Q)^{\kappa+1/2}M^{1+\kappa}\asymp
+Q\,n^\kappa W^{1/2}V^{-\kappa}$ in place of the two third-derivative
+terms of \eqref{eq:strip}.  Choose
+$\rho^*=\frac13((1+\kappa)\beta-\kappa-\frac\gamma2)$, which balances
+$\beta-\rho^*$ against $2\rho^*+\kappa+\frac\gamma2-\kappa\beta$; then
+$\beta-\rho^*=\frac16(4-(4-2\kappa)\alpha-(3-2\kappa)\gamma)$, which is
+$<\theta^*$ for $\alpha,\gamma>\theta^*$ exactly when
+$\theta^*\ge4/(13-4\kappa)$.  The remaining terms are $\beta-\gamma-\rho^*$,
+$\kappa+\frac\gamma2-\kappa\beta-\rho^*$, $-\rho^*$, $\beta-2\rho^*$, $\beta-\gamma$,
+$3\rho^*$.  As before they are affine on the triangle
+$\{\alpha,\gamma\ge\theta^*,\ \beta\ge\alpha\}$, whose vertices are
+$(\theta^*,1-2\theta^*,\theta^*)$, $(\theta^*,\theta^*,1-2\theta^*)$,
+$(\frac{1-\theta^*}2,\frac{1-\theta^*}2,\theta^*)$.  At the vertices one
+checks (exact arithmetic as functions of $\kappa$; the deficits
+$\theta^*-(\text{term})$ are nonnegative for $0\le\kappa<\frac14$) that
+all terms are $\le\theta^*$ and $0<2\rho^*<\gamma$.
+\end{proof}
+
+\begin{remark}\label{rem:bourgain}
+For $\kappa=\frac16$ this recovers $\frac{12}{37}$.  Bourgain
+\cite[Thm.~6]{Bourgain} states that $(\frac{13}{84}+\eps,\frac{55}{84}+\eps)$
+is an exponent pair, for phase functions ``in the class of functions to
+which the exponent pair theory applies'' with reference to
+\cite[Ch.~3]{GK}; his proof of Theorem~6 is a sketch.  Our phases
+$-Y/(x+a)$ are perturbations of the model phase $-Y/x$ of the
+Graham--Kolesnik class.  Relative to Bourgain's theorem for these
+phases, Theorem~\ref{thm:pairs} gives $R(n)\ll_\eps n^{21/65+\eps}$
+($21/65=0.3230\ldots$); we do not re-verify Bourgain's argument.  If
+$(\eps,\frac12+\eps)$ is an exponent pair for every $\eps>0$ (the
+exponent pair conjecture), we get $R(n)\ll_\eps n^{4/13+\eps}$.
+\end{remark}
+
+\begin{remark}[where the method stops]\label{rem:balanced}
+The bound beats the trivial exponent $\min(\alpha,\gamma)$ only near the
+cube; on the diagonal $\alpha=\beta$ the gain region is
+$\beta\in(\frac4{13},\frac{14}{41})$.  At the ``balanced'' block
+$u,B\asymp n^{1/4}$, $C\asymp n^{1/2}$ the strip has $O(1)$ points per
+value of $C$ ($|J_C|\asymp V/W\asymp n^{-1/4}$), and summing the dual
+frequencies $\ell$ before $C$ undoes the Poisson step.  Heuristically:
+for most classes $c_0$ one has $|G_{c_0}(\ell)|\asymp\sqrt Q$ on average
+over $\ell$, a bound for the $C$-sums that is uniform in many $\ell$
+cannot beat $\sqrt{W/Q}$ (by Fej\'er's kernel), and inserting these sizes
+into step (ii) of Proposition~\ref{prop:strip} gives a dual contribution
+$\gg QW^{1/2}$.  The block bound is then $\gg\max(V/P,P^2W^{1/2})\ge
+V^{2/3}W^{1/6}$, which at the balanced block equals the trivial bound
+$V$.  So with the triangle inequality over $\ell$ and $c_0$, even
+square-root cancellation in every $C$-sum would not help there; one
+would need cancellation in the bilinear sum
+$\sum_{\ell,C}G_C(\ell)e(\ell n/(4CQ))$.  We do not formalise or pursue
+this.
+\end{remark}
+
