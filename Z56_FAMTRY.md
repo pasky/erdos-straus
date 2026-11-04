@@ -8,9 +8,15 @@ prime p ≡ 1 (mod 4). (R(p) ≥ 1 ⇒ 4/p = 1/(uBC) + 1/(pBC) + 1/(puC), so thi
 
 **Outcome (honest summary).**
 * NOT PROVED for all p. What I could prove is an exceptional-set theorem by the large sieve (Theorem A, §3):
-  #{p ≤ X : R(p) = 0} ≪ X·exp(−c√(log X)) — much stronger than a polylog saving, but structurally capped above √X
-  because the argument never uses primality and squares n = m² have R(m²) = 0 (§3.5). The 14 known failures ≤ 10¹⁰
-  are consistent with this; nothing here distinguishes "finitely many exceptions" from "zero exceptions beyond 8 813 281".
+  #{p ≤ X : R(p) = 0} ≤ X·exp(−0.08√(log X)) for X ≥ X₀ (ineffective), uniformly in position (same bound in every interval
+  of length X) — much stronger than a polylog saving, but structurally capped above √X because the argument never uses
+  primality and squares n = m² have R(m²) = 0 (§3.5). The 14 known failures ≤ 10¹⁰ are consistent with this; nothing
+  here distinguishes "finitely many exceptions" from "zero exceptions beyond 8 813 281". I did not check whether this
+  exceptional-set bound is already in the project's or the published literature (the lane rules forbade reading the
+  barrier memos); treat novelty as unverified.
+* Data (§4.5): the hits of "hard" primes can have modulus ≍ p in any single form (pair form 4uB up to p/14, divisor form
+  d up to p/29 below 10⁸), and 422 primes in [10⁷, 10⁸] have no prime-modulus hit at all — any proof must use composite
+  moduli with their non-multiplicative class structure, which is exactly what the sieves cannot see.
 * Reformulations (§1) make the problem a *Linnik-type divisibility* statement: for a prime p, R(p) ≥ 1 iff some modulus
   d ≡ 3 (mod 4) has (−p mod d) dividing (d+1)/4. Every proof route I tried (finite residue coverings, polynomial
   identities in p, consecutive-integer factorisation structure, Jacobi/genus reciprocity) either runs into the square
