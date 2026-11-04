@@ -14,7 +14,8 @@ Checkpoint 1: commit 0cede3da.
 
 ## 0. Summary and verdict
 
-**Verdict: narrowed (calibrated two-sidedly), with one small pointwise strengthening.** No pointwise power saving for
+**Verdict: narrowed (calibrated two-sidedly; under EPC an equivalence with the small-twist x^{1/4} short-interval
+divisor problem), with one small pointwise strengthening.** No pointwise power saving for
 the central slice is proved; none is refuted. What is new:
 
 1. **Hardness (Theorem L).** (PROVED) The

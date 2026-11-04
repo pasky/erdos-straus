@@ -39,7 +39,8 @@ int main(void){
     { u64 M=y; while(M<=s0 && nb<60){ Mlo[nb++]=M; M*=2; } }
     for(u64 m=1;m<=mmax;m++){
       u64 q0=x/m, q1=X1/m; long long c=(long long)(q1-q0); long double inv=1.0L/(long double)m;
-      if(m<=s0) T0+=q0; if(m<=s1) T1+=q1;
+      if(m<=s0) T0+=q0;
+      if(m<=s1) T1+=q1;
       for(int i=0;i<4;i++){ if(m<=L[i]){cntL[i]+=c; hL[i]+=inv;} else if(m<=Lp[i]){cntB[i]+=c; hB[i]+=inv;} }
       if(m>A && m<=B4){ cc+=c; hc+=inv; }
       for(int j=0;j<nb;j++) if(m>Mlo[j] && m<=2*Mlo[j]){ cM[j]+=c; hM[j]+=inv; }
