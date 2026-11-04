@@ -483,9 +483,9 @@ zeros) or **H3** (complete levels, cleanest remainder); the Thm U rectangle shou
    Burgess character by character, HB over the moduli n₁ of the L-series coefficients); nothing is averaged over p.
 
 **Verdict: strengthened (main-term side).** New and PROVED: (1) Theorem V — the unconditional genus main term of the
-non-corner (★) family is (5/(4π²) − o(1))L², i.e. **at least 5/6 of M₀** (Thm U: 4.5 %); with Burgess only, 29/45 of M₀,
-effectively; on rectangles inside G it is an asymptotic with no p-dependent fluctuation. (2) The exact obstruction to more:
-the excluded sixth is the Burgess corner max(o, e) ≤ (min(o, e)·p)^{1/4}, where the slice cross terms are products of
+non-corner (★) family is ≥ (5/(4π²) − o(1))L², i.e. **M_gen ≥ (5/6 − o(1))·M₀** (Thm U: 4.5 %); with Burgess only,
+29/45 of M₀, effectively; on compact rectangles inside G it is an asymptotic with no p-dependent fluctuation. (2) Where
+the method stops (Assessment; no impossibility theorem): the excluded density-area sixth is the Burgess corner max(o, e) ≤ (min(o, e)·p)^{1/4}, where the slice cross terms are products of
 χ_p-twisted sums shorter than p^{1/4} (Assessment: the GRH/zero-free-strip gap of `Z53_GENUSLVAL` §4; under GRH the whole
 triangle would be admissible). (3) CERTIFIED: the top family's count vanishes at exactly 38 primes p ≡ 1 (4) ≤ 10¹⁰, the last
 being 564 661 441; the model scale of its last zero is ~10^{8}–10^{10} (Assessment), versus ~10¹²⁰ for the Thm U family.
