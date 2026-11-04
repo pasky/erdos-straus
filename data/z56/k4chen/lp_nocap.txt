@@ -1,0 +1,6 @@
+0.4 0.008 main 0.5764 T1cap 0.3138 T1nocap 0.2639 LPcost 0.2949 margin cap -0.0323 nocap 0.0176
+0.41 0.008 main 0.5386 T1cap 0.2616 T1nocap 0.2255 LPcost 0.2986 margin cap -0.0216 nocap 0.0145
+0.42 0.008 main 0.4975 T1cap 0.2143 T1nocap 0.1892 LPcost 0.3022 margin cap -0.019 nocap 0.0061
+0.41 0.01 main 0.5182 T1cap 0.2616 T1nocap 0.2282 LPcost 0.2784 margin cap -0.0219 nocap 0.0116
+0.4 0.01 main 0.5579 T1cap 0.3138 T1nocap 0.267 LPcost 0.275 margin cap -0.031 nocap 0.0159
+0.39 0.01 main 0.5942 T1cap 0.371 T1nocap 0.3078 LPcost 0.2716 margin cap -0.0484 nocap 0.0149
