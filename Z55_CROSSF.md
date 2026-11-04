@@ -28,11 +28,13 @@ Definitions from `Z53_GENUSX.md` §1, §4 (family 𝔉, R_𝔉, M_𝔉, G_𝔉, 
   with mean/log²p rising 0.0025 → 0.0034 towards 1/(3π⁴) = 0.003422, half of Thm U's optimised *lower-bound* coefficient
   (used below as the model constant; the data approach it from below). **Zero fractions: 39 % at 10⁸, 24 % at 10^{10}, 9.4 % at
   10^{12}, 5.4 % at 10^{13}, 1.7 % at 10^{15}** (§3). Under the model hits ~ Poisson(c log²p), c = 1/(3π⁴), the expected number of primes with
-  hits(p) = 0 is ≈ 5.6·10^{30}, concentrated near p ≈ 10^{63}, with the last one expected near **p ≈ 10^{124}** (§4).
-  Hence (Assessment, model-based): Problem CROSS is expected to be true only from p₀ ≈ 10^{124} on; the hypothesis (H⁻_𝔉)
+  hits(p) = 0 is ≈ 5.6·10^{30}, concentrated near p ≈ 10^{63}, and the expected tail count crosses 1 near **p ≈ 10^{124}** (§4;
+  an expected-count crossover for this standard-window model with its assumed c, not a certified last exception).
+  Hence (Assessment, model-based): for this family and window the model predicts zeros up to p ≈ 10^{124}; the hypothesis (H⁻_𝔉)
   X_𝔉 ≥ −(1 − ε)M_𝔉 of `Z53_GENUSX` is *false* at every zero prime with M_𝔉 > 0 (X_𝔉 = −M_𝔉 there: e.g. p = 10000169, M_𝔉 = 1.17),
-  i.e. at a 39 %-fraction of primes near 10⁸ and, under the model, at ~10^{30} primes in total; the model predicts that no
-  computation below ~10^{100} can support the target, and that an *effective* proof would have to produce p₀ ≳ 10^{120}.
+  i.e. at a 39 %-fraction of primes near 10⁸ and, under the model, at ~10^{30} primes in total. Such zeros refute (H⁻_𝔉) at
+  those p and any specified threshold below them, but not eventual positivity with unspecified p₀; the model only says that
+  exhaustive testing up to the predicted crossover is infeasible (no theorem forces a proof's p₀).
 * **Verdict: not proved; target recalibrated.** What was proved is the exact structure (§1–2, elementary) and the certified
   counts (§3). Recommendation (§5): as a route to ES the window family is too thin in its constant; a family with a main
   term ≳ 0.1·log²p (or a different kind of positivity mechanism) is needed before "all large p" has checkable content.
@@ -140,7 +142,9 @@ principal character.
 
 **2.5 Outcome (Assessment).** In every window admissible for Thm U, X_𝔉 = R_𝔉 − M_𝔉 is a sum of single-residue events minus
 densities; the averages we could identify (over w at fixed u at density level; over C for the principal character) are the
-ones Thm U / Thm X already use. We did not find a way around this and **do not claim** any bound on X_𝔉. The remainder of the
+ones Thm U / Thm X already use. None of §2's methodological conclusions, nor the Kloosterman/sieve sketches, is bankable:
+identifying the divisor events does not prove that no transformed average exists, and 2.4(a) concerns pointwise Fourier
+minorants only. We did not find a way around this and **do not claim** any bound on X_𝔉. The remainder of the
 memo quantifies what the target asks for.
 
 ## 3. Exhaustive counts of hits(p) (CERTIFIED) and the Poisson law (EVIDENCE)
@@ -188,23 +192,26 @@ expectations). The expected number of primes p ≡ 1 (4), p > x, with hits(p) = 
 E(10⁸) ≈ E(10^{18}) ≈ 5.58·10^{30}; the integrand e^{s−cs²}/(2s) peaks at s = (1 + √(1 − 8c))/(4c) ≈ 145, i.e. p ≈ 10^{63};
 E(10^{100}) ≈ 5.9·10^{18}; E(x) = 1 at **x ≈ 10^{124}** (log x ≈ 286 ≈ 0.98/c). With the finite-size value c = 0.0030 instead:
 1.5·10^{35} expected exceptions, E = 1 near 10^{142}. Consequences (Assessment; everything here is what *this model* predicts):
- (i) Problem CROSS, for any admissible window, is predicted to be true only from p₀ ≈ 10^{124} on, with ~10^{30} exceptional
- primes below. For the stronger "R_𝔉(p) ≥ a·c log²p" (0 < a < 1) the Poisson lower-tail exponent is λ(1 − a + a log a) < λ,
- so the predicted p₀ is larger still (log p₀ ≈ 1/(c(1 − a + a log a))).
+ (i) For the standard window and the assumed c, the model predicts zeros of R_𝔉 up to p ≈ 10^{124}, ~10^{30} of them; E(x) = 1
+ is the crossover of an expected tail count (marginal Poisson laws do not specify the distribution of the last zero), and a
+ lower-bound coefficient says nothing about other windows' means. For the stronger "R_𝔉(p) ≥ a·c log²p" (0 < a < 1), since
+ R_𝔉 = 2·hits the event is hits ≤ (a/2)λ with λ = c log²p, with Poisson lower-tail exponent λ·I(a/2), I(t) := 1 − t + t log t
+ < 1, so the predicted crossover is larger still (log p₀ ≈ 1/(c·I(a/2)); e.g. a = 1/2: I(1/4) = 0.403, log₁₀p₀ ≈ 315).
  (ii) (H⁻_𝔉) of `Z53_GENUSX` (X_𝔉 ≥ −(1 − ε)M_𝔉) is false at every zero prime with M_𝔉 > 0 (there X_𝔉 = −M_𝔉; M_𝔉 > 0 is
  guaranteed by Thm U for p large, and holds at the checked examples, e.g. p = 10000169 with M_𝔉 = 1.174 by direct
- summation): at 39 % of primes near 10⁸, 9 % near 10^{12}, and, under the model, at ~10^{30} primes in all. The model thus
- predicts that any true version of (H⁻_𝔉) has p₀ ≳ 10^{120}, so that an effective proof would have to exhibit such a p₀ and
- no computation can check its constants.
+ summation; the cross-model review certified M_𝔉 > 0 at all 192 469 recorded exhaustive-scan zeros by a modular
+ square-class witness): at 39 % of primes near 10⁸, 9 % near 10^{12}, and, under the model, at ~10^{30} primes in all. The
+ model thus predicts that any true version of (H⁻_𝔉) has p₀ ≳ 10^{120}; the all-large-p statement itself is not disproved.
  (iii) For an ES route this is harmless in principle (ES needs one solution of any type, and p ≤ 10^{17} is known) but it
- means the family statement has *no finite-size falsifier and no finite-size confirmation*: exhaustive checks of
+ means that a zero at computable p does not refute eventual positivity with unspecified p₀, while exhaustive checks of
  "R_𝔉 ≥ 1" over long ranges below ~10^{100} are predicted to show zeros at the rate e^{−c log²p} (small random samples at
- very large p will of course mostly show none).
+ very large p will of course mostly show none); an effective proof's explicit constants could of course still be checked.
  (iv) The constant is the issue. The hits mean for the *full* (★) count (all (u, B) ∈ 𝒫(p)) is far larger (the window
  family keeps only u ∈ (p^{1/12}, p^{1/3}/2], w ∈ (p^{1/3}, p^{2/3}/4]); a family with c_hits = 0.1 would have E = 1 near x ≈ 800
  and would be checkable. Thm U's coefficient (8/π⁴)(γ − β)(α₁ − α₀) is maximised at 2/(3π⁴) under the coupled constraints
- (C1) γ < 1 − α₁, (C2) β > (1 + α₁)/4, (C3) α₀ > (1 + α₁)/16 (r → ∞), attained at (1/12, 1/3, 1/3, 2/3); even GRH (`Z53_GENUSLVAL` §4:
- coefficient 2/π⁴, c_hits → 1/π⁴ ≈ 0.0103) only moves the predicted p₀ to ≈ 10^{42}.
+ (C1) γ < 1 − α₁, (C2) β > (1 + α₁)/4, (C3) α₀ > (1 + α₁)/16 (r → ∞), a limiting supremum approached at (1/12, 1/3, 1/3, 2/3)
+ (strict-margin subwindows); even GRH (`Z53_GENUSLVAL` §4: coefficient 2/π⁴, c_hits → 1/π⁴ ≈ 0.0103) only moves the
+ same E(x) = 1 crossover to ≈ 10^{39.9} (exp(1/c) alone would give 10^{42.3}).
 
 ## 5. Verdict and recommendation
 
@@ -212,9 +219,10 @@ E(10^{100}) ≈ 5.9·10^{18}; E(x) = 1 at **x ≈ 10^{124}** (log x ≈ 286 ≈ 
   that the averaging route proposed in the brief reduces, in every admissible window and in every parametrisation we
   could write, to the single-residue events it was meant to average.
 * **Recalibration (the lane's finding).** For the Theorem U family the statement "R_𝔉(p) ≥ 1 for all sufficiently large p" is,
-  on the data, a statement about p ≳ 10^{124} with ≈ 10^{30} exceptions below — true (if at all) only in the regime where
+  under this extrapolated model, a statement about p ≳ 10^{124} with ≈ 10^{30} exceptions below — true (if at all) only in the regime where
   the main term c log²p, c = 0.0034, exceeds the Poisson fluctuation scale log(#primes). A future lane on this problem
-  should (a) not use R_𝔉 = 0 at computable p as a falsifier of anything (it is the expected behaviour), and (b) first enlarge
+  should (a) not read R_𝔉 = 0 at computable p as refuting eventual positivity with unspecified p₀ (it is the expected
+  behaviour; it does refute (H⁻_𝔉) at that p and any threshold below it), and (b) first enlarge
   the main-term constant: either prove a genus lower bound for a much larger family (all u ≤ p^{1/3}, all w ≤ p^{2/3}, no
   squarefree restriction: heuristically c_hits ≈ an absolute constant times (1/3)(2/3)·(8/π⁴)/2·(correction for the dropped
   conditions)), or move to the HC-type small-C families where the mean is ≫ log p per unit of log C and exceptions are
@@ -247,6 +255,17 @@ c = 0.1 example to x ≈ 800; (10) the "≥ a·c log²p" variant now carries its
 primes" now requires M_𝔉 > 0; (12) the summary's d-form now lists the w-condition; (13) scanner cost corrected to p^{2/3}log p.
 Reviewer's verdict after fixes (paraphrase of its overall verdict): no ES proof is claimed; keep the lemmas and the counts;
 the methodological and asymptotic conclusions had to be, and now are, scoped as Assessment / model predictions.
+
+**Cross-model review** (`data/z55/xreview/REVIEW_CROSSF.md`, verdict ACCEPT-WITH-FIXES; independent checker
+`scripts/z55_xrev_crossf_check.c` (loops over w, tests 8uw | p+u+2w directly) and audit `scripts/z55_xrev_crossf_audit.py`):
+Lemmas 1.1–1.3, §2.1–2.4(a) and the §3 counts CORRECT (full 10⁸ C-scanner rerun byte-identical; 512 sampled primes recounted;
+all five prime lists verified complete by segmented sieving; M_𝔉 > 0 certified at all 192 469 recorded zeros); E(x) numbers
+CORRECT as model. Required fixes, all applied: 10^{124} scoped to the standard-window model and stated as an expected-count
+crossover (not a certified last exception; "any admissible window" and "on the data" removed); §4(i) rate function corrected
+to I(a/2) since R_𝔉 = 2·hits; GRH crossover recomputed by the same E(x) = 1 prescription (10^{39.9}); "attained" → limiting
+supremum; "no finite-size falsifier" wording replaced (a zero with M_𝔉 > 0 does refute (H⁻_𝔉) at that p and any threshold
+below it; eventual positivity with unspecified p₀ is not refuted); §2 conclusions and sketches marked non-bankable.
+Bankable: the elementary identities and the finite counts; not bankable: any asymptotic positivity or impossibility claim.
 
 **Bottom line.** Problem CROSS is not proved. The exact structure of R_𝔉 (four forms, Jacobi obstruction, single-integer
 sections) is PROVED and elementary; the certified counts show hits(p) = 0 at the Poisson-predicted rate at every scale up to
