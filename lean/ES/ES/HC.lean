@@ -63,7 +63,7 @@ mod q, so q ≢ 3 (4) (mathlib `ZMod.mod_four_ne_three_of_sq_eq_neg_one`), i.e. 
 multiplicative and contains 5. By Lemma 1.1, HC(p) > 4; 𝒞_p ∩ [5, 6] = ∅, so HC(p) > 6.
 
 **Prop 3.1.** Each word is checked by expanding tuv − u − v (linear in v once t, u are numerals), the stated
-congruence giving integrality (`omega`). (c) is a CRT statement mod 840 (`omega`).
+congruence giving integrality (`omega`). (c) is a finite CRT check mod 840 (`decide` over `Fin 840`, `cls840`), with the residues of p transported by `Nat.mod_mod_of_dvd`.
 -/
 
 namespace ESHC
