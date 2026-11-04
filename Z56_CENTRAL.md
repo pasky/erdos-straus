@@ -17,10 +17,10 @@ Checkpoint 1: commit 0cede3da.
 **Verdict: narrowed (calibrated two-sidedly), with one small pointwise strengthening.** No pointwise power saving for
 the central slice is proved; none is refuted. What is new:
 
-1. **Hardness (Theorem L: identity PROVED; consequences CONDITIONAL on the exponent pair conjecture EPC).** The
+1. **Hardness (Theorem L).** (PROVED) The
    short-interval divisor sum splits *exactly* (up to O(1)) as D(x, y) − Main = E_band(δ) − 2F_L, where E_band is the
-   central band m ∈ (x^{1/2−δ}, x^{1/2+δ}] and F_L a sum of ψ-differences over m ≤ x^{1/2−δ} (PROVED). Under EPC,
-   F_L ≪ x^{1/4−δ/2+ε}. Consequently, **under EPC** (CONDITIONAL):
+   central band m ∈ (x^{1/2−δ}, x^{1/2+δ}] and F_L a sum of ψ-differences over m ≤ x^{1/2−δ} (CONDITIONAL on the exponent pair
+   conjecture EPC) F_L ≪ x^{1/4−δ/2+ε}. Consequently, **under EPC** (CONDITIONAL):
    * SID (a pointwise power-saving asymptotic for Σ_{x<n≤x+x^{1/4}} d(n)) ⟺ a power saving for some central band;
    * CNT_unif ⟹ SID, where CNT_unif is the central-slice asymptotic for every real x, with the length y ≍ x^{1/4}
      decoupled from the slice position A, uniformly for A ∈ [x^{1/2−δ}, x^{1/2+δ}] (Cor. L1);
@@ -44,9 +44,10 @@ the central slice is proved; none is refuted. What is new:
    Cor. 1.2).** |E1(p, U)| ≪ U(log log U)^{5/2} pointwise, improving the campaign's ≪ U^{1+ε} (BILINDIV §2; TDF §3.3).
    The same holds for every band (A, θA], θ ≤ e², and every length y ≥ x^{ε}. With a localized Fejér argument
    (Cor. P2, PROVED implication) TD(η) ⟹ DC(2U^{−η}) with a (log log U)^{5/2} loss instead of U^{ε}.
-4. **Degenerate-Hessian remark (PROVED computation; Assessment reading).** The natural two-variable dual phase of the
-   central slice, 2√(xhn), is homogeneous of degree 1, so its Hessian *determinant* vanishes identically (the Hessian has
-   rank one); two-dimensional exponential-sum methods requiring a non-degenerate Hessian do not apply directly (§7).
+4. **Degenerate-Hessian remark (§7).** (PROVED) The phase 2√(xhn) is homogeneous of degree 1, so its Hessian
+   *determinant* vanishes identically (the Hessian has rank one). (Assessment) It is the natural two-variable dual phase
+   of the central slice, so two-dimensional exponential-sum methods requiring a non-degenerate Hessian do not apply
+   directly.
 5. **EVIDENCE (`data/z56/central/slices_*.txt`).** Exact slice decompositions at x ≈ 10¹⁰, 10¹², 10¹⁴, 10¹⁶ (generic
    primes, odd squares, near-squares, test primes). The identity of Theorem L(i) holds with residual ≤ 0.632 (direct
    check at 10¹⁰, 2400 cases). Dyadic slice errors have rms ≈ 0.52–2.56·√(y log 2), broadly growing with M; no slice is
@@ -237,8 +238,8 @@ the central restriction makes the problem easier.
 
 **Theorem E (CONDITIONAL on EPC).** Let η > 0 and 0 < δ < 1/4. Then CNT_unif(η, δ; K) implies TW(η″, c; K) with
 c := min(η/16, δ/4) and every η″ < min(δ, η/4).
-**Corollary E1 (CONDITIONAL on EPC).** With Theorem U: under EPC, "CNT_unif(η, δ; K) for some η, δ > 0" ⟺
-"TW(η, c; K) for some η, c > 0". In words: modulo EPC, the uniform central-slice asymptotic is *equivalent* to
+**Corollary E1 (CONDITIONAL on EPC).** With Theorem U: for every fixed K ≥ 1, under EPC,
+"∃η > 0, ∃δ ∈ (0, 1/4): CNT_unif(η, δ; K)" ⟺ "∃α > 0, ∃c > 0: TW(α, c; K)" (exponents are not preserved). In words: modulo EPC, the uniform central-slice asymptotic is *equivalent* to
 power-saving short-interval asymptotics at length x^{1/4} for the coefficients of ζ(s+it)ζ(s−it), |t| ≤ x^c; the
 member t = 0 is SID.
 
@@ -333,9 +334,11 @@ In particular |E1(p, U)| ≪ U(log log U)^{5/2} for every prime p and U in the f
 
 ## 7. Degenerate-Hessian remark
 
-**Remark H (PROVED computation; Assessment reading).** After Vaaler truncation in ψ and the B-process in m (stationary
-phase at m ≍ √x), the frequency-h piece of the central slice has dual variable n ≍ h and phase ±2√(xhn) (standard; this
-is the self-duality of TDO §6 / TDF §3.1, not re-derived here with error terms). The function Φ(h, n) := 2√(xhn) is
+*Context (Assessment).* After Vaaler truncation in ψ and the B-process in m (stationary phase at m ≍ √x), the
+frequency-h piece of the central slice has dual variable n ≍ h and phase ±2√(xhn) (standard; this is the
+self-duality of TDO §6 / TDF §3.1, not re-derived here with error terms).
+
+**Remark H (PROVED).** The function Φ(h, n) := 2√(xhn) is
 homogeneous of degree 1 in (h, n), so by Euler's relation its Hessian annihilates (h, n) and det ∇²Φ ≡ 0 (the
 Hessian itself has rank one for h, n > 0). Explicitly,
 Φ_hh = −½√x h^{−3/2}n^{1/2}, Φ_nn = −½√x n^{−3/2}h^{1/2}, Φ_hn = ½√x(hn)^{−1/2}, and Φ_hhΦ_nn − Φ_hn² = 0.
@@ -436,7 +439,8 @@ Append to §7.1 after the z55 TDCAL bullets:
 >     not established in the checked sources (the cited Ivić–Zhai bounds help only for lengths ≥ x^{1/3}, Jutila's
 >     conjecture is open, and Δ = Ω(x^{1/4}) blocks the endpoint route). CNT_unif/CNT_poly are stronger than TDCAL's
 >     CNT (all real x, length decoupled from position, uniform thresholds).
->   * Unconditionally (Trudgian–Yang pair (715/10238, 7955/10238)) the equivalence holds only for δ > 6387/28960 ≈ 0.2205.
+>   * Unconditionally (PROVED; Trudgian–Yang pair (715/10238, 7955/10238)) this argument gives the equivalence for
+>     δ > 6387/28960 ≈ 0.2205.
 >   * Thm U (PROVED implication): power-saving short-interval asymptotics for τ_t(n) = Σ_{de=n}(d/e)^{it}, uniformly in
 >     |t| ≤ x^c, imply CNT_unif. Thm E (CONDITIONAL on EPC): the converse. So under EPC, CNT_unif ⟺ the x^{1/4}
 >     short-interval asymptotic for the small-twist family τ_t (t = 0: SID).
@@ -503,3 +507,10 @@ inputs rerun identically; sympy check reproduced). Fixes applied:
 12. Label pass: EPC is CONJECTURE; Cor. L3 PROVED with the finite search CERTIFIED; CNT/TW/SID statuses are
     Assessment; the sandwich is written {SID_t} ⟹ CNT_unif ⟹ (EPC ⟹ SID).
 13. M_t described as a difference of residue main terms.
+
+**Hostile review 2** (deep-mode subagent; `reviews/z56_central_review2.md`), on Theorem E / Cor. E1 and on the
+review-1 fixes. Verdict **CORRECT-WITH-MINOR-FIXES**, no MAJOR. Theorem E verified line by line (decomposition, Abel
+summation with Lemma 19 partial sums, thin bands, Euler–Maclaurin signs and exact cancellation, uniformity at t = 0,
+exponent bookkeeping); all 13 review-1 fixes confirmed. Fixes applied: composite labels split (§0 items 1 and 4,
+Remark H); FRONTIER text says "this argument gives the equivalence for δ > …" instead of "only"; Cor. E1 states the
+fixed K and the existential quantifiers explicitly.
