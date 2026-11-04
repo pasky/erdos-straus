@@ -158,3 +158,95 @@ neither Montgomery's inequality nor the Selberg sieve applies to them (the Cauch
 for Σ*_{a mod d} survives; see §4.3). This is exactly where the "almost all" → "all" gap sits.
 (iv) Concretely at X = 10⁸: L(10⁴) = 11.03, bound 2X/L ≈ 1.8·10⁷ versus the true |S(10⁸, 10⁴) ∩ primes ≡ 1 (4)| = 32 971
 (`census_1e8.txt`, column R_sq = 0) — the inequality is far from tight at computable sizes, as expected.
+
+## 4. Attempts at "every p" and where each one stops
+
+### 4.1 What R(p) = 0 forces (PROVED; checked on the 14 known zeros, `data/z56/famtry/struct14.txt`)
+
+**Lemma 4.1.** Let p be prime, p ≡ 1 (mod 4), R(p) = 0. Write S₄ := {n : every prime factor of n is ≡ 1 (mod 4)}. Then
+ (a) p ≡ 1 (mod 24), p mod 7 ∈ {1, 2, 3, 4}, p mod 11 ∉ {8, 10}, p mod 15 ∉ {11, 13, 14}, p mod 19 ∉ {14, 18}, …
+   (p mod d ∉ G_d for every d ≡ 3 (4));
+ (b) (p+1)/2 ∈ S₄ (u = 1) and 4p + 1 ∈ S₄ (C = 1);
+ (c) every prime factor of p + 2 is ≡ 1 or 3 (mod 8) (u = 2; note p + 2 ≡ 3 mod 8, so a factor ≡ 3 occurs);
+ (d) 3 | 8p + 1 and every prime factor of 8p + 1 is ≡ 1 or 3 (mod 8) (C = 2);
+ (e) with w = (p+3)/4 (odd): the prime factors of w all lie in {1, 5} or all in {1, 7} (mod 12) (u = 3);
+ (f) in general, for every u ≥ 1 the set of divisors of p + u misses the class −1 (mod 4u), and for every C ≥ 1 the set of
+   divisors of 4Cp + 1 misses −1 (mod 4C).
+
+*Proof.* (a) p ≡ 5 (8) and p ≡ 2 (3) are Prop. 2.1; the rest is Lemma 1.4 for d = 7, 11, 15, 19. (b)–(f) are the
+divisor forms (1.1)/Lemma 1.2 for the stated u or C; for (c)–(e) one lists the subset products in (ℤ/8)^×, (ℤ/12)^×:
+e.g. in (c), 7 is a product of the classes present iff some factor is ≡ 7 or both 3 and 5 occur; the product of all factors
+is ≡ 3, so "no 7 and not both 3, 5" ⟺ all factors in {1, 3}. (d): p ≡ 1 (3) ⇒ 3 | 8p + 1, and 3 ≡ 3 (8) excludes the
+{1, 5} option. ∎
+
+These are strong (each has density ≍ (log p)^{−1/2}-type), but they are **all satisfied by every odd square n = m²** in
+place of p (Lemma 1.3), and so is (f) in full. Hence no finite or infinite list of such local/factorisation conditions
+can ever be contradictory by itself. **A proof must use a global property of p that squares lack.** The only such handle
+I see is the quadratic character d ↦ (d | p): for p prime half of the d ≡ 3 (4) have (d | p) = −1 and then p mod d is one
+of the (φ(d)/2) non-residues, of which G_d is a subset of size τ((d+1)/4); for a square all (d | m²) = +1 and G_d is
+unreachable. But "(d | p) = −1 for about half of all d" is far from forcing p mod d ∈ G_d for a single d (§4.2).
+
+### 4.2 The genus/Jacobi handle (where it stops)
+
+By Lemma 1.3 the hits are the pairs (d, u) with d ≡ 3 (4), (d | p) = −1, u | (d+1)/4, d | p + u. Fix a prime ℓ ≡ 3 (4)
+with (ℓ | p) = −1. The residue p mod ℓ is a non-residue; it lies in G_ℓ for "probability" τ((ℓ+1)/4)/((ℓ−1)/2). One can
+average this over ℓ (that is what the large sieve of §3 exploits, and also what gives M_gen-type main terms), but for a
+*fixed* p there is no mechanism tying the actual residue p mod ℓ to the divisor set of (ℓ+1)/4: the map ℓ ↦ p mod ℓ (ℓ
+over primes with (ℓ|p) = −1) is as "random" as anything in analytic number theory, and no equidistribution statement
+in ℓ gives information for a single p beyond what the large sieve already extracts. I could not find any identity
+linking p mod ℓ₁ and p mod ℓ₂ to (ℓ₁+1)/4, (ℓ₂+1)/4 (tried: ℓ₂ = (ℓ₁+1)/4·k − 1 chains — "if u | (ℓ₁+1)/4 then also
+u | (ℓ₂+1)/4 when 4u | ℓ₂ + 1" — these only re-express that u is fixed and C varies, i.e. (1.1) with u fixed: p + u must
+have a prime factor ≡ −1 (mod 4u); nothing forces it).
+
+### 4.3 Consecutive integers p + 1, …, p + U
+
+Form (1.1) with small u says: some p + u (u ≤ U) has a divisor ≡ −1 (mod 4u). Primes > U divide at most one of the
+p + u, and the product Π_{u≤U}(p+u) has at least U(1 − log U/log p) prime factors > U (counted with multiplicity), so
+"on average one large prime per p + u". But their classes mod 4u are unconstrained, and squares m² show that *all* of
+m² + u (u ≤ U, any U) can avoid the class −1 (mod 4u). I found no inequality (e.g. of Erdős–Woods / "consecutive
+integers with the same prime factors" type, or via Størmer/Pell) that distinguishes p from m² here. STOPS.
+
+### 4.4 Sieve limits (PROVED remarks)
+
+(i) Any sieve that uses only the hit classes (prime or composite moduli) and the size of the sifted set is capped by
+|E(X)| ≥ #{odd squares ≤ X} ≍ √X. Montgomery's bound (X + Q²)/L(Q) with Q ≤ √X cannot even reach below X/Q² ≥ 1.
+(ii) Prime moduli only: Σ_{ℓ ≤ t} ω(ℓ)/ℓ ≍ log t, so log L(Q) ≍ √log Q (upper bound by Rankin's trick: Σ_{q ≤ Q} μ²ω(q)/q
+≤ Q^{σ} Π_ℓ (1 + ω(ℓ)/ℓ^{1+σ}) = exp(σ log Q + (c+o(1))/σ) with σ = 1/√log Q). So Theorem A's shape is best possible for
+this sieve; only the constant (0.08 proved vs ≈ 0.6 true, `L_1e8.txt`) can improve.
+(iii) Composite moduli d ≡ 3 (4) carry non-product class sets. Writing F(q) := Σ_{d|q} J(d), J(d) := Σ*_{a (d)} |Ŝ(a/d)|²,
+Cauchy–Schwarz gives F(q) ≥ |S|²·q/(q − ω(q)) for *every* q with ω(q) excluded classes, but to use the large-sieve
+inequality Σ_{d ≤ Q} J(d) ≤ (X + Q²)|S| one needs non-negative weights c_q with Σ_{q ≤ Q, d | q} c_q ≤ 1 for all d > 1,
+and then Σ_q c_q ω(q)/q is dominated by the prime q (for q = ℓ₁ℓ₂ one needs c_q ≲ 1/π(Q/ℓ₁)). So the composite classes
+are invisible to the large sieve; the Selberg Λ² sieve needs the same multiplicative structure. STOPS.
+(iv) Moment method (E[(R_Q − λ)^{2k}]/λ^{2k}) with composite moduli: the main terms are fine (shared prime factors only
+rescale by (1 − 1/ℓ) because of the compatibility condition u ≡ u′ (mod ℓ)), but the error terms need
+Bombieri–Vinogradov weighted by τ(q)^{2k}, which is available only for fixed k and then gives (log X)^{−2k}; k → ∞ would
+need savings exp(−(log X)^{1+ε}) in BV. STOPS at polylog, worse than Theorem A.
+
+### 4.5 Conditional routes considered
+
+* Elliott–Halberstam / GRH do not change the picture: they improve c in Theorem A (moduli up to X^{1−ε}, better BV
+  levels) but cannot remove the √X floor of §4.4(i).
+* A Cramér-type hypothesis ("the residues −p mod ℓ, ℓ ≡ 3 (4), ℓ ≤ p, behave like independent uniform non-residues")
+  would give R(p) ≥ 1 for all p ≥ p₀ with failure probability Σ_p exp(−c log²p) < ∞ — but this is a model, not a hypothesis
+  one can state as a theorem input. Not pursued as a "CONDITIONAL" result because the hypothesis is not standard.
+
+## 5. Status and what would be needed
+
+| Claim | Status |
+|---|---|
+| R(n) = #{(d,u) : d ≡ 3 (4), u ∣ (d+1)/4, d ∣ n+u}; R(m²) = 0; (d ∣ p) = −1 at every hit | PROVED (§1) |
+| p ≡ 5 (8), p ≡ 2 (3), p ≡ 5,6 (7) ⇒ R(p) ≥ 1; no finite covering of the primes ≡ 1 (8) by solvable classes | PROVED (§2) |
+| #{p ≤ X : R(p) = 0} ≤ X exp(−0.08√log X) for X ≥ X₀ (ineffective, via BV) | PROVED (§3) |
+| Same for #{odd n ≤ X with no hit at prime moduli ≤ √X} (contains all odd squares) | PROVED (§3) |
+| R(p) ≥ 1 for all large p ≡ 1 (4) | OPEN — not proved here |
+| 14 zeros ≤ 10⁸ (independent engine), mean R(p) ≈ 0.146 log²p, R(m²) = 0 for all odd m² ≤ 10⁸ | CERTIFIED (`census_1e8.txt`) |
+| A(2^j) ≈ 0.43, log L(Q)/√log Q ≈ 0.95 at Q = 10⁸ | EVIDENCE |
+
+**Where it stops.** Every local condition implied by R(p) = 0 is shared with odd squares, and every sieve-type counting
+argument is blind to the difference between a prime and a square at the level of X^{1/2}. The missing ingredient is a
+*single-p* argument that exploits (d | p) = −1 for many d — i.e. a statement about the joint distribution of p mod ℓ over
+primes ℓ with (ℓ | p) = −1 that is not an average over p. I know no tool that does this. If one only wants "all but
+finitely many" from a *different* input, the cleanest sufficient statement is: for every large p there is a prime
+ℓ ≡ 3 (mod 4), ℓ < p, with (−p mod ℓ) ∣ (ℓ+1)/4 (Lemma 1.4 restricted to prime d) — a Linnik-type assertion about the
+sequence of least residues of −p, and the natural target for any future attempt.
