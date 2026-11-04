@@ -127,6 +127,7 @@ if __name__ == '__main__':
     ap.add_argument('pred'); ap.add_argument('feat'); ap.add_argument('cf'); ap.add_argument('out')
     ap.add_argument('--hard', type=float, default=0.01); ap.add_argument('--label', default='C')
     ap.add_argument('--fams', default=','.join(FAMS)); ap.add_argument('--notail', action='store_true')
+    ap.add_argument('--nulllogmu', action='store_true', help='S1: add log mu to the OLS null (recalibration)')
     a = ap.parse_args()
     sys.path.insert(0, __file__.rsplit('/', 1)[0])
     pred = np.load(a.pred); feat = np.load(a.feat)
@@ -134,7 +135,7 @@ if __name__ == '__main__':
     F = families(feat, cflen)
     y = pred['R'] / 2.0; mu = pred['mu']; r = pred['resid']; L = np.log(pred['p'].astype(float))
     hard = (pred['pit'] < a.hard).astype(float)
-    X0 = np.column_stack([np.ones(len(r)), np.log(L)])
+    X0 = np.column_stack([np.ones(len(r)), np.log(L)] + ([np.log(mu)] if a.nulllogmu else []))
     rows = []; effrows = []
     for g in a.fams.split(','):
         X, names = F[g]
