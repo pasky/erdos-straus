@@ -1,0 +1,15 @@
+# X=100000000
+# sum a_n=35516416  #{a_n>0}=172952  sum mu a=-60672 (ratio -1.708e-03)  sum lambda a=-100864 (ratio -2.840e-03)
+# sum_{p prime} a_p=7180928 (ratio to A: 2.0219e-01; A/log X ratio 3.7244)  odd-square part sum a_{m^2}=0 (ratio 0.000e+00)
+# asymptotic-sieve prediction: sum_p a_p log p = H*A with H=3.50220 (primes<=20002); observed ratio 1.0025
+# a*-version (r*(N1)r*(N2)=16*2^(w1+w2) on S-pairs): A*=31757312  sum mu a*/A*=-2.070e-03  sum_p a*_p log p/(H* A*)=1.0037 (H*=3.44604)
+# S-version: #{b_n=1}=156755  sum mu b=-71 (ratio -4.529e-04)  #{p: b_p=1}=30646
+# B(N) = sum_m |sum_{N<n<=2N, mn<=X} mu(mn) w_mn| / sum_n w_n ;  T(N) = same with |.| inside
+# logN/logX      N   B_a        T_a       R_a(random-sign ref)  B_b        T_b       B_ctrl     T_ctrl
+  0.20         39  1.675e-01  1.675e-01  1.337e-01  1.704e-01  1.704e-01  1.693e-01  1.693e-01
+  0.25        100  1.709e-01  1.709e-01  1.364e-01  1.745e-01  1.745e-01  1.729e-01  1.729e-01
+  0.30        251  1.552e-01  1.665e-01  1.277e-01  1.545e-01  1.716e-01  1.666e-01  1.666e-01
+  0.35        630  1.377e-01  1.677e-01  1.159e-01  1.280e-01  1.710e-01  1.663e-01  1.663e-01
+  0.40       1584  1.031e-01  1.665e-01  9.286e-02  8.930e-02  1.704e-01  1.667e-01  1.667e-01
+  0.45       3981  7.360e-02  1.675e-01  6.819e-02  5.992e-02  1.707e-01  1.658e-01  1.658e-01
+  0.50       9999  4.609e-02  1.664e-01  4.621e-02  3.724e-02  1.701e-01  1.654e-01  1.654e-01
