@@ -52,6 +52,7 @@ int main(int argc,char**argv){
     if(nS[i]){ AS+=a; WS+=w; }
     if(Om[i]%2==0){ Aev+=a; Wev+=w; } else { Aod+=a; Wod+=w; }
   }
+  { int Ls[8]={7,11,13,17,19,23,29,31}; printf("# Type I density check: l, sum_{l|n} a*/sum a*, g*(l)=1/(l+2chi(l))\n"); for(int j=0;j<8;j++){ long l=Ls[j]; double s=0; for(long i=0;i<K;i++){ long n=n0+M*i; if(n%l==0 && ok1[i]&&ok2[i]) s+=16.0*(double)(1L<<(w1[i]+w2[i])); } printf("g %ld %.5f %.5f\n", l, s/At, 1.0/(l+((l%4==1)?2.0:-2.0))); } }
   double R=At/Wt;
   printf("# X=%ld  class n=97 mod 120; global ratio sum a*/sum w = %.5f\n", X, R);
   printf("# rho(C) = (sum_C a*/sum_C w)/global ; C, rho, sum_C a*, sum_C w\n");

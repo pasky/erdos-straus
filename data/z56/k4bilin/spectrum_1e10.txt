@@ -1,3 +1,12 @@
+# Type I density check: l, sum_{l|n} a*/sum a*, g*(l)=1/(l+2chi(l))
+g 7 0.20009 0.20000
+g 11 0.11111 0.11111
+g 13 0.06669 0.06667
+g 17 0.05258 0.05263
+g 19 0.05879 0.05882
+g 23 0.04761 0.04762
+g 29 0.03229 0.03226
+g 31 0.03447 0.03448
 # X=10000000000  class n=97 mod 120; global ratio sum a*/sum w = 35.07151
 # rho(C) = (sum_C a*/sum_C w)/global ; C, rho, sum_C a*, sum_C w
 primes        1.0005  4.9896e+08  1.4220e+07
