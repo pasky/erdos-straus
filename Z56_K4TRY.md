@@ -196,7 +196,8 @@ over [1, H] ∩ 4ℤ and b over [1, H] ∩ (1 + 4ℤ), the pair (a mod d₁, b m
 It remains to bound Σ_{q ≤ Q}𝔈₂(q), Q := 8D = x^{1−η}. With E_θ(t; q, c) := θ(t; q, c) − t/φ(q) (θ = Chebyshev's
 function over primes), partial summation gives E_π(x; q, c) = E_θ(x; q, c)/log x + ∫₂^x E_θ(t; q, c) dt/(t log²t) +
 O(1/φ(q)) (the O-term is (li(2) − 2/log 2)/φ(q)), so by Cauchy–Schwarz on the integral (∫₂^x dt/(t log²t) ≤ 2)
-  Σ_{q≤Q}𝔈₂(q) ≪ (log x)^{−2}Σ_{q,c}|E_θ(x; q, c)|² + ∫₂^x Σ_{q≤Q,c}|E_θ(t; q, c)|² dt/(t log²t) + 1.
+  Σ_{q≤Q}𝔈₂(q) ≪ (log x)^{−2}Σ_{q,c}|E_θ(x; q, c)|² + ∫₂^x Σ_{q≤Q,c}|E_θ(t; q, c)|² dt/(t log²t) + log x
+(the last term is Σ_q φ(q)·O(φ(q)^{−2})).
 For the inner sums: (i) |ψ(t; q, c) − θ(t; q, c)| ≤ Σ_{p^k≤t, k≥2} log p ≪ √t log t, so Σ_{q≤Q}Σ_c|ψ − θ|² ≪ Qt log²t, and
 BDH for ψ gives Σ_{q≤Q}Σ_c|E_θ(t; q, c)|² ≪ t²(log t)^{−A} + Qt log²t whenever Q ≤ t(log t)^{−A−1}; (ii) crudely, for all t,
 Σ_c θ(t; q, c)² ≤ θ(t)·max_c θ(t; q, c) ≤ 2t(t/q + 1)log t and Σ_q (t/φ(q))² ≪ t², so Σ_{q≤Q}Σ_c|E_θ(t; q, c)|² ≪
