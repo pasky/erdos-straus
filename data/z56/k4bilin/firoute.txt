@@ -1,0 +1,14 @@
+# FI route: minimal thD (sieve level on shift B) with f(thD/thz) > L*B(thz); total level = 1/2 + thD
+fixed L=      1: thD* = 0.2570  total = 0.7570  (thz=0.2500)
+fixed L=      2: thD* = 0.2816  total = 0.7816  (thz=0.2500)
+fixed L=      4: thD* = 0.3847  total = 0.8847  (thz=0.3315)
+fixed L=      8: thD* = 0.4459  total = 0.9459  (thz=0.4194)
+fixed L=     16: thD* = 0.4737  total = 0.9737  (thz=0.4608)
+fixed L=     32: thD* = 0.4871  total = 0.9871  (thz=0.4807)
+fixed L=     64: thD* = 0.4936  total = 0.9936  (thz=0.4904)
+fixed L=    128: thD* = 0.4968  total = 0.9968  (thz=0.4952)
+fixed L=   1000: thD* = 0.4996  total = 0.9996  (thz=0.4993)
+L=10000.0: none <1/2
+gehsw pen=1.0: thD* = 0.4081 total = 0.9081 (thz=0.3646)
+gehsw pen=2.35: thD* = 0.4583 total = 0.9583 (thz=0.4378)
+gehsw pen=5.0: thD* = 0.4800 total = 0.9800 (thz=0.4700)
