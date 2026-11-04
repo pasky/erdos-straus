@@ -639,6 +639,10 @@ Its substantive objections, and what was done:
 * Not done: a fresh-data replication of S4b-r with the square-offset near-square features added to the null. That is
   the natural next step for 𝓛; we expect the G12 signal to vanish there, but this is untested.
 
+*Hash note:* the ledger cites the pre-rebase branch hashes, which side-agent/z56-xrev-primet1 still contains. After the
+rebase onto main they map to: 6ddab6c0→824a9226, 345fbe79→4febf905, 45c5895f→25fff35a, da4971f4→7d128a80, 4fa8b3a6→b6edd7d8,
+b1d357c3→ff54b9a7, 1789ce0c→27e60624, 073515c3→94c41128. Content and author dates are unchanged.
+
 **Cross-model review** (`data/z56/xreview/REVIEW_PRIMET1.md`, audit script `scripts/z56_xrev_primet1_audit.py`):
 **ACCEPT-WITH-FIXES**.
 * Independently replayed and reproduced:
