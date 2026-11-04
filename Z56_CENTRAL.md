@@ -77,7 +77,9 @@ Prop P. **For gap 1 (Assessment):** the count enters TD/NC only as a zero mode, 
 * **CNT_unif(η, δ; K)** (band-uniform, length decoupled from position): there is C with |E(x, y; A, θ)| ≤ C y^{1−η}
   for all large x, all y ∈ [x^{1/4}/K, Kx^{1/4}], all A ∈ [x^{1/2−δ}, x^{1/2+δ}] and all θ ∈ (1, 4].
   Status: Assessment, not established. CNT_unif is *stronger* than CNT: it asks for all real x, y decoupled from A,
-  and uniformity in the position; at A = U², y = 2U, θ = 4, x = p + 2U it contains CNT.
+  and uniformity in the position; at A = U², y = 2U, θ = 4, x = p + 2U it contains CNT provided K is large enough for the fixed
+  fourth-root range, e.g. K > max(1, 2c₂, 1/(2c₁)) (since y/x^{1/4} = 2U/(p + 2U)^{1/4} tends to values in [2c₁, 2c₂]);
+  for K = 1 the inclusion is not literal.
 * **SID(η)**: D(x, y) = Main(x, y) + O(x^{(1−η)/4}) for all large x and y ∈ [x^{1/4}/K, Kx^{1/4}].
   *Status (Assessment, search-limited; LIT_CHECK §3, VERIFIED-PRIMARY quotes):* not established in the checked sources.
   * Ivić–Zhai (arXiv 1209.0872, Thm 1): Δ(x+U) − Δ(x) ≪ x^{1/4+ε}U^{1/4} and ≪ x^{2/9+ε}U^{1/3}; at U = x^{1/4} these
@@ -372,7 +374,7 @@ reported that variant by mistake.) At larger x the program prints the proxy Derr
 
 **Table 8.1** (rms and mean in units of √y, each observation normalised by its own y; n = number of x; the y and model
 columns give the first sample only — the full ranges are in `stats.txt`: sq10/nsq10 span x ≈ 10¹⁰–2.5·10¹¹,
-y = 632–1410, model 10.26–12.80; other families have y within 1 % of the first). E_band columns at 10¹² and above are
+y = 632–1410, model 10.26–12.80; sq12/nsq12 have y = 2000–2188 (9.4 % spread); the remaining families have y within 0.5 % of the first). E_band columns at 10¹² and above are
 the proxy.
 
 | family | n | y | mean (D−Main) | rms (D−Main) | Ivić leading model √((8/π²)log³(√x/y)) | mean Ec | rms Ec | rms F_L, δ = .05/.10/.15/.20 |
@@ -515,3 +517,9 @@ summation with Lemma 19 partial sums, thin bands, Euler–Maclaurin signs and ex
 exponent bookkeeping); all 13 review-1 fixes confirmed. Fixes applied: composite labels split (§0 items 1 and 4,
 Remark H); FRONTIER text says "this argument gives the equivalence for δ > …" instead of "only"; Cor. E1 states the
 fixed K and the existential quantifiers explicitly.
+
+**Cross-model review** (`data/z56/xreview/REVIEW_CENTRAL.md`; checker `scripts/z56_xrev_central_check.py`). Verdict
+**ACCEPT-WITH-FIXES** (two minor). All of L(i)–(iii), L1–L3, U, E/E1, P, P2 and H confirmed against independently read
+primary sources; stats and inputs reproduced byte-identically; all 2400 identity residuals recomputed in 60-digit
+arithmetic (max 0.631850…). Fixes applied: (1) §1: "CNT_unif contains CNT" now requires K > max(1, 2c₂, 1/(2c₁));
+(2) §8: the y-spread of sq12/nsq12 (9.4 %) is stated instead of "within 1 %".
