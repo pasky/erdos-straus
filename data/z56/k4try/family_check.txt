@@ -1,0 +1,5 @@
+symbolic identities OK
+p = 1 (mod 8) iff m = 2 (4), n odd: True
+members |m|,|n|<=50 with clean gcds: 9740; shifts with a Q-factor: 0
+x=1000000: #(m,n)>=0 with 0<p<=x: 4430   sqrt(x)log(x)=13816
+x=100000000: #(m,n)>=0 with 0<p<=x: 55624   sqrt(x)log(x)=184207
