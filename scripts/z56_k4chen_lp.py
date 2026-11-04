@@ -80,7 +80,7 @@ def min_config(w, k, J, nbig):
     return val, ms
 
 
-def solve_lp(th1, zeta, theta, r, h=0.004, amax=None, verbose=False):
+def solve_lp(th1, zeta, theta, r, h=0.004, amax=None, verbose=False, maxit=3000):
     if amax is None: amax = theta - 0.02
     k = r + 2
     J = int(math.floor((1 - k * zeta) / h + 1e-9))
@@ -89,7 +89,7 @@ def solve_lp(th1, zeta, theta, r, h=0.004, amax=None, verbose=False):
     n = len(c); nbig = n  # index of al >= amax
     rows = []
     w = np.zeros(n)
-    for it in range(400):
+    for it in range(maxit):
         val, ms = min_config(w, k, J, nbig)
         if val >= 1 - 1e-9: break
         row = np.zeros(n)
@@ -100,6 +100,10 @@ def solve_lp(th1, zeta, theta, r, h=0.004, amax=None, verbose=False):
         res = linprog(c, A_ub=-np.array(rows), b_ub=-np.ones(len(rows)), bounds=[(0, None)] * n, method='highs')
         if res.status != 0: return math.inf, None
         w = res.x
+    # final exact feasibility check; constraints are homogeneous, so rescaling makes w feasible (valid upper bound)
+    val, _ = min_config(w, k, J, nbig)
+    if val <= 1e-12: return math.inf, None
+    if val < 1: w = w / val
     return float(c @ w), w
 
 
