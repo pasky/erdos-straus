@@ -23,16 +23,22 @@ with their reasons and their timing relative to outcomes.)*
   * local data (p-adic depth, the small-prime residue pattern n(p), local shadows);
   * L-value main terms: BM, and the genus-layer L(1, χ_{−4p}) ∝ h(−4p), worth ≈ +4.7 % of E[R] per SD given exact BM;
   * near-squares (a₁ of √p), with a post-review refinement: square-offset near-squares p = a² + b², x² + 3y² with tiny
-    b, y are harder still (−0.3 to −0.5 SD, confirmed on fresh data; §6 R6);
+    b, y look harder still (−0.3 to −0.5 SD in a post-hoc contrast on B₂₃, nominal z, not a calibrated confirmation;
+    §6 R6);
   * the u = 1 / B = 1 tickets, 2τ₃(p + 1) of R.
   Class-group 2-, 3-, 5-parts, h(p), power residuosity of 2 and 3, Frobenius in non-abelian cubic and quartic fields,
-  Hecke angles and the Sato–Tate angle show no association once local shadows are modelled.
+  Hecke angles and the Sato–Tate angle show no *linear* association in the A5/A6 batteries once local shadows are
+  modelled. A small nonlinear Hecke-angle association remains (§6 R6). It is consistent with square-offset
+  near-squares; the replication with an augmented null is pending.
 * **One candidate signal** (A9, §4.3): the large-prime structure of p − 1 (ω_{>1000}(p−1), log P⁺(p−1)/log p).
   * Size: ≈ +0.6 % of E[R] per SD.
-  * Confirmed on fresh data at 10⁹–10¹⁰ (registered test p_Holm = 0.014; complete known null with robust tests:
-    p_Holm = 0.004).
-  * Same sign at 10⁷–10⁹ (the exploratory set) and at 10¹²–10¹³ (underpowered, n.s.).
-  * No mechanism. It is far too small to be a prime T1.
+  * Pre-specified two-feature confirmation on B₂₃ (10⁹–10¹⁰): p_Holm = 0.01397 over 2 tests.
+  * Post-hoc robustness, with the chosen finite additive known-model null and robust LM tests: p_Holm = 0.004058 over 2;
+    0.03043 over the 15 rerun families. This is not a second independent confirmation.
+  * Same sign at 10⁷–10⁹ (the exploratory discovery set, not an independent replication) and at 10¹²–10¹³
+    (underpowered, p ≈ 0.87).
+  * No mechanism. Confounding by local data at larger moduli is unresolved.
+  * It is a small bulk association, not an observed kill.
 * **Invariant-free test (T2T, §4.5; a model-conditional sensitivity analysis).**
   * The residuals of the disjoint ticket families 4Cp + 1 and p + u show no positive correlation given local data
     (ρ̂ = −0.005, 99 % CI [−0.011, 0.001]), although each family is strongly overdispersed.
@@ -41,16 +47,20 @@ with their reasons and their timing relative to outcomes.)*
   * Caveats in §4.5: omitted opposite-sign effects can mask such a factor, and the Fisher-z intervals are uncalibrated.
 * **CERTIFIED (this engine).** An independent sieve reproduces exactly the 14 (★)-zeros ≤ 10¹⁰ and finds none in
   (10⁸, 10¹⁰]. Min R = 2 in (10⁹, 10¹⁰], at 1 397 190 001 = 37379² + 360.
-* **Assessment.** The data look like *local main term × lottery*. A prime T1 would have to escape both kinds of test
-  here. Concretely, it would have to be one of:
-  * of small density (≲ 10⁻⁴ under the T2T working model);
-  * active only above 10¹³;
-  * not expressible through the 17 families and not coupling the two ticket families.
-  Nothing here bears on a fixed prime (B6). ES remains OPEN.
+* **Assessment.** The data are consistent with *local main term × lottery* within the sampled ranges and the fitted
+  models.
+  * This is finite-range evidence about specified fitted-model hypotheses. It does **not** exclude prime-T1 mechanisms
+    that are rare, nonlinear, or confined to unsampled ranges; between 10¹⁰ and 10¹² only two small windows were sampled.
+  * The T2T numbers are sensitivity conversions under a working model, not bounds. Example: with two independent
+    log-normal factors H, K acting as rates μ₁e^{H+K−…} and μ₂e^{H−K−…}, the covariance is μ₁μ₂(e^{v_H−v_K} − 1). This
+    is ≤ 0 whenever v_K ≥ v_H, however large v_H is (cross-model review).
+  * Nothing here bears on a fixed prime (B6). ES remains OPEN.
+* **Multiplicity scope.** Every Holm p-value is familywise only within its named block and assumes valid input tests.
+  No alpha-spending plan covers the whole study (amendments, post-review family searches, square-offset contrasts).
 
 ## 1. The precise statement attacked
 
-Let 𝒫₂₄ := {p prime, p ≡ 1 (mod 24)}; every (★)-zero p ≡ 1 (4) lies in 𝒫₂₄ (PROVED, elementary: `RESIDUE_HARDNESS.md` §0.6).
+Let 𝒫₂₄ := {p prime, p ≡ 1 (mod 24)}; every (★)-zero p ≡ 1 (4) lies in 𝒫₂₄ (PROVED, elementary: `RESIDUE_HARDNESS.md` §0 item 6; for p ≡ 5 (8) take (u, B, C) = (1, 2, (p+3)/8), for p ≡ 2 (3) take (1, (p+1)/3, 1)).
 R(p) := #{(u, B, C) ∈ ℕ³ : 4uBC − u − B = p} (FRONTIER §2.1; even; R(p) ≥ 1 ⇒ ES(p)).
 
 **Local model.** A *local predictor* is a function of (i) the size of p, (ii) the residues p mod q for prime powers q ≤ Q₀
@@ -168,8 +178,9 @@ exclude "a slightly larger local model explains it"). Otherwise: report a null w
 
 ### 3.8 What a positive result would and would not mean
 A significant global invariant would show that hardness is not purely local + lottery, but it would not by itself give a
-disproof shape: a prime T1 must push the expected count to zero, i.e. an effect of order e^{−Θ(log² p)} on P(R = 0), not a
-few percent on E[R]. Conversely, a null bounds only effects above the MDEs at the tested heights.
+disproof shape. Conversely, a null bounds only effects above the MDEs at the tested heights. *[Withdrawn after
+cross-model review: the original sentence compared a mean effect on E[R] with an e^{−Θ(log² p)} zero probability; these
+are different quantities, and no ratio between them is derived here.]*
 
 ### 3.9 Amendments (dated relative to outcomes)
 **Amendment 1 (written after seeing the primary results on C, §4.1; BEFORE any computation on the reserve split
@@ -376,18 +387,26 @@ L-value block and log(a₁)/L of A6; the post-review rerun (`rbB23_robust.tsv`; 
 them, uses heteroskedasticity-robust LM tests next to the classical F, and excludes the 337 B₂₃ primes that were in the
 S2 feature sample) keeps the p − 1 effect at the same size and significance, while every other family is null on B₂₃
 (including G6, p = 0.56). Classical and robust p-values agree to two digits throughout (also on h₃′, `rbH3_robust.tsv`),
-so heteroskedasticity does not drive any conclusion. The effect is not a sum of F-type q-local effects (those decay like
-1/q and have the opposite sign for p ≡ 1 (q), `RESIDUE_HARDNESS.md` Lemma 2; the f₁⁺ aggregate over 1000 < q ≤ 20 000 is in
-the null) — an Assessment, not a test of every alternative — and we have no mechanism for it.
+so heteroskedasticity does not drive any conclusion (conditional on the fitted means). The effect is **not absorbed by the
+tested null**, which is a chosen finite additive model (per-q terms to 997 plus one fixed-weight aggregate over
+1000 < q ≤ 20 000), not the best possible local predictor. Whether it is an unmodelled local or larger-modulus density
+effect is **unresolved**: RESIDUE_HARDNESS Lemma 2 does not control the total association after selection and adjustment.
+We have no mechanism for it.
 
-*Decision-rule account (clause by clause).* Amendment 8 registered B₂₃ as the confirmation: Holm-significant at the 5 %
-familywise level (0.014; 0.0041 in the complete-null rerun). The "other height" clause of Amendment 1: the exploratory
-h₃′ (10⁷–10⁹) has the same sign with nominal p = 7·10⁻⁷, B₂₃ is at 10⁹–10¹⁰; High (10¹²–10¹³, n = 25 000, ≈ 32×
-smaller than B₂₃, so standard errors ≈ 5.6× larger by √n scaling) has the same sign and size and is not significant
-(p = 0.87) — underpowered, not contradicting. The pre-registered Q₀ = 2000 refit was not run as such; the null contains
-per-q terms to 997 and the weighted aggregate to 20 000 instead. **Status: a candidate signal under the amended rule —
-confirmed on fresh data at 10⁹–10¹⁰, ≈ +0.6 % of E[Y] per SD, unexplained.** It is four orders of magnitude too small
-to be a prime T1 (§3.8).
+*What A9 confirms.* A9 is a **pre-specified two-feature B₂₃ confirmation, with post-hoc complete-null robustness**:
+* registered test: raw p = 0.006987, Holm over 2 = 0.01397;
+* post-hoc robust rerun: Holm over 2 = 0.004058; Holm over its 15 families = 0.03043.
+
+The original decision rule (§3.7 and Amendment 1) is **not literally met**, and its superseded clauses are as follows.
+* "Sign-consistent in S1 with nominal p < 0.05": the S1 samples were never tested with the A9 features. h₃′ (same sign,
+  p = 7·10⁻⁷) is the exploratory discovery set, not an independent replication. High (10¹²–10¹³; n = 25 000, so standard
+  errors ≈ 5.6× larger than B₂₃) has the same sign and p ≈ 0.87.
+* "Survives Q₀ = 2000": not performed. The null has per-q terms to 997 and one aggregate to 20 000.
+* Amendment 8 (073515c3, 21:13:27) superseded these clauses by designating B₂₃ as the confirmation; that amendment was
+  written after the exploratory h₃′ runs.
+
+**Status: a candidate association, confirmed by its pre-specified B₂₃ test, ≈ +0.6 % of E[Y] per SD, unexplained.** It
+is a small bulk association, not an observed kill.
 
 ### 4.4 Secondary blocks (EVIDENCE)
 * **S1 (heights; 𝓛 extrapolated, recalibrated on log μ̂).** Bulk2 hash-sample (791 211 primes, 10⁹–10¹⁰): significant
@@ -458,7 +477,7 @@ mechanical:
      term (G1).
    * Their tails beyond Q₀ (G1′, G5, G15).
 3. **Near-squares**: a₁ of √p, i.e. p − ⌊√p⌋² (G17), refined post-review by square-offset near-squares p = a² + b²,
-   x² + 3y² with tiny b, y (§6 R6; this is the nonlinear G12 signal). The regulator/period signal G6 is absorbed once
+   x² + 3y² with tiny b, y (§6 R6; a post-hoc contrast, consistent with the nonlinear G12 signal). The regulator/period signal G6 is absorbed once
    L-values and a₁ are modelled (null on B₂₃; borderline on h₃′ only, robust p_Holm = 0.049 over the 15 families of `rbH3_robust.tsv`, and
    0.11 in the registered A6).
 4. **Tickets**: the u = 1 / B = 1 slices, 2τ₃(p + 1) of R (G16's p + 1 part).
@@ -467,8 +486,9 @@ mechanical:
 
 No association was detected for the class-group, power-residue, non-abelian Frobenius, Hecke-angle or Sato–Tate families
 beyond these. The standard errors are ≈ 0.02 % of E[Y] per SD for the single features of those families under 𝓛 (§4.2).
-The nonlinear omnibus over those families finds a residual R² of 10⁻⁴, located in the Hecke angles. It is explained by the
-square-offset near-squares (§6, R6). T2T shows no common factor coupling the two ticket families.
+The nonlinear omnibus over those families finds a residual R² of 10⁻⁴, located in the Hecke angles. This is *consistent
+with* the square-offset near-squares (§6, R6), but absorption has not been shown: the replication with an augmented null
+is pending, and the nuisance residual was fitted in-sample. T2T shows no common factor coupling the two ticket families.
 
 ## 5. Verdict, screens, FRONTIER text
 
@@ -481,8 +501,9 @@ The picture is consistent with **local main term × lottery**: the overdispersio
 two disjoint ticket families show no positive coupling (T2T, model-conditional).
 
 What this buys:
-* (a) Under the working models, a "prime T1" would have to escape G1–G17 at their measured precision and the T2T
-  coupling test. Otherwise it must act only above 10¹³, or on a set of density ≲ 10⁻⁴.
+* (a) Within the sampled ranges, the fitted-model hypotheses "G1–G17 carry a linear residual association" and "the two
+  ticket families are positively coupled" are not supported, up to the measured precision (and the A9 p − 1 exception).
+  This does not exclude rare, nonlinear or unsampled-range mechanisms.
 * (b) The known main-term model should include the genus-layer L-value L(1, χ_{−4p}), i.e. h(−4p). It is the largest
   omitted main-term effect found here: ≈ +4.6–4.8 % per SD given the exact BM term.
 * (c) A concrete open item: the p − 1 effect. Is it an unmodelled local density at large moduli, or something else?
@@ -513,9 +534,12 @@ What it does not buy:
 >   model);
 > * near-squares (a₁ of √p);
 > * the u = 1 / B = 1 tickets 2τ₃(p+1).
-> There is one unexplained candidate, confirmed on fresh data: large prime factors of p − 1, ≈ +0.6 %/SD.
+> There is one unexplained candidate association: large prime factors of p − 1, ≈ +0.6 %/SD (pre-specified B₂₃ test,
+> p_Holm 0.014). A small nonlinear Hecke-angle association is consistent with square-offset near-squares (unreplicated).
+> All Holm levels are blockwise.
 > An invariant-free sensitivity test finds no positive coupling between the disjoint ticket families 4Cp + 1 and p + u
-> (SD of a common multiplier ≲ 1–3 % under a working model).
+> (a working-model sensitivity conversion gives SD ≈ 1–3 % for a common multiplier; this is not an exclusion, since
+> opposite-sign factors can mask coupling).
 > The census is re-certified by an independent sieve: no (★)-zero in (10⁸, 10¹⁰]; min R = 2 in (10⁹, 10¹⁰], at
 > 1 397 190 001 = 37379² + 360.
 
@@ -524,8 +548,8 @@ effects of a few tenths of a percent for well-conditioned features. Everything t
 pre-registered local model turned out to be either a main-term ingredient the model had left out or a mechanical part
 of the count. The one exception is a sub-percent effect of the large prime factors of p − 1, confirmed on fresh data and
 not understood. The two disjoint families of divisor events show no positive coupling given local data. A lottery
-predicts this; a prime T1 acting at positive density would not, as far as these model-conditional tests can tell. None
-of this bears on any single prime, and none of it touches the open question of ES.
+predicts this. It is finite-range evidence about the fitted models, not an exclusion of rare, nonlinear or
+unsampled-range mechanisms. None of this bears on any single prime, and none of it touches the open question of ES.
 
 ## 6. Review record
 **Internal hostile review** (deep-mode subagent, full memo + scripts + data; verdict **REJECT as written**, 20 items).
@@ -561,7 +585,9 @@ Its substantive objections, and what was done:
   (`s2_dropfit_s2.tsv`).
 * **(R6, item 14) S4b's nonlinear signal was "explained" by assumption.**
   *Fix:* the post-review S4b-r (`scripts/z56_primet1_s4r.py`, `s4r_postreview.txt`) reran the omnibus against the
-  complete-null residual on h₃′, cross-fitted on bit 32 of the hash. Result: R² = 1.1·10⁻⁴ out of sample, above all 200
+  complete-null residual on h₃′. Only the boosting stage is split, on bit 32 of the hash. The nuisance residual (robust.py)
+  and the tail threshold were fitted on all of h₃′, so this is **not a wholly held-out pipeline**. Result: R² = 1.1·10⁻⁴
+  on the evaluation half, above all 200
   permutations; the lower-tail AUC is null (0.497). Splitting by family puts the whole signal in **G12 (Hecke angles)**
   (R² = 1.8·10⁻⁴); G8, G9 and G2, G3, G4, G10, G13 are null.
   * Inspection on h₃′ (exploratory): primes p = a² + b² with b < 10 and p = x² + 3y² with y < 10 have mean
@@ -570,7 +596,9 @@ Its substantive objections, and what was done:
     Eisenstein y < 10, n = 109, −0.50 SD, z = −5.3; together z = −5.8.
   * Reading: these are near-squares whose offset k = p − m² is a square or three times a square, i.e. ℚ(√−k) = ℚ(i)
     or ℚ(√−3). `NEAR_SQUARE.md` §1 predicts that the deformed T1 at p = m² + k is governed by ℚ(√−k) and the form
-    x² + ky². So this is a **refinement of the known near-square explanation** that 𝓛's crude κ-features missed.
+    x² + ky². So this is **consistent with a refinement of the known near-square explanation** that 𝓛's crude κ-features
+    missed. Absorption of the omnibus signal is not demonstrated. The B₂₃ z-values use the overall residual SD and are
+    nominal, with no subgroup-robust or familywise calibration.
   * Size: ≈ −6 to −11 % of E[Y] on a set of density ~3·10⁻⁴.
   * Assessment: it belongs to class 3 of §4.6 (local by the §1 definition, since it is a function of κ). It is a
     partial deformed T1, not a kill.
@@ -611,7 +639,32 @@ Its substantive objections, and what was done:
 * Not done: a fresh-data replication of S4b-r with the square-offset near-square features added to the null. That is
   the natural next step for 𝓛; we expect the G12 signal to vanish there, but this is untested.
 
-**Cross-model review:** pending (to be applied when sent).
+**Cross-model review** (`data/z56/xreview/REVIEW_PRIMET1.md`, audit script `scripts/z56_xrev_primet1_audit.py`):
+**ACCEPT-WITH-FIXES**.
+* Independently replayed and reproduced:
+  * A9 on B₂₃ (registered and robust reruns);
+  * T2T on S₃ (sandwich intervals are close to Fisher);
+  * the hash splits, all Holm values and the stored censuses (unique min R = 2 at 1 397 190 001, with (A1, A2, A3) =
+    (2, 0, 0));
+  * the corrected registration ledger.
+* Required fixes, all applied:
+  * (1) T2T numbers are kept only as working-model sensitivities, with the masking countermodel. "Must have density" and
+    "acts only above 10¹³" are removed from §0, §5 and the FRONTIER text.
+  * (2) Detection is separated from explanation for G12 and the square-offset near-squares. S4b-r's nuisance fit is
+    labelled in-sample.
+  * (3) A9 is stated as a "pre-specified two-feature B₂₃ confirmation with post-hoc complete-null robustness"
+    (p_Holm 0.01397; 0.004058; 15-family Holm 0.03043). The superseded decision clauses are named; h₃′ is not called a
+    replication; no Q₀ = 2000 validation exists.
+  * (4) The multiplicity scope is stated as blockwise (§0).
+  * (5) "Four orders too small" is deleted, and the §3.8 comparison is withdrawn by an in-place note. Larger-q
+    confounding is unresolved. The "complete known null" is a chosen finite additive model.
+  * (6) Command start/order is recorded (below) and §7 lists the post-review invocations.
+  * The §1 citation is corrected to RESIDUE_HARDNESS §0 item 6.
+* Provenance detail from the review: A-block and A5 were queued at 19:44:53, before Amendment 2 reached git at 19:47:19,
+  but A5 executed after the A-block finished (20:00:19). High T2T was invoked at 19:46:40 (exploratory). S₃ T2T was
+  invoked at 19:57:44, S4 at 19:47:23, A6 at 20:43:22. The A9 command was chained after the Amendment-8 commit. B₂₃'s
+  prediction file existed at 20:58, and 337 of its primes had been used in S2 ("never touched" was not literally true;
+  the post-review rerun excludes them). These are local provenance records, not external timestamps.
 
 ## 7. Commands and reproducibility
 Scratch directory S (outside the repo; ≈ 1 GB; every file regenerable). All runs used `ulimit -v` 2–8 GB and `timeout`;
@@ -639,6 +692,14 @@ P z56_primet1_s3.py r_1e8.bin s3 S/cfper ; P z56_primet1_s4.py pred_h0.npy feat_
 P z56_primet1_s5.py data/z53/hchyp/stat_1e12_X2048.txt.hc feat_s5.npy cf4_s5.txt s5.tsv
 S/rone < s3t_p.txt > s3t_rone.txt ; P z56_primet1_t2t.py s3t_rone.txt t2t_S3 --sieve s3t.npy ; (high: t2t_high)  # T2T
 P z56_primet1_pc1.py pred_h1_drop13.npy ; P z56_primet1_pc2.py pred_h1.npy pc2.tsv 20                       # PC1, PC2
+# post-review (§6):
+P z56_primet1_s2.py test s2 feat_s2.npy cf4_s2.txt --dropfit                                                  # S2 without fit split
+P z56_primet1_robust.py pred_h3p.npy feat_h3p.npy feat2_h3p.npy cf4_h3p.txt model_D.npz rbH3                 # robust A6 null
+P z56_primet1_feat.py bulk2_h3_p.npy feat_b2h3.npy 6 ; P z56_primet1_feat2.py bulk2_h3_p.npy feat2_b2h3.npy 5
+P z56_primet1_robust.py pred_b2h3.npy feat_b2h3.npy feat2_b2h3.npy cf4_b2h3.txt model_B2.npz rbB23 --tau3 --a9 --exclude s2_setp.npy
+P z56_primet1_s4r.py rbH3_nullresid.npy feat_h3p.npy cf4_h3p.txt s4r_h3p.txt 200 [G12 | G8,G9 | G2,G3,G4,G10,G13 | ...]
+# square-offset contrast on B23: mean of rbB23_nullresid e over {min(|ga|,|gb|) < 10} and {|ey| < 10}, z = mean/(sd/√n)
+#   (inline numpy; output data/z56/primet1/s4r_postreview.txt, last three lines)
 S/rone g < sq_in.txt                                  # T1 control (odd squares)
 ```
 Committed outputs (`data/z56/primet1/`, 0.3 MB): every test table named in §4 (`primary_C_*`, `amend*`, `a5H2_*`, `a6H3_*`,
