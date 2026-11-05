@@ -430,3 +430,283 @@ L=560 N=140 D=8 dim=56 B=8000 l0=0 #T1-conditions=45 rank(cond)=14 dimK=42
   rank of K on C1-primes (n<=B, 50 indices) = 0
   rank of K on Mordell-classes (n<=B, 59 indices) = 0
   time 16.2s (coefs 16.2s)
+L=560 N=140 D=8 dim=56 B=8000 l0=11 #T1-conditions=20 rank(cond)=8 dimK=48
+  rank of K on C1 (n<=B, 172 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 0
+  rank of K on C1-primes (n<=B, 50 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 15.4s (coefs 15.4s)
+L=560 N=140 D=28 dim=60 B=8000 l0=0 #T1-conditions=45 rank(cond)=7 dimK=53
+  rank of K on C1 (n<=B, 172 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 0
+  rank of K on C1-primes (n<=B, 50 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 6.2s (coefs 6.2s)
+L=560 N=140 D=28 dim=60 B=8000 l0=11 #T1-conditions=20 rank(cond)=4 dimK=56
+  rank of K on C1 (n<=B, 172 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 0
+  rank of K on C1-primes (n<=B, 50 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 6.1s (coefs 6.0s)
+L=560 N=140 D=40 dim=56 B=8000 l0=0 #T1-conditions=45 rank(cond)=15 dimK=41
+  rank of K on C1 (n<=B, 172 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 0
+  rank of K on C1-primes (n<=B, 50 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 10.1s (coefs 10.1s)
+L=560 N=140 D=40 dim=56 B=8000 l0=11 #T1-conditions=20 rank(cond)=11 dimK=45
+  rank of K on C1 (n<=B, 172 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 0
+  rank of K on C1-primes (n<=B, 50 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 10.1s (coefs 10.1s)
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 78, in <module>
+    r, first = rank_on(ns)
+               ^^^^^^^^^^^
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 70, in rank_on
+    if any(x != 0 for x in M[j, ]):
+                           ~^^^^^
+  File "cypari2/gen.pyx", line 1335, in cypari2.gen.Gen.__getitem__
+ValueError: need more than 1 value to unpack
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 78, in <module>
+    r, first = rank_on(ns)
+               ^^^^^^^^^^^
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 70, in rank_on
+    if any(x != 0 for x in M[j, ]):
+                           ~^^^^^
+  File "cypari2/gen.pyx", line 1335, in cypari2.gen.Gen.__getitem__
+ValueError: need more than 1 value to unpack
+L=560 N=140 D=140 dim=60 B=8000 l0=0 #T1-conditions=45 rank(cond)=8 dimK=52
+  rank of K on C1 (n<=B, 172 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 0
+  rank of K on C1-primes (n<=B, 50 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 4.7s (coefs 4.7s)
+L=560 N=140 D=140 dim=60 B=8000 l0=11 #T1-conditions=20 rank(cond)=5 dimK=55
+  rank of K on C1 (n<=B, 172 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 0
+  rank of K on C1-primes (n<=B, 50 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 4.7s (coefs 4.7s)
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 78, in <module>
+    r, first = rank_on(ns)
+               ^^^^^^^^^^^
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 70, in rank_on
+    if any(x != 0 for x in M[j, ]):
+                           ~^^^^^
+  File "cypari2/gen.pyx", line 1335, in cypari2.gen.Gen.__getitem__
+ValueError: need more than 1 value to unpack
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 78, in <module>
+    r, first = rank_on(ns)
+               ^^^^^^^^^^^
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 70, in rank_on
+    if any(x != 0 for x in M[j, ]):
+                           ~^^^^^
+  File "cypari2/gen.pyx", line 1335, in cypari2.gen.Gen.__getitem__
+ValueError: need more than 1 value to unpack
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 46, in <module>
+    C = pari.mfcoefs(mf, B)  # (B+1) x dim, row n = coefficient a(n)
+        ^^^^^^^^^^^^^^^^^^^
+  File "cypari2/auto_instance.pxi", line 22990, in cypari2.pari_instance.Pari_auto.mfcoefs
+  File "cypari2/handle_error.pyx", line 211, in cypari2.handle_error._pari_err_handle
+cypari2.handle_error.PariError: the PARI stack overflows (current size: 3000000512; maximum size: 3000000512)
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 46, in <module>
+    C = pari.mfcoefs(mf, B)  # (B+1) x dim, row n = coefficient a(n)
+        ^^^^^^^^^^^^^^^^^^^
+  File "cypari2/auto_instance.pxi", line 22990, in cypari2.pari_instance.Pari_auto.mfcoefs
+  File "cypari2/handle_error.pyx", line 211, in cypari2.handle_error._pari_err_handle
+cypari2.handle_error.PariError: the PARI stack overflows (current size: 3000000512; maximum size: 3000000512)
+L=840 N=210 D=5 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=22 dimK=86
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 34.6s (coefs 34.5s)
+L=840 N=210 D=5 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=11 dimK=97
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 33.3s (coefs 33.3s)
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 46, in <module>
+    C = pari.mfcoefs(mf, B)  # (B+1) x dim, row n = coefficient a(n)
+        ^^^^^^^^^^^^^^^^^^^
+  File "cypari2/auto_instance.pxi", line 22990, in cypari2.pari_instance.Pari_auto.mfcoefs
+  File "cypari2/handle_error.pyx", line 211, in cypari2.handle_error._pari_err_handle
+cypari2.handle_error.PariError: the PARI stack overflows (current size: 3000000512; maximum size: 3000000512)
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 46, in <module>
+    C = pari.mfcoefs(mf, B)  # (B+1) x dim, row n = coefficient a(n)
+        ^^^^^^^^^^^^^^^^^^^
+  File "cypari2/auto_instance.pxi", line 22990, in cypari2.pari_instance.Pari_auto.mfcoefs
+  File "cypari2/handle_error.pyx", line 211, in cypari2.handle_error._pari_err_handle
+cypari2.handle_error.PariError: the PARI stack overflows (current size: 3000000512; maximum size: 3000000512)
+L=840 N=210 D=12 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=15 dimK=93
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 39.6s (coefs 39.6s)
+L=840 N=210 D=12 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=7 dimK=101
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 38.6s (coefs 38.6s)
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 78, in <module>
+    r, first = rank_on(ns)
+               ^^^^^^^^^^^
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 70, in rank_on
+    if any(x != 0 for x in M[j, ]):
+                           ~^^^^^
+  File "cypari2/gen.pyx", line 1335, in cypari2.gen.Gen.__getitem__
+ValueError: need more than 1 value to unpack
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 78, in <module>
+    r, first = rank_on(ns)
+               ^^^^^^^^^^^
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/scripts/z59_walds_halfint.py", line 70, in rank_on
+    if any(x != 0 for x in M[j, ]):
+                           ~^^^^^
+  File "cypari2/gen.pyx", line 1335, in cypari2.gen.Gen.__getitem__
+ValueError: need more than 1 value to unpack
+L=840 N=210 D=24 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=20 dimK=88
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 96.1s (coefs 96.0s)
+L=840 N=210 D=24 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=10 dimK=98
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 104.5s (coefs 104.4s)
+L=840 N=210 D=28 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=19 dimK=89
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 22.6s (coefs 22.5s)
+L=840 N=210 D=28 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=7 dimK=101
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 28.4s (coefs 28.3s)
+L=840 N=210 D=40 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=22 dimK=86
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 83.0s (coefs 82.9s)
+L=840 N=210 D=40 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=10 dimK=98
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 60.3s (coefs 60.2s)
+L=840 N=210 D=56 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=22 dimK=86
+  rank of K on C1 (n<=B, 59 indices) = 1  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 1  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 19 indices) = 1  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1009
+  time 73.6s (coefs 73.5s)
+L=840 N=210 D=56 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=11 dimK=97
+  rank of K on C1 (n<=B, 59 indices) = 1  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 1  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 19 indices) = 1  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1009
+  time 69.3s (coefs 69.3s)
+L=840 N=210 D=60 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=21 dimK=87
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 31.2s (coefs 31.2s)
+L=840 N=210 D=60 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=9 dimK=99
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 30.3s (coefs 30.3s)
+L=840 N=210 D=105 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=45 dimK=63
+  rank of K on C1 (n<=B, 59 indices) = 5  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 5  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 19 indices) = 5  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 59 indices) = 5  first nonzero n = 1009
+  time 17.3s (coefs 17.3s)
+L=840 N=210 D=105 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=20 dimK=88
+  rank of K on C1 (n<=B, 59 indices) = 7  first nonzero n = 1
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 7  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 19 indices) = 7  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 59 indices) = 7  first nonzero n = 1
+  time 17.5s (coefs 17.4s)
+L=840 N=210 D=120 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=32 dimK=76
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 75.1s (coefs 75.0s)
+L=840 N=210 D=120 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=16 dimK=92
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 66.0s (coefs 66.0s)
+L=840 N=210 D=140 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=19 dimK=89
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 17.2s (coefs 17.1s)
+L=840 N=210 D=140 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=10 dimK=98
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 17.5s (coefs 17.5s)
+L=840 N=210 D=168 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=31 dimK=77
+  rank of K on C1 (n<=B, 59 indices) = 1  first nonzero n = 2521
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 1  first nonzero n = 2521
+  rank of K on C1-primes (n<=B, 19 indices) = 1  first nonzero n = 2521
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 2521
+  time 51.7s (coefs 51.6s)
+L=840 N=210 D=168 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=15 dimK=93
+  rank of K on C1 (n<=B, 59 indices) = 1  first nonzero n = 2521
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 1  first nonzero n = 2521
+  rank of K on C1-primes (n<=B, 19 indices) = 1  first nonzero n = 2521
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 2521
+  time 52.3s (coefs 52.2s)
+L=840 N=210 D=280 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=38 dimK=70
+  rank of K on C1 (n<=B, 59 indices) = 1  first nonzero n = 1129
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 1  first nonzero n = 1129
+  rank of K on C1-primes (n<=B, 19 indices) = 1  first nonzero n = 1129
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1129
+  time 36.0s (coefs 36.0s)
+L=840 N=210 D=280 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=17 dimK=91
+  rank of K on C1 (n<=B, 59 indices) = 1  first nonzero n = 1129
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 1  first nonzero n = 1129
+  rank of K on C1-primes (n<=B, 19 indices) = 1  first nonzero n = 1129
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1129
+  time 36.8s (coefs 36.8s)
+L=840 N=210 D=840 space=4 dim=108 B=8000 l0=0 #T1-conditions=45 rank(cond)=45 dimK=63
+  rank of K on C1 (n<=B, 59 indices) = 5  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 5  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 19 indices) = 5  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 59 indices) = 5  first nonzero n = 1009
+  time 41.9s (coefs 41.9s)
+L=840 N=210 D=840 space=4 dim=108 B=8000 l0=11 #T1-conditions=20 rank(cond)=20 dimK=88
+  rank of K on C1 (n<=B, 59 indices) = 7  first nonzero n = 1
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 7  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 19 indices) = 7  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 59 indices) = 7  first nonzero n = 1
+  time 40.1s (coefs 40.0s)

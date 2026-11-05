@@ -9,7 +9,8 @@ Then evaluate K on the coefficients n <= B with n in C1(2N) (n = 1 mod 8, n a no
 gcd(n, 2N) = 1, and report the rank of that restriction (0 = every such g vanishes on C1 up to B), and separately
 on Mordell's classes (n mod 840 in M) and on the squarefree / prime n.
 
-Usage: uv run --with cypari2 python scripts/z59_walds_halfint.py L D B [l0]   (l0 = 0: all odd squares m^2)
+Usage: uv run --with cypari2 python scripts/z59_walds_halfint.py L D B [l0] [space]   (l0 = 0: all odd squares m^2;
+       space = pari mfinit flag, default 4 = full space, 1 = cusp forms, 3 = Eisenstein)
 """
 import sys, time
 import cypari2
@@ -19,6 +20,7 @@ pari.allocatemem(3_000_000_000)
 
 L, D, B = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
 l0 = int(sys.argv[4]) if len(sys.argv) > 4 else 11
+SPACE = int(sys.argv[5]) if len(sys.argv) > 5 else 4   # pari mfinit space flag: 4 full, 1 cusp, 3 Eisenstein
 assert L % 4 == 0
 N = L // 4
 MORD = {1, 121, 169, 289, 361, 529}
@@ -38,7 +40,7 @@ def in_C1(n):
 
 
 t0 = time.time()
-mf = pari(f"mfinit([{L},3/2,{D}],4)")
+mf = pari(f"mfinit([{L},3/2,{D}],{SPACE})")
 dim = int(pari.mfdim(mf))
 if dim == 0:
     print(f"L={L} D={D} dim=0")
@@ -67,13 +69,13 @@ def rank_on(ns):
     first = None
     if r:
         for j, n in enumerate(ns):
-            if any(x != 0 for x in M[j, ]):
+            if any(M[j, c] != 0 for c in range(k)):
                 first = n
                 break
     return r, first
 
 
-out = [f"L={L} N={N} D={D} dim={dim} B={B} l0={l0} #T1-conditions={len(rows)} rank(cond)={int(pari.matrank(A))} dimK={k}"]
+out = [f"L={L} N={N} D={D} space={SPACE} dim={dim} B={B} l0={l0} #T1-conditions={len(rows)} rank(cond)={int(pari.matrank(A))} dimK={k}"]
 for name, ns in (("C1", c1), ("C1-squarefree>1", sqf), ("C1-primes", prm), ("Mordell-classes", mord)):
     r, first = rank_on(ns)
     out.append(f"  rank of K on {name} (n<=B, {len(ns)} indices) = {r}" + (f"  first nonzero n = {first}" if first else ""))
