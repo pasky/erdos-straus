@@ -63,21 +63,24 @@ if __name__ == "__main__":
         L = math.log(pmid); mu1 = c1eff(L) * L * L
         nprimes = (10 * x / math.log(10 * x) - x / math.log(x)) / 192.0  # p = 1 (840) in [x, 10x]
         tot = 0.0; best = (0, None, None)
+        # prefix means f_k := mean over {n_p >= l_k} = mu1 * surv(l_k^-)/surv(7) (square-mimicking up to the prime before
+        # l_k); the exact slice {n_p = l_k} has half the supply of the prefix, so by total expectation
+        # f_k = (slice_k + f_{k+1})/2, i.e. slice_k = 2 f_k - f_{k+1}  (review fix: the first version used f_k itself)
+        f = [mu1 * sv(PR[PR.index(l) - 1]) / sv(7) for l in odd_np[:121]]
+        slices = []
         for k, l in enumerate(odd_np[:120], start=1):
-            yprev = PR[PR.index(l) - 1]
-            mu = mu1 * sv(yprev) / sv(7)
+            mu = max(2 * f[k - 1] - f[k], 0.0)
             share = 2.0 ** (-k)
             term = nprimes * share * math.exp(-a * mu ** beta)
-            tot += term
+            tot += term; slices.append((nprimes * share, mu))
             if term > best[0]: best = (term, l, mu)
-        slices = [(nprimes * 2.0 ** (-k), mu1 * sv(PR[PR.index(l) - 1]) / sv(7)) for k, l in enumerate(odd_np[:120], start=1)]
         rows.append((e, tot, best, sv(31) / sv(7), sv(199) / sv(7), slices))
         print(f"[1e{e},1e{e+1}): E(zeros, kappa=1) = {tot:.3e}  dominant n_p = {best[1]} (mu = {best[2]:.1f}, term {best[0]:.2e});"
               f" rho(31) = {rows[-1][3]:.3f} rho(199) = {rows[-1][4]:.3f}; mu_1 = {mu1:.1f}", flush=True)
-    print("# sensitivity (all six Mordell classes modelled as the class of one: x6): E[1e7,1e10) is CERTIFIED to be 0 observed")
-    print("#   a     beta   E[1e5,1e7)   E[1e7,1e10)   E(>1e10)    E(>1e17)")
-    for aa, bb in [(0.398, 1.014), (0.30, 1.0), (0.25, 1.0), (0.20, 1.0), (0.16, 1.0), (0.12, 1.0), (0.80, 0.70), (1.2, 0.6), (2.0, 0.5)]:
+    print("# sensitivity (scenario: all six Mordell classes modelled as the class of one, x6; sums TRUNCATED at 1e31;\n#  for beta = 1/2 the per-prime rate ~ p^(-a sqrt(c1)) and the infinite tail DIVERGES when a sqrt(c1) < 1, c1 = 0.1286);\n#  observed in M: 6 zeros in [1e5,1e7), 0 (CERTIFIED) in [1e7,1e10)")
+    print("#   a     beta   E[1e5,1e7)   E[1e7,1e10)   E[1e10,1e31) E[1e17,1e31)")
+    for aa, bb in [(0.398, 1.014), (0.30, 1.0), (0.25, 1.0), (0.20, 1.0), (0.16, 1.0), (0.12, 1.0), (0.80, 0.70), (1.2, 0.6), (2.0, 0.5), (2.7, 0.5)]:
         E = lambda lo, hi: 6 * sum(sh * math.exp(-aa * mu ** bb) for r in rows if lo <= r[0] < hi for sh, mu in r[5])
         print(f"  {aa:5.3f} {bb:5.2f}  {E(5, 7):10.3e}  {E(7, 10):10.3e}  {E(10, 99):10.3e}  {E(17, 99):10.3e}")
     for e0 in (4, 6, 7, 8, 10, 12, 14, 17):
-        print(f"E(> 1e{e0}) = {sum(r[1] for r in rows if r[0] >= e0):.3e}  (x kappa; kappa ~ 2.5 measured)")
+        print(f"E[1e{e0}, 1e31) = {sum(r[1] for r in rows if r[0] >= e0):.3e}  (class of one only; fitted law)")

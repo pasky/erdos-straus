@@ -1,0 +1,23 @@
+# file data/z58/disproof/cells_2e8.txt, half-octave bins with lower edge >= 10000 (bin = [2^(hb/2), 2^((hb+1)/2))); mu = smoothed cell mean
+R8 zero law: a=0.3979 beta=1.0137 nll=9902.25 zeros=1339 cells=68554 primes=5538137
+  R8 profile: beta fixed 1.0: a = 0.4139, nll = 9902.66
+  R8 profile: beta fixed 0.7: a = 0.9916, nll = 10126.02
+  R8 profile: beta fixed 0.5: a = 1.7987, nll = 10519.25
+R  zero law: a=0.4027 beta=0.9720 nll=91.22 zeros=10 cells=68554 primes=5538137
+cross: R8-law predicts R zeros 4.08 (observed 10); R-law predicts R8 zeros 2619.1 (observed 1339)
+pooled R8+R (composite likelihood: R = 0 implies R8 = 0, observations dependent): a=0.4023 beta=1.0095 nll=9997.42 zeros=1349 cells=137108 primes=11076274
+# R8 calibration by mu bin: mu_lo mu_hi primes zeros predicted(R8-law)
+  [4,6) 118 11 11.7
+  [6,8) 1442 83 75.6
+  [8,10) 5090 106 121.5
+  [10,12) 14590 145 152.0
+  [12,15) 73934 260 261.4
+  [15,20) 743003 469 456.2
+  [20,30) 3921582 265 261.3
+  [30,99) 778378 0 1.1
+# R calibration by mu bin: mu_lo mu_hi primes zeros predicted(R-law) predicted(R8-law) predicted(pooled)
+  [10,14) 122 1 0.88 0.54 0.54
+  [14,18) 1251 2 2.89 1.50 1.51
+  [18,22) 4209 2 2.47 1.03 1.04
+  [22,30) 42597 5 2.72 0.81 0.83
+  [30,99) 5487585 0 1.24 0.20 0.21

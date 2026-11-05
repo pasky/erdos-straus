@@ -78,18 +78,20 @@ int main(int argc, char **argv) {
   for (int q = 3; q < 1000 && nop < 200; q += 2) { int pr = 1; for (int t = 3; t * t <= q; t += 2) if (q % t == 0) pr = 0; if (pr) oddprimes[nop++] = q; }
   if (getenv("K")) K = atoi(getenv("K")); if (getenv("EXACT")) EXACT = atoi(getenv("EXACT"));
   if (argc < 2) { fprintf(stderr, "usage: see header\n"); return 1; }
-  printf("# z58eng %s", argv[1]); for (int i = 2; i < argc; i++) printf(" %s", argv[i]); printf(" K=%d EXACT=%d\n# p S_K S_Ke dmin zR z8 zodd zH3 R R8 RG\n", K, EXACT);
+  printf("# z58eng %s", argv[1]); for (int i = 2; i < argc; i++) printf(" %s", argv[i]); printf(" K=%d EXACT=%d J0=%s\n# p S_K S_Ke dmin zR z8 zodd zH3 R R8 RG\n", K, EXACT, getenv("J0") ? getenv("J0") : "0");
   if (!strcmp(argv[1], "ap")) {
     ll A = atoll(argv[2]); long cnt = atol(argv[3]); ll Q = atoll(argv[4]), a = atoll(argv[5]); int z = atoi(argv[6]);
     ll p = A + (((a - A) % Q) + Q) % Q; long got = 0;
-    for (; got < cnt; p += Q) { if ((p & 3) != 1) { fprintf(stderr, "class not 1 mod 4\n"); return 2; }
+    for (; got < cnt; p += Q) { if (p >= (1LL << 53)) { fprintf(stderr, "p >= 2^53: divides() not exact\n"); return 3; }
+      if ((p & 3) != 1) { fprintf(stderr, "class not 1 mod 4\n"); return 2; }
       if (!filt(p, Q, z) || !isprime((ull)p)) continue; process(p); got++; }
   } else if (!strcmp(argv[1], "nsq")) {
     ll A = atoll(argv[2]); long cnt = atol(argv[3]); ll Q = atoll(argv[4]); ll J = atoll(argv[5]); int z = atoi(argv[6]);
-    ll m = (ll)sqrtl((long double)A); long got = 0;
+    ll m = (ll)sqrtl((long double)A); while ((i128)m * m < A) m++; while (m > 1 && (i128)(m - 1) * (m - 1) >= A) m--; long got = 0;   // m >= sqrt(A)
     for (; got < cnt; m++) { ll g = m, h = 2 * Q; while (h) { ll t = g % h; g = h; h = t; } if (g != 1) continue;
       ll J0 = getenv("J0") ? atoll(getenv("J0")) : 0;
-      for (ll j = J0 + 1; j <= J0 + J && got < cnt; j++) { ll p = m * m + Q * j; if ((p & 3) != 1) continue;
+      for (ll j = J0 + 1; j <= J0 + J && got < cnt; j++) { ll p = m * m + Q * j; if ((p & 3) != 1 || p < A) continue;
+        if (p >= (1LL << 53)) { fprintf(stderr, "p >= 2^53: divides() not exact\n"); return 3; }
         if (!filt(p, Q, z) || !isprime((ull)p)) continue; process(p); got++; } }
   } else if (!strcmp(argv[1], "list")) {
     ll p; while (scanf("%lld", &p) == 1) { if (!isprime((ull)p) || (p & 3) != 1) { fprintf(stderr, "skip %lld\n", p); continue; } process(p); }

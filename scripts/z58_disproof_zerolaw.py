@@ -41,14 +41,24 @@ def fit(mu, z, nn, name):
     return a, b
 def predict(mu, nn, a, b): return (nn * np.exp(-a * mu ** b)).sum()
 mu8 = (s8 / n if EMP else MU8)[keep]; muR = (sR / n if EMP else MUR)[keep]
-print(f"# file {fn}, cells with p >= {pmin:g}; mu = {'empirical' if EMP else 'smoothed'} cell mean")
+print(f"# file {fn}, half-octave bins with lower edge >= {pmin:g} (bin = [2^(hb/2), 2^((hb+1)/2))); mu = {'empirical' if EMP else 'smoothed'} cell mean")
 a8, b8 = fit(mu8, z8[keep], n[keep], "R8 zero law")
+# profile likelihood at fixed beta (review: are slowly decaying beta = 1/2 laws compatible with the R8 data?)
+def nll_fixed(mu, z, nn, beta):
+    from scipy.optimize import minimize_scalar
+    def f(la):
+        lp = np.minimum(-math.exp(la) * mu ** beta, -1e-12)
+        return -(z * lp + (nn - z) * np.log1p(-np.exp(lp))).sum()
+    r = minimize_scalar(f, bounds=(-6, 4), method='bounded'); return math.exp(r.x), r.fun
+for bfix in (1.0, 0.7, 0.5):
+    af, nf = nll_fixed(mu8, z8[keep], n[keep], bfix)
+    print(f"  R8 profile: beta fixed {bfix}: a = {af:.4f}, nll = {nf:.2f}")
 aR, bR = fit(muR, zR[keep], n[keep], "R  zero law")
 print(f"cross: R8-law predicts R zeros {predict(muR, n[keep], a8, b8):.2f} (observed {zR[keep].sum():.0f}); "
       f"R-law predicts R8 zeros {predict(mu8, n[keep], aR, bR):.1f} (observed {z8[keep].sum():.0f})")
 # pooled (both counts as separate lotteries in one law)
 mu = np.concatenate([mu8, muR]); z = np.concatenate([z8[keep], zR[keep]]); nn = np.concatenate([n[keep], n[keep]])
-aP, bP = fit(mu, z, nn, "pooled R8+R")
+aP, bP = fit(mu, z, nn, "pooled R8+R (composite likelihood: R = 0 implies R8 = 0, observations dependent)")
 # calibration table by mu bins (R8)
 print("# R8 calibration by mu bin: mu_lo mu_hi primes zeros predicted(R8-law)")
 for lo, hi in [(0, 2), (2, 4), (4, 6), (6, 8), (8, 10), (10, 12), (12, 15), (15, 20), (20, 30), (30, 99)]:
