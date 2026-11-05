@@ -662,21 +662,30 @@ specified classes, none a necessity theorem for every proof, none proves or refu
     g(t) = Σ g_φ(t) over the **Gauss-exceptional** φ only: those whose twist G_φ = φ ⊗ ψχ₋₄ has L(G_φ, ½) = 0. T1 pins
     a(1); Waldspurger carries it to the whole square class. Cor W2: no Gauss-exceptional φ ⟹ g vanishes on squarefree 𝒞₁.
   * Lemma W1′ (PROVED rel. Cor 2): each φ with an L-non-zero anchor in 𝒞₁ (or satisfying Waldspurger's (H2)) gives at most
-    one line on squarefree 𝒞₁. Prop W4: for one such line, positivity at a prime p is L(½, G_φ ⊗ χ_p) ≠ 0 ((b)/(c) need
-    (H2) for every contributing φ); (d) one non-zero value at a squarefree R-zero in 𝒞₁ makes a single-line proxy invalid.
-    Remark W3: the root number is constant on 𝒞₁ (sign −1 components vanish there under (H2); else CONDITIONAL on (W-loc)).
-  * Prop W5 (PROVED, elementary): for a proxy effective on a class, validity at large primes of the class ⟺ (MS) there —
-    a reformulation, not a circularity theorem. Lemma W0 (PROVED rel. Thm F): a lattice of level 4N with r_L(ℓ²) = 0 for
+    one line on squarefree 𝒞₁. Prop W4: for p ∈ 𝒞₁(2N), a non-zero single-eigensystem restriction has g(p) ≠ 0 iff
+    L(½, G_φ ⊗ χ_p) ≠ 0, under W1′'s L-non-zero anchor hypothesis (with non-zero coefficient restriction), or under (H2)
+    with K_φ(g) ≠ 0. Only if g is valid does g(p) ≠ 0 force R(p) > 0; for several contributing eigensystems under (H2),
+    non-cancellation of the sum is required ((b)/(c) need (H2) for every contributing φ). The L-value controls g(p) ≠ 0,
+    not the sign of g(p). (d): one non-zero value at a squarefree R-zero in 𝒞₁ makes a single-line proxy invalid.
+    Remark W3: the root number is constant on 𝒞₁ (PROVED); vanishing of sign −1 coefficient components there needs (H2),
+    else CONDITIONAL on (W-loc).
+  * Prop W5 (PROVED, elementary): for g effective on a prime class 𝒞, eventual validity on 𝒞 is equivalent to eventual
+    R(p) ≥ 1 on 𝒞 — a reformulation, not a circularity theorem. This does not by itself give (MS), which requires every
+    𝔐-prime p > 10¹⁷: the effectiveness and validity thresholds must both be ≤ 10¹⁷, or the finite gap covered. Lemma W0 (PROVED rel. Thm F): a lattice of level 4N with r_L(ℓ²) = 0 for
     large ℓ represents no n ∈ 𝒞₁(2N); so termwise (★)-recipe lattices never reach the square class (any ψ, non-negative
     combinations).
   * CERTIFIED (exact, finite): at 24 levels L | 3360 and every ψ (121 (L, ψ) pairs), every valid proxy vanishes on
     𝒞₁ ∩ [1, B] (B ≈ 10⁴; full space, except L = 840, ψ ∈ {1, χ₈, χ₂₁}: TERNARY class only; χ₁₀₅, χ₈₄₀ full space to
     B = 8000). The 15 non-zero T1-kernels are non-zero at known R-zeros (5569, 9601, 23929; 1969, 2641, 5161).
-  * PROVED: "L(G_φ ⊗ χ_p, ½) ≠ 0 at *every* p in the class" is false for the survivors found (13 𝒞₁-primes, six in 𝔐:
-    1009, 1129, 1201, 1801, 4201, 4729). Eventual non-vanishing is unproved; GRH does not give it (Assessment); a
-    residue-class refinement of CKRS (CONJECTURE, not stated in CKRS) predicts infinitely many zeros.
-  * Not excluded: (E-a) levels with several Gauss-exceptional φ plus a validity identity; (E-b) coset thetas; (E-c) mixed
-    ψ signed combinations; (E-d) higher half-integral weight; (E-e) off-𝒞₁ classes / p-dependent levels (= B2, n_p wall).
+  * PROVED: "L(G_φ ⊗ χ_p, ½) ≠ 0 at *every* p in the class" is false for the explicitly tested conductor-84 twist at
+    (168, χ₁₆₈) (13 𝒞₁-primes, six in 𝔐: 1009, 1129, 1201, 1801, 4201, 4729); not a statement about every eigensystem.
+    Eventual non-vanishing is unproved; GRH does not give it (Assessment). For rational G_φ (elliptic curves), a
+    residue-class refinement of CKRS with a positive constant in the chosen class predicts infinitely many prime-twist
+    zeros; this refinement is not stated in CKRS and is CONJECTURE; irrational eigensystems need a further extension.
+  * Not excluded: (E-a) levels with several Gauss-exceptional φ plus a validity identity proved from independent input
+    (none supplied); (E-b) coset thetas; (E-c) mixed ψ signed combinations; (E-d) higher half-integral weight; (E-e)
+    off-𝒞₁ classes (for a termwise recipe-lattice strategy: growing/adaptive levels with some odd level prime ℓ,
+    (p/ℓ) = −1, hence ℓ ≥ n_p — B2 / n_p wall; not a necessity theorem for arbitrary signed multi-eigensystem proxies).
 * **Type II coordinate lines** (`Z59_CONV2.md` §§2–4; PROVED).
   * Prop 3.1: within one coordinate system, on a *shared* integer the c = 1 and a = 1 events are nested (T-system: for
     4 | T an a = 1 event on Tn + 1 is a (★) event; shift system: the reverse), so rescue there is one-directional; a (★)-zero
@@ -687,9 +696,11 @@ specified classes, none a necessity theorem for every proof, none proves or refu
     a prime p (the source must be divisible by p); N_II(p)[k | c] = N^{(4k)}(pk), and no Type II solution at p has p | c.
   * Prop 2.1: Type II relaxes the tie on 4mp + 1 from 4m to ≥ 2√(4m) (never a bounded modulus). §3: fixed finite (T, f)
     menus fail on a congruence class (Z57_BFII Prop 3.2 argument). Adaptive or growing arguments across integers are not excluded.
-* **Means and dead moduli** (`Z59_MSPLUS.md`). Thm 1 (§2.4 z59) is square-blind and identical for R₈, so a means mechanism
-  alone cannot be a proof route (Assessment). Lemma 4.1 (PROVED): for non-square s ≡ 1 (4), R(s m²) = 0 on a density-0 set
-  of odd m (no positive-density twisted T1 for (★), unlike numerator K ≥ 8). Unconditional product / divisor /
+* **Means and dead moduli** (`Z59_MSPLUS.md`). The fixed-Q leading residue-class coefficient of Thm 1 (§2.4 z59) is
+  Jacobi-blind; R₈ has the same odd local factors and half the leading coefficient. These leading means alone supply
+  neither non-square discrimination nor pointwise positivity (Assessment); square-sensitive main terms (e.g. M_BM, §2.2),
+  other density inputs or additional arithmetic steps are not excluded. Lemma 4.1 (PROVED): for each fixed positive
+  non-square s ≡ 1 (4), R(s m²) = 0 on a density-0 set of odd m; thin infinite zero subfamilies are not excluded (no positive-density twisted T1 for (★), unlike numerator K ≥ 8). Unconditional product / divisor /
   q²-scaling closures of R ≥ 1 fail (CERTIFIED: 12 538 801 = 517·24 253; 4545).
 * **Witness constraints, rederived** (`Z59_CONVO.md`, `Z59_MSPF.md`; PROVED, largely prior: Z57_BFII, Z58_CONVF,
   JOINT_BUDGET, Z56_FAMTRY, Z57_SYNTH, Z58_WITNESS). Every hit modulus d of a non-square n ≡ 1 (4) has (d/n) = −1, hence
@@ -2184,7 +2195,9 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     * **CONV-II (hot target, statement level; CONJECTURE).** Every odd non-square n ≠ 4545 has N_II(n) ≥ 1 (§2.4).
       * Prime form: (MS-II) for p > 10¹⁷ in 𝔐.
       * It is equivalent to IHP_BM for the positive-integral Type II model at every odd n ≠ 4545 (`Z58_STRUCT2.md` §5.1).
-      * *Why:* it is the only carried target whose statement passes F1–F4 (§4) in the tested ranges.
+      * *Why:* at the z58 checkpoint it was singled out as the only carried target whose statement passes F1–F4 (§4) in
+        the tested ranges (statement-level, not a mechanism). z59 adds the smaller-family CONJECTURE U_II with explicit
+        exceptions {105, 4545} (item 19).
       * PROVED witness constraint: for odd positive n, every positive Type II witness supplies f = 4acd − 1 with
         (n/f) = −1. Assessment / proposed strategy: seek a pointwise Type II construction using non-squareness and
         resolving the tied divisor-class event (B2). This is not a necessity theorem about how every proof of CONV-II,
