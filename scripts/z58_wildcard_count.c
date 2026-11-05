@@ -2,15 +2,18 @@
 // for primes p ≡ 1 (mod 4) in [lo, hi), for K = 4, 8, ..., 4*KMAXQ.  Exact (a,b)-loop: K a b d = n + e, e | a + b
 // (e = (a+b)/c); since K ab > a + b there is at most one e per (a,b): e = (-n mod Kab) if 1 <= e <= a+b and e | a+b.
 // Output per prime: p N4 R4(c=1) N8 R8 N12 R12 ...
-// Usage: count lo hi KMAXQ [step]  (step: take every step-th prime ≡ 1 mod 4)
+// Usage: count lo hi KMAXQ [step] [mordell]  (step: every step-th eligible prime; mordell=1: only p mod 840 in
+//        {1,121,169,289,361,529}).  Requires LP64 (64-bit long).
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 typedef unsigned long long u64;
 static int isprime(u64 n){ if(n<2) return 0; for(u64 q=2;q*q<=n;q++) if(n%q==0) return 0; return 1; }
 int main(int argc,char**argv){
-  u64 lo=strtoull(argv[1],0,10),hi=strtoull(argv[2],0,10); int KQ=atoi(argv[3]); int step=argc>4?atoi(argv[4]):1; int cnt=0;
-  for(u64 n=lo|1;n<hi;n+=2){ if((n&3)!=1||!isprime(n)) continue; if((cnt++)%step) continue;
+  if(argc<4){fprintf(stderr,"usage: count lo hi KMAXQ [step] [mordell]\n");return 1;}
+  u64 lo=strtoull(argv[1],0,10),hi=strtoull(argv[2],0,10); int KQ=atoi(argv[3]); int step=argc>4?atoi(argv[4]):1; int mord=argc>5?atoi(argv[5]):0; int cnt=0;
+  if(KQ<1||step<1||hi>4000000000ULL){fprintf(stderr,"bad args\n");return 1;}
+  for(u64 n=lo|1;n<hi;n+=2){ if((n&3)!=1||!isprime(n)) continue; if(mord){ u64 r=n%840; if(r!=1&&r!=121&&r!=169&&r!=289&&r!=361&&r!=529) continue; } if((cnt++)%step) continue;
     printf("%llu",n);
     for(int kq=1;kq<=KQ;kq++){ u64 K=4*kq; u64 N=0,R=0;
       for(u64 a=1;K*a+0 <= n + a + 1;a++){            // b >= 1: K a b <= n + a + b needs K a <= n + a + 1 at b = 1

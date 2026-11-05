@@ -31,9 +31,12 @@ static int exact(u64 n,long*oa,long*ob,long*oc,long*od){
     }
   return 0;}
 int main(int argc,char**argv){
+  if(argc<5){fprintf(stderr,"usage: census K lo hi FMAX [primes_only] [mod4] [coprime]\n");return 1;}
+  if(sizeof(long)<8){fprintf(stderr,"needs LP64\n");return 1;}
   K=atol(argv[1]); u64 lo=strtoull(argv[2],0,10),hi=strtoull(argv[3],0,10); long FMAX=atol(argv[4]);
   int primes_only=argc>5?atoi(argv[5]):0; int m4=argc>6?atoi(argv[6]):0; COP=argc>7?atoi(argv[7]):0; DODD=getenv("Z58DODD")?atoi(getenv("Z58DODD")):0; DUMP=getenv("Z58DUMP")?strtoull(getenv("Z58DUMP"),0,10):0;
-  bm=calloc(FMAX+1,sizeof(uint8_t*));
+  if(K<4||K%4||FMAX<K-1||hi<=lo){fprintf(stderr,"bad args (K>=4, K%%4==0, FMAX>=K-1, lo<hi)\n");return 1;}
+  bm=calloc(FMAX+1,sizeof(uint8_t*)); if(!bm) return 2;
   for(long f=K-1;f<=FMAX;f+=K){ long m=(f+1)/K; bm[f]=calloc(f/8+1,1);
     for(long c=1;c<=m;c++){ if(m%c) continue; long ci=inv(c,f); if(ci<0) continue; long mc=m/c;
       for(long a=1;a<=mc;a++){ if(mc%a) continue; if(DODD && ((mc/a)&1)==0) continue; long t=(long)((u64)a*ci%f); bm[f][t>>3]|=1<<(t&7);} } }
@@ -65,7 +68,7 @@ int main(int argc,char**argv){
     }}
   printf("# coprime=%d dodd=%d\n",COP,DODD); printf("# K=%ld range [%llu,%llu) odd%s mod4=%d FMAX=%ld: tested %ld; squares(no witness, T1) %ld; nonsquare without witness<=FMAX %ld; exact zeros %ld (primes %ld)\n",
     K,lo,hi,primes_only?" primes":"",m4,FMAX,tested,nsq,nlate,nzero,nzeroP);
-  printf("# max least witness %ld at n=%llu; among primes %ld at p=%llu\n",maxf,argmax,maxfP,argmaxP);
+  printf("# max least witness among bitmap hits <= FMAX (LATE n excluded) %ld at n=%llu; among primes %ld at p=%llu\n",maxf,argmax,maxfP,argmaxP);
   long cum=0; printf("# hist (f count cumfrac) for f with count>0 (f>=1000 only listed if count>0):\n");
   for(long f=K-1;f<=FMAX;f+=K){ if(hist[f]){cum+=hist[f]; if(f<200||f>=1000) printf("# %ld %ld %.8f\n",f,hist[f],(double)cum/tested);} }
   return 0;}
