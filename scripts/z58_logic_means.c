@@ -8,13 +8,16 @@
 #include <math.h>
 typedef long long ll;
 int main(int argc, char **argv) {
-  ll N = atoll(argv[1]), H = N / 4 + 1;
-  uint16_t *R = calloc(H, 2); char *comp = calloc(N / 2 + 1, 1);
+  if (argc < 2) { fprintf(stderr, "usage: N (1000 <= N <= 4e9)\n"); return 1; }
+  ll N = atoll(argv[1]); if (N < 1000 || N > 4000000000LL) { fprintf(stderr, "N out of safe range\n"); return 1; }
+  ll H = N / 4 + 1, sat = 0;
+  uint16_t *R = calloc(H, sizeof *R); char *comp = calloc(N / 2 + 1, 1);
+  if (!R || !comp) { fprintf(stderr, "alloc\n"); return 2; }
   for (ll u = 1; 3 * u - 1 <= N; u++)
     for (ll B = 1; 4 * u * B - u - B <= N; B++) {
       if (((u + B) & 3) != 3) continue;
       ll s = u * B, i = (4 * u * B - u - B - 1) / 4, I = (N - 1) / 4;
-      for (; i <= I; i += s) if (R[i] < 65535) R[i]++;
+      for (; i <= I; i += s) { if (R[i] < 65535) R[i]++; else sat++; }
     }
   for (ll q = 3; q * q <= N; q += 2) if (!comp[q / 2]) for (ll j = q * q; j <= N; j += 2 * q) comp[j / 2] = 1;
   int Mo[840] = {0}; Mo[1] = Mo[121] = Mo[169] = Mo[289] = Mo[361] = Mo[529] = 1;
@@ -27,6 +30,7 @@ int main(int argc, char **argv) {
     s[k] += v; c[k]++; if (R[i] == 0) z[k]++;
     if (k == 1) { s[0] += v; c[0]++; if (R[i] == 0) z[0]++; }
   }
+  if (sat) fprintf(stderr, "WARNING: %lld increments saturated at 65535; means are lower bounds\n", sat);
   printf("# n = 1 (4) in [%lld, %lld]: class count mean(R/L^2) zeros   (P includes PM)\n", N / 10, N);
   for (int k = 0; k < 6; k++) printf("%s %lld %.4f %lld\n", nm[k], c[k], c[k] ? s[k] / c[k] : 0, z[k]);
   return 0;

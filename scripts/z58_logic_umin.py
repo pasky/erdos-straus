@@ -1,6 +1,6 @@
 # z58 LOGIC: least u-form witness u_min(p) := least u >= 1 such that p + u has a divisor d = -1 (mod 4u)
 # (equivalently the least remainder r over all hits d; Z57_SYNTH Lemma A.1), at sampled primes, by factoring p+1, p+2, ...
-# Samples: random Mordell-class primes at several sizes, and "square-mimicking" primes p = 1 (mod 8*prod_{3<=l<=y} l)
+# Samples (decades [10^e, 10^(e+1)); sympy isprime = probable-prime test beyond 2^64): random Mordell-class primes at several sizes, and "square-mimicking" primes p = 1 (mod 8*prod_{3<=l<=y} l)
 # (quadratic residues mod every prime <= y; n_p > y). Prints per row: label, size, count, mean/max u_min, argmax.
 # usage: uv run --with sympy python scripts/z58_logic_umin.py
 import random, math, sys

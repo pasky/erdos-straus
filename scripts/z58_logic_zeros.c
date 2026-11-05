@@ -9,7 +9,7 @@
 typedef long long ll;
 int main(int argc, char **argv) {
   if (argc < 2) { fprintf(stderr, "usage: N\n"); return 1; }
-  ll N = atoll(argv[1]);
+  ll N = atoll(argv[1]); if (N < 5 || N > 40000000000LL) { fprintf(stderr, "N out of safe range [5, 4e10]\n"); return 1; }
   ll H = N / 4 + 1;                         // index (n-1)/4 for n = 1 (4)
   uint64_t *hit = calloc(H / 64 + 1, 8);
   if (!hit) { fprintf(stderr, "alloc\n"); return 2; }

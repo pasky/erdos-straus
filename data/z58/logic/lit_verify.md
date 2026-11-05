@@ -4,15 +4,18 @@ Research note: quotations below are from the cited primary source or its abstrac
 
 ## 1. Buss (1986), bounded arithmetic and witnessing — PARTLY
 
-The core characterization is standard and consistent with Buss’s thesis: the polynomial-time functions are precisely the [1mΣᵇ₁-definable functions of S¹₂[0m; the corresponding higher-level characterization is generally stated as Σᵇᵢ-definable functions of Sᵢ₂ being FP^{Σᵖᵢ₋₁}. The requested existential witnessing claim also matches the S¹₂ witnessing theorem. I did not retrieve a legible theorem number and exact theorem wording from the OCR thesis in this pass, so these exact formulations are not marked fully verified here.
+The core characterization is standard and consistent with Buss’s thesis: the polynomial-time functions are precisely the Σᵇ₁-definable functions of S¹₂; the corresponding higher-level characterization is generally stated as Σᵇᵢ-definable functions of Sᵢ₂ being FP^{Σᵖᵢ₋₁}. The requested existential witnessing claim also matches the S¹₂ witnessing theorem. I did not retrieve a legible theorem number and exact theorem wording from the OCR thesis in this pass, so these exact formulations are not marked fully verified here.
 
 Source: Samuel R. Buss, *Bounded Arithmetic* (1986 thesis), https://mathweb.ucsd.edu/~sbuss/ResearchWeb/BAthesis/Buss_Thesis_OCR.pdf (full thesis; search indexed as “Bounded Arithmetic”). Relevant survey search result: https://www.karlin.mff.cuni.cz/~krajicek/ml-14-4-23.pdf .
 
-## 2. Buss–Krajíček (1994) PLS and Buss (1990) conservation — PARTLY
+## 2. Buss–Krajíček (1994) PLS and Buss (1990) conservation — VERIFIED (by the internal reviewer, z58 LOGIC §8)
 
-The PLS characterization is attributed in the literature to Buss–Krajíček, but I did not verify the exact PLMS article’s theorem text in this pass. The proposed inference that S²₂ Σᵇ₁ consequences are witnessed in PLS is consistent with the stated witnessing/conservation results; it is not independently quoted here. The conservation claim is usually given as Sᵢ₊₁₂ being Σᵇᵢ₊₁-conservative over Tᵢ₂, not with the index shifted to Tᵢ₂ as in some informal phrasings; check the source’s precise indexing and formula class before relying on that restatement.
-
-Buss–Krajíček paper record/search: https://mathweb.ucsd.edu/~sbuss/ResearchWeb/Si2Ti2sep/index.html . A later source describes their characterization as “PLS ≡ Σ̂ᵇ₁” (notation-dependent): https://www.karlin.mff.cuni.cz/~krajicek/low.pdf . No exact theorem-number quotation located for the requested 1990 conservation claim.
+* Buss, *Axiomatizations and conservation results for fragments of bounded arithmetic*, Theorem 5: S₂^{i+1} is
+  ∀Σ^b_{i+1}-conservative over T₂^i. https://mathweb.ucsd.edu/~sbuss/ResearchWeb/BAaxioms/camera.pdf
+* Buss–Krajíček, *An application of Boolean complexity to separation problems in bounded arithmetic*, Theorem 5.3:
+  the Σ^b_1-definable search problems of T¹₂ are (polynomial-time projections/reductions of) PLS problems.
+  https://mathweb.ucsd.edu/~sbuss/ResearchWeb/Si2Ti2sep/paper.pdf
+(The research subagent's original entry, which marked this PARTLY and raised an indexing doubt, is superseded.)
 
 ## 3. Krajíček–Pudlák (1998), cryptography and primality — PARTLY
 
@@ -60,11 +63,16 @@ Graham–Ringrose’s infinitely-often lower bound is supported by the survey/se
 
 Graham–Ringrose secondary source: https://campus.lakeforest.edu/trevino/Spring2026/Math499/Elmhurst.pdf ; additional survey: https://campus.lakeforest.edu/trevino/SurveyLeastNonResidue.pdf . Bach bound reported in the latter (citing Bach, *Math. Comp.* 55 (1990)): https://campus.lakeforest.edu/trevino/SurveyLeastNonResidue.pdf .
 
-## 10. Formalizing AKS / PRIMES∈P — VERIFIED (new work, not Jeřábek); partly as framed
+## 10. Formalizing AKS / PRIMES∈P — VERIFIED (corrected after internal review)
 
-There is now a direct bounded-arithmetic formalization result: Jalali, *Feasibility of Primality in Bounded Arithmetic* (2025 preprint / 2026 journal version), whose abstract says: “We prove the correctness of the AKS algorithm … within the bounded arithmetic theory T₂^count or, equivalently, the first-order theory APC₁.” Therefore a positive published/preprint result exists, but it should not be attributed to Jeřábek’s “Iterated multiplication in VTC⁰.” A separate paper abstract says Jeřábek proved correctness of Rabin–Miller in S²₂ + iWPHP(PV) + PHP(PV), distinct from AKS.
-
-AKS result: https://arxiv.org/abs/2504.17041 ; journal publication: https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/feasibility-of-primality-in-bounded-arithmetic/18A1BD004161C115D21E117A20B0B172 . Secondary abstract reporting Rabin–Miller: https://arxiv.org/pdf/2504.17041 .
+arXiv:2504.17041v2 (Jalali–Ježil, *Feasibility of Primality in Bounded Arithmetic*, updated 2026-01-27; Forum of
+Mathematics, Sigma 14 (2026) e49), abstract verbatim: "We prove the correctness of the AKS algorithm within the bounded
+arithmetic theory T^count_2 or, equivalently, the first-order consequences of the theory VTC^0 expanded by the smash
+function, which we denote by VTC^0_2. Our approach initially demonstrates the correctness within the theory
+S^1_2 + iWPHP augmented by two algebraic axioms and then show that they are provable in VTC^0_2." (Checked by the lane
+via the arXiv API.) There is **no** identification with APC₁; the subagent's earlier "equivalently APC₁" was wrong. The
+authors are Jalali and Ježil. Per the internal reviewer, their introduction notes that an S¹₂ proof of AKS correctness
+would yield polynomial-time factoring.
 
 ## 11. Paris–Wilkie–Woods (1988) and infinitude of primes — VERIFIED (attribution/result), theorem wording not independently quoted
 
