@@ -5,7 +5,7 @@
 // Usage: ./hits N [mode]   mode 0: all n≡1(4) in M (mod 840 classes), print zeros + summary
 //                          mode 1: primes in M only, print per-prime line
 //                          mode 2: all n ≡ 1 (4) (incl. outside M), print zeros only
-// Per-line output: n  tag  R  Rodd(C odd)  Reven(C even)  dmin  kmin_at_dmin  q1  (dmin prime?)
+// Per-line output: n tag R Rodd(C odd) Reven(C even) dmin kmin_at_dmin q1 (dmin prime?) Rprime(hits with d prime; d<=M needed) kming(min k over all hits)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,15 +24,18 @@ static int jacobi(long long a, long long m){ // m odd positive
   }
   return m==1? r:0;
 }
-static int least_qnr(long long n){ // least prime q with (n/q)... we want chi_n(q) = (q/n) = -1 (Jacobi); n≡1(4) so (q/n)=(n/q) for odd q
+static long long sieveM; // sieve bound (spf valid for indices <= sieveM)
+static int least_qnr(long long n, int issq){ // least prime q with chi_n(q) = (q/n) = -1 (Jacobi); 0 for squares (none exists); -1 if not found below min(sieveM,100000)
+  if(issq) return 0;
   if(n%8!=1) return 2; // (2/n) = -1 iff n ≡ ±3 mod 8
-  for(long long q=3;;q+=2){ if(spf[q]!=q) continue; if(jacobi(q,n)==-1) return (int)q; if(q>100000) return -1; }
+  for(long long q=3;q<=sieveM && q<=100000;q+=2){ if(spf[q]!=q) continue; if(jacobi(q,n)==-1) return (int)q; }
+  return -1;
 }
 
 int main(int argc,char**argv){
   N=atoll(argv[1]); int mode = argc>2? atoi(argv[2]):0;
-  long long M = N + (long long)sqrt((double)N) + 10;
-  spf=(unsigned int*)calloc(M+1,sizeof(unsigned int));
+  long long M = (4*N)/3 + (long long)sqrt((double)N) + 100; // hit moduli are <= n + B <= 4n/3 + 1
+  sieveM=M; spf=(unsigned int*)calloc(M+1,sizeof(unsigned int));
   for(long long i=2;i<=M;i++) if(!spf[i]){ for(long long j=i;j<=M;j+=i) if(!spf[j]) spf[j]=(unsigned int)i; }
   static const int Mcls[6]={1,121,169,289,361,529};
   long long zeros=0, cnt=0;
@@ -42,7 +45,7 @@ int main(int argc,char**argv){
     int isprime = (n>1 && spf[n]==n);
     if(mode==1 && !isprime) continue;
     long long s=(long long)sqrt((double)n); int issq = (s*s==n)||((s+1)*(s+1)==n);
-    long long R=0,Rodd=0,Reven=0,dmin=0,kmin=0;
+    long long R=0,Rodd=0,Reven=0,dmin=0,kmin=0,Rprime=0,kming=0;
     long long kmax=(long long)sqrt((double)n/2)+1;
     for(long long k=1;k<=kmax;k++){
       long long m=n+k; // factor
@@ -55,7 +58,9 @@ int main(int argc,char**argv){
           long long B=(n+k)/d, C=(d+1)/(4*k);
           int mult = (B==k)?1:2; // swapped pair (B,k) has min = k too only if B<=kmax; count symmetric pairs once here
           if(B!=k && B<=kmax) mult=1; // the swap will be found when k'=B
-          R+=mult; if(C%2) Rodd+=mult; else Reven+=mult;
+          R+=mult; if(C%2) Rodd+=mult; else Reven+=mult; if(kming==0) kming=k;
+          if(spf[d]==d) Rprime++;
+          if(B>kmax){ long long d2=(n+B)/k; if(spf[d2]==d2) Rprime++; } // swapped pair's modulus; sieve covers d2 <= 4n/3+1
           if(dmin==0||d<dmin){dmin=d;kmin=k;}
           if(B!=k && B>kmax){ // swapped solution (k'=B, B'=k): its d' = (n+B)/k, C' = (d'+1)/(4B)
             long long d2=(n+B)/k; if(d2<dmin){dmin=d2;kmin=B;}
@@ -63,10 +68,10 @@ int main(int argc,char**argv){
       }}
     }
     cnt++;
-    int q1 = least_qnr(n);
+    int q1 = least_qnr(n,issq);
     if(R==0) zeros++;
     if(mode==1 || R==0)
-      printf("%lld %s R=%lld Rodd=%lld Reven=%lld dmin=%lld kmin=%lld q1=%d dminprime=%d\n", n, issq?"SQ":(isprime?"P":"C"), R,Rodd,Reven,dmin,kmin,q1, (dmin>1&&spf[dmin]==dmin));
+      printf("%lld %s R=%lld Rodd=%lld Reven=%lld dmin=%lld kmin=%lld q1=%d dminprime=%d Rprime=%lld kming=%lld\n", n, issq?"SQ":(isprime?"P":"C"), R,Rodd,Reven,dmin,kmin,q1, (dmin>1&&spf[dmin]==dmin), Rprime, kming);
   }
   fprintf(stderr,"done: %lld n examined, %lld zeros\n",cnt,zeros);
   return 0;

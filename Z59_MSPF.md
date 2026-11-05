@@ -14,26 +14,31 @@ relevant falsifier is answered explicitly next to the proof; where it does not, 
 * **(F1) Odd squares.** R(m²) = 0 for every odd m (CERTIFIED in data/z58/screens/README.md; re-proved below as Lemma 1.3:
   for every admissible pair (d, k), −k is a Jacobi non-residue mod d). Consequence (Lemma 1.4): *no* argument that uses
   only congruence information about n (n mod M for any fixed M, or any finite set of residue conditions) can prove the
-  target, because odd squares occupy every residue class in 𝔐 that the target concerns. A correct proof must use a
-  global property of n that distinguishes it from m² — the only such property available in the problem is that the
-  Jacobi character χ_n(·) = (·/n) is non-principal (it is principal iff n is a square). Every step of any proof
-  below must point to where this is used; the step that fails at n = m² must be identified.
-* **(F2) C even alone.** The C-even part of the family (4uBC − u − B = n with C even ⇔ 8u′BC′ … see §1) fails at 4
-  primes in 𝔐 ∩ [10¹⁰, 1.1·10¹⁰] (data/z58/screens/r8_zeros_1e10.txt, those with p mod 840 ∈ 𝔐). So any argument that
-  only ever produces even C (e.g. only uses moduli 8k | n + k + B) is wrong; the memo must say which parity of C the
-  construction produces and why odd C is reachable.
+  target on a class containing squares, because odd squares occupy every residue class in 𝔐 that the target concerns.
+  A correct proof must use some global property of n that distinguishes it from m²; the one made visible by the
+  structure here (Lemma 1.5) is that the Jacobi character χ_n(·) = (·/n) is non-principal (it is principal iff n is a
+  square), but other global properties (e.g. the factorisation of n + k) are also non-congruential and are not
+  excluded. Any proof must identify the step that fails at n = m².
+* **(F2) C even alone.** The C-even part of the family (4uBC − u − B = n with C even ⇔ 8uB | n + u + B ⇔ d ≡ −1
+  (mod 8u), see §1) fails at 4 primes in 𝔐 ∩ [10¹⁰, 1.1·10¹⁰] (data/z58/screens/r8_zeros_1e10.txt, those with
+  p mod 840 ∈ 𝔐; recomputed in §4). So an argument that only ever produces even C must exclude those primes by its
+  threshold or hypotheses; the memo must say which parity of C a construction produces.
 * **(F3) Non-square zeros.** Inside 𝔐 non-square zeros exist up to 17 401 609 and nowhere in (17 401 609, 10¹¹];
   outside 𝔐 non-square zeros continue indefinitely (mostly 3 | n, 5 | n or 7 | n). Any proof must (a) produce an explicit
   threshold n₀ (or explain why it cannot), with n₀ > 17 401 609, and (b) fail for n ∉ 𝔐 — the step that uses
-  n ≡ 1 (24), (n/5) = (n/7) = 1 must be identified. (For n with 3 | n, 5 | n or 7 | n the moduli d divisible by 3, 5, 7
-  are dead, which is the explanation of most outside-𝔐 zeros; the memo must not rely on those d.)
+  n ≡ 1 (24), (n/5) = (n/7) = 1 must be identified (the statement outside 𝔐 is false in the data, so a proof that does
+  not use membership in 𝔐 is wrong; it need not fail at every n ∉ 𝔐). The parenthetical facts about zeros in
+  (17 401 609, 10¹¹] and outside 𝔐 are quoted from the lane brief as certified there; this memo recomputes only up
+  to 10⁷ (and 12 single primes near 10¹⁰). For n with 3 | n, 5 | n or 7 | n every modulus d divisible by 3, 5, 7 is
+  unavailable (Lemma 1.5: gcd(d, n) = 1), which removes the small-modulus witnesses but does not by itself explain
+  any particular zero (n = 21 has the witness d = 11).
 * **(F4) The nine prime zeros** 5569, 9601, 83449, 102001, 712321, 1724209, 1726201, 5212561, 8813281 (all in 𝔐).
   Any construction (choice of d, k as functions of n) must be evaluated at these nine; it must fail there, and the memo
   must say which hypothesis (size, a "sufficiently large" threshold, or a structural hypothesis) excludes them.
 
 Surviving all four honestly = hot lead, to be flagged in the title and committed at once.
 
-## §1 Reformulations and the obstruction (all PROVED; numerically checked, §6)
+## §1 Reformulations and the obstruction (all PROVED; numerically checked, §5)
 
 Notation. ℕ = {1, 2, …}. R(n) := #{(u, B, C) ∈ ℕ³ : 4uBC − u − B = n}. (·/·) is the Jacobi symbol. For n ≡ 1 (4) put
 χ_n(d) := (d/n) (Jacobi symbol with lower entry n; a real Dirichlet character mod n, principal iff n is a perfect square).
@@ -73,14 +78,15 @@ From k ≤ (d+1)/4 ≤ (n+k+1)/4 we get 3k ≤ n + 1; symmetric in B. ∎
 
 **Lemma 1.5 (every hit modulus is a χ_n-non-residue).** Let n ≡ 1 (mod 4) and let d be a hit modulus for n
 (1.1(c)). Then gcd(d, n) = 1 and χ_n(d) = (d/n) = −1. Consequently d is divisible by some prime q with χ_n(q) = −1,
-so d ≥ q₁(n) := min{q prime : (q/n) = −1}; for n ∈ 𝔐 one has q₁(n) ≥ 11.
+so d ≥ q₁(n) := min{q prime : (q/n) = −1} (defined for non-square n; for squares no such prime exists, consistent
+with Cor. 1.4); for non-square n ∈ 𝔐 one has q₁(n) ≥ 11.
 *Proof.* n ≡ −k (d) and gcd(k, d) = 1 give gcd(n, d) = 1. (n/d) = (−k/d) = −1 by 1.3; Jacobi reciprocity for the
 coprime odd positive pair (n, d) with n ≡ 1 (4) gives (d/n) = (n/d) = −1. χ_n is completely multiplicative, so some
 prime factor q of d has χ_n(q) = −1. For n ∈ 𝔐: n ≡ 1 (8) gives (2/n) = 1; for q ∈ {3, 5, 7}, (q/n) = (n/q) = 1 by
 reciprocity (n ≡ 1 (4)) and the definition of 𝔐. ∎
 
 *Remark (where non-squareness lives).* χ_n is principal exactly when n is a square, and then Lemma 1.5 says no hit
-modulus exists — this is the second proof of 1.4. Conversely, for a non-square n ≡ 1 (4), χ_n is a non-principal real
+modulus exists — this is a second proof of 1.4 for odd squares (Lemma 1.5 assumes n ≡ 1 (4)). Conversely, for a non-square n ≡ 1 (4), χ_n is a non-principal real
 character of conductor f(n) | n (f(n) = the squarefree kernel of n, up to the factor at 2 which is absent for n ≡ 1 (4)),
 and **the whole content of the target is: the structured set S(n) := {d ≡ 3 (4) : (−n mod d) | (d+1)/4} meets the
 coset {χ_n = −1}**. Note that S(n) ⊂ {χ_n = −1} automatically (1.5), so the target is simply S(n) ≠ ∅; what Lemma 1.5
@@ -98,10 +104,13 @@ n/k + 2 ≡ 0 (mod 4k); the latter forces n/k even, impossible for odd n. ∎
 (Checked: R(p) is even for all 20 513 primes p ∈ 𝔐, p ≤ 10⁷, and for the 12 primes of r8_zeros_1e10.txt.)
 
 **Lemma 1.8 (no congruence proof; moduli ≥ D are unavoidable).** Let D ≥ 1, L := lcm(1, …, D). If n ≡ m² (mod L)
-for some m with gcd(m, L) = 1, then every hit modulus d of n satisfies d > D. Such n exist in every class of 𝔐: for
-any odd m coprime to 840L with m² in the prescribed class, every n = m² + 840L·t (t ≥ 1) qualifies; there are
-≍ X/(840L) of them up to X and at most √X of them are squares, so for L ≤ X^{1/2−ε} infinitely many are non-squares.
-*Proof.* If d ≤ D then d | L, so n ≡ m² (mod d) and (n/d) = (m/d)² = 1 (gcd(m, d) = 1), contradicting Lemma 1.5. ∎
+for some m with gcd(m, L) = 1, then every hit modulus d of n satisfies d > D. Such n exist in every class of 𝔐: pick
+m ∈ [1, 840L] coprime to 840L with m² in the prescribed class mod 840 (e.g. m ≡ 1, 11, 13, 17, 19, 23 mod 840 and
+m ≡ 1 mod L, by CRT); every n = m² + 840L·t (t ≥ 1) qualifies. Up to X there are ≥ X/(840L) − 1 − (840L)²/(840L)
+of them (m² ≤ (840L)²), and at most √X of them are squares; so for L ≤ X^{1/2−ε} and X large, non-square ones exist
+(and their number → ∞ with X).
+*Proof of the first sentence.* If d ≤ D then d | L, so with k := (−n mod d) we get −k ≡ n ≡ m² (mod d), and
+gcd(m, d) = 1, so (−k/d) = (m/d)² = 1, contradicting Lemma 1.3 (exactly as in Cor. 1.4). ∎
 Consequence: no argument that only uses n modulo a fixed M (Mordell-type identities, finite covering systems of
 residue classes, "local" sieving at bounded moduli) can prove the target on any class containing a square mod M —
 and every class of 𝔐 refined by congruences mod M contains such n unless the refinement itself is a χ-non-residue
@@ -153,9 +162,11 @@ k ≡ −n (mod q) does not help pointwise. *Stops at:* the same divisor-in-clas
 d_min = q₁(n) for 22.6 % of the primes p ∈ 𝔐 ≤ 10⁷ and d_min ≤ 10·q₁ for 85 %; max q₁ = 53, max d_min = 64 255.)
 
 **3.4 Prime witnesses only.** One might hope to use primes q ≡ −1 (mod 4k) dividing n + k (Linnik/Bombieri–Vinogradov
-territory). But witnesses with d prime are *not* enough: 136 primes p ∈ 𝔐 ≤ 10⁷ (the largest 9 831 889) have R(p) > 0
-but no prime witness. So the composite (Jacobi, not Legendre) structure of Lemma 1.3 is essential, and in any case
-primes in progressions dividing a *specific* number n + k are not accessible to any known method.
+territory). But witnesses with d prime are *not* enough in the tested range: 136 primes p ∈ 𝔐 ≤ 10⁷ (the largest
+9 831 889) have R(p) > 0 but no prime witness, decaying slowly (53 of 2365 in (0, 10⁶], 5–13 per million above
+3·10⁶; §4). So a prime-witness
+theorem would need a threshold beyond those, and the composite (Jacobi, not Legendre) structure of Lemma 1.3 looks
+essential; in any case I know no method that produces a prime in a progression dividing a *specific* number n + k.
 
 **3.5 Parity / involution arguments (Zagier-style).** The only natural involution, (k, B) ↦ (B, k), is fixed-point
 free for odd n (Lemma 1.7), so it gives R(n) ≡ 0 (mod 2) — the wrong parity for an existence proof, and R(p) = 0 does
@@ -166,7 +177,7 @@ parity; b = 2C recovers the target) is trivially solvable (b = 1, k = 1, B = n +
 #{M = [[x, b],[2n, y]] ∈ Γ(2) : x, y, b > 0, 2b | x + 1} ≥ 1 versus the trivial count in Γ₀(2). I found no involution or
 group action on these matrices that moves odd b to even b while preserving the divisibility 2b | x + 1
 (right-multiplication by [[1, t],[0, 1]] preserves the lower-left entry but destroys the divisibility unless t = 0).
-*Stops at:* no sign-changing structure exists; the squares show R can be 0 with everything else in place.
+*Stops at:* no sign-changing structure was found; the squares show R can be 0 with everything else in place.
 
 **3.6 Fixed small C (genus conditions).** For C ∈ {1, 2, 3, 6}, (ℤ/4C)* is an elementary 2-group and
 "x ≡ −1 (mod 4C)" is a pure quadratic-residue condition: C = 1: 4n + 1 has a divisor with (−1/x) = −1; C = 2: 8n + 1
@@ -177,38 +188,51 @@ residue condition on the *cofactor's* prime factors. *Stops at:* same problem fo
 the only unconditional pointwise fact of this kind I found: **if the prime factor q ≡ 2 (mod 3) of 4n + 1 guaranteed above
 happens to be ≡ 3 (mod 4), then C = 1 works**; this is not steerable.)
 
-**3.7 Why an analytic (circle-method / dispersion) proof is out of reach pointwise.** Write R(n) = Σ_d Σ_{k | (d+1)/4}
-[n ≡ −k (mod d)]. The naive main term Σ_d τ((d+1)/4)/d·(local factors) ≍ log²n is *wrong* pointwise: at n = m² the truth
-is 0. Lemma 1.5 shows the correct main term carries the factor (1 − χ_n(d))/2:
-  M_χ(n) := (1/2)·Σ_{d ≤ 4n/3, d ≡ 3 (4)} (1 − χ_n(d))·τ((d+1)/4)/d·(local factors),
-which vanishes at squares. (HEURISTIC remark, not used anywhere: for non-square n, the χ_n-part of M_χ is governed by
-Σ_{d ≤ Y} χ_n(d)τ((d+1)/4)/d; Burgess gives cancellation only for Y ≥ n^{1/4+ε}, and the harmonic weight assigns the
-range d ≤ n^{1/4} the share (1/4)² = 1/16 of the log²n mass, so M_χ(n) ≥ (15/16 − o(1))·M(n)·(…) would follow for all
-non-square n from a bilinear Burgess-type bound — i.e. the *main term* never vanishes for non-squares.) The obstacle is
-the error term E(n) := R(n) − M_χ(n): it is a sum over k of the fluctuations #{d | n + k : d ≡ −1 (4k)} − (its mean),
-each of which is of the size of its mean on a set of n of relative density ≍ (log n)^{−1/2} (e.g. k = 1: (n+1)/2 free of
-primes ≡ 3 (4)); bounding E(n) = o(log²n) *for every single n* is a large-deviation statement about the divisors of
-n + 1, n + 2, … in residue classes that no averaging method (Bombieri–Vinogradov, dispersion, large sieve) can deliver,
-because all of them average over n. *Stops at:* pointwise control of divisors of shifted integers — the same wall as
-every other route, now seen from the analytic side.
+**3.7 The analytic side (HEURISTIC analysis throughout; nothing here is proved).** R(n) is the number of
+representations of n by the trilinear form 4kBC − k − B, or equivalently R(n) = Σ_{N = n+1}^{⌊4n/3⌋+1}
+#{d | N : d ≡ −1 (mod 4(N − n))} — a sum over an interval of N, but with the residue class tied to N − n and the
+modulus 4(N − n) as large as N for most N. A naive "singular series" model, Σ_d τ((d+1)/4)/d · (local densities)
+≍ log² n, is wrong pointwise: at n = m² the truth is 0 (Cor. 1.4). Lemma 1.5 restricts the support of every term to
+d with χ_n(d) = −1, so any model must carry the global factor [χ_n(d) = −1] = (χ_n(d)² − χ_n(d))/2 (which is 0 when
+gcd(d, n) > 1 and at every d when n is a square); writing
+  M_χ(n) := Σ_{d ≤ 4n/3, d ≡ 3 (4), gcd(d,n)=1} ((1 − χ_n(d))/2)·τ((d+1)/4)/d · (local densities at the primes dividing
+  4k, left unspecified)
+is only a *model*, not a theorem. (Heuristic remark: for non-square n the χ_n-part of such a model is
+Σ_{d ≤ Y} χ_n(d)τ((d+1)/4)/d; Burgess-type cancellation is available only for Y ≥ n^{1/4+ε}, and the harmonic weight
+gives the range d ≤ n^{1/4} the share (1/4)² = 1/16 of the log²n mass — so even in the worst case the χ_n-correction
+could not cancel more than about 1/16 of the model's main term for non-square n. This is a statement about the model
+only.) What would have to be proved is R(n) − M_χ(n) = o(log² n) *for the individual n*, i.e. equidistribution of the
+single residue n mod d over d ≤ 4n/3 in the thin target set −Div((d+1)/4) with divisor weights. The k-slices of this
+error, #{d | n + k : d ≡ −1 (4k)} − (mean), are each of the size of their mean on a set of n of relative density
+≍ (log n)^{−1/2} (e.g. k = 1: (n+1)/2 free of primes ≡ 3 (4)), so the pointwise bound is a large-deviation statement
+about the divisors of the shifted integers n + k. Averaging over n (circle method over n, or Bombieri–Vinogradov-type
+level-of-distribution results, which average over moduli for sums over the integers in a range) gives mean-value
+information; I do not see how to convert it into a bound for the single n, and the squares show the error is as large
+as the naive main term on a (sparse) set. *Stops at:* pointwise control of the residues of one n modulo all d, or of
+the divisors of n + k in moving classes — the same wall as every other route, seen from the analytic side.
 
 **Summary.** All routes reduce to the single statement "some n + k has a divisor ≡ −1 (mod 4k)", a pointwise
 assertion about the multiplicative structure of a specific integer in a residue class that moves with k. Lemma 1.8
-shows the moduli involved exceed log n for infinitely many n in every class; 3.4 shows prime moduli do not suffice;
-3.1–3.2 show every construction is a thin polynomial family. I could not find a mechanism that uses the non-principality
+shows the moduli involved exceed (1/2 − ε)·log n for infinitely many n in every class; 3.4 shows prime moduli do not
+suffice up to 10⁷;
+3.1–3.2 show every construction I found is either a congruence class (which cannot cover 𝔐, by 1.8) or a thin
+polynomial family. I could not find a mechanism that uses the non-principality
 of χ_n *pointwise* other than through the factorisation of n + k, which is the open problem.
 
 ## §4 Numerical record (data/z59/mspf/, engines scripts/z59_mspf_hits.c and z59_mspf_single.c; all CERTIFIED by
 recomputation, cross-checked against a brute-force enumeration of (u, B, C) for n ≤ 3000 and against data/z58/screens)
 
-* `zeros_all_2e5.txt`: all n ≡ 1 (4), n ≤ 2·10⁵ with R(n) = 0 (348, of which 224 squares and 124 non-squares); the non-square entries
-  coincide with the z58 lists (57, 105, 177, …, 409, 577, …).
+* `zeros_all_2e5.txt`: all n ≡ 1 (4), n ≤ 2·10⁵ with R(n) = 0 (348, of which 224 squares and 124 non-squares; squares
+  carry the sentinel q₁ = 0); the non-square entries coincide with the z58 lists (57, 105, 177, …, 409, 577, …).
 * `primes_M_1e7.txt`: the 20 513 primes p ∈ 𝔐, p ≤ 10⁷, with R, R_odd (C odd), R_even (C even), d_min, k at d_min,
   q₁(p), whether d_min is prime, R_prime (witnesses with d prime), k_min (least k over all witnesses). Facts:
-  the zeros are exactly the nine of F4; R(p) is even throughout (Lemma 1.7); d_min ≥ q₁(p) throughout (Lemma 1.5),
-  d_min = q₁(p) in 22.6 %; R_even = 0 for 186 primes (largest 9 965 881) and R_odd = 0 for 118 (largest 9 744 001), so
-  neither parity of C suffices alone up to 10⁷ (F2); R_prime = 0 for 136 primes (largest 9 831 889); k_min ≤ 10 for
-  95 % but reaches 410 (p = 4 160 641); mean R ≈ 30 in (5·10⁶, 10⁷].
+  the zeros are exactly the nine of F4; R(p) is even throughout (Lemma 1.7). Among the 20 504 primes with R(p) > 0:
+  d_min ≥ q₁(p) throughout (Lemma 1.5), d_min = q₁(p) in 22.6 %; R_even = 0 for 186 (largest 9 965 881) and R_odd = 0
+  for 118 (largest 9 744 001), so neither parity of C suffices alone up to 10⁷ (F2); R_prime = 0 for 136 (largest
+  9 831 889); per million these counts decay from (91, 60, 53) in (0, 10⁶] to single digits above 5·10⁶ but have not
+  reached 0 (e.g. (9, 4, 11) in (9·10⁶, 10⁷]); k_min ≤ 10 for 98.1 % but reaches 410 (p = 4 160 641); mean R ≈ 30 in
+  (5·10⁶, 10⁷]. (The nine zero rows carry d_min = 0, q₁ as computed, R_prime = k_min = 0.) Reproduce:
+  `gcc -O2 -o hits scripts/z59_mspf_hits.c -lm && ./hits 10000000 1` (≈ 1 min, ≈ 60 MB).
 * `zeros_profile.txt`: for each of the nine prime zeros and k ≤ 8, the factorisation of p + k and the residues of its
   prime factors mod 4k, with the check that no sub-multiset product is −1 mod 4k (F4, concrete).
 * Single-n engine at 10¹⁰: for the 12 primes of r8_zeros_1e10.txt the values R and R_even (= R₈) agree with the
@@ -238,19 +262,26 @@ satisfy, and it documents why each route I tried stops (§3). Running the four f
   produce a witness, and §3.7 explains why the natural analytic main term must carry the factor (1 − χ_n(d))/2.
   The "4n + 1 has a prime factor ≡ 2 (mod 3)" observation (§3.6) is congruential and correctly gives nothing at
   squares: at n = m², 4m² + 1 has all odd prime factors ≡ 1 (mod 4), so that prime factor is ≡ 5 (mod 12) — consistent.
-* **(F2) C even alone.** C even ⇔ d ≡ −1 (mod 8k) (Lemma 1.1). The memo constructs nothing, so there is nothing
-  that produces only even C. The data (§4) show both R_even = 0 and R_odd = 0 occur for primes in 𝔐 up to 10⁷ and
-  R_even = 0 at four primes in 𝔐 near 10¹⁰ (recomputed), so any future argument must reach both parities.
-* **(F3) Non-square zeros / outside 𝔐.** No threshold is produced because no proof is produced. The structural
-  explanation of outside-𝔐 zeros is Lemma 1.5: gcd(d, n) = 1 is forced, so for 3 | n (5 | n, 7 | n) every modulus
-  divisible by 3 (5, 7) is dead and the identities d = 3, 7, 11, 15, 19, 23, 35, 55, … that otherwise cover every
-  non-square class mod 840 do not apply. For n ∈ 𝔐 the memo's lemmas are consistent with the nine zeros (they are
-  reproduced) and with the absence of zeros in (17 401 609, 10¹¹] (no lemma predicts zeros).
+* **(F2) C even alone.** C even ⇔ d ≡ −1 (mod 8k) (Lemma 1.1). The memo contains no general construction, so there
+  is nothing that produces only even C; the special families of §3.2 have C = 1 (n = a(a+1) − k) and C = t (the
+  (4st − 1)² − s family), both parities. The data (§4) show both R_even = 0 and R_odd = 0 occur for primes in 𝔐 up to
+  10⁷ and R_even = 0 at four primes in 𝔐 near 10¹⁰ (recomputed), so a single-parity argument must exclude those by its
+  threshold or hypotheses.
+* **(F3) Non-square zeros / outside 𝔐.** No threshold is produced because no proof is produced. Nothing in the memo
+  uses membership in 𝔐 except the bound q₁(n) ≥ 11 (Lemma 1.5), which is not used for anything further. What the
+  lemmas say about n ∉ 𝔐 is only this: gcd(d, n) = 1 is forced (Lemma 1.5), so for 3 | n (5 | n, 7 | n) every modulus
+  divisible by 3 (5, 7) is unavailable; this removes the small witnesses d = 3, 7, 15, 35, 63, … but does not by itself
+  produce or explain any zero (n = 21 has the witness d = 11), and zeros outside 𝔐 also occur at n coprime to 840
+  (409 ≡ 3 (mod 7), 577 ≡ 2 (mod 5)) in classes that the small-d identities do not cover. The lane brief's facts
+  "no non-square zero in 𝔐 ∩ (17 401 609, 10¹¹]" and "zeros outside 𝔐 continue" are quoted, not recomputed; this
+  memo recomputes up to 10⁷ (all n ≡ 1 (4) up to 2·10⁵) and 12 single primes near 10¹⁰.
 * **(F4) The nine prime zeros.** Reproduced by the engine (R = 0 for exactly those nine among 20 513 primes in 𝔐 up
-  to 10⁷); `zeros_profile.txt` exhibits for each of them and k ≤ 8 that the prime factors of p + k generate a subgroup
-  of (ℤ/4k)* avoiding −1. Every construction of §3 fails at them because it is a thin family / requires an
-  unsteerable factorisation; no "sufficiently large" hypothesis in this memo excludes them, because no statement in
-  this memo has such a hypothesis.
+  to 10⁷); `zeros_profile.txt` exhibits for each of them and k ≤ 8 that no product of a sub-multiset of the prime
+  factors of p + k (respecting multiplicities) is ≡ −1 (mod 4k). (The *group* generated by the residues can contain
+  −1: p = 5569, k = 8, p + k = 3·11·13², and 3·13³ ≡ −1 (mod 32) needs a third factor 13 that is not there.) The
+  memo contains no general construction to evaluate at them; the special families of §3.2 do not contain them
+  (they are not of the form a(a+1) − k with k | (a+1)/4 or (4st−1)² − s, since R = 0 there). No "sufficiently large"
+  hypothesis in this memo excludes them, because no statement in this memo has such a hypothesis.
 
 Verdict: **not a hot lead**. Nothing here survives the falsifiers *as a proof*, because nothing here is a proof of
 the target; all PROVED items are necessary conditions and reformulations.

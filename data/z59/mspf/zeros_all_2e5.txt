@@ -1,348 +1,348 @@
-1 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-9 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-25 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-49 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-57 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-81 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-105 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-121 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-169 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-177 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-249 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-289 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-361 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-409 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-441 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-529 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-577 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-729 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-777 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-801 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-841 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-961 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-969 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-1089 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-1225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-1345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-1369 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-1465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-1521 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-1617 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-1681 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-1761 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-1809 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-1849 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-1905 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-1969 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-2025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-2209 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-2305 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-2401 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-2457 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-2601 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-2641 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-2737 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-2809 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-2929 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-3025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-3249 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-3369 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-3481 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-3705 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=37 dminprime=0
-3721 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-3865 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-3969 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-4225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-4489 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-4545 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-4761 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-5041 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-5097 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-5161 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-5329 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-5481 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-5569 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-5625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-5929 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-6241 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-6561 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-6889 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-7225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-7569 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-7641 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-7921 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-8281 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-8529 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-8649 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-8745 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-9025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-9145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-9177 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-9409 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-9601 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-9801 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-10089 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-10201 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-10305 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-10465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-10609 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-11025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-11449 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-11881 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-12001 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-12105 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-12145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-12321 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-12681 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-12705 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-12769 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-13041 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-13225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-13689 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-13737 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-14161 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-14505 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-14641 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-15129 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-15145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0
-15369 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-15625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-16129 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-16641 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-17161 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-17689 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-18001 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0
-18225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-18361 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-18769 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-19321 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-19881 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-20337 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-20449 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-20601 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-21025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-21609 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-22201 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-22801 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-22809 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-23409 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-23425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-23881 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=23 dminprime=0
-23929 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-24025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-24649 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-24921 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-25281 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-25441 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-25921 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-26169 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-26569 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-27225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-27825 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-27889 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-28561 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-29241 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-29425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-29929 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-30625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-31329 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-32041 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-32049 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-32761 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-33489 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-34041 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-34225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-34489 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=29 dminprime=0
-34969 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-35721 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-35745 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-36481 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-36841 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-37249 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-38025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-38809 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-39361 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-39601 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-40401 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-40425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-41209 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-42025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-42849 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-43681 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-44145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-44521 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-44961 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-45369 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-45705 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0
-46225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-47089 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-47961 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-48057 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-48841 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-49569 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-49729 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-50625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-50697 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-51129 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-51529 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-52441 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-53361 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-54289 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-55225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-56169 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-56841 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-57121 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-57841 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-58081 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-59049 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-59721 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-60025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-60729 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-61009 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-62001 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-63001 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-63609 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-64009 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-65025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-65529 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-65577 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-66049 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-66105 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-66825 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-67081 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-67425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-67497 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-68121 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-68145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=23 dminprime=0
-69169 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-70225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-70345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-70665 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=29 dminprime=0
-71289 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-72361 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-73441 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-74529 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-75625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-76729 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-77625 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-77841 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-78729 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-78961 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-80089 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-81225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-82225 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-82369 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-83449 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-83521 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-84049 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0
-84681 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-85849 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-86769 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-87025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-88209 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-89401 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-90601 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-90889 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-91809 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-93025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-94249 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-95481 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-95505 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-96721 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-97969 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-99225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-100489 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-101601 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-101761 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-102001 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=23 dminprime=0
-103041 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-104329 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-105625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-106929 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-108241 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-109561 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-109881 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-110425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-110889 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-112225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-112849 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-113569 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-114921 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-115465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0
-116281 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-117649 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-119025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-120409 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-121801 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-123201 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-124609 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-126025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-127449 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-128881 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-130321 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-131769 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-133065 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-133225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-133345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-134689 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-136161 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-137641 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-137817 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-138777 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-139129 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-140625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-140745 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-141177 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-141345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-142129 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-143641 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-145161 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-146689 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-147345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-147609 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-148225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-149769 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-150705 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=29 dminprime=0
-151321 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-152881 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-154449 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-156025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-157609 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-159201 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-160801 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-162409 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-164025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-165649 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-167281 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-168921 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-170569 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-171865 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0
-172225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-173889 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-175561 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-177241 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-178929 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-179361 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-180625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-182329 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-184041 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-185049 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0
-185761 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-187489 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-189225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-189465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0
-190969 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-192721 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-193257 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0
-194481 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-196065 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=31 dminprime=0
-196249 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-197289 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0
-198025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
-198345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-199369 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0
-199809 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=-1 dminprime=0
+1 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+9 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+25 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+49 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+57 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+81 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+105 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+121 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+169 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+177 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+249 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+289 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+361 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+409 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+441 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+529 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+577 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+729 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+777 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+801 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+841 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+961 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+969 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+1089 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+1225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+1345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+1369 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+1465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+1521 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+1617 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+1681 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+1761 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+1809 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+1849 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+1905 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+1969 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+2025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+2209 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+2305 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+2401 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+2457 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+2601 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+2641 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+2737 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+2809 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+2929 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+3025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+3249 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+3369 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+3481 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+3705 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=37 dminprime=0 Rprime=0 kming=0
+3721 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+3865 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+3969 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+4225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+4489 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+4545 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+4761 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+5041 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+5097 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+5161 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+5329 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+5481 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+5569 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+5625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+5929 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+6241 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+6561 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+6889 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+7225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+7569 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+7641 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+7921 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+8281 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+8529 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+8649 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+8745 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+9025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+9145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+9177 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+9409 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+9601 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+9801 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+10089 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+10201 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+10305 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+10465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+10609 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+11025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+11449 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+11881 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+12001 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+12105 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+12145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+12321 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+12681 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+12705 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+12769 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+13041 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+13225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+13689 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+13737 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+14161 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+14505 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+14641 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+15129 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+15145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0 Rprime=0 kming=0
+15369 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+15625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+16129 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+16641 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+17161 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+17689 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+18001 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0 Rprime=0 kming=0
+18225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+18361 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+18769 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+19321 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+19881 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+20337 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+20449 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+20601 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+21025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+21609 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+22201 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+22801 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+22809 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+23409 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+23425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+23881 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=23 dminprime=0 Rprime=0 kming=0
+23929 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+24025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+24649 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+24921 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+25281 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+25441 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+25921 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+26169 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+26569 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+27225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+27825 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+27889 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+28561 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+29241 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+29425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+29929 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+30625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+31329 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+32041 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+32049 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+32761 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+33489 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+34041 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+34225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+34489 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=29 dminprime=0 Rprime=0 kming=0
+34969 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+35721 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+35745 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+36481 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+36841 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+37249 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+38025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+38809 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+39361 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+39601 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+40401 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+40425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+41209 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+42025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+42849 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+43681 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+44145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+44521 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+44961 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+45369 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+45705 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0 Rprime=0 kming=0
+46225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+47089 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+47961 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+48057 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+48841 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+49569 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+49729 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+50625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+50697 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+51129 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+51529 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+52441 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+53361 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+54289 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+55225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+56169 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+56841 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+57121 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+57841 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+58081 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+59049 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+59721 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+60025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+60729 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+61009 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+62001 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+63001 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+63609 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+64009 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+65025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+65529 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+65577 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+66049 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+66105 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+66825 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+67081 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+67425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+67497 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+68121 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+68145 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=23 dminprime=0 Rprime=0 kming=0
+69169 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+70225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+70345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+70665 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=29 dminprime=0 Rprime=0 kming=0
+71289 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+72361 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+73441 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+74529 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+75625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+76729 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+77625 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+77841 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+78729 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+78961 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+80089 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+81225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+82225 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+82369 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+83449 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+83521 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+84049 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0 Rprime=0 kming=0
+84681 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+85849 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+86769 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+87025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+88209 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+89401 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+90601 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+90889 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+91809 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+93025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+94249 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+95481 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+95505 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+96721 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+97969 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+99225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+100489 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+101601 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+101761 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+102001 P R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=23 dminprime=0 Rprime=0 kming=0
+103041 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+104329 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+105625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+106929 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+108241 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+109561 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+109881 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+110425 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+110889 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+112225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+112849 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+113569 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+114921 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+115465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0 Rprime=0 kming=0
+116281 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+117649 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+119025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+120409 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+121801 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+123201 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+124609 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+126025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+127449 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+128881 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+130321 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+131769 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+133065 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+133225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+133345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+134689 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+136161 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+137641 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+137817 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+138777 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+139129 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+140625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+140745 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+141177 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+141345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+142129 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+143641 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+145161 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+146689 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+147345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+147609 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+148225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+149769 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+150705 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=29 dminprime=0 Rprime=0 kming=0
+151321 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+152881 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+154449 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+156025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+157609 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+159201 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+160801 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+162409 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+164025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+165649 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+167281 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+168921 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+170569 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+171865 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=13 dminprime=0 Rprime=0 kming=0
+172225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+173889 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+175561 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+177241 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+178929 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+179361 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+180625 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+182329 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+184041 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+185049 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=11 dminprime=0 Rprime=0 kming=0
+185761 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+187489 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+189225 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+189465 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=7 dminprime=0 Rprime=0 kming=0
+190969 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+192721 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+193257 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=5 dminprime=0 Rprime=0 kming=0
+194481 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+196065 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=31 dminprime=0 Rprime=0 kming=0
+196249 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+197289 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=19 dminprime=0 Rprime=0 kming=0
+198025 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
+198345 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+199369 C R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=17 dminprime=0 Rprime=0 kming=0
+199809 SQ R=0 Rodd=0 Reven=0 dmin=0 kmin=0 q1=0 dminprime=0 Rprime=0 kming=0
