@@ -40,7 +40,8 @@ honest weaker statement (almost all primes) by a large sieve on primes.
 * (F2) C-even part. Thm 2 holds verbatim for C even (Thm 2(c)) — that is an almost-all statement, consistent with the 12
   C-even zeros in [10¹⁰, 1.1·10¹⁰]. Nothing about individual p is derived.
 * (F3) 285 composite zeros: Thm 2(b) for integers is again only a density bound; consistent.
-* (F4) 14 prime zeros: kill route (B) (§3). Thm 2 is consistent (finite/sparse exceptions allowed).
+* (F4) 14 prime zeros: kill route (B) in its no-threshold fixed-q form (§3). Thm 2 is consistent (finite/sparse
+  exceptions allowed). 38 𝔊*-zeros: see §8.8 (restricted family; not addressed by this memo).
 
 No HOT LEAD.
 
@@ -140,28 +141,33 @@ log F = Σ log(1+h) ≥ Σ h − ½Σ h² = κ log log y + O_U(1), so F ≫_U (l
 (c) Use only u with 8u | ℓ+1: then C = (ℓ+1)/(4u) is even; n_U(ℓ) = #{u ≤ U : ℓ ≡ −1 (8u)}, κ = 1 + Σ_{u≤U}1/φ(8u)
 ≥ 1 + ⅛ log U. ∎
 
-**Corollary 2.1 (short intervals).** Fix ε > 0 and a class a mod 840 with gcd(a, 840) = 1. For X large, every interval
+**Corollary 2.1 (short intervals).** Fix 0 < ε < 5/12 (larger ε follows from the ordinary PNT in APs and Thm 2) and a class a mod 840 with gcd(a, 840) = 1. For X large, every interval
 (X, X + H], H = X^{7/12+ε}, contains ≫ H/log X primes p ≡ a (840) at which (★) is solvable.
 *Proof.* Run the proof of (a) with 𝒜 = exceptional primes in (X, X+H] (N = H, Q = H^{1/2}; class 0 is avoided since
 p > X > Q): |𝒜| ≤ 2H/G(Q) ≪_U H (log H)^{−κ_U} = o(H/log X) once κ_U > 1. Huxley's prime number theorem in short
-intervals, in the form valid for progressions to a fixed modulus (Huxley's zero-density estimate
-N(σ, T, χ) ≪ T^{12(1−σ)/5+ε} for each of the finitely many χ mod 840 plus the classical zero-free region, via the
-explicit formula exactly as in Huxley, Invent. Math. 15 (1972) for ζ), gives ≥ (1/φ(840) − o(1)) H/log X primes ≡ a (840) in (X, X+H]. ∎ (PROVED modulo that standard input.)
+intervals for progressions to a fixed modulus (Huxley's zero-density estimate for Dirichlet L-functions
+N(σ, T, χ) ≪ T^{12(1−σ)/5+ε}, Huxley, "Large values of Dirichlet polynomials III", Acta Arith. 26 (1975) (1.1), for the
+finitely many χ mod 840, plus the Vinogradov–Korobov zero-free region, via the explicit formula; the ζ case is Huxley,
+Invent. Math. 15 (1972)), gives ≥ (1/φ(840) − o(1)) H/log X primes ≡ a (840) in (X, X+H]. ∎ (PROVED modulo that standard input.)
 
 Remarks. (1) Primality enters only through the class 0 (one extra unit of κ). The proof never certifies a given p;
 it is fully consistent with (F1)–(F4). (2) Only *prime* d = ℓ are used; composite d would give more classes but
 modulus-ℓ sieving only sees prime moduli. (3) This is the (★)-specific analogue of classical almost-all results for
 Erdős–Straus (Vaughan 1970 has the much stronger exp(−c(log X)^{2/3}) for ES in general); not new in spirit.
+(4) PRIOR WORK (pointed out by the cross-model review; I had not read it): `Z56_FAMTRY.md` Theorem A already bounds the
+(★)-avoiders by X·exp(−0.08√log X) (shift-uniform, including odd integers) — strictly stronger than every fixed
+log-power saving here; `Z53_PZ.md` Theorem A already gives R(p) ≫ log² p for almost all primes. Theorem 2 is NOT a
+frontier advance; only its simpler fixed-modulus proof and the C-even variant (c) are offered as such.
 
 ## §3 What cannot work (PROVED / EVIDENCE)
 
-**Prop 3.1 (no finite covering, PROVED).** For any finite set 𝒫 of pairs (u, B) there are infinitely many primes
+**Prop 3.1 (no finite covering, PROVED; PRIOR — `Z56_FAMTRY.md` Prop 2.2 already proves a broader obstruction).** For any finite set 𝒫 of pairs (u, B) there are infinitely many primes
 p ∈ 𝔐 not in any class −(u+B) mod 4uB, (u,B) ∈ 𝒫.
 *Proof.* Let L = lcm(840, 4uB : (u,B) ∈ 𝒫). Every prime p ≡ 1 (mod L) is in 𝔐 and satisfies p ≡ 1 (mod 4uB), while
 1 ≢ −(u+B) (mod 4uB) because 0 < u + B + 1 ≤ uB + 2 < 4uB. Dirichlet gives infinitely many such p. ∎
 
 **Prop 3.2 (PROVED, using Linnik's theorem with exponent L₀; L₀ = 5.18 by Xylouris, Acta Arith. 2011; L₀ = 5 in
-Xylouris' 2018 Bonn dissertation).** There are infinitely many primes p ∈ 𝔐 such that every solution of (★) at p
+Xylouris' 2011 Bonn dissertation).** There are infinitely many primes p ∈ 𝔐 such that every solution of (★) at p
 (if any — the statement may be vacuous for some of them) has uB > (1/L₀ − o(1)) log p.
 *Proof.* Take 𝒫 = {(u,B): uB ≤ Y}; lcm{4uB : uB ≤ Y} = 4·lcm(1..Y) = exp(Y(1+o(1))) (PNT), and for Y ≥ 7 this is
 divisible by 840. By Linnik the least prime p ≡ 1 (mod L) is ≪ L^{L₀} = exp((L₀+o(1))Y). By Prop 3.1's
@@ -169,12 +175,14 @@ argument p has no solution with uB ≤ Y, and Y ≥ (1/L₀ − o(1)) log p. As 
 infinitely often since p > L → ∞. ∎
 (The data say the truth is far larger: min uB reaches ≈ p/4, i.e. C = 1 is the only solution, §5.)
 
-**3.3 Least-non-residue route (route B) — dead (CERTIFIED from screens data).** Idea: if p is a non-residue mod some
+**3.3 Least-non-residue route (route B), no-threshold fixed-q covering version — dead (CERTIFIED from screens data).** Idea: if p is a non-residue mod some
 prime q, cover {p ∈ 𝔐 : (p/q) = −1} by identities of modulus 840·q^k. By Lemma 1.1(iv) such a covering would have no
 size condition, so it would solve every 𝔐-prime that is a non-residue mod q. But the 𝔐-zeros of (★) are non-residues:
 5212561 mod 11; 5569 mod 13, 17, 19, 37, 41, 43, 47; 9601 mod 23, 29, 31; 1724209 mod 59, 61, 67, 73, 79 … — so for
 every prime q ∈ [11, 47] (and many more) no such covering exists for (★). (409 and 577 show the same for q = 7, 5 —
-Mordell's coverage of non-residues mod 5, 7 needs the other ES families.) Any proof must use moduli that grow with p.
+Mordell's coverage of non-residues mod 5, 7 needs the other ES families.) This kills only the specified covering with
+no size threshold and fixed q; it does not rule out least-non-residue arguments with a size threshold or an eventual
+theorem with finitely many exceptions.
 
 ## §4 Why the remaining step is the whole problem (analysis, no claim)
 
@@ -183,8 +191,8 @@ By Lemma 1.2, failure at p means: for every u, no divisor class of (p+u)' is −
 simultaneously. For a prime p, Lemma 1.4 excludes the witness ψ_u when (u/p) = −1, but leaves φ(4u)/2 − 1 other odd
 characters, and also the non-kernel failure mode of Lemma 1.2(c). To rule all of them out one needs information on the
 *distribution of the prime factors of p+u in classes mod 4u* for a single p and many u ≤ p^θ (data: u ≤ 469 suffices
-to 10⁸). That is a statement about the factorisation of the specific short interval (p, p + p^θ] — not accessible to
-sieve or L-function methods for individual p. The dual formulation Lemma 1.1(ii) (divisors of 4Cp + 1) bounds C
+to 10⁸). That is a statement about the factorisation of the specific short interval (p, p + p^θ]; the sieve and L-function
+methods I tried do not give it for an individual p (this is a report on this lane's attempts, not an impossibility claim). The dual formulation Lemma 1.1(ii) (divisors of 4Cp + 1) bounds C
 instead of u, and these are different problems (data: min u ≤ 469 but min C reaches 41 027). Every relaxation that is provable (Thm 2) is a counting statement.
 
 ## §5 Data (CERTIFIED computations; scripts in `scripts/z58_tryo_*`)
@@ -262,8 +270,9 @@ u ∈ {1, 2, 3, 6} (same for C); only u = 1 and C = 1 are genus conditions for d
 
 `scripts/z58_tryo_levels.c`, `data/z58/tryo/levels_1e6_3e7.txt`: for the 55 369 primes p ∈ 𝔐 ∩ [10⁶, 3·10⁷] and the
 24 levels u = 1..12 (p+u) and C = 1..12 (4Cp+1), the co-failure ratios P(fail_i ∧ fail_j)/(P(fail_i)P(fail_j)) for
-i ≠ j lie in [0.98, 1.11]: the levels behave independently; no level's failure forces another's success. 47 of the
-55 369 primes fail all 24 levels. A forcing law among small levels would show up as a ratio ≈ 0; there is none.
+i ≠ j lie in [0.98, 1.11]: pairwise, the sampled levels behave independently, and no pairwise forcing among these 24 levels is visible. 47 of the
+55 369 primes fail all 24 levels. A pairwise forcing law would show up as a ratio ≈ 0; there is none. (Sampled pairwise ratios do not rule out
+higher-order or eventual forcing laws.)
 
 ### 8.3 Mechanism C: Chebotarev / higher-residue laws (EVIDENCE: none among those tested)
 
@@ -302,8 +311,9 @@ would need the error in this sum — a sum over moduli d up to ≈ p of indicato
 to be o(log² p). The pointwise-in-p techniques listed here (exponential sums in p/d, Kloosterman/Weil bounds on the modular
 hyperbola xy ≡ 1 (p) with x, y ≡ −1 (4C), large sieve) has errors that are powers of p or at least larger than polylog
 at this resolution; the modular-hyperbola count for one level C has main term ≈ log p/C against Weil error ≈ p^{1/2}.
-So pointwise existence needs an algebraic forcing mechanism, and §8.1–8.4 indicate none exists at the level of genus,
-small levels, or Chebotarev data. This is the honest state of round 2.
+So the counting methods I considered cannot give pointwise existence, and the forcing mechanisms I tried in §8.1–8.4
+(genus, small levels, tested Chebotarev symbols) did not produce one. This reports unsuccessful approaches; it does not
+prove that a proof must be algebraic or that no forcing mechanism exists. This is the honest state of round 2.
 
 ### 8.6 CERTIFIED pointwise range
 
@@ -314,7 +324,9 @@ re-verified as 4uBC − u − B = p in 128-bit arithmetic).
 (`data/z58/tryo/range_{a,b,c,d}.txt`: [10¹⁰, 5.5·10¹⁰] 58 344 306, (5.5·10¹⁰, 10¹¹] 56 111 206, (10¹¹, 2·10¹¹]
 121 533 478, (2·10¹¹, 3·10¹¹] 119 107 176), hard = 0, VERIFYFAIL = 0. Largest least-u: 316 at p = 53 499 061 849 (d = 447 455,
 C = 354, B = 119 563); other run maxima: 263 (p = 60 921 814 801), 158, 289 (p = 219 564 149 401). Least-u > 2⁸ occurs for at most one
-p per run (1, 1, 0, 1). Sanity: on [1, 10⁸] the same engine returns exactly the 9 𝔐-zeros as HARD.
+p per run (1, 1, 0, 1). Sanity: on [1, 10⁸] the same engine returns exactly the 9 𝔐-zeros as HARD. NB: HARD means "no hit with u ≤ 10⁵"
+(unresolved), not a certified zero (exhaustive needs u ≤ ⌊(1+√(1+4n))/4⌋ by u ≤ B symmetry); the exit status is 0 even with HARD
+cases, so a run is accepted only by parsing `DONE … hard=0`. The certified runs here all have hard = 0.
 
 ### 8.7 The one pointwise statement that does follow (PROVED, weak)
 
@@ -325,15 +337,30 @@ every level u) is broken for primes at a level u ≤ n₂(p).
 *Proof.* u := n₂(p) is prime and odd (2 is a residue as p ≡ 1 (8)), u < p, (u/p) = −1; apply Lemma 1.4. ∎
 This is necessary, not sufficient, for a hit at u: (ℤ/4u)^× still has φ(4u)/2 − 1 = u − 2 other odd characters and the
 non-kernel failure mode of Lemma 1.2(c). The 𝔐-zeros have n₂(p) ∈ {11, 13, 17, 19, 23} (§3.3), so the statement is
-consistent with F4, does not apply to squares (for n = m², the Jacobi symbol (u/n) = 1 for every u, matching
-Lemma 1.3), and says nothing at F2/F3 level.
+consistent with F4, does not apply to squares (for n = m², the Jacobi symbol (u/n) = 1 for every u with gcd(u, m) = 1 and = 0
+otherwise — never −1 — matching Lemma 1.3), and says nothing at F2/F3 level.
 (For the C-side there is no analogue: ∏_{q | 4Cp+1} (q/p)^{v_q} = ((4Cp+1)/p) = 1 always.)
 
 ### 8.8 Falsifier ledger for round 2
-* (F1) Lemma 8.1/8.2 give no hit at squares (Lemma 1.3); Prop 8.7 does not apply to squares (Jacobi (u/m²) = 1 ∀u). No round-2 mechanism produces a hit, so none can produce one at a square.
+* (F1) Lemma 8.1/8.2 give no hit at squares (Lemma 1.3); Prop 8.7 does not apply to squares (Jacobi (u/m²) ∈ {0, 1}: = 1 iff gcd(u, m) = 1). No round-2 mechanism produces a hit, so none can produce one at a square.
 * (F2) Nothing in round 2 is specific to C even or odd; nothing claims a hit for all p.
 * (F3) §8.4 data: zero rates of primes and of non-square composites coprime to 105 are comparable — a warning that any
   argument using "p prime" only through non-squareness + local data must still explain the 20 coprime composite zeros
   (largest 3 210 601) by "sufficiently large".
-* (F4) Prop 8.7 holds at all 14 zeros (n₂ ∈ {5, 7, 11, 13, 17, 19, 23}) and yields no hit there — consistent.
+* (F4) Prop 8.7 holds at all 14 zeros (n₂ ∈ {5, 7, 11, 13, 17, 19, 23}; {11, …, 23} inside 𝔐) and yields no hit
+  there — consistent. The 38 𝔊*-zeros (`gstar_zeros.txt`, largest 564 661 441; 20 in 𝔐) contain the 14 full zeros;
+  the other 24 have full-(★) solutions. Nothing in this memo bears on restricted families: the §8.6 range certifies
+  FULL-(★) positivity only, not C-even (R₈) or 𝔊* positivity.
 No HOT LEAD.
+
+## Cross-model review (REVIEW_TRYO.md, verdict ACCEPT-WITH-FIXES) — fixes applied
+1. Prior attribution: Thm 2 and Prop 3.1 marked PRIOR in substance (`Z56_FAMTRY.md` Thm A / Prop 2.2, `Z53_PZ.md` Thm A);
+   only the simpler proof and the C-even variant are kept as such (§2 Remark (4), Prop 3.1 heading).
+2. Scope: §3.3 restricted to the no-threshold fixed-q covering; §4 / §8.2 / §8.5 impossibility and necessity language
+   replaced by reports on the approaches this lane tried; pairwise ratios explicitly do not exclude higher-order or
+   eventual forcing.
+3. Ledger: the 38 𝔊*-zeros added (§0, §8.8); full-(★) vs restricted-family positivity distinguished (§8.6 certifies
+   full (★) only).
+4. Precision: Jacobi (u/m²) ∈ {0, 1} with the gcd proviso (§8.7, §8.8); Xylouris dissertation dated 2011; Huxley's
+   Dirichlet-character density theorem (Acta Arith. 26, 1975) and the Vinogradov–Korobov region cited for Cor 2.1, with
+   0 < ε < 5/12 stated; HARD = unresolved, acceptance requires `DONE … hard=0` (§8.6).
