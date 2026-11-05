@@ -91,7 +91,8 @@ sd(n) := least odd prime ℓ with (n/ℓ) = −1 (ℓ | n counts as "square"); �
 Readings (EVIDENCE):
 * Every (★)-zero is a square mod 8 and mod 3; 9/14 are squares mod 840 (≈ 10× the control rate); the class of one
   mod 840 holds 3 of them (712 321, 1 726 201, 8 813 281). The zeros are *moderately* square-mimicking: sd ∈ [5, 23],
-  never extreme (no zero has sd > 23, while the controls ≤ 9·10⁶ contain primes with sd up to ≈ 50). This matches the
+  never extreme (no zero has sd > 23; among the 18 562 𝔐-primes ≤ 9·10⁶, 2.2 % have sd > 23 and the maximum is
+  61, at 6 810 301 — `scripts/z58_disproof_npmax.c`, appended to `profile.txt`). This matches the
   model of §6: deep square-mimicking slices are too thin to host the zeros; the dominant slice is n_p ≈ 13–17.
 * R₈-zeros show **no** mod-3 preference (half have sd = 3): the modulus 3 enters (★) only through d = 3 = 4·1·1 − 1 at
   C = 1 (odd), which is not on the C-even line. This is the F2 distinction in local terms: the C-even sub-line lacks the
@@ -186,7 +187,24 @@ p ≡ 1 (4) in [10³, 2·10⁷] (635 090; 39 391 in 𝔐; the raw d-loop is run 
   e^{−0.4μ}, μ ≍ L² (§6). Selecting on *observed* avoidance (d_min > D by sieving) is conditioning, not design: it is a
   cheap search filter but cannot raise the number of zeros that exist (Assessment).
 
-### 5.2 Decision-mode targeted search at 10¹²–10¹⁴ (pending batch C)
+### 5.2 Decision-mode targeted search at 10¹²–7·10¹⁵ (CERTIFIED decisions; `scripts/z58_disproof_runC.sh`, `runC/`)
+Engine in decision mode: R ≥ 1, R₈ ≥ 1, R_odd ≥ 1 and R_H3 ≥ 1 (hence R_𝔊* ≥ 1, H3 ⊂ 𝔊*) decided by complete level
+scans with early exit; exact full enumeration whenever any of the four is undecided. Consecutive design primes from the
+start point, each job cut by its 1 750 s timeout (partial runs recorded as such). All primes are in 𝔐 by construction.
+
+| job | design | primes | p range | mean S₁₆ | max d_min | full enumerations | zeros R / R₈ / R_odd / H3 |
+|---|---|---|---|---|---|---|---|
+| SM61_e12 | p ≡ 1 (840), n_p > 61 | 104 918 | 1.0·10¹²–1.1·10¹³ | 18.30 | 459 647 | 7 (R = 32…82) | 0/0/0/0 |
+| SM47_e13 | p ≡ 1 (840), n_p > 47 | 113 533 | 1.0·10¹³–1.1·10¹³ | 19.45 | 536 639 | 0 | 0/0/0/0 |
+| SM37_e14 | p ≡ 1 (840), n_p > 37 | 41 183 | 1.0·10¹⁴–1.0007·10¹⁴ | 22.41 | 137 939 | 0 | 0/0/0/0 |
+| K1680_z31_e12 | p = m² + 1680, n_p > 31 | 9 835 | 1.0·10¹²–7.3·10¹⁵ | 20.27 | 523 815 | 0 | 0/0/0/0 |
+| K1680_z23_e13 | p = m² + 1680, n_p > 23 | 19 173 | 1.0·10¹³–1.7·10¹⁵ | 19.80 | 523 815 | 0 | 0/0/0/0 |
+| K840_z13_e14 | p = m² + 840, n_p > 13 | 34 864 | 1.0·10¹⁴–2.1·10¹⁴ | 21.41 | 622 775 | 0 | 0/0/0/0 |
+
+305 386 distinct primes (the two K1680 jobs overlap above 10¹³). S₁₆ = # solutions with C ≤ 16 (exact): C0 means are
+20.53 (10¹⁰) and 24.85 (10¹²), so the designs sit at ≈ 0.74–0.80 of controls on the cheap levels too. **No R-, 𝔊*-,
+H3-, R₈- or R_odd-zero.** (The `divides` test is exact for n < 2⁵³ ≈ 9.0·10¹⁵; the largest p searched is 7.3·10¹⁵.)
+Model expectation for the whole search: ≪ 10⁻⁶ R-zeros (§6.3 per-prime rates at these μ), ≲ 10⁻² R₈-zeros.
 
 ## 6. Zero model and the tail (Assessment unless marked)
 
@@ -233,7 +251,7 @@ For p ≡ 1 (840) (all six Mordell classes ×6, pro-zero):
 
 ### 7.1 Verdict: **narrowed** (no counterexample; not a HOT LEAD)
 * **Search (D1): negative.** No prime with R(p) = 0 or R_𝔊*(p) = 0 among ≈ 5.5·10⁵ exactly enumerated design primes in
-  [10¹⁰, 1.5·10¹³] and SEARCH_C_SUMMARY. Two new R₈-zeros (20 840 951 041, 23 296 553 281; both in 𝔐) — expected by F2.
+  [10¹⁰, 1.5·10¹³] and among 305 386 design primes in [10¹², 7.3·10¹⁵] (decision mode, §5.2). Two new R₈-zeros (20 840 951 041, 23 296 553 281; both in 𝔐) — expected by F2.
 * **Model (D2): no structured family reaches 10¹⁷ in the model.** What a counterexample would look like: a prime in
   𝔐, ≡ 1 (8) and ≡ 1 (3) (all 14 zeros), moderately square-mimicking (n_p ≈ 11–23), with several small lines u dead —
   a *generic-looking* member of the hardest local slice, not an extreme one. Every structured family examined acts by
@@ -274,11 +292,14 @@ A counterexample to (MS) above 10¹⁰ would have to be a prime that looks local
 moderately square-mimicking, a few small lines dead — and then lose a ≍ 0.13 L² lottery whose zero probability is
 ≈ e^{−0.4μ}. Every structured way to tilt that lottery that we could build (deeper square classes, square-mimicking,
 CRT avoidance, near-square polynomial families) is a truncation of T1 whose bite is measured, predicted, and shown to
-fade with p; the best designs reach ρ ≈ 0.72 at 10¹⁰–10¹² while ρ ≲ 0.45 would be needed to push the model tail to
-10¹⁷. The targeted search found nothing. The lane closes the *local/polynomial* disproof routes at the model level;
+fade with p; the best designs reach ρ ≈ 0.72 at 10¹⁰–10¹² while ρ ≲ 0.47 would be needed to push the model tail to
+10¹⁷ (ρ ≲ 0.47 even with every prime of the decade as supply, §6.3 law). The targeted search (≈ 8.7·10⁵
+distinct primes, 10¹⁰–7.3·10¹⁵) found nothing. The lane closes the *local/polynomial* disproof routes at the model level;
 it says nothing about a global mechanism, and nothing here proves (MS).
 
 ## 8. Commands, files, ranges
+Run outputs are stored xz-compressed (`runA/`, `runB/`, `runC/` `*.txt.xz`, ≈ 5 MB); `xz -dk` them before running
+`scripts/z58_disproof_rho.py` / `z58_disproof_lines.py`, which read the plain `.txt` files.
 All runs: `ulimit -v 6000000`, `timeout ≤ 1750`. Engine `gcc -O2 -o /tmp/z58eng scripts/z58_disproof_eng.c -lm`.
 * runA (`data/z58/disproof/runA/*.txt.xz`): `EXACT=1 /tmp/z58eng ap 10000000000 N Q a z` for (Q, a, z) = (24,1,0),
   (840,121,0), (840,1,0), (120120,1,0), (2882880,1,0), (840,1,31).
