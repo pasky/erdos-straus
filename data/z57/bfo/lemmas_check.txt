@@ -1,0 +1,11 @@
+L1.1 shift form, odd n<1200: mismatches 0
+L1.2 divisor-in-class form, odd n<3000: mismatches 0
+L1.3 level form, n=1(4)<3000, all C: mismatches 0
+L1.4 complete levels in G*: solutions checked 44297 violations 0
+L1.5 mod-p form, primes p=1(4)<1500: mismatches 0
+L1.6 Jacobi at primes<6000: solutions 2080 violations 0 ; solutions at odd squares 9..77^2: 0
+L2.2 m<2000 with (Z/4m)^x of exponent <=2: [1, 2, 3, 6]
+L2.3 k=2: moduli q<20000 with lambda(q)|k: count 8, max 24
+L2.3 k=4: moduli q<20000 with lambda(q)|k: count 20, max 240
+L2.3 k=6: moduli q<20000 with lambda(q)|k: count 24, max 504
+L2.3 k=12: moduli q<20000 with lambda(q)|k: count 117, max 16380
