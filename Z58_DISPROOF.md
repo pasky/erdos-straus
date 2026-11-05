@@ -5,8 +5,11 @@ z53 → z58). Internal, internally reviewed only. **ES is OPEN; nothing here pro
 PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z58_disproof_*`, data
 `data/z58/disproof/`.
 
-*(Checkpoint 1: §§0–2 skeleton, falsifier table, statements, engine validation. Results sections are filled in as runs
-finish.)*
+**Verdict: narrowed — no counterexample, not a HOT LEAD.** Targeted search over 868 562 distinct primes in
+[10¹⁰, 7.3·10¹⁵] (designed progressions in 𝔐, exact or decision-mode) found no R- or 𝔊*-zero; two new R₈-zeros. The
+tested structured families act through truncated T1 (Lemmas 2.2, 2.3), their depression is measured and predicted
+(§4), and under an explicit fitted model none reaches 10¹⁷ (§6, Assessment). Final falsifier table: §7.2.
+*(Checkpoint 1 committed §§0–2 first; the rest was added as runs finished and then revised after the hostile review, §9.)*
 
 ## 0. MANDATORY FALSIFIER TABLE
 
@@ -17,7 +20,7 @@ measured depression into a model zero tail. The table states how the generator a
 | screen | how the counterexample generator / zero model behaves |
 |---|---|
 | **F1 odd squares** | Squares are the *template* the designs imitate. Lemma 2.2 (PROVED): if n is a square modulo M, no (★) solution at n has any of its three moduli 4uB, 4uC−1, 4BC−1 dividing M. At n = m² this holds for every M, so R = 0. A prime p is a square modulo every y-smooth M iff p ≡ 1 (8) and n_p > y, and it is *never* a square modulo every M (it is a non-square mod any prime ℓ with (p/ℓ) = −1). Heuristically (CRT/Chebotarev on average, not proved pointwise) the primes that are squares mod M have relative density ≈ 2^{−ω(M)}: **primality enters the model through this supply constraint.** The design rules out the solutions with a modulus dividing M (a one-way statement; the remaining solutions are *modelled* as unaffected, §4.2). The zero law is fitted on primes and is not applied to squares (it would predict R(m²) > 0, i.e. the model is wrong at squares by construction). |
-| **F2 C-even sub-line** | Used as the *calibration sibling*: R₈ has CERTIFIED zeros at 10¹⁰ (12 in [10¹⁰, 1.1·10¹⁰]). The same designs are run on R₈ and R; the design boost of the R₈ zero rate (measurable) is compared with the boost predicted from the mean depression. What distinguishes the halves for the model: essentially the size of the mean (R₈ ≈ 0.075 L², R ≈ 0.15 L²) — so the model says nothing structural about C odd vs even, and a design that zeroes R₈ above 10¹⁰ is *expected*, not news. |
+| **F2 C-even sub-line** | Used as the *calibration sibling*: R₈ has CERTIFIED zeros at 10¹⁰ (12 in [10¹⁰, 1.1·10¹⁰]). The same designs are run on R₈ and R; R₈-zeros in the designs: 2 distinct observed vs ≈ 0.7 predicted by the mean-only law at the design means (rough, EVIDENCE) — the same direction as the Mordell-class excess of §6.1. What distinguishes the halves for the model: essentially the size of the mean (R₈ ≈ 0.075 L², R ≈ 0.15 L²) — so the model says nothing structural about C odd vs even, and a design that zeroes R₈ above 10¹⁰ is *expected*, not news. |
 | **F3 composites** | Composites are not in the search domain. Profile (§3) checks whether the 285 composite zeros are "square-like" (square mod many small moduli / small square part) — they serve as a second calibration of "local square-likeness ⇒ zero". The generator never claims positivity at composites. |
 | **F4 known zeros** | The engine reproduces the 14 (★)-zeros and the 𝔊*-zeros tested (§2). The zero law is fitted on the R₈-zeros (1 339) and R-zeros (10) of [≈1.16·10⁴, 2·10⁸] in cells; it is a probability model, gives no positivity statement anywhere, and is not calibrated for R_𝔊*. Profile (§3): local data of the zeros vs controls. |
 
