@@ -194,7 +194,9 @@ fixed p across moduli. This is the exact shape of the obstruction.
   outright since then Q⁴ ≥ 2¹²⁸ > P·p). By Lemma 1.3 "no such d" is exactly R_𝔊*(p) = 0. Validation: on [5, 10⁸] it
   prints exactly the 37 zeros of `Z56_FAMDESIGN` (`decide_le1e8.txt`, diff-identical to `gstar_zeros_le1e8.txt`;
   2.8 s), on (10⁸, 10⁹] exactly {564 661 441} (31 s). (Note that this decider is independent of z56's: it enumerates
-  by d instead of by levels C, and uses no floating-point membership test.)
+  by d instead of by levels C, and uses no floating-point membership test. The runs reported in §3.2 used the binary
+  built from the first committed version; the later commit only adds an argument check and an input ceiling
+  B ≤ 6·10¹² needed for p³ < 2¹²⁸ in `dmax_of`, with identical logic.)
 * `scripts/z57_bff_firsthit.c`: first-hit statistics on samples (d₁(p) := least d with HIT(d) and the solution in 𝔊*;
   d₁^prime(p) := least prime such d, scanned to p^{0.8}).
 
@@ -206,7 +208,10 @@ fixed p across moduli. This is the exact shape of the obstruction.
   exhaustive 10¹⁰ result: **R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹¹, the last 564 661 441.** The largest
   first-hit d in (10¹⁰, 10¹¹] is 2 923 999 ≈ p^{0.600} (p = 61 032 630 877); per block the maxima are 0.8–2.9·10⁶,
   all below p^{0.61}. So every prime p ≡ 1 (4) in (10⁸, 10¹¹] other than the zero 564 661 441 has a 𝔊* hit with
-  d ≤ p^{0.705} (and the decider needs on average ≈ p^{0.09} steps). FIRSTHIT_1E9_1E10_PLACEHOLDER
+  d ≤ p^{0.705} (and the decider needs on average ≈ p^{0.09} steps). The decider was also run on (10⁹, 10¹⁰]
+  (`decide_1e9_1e10.txt`: 202 099 784 primes, no zero, max first-hit d = 2 178 251 ≈ p^{0.639} at 8 342 701 249), so
+  it independently re-certifies z56's whole range: 2 880 504 + 22 542 987 + 202 099 784 = 227 523 275 = π(10¹⁰; 4, 1)
+  (z56's count), 37 + 1 + 0 = 38 zeros.
   Extension to 5·10¹¹: EXT_PLACEHOLDER
 * **First hit (EVIDENCE; `firsthit_1e8/1e9/1e10.txt`).** Exponent θ₁ := log d₁(p)/log p over the primes p ≡ 1 (4) in
   [10⁸, 10⁸ + 4·10⁵] (10 819 primes), [10⁹, 10⁹ + 4·10⁵] (9 613), [10¹⁰, 10¹⁰ + 10⁵] (2 150):
