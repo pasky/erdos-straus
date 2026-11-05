@@ -31,7 +31,7 @@ p ≡ 1 (mod 4)**, in practice p ≡ 1 (mod 24). Mordell's identities reduce fur
 n ≡ 1, 121, 169, 289, 361, 529 (mod 840) — the square classes mod 840. These "Mordell-hard" primes are where all difficulty
 sits (`AMPLIFY_EXCEPTION.md:7–12`, `LITERATURE_2026.md`).
 
-**Verification.** ES holds for all n ≤ 10¹⁷ (Salez); Mihnea–Dumitru (arXiv:2509.00128, 2025, unrefereed preprint) report
+**Verification.** ES holds for all n ≤ 10¹⁷ (Salez); Spiridon Mihnea and Dumitru C. Bogdan (arXiv:2509.00128, 2025, unrefereed preprint) report
 10¹⁸ (`DISPROOF_AVENUES.md:63`). Internally (EVIDENCE): f_I(p) ≥ 1 and f_II(p) ≥ 1 for every prime 5 ≤ p ≤ 10⁸ (Type I and Type
 II separately); min f_II/log³p ≈ 0.012 (STATUS, phase (I)). Adversarial searches at 10¹⁸–10²⁵ (BPSW-probable primes) never
 approached failure: the hardest relative to controls, p = 2054098191162848070241, still has 870 solutions on its cheapest 1024
@@ -191,7 +191,7 @@ supercritical.
 * **(MS) ⟹ ES** (PROVED relative to Mordell's classical reduction to p mod 840 ∈ 𝔐 and Salez's verification of ES for
   n ≤ 10¹⁷, whose §§4.1–4.3 the cross-review checked; not a fresh certification below 10¹⁷). Threshold 10¹⁰ also
   suffices relative to the internal censuses (§2.1: no (★) zero at primes p ≡ 1 (4) in (8 813 281, 10¹⁰]; the (★) ∪ b = 1
-  union never fails ≤ 10⁸).
+  union has no zero at primes p ≡ 1 (4) ≤ 10⁸).
 * Scope: *sufficient, not necessary* (ES could be proved via other Type II lines, Type I, or a non-counting argument).
   "Weakest sufficient target among the (★) subfamily-positivity statements" is Assessment, restricted to that menu; no
   strict separation of the eventual statements is claimed. The proved main terms do not weaken (MS) logically. By this
@@ -633,7 +633,8 @@ no single-prime lower-tail mechanism is known.
   * CERTIFIED: N_II(n) = 0 for odd n ≤ 10⁷ exactly at the odd squares and at n = 4545; every odd prime ≤ 10⁷ has
     N_II ≥ 1; every prime p ≡ 1 (4) below 10⁹ and in [10¹², 10¹² + 10⁸) has a Type II witness f ≤ 3263 (largest least
     witness at p = 605 531 161); the cross-review reran these with the inspected code, not a new independent engine.
-    EVIDENCE: mean N_II ≈ 0.076 log³p; c ≥ 2 carries 86 % of solutions at 10⁶–10⁷ and rescues every (★)-zero ≤ 10⁷.
+    EVIDENCE (primes p ≡ 1 (4)): mean N_II ≈ 0.076 log³p; c ≥ 2 carries 86 % of solutions on [10⁶, 10⁷) and rescues all
+    14 (★)-zero primes p ≡ 1 (4) ≤ 10⁷.
   * Assessment: c is not a free variable at fixed p in these representations; it buys a log p in the genus main term and,
     empirically, a constant factor in relative fluctuation — not a proved impossibility of other uses of c.
 * The BM layer is pointwise free: for odd n, some t ≡ 0 (4), t ≤ 4ℓ(n), has M_t^lev(n) > 0 iff n is not a square ((J)103).
@@ -731,7 +732,8 @@ no single-prime lower-tail mechanism is known.
   CONDITIONAL; an upper bound, silent on positivity; §7 item 1).
 * *(z57, `Z57_BFII.md` §5.5; implication PROVED, hypothesis non-standard.)* Hypothesis SB: for every large prime
   p ≡ 1 (4) there is F ∈ [p^{0.9}, ½p^{0.99}] with A_F(p) ≥ ½G_F(p), where A_F counts actual Type II solutions with witness
-  f ∈ (F, 2F] and G_F is its genus expectation. SB ⟹ f_II(p) ≥ 1 for all large p (via Theorem G's window lemma, §5.2).
+  f ∈ (F, 2F] and G_F is its genus expectation. SB ⟹ f_II(p) ≥ 1 for all large p (via Z57_BFII.md §5.5 and Appendix A
+  Lemmas 3 and 5).
   SB is consistent with T1 (both sides vanish at m²); no implication from GRH or standard AP estimates is established.
 
 **5.5 Standing conjectures with evidence** (CONJECTURE; EVIDENCE ranges in brackets).
@@ -837,14 +839,14 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * (z57) Statistical complementarity of certificate families ((★), b = 1, Type I a = 1, c = 2, 3 lines, 𝔊*, its corner) →
   `Z57_COMPLEMENT.md` (scoped negative, over primes; first draft REJECTED by the cross-review, corrected): no robustly
   negative full-pair count association after local controls (EVIDENCE, 10⁸–10¹³ plus rough semiprimes); same-integer
-  slices positively coupled (Thm C(i), PROVED for bounded shifts, M-coprime divisors ≤ x^θ, θ < 1/4); positive covariance
+  slices with nonempty admissible unit-class sets positively coupled (Thm C(i), PROVED for bounded shifts, M-coprime divisors ≤ x^θ, θ < 1/4); positive covariance
   does not forbid pointwise coverage. Pointwise complementarity at primes is not excluded for five pairs (§7 item 3).
 * (z57) Split-and-complement of (★) by the parity of C → `Z57_SYNTH.md` §3.II: on a domain it is full-family positivity
   ((MS) itself), the halves are positively associated (corr ≈ +0.29 at 10⁷–10⁸, EVIDENCE), no disjointness mechanism
   found. Not excluded.
 * (z57) Additive-character expansion of the 𝔊* hit count over moduli d → `Z57_BFF.md` §2 (Assessment for this
-  implementation): no estimate for the weighted error supplied for d ≤ p^{1/3}; provably none below c·log p (Linnik
-  example, PROVED); for d ≥ p^{1/3} it is B2 in tied form. Larger-d routes are not excluded.
+  implementation): no estimate for the weighted error supplied for d ≤ p^{1/3}; uniform positivity H(p; D) ≥ 1 for all
+  large primes is impossible when D ≤ c·log p (Linnik example, PROVED); for d ≥ p^{1/3} it is B2 in tied form. Larger-d routes are not excluded.
 
 *Algebraic / forcing*
 * Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS "line 2: CLOSED".
@@ -928,7 +930,7 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   corollary of `Z55_HCF.md` T3.1): SMCR(D, g) (every unit avoider of all (★) hit classes with modulus ≤ D is a QR mod
   every odd prime ≤ g) is false for every finite D ≥ 3 and every g ≥ 11. Size-controlled variants are not excluded.
 * (z57) Bounded-order character data and finite witness menus → `Z57_BFO.md` Lemma 2.3 (PROVED: characters of orders
-  dividing k recover a residue class exactly only modulo divisors of an explicit Λ(k); the methodological reading is
+  dividing k recover a unit residue class exactly only modulo divisors of an explicit Λ(k); the methodological reading is
   Assessment); `Z57_BFII.md` Prop 3.2 (PROVED: no finite set of Type II witness moduli covers all primes). Growing or
   p-dependent witness families are not excluded.
 
@@ -1626,17 +1628,17 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
      modulus 4m | 24 (the eight integers p + 1, p + 2, p + 3, p + 6, 4p + 1, 8p + 1, 12p + 1, 24p + 1); Lemma 2.3 — see §6.
      Assessment: in the routes tried, reciprocity → characters mod p → Burgess reaches only the genus layer; no reduction
      of the target to GRH, EH or Hypothesis H was found.
-   * **Defect form (`Z57_BFF.md` Theorem 1 = Lemmas 1.2–1.3; PROVED).** For d ≡ 3 (4), p ∤ d, let n_d, C_d be the least
+   * **Defect form (`Z57_BFF.md` Theorem 1 = Lemmas 1.2–1.3; PROVED).** For integers d ≥ 3, d ≡ 3 (4), p ∤ d, let n_d, C_d be the least
      positive residues of −p and −(4p)⁻¹ mod d. Then 4n_dC_d ≡ 1 (mod d), and HIT(d) :⟺ 4n_d | d + 1 ⟺ 4C_d | d + 1 ⟺
-     4n_dC_d = d + 1; HIT(d) gives the (★) solution (n_d, (p + n_d)/d, C_d). R_𝔊*(p) ≥ 1 ⟺ some d ≡ 3 (4),
-     d ≤ ⌊p^{3/4}⌋ + 1, has HIT(d) and max(n_d, m)⁴ > min(n_d, m)·p, m = (p + n_d)/d; a hit with d⁴(d + 1) ≤ 4p³ (e.g.
+     4n_dC_d = d + 1; HIT(d) gives the (★) solution (n_d, (p + n_d)/d, C_d). R_𝔊*(p) ≥ 1 ⟺ some integer d ≥ 3,
+     d ≡ 3 (4), d ≤ ⌊p^{3/4}⌋ + 1, has HIT(d) and max(n_d, m)⁴ > min(n_d, m)·p, m = (p + n_d)/d; a hit with d⁴(d + 1) ≤ 4p³ (e.g.
      d ≤ p^{3/5}) is automatically in 𝔊* (sufficient, not necessary). **Lemma 1.4 (PROVED):** HIT(d) ⟹ (−n_d/d) = −1,
-     (p/d) = −1, (d/p) = −1; hence no hit at odd squares (T1). For D ≥ p^{1/4+ε} Burgess gives D/8 + O(D^{1−δ}) non-residues
-     d ≡ 3 (4) below D; neither this nor BGHS's positive density from p^{1/(4√e)+ε} (all d) says anything about HIT.
+     (p/d) = −1, (d/p) = −1; hence no hit at odd squares (T1). For fixed 0 < ε < 3/4 and p^{1/4+ε} ≤ D ≤ p, Burgess gives
+     D/8 + O_ε(D^{1−δ}) non-residues d ≡ 3 (4) below D, for some δ = δ(ε) > 0; neither this nor BGHS's positive density from p^{1/(4√e)+ε} (all d) says anything about HIT.
      Assessment: d ≤ p^{1/3} is where this lane's additive-character attack stops; "narrowed" = reformulation.
    * **Census (CERTIFIED).** BFF's independent decider (by d, integer-exact membership) re-certifies z56's range and finds
-     no 𝔊*-zero in (10¹⁰, 10¹²]: R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹², the last 564 661 441 (hence, by
-     monotonicity, R(p) ≥ 1 there too). Provenance: the cross-review exhaustively reran [5, 10⁹] and parsed and spot-checked
+     no 𝔊*-zero in (10¹⁰, 10¹²]: R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹², the last 564 661 441 (hence R(p) ≥ 1
+     for every prime p ≡ 1 (4) in (10¹⁰, 10¹²], since R(p) ≥ R_𝔊*(p)). Provenance: the cross-review exhaustively reran [5, 10⁹] and parsed and spot-checked
      all 192 blocks, not the full 10¹² run; BFO's run of the z56 decider separately covers (10¹⁰, 2·10¹⁰] (cross-review
      reproduced prime counts and exceptional rows, not the full solution census). Side result: the Burgess-only family
      𝔊*_{1/15} has a new zero 11 406 999 713. EVIDENCE: the largest least-hit modulus is d = 787 439 ≈ p^{0.705} on (10⁸, 10⁹];
@@ -1645,8 +1647,9 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    * **Complementarity (`Z57_COMPLEMENT.md`; corrected after a cross-model REJECT).** Menu: (★), b = 1 line, Type I a = 1
      slice (with boundary words), c = 2, 3 Type II lines, 𝔊*, its corner. Lemma W (PROVED): all are cells of the word sets
      W(p) = {tuv − u − v = p} or W(cp); on interior words of W(p) the (★), b = 1, Type I cells are exactly the
-     Jacobi-(−1) words. Theorem C (PROVED via Bombieri–Vinogradov; over primes p ≤ x in a class a mod M,
-     4·lcm(1..U) | M, M-coprime divisors ≤ x^θ, θ < 1/4): (i) class counts on the same integer p + u, u ≤ U, have
+     Jacobi-(−1) words. Theorem C (PROVED via Bombieri–Vinogradov; fixed U ≥ 1, 0 < θ < 1/4,
+     4·lcm(1..U) | M, gcd(a, M) = 1; averages over primes p ≤ x, p ≡ a (M); fixed nonempty sets of unit classes modulo
+     q, q′ dividing M; divisors m ≤ x^θ coprime to M; fixed positive u ≤ U, b, c): (i) class counts on the same integer p + u, u ≤ U, have
      covariance ≥ κ(log x)³ − C(log x)²; (ii) on different integers p + u, cp + b (cu ≠ b), provided every prime of
      b·c·(cu − b) divides M, covariance −Θ((log x)²) (CRT exclusion, correlation ≍ −1/log x). Not about a single p (B6).
      Prop F (CERTIFIED, census n ≡ 1 (4), 5 ≤ n ≤ 4·10⁶): for every pair of {(★), b = 1, Type I a = 1, c2, c3} there are
@@ -1654,7 +1657,7 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
      b=1⇒c2 (193, 2521), b=1⇒c3 (193), and the reverses. Census (CERTIFIED counts): at primes Type I a = 1 never vanishes
      and no prime zero of the union of the three, or of all five, families occurs; at non-square composites the union
      (★) ∪ b=1 ∪ Type I vanishes only at 105 and the five-family union never (c2(105) = 1). EVIDENCE: all 21 certificate pairs
-     positively correlated after local controls (c2–c3 ≈ 0 at 10¹³); rough semiprimes show the same joint law. Not
+     have positive residual correlations after local controls except c2–c3 at 10¹³ (−0.004, within one nominal s.e.); rough semiprimes show the same joint law. Not
      excluded: pointwise complementarity at primes for (★)&b=1, (★)&Type I, b=1&Type I, Type I&c2, Type I&c3 (no joint
      prime zero ≤ 4·10⁶). Assessment: a union theorem over this menu would need a new exact relation between divisor
      classes of different integers (none known); not a necessity theorem.
