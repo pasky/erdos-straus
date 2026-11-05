@@ -3,20 +3,26 @@
 Lane TRYO, wave z58. Fresh attack (no FRONTIER / Z5* memos read). Only external data used: `data/z58/screens/`.
 Scripts `scripts/z58_tryo_*`, data `data/z58/tryo/`.
 
-**Bottom line.** The full statement ("every sufficiently large prime p ≡ 1 (24) has a solution of (★)") is NOT proved.
-What is proved here:
-* Thm 1 (PROVED, elementary): equivalent forms of (★), incl. "∃ coprime u, B with 4uB | p+u+B" and
-  "∃ u: p+u has a divisor ≡ −1 (mod 4u)", and the character-kernel criterion for failure.
+𝔐 := {1, 121, 169, 289, 361, 529} mod 840 (Mordell's classes); "p ∈ 𝔐" means p prime in one of these classes.
+
+**Bottom line.** The full statement ("every sufficiently large prime p ≡ 1 (24), in particular every large p ∈ 𝔐, has a
+solution of (★)") is NOT proved. What is proved here:
+* Lemmas 1.1–1.4 (PROVED, elementary): equivalent forms of (★), incl. "∃ coprime u, B with 4uB | p+u+B" and
+  "∃ u: p+u has a divisor ≡ −1 (mod 4u)"; a sufficient character-kernel criterion for failure (converse false).
 * Thm 2 (PROVED, using only the arithmetic large sieve + Mertens in progressions to fixed moduli):
-  #{p ≤ X prime : (★) has no solution} ≪_A X (log X)^{−A} for every A. Same for the C-even subfamily, and (with one
-  log less) for all integers n ≤ X.
-* Prop 3 (PROVED, Dirichlet/Linnik): no finite set of congruence identities covers 𝔐 ∩ primes; there are infinitely many
-  primes p ∈ 𝔐 all of whose solutions have uB ≥ (1/5 − o(1)) log p. Plus EVIDENCE: the least-non-residue route is
-  dead (each prime q ∈ [11, 47] is a non-residue of some 𝔐-zero of (★)).
+  #{p ≤ X prime : (★) has no solution} ≪_A X (log X)^{−A} for every A. Same for the C-even subfamily and for all
+  integers n ≤ X.
+* Props 3.1–3.2 (PROVED, Dirichlet/Linnik): no finite set of congruence identities covers 𝔐; there are infinitely
+  many p ∈ 𝔐 with no solution having uB < (1/L₀ − o(1)) log p, L₀ a Linnik exponent (possibly vacuously). Plus CERTIFIED: the
+  least-non-residue route is dead (each prime q ∈ [11, 47] is a non-residue of some 𝔐-zero of (★)).
 * EVIDENCE (§5): for hard p the solution is "C small, uB ≈ p/(4C)" or "u small": min u ≤ 469 for all 179 468 primes
   p ∈ 𝔐, p ≤ 10⁸, except the 9 𝔐-zeros; min C reaches 41 027; min uB reaches ≈ p/4.
 
-## §0 Falsifier ledger (stated at first commit 231cda77; re-stated at end in §7)
+## §0 Falsifier ledger (first stated in commit 231cda77, REVISED after it; re-stated at end in §7)
+
+Changes vs. 231cda77: (i) the claimed equivalence "failure ⟺ every u has an odd character mod 4u killing all primes
+of p+u" is WITHDRAWN (only ⇐ holds; Lemma 1.2(c) is a counterexample to ⇒); (ii) (C) now also covers integers
+(Thm 2(b)); (iii) the F4 range "q ∈ [5, 47]" is corrected to q ∈ [11, 47] inside 𝔐 (409, 577 are not in 𝔐).
 
 Attack: (A) reduce (★) to "∃ u, B ≥ 1 with 4uB | p+u+B" and to a character-kernel criterion; (B) try to cover primes
 p ∈ 𝔐 by identities attached to one quadratic non-residue prime q (least-non-residue route); (C) prove the strongest
@@ -36,7 +42,8 @@ No HOT LEAD.
 
 ## §1 Reformulations (PROVED)
 
-Throughout p is an odd prime (p ≡ 1 (4) where stated), u, B, C ∈ ℤ_{≥1}.
+Throughout u, B, C ∈ ℤ_{≥1}. Lemma 1.1 (i)–(iv) hold verbatim for any positive integer n in place of p; only the
+gcd claim uses that p is prime.
 
 **Lemma 1.1.** The following are equivalent:
 (i) 4uBC − u − B = p for some u, B, C ≥ 1;
@@ -70,8 +77,9 @@ Consequently: if for every u ≥ 1 some odd χ_u mod 4u is trivial on all primes
 lifted to G it is odd and trivial on H. Conversely an odd χ trivial on H gives χ(−1) = −1 ≠ 1, so −1 ∉ H.
 (c) direct check (also `uv run python`: divisors of 33 mod 20 = [1, 3, 11, 13]). ∎
 
-**Lemma 1.3 (squares, F1).** If n = m² (m odd) and d | m² + u, d ≡ −1 (mod 4u), then (−u/d) = 1 by d | m²+u, but the
-Jacobi symbol (−u/d) = −1 for every d ≡ −1 (4u). Hence (★) never holds at odd squares, and the odd character
+**Lemma 1.3 (squares, F1).** If n = m² and d | m² + u, d ≡ −1 (mod 4u), then gcd(m, d) = 1 (a common prime would divide
+u, but d ≡ −1 (4u) is coprime to u), so −u ≡ m² is a nonzero square mod every prime of d and the Jacobi symbol
+(−u/d) = 1; but (−u/d) = −1 for every d ≡ −1 (4u). Hence (★) never holds at squares, and the odd character
 ψ_u := (−4u/·) (a character mod 4u) is a witness in Lemma 1.2 for every u.
 
 *Proof.* Write u = 2^a v, v odd. (−1/d) = −1 (d ≡ 3 (4)); if a ≥ 1 then 8 | 4u so d ≡ −1 (8) and (2/d) = 1;
@@ -84,18 +92,19 @@ factor q ∤ 2u with ψ_u(q) = −1, so ψ_u is NOT a witness in Lemma 1.2(a) at
 *Proof.* An odd prime q | u with q | p+u divides p, impossible as q ≤ u < p; so p+u = 2^a m with gcd(m, 2u) = 1.
 Then −1 = (u/p) = ((p+u)/p) = (2/p)^a (m/p) = (m/p) = ∏_{q|m} (q/p)^{v_q(m)}, so some q | m has (q/p) = −1 = ψ_u(q). ∎
 This is the only place where primality of p visibly breaks the square obstruction: for p ∈ 𝔐 all u composed of
-2, 3, 5, 7 have (u/p) = 1, which is exactly why 𝔐 is hard. It does NOT give a solution: it only excludes the witness
+2, 3, 5, 7 have (u/p) = 1, which is one reason (heuristically) why 𝔐 is hard. It does NOT give a solution: it only excludes the witness
 χ_u = ψ_u, while (ℤ/4u)^× has φ(4u)/2 odd characters.
 
 ## §2 Almost all primes (PROVED)
 
 **Theorem 2.** (a) For every A > 0: #{p ≤ X prime : (★) unsolvable} ≪_A X (log X)^{−A}.
 (b) The same holds for #{n ≤ X : (★) unsolvable with p replaced by n}.
-(c) (a) holds for the subfamily with C even.
+(c) For every A > 0: #{p ≤ X prime : (★) has no solution with C even} ≪_A X (log X)^{−A}.
 
 Tools (standard, unconditional):
 * **Arithmetic large sieve** (Montgomery 1968; constant N + Q² by Montgomery–Vaughan 1973; e.g. Iwaniec–Kowalski,
-  Thm 7.14 / Friedlander–Iwaniec, Opera de Cribro Thm 9.x): if 𝒜 ⊆ (M, M+N] ∩ ℤ and for each prime ℓ ≤ Q the set 𝒜
+  §7.4; Montgomery, Topics in Multiplicative Number Theory, LNM 227, Thm 3.x / Montgomery–Vaughan, Mathematika 20
+  (1973)): if 𝒜 ⊆ (M, M+N] ∩ ℤ and for each prime ℓ ≤ Q the set 𝒜
   avoids ω(ℓ) < ℓ residue classes mod ℓ, then |𝒜| ≤ (N + Q²)/L, L = Σ_{r≤Q} μ²(r) ∏_{ℓ|r} ω(ℓ)/(ℓ − ω(ℓ)).
 * **Mertens in progressions, fixed modulus k, gcd(a,k)=1:** Σ_{ℓ≤y, ℓ≡a (k)} 1/ℓ = (log log y)/φ(k) + O_k(1) and
   Σ_{ℓ≤y, ℓ≡a (k)} (log ℓ)/ℓ = (log y)/φ(k) + O_k(1).
@@ -120,7 +129,7 @@ Hence T ≤ e^{−K} F exp((e−1) Σ_{ℓ≤y} h(ℓ) log ℓ / log y) = F exp(
 Choose K := ⌈(e−1)κ⌉ + 1; then for Q large T ≤ F e^{−1/2}, so G(Q) ≥ (1 − e^{−1/2})F. By (M1), (M3),
 log F = Σ log(1+h) ≥ Σ h − ½Σ h² = κ log log y + O_U(1), so F ≫_U (log y)^κ ≫_U (log Q)^κ (K depends on U only).
 *Conclusion.* |S| ≤ (X + Q²)/L ≤ 2X/G(Q) ≪_U X (log X)^{−κ_U}, and the exceptional primes ≤ X number
-≤ |S| + Q ≪_U X (log X)^{−κ_U}. Since φ(4u) ≤ 4u, κ_U ≥ 1 + ¼ Σ_{u≤U} 1/u ≥ 1 + ¼ log U; given A pick U with
+≤ |S| + Q ≪_U X (log X)^{−κ_U}. Since φ(4u) ≤ 2u, κ_U ≥ 1 + ½ Σ_{u≤U} 1/u ≥ 1 + ½ log U; given A pick U with
 κ_U ≥ A. ∎
 (b) Same proof with S ⊆ (0, X] ∩ ℤ, Ω(ℓ) without the class 0, ω(ℓ) = τ((ℓ+1)/4) for ℓ ≡ 3 (4) and 0 otherwise
 (classes with ω = 0 are allowed in the large sieve; they contribute factor 1), h(ℓ) = n_U(ℓ)/ℓ, κ = Σ_{u≤U} 1/φ(4u).
@@ -130,9 +139,10 @@ log F = Σ log(1+h) ≥ Σ h − ½Σ h² = κ log log y + O_U(1), so F ≫_U (l
 **Corollary 2.1 (short intervals).** Fix ε > 0 and a class a mod 840 with gcd(a, 840) = 1. For X large, every interval
 (X, X + H], H = X^{7/12+ε}, contains ≫ H/log X primes p ≡ a (840) at which (★) is solvable.
 *Proof.* Run the proof of (a) with 𝒜 = exceptional primes in (X, X+H] (N = H, Q = H^{1/2}; class 0 is avoided since
-p > X > Q): |𝒜| ≤ 2H/G(Q) ≪_U H (log H)^{−κ_U} = o(H/log X) once κ_U ≥ 2. Huxley's prime number theorem in short
-intervals, in the form valid for progressions to a fixed modulus (zero-density estimate for the finitely many L(s,χ)
-mod 840), gives ≥ (1/φ(840) − o(1)) H/log X primes ≡ a (840) in (X, X+H]. ∎ (PROVED modulo that standard input.)
+p > X > Q): |𝒜| ≤ 2H/G(Q) ≪_U H (log H)^{−κ_U} = o(H/log X) once κ_U > 1. Huxley's prime number theorem in short
+intervals, in the form valid for progressions to a fixed modulus (Huxley's zero-density estimate
+N(σ, T, χ) ≪ T^{12(1−σ)/5+ε} for each of the finitely many χ mod 840 plus the classical zero-free region, via the
+explicit formula exactly as in Huxley, Invent. Math. 15 (1972) for ζ), gives ≥ (1/φ(840) − o(1)) H/log X primes ≡ a (840) in (X, X+H]. ∎ (PROVED modulo that standard input.)
 
 Remarks. (1) Primality enters only through the class 0 (one extra unit of κ). The proof never certifies a given p;
 it is fully consistent with (F1)–(F4). (2) Only *prime* d = ℓ are used; composite d would give more classes but
@@ -146,11 +156,12 @@ p ∈ 𝔐 not in any class −(u+B) mod 4uB, (u,B) ∈ 𝒫.
 *Proof.* Let L = lcm(840, 4uB : (u,B) ∈ 𝒫). Every prime p ≡ 1 (mod L) is in 𝔐 and satisfies p ≡ 1 (mod 4uB), while
 1 ≢ −(u+B) (mod 4uB) because 0 < u + B + 1 ≤ uB + 2 < 4uB. Dirichlet gives infinitely many such p. ∎
 
-**Prop 3.2 (PROVED, using Linnik's theorem with exponent 5, Xylouris).** There are infinitely many primes p ∈ 𝔐 such
-that every solution of (★) at p has uB > (1/5 − o(1)) log p.
+**Prop 3.2 (PROVED, using Linnik's theorem with exponent L₀; L₀ = 5.18 by Xylouris, Acta Arith. 2011; L₀ = 5 in
+Xylouris' 2018 Bonn dissertation).** There are infinitely many primes p ∈ 𝔐 such that every solution of (★) at p
+(if any — the statement may be vacuous for some of them) has uB > (1/L₀ − o(1)) log p.
 *Proof.* Take 𝒫 = {(u,B): uB ≤ Y}; lcm{4uB : uB ≤ Y} = 4·lcm(1..Y) = exp(Y(1+o(1))) (PNT), and for Y ≥ 7 this is
-divisible by 840. By Linnik–Xylouris the least prime p ≡ 1 (mod L) is ≤ L^{5+o(1)} = exp((5+o(1))Y). By Prop 3.1's
-argument p has no solution with uB ≤ Y, and Y ≥ (1/5 − o(1)) log p. As Y → ∞ these p are distinct
+divisible by 840. By Linnik the least prime p ≡ 1 (mod L) is ≪ L^{L₀} = exp((L₀+o(1))Y). By Prop 3.1's
+argument p has no solution with uB ≤ Y, and Y ≥ (1/L₀ − o(1)) log p. As Y → ∞ these p are distinct
 infinitely often since p > L → ∞. ∎
 (The data say the truth is far larger: min uB reaches ≈ p/4, i.e. C = 1 is the only solution, §5.)
 
@@ -169,8 +180,8 @@ simultaneously. For a prime p, Lemma 1.4 excludes the witness ψ_u when (u/p) = 
 characters, and also the non-kernel failure mode of Lemma 1.2(c). To rule all of them out one needs information on the
 *distribution of the prime factors of p+u in classes mod 4u* for a single p and many u ≤ p^θ (data: u ≤ 469 suffices
 to 10⁸). That is a statement about the factorisation of the specific short interval (p, p + p^θ] — not accessible to
-sieve or L-function methods for individual p; and through Lemma 1.1(ii) it is equivalent to the corresponding statement
-for the AP 4Cp + 1, C ≤ C₀. Every relaxation that is provable (Thm 2) is a counting statement.
+sieve or L-function methods for individual p. The dual formulation Lemma 1.1(ii) (divisors of 4Cp + 1) bounds C
+instead of u, and these are different problems (data: min u ≤ 469 but min C reaches 41 027). Every relaxation that is provable (Thm 2) is a counting statement.
 
 ## §5 Data (CERTIFIED computations; scripts in `scripts/z58_tryo_*`)
 
@@ -180,8 +191,8 @@ for the AP 4Cp + 1, C ≤ C₀. Every relaxation that is provable (Thm 2) is a c
   Records: 26 (19 441), 131 (427 249), 410 (4 160 641), 469 (53 325 721).
 * `minC_1e8.txt` (`z58_tryo_minC.c`, label "u=" there means C; full factorisation via trial division + Pollard rho):
   least C: max 41 027 at p = 85 664 329 (d = 2 953 943). Same 9 zeros.
-* `minuB_2e7.txt` (`z58_tryo_minuB.c`): least uB (= least modulus of a hitting identity); records grow to 835 986 at
-  p = 3 341 881 (≈ p/4, i.e. only C = 1 works) — so Prop 3.2's log p is very far from the truth.
+* `minuB_2e7.txt` (`z58_tryo_minuB.c`): least uB (= least modulus of a hitting identity); the file logs records of
+  Y/log p; the last record holder has Y = 835 986 at p = 3 341 881 (≈ p/4, i.e. only C = 1 works) — so Prop 3.2's log p is very far from the truth.
 
 ## §6 Status of claims
 
@@ -194,9 +205,18 @@ for the AP 4Cp + 1, C ≤ C₀. Every relaxation that is provable (Thm 2) is a c
 | Thm 2 (a)(b)(c) almost all, ≪_A X(log X)^{−A} | PROVED (standard large sieve + Mertens in APs) |
 | Cor 2.1 short intervals | PROVED modulo Huxley PNT in short intervals for fixed-modulus APs |
 | Lemma checks (1.1 (iii)⇔(iv), 1.3, 1.4) | numerically verified, `scripts/z58_tryo_check_lemmas.py` |
-| Prop 3.1, 3.2 | PROVED (Dirichlet; Linnik–Xylouris) |
+| Prop 3.1, 3.2 | PROVED (Dirichlet; Linnik with any exponent L₀) |
 | §3.3 route B dead | CERTIFIED (screen data) |
 | full statement for all large p | NOT PROVED |
 
-## §7 Falsifier ledger at the end
-(to be re-stated after review)
+## §7 Falsifier ledger at the end (after hostile review)
+
+No HOT LEAD. Nothing here proves (★) for any individual prime not already checked numerically.
+* (F1) squares: Lemma 1.3 (with the gcd step) shows the failure; Thm 2 is a counting bound, vacuous on squares
+  (√X of them); Lemma 1.4 is the identifiable step where primality ((u/p) = −1 for some u) breaks the square witness
+  ψ_u — and it is insufficient (Lemma 1.2(c), other odd characters).
+* (F2) C-even: Thm 2(c) is an almost-all statement, consistent with the 12 C-even zeros in [10¹⁰, 1.1·10¹⁰].
+* (F3) composites: Thm 2(b) is a density bound for integers, consistent with the 285 composite zeros.
+* (F4) 14 prime zeros: kill the least-non-residue covering route for every q ∈ [11, 47] inside 𝔐 (§3.3); my
+  engines independently reproduce the 9 𝔐-zeros ≤ 10⁸ (§5).
+Hostile review (subagent, this lane): no FATAL/MAJOR issues; all MINOR/NIT items addressed in the final commit.
