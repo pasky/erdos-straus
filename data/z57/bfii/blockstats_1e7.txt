@@ -1,0 +1,4 @@
+TypeII: mean actual 31.52 mean genus 31.45 mean naive-ratio actual/genus 1.002; var(actual-genus)/mean(genus) = 2.02;  var(actual)/mean(actual) = 2.35; corr(actual,genus) = 0.381; frac actual==0: 0.0000; min actual/genus 0.301
+   relative remainder |actual-genus|/genus: mean 0.202, 99th pct 0.658
+c=1: mean actual 6.96 mean genus 6.95 mean naive-ratio actual/genus 1.002; var(actual-genus)/mean(genus) = 1.45;  var(actual)/mean(actual) = 1.52; corr(actual,genus) = 0.231; frac actual==0: 0.0029; min actual/genus 0.000
+   relative remainder |actual-genus|/genus: mean 0.358, 99th pct 1.248

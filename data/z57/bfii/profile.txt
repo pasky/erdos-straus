@@ -49,23 +49,23 @@ p= 605531161
   f in [2^14,2^15): actual    7  genus     9.59  naive    11.20   cum actual   24 genus    45.11
   f in [2^15,2^16): actual   13  genus    11.30  naive    12.71   cum actual   37 genus    56.41
   f in [2^16,2^17): actual   15  genus    12.50  naive    14.33   cum actual   52 genus    68.91
-p= 605531189
+p= 605531237
   f in [2^1,2^2): actual    1  genus     1.00  naive     0.50   cum actual    1 genus     1.00
-  f in [2^2,2^3): actual    0  genus     0.00  naive     0.50   cum actual    1 genus     1.00
-  f in [2^3,2^4): actual    3  genus     2.60  naive     1.05   cum actual    4 genus     3.60
-  f in [2^4,2^5): actual    0  genus     0.33  naive     1.08   cum actual    4 genus     3.93
-  f in [2^5,2^6): actual    3  genus     2.26  naive     1.98   cum actual    7 genus     6.19
-  f in [2^6,2^7): actual    5  genus     3.50  naive     2.39   cum actual   12 genus     9.69
-  f in [2^7,2^8): actual    4  genus     2.82  naive     3.25   cum actual   16 genus    12.51
-  f in [2^8,2^9): actual    2  genus     5.15  naive     4.03   cum actual   18 genus    17.66
-  f in [2^9,2^10): actual    6  genus     5.80  naive     5.06   cum actual   24 genus    23.46
-  f in [2^10,2^11): actual    6  genus     5.38  naive     6.04   cum actual   30 genus    28.84
-  f in [2^11,2^12): actual   10  genus     7.35  naive     7.20   cum actual   40 genus    36.19
-  f in [2^12,2^13): actual    7  genus     8.70  naive     8.42   cum actual   47 genus    44.89
-  f in [2^13,2^14): actual   11  genus     9.81  naive     9.76   cum actual   58 genus    54.70
-  f in [2^14,2^15): actual   15  genus    11.03  naive    11.20   cum actual   73 genus    65.73
-  f in [2^15,2^16): actual   30  genus    12.75  naive    12.71   cum actual  103 genus    78.48
-  f in [2^16,2^17): actual   20  genus    14.40  naive    14.33   cum actual  123 genus    92.88
+  f in [2^2,2^3): actual    1  genus     1.00  naive     0.50   cum actual    2 genus     2.00
+  f in [2^3,2^4): actual    0  genus     0.00  naive     1.05   cum actual    2 genus     2.00
+  f in [2^4,2^5): actual    1  genus     1.33  naive     1.08   cum actual    3 genus     3.33
+  f in [2^5,2^6): actual    6  genus     3.06  naive     1.98   cum actual    9 genus     6.39
+  f in [2^6,2^7): actual    6  genus     3.40  naive     2.39   cum actual   15 genus     9.80
+  f in [2^7,2^8): actual    3  genus     2.29  naive     3.25   cum actual   18 genus    12.09
+  f in [2^8,2^9): actual    7  genus     5.44  naive     4.03   cum actual   25 genus    17.52
+  f in [2^9,2^10): actual    6  genus     4.76  naive     5.06   cum actual   31 genus    22.28
+  f in [2^10,2^11): actual    1  genus     6.67  naive     6.04   cum actual   32 genus    28.95
+  f in [2^11,2^12): actual    9  genus     7.72  naive     7.20   cum actual   41 genus    36.67
+  f in [2^12,2^13): actual   11  genus     9.71  naive     8.42   cum actual   52 genus    46.38
+  f in [2^13,2^14): actual    7  genus     9.82  naive     9.76   cum actual   59 genus    56.20
+  f in [2^14,2^15): actual   16  genus    11.29  naive    11.20   cum actual   75 genus    67.50
+  f in [2^15,2^16): actual   15  genus    13.34  naive    12.71   cum actual   90 genus    80.83
+  f in [2^16,2^17): actual   12  genus    14.93  naive    14.33   cum actual  102 genus    95.76
 p= 1000077030541
   f in [2^1,2^2): actual    0  genus     0.00  naive     0.50   cum actual    0 genus     0.00
   f in [2^2,2^3): actual    0  genus     0.00  naive     0.50   cum actual    0 genus     0.00
