@@ -147,10 +147,11 @@ p ∈ 𝔐 not in any class −(u+B) mod 4uB, (u,B) ∈ 𝒫.
 1 ≢ −(u+B) (mod 4uB) because 0 < u + B + 1 ≤ uB + 2 < 4uB. Dirichlet gives infinitely many such p. ∎
 
 **Prop 3.2 (PROVED, using Linnik's theorem with exponent 5, Xylouris).** There are infinitely many primes p ∈ 𝔐 such
-that every solution of (★) at p has uB > (1/5 − o(1)) log p (equivalently C < (p + u + B)·5/(4 log p)·(1+o(1))).
+that every solution of (★) at p has uB > (1/5 − o(1)) log p.
 *Proof.* Take 𝒫 = {(u,B): uB ≤ Y}; lcm{4uB : uB ≤ Y} = 4·lcm(1..Y) = exp(Y(1+o(1))) (PNT), and for Y ≥ 7 this is
 divisible by 840. By Linnik–Xylouris the least prime p ≡ 1 (mod L) is ≤ L^{5+o(1)} = exp((5+o(1))Y). By Prop 3.1's
-argument p has no solution with uB ≤ Y, and Y ≥ (1/5 − o(1)) log p. ∎
+argument p has no solution with uB ≤ Y, and Y ≥ (1/5 − o(1)) log p. As Y → ∞ these p are distinct
+infinitely often since p > L → ∞. ∎
 (The data say the truth is far larger: min uB reaches ≈ p/4, i.e. C = 1 is the only solution, §5.)
 
 **3.3 Least-non-residue route (route B) — dead (CERTIFIED from screens data).** Idea: if p is a non-residue mod some
