@@ -108,6 +108,14 @@ So the a = 1 line (∃ d: p + 4d has a divisor ≡ −1 (mod 4d)) is, empiricall
 zeros), and the union a = 1 ∪ c = 1 has no zero ≤ 10⁸. All 14 c = 1 zeros have a witness with a = 1 and c ∈ {2,3}
 (wit_hard.txt). These are EVIDENCE only; heuristically each sub-line has ≍ log² p expected solutions and finitely many zeros.
 
+**Mean counts (EVIDENCE; scripts/z58_convf_means.c, data/z58/convf/means_6e7.txt).** Over primes p ≡ 1 (24) in dyadic
+ranges up to 6·10⁷: mean #{(c,d): 4cd − 1 | cp + 1} (a = 1 line) ≈ 0.12·log²p (0.090 → 0.123, still rising slowly towards
+the heuristic 1/8 from Σ_{cd ≤ p/4} 1/(4cd)); mean #{(a,d): 4ad − 1 | p + a} (c = 1 line, which counts (a,b,1,d) and
+(b,a,1,d) separately) ≈ 0.144·log²p, i.e. ≈ 0.072·log²p unordered. So the a = 1 line has ≈ 1.7× more *distinct* solutions
+than the c = 1 line, consistent with 3 vs 14 zeros; the minimum of the a = 1 count over p ∈ [1.6·10⁷, 6·10⁷] is 5
+(c = 1: 2 ordered). The two lines have identical naive expectation Σ_f τ((f+1)/4)/f (one witness per f at most in each),
+so the difference is entirely the a ↔ b double counting plus correlation structure.
+
 ## §3 The one proved weaker result: a power-of-log exceptional set for the a = 1 line
 
 This is a density statement and does NOT resolve anything; it is recorded because it is cheap, apparently not stated in
