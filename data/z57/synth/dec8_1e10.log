@@ -1,0 +1,1 @@
+range [10000000000, 11000000000]: primes(1 mod 4)=21668737 full-enumerations=8374 R8-zeros=12
