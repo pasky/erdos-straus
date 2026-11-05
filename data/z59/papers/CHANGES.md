@@ -21,3 +21,30 @@ as far as known"). PDFs rebuilt with pdflatex (3 passes, no undefined refs/cites
 Checked, no change needed (only quote Vaughan's 2/3 bound without any "best known"/priority claim): `es-window-note`,
 `es-omega-note`, `pointwise-obstruction`, `es-automorphic-barrier-note` (l. 755), `es-typei-heegner-note`, `es-hc-note`.
 `paper/README.md` was not in scope (not a .tex file).
+
+## (b) z58 results vs paper statements
+
+Method: four deep-mode read-only subagents checked `es-count-note`, `es-automorphic-barrier-note`, `es-hc-note`, and
+the group {window, omega, coverings, exponential-families, pointwise-obstruction, typei-heegner} against
+`Z58_SUMMARY.md` §§0–4 and the lane memos. I checked each finding against the source before applying it.
+
+| File | Finding | Change |
+|---|---|---|
+| `es-automorphic-barrier-note.tex` Prop. `prop:brauer`(b) | **Overstatement.** "the Brauer–Manin obstruction never removes a Type II level" is false at levels d with p ∣ d. There f ≡ −1 (mod p), so all finite local signs of STRUCT2 Thm B(vii) are +1 against e_∞ = −1, and the level is obstructed. The note's own genus lemma (d) also shows that such levels are empty: (p/f) = 1 there. | Restricted the claim to p ∤ d. Added a parenthetical: levels with p ∣ d have no Type II solutions (derived from (d)) and are obstructed by the STRUCT2 class. |
+| `es-count-note.tex` bib `Akaka` | v0.8 (Zenodo 22905042, 2026-09-22) exists (LIT §2.2). LIT says v0.8 keeps the cited theorem and the auxiliary family F, so the disjointness argument stands. | Bib entry now names v0.8 and says the pinpoints refer to v0.7. |
+| PW bib in `es-omega-note`, `es-subexp-note`, `sieve-limits-note`, `vaughan-loglog-note`, `es-threequarter-note`, `espaper` | Pomerance–Weingartner is now published: *Ramanujan J.* 69 (2026), no. 2, Paper 31, DOI 10.1007/s11139-025-01312-2 (LIT §2.4, CERTIFIED via Crossref). | Added the journal data. The arXiv version stays as the cited version, so the page/§ pinpoints remain valid. |
+
+Checked, no contradiction found (scope-checked; correctly ranged older censuses are not contradicted by z58 range
+extensions):
+* `es-hc-note`: HC is the least admissible word coordinate, not TRYF's HCE or WITNESS's s(p). Its censuses (HC ≤ 64 below
+  10¹², etc.) have no z58 counterpart. The note has no R₈ zero list and no exceptional-set exponent.
+* `es-count-note`: the 14-zeros-below-10⁷ statements are ranged. The Akaka auxiliary-vs-full distinction (R/2 ≤ R_II) is
+  already stated. M_gen is a surrogate, not a support proxy, so AUTOMORPH/TERNARY do not apply. Theorems A–D are not
+  superseded (LIT §2.1).
+* `es-automorphic-barrier-note`: H-A/H-B/H-E and escape E-b lie outside AUTOMORPH Thm A's fixed-ℋ_M validity scope and
+  outside TERNARY Thm F's one-nebentypus genus-theta scope. The BL/U_n passages concern a different model from STRUCT's
+  S_n and X_n. Not changed: l. 67–68 and 1444–1447 report Type II positivity for primes ≤ 10⁸. That claim is correctly
+  ranged; z58 WILDCARD extends N_II positivity to odd primes ≤ 10¹⁰.
+* window, coverings ("only sterile points known are square points" concerns all seven ET families, not the MORDELL S2
+  (★) menu), exponential-families (MORDELL C1 covers (★) polynomial certificates only), pointwise-obstruction (BM on
+  the original ES surface), and typei-heegner (averaged bounds): no findings.
