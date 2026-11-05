@@ -80,8 +80,9 @@ q = 7, 11, e ≤ 2), σ_q still takes only the two values above, depending on q 
 not matter at leading order.
 
 **Corollary 1.1 (PROVED, reading of Thm 1).**
-* (i) **The leading term is Jacobi-blind.** All unit classes mod Q have the same leading mean, so 𝔐 is *not* special at
-  leading order, and neither is the residue class mod 8.
+* (i) **The leading term is Jacobi-blind.** All unit residue classes mod Q (fixed Q) have the same leading class-mean
+  coefficient. So 𝔐 is *not* special at leading order, and neither is the residue class mod 8. This is about whole
+  residue classes, not about the subpopulations of squares or primes inside them.
 * (ii) **Dead moduli are a leading-order effect.** Each odd q ∣ n multiplies the leading constant by
   (q² − q + 1)/(q² + 1): 0.700 for q = 3, 0.808 for 5, 0.860 for 7, 0.486 for 105 ∣ n.
 * (iii) This item is about the constant only, not the class mean, because Thm 1's error term is not uniform in Q.
@@ -174,7 +175,7 @@ Poisson rate of about 0.6 per expected *unordered* hit pair, not Poisson in R.
 * **In the four large groups (g3, g15, g21, g105), one law in m(n) reproduces the composite zero counts within a factor
   ≈ 1.5.** The rare groups are right only within 2–6×: g5 and g7 are under-predicted at 10⁸ (3 / 0.9, 2 / 0.3).
 * A negative-binomial model with the group mean and variance under-predicts the zeros of the 3 ∣ n groups by factors
-  ≈ 20–90 at 10⁷–10⁸ (`scripts/z59_msplus_nb.py`, `data/z59/msplus/nb_1e9.txt`). The local mean m(n) is the
+  ≈ 20–90 at 10⁷–10⁸ (`scripts/z59_msplus_nb.py`, `data/z59/msplus/nb_1e9.txt`). The mean proxy m(n) is the
   better covariate; the group variance is not.
 * **Not explained:** the 𝔐-prime zeros of 10⁶–10⁷ (4 vs 0.6 at 10⁶; Poisson tail ≈ 0.003). Their Jacobi depths
   (k = 13, 19, 11, 17 for 1 724 209, 1 726 201, 5 212 561, 8 813 281) are ordinary and already inside the model. The
