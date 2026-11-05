@@ -217,9 +217,9 @@ recomputation, cross-checked against a brute-force enumeration of (u, B, C) for 
 ## §5 Numerical checks of the lemmas (CERTIFIED, small ranges)
 
 * Lemma 1.1: R(n) computed as #{(u,B,C)} by brute force equals #{d ≡ 3 (4) : (−n mod d) | (d+1)/4} for all n ≡ 1 (4),
-  n < 3000 (script in the commit log of this lane; 0 mismatches), and the k ≤ √(n/2) + symmetry engine reproduces the
+  n < 3000 (scripts/z59_mspf_bruteforce.py; 0 mismatches), and the k ≤ √(n/2) + symmetry engine reproduces the
   z58 zero lists and the certified (R, R₈) values at 10¹⁰.
-* Lemma 1.3: all 7069 admissible pairs (d, k) with d < 4000 have (−k/d) = −1.
+* Lemma 1.3 (scripts/z59_mspf_lemmacheck.py): all 7069 admissible pairs (d, k) with d < 4000 have (−k/d) = −1.
 * Lemma 1.6: all 1998 solutions (k, B) for primes p ≡ 1 (4), p < 3000, have (B/p) = −(k/p).
 * Lemma 1.7: R(p) even for all 20 513 primes p ∈ 𝔐 ≤ 10⁷ and for the 12 primes at 10¹⁰.
 * Lemma 1.5: d_min ≥ q₁(p) for all 20 504 primes p ∈ 𝔐 ≤ 10⁷ with R(p) > 0 (0 violations).
