@@ -34,9 +34,10 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
   links between different d) are shown in §2 to give no pointwise inequality. No weaker pointwise theorem beyond the
   classical identity classes is obtained.
 * **CERTIFIED (§3).** An independent exhaustive decider built on Theorem 1 (2.8 s for p ≤ 10⁸) reproduces the 38 𝔊*-zeros
-  ≤ 10¹⁰ of `Z56_FAMDESIGN` exactly and extends the search: **no 𝔊*-zero in (10¹⁰, 10¹¹]** (see §3 for the exact range
-  run and timings). First-hit statistics: the least d with a 𝔊*-hit has median ≈ p^{0.05}, 99.9 % below p^{0.42}, and
-  exhaustive maximum 787 439 ≈ p^{0.705} (p = 231 507 061) on (10⁸, 10⁹].
+  ≤ 10¹⁰ of `Z56_FAMDESIGN` exactly and extends the search: **no 𝔊*-zero in (10¹⁰, 5·10¹¹]** (9.43·10⁹ further primes
+  p ≡ 1 (4); §3.2), so R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 5·10¹¹. First-hit statistics: the least d with
+  a 𝔊*-hit has median ≈ p^{0.05}, 99.9 % below p^{0.42}, and exhaustive maximum 787 439 ≈ p^{0.705} (p = 231 507 061)
+  on (10⁸, 10⁹]; on (10⁹, 5·10¹¹] the per-block maxima stay below p^{0.64}.
 * **Verdict: narrowed.** The target is implied by the pointwise statement "for some d ≡ 3 (4) below p^{3/5} the
   residue −p mod d divides (d + 1)/4" (and equivalent to it with cutoff ⌊p^{3/4}⌋ + 1 plus the 𝔊* inequality); every
   hit has (d/p) = −1; and the decisive range is d ≤ p^{1/3}, where no single-p information is available by known
@@ -213,7 +214,9 @@ fixed p across moduli. This is the exact shape of the obstruction.
   (`decide_1e9_1e10.txt`: 202 099 784 primes, no zero, max first-hit d = 2 178 251 ≈ p^{0.639} at 8 342 701 249), so
   it independently re-certifies z56's whole range: 2 880 504 + 22 542 987 + 202 099 784 = 227 523 275 = π(10¹⁰; 4, 1)
   (z56's count), 37 + 1 + 0 = 38 zeros.
-  Extension to 5·10¹¹: EXT_PLACEHOLDER
+  **Extension (CERTIFIED): no 𝔊*-zero in (10¹¹, 5·10¹¹]** either — 7 595 037 851 primes p ≡ 1 (4) in 80 chunks of
+  5·10⁹ (`decide_1e11_5e11_summary.txt`, all exit 0), max first-hit d = 2 045 411 ≈ p^{0.567} at 132 927 170 041.
+  **So R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 5·10¹¹, the last 564 661 441.** EXT2_PLACEHOLDER
 * **First hit (EVIDENCE; `firsthit_1e8/1e9/1e10.txt`).** Exponent θ₁ := log d₁(p)/log p over the primes p ≡ 1 (4) in
   [10⁸, 10⁸ + 4·10⁵] (10 819 primes), [10⁹, 10⁹ + 4·10⁵] (9 613), [10¹⁰, 10¹⁰ + 10⁵] (2 150):
   mean θ₁ = 0.109, 0.097, 0.088; median 0.060, 0.053; P(θ₁ > 0.2) = 9.5 %, 7.4 %, 4.8 %; P(θ₁ > 0.3) = 1.6 %, 1.0 %,
@@ -241,13 +244,13 @@ fixed p across moduli. This is the exact shape of the obstruction.
   C-levels of z56; (ii) the proof that every hit has (d/p) = −1 (so primality must be used at least there) and that the
   Burgess threshold p^{1/4} is where this quadratic obstruction is known to disappear, which matches the 𝔊* boundary of
   Thm V from the d-side; (iii) the identification of the decisive range d ≤ p^{1/3}, where single-p information is
-  provably absent below c·log p (Linnik example) and not supplied above it; (iv) a certified zero-free range to 10¹¹ by
+  provably absent below c·log p (Linnik example) and not supplied above it; (iv) a certified zero-free range to 5·10¹¹ by
   an independent decider.
   **ES is OPEN; R_𝔊*(p) ≥ 1 for all large p is not proved, and no weaker pointwise theorem beyond the classical
   identity classes was found.**
 * **For SYNTH/FRONTIER (proposed text, not applied):** "Z57_BFF: R_𝔊*(p) ≥ 1 ⟺ ∃ d ≡ 3 (4), d ≤ ⌊p^{3/4}⌋ + 1, with
   4·(−p mod d)·(−(4p)⁻¹ mod d) = d + 1 and the 𝔊* inequality (automatic for d ≤ p^{3/5}); every such d has (d/p) = −1
-  (the T1 mechanism). CERTIFIED: no 𝔊*-zero in (10¹⁰, 10¹¹]."
+  (the T1 mechanism). CERTIFIED: no 𝔊*-zero in (10¹⁰, 5·10¹¹]."
 
 ## 5. Review log
 
