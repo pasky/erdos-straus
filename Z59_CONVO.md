@@ -2,7 +2,8 @@
 
 Status: **NOT PROVED.** No hot lead. What follows: proved reformulations and a proved local/character
 analysis ("ρ-ratio criterion") that isolates exactly what a pointwise proof must supply, numerical evidence, and
-the falsifier audit. Fresh attack: no FRONTIER / Z5*_* memo / lane file was read; only `data/z58/screens/`.
+the falsifier audit. Hostile line-by-line review (deep subagent) applied: 0 fatal, 4 major + 3 minor fixed.
+Fresh attack: no FRONTIER / Z5*_* memo / lane file was read; only `data/z58/screens/`.
 
 Notation. p ≡ 1 (mod 24) prime throughout unless stated; χ_p(·) = (·/p) Legendre. "Solution" = (a,b,c,d) ∈ ℕ⁴
 with 4abcd = a + b + pc. For ρ ≡ 3 (mod 4): N_ρ := (p + ρ)/4 ∈ ℕ (since p ≡ 1 mod 4).
@@ -228,7 +229,7 @@ the three a = 1 zeros.)
 | Cor 3.4 (ρ = 3 works iff (p+3)/4 has a prime factor ≡ 2 mod 3; ρ \| p + 4 ⇒ ρ works) | PROVED |
 | Lemma 4.1 (global colouring λ_ρ(ℓ) = (ℓ/p)), Lemma 4.2 (escape) | PROVED |
 | "escape ⇒ solution" is false (4545; and failing NR ρ at primes, e.g. 8 803 369) | CERTIFIED |
-| Lemma 5.1 (no solution with ab \| L when n ≡ 1 mod 4L) — Mordell barrier | PROVED |
+| Lemma 5.1 (no solution with ab \| L when n ≡ 1 mod 4L); Lemma 5.2 (ab not S-supported when p ≡ 1 mod 8·ΠS) | PROVED |
 | min ρ ≤ 107 for all primes p ≡ 1 (24), p ≤ 10⁸ | CERTIFIED (computation) |
 | Thm 7.7: under Hypothesis H, min ρ unbounded on primes p ≡ 1 (24) | CONDITIONAL (Schinzel H) |
 | **The pointwise statement for large primes p ≡ 1 (24)** | **NOT PROVED** |
