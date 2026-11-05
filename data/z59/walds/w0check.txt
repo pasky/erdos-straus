@@ -1,0 +1,2 @@
+# python3 scripts/z59_walds_w0check.py 24 20000
+primitive diagonal forms 2106; missing all odd squares <= 20000: 574; of these representing some n in C1(2N), n <= 20000: 0

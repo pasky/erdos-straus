@@ -1,0 +1,6 @@
+PARI stack size set to 2000000000 bytes, maximum size set to 2000003072
+# G: y^2 = x^3 + (-27)x + (90), conductor 3888 = [2, 4; 3, 5], rootno 1, analytic rank 2, C1 = (n = 1 mod 8, QR mod [3])
+  t=1             t=1           M rootno=+1 an.rank=2 lead=7.16018 ellrank=[2,2] (0.0s)
+  zero-prime      t=409         - rootno=+1 an.rank=2 lead=111.952 ellrank=[2,2] (0.2s)
+  zero-prime      t=577         - rootno=+1 an.rank=0 lead=4.72039 ellrank=[0,0] (0.2s)
+  zero-prime      t=5569        M rootno=+1 an.rank=2 lead=80.721 ellrank=[2,2] (2.4s)

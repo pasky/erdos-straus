@@ -1,0 +1,14 @@
+# output of: timeout 1700 uv run --with cypari2 python scripts/z59_walds_rank2_search.py   (ulimit -v 3000000)
+RANK 2 N= 12544 a,b= -56 0
+RANK 2 N= 10368 a,b= -36 144
+RANK 2 N= 15680 a,b= -28 112
+RANK 2 N= 3888 a,b= -27 90
+RANK 2 N= 11520 a,b= -18 8
+RANK 2 N= 10368 a,b= -18 36
+RANK 2 N= 15552 a,b= 0 24
+RANK 2 N= 10368 a,b= 6 4
+RANK 2 N= 6912 a,b= 6 16
+RANK 2 N= 12096 a,b= 36 -16
+RANK 2 N= 5184 a,b= 36 144
+RANK 2 N= 5760 a,b= 42 92
+searched; distinct isogeny-ish classes 244
