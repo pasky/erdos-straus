@@ -206,7 +206,7 @@ gcd(d, n) > 1 and at every d when n is a square); writing
 is only a *model*, not a theorem. (Heuristic remark: for non-square n the χ_n-part of such a model is
 Σ_{d ≤ Y} χ_n(d)τ((d+1)/4)/d. *If* one assumes cancellation in the weighted sums Σ_{d ~ Y} χ_n(d)τ((d+1)/4) for
 Y ≥ n^{1/4+ε} — a weighted Burgess-type hypothesis which is NOT known (the divisor weight can correlate with χ_n:
-τ((d+1)/4) = #{(a,b): 4ab − 1 = d}, and Σ_{a,b mod p} χ_p(4ab − 1) = 1 ≠ 0 for p ≡ 1 (4)) — then, since the harmonic
+τ((d+1)/4) = #{(a,b): 4ab − 1 = d}, and Σ_{a,b mod p} χ_p(4ab − 1) = p·χ_p(−1) = p ≠ 0 for p ≡ 1 (4), the a = 0 row) — then, since the harmonic
 weight gives the range d ≤ n^{1/4} the share (1/4)² = 1/16 of the log²n mass, the χ_n-correction could cancel at most
 about 1/16 of the model's main term. This is a conditional statement about the model only.) What would have to be proved is R(n) − M_χ(n) = o(log² n) *for the individual n*, i.e. equidistribution of the
 single residue n mod d over d ≤ 4n/3 in the thin target set −Div((d+1)/4) with divisor weights. The k-slices of this
