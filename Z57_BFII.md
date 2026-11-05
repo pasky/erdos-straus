@@ -2,7 +2,8 @@
 
 Lane BFII (z57 BIG FISH). Problem: **prove f_II(p) ≥ 1 (a Type II solution exists) for every sufficiently large prime
 p ≡ 1 (mod 4)**, using whatever the extra parameter c of Elsholtz–Tao Type II gives. Definitions only from
-`sources/elsholtz-tao-1107.1010.pdf` §2 (ET), `SINGLE_P_COUNT.md` §1–2 and `LITERATURE_2026.md` §2.4. Labels: PROVED /
+`sources/elsholtz-tao-1107.1010.pdf` §2 (ET), `SINGLE_P_COUNT.md` §1–2 and `LITERATURE_2026.md` §2.4; Appendix A also uses the proved analytic lemmas of
+`Z53_GENUSLVAL.md` §2.1–2.3 (Burgess input, Lemmas 2.1, 2.2). Labels: PROVED /
 CONDITIONAL / CERTIFIED (exhaustive computation, validated code) / EVIDENCE (numerics) / Assessment.
 Scripts `scripts/z57_bfii_*`, data `data/z57/bfii/`.
 
