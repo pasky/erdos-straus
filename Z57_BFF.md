@@ -11,7 +11,7 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
 * **Target: prove R_𝔊*(p) ≥ 1 for all large p ≡ 1 (4). Not achieved.** What is proved is a set of exact
   reformulations that make the target a one-line statement about the residues of p, a necessary quadratic condition
   on every hit (the only visible entry point of primality), and a certified extension of the zero-free range.
-* **Theorem 1 (PROVED, elementary; §1).** For d ≡ 3 (mod 4), d ≠ p, let n_d := d − (p mod d) ∈ [1, d−1] (the least
+* **Theorem 1 (PROVED, elementary; §1).** For d ≡ 3 (mod 4), p ∤ d, let n_d := d − (p mod d) ∈ [1, d−1] (the least
   positive residue of −p) and C_d := the least positive residue of −(4p)⁻¹ (mod d). Then 4·n_d·C_d ≡ 1 (mod d) always, and
   **HIT(d) :⟺ 4n_d | d + 1 ⟺ 4C_d | d + 1 ⟺ 4·n_d·C_d = d + 1** (the point (n_d, C_d) of the modular hyperbola
   4xy ≡ 1 (mod d) lies on its lowest real branch). Every HIT(d) gives the (★) solution (n_d, (p + n_d)/d, C_d), every
@@ -22,26 +22,27 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
   p ≡ 1 (4)) (d/p) = −1. Hence R(N) = 0 for every odd square N (T1 audit passes: the target is false at odd squares,
   and every hit a proof produces must satisfy (d/p) = −1). A hit needs d ∈ QNR(p); for
   D ≥ p^{1/4+ε} Burgess gives #{d ≤ D, d ≡ 3 (4), (d/p) = −1} = D/4 + O(D^{1−δ}), so in the Burgess range this is no
-  obstruction, while for D ≤ p^{1/4−ε} nothing excludes "p is a QR modulo every d ≤ D" (the 𝔊* boundary of Thm V is
-  exactly this threshold, now seen from the d-side).
+  obstruction, while for D ≤ p^{1/4−ε} it is not known that a positive proportion of the d ≤ D are non-residues (a
+  single prime non-residue exists below p^{1/(4√e)+ε}, Burgess); the 𝔊* boundary of Thm V is the same p^{1/4} threshold,
+  now seen from the d-side.
 * **Where the attack stops (§2; Assessment).** The count H(p; D) = #{d ≤ D, d ≡ 3 (4) : HIT(d)} is a sum over the pairs
   (n, C) of 1[(4nC − 1) | p + n]. Its "expected value" (1/8 + o(1))log²D is the a = 0 term of the additive-character
   expansion; the a ≠ 0 terms are Σ_d d⁻¹Σ_{a≠0} e(ap/d)S_d(a) with S_d(a) = Σ_{n | (d+1)/4} e(an/d). For d ≤ p^{1/3−ε} the
   phase ap/d has derivative ≫ 1 in d and the a-sum is complete, and no bound for the weighted error is supplied (below
   c·log p none exists: p ≡ 1 (mod lcm(4, 1..D₀)) gives H(p; D₀) = 0 by the Jacobi lemma, with such p ≤ exp(C·D₀) by Linnik);
-  for d ≥ p^{1/3} the sum is the number of divisors of the single integers p + n in the class −(p + n) (mod 4n), i.e. B2
-  in tied form. Three further routes (fixing a QNR prime ℓ of p, norm-form descriptions of level failures, multiplicative
+  for d ≥ p^{1/3} the sum is the number of divisors d ≡ −1 (mod 4n) of the single integers p + n, i.e. B2 in tied
+  form. Three further routes (fixing a QNR prime ℓ of p, norm-form descriptions of level failures, multiplicative
   links between different d) are examined in §2; none gives a pointwise inequality. No weaker pointwise theorem beyond the
   classical identity classes is obtained.
 * **CERTIFIED (§3).** An independent exhaustive decider built on Theorem 1 (2.8 s for p ≤ 10⁸) reproduces the 38 𝔊*-zeros
   ≤ 10¹⁰ of `Z56_FAMDESIGN` exactly and extends the search: **no 𝔊*-zero in (10¹⁰, 10¹²]** (1.86·10¹⁰ further primes
   p ≡ 1 (4); §3.2), so R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹². First-hit statistics: the least d with
-  a 𝔊*-hit has median ≈ p^{0.05}, 99.9 % below p^{0.42}, and exhaustive maximum 787 439 ≈ p^{0.705} (p = 231 507 061)
-  on (10⁸, 10⁹]; on (10⁹, 10¹²] the per-block maxima stay below p^{0.64}.
+  a 𝔊*-hit has median ≈ p^{0.05–0.085} in samples at 10⁸–10¹⁰, ≈ 99.9 % below p^{0.42}, and exhaustive maximum
+  787 439 ≈ p^{0.705} (p = 231 507 061) on (10⁸, 10⁹]; on (10⁹, 10¹²] the per-block maxima stay below p^{0.64}.
 * **Verdict: narrowed.** The target is implied by the pointwise statement "for some d ≡ 3 (4) below p^{3/5} the
   residue −p mod d divides (d + 1)/4" (and equivalent to it with cutoff ⌊p^{3/4}⌋ + 1 plus the 𝔊* inequality); every
-  hit has (d/p) = −1; and the decisive range is d ≤ p^{1/3}, where no single-p information is available by known
-  methods. ES is OPEN.
+  hit has (d/p) = −1; and the decisive range is d ≤ p^{1/3}, where no uniform positivity estimate is supplied (none
+  can hold below c·log p). ES is OPEN.
 
 ## 1. Exact reformulations (PROVED)
 
@@ -58,7 +59,9 @@ Conversely for a solution, d := 4nC − 1 ≡ −1 (mod 4n) and d·m = 4nmC − 
 (So R_𝔊*(p) ≥ 1 ⟺ some n ≥ 1 is such that p + n = d·m with d ≡ −1 (mod 4n) and max(n, m)⁴ > min(n, m)·p; then
 necessarily m ≡ −(p + n) (mod 4n), but that congruence alone does not imply d ≡ −1 (mod 4n) when gcd(m, 4n) > 1.)
 
-**Lemma 1.2 (defect / hyperbola form).** Let d ≡ 3 (mod 4), d ≠ p (so gcd(d, p) = 1). Put n_d := d − (p mod d) (so 1 ≤ n_d ≤ d − 1,
+**Lemma 1.2 (defect / hyperbola form).** Let d ≡ 3 (mod 4) with p ∤ d (so gcd(d, p) = 1; for p | d put HIT(d) := false — no
+n ≥ 1 has d | p + n with d ≡ −1 (mod 4n) then, since that would force n ≡ −p ≡ 0 (mod p) with n < d, hence p | d + 1, impossible
+with p | d). Put n_d := d − (p mod d) (so 1 ≤ n_d ≤ d − 1,
 n_d ≡ −p (mod d), gcd(n_d, d) = gcd(p, d) = 1) and C_d := the least positive residue of −(4p)⁻¹ (mod d). Then:
  (i) 4·n_d·C_d ≡ 1 (mod d), so 4n_dC_d ∈ {d + 1, 2d + 1, 3d + 1, …};
  (ii) the following are equivalent: (a) ∃ n ≥ 1 with d | p + n and d ≡ −1 (mod 4n); (b) 4n_d | d + 1; (c) 4C_d | d + 1;
@@ -122,7 +125,8 @@ a odd forces b ≡ 2 (mod 4), b = 2s, a = 2t + 1, p = t(t+1) + s², and gcd(a, b
 ### 2.1 The count and its "expected" size (PROVED identity; heuristic size)
 
 By Lemma 1.2, for D ≥ 3 put
-  H(p; D) := #{d ≡ 3 (mod 4), 3 ≤ d ≤ D, d ≠ p : HIT(d)} = Σ_{n ≥ 1} Σ_{C ≥ 1, 4nC − 1 ≤ D, 4nC − 1 ≠ p} 1[(4nC − 1) | p + n].
+  H(p; D) := #{d ≡ 3 (mod 4), 3 ≤ d ≤ D : HIT(d)} = Σ_{n ≥ 1} Σ_{C ≥ 1, 4nC − 1 ≤ D} 1[(4nC − 1) | p + n]
+(terms with p | 4nC − 1 vanish on both sides).
 By Lemma 1.3, H(p; p^{3/5}) ≥ 1 ⟹ R_𝔊*(p) ≥ 1, and R_𝔊*(p) ≥ 1 ⟹ H(p; ⌊p^{3/4}⌋ + 1) ≥ 1. Writing
 1[d | p + n] = d⁻¹Σ_{a mod d} e(a(p + n)/d) and S_d(a) := Σ_{n | (d+1)/4} e(an/d),
   H(p; D) = Σ_{d ≤ D, d ≡ 3 (4)} τ((d+1)/4)/d  +  Σ_{d ≤ D, d ≡ 3 (4)} d⁻¹ Σ_{a=1}^{d−1} e(ap/d) S_d(a).        (2.1)
@@ -146,7 +150,7 @@ d_Q ≤ D, and includes corner solutions when D > p^{3/5}; no exact comparison w
 * **p^{1/3} ≤ d ≤ p^{3/4}.** Here one can sum e(ap/(4nC − 1)) over C for fixed small n and a, but the a-sum runs over
   all residues mod d; grouping by n instead, Σ_C 1[(4nC − 1) | p + n] is the number of divisors of the single integer
   p + n in the class −1 (mod 4n) and size range [p^{1/3}, p^{3/4}] (their cofactors m lie in [p^{1/4}, p^{2/3}]). No method
-  evaluates the divisor function of one integer in a residue class; this is B2 in tied form
+  known to me evaluates the divisor function of one integer in a residue class; this is B2 in tied form
   (`Z56_FAMDESIGN` §5 item 1).
 * **Fixing a quadratic non-residue.** Let ℓ be the least prime with (p/ℓ) = −1 (ℓ ≤ p^{1/(4√e)+ε} by Burgess; ℓ ≥ 5 at
   every 𝔊*-zero, and ℓ ∈ {5, …, 29} at the 38 of them, `data/z57/bff` via `z57_bff_zeros_local.py`). The d with
@@ -218,7 +222,7 @@ fixed p across moduli. This is the exact shape of the obstruction.
   **Extension (CERTIFIED): no 𝔊*-zero in (10¹¹, 5·10¹¹]** either — 7 595 037 851 primes p ≡ 1 (4) in 80 chunks of
   5·10⁹ (`decide_1e11_5e11_summary.txt`, all exit 0), max first-hit d = 2 045 411 ≈ p^{0.567} at 132 927 170 041.
   And **no 𝔊*-zero in (5·10¹¹, 10¹²]**: 9 149 866 209 primes p ≡ 1 (4) in 100 chunks of 5·10⁹
-  (`decide_5e11_1e12_summary.txt`, all exit 0), max first-hit d = 4 388 063 ≈ p^{0.556} at 907 403 153 329.
+  (`decide_5e11_1e12_summary.txt`, all exit 0), max first-hit d = 4 388 063 ≈ p^{0.555} at 907 403 153 329.
   **So R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹², the last 564 661 441** (18 803 924 340 primes p ≡ 1 (4)
   decided in total, vs π(10¹²)/2 = 18 803 956 009 — the difference 31 669 is the Chebyshev bias, consistent with the
   exact π(10¹⁰; 4, 1) agreement above). Total cost ≈ 25 core-hours on a shared machine. (Model, Assessment: with the
@@ -226,12 +230,14 @@ fixed p across moduli. This is the exact shape of the obstruction.
   Σ_{p > 10¹²} exp(−(9/128)log²p) ≈ 6·10⁻¹⁴ — the same conclusion as `Z56_FAMDESIGN` §4.4's model scale 10^{8.3}.)
 * **First hit (EVIDENCE; `firsthit_1e8/1e9/1e10.txt`).** Exponent θ₁ := log d₁(p)/log p over the primes p ≡ 1 (4) in
   [10⁸, 10⁸ + 4·10⁵] (10 819 primes), [10⁹, 10⁹ + 4·10⁵] (9 613), [10¹⁰, 10¹⁰ + 10⁵] (2 150):
-  mean θ₁ = 0.109, 0.097, 0.088; median 0.060, 0.053; P(θ₁ > 0.2) = 9.5 %, 7.4 %, 4.8 %; P(θ₁ > 0.3) = 1.6 %, 1.0 %,
+  mean θ₁ = 0.109, 0.097, 0.088; median 0.060, 0.053, 0.085; P(θ₁ > 0.2) = 9.5 %, 7.4 %, 4.8 %; P(θ₁ > 0.3) = 1.6 %, 1.0 %,
   0.2 %; P(θ₁ > 0.4) = 0.17 %, 0.05 %, 0; max 0.49, 0.50, 0.34. Exhaustive maxima of d₁: 157 055 (p = 94 704 157,
   θ₁ = 0.651) on [5, 10⁸]; 787 439 (p = 231 507 061, θ₁ = 0.705) on (10⁸, 10⁹]. The tail decays with p roughly like the
   model exp(−c·(1/8)·θ²log²p) (c ≈ 1–1.5 fitted); at the 38 zeros d₁ is undefined (no 𝔊* hit below the cutoff ⌊p^{3/4}⌋ + 1). First hits restricted to *prime* d:
-  mean exponent 0.12, 0.6 % above 0.5, and 9 of 10 819 primes near 10⁸ have no prime-d hit below p^{0.8} at all
-  (composite d are essential: prime-d hits number only ≍ log p in expectation, Assessment).
+  mean exponent 0.12, 0.6 % above 0.5, and 9 of 10 819 primes near 10⁸ have no prime-d HIT below p^{0.8} at all (for
+  this prime-d statistic the generator records unrestricted HIT(d), without the 𝔊* test; 2 of the 10 810 recorded
+  prime-d hits are corner solutions, so 11 primes have no prime-d 𝔊*-hit below p^{0.8}). Composite d are essential:
+  prime-d hits number only ≍ log p in expectation (Assessment).
 * **Local data of the zeros (`z57_bff_zeros_local.py`).** All 38 have (p/3) = +1 (p ≡ 2 (3) gives the hit d = 3) and
   least prime QNR in {5, 7, 11, 13, 17, 19, 23, 29}; 6 of them are ≡ 1 (mod 840), 30 are ≡ 1 (mod 8). They are not
   confined to Mordell's six classes mod 840 (e.g. 37, 157, 577 have (p/5) = −1): the classical identities for those
@@ -241,7 +247,7 @@ fixed p across moduli. This is the exact shape of the obstruction.
 ## 4. Screens, verdict, bottom line
 
 * **T1 (odd squares).** Passes by construction: Corollary 1.5 shows every reformulation is false at N = M² and
-  shows every hit has (d/p) = −1 (the necessary quadratic condition through which primality must enter). No argument in §2 produces a hit, so there is nothing
+  shows every hit (witness) has (d/p) = −1, a necessary condition that distinguishes primes from squares. No argument in §2 produces a hit, so there is nothing
   to audit beyond this.
 * **Fixed-p / 8/131 / B2.** Not applicable (no positivity claim). The 38 zeros satisfy every necessary condition
   derived here (Lemma 1.6 at levels 1–3 checked; (p/3) = +1 for all).
@@ -250,8 +256,8 @@ fixed p across moduli. This is the exact shape of the obstruction.
   sufficient with the cutoff ⌊p^{3/4}⌋ + 1 and the 𝔊* inequality) — with its two coordinates being the n-lines and
   C-levels of z56; (ii) the proof that every hit has (d/p) = −1 (so primality must be used at least there) and that the
   Burgess threshold p^{1/4} is where this quadratic obstruction is known to disappear, which matches the 𝔊* boundary of
-  Thm V from the d-side; (iii) the identification of the decisive range d ≤ p^{1/3}, where single-p information is
-  provably absent below c·log p (Linnik example) and not supplied above it; (iv) a certified zero-free range to 10¹² by
+  Thm V from the d-side; (iii) the identification of the decisive range d ≤ p^{1/3}, where uniform positivity
+  provably fails below c·log p (Linnik example) and no estimate is supplied above it; (iv) a certified zero-free range to 10¹² by
   an independent decider.
   **ES is OPEN; R_𝔊*(p) ≥ 1 for all large p is not proved, and no weaker pointwise theorem beyond the classical
   identity classes was found.**
@@ -273,3 +279,8 @@ fixed p across moduli. This is the exact shape of the obstruction.
   "no cancellation to be had" and "the only place primality enters" withdrawn in favour of what is actually shown;
   "every prime up to 10¹¹ has a hit with d ≤ p^{0.71}" restricted to (10⁸, 10¹¹] minus the zero; "ten blocks" → nine;
   input ceiling added to `dmax_of`. The reviewer confirmed the memo does not claim the target.
+* Second pass (deep-mode subagent) on the corrected text and on §3.2 against the data files: all prime counts, zero
+  counts, maxima and the total 18 803 924 340 confirmed; seven further corrections applied (domain p ∤ d instead of
+  d ≠ p, e.g. p = 5, d = 15; the §0 divisor-class wording; the quadratic threshold sentence; all three medians and
+  "≈ 99.9 %"; the prime-d statistic labelled as unrestricted HIT (11 vs 9); impossibility language softened to "no
+  estimate supplied / none can hold below c·log p"; the §4 T1 sentence).
