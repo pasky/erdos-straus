@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """z58 STRUCT2: independent brute force for N_II(n) = #{(a,b,c,d) in N^4 : 4abcd = a+b+nc}.
-Bounds (PROVED in Z58_STRUCT2.md §3, Lemma C): every positive solution has 4abd - n in [1, n] (so abd <= n/2) and
+Bounds (PROVED in Z58_STRUCT2.md §2, Lemma C): every positive solution has 4abd - n in [1, n] (so abd <= n/2) and
 c = (a+b)/(4abd - n).  So enumerate (a,b,d) with abd <= n/2 and test integrality of c.  Independent of the (a,b,e) loop.
 Usage: uv run python scripts/z58_struct2_brute.py n [n2 ...]     (prints n, count, first solutions);
        uv run python scripts/z58_struct2_brute.py --cmp NMAX       (compare with z58_struct2_bm.positive_points)"""
