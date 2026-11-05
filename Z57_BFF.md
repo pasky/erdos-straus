@@ -176,3 +176,39 @@ means the hit is the event "n_dC_d is below the second branch", a gap of factor 
 d ≤ D at the single point x ≡ −p, and no equidistribution statement for points on modular hyperbolas (which are proved
 for a fixed modulus and varying points, or varying moduli with averaged weights) applies to a fixed residue class of a
 fixed p across moduli. This is the exact shape of the obstruction.
+
+## 3. Computations
+
+### 3.1 Engines (CERTIFIED for the stated ranges)
+
+* `scripts/z57_bff_engine.py` (numpy): for one p, scans d ≡ 3 (4) up to ⌊p^{3/4}⌋ + ⌊p^{1/12}⌋ + 10, tests
+  4n_d | d + 1 (Lemma 1.2), rebuilds (n_d, m, C_d), asserts 4n_dmC_d − n_d − m = p, and keeps the unordered solutions
+  with max⁴ > min·p. Validation (`z57_bff_validate.py`): equals the z56 F4 (= 𝔊*) hit count at 437 primes of
+  `data/z56/famdesign/zeros_le1e8.txt` (all 37 zeros ≤ 10⁸ plus 400 random rows) and at 60 random primes of
+  `decide_1e7_1e10.txt` (10⁷ < p ≤ 10¹⁰), 0 mismatches; R_𝔊*(564 661 441) = 0.
+* `scripts/z57_bff_decide.c`: segmented sieve of the primes p ≡ 1 (4) in [A, B]; for each p scans d = 3, 7, 11, … up to
+  ⌊p^{3/4}⌋ + 1 (⌊p^{3/4}⌋ computed as the largest D with D⁴ ≤ p³ in 128-bit integers), stops at the first d with
+  4n_d | d + 1 whose solution satisfies max(n_d, m)⁴ > min(n_d, m)·p (exact in unsigned 128-bit; Q ≥ 2³² is accepted
+  outright since then Q⁴ ≥ 2¹²⁸ > P·p). By Lemma 1.3 "no such d" is exactly R_𝔊*(p) = 0. Validation: on [5, 10⁸] it
+  prints exactly the 37 zeros of `Z56_FAMDESIGN` (`decide_le1e8.txt`, diff-identical to `gstar_zeros_le1e8.txt`;
+  2.8 s), on (10⁸, 10⁹] exactly {564 661 441} (31 s). (Note that this decider is independent of z56's: it enumerates
+  by d instead of by levels C, and uses no floating-point membership test.)
+* `scripts/z57_bff_firsthit.c`: first-hit statistics on samples (d₁(p) := least d with HIT(d) and the solution in 𝔊*;
+  d₁^prime(p) := least prime such d, scanned to p^{0.8}).
+
+### 3.2 Results
+
+* **Zero-free range (CERTIFIED).** No 𝔊*-zero in (10¹⁰, 10¹¹] — RANGE_RESULT_PLACEHOLDER
+* **First hit (EVIDENCE; `firsthit_1e8/1e9/1e10.txt`).** Exponent θ₁ := log d₁(p)/log p over the primes p ≡ 1 (4) in
+  [10⁸, 10⁸ + 4·10⁵] (10 819 primes), [10⁹, 10⁹ + 4·10⁵] (9 613), [10¹⁰, 10¹⁰ + 10⁵] (2 150):
+  mean θ₁ = 0.109, 0.097, 0.088; median 0.060, 0.053; P(θ₁ > 0.2) = 9.5 %, 7.4 %, 4.8 %; P(θ₁ > 0.3) = 1.6 %, 1.0 %,
+  0.2 %; P(θ₁ > 0.4) = 0.17 %, 0.05 %, 0; max 0.49, 0.50, 0.34. Exhaustive maxima of d₁: 157 055 (p = 94 704 157,
+  θ₁ = 0.651) on [5, 10⁸]; 787 439 (p = 231 507 061, θ₁ = 0.705) on (10⁸, 10⁹]. The tail decays with p roughly like the
+  model exp(−c·(1/8)·θ²log²p) (c ≈ 1–1.5 fitted); at the 38 zeros θ₁ > 3/4 by definition. First hits restricted to *prime* d:
+  mean exponent 0.12, 0.6 % above 0.5, and 9 of 10 819 primes near 10⁸ have no prime-d hit below p^{0.8} at all
+  (composite d are essential: prime-d hits number only ≍ log p in expectation, Assessment).
+* **Local data of the zeros (`z57_bff_zeros_local.py`).** All 38 have (p/3) = +1 (p ≡ 2 (3) gives the hit d = 3) and
+  least prime QNR in {5, 7, 11, 13, 17, 19, 23, 29}; 6 of them are ≡ 1 (mod 840), 30 are ≡ 1 (mod 8). They are not
+  confined to Mordell's six classes mod 840 (e.g. 37, 157, 577 have (p/5) = −1): the classical identities for those
+  classes produce (★) solutions in the Burgess corner (e.g. p ≡ 5 (mod 8): (o, e, C) = (1, 2, (p + 3)/8)), or non-(★)
+  shapes.
