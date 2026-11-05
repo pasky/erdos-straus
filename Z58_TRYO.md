@@ -297,3 +297,15 @@ small levels, or Chebotarev data. This is the honest state of round 2.
 `scripts/z58_tryo_range.c` (for each p ∈ 𝔐 in range: least u ≤ 10⁵ with a divisor d ≡ −1 (4u) of p+u, factoring by
 trial division to 1000 + Pollard rho + 12-base Miller–Rabin (deterministic < 3.3·10²⁴); every reported solution is
 re-verified as 4uBC − u − B = p in 128-bit arithmetic). Results: see §8.7 when the run finishes.
+
+### 8.7 The one pointwise statement that does follow (PROVED, weak)
+
+**Prop 8.7.** For every prime p ≡ 1 (mod 8) there is a prime u ≤ n₂(p) (the least quadratic non-residue mod p;
+n₂(p) ≪_ε p^{1/(4√e)+ε} by Burgess, n₂(p) ≤ 2 log² p under GRH by Ankeny–Bach) such that p + u has a prime factor q ∤ 2u
+with ψ_u(q) = (−u/q) = −1. In other words the square obstruction of Lemma 1.3 (ψ_u kills every prime factor of n+u, at
+every level u) is broken for primes at a level u ≤ n₂(p).
+*Proof.* u := n₂(p) is prime and odd (2 is a residue as p ≡ 1 (8)), u < p, (u/p) = −1; apply Lemma 1.4. ∎
+This is necessary, not sufficient, for a hit at u: (ℤ/4u)^× still has φ(4u)/2 − 1 = u − 2 other odd characters and the
+non-kernel failure mode of Lemma 1.2(c). The 𝔐-zeros have n₂(p) ∈ {11, 13, 17, 19, 23} (§3.3), so the statement is
+consistent with F4, holds trivially-false at squares (n₂ undefined: no non-residue), and says nothing at F2/F3 level.
+(For the C-side there is no analogue: ∏_{q | 4Cp+1} (q/p)^{v_q} = ((4Cp+1)/p) = 1 always.)
