@@ -7,12 +7,16 @@ repository file, with a pointer. When a summary and its source disagree, the sou
 > **The Erdős–Straus conjecture (ES) is not solved — not here, not anywhere.** No case of "ES for all large primes" is
 > proved here, conditionally on any standard conjecture or otherwise. The literature was checked through 2026-09-28
 > (`LITERATURE_2026.md`; the verification record was re-checked on 2026-10-18); every recent claimed proof has an identifiable gap.
-> *(z58: literature addendum to 2026-10-30 in `Z58_LIT.md`; it includes the priority item under "Exceptional set" in §1.)*
+> *(z58: literature addendum in `Z58_LIT.md`, sources accessed/searched 2026-11-05; bounded searches, not a completeness
+> guarantee. It includes the priority item under "Exceptional set" in §1; the K-R-K standard-axiom CI closure is at the
+> 2026-10-30 commit.)*
 
 **Labels** (as in `DISCOVERIES.md`). PROVED = complete proof in the repo, possibly *relative to* named published theorems;
 CONDITIONAL = proved assuming a named hypothesis (GRH, Dickson, Hypothesis H, SEL, …); CERTIFIED = an exact finite computation,
 independently reproduced; EVIDENCE = numerics or heuristics only; CONJECTURE = stated, open; Assessment = a judgement or
-interpretation, not a theorem. Everything PROVED here is *internally* reviewed (hostile reviews in `reviews/`), and **none of it
+interpretation, not a theorem. *(z58 convention: for z58 data, CERTIFIED denotes the exact finite computation in the cited
+memo, with its stated engine and independent-check coverage. It does not mean a second full-range census; the ranges
+independently reproduced or checked pointwise are specified separately.)* Everything PROVED here is *internally* reviewed (hostile reviews in `reviews/`), and **none of it
 is externally refereed.** Pointers like (J)100 are entries in the ledger `DISCOVERIES.md`.
 
 **One-paragraph summary.** After ~280 tasks, a dozen phases and two advisory boards with seats from three labs, every route the
@@ -267,9 +271,14 @@ targets for this section:
 * **Proved surrogate lower bounds, not bounds for R.**
   * `Z58_TRYF2.md` Thm A (PROVED): M₂(p) ≥ c₀ log²p for every prime p ≡ 1 (4), p ≥ p₀ (c₀ = 1/300 works). Here
     M₂ = Σ_C 4m_{2,C}/φ(4C) and R = M₂ + E₂ tautologically. What is missing is exactly E₂ > −M₂ pointwise.
-  * `Z58_TRYF.md` Thm 2.1 (PROVED, Burgess): the Jacobi layer L₂ of the character expansion satisfies
-    |L₂| ≤ (1/64 + o(1))log²p against L₀ = (1/8)log²p + O(log p).
-  * Thm 3.2 is CONDITIONAL on HCE(δ), a non-standard lower bound on L_r + L_n, stronger than the target.
+  * `Z58_TRYF.md` Thm 2.1 (PROVED, Burgess; asymptotic, for primes p ≡ 1 (4); in the source's form: for every
+    ε ∈ (0, 1/8), p ≥ p₀(ε) and 3 ≤ X ≤ 2p). The Jacobi layer L₂ of the character expansion satisfies
+    |L₂| ≤ (1/64 + o(1))log²p against L₀ = (1/8)log²p + O(log p). No numerical onset is evaluated.
+  * Thm 3.2 (CONDITIONAL): (★) for all sufficiently large primes p ≡ 1 (24), assuming HCE(δ) for a fixed δ > 0 at all
+    sufficiently large such primes. HCE is a non-standard lower bound on L_r + L_n, stronger than the target. Of the
+    twelve original R₈ zeros, only six lie in its 1 mod 24 domain.
+  * For n = m², on the unit-restricted sum gcd(d, m) = 1, the Jacobi layer cancels the principal layer termwise;
+    non-unit d cannot be hits and are excluded.
 * **Least witness** (`Z58_WITNESS.md`; CERTIFIED). Every prime p ≡ 1 (4) ≤ 10¹⁰ with R(p) ≥ 1 has a solution with
   min(u, B, C) ≤ 201, and ≤ 0.52 log²p. CONJECTURE W: every prime p ≡ 1 (4), p > 8 813 281, has a (★) solution with
   min(u, B, C) ≤ (log p)². W ⟹ (MS).
@@ -500,13 +509,18 @@ root menu itself fails i.o. under H: `Z52D_PELLCYCLE.md` Thm 1.1, see §7.2.)
 **(z58) Scoped no-gos from the (MS) probe** (`Z58_SUMMARY.md` §1). Each item is a theorem about a *specified class of
 objects or arguments*. None is a necessity theorem for every proof, and none proves or refutes (MS).
 * **Fixed-level Hecke proxies** (`Z58_AUTOMORPH.md` Thm A, Cor A1).
-  * Setting: 𝓗_M, the arithmetic functions on (n, M) = 1 spanned by GL₂ Hecke eigenvalue systems of integral weight, their
-    n^j-twists, and real-parameter divisor sums and their derivatives.
-  * Thm A (PROVED relative to Deligne/Deligne–Serre, purity and Chebotarev): if a(1) = a(p²) = a(p⁴) = … = 0 and the
-    Satake multiset at p has no pair γ, −γ, then a(p^m) = 0 for all m. Collision-freeness holds at a positive-density set
-    of primes, all ≡ 1 (mod 840); for all-Eisenstein a, at every p ≡ 1 (mod lcm(L, 840)).
-  * Cor A1: no a ∈ 𝓗_M is both a valid R-support proxy and effective; no a ∈ 𝓗_M equals R on all n ≡ 1 (4) prime to M.
-  * Not covered: prime-only arguments whose error lies outside 𝓗. These are escapes E1 (half-integral weight), E2
+  * Setting: 𝓗_M, functions on (n, M) = 1 given by fixed finite combinations of holomorphic newform/Eisenstein eigenvalue
+    systems of integral weight k ≥ 1 and level dividing M, their n^j-twists (j ≥ 0 integer), and the specified
+    character-weighted real-parameter divisor sums with finitely many derivatives. Not all GL₂ automorphic systems.
+  * Thm A (PROVED relative to Deligne/Deligne–Serre, purity and Chebotarev), at odd primes p ∤ M: if
+    a(1) = a(p²) = a(p⁴) = … = 0 and the Satake multiset at p has no pair γ, −γ, then a(p^m) = 0 for all m.
+    Collision-freeness holds at a positive-density set of primes, all ≡ 1 (mod 840), which depends on the chosen
+    combination; no common positive-density set for all 𝓗 is asserted. For all-Eisenstein a, it holds at every
+    p ≡ 1 (mod lcm(L, 840)).
+  * Cor A1: no a ∈ 𝓗_M is both valid (a(n) ≠ 0 ⟹ R(n) ≥ 1 for every n ≡ 1 (4) coprime to M) and effective (a(p) ≠ 0
+    at every sufficiently large 𝔐-prime in the domain); no a ∈ 𝓗_M equals R on all n ≡ 1 (4) coprime to M.
+  * Not covered: prime-only support/equality, which does not provide square vanishing and is not excluded by this
+    theorem; prime-only arguments whose error lies outside 𝓗. These are escapes E1 (half-integral weight), E2
     (coefficients outside 𝓗, e.g. variable-level sums) and E3 (higher depth / non-GL₂), plus signed minorants.
 * **Ternary theta proxies lose the genus term on 𝔐** (`Z58_TERNARY.md` Thm F, Cor F1).
   * Thm F (PROVED relative to (S1)–(S5): Siegel, Duke–Schulze-Pillot, unary/U^⊥ decomposition, Shimura T(ℓ²)). Let
@@ -515,15 +529,18 @@ objects or arguments*. None is a necessity theorem for every proof, and none pro
     𝒞₁(2N) = {n : n ∈ (ℤ_ℓ^×)² ∀ℓ | 2N}, and g(p) = h⊥(p) (cusp, orthogonal to unary thetas) at primes p ∈ 𝒞₁(2N).
   * Cor F1 (PROVED): the squares of (ℤ/840)^× are exactly 𝔐. So if the odd primes of N lie in {3, 5, 7}, a valid proxy
     has no genus main term at any 𝔐-prime p ∤ N.
-  * Scope: one nebentypus, genus-theta combinations, the unit class. The square obstruction applies at the identity's own
+  * Scope: one nebentypus, genus-theta combinations, the unit class; prime-only support (no square vanishing) is not
+    covered. The square obstruction applies at the identity's own
     modulus; finer-modulus identities and off-𝒞₁ classes are not excluded.
   * What survives is the cusp route. A single eigenform needs Waldspurger nonvanishing (open, Goldfeld-type, when the
     root number is +1), or a new thin-set Heegner-incidence theorem (E1′).
-* **Positive-integral Brauer–Manin detects exactly T1** (`Z58_STRUCT.md` Thm A, `Z58_STRUCT2.md` Thm B; PROVED).
+* **Positive-integral Brauer–Manin detects exactly non-squareness on the (★) and Type II models** (`Z58_STRUCT.md` Thm A,
+  `Z58_STRUCT2.md` Thm B; PROVED).
   * Both S_n : 4uBC − u − B = n and X_n : 4abcd = a + b + nc have Br/Br(ℚ) ≅ ℤ/2 (a transcendental quaternion class),
     π₁ = 1 and étale-BM = BM.
-  * The positive-integral BM set (real region u, B, C > 0, resp. a, b, c, d > 0) is **empty iff n is a square** for
-    numerator 4, and iff n ∈ □ ∪ 2□ for numerator 8.
+  * For n ≥ 1, the positive-integral BM set (real region u, B, C > 0, resp. a, b, c, d > 0; displayed ℤ-models) is
+    **empty iff n is a square** for numerator 4, and iff n ∈ □ ∪ 2□ for numerator 8. Without the positivity
+    restriction these models have integral points at every n.
   * Cor A′ (S_n): BM (even étale-BM) nonemptiness does not give a positive integral point. This fails at the 14 (★)-zero
     primes and the 285 composites, and on the C-even model at the 1 270 R₈-zero primes ≤ 10⁸ and the 12 in [10¹⁰, 1.1·10¹⁰].
     Primality alone does not rescue it.
@@ -531,17 +548,24 @@ objects or arguments*. None is a necessity theorem for every proof, and none pro
     using only BM-nonemptiness plus primality, π₁, Br, local solvability and smoothness is refuted at the listed
     parameters if it transfers verbatim to the specified fixed open-closed local classes (CERTIFIED class table).
   * Not covered: further hypotheses, eventual positivity above a larger threshold, the open S°, fibre arithmetic.
-  * The integral-model analogue of BL's "no BM obstruction to ES" (§1) is therefore: BM obstructs exactly the squares.
+  * Contrast with BL (§1): on the all-solution ES surface U_n the BM set is nonempty for n ≥ 2. On the displayed (★)
+    surface and Type II threefold, positive-integral BM obstructs exactly the squares (numerator 8: □ ∪ 2□), but
+    nonemptiness is not sufficient for a positive integral point.
 * **Mordell case splits** (`Z58_MORDELL.md`).
-  * Lemma P (PROVED): every integral positive one-parameter (★) family lies in one H_d residue or one K_{u,B} class.
+  * Lemma P (PROVED): if nonzero U, B, C ∈ ℚ[t] satisfy 4UBC − U − B = a + Mt identically, with integers a and M ≥ 1,
+    then two coordinates are constant. When they give positive-integral certificates, the family is contained in one
+    H_d residue or one K_{u,B} class. Arbitrary one-parameter algorithms and rational or piecewise families are not
+    covered.
   * Thms S1/S3 and the exact B criterion (PROVED): explicit sterility of the 1-points x_{ℓ,R}; sterile for every
     R ≤ (ℓ − 1)/2.
   * Cor S2 (PROVED, with Dirichlet): let ℓ be an odd prime and M ≥ 1 with ℓ ∤ M. Then every finite union of H_d and
     K_{u,B} classes misses infinitely many primes p ≡ 1 (mod M), p ≡ R (mod ℓ), at non-residues R with x_{ℓ,R} sterile. At M = 840 this applies to class 1; the other five Mordell
     classes are open.
   * Prop C1 (PROVED): polynomial certificates U, B, C ∈ ℚ[x, y] for a degree-2 f with irreducible top form (e.g.
-    x² + 840y²) have two constant coordinates, so they reduce to fixed-modulus congruences. Not covered: rational,
-    piecewise or divisor uses of (x, y).
+    x² + 840y²) satisfying 4UBC − U − B = f have two constant coordinates. The congruence interpretation (validity is
+    then a fixed-modulus congruence on p = f(x, y)) assumes the constant coordinates are positive integers and the
+    identity supplies a positive-integral solution at some point with f > 0. Not covered: rational, piecewise or
+    divisor uses of (x, y).
 * **Function-field analogue** (`Z58_FFIELD.md`; an analogy, not a reduction).
   * Cor 3.2 (PROVED relative to Chebotarev): no fixed N₀ gives MS_q(N₀) for all q ≡ 3 (4). So fixed-degree, large-q
     positivity is impossible and any threshold must grow, N₀(q) → ∞.
@@ -559,10 +583,12 @@ objects or arguments*. None is a necessity theorem for every proof, and none pro
   * `Z58_LADDER.md` Cor 1.3: no bounded D works for SC(D). Prop 1.2: SC(D) with D ≤ p^θ, θ < 1/(4√e), would give a
     beyond-Burgess n_p bound on 𝔐. Lemma 3.1: R^{(k)}(m₀²) = 0 for every odd m₀ at every exponent cap k ≤ ∞.
 * **Logic** (`Z58_LOGIC.md`).
-  * Prop 2.1 (PROVED): (MS) is Π⁰₁, so a counterexample has a short Q-refutation, and independence from PA/ZFC would
-    imply truth.
-  * Thm 3.1 (PROVED relative to Buss witnessing): S¹₂ ⊢ (MS) yields a polynomial-time hit-or-factor algorithm on Mordell
-    inputs.
+  * Prop 2.1 (PROVED): (MS) is Π⁰₁, so a counterexample p gives a brute-force Q-refutation of length p^{O(1)} (not a
+    known poly(log p)-length refutation), and independence from PA/ZFC would imply truth. For a class-restricted rung
+    the zero must belong to its domain.
+  * Thm 3.1 (PROVED relative to Buss witnessing): S¹₂ ⊢ (MS) yields a polynomial-time hit-or-nontrivial-factor-pair
+    algorithm on n > 10¹⁷ with n mod 840 ∈ 𝔐. It must find hits at those primes and split any composite R-zeros in that
+    domain. This is neither a general factoring algorithm nor a complete-factorisation guarantee.
   * Thm 6.2 (PROVED): IOpen ⊬ MS⁺★(P) for every numeral P (pseudo-squares n₀ + 840t, Shepherdson's model); CONDITIONAL
     on (MS) for the version with (MS★) added. This is a weak-theory barrier, not a general proof-method barrier.
 * **Type II structure** (`Z58_WILDCARD.md` Lemmas 4.1–4.4, PROVED).
@@ -582,8 +608,12 @@ has passed all lines.
 
 1. **It must fail at odd squares (T1/B5).** Name the step that is false at n = m². In practice the argument must use the
    quadratic character of p essentially (in every solution of 4/p with p ≡ 1 (4), every denominator prime to p has a prime
-   factor ℓ with (ℓ/p) = −1; Lemma CT). Local/genus/spinor/Siegel–Weil/BM-type steps are all true at m²; they cannot carry
-   the argument. (Composite-n descent must be checked separately: a solution for m scales to one for m², so T1 does not bind arguments
+   factor ℓ with (ℓ/p) = −1; Lemma CT). Local/genus/spinor/Siegel–Weil steps are all true at m²; they cannot carry
+   the argument. *(z58 precision.)* The older local/genus screens do not by themselves force a point. On the
+   all-solution ES surface U_n, the BM set is nonempty for n ≥ 2 (BL). In contrast, on the displayed (★) surface and
+   Type II threefold, for n ≥ 1, positive-integral BM nonemptiness detects exactly non-squareness (numerator 8:
+   exclusion of □ ∪ 2□; `Z58_STRUCT.md` Thm A, `Z58_STRUCT2.md` Thm B). So BM itself does fail at squares on these
+   models, but nonemptiness is not sufficient for a positive integral point (item 13). (Composite-n descent must be checked separately: a solution for m scales to one for m², so T1 does not bind arguments
    that produce mixed or scaled solutions.)
 2. **It must fail for numerator 8 at 131 and 241** (i.e. it must not also prove 8/131, 8/241) (and 8/11, 8/17; numerator blindness (J)41, (J)86). If every step works
    for M/n with M ≡ 0 (4) uniformly and without a threshold, the argument proves false statements. Say where 4 enters
@@ -602,15 +632,20 @@ has passed all lines.
    *(z58.)* **Extended R₈ zero list.** `Z58_DISPROOF.md` found two more R₈-zero primes, both ≡ 1 (mod 840) and so in
    𝔐: **20 840 951 041** (R = 24) and **23 296 553 281** (R = 36). They are CERTIFIED by exact enumeration and re-verified
    by the cross-review. They come from a *sampled* design search, not an interval census, so there is no completeness
-   claim above 1.1·10¹⁰. The screen is in `data/z58/screens/`.
+   claim above 1.1·10¹⁰. The original twelve-zero screen is `data/z58/screens/r8_zeros_1e10.txt`; the two new zeros
+   are in `Z58_DISPROOF.md` §4 and its archived runs `data/z58/disproof/runA/` (files D1b, D1c, D2), independently
+   verified in `data/z58/xreview/REVIEW_DISPROOF.md`.
    Distinguish two numerator-8 objects (`Z58_WILDCARD.md` Lemma 4.1, `Z58_STRUCT2.md`):
    * the c = 1 line R₈, which has the zeros above;
    * the full numerator-8 Type II family N^{(8)} (the d-even half of N_II). It has 22 odd prime zeros ≤ 10⁹ (last
      35 569) and 107 odd non-square composite zeros (last 1 239 315), but witnesses (c > 1) at the twelve screen R₈-zero primes in [10¹⁰, 1.1·10¹⁰]. CERTIFIED to
      10⁹.
 
-   So an argument through full Type II needs a threshold ≥ 35 569 to also prove numerator 8, which is harmless; one
-   through the c = 1 line needs a step that fails on the C-even sub-line.
+   So an argument that also proves C-even positivity over a range containing a certified R₈ zero is refuted: it must
+   distinguish that sub-line, or use a threshold excluding those zeros. The new zeros require P₈ ≥ 23 296 553 281 for a
+   claim over p > P₈ in 𝔐; they do not refute eventual C-even positivity or an argument starting at 10¹⁷. For full
+   numerator-8 Type II, the prime census requires P₈ ≥ 35 569 for p > P₈, but does not prove positivity beyond that
+   cutoff.
 3. **It must not be numerator-uniform in its laws** — no k-uniform transport, square law or recombination law (all refuted
    on k/n models, (J)86, (J)88).
 4. **It must break the tied modulus (B2, PARITY_AUDIT Remark 3.1).** Identify the modulus of the class condition. If it is
@@ -645,10 +680,11 @@ has passed all lines.
 13. **No BM/local-global shortcut.** There is no BM obstruction at any n ≥ 2, so BM supplies nothing to prove; "BM is the
     only obstruction on U_n" is literally ES(n) ((I)7). The BM main term is free pointwise ((J)103 Prop 2.2) — the problem
     is the class inside the coset.
-    *(z58, `Z58_STRUCT.md` Thm A, `Z58_STRUCT2.md` Thm B; PROVED.)* On the positive-integral (★) surface and on the full
-    Type II threefold, the BM set is empty **iff n is a square** (numerator 8: n ∈ □ ∪ 2□). So BM re-derives T1 and
-    nothing else. Every known zero is a non-BM failure: the 14 (★) primes, the 285 composites, the R₈ primes, and 4545
-    for Type II. A "BM-nonempty + primality ⟹ point" step is refuted at the listed parameters if it transfers verbatim to
+    *(z58, `Z58_STRUCT.md` Thm A, `Z58_STRUCT2.md` Thm B; PROVED.)* The statement above concerns U_n. On the displayed
+    (★) surface and full Type II threefold (positive real region, n ≥ 1), the positive-integral BM set is empty
+    **iff n is a square** (numerator 8: n ∈ □ ∪ 2□). So BM re-derives T1 and nothing else. The listed known
+    non-square zeros, on their respective models, are non-BM failures: the 14 (★) primes, the 285 composites, the R₈
+    primes, and 4545 for Type II. A "BM-nonempty + primality ⟹ point" step is refuted at the listed parameters if it transfers verbatim to
     the fixed local classes of `Z58_STRUCT2.md` §5.2. This does not exclude additional hypotheses or eventual positivity
     above a larger threshold (§3, z58).
 14. **Run it on the test primes.** (★) fails at 14 primes p ≡ 1 (4) ≤ 10¹⁰: 409, 577, 5569, 9601, 23929, 83449, 102001,
@@ -2009,15 +2045,18 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
       * Prime form: (MS-II) for p > 10¹⁷ in 𝔐.
       * It is equivalent to IHP_BM for the positive-integral Type II model at every odd n ≠ 4545 (`Z58_STRUCT2.md` §5.1).
       * *Why:* it is the only carried target whose statement passes F1–F4 (§4) in the tested ranges.
-      * *What a mechanism needs:* a fixed-p witness f = 4acd − 1 with (n/f) = −1 that crosses B2 and uses non-squareness at a
-        named step. Using c ≥ 2 is a strategy, not forced at 10¹⁷.
+      * PROVED witness constraint: for odd positive n, every positive Type II witness supplies f = 4acd − 1 with
+        (n/f) = −1. Assessment / proposed strategy: seek a pointwise Type II construction using non-squareness and
+        resolving the tied divisor-class event (B2). This is not a necessity theorem about how every proof of CONV-II,
+        (MS-II) or ES must be organised; no such mechanism was found. Using c ≥ 2 is a strategy, not forced at 10¹⁷.
       * Sub-targets: the a = 1 line (López's "Type A"; prime zeros 193, 2521, 66529) and its union with c = 1, which has
         no prime zero ≤ 10⁸ (`Z58_CONVF.md`, CERTIFIED). Also CONV-II-15 (coprime ET form for gcd(n, 15) = 1) and eventual positivity of
         N^{(K)}. And a composite genus analysis that survives the conductor cancellation seen at 4545 = 505·3², u = 505.
     * **(MS⁺) (CONJECTURE).** R(n) ≥ 1 for non-square n > 17 401 609 in 𝔐 (§2.4).
       * A primality-blind proof would suffice, and the data (to 10¹¹, one engine) allow it.
-      * Calibration (`Z58_LOGIC.md` Thm 3.1, rel. Buss): an S¹₂ proof of (MS) must find hits, and factor any composite zeros
-        above 10¹⁷, in polynomial time.
+      * Calibration (`Z58_LOGIC.md` Thm 3.1, rel. Buss): an S¹₂ proof of (MS) yields a polynomial-time
+        hit-or-nontrivial-factor-pair algorithm on n > 10¹⁷ with n mod 840 ∈ 𝔐. It must find hits at those primes and
+        split any composite R-zeros in that domain (not a general factoring algorithm).
     * **Remainders behind proved surrogates.**
       * E₂(p) > −M₂(p) pointwise (`Z58_TRYF2.md`). A mechanism coupling hits across C or u would count as a lead there.
       * A rigorous bound for the real layer L_r (`Z58_TRYF.md`; Shiu + Pólya–Vinogradov suggested). The non-real layer L_n
