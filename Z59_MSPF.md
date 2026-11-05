@@ -99,20 +99,21 @@ n/k + 2 ≡ 0 (mod 4k); the latter forces n/k even, impossible for odd n. ∎
 
 **Lemma 1.8 (no congruence proof; moduli ≥ D are unavoidable).** Let D ≥ 1, L := lcm(1, …, D). If n ≡ m² (mod L)
 for some m with gcd(m, L) = 1, then every hit modulus d of n satisfies d > D. Such n exist in every class of 𝔐: for
-any odd m coprime to 840L with m² in the prescribed class, every n = m² + 840L·t (t ≥ 1) qualifies, and all but
-O(√X/L) of those ≤ X are non-squares.
+any odd m coprime to 840L with m² in the prescribed class, every n = m² + 840L·t (t ≥ 1) qualifies; there are
+≍ X/(840L) of them up to X and at most √X of them are squares, so for L ≤ X^{1/2−ε} infinitely many are non-squares.
 *Proof.* If d ≤ D then d | L, so n ≡ m² (mod d) and (n/d) = (m/d)² = 1 (gcd(m, d) = 1), contradicting Lemma 1.5. ∎
 Consequence: no argument that only uses n modulo a fixed M (Mordell-type identities, finite covering systems of
 residue classes, "local" sieving at bounded moduli) can prove the target on any class containing a square mod M —
 and every class of 𝔐 refined by congruences mod M contains such n unless the refinement itself is a χ-non-residue
 condition mod M. In other words: the only congruence conditions that can ever *finish* a case are of the form
-"n ≡ r (mod M) with r a non-square mod M", and the n that are squares modulo every d ≤ D (with D ≈ log n allowed,
-since L ≤ n suffices... precisely L = e^{D(1+o(1))}) must be handled by moduli d > D.
+"n ≡ r (mod M) with r a non-square mod M", and the n that are squares modulo every d ≤ D must be handled by moduli d > D. Since
+L = lcm(1..D) = e^{(1+o(1))D}, one may take D = (1/2 − ε)·log X and still find such non-square n ≤ X in every class,
+so the witnesses needed are of size > (1/2 − ε)·log n for infinitely many n in every class of 𝔐.
 
 ## §2 What a proof must deliver (consequence of §1)
 
 For every large non-square n ∈ 𝔐 one needs an explicit d ≡ 3 (4) with (i) χ_n(d) = −1 and (ii) (−n mod d) | (d+1)/4.
-By 1.8, for infinitely many n in every class the witness has d > D for any prescribed D ≤ (1+o(1))·log n, i.e. the
+By 1.8, for infinitely many n in every class every witness has d > (1/2 − ε)·log n, i.e. the
 witness cannot be read off from n modulo any bounded modulus; by 1.5 it cannot be read off from n modulo any set of
 moduli on which χ_n looks principal. Any construction d = d(n) therefore has to use a global datum of n: a prime q with
 (q/n) = −1 (least such: q₁(n), which is ≪ n^{1/(4√e)+ε} by Burgess and ≪ log² n under GRH — but nothing is known
@@ -200,7 +201,7 @@ of χ_n *pointwise* other than through the factorisation of n + k, which is the 
 ## §4 Numerical record (data/z59/mspf/, engines scripts/z59_mspf_hits.c and z59_mspf_single.c; all CERTIFIED by
 recomputation, cross-checked against a brute-force enumeration of (u, B, C) for n ≤ 3000 and against data/z58/screens)
 
-* `zeros_all_2e5.txt`: all n ≡ 1 (4), n ≤ 2·10⁵ with R(n) = 0 (348, of which 223 squares); the non-square entries
+* `zeros_all_2e5.txt`: all n ≡ 1 (4), n ≤ 2·10⁵ with R(n) = 0 (348, of which 224 squares and 124 non-squares); the non-square entries
   coincide with the z58 lists (57, 105, 177, …, 409, 577, …).
 * `primes_M_1e7.txt`: the 20 513 primes p ∈ 𝔐, p ≤ 10⁷, with R, R_odd (C odd), R_even (C even), d_min, k at d_min,
   q₁(p), whether d_min is prime, R_prime (witnesses with d prime), k_min (least k over all witnesses). Facts:
