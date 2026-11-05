@@ -108,8 +108,9 @@ n/k + 2 ≡ 0 (mod 4k); the latter forces n/k even, impossible for odd n. ∎
 
 **Lemma 1.8 (no congruence proof; moduli ≥ D are unavoidable).** Let D ≥ 1, L := lcm(1, …, D). If n ≡ m² (mod L)
 for some m with gcd(m, L) = 1, then every hit modulus d of n satisfies d > D. Such n exist in every class of 𝔐: pick
-m ∈ [1, 840L] coprime to 840L with m² in the prescribed class mod 840 (e.g. m ≡ 1, 11, 13, 17, 19, 23 mod 840 and
-m ≡ 1 mod L, by CRT); every n = m² + 840L·t (t ≥ 1) qualifies. Up to X there are ≥ X/(840L) − 1 − (840L)²/(840L)
+m ∈ [1, 840L] with m ≡ m₀ (mod 840), m₀ ∈ {1, 11, 13, 17, 19, 23} the root of the prescribed class, and m ≡ 1 (mod qᵉ)
+for every prime power qᵉ ∥ L with q ≥ 11 (CRT, the moduli are coprime); then gcd(m, L) = 1 (m is coprime to 2, 3, 5, 7
+because m₀ is), and every n = m² + 840L·t (t ≥ 1) satisfies n ≡ m² (mod L) and n ≡ m₀² (mod 840). Up to X there are ≥ X/(840L) − 1 − (840L)²/(840L)
 of them (m² ≤ (840L)²), and at most √X of them are squares; so for L ≤ X^{1/2−ε} and X large, non-square ones exist
 (and their number → ∞ with X).
 *Proof of the first sentence.* If d ≤ D then d | L, so with k := (−n mod d) we get −k ≡ n ≡ m² (mod d), and
@@ -169,7 +170,7 @@ d_min = q₁(n) for 22.6 % of the primes p ∈ 𝔐 ≤ 10⁷ and d_min ≤ 10·
 **3.4 Prime witnesses only.** One might hope to use primes q ≡ −1 (mod 4k) dividing n + k (Linnik/Bombieri–Vinogradov
 territory). But witnesses with d prime are *not* enough in the tested range: 136 primes p ∈ 𝔐 ≤ 10⁷ (the largest
 9 831 889) have R(p) > 0 but no prime witness, decaying slowly (53 of 2365 in (0, 10⁶], 5–13 per million above
-3·10⁶; §4). So a prime-witness
+3·10⁶, 11 in the last million; §4). So a prime-witness
 theorem would need a threshold beyond those, and the composite (Jacobi, not Legendre) structure of Lemma 1.3 looks
 essential; in any case I know no method that produces a prime in a progression dividing a *specific* number n + k.
 
@@ -203,10 +204,11 @@ gcd(d, n) > 1 and at every d when n is a square); writing
   M_χ(n) := Σ_{d ≤ 4n/3, d ≡ 3 (4), gcd(d,n)=1} ((1 − χ_n(d))/2)·τ((d+1)/4)/d · (local densities at the primes dividing
   4k, left unspecified)
 is only a *model*, not a theorem. (Heuristic remark: for non-square n the χ_n-part of such a model is
-Σ_{d ≤ Y} χ_n(d)τ((d+1)/4)/d; Burgess-type cancellation is available only for Y ≥ n^{1/4+ε}, and the harmonic weight
-gives the range d ≤ n^{1/4} the share (1/4)² = 1/16 of the log²n mass — so even in the worst case the χ_n-correction
-could not cancel more than about 1/16 of the model's main term for non-square n. This is a statement about the model
-only.) What would have to be proved is R(n) − M_χ(n) = o(log² n) *for the individual n*, i.e. equidistribution of the
+Σ_{d ≤ Y} χ_n(d)τ((d+1)/4)/d. *If* one assumes cancellation in the weighted sums Σ_{d ~ Y} χ_n(d)τ((d+1)/4) for
+Y ≥ n^{1/4+ε} — a weighted Burgess-type hypothesis which is NOT known (the divisor weight can correlate with χ_n:
+τ((d+1)/4) = #{(a,b): 4ab − 1 = d}, and Σ_{a,b mod p} χ_p(4ab − 1) = 1 ≠ 0 for p ≡ 1 (4)) — then, since the harmonic
+weight gives the range d ≤ n^{1/4} the share (1/4)² = 1/16 of the log²n mass, the χ_n-correction could cancel at most
+about 1/16 of the model's main term. This is a conditional statement about the model only.) What would have to be proved is R(n) − M_χ(n) = o(log² n) *for the individual n*, i.e. equidistribution of the
 single residue n mod d over d ≤ 4n/3 in the thin target set −Div((d+1)/4) with divisor weights. The k-slices of this
 error, #{d | n + k : d ≡ −1 (4k)} − (mean), are each of the size of their mean on a set of n of relative density
 ≍ (log n)^{−1/2} (e.g. k = 1: (n+1)/2 free of primes ≡ 3 (4)), so the pointwise bound is a large-deviation statement
@@ -234,8 +236,8 @@ recomputation, cross-checked against a brute-force enumeration of (u, B, C) for 
   the zeros are exactly the nine of F4; R(p) is even throughout (Lemma 1.7). Among the 20 504 primes with R(p) > 0:
   d_min ≥ q₁(p) throughout (Lemma 1.5), d_min = q₁(p) in 22.6 %; R_even = 0 for 186 (largest 9 965 881) and R_odd = 0
   for 118 (largest 9 744 001), so neither parity of C suffices alone up to 10⁷ (F2); R_prime = 0 for 136 (largest
-  9 831 889); per million these counts decay from (91, 60, 53) in (0, 10⁶] to single digits above 5·10⁶ but have not
-  reached 0 (e.g. (9, 4, 11) in (9·10⁶, 10⁷]); k_min ≤ 10 for 98.1 % but reaches 410 (p = 4 160 641); mean R ≈ 30 in
+  9 831 889); per million these counts decay from (91, 60, 53) in (0, 10⁶] to ≤ 11 above 5·10⁶ but have not
+  reached 0 ((10, 6, 8) in (8·10⁶, 9·10⁶], (9, 4, 11) in (9·10⁶, 10⁷]); k_min ≤ 10 for 98.1 % but reaches 410 (p = 4 160 641); mean R ≈ 30 in
   (5·10⁶, 10⁷]. (The nine zero rows carry d_min = 0, q₁ as computed, R_prime = k_min = 0.) Reproduce:
   `gcc -O2 -o hits scripts/z59_mspf_hits.c -lm && ./hits 10000000 1` (≈ 1 min, ≈ 60 MB).
 * `zeros_profile.txt`: for each of the nine prime zeros and k ≤ 8, the factorisation of p + k and the residues of its
@@ -268,8 +270,8 @@ satisfy, and it documents why each route I tried stops (§3). Running the four f
   The "4n + 1 has a prime factor ≡ 2 (mod 3)" observation (§3.6) is congruential and correctly gives nothing at
   squares: at n = m², 4m² + 1 has all odd prime factors ≡ 1 (mod 4), so that prime factor is ≡ 5 (mod 12) — consistent.
 * **(F2) C even alone.** C even ⇔ d ≡ −1 (mod 8k) (Lemma 1.1). The memo contains no general construction, so there
-  is nothing that produces only even C; the special families of §3.2 have C = 1 (n = a(a+1) − k) and C = t (the
-  (4st − 1)² − s family), both parities. The data (§4) show both R_even = 0 and R_odd = 0 occur for primes in 𝔐 up to
+  is nothing that produces only even C; the special families of §3.2 have C = (a+1)/(4k) (n = a(a+1) − k) and C = t (the
+  (4st − 1)² − s family), so both parities occur. The data (§4) show both R_even = 0 and R_odd = 0 occur for primes in 𝔐 up to
   10⁷ and R_even = 0 at four primes in 𝔐 near 10¹⁰ (recomputed), so a single-parity argument must exclude those by its
   threshold or hypotheses.
 * **(F3) Non-square zeros / outside 𝔐.** No threshold is produced because no proof is produced. Nothing in the memo
