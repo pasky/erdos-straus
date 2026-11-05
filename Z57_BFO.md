@@ -135,8 +135,10 @@ test (Lemma 1.6), composite zeros constrain any substitute: at n = 810 001 = 241
 non-square n" would have to fail at infinitely many composites if the composite zeros persist (they do through 8·10⁶: 285).
 
 **2.6 Conditional forms (Assessment).** I also looked for a standard hypothesis that would imply the target and found
-none. GRH, Elliott–Halberstam and Hypothesis H control averages over p (or over a free polynomial variable); here p is
-fixed and the only free variables are divisors of p-shifts (Lemma 2.1). The subset-product view of one level does not
+none: I found no reduction of the target to GRH, Elliott–Halberstam or Hypothesis H. (GRH does have pointwise-in-modulus
+consequences, e.g. character-sum and least-non-residue bounds at a fixed p, but I found no way to turn them into the
+order-≥3 divisor-in-class event; EH and Hypothesis H are statements about averages over moduli or over a free polynomial
+variable.) Here p is fixed and the only free variables are divisors of p-shifts (Lemma 2.1). The subset-product view of one level does not
 help either: "no divisor ≡ −1 (mod 4C)" means that −1 is not a subset product of the prime-factor classes of 4Cp + 1 in
 (ℤ/4C)^×. Zero-sum (Davenport/Olson-type) arguments would force −1 only if 4Cp + 1 had ≫ log φ(4C) prime factors in
 general position, and nothing controls that at a fixed p. To my knowledge ES is not known to follow from GRH; this is a
@@ -217,10 +219,12 @@ Minimising over 2 ≤ r < 400 (`scripts/z57_bfo_burgess_calib.py`, `data/z57/bfo
 * min_r f = ½ at q ≈ 10^{67.2} (θ = 1/3), 10^{23.7} (θ = 0.4), 10^{9.4} (θ = 1/2) (continuous thresholds, hostile
   review; the script reports the first integer decade).
 So in Theorem V's architecture the Burgess sums of length ≈ q^{1/3}–q^{0.4} give almost no saving at 10¹⁰ and that
-architecture does not give p₀ ≤ 10¹⁰. The θ ≥ 1/2 range, i.e. pairs with max(o, e) ≳ (min(o, e)·p)^{1/2}, is where
-explicit tools of Pólya–Vinogradov strength (|S| ≤ (2/π²)√q log q + O(√q log log q) type) also work: in log-coordinates
-the region max > (1 + min)/2, area 1/6 of the triangle (vs 5/12 for G), density main term (3/π²)·(1/6) = 1/(2π²) ≈ 0.051 per log²p — and even there the saving at p ≈ 10¹⁰ is only a
-constant factor. (This calibrates the brief's "ideally p₀ ≤ 10¹⁰"; it is not a theorem about all possible proofs.)
+architecture does not give p₀ ≤ 10¹⁰. For fixed θ > 1/2 (more precisely, whenever √q log q = o(N); the endpoint
+θ = 1/2 is not covered), i.e. pairs with max(o, e) ≥ (min(o, e)·p)^{θ}, explicit tools of Pólya–Vinogradov strength
+(|S| ≤ (2/π²)√q log q + O(√q log log q) type) also give a saving. In log-coordinates the region max > (1 + min)/2 has
+area 1/6 of the triangle (vs 5/12 for G), so the density main term is at most (3/π²)·(1/6) = 1/(2π²) ≈ 0.051 per log²p,
+approached as θ ↓ 1/2. Even there the saving at p ≈ 10¹⁰ is only a constant factor, and no finite p₀ bound follows from
+the displayed constants alone. (This calibrates the brief's "ideally p₀ ≤ 10¹⁰"; it is not a theorem about all possible proofs.)
 
 ## 5. Certification extension (CERTIFIED; `scripts/z57_bfo_certrun.sh`, `data/z57/bfo/decide_1e10_2e10_*.txt`)
 
@@ -270,4 +274,9 @@ all 23, F4 15, F4L 0, K 8; `data/z57/bfo/f4l_zero_check.txt`); HC and H3 have 19
   6. (minor) the mod-p form is marked as the unrestricted problem, with the 𝔊* condition added (§1);
   7. (minor) cutoffs p > 64K³ (Thm W's "larger set", the subfamily {C ≤ K}) and p ≥ 16 (corner remark) added;
   8.–10. (nits) modulus 4(n − p); scope of Lemmas 1.5/1.6; continuous Burgess thresholds and 79² endpoint.
-* Not externally (cross-model) reviewed.
+* **Cross-model review** (`data/z57/xreview/REVIEW_BFO.md`, independent checks `scripts/z57_xrev_bfo_check.py`,
+  `scripts/z57_xrev_bfo_primecount.c`): ACCEPT-WITH-FIXES. Theorem W and Lemmas 1.1–1.6, 2.1–2.3 were judged CORRECT. The
+  reviewer independently reproduced the four chunk prime counts (total 213 578 615), all 20 exceptional rows, the new F4L
+  zero and the 38 listed 𝔊*-zeros; it did not repeat the full solution census. Two required fixes were applied:
+  (1) §4.2: the Pólya–Vinogradov claim is now restricted to fixed θ > 1/2 (√q log q = o(N)), with no finite p₀ claimed;
+  (2) §2.6: GRH is no longer described as averaging-only; the memo now says only that no GRH-to-target reduction was found.
