@@ -1,0 +1,16 @@
+X 10000000
+odd squares: max tot 0 (count 1580 )
+odd n>1 with tot==0: 1581 of which squares: 1580
+  non-square odd n with no Type II N-point (first 30): [4545] count 1
+p=1(4) count 332180 min tot 2 min prim 2 #c1==0 14
+   last p with R(p)=c1=0: [1134241, 1724209, 1726201, 5212561, 8813281] tot there [100, 90, 76, 156, 128]
+   max emin over p: 107 at 8803369
+p=3(4) count 332398 min tot 1 min prim 1 #c1==0 10
+   last p with R(p)=c1=0: [199, 2719, 8191, 861199, 6266527] tot there [24, 106, 100, 184, 182]
+   max emin over p: 1 at 3
+[1e+03,1e+04) N=529 mean tot/L^3=0.0813 mean prim/L^3=0.0660 mean c1/L^2=0.1803 min tot/L^3=0.0075 min tot=4 at p=3361  var/mean(tot)=7.68 frac c>=2 =0.739
+[1e+04,1e+05) N=4174 mean tot/L^3=0.0783 mean prim/L^3=0.0609 mean c1/L^2=0.1734 min tot/L^3=0.0127 min tot=18 at p=76441  var/mean(tot)=14.93 frac c>=2 =0.795
+[1e+05,1e+06) N=34392 mean tot/L^3=0.0765 mean prim/L^3=0.0578 mean c1/L^2=0.1687 min tot/L^3=0.0160 min tot=30 at p=140449  var/mean(tot)=24.60 frac c>=2 =0.832
+[1e+06,1e+07) N=293005 mean tot/L^3=0.0756 mean prim/L^3=0.0557 mean c1/L^2=0.1657 min tot/L^3=0.0131 min tot=40 at p=2031121  var/mean(tot)=38.96 frac c>=2 =0.858
+15 smallest prim among p=1(4): [(5, 2, 2), (13, 2, 2), (17, 4, 2), (37, 4, 2), (3361, 4, 2), (193, 4, 4), (2521, 6, 2), (29, 6, 4), (61, 6, 4), (97, 6, 2), (73, 6, 2), (181, 8, 6), (53, 8, 4), (241, 8, 2), (1201, 8, 4)]
+10 smallest prim/L^3 for p>1e5: [(2031121, 36, 0.0117), (225289, 24, 0.0128), (471241, 34, 0.0153), (1877761, 46, 0.0153), (1202881, 42, 0.0153), (454969, 34, 0.0154), (733321, 38, 0.0154), (670849, 38, 0.0157), (6080881, 60, 0.0157), (1190701, 44, 0.0161)]

@@ -1,0 +1,2 @@
+checked odd n <= 400 mismatches 0
+odd squares <= X with tot>0: []
