@@ -211,7 +211,7 @@ fixed p across moduli. This is the exact shape of the obstruction.
   exhaustive 10¹⁰ result: **R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹¹, the last 564 661 441.** The largest
   first-hit d in (10¹⁰, 10¹¹] is 2 923 999 ≈ p^{0.600} (p = 61 032 630 877); per block the maxima are 0.8–2.9·10⁶,
   all below p^{0.61}. So every prime p ≡ 1 (4) in (10⁸, 10¹¹] other than the zero 564 661 441 has a 𝔊* hit with
-  d ≤ p^{0.705} (and the decider needs on average ≈ p^{0.09} steps). The decider was also run on (10⁹, 10¹⁰]
+  d ≤ p^{0.705} (the decider needs on average ≈ p^{0.1} steps per prime). The decider was also run on (10⁹, 10¹⁰]
   (`decide_1e9_1e10.txt`: 202 099 784 primes, no zero, max first-hit d = 2 178 251 ≈ p^{0.639} at 8 342 701 249), so
   it independently re-certifies z56's whole range: 2 880 504 + 22 542 987 + 202 099 784 = 227 523 275 = π(10¹⁰; 4, 1)
   (z56's count), 37 + 1 + 0 = 38 zeros.
@@ -229,13 +229,13 @@ fixed p across moduli. This is the exact shape of the obstruction.
 * **Local data of the zeros (`z57_bff_zeros_local.py`).** All 38 have (p/3) = +1 (p ≡ 2 (3) gives the hit d = 3) and
   least prime QNR in {5, 7, 11, 13, 17, 19, 23, 29}; 6 of them are ≡ 1 (mod 840), 30 are ≡ 1 (mod 8). They are not
   confined to Mordell's six classes mod 840 (e.g. 37, 157, 577 have (p/5) = −1): the classical identities for those
-  classes produce (★) solutions in the Burgess corner (e.g. p ≡ 5 (mod 8): (o, e, C) = (1, 2, (p + 3)/8)), or non-(★)
-  shapes.
+  classes produce (★) solutions in the Burgess corner (e.g. p ≡ 5 (mod 8): (o, e, C) = (1, 2, (p + 3)/8), 2⁴ < p) or
+  non-(★) shapes (Assessment; not traced class by class).
 
 ## 4. Screens, verdict, bottom line
 
 * **T1 (odd squares).** Passes by construction: Corollary 1.5 shows every reformulation is false at N = M² and
-  identifies (d/p) = −1 as the unique entry point of primality. No argument in §2 produces a hit, so there is nothing
+  shows every hit has (d/p) = −1 (the necessary quadratic condition through which primality must enter). No argument in §2 produces a hit, so there is nothing
   to audit beyond this.
 * **Fixed-p / 8/131 / B2.** Not applicable (no positivity claim). The 38 zeros satisfy every necessary condition
   derived here (Lemma 1.6 at levels 1–3 checked; (p/3) = +1 for all).
