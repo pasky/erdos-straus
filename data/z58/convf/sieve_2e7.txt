@@ -1,0 +1,21 @@
+a1fail 193 tags=1 R=4
+c1fail 409 tags=30 R=14
+c1fail 577 tags=14 R=14
+a1fail 2521 tags=21 R=6
+ZERO 4545 C
+c1fail 5569 tags=14 R=20
+c1fail 9601 tags=30 R=14
+c1fail 23929 tags=30 R=72
+a1fail 66529 tags=29 R=35
+c1fail 83449 tags=14 R=23
+c1fail 102001 tags=22 R=27
+c12fail 102001 tags=22
+c1fail 329617 tags=30 R=36
+c1fail 712321 tags=30 R=38
+c1fail 1134241 tags=14 R=54
+c1fail 1724209 tags=30 R=47
+c1fail 1726201 tags=14 R=40
+c1fail 5212561 tags=30 R=84
+c1fail 8813281 tags=22 R=70
+c12fail 8813281 tags=22
+N=20000000 nonsq zeros=1 | prime zeros: c=1:14 a=1:3 d=1:174 c<=2:2 c<=3:0 (a=1 or c=1):0
