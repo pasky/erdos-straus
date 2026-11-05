@@ -26,3 +26,26 @@ for K,fs in files.items():
                     dec[int(math.log10(p))]+=1; last=p
         except FileNotFoundError: pass
     print(f'K={K}: last prime zero {last}; by decade', dict(sorted(dec.items())))
+
+# (3) zero-rate model across the ladder (Assessment): log(rate) = A - B * lambda_K * L^3, L = log of decade midpoint,
+#     rate = prime zeros / primes in decade (all odd primes).  Only decades with >= 3 zeros and k >= 2.
+pi_dec={0:3,1:21,2:143,3:1061,4:8363,5:68906,6:586081,7:5096876,8:45086079}
+pts=[]
+for K,fs in files.items():
+    if K==4: continue
+    dec=collections.Counter()
+    for fn in fs:
+        for l in open('data/z58/wildcard/'+fn):
+            if l.startswith('ZERO') and l.split()[2]=='P' and int(l.split()[1])!=K//4: dec[int(math.log10(int(l.split()[1])))]+=1
+    complete = 8 if K==8 else 7  # decades fully covered by the census files
+    for k in range(2,complete+1):
+        z=dec.get(k,0)
+        if z>=3: pts.append((K,k,lam[K]*((k+0.5)*math.log(10))**3, math.log(z/pi_dec[k])))
+n=len(pts); mx=sum(p[2] for p in pts)/n; my=sum(p[3] for p in pts)/n
+B=-sum((p[2]-mx)*(p[3]-my) for p in pts)/sum((p[2]-mx)**2 for p in pts); A=my+B*mx
+print('## fit log(rate) = A - B*lambda_K*L^3 on %d (K,decade) points: A=%.3f B=%.3f'%(n,A,B))
+for p in pts: print('   K=%d decade %d: x=%.1f log rate obs %.2f fit %.2f'%(p[0],p[1],p[2],p[3],A-B*p[2]))
+lam4=lam[4]
+for k in (3,4,5,7,10,17):
+    x=lam4*((k+0.5)*math.log(10))**3
+    print('   K=4 predicted zero rate near 10^%d: exp(%.1f)'%(k,A-B*x))

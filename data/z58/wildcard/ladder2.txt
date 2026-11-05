@@ -1,0 +1,20 @@
+## all primes: sample 1821; lambda_K = {4: 0.0762, 8: 0.0329, 12: 0.0159, 16: 0.0141, 20: 0.0107, 24: 0.0067}
+   fit on 24 points (K=8..24, decades 2..7): log rate = -0.780 - 0.219 * lambda*L^3; max |dev| 1.37
+   K=4 decade 1: x=3.1 predicted zeros 4.84 (observed 0)
+   K=4 decade 2: x=14.5 predicted zeros 2.7 (observed 0)
+   K=4 decade 3: x=39.9 predicted zeros 0.0772 (observed 0)
+   K=4 decade 4: x=84.7 predicted zeros 3.23e-05 (observed 0)
+   K=4 decade 5: x=154.7 predicted zeros 5.71e-11 (observed 0)
+   K=4 decade 6: x=255.3 predicted zeros 1.24e-19 (observed 0)
+   K=4 decade 7: x=392.2 predicted zeros 9.67e-32 (observed 0)
+   K=4 predicted total decades 1-7: 7.62; Poisson P(0 observed) = 0.00049
+## QR mod 3,5,7 primes: sample 227; lambda_K = {4: 0.0618, 8: 0.0288, 12: 0.0144, 16: 0.0109, 20: 0.0088, 24: 0.0065}
+   fit on 21 points (K=8..24, decades 2..7): log rate = -0.612 - 0.239 * lambda*L^3; max |dev| 0.61
+   K=4 decade 1: x=2.5 predicted zeros 0.295 (observed 0)
+   K=4 decade 2: x=11.8 predicted zeros 0.485 (observed 0)
+   K=4 decade 3: x=32.3 predicted zeros 0.0303 (observed 0)
+   K=4 decade 4: x=68.7 predicted zeros 4.04e-05 (observed 0)
+   K=4 decade 5: x=125.5 predicted zeros 4.29e-10 (observed 0)
+   K=4 decade 6: x=207.2 predicted zeros 1.2e-17 (observed 0)
+   K=4 decade 7: x=318.3 predicted zeros 3.03e-28 (observed 0)
+   K=4 predicted total decades 1-7: 0.81; Poisson P(0 observed) = 0.44
