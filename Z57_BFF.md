@@ -198,7 +198,13 @@ fixed p across moduli. This is the exact shape of the obstruction.
 
 ### 3.2 Results
 
-* **Zero-free range (CERTIFIED).** No 𝔊*-zero in (10¹⁰, 10¹¹] — RANGE_RESULT_PLACEHOLDER
+* **Zero-free range (CERTIFIED).** No 𝔊*-zero in (10¹⁰, 10¹¹]: all 1 831 497 005 primes p ≡ 1 (4) there have a
+  𝔊* hit (`decide_1e10_1e11_summary.txt`; ten blocks of 10¹⁰, ≈ 11 min each on a loaded machine; the prime counts per
+  block are listed, and 2 880 504 + 22 542 987 = 25 423 491 = π(10⁹; 4, 1) on the validation ranges). With z56's
+  exhaustive 10¹⁰ result: **R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹¹, the last 564 661 441.** The largest
+  first-hit d in (10¹⁰, 10¹¹] is 2 923 999 ≈ p^{0.600} (p = 61 032 630 877); per block the maxima are 0.8–2.9·10⁶,
+  i.e. every prime up to 10¹¹ has a 𝔊* hit with d ≤ p^{0.71} (and the decider needs on average ≈ p^{0.09} steps).
+  Extension to 5·10¹¹: EXT_PLACEHOLDER
 * **First hit (EVIDENCE; `firsthit_1e8/1e9/1e10.txt`).** Exponent θ₁ := log d₁(p)/log p over the primes p ≡ 1 (4) in
   [10⁸, 10⁸ + 4·10⁵] (10 819 primes), [10⁹, 10⁹ + 4·10⁵] (9 613), [10¹⁰, 10¹⁰ + 10⁵] (2 150):
   mean θ₁ = 0.109, 0.097, 0.088; median 0.060, 0.053; P(θ₁ > 0.2) = 9.5 %, 7.4 %, 4.8 %; P(θ₁ > 0.3) = 1.6 %, 1.0 %,
@@ -212,3 +218,22 @@ fixed p across moduli. This is the exact shape of the obstruction.
   confined to Mordell's six classes mod 840 (e.g. 37, 157, 577 have (p/5) = −1): the classical identities for those
   classes produce (★) solutions in the Burgess corner (e.g. p ≡ 5 (mod 8): (o, e, C) = (1, 2, (p + 3)/8)), or non-(★)
   shapes.
+
+## 4. Screens, verdict, bottom line
+
+* **T1 (odd squares).** Passes by construction: Corollary 1.5 shows every reformulation is false at N = M² and
+  identifies (d/p) = −1 as the unique entry point of primality. No argument in §2 produces a hit, so there is nothing
+  to audit beyond this.
+* **Fixed-p / 8/131 / B2.** Not applicable (no positivity claim). The 38 zeros satisfy every necessary condition
+  derived here (Lemma 1.6 at levels 1–3 checked; (p/3) = +1 for all).
+* **Verdict: narrowed, not proved.** The lane's contribution is (i) the exact and symmetric defect/hyperbola form of the
+  target — "some d ≡ 3 (4) below p^{3/4} has (−p mod d)·(−(4p)⁻¹ mod d) < 5d/4" — with its two coordinates being the
+  n-lines and C-levels of z56; (ii) the proof that primality enters only through (d/p) = −1 and that the Burgess
+  threshold p^{1/4} is where the quadratic obstruction disappears, which explains the 𝔊* boundary of Thm V from the
+  d-side; (iii) the identification of the decisive range d ≤ p^{1/3} where single-p information is provably absent
+  below c·log p and unavailable above it; (iv) a certified zero-free range to 10¹¹ by an independent decider.
+  **ES is OPEN; R_𝔊*(p) ≥ 1 for all large p is not proved, and no weaker pointwise theorem beyond the classical
+  identity classes was found.**
+* **For SYNTH/FRONTIER (proposed text, not applied):** "Z57_BFF: R_𝔊*(p) ≥ 1 ⟺ ∃ d ≡ 3 (4), d ≤ ⌊p^{3/4}⌋ + 1, with
+  4·(−p mod d)·(−(4p)⁻¹ mod d) = d + 1 and the 𝔊* inequality (automatic for d ≤ p^{3/5}); every such d has (d/p) = −1
+  (the T1 mechanism). CERTIFIED: no 𝔊*-zero in (10¹⁰, 10¹¹]."
