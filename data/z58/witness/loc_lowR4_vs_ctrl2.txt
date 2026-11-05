@@ -1,0 +1,15 @@
+hard primes: 45 (82 unordered solutions); control primes: 341 (8493 solutions); p range hard [10087009, 564661441], ctrl [10001209, 997945489]
+x       mean hard 0.221  ctrl 0.171   KS D=0.287 p≈2.04e-06
+y       mean hard 0.475  ctrl 0.522   KS D=0.147 p≈0.0527
+z       mean hard 0.303  ctrl 0.308   KS D=0.162 p≈0.0242
+mn      mean hard 0.168  ctrl 0.109   KS D=0.381 p≈5.76e-11
+mx      mean hard 0.554  ctrl 0.602   KS D=0.177 p≈0.0106
+minmod  mean hard 0.163  ctrl 0.083   KS D=0.260 p≈2.53e-05
+hard: frac C even 0.439; frac solutions with n_p | (4PC-1) 0.061, | (4QC-1) 0.098, | PQ 0.146, any 0.268
+ctrl: frac C even 0.495; frac solutions with n_p | (4PC-1) 0.100, | (4QC-1) 0.083, | PQ 0.161, any 0.323
+primes with SOME solution rooted at n_p: hard 17/45, ctrl 338/341
+P(min coord > 0.05): hard 0.939  ctrl 0.701  simplex 0.722
+P(min coord > 0.1): hard 0.854  ctrl 0.477  simplex 0.490
+P(min coord > 0.15): hard 0.598  ctrl 0.302  simplex 0.303
+P(min coord > 0.2): hard 0.305  ctrl 0.164  simplex 0.160
+P(min coord > 0.25): hard 0.159  ctrl 0.066  simplex 0.062

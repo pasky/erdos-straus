@@ -1,0 +1,6 @@
+hard (shift 0): primes 103, solutions 188; frac with a coordinate/modulus = CF(√p) convergent term 0.1117; frac with a coordinate/modulus (>2) dividing a, b, a+b or |a-b| 0.4202
+hard (shift 1 = null: data of another prime): primes 103, solutions 188; frac with a coordinate/modulus = CF(√p) convergent term 0.1064; frac with a coordinate/modulus (>2) dividing a, b, a+b or |a-b| 0.4681
+hard (shift 2 = null: data of another prime): primes 103, solutions 188; frac with a coordinate/modulus = CF(√p) convergent term 0.1170; frac with a coordinate/modulus (>2) dividing a, b, a+b or |a-b| 0.4096
+ctrl (shift 0): primes 341, solutions 8493; frac with a coordinate/modulus = CF(√p) convergent term 0.1367; frac with a coordinate/modulus (>2) dividing a, b, a+b or |a-b| 0.3820
+ctrl (shift 1 = null: data of another prime): primes 341, solutions 8493; frac with a coordinate/modulus = CF(√p) convergent term 0.1243; frac with a coordinate/modulus (>2) dividing a, b, a+b or |a-b| 0.3907
+ctrl (shift 2 = null: data of another prime): primes 341, solutions 8493; frac with a coordinate/modulus = CF(√p) convergent term 0.1307; frac with a coordinate/modulus (>2) dividing a, b, a+b or |a-b| 0.3857
