@@ -187,3 +187,31 @@ this reverses my earlier response to referee item 7.
 
 Status after this revision: the bankable list above is unchanged, except that Theorem C is now positioned as a statement
 about the line R only; its consequence for f_II and f is (if Akaka's claim is correct) superseded.
+
+## Round 2 (response to `es-count-note.XREFEREE2.md`, MINOR REVISION)
+
+Checked against the archived Akaka v0.7 PDF (`sources/lit2026/akaka-zenodo-22754703-v0.7.pdf`): eq. (1) p.1 defines
+R_II(p) as the count of **all** strict Type II triples x<y<z, p|y, p|z, p∤x; §2 (3)–(6) defines the parameter family and
+decoder; (7) p.3 states F(p) ≤ R_II(p) for p > Q₀. LITERATURE_2026.md §2.4 agrees.
+
+**Required 1 — full count vs auxiliary family. Done.**
+* Abstract: "that claim concerns a different, disjoint subfamily" replaced by: the claim gives no lower bound for R(p);
+  his proof counts an auxiliary subfamily of Type II solutions, and it is this construction (not the full Type II family)
+  that is disjoint from the line R.
+* §1.4 comparison paragraph: "his count is restricted to the family" removed. New text: the full counts are **not**
+  disjoint — since 4uBC−u−B is symmetric in u,B and B≠u at odd primes, ordering the two p-divisible denominators maps
+  R-triples two-to-one into R_II-triples, so R(p)/2 ≤ R_II(p). His proof obtains the lower bound for R_II by counting the
+  auxiliary family F of [Akaka, §2, (7)], F(p) ≤ R_II(p); its decoder has 0 < s/M = a/b < 1, whereas for x=uBC it gives
+  s/M = (4BC−1)u−p = B (y=pBC) or u (y=puC). So the construction used in his proof is disjoint from the line R, and a lower
+  bound for F(p) (or f_II) gives none for R(p). Theorem C unchanged.
+
+**Required 2 — no implied two-sided almost-all estimate. Done.** §1.4 "it gives the true average order of f_II for almost
+all primes" → "an almost-all lower bound for f_II on the scale of its known mean". §7(4) "(its true average order)" →
+"(the order of its mean)" for consistency.
+
+**Required 3 — sentence splice. Done.** §6: dangling "So the bound of" deleted; "whose constant is then about 70 times too
+large" → "whose upper-bound coefficient is about 70 times the observed ratios".
+
+**Other report items.** Reproducibility note (historical 65-slice PARI experiment not regenerated) already stated in §6; no
+change. No other changes; mathematical content of all results unchanged. Rebuilt with two `pdflatex` passes: 25 pages, no
+undefined references/citations.

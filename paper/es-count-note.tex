@@ -72,8 +72,10 @@ by Bombieri--Vinogradov for a truncated count, in which every residue
 class becomes a single hyperbolic lattice cell.  For the full count of
 Type~II solutions, Akaka has claimed (unrefereed preprint, 2026) the
 stronger almost-all bound $\gg(\log p)^3$ by a related
-variance/Bombieri--Vinogradov method; that claim concerns a different,
-disjoint subfamily and does not bound $R(p)$.  The Erd\H{o}s--Straus conjecture remains open: (i) is an upper
+variance/Bombieri--Vinogradov method.  That claim gives no lower bound
+for $R(p)$: his proof counts an auxiliary subfamily of Type~II
+solutions, and it is this construction (not the full Type~II family)
+that is disjoint from the line $R$.  The Erd\H{o}s--Straus conjecture remains open: (i) is an upper
 bound and holds at odd squares, where $R=0$; (ii) concerns a main term
 and not $R(p)$ itself; (iii) says nothing about any prescribed prime.
 \end{abstract}
@@ -280,17 +282,24 @@ claims that the number $R_{\rm II}(p)$ of Type~II solutions with
 $x<y<z$ satisfies $R_{\rm II}(p)\ge c(\log p)^3$ for all but
 $O(N/(\log N)^4)$ primes $p\le N$.  This is an unrefereed, declared
 AI-assisted preprint with a claimed Lean certificate; we have not
-checked it, and nothing below depends on it.  If correct, it gives the
-true average order of $f_{\rm II}$ for almost all primes and a smaller
-exceptional set than Theorem~\ref{thm:C}, and so supersedes the
-consequence of Theorem~\ref{thm:C} for $f_{\rm II}$ and $f$.  It does not
-imply Theorem~\ref{thm:C}: his count is restricted to the family
-$y=pM$, $M=3abu$, $s=3a^2u$, $12abu-1\mid p+12a^2u$ with coprime $a<b$,
-recovered from a solution through $M=y/p$ and $s=(4M-1)x-pM$, and his
-family has $0<s/M=a/b<1$.  A triple counted by $R(p)$, with $y$ either
-of $pBC$, $puC$, has $s/M=B$ or $u$, an integer; so the two families
-are disjoint, and a lower bound for his count (or for $f_{\rm II}$) gives
-none for $R(p)$.  The methods overlap substantially: both truncate to
+checked it, and nothing below depends on it.  If correct, it gives an
+almost-all lower bound for $f_{\rm II}$ on the scale of its known mean,
+with a smaller exceptional set than Theorem~\ref{thm:C}, and so
+supersedes the consequence of Theorem~\ref{thm:C} for $f_{\rm II}$ and
+$f$.  It does not imply Theorem~\ref{thm:C}.  The full counts are not
+disjoint: since $4uBC-u-B$ is symmetric in $u,B$, and $B\ne u$ at odd
+primes, ordering the two $p$-divisible denominators of the solution
+\eqref{eq:sol} maps the triples counted by $R(p)$ two-to-one into
+those counted by $R_{\rm II}(p)$, so $R(p)/2\le R_{\rm II}(p)$.  But
+his proof obtains the lower bound for $R_{\rm II}(p)$ by counting the
+auxiliary family $F$ of \cite[\S2, (7)]{Akaka}, with $F(p)\le R_{\rm
+II}(p)$: the parameters $y=pM$, $M=3abu$, $s=3a^2u$, $12abu-1\mid
+p+12a^2u$ with coprime $a<b$, recovered from a solution through
+$M=y/p$ and $s=(4M-1)x-pM$, so that $0<s/M=a/b<1$.  For a triple
+counted by $R(p)$ with $x=uBC$, the same decoder gives $s/M=(4BC-1)u-p=B$
+if $y=pBC$, and $s/M=u$ if $y=puC$, an integer in either case.  So the
+construction used in his proof is disjoint from the line $R$, and his
+lower bound for $F(p)$ (or for $f_{\rm II}$) gives none for $R(p)$.  The methods overlap substantially: both truncate to
 moduli below a small power of $X$, compute the variance over the unit
 group by decomposing into primitive characters (his (10), our
 Lemmas~\ref{lem:varid} and~\ref{lem:parseval}), and transfer to primes by
@@ -1872,11 +1881,11 @@ variance $V$ (the right side of Lemma~\ref{lem:varid} minus $M^2$,
 computed by a double sum over $\cT$ with the program
 \texttt{scripts/z53\_pz\_exactV\_trial.c} of the accompanying repository) is $V=2.0988$, $6.9439$, $10.887$
 for $Q=10^2,10^3,3\cdot10^3$, i.e.\ $V/\log^3Q\approx0.021$ in each case,
-while $M/\log^2Q\approx0.120$.  So the bound of
+while $M/\log^2Q\approx0.120$.
 These three values are consistent with $V$ being of order $\log^3Q$
-(the order of the bound of Proposition~\ref{prop:V}, whose constant is
-then about $70$ times too large); three samples do not establish the
-order.
+(the order of the bound of Proposition~\ref{prop:V}, whose
+upper-bound coefficient is about $70$ times the observed ratios);
+three samples do not establish the order.
 \end{itemize}
 
 \section{Concluding remarks}\label{sec:concl}
@@ -1911,7 +1920,7 @@ instance by removing the weights $\varphi(m)/m$, adding the other
 fibrations of $R$, or enlarging the truncation; the last would need
 control of pair correlations beyond the level $X^{1/2}$ used here.  For
 the full Type~II count, the almost-all bound $f_{\rm II}(p)\gg(\log
-p)^3$ (its true average order) is claimed by Akaka \cite{Akaka}; an
+p)^3$ (the order of its mean) is claimed by Akaka \cite{Akaka}; an
 independent check of that claim would be worthwhile.
 \end{enumerate}
 
