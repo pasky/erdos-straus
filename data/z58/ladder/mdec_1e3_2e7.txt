@@ -25,5 +25,5 @@ Z 8725201 comp
 Z 8813281 prime
 Z 12538801 comp
 Z 17401609 comp
-S 1000-20000000 primeM count=39391 zeros=9 max_mu=15599 at 19592329 frac>100=0.20375 frac>1e3=0.011906 frac>1e4=0.0001269 meanlogmu/loglogn=1.3564
-S 1000-20000000 compM count=102445 zeros=18 max_mu=62815 at 15577969 frac>100=0.23023 frac>1e3=0.015140 frac>1e4=0.0001952 meanlogmu/loglogn=1.3883
+S 1000-20000000 primeM count=39391 zeros=9 max_finite_mu=15599 at 19592329 tails(>1e2,>1e3,>1e4)=8035,478,14 frac>100=0.20398 frac>1e3=0.012135 frac>1e4=0.0003554 meanlogmu/loglogn(finite)=1.3564
+S 1000-20000000 compM count=102445 zeros=18 max_finite_mu=62815 at 15577969 tails(>1e2,>1e3,>1e4)=23604,1569,38 frac>100=0.23041 frac>1e3=0.015316 frac>1e4=0.0003709 meanlogmu/loglogn(finite)=1.3883

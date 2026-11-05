@@ -1,0 +1,7 @@
+pooled primes in M: 128491751 tail numerators [27024568, 1660737, 22757] fractions [0.21032142366866804, 0.012924853051461646, 0.0001771086456748496]
+log F(D) = -0.14152 (log D)^2 + 0.41786 log D + -0.48213
+x=1e+11  D*=3.989e+05  exponent log D*/log x = 0.5092
+x=1e+17  D*=1.429e+07  exponent log D*/log x = 0.4209
+x=1e+30  D*=4.706e+09  exponent log D*/log x = 0.3224
+full-model crossover D* = x^(1/(4 sqrt e)): log x = 317.39, log10 x = 137.84
+leading-order crossover (D* ~ exp(sqrt(log x / 0.1415))): log x = 307.3, log10 x = 133.5
