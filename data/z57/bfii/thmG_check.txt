@@ -1,0 +1,20 @@
+Exact genus weights versus (1-1/p)L(1,chi_u)B_u log(X/Y)/(4u).
+L: exact odd-character half-period formula; floating rounding only.
+p=1000033; f-window (50001, 900029]; Euler cutoff=900029
+  (a,c)=(1,1) u=1: L=0.5654773473 B=0.8563475114 exact=0.3513470127 main=0.3499132338 ratio=1.004098 nonzero=30675
+  (a,c)=(1,5) u=5: L=1.2166778364 B=1.0794022684 exact=0.1900059139 main=0.1897946799 ratio=1.001113 nonzero=11119
+  (a,c)=(3,5) u=15: L=1.5135916278 B=1.0287450778 exact=0.0741801832 main=0.0750102035 ratio=0.988935 nonzero=5160
+  pooled slices: exact=0.6155331098 main=0.6147181173 ratio=1.001326
+  |log(B_exact/B_truncated)| <= 2.22e-06; arrays < 200 MB, chunks=250000
+p=5212561; f-window (260628, 4691304]; Euler cutoff=4691304
+  (a,c)=(1,1) u=1: L=0.9411967075 B=0.9155646732 exact=0.6229036637 main=0.6226773333 ratio=1.000363 nonzero=204502
+  (a,c)=(1,5) u=5: L=1.3439772874 B=1.1258047160 exact=0.2183969306 main=0.2186646700 ratio=0.998776 nonzero=57422
+  (a,c)=(3,5) u=15: L=1.0431210734 B=0.9906175223 exact=0.0495676819 main=0.0497786479 ratio=0.995762 nonzero=20496
+  pooled slices: exact=0.8908682762 main=0.8911206512 ratio=0.999717
+  |log(B_exact/B_truncated)| <= 4.26e-07; arrays < 200 MB, chunks=250000
+p=8813281; f-window (440664, 7931952]; Euler cutoff=7931952
+  (a,c)=(1,1) u=1: L=0.8296542204 B=0.8983120962 exact=0.5383091527 main=0.5385400904 ratio=0.999571 nonzero=316894
+  (a,c)=(1,5) u=5: L=1.7377957646 B=1.1236044987 exact=0.2824562755 main=0.2821862602 ratio=1.000957 nonzero=111068
+  (a,c)=(3,5) u=15: L=0.7650564235 B=0.9661818460 exact=0.0352717732 main=0.0356085873 ratio=0.990541 nonzero=28480
+  pooled slices: exact=0.8560372015 main=0.8563349379 ratio=0.999652
+  |log(B_exact/B_truncated)| <= 2.52e-07; arrays < 200 MB, chunks=250000
