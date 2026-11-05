@@ -1,0 +1,3 @@
+[k=4] (1) local invariant formula: 82724 l-adic points tested, 0 mismatches
+[k=4] (2) n<=1500: squares with points: 0; product-formula/Jacobi failures: 0
+[k=4]     non-square n=1(4) with no positive point (non-BM failures): 13; first [57, 105, 177, 249, 345, 409, 465, 577, 777, 801, 969, 1345]
