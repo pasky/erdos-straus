@@ -3,12 +3,12 @@
 Status: wave z58, lane FFIELD (brief `z52bbriefs/z58_lanes.md` §FFIELD, rules `z52bbriefs/z53_depth.md` with z53 → z58).
 **Final (checkpoint 1 + §§3–7).** Internal; one hostile internal review applied (§7); cross-model review pending. **ES is OPEN; nothing here proves or disproves ES, (★) or (MS).**
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z58_ffield_*`,
-data `data/z58/ffield/` (≈ 3 MB).
+data `data/z58/ffield/` (≈ 5.4 MB).
 
 **Verdict: narrowed** (no FF tool tested here breaks B2; fixed-degree, large-q universal positivity is false by
 Cor 3.2), with the model a useful, T1-compatible laboratory (Assessment, §5). Main facts: Lemma 1.2 (T1), Prop 3.1 (residue-blind local densities, also over ℤ),
-Cor 3.2 (q-uniform proofs impossible), Prop 3.3 (avoiders below level n/2), Lemma 4.1 + Table 4.1 (q = 3: irreducible
-zeros only at degrees 6–12 among ≤ 18, all ≡ 1 mod T³ − T).
+Cor 3.2 (no fixed-degree large-q positivity; N₀(q) → ∞), Prop 3.3 (RH: avoiders of all witness moduli of degree ≲ log_q n), Lemma 4.1 + Table 4.1 (q = 3: irreducible
+zeros only at degrees 6–12 among even degrees ≤ 18, all ≡ 1 mod T³ − T).
 
 Prior work this lane builds on (`git grep` done; not redone): `EXSET_FUNCTION_FIELD.md` (z51, the U_q analogue: colour at
 ∞, T1, mass = shape count, word maps finite flat, Chebotarev large-q limit, **Thm 3.5/Cor 3.5′: at fixed n and large q a
