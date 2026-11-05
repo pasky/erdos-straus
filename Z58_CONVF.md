@@ -4,7 +4,7 @@ Status: NO PROOF (ES is open). This memo records (i) exact reformulations (PROVE
 must pass (PROVED), (iii) new certified sub-family data, (iv) the attack lines tried and the precise step where each dies.
 Scripts: `scripts/z58_convf_*`; data: `data/z58/convf/`.
 
-## §0 Mandatory falsifiers (stated at first commit; re-checked in §6)
+## §0 Mandatory falsifiers (stated at first commit; re-checked in §5)
 
 * **F1 (odd squares n = m²).** Every witness f = 4acd − 1 satisfies (n/f) = −1 (Lemma 1.3), so no argument that only
   uses n (mod f) can work; the step that uses non-squareness must be the one producing an f with (n/f) = −1.
@@ -38,7 +38,7 @@ one of them is non-empty.
 4abcd = b(f + 1) = cn + a + b. (E2)⇔(E3): f = 4acd − 1 ≡ −1 (mod 4ad) and conversely any f ≡ −1 (mod 4ad), f > 0, is
 4acd − 1 with c = (f+1)/(4ad) ≥ 1. Since 4acd ≡ 1 (mod f): multiplying cn + a by 4ad gives 4acd·n + 4a²d ≡ n + 4a²d, and
 multiplying n + 4a²d by c gives cn + a·(4acd) ≡ cn + a; as gcd(c, f) = gcd(4ad, f) = 1, f | cn + a ⇔ f | n + 4a²d.
-(E2)⇔(E4): similarly 4c²dn + 1 ≡ 4c²dn + (4acd)² ·… — directly: c·(4c²dn + 1)·? — use instead: with b = (cn+a)/f,
+(E2)⇔(E4): with b = (cn+a)/f,
 (4acd − 1)(4bcd − 1) = 16abc²d² − 4cd(a + b) + 1 = 4cd(4abcd − a − b) + 1 = 4c²dn + 1, so f | 4c²dn + 1; conversely if
 f ≡ −1 (mod 4cd) divides 4c²dn + 1, write f = 4acd − 1, g = (4c²dn+1)/f; then g ≡ −1 (mod 4cd) because fg ≡ 1 and f ≡ −1,
 so g = 4bcd − 1 and expanding gives 4abcd = a + b + nc. (E1)⇔(E5): from 4abcd = a + b + nc, c | a + b; put σ = (a+b)/c;
@@ -52,19 +52,22 @@ positive integers iff |t| < cσ and t ≡ cσ (2); σ ≡ 3 (4) is forced when n
  (d = 1) ⇔ ∃ a: n + 4a² has a divisor ≡ −1 (mod 4a) ⇔ ∃ σ ≡ 3 (4), c ≥ 1: c²σ² − σ − n is a perfect square.
  (c = d = 1) ⇔ 4n + 1 has a prime factor ≡ 3 (mod 4). (a = c = 1) ⇔ n + 1 has a prime factor ≡ 3 (4).
  (a = d = 1) ⇔ n + 4 has a prime factor ≡ 3 (4). (a = b) never occurs for n prime ≡ 1 (4).
-*Proof.* Specialise Lemma 1.1; for c = 1 use that 4ad − 1 | n + a ⇔ 4ad − 1 | n + 4a²d (as 4a²d ≡ a). For the last three:
-a number ≡ 1 (4) has a divisor ≡ 3 (4) iff it has a prime factor ≡ 3 (4). For a = b: 4a²cd = 2a + nc gives a | nc, and
-with a ≤ b the bound f ≤ g in (E4) forces 4a²d ≤ n + 2a/c, so a < n, hence (n prime) a | c; write c = ae: 4a²de = 2 + ne,
-so e | 2, e ∈ {1,2}: 4a²d = 2 + n or 2a²d = 1 + n, both impossible mod 4 for n ≡ 1 (4). ∎
+ Moreover every solution with a ≤ b has 4a²d ≤ n + 2a/c ≤ n + 2a.
+*Proof.* Specialise Lemma 1.1; for c = 1 use that 4ad − 1 | n + a ⇔ 4ad − 1 | n + 4a²d (as 4a²d ≡ a). For the three
+"prime factor" lines: a number ≡ 1 (4) has a divisor ≡ 3 (4) iff it has a prime factor ≡ 3 (4). Bound: a ≤ b gives
+f = 4acd − 1 ≤ g = 4bcd − 1, so f² ≤ fg = 4c²dn + 1, i.e. 16a²c²d² − 8acd ≤ 4c²dn, i.e. 4a²d ≤ n + 2a/c. For a = b:
+4a²cd = 2a + nc gives a | nc and (by the bound, with equality) 4a²d = n + 2a/c ≤ n + 2a, so a < n, hence (n prime,
+gcd(a,n) = 1) a | c; write c = ae: 4a²de = 2 + ne, so e | 2: e = 1 gives 4a²d = n + 2 ≡ 3 (4), e = 2 gives 4a²d = n + 1
+≡ 2 (4); both are impossible as the left side is ≡ 0 (4). ∎
 
-**Lemma 1.3 (Jacobi obstruction = falsifier F1).** If (a,d,f) ∈ (E3) and gcd(f, n) = 1 (automatic for n prime > f, and
-for f | n + 4a²d with gcd(n, 2ad) = 1 one has gcd(f,n) | 4a²d, so gcd(f,n) = 1 whenever gcd(n, ad) = 1), then the Jacobi
-symbol (n/f) = −1. Consequently R(m²) = 0 for every odd m, and any proof must contain a step that produces an f with
+**Lemma 1.3 (Jacobi obstruction = falsifier F1).** If (a,d,f) ∈ (E3) then the Jacobi symbol (n/f) = −1 (in particular
+gcd(n,f) = 1). Consequently R(m²) = 0 for every odd m, and any proof must contain a step that produces an f with
 (n/f) = −1, i.e. must use non-squareness of n.
-*Proof.* f ≡ −1 (mod 4ad) gives f ≡ 3 (4), so (−1/f) = −1. Write d = 2^e d' with d' odd. By Jacobi reciprocity, since
-f ≡ 3 (4): (d'/f)(f/d') = (−1)^{(d'−1)/2}; and f ≡ −1 (mod d') gives (f/d') = (−1/d') = (−1)^{(d'−1)/2}; so (d'/f) = 1.
-If e ≥ 1 then f ≡ −1 (mod 8), so (2/f) = 1. Hence (d/f) = 1, and n ≡ −4a²d (mod f) gives (n/f) = (−1/f)(d/f) = −1. For
-n = m² the symbol (m²/f) = 1 (gcd(m,f) = 1 as gcd(f,n) = 1), contradiction, so (E3) is empty. ∎
+*Proof.* f ≡ −1 (mod 4ad) gives f ≡ 3 (4), so (−1/f) = −1, and gcd(f, 2ad) = 1. Write d = 2^e d' with d' odd. By Jacobi
+reciprocity, since f ≡ 3 (4): (d'/f)(f/d') = (−1)^{(d'−1)/2}; and f ≡ −1 (mod d') gives (f/d') = (−1/d') = (−1)^{(d'−1)/2};
+so (d'/f) = 1. If e ≥ 1 then f ≡ −1 (mod 8), so (2/f) = 1. Hence (d/f) = 1; also (4a²/f) = 1 as gcd(2a, f) = 1. Now
+n ≡ −4a²d (mod f) gives (n/f) = (−1/f)(4a²/f)(d/f) = −1 (the Jacobi symbol depends only on n mod f). For n = m² one has
+(m²/f) ∈ {0, 1}, contradiction, so (E3) is empty. ∎
 
 **Lemma 1.4 (no finite covering).** For every finite set F of triples (a,c,d), there are infinitely many primes p ≡ 1 (24)
 for which no (a,c,d) ∈ F is a witness. Hence no Mordell-type argument (finitely many residue classes) can finish.
@@ -92,7 +95,7 @@ Lemma 1.3–1.4: no finite list of such conditions can be contradictory.
 ## §2 Certified data (scripts/z58_convf_sieve.c, z58_convf_wit.c; data/z58/convf/)
 
 Sieve of all (a,c,d,B) with n = B(4acd − 1) − 4a²d ≤ N, 4a²d ≤ N + 2a (this enumerates every solution with a ≤ b at least
-once, cf. Lemma 1.2's bound), tagging each n by the sub-lines hit. N = 10⁸ (23 s at 2·10⁷, ~3 min at 10⁸):
+once, by the bound in Lemma 1.2), tagging each n by the sub-lines hit. N = 10⁸ (23 s at 2·10⁷, ~3 min at 10⁸):
 
 | sub-line | prime zeros ≤ 10⁸ (p ≡ 1 mod 4, non-square) |
 |---|---|
