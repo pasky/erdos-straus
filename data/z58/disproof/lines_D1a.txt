@@ -1,0 +1,13 @@
+# data/z58/disproof/runA/D1a.txt: 1500 primes, mean R = 68.09
+u=  1: share of R in lines u and B=u: 0.0645 (cumulative 0.0645); P(N_u=0) = 0.467
+u=  2: share of R in lines u and B=u: 0.0770 (cumulative 0.1415); P(N_u=0) = 0.487
+u=  3: share of R in lines u and B=u: 0.0341 (cumulative 0.1756); P(N_u=0) = 0.533
+u=  4: share of R in lines u and B=u: 0.0341 (cumulative 0.2097); P(N_u=0) = 0.542
+u=  5: share of R in lines u and B=u: 0.0382 (cumulative 0.2479); P(N_u=0) = 0.490
+u=  6: share of R in lines u and B=u: 0.0326 (cumulative 0.2805); P(N_u=0) = 0.641
+u=  7: share of R in lines u and B=u: 0.0084 (cumulative 0.2889); P(N_u=0) = 0.787
+u=  8: share of R in lines u and B=u: 0.0175 (cumulative 0.3065); P(N_u=0) = 0.669
+u=  9: share of R in lines u and B=u: 0.0208 (cumulative 0.3273); P(N_u=0) = 0.628
+u= 10: share of R in lines u and B=u: 0.0076 (cumulative 0.3348); P(N_u=0) = 0.801
+u= 11: share of R in lines u and B=u: 0.0165 (cumulative 0.3513); P(N_u=0) = 0.611
+u= 12: share of R in lines u and B=u: 0.0091 (cumulative 0.3604); P(N_u=0) = 0.769

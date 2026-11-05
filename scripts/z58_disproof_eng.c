@@ -12,7 +12,7 @@
 // Env: K (default 16), EXACT=1 (always run the full enumeration: exact R, R8, R_G* for every prime).
 //   ap   A COUNT Q a z  : primes p >= A, p = a (mod Q) (p = 1 mod 4 required of a,Q), with (l/p) = +1 for every odd
 //                         prime l <= z, l not dividing Q (z = 0: no filter); first COUNT of them.
-//   nsq  A COUNT Q J z  : p = m^2 + Q*j, m >= sqrt(A) ascending, gcd(m,2Q)=1, 1 <= j <= J ("near-squares"), same filter.
+//   nsq  A COUNT Q J z  : p = m^2 + Q*j, m >= sqrt(A) ascending, gcd(m,2Q)=1, J0 < j <= J0 + J (env J0, default 0: "near-squares"), same filter.
 //   list               : primes read from stdin (one per line; primality re-checked).
 // Build: gcc -O2 -o /tmp/z58eng scripts/z58_disproof_eng.c -lm
 #include <stdio.h>
@@ -88,7 +88,8 @@ int main(int argc, char **argv) {
     ll A = atoll(argv[2]); long cnt = atol(argv[3]); ll Q = atoll(argv[4]); ll J = atoll(argv[5]); int z = atoi(argv[6]);
     ll m = (ll)sqrtl((long double)A); long got = 0;
     for (; got < cnt; m++) { ll g = m, h = 2 * Q; while (h) { ll t = g % h; g = h; h = t; } if (g != 1) continue;
-      for (ll j = 1; j <= J && got < cnt; j++) { ll p = m * m + Q * j; if ((p & 3) != 1) continue;
+      ll J0 = getenv("J0") ? atoll(getenv("J0")) : 0;
+      for (ll j = J0 + 1; j <= J0 + J && got < cnt; j++) { ll p = m * m + Q * j; if ((p & 3) != 1) continue;
         if (!filt(p, Q, z) || !isprime((ull)p)) continue; process(p); got++; } }
   } else if (!strcmp(argv[1], "list")) {
     ll p; while (scanf("%lld", &p) == 1) { if (!isprime((ull)p) || (p & 3) != 1) { fprintf(stderr, "skip %lld\n", p); continue; } process(p); }
