@@ -729,10 +729,14 @@ has passed all lines.
    that produce mixed or scaled solutions.)
    *(z59.)* Two opposite calibrations. Half-integral weight: T1 is *stronger* than "no genus term" — for ternary-theta
    proxies it kills every Shimura component on squarefree 𝒞₁ except the Gauss-exceptional ones (`Z59_WALDS.md` Thm W1,
-   §3 z59). Means: the leading class mean of R is Jacobi-blind (`Z59_MSPLUS.md` Thm 1), so a mean/density step never
-   supplies the non-square input; name where it comes from. In every coordinate system tried in z59 T1 reads "all odd
-   prime factors lie in the kernel of a quadratic character that is −1 at −1" (ker χ_{−T} on Tm² + 1, ker λ_ρ on
-   (m² + ρ)/4, (−k/d) = −1).
+   §3 z59). Means: the fixed-Q leading residue-class coefficient of R is Jacobi-blind (`Z59_MSPLUS.md` Thm 1;
+   R₈: same odd local factors, half the coefficient), so these leading means alone supply neither non-square
+   discrimination nor pointwise positivity (Assessment); square-sensitive main terms (M_BM, §2.2), other density inputs
+   or additional arithmetic steps are not excluded — name where the non-square input comes from. Kernel form of T1 in
+   z59 coordinates: for the U_II T-system, every odd prime factor of Tm² + 1 lies in ker χ_{−T} (χ_{−T}(−1) = −1); for the
+   ρ-system, with odd m, ρ ≡ 3 (4) and gcd(m, ρ) = 1, all prime factors of (m² + ρ)/4 lie in ker λ_ρ — non-coprime
+   squares are excluded instead by `Z59_CONVO.md` Lemma 2.1 (e.g. m = ρ = 11: (121 + 11)/4 = 33 has λ₁₁(11) = 0); for
+   (★), every admissible (d, k) has (−k/d) = −1 (`Z59_MSPF.md` Lemma 1.3).
 2. **It must fail for numerator 8 at 131 and 241** (i.e. it must not also prove 8/131, 8/241) (and 8/11, 8/17; numerator blindness (J)41, (J)86). If every step works
    for M/n with M ≡ 0 (4) uniformly and without a threshold, the argument proves false statements. Say where 4 enters
    (candidate: the χ-fibre S₄ of (J)32) or which threshold p₀(M) the argument needs.
@@ -766,10 +770,13 @@ has passed all lines.
    cutoff.
    *(z59.)* Line-level numerator-8 data (CERTIFIED): the U_II-line at numerator 8, U_II⁽⁸⁾ = (c = 1) ∪ (a = 1) of 8/n, has 819 odd
    non-square zeros ≤ 10⁸, 61 of them prime (last 3 869 153), the last composite 93 398 595 (`Z59_CONV2.md` §0). The
-   dead-moduli structure of R₈ is identical to that of R, with half the leading mean (`Z59_MSPLUS.md` Remark 2.3, PROVED),
-   so a means-based step cannot separate them. Full d-even Type II has witnesses (all with c ≥ 2) at the 12 screen R₈-zero
-   primes (`Z59_CONVO.md` §9). For 𝔐-primes ≤ 10⁷, C-even solutions are absent at 186 primes (last 9 965 881) and C-odd
-   at 118 (last 9 744 001), so neither parity alone suffices in that range (`Z59_MSPF.md` §4).
+   leading local mean of R₈ has the same odd local factors as R and exactly half the coefficient (`Z59_MSPLUS.md` Remark
+   2.3, PROVED), so a step using only these leading means cannot separate them. Full d-even Type II has witnesses (all
+   with c ≥ 2) at the 12 screen R₈-zero primes (`Z59_CONVO.md` §9). Among the 20 504 𝔐-primes ≤ 10⁷ with R > 0, C-even
+   witnesses are absent at 186 (last 9 965 881), C-odd at 118 (last 9 744 001) and prime-d witnesses at 136 (last
+   9 831 889); including the nine R-zeros: 195, 127, 145 (`Z59_MSPF.md` §4). So for a statement over p > P in 𝔐 this
+   census requires P ≥ 9 744 001 (C-odd), P ≥ 9 831 889 (prime d), and P ≥ 9 965 881 for C-even (strengthened above to
+   P₈ ≥ 23 296 553 281). None of these data refutes eventual positivity.
 3. **It must not be numerator-uniform in its laws** — no k-uniform transport, square law or recombination law (all refuted
    on k/n models, (J)86, (J)88).
 4. **It must break the tied modulus (B2, PARITY_AUDIT Remark 3.1).** Identify the modulus of the class condition. If it is
@@ -831,13 +838,15 @@ has passed all lines.
     *(z59; CERTIFIED unless marked.)*
     * (MS⁺) on 𝔐: no non-square zero in (17 401 609, 10¹²] (`Z59_MSPLUS.md` §6, one engine). Thresholds for
       primality-free variants (z58 LOGIC census, ≤ 10¹⁰): all prime factors > y with y = 7 (i.e. gcd(n, 105) = 1, all
-      classes) → 29 210 401; y ≥ 47 → 8 813 281; 11 ≤ y ≤ 43 → 17 401 609; 3 ≤ y < 7 → 7 479 950 569; no condition → 9 919 520 121 (3 | n).
+      classes) → 29 210 401; y = 47 → exact last zero 8 813 281 (19 zeros), and for every y ≥ 47 the cutoff 8 813 281 is
+      certified sufficient (the actual last zero may be smaller); 11 ≤ y ≤ 43 → 17 401 609; 3 ≤ y < 7 → 7 479 950 569; no condition → 9 919 520 121 (3 | n).
     * Of the 285 composites: 214 in the groups 3 | n, 15 | n, 21 | n, 105 | n; 51 in 5 | n, 7 | n, 35 | n; 20 coprime to 105
       (15 in 𝔐, all squarefree). The composite zeros sit predominantly where the dead-moduli factor is lowest (EVIDENCE
       reading); dead moduli explain a correlation, not every zero.
     * The U_II-line ((★) ∪ a = 1) fails at only **105 and 4545** among odd non-squares ≤ 10¹⁰ (`Z59_CONV2.md`). An argument
       that proves U_II, or a = 1 rescue, at composites must respect 105 (full Type II holds there); a full Type II argument
-      must respect 4545. A U_II-argument at primes must rescue the 14 (★)-zeros via a = 1 at T ≢ 0 (mod 4) (Prop 3.1).
+      must respect 4545. A U_II theorem whose asserted domain includes the fourteen (★)-zero primes must rescue them via a = 1
+      with 4 ∤ T (Prop 3.1); (MS-U), starting at 10¹⁷, need not include them.
     * 4545 also refutes "some prime factor escapes the quadratic kernel ⟹ solution" (`Z59_CONVO.md` §4).
     * Keep (★)- and 𝔊*-zeros apart: the 14 (★)-zero primes are among the 38 𝔊*-zeros; the other 24 have R > 0 (11 of
       the 20 in 𝔐). A 𝔊*-zero obstructs only the subfamily.
@@ -1323,11 +1332,14 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   * No natural-proofs barrier was established. An ineffective eventual Σ₂ theorem would not finish the (★) route
     (Assessment).
 * (z59) Single-eigensystem cusp/Waldspurger positivity for ternary-theta proxies on 𝔐, and termwise recipe lattices on the
-  square class → `Z59_WALDS.md` Thm W1, Lemma W0, §6.1 (PROVED in scope; §3 z59). Positivity of one line at p is
-  L(G_φ ⊗ χ_p, ½) ≠ 0, false at 13 explicit 𝒞₁-primes (six in 𝔐); eventual failure only CONJECTURE (residue-class
-  CKRS). Escapes (E-a)–(E-e) remain.
-* (z59) Local means / dead moduli as a proof device for (MS⁺) → `Z59_MSPLUS.md` Thm 1, Remark 2.3 (square-blind and
-  identical for R₈; Assessment that it is no route on its own). Unconditional closure-based reductions between (MS) and
+  square class → `Z59_WALDS.md` Thm W1, Lemma W0, §6.1 (PROVED in scope; §3 z59). For p ∈ 𝒞₁(2N), a non-zero
+  single-eigensystem restriction has g(p) ≠ 0 iff L(G_φ ⊗ χ_p, ½) ≠ 0 (under W1′'s anchor with non-zero restriction, or
+  (H2) with K_φ(g) ≠ 0); only for valid g does this force R(p) > 0. The "every p" version is false at 13 explicit
+  𝒞₁-primes (six in 𝔐) for the tested conductor-84 twist; eventual failure only CONJECTURE (rational G_φ, residue-class
+  CKRS refinement with a positive constant, not stated in CKRS). Escapes (E-a)–(E-e) remain.
+* (z59) Local means / dead moduli as a proof device for (MS⁺) → `Z59_MSPLUS.md` Thm 1, Remark 2.3 (the fixed-Q leading
+  coefficient is Jacobi-blind; R₈ has the same odd local factors and half the coefficient; Assessment that these leading
+  means alone are no route; square-sensitive main terms and other density inputs are not excluded). Unconditional closure-based reductions between (MS) and
   (MS⁺) (products, divisors, q²-scaling) fail (CERTIFIED examples); witness-shape-conditioned reductions are not excluded.
 * (z59) Inheritance / numerator ladder / ET dilation as a source of Type II solutions at primes → `Z59_CONV2.md` Prop 4.1
   (PROVED: no descent into a prime within equation-scaling transports). Non-monomial or adaptive maps are not excluded.
@@ -1335,7 +1347,9 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   4545 and at p = 8 803 369; CERTIFIED). Other bounded-order character arguments are not excluded.
 * (z59) Tryhard routes for pointwise (★) / Type II (least non-residue, near-squares, Pell / norm forms, Vieta, prime
   witnesses, Zagier-type involutions, fixed small C, short-interval divisor sums) → `Z59_MSPF.md` §3, `Z59_CONVO.md` §7
-  (Assessment: failed attempts, *not* barriers; each stops at "some n + k has a divisor ≡ −1 (mod 4k)").
+  (Assessment: failed attempts, *not* barriers). MSPF's (★) attempts stop at "some n + k has a divisor ≡ −1 (mod 4k)".
+  CONVO's full Type II attempts stop at the ratio criterion: for some j ≥ 0, (p + 3)/4 + j has positive divisors a, b with
+  ab dividing it and a + b ≡ 0 (mod 4j + 3). These are related tied-divisor problems, not the same positivity statement.
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
@@ -2236,19 +2250,27 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
       (a = 1); equivalently some Tn + 1 has a divisor ≡ −1 (mod L_T), L_T = T (4 | T), 4T (else). CERTIFIED to 10¹⁰; at primes
       López's Conjecture 1. (MS) ⟹ (MS-U) ⟹ (MS-II). *Why:* in the certified range the screens do not need the full Type II
       family beyond U_II (only at n = 105), so a fixed-p argument for **one line** T ↦ E(Tp + 1, L_T) suffices for (MS-II); the
-      a = 1 branch itself uses c ≥ 2. U_II asks for more than CONV-II; that it is harder to prove is not claimed. EVIDENCE: no
-      single class T mod 4 carries the rescue (mask table, ≤ 10⁷).
+      a = 1 branch itself uses c ≥ 2. U_II asks for more than CONV-II; that it is harder to prove is not claimed. EVIDENCE: in the
+      ≤ 10⁷ mask experiment all three non-zero T mod 4 classes are needed to recover the full-U_II zero set (T ≡ 0 is
+      redundant for a = 1 rescue by Prop 3.1); finite evidence, not an eventual necessity theorem.
     * **(MS⁺) and its primality-free variants** (`Z59_MSPLUS.md`; CONJECTURE). (MS⁺) is CERTIFIED to 10¹² (one engine).
       (MS⁺₁₀₅): all classes with gcd(n, 105) = 1, threshold 29 210 401; (R⁺_y), y ≥ 47: all prime factors > y, threshold
       8 813 281; both CERTIFIED to 10¹⁰. *Why:* clean screens, no Mordell input, negligible model tails (EVIDENCE, model
-      only). A proof of (MS) transfers to (R⁺_y) only if every use of primality follows from non-squareness plus the
-      fixed-y exclusion. Versions allowing 3 | n keep zeros past 10¹⁰ (9 with 105 | n in [10¹⁰, 10¹¹]).
+      only). Reusing an (MS) proof for fixed-y-rough non-squares requires every primality-dependent step to remain
+      valid, and initially gives only the Mordell domain and threshold 10¹⁷; the all-class (R⁺_y) also needs removal of
+      any Mordell-class dependence and coverage down to 8 813 281 (the census to 10¹⁰ does not cover a gap up to 10¹⁷); a
+      proof needing y(n) → ∞ is not a proof of (R⁺₄₇). Versions allowing 3 | n keep zeros past 10¹⁰ (9 with 105 | n in [10¹⁰, 10¹¹]).
     * **Zero-law questions** (`Z59_MSPLUS.md` §3; EVIDENCE): derive the true second-order class mean (the proposed one was
-      withdrawn); explain the ≈ 6× excess of 𝔐-prime zeros at 10⁶–10⁷ and the ≈ 1.4× under-prediction in later decades.
+      withdrawn); explain the ≈ 6× excess of 𝔐-prime zeros at 10⁶–10⁷ and the ≈ 1.4–1.5× under-prediction in later decades
+      (the ≈ 1.5× fit concerns only the four large training groups; OOS g21 ≈ 3×, held-out g7 ≈ 17× off).
     * **Half-integral-weight escapes** (`Z59_WALDS.md` §7): (E-a) levels with several Gauss-exceptional φ and a validity
-      identity not reducible to validity at large primes (none known); (E-b) coset thetas / theta series with
+      identity proved from independent arithmetic or structural input, rather than assumed from the desired eventual
+      positivity (none supplied; W5 is an equivalence, not an exclusion of independently proving an equivalent statement); (E-b) coset thetas / theta series with
       characteristics (Thm F, W0 unproved there); (E-c) mixed-ψ signed combinations; (E-d) higher half-integral weight;
-      (E-e) off-𝒞₁ classes, needing p-dependent levels with some ℓ ≥ n_p (B2 again).
+      (E-e) off-𝒞₁ classes remain open; for a strategy relying on termwise recipe lattices, a fixed finite level menu
+      misses primes ≡ 1 (mod 8∏ℓ), so reaching every hard prime by this mechanism needs growing/adaptive levels with some
+      odd level prime ℓ, (p/ℓ) = −1 (hence ℓ ≥ n_p; B2 again). Not a necessity theorem for arbitrary signed
+      multi-eigensystem proxies.
     * **ρ-residues** (`Z59_CONVO.md` §3–§4): control the residues mod ρ of the individual prime factors of (p + ρ)/4 beyond
       the quadratic colouring (ℓ/p). Witnessing ρ is ≤ 107 for p ≡ 1 (24) ≤ 10⁸ (CERTIFIED) but unbounded under Dickson.
 
