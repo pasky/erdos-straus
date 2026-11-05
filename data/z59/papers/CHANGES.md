@@ -48,3 +48,21 @@ extensions):
 * window, coverings ("only sterile points known are square points" concerns all seven ET families, not the MORDELL S2
   (★) menu), exponential-families (MORDELL C1 covers (★) polynomial certificates only), pointwise-obstruction (BM on
   the original ES surface), and typei-heegner (averaged bounds): no findings.
+
+## Fidelity review (deep subagent, read-only, over `2bfe4eb0..HEAD`) and fixes applied
+
+The reviewer found no problems in the automorphic-barrier BM edit. It re-derived (p/f) = 1 at p ∣ d, matched the
+variables to STRUCT2's 4abcd = a + b + pc, and confirmed the fibre obstruction. It also found no problems in the
+count-note, omega-note or vaughan-loglog edits; all `\cite{KRK}` resolve. Its findings, all applied:
+1. `es-threequarter-note`: "written without reference to theirs" still asserted that the two developments were
+   independent, which is undocumented. It now reads "shares this architecture but differs in its details".
+2. "obtained earlier" overstated what we know (the K-R-K analytic proof was not re-audited). Every file now says
+   "claimed earlier", following FRONTIER. The 3/4 note's introduction states the verified date ordering: the K-R-K PDF is
+   dated 29 July 2026, and the campaign repository's first commit is on 16 August 2026.
+3. `es-subexp-note`: after the insertion, "That note is internally proved" had an ambiguous antecedent. It now reads
+   "The companion note [TQ] is …".
+4. `espaper`: removed the remaining "record" wording for the 3/4 bound (§§ dormant-axis, statement map, labels paragraph,
+   PW comparison, §71 comparison). Added a K-R-K mention where 3/4 is attributed to the campaign.
+5. Added the K-R-K attribution to the remaining 3/4 mentions: `es-subexp-note` (two explanatory passages) and
+   `sieve-limits-note` (the prime-saving reproof remark, citing K-R-K Thm 1's prime statement).
+PDFs rebuilt (3 passes, no undefined refs/cites).
