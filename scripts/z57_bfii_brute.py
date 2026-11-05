@@ -53,5 +53,6 @@ for n in range(3,N+1,2):
         # also x with gcd(x,n)=1 automatically (x<n)
         if cnt!=prim[n]: bad+=1; print("MISMATCH ES",n,cnt,prim[n])
 print("checked odd n <=",N,"mismatches",bad)
+if bad: sys.exit(1)
 sq=[m*m for m in range(1,int(X**0.5)+1) if m%2==1]
 print("odd squares <= X with tot>0:", [s for s in sq if tot[s]>0][:20])

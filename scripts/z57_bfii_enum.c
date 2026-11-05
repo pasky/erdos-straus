@@ -1,10 +1,13 @@
 // z57 BFII: exhaustive Type II counts for all n <= X.
 // Type II N-points: (a,b,d,e) in N^4 with e | a+b and n = 4abd - e  (c = (a+b)/e).
 // Equivalent to 4abcd = a + b + nc (Elsholtz-Tao (2.15)).
-// Outputs per odd n (n <= X): tot = #(a,b,d,e) [ordered a,b], c1 = #with c=1 ((★) count R(n)),
-//   prim = #with gcd(a,b,c)=1 (= # Type II solutions (x,y,z) with y,z ordered, when gcd(abd,n)=1),
-//   ncl = number of distinct c values used, emin = least e used.
-// Usage: z57_bfii_enum X out.bin   (binary: for n=1..X odd: uint32 tot,c1,prim,ncl? -> we write text summary separately)
+// Usage: z57_bfii_enum X out.bin
+// Output (binary): int64 X, then five uint32 arrays, each indexed by n = 0..X (all n, even ones are simply 0):
+//   tot[n]  = #(a,b,d,e) [ordered (a,b)]                       = N_II(n)
+//   c1[n]   = # of those with c = 1                             = (★) count R(n)
+//   prim[n] = # of those with gcd(a,b,c) = 1                    (= f_II(n) for prime n)
+//   cmax[n] = largest c occurring (0 if none)
+//   emin[n] = least e occurring (0xffffffff if none)
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

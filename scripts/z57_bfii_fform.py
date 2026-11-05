@@ -30,7 +30,7 @@ def fcount(p):
     return t,t1
 def direct_ab(p):
     # #(a,b,d,e) with a<=b, e | a+b, 4abd - e = p ; and c=1 part
-    t=0;t1=0;a=1
+    t=0;t1=0;dg=0;a=1
     while 4*a*a-2*a<=p:
         b=a
         while 4*a*b-(a+b)<=p:
@@ -39,13 +39,19 @@ def direct_ab(p):
                 e=4*a*b*d-p
                 if 1<=e<=s and s%e==0:
                     t+=1
+                    if a==b: dg+=1
                     if e==s: t1+=1
                 d+=1
             b+=1
         a+=1
-    return t,t1
+    return t,t1,dg
 ps=[int(x) for x in sys.argv[2:]]
+bad=0
 for p in ps:
     t,t1=fcount(p)
-    u,u1=direct_ab(p)
-    print(p,"f-form(a<=b)",t,t1,"direct(a<=b)",u,u1,"enum(all ordered)",int(tot[p]),int(c1[p]),"OK" if (t,t1)==(u,u1) else "MISMATCH")
+    u,u1,dg=direct_ab(p)
+    ok=(t,t1)==(u,u1) and int(tot[p])==2*u-dg
+    print(p,"f-form(a<=b)",t,t1,"direct(a<=b)",u,u1,"diag",dg,"enum(all ordered)",int(tot[p]),int(c1[p]),
+          "(=2*direct-diag)" if int(tot[p])==2*u-dg else "", "OK" if ok else "MISMATCH")
+    if not ok: bad+=1
+if bad: sys.exit(1)

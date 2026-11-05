@@ -22,32 +22,35 @@ Scripts `scripts/z57_bfii_*`, data `data/z57/bfii/`.
   for every m (all four-parameter N-points, not only primitive ones); (ii) **witness barrier:** at a prime p ≡ 1 (4),
   min(4acd − 1, 4bcd − 1) ≥ n_p, the least quadratic non-residue mod p. So any argument that always produces a solution
   with witness modulus ≤ g(p) proves n_p ≤ g(p): g(p) = p^θ with θ < 1/(4√e) would beat Burgess, g(p) = (log p)^A
-  would prove an open (GRH-strength) least-non-residue bound, and g(p) = C log p is impossible for infinitely many p.
-* **Complete moduli (§3, PROVED + CERTIFIED).** −T_f is the full set of Jacobi-non-residue units mod f exactly for
-  f ∈ {3, 7, 15} among f < 4000 (CERTIFIED), and for only finitely many f in total (PROVED). Hence (PROVED, Mordell-type)
-  f_II(p) ≥ 1 whenever p is a non-residue mod 3, 5 or 7, with explicit solutions; for every other modulus the target set
-  misses non-residue classes, so no finite covering exists beyond p ≡ □ (mod 105).
+  would prove an open (GRH-strength) least-non-residue bound, and (by Graham–Ringrose, quoted from memory, with the
+  restriction to p ≡ 1 (4) not re-checked — Assessment) g(p) = C log p cannot work for infinitely many p.
+* **Complete moduli and finite coverings (§3, PROVED + CERTIFIED).** −T_f is the full set of Jacobi-non-residue units
+  mod f for f ∈ {3, 7, 15}, for no other f < 4000 (CERTIFIED), and for only finitely many f in total (PROVED; no global
+  cutoff computed). Hence (PROVED, Mordell-type) f_II(p) ≥ 1 whenever p is a non-residue mod 3, 5 or 7, with explicit
+  solutions. No finite set of witness moduli covers all primes (PROVED: p ≡ 1 mod 4·lcm(f_i) defeats every f_i).
 * **Computations (§4).** An exhaustive enumerator (validated against brute-force Erdős–Straus search and a second
-  independent count) gives N_II(n) for every odd n ≤ 10⁷: **N_II = 0 exactly at the 1580 odd squares and at n = 4545**;
-  every prime ≥ 3 has N_II ≥ 1 (CERTIFIED). The c ≥ 2 lines carry 86 % of all solutions at 10⁶–10⁷ and rescue every
-  (★)-zero (R(p) = 0 at 14 primes p ≡ 1 (4) ≤ 10⁷, where N_II ≥ 76). Mean N_II(p) ≈ 0.076·log³p; minimum ≈ 0.012·log³p
-  (EVIDENCE). A least-witness scan (CERTIFIED): every prime p ≡ 1 (4) below 10⁹ (25 423 491 primes) and in
+  independent count) gives N_II(n) for every odd 1 < n ≤ 10⁷: **N_II = 0 exactly at the 1580 odd squares 3², …, 3161²
+  and at n = 4545**; every prime 3 ≤ p ≤ 10⁷ has N_II ≥ 1 (CERTIFIED). The c ≥ 2 lines carry 86 % of all solutions at
+  10⁶–10⁷ and rescue every (★)-zero (R(p) = 0 at 14 primes p ≡ 1 (4) ≤ 10⁷, where N_II ∈ [14, 156]). Mean
+  N_II(p) ≈ 0.076·log³p; over p ≡ 1 (4) in [10⁶, 10⁷) min N_II/log³p ≈ 0.013 (min f_II/log³p ≈ 0.012) (EVIDENCE). A least-witness scan (CERTIFIED): every prime p ≡ 1 (4) below 10⁹ (25 423 491 primes) and in
   [10¹², 10¹² + 10⁸) has a witness f ≤ 3263; the largest least witness below 10⁹ is f = 3263 at p = 605 531 161.
 * **Theorem G (§5.3 + Appendix A, PROVED; effective, Burgess + Pólya–Vinogradov only): a log p larger main term.** The
   genus main term of the Type II sub-family with witness f < p (f-coordinates, §4.3) satisfies
   G(p) ≥ 10⁻¹⁰ (log p)³ for every large prime p ≡ 1 (4), already on the box p^{0.004} < a ≤ p^{0.006},
-  p^{0.080} < c ≤ p^{0.085}, p^{0.90} < f ≤ p^{0.99} — i.e. from the c-lines with c ≈ p^{0.08}; the c = 1 line has
-  genus mass ≍ log²p. Identity behind it: the genus weight of target a·c⁻¹ equals that of the c = 1 target ac, so the
+  p^{0.080} < c ≤ p^{0.085}, p^{0.90} < f ≤ p^{0.99} — i.e. from the c-lines with c ≈ p^{0.08}. (For comparison, the
+  c = 1 line's genus mass has mean ≍ log²p over p; no pointwise upper bound is proved here.) Identity behind it: the genus weight of target a·c⁻¹ equals that of the c = 1 target ac, so the
   Type II genus term is the τ(u)-weighted (★)-genus term in f-coordinates.
 * **What c buys (§5; PROVED + EVIDENCE + Assessment).** (a) Not a free variable at fixed p: every slice is a single
-  integer's divisor problem (Lemma 1.1(e)). (b) Larger target sets per modulus: the genus main term grows by a factor
-  log p (Theorem G; per dyadic witness block ≍ log f, EVIDENCE); in a fixed block the relative order-≥3 remainder is ≈ 1.8× smaller for full
-  Type II than for the c = 1 line (mean |A − G|/G = 0.20 vs 0.36 at p ≈ 10⁷), and the worst block ratio actual/genus is
-  0.30 (vs 0 for c = 1). (c) None of this is pointwise: the order-≥3 remainder equals −(genus term) at every square, for
-  every sub-family, and controlling it at one p needs character information of unbounded order at that p.
+  integer's divisor problem (Lemma 1.1(e)). (b) Larger target sets per modulus: a pointwise genus lower bound of order
+  log³p (Theorem G), against mean ≍ log²p for the c = 1 line; in a fixed witness block at p ≈ 10⁷ the observed relative
+  deviation actual vs genus is ≈ 1.8× smaller for full Type II than for the c = 1 line (mean abs(A − G)/G = 0.20 vs 0.36),
+  and the worst block ratio actual/genus is 0.30 (vs 0 for c = 1) (EVIDENCE). (c) The order-≥3 remainder is untouched:
+  it equals −(genus term) at every square, for every sub-family, and controlling it at one p needs character information
+  of unbounded order at that p. Theorem G is pointwise, but only for the genus part.
 * **Verdict:** target not reached; the pointwise remainder problem is unchanged in kind by c (it gains a log p in the
-  main term and a constant factor in relative fluctuation). New PROVED items: target-set form, QNR-witness lemma and
-  barrier, complete-moduli classification. **ES is OPEN.**
+  genus main term and, empirically, a constant factor in relative fluctuation). New PROVED items: target-set form,
+  QNR-witness lemma and barrier, complete moduli (finiteness; list below 4000 certified), no finite covering, Theorem G.
+  **ES is OPEN.**
 
 ## 1. Definitions and exact forms
 
@@ -91,7 +94,7 @@ direct (a ≤ b) counts at 10 values of n up to 10⁵: all agree) — `data/z57/
 the c = 1 targets are the τ(m_f) integers a | m_f, the full targets are the ≤ τ₃(m_f) fractions a/c. Example: f = 3
 (a = c = d = 1) solves every p ≡ 2 (mod 3) via (x, y, z) = ((p + 1)/3, p, p(p + 1)/3); here c = 1 already suffices
 (T_3 = {1}). The first difference is f = 7: c = 1 gives the targets {1, 2}, all c give {1, 2, 4} (complete, §3). In the
-data the least c = 1 witness exceeds 4·10⁵ for 18 primes < 10⁹, while the least Type II witness never exceeds 3263 (§4.2).
+data no c = 1 witness ≤ 4·10⁵ was found for 18 primes < 10⁹ (for the 14 of them below 10⁷ none exists: R(p) = 0), while the least Type II witness never exceeds 3263 (§4.2).
 
 ## 2. The QNR-witness lemma, T1, and the witness barrier
 
@@ -114,7 +117,7 @@ fail at n = m², i.e. must use some f with (p/f) = −1 — Proposition 2.2 says
 (a prime). Every solution has 4acd − 1 ≥ n_p and 4bcd − 1 ≥ n_p.
 *Proof.* (p/f) = −1 forces a prime ℓ | f with (p/ℓ) = −1; by reciprocity (ℓ/p) = (p/ℓ) = −1 (p ≡ 1 mod 4), so
 n_p ≤ ℓ ≤ f. ∎
-*Consequence (Assessment, rigorous as stated).* An argument that, for every large p, exhibits a solution with
+*Consequence (the implication is PROVED; the quoted bounds on n_p are literature, see the caveat).* An argument that, for every large p, exhibits a solution with
 4acd − 1 ≤ g(p) proves n_p ≤ g(p). The best unconditional bound is n_p ≪ p^{1/(4√e)+ε} (Burgess); n_p ≤ 2 log²p is
 known only under GRH (Ankeny/Bach); and n_p ≫ log p·log log log p for infinitely many p (Graham–Ringrose 1990;
 ≫ log p·log log p under GRH, Montgomery) — these two lower bounds are quoted from memory, and whether the exceptional
@@ -123,7 +126,7 @@ confined to f ≤ p^θ, θ < 1/(4√e) ≈ 0.152, would improve Burgess, and one
 GRH-strength least-non-residue bound unconditionally. (It does not constrain e or d: e = 3 works for half of all primes.) CERTIFIED check: in the scans of §4
 the least witness f is ≥ n_p for all 25 423 491 primes p ≡ 1 (4) below 10⁹ (0 violations).
 
-## 3. Complete moduli: what finite covering gives
+## 3. Complete moduli and finite coverings
 
 Call f ≡ 3 (mod 4) **complete** if −T_f = {u ∈ (ℤ/f)^× : (u/f) = −1}. Since f is not a square, (·/f) is a non-principal
 character mod f and the right side has φ(f)/2 elements.
@@ -142,11 +145,16 @@ character mod f and the right side has φ(f)/2 elements.
 solution. (p/15) = −1 with (p/3) = 1 means (p/5) = −1; conversely if (p/3) = (p/7) = 1 and (p/5) = 1 none of the three
 applies. ∎
 
-*Assessment.* This is the Type II part of Mordell's classical covering (the residual classes are p ≡ □ mod 105; the
-mod-8 condition never enters Type II since every witness f is odd). Part (b) is the precise reason no finite set of
-witness moduli can work: beyond {3, 7, 15}, each T_f covers a vanishing fraction of the classes that Proposition 2.2
-allows, so finite coverings leave positive-density sets of non-square classes; an infinite family of moduli is needed,
-and at that point the question is the distribution of the single residue sequence (p mod f)_f.
+*Remark.* This is the Type II part of Mordell's classical covering (the residual classes for these three moduli are
+p ≡ □ mod 105; the mod-8 condition never enters Type II since every witness f is odd). Other moduli do cover some of the
+residual primes (e.g. p = 4201 ≡ 1 mod 105 has the f = 11 witness (a, b, c, d) = (1, 382, 1, 3)), but never all of them:
+
+**Proposition 3.2 (no finite covering; PROVED).** For any finite set {f₁, …, f_r} of moduli f_i ≡ 3 (mod 4), there are
+infinitely many primes p ≡ 1 (mod 4) having no Type II solution whose witness 4acd − 1 lies in {f₁, …, f_r}.
+*Proof.* Take p ≡ 1 (mod 4·lcm(f_i)) (Dirichlet). Then p ≡ 1 (mod f_i), so (p/f_i) = (1/f_i) = 1, while every witness
+f of a solution has (p/f) = −1 (Proposition 2.2). ∎
+So an infinite family of witness moduli is needed for every p, and then the question is the distribution of the single
+residue sequence (p mod f)_f.
 
 ## 4. Computations
 
@@ -154,8 +162,9 @@ and at that point the question is the distribution of the single residue sequenc
 (precomputed divisor lists), recording for every n ≤ X = 10⁷: N_II(n), the c = 1 count R(n), the primitive count
 (= f_II(n) for primes), the largest c and the least e. Runtime 8 min. Results (`stats_1e7.txt`):
 * odd 1 < n ≤ 10⁷ with N_II(n) = 0: the 1580 odd squares 3², …, 3161² and **n = 4545 = 3²·5·101** (ES holds there through the factor 5);
-* every prime p ≤ 10⁷ has N_II(p) ≥ 1; minimum of f_II(p) over p ≡ 1 (4) is 2 (p = 5, 13);
-* R(p) = 0 for 14 primes p ≡ 1 (4) ≤ 10⁷ (last 8 813 281) and 10 primes p ≡ 3 (4); there N_II(p) ∈ [76, 184].
+* every odd prime p ≤ 10⁷ has N_II(p) ≥ 1; minimum of f_II(p) over p ≡ 1 (4) is 2 (p = 5, 13);
+* R(p) = 0 for 14 primes p ≡ 1 (4) ≤ 10⁷ (409, 577, 5569, 9601, …, last 8 813 281), where N_II(p) ∈ [14, 156], and for
+  10 primes p ≡ 3 (4) (3, 7, 31, …, 6 266 527), where N_II(p) ∈ [1, 184].
 
 | p ≡ 1 (4) in | #p | mean N_II/L³ | mean f_II/L³ | mean R/L² | min N_II/L³ | var/mean (N_II) | share of c ≥ 2 |
 |---|---|---|---|---|---|---|---|
@@ -179,22 +188,25 @@ Distribution of the least f below 10⁷: f = 3 for 50.0 %, ≤ 7 for 75.0 %, ≤
 
 **4.3 Dyadic witness profile (EVIDENCE).** `z57_bfii_profile.py` → `profile.txt`: for f ≤ 2¹⁷, actual counts per dyadic
 f-block vs the genus expectation G_f = (2^{ω(f)}/φ(f))·#{(a, c) : −p·c·a⁻¹ is a square unit mod f} and the naive
-Σ τ₃(m_f)/φ(f). The naive and genus block totals grow linearly in log f (≈ 0.9 per unit of log₂ f at these sizes), i.e.
-≍ log²F per dyadic block and ≍ log³p in total. The two hardest primes (2 031 121, 605 531 161) and the slowest prime of the
-10¹² window have *both* deficits: genus below naive at f ≤ 2¹² (they are residues mod many small primes), and actual
-counts at 25–45 % of genus at f ≤ 2¹⁴ (order-≥3 deficit). Random comparison primes track the genus term.
+Σ τ₃(m_f)/φ(f). The naive block totals rise from 5.1 (f ∈ [2⁹, 2¹⁰)) to 14.3 (f ∈ [2¹⁶, 2¹⁷)); the heuristic order is
+≍ (log F)² per dyadic block (the mean of τ₃(m) over m ≍ F is ≍ (log F)²), i.e. ≍ log³p in total; at these sizes the
+growth still looks roughly linear in log₂F because of lower-order terms. The two hardest primes (2 031 121,
+605 531 161) and the slowest prime of the 10¹² window (1 000 077 030 541) have *both* deficits: genus below naive at
+f ≤ 2¹² (they are residues mod many small primes), and cumulative actual/genus up to f < 2¹⁴ of 7/40.9 = 17 %,
+17/35.5 = 48 % and 17/38.7 = 44 % respectively (order-≥3 deficit). The three comparison primes track the genus term.
 
 **4.4 Does c average out the remainder? (EVIDENCE).** `z57_bfii_block.c`: for the 3087 primes p ≡ 1 (4) in
 [10⁷, 10⁷ + 10⁵) and the block f ∈ [2¹⁰, 2¹⁴), actual A vs genus G (`blockstats_1e7.txt`):
 
-| family | mean A | mean G | var(A − G)/mean G | mean |A − G|/G | 99 % |A − G|/G | min A/G | #A = 0 |
+| family | mean A | mean G | var(A − G)/mean G | mean abs(A − G)/G | 99th pct abs(A − G)/G | min A/G | #A = 0 |
 |---|---|---|---|---|---|---|---|
 | Type II (all c) | 31.5 | 31.5 | 2.02 | 0.20 | 0.66 | 0.30 | 0 |
 | c = 1 line | 6.96 | 6.95 | 1.45 | 0.36 | 1.25 | 0 | 9 |
 
-So the c-lines are positively correlated (overdispersion 2.0 vs 1.45: they share moduli f and their targets a/c share
-numerators), but the 4.5× larger mean still shrinks the relative remainder by ≈ 1.8×. The genus term is an unbiased
-predictor (mean ratio 1.002) in both.
+So in this sample the variance of A − G per unit of genus mass is larger for full Type II (2.02 vs 1.45; a plausible
+cause — not measured by an explicit covariance — is that the c-lines share the moduli f and the numerators a of their
+targets), but the 4.5× larger mean still makes the observed relative deviation ≈ 1.8× smaller. In both families the ratio
+of the sample means of A and G is 1.002.
 
 ## 5. The attack lines and where each stops
 
@@ -212,7 +224,8 @@ modulus class of a fixed integer. (In the language of the brief: c *is* attached
 (p ≡ −e (mod q) with p + e > 0 makes d = (p + e)/q a positive integer automatically; it is impossible when
 q > p + a + b and when gcd(e, q) > 1, matching χ(e) = 0). Compared with the c = 1 line (σ replaced by
 χ̄(a + b)), each modulus carries the multiplicatively smoothed weight σ_χ̄(a + b), whose size is τ(a + b) for χ trivial on
-the primes of a + b and typically ~τ(a + b)^{1/2}: this is the 1.8× relative gain of §4.4. Splitting real χ (genus
+the primes of a + b and heuristically ~τ(a + b)^{1/2} for random-looking χ — a plausible (unproved) mechanism for the
+smaller relative deviation observed in §4.4. Splitting real χ (genus
 part M_gen) from order ≥ 3 (X), Corollary 2.3 gives X(m²) = −M_gen(m²) for every sub-family (both are 0 there), and at
 p the factor χ(−p) is uncontrolled: bounding |X(p)| < M_gen(p) requires knowing p's residues mod 4ab up to characters
 of unbounded order, the same single-p problem as for (★) (`SINGLE_P_COUNT` §4). No averaging over c touches χ(−p).
@@ -223,7 +236,7 @@ f = 4acd − 1 < p, is
   u := ac,  χ_u(n) := (−pu/n) (Jacobi, n odd)
 (Hensel: square units mod odd f are the units that are residues mod every ℓ | f; (c·a⁻¹/ℓ) = (ac/ℓ)). It depends on
 (a, c) only through u = ac, so **G(p) := Σ_{4acd−1<p} γ(a, c, d) = Σ_{u, d} τ(u)·w(u, d)**, where Σ_{u,d} w(u, d) is the
-c = 1 ((★)) genus term in the same coordinates (PROVED, immediate). EVIDENCE (§4.3): G per dyadic f-block ≈ 0.9·log₂ f.
+c = 1 ((★)) genus term in the same coordinates (PROVED, immediate). EVIDENCE (§4.3): the block totals of G grow with log F as for the naive density.
 
 **Theorem G (PROVED; Appendix A).** For every sufficiently large prime p ≡ 1 (mod 4) (effective p₀, not computed),
 G(p) ≥ 10⁻¹⁰ (log p)³. The bound already holds for the sub-sum over odd squarefree coprime a, c with
@@ -270,14 +283,14 @@ range f ≥ p^{0.9}).
 ## 6. Bottom line
 
 * PROVED: the target-set form (Lemma 1.1(d)) and slice forms; Lemma 2.1, the QNR-witness Proposition 2.2 with T1
-  (Cor. 2.3) and the witness barrier (Cor. 2.4); the complete-modulus classification (Prop. 3.1); Theorem G (genus
-  main term of Type II ≥ 10⁻¹⁰ log³p, effective).
-* CERTIFIED: N_II(n) for all odd n ≤ 10⁷ (zeros exactly at odd squares and 4545); least witnesses for all p ≡ 1 (4)
-  below 10⁹ and in [10¹², 10¹² + 10⁸) (max 3263).
-* EVIDENCE: mean N_II ≈ 0.076 log³p, min ≈ 0.012 log³p; c ≥ 2 carries 86 % of solutions; relative block remainder 1.8×
-  smaller than for c = 1.
-* NOT PROVED: f_II(p) ≥ 1 for all large p. What the c-parameter gives is a log p in the main term and a constant
-  factor in relative fluctuation. It gives no variable independent of p, and every solution has to contain a quadratic
+  (Cor. 2.3) and the witness barrier (Cor. 2.4); complete moduli (Prop. 3.1: 3, 7, 15 complete, finitely many in total) and
+  no finite covering (Prop. 3.2); Theorem G (genus main term of Type II ≥ 10⁻¹⁰ log³p, effective); SB ⟹ f_II ≥ 1 (§5.5).
+* CERTIFIED: N_II(n) for all odd n ≤ 10⁷ (zeros exactly at the odd squares, incl. n = 1, and 4545); least witnesses for
+  all p ≡ 1 (4) below 10⁹ and in [10¹², 10¹² + 10⁸) (max 3263); no complete modulus 15 < f < 4000.
+* EVIDENCE: mean N_II ≈ 0.076 log³p, min N_II ≈ 0.013 log³p (f_II: 0.012) on [10⁶, 10⁷); c ≥ 2 carries 86 % of
+  solutions; observed relative block deviation from the genus term 1.8× smaller than for c = 1.
+* NOT PROVED: f_II(p) ≥ 1 for all large p. What the c-parameter gives is a log p in the (genus) main term and,
+  empirically, a constant factor in relative fluctuation. It gives no variable independent of p, and every solution has to contain a quadratic
   non-residue certificate f ≥ n_p (Cor. 2.4).
 
 ## 7. Reproduction
@@ -372,7 +385,7 @@ Here Σ_{j≥3, j odd}j⁻²=π²/8−1<1/4; finite product inequalities followe
 
 #### Lemma 2. A mixed hyperbola estimate
 
-Suppose F is primitive nonprincipal of conductor ≤4u, and G is a nonprincipal character whose primitive conductor is cube-free and ≤4up, with any removed primes dividing 2u. Put
+Suppose F is primitive nonprincipal of conductor ≤4u, and G is a nonprincipal character whose primitive conductor is cube-free and divides 4up, with any removed primes dividing 2u (so G has period dividing 4up). Put
 
  K_F := max(1, C₁√(4u)log(8u)),
  K_G := max(1, C₂τ(rad(2u))(4up)^{3/16+10⁻⁶}),
