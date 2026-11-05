@@ -7,9 +7,9 @@ Scripts `scripts/z58_tryf_*`, data `data/z58/tryf/`.
 p mod 840 ∈ 𝔐 = {1,121,169,289,361,529}] there is d ≡ 3 (mod 4), 3 ≤ d ≤ (4p+1)/3, such that
 r := (−p mod d) ∈ [1, d−1] divides (d+1)/4.
 
-**Status line (updated at every commit): NO PROOF. Main idea = character-layer reduction (§3): PROVED
-reduction of (★) to a "higher-character equidistribution" hypothesis HCE; HCE is unproved and of the same
-depth as (★). NOT a hot lead. Partial theorems: §1 (exact reformulations), §2 (quadratic layer is harmless,
+**Status line (updated at every commit): NO PROOF. Main idea = character-layer decomposition (§3): an exact
+identity splitting R̃(p) into reciprocity-flippable layers and an irreducible layer L_n; the hypothesis HCE under which
+(★) follows is a trivial reformulation of (★) with a quantitative margin, not a reduction to anything simpler. NOT a hot lead. Partial theorems: §1 (exact reformulations), §2 (quadratic layer is harmless,
 PROVED via Burgess).**
 
 ## §0 Mandatory falsifiers — behaviour of the main idea (stated at first commit; re-stated in §7)
@@ -18,7 +18,7 @@ Main idea (§3): write R(p) = #{d : hit} and expand, for each prime d ≡ 3 (4),
 [p mod d ∈ H_d], H_d := {−k mod d : k | (d+1)/4}, in Dirichlet characters mod d:
   [p mod d ∈ H_d] = (1/(d−1)) Σ_{χ mod d} χ(−p) · Ĥ_d(χ̄),   Ĥ_d(χ) := Σ_{k | (d+1)/4} χ(k).
 Layer 0 (χ principal) = τ((d+1)/4)/(d−1): summed over d gives the main term ≍ log²p.
-Layer 2 (χ quadratic): Ĥ_d(χ₂) = τ((d+1)/4) exactly (every k | (d+1)/4 is a QR mod d, Lemma 2.1), so the
+Layer 2 (χ quadratic): Ĥ_d(χ₂) = τ((d+1)/4) exactly (every k | (d+1)/4 is a QR mod d, Lemma 1.2), so the
 layer equals −τ((d+1)/4)(p/d)/(d−1) = −τ((d+1)/4)·(d/p)/(d−1) by reciprocity; summed over d it is a
 character sum modulo p, bounded by Burgess (§2). Layers of order > 2: cannot be flipped to modulus p; this is
 where the attack stops (hypothesis HCE, §3).
@@ -27,13 +27,13 @@ where the attack stops (hypothesis HCE, §3).
   to m, so Layer 2 equals −(Layer 0) term by term and the two cancel exactly (this is precisely the statement
   "H_d consists of non-residues"). For prime p the Burgess step needs χ_p = (·/p) to be a non-principal
   character — the identifiable step. Verdict: the idea FAILS at squares at Layer 2, as it must.
-* (F2) C even only: Lemma 2.1 and the Burgess step hold verbatim with k restricted to those with (d+1)/(4k)
-  even; the main term halves. So Layers 0+2 alone would "prove" R₈(p) ≥ 1 for large p, which is false at
-  12 primes in [10¹⁰, 1.1·10¹⁰]. Hence the higher layers are NOT negligible at p ≈ 10¹⁰ for the half
+* (F2) C even only: Lemma 1.2 and the Burgess step hold verbatim with k restricted to those with (d+1)/(4k)
+  even; the main term halves. So Layers 0+2 alone would "prove" R₈(p) ≥ 1 for large p, which fails for
+  12 primes in [10¹⁰, 1.1·10¹⁰] (screen data, not re-verified here). Hence the higher layers are NOT negligible at p ≈ 10¹⁰ for the half
   family; any proof must control them with an error term ≥ half the main term at that height. The idea
   survives F2 only in the weak sense that it proves nothing without HCE; it does not pass F2 as a proof.
 * (F3) 285 non-square composites n ≡ 1 (4) ≤ 8·10⁶: Layer 2 for composite non-square n uses the Jacobi
-  character (·/n) (non-principal, conductor = squarefree kernel of n), Burgess still applies; so Layers 0+2
+  character (·/n) (non-principal; its primitive part is (·/core(n)), core(n) = product of the primes with odd exponent in n), Burgess still applies; so Layers 0+2
   do not distinguish primes from non-square composites. The asymptotic reduction says nothing at n ≤ 8·10⁶.
   The hypothetical HCE would have to be false for these n (and is, since R(n) = 0 there); consistent, no
   information.
@@ -46,10 +46,11 @@ flippable" (Layer 2 and, for p ≡ 1 (24), the layers of order dividing 24 via c
 
 ## §1 Exact reformulations (PROVED, elementary)
 
-Throughout p is a prime ≡ 1 (mod 4), d ≡ 3 (mod 4), r_d := (−p mod d) ∈ [1, d−1] (d ∤ p since d ≢ p mod 4 and d < 3p), and
+Throughout p is a prime ≡ 1 (mod 4), d ≡ 3 (mod 4), r_d := (−p mod d) ∈ [1, d−1] (d ∤ p since d ≥ 3 and d ≠ p, as d ≡ 3, p ≡ 1 mod 4), and
 H_d := {−k mod d : k | (d+1)/4}. A **hit** at d means p mod d ∈ H_d, i.e. r_d | (d+1)/4. R(p) := #{d ≡ 3 (4), 3 ≤ d ≤ (4p+1)/3 : hit}.
 
-**Lemma 1.1.** The following are equivalent for a prime p ≡ 1 (4):
+**Lemma 1.1.** The following are equivalent for a prime p ≡ 1 (4) (the proof uses neither primality nor the residue
+class: it holds for every integer n ≥ 1 in place of p, with the convention that d | n is not a hit):
 (a) R(p) ≥ 1;  (b) ∃ u, B, C ≥ 1 with p = 4uBC − u − B;  (c) ∃ u ≥ 1 such that p + u has a divisor ≡ −1 (mod 4u);
 (d) ∃ C ≥ 1 such that 4Cp + 1 has a divisor ≡ −1 (mod 4C).
 Moreover the bound d ≤ (4p+1)/3 in (★) is automatic: every d ≡ 3 (4) with r_d | (d+1)/4 satisfies d ≤ (4p+1)/3.
@@ -81,13 +82,15 @@ Let X_p := (4p+1)/3 and, for X ≥ 3,
   S_p(X) := Σ_{d ≡ 3 (4), 3 ≤ d ≤ X} τ((d+1)/4) χ_p(d)/d = Σ_{4kC ≤ X+1} χ_p(4kC − 1)/(4kC − 1),
   Q_p(X) := Σ_{d ≡ 3 (4), 3 ≤ d ≤ X, χ_p(d) = −1} τ((d+1)/4)/d = (M(X) − S_p(X))/2.
 Interpretation: |H_d|/d = τ((d+1)/4)/d is the proportion of residues mod d that are hits; M is the "expected number of
-hits" for a random residue, and Q_p is the same after discarding the d excluded by Lemma 1.2. For n = m² one has
-S_n(X) = M(X) − O(Σ_{d: gcd(d,m)>1} τ/d) and Q_n is the tiny remainder (consistent with R(n) = 0).
+hits" for a random residue. Conditioning on the necessary quadratic information of Lemma 1.2 (only d with χ_p(d) = −1
+can hit, and for those the conditional proportion is 2|H_d|/d) gives the conditioned expectation 2Q_p = M − S_p; in §3
+this is exactly L₀ + L₂. For n = m² and d coprime to m the term (n/d) = +1 kills the conditioned expectation term by
+term (consistent with R(n) = 0); d with gcd(d, m) > 1 are excluded from hits by Lemma 1.2 anyway.
 
 **Theorem 2.1.** For every ε ∈ (0, 1/8) there is p₀(ε) such that for all primes p ≥ p₀ and all 3 ≤ X ≤ 2p:
   |S_p(X)| ≤ (1+4ε)²·(log p)²/64 + O_ε(log p).
-Consequently Q_p(X_p) ≥ (7/128 − ε)(log p)² for p ≥ p₁(ε); in particular the quadratic constraint of Lemma 1.2 removes
-at most a fraction 1/8 + o(1) of the "expected hits".
+Consequently Q_p(X_p) ≥ (7/128 − ε)(log p)² for p ≥ p₁(ε); i.e. the conditioned expectation M − S_p = 2Q_p is at least
+(7/8 − o(1))·M: the quadratic constraint of Lemma 1.2 removes at most a fraction 1/8 + o(1) of the expected hits.
 
 *Proof.* χ_p is a non-principal character modulo the prime p (p is not a square — this is the step that fails for F1).
 Burgess' bound: for every r ≥ 1, η > 0, uniformly in the integer N₀ and L ≥ 1,
@@ -98,25 +101,26 @@ Put K₀ := ⌈p^{1/4+ε}⌉ and split the pairs (k, C) with 4kC ≤ X+1 into fo
   = (1+4ε)²(log p)²/64 + O_ε(log p).
 (II) k ≤ K₀ < C: fix k. For a dyadic block C ∈ (T, 2T] ∩ (K₀, (X+1)/(4k)], T ≥ K₀, Abel summation with the monotone
 weight 1/(4kC−1) ≤ 1/(4kT) gives |Σ_{block} χ_p(4kC−1)/(4kC−1)| ≤ (2/(4kT))·sup_{T<t≤2T} |Σ_{T<C≤t} χ_p(4kC−1)|.
-As 4k < p, χ_p(4kC − 1) = χ_p(4k)·χ_p(C − a_k) with a_k ≡ (4k)^{-1} (mod p), so the inner sum is a character sum over
+As 4k ≤ 4K₀ < p, χ_p(4kC − 1) = χ_p(4k)·χ_p(C − a_k) with a_k ≡ (4k)^{-1} (mod p), so the inner sum is a character sum over
 an interval of length ≤ T and (B) gives ≤ C(r,η) T^{1−1/r} p^{(r+1)/(4r²)+η}. Summing over the dyadic T = 2^j K₀:
   |Σ_(II), fixed k| ≤ (C/k)·Σ_j (2^j K₀)^{−1/r} p^{(r+1)/(4r²)+η} ≪ (1/k)·p^{−(1/4+ε)/r + (r+1)/(4r²) + η} = (1/k)·p^{1/(4r²) − ε/r + η}.
   Choose r := ⌈1/ε⌉ + 1 (so 1/(4r²) < ε/(2r)) and η := ε/(4r); the exponent is ≤ −ε/(4r) =: −δ. Summing over k ≤ K₀:
   Σ_(II) ≪ p^{−δ} log p.
 (III) C ≤ K₀ < k: identical with the roles of k and C exchanged (χ_p(4kC−1) = χ_p(4C)χ_p(k − a_C)).
-(IV) k > K₀ and C > K₀: fix k and sum over C ∈ (K₀, (X+1)/(4k)] in dyadic blocks exactly as in (II) (Burgess' bound
+(IV) k > K₀ and C > K₀: fix k; here k ≤ (X+1)/(4K₀) < p (this is where X ≤ 2p is used), so p ∤ 4k and the
+factorisation of (II) is available; sum over C ∈ (K₀, (X+1)/(4k)] in dyadic blocks exactly as in (II) (Burgess' bound
 (B) is monotone in L, so a block truncated by the upper limit is bounded by the full dyadic block); the bound
 (1/k)p^{−δ} holds for each k, and summing over K₀ < k ≤ (X+1)/(4K₀) gives Σ_(IV) ≪ p^{−δ} log X ≪ p^{−δ} log p.
 Adding (I)–(IV) proves the bound on S_p(X).
-For the consequence: M(X_p) ≥ (1/4) Σ_{m ≤ (p+1)/3 − 1} τ(m)/m = (1/8)(log p)² − O(log p) (Σ_{m ≤ Y} τ(m)/m =
+For the consequence: M(X_p) ≥ (1/4) Σ_{m ≤ Y} τ(m)/m with Y = ⌊(X_p+1)/4⌋ ≥ (p−1)/3, so M(X_p) ≥ (1/8)(log p)² − O(log p) (Σ_{m ≤ Y} τ(m)/m =
 (1/2)log²Y + 2γ log Y + O(1)), hence Q_p(X_p) = (M − S_p)/2 ≥ ((1/8 − (1+4ε)²/64)/2)(log p)² − O_ε(log p)
 = ((7 − 8ε − 16ε²)/128)(log p)² − O_ε(log p). ∎
 
-*Remarks.* (i) The constant 1/64 is the untouched region k, C ≤ p^{1/4+ε}; with Burgess' range replaced by the
-GRH range (character sums over intervals of length (log p)^{2+ε}) it would become o(1). (ii) F2 check: restricted to
+*Remarks.* (i) The constant 1/64 is the untouched region k, C ≤ p^{1/4+ε}; under GRH (cancellation in character sums
+over intervals of length ≥ p^{ε'}) region (I) shrinks to k, C ≤ p^{ε'} and the constant becomes ε'²/4, arbitrarily small. (ii) F2 check: restricted to
 C even, M halves and the region-(I) bound halves; Q₈ ≥ (7/256−ε)log²p > 0 — no contradiction, because Q > 0 does not
-imply R ≥ 1 (§3). (iii) F3/F4: the statement is asymptotic (ineffective p₀ from Burgess' constants are effective, but
-the threshold is astronomically beyond 10¹⁰ for ε small); nothing is claimed about the 14 primes or the composites.
+imply R ≥ 1 (§3). (iii) F3/F4: the statement is asymptotic; p₀(ε) is effective in principle (Burgess' constants are) but
+astronomically beyond 10¹⁰; nothing is claimed about the 14 primes or the composites.
 
 ## §3 Character-layer decomposition; what is flippable and what is not
 
@@ -136,7 +140,9 @@ The real characters mod odd d are n ↦ (n/e) (restricted to gcd(n,d)=1) for squ
 (product of primes with odd exponent in d). For a real character (·/e) with d = e·i squarefree, (k/e)(k/i) = (k/d) = 1
 gives Ĥ_d((·/e)) = Σ_{k | (d+1)/4} (k/i) = τ_{(·/i)}((d+1)/4) ≥ 0, so
   L_r (squarefree d) = Σ_{ei = d, e,i > 1} (−1/e)·χ_p(e)·τ_{(·/i)}((d+1)/4)/d.
-Thus **every real layer is flippable**: it is a sum of χ_p(e) = (e/p) over e with non-negative arithmetic weights.
+Thus **every real layer is flippable**: it is a sum of the character (−1/e)χ_p(e) = (χ₋₄χ_p)(e) (a character mod 4p)
+over e with non-negative arithmetic weights. (The identity (k/e)(k/i) = (k/d) is Jacobi-multiplicative, so the formula
+holds for all d = ei with e squarefree, not only squarefree d.)
 Terms with small e are the classical local factors (e = 3, p ≡ 1 (3): (−p/3) = −1 and the e = 3 layer is
 −Σ_{3|d} τ_{(·/3)}((d+1)/4)/d ≈ −(2L(1,χ₋₃)/12)·log p·(1+o(1)) < 0 — this is the "Mordell penalty": for p ≡ 1 (3) only
 k ≡ 2 (3) can hit when 3 | d). Heuristically L_r ≈ Σ_e (−1/e)χ_p(e)·c·log(X_p/e)/e, i.e. of the order of
@@ -144,7 +150,8 @@ L(1, (−p/·))·log p = O(log p · log log p) under GRH, but only O(log² p) un
 not reachable by Burgess). I did not complete a rigorous bound for L_r (EVIDENCE only: §4 table).
 
 **The non-real layer L_n is where the attack stops.** For d prime the characters of order m | gcd(d−1, p−1) can be
-flipped by m-th power reciprocity in ℤ[ζ_m] (p ≡ 1 (24) allows m | 24, i.e. at most 24 characters per d out of d−1);
+flipped by m-th power reciprocity in ℤ[ζ_m]; for d ≡ 3 (4) prime and p ≡ 1 (24), gcd(d−1, 24) | 6, so at most the 6
+characters of order dividing 6 are flippable, out of d−1;
 all other characters have no reciprocity law and χ(−p) carries genuinely "mod d" information about p. The quantity
   Σ_{χ non-real mod d} χ(−p)Ĥ_d(χ̄) = φ(d)[hit at d] − Σ_{χ real} χ(−p)Ĥ_d(χ̄)
 is the hit indicator minus its real-character approximation; bounding it for a single p is equivalent to the problem.
@@ -158,26 +165,27 @@ Honest assessment: HCE is a restatement of the problem plus a quantitative margi
 and no known tool (Burgess, Kloosterman/Weil, spectral shifted-convolution bounds, Bombieri–Vinogradov) addresses it
 for a single p, because every reformulation (Lemma 1.1(c),(d)) asks about divisors of *specific* integers p + u (or
 4Cp+1) in residue classes whose modulus 4u is as large as the interval of u's considered. The one genuinely
-individual-p tool, exponential sums Σ_d e(hp/d) (van der Corput/exponent pairs, giving equidistribution of p mod d at
-resolution d/H for H ≤ p^{1/6} when d ≈ √p), resolves residues only up to scale p^{1/3}, far from the exact
-divisibility r_d | (d+1)/4 required. F2 is the quantitative reminder: HCE(δ) restricted to C even is false at p ≈ 10¹⁰.
+individual-p tool, exponential sums Σ_{d≈√p} e(hp/d) (a standard van der Corput second-derivative computation, not
+written out here, gives ≪ h^{1/2}p^{1/4}, i.e. equidistribution of p mod d at resolution d/H for H ≤ p^{1/6}), resolves
+residues only up to scale p^{1/3}, far from the exact divisibility r_d | (d+1)/4 required. F2 is the quantitative
+reminder: HCE(δ) restricted to C even fails for 12 primes near 10¹⁰ and for ≈ 10⁻³ of the Mordell primes in [10⁷, 10⁸].
 ## §4 Numerical evidence (data/z58/tryf/; all EVIDENCE/CERTIFIED-by-computation, not used in proofs)
 
 **4.1 Engine.** `scripts/z58_tryf_stats.c N` sieves all triples (u,B,C) with n = 4uBC − u − B ≤ N and, for n ≡ 1 (24),
 records R(n), R₈(n) (C even), minC, minUB := min over hits of min(u,B), Rpd := hits with d = 4uC−1 prime, min d.
 Run to N = 2·10⁸ (≈ 1 min): `data/z58/tryf/stats_2e8.txt` (Mordell-class primes and all R = 0 lines).
-Cross-check with the screens: the primes with R = 0 are exactly the 14 of `star_prime_zeros.txt` (all ≡ 1 mod 24),
+Cross-check with the screens: the primes with R = 0 are exactly the 14 of `star_prime_zeros.txt` (all ≡ 1 mod 24; 9 of them in 𝔐),
 none in [8 813 281, 2·10⁸]; non-square composites n ≡ 1 (24) with R(n) = 0: 84 up to 2·10⁸ (last: 162 267 625), the
 ones ≤ 8·10⁶ agree with `composite_zeros_le8e6.txt`.
 
 **4.2 Mordell-class primes by decade** (p ∈ [10^k, 10^{k+1}); decade 8 is [10⁸, 2·10⁸]):
 
-| k | #primes | R=0 | mean R | min R | R₈=0 | Rpd=0 | max minC | #minC>20 | max minUB | #minUB>100 |
+| k | #primes | R=0 | mean R | min R | R₈=0 | Rpd=0 | max minC | #minC>20 (R>0) | max minUB | #minUB>100 (R>0) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 3 | 27 | 2 | 6.96 | 0 | 7 | 5 | ∞ | 2 | ∞ | 2 |
-| 4 | 246 | 1 | 11.83 | 0 | 25 | 16 | ∞ | 4 | ∞ | 1 |
-| 5 | 2097 | 2 | 19.04 | 0 | 64 | 37 | ∞ | 33 | ∞ | 3 |
-| 6 | 18143 | 4 | 28.18 | 0 | 99 | 87 | ∞ | 127 | ∞ | 7 |
+| 3 | 27 | 2 | 6.96 | 0 | 7 | 5 | ∞ | 0 | ∞ | 0 |
+| 4 | 246 | 1 | 11.83 | 0 | 25 | 16 | ∞ | 3 | ∞ | 0 |
+| 5 | 2097 | 2 | 19.04 | 0 | 64 | 37 | ∞ | 31 | ∞ | 1 |
+| 6 | 18143 | 4 | 28.18 | 0 | 99 | 87 | ∞ | 123 | ∞ | 3 |
 | 7 | 158955 | 0 | 38.92 | 2 | 136 | 245 | 41027 | 658 | 469 | 4 |
 | 8 | 166140 | 0 | 44.90 | 4 | 35 | 123 | 324 | 511 | 156 | 2 |
 
@@ -192,10 +200,10 @@ Lemma 1.2 at every d ≤ X_p — no failure for any of the 23 primes below). Fil
 
 | p | R | R̃ | L₀ = M | L₂ = −S_p | L_r | L_n | Q_p |
 |---|---|---|---|---|---|---|---|
-| 409 | 0 | 0 | 4.76 | +0.64 | −0.07 | −5.32 | 2.70 |
+| 409 (∉𝔐) | 0 | 0 | 4.76 | +0.64 | −0.07 | −5.32 | 2.70 |
 | 5569 | 0 | 0 | 9.57 | −0.89 | −1.24 | −7.45 | 4.34 |
 | 102001 | 0 | 0 | 16.94 | −0.80 | −0.90 | −15.24 | 8.07 |
-| 1134241 | 0 | 0 | 24.64 | −0.86 | −0.66 | −23.12 | 11.89 |
+| 1134241 (∉𝔐) | 0 | 0 | 24.64 | −0.86 | −0.66 | −23.12 | 11.89 |
 | 8813281 | 0 | 0 | 32.34 | −1.64 | −2.09 | −28.61 | 15.35 |
 | 1021441 | 2 | 1.97 | 24.28 | −1.26 | −1.26 | −19.78 | 11.51 |
 | 1065409 | 10 | 9.01 | 24.42 | −1.40 | −2.23 | −11.78 | 11.51 |
@@ -208,10 +216,10 @@ Lemma 1.2 at every d ≤ X_p — no failure for any of the 23 primes below). Fil
 | 1000081 (∉𝔐) | 14 | 12.48 | 24.20 | −0.39 | −0.52 | −10.82 | 11.91 |
 
 Readings. (i) L₀ = M(X_p) ≈ (log p)²/8 as in §2. (ii) The flippable layers L₂, L_r are O(1) in this range — far
-below the Burgess worst case (log p)²/64 ≈ 3–4 of Theorem 2.1 — and L_r < 0 for all Mordell-class primes (local
-penalty from p being a QR mod 3, 7). (iii) L_n fluctuates on the scale of the main term itself (−28.6 … +25.2 at
-p ≈ 10⁷), so the event R(p) = 0 is "L_n ≈ −M": a ≈ 1.5σ deviation of the non-real layer. Any proof of (★) must show
-L_n > −M for every large p; nothing short of controlling the full non-real character spectrum of p modulo all
+below the Burgess worst case (log p)²/64 ≈ 3–4 of Theorem 2.1 — and L_r < 0 for every Mordell-class prime in the table (local
+penalty from p being a QR mod 3, 7). (iii) L_n (computed as R̃ − L₀ − L₂ − L_r, so the identity is not a check) fluctuates on the scale of the main
+term itself (−28.6 … +25.2 at p ≈ 10⁷); the event R(p) = 0 is "L_n = −(L₀+L₂+L_r)". Empirical spread: see 4.4. Any
+proof of (★) must show L_n > −(L₀+L₂+L_r) for every large p; nothing short of controlling the full non-real character spectrum of p modulo all
 d ≤ 4p/3 does that. This is the quantitative content of "HCE is the whole problem".
 ## §7 Falsifiers re-stated; verdict
 
@@ -220,16 +228,16 @@ What is PROVED here: Lemma 1.1 (equivalences, automatic bound), Lemma 1.2 (quadr
 What is CONDITIONAL: Theorem 3.2 ((★) for large p under HCE(δ)); HCE is a quantitative restatement of the problem.
 What is EVIDENCE: §4 (stats to 2·10⁸; layer tables for 23 primes). Nothing here proves (★) or ES for any new prime.
 
-* (F1) squares: Lemma 1.2 shows R(m²) = 0; in the layer decomposition L₂ = −L₀ + O(1) for n = m², so the
-  "quadratically filtered main term" Q_n vanishes. Theorem 2.1 uses that χ_p is non-principal — the identifiable
+* (F1) squares: Lemma 1.2 shows R(m²) = 0; for n = m² and d coprime to m the Jacobi-symbol layer cancels the principal layer exactly, so for d coprime to m the
+  conditioned expectation vanishes term by term. Theorem 2.1 uses that χ_p is non-principal — the identifiable
   primality/non-squareness step. ✓ (the argument fails at squares where it must).
 * (F2) C even: every proved statement (Lemmas 1.1–1.2, 3.1, Theorem 2.1) holds verbatim for the C-even half with M
   halved; so these statements cannot imply R₈(p) ≥ 1, and indeed they do not imply R ≥ 1 either — only Theorem 3.2
   does, under HCE, and HCE restricted to C even is false at p ≈ 10¹⁰ (12 primes), at ≈ 10⁻³ of Mordell primes in
   [10⁷, 10⁸] (§4.2). So the only route to (★) in this memo passes through an unproved hypothesis whose half-family
   analogue is false; the memo claims nothing for p > 10¹⁰. Not a hot lead.
-* (F3) 285 composites, (F4) 14 primes: the decomposition reproduces R = 0 exactly (L_n = −L₀ − L₂ − L_r, §4.3) and
-  explains it as a ≈ 1.5σ fluctuation of the non-real layer; the asymptotic statements have thresholds far above
+* (F3) 285 composites, (F4) 14 primes: in the decomposition R = 0 means L_n = −(L₀ + L₂ + L_r) (§4.3, a tautology,
+  not a check), i.e. a deviation of the non-real layer of about one empirical standard deviation (§4.4); the asymptotic statements have thresholds far above
   these n and p and are consistent.
 
 Verdict: NO PROOF; no hot lead. The contribution is a clean separation of (★) into a reciprocity-flippable part
