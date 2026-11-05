@@ -1,0 +1,10 @@
+record p=73 rho=7
+record p=1129 rho=11
+record p=1201 rho=23
+record p=21169 rho=31
+record p=67369 rho=35
+record p=87481 rho=63
+record p=1430641 rho=71
+record p=8803369 rho=107
+tot 719781 worst rho 107 at p=8803369
+rho<=2^2:430409 rho<=2^3:235146 rho<=2^4:42772 rho<=2^5:10859 rho<=2^6:585 rho<=2^7:10 

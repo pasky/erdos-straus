@@ -136,3 +136,47 @@ for the criterion, the escape lemma, is a congruence statement modulo ρ). The r
 the size/shape of the factorisations of (p+ρ)/4 for ρ ≤ R(p) — are statements about integers in the short interval
 [p/4, (p+R)/4], which for squares are rigidly constrained (norms from ℚ(√−ρ)) and for primes are constrained by
 nothing that is currently provable pointwise.
+
+## §6 Numerics (CERTIFIED = exhaustive exact-integer computation by the named script; EVIDENCE = trend)
+
+* Minimal working ρ over all primes p ≡ 1 (24), p ≤ 10⁸ (719 781 primes; `scripts/z59_convo_rho2.c` mode 0,
+  output `data/z59/convo/minrho_1e8.txt`): every p has a working ρ ≤ 107 (CERTIFIED for p ≤ 10⁸). Records:
+  73→7, 1129→11, 1201→23, 21169→31, 67369→35, 87481→63, 1430641→71, 8803369→107. Distribution: ρ ≤ 4 for
+  59.8%, ≤ 8 for 32.7%, ≤ 16 for 5.9%, ≤ 32 for 1.5%, ≤ 64: 585 primes, ≤ 128: 10 primes. (EVIDENCE: min ρ grows
+  very slowly, far below log²p; no pointwise bound is proved.)
+* Least non-residue route (`scripts/z59_convo_nr.c`, `data/z59/convo/nr_small.txt`, p ≤ 2·10⁵): when the least
+  prime non-residue q of p is 5 or 7 a solution with q | ab and ab ≤ 42 always exists (Mordell's classes); for
+  q = 11, 13, 17 the least ab with q | ab grows with p (max 49 170 at p = 186 841): consistent with Lemma 5.1 —
+  no bounded identity family attached to q ≥ 11.
+* d-even half (`scripts/z59_convo_rho2.c` mode 3 = all primes p ≡ 1 (4), ρ ≡ −p (8), N_ρ/2): primes ≤ 3·10⁶
+  with no d-even solution: 5 17 53 101 113 241 1061 1129 1249 2081 3169 3221 3361 5281 35569 (15 primes; the
+  p ≡ 1 (24) ones: 241 1129 1249 3169 3361 5281 35569). The brief quotes 22 d-even zeros ≤ 10⁹ with last 35 569;
+  my 15 up to 3·10⁶ share the last element; the count difference is presumably a different normalisation of
+  "d" in the brief's source (not investigated — I was told not to read the memos).
+* Falsifier primes (mode 2, full criterion): c = 1 zeros 409, 577, 5569, 9601, 23929, 83449, 102001, 329617,
+  712321, 1134241, 1724209, 1726201, 5212561, 8813281 have min ρ = 7, 3, 7, 19, 7, 11, 7, 3, 23, 3, 7, 23, 11, 3
+  (so solutions exist with ρ < a + b, i.e. c ≥ 2); a = 1 zeros 193, 2521, 66529 have min ρ = 7, 23, 31 (so the
+  witnesses have a, b ≥ 2: N_ρ has no divisor ≡ −1 (mod ρ) for any ρ, but has a ratio ≡ −1).
+
+## §7 Constructions tried for the pointwise statement (all fail; reasons recorded briefly)
+
+1. *Least non-residue identities* (fix q with (p/q) = −1, look for identity families with q | ab): by §6 not
+   bounded for q ≥ 11; by Lemma 5.1 no finite family can work. Dead.
+2. *Escape + group combinatorics in (ℤ/ρ)^** (§3–4): escape is free when (p/ρ) = −1, but hitting −1 needs
+   residues of individual prime factors; with N_ρ = (two primes) every ρ can fail (examples §4). Dead without
+   factorisation control of (p+ρ)/4.
+3. *Norm-form / Pell representations of p* (p = u² − 2v² has infinitely many representations): with d = 2,
+   a = v/2 one gets p + 4a²d = u², and the criterion becomes "u² has a divisor ≡ −p (mod 4v)". The cofactor
+   must be < u²/(4v − 1) ≈ v/2 while −p mod 4v = 4v − p > v/2 once v > p/3.5: only the finitely many
+   representations with v ≲ p work, so the infinite unit orbit gives nothing. Same for p = x² + ky² (finite).
+4. *Vieta jumping*: in the d = 1 slice (4bc − 1)ρ = 4b² + p is quadratic in b only, and the involution is
+   b ↦ cρ − b, i.e. a ↔ b. The equation is linear in each of a, b, c, d separately; no non-trivial involution,
+   no descent.
+5. *Highly composite N_ρ by position*: among N_ρ = M + j (consecutive integers) some j ≤ K has K | M + j, but
+   then ρ = 4j + 3 is as large as ~4K while divisors of K give ≤ 3^{ω(K)} ratios; for p ≡ 1 (mod 4K) this is
+   exactly Lemma 5.1. Dead.
+6. *Short-interval divisor sums*: Σ_{ρ ≤ R} W_ρ has main term from ψ₀ − λ (positive, Lemma 3.3(ii)), but the
+   non-quadratic characters in Identity 3.2 are a sum over ρ ≤ R of divisor sums of N_ρ twisted by characters
+   mod ρ; bounding it pointwise in p is a level-of-distribution statement for the single short interval
+   [p/4, (p+R)/4] — not available (and it must fail for p = m², where the same sum cancels the main term
+   exactly). Dead with present technology.
