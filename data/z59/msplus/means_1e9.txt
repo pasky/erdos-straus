@@ -1,0 +1,145 @@
+bin 24 n~1.33e+06 L=12.72
+   C M      cnt=      3807 obs=  21.812 model=  22.072 ratio= 0.988 S= 1.179 zeros=0
+   C g105   cnt=      1852 obs=  13.688 model=  13.141 ratio= 1.042 S= 0.573 zeros=4
+   C g15    cnt=     11109 obs=  16.499 model=  15.382 ratio= 1.073 S= 0.667 zeros=10
+   C g21    cnt=      7405 obs=  17.111 model=  16.546 ratio= 1.034 S= 0.710 zeros=8
+   C g3     cnt=     44436 obs=  20.614 model=  19.368 ratio= 1.064 S= 0.825 zeros=9
+   C g35    cnt=      3702 obs=  21.665 model=  19.833 ratio= 1.092 S= 0.819 zeros=1
+   C g5     cnt=     22218 obs=  25.654 model=  23.216 ratio= 1.105 S= 0.952 zeros=2
+   C g7     cnt=     14813 obs=  27.376 model=  24.962 ratio= 1.097 S= 1.014 zeros=0
+   C unit   cnt=     57507 obs=  32.715 model=  29.689 ratio= 1.102 S= 1.179 zeros=0
+   P M      cnt=      1672 obs=  23.159 model=  22.101 ratio= 1.048 S= 1.179 zeros=2
+   P unit   cnt=     25882 obs=  34.001 model=  29.697 ratio= 1.145 S= 1.179 zeros=1
+bin 25 n~2.37e+06 L=13.29
+   C M      cnt=      6853 obs=  24.128 model=  24.335 ratio= 0.991 S= 1.179 zeros=1
+   C g105   cnt=      3293 obs=  14.917 model=  14.263 ratio= 1.046 S= 0.573 zeros=4
+   C g15    cnt=     19758 obs=  17.841 model=  16.696 ratio= 1.069 S= 0.667 zeros=3
+   C g21    cnt=     13173 obs=  18.527 model=  17.955 ratio= 1.032 S= 0.710 zeros=8
+   C g3     cnt=     79035 obs=  22.321 model=  21.018 ratio= 1.062 S= 0.825 zeros=11
+   C g35    cnt=      6586 obs=  23.334 model=  21.484 ratio= 1.086 S= 0.819 zeros=1
+   C g5     cnt=     39518 obs=  27.664 model=  25.152 ratio= 1.100 S= 0.952 zeros=0
+   C g7     cnt=     26344 obs=  29.559 model=  27.035 ratio= 1.093 S= 1.014 zeros=0
+   C unit   cnt=    104191 obs=  35.263 model=  32.133 ratio= 1.097 S= 1.179 zeros=0
+   P M      cnt=      2934 obs=  25.240 model=  24.328 ratio= 1.037 S= 1.179 zeros=0
+   P unit   cnt=     44093 obs=  36.648 model=  32.130 ratio= 1.141 S= 1.179 zeros=0
+bin 26 n~4.22e+06 L=13.87
+   C M      cnt=     12446 obs=  26.403 model=  26.672 ratio= 0.990 S= 1.179 zeros=1
+   C g105   cnt=      5857 obs=  16.086 model=  15.433 ratio= 1.042 S= 0.573 zeros=6
+   C g15    cnt=     35142 obs=  19.251 model=  18.066 ratio= 1.066 S= 0.667 zeros=1
+   C g21    cnt=     23429 obs=  20.042 model=  19.422 ratio= 1.032 S= 0.710 zeros=1
+   C g3     cnt=    140568 obs=  24.087 model=  22.735 ratio= 1.059 S= 0.825 zeros=8
+   C g35    cnt=     11714 obs=  25.126 model=  23.205 ratio= 1.083 S= 0.819 zeros=0
+   C g5     cnt=     70285 obs=  29.755 model=  27.167 ratio= 1.095 S= 0.952 zeros=1
+   C g7     cnt=     46856 obs=  31.798 model=  29.191 ratio= 1.089 S= 1.014 zeros=2
+   C unit   cnt=    188223 obs=  37.896 model=  34.671 ratio= 1.093 S= 1.179 zeros=0
+   P M      cnt=      4997 obs=  27.817 model=  26.715 ratio= 1.041 S= 1.179 zeros=1
+   P unit   cnt=     75470 obs=  39.428 model=  34.669 ratio= 1.137 S= 1.179 zeros=0
+bin 27 n~7.5e+06 L=14.44
+   C M      cnt=     22542 obs=  28.785 model=  29.138 ratio= 0.988 S= 1.179 zeros=1
+   C g105   cnt=     10417 obs=  17.339 model=  16.650 ratio= 1.041 S= 0.573 zeros=2
+   C g15    cnt=     62500 obs=  20.709 model=  19.491 ratio= 1.062 S= 0.667 zeros=9
+   C g21    cnt=     41666 obs=  21.611 model=  20.947 ratio= 1.032 S= 0.710 zeros=3
+   C g3     cnt=    250000 obs=  25.930 model=  24.522 ratio= 1.057 S= 0.825 zeros=12
+   C g35    cnt=     20833 obs=  26.973 model=  24.994 ratio= 1.079 S= 0.819 zeros=1
+   C g5     cnt=    125000 obs=  31.932 model=  29.261 ratio= 1.091 S= 0.952 zeros=0
+   C g7     cnt=     83334 obs=  34.130 model=  31.432 ratio= 1.086 S= 1.014 zeros=1
+   C unit   cnt=    339502 obs=  40.636 model=  37.306 ratio= 1.089 S= 1.179 zeros=0
+   P M      cnt=      8540 obs=  30.377 model=  29.120 ratio= 1.043 S= 1.179 zeros=1
+   P unit   cnt=    129417 obs=  42.296 model=  37.306 ratio= 1.134 S= 1.179 zeros=0
+bin 28 n~1.33e+07 L=15.02
+   C M      cnt=     40626 obs=  31.374 model=  31.680 ratio= 0.990 S= 1.179 zeros=2
+   C g105   cnt=     18525 obs=  18.620 model=  17.914 ratio= 1.039 S= 0.573 zeros=1
+   C g15    cnt=    111153 obs=  22.225 model=  20.972 ratio= 1.060 S= 0.667 zeros=6
+   C g21    cnt=     74102 obs=  23.234 model=  22.532 ratio= 1.031 S= 0.710 zeros=8
+   C g3     cnt=    444610 obs=  27.839 model=  26.377 ratio= 1.055 S= 0.825 zeros=7
+   C g35    cnt=     37052 obs=  28.900 model=  26.850 ratio= 1.076 S= 0.819 zeros=1
+   C g5     cnt=    222304 obs=  34.179 model=  31.433 ratio= 1.087 S= 0.952 zeros=0
+   C g7     cnt=    148203 obs=  36.547 model=  33.758 ratio= 1.083 S= 1.014 zeros=1
+   C unit   cnt=    611794 obs=  43.485 model=  40.038 ratio= 1.086 S= 1.179 zeros=0
+   P M      cnt=     14723 obs=  32.881 model=  31.675 ratio= 1.038 S= 1.179 zeros=0
+   P unit   cnt=    222080 obs=  45.224 model=  40.044 ratio= 1.129 S= 1.179 zeros=0
+bin 29 n~2.37e+07 L=15.60
+   C M      cnt=     73132 obs=  33.971 model=  34.322 ratio= 0.990 S= 1.179 zeros=0
+   C g105   cnt=     32946 obs=  19.969 model=  19.227 ratio= 1.039 S= 0.573 zeros=2
+   C g15    cnt=    197674 obs=  23.794 model=  22.507 ratio= 1.057 S= 0.667 zeros=9
+   C g21    cnt=    131782 obs=  24.917 model=  24.175 ratio= 1.031 S= 0.710 zeros=4
+   C g3     cnt=    790696 obs=  29.816 model=  28.300 ratio= 1.054 S= 0.825 zeros=5
+   C g35    cnt=     65891 obs=  30.874 model=  28.774 ratio= 1.073 S= 0.819 zeros=2
+   C g5     cnt=    395348 obs=  36.514 model=  33.685 ratio= 1.084 S= 0.952 zeros=0
+   C g7     cnt=    263565 obs=  39.044 model=  36.167 ratio= 1.080 S= 1.014 zeros=0
+   C unit   cnt=   1101375 obs=  46.428 model=  42.871 ratio= 1.083 S= 1.179 zeros=1
+   P M      cnt=     25404 obs=  35.756 model=  34.323 ratio= 1.042 S= 1.179 zeros=0
+   P unit   cnt=    381478 obs=  48.263 model=  42.870 ratio= 1.126 S= 1.179 zeros=0
+bin 30 n~4.22e+07 L=16.17
+   C M      cnt=    131640 obs=  36.731 model=  37.067 ratio= 0.991 S= 1.179 zeros=0
+   C g105   cnt=     58589 obs=  21.352 model=  20.586 ratio= 1.037 S= 0.573 zeros=3
+   C g15    cnt=    351537 obs=  25.422 model=  24.098 ratio= 1.055 S= 0.667 zeros=10
+   C g21    cnt=    234358 obs=  26.662 model=  25.878 ratio= 1.030 S= 0.710 zeros=5
+   C g3     cnt=   1406149 obs=  31.863 model=  30.291 ratio= 1.052 S= 0.825 zeros=5
+   C g35    cnt=    117179 obs=  32.938 model=  30.767 ratio= 1.071 S= 0.819 zeros=0
+   C g5     cnt=    703075 obs=  38.921 model=  36.016 ratio= 1.081 S= 0.952 zeros=1
+   C g7     cnt=    468717 obs=  41.629 model=  38.660 ratio= 1.077 S= 1.014 zeros=1
+   C unit   cnt=   1980983 obs=  49.466 model=  45.799 ratio= 1.080 S= 1.179 zeros=0
+   P M      cnt=     43728 obs=  38.487 model=  37.054 ratio= 1.039 S= 1.179 zeros=0
+   P unit   cnt=    655947 obs=  51.416 model=  45.802 ratio= 1.123 S= 1.179 zeros=0
+bin 31 n~7.5e+07 L=16.75
+   C M      cnt=    236941 obs=  39.571 model=  39.903 ratio= 0.992 S= 1.179 zeros=0
+   C g105   cnt=    104192 obs=  22.779 model=  21.994 ratio= 1.036 S= 0.573 zeros=5
+   C g15    cnt=    625156 obs=  27.103 model=  25.744 ratio= 1.053 S= 0.667 zeros=6
+   C g21    cnt=    416771 obs=  28.466 model=  27.639 ratio= 1.030 S= 0.710 zeros=3
+   C g3     cnt=   2500620 obs=  33.977 model=  32.351 ratio= 1.050 S= 0.825 zeros=3
+   C g35    cnt=    208385 obs=  35.060 model=  32.827 ratio= 1.068 S= 0.819 zeros=1
+   C g5     cnt=   1250310 obs=  41.411 model=  38.426 ratio= 1.078 S= 0.952 zeros=1
+   C g7     cnt=    833540 obs=  44.297 model=  41.238 ratio= 1.074 S= 1.014 zeros=0
+   C unit   cnt=   3559337 obs=  52.607 model=  48.826 ratio= 1.077 S= 1.179 zeros=0
+   P M      cnt=     75100 obs=  41.426 model=  39.904 ratio= 1.038 S= 1.179 zeros=0
+   P unit   cnt=   1129864 obs=  54.652 model=  48.828 ratio= 1.119 S= 1.179 zeros=0
+bin 32 n~1.33e+08 L=17.32
+   C M      cnt=    425394 obs=  42.503 model=  42.841 ratio= 0.992 S= 1.179 zeros=0
+   C g105   cnt=    185289 obs=  24.265 model=  23.448 ratio= 1.035 S= 0.573 zeros=1
+   C g15    cnt=   1111732 obs=  28.840 model=  27.446 ratio= 1.051 S= 0.667 zeros=5
+   C g21    cnt=    741155 obs=  30.327 model=  29.459 ratio= 1.029 S= 0.710 zeros=4
+   C g3     cnt=   4446930 obs=  36.161 model=  34.480 ratio= 1.049 S= 0.825 zeros=5
+   C g35    cnt=    370577 obs=  37.248 model=  34.955 ratio= 1.066 S= 0.819 zeros=0
+   C g5     cnt=   2223465 obs=  43.980 model=  40.914 ratio= 1.075 S= 0.952 zeros=1
+   C g7     cnt=   1482310 obs=  47.051 model=  43.900 ratio= 1.072 S= 1.014 zeros=0
+   C unit   cnt=   6391684 obs=  55.839 model=  51.951 ratio= 1.075 S= 1.179 zeros=0
+   P M      cnt=    129756 obs=  44.503 model=  42.836 ratio= 1.039 S= 1.179 zeros=0
+   P unit   cnt=   1947026 obs=  58.008 model=  51.949 ratio= 1.117 S= 1.179 zeros=0
+bin 33 n~2.37e+08 L=17.90
+   C M      cnt=    763798 obs=  45.547 model=  45.875 ratio= 0.993 S= 1.179 zeros=0
+   C g105   cnt=    329503 obs=  25.794 model=  24.950 ratio= 1.034 S= 0.573 zeros=0
+   C g15    cnt=   1977013 obs=  30.632 model=  29.203 ratio= 1.049 S= 0.667 zeros=4
+   C g21    cnt=   1318009 obs=  32.248 model=  31.337 ratio= 1.029 S= 0.710 zeros=2
+   C g3     cnt=   7908053 obs=  38.413 model=  36.677 ratio= 1.047 S= 0.825 zeros=6
+   C g35    cnt=    659005 obs=  39.507 model=  37.151 ratio= 1.063 S= 0.819 zeros=0
+   C g5     cnt=   3954027 obs=  46.628 model=  43.482 ratio= 1.072 S= 0.952 zeros=1
+   C g7     cnt=   2636017 obs=  49.887 model=  46.645 ratio= 1.069 S= 1.014 zeros=2
+   C unit   cnt=  11468507 obs=  59.171 model=  55.173 ratio= 1.072 S= 1.179 zeros=0
+   P M      cnt=    223757 obs=  47.646 model=  45.873 ratio= 1.039 S= 1.179 zeros=0
+   P unit   cnt=   3360044 obs=  61.453 model=  55.174 ratio= 1.114 S= 1.179 zeros=0
+bin 34 n~4.22e+08 L=18.47
+   C M      cnt=   1370413 obs=  48.687 model=  49.006 ratio= 0.993 S= 1.179 zeros=0
+   C g105   cnt=    585956 obs=  27.370 model=  26.500 ratio= 1.033 S= 0.573 zeros=3
+   C g15    cnt=   3515739 obs=  32.480 model=  31.014 ratio= 1.047 S= 0.667 zeros=3
+   C g21    cnt=   2343825 obs=  34.229 model=  33.275 ratio= 1.029 S= 0.710 zeros=3
+   C g3     cnt=  14062955 obs=  40.734 model=  38.942 ratio= 1.046 S= 0.825 zeros=1
+   C g35    cnt=   1171913 obs=  41.834 model=  39.415 ratio= 1.061 S= 0.819 zeros=1
+   C g5     cnt=   7031477 obs=  49.355 model=  46.128 ratio= 1.070 S= 0.952 zeros=1
+   C g7     cnt=   4687652 obs=  52.808 model=  49.475 ratio= 1.067 S= 1.014 zeros=0
+   C unit   cnt=  20567971 obs=  62.602 model=  58.493 ratio= 1.070 S= 1.179 zeros=0
+   P M      cnt=    386183 obs=  50.889 model=  49.007 ratio= 1.038 S= 1.179 zeros=0
+   P unit   cnt=   5801340 obs=  65.002 model=  58.492 ratio= 1.111 S= 1.179 zeros=0
+bin 35 n~7.5e+08 L=19.05
+   C M      cnt=   2455910 obs=  51.928 model=  52.236 ratio= 0.994 S= 1.179 zeros=0
+   C g105   cnt=   1042007 obs=  28.992 model=  28.097 ratio= 1.032 S= 0.573 zeros=6
+   C g15    cnt=   6252040 obs=  34.383 model=  32.882 ratio= 1.046 S= 0.667 zeros=3
+   C g21    cnt=   4168027 obs=  36.267 model=  35.271 ratio= 1.028 S= 0.710 zeros=0
+   C g3     cnt=  25008164 obs=  43.122 model=  41.275 ratio= 1.045 S= 0.825 zeros=0
+   C g35    cnt=   2084013 obs=  44.229 model=  41.746 ratio= 1.059 S= 0.819 zeros=0
+   C g5     cnt=  12504082 obs=  52.160 model=  48.854 ratio= 1.068 S= 0.952 zeros=0
+   C g7     cnt=   8336054 obs=  55.813 model=  52.389 ratio= 1.065 S= 1.014 zeros=0
+   C unit   cnt=  36865536 obs=  66.127 model=  61.910 ratio= 1.068 S= 1.179 zeros=0
+   P M      cnt=    668417 obs=  54.235 model=  52.237 ratio= 1.038 S= 1.179 zeros=0
+   P unit   cnt=  10026464 obs=  68.658 model=  61.910 ratio= 1.109 S= 1.179 zeros=0
+bin 36 n~1.33e+09 L=19.62
