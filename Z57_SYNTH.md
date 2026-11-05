@@ -283,9 +283,9 @@ With m = 0.10 (the smallest observed M_gen/L², §2.3):
 
 *Falsifier for I.* The pincer is refuted by exhibiting one explicit-constant input with δ ≥ 0.1 that controls a
 polylog-main-term (★) sub-count at one p. The z53–z56 inputs listed above contain none (Assessment). A cheap partial
-test, the explicit constant of Theorem V's Burgess-only version, is not computed here. The scaling in E1–E3 makes its
-order of magnitude (≥ 10^{100}) robust to constants within a factor 10^{10}. That robustness is Assessment, not a
-theorem.
+test, the explicit constant of Theorem V's Burgess-only version, is not computed here. The scaling in E1–E3 puts it at
+≥ 10^{100} for every K ≥ 1, k ≥ 2 once δ ≤ 0.05 (each factor 10 in K adds 1/δ ≥ 20 to log₁₀ p₀). This is Assessment,
+not a theorem.
 
 ### 3.II Split-and-complement (killed, EVIDENCE)
 
