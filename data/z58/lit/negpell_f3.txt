@@ -1,0 +1,4 @@
+primes p≡1(4) <2e5 with negative Pell unsolvable: [] 0
+composite (★)-zeros ≤ 8e6: N=285  frac with prime factor ≡3(4) = 0.909  | among all-≡1(4): 26, negPell solvable 20 (0.769)
+composite (★)-zeros in [1e5, 8e6]: N=192  frac with prime factor ≡3(4) = 0.911  | among all-≡1(4): 17, negPell solvable 12 (0.706)
+control: random non-square composites ≡1(4) in [1e5, 8e6]: N=20000  frac with prime factor ≡3(4) = 0.773  | among all-≡1(4): 4541, negPell solvable 3039 (0.669)
