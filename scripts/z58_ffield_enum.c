@@ -126,6 +126,7 @@ int main(int argc, char **argv) {
     long long ntype[3] = {0, 0, 0};
     long double sum[4][3]; memset(sum, 0, sizeof sum);
     long long mod3irr[3] = {0, 0, 0}; // R_full mod 3 among irreducibles
+    static long long hist[2][256]; // histogram of R_full: [irr, comp]
     for (long long idx = 0; idx < N; idx++) {
         int T = ty[idx]; ntype[T]++;
         long long r[4];
@@ -134,6 +135,7 @@ int main(int argc, char **argv) {
         int anyz = 0;
         for (int fam = 0; fam < 4; fam++) { sum[fam][T] += r[fam]; if (r[fam] == 0) { zero[fam][T]++; anyz = 1; } }
         if (T == 0) mod3irr[r[0] % 3]++;
+        if (T != 2) hist[T][r[0] < 255 ? r[0] : 255]++;
         // record: every non-square zero of the full family, and irreducible zeros of the half-mass sub-lines
         int rec = (r[0] == 0) || (T == 0 && (r[2] == 0 || r[3] == 0));
         (void)anyz;
@@ -158,6 +160,11 @@ int main(int argc, char **argv) {
                     ntype[0] ? sum[fam][0] / ntype[0] : 0.0L, ntype[1] ? sum[fam][1] / ntype[1] : 0.0L,
                     ntype[2] ? sum[fam][2] / ntype[2] : 0.0L, (sum[fam][0] + sum[fam][1] + sum[fam][2]) / N);
         if (!modeU) fprintf(F, "  R_full mod 3 among irreducibles: %lld %lld %lld\n", mod3irr[0], mod3irr[1], mod3irr[2]);
+        for (int T = 0; T < 2; T++) {
+            fprintf(F, "  hist R_full %s (R:count, R<=40):", T ? "comp" : "irr");
+            for (int v = 0; v <= 40; v++) if (hist[T][v]) fprintf(F, " %d:%lld", v, hist[T][v]);
+            fprintf(F, "\n");
+        }
     }
     fclose(fs);
     return 0;

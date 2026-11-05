@@ -114,5 +114,73 @@ proportion). Reason: R_q(P) is the number of F_q-points in the fibre over the po
 map ⊔_σ A^n → A^n (a 0-dimensional fibre — Lang–Weil has nothing to act on); the boundary n-cycle of the monodromy is
 fixed-point-free on every non-trivial shape fibre and acts as an n-cycle on the roots of P.
 
-*To do (next):* q = 7, n = 10; q = 3, n = 18 (split run); §3 what F_q[T] tools give at fixed q; §4 where irreducibility
-enters (factor structure of the composite zeros; roughness control); F2 analysis; verdict.
+## 3. What the F_q[T] tools give
+
+### 3.1 Local densities are blind to residuosity; where primality enters the main term
+
+**Proposition 3.1 (PROVED, elementary).** Let ℓ be a monic prime of R, Q = |ℓ|, f₀ ∈ R/ℓ. Then
+#{(x, y, z) ∈ (R/ℓ)³ : xyz − y − z = f₀} = Q² + 1 if f₀ ≠ 0, and Q² − Q + 1 if f₀ = 0.
+The same holds over ℤ for 4xyz − y − z ≡ n (mod ℓ), ℓ odd prime (substitute x ↦ 4x).
+*Proof.* For a pair (x, y) with xy ≠ 1 there is exactly one z. Pairs with xy = 1 (Q − 1 of them) need f₀ + y = 0;
+if f₀ ≠ 0 exactly one such pair (y = −f₀, x = −1/f₀) and then every z works (Q solutions); if f₀ = 0, none
+(y ≠ 0). Total Q² − (Q − 1) + Q resp. Q² − (Q − 1). ∎ (Checked numerically for Q ≤ 11.)
+
+*Consequences.* (a) The local word density at a prime ℓ ∤ f is (1 + Q⁻²) **whatever f is mod ℓ** — in particular
+the same for quadratic residues and non-residues. So no product of local densities at finite places can separate
+irreducibles from rough squares; T1 is invisible place by place and lives only in the reciprocity coupling with ∞
+(Lemma 1.2(ii)). This is the F_q[T] face of the closed "low-conductor universality" item (FRONTIER §6).
+(b) At ℓ | f the density drops to 1 − Q⁻¹ + Q⁻² (and no witness d is divisible by ℓ: ℓ | d, d | f + r would
+give ℓ | r | d + 1). That is where primality enters the *main term*: an irreducible P has no small prime factor.
+Heuristically E[R_q | P irreducible]/E[R_q] → ∏_ℓ (1 + |ℓ|⁻²) = ζ_A(2)/ζ_A(4) = (1 − q⁻³)/(1 − q⁻¹)
+= 1.444, 1.163, 1.099 for q = 3, 7, 11 (EVIDENCE: observed 1.487 at (3, 16), drifting down roughly like 1.444 +
+0.7/n; 1.171 at (7, 8); 1.101 at (11, 6)). (c) It is also where the composite zeros come from (§4.2).
+
+### 3.2 Large q: Chebotarev sees irreducibility, and it is not enough
+
+(Answer to brief (c).) For fixed P the solution set is 0-dimensional: R_q(P) = #X_P(F_q), where
+X_P = ⊔_σ φ_σ⁻¹(P) is the fibre over the F_q-point P of the finite flat, generically étale word map
+⊔_{σ = (s,a,b), s odd} A^n → A^n of degree Σ_σ n!/(s!a!b!) (z51 Lemma 3.2). There is no positive-dimensional
+variety for Lang–Weil to act on; X_P has an F_q-point iff Frob_P has a fixed point on some shape fibre. Irreducibility
+of P is *not* a geometric property (P splits over F̄_q); it enters only as the cycle type (n-cycle) of Frob_P on the
+roots, i.e. through Chebotarev in the joint cover (word fibres × roots). z51 Cor 3.5′ exhibits an element of the joint
+geometric monodromy group that is an n-cycle on the roots and fixed-point-free on every non-trivial shape fibre;
+hence (§2.3) a positive proportion of irreducible P of each even degree n fail for q ≥ q₀(n).
+
+**Corollary 3.2 (PROVED rel. Chebotarev as in z51 Thm 3.3).** For no N₀ does MS_q(N₀) hold for all q ≡ 3 (mod 4):
+the threshold of any true MS_q statement must satisfy N₀(q) → ∞. In particular any F_q[T] argument whose estimates
+improve with q at fixed degree (Lang–Weil, Deligne, large-q Chebotarev, Sawin–Shusterman-type k < √q/(pe) ranges)
+cannot prove MS_q by itself. Empirically (CERTIFIED): last irreducible zero degree ≥ 12 at q = 3 (none at 14, 16),
+zeros at n = 8 for q = 7 (707), at n = 6 for q = 11 (3 674).
+
+*Remark (lc-free variants fail F3).* If the shift's leading coefficient is free, or only required to be a square
+(the colour is then unchanged, since χ(lc) = 1), z51 Prop 1.7(ii)'s single Weil sum over the q unit shifts proves a
+witness for **every** non-square f once q > (n + 1)². Such a mechanism sees only geometric data (“w² = −f is
+irreducible”) and would, in the monic model, prove positivity at the composite zeros of Table 2.1: it fails F3 there,
+and it has no ℤ analogue (positivity leaves the single unit 1).
+
+### 3.3 Fixed q: RH gives the level, not the event
+
+**Proposition 3.3 (avoiders below level n/2; PROVED relative to the Riemann hypothesis for Dirichlet L-functions of
+F_q[T], Weil; e.g. Rosen, *Number Theory in Function Fields*, Thm 4.8).** Let M be monic with deg M ≤ (1/2 − δ)n, ω(M)
+its number of distinct prime factors. For n ≥ n₀(q, δ) the number of irreducible P of degree n with no (★)_q witness
+d dividing M is ≥ q^n/(2n·2^{ω(M)}). With M = M_m := lcm of all monic polynomials of degree ≤ m this holds whenever
+deg M_m ≤ (1/2 − δ)n, i.e. for m up to ≈ log_q n: **no menu of witnesses of degree ≤ m ≈ log_q n covers all large P**.
+*Proof.* If P ≡ g² (mod M) with gcd(g, M) = 1, then for every d | M a witness would give −r ≡ g² (mod d), contradicting
+Lemma 1.2(ii). The unit squares mod M form a subgroup of index 2^{ω(M)} (q odd: (R/ℓ^e)* is cyclic of order Q − 1
+times a p-group). Dirichlet with RH: #{P irreducible, deg n, P ≡ a (M)} = q^n/(nΦ(M)) + O(deg M·q^{n/2}/n) for each unit a.
+Summing over the Φ(M)/2^{ω(M)} square classes, the error is O(deg M·q^{n/2}Φ(M)/(n2^{ω})) and Φ(M) ≤ q^{deg M} ≤
+q^{(1/2−δ)n}, so the main term wins for large n. ∎
+This is the F_q[T] version of SYNTH Prop A.3 (B1), with the RH-explicit range. It is also sharp in spirit: by RH every
+non-square P has a non-residue prime of degree ≤ 2 log_q n + O(1) (z51 §5.1), so the colour data are exhausted at
+logarithmic degree, while witnesses for the hardest P must be found among moduli whose joint lcm exceeds the
+equidistribution level. A sieve on residue classes of P saves at most a power of n (dimension κ: Mertens product), while
+#irreducibles is q^n/n: the gap is exponential, exactly the integer B2/B6 situation (z51 §4.2–4.3 for U_q).
+
+### 3.4 A structure ℤ lacks: composition
+
+**Lemma 3.4 (PROVED).** If φ is monic of odd degree k and (t, u, v) is a (★)_q word of f, then (t∘φ, u∘φ, v∘φ) is
+a (★)_q word of f∘φ (degrees multiply by k, so deg t∘φ stays odd; monic is preserved), and distinct words give
+distinct words. Hence R_q(f∘φ) ≥ R_q(f); a zero of R_q of the form f∘φ (deg φ odd) forces f to be a zero.
+Only decomposable P (a q^{O(n/k + k)}-sparse set) are reached; no integer analogue. Not pursued.
+
+*To do (next):* q = 7, n = 10; q = 3, n = 18; §4 targeted hard classes and composite-zero structure; F2; verdict.
