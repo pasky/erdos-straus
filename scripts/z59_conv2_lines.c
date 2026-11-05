@@ -20,14 +20,14 @@
 #include <string.h>
 #include <math.h>
 typedef unsigned long long u64;
-static long K; static int LINES;
+static long K; static int LINES; static int A1CMASK=15; // env Z59_A1CMASK: allowed c mod 4 classes (bit c%4) for the a=1 line
 static uint8_t **bm;
 static long inv(long c,long f){ long t=0,nt=1,r=f,nr=c%f; while(nr){long q=r/nr,tmp=t-q*nt;t=nt;nt=tmp;tmp=r-q*nr;r=nr;nr=tmp;} if(r!=1) return -1; if(t<0)t+=f; return t;}
 static int issq(u64 n){u64 r=(u64)sqrtl((long double)n); while(r*r>n)r--; while((r+1)*(r+1)<=n)r++; return r*r==n;}
 static int online(u64 a,u64 b,u64 c,u64 d){
   if(LINES&8) return 1;
   if((LINES&1)&&c==1) return 1;
-  if((LINES&2)&&(a==1||b==1)) return 1;
+  if((LINES&2)&&(a==1||b==1)&&((A1CMASK>>(c%4))&1)) return 1;
   if((LINES&4)&&d==1) return 1;
   return 0;}
 static int exact(u64 n,u64*oa,u64*ob,u64*oc,u64*od){
@@ -39,13 +39,13 @@ static int exact(u64 n,u64*oa,u64*ob,u64*oc,u64*od){
 int main(int argc,char**argv){
   if(argc<6){fprintf(stderr,"usage: lines K LINES lo hi FMAX [primes_only] [mod4]\n");return 1;}
   K=atol(argv[1]); LINES=atoi(argv[2]); u64 lo=strtoull(argv[3],0,10),hi=strtoull(argv[4],0,10); long FMAX=atol(argv[5]);
-  int primes_only=argc>6?atoi(argv[6]):0; int m4=argc>7?atoi(argv[7]):0;
+  int primes_only=argc>6?atoi(argv[6]):0; if(getenv("Z59_A1CMASK")) A1CMASK=atoi(getenv("Z59_A1CMASK")); int m4=argc>7?atoi(argv[7]):0;
   if(K<4||K%4||LINES<1||LINES>15||FMAX<K-1||hi<=lo){fprintf(stderr,"bad args\n");return 1;}
   bm=calloc(FMAX+1,sizeof(uint8_t*)); if(!bm) return 2;
   for(long f=K-1;f<=FMAX;f+=K){ long m=(f+1)/K; bm[f]=calloc(f/8+1,1); if(!bm[f]) return 2;
     for(long c=1;c<=m;c++){ if(m%c) continue; long ci=inv(c,f); if(ci<0) continue; long mc=m/c;
       for(long a=1;a<=mc;a++){ if(mc%a) continue; long d=mc/a;
-        int ok=(LINES&8)||((LINES&1)&&c==1)||((LINES&2)&&a==1)||((LINES&4)&&d==1); if(!ok) continue;
+        int ok=(LINES&8)||((LINES&1)&&c==1)||((LINES&2)&&a==1&&((A1CMASK>>(c%4))&1))||((LINES&4)&&d==1); if(!ok) continue;
         long t=(long)((u64)a*ci%f); bm[f][t>>3]|=1<<(t&7);} } }
   u64 sq=(u64)sqrtl((long double)hi)+2; char*small=calloc(sq+1,1); long*pr=malloc(sizeof(long)*(sq+1)); long np=0;
   for(u64 i=2;i<=sq;i++) if(!small[i]){pr[np++]=i; for(u64 j=i*i;j<=sq;j+=i) small[j]=1;}
@@ -63,7 +63,7 @@ int main(int argc,char**argv){
       if(exact(n,&a,&b,&c,&d)){ printf("LATE %llu %s f=%llu a=%llu b=%llu c=%llu d=%llu\n",n,isp?"P":"C",(u64)K*a*c*d-1,a,b,c,d); }
       else { nzero++; if(isp) nzeroP++; printf("ZERO %llu %s\n",n,isp?"P":"C"); }
       fflush(stdout); } }
-  printf("# K=%ld LINES=%d range [%llu,%llu) odd%s mod4=%d FMAX=%ld: tested %ld; odd squares %ld; non-squares w/o witness<=FMAX %ld; exact zeros %ld (primes %ld)\n",
+  printf("# A1CMASK=%d\n",A1CMASK); printf("# K=%ld LINES=%d range [%llu,%llu) odd%s mod4=%d FMAX=%ld: tested %ld; odd squares %ld; non-squares w/o witness<=FMAX %ld; exact zeros %ld (primes %ld)\n",
     K,LINES,lo,hi,primes_only?" primes":"",m4,FMAX,tested,nsq,nlate,nzero,nzeroP);
   printf("# max least witness (bitmap hits) %ld at n=%llu; primes %ld at p=%llu\n",maxf,argmax,maxfP,argmaxP);
   return 0;}
