@@ -1,4 +1,4 @@
-primes tested: 328 of 334 (R<=8, p in (1e7,1e8]); c_V = 5/(4pi^2) = 0.126651
+primes tested: 334 of 334 (R<=8, p in (1e7,1e8]); c_V = 5/(4pi^2) = 0.126651
 violations of X >= -c_V L^2: 7
   p=11814001 R=2 L2=265.195 Mgen=35.6772 X=-33.6772 X/L2=-0.12699 Mgen/L2=0.13453 margin=0.090
   p=12252497 R=8 L2=266.383 Mgen=41.8306 X=-33.8306 X/L2=-0.12700 Mgen/L2=0.15703 margin=0.093
