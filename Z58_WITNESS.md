@@ -15,7 +15,7 @@ Final memo (checkpoint 1 was commit e9040b1e); hostile internal review applied (
 | **F4 known zeros** | At the 14 (★)-zeros no witness exists in any ordering (CERTIFIED by the scan, all four orderings report "none"). At the 24 𝔊*-zeros with R(p) > 0 (the 38 include the 14) witnesses exist but can be large in the d- and C-orderings (e.g. 564 661 441: d_min = 2 741 075, C_min = 76 141). A rule "fires within bound F(p)" must have F(p) above the observed record curve (§2), and any proof must have threshold > 8 813 281. | — |
 
 Bottom line of the table (Assessment): a witness rule is just (MS) with a search order; it passes F1/F4 only if its
-proof contains a Jacobi-sign step and a threshold, and it passes F3 only through the "all moduli coprime to p" property.
+proof respects the Jacobi obstruction and has a threshold > 8 813 281, and it passes F3 only through the "all moduli coprime to p" property.
 No rule found so far survives as a HOT LEAD.
 
 ## 1. Precise statements and first lemmas
