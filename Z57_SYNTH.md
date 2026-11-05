@@ -1,8 +1,8 @@
 # Z57_SYNTH — the minimal missing statement for ES at large primes; three mechanisms revisited with new diagnostics
 
 Status: z57 lane SYNTH (brief `z52bbriefs/z57_lanes.md` §SYNTH, common rules `z52bbriefs/z53_depth.md`). Internal,
-internally reviewed only. The first hostile review (§7, `data/z57/synth/internal_review.md`, REJECT with 23 findings) has
-been applied in this revision. **ES is OPEN; nothing here proves or disproves ES, (★), or the positivity of any family at
+internally reviewed only. Two hostile internal reviews (§7: `data/z57/synth/internal_review.md`, REJECT with 23
+findings; `internal_review2.md`, 3 MAJOR + 6 MINOR residuals) have been applied. **ES is OPEN; nothing here proves or disproves ES, (★), or the positivity of any family at
 any infinite set of primes.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts
 `scripts/z57_synth_*`, data `data/z57/synth/` (≈ 1 MB). Read for this lane: Z53–Z56 SUMMARY files, FRONTIER §§2–4, §6, §7,
 `Z56_FAMDESIGN.md` §§0–5, `Z55_HCF.md` §§1–3, `Z56_FAMATTACK.md` §3.
@@ -19,7 +19,7 @@ any infinite set of primes.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENC
     (Assessment).
   * The proved main terms do not weaken (MS) logically (Lemma 1.2: R ≥ 1 ⟺ X > −M_gen).
 * **Data checks (§2).**
-  * All 14 (★)-zeros and all 38 𝔊*-zeros lie below 10¹⁰.
+  * The 14 known (★)-zeros and the 38 known 𝔊*-zeros (certified census) all lie below 10¹⁰.
   * (MS) is restricted to primes. Its analogue over all n ≡ 1 (4) is false (285 non-square composite zeros
     ≤ 7 999 801, FAMATTACK).
   * **Numerator 8 becomes concrete (CERTIFIED).** The C-even half of (★) is exactly the c = 1 line of 8/p (Lemma 2.1).
@@ -38,21 +38,24 @@ any infinite set of primes.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENC
     optimised Burgess bound saves at most p^{−μ²/(1+a)}. Lemma E2 (PROVED): the margin set has exact area 2μ/3 + 4μ²/3.
     Assessment, hypothetical envelope plus fitted model: as the margin μ grows, the envelope crossover falls but the
     family's own zero tail rises.
-    * At 50 % of the Burgess-only area the envelope crossover is ≥ 10³⁴, while the family's fitted last zero is
-      ≈ 10^{23.9}.
-    * At 79 % the zeros end near 10^{14.4} (model), but the envelope needs ≥ 10^{163}.
-    * Within this envelope no uniform-margin family is both positive and effective near 10¹⁷.
+    * The models are fitted on all primes p ≡ 1 (4) in [10⁵, 10⁸], with a Mordell-domain fit as a diagnostic.
+    * At 50 % of the Burgess-only area the (K, k) = (1, 2) envelope crossover is ≈ 10^{39} (≈ 10^{34} for a
+      slice-varying envelope), while the family's fitted crossover is x* ≈ 10^{23.9} (Mordell domain ≈ 10^{23.3}).
+    * At 79 % the fitted x* ≈ 10^{14.4}, but the envelope crossover is ≈ 10^{162.8}. At 74 % (μ = 0.12, added after the
+      second review) the figures are x* ≈ 10^{15.4} and ≈ 10^{118}.
+    * Conditionally on the model x* increasing as the share shrinks, max(crossover, x*) ≳ 10^{23} for every
+      uniform-margin family.
     * The remainder X has no explicit-constant input at all.
-  * **II: split-and-complement** (C-parity; (★) against López). Not killed. Complementarity above 8 813 281 is just
-    (MS) (CERTIFIED to 10¹⁰). The halves are positively associated in bulk (corr ≈ +0.29, EVIDENCE). No mechanism
+  * **II: split-and-complement** (C-parity; (★) against López). Not killed. C-parity complementarity above 8 813 281 is
+    full-family positivity on the same domain (CERTIFIED to 10¹⁰), hence (MS) when restricted to its domain. The halves are positively associated in bulk (corr ≈ +0.29, EVIDENCE). No mechanism
     explaining eventual disjointness of their zero sets was found.
   * **III: covering rigidity plus explicit least non-residue.** Lemma A.1 (PROVED): R(n) = #{d ≡ 3 (4) : n mod d ∈ H_d}
     for every n ≥ 1, and every hit class has Jacobi symbol −1. Prop A.2 (PROVED, corrected): the implication SMCR ⟹ hit,
     for p ≡ 1 (8). Prop A.3 (PROVED via `Z55_HCF.md` T3.1): for every finite D and every g ≥ 11, SMCR(D, g) is false.
     Size-controlled variants are not excluded.
 * **Verdict: narrowed (§4).** (MS) is pinned down with its ladder. The numerator-8 screen gets CERTIFIED counterexamples
-  above the certified range. The uniform form is not the right target outside Mordell's classes. The effective route has
-  a calibrated trade-off. B2 did not move.
+  above the certified range. The η = 0 uniform diagnostic fails at seven tested non-Mordell primes below 10⁸; no eventual
+  statement is refuted. The effective route has a calibrated, model-based trade-off. B2 did not move.
 
 ## 1. The minimal missing statement
 
@@ -91,7 +94,7 @@ other Type II lines, Type I, or a non-counting construction.
 
 **Proposition 1.1 (PROVED).** For each prime p:
 * (i) R_𝔊 is monotone in 𝔊. Hence L4 ⟹ L3 ⟹ L2, since H3 ⊂ 𝔊* (FAMDESIGN §1), and L3′ ⟹ L2, L3″ ⟹ L2.
-* (ii) L5 ⟹ L3 whenever M_𝔊*(p) > 0.
+* (ii) For fixed ε > 0, L5 ⟹ L3 whenever M_𝔊*(p) > 0 (R_𝔊* = M_𝔊* + X_𝔊* ≥ εM_𝔊* > 0).
 * (iii) For fixed η > 0 there is p_V(η) (Theorem V) with M_gen(p) ≥ (c_V − η/2)L² for p ≥ p_V. For such p,
   L6(η) ⟹ R(p) ≥ ηL²/2 > 0 ⟹ L2.
 
@@ -106,7 +109,7 @@ in H3.
 | L3′ | R_odd(p) ≥ 1 (C odd) | 423 zeros ≤ 10⁸, 156 in [10⁷, 10⁸) (§2.1) | not tested above 10⁸ |
 | L3″ | R₈(p) ≥ 1 (C even = numerator 8) | **12 zeros in [10¹⁰, 1.1·10¹⁰], 4 in Mordell classes** (§2.1) | **false** |
 | L4 | R_H3(p) ≥ 1 (complete levels 64C³ ≤ p) | 873 zeros ≤ 10¹⁰, last 9 466 909 909; fit x* ≈ 10^{12.6} (FAMDESIGN) | at risk (model) |
-| L5 | X_𝔊* ≥ −(1 − ε)M_𝔊* (H⁻) | false at every 𝔊*-zero with M_𝔊* > 0; vacuous where M_𝔊* = 0 (e.g. p = 37) | not refuted |
+| L5 | X_𝔊* ≥ −(1 − ε)M_𝔊* (H⁻), fixed 0 < ε < 1 | false at every 𝔊*-zero with M_𝔊* > 0; vacuous where M_𝔊* = 0 (e.g. p = 37) | not refuted |
 | L6(η) | X(p) ≥ −(c_V − η)L², η > 0 | η = 0 diagnostic: fails at 7 non-Mordell primes in (10⁷, 10⁸]; holds on the 249 tested Mordell primes (§2.3) | not refuted |
 
 *Minimality (Assessment).*
@@ -125,8 +128,9 @@ in H3.
 
 Theorem V therefore leaves the logical content of (MS) unchanged. It makes available the sufficient form L6(η), η > 0,
 for p ≥ p_V(η) (Prop 1.1(iii)). A proof through L6 must control the remainder at the scale of the proved constant. The
-relative form L5 instead needs a threshold above every zero with positive genus mass: > 564 661 441 for 𝔊* and
-> 8 813 281 for the full family.
+relative form L5 instead needs a threshold at or above every zero with positive genus mass. Under the ladder's
+"p > P" convention this means P ≥ 564 661 441 for 𝔊* and P ≥ 8 813 281 for the full family. Both primes are in 𝔐 and
+have positive genus mass in 𝔊*, e.g. via the pairs (1, 158) and (1, 62) (second review).
 
 ### 1.4 Effectivity of the (★) route
 
@@ -181,9 +185,8 @@ enumeration of FAMDESIGN's engine, which the internal review audited case by cas
 0.0816.
 
 *Screen consequence.*
-* **CERTIFIED part.** Let P_M be the threshold of a Mordell-restricted "∀p > P_M" statement; take "∀p ≥ P_M" so that a
-  zero z forces P_M > z. Then "R₈(p) ≥ 1 for all primes p ≥ P_M in Mordell's classes" requires
-  P_M > 10 868 474 401. Without the Mordell restriction it requires P > 10 917 229 157.
+* **CERTIFIED part.** For a statement "R₈(p) ≥ 1 for all primes p ≥ P_M in Mordell's classes", the zeros force
+  P_M > 10 868 474 401. Without the Mordell restriction (all primes p ≡ 1 (4), p ≥ P) they force P > 10 917 229 157.
 * Hence an argument for (MS) at threshold 10¹⁰ that remains valid on the C-even sub-line proves a false statement. It
   must contain a step that fails for that sub-line, or a larger threshold for it.
 * **Model part.** The model places the sub-line's last zeros near 10^{14.4} and predicts ≈ 0.003 zeros above 10¹⁷.
@@ -267,7 +270,7 @@ area(S_μ) = 2μ/3 + 4μ²/3.
 *Proof.* Put x = min, y = max (two mirror halves). For x ≤ 1/3 the y-range is ((1+x)/4, (1+x)/4 + μ), of length μ. For
 1/3 ≤ x ≤ (1 + 4μ)/3 it is (x, (1+x)/4 + μ), of length μ − (3x − 1)/4. The constraint x + y < 1 is inactive for
 μ ≤ 1/12. Each half has area μ/3 + (1/3)∫_0^{4μ}(μ − t/4)dt = μ/3 + 2μ²/3. ∎
-CERTIFIED numerically by `scripts/z57_synth_pincer.py` at μ = 0.01, 0.05, 1/12.
+Numerically cross-checked by `scripts/z57_synth_pincer.py` (scipy quadrature) at μ = 0.01, 0.05, 1/12.
 
 **Proposition E3 (PROVED arithmetic; a sufficient budget, not a necessity).** Let m > 0 and K > 0. Suppose an argument
 gives R(p) ≥ M(p) − E(p) with M(p) ≥ mL² and E(p) ≤ K L^k p^{−δ}. Then R(p) ≥ 1 is certified at p as soon as
@@ -283,25 +286,38 @@ E/M ≤ (K/m)L^{k−2}p^{−δ}. With m = 0.10, the smallest M_gen/L² observed 
 
 **Assessment E4 (the trade-off; hypothetical envelope plus fitted model).** Take the uniform-margin sub-families
 F_μ := {(★) solutions with min(u,B)^{15} > p and max⁴ ≥ min·p^{1+4μ}} ⊂ 𝔊*_{1/15} (μ = 0 is FAMDESIGN's F4L).
-`scripts/z57_synth_pincer.py` computes the exact kept area, the smallest envelope exponent over the kept slices, and the
+`scripts/z57_synth_pincer.py` numerically evaluates the exact kept-area integral, the infimum δ_min of the envelope
+exponent over the kept slices, and the
 envelope crossovers with m = (3/π²)·(kept area). `scripts/z57_synth_trimargin.c` and `z57_synth_zerofitm.py` give the zero
 sets ≤ 10⁸ and the fitted model tails of F_μ. At μ = 0 they reproduce FAMDESIGN's 302 F4L-zeros ≤ 10⁸ and x* ≈ 10^{10.2}.
+* x_max := min((1 + 4μ)/3, (3/4 − μ)/(5/4)) is the furthest x on the margin-μ boundary. The minimiser of
+  [y − (1+x)/4]²/(1 + x) over the kept set lies on that boundary (checked in the second review).
+* **Domain.** The zero counts and the main fit concern all primes p ≡ 1 (4) on [10⁵, 10⁸]. The Mordell column refits
+  the same model on Mordell's classes only, with prime density 1/(32 log x).
+* x* is the fitted expected-count crossover, not a last zero. The tails use a stabilised quadrature (second review,
+  finding 1).
 
-| μ | share of area(G_{1/15}) | δ_min = μ²/(1+x_max) | envelope crossover, (K,k) = (1,2) / (100,3) | zeros ≤ 10⁸ | model x* (zeros) | E(zeros > 10¹⁷) |
+| μ | share of area(G_{1/15}) | δ_min = μ²/(1+x_max) | envelope crossover, (K,k) = (1,2) / (100,3) | zeros ≤ 10⁸ (all p ≡ 1 (4)) | x* all / Mordell | E(zeros > 10¹⁷), all |
 |---|---|---|---|---|---|---|
-| 0 (F4L) | 1 | 0 | none | 302 | 10^{10.2} | 5·10⁻¹⁴ |
-| 0.0533 | 0.90 | 0.0020 | 10^{521} / 10^{3436} | 702 | 10^{12.0} | 1·10⁻⁹ |
-| 0.1 | 0.79 | 0.0068 | 10^{163} / 10^{946} | 1 754 | 10^{14.4} | 0.003 |
-| 0.2179 | 0.50 | 0.0333 | 10^{39} / 10^{178} | 21 632 | 10^{23.9} | 2.6·10⁴ |
+| 0 (F4L) | 1 | 0 | none | 302 | 10^{10.2} / 10^{10.1} | 1·10⁻⁹ |
+| 0.0533 | 0.90 | 0.0020 | 10^{521.2} / 10^{3435.8} | 702 | 10^{12.0} / 10^{10.9} | 2·10⁻⁶ |
+| 0.1 | 0.79 | 0.0068 | 10^{162.8} / 10^{945.7} | 1 754 | 10^{14.4} / 10^{14.2} | 0.003 |
+| 0.12 | 0.74 | 0.0096 | 10^{118.1} / 10^{655.1} | 2 732 | 10^{15.4} / 10^{15.3} | 0.03 |
+| 0.2179 | 0.50 | 0.0333 | 10^{39.3} / 10^{177.8} | 21 632 | 10^{23.9} / 10^{23.3} | 2.6·10⁴ |
 
 A slice-varying envelope (margin √((1 + x)δ₀)) gives the same picture: 50 % of the area at δ₀ = 0.0383 (crossover
 10^{34} / 10^{153}); 30 % at δ₀ = 0.085 (10^{18.1} / 10^{67.5}); 10 % at δ₀ = 0.19 (10^{10.6} / 10^{30.9}).
 
 *Reading.*
 * Within this hypothetical Burgess-envelope class, raising the margin lowers the envelope crossover but raises the
-  family's own zero tail. Assuming the model x* increases as the kept share decreases, max(envelope crossover, x*) ≥ 10^{23.9} for
-  every share with (K, k) = (1, 2): shares ≥ 50 % have crossovers ≥ 10^{34}, and shares ≤ 50 % have x* ≥ 10^{23.9}.
-* So no uniform-margin family is both (model-)positive above 10¹⁷ and envelope-effective below 10¹⁷.
+  family's fitted zero tail.
+* Conditional reading, for *uniform-margin* families F_μ only. Assume the fitted x* increases as the kept share
+  decreases, and that the envelope crossover decreases in μ (verified for shares ≥ 50 % in the second review). Then
+  max(envelope crossover, x*) ≳ 10^{23.9} (Mordell domain ≈ 10^{23.3}) for every μ with (K, k) = (1, 2):
+  * shares ≥ 50 % have uniform-envelope crossovers ≥ 10^{39.3};
+  * shares ≤ 50 % have x* ≥ 10^{23.9}.
+* So, in this model, no uniform-margin family is both (model-)positive above 10¹⁷ and envelope-effective below 10¹⁷.
+* The slice-varying envelopes have different families, for which no zero tails were fitted.
 * These are envelope crossovers and model extrapolations, not lower bounds on the threshold of any actual theorem.
 * Separately, the remainder X has no explicit-constant input at all in z53–z56. Tools with relative savings
   δ ≳ 0.06–0.3 and explicit constants (Pólya–Vinogradov, Weil/Deligne, the large sieve) either need power-size main
@@ -342,7 +358,8 @@ p + 4d.
 
 *Diagnostics (run).*
 * (i) The 14 (★)-zeros are zeros of both halves (CERTIFIED). Above 8 813 281 the two zero sets are disjoint up to 10¹⁰,
-  because R has no zero there. This is (MS) itself, not a mechanism.
+  because R has no zero there. C-parity complementarity on a domain is full-family positivity on that domain, so on
+  MS's domain it is (MS) itself, not a mechanism. The (★)/López union is a different, weaker target.
 * (ii) In bulk the halves are positively associated (corr ≈ +0.29 at 10⁷–10⁸, EVIDENCE). Correlation does not decide
   zero-set disjointness, and no anti-correlation mechanism is visible.
 * (iii) Each half alone fails beyond 10¹⁰ (R₈, CERTIFIED) or at least up to 10⁸ (R_odd).
@@ -438,12 +455,16 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
   * Main-term theorems do not weaken it (R ≥ 1 ⟺ X > −M_gen).
   * The C-even half of (★) is the c = 1 line of 8/p. It has CERTIFIED zeros at 12 primes in [10¹⁰, 1.1·10¹⁰], four in
     Mordell's classes, the largest 10 868 474 401. An argument at threshold 10¹⁰ must therefore fail for that sub-line.
-  * The η = 0 uniform diagnostic X ≥ −(5/(4π²))L² fails at 7 non-Mordell primes in (10⁷, 10⁸] and at none of the 249
-    tested Mordell primes. At that size the Mordell-class mean of M_gen/L² is 0.117 < 5/(4π²) (numerics).
+  * The η = 0 uniform diagnostic X ≥ −(5/(4π²))L² fails at 7 tested non-Mordell primes in (10⁷, 10⁸] and at none of
+    the 249 tested Mordell primes. No eventual statement is refuted. At that size the Mordell-class mean of M_gen/L² is
+    0.117 < 5/(4π²) (numerics).
 * §3, append to "Tied modulus" or new entry, **"Effectivity trade-off"** (Assessment, `Z57_SYNTH.md` §3.I):
   * Lemma E1 (PROVED): the optimised Burgess bound on a slice at margin μ saves at most p^{−μ²/(1+a)}.
-  * Within that envelope, sub-families with high margins have late zeros (model x* ≈ 10^{23.9} at half the area), and
-    families with zeros ending below 10¹⁷ need envelope crossovers ≥ 10^{163}.
+  * Within that envelope, on all primes p ≡ 1 (4) and for uniform-margin sub-families:
+    * at half the area the fitted zero crossover is x* ≈ 10^{23.9} (Mordell domain 10^{23.3}) and the (1, 2) envelope
+      crossover is ≈ 10^{39};
+    * at 79 % the figures are x* ≈ 10^{14.4} and ≈ 10^{162.8}.
+    * Conditionally on monotone model tails, max(crossover, x*) ≳ 10^{23} for every such family.
   * No input in z53–z56 controls the remainder with explicit constants.
   * Envelope and model statements only.
 * §6, add:
@@ -457,9 +478,9 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
   p > 10¹⁷ in Mordell's classes has some d ≡ 3 (mod 4) for which the remainder of −p mod d divides (d + 1)/4.
 * The 5/6 genus main term does not shorten that sentence; it suggests the shape of an asymptotic proof.
 * The data checks add three things:
-  * the numerator-8 half of (★) keeps failing past 10¹⁰ (CERTIFIED), so a proof at that threshold must see the parity
-    of C;
-  * the uniform-constant form is not the right target outside Mordell's classes;
+  * the numerator-8 half of (★) keeps failing past 10¹⁰ (CERTIFIED), so a proof at that threshold must use a step that
+    does not survive restriction to C even;
+  * the η = 0 uniform diagnostic fails at seven tested non-Mordell primes below 10⁸ (no eventual statement refuted);
   * at moderate p the Mordell classes sit below the asymptotic constant.
 * Making the route effective faces a calibrated trade-off between envelope and family size (hypothetical; model-based).
 * A positivity mechanism at one prime is still missing. **ES is OPEN.**
@@ -481,7 +502,7 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
   primes → `mgen_lowR.txt` and on 1 397 190 001, 1 327 670 401 → `mgen_hard1e9.txt`; then
   `python3 scripts/z57_synth_uniform.py` → `uniform.txt`.
 * **Margin families and calibration.** `gcc -O2 -o /tmp/z57trim scripts/z57_synth_trimargin.c -lm`, then
-  `/tmp/z57trim 100000000` → `trimargin_1e8.{txt,log}` (≈ 4 min; long-double membership near region boundaries, so the
+  `/tmp/z57trim 100000000` → `trimargin_1e8.{txt,log}` (≈ 4 min; double-precision logarithmic membership, EVIDENCE-grade near region boundaries, so the
   margin families are model families). Then `uv run --with numpy --with scipy python scripts/z57_synth_zerofitm.py …` →
   `zerofitm.txt`, and `uv run --with scipy python scripts/z57_synth_pincer.py` → `pincer.txt`.
 
@@ -498,7 +519,8 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
 
 * **Internal hostile review (deep subagent), `data/z57/synth/internal_review.md`: REJECT, 23 findings (13 MAJOR).**
   It independently re-verified all twelve C-even zeros above 10¹⁰, Lemma A.1, Prop A.3's use of HCF T3.1, the 10⁸ data,
-  the fits and the least non-residue table. All findings were applied in this revision:
+  the fits and the least non-residue table. All findings were applied. The second review found residual defects in #1,
+  #9, #16 and a missing ε > 0 in #2; these are fixed in the third revision:
   * **#1.** The L6 violations lie outside 𝔐 (verified: residues 241, 257, 577, 409). They are now reported as such, with
     the Mordell subset holding; the derived reading is removed.
   * **#2.** The ladder arrows are corrected (Prop 1.1).
@@ -527,4 +549,19 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
   * **#23.** The certification scenario is now called illustrative.
 * *New after the review:* the uniform-margin family scan (`trimargin_1e8`, `zerofitm.txt`) and the trade-off table of
   E4, which replace the withdrawn pincer.
+* **Second internal review (deep subagent), `data/z57/synth/internal_review2.md`: not ready, 3 MAJOR + 6 MINOR.**
+  It checked all 23 round-one findings, reran the margin scan byte-identically, and confirmed A.2, Prop 1.1's arrows
+  and the δ_min formula. Applied:
+  * **#1.** The tail integrals are stabilised in `z57_synth_zerofitm.py` and `z57_synth_zerofit8.py`. The two wrong E(>10¹⁷)
+    entries are corrected to 1·10⁻⁹ and 2·10⁻⁶; all quoted x* and the R₈ tail numbers are unchanged.
+  * **#2.** The universal "≥ 10^{163}" export is replaced by sampled statements. The reviewer's extra family μ = 0.12 was
+    rerun here (x* ≈ 10^{15.4}, crossover ≈ 10^{118}) and added to the table.
+  * **#3.** Domain statements are added, together with a Mordell-domain refit (x* 10.1 / 10.9 / 14.2 / 15.3 / 23.3,
+    matching the reviewer's). The 10^{23} reading is restricted to uniform-margin families with monotone model tails.
+  * **#4.** Endpoint conventions are fixed.
+  * **#5.** ε > 0 is made explicit.
+  * **#6, #8.** Summary and bottom-line wording is fixed.
+  * **#7.** Numerical labels: "numerically cross-checked", double-precision membership, x_max defined, δ_min called an
+    infimum.
+  * **#9.** "Known" zeros; the complementarity domain is stated.
 * Cross-model review: pending.

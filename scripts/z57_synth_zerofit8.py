@@ -28,7 +28,12 @@ for name, z in zs.items():
         return float(np.sum(lam - z * np.log(np.maximum(lam, 1e-300))))
     r = minimize(nll, [0.0, 0.03], method='Nelder-Mead', options={'xatol': 1e-9, 'fatol': 1e-9, 'maxiter': 4000})
     b, cc = r.x
-    Ef = lambda lx: quad(lambda u: math.exp(u + b - cc * u * u) / (2 * u), lx, 4000, limit=400)[0]
+    # stabilised tail (second review, finding 1): E = e^{s+b-cs^2}/(2s) * int_0^inf e^{-(2cs-1)t - ct^2} s/(s+t) dt, 2cs > 1
+    def Ef(lx):
+        if 2 * cc * lx <= 1:  # integrand still increasing at lx: integrate directly with relative tolerance
+            return quad(lambda u: math.exp(u + b - cc * u * u) / (2 * u), lx, lx + 400, epsabs=0, epsrel=1e-10, limit=1000, points=[1 / (2 * cc)])[0]
+        a = 2 * cc * lx - 1
+        return math.exp(lx + b - cc * lx * lx) / (2 * lx) * quad(lambda t: math.exp(-a * t - cc * t * t) * lx / (lx + t), 0, math.inf, epsabs=0, epsrel=1e-11, limit=500)[0]
     out = [f'{name}: zeros[1e5,1e8]={int(z.sum())} b={b:.3f} c_eff={cc:.5f}']
     for k in (8, 10, 12, 14, 17):
         out.append(f'E(>1e{k})={Ef(k * math.log(10)):.3g}')

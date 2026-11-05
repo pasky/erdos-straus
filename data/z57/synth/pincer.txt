@@ -24,7 +24,9 @@ kept fraction -> envelope delta0, m, crossover log10 p for (K,k) = (1,2), (100,3
   0.50: delta0=0.0383 m=0.04897 crossover log10 p: (1,2) 34.2, (100,3) 153.1
   0.75: delta0=0.0107 m=0.07346 crossover log10 p: (1,2) 106.1, (100,3) 586.0
   0.90: delta0=0.0023 m=0.08815 crossover log10 p: (1,2) 458.3, (100,3) 2994.9
-uniform-margin families F_mu: kept fraction, delta_min = mu^2/(1+x_max), crossovers (1,2), (100,3)
+uniform-margin families F_mu: kept fraction, delta_min = inf over kept slices of the envelope = mu^2/(1+x_max),
+  x_max = min((1+4mu)/3, (3/4-mu)/(5/4)) (the furthest x on the margin-mu boundary); crossovers (1,2), (100,3)
   mu=0.0533: kept fraction 0.900, m=0.08815, x_max=0.4044, delta_min=0.00202, crossover log10 p: (1,2) 521.2, (100,3) 3435.8
   mu=0.1000: kept fraction 0.793, m=0.07768, x_max=0.4667, delta_min=0.00682, crossover log10 p: (1,2) 162.8, (100,3) 945.7
+  mu=0.1200: kept fraction 0.742, m=0.07265, x_max=0.4933, delta_min=0.00964, crossover log10 p: (1,2) 118.1, (100,3) 655.1
   mu=0.2179: kept fraction 0.500, m=0.04897, x_max=0.4257, delta_min=0.03330, crossover log10 p: (1,2) 39.3, (100,3) 177.8

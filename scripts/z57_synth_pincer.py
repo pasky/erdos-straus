@@ -1,5 +1,5 @@
 # z57 SYNTH §3.I: hypothetical effectivity calibration (Assessment-level arithmetic, no theorem about proofs).
-# (1) Exact area of the part of Theorem V's region G_lambda (Z56_FAMDESIGN §1; coordinates x = min(a,b), y = max(a,b),
+# (1) Numerical evaluation (scipy quad) of the exact area integral of the part of Theorem V's region G_lambda (Z56_FAMDESIGN §1; coordinates x = min(a,b), y = max(a,b),
 #     both orders counted) whose Burgess margin y - (1+x)/4 is >= mu, and the margin set S_mu (0 < margin < mu) in G.
 # (2) The optimistic slice-exponent envelope delta(x, mu) = mu^2/(1+x) of Lemma E1: area kept when every kept slice has
 #     saving >= delta0, i.e. margin >= sqrt((1+x) delta0).
@@ -48,8 +48,9 @@ for frac in (0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 0.75, 0.9):
     print(f'  {frac:.2f}: delta0={d0:.4f} m={m:.5f} crossover log10 p: (1,2) {out[0]}, (100,3) {out[1]}')
 # (5) the uniform-margin families F_mu of scripts/z57_synth_trimargin.c: kept fraction, smallest envelope exponent over kept
 # slices (margin exactly mu at the largest admissible x), envelope crossovers.  Compare with zerofitm.txt (model x*).
-print('uniform-margin families F_mu: kept fraction, delta_min = mu^2/(1+x_max), crossovers (1,2), (100,3)')
-for mu in (0.0533114024, 0.1, 0.2179029330):
+print('uniform-margin families F_mu: kept fraction, delta_min = inf over kept slices of the envelope = mu^2/(1+x_max),\n'
+      '  x_max = min((1+4mu)/3, (3/4-mu)/(5/4)) (the furthest x on the margin-mu boundary); crossovers (1,2), (100,3)')
+for mu in (0.0533114024, 0.1, 0.12, 0.2179029330):
     A = kept_area(lambda x: mu); frac = A / A0; m = 3 / math.pi ** 2 * A
     # largest x with (1-x) - max(x, (1+x)/4 + mu) > 0
     # points at margin exactly mu: y = (1+x)/4 + mu needs y >= x (x <= (1+4mu)/3) and x + y < 1 (x < (3/4 - mu)/(5/4))
