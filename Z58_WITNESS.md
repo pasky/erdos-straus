@@ -5,17 +5,17 @@ z53 → z58). Internal; **ES is OPEN; nothing here proves or disproves ES, (★)
 CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z58_witness_*`, data `data/z58/witness/`.
 Final memo (checkpoint 1 was commit e9040b1e); hostile internal review applied (§8).
 
-## 0. Falsifier table (MANDATORY; the "idea" of this lane = a deterministic witness rule p ↦ (u, C) or p ↦ d)
+## 0. Falsifier table (MANDATORY; the "idea" of this lane = a structural (non-exhaustive) witness selector p ↦ (u, C) or p ↦ d)
 
 | screen | how a witness rule behaves | where primality must enter |
 |---|---|---|
 | **F1 odd squares** | No rule can fire: R(m²) = 0, every hit class is a Jacobi non-residue mod d (Z57_SYNTH Lemma A.1(b)). *No rule selecting a fixed modulus d (or a fixed (u, C)) from p mod M (fixed M) works on 𝔐* (PROVED): let d be the output on the input class 1 mod M; primes p ≡ 1 (mod lcm(M, 840, d)) exist (Dirichlet), lie in 𝔐, have that output, and p ≡ 1 = 1² mod d is a Jacobi residue, so p mod d ∉ H_d. | Any successful witness d \| p + u, d ≡ −1 (mod 4u), automatically has Jacobi (p/d) = −1, hence a prime factor ℓ with (ℓ/p) = −1 (Lemma 1.1) — but the witness is a *divisor* in the class, not a prime factor in the class (e.g. p = 4561 ∈ 𝔐, (u, B, C) = (2, 117, 5), d = 39 ≡ −1 (8), p + 2 = 3³·13², no prime factor ≡ −1 (8)). A proof must respect this Jacobi obstruction (it is what fails at squares); it need not construct the sign explicitly. |
 | **F2 C-even sub-line** | A rule must be allowed to output odd C. On the 12 R₈-zeros in [10¹⁰, 1.1·10¹⁰] every rule restricted to C even (equivalently d = 4uC − 1 ≡ −1 (mod 8u)) fails. The rules studied here (least d, least u, least C, least 4uB) range over both parities; their parity split at hard primes is reported in §3 (no parity selection). | Same as F1 plus: the argument must not be a statement about the c = 1 line of 8/p. |
 | **F3 composites** | All least-witness rules output nothing at the 285 composite zeros. 214/285 are divisible by 3, 36 more by 5, 15 by 7 (CERTIFIED, `data/z58/screens/composite_zeros_le8e6.txt` + sympy): **at composite n every modulus d sharing a factor with n is dead** (u \| (d+1)/4 forces gcd(d, u) = 1, and n ≡ −u (d) then forces gcd(d, n) = 1). Primality enters by keeping *all* d < p alive. This is a genuine but weak use: composites with least prime factor ≥ 29 (e.g. a zero with least factor 443) lose almost no moduli and are still zeros. | Beyond "all moduli alive", no step of any rule here uses primality. |
-| **F4 known zeros** | At the 14 (★)-zeros no witness exists in any ordering (CERTIFIED by the scan, all four orderings report "none"). At the 24 𝔊*-zeros with R(p) > 0 (the 38 include the 14) witnesses exist but can be large in the d- and C-orderings (e.g. 564 661 441: d_min = 2 741 075, C_min = 76 141). A rule "fires within bound F(p)" must have F(p) above the observed record curve (§2), and any proof must have threshold > 8 813 281. | — |
+| **F4 known zeros** | At the 14 (★)-zeros no witness exists in any ordering (CERTIFIED by the scan, all four orderings report "none"). At the 24 𝔊*-zeros with R(p) > 0 (the 38 include the 14) witnesses exist but can be large in the d- and C-orderings (e.g. 564 661 441: d_min = 2 741 075, C_min = 76 141). A rule "fires within bound F(p)" must have F(p) above the observed record curve (§2), and any proof must have cutoff ≥ 8 813 281 (domain p > cutoff). | — |
 
 Bottom line of the table (Assessment): a witness rule is just (MS) with a search order; it passes F1/F4 only if its
-proof respects the Jacobi obstruction and has a threshold > 8 813 281, and it passes F3 only through the "all moduli coprime to p" property.
+proof respects the Jacobi obstruction and has a cutoff ≥ 8 813 281 (domain p > cutoff), and it passes F3 only through the "all moduli coprime to p" property.
 No rule found so far survives as a HOT LEAD.
 
 ## 1. Precise statements and first lemmas
@@ -172,7 +172,8 @@ factorisation), all 202 099 784 primes p ≡ 1 (4) in (10⁹, 10¹⁰] (= π(10�
 * every prime has a u- and a C-witness (the runner counts a prime in its total only then, and the total equals the full
   prime count; consistent with the earlier census, R(p) ≥ 1 throughout);
 * **max s(p) = 97** (p = 1 708 503 889, 𝔐; u_min = 97, C_min = 118); s(p) ≥ 30 at only 21 primes (18 in 𝔐);
-  max s(p)/log²p = 0.215 (`s_ge30_1e9_1e10.txt.gz`, `s_1e9_1e10_done.txt`).
+  max s(p)/log²p = 0.215 (`s_ge30_1e9_1e10.txt.gz`, `s_1e9_1e10_done.txt`; labelled chunk bounds, counts and
+  zero NOS rows in `s_1e9_1e10_chunks.txt`, per-chunk counts independently confirmed by the cross-model review).
 * Together with §2: **s(p) ≤ 201 for every prime p ≡ 1 (4), p ≤ 10¹⁰, with R(p) ≥ 1**; the record 201 at 413 490 001 is
   not beaten in (10⁹, 10¹⁰]; s(p) ≤ 0.52 log²p for all of them. The frequency of s(p) > 32 among 𝔐-primes
   falls by decade: 5.5·10⁻⁵, 1.3·10⁻⁵, 7.8·10⁻⁶ (10⁶ … 10⁹), and s ≥ 30 occurs at ≈ 1.4·10⁻⁶ of 𝔐-primes in (10⁹, 10¹⁰] (18 primes; denominator estimated as 1/16 of the
@@ -209,7 +210,7 @@ Why W is worth stating (each item labelled):
 | F1 squares | the analogue fails at every m², for a structural reason at *each* of the O(log²p) integers: every target divisor d (odd, coprime to m and to u resp. C — automatic for d ≡ −1 mod 4u resp. 4C) of m² + u has (−u/d) = 1, of 4Cm² + 1 has (−C/d) = 1, while the target classes have Jacobi −1 (Lemma A.1(b)). A proof of W must respect this obstruction: the divisor found must lie in the right class inside the Jacobi −1 coset. The BM relaxation "some divisor d \| 4Cp + 1 with χ_{−4C}(d) = −1" is free at some C ≤ ℓ(p) (ℓ(p) the least odd prime with (p/ℓ) = −1; `SYNTHESIS_SPARKS9.md` Prop 2.2, via FRONTIER §2.4) — inside W's menu C ≤ log²p only if ℓ(p) ≤ log²p, which is not known unconditionally; the class inside the coset is B2. |
 | F2 C-even | the C-even version of W is false at the 12 R₈-zeros (no C-even solution at all), where s(p) = 1 at 11 and 5 at 1 (`samples_scan.txt`): W must use odd C — it does (C = 1 is in its menu). |
 | F3 composites | the all-n analogue of W fails at the 285 composite zeros (no solution). Primality enters only through "all moduli coprime to p" (§0); no step specific to W uses more. |
-| F4 zeros | W excludes the 14 (★)-zeros only by its threshold > 8 813 281 (W_size is vacuous there); at the 24 𝔊*-zeros with R(p) > 0, s(p) is small (e.g. 9 at 564 661 441) — W is not tied to 𝔊*. |
+| F4 zeros | W excludes the 14 (★)-zeros only by its cutoff ≥ 8 813 281 (domain p > cutoff) (W_size is vacuous there); at the 24 𝔊*-zeros with R(p) > 0, s(p) is small (e.g. 9 at 564 661 441) — W is not tied to 𝔊*. |
 
 **Provability (Assessment).** W is a single-integer divisor-in-class statement (B2) at polylog scale: the conclusion
 "one of O(log²p) given integers has a divisor in a prescribed class" is exactly the event that Dickson-type
@@ -220,7 +221,10 @@ set has density zero). W is therefore a *target*, not a lead.
 ## 6. Verdict, falsifier table (re-stated), proposed FRONTIER text, bottom line
 
 **Verdict: narrowed** (plus one data-backed target, not a lead). **Not a HOT LEAD.**
-* No deterministic witness rule was found. Every ordering of the witnesses by a *modulus* (d_min, q_min, m3) has large
+* No structural (non-exhaustive) witness selector with a proved eventual guarantee was found. (The least-witness
+  searches themselves are deterministic; the impossibility claims proved here are restricted to fixed-congruence
+  selectors (§0 F1) and, CONDITIONAL on Dickson, fixed-coordinate menus (Prop 3.1); finite records and failed invariant
+  tests do not rule out arbitrary deterministic rules.) Every ordering of the witnesses by a *modulus* (d_min, q_min, m3) has large
   finite-range records (d_min ≈ p/29, q_min ≈ p/20, m3 ≈ 0.35 p^{2/3} at p ≤ 10⁹; these refute e.g. log²p bounds, not an
   unspecified polylog bound), and by Lemma 1.1 a polylog rule in a modulus would give a polylog least-non-residue bound.
 * The hardest primes are typically those whose *boundary* (some coordinate small) is empty: for 35 of the 45 primes
@@ -234,12 +238,12 @@ set has density zero). W is therefore a *target*, not a lead.
   CERTIFIED to 10¹⁰ (max least coordinate 201), not hit by the direct n_p consequence of Lemma 1.1 nor by the fixed-S
   Dickson construction — but a B2 statement at polylog scale with no mechanism.
 
-**Falsifier table (final; the idea = "a deterministic witness rule", best surviving form = W).**
+**Falsifier table (final; the idea = "a structural witness selector", best surviving form = W).**
 | | F1 squares | F2 C-even | F3 composites | F4 zeros |
 |---|---|---|---|---|
 | modulus-ordered rules (d, q, m3) | fail (no witness); a proof must respect the Jacobi (p/d) = −1 obstruction; a polylog version ⟹ polylog n_p bound | rules must allow odd C | primality used only as "all d < p coprime to p" | none fires at the 14; at the 24 𝔊*-zeros with R ≥ 1 the least modulus m3 is p^{0.16}–p^{0.69} (median p^{0.43}) |
 | fixed bounded menus (Prop 3.1) | fail | — | — | fail i.o. under Dickson anyway |
-| W (least coordinate ≤ log²p) | fails at each of its O(log²p) integers by Jacobi; proof needs a divisor in the right class inside the Jacobi −1 coset (B2) | C-even version false at 12 R₈-zeros; W uses C = 1 etc. | same as above; no primality step specific to W | threshold > 8 813 281 required |
+| W (least coordinate ≤ log²p) | fails at each of its O(log²p) integers by Jacobi; proof needs a divisor in the right class inside the Jacobi −1 coset (B2) | C-even version false at 12 R₈-zeros; W uses C = 1 etc. | same as above; no primality step specific to W | cutoff ≥ 8 813 281 (domain p > cutoff) required |
 
 **Proposed FRONTIER text (§3 barrier map / §6 dead ends; do not edit FRONTIER here).**
 > *(z58, `Z58_WITNESS.md`.)* **Least witnesses of (MS).** Exhaustive to 10⁹ (four orderings) and 10¹⁰ (least
@@ -304,3 +308,11 @@ F3 counts. Applied:
 11. Numbers: 0.0853/0.0871 fit constants, "≈ 1.906", 47.7 % control central fraction, X > 1 in the CF test,
     minus continuant 4uCB − u − B, "two unordered solutions (four ordered triples)".
 12. Commands use integer arguments; the tri output is described as the R = 0 / R ≤ 6 rows.
+
+**Cross-model review** (`data/z58/xreview/REVIEW_WITNESS.md`, ACCEPT-WITH-FIXES; it independently re-derived Lemma 1.1,
+the limit law and Prop 3.1, reran the full 10⁹ four-ordering census, and checked the 10¹⁰ prime counts, the 21 large-s
+rows and three extension slices). Fixed: (1) "no deterministic witness rule" → "no structural (non-exhaustive) witness
+selector with a proved eventual guarantee", with the impossibility claims restricted to fixed-congruence selectors and
+(conditionally) fixed-coordinate menus; (2) `scripts/z58_witness_runbig.sh` made fail-closed (bash pipefail, exit
+status, zero NOS rows, per-chunk expected counts) and labelled chunk bounds/counts archived in
+`data/z58/witness/s_1e9_1e10_chunks.txt`; (3) "threshold > 8 813 281" → "cutoff ≥ 8 813 281 (domain p > cutoff)".
