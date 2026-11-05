@@ -640,6 +640,51 @@ objects or arguments*. None is a necessity theorem for every proof, and none pro
   * Inheritance to multiples is conditional on divisibility (N_II(5) > 0, N_II(4545) = 0).
   * Odd N_II-zeros n ≡ 1 (4) have (n + 1)/2, n + 4 and 4n + 1 composed of primes ≡ 1 (4).
 
+**(z59) Scoped no-gos from the survivor probe** (`Z59_SUMMARY.md` §1). Same reading as the z58 block: theorems about
+specified classes, none a necessity theorem for every proof, none proves or refutes (MS).
+* **The Waldspurger residue of ternary-theta proxies** (`Z59_WALDS.md` §3–§4).
+  * Thm W1 (PROVED rel. Waldspurger 1981 Prop 1 / Cor 2, Shimura's T(ℓ²) formula, TERNARY Thm F). Let
+    g ∈ M_{3/2}(Γ₀(4N), ψ) be a ternary-theta proxy (one quadratic ψ) with g(m²) = 0 for every m built from primes > ℓ₀
+    (every valid proxy). Then every Shimura component has g_φ(1) = 0, and at squarefree t ∈ 𝒞₁(2N), t > 1,
+    g(t) = Σ g_φ(t) over the **Gauss-exceptional** φ only: those whose twist G_φ = φ ⊗ ψχ₋₄ has L(G_φ, ½) = 0. T1 pins
+    a(1); Waldspurger carries it to the whole square class. Cor W2: no Gauss-exceptional φ ⟹ g vanishes on squarefree 𝒞₁.
+  * Lemma W1′ (PROVED rel. Cor 2): each φ with an L-non-zero anchor in 𝒞₁ (or satisfying Waldspurger's (H2)) gives at most
+    one line on squarefree 𝒞₁. Prop W4: for one such line, positivity at a prime p is L(½, G_φ ⊗ χ_p) ≠ 0 ((b)/(c) need
+    (H2) for every contributing φ); (d) one non-zero value at a squarefree R-zero in 𝒞₁ makes a single-line proxy invalid.
+    Remark W3: the root number is constant on 𝒞₁ (sign −1 components vanish there under (H2); else CONDITIONAL on (W-loc)).
+  * Prop W5 (PROVED, elementary): for a proxy effective on a class, validity at large primes of the class ⟺ (MS) there —
+    a reformulation, not a circularity theorem. Lemma W0 (PROVED rel. Thm F): a lattice of level 4N with r_L(ℓ²) = 0 for
+    large ℓ represents no n ∈ 𝒞₁(2N); so termwise (★)-recipe lattices never reach the square class (any ψ, non-negative
+    combinations).
+  * CERTIFIED (exact, finite): at 24 levels L | 3360 and every ψ (121 (L, ψ) pairs), every valid proxy vanishes on
+    𝒞₁ ∩ [1, B] (B ≈ 10⁴; full space, except L = 840, ψ ∈ {1, χ₈, χ₂₁}: TERNARY class only; χ₁₀₅, χ₈₄₀ full space to
+    B = 8000). The 15 non-zero T1-kernels are non-zero at known R-zeros (5569, 9601, 23929; 1969, 2641, 5161).
+  * PROVED: "L(G_φ ⊗ χ_p, ½) ≠ 0 at *every* p in the class" is false for the survivors found (13 𝒞₁-primes, six in 𝔐:
+    1009, 1129, 1201, 1801, 4201, 4729). Eventual non-vanishing is unproved; GRH does not give it (Assessment); a
+    residue-class refinement of CKRS (CONJECTURE, not stated in CKRS) predicts infinitely many zeros.
+  * Not excluded: (E-a) levels with several Gauss-exceptional φ plus a validity identity; (E-b) coset thetas; (E-c) mixed
+    ψ signed combinations; (E-d) higher half-integral weight; (E-e) off-𝒞₁ classes / p-dependent levels (= B2, n_p wall).
+* **Type II coordinate lines** (`Z59_CONV2.md` §§2–4; PROVED).
+  * Prop 3.1: within one coordinate system, on a *shared* integer the c = 1 and a = 1 events are nested (T-system: for
+    4 | T an a = 1 event on Tn + 1 is a (★) event; shift system: the reverse), so rescue there is one-directional; a (★)-zero
+    is rescued by a = 1 only via 4 ∤ T. Not a statement about every coordinate system (n = 193, T = 8).
+  * Prop 4.2: all c-line events on 4mn + 1 lie in the greatest event E_{r(m)} (r(m)² the largest square dividing m), whose
+    union they are; incomparable c can rescue each other (m = 36).
+  * Prop 4.1: equation-scaling transports (inheritance, numerator ladder, ET dilation, compositions) give no descent into
+    a prime p (the source must be divisible by p); N_II(p)[k | c] = N^{(4k)}(pk), and no Type II solution at p has p | c.
+  * Prop 2.1: Type II relaxes the tie on 4mp + 1 from 4m to ≥ 2√(4m) (never a bounded modulus). §3: fixed finite (T, f)
+    menus fail on a congruence class (Z57_BFII Prop 3.2 argument). Adaptive or growing arguments across integers are not excluded.
+* **Means and dead moduli** (`Z59_MSPLUS.md`). Thm 1 (§2.4 z59) is square-blind and identical for R₈, so a means mechanism
+  alone cannot be a proof route (Assessment). Lemma 4.1 (PROVED): for non-square s ≡ 1 (4), R(s m²) = 0 on a density-0 set
+  of odd m (no positive-density twisted T1 for (★), unlike numerator K ≥ 8). Unconditional product / divisor /
+  q²-scaling closures of R ≥ 1 fail (CERTIFIED: 12 538 801 = 517·24 253; 4545).
+* **Witness constraints, rederived** (`Z59_CONVO.md`, `Z59_MSPF.md`; PROVED, largely prior: Z57_BFII, Z58_CONVF,
+  JOINT_BUDGET, Z56_FAMTRY, Z57_SYNTH, Z58_WITNESS). Every hit modulus d of a non-square n ≡ 1 (4) has (d/n) = −1, hence
+  d ≥ q₁(n) ≥ 11 on 𝔐; for every D infinitely many non-square n in every 𝔐-class have no witness d ≤ D (MSPF Lemma 1.8,
+  an incremental strengthening). The one-character "escape ⟹ solution" implication for the ρ-ratio criterion is refuted
+  by 4545 and at the prime 8 803 369 (CERTIFIED); other bounded-order character or congruence arguments are not excluded
+  (p ≡ 73 mod 168 forces ρ = 7).
+
 ## 4. What a proof would need — a five-minute screening checklist
 
 Screen an idea against every line *before* investing in it. Each line names the barrier that killed earlier ideas of that
@@ -658,6 +703,12 @@ has passed all lines.
    exclusion of □ ∪ 2□; `Z58_STRUCT.md` Thm A, `Z58_STRUCT2.md` Thm B). So BM itself does fail at squares on these
    models, but nonemptiness is not sufficient for a positive integral point (item 13). (Composite-n descent must be checked separately: a solution for m scales to one for m², so T1 does not bind arguments
    that produce mixed or scaled solutions.)
+   *(z59.)* Two opposite calibrations. Half-integral weight: T1 is *stronger* than "no genus term" — for ternary-theta
+   proxies it kills every Shimura component on squarefree 𝒞₁ except the Gauss-exceptional ones (`Z59_WALDS.md` Thm W1,
+   §3 z59). Means: the leading class mean of R is Jacobi-blind (`Z59_MSPLUS.md` Thm 1), so a mean/density step never
+   supplies the non-square input; name where it comes from. In every coordinate system tried in z59 T1 reads "all odd
+   prime factors lie in the kernel of a quadratic character that is −1 at −1" (ker χ_{−T} on Tm² + 1, ker λ_ρ on
+   (m² + ρ)/4, (−k/d) = −1).
 2. **It must fail for numerator 8 at 131 and 241** (i.e. it must not also prove 8/131, 8/241) (and 8/11, 8/17; numerator blindness (J)41, (J)86). If every step works
    for M/n with M ≡ 0 (4) uniformly and without a threshold, the argument proves false statements. Say where 4 enters
    (candidate: the χ-fibre S₄ of (J)32) or which threshold p₀(M) the argument needs.
@@ -689,6 +740,12 @@ has passed all lines.
    claim over p > P₈ in 𝔐; they do not refute eventual C-even positivity or an argument starting at 10¹⁷. For full
    numerator-8 Type II, the prime census requires P₈ ≥ 35 569 for p > P₈, but does not prove positivity beyond that
    cutoff.
+   *(z59.)* Line-level numerator-8 data (CERTIFIED): the U-line at numerator 8, U⁽⁸⁾ = (c = 1) ∪ (a = 1) of 8/n, has 819 odd
+   non-square zeros ≤ 10⁸, 61 of them prime (last 3 869 153), the last composite 93 398 595 (`Z59_CONV2.md` §0). The
+   dead-moduli structure of R₈ is identical to that of R, with half the leading mean (`Z59_MSPLUS.md` Remark 2.3, PROVED),
+   so a means-based step cannot separate them. Full d-even Type II has witnesses (all with c ≥ 2) at the 12 screen R₈-zero
+   primes (`Z59_CONVO.md` §9). For 𝔐-primes ≤ 10⁷, C-even solutions are absent at 186 primes (last 9 965 881) and C-odd
+   at 118 (last 9 744 001), so neither parity alone suffices in that range (`Z59_MSPF.md` §4).
 3. **It must not be numerator-uniform in its laws** — no k-uniform transport, square law or recombination law (all refuted
    on k/n models, (J)86, (J)88).
 4. **It must break the tied modulus (B2, PARITY_AUDIT Remark 3.1).** Identify the modulus of the class condition. If it is
@@ -747,6 +804,19 @@ has passed all lines.
     full Type II at composites must respect **4545** (`Z58_WILDCARD.md`; N_II(4545) = 0, the only odd non-square
     N_II-zero ≤ 10¹⁰), which is not explained by BM or local conditions. A threshold-free argument on the a = 1 line must
     survive 193, 2521, 66529, and one on c ≤ 2 must survive 102001 and 8 813 281 (`Z58_CONVF.md`, CERTIFIED to 10⁸).
+    *(z59; CERTIFIED unless marked.)*
+    * (MS⁺) on 𝔐: no non-square zero in (17 401 609, 10¹²] (`Z59_MSPLUS.md` §6, one engine). Thresholds for
+      primality-free variants (z58 LOGIC census, ≤ 10¹⁰): all prime factors > y with y = 7 (i.e. gcd(n, 105) = 1, all
+      classes) → 29 210 401; y ≥ 47 → 8 813 281; 11 ≤ y ≤ 43 → 17 401 609; 3 ≤ y < 7 → 7 479 950 569; no condition → 9 919 520 121 (3 | n).
+    * Of the 285 composites: 214 in the groups 3 | n, 15 | n, 21 | n, 105 | n; 51 in 5 | n, 7 | n, 35 | n; 20 coprime to 105
+      (15 in 𝔐, all squarefree). The composite zeros sit predominantly where the dead-moduli factor is lowest (EVIDENCE
+      reading); dead moduli explain a correlation, not every zero.
+    * The U-line ((★) ∪ a = 1) fails at only **105 and 4545** among odd non-squares ≤ 10¹⁰ (`Z59_CONV2.md`). An argument
+      that proves U, or a = 1 rescue, at composites must respect 105 (full Type II holds there); a full Type II argument
+      must respect 4545. A U-argument at primes must rescue the 14 (★)-zeros via a = 1 at T ≢ 0 (mod 4) (Prop 3.1).
+    * 4545 also refutes "some prime factor escapes the quadratic kernel ⟹ solution" (`Z59_CONVO.md` §4).
+    * Keep (★)- and 𝔊*-zeros apart: the 14 (★)-zero primes are among the 38 𝔊*-zeros; the other 24 have R > 0 (11 of
+      the 20 in 𝔐). A 𝔊*-zero obstructs only the subfamily.
 15. **Square classes mod 840 and near-squares.** The hardest primes are in the Mordell classes and at bounded p − m²; T1
     deforms there ((J)53, (J)55). Check the idea at p = m² + k with small k.
 16. **Thin-family wins do not transfer.** Forced-budget windows (Sophie Germain, moving-gap cubic) prove 3·2^s + 1 etc.;
