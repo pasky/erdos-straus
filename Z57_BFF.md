@@ -1,7 +1,7 @@
 # Z57_BFF — tryhard: R_𝔊*(p) ≥ 1 for every large prime p ≡ 1 (mod 4)
 
 Status: z57 lane BFF (brief `z52bbriefs/z57_lanes.md` "The platform" + §BFO/BFF, rules `z55_tryhard.md`; Fable twin).
-Internal; hostile line-by-line check in §6. **ES is OPEN. The target statement is NOT proved here.** Labels: PROVED /
+Internal; hostile line-by-line check in §5. **ES is OPEN. The target statement is NOT proved here.** Labels: PROVED /
 CONDITIONAL / CERTIFIED / EVIDENCE / Assessment. Scripts `scripts/z57_bff_*`, data `data/z57/bff/`.
 Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) solutions (o, e, C) with p = 4oeC − o − e,
 𝔊* = {(o, e) : max(o, e)⁴ > min(o, e)·p}, R_𝔊*(p) = 2·#{(★) solutions with (o, e) ∈ 𝔊*}.
@@ -9,9 +9,9 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
 ## 0. Summary
 
 * **Target: prove R_𝔊*(p) ≥ 1 for all large p ≡ 1 (4). Not achieved.** What is proved is a set of exact
-  reformulations that make the target a one-line statement about the residues of p, a sharp localisation of where
-  primality enters (and therefore where any proof must use it), and a certified extension of the zero-free range.
-* **Theorem 1 (PROVED, elementary; §1).** For d ≡ 3 (mod 4), 3 ≤ d < p, let n_d := d − (p mod d) ∈ [1, d−1] (the least
+  reformulations that make the target a one-line statement about the residues of p, a necessary quadratic condition
+  on every hit (the only visible entry point of primality), and a certified extension of the zero-free range.
+* **Theorem 1 (PROVED, elementary; §1).** For d ≡ 3 (mod 4), d ≠ p, let n_d := d − (p mod d) ∈ [1, d−1] (the least
   positive residue of −p) and C_d := the least positive residue of −(4p)⁻¹ (mod d). Then 4·n_d·C_d ≡ 1 (mod d) always, and
   **HIT(d) :⟺ 4n_d | d + 1 ⟺ 4C_d | d + 1 ⟺ 4·n_d·C_d = d + 1** (the point (n_d, C_d) of the modular hyperbola
   4xy ≡ 1 (mod d) lies on its lowest real branch). Every HIT(d) gives the (★) solution (n_d, (p + n_d)/d, C_d), every
@@ -37,9 +37,10 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
   ≤ 10¹⁰ of `Z56_FAMDESIGN` exactly and extends the search: **no 𝔊*-zero in (10¹⁰, 10¹¹]** (see §3 for the exact range
   run and timings). First-hit statistics: the least d with a 𝔊*-hit has median ≈ p^{0.05}, 99.9 % below p^{0.42}, and
   exhaustive maximum 787 439 ≈ p^{0.705} (p = 231 507 061) on (10⁸, 10⁹].
-* **Verdict: narrowed.** The target reduces exactly to the pointwise statement "for some d ≡ 3 (4) below p^{3/4} the
-  residue −p mod d divides (d + 1)/4", every proof must pass through (d/p) = −1, and the decisive range is d ≤ p^{1/3}
-  where single-p information is unavailable. ES is OPEN.
+* **Verdict: narrowed.** The target is implied by the pointwise statement "for some d ≡ 3 (4) below p^{3/5} the
+  residue −p mod d divides (d + 1)/4" (and equivalent to it with cutoff ⌊p^{3/4}⌋ + 1 plus the 𝔊* inequality); every
+  hit has (d/p) = −1; and the decisive range is d ≤ p^{1/3}, where no single-p information is available by known
+  methods. ES is OPEN.
 
 ## 1. Exact reformulations (PROVED)
 
@@ -247,3 +248,18 @@ fixed p across moduli. This is the exact shape of the obstruction.
 * **For SYNTH/FRONTIER (proposed text, not applied):** "Z57_BFF: R_𝔊*(p) ≥ 1 ⟺ ∃ d ≡ 3 (4), d ≤ ⌊p^{3/4}⌋ + 1, with
   4·(−p mod d)·(−(4p)⁻¹ mod d) = d + 1 and the 𝔊* inequality (automatic for d ≤ p^{3/5}); every such d has (d/p) = −1
   (the T1 mechanism). CERTIFIED: no 𝔊*-zero in (10¹⁰, 10¹¹]."
+
+## 5. Review log
+
+* Hostile line-by-line check (deep-mode subagent, fresh context) of §§0–4 and `z57_bff_decide.c`: Lemmas 1.1 (bijection),
+  1.2–1.4, Cor 1.5, the branch claim, identity (2.1) and its main term, the norm-form criteria and the decider logic
+  checked out (independent numerics at p = 37, 73, 409 for all d ≤ 200; Lemma 1.3 at 33 primes / 194 solutions; 987
+  prime/level norm-form cases; decider vs independent enumeration to 10⁵). Ten corrections applied: the cofactor
+  congruence in Lemma 1.1's remark is necessary, not sufficient (gcd(m, 4n) > 1); Lemma 1.6 needs gcd(2t + 1, s) = 1
+  (29 = 4·5 + 3² is not a level-1 failure); (S2) restated with d ≡ −1 (mod 4n), d ≤ p^{3/5} (the earlier form admitted
+  p = 1621, (3, 8, 17) ∉ 𝔊*); "H(p; p^{3/4}) ≥ 1" is not equivalent to the target without the 𝔊* inequality (p = 1621,
+  d = 203); the main-term coefficient at D = p^{3/5} is 9/200, and the comparison with Thm V's constant was withdrawn
+  (d_Q double counting); the CRT/Dirichlet remark replaced by the correct Linnik example p ≡ 1 (mod lcm(4, 1..D₀));
+  "no cancellation to be had" and "the only place primality enters" withdrawn in favour of what is actually shown;
+  "every prime up to 10¹¹ has a hit with d ≤ p^{0.71}" restricted to (10⁸, 10¹¹] minus the zero; "ten blocks" → nine;
+  input ceiling added to `dmax_of`. The reviewer confirmed the memo does not claim the target.
