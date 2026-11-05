@@ -44,3 +44,22 @@ for l in primerange(3, LMAX):
     print(f"l={l}: (u,B)-hit residues {sorted(hits)} examples {[hits[R] for R in sorted(hits)]}; "
           f"S3 violations {bad}; brute(4uB<={PMAX}) residues not found by enumeration {miss}", flush=True)
 print("total S3 violations:", viol)
+# Exact B criterion (memo Thm S3, after cross-model review): B-hit at (l,R) iff with u = l-R there is s >= 1 with
+# 1 <= D = 4us - l <= u+1 and D | u+1.  Compare with the enumeration above (re-run for a = 1 only, l < LMAX).
+def exact_b(l, R):
+    u = l - R
+    return any(1 <= 4 * u * s - l <= u + 1 and (u + 1) % (4 * u * s - l) == 0 for s in range(1, (l + u + 1) // (4 * u) + 2))
+mm = 0
+for l in primerange(3, LMAX):
+    enum = set()
+    for u in range(1, l + 2):
+        for s in range(1, l * (u + 2) // (4 * u) + 2):
+            D = 4 * u * s - l
+            if D > 0 and (l * (u + 1)) % D == 0:
+                B = l * (u + 1) // D
+                if vl(4 * u * B, l) == 1 and (u + B + 1) % (4 * u * B // l) == 0:
+                    R = (-(u + B)) % l
+                    if R: enum.add(R)
+    ex = {R for R in range(1, l) if exact_b(l, R)}
+    if ex != enum: mm += 1; print("exact-B MISMATCH", l, sorted(ex), sorted(enum))
+print("exact B criterion vs enumeration mismatches:", mm)

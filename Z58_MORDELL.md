@@ -1,4 +1,4 @@
-# Z58_MORDELL — Mordell's classes for (★): sterile 1-points, the genus blind spot, and no algebraic use of x² + 840y² (narrowed)
+# Z58_MORDELL — Mordell's classes for (★): sterile 1-points (class 1, finite (★) menus), a genus-term blind spot (Assessment), and global polynomial certificate rigidity for x² + 840y² (narrowed)
 
 Status: z58 lane MORDELL (brief `z52bbriefs/z58_lanes.md` §MORDELL, rules `z52bbriefs/z53_depth.md` with z53 → z58).
 Internal. One hostile internal review was applied (§8, `data/z58/mordell/internal_review.md`: 1 FATAL, 6 MAJOR, 5 MINOR).
@@ -20,12 +20,13 @@ Notation.
 ## 0. Summary
 
 1. **Lemma P (PROVED).** A one-parameter polynomial (★) family (U, B, C polynomial in t with 4UBC − U − B = a + Mt) has
-   two constant coordinates. So the finite (★) "Mordell-type case splits" are exactly finite unions of classes H_d and
-   K_{u,B}.
+   two constant coordinates. So every finite (★) "Mordell-type case split" is *contained in* a finite union of H_d
+   residues and K_{u,B} classes (a family may parametrise only a subprogression).
 2. **Theorems S1, S3 and Corollary S2 (PROVED; CERTIFIED cross-checks).** Let x_{ℓ,R} be the point that is R at ℓ and 1
    at every other prime.
    * S1: exact criterion for H-sterility.
-   * S3: a K_{u,B}-hit forces v_ℓ(4uB) = 1 and R ≥ (2ℓ − 1)/3.
+   * S3: a K_{u,B}-hit forces v_ℓ(4uB) = 1 and R ≥ (2ℓ − 1)/3; the exact B criterion (u = ℓ − R, a finite divisor
+     test) completes it.
    * Hence x_{ℓ,R} is (★)-sterile for every 1 ≤ R ≤ (ℓ − 1)/2.
    * S2: no finite (★) case split covers any class {p ≡ 1 (mod M), p ≡ R (mod ℓ)} with ℓ ∤ M and R a non-residue
      ≤ (ℓ − 1)/2. Infinitely many primes there escape every finite menu.
@@ -48,9 +49,11 @@ Notation.
      but 0.009–0.019 below hit.
    * Primes with R ≤ 4: about 2–3 per 10⁴ in QR, 0–2.3 in sterile, 0–1.0 in hit classes.
    * The genus variable (the quadratic character) cannot see this split.
-5. **"L6(0) holds on 𝔐" is largely the genus term's blind spot (CERTIFIED numbers + Assessment).**
+5. **"L6(0) holds on 𝔐" is consistent with a genus-term blind spot (EVIDENCE-grade numerics + Assessment; no attribution
+   fraction measured).**
    * All 9 Mordell-class (★)-zeros have M_gen < c_V L² (ratio 0.084–0.115), so L6(0) holds *at these zeros*.
-   * Six of the seven L6(0) violators of SYNTH §2.3 lie in classes mod 840 (241, 409, 577) where p is a sterile
+   * Six of the seven L6(0) violators found in SYNTH §2.3's R ≤ 8 sample (a lower bound, not a census) lie in classes
+     mod 840 (241, 409, 577) where p is a sterile
      non-residue mod 7 and/or 5.
 6. **M2, the representation p = x² + 840y² (Prop C1, PROVED).** A global polynomial (★) certificate for x² + 840y² has
    two constant coordinates, hence is a fixed-modulus congruence condition on p. Global polynomial identities in the
@@ -99,7 +102,7 @@ p ≡ R (ℓ)} contained (for all large p) in a finite union of one-parameter (�
 * `Z56_FAMTRY.md` Prop 2.2 handles R = 1.
 * NONCONG_LIFTS Thm 2.6 handles R = 2 for the fixed-slice ES witness classes (and its R267 repair notes that
   x_{11,2} ∈ {n ≡ 79 (mod 143)} for the full ES menu).
-* The exact (★) answer at 1-points (both menus), the class-by-class data on sterility, and Q3 have no prior memo. For
+* The exact (★) answer at 1-points (both menus; S1 + the exact B criterion), the class-by-class data on sterility, and Q3 have no prior memo. For
   Q3, git grep finds only the observation itself (`ES_CONNECTIONS_TODO.md` Z0935).
 
 ## 2. Q1: (★)-sterility of the 1-points
@@ -113,7 +116,9 @@ then two of U, B, C are constant.
 * (U, C) fixed: n ≡ −U (mod 4UC − 1), i.e. a class of H_{4UC−1};
 * (B, C) fixed: the mirror, again a class of H_d;
 * (U, B) fixed: K_{U,B}.
-So the integral positive one-parameter (★) families are exactly the classes H_d and K_{u,B}.
+So every integral positive one-parameter (★) family is *contained in* a single residue class of some H_d or in some
+K_{u,B} (it may parametrise only a subprogression, e.g. U = C = 1, B = 2t + 1 gives n = 6t + 2 inside H₃). Containment
+is all that Cor S2 needs.
 
 For an odd prime ℓ and 1 ≤ R ≤ ℓ − 1, x_{ℓ,R} denotes the point with x_ℓ = R and x_q = 1 for q ≠ ℓ. It lies in the
 closure of {p ≡ 1 (mod M), p ≡ R (mod ℓ)} for every M with ℓ ∤ M.
@@ -157,7 +162,7 @@ is B-sterile for R ≤ (ℓ − 1)/2. (R = 1 is excluded separately: no K_{u,B} 
 4uB > u + B + 1.)
 *Proof.* Put S = u + B, a = v_ℓ(4uB) and w = 4uB/ℓ^a.
 * x ∈ K_{u,B} means x ≡ −S modulo 4uB. Since x is 1 away from ℓ, this is: w | S + 1 and ℓ^a | S + R.
-  * a = 0 is impossible: then 4uB | S + 1 ≤ 4uB − 2.
+  * a = 0 is impossible: then 4uB | S + 1, but 0 < S + 1 < 4uB.
   * Put s := (S + 1)/w ∈ ℕ, so that 4uBs = ℓ^a(S + 1). This relation is symmetric in u and B.
 * *ℓ divides both u and B.* Then ℓ | S, so ℓ | R; impossible.
 * *v_ℓ(B) = a ≥ 1, ℓ ∤ u* (the case v_ℓ(u) = a is symmetric). Write B = ℓ^aB′. Then 4uB′s = S + 1, and
@@ -166,6 +171,15 @@ is B-sterile for R ≤ (ℓ − 1)/2. (R = 1 is excluded separately: no K_{u,B} 
   * So 4u − ℓ^a ≤ 4us − ℓ^a ≤ u + 1, i.e. u ≤ (ℓ^a + 1)/3.
   * Combined with u ≥ ℓ^a − R this gives R ≥ (2ℓ^a − 1)/3.
   * Since R ≤ ℓ − 1, this forces a = 1 and R ≥ (2ℓ − 1)/3. ∎
+
+*Exact B criterion (completion after cross-model review; PROVED).* x_{ℓ,R} ∈ some K_{u,B} iff, with u := ℓ − R, there
+is s ≥ 1 with 1 ≤ D := 4us − ℓ ≤ u + 1 and D | u + 1 (then B = ℓ(u + 1)/D, up to exchanging u and B).
+*Proof.* Necessity: by S3, a = 1 and ℓ − R ≤ u ≤ (ℓ + 1)/3 < ℓ with u ≡ −R (mod ℓ), so u = ℓ − R, and B′D = u + 1 with
+B′ = B/ℓ. Sufficiency: put B′ = (u + 1)/D, B = ℓB′. Then 4uB′s − ℓB′ = u + 1 gives 4uB′s = S + 1, so w = 4uB′ | S + 1;
+and S + R = ℓ(1 + B′) ≡ 0 (mod ℓ); finally B′ ≤ u + 1 < ℓ, so v_ℓ(4uB) = 1. ∎ The range of s is finite:
+ℓ/(4u) < s ≤ (ℓ + u + 1)/(4u). The S3 threshold alone is not sufficient: (ℓ, R) = (17, 14) is a non-residue above
+it but neither H- nor B-hit. CERTIFIED for ℓ < 60 against the enumeration (`z58_mordell_sterileB.py`, last line of
+`sterileB.txt`: 0 mismatches).
 
 **Corollary S2 (PROVED, from P, S1, S3 and Dirichlet).** Let ℓ be an odd prime, M ≥ 1 with ℓ ∤ M, and R a non-residue
 mod ℓ with x_{ℓ,R} (★)-sterile (e.g. any non-residue R ≤ (ℓ − 1)/2). Then every finite union U of classes H_d and
@@ -195,7 +209,7 @@ R ≤ (ℓ − 1)/2.
   d ≤ 3·10⁴ leaves between 2/5 (ℓ = 11) and 7/8 (ℓ = 17) of the non-residues unhit (`sterile2_d3e4.txt`; EVIDENCE).
 * The B-menu and proofs were not done there. Q1 for r ≠ 1 is open.
 
-*Novelty (Assessment).* S1 + S3 give the exact (★) answer at the 1-points: a small, clean increment over FAMTRY (R = 1),
+*Novelty (Assessment).* S1 + the exact B criterion (completing S3) give the exact (★) answer at the 1-points: a small, clean increment over FAMTRY (R = 1),
 HCF (R < (ℓ − 1)/3, larger family, hence a stronger statement on its range) and NONCONG (R = 2, fixed-slice ES witness
 classes). It is a covering statement (B1).
 
@@ -266,8 +280,10 @@ The sterile non-residue (2 mod 5, 3 mod 7) behaves like a residue class; the hit
 ### 3.4 Inside 𝔐: sterile vs hit non-residues at ℓ = 11, …, 23 (EVIDENCE)
 
 `scripts/z58_mordell_bymod.py`, output `bymod_1e7_1e8.txt`: 158 955 Mordell-class primes in [10⁷, 10⁸]. The label is
-the 1-point status for the full menu (H ∪ B). It is exact only for class 1 and a proxy for the other five. For example,
-the B-hit K_{4,11} at R = 7 mod 11 also needs p ≡ 1 (mod 16), which only half of the Mordell primes satisfy.
+the status of the special profinite point x_{ℓ,R} for the full menu (H ∪ B); all groups below are *1-point-labelled
+groups*. The label is exact for that point only, not for the primes of any class (not even of the class-1 fibre, which
+contains the point; that suffices for Cor S2 but not for the statistics). For example, the B-hit K_{4,11} at R = 7 mod 11
+also needs p ≡ 1 (mod 16), which p ≡ 1 (mod 840) does not force.
 
 | ℓ | QR: mean (se), #R≤4 per 10⁴ | QNR sterile: mean (se), per 10⁴ | QNR hit: mean (se), per 10⁴ |
 |---|---|---|---|
@@ -281,9 +297,11 @@ the B-hit K_{4,11} at R = 7 mod 11 also needs p ≡ 1 (mod 16), which only half 
 * Sterile non-residue classes sit 0.0007–0.0064 above the residue classes. This is measurable (≈ 3–25 standard errors),
   so they are *not* indistinguishable.
 * But they sit 0.009–0.019 below the hit classes, so they are much closer to residue classes than to hit classes.
-* Low-R primes are rarest in the hit classes: 6 of ≈ 1.6·10⁵ hit-labelled primes have R ≤ 4, five of them at the proxy
+* Low-R primes are rarest in the hit classes: 6 of 156 996 hit-labelled prime–ℓ pairs (pooled over ℓ, not distinct
+  primes or independent replicates) have R ≤ 4, five of them at the proxy
   class 7 mod 11 and one at 15 mod 19 (21 106 849, R = 4).
-* So the quadratic character of p mod ℓ is a poor predictor of hardness, and the 1-point sterility label is a good one.
+* So, in this sample, the quadratic character of p mod ℓ is a poor predictor of hardness and the 1-point sterility label
+  a much better one (EVIDENCE; descriptive).
 
 *Zero lookups (CERTIFIED).*
 * The nine Mordell (★)-zeros have (n_p, p mod n_p) = (13, 5), (13, 7), (13, 2), (23, 19), (23, 11), (13, 6), (19, 13),
@@ -301,7 +319,11 @@ the B-hit K_{4,11} at R = 7 mod 11 also needs p ≡ 1 (mod 16), which only half 
 * The five non-Mordell (★)-zeros lie in classes 409, 577, 337, 241: sterile non-residues 3 mod 7 or 2 mod 5. This is why
   5 of the 14 zeros lie outside Mordell's classes.
 
-### 3.5 Why L6(0) "holds on 𝔐 and fails off 𝔐" (CERTIFIED numbers, Assessment reading)
+### 3.5 Why L6(0) "holds on 𝔐 and fails off 𝔐" (EVIDENCE-grade numerics, Assessment reading)
+
+The M_gen values come from a long-double accumulation of exact rational weights without error enclosures (as in SYNTH):
+EVIDENCE-grade numerics of exact finite sums, not CERTIFIED. (The cross-model review checked 5569 and 23929 in exact
+rationals.)
 
 L6(0) at p means X(p) ≥ −c_V L², i.e. R(p) ≥ M_gen(p) − c_V L². It holds automatically wherever M_gen(p) < c_V L².
 * **At zeros.** `z56_famdesign_mgen.c` (audited in z56) on the 34 distinct (★)- and 𝔊*-zeros above 10³
@@ -312,7 +334,8 @@ L6(0) at p means X(p) ≥ −c_V L², i.e. R(p) ≥ M_gen(p) − c_V L². It hol
 * **Samples near 10⁸** (inputs documented in the data README):
   * 96 Mordell primes: M_gen/L² ∈ [0.109, 0.140], mean 0.127, 44 of 96 below c_V;
   * 96 non-Mordell primes ≡ 1 (4): ∈ [0.133, 0.196], mean 0.153, none below c_V.
-* **The violators.** Six of the seven L6(0) violators of SYNTH §2.3 (classes 241, 577, 409, 241, 577, 409) are in
+* **The violators.** Six of the seven L6(0) violators found in SYNTH §2.3's R ≤ 8 sample (a lower bound there, not an
+  exhaustive census) (classes 241, 577, 409, 241, 577, 409) are in
   A_840 \ 𝔐: p is a sterile non-residue mod 7 (3 mod 7) and/or mod 5 (2 mod 5). M_gen sees only (p/7) = −1 or
   (p/5) = −1 there, while §3.3 shows that these classes carry roughly residue-class mass. The seventh violator,
   12 252 497 ≡ 257, is p ≡ 2 (3) with R = 8.
@@ -355,7 +378,10 @@ Only classes ≡ 1 (mod 4) are counted.
 *Fact (classical; re-verified in the campaign to 10⁶, `ES_CONNECTIONS_TODO.md` Z0935; the review checked all 2370
 Mordell primes ≤ 10⁶ and found the 16 reduced forms of discriminant −3360).*
 * 840 is idoneal, so a prime p is x² + 840y² iff p mod 840 ∈ 𝔐, and then (x, y) is unique up to signs.
-* (x, y) mod q carries Frobenius data in ring class fields of ℚ(√−210) (non-abelian over ℚ).
+* The base order of discriminant −3360 has class group C₂⁴, so its ring class field is *abelian* over ℚ and the
+  representation itself carries only congruence (genus) information. Non-abelian Frobenius data appear only for auxiliary
+  orders of higher conductor f (ring class fields of discriminant −3360f², generalised dihedral over ℚ), e.g. whether
+  p = x² + 840f²y′², i.e. the class of (x, y) mod f.
 
 **Proposition C1 (PROVED).** Let f ∈ ℤ[x, y] have degree 2 with top form f₂ irreducible over ℚ (e.g. f = x² + 840y²).
 If U, B, C ∈ ℚ[x, y] \ {0} satisfy 4UBC − U − B = f identically, then at least two of U, B, C are constants.
@@ -378,7 +404,7 @@ at all, e.g. U = C = −1, B = (f − 1)/3 is an identity but no certificate.
 * *Global polynomial* certificates in the coordinates (x, y), and finite menus of them, add nothing beyond p's residue
   class, so they fall under T1 / Lemma P / Cor S2.
 * Not excluded: rational or piecewise formulas on selected domains, constructions using divisors of expressions in x and
-  y, and uses of the Frobenius data (x, y) mod q. Fixed finite non-abelian Frobenius data are inert on finite witness
+  y, and uses of the auxiliary higher-conductor Frobenius data ((x, y) mod f). Fixed finite non-abelian Frobenius data are inert on finite witness
   sets by (J)96; the divisor routes look like B2 lotteries on integers of size ≤ √p (Assessment).
 * No candidate rule was found worth testing on the zeros.
 
@@ -394,7 +420,7 @@ at all, e.g. U = C = −1, B = (f − 1)/3 is an identity but no certificate.
   * the six classes are separated only by order-≥3 data;
   * the low-R primes avoid hit non-residue classes;
   * sterile non-residues behave much more like residues than like hit non-residues;
-  * the apparent "L6(0) holds on 𝔐" is largely the genus term's blind spot.
+  * the apparent "L6(0) holds on 𝔐" is consistent with a genus-term blind spot (Assessment; no attribution fraction measured).
 * Prior work credited: RESIDUE_HARDNESS (full-residue class effects, class 1 hardest), HCF / FAMTRY / NONCONG (sterile
   points for other families), y7 / POINTWISE_MORDELL (ES coverings).
 * What survives:
@@ -414,15 +440,16 @@ at all, e.g. U = C = −1, B = (f − 1)/3 is an identity but no certificate.
   * Inside 𝔐 at ℓ = 11–23, sterile non-residue classes are much closer to residue classes than to hit classes, and
     low-R primes avoid hit classes (EVIDENCE).
   * L6(0) holds at all nine Mordell (★)-zeros (M_gen < c_V L²), and 6 of its 7 violators lie at sterile non-residues,
-    so the diagnostic reflects the genus term's blind spot (Assessment)."
-* §6 (closed): "(z58) Finite (★) case splits by one-parameter families (exactly the H_d and K_{u,B} classes, Lemma P)
+    which is consistent with a genus-term blind spot (Assessment; no attribution fraction measured)."
+* §6 (closed): "(z58) Finite (★) case splits by one-parameter families (each contained in an H_d residue or a K_{u,B} class, Lemma P)
   on {p ≡ 1 (M), p ≡ R (ℓ)} with x_{ℓ,R} (★)-sterile, e.g. every non-residue R ≤ (ℓ − 1)/2 → Z58_MORDELL Thms S1/S3,
   Cor S2 (PROVED). Global polynomial certificates in the coordinates of p = x² + 840y² → Prop C1 (PROVED: congruences
   only). Not covered: the other five Mordell classes, non-polynomial uses of (x, y)."
 
 *Bottom line.* Mordell's six classes are hard for (★) because they are squares at 3, 5 and 7 at once. In the data,
 however, the sterile non-residue classes (2 mod 5, 3 mod 7, and their analogues at each ℓ) are nearly as hard. The genus
-term cannot tell them from easy non-residues. This accounts for the five off-Mordell zeros and for the L6(0) pattern.
+term cannot tell them from easy non-residues. This is consistent with the five off-Mordell zeros and with the L6(0)
+pattern (Assessment, not a theorem).
 It gives no route to (MS):
 * finite (★) refinements of class 1 are blocked by sterile 1-points (S1/S3);
 * the Mordell representation carries no information beyond congruences for global polynomial certificates (C1).
@@ -467,3 +494,19 @@ in this version:
     now means the unit part of the closure in Cor S2's proof (stated via an explicit neighbourhood).
 
 No second review pass was run.
+
+## 9. Cross-model review
+
+`data/z58/xreview/REVIEW_MORDELL.md` (ACCEPT-WITH-FIXES; all numbers reproduced byte-for-byte). Fixed:
+1. **Scope in exports.** The title now reads "global polynomial certificate rigidity", with the class-1 / finite-menu
+   scope stated. Lemma P now says "contained in" an H_d residue or K_{u,B} class (example n = 6t + 2 ⊂ H₃).
+2. **L6 wording.** "accounts for" and "largely" are replaced by "consistent with" (Assessment, no attribution fraction).
+   The seven violators are stated to be those of SYNTH's R ≤ 8 sample, a lower bound.
+3. **S3.** The a = 0 inequality is corrected (0 < S + 1 < 4uB). Added the **exact B criterion** (u = ℓ − R; ∃ s with
+   1 ≤ 4us − ℓ ≤ u + 1 dividing u + 1), with proof and a computer check (`z58_mordell_sterileB.py`, 0 mismatches for
+   ℓ < 60). The counterexample (17, 14) shows that the S3 threshold alone is not sufficient.
+4. **§3.4 labels.** Described as 1-point-labelled groups, exact for the profinite point only. The pooled 156 996 hit
+   observations are prime–ℓ pairs.
+5. **Labels and fields.** The M_gen decimals are relabelled EVIDENCE-grade numerics (long double, no enclosure). §5 now
+   notes that the base ring class field (class group C₂⁴) is abelian; non-abelian data come only from higher-conductor
+   orders.
