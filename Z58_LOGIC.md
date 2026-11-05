@@ -125,7 +125,8 @@ composites.
 ≤ 8·10⁶), 1 413 odd squares, and the 285 composites of `composite_zeros_le8e6.txt` (list equality checked).
 
 **Census to N = 10¹⁰ (CERTIFIED: one exhaustive engine plus validation; `data/z58/logic/zeros_1e10_summary.txt`; full
-zero list `zeros_1e10.txt.gz`).** The run took ≈ 15 min with a 312 MB bitset.
+zero list `zeros_1e10.txt.gz`).** The run took ≈ 15 min with a 312 MB bitset. The engine lists the zeros with
+5 ≤ n ≤ 10¹⁰, n ≡ 1 (4); n = 1 (a square zero) is omitted, which affects no non-square count.
 
 *Validation.*
 * The 14 prime zeros it finds are exactly the certified (★) census to 10¹⁰ (FRONTIER §2.1; independent engines).
@@ -183,7 +184,7 @@ Per decade ⌊log₁₀ n⌋:
   * An argument for (MS) at threshold 10¹⁰ is *not* falsified by working for all non-squares in 𝔐: no such
     composite zero is known above 1.75·10⁷.
   * The factoring-on-Z_C part of Thm 3.1 is then vacuous. The hit-finding part is not.
-  * F1 (squares) is the only structural obstruction left in the 𝔐 domain.
+  * Within the census, F1 (squares) is the only observed obstruction in the 𝔐 domain above the conjectured cutoff.
 
 ## 5. Search complexity of witnesses
 
@@ -266,8 +267,10 @@ B2 status (Assessment).
 
 **Prop 5.4 (PROVED, elementary): the classical cheap searches are table searches.** Suppose a hit has two of its
 three coordinates bounded: u, B ≤ X, or u, C ≤ X, or B, C ≤ X. Then the hit is decided by p modulo a modulus ≤ 16X²:
-* (u, C): d = 4uC − 1 ≤ 4X² and the test is p mod d ∈ H_d;
-* (B, C): symmetric, with d′ = 4BC − 1 and r = B;
+* (u, C): d = 4uC − 1 ≤ 4X² and the test for these specified coordinates is p ≡ −u (mod d). (Membership
+  p mod d ∈ H_d only says that *some* hit with this d exists: p = 5, u = 1, C = 2 gives d = 7 and 5 mod 7 ∈ H₇, but
+  the actual hit is u = 2, C = 1.)
+* (B, C): symmetric, with d′ = 4BC − 1 and the test p ≡ −B (mod d′);
 * (u, B): p ≡ −(u + B) (mod 4uB).
 
 What this excludes (PROVED modulo OMEGA13 for the first item):
@@ -280,7 +283,8 @@ What this excludes (PROVED modulo OMEGA13 for the first item):
 *Consequence for Thm 3.1 (Assessment).* An S¹₂ proof of (MS) would supply a classical polynomial-time hit finder.
 * It could not be an exhaustive (u, C) or (B, C) search with polylog bounds.
 * It could be a growing (u, B) menu only if such menus succeed, which is open.
-* The only efficient search we know, (iii), needs factoring.
+* The only candidate efficient search we know, (iii), needs a factoring oracle, and it is polynomial only
+  CONDITIONALLY on (MS) + FQ_u(A) (Prop 5.5). The finite bound u_min ≤ 469 is EVIDENCE, not that theorem.
 
 So such a proof would contain a classical method for producing a divisor of some p + u, p + B or 4Cp + 1 in a
 prescribed class, beyond the excluded table searches. This is B2 in algorithmic dress. It is not a non-provability
@@ -338,6 +342,15 @@ writing (MS⁺★(P)) for the starred form of (MS⁺(P)):
   nonnegative integers form an initial segment of M's nonnegative cone. So M ⊨ (MS★) ⟺ ℕ ⊨ (MS★).
 * (c): R(121) = 0 by T1, and the other listed zeros are CERTIFIED (§4). ∎
 
+**Remark 6.3 (PROVED; the starred and Hit forms agree in IOpen).** In any discretely ordered ring with division
+with remainder (so in every model of IOpen), ∃u, B, C ≥ 1 (4uBC − u − B = n) ⟺ ∃d ≤ 2n Hit(n, d) for n ≥ 1.
+* (⇒) Put d := 4uC − 1 and r := u. Then n + r = Bd and 1 ≤ u ≤ (d + 1)/4 < d, so r is the remainder of −n mod d, and
+  r | (d + 1)/4 = uC. From n = Bd − u ≥ d − (d + 1)/4 we get 3d ≤ 4n + 1 ≤ 6n, so d ≤ 2n.
+* (⇐) Given the remainder r and the divisibility witnesses, put u := r, C := (d + 1)/(4r), B := (n + r)/d.
+So Theorem 6.2 transfers to the Hit forms (MS), (MS⁺(P)): IOpen ⊬ (MS⁺(P)), and, CONDITIONAL on the truth of (MS),
+IOpen + (MS) ⊬ (MS⁺(P)). The stars are kept in summaries for transparency. (Calculation supplied by the cross-model
+review, §8.)
+
 *What this says (Assessment).*
 * The counterexample n = 121 + 840t is a **pseudo-square**: it is congruent to the square 121 modulo every standard
   modulus, but it is not a square.
@@ -366,8 +379,8 @@ writing (MS⁺★(P)) for the starred form of (MS⁺(P)):
 
 * Sieve arguments cannot tell primes from products of two primes of comparable size (Selberg's parity barrier;
   standard, not re-verified here).
-* An argument for (MS) that only uses "n has no prime factor below n^θ" proves R(n) ≥ 1 for such rough n. By §4 it
-  is falsified by the balanced semiprime zeros: 2 956 321 = 211·14 011 (θ ≈ 0.359) and 897 961 = 443·2 027 (θ ≈ 0.445).
+* An argument for (MS) that only uses "n has no prime factor below n^θ" proves R(n) ≥ 1 for such rough n. If its
+  threshold is low enough to include them, it is falsified by the balanced semiprime zeros (finite range, §4): 2 956 321 = 211·14 011 (θ ≈ 0.359) and 897 961 = 443·2 027 (θ ≈ 0.445).
 * Both of these lie in 𝔐 classes (2 956 321 mod 840 = 361, 897 961 mod 840 = 1). Still, no composite zero of any shape
   occurs in 𝔐 above 1.75·10⁷ (to 10¹⁰).
 * So the parity barrier, as a falsifier for (MS) at threshold 10¹⁰, has **no data support** above 1.75·10⁷. It remains
@@ -406,7 +419,8 @@ What was computed:
   10¹⁰: 4 in-𝔐 prime zeros, 10 301 993 881, 10 529 331 121, 10 532 106 649 and 10 868 474 401 (12 R₈ prime zeros in
   all). So (MS⁺) for R carries the full-family content. Nothing here separates C odd from C even.
 * *Tied modulus (B2).* Untouched. FQ_u and Prop 5.4 restate it algorithmically.
-* *Fixed p.* Every statement here is at fixed p or is a Π₁ sentence over p. No averaging is used.
+* *Fixed p.* No pointwise positivity conclusion is deduced from the reported averages. (The memo does use averages,
+  Σ₂ formulations and infinitely-often assertions, but only descriptively or as barriers.)
 
 **Proposed FRONTIER text** (do not edit FRONTIER here).
 * §2.4 / §4 item F3:
@@ -416,14 +430,15 @@ What was computed:
   > for 𝔐 primes on [10⁷, 10⁸]. Of the 285 composite zeros ≤ 8·10⁶, 270 lie outside 𝔐.
   > CONJECTURE (MS⁺): R(n) ≥ 1 for all non-square n > 17 401 609 in 𝔐 classes. It implies (MS), and its hypothesis
   > is decidable in polynomial time without primality.
-  > Caveat (PROVED): IOpen ⊬ (MS⁺), via the pseudo-squares n₀ + 840t (e.g. 121 + 840t) of Shepherdson's model.
-  > CONDITIONAL on (MS) being true: IOpen + (MS) ⊬ (MS⁺) (starred (★)-forms, `Z58_LOGIC.md` §6.1).
+  > Caveat (PROVED): IOpen ⊬ (MS⁺★), via the pseudo-squares n₀ + 840t (e.g. 121 + 840t) of Shepherdson's model.
+  > CONDITIONAL on (MS) being true: IOpen + (MS★) ⊬ (MS⁺★). Here ★ marks the (★)-solution form; it is IOpen-equivalent
+  > to the Hit form (`Z58_LOGIC.md` §6.1, Remark 6.3).
 * §3 B1:
   > *(z58.)* d_min(p) ≥ W(p) (H_d ⊆ 𝓡(d)), so the number of trial d is superpolylog i.o. (modulo OMEGA13).
   > An S¹₂ proof of (MS) would give a polynomial-time hit-or-factor algorithm (Buss witnessing). Polylog (u, C) and
   > (B, C) searches fail i.o.; growing (u, B) menus are open.
-  > The only efficient search known is factor-based: u_min ≤ 469 for all primes p ≡ 1 (4) ≤ 10⁹.
-  > (MS) + FQ_u ⟹ search ∈ FP^FACTOR.
+  > A candidate polynomial-time factoring-oracle search is the shift search, conditional on (MS) + FQ_u(A):
+  > then the search is in FP^FACTOR. EVIDENCE: u_min ≤ 469 for all primes p ≡ 1 (4) ≤ 10⁹.
 
 **Bottom line.** (MS) is a Π₁ sentence. If it is independent it is true; this is cold comfort, and we know of no
 *natural number-theoretic* Π₁ statement proved independent of PA (Friedman's combinatorial Π₁ examples exist;
@@ -436,8 +451,8 @@ What was computed:
   producing a divisor of some p + u, p + B or 4Cp + 1 in a prescribed class. That method must lie beyond the excluded
   polylog (u, C)/(B, C) searches.
   * Empirically such divisors are abundant at tiny u.
-  * So the obstacle is B2 itself, now stated as a search problem: in FP^{FACTOR} conditionally on FQ_u, not known
-    to be in FP.
+  * So the obstacle is B2 itself, now stated as a search problem: in FP^{FACTOR} conditionally on (MS) + FQ_u(A),
+    not known to be in FP.
 
 ## 8. Review log and replay
 
@@ -461,6 +476,19 @@ What was computed:
 
 The reviewer reran the 10⁸ and 10⁹ zero sieves, means and minwit at 10⁹, the classifier, the Z1018 comparison and the
 independent decider. All reproduced; tables are in the review file.
+
+**Cross-model review** (`data/z58/xreview/REVIEW_LOGIC.md`, ACCEPT-WITH-FIXES). All five required fixes were applied:
+* (1) the shift search is called a *candidate* polynomial-time factoring-oracle search, conditional on (MS) + FQ_u(A)
+  (§5, §7);
+* (2) Prop 5.4's exact tests are p ≡ −u (mod d) and p ≡ −B (mod d′), with the p = 5 example;
+* (3) the starred forms are kept in the FRONTIER proposal, and Remark 6.3 proves the IOpen equivalence;
+* (4) the slogans are scoped: "only observed obstruction … within the census", the parity falsification is limited to
+  thresholds that include the examples, and "no averaging" became "no pointwise positivity from averages";
+* (5) the census lower endpoint is stated (5 ≤ n; n = 1 omitted).
+
+The review also independently re-sieved to 10⁹ with a different loop order: exact archive equality. It reclassified the
+whole 10¹⁰ archive, confirmed C_min = 76 141 at 564 661 441, and confirmed R₈ = 0 at the four in-𝔐 R₈ zeros.
+Archive SHA256: e41709bcd38768c38d71d39813f4475b1815cc1995671496044fed1d197cac71.
 
 **Replay** (each command under `ulimit -v 4000000` and `timeout 1800`):
 ```
