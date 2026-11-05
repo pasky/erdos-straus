@@ -119,6 +119,12 @@ than the c = 1 line, consistent with 3 vs 14 zeros; the minimum of the a = 1 cou
 (c = 1: 2 ordered). The two lines have identical naive expectation Σ_f τ((f+1)/4)/f (one witness per f at most in each),
 so the difference is entirely the a ↔ b double counting plus correlation structure.
 
+**Recommendation.** If a future lane wants a single sub-line, take the a = 1 line: ∃ d ≥ 1 with p + 4d having a divisor
+≡ −1 (mod 4d) (equivalently ∃ c: cp + 1 has a divisor ≡ −1 (mod 4c)). It is exactly the x ≡ 0 (mod 4), "p + x" half of
+the HC criterion (p + x has a divisor ≡ −1 (mod x)), has zeros only at 193, 2521, 66529 below 10⁸, and carries ≈ 0.12·log²p
+distinct solutions on average. Its "symmetric" part d | (p−1)/4 (where the cofactor is also ≡ −1 (mod 4d), i.e.
+p + 4d = (4dx − 1)(4dy − 1)) is the natural Mordell-type piece.
+
 ## §3 The one proved weaker result: a power-of-log exceptional set for the a = 1 line
 
 This is a density statement and does NOT resolve anything; it is recorded because it is cheap, apparently not stated in
@@ -187,6 +193,10 @@ satisfied by all squares (Remark after Lemma 1.5), so no finite chain can close 
 c = 1: p + t² is pronic, σ(σ−1); this is (2σ−1)² − (2t)² = 4p + 1, a binary-form/divisor problem again. The form (E5) with
 M = (p+σ)/4 ∈ [(p+3)/4, (p+1)/3] shows the problem is: some M in this interval has a factorisation abd with 4M − p | a + b.
 Nothing beyond re-encoding was obtained.
+
+(H) **σ-sum.** By (E5), R(p) = Σ_{σ ≡ 3 (4), σ ≤ (p+4)/3} #{(a,b) : ab | M_σ, σ | a + b}, M_σ = (p+σ)/4 (the bound σ ≤ (p+4)/3 is
+from σ ≤ a + b ≤ M_σ + 1). The inner count is τ₃(M_σ)/σ "on average" (τ₃ = #{ab | M}), giving the familiar ≍ log³p, but for
+an individual p it asks for the additive distribution of divisor pairs of M_σ modulo σ — again no individual tool.
 
 Conclusion (honest): every line reduces to "a specific integer of size ≍ p, determined by p and small parameters, has a
 divisor in a prescribed residue class", a problem with no individual-p tool; the only non-squareness input available
