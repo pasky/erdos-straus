@@ -155,8 +155,10 @@ via d_P (and some corner solutions); the two bookkeepings agree in size: 0.0703 
   limited to o(log X/log log X) by the level of distribution.
 * **Multiplicative links between different d.** For coprime d₁, d₂: n_{d₁d₂} ≡ n_{d_i} (mod d_i), but 4n_dC_d = d + 1 is a
   statement about the *integer* n_dC_d (branch k = 1 of 4n_dC_d = kd + 1, k ≡ 1 (mod 4)), not about residues; HIT(d₁) and
-  HIT(d₂) say nothing about HIT(d₁d₂) (checked numerically: at p = 10⁸ + 9 … the hit set {d} is not closed under any
-  of products, lcm, or divisors). The switch (n, m, C) ↦ (m, n, C) (`Z56_FAMATTACK` Lemma L(a)) maps HIT(d_P) to
+  HIT(d₂) say nothing about HIT(d₁d₂) (at p = 100 000 037 the 26 hits d ≤ p^{3/4} have 0 of their 48 pairwise products
+  ≤ p^{3/4} in the hit set; 9 of the 36 pairs a | b of a hit b and a 3 (mod 4) divisor a are both hits, 5 of them with
+  a = 3 — the trivial effect of p ≡ 2 (mod 3); `z57_bff_hitset_closure.py`). The only closure is within an n-line:
+  the divisors of p + n in the class −1 (mod 4n) are closed under taking divisors in that class — a restatement. The switch (n, m, C) ↦ (m, n, C) (`Z56_FAMATTACK` Lemma L(a)) maps HIT(d_P) to
   HIT(d_Q) with d_Pd_Q = 4Cp + 1 — it maps a hit to a hit and an empty set to an empty set.
 
 ### 2.3 What would suffice (the minimal statement, in this lane's coordinates)
