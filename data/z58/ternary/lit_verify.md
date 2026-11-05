@@ -14,35 +14,53 @@ Here `(·/p)` is the Legendre symbol, `a(x)=0` unless `x` is a nonnegative integ
 
 ## 2. Duke–Schulze-Pillot ternary representation theorem
 
-**Exact theorem statement (the safe theorem-level formulation).** Their main result is an asymptotic formula for primitive representations of positive integers by a positive-definite ternary quadratic form, with the main term the genus (equivalently, in the theorem’s setup, spinor-genus) average and an error that is smaller as the integer grows, subject to the local divisibility restriction at anisotropic primes. In particular it implies that sufficiently large locally represented integers satisfying that restriction are represented by the form. The exceptional anisotropic-prime condition is that the valuations of `n` at those primes are bounded; the result is ineffective because the error estimate uses Siegel’s theorem.
+**Source.** W. Duke and R. Schulze-Pillot, "Representation of integers by positive ternary quadratic forms and
+equidistribution of lattice points on ellipsoids", Invent. Math. 99 (1990) 49–57. Primary scan
+https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0099/LOG_0011.pdf (pp. 54–56 read by the z58 cross-model
+reviewer; this file's earlier paraphrase from metadata is replaced).
 
-**Source.** W. Duke and R. Schulze-Pillot, “Representation of integers by positive ternary quadratic forms and equidistribution of lattice points on ellipsoids,” *Inventiones Mathematicae* 99 (1990), 49–58 (often cited as 49–57), main theorem. EuDML record: https://eudml.org/doc/143750; publisher record: https://link.springer.com/article/10.1007/BF01234411.
+**Statements used.** Theorem 2(i): the genus representation number is the product of local densities (Siegel).
+Theorem 2(ii): spinor-genus and genus averages differ only on finitely many square classes t·m². Lemma 4(i): θ_L − θ_{gen L}
+is a cusp form. Lemma 4(ii) and the paragraph after it: the orthogonal complement U^⊥ of the unary theta series consists of
+the forms whose Shimura lifts are cuspidal (general level). Theorem 3 and its Corollary (p. 56): an asymptotic for
+representations with error n^{1/2−1/28+ε}, whose main term is the **spinor-genus** average, under square-part /
+congruence restrictions; the Corollary requires primitive representation by the spinor genus. It is *not* "every
+sufficiently large locally represented integer" without these qualifications. Large good primes avoid the finitely
+many exceptional square classes. Confidence: high (primary scan, via reviewer).
 
-**How verified.** EuDML/publisher bibliographic records read; primary full text not accessible in this verification. The description above is a paraphrase, **not** an exact quotation. Exact theorem hypotheses and its precise asymptotic error should be checked in the article before citation. Confidence: **medium-low**.
+## 3. Iwaniec's coefficient bound and Duke's weight-3/2 extension
 
-## 3. Iwaniec’s coefficient bound and Duke’s weight-3/2 extension
+**Iwaniec.** H. Iwaniec, "Fourier coefficients of modular forms of half-integral weight", Invent. Math. 87 (1987)
+385–401, Theorem 1, p. 386 (primary scan https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0087/LOG_0022.pdf,
+read by the cross-model reviewer): for a cusp form of actual weight κ ≥ 5/2 and squarefree n,
+|a(n)| ≪ n^{κ/2 − 2/7} τ(n)(log 2n)², i.e. exponent κ/2 − 1/4 − 1/28.
 
-**Iwaniec source/result.** H. Iwaniec, “Fourier coefficients of modular forms of half-integral weight,” *Inventiones Mathematicae* 87 (1987), 385–402 (the commonly cited pagination is 385–401), https://eudml.org/doc/143426. The result generally cited from this paper is, for a fixed holomorphic cusp form of half-integral weight `k/2` with `k` odd and `k/2 ≥ 5/2`, a squarefree-index bound of the shape
-
-> `a(n) ≪ n^{k/4−1/4−1/28+ε}`
-
-when the weight is denoted `k/2` (equivalently, with weight `κ`, `a(n) ≪ n^{κ/2−1/4−1/28+ε}`). This notation distinction matters: the proposed exponent `k/2−1/2−1/28` is equivalent if the symbol `k` denotes the full odd numerator of the weight. The bound applies to squarefree `n`; constants depend on the form and `ε`.
-
-**Duke extension.** W. Duke, “Hyperbolic distribution problems and half-integral weight Maass forms,” *Inventiones Mathematicae* 92 (1988), 73–90, https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf. Duke’s work treats the weight-`3/2` case using half-integral-weight Maass forms, extending the coefficient estimate/related distribution result to this lowest relevant weight; it is not a blanket replacement of Iwaniec’s holomorphic theorem in all weights.
-
-**How verified.** Iwaniec bibliographic record read at EuDML; Duke PDF search record and its introduction read (it explicitly says Iwaniec gave an estimate for holomorphic cusp forms of half odd-integral weight). Exact Iwaniec theorem statement not fully checked against the paper. Confidence: **medium**; exponent above clarified by distinguishing `k` (odd numerator) from actual weight `κ=k/2`.
+**Duke.** W. Duke, "Hyperbolic distribution problems and half-integral weight Maass forms", Invent. Math. 92 (1988)
+73–90 (https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf): eq. (1.2) recalls Iwaniec's bound; p. 76 states
+that Theorem 5 includes holomorphic weight 3/2, giving exponent 13/28 = 3/4 − 2/7 for weight 3/2 (squarefree n, forms
+orthogonal to unary thetas; DSP Lemma 2 gives the general-character version). Duke's Theorem 1 concerns fundamental
+discriminants and a fixed region, not exact hypercycle incidences. Confidence: high (primary, via reviewer).
 
 ## 4. Waldspurger and Kohnen–Zagier central-value formula
 
-**Exact quotation (Kohnen–Zagier, Theorem 1).** For a normalized Hecke eigenform `f∈S_{2k}` on `SL₂(Z)`, and its corresponding form `g=Σc(n)q^n∈S_{k+1/2}` on `Γ₀(4)`, for a fundamental discriminant `D` with `(-1)^kD>0`, their displayed theorem is
+**Waldspurger.** J.-L. Waldspurger, "Sur les coefficients de Fourier des formes modulaires de poids demi-entier",
+J. Math. Pures Appl. 60 (1981) 375–484; primary PDF https://mate.dm.uba.ar/~nsirolli/files/waldspurger.pdf (I §§1–4,
+Corollary 2 p. 379, proof pp. 483–484, read by the cross-model reviewer). His level N is the memo's 4N, his weight
+numerator k is 3; weight 3/2 is restricted to U^⊥. With χ₀ = ψχ_{−1} the relevant twist is φ ⊗ χ₀^{−1}χ_t = φ ⊗ ψ̄χ_{−t}
+(= χ_{−4p} for ψ = 1, p ≡ 1 (4)). **Corollary 2:** if n₁/n₂ ∈ ℚ_q^{×2} for every q dividing the level, then
+a(n₁)²·L(½, φ ⊗ ψ̄χ_{−n₂})·ψ(n₂/n₁)·n₂^{1/2} = a(n₂)²·L(½, φ ⊗ ψ̄χ_{−n₁})·n₁^{1/2}. It requires neither odd N/4 nor complete
+bad-prime eigenvectors; the proof's last paragraph removes (H2) in the same 2-adic square class, and (H1) is automatic if
+the half-integral eigenspace exists (Prop. 2). A 0 = 0 ratio (all L-values vanishing) gives nothing. The general
+factorisation "a(t)² = C(class of t)·t^{1/2}·L(½, …)" used as (W-loc) in the memo is not asserted by this corollary and
+stays a hypothesis; for non-quadratic ψ the factor ψ(n₂/n₁) must be kept.
 
-> `c(|D|)²/(g,g) = ((k−1)!/(π^k)) · |D|^{k−1/2} · L(f,D,k)/(f,f)`.
+**Kohnen–Zagier.** W. Kohnen and D. Zagier, Invent. Math. 64 (1981) 175–198, Theorem 1 (full PDF read:
+https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01389166/fulltext.pdf): for level one and g in the plus space,
+c(|D|)²/⟨g,g⟩ = ((k−1)!/π^k)·|D|^{k−1/2}·L(f, D, k)/⟨f,f⟩. The plus space vanishes at n ≡ 1 (mod 4) in weight 3/2, so it is
+not the relevant statement for p ∈ 𝔐. Confidence: high.
 
-The paper’s formula is printed as equation (3) in Theorem 1. For arbitrary scaling of `g`, use `|c(|D|)|²`; the theorem’s normalization conventions for Petersson products are stated immediately there. This is the level-one case; Kohnen’s later work treats odd squarefree levels under the corresponding newform/plus-space hypotheses.
-
-**Source.** W. Kohnen and D. Zagier, “Values of L-series of modular forms at the center of the critical strip,” *Inventiones Mathematicae* 64 (1981), 175–198, Theorem 1; full PDF: https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01389166/fulltext.pdf. J.-L. Waldspurger, “Sur les coefficients de Fourier des formes modulaires de poids demi-entier,” *Journal de Mathématiques Pures et Appliquées* 60 (1981), 375–484 (general representation-theoretic formula; KZ cite the 1981 result).
-
-**How verified.** Read the full Kohnen–Zagier PDF, including Theorem 1 and equation (3). Note its exact printed coefficient is `((k−1)!/π^k)`, under its Petersson norm conventions. Confidence: **high** for level one; the wider odd-squarefree-level statement is not quoted as KZ Theorem 1.
+**Secondary.** C. Darreye, arXiv:2007.06224 §2 (read): Shimura/Niwa lift and a Waldspurger statement for N odd and
+complete eigenforms, twist ((−1)^k t/·)χ.
 
 ## 5. Cohen Eisenstein series and Hurwitz class numbers
 
@@ -92,7 +110,7 @@ complement of the subspace spanned by single variable theta-functions", followed
 a(tn²)n^{ℓ−1/2} = a(t) Σ_{d|n} μ(d)(((−1)^ℓ t)/d) χ(d) d^{ℓ−1} λ(n/d) (normalized coefficients) and Deligne's bound.
 Primary (Shimura 1973; Niwa, Nagoya Math. J. 56 (1975)) not re-read. Confidence: medium-high (standard statement).
 
-## 9. Corrections after internal review (lane)
+## 9. Corrections after internal review (lane; §§2–4 above were rewritten in place after the cross-model review)
 * §2 (Duke–Schulze-Pillot): the theorem concerns primitive representations with bounded divisibility at anisotropic
   primes and has spinor-exception qualifications (finitely many square classes t·m²); genus and spinor-genus averages
   are not interchangeable for all integers. The memo only uses it for large primes outside those classes.

@@ -1,4 +1,4 @@
-# Z58_TERNARY — the half-integral-weight escape E1: odd squares kill the genus main term of every ternary-theta proxy exactly on the local class of the squares (= 𝔐 at level 840); what is left is a pure cusp / Waldspurger problem
+# Z58_TERNARY — the half-integral-weight escape E1: for ternary-theta proxies with one scalar nebentypus, vanishing at prime squares kills the genus main term on the unit local class of the squares 𝒞₁ (which is exactly 𝔐 at level 840); what is left there is a pure cusp / Waldspurger problem
 
 Status: z58 follow-up lane TERNARY (brief `z52bbriefs/z58_lanes.md` §TERNARY; common rules `z52bbriefs/z53_depth.md`).
 Internal; internally reviewed only (§8). **ES is OPEN; nothing here proves or disproves ES, (★), or (MS).**
@@ -9,7 +9,7 @@ Scripts `scripts/z58_ternary_*`, data `data/z58/ternary/` (< 100 kB). Read: `Z58
 `BRAINSTORM/bsB_theta_multiplier.md`; `git grep` Duke / spinor / ternary / Hurwitz. Literature checks:
 `data/z58/ternary/lit_verify.md`.
 
-**Verdict: narrowed** (a scoped no-go, unconditional where AUTOMORPH's was conditional, plus a named escape). No HOT LEAD.
+**Verdict: narrowed** (a scoped no-go, unconditional relative to standard proved inputs, which in its class replaces AUTOMORPH Prop C(b) on the square class; plus named escapes). No HOT LEAD.
 
 ---
 
@@ -25,7 +25,7 @@ certificate, made pointwise by the Duke–Iwaniec template (Eisenstein part ≫ 
 | **F1 odd squares** | AUTOMORPH noted that squares and primes decouple through Hecke structure in half-integral weight, so F1 "does not bind the same way". **Theorem F (§3, PROVED rel. cited inputs) refines this: F1 binds through the genus (Eisenstein) part.** If g(ℓ²) = 0 for all large primes ℓ (which T1 forces on a valid proxy), the genus part of g vanishes identically on the joint *unit* local class 𝒞₁(2N) of the squares. At level 4N = 840 this class is, mod 840, *exactly* 𝔐 (Cor F1: 𝔐 = the squares of (ℤ/840)^×). So non-squareness is used at the Siegel local-density step; after it, the genus main term can survive (at primes p ∤ 2N) only on unit non-square classes — classes not excluded by the Mordell–Schinzel square obstruction (which is not the same as having a known identity). |
 | **F2 C-even sub-line** | The proxies see C only through discriminants −4Cp and 2-adic data; nothing examined separates C odd from C even. Theorem F is negative and line-blind, so it proves nothing false; no positive statement is made. |
 | **F3 composites** | Not needed by Theorem F (which, in the ternary-theta class, replaces AUTOMORPH Prop C's conclusion on the square class without (H_E) or composite data). Finite data (§5, n ≡ 1 (4), n ≤ 10¹⁰): 17 Shimura-orbit zeros t·m² (t prime), only one with m coprime to 105, none with m coprime to 1155; *non-square* composite zeros coprime to 105 end at 29 210 401; in 𝔐 at 17 401 609 (LADDER, to 10¹¹). Every non-square composite zero in (3·10⁷, 10¹⁰] has a factor 3, 5 or 7 (EVIDENCE, finite range). In this range composites constrain an E1 proxy only through 3, 5, 7; no asymptotic claim. |
-| **F4 known zeros** | Nothing is proved positive. In the pure-cusp regime left by Thm F, a valid single-eigenform proxy whose Waldspurger local factor is non-zero on the class must vanish at the in-𝔐 (★)-zeros, i.e. L(½, F ⊗ ψ̄χ_{−4p}) = 0 there. Screen (§4.2, ψ = 1, EVIDENCE): for 15 distinct L-functions of conductor supported on {2,3,5,7}, the twists either have root number −1 on the class (proxy ineffective) or numerically non-vanishing central value at ≥ 2 of the 4 smallest in-𝔐 zeros (proxy invalid or, if its local factor vanishes, ineffective). |
+| **F4 known zeros** | Nothing is proved positive. In the pure-cusp regime left by Thm F, a single-eigensystem proxy for **R-support** (g(p) ≠ 0 ⟹ R(p) ≥ 1) that is non-zero on the class must vanish at the in-𝔐 (★)-zeros, i.e. L(½, F ⊗ ψ̄χ_{−4p}) = 0 there. Screen (§4.2, ψ = 1, EVIDENCE): for 15 distinct L-functions of conductor supported on {2,3,5,7}, the twists either have root number −1 on the class (proxy ineffective) or numerically non-vanishing central value at ≥ 2 of the 4 smallest in-𝔐 zeros. This constrains R-support proxies only; **Type II support is not constrained by R-zeros** — all four screened zeros have Type II witnesses with c > 1 (§4.2). The 38 𝔊*-zeros would add their own constraints for 𝔊*-support; not screened. |
 
 ---
 
@@ -35,7 +35,8 @@ R(n) = #{(u,B,C) ∈ ℕ³ : 4uBC − u − B = n}; N_II(n) = #{(a,b,c,d) ∈ �
 𝔐 = {1, 121, 169, 289, 361, 529} ⊂ ℤ/840.
 
 **Q-T (construction).** Is there a lattice family / class-group or Heegner count G(p) of power size such that
-G(p) ≠ 0 ⟹ R(p) ≥ 1 (or N_II(p) ≥ 1) for primes p ∈ 𝔐, and G(p) ≠ 0 follows (even ineffectively) from
+G(p) ≠ 0 ⟹ R(p) ≥ 1 (*R-support*) or G(p) ≠ 0 ⟹ N_II(p) ≥ 1 (*Type II support*; a weaker validity requirement, with
+fewer zeros) for primes p ∈ 𝔐, and G(p) ≠ 0 follows (even ineffectively) from
 Duke–Schulze-Pillot / Iwaniec / Siegel?
 
 **Q-N (scoped no-go).** Show in a precise class that representation by forms cannot force the tied divisor event
@@ -102,6 +103,8 @@ genus condition (d), and that is exactly what T1 and Theorem F act on.
 definite ternary ℤ-lattices whose theta series lie in this space (so the level of each Lᵢ divides 4N),
 h ∈ S_{3/2}(Γ₀(4N), ψ), and
 (H_δ) det Lᵢ / det Lⱼ ∈ ℚ^{×2} for all i, j (Remark F3: automatic for one scalar nebentypus).
+*Determinant convention:* Lᵢ carries Q(x) = xᵀAx with A the (half-integral) Gram matrix of Q, and det L := det A (so
+det⟨1,1,1⟩ = 1, not det(2A) = 8); ε₀ = (−det L/ℓ) refers to this convention.
 E := Σ cᵢ θ_{gen Lᵢ} (Siegel genus averages). 𝒞₁(2N) := {n ≥ 1 : n ∈ (ℤ_ℓ^×)² for every prime ℓ | 2N}
 (n ≡ 1 mod 8 and n a non-zero square mod each odd ℓ | N).
 
@@ -112,7 +115,8 @@ E := Σ cᵢ θ_{gen Lᵢ} (Siegel genus averages). 𝒞₁(2N) := {n ≥ 1 : n 
   determinant mod squares (O'Meara 92:2). For ℓ ∤ 2N, Lᵢ ⊗ ℤ_ℓ is unimodular (level | 4N). At such ℓ, with
   ε₀ := (−det L/ℓ): α_ℓ(L, 1) = 1 + ε₀/ℓ and α_ℓ(L, ℓ²) = 1 − ℓ^{−2} + ℓ^{−1}α_ℓ(L, 1) (standard unimodular ternary
   densities; supplied by the internal review; consistent with the numerics of (S4)).
-* (S2) θ_L − θ_{gen L} ∈ S_{3/2}(Γ₀(4N), ψ) (Siegel–Weil: the genus theta is the Eisenstein projection).
+* (S2) θ_L − θ_{gen L} ∈ S_{3/2}(Γ₀(4N), ψ) (Duke–Schulze-Pillot 1990, Lemma 4(i), primary scan read by the
+  cross-model reviewer; Siegel–Weil). DSP Theorem 2(i) is the genus density product used in (S1).
 * (S3) S_{3/2} = U ⊕ U^⊥, U spanned by a fixed linearly independent basis of unary theta series
   h_{χ,t} = Σ_{m∈ℤ} χ(m) m q^{tm²} with χ odd *primitive* and the usual admissibility 4t·cond(χ)² | 4N (imprimitive
   series are first rewritten through old unary series h_{χ,tk²}); U, U^⊥ are stable under T(ℓ²), ℓ ∤ 4N, and U^⊥ has a
@@ -124,7 +128,8 @@ E := Σ cᵢ θ_{gen Lᵢ} (Siegel genus averages). 𝒞₁(2N) := {n ≥ 1 : n 
   as FAIL only because the script divides by r(1)). These are coefficient identities, not full eigenform tests.
 * (S5) For a simultaneous good-prime eigenform h ∈ U^⊥ with h(1) ≠ 0, the Shimura lift Sh₁h is a non-zero cusp form in
   S₂(Γ₀(2N), ψ²) intertwining the good Hecke operators (Shimura 1973; Niwa 1975 for orthogonality to unary thetas in
-  weight 3/2 — secondary source Darreye arXiv:2007.06224 §2, read, stated there for complete eigenforms); decomposing
+  weight 3/2 — DSP 1990 Lemma 4(ii) and the following paragraph identify U^⊥ with the forms having cuspidal Shimura
+  lifts, general level, primary scan read by the cross-model reviewer; also Darreye arXiv:2007.06224 §2); decomposing
   it into newforms, Deligne / Eichler–Shimura give |λ_h(ℓ)| ≤ 2√ℓ for good ℓ.
 
 **Theorem F (PROVED relative to (S1)–(S5)).** If g(ℓ²) = 0 for all sufficiently large primes ℓ, then
@@ -173,9 +178,14 @@ class 𝒞 (a fixed class in ℤ_ℓ^×/ℤ_ℓ^{×2} for each ℓ | 2N), E is a
 2N this fails: x²+y²+z² at level 12 has E(9)/E(1) = 5 ≠ B(9)/B(1) = 3, the density at 3 changes — internal review.)
 After Theorem F the genus main term can be non-zero, at primes p ∤ 2N, only on classes 𝒞 ≠ 𝒞₁: p ≢ 1 (mod 8) or p a
 non-residue modulo some odd ℓ | N. On the square class, fixed-modulus polynomial identities are excluded
-(Mordell–Schinzel; `POINTWISE_TERNARY` Cor 3.2); on the other classes they are *not excluded* — which is not the same
-as known to exist. Assessment: in half-integral weight, the Duke template's main term survives F1 only on classes that
-the square obstruction leaves open to congruence coverings.
+(Mordell–Schinzel; `POINTWISE_TERNARY` Cor 3.2) *for that same modulus*; on the other classes they are *not excluded*
+— which is not the same as known to exist. The square obstruction is relative to the modulus of the identity: a class
+that is a square mod 840 can split into finer classes that are not squares, and those can carry identities. Example
+(cross-model review): n ≡ 8401 (mod 9240) lies in 1 (mod 840), but n ≡ 8 (mod 11) gives the fixed (★) recipe
+(u, B, C) = (3, (n+3)/11, 1); this primitive class contains infinitely many primes. So Theorem F says nothing against
+identities or other encodings of finer modulus; it is a statement about the genus part at one fixed level. Assessment:
+at a given level, the Duke template's main term survives F1 only on classes that the square obstruction at that level
+leaves open.
 
 **Remark F3 (on (H_δ)).** If all θ_{Lᵢ} lie in one space M_{3/2}(Γ₀(4N), ψ), the theta transformation law identifies
 the quadratic nebentypus of θ_{Lᵢ} with the character of det Lᵢ (up to a convention-dependent factor common to all i),
@@ -213,10 +223,15 @@ a consequence, not a refutation.
 
 ### 4.2 Pure-cusp regime (the regime Theorem F forces on 𝒞₁ ⊇ 𝔐)
 g(p) = h⊥(p) = Σⱼ hⱼ(p) — a *sum* of eigenform coefficients; the following concerns a single eigenform h. Waldspurger's
-theorem (Waldspurger 1981, cited, not re-read) gives h(t)² = C_h(t)·t^{1/2}·L(½, F ⊗ ψ̄χ_{−t}) for squarefree t, where
-F = Sh(h), ψ is the nebentypus and C_h(t) is a local factor depending on t only through its classes at the primes
-dividing 4N (the form in which Darreye arXiv:2007.06224 §2 states it is for N odd and complete eigenforms; level 840 has
-N = 210 even, so we take the local-class dependence as hypothesis **(W-loc)**). The Kohnen–Zagier plus-space formula
+theorem in the form we need is Waldspurger 1981 (J. Math. Pures Appl. 60), Corollary 2, p. 379 (primary PDF read by
+the cross-model reviewer; his level is our 4N, weight 3/2 restricted to U^⊥): for n₁, n₂ with n₁/n₂ ∈ ℚ_q^{×2} at every
+q dividing the level, a(n₁)²·L(½, F ⊗ ψ̄χ_{−n₂})·ψ(n₂/n₁)·n₂^{1/2} = a(n₂)²·L(½, F ⊗ ψ̄χ_{−n₁})·n₁^{1/2}, F the Shimura
+eigensystem. It needs neither odd N nor complete bad-prime eigenvectors (the proof's last paragraph removes (H2) in the
+same 2-adic square class). For ψ = 1 and p in one 𝔐 class this is a constant-ratio relation between h(p)² and
+p^{1/2}L(½, F ⊗ χ_{−4p}) *whenever some anchor L-value in the class is non-zero* (if all vanish it is 0 = 0 and gives
+nothing). The stronger general factorisation h(t)² = C_h(class of t)·t^{1/2}·L(½, F ⊗ ψ̄χ_{−t}) remains hypothesis
+**(W-loc)**; for non-quadratic ψ the character factor ψ(n₂/n₁) must be kept (for non-empty scalar ternary-theta
+combinations ψ is quadratic). The Kohnen–Zagier plus-space formula
 (Thm 1, read) does not apply: the plus space vanishes at n ≡ 1 (mod 4). For p ∈ 𝔐 and ψ = 1 the twist is χ_{−4p}. Under
 (W-loc), C_h is constant on each 𝔐 class, and there are two cases:
 * C_h = 0 on the class: h vanishes there — trivially valid, ineffective;
@@ -227,7 +242,7 @@ N = 210 even, so we take the local-class dependence as hypothesis **(W-loc)**). 
 * sizes: |h(p)| ≪ p^{1/2−1/28+ε} (Iwaniec 1987 / Duke 1988, cited), against R(p) ≍ log²p on average — no contradiction
   either way; the cusp coefficient carries no main term to beat.
 
-**Screen (EVIDENCE, ψ = 1 only; `scripts/z58_ternary_waldspurger.py`, `data/z58/ternary/waldspurger_screen.txt`).** 16
+**Screen (EVIDENCE, ψ = 1 only, R-support only; `scripts/z58_ternary_waldspurger.py`, `data/z58/ternary/waldspurger_screen.txt`).** 16
 Weierstrass models = 15 distinct L-functions (elliptic curves of conductor 14, 15, 20, 21, 24, 27, 30, 32 (two
 isogenous models), 35, 36, 42, 45, 48, 56, 63 — conductor supported on {2,3,5,7}; a sample, not an enumeration of all
 newforms of these levels; Shimura preimages would have level 4N with N | 2^a3^b5^c7^d, existence not checked), twist
@@ -241,7 +256,11 @@ newforms of these levels; Shimura preimages would have level 4N with N | 2^a3^b5
 * rank-2 twists occur at zeros and controls alike: 11/56 vs 14/112 row-weighted, 9/52 vs 14/104 after removing the
   duplicate conductor-32 row; a small and correlated sample, no statistical conclusion.
 * Conclusion (EVIDENCE): none of the 15 tested L-functions supports a simultaneously valid and effective
-  single-eigenform proxy under (W-loc) with ψ = 1. Linear combinations of eigenforms are not excluded by this
+  single-eigensystem **R-support** proxy (valid at the screened primes) with ψ = 1, using Waldspurger Cor 2 with the
+  non-vanishing zero-prime values as anchors. It does **not** constrain Type II support proxies: the four screened
+  R-zeros have Type II witnesses (a,b,c,d) with c > 1 — 5569 → (3,472,5,1), 9601 → (3,835,2,1),
+  83449 → (3,7072,5,1), 102001 → (1,26609,6,1) (4abcd = a + b + nc checked; supplied by the cross-model review). A sum of
+  different eigensystems is not one L-value and is not covered. Linear combinations of eigenforms are not excluded by this
   single-form screen (fitting the zero constraints is a separate linear-algebra problem), and a proxy only required to
   be valid above all screened primes is not constrained at all. Nothing here suggests a structural reason for
   validity.
@@ -271,8 +290,8 @@ Assessment: this is the old B2 / H-A wall seen from half-integral weight.
 ### 4.4 Gaps (honest list)
 * Mixed-nebentypus combinations (modular on Γ₁, outside the fixed-ψ Γ₀ space of Thm F) and non-genus Eisenstein
   series: only Σ_δ E_δ(1) = 0 follows.
-* (W-loc) and the general-level Waldspurger statement are cited, not verified from the primary source; the screen
-  covers ψ = 1 only.
+* (W-loc) (the general factorisation) remains a hypothesis; the comparison actually used is Waldspurger Cor 2. The
+  screen covers ψ = 1, R-support, single eigensystems only; analytic ranks are numerical (default precision).
 * Theorem F is about *support* proxies valid at squares; a signed minorant (AUTOMORPH Q2′) is not addressed.
 * Higher half-integral weight, theta series with characteristics, mock (Zagier-type) objects: expected to behave the
   same (Assessment), not proved.
@@ -297,43 +316,52 @@ Assessment: this is the old B2 / H-A wall seen from half-integral weight.
 
 **Verdict: narrowed.**
 * Q-T: no construction. Q-N: Theorem F (PROVED rel. Siegel / Siegel–Weil / Shimura–Niwa / Deligne) — for every
-  weight-3/2 proxy built from ternary theta series plus cusp forms, validity at the squares of primes forces the genus
-  main term to vanish on the joint local class of the squares, which at level 840 is exactly 𝔐 (Cor F1; unit classes, primes p ∤ 2N). On 𝔐 the
-  Duke template has nothing to work with: what remains is a sum of cusp-eigenform coefficients; for a single eigenform
-  (under (W-loc)) non-vanishing at all large primes of a class is an open Goldfeld-type problem (false on root-number
-  −1 classes), and for the 15 small-conductor L-functions tested (ψ = 1) no valid-and-effective single-eigenform proxy
-  exists (§4.2, EVIDENCE).
+  weight-3/2 proxy in one space M_{3/2}(Γ₀(4N), ψ) built from ternary theta series plus cusp forms (genus-theta
+  Eisenstein part), vanishing at the squares of large primes forces the genus main term to vanish on the unit local
+  class 𝒞₁ of the squares; 𝒞₁ is exactly 𝔐 at level 840 (Cor F1; this does not assert that E cannot vanish elsewhere).
+  For level with odd prime support in {3,5,7}, on 𝔐 (primes p ∤ 2N) the Duke template has nothing to work with: what
+  remains is a sum of cusp-eigenform coefficients. For a single eigensystem, non-vanishing at all large primes of a
+  class is an open Goldfeld-type problem (false on root-number −1 classes); for the 15 small-conductor L-functions
+  tested (ψ = 1) no valid-and-effective single-eigensystem **R-support** proxy exists (§4.2, EVIDENCE). Type II support
+  is not constrained by that screen.
 * This refines AUTOMORPH's E1 discussion (Hecke decoupling of squares and primes stays true; the genus part does not
-  decouple) and, in the ternary-theta class, replaces Prop C's conditional conclusion on the square class by an
-  unconditional one.
+  decouple) and, for genus-theta combinations with one ψ, replaces Prop C(b) on 𝒞₁ by an unconditional statement
+  (relative to standard proved inputs). It does not prove Prop C(a) on other classes or for arbitrary Eisenstein series.
 * Escapes left: E1′ (§4.3) — (a) bounded recipes plus a new thin-set (Planck-scale Heegner incidence) theorem,
   (b) growing-complexity / family recipes, (c) encodings outside fixed embeddings. Assessment: B2/H-A.
 
 **FRONTIER §4 hard screens (Theorem F as the best idea).** T1 squares: it *is* T1, used through local densities at the
 squares of primes. 8/131: line-blind (negative statement). Tied modulus: the tied event is the Planck-scale incidence of
-Lemma D(c); fixed-level forms cannot see it. Fixed p: statement is pointwise in p after the level is fixed.
+Lemma D(c); the genus part at a fixed level cannot see it (Theorem F) and one fixed bounded-complexity embedding
+cannot be certified by a generic-size representation theorem (POINTWISE Thm 4.1). No theorem here forbids all
+fixed-level encodings or finer-modulus identities (Remark F2). Fixed p: statement is pointwise in p after the level is fixed.
 
 **Proposed FRONTIER §6/§7 text (do not edit FRONTIER here).**
 > *Half-integral weight (z58 TERNARY, Thm F, PROVED rel. Siegel's formula, Siegel–Weil, Shimura/Niwa lift, Deligne).*
-> Let g ∈ M_{3/2}(Γ₀(4N), ψ) be a combination of ternary theta series plus cusp forms. If g(ℓ²) = 0 for all large primes ℓ
-> (forced by T1 on any valid support proxy), the genus part of g vanishes on every n that is a unit square at all
-> ℓ | 2N, and the t = 1 unary thetas (primitive basis) vanish. The squares of (ℤ/840)^× are exactly Mordell's 𝔐, so at level 840 every
-> valid proxy is a pure cusp coefficient at every 𝔐-prime: no main term for Duke–Iwaniec. Its non-vanishing is a
-> Goldfeld-type central-value problem (single eigenform, local factor non-zero); for 15 small-conductor L-functions
-> no single-eigenform proxy is both valid and effective (EVIDENCE). Remaining escapes: thin-set theorems for
+> Let g ∈ M_{3/2}(Γ₀(4N), ψ) (one scalar nebentypus) be a combination of ternary theta series plus cusp forms. If
+> g(ℓ²) = 0 for all large primes ℓ (forced by T1 on any support proxy valid at prime squares), the genus part of g
+> vanishes on 𝒞₁ = {n : n a unit square at all ℓ | 2N}, and the t = 1 unary thetas (primitive basis) vanish. 𝒞₁ is
+> exactly Mordell's 𝔐 at level 840 (squares of (ℤ/840)^×), so for levels with odd prime support in {3,5,7} every such
+> proxy is a pure cusp coefficient at every 𝔐-prime p ∤ 2N: no main term for Duke–Iwaniec. For a single eigensystem its
+> non-vanishing is a Goldfeld-type central-value problem; for 15 small-conductor L-functions no single-eigensystem
+> R-support proxy is both valid and effective (EVIDENCE; Type II support not constrained). Remaining escapes: thin-set theorems for
 > bounded recipes (Planck-scale Heegner incidences, Lemma D(c)), growing-complexity recipes, other encodings = B2.
-> Add to §6: "weight-3/2 / ternary-theta support proxies with a genus main term on Mordell's classes".
+> Add to §6: "weight-3/2 ternary-theta support proxies (one nebentypus, valid at prime squares) with a genus main term
+> on Mordell's classes".
 
 **Bottom line.** The brief asked whether half-integral weight — the classical technology for pointwise representation
 of a single large integer — can carry (MS). AUTOMORPH left it open because odd squares and primes sit in different
 Shimura orbits. They do, but the genus (Eisenstein) part does not care about orbits: by Siegel's formula, on integers
-prime to the level it depends on n only through local unit square classes and a common Euler product, so vanishing at the squares of primes kills it on the
-whole local class of the squares — and at level 840 that class is exactly Mordell's 𝔐. On the target classes a
-ternary-form proxy is therefore a pure cusp coefficient, with no main term to beat the cusp error; for a single eigenform, making it
-non-zero at every large prime is a Goldfeld-type problem, and none of the small-conductor eigenforms tested gives a
-proxy that is both valid at the known zeros and effective. Certificates themselves are Planck-scale incidences of Heegner points with explicit hypercycles, a measure-zero
-condition that representation and equidistribution theorems (positive-measure statements) do not see. Nothing here moves (MS); the wall is B2 again, now with a sharp
-half-integral-weight description.
+prime to the level it depends on n only through local unit square classes and a common Euler product. So, for a
+ternary-theta proxy in one modular-form space, vanishing at the squares of primes kills the genus part on the unit
+local class of the squares, which at level 840 is exactly Mordell's 𝔐. There such a proxy is a pure cusp coefficient,
+with no main term to beat the cusp error; for a single eigensystem, making it non-zero at every large prime is a
+Goldfeld-type problem, and none of the small-conductor eigensystems tested gives an R-support proxy that is both valid
+at the known zeros and effective (Type II support proxies are not constrained by this screen). The certificate
+condition itself is an exact incidence of a Heegner-point representative with an explicit hypercycle, a measure-zero
+condition that positive-measure representation and equidistribution statements do not see; this does not rule out
+finer-modulus identities, thin-set theorems or other encodings. Nothing here moves (MS); the wall is B2 again, now
+with a sharp half-integral-weight description.
 
 ## 7. Commands and files
 All runs under `ulimit -v 4000000` and `timeout` ≤ 1500.
@@ -364,3 +392,18 @@ All runs under `ulimit -v 4000000` and `timeout` ≤ 1500.
     with the r(1) = 0 row ineligible; decade counts corrected; duplicate-free 9/52 vs 14/104; "finitely many zeros can
     always be fitted" removed; novelty phrased as a refinement of AUTOMORPH; "verbatim" extension and the quaternary
     remark corrected; `dict_check` now exits non-zero on mismatch; literature notes amended (`lit_verify.md` §9).
+* **Cross-model review** (`data/z58/xreview/REVIEW_TERNARY.md`, ACCEPT-WITH-FIXES; Theorem F independently re-derived;
+  scripts and decisive screen values reproduced). Fixes applied:
+  1. R-support vs Type II support separated in Q-T, F4, §4.2, verdict, FRONTIER text and bottom line; the four screened
+     R-zeros have Type II witnesses with c > 1 (5569 → (3,472,5,1), 9601 → (3,835,2,1), 83449 → (3,7072,5,1),
+     102001 → (1,26609,6,1); checked).
+  2. Remark F2 and the "tied modulus" screen scoped: the square obstruction is relative to the identity's modulus
+     (counterexample n ≡ 8401 mod 9240 with recipe (3, (n+3)/11, 1)); no claim against finer-modulus identities or all
+     fixed-level encodings.
+  3. Literature: `lit_verify.md` §§2, 3, 4 rewritten in place with primary references (DSP 1990 Thm 2, Lemma 4,
+     Thm 3/Cor; Iwaniec 1987 Thm 1; Duke 1988 Thm 5; Waldspurger 1981 Cor 2); §4.2 now uses Waldspurger Cor 2 for the
+     same-class comparison (no odd-N requirement), keeps (W-loc) only for the general factorisation and keeps ψ(n₂/n₁).
+     (S2)/(S5) cite DSP Lemma 4.
+  4. Scope carried into title, verdict and FRONTIER text (one scalar nebentypus, genus-theta Eisenstein part, vanishing at
+     prime squares, unit classes, level restriction; "𝒞₁ is exactly 𝔐 at level 840", no converse); determinant convention
+     det A for Q(x) = xᵀAx stated; "unconditional" scoped to Prop C(b) on 𝒞₁ relative to standard proved inputs.
