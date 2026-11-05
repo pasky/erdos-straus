@@ -222,7 +222,7 @@ term is a power of n. This is exactly why Theorem A is provable (the main term S
 weight is applied afterwards) and E₂ is not: in E₂ the class condition d ≡ −1 (mod 4C) is imposed *inside* the
 divisor count, leaving a polylog main term.
 (b) *F2 is a theorem about E₂.* On the sub-family C even, the identical decomposition R₈ = M₂^{even} + E₂^{even} holds,
-Theorem A's proof gives M₂^{even}(p) ≫ log² p verbatim (restrict X-boxes to even C: halve the count), and the 12 F2
+Theorem A's proof gives M₂^{even}(p) ≫ log² p verbatim (C = 2C′, d | 8pC′+1: run Steps 2–6 with 8p in place of 4p), and the 12 F2
 primes have E₂^{even} = −M₂^{even}. So "E₂ > −M₂" is not a per-C, per-parity, or per-sub-family statement; a proof of it
 must exploit interactions between different C — e.g. that hits at C and at C′ are not independent — which no identity
 in §1 provides. Concretely, for the *same* prime, C ≡ C′ (mod q) couples 4pC+1 and 4pC′+1 only through the common prime
