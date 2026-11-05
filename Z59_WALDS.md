@@ -223,11 +223,12 @@ prime of N).
 weighted average of r_{L'}(n) ≥ 0 over the classes L' of the genus with positive weights, L among them; so r_L(n) = 0.
 (a): T1 at ℓ² and non-negativity give r_{Lᵢ}(ℓ²) = 0 for each cᵢ > 0. (b): a recipe-valid L has r_L(m²) = 0 for all odd
 m (T1). ∎
-Finite sanity check (§5.2): diagonal forms ⟨a,b,c⟩ that miss all odd squares ≤ 10⁴ represent no n ∈ 𝒞₁ ≤ 10⁴.
+Finite sanity check (§5.4): the 574 primitive diagonal forms ⟨a,b,c⟩ (c ≤ 24) that miss all odd squares ≤ 2·10⁴ represent no
+n ∈ 𝒞₁ ≤ 2·10⁴.
 
 **Consequence (scoped no-go, PROVED rel. cited inputs).** In the ternary-theta class (one ψ for W1/W2/W4, any ψ for
 W0), a proof of (MS) through a half-integral-weight proxy on 𝔐 needs *simultaneously*: (1) Gauss-exceptional
-eigensystems at the chosen level (none at the levels of §5); (2) a non-structural validity mechanism — an identity
+eigensystems at the chosen level (they occur — §5.2 — but every one found is non-zero at known (★)-zeros, §5.3); (2) a non-structural validity mechanism — an identity
 forcing g(n) = 0 at every R-zero of 𝒞₁ through cancellation between lattices, which by W5 cannot be "validity at large
 primes" itself; (3) non-cancellation of Σ K_φ A_φ(p) at every large 𝔐-prime — for one eigensystem a single-twist
 non-vanishing statement that GRH does not give and CKRS predicts to fail infinitely often.
