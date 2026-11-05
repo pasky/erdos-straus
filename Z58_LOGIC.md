@@ -15,7 +15,7 @@ records how each theorem and the one new conjecture (MS⁺, §4) interact with t
 | **F1 odd squares** | (MS⁺) excludes squares explicitly. Squareness is decidable in polynomial time and squares factor trivially, so they put no computational obligation on a feasible proof (Thm 3.1). T1 itself is a *universal* (Π₁) statement with a uniform proof (Jacobi reciprocity). The prime zeros have no known uniform reason (§6, Assessment). |
 | **F2 C-even sub-line** | The logic theorems apply verbatim to R₈. In particular "R₈(p) ≥ 1 for 𝔐-primes p > P" is Π₁ and false at P = 10¹⁰ (CERTIFIED, Z57_SYNTH §2.1), so it is refutable in Robinson's Q (Prop 2.1(b)). No step of this memo distinguishes C odd from C even. The memo claims nothing that F2 would falsify, because it proves no positivity. |
 | **F3 composites** | Sharpened by new data (§4, CERTIFIED to 10¹⁰). Among non-square composites in Mordell's classes (n mod 840 ∈ 𝔐) the zeros of R end at **17 401 609**: none in (1.75·10⁷, 10¹⁰]. The 285 composite zeros of F3 are overwhelmingly outside 𝔐, mostly divisible by 3, 5 or 7. In 𝔐 the composite mean of R/L² is 0.1189 against 0.1246 for primes on [10⁷, 10⁸]. So primality beyond non-squareness is *not* visibly used by (MS) above 2·10⁷: (MS⁺) is consistent with all data (EVIDENCE). Thm 3.1 says a feasible proof of (MS) must factor any composite zeros in 𝔐 above 10¹⁷; if (MS⁺) holds there are none. |
-| **F4 known zeros** | Nothing here proves positivity. Prop 2.1: any counterexample to a Π₁ rung has a proof of falsity of length polylog(p). This is the logic reading of F4: the 14 (★)-zeros, 38 𝔊*-zeros and 12 R₈-zeros are *short refutations* of the corresponding rungs at thresholds below them. |
+| **F4 known zeros** | Nothing here proves positivity. By Prop 2.1, a counterexample p to a Π₁ rung yields a refutation in Q of length p^{O(1)}. This is the logic reading of F4: the 14 (★)-zeros, 38 𝔊*-zeros and 12 R₈-zeros are explicit refutations of the corresponding rungs at thresholds below them. (MS⁺) has threshold 17 401 609, above every known non-square zero in 𝔐 (largest prime one 8 813 281). |
 
 No HOT LEAD.
 
@@ -153,7 +153,7 @@ Per decade ⌊log₁₀ n⌋:
 
 **CONJECTURE (MS⁺).** R(n) ≥ 1 for every non-square n > 17 401 609 with n mod 840 ∈ 𝔐.
 * *Evidence.* There is no counterexample in (1.75·10⁷, 10¹⁰]. In 𝔐 the composite mean R/L² is within 5 % of the prime
-  mean. The composite zeros thin out by decade in the same way as the prime zeros.
+  mean. Both the composite and the prime zeros in 𝔐 end below 2·10⁷.
 * *Assessment.* Inside 𝔐, primality appears to enter (MS) only through non-squareness. This refines F3: the 285
   composites are a non-𝔐 small-n phenomenon, and the 𝔐-composite zeros end near 1.7·10⁷.
 * *Consequences.*
