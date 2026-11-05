@@ -39,16 +39,19 @@ Scripts `scripts/z57_bfii_*`, data `data/z57/bfii/`.
   genus main term of the Type II sub-family with witness f < p (f-coordinates, §4.3) satisfies
   G(p) ≥ 10⁻¹⁰ (log p)³ for every large prime p ≡ 1 (4), already on the box p^{0.004} < a ≤ p^{0.006},
   p^{0.080} < c ≤ p^{0.085}, p^{0.90} < f ≤ p^{0.99} — i.e. from the c-lines with c ≈ p^{0.08}. (For comparison, the
-  c = 1 line's genus mass has mean ≍ log²p over p; no pointwise upper bound is proved here.) Identity behind it: the genus weight of target a·c⁻¹ equals that of the c = 1 target ac, so the
+  c = 1 line's genus mass has mean ≍ log²p over p heuristically — mean-preservation of the genus weights gives
+  Σ_{f<p} τ(m_f)/φ(f) — not proved here in the same coordinates, and no pointwise upper bound is proved.) Identity behind it: the genus weight of target a·c⁻¹ equals that of the c = 1 target ac, so the
   Type II genus term is the τ(u)-weighted (★)-genus term in f-coordinates.
 * **What c buys (§5; PROVED + EVIDENCE + Assessment).** (a) Not a free variable at fixed p: every slice is a single
   integer's divisor problem (Lemma 1.1(e)). (b) Larger target sets per modulus: a pointwise genus lower bound of order
-  log³p (Theorem G), against mean ≍ log²p for the c = 1 line; in a fixed witness block at p ≈ 10⁷ the observed relative
+  log³p (Theorem G), against a heuristic mean ≍ log²p for the c = 1 line; in a fixed witness block at p ≈ 10⁷ the observed relative
   deviation actual vs genus is ≈ 1.8× smaller for full Type II than for the c = 1 line (mean abs(A − G)/G = 0.20 vs 0.36),
-  and the worst block ratio actual/genus is 0.30 (vs 0 for c = 1) (EVIDENCE). (c) The order-≥3 remainder is untouched:
-  it equals −(genus term) at every square, for every sub-family, and controlling it at one p needs character information
-  of unbounded order at that p. Theorem G is pointwise, but only for the genus part.
-* **Verdict:** target not reached; the pointwise remainder problem is unchanged in kind by c (it gains a log p in the
+  and the worst block ratio actual/genus is 0.30 (vs 0 for c = 1) (EVIDENCE). (c) The order-≥3 remainder is not bounded
+  here: at every odd square A = G = X = 0 for every sub-family, and at p the Fourier expansion contains characters of
+  unbounded order for which no sufficient aggregate bound is supplied (Assessment: we found no way around this; this is
+  not a proved impossibility). Theorem G is pointwise, but only for the genus part.
+* **Verdict:** target not reached (lane outcome: narrowed / target unresolved). Assessment: the pointwise remainder
+  problem looks unchanged in kind by c (it gains a log p in the
   genus main term and, empirically, a constant factor in relative fluctuation). New PROVED items: target-set form,
   QNR-witness lemma and barrier, complete moduli (finiteness; list below 4000 certified), no finite covering, Theorem G.
   **ES is OPEN.**
@@ -60,7 +63,9 @@ corresponds to (a, b, c, d) ∈ ℕ⁴ with
 
   (2.15)  4abcd = a + b + nc,   (x, y, z) = (abd, acdn, bcdn),
 
-uniquely if gcd(a, b, c) = 1. Put N_II(n) := #{(a, b, c, d) ∈ ℕ⁴ : 4abcd = a + b + nc} (no gcd condition) and
+uniquely if gcd(a, b, c) = 1, **with gcd(abd, n) = 1**; conversely an N-point of (2.15) gives a Type II solution only when
+gcd(abd, n) = 1 (for composite n this can fail even for primitive (a, b, c): n = 63, (a, b, c, d) = (3, 6, 1, 1) solves
+(2.15) but gives (x, y, z) = (18, 189, 378) with gcd(x, 63) = 9; at primes it is automatic, Lemma 1.0). Put N_II(n) := #{(a, b, c, d) ∈ ℕ⁴ : 4abcd = a + b + nc} (no gcd condition) and
 f_II(n) := #Type II solutions (ordered (x, y, z)).
 
 **Lemma 1.0 (PROVED).** For a prime p: N_II(p) ≥ 1 ⟺ f_II(p) ≥ 1. *Proof.* Any (a, b, c, d) gives
@@ -214,9 +219,10 @@ of the sample means of A and G is 1.002.
 The target is pointwise in p. Each line below was pushed until it reduced to a statement about the single residue
 sequence (p mod f)_f at characters of order ≥ 3, which is where all of them stop.
 
-**5.1 c as an independent variable.** By Lemma 1.1(e) every pair of the three "outer" parameters (a, c, d) fixes a single
+**5.1 c as an independent variable (the slice identities are PROVED; the conclusion is Assessment).** By Lemma 1.1(e) every pair of the three "outer" parameters (a, c, d) fixes a single
 integer (p + 4a²d, cp + a or 4c²dp + 1) and a modulus tied to the pair, and the third parameter only indexes divisors of
-that integer. No slice has an averaging variable independent of p; e.g. the a = 1 slice is exactly the HC problem
+that integer. In these representations no slice has an averaging variable independent of p (Assessment: this does not
+prove that no reorganisation or summation over c can help); e.g. the a = 1 slice is exactly the HC problem
 "p + x has a divisor ≡ −1 (mod x)" at x = 4d. Summing over c inside a slice changes the integer (cp + a), not the
 modulus class of a fixed integer. (In the language of the brief: c *is* attached to p — it multiplies p in (2.15).)
 
@@ -227,9 +233,10 @@ q > p + a + b and when gcd(e, q) > 1, matching χ(e) = 0). Compared with the c =
 χ̄(a + b)), each modulus carries the multiplicatively smoothed weight σ_χ̄(a + b), whose size is τ(a + b) for χ trivial on
 the primes of a + b and heuristically ~τ(a + b)^{1/2} for random-looking χ — a plausible (unproved) mechanism for the
 smaller relative deviation observed in §4.4. Splitting real χ (genus
-part M_gen) from order ≥ 3 (X), Corollary 2.3 gives X(m²) = −M_gen(m²) for every sub-family (both are 0 there), and at
-p the factor χ(−p) is uncontrolled: bounding |X(p)| < M_gen(p) requires knowing p's residues mod 4ab up to characters
-of unbounded order, the same single-p problem as for (★) (`SINGLE_P_COUNT` §4). No averaging over c touches χ(−p).
+part M_gen) from order ≥ 3 (X), Corollary 2.3 gives A(m²) = M_gen(m²) = X(m²) = 0 for every sub-family, and at
+p the factor χ(−p) is uncontrolled: this expansion of |X(p)| < M_gen(p) involves p's residues mod 4ab at characters
+of unbounded order, and no sufficient aggregate bound for them is supplied here — the same single-p problem as for (★)
+(`SINGLE_P_COUNT` §4). In this expansion averaging over c does not touch χ(−p) (Assessment, not a proved barrier).
 
 **5.3 A log p larger main term (Theorem G, PROVED).** In f-coordinates the genus weight of a triple (a, c, d),
 f = 4acd − 1 < p, is
@@ -254,8 +261,8 @@ second pole appears with coefficient −1 and cancels the main term exactly, mat
 
 *Remarks.* (i) The constant 10⁻¹⁰ reflects the thin box only; no attempt was made to optimise (the natural constant is
 of the order of the 0.9·log₂ f-per-block slope). (ii) Theorem G is about the genus (real-character) part only; it
-says nothing about the actual count N_II(p). It does not change the verdict: the order-≥3 remainder also scales up (it
-equals −G at squares), so the needed inequality X(p) ≥ −(1 − ε)G(p) keeps its form. (iii) The proof (Appendix A) was
+says nothing about the actual count N_II(p). It does not by itself change the verdict: the needed inequality X(p) ≥ −(1 − ε)G(p) keeps its form, and no bound on
+the remainder X(p) at primes is proved (at odd squares A = G = X = 0, which gives no information on the size of X(p)). (iii) The proof (Appendix A) was
 written by a deep-mode subagent and checked by me line by line (hyperbola error bookkeeping, conductor claims, the
 exponents −0.1485, −0.000180, −0.000193, the local factor H/φ(4u) = (1 − 1/p)B_u/(4u)); it is also included in the
 hostile review of this memo.
@@ -263,7 +270,7 @@ hostile review of this memo.
 **5.4 Short-interval / sieve route.** Using only small e (form (a) with x = (p + e)/4 running over the consecutive
 integers in (p/4, p/4 + H]): failure at all e ≤ 4H means each x has its divisor set mod 4x − p avoiding −1 in the
 "a/b" sense — a simultaneous condition on H shifted integers. Sieves bound the number of n ≤ N with that property from
-above (a positive density decaying in H), never to zero for one given p; squares satisfy it for every H.
+above (a positive density decaying in H), never to zero for one given p; squares satisfy it for every H (Assessment).
 
 **5.5 What would suffice (CONDITIONAL; the implication is PROVED).** For a dyadic block put
 A_F(p) := Σ_{F<f≤2F, f≡3(4)} #{(a, c) : ac | m_f, a·c⁻¹ ≡ −p (mod f)} (actual solutions with witness in the block) and
@@ -275,8 +282,8 @@ there is F ∈ [p^{0.9}, ½p^{0.99}] with A_F(p) ≥ ½·G_F(p).
 A_F(p) > 0, and Lemma 1.1(d) gives a solution.
 SB is consistent with T1 — at n = m² both sides vanish, since −m²·c·a⁻¹ is never a square unit mod f ((−ac/f) = −1 by
 Lemma 2.1) — so all the non-squareness enters through G_F(p) > 0 (Theorem G's mechanism) and the ½. SB is not a
-standard conjecture and (Assessment) not implied by GRH, which controls χ(p) on average over characters, not the
-order-≥3 Fourier mass at one p. It is a single-prime equidistribution statement for the residues of p modulo the
+standard conjecture; standard GRH character-sum / primes-in-progressions estimates do not directly supply SB, and no
+implication from GRH is established here. It is a single-prime equidistribution statement for the residues of p modulo the
 witnesses in one dyadic block, at characters of all orders. §4.4 tested the analogous block statement at much smaller
 scale (f ∈ [2¹⁰, 2¹⁴), p ≈ 10⁷): there the ratio A/G was ≥ 0.30 for all 3087 primes (EVIDENCE only, and not in SB's
 range f ≥ p^{0.9}).
@@ -291,8 +298,10 @@ range f ≥ p^{0.9}).
 * EVIDENCE: mean N_II ≈ 0.076 log³p, min N_II ≈ 0.013 log³p (f_II: 0.012) on [10⁶, 10⁷); c ≥ 2 carries 86 % of
   solutions; observed relative block deviation from the genus term 1.8× smaller than for c = 1.
 * NOT PROVED: f_II(p) ≥ 1 for all large p. What the c-parameter gives is a log p in the (genus) main term and,
-  empirically, a constant factor in relative fluctuation. It gives no variable independent of p, and every solution has to contain a quadratic
-  non-residue certificate f ≥ n_p (Cor. 2.4).
+  empirically, a constant factor in relative fluctuation. Proved barriers: no finite witness covering (Prop. 3.2) and every
+  solution contains a quadratic non-residue certificate f ≥ n_p (Cor. 2.4). That the slice representations offer no
+  variable independent of p is Assessment, not a proved barrier. The literature lower bounds on n_p (Graham–Ringrose,
+  Montgomery) are quoted from memory and are not part of the PROVED inventory.
 
 ## 7. Reproduction
 
@@ -308,6 +317,19 @@ gcc -O2 -o /tmp/z57blk scripts/z57_bfii_block.c -lm && /tmp/z57blk 10000000 1010
 uv run --with numpy python scripts/z57_bfii_blockstats.py data/z57/bfii/block_1e7_f1024_16384.txt
 ```
 (All runs under `ulimit -v 6000000` and `timeout`.)
+
+## 8. Review log
+
+* Internal hostile review (deep, same model family): 4 SERIOUS + 9 MINOR issues, all fixed (rescue ranges, complete-moduli
+  scope, Prop. 3.2 replacing an invalid covering argument, growth/statistics wording, Lemma 2 period hypothesis,
+  fail-closed validators, enumerator documentation).
+* **Cross-model review** (`data/z57/xreview/REVIEW_BFII.md`, ACCEPT-WITH-FIXES): every PROVED claim incl. Theorem G and
+  Appendix A Lemmas 1–5 audited CORRECT; decisive computations reproduced (enumerator to 10⁷, both witness scans, complete
+  moduli, block statistics, slice checks). Required fixes applied: (1) the "remainder scales up because X = −G at
+  squares" inference removed (A = G = X = 0 there); unbounded-order / no-independent-variable statements relabelled
+  Assessment, proved barriers limited to Prop. 3.2 and Cor. 2.4; (2) gcd(abd, n) = 1 restored in the general-n ET
+  correspondence, with the n = 63 counterexample; (3) the GRH sentence in §5.5 replaced by "no implication established",
+  the c = 1 genus mean labelled heuristic, memory-quoted n_p lower bounds kept out of the PROVED inventory.
 
 ## Appendix A. Proof of Theorem G (PROVED)
 
