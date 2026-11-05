@@ -112,3 +112,65 @@ and the class number of the corresponding discriminant is 1. For p = t(t+1) + s�
 b ≡ 2 (mod 4), b = 2s, and p = ((a−1)/2)((a+1)/2) + s².) The 38 𝔊*-zero primes satisfy all of these (checked,
 `z57_bff_levels_check.py`, `data/z57/bff/levels_check.txt`), e.g. 564 661 441 = 23 408·23 409 + 4 087²,
 8p + 1 = 60 799² + 2·20 258², 12p + 1 = 82 253² + 3 222².
+
+## 2. The attack and where it stops
+
+### 2.1 The count and its "expected" size (PROVED identity; heuristic size)
+
+By Lemma 1.2, for D ≥ 3 put
+  H(p; D) := #{d ≡ 3 (mod 4), 3 ≤ d ≤ D : HIT(d)} = Σ_{n ≥ 1} Σ_{C ≥ 1, 4nC − 1 ≤ D} 1[(4nC − 1) | p + n].
+By Lemma 1.3, H(p; p^{3/5}) ≥ 1 ⟹ R_𝔊*(p) ≥ 1, and R_𝔊*(p) ≥ 1 ⟹ H(p; ⌊p^{3/4}⌋ + 1) ≥ 1. Writing
+1[d | p + n] = d⁻¹Σ_{a mod d} e(a(p + n)/d) and S_d(a) := Σ_{n | (d+1)/4} e(an/d),
+  H(p; D) = Σ_{d ≤ D, d ≡ 3 (4)} τ((d+1)/4)/d  +  Σ_{d ≤ D, d ≡ 3 (4)} d⁻¹ Σ_{a=1}^{d−1} e(ap/d) S_d(a).        (2.1)
+The first sum is Σ_{k ≤ (D+1)/4} τ(k)/(4k − 1) = (1/8)log²D + O(log D) (PROVED, elementary); it is the mean of H over p
+in the naive model "p mod d uniform". The second sum E(p; D) is an exact function of the residues p mod d, d ≤ D; the
+target is E(p; p^{3/5}) > −(1/8)log²p·(1 − o(1)) for every large prime p ≡ 1 (4), or merely H(p; p^{3/4}) ≥ 1.
+(The genus main term of `Z56_FAMDESIGN` Thm V is the part of (2.1) that Burgess/Heath-Brown can evaluate at every p; its
+value (5/(4π²))log²p counts both orders over all of 𝔊*, while (1/8)log²(p^{3/4}) = 0.0703 log²p counts each 𝔊* solution
+via d_P (and some corner solutions); the two bookkeepings agree in size: 0.0703 ≈ 0.0633 + corner share.)
+
+### 2.2 Why the d-sum cannot be bounded at a single p (Assessment, with the computations)
+
+* **d ≤ p^{1/3−ε}.** For fixed a ≠ 0, Σ_{d ~ D} e(ap/d) has phase derivative ap/d² ≥ p^{1/3+2ε} ≫ 1; the van der
+  Corput / exponent-pair bounds give (ap/D)^{1/2} + (D³/ap)^{1/2}, which exceeds D for D < (ap)^{1/3}. There is no
+  cancellation to be had, and in fact none exists in general: by the Chinese remainder theorem and Dirichlet's theorem
+  any prescription of the residues p mod d for all d ≤ D₀ (modulus lcm(1..D₀) = e^{(1+o(1))D₀}) is realised by primes
+  p ≍ e^{(1+o(1))D₀}, so for D₀ ≤ (1 − ε)·log p there are primes with H(p; D₀) = 0 and (2.1) is uninformative. Between
+  log p and p^{1/4} the only known single-p information is quadratic (Burgess: (d/p) is −1 for ~half of the d ≥ p^{1/4+ε});
+  Lemma 1.4 shows this is necessary for a hit but it is far from sufficient (HIT(d) has probability ≈ 2τ((d+1)/4)/φ(d)
+  among d ∈ QNR(p)).
+* **p^{1/3} ≤ d ≤ p^{3/4}.** Here one can sum e(ap/(4nC − 1)) over C for fixed small n and a, but the a-sum runs over
+  all residues mod d; grouping by n instead, Σ_C 1[(4nC − 1) | p + n] is the number of divisors of the single integer
+  p + n in the class −1 (mod 4n) and size range [p^{1/3}, p^{3/4}], equivalently of its divisors m ≡ −(p + n) (mod 4n) in
+  [p^{1/4}, p^{2/3}]. No method evaluates the divisor function of one integer in a residue class; this is B2 in tied form
+  (`Z56_FAMDESIGN` §5 item 1).
+* **Fixing a quadratic non-residue.** Let ℓ be the least prime with (p/ℓ) = −1 (ℓ ≤ p^{1/(4√e)+ε} by Burgess; ℓ ≥ 5 at
+  every 𝔊*-zero, and ℓ ∈ {5, …, 29} at the 38 of them, `data/z57/bff` via `z57_bff_zeros_local.py`). The d with
+  (d/p) = −1 include all d = ℓk with (k/p) = +1, but HIT(ℓk) ⟺ 4n_{ℓk} | ℓk + 1 is again a divisibility of a residue of p
+  by a structure of k; the knowledge of ℓ removes an obstruction (Lemma 1.4) and provides nothing positive.
+* **Norm forms (Lemma 1.6).** Failure of levels C ≤ K means that the K integers C(4p + 1) − (C − 1) all lie in thin
+  multiplicative sets (density (log)^{−1/2} or thinner). This is the Elsholtz–Tao-type sieve input and yields "almost
+  all p" with a quantitative exceptional set (dimension ≍ K/2, so exceptional set ≪ X·exp(−c√(log X)·log log X)-type for
+  K ≍ √log X); it cannot reach every p because the sieve bound never drops below X^{1−o(1)}·(log)^{−K/2} while K is
+  limited to o(log X/log log X) by the level of distribution.
+* **Multiplicative links between different d.** For coprime d₁, d₂: n_{d₁d₂} ≡ n_{d_i} (mod d_i), but 4n_dC_d = d + 1 is a
+  statement about the *integer* n_dC_d (branch k = 1 of 4n_dC_d = kd + 1, k ≡ 1 (mod 4)), not about residues; HIT(d₁) and
+  HIT(d₂) say nothing about HIT(d₁d₂) (checked numerically: at p = 10⁸ + 9 … the hit set {d} is not closed under any
+  of products, lcm, or divisors). The switch (n, m, C) ↦ (m, n, C) (`Z56_FAMATTACK` Lemma L(a)) maps HIT(d_P) to
+  HIT(d_Q) with d_Pd_Q = 4Cp + 1 — it maps a hit to a hit and an empty set to an empty set.
+
+### 2.3 What would suffice (the minimal statement, in this lane's coordinates)
+
+Any of the following implies the target (PROVED implications via Lemmas 1.2–1.3), and each fails at odd squares only
+through Lemma 1.4:
+ (S1) for every large p ≡ 1 (4) there is d ≡ 3 (4), d ≤ p^{3/5}, with (−p mod d)·(−(4p)⁻¹ mod d) < 5d/4;
+ (S2) for every large p ≡ 1 (4) there is n ≤ p^{1/3} such that p + n has a divisor in the class −(p + n) (mod 4n) lying in
+      [p^{1/4}, p^{2/3}] (then d = (p+n)/m ≤ p^{3/4}, m ≥ p^{1/4}; the 𝔊* check is the inequality of Lemma 1.3);
+ (S3) for every large p ≡ 1 (4) some C ≤ (p/64)^{1/3} has 4Cp + 1 ∉ 𝒮_C, where 𝒮_C is the set of integers ≡ 1 (mod 4C)
+      none of whose sub-multisets of prime factors multiplies to −1 (mod 4C).
+No proof of any of them is offered. (S1) is the sharpest: the branch structure 4n_dC_d ∈ {d + 1, 5d + 1, 9d + 1, …}
+means the hit is the event "n_dC_d is below the second branch", a gap of factor 5 — a lower bound of the form
+#{d ≤ D : n_dC_d < 5d/4} ≥ 1 for one p is a *small-product* statement on the modular hyperbola 4xy ≡ 1 across all moduli
+d ≤ D at the single point x ≡ −p, and no equidistribution statement for points on modular hyperbolas (which are proved
+for a fixed modulus and varying points, or varying moduli with averaged weights) applies to a fixed residue class of a
+fixed p across moduli. This is the exact shape of the obstruction.
