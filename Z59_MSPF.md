@@ -118,3 +118,98 @@ moduli on which χ_n looks principal. Any construction d = d(n) therefore has to
 (q/n) = −1 (least such: q₁(n), which is ≪ n^{1/(4√e)+ε} by Burgess and ≪ log² n under GRH — but nothing is known
 unconditionally below n^{1/(4√e)}), or the factorisation of n + k for small k, or the near-square structure n = a² + r.
 §3 records what each of these gives and where each stops.
+
+## §3 Attack routes tried, and the exact point where each stops (analysis; nothing here is a proof of the target)
+
+Every route below is a way to produce, for a given non-square n ∈ 𝔐, a witness d (equivalently (k, B) with
+4kB | n + k + B, or C with a divisor of 4Cn + 1 in the class −1 mod 4C). The four descriptions of Lemma 1.1 are used
+interchangeably; the one that makes the difficulty visible is (b)/(c): **the target says that one of the consecutive
+integers n + 1, n + 2, n + 3, … has a divisor in the residue class −1 (mod 4k), where k is the shift**. Lemma 1.3 says
+this class is a non-residue class for the character (−k/·), and the squares n = m² (where m² + k ≡ m² + k·1² is
+represented by the principal form of discriminant −4k, so all its divisors coprime to 2k are (−k/·)-residues) show that
+the shifting class makes the usual "one of four consecutive integers is ≡ 3 (mod 4)" trick unavailable.
+
+**3.1 Polynomial (Mordell-type) identities.** Any identity n ↦ (k(n), B(n), C(n)) valid on a residue class r (mod M)
+covers the squares in that class, so it exists only for classes r that are non-squares mod M (Lemma 1.8). All six
+classes of 𝔐 are square classes mod 840, and any refinement by a further modulus M′ leaves square sub-classes
+(n ≡ m² mod M′ with m coprime to M′) uncovered. So identities can at best peel off non-residue sub-classes
+(e.g. n ≡ 8, 10 (mod 11) by d = 11, k ∈ {1, 3}; n ≡ 41, 48, 53, 54 (mod 55) by d = 55, k ∈ {14, 7, 2, 1}), never finish.
+*Stops at:* Lemma 1.8 — for every D there are non-square n ∈ 𝔐 (in every class) all of whose witnesses exceed D.
+
+**3.2 Near-square structure.** n non-square ⇒ n = a² + r, 1 ≤ r ≤ 2a (a = ⌊√n⌋). Choosing the shift to make n + k a
+square ((a+j)², k = 2aj + j² − r) or a product (n + k = a(a+t) with k = at − r) turns the target into "the divisors of
+(a+j)² or of a(a+t) contain one ≡ −1 (mod 4k)". Each explicit choice of which divisor (d = a, a + 1, a + t, e²f, …)
+produces a two- or three-parameter polynomial family, e.g. n = a(a+1) − k with a ≡ 3 (4), k | (a+1)/4 (witness d = a),
+or n = (4st − 1)² − s (witness d = 4st − 1, k = s). These are correct (checked numerically) but cover O(√X·log X) integers
+≤ X. *Stops at:* a thin family; to go further one needs a divisor of (a+j)² in a prescribed class, i.e. the
+factorisation of a + j — uncontrolled.
+
+**3.3 The least non-residue.** By Lemma 1.5 every witness d has χ_n(d) = −1, hence d ≥ q₁(n), and d is a product
+q·t with χ_n(q) = −1 for some prime q | d. Taking d = q itself requires (−n mod q) | (q+1)/4 — a condition on the
+residue of n modulo q that we cannot steer (q is given by n). Taking d = q·t: the condition becomes
+(n + k)/q has a divisor t ≡ −q⁻¹ (mod 4k), again a "divisor in a class" condition on a shifted number. The freedom
+k ≡ −n (mod q) does not help pointwise. *Stops at:* the same divisor-in-class problem one level down. (Numerically
+d_min = q₁(n) for 22.6 % of the primes p ∈ 𝔐 ≤ 10⁷ and d_min ≤ 10·q₁ for 85 %; max q₁ = 53, max d_min = 64 255.)
+
+**3.4 Prime witnesses only.** One might hope to use primes q ≡ −1 (mod 4k) dividing n + k (Linnik/Bombieri–Vinogradov
+territory). But witnesses with d prime are *not* enough: 136 primes p ∈ 𝔐 ≤ 10⁷ (the largest 9 831 889) have R(p) > 0
+but no prime witness. So the composite (Jacobi, not Legendre) structure of Lemma 1.3 is essential, and in any case
+primes in progressions dividing a *specific* number n + k are not accessible to any known method.
+
+**3.5 Parity / involution arguments (Zagier-style).** The only natural involution, (k, B) ↦ (B, k), is fixed-point
+free for odd n (Lemma 1.7), so it gives R(n) ≡ 0 (mod 2) — the wrong parity for an existence proof, and R(p) = 0 does
+occur. Companion counts: with d′ ≡ +1 (mod 4k) instead of −1 (i.e. n = 4kBC + k + B, or 4Cn + 1 = xy with
+x ≡ y ≡ 1 (4C)), the analogue of Lemma 1.6 gives (B/n) = +(k/n): so solutions of n = 4kBC + k + B pair k, B of
+*equal* χ_n-sign and those of the target pair *opposite* signs. The relaxed equation n = 2bkB − k − B (b of either
+parity; b = 2C recovers the target) is trivially solvable (b = 1, k = 1, B = n + 1), and in SL₂(ℤ)-language the target is
+#{M = [[x, b],[2n, y]] ∈ Γ(2) : x, y, b > 0, 2b | x + 1} ≥ 1 versus the trivial count in Γ₀(2). I found no involution or
+group action on these matrices that moves odd b to even b while preserving the divisibility 2b | x + 1
+(right-multiplication by [[1, t],[0, 1]] preserves the lower-left entry but destroys the divisibility unless t = 0).
+*Stops at:* no sign-changing structure exists; the squares show R can be 0 with everything else in place.
+
+**3.6 Fixed small C (genus conditions).** For C ∈ {1, 2, 3, 6}, (ℤ/4C)* is an elementary 2-group and
+"x ≡ −1 (mod 4C)" is a pure quadratic-residue condition: C = 1: 4n + 1 has a divisor with (−1/x) = −1; C = 2: 8n + 1
+has x with (−1/x) = (−2/x) = −1; C = 3: 12n + 1 has x with (−1/x) = (−3/x) = −1; C = 6: 24n + 1 has x ≡ 23 (24).
+For n ∈ 𝔐 there are forced small factors (3 | 8n + 1 always; 5 | 24n + 1 when n ≡ 1 (5); 7 | 12n + 1 when n ≡ 4 (7);
+4n + 1 always has a prime factor ≡ 2 (mod 3) since 4n + 1 ≡ 2 (3)), but they only reduce the condition to a
+residue condition on the *cofactor's* prime factors. *Stops at:* same problem for the cofactor. (The 4n + 1 remark gives
+the only unconditional pointwise fact of this kind I found: **if the prime factor q ≡ 2 (mod 3) of 4n + 1 guaranteed above
+happens to be ≡ 3 (mod 4), then C = 1 works**; this is not steerable.)
+
+**3.7 Why an analytic (circle-method / dispersion) proof is out of reach pointwise.** Write R(n) = Σ_d Σ_{k | (d+1)/4}
+[n ≡ −k (mod d)]. The naive main term Σ_d τ((d+1)/4)/d·(local factors) ≍ log²n is *wrong* pointwise: at n = m² the truth
+is 0. Lemma 1.5 shows the correct main term carries the factor (1 − χ_n(d))/2:
+  M_χ(n) := (1/2)·Σ_{d ≤ 4n/3, d ≡ 3 (4)} (1 − χ_n(d))·τ((d+1)/4)/d·(local factors),
+which vanishes at squares. (HEURISTIC remark, not used anywhere: for non-square n, the χ_n-part of M_χ is governed by
+Σ_{d ≤ Y} χ_n(d)τ((d+1)/4)/d; Burgess gives cancellation only for Y ≥ n^{1/4+ε}, and the harmonic weight assigns the
+range d ≤ n^{1/4} the share (1/4)² = 1/16 of the log²n mass, so M_χ(n) ≥ (15/16 − o(1))·M(n)·(…) would follow for all
+non-square n from a bilinear Burgess-type bound — i.e. the *main term* never vanishes for non-squares.) The obstacle is
+the error term E(n) := R(n) − M_χ(n): it is a sum over k of the fluctuations #{d | n + k : d ≡ −1 (4k)} − (its mean),
+each of which is of the size of its mean on a set of n of relative density ≍ (log n)^{−1/2} (e.g. k = 1: (n+1)/2 free of
+primes ≡ 3 (4)); bounding E(n) = o(log²n) *for every single n* is a large-deviation statement about the divisors of
+n + 1, n + 2, … in residue classes that no averaging method (Bombieri–Vinogradov, dispersion, large sieve) can deliver,
+because all of them average over n. *Stops at:* pointwise control of divisors of shifted integers — the same wall as
+every other route, now seen from the analytic side.
+
+**Summary.** All routes reduce to the single statement "some n + k has a divisor ≡ −1 (mod 4k)", a pointwise
+assertion about the multiplicative structure of a specific integer in a residue class that moves with k. Lemma 1.8
+shows the moduli involved exceed log n for infinitely many n in every class; 3.4 shows prime moduli do not suffice;
+3.1–3.2 show every construction is a thin polynomial family. I could not find a mechanism that uses the non-principality
+of χ_n *pointwise* other than through the factorisation of n + k, which is the open problem.
+
+## §4 Numerical record (data/z59/mspf/, engines scripts/z59_mspf_hits.c and z59_mspf_single.c; all CERTIFIED by
+recomputation, cross-checked against a brute-force enumeration of (u, B, C) for n ≤ 3000 and against data/z58/screens)
+
+* `zeros_all_2e5.txt`: all n ≡ 1 (4), n ≤ 2·10⁵ with R(n) = 0 (348, of which 223 squares); the non-square entries
+  coincide with the z58 lists (57, 105, 177, …, 409, 577, …).
+* `primes_M_1e7.txt`: the 20 513 primes p ∈ 𝔐, p ≤ 10⁷, with R, R_odd (C odd), R_even (C even), d_min, k at d_min,
+  q₁(p), whether d_min is prime, R_prime (witnesses with d prime), k_min (least k over all witnesses). Facts:
+  the zeros are exactly the nine of F4; R(p) is even throughout (Lemma 1.7); d_min ≥ q₁(p) throughout (Lemma 1.5),
+  d_min = q₁(p) in 22.6 %; R_even = 0 for 186 primes (largest 9 965 881) and R_odd = 0 for 118 (largest 9 744 001), so
+  neither parity of C suffices alone up to 10⁷ (F2); R_prime = 0 for 136 primes (largest 9 831 889); k_min ≤ 10 for
+  95 % but reaches 410 (p = 4 160 641); mean R ≈ 30 in (5·10⁶, 10⁷].
+* `zeros_profile.txt`: for each of the nine prime zeros and k ≤ 8, the factorisation of p + k and the residues of its
+  prime factors mod 4k, with the check that no sub-multiset product is −1 mod 4k (F4, concrete).
+* Single-n engine at 10¹⁰: for the 12 primes of r8_zeros_1e10.txt the values R and R_even (= R₈) agree with the
+  certified file (e.g. 10 532 106 649: R = 12, R_even = 0, d_min = 1559 at k = 30); four of the twelve lie in 𝔐
+  (10 301 993 881, 10 529 331 121, 10 532 106 649, 10 868 474 401) — the C-even failures of F2.

@@ -1,0 +1,81 @@
+p=5569  p mod 840=529
+  k= 1 4k=  4  p+k=2 5 557                        residues mod 4k: 1 1                  hit=False
+  k= 2 4k=  8  p+k=3^2 619                        residues mod 4k: 3 3                  hit=False
+  k= 3 4k= 12  p+k=2^2 7 199                      residues mod 4k: 7 7                  hit=False
+  k= 4 4k= 16  p+k=5573                           residues mod 4k: 5                    hit=False
+  k= 5 4k= 20  p+k=2 3 929                        residues mod 4k: 3 9                  hit=False
+  k= 6 4k= 24  p+k=5^2 223                        residues mod 4k: 5 7                  hit=False
+  k= 7 4k= 28  p+k=2^3 17 41                      residues mod 4k: 17 13                hit=False
+  k= 8 4k= 32  p+k=3 11 13^2                      residues mod 4k: 3 11 13              hit=False
+p=9601  p mod 840=361
+  k= 1 4k=  4  p+k=2 4801                         residues mod 4k: 1                    hit=False
+  k= 2 4k=  8  p+k=3^2 11 97                      residues mod 4k: 3 3 1                hit=False
+  k= 3 4k= 12  p+k=2^2 7^4                        residues mod 4k: 7                    hit=False
+  k= 4 4k= 16  p+k=5 17 113                       residues mod 4k: 5 1 1                hit=False
+  k= 5 4k= 20  p+k=2 3 1601                       residues mod 4k: 3 1                  hit=False
+  k= 6 4k= 24  p+k=13 739                         residues mod 4k: 13 19                hit=False
+  k= 7 4k= 28  p+k=2^3 1201                       residues mod 4k: 25                   hit=False
+  k= 8 4k= 32  p+k=3 3203                         residues mod 4k: 3 3                  hit=False
+p=83449  p mod 840=289
+  k= 1 4k=  4  p+k=2 5^2 1669                     residues mod 4k: 1 1                  hit=False
+  k= 2 4k=  8  p+k=3 27817                        residues mod 4k: 3 1                  hit=False
+  k= 3 4k= 12  p+k=2^2 31 673                     residues mod 4k: 7 1                  hit=False
+  k= 4 4k= 16  p+k=17 4909                        residues mod 4k: 1 13                 hit=False
+  k= 5 4k= 20  p+k=2 3 7 1987                     residues mod 4k: 3 7 7                hit=False
+  k= 6 4k= 24  p+k=5 16691                        residues mod 4k: 5 11                 hit=False
+  k= 7 4k= 28  p+k=2^9 163                        residues mod 4k: 23                   hit=False
+  k= 8 4k= 32  p+k=3^3 11 281                     residues mod 4k: 3 11 25              hit=False
+p=102001  p mod 840=361
+  k= 1 4k=  4  p+k=2 51001                        residues mod 4k: 1                    hit=False
+  k= 2 4k=  8  p+k=3 11^2 281                     residues mod 4k: 3 3 1                hit=False
+  k= 3 4k= 12  p+k=2^2 7 3643                     residues mod 4k: 7 7                  hit=False
+  k= 4 4k= 16  p+k=5 23 887                       residues mod 4k: 5 7 7                hit=False
+  k= 5 4k= 20  p+k=2 3^3 1889                     residues mod 4k: 3 9                  hit=False
+  k= 6 4k= 24  p+k=83 1229                        residues mod 4k: 11 5                 hit=False
+  k= 7 4k= 28  p+k=2^3 41 311                     residues mod 4k: 13 3                 hit=False
+  k= 8 4k= 32  p+k=3 37 919                       residues mod 4k: 3 5 23               hit=False
+p=712321  p mod 840=1
+  k= 1 4k=  4  p+k=2 13 27397                     residues mod 4k: 1 1                  hit=False
+  k= 2 4k=  8  p+k=3^2 79147                      residues mod 4k: 3 3                  hit=False
+  k= 3 4k= 12  p+k=2^2 37 4813                    residues mod 4k: 1 1                  hit=False
+  k= 4 4k= 16  p+k=5^2 28493                      residues mod 4k: 5 13                 hit=False
+  k= 5 4k= 20  p+k=2 3 227 523                    residues mod 4k: 3 7 3                hit=False
+  k= 6 4k= 24  p+k=7 11^2 29^2                    residues mod 4k: 7 11 5               hit=False
+  k= 7 4k= 28  p+k=2^3 89041                      residues mod 4k: 1                    hit=False
+  k= 8 4k= 32  p+k=3 19 12497                     residues mod 4k: 3 19 17              hit=False
+p=1724209  p mod 840=529
+  k= 1 4k=  4  p+k=2 5 172421                     residues mod 4k: 1 1                  hit=False
+  k= 2 4k=  8  p+k=3^2 191579                     residues mod 4k: 3 3                  hit=False
+  k= 3 4k= 12  p+k=2^2 7^2 19 463                 residues mod 4k: 7 7 7                hit=False
+  k= 4 4k= 16  p+k=257 6709                       residues mod 4k: 1 5                  hit=False
+  k= 5 4k= 20  p+k=2 3 41 43 163                  residues mod 4k: 3 1 3 3              hit=False
+  k= 6 4k= 24  p+k=5 344843                       residues mod 4k: 5 11                 hit=False
+  k= 7 4k= 28  p+k=2^3 13 59 281                  residues mod 4k: 13 3 1               hit=False
+  k= 8 4k= 32  p+k=3 11 52249                     residues mod 4k: 3 11 25              hit=False
+p=1726201  p mod 840=1
+  k= 1 4k=  4  p+k=2 229 3769                     residues mod 4k: 1 1                  hit=False
+  k= 2 4k=  8  p+k=3 575401                       residues mod 4k: 3 1                  hit=False
+  k= 3 4k= 12  p+k=2^2 31 13921                   residues mod 4k: 7 1                  hit=False
+  k= 4 4k= 16  p+k=5 13 26557                     residues mod 4k: 5 13 13              hit=False
+  k= 5 4k= 20  p+k=2 3 287701                     residues mod 4k: 3 1                  hit=False
+  k= 6 4k= 24  p+k=7 19 12979                     residues mod 4k: 7 19 19              hit=False
+  k= 7 4k= 28  p+k=2^8 11 613                     residues mod 4k: 11 25                hit=False
+  k= 8 4k= 32  p+k=3^2 191801                     residues mod 4k: 3 25                 hit=False
+p=5212561  p mod 840=361
+  k= 1 4k=  4  p+k=2 2606281                      residues mod 4k: 1                    hit=False
+  k= 2 4k=  8  p+k=3 1737521                      residues mod 4k: 3 1                  hit=False
+  k= 3 4k= 12  p+k=2^2 7 186163                   residues mod 4k: 7 7                  hit=False
+  k= 4 4k= 16  p+k=5 73 14281                     residues mod 4k: 5 9 9                hit=False
+  k= 5 4k= 20  p+k=2 3^3 83 1163                  residues mod 4k: 3 3 3                hit=False
+  k= 6 4k= 24  p+k=2053 2539                      residues mod 4k: 13 19                hit=False
+  k= 7 4k= 28  p+k=2^3 709 919                    residues mod 4k: 9 23                 hit=False
+  k= 8 4k= 32  p+k=3 1737523                      residues mod 4k: 3 19                 hit=False
+p=8813281  p mod 840=1
+  k= 1 4k=  4  p+k=2 433 10177                    residues mod 4k: 1 1                  hit=False
+  k= 2 4k=  8  p+k=3 19 154619                    residues mod 4k: 3 3 3                hit=False
+  k= 3 4k= 12  p+k=2^2 281 7841                   residues mod 4k: 5 5                  hit=False
+  k= 4 4k= 16  p+k=5 13 135589                    residues mod 4k: 5 13 5               hit=False
+  k= 5 4k= 20  p+k=2 3^4 54403                    residues mod 4k: 3 3                  hit=False
+  k= 6 4k= 24  p+k=7^2 131 1373                   residues mod 4k: 7 11 5               hit=False
+  k= 7 4k= 28  p+k=2^3 11 100151                  residues mod 4k: 11 23                hit=False
+  k= 8 4k= 32  p+k=3 37 79399                     residues mod 4k: 3 5 7                hit=False
