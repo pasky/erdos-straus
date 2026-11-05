@@ -29,8 +29,10 @@ term at a single prime."
 Verdict: the mechanism is **dead for every Hecke-finite object in 𝓗**, in the sense that no support proxy in 𝓗 is
 both valid and effective (Thm A, Cor A1). Valid but ineffective proxies exist, e.g. τ(n)·1[n ≡ 5 mod 12] (R1-5). The
 escapes it leaves are
-(E1) half-integral weight, (E2) objects that are not Hecke-finite in n (level sums Σ_C over the variable 4Cn + 1,
-Poincaré/Rademacher series, Fourier–Jacobi expansions), and (E3) higher-depth objects without Hecke theory.
+* (E1) half-integral weight, where a proper rational p-power series exists but has unavoidable ± poles (XR-1);
+* (E2) constructions whose resulting coefficients lie outside 𝓗, e.g. level sums Σ_C over the variable 4Cn + 1.
+  A Poincaré, Rademacher or Fourier–Jacobi *presentation* does not by itself put an object outside 𝓗 (XR-2);
+* (E3) higher-depth objects without GL₂ Hecke theory.
 
 ---
 
@@ -84,14 +86,17 @@ j ≥ 0, then a(p^m) = 0 for all m ≥ 0. In particular a(p) = 0.
 functions. The poles of A(T) lie in P := {1/γ}, and those of −A(−T) lie in −P. By hypothesis P ∩ (−P) = ∅, so the
 two functions, being equal, have no poles at all. Hence A is a polynomial. It is also proper, so A = 0. ∎
 
-**Hecke-finite class 𝓗_M (definition).** 𝓗_M is the set of functions a on {n : (n, M) = 1} of the form
-a(n) = Σ_{i=1}^r c_i λ_i(n), with each λ_i one of the following.
+**The class 𝓗_M (definition; XR-4).** Fix a level M. 𝓗_M is the set of functions a on {n : (n, M) = 1} of the form
+a(n) = Σ_{i=1}^r c_i λ_i(n), with r finite, c_i ∈ ℂ, finitely many derivative orders, and each λ_i one of the
+following. 𝓗 := ∪_M 𝓗_M is a union of fixed-level arithmetic classes. We call its elements "Hecke-finite" for short,
+but 𝓗 is *not* claimed to contain every Hecke-finite automorphic object.
 * (i) The normalised Hecke eigenvalue system λ_f(n) of a holomorphic newform or Eisenstein eigenform f of integral
   weight k ≥ 1, level | M, any nebentypus.
 * (ii) n^j λ_f(n), j ∈ ℤ_{≥0}. This covers D^j f and the quasi-modular forms, since QM = ⊕ D^j M ⊕ ℂ D^j E₂ by
   Kaneko–Zagier, and E₂ has λ = σ₁.
-* (iii) Σ_{d|n} ψ₁(d)ψ₂(n/d) d^{s+u}(n/d)^{−s+v} or a real-parameter derivative ∂_s^e|_{s=s₀} of it (e ≥ 0), with
-  u, v, s₀ real and ψ₁, ψ₂ characters mod M; also mixed partial derivatives in two such parameters. These are the
+* (iii) ∂_a^r ∂_b^s Σ_{d|n} ψ₁(d)ψ₂(n/d) d^a (n/d)^b evaluated at a real point (a, b) = (a₀, b₀), with r, s ≥ 0
+  and ψ₁, ψ₂ characters mod M. This is equivalent to the earlier one-parameter description
+  d^{s+u}(n/d)^{−s+v}. These are the
   arithmetic parts of the coefficients (times powers of n) of holomorphic or non-holomorphic Eisenstein series and of
   their s-derivatives. Examples: σ_a(n), n^bτ(n), τ(n), Σ_{d|n} χ(d) log(n/d²), Σ_{d|n} log d·log(n/d). The modular
   packaging is standard; the theorem below concerns only the arithmetic functions.
@@ -107,9 +112,18 @@ x = ψ₁(p)p^{s+u}, y = ψ₂(p)p^{−s+v}; this is proper, with poles only at 
 p ∤ M, A_p(T) satisfies the rationality and properness hypotheses of Lemma S with Γ_p := ∪_i {α_i(p), β_i(p)}
 (resp. {x_i(s₀), y_i(s₀)}). Collision-freeness still has to be established (R1-14).
 
-**Theorem A (T1 kills every Hecke-finite proxy at collision-free primes; PROVED, relative to the existence of
-λ-adic Galois representations attached to holomorphic eigenforms (Deligne; Deligne–Serre for k = 1) and the
-Chebotarev density theorem).** Let a ∈ 𝓗_M and let p ∤ M be an odd prime with a(1) = a(p²) = a(p⁴) = … = 0.
+**Theorem A (T1 kills every 𝓗-proxy at collision-free primes; PROVED, relative to the following inputs, XR-4).**
+* λ-adic Galois representations attached to holomorphic eigenforms with Frobenius polynomial X² − λ(p)X + ψ(p)p^{k−1}
+  (Deligne; Deligne–Serre for k = 1; e.g. T. Saito, *Galois representations and modular forms*, Def. 1.2,
+  Thm 1.3).
+* **Purity:** both roots have absolute value p^{(k−1)/2} (Deligne, Ramanujan–Petersson; Saito, Cor. 4.5). For k = 1,
+  finite image gives roots of unity (G. Wiese, *Galois Representations*, Thms 1.3.4–1.3.6).
+* The Chebotarev density theorem (Wiese, Thm 1.2.8).
+
+The cross-model reviewer checked these sources. Purity is used separately from existence, in the mixed-collision step
+of A.2(b).
+
+Let a ∈ 𝓗_M and let p ∤ M be an odd prime with a(1) = a(p²) = a(p⁴) = … = 0.
 1. If Γ_p ∩ (−Γ_p) = ∅, then a(p) = 0 (indeed a(p^m) = 0 for all m).
 2. Γ_p ∩ (−Γ_p) = ∅ holds in the following cases:
    * (a) all λ_i are of Eisenstein type (i)/(ii)/(iii) and p ≡ 1 (mod L), where L is the lcm of the conductors of the
@@ -146,7 +160,9 @@ Let p ∤ Mℓ split completely in F. Three kinds of pairs γ, γ′ have to be 
 So Γ_p ∩ −Γ_p = ∅. Chebotarev gives density 1/[F : ℚ] > 0. ∎
 
 **Corollary A1 (answers Q1 and Q2 for 𝓗; PROVED, same inputs).**
-* (a) *(Q2, support form.)* No a ∈ 𝓗_M is both valid and effective. Validity gives a(m²) = 0 for all odd m, and then
+* (a) *(Q2, support form.)* No a ∈ 𝓗_M is both valid and effective. The field F, and hence the density, depends on
+  the chosen a; no universal positive-density set for all of 𝓗 is claimed. Validity gives a(m²) = 0 for all odd m
+  coprime to M, and then
   a(p) = 0 for the positive-density set of 𝔐-primes in Thm A.2(b). In case (a) this holds for every p ≡ 1 (mod lcm(L, 840)).
 * (b) *(Q1.)* There is no a ∈ 𝓗_M with a = R on all n ≡ 1 (mod 4) coprime to M. Equality on primes alone is not
   enough; one needs equality at 1 and at odd squares too (R1-1). If a = R on those n, then a(1) = R(1) = 0 and
@@ -226,30 +242,45 @@ a(p^m) = log²p·Σ_{j=0}^m [½(j² + (m−j)²) − 5j(m−j)] = log²p·[m(m+1
 This is 0 at m = 0 and m = 2, log²p at m = 1, and negative for m ≥ 3. (R1-2: the first version omitted the factor ½
 and was wrong.)
 
-**Reading (Assessment).**
-* In Q2′ the automorphic structure does no work. A minorant a with a(n) > 0 ⟹ R(n) ≥ 1 is *valid* only if that
-  implication holds at every n. For an abstractly given modular a, checking this at all large primes is (MS) itself.
-* The only automorphic-native proxies are those built from certificates (a(n) = Σ_{solutions} w, w > 0). These are
-  support proxies, and Theorem A kills them in 𝓗.
+**Reading (Assessment, scoped to the examined constructions; XR-3).**
+* A minorant a with a(n) > 0 ⟹ R(n) ≥ 1 is *valid* only if that implication holds at every n. Suppose a(p) > 0 has
+  been established at every target prime, with matching thresholds. Then checking validity there is equivalent to
+  (MS). Without effectiveness this is no longer so: the zero minorant is trivially valid and implies nothing.
+* Among the constructions examined, the proxies with a structural reason for validity are those built from
+  certificates (a(n) = Σ_{solutions} w, w > 0). These are support proxies, and Theorem A kills them in 𝓗.
+* B1–B2 do *not* exclude a structurally justified, effective, signed minorant. That remains open.
 * Pointwise minorants a ≤ R obtained by sieve inequalities are typically fixed-conductor divisor-sum weights. That is
   the B6 world; STRONG_APPROX Thm 9.1(b) covers the exponent-0 holomorphic Eisenstein case. B1–B2 show T1 does not by
   itself kill such weights.
 
 ## 4. The escapes Theorem A leaves, and what each runs into
 
-Theorem A uses exactly two structural facts about a proxy:
-* (H1) a(p^m) at the powers of the *same* prime p has a proper rational generating function with poles at Satake
-  parameters (a Hecke recursion);
-* (H2) the Satake parameters at p, reduced mod 𝔪, are controlled by a finite Galois extension.
+Theorem A uses two structural facts about a proxy (XR-1):
+* (H1) a(p^m) at the powers of the *same* prime p has a proper rational generating function with poles at reciprocal
+  Satake-type parameters (a Hecke recursion).
+* (H2) collision-freeness, Γ_p ∩ −Γ_p = ∅, on a positive-density set of primes. Its source depends on the parameters:
+  * for the algebraic parameters of types (i)/(ii), residual Galois control: reduction mod 𝔪 in a finite extension;
+  * for the real type-(iii) parameters, positivity at primes where the characters are trivial; non-integral real powers
+    need not even be algebraic and have no mod-𝔪 reduction;
+  * for mixed pairs, Deligne purity plus the Hecke-field ramification argument.
 
 The escapes are the objects that violate (H1) or (H2). The assessments below concern the specific constructions
 examined; none is a classification (R1-12).
 
-### E1. Half-integral weight (violates H1 across square classes; Assessment + Prop C)
+### E1. Half-integral weight (satisfies H1, violates H2: unavoidable ± poles; Assessment + Prop C; XR-1)
 
 For g ∈ M_{3/2}(Γ₀(4N), ψ), Hecke theory (T_{ℓ²}, Shimura) relates only a(tm²) for a fixed squarefree t. The odd
 squares (t = 1) and each prime p (t = p) lie in **different** Shimura orbits, so T1 imposes nothing on a(p) through
-Hecke structure. This is the one place where the Deligne-type template exists *pointwise at primes*:
+Hecke structure.
+
+Precisely: let g be a T(p²)-eigenform with eigenvalue λ, p ∤ 2N. For m ≥ 1 the recursion
+a(p^{m+2}) = λa(p^m) − ψ(p)²p·a(p^{m−2}) decouples odd and even exponents. If the even p-power coefficients vanish,
+then Σ_m a(p^m)T^m = a(p)T/(1 − λT² + ψ(p)²pT⁴).
+* This is proper rational, so (H1) holds.
+* Its poles come in ± pairs, so (H2) fails unavoidably.
+* a(p) ≠ 0 is allowed.
+
+So E1 escapes collision-freeness, not (H1). This is the one place where the Deligne-type template exists *pointwise at primes*:
 * the Eisenstein part is E(p) ≍ p^{1/2}L(1, χ_{−4p})·δ(p) ≫ p^{1/2−ε} (Siegel, ineffective) when the local density
   δ(p) ≠ 0;
 * cusp forms orthogonal to unary theta series have |c(p)| ≪ p^{1/2−1/28+ε} (Iwaniec 1987, Duke 1988; cited, not
@@ -327,7 +358,12 @@ Reading (Assessment):
 * So this instantiation of E1 lands on the known Planck-scale wall (paper Assessment `ass:verdict`, §6). E1 is a
   formal escape from Theorem A; no open road through it was found.
 
-### E2. Level sums: objects not Hecke-finite in n (violates H1; Assessment with one PROVED remark)
+### E2. Constructions whose coefficients lie outside 𝓗, e.g. level sums (Assessment with one PROVED remark; XR-2)
+
+A representation format is not an exclusion criterion. A holomorphic fixed-weight Poincaré series lies in a
+finite-dimensional space of modular forms, so away from its level it *is* covered by 𝓗 and by Theorem A. What escapes
+is a construction whose *resulting coefficients* are not in 𝓗. The level-sum route below is such an escape, not a new
+no-go.
 
 R itself is Σ_C D⁻_{4C}(4Cn + 1). Each level is Hecke-finite in N = 4Cn + 1 (Thm K: Dirichlet-character divisor sums
 mod 4C), but not in n: the shift n ↦ 4Cn + 1 destroys the Hecke recursion at p-powers, which is exactly what Lemma S
@@ -341,8 +377,9 @@ needs.
     partner quadrant Q_t of Thm K (D⁺); positivity then becomes D⁻ vs D⁺, METAPLECTIC's sign-odd part 𝔒. Cor K1 reads
     its mean ≈ 0 as numerical bookkeeping after a non-modular renormalisation; that qualification stands.
   * Other completions are not excluded.
-* *n-direction.* Objects whose n-th coefficient is a sum over moduli c of level-c data at cn + const: Poincaré series,
-  Rademacher expansions, Kloosterman–Kuznetsov sums. R(n) counts the matrices [[a, n],[4C, e]] ∈ SL₂(ℤ) with
+* *n-direction.* Objects whose n-th coefficient is a sum over unboundedly many moduli c of level-c data at cn + const,
+  when the resulting coefficients are not in 𝓗. Infinite-level sums, Kloosterman–Kuznetsov sums over all moduli and
+  Rademacher-type expansions of non-holomorphic or weakly holomorphic objects are of this kind. R(n) counts the matrices [[a, n],[4C, e]] ∈ SL₂(ℤ) with
   a ≡ e ≡ −1 (mod 4C) and a, e > 0: one Bruhat cell per modulus, positive part (METAPLECTIC §3). Summing such
   cell-restricted counts over all moduli is the H-A hatch (paper Problem H-A). The Eichler–Selberg version is in
   DISCOVERIES item (J)10: ES is the sign-odd part of the split-hyperbolic term and the smallest term in the identity.
@@ -383,14 +420,15 @@ needs.
 * *Q3 (Eisenstein + cusp with Deligne pointwise).* A *support* proxy E + c ∈ 𝓗 cannot be effective (Cor A1(a)). For a
   prime-only "main term + error" argument, Cor A1(c) is only an elementary observation: the error must use
   non-squareness. It is not an impossibility theorem when the error is outside 𝓗.
-* *Q2′ (minorant form).* Not killed by T1 (Props B1, B2, PROVED). Validity of an abstract modular minorant at primes is
-  (MS) itself, so automorphy buys nothing there (Assessment).
+* *Q2′ (minorant form).* Not killed by T1 (Props B1, B2, PROVED). For an effective minorant (a(p) > 0 at all target
+  primes) validity at those primes is equivalent to (MS). No structural reason for validity was found among the
+  constructions examined, but an effective signed minorant with such a reason is not excluded (Assessment, XR-3).
 * *Escapes.*
   * E1, half-integral weight, is the only place found where a pointwise Deligne/Duke template coexists with T1. Prop C
     (CONDITIONAL on (H_E) and Iwaniec–Duke) shows that the falsifiers force the Eisenstein part to vanish on every joint
     local class carrying infinitely many squarefree zeros. Instantiated with CM/Heegner objects, it is the Planck-scale
     wall.
-  * E2 (level sums) is H-A/B2.
+  * E2 (constructions whose coefficients lie outside 𝓗, e.g. level sums) is H-A/B2.
   * E3: the examined packagings reduce to E2. GL(n) Hecke-finite objects fall under Lemma S at collision-free primes.
 
 **Falsifier table, final.**
@@ -415,9 +453,15 @@ needs.
 >   negatives of each other.
 > * Hence a support proxy of this kind (a(n) ≠ 0 ⟹ R(n) ≥ 1) vanishes on a positive-density set of primes
 >   ≡ 1 (mod 840): it cannot be valid and effective. R is not such an a on n ≡ 1 (mod 4).
-> * The minorant form is not killed by T1 (explicit examples), but its validity at primes is (MS) itself.
-> * Escapes: half-integral weight (squares and primes lie in different Shimura classes; the CM/Heegner instantiation
->   is the Planck-scale wall), level sums (H-A/B2), non-Hecke-finite objects.
+> * The minorant form is not killed by T1 (explicit examples). For an effective minorant, validity at the target
+>   primes is equivalent to (MS).
+> * Escapes:
+>   * half-integral weight, which has proper rational p-power series but unavoidable ± poles; the CM/Heegner
+>     instantiation is the Planck-scale wall;
+>   * constructions whose coefficients lie outside 𝓗, such as level sums (H-A/B2);
+>   * higher-depth / non-GL₂ objects.
+>
+>   Prop C stays CONDITIONAL. The verdict is "narrowed".
 > * Add to §6: "support proxies with an Eisenstein + cusp decomposition and Deligne bounds, for any fixed-level
 >   integral-weight object, quasi-modular form or real-parameter Eisenstein derivative".
 
@@ -430,12 +474,12 @@ answer is a clean **no**.
   Eisenstein-plus-cusp template for support proxies.
 * It extends the prior size-based (Thm 2.2) and Eisenstein-only (Thm 9.1, Prop 2.3) no-gos to cusp forms,
   quasi-modular forms and log-sized divisor-sum derivatives.
-* The minorant form survives T1 but gains nothing from automorphy.
+* The minorant form survives T1. Among the constructions examined, automorphy gave no reason for validity.
 
 The escape hatches it leaves:
-* half-integral weight, where a pointwise template exists but needs Planck-scale equidistribution when instantiated by
-  CM objects;
-* objects with no Hecke recursion in n (level sums), which is the old H-A/B2 wall.
+* half-integral weight, which has ± poles that cannot be avoided; a pointwise template exists there but needs
+  Planck-scale equidistribution when instantiated by CM objects;
+* constructions whose coefficients lie outside 𝓗 (level sums), which is the old H-A/B2 wall.
 
 Nothing here moves (MS) toward a proof.
 
@@ -467,4 +511,18 @@ All runs: `ulimit -v 4000000`, `timeout` as shown.
   * MINOR: nr(n) is D of weight one. The Σ log(n/d²) ≡ 0 example is removed. B1 is relabelled PROVED globally. The
     Lemma S hypothesis wording is fixed and the stale checkpoint text removed.
   * The reviewer reran both scripts under the memory limit; outputs matched the committed files.
-* Cross-model review: pending.
+* **Cross-model review** (`data/z58/xreview/REVIEW_AUTOMORPH.md`, ACCEPT-WITH-FIXES). Thm A / Cor A1 were
+  independently re-derived and both scripts reproduced byte-identically. Required fixes applied:
+  * XR-1: E1 corrected. A T(p²)-eigenform with vanishing even p-power coefficients has the proper rational series
+    a(p)T/(1 − λT² + ψ(p)²pT⁴), so E1 escapes collision-freeness (± poles), not H1. H2 is rewritten to separate
+    residual Galois control (algebraic parameters), positivity (real type-(iii) parameters, possibly non-algebraic)
+    and purity (mixed pairs).
+  * XR-2: representation formats are no longer exclusion criteria. Fixed-weight holomorphic Poincaré series are in
+    𝓗; E2 now reads "constructions whose resulting coefficients lie outside 𝓗".
+  * XR-3: the sign-form assessment is made conditional on effectiveness (the zero minorant is valid). "Automorphy buys
+    nothing" and "the only automorphic-native proxies" are scoped to the examined constructions. B1–B2 do not exclude
+    an effective, structurally justified signed minorant.
+  * XR-4: the definition is made explicit (c_i ∈ ℂ, finite r, fixed M, finite derivative orders, type (iii) as
+    ∂_a^r∂_b^s at real points). 𝓗 is no longer used as a synonym for "Hecke-finite". F depends on the chosen proxy.
+    "Coprime odd m" is written where needed. Explicit purity, Galois and Chebotarev references are added (Saito
+    Def 1.2 / Thm 1.3 / Cor 4.5; Wiese Thms 1.2.8, 1.3.4–1.3.6).
