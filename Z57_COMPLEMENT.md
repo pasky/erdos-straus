@@ -26,7 +26,7 @@ certified falsifiers. Pointwise complementarity at primes is *not* excluded for 
   p ≡ a (mod M) with 4·lcm(1..U) | M. The low-level (m ≤ x^θ), M-coprime parts of any two slices (STAR, B1, I1, QR) at a
   common shift u ≤ U (both non-empty there) are positively correlated over primes p ≤ x, p ≡ a (M): covariance
   ≥ κ(log x)³ − O((log x)²), correlation ≥ c₀ > 0. Parts on *different* integers (shifts u ≠ u′, or a c-line integer
-  cp + b with b ≠ cu) have covariance −Θ((log x)²) — a negative coupling from CRT exclusion at primes ∤ M, of lower order
+  cp + b with b ≠ cu, provided every prime of b·c·(cu − b) divides M) have covariance −Θ((log x)²) — a negative coupling from CRT exclusion at primes ∤ M, of lower order
   (correlation ≍ −1/log x). *Sharing an integer couples families positively (τ-richness: divisor pairs with a large
   common part); different integers are coupled only weakly and negatively.* (c-line words at shifts b = cw live on the
   same integers p + w as STAR/B1/I1 at shift w.)
