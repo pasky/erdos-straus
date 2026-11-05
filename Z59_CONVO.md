@@ -229,8 +229,8 @@ come from p being prime in a way that is not a congruence and not the colouring.
 
 * (F1) squares: every PROVED positive statement here is either an equivalence (holds for all n) or a necessary
   condition; the only existence statements (Cor 3.4, ρ | p + 4) have hypotheses that fail for n = m²
-  (m² + 3 has no prime factor ≡ 2 mod 3 other than possibly via 3 ∤; indeed λ ≡ 1 on its factors by Lemma 3.3(i);
-  ρ | m² + 4 with ρ ≡ 3 mod 4 impossible since −4 is a non-residue mod every prime ≡ 3 mod 4). ✓ No false proof.
+  (every prime factor ℓ ≠ 3 of m² + 3 is ≡ 1 mod 3, Lemma 3.3(i) with ρ = 3;
+  ρ | m² + 4 with ρ ≡ 3 mod 4 impossible since such ρ has a prime factor ≡ 3 mod 4, modulo which −4 ≡ m² would be a residue). ✓ No false proof.
 * (F2) d even: the criterion restricts to ρ ≡ −p (mod 8) and N_ρ/2; Cor 3.4 (ρ = 3) is unavailable for p ≡ 1 (8)
   on this half (ρ must be ≡ 7 mod 8). d-even zeros recomputed (§6). Nothing claimed for the d-even half. ✓
 * (F3) 4545: used as the counterexample that kills "escape ⇒ solution" (§4). ✓
