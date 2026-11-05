@@ -94,7 +94,9 @@ multiple of $n$, so it suffices to treat primes.  The classes
 $n\equiv 0,2,3\pmod 4$ have polynomial solutions, and Mordell's
 identities \cite{Mordell} leave only primes in the six classes
 $1,121,169,289,361,529\pmod{840}$.  Vaughan \cite{Vaughan} showed that
-the number of exceptions up to $N$ is $\ll N\exp(-c(\log N)^{2/3})$.
+the number of exceptions up to $N$ is $\ll N\exp(-c(\log N)^{2/3})$;
+Kandukoori, Ramesh and Kumar \cite{KRK} have announced (2026, unrefereed,
+with a Lean formalisation) the bound $\ll N\exp(-c(\log N)^{3/4})$.
 The conjecture is open, and nothing in this paper proves it for any new
 integer.
 
@@ -1964,6 +1966,10 @@ points on smooth cyclic covers, arXiv:1109.1455 (J. Number Theory,
 2012).
 \bibitem{IK} H.~Iwaniec and E.~Kowalski, \emph{Analytic Number Theory},
 Amer. Math. Soc. Colloq. Publ.\ 53, 2004.
+\bibitem{KRK} S.~Kandukoori, S.~Ramesh and P.~Kumar, An improved bound for
+the exceptional set of the Erd\H{o}s--Straus equation, preprint dated
+29 July 2026, \url{https://sushaan-k.github.io/erdos-straus/paper.pdf};
+Lean formalisation \url{https://github.com/sushaan-k/erdos-straus-lean}.
 \bibitem{Mordell} L.~J.~Mordell, \emph{Diophantine Equations}, Academic
 Press, London, 1969.
 \bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new

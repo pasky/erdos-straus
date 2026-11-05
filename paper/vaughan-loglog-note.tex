@@ -487,13 +487,22 @@ solution counts of \cite{ET} establish a typical order $\asymp(\log n)^3$.
 The present note uses a single progression modulo $L_K\le N^{1/2}$ to
 absorb the $k$-part, which produces the $\log\log$ factor.  A cubic class
 mass with comparable sieve and tail control would give an exponent $3/4$;
-obtaining such control is not addressed here.
+obtaining such control is not addressed here.  The bound
+$E(N)\ll N\exp\{-c(\log N)^{3/4}\}$, which supersedes the theorem of this
+note, was obtained by Kandukoori, Ramesh and Kumar \cite{KRK} (unrefereed
+preprint dated 29 July 2026, with a Lean formalisation) and, internally
+reviewed only, in the companion note
+\texttt{paper/es-threequarter-note.tex}.
 \end{remark}
 
 \begin{thebibliography}{9}
 \bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94 (2013),
 50--105.
+\bibitem{KRK} S.~Kandukoori, S.~Ramesh and P.~Kumar, An improved bound for the
+exceptional set of the Erd\H{o}s--Straus equation, preprint dated 29 July 2026,
+\url{https://sushaan-k.github.io/erdos-straus/paper.pdf}; Lean formalisation
+\url{https://github.com/sushaan-k/erdos-straus-lean}.  Unrefereed as far as known.
 \bibitem{Montgomery} H.~L.~Montgomery, The analytic principle of the large
 sieve, Bull.\ Amer.\ Math.\ Soc.\ 84 (1978), 547--567.
 \bibitem{Mordell} L.~J.~Mordell, Diophantine Equations, Academic Press, 1969,

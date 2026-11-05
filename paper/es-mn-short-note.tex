@@ -66,7 +66,10 @@ Numerically (even $m\in[60,300]$) % R104 repair
 half of the primes are representable at
 $\log N\approx1.95\,m^{1/3}$, and we conjecture a non-degenerate profile
 in $\log N/m^{1/3}$.  For comparison, Pomerance and Weingartner proved the
-exponent $2/3$ with $\varphi(m)^{-1/3}$ over initial segments.
+exponent $2/3$ with $\varphi(m)^{-1/3}$ over initial segments, and
+Kandukoori, Ramesh and Kumar (unrefereed preprint) obtained the exponent
+$3/4$ over initial segments for $m=4$ and for each fixed $m\geq4$, with
+constants depending on $m$.
 The method is the one of an earlier internal note on $4/n$ over
 $[1,N]$, which we use as a black box.  What we add is a local transfer
 to arbitrary windows, through a smooth-part decomposition, and the
@@ -129,7 +132,11 @@ bound
  E_4(N)\ll N\exp\{-c(\log N)^{3/4}\}
 \]
 by an argument that has been internally checked but not externally
-refereed.  All results below are
+refereed.  The same bound, and for each \emph{fixed} $m\geq4$ the bound
+$E_m(N)\leq C_mN\exp\{-c_m(\log N)^{3/4}\}$, were obtained earlier by
+Kandukoori, Ramesh and Kumar \cite[Thms.~1--2]{KRK} (unrefereed preprint
+with a Lean formalisation); we claim no priority for the exponent.
+All results below are
 proved relative to \cite{TQ}; Section~\ref{sec:blackbox} lists exactly
 which of its statements are used.
 
@@ -1988,7 +1995,10 @@ only via secondary sources).
 \item Searches for short-interval, almost-all-short-interval and
 progression versions of exceptional-set bounds for $4/n$ or $m/n$, for
 ``Sierpi\'nski $5/n$ exceptional set'' and for ``$(\log N)^{3/4}$''
-returned nothing relevant.  Verification papers (to $10^{17}$ and
+returned nothing relevant in October 2026; these searches missed the
+preprint \cite{KRK}, which a later (November 2026) audit located and
+which has the exponent $3/4$ over initial segments (see below).
+Verification papers (to $10^{17}$ and
 $10^{18}$) concern computation, not density.
 \item Bibliographic status: \cite{ET}, \cite{PW} (arXiv v2) and
 \cite{Shiu} were consulted in full text.  The entries \cite{Li} and \cite{Yang} were checked only
@@ -1996,12 +2006,16 @@ against the bibliography of \cite{ET}; \cite{Vaughan} was not accessible
 to us; \cite{MV}, \cite{Davenport} and \cite{BHP} are standard references
 that we did not re-read for this note.
 \end{itemize}
-We found no published short-interval or progression version, and no
-$3/4$-type bound for $m\neq4$.  The bound with exponent $3/4$ is itself
-only internally established, even for $m=4$ \cite{TQ}.  As far as we can
-tell, Theorem~\ref{thm:A} is new for every $m\neq4$, and its uniform
-dependence on $m$, Corollary~\ref{cor:D} and Theorems~U and~L$'$ are new
-relative to \cite{PW} and \cite[Rem.~7.3]{Els}; the location of the
+We found no published short-interval or progression version.  The
+exponent $3/4$ over initial segments was obtained earlier by Kandukoori,
+Ramesh and Kumar \cite{KRK}, for $m=4$ (their Theorem~1) and for each
+fixed $m\geq4$ with constants depending on $m$ (their Theorem~2); their
+preprint is unrefereed and their analytic proof was not re-audited here,
+and the internal argument \cite{TQ} is likewise not externally refereed.
+As far as we can tell, the short-interval and progression forms of
+Theorem~\ref{thm:A}, its uniform dependence on $m$, Corollary~\ref{cor:D} and Theorems~U and~L$'$ are new
+relative to \cite{PW}, \cite[Rem.~7.3]{Els} and the stated theorems of
+\cite{KRK}; the location of the
 transition is posed as open in \cite[p.~2]{PW} and \cite{Pom26}.  The method is that of \cite{TQ} with $4$ replaced by $m$.
 As explained in the introduction, a specialist would expect the
 short-interval transfer, and presumably Vaughan's argument already gives
@@ -2151,6 +2165,12 @@ this repository, 2026; hostile review
 Selberg's eigenvalue conjecture}, internal working document
 \texttt{EXCEPTIONAL\_TYPEI\_LOGLOG.md}, this repository, 2026; hostile
 review (two rounds) \texttt{reviews/exceptional-typei-loglog-review.md}.
+\bibitem[KRK]{KRK}
+S.~Kandukoori, S.~Ramesh and P.~Kumar, An improved bound for the
+exceptional set of the Erd\H{o}s--Straus equation, preprint dated
+29~July~2026, \url{https://sushaan-k.github.io/erdos-straus/paper.pdf};
+Lean formalisation \url{https://github.com/sushaan-k/erdos-straus-lean}.
+Unrefereed as far as known.
 \bibitem[TQ]{TQ}
 \emph{A three-quarter exceptional-set bound for the Erd\H{o}s--Straus
 equation: an internally proved research note},

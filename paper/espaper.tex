@@ -55,10 +55,16 @@ Theorem~34.8 in the source notes), is likewise
 \textsc{claimed}/\allowbreak\textsc{provisional}, and the second headline
 inherits the three qualifications of the source \S39.7.  No assertion in
 this draft should be cited as an established improvement before independent
-expert review.  A separate, completely written fixed-$m$ layer gives
+expert review.  \emph{Priority note (November 2026):} the exponent $3/4$
+for $E(N)$, and for $E_m(N)$ at each fixed $m\geq4$ with constants
+depending on $m$, was obtained earlier by Kandukoori, Ramesh and Kumar
+\cite{KRK} (unrefereed preprint dated 29 July 2026, with a Lean
+formalisation); no priority is claimed for the exponent, and any
+``record'' wording below is historical.  A separate, completely written fixed-$m$ layer gives
 $E_m(N)\ll_m N\exp\{-c(\eta_1(m)/\varphi(m))^{1/3}
 (\log N)^{2/3}(\log\log N)^{1/3}\}$.  Because this too would improve the
-published general-numerator benchmark, it remains
+published general-numerator benchmark (though not the fixed-$m$ preprint
+bound of \cite{KRK}), it remains
 \textsc{claimed/provisional} pending external priority and referee checks,
 although it assumes no unproved hypothesis.  We further
 blind-adjudicate an exact, record-adjacent \textsc{claimed/provisional}
@@ -217,7 +223,11 @@ Theorem~\ref{thm:pruned}, has the same provisional status, and the general
 form inherits the source \S39.7 qualifications.  Its exact statement is
 Theorem~\ref{thm:general-three-quarter};
 Theorem~\ref{thm:general-three-quarter-conservative} records the weaker
-linear-thinning replay.  Beyond the records, Theorems~\ref{thm:witness-tail}
+linear-thinning replay.  The first headline, and the second at each fixed
+$m\geq4$ (with $m$-dependent constants), were obtained earlier by
+Kandukoori, Ramesh and Kumar \cite[Thms.~1--2]{KRK}; no priority is
+claimed for them.  What may be new in the second headline is only its
+uniformity in $m$; this has not been compared in detail with \cite{KRK}.  Beyond the records, Theorems~\ref{thm:witness-tail}
 and~\ref{thm:effectivity} give the exact $W$ windows and effectivity
 perimeter, while Theorem~\ref{thm:per-slice-sieve} and
 Corollary~\ref{cor:almost-all-SPF} give the fixed-slice and stacked
@@ -439,9 +449,10 @@ and the bibliography of Pomerance--Weingartner v2
 uses his large-sieve route, and states no stronger $m=4$ upper bound.  It
 therefore supplies no threat from that PDF to the would-be record, but this
 is not a complete literature guarantee.  Access to Vaughan's primary paper
-remains blocked, although its DOI is confirmed.  Thus, if the $m=4$ theorem
-survives external review and a complete priority search, it would be the
-first exponent improvement found since 1970.  The general-$m$ comparison is
+remains blocked, although its DOI is confirmed.  A later audit (November
+2026) found that the exponent $3/4$ for $m=4$ was obtained earlier by
+Kandukoori, Ramesh and Kumar \cite{KRK}, so the $m=4$ theorem is not
+claimed as a first improvement since 1970.  The general-$m$ comparison is
 only with exact Theorem 1.3 as displayed in (68.1) and (68.6); all record
 language remains \textsc{claimed/provisional}.
 
@@ -1513,9 +1524,9 @@ Theorem~\ref{thm:three-quarter}, and any revival needs a genuinely new
 pointwise formulation.
 
 \section{Provisional record context}\label{sec:records}
-This section is deliberately segregated.  Both records are \textsc{claimed/provisional}; neither is used in the refutation of $\PF$.
+This section is deliberately segregated.  Both records are \textsc{claimed/provisional}; neither is used in the refutation of $\PF$.  ``Record'' is historical wording of this draft: neither statement is now claimed as a record, since the stronger exponent $3/4$ was obtained earlier by \cite{KRK} (see Remark~\ref{rem:priority}).
 
-\subsection{The provisional exceptional-set record}
+\subsection{The provisional log-log exceptional-set bound}
 Let $E(N)$ count exceptional prime denominators $p\leq N$.
 \begin{theorem}[\textsc{claimed/provisional}]\label{thm:record}
 There is an absolute $c>0$ such that
@@ -1590,7 +1601,7 @@ $S_c\geq\tfrac12\exp\{a(\log X)^2\log K\}$.  Summing the uniform bound $O(Y/S_c)
 \end{proof}
 
 \begin{remark}[priority and verification status]\label{rem:priority}
-Theorem~\ref{thm:record} remains \textup{CLAIMED}/\allowbreak\textup{PROVISIONAL} pending external checking and primary-literature verification.  Vaughan's primary paper \cite{Vaughan} was located by its confirmed DOI but its PDF was access-blocked.  Pomerance--Weingartner's 2025 reconstruction \cite[\S4]{PomeranceWeingartner} cites Vaughan as the state of the art, and the fresh search found no post-1970 exponent improvement.  The draft therefore does not claim a direct verification of Vaughan's argument or a settled record; the search result is not a literature guarantee.
+Theorem~\ref{thm:record} remains \textup{CLAIMED}/\allowbreak\textup{PROVISIONAL} pending external checking and primary-literature verification.  Vaughan's primary paper \cite{Vaughan} was located by its confirmed DOI but its PDF was access-blocked.  Pomerance--Weingartner's 2025 reconstruction \cite[\S4]{PomeranceWeingartner} cites Vaughan as the state of the art, and the fresh search found no post-1970 exponent improvement.  The draft therefore does not claim a direct verification of Vaughan's argument or a settled record; the search result is not a literature guarantee.  A later audit (November 2026) found the preprint \cite{KRK} with the stronger exponent $3/4$; Theorem~\ref{thm:record} is therefore not a record in any sense.
 \end{remark}
 
 \subsection{The pruned cubic prime slice}
@@ -2227,20 +2238,21 @@ $t=\alpha(\log N)^{1/4}$.  The direct Janson proposal is rejected because
 its dependency sum is $\Theta(\mu^2)$, while the original $e^{O(J)}$
 formulation remains open.  Theorem~\ref{thm:three-quarter} should not be
 cited as established outside this campaign until an independent expert has
-checked the three steps above and the priority claim against the primary
-literature.
+checked the three steps above.  No priority is claimed for it: the same
+exponent was obtained earlier by Kandukoori, Ramesh and Kumar
+\cite[Thm.~1]{KRK} (unrefereed preprint dated 29 July 2026, with a Lean
+formalisation).
 
-A fresh search found no post-1970 improvement of Vaughan's
+The search at the time of this draft found no post-1970 improvement of Vaughan's
 $N/\exp(c(\log N)^{2/3})$ exceptional-set bound.  Pomerance--Weingartner's
 2025 preprint \cite[\S4]{PomeranceWeingartner} explicitly cites Vaughan
 1970 as the state of the art and reproduces the same $2/3$ exponent when
 its general theorem is specialized to $m=4$.  Access to Vaughan's paper was
 blocked, but DOI \href{https://doi.org/10.1112/S0025579300002886}
-{10.1112/S0025579300002886} was confirmed.  If
-Theorem~\ref{thm:three-quarter} survives external review, it would therefore
-be the first exponent improvement found since 1970.  This is a search
-result, not a literature guarantee; the \textsc{claimed/provisional} label
-stands.
+{10.1112/S0025579300002886} was confirmed.  That search missed
+\cite{KRK}, located by a later audit (November 2026), so
+Theorem~\ref{thm:three-quarter} is not a first exponent improvement since
+1970; the \textsc{claimed/provisional} label stands.
 
 \subsection{Internal verification pedigree}\label{sec:pedigree}
 The counts in this subsection concern internal checks, not independent
@@ -9185,7 +9197,9 @@ Theorem~\ref{thm:witness-tail} and record-adjacent
 Theorem~\ref{thm:effectivity} retain their \textsc{claimed/provisional}
 qualifications.
 \end{itemize}
-All three verdicts are source-bounded, not a complete priority search.
+All three verdicts are source-bounded, not a complete priority search; a
+later audit (November 2026) found the earlier preprint \cite{KRK} with the
+exponent $3/4$ for $m=4$ and for each fixed $m\geq4$.
 
 For the inaccessible Vaughan original, the five substantive secondary
 descriptions are: ``A result of Vaughan is that for each $m$, most $n$'s
@@ -10358,7 +10372,8 @@ constant as the number of forms grows.  The moving-$J$ tail is therefore
 discussion is explicitly a \textbf{Heuristic}.  The unconditional first-witness
 bound here has only fixed-$J$, one-excluded-class strength.  It is weaker than
 source \S12.3, Vaughan's cited $2/3$ exceptional-set shape, Pomerance--Weingartner's
-modern $2/3$ version, and the \textsc{claimed/provisional} $3/4$ campaign bound.
+modern $2/3$ version, and the \textsc{claimed/provisional} $3/4$ campaign bound
+(the exponent $3/4$ was obtained earlier by \cite{KRK}).
 No unconditional Erd\H{o}s--Straus record or pointwise conclusion is claimed.
 
 Put $L=\log N$.  For $Z\geq3$ let
@@ -12080,6 +12095,14 @@ H. Iwaniec,
 Demonstratio Math. \textbf{11} (1978), 225--231,
 \href{https://doi.org/10.1515/dema-1978-0121}{doi:10.1515/dema-1978-0121}.
 The primary PDF was inaccessible and is not claimed as inspected.
+
+\bibitem{KRK}
+S.~Kandukoori, S.~Ramesh and P.~Kumar,
+\emph{An improved bound for the exceptional set of the Erd\H{o}s--Straus
+equation}, preprint dated 29 July 2026,
+\url{https://sushaan-k.github.io/erdos-straus/paper.pdf};
+Lean formalisation \url{https://github.com/sushaan-k/erdos-straus-lean}.
+Unrefereed as far as known.
 
 \bibitem{LenstraPomerance}
 H.~W. Lenstra Jr. and C. Pomerance,
