@@ -186,9 +186,12 @@ composite orbits. Orbit zeros R(t·m²) = 0 with t prime exist (17 ≤ 10¹⁰, 
 a consequence, not a refutation.
 
 ### 4.2 Pure-cusp regime (the regime Theorem F forces on 𝒞₁ ⊇ 𝔐)
-g(p) = h⊥(p) = Σⱼ hⱼ(p). For a single eigenform hⱼ in Kohnen's plus space (N odd squarefree), Kohnen–Zagier /
-Waldspurger give |hⱼ(|D|)|² ∝ |D|^{1/2} L(½, Fⱼ ⊗ χ_D) for fundamental D of the right sign (KZ Thm 1, read; level N
-via Kohnen 1985 / Waldspurger — cited). So
+g(p) = h⊥(p) = Σⱼ hⱼ(p). For a single eigenform hⱼ, Waldspurger's theorem gives hⱼ(t)² = (local factor depending only
+on the class of t at the primes dividing 4N)·t^{1/2}·L(½, Fⱼ ⊗ χ_t)·(constant), χ_t = (−t/·), for squarefree t
+(Waldspurger 1981, cited; explicit form in the plus space: Kohnen–Zagier Thm 1, read, and Kohnen 1985 — note the plus
+space itself vanishes at n ≡ 1 (mod 4), so for p ∈ 𝔐 the general-space version is the relevant one; Darreye
+arXiv:2007.06224 §2 states it in that generality, read). For p ∈ 𝔐 the twist is χ_{−4p}, and the local factor is
+constant on the class. So
 * *effectiveness* of a single-eigenform proxy on a class of primes = non-vanishing of L(½, F ⊗ χ_{D(p)}) for **all**
   large p in the class. When the twisted root number is −1 on the class this fails identically; when it is +1 it is an
   open Goldfeld-type problem (only positive-proportion results are known: Ono–Skinner 1998, Kriz–Li 2019; no result
