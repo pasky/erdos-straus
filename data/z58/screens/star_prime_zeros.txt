@@ -1,0 +1,15 @@
+# the 14 primes p = 1 (4) <= 1e10 with R(p)=0 ((★) zeros; CERTIFIED, FRONTIER §2.1; recomputed to 9e6 by /tmp rstar.c in z58 setup)
+409
+577
+5569
+9601
+23929
+83449
+102001
+329617
+712321
+1134241
+1724209
+1726201
+5212561
+8813281
