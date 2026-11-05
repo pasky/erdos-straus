@@ -217,8 +217,7 @@ At sampled primes up to 10²¹ the shift search is tiny (`scripts/z58_logic_umin
 * Yet u_min stays below 470: some p + u with tiny u almost always has a divisor in the right class. That divisor is
   typically a *large* prime factor of p + u, which is why d_min is large while u_min is small.
 
-**CONJECTURE FQ_u(A).** u_min(p) ≤ (log p)^A for every prime p ∈ 𝔐 with R(p) ≥ 1. (Data: u_min ≤ 469 ≤ (log p)^{2.2}
-for all such p ≤ 10⁹.) FQ_u(A) together with (MS) puts the search problem in FP^{FACTOR}, hence in FBQP by Shor. This is
+**CONJECTURE FQ_u(A).** u_min(p) ≤ (log p)^A for every prime p ∈ 𝔐 with R(p) ≥ 1. (Data: u_min ≤ 469 for every such p ≤ 10⁹.) FQ_u(A) together with (MS) puts the search problem in FP^{FACTOR}, hence in FBQP by Shor. This is
 the (★) analogue of the CONJECTURE FQ of `BRAINSTORM/logic_complexity.md`. FQ_u with "for every prime p > P₀"
 (R(p) ≥ 1 included) is itself a Π₁ strengthening of (MS) and has the same B2 status (Assessment).
 
@@ -238,7 +237,89 @@ proof would contain an unknown classical method for producing a divisor of some 
 prescribed class. This is B2 in algorithmic dress: a precise sense in which (MS) has no "obvious" feasible proof. It
 is not a non-provability theorem.
 
-## 6. Barrier analogues (to be written)
+## 6. Barrier analogues
+
+### 6.1 Pseudo-squares: (MS⁺) fails in a model of open induction (PROVED)
+
+Shepherdson's model M (Shepherdson 1964; description and the facts used here as in
+`BRAINSTORM/logic_weak_arithmetic.md` §1):
+* M consists of the elements n = n₀ + Σ_{q>0} a_q t^q, with finitely many rational q > 0, a_q real algebraic and
+  n₀ ∈ ℤ. Here t is positive infinite, and n > 0 iff its leading coefficient is positive.
+* M ⊨ IOpen.
+* Each finite set of elements lies in ℝ_alg[σ] for σ = t^{1/k}, some k. Evaluation at σ = 0 is the ring homomorphism
+  n ↦ n₀ ∈ ℤ.
+* Every nonstandard element of M is a product of two nonstandard elements (Shepherdson; reproved in
+  `logic_weak_arithmetic.md` C2). Hence the primes (irreducibles) of M are the standard primes.
+
+In M write (MS★) and (MS⁺★) for (MS) and (MS⁺) with the hit stated as a solution of (★): ∃u, B, C ≥ 1,
+4uBC − u − B = n. Over ℕ the two forms are equivalent by Z57_SYNTH Lemma A.1.
+
+**Lemma 6.1 (sign lemma for (★); PROVED).** Let n ∈ M with n(σ) > 0 for all real σ ≥ 0. If u, B, C ∈ M are ≥ 1 and
+satisfy 4uBC − u − B = n, then u₀, B₀, C₀ ≥ 1 and 4u₀B₀C₀ − u₀ − B₀ = n₀. Hence R(n₀) ≥ 1.
+
+*Proof.*
+* Work in ℝ_alg[σ]. u, B, C are positive in M, so they have positive leading coefficients and are positive for
+  large σ.
+* Suppose uBC has a real zero σ ≥ 0, and let σ₁ be the largest one. On (σ₁, ∞) none of u, B, C vanishes, so all are
+  positive there (IVT), and hence u(σ₁), B(σ₁), C(σ₁) ≥ 0.
+  * If C(σ₁) = 0, then −u(σ₁) − B(σ₁) = n(σ₁) > 0, which is impossible.
+  * If C(σ₁) > 0 and u(σ₁) = 0, then −B(σ₁) = n(σ₁) > 0, which is impossible. B(σ₁) = 0 is symmetric.
+* So u, B, C > 0 on [0, ∞). In particular u₀, B₀, C₀ are positive integers. Apply the evaluation homomorphism. ∎
+
+**Theorem 6.2 (PROVED, given Shepherdson's model).** Let n₀ ∈ ℕ with n₀ mod 840 ∈ 𝔐 and R(n₀) = 0, and put
+n := n₀ + 840t ∈ M. Then M ⊨ Mord(n) ∧ ¬Sq(n) ∧ "n has no (★) solution". Consequently:
+* (a) IOpen ⊬ (MS⁺★).
+* (b) If (MS) is true, then M ⊨ IOpen + (MS★) + ¬(MS⁺★). So IOpen + (MS★) ⊬ (MS⁺★).
+* (c) Every standard zero lifts to such a counterexample in M:
+  * every odd square in 𝔐 classes, e.g. n₀ = 121 = 11² (T1);
+  * every composite zero, e.g. 17 401 609;
+  * every prime zero in 𝔐, e.g. 8 813 281 (8 813 281 mod 840 = 1).
+  The lifts are reducible in M, so they never violate (MS★).
+
+*Proof.*
+* n > 10¹⁷ because t is infinite. Also n = 840t + n₀, so n mod 840 = n₀ mod 840 ∈ 𝔐.
+* ¬Sq(n): suppose y² = n in M. In some ℝ_alg[σ] this reads y(σ)² = n₀ + 840σ^k. The right side has the simple
+  roots of 840σ^k = −n₀ (n₀ ≠ 0, k ≥ 1), so it is not a square of a polynomial.
+* n(σ) > 0 for σ ≥ 0, so Lemma 6.1 applies: a (★) solution in M would give R(n₀) ≥ 1, contradicting R(n₀) = 0.
+* (a) follows because M ⊨ IOpen.
+* (b): the primes of M are standard. For a standard prime p, every (★) solution in M has u, B, C ≤ p, hence is standard
+  (ℤ is an initial segment of M). So M ⊨ (MS★) ⟺ ℕ ⊨ (MS★).
+* (c): R(121) = 0 by T1, and the other listed zeros are CERTIFIED (§4). ∎
+
+*What this says (Assessment).*
+* The counterexample n = 121 + 840t is a **pseudo-square**: it is congruent to the square 121 modulo every standard
+  modulus, but it is not a square.
+* So any proof of (MS⁺) must use non-squareness in a way that congruence data cannot see. This is the model-theoretic
+  form of the T1/B1 pairing: Theorem M at the profinite point 11² (FRONTIER §3 B1).
+* Through (b), it also explains why the *prime* hypothesis is logically convenient in weak theories. M has no
+  nonstandard primes, so (MS★) cannot fail there at a nonstandard element. (MS⁺), which data (§4) suggest is true and
+  which is stronger over ℕ, is refuted in M.
+* So "use non-squareness, not primality" (§4) is not free. In weak arithmetic, non-squareness is visible only through
+  the archimedean / real-closure structure, never through residues.
+* Open: does IOpen ⊬ (MS★)? This needs a model with nonstandard primes in which Lemma 6.1 still applies; it is the
+  open question of `logic_weak_arithmetic.md` §5 transferred to (MS).
+
+### 6.2 Natural proofs: no computational teeth (Assessment, with one PROVED fact)
+
+* The natural-proofs barrier needs a pseudo-random family that no efficient test separates from the targets. For
+  (MS) the targets are primes or non-squares, and both are polynomial-time decidable (AKS; integer square root).
+* Hence a *computational* "large, constructive property" barrier cannot exist here. The property
+  "prime, or non-square, in 𝔐 and > 1.75·10⁷" is polynomial-time and, by §4, plausibly implies R ≥ 1.
+* The barrier therefore moves from computability to provability. Thm 3.1 is its feasible-proof form (a hit-or-factor
+  algorithm), and Thm 6.2 its model-theoretic form (pseudo-squares).
+* PROVED fact used: the property is polynomial-time decidable. Squareness via Newton's integer square root; primality
+  by AKS.
+
+### 6.3 Parity (EVIDENCE)
+
+* Sieve arguments cannot tell primes from products of two primes of comparable size (Selberg's parity barrier;
+  standard, not re-verified here).
+* An argument for (MS) that only uses "n has no prime factor below n^θ" proves R(n) ≥ 1 for such rough n. By §4 it
+  is falsified by the balanced semiprime zeros: 2 956 321 = 211·14 011 (θ ≈ 0.36) and 897 961 = 443·2 027 (θ ≈ 0.45).
+* Both of these lie in 𝔐 classes (2 956 321 mod 840 = 361, 897 961 mod 840 = 1). Still, no composite zero of any shape
+  occurs in 𝔐 above 1.75·10⁷ (to 10¹⁰).
+* So the parity barrier, as a falsifier for (MS) at threshold 10¹⁰, has **no data support** above 1.75·10⁷. It remains
+  a barrier for *methods* (sieve lower bounds cannot produce pointwise positivity at one n), not for the statement.
 
 ## 7. Verdict (provisional)
 
