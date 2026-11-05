@@ -1,4 +1,4 @@
-# Z58_TRYO — tryhard lane O on (★): 4uBC − u − B = p  — no proof of the full statement; almost-all theorem PROVED
+# Z58_TRYO — tryhard lane O on (★): 4uBC − u − B = p  — no proof of the full statement; almost-all theorem PROVED (prior in substance: Z56_FAMTRY Thm A is stronger)
 
 Lane TRYO, wave z58. Fresh attack (no FRONTIER / Z5* memos read). Only external data used: `data/z58/screens/`.
 Scripts `scripts/z58_tryo_*`, data `data/z58/tryo/`.
@@ -9,7 +9,7 @@ Scripts `scripts/z58_tryo_*`, data `data/z58/tryo/`.
 solution of (★)") is NOT proved. What is proved here:
 * Lemmas 1.1–1.4 (PROVED, elementary): equivalent forms of (★), incl. "∃ coprime u, B with 4uB | p+u+B" and
   "∃ u: p+u has a divisor ≡ −1 (mod 4u)"; a sufficient character-kernel criterion for failure (converse false).
-* Thm 2 (PROVED, using only the arithmetic large sieve + Mertens in progressions to fixed moduli):
+* Thm 2 (PROVED, PRIOR in substance — see §2 Remark (4); simpler fixed-modulus large-sieve proof):
   #{p ≤ X prime : (★) has no solution} ≪_A X (log X)^{−A} for every A. Same for the C-even subfamily and for all
   integers n ≤ X.
 * Props 3.1–3.2 (PROVED, Dirichlet/Linnik): no finite set of congruence identities covers 𝔐; there are infinitely
