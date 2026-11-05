@@ -9,7 +9,7 @@ runs = []
 for fn in sys.argv[1:]:
     cur = None
     for line in open(fn):
-        m = re.match(r"L=(\d+) N=(\d+) D=(-?\d+) (?:space=\d+ )?dim=(\d+) B=(\d+) l0=(\d+) #T1-conditions=(\d+) rank\(cond\)=(\d+) dimK=(\d+)", line)
+        m = re.match(r"L=(\d+) N=(\d+) D=(-?\d+) (?:space=\d+ )?(?:zrows=\d+ )?dim=(\d+) B=(\d+) l0=(-?\d+) #T1-conditions=(\d+) rank\(cond\)=(\d+) dimK=(\d+)", line)
         if m:
             cur = dict(L=int(m[1]), D=int(m[3]), dim=int(m[4]), B=int(m[5]), l0=int(m[6]), rc=int(m[8]), dK=int(m[9]), ranks={})
             runs.append(cur)
@@ -30,7 +30,7 @@ for L in sorted(by):
     bad += sum(1 for r in rs if any(v[0] for v in r["ranks"].values()))
     dims = sorted({r["dim"] for r in rs})
     f = lambda xs: f"{min(xs)}-{max(xs)}" if xs else "-"
-    print(f"{L} | {len(a)} | {f(dims)} | {rs[0]['B']} | {f([r['rc'] for r in a])} / {f([r['rc'] for r in b])} | "
+    print(f"{L} | {len({r['D'] for r in rs})} | {f(dims)} | {rs[0]['B']} | {f([r['rc'] for r in a])} / {f([r['rc'] for r in b])} | "
           f"{max((r['ranks'].get('C1', (0, 0))[0] for r in a), default='-')} / {max((r['ranks'].get('C1', (0, 0))[0] for r in b), default='-')} | "
           f"{rs[0]['ranks'].get('C1', (0, 0))[1]} | {rs[0]['ranks'].get('Mordell-classes', (0, 0))[1]}")
 print(f"# runs: {tot}; runs with a non-zero rank on any C1 subset: {bad}")

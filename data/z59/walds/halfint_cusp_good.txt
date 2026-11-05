@@ -1,0 +1,6 @@
+L=840 N=210 D=1 space=1 dim=85 B=16000 l0=-1 #T1-conditions=28 rank(cond)=7 dimK=78
+  rank of K on C1 (n<=B, 115 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 87 indices) = 0
+  rank of K on C1-primes (n<=B, 42 indices) = 0
+  rank of K on Mordell-classes (n<=B, 115 indices) = 0
+  time 85.5s (coefs 85.4s)

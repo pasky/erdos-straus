@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """z59 WALDS: diagnose a level where the T1-kernel does NOT vanish on C1 (found by z59_walds_halfint.py).
-Computes the cusp space S_{3/2}(Gamma_0(L), (D/.)), the exact kernel K of the T1 rows g(m^2) = 0 (all odd m <= sqrt B),
+Computes the cusp space S_{3/2}(Gamma_0(L), (D/.)), the exact kernel K of the T1 rows h(m^2) = 0 (odd m <= sqrt B, gcd(m, 2N) = 1),
 the subspace of K that is non-zero on C1 (modulo forms vanishing on C1 up to B), and for a survivor f the implied
 Shimura eigenvalues lambda_l = a(t l^2)/a(t) + psi(l)(-t/l) at the first non-zero C1 index t (valid when f is a
 T(l^2)-eigenform; checked by the consistency across two anchors t). Lists the C1 indices n <= B where f != 0, flags
@@ -17,6 +17,8 @@ N = L // 4
 MORD = {1, 121, 169, 289, 361, 529}
 ROOT = "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/"
 RZ = set(int(x) for x in open(ROOT + "data/z58/screens/star_prime_zeros.txt") if x.strip() and x[0] != "#")
+import gzip
+ZC = set(int(x) for x in gzip.open(ROOT + "data/z58/logic/zeros_1e10.txt.gz", "rt") if x.strip() and x[0] != "#" and int(x) <= 10**6)
 oddp = [int(q) for q in pari.factor(N)[0] if int(q) != 2] if N > 1 else []
 
 
@@ -28,7 +30,9 @@ mf = pari(f"mfinit([{L},3/2,{D}],1)")
 C = pari.mfcoefs(mf, B)
 k0 = int(pari.matsize(C)[1])
 sub = pari("(C,r)->vecextract(C, apply(x->x+1, r), [1..matsize(C)[2]])")
-rows = [m * m for m in range(1, int(B ** 0.5) + 1, 2)]
+# good odd squares only (gcd(m, 2N) = 1): for a TERNARY-class proxy g = E + h, Thm F gives E = 0 on C1, so the cusp part
+# h satisfies h(m^2) = g(m^2) = 0 exactly for these m (review finding 4).
+rows = [m * m for m in range(1, int(B ** 0.5) + 1, 2) if pari.gcd(m, 2 * N) == 1]
 K = pari.matker(sub(C, rows))
 c1 = [n for n in range(1, B + 1) if pari.gcd(n, 2 * N) == 1 and in_C1(n)]
 M = sub(C, c1) * K                       # rows: C1 indices, cols: kernel basis
@@ -51,6 +55,7 @@ nz = [n for n in c1 if a(n) != 0]
 print("non-zero C1 indices (first 30):", nz[:30])
 print("of which in Mordell classes:", [n for n in nz if n % 840 in MORD][:20])
 print("of which known (star)-zero primes:", [n for n in nz if n in RZ])
+print("of which known non-square composite R-zeros (n <= B):", [n for n in nz if n in ZC and n not in RZ and int(pari.issquare(n)) == 0])
 pr = [n for n in c1 if pari.isprime(n)]
 prz = [n for n in pr if a(n) == 0]
 print(f"C1 primes <= B: {len(pr)}; survivor coefficient = 0 at {len(prz)} of them (each such p has L(G (x) chi_p, 1/2) = 0 "

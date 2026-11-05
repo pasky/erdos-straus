@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """z59 WALDS: search y^2 = x^3 + a x + b, |a| <= 60, |b| <= 200, conductor <= 20000 supported on {2,3,5,7}, root number +1,
 for numerical analytic rank >= 2 (pari ellanalyticrank; EVIDENCE, not certified). Output: data/z59/walds/rank2_search.txt"""
+import cypari2
 pari=cypari2.Pari(); pari.allocatemem(800_000_000)
 seen={}
 def rad_ok(N):
