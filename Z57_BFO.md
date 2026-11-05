@@ -11,9 +11,10 @@ M_𝔊*, Theorem V) and `Z55_CROSSO.md` §1 (Jacobi reformulation).
 * **Verdict: target not reached.** I attacked the statement directly along every fibration of (★) and through the
   modulus-p form, and each route closed at the same point: after any choice of averaging variable, the event to be
   detected is "a single integer (p + s, or 4Cp + 1) has a divisor in a residue class tied to the fibre", and the only
-  pointwise-in-p averaging tool that reaches it is quadratic reciprocity → characters mod p → Burgess, which sees the genus
-  (order ≤ 2) layer only. §2 records the steps as precise PROVED lemmas (Lemma 2.1 symmetric collapse, Lemma 2.2
-  genus-exact moduli = {4, 8, 12, 24}, Lemma 2.3 bounded exponent ⇒ bounded modulus) rather than as a catalogue.
+  pointwise-in-p averaging mechanism I found that reaches it is quadratic reciprocity → characters mod p → Burgess, which
+  sees the genus (order ≤ 2) layer only (Assessment; not a theorem about all methods). §2 records the precise PROVED
+  pieces (Lemma 2.1 symmetric collapse, Lemma 2.2 genus-exact moduli = {4, 8, 12, 24}, Lemma 2.3 bounded exponent ⇒
+  bounded modulus).
 * **Banked (PROVED, §3). Theorem W.** For every K ≥ 1, with κ_K := Σ_{C≤K} 1/φ(4C) (≥ ¼ log K):
   #{p ≤ x prime, p ≡ 1 (4) : R_𝔊*(p) = 0} ≪_K x/(log x)^{1+κ_K}; hence ≪_A x/(log x)^A for every A. The proof uses
   only the complete levels C ≤ K of 𝔊* (prime factors ℓ ≡ −1 (mod 4C) of 4Cp + 1), Montgomery's arithmetic large sieve
@@ -23,12 +24,11 @@ M_𝔊*, Theorem V) and `Z55_CROSSO.md` §1 (Jacobi reformulation).
 * **Reformulations (PROVED, §1; all numerically checked, `data/z57/bfo/lemmas_check.txt`).** R(n) = #{(s, t) ∈ ℕ² :
   4st | n + s + t}; R(n) ≥ 1 ⟺ some n + s has a divisor ≡ −1 (mod 4s); level form; levels with 64C³ ≤ p lie in 𝔊*;
   mod-p form: R(p) ≥ 1 ⟺ some (o, e, C) ∈ ℕ³ has p | 4oeC − o − e with 0 < 4oeC − o − e < 2p (k = 1 is forced).
-* **Effectivity (Assessment, §4.2).** Any route that lower-bounds the main term via Burgess cannot give p₀ ≤ 10¹⁰: even with
-  constant 1 in Burgess (optimising r), a saving factor ≤ ½ at length q^{1/3} needs q ≳ 10⁶⁸ (q^{0.4}: q ≳ 10²⁴), and at
-  q = 10¹⁰ the best factor at length q^{1/3} is 0.995. An effective p₀ ≤ 10¹⁰ needs tools with explicit, small constants (Pólya–Vinogradov-type), which
-  see only the region max(o, e) ≳ (min(o, e)·p)^{1/2}.
-* **CERTIFIED (§5).** Z56's exhaustive decider extended: R_𝔊*(p) ≥ 1 for every prime p ≡ 1 (4) in (10¹⁰, 2·10¹⁰]
-  (status of the run: §5). **EVIDENCE:** the 38 𝔊*-zeros ≤ 10¹⁰ are mild pseudo-squares (least prime non-residue
+* **Effectivity (Assessment, §4.2).** In the proof architecture of Theorem V the Burgess sums give essentially no saving
+  at p ≈ 10¹⁰: even with constant 1 in Burgess (optimising r), the relative bound at length q^{1/3} is 0.995 at q = 10¹⁰,
+  and it drops below ½ only near q ≈ 10^{67} (length q^{0.4}: q ≈ 10^{23.7}). So that architecture does not give
+  p₀ ≤ 10¹⁰; this is a calibration of the displayed model bound, not a theorem about every Burgess-based argument.
+* **CERTIFIED (§5).** Z56's exhaustive decider extended to (10¹⁰, 2·10¹⁰]; result and audit trail in §5. **EVIDENCE:** the 38 𝔊*-zeros ≤ 10¹⁰ are mild pseudo-squares (least prime non-residue
   q(p) ≥ 11 for 20/38, vs ≈ 6 % of random primes), but 8 of them have q(p) = 2, so no "pseudo-square" lemma is available.
 
 ## 1. Statement and reformulations
@@ -54,15 +54,19 @@ entries; parity as in 1.1. ∎ Such d is ≢ 0 (mod p), and ≥ 4C − 1.
 (o, e) ∈ 𝔊*. *Proof (repeated for completeness).* If Q⁴ ≤ P·p ≤ Q·p then Q ≤ p^{1/3}, so PQ ≤ p^{2/3}; but
 PQ = (p + P + Q)/(4C) > p/(4C) ≥ p^{2/3} when 4C ≤ p^{1/3}, i.e. 64C³ ≤ p. ∎
 
-**Lemma 1.5 (mod-p form; PROVED).** For a prime p: R(p) ≥ 1 ⟺ ∃ o, e, C ≥ 1 with p | F := 4oeC − o − e and 0 < F < 2p.
+Lemmas 1.2–1.3 are stated for odd n ≥ 3 (as in 1.1); Lemmas 1.4–1.6 for primes p ≡ 1 (mod 4) (1.5 holds for every odd
+prime; 1.6 fails for p ≡ 3 (4), e.g. p = 19, (3, 2, 1)).
+
+**Lemma 1.5 (mod-p form; PROVED).** For an odd prime p: R(p) ≥ 1 ⟺ ∃ o, e, C ≥ 1 with p | F := 4oeC − o − e and 0 < F < 2p.
 *Proof.* (⇒) F = p. (⇐) F ≡ 0 (mod p) and 0 < F < 2p force F = p; parity as in 1.1. ∎
-So the target is a *small-solution* statement for the cubic congruence F ≡ 0 (mod p) in the hyperbolic region
-{4oeC < 2p + o + e}, which has ≍ p log²p lattice points: the expected number of solutions is ≍ log²p — the **critical
+So the unrestricted problem R(p) ≥ 1 is a *small-solution* statement for the cubic congruence F ≡ 0 (mod p) in the
+hyperbolic region {4oeC < 2p + o + e} (for R_𝔊* add the condition Q⁴ > P·p; e.g. p = 37 has the small solution
+(1, 2, 5) outside 𝔊*), which has ≍ p log²p lattice points: the expected number of solutions is ≍ log²p — the **critical
 volume** (Assessment: pointwise small-solution results at critical volume are not known even for the modular hyperbola
 xy ≡ λ (mod p) in boxes of area p^{1+ε}, where Weil's bound needs area p^{3/2+ε}).
 
 **Lemma 1.6 (Jacobi; PROVED, `Z55_CROSSO` §1).** Every solution at a prime p has ((4Co − 1)/p) = ((4Ce − 1)/p) = −1, and
-odd squares have no solutions. (Checked: 2 080 solutions at primes < 6000, 0 violations; 0 solutions at 9, 25, …, 77².)
+odd squares have no solutions. (Checked: 2 080 solutions at primes < 6000, 0 violations; 0 solutions at 9, 25, …, 79².)
 
 ## 2. The attack, step by step
 
@@ -78,23 +82,25 @@ fixed p, over which the order-≥3 part X_𝔊* (or the exact count directly) ca
 *Proof.* (a)–(c) are Lemmas 1.2–1.3. (d): m = 4sC − 1 | p + s ⟺ p ≡ −s (mod m) and 4s | m + 1; s ≤ (m + 1)/4 < m so s is
 the least positive residue of −p. ∎
 *Consequence for the attack.* Summing (a) over s ≤ S, or (c) over C ≤ X, is a sum over shifted integers n = p + s
-(resp. over the progression 4Cp + 1) of a divisor-in-class count whose modulus is n − p (resp. (n − 1)/p); interchanging
-the sums (d) returns to "p mod m lies in the sparse set −Div((m + 1)/4)" for one modulus at a time, and for m > √p the
+(resp. over the progression 4Cp + 1) of a divisor-in-class count whose modulus is 4(n − p) (resp. (n − 1)/p = 4C); interchanging
+the sums (d) returns to "p mod m lies in the sparse set −Div((m + 1)/4)" for one modulus at a time, and the
 condition (d) is, with j := ⌈p/m⌉, the congruence p ≡ −r − j (mod 4rj) — i.e. fibration (a) again with (s, t) = (r, j).
 I tried each order of summation; the averaging variable is always a divisor of a p-shifted integer, never a free
 variable on which p-dependent phases vary smoothly. (An exponential-sum treatment of Σ_C 1[(4sC − 1) | p + s] by van der
 Corput in C is legitimate but bounds a single integer's divisor count, where the error term is ≥ √p, Assessment.)
 
 **2.2 Where the class condition is genus-exact (Lemma 2.2; PROVED).** (ℤ/4m)^× has exponent ≤ 2 iff 4m | 24, i.e.
-m ∈ {1, 2, 3, 6}. *Proof.* (ℤ/4m)^× ⊇ (ℤ/ℓ)^× for odd ℓ | m, cyclic of order ℓ − 1, so ℓ ∈ {3}; ℓ² ∤ m since (ℤ/9)^× is
+m ∈ {1, 2, 3, 6}. *Proof.* (ℤ/4m)^× surjects onto (ℤ/ℓ)^× for odd ℓ | m, cyclic of order ℓ − 1, so ℓ ∈ {3}; ℓ² ∤ m since (ℤ/9)^× is
 cyclic of order 6; 2-part: (ℤ/2^a)^× has exponent ≤ 2 iff a ≤ 3. ∎ (Checked for m < 2000.)
 So in fibrations (a)/(b)/(c) the class condition "≡ −1 (mod 4s)" is decided by quadratic characters only for
 s, t ∈ {1, 2, 3, 6} and C ∈ {1, 2, 3, 6}: the eight integers p + 1, p + 2, p + 3, p + 6, 4p + 1, 8p + 1, 12p + 1, 24p + 1.
-For these the event is "the prime-factor classes mod 24 generate a subgroup containing −1", a statement about the
-factorisation of eight fixed integers; Lemma 1.6 constrains only the total product of the classes (it is a reciprocity
+For these the event is "the classes mod q (q = 4s, 4t or 4C ∈ {4, 8, 12, 24}) of the prime factors of the integer that are
+coprime to q generate a subgroup of (ℤ/q)^× containing −1" (exponent 2: a generated element is a product of distinct
+eligible primes, so this is equivalent to the existence of the divisor), a statement about the factorisation of eight
+fixed integers; Lemma 1.6 constrains only the total product of the classes (it is a reciprocity
 identity), so no forcing results. Example of what *is* forced (classical): p ≡ 5 (8) ⇒ (p + 1)/2 ≡ 3 (4) has a prime factor
 ≡ 3 (4) ⇒ a solution with o = 1 (not necessarily in 𝔊*: if (p + 1)/2 is prime the only one is (1, 2, (p + 3)/8), in the
-corner; indeed 8 of the 38 𝔊*-zeros are ≡ 5 (8)).
+corner once p ≥ 16; indeed 8 of the 38 𝔊*-zeros are ≡ 5 (8)).
 
 **2.3 Reciprocity for higher orders (Lemma 2.3; PROVED).** For k ≥ 1 the set of moduli q with λ(q) | k (λ = Carmichael's
 function: all characters mod q have order dividing k) is finite: it is the set of divisors of
@@ -102,10 +108,12 @@ function: all characters mod q have order dividing k) is finite: it is the set o
 *Proof.* λ(ℓ^v) = ℓ^{v−1}(ℓ − 1) for odd ℓ, λ(2^a) = 2^{max(a−2,1)} (a ≥ 2) and λ(lcm) = lcm(λ); λ(q) | k iff each
 prime-power factor satisfies these divisibilities. ∎ (Checked by brute force over q < 20000: for k = 2, 4, 6 the
 largest such q is 24, 240, 504 = Λ(k); for k = 12 the range does not reach Λ(12) = 65520.)
-*Consequence.* The exact condition p ≡ −(o + e) (mod 4oe) needs all characters mod 4oe; reciprocity laws turn characters
-of a fixed order k at p into order-k characters modulo a prime above p (where Burgess-type bounds are pointwise), but a
-fixed finite set of orders sees only the finitely many moduli dividing Λ(k) exactly — the Mordell-type congruence world.
-Theorem V's mechanism (order 2, all moduli, but only the *genus* of the class) is the full extent of this route.
+*Consequence (the PROVED part).* Exact recovery of the class p ≡ −(o + e) (mod 4oe) from characters whose orders lie in a
+fixed finite set (lcm k) is possible only for the finitely many moduli dividing Λ(k) — the Mordell-type congruence world.
+*Assessment.* Reciprocity laws move bounded-order characters at p to characters modulo primes above p, where
+Burgess-type bounds are pointwise; I found no way to make this reach the order-≥ 3 layer for unbounded moduli (it would
+have to work with averaged rather than exact class information), so Theorem V's mechanism (order 2, all moduli, only the
+*genus* of the class) is as far as I could take this route.
 
 **2.4 Mod-p route (Assessment).** By Lemma 1.5 one may count F ≡ 0 (mod p) in boxes o ~ O, e ~ E, C ~ p/(4OE) with additive or
 multiplicative characters mod p. For each fixed (o, e) the C-sum is a geometric series detecting a single residue
@@ -118,9 +126,8 @@ OE(O + E) < p.)
 
 **2.5 Assessment of the wall.** Every route above needs, at one fixed p, equidistribution of order-≥3 class data of
 moduli 4oe (or 4s, 4C) over a family whose only free variable is a divisor of a p-shift. The genus layer escapes because
-(p/ℓ) = (ℓ/p) moves it to a single character mod p. I found no substitute for unbounded orders, and the squares test
-(Lemma 1.6) shows that any substitute must use primality beyond the Legendre symbol's existence: at n = 810 001 =
-241·3361 (non-square, R = 0) the genus mass is 24.3 (`Z56_FAMATTACK` §3.5), so a statement "X ≥ −(1 − ε)M_gen for all large
+(p/ℓ) = (ℓ/p) moves it to a single character mod p. I found no substitute for unbounded orders. Besides the squares
+test (Lemma 1.6), composite zeros constrain any substitute: at n = 810 001 = 241·3361 (non-square, R = 0) the genus mass is 24.3 (`Z56_FAMATTACK` §3.5), so a statement "X ≥ −(1 − ε)M_gen for all large
 non-square n" would have to fail at infinitely many composites if the composite zeros persist (they do through 8·10⁶: 285).
 
 ## 3. Theorem W (PROVED): the exceptional set of 𝔊* is ≪ x/(log x)^A
@@ -128,8 +135,8 @@ non-square n" would have to fail at infinitely many composites if the composite 
 **Theorem W.** For K ≥ 1 put κ_K := Σ_{C ≤ K} 1/φ(4C). Then for x ≥ 2
   E_K(x) := #{p ≤ x prime : p ≡ 1 (4), R_𝔊*(p) = 0} ≪_K x/(log x)^{1+κ_K}.
 Since κ_K ≥ Σ_{C ≤ K} 1/(4C) ≥ ¼ log K, for every A > 0: E(x) ≪_A x/(log x)^A.
-In fact the bound holds for the larger set of primes p with no hit at any level C ≤ K (no divisor ≡ −1 (mod 4C) of
-4Cp + 1).
+In fact the bound holds for the set of primes p with no hit at any level C ≤ K (no divisor ≡ −1 (mod 4C) of 4Cp + 1),
+which contains every 𝔊*-zero p > 64K³ (not the smaller ones: p = 37 is a 𝔊*-zero with the level-5 solution (1, 2, 5)).
 
 *Proof.* Let x be large, Q := x^{1/4}, and 𝒫 the set of primes p ∈ (max(Q, 64K³), x], p ≡ 1 (4), with R_𝔊*(p) = 0.
 (Primes ≤ max(Q, 64K³) contribute ≪_K x^{1/4}.)
@@ -167,7 +174,7 @@ log Π = Σ_{ℓ≤z} log(1 + g(ℓ)) ≥ Σ_{ℓ≤z}(g(ℓ) − g(ℓ)²/2) = 
 *Step 5.* |𝒫| ≤ 2x/G(Q) ≪_K x/(log x)^κ = x/(log x)^{1+κ_K}. The bound κ_K ≥ ¼ log K follows from φ(4C) ≤ 4C. ∎
 
 *Remarks.* (i) Only levels C ≤ K and prime divisors are used; the sifted set contains every p whose levels C ≤ K are all
-empty, so W also bounds the zeros of the tiny subfamily {C ≤ K} ⊂ 𝔊* (CERTIFIED context: H3 = {64C³ ≤ p} has 873 zeros
+empty, so W also bounds the zeros of the tiny subfamily {C ≤ K} (⊂ 𝔊* for p ≥ 64K³) (context: H3 = {64C³ ≤ p} has 873 zeros
 ≤ 10¹⁰, `Z56_FAMDESIGN` §4.3). (ii) Letting K grow with x inside the large sieve gives at best exp(−c√(log x)) savings
 (Assessment, heuristic J ≈ exp(2√(c log Q)) from Σ_{ℓ} τ((ℓ + 1)/4)ℓ^{−1−s} ≈ c/s), still weaker than the classical
 exp(−c(log x)^{2/3}) bound for the full ES equation. (iii) T1 audit: W is an upper bound for a count, and its analogue
@@ -180,9 +187,10 @@ through 0 ∈ Ω(ℓ) (one extra factor log x).
 **4.1 Least quadratic non-residue of the 𝔊*-zeros (EVIDENCE; `data/z57/bfo/lqnr.txt`).** For the 38 𝔊*-zeros ≤ 10¹⁰,
 q(p) := least prime with (q/p) = −1 is ≥ 11 for 20 of 38 and ≥ 17 for 8 (random p ≡ 1 (4) in [10⁷, 10⁸): 6.3 % and
 1.9 %); but eight zeros have q(p) = 2 (p ≡ 5 (8)) and log q(p)/log p ranges over 0.05–0.32. So the zeros lean towards
-pseudo-squares, as the genus mechanism predicts, but no "R_𝔊*(p) = 0 ⇒ p is a QR mod all primes ≤ f(p)" lemma (which with
-Burgess/Vinogradov's q(p) ≪ p^{1/(4√e)+ε} would finish) can hold for any f growing faster than 2. 57 of the 285
-non-square composite (★)-zeros ≤ 8·10⁶ are sums of two squares (26 with all prime factors ≡ 1 (4)), so composite zeros
+pseudo-squares, as the genus mechanism predicts. A lemma "R_𝔊*(p) = 0 ⇒ (ℓ/p) = 1 for every prime ℓ ≤ f(p)" would finish
+if f(p) eventually exceeded the unconditional bound q(p) ≪_ε p^{1/(4√e)+ε}; the data refute any such lemma that is
+uniform down to these small zeros with f ≥ 2 there, but say nothing about an eventual version (a growing f may be small on
+any finite set). 57 of the 285 non-square composite (★)-zeros ≤ 8·10⁶ are sums of two squares (26 with all prime factors ≡ 1 (4)), so composite zeros
 are not explained by a 3 (mod 4)-prime obstruction either.
 
 **4.2 Effective p₀ through Burgess (Assessment).** Theorem V's error terms come from Burgess sums of length N = q^θ to
@@ -190,11 +198,12 @@ conductors q ≈ p·P with θ > 1/4. Even granting the favourable shape |S| ≤ 
 c = 1 (published explicit versions have c > 1), the relative saving is f = q^{−θ/r + (r+1)/(4r²)}(log q)^{1/(2r)}.
 Minimising over 2 ≤ r < 400 (`scripts/z57_bfo_burgess_calib.py`, `data/z57/bfo/burgess_calib.txt`):
 * at q = 10¹⁰: min_r f = 0.995 for θ = 1/3, 0.857 for θ = 0.4, 0.469 for θ = 1/2;
-* min_r f ≤ ½ first at q ≈ 10⁶⁸ (θ = 1/3), 10²⁴ (θ = 0.4), 10¹⁰ (θ = 1/2).
-So no Burgess-based lower bound for M_𝔊* is effective at 10¹⁰; an effective proof with p₀ ≤ 10¹⁰ would need explicit
-tools of Pólya–Vinogradov strength (|S| ≤ (2/π²)√q log q + O(√q log log q) type), which only reach pairs with
-max(o, e) ≳ (min(o, e)·p)^{1/2}: in log-coordinates the region max > (1 + min)/2, area 1/6 of the triangle (vs 5/12 for
-G), density main term (3/π²)·(1/6) = 1/(2π²) ≈ 0.051 per log²p — and even there the saving at p ≈ 10¹⁰ is only a
+* min_r f = ½ at q ≈ 10^{67.2} (θ = 1/3), 10^{23.7} (θ = 0.4), 10^{9.4} (θ = 1/2) (continuous thresholds, hostile
+  review; the script reports the first integer decade).
+So in Theorem V's architecture the Burgess sums of length ≈ q^{1/3}–q^{0.4} give almost no saving at 10¹⁰ and that
+architecture does not give p₀ ≤ 10¹⁰. The θ ≥ 1/2 range, i.e. pairs with max(o, e) ≳ (min(o, e)·p)^{1/2}, is where
+explicit tools of Pólya–Vinogradov strength (|S| ≤ (2/π²)√q log q + O(√q log log q) type) also work: in log-coordinates
+the region max > (1 + min)/2, area 1/6 of the triangle (vs 5/12 for G), density main term (3/π²)·(1/6) = 1/(2π²) ≈ 0.051 per log²p — and even there the saving at p ≈ 10¹⁰ is only a
 constant factor. (This calibrates the brief's "ideally p₀ ≤ 10¹⁰"; it is not a theorem about all possible proofs.)
 
 ## 5. Certification extension (CERTIFIED; `scripts/z57_bfo_certrun.sh`, `data/z57/bfo/decide_1e10_2e10_*.txt`)
