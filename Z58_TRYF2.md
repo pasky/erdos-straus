@@ -5,8 +5,8 @@ Lane: TRYF2 (wave z58). Fresh, unprimed attack per `z52bbriefs/z55_tryhard.md` (
 
 **Status line (updated at every commit):** NO PROOF of the target; no HOT LEAD. Deliverable: the exact split
 R(p) = M₂(p) + E₂(p) (§3) with **Theorem A (PROVED): M₂(p) ≥ c₀ log² p for all large primes p ≡ 1 (4)**, M₂ ≡ 0 at
-squares, and the open core isolated as the single inequality E₂(p) > −M₂(p) (shown to be non-local, Prop. 2.1, and
-not sub-family-stable, §4(b)/F2). Everything below is labelled PROVED / CONDITIONAL / CERTIFIED /
+squares (primes only; composites not proved), and the open core isolated as the single inequality E₂(p) > −M₂(p)
+(not reachable by two-bounded-coordinate arguments, Prop. 2.1; false on the C-even sub-family at 12 primes near 10¹⁰, §4(b)/F2). Everything below is labelled PROVED / CONDITIONAL / CERTIFIED /
 CONDITIONAL. No HOT LEAD yet.
 
 Notation. For n ≡ 1 (mod 4) put R(n) := #{(u,B,C) ∈ ℕ³ : 4uBC − u − B = n} = #{(u,d) : u ≥ 1, d | n+u, d ≡ −1 (mod 4u)}
