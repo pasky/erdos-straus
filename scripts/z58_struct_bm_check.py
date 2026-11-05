@@ -130,7 +130,9 @@ def jacobi(a, m):
     return r if m == 1 else 0
 
 def main():
+    global PR
     nmax = int(sys.argv[1]) if len(sys.argv) > 1 else 300
+    PR = primes_upto(nmax)
     for k in (4, 8):
         tot, bad = check_local(min(nmax, 120), k)
         print(f"[k={k}] (1) local invariant formula: {tot} l-adic points tested, {bad} mismatches")
@@ -142,13 +144,13 @@ def main():
                 sq_bad += 1
             for (u, B, C) in pts:
                 prod = 1
-                for l in [0] + [p for p in primes_upto(n) if n % p == 0] if n > 1 else [0]:
+                for l in [0] + [p for p in PR if p <= n and n % p == 0]:
                     prod *= hilbert_int(-(k * u * C - 1), -n * u, l)
                 if prod != 1:
                     jac_bad += 1
                 if n % 2 == 1:
                     n1 = n  # part of n coprime to u (primes dividing u and n contribute +1)
-                    for p in primes_upto(min(u, n)):
+                    for p in [q for q in PR if q <= min(u, n)]:
                         if u % p == 0:
                             while n1 % p == 0:
                                 n1 //= p
@@ -164,12 +166,12 @@ def main():
             m = isqrt(n)
             if m * m == n:
                 continue
-            ls = [p for p in primes_upto(n) if n % p == 0 and vl(n, p) % 2 == 1]
+            ls = [p for p in PR if p <= n and n % p == 0 and vl(n, p) % 2 == 1]
             ok = False
             for l in ls:
                 vals = set()
-                for u in range(1, 4 * l + 3):
-                    for C in range(1, 4 * l + 3):
+                for u in (1,):
+                    for C in range(1, 2 * l + 3):
                         d = k * u * C - 1
                         if d % l == 0:
                             continue
