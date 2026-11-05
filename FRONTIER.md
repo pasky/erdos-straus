@@ -16,7 +16,7 @@ repository file, with a pointer. When a summary and its source disagree, the sou
 **Labels** (as in `DISCOVERIES.md`). PROVED = complete proof in the repo, possibly *relative to* named published theorems;
 CONDITIONAL = proved assuming a named hypothesis (GRH, Dickson, Hypothesis H, SEL, …); CERTIFIED = an exact finite computation,
 independently reproduced; EVIDENCE = numerics or heuristics only; CONJECTURE = stated, open; Assessment = a judgement or
-interpretation, not a theorem. *(z58 convention: for z58 data, CERTIFIED denotes the exact finite computation in the cited
+interpretation, not a theorem. *(z58/z59 convention: for z58 and z59 data, CERTIFIED denotes the exact finite computation in the cited
 memo, with its stated engine and independent-check coverage. It does not mean a second full-range census; the ranges
 independently reproduced or checked pointwise are specified separately.)* Everything PROVED here is *internally* reviewed (hostile reviews in `reviews/`), and **none of it
 is externally refereed.** Pointers like (J)100 are entries in the ledger `DISCOVERIES.md`.
@@ -271,8 +271,9 @@ targets for this section:
   * Status: CERTIFIED for n ≤ 10¹⁰; PROVED for n ≡ 3 (4).
   * The prime form (MS-II), N_II(p) ≥ 1 for primes p > 10¹⁷ in 𝔐, is implied by (MS) and implies ES relative to
     Mordell + Salez.
-  * This is the only carried target whose *statement* passes F1–F4 (§4) in the tested ranges. It is a "HOT TARGET"
-    (Assessment about the statement), **not a mechanism**.
+  * At the z58 checkpoint this was singled out as the only carried target whose *statement* passes F1–F4 (§4) in the
+    tested ranges: a "HOT TARGET" (Assessment about the statement), **not a mechanism**. z59 adds the smaller-family
+    CONJECTURE U_II with explicit exceptions {105, 4545} and its sharper census/profile (below; §7 item 19).
   * 4545 = 3²·5·101 is a genuine positive-integral Hasse failure with a nonempty BM set (`Z58_STRUCT2.md` Thm 4.1,
     PROVED + CERTIFIED).
 * **Proved surrogate lower bounds, not bounds for R.**
@@ -300,28 +301,40 @@ HOT LEAD; B2 did not move.** New data and sharper targets:
 * **Primality-free variants** (`Z59_MSPLUS.md` §1, §5.3; CONJECTURE; CERTIFIED to 10¹⁰ via the z58 LOGIC census).
   * **(MS⁺₁₀₅):** R(n) ≥ 1 for every non-square n ≡ 1 (4) with gcd(n, 105) = 1 and n > 29 210 401 (all classes, no
     Mordell input). Strictly stronger than (MS⁺) (which it implies with the finite range to 29 210 401, covered by census).
-  * **(R⁺_y), y ≥ 47:** R(n) ≥ 1 for every non-square n ≡ 1 (4) > 8 813 281 with all prime factors > y (19 zeros ≤ 10¹⁰,
-    the last 8 813 281 = the last (★)-zero prime). A proof of (MS) transfers to it only if every use of primality follows
-    from non-squareness plus the fixed-y exclusion (fixed-y roughness does not force gcd(n, u) = 1 for witnesses).
-  * "As good a target as (MS⁺)" is an Assessment. All variants inherit T1 by hypothesis and the R₈ dead-moduli structure.
+  * **(R⁺_y), y ≥ 47:** R(n) ≥ 1 for every non-square n ≡ 1 (4) > 8 813 281 with all prime factors > y. For y = 47 there
+    are 19 such zeros ≤ 10¹⁰, the last 8 813 281 = the last (★)-zero prime; for y > 47 the domain shrinks, so the same
+    cutoff is certified sufficient (count and actual last zero may differ).
+  * Reusing an (MS) proof for fixed-y-rough non-squares requires every primality-dependent step to remain valid (fixed-y
+    roughness does not force gcd(n, u) = 1 for witnesses: n = 9 553 913 = 1093·8741 has witness (1093, 2186, 1)). This
+    initially gives only the Mordell domain and the threshold 10¹⁷. The all-class (R⁺_y) additionally needs removal of any
+    Mordell-class dependence and coverage down to 8 813 281; the census to 10¹⁰ does not cover a gap up to 10¹⁷. A proof
+    needing y(n) → ∞ is not a proof of (R⁺₄₇).
+  * "As good a target as (MS⁺)" is an Assessment. All variants inherit T1 by hypothesis, and R₈ has the same odd local
+    factors (half the leading mean).
 * **Local mean of R** (`Z59_MSPLUS.md` Thm 1, Remark 2.3; PROVED). For fixed Q = 2^k·Q′ (k ≥ 2, Q′ odd squarefree) and
   a ≡ 1 (4), the class mean is (𝔖_Q(a)/8)log²X + O_Q(log X), 𝔖_Q = ∏_{q|Q′}σ_q with σ_q = 1 + 1/q² (q ∤ a),
   1 − 1/q + 1/q² (q | a); 2-adic factor 1. So the leading term is Jacobi-blind (𝔐 differs from other unit classes only
   at O(log X); the size of that term is not derived — the proposed second-order expansion was WITHDRAWN after review),
-  each odd q | n multiplies the leading constant by (q² − q + 1)/(q² + 1) (dead moduli), and R₈ has exactly half.
-  EVIDENCE: zero law P(R(n) = 0) ≈ exp(−0.3·m(n)) in a proxy m; it matches the four large composite groups within
-  ≈ 1.5×, under-predicts later decades ≈ 1.4× (pre-registered decade [10¹⁰, 10¹¹]: 18 observed vs 13.0 / 11.5; no
-  pass criterion, not a passed test) and the 𝔐-prime zeros of 10⁶–10⁷ ≈ 6× (unexplained).
-* **CONJECTURE U** (`Z59_CONV2.md` §1). U := (c = 1) ∪ (a = 1) ⊂ Type II. Lemma 1(iii) (PROVED): U(n) ≥ 1 ⟺ ∃ T ≥ 1 such
+  each odd q | n multiplies the leading constant by (q² − q + 1)/(q² + 1) (dead moduli), and R₈ has the same odd
+  local factors and exactly half the leading coefficient.
+  EVIDENCE: zero law P(R(n) = 0) ≈ exp(−0.3·m(n)), fitted with the proxy m, log n and Jacobi depth as separate
+  covariates. Agreement within ≈ 1.5× (worst ≈ 1.63×) concerns the four large *training* groups only; the OOS 21 | n row
+  is ≈ 3× off and held-out g7 ≈ 17× off. Later total counts are ≈ 1.4–1.5× low (pre-registered decade [10¹⁰, 10¹¹]:
+  18 observed vs 13.0 / 11.5; no pass criterion, not a passed test), and the 𝔐-prime zeros of 10⁶–10⁷ ≈ 6× low
+  (unexplained). The R₈ comparison (≈ 5× the R-law at the halved mean) is a rough all-p ≡ 1 (4) Assessment, not an
+  in-𝔐 calibrated law; only four of the twelve screen R₈ primes are in 𝔐.
+* **CONJECTURE U_II** (`Z59_CONV2.md` §1, where it is called U). U_II := (c = 1) ∪ (a = 1) ⊂ Type II; (MS-U) is its prime
+  conjecture label. *U_II is not the older word-family predicate U of the U/ES₅ and RLD-U passages (§§5–7): at n = 4545
+  the old U has the word (t, u, v) = (7, 14, 47), while U_II has no witness; old-U theorems are not theorems about U_II.* Lemma 1(iii) (PROVED): U_II(n) ≥ 1 ⟺ ∃ T ≥ 1 such
   that Tn + 1 has a divisor f ≡ −1 (mod L_T), L_T = T if 4 | T, 4T otherwise — **a single one-parameter line** (the a = 1
-  half is the known "cn + 1 mod 4c" form). CONJECTURE: every odd non-square n ∉ {105, 4545} has U(n) ≥ 1.
+  half is the known "cn + 1 mod 4c" form). CONJECTURE: every odd non-square n ∉ {105, 4545} has U_II(n) ≥ 1.
   * CERTIFIED for n ≤ 10¹⁰ (zeros exactly 105, 4545; previously to 4·10⁶). Independent direct census to 10⁹; one engine
-    above. No prime U-zero ≤ 10¹¹ (inherited from the B1_LINE a = 1 census, not recomputed).
-  * At primes it is López's Conjecture 1 (prior). U ⟹ CONV-II (105 = full-family solution (3, 3, 2, 3)).
-    **(MS-U)**: U(p) ≥ 1 for primes p > 10¹⁷ in 𝔐; (MS) ⟹ (MS-U) ⟹ (MS-II), so (MS-U) ⟹ ES rel. Mordell + Salez.
-  * U asks for more than CONV-II; that it is harder to prove is *not* claimed. In the certified range the full family
-    beyond U is needed only at n = 105; the a = 1 branch of U itself uses c ≥ 2.
-  * Numerator 8: U⁽⁸⁾ has 819 odd non-square zeros ≤ 10⁸ (61 primes, last 3 869 153; 758 composites, last 93 398 595).
+    above. No prime U_II-zero ≤ 10¹¹ (inherited from the B1_LINE a = 1 census, not recomputed).
+  * At primes it is López's Conjecture 1 (prior). U_II ⟹ CONV-II (105 = full-family solution (3, 3, 2, 3)).
+    **(MS-U)**: U_II(p) ≥ 1 for primes p > 10¹⁷ in 𝔐; (MS) ⟹ (MS-U) ⟹ (MS-II), so (MS-U) ⟹ ES rel. Mordell + Salez.
+  * U_II asks for more than CONV-II; that it is harder to prove is *not* claimed. In the certified range the full family
+    beyond U_II is needed only at n = 105; the a = 1 branch of U_II itself uses c ≥ 2.
+  * Numerator 8: U_II⁽⁸⁾ has 819 odd non-square zeros ≤ 10⁸ (61 primes, last 3 869 153; 758 composites, last 93 398 595).
 * **Minimal ρ for Type II at p ≡ 1 (24)** (`Z59_CONVO.md` §6; CERTIFIED, independently reproduced). With ρ = 4abd − p,
   every prime p ≡ 1 (24) ≤ 10⁸ (719 781 primes) has a witness with ρ ≤ 107 (record 8 803 369 → 107). Under Dickson no
   uniform bound on ρ suffices (Thm 7.7, CONDITIONAL; exact prior result `DISPROOF_AVENUES.md` §3 Prop 3.1).
@@ -740,7 +753,7 @@ has passed all lines.
    claim over p > P₈ in 𝔐; they do not refute eventual C-even positivity or an argument starting at 10¹⁷. For full
    numerator-8 Type II, the prime census requires P₈ ≥ 35 569 for p > P₈, but does not prove positivity beyond that
    cutoff.
-   *(z59.)* Line-level numerator-8 data (CERTIFIED): the U-line at numerator 8, U⁽⁸⁾ = (c = 1) ∪ (a = 1) of 8/n, has 819 odd
+   *(z59.)* Line-level numerator-8 data (CERTIFIED): the U_II-line at numerator 8, U_II⁽⁸⁾ = (c = 1) ∪ (a = 1) of 8/n, has 819 odd
    non-square zeros ≤ 10⁸, 61 of them prime (last 3 869 153), the last composite 93 398 595 (`Z59_CONV2.md` §0). The
    dead-moduli structure of R₈ is identical to that of R, with half the leading mean (`Z59_MSPLUS.md` Remark 2.3, PROVED),
    so a means-based step cannot separate them. Full d-even Type II has witnesses (all with c ≥ 2) at the 12 screen R₈-zero
@@ -811,9 +824,9 @@ has passed all lines.
     * Of the 285 composites: 214 in the groups 3 | n, 15 | n, 21 | n, 105 | n; 51 in 5 | n, 7 | n, 35 | n; 20 coprime to 105
       (15 in 𝔐, all squarefree). The composite zeros sit predominantly where the dead-moduli factor is lowest (EVIDENCE
       reading); dead moduli explain a correlation, not every zero.
-    * The U-line ((★) ∪ a = 1) fails at only **105 and 4545** among odd non-squares ≤ 10¹⁰ (`Z59_CONV2.md`). An argument
-      that proves U, or a = 1 rescue, at composites must respect 105 (full Type II holds there); a full Type II argument
-      must respect 4545. A U-argument at primes must rescue the 14 (★)-zeros via a = 1 at T ≢ 0 (mod 4) (Prop 3.1).
+    * The U_II-line ((★) ∪ a = 1) fails at only **105 and 4545** among odd non-squares ≤ 10¹⁰ (`Z59_CONV2.md`). An argument
+      that proves U_II, or a = 1 rescue, at composites must respect 105 (full Type II holds there); a full Type II argument
+      must respect 4545. A U_II-argument at primes must rescue the 14 (★)-zeros via a = 1 at T ≢ 0 (mod 4) (Prop 3.1).
     * 4545 also refutes "some prime factor escapes the quadratic kernel ⟹ solution" (`Z59_CONVO.md` §4).
     * Keep (★)- and 𝔊*-zeros apart: the 14 (★)-zero primes are among the 38 𝔊*-zeros; the other 24 have R > 0 (11 of
       the 20 in 𝔐). A 𝔊*-zero obstructs only the subfamily.
@@ -2206,11 +2219,11 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     * **Disproof side** (`Z58_DISPROOF.md`): a slowly decaying zero-law mixture, growing offsets, other polynomial families,
       or a non-local "prime T1" (cf. item 15).
 19. *(z59, `Z59_SUMMARY.md` §5; none of these is a lead.)* **Sharper targets after the survivor probe.**
-    * **CONJECTURE U / (MS-U)** (`Z59_CONV2.md`; §2.4 z59). Every odd non-square n ∉ {105, 4545} has U(n) ≥ 1, U = (c = 1) ∪
+    * **CONJECTURE U_II / (MS-U)** (`Z59_CONV2.md`; §2.4 z59). Every odd non-square n ∉ {105, 4545} has U_II(n) ≥ 1, U_II = (c = 1) ∪
       (a = 1); equivalently some Tn + 1 has a divisor ≡ −1 (mod L_T), L_T = T (4 | T), 4T (else). CERTIFIED to 10¹⁰; at primes
       López's Conjecture 1. (MS) ⟹ (MS-U) ⟹ (MS-II). *Why:* in the certified range the screens do not need the full Type II
-      family beyond U (only at n = 105), so a fixed-p argument for **one line** T ↦ E(Tp + 1, L_T) suffices for (MS-II); the
-      a = 1 branch itself uses c ≥ 2. U asks for more than CONV-II; that it is harder to prove is not claimed. EVIDENCE: no
+      family beyond U_II (only at n = 105), so a fixed-p argument for **one line** T ↦ E(Tp + 1, L_T) suffices for (MS-II); the
+      a = 1 branch itself uses c ≥ 2. U_II asks for more than CONV-II; that it is harder to prove is not claimed. EVIDENCE: no
       single class T mod 4 carries the rescue (mask table, ≤ 10⁷).
     * **(MS⁺) and its primality-free variants** (`Z59_MSPLUS.md`; CONJECTURE). (MS⁺) is CERTIFIED to 10¹² (one engine).
       (MS⁺₁₀₅): all classes with gcd(n, 105) = 1, threshold 29 210 401; (R⁺_y), y ≥ 47: all prime factors > y, threshold
