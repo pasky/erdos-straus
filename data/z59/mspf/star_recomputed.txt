@@ -1,0 +1,14 @@
+409 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+577 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+5569 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+9601 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+23929 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+83449 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+102001 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+329617 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+712321 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+1134241 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+1724209 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+1726201 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+5212561 R=0 Rodd=0 Reven=0 dmin=0 kmin=0
+8813281 R=0 Rodd=0 Reven=0 dmin=0 kmin=0

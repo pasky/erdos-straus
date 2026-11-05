@@ -26,17 +26,21 @@ relevant falsifier is answered explicitly next to the proof; where it does not, 
   (mod 8u), see §1) fails at 4 primes in 𝔐 ∩ [10¹⁰, 1.1·10¹⁰] (data/z58/screens/r8_zeros_1e10.txt, those with
   p mod 840 ∈ 𝔐; recomputed in §4). So an argument that only ever produces even C must exclude those primes by its
   threshold or hypotheses; the memo must say which parity of C a construction produces.
-* **(F3) Non-square zeros.** Inside 𝔐 non-square zeros exist up to 17 401 609 and nowhere in (17 401 609, 10¹¹];
-  outside 𝔐 non-square zeros continue indefinitely (mostly 3 | n, 5 | n or 7 | n). Any proof must (a) produce an explicit
-  threshold n₀ (or explain why it cannot), with n₀ > 17 401 609, and (b) fail for n ∉ 𝔐 — the step that uses
-  n ≡ 1 (24), (n/5) = (n/7) = 1 must be identified (the statement outside 𝔐 is false in the data, so a proof that does
-  not use membership in 𝔐 is wrong; it need not fail at every n ∉ 𝔐). The parenthetical facts about zeros in
-  (17 401 609, 10¹¹] and outside 𝔐 are quoted from the lane brief as certified there; this memo recomputes only up
-  to 10⁷ (and 12 single primes near 10¹⁰). For n with 3 | n, 5 | n or 7 | n every modulus d divisible by 3, 5, 7 is
-  unavailable (Lemma 1.5: gcd(d, n) = 1), which removes the small-modulus witnesses but does not by itself explain
-  any particular zero (n = 21 has the witness d = 11).
-* **(F4) The nine prime zeros** 5569, 9601, 83449, 102001, 712321, 1724209, 1726201, 5212561, 8813281 (all in 𝔐).
-  Any construction (choice of d, k as functions of n) must be evaluated at these nine; it must fail there, and the memo
+* **(F3) Non-square zeros.** Inside 𝔐 the known non-square zeros are the 15 composites ≤ 7 999 801 of
+  data/z58/screens/composite_zeros_le8e6.txt that lie in 𝔐, the three composites 8 725 201, 12 538 801, 17 401 609, and
+  the nine primes of F4 (all recomputed here, §4); the lane brief states, with Z58_LADDER.md as the certified source,
+  that there is no non-square zero in 𝔐 ∩ (17 401 609, 10¹¹] — this memo does not recompute that census. Outside 𝔐
+  the data contain 270 composite zeros ≤ 7 999 801 (many with 3 | n, 5 | n or 7 | n) and the five (★)-prime zeros
+  409, 577, 23 929, 329 617, 1 134 241; the memo makes no claim about whether outside-𝔐 zeros are infinite (no such
+  theorem is available here) and therefore draws no inference about whether an eventual proof must use membership
+  in 𝔐. What is required of any proof: (a) an explicit threshold n₀ > 17 401 609 (or an explanation why none can be
+  given), and (b) a statement of exactly where, if anywhere, n ≡ 1 (24), (n/5) = (n/7) = 1 is used. For n with 3 | n,
+  5 | n or 7 | n every modulus d divisible by 3, 5, 7 is unavailable (Lemma 1.5: gcd(d, n) = 1), which removes the
+  small-modulus witnesses but does not by itself explain any particular zero (n = 21 has the witness d = 11).
+* **(F4) The prime screens.** The 14 (★)-zeros of data/z58/screens/star_prime_zeros.txt (R(p) = 0; nine in 𝔐:
+  5569, 9601, 83449, 102001, 712321, 1724209, 1726201, 5212561, 8813281) and the 38 𝔊*-zeros of gstar_zeros.txt
+  (zeros of a *subfamily*; 20 in 𝔐, of which 11 have R(p) > 0 for the full family — §4). Any construction (choice of
+  d, k as functions of n) must be evaluated at the nine in-𝔐 full-family zeros; it must fail there, and the memo
   must say which hypothesis (size, a "sufficiently large" threshold, or a structural hypothesis) excludes them.
 
 Surviving all four honestly = hot lead, to be flagged in the title and committed at once.
@@ -89,12 +93,15 @@ prime factor q of d has χ_n(q) = −1. For n ∈ 𝔐: n ≡ 1 (8) gives (2/n) 
 reciprocity (n ≡ 1 (4)) and the definition of 𝔐. ∎
 
 *Remark (where non-squareness lives).* χ_n is principal exactly when n is a square, and then Lemma 1.5 says no hit
-modulus exists — this is a second proof of 1.4 for odd squares (Lemma 1.5 assumes n ≡ 1 (4)). Conversely, for a non-square n ≡ 1 (4), χ_n is a non-principal real
-character of conductor f(n) | n (f(n) = the squarefree kernel of n, up to the factor at 2 which is absent for n ≡ 1 (4)),
-and **the whole content of the target is: the structured set S(n) := {d ≡ 3 (4) : (−n mod d) | (d+1)/4} meets the
-coset {χ_n = −1}**. Note that S(n) ⊂ {χ_n = −1} automatically (1.5), so the target is simply S(n) ≠ ∅; what Lemma 1.5
-adds is the *necessary* shape of any witness: d must contain an odd number (with multiplicity) of prime factors from
-{q : (q/n) = −1}.
+modulus exists — this is a second proof of 1.4 for odd squares (Lemma 1.5 assumes n ≡ 1 (4)). Conversely, for a
+non-square n ≡ 1 (4), χ_n is a non-principal real character mod n; it is induced by the primitive character of
+conductor f(n) := ∏_{p : v_p(n) odd} p (the squarefree part of n, ≡ 1 (4)), and additionally vanishes at the primes
+dividing n/f(n). (Caution: "χ_n(d) = −1" is not the same as "d is a non-square residue mod n": e.g. 11 mod 121 is not
+a square but χ_{121}(11) = 0.) The set S(n) := {d ≡ 3 (4) : (−n mod d) | (d+1)/4} satisfies S(n) ⊂ {χ_n = −1}
+automatically (1.5), so saying "S(n) meets {χ_n = −1}" is just S(n) ≠ ∅ — no progress; what Lemma 1.5 adds is only
+the *necessary* shape of any witness: d must contain an odd number (with multiplicity) of prime factors from
+{q : (q/n) = −1}. Non-principality of χ_n is one available encoding of non-squareness; a proof may of course use
+non-squareness through other data (factorisations of n + k, n = a² + r, …).
 
 **Lemma 1.6 (Jacobi signs of the two cofactors).** Let n ≡ 1 (4) and (k, B) a solution with gcd(kB, n) = 1 (automatic
 for prime n, since k, B ≤ (n+1)/3 < n). Then (B/n) = −(k/n).
@@ -115,13 +122,13 @@ of them (m² ≤ (840L)²), and at most √X of them are squares; so for L ≤ X
 (and their number → ∞ with X).
 *Proof of the first sentence.* If d ≤ D then d | L, so with k := (−n mod d) we get −k ≡ n ≡ m² (mod d), and
 gcd(m, d) = 1, so (−k/d) = (m/d)² = 1, contradicting Lemma 1.3 (exactly as in Cor. 1.4). ∎
-Consequence: no argument that only uses n modulo a fixed M (Mordell-type identities, finite covering systems of
-residue classes, "local" sieving at bounded moduli) can prove the target on any class containing a square mod M —
-and every class of 𝔐 refined by congruences mod M contains such n unless the refinement itself is a χ-non-residue
-condition mod M. In other words: the only congruence conditions that can ever *finish* a case are of the form
-"n ≡ r (mod M) with r a non-square mod M", and the n that are squares modulo every d ≤ D must be handled by moduli d > D. Since
-L = lcm(1..D) = e^{(1+o(1))D}, one may take D = (1/2 − ε)·log X and still find such non-square n ≤ X in every class,
-so the witnesses needed are of size > (1/2 − ε)·log n for infinitely many n in every class of 𝔐.
+Consequence (precise scope). (i) A *bounded witness menu* fails: for every D, infinitely many non-square n in every
+class of 𝔐 have no witness d ≤ D. (ii) A *fixed-modulus witness selector* fails: any rule that assigns to n a witness
+d(n) ≤ D depending only on n mod M (for fixed M, D) fails on every n of (i). (iii) A *class-wide identity* (a witness valid for all n ≡ r (mod M)) exists only if the class
+r contains no square (Cor. 1.4). Since L = lcm(1..D) = e^{(1+o(1))D}, one may take D = (1/2 − ε)·log X and still
+find the non-square n ≤ X of (i) in every class, so for infinitely many n in every class every witness exceeds
+(1/2 − ε)·log n. Nothing more is claimed: a proof combining congruence information with a global non-square
+hypothesis is not excluded by this lemma.
 
 ## §2 What a proof must deliver (consequence of §1)
 
@@ -129,9 +136,11 @@ For every large non-square n ∈ 𝔐 one needs an explicit d ≡ 3 (4) with (i)
 By 1.8, for infinitely many n in every class every witness has d > (1/2 − ε)·log n, i.e. the
 witness cannot be read off from n modulo any bounded modulus; by 1.5 it cannot be read off from n modulo any set of
 moduli on which χ_n looks principal. Any construction d = d(n) therefore has to use some non-congruential datum of n,
-for instance: a prime q with
-(q/n) = −1 (least such: q₁(n), which is ≪ n^{1/(4√e)+ε} by Burgess and ≪ log² n under GRH — but nothing is known
-unconditionally below n^{1/(4√e)}), or the factorisation of n + k for small k, or the near-square structure n = a² + r.
+for instance: a prime q with (q/n) = −1 (least such: q₁(n); viewing χ_n as a non-principal character mod the
+squarefree modulus rad(n) ≤ n, the least integer with χ_n ∉ {0, 1} is ≪_ε n^{1/(4√e)+ε} by the Burgess-type theorem
+for cubefree moduli (Lau–Wu, *On the least quadratic non-residue*, Thm 1), and it is prime by multiplicativity, so
+q₁(n) ≪_ε n^{1/(4√e)+ε}; under GRH q₁(n) ≪ log² n; no smaller uniform power exponent is claimed or used here), or
+the factorisation of n + k for small k, or the near-square structure n = a² + r.
 §3 records what each of these gives and where each stops.
 
 ## §3 Attack routes tried, and the exact point where each stops (analysis; nothing here is a proof of the target)
@@ -245,7 +254,14 @@ recomputation, cross-checked against a brute-force enumeration of (u, B, C) for 
 * Single-n engine at 10¹⁰: for the 12 primes of r8_zeros_1e10.txt the values R and R_even (= R₈) agree with the
   certified file (e.g. 10 532 106 649: R = 12, R_even = 0, d_min = 1559 at k = 30); four of the twelve lie in 𝔐
   (10 301 993 881, 10 529 331 121, 10 532 106 649, 10 868 474 401) — the C-even failures of F2.
-
+* **Screens (added after cross-model review).** `zeros_all_8e6.txt` (engine mode 2 to 8·10⁶): the composite zeros
+  n ≡ 1 (4), n ≤ 7 999 801 are exactly the 285 of composite_zeros_le8e6.txt, 15 of them in 𝔐 and 270 outside; the
+  three further in-𝔐 composites 8 725 201, 12 538 801, 17 401 609 have R = 0 (single-n engine).
+  `star_recomputed.txt`: all 14 primes of star_prime_zeros.txt have R = 0 (nine in 𝔐, five outside: 409, 577, 23 929,
+  329 617, 1 134 241). `gstar_recomputed.txt`: of the 38 primes of gstar_zeros.txt (zeros of the 𝔊* *subfamily*),
+  exactly the 14 (★)-primes have R = 0; the other 24 have R > 0. Of the 20 in 𝔐, 11 have R > 0 for the full family
+  (e.g. 23 041: R = 2; 564 661 441: R = 2, both C odd, d_min = 2 741 075 at k = 9) — these are subfamily failures, not
+  full-family zeros, and the lemmas of §1 hold at all of them without forcing existence.
 ## §5 Numerical checks of the lemmas (CERTIFIED, small ranges)
 
 * Lemma 1.1: R(n) computed as #{(u,B,C)} by brute force equals #{d ≡ 3 (4) : (−n mod d) | (d+1)/4} for all n ≡ 1 (4),
@@ -264,9 +280,10 @@ recomputation, cross-checked against a brute-force enumeration of (u, B, C) for 
 The memo proves **no part of the target**. What it proves is a set of structural constraints (§1) that any proof must
 satisfy, and it documents why each route I tried stops (§3). Running the four falsifiers against the *lemmas*:
 
-* **(F1) Odd squares.** Lemma 1.3 + Cor. 1.4 prove R(m²) = 0 for *all* m. The non-squareness of n enters any
-  correct proof only through the non-principality of χ_n (Lemma 1.5); no step of this memo claims to exploit it to
-  produce a witness, and §3.7 explains why the natural analytic main term must carry the factor (1 − χ_n(d))/2.
+* **(F1) Odd squares.** Lemma 1.3 + Cor. 1.4 prove R(m²) = 0 for *all* m. One available encoding of the
+  non-squareness of n is the non-principality of χ_n (Lemma 1.5: every witness has χ_n(d) = −1); no step of this memo
+  claims to exploit it (or any other encoding) to produce a witness, and §3.7 explains why the natural analytic
+  main-term *model* must carry the support factor [χ_n(d) = −1].
   The "4n + 1 has a prime factor ≡ 2 (mod 3)" observation (§3.6) is congruential and correctly gives nothing at
   squares: at n = m², 4m² + 1 has all odd prime factors ≡ 1 (mod 4), so that prime factor is ≡ 5 (mod 12) — consistent.
 * **(F2) C even alone.** C even ⇔ d ≡ −1 (mod 8k) (Lemma 1.1). The memo contains no general construction, so there
@@ -279,11 +296,15 @@ satisfy, and it documents why each route I tried stops (§3). Running the four f
   lemmas say about n ∉ 𝔐 is only this: gcd(d, n) = 1 is forced (Lemma 1.5), so for 3 | n (5 | n, 7 | n) every modulus
   divisible by 3 (5, 7) is unavailable; this removes the small witnesses d = 3, 7, 15, 35, 63, … but does not by itself
   produce or explain any zero (n = 21 has the witness d = 11), and zeros outside 𝔐 also occur at n coprime to 840
-  (409 ≡ 3 (mod 7), 577 ≡ 2 (mod 5)) in classes that the small-d identities do not cover. The lane brief's facts
-  "no non-square zero in 𝔐 ∩ (17 401 609, 10¹¹]" and "zeros outside 𝔐 continue" are quoted, not recomputed; this
-  memo recomputes up to 10⁷ (all n ≡ 1 (4) up to 2·10⁵) and 12 single primes near 10¹⁰.
-* **(F4) The nine prime zeros.** Reproduced by the engine (R = 0 for exactly those nine among 20 513 primes in 𝔐 up
-  to 10⁷); `zeros_profile.txt` exhibits for each of them and k ≤ 8 that no product of a sub-multiset of the prime
+  (409 ≡ 3 (mod 7), 577 ≡ 2 (mod 5)) in classes that the small-d identities do not cover. Screen counts: 285
+  composite zeros ≤ 7 999 801 (15 in 𝔐), three more in-𝔐 composites up to 17 401 609, 14 (★)-primes (9 in 𝔐) — all
+  recomputed (§4). The statement "no non-square zero in 𝔐 ∩ (17 401 609, 10¹¹]" is prior certified work
+  (Z58_LADDER.md, via the lane brief), not recomputed here; whether zeros outside 𝔐 are infinite is not known to
+  this memo and nothing is inferred from it. Finite outside-𝔐 zeros do not exclude an eventual theorem on a larger
+  domain with a higher threshold.
+* **(F4) The prime screens.** All 14 (★)-zeros have R = 0 (nine in 𝔐, reproduced as exactly the zeros among the
+  20 513 primes in 𝔐 up to 10⁷); of the 38 𝔊*-zeros, 14 are full-family zeros and 24 have R > 0 (11 of the 20 in 𝔐),
+  i.e. 𝔊*-zeros are subfamily failures (§4). `zeros_profile.txt` exhibits for each of them and k ≤ 8 that no product of a sub-multiset of the prime
   factors of p + k (respecting multiplicities) is ≡ −1 (mod 4k). (The *group* generated by the residues can contain
   −1: p = 5569, k = 8, p + k = 3·11·13², and 3·13³ ≡ −1 (mod 32) needs a third factor 13 that is not there.) The
   memo contains no general construction to evaluate at them; the special families of §3.2 do not contain them
@@ -292,6 +313,34 @@ satisfy, and it documents why each route I tried stops (§3). Running the four f
 
 Verdict: **not a hot lead**. Nothing here survives the falsifiers *as a proof*, because nothing here is a proof of
 the target; all PROVED items are necessary conditions and reformulations.
+
+## §9a Provenance (from the cross-model review; this lane was run unprimed and did not read the memos named)
+
+The reviewer maps the §1 content to prior work as follows, and I record it so that nothing here is sold as new:
+Lemmas 1.1–1.4 (divisor/pair/C forms, square obstruction, prime-character sign) are rederivations of Z56_FAMTRY.md
+Lemmas 1.1–1.4 and Z57_SYNTH.md Lemma A.1; Lemma 1.5 extends Z58_WITNESS.md Lemma 1.1 (non-residue prime factor,
+d_min ≥ least non-residue at primes) to non-square composite n ≡ 1 (4); Lemma 1.6 is a specialisation of
+LOWER_TAIL_ASTRA.md Lemma 2.2; Lemma 1.7 is FRONTIER.md §2.1 / BRAINSTORM/z45_interlacing_stable.md §1; Lemma 1.8 is
+an incremental (all-six-classes CRT, logarithmic size) strengthening of the finite-covering exclusions in
+Z56_FAMTRY.md Prop. 2.2 and Z58_WITNESS.md §0 F1; the C-even = R₈ identification and the twelve 10¹⁰ primes are
+Z57_SYNTH.md §2.1; prime-only failures and the divisor-in-moving-class wall are Z56_FAMTRY.md §§4.2–4.6. The
+contribution of this memo is a consolidated attempt record, the elementary extensions just listed, and a refreshed
+𝔐-restricted census; it is not a new positivity mechanism.
+
+## §9b Cross-model review (data/z59/xreview/REVIEW_MSPF.md, verdict ACCEPT-WITH-FIXES) — what was fixed
+
+* F3: removed the unsupported "zeros outside 𝔐 continue indefinitely" and the inference that an eventual proof must
+  use membership in 𝔐; the 10¹¹ census is attributed to Z58_LADDER.md and marked as not recomputed (§0, §9).
+* Screens: recomputed and recorded all 285 composite zeros (15 in 𝔐), the three further in-𝔐 composites, the 14
+  (★)-zeros and the 38 𝔊*-zeros with the full-family/subfamily distinction (§4, §0 F4, §9 F4; new data files
+  zeros_all_8e6.txt, star_recomputed.txt, gstar_recomputed.txt).
+* Scope: Lemma 1.8's consequence restated as three precise exclusions (bounded menu, fixed-modulus selector,
+  class-wide identity) with an explicit "nothing more is claimed"; the "only through non-principality" language
+  replaced by "one available encoding" (§1 remark, §9 F1); the Jacobi-value-(−1) vs non-square-residue distinction
+  noted (11 mod 121).
+* Provenance: §9a added.
+* Citations/notation: squarefree part f(n) = ∏_{v_p(n) odd} p defined; the q₁ bound cited to Lau–Wu (cubefree-modulus
+  Burgess) via the rad(n) reduction; "nothing is known below" replaced by "no smaller uniform exponent is claimed".
 
 ## §10 Status
 
