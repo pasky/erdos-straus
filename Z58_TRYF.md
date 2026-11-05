@@ -84,7 +84,7 @@ Interpretation: |H_d|/d = τ((d+1)/4)/d is the proportion of residues mod d that
 hits" for a random residue, and Q_p is the same after discarding the d excluded by Lemma 1.2. For n = m² one has
 S_n(X) = M(X) − O(Σ_{d: gcd(d,m)>1} τ/d) and Q_n is the tiny remainder (consistent with R(n) = 0).
 
-**Theorem 2.1.** For every ε ∈ (0, 1/8) there is δ = δ(ε) > 0 and p₀(ε) such that for all primes p ≥ p₀ and all X ≥ 3:
+**Theorem 2.1.** For every ε ∈ (0, 1/8) there is p₀(ε) such that for all primes p ≥ p₀ and all 3 ≤ X ≤ 2p:
   |S_p(X)| ≤ (1+4ε)²·(log p)²/64 + O_ε(log p).
 Consequently Q_p(X_p) ≥ (7/128 − ε)(log p)² for p ≥ p₁(ε); in particular the quadratic constraint of Lemma 1.2 removes
 at most a fraction 1/8 + o(1) of the "expected hits".
@@ -106,9 +106,8 @@ an interval of length ≤ T and (B) gives ≤ C(r,η) T^{1−1/r} p^{(r+1)/(4r²
 (III) C ≤ K₀ < k: identical with the roles of k and C exchanged (χ_p(4kC−1) = χ_p(4C)χ_p(k − a_C)).
 (IV) k > K₀ and C > K₀: fix k and sum over C ∈ (K₀, (X+1)/(4k)] in dyadic blocks exactly as in (II) (Burgess' bound
 (B) is monotone in L, so a block truncated by the upper limit is bounded by the full dyadic block); the bound
-(1/k)p^{−δ} holds for each k, and summing over k ≤ X+1 gives ≪ p^{−δ} log X. If X > p² this is still ≪ p^{−δ/2}
-after using the trivial bound for d > p^{2}... (we only need X ≤ X_p < 2p, so Σ_(IV) ≪ p^{−δ} log p.)
-Adding (I)–(IV) proves the bound on S_p(X) for X ≤ 2p (the only range used below).
+(1/k)p^{−δ} holds for each k, and summing over K₀ < k ≤ (X+1)/(4K₀) gives Σ_(IV) ≪ p^{−δ} log X ≪ p^{−δ} log p.
+Adding (I)–(IV) proves the bound on S_p(X).
 For the consequence: M(X_p) ≥ (1/4) Σ_{m ≤ (p+1)/3 − 1} τ(m)/m = (1/8)(log p)² − O(log p) (Σ_{m ≤ Y} τ(m)/m =
 (1/2)log²Y + 2γ log Y + O(1)), hence Q_p(X_p) = (M − S_p)/2 ≥ ((1/8 − (1+4ε)²/64)/2)(log p)² − O_ε(log p)
 = ((7 − 8ε − 16ε²)/128)(log p)² − O_ε(log p). ∎
