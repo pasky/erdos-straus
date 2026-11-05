@@ -69,11 +69,11 @@ But c | u | (d + 1)/4, so Lemma A.1(b) of `Z57_SYNTH.md` gives (−c/d) = −1. 
 *Reading.* n = m² is the case "every u, c = u, t = 1" (T1). A near-square n = m² + k keeps only the lines with
 k + u ∈ c·□, c | u: a *truncated* T1.
 
-**Proposition 2.4 (what a fixed offset can kill; Assessment with a PROVED core).** For fixed k ≠ 0 the set of killed
-lines K(k) = {u : k + u = c t², c | u} satisfies #{u ≤ U : u ∈ K(k)} ≤ Σ_{u ≤ U} Σ_{c | u} 1[(k+u)/c ∈ □] ≪ Σ_{c} √(U/c)
-... = O_k(U^{1/2+ε}) (PROVED, trivial count). Under the log-uniform solution density of (★) (line u carries mass ≍ L/φ(4u)
-of the ≍ L² total; EVIDENCE §4.4) the killed mass is O_k(L), i.e. a share O_k(1/L) → 0. So near-square polynomial
-families lose their depression as p → ∞ (Assessment; measured at 10¹⁰ in §4.3).
+**Proposition 2.4 (what a fixed offset can kill).** Let k ≥ 1 and K(k) := {u ≥ 1 : k + u = c t² for some c | u, t ≥ 1}.
+(i) (PROVED) c | u and c | k + u force c | k, so #(K(k) ∩ [1, U]) ≤ Σ_{c | k} #{t : k < c t² ≤ k + U} ≤ τ(k)(√(U + k) + 1).
+(ii) (Assessment) If line u carries mass ≍ L/u (the log-uniform density, EVIDENCE §4.4), the killed mass is
+≪ L Σ_{c | k} Σ_{t > √(k/c)} 1/(c t² − k) = O_k(L), a share O_k(1/L) of the ≍ L² total: near-square polynomial
+families lose their depression as p → ∞ (measured at 10¹⁰ in §4.3). At k = 0 every c works — T1.
 
 ## 3. Profile of the zeros (CERTIFIED data, EVIDENCE readings; `scripts/z58_disproof_profile.py` → `profile.txt`)
 
@@ -106,20 +106,28 @@ Readings (EVIDENCE):
 EXACT=1 runs (full enumeration at every prime), consecutive primes of the design from the start point; ρ := mean(R/L²)
 over the design / that of C0 at the same start.
 
-| design | definition | primes | p range | mean R/L² | ρ | min R | R₈-zeros |
-|---|---|---|---|---|---|---|---|
-| C0 | p ≡ 1 (24) | 114 544 | [1.00, 1.002]·10¹⁰ | 0.1467 | 1 | 20 | 0 |
-| CM | p ≡ 121 (840) | 115 788 | [1.0, 1.05]·10¹⁰ | 0.1320 | 0.900 | 14 | 0 |
-| D1a | p ≡ 1 (840) | 109 155 | [1.0, 1.05]·10¹⁰ | 0.1286 | 0.877 | 14 | 0 |
-| D1b | p ≡ 1 (120 120) | 62 796 | [1.0, 4.5]·10¹⁰ | 0.1167 | 0.795 | 18 | 1 |
-| D1c | p ≡ 1 (4·lcm(1..16)) | 20 137 | [0.1, 2.9]·10¹¹ | 0.1162 | 0.792 | 20 | 1 |
-| D2 | p ≡ 1 (840), n_p > 31 | 58 524 | [1.0, 4.5]·10¹⁰ | 0.1100 | 0.750 | **10** | 1 |
-| SM61 | p ≡ 1 (840), n_p > 61 | RUNB_SM61 |
-| SM97 | p ≡ 1 (840), n_p > 97 | RUNB_SM97 |
-| NSQnear | p = m² + 840j, j ≤ 3 | RUNB_NSQNEAR |
-| NSQfar | p = m² + 840j, 10⁵ < j ≤ 10⁵+3 | RUNB_NSQFAR |
-| C0_12 | p ≡ 1 (24) at 10¹² | RUNB_C012 |
-| SM31_12 | p ≡ 1 (840), n_p > 31, at 10¹² | RUNB_SM3112 |
+ρ := mean over the design of (R/L²)/c₀(p), c₀ = the C0 mean interpolated in log₁₀ p between 10¹⁰ (0.1467) and 10¹²
+(0.1480); ρ₈ the same for R₈; "pred" = 0.877 · surv(y, p)/surv(7, p) (§4.2, Monte-Carlo, interpolated), for the
+y-square-mimicking designs (`scripts/z58_disproof_rho.py` → `rho.txt`).
+
+| design | definition | primes | log₁₀ p | ρ | ρ₈ | pred | min R | R₈-zeros |
+|---|---|---|---|---|---|---|---|---|
+| C0 | p ≡ 1 (24) | 114 544 | 10.00 | 1 | 1 | — | 20 | 0 |
+| CM | p ≡ 121 (840) | 115 788 | 10.00–10.02 | 0.899 | 0.879 | — | 14 | 0 |
+| D1a | p ≡ 1 (840) | 109 155 | 10.00–10.02 | 0.876 | 0.827 | (0.877) | 14 | 0 |
+| D1b | p ≡ 1 (120 120) | 62 796 | 10.00–10.65 | 0.794 | 0.757 | 0.835 | 18 | 1 |
+| D1c | p ≡ 1 (4·lcm(1..16)) | 20 137 | 10.00–11.47 | 0.788 | 0.741 | 0.821 | 20 | 1 |
+| D2 | p ≡ 1 (840), n_p > 31 | 58 524 | 10.00–10.65 | 0.748 | 0.721 | 0.745 | **10** | 1 |
+| SM61 | p ≡ 1 (840), n_p > 61 | 9 877 | 10.00–12.00 | 0.725 | 0.702 | 0.703 | 18 | 0 |
+| SM97 | p ≡ 1 (840), n_p > 97 | 730 | 11.22–13.18 | 0.730 | 0.709 | 0.692 | 42 | 0 |
+| NSQnear | p = m² + 840j, 1 ≤ j ≤ 3 | 37 826 | 10.00–11.24 | 0.807 | 0.792 | — | 12 | 0 |
+| NSQfar | p = m² + 840j, 10⁵ < j ≤ 10⁵ + 3 | 37 802 | 10.00–11.27 | 0.907 | 0.892 | — | 18 | 0 |
+| C0_12 | p ≡ 1 (24) | 6 306 | 12.00 | 1 | 1 | — | 36 | 0 |
+| SM31_12 | p ≡ 1 (840), n_p > 31 | 6 683 | 12.00 | 0.786 | 0.764 | 0.785 | 36 | 0 |
+
+(D1b's 23 296 553 281 also lies in D1c; the R₈-zero count over distinct primes is 2.) No R- or 𝔊*-zero in any design
+(≈ 5.5·10⁵ primes, all exact). The class of one beyond 840 (D1b, D1c) depresses ≈ 5 % more than square-mimicking at the
+same primes predicts: being ≡ 1, not merely a square, matters at the partial-gcd moduli.
 
 New R₈-zeros (CERTIFIED by the exact enumeration; both ≡ 1 mod 840): **20 840 951 041** (R = 24) and
 **23 296 553 281** (R = 36) — above the z57 interval [10¹⁰, 1.1·10¹⁰]; expected (F2), not news. No R- or 𝔊*-zero.
@@ -132,8 +140,9 @@ y-smooth integer, by Hensel and CRT) keeps exactly the solutions none of whose t
   13: 0.882, 31: 0.767, 61: 0.664, 97: 0.592, 199: 0.433, 499: 0.279.
 * Monte-Carlo of the log-uniform solution density (`survmc_quick.txt`): 0.945, 0.896, 0.792, 0.688, 0.608, 0.458, 0.294
   at 10¹⁰ (agrees within ≈ 3 %), and at 10¹⁷: 0.982, 0.966, 0.932, 0.898, 0.870, 0.812, 0.730.
-* Check against designs: D2 predicted 0.877 · surv(31)/surv(7) = 0.734, measured 0.750; SM31 at 10¹² predicted
-  0.877 · 0.862/0.964 = 0.784, measured RUNB_SM3112_RHO.
+* Check against designs (table §4.1): D2 0.745 predicted / 0.748 measured; SM61 0.703 / 0.725; SM97 0.692 / 0.730;
+  SM31 at 10¹² 0.785 / 0.786. The y = 31 design weakens from 0.748 at 10¹⁰ to 0.786 at 10¹², as predicted; SM97 (at
+  10^{11.2}–10^{13.2}) is no deeper than SM61 — the fading with p cancels the extra square conditions.
 * **The square-class kill fades with p at fixed y** (smooth moduli become rare among moduli of size p^{Θ(1)}), and the
   supply of y-square-mimicking primes is 2^{−π(y)+1}, so y can grow only like π(y) ≲ log₂(#primes) ≈ 1.44 log x.
 
@@ -152,7 +161,32 @@ Share of R in the lines u and B = u: u = 1: 0.065, 2: 0.077, 3: 0.034, 4: 0.034,
 about half of the class-of-one primes. Killing a line therefore costs only a factor ≈ 2 in supply but removes only
 3–8 % of the mass at 10¹⁰, and the share of a fixed line decays like 1/L.
 
-## 5. Targeted search above 10¹⁰ (pending batch C)
+## 5. Avoidance depth and the targeted search above 10¹⁰
+
+### 5.1 Conditional zero rate vs avoidance depth D (CERTIFIED counts; `scripts/z58_disproof_avoid.c` → `avoid_2e7.txt`)
+A_D := {p : p mod d ∉ H_d for all d ≡ 3 (4), d ≤ D} = {d_min(p) > D} (Lemma A.1 of `Z57_SYNTH.md`). All primes
+p ≡ 1 (4) in [10³, 2·10⁷] (635 090; 39 391 in 𝔐; the raw d-loop is run to (4p+1)/3, so d_min = ∞ ⟺ R = 0):
+
+| D | #A_D (all) | #A_D (𝔐) | share in 𝔐 | zeros in A_D (𝔐) | conditional zero rate in 𝔐 |
+|---|---|---|---|---|---|
+| 7 | 211 505 | 39 391 | 1 | 9 | 2.3·10⁻⁴ |
+| 31 | 79 748 | 19 721 | 0.50 | 9 | 4.6·10⁻⁴ |
+| 127 | 23 234 | 6 064 | 0.154 | 9 | 1.5·10⁻³ |
+| 511 | 5 212 | 1 485 | 0.038 | 9 | 6.1·10⁻³ |
+| 2 047 | 864 | 281 | 7.1·10⁻³ | 9 | 0.032 |
+| 8 191 | 130 | 49 | 1.2·10⁻³ | 9 | 0.18 |
+| 32 767 | 24 | 14 | 3.6·10⁻⁴ | 9 | 0.64 |
+| 131 071 | 13 | 9 | 2.3·10⁻⁴ | 9 | 1 |
+
+* In 𝔐, P(A_D) decays roughly like D^{−1.2} over 31 ≤ D ≤ 8 191 (EVIDENCE); the conditional zero rate is
+  P(R = 0)/P(A_D) — enrichment by exactly 1/P(A_D) (all zeros lie in every A_D).
+* **CRT avoidance buys only a polylog.** A residue design that *forces* A_D (Prop A.3 of `Z57_SYNTH.md`) needs a modulus
+  L_D = lcm{d ≡ 3 (4), d ≤ D} with log L_D ≈ D/2 (prime number theorem in progressions), so D ≲ 2 log p ≈ 64 at 10¹⁴;
+  in 𝔐, P(A_63) ≈ 0.32 already. The enrichment over plain 𝔐 is ≈ 3, i.e. (log p)^{O(1)}, against a zero probability
+  e^{−0.4μ}, μ ≍ L² (§6). Selecting on *observed* avoidance (d_min > D by sieving) is conditioning, not design: it is a
+  cheap search filter but cannot raise the number of zeros that exist (Assessment).
+
+### 5.2 Decision-mode targeted search at 10¹²–10¹⁴ (pending batch C)
 
 ## 6. Zero model and the tail (Assessment unless marked)
 
