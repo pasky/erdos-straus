@@ -68,3 +68,14 @@ q=0.25: STAR-B1 1.74(3.65)  STAR-I1 1.62(2.99)  STAR-QR 1.15(1.33)  STAR-c2 1.45
   B1z5    I1z5    zero-rates 0.022 0.021  obs 143 pred 54.6 ratio 2.620 MH-OR 2.855  OLS-corr +0.339 (z +111.6)
   790 pairs: ratio median 1.007, fraction < 1: 0.22; MH-OR median 1.045
 ## most negative OLS residual correlations among all band pairs (count scale), nominal z
+  I1z9    QRz9    -1.000 (z -329.2)
+  STARz9  QRz9    -1.000 (z -329.2)
+  B1z8    QRz9    -1.000 (z -329.2)
+  STARz8  QRz8    -0.474 (z -156.1)
+  STARz8  QRz9    -0.396 (z -130.3)
+  I1z8    QRz8    -0.386 (z -127.2)
+  B1z8    I1z8    -0.252 (z -83.0)
+  I1z8    I1z9    -0.252 (z -83.0)
+  STARz9  I1z8    -0.252 (z -83.0)
+  I1z1    QRz9    -0.227 (z -74.9)
+  1540 pairs: median +0.012; below -4/sqrt(N): 227; above +4/sqrt(N): 770

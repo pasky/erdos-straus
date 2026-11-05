@@ -1,0 +1,88 @@
+# 1e8: N = 108397, 46 bands with mean > 0.05
+# 1e9: N = 48139, 48 bands with mean > 0.05
+# 1e10: N = 25226, 48 bands with mean > 0.05
+## 921 cross-family certificate band pairs; with z(840) < -4 at some scale: 84; LEADS (rule): 12
+  STARz8  B1z7    1e8: z840  -32.2 zOLS  +11.3  1e9: z840  -13.6 zOLS  +13.6  1e10: z840   -4.7 zOLS   +5.0
+  STARz8  c3z8    1e8: z840  -18.8 zOLS  +35.5  1e9: z840  +17.3 zOLS  +24.5  1e10: z840   +9.9 zOLS  +10.0
+  STARz7  c2z8    1e8: z840  -16.0 zOLS   -5.8  1e9: z840   -9.7 zOLS   -6.1  1e10: z840   -6.2 zOLS   -9.3   <- LEAD
+  STARz0  B1z1    1e8: z840  -14.4 zOLS   -5.3  1e9: z840   -7.1 zOLS   -4.6  1e10: z840   -4.2 zOLS   -3.8   <- LEAD
+  B1z1    I1z0    1e8: z840  -14.3 zOLS   -7.5  1e9: z840   -8.8 zOLS   -4.6  1e10: z840   -3.4 zOLS   -3.6   <- LEAD
+  STARz0  c2z1    1e8: z840  -12.1 zOLS   -3.8  1e9: z840   -3.3 zOLS   +0.2  1e10: z840   -4.5 zOLS   -4.7   <- LEAD
+  STARz7  c3z8    1e8: z840   +9.0 zOLS  -19.9  1e9: z840  -10.8 zOLS   -8.6  1e10: z840   -9.6 zOLS   -8.6   <- LEAD
+  STARz6  c2z8    1e8: z840   -9.4 zOLS  -11.6  1e9: z840   -5.1 zOLS   -2.8  1e10: z840   -1.6 zOLS   -2.8   <- LEAD
+  STARz0  c2z7    1e8: z840   -8.8 zOLS   +6.3  1e9: z840   -6.1 zOLS   +2.2  1e10: z840   -5.0 zOLS   -0.4
+  STARz1  I1z1    1e8: z840   -8.7 zOLS   -8.3  1e9: z840   -4.1 zOLS   -7.3  1e10: z840   +0.9 zOLS   -2.4   <- LEAD
+  B1z0    I1z1    1e8: z840   -8.0 zOLS   -3.7  1e9: z840   +7.2 zOLS   -1.9  1e10: z840   +5.6 zOLS   +0.1
+  B1z1    c2z2    1e8: z840   -8.0 zOLS   -5.2  1e9: z840   -1.5 zOLS   +0.2  1e10: z840   -1.4 zOLS   -0.3
+  STARz6  c3z8    1e8: z840   -7.6 zOLS   -2.4  1e9: z840   -4.4 zOLS   -1.4  1e10: z840   -1.8 zOLS   -1.2
+  STARz0  c3z6    1e8: z840   -7.3 zOLS   -1.6  1e9: z840   -1.9 zOLS   -1.7  1e10: z840   -3.0 zOLS   +0.0
+  STARz5  c3z7    1e8: z840   -7.1 zOLS   -7.1  1e9: z840   -1.5 zOLS   -2.3  1e10: z840   -0.1 zOLS   -1.8
+  STARz1  I1z0    1e8: z840   -6.9 zOLS   -4.2  1e9: z840   -5.1 zOLS   -2.2  1e10: z840   +0.5 zOLS   -0.8   <- LEAD
+  STARz0  B1z7    1e8: z840   -4.0 zOLS  +12.0  1e9: z840   +2.6 zOLS   -3.5  1e10: z840   +4.2 zOLS   -3.0
+  STARz0  B1z8    1e8: z840   +nan zOLS   +0.7  1e9: z840   -5.5 zOLS  +28.9  1e10: z840   -6.7 zOLS  +12.6
+  STARz0  I1z0    1e8: z840   -8.3 zOLS   +0.8  1e9: z840   -8.6 zOLS   +0.2  1e10: z840   -8.3 zOLS   -2.4
+  STARz0  I1z1    1e8: z840   -7.5 zOLS   -6.6  1e9: z840   +1.8 zOLS   -5.4  1e10: z840   -1.8 zOLS   -2.5
+  STARz6  c3z7    1e8: z840   -6.9 zOLS   -7.4  1e9: z840   -3.4 zOLS   -3.9  1e10: z840   -0.2 zOLS   -2.0
+  STARz6  B1z7    1e8: z840   -6.7 zOLS   -8.5  1e9: z840   +0.8 zOLS   -3.3  1e10: z840   +3.5 zOLS   +0.2
+  STARz7  I1z0    1e8: z840   -6.7 zOLS   +3.7  1e9: z840   -4.4 zOLS   -1.8  1e10: z840   -0.6 zOLS   -1.0
+  STARz1  c3z8    1e8: z840   -3.5 zOLS   +0.4  1e9: z840   -4.1 zOLS   +2.1  1e10: z840   -5.8 zOLS   -2.7
+  STARz0  c3z1    1e8: z840   -5.8 zOLS   +0.3  1e9: z840   -1.5 zOLS   +0.3  1e10: z840   -3.4 zOLS   -1.3
+  STARz0  c2z5    1e8: z840   -5.7 zOLS   +1.6  1e9: z840   -0.9 zOLS   +3.2  1e10: z840   -3.0 zOLS   -0.1
+  STARz2  I1z0    1e8: z840   -5.6 zOLS   -1.8  1e9: z840   -2.6 zOLS   +0.3  1e10: z840   -2.0 zOLS   -0.0
+  STARz0  c2z6    1e8: z840   -5.6 zOLS   -2.2  1e9: z840   -4.1 zOLS   -2.5  1e10: z840   -3.1 zOLS   -1.6   <- LEAD
+  STARz8  c2z1    1e8: z840   -5.4 zOLS   -0.1  1e9: z840   +6.4 zOLS   +6.5  1e10: z840   +5.9 zOLS   +5.2
+  STARz0  c2z4    1e8: z840   -5.1 zOLS   -0.2  1e9: z840   -2.4 zOLS   +0.4  1e10: z840   -1.6 zOLS   +0.3
+  STARz0  c2z3    1e8: z840   -4.9 zOLS   +0.0  1e9: z840   -1.7 zOLS   +1.2  1e10: z840   -2.7 zOLS   -1.2
+  STARz3  c2z8    1e8: z840   -4.7 zOLS   -2.5  1e9: z840   -3.4 zOLS   -1.4  1e10: z840   -1.8 zOLS   -2.4
+  STARz4  I1z0    1e8: z840   -4.6 zOLS   -1.0  1e9: z840   -3.0 zOLS   -0.2  1e10: z840   -2.1 zOLS   -1.4
+  STARz5  c2z8    1e8: z840   -4.6 zOLS   +1.6  1e9: z840   -1.7 zOLS   -0.1  1e10: z840   -1.6 zOLS   -2.3
+  STARz0  I1z8    1e8: z840   -4.5 zOLS   -9.3  1e9: z840   -2.3 zOLS   +3.5  1e10: z840   +1.5 zOLS   +5.9
+  STARz2  B1z1    1e8: z840   -4.3 zOLS   -4.5  1e9: z840   +1.4 zOLS   +1.3  1e10: z840   +2.6 zOLS   +1.8
+  STARz1  c2z8    1e8: z840   -1.6 zOLS  -24.9  1e9: z840   -4.2 zOLS   -9.9  1e10: z840   -2.1 zOLS   -2.6
+  STARz0  c3z5    1e8: z840   -4.0 zOLS   -1.4  1e9: z840   -3.8 zOLS   -0.8  1e10: z840   -1.2 zOLS   -1.0
+  STARz0  c3z7    1e8: z840  +15.1 zOLS   -0.5  1e9: z840   -0.7 zOLS   -0.7  1e10: z840   -4.0 zOLS   +0.5
+  STARz1  B1z8    1e8: z840   +nan zOLS   -1.3  1e9: z840   -5.8 zOLS   +0.6  1e10: z840   -3.4 zOLS   +2.2
+  STARz7  B1z8    1e8: z840   +nan zOLS  -57.4  1e9: z840  -10.1 zOLS   -3.9  1e10: z840   -6.8 zOLS   -7.9   <- LEAD
+  STARz8  c2z9    1e8: z840   +nan zOLS   -0.4  1e9: z840  -22.6 zOLS   -0.2  1e10: z840   -7.1 zOLS   -0.0
+  STARz8  c3z9    1e9: z840  -22.6 zOLS   -0.2  1e10: z840   -7.1 zOLS   -0.1
+  c2z8    c3z9    1e9: z840  -17.9 zOLS   +0.0  1e10: z840  -17.7 zOLS   +0.0
+  I1z0    c3z9    1e9: z840  -17.8 zOLS   -0.1  1e10: z840  -11.7 zOLS   -0.0
+  I1z8    c3z7    1e8: z840  -15.4 zOLS  -14.0  1e9: z840   -6.3 zOLS   -1.7  1e10: z840   -0.5 zOLS   +1.4
+  I1z0    c2z8    1e8: z840  -14.7 zOLS  -12.7  1e9: z840   +1.6 zOLS   -0.7  1e10: z840   +0.2 zOLS   -3.4
+  c2z6    c3z8    1e8: z840  -12.7 zOLS  -10.9  1e9: z840   -9.2 zOLS   -4.3  1e10: z840   -3.2 zOLS   -2.7   <- LEAD
+  c2z7    c3z9    1e9: z840  -12.3 zOLS   +0.0  1e10: z840   -2.6 zOLS   -0.0
+  c2z1    c3z1    1e8: z840  -11.2 zOLS   -2.3  1e9: z840   -1.6 zOLS   +4.3  1e10: z840   -2.6 zOLS   +1.0
+  STARz8  c2z0    1e9: z840  -10.8 zOLS   +0.4  1e10: z840   -8.1 zOLS   +2.1
+  I1z0    c3z8    1e8: z840  -10.4 zOLS  -35.3  1e9: z840   +4.0 zOLS  -22.9  1e10: z840   +4.1 zOLS  -14.6
+  B1z0    c2z0    1e9: z840  -10.4 zOLS   +1.8  1e10: z840   -9.5 zOLS   +1.2
+  STARz0  c2z0    1e9: z840   -8.9 zOLS   -4.6  1e10: z840   -5.1 zOLS   -0.2
+  I1z8    c2z0    1e9: z840   -8.8 zOLS  +14.8  1e10: z840   -8.0 zOLS   +7.4
+  I1z1    c2z1    1e8: z840   -8.3 zOLS  -10.8  1e9: z840   -0.1 zOLS   -0.1  1e10: z840   -0.2 zOLS   -1.2
+  I1z8    c3z1    1e8: z840   -7.8 zOLS  +26.1  1e9: z840   +0.5 zOLS  +11.5  1e10: z840   -2.3 zOLS   +5.1
+  c2z8    c3z1    1e8: z840   -7.4 zOLS   -1.2  1e9: z840   -4.7 zOLS   +1.0  1e10: z840   -2.0 zOLS   -0.7
+  I1z1    c2z0    1e9: z840   -7.4 zOLS   -5.3  1e10: z840   -5.9 zOLS   -2.8   <- LEAD
+  I1z8    c2z8    1e8: z840  +37.6 zOLS   +7.2  1e9: z840   -6.6 zOLS  +12.3  1e10: z840   -1.8 zOLS   +6.2
+  I1z7    c2z0    1e9: z840   -6.5 zOLS   +1.1  1e10: z840   -4.3 zOLS   +1.5
+  B1z7    c2z2    1e8: z840   -6.2 zOLS   +3.6  1e9: z840   +2.3 zOLS   +2.0  1e10: z840   -0.2 zOLS   -0.6
+  B1z6    I1z0    1e8: z840   -6.1 zOLS   -3.1  1e9: z840   +1.1 zOLS   -2.4  1e10: z840   -0.9 zOLS   -1.8
+  c2z5    c3z7    1e8: z840   -6.1 zOLS   -3.0  1e9: z840   -2.2 zOLS   -1.1  1e10: z840   +0.1 zOLS   +0.9
+  I1z1    c3z1    1e8: z840   -5.9 zOLS   -2.3  1e9: z840   -3.5 zOLS   -3.1  1e10: z840   -1.7 zOLS   +0.5
+  B1z7    c2z3    1e8: z840   -5.8 zOLS   +5.2  1e9: z840   -0.2 zOLS   +0.8  1e10: z840   +0.6 zOLS   +0.1
+  I1z7    c3z6    1e8: z840   -5.7 zOLS  -11.6  1e9: z840   +0.1 zOLS   -0.2  1e10: z840   +0.0 zOLS   +0.0
+  B1z7    c2z5    1e8: z840   -5.4 zOLS   +1.8  1e9: z840   -1.8 zOLS   -1.4  1e10: z840   -2.4 zOLS   -1.3
+  c2z0    c3z1    1e9: z840   -5.3 zOLS   -0.6  1e10: z840   -5.2 zOLS   -2.8
+  I1z0    c2z2    1e8: z840   -5.2 zOLS   -0.8  1e9: z840   -2.0 zOLS   -0.4  1e10: z840   -0.8 zOLS   +0.2
+  B1z4    I1z0    1e8: z840   -4.8 zOLS   -4.8  1e9: z840   -1.5 zOLS   -2.8  1e10: z840   -2.6 zOLS   -3.7
+  B1z6    c2z7    1e8: z840   +8.8 zOLS  +13.2  1e9: z840   -4.7 zOLS   +1.5  1e10: z840   -3.5 zOLS   +1.1
+  B1z7    c2z4    1e8: z840   -4.7 zOLS   +6.5  1e9: z840   +0.2 zOLS   +1.3  1e10: z840   +1.1 zOLS   +1.8
+  c2z8    c3z6    1e8: z840   -4.3 zOLS   -0.4  1e9: z840   -3.7 zOLS   -2.2  1e10: z840   -4.3 zOLS   -4.4
+  B1z3    I1z0    1e8: z840   -4.1 zOLS   -4.5  1e9: z840   -2.1 zOLS   -4.1  1e10: z840   -1.3 zOLS   -3.0
+  B1z8    c2z8    1e8: z840   +nan zOLS  +47.2  1e9: z840   -1.4 zOLS  +43.1  1e10: z840  -12.5 zOLS  +40.9
+  I1z0    c2z9    1e8: z840   +nan zOLS   -0.0  1e9: z840  -17.8 zOLS   +0.1  1e10: z840  -11.7 zOLS   -0.0
+  STARz2  c2z0    1e9: z840   -5.1 zOLS   +1.6  1e10: z840   -5.5 zOLS   -2.0
+  STARz6  c2z0    1e9: z840   -3.7 zOLS   +2.1  1e10: z840   -5.0 zOLS   +0.7
+  c2z8    c3z2    1e8: z840   -1.4 zOLS   +0.4  1e9: z840   -0.9 zOLS   -0.0  1e10: z840   -4.4 zOLS   -2.2
+  c2z2    c3z8    1e8: z840   -2.7 zOLS   -1.2  1e9: z840   -4.3 zOLS   -1.8  1e10: z840   -0.4 zOLS   -0.6
+  c2z4    c3z7    1e8: z840   -4.1 zOLS   -2.7  1e9: z840   -3.2 zOLS   -2.1  1e10: z840   -0.4 zOLS   -0.0
+  c2z8    c3z5    1e8: z840   -4.1 zOLS   -4.2  1e9: z840   -2.5 zOLS   -2.4  1e10: z840   -1.1 zOLS   -0.2
+  c2z9    c3z7    1e8: z840   +nan zOLS   +0.0  1e9: z840  -10.4 zOLS   -0.2  1e10: z840   -4.8 zOLS   -0.0

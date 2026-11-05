@@ -1,0 +1,11 @@
+# 10000 primes p ≡ 1 (4) from 10000000000; STAR_top 100 < uv <= 1000, others <= 100; events: STAR 1458, B1 28, c3 36, c2 52, QR 78
+  STAR: mean 4.9074  model mean 4.9334
+  B1: mean 3.7078  model mean 3.7104
+  c3: mean 1.2286  model mean 1.2201
+  c2: mean 2.2962  model mean 2.2727
+  QR: mean 3.0448  model mean 3.0332
+  STAR-c3: empirical cov -0.36887 (corr -0.070, s.e.~0.010)  CRT-model cov -0.33671 (corr -0.064)
+  STAR-c2: empirical cov -0.56403 (corr -0.079, s.e.~0.010)  CRT-model cov -0.47984 (corr -0.067)
+  STAR-B1: empirical cov -0.40890 (corr -0.055, s.e.~0.010)  CRT-model cov -0.31775 (corr -0.043)
+  STAR-QR: empirical cov +0.26317 (corr +0.028, s.e.~0.010)  CRT-model cov +0.06859 (corr +0.007)
+  c2-c3: empirical cov +0.88098 (corr +0.277, s.e.~0.010)  CRT-model cov +0.82599 (corr +0.260)
