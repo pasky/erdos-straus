@@ -31,7 +31,7 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
   c·log p none exists: p ≡ 1 (mod lcm(4, 1..D₀)) gives H(p; D₀) = 0 by the Jacobi lemma, with such p ≤ exp(C·D₀) by Linnik);
   for d ≥ p^{1/3} the sum is the number of divisors of the single integers p + n in the class −(p + n) (mod 4n), i.e. B2
   in tied form. Three further routes (fixing a QNR prime ℓ of p, norm-form descriptions of level failures, multiplicative
-  links between different d) are shown in §2 to give no pointwise inequality. No weaker pointwise theorem beyond the
+  links between different d) are examined in §2; none gives a pointwise inequality. No weaker pointwise theorem beyond the
   classical identity classes is obtained.
 * **CERTIFIED (§3).** An independent exhaustive decider built on Theorem 1 (2.8 s for p ≤ 10⁸) reproduces the 38 𝔊*-zeros
   ≤ 10¹⁰ of `Z56_FAMDESIGN` exactly and extends the search: **no 𝔊*-zero in (10¹⁰, 5·10¹¹]** (9.43·10⁹ further primes
@@ -153,10 +153,11 @@ d_Q ≤ D, and includes corner solutions when D > p^{3/5}; no exact comparison w
   (d/p) = −1 include all d = ℓk with (k/p) = +1, but HIT(ℓk) ⟺ 4n_{ℓk} | ℓk + 1 is again a divisibility of a residue of p
   by a structure of k; the knowledge of ℓ removes an obstruction (Lemma 1.4) and provides nothing positive.
 * **Norm forms (Lemma 1.6).** Failure of levels C ≤ K means that the K integers C(4p + 1) − (C − 1) all lie in thin
-  multiplicative sets (density (log)^{−1/2} or thinner). This is the Elsholtz–Tao-type sieve input and yields "almost
-  all p" with a quantitative exceptional set (dimension ≍ K/2, so exceptional set ≪ X·exp(−c√(log X)·log log X)-type for
-  K ≍ √log X); it cannot reach every p because the sieve bound never drops below X^{1−o(1)}·(log)^{−K/2} while K is
-  limited to o(log X/log log X) by the level of distribution.
+  multiplicative sets (density (log)^{−1/2} or thinner). This is the classical input for *almost-all* results (sieving
+  the primes p by these K conditions; Vaughan's bound N·exp(−c(log N)^{2/3}) for the ES exceptional set is of this
+  kind — cited from memory, not re-derived here). An upper-bound sieve counts the exceptional p; it cannot show the count
+  is < 1 for p in a range, because the number K of levels it can use is bounded by the level of distribution
+  (K = o(log X/log log X)) and its saving is a power of log per level — nothing in this route is pointwise.
 * **Multiplicative links between different d.** For coprime d₁, d₂: n_{d₁d₂} ≡ n_{d_i} (mod d_i), but 4n_dC_d = d + 1 is a
   statement about the *integer* n_dC_d (branch k = 1 of 4n_dC_d = kd + 1, k ≡ 1 (mod 4)), not about residues; HIT(d₁) and
   HIT(d₂) say nothing about HIT(d₁d₂) (a product of two hits is ≡ 1 (mod 4), never a hit; at p = 100 000 037, 9 of
