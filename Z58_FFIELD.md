@@ -1,7 +1,7 @@
 # Z58_FFIELD — the function-field analogue of (★)/(MS) over F_q[T]
 
 Status: wave z58, lane FFIELD (brief `z52bbriefs/z58_lanes.md` §FFIELD, rules `z52bbriefs/z53_depth.md` with z53 → z58).
-**Final draft (checkpoint 1 + §§3–5).** Internal; hostile review pending. **ES is OPEN; nothing here proves or disproves ES, (★) or (MS).**
+**Final (checkpoint 1 + §§3–7).** Internal; one hostile internal review applied (§7); cross-model review pending. **ES is OPEN; nothing here proves or disproves ES, (★) or (MS).**
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z58_ffield_*`,
 data `data/z58/ffield/` (≈ 3 MB).
 
