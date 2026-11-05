@@ -1000,6 +1000,22 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * (z57) Additive-character expansion of the 𝔊* hit count over moduli d → `Z57_BFF.md` §2 (Assessment for this
   implementation): no estimate for the weighted error supplied for d ≤ p^{1/3}; uniform positivity H(p; D) ≥ 1 for all
   large primes is impossible when D ≤ c·log p (Linnik example, PROVED); for d ≥ p^{1/3} it is B2 in tied form. Larger-d routes are not excluded.
+* (z58) Character-layer expansion of the (★) hit indicator (L₀ + L₂ + L_r + L_n) → `Z58_TRYF.md`. Burgess bounds only the
+  Jacobi layer L₂ (Thm 2.1, PROVED). No bound is proved for L_r or L_n, and HCE is stronger than the target. An L_r bound
+  via Shiu + Pólya–Vinogradov looks feasible; it is not excluded.
+* (z58) Surrogate main term M₂ plus exponential sums on boxes (van der Corput, Weil/Salié/Karatsuba, Erdős–Turán) →
+  `Z58_TRYF2.md` §4 (Assessment for these attempts): the errors are too large for the polylog per-box main term. Thm A
+  (M₂ ≥ c₀ log²p) stands; E₂ > −M₂ is open. Other analytic arguments are not excluded.
+* (z58) Fixed-character / least-non-residue covering of 𝔐 by a fixed prime q with (p/q) = −1, no threshold →
+  `Z58_TRYO.md` §3.3 (CERTIFIED by the screen zeros, for each q ∈ [11, 47]). Thresholded or eventual variants are not
+  excluded. TRYO Thm 2 and `Z58_CONVF.md` Thm 3.1 (almost-all, PROVED) are prior in substance to `Z56_FAMTRY.md` Thm A.
+* (z58) Designed counterexample search for (MS) (square-class, near-square, avoidance and CRT designs) →
+  `Z58_DISPROOF.md`.
+  * Result: no R- or 𝔊*-zero among 868 562 sampled primes ≤ 7.31·10¹⁵ (CERTIFIED decisions).
+  * Fixed-y square-class kills fade with p (model, Assessment). Fixed-offset line kills remove only O_k(L) mass, assuming
+    line mass ≍ L/u.
+  * The zero-law tail is a scenario, not a bound. Slowly decaying mixtures, growing offsets, other polynomial families
+    and a non-local "prime T1" are not excluded.
 
 *Algebraic / forcing*
 * Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS "line 2: CLOSED".
@@ -1086,6 +1102,23 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   dividing k recover a unit residue class exactly only modulo divisors of an explicit Λ(k); the methodological reading is
   Assessment); `Z57_BFII.md` Prop 3.2 (PROVED: no finite set of Type II witness moduli covers all primes). Growing or
   p-dependent witness families are not excluded.
+* (z58) Witness selectors for (MS) (least d, q, m3, u, C, s; congruence, n_p-rooting, CF(√p), two-square data) →
+  `Z58_WITNESS.md`.
+  * Fixed-congruence selectors fail on 𝔐 (PROVED), and bounded-coordinate menus fail i.o. (CONDITIONAL on Dickson).
+  * The CF, two-square, parity and n_p-rooting predictors are null (EVIDENCE).
+  * Structural selectors only, not arbitrary algorithms. Growing-coordinate rules (CONJECTURE W) are open.
+* (z58) Finite (★) case splits on Mordell class 1, and global polynomial certificates in p = x² + 840y² →
+  `Z58_MORDELL.md` Cor S2, Prop C1 (PROVED; §3 z58). The other five classes and non-polynomial uses of (x, y) are open.
+* (z58) Rigid modulus-4 slices and inheritance for Type II → `Z58_WILDCARD.md` §§2, 4–5.
+  * Inheritance to multiples needs divisibility (PROVED; 4545).
+  * r-spectrum multiplicativity is false (4 ∉ ℛ(409)).
+  * The slices only give Z(N_II) ∩ odd ⊂ S₃, a pointwise sieve event that reciprocity does not resolve.
+* (z58) Constructions for CONV-II at primes → `Z58_CONVF.md` §4(A–H) (Assessment: failed attempts, *not* barriers).
+  These were non-residue witnesses, Pell numerators, CRT cofactors, norm forms, character correlations across shifts,
+  descent, re-encoding and divisor-pair distribution. Lemma 1.4 (PROVED) kills only finite fixed (a, c, d) sets.
+* (z58) Size-controlled symmetric covering with bounded D, and threshold-free exact mechanisms on 𝔐 →
+  `Z58_LADDER.md` Cor 1.3 (PROVED) and the CERTIFIED zero lists. Covering scales p^{0.15}–p^{2/3} and thresholded
+  counting are not excluded.
 
 *Geometry / relaxations / transfers*
 * Brauer–Manin, fibrations, descent, strong approximation → no BM obstruction; "BM only obstruction" = ES(n) → (I)7, `GEOMETRY_ES.md`.
@@ -1101,6 +1134,17 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Cross-field net (13 fields) → no sharp transfer; pattern M1a–M5 → (J)94.
 * Boards: Davenport forcing, √−2 norm shifts, clean-side norm towers, one-child lemma, W_binom, HJ grammars (trap at 193), CEGAR, Λ-damped counts, iso-modulus packets, Fermat splitting, consecutive blocks, mod-8 escape → each refuted or a restatement → `~/.pi/boards/20261018-es-routes/memo.md` §dead, `…-es-lowertail/memo.md` §dead.
 * 51 brainstorm memos (logic, LLL/Janson, Markoff/Ghosh–Sarnak, tropical, p-adic, motivic, Maynard–Tao, entropy decrement, Kahn–Kalai, …) → none LIVE as an ES route (the one LIVE tag is an obstruction-side function-field result; R290 repair), promise ≤ 2/5 → `BRAINSTORM/README.md`.
+* (z58) Positive-integral BM / étale descent / coordinate fibrations as a sufficient criterion for (★) or Type II points →
+  `Z58_STRUCT.md` Cor A′, `Z58_STRUCT2.md` §5.2 (PROVED + CERTIFIED). BM detects exactly T1, and BM-nonempty does not imply
+  a point. Not excluded: further hypotheses, the open S°, equidistribution on fibres, an eventual IHP_BM.
+* (z58) Fixed-level automorphic and ternary-theta support proxies → `Z58_AUTOMORPH.md` Cor A1, `Z58_TERNARY.md` Thm F
+  (PROVED in scope; §3 z58). Escapes E1/E2/E3 and E1′, the cusp route and off-𝒞₁ classes remain.
+* (z58) Fixed-degree, large-q function-field positivity → `Z58_FFIELD.md` Cor 3.2 (PROVED rel. Chebotarev). The residue-blind
+  local route is dead (Prop 3.1). Fixed-q methods remain.
+* (z58) Logic shortcuts → `Z58_LOGIC.md`.
+  * IOpen plus residues cannot prove MS⁺★(P) (Thm 6.2, PROVED).
+  * No natural-proofs barrier was established. An ineffective eventual Σ₂ theorem would not finish the (★) route
+    (Assessment).
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
