@@ -221,7 +221,9 @@ fixed p across moduli. This is the exact shape of the obstruction.
   (`decide_5e11_1e12_summary.txt`, all exit 0), max first-hit d = 4 388 063 ≈ p^{0.556} at 907 403 153 329.
   **So R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹², the last 564 661 441** (18 803 924 340 primes p ≡ 1 (4)
   decided in total, vs π(10¹²)/2 = 18 803 956 009 — the difference 31 669 is the Chebyshev bias, consistent with the
-  exact π(10¹⁰; 4, 1) agreement above). Total cost ≈ 25 core-hours on a shared machine.
+  exact π(10¹⁰; 4, 1) agreement above). Total cost ≈ 25 core-hours on a shared machine. (Model, Assessment: with the
+  fitted tail P(no 𝔊*-hit below p^θ) ≈ exp(−c·θ²log²p/8), c ≈ 1, the expected number of zeros beyond 10¹² is
+  Σ_{p > 10¹²} exp(−(9/128)log²p) ≈ 6·10⁻¹⁴ — the same conclusion as `Z56_FAMDESIGN` §4.4's model scale 10^{8.3}.)
 * **First hit (EVIDENCE; `firsthit_1e8/1e9/1e10.txt`).** Exponent θ₁ := log d₁(p)/log p over the primes p ≡ 1 (4) in
   [10⁸, 10⁸ + 4·10⁵] (10 819 primes), [10⁹, 10⁹ + 4·10⁵] (9 613), [10¹⁰, 10¹⁰ + 10⁵] (2 150):
   mean θ₁ = 0.109, 0.097, 0.088; median 0.060, 0.053; P(θ₁ > 0.2) = 9.5 %, 7.4 %, 4.8 %; P(θ₁ > 0.3) = 1.6 %, 1.0 %,
