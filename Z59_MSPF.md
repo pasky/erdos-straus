@@ -1,6 +1,9 @@
 # Z59_MSPF — tryhard lane MSPF (wave z59): the pointwise statement for 4uBC − u − B = n
 
-Status line (updated at every commit): **IN PROGRESS** — no hot lead yet.
+Status line: **FINISHED (time-boxed) — NOT A HOT LEAD.** Target not proved in any range. Contents: equivalent
+reformulations, the Jacobi obstruction, necessary conditions on any witness (χ_n(d) = −1, d ≥ q₁(n), R(n) even, no
+bounded-modulus proof), a record of the routes tried and where each stops, and certified numerics to 10⁷. Hostile
+review applied (see commit log).
 
 Problem (verbatim target). For every sufficiently large non-square n with n mod 840 ∈ 𝔐 = {1, 121, 169, 289, 361, 529}
 (n ≡ 1 (24), n a nonzero square mod 5 and mod 7), the equation 4uBC − u − B = n has a solution in positive integers.
@@ -124,7 +127,8 @@ so the witnesses needed are of size > (1/2 − ε)·log n for infinitely many n 
 For every large non-square n ∈ 𝔐 one needs an explicit d ≡ 3 (4) with (i) χ_n(d) = −1 and (ii) (−n mod d) | (d+1)/4.
 By 1.8, for infinitely many n in every class every witness has d > (1/2 − ε)·log n, i.e. the
 witness cannot be read off from n modulo any bounded modulus; by 1.5 it cannot be read off from n modulo any set of
-moduli on which χ_n looks principal. Any construction d = d(n) therefore has to use a global datum of n: a prime q with
+moduli on which χ_n looks principal. Any construction d = d(n) therefore has to use some non-congruential datum of n,
+for instance: a prime q with
 (q/n) = −1 (least such: q₁(n), which is ≪ n^{1/(4√e)+ε} by Burgess and ≪ log² n under GRH — but nothing is known
 unconditionally below n^{1/(4√e)}), or the factorisation of n + k for small k, or the near-square structure n = a² + r.
 §3 records what each of these gives and where each stops.
@@ -140,7 +144,8 @@ represented by the principal form of discriminant −4k, so all its divisors cop
 the shifting class makes the usual "one of four consecutive integers is ≡ 3 (mod 4)" trick unavailable.
 
 **3.1 Polynomial (Mordell-type) identities.** Any identity n ↦ (k(n), B(n), C(n)) valid on a residue class r (mod M)
-covers the squares in that class, so it exists only for classes r that are non-squares mod M (Lemma 1.8). All six
+would produce a witness for the squares in that class, so by Cor. 1.4 it exists only for classes r containing no
+square, i.e. r a non-square mod M. All six
 classes of 𝔐 are square classes mod 840, and any refinement by a further modulus M′ leaves square sub-classes
 (n ≡ m² mod M′ with m coprime to M′) uncovered. So identities can at best peel off non-residue sub-classes
 (e.g. n ≡ 8, 10 (mod 11) by d = 11, k ∈ {1, 3}; n ≡ 41, 48, 53, 54 (mod 55) by d = 55, k ∈ {14, 7, 2, 1}), never finish.
