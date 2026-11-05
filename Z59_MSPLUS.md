@@ -11,10 +11,10 @@ composite.
 
 | Screen | Behaviour |
 |---|---|
-| F1 odd squares | The local mean (Thm 1) is **blind to squares**: an odd square coprime to 105 has the same leading mean as a prime. So no "mean large ⟹ R ≥ 1" statement can come from this mechanism; T1 is a Jacobi phenomenon that means cannot see. The zero law (§3) is fitted on non-squares only and is not claimed for squares. Incidental control: the "semi" batch of the structured search (§4.1) contained 6 squares p², produced by a generator version without the p ≠ q check (fixed before commit). The engine found no hit for any of them, as T1 requires. Non-squareness enters only through the fluctuation (zero) model, which is exactly the step nobody can prove. |
+| F1 odd squares | The local mean (Thm 1) is **blind to squares**: an odd square coprime to 105 lies in a unit residue class mod 840, and that class has the same Q = 840 leading class coefficient as a prime class. This is a statement about residue classes, not about the mean over the square subpopulation; primes ≥ 11 dividing a square change finer-Q constants. So no "mean large ⟹ R ≥ 1" statement can come from this mechanism; T1 is a Jacobi phenomenon that means cannot see. The zero law (§3) is fitted on non-squares only and is not claimed for squares. Incidental control: the "semi" batch of the structured search (§4.1) contained 6 squares p², produced by a generator version without the p ≠ q check (fixed before commit). The engine found no hit for any of them, as T1 requires. Non-squareness enters only through the fluctuation (zero) model, which is exactly the step nobody can prove. |
 | F2 C-even (R₈) | Thm 1 holds verbatim for R₈ with leading mean exactly half (Remark 2.3, PROVED): **the dead-moduli structure is identical for R and R₈.** So the mechanism cannot separate R from R₈ (Assessment: it is not a proof route by itself). R₈ has zeros at 𝔐-primes above 10¹⁰. Over all primes p ≡ 1 (4) near 10¹⁰, their observed rate is several times (≈ 5×) what the R-zero law gives at equal mean (§3.5). Only 4 of the 12 are in 𝔐, where the excess is larger. So the zero law is problem-specific, not a function of the mean alone. |
-| F3 composites | This is the lane's subject. A hit modulus d is coprime to n (dead moduli, PROVED, z58 LOGIC). Each odd q ∣ n lowers the **leading** mean coefficient by (q² − q + 1)/(q² + 1) (Thm 1). The composite zeros sit in the groups with 3 ∣ n, 15 ∣ n, 21 ∣ n, 105 ∣ n, where the mean is lowest. One law in the local mean m(n) reproduces their counts in the four large groups (g3, g15, g21, g105) within a factor ≈ 1.5. In the small groups it is right only within a factor 2–6 (§3). |
-| F4 known zeros | The model only gives probabilities. It predicts zeros with the right order of magnitude where they occur, and it "proves" nothing anywhere. It **under-predicts** the 𝔐-prime zeros of 10⁶–10⁷ by ≈ 6× (§3.3). This is unexplained: their Jacobi depths k = 11–19 are ordinary. Thresholds come from the census (§6), not from the model. |
+| F3 composites | This is the lane's subject. A hit modulus d is coprime to n (dead moduli, PROVED, z58 LOGIC). Each odd q ∣ n lowers the **leading** mean coefficient by (q² − q + 1)/(q² + 1) (Thm 1). The composite zeros lie **predominantly** in the groups where the mean is lowest. Of the 285 screen composites: 214 are in g3/g15/g21/g105 (91/51/41/31), 51 in g5/g7/g35 (26/15/10), and 20 are coprime to 105 (15 of them in 𝔐). So the dead factors explain a correlation, not every zero. The empirical law in the proxy m(n) fits the four large *training* groups within ≈ 1.5× (worst ≈ 1.6×). It is worse elsewhere: OOS 21 ∣ n is 3× off and held-out g7 ≈ 17× (§3). |
+| F4 known zeros | The model only gives probabilities. It predicts zeros with the right order of magnitude where they occur, and it "proves" nothing anywhere. It **under-predicts** the 𝔐-prime zeros of 10⁶–10⁷ by ≈ 6× (§3.3). This is unexplained: their Jacobi depths k = 11–19 are ordinary. Thresholds come from the census (§6), not from the model. **𝔊\* zeros:** all 14 (★)-zero primes are among the 38 𝔊\*-zero primes. The other 24 have R > 0 (independently witnessed by the cross-model review). They obstruct the restricted 𝔊\* family, not the R-targets here, and the R-zero model is not claimed to model them. |
 
 ## 1. Precise statements
 
@@ -31,10 +31,11 @@ composite.
   exceed y, for y ≥ 47.
   * Status: CERTIFIED to 10¹⁰ (same census; §5.3). Stated for y ≥ 47; for y = 47 the last zero is 8 813 281, the
     last (★)-zero prime. For 11 ≤ y ≤ 43 the threshold must be 17 401 609 = 47·370 247, for y = 7 it must be
-    29 210 401, and for y < 7 zeros continue to 9.9·10⁹.
+    29 210 401, for 3 ≤ y < 7 the last zero is 7 479 950 569, and with no roughness condition at all it is
+    9 919 520 121 (divisible by 3).
 * Out of scope: ES and (MS) themselves. Nothing here moves the B2 wall.
 
-## 2. The local mean of R — what dead moduli do (PROVED) and what 𝔐 does (second order)
+## 2. The local mean of R — what dead moduli do (PROVED) and what 𝔐 does (lower order)
 
 **Lemma 2.0 (PROVED; z58 LOGIC §4).** Every hit modulus d (d ≡ 3 (4), r = −n mod d, r ∣ (d+1)/4) has gcd(d, n) = 1.
 In the (u, B) form: if a prime q divides n, then the pairs with q dividing exactly one of u, B are dead.
@@ -89,20 +90,26 @@ not matter at leading order.
   * The heuristic leading mean 𝔖·L²/8 is therefore ≫ L²/log L → ∞. This is used only as an input to the heuristic
     of §3.5.
 
-**Proposition 2.2 (second-order term; derivation in outline, EVIDENCE).**
-* Using Σ_{u ≤ x, u ≡ α (Q)} 1/u = (log x)/Q + c_α + o(1), with c_α = −(log Q + ψ(α/Q))/Q, and a Mellin computation,
-  the class mean is (𝔖_Q(a)/8)L² + c₁(a)L + c₀(a) + o(1). Here
+**Definition 2.2 (a reciprocal-progression mean proxy; WITHDRAWN as an expansion of the class mean).**
+* The memo originally asserted that the class mean is (𝔖_Q(a)/8)L² + c₁(a)L + c₀(a) + o(1), with the coefficients
+  below. **That is wrong** (cross-model review). Already for Q = 4, a = 1 the true cumulative class mean is
+  L²/8 + ((3γ − 1)/4)L + O(1), while the formula below gives L²/8 + (γ/2)L + c₀. The reviewer's residuals from the census
+  drift linearly in L with the formula below, and are constant with the corrected term.
+* What remains is a **proxy**. Using Σ_{u ≤ x, u ≡ α (Q)} 1/u = (log x)/Q + c_α + o(1), with
+  c_α = −(log Q + ψ(α/Q))/Q, define
   * c₁(a) = 2Σ_α W̄(α)c_α, with W̄(α) = Q^{−1}Σ_β f(α, β);
-  * c₀ collects c_αc_β and the boundary term 2Σ_u u^{−1}log(4u/(4u − 1))W̄(u).
-  The remainder is asserted, not proved.
-* c₁ is where n's residues enter. For odd q ∤ n the u-marginal is W̄_q(u) = 1 − 1/q + [u ≡ −n (q)] (unit u), and 1 for
+  * c₀ = Σ w c_αc_β plus the boundary term 2Σ_u u^{−1}log(4u/(4u − 1))W̄(u).
+* m₀(a, n) = (𝔖_Q(a)/8)L² + c₁(a)L + c₀(a) is used below **only as an empirical covariate**. Its fitted predictions are
+  EVIDENCE. The genuine second-order terms of the class mean (which need the C-sum and the cut-off treated exactly)
+  were not derived.
+* Heuristic reading of the proxy: for odd q ∤ n the u-marginal is W̄_q(u) = 1 − 1/q + [u ≡ −n (q)] (unit u), and 1 for
   q ∣ u. So c₁ rewards n ≡ −r (mod q) with small r, i.e. small shifts n + r with many small factors (the u-form).
 * Numbers (Q = 840, `data/z59/msplus/coef840.txt`): c₁ = −0.137 (a = 1), −0.026 (a = 121). For non-𝔐 unit classes
   c₁ ranges up to +2.20 (a = 209, 629, i.e. n ≡ −1 (mod 105)), consistent with the small-r reading.
 
-*Check (CERTIFIED means, EVIDENCE fit; `scripts/z59_msplus_mean.py`, `data/z59/msplus/means_1e9.txt`).* Exact R(n)
-for all n ≡ 1 (4) ≤ 10⁹ (`scripts/z59_msplus_strat.c`). On n ∈ [5.6·10⁸, 10⁹], observed vs model mean (no fitted
-parameter):
+*Check (CERTIFIED means, EVIDENCE comparison with the proxy; `scripts/z59_msplus_mean.py`,
+`data/z59/msplus/means_1e9.txt`).* Exact R(n) for all n ≡ 1 (4) ≤ 10⁹ (`scripts/z59_msplus_strat.c`). On
+n ∈ [5.6·10⁸, 10⁹], observed mean vs proxy m₀ (no fitted parameter):
 
 | group | count | mean R | model | ratio |
 |---|---|---|---|---|
@@ -114,9 +121,11 @@ parameter):
 | C g15 | 6 252 040 | 34.38 | 32.88 | 1.046 |
 | C g105 | 1 042 007 | 28.99 | 28.10 | 1.032 |
 
-* The 𝔐 deficit is captured. The P-𝔐 / P-unit ratio is 0.79 observed and 0.84 modelled; the leading term alone gives 1.
-* The residual 1–11 % is not explained here. At leading order the primes q ≥ 11 contribute only ∏(1 + 1/q²) ≈ 1.02
-  for primes, so most of it must be second-order terms at q ≥ 11 (unverified hypothesis).
+* The proxy tracks most of the 𝔐 deficit: the P-𝔐 / P-unit ratio is 0.79 observed and 0.84 for the proxy; the
+  leading term alone gives 1.
+* PROVED: the deficit is O(L), relative to L². Thm 1 gives equal leading coefficients for all unit classes.
+* NOT proved: that its size is c₁L with the c₁ above (Definition 2.2 is withdrawn as an expansion).
+* The residual 1–11 % is unexplained. It is partly the wrong linear term of the proxy.
 
 **Remark 2.3 (R₈, PROVED by the same proof).** R₈ counts the solutions with C even, i.e. n ≡ −(u + B) (mod 8uB). The
 proof of Thm 1 goes through with 4uB replaced by 8uB. The odd factors σ_q are identical. The 2-adic factor is again 1
@@ -125,8 +134,8 @@ proof of Thm 1 goes through with 4uB replaced by 8uB. The odd factors σ_q are i
 ## 3. The zero law
 
 ### 3.1 Data
-* Census: exact R(n) for all n ≡ 1 (4) ≤ 10⁹ (`scripts/z59_msplus_strat2.c`). Each n gets the local mean
-  m(n) = lead(a)·K(n)·L² + c₁(a)L + c₀(a), with a = n mod 840 and K(n) = ∏_{11 ≤ q ≤ 2000, q ∣ n}(q² − q + 1)/(q² + 1)
+* Census: exact R(n) for all n ≡ 1 (4) ≤ 10⁹ (`scripts/z59_msplus_strat2.c`). Each n gets the mean *proxy*
+  (Definition 2.2; an empirical covariate, not the true local mean to second order) m(n) = lead(a)·K(n)·L² + c₁(a)L + c₀(a), with a = n mod 840 and K(n) = ∏_{11 ≤ q ≤ 2000, q ∣ n}(q² − q + 1)/(q² + 1)
   (dead moduli at q ≥ 11).
 * Each n also gets its Jacobi depth k(n), the least odd prime ℓ ∤ n with (n/ℓ) = −1.
 * The results are binned in `data/z59/msplus/h_1e9.txt` (CERTIFIED counts).
@@ -213,8 +222,9 @@ Reading (EVIDENCE):
 
 ### 3.5 Extrapolation and the finiteness question (Assessment)
 * If log P(R = 0) ≤ −κ·m(n) + O(log log n) with κ > 0, then Σ_n P(R(n) = 0) < ∞ over all non-square n ≡ 1 (4). This
-  follows from m(n) ≫ L²/log L (Cor 1.1(iii)). The heuristic therefore predicts **finitely many non-square zeros in
-  total**, in every group.
+  follows from m(n) ≫ L²/log L (Cor 1.1(iii)). So, **under the assumption of a uniform exponential law**, the model
+  predicts finitely many non-square zeros in total, in every group. That is a statement about the model, not a proof
+  about the deterministic zeros.
 * Model B's expected numbers beyond the census:
   * 𝔐 composites: 2.6·10⁻³ in [10¹⁰, 10¹¹] and 1.7·10⁻⁴ beyond 10¹¹;
   * 𝔐 primes: ≈ 10⁻⁴;
@@ -229,11 +239,12 @@ Reading (EVIDENCE):
   predicts an R₈-zero rate of ≈ 10⁻⁷ among primes p ≡ 1 (4) near 10¹⁰. The observed rate is ≈ 5·10⁻⁷: 12 zeros among
   ≈ 2.2·10⁷ such primes in [10¹⁰, 1.1·10¹⁰] (rough Assessment).
 * Answer to brief (1):
-  * **dead moduli + the local mean account for the composite zeros in and out of 𝔐 at the level of counts per group,
-    within ≈ 1.5× in the large groups and 2–6× in the small ones**, with a systematic ≈ 1.4× under-prediction in
-    later decades. They do not account for the 𝔐-prime zeros of 10⁶–10⁷;
-  * the heuristic predicts finitely many non-square zeros in 𝔐 and among n coprime to 105 (with the ones already
-    found most likely all of them), and a long but finite tail for 105 ∣ n and 15 ∣ n.
+  * the dead factors plus the empirical proxy m(n) (with log n and Jacobi depth as separate covariates) account for the
+    composite zeros' group counts within ≈ 1.5× in the four large training groups;
+  * they do worse elsewhere: OOS 21 ∣ n is 3× off, held-out g7 ≈ 17×, and later decades are systematically ≈ 1.4×
+    low. They do not account for the 𝔐-prime zeros of 10⁶–10⁷;
+  * the extrapolated model predicts finitely many non-square zeros in 𝔐 and among n coprime to 105 (with a negligible
+    expected tail beyond the census, which is not exhaustion), and a longer finite tail for 105 ∣ n and 15 ∣ n.
 
 ## 4. Near-squares and the twisted T1 question (brief (3))
 
@@ -243,7 +254,9 @@ s ≡ 1 (mod 4). Then the set of odd m with R(s m²) = 0 has natural density 0 a
 *Proof.*
 1. Let 𝒫 be the set of primes ℓ ≡ 3 (mod 4), ℓ ∤ s, with (s/ℓ) = −1. Write s = s₀t² with s₀ > 1 squarefree. Then
    s₀ ≡ 1 (4), and (s/ℓ) = (ℓ/s₀) by reciprocity. The characters χ₋₄ and (·/s₀) are independent: their conductors
-   are 4 and s₀ > 1, s₀ odd. By Dirichlet, 𝒫 has relative density 1/4 among primes.
+   are 4 and s₀ > 1, s₀ odd. So the condition picks out one quarter of the reduced classes modulo 4s₀. By the prime
+   number theorem in arithmetic progressions, 𝒫 has relative density 1/4 among primes. In particular
+   Σ_{ℓ ∈ 𝒫} 1/ℓ = ∞, which is all the proof needs.
 2. Fix ℓ ∈ 𝒫. Then −1 is a non-residue mod ℓ, so −s^{−1} is a residue. Hence s m² ≡ −1 (mod ℓ) has exactly 2 solutions
    m mod ℓ.
 3. For such m, d = ℓ, u = 1, C = (ℓ + 1)/4 and B = (s m² + 1)/ℓ give a solution, provided s m² ≥ ℓ − 1 (true for all
@@ -295,10 +308,14 @@ is known.
 ### 5.2 Kinds of proof (Assessment)
 * **Primality enters (MS) through two properties: roughness and non-squareness.** In the u-form,
   R(n) = Σ_u #{d ∣ n + u : d ≡ −1 (4u), d ≥ 4u − 1}.
-  * Roughness: gcd(n, u) = 1 and gcd(n, d) = 1 (Lemma 2.0).
+  * Roughness: for a prime n, gcd(n, u) = 1 and gcd(n, d) = 1 hold automatically for every witness with u, d < n. For
+    composites, Lemma 2.0 gives gcd(n, d) = 1 for hit d-moduli only.
+  * A fixed-y-rough composite can have witnesses with gcd(n, u) > 1. Example: n = 9 553 913 = 1093·8741 (47-rough,
+    above the (R⁺₄₇) threshold) has the witness (u, B, C) = (1093, 2186, 1).
   * Non-squareness: the Jacobi structure. Rough squares p² have R = 0 (T1), so roughness alone cannot suffice.
-  So an argument for (MS) that uses primality only through these two properties also proves the rough statement
-  (R⁺_y) on 𝔐. (MS⁺) adds the composites with small factors q ≥ 11, which are dead-moduli inputs of lower mean
+  So a proof of (MS) transfers to (R⁺_y) on 𝔐 only if *every* use of primality follows from non-squareness and the
+  explicitly specified fixed-y exclusion. An argument that needs y(n) → ∞ (e.g. "no prime factor ≤ n^θ") proves at
+  best a growing-y rough statement, not (R⁺₄₇). (MS⁺) adds the composites with small factors q ≥ 11, which are dead-moduli inputs of lower mean
   (Cor 1.1).
 * **Arguments allowed by (MS⁺) but useless for (MS):** descent or induction on n that maps a non-square zero n to a
   smaller non-square zero n′ (Vieta-, Markoff- or Hasse-type descents land on composites). Also algebraic identities
@@ -341,8 +358,8 @@ Assessment (brief (4)):
   race at launch) were re-run and overwritten.
 * Every non-square n with n mod 840 ∈ 𝔐 in (10¹¹, 10¹²] was decided: **no zero** among **1 046 544 177 primes and
   5 381 870 962 non-square composites**.
-  * The internal review checked that the total 6 428 415 139 equals 6·9·10¹¹/840 minus the 156 291 odd squares in
-    these classes.
+  * The total 6 428 415 139 equals the exact raw population 6 428 571 430 of n ∈ (10¹¹, 10¹²] with n mod 840 ∈ 𝔐,
+    minus the 156 291 odd squares in these classes (internal and cross-model review).
   * The largest least-hit modulus is 1 470 759, at n = 475 715 523 361.
 * With z58 LADDER this gives: **the non-square zeros of R in 𝔐 up to 10¹² are exactly the 9 primes and 18 composites
   ending at 17 401 609** (one engine; no second full-range engine).
@@ -351,12 +368,14 @@ Assessment (brief (4)):
 
 **Verdict: narrowed, and strengthened as a choice of target; no HOT LEAD.**
 * *Strengthened (understanding, PROVED part).* Theorem 1 gives the exact leading local mean of R on any class. Dead moduli
-  act at leading order through σ_q = (q² − q + 1)/q² against (q² + 1)/q². Mordell's classes act only at second order
-  (c₁L). R₈ has the identical dead-moduli structure (Remark 2.3). Lemma 4.1: there is no positive-density
+  act at leading order through σ_q = (q² − q + 1)/q² against (q² + 1)/q². Mordell's classes have the same leading
+  coefficient as every unit class, so they act only at order O(L). The size of that lower-order term is not derived;
+  the c₁ proxy is withdrawn as an expansion. R₈ has the identical dead-moduli structure (Remark 2.3). Lemma 4.1: there is no positive-density
   twisted-T1 family for (★).
 * *Strengthened (target choice, CERTIFIED + EVIDENCE).*
-  * The composite zeros are quantitatively a dead-moduli phenomenon. One zero law in the local mean reproduces their
-    group distribution to within ≈ 1.5× in the large groups.
+  * The composite zeros correlate strongly with dead moduli. An empirical zero law in the proxy m(n), with log n and
+    Jacobi depth as separate covariates, reproduces the four large training groups within ≈ 1.5×. It is worse
+    elsewhere: OOS 21 ∣ n is 3× off, held-out g7 ≈ 17×.
   * Its pre-registered out-of-sample prediction on [10¹⁰, 10¹¹] had the right order of magnitude and group ranking:
     18 observed vs 13.0 (B) / 11.5 (A); p ≈ 0.11 / 0.05; 21 ∣ n about 3× high. There was no pre-set pass criterion,
     and the law under-predicts systematically by ≈ 1.4× (§3.4).
@@ -381,32 +400,36 @@ Assessment (brief (4)):
 
 **Proposed FRONTIER §7 text (do not apply without review).**
 > *(MS⁺) and dead moduli (z59 MSPLUS).*
-> * The class mean of R is (𝔖(a)/8)log²X + O(log X), with σ_q = 1 + 1/q² (q ∤ a) and 1 − 1/q + 1/q² (q ∣ a), and no
->   2-adic or quadratic-residue dependence at leading order (PROVED). Mordell's classes lower the mean only at order L.
-> * One empirical zero law, P(R(n) = 0) ≈ exp(−0.3·m(n)) in the local mean m, reproduces the group distribution of
->   the composite zeros (3 ∣ n, 15 ∣ n, 105 ∣ n, …) within ≈ 1.5× in the large groups.
+> * For fixed Q, the class mean of R is (𝔖(a)/8)log²X + O_Q(log X), with σ_q = 1 + 1/q² (q ∤ a) and 1 − 1/q + 1/q²
+>   (q ∣ a), and no 2-adic or quadratic-residue dependence at leading order (PROVED). R₈ has exactly half (PROVED).
+> * Mordell's classes differ from other unit classes only at order O(log X). The second-order coefficient was not
+>   derived.
+> * An empirical zero law, P(R(n) = 0) ≈ exp(−0.3·m(n)), uses a reciprocal-progression proxy m (with log n and
+>   Jacobi-depth covariates). It reproduces the composite zero counts of the four large training groups (3 ∣ n,
+>   15 ∣ n, 21 ∣ n, 105 ∣ n) within ≈ 1.5×, and is worse elsewhere (EVIDENCE).
 > * A pre-registered prediction for [10¹⁰, 10¹¹] got the order of magnitude right: 9/4/4/1 zeros observed against
 >   6.1/4.8/1.3/0.8 for 105 ∣ n, 15 ∣ n, 21 ∣ n, 3 ∣ n-only. It under-predicts by ≈ 1.4×, with no pre-set criterion.
-> * The law predicts finitely many non-square zeros, with a negligible tail on 𝔐 and among n coprime to 105
->   (EVIDENCE/Assessment).
+> * Under a uniform exponential-law assumption, the extrapolated model predicts finitely many non-square zeros, with a
+>   negligible expected tail on 𝔐 and among n coprime to 105 (Assessment).
 > * There is no positive-density twisted-T1 family for (★) (PROVED). (MS⁺) is CERTIFIED to 10¹² (one engine).
 > * Primality-free targets with clean screens: (MS⁺₁₀₅) (gcd(n, 105) = 1, all classes, threshold 29 210 401) and
 >   (R⁺_{47}) (all prime factors > 47, threshold 8 813 281), both CERTIFIED to 10¹⁰.
 > * The dead-moduli structure of R₈ is identical, so these are statements, not mechanisms. B2 is untouched.
 
 **Bottom line.**
-* The composite zeros of the (★) count are not mysterious. Each odd prime q ∣ n kills the moduli divisible by q, which
-  lowers the leading mean by the exact factor (q² − q + 1)/(q² + 1). A single zero law in that mean predicts where
-  composite zeros occur and, to within ≈ 1.5×, how often. That includes a pre-registered decade beyond the old census,
-  where it was right in order of magnitude and ranking but systematically low.
-* In Mordell's classes, the residue structure enters only at second order. The law says the composite tail there is
-  already exhausted, which is consistent with the census, now to 10¹².
-* For 105 ∣ n the tail is long but finite.
+* Each odd prime q ∣ n kills the moduli divisible by q, which lowers the leading class mean by the exact factor
+  (q² − q + 1)/(q² + 1). The composite zeros correlate strongly with this.
+* An empirical zero law in a mean proxy predicts the large-group counts to within ≈ 1.5×. On a pre-registered decade
+  beyond the old census it was right in order of magnitude and ranking but systematically low.
+* In Mordell's classes the residue structure enters only below leading order (PROVED, O(log X)).
+* The extrapolated model predicts a negligible expected composite tail there. That is consistent with the census, now
+  to 10¹², but it is not exhaustion.
+* For 105 ∣ n the extrapolated model predicts a long but finite tail.
 * None of this is a proof device. The mechanism is square-blind and does not distinguish R from R₈.
 * (MS⁺) is a logically stronger target without unconditional closure properties, so naive "reduce to primes"
   arguments are unavailable (Assessment). Its value is as a cleaner *statement*.
-* The variants (MS⁺₁₀₅) and (R⁺_{47}) are consistent (census to 10¹⁰) with primality mattering only through "no small
-  prime factor" plus non-squareness.
+* The variants (MS⁺₁₀₅) and (R⁺_{47}) are CERTIFIED to 10¹⁰ with small thresholds. A proof of (MS) transfers to them
+  only if every use of primality reduces to non-squareness plus the fixed small-prime exclusion (§5.2).
 * The B2 wall is untouched.
 
 ## 8. Reproduction
@@ -444,3 +467,28 @@ issues.
     marked as an unverified hypothesis.
   * Nits fixed.
 * Not re-reviewed after the fixes. A cross-model review is expected.
+
+## 10. Cross-model review
+Review: `data/z59/xreview/REVIEW_MSPLUS.md` (on 5e4c3c10), verdict ACCEPT-WITH-FIXES.
+* It confirmed:
+  * Theorem 1, Remarks 2.1/2.3, and Lemmas 2.0, 4.1 and 5.1;
+  * the 10¹² census (all 18 chunks reconciled, an independent-engine slice, and the extremal input n = 475 715 523 361
+    with R = 12);
+  * the targets table, all 18 OOS zeros, all structured-search lines, and the fit coefficients.
+* Fixed in this version:
+  1. **Proposition 2.2 withdrawn as a class-mean expansion.** It is wrong: for Q = 4 the true linear coefficient is
+     (3γ − 1)/4 for the cumulative mean, not γ/2. It is now Definition 2.2, a reciprocal-progression *proxy* used only as
+     an empirical covariate. Claims that "Mordell acts only through c₁L" are replaced by the proved "only at
+     O(log X)" in §2, §7, the FRONTIER text and the bottom line.
+  2. §5.2: fixed-y roughness does not give gcd(n, u) = 1 for all witnesses (example 9 553 913 = 1093·8741 with witness
+     (1093, 2186, 1)). The transfer of a proof of (MS) to (R⁺_y) is now stated with that condition.
+  3. Falsifier table:
+     * F3: "predominantly", with the 214 / 51 / 20 breakdown of the 285 screen composites;
+     * F4: the 𝔊* zeros made explicit (14 inside the 38; 24 with R > 0);
+     * F1: scoped to residue-class coefficients.
+  4. §1: for 3 ≤ y < 7 the last zero is 7 479 950 569. §6: the exact raw population is 6 428 571 430.
+  5. Statistical scope: "within ≈ 1.5×" is restricted to the four large training groups, with the OOS 21 ∣ n (3×) and
+     held-out g7 (≈ 17×) misses stated. The finiteness and tail statements are labelled as conditional on a uniform
+     exponential model. "Long but finite" became "the extrapolated model predicts". Lemma 4.1 now cites the PNT in APs
+     (only Σ1/ℓ = ∞ is needed).
+* The fitted numbers themselves are unchanged. They were computed with the proxy and remain EVIDENCE.
