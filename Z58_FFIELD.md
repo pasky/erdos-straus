@@ -14,7 +14,7 @@ Prior work this lane builds on (`git grep` done; not redone): `EXSET_FUNCTION_FI
 ∞, T1, mass = shape count, word maps finite flat, Chebotarev large-q limit, **Thm 3.5/Cor 3.5′: at fixed n and large q a
 positive proportion of irreducibles have no nontrivial word**, Thm 3.9 exp(−cn²), fixed-q obstructions §4.3);
 `FUNCTIONFIELD_ES*.md`, `FF_MUTE.md`, `DRINFELD_ES.md` (polynomial-numerator ES_q(A, P), mute places, coverings).
-What is new here: the exact (★)/(MS) analogue (a strict sub-union of U_q, with the parity of n built in), its census with
+What is new here: a chosen T1-compatible (★)/(MS) analogue ("exact" only in the word/divisor identities, not a reduction preserving all integer arithmetic) (a strict sub-union of U_q, with the parity of n built in), its census with
 all four z58 falsifiers, the sub-line (numerator-8) analogue, and the primality/roughness diagnostics.
 
 ## 0. MANDATORY FALSIFIER TABLE (checkpoint 1; re-stated at the end)
@@ -24,12 +24,12 @@ like (MS), and does any tool special to F_q[T] (Weil/RH, Lang–Weil, Chebotarev
 
 | screen | behaviour of the F_q[T] analogue (★)_q / MS_q | status |
 |---|---|---|
-| **F1 odd squares** | R_q(g²) = 0 for every monic g (Lemma 1.2: every (★)_q witness has colour (−r/d) = −1 forced at ∞, impossible when −r ≡ g² mod d). All squares are zeros in every run. Non-squareness enters at exactly this step (the Jacobi symbol at the divisor d). | PROVED; CERTIFIED (runs) |
+| **F1 odd squares** | R_q(g²) = 0 for every monic g (Lemma 1.2: every (★)_q witness has colour (−r/d) = −1 forced at ∞, impossible when −r ≡ g² mod d). All squares are zeros in every run. The T1 proof here uses non-squareness at this step (the Jacobi symbol at d); other proofs are not excluded. | PROVED; CERTIFIED (runs) |
 | **F2 C-even sub-line** | F_q[T] has only one "2-adic" quadratic character for monic data (degree parity at ∞), so there is no literal (2/·) split. The proxy sub-lines s = deg t ≡ 1 (4) and ≡ 3 (4) (comparable mass: 40 and 32 of 72 at n = 16) keep **irreducible zeros where the full family has none**: q = 3, n = 14: 9 resp. 3; n = 16: 15 resp. 0 (full family: 0, 0). The single-t-degree line s = 1 (the "C = 1" analogue) has 29 070 irreducible zeros at n = 16. | CERTIFIED data (q = 3, n ≤ 16); proxy only, nothing proved about eventual behaviour |
 | **F3 composites** | Non-square composite zeros persist: q = 3, n = 4, 6, …, 16: 6, 27, 48, 87, 67, 51, 15; irreducible zeros 0, 3, 3, 6, 3, 0, 0. An argument using non-squareness only would prove a false statement in the model. | CERTIFIED |
 | **F4 known zeros** | At fixed n and large q a positive proportion of irreducible P of degree n are zeros (z51 Cor 3.5′ applies verbatim, §2.3); data q = 7, 11: 8.3 % / 10 % of irreducible quartics, 1.43 % / 1.25 % of sextics. At q = 3 the irreducible zeros (degrees 6–12) are a finite-looking sporadic set (none at 14, 16, 18). So any F_q[T] proof of MS_q needs a degree threshold N₀(q) that tends to ∞ with q; no fixed-degree, large-q argument can give positivity (scope: Cor 3.2). | PROVED (rel. Chebotarev, as in z51); CERTIFIED (data) |
 
-Assessment: the model reproduces F1, F3 and F4; F2 only through proxies (no faithful image of C-parity, §4.5). That
+Assessment: the model reproduces F1, agrees qualitatively with F3 and with the (★)-zero part of F4; F2 only through proxies (no faithful image of C-parity, §4.5); the 𝔊* part of F4 is not modelled. That
 is exactly why it does not obviously escape B2: §§3–4 test whether its extra tools do.
 
 ## 1. The analogue, precisely
@@ -37,7 +37,9 @@ is exactly why it does not obviously escape B2: §§3–4 test whether its extra
 Setting: q = p^r ≡ 3 (mod 4), R = F_q[T], "positive" = monic (Hayes' sign), ε = χ(−1) = −1. Reciprocity (Rosen Thm 3.3,
 as recalled in `EXSET_FUNCTION_FIELD.md` §1.1): for coprime monic a, B, (a/B)(B/a) = ε^{deg a·deg B}; (c/B) = χ(c)^{deg B}.
 
-**Dictionary (Assessment, justified by Lemmas 1.1–1.3).**
+**Dictionary (Assessment, justified by Lemmas 1.1–1.3).** The restriction "deg t odd" is a deliberately chosen sufficient condition for the
+colour, not uniquely forced by the integer statement (integer d = 4uC − 1 is always ≡ 3 mod 4, whereas deg d need not be
+odd here; C-parity is not preserved).
 
 | ℤ | F_q[T] |
 |---|---|
@@ -169,11 +171,12 @@ fixed n would). It does not exclude hybrid arguments in which n grows with q, or
 argument. Empirically (CERTIFIED): last irreducible zero degree ≥ 12 at q = 3 (none at 14, 16),
 zeros at n = 8 for q = 7 (707), at n = 6 for q = 11 (3 674).
 
-*Remark (lc-free variants fail F3).* If the shift's leading coefficient is free, or only required to be a square
+*Remark (lc-free variants do not transfer).* If the shift's leading coefficient is free, or only required to be a square
 (the colour is then unchanged, since χ(lc) = 1), z51 Prop 1.7(ii)'s single Weil sum over the q unit shifts proves a
 witness for **every** non-square f once q > (n + 1)². Such a mechanism sees only geometric data (“w² = −f is
-irreducible”) and would, in the monic model, prove positivity at the composite zeros of Table 2.1: it fails F3 there,
-and it has no ℤ analogue (positivity leaves the single unit 1).
+irreducible”) and its witnesses lie in an enlarged set (t gets a non-monic leading coefficient), so it is not falsified by the monic
+composite zeros of Table 2.1; rather, it cannot be transferred to the monic model without new input, and it has no ℤ
+analogue (positivity leaves the single unit 1).
 
 ### 3.3 Fixed q: RH gives the level, not the event
 
@@ -237,8 +240,9 @@ n = 16 all 15 have at least two distinct linear factors (types like 1·1·2·12,
 thin tail of *rough* squarefree composites with two factors (types 2·10, 3·9, 2·12). Over ℤ the 285 composite zeros
 ≤ 8·10⁶ behave the same way (computed here from `data/z58/screens/`): smallest prime factor 3 for 214, ≤ 13 for 274,
 and only 11 have all prime factors > 13 — all with two or three factors (e.g. 2641 = 19·139, 810001 = 241·3361).
-Reading (Assessment): composite zeros are mostly explained by Prop 3.1(b) (small factors lower the local density and
-forbid all d sharing them); the rough tail is the genuine B2-type residue, in both rings.
+Reading (Assessment): the small-factor enrichment is consistent with the local-density deficit of Prop 3.1(b) (small
+factors lower the local density and forbid all d sharing them); the rough tail looks like a B2-type residue, in both
+rings. Neither observation implies an infinite family.
 
 ### 4.3 Targeted maximal-avoidance classes (FF version of the DISPROOF search)
 
@@ -306,17 +310,17 @@ here gives one event at one P.
 **Verdict: narrowed.** Killed sub-route (PROVED): fixed-degree, large-q universal positivity (Cor 3.2); and, as
 scoped facts, local-density and small-modulus routes (Props 3.1, 3.3). Surviving: fixed-q arguments with a q-dependent
 threshold, about which this lane proves nothing new. The model is a useful, cheap, T1-compatible laboratory for (MS)
-(Assessment: F1, F3, F4 reproduced; F2 only via proxies; zero concentration on “Mordell-type” residue classes; composite
+(Assessment: F1 reproduced; qualitative agreement on F3 and on the (★)-zero part of F4; the 𝔊* part of F4 unmodelled; F2 only via proxies; zero concentration on “Mordell-type” residue classes; composite
 zero structure; small least witness cofactor). No HOT LEAD.
 
 **Falsifier table (final).**
 
 | screen | result |
 |---|---|
-| F1 | T1 PROVED in the model (colour at ∞); squares are zeros in every run. An FF argument must use non-squareness at the Jacobi symbol (−r/d); Prop 3.1 shows that local densities at primes not dividing the input cannot supply it. |
+| F1 | T1 PROVED in the model (colour at ∞); squares are zeros in every run. The T1 proof here uses non-squareness at the Jacobi symbol (−r/d) (other algebraic, spectral or global proofs are not excluded); Prop 3.1 shows that local densities at primes not dividing the input cannot supply it. |
 | F2 | No faithful image of C-parity. Proxies (EVIDENCE): s ≡ 1 (4) keeps irreducible zeros up to n = 16, s ≡ 3 (4) up to n = 14, both above the last full-family zero (12); s ≥ 3 stops with the full family. Nothing is proved about eventual behaviour of a sub-line. |
-| F3 | Composite zeros persist (15 at n = 16, q = 3), mostly with small factors plus a rough two-factor tail, as over ℤ (EVIDENCE). Lc-free/Weil-sum mechanisms (z51 Prop 1.7(ii)) prove positivity at every non-square, hence fail F3 in the monic model. |
-| F4 | Large q: irreducible zeros at a positive proportion in each even degree (PROVED rel. Chebotarev), so no fixed-degree large-q argument; fixed q: zeros at degrees 6–12 (q = 3), up to ≥ 10 (q = 7), CERTIFIED. A valid argument needs a q-dependent degree threshold. |
+| F3 | Composite zeros persist (15 at n = 16, q = 3), mostly with small factors plus a rough two-factor tail, as over ℤ (EVIDENCE). Lc-free/Weil-sum mechanisms (z51 Prop 1.7(ii)) prove positivity at every non-square for an enlarged witness set; they cannot be transferred to the monic model (where non-square zeros exist) without new input. |
+| F4 | Large q: irreducible zeros at a positive proportion in each even degree (PROVED rel. Chebotarev), so no fixed-degree large-q argument; fixed q: zeros at degrees 6–12 (q = 3), up to ≥ 10 (q = 7), CERTIFIED. A valid argument needs a q-dependent degree threshold. No 𝔊* analogue, nor any mapping of the 38 𝔊*-zeros, is supplied: F4 is only partly modelled. |
 
 **Proposed FRONTIER text** (§5.2 “Function fields” bullet; do not edit FRONTIER here): *“(z58, `Z58_FFIELD.md`.) A
 T1-compatible F_q[T] analogue of (★)/(MS) — monic words tuv − u − v = P with deg t odd and deg P **even**, q ≡ 3 (4) —
@@ -327,7 +331,8 @@ degree ≤ 18 have degrees 6–12 only. PROVED: local word densities are residue
 even degree and large q a positive proportion of primes fail (z51 Cor 3.5′), so any true MS_q needs N₀(q) → ∞. No FF tool
 tried gives a single event; B2 reappears.”*
 
-**Bottom line.** Over F_q[T] the (MS) analogue behaves like the integer problem in every respect tested. It has T1,
+**Bottom line.** Over F_q[T] this chosen, T1-compatible (MS) analogue agrees qualitatively with the integer problem on
+the screens it models (F1; F3 and the (★)-zero part of F4 qualitatively; F2 only via proxies; 𝔊* unmodelled). It has T1,
 composite zeros, a sporadic, finite-looking set of prime zeros concentrated in the residue-square classes, and (in the
 tested range) a least witness cofactor of logarithmic degree. The function-field extras do not break B2:
 * at a fixed P, Lang–Weil has nothing to count (the fibre is 0-dimensional);
@@ -378,3 +383,17 @@ the z51 dependency and all table entries were confirmed by bounded replays. Appl
 * (9)–(15) residue-blindness scope, the M = 1 error term, the k ≥ 3 sparsity gloss, the unramified qualification,
   provenance and timings, labels and literature status, and enumerator hardening (domain checks, allocation checks,
   exact mass/saturation report).
+
+## 8. Cross-model review
+
+Cross-model review (`data/z58/xreview/REVIEW_FFIELD.md`): ACCEPT-WITH-FIXES; no gap found in the core PROVED results;
+verdict *narrowed* retained in the restricted sense (fixed-degree, large-q universal positivity excluded). Applied:
+* (1) scope/faithfulness: the "every respect tested" and "F4 reproduced" claims are replaced by a precise list (F1; F3 and
+  the (★)-zero part of F4 qualitatively; F2 proxy only; the 𝔊* part of F4 unmodelled); "exact analogue" now refers only
+  to the word/divisor identities;
+* (2) proof necessity: F1 now says *the T1 proof here* uses non-squareness at the Jacobi symbol; other proofs are not
+  excluded; the dictionary states that "deg t odd" is a chosen sufficient colour condition, not uniquely forced;
+* (3) causality/domain: §4.2 now reads "small-factor enrichment is consistent with the local-density deficit"; the lc-free
+  remark now says that result concerns an enlarged witness set and cannot be transferred to the monic model without new
+  input (it is not falsified by the monic zeros).
+
