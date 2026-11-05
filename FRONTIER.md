@@ -66,7 +66,7 @@ approximation always exists, and BM does not explain all failures of strong appr
   * **External prior claim.** Kandukoori–Ramesh–Kumar (K-R-K), *An improved bound for the exceptional set of the
     Erdős–Straus equation*, state Theorem 1: E(N) ≪ N exp(−c(log N)^{3/4}) for all N ≥ 3, with the same saving for
     exceptional primes. Theorem 2 covers E_m for each *fixed* m ≥ 4.
-  * **Source.** PDF dated 2026-07-29, archived in `data/z58/lit/sources/`; no arXiv record; unrefereed as far as known.
+  * **Source.** PDF dated 2026-07-29, archived in `data/z58/lit/sources/`; no arXiv record was found; unrefereed as far as known.
   * **Lean repository.** The root commit is dated 2026-07-30 and already has the 3/4 saving, then conditional on nine
     named analytic axioms. HEAD `f6c99eaa` (2026-10-30) closes with Lean's three standard axioms: the CI was verified,
     the project was not rebuilt locally, and the analytic proof was not re-audited.
@@ -76,9 +76,10 @@ approximation always exists, and BM does not explain all failures of strong appr
     first; the note's abstract ("not aware of an earlier improvement") needs correction, **needs the user**.
   * **What may still be campaign-new** (Assessment, to be compared): (D)30 and (D)31. Count-note Theorems A–D are
     not superseded.
-  * Akaka Zenodo v0.8 (22905042, 2026-09-22) claims, as an author claim with a Lean certificate and specialist review
-    outstanding: at most CmX/(log X)⁴ primes in (X, 2X] have R_II,m(p) < c(log X)³/m, for 4 ≤ m ≤ (log X)³. This
-    concerns the full strict Type II family.
+  * Akaka Zenodo v0.8 (22905042, 2026-09-22) claims, as an author claim with a *claimed* Lean certificate and specialist
+    review outstanding: there are absolute constants c, C, X₀ > 0 such that for every real X ≥ X₀ and each integer
+    4 ≤ m ≤ (log X)³, at most CmX/(log X)⁴ primes in (X, 2X] have R_II,m(p) < c(log X)³/m. This concerns the full
+    strict Type II family.
 * 3/4 is proved *sharp* for every CRT/coefficient-sum sieve architecture analysed (`EXCEPTIONAL_KARY3.md`, (D)24; STATUS
   "Exceptional-set exponent"); θ > 3/4 needs non-CRT input (tuple counts of growing order, residue-dense large sieves, weak
   SPW — each reduced to a precisely stated open statement).
@@ -250,7 +251,7 @@ targets for this section:
     585 009 682 non-square composites in 𝔐 ∩ (10⁸, 10¹¹]. One engine; the cross-review decided 42 832 inputs pointwise.
   * `Z58_LOGIC.md` §4 independently sieves this to 10¹⁰: two implementations agree to 4·10⁹.
 * **CONJECTURE (MS⁺)** (`Z58_LOGIC.md` §4): *R(n) ≥ 1 for every non-square n > 17 401 609 with n mod 840 ∈ 𝔐.*
-  * It is primality-blind on 𝔐, and MS⁺(P) ⟹ (MS) for P ≤ 10¹⁰⁷.
+  * It is primality-blind on 𝔐, and MS⁺(P) ⟹ (MS) for P ≤ 10¹⁷.
   * It is consistent with the censuses to 10¹¹. In 𝔐 on [10⁷, 10⁸], mean R/L² is 0.1189 for composites against 0.1246 for
     primes (CERTIFIED means).
   * Finite data do not establish it, and do not show that 𝔐 is necessary.
@@ -527,16 +528,16 @@ objects or arguments*. None is a necessity theorem for every proof, and none pro
     primes and the 285 composites, and on the C-even model at the 1 270 R₈-zero primes ≤ 10⁸ and the 12 in [10¹⁰, 1.1·10¹⁰].
     Primality alone does not rescue it.
   * X_n: 4545 has a nonempty BM set and local points (also under ET coprimality) but N_II(4545) = 0 (Thm 4.1). An argument
-    using only BM-nonemptiness plus primality, π₁, Br, local solvability and smoothness that applies verbatim to fixed
-    open-closed local classes proves false statements (CERTIFIED class table).
-  * Not covered: further hypotheses, the open S°, fibre arithmetic.
+    using only BM-nonemptiness plus primality, π₁, Br, local solvability and smoothness is refuted at the listed
+    parameters if it transfers verbatim to the specified fixed open-closed local classes (CERTIFIED class table).
+  * Not covered: further hypotheses, eventual positivity above a larger threshold, the open S°, fibre arithmetic.
   * The integral-model analogue of BL's "no BM obstruction to ES" (§1) is therefore: BM obstructs exactly the squares.
 * **Mordell case splits** (`Z58_MORDELL.md`).
   * Lemma P (PROVED): every integral positive one-parameter (★) family lies in one H_d residue or one K_{u,B} class.
   * Thms S1/S3 and the exact B criterion (PROVED): explicit sterility of the 1-points x_{ℓ,R}; sterile for every
     R ≤ (ℓ − 1)/2.
-  * Cor S2 (PROVED, with Dirichlet): every finite union of H_d and K_{u,B} classes misses infinitely many primes
-    p ≡ 1 (mod M), p ≡ R (mod ℓ), at sterile non-residues R. At M = 840 this applies to class 1; the other five Mordell
+  * Cor S2 (PROVED, with Dirichlet): let ℓ be an odd prime and M ≥ 1 with ℓ ∤ M. Then every finite union of H_d and
+    K_{u,B} classes misses infinitely many primes p ≡ 1 (mod M), p ≡ R (mod ℓ), at non-residues R with x_{ℓ,R} sterile. At M = 840 this applies to class 1; the other five Mordell
     classes are open.
   * Prop C1 (PROVED): polynomial certificates U, B, C ∈ ℚ[x, y] for a degree-2 f with irreducible top form (e.g.
     x² + 840y²) have two constant coordinates, so they reduce to fixed-modulus congruences. Not covered: rational,
@@ -556,7 +557,7 @@ objects or arguments*. None is a necessity theorem for every proof, and none pro
   * `Z58_LOGIC.md` Prop 5.4: polylog (u, C)/(B, C) menus fail i.o. (modulo the OMEGA13 cited inputs); growing polylog
     (u, B) menus are open.
   * `Z58_LADDER.md` Cor 1.3: no bounded D works for SC(D). Prop 1.2: SC(D) with D ≤ p^θ, θ < 1/(4√e), would give a
-    beyond-Burgess n_p bound on 𝔐. Lemma 3.1: R^{(k)}(m²) = 0 at every exponent cap k ≤ ∞.
+    beyond-Burgess n_p bound on 𝔐. Lemma 3.1: R^{(k)}(m₀²) = 0 for every odd m₀ at every exponent cap k ≤ ∞.
 * **Logic** (`Z58_LOGIC.md`).
   * Prop 2.1 (PROVED): (MS) is Π⁰₁, so a counterexample has a short Q-refutation, and independence from PA/ZFC would
     imply truth.
@@ -566,7 +567,7 @@ objects or arguments*. None is a necessity theorem for every proof, and none pro
     on (MS) for the version with (MS★) added. This is a weak-theory barrier, not a general proof-method barrier.
 * **Type II structure** (`Z58_WILDCARD.md` Lemmas 4.1–4.4, PROVED).
   * Numerator nesting: N^{(8)} is the d-even half of N_II.
-  * Twisted T1: N^{(K)}(s·m²) = 0 for every odd s | K/4.
+  * Twisted T1: for K ≡ 0 (mod 4), N^{(K)}(s·m²) = 0 for every odd s | K/4 and every odd m.
   * Inheritance to multiples is conditional on divisibility (N_II(5) > 0, N_II(4545) = 0).
   * Odd N_II-zeros n ≡ 1 (4) have (n + 1)/2, n + 4 and 4n + 1 composed of primes ≡ 1 (4).
 
@@ -605,7 +606,7 @@ has passed all lines.
    Distinguish two numerator-8 objects (`Z58_WILDCARD.md` Lemma 4.1, `Z58_STRUCT2.md`):
    * the c = 1 line R₈, which has the zeros above;
    * the full numerator-8 Type II family N^{(8)} (the d-even half of N_II). It has 22 odd prime zeros ≤ 10⁹ (last
-     35 569) and 107 odd non-square composite zeros (last 1 239 315), but witnesses (c > 1) at all R₈ zeros. CERTIFIED to
+     35 569) and 107 odd non-square composite zeros (last 1 239 315), but witnesses (c > 1) at the twelve screen R₈-zero primes in [10¹⁰, 1.1·10¹⁰]. CERTIFIED to
      10⁹.
 
    So an argument through full Type II needs a threshold ≥ 35 569 to also prove numerator 8, which is harmless; one
@@ -647,7 +648,9 @@ has passed all lines.
     *(z58, `Z58_STRUCT.md` Thm A, `Z58_STRUCT2.md` Thm B; PROVED.)* On the positive-integral (★) surface and on the full
     Type II threefold, the BM set is empty **iff n is a square** (numerator 8: n ∈ □ ∪ 2□). So BM re-derives T1 and
     nothing else. Every known zero is a non-BM failure: the 14 (★) primes, the 285 composites, the R₈ primes, and 4545
-    for Type II. Any "BM-nonempty + primality ⟹ point" step proves false statements on fixed local classes (§3, z58).
+    for Type II. A "BM-nonempty + primality ⟹ point" step is refuted at the listed parameters if it transfers verbatim to
+    the fixed local classes of `Z58_STRUCT2.md` §5.2. This does not exclude additional hypotheses or eventual positivity
+    above a larger threshold (§3, z58).
 14. **Run it on the test primes.** (★) fails at 14 primes p ≡ 1 (4) ≤ 10¹⁰: 409, 577, 5569, 9601, 23929, 83449, 102001,
     329617, 712321, …, 8 813 281 (`BM_CORRECTED_COUNT.md` §3.2, `B1_LINE.md` §3.6); the b = 1 line fails at 193, 2521, 66529;
     at p = 3361 the only Type II solutions are 1/850 + 1/(3361·25) + 1/(3361·170) and 1/841 + 1/(3361·290) + 1/(3361·8410), all
@@ -1009,7 +1012,7 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   (M₂ ≥ c₀ log²p) stands; E₂ > −M₂ is open. Other analytic arguments are not excluded.
 * (z58) Fixed-character / least-non-residue covering of 𝔐 by a fixed prime q with (p/q) = −1, no threshold →
   `Z58_TRYO.md` §3.3 (CERTIFIED by the screen zeros, for each q ∈ [11, 47]). Thresholded or eventual variants are not
-  excluded. TRYO Thm 2 and `Z58_CONVF.md` Thm 3.1 (almost-all, PROVED) are prior in substance to `Z56_FAMTRY.md` Thm A.
+  excluded. TRYO Thm 2 and `Z58_CONVF.md` Thm 3.1 (almost-all, PROVED) are already covered in substance by the earlier, stronger `Z56_FAMTRY.md` Thm A.
 * (z58) Designed counterexample search for (MS) (square-class, near-square, avoidance and CRT designs) →
   `Z58_DISPROOF.md`.
   * Result: no R- or 𝔊*-zero among 868 562 sampled primes ≤ 7.31·10¹⁵ (CERTIFIED decisions).
@@ -2008,8 +2011,8 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
       * *Why:* it is the only carried target whose statement passes F1–F4 (§4) in the tested ranges.
       * *What a mechanism needs:* a fixed-p witness f = 4acd − 1 with (n/f) = −1 that crosses B2 and uses non-squareness at a
         named step. Using c ≥ 2 is a strategy, not forced at 10¹⁷.
-      * Sub-targets: the a = 1 line (López's "Type A") and its union with c = 1, which have no prime zero ≤ 10⁸
-        (`Z58_CONVF.md`, CERTIFIED). Also CONV-II-15 (coprime ET form for gcd(n, 15) = 1) and eventual positivity of
+      * Sub-targets: the a = 1 line (López's "Type A"; prime zeros 193, 2521, 66529) and its union with c = 1, which has
+        no prime zero ≤ 10⁸ (`Z58_CONVF.md`, CERTIFIED). Also CONV-II-15 (coprime ET form for gcd(n, 15) = 1) and eventual positivity of
         N^{(K)}. And a composite genus analysis that survives the conductor cancellation seen at 4545 = 505·3², u = 505.
     * **(MS⁺) (CONJECTURE).** R(n) ≥ 1 for non-square n > 17 401 609 in 𝔐 (§2.4).
       * A primality-blind proof would suffice, and the data (to 10¹¹, one engine) allow it.

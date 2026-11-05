@@ -18,7 +18,8 @@ R_𝔊* = the Theorem V subfamily; N_II(n) = #{(a, b, c, d) ∈ ℕ⁴ : 4abcd =
 
 * **No HOT LEAD.** No lane found a mechanism that forces R(p) ≥ 1 (or N_II(p) ≥ 1) at a single large prime. **(MS) is open,
   and ES is open.** The B2 wall (the tied-modulus divisor event at one integer) did not move. Every lane's verdict is
-  "narrowed", and no lane claims a route is exhausted.
+  "narrowed", except WILDCARD: "strengthened (choice of target) / inconclusive (mechanism)". No lane claims a route is
+  exhausted.
 * **The one statement-level survivor is the full Type II family.** WILDCARD's CONJECTURE **CONV-II**: every odd non-square
   n ≥ 3 except n = 4545 has N_II(n) ≥ 1. It is CERTIFIED for n ≤ 10¹⁰ and PROVED for n ≡ 3 (mod 4). It passes F1–F4 *as a
   statement* in the tested ranges. This is a "HOT TARGET" (Assessment about the statement), **not** a mechanism. STRUCT2
@@ -26,8 +27,9 @@ R_𝔊* = the Theorem V subfamily; N_II(n) = #{(a, b, c, d) ∈ ℕ⁴ : 4abcd =
   pointwise construction for it.
 * **Scoped no-gos, many angles (PROVED, each in its stated scope).**
   * Fixed-level GL₂ Hecke proxies: AUTOMORPH Thm A / Cor A1.
-  * Ternary-theta genus main terms: TERNARY Thm F / Cor F1. On 𝔐, which is exactly the square class of (ℤ/840)^×, no Duke
-    main term remains.
+  * Ternary-theta genus main terms: TERNARY Thm F / Cor F1. The genus term vanishes on 𝒞₁(2N). This contains every
+    𝔐-input (𝔐 = the squares of (ℤ/840)^×) when every odd prime divisor of the level N lies in {3, 5, 7}; for
+    general N, extra quadratic-residue conditions are required.
   * Positive-integral Brauer–Manin: STRUCT Thm A, STRUCT2 Thm B. BM detects *exactly* T1 on the (★) surface and on the
     Type II threefold.
   * Fixed finite (★) menus on sterile class-1 fibres, and global polynomial certificates in x² + 840y²: MORDELL S2, C1.
@@ -65,19 +67,19 @@ ACCEPT-WITH-FIXES with fixes applied; none were re-reviewed.
 | WITNESS | (MS) as a witness selector | least d, q, m3, u, C, s orderings; congruence, n_p, CF, two-square, location predictors | PROVED: orderings all "none" iff R = 0. Lemma 1.1: d_min ≥ n_p for p ≡ 1 (8). CONDITIONAL (Dickson) Prop 3.1: for every S, infinitely many p ≡ 1 (840) have s(p) > S. CERTIFIED: four-ordering census p ≤ 10⁹ (25 423 491 primes); extension to 10¹⁰; s ≤ 201 for every p ≤ 10¹⁰ with R ≥ 1 | fixed-congruence selectors on 𝔐 (PROVED); fixed bounded-coordinate menus (CONDITIONAL, Dickson); CF, two-square and n_p-rooting as predictors (EVIDENCE, null) | CONJECTURE W: every prime p > 8 813 281, p ≡ 1 (4), has a (★) solution with min(u, B, C) ≤ (log p)² (W ⟹ (MS)); growing-coordinate menus |
 | FFIELD | 𝔽_q[T] analogue (★)_q, deg t odd (an analogy, not a reduction) | Weil/RH, Lang–Weil, Chebotarev; q = 3, 7, 11 censuses | PROVED: Lemma 1.2 (R_q(g²) = 0); Prop 3.1 (local word counts residue-blind at ℓ ∤ f); Prop 3.3 (rel. function-field RH: menus of degree ≤ (1/2 − δ)n leave avoiders); Lemma 4.1. CERTIFIED: q = 3 irreducible zeros only at degrees 6–12 among even degrees ≤ 18 | Cor 3.2 (rel. Chebotarev): no fixed N₀ works for all q ≡ 3 (4), so fixed-degree large-q positivity is dead; residue-blind local route | CONJECTURE: for each fixed q, eventual MS_q holds (with N₀(q) → ∞); faithful C-parity / 𝔊* analogue; transfer to the integers |
 | AUTOMORPH | Extend T1 to fixed-level GL₂ Hecke classes ℋ_M | support proxies, signed minorants, half-integral weight, outside-ℋ, higher depth | PROVED: Lemma S. Thm A (rel. Deligne/Deligne–Serre, purity, Chebotarev): vanishing at 1, p², p⁴, … plus no ±-collision forces a(p) = 0. Cor A1: no a ∈ ℋ_M is both valid and effective; no a ∈ ℋ_M equals R on n ≡ 1 (4). Props B1, B2. CONDITIONAL Prop C (on (I) and the unproved (H_E)) | valid-and-effective support proxies in fixed ℋ_M; exact R-identity in ℋ_M; T1-compatible Eisenstein + cusp proxies (A1c). Not killed: prime-only arguments with error outside ℋ | E1 half-integral weight; E2 coefficients outside ℋ (variable level); E3 higher depth / non-GL₂; effective signed minorants (open) |
-| MORDELL | Profinite 1-points of Mordell case splits; x² + 840y² | sterility of residue points for H_d and K_{u,B} menus; class statistics; polynomial certificates | PROVED: Lemma P, Thm S1, Thm S3, exact B criterion, Lemmas G0/G/O, Prop C1. Cor S2 (with Dirichlet): every finite H ∪ K menu misses infinitely many primes p ≡ 1 (M), p ≡ R (ℓ), at sterile R. CERTIFIED: bounded coverings (11 full-menu survivors mod 840) | finite (★) case splits on class-1 sterile fibres (S2); global polynomial certificates in (x, y) reduce to congruences (C1) | the other five Mordell classes; non-polynomial or divisor uses of (x, y); B2 large-factor route |
-| LADDER | Mechanism III: size-controlled symmetric covering; primality-blind rung; exponent-cap ladder | μ(p) tails, L2^𝔐 census, cap-k counts | PROVED: Lemma 1.1; Prop 1.2 (SC(D) ⟹ n_p ≤ D(p) on 𝔐, beyond Burgess if D ≤ p^θ, θ < 1/(4√e)); Cor 1.3 (bounded D fails); Lemma 3.1 (R^{(k)}(m₀²) = 0 for every k ≤ ∞). CERTIFIED: μ tails and the L2^𝔐 zero set to 10¹¹ (one engine); cap-k data | bounded D; threshold-free exact mechanisms on 𝔐 (refuted by 9 prime + 18 composite zeros); no L6 ⟹ L5 or L5 ⟹ L4 arrow | explicit-threshold counting; coverings at scales p^{0.15}–p^{2/3}; primality-blind eventual proof on 𝔐; cap rung k ≥ 2 (unproved) |
-| WILDCARD | Full Type II family N_II | four screens; numerator ladder K = 4, 8, 12, …; inheritance; rigid slices | PROVED: Lemmas 4.1 (numerator nesting), 4.2 (scaling bijection), 4.3 (twisted T1: N^{(K)}(s m²) = 0 for odd s ∣ K/4), 4.4 (n ≡ 3 (4) solved; zeros in S₃). CERTIFIED: no odd prime N_II-zero ≤ 10¹⁰; the only odd non-square zero ≤ 10¹⁰ is 4545 | r-spectrum multiplicativity (false: 4 ∉ ℛ(409)); unconditional inheritance (false: N_II(5) > 0, N_II(4545) = 0) | CONJECTURES CONV-II, CONV-II-15, (MS-II), CONV-II(K); a fixed-p argument using c ≥ 2 and non-squareness (strategy, not forced) |
+| MORDELL | Profinite 1-points of Mordell case splits; x² + 840y² | sterility of residue points for H_d and K_{u,B} menus; class statistics; polynomial certificates | PROVED: Lemma P, Thm S1, Thm S3, exact B criterion, Lemmas G0/G/O, Prop C1. Cor S2 (with Dirichlet): for an odd prime ℓ and M ≥ 1 with ℓ ∤ M, every finite H ∪ K menu misses infinitely many primes p ≡ 1 (M), p ≡ R (ℓ), at non-residues R with x_{ℓ,R} sterile. CERTIFIED: bounded coverings (11 full-menu survivors mod 840) | finite (★) case splits on class-1 sterile fibres (S2); global polynomial certificates in (x, y) reduce to congruences (C1) | the other five Mordell classes; non-polynomial or divisor uses of (x, y); B2 large-factor route |
+| LADDER | Mechanism III: size-controlled symmetric covering; primality-blind rung; exponent-cap ladder | μ(p) tails, L2^𝔐 census, cap-k counts | PROVED: Lemma 1.1; Prop 1.2 (SC(D) ⟹ n_p ≤ D(p) on 𝔐, beyond Burgess if D ≤ p^θ, θ < 1/(4√e)); Cor 1.3 (bounded D fails); Lemma 3.1 (R^{(k)}(m₀²) = 0 for every odd m₀ and every k ≤ ∞). CERTIFIED: μ tails and the L2^𝔐 zero set to 10¹¹ (one engine); cap-k data | bounded D; threshold-free exact mechanisms on 𝔐 (refuted by 9 prime + 18 composite zeros); no L6 ⟹ L5 or L5 ⟹ L4 arrow | explicit-threshold counting; coverings at scales p^{0.15}–p^{2/3}; primality-blind eventual proof on 𝔐; cap rung k ≥ 2 (unproved) |
+| WILDCARD | Full Type II family N_II | four screens; numerator ladder K = 4, 8, 12, …; inheritance; rigid slices | PROVED: Lemmas 4.1 (numerator nesting), 4.2 (scaling bijection), 4.3 (twisted T1: for K ≡ 0 (4), N^{(K)}(s m²) = 0 for odd s ∣ K/4 and odd m), 4.4 (n ≡ 3 (4) solved; zeros in S₃). CERTIFIED: no odd prime N_II-zero ≤ 10¹⁰; the only odd non-square zero ≤ 10¹⁰ is 4545 | r-spectrum multiplicativity (false: 4 ∉ ℛ(409)); unconditional inheritance (false: N_II(5) > 0, N_II(4545) = 0) | CONJECTURES CONV-II, CONV-II-15, (MS-II), CONV-II(K); a fixed-p argument using c ≥ 2 and non-squareness (strategy, not forced) |
 | STRUCT | Integral BM / descent / fibrations on S_n : 4uBC − u − B = n | Brauer group; local invariants; fibrations; scaling | PROVED Thm A: Br(S)/Br(ℚ) ≅ ℤ/2 (transcendental β_n); étale-BM = BM; **the positive-integral BM set is empty iff n is a square** (k = 4), iff n ∈ □ ∪ 2□ (k = 8). Props B, C | Cor A′: BM (even étale-BM) nonemptiness does not imply a positive integral point (fails at 285 composites and 14 primes; on the C-even model at 1 270 + 12 R₈-zero primes); primality alone does not rescue it | extra fibre/divisor arithmetic; Brauer set of the open S° (unresolved); further hypotheses |
-| STRUCT2 | Same on the Type II threefold X_n : 4abcd = a + b + nc | Br, fibrewise BM, 4545 | PROVED Thm B: Br(X)/Br(ℚ) ≅ ℤ/2; **positive-integral BM set empty iff n is a square** (K = 4), iff n ∈ □ ∪ 2□ (K = 8). Lemma C; Prop F (fibre c = c₀ obstructed iff s(n) ∣ c₀); Prop T (tautological). Thm 4.1: N_II(4545) = 0 (CERTIFIED), with a nonempty BM set and local points even under ET coprimality (PROVED) | an argument using only BM-nonemptiness plus primality, π₁, Br, local solvability and smoothness, applied verbatim to fixed open-closed local classes, proves false statements (class table, CERTIFIED). Further hypotheses and eventual theorems are not excluded | CONV-II ⟺ IHP_BM for (𝒳_n, Ω) at odd n ≠ 4545; equidistribution / extra arithmetic (possible, not necessary) |
+| STRUCT2 | Same on the Type II threefold X_n : 4abcd = a + b + nc | Br, fibrewise BM, 4545 | PROVED Thm B: Br(X)/Br(ℚ) ≅ ℤ/2; **positive-integral BM set empty iff n is a square** (K = 4), iff n ∈ □ ∪ 2□ (K = 8). Lemma C; Prop F (odd n ≥ 1, K = 4, c₀ ≥ 1: fibre c = c₀ obstructed iff s(n) ∣ c₀); Prop T (tautological). Thm 4.1: N_II(4545) = 0 (CERTIFIED), with a nonempty BM set and local points even under ET coprimality (PROVED) | an argument using only BM-nonemptiness plus primality, π₁, Br, local solvability and smoothness, applied verbatim to fixed open-closed local classes, proves false statements (class table, CERTIFIED). Further hypotheses and eventual theorems are not excluded | CONV-II ⟺ IHP_BM for (𝒳_n, Ω) at odd n ≠ 4545; equidistribution / extra arithmetic (possible, not necessary) |
 | LOGIC | Arithmetic hierarchy and complexity of (MS) | Π⁰₁ form, Buss witnessing, Shepherdson model, witness extrema | PROVED: Prop 2.1 ((MS) is Π⁰₁; independence ⟹ truth), Prop 2.2; Thm 3.1 / Cor 3.2 (rel. Buss); Lemmas 5.1–5.3; Prop 5.4; Prop 5.5; Thm 6.2 (IOpen ⊬ MS⁺★(P) for every numeral P). CERTIFIED: Mordell-class census to 10¹⁰ incl. composites | polylog (u, C)/(B, C) menus i.o. (modulo the OMEGA13 cited inputs); IOpen + residues (pseudo-squares) | **CONJECTURE (MS⁺)**; CONJECTURE FQ_u(A); growing polylog (u, B) menus (open) |
 | DISPROOF | Counterexample search for (MS) | designed progressions (square-class, near-square, avoidance, CRT); zero-law model | PROVED: Lemma 2.1; Lemma 2.2 (square-class shadow, one-way); Lemma 2.3 (line sterility, needs gcd(m, t) = 1); Prop 2.4(i). CERTIFIED: 868 562 sampled primes, no R/𝔊*-zero; new R₈-zeros 20 840 951 041 and 23 296 553 281 | fixed-y square-class designs fade with p (model, Assessment); fixed-offset kills remove O_k(L) mass (conditional) | slowly decaying mixtures, growing offsets, other polynomial families, a non-local "prime T1" |
 | LIT | 2024–26 literature audit | ES literature; pointwise divisor-in-class results; square-obstructed structures | Prop I (PROVED): H_d is invariant under x ↦ (4x)⁻¹; fixed-cutoff hit-pattern symmetry (no existence content). CERTIFIED metadata: K-R-K, Akaka v0.8, Ventas, Pomerance–Weingartner (§4) | no direct transfer to (MS) found (Assessment); no pointwise lower bound for divisors of one integer in a growing-modulus class was located | an eventual all-non-square theorem, or one with a finite sporadic exception set, is not excluded by F3 |
-| TRYO | Tryhard on (★): fixed characters, least non-residue, sieve | covering of 𝔐 by fixed q; quadratic forms; symbol laws | PROVED: Lemmas 1.1–1.4; Thm 2 (avoiders ≪_A X(log X)^{−A}; prior in substance to Z56_FAMTRY Thm A); Cor 2.1 (short intervals, Huxley); Props 3.1 (prior), 3.2; Lemmas 8.1–8.2; Prop 8.7. **CERTIFIED: (★) at all 355 096 166 primes in 𝔐 ∩ (10¹⁰, 3·10¹¹]** | no-threshold fixed-q covering for each q ∈ [11, 47] (CERTIFIED by the screen zeros); finite (u, B) identities | pointwise forcing for p + u factors; thresholded/eventual variants |
+| TRYO | Tryhard on (★): fixed characters, least non-residue, sieve | covering of 𝔐 by fixed q; quadratic forms; symbol laws | PROVED: Lemmas 1.1–1.4; Thm 2 (avoiders ≪_A X(log X)^{−A}; already covered in substance by the earlier, stronger Z56_FAMTRY Thm A); Cor 2.1 (short intervals, Huxley); Props 3.1 (prior), 3.2; Lemmas 8.1–8.2; Prop 8.7. **CERTIFIED: (★) at all 355 096 166 primes in 𝔐 ∩ (10¹⁰, 3·10¹¹]** | no-threshold fixed-q covering for each q ∈ [11, 47] (CERTIFIED by the screen zeros); finite (u, B) identities | pointwise forcing for p + u factors; thresholded/eventual variants |
 | TRYF | Character-layer decomposition of the hit indicator | L₀ + L₂ + L_r + L_n; Burgess on L₂ | PROVED: Lemmas 1.1, 1.2, 3.1; Thm 2.1 (|S_p(X)| ≤ (1 + 4ε)²(log p)²/64 + O_ε(log p)). CONDITIONAL Thm 3.2 on HCE(δ), which is a non-standard hypothesis stronger than the target. EVIDENCE: layer tables | no bound for L_r or L_n | a rigorous L_r bound (Shiu + Pólya–Vinogradov looks feasible); L_n open |
 | TRYF2 | Hits as divisors of 4pC + 1; surrogate main term | bounded-coordinate constructions; M₂ + E₂ split; vdC/Weil/Erdős–Turán | PROVED: Lemma 1.1, Remark 1.2, Lemma 1.3; Prop 2.1 (for every U, every p ≡ 1 (mod 840·L_U) has no U-local hit); **Thm A: M₂(p) ≥ c₀ log²p** (a surrogate, not R) | constructions whose hits have two uniformly bounded coordinates; the tried exponential-sum methods (Assessment) | pointwise E₂ > −M₂; coupling of hits across C or u |
 | TERNARY | Ternary theta / class numbers / Heegner, half-integral weight | genus vs cusp on local square classes; Waldspurger screen | PROVED: Lemma D (Type II ↔ hypercycle incidences). **Thm F** (rel. (S1)–(S5)): a valid ternary-theta proxy with g(ℓ²) = 0 has E = 0 on 𝒞₁(2N), so g(p) = h⊥(p). **Cor F1**: the squares of (ℤ/840)^× are exactly 𝔐, so no genus main term remains at 𝔐-primes (level with odd primes in {3, 5, 7}). EVIDENCE: Waldspurger screen (15 L-functions) | genus main term on 𝒞₁ for one-nebentypus genus-theta combinations; fixed-embedding bounded recipes outside Mordell-type classes (via POINTWISE_TERNARY Thm 4.1) | cusp-coefficient route with nonvanishing; E1′ thin-set Heegner incidence; off-𝒞₁ classes; other encodings |
-| CONVF | Tryhard on CONV-II / Type II at primes | six divisor faces; a = 1 / c = 1 lines; non-residue, Pell, CRT, norm, character, descent | PROVED: Lemmas 1.1–1.5; Thm 3.1 (sieve; prior in substance). CERTIFIED (to 10⁸): no prime zero of full Type II; of the union a = 1 ∪ c = 1; or of c ≤ 3. c ≤ 2 has zeros 102001 and 8 813 281; a = 1 has zeros 193, 2521, 66529. The only composite full-family zero is 4545 | finite fixed triples (Lemma 1.4); §4(A–H) are failed attempts, not barriers | a = 1 line (López) and its union with c = 1; pointwise divisor-in-class |
+| CONVF | Tryhard on CONV-II / Type II at primes | six divisor faces; a = 1 / c = 1 lines; non-residue, Pell, CRT, norm, character, descent | PROVED: Lemmas 1.1–1.5; Thm 3.1 (sieve; already covered in substance by the stronger Z56_FAMTRY Thm A). CERTIFIED (to 10⁸): no prime zero of full Type II; of the union a = 1 ∪ c = 1; or of c ≤ 3. c ≤ 2 has zeros 102001 and 8 813 281; a = 1 has zeros 193, 2521, 66529. The only odd non-square composite full-family zero ≤ 10⁸ is 4545 | finite fixed triples (Lemma 1.4); §4(A–H) are failed attempts, not barriers | a = 1 line (López) and its union with c = 1; pointwise divisor-in-class |
 
 ## 2. The falsifier table across lanes
 
@@ -90,7 +92,7 @@ Screens (`data/z58/screens/README.md`, all CERTIFIED there):
 | Idea family (lane) | F1 odd squares | F2 C-even / numerator 8 | F3 composites | F4 known zeros |
 |---|---|---|---|---|
 | Fixed-level Hecke proxies ℋ_M (AUTOMORPH) | binds: T1 forces vanishing at p^{2j}, and Thm A then kills a(p) at collision-free primes | line-blind; Thm A also applies to R₈ ≤ R | not used by Thm A; Prop C uses composites only conditionally | any R-proxy must vanish at the 14; B1 is invalid there |
-| Ternary theta (TERNARY) | binds via genus densities; Thm F kills the genus term on 𝒞₁ ⊇ 𝔐 | line-blind | not needed for Thm F | the Waldspurger screen constrains R-support only; Type II has witnesses at the 4 𝔐-zeros |
+| Ternary theta (TERNARY) | binds via genus densities; Thm F kills the genus term on 𝒞₁(2N), which contains 𝔐 when the odd primes of N lie in {3, 5, 7} | line-blind | not needed for Thm F | the Waldspurger screen constrains R-support only; Type II has witnesses at the 4 𝔐-zeros |
 | Integral BM, surface S_n (STRUCT) | **BM detects exactly T1** (positive-integral BM set empty iff n = □) | BM does not see C parity; "BM ≠ ∅ ⟹ point" fails at 12 R₈ primes | all 285 have nonempty BM sets: **not BM** | 14 S_n failures; 24 of the 38 𝔊*-zeros are not (★)-zeros |
 | Integral BM, threefold X_n (STRUCT2) | BM detects exactly T1 | X_n^{(8)}: same criterion (□ ∪ 2□); all 12 R₈ primes have N^{(8)} points with c > 1 | 284/285 have X_n points; **4545 is the one failure, non-BM** | all 14 and all 38 have N_II ≥ 1 |
 | Full Type II statement CONV-II (WILDCARD, CONVF) | N_II(m²) = 0; non-squareness is the hypothesis | full N^{(8)} has 22 prime zeros ≤ 10⁹ (last 35 569); no trap in range | **only 4545** among odd non-squares ≤ 10¹⁰ | witnesses at all 14, 38 and 12 |
@@ -151,7 +153,7 @@ fully rerun by a second engine.
     1 726 201, 5 212 561, 8 813 281) and 18 composites, the last 17 401 609 = 47·370 247.
   * No zero among the 128 491 751 primes and 585 009 682 non-square composites in 𝔐 ∩ (10⁸, 10¹¹].
   * The cross-review decided 42 832 high-range inputs pointwise; it did not run a second full census.
-  * μ-tails (pooled over (10⁸, 10¹¹]): P(μ > 10², 10³, 10⁴) = 0.2103, 0.01292, 1.77·10⁻⁴. These are CERTIFIED counts with
+  * μ-tails for primes in 𝔐 (pooled over (10⁸, 10¹¹]): P(μ > 10², 10³, 10⁴) = 0.2103, 0.01292, 1.77·10⁻⁴. These are CERTIFIED counts with
     an EVIDENCE reading; the fitted D* ≈ x^{0.42} is an extrapolation, not a bound.
   * Cap-k data (exhaustive): R^{(2)} ≥ 3 at the 14 prime zeros and at the three largest 𝔐-composite zeros; no rung
     k ≥ 2 is proved.
@@ -195,7 +197,7 @@ fully rerun by a second engine.
   * CONVF: zero lists of sub-lines to 10⁸ (§1 row).
   * STRUCT2: class table (n < 120 001; primes in [120 001, 400 001)).
   * AUTOMORPH: Prop B1 checked for odd squares m ≤ 20 001.
-  * TRYF: stats sieve to 2·10⁸ (84 non-square composite zeros, last 162 267 625).
+  * TRYF: stats sieve to 2·10⁸ (84 non-square composite zeros n ≡ 1 (mod 24) up to 2·10⁸, last 162 267 625).
 
 ## 4. Literature (LIT; cross-review ACCEPT-WITH-FIXES)
 
@@ -205,7 +207,7 @@ fully rerun by a second engine.
     * The PDF is dated 2026-07-29 and archived as `data/z58/lit/sources/kandukoori-ramesh-kumar-2026-07-29.pdf`.
     * Its Theorem 1 reads "E(N) ≪ N exp{−c(log N)^{3/4}}" for all N ≥ 3. The same saving holds for exceptional primes.
       Theorem 2 gives E_m(N) for each fixed m ≥ 4, with constants depending on m.
-    * There is no arXiv record. It is unrefereed as far as known.
+    * No arXiv record was found. It is unrefereed as far as known.
     * The Lean repository's root commit `268ebdbf` is dated 2026-07-30 and already defines the 3/4 saving. At that time
       it was conditional on **nine named analytic axioms**.
     * At HEAD `f6c99eaa` (2026-10-30), CI passes, and five `#print axioms` checks give only Lean's three standard axioms.
@@ -228,7 +230,8 @@ fully rerun by a second engine.
       careful comparison by the paper owner.
     * (MS) relevance: none (a density statement, B6).
 * **Akaka v0.8** (Zenodo 22905042, 2026-09-22; CERTIFIED metadata; the theorem is an author claim).
-  * The claim: for 4 ≤ m ≤ (log X)³, at most CmX/(log X)⁴ primes in (X, 2X] have R_II,m(p) < c(log X)³/m.
+  * The claim: there are absolute constants c, C, X₀ > 0 such that for every real X ≥ X₀ and each integer
+    4 ≤ m ≤ (log X)³, at most CmX/(log X)⁴ primes in (X, 2X] have R_II,m(p) < c(log X)³/m.
   * A Lean certificate is claimed; specialist review is outstanding.
   * It counts the full strict Type II family, not the R₈ line. It gives no numerical allowance.
   * The count note's v0.7 auxiliary-family disjointness still holds; the full Type II families are not disjoint.
@@ -251,7 +254,8 @@ None of these is a lead. Each is stated in its memo with its scope.
    * (MS-II): N_II(p) ≥ 1 for primes p > 10¹⁷ in 𝔐. (MS) ⟹ (MS-II), and (MS-II) ⟹ ES relative to Mordell + Salez.
    * The statement-level hot target. Any mechanism must be fixed-p, use non-squareness at a named step, and cross B2.
      Using c ≥ 2 is a strategy, not forced at 10¹⁷.
-   * Sub-targets: the a = 1 line and its union with c = 1 (López; no prime zero to 10⁸); CONV-II-15; eventual positivity
+   * Sub-targets: the a = 1 line (López; prime zeros 193, 2521, 66529) and its union with c = 1 (no prime
+     zero to 10⁸); CONV-II-15; eventual positivity
      of N^{(K)}; a composite genus analysis without conductor cancellation.
 2. **(MS⁺)** (LOGIC, LADDER; CONJECTURE): the primality-blind form on 𝔐 with threshold 17 401 609.
    * A feasible (S¹₂) proof of (MS) must find hits, and factor composite zeros above 10¹⁷ if there are any.
@@ -282,7 +286,7 @@ None of these is a lead. Each is stated in its memo with its scope.
 ## 6. Do-not-export list / caveats
 
 * **ES and (MS) are open.** "HOT TARGET" (WILDCARD) is an Assessment about a statement, not a lead. Every z58 lane says
-  "narrowed", and none says "exhausted" or "impossible" beyond its stated scope.
+  "narrowed" (WILDCARD: "strengthened (choice of target) / inconclusive (mechanism)"), and none says "exhausted" or "impossible" beyond its stated scope.
 * **Finite data stay finite.** The censuses (TRYO 3·10¹¹, LADDER 10¹¹, LOGIC/WILDCARD/WITNESS 10¹⁰, DISPROOF samples)
   are one-engine certificates with partial independent checks. DISPROOF is a *sample*, not an interval census, and not
   all 868 562 primes are in 𝔐. Fitted laws are EVIDENCE: DISPROOF zero law and tail scenario, LADDER D*, WITNESS
@@ -290,7 +294,8 @@ None of these is a lead. Each is stated in its memo with its scope.
 * **Surrogates are not R.**
   * TRYF Thm 2.1 bounds the Jacobi layer and a weighted conditioned expectation.
   * TRYF2 Thm A bounds M₂, whose "expected count" reading assumes unproved coset uniformity.
-  * TRYO Thm 2 and CONVF Thm 3.1 are density statements, prior in substance (Z56_FAMTRY Thm A is stronger).
+  * TRYO Thm 2 and CONVF Thm 3.1 are density statements, already covered in substance by the earlier, stronger
+    Z56_FAMTRY Thm A.
   * None certifies any individual integer.
 * **Scope of each no-go.**
   * AUTOMORPH: fixed ℋ_M only; not prime-only arguments with error outside ℋ, mock forms, or signed minorants.
