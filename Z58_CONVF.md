@@ -16,8 +16,9 @@ Scripts: `scripts/z58_convf_*`; data: `data/z58/convf/`.
   71 composite c = 1 zeros ≡ 1 (24) if it only uses the c = 1 line, and must not apply to 4545 at all (threshold or
   a step using primality/non-divisibility by 9).
 * **F4 (the 14 primes ≤ 10¹⁰ with no c = 1 witness).** 409 … 8 813 281. Any argument confined to c = 1 is false there.
-  All 14 have witnesses with a = 1, c ∈ {2, 3} (data/z58/convf/wit_hard.txt), so an argument confined to a = 1 is
-  consistent with them — but a = 1 alone has its own zeros {193, 2521, 66529}.
+  All 14 have a = 1 witnesses and (separately, not necessarily the same witness) witnesses with c ∈ {2, 3}
+  (data/z58/convf/wit_hard.txt; e.g. 83449 has a = 1 only with c ≥ 5), so an argument confined to a = 1 is consistent
+  with them — but a = 1 alone has its own zeros {193, 2521, 66529}.
 
 ## §1 Exact reformulations and the obstruction (all PROVED)
 
@@ -33,7 +34,7 @@ one of them is non-empty.
  (E3) {(a,d,f) : f ≡ −1 (mod 4ad), f | n + 4a²d}.
  (E4) {(c,d,f) : f ≡ −1 (mod 4cd), f | 4c²dn + 1}.
  (E5) {(a,b,σ) : σ | a + b, 4ab | n + σ}.
- (E6) {(σ,c,d,t) : σ ≡ 3 (4), c,d ≥ 1, t ∈ ℤ, |t| < cσ, t ≡ cσ (mod 2), n = d(c²σ² − t²) − σ}.
+ (E6) {(σ,c,d,t) : σ ≡ −n (4), c,d ≥ 1, t ∈ ℤ, |t| < cσ, t ≡ cσ (mod 2), n = d(c²σ² − t²) − σ} (so σ ≡ 3 (4) for n ≡ 1 (4)).
 *Proof.* (E1)⇒(E2): b(4acd − 1) = cn + a, so f := 4acd − 1 divides cn + a (and b = (cn+a)/f). (E2)⇒(E1): b := (cn+a)/f ≥ 1 and
 4abcd = b(f + 1) = cn + a + b. (E2)⇔(E3): f = 4acd − 1 ≡ −1 (mod 4ad) and conversely any f ≡ −1 (mod 4ad), f > 0, is
 4acd − 1 with c = (f+1)/(4ad) ≥ 1. Since 4acd ≡ 1 (mod f): multiplying cn + a by 4ad gives 4acd·n + 4a²d ≡ n + 4a²d, and
@@ -44,12 +45,12 @@ f ≡ −1 (mod 4cd) divides 4c²dn + 1, write f = 4acd − 1, g = (4c²dn+1)/f;
 so g = 4bcd − 1 and expanding gives 4abcd = a + b + nc. (E1)⇔(E5): from 4abcd = a + b + nc, c | a + b; put σ = (a+b)/c;
 then n + σ = 4abd, so 4ab | n + σ and σ | a + b. Conversely given (a,b,σ), put d = (n+σ)/(4ab), c = (a+b)/σ. (E5)⇔(E6):
 with s = a + b = cσ, t = a − b, 4ab = s² − t², so n = d(c²σ² − t²) − σ; conversely a = (cσ + t)/2, b = (cσ − t)/2 are
-positive integers iff |t| < cσ and t ≡ cσ (2); σ ≡ 3 (4) is forced when n ≡ 1 (4) since c²σ² − t² ≡ 0 (4). ∎
+positive integers iff |t| < cσ and t ≡ cσ (2); σ ≡ −n (4) is forced since c²σ² − t² ≡ 0 (4). ∎
 
 **Lemma 1.2 (sub-lines).** In the notation of (E1)–(E4):
  (c = 1) ⇔ ∃ a: n + a has a divisor ≡ −1 (mod 4a) ⇔ ∃ d: 4dn + 1 = (4ad − 1)(4bd − 1) ⇔ ∃ d: 4dn + 1 has a divisor ≡ −1 (4d).
  (a = 1) ⇔ ∃ c: cn + 1 has a divisor ≡ −1 (mod 4c) ⇔ ∃ d: n + 4d has a divisor ≡ −1 (mod 4d).
- (d = 1) ⇔ ∃ a: n + 4a² has a divisor ≡ −1 (mod 4a) ⇔ ∃ σ ≡ 3 (4), c ≥ 1: c²σ² − σ − n is a perfect square.
+ (d = 1) ⇔ ∃ a: n + 4a² has a divisor ≡ −1 (mod 4a) ⇔ ∃ σ ≡ −n (4), c ≥ 1: c²σ² − σ − n is a perfect square.
  (c = d = 1) ⇔ 4n + 1 has a prime factor ≡ 3 (mod 4). (a = c = 1) ⇔ n + 1 has a prime factor ≡ 3 (4).
  (a = d = 1) ⇔ n + 4 has a prime factor ≡ 3 (4). (a = b) never occurs for n prime ≡ 1 (4).
  Moreover every solution with a ≤ b has 4a²d ≤ n + 2a/c ≤ n + 2a.
@@ -70,7 +71,8 @@ n ≡ −4a²d (mod f) gives (n/f) = (−1/f)(4a²/f)(d/f) = −1 (the Jacobi sy
 (m²/f) ∈ {0, 1}, contradiction, so (E3) is empty. ∎
 
 **Lemma 1.4 (no finite covering).** For every finite set F of triples (a,c,d), there are infinitely many primes p ≡ 1 (24)
-for which no (a,c,d) ∈ F is a witness. Hence no Mordell-type argument (finitely many residue classes) can finish.
+for which no (a,c,d) ∈ F is a witness. Hence no argument using finitely many fixed witness triples (finitely many
+residue classes, Mordell-style) can finish; witnesses must depend on p.
 *Proof.* (a,c,d) is a witness for n iff n ≡ −4a²d (mod f), f = 4acd − 1 (Lemma 1.1). Let M = 24·∏_{F} f. Primes p ≡ 1
 (mod M) exist in infinity (Dirichlet); for such p, p ≡ 1 is a square mod each f, while −4a²d is a non-square mod f
 (Lemma 1.3's computation gives (−4a²d/f) = −1), so p is in none of the classes. ∎
@@ -88,14 +90,17 @@ iff some sub-multiset of its prime factors has product −1; for q = 8 (N ≡ 3)
 removes {1,5}. ∎
 
 Remark. Lemma 1.5 is only necessary: "no sub-multiset product ≡ −1" is weaker than "all prime factors in a subgroup
-avoiding −1" (e.g. 16p + 1 = q₁q₂ with q₁ ≡ 3, q₂ ≡ 7 (16) has no divisor ≡ 15 (16)). Every condition in Lemma 1.5 holds
-automatically at odd squares n = m² (m² + 4 = N(m + 2i), 4m² + 1 = N(2m + i), m² + 3 = N(m + √−3), …), consistent with
-Lemma 1.3–1.4: no finite list of such conditions can be contradictory.
+avoiding −1" (e.g. 16·17 + 1 = 273 = 3·7·13 has divisors ≡ 1,3,5,7,11,13 (16) but none ≡ 15, although 3·3·7 ≡ 15).
+Every condition in Lemma 1.5 holds automatically at odd squares n = m² ≡ 1 (24) (m² + 4 = N(m + 2i), 4m² + 1 = N(2m + i),
+m² + 3 = N(m + √−3), …, and Lemma 1.3 for the rest), consistent with Lemma 1.3–1.4: no finite list of fixed such
+conditions can be contradictory.
 
 ## §2 Certified data (scripts/z58_convf_sieve.c, z58_convf_wit.c; data/z58/convf/)
 
-Sieve of all (a,c,d,B) with n = B(4acd − 1) − 4a²d ≤ N, 4a²d ≤ N + 2a (this enumerates every solution with a ≤ b at least
-once, by the bound in Lemma 1.2), tagging each n by the sub-lines hit. N = 10⁸ (23 s at 2·10⁷, ~3 min at 10⁸):
+Sieve of all (a,c,d,B) with n = B(4acd − 1) − 4a²d ≤ N, 4a²d ≤ N + 2a (here B = σ = (a+b)/c; this enumerates every
+solution with a ≤ b at least once, by the bound in Lemma 1.2; the printed R values are capped enumeration counters, not
+R(n)), tagging each n by the sub-lines hit. N = 10⁸ (23 s at 2·10⁷, ~3 min at 10⁸). Entries referring to 10¹⁰ or 10⁹ are
+quoted from data/z58/screens/README.md, not recomputed here:
 
 | sub-line | prime zeros ≤ 10⁸ (p ≡ 1 mod 4, non-square) |
 |---|---|
@@ -108,11 +113,11 @@ once, by the bound in Lemma 1.2), tagging each n by the sub-lines hit. N = 10⁸
 | d = 1 only | 203 |
 
 So the a = 1 line (∃ d: p + 4d has a divisor ≡ −1 (mod 4d)) is, empirically, much stronger than the c = 1 line (3 vs 14
-zeros), and the union a = 1 ∪ c = 1 has no zero ≤ 10⁸. All 14 c = 1 zeros have a witness with a = 1 and c ∈ {2,3}
+zeros), and the union a = 1 ∪ c = 1 has no zero ≤ 10⁸. All 14 c = 1 zeros have a = 1 witnesses and also c ≤ 3 witnesses
 (wit_hard.txt). These are EVIDENCE only; heuristically each sub-line has ≍ log² p expected solutions and finitely many zeros.
 
-**Mean counts (EVIDENCE; scripts/z58_convf_means.c, data/z58/convf/means_6e7.txt).** Over primes p ≡ 1 (24) in dyadic
-ranges up to 6·10⁷: mean #{(c,d): 4cd − 1 | cp + 1} (a = 1 line) ≈ 0.12·log²p (0.090 → 0.123, still rising slowly towards
+**Mean counts (EVIDENCE; scripts/z58_convf_means.c, data/z58/convf/means_6e7.txt).** Over primes p ≡ 1 (24) in
+quadrupling ranges up to 6·10⁷: mean #{(c,d): 4cd − 1 | cp + 1} (a = 1 line) ≈ 0.12·log²p (0.090 → 0.123, still rising slowly towards
 the heuristic 1/8 from Σ_{cd ≤ p/4} 1/(4cd)); mean #{(a,d): 4ad − 1 | p + a} (c = 1 line, which counts (a,b,1,d) and
 (b,a,1,d) separately) ≈ 0.144·log²p, i.e. ≈ 0.072·log²p unordered. So the a = 1 line has ≈ 1.7× more *distinct* solutions
 than the c = 1 line, consistent with 3 vs 14 zeros; the minimum of the a = 1 count over p ∈ [1.6·10⁷, 6·10⁷] is 5
@@ -136,8 +141,9 @@ must satisfy. Vaughan's N·exp(−c log^{2/3} N) for the full equation 4/n (all 
 A fortiori #{p ≤ N : R(p) = 0} ≪_A N (log N)^{−A}. The same holds for the c = 1 line (replace "cp + 1, mod 4c" by
 "p + a, mod 4a").
 
-**Lemma 3.2 (sieve input; Brun/Selberg fundamental lemma, upper-bound form — e.g. Halberstam–Richert *Sieve Methods*
-Thm 2.5, or Friedlander–Iwaniec *Opera de Cribro* Ch. 6 "Fundamental Lemma"; numbering from memory).** Let 𝒫 be a set of
+**Lemma 3.2 (sieve input; Brun/Selberg fundamental lemma, upper-bound form — Halberstam–Richert *Sieve Methods* Ch. 2
+(Brun's sieve under (Ω₁), (Ω₂(κ))) or Friedlander–Iwaniec *Opera de Cribro* Ch. 6 (Fundamental Lemma); if the chosen
+version carries divisor-type weights τ₃(d) in the remainder, the bound below is unchanged up to N^{ε}).** Let 𝒫 be a set of
 primes, and for q ∈ 𝒫 let Ω(q) ⊂ ℤ/qℤ with ω(q) := |Ω(q)| ≤ q/2. Suppose there are κ, L > 0 with
  Σ_{w ≤ q < z, q ∈ 𝒫} ω(q) log q / q ≤ κ log(z/w) + L for all 2 ≤ w < z.
 Then for S(N, z) := #{n ≤ N : n mod q ∉ Ω(q) for all q ∈ 𝒫, q < z} and z ≤ N^{1/(20κ+20)}:
@@ -166,11 +172,12 @@ dimension; this would give exp(−c (log log N)²) at best along this route, sti
 
 ## §4 Attack lines tried, and the exact step where each dies
 
-(A) **Prime witness from the least non-residue.** Non-squareness gives primes q ≡ 3 (4) with (p/q) = −1 (density 1/4;
-Burgess: least one ≪ p^{1/(4√e)+ε}). For q to be a witness (E2) we need a, c with ac | (q+1)/4 and p ≡ −a/c (mod q); the
-covered residues mod q are ≤ τ₂((q+1)/4) ≪ q^ε out of (q−1)/2 non-residues. Dies at: "the root of −p/4 mod q must be a
-divisor of (q+1)/4" — a measure-zero condition, with no equidistribution input at scale 1/q (DFI's root equidistribution is
-at scale q^{−δ}). The expected number of prime witnesses q ≤ Q is only ≍ log log p · log Q (vs. log² p for all witnesses).
+(A) **Prime witness from a non-residue.** Non-squareness gives primes q ≡ 3 (4) with (p/q) = −1 (density 1/4 among
+primes, by Chebotarev for ℚ(i, √p)). For q to be a witness (E2) we need a, c with ac | (q+1)/4 and p ≡ −a/c (mod q); the
+covered residues mod q number ≤ τ₃((q+1)/4) ≪ q^ε out of (q−1)/2 non-residues. Dies at: "some root a of a²d ≡ −p/4
+(mod q) must satisfy ad | (q+1)/4" — a measure-zero condition, with no equidistribution input at scale 1/q (DFI-type root
+equidistribution is at scale q^{−δ}). Heuristically the number of prime witnesses q ≤ Q is only ≍ log log p · log Q
+(vs. log² p for all witnesses).
 (B) **Pell / square N.** 4c²dp + 1 = u² (u² − 4dp·c² = 1, dp non-square — the only place non-squareness enters
 naturally). Need f | u² with f ≡ −1 (mod 4cd); f = u gives a = b, impossible for prime p (Lemma 1.2); other divisors of u²
 at the required relative size 2a√(d/p) and class are uncontrolled. Dies at: "no handle on the factorisation of the Pell
@@ -179,16 +186,19 @@ numerator".
 Q·(p+4d)/Q with 4d ≤ f + 1 ≤ p + 4d + 1, and f ≡ −1 (mod 4d) with d ≥ (−p/4 mod Q)…; the cofactor (p+4d)/Q is as
 uncontrolled as p itself. Dies at: circularity (every forced factor comes with an unforced cofactor of the same size).
 (D) **Norm forms.** p = x² + y² (or x² + 2y², x² + 3y², x² + 6y²): writing p + 4a²d as a norm from an imaginary quadratic
-field K forces all prime factors to split in K; for K = ℚ(i), ℚ(√−2) these have no factor ≡ 3 (4) resp. none ≡ 5,7 (8),
-contradicting f ≡ −1 (mod 4ad) ⇒ f ≡ 3 (4). For K = ℚ(√−6) factors ≡ 7, 11 (24) are allowed but the construction forces
-a thin set of p (e.g. p = q²x′² + y² with q | x). Dies at: "norms have the wrong prime factors / only thin families".
-(E) **Character-sum main/error.** R(p) = Σ_{a,d} φ(4ad)^{−1} Σ_χ χ(−1) Σ_{f | p+4a²d} χ(f). Main term (principal χ) ≍ log³ p;
-but for each (a,d) separately the odd-character sum equals minus the main term exactly when p + 4a²d has no divisor
-≡ −1 — the pathological case is not an "error term" but a different main term. Any proof must show the pathology cannot
+field K forces every prime factor that is inert in K to divide gcd(x, y); for K = ℚ(i) a divisor f ≡ 3 (4) (as every
+witness is) must therefore have a prime factor dividing gcd(x, y), which only happens on a thin set of p (e.g.
+p = q²x′² + y² with q | x). For K = ℚ(√−6) split primes ≡ 7, 11 (24) are allowed, but again the construction only
+reaches thin families. Dies at: "norms have the wrong prime factors / only thin families".
+(E) **Character-sum main/error.** R(p) = Σ_{a,d} φ(4ad)^{−1} Σ_χ χ(−1) Σ_{f | p+4a²d, (f,4ad)=1} χ(f), the (a,d)-sum
+restricted to 4a²d ≤ p + 2a (Lemma 1.2) and counting a ≤ b. The principal-character part is ≍ log³ p heuristically; but
+for each (a,d) separately the total non-principal contribution equals minus the principal one exactly when p + 4a²d has
+no divisor ≡ −1 — the pathological case is not an "error term" but a different main term. Any proof must show the pathology cannot
 occur for all (a,d) simultaneously, which is a correlation statement across the shifts p + 4a²d; no tool.
 (F) **Descent/chains.** A failing (a,d) forces structure (Lemma 1.5); one hopes a failing structure at (a,d) forces a hit
 at (a′,d′). All such forced structures are norm conditions on the independent integers p + k and are simultaneously
-satisfied by all squares (Remark after Lemma 1.5), so no finite chain can close (Lemma 1.4). Dies at Lemma 1.4.
+satisfied by all squares ≡ 1 (24) (Remark after Lemma 1.5), so no chain of finitely many fixed (a,d)-conditions can
+close (Lemma 1.4). Dies at Lemma 1.4.
 (G) **σ-form and "pronic" form (E5)/(E6).** p + σ = 4abd with σ | a + b; equivalently p + dt² = σ(dc²σ − 1). For d = 1,
 c = 1: p + t² is pronic, σ(σ−1); this is (2σ−1)² − (2t)² = 4p + 1, a binary-form/divisor problem again. The form (E5) with
 M = (p+σ)/4 ∈ [(p+3)/4, (p+1)/3] shows the problem is: some M in this interval has a factorisation abd with 4M − p | a + b.
@@ -198,9 +208,9 @@ Nothing beyond re-encoding was obtained.
 from σ ≤ a + b ≤ M_σ + 1). The inner count is τ₃(M_σ)/σ "on average" (τ₃ = #{ab | M}), giving the familiar ≍ log³p, but for
 an individual p it asks for the additive distribution of divisor pairs of M_σ modulo σ — again no individual tool.
 
-Conclusion (honest): every line reduces to "a specific integer of size ≍ p, determined by p and small parameters, has a
-divisor in a prescribed residue class", a problem with no individual-p tool; the only non-squareness input available
-(Lemma 1.3) is a necessary condition on witnesses, not a construction. No HOT LEAD.
+Conclusion (honest assessment, not a proved barrier): every line reduces to "a specific integer of size ≍ p, determined
+by p and small parameters, has a divisor in a prescribed residue class", for which I know no individual-p tool; the
+non-squareness input I could identify (Lemma 1.3) is a necessary condition on witnesses, not a construction. No HOT LEAD.
 
 ## §5 Falsifiers re-checked
 
@@ -211,7 +221,7 @@ divisor in a prescribed residue class", a problem with no individual-p tool; the
   to q ≡ −1 (mod 8c) (d even) gives the same theorem for the d-even half with κ replaced by 1 + Σ 1/φ(8c) — again only a
   density bound, so nothing distinguishes the halves at the level of individual primes. No individual-p claim is made.
 * **F3 (4545, composite c = 1 zeros).** No claim for composites. 4545 = 3²·5·101 ≡ 9 (24) with R(4545) = 0 shows the
-  conditions of Lemma 1.5 can all hold at a non-square; the c = 1 composite zeros ≡ 1 (24) (71 of them ≤ 8·10⁶) show the
+  first sentence of Lemma 1.5 (for all (a,d)) can hold at a non-square (the displayed list is for n ≡ 1 (24) only); the c = 1 composite zeros ≡ 1 (24) (71 of them ≤ 8·10⁶) show the
   c = 1 line alone also fails off the primes.
 * **F4 (14 c = 1 prime zeros).** Theorem 3.1 is stated for the a = 1 line (which has its own zeros 193, 2521, 66529) and
   its c = 1 analogue; both are density bounds, consistent with finitely many (or any sparse set of) zeros.

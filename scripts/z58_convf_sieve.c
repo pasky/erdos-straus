@@ -1,5 +1,5 @@
 // z58 CONVF: sieve the full count R(n) = #{(a,b,c,d): 4abcd = a+b+nc} restricted to a<=b (existence only),
-// via n = B*f - 4a^2 d, f = 4acd-1, B>=1 (B = 4bcd-1). Tags per n: bit0 c=1, bit1 a=1, bit2 d=1, bit3 c=2, bit4 c=3, bit5 c>=4 only
+// via n = B*f - 4a^2 d, f = 4acd-1, B>=1 (B = sigma = (a+b)/c; b = cB - a). Tags per n: bit0 c=1, bit1 a=1, bit2 d=1, bit3 c=2, bit4 c=3, bit5 c>=4 only
 // usage: ./sieve N  -> prints n = 1 (mod 4) with R(n)=0 and (for primes) the sub-family failure table
 #include <stdio.h>
 #include <stdlib.h>
