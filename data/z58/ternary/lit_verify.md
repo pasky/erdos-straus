@@ -91,3 +91,15 @@ Hecke eigenform in S_{2ℓ}(2N, χ²) whenever ℓ ≥ 2. For ℓ = 1, this hold
 complement of the subspace spanned by single variable theta-functions", followed by (2.1)
 a(tn²)n^{ℓ−1/2} = a(t) Σ_{d|n} μ(d)(((−1)^ℓ t)/d) χ(d) d^{ℓ−1} λ(n/d) (normalized coefficients) and Deligne's bound.
 Primary (Shimura 1973; Niwa, Nagoya Math. J. 56 (1975)) not re-read. Confidence: medium-high (standard statement).
+
+## 9. Corrections after internal review (lane)
+* §2 (Duke–Schulze-Pillot): the theorem concerns primitive representations with bounded divisibility at anisotropic
+  primes and has spinor-exception qualifications (finitely many square classes t·m²); genus and spinor-genus averages
+  are not interchangeable for all integers. The memo only uses it for large primes outside those classes.
+* §3 (Iwaniec): the stated "equivalent" exponent k/2 − 1/2 − 1/28 is a typo; for weight k/2 (k odd) the bound is
+  a(n) ≪ n^{k/4 − 1/4 − 1/28 + ε}; at weight 3/2 (via Duke 1988) this is n^{13/28+ε}.
+* §5 (Cohen): the holomorphic Cohen–Eisenstein statement is for r ≥ 2; r = 1 (weight 3/2) is Zagier's non-holomorphic
+  case and must not be treated as holomorphic.
+* §6: positive-proportion results hold under their stated hypotheses; no blanket attribution to every twist family.
+* §8 (Waldspurger in general level): Darreye's §2 statement assumes N odd and complete eigenforms and twists by
+  ((−1)^k t/·)χ; the even-level (N = 210) local-class form used in the memo is hypothesis (W-loc), not verified here.

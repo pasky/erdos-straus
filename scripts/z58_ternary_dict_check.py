@@ -46,3 +46,4 @@ for n in range(1, NMAX + 1):
     A = direct(n); B = via_div(n); c = via_forms(n)
     if A != B or len(A) != c: bad += 1; print('MISMATCH', n, len(A), len(B), c)
 print('checked n <= %d, mismatches: %d' % (NMAX, bad))
+sys.exit(1 if bad else 0)
