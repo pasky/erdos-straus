@@ -213,3 +213,55 @@ recomputation, cross-checked against a brute-force enumeration of (u, B, C) for 
 * Single-n engine at 10¹⁰: for the 12 primes of r8_zeros_1e10.txt the values R and R_even (= R₈) agree with the
   certified file (e.g. 10 532 106 649: R = 12, R_even = 0, d_min = 1559 at k = 30); four of the twelve lie in 𝔐
   (10 301 993 881, 10 529 331 121, 10 532 106 649, 10 868 474 401) — the C-even failures of F2.
+
+## §5 Numerical checks of the lemmas (CERTIFIED, small ranges)
+
+* Lemma 1.1: R(n) computed as #{(u,B,C)} by brute force equals #{d ≡ 3 (4) : (−n mod d) | (d+1)/4} for all n ≡ 1 (4),
+  n < 3000 (script in the commit log of this lane; 0 mismatches), and the k ≤ √(n/2) + symmetry engine reproduces the
+  z58 zero lists and the certified (R, R₈) values at 10¹⁰.
+* Lemma 1.3: all 7069 admissible pairs (d, k) with d < 4000 have (−k/d) = −1.
+* Lemma 1.6: all 1998 solutions (k, B) for primes p ≡ 1 (4), p < 3000, have (B/p) = −(k/p).
+* Lemma 1.7: R(p) even for all 20 513 primes p ∈ 𝔐 ≤ 10⁷ and for the 12 primes at 10¹⁰.
+* Lemma 1.5: d_min ≥ q₁(p) for all 20 504 primes p ∈ 𝔐 ≤ 10⁷ with R(p) > 0 (0 violations).
+* §3.2 families: n = a(a+1) − k (a ≡ 3 (4), k | (a+1)/4; witness d = a) and n = (4st−1)² − s (witness d = 4st − 1, k = s)
+  verified for a < 400 and s, t < 40 (0 failures). §3.1 classes: d = 11 covers n ≡ 8, 10 (11); d = 55 covers
+  n ≡ 41, 48, 53, 54 (55).
+
+## §9 Falsifiers, re-stated against what this memo actually contains
+
+The memo proves **no part of the target**. What it proves is a set of structural constraints (§1) that any proof must
+satisfy, and it documents why each route I tried stops (§3). Running the four falsifiers against the *lemmas*:
+
+* **(F1) Odd squares.** Lemma 1.3 + Cor. 1.4 prove R(m²) = 0 for *all* m. The non-squareness of n enters any
+  correct proof only through the non-principality of χ_n (Lemma 1.5); no step of this memo claims to exploit it to
+  produce a witness, and §3.7 explains why the natural analytic main term must carry the factor (1 − χ_n(d))/2.
+  The "4n + 1 has a prime factor ≡ 2 (mod 3)" observation (§3.6) is congruential and correctly gives nothing at
+  squares: at n = m², 4m² + 1 has all odd prime factors ≡ 1 (mod 4), so that prime factor is ≡ 5 (mod 12) — consistent.
+* **(F2) C even alone.** C even ⇔ d ≡ −1 (mod 8k) (Lemma 1.1). The memo constructs nothing, so there is nothing
+  that produces only even C. The data (§4) show both R_even = 0 and R_odd = 0 occur for primes in 𝔐 up to 10⁷ and
+  R_even = 0 at four primes in 𝔐 near 10¹⁰ (recomputed), so any future argument must reach both parities.
+* **(F3) Non-square zeros / outside 𝔐.** No threshold is produced because no proof is produced. The structural
+  explanation of outside-𝔐 zeros is Lemma 1.5: gcd(d, n) = 1 is forced, so for 3 | n (5 | n, 7 | n) every modulus
+  divisible by 3 (5, 7) is dead and the identities d = 3, 7, 11, 15, 19, 23, 35, 55, … that otherwise cover every
+  non-square class mod 840 do not apply. For n ∈ 𝔐 the memo's lemmas are consistent with the nine zeros (they are
+  reproduced) and with the absence of zeros in (17 401 609, 10¹¹] (no lemma predicts zeros).
+* **(F4) The nine prime zeros.** Reproduced by the engine (R = 0 for exactly those nine among 20 513 primes in 𝔐 up
+  to 10⁷); `zeros_profile.txt` exhibits for each of them and k ≤ 8 that the prime factors of p + k generate a subgroup
+  of (ℤ/4k)* avoiding −1. Every construction of §3 fails at them because it is a thin family / requires an
+  unsteerable factorisation; no "sufficiently large" hypothesis in this memo excludes them, because no statement in
+  this memo has such a hypothesis.
+
+Verdict: **not a hot lead**. Nothing here survives the falsifiers *as a proof*, because nothing here is a proof of
+the target; all PROVED items are necessary conditions and reformulations.
+
+## §10 Status
+
+* PROVED: Lemmas 1.1–1.8 (reformulations; the Jacobi obstruction; every witness modulus is a χ_n-non-residue, hence
+  ≥ q₁(n); the two cofactors have opposite χ_n-signs; R(n) even for odd n; moduli ≤ D are useless for n ≡ m² (mod
+  lcm(1..D)), such n exist in every class of 𝔐).
+* CERTIFIED: all numerics in §4–§5.
+* NOT PROVED: the target, in any range or any weakened pointwise form beyond the trivial "k = 1 works iff (n+1)/2 has
+  a prime factor ≡ 3 (mod 4)"-type statements.
+* Assessment: the pointwise statement is equivalent to "some n + k has a divisor ≡ −1 (mod 4k)", which is a
+  pointwise divisor-in-progression statement about shifted integers; I see no mechanism other than factorisation of
+  n + k through which non-squareness could act, and no known method controls that pointwise.
