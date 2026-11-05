@@ -5,9 +5,9 @@ z       mean hard 0.295  ctrl 0.308   KS D=0.111 p≈0.0203
 mn      mean hard 0.169  ctrl 0.109   KS D=0.356 p≈4.12e-21
 mx      mean hard 0.535  ctrl 0.602   KS D=0.237 p≈1.47e-09
 minmod  mean hard 0.223  ctrl 0.083   KS D=0.372 p≈5.65e-23
-hard: frac C even 0.479; frac solutions with n_p | (4PC-1) 0.069, | (4QC-1) 0.074, | PQ 0.202, any 0.314
+hard: frac C even 0.479; frac solutions with n_p | (4PC-1) 0.069, | (4QC-1) 0.074, | PQ 0.218, any 0.330
 ctrl: frac C even 0.495; frac solutions with n_p | (4PC-1) 0.100, | (4QC-1) 0.083, | PQ 0.161, any 0.323
-primes with SOME solution rooted at n_p: hard 45/103, ctrl 338/341
+primes with SOME solution rooted at n_p: hard 46/103, ctrl 338/341
 P(min coord > 0.05): hard 0.952  ctrl 0.701  simplex 0.722
 P(min coord > 0.1): hard 0.819  ctrl 0.477  simplex 0.490
 P(min coord > 0.15): hard 0.590  ctrl 0.302  simplex 0.303

@@ -25,10 +25,12 @@ def isprime(n):
     return True
 
 def n_p(p):
-    l = 2
+    # least prime l with (l/p) = -1 (p prime = 1 mod 4): l = 2 iff p = 5 mod 8; odd l via reciprocity (p/l) = (l/p)
+    if p % 8 == 5: return 2
+    l = 3
     while True:
-        if isprime(l) and l != 2 and jac(p % l, l) == -1: return l
-        l += 1
+        if isprime(l) and jac(p % l, l) == -1: return l
+        l += 2
 
 def load(fn, pmin):
     out = []
