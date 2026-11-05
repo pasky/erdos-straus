@@ -15,6 +15,10 @@ solution of (★)") is NOT proved. What is proved here:
 * Props 3.1–3.2 (PROVED, Dirichlet/Linnik): no finite set of congruence identities covers 𝔐; there are infinitely
   many p ∈ 𝔐 with no solution having uB < (1/L₀ − o(1)) log p, L₀ a Linnik exponent (possibly vacuously). Plus CERTIFIED: the
   least-non-residue route is dead (each prime q ∈ [11, 47] is a non-residue of some 𝔐-zero of (★)).
+* Round 2 (§8, pointwise): no forcing mechanism found. PROVED: square levels ⟺ forms of disc −4p in the non-principal
+  genus (Lemmas 8.1–8.2); weak pointwise Prop 8.7. CERTIFIED: (★) for all 355 096 166 primes p ∈ 𝔐 ∩ (10¹⁰, 3·10¹¹].
+  EVIDENCE: small levels independent; no Chebotarev law; primality acts only locally (prime vs coprime-composite zero
+  rates comparable).
 * EVIDENCE (§5): for hard p the solution is "C small, uB ≈ p/(4C)" or "u small": min u ≤ 469 for all 179 468 primes
   p ∈ 𝔐, p ≤ 10⁸, except the 9 𝔐-zeros; min C reaches 41 027; min uB reaches ≈ p/4.
 
@@ -207,6 +211,10 @@ instead of u, and these are different problems (data: min u ≤ 469 but min C re
 | Lemma checks (1.1 (iii)⇔(iv), 1.3, 1.4) | numerically verified, `scripts/z58_tryo_check_lemmas.py` |
 | Prop 3.1, 3.2 | PROVED (Dirichlet; Linnik with any exponent L₀) |
 | §3.3 route B dead | CERTIFIED (screen data) |
+| Lemma 8.1, 8.2 (square levels ↔ forms, genus) | PROVED |
+| Prop 8.7 (square obstruction broken at level ≤ n₂(p)) | PROVED (Burgess; GRH: Ankeny–Bach) |
+| §8.2–8.4 independence / no Chebotarev law / primality-local | EVIDENCE |
+| §8.6 (★) for all p ∈ 𝔐 ∩ (10¹⁰, 3·10¹¹] | CERTIFIED |
 | full statement for all large p | NOT PROVED |
 
 ## §7 Falsifier ledger at the end (after hostile review)
@@ -296,7 +304,12 @@ small levels, or Chebotarev data. This is the honest state of round 2.
 
 `scripts/z58_tryo_range.c` (for each p ∈ 𝔐 in range: least u ≤ 10⁵ with a divisor d ≡ −1 (4u) of p+u, factoring by
 trial division to 1000 + Pollard rho + 12-base Miller–Rabin (deterministic < 3.3·10²⁴); every reported solution is
-re-verified as 4uBC − u − B = p in 128-bit arithmetic). Results: see §8.7 when the run finishes.
+re-verified as 4uBC − u − B = p in 128-bit arithmetic).
+**CERTIFIED: (★) holds for every prime p ∈ 𝔐 with 10¹⁰ < p ≤ 3·10¹¹** — 355 096 166 primes in four contiguous runs
+(`data/z58/tryo/range_{a,b,c,d}.txt`: [10¹⁰, 5.5·10¹⁰] 58 344 306, (5.5·10¹⁰, 10¹¹] 56 111 206, (10¹¹, 2·10¹¹]
+121 533 478, (2·10¹¹, 3·10¹¹] 119 107 176), hard = 0, VERIFYFAIL = 0. Largest least-u: 316 at p = 53 499 061 849 (d = 447 455,
+C = 354, B = 119 563); other run maxima: 263 (p = 60 921 814 801), 158, 289 (p = 219 564 149 401). Least-u histogram: > 2⁸ only for
+a handful of p per run. Sanity: on [1, 10⁸] the same engine returns exactly the 9 𝔐-zeros as HARD.
 
 ### 8.7 The one pointwise statement that does follow (PROVED, weak)
 
@@ -307,5 +320,15 @@ every level u) is broken for primes at a level u ≤ n₂(p).
 *Proof.* u := n₂(p) is prime and odd (2 is a residue as p ≡ 1 (8)), u < p, (u/p) = −1; apply Lemma 1.4. ∎
 This is necessary, not sufficient, for a hit at u: (ℤ/4u)^× still has φ(4u)/2 − 1 = u − 2 other odd characters and the
 non-kernel failure mode of Lemma 1.2(c). The 𝔐-zeros have n₂(p) ∈ {11, 13, 17, 19, 23} (§3.3), so the statement is
-consistent with F4, holds trivially-false at squares (n₂ undefined: no non-residue), and says nothing at F2/F3 level.
+consistent with F4, vacuous at squares (no non-residue exists, matching Lemma 1.3), and says nothing at F2/F3 level.
 (For the C-side there is no analogue: ∏_{q | 4Cp+1} (q/p)^{v_q} = ((4Cp+1)/p) = 1 always.)
+
+### 8.8 Falsifier ledger for round 2
+* (F1) Lemma 8.1/8.2 and Prop 8.7 are vacuous or false-as-hit-sources at squares exactly as required (Lemma 1.3; no
+  non-residue). No round-2 mechanism produces a hit, so none can produce one at a square.
+* (F2) Nothing in round 2 is specific to C even or odd; nothing claims a hit for all p.
+* (F3) §8.4 data: zero rates of primes and of non-square composites coprime to 105 are comparable — a warning that any
+  argument using "p prime" only through non-squareness + local data must still explain the 20 coprime composite zeros
+  (largest 3 210 601) by "sufficiently large".
+* (F4) Prop 8.7 holds at all 14 zeros (n₂ ∈ {5, 7, 11, 13, 17, 19, 23}) and yields no hit there — consistent.
+No HOT LEAD.
