@@ -4,12 +4,13 @@
 #   Model A: covariates (1, m, log10 n).  Model B: + dummies for kb = bucket of k(n) (least odd prime l with (n/l) = -1,
 #   l !| n; kb 1:5 2:7 3:11 4:13 5:17-23 6:29-47 7:>47/none, base kb = 1).  Cells with k(n) = 3 are excluded: n = 2 (3)
 #   gives the hit d = 3 (R >= 1, PROVED).
-# Usage: uv run --with numpy --with scipy --with sympy python z59_msplus_zerofit.py H_FILE COEF_FILE [NSAMP]
+# Usage: uv run --with numpy --with scipy --with sympy python z59_msplus_zerofit.py H_FILE COEF_FILE [NSAMP [pool]]
 import sys, math, random
 import numpy as np
 from scipy.optimize import minimize
 from sympy import isprime, primerange
 
+POOL = False  # True: pool the k > 47 bucket with 29..47 (no events in k > 47; review m7)
 def load(fn, bmin=24, bmax=99):
     rows = []
     for line in open(fn):
@@ -18,13 +19,14 @@ def load(fn, bmin=24, bmax=99):
         cat, g, b, mb, kb = t[1], int(t[2]), int(t[3]), int(t[4]), int(t[5])
         cnt, z, r2, sR, sm = map(float, t[6:11])
         if b < bmin or b > bmax or kb == 0: continue
+        if POOL and kb == 7: kb = 6
         rows.append((cat, g, b, cnt, z, r2, sm / cnt, kb))
     return rows
 
 def design(m, lg, kb, withk):
     cols = [np.ones_like(m), m, lg]
     if withk:
-        for j in range(2, 8): cols.append((kb == j).astype(float))
+        for j in range(2, 7 if POOL else 8): cols.append((kb == j).astype(float))
     return np.stack(cols, 1)
 
 def fit(rows, col=4, withk=False):
@@ -66,7 +68,7 @@ def kbucket(n):
     for l in KP:
         if n % l and pow(n % l, (l - 1) // 2, l) == l - 1:
             return {3: 0, 5: 1, 7: 2, 11: 3, 13: 4}.get(l, 5 if l <= 23 else 6)
-    return 7
+    return 6 if POOL else 7
 
 def predict(th, coef, lo, hi, nsamp, seed=1, withk=False):
     rnd = random.Random(seed)
@@ -86,6 +88,7 @@ def predict(th, coef, lo, hi, nsamp, seed=1, withk=False):
     return {k: v * tot / nsamp for k, v in acc.items()}
 
 if __name__ == '__main__':
+    POOL = len(sys.argv) > 4 and sys.argv[4] == 'pool'
     rows = load(sys.argv[1])
     coef = {}
     for line in open(sys.argv[2]):
