@@ -5,8 +5,9 @@ z53 → z58). Internal, internally reviewed only. **ES is OPEN; nothing here pro
 PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z58_disproof_*`, data
 `data/z58/disproof/`.
 
-**Verdict: narrowed — no counterexample, not a HOT LEAD.** Targeted search over 868 562 distinct primes in
-[10¹⁰, 7.3·10¹⁵] (designed progressions in 𝔐, exact or decision-mode) found no R- or 𝔊*-zero; two new R₈-zeros. The
+**Verdict: narrowed — no counterexample, not a HOT LEAD.** Targeted *sampled* search over 868 562 distinct design **and control** primes
+(777 973 in 𝔐; range [10 000 000 033, 7 307 828 669 535 601]; exact or decision-mode — not an interval census) found
+no R- or 𝔊*-zero; two new R₈-zeros. The
 tested structured families act through truncated T1 (Lemmas 2.2, 2.3), their depression is measured and predicted
 (§4), and under an explicit fitted model none reaches 10¹⁷ (§6, Assessment). Final falsifier table: §7.2.
 *(Checkpoint 1 committed §§0–2 first; the rest was added as runs finished and then revised after the hostile review, §9.)*
@@ -27,7 +28,7 @@ measured depression into a model zero tail. The table states how the generator a
 ## 1. Statements attacked (precise)
 
 * **(MS)** (`Z57_SYNTH.md` §1.1): every prime p > 10¹⁷ with p mod 840 ∈ 𝔐 has R(p) ≥ 1. Internal variant: threshold 10¹⁰.
-* **(D1) Counterexample search.** Find a prime p ∈ 𝔐, 10¹⁰ < p ≤ 10¹⁴ (searched in the end up to 7.3·10¹⁵), with R(p) = 0 (or R_𝔊*(p) = 0), searching only
+* **(D1) Counterexample search.** Find a prime p ∈ 𝔐, 10¹⁰ < p ≤ 10¹⁴ (sampled in the end up to 7.31·10¹⁵), with R(p) = 0 (or R_𝔊*(p) = 0), searching only
   in designed progressions. A find would refute (MS) at threshold 10¹⁰ (not at 10¹⁷; not ES — López/other lines must
   then be checked).
 * **(D2) Model question.** Is there a structured family 𝔉 of primes (residue design, square-mimicking, near-square, …)
@@ -63,15 +64,16 @@ R_𝔊* = 0 (with R = 2) at the 𝔊*-zeros 11 814 001, 20 445 289, 85 664 329, 
 
 **Lemma 2.3 (line sterility on near-square families; PROVED — elementary, known in kind: `CLASS_FORCING.md` uses
 p + 8 = x² + 2y²; `ES_CONNECTIONS_TODO.md` Z1190 the u = 1 line).** Let u ≥ 1, c | u, t ≥ 1, and let n = m² + c t² − u
-with gcd(m, c t) = 1. Then (★) has no solution at n with first coordinate u (the "u-line" is empty), and by the u ↔ B
+with gcd(m, t) = 1 (cross-model review: gcd(m, c) = 1 is not needed). Then (★) has no solution at n with first coordinate u (the "u-line" is empty), and by the u ↔ B
 symmetry none with second coordinate u.
 *Proof.* A solution with first coordinate u is a divisor d | n + u = m² + c t² with d ≡ −1 (mod 4u) (Lemma 2.1, m₂).
 d is coprime to u (d ≡ −1 mod u), hence to c; a prime ℓ | gcd(d, t) would divide m², contradicting gcd(m, t) = 1. So
-m² ≡ −c t² (mod d) with t invertible: −c is a square modulo every prime factor of d and the Jacobi symbol (−c/d) = +1.
+m² ≡ −c t² (mod d) with t invertible and c a unit mod d: −c ≡ (m/t)² is a nonzero square modulo every prime factor of d and the Jacobi symbol (−c/d) = +1.
 But c | u | (d + 1)/4, so Lemma A.1(b) of `Z57_SYNTH.md` gives (−c/d) = −1. ∎
-*Reading.* n = m² is the case "every u, c = u, t = 1" (T1). On a near-square family n = m² + k, the lines with
-k + u = c t², c | u, are empty *for those m with gcd(m, c t) = 1* (a sufficient condition; other lines may also be
-empty at a given n): a *truncated* T1. The gcd hypothesis is essential: p = 10 017 408 409 = 100 087² + 840 (13 | m) has
+*Reading.* n = m² is the case "every u, c = u, t = 1" (T1; gcd(m, 1) = 1 always, so the specialization is valid for
+every u after the cross-model strengthening). On a near-square family n = m² + k, the lines with
+k + u = c t², c | u, are empty *for those m with gcd(m, t) = 1* (a sufficient condition; other lines may also be
+empty at a given n): a *truncated* T1. The gcd hypothesis is essential: p = 10 017 408 409 = 100 087² + 840 (13 | gcd(m, t), t = 13) has
 the u = 5 witness (u, B, C) = (5, 256 856 626, 2) although 840 + 5 = 5·13² (review).
 
 **Proposition 2.4 (what a fixed offset can kill).** Let k ≥ 1 and K(k) := {u ≥ 1 : k + u = c t² for some c | u, t ≥ 1}.
@@ -159,11 +161,13 @@ tested below): the other solutions are unaffected on average, so ρ(y) ≈ surv(
 ### 4.3 Near-squares: a line-kill effect, not a real-place effect (EVIDENCE)
 NSQnear by offset k = p − m² (final files): k = 840: mean R/L² = 0.1151 (14 835 primes), k = 1680: 0.1067 (10 183),
 k = 2520: 0.1325 (12 808); NSQfar (same algebraic shape, k ≈ 8.4·10⁷): 0.1336 (37 802), all in [10¹⁰, 1.8·10¹¹]. So at
-these offsets *proximity to a square in ℝ shows no effect of its own* (k = 2520 is within 1 % of the far control),
-while k = 840, 1680 are depressed by 13.8 % and 20.1 %. Lemma 2.3 accounts for this: 840 + u ∈ c□ (c | u) for
+these offsets *no additional real-proximity effect is established in these controls* (k = 2520 is within 1 % of the
+far control),
+while k = 840, 1680 are depressed by 13.8 % and 20.1 %. Rough line-kill estimates from Lemma 2.3 are consistent with
+this: 840 + u ∈ c□ (c | u) for
 u = 1 (29²), 5, 7, 24, 27, 35; 1680 + u for u = 1 (41²), 2 (2·29²), 10, 14, 21, 35; 2520 + u for no u ≤ 40. A rough
 prediction — summed line shares of §4.4 for u ≤ 12, an *imputed* 0.01 per line for 12 < u ≤ 40, ignoring overlaps
-between lines and the gcd(m, ct) = 1 exceptions (≈ 21 % of these m are divisible by 11, 13, 29 or 41, which can revive
+between lines and the gcd(m, t) = 1 exceptions (≈ 21 % of these m are divisible by 11, 13, 29 or 41, which can revive
 single lines) — gives 0.141 (k = 840) and 0.179 (k = 1680) (`kbest.txt`), vs measured 0.138 and 0.201. The PRIMET1
 "square-offset near-squares look harder" signal is consistent with this line-kill mechanism (Assessment).
 
@@ -210,13 +214,13 @@ start point, each job cut by its 1 750 s timeout (partial runs recorded as such)
 | SM61_e12 | p ≡ 1 (840), n_p > 61 | 104 918 | 1.0·10¹²–1.1·10¹³ | 18.30 | 459 647 | 7 (R = 32…82) | 0/0/0/0 |
 | SM47_e13 | p ≡ 1 (840), n_p > 47 | 113 533 | 1.0·10¹³–1.1·10¹³ | 19.45 | 536 639 | 0 | 0/0/0/0 |
 | SM37_e14 | p ≡ 1 (840), n_p > 37 | 41 183 | 1.0·10¹⁴–1.0007·10¹⁴ | 22.41 | 137 939 | 0 | 0/0/0/0 |
-| K1680_z31_e12 | p = m² + 1680, n_p > 31 | 9 835 | 1.0·10¹²–7.3·10¹⁵ | 20.27 | 523 815 | 0 | 0/0/0/0 |
+| K1680_z31_e12 | p = m² + 1680, n_p > 31 | 9 835 | 1.0·10¹²–7.31·10¹⁵ | 20.27 | 523 815 | 0 | 0/0/0/0 |
 | K1680_z23_e13 | p = m² + 1680, n_p > 23 | 19 173 | 1.0·10¹³–1.7·10¹⁵ | 19.80 | 523 815 | 0 | 0/0/0/0 |
 | K840_z13_e14 | p = m² + 840, n_p > 13 | 34 864 | 1.0·10¹⁴–2.1·10¹⁴ | 21.41 | 622 775 | 0 | 0/0/0/0 |
 
 305 386 distinct primes (the two K1680 jobs overlap above 10¹³). S₁₆ = # solutions with C ≤ 16 (exact): C0 means are
 20.53 (10¹⁰) and 24.85 (10¹²); the designs (at equal or larger p, and S₁₆ grows with p) have 18.3–22.4. **No R-, 𝔊*-,
-H3-, R₈- or R_odd-zero.** (The `divides` test is exact for n < 2⁵³ ≈ 9.0·10¹⁵; the largest p searched is 7.3·10¹⁵.)
+H3-, R₈- or R_odd-zero.** (The `divides` test is exact for n < 2⁵³ ≈ 9.0·10¹⁵; the largest p searched is 7 307 828 669 535 601 ≈ 7.31·10¹⁵.)
 Model expectation for the whole search: ≪ 10⁻⁶ R-zeros (§6.3 per-prime rates at these μ), ≲ 10⁻² R₈-zeros.
 
 ## 6. Zero model and the tail (Assessment unless marked)
@@ -251,7 +255,10 @@ zeros the hypothesis was built to explain; it is **not** an independent validati
 
 ### 6.3 Model tail under the §6.2 scenario (Assessment; `tail.txt`)
 Scenario: all six Mordell classes modelled as the class of one (×6 — an assumption, not a bound), Poisson counts,
-sums **truncated at 10³¹** (they are not infinite tails).
+sums **truncated at 10³¹** and over the first **120 non-residue slices** (`odd_np[:120]`); Monte-Carlo surv values and
+decade quadrature. These are *scenario estimates*, not upper bounds and not infinite tails. The omitted slices have
+supply 2⁻¹²⁰; under the script's own prime-supply model they contribute ≤ 3.3·10⁻⁹ through 10³¹ even if every omitted
+prime were a zero (cross-model review) — enough to keep the finite-interval estimate < 1, not to certify 2.6·10⁻²⁴.
 
 | a | β | E[10⁵, 10⁷) | E[10⁷, 10¹⁰) | E[10¹⁰, 10³¹) | E[10¹⁷, 10³¹) |
 |---|---|---|---|---|---|
@@ -282,17 +289,19 @@ sums **truncated at 10³¹** (they are not infinite tails).
 ### 7.1 Verdict: **narrowed** (no counterexample; not a HOT LEAD)
 * **Search (D1): negative (CERTIFIED for the primes examined).** No prime with R(p) = 0 or R_𝔊*(p) = 0 among
   ≈ 5.5·10⁵ exactly enumerated design and control primes in [10¹⁰, 1.5·10¹³] and 305 386 design primes in
-  [10¹², 7.3·10¹⁵] (decision mode, §5.2); 868 562 distinct primes in all. Two new R₈-zeros (20 840 951 041,
+  [10¹², 7.31·10¹⁵] (decision mode, §5.2); 868 562 distinct sampled primes in all (777 973 in 𝔐, 90 589 controls
+  outside 𝔐), independently re-certified by the cross-model review (explicit witness for every prime). Two new R₈-zeros (20 840 951 041,
   23 296 553 281; both in 𝔐) — expected by F2.
-* **Model (D2): no tested structured family reaches 10¹⁷ in the model (Assessment).** Anatomy suggested by the data: a
+* **Model (D2): within the common fitted scenario of §6.3, on the finite interval [10¹⁷, 10³¹], no tested structured
+  family reaches an expected zero (Assessment; not a family-uniform bound).** Anatomy suggested by the data: a
   counterexample above 10¹⁰ would most plausibly be a prime in 𝔐, ≡ 1 (8) and ≡ 1 (3) (like all 14 zeros), moderately
   square-mimicking (n_p ≈ 11–29), with several small lines u dead — a generic-looking member of the hardest local
   slices, not an extreme one. The families examined act through two T1 truncations (Lemma 2.2: square classes exclude
   solutions with a modulus dividing M; Lemma 2.3: near-square offsets empty the u-lines with k + u ∈ c□, c | u, when
-  gcd(m, ct) = 1), and both weaken: ρ(y, p) → 1 at fixed y under the surviving-mass model (measured 0.748 → 0.786 from
+  gcd(m, t) = 1), and both weaken: ρ(y, p) → 1 at fixed y under the surviving-mass model (measured 0.748 → 0.786 from
   10¹⁰ to 10¹²), the heuristic supply of y-square-mimicking primes is 2^{−π(y)}, a fixed offset's Lemma 2.3 kills carry
   an O_k(1/L) share (Prop 2.4(ii)), and the standard CRT encoding of avoidance buys a polylog (§5.1). Under the fitted law
-  and the §6.2 scenario, E[10¹⁷, 10³¹) ≈ 3·10⁻²⁴ over 𝔐.
+  and the §6.2 scenario, the scenario estimate for E[10¹⁷, 10³¹) is ≈ 3·10⁻²⁴ over 𝔐 (§6.3 caveats).
 * **What this does not cover.** Mixtures with a slowly decaying component, growing offsets / other polynomial families,
   and any non-local mechanism ("prime T1") are not excluded; the model is fitted below 2·10⁸ and extrapolated.
 * **Validated pieces (EVIDENCE):** the surviving-mass law predicts square-mimicking depressions within ≈ 0–5 %
@@ -301,7 +310,7 @@ sums **truncated at 10³¹** (they are not infinite tails).
 ### 7.2 Falsifier table, final (restating §0 with the results)
 | screen | outcome |
 |---|---|
-| F1 odd squares | The designs are T1 truncations: Lemma 2.2 (n square mod M ⇒ no solution with a modulus dividing M) and Lemma 2.3 (n + u = m² + ct², c \| u, gcd(m, ct) = 1 ⇒ line u empty) both contain T1 (every M; k = 0). The zero *model* is fitted on primes and is wrong at squares by construction. Primality enters through supply: a prime is a square modulo every y-smooth modulus iff p ≡ 1 (8) and n_p > y (heuristic density 2^{−π(y)+1}), never modulo every modulus; composite zeros get square-likeness through small factors. |
+| F1 odd squares | The designs are T1 truncations: Lemma 2.2 (n square mod M ⇒ no solution with a modulus dividing M) and Lemma 2.3 (n + u = m² + ct², c \| u, gcd(m, t) = 1 ⇒ line u empty) both contain T1 (every M; k = 0). The zero *model* is fitted on primes and is wrong at squares by construction. Primality enters through supply: a prime is a square modulo every y-smooth modulus iff p ≡ 1 (8) and n_p > y (heuristic density 2^{−π(y)+1}), never modulo every modulus; composite zeros get square-likeness through small factors. |
 | F2 C-even line | R₈ is the calibration sibling: the same law (a ≈ 0.40, β ≈ 1) fits R₈ and is consistent with R; two new R₈-zeros found in designs near 2·10¹⁰. Local difference (EVIDENCE, small sample): the C-even line has none of the direct small odd-C certificates d = 4u − 1 (3, 11, 19, …); 6/12 R₈-zeros have (p/3) = −1 vs 0/14 (★)-zeros. The model makes no structural odd/even claim; R₈'s mean is half of R's, which is why its zero tail is far longer (z57 fit 10^{14.4}). |
 | F3 composites | Not in the domain. Profile: 285 composite zeros are 100 % ≡ 1 (8), 71 % □840, 75 % divisible by 3 — local square-likeness through divisibility (for ℓ \| n no m₂, m₃ is divisible by ℓ), unavailable to primes. |
 | F4 known zeros | The engine reproduces the 14 (★)-zeros and the tested 𝔊*-zeros. The probability model fits the R₈/R zero counts (10 R-zeros in the fit range), gives 1.75 vs 3 class-of-one zeros under §6.2, 5.1 vs 6 in 𝔐 ∩ [10⁵, 10⁷), and 0.21 vs 0 in [10⁷, 10¹⁰); it asserts no positivity anywhere and is not calibrated for 𝔊*. |
@@ -309,14 +318,15 @@ sums **truncated at 10³¹** (they are not infinite tails).
 ### 7.3 Proposed FRONTIER §7 text (do not paste blindly)
 > (z58 DISPROOF, `Z58_DISPROOF.md`) Counterexample anatomy for (MS), EVIDENCE + Assessment. Structured prime families
 > act through truncated T1: a square class mod M excludes the (★) solutions with a modulus 4uB, 4uC−1 or 4BC−1 dividing M
-> (Lemma 2.2), and on n = m² + k the u-lines with k + u = ct², c | u, are empty when gcd(m, ct) = 1 (Lemma 2.3; then
+> (Lemma 2.2), and on n = m² + k the u-lines with k + u = ct², c | u, are empty when gcd(m, t) = 1 (Lemma 2.3; then
 > c | k). Measured depressions (exact counts, ≈ 5.5·10⁵ primes at 10¹⁰–10¹³): class of one mod 840 0.88, mod 120 120
-> 0.79, n_p > 31 0.75 (0.79 at 10¹²), n_p > 61 0.73; near-square offsets 840 / 1680 / 2520: 0.86 / 0.80 / 0.99, fully
-> accounted for by line kills (real proximity alone shows no effect). A surviving-mass model (share of solutions with
+> 0.79, n_p > 31 0.75 (0.79 at 10¹²), n_p > 61 0.73; near-square offsets 840 / 1680 / 2520: 0.86 / 0.80 / 0.99, and rough
+> line-kill estimates are consistent with these depressions (no additional real-proximity effect established in these
+> controls). A surviving-mass model (share of solutions with
 > no y-smooth modulus) predicts the square-mimicking values within ≈ 5 % and → 1 as p → ∞ at fixed y. Zero law
 > P(R₈ = 0) ≈ exp(−0.40 μ) (β = 1.01; β = ½ disfavoured), consistent with R; Mordell classes show excess zeros within
-> Legendre cells. Model tail E[10¹⁷, 10³¹) ≈ 10⁻²³ over 𝔐 under stated scenarios; slowly decaying mixture components
-> are not excluded. Targeted search, 8.7·10⁵ primes in 10¹⁰–7.3·10¹⁵: no R-, 𝔊*-zero; two new R₈-zeros
+> Legendre cells. Scenario estimate E[10¹⁷, 10³¹) ≈ 10⁻²³ over 𝔐 (finite interval, truncated slices; not a bound); slowly decaying mixture components
+> are not excluded. Targeted sampled search, 8.7·10⁵ design and control primes (7.8·10⁵ in 𝔐) in 10¹⁰–7.31·10¹⁵: no R-, 𝔊*-zero; two new R₈-zeros
 > (20 840 951 041, 23 296 553 281).
 
 ### 7.4 Bottom line
@@ -326,7 +336,7 @@ with zero probability ≈ e^{−0.4μ}. The structured ways we built to tilt tha
 square-mimicking, CRT avoidance, near-square polynomial families) are truncations of T1 whose bite was measured,
 predicted, and seen to weaken with p; the best designs reach ρ ≈ 0.72 at 10¹⁰–10¹², while under the fitted law ρ ≲ 0.46
 would be needed for an expected zero near 10¹⁷ even with every prime of that decade as supply. The targeted search
-(8.7·10⁵ distinct primes, 10¹⁰–7.3·10¹⁵) found nothing. This prices the tested local/polynomial disproof routes under
+(8.7·10⁵ distinct sampled design and control primes, 10¹⁰–7.31·10¹⁵) found nothing. This prices the tested local/polynomial disproof routes under
 an explicit model; it does not exclude slowly decaying mixtures or a global mechanism, and nothing here proves (MS).
 
 ## 8. Commands, files, ranges
@@ -345,6 +355,16 @@ All runs: `ulimit -v 6000000`, `timeout ≤ 1750`. Engine `gcc -O2 -o /tmp/z58en
   `scripts/z58_disproof_kbest.py 3000000`; avoidance `/tmp/z58avoid 1000 20000000` → `avoid_2e7.txt`.
 
 ## 9. Review log
+* **Cross-model review** (`data/z58/xreview/REVIEW_DISPROOF.md`, ACCEPT-WITH-FIXES; it independently re-certified all
+  868 562 sampled primes by explicit witnesses with max(u,B)⁴ > min(u,B)·p, both new R₈-zeros, all four screens, and
+  reproduced cells/fit/tail byte-for-byte). Fixes applied: (1) headline scoped to "sampled design **and control**
+  primes (777 973 in 𝔐)", exact upper endpoint 7 307 828 669 535 601 (7.31·10¹⁵); (2) the tail discloses the 120-slice
+  truncation and the 10³¹ cutoff, is called a scenario estimate, and quotes the review's ≤ 3.3·10⁻⁹ bound for the
+  omitted slices; (3) Lemma 2.3 strengthened to gcd(m, t) = 1 (proof adjusted), which makes the T1 (k = 0)
+  specialization valid for every u; (4) "fully accounted for" / "no real-proximity effect" / "no tested family reaches
+  10¹⁷" reworded as consistency, "no additional effect established in these controls", and a finite-interval
+  in-scenario assessment; (5) engine: the 2⁵³ range guard moved into `process()` (covers `list` input) and the
+  Miller–Rabin comment corrected (first twelve prime bases are deterministic below 3.18·10²³; all inputs are < 2⁶⁴).
 * **Hostile internal review** (reviewer subagent, deep mode, on commits ba0f16ca..3a6fc82a; it re-derived the cells and
   avoidance files byte-for-byte, re-ran the fits and the tail model, checked all 18 run files, the 868 562 distinct primes
   and the two new R₈-zeros, and found no engine decision/enumeration bug in the recorded ranges). Verdict "request

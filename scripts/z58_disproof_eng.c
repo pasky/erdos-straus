@@ -30,7 +30,7 @@ static int isprime(ull n) {
   ull d = n - 1; int s = 0; while (!(d & 1)) { d >>= 1; s++; }
   for (int i = 0; i < 12; i++) { ull x = powmod(sp[i], d, n); if (x == 1 || x == n - 1) continue; int ok = 0;
     for (int r = 1; r < s; r++) { x = mulmod(x, x, n); if (x == n - 1) { ok = 1; break; } } if (!ok) return 0; }
-  return 1;   // deterministic for n < 3.3e24 with these 12 bases
+  return 1;   // the first 12 prime bases (2..37) are deterministic for n < 3.18e23, which covers all 64-bit n
 }
 static int legendre(ll a, ll l) { ll r = (ll)powmod((ull)((a % l + l) % l), (ull)(l - 1) / 2, (ull)l); return r == 1 ? 1 : (r == 0 ? 0 : -1); }
 static int gtest(ll P, ll Q, ll n) { if (Q > 3000000000LL) return 1; i128 q2 = (i128)Q * Q; return q2 * q2 > (i128)P * n; }
@@ -55,6 +55,7 @@ static long level(ll n, ll C) { long c = 0;
 static ll dmin(ll p) { for (ll d = 3; d <= DMAX; d += 4) { ll r = (d - p % d) % d; if (r && ((d + 1) / 4) % r == 0) return d; } return -1; }
 static long N = 0, nz[4] = {0}, nfull = 0; static double sumS = 0;
 static void process(ll p) {
+  if (p >= (1LL << 53)) { fprintf(stderr, "p >= 2^53: divides() not exact; skip %lld\n", p); return; }
   ll cmax = (ll)cbrtl((long double)p / 64.0L); while ((i128)64 * (cmax + 1) * (cmax + 1) * (cmax + 1) <= p) cmax++;
   while (cmax > 0 && (i128)64 * cmax * cmax * cmax > p) cmax--;
   long S = 0, Se = 0; int hR = 0, h8 = 0, ho = 0, hH = 0;
