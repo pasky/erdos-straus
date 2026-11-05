@@ -111,6 +111,9 @@ zero list `zeros_1e10.txt.gz`).** The run took ≈ 15 min with a 312 MB bitset.
 
 *Validation.*
 * The 14 prime zeros it finds are exactly the certified (★) census to 10¹⁰ (FRONTIER §2.1; independent engines).
+* Its non-square zeros n ≡ 1 (4) ≤ 4·10⁹ (458 ≤ 10⁹, 27 in (10⁹, 4·10⁹]) coincide exactly with the independent z52d gap
+  census `data/z52b/pass2/ZF2/Z1018_gaps_1e9{,_4e9}.txt` (`BRAINSTORM/z52d_pass2_ZF2.md` Z1018). That census computed the
+  gap set but did not split it by Mordell class. So the claim is double-engine to 4·10⁹ and single-engine on (4·10⁹, 10¹⁰].
 * An independent divisor-enumeration decider, `scripts/z58_logic_check.py`, uses min(u, B, C) ≤ (n/4)^{1/3} + 1 and
   sympy divisors. It confirms R = 0 at all 42 composite zeros in [10⁹, 10¹⁰], at 17 401 609, 12 538 801 and 8 813 281,
   and R ≥ 1 at 150 random non-squares in 𝔐 classes in [10⁹, 10¹⁰].
@@ -321,10 +324,54 @@ n := n₀ + 840t ∈ M. Then M ⊨ Mord(n) ∧ ¬Sq(n) ∧ "n has no (★) solut
 * So the parity barrier, as a falsifier for (MS) at threshold 10¹⁰, has **no data support** above 1.75·10⁷. It remains
   a barrier for *methods* (sieve lower bounds cannot produce pointwise positivity at one n), not for the statement.
 
-## 7. Verdict (provisional)
+## 7. Verdict, screens, proposed FRONTIER text, bottom line
 
-Narrowed / clarifying. The logic picture:
-1. (MS) is Π₁. Independence would imply truth. Eventual forms are Σ₂ and do not finish ES.
-2. A feasible (S¹₂) proof must factor the composite zeros in 𝔐 (Thm 3.1).
-3. The data say there are probably none above 1.75·10⁷ (MS⁺, EVIDENCE). Primality is then needed only as
-   non-squareness.
+**Verdict: narrowed / clarifying; one new conjecture with strong data (MS⁺); no HOT LEAD.**
+
+What was proved:
+* Prop 2.1–2.2: the Π₁/Σ₂ classification and its consequences. Independence of (MS) would imply its truth;
+  counterexamples give refutations in Q of length p^{O(1)}; eventual forms are Σ₂.
+* Thm 3.1 / Cor 3.2 (relative to Buss witnessing): an S¹₂ proof of (MS) yields a polynomial-time hit-or-factor
+  algorithm, so it must factor every composite zero in 𝔐.
+* Lemmas 5.1–5.3: d_min ≥ n_p, d_min ≥ W(p), and 𝔐 = {p ≡ 1 (4) : n_p ≥ 11}. Hence no polylog trial-d witness rule
+  (modulo the cited Ω-results). Prop 5.4: every two-small-coordinate search is a bounded-modulus table search.
+* Lemma 6.1 / Thm 6.2: the sign lemma for (★) in Shepherdson's model. IOpen ⊬ (MS⁺), and IOpen + (MS) ⊬ (MS⁺) if (MS)
+  is true. The counterexamples are pseudo-squares n₀ + 840t over every standard zero n₀.
+
+What was computed:
+* Zero census of R over all n ≡ 1 (4) to 10¹⁰: double-engine to 4·10⁹, single engine plus an independent decider on
+  samples beyond. No non-square zero in 𝔐 classes in (17 401 609, 10¹⁰].
+* Mean R/L² of 𝔐 composites ≈ that of 𝔐 primes (0.119 vs 0.125).
+* Least witnesses d_min, C_min, u_min over all primes ≤ 10⁹: u_min ≤ 469, while d_min and C_min are large. u_min ≤ 7
+  at sampled primes up to 10²¹, square-mimicking ones included.
+
+**Hard screens (FRONTIER §4).**
+* T1 squares: (MS⁺) excludes them by hypothesis. The pseudo-square theorem shows non-squareness must be used
+  non-locally.
+* 8/131 / numerator 8: the logic results transfer verbatim to R₈. The R₈ analogue of (MS⁺) is false at 10¹⁰ (12 prime
+  zeros), so (MS⁺) for R carries the full-family content; nothing here separates C odd from C even.
+* Tied modulus (B2): untouched. FQ_u and Prop 5.4 restate it algorithmically.
+* Fixed p: every statement here is at fixed p or a Π₁ sentence over p. No averaging is used.
+
+**Proposed FRONTIER text** (do not edit FRONTIER here).
+* §2.4 / §4 item F3:
+  > *(z58 LOGIC.)* Inside Mordell's classes the composite zeros of R end at 17 401 609 = 47·370 247: there is no non-square
+  > n ≡ 1 (4) with n mod 840 ∈ 𝔐 and R(n) = 0 in (17 401 609, 10¹⁰]. This is CERTIFIED, double-engine to 4·10⁹. The
+  > 𝔐-composite mean R/L² is 0.119 against 0.125 for 𝔐 primes on [10⁷, 10⁸].
+  > CONJECTURE (MS⁺): R(n) ≥ 1 for all non-square n > 17 401 609 in 𝔐 classes. It implies (MS), and it makes the
+  > hypothesis decidable in polynomial time, without primality.
+  > Caveat (PROVED): IOpen + (MS) ⊬ (MS⁺). The pseudo-squares 121 + 840t of Shepherdson's model are counterexamples.
+  > So non-squareness must be used non-locally (`Z58_LOGIC.md` §§4, 6.1).
+* §3 B1:
+  > *(z58.)* d_min(p) ≥ W(p) (H_d ⊆ 𝓡(d)), so the trial-d witness search is superpolylog i.o. (modulo OMEGA13). An
+  > S¹₂ proof of (MS) would give a polynomial-time hit-or-factor algorithm (Buss witnessing).
+  > The only efficient search known is factor-based: u_min ≤ 469 for all primes ≤ 10⁹. FQ_u ⟹ search ∈ FP^FACTOR.
+
+**Bottom line.** (MS) is a Π₁ sentence. If it is independent it is true; this is cold comfort, and no natural
+number-theoretic Π₁ independence is known to us. Logic does not find a shortcut. It sharpens three things.
+* The primality hypothesis looks dispensable in Mordell's classes. Composites there behave like primes, and their last
+  zero is 17 401 609, so the target can be posed as the polynomial-time-hypothesis statement (MS⁺).
+* What is *not* dispensable is a non-local use of non-squareness. Open induction cannot exclude pseudo-squares.
+* Any feasible proof would have to contain a classical algorithm producing a divisor of some p + u (or 4Cp + 1) in a
+  prescribed class, beyond every bounded table search. Empirically such divisors are abundant at tiny u, so the
+  obstacle is B2 itself, now stated as a search problem in FP^{FACTOR} (conditionally) but not known in FP.
