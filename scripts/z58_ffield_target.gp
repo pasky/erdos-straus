@@ -7,6 +7,7 @@
 read("scripts/z58_ffield_decide.gp");
 ffdec2(P, q, amax) = {
   my(n = poldegree(P));
+  if (n % 2 || n < 2 || pollead(P) != 1, error("ffdec2: need monic P of even degree >= 2"));
   for (a = 0, min(amax, (n - 2) \ 2),
     for (k = 0, q^a - 1,
       my(u = ffmku(k, a, q), F = factor(P + u), fs = F[, 1], ms = F[, 2], L = #fs);

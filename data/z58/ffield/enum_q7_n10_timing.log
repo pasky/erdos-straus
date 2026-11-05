@@ -1,0 +1,10 @@
+q=7 n=10 mode=star shapes(cls0,cls1,cls2)=10,8,12  #irr=28245840 #comp=254212602 #sq=16807
+  full     zeros: irr=938 comp=40096 sq=16807 | mean R: irr=35.0821 comp=29.4373 sq=0.0000 all=30.0000
+  s=1      zeros: irr=295260 comp=5222329 sq=16807 | mean R: irr=11.6462 comp=9.8177 sq=0.0000 all=10.0000
+  s=1mod4  zeros: irr=30947 comp=818545 sq=16807 | mean R: irr=21.0162 comp=17.6661 sq=0.0000 all=18.0000
+  s=3mod4  zeros: irr=137487 comp=3085005 sq=16807 | mean R: irr=14.0659 comp=11.7713 sq=0.0000 all=12.0000
+  R_full mod 3 among irreducibles: 9416736 9410961 9418143
+
+real	12m19.536s
+user	12m18.305s
+sys	0m0.960s

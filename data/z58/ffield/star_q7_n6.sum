@@ -1,6 +1,10 @@
 q=7 n=6 mode=star shapes(cls0,cls1,cls2)=6,2,4  #irr=19544 #comp=97762 #sq=343
+  exact mass check (sum of counts = #shapes*q^n in every class): OK; saturated counters: 0
   full     zeros: irr=280 comp=2422 sq=343 | mean R: irr=14.0537 comp=11.6315 sq=0.0000 all=12.0000
   s=1      zeros: irr=686 comp=6300 sq=343 | mean R: irr=7.0086 comp=5.8194 sq=0.0000 all=6.0000
   s=1mod4  zeros: irr=686 comp=6300 sq=343 | mean R: irr=9.3467 comp=7.7588 sq=0.0000 all=8.0000
   s=3mod4  zeros: irr=3346 comp=21616 sq=343 | mean R: irr=4.7070 comp=3.8727 sq=0.0000 all=4.0000
+  s>=3     zeros: irr=1407 comp=10283 sq=343 | mean R: irr=7.0451 comp=5.8121 sq=0.0000 all=6.0000
   R_full mod 3 among irreducibles: 6370 6538 6636
+  hist R_full irr (R:count, R<=40): 0:280 2:553 4:903 6:1442 8:1932 10:2436 12:2268 14:2268 16:1869 18:1477 20:1064 22:868 24:546 26:476 28:231 30:196 32:140 34:140 36:105 38:119 40:63
+  hist R_full comp (R:count, R<=40): 0:2422 2:4844 4:8211 6:10766 8:11655 10:12789 12:11487 14:9849 16:7238 18:5642 20:3983 22:3108 24:1582 26:1190 28:868 30:588 32:448 34:273 36:245 38:154 40:196

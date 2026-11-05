@@ -23,9 +23,12 @@ def fdeg(g):
     fa = pari.factor(g); return sorted(int(pari.poldegree(fa[0][i])) * 1 for i in range(len(fa[0])) for _ in range(int(fa[1][i])))
 for n in map(int, sys.argv[2:]):
     for line in open(f"data/z58/ffield/star_q{q}_n{n}.zeros"):
+        if not line.strip() or line.startswith("#"): continue
         w = line.split()
         if w[2] != "P" or int(w[3]) != 0: continue
-        f = poly([int(c) for c in w[1]])
+        idx = int(w[0]); cs = []
+        for _ in range(n): cs.append(idx % q); idx //= q
+        f = poly(cs + [1])  # decoded from idx (the coefficient string is ambiguous for q > 10)
         # polynomial part of sqrt: use pari on truncated series in 1/x
         X = pari("x")
         g = pari.lift(pari.subst(pari.truncate(pari.sqrt(pari.subst(f, X, pari("1/y")) + pari("O(y^%d)" % (n + 2)))), pari("y"), pari("1/x")))

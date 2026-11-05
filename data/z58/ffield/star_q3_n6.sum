@@ -1,4 +1,5 @@
 q=3 n=6 mode=star shapes(cls0,cls1,cls2)=6,2,4  #irr=116 #comp=586 #sq=27
+  exact mass check (sum of counts = #shapes*q^n in every class): OK; saturated counters: 0
   full     zeros: irr=3 comp=27 sq=27 | mean R: irr=18.3793 comp=11.2901 sq=0.0000 all=12.0000
   s=1      zeros: irr=3 comp=53 sq=27 | mean R: irr=9.2069 comp=5.6416 sq=0.0000 all=6.0000
   s=1mod4  zeros: irr=3 comp=53 sq=27 | mean R: irr=12.3103 comp=7.5154 sq=0.0000 all=8.0000

@@ -58,9 +58,13 @@ static void inner(int *f0, int k, const int *M, int dm, uint16_t *c) {
 int main(int argc, char **argv) {
     if (argc < 5) { fprintf(stderr, "usage: p n star|U outprefix\n"); return 1; }
     p = atoi(argv[1]); n = atoi(argv[2]);
+    // supported domain: prime fields F_p, p ≡ 3 (mod 4) (prime powers are NOT implemented), 2 <= n <= 30
+    { int ok = p >= 3 && p % 4 == 3; for (int d = 2; d * d <= p; d++) if (p % d == 0) ok = 0;
+      if (!ok || n < 2 || n > 30) { fprintf(stderr, "unsupported p=%d n=%d (need prime p = 3 mod 4, 2<=n<=30)\n", p, n); return 1; } }
+    if (strcmp(argv[3], "U") && strcmp(argv[3], "star")) { fprintf(stderr, "mode must be star or U\n"); return 1; }
     int modeU = strcmp(argv[3], "U") == 0;
     const char *pref = argv[4];
-    pw[0] = 1; for (int i = 1; i <= n; i++) pw[i] = pw[i - 1] * p;
+    pw[0] = 1; for (int i = 1; i <= n; i++) { pw[i] = pw[i - 1] * p; if (pw[i] > (1LL << 40)) { fprintf(stderr, "q^n too large\n"); return 1; } }
     long long N = pw[n];
     for (int c = 0; c < 3; c++) { cnt[c] = calloc(N, sizeof(uint16_t)); if (!cnt[c]) { fprintf(stderr, "oom\n"); return 1; } }
     long long nsh[3] = {0, 0, 0};
@@ -105,6 +109,13 @@ int main(int argc, char **argv) {
     }
     // classification sieve: 0 = irreducible, 1 = composite, 2 = square
     uint8_t *ty = calloc(N, 1);
+    if (!ty) { fprintf(stderr, "oom\n"); return 1; }
+    // exact mass control: sum of counts per class must equal (#shapes) * q^n unless a counter saturated
+    long long satur = 0; int massok = 1;
+    for (int c = 0; c < 3; c++) {
+        long long S = 0; for (long long i = 0; i < N; i++) { S += cnt[c][i]; if (cnt[c][i] == 65535) satur++; }
+        if (S != nsh[c] * N) massok = 0;
+    }
     {
         int g[64], h[64], P[128];
         for (int k = 1; k <= n / 2; k++)
@@ -121,6 +132,7 @@ int main(int argc, char **argv) {
     }
     char fn[512]; snprintf(fn, sizeof fn, "%s.zeros", pref);
     FILE *fz = fopen(fn, "w");
+    if (!fz) { fprintf(stderr, "cannot open %s\n", fn); return 1; }
     // families: 0 full (any class), 1 s=1 (cls0), 2 s≡1 mod 4 (cls0|cls1), 3 s≡3 mod 4 (cls2), 4 s>=3 (cls1|cls2)
     long long zero[5][3]; memset(zero, 0, sizeof zero);
     long long ntype[3] = {0, 0, 0};
@@ -142,18 +154,22 @@ int main(int argc, char **argv) {
         (void)anyz;
         if (rec && T != 2) {
             fprintf(fz, "%lld ", idx);
-            long long x = idx; for (int j = 0; j < n; j++) { fprintf(fz, "%lld", x % p); x /= p; }
+            // coefficients low..high; for q > 10 they are comma-separated (readers should decode from idx anyway)
+            long long x = idx; for (int j = 0; j < n; j++) { fprintf(fz, p > 10 ? "%lld," : "%lld", x % p); x /= p; }
             fprintf(fz, "1 %c %lld %lld %lld %lld\n", "PCS"[T], r[0], r[1], r[2], r[3]);
         }
     }
     fclose(fz);
     snprintf(fn, sizeof fn, "%s.sum", pref);
     FILE *fs = fopen(fn, "w");
+    if (!fs) { fprintf(stderr, "cannot open %s\n", fn); return 1; }
     FILE *outs[2] = {stdout, fs};
     for (int o = 0; o < 2; o++) {
         FILE *F = outs[o];
         fprintf(F, "q=%d n=%d mode=%s shapes(cls0,cls1,cls2)=%lld,%lld,%lld  #irr=%lld #comp=%lld #sq=%lld\n",
                 p, n, modeU ? "U" : "star", nsh[0], nsh[1], nsh[2], ntype[0], ntype[1], ntype[2]);
+        fprintf(F, "  exact mass check (sum of counts = #shapes*q^n in every class): %s; saturated counters: %lld\n",
+                massok ? "OK" : "FAILED", satur);
         const char *nm[5] = {modeU ? "U" : "full", "s=1", "s=1mod4", "s=3mod4", "s>=3"};
         for (int fam = 0; fam < (modeU ? 1 : 5); fam++)
             fprintf(F, "  %-8s zeros: irr=%lld comp=%lld sq=%lld | mean R: irr=%.4Lf comp=%.4Lf sq=%.4Lf all=%.4Lf\n", nm[fam],

@@ -15,4 +15,9 @@ for p in primerange(5, X):
     dec = len(str(p))
     if u > CAP: print('no u <= CAP at p =', p); continue
     if dec not in best or u > best[dec][0]: best[dec] = (u, p)
-for dec in sorted(best): print("p < 10^%d: max least u = %d at p = %d" % (dec, *best[dec]))
+# per-decade maxima (disjoint intervals [10^(k-1), 10^k) ∩ [5, X)) and cumulative maxima up to 10^k (and X)
+cum = (0, 0)
+for dec in sorted(best):
+    if best[dec][0] > cum[0]: cum = best[dec]
+    hi = min(10 ** dec, X)
+    print("decade [10^%d, %d): max least u = %d at p = %d | cumulative p < %d: max %d at p = %d" % (dec - 1, hi, *best[dec], hi, *cum))
