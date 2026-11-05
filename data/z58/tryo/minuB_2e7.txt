@@ -1,0 +1,26 @@
+record p=1009 Y=130 Y/logp=18.80
+record p=3049 Y=390 Y/logp=48.61
+record p=3529 Y=930 Y/logp=113.85
+ZERO p=5569
+record p=8521 Y=1100 Y/logp=121.54
+ZERO p=9601
+record p=12601 Y=1586 Y/logp=167.98
+record p=19441 Y=4902 Y/logp=496.40
+record p=53881 Y=6780 Y/logp=622.33
+record p=59929 Y=15060 Y/logp=1368.98
+record p=68161 Y=17160 Y/logp=1541.83
+ZERO p=83449
+ZERO p=102001
+record p=169129 Y=21182 Y/logp=1759.53
+record p=203449 Y=25472 Y/logp=2083.91
+record p=254041 Y=31800 Y/logp=2555.19
+record p=530209 Y=66352 Y/logp=5033.90
+ZERO p=712321
+ZERO p=1724209
+ZERO p=1726201
+record p=2481649 Y=206880 Y/logp=14050.12
+record p=3292969 Y=412052 Y/logp=27456.77
+record p=3341881 Y=835986 Y/logp=55650.61
+ZERO p=5212561
+ZERO p=8813281
+count=39391

@@ -13,12 +13,15 @@ static int isprime(u64 n){if(n<2)return 0;static const u64 sp[]={2,3,5,7,11,13,1
  u64 d=n-1;int s=0;while(!(d&1)){d>>=1;s++;}
  for(int i=0;i<12;i++){u64 x=powmod(sp[i],d,n);if(x==1||x==n-1)continue;int ok=0;
   for(int r=1;r<s;r++){x=mulmod(x,x,n);if(x==n-1){ok=1;break;}}if(!ok)return 0;}return 1;}
+static u64 gcdu(u64 a,u64 b){while(b){u64 t=a%b;a=b;b=t;}return a;}
+static u64 rho(u64 n){ if(n%2==0) return 2; for(u64 c=1;;c++){ u64 x=2,y=2,d=1; while(d==1){x=(mulmod(x,x,n)+c)%n; y=(mulmod(y,y,n)+c)%n; y=(mulmod(y,y,n)+c)%n; d=gcdu(x>y?x-y:y-x,n);} if(d!=n) return d; } }
+static void addfac(u64 m,u64 M,u64*f,int*e,int*k){ if(m==1)return; if(isprime(m)){ if(M%m==0) return; for(int i=0;i<*k;i++) if(f[i]==m){e[i]++;return;} f[*k]=m;e[*k]=1;(*k)++; return;} u64 d=rho(m); addfac(d,M,f,e,k); addfac(m/d,M,f,e,k);}
 static int *pr; static int npr;
 // does n have divisor d with gcd(d,4u)=1, d == -1 mod M (M=4u)?
 static int hasdiv(u64 n,u64 u,u64 *dout){
  u64 M=4*u; u64 f[64]; int e[64]; int k=0; u64 m=n;
  for(int i=0;i<npr;i++){u64 q=pr[i]; if(q*q>m)break; if(m%q==0){int c=0;while(m%q==0){m/=q;c++;} if(M%q!=0 && q!=2){f[k]=q;e[k]=c;k++;}}}
- if(m>1 && (M%m)!=0 && m!=2 && !(m%2==0)){ if(m%2) {f[k]=m;e[k]=1;k++;} }
+ addfac(m,M,f,e,&k);
  // enumerate divisors mod M as residues, but also keep actual value for reporting: enumerate actual divisors
  static u64 dv[1<<16]; int nd=1; dv[0]=1;
  for(int i=0;i<k;i++){int cur=nd; u64 pw=1; for(int j=1;j<=e[i];j++){pw*=f[i]; for(int t=0;t<cur;t++){ if(nd>=(1<<16)) {fprintf(stderr,"overflow\n");exit(1);} dv[nd++]=dv[t]*pw;}}}
