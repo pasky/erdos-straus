@@ -1,0 +1,14 @@
+SUMMARY q=3 n=14 m=2 K3=0 degM=12 c0=1 mode=exhaustive amax=99 cand=9 irr=6 zeros=0 hard(undecided)=0 hist a*=[3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+PARI stack size set to 400000000 bytes, maximum size set to 400003072
+SUMMARY q=3 n=16 m=2 K3=0 degM=12 c0=1 mode=exhaustive amax=99 cand=81 irr=12 zeros=0 hard(undecided)=0 hist a*=[6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY q=3 n=18 m=2 K3=0 degM=12 c0=1 mode=exhaustive amax=99 cand=729 irr=219 zeros=0 hard(undecided)=0 hist a*=[138, 63, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY q=3 n=20 m=2 K3=0 degM=12 c0=1 mode=exhaustive amax=99 cand=6561 irr=1464 zeros=0 hard(undecided)=0 hist a*=[780, 576, 102, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY q=3 n=22 m=2 K3=0 degM=12 c0=1 mode=exhaustive amax=99 cand=59049 irr=13044 zeros=0 hard(undecided)=0 hist a*=[7098, 5175, 708, 60, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY q=3 n=24 m=2 K3=0 degM=12 c0=1 mode=exhaustive amax=99 cand=531441 irr=105496 zeros=0 hard(undecided)=0 hist a*=[59220, 41022, 4870, 384, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY q=3 n=26 m=2 K3=4 degM=24 c0=1 mode=exhaustive amax=99 cand=9 irr=3 zeros=0 hard(undecided)=0 hist a*=[1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY q=3 n=28 m=2 K3=4 degM=24 c0=1 mode=exhaustive amax=99 cand=81 irr=18 zeros=0 hard(undecided)=0 hist a*=[9, 6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY q=3 n=30 m=2 K3=4 degM=24 c0=1 mode=exhaustive amax=99 cand=729 irr=139 zeros=0 hard(undecided)=0 hist a*=[71, 64, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+real	0m46.460s
+user	0m46.419s
+sys	0m0.040s

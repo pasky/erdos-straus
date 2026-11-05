@@ -3,4 +3,7 @@ q=3 n=10 mode=star shapes(cls0,cls1,cls2)=10,8,12  #irr=5880 #comp=52926 #sq=243
   s=1      zeros: irr=126 comp=2709 sq=243 | mean R: irr=14.6582 comp=9.5284 sq=0.0000 all=10.0000
   s=1mod4  zeros: irr=15 comp=594 sq=243 | mean R: irr=26.8765 comp=17.0965 sq=0.0000 all=18.0000
   s=3mod4  zeros: irr=18 comp=963 sq=243 | mean R: irr=18.2439 comp=11.3614 sq=0.0000 all=12.0000
+  s>=3     zeros: irr=9 comp=219 sq=243 | mean R: irr=30.4622 comp=18.9295 sq=0.0000 all=20.0000
   R_full mod 3 among irreducibles: 1950 2031 1899
+  hist R_full irr (R:count, R<=40): 0:6 2:6 4:9 6:12 8:18 10:18 12:24 14:39 16:45 18:54 20:75 22:123 24:126 26:141 28:219 30:201 32:204 34:282 36:276 38:309 40:303
+  hist R_full comp (R:count, R<=40): 0:87 2:204 4:417 6:822 8:1311 10:1761 12:1914 14:2481 16:2679 18:2844 20:3144 22:3111 24:3039 26:3138 28:3144 30:2991 32:2538 34:2397 36:2109 38:1878 40:1596

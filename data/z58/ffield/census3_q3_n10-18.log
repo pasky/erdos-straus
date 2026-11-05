@@ -1,0 +1,13 @@
+ZERO x^10 + 2*x^8 + x^7 + x^6 + x^4 + x^2 + 2*x + 1
+PARI stack size set to 400000000 bytes, maximum size set to 400003072
+ZERO x^10 + x^7 + 2*x^5 + x^4 + x^3 + x^2 + 2*x + 1
+SUMMARY n=10 part=0/1 candidates=2187 irreducible=720 orbit_reps=240 zero_reps=2 hist a* (orbit reps)=[80, 127, 30, 1, 0, 0, 0, 0, 0, 0]
+ZERO x^12 + 2*x^11 + x^8 + x^6 + 2*x^5 + 2*x^4 + x^2 + 2*x + 1
+SUMMARY n=12 part=0/1 candidates=19683 irreducible=5460 orbit_reps=1824 zero_reps=1 hist a* (orbit reps)=[690, 976, 148, 9, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY n=14 part=0/1 candidates=177147 irreducible=42588 orbit_reps=14196 zero_reps=0 hist a* (orbit reps)=[6043, 7204, 901, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY n=16 part=0/1 candidates=1594323 irreducible=335790 orbit_reps=111930 zero_reps=0 hist a* (orbit reps)=[51694, 54579, 5450, 205, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+SUMMARY n=18 part=0/1 candidates=14348907 irreducible=2689596 orbit_reps=896556 zero_reps=0 hist a* (orbit reps)=[439257, 421705, 34760, 830, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+real	9m10.077s
+user	9m9.432s
+sys	0m0.166s

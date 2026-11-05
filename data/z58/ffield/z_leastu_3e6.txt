@@ -1,0 +1,19 @@
+no u <= CAP at p = 409
+no u <= CAP at p = 577
+no u <= CAP at p = 5569
+no u <= CAP at p = 9601
+no u <= CAP at p = 23929
+no u <= CAP at p = 83449
+no u <= CAP at p = 102001
+no u <= CAP at p = 329617
+no u <= CAP at p = 712321
+no u <= CAP at p = 1134241
+no u <= CAP at p = 1724209
+no u <= CAP at p = 1726201
+p < 10^1: max least u = 1 at p = 5
+p < 10^2: max least u = 2 at p = 73
+p < 10^3: max least u = 4 at p = 337
+p < 10^4: max least u = 19 at p = 6337
+p < 10^5: max least u = 78 at p = 57457
+p < 10^6: max least u = 131 at p = 427249
+p < 10^7: max least u = 110 at p = 1021441

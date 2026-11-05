@@ -1,0 +1,54 @@
+q=3 n=6 mode=star shapes(cls0,cls1,cls2)=6,2,4  #irr=116 #comp=586 #sq=27
+  full     zeros: irr=3 comp=27 sq=27 | mean R: irr=18.3793 comp=11.2901 sq=0.0000 all=12.0000
+  s=1      zeros: irr=3 comp=53 sq=27 | mean R: irr=9.2069 comp=5.6416 sq=0.0000 all=6.0000
+  s=1mod4  zeros: irr=3 comp=53 sq=27 | mean R: irr=12.3103 comp=7.5154 sq=0.0000 all=8.0000
+  s=3mod4  zeros: irr=9 comp=111 sq=27 | mean R: irr=6.0690 comp=3.7747 sq=0.0000 all=4.0000
+  s>=3     zeros: irr=3 comp=57 sq=27 | mean R: irr=9.1724 comp=5.6485 sq=0.0000 all=6.0000
+  R_full mod 3 among irreducibles: 36 47 33
+  hist R_full irr (R:count, R<=40): 0:3 8:3 10:3 12:15 14:9 16:15 18:6 20:15 22:28 24:9 26:3 28:1 30:3 32:3
+  hist R_full comp (R:count, R<=40): 0:27 2:22 4:43 6:60 8:70 10:72 12:84 14:45 16:69 18:27 20:33 22:6 24:9 26:10 28:3 30:6
+q=3 n=8 mode=star shapes(cls0,cls1,cls2)=8,4,8  #irr=810 #comp=5670 #sq=81
+  full     zeros: irr=3 comp=48 sq=81 | mean R: irr=30.3704 comp=18.8042 sq=0.0000 all=20.0000
+  s=1      zeros: irr=18 comp=378 sq=81 | mean R: irr=11.9185 comp=7.5545 sq=0.0000 all=8.0000
+  s=1mod4  zeros: irr=15 comp=138 sq=81 | mean R: irr=18.2000 comp=11.2857 sq=0.0000 all=12.0000
+  s=3mod4  zeros: irr=3 comp=261 sq=81 | mean R: irr=12.1704 comp=7.5185 sq=0.0000 all=8.0000
+  s>=3     zeros: irr=3 comp=123 sq=81 | mean R: irr=18.4519 comp=11.2497 sq=0.0000 all=12.0000
+  R_full mod 3 among irreducibles: 240 300 270
+  hist R_full irr (R:count, R<=40): 0:3 2:6 4:6 6:3 8:3 10:6 12:6 14:6 16:36 18:48 20:45 22:54 24:45 26:54 28:57 30:48 32:60 34:66 36:54 38:51 40:30
+  hist R_full comp (R:count, R<=40): 0:48 2:81 4:192 6:255 8:336 10:384 12:447 14:474 16:462 18:456 20:405 22:375 24:333 26:303 28:243 30:213 32:162 34:165 36:87 38:69 40:54
+q=3 n=10 mode=star shapes(cls0,cls1,cls2)=10,8,12  #irr=5880 #comp=52926 #sq=243
+  full     zeros: irr=6 comp=87 sq=243 | mean R: irr=45.1204 comp=28.4579 sq=0.0000 all=30.0000
+  s=1      zeros: irr=126 comp=2709 sq=243 | mean R: irr=14.6582 comp=9.5284 sq=0.0000 all=10.0000
+  s=1mod4  zeros: irr=15 comp=594 sq=243 | mean R: irr=26.8765 comp=17.0965 sq=0.0000 all=18.0000
+  s=3mod4  zeros: irr=18 comp=963 sq=243 | mean R: irr=18.2439 comp=11.3614 sq=0.0000 all=12.0000
+  s>=3     zeros: irr=9 comp=219 sq=243 | mean R: irr=30.4622 comp=18.9295 sq=0.0000 all=20.0000
+  R_full mod 3 among irreducibles: 1950 2031 1899
+  hist R_full irr (R:count, R<=40): 0:6 2:6 4:9 6:12 8:18 10:18 12:24 14:39 16:45 18:54 20:75 22:123 24:126 26:141 28:219 30:201 32:204 34:282 36:276 38:309 40:303
+  hist R_full comp (R:count, R<=40): 0:87 2:204 4:417 6:822 8:1311 10:1761 12:1914 14:2481 16:2679 18:2844 20:3144 22:3111 24:3039 26:3138 28:3144 30:2991 32:2538 34:2397 36:2109 38:1878 40:1596
+q=3 n=12 mode=star shapes(cls0,cls1,cls2)=12,12,18  #irr=44220 #comp=486492 #sq=729
+  full     zeros: irr=3 comp=67 sq=729 | mean R: irr=62.8277 comp=40.1698 sq=0.0000 all=42.0000
+  s=1      zeros: irr=688 comp=20198 sq=729 | mean R: irr=17.5436 comp=11.5141 sq=0.0000 all=12.0000
+  s=1mod4  zeros: irr=15 comp=1028 sq=729 | mean R: irr=35.7754 comp=22.9656 sq=0.0000 all=24.0000
+  s=3mod4  zeros: irr=6 comp=1778 sq=729 | mean R: irr=27.0523 comp=17.2042 sq=0.0000 all=18.0000
+  s>=3     zeros: irr=3 comp=229 sq=729 | mean R: irr=45.2841 comp=28.6557 sq=0.0000 all=30.0000
+  R_full mod 3 among irreducibles: 14471 14801 14948
+  hist R_full irr (R:count, R<=40): 0:3 4:3 6:21 8:18 10:36 12:63 14:63 16:70 18:111 20:126 22:168 24:243 26:319 28:381 30:471 32:585 34:645 36:771 38:888 40:1029
+  hist R_full comp (R:count, R<=40): 0:67 2:286 4:781 6:1762 8:3309 10:4948 12:7385 14:9629 16:12131 18:14433 20:16535 22:18178 24:19574 26:20922 28:22038 30:22429 32:22401 34:22086 36:21434 38:21538 40:20049
+q=3 n=14 mode=star shapes(cls0,cls1,cls2)=14,18,24  #irr=341484 #comp=4439298 #sq=2187
+  full     zeros: irr=0 comp=51 sq=2187 | mean R: irr=83.4400 comp=53.9168 sq=0.0000 all=56.0000
+  s=1      zeros: irr=4482 comp=150918 sq=2187 | mean R: irr=20.4261 comp=13.5126 sq=0.0000 all=14.0000
+  s=1mod4  zeros: irr=9 comp=2703 sq=2187 | mean R: irr=47.4570 comp=30.8268 sq=0.0000 all=32.0000
+  s=3mod4  zeros: irr=3 comp=4377 sq=2187 | mean R: irr=35.9830 comp=23.0901 sq=0.0000 all=24.0000
+  s>=3     zeros: irr=0 comp=192 sq=2187 | mean R: irr=63.0139 comp=40.4042 sq=0.0000 all=42.0000
+  R_full mod 3 among irreducibles: 113841 114207 113436
+  hist R_full irr (R:count, R<=40): 4:3 6:3 8:18 10:27 12:39 14:87 16:135 18:183 20:183 22:354 24:447 26:540 28:660 30:879 32:1134 34:1320 36:1656 38:1932 40:2283
+  hist R_full comp (R:count, R<=40): 0:51 2:255 4:1044 6:2592 8:5799 10:11286 12:18468 14:27855 16:38991 18:51780 20:64965 22:79536 24:92358 26:106686 28:118506 30:130344 32:139659 34:147258 36:153411 38:158169 40:160206
+q=3 n=16 mode=star shapes(cls0,cls1,cls2)=16,24,32  #irr=2690010 #comp=40350150 #sq=6561
+  full     zeros: irr=0 comp=15 sq=6561 | mean R: irr=107.0396 comp=69.6757 sq=0.0000 all=72.0000
+  s=1      zeros: irr=29070 comp=1145247 sq=6561 | mean R: irr=23.2954 comp=15.5162 sq=0.0000 all=16.0000
+  s=1mod4  zeros: irr=15 comp=3306 sq=6561 | mean R: irr=59.3301 comp=38.7178 sq=0.0000 all=40.0000
+  s=3mod4  zeros: irr=0 comp=6231 sq=6561 | mean R: irr=47.7094 comp=30.9579 sq=0.0000 all=32.0000
+  s>=3     zeros: irr=0 comp=129 sq=6561 | mean R: irr=83.7442 comp=54.1595 sq=0.0000 all=56.0000
+  R_full mod 3 among irreducibles: 895566 896964 897480
+  hist R_full irr (R:count, R<=40): 8:6 10:6 12:6 14:33 16:66 18:87 20:165 22:201 24:342 26:534 28:675 30:996 32:1383 34:1824 36:2256 38:2958 40:3711
+  hist R_full comp (R:count, R<=40): 0:15 2:195 4:966 6:2739 8:7851 10:17466 12:33297 14:59163 16:94752 18:140535 20:196788 22:261735 24:334719 26:411489 28:491451 30:577674 32:659688 34:739878 36:824832 38:893682 40:960900

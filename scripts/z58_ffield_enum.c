@@ -121,19 +121,20 @@ int main(int argc, char **argv) {
     }
     char fn[512]; snprintf(fn, sizeof fn, "%s.zeros", pref);
     FILE *fz = fopen(fn, "w");
-    // families: 0 full (any class), 1 s=1 (cls0), 2 s≡1 mod 4 (cls0|cls1), 3 s≡3 mod 4 (cls2)
-    long long zero[4][3]; memset(zero, 0, sizeof zero);
+    // families: 0 full (any class), 1 s=1 (cls0), 2 s≡1 mod 4 (cls0|cls1), 3 s≡3 mod 4 (cls2), 4 s>=3 (cls1|cls2)
+    long long zero[5][3]; memset(zero, 0, sizeof zero);
     long long ntype[3] = {0, 0, 0};
-    long double sum[4][3]; memset(sum, 0, sizeof sum);
+    long double sum[5][3]; memset(sum, 0, sizeof sum);
     long long mod3irr[3] = {0, 0, 0}; // R_full mod 3 among irreducibles
     static long long hist[2][256]; // histogram of R_full: [irr, comp]
     for (long long idx = 0; idx < N; idx++) {
         int T = ty[idx]; ntype[T]++;
-        long long r[4];
+        long long r[5];
         r[1] = cnt[0][idx]; r[2] = (long long)cnt[0][idx] + cnt[1][idx]; r[3] = cnt[2][idx];
         r[0] = r[2] + r[3];
+        r[4] = (long long)cnt[1][idx] + cnt[2][idx]; // s >= 3 (drop the smallest t-degree: proxy of C even)
         int anyz = 0;
-        for (int fam = 0; fam < 4; fam++) { sum[fam][T] += r[fam]; if (r[fam] == 0) { zero[fam][T]++; anyz = 1; } }
+        for (int fam = 0; fam < 5; fam++) { sum[fam][T] += r[fam]; if (r[fam] == 0) { zero[fam][T]++; anyz = 1; } }
         if (T == 0) mod3irr[r[0] % 3]++;
         if (T != 2) hist[T][r[0] < 255 ? r[0] : 255]++;
         // record: every non-square zero of the full family, and irreducible zeros of the half-mass sub-lines
@@ -153,8 +154,8 @@ int main(int argc, char **argv) {
         FILE *F = outs[o];
         fprintf(F, "q=%d n=%d mode=%s shapes(cls0,cls1,cls2)=%lld,%lld,%lld  #irr=%lld #comp=%lld #sq=%lld\n",
                 p, n, modeU ? "U" : "star", nsh[0], nsh[1], nsh[2], ntype[0], ntype[1], ntype[2]);
-        const char *nm[4] = {modeU ? "U" : "full", "s=1", "s=1mod4", "s=3mod4"};
-        for (int fam = 0; fam < (modeU ? 1 : 4); fam++)
+        const char *nm[5] = {modeU ? "U" : "full", "s=1", "s=1mod4", "s=3mod4", "s>=3"};
+        for (int fam = 0; fam < (modeU ? 1 : 5); fam++)
             fprintf(F, "  %-8s zeros: irr=%lld comp=%lld sq=%lld | mean R: irr=%.4Lf comp=%.4Lf sq=%.4Lf all=%.4Lf\n", nm[fam],
                     zero[fam][0], zero[fam][1], zero[fam][2],
                     ntype[0] ? sum[fam][0] / ntype[0] : 0.0L, ntype[1] ? sum[fam][1] / ntype[1] : 0.0L,

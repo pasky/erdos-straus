@@ -1,0 +1,7 @@
+SUMMARY n=16 part=0/1 candidates=1594323 irreducible=335790 orbit_reps=111930 zero_reps=0
+PARI stack size set to 400000000 bytes, maximum size set to 400003072
+SUMMARY n=18 part=0/1 candidates=14348907 irreducible=2689596 orbit_reps=896556 zero_reps=0
+
+real	8m24.872s
+user	8m24.670s
+sys	0m0.166s
