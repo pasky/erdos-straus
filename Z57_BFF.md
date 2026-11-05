@@ -59,9 +59,8 @@ Conversely for a solution, d := 4nC − 1 ≡ −1 (mod 4n) and d·m = 4nmC − 
 (So R_𝔊*(p) ≥ 1 ⟺ some n ≥ 1 is such that p + n = d·m with d ≡ −1 (mod 4n) and max(n, m)⁴ > min(n, m)·p; then
 necessarily m ≡ −(p + n) (mod 4n), but that congruence alone does not imply d ≡ −1 (mod 4n) when gcd(m, 4n) > 1.)
 
-**Lemma 1.2 (defect / hyperbola form).** Let d ≡ 3 (mod 4) with p ∤ d (so gcd(d, p) = 1; for p | d put HIT(d) := false — no
-n ≥ 1 has d | p + n with d ≡ −1 (mod 4n) then, since that would force n ≡ −p ≡ 0 (mod p) with n < d, hence p | d + 1, impossible
-with p | d). Put n_d := d − (p mod d) (so 1 ≤ n_d ≤ d − 1,
+**Lemma 1.2 (defect / hyperbola form).** Let d ≡ 3 (mod 4) with p ∤ d (so gcd(d, p) = 1; for p | d put HIT(d) := false — consistent
+with (ii)(a), since d | p + n and n | d + 1 would give p | n | d + 1 while p | d). Put n_d := d − (p mod d) (so 1 ≤ n_d ≤ d − 1,
 n_d ≡ −p (mod d), gcd(n_d, d) = gcd(p, d) = 1) and C_d := the least positive residue of −(4p)⁻¹ (mod d). Then:
  (i) 4·n_d·C_d ≡ 1 (mod d), so 4n_dC_d ∈ {d + 1, 2d + 1, 3d + 1, …};
  (ii) the following are equivalent: (a) ∃ n ≥ 1 with d | p + n and d ≡ −1 (mod 4n); (b) 4n_d | d + 1; (c) 4C_d | d + 1;
