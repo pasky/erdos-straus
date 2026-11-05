@@ -1,0 +1,22 @@
+4545 working rho<60: []
+   NR rho 11 N= {17: 1, 67: 1} FAILS
+   NR rho 23 N= {2: 1, 571: 1} FAILS
+   NR rho 43 N= {31: 1, 37: 1} FAILS
+   NR rho 47 N= {2: 2, 7: 1, 41: 1} FAILS
+   NR rho 59 N= {1151: 1} FAILS
+8803369 working rho<120: [107]
+   NR rho 43 N= {379: 1, 5807: 1} FAILS
+   NR rho 59 N= {3: 1, 733619: 1} FAILS
+   NR rho 67 N= {719: 1, 3061: 1} FAILS
+   NR rho 83 N= {3: 1, 7: 1, 104803: 1} FAILS
+   NR rho 103 N= {2: 2, 29: 1, 18973: 1} FAILS
+   NR rho 107 N= {3: 2, 11: 2, 43: 1, 47: 1} works
+66529 working rho<120: [31, 55, 95]
+   NR rho 19 N= {127: 1, 131: 1} FAILS
+   NR rho 31 N= {2: 8, 5: 1, 13: 1} works
+   NR rho 39 N= {2: 1, 53: 1, 157: 1} FAILS
+   NR rho 43 N= {11: 1, 17: 1, 89: 1} FAILS
+   NR rho 83 N= {3: 1, 7: 1, 13: 1, 61: 1} FAILS
+   NR rho 87 N= {2: 1, 11: 1, 757: 1} FAILS
+   NR rho 91 N= {5: 1, 3331: 1} FAILS
+   NR rho 95 N= {2: 4, 3: 1, 347: 1} works
