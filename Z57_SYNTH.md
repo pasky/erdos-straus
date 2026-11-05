@@ -12,7 +12,7 @@ any infinite set of primes.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENC
 * **(MS), the minimal missing statement (§1).** *Every prime p > 10¹⁷ with p mod 840 in Mordell's six classes has some
   d ≡ 3 (mod 4) for which the remainder of −p mod d divides (d + 1)/4.*
   * Equivalent forms: R(p) ≥ 1; X(p) > −M_gen(p).
-  * Together with Mordell's classical reduction and Salez's verification to 10¹⁷ (abstract checked), (MS) implies ES
+  * Together with Mordell's classical reduction and Salez's verification to 10¹⁷ (abstract checked; §§4.1–4.3 checked by the cross-model review), (MS) implies ES
     (PROVED relative to those).
   * (MS) is sufficient, not necessary: ES could be proved by other lines or by a non-counting argument.
   * Among the subfamily-positivity statements carried by the (★) machinery, (MS) is the weakest sufficient target
@@ -34,8 +34,9 @@ any infinite set of primes.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENC
     * There M_gen/L² ≤ 0.135, with mean 0.117 < 5/(4π²): at these sizes the asymptotic constant of Theorem V is not yet
       reached in Mordell classes.
 * **Three mechanisms (§3), each partly prior; the new content is diagnostics.**
-  * **I (pushed): an effectivity calibration.** Lemma E1 (PROVED): on a Theorem-V slice at Burgess margin μ the
-    optimised Burgess bound saves at most p^{−μ²/(1+a)}. Lemma E2 (PROVED): the margin set has exact area 2μ/3 + 4μ²/3.
+  * **I (pushed): an effectivity calibration.** Lemma E1 (PROVED): on a Theorem-V slice at Burgess margin μ, the
+    optimised Burgess bound saves at most p^{−μ²/(1+a)}. This holds for the worst allowed conductor in this single
+    Burgess bound expression; it says nothing about true cancellation, smaller actual conductors or other arguments. Lemma E2 (PROVED): the margin set has exact area 2μ/3 + 4μ²/3.
     Assessment, hypothetical envelope plus fitted model: as the margin μ grows, the envelope crossover falls but the
     family's own zero tail rises.
     * The models are fitted on all primes p ≡ 1 (4) in [10⁵, 10⁸], with a Mordell-domain fit as a diagnostic.
@@ -49,12 +50,14 @@ any infinite set of primes.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENC
   * **II: split-and-complement** (C-parity; (★) against López). Not killed. C-parity complementarity above 8 813 281 is
     full-family positivity on the same domain (CERTIFIED to 10¹⁰), hence (MS) when restricted to its domain. The halves are positively associated in bulk (corr ≈ +0.29, EVIDENCE). No mechanism
     explaining eventual disjointness of their zero sets was found.
-  * **III: covering rigidity plus explicit least non-residue.** Lemma A.1 (PROVED): R(n) = #{d ≡ 3 (4) : n mod d ∈ H_d}
-    for every n ≥ 1, and every hit class has Jacobi symbol −1. Prop A.2 (PROVED, corrected): the implication SMCR ⟹ hit,
-    for p ≡ 1 (8). Prop A.3 (PROVED via `Z55_HCF.md` T3.1): for every finite D and every g ≥ 11, SMCR(D, g) is false.
+  * **III: covering rigidity plus explicit least non-residue.** Lemma A.1 (PROVED; essentially FAMTRY Lemmas 1.1–1.4):
+    R(n) = #{d ≥ 3, d ≡ 3 (4) : n mod d ∈ H_d} for every n ≥ 1, and every hit class has Jacobi symbol −1. Prop A.2 (PROVED, corrected): the implication SMCR ⟹ hit,
+    for p ≡ 1 (8). Prop A.3 (PROVED; a corollary of `Z55_HCF.md` T3.1): for every finite D and every g ≥ 11, SMCR(D, g)
+    is false.
     Size-controlled variants are not excluded.
-* **Verdict: narrowed (§4).** (MS) is pinned down with its ladder. The numerator-8 screen gets CERTIFIED counterexamples
-  above the certified range. The η = 0 uniform diagnostic fails at seven tested non-Mordell primes below 10⁸; no eventual
+* **Verdict: narrowed (§4).** (MS) is pinned down with its ladder. The numerator-8 screen gets CERTIFIED C-even
+  counterexamples above the internal 10¹⁰ full-(★) census range. They lie below Salez's 10¹⁷ ES range and do not refute
+  (MS). The η = 0 uniform diagnostic fails at seven tested non-Mordell primes below 10⁸; no eventual
   statement is refuted. The effective route has a calibrated, model-based trade-off. B2 did not move.
 
 ## 1. The minimal missing statement
@@ -68,8 +71,10 @@ Notation (FRONTIER §2.1, `Z56_FAMDESIGN.md` §1):
 
 ### 1.1 Statement
 
-**(MS)** *For every prime p > 10¹⁷ with p mod 840 ∈ 𝔐 there is an integer d ≡ 3 (mod 4) such that the least positive
-residue r of −p modulo d is a divisor of (d + 1)/4.*
+**(MS)** *For every prime p > 10¹⁷ with p mod 840 ∈ 𝔐 there is an integer d ≥ 3, d ≡ 3 (mod 4), such that the least
+residue r = (−p mod d) ∈ {1, …, d − 1} is a divisor of (d + 1)/4.* Necessarily d ≤ (4p + 1)/3, since d ≤ p + r ≤
+p + (d + 1)/4. Positivity of d is essential: read literally, d = −1 would give r = 1 | 0 but reconstruct C = 0
+(cross-model review, fix 1).
 
 *Equivalent forms (PROVED).* Lemma A.1 (§3.III; FAMTRY Lemma 1.4 for primes) gives a bijection between the solutions
 (u, B, C) and the d ≡ 3 (4) with r := (−n mod d) ≥ 1 and r | (d + 1)/4:
@@ -242,8 +247,12 @@ output `uniform.txt`.
 * Covering rigidity via the least non-residue appears in `Z55_HCF.md` §3 (fixed certificate families; "the GRH route
   cannot be completed by coverings"), with related treatments in `Z53_NONCRTLOGIC.md` and `Z53_FORESTCLASS.md`.
 
-So the three mechanisms below are prior in shape. What is new are the diagnostics: the effectivity calibration, the
-parity/numerator-8 data, and the growing-modulus (★)-specific statements.
+So the three mechanisms below are prior in shape, and none is advertised as a genuinely untried mechanism. Lemma A.1
+reformulates `Z56_FAMTRY.md` Lemmas 1.1–1.4 (hit-modulus count, Jacobi obstruction, residue criterion), and A.3 is a
+corollary of HCF T3.1. Prior zero-tail calibrations exist as well: CROSSF §4 and FAMDESIGN §4.4. What is new are the
+checked diagnostics:
+* the Burgess-margin envelope against the family zero-tail calibration;
+* the parity/numerator-8 split and its scans.
 
 ### 3.I Effective explicit implementation — a calibrated trade-off (PUSHED)
 
@@ -377,8 +386,9 @@ quadratic residue modulo all small primes, explicit least-non-residue bounds wou
 * Burgess–Vinogradov unconditionally.
 The mechanism is effective by design and T1-native.
 
-**Lemma A.1 (PROVED).** For d ≡ 3 (mod 4) put H_d := {−k mod d : k | (d + 1)/4}.
-* (a) For every integer n ≥ 1, R(n) = #{d ≡ 3 (4) : n mod d ∈ H_d}.
+**Lemma A.1 (PROVED; essentially `Z56_FAMTRY.md` Lemmas 1.1–1.4, restated for all n).** For integers d ≥ 3 with
+d ≡ 3 (mod 4) put H_d := {−k mod d : k | (d + 1)/4}.
+* (a) For every integer n ≥ 1, R(n) = #{d ≥ 3, d ≡ 3 (4) : n mod d ∈ H_d}; every such d satisfies d ≤ (4n + 1)/3.
 * (b) Every element of H_d is a unit mod d with Jacobi symbol (·/d) = −1.
 * Hence n = m² never lies in any H_d (T1, for every m).
 *Proof.*
@@ -450,7 +460,7 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
 **Proposed FRONTIER text (for the summary lane; do not apply here).**
 * §2.4, append: *(z57, `Z57_SYNTH.md`; Assessment where marked.)*
   * A sufficient target for ES by the (★) route: R(p) ≥ 1 for primes p > 10¹⁷ in Mordell's classes, equivalently
-    ∃d ≡ 3 (4) with (−p mod d) | (d+1)/4.
+    ∃d ≥ 3, d ≡ 3 (4), with r = (−p mod d) ∈ {1, …, d − 1} and r | (d+1)/4 (necessarily d ≤ (4p+1)/3).
   * It is the weakest such target among the (★) subfamily-positivity statements (Assessment).
   * Main-term theorems do not weaken it (R ≥ 1 ⟺ X > −M_gen).
   * The C-even half of (★) is the c = 1 line of 8/p. It has CERTIFIED zeros at 12 primes in [10¹⁰, 1.1·10¹⁰], four in
@@ -459,7 +469,9 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
     the 249 tested Mordell primes. No eventual statement is refuted. At that size the Mordell-class mean of M_gen/L² is
     0.117 < 5/(4π²) (numerics).
 * §3, append to "Tied modulus" or new entry, **"Effectivity trade-off"** (Assessment, `Z57_SYNTH.md` §3.I):
-  * Lemma E1 (PROVED): the optimised Burgess bound on a slice at margin μ saves at most p^{−μ²/(1+a)}.
+  * Lemma E1 (PROVED): the optimised Burgess bound on a slice at margin μ saves at most p^{−μ²/(1+a)}. This is for the
+    worst allowed conductor in this single Burgess bound expression; it is not a bound on true cancellation, at smaller
+    actual conductors, or for other arguments.
   * Within that envelope, on all primes p ≡ 1 (4) and for uniform-margin sub-families:
     * at half the area the fitted zero crossover is x* ≈ 10^{23.9} (Mordell domain 10^{23.3}) and the (1, 2) envelope
       crossover is ≈ 10^{39};
@@ -475,7 +487,8 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
 
 **Bottom line.**
 * Given everything proved through z56, the target for ES at large primes by the (★) route is one sentence: every prime
-  p > 10¹⁷ in Mordell's classes has some d ≡ 3 (mod 4) for which the remainder of −p mod d divides (d + 1)/4.
+  p > 10¹⁷ in Mordell's classes has some d ≥ 3, d ≡ 3 (mod 4), for which the remainder r ∈ {1, …, d − 1} of −p mod d
+  divides (d + 1)/4.
 * The 5/6 genus main term does not shorten that sentence; it suggests the shape of an asymptotic proof.
 * The data checks add three things:
   * the numerator-8 half of (★) keeps failing past 10¹⁰ (CERTIFIED), so a proof at that threshold must use a step that
@@ -564,4 +577,16 @@ roughly 0.83–0.88 of typical (FAMDESIGN §4.5, a rough reading, not a bound).
   * **#7.** Numerical labels: "numerically cross-checked", double-precision membership, x_max defined, δ_min called an
     infimum.
   * **#9.** "Known" zeros; the complementarity domain is stated.
-* Cross-model review: pending.
+* **Cross-model review (`data/z57/xreview/REVIEW_SYNTH.md`; audit script `scripts/z57_xrev_synth_audit.py`):
+  ACCEPT-WITH-FIXES.**
+  * Every claim was rated CORRECT or CORRECT-WITH-FIX.
+  * Reproduced byte-identically: the tri scan, the fits and the pincer outputs.
+  * All twelve C-even zeros were re-verified by an independent enumerator.
+  * The MS ⟹ ES chain was checked against Salez §§4.1–4.3 (the paper, not only the abstract).
+  * Required fixes, all applied:
+    1. Positive moduli d ≥ 3 and r ∈ {1, …, d − 1} in (MS), A.1 and the exports, with the bound d ≤ (4p+1)/3.
+    2. Novelty: A.1 is attributed to FAMTRY Lemmas 1.1–1.4 and A.3 called a corollary of HCF; no mechanism is
+       advertised as untried.
+    3. E1's worst-conductor, single-expression scope is carried into the summary and the export.
+    4. The C-even counterexamples are placed above the internal 10¹⁰ census, below Salez's 10¹⁷ range, and not
+       against (MS).
