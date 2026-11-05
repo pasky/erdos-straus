@@ -685,7 +685,8 @@ no single-prime lower-tail mechanism is known.
 *All internal; none externally refereed. "PROVED rel. X" = proved relative to the published theorems X.*
 
 **5.1 Unconditional, on average / almost all** (B6 applies to every item).
-* E(N) ≪ N exp(−c(log N)^{3/4}) (INTERNALLY PROVED; `paper/es-threequarter-note`), shift-uniform in every interval of length H
+* E(N) ≪ N exp(−c(log N)^{3/4}) (INTERNALLY PROVED; `paper/es-threequarter-note`; *z58: the same bound was claimed earlier
+  by Kandukoori–Ramesh–Kumar, §1 priority note, and must be cited*), shift-uniform in every interval of length H
   and in progressions n ≡ b (mod q) for q ≤ exp(c′(log(H/q))^{3/4}) or q with all prime factors large ((D)30; large smooth q
   open), uniform in the numerator m ((D)31); 3/4 sharp for CRT architectures ((D)24, (D)27, (D)28).
 * *(z50, `BREADTH_Z45.md` §15.)* ES₅ and U: E_ES₅(N) ≤ E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}) over n ≡ 1 (4)
@@ -2000,6 +2001,40 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
     *(z52.)* The certificate-restricted version I3_𝒞(p) ≥ 1 (a word with t, u, v ≥ 3 and a coordinate in 4ℤ ∪ (8ℤ − p))
     implies ES₅(p), hence ES(p) (PROVED). Its zeros at primes p ≡ 1 (4) ≤ 10⁹ are exactly 5, 13, 17, 2521, and the least
     certifying interior endpoint is u ≤ 39 throughout (CERTIFIED, `Z52_BANKED.md` §1(e), T1). It is ES-strength.
+18. *(z58, `Z58_SUMMARY.md` §5; none of these is a lead.)* **Targets and named escapes from the (MS) probe.**
+    * **CONV-II (hot target, statement level; CONJECTURE).** Every odd non-square n ≠ 4545 has N_II(n) ≥ 1 (§2.4).
+      * Prime form: (MS-II) for p > 10¹⁷ in 𝔐.
+      * It is equivalent to IHP_BM for the positive-integral Type II model at every odd n ≠ 4545 (`Z58_STRUCT2.md` §5.1).
+      * *Why:* it is the only carried target whose statement passes F1–F4 (§4) in the tested ranges.
+      * *What a mechanism needs:* a fixed-p witness f = 4acd − 1 with (n/f) = −1 that crosses B2 and uses non-squareness at a
+        named step. Using c ≥ 2 is a strategy, not forced at 10¹⁷.
+      * Sub-targets: the a = 1 line (López's "Type A") and its union with c = 1, which have no prime zero ≤ 10⁸
+        (`Z58_CONVF.md`, CERTIFIED). Also CONV-II-15 (coprime ET form for gcd(n, 15) = 1) and eventual positivity of
+        N^{(K)}. And a composite genus analysis that survives the conductor cancellation seen at 4545 = 505·3², u = 505.
+    * **(MS⁺) (CONJECTURE).** R(n) ≥ 1 for non-square n > 17 401 609 in 𝔐 (§2.4).
+      * A primality-blind proof would suffice, and the data (to 10¹¹, one engine) allow it.
+      * Calibration (`Z58_LOGIC.md` Thm 3.1, rel. Buss): an S¹₂ proof of (MS) must find hits, and factor any composite zeros
+        above 10¹⁷, in polynomial time.
+    * **Remainders behind proved surrogates.**
+      * E₂(p) > −M₂(p) pointwise (`Z58_TRYF2.md`). A mechanism coupling hits across C or u would count as a lead there.
+      * A rigorous bound for the real layer L_r (`Z58_TRYF.md`; Shiu + Pólya–Vinogradov suggested). The non-real layer L_n
+        is open.
+    * **Named escapes from the z58 scoped no-gos (§3).**
+      * AUTOMORPH: E1, half-integral weight (Prop C is CONDITIONAL on the unproved (H_E)); E2, coefficients outside 𝓗; E3,
+        higher depth; effective signed minorants.
+      * TERNARY: cusp nonvanishing on 𝔐, which for one eigenform is Goldfeld-type when the root number is +1. The
+        Waldspurger screen (ψ = 1, Cor 2 with anchors) found no valid and effective single-eigensystem R-support proxy
+        among 15 L-functions (EVIDENCE); it does not constrain Type II support. Also E1′ (a thin-set Heegner
+        hypercycle-incidence theorem) and off-𝒞₁ classes.
+      * STRUCT/STRUCT2: the Brauer set of S°; fibre arithmetic (factorisation of kCn + 1, n + u); equidistribution on
+        fibres.
+      * MORDELL: the five non-unit Mordell classes (5-/7-adic coordinates).
+      * WITNESS/LOGIC: CONJECTURE W (min(u, B, C) ≤ (log p)² for p > 8 813 281) and CONJECTURE FQ_u(A); growing polylog
+        (u, B) menus.
+      * FFIELD: fixed-q eventual MS_q (CONJECTURE, N₀(q) → ∞); a faithful C-parity / 𝔊* model.
+      * LADDER: cap rungs k ≥ 2; covering scales p^{0.15}–p^{2/3}.
+    * **Disproof side** (`Z58_DISPROOF.md`): a slowly decaying zero-law mixture, growing offsets, other polynomial families,
+      or a non-local "prime T1" (cf. item 15).
 
 ## 8. Pointers into the repository
 
@@ -2026,5 +2061,7 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
   `es-window-note`, `es-coverings-note`, `es-automorphic-barrier-note`, `pointwise-obstruction`, `energy-dnf-note`.
 * **Reproducibility:** `verify.py` (lettered blocks re-run reviewers' from-scratch checks), `scripts/` (e.g. `z38_*` for
   BM_CORRECTED_COUNT, `z39_kronecker.py` for Theorem K), `logs/`. Run with `PYTHONPATH=scripts uv run python …`.
+* **Wave z58** (`Z58_SUMMARY.md`): `Z58_{WITNESS,FFIELD,AUTOMORPH,MORDELL,LADDER,WILDCARD,STRUCT,STRUCT2,LOGIC,DISPROOF,
+  LIT,TRYO,TRYF,TRYF2,TERNARY,CONVF}.md`; cross-model reviews `data/z58/xreview/`; falsifier screens `data/z58/screens/`.
 * **Reviews:** `reviews/` (hostile reviews per result), `reviews/agent-reports/` (task reports O1–O279), novelty audits
   `reviews/novelty-audit-2026-10*.md`.
