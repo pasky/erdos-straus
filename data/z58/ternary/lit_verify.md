@@ -83,3 +83,11 @@ The constant is ineffective: Siegel’s theorem does not provide an effective va
 **Source.** H. Davenport, *Multiplicative Number Theory*, 3rd ed., revised by H. L. Montgomery, Graduate Texts in Mathematics 74, Springer, 2000, Chapter 21 (Siegel’s theorem). Google Books: https://books.google.com/books?id=0Q8ZBQ9C9lAC. Equivalent standard formulations state `L(1,χ) ≫_ε q^{−ε}` for real primitive characters of conductor `q`.
 
 **How verified.** Standard textbook theorem citation and statement; book page not directly read here. Confidence: **high** on theorem and ineffectivity; edition/page-number details should be checked against the chosen copy.
+
+## 8. (added by lane) Shimura lift in weight 3/2 — cuspidality on the complement of unary thetas
+Secondary source read (PDF text): C. Darreye, "Sign of Fourier coefficients of half-integral weight modular forms in
+arithmetic progressions", arXiv:2007.06224, §2: "Shimura [S1] and Niwa [N] showed that the function Sh f … is a complete
+Hecke eigenform in S_{2ℓ}(2N, χ²) whenever ℓ ≥ 2. For ℓ = 1, this holds if one assumes that f is in the orthogonal
+complement of the subspace spanned by single variable theta-functions", followed by (2.1)
+a(tn²)n^{ℓ−1/2} = a(t) Σ_{d|n} μ(d)(((−1)^ℓ t)/d) χ(d) d^{ℓ−1} λ(n/d) (normalized coefficients) and Deligne's bound.
+Primary (Shimura 1973; Niwa, Nagoya Math. J. 56 (1975)) not re-read. Confidence: medium-high (standard statement).

@@ -1,0 +1,50 @@
+# (1) eigenrelation r(l^2) = r(1)(1 + l - eps), eps = (-det/l)?
+(1, 1, 1) det 1 r(1)= 6 eigen-relation with eps=(-det/l): OK
+(1, 1, 2) det 2 r(1)= 4 eigen-relation with eps=(-det/l): OK
+(1, 2, 2) det 4 r(1)= 2 eigen-relation with eps=(-det/l): OK
+(1, 1, 3) det 3 r(1)= 4 eigen-relation with eps=(-det/l): OK
+(1, 1, 4) det 4 r(1)= 4 eigen-relation with eps=(-det/l): OK
+(1, 2, 4) det 8 r(1)= 2 eigen-relation with eps=(-det/l): OK
+(1, 4, 4) det 16 r(1)= 2 eigen-relation with eps=(-det/l): OK
+(1, 3, 3) det 9 r(1)= 2 eigen-relation with eps=(-det/l): OK
+(1, 1, 9) det 9 r(1)= 4 eigen-relation with eps=(-det/l): OK
+(1, 2, 3) det 6 r(1)= 2 eigen-relation with eps=(-det/l): OK
+(1, 1, 5) det 5 r(1)= 4 eigen-relation with eps=(-det/l): OK
+(1, 1, 6) det 6 r(1)= 4 eigen-relation with eps=(-det/l): OK
+(1, 2, 8) det 16 r(1)= 2 eigen-relation with eps=(-det/l): OK
+(1, 1, 8) det 8 r(1)= 4 eigen-relation with eps=(-det/l): OK
+(2, 3, 3) det 18 r(1)= 0 eigen-relation with eps=(-det/l): FAIL [(5, None, -1), (7, None, -1), (11, None, 1), (13, None, -1)]
+(1, 3, 12) det 36 r(1)= 2 eigen-relation with eps=(-det/l): OK
+# (2) local-class rigidity on C1(2N) for pairs with det in the same square class
+(1, 1, 1) (1, 2, 2) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 1, 1) (1, 1, 4) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 1, 1) (1, 4, 4) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 1, 1) (1, 3, 3) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 1, 1) (1, 1, 9) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 1, 1) (1, 2, 8) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 1, 1) (1, 3, 12) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 1, 2) (1, 2, 4) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 1, 2) (1, 1, 8) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 2, 2) (1, 1, 4) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 2, 2) (1, 4, 4) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 2, 2) (1, 3, 3) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 2, 2) (1, 1, 9) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 2, 2) (1, 2, 8) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 2, 2) (1, 3, 12) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 1, 4) (1, 4, 4) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 1, 4) (1, 3, 3) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 1, 4) (1, 1, 9) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 1, 4) (1, 2, 8) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 1, 4) (1, 3, 12) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 2, 4) (1, 1, 8) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 4, 4) (1, 3, 3) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 4, 4) (1, 1, 9) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 4, 4) (1, 2, 8) S= [2] tested n in C1: 5000 violations: 0 []
+(1, 4, 4) (1, 3, 12) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 3, 3) (1, 1, 9) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 3, 3) (1, 2, 8) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 3, 3) (1, 3, 12) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 1, 9) (1, 2, 8) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 1, 9) (1, 3, 12) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 2, 3) (1, 1, 6) S= [2, 3] tested n in C1: 1667 violations: 0 []
+(1, 2, 8) (1, 3, 12) S= [2, 3] tested n in C1: 1667 violations: 0 []
