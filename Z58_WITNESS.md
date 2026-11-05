@@ -127,3 +127,126 @@ S = 1: 9 241, 15 121, 51 241; S = 2: 1 202 041 (s = 6), 1 564 921 (4), 2 532 601
 Z57_SYNTH to non-congruence finite menus (conditionally). It is the (★)-analogue of CAP_BOUNDED Thm 1.3 (windows) and
 the forest results of FRONTIER §3 (same Dickson technique). *Escape hatch:* S growing with p. The construction needs
 2S + 1 simultaneous primes of size ≍ p, heuristically available only while S ≲ log p/(2 log log p).
+
+## 4. Witnesses versus continued fractions, Farey neighbours, two-square data
+
+* **Farey form (PROVED, a restatement of FRONTIER §2.1's SL₂ form).** (u, B, C) ∈ S(p) iff
+  [[4uC − 1, p], [4C, 4BC − 1]] ∈ SL₂(ℤ); hence (4uC − 1)/(4C) = u − 1/(4C) and p/(4BC − 1) are Farey neighbours
+  (difference 1/(4C(4BC − 1))). So every witness d′ = 4BC − 1 has a Farey neighbour of p/d′ of the special shape
+  u − 1/(4C). This is a restatement, not a mechanism: it says nothing about which d′ admit such a neighbour. Equivalently,
+  p is the "minus continuant" ucB − u − B of the three-term negative continued fraction [u, 4C, B] (the (1,1) entry of
+  S(u)S(4C)S(B), S(x) = [[x, −1], [1, 0]]); CF-length / five-slice versions of this are FRONTIER §3 (ES₅, λ(p) ≤ 3),
+  not redone.
+* **CF of √p, two-square representation (EVIDENCE, null result).** `scripts/z58_witness_cf.py`, `cf_twosq.txt`. For each
+  solution, test whether one of P, Q, C, 4PC − 1, 4QC − 1, 4PQ equals a numerator/denominator of a convergent of √p
+  (denominators ≤ p), or (if > 2) divides a, b, a + b or |a − b| for p = a² + b². Null model: the same test against the
+  CF/two-square data of *another* prime of the list (shifts 1, 2). Hard primes: 11.2 % vs null 10.6 / 11.7 %;
+  two-square 42.0 % vs 46.8 / 41.0 %. Controls: 13.7 % vs 12.4 / 13.1 % (≈ 2σ); 38.2 % vs 39.1 / 38.6 %. No usable
+  relation. (The two-square test is the natural candidate for an F1-passing rule: a nontrivial representation b ≠ 0
+  exists at primes and not in the trivial form at squares. The F3 data kill it as a *primality* mechanism anyway:
+  57 of the 285 composite zeros are sums of two squares and 26 are products of primes ≡ 1 (4), so only the
+  *uniqueness* of the representation could separate primes — and the null test shows no link at primes.)
+* **n_p.** Lemma 1.1 (the witness modulus contains a non-residue prime) is the only CF-free structural link found.
+  d_min(p) = n_p at 22.8 % of 𝔐-primes in (10^8.5, 10⁹]; rooting at n_p fails at 58/103 hard primes (§3).
+
+## 5. The one ordering that is not obviously dead: the least coordinate s(p)
+
+**Census (CERTIFIED).** `scripts/z58_witness_runbig.sh` (scan with the d- and pair-loops switched off; u- and C-forms by
+factorisation), all 202 099 784 primes p ≡ 1 (4) in (10⁹, 10¹⁰] (= π(10¹⁰; 4, 1) − π(10⁹; 4, 1)), twelve chunks:
+* no prime without a u- or C-witness (consistent with the census: R(p) ≥ 1 throughout);
+* **max s(p) = 97** (p = 1 708 503 889, 𝔐; u_min = 97, C_min = 118); s(p) ≥ 30 at only 21 primes (18 in 𝔐);
+  max s(p)/log²p = 0.215 (`s_ge30_1e9_1e10.txt.gz`, `s_1e9_1e10_done.txt`).
+* Together with §2: **s(p) ≤ 201 for every prime p ≡ 1 (4), p ≤ 10¹⁰, with R(p) ≥ 1**; the record 201 at 413 490 001 is
+  not beaten in (10⁹, 10¹⁰]; s(p) ≤ 0.52 log²p for all of them above 10⁵. The frequency of s(p) > 32 among 𝔐-primes
+  falls by decade: 5.5·10⁻⁵, 1.3·10⁻⁵, 7.8·10⁻⁶ (10⁶ … 10⁹), and s ≥ 30 occurs at 1.4·10⁻⁶ of 𝔐-primes in (10⁹, 10¹⁰].
+
+**CONJECTURE W (polylog least coordinate).** *For every prime p ≡ 1 (4) with R(p) ≥ 1 (in particular, conjecturally,
+every p > 8 813 281) there is a (★) solution with min(u, B, C) ≤ (log p)²; i.e. some u ≤ log²p has a divisor of p + u
+in −1 + 4uℤ, or some C ≤ log²p has a divisor of 4Cp + 1 in −1 + 4Cℤ.* (W) ⟹ (MS) on its domain; it is strictly
+stronger as a statement, and is a statement about only O(log²p) explicit integers p + u, 4Cp + 1.
+
+Why W is worth stating (each item labelled):
+* **It escapes the n_p barrier** (PROVED, Lemma 1.1): a witness with min(u, B, C) small can have both moduli 4uC − 1,
+  4BC − 1 large, so W implies no bound on n_p. (The *modulus* orderings d_min, q_min ≥ n_p are GRH-strength at polylog
+  and are dead on data anyway: §2.)
+* **It escapes the fixed-S Dickson construction** (Prop 3.1 needs 2S + 1 simultaneous primes; at S = log²p the
+  heuristic count of such primes is X/(log X)^{2 log²X} → 0). No conditional counterexample to W is known to us
+  (Assessment).
+* **Heuristic support (Assessment).** In the bulk the semi-local law (§2.1) gives Σ_p P(s(p) > S) < ∞ once
+  κ_s log S > 1, i.e. S ≳ e^{1/0.17} ≈ 360: it predicts s(p) bounded for all but finitely many p; Dickson-type primes
+  add a tail with s ≍ log p/log log p. Neither reaches log²p. The data (≤ 201 to 10¹⁰, tail thinning) agree.
+
+**Falsifier table for W.**
+| screen | W's behaviour |
+|---|---|
+| F1 squares | fails at every m², for a structural reason at *each* of the O(log²p) integers: every divisor d of m² + u has (−u/d) = 1, of 4Cm² + 1 has (−C/d) = 1, while the target classes have Jacobi −1 (Lemma A.1(b)). A proof of W must exhibit, among p + u (u ≤ S) or 4Cp + 1 (C ≤ S), a divisor with Jacobi (p/d) = −1 *in the right class*; the first half (a divisor d \| 4Cp + 1 with χ_{−4C}(d) = −1 at some C ≤ ℓ(p), ℓ(p) the least odd prime with (p/ℓ) = −1) is free (`SYNTHESIS_SPARKS9.md` Prop 2.2, quoted in FRONTIER §2.4), the second half (the class inside the coset) is B2. |
+| F2 C-even | the C-even version of W is false at the 12 R₈-zeros (no C-even solution at all), where s(p) = 1 at 11 and 5 at 1 (`samples_scan.txt`): W must use odd C — it does (C = 1 is in its menu). |
+| F3 composites | W fails at the 285 composite zeros (no solution). Primality enters only through "all moduli coprime to p" (§0); no step specific to W uses more. |
+| F4 zeros | W has no solution at the 14 (★)-zeros (R = 0), so its threshold is > 8 813 281; at the 38 𝔊*-zeros s(p) is small (e.g. 9 at 564 661 441) — W is not tied to 𝔊*. |
+
+**Provability (Assessment).** W is a single-integer divisor-in-class statement (B2) at polylog scale: the conclusion
+"one of O(log²p) given integers has a divisor in a prescribed class mod 4u" is exactly the event that Dickson-type
+constructions make fail at *bounded* scale. No tool known to us gives a pointwise lower bound for divisors in residue
+classes of a single shifted prime; sieve upper bounds give only density statements (FAMTRY Thm A type: the exceptional
+set has density zero). W is therefore a *target*, not a lead.
+
+## 6. Verdict, falsifier table (re-stated), proposed FRONTIER text, bottom line
+
+**Verdict: narrowed** (plus one data-backed target, not a lead). **Not a HOT LEAD.**
+* No deterministic witness rule was found. Every ordering of the witnesses by a *modulus* (d_min, q_min, m3) has a
+  polynomial worst case on the data (d_min ≈ p/29, q_min ≈ p/20, m3 ≈ 0.35 p^{2/3} at p ≤ 10⁹), and by Lemma 1.1
+  a polylog rule in a modulus would bound n_p (GRH-strength).
+* The hardest primes are those whose *boundary* (some coordinate small) is empty; their few solutions sit in the
+  *centre* of the simplex, where solution counts are near-Poisson (§3). Hardness is a clustered-boundary failure
+  followed by a thin centre lottery. Nothing in CF(√p), the two-square representation or n_p locates those centre
+  solutions (§§3–4).
+* Scoped theorem: bounded-coordinate (multiplicative-menu) rules fail infinitely often under Dickson (Prop 3.1).
+* Surviving target: CONJECTURE W (least coordinate ≤ log²p), consistent with all primes ≤ 10¹⁰ (max s = 201), free
+  of the n_p barrier and of the fixed-S Dickson construction — but a B2 statement at polylog scale with no mechanism.
+
+**Falsifier table (final; the idea = "a deterministic witness rule", best surviving form = W).**
+| | F1 squares | F2 C-even | F3 composites | F4 zeros |
+|---|---|---|---|---|
+| modulus-ordered rules (d, q, m3) | fail (no witness); a proof needs a Jacobi (p/d) = −1 step; polylog version ⟹ n_p bound | rules must allow odd C | primality used only as "all d < p coprime to p" | none fires at the 14; witnesses at 𝔊*-zeros ≍ p^{0.6}–p |
+| fixed bounded menus (Prop 3.1) | fail | — | — | dead i.o. under Dickson anyway |
+| W (least coordinate ≤ log²p) | fails at each of its O(log²p) integers by Jacobi; proof needs a divisor in the right class inside the Jacobi −1 coset (B2) | C-even version false at 12 R₈-zeros; W uses C = 1 etc. | same as above; no primality step specific to W | threshold > 8 813 281 required |
+
+**Proposed FRONTIER text (§3 barrier map / §6 dead ends; do not edit FRONTIER here).**
+> *(z58, `Z58_WITNESS.md`.)* **Least witnesses of (MS).** Exhaustive to 10⁹ (four orderings) and 10¹⁰ (least
+> coordinate): d_min, q_min and the least modulus m3 have polynomial worst cases (≈ p/29, p/20, 0.35 p^{2/3}); by
+> Lemma 1.1 (PROVED) each witness modulus contains a prime ℓ with (ℓ/p) = −1, so a polylog modulus rule would bound n_p.
+> d_min has a Dirichlet limit law with survival ≈ exp(−0.087 log²D) (10³ ≤ D ≤ 10⁵, 𝔐; EVIDENCE), clustered (−log S /
+> mean ≈ 0.7–0.85). Hard primes (R ≤ 4) have their solutions in the centre of the log-simplex (boundary counts
+> overdispersed, var/mean ≈ 3; centre near-Poisson, ≈ 1.1; EVIDENCE). CF(√p), two-square data and rooting at n_p do not
+> locate witnesses (null-model tests). Prop 3.1 (CONDITIONAL on Dickson): for every S infinitely many p ≡ 1 (840) have
+> all solutions with min(u, B, C) > S (certified instances S ≤ 3). Open target: CONJECTURE W — some solution has
+> min(u, B, C) ≤ log²p; true for all p ≤ 10¹⁰ with R ≥ 1 (max least coordinate 201 at 413 490 001); escapes the n_p
+> barrier and fixed-S Dickson; a B2 statement for O(log²p) explicit integers.
+
+**Bottom line.** Studied literally, (MS) fires early for almost all primes (d_min has a limit law; typical least
+coordinate 1–2) but the hardest primes are "centre-only" primes whose one or two solutions have all three coordinates
+≍ p^{1/4}–p^{1/3}; no structural invariant tested (n_p, CF of √p, two-square data, parity) predicts where those
+solutions are. The only witness ordering not dead on data or by a barrier is the least coordinate, giving CONJECTURE
+W (≤ log²p; observed ≤ 201 to 10¹⁰). It is a cleaner polylog target than modulus rules — it is immune to the n_p
+barrier — but it is still a single-integer divisor-class statement and nothing here proves any part of it.
+
+## 7. Commands, files (all runs: `ulimit -v 6000000`, `timeout` ≤ 1800)
+```
+gcc -O2 -o /tmp/z58scan scripts/z58_witness_scan.c -lm
+for i in 0..5: /tmp/z58scan lo_i hi_i > s_i.txt          # six chunks of [1, 1e9], ≈ 4 min
+cat s_*.txt | python3 scripts/z58_witness_agg.py agg1e9  # → data/z58/witness/agg1e9_{summary,records,hard}
+python3 scripts/z58_witness_surv.py 1e8 1e9 3e6 s_*.txt   # → surv_1e8_1e9.txt (and 3e6 3e7 1e5 → surv_3e6_3e7.txt)
+python3 scripts/z58_witness_semi.py                       # → semilocal_1e6_1e9.txt
+gcc -O2 -o /tmp/z57tri scripts/z57_synth_tri.c -lm; /tmp/z57tri 1000000000 6 > tri1e9_R6.txt   # R ≤ 6 list
+gcc -O2 -o /tmp/z58sols scripts/z58_witness_sols.c; /tmp/z58sols < primes > *_sols.txt
+python3 scripts/z58_witness_loc.py lowR4_sols.txt ctrl2_sols.txt {1e6,1e7}; python3 scripts/z58_witness_disp.py ctrl2_sols.txt
+python3 scripts/z58_witness_cf.py lowR4_sols.txt ctrl2_sols.txt 1e6
+uv run --with sympy python scripts/z58_witness_dickson.py 4 3000000; /tmp/z58scan - < dickson primes
+seq 0 11 | xargs -P 6 -I{} scripts/z58_witness_runbig.sh {}   # (1e9, 1e10], least coordinate only
+```
+Validation: scan vs brute force (all primes ≤ 20 000, four quantities, 0 mismatches); sols vs brute force (odd n ≤ 6 000,
+0 mismatches); zero sets reproduce the 14 known (★)-zeros (scan to 10⁹, tri to 10⁹); prime counts equal π(10⁹; 4, 1) and
+π(10¹⁰; 4, 1) − π(10⁹; 4, 1).
+
+## 8. Review log
+(pending)
