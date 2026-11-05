@@ -1,0 +1,25 @@
+# non-square zeros: 500
+# composite non-square zeros: 486  with m>1: 244
+# orbit zeros n = t m^2, t prime, m > 1: 17
+ORB 801 t=89 m=3 m-factors {3: 1} t mod 840 = 89
+ORB 12681 t=1409 m=3 m-factors {3: 1} t mod 840 = 569
+ORB 23425 t=937 m=5 m-factors {5: 1} t mod 840 = 97
+ORB 65529 t=809 m=9 m-factors {3: 2} t mod 840 = 809
+ORB 137817 t=15313 m=3 m-factors {3: 1} t mod 840 = 193
+ORB 221137 t=4513 m=7 m-factors {7: 1} t mod 840 = 313
+ORB 309249 t=34361 m=3 m-factors {3: 1} t mod 840 = 761
+ORB 536697 t=1217 m=21 m-factors {3: 1, 7: 1} t mod 840 = 377
+ORB 546025 t=21841 m=5 m-factors {5: 1} t mod 840 = 1
+ORB 752257 t=6217 m=11 m-factors {11: 1} t mod 840 = 337
+ORB 1976121 t=4481 m=21 m-factors {3: 1, 7: 1} t mod 840 = 281
+ORB 2172249 t=241361 m=3 m-factors {3: 1} t mod 840 = 281
+ORB 2750841 t=33961 m=9 m-factors {3: 2} t mod 840 = 361
+ORB 29063169 t=3229241 m=3 m-factors {3: 1} t mod 840 = 281
+ORB 45723321 t=103681 m=21 m-factors {3: 1, 7: 1} t mod 840 = 361
+ORB 64517049 t=7168561 m=3 m-factors {3: 1} t mod 840 = 1
+ORB 71724681 t=162641 m=21 m-factors {3: 1, 7: 1} t mod 840 = 521
+# m coprime to odd primes <= 3: orbit zeros (t prime) 4 ; all comp zeros with m>1 58 [(23425, 937, 5), (221137, 4513, 7), (546025, 21841, 5), (752257, 6217, 11)]
+# m coprime to odd primes <= 5: orbit zeros (t prime) 2 ; all comp zeros with m>1 23 [(221137, 4513, 7), (752257, 6217, 11)]
+# m coprime to odd primes <= 7: orbit zeros (t prime) 1 ; all comp zeros with m>1 9 [(752257, 6217, 11)]
+# m coprime to odd primes <= 11: orbit zeros (t prime) 0 ; all comp zeros with m>1 4 []
+# m coprime to odd primes <= 13: orbit zeros (t prime) 0 ; all comp zeros with m>1 3 []
