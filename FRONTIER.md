@@ -80,6 +80,11 @@ approximation always exists, and BM does not explain all failures of strong appr
     Exact public priority is unverified (no dated public snapshot).
   * **Required wording.** Cite K-R-K wherever the internal 3/4 bound is mentioned. Do not call the campaign's bound
     first. *(Applied 2026-11-05: the note's abstract and introduction now cite K-R-K and claim no priority.)*
+    *(z59 PAPERS, `data/z59/papers/CHANGES.md`: the sweep now covers every note quoting 3/4 — "claimed earlier", no
+    priority, "shares this architecture but differs in its details"; false "no 3/4-type bound for m ≠ 4" and "first
+    exponent improvement since 1970" claims removed. `es-mn-short-note` claims new only the short-interval/progression
+    forms, uniformity in m, Cor D, Thms U, L′, relative to K-R-K's *stated* theorems; the K-R-K analytic proof is still
+    not audited.)*
   * **What may still be campaign-new** (Assessment, to be compared): (D)30 and (D)31. Count-note Theorems A–D are
     not superseded.
   * Akaka Zenodo v0.8 (22905042, 2026-09-22) claims, as an author claim with a *claimed* Lean certificate and specialist
@@ -258,7 +263,7 @@ targets for this section:
   * `Z58_LOGIC.md` §4 independently sieves this to 10¹⁰: two implementations agree to 4·10⁹.
 * **CONJECTURE (MS⁺)** (`Z58_LOGIC.md` §4): *R(n) ≥ 1 for every non-square n > 17 401 609 with n mod 840 ∈ 𝔐.*
   * It is primality-blind on 𝔐, and MS⁺(P) ⟹ (MS) for P ≤ 10¹⁷.
-  * It is consistent with the censuses to 10¹¹. In 𝔐 on [10⁷, 10⁸], mean R/L² is 0.1189 for composites against 0.1246 for
+  * It is consistent with the censuses to 10¹¹ (z59: to 10¹², below). In 𝔐 on [10⁷, 10⁸], mean R/L² is 0.1189 for composites against 0.1246 for
     primes (CERTIFIED means).
   * Finite data do not establish it, and do not show that 𝔐 is necessary.
 * **CONJECTURE CONV-II** (`Z58_WILDCARD.md` §1): *every odd non-square n ≥ 3 other than n = 4545 has N_II(n) ≥ 1*, where
@@ -284,6 +289,42 @@ targets for this section:
 * **Least witness** (`Z58_WITNESS.md`; CERTIFIED). Every prime p ≡ 1 (4) ≤ 10¹⁰ with R(p) ≥ 1 has a solution with
   min(u, B, C) ≤ 201, and ≤ 0.52 log²p. CONJECTURE W: every prime p ≡ 1 (4), p > 8 813 281, has a (★) solution with
   min(u, B, C) ≤ (log p)². W ⟹ (MS).
+
+*(z59, five math lanes on the z58 survivors, each with internal hostile review and a cross-model review, all
+ACCEPT-WITH-FIXES with the fixes applied and not re-reviewed; `Z59_SUMMARY.md`.)* **(MS), (MS⁺), CONV-II remain open; no
+HOT LEAD; B2 did not move.** New data and sharper targets:
+* **(MS⁺) census to 10¹²** (`Z59_MSPLUS.md` §6; CERTIFIED, one engine = the z58 LADDER decider). No zero among the
+  1 046 544 177 primes and 5 381 870 962 non-square composites in 𝔐 ∩ (10¹¹, 10¹²]. So the non-square R-zeros on 𝔐 up to
+  10¹² are exactly the 9 primes and 18 composites ending at 17 401 609. Cross-review: chunk reconciliation, an
+  independent-engine slice, the extremal input; no second full-range engine.
+* **Primality-free variants** (`Z59_MSPLUS.md` §1, §5.3; CONJECTURE; CERTIFIED to 10¹⁰ via the z58 LOGIC census).
+  * **(MS⁺₁₀₅):** R(n) ≥ 1 for every non-square n ≡ 1 (4) with gcd(n, 105) = 1 and n > 29 210 401 (all classes, no
+    Mordell input). Strictly stronger than (MS⁺) (which it implies with the finite range to 29 210 401, covered by census).
+  * **(R⁺_y), y ≥ 47:** R(n) ≥ 1 for every non-square n ≡ 1 (4) > 8 813 281 with all prime factors > y (19 zeros ≤ 10¹⁰,
+    the last 8 813 281 = the last (★)-zero prime). A proof of (MS) transfers to it only if every use of primality follows
+    from non-squareness plus the fixed-y exclusion (fixed-y roughness does not force gcd(n, u) = 1 for witnesses).
+  * "As good a target as (MS⁺)" is an Assessment. All variants inherit T1 by hypothesis and the R₈ dead-moduli structure.
+* **Local mean of R** (`Z59_MSPLUS.md` Thm 1, Remark 2.3; PROVED). For fixed Q = 2^k·Q′ (k ≥ 2, Q′ odd squarefree) and
+  a ≡ 1 (4), the class mean is (𝔖_Q(a)/8)log²X + O_Q(log X), 𝔖_Q = ∏_{q|Q′}σ_q with σ_q = 1 + 1/q² (q ∤ a),
+  1 − 1/q + 1/q² (q | a); 2-adic factor 1. So the leading term is Jacobi-blind (𝔐 differs from other unit classes only
+  at O(log X); the size of that term is not derived — the proposed second-order expansion was WITHDRAWN after review),
+  each odd q | n multiplies the leading constant by (q² − q + 1)/(q² + 1) (dead moduli), and R₈ has exactly half.
+  EVIDENCE: zero law P(R(n) = 0) ≈ exp(−0.3·m(n)) in a proxy m; it matches the four large composite groups within
+  ≈ 1.5×, under-predicts later decades ≈ 1.4× (pre-registered decade [10¹⁰, 10¹¹]: 18 observed vs 13.0 / 11.5; no
+  pass criterion, not a passed test) and the 𝔐-prime zeros of 10⁶–10⁷ ≈ 6× (unexplained).
+* **CONJECTURE U** (`Z59_CONV2.md` §1). U := (c = 1) ∪ (a = 1) ⊂ Type II. Lemma 1(iii) (PROVED): U(n) ≥ 1 ⟺ ∃ T ≥ 1 such
+  that Tn + 1 has a divisor f ≡ −1 (mod L_T), L_T = T if 4 | T, 4T otherwise — **a single one-parameter line** (the a = 1
+  half is the known "cn + 1 mod 4c" form). CONJECTURE: every odd non-square n ∉ {105, 4545} has U(n) ≥ 1.
+  * CERTIFIED for n ≤ 10¹⁰ (zeros exactly 105, 4545; previously to 4·10⁶). Independent direct census to 10⁹; one engine
+    above. No prime U-zero ≤ 10¹¹ (inherited from the B1_LINE a = 1 census, not recomputed).
+  * At primes it is López's Conjecture 1 (prior). U ⟹ CONV-II (105 = full-family solution (3, 3, 2, 3)).
+    **(MS-U)**: U(p) ≥ 1 for primes p > 10¹⁷ in 𝔐; (MS) ⟹ (MS-U) ⟹ (MS-II), so (MS-U) ⟹ ES rel. Mordell + Salez.
+  * U asks for more than CONV-II; that it is harder to prove is *not* claimed. In the certified range the full family
+    beyond U is needed only at n = 105; the a = 1 branch of U itself uses c ≥ 2.
+  * Numerator 8: U⁽⁸⁾ has 819 odd non-square zeros ≤ 10⁸ (61 primes, last 3 869 153; 758 composites, last 93 398 595).
+* **Minimal ρ for Type II at p ≡ 1 (24)** (`Z59_CONVO.md` §6; CERTIFIED, independently reproduced). With ρ = 4abd − p,
+  every prime p ≡ 1 (24) ≤ 10⁸ (719 781 primes) has a witness with ρ ≤ 107 (record 8 803 369 → 107). Under Dickson no
+  uniform bound on ρ suffices (Thm 7.7, CONDITIONAL; exact prior result `DISPROOF_AVENUES.md` §3 Prop 3.1).
 
 ## 3. The barrier map, as theorems with exact hypotheses
 
