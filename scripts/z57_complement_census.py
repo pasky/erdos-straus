@@ -1,5 +1,5 @@
 # z57 COMPLEMENT: joint zero census over all n ≡ 1 (mod 4), 5 <= n <= 4*10^6 (columns of z57_complement_words.c, first 13).
-# Prints, for primes / non-square composites / squares: zero counts of each family, joint zeros of each pair, and the
+# (Range: the input list runs to 4 000 001 inclusive.) Prints, for primes / non-square composites / squares: zero counts of each family, joint zeros of each pair, and the
 # independence prediction from per-decade marginal rates (sum over decades of N_dec * r_A * r_B).
 import sys, gzip, math, itertools
 import numpy as np
@@ -23,11 +23,16 @@ for kname, km in kinds.items():
         if 0 < Z[c].sum() <= 40: print(f'  {c} zeros: {list(n[Z[c]])}')
     for a, b in itertools.combinations(fams, 2):
         if {a, b} == {'STAR', 'G'} or {a, b} == {'STAR', 'K'}: continue
-        j = Z[a] & Z[b]; pred = 0.0
+        j = Z[a] & Z[b]; pred = 0.0; pred2 = 0.0
         for d in np.unique(dec[km]):
             m = km & (dec == d); N = m.sum()
             pred += Z[a][m].sum() * Z[b][m].sum() / N
+            for r in np.unique(n[m] % 840):
+                mm = m & (n % 840 == r); NN = mm.sum()
+                pred2 += Z[a][mm].sum() * Z[b][mm].sum() / NN
         lst = list(n[j]) if 0 < j.sum() <= 12 else ''
-        print(f'  joint {a}&{b}: {j.sum()}  (per-decade independence {pred:.1f}) {lst}')
+        print(f'  joint {a}&{b}: {j.sum()}  (independence per decade {pred:.1f}; per decade x n mod 840 {pred2:.1f}) {lst}')
     j3 = Z['STAR'] & Z['B1'] & Z['I1']
-    print(f'  five-slice union zero (STAR=B1=I1=0): {j3.sum()} {list(n[j3])[:20]}')
+    print(f'  three-family union zero (STAR=B1=I1=0, = DEDEKIND_ES five slices incl. boundary): {j3.sum()} {list(n[j3])[:20]}')
+    j5 = j3 & Z['c2'] & Z['c3']
+    print(f'  five-family union zero (STAR=B1=I1=c2=c3=0): {j5.sum()} {list(n[j5])[:20]}')

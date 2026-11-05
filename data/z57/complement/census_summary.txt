@@ -2,68 +2,71 @@
   zeros: STAR 12, B1 3, I1 0, c2 493, c3 3088, G 31, K 3778
   STAR zeros: [np.int64(409), np.int64(577), np.int64(5569), np.int64(9601), np.int64(23929), np.int64(83449), np.int64(102001), np.int64(329617), np.int64(712321), np.int64(1134241), np.int64(1724209), np.int64(1726201)]
   B1 zeros: [np.int64(193), np.int64(2521), np.int64(66529)]
-  joint STAR&B1: 0  (per-decade independence 0.0) 
-  joint STAR&I1: 0  (per-decade independence 0.0) 
-  joint STAR&c2: 1  (per-decade independence 0.6) [np.int64(102001)]
-  joint STAR&c3: 5  (per-decade independence 1.5) [np.int64(577), np.int64(5569), np.int64(83449), np.int64(1134241), np.int64(1726201)]
-  joint B1&I1: 0  (per-decade independence 0.0) 
-  joint B1&c2: 2  (per-decade independence 0.3) [np.int64(193), np.int64(2521)]
-  joint B1&c3: 1  (per-decade independence 0.7) [np.int64(193)]
-  joint B1&G: 0  (per-decade independence 0.1) 
-  joint B1&K: 3  (per-decade independence 0.5) [np.int64(193), np.int64(2521), np.int64(66529)]
-  joint I1&c2: 0  (per-decade independence 0.0) 
-  joint I1&c3: 0  (per-decade independence 0.0) 
-  joint I1&G: 0  (per-decade independence 0.0) 
-  joint I1&K: 0  (per-decade independence 0.0) 
-  joint c2&c3: 53  (per-decade independence 33.1) 
-  joint c2&G: 2  (per-decade independence 1.4) [np.int64(23041), np.int64(102001)]
-  joint c2&K: 62  (per-decade independence 28.6) 
-  joint c3&G: 8  (per-decade independence 3.6) [np.int64(37), np.int64(577), np.int64(5569), np.int64(60217), np.int64(83449), np.int64(963481), np.int64(1134241), np.int64(1726201)]
-  joint c3&K: 305  (per-decade independence 122.3) 
-  joint G&K: 12  (per-decade independence 2.8) [np.int64(409), np.int64(577), np.int64(5569), np.int64(9601), np.int64(23929), np.int64(83449), np.int64(102001), np.int64(329617), np.int64(712321), np.int64(1134241), np.int64(1724209), np.int64(1726201)]
-  five-slice union zero (STAR=B1=I1=0): 0 []
+  joint STAR&B1: 0  (independence per decade 0.0; per decade x n mod 840 0.0) 
+  joint STAR&I1: 0  (independence per decade 0.0; per decade x n mod 840 0.0) 
+  joint STAR&c2: 1  (independence per decade 0.6; per decade x n mod 840 0.5) [np.int64(102001)]
+  joint STAR&c3: 5  (independence per decade 1.5; per decade x n mod 840 2.7) [np.int64(577), np.int64(5569), np.int64(83449), np.int64(1134241), np.int64(1726201)]
+  joint B1&I1: 0  (independence per decade 0.0; per decade x n mod 840 0.0) 
+  joint B1&c2: 2  (independence per decade 0.3; per decade x n mod 840 1.4) [np.int64(193), np.int64(2521)]
+  joint B1&c3: 1  (independence per decade 0.7; per decade x n mod 840 1.3) [np.int64(193)]
+  joint B1&G: 0  (independence per decade 0.1; per decade x n mod 840 0.0) 
+  joint B1&K: 3  (independence per decade 0.5; per decade x n mod 840 2.4) [np.int64(193), np.int64(2521), np.int64(66529)]
+  joint I1&c2: 0  (independence per decade 0.0; per decade x n mod 840 0.0) 
+  joint I1&c3: 0  (independence per decade 0.0; per decade x n mod 840 0.0) 
+  joint I1&G: 0  (independence per decade 0.0; per decade x n mod 840 0.0) 
+  joint I1&K: 0  (independence per decade 0.0; per decade x n mod 840 0.0) 
+  joint c2&c3: 53  (independence per decade 33.1; per decade x n mod 840 35.7) 
+  joint c2&G: 2  (independence per decade 1.4; per decade x n mod 840 1.0) [np.int64(23041), np.int64(102001)]
+  joint c2&K: 62  (independence per decade 28.6; per decade x n mod 840 54.7) 
+  joint c3&G: 8  (independence per decade 3.6; per decade x n mod 840 4.9) [np.int64(37), np.int64(577), np.int64(5569), np.int64(60217), np.int64(83449), np.int64(963481), np.int64(1134241), np.int64(1726201)]
+  joint c3&K: 305  (independence per decade 122.3; per decade x n mod 840 224.0) 
+  joint G&K: 12  (independence per decade 2.8; per decade x n mod 840 10.4) [np.int64(409), np.int64(577), np.int64(5569), np.int64(9601), np.int64(23929), np.int64(83449), np.int64(102001), np.int64(329617), np.int64(712321), np.int64(1134241), np.int64(1724209), np.int64(1726201)]
+  three-family union zero (STAR=B1=I1=0, = DEDEKIND_ES five slices incl. boundary): 0 []
+  five-family union zero (STAR=B1=I1=c2=c3=0): 0 []
 ## composite non-square: 857499 values of n ≡ 1 (4) in [5, 4000001]
   zeros: STAR 257, B1 41, I1 26, c2 5826, c3 24605, G 1043, K 48065
   I1 zeros: [np.int64(105), np.int64(465), np.int64(585), np.int64(801), np.int64(2641), np.int64(2929), np.int64(2961), np.int64(3705), np.int64(4785), np.int64(4945), np.int64(9529), np.int64(13041), np.int64(13465), np.int64(14841), np.int64(18825), np.int64(25305), np.int64(35961), np.int64(60385), np.int64(111969), np.int64(156961), np.int64(248521), np.int64(698569), np.int64(1116801), np.int64(1126945), np.int64(1243089), np.int64(1618521)]
-  joint STAR&B1: 2  (per-decade independence 0.6) [np.int64(105), np.int64(4545)]
-  joint STAR&I1: 7  (per-decade independence 0.3) [np.int64(105), np.int64(465), np.int64(801), np.int64(2641), np.int64(2929), np.int64(3705), np.int64(13041)]
-  joint STAR&c2: 18  (per-decade independence 8.3) 
-  joint STAR&c3: 48  (per-decade independence 21.8) 
-  joint B1&I1: 4  (per-decade independence 0.2) [np.int64(105), np.int64(2961), np.int64(25305), np.int64(111969)]
-  joint B1&c2: 12  (per-decade independence 3.4) [np.int64(145), np.int64(369), np.int64(1705), np.int64(2961), np.int64(3105), np.int64(4545), np.int64(6001), np.int64(6913), np.int64(9121), np.int64(51601), np.int64(54913), np.int64(69601)]
-  joint B1&c3: 17  (per-decade independence 7.4) 
-  joint B1&G: 3  (per-decade independence 1.7) [np.int64(105), np.int64(4545), np.int64(5985)]
-  joint B1&K: 32  (per-decade independence 7.0) 
-  joint I1&c2: 3  (per-decade independence 2.0) [np.int64(2961), np.int64(14841), np.int64(1243089)]
-  joint I1&c3: 13  (per-decade independence 4.4) 
-  joint I1&G: 9  (per-decade independence 0.9) [np.int64(105), np.int64(465), np.int64(801), np.int64(2641), np.int64(2929), np.int64(3705), np.int64(4785), np.int64(13041), np.int64(35961)]
-  joint I1&K: 21  (per-decade independence 4.2) 
-  joint c2&c3: 503  (per-decade independence 281.0) 
-  joint c2&G: 49  (per-decade independence 26.1) 
-  joint c2&K: 932  (per-decade independence 425.8) 
-  joint c3&G: 106  (per-decade independence 73.5) 
-  joint c3&K: 3731  (per-decade independence 1641.6) 
-  joint G&K: 257  (per-decade independence 94.4) 
-  five-slice union zero (STAR=B1=I1=0): 1 [np.int64(105)]
+  joint STAR&B1: 2  (independence per decade 0.6; per decade x n mod 840 1.8) [np.int64(105), np.int64(4545)]
+  joint STAR&I1: 7  (independence per decade 0.3; per decade x n mod 840 3.9) [np.int64(105), np.int64(465), np.int64(801), np.int64(2641), np.int64(2929), np.int64(3705), np.int64(13041)]
+  joint STAR&c2: 18  (independence per decade 8.3; per decade x n mod 840 10.5) 
+  joint STAR&c3: 48  (independence per decade 21.8; per decade x n mod 840 37.6) 
+  joint B1&I1: 4  (independence per decade 0.2; per decade x n mod 840 1.0) [np.int64(105), np.int64(2961), np.int64(25305), np.int64(111969)]
+  joint B1&c2: 12  (independence per decade 3.4; per decade x n mod 840 5.2) [np.int64(145), np.int64(369), np.int64(1705), np.int64(2961), np.int64(3105), np.int64(4545), np.int64(6001), np.int64(6913), np.int64(9121), np.int64(51601), np.int64(54913), np.int64(69601)]
+  joint B1&c3: 17  (independence per decade 7.4; per decade x n mod 840 10.6) 
+  joint B1&G: 3  (independence per decade 1.7; per decade x n mod 840 2.4) [np.int64(105), np.int64(4545), np.int64(5985)]
+  joint B1&K: 32  (independence per decade 7.0; per decade x n mod 840 23.6) 
+  joint I1&c2: 3  (independence per decade 2.0; per decade x n mod 840 1.8) [np.int64(2961), np.int64(14841), np.int64(1243089)]
+  joint I1&c3: 13  (independence per decade 4.4; per decade x n mod 840 8.7) 
+  joint I1&G: 9  (independence per decade 0.9; per decade x n mod 840 4.3) [np.int64(105), np.int64(465), np.int64(801), np.int64(2641), np.int64(2929), np.int64(3705), np.int64(4785), np.int64(13041), np.int64(35961)]
+  joint I1&K: 21  (independence per decade 4.2; per decade x n mod 840 16.3) 
+  joint c2&c3: 503  (independence per decade 281.0; per decade x n mod 840 329.5) 
+  joint c2&G: 49  (independence per decade 26.1; per decade x n mod 840 30.6) 
+  joint c2&K: 932  (independence per decade 425.8; per decade x n mod 840 698.5) 
+  joint c3&G: 106  (independence per decade 73.5; per decade x n mod 840 88.5) 
+  joint c3&K: 3731  (independence per decade 1641.6; per decade x n mod 840 2795.4) 
+  joint G&K: 257  (independence per decade 94.4; per decade x n mod 840 223.9) 
+  three-family union zero (STAR=B1=I1=0, = DEDEKIND_ES five slices incl. boundary): 1 [np.int64(105)]
+  five-family union zero (STAR=B1=I1=c2=c3=0): 0 []
 ## odd square: 999 values of n ≡ 1 (4) in [5, 4000001]
   zeros: STAR 999, B1 999, I1 999, c2 999, c3 999, G 999, K 999
-  joint STAR&B1: 999  (per-decade independence 999.0) 
-  joint STAR&I1: 999  (per-decade independence 999.0) 
-  joint STAR&c2: 999  (per-decade independence 999.0) 
-  joint STAR&c3: 999  (per-decade independence 999.0) 
-  joint B1&I1: 999  (per-decade independence 999.0) 
-  joint B1&c2: 999  (per-decade independence 999.0) 
-  joint B1&c3: 999  (per-decade independence 999.0) 
-  joint B1&G: 999  (per-decade independence 999.0) 
-  joint B1&K: 999  (per-decade independence 999.0) 
-  joint I1&c2: 999  (per-decade independence 999.0) 
-  joint I1&c3: 999  (per-decade independence 999.0) 
-  joint I1&G: 999  (per-decade independence 999.0) 
-  joint I1&K: 999  (per-decade independence 999.0) 
-  joint c2&c3: 999  (per-decade independence 999.0) 
-  joint c2&G: 999  (per-decade independence 999.0) 
-  joint c2&K: 999  (per-decade independence 999.0) 
-  joint c3&G: 999  (per-decade independence 999.0) 
-  joint c3&K: 999  (per-decade independence 999.0) 
-  joint G&K: 999  (per-decade independence 999.0) 
-  five-slice union zero (STAR=B1=I1=0): 999 [np.int64(9), np.int64(25), np.int64(49), np.int64(81), np.int64(121), np.int64(169), np.int64(225), np.int64(289), np.int64(361), np.int64(441), np.int64(529), np.int64(625), np.int64(729), np.int64(841), np.int64(961), np.int64(1089), np.int64(1225), np.int64(1369), np.int64(1521), np.int64(1681)]
+  joint STAR&B1: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint STAR&I1: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint STAR&c2: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint STAR&c3: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint B1&I1: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint B1&c2: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint B1&c3: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint B1&G: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint B1&K: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint I1&c2: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint I1&c3: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint I1&G: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint I1&K: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint c2&c3: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint c2&G: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint c2&K: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint c3&G: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint c3&K: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  joint G&K: 999  (independence per decade 999.0; per decade x n mod 840 999.0) 
+  three-family union zero (STAR=B1=I1=0, = DEDEKIND_ES five slices incl. boundary): 999 [np.int64(9), np.int64(25), np.int64(49), np.int64(81), np.int64(121), np.int64(169), np.int64(225), np.int64(289), np.int64(361), np.int64(441), np.int64(529), np.int64(625), np.int64(729), np.int64(841), np.int64(961), np.int64(1089), np.int64(1225), np.int64(1369), np.int64(1521), np.int64(1681)]
+  five-family union zero (STAR=B1=I1=c2=c3=0): 999 [np.int64(9), np.int64(25), np.int64(49), np.int64(81), np.int64(121), np.int64(169), np.int64(225), np.int64(289), np.int64(361), np.int64(441), np.int64(529), np.int64(625), np.int64(729), np.int64(841), np.int64(961), np.int64(1089), np.int64(1225), np.int64(1369), np.int64(1521), np.int64(1681)]

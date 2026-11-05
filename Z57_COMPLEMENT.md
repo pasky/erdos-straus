@@ -7,8 +7,10 @@ of primes.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / 
 
 ## 0. Summary
 
-**Verdict: narrowed (scoped negative).** No pair of certificate families in the menu is statistically complementary
-beyond local data; the negative dependence that exists is CRT exclusion — between cheap congruence events (local, top
+**Verdict: narrowed (scoped negative; statistical, over primes).** No robustly negative association between the full
+counts of any pair of certificate families was observed after local controls (EVIDENCE, 10⁸–10¹³). This is a statement
+about the *distribution over primes*; it does not exclude pointwise coverage at every prime (a positive covariance is
+compatible with A + B ≥ 1 always: (A, B) = (1,0), (0,1), (10,10) equiprobable has Cov = 179/9 > 0). the negative dependence that exists is CRT exclusion — between cheap congruence events (local, top
 levels) and, at lower order, between divisors of different integers (the privacy link). The question (2) of the brief
 (prove a union inequality for an anti-correlated pair) has no candidate pair; (3) is delivered as a scoped theorem plus
 certified falsifiers. Pointwise complementarity at primes is *not* excluded for the pairs with no joint prime zero
@@ -50,18 +52,20 @@ certified falsifiers. Pointwise complementarity at primes is *not* excluded for 
   model −0.067/−0.064/−0.043, s.e. 0.010); the other three are attributed to the same mechanism by Lemma W(e)
   (Assessment). The 6 bottom-band leads have |r| ≤ 0.04 and mostly shrink under finer residue controls; they match the
   sign and order of the cross-integer CRT exclusion of Thm C(ii) (Assessment). No full certificate pair is negative.
-* **Zero census ≤ 4·10⁶ (CERTIFIED counts; §4.6).** At primes: Type I a = 1 never vanishes; (★) 12 zeros, b = 1 3, none
-  shared; joint zeros of other pairs occur at or above per-decade independence (c2&c3 53 vs 33, 𝔊*&K 12 vs 2.8). At
-  non-square composites joint zeros exceed independence by 1.4–25× (positive tail dependence); the five-slice union
-  vanishes only at n = 105.
+* **Zero census, n ≡ 1 (4), 5 ≤ n ≤ 4 000 001 (CERTIFIED counts; §4.6).** At primes: Type I a = 1 never vanishes; (★)
+  12 zeros, b = 1 3, none shared; no prime zero of the union of the three or of all five families. Joint zeros of the
+  other prime pairs vs independence within decade × (n mod 840) strata (EVIDENCE, descriptive): c2&c3 53 vs 35.7,
+  𝔊*&K 12 vs 10.4 (the latter excess does not persist under this stratification). At non-square composites the union
+  STAR ∪ B1 ∪ I1 (DEDEKIND_ES's five slices) vanishes only at n = 105, and the **five-family union STAR ∪ B1 ∪ I1 ∪ c2 ∪ c3
+  never vanishes** (c2(105) = 1: (t, u, v) = (24, 3, 3) ∈ W(210), 4/105 = 1/27 + 1/1890 + 1/1890).
 
 **Where it stops (§5).** A complementarity theorem would have to come from (i) local data — the CRT exclusion that
 exists is a covering-congruence statement (B1, dead for fixed menus), or (ii) the medium regime, where Thm C proves the
 same-integer coupling positive for bounded shifts and the cross-integer coupling of lower order, and the data show the
-total positive. Within one word set the certificates and QR are the two Jacobi halves, so (conditionally on the word
-count) QR is the only complementary partner; R_STAR∪B1∪I1 ≥ 1 ⟺ some interior word is a Jacobi non-residue or a
+total positive. Within one word set the certificates and QR are the two Jacobi halves — an exact partition, which by
+itself is not a route to a union theorem; R_STAR∪B1∪I1 ≥ 1 ⟺ some interior word is a Jacobi non-residue or a
 boundary certificate exists — for p ≡ 1 (8) this is ES₅, λ(p) ≤ 3 (DEDEKIND_ES Cor 4.6), already on FRONTIER. No
-sidestep of B2 is available through unions of the menu.
+sidestep of B2 was found through unions of the menu (Assessment; not a theorem that none exists).
 
 ## 1. Statements attacked
 
@@ -150,22 +154,31 @@ C = C(θ, M) with
   Cov(D_𝒞(p + u), D_𝒞′(p + u)) ≥ κ(log x)³ − C(log x)²,  Var(D_𝒞(p + u)) ≤ C(log x)³,
 so corr(D_𝒞(p + u), D_𝒞′(p + u)) ≥ κ/(2C) for x ≥ x₀(θ, M, U).
 (ii) (different integers) Let u ≤ U, c, b ≥ 1 with cu ≠ b (c = 1, b = u′ ≠ u is the case of two shifts), and suppose
-every prime dividing c(cu − b) divides M. Then for non-empty class sets 𝒞 (mod q) and 𝒞′ (mod q′), q, q′ | M,
+**every prime dividing b·c·(cu − b) divides M** (for b = u′ ≤ U this is automatic). (Without the hypothesis on b the
+formula below is false: U = 1, M = 4, u = c = 1, b = 3, q = q′ = 1 — every m′ divisible by 3 is impossible at primes
+p ≡ 1 (4) > 3, so all pairs with 3 | m′ drop out of E[DD′] but not of E[D]E[D′]; the error is Ω((log x)²).
+Cross-model review.) Then for non-empty class sets 𝒞 (mod q) and 𝒞′ (mod q′), q, q′ | M,
   Cov(D_𝒞(p + u), D_𝒞′(cp + b)) = −Σ_{m∈𝒞, m′∈𝒞′, m, m′ ≤ y, (mm′, M) = 1, (m, m′) > 1} 1/(φ(m)φ(m′)) + O_A((log x)^{−A}),
-and −C(log x)² ≤ Cov ≤ −κ₂(log x)² + O(log x) with κ₂ = κ₂(θ, M, q, q′) > 0: a negative coupling of lower order
-(correlation ≍ −1/log x), from CRT exclusion (a prime ℓ ∤ M cannot divide both integers — the privacy link of
+and −C(log x)² ≤ Cov ≤ −κ₂(log x)² + O(log x) with κ₂ = κ₂(θ, M, q, q′) > 0. Since also
+Var(D_𝒞(p + u)), Var(D_𝒞′(cp + b)) ≍ (log x)³ (upper bound as in (i); lower bound from (i) with 𝒞′ = 𝒞, whose proof
+applies verbatim to the integer cp + b because, under the hypothesis, m′ | cp + b is a unit class mod m′ for every
+M-coprime m′), this is a negative coupling of lower order (correlation ≍ −1/log x), from CRT exclusion (a prime ℓ ∤ M cannot divide both integers — the privacy link of
 `Z56_FAMATTACK` Lemma L(c)).
 
 **Corollary C1 (the slices).** For S ∈ {STAR, B1, I1, QR} and u ≤ U let S_u^♭(p) := #{words (t, u, v) ∈ S with
-m = tu − 1 ≤ x^θ and gcd(m, M) = 1}. By Lemma W(d) (m is odd since 2 | M) S_u^♭(p) = D_{𝒞_S(u, a)}(p + u) − δ_S(u, a)
+m = tu − 1 ≤ x^θ and gcd(m, M) = 1}. By Lemma W(d) (m is odd since 2 | M), **for p > U·y** (so that m ≤ y < p + u
+excludes the boundary word v = 1, m = p + u) S_u^♭(p) = D_{𝒞_S(u, a)}(p + u) − δ_S(u, a)
 for a set of classes 𝒞_S(u, a) mod 4u depending only on u and a mod 4u, where the constant δ_S(u, a) ∈ {0, 1} removes the
 single boundary divisor m = u − 1 (t = 1; coprime to M only for u = 2, m = 1, and then its divisibility is fixed by a);
-constants do not affect covariances. Hence for F_S := Σ_{u ≤ U} S_u^♭:
+constants do not affect covariances. (The identity fails for small p: U = 2, M = 8, a = 1, u = 2, p = 17, θ = 1/5,
+x = 10⁸ gives QR = 0 but D − δ = 1, both words (1, 2, 19), (10, 2, 1) being boundary words; cross-model review.) The
+primes p ≤ U·y are ≤ U x^θ in number and each count is ≤ τ(p + u) ≪ x^ε, so they contribute o(1) to all first and second
+moments over 𝒫_x. Hence for F_S := Σ_{u ≤ U} S_u^♭:
   Cov(F_S, F_{S′}) ≥ Σ_{u ≤ U : 𝒞_S, 𝒞_{S′} ≠ ∅} κ_u (log x)³ − O_U((log x)²)  (> 0 if some u has both non-empty),
 while the cross-shift terms contribute only −O_U((log x)²) by (ii). c-lines: if b = cw (w ≤ U), then cp + b = c(p + w)
 and (c | M) the M-coprime divisors of cp + b are those of p + w, so the c-line part at shift b is a class count on the
 *same* integer as the slices at shift w, and (i) applies (positive, order (log x)³); if b ∉ cℕ, (ii) applies (negative,
-order (log x)², when every prime dividing c(cu − b) divides M). (Example of emptiness: B1 at odd u ≡ 1 (4) is empty,
+order (log x)², when every prime dividing b·c·(cu − b) divides M); the c-line residue moduli 4cb must divide M. (Example of emptiness: B1 at odd u ≡ 1 (4) is empty,
 since then p + u ≡ 2 (mod 4) and 4 ∤ v; QR is empty at u = 1, where every word is a boundary word.)
 
 *Proof of (i).* For m coprime to M (hence to u, since every prime ≤ U divides M, and to 2), the conditions m | p + u and
@@ -194,8 +207,8 @@ T(z) ≥ κ₁(log z)² − C₁(log z + 1) with κ₁ = α²∏_{ℓ ∤ M}(1 �
 while S₁(𝒞)S₁(𝒞′) ≪ (log x)². So Cov = S₂ − S₁S₁′ + o(1) ≥ κ(log x)³ − C(log x)² with κ = κ₁β θ³/3. ∎
 *Proof of (ii).* If a prime ℓ divides m | p + u and m′ | cp + b then ℓ | c(p + u) − (cp + b) = cu − b; by hypothesis ℓ | M,
 contradicting (mm′, M) = 1. So pairs with (m, m′) > 1 never occur together: P(m | p + u, m′ | cp + b) = 0. For
-(m, m′) = 1: since (m′, c) = 1, m′ | cp + b is the class p ≡ −b c⁻¹ (mod m′), a unit class (a prime ℓ | (m′, b) would
-divide cp, impossible as ℓ ∤ c and m′ < p), and the three congruences are one unit class modulo M m m′ ≤ M x^{2θ}; BV as
+(m, m′) = 1: since every prime of bc divides M and (m′, M) = 1, we have (m′, bc) = 1, so m′ | cp + b is the class
+p ≡ −b c⁻¹ (mod m′), a unit class; and the three congruences are one unit class modulo M m m′ ≤ M x^{2θ}; BV as
 above gives P = 1/(φ(m)φ(m′)) + error, with total error O((log x)^{−A′}) after normalisation. Since
 E[D]E[D′] = Σ_{all m, m′} 1/(φ(m)φ(m′)) + O((log x)^{−A′}), the covariance is minus the sum over (m, m′) > 1, as stated.
 Upper bound for that sum: (m, m′) > 1 means some prime ℓ ∤ M divides both; with φ(ℓa) ≥ φ(ℓ)φ(a) it is
@@ -256,7 +269,8 @@ and the b = 1 zeros 193, 2521, 66529 exactly.
 
 Statistics: `scripts/z57_complement_stats.py` (`stats_*.txt`), `_lproxy.py` (`lproxy_*.txt`), `_leads.py` (`leads.txt`),
 `_leadfollow.py` (`leadfollow_*.txt`), `_toplocal.py` (`toplocal_*.txt`), `_census.py` (`census_summary.txt`). All run with
-`OMP_NUM_THREADS=1`, `ulimit -v ≤ 7.5·10⁶`, `timeout ≤ 1790`. z-values are nominal (r√N).
+`OMP_NUM_THREADS=1`, `ulimit -v ≤ 7.5·10⁶`, `timeout ≤ 1790`. z-values are nominal (r√N): not a calibrated test for heavy-tailed counts with fitted residuals (at 10¹³, N = 550 against
+~370 residue columns the residual degrees of freedom are small); "within noise" below means within this nominal scale only.
 
 Means/L² (1e10; stable across scales): W 0.86, INT 0.68, STAR 0.161, B1 0.294, I1 0.269, QR 0.177, 𝔊* 0.131, K 0.030,
 c2 0.080, c3 0.047; all overdispersed (var/mean of the families 1.9–10; W 29, BND 133 at 10¹⁰). QNR share of interior words 0.740 (all scales).
@@ -335,21 +349,27 @@ correlation is < −4 s.e. within p mod 840 at two scales and < −2 s.e. under 
   full certificate pair has joint-low-tail ratio ≥ 1 at every scale except c2–c3 (0.88) and 𝔊*–K (0.99) at 10¹¹ and
   c3–K (0.99) at 10¹², within noise.
 
-### 4.6 Joint zero census, all n ≡ 1 (4) ≤ 4·10⁶ (CERTIFIED counts; independence predictions EVIDENCE)
+### 4.6 Joint zero census, all n ≡ 1 (4), 5 ≤ n ≤ 4 000 001 (CERTIFIED counts; independence predictions EVIDENCE)
 
-`census_summary.txt` (per-decade independence = Σ_decades N_dec·r_A·r_B):
+`census_summary.txt`. Predictions: independence within strata decade × (n mod 840) (= Σ_strata N·r_A·r_B; local
+classes controlled, early strata sparse; descriptive only). The input list runs to 4 000 001 inclusive (857 499
+non-square composites; 857 498 up to 4·10⁶); zero counts are the same either way.
 
 | | primes (141 502) | non-square composites (857 499) |
 |---|---|---|
 | zeros STAR / B1 / I1 / c2 / c3 / 𝔊* / K | 12 / 3 / **0** / 493 / 3088 / 31 / 3778 | 257 / 41 / 26 / 5826 / 24605 / 1043 / 48065 |
-| joint STAR&B1, STAR&I1, B1&I1 | 0, 0, 0 (pred. 0.0 each) | 2, 7, 4 (pred. 0.6, 0.3, 0.2) |
-| joint STAR&c2, STAR&c3 | 1, 5 (pred. 0.6, 1.5) | 18, 48 (pred. 8.3, 21.8) |
-| joint B1&c2, B1&c3, B1&K | 2, 1, 3 (pred. 0.3, 0.7, 0.5) | 12, 17, 32 (pred. 3.4, 7.4, 7.0) |
-| joint c2&c3, 𝔊*&K | 53, 12 (pred. 33.1, 2.8) | 503, 257 (pred. 281, 94) |
-| five-slice union zero | 0 | 1 (n = 105) |
+| joint STAR&B1, STAR&I1, B1&I1 | 0, 0, 0 (pred. 0.0 each) | 2, 7, 4 (pred. 1.8, 3.9, 1.0) |
+| joint STAR&c2, STAR&c3 | 1, 5 (pred. 0.5, 2.7) | 18, 48 (pred. 10.5, 37.6) |
+| joint B1&c2, B1&c3, B1&K | 2, 1, 3 (pred. 1.4, 1.3, 2.4) | 12, 17, 32 (pred. 5.2, 10.6, 23.6) |
+| joint c2&c3, 𝔊*&K | 53, 12 (pred. 35.7, 10.4) | 503, 257 (pred. 329.5, 223.9) |
+| union STAR ∪ B1 ∪ I1 zero (DEDEKIND_ES's five slices) | 0 | 1 (n = 105) |
+| union of all five families STAR ∪ B1 ∪ I1 ∪ c2 ∪ c3 zero | 0 | **0** (c2(105) = 1) |
 
-Joint zeros never fall below the independence prediction by more than noise and are mostly 1.5–25× above it: positive
-tail dependence, the opposite of complementarity. (I1, the Type I a = 1 slice with its boundary words, has no zero at
+(Decade-only predictions, as in the first draft, are smaller — e.g. 𝔊*&K 2.8 — and do not control residues; the
+cross-model review's rerun gives the same stratified values, and conditional hypergeometric s.d. 4.65 / 2.00 for
+c2&c3 / 𝔊*&K, i.e. z ≈ 3.7 / 0.8.) Joint zeros are at or above the stratified independence prediction (ratios
+≈ 1.0–4 on the composites, small counts): no sign of complementary zero sets; the 𝔊*&K excess at primes is not
+significant after stratification. (I1, the Type I a = 1 slice with its boundary words, has no zero at
 these primes, consistent with CONDITIONAL_ES §1/§8: it is the most robust single line, with S(5 101 441) = 1 recorded
 there.) The 999 odd squares are zeros of every family.
 
@@ -371,16 +391,18 @@ in it (Assessment).
    shifts, θ < 1/4, M-coprime divisors); on different integers negatively coupled only at lower order (CRT exclusion,
    correlation ≍ −1/log x). The regime Thm C leaves open — shifts up to √p and
    divisors beyond p^{1/4} — is exactly the tied-divisor regime of B2, and there the data (§4.3) are positive.
-3. **The only complementary partner is the placebo.** Within the interior word set, certificates and QR are the two
+3. **The exact partner of the certificates is the placebo.** Within the interior word set, certificates and QR are the two
    Jacobi halves (Lemma W(b)): R_STAR∪B1∪I1 ≥ 1 ⟺ (A/p) = −1 for some A ∈ L₃(p) or a boundary certificate exists; for
    p ≡ 1 (8) this is ES₅, λ(p) ≤ 3 (DEDEKIND_ES Cor 4.6; at p ≡ 5 (8) ES holds classically). A "complementarity theorem" against QR is therefore the statement that χ_p is not
    identically +1 on the sparse set L₃(p) of size ≍ log²p — a character sum over a p-dependent sparse set, B2 again
-   (and false at squares, as it must be).
+   (and false at squares, as it must be). The exact partition shows what the union of these three families is; it does
+   not show that QR is the only possible route to a union theorem (cross-model review).
 4. **Escape hatch (Assessment).** Theorem C's proof shows exactly where positivity comes from: the gcd-sharing pairs
    (ga, gb). A complementarity mechanism would need an *exact* relation between divisor classes of *different*
    integers (p + u vs p + u′, or p + u vs cp + b) that is not a congruence and not a size statement. FAMATTACK's Lemma L
    lists the known ones (switch, privacy, parity law); none forces a hit, and the measurements here (28 pairs, six
-   scales, rough controls) show none at the resolution of counts.
+   scales, rough controls) show none at the resolution of counts. This is an Assessment of where to look, not a
+   necessity theorem.
 
 ## 6. Screens (FRONTIER §4) for the best idea (a complementarity/union argument over the menu)
 
@@ -396,13 +418,14 @@ in it (Assessment).
 
 ## 7. Verdict
 
-**Narrowed (scoped negative).** Killed as a route (EVIDENCE, statistical): "two certificate families of the menu fail on
-complementary sets beyond local data"; killed pointwise (CERTIFIED) for the four prime pairs of Prop F. Not killed:
+**Narrowed (scoped negative).** Not supported (EVIDENCE, statistical, over primes): "two certificate families of the menu
+fail on anti-correlated sets beyond local data" — no robustly negative full-pair count association observed; killed pointwise (CERTIFIED) for the four prime pairs of Prop F. Not killed:
 a pointwise implication at primes for (★)&b = 1, (★)&Type I, b = 1&Type I, Type I&c2, Type I&c3 (no joint prime zero
 ≤ 4·10⁶). What is proved: Lemma W (unification; local exclusion of lifts), Theorem C (same-integer slices are
 positively coupled at order (log x)³, different integers negatively coupled at order (log x)², over primes in any fixed
 class), Prop F (implications R_A = 0 ⟹ R_B ≥ 1
-are false at non-square composites for every pair and at primes for four pairs). What survives: complementarity through an
+are false at non-square composites for every *pair* and at primes for four pairs; note that pairwise composite
+counterexamples do not refute larger unions: the five-family union has no non-square zero ≤ 4 000 001). What survives: complementarity through an
 exact non-congruence relation between classes of divisors of different integers (none known), and the Jacobi statement
 χ_p ≢ 1 on L₃(p) (= ES₅, already on FRONTIER).
 
@@ -413,25 +436,31 @@ are the Jacobi-(−1) cells of one word set W(p); c-lines live on W(cp). Over pr
 slices on the same integer are positively correlated (Thm C, PROVED via BV; κ(log x)³ covariance from gcd-sharing divisor
 pairs), parts on different integers negatively coupled only at lower order (CRT exclusion, correlation ≍ −1/log x);
 top-level parts are congruence families whose negative couplings are CRT
-exclusion (local). EVIDENCE 10⁸–10¹³ (+ rough semiprimes, same joint law): all 21 certificate pairs positive after
-local and L-value controls (c2–c3 ≈ 0), joint low tails mostly 1.1–4.7× independence; given the word count, the only
-anti-correlated partner of the certificates is the Jacobi-(+1) placebo. CERTIFIED: "R_A = 0 ⟹ R_B ≥ 1" is false at non-square composites for every pair and at primes for
-(★)⇒c2 (102001), (★)⇒c3 (577, …), b=1⇒c2 (193, 2521), b=1⇒c3 (193). Do not retry without an exact non-congruence relation
-between divisor classes of different integers.
+exclusion (local). EVIDENCE over primes 10⁸–10¹³ (+ rough semiprimes, same joint law): all 21 certificate pairs positive after
+local and L-value controls (c2–c3 ≈ 0), joint low tails mostly 1.1–4.7× independence — no robustly negative full-pair
+count association observed (statistical; does not exclude pointwise coverage); given the word count, the certificates'
+exact partner is the Jacobi-(+1) placebo. CERTIFIED: "R_A = 0 ⟹ R_B ≥ 1" is false at non-square composites for every pair
+of {(★), b = 1, Type I a = 1, c2, c3} and at primes for (★)⇒c2 (102001), (★)⇒c3 (577, …), b=1⇒c2 (193, 2521),
+b=1⇒c3 (193); the five-family union has no zero at any n ≡ 1 (4), 5 ≤ n ≤ 4 000 001, except odd squares. Assessment:
+a statistical-complementarity route over this menu is unpromising; a pointwise union argument would need a new exact
+ingredient (e.g. a non-congruence relation between divisor classes of different integers).
 
-*§2.1 census, addition:* Type I a = 1 (with boundary words) has no zero at primes p ≡ 1 (4) ≤ 4·10⁶; joint zeros of
-(★), b = 1, Type I a = 1 at primes ≤ 4·10⁶: none (CERTIFIED, `Z57_COMPLEMENT.md` §4.6).
+*§2.1 census, addition:* Type I a = 1 (with boundary words) has no zero at primes p ≡ 1 (4) ≤ 4·10⁶; pairwise joint zeros
+of (★), b = 1, Type I a = 1 at primes ≤ 4·10⁶: none; the union (★) ∪ b=1 ∪ Type I ∪ c2 ∪ c3 has no zero at any non-square
+n ≡ 1 (4) ≤ 4 000 001 (STAR ∪ B1 ∪ I1 alone: only n = 105) (CERTIFIED, `Z57_COMPLEMENT.md` §4.6).
 
-**Bottom line.** The failure sets of different certificate families are not complementary. All families of the menu
+**Bottom line.** Over primes, no robustly negative association between the counts of any two certificate families of
+the menu was observed (statistical; pointwise coverage at every prime is neither shown nor excluded for the pairs
+without a joint prime zero). All families of the menu
 are cells of one or two word sets and their counts are divisor events of shared or unrelated integers; sharing couples
 them positively (proved, for bounded shifts and small divisors, over primes in any residue class), not sharing leaves
 only a lower-order negative CRT coupling, and the visible negative couplings are local congruence exclusions between
 cheap pairs, which a covering argument
 cannot turn into a theorem. Across 10⁸–10¹³ every certificate pair is positively dependent, joint low tails are more
 frequent than independence, the class-number layer pushes every family the same way, and rough semiprimes show the same
-joint law as primes. Unions help only by adding main terms. A union theorem over the menu would need an exact relation
-between divisor classes of different integers that is neither a congruence nor a size statement; none is known. ES is
-open.
+joint law as primes. In the measured statistics, unions help by adding main terms. Assessment: a union theorem over the
+menu would need a new exact ingredient — e.g. a relation between divisor classes of different integers that is neither
+a congruence nor a size statement; none is known. ES is open.
 
 ## 9. Review log
 
@@ -451,4 +480,15 @@ open.
   STAR z0–c2 z1; kill condition restricted to certificate pairs; "M-coprime" instead of "K-rough"; non-emptiness
   hypotheses; boundary B1 certificates justified; QR complementarity stated as conditional on the word count; verdict
   scoped (pointwise implications at primes for five pairs not excluded).
-* Cross-model review: pending.
+* **Cross-model review** (`data/z57/xreview/REVIEW_COMPLEMENT.md`, independent reproducer
+  `scripts/z57_xrev_complement_check.py`; verdict REJECT as written). Reproduced: Lemma W (incl. an independent
+  reciprocity derivation of the cell law), Theorem C(i), Prop F's four prime-pair falsifiers, all zero counts (fresh prime
+  census to 4·10⁶), all 21 correlations and tail ratios at 10⁹. Required fixes, all applied: (1) the "five-slice union
+  vanishes at 105" was the three-family union STAR ∪ B1 ∪ I1; c2(105) = 1 and the five-family union has no non-square
+  zero ≤ 4 000 001 — census script now reports both, §0/§4.6/§7/§8 corrected; pairwise falsifiers do not refute unions,
+  and positive covariance does not forbid pointwise coverage — universal "not complementary"/"only partner"/"do not
+  retry" language replaced by scoped EVIDENCE/Assessment wording; (2) Theorem C(ii) needed the hypothesis that every prime
+  of b·c·(cu − b) divides M (counterexample U = 1, M = 4, b = 3) — added, proof repaired, variance order stated;
+  (3) Cor C1's exact identity fails for small p (p = 17 example) — restricted to p > U·x^θ, initial segment shown
+  negligible; (4) joint-zero comparisons now stratified by decade × n mod 840 (𝔊*&K excess 12 vs 10.4 is not
+  significant); range stated as 5 ≤ n ≤ 4 000 001 (857 499 composites; 857 498 up to 4·10⁶).
