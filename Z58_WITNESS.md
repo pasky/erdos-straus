@@ -3,14 +3,14 @@
 Status: z58 lane WITNESS (brief `z52bbriefs/z58_lanes.md` §WITNESS, common rules `z52bbriefs/z53_depth.md` with
 z53 → z58). Internal; **ES is OPEN; nothing here proves or disproves ES, (★) or (MS).** Labels: PROVED / CONDITIONAL /
 CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z58_witness_*`, data `data/z58/witness/`.
-**CHECKPOINT 1 (≈ 40 min in).** Sections marked (TODO) are not yet done.
+Final memo (checkpoint 1 was commit e9040b1e).
 
 ## 0. Falsifier table (MANDATORY; the "idea" of this lane = a deterministic witness rule p ↦ (u, C) or p ↦ d)
 
 | screen | how a witness rule behaves | where primality must enter |
 |---|---|---|
 | **F1 odd squares** | No rule can fire: R(m²) = 0, every hit class is a Jacobi non-residue mod d (Z57_SYNTH Lemma A.1(b)). Any rule whose output depends only on p mod M (fixed M) fails on the squares of that class; all six classes of 𝔐 are squares mod 840, so *no congruence-only rule exists on 𝔐* (PROVED, trivial: m² in the class of p has the same residues mod every d \| M). | A proof that the rule fires must contain a step producing a divisor d of p + u (or of 4Cp + 1) with **Jacobi (p/d) = −1** (Lemma 1.1 below). That is the identifiable square-killing step; for a rule reading the factorisation of p + u it is "p + u has a prime factor ℓ with (ℓ/p) = −1 in the right class". |
-| **F2 C-even sub-line** | A rule must be allowed to output odd C. On the 12 R₈-zeros in [10¹⁰, 1.1·10¹⁰] every rule restricted to C even (equivalently d = 4uC − 1 ≡ −1 (mod 8u)) fails. The rules studied here (least d, least u, least C, least 4uB) range over both parities; their parity split is reported in §3 (TODO). | Same as F1 plus: the argument must not be a statement about the c = 1 line of 8/p. |
+| **F2 C-even sub-line** | A rule must be allowed to output odd C. On the 12 R₈-zeros in [10¹⁰, 1.1·10¹⁰] every rule restricted to C even (equivalently d = 4uC − 1 ≡ −1 (mod 8u)) fails. The rules studied here (least d, least u, least C, least 4uB) range over both parities; their parity split at hard primes is reported in §3 (no parity selection). | Same as F1 plus: the argument must not be a statement about the c = 1 line of 8/p. |
 | **F3 composites** | All least-witness rules output nothing at the 285 composite zeros. 214/285 are divisible by 3, 36 more by 5, 15 by 7 (CERTIFIED, `data/z58/screens/composite_zeros_le8e6.txt` + sympy): **at composite n every modulus d sharing a factor with n is dead** (u \| (d+1)/4 forces gcd(d, u) = 1, and n ≡ −u (d) then forces gcd(d, n) = 1). Primality enters by keeping *all* d < p alive. This is a genuine but weak use: composites with least prime factor ≥ 29 (e.g. a zero with least factor 443) lose almost no moduli and are still zeros. | Beyond "all moduli alive", no step of any rule here uses primality. |
 | **F4 known zeros** | At the 14 (★)-zeros no witness exists in any ordering (CERTIFIED by the scan, all four orderings report "none"). At the 38 𝔊*-zeros witnesses exist but are huge in the d- and C-orderings (e.g. 564 661 441: d_min = 2 741 075, C_min = 76 141). A rule "fires within bound F(p)" must have F(p) above the observed record curve (§2), and any proof must have threshold > 8 813 281. | — |
 
@@ -196,8 +196,10 @@ set has density zero). W is therefore a *target*, not a lead.
 * No deterministic witness rule was found. Every ordering of the witnesses by a *modulus* (d_min, q_min, m3) has a
   polynomial worst case on the data (d_min ≈ p/29, q_min ≈ p/20, m3 ≈ 0.35 p^{2/3} at p ≤ 10⁹), and by Lemma 1.1
   a polylog rule in a modulus would bound n_p (GRH-strength).
-* The hardest primes are those whose *boundary* (some coordinate small) is empty; their few solutions sit in the
-  *centre* of the simplex, where solution counts are near-Poisson (§3). Hardness is a clustered-boundary failure
+* The hardest primes are typically those whose *boundary* (some coordinate small) is empty: for 35 of the 45 primes
+  in [10⁷, 10⁹] with R ≤ 4 (75 of 103 above 10⁶) every solution has min log-coordinate > 0.1, against ≈ 49 % of
+  control solutions; their few solutions sit in the *centre* of the simplex, where counts are near-Poisson (§3).
+  (Not all: e.g. 85 664 329 has the single solution (18, 29, 41 027).) Hardness is a clustered-boundary failure
   followed by a thin centre lottery. Nothing in CF(√p), the two-square representation or n_p locates those centre
   solutions (§§3–4).
 * Scoped theorem: bounded-coordinate (multiplicative-menu) rules fail infinitely often under Dickson (Prop 3.1).
@@ -207,7 +209,7 @@ set has density zero). W is therefore a *target*, not a lead.
 **Falsifier table (final; the idea = "a deterministic witness rule", best surviving form = W).**
 | | F1 squares | F2 C-even | F3 composites | F4 zeros |
 |---|---|---|---|---|
-| modulus-ordered rules (d, q, m3) | fail (no witness); a proof needs a Jacobi (p/d) = −1 step; polylog version ⟹ n_p bound | rules must allow odd C | primality used only as "all d < p coprime to p" | none fires at the 14; witnesses at 𝔊*-zeros ≍ p^{0.6}–p |
+| modulus-ordered rules (d, q, m3) | fail (no witness); a proof needs a Jacobi (p/d) = −1 step; polylog version ⟹ n_p bound | rules must allow odd C | primality used only as "all d < p coprime to p" | none fires at the 14; at the 24 𝔊*-zeros with R ≥ 1 the least modulus m3 is p^{0.16}–p^{0.69} (median p^{0.43}) |
 | fixed bounded menus (Prop 3.1) | fail | — | — | dead i.o. under Dickson anyway |
 | W (least coordinate ≤ log²p) | fails at each of its O(log²p) integers by Jacobi; proof needs a divisor in the right class inside the Jacobi −1 coset (B2) | C-even version false at 12 R₈-zeros; W uses C = 1 etc. | same as above; no primality step specific to W | threshold > 8 813 281 required |
 
@@ -224,8 +226,8 @@ set has density zero). W is therefore a *target*, not a lead.
 > barrier and fixed-S Dickson; a B2 statement for O(log²p) explicit integers.
 
 **Bottom line.** Studied literally, (MS) fires early for almost all primes (d_min has a limit law; typical least
-coordinate 1–2) but the hardest primes are "centre-only" primes whose one or two solutions have all three coordinates
-≍ p^{1/4}–p^{1/3}; no structural invariant tested (n_p, CF of √p, two-square data, parity) predicts where those
+coordinate 1–2) but the hardest primes are mostly "centre-only" primes (35 of 45 with R ≤ 4 in [10⁷, 10⁹]) whose one or two solutions
+have no small coordinate (at the record 413 490 001 all coordinates are ≥ 201 ≈ p^{0.27}); no structural invariant tested (n_p, CF of √p, two-square data, parity) predicts where those
 solutions are. The only witness ordering not dead on data or by a barrier is the least coordinate, giving CONJECTURE
 W (≤ log²p; observed ≤ 201 to 10¹⁰). It is a cleaner polylog target than modulus rules — it is immune to the n_p
 barrier — but it is still a single-integer divisor-class statement and nothing here proves any part of it.
