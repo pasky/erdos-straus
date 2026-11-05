@@ -1,0 +1,8 @@
+data/z59/msplus/struct/dead_1.txt.gz: distinct=18124 squares(T1 controls)=0 nonsq_UNK=0 m: min=95.9 median=169.9 | mu median=95 max=89152 | model-B expected zeros=1.39e-16
+data/z59/msplus/struct/dead_2.txt.gz: distinct=86330 squares(T1 controls)=0 nonsq_UNK=0 m: min=91.7 median=170.9 | mu median=111 max=211403 | model-B expected zeros=9.48e-16
+data/z59/msplus/struct/deadsq_1.txt.gz: distinct=6256 squares(T1 controls)=0 nonsq_UNK=0 m: min=75.6 median=182.8 | mu median=31 max=45192 | model-B expected zeros=7.01e-13
+data/z59/msplus/struct/deadsq_2.txt.gz: distinct=24378 squares(T1 controls)=0 nonsq_UNK=0 m: min=64.7 median=185.7 | mu median=31 max=45192 | model-B expected zeros=2.22e-11
+data/z59/msplus/struct/msq_2.txt.gz: distinct=50000 squares(T1 controls)=0 nonsq_UNK=0 m: min=78.6 median=228.3 | mu median=39 max=20423 | model-B expected zeros=5.64e-13
+data/z59/msplus/struct/semi_2.txt.gz: distinct=49998 squares(T1 controls)=6 nonsq_UNK=0 m: min=79.0 median=157.2 | mu median=39 max=32015 | model-B expected zeros=6.8e-11
+data/z59/msplus/struct/sm2_1.txt.gz: distinct=19967 squares(T1 controls)=0 nonsq_UNK=0 m: min=58.5 median=148.7 | mu median=31 max=8680 | model-B expected zeros=6.26e-10
+data/z59/msplus/struct/sm2_2.txt.gz: distinct=99220 squares(T1 controls)=0 nonsq_UNK=0 m: min=57.6 median=148.4 | mu median=31 max=27768 | model-B expected zeros=2.64e-09

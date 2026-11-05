@@ -1,7 +1,7 @@
 # z59 MSPLUS: evaluate structured-search outputs (scripts/z59_msplus_struct.sh) against the zero law (model B of
 # z59_msplus_zerofit.py): per family, distinct non-square inputs, UNK count, mean m(n), and the model's expected number
 # of zeros sum_n P0(n).  Usage: python z59_msplus_structeval.py COEF THETA_B(comma-sep) FILES...
-import sys, math
+import sys, math, gzip
 import numpy as np
 sys.path.insert(0, 'scripts')
 from z59_msplus_zerofit import mval, kbucket, design
@@ -11,7 +11,7 @@ for line in open(sys.argv[1]):
 th = np.array([float(x) for x in sys.argv[2].split(',')])
 for fn in sys.argv[3:]:
     seen = set(); unk = 0; sq = 0; P0 = 0.0; ms = []; mus = []
-    for line in open(fn):
+    for line in (gzip.open(fn, 'rt') if fn.endswith('.gz') else open(fn)):
         t = line.split(); n = int(t[0])
         if n in seen: continue
         seen.add(n)

@@ -12,7 +12,7 @@ composite.
 | Screen | Behaviour |
 |---|---|
 | F1 odd squares | The local mean (Thm 1) is **blind to squares**: an odd square coprime to 105 has the same leading mean as a prime. So no "mean large ⟹ R ≥ 1" statement can come from this mechanism; T1 is a Jacobi phenomenon that means cannot see. The zero law (§3) is fitted on non-squares only and is not claimed for squares. Control: the structured search (§4.3) contained 6 accidental squares p², and the engine (correctly) found no hit for any of them. Non-squareness enters only through the fluctuation (zero) model, which is exactly the step nobody can prove. |
-| F2 C-even (R₈) | Thm 1 holds verbatim for R₈ with leading mean exactly half (Remark 2.3, PROVED): **the dead-moduli structure is identical for R and R₈.** So the mechanism cannot separate R from R₈, and it cannot be a proof route. R₈ has zeros at 𝔐-primes above 10¹⁰. Their observed rate is ≈ 10× what the R-zero law gives at equal mean (§3.5), so the zero law is problem-specific, not a function of the mean alone. |
+| F2 C-even (R₈) | Thm 1 holds verbatim for R₈ with leading mean exactly half (Remark 2.3, PROVED): **the dead-moduli structure is identical for R and R₈.** So the mechanism cannot separate R from R₈, and it cannot be a proof route. R₈ has zeros at 𝔐-primes above 10¹⁰. Their observed rate is several times (≈ 5×) what the R-zero law gives at equal mean (§3.5), so the zero law is problem-specific, not a function of the mean alone. |
 | F3 composites | This is the lane's subject. A hit modulus d is coprime to n (dead moduli, PROVED, z58 LOGIC). Each odd q ∣ n lowers the **leading** mean coefficient by (q² − q + 1)/(q² + 1) (Thm 1). The composite zeros sit in the groups with 3 ∣ n, 15 ∣ n, 21 ∣ n, 105 ∣ n, where the mean is lowest. One law in the local mean m(n) reproduces their group-by-group counts within a factor ≈ 1.5 (§3). |
 | F4 known zeros | The model only gives probabilities. It predicts zeros with the right order of magnitude where they occur, and it "proves" nothing anywhere. It **under-predicts** the 𝔐-prime zeros of 10⁶–10⁷ by ≈ 6× (§3.3): their pseudo-square structure goes beyond the model. Thresholds come from the census (§6), not from the model. |
 
@@ -26,8 +26,9 @@ composite.
   * This is all classes, not only 𝔐, so it contains (MS⁺) and also every prime p ≡ 1 (4) above the threshold.
   * Status: CERTIFIED to 10¹⁰ by the z58 LOGIC all-n census (`data/z58/logic/zeros_1e10.txt.gz`).
 * **(R⁺_y) (rough version, CONJECTURE).** R(n) ≥ 1 for every non-square n ≡ 1 (4) > 8 813 281 all of whose prime factors
-  exceed y, for y ≥ 43.
-  * Status: CERTIFIED to 10¹⁰ (same census; §5.3). For y = 43 the last zero is 8 813 281, the last (★)-zero prime.
+  exceed y, for y ≥ 47.
+  * Status: CERTIFIED to 10¹⁰ (same census; §5.3). Stated for y ≥ 47; for y = 47 the last zero is 8 813 281, the
+    last (★)-zero prime. For y ≤ 43 the threshold must be 17 401 609 = 47·370 247.
 * Out of scope: ES and (MS) themselves. Nothing here moves the B2 wall.
 
 ## 2. The local mean of R — what dead moduli do (PROVED) and what 𝔐 does (second order)
@@ -62,11 +63,13 @@ The power of 2 contributes the factor 1.
      value of the unit residue of the other variable, so the contribution is 2(1/q)(1 − 1/q)·q·[q ∤ a]/(q − 1) = (2/q)[q ∤ a];
    * both (probability 1/q²): g_q = q, condition a ≡ 0 (mod q), contribution (1/q²)·q·[q ∣ a] = [q ∣ a]/q.
    So σ_q(a) = (1 − 1/q)² + (2/q)[q ∤ a] + (1/q)[q ∣ a], which gives the two stated values.
-6. For q = 2 and a ≡ 1 (4), the exact enumeration over (ℤ/2^e)², e ≤ 5 (`scripts/z59_msplus_local.py`), gives the
-   factor 1 in every class, for every e. The 2-part of 4uB is at least 4, and the condition is a congruence for u + B; the
-   finite enumeration is a complete proof for each fixed k ≤ 5, and k > 5 is identical because v₂(4uB) ≥ 2 and a ≡ 1 (4)
-   only constrain u + B mod 2^{min(v₂(4uB),k)}. With the normalisation 1/4 from step 4 this gives f̄ = 𝔖_Q(a)/4 and
-   mean (𝔖_Q(a)/8)·log²X. ∎
+6. For q = 2 (2^k ∥ Q, k ≥ 2, a ≡ 1 (4)), put j = v₂(u) + v₂(B) and m = min(2 + j, k), so g₂ = 2^m and the condition
+   is u + B ≡ −a (mod 2^m), with −a ≡ 3 (mod 4).
+   * If u and B are both odd or both even (probability 1/2), u + B is even and the condition fails, since m ≥ 2.
+   * If exactly one is even (probability 1/2), u + B is odd. Conditioned on the even one, u + B is uniform over the odd
+     residues mod 2^m, so the condition holds with probability 2^{−(m−1)}. The contribution is (1/2)·2^m·2^{1−m} = 1.
+   So the 2-adic factor is 1 for every a ≡ 1 (4) and every k; the exact enumeration in `scripts/z59_msplus_local.py`
+   agrees for k ≤ 5. With the normalisation 1/4 from step 4 this gives f̄ = 𝔖_Q(a)/4 and mean (𝔖_Q(a)/8)·log²X. ∎
 
 *Remark 2.1 (higher prime powers; CERTIFIED by exact enumeration).* With q² ∥ Q, …, q^e ∥ Q (q = 3, e ≤ 4; q = 5, e ≤ 3;
 q = 7, 11, e ≤ 2), σ_q still takes only the two values above, depending on q ∣ a. So the higher valuation of q in n does
@@ -157,7 +160,7 @@ structure.
 * **Not explained:** the 𝔐-prime zeros of 10⁶–10⁷ (4 vs 0.6 at 10⁶; Poisson tail ≈ 0.003). Primes in 𝔐 carry pseudo-square
   structure beyond k(n) (EVIDENCE).
 
-### 3.4 Pre-registered out-of-sample test (committed in `115e9677`/amend before the run)
+### 3.4 Pre-registered out-of-sample test (predictions committed in `85a4fa37` before the run)
 * Exact census of the classes 105 ∣ n, 15 ∣ n and 21 ∣ n on [10¹⁰, 10¹¹] (`scripts/z59_msplus_cdec.c`, the z58 LADDER
   decider on chosen classes; `scripts/z59_msplus_oos.sh`, `data/z59/msplus/oos/`).
 * The engine reproduces the z58 LOGIC zero counts with 105 ∣ n on [10⁶, 10⁸] (27) and [10⁹, 10¹⁰] (11).
@@ -165,8 +168,18 @@ structure.
 | group | pred. A | pred. B | observed [10¹⁰, 10¹¹] |
 |---|---|---|---|
 | 105 ∣ n | 5.51 | 6.05 | **9** |
-| 15 ∣ n, 7 ∤ n | 4.36 | 4.80 | (running) |
-| 21 ∣ n, 5 ∤ n | 1.09 | 1.32 | (running) |
+| 15 ∣ n, 7 ∤ n | 4.36 | 4.80 | **4** |
+| 21 ∣ n, 5 ∤ n | 1.09 | 1.32 | **4** |
+| total | 10.96 | 12.17 | **17** |
+
+The 16 zeros are listed in `data/z59/msplus/oos/` (all composite, as required; several carry further small factors 11,
+13, 19, …, i.e. further dead moduli).
+
+*Sensitivity (EVIDENCE, `scripts/z59_msplus_sens.py`, `data/z59/msplus/zerofit_beta0.txt`).* Refitting model B with
+the log₁₀n term removed (β = 0) predicts 15.8 / 7.8 / 1.8 for the three rows (total 25.4). The observed total 17 lies
+between the two fits (12.2 and 25.4). Per row the law is right within a factor ≈ 2–3. The 21 ∣ n row is
+under-predicted (4 against 1.3–1.8; Poisson tail ≈ 0.05–0.1); the 15 ∣ n row is slightly over-predicted by both.
+So the decline in n is real, but its rate is uncertain.
 
 The previous decade [10⁹, 10¹⁰] was also out of sample, from the z58 LOGIC zero list:
 * total: 42 observed against 27.0 (A) and 28.2 (B);
@@ -186,13 +199,15 @@ Reading:
   * 𝔐 composites: 2.6·10⁻³ in [10¹⁰, 10¹¹] and 1.7·10⁻⁴ beyond 10¹¹;
   * 𝔐 primes: ≈ 10⁻⁴;
   * non-𝔐 composites coprime to 105: ≈ 1.4·10⁻³ beyond 10¹⁰;
-  * 105 ∣ n and 15 ∣ n: ≈ 13 in [10¹⁰, 10¹¹], 5 in [10¹¹, 10¹²], 1.7 in [10¹², 10¹³], 0.5 in [10¹³, 10¹⁵].
-  * Correcting for the observed ≈ 1.5× per-decade under-prediction (flat counts), the 105 ∣ n zeros may continue
-    much longer.
+  * 105 ∣ n and 15 ∣ n: ≈ 11 in [10¹⁰, 10¹¹] (13 observed), 5 in [10¹¹, 10¹²], 1.6 in [10¹², 10¹³], 0.5 in
+    [10¹³, 10¹⁵]. The β = 0 fit gives ≈ 12, 4 and 1.2 for the last three ranges.
+  * So the 105 ∣ n tail plausibly runs to 10¹³–10¹⁵; it is finite under either fit.
+  * For 𝔐 the two fits give 4·10⁻⁴ (β = 0) and 2.7·10⁻³ (B) expected composite zeros beyond 10¹⁰.
 * The finiteness prediction rests on extrapolating an exponential law in m from m ∈ [10, 45] to m ≈ 75 (𝔐 at 10¹¹)
   and beyond. Nothing proves this.
-* The R₈ zeros warn that the law is problem-specific. With R₈ ≈ R/2 in mean (Remark 2.3), model A at m/2 predicts an
-  R₈-zero rate of ≈ 4·10⁻⁸ among primes near 10¹⁰. The observed rate is ≈ 5·10⁻⁷ (12 zeros in [10¹⁰, 1.1·10¹⁰]).
+* The R₈ zeros warn that the law is problem-specific. With R₈ ≈ R/2 in mean (Remark 2.3), model A at m/2 ≈ 35
+  predicts an R₈-zero rate of ≈ 10⁻⁷ among primes p ≡ 1 (4) near 10¹⁰. The observed rate is ≈ 5·10⁻⁷: 12 zeros among
+  ≈ 2.2·10⁷ such primes in [10¹⁰, 1.1·10¹⁰] (rough Assessment).
 * Answer to brief (1):
   * **dead moduli + the local mean explain the composite zeros in and out of 𝔐 at the level of counts per group**, but
     not the 𝔐-prime zeros of 10⁶–10⁷;
@@ -205,9 +220,9 @@ Reading:
 with R(s m²) = 0 has natural density 0 among odd m.
 
 *Proof.*
-1. Let 𝒫 be the set of primes ℓ ≡ 3 (mod 4), ℓ ∤ 2s, with (s/ℓ) = −1. Since s is not a square, 𝒫 has relative density
-   1/4 among primes (quadratic reciprocity + Dirichlet/Chebotarev for the field ℚ(i, √s)). If s = −1·□, then
-   (s/ℓ) = −1 for every ℓ ≡ 3 (4); s ≡ 1 (4) excludes this for s > 0 anyway.
+1. Let 𝒫 be the set of primes ℓ ≡ 3 (mod 4), ℓ ∤ s, with (s/ℓ) = −1. Write s = s₀t² with s₀ > 1 squarefree. Then
+   s₀ ≡ 1 (4), and (s/ℓ) = (ℓ/s₀) by reciprocity. The characters χ₋₄ and (·/s₀) are independent: their conductors
+   are 4 and s₀ > 1, s₀ odd. By Dirichlet, 𝒫 has relative density 1/4 among primes.
 2. Fix ℓ ∈ 𝒫. Then −1 is a non-residue mod ℓ, so −s^{−1} is a residue. Hence s m² ≡ −1 (mod ℓ) has exactly 2 solutions
    m mod ℓ.
 3. For such m, d = ℓ, u = 1, C = (ℓ + 1)/4 and B = (s m² + 1)/ℓ give a solution, provided s m² ≥ ℓ − 1 (true for all
@@ -293,3 +308,69 @@ Assessment (brief (4)):
 * Progress at writing: all non-square n mod 840 ∈ 𝔐 in (10¹¹, 4·10¹¹] decided, **zero zeros** among ≈ 3.6·10⁸ primes and
   1.78·10⁹ non-square composites (exact counts in the S lines).
 * Target: 10¹². Final numbers in §8.
+
+## 7. Verdict, screens, proposed FRONTIER text
+
+**Verdict: narrowed, and strengthened as a choice of target; no HOT LEAD.**
+* *Strengthened (understanding, PROVED part).* Theorem 1 gives the exact leading local mean of R on any class. Dead moduli
+  act at leading order through σ_q = (q² − q + 1)/q² against (q² + 1)/q². Mordell's classes act only at second order
+  (c₁L). R₈ has the identical dead-moduli structure (Remark 2.3). Lemma 4.1: there is no twisted-T1 family for (★).
+* *Strengthened (target choice, CERTIFIED + EVIDENCE).*
+  * The composite zeros are quantitatively a dead-moduli phenomenon. One zero law in the local mean reproduces their
+    group distribution, and passed a pre-registered out-of-sample test on [10¹⁰, 10¹¹] (§3.4).
+  * The primality-free targets (MS⁺), (MS⁺₁₀₅) and (R⁺_{47}) have negligible predicted tails. The (MS⁺) census now
+    reaches 10¹² (§6). (R⁺_{47}) has exactly the prime threshold 8 813 281.
+* *Narrowed (scoped, PROVED).* The means mechanism is blind to squares (F1) and identical on R₈ (F2), so it cannot be
+  a proof route for any of these statements. (MS⁺) is closed under no product/divisor/q²-scaling operation (Lemma 5.1,
+  CERTIFIED examples), so "reduce to primes" or "reduce from primes" proofs are unavailable.
+* *Not explained:* the excess of 𝔐-prime zeros at 10⁶–10⁷ (≈ 6× the law) — a pseudo-square effect that k(n) only
+  partly captures.
+
+**Screens for the best idea here (the "use (MS⁺₁₀₅)/(R⁺_{47}) as the target" recommendation).**
+* T1 squares: excluded by hypothesis; the mechanism itself is square-blind, so any proof must find its non-square
+  input elsewhere.
+* 8/131 and numerator 8: fails as a mechanism, because the dead-moduli structure is identical for R₈. The R₈
+  statements are false (zeros above 10¹⁰), so a proof must use C odd somewhere.
+* Tied modulus (B2): untouched.
+* Fixed p: the model is a probability for each n and certifies nothing at a fixed p.
+
+**Proposed FRONTIER §7 text (do not apply without review).**
+> *(MS⁺) and dead moduli (z59 MSPLUS).*
+> * The class mean of R is (𝔖(a)/8)log²X + O(log X), with σ_q = 1 + 1/q² (q ∤ a) and 1 − 1/q + 1/q² (q ∣ a), and no
+>   2-adic or quadratic-residue dependence at leading order (PROVED). Mordell's classes lower the mean only at order L.
+> * One empirical zero law, P(R(n) = 0) ≈ exp(−0.3·m(n)) in the local mean m, reproduces the group distribution of
+>   the composite zeros (3 ∣ n, 15 ∣ n, 105 ∣ n, …). It passed a pre-registered test on [10¹⁰, 10¹¹]: 9/4/4 zeros
+>   observed against 6.1/4.8/1.3 predicted. It predicts finitely many non-square zeros, with a negligible tail on 𝔐
+>   and among n coprime to 105 (EVIDENCE/Assessment).
+> * There is no twisted-T1 family for (★) (PROVED). (MS⁺) is CERTIFIED to 10¹² (one engine).
+> * Primality-free targets with clean screens: (MS⁺₁₀₅) (gcd(n, 105) = 1, all classes, threshold 29 210 401) and
+>   (R⁺_{47}) (all prime factors > 47, threshold 8 813 281), both CERTIFIED to 10¹⁰.
+> * The dead-moduli structure of R₈ is identical, so these are statements, not mechanisms. B2 is untouched.
+
+**Bottom line.**
+* The composite zeros of the (★) count are not mysterious. Each odd prime q ∣ n kills the moduli divisible by q, which
+  lowers the leading mean by the exact factor (q² − q + 1)/(q² + 1). A single zero law in that mean predicts where and
+  how often composite zeros occur, including a correctly pre-registered decade beyond the old census.
+* In Mordell's classes, the residue structure enters only at second order. The law says the composite tail there is
+  already exhausted, which is consistent with the census, now to 10¹².
+* For 105 ∣ n the tail is long but finite.
+* None of this is a proof device. The mechanism is square-blind and does not distinguish R from R₈. (MS⁺) is a
+  logically stronger target with no closure properties, so it admits no "reduce to primes" argument. Its value is as a
+  cleaner *statement*: the variants (MS⁺₁₀₅) and (R⁺_{47}) show that primality matters only through "no small prime
+  factor" plus non-squareness. The B2 wall is untouched.
+
+## 8. Reproduction
+* Local factors: `uv run python scripts/z59_msplus_local.py`.
+* Class means: `gcc -O2 -o strat scripts/z59_msplus_strat.c -lm && ./strat 1000000000 1000000 > s.txt`, then
+  `uv run --with numpy --with scipy python scripts/z59_msplus_mean.py s.txt` (`data/z59/msplus/strat_1e9.txt.gz`,
+  `means_1e9.txt`; ≈ 90 s, 1 GB).
+* Zero law:
+  * `scripts/z59_msplus_coef.py > coef840.txt`;
+  * `gcc -O2 -o strat2 scripts/z59_msplus_strat2.c -lm && ./strat2 1000000000 coef840.txt > h_1e9.txt` (2.2 GB);
+  * `uv run --with numpy --with scipy --with sympy python scripts/z59_msplus_zerofit.py h_1e9.txt coef840.txt 200000`;
+  * sensitivity: `scripts/z59_msplus_sens.py`.
+* Out-of-sample: `scripts/z59_msplus_oos.sh` (`scripts/z59_msplus_cdec.c`).
+* Structured search: `scripts/z59_msplus_struct.sh FAM COUNT SEED` (`z59_msplus_gen.py`, `z59_msplus_dec.c`), then
+  `scripts/z59_msplus_structeval.py`.
+* Census: `scripts/z59_msplus_census.sh LANE 3 10 100` (three lanes).
+* Data: `data/z59/msplus/` (< 20 MB).
