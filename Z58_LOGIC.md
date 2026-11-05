@@ -137,7 +137,7 @@ Per decade ⌊log₁₀ n⌋:
 * The "balanced" composite zeros (least prime factor ≥ n^{1/3}) end at 2 956 321 = 211·14 011.
 * Composite zeros above 3·10⁷ are dominated by small factors.
   * Above 10⁸, every composite zero is divisible by 3, 5 or 7 (52 + 42 of them).
-  * The composite zeros coprime to 105 above 10⁷ are just 12 538 801, 17 401 609 and 29 210 401 = 11·31·85 661 (to 10⁹).
+  * The composite zeros coprime to 105 above 10⁷ are just 12 538 801, 17 401 609 and 29 210 401 = 11·31·85 661 (to 10¹⁰); all 42 composite zeros in [10⁹, 10¹⁰] are divisible by 3, 5 or 7.
   Mechanism (PROVED, elementary): a hit d is coprime to n, because g | d and g | r | (d+1)/4 force g | 1. So 3 | n
   removes every d ≡ 0 (mod 3). Every n in an 𝔐 class is coprime to 105.
 
@@ -173,12 +173,70 @@ non-residue mod p.
 p ≡ 1 (8) and p is a square mod 3, 5 and 7. This is exactly p mod 840 ∈ 𝔐: 𝔐 is the set of unit squares mod 840,
 the squares of 1, 11, 13, 17, 19, 23. ∎
 
-*Consequence (PROVED modulo Graham–Ringrose, `lit_verify.md` item 9, PARTLY verified via a survey).* Infinitely many
-primes p have n_p ≫ log p · log log log p. All but finitely many of them lie in 𝔐 by Lemma 5.2, and d_min(p) ≥ n_p
-there. So (MS) has no witness rule of the form "some d ≤ c·log p fires". Trial search in increasing d is not
-O(log p)-step on the target set.
-* Under GRH, Bach's n_p ≤ 2 log² p is an *upper* bound on n_p only. It gives no upper bound on d_min: no implication
-  GRH ⟹ (MS) is known (FRONTIER §2.4).
+**Lemma 5.3 (PROVED, elementary).** d_min(p) ≥ W(p), where W(n) := min{M ≡ 3 (4) : n mod M ∈ 𝓡(M)} and
+𝓡(M) := {−4D mod M : D | A_M²}, A_M = (M + 1)/4. These are the "multiplier witness" sets of `POINTWISE_OMEGA.md` §0.
+*Proof.* H_d ⊆ 𝓡(d). Indeed, let k | A := (d + 1)/4 and put D := kA. Then D | A², and 4A ≡ 1 (mod d) gives
+4D ≡ k, so −k ≡ −4D (mod d). ∎
+
+*Consequences (PROVED modulo the cited Ω-results; not re-checked here).*
+* `POINTWISE_OMEGA.md` Thm 5.1 (PROVED modulo one cited source): W(p) ≥ (log p)^{2−ε} for infinitely many primes in
+  𝔐. Hence so is d_min(p).
+* `POINTWISE_OMEGA13.md` Thm 5.1 (PROVED modulo Gallagher, Nair–Tenenbaum and OMEGA10 Thm 3.4): d_min(p) ≥
+  exp(c(log p)^{1/4}(log log p)^{−1/4}) for infinitely many primes in 𝔐.
+* Unconditionally (Lemma 5.1 + Lemma 5.2 + Graham–Ringrose, `lit_verify.md` item 9 PARTLY verified): d_min(p) ≫
+  log p · log log log p i.o. in 𝔐.
+
+**Reading: three search strategies (PROVED where labelled; EVIDENCE for the data).** A witness for (MS) at p can be
+sought in three natural ways.
+* (i) *Trial over d* (no factoring). The cost is ≍ d_min(p). By Lemma 5.3 it is superpolylogarithmic i.o. (modulo
+  OMEGA13). There is no "d ≤ polylog" witness rule.
+* (ii) *Levels C* (factor 4Cp + 1 for C = 1, 2, …, then a subset-product search mod 4C). The cost is C_min(p)
+  factorisations.
+* (iii) *Shifts u* (factor p + u for u = 1, 2, …, then look for a divisor ≡ −1 mod 4u). The cost is u_min(p)
+  factorisations, where u_min(p) is the least remainder r over all hits.
+
+Exhaustive data over all primes p ≡ 1 (4) ≤ 10⁹ (`scripts/z58_logic_minwit.c`, `minwit_1e9.txt`; zeros skipped).
+The table gives the per-decade maxima over 𝔐 primes:
+
+| decade | max d_min (at p) | max C_min (at p) | max u_min (at p) |
+|---|---|---|---|
+| 10⁴ | 2 383 (26 209) | 149 (26 209) | 26 (19 441) |
+| 10⁵ | 64 255 (706 801) | 4 016 (706 801) | 131 (427 249) |
+| 10⁶ | 60 759 (4 617 649) | 974 (6 116 401) | 410 (4 160 641) |
+| 10⁷ | 2 953 943 (85 664 329) | 41 027 (85 664 329) | 469 (53 325 721) |
+| 10⁸ | 2 741 075 (564 661 441) | ≥ 65 535 (capped; 564 661 441) | 241 (413 490 001) |
+
+At sampled primes up to 10²¹ the shift search is tiny (`scripts/z58_logic_umin.py`, `umin_samples.txt`):
+* 125 random 𝔐 primes at 10¹², 10¹⁵, 10¹⁸ have max u_min = 7, 4, 4 and mean ≈ 1.7;
+* 70 square-mimicking primes p ≡ 1 (mod 8∏_{3≤ℓ≤y} ℓ), y = 29, 37, 43, at 10¹⁵, 10¹⁸, 10²¹ have max u_min = 4, 4, 6.
+  These are quadratic residues mod every prime ≤ y, so n_p > y and d_min > y.
+
+*Reading.*
+* The cost of a witness is not its size. d_min and C_min reach p^{0.7}-ish and ≥ 6·10⁴ at the hardest primes ≤ 10⁹,
+  and 564 661 441 is the last 𝔊*-zero.
+* Yet u_min stays below 470: some p + u with tiny u almost always has a divisor in the right class. That divisor is
+  typically a *large* prime factor of p + u, which is why d_min is large while u_min is small.
+
+**CONJECTURE FQ_u(A).** u_min(p) ≤ (log p)^A for every prime p ∈ 𝔐 with R(p) ≥ 1. (Data: u_min ≤ 469 ≤ (log p)^{2.2}
+for all such p ≤ 10⁹.) FQ_u(A) together with (MS) puts the search problem in FP^{FACTOR}, hence in FBQP by Shor. This is
+the (★) analogue of the CONJECTURE FQ of `BRAINSTORM/logic_complexity.md`. FQ_u with "for every prime p > P₀"
+(R(p) ≥ 1 included) is itself a Π₁ strengthening of (MS) and has the same B2 status (Assessment).
+
+**Prop 5.4 (PROVED, elementary): the classical cheap searches are table searches.** Suppose a hit has two of its
+three coordinates bounded: u, B ≤ X, or u, C ≤ X, or B, C ≤ X. Then the hit is decided by p modulo a modulus ≤ 16X²:
+* (u, C): d = 4uC − 1 ≤ 4X² and the test is p mod d ∈ H_d;
+* (B, C): symmetric, with d′ = 4BC − 1 and r = B;
+* (u, B): p ≡ −(u + B) (mod 4uB).
+
+So a deterministic polynomial-time search that enumerates such pairs up to polylog(p) is a bounded-modulus table search.
+For the (u, C) and (B, C) shapes, Lemma 5.3 shows it fails infinitely often (modulo OMEGA13). For (u, B) we did not
+prove a Jacobi lemma; it is covered by B1/Theorem M only in the qualitative form of FRONTIER §3.
+
+*Consequence for Thm 3.1 (Assessment).* An S¹₂ proof of (MS) would supply a classical polynomial-time search. It
+could not be any of the table searches above, and the only efficient search we know (iii) needs factoring. So such a
+proof would contain an unknown classical method for producing a divisor of some p + u, p + B or 4Cp + 1 in a
+prescribed class. This is B2 in algorithmic dress: a precise sense in which (MS) has no "obvious" feasible proof. It
+is not a non-provability theorem.
 
 ## 6. Barrier analogues (to be written)
 

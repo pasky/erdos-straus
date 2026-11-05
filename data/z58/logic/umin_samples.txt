@@ -1,0 +1,6 @@
+mord 1e12 y=None n=60 mean_umin=1.8 max_umin=7 at p=8897513595601 hist(u<=1,2..4,5..16,>16)=37,19,4,0
+mord 1e15 y=None n=40 mean_umin=1.6 max_umin=4 at p=2689701649305841 hist(u<=1,2..4,5..16,>16)=23,17,0,0
+mord 1e18 y=None n=25 mean_umin=1.6 max_umin=4 at p=7948115688228741769 hist(u<=1,2..4,5..16,>16)=14,11,0,0
+mimic 1e15 y=29 n=30 mean_umin=1.8 max_umin=4 at p=9199127409872401 hist(u<=1,2..4,5..16,>16)=17,13,0,0
+mimic 1e18 y=37 n=25 mean_umin=1.8 max_umin=4 at p=8042358526886764081 hist(u<=1,2..4,5..16,>16)=14,11,0,0
+mimic 1e21 y=43 n=15 mean_umin=1.9 max_umin=6 at p=3634234104801954293641 hist(u<=1,2..4,5..16,>16)=9,4,2,0
