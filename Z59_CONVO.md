@@ -10,15 +10,16 @@ with 4abcd = a + b + pc. For ρ ≡ 3 (mod 4): N_ρ := (p + ρ)/4 ∈ ℕ (since
 ## §0 Mandatory falsifiers (stated at first commit; re-audited in §9)
 
 * (F1) odd squares n = m²: no solution exists. Any proof step must fail for n = m². In this memo the only
-  "existence" inputs are of the form "−1 lies in the ratio set of divisors of N_ρ modulo ρ" (§3); for n = m² all
-  prime factors ℓ of m² + ρ satisfy (−ρ/ℓ) = 1, which confines that ratio set to the kernel of a quadratic character
+  "existence" inputs are of the form "−1 lies in the ratio set of divisors of N_ρ modulo ρ" (§3); for n = m² with
+  (m, ρ) = 1 all prime factors ℓ of (m² + ρ)/4 satisfy λ_ρ(ℓ) = 1 (Lemma 3.3(i)), which confines that ratio set to the kernel of a quadratic character
   that is −1 at −1 (Lemma 3.3). So the step that must use non-squareness is "some prime factor of N_ρ escapes
   that kernel AND the escaping residues combine to −1"; §4–§5 show the first half is free for NR ρ while the
   second half is exactly what is not provable by any tool found here.
 * (F2) d-even half: d never enters the ρ-ratio criterion except through d = N_ρ/(ab); forcing d even means
   requiring 2·ab | N_ρ i.e. ab | N_ρ/2 — only possible when 8 | p + ρ, i.e. ρ ≡ 7 (mod 8). So every "d even"
   statement here is the same criterion restricted to ρ ≡ 7 (mod 8) with N_ρ replaced by N_ρ/2; any argument
-  that only needs ρ = 3 (or ρ ≡ 3 mod 8) is dead on the d-even half. (The d-even half has 22 zeros ≤ 10⁹.)
+  that only needs ρ = 3 (or ρ ≡ 3 mod 8) is dead on the d-even half. (The brief quotes 22 d-even zeros ≤ 10⁹;
+  my own recomputation finds 15 ≤ 3·10⁶ — unreconciled, see §6.)
 * (F3) 4545 = 3²·5·101 (non-square, no solution): its relevant quadratic character (·/4545) has conductor 505,
   so any argument that uses only "χ_n is a non-trivial quadratic character" (reciprocity) and no further
   arithmetic of n is refuted by 4545. §4 shows the forcing lemma here is purely a residue statement (no
@@ -67,9 +68,10 @@ non-residue of p. (For n = m² the same computation gives (m²/f) = 1 ≠ −1: 
 
 ## §3 The ρ-ratio criterion and its convolution (character) expansion (PROVED)
 
-**Criterion 3.1.** p is solvable ⇔ ∃ ρ ≡ 3 (mod 4) such that −1 lies in the *ratio set*
-R_ρ(N_ρ) := { a·b⁻¹ mod ρ : ab | N_ρ } ⊂ (ℤ/ρ)^*. (Lemma 1.1; a, b are automatically prime to ρ: a prime
-ℓ | (ρ, a) with ℓ | a + b gives ℓ² | ab | N_ρ, ℓ | p + ρ, so ℓ = p; but ρ ≤ a + b and 4abd = p + ρ force ρ < p.)
+**Criterion 3.1.** p is solvable ⇔ ∃ ρ ≡ 3 (mod 4), 3 ≤ ρ ≤ (p+4)/3, such that −1 lies in the *ratio set*
+R_ρ(N_ρ) := { a·b⁻¹ mod ρ : ab | N_ρ } ⊂ (ℤ/ρ)^*. (Lemma 1.1. Every solution datum has ρ ≤ a + b ≤ ab + 1 ≤
+(p+ρ)/4 + 1, i.e. ρ ≤ (p+4)/3 < p; for such ρ, gcd(N_ρ, ρ) = 1, since an (odd) prime ℓ | (ρ, N_ρ) divides p + ρ,
+hence p, impossible as ℓ ≤ ρ < p. So all divisors of N_ρ are units mod ρ and R_ρ is well defined.)
 Since N_{ρ+4} = N_ρ + 1, with M := (p+3)/4 the criterion reads: **∃ j ≥ 0 such that the integer M + j has
 divisors a, b with ab | M + j and a + b ≡ 0 (mod 4j + 3).** (ρ = 4j + 3.) The prime p enters only through M.
 
@@ -79,9 +81,13 @@ divisors a, b with ab | M + j and a + b ≡ 0 (mod 4j + 3).** (ρ = 4j + 3.) The
 
 **Lemma 3.3 (square cancellation = (F1) mechanism).** Let ρ ≡ 3 (mod 4), λ = (·/ρ) (Jacobi). For every prime
 ℓ ∤ 2ρ dividing n + ρ: λ(ℓ) = (−ρ/ℓ) = (n/ℓ) [first equality: Jacobi reciprocity, ρ ≡ 3 mod 4; second: −ρ ≡ n
-mod ℓ]. Hence (i) n = m²: λ(ℓ) = 1 for every prime ℓ ∤ ρ dividing N_ρ (ℓ ∤ m since ℓ | m, ℓ | m²+ρ ⇒ ℓ | ρ), so
-τ_λ(N_ρ) = τ_{ψ₀}(N_ρ) and the ψ₀ and λ terms of 3.2 cancel exactly; more strongly every admissible ratio a/b
-lies in ker λ ∌ −1 (λ(−1) = −1), so W_ρ = 0 (the square obstruction, visible as a spectral cancellation).
+mod ℓ]. For ℓ = 2 | N_ρ with n ≡ 1 (mod 8): 8 | n + ρ forces ρ ≡ 7 (mod 8), so λ(2) = (2/ρ) = 1 = (n/2)_Kronecker.
+Hence (i) n = m² with m odd and gcd(m, ρ) = 1: then gcd(N_ρ, ρ) = 1 and λ(ℓ) = 1 for every prime ℓ | N_ρ
+(ℓ ∤ m, as ℓ | m, ℓ | m² + ρ ⇒ ℓ | ρ), so τ_λ(N_ρ) = τ_{ψ₀}(N_ρ) and the ψ₀ and λ terms of 3.2 cancel exactly;
+more strongly every ratio a/b lies in ker λ ∌ −1 (λ(−1) = −1), so W_ρ = 0 (the square obstruction, visible as a
+spectral cancellation). [If gcd(m, ρ) > 1, Identity 3.2 does not apply as stated; the non-existence of solutions
+for n = m² in all cases follows instead from the Jacobi computation in Lemma 2.1, which does not use primality:
+(−dn/f) = 1 and (−d/f) = −1 force (m²/f) = −1, impossible.]
 (ii) n = p: τ_{ψ₀} − τ_λ = 2#{(a,b,d): abd = N_ρ, λ(ab) = −1} ≥ 0, and it is > 0 iff N_ρ has a prime factor ℓ
 with λ(ℓ) = −1, which is forced when λ(N_ρ) = (p/ρ) = −1 (as λ is multiplicative and N_ρ ≡ p/4 mod ρ).
 *Proof.* Direct. ∎
@@ -127,11 +133,17 @@ integers (p+ρ)/4 beyond any character of bounded order.
 n (Lemma 1.1) has ab | L.
 *Proof.* 4ab | 4L | n − 1 and 4ab | n + ρ give 4ab | ρ + 1, so ρ ≥ 4ab − 1. But ρ | a + b gives ρ ≤ a + b,
 and 4ab − 1 > a + b for all a, b ≥ 1 ((4a − 1)(4b − 1) ≥ 9 > 5). ∎
-Primes p ≡ 1 (mod 4L) exist for every L (Dirichlet), and p ≡ 1 (mod 24) is compatible. Hence for every finite
-set of moduli there are primes in our class for which every solution uses a prime factor of ab outside any
-prescribed finite set: no finite list of residue-class conditions on p ("polynomial identities") can prove the
-statement — the classical Mordell barrier, here in two lines. A proof must therefore use some property of p
-that is not a congruence condition. The only one exhibited here is the colouring of §4 (whose sole consequence
+Primes p ≡ 1 (mod 4L) exist for every L (Dirichlet), and p ≡ 1 (mod 24) is compatible. Hence no finite family of
+fixed pairs (a, b) suffices (take L = lcm of the products ab in the family).
+
+**Lemma 5.2 (finite prime support).** Let S be a finite set of primes and p ≡ 1 (mod 8·Π_{q∈S, q odd} q) prime.
+Then every solution has ab divisible by a prime outside S. *Proof.* Each q ∈ S is a residue mod p ((2/p) = 1 as
+p ≡ 1 mod 8; (q/p) = (p/q) = 1 for odd q). If ab were S-supported then (ab/p) = 1, contradicting Lemma 2.1. ∎
+These two lemmas are the classical Mordell-type barrier for families with fixed (a, b), resp. S-supported ab.
+They do *not* by themselves exclude identity families in which a, b, c, d depend polynomially on p (those
+are not fixed-(a,b) families); I make no claim about such families beyond what Lemma 5.2 implies. The moral
+drawn below is heuristic: a proof must use some property of p beyond "p lies in a residue class whose
+quadratic characters at a fixed finite set of primes are prescribed". The only one exhibited here is the colouring of §4 (whose sole consequence
 for the criterion, the escape lemma, is a congruence statement modulo ρ). The remaining candidate inputs —
 the size/shape of the factorisations of (p+ρ)/4 for ρ ≤ R(p) — are statements about integers in the short interval
 [p/4, (p+R)/4], which for squares are rigidly constrained (norms from ℚ(√−ρ)) and for primes are constrained by
@@ -146,13 +158,16 @@ nothing that is currently provable pointwise.
   very slowly, far below log²p; no pointwise bound is proved.)
 * Least non-residue route (`scripts/z59_convo_nr.c`, `data/z59/convo/nr_small.txt`, p ≤ 2·10⁵): when the least
   prime non-residue q of p is 5 or 7 a solution with q | ab and ab ≤ 42 always exists (Mordell's classes); for
-  q = 11, 13, 17 the least ab with q | ab grows with p (max 49 170 at p = 186 841): consistent with Lemma 5.1 —
-  no bounded identity family attached to q ≥ 11.
+  q ≥ 11 the least ab with q | ab, where it exists within the search limit ab ≤ 2·10⁶, reaches 49 170 (p = 186 841;
+  observed finite maximum, EVIDENCE only). In 30 cases (`min_ab_qdiv=0` in the data file) no solution with q | ab
+  was found below the limit; e.g. p = 2521 (q = 11) provably has none: all its solutions (ab ≤ (p+1)/3 = 840)
+  are (a,b,c,d) = (2,29,1,11), (2,159,7,2), (4,161,3,1) up to a ↔ b. So the least non-residue need not divide ab
+  (Lemma 2.1 only forces *some* non-residue prime factor). No unboundedness claim is made.
 * d-even half (`scripts/z59_convo_rho2.c` mode 3 = all primes p ≡ 1 (4), ρ ≡ −p (8), N_ρ/2): primes ≤ 3·10⁶
   with no d-even solution: 5 17 53 101 113 241 1061 1129 1249 2081 3169 3221 3361 5281 35569 (15 primes; the
   p ≡ 1 (24) ones: 241 1129 1249 3169 3361 5281 35569). The brief quotes 22 d-even zeros ≤ 10⁹ with last 35 569;
-  my 15 up to 3·10⁶ share the last element; the count difference is presumably a different normalisation of
-  "d" in the brief's source (not investigated — I was told not to read the memos).
+  my 15 up to 3·10⁶ share the last element. The two counts cannot describe the same property; the discrepancy
+  is UNRECONCILED (I was told not to read the source memos). My list is reproducible from the script.
 * Falsifier primes (mode 2, full criterion): c = 1 zeros 409, 577, 5569, 9601, 23929, 83449, 102001, 329617,
   712321, 1134241, 1724209, 1726201, 5212561, 8813281 have min ρ = 7, 3, 7, 19, 7, 11, 7, 3, 23, 3, 7, 23, 11, 3
   (so solutions exist with ρ < a + b, i.e. c ≥ 2); a = 1 zeros 193, 2521, 66529 have min ρ = 7, 23, 31 (so the
@@ -173,7 +188,7 @@ nothing that is currently provable pointwise.
    b ↦ cρ − b, i.e. a ↔ b. The equation is linear in each of a, b, c, d separately; no non-trivial involution,
    no descent.
 5. *Highly composite N_ρ by position*: among N_ρ = M + j (consecutive integers) some j ≤ K has K | M + j, but
-   then ρ = 4j + 3 is as large as ~4K while divisors of K give ≤ 3^{ω(K)} ratios; for p ≡ 1 (mod 4K) this is
+   then ρ = 4j + 3 is as large as ~4K while divisors of K give ≤ Π_{ℓ^e ∥ K}(2e + 1) ratios; for p ≡ 1 (mod 4K) this is
    exactly Lemma 5.1. Dead.
 6. *Short-interval divisor sums*: Σ_{ρ ≤ R} W_ρ has main term from ψ₀ − λ (positive, Lemma 3.3(ii)), but the
    non-quadratic characters in Identity 3.2 are a sum over ρ ≤ R of divisor sums of N_ρ twisted by characters
@@ -186,7 +201,8 @@ nothing that is currently provable pointwise.
 **Theorem 7.7.** Let R ≥ 3, F := {ρ ≤ R : ρ ≡ 3 (mod 4)}, Q := lcm(24, ρ(ρ+1) : ρ ∈ F). For t ≥ 1 put
 p = Qt + 1 and P_ρ := 1 + (Q/(ρ+1))·t (ρ ∈ F). If p and all P_ρ are prime, then p ≡ 1 (mod 24) and **no ρ ∈ F
 works** in Criterion 3.1, i.e. every solution of 4abcd = a + b + pc has 4abd − p > R. Under Hypothesis H
-there are infinitely many such t; hence (conditionally) min ρ is unbounded on primes p ≡ 1 (24), and any
+there are infinitely many such t; hence (conditionally) for every R there are infinitely many primes p ≡ 1 (24)
+with no witness ρ ≤ R (min ρ > R, with min ∅ := ∞): no uniform bound on the witnessing ρ can suffice, and any
 pointwise proof must use ρ (equivalently 4abd − p) growing with p.
 
 *Proof.* 24 | Q gives p ≡ 1 (24). Since ρ + 1 | Q, N_ρ = (Qt + 1 + ρ)/4 = s_ρ·P_ρ with s_ρ := (ρ+1)/4 ∈ ℕ.
@@ -228,8 +244,9 @@ come from p being prime in a way that is not a congruence and not the colouring.
 ## §9 Falsifier re-audit (end)
 
 * (F1) squares: every PROVED positive statement here is either an equivalence (holds for all n) or a necessary
-  condition; the only existence statements (Cor 3.4, ρ | p + 4) have hypotheses that fail for n = m²
-  (every prime factor ℓ ≠ 3 of m² + 3 is ≡ 1 mod 3, Lemma 3.3(i) with ρ = 3;
+  condition; the only existence statements (Cor 3.4, ρ | p + 4) have hypotheses that fail for n = m², m odd
+  (N_3 = (m² + 3)/4 is odd as m² + 3 ≡ 4 mod 8, and every prime factor ℓ ≠ 3 of it is ≡ 1 mod 3, Lemma 3.3(i)
+  with ρ = 3 — if 3 | m, then 3 ∥ N_3 contributes only non-units mod 3;
   ρ | m² + 4 with ρ ≡ 3 mod 4 impossible since such ρ has a prime factor ≡ 3 mod 4, modulo which −4 ≡ m² would be a residue). ✓ No false proof.
 * (F2) d even: the criterion restricts to ρ ≡ −p (mod 8) and N_ρ/2; Cor 3.4 (ρ = 3) is unavailable for p ≡ 1 (8)
   on this half (ρ must be ≡ 7 mod 8). d-even zeros recomputed (§6). Nothing claimed for the d-even half. ✓
