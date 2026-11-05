@@ -59,7 +59,7 @@ def predicted_inv(n, u, C, B, l, k):
     """Predicted inv_l of beta_n at a point (u,C,B) integral at l (B rational num/den with l-unit den)."""
     d = k * u * C - 1
     if l == 0:
-        return -1 if (d > 0 and n * u > 0) else (1 if (d > 0) != (n * u > 0) else -1)
+        return -1 if (-d < 0 and -n * u < 0) else 1
     if l == 2:
         if (u * C) % 2 == 0 or k == 8:
             return 1
@@ -74,7 +74,7 @@ def predicted_inv(n, u, C, B, l, k):
 def check_local(nmax, k, trials=40, rng=random.Random(1)):
     P = primes_upto(60)
     bad = 0; tot = 0
-    for n in list(range(1, nmax + 1)) + [-7, -13, -45]:
+    for n in range(1, nmax + 1):
         for l in P:
             M = l ** 6
             for _ in range(trials):
@@ -90,9 +90,9 @@ def check_local(nmax, k, trials=40, rng=random.Random(1)):
                 if B[0] == 0:
                     continue
                 inv = hilbert_rat((-d, 1), (-n * u, 1), l)
-                pred = predicted_inv(n, u, C, B, l, k) if n > 0 else None
+                pred = predicted_inv(n, u, C, B, l, k)
                 tot += 1
-                if pred is not None and inv != pred:
+                if inv != pred:
                     bad += 1
                     if bad < 5:
                         print("MISMATCH", k, n, l, u, C, inv, pred)
@@ -130,12 +130,14 @@ def jacobi(a, m):
     return r if m == 1 else 0
 
 def main():
-    global PR
+    global PR, unexpected
+    unexpected = 0
     nmax = int(sys.argv[1]) if len(sys.argv) > 1 else 300
     PR = primes_upto(nmax)
     for k in (4, 8):
         tot, bad = check_local(min(nmax, 120), k)
-        print(f"[k={k}] (1) local invariant formula: {tot} l-adic points tested, {bad} mismatches")
+        print(f"[k={k}] (1) local invariant formula: {tot} l-adic points compared, {bad} mismatches")
+        unexpected += bad
         sq_bad = 0; jac_bad = 0; zeros = []
         for n in range(1, nmax + 1):
             pts = positive_points(n, k)
@@ -159,9 +161,10 @@ def main():
             if not pts and m * m != n and n % 4 == 1:
                 zeros.append(n)
         print(f"[k={k}] (2) n<={nmax}: squares with points: {sq_bad}; product-formula/Jacobi failures: {jac_bad}")
+        unexpected += sq_bad + jac_bad
         print(f"[k={k}]     non-square n=1(4) with no positive point (non-BM failures): {len(zeros)}; first {zeros[:12]}")
         # (3) explicit local points realising both invariants at some l with v_l(n) odd
-        fail3 = 0
+        fail3 = 0; expected8 = 0
         for n in range(2, nmax + 1):
             m = isqrt(n)
             if m * m == n:
@@ -180,11 +183,20 @@ def main():
                         vals.add(inv)
                 if vals == {1, -1}:
                     ok = True; break
+            if not ok and k == 8 and n % 2 == 0 and isqrt(n // 2) ** 2 == n // 2:
+                expected8 += 1  # n = 2 m^2: BM-obstructed for k = 8 (2-adic invariant constant)
+                if positive_points(n, 8):
+                    print(f"[k=8] UNEXPECTED: n={n}=2m^2 has a positive point")
+                    unexpected += 1
+                continue
             if not ok:
-                fail3 += 1
+                fail3 += 1; unexpected += 1
                 if fail3 < 6:
                     print(f"[k={k}] (3) no sign freedom found at n={n} (odd-valuation primes {ls})")
-        print(f"[k={k}] (3) non-square n in [2,{nmax}] without local sign freedom: {fail3}")
+        print(f"[k={k}] (3) non-square n in [2,{nmax}] without local sign freedom: {fail3} unexpected"
+              + (f"; {expected8} expected (n = 2m^2, all with R_8 = 0)" if k == 8 else ""))
 
 if __name__ == "__main__":
     main()
+    print("UNEXPECTED TOTAL:", unexpected)
+    sys.exit(1 if unexpected else 0)

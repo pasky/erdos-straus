@@ -1,13 +1,10 @@
-[k=4] (1) local invariant formula: 82724 l-adic points tested, 0 mismatches
+[k=4] (1) local invariant formula: 80707 l-adic points compared, 0 mismatches
 [k=4] (2) n<=1500: squares with points: 0; product-formula/Jacobi failures: 0
 [k=4]     non-square n=1(4) with no positive point (non-BM failures): 13; first [57, 105, 177, 249, 345, 409, 465, 577, 777, 801, 969, 1345]
-[k=4] (3) non-square n in [2,1500] without local sign freedom: 0
-[k=8] (1) local invariant formula: 82741 l-adic points tested, 0 mismatches
+[k=4] (3) non-square n in [2,1500] without local sign freedom: 0 unexpected
+[k=8] (1) local invariant formula: 80704 l-adic points compared, 0 mismatches
 [k=8] (2) n<=1500: squares with points: 0; product-formula/Jacobi failures: 0
 [k=8]     non-square n=1(4) with no positive point (non-BM failures): 95; first [5, 17, 21, 33, 37, 53, 57, 65, 85, 101, 105, 113]
-[k=8] (3) no sign freedom found at n=2 (odd-valuation primes [2])
-[k=8] (3) no sign freedom found at n=8 (odd-valuation primes [2])
-[k=8] (3) no sign freedom found at n=18 (odd-valuation primes [2])
-[k=8] (3) no sign freedom found at n=32 (odd-valuation primes [2])
-[k=8] (3) no sign freedom found at n=50 (odd-valuation primes [2])
-[k=8] (3) non-square n in [2,1500] without local sign freedom: 27
+[k=8] (3) non-square n in [2,1500] without local sign freedom: 0 unexpected; 27 expected (n = 2m^2, all with R_8 = 0)
+UNEXPECTED TOTAL: 0
+EXIT 0
