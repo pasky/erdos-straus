@@ -286,3 +286,12 @@ threshold. The C-even screen F2 remains the one no idea here passes. B2 did not 
   11. F4: nine in-domain prime zeros; P ≥ z.
   12. "Similar tails with a measurable excess" (10/22/40 %); population ratio 5.55×; interval maxima.
   13. Counts, links and brief paths were fixed; the capk output is stored; the C code is reformatted.
+
+* **Cross-model review** (`data/z58/xreview/REVIEW_LADDER.md`): ACCEPT-WITH-FIXES. Every claim was rated CORRECT, or
+  CORRECT as a one-engine certificate or Assessment. The reviewer independently checked μ(n) for n ≤ 25 000, reproduced
+  the stored runs byte-identically, decided 42 832 high-range 𝔐 inputs pointwise, recounted the census population, and
+  recertified the 12 R₈ zeros. One required fix (MINOR, documentation only) was applied: the Miller–Rabin comment in
+  `scripts/z58_ladder_mdec.c` now reads "deterministic for all uint64". The old claim, that 12 bases are deterministic
+  below 3.3·10²⁴, was false (counterexample 318665857834031151167461). No results change. The review's scope
+  qualifications are kept in §6: one engine; fixed D versus growing D; a beyond-Burgess bound on 𝔐 only; the model is
+  not a bound.

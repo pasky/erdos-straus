@@ -19,7 +19,7 @@ static u64 powmod(u64 a, u64 e, u64 m) {
   while (e) { if (e & 1) r = mulmod(r, a, m); a = mulmod(a, a, m); e >>= 1; }
   return r;
 }
-static int isprime(u64 n) {  // deterministic for n < 3.3e24 with these 12 bases
+static int isprime(u64 n) {  // deterministic for all uint64 n (12 bases suffice below 318665857834031151167461)
   static const u64 Bs[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
   if (n < 2) return 0;
   for (int i = 0; i < 12; i++) if (n % Bs[i] == 0) return n == Bs[i];
