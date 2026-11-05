@@ -229,4 +229,66 @@ For p ≡ 1 (840) (all six Mordell classes ×6, pro-zero):
   heterogeneity that §6.2 integrates. Line-kill heterogeneity (§4.4) is inside the cell variance that the fitted law
   absorbs; its share per line decays like 1/L, so the fitted law is, if anything, pessimistic at large p (Assessment).
 
-## 7. Verdict, screens, proposed FRONTIER text, bottom line (pending)
+## 7. Verdict, screens, proposed FRONTIER text, bottom line
+
+### 7.1 Verdict: **narrowed** (no counterexample; not a HOT LEAD)
+* **Search (D1): negative.** No prime with R(p) = 0 or R_𝔊*(p) = 0 among ≈ 5.5·10⁵ exactly enumerated design primes in
+  [10¹⁰, 1.5·10¹³] and SEARCH_C_SUMMARY. Two new R₈-zeros (20 840 951 041, 23 296 553 281; both in 𝔐) — expected by F2.
+* **Model (D2): no structured family reaches 10¹⁷ in the model.** What a counterexample would look like: a prime in
+  𝔐, ≡ 1 (8) and ≡ 1 (3) (all 14 zeros), moderately square-mimicking (n_p ≈ 11–23), with several small lines u dead —
+  a *generic-looking* member of the hardest local slice, not an extreme one. Every structured family examined acts by
+  one of two T1-truncations (Lemma 2.2: square classes kill the solutions with a modulus dividing M; Lemma 2.3: offsets
+  kill the u-lines with k + u ∈ c□), and both fade: ρ(y, p) → 1 at fixed y (§4.2, measured 0.748 → 0.786 from 10¹⁰ to
+  10¹²), the supply of y-square-mimicking primes is 2^{−π(y)}, near-square offsets kill an O_k(1/L) share (Prop 2.4),
+  CRT avoidance buys a polylog (§5.1). The calibrated zero law with the square-mimicking heterogeneity reproduces the
+  class-of-one zeros (2.95 predicted, 3 observed ≥ 10⁴) and gives E(> 10¹⁷) ≈ 5·10⁻²⁴ over 𝔐; laws heavy enough to
+  give ≳ 1 beyond 10¹⁷ predict ≥ 6.7 zeros in [10⁷, 10¹⁰), where there are none (CERTIFIED).
+* **What the model cannot see (Assessment).** A non-local mechanism ("prime T1": a global invariant forcing every
+  divisor event into the wrong class) is invisible to all of the above by construction; nothing here excludes it.
+  The new quantitative content is that the *local* and *polynomial-family* routes to a counterexample are priced and
+  closed at the model level for (★) specifically, with the pricing validated against exact counts (ρ predicted within
+  ≈ 3 % for square-mimicking designs, line kills within ≈ 1–2 points).
+
+### 7.2 Falsifier table, final (restating §0 with the results)
+| screen | outcome |
+|---|---|
+| F1 odd squares | The designs are T1 truncations: Lemma 2.2 (square mod M ⇒ moduli dividing M dead) and Lemma 2.3 (n + u = m² + ct², c \| u ⇒ line u dead) both reduce to T1 at n = m² (M = ∞; k = 0). The zero *model* is fitted on primes and is wrong at squares by design; primality enters as the supply constraint (a prime is a square mod M with probability 2^{−ω(M)}, never for all M) and through the observation that composite zeros get square-likeness free via small factors. |
+| F2 C-even line | R₈ is the calibration sibling: the same law (a ≈ 0.40, β ≈ 1) fits R₈ and R; two new R₈-zeros found in designs at 2·10¹⁰. Local distinction: R₈ lacks the odd-C small moduli (3, 11, 19, …) — its zeros show no mod-3 square preference (6/12 have (p/3) = −1, vs 0/14 for (★)). The model makes no structural odd/even claim; it predicts R₈ zeros up to ≈ 10^{14.4} (z57 fit) and R zeros only below ≈ 10⁸. |
+| F3 composites | Not in the domain. Profile: 285 composite zeros are 100 % ≡ 1 (8), 71 % □840, 75 % divisible by 3 — local square-likeness through divisibility (for ℓ \| n no m₂, m₃ is divisible by ℓ), unavailable to primes. |
+| F4 known zeros | Reproduced in count by the heterogeneous model (class of one: 2.95 vs 3; 𝔐: 8.8 vs 6 in [10⁵, 10⁷)); the model predicts 0.37 in [10⁷, 10¹⁰) (observed 0). It never "proves" positivity — it is a probability model. |
+
+### 7.3 Proposed FRONTIER §7 text (do not paste blindly)
+> (z58 DISPROOF, `Z58_DISPROOF.md`) Counterexample anatomy for (MS). All structured prime families tested act by
+> truncated T1: square classes mod M kill exactly the (★) solutions with a modulus 4uB, 4uC−1 or 4BC−1 dividing M
+> (Lemma 2.2), and near-square offsets n = m² + k kill exactly the u-lines with k + u ∈ c□, c | u (Lemma 2.3; c | k,
+> so O_k(1/L) of the mass). Measured depressions at 10¹⁰–10¹³ (exact counts, ≈ 5.5·10⁵ primes): class of one mod 840
+> 0.88, mod 120 120 0.79, n_p > 31 0.75 (0.79 at 10¹²), n_p > 61 0.73; predicted within ≈ 3 % by a surviving-mass
+> law (share of solutions with no y-smooth modulus), which → 1 as p → ∞ at fixed y. Zero law P(R = 0) ≈ exp(−0.40 μ)
+> (fits R and R₈); with square-mimicking heterogeneity it reproduces the class-of-one zeros and gives E(> 10¹⁷)
+> ≈ 10⁻²³ over 𝔐; heavier laws reaching 10¹⁷ are refuted by the empty census (10⁷, 10¹⁰]. No R- or 𝔊*-zero in
+> any design; two new R₈-zeros (20 840 951 041, 23 296 553 281). Open: only non-local ("prime T1") mechanisms remain
+> as counterexample sources; none identified.
+
+### 7.4 Bottom line
+A counterexample to (MS) above 10¹⁰ would have to be a prime that looks locally like the known zeros — in 𝔐, ≡ 1 mod 24,
+moderately square-mimicking, a few small lines dead — and then lose a ≍ 0.13 L² lottery whose zero probability is
+≈ e^{−0.4μ}. Every structured way to tilt that lottery that we could build (deeper square classes, square-mimicking,
+CRT avoidance, near-square polynomial families) is a truncation of T1 whose bite is measured, predicted, and shown to
+fade with p; the best designs reach ρ ≈ 0.72 at 10¹⁰–10¹² while ρ ≲ 0.45 would be needed to push the model tail to
+10¹⁷. The targeted search found nothing. The lane closes the *local/polynomial* disproof routes at the model level;
+it says nothing about a global mechanism, and nothing here proves (MS).
+
+## 8. Commands, files, ranges
+All runs: `ulimit -v 6000000`, `timeout ≤ 1750`. Engine `gcc -O2 -o /tmp/z58eng scripts/z58_disproof_eng.c -lm`.
+* runA (`data/z58/disproof/runA/*.txt.xz`): `EXACT=1 /tmp/z58eng ap 10000000000 N Q a z` for (Q, a, z) = (24,1,0),
+  (840,121,0), (840,1,0), (120120,1,0), (2882880,1,0), (840,1,31).
+* runB: `scripts/z58_disproof_runB.sh`; runC: `scripts/z58_disproof_runC.sh` (decision mode).
+* Cells: `/tmp/z58cells 200000000` (`scripts/z58_disproof_cells.c`, ≈ 100 s, 500 MB) → `cells_2e8.txt`; fits
+  `uv run --with numpy --with scipy python scripts/z58_disproof_zerolaw.py data/z58/disproof/cells_2e8.txt 1e4`;
+  class split `scripts/z58_disproof_lawclass.py`.
+* Surviving mass: `scripts/z58_disproof_smooth.c` (exact, stdin primes), `scripts/z58_disproof_survmc.py 100000`
+  → `survmc_quick.txt`; tail `scripts/z58_disproof_tail.py 20000 4` → `tail.txt`; ρ `scripts/z58_disproof_rho.py`.
+* Profile `scripts/z58_disproof_profile.py`; lines `scripts/z58_disproof_lines.py runA/D1a.txt 1500 12`; offsets
+  `scripts/z58_disproof_kbest.py 3000000`; avoidance `/tmp/z58avoid 1000 20000000` → `avoid_2e7.txt`.
+
+## 9. Review log (pending)
