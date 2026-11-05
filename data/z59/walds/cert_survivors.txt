@@ -52,3 +52,39 @@ L=560 N=140 D=280 space=4 zrows=1 dim=56 B=8000 l0=0 #T1-conditions=77 rank(cond
   rank of K on C1-primes (n<=B, 50 indices) = 0
   rank of K on Mordell-classes (n<=B, 59 indices) = 0
   time 6.1s (coefs 6.1s)
+L=840 N=210 D=56 space=4 zrows=1 dim=108 B=8000 l0=0 #T1-conditions=77 rank(cond)=48 dimK=60
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 51.4s (coefs 51.4s)
+L=840 N=210 D=168 space=4 zrows=1 dim=108 B=8000 l0=0 #T1-conditions=77 rank(cond)=50 dimK=58
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 52.7s (coefs 52.6s)
+L=840 N=210 D=280 space=4 zrows=1 dim=108 B=8000 l0=0 #T1-conditions=77 rank(cond)=52 dimK=56
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 36.4s (coefs 36.3s)
+L=840 N=210 D=21 space=1 zrows=1 dim=85 B=16000 l0=-1 #T1-conditions=33 rank(cond)=16 dimK=69
+  rank of K on C1 (n<=B, 115 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 87 indices) = 0
+  rank of K on C1-primes (n<=B, 42 indices) = 0
+  rank of K on Mordell-classes (n<=B, 115 indices) = 0
+  time 54.0s (coefs 53.8s)
+L=840 N=210 D=105 space=1 zrows=1 dim=85 B=16000 l0=-1 #T1-conditions=33 rank(cond)=26 dimK=59
+  rank of K on C1 (n<=B, 115 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 87 indices) = 0
+  rank of K on C1-primes (n<=B, 42 indices) = 0
+  rank of K on Mordell-classes (n<=B, 115 indices) = 0
+  time 41.3s (coefs 41.1s)
+L=840 N=210 D=840 space=1 zrows=1 dim=85 B=16000 l0=-1 #T1-conditions=33 rank(cond)=26 dimK=59
+  rank of K on C1 (n<=B, 115 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 87 indices) = 0
+  rank of K on C1-primes (n<=B, 42 indices) = 0
+  rank of K on Mordell-classes (n<=B, 115 indices) = 0
+  time 237.0s (coefs 236.9s)

@@ -43,7 +43,7 @@ i.e. (Waldspurger) from central values L(½, φ ⊗ ψχ_{−4}χ_p) at the sing
 | **F1 odd squares** | **This is where the residue is decided.** An odd square m² (gcd(m,2N) = 1) lies in 𝒞₁ with squarefree part t = 1, and Waldspurger's twist character at t = 1 is χ₀^{−1} = ψ̄·(−1/·): the twist is **G_φ = φ ⊗ ψχ_{−4}**, field ℚ(√−d) (up to squares) for θ-lattices of determinant d (ℚ(i) for d = 1 — the field of the C = 1 norm form 4m²+1 = N(1+2mi) of T1; TERNARY Lemma D(d) uses ℚ(√−C)). Thm W1: T1 forces g_φ(1) = 0 for every eigensystem φ, and Waldspurger's Cor. 2 transports a(1) = 0 to the whole square class unless **L(G_φ, ½) = 0** ("Gauss-exceptional"). Non-squareness is used exactly here: the odd squares pin the anchor coefficient a(1). Finite exact check: at every swept (L, ψ) the T1-kernel on 𝒞₁ ∩ [1, B] is 0 or a single line, and the lines occur exactly at the 15 (L, ψ) where a rational Gauss-exceptional φ of conductor | 2N exists (§5.2; the identification is EVIDENCE). |
 | **F2 C-even (R₈)** | Everything negative here (W1, W1′, W2, W5, Lemma W0) is line-blind and applies verbatim to R₈-support proxies (R₈ also vanishes on odd squares), so nothing false is proved. The only positive statement (Prop W4, dictionary) assumes validity. For an R₈-support proxy whose 𝒞₁-part is a *single* line, validity needs L(½, G_φ ⊗ χ_p) = 0 at the 4 in-𝔐 R₈-zero primes 10 301 993 881, 10 529 331 121, 10 532 106 649, 10 868 474 401 (not screened: B too small, conductors too large); for a multi-line sum only the cancellation Σ_φ K_φA_φ(p) = 0 is needed. |
 | **F3 composites** | All 18 non-square composite R-zeros in 𝔐 ≤ 10¹⁰ (1969 … 17 401 609) are **squarefree**, hence in 𝒞₁ with their own twist χ_t; they enter exactly like prime zeros (Prop W4), and the survivors of §5.3 are non-zero at 1969, 2641, 5161 (invalid there too). The algebraic identities W1/W1′/W4 do not use primality beyond "t squarefree in 𝒞₁"; any use of primality would have to come in a subsequent analytic non-vanishing/cancellation step (none is available, §4.1). |
-| **F4 known zeros** | Prop W4(d) (PROVED rel. Waldspurger Cor. 2): a proxy whose 𝒞₁-part is one Gauss-exceptional line is **invalid** as soon as that line is non-zero at one R-zero of 𝒞₁. **Exact screen (§5.3, CERTIFIED):** at each of the 15 (L, ψ) with a survivor, the survivor is non-zero at known in-class R-zeros — 5569 and 9601 (all of them; also 23929 at level 240) and/or the 𝔐 composite zeros 1969, 2641, 5161 — and the 𝒞₁-restriction of the finite T1-kernel has rank 1, so every valid proxy of that (L, ψ) vanishes on 𝒞₁ ∩ [1, B]. Supplementary numerical screen (§6.2): 7 larger-conductor Gauss-exceptional G (rank-2 curves) all have numerically non-zero central values at in-class (★)-zero primes. |
+| **F4 known zeros** | Prop W4(d) (PROVED rel. Waldspurger Cor. 2): a proxy whose 𝒞₁-part is one Gauss-exceptional line is **invalid** as soon as that line is non-zero at one R-zero of 𝒞₁. **Exact screen (§5.3, CERTIFIED):** at each of the 15 (L, ψ) with a survivor, the survivor is non-zero at known in-class R-zeros — 5569 and 9601 (all pairs except the two at L = 420, whose survivors vanish there; also 23929 at L = 240) and/or the 𝔐 composite zeros 1969, 2641, 5161 — and adding the R-zero rows leaves rank 0 on 𝒞₁ ∩ [1, B] in all 15 cases, so every valid proxy of each swept (L, ψ) vanishes on 𝒞₁ ∩ [1, B] (full space; TERNARY class for three cusp-space runs at L = 840). Supplementary numerical screen (§6.2): 7 larger-conductor Gauss-exceptional G (rank-2 curves) all have numerically non-zero central values at in-class (★)-zero primes. |
 
 ---
 
@@ -136,7 +136,8 @@ Lemma W0. (c) W1 is purely about 𝒞₁; off 𝒞₁ the genus term can survive
 **Corollary W2 (PROVED rel. the same inputs).** If L(G_φ, 1) ≠ 0 for every φ with S(4N, ψ, φ) ≠ 0, then every
 ternary-theta proxy g ∈ M_{3/2}(Γ₀(4N), ψ) satisfying (T1\*) vanishes at every squarefree n ∈ 𝒞₁(2N) — in particular at
 every 𝔐-prime when the odd primes of N lie in {3,5,7}. (W1(iii) with Φ_exc = ∅.) The residue is then empty, not merely
-unforced. (§5: this is the situation at most swept (L, ψ); at the others exactly the predicted exceptional φ appear.)
+unforced. (§5: at most swept (L, ψ) the finite T1-kernel is 0 on 𝒞₁ ∩ [1, B]; at the others a single line appears,
+matching a predicted rational exceptional φ — EVIDENCE.)
 
 **Lemma W1′ (one line per eigensystem; PROVED rel. (W-C2)).** Let φ be given and suppose L(G_φ ⊗ χ_{t₀}, 1) ≠ 0 for some
 squarefree t₀ ∈ 𝒞₁(2N). Then for every squarefree t ∈ 𝒞₁(2N) the linear functionals x_t : f ↦ a_t(f) on S(4N, ψ, φ)
@@ -259,7 +260,7 @@ n ∈ 𝒞₁(2N) ∩ [1, B] (and at squarefree / prime / 𝔐 members). Nebenty
 θ_{⟨1,1,3⟩} ∈ (12, χ₁₂), θ_{⟨1,1,5⟩} ∈ (20, χ₅), θ_{⟨1,1,2⟩} ∈ (8, χ₈), θ_{⟨1,3,5⟩} ∈ (60, χ₆₀) (pari `mfparams`).
 Sweep `scripts/z59_walds_halfint_sweep.sh`: every positive fundamental D (and D = 1) with D | L; negative D give 0.
 
-### 5.2 Results: the T1-kernel on 𝒞₁ is exactly the predicted Gauss-exceptional span
+### 5.2 Results: the finite T1-kernel on 𝒞₁ matches the predicted Gauss-exceptional lines
 Levels L = 4N for N | 840 with N squarefree or N ∈ {4, 8, 12, 20, 28, 60, 84, 140, 210}: L ∈ {4, 8, 12, 16, 20, 24, 28,
 32, 40, 48, 56, 60, 80, 84, 112, 120, 140, 168, 240, 280, 336, 420, 560, 840} (24 levels), every admissible ψ, B = 10⁴
 (8000 for L ∈ {16, 32, 48, 80, 112, 240, 336, 560, 840}; L = 840 also cusp space with B = 16 000), both T1 variants.
@@ -313,7 +314,11 @@ For the L = 840 pairs the internal reviewer computed, at (840, χ₂₈₀) (B =
 coefficients (−96, −48, −48, 48, −48) and (8, 0, 8, 8, 24) at (1969, 2641, 5161, 5569, 9601).
 (b) **Certificates** (`scripts/z59_walds_cert.sh` → `cert_survivors.txt`): the same runs with the additional rows
 g(z) = 0 at every known R-zero z ≤ B (all n ≡ 1 (4), n ≤ B, with R(n) = 0, from the LOGIC census):
-CERT_PLACEHOLDER
+**rank 0 on 𝒞₁ ∩ [1, B] in all 15 runs** — the nine L ≤ 560 pairs and (840, χ₅₆), (840, χ₁₆₈), (840, χ₂₈₀) in the
+full space (B = 10⁴ resp. 8000), and (840, χ₂₁), (840, χ₁₀₅), (840, χ₈₄₀) in the cusp space with good-square rows and
+in-𝒞₁ zero rows (B = 16 000). For the three L = 840 characters whose full-space runs overflowed (ψ = 1, χ₈, χ₂₁), the
+rank-0 statement holds in the cusp space with good-square rows (`halfint_cusp_good.txt` for ψ = 1, χ₈ at B = 16 000;
+`cert_survivors.txt` for χ₂₁), i.e. for the TERNARY class.
 A full-space run with rank 0 here certifies: **every valid proxy in M_{3/2}(Γ₀(L), ψ) vanishes on 𝒞₁(2N) ∩ [1, B]**. A
 cusp-space run (good-square rows) certifies the same for the TERNARY class (genus-theta Eisenstein part: by Thm F,
 E = 0 on 𝒞₁, so the cusp part h = g − E satisfies h(m²) = g(m²) = 0 for gcd(m, 2N) = 1 and h(z) = g(z) at z ∈ 𝒞₁; at
@@ -423,8 +428,7 @@ All runs under `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent process
 * `bash scripts/z59_walds_halfint_sweep.sh 10000 4 8 12 20 24 28 40 56 60 84 120 140 168 280 420 > data/z59/walds/halfint_sweep_A.txt`
 * `bash scripts/z59_walds_halfint_sweep.sh 8000 16 32 48 80 112 240 336 560 840 > data/z59/walds/halfint_sweep_B.txt`
 * the 12 (L, D) runs that crashed in A/B (an indexing bug in the "first non-zero" printout, triggered only when the rank
-  was non-zero; fixed) or overflowed (L = 840, D ∈ {1, 8, 21}: cusp space) → `halfint_sweep_C.txt` (`/tmp` driver
-  reproduced by: `for p in "168 168 10000 4" … "840 21 8000 1"; do for l0 in 0 11; do uv run … z59_walds_halfint.py $p-fields; done; done`)
+  was non-zero; fixed) or overflowed (L = 840, D ∈ {1, 8, 21}: cusp space) → `bash scripts/z59_walds_runC.sh > halfint_sweep_C.txt`
 * `uv run … scripts/z59_walds_halfint.py 840 105 16000 0 1`, same with 840 → `halfint_840_cusp_B16000.txt`
 * `uv run … scripts/z59_walds_identify.py 1680 "-3,-4,-7,-8,-15,-20,-24,-35,-40,-56,-84,-120,-168,-280,-420,-840" 150 1500 > identify_rational_1680.txt`
 * `python3 scripts/z59_walds_compare.py identify_rational_1680.txt halfint_sweep_{A,B,C}.txt halfint_840_cusp_B16000.txt > compare_W1.txt`;
@@ -434,6 +438,11 @@ All runs under `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent process
 * `uv run … scripts/z59_walds_rank2_search.py` → `rank2_search.txt`; `uv run … scripts/z59_walds_f4.py > f4_screen.txt`
   (summary `f4_summary.txt`; an earlier, slower partial run without `ellrank`: `f4_screen_run1_partial.txt`)
 * `python3 scripts/z59_walds_w0check.py 24 20000 > w0check.txt`
+* after review: `bash scripts/z59_walds_cert.sh > cert_survivors.txt` (15 certificate runs, R-zero rows);
+  `scripts/z59_walds_rerun_review.sh` was started and stopped after its first run (840, ψ = 1, good-square rows, cusp,
+  B = 16 000 → `halfint_cusp_good.txt`); (840, χ₈) was then run by hand with the same arguments and appended there.
+  The good-square re-runs of the diag screens were not completed (the reviewer's independent re-runs at (168, χ₁₆₈) and
+  (560, χ₂₈₀) agree with `diag_survivors.txt`).
 
 ## 9. Review log
 * **Internal hostile review** (deep-mode subagent; `data/z59/walds/internal_review.md`): 1 FATAL, 8 MAJOR, 5 MINOR.
