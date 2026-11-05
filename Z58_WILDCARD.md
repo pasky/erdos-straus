@@ -156,9 +156,13 @@ Assessment, conditional on an unvalidated model.
     moduli 7 and 15 are not complete (T_7 = {1}, T_15 = {1, 2, 8}).
   * No classification of complete moduli for other K is claimed.
 * *P2, 𝔐 classes, where Mordell's identities give nothing.* rate = exp(0.42 − 0.315·λL³), with deviance 65.5 on 23 df:
-  over-dispersed by about 3×, but bin-by-bin within a factor of about 2–3. For K = 4 it predicts 0.0096 prime zeros in
-  𝔐 below 10⁸, and 0 are observed: **consistent**. The fitted x-range ends at 108; the K = 4 values beyond 10⁵ lie
-  outside it.
+  over-dispersed by about 3×; a poor fit. Most bins with positive counts are within a few-fold of the fit; the worst
+  observed/fit ratio is ≈ 4.8 (K = 12, decade 5), and zero bins enter only through the deviance. Neither fitted model
+  is validated for pointwise use.
+* *K = 4 under the P2 law.* It predicts 0.0096 prime zeros in 𝔐 below 10⁸, and 0 are observed. This is consistent,
+  but only extremely weakly so: the Poisson probability of seeing 0 is ≈ 0.99. Nested numerators share primes and
+  events, so no independent-Poisson significance is claimed. The fitted x-range ends at 107.7: the K = 4 decade-5 value
+  (x ≈ 103) lies inside it, and the decade-6 and decade-7 predictions lie outside it.
 * *Reading.* On the domain of (MS-II) the data are consistent with K = 4 behaving like the ladder at its larger mean
   count (λ₄/λ₈ ≈ 2.4 on 𝔐). This is compatibility only. It shows neither that numerators 4 and 8 differ *only* through
   the mean, nor anything about individual primes (B6). Example of another arithmetic difference: f = 11 is a K = 4
@@ -319,6 +323,20 @@ witnesses, and all four Python outputs byte for byte. Fixes applied:
 | 7 | bounded data written as eventual positivity | ranges and "odd non-square" added everywhere; eventual statements labelled CONJECTURE |
 | 8 | inheritance stated unconditionally | divisibility hypotheses restored; N_II(5) > 0 = N_II(4545) noted |
 | 9–14 | x-range number, K24 twist filter, LATE/max-witness labels, scope wording, provenance, CLI checks | fixed (the new ladder2 excludes all odd prime factors of K/4; census labels and argument checks added; data size and sample descriptions corrected) |
+
+**Cross-model review** (`data/z58/xreview/REVIEW_WILDCARD.md`, ACCEPT-WITH-FIXES). It confirmed:
+* every census by full reruns, plus an independent progression sieve to 10⁸ (zero lists identical);
+* Lemmas 4.1–4.4;
+* the F2/F3/F4 witnesses;
+* the `ladder2.txt` refit, byte for byte.
+
+Required fixes, both applied in §3:
+1. "bin-by-bin within a factor 2–3" is replaced by "most positive bins within a few-fold; worst ratio ≈ 4.8; zero bins
+   enter through the deviance".
+2. "K = 4 values beyond 10⁵ outside the x-range" is corrected: decade 5 is inside, decades 6–7 are outside.
+
+The desirable clarification is added too: 0 observed against 0.0096 expected is very weak compatibility (P ≈ 0.99), and
+no significance is claimed.
 
 ## 8. Reproduction
 ```
