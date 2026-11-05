@@ -279,17 +279,19 @@ Rule (checkpoint 1, commit 144b7268): a cross-family pair of certificate level b
 correlation is < −4 s.e. within p mod 840 at two scales and < −2 s.e. under the residue OLS (here extended to mod 16, 32,
 27). `scripts/z57_complement_leads.py` (`leads.txt`): 921 pairs at 10⁸/10⁹/10¹⁰; 84 below −4 s.e. somewhere; **12 leads**:
 
-* *Top-band leads (6):* STAR z7 vs c2 z8, c3 z8, B1 z8; STAR z6 vs c2 z8; c2 z6 vs c3 z8; STAR z0 vs c2 z6. Sizes −0.02 to
-  −0.09, unchanged by residues to 199 or by the L-proxies (`leadfollow_1e10.txt`). These involve bands with t ≥ p^{0.6},
-  i.e. pairs with uv ≤ p^{0.4}: by Lemma W(e) they are congruence families modulo 4uv. **CRT test**
+* *Leads involving a congruence band (6):* STAR z7 vs c2 z8, c3 z8, B1 z8; STAR z6 vs c2 z8; c2 z6 vs c3 z8; STAR z0 vs
+  c2 z6. Each involves at least one band with t ≥ p^{0.6}, i.e. pairs with uv ≤ p^{0.4}, which by Lemma W(e) is a
+  congruence family modulo 4uv (both sides are, except STAR z0 in the last, whose size is ≤ 0.013). Sizes −0.01 to −0.06
+  (−0.09 with L-proxies for STAR z7–B1 z8), not removed by residues to 199 — as expected, since the moduli 4uv reach
+  p^{0.4} (`leadfollow_1e9.txt`, `leadfollow_1e10.txt`). **CRT test**
   (`scripts/z57_complement_toplocal.py`, 10 000 primes ≡ 1 (4) from 10¹⁰; STAR pairs 100 < uv ≤ 1000, others uv ≤ 100,
   i.e. the bands STAR z7, X z8): the exact local model (p uniform on units modulo the lcm) gives
   corr(STAR, c2/c3/B1) = −0.067/−0.064/−0.043 vs empirical −0.079/−0.070/−0.055 (s.e. 0.010), and reproduces c2–c3
   (+0.260 vs +0.277) and all means to 1–2 % (at 10¹² with uv ≤ 250 vs ab ≤ 16: STAR–c2 −0.110 vs −0.106). They are
   local data (mutual exclusion of residue classes of cheap pairs), as FAMATTACK's C(3,4).
 * *Bottom-band leads (6):* STAR z0 vs B1 z1, c2 z1; B1 z1 vs I1 z0; STAR z1 vs I1 z0, I1 z1; I1 z1 vs c2 z0 (t ≤ p^{0.2}).
-  |r| ≤ 0.04 at 10⁸–10¹⁰, decreasing with scale and under residues mod all primes ≤ 199 (e.g. STAR z0–B1 z1:
-  −0.024 → −0.013 at 10¹⁰). Not identified (Assessment: the same short-range positional/congruence competition as
+  |r| ≤ 0.04 at 10⁸–10¹⁰, mostly shrinking under residues mod all primes ≤ 199 (e.g. STAR z0–B1 z1: −0.024 → −0.013 at
+  10¹⁰, STAR z1–I1 z1: −0.033 → −0.020 at 10⁹; I1 z1–c2 z0 barely moves, −0.024 → −0.022). Not identified (Assessment: the same short-range positional/congruence competition as
   FAMATTACK's u(0,1)); two orders of magnitude below the positive full-family couplings.
 * **Kill condition for the full families met:** no pair of full families is below −2 s.e. under local controls at any
   scale, and every full certificate pair has joint-low-tail ratio ≥ 1 at every scale except 1e11 c2–c3 (0.88) and 𝔊*–K
