@@ -58,8 +58,9 @@ R_𝔊* = the Theorem V subfamily; N_II(n) = #{(a, b, c, d) ∈ ℕ⁴ : 4abcd =
   claim E(N) ≪ N exp(−c(log N)^{3/4}). Their Lean repository has a root commit dated 2026-07-30 with the 3/4 saving. The
   campaign's internal 3/4 note was first committed 2026-09-06. FRONTIER §1 and the note's abstract must cite K-R-K (§4
   below). (MS) relevance: none.
-* **Nothing has been posted.** Paper-side changes (count note citation, 3/4-note abstract) are proposals for the paper
-  owner, **need the user**.
+* **Nothing has been posted.** Papers are campaign artifacts (user directive 2026-11-05, `OPERATIONS.md`): the K-R-K
+  citation was applied to `paper/es-threequarter-note.tex` (abstract + introduction, no priority claim) and swept
+  through the other notes after this summary.
 
 ## 1. Per-angle table
 
@@ -296,7 +297,7 @@ None of these is a lead. Each is stated in its memo with its scope.
 7. **Disproof side** (DISPROOF): slowly decaying mixtures, growing offsets or other polynomial families, and a non-local
    "prime T1" remain unexcluded. The model is not an upper bound.
 8. **Literature / papers** (LIT): the K-R-K citation and the 3/4-note abstract; a comparison of (D)30/(D)31 with K-R-K.
-   **Needs the user / paper owner.**
+   Citation applied post-summary (see `OPERATIONS.md`); the (D)30/(D)31 comparison remains open.
 
 ## 6. Do-not-export list / caveats
 
@@ -336,4 +337,4 @@ None of these is a lead. Each is stated in its memo with its scope.
   * CONVF's quoted "22 zeros ≤ 10⁹" needs WILDCARD's source and domain (full N^{(8)}, odd non-squares, primes).
 * **Literature.** K-R-K is unrefereed. Its Lean closure was CI-verified, not rebuilt, and dates from October, not July.
   Public priority is unverified. Akaka is an author claim. Do not claim the campaign's 3/4 bound as first.
-* **Nothing has been posted.** Paper changes are proposals; the user decides.
+* **Nothing has been posted.** Papers are internal artifacts edited by the campaign itself; posting needs the user.

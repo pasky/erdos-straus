@@ -11,6 +11,8 @@ repository file, with a pointer. When a summary and its source disagree, the sou
 > guarantee. It includes the priority item under "Exceptional set" in §1; the K-R-K standard-axiom CI closure is at the
 > 2026-10-30 commit.)*
 
+*Orchestration directives (papers are campaign artifacts, edit freely; wave mechanics): `OPERATIONS.md`.*
+
 **Labels** (as in `DISCOVERIES.md`). PROVED = complete proof in the repo, possibly *relative to* named published theorems;
 CONDITIONAL = proved assuming a named hypothesis (GRH, Dickson, Hypothesis H, SEL, …); CERTIFIED = an exact finite computation,
 independently reproduced; EVIDENCE = numerics or heuristics only; CONJECTURE = stated, open; Assessment = a judgement or
@@ -77,7 +79,7 @@ approximation always exists, and BM does not explain all failures of strong appr
   * **Chronology.** The campaign's note was first committed 2026-09-06. That date dates the file, not the discovery.
     Exact public priority is unverified (no dated public snapshot).
   * **Required wording.** Cite K-R-K wherever the internal 3/4 bound is mentioned. Do not call the campaign's bound
-    first; the note's abstract ("not aware of an earlier improvement") needs correction, **needs the user**.
+    first. *(Applied 2026-11-05: the note's abstract and introduction now cite K-R-K and claim no priority.)*
   * **What may still be campaign-new** (Assessment, to be compared): (D)30 and (D)31. Count-note Theorems A–D are
     not superseded.
   * Akaka Zenodo v0.8 (22905042, 2026-09-22) claims, as an author claim with a *claimed* Lean certificate and specialist
