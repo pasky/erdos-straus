@@ -1,4 +1,4 @@
-# Z58_LOGIC — logic and complexity of (MS)
+# Z58_LOGIC — logic and complexity of (MS). Verdict: narrowed; new CONJECTURE (MS⁺) (no non-square zero in Mordell classes in (1.75·10⁷, 10¹⁰]); no HOT LEAD
 
 Status: z58 lane LOGIC (brief `z52bbriefs/z58_lanes.md` §LOGIC, common rules `z52bbriefs/z53_depth.md`).
 **Final (after one hostile internal review, `data/z58/logic/internal_review.md`, 4 MAJOR + 11 MINOR, all applied; §8).**
