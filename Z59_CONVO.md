@@ -192,13 +192,10 @@ pointwise proof must use ρ (equivalently 4abd − p) growing with p.
 *Proof.* 24 | Q gives p ≡ 1 (24). Since ρ + 1 | Q, N_ρ = (Qt + 1 + ρ)/4 = s_ρ·P_ρ with s_ρ := (ρ+1)/4 ∈ ℕ.
 Since ρ | Q/(ρ+1) (ρ(ρ+1) | Q), P_ρ ≡ 1 (mod ρ). P_ρ > s_ρ for t ≥ 1 (as Q/(ρ+1) ≥ ρ ≥ s_ρ), so P_ρ ∤ s_ρ and
 the divisors of N_ρ are x and xP_ρ with x | s_ρ. If ab | N_ρ then (a, b) = (xP^i, yP^j) with xy | s_ρ,
-i + j ≤ 1, and a + b ≡ x + y (mod ρ). But 2 ≤ x + y ≤ s_ρ + 1 = (ρ + 5)/4 < ρ, so ρ ∤ a + b. Admissibility for H:
-the forms Qt + 1 and P_ρ(t) are ≡ 1 modulo every prime dividing Q; for a prime ℓ ∤ Q we have ℓ > R + 1 ≥ |F| + 1
-(every prime ≤ R + 1 divides some ρ(ρ+1) or 24 — indeed ℓ ≤ R+1 odd: ℓ or 2ℓ... see remark), so the |F| + 1
-linear forms cannot cover all residues of t mod ℓ. ∎
-*Remark on admissibility.* Every prime ℓ ≤ (R+1)/... : it suffices that each prime ℓ ≤ |F| + 1 divides Q.
-|F| + 1 ≤ R/4 + 2; for ℓ odd ≤ R/4 + 2, the number ρ := 4ℓ − 1 ≤ R (when R ≥ 4ℓ − 1, true as ℓ ≤ R/4 + 1/4 for
-R ≥ 7; R = 3 has |F| + 1 = 2) lies in F and ℓ | ρ + 1; ℓ = 2 divides 24. So all ℓ ≤ |F| + 1 divide Q.
+i + j ≤ 1, and a + b ≡ x + y (mod ρ). But 2 ≤ x + y ≤ s_ρ + 1 = (ρ + 5)/4 < ρ, so ρ ∤ a + b.
+Admissibility for H: the |F| + 1 forms Qt + 1 and P_ρ(t) are distinct, linear (hence irreducible) with positive
+leading coefficients, and all equal 1 at t = 0; so for every prime ℓ the residue t ≡ 0 (mod ℓ) makes their product
+≢ 0 (mod ℓ): there is no fixed prime divisor. ∎
 Numerical confirmation (`scripts/z59_convo_schinzel.py`): R = 7: t = 16, 110, 176, 390, 396 give p = 2689,
 18481, 29569, 65521, 66529 with min ρ = 15, 19, 11, 11, 31 (> 7); R = 15: p = 2402401, 9609601, 12307681,
 12603361 with min ρ 23, 23, 19, 19; R = 23: p = 1621531850401, 4062963310561 with min ρ 31, 31. (66529 is one of
