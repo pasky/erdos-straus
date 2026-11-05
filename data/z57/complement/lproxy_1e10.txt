@@ -1,0 +1,23 @@
+# 1e10: N = 25226; proxies log L(1,chi_p) mean +0.252 sd 0.716; log L(1,chi_-4p) mean +0.107 sd 0.462; corr -0.306
+## loading on the proxies after local OLS: corr(resid family/L^2, resid proxy) (nominal z)
+STAR   log L(1,chi_p): -0.022 (-3.5)   log L(1,chi_-4p): +0.066 (+10.4)
+B1     log L(1,chi_p): -0.026 (-4.1)   log L(1,chi_-4p): +0.051 (+8.1)
+I1     log L(1,chi_p): -0.023 (-3.6)   log L(1,chi_-4p): +0.029 (+4.6)
+QR     log L(1,chi_p): +0.025 (+3.9)   log L(1,chi_-4p): -0.006 (-1.0)
+c2     log L(1,chi_p): -0.011 (-1.8)   log L(1,chi_-4p): +0.027 (+4.2)
+c3     log L(1,chi_p): -0.018 (-2.9)   log L(1,chi_-4p): +0.047 (+7.4)
+G      log L(1,chi_p): -0.021 (-3.4)   log L(1,chi_-4p): +0.065 (+10.3)
+K      log L(1,chi_p): -0.008 (-1.2)   log L(1,chi_-4p): +0.017 (+2.7)
+INT    log L(1,chi_p): -0.017 (-2.8)   log L(1,chi_-4p): +0.017 (+2.7)
+## pair correlations of residuals: local OLS | local + L-proxies (quadratic) | local + L-proxies + INT
+STAR-B1   +0.501 | +0.481 (+76.5) | +0.294 (+46.7)
+STAR-I1   +0.409 | +0.402 (+63.8) | +0.159 (+25.3)
+B1  -I1   +0.640 | +0.636 (+100.9) | +0.371 (+58.9)
+STAR-c2   +0.351 | +0.332 (+52.7) | +0.244 (+38.8)
+STAR-c3   +0.158 | +0.157 (+25.0) | +0.088 (+14.0)
+c2  -c3   +0.065 | +0.063 (+10.0) | +0.014 (+2.3)
+G   -K    +0.108 | +0.087 (+13.8) | +0.025 (+4.0)
+STAR-QR   +0.202 | +0.214 (+34.0) | -0.064 (-10.2)
+B1  -QR   +0.027 | +0.035 (+5.5) | -0.536 (-85.1)
+I1  -QR   +0.099 | +0.110 (+17.4) | -0.486 (-77.3)
+## QNR share of interior words: mean 0.7412; corr with resid log L(1,chi_p) -0.048, log L(1,chi_-4p) +0.021

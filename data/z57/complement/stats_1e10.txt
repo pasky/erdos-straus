@@ -1,0 +1,81 @@
+# 1e10: N = 25226 primes p ≡ 1 (4), p in [10000000033, 10001854157]; mean L^2 = 530.2
+## means/L^2 and zero counts
+W     mean/L2 0.8610  var/mean 29.30  zeros 0
+STAR  mean/L2 0.1610  var/mean 7.02  zeros 0
+B1    mean/L2 0.2943  var/mean 9.50  zeros 0
+I1    mean/L2 0.2687  var/mean 10.21  zeros 0
+QR    mean/L2 0.1770  var/mean 7.90  zeros 0
+BND   mean/L2 0.1767  var/mean 132.59  zeros 0
+G     mean/L2 0.1312  var/mean 7.23  zeros 0
+K     mean/L2 0.0298  var/mean 1.94  zeros 10
+H3    mean/L2 0.0814  var/mean 4.77  zeros 0
+HC    mean/L2 0.0813  var/mean 4.77  zeros 0
+c2    mean/L2 0.0796  var/mean 4.85  zeros 0
+c3    mean/L2 0.0466  var/mean 3.24  zeros 2
+INT   mean/L2 0.6843  var/mean 11.44  zeros 0
+## residual correlations (count scale): raw | within 840 (z) | OLS residues mod [8, 3, 9, 5, 25, 7] ... (z) | log1p OLS | partial|INT=W-BND (840) | partial|QR (840)
+STAR-B1   +0.497 | +0.498 (+79.1) | +0.501 (+79.6) | +0.480 | +0.364 | +0.503
+STAR-I1   +0.432 | +0.434 (+68.9) | +0.409 (+64.9) | +0.397 | +0.260 | +0.420
+STAR-QR   +0.033 | +0.186 (+29.6) | +0.202 (+32.1) | +0.161 | -0.077 | +nan
+STAR-c2   +0.257 | +0.307 (+48.8) | +0.351 (+55.7) | +0.348 | +0.232 | +0.277
+STAR-c3   +0.130 | +0.132 (+21.0) | +0.158 (+25.1) | +0.167 | +0.067 | +0.129
+STAR-G    +0.976 | +0.975 (+154.9) | +0.970 (+154.1) | +0.957 | +0.971 | +0.974
+STAR-K    +0.470 | +0.407 (+64.7) | +0.346 (+54.9) | +0.361 | +0.381 | +0.401
+B1  -I1   +0.635 | +0.644 (+102.2) | +0.640 (+101.7) | +0.604 | +0.426 | +0.647
+B1  -QR   -0.138 | +0.018 (+2.9) | +0.027 (+4.2) | +0.013 | -0.550 | +nan
+B1  -c2   +0.329 | +0.304 (+48.3) | +0.329 (+52.3) | +0.314 | +0.194 | +0.308
+B1  -c3   +0.172 | +0.174 (+27.7) | +0.184 (+29.2) | +0.186 | +0.083 | +0.174
+B1  -G    +0.480 | +0.489 (+77.6) | +0.487 (+77.3) | +0.457 | +0.357 | +0.493
+B1  -K    +0.253 | +0.191 (+30.3) | +0.170 (+27.0) | +0.177 | +0.124 | +0.190
+I1  -QR   +0.007 | +0.133 (+21.1) | +0.099 (+15.7) | +0.078 | -0.469 | +nan
+I1  -c2   +0.140 | +0.160 (+25.4) | +0.171 (+27.2) | +0.177 | -0.013 | +0.135
+I1  -c3   +0.302 | +0.276 (+43.9) | +0.256 (+40.6) | +0.228 | +0.209 | +0.275
+I1  -G    +0.403 | +0.419 (+66.5) | +0.396 (+62.8) | +0.371 | +0.246 | +0.405
+I1  -K    +0.279 | +0.194 (+30.9) | +0.144 (+22.9) | +0.174 | +0.124 | +0.187
+QR  -c2   +0.194 | +0.227 (+36.0) | +0.210 (+33.3) | +0.143 | +0.086 | +nan
+QR  -c3   +0.011 | +0.028 (+4.5) | +0.024 (+3.8) | +0.008 | -0.114 | +nan
+QR  -G    +0.046 | +0.181 (+28.8) | +0.209 (+33.3) | +0.176 | -0.075 | +nan
+QR  -K    -0.042 | +0.076 (+12.1) | +0.019 (+3.0) | -0.008 | -0.027 | +nan
+c2  -c3   +0.016 | +0.038 (+6.1) | +0.065 (+10.3) | +0.071 | -0.010 | +0.033
+c2  -G    +0.243 | +0.293 (+46.6) | +0.330 (+52.3) | +0.324 | +0.219 | +0.263
+c2  -K    +0.152 | +0.151 (+23.9) | +0.162 (+25.8) | +0.158 | +0.116 | +0.137
+c3  -G    +0.110 | +0.117 (+18.6) | +0.139 (+22.1) | +0.145 | +0.052 | +0.114
+c3  -K    +0.131 | +0.102 (+16.2) | +0.110 (+17.5) | +0.110 | +0.075 | +0.100
+G   -K    +0.266 | +0.195 (+30.9) | +0.108 (+17.1) | +0.088 | +0.149 | +0.184
+## joint low tails within p mod 840: event = count <= within-stratum q-quantile; obs/pred (MH OR)
+q=0.05: STAR-B1 3.97(5.96)  STAR-I1 2.98(3.89)  STAR-QR 1.47(1.57)  STAR-c2 2.54(3.19)  STAR-c3 1.68(1.87)  STAR-G 11.86(140.88)  STAR-K 3.27(5.08)  B1-I1 4.32(6.75)  B1-QR 1.12(1.13)  B1-c2 2.35(2.83)  B1-c3 1.80(2.03)  B1-G 3.62(5.19)  B1-K 1.93(2.27)  I1-QR 1.48(1.57)  I1-c2 1.54(1.66)  I1-c3 1.79(2.01)  I1-G 2.81(3.58)  I1-K 1.96(2.32)  QR-c2 1.32(1.38)  QR-c3 1.01(1.01)  QR-G 1.52(1.62)  QR-K 1.07(1.09)  c2-c3 1.11(1.13)  c2-G 2.53(3.19)  c2-K 1.59(1.78)  c3-G 1.59(1.74)  c3-K 1.28(1.35)  G-K 1.47(1.60)
+q=0.1: STAR-B1 2.78(4.73)  STAR-I1 2.23(3.20)  STAR-QR 1.40(1.57)  STAR-c2 2.08(2.89)  STAR-c3 1.53(1.80)  STAR-G 6.63(110.87)  STAR-K 2.47(4.27)  B1-I1 3.19(6.13)  B1-QR 0.99(0.99)  B1-c2 1.82(2.30)  B1-c3 1.59(1.89)  B1-G 2.58(4.13)  B1-K 1.63(2.02)  I1-QR 1.28(1.38)  I1-c2 1.44(1.64)  I1-c3 1.70(2.10)  I1-G 2.10(2.90)  I1-K 1.62(2.00)  QR-c2 1.30(1.42)  QR-c3 0.97(0.96)  QR-G 1.44(1.62)  QR-K 1.11(1.15)  c2-c3 1.17(1.23)  c2-G 2.09(2.94)  c2-K 1.44(1.68)  c3-G 1.49(1.74)  c3-K 1.21(1.31)  G-K 1.33(1.50)
+q=0.25: STAR-B1 1.78(3.83)  STAR-I1 1.61(2.88)  STAR-QR 1.21(1.45)  STAR-c2 1.50(2.44)  STAR-c3 1.22(1.51)  STAR-G 3.14(106.60)  STAR-K 1.62(3.38)  B1-I1 2.00(5.38)  B1-QR 1.02(1.05)  B1-c2 1.43(2.15)  B1-c3 1.28(1.67)  B1-G 1.73(3.51)  B1-K 1.28(1.75)  I1-QR 1.17(1.37)  I1-c2 1.25(1.57)  I1-c3 1.36(1.92)  I1-G 1.55(2.62)  I1-K 1.31(1.85)  QR-c2 1.17(1.36)  QR-c3 1.00(1.00)  QR-G 1.18(1.40)  QR-K 1.05(1.10)  c2-c3 1.09(1.20)  c2-G 1.47(2.31)  c2-K 1.23(1.60)  c3-G 1.19(1.43)  c3-K 1.12(1.28)  G-K 1.21(1.52)
+## level-band sub-families: joint-zero ratio obs/pred within 840 and MH OR, for cross-slice pairs with both zero rates in [0.02, 0.98]
+  I1z0    c2z2    zero-rates 0.026 0.034  obs 15 pred 22.6 ratio 0.663 MH-OR 0.598  OLS-corr +0.004 (z +0.6)
+  B1z7    QRz7    zero-rates 0.034 0.114  obs 64 pred 88.4 ratio 0.724 MH-OR 0.675  OLS-corr -0.083 (z -13.1)
+  QRz6    c2z3    zero-rates 0.051 0.054  obs 51 pred 69.3 ratio 0.735 MH-OR 0.712  OLS-corr +0.037 (z +5.9)
+  STARz7  QRz7    zero-rates 0.098 0.114  obs 217 pred 279.2 ratio 0.777 MH-OR 0.724  OLS-corr -0.031 (z -4.9)
+  STARz0  c2z4    zero-rates 0.053 0.087  obs 81 pred 103.4 ratio 0.783 MH-OR 0.722  OLS-corr +0.001 (z +0.2)
+  I1z0    QRz6    zero-rates 0.026 0.051  obs 22 pred 27.4 ratio 0.804 MH-OR 0.755  OLS-corr +0.007 (z +1.1)
+  QRz6    c2z1    zero-rates 0.051 0.045  obs 51 pred 61.6 ratio 0.828 MH-OR 0.809  OLS-corr +0.017 (z +2.7)
+  QRz5    c2z1    zero-rates 0.021 0.045  obs 20 pred 23.6 ratio 0.848 MH-OR 0.836  OLS-corr +0.015 (z +2.5)
+  I1z0    c2z4    zero-rates 0.026 0.087  obs 46 pred 53.8 ratio 0.855 MH-OR 0.811  OLS-corr +0.004 (z +0.7)
+  B1z7    QRz8    zero-rates 0.034 0.332  obs 189 pred 220.8 ratio 0.856 MH-OR 0.653  OLS-corr -0.125 (z -19.8)
+  I1z0    QRz8    zero-rates 0.026 0.332  obs 39 pred 45.5 ratio 0.858 MH-OR 0.790  OLS-corr +0.003 (z +0.5)
+  STARz0  I1z0    zero-rates 0.053 0.026  obs 80 pred 92.8 ratio 0.862 MH-OR 0.793  OLS-corr -0.014 (z -2.3)
+  ...
+  STARz5  c2z5    zero-rates 0.023 0.131  obs 130 pred 76.2 ratio 1.706 MH-OR 1.959  OLS-corr +0.246 (z +39.1)
+  STARz7  I1z8    zero-rates 0.098 0.062  obs 350 pred 201.3 ratio 1.738 MH-OR 2.667  OLS-corr +0.205 (z +32.5)
+  B1z7    I1z8    zero-rates 0.034 0.062  obs 219 pred 120.7 ratio 1.814 MH-OR 3.195  OLS-corr +0.230 (z +36.5)
+  B1z7    I1z7    zero-rates 0.034 0.027  obs 67 pred 36.5 ratio 1.835 MH-OR 2.177  OLS-corr +0.251 (z +39.9)
+  STARz5  I1z7    zero-rates 0.023 0.027  obs 33 pred 17.0 ratio 1.945 MH-OR 2.106  OLS-corr +0.226 (z +35.8)
+  STARz6  I1z7    zero-rates 0.048 0.027  obs 85 pred 37.4 ratio 2.270 MH-OR 2.653  OLS-corr +0.297 (z +47.1)
+  513 pairs: ratio median 1.001, fraction < 1: 0.31; MH-OR median 1.035
+## most negative OLS residual correlations among all band pairs (count scale), nominal z
+  STARz9  QRz9    -0.871 (z -138.3)
+  I1z9    QRz9    -0.755 (z -119.9)
+  STARz8  QRz8    -0.313 (z -49.7)
+  QRz9    c3z8    -0.305 (z -48.5)
+  I1z8    QRz8    -0.270 (z -42.9)
+  B1z8    QRz9    -0.229 (z -36.4)
+  STARz9  QRz8    -0.182 (z -29.0)
+  QRz9    c2z8    -0.163 (z -25.9)
+  QRz8    c3z8    -0.155 (z -24.7)
+  B1z7    QRz8    -0.125 (z -19.8)
+  1653 pairs: median +0.022; below -4/sqrt(N): 114; above +4/sqrt(N): 786
