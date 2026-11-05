@@ -141,8 +141,8 @@ nothing that is currently provable pointwise.
 
 * Minimal working ρ over all primes p ≡ 1 (24), p ≤ 10⁸ (719 781 primes; `scripts/z59_convo_rho2.c` mode 0,
   output `data/z59/convo/minrho_1e8.txt`): every p has a working ρ ≤ 107 (CERTIFIED for p ≤ 10⁸). Records:
-  73→7, 1129→11, 1201→23, 21169→31, 67369→35, 87481→63, 1430641→71, 8803369→107. Distribution: ρ ≤ 4 for
-  59.8%, ≤ 8 for 32.7%, ≤ 16 for 5.9%, ≤ 32 for 1.5%, ≤ 64: 585 primes, ≤ 128: 10 primes. (EVIDENCE: min ρ grows
+  73→7, 1129→11, 1201→23, 21169→31, 67369→35, 87481→63, 1430641→71, 8803369→107. Distribution of min ρ: ρ = 3 for
+  59.8%, ρ = 7 for 32.7%, ρ ∈ {11, 15} for 5.9%, ρ ∈ (16, 32] for 1.5%, ρ ∈ (32, 64]: 585 primes, ρ ∈ (64, 128]: 10 primes. (EVIDENCE: min ρ grows
   very slowly, far below log²p; no pointwise bound is proved.)
 * Least non-residue route (`scripts/z59_convo_nr.c`, `data/z59/convo/nr_small.txt`, p ≤ 2·10⁵): when the least
   prime non-residue q of p is 5 or 7 a solution with q | ab and ab ≤ 42 always exists (Mordell's classes); for
@@ -167,8 +167,8 @@ nothing that is currently provable pointwise.
    factorisation control of (p+ρ)/4.
 3. *Norm-form / Pell representations of p* (p = u² − 2v² has infinitely many representations): with d = 2,
    a = v/2 one gets p + 4a²d = u², and the criterion becomes "u² has a divisor ≡ −p (mod 4v)". The cofactor
-   must be < u²/(4v − 1) ≈ v/2 while −p mod 4v = 4v − p > v/2 once v > p/3.5: only the finitely many
-   representations with v ≲ p work, so the infinite unit orbit gives nothing. Same for p = x² + ky² (finite).
+   ρ = u²/f ≤ (p + 2v²)/(4v − 1) ≈ v/2 + p/(4v) must be ≡ −p (mod 4v), hence ≥ 4v − p once v > p/4; the two are
+   incompatible for v ≳ 2p/7: only the finitely many representations with v ≲ p can work, so the infinite unit orbit gives nothing. Same for p = x² + ky² (finite).
 4. *Vieta jumping*: in the d = 1 slice (4bc − 1)ρ = 4b² + p is quadratic in b only, and the involution is
    b ↦ cρ − b, i.e. a ↔ b. The equation is linear in each of a, b, c, d separately; no non-trivial involution,
    no descent.
@@ -180,3 +180,26 @@ nothing that is currently provable pointwise.
    mod ρ; bounding it pointwise in p is a level-of-distribution statement for the single short interval
    [p/4, (p+R)/4] — not available (and it must fail for p = m², where the same sum cancels the main term
    exactly). Dead with present technology.
+
+### 7.7 A conditional no-go for bounded ρ (CONDITIONAL on Schinzel's Hypothesis H; construction CERTIFIED)
+
+**Theorem 7.7.** Let R ≥ 3, F := {ρ ≤ R : ρ ≡ 3 (mod 4)}, Q := lcm(24, ρ(ρ+1) : ρ ∈ F). For t ≥ 1 put
+p = Qt + 1 and P_ρ := 1 + (Q/(ρ+1))·t (ρ ∈ F). If p and all P_ρ are prime, then p ≡ 1 (mod 24) and **no ρ ∈ F
+works** in Criterion 3.1, i.e. every solution of 4abcd = a + b + pc has 4abd − p > R. Under Hypothesis H
+there are infinitely many such t; hence (conditionally) min ρ is unbounded on primes p ≡ 1 (24), and any
+pointwise proof must use ρ (equivalently 4abd − p) growing with p.
+
+*Proof.* 24 | Q gives p ≡ 1 (24). Since ρ + 1 | Q, N_ρ = (Qt + 1 + ρ)/4 = s_ρ·P_ρ with s_ρ := (ρ+1)/4 ∈ ℕ.
+Since ρ | Q/(ρ+1) (ρ(ρ+1) | Q), P_ρ ≡ 1 (mod ρ). P_ρ > s_ρ for t ≥ 1 (as Q/(ρ+1) ≥ ρ ≥ s_ρ), so P_ρ ∤ s_ρ and
+the divisors of N_ρ are x and xP_ρ with x | s_ρ. If ab | N_ρ then (a, b) = (xP^i, yP^j) with xy | s_ρ,
+i + j ≤ 1, and a + b ≡ x + y (mod ρ). But 2 ≤ x + y ≤ s_ρ + 1 = (ρ + 5)/4 < ρ, so ρ ∤ a + b. Admissibility for H:
+the forms Qt + 1 and P_ρ(t) are ≡ 1 modulo every prime dividing Q; for a prime ℓ ∤ Q we have ℓ > R + 1 ≥ |F| + 1
+(every prime ≤ R + 1 divides some ρ(ρ+1) or 24 — indeed ℓ ≤ R+1 odd: ℓ or 2ℓ... see remark), so the |F| + 1
+linear forms cannot cover all residues of t mod ℓ. ∎
+*Remark on admissibility.* Every prime ℓ ≤ (R+1)/... : it suffices that each prime ℓ ≤ |F| + 1 divides Q.
+|F| + 1 ≤ R/4 + 2; for ℓ odd ≤ R/4 + 2, the number ρ := 4ℓ − 1 ≤ R (when R ≥ 4ℓ − 1, true as ℓ ≤ R/4 + 1/4 for
+R ≥ 7; R = 3 has |F| + 1 = 2) lies in F and ℓ | ρ + 1; ℓ = 2 divides 24. So all ℓ ≤ |F| + 1 divide Q.
+Numerical confirmation (`scripts/z59_convo_schinzel.py`): R = 7: t = 16, 110, 176, 390, 396 give p = 2689,
+18481, 29569, 65521, 66529 with min ρ = 15, 19, 11, 11, 31 (> 7); R = 15: p = 2402401, 9609601, 12307681,
+12603361 with min ρ 23, 23, 19, 19; R = 23: p = 1621531850401, 4062963310561 with min ρ 31, 31. (66529 is one of
+the three a = 1 zeros.)
