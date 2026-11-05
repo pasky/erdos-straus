@@ -6,16 +6,24 @@ Scripts: `scripts/z58_convf_*`; data: `data/z58/convf/`.
 
 ## §0 Mandatory falsifiers (stated at first commit; re-checked in §5)
 
-* **F1 (odd squares n = m²).** Every witness f = 4acd − 1 satisfies (n/f) = −1 (Lemma 1.3), so no argument that only
-  uses n (mod f) can work; the step that uses non-squareness must be the one producing an f with (n/f) = −1.
-* **F2 (d-even half, numerator 8).** Restricting to d even is the statement 8abcd' = a + b + nc; it has 22 prime zeros
-  ≤ 10⁹ (last 35 569). An argument is only credible if the restriction "d even" visibly breaks it (e.g. it must use
-  d = 1 or d odd somewhere, or the a = 1 / c = 1 sub-families with d odd).
-* **F3 (4545 and the 285 composite c = 1 zeros ≤ 8·10⁶).** 4545 = 3²·5·101 ≡ 9 (mod 24); the composite c = 1 zeros are
+* **F1 (odd squares n = m²).** Every witness f = 4acd − 1 satisfies (n/f) = −1 (Lemma 1.3); so any construction of a
+  witness must at some point produce an f with (n/f) = −1, i.e. use non-squareness. (This is a necessary feature of
+  witnesses, not a theorem about how proofs must be organised; (E3) itself is a residue-class target.)
+* **F2 (C-even half of the c = 1 line = c = 1 line of 8/p).** In the coordinates here this is the sub-line c = 1, d even
+  (4dn + 1 has a divisor ≡ −1 (mod 4d) with d even). The screen file r8_zeros_1e10.txt lists the 12 primes in
+  [10¹⁰, 1.1·10¹⁰] where it fails while R(p) ≥ 52; the lane brief also quotes 22 prime zeros ≤ 10⁹ (last 35 569) for this
+  sub-line (not independently sourced here). This is distinct from the full family restricted to d even
+  (8abcd' = a + b + nc), which is NOT refuted by these zeros: all 12 have a = 1 witnesses (data/z58/convf/a1wit_screens.txt,
+  my own enumeration), and even-d a = 1 witnesses at all 12 per the cross-model reviewer (e.g. 10156800001:
+  (1, 317435302, 281, 8), verified here; my partial scan shows even d at 9 of 12). Any argument confined to c = 1, d even
+  is false at these 12 primes.
+* **F3 (4545 and the 285 composite c = 1 zeros ≤ 7 999 801).** 4545 = 3²·5·101 ≡ 9 (mod 24); the composite c = 1 zeros are
   ≡ 1 or 9 (mod 24) (71 resp. 214 of them). Any argument that works for all n ≡ 1 (mod 24) non-square must fail at the
   71 composite c = 1 zeros ≡ 1 (24) if it only uses the c = 1 line, and must not apply to 4545 at all (threshold or
   a step using primality/non-divisibility by 9).
-* **F4 (the 14 primes ≤ 10¹⁰ with no c = 1 witness).** 409 … 8 813 281. Any argument confined to c = 1 is false there.
+* **F4 (the 14 primes ≤ 10¹⁰ with no c = 1 witness, and the 38 G* zeros).** 409 … 8 813 281. Any argument confined to
+  c = 1 is false there. The 38 primes ≤ 10¹⁰ with R_G*(p) = 0 (gstar_zeros.txt, 37 … 564 661 441) all have a = 1 witnesses
+  (a1wit_screens.txt / wit_screens5.txt; e.g. 564661441: (1, 28956997, 2, 5)), so nothing here is confined to G*.
   All 14 have a = 1 witnesses and (separately, not necessarily the same witness) witnesses with c ∈ {2, 3}
   (data/z58/convf/wit_hard.txt; e.g. 83449 has a = 1 only with c ≥ 5), so an argument confined to a = 1 is consistent
   with them — but a = 1 alone has its own zeros {193, 2521, 66529}.
@@ -24,16 +32,18 @@ Scripts: `scripts/z58_convf_*`; data: `data/z58/convf/`.
 
 Throughout n is an odd positive integer (the target is n = p prime ≡ 1 (mod 24)); a, b, c, d range over positive integers.
 R(n) := #{(a,b,c,d) : 4abcd = a + b + nc}. A quadruple with 4abcd = a + b + nc gives
-4/n = 1/(abd) + 1/(acdn) + 1/(bcdn) (multiply out: (cn + b + a)/(abcdn) = 4/n). This is the Elsholtz–Tao Type II family
-(their Prop. 2.7; the residue-class form below is their Prop. 1.9).
+4/n = 1/(abd) + 1/(acdn) + 1/(bcdn) (multiply out: (cn + b + a)/(abcdn) = 4/n). For n = p prime this is exactly the
+Elsholtz–Tao Type II family (their Prop. 2.7, which requires gcd(abd, n) = 1 — automatic for primes p > a, b, d; for
+composite n the algebraic family is larger, e.g. n = 69, (3,6,3,1) has gcd(abd,n) = 3). The residue-class form (E3)
+below is their Prop. 1.9; the a = 1 line is López's "Type A" (arXiv:2404.01508, Thm 7/Conj. 1), see §2.
 
 **Lemma 1.1 (equivalent forms).** For fixed n the following sets are in explicit bijection; in particular R(n) > 0 iff any
 one of them is non-empty.
  (E1) {(a,b,c,d) : 4abcd = a + b + nc}.
  (E2) {(a,c,d,f) : f = 4acd − 1, f | cn + a}.
- (E3) {(a,d,f) : f ≡ −1 (mod 4ad), f | n + 4a²d}.
- (E4) {(c,d,f) : f ≡ −1 (mod 4cd), f | 4c²dn + 1}.
- (E5) {(a,b,σ) : σ | a + b, 4ab | n + σ}.
+ (E3) {(a,d,f) : f > 0, f ≡ −1 (mod 4ad), f | n + 4a²d}.
+ (E4) {(c,d,f) : f > 0, f ≡ −1 (mod 4cd), f | 4c²dn + 1}.
+ (E5) {(a,b,σ) : σ ≥ 1, σ | a + b, 4ab | n + σ}.
  (E6) {(σ,c,d,t) : σ ≡ −n (4), c,d ≥ 1, t ∈ ℤ, |t| < cσ, t ≡ cσ (mod 2), n = d(c²σ² − t²) − σ} (so σ ≡ 3 (4) for n ≡ 1 (4)).
 *Proof.* (E1)⇒(E2): b(4acd − 1) = cn + a, so f := 4acd − 1 divides cn + a (and b = (cn+a)/f). (E2)⇒(E1): b := (cn+a)/f ≥ 1 and
 4abcd = b(f + 1) = cn + a + b. (E2)⇔(E3): f = 4acd − 1 ≡ −1 (mod 4ad) and conversely any f ≡ −1 (mod 4ad), f > 0, is
@@ -55,15 +65,15 @@ positive integers iff |t| < cσ and t ≡ cσ (2); σ ≡ −n (4) is forced sin
  (a = d = 1) ⇔ n + 4 has a prime factor ≡ 3 (4). (a = b) never occurs for n prime ≡ 1 (4).
  Moreover every solution with a ≤ b has 4a²d ≤ n + 2a/c ≤ n + 2a.
 *Proof.* Specialise Lemma 1.1; for c = 1 use that 4ad − 1 | n + a ⇔ 4ad − 1 | n + 4a²d (as 4a²d ≡ a). For the three
-"prime factor" lines: a number ≡ 1 (4) has a divisor ≡ 3 (4) iff it has a prime factor ≡ 3 (4). Bound: a ≤ b gives
+"prime factor" lines: an integer has a divisor ≡ 3 (4) iff it has a prime factor ≡ 3 (4). Bound: a ≤ b gives
 f = 4acd − 1 ≤ g = 4bcd − 1, so f² ≤ fg = 4c²dn + 1, i.e. 16a²c²d² − 8acd ≤ 4c²dn, i.e. 4a²d ≤ n + 2a/c. For a = b:
 4a²cd = 2a + nc gives a | nc and (by the bound, with equality) 4a²d = n + 2a/c ≤ n + 2a, so a < n, hence (n prime,
 gcd(a,n) = 1) a | c; write c = ae: 4a²de = 2 + ne, so e | 2: e = 1 gives 4a²d = n + 2 ≡ 3 (4), e = 2 gives 4a²d = n + 1
 ≡ 2 (4); both are impossible as the left side is ≡ 0 (4). ∎
 
 **Lemma 1.3 (Jacobi obstruction = falsifier F1).** If (a,d,f) ∈ (E3) then the Jacobi symbol (n/f) = −1 (in particular
-gcd(n,f) = 1). Consequently R(m²) = 0 for every odd m, and any proof must contain a step that produces an f with
-(n/f) = −1, i.e. must use non-squareness of n.
+gcd(n,f) = 1). Consequently R(m²) = 0 for every odd m; any construction of a witness must therefore produce an f with
+(n/f) = −1, i.e. use non-squareness of n somewhere.
 *Proof.* f ≡ −1 (mod 4ad) gives f ≡ 3 (4), so (−1/f) = −1, and gcd(f, 2ad) = 1. Write d = 2^e d' with d' odd. By Jacobi
 reciprocity, since f ≡ 3 (4): (d'/f)(f/d') = (−1)^{(d'−1)/2}; and f ≡ −1 (mod d') gives (f/d') = (−1/d') = (−1)^{(d'−1)/2};
 so (d'/f) = 1. If e ≥ 1 then f ≡ −1 (mod 8), so (2/f) = 1. Hence (d/f) = 1; also (4a²/f) = 1 as gcd(2a, f) = 1. Now
@@ -115,35 +125,44 @@ quoted from data/z58/screens/README.md, not recomputed here:
 So the a = 1 line (∃ d: p + 4d has a divisor ≡ −1 (mod 4d)) is, empirically, much stronger than the c = 1 line (3 vs 14
 zeros), and the union a = 1 ∪ c = 1 has no zero ≤ 10⁸. All 14 c = 1 zeros have a = 1 witnesses and also c ≤ 3 witnesses
 (wit_hard.txt). These are EVIDENCE only; heuristically each sub-line has ≍ log² p expected solutions and finitely many zeros.
+**Priority (per cross-model review):** the a = 1 line is López's Type A line; its zero list {193, 2521, 66529} is already
+recorded through 10¹¹ in B1_LINE.md, and the union question (a = 1 ∪ c = 1) is López's Conjecture 1 / B1_LINE; the
+counts here are an independent re-derivation to 10⁸, not a new census.
 
 **Mean counts (EVIDENCE; scripts/z58_convf_means.c, data/z58/convf/means_6e7.txt).** Over primes p ≡ 1 (24) in
-quadrupling ranges up to 6·10⁷: mean #{(c,d): 4cd − 1 | cp + 1} (a = 1 line) ≈ 0.12·log²p (0.090 → 0.123, still rising slowly towards
-the heuristic 1/8 from Σ_{cd ≤ p/4} 1/(4cd)); mean #{(a,d): 4ad − 1 | p + a} (c = 1 line, which counts (a,b,1,d) and
-(b,a,1,d) separately) ≈ 0.144·log²p, i.e. ≈ 0.072·log²p unordered. So the a = 1 line has ≈ 1.7× more *distinct* solutions
-than the c = 1 line, consistent with 3 vs 14 zeros; the minimum of the a = 1 count over p ∈ [1.6·10⁷, 6·10⁷] is 5
-(c = 1: 2 ordered). The two lines have identical naive expectation Σ_f τ((f+1)/4)/f (one witness per f at most in each),
-so the difference is entirely the a ↔ b double counting plus correlation structure.
+quadrupling ranges up to 6·10⁷: mean #{(c,d): 4cd − 1 | cp + 1} (a = 1 line) / log²p rises 0.090 → 0.1234 (last bin
+[16 384 000, 60 000 000], 313 394 primes); mean #{(a,d): 4ad − 1 | p + a} (c = 1 line, which counts (a,b,1,d) and (b,a,1,d)
+separately) / log²p ≈ 0.1440 there, i.e. ≈ 0.072 unordered. So in this range the a = 1 line has ≈ 1.7× more *distinct*
+solutions than the c = 1 line, consistent with 3 vs 14 zeros; the minimum of the a = 1 count in the last bin is 5 (c = 1:
+2 ordered). These are finite-range ratios only: the all-integer heuristic Σ_{cd ≤ p/4} 1/(4cd) ≈ (1/8) log²p is not the
+prime-conditioned density (B1_LINE Lemma 3.1 reports ≈ 0.135 at p ≈ 10¹² for the a = 1 line; BM_CORRECTED_COUNT Thm 2.2 gives
+the ordered c = 1 constant 3/(2π²) ≈ 0.152), and no asymptotic is inferred here. The 3-vs-14 difference in zeros is a
+tail phenomenon (counts, variance) and is not explained by the means alone.
 
-**Recommendation.** If a future lane wants a single sub-line, take the a = 1 line: ∃ d ≥ 1 with p + 4d having a divisor
-≡ −1 (mod 4d) (equivalently ∃ c: cp + 1 has a divisor ≡ −1 (mod 4c)). It is exactly the x ≡ 0 (mod 4), "p + x" half of
-the HC criterion (p + x has a divisor ≡ −1 (mod x)), has zeros only at 193, 2521, 66529 below 10⁸, and carries ≈ 0.12·log²p
-distinct solutions on average. Its "symmetric" part d | (p−1)/4 (where the cofactor is also ≡ −1 (mod 4d), i.e.
+**Recommendation.** If a future lane wants a single sub-line, take the a = 1 line (= López's Type A, = B1_LINE's line):
+∃ d ≥ 1 with p + 4d having a divisor ≡ −1 (mod 4d) (equivalently ∃ c: cp + 1 has a divisor ≡ −1 (mod 4c)). It is exactly
+the x ≡ 0 (mod 4), "p + x" half of the HC criterion (p + x has a divisor ≡ −1 (mod x)), has zeros only at 193, 2521, 66529
+below 10⁸ (10¹¹ per B1_LINE), and carries ≈ 0.12·log²p distinct solutions in the measured range. Its "symmetric" part d | (p−1)/4 (where the cofactor is also ≡ −1 (mod 4d), i.e.
 p + 4d = (4dx − 1)(4dy − 1)) is the natural Mordell-type piece.
 
 ## §3 The one proved weaker result: a power-of-log exceptional set for the a = 1 line
 
-This is a density statement and does NOT resolve anything; it is recorded because it is cheap, apparently not stated in
-Elsholtz–Tao for Type II (their Thm 1.1 is an average), and because its proof shows exactly which conditions a bad prime
-must satisfy. Vaughan's N·exp(−c log^{2/3} N) for the full equation 4/n (all n, all types) is stronger in shape.
+This is a density statement and does NOT resolve anything; it is a standard weaker sieve corollary, recorded because it is
+cheap and because its proof shows exactly which conditions a bad prime must satisfy. It is NOT new in substance: per the
+cross-model review, Z56_FAMTRY.md Theorem A already proves X·exp(−0.08√log X) for the c = 1 line, and its proof transfers
+verbatim to the a = 1 line (the forbidden sets Ω(q) = {−c^{−1} mod q : c | (q+1)/4} have the same cardinality τ((q+1)/4) as
+FAMTRY's), giving a stronger bound than Theorem 3.1. Vaughan's N·exp(−c log^{2/3} N) for the full equation 4/n (all n, all
+types) is stronger still in shape.
 
 **Theorem 3.1 (PROVED, modulo the standard sieve input Lemma 3.2).** For every A > 0,
  #{p ≤ N prime : ∄ (c,d) with 4cd − 1 | cp + 1} ≪_A N (log N)^{−A}.
 A fortiori #{p ≤ N : R(p) = 0} ≪_A N (log N)^{−A}. The same holds for the c = 1 line (replace "cp + 1, mod 4c" by
 "p + a, mod 4a").
 
-**Lemma 3.2 (sieve input; Brun/Selberg fundamental lemma, upper-bound form — Halberstam–Richert *Sieve Methods* Ch. 2
-(Brun's sieve under (Ω₁), (Ω₂(κ))) or Friedlander–Iwaniec *Opera de Cribro* Ch. 6 (Fundamental Lemma); if the chosen
-version carries divisor-type weights τ₃(d) in the remainder, the bound below is unchanged up to N^{ε}).** Let 𝒫 be a set of
+**Lemma 3.2 (sieve input; Brun/Selberg fundamental lemma, upper-bound form — pinpoint reference: T. Tao, 254A Notes 4
+"Some sieve theory", Lemma 17 / Corollary 19 and (22), whose bounded combinatorial weights give exactly the unweighted
+remainder below; also Halberstam–Richert *Sieve Methods* Ch. 2 or Friedlander–Iwaniec *Opera de Cribro* Ch. 6 (chapter
+locations not page-verified); a divisor-weighted Selberg version changes the bound only by N^{ε}).** Let 𝒫 be a set of
 primes, and for q ∈ 𝒫 let Ω(q) ⊂ ℤ/qℤ with ω(q) := |Ω(q)| ≤ q/2. Suppose there are κ, L > 0 with
  Σ_{w ≤ q < z, q ∈ 𝒫} ω(q) log q / q ≤ κ log(z/w) + L for all 2 ≤ w < z.
 Then for S(N, z) := #{n ≤ N : n mod q ∉ Ω(q) for all q ∈ 𝒫, q < z} and z ≤ N^{1/(20κ+20)}:
@@ -167,8 +186,8 @@ With z = N^{1/(20κ+20)}: #{bad p ≤ N} ≪_C N (log N)^{−κ(C)}.
 (v) Since φ(4c) ≤ 4c, Σ_{c ≤ C} 1/φ(4c) ≥ (1/4) log C → ∞; choose C with κ(C) ≥ A. ∎
 
 Remark 3.3. The sieve uses only the *prime* witnesses q ≡ −1 (mod 4c) of cp + 1; composite witnesses (which dominate the
-expected count ≍ log² p) are wasted. Pushing C → ∞ with N needs Siegel–Walfisz-uniform Mertens and a sieve with growing
-dimension; this would give exp(−c (log log N)²) at best along this route, still weaker than Vaughan, so not pursued.
+expected count ≍ log² p) are wasted. Pushing C → ∞ with N needs uniform Mertens and a sieve with growing dimension; not
+pursued here (FAMTRY's route, using all moduli, already does better, see above).
 
 ## §4 Attack lines tried, and the exact step where each dies
 
@@ -178,27 +197,30 @@ covered residues mod q number ≤ τ₃((q+1)/4) ≪ q^ε out of (q−1)/2 non-r
 (mod q) must satisfy ad | (q+1)/4" — a measure-zero condition, with no equidistribution input at scale 1/q (DFI-type root
 equidistribution is at scale q^{−δ}). Heuristically the number of prime witnesses q ≤ Q is only ≍ log log p · log Q
 (vs. log² p for all witnesses).
-(B) **Pell / square N.** 4c²dp + 1 = u² (u² − 4dp·c² = 1, dp non-square — the only place non-squareness enters
-naturally). Need f | u² with f ≡ −1 (mod 4cd); f = u gives a = b, impossible for prime p (Lemma 1.2); other divisors of u²
+(B) **Pell / square N.** 4c²dp + 1 = u² (u² − 4dp·c² = 1, solvable iff dp is non-square — which needs p ∤ d or d/p
+non-square, not primality alone — the only place non-squareness enters naturally). Need f | u² with f ≡ −1 (mod 4cd); f = u gives a = b, impossible for prime p (Lemma 1.2); other divisors of u²
 at the required relative size 2a√(d/p) and class are uncontrolled. Dies at: "no handle on the factorisation of the Pell
 numerator".
 (C) **CRT-forced divisors.** Choose d ≡ −p/4 (mod Q) so Q | p + 4d; then one needs a divisor f ≡ −1 (mod 4d) of
 Q·(p+4d)/Q with 4d ≤ f + 1 ≤ p + 4d + 1, and f ≡ −1 (mod 4d) with d ≥ (−p/4 mod Q)…; the cofactor (p+4d)/Q is as
-uncontrolled as p itself. Dies at: circularity (every forced factor comes with an unforced cofactor of the same size).
+uncontrolled as p itself. Dies at: circularity in this construction (the forced factor comes with an unforced cofactor).
 (D) **Norm forms.** p = x² + y² (or x² + 2y², x² + 3y², x² + 6y²): writing p + 4a²d as a norm from an imaginary quadratic
 field K forces every prime factor that is inert in K to divide gcd(x, y); for K = ℚ(i) a divisor f ≡ 3 (4) (as every
 witness is) must therefore have a prime factor dividing gcd(x, y), which only happens on a thin set of p (e.g.
 p = q²x′² + y² with q | x). For K = ℚ(√−6) split primes ≡ 7, 11 (24) are allowed, but again the construction only
-reaches thin families. Dies at: "norms have the wrong prime factors / only thin families".
-(E) **Character-sum main/error.** R(p) = Σ_{a,d} φ(4ad)^{−1} Σ_χ χ(−1) Σ_{f | p+4a²d, (f,4ad)=1} χ(f), the (a,d)-sum
-restricted to 4a²d ≤ p + 2a (Lemma 1.2) and counting a ≤ b. The principal-character part is ≍ log³ p heuristically; but
+reaches thin families. Dies at: "this construction yields the wrong prime factors / only thin families" (a failure of the
+attempted construction, not a no-go theorem).
+(E) **Character-sum main/error.** R(p)/2 = Σ_{a,d} φ(4ad)^{−1} Σ_χ χ(−1) Σ_{f | p+4a²d, (f,4ad)=1, f ≤ g} χ(f) (f ≤ g =
+(4c²dp+1)/f, i.e. a ≤ b; R counts both orientations and a = b never occurs for prime p; e.g. R(23929) = 78 vs 39 one-sided),
+the (a,d)-sum restricted to 4a²d ≤ p + 2a (Lemma 1.2). The principal-character part is ≍ log³ p heuristically; but
 for each (a,d) separately the total non-principal contribution equals minus the principal one exactly when p + 4a²d has
 no divisor ≡ −1 — the pathological case is not an "error term" but a different main term. Any proof must show the pathology cannot
 occur for all (a,d) simultaneously, which is a correlation statement across the shifts p + 4a²d; no tool.
 (F) **Descent/chains.** A failing (a,d) forces structure (Lemma 1.5); one hopes a failing structure at (a,d) forces a hit
-at (a′,d′). All such forced structures are norm conditions on the independent integers p + k and are simultaneously
-satisfied by all squares ≡ 1 (24) (Remark after Lemma 1.5), so no chain of finitely many fixed (a,d)-conditions can
-close (Lemma 1.4). Dies at Lemma 1.4.
+at (a′,d′). The forced structures I found are norm conditions on the independent integers p + k, simultaneously satisfied
+by all squares ≡ 1 (24) (Remark after Lemma 1.5), so a chain using them cannot distinguish primes from squares unless it
+also uses primality or non-squareness. Lemma 1.4 only excludes finitely many fixed witness *triples*; a fixed (a,d) with
+c unbounded is an infinite family and is NOT excluded. No chain was found; no barrier is claimed.
 (G) **σ-form and "pronic" form (E5)/(E6).** p + σ = 4abd with σ | a + b; equivalently p + dt² = σ(dc²σ − 1). For d = 1,
 c = 1: p + t² is pronic, σ(σ−1); this is (2σ−1)² − (2t)² = 4p + 1, a binary-form/divisor problem again. The form (E5) with
 M = (p+σ)/4 ∈ [(p+3)/4, (p+1)/3] shows the problem is: some M in this interval has a factorisation abd with 4M − p | a + b.
@@ -226,5 +248,18 @@ non-squareness input I could identify (Lemma 1.3) is a necessary condition on wi
 * **F4 (14 c = 1 prime zeros).** Theorem 3.1 is stated for the a = 1 line (which has its own zeros 193, 2521, 66529) and
   its c = 1 analogue; both are density bounds, consistent with finitely many (or any sparse set of) zeros.
 
-Labels: Lemmas 1.1–1.5 PROVED; Theorem 3.1 PROVED modulo the cited standard sieve lemma; §2 CERTIFIED (recomputable
-with the scripts); §4 are negative findings, no claims.
+Labels: Lemmas 1.1–1.5 PROVED; Theorem 3.1 PROVED modulo the cited standard sieve lemma (standard, and weaker than the
+FAMTRY transfer); §2 CERTIFIED finite computations within the stated ranges; §4 are failures of attempted constructions
+and assessments, not proved barriers.
+
+## §6 Cross-model review (data/z58/xreview/REVIEW_CONVF.md; verdict ACCEPT-WITH-FIXES) — what was fixed
+
+1. §4(F) "dies at Lemma 1.4" barrier removed (Lemma 1.4 only covers fixed triples); §4(E) factor 2 (R(p)/2); §4(B)
+   dp non-square stated; §4(A),(C),(D), Remark 3.3, §0/F1 and Lemma 1.3 wording scoped to attempted constructions.
+2. F2 screen corrected to the actual c = 1, d-even line (12 R₈ zeros at 10¹⁰, all with a = 1 witnesses, even-d a = 1
+   witnesses per reviewer); F4 extended to the 38 G* zeros (a = 1 witnesses at all 38, my enumeration:
+   scripts/z58_convf_a1wit.c (incomplete scan) + z58_convf_wit.c; data a1wit_screens.txt, wit_screens5.txt).
+3. Attribution: a = 1 line = López Type A / B1_LINE (census to 10¹¹), union = López Conj. 1; Theorem 3.1 identified as a
+   standard weaker corollary, with the stronger Z56_FAMTRY Theorem A transfer noted; Tao 254A Notes 4 pinpoint citation.
+4. Calibration: 1/8 limit claim and the "correlation explains the means" sentence removed; exact last bin stated; ET Type II
+   qualified at composite n (gcd(abd,n) = 1); f, σ > 0 made explicit in (E3)–(E5).
