@@ -21,10 +21,12 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
 * **Lemma 1.4 (PROVED; where primality enters).** HIT(d) forces the Jacobi symbols (−n_d/d) = −1, (p/d) = −1 and (with
   p ≡ 1 (4)) (d/p) = −1. Hence R(N) = 0 for every odd square N (T1 audit passes: the target is false at odd squares,
   and every hit a proof produces must satisfy (d/p) = −1). A hit needs d ∈ QNR(p); for
-  D ≥ p^{1/4+ε} Burgess gives #{d ≤ D, d ≡ 3 (4), (d/p) = −1} = D/4 + O(D^{1−δ}), so in the Burgess range this is no
-  obstruction, while for D ≤ p^{1/4−ε} it is not known that a positive proportion of the d ≤ D are non-residues (a
-  single prime non-residue exists below p^{1/(4√e)+ε}, Burgess); the 𝔊* boundary of Thm V is the same p^{1/4} threshold,
-  now seen from the d-side.
+  D ≥ p^{1/4+ε} Burgess (shifted-interval form) gives #{d ≤ D, d ≡ 3 (4), (d/p) = −1} = D/8 + O(D^{1−δ}) (half of the
+  D/4 + O(1) integers ≡ 3 (4) below D), so in that range this is no obstruction. Below it, a positive proportion of
+  non-residues among *all* d ≤ D is known for D ≥ p^{1/(4√e)+ε} (Banks–Garaev–Heath-Brown–Shparlinski, Thm 2.1), while
+  equidistribution in the progression d ≡ 3 (4) is known only from p^{1/4+ε} on; neither says anything about HIT. The
+  𝔊* boundary of Thm V is the same p^{1/4} threshold seen from the d-side — a sufficient threshold for the quadratic
+  condition, not a proven obstruction below it.
 * **Where the attack stops (§2; Assessment).** The count H(p; D) = #{d ≤ D, d ≡ 3 (4) : HIT(d)} is a sum over the pairs
   (n, C) of 1[(4nC − 1) | p + n]. Its "expected value" (1/8 + o(1))log²D is the a = 0 term of the additive-character
   expansion; the a ≠ 0 terms are Σ_d d⁻¹Σ_{a≠0} e(ap/d)S_d(a) with S_d(a) = Σ_{n | (d+1)/4} e(an/d). For d ≤ p^{1/3−ε} the
@@ -41,8 +43,9 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
   787 439 ≈ p^{0.705} (p = 231 507 061) on (10⁸, 10⁹]; on (10⁹, 10¹²] the per-block maxima stay below p^{0.64}.
 * **Verdict: narrowed.** The target is implied by the pointwise statement "for some d ≡ 3 (4) below p^{3/5} the
   residue −p mod d divides (d + 1)/4" (and equivalent to it with cutoff ⌊p^{3/4}⌋ + 1 plus the 𝔊* inequality); every
-  hit has (d/p) = −1; and the decisive range is d ≤ p^{1/3}, where no uniform positivity estimate is supplied (none
-  can hold below c·log p). ES is OPEN.
+  hit has (d/p) = −1; the range d ≤ p^{1/3} is where this lane's attack (additive characters in d) stops, with no
+  uniform positivity estimate supplied (none can hold below c·log p); routes through larger d are not excluded by
+  anything here. "Narrowed" means reformulation, not analytic progress. ES is OPEN.
 
 ## 1. Exact reformulations (PROVED)
 
@@ -143,24 +146,26 @@ d_Q ≤ D, and includes corner solutions when D > p^{3/5}; no exact comparison w
   and no estimate for the full weighted error E(p; D) is supplied here or known to me. Below c·log p there is provably
   nothing: if p ≡ 1 (mod lcm(4, 1, …, D₀)) then (p/d) = 1 for every d ≤ D₀, so H(p; D₀) = 0 by Lemma 1.4, and Linnik's
   theorem gives such primes p ≤ exp(C·D₀) (modulus e^{(1+o(1))D₀}); hence for every large p₀ there are primes
-  p ∈ [p₀, p₀^{C'}] with H(p; c·log p) = 0. Between log p and p^{1/4} the only known single-p information is quadratic
-  (Burgess: (d/p) = −1 for ~half of the d once D ≥ p^{1/4+ε}); Lemma 1.4 shows this is necessary for a hit but it is far
-  from sufficient (HIT(d) has probability ≈ 2τ((d+1)/4)/φ(d) among d ∈ QNR(p)).
+  p ∈ [p₀, p₀^{C'}] with H(p; c·log p) = 0. Between log p and p^{1/4} the only single-p information used here is
+  quadratic (Burgess: (d/p) = −1 for ~half of the d ≡ 3 (4) once D ≥ p^{1/4+ε}; a positive proportion among all d
+  already for D ≥ p^{1/(4√e)+ε}, BGHS Thm 2.1); Lemma 1.4 shows this is necessary for a hit but it is far from
+  sufficient (HIT(d) has probability ≈ 2τ((d+1)/4)/φ(d) among d ∈ QNR(p)).
 * **p^{1/3} ≤ d ≤ p^{3/4}.** Here one can sum e(ap/(4nC − 1)) over C for fixed small n and a, but the a-sum runs over
   all residues mod d; grouping by n instead, Σ_C 1[(4nC − 1) | p + n] is the number of divisors of the single integer
   p + n in the class −1 (mod 4n) and size range [p^{1/3}, p^{3/4}] (their cofactors m lie in [p^{1/4}, p^{2/3}]). No method
   known to me evaluates the divisor function of one integer in a residue class; this is B2 in tied form
   (`Z56_FAMDESIGN` §5 item 1).
-* **Fixing a quadratic non-residue.** Let ℓ be the least prime with (p/ℓ) = −1 (ℓ ≤ p^{1/(4√e)+ε} by Burgess; ℓ ≥ 5 at
-  every 𝔊*-zero, and ℓ ∈ {5, …, 29} at the 38 of them, `data/z57/bff` via `z57_bff_zeros_local.py`). The d with
+* **Fixing a quadratic non-residue.** Let ℓ be the least *odd* prime with (p/ℓ) = −1 (the least prime non-residue,
+  2 allowed, is ≤ p^{1/(4√e)+ε} by Burgess; at the 38 𝔊*-zeros ℓ ∈ {5, …, 29}, and 2 is a non-residue at 8 of them,
+  `z57_bff_zeros_local.py`). The d with
   (d/p) = −1 include all d = ℓk with (k/p) = +1, but HIT(ℓk) ⟺ 4n_{ℓk} | ℓk + 1 is again a divisibility of a residue of p
   by a structure of k; the knowledge of ℓ removes an obstruction (Lemma 1.4) and provides nothing positive.
 * **Norm forms (Lemma 1.6).** Failure of levels C ≤ K means that the K integers C(4p + 1) − (C − 1) all lie in thin
   multiplicative sets (density (log)^{−1/2} or thinner). This is the classical input for *almost-all* results (sieving
   the primes p by these K conditions; Vaughan's bound N·exp(−c(log N)^{2/3}) for the ES exceptional set is of this
-  kind — cited from memory, not re-derived here). An upper-bound sieve counts the exceptional p; it cannot show the count
-  is < 1 for p in a range, because the number K of levels it can use is bounded by the level of distribution
-  (K = o(log X/log log X)) and its saving is a power of log per level — nothing in this route is pointwise.
+  kind — cited from memory, not re-derived here). An upper-bound sieve as contemplated here counts the exceptional p
+  on average; no pointwise estimate is supplied by this approach (the ceiling on the number of usable levels and the
+  per-level saving are statements about this implementation, not a theorem about all sieves).
 * **Multiplicative links between different d.** For coprime d₁, d₂: n_{d₁d₂} ≡ n_{d_i} (mod d_i), but 4n_dC_d = d + 1 is a
   statement about the *integer* n_dC_d (branch k = 1 of 4n_dC_d = kd + 1, k ≡ 1 (mod 4)), not about residues; HIT(d₁) and
   HIT(d₂) say nothing about HIT(d₁d₂) (a product of two hits is ≡ 1 (mod 4), never a hit; at p = 100 000 037, 9 of
@@ -226,7 +231,9 @@ fixed p across moduli. This is the exact shape of the obstruction.
   decided in total, vs π(10¹²)/2 = 18 803 956 009 — the difference 31 669 is the Chebyshev bias, consistent with the
   exact π(10¹⁰; 4, 1) agreement above). Total cost ≈ 25 core-hours on a shared machine. (Model, Assessment: with the
   fitted tail P(no 𝔊*-hit below p^θ) ≈ exp(−c·θ²log²p/8), c ≈ 1, the expected number of zeros beyond 10¹² is
-  Σ_{p > 10¹²} exp(−(9/128)log²p) ≈ 6·10⁻¹⁴ — the same conclusion as `Z56_FAMDESIGN` §4.4's model scale 10^{8.3}.)
+  Σ_{p > 10¹²} exp(−(9/128)log²p) ≈ 6·10⁻¹⁴ — the same conclusion as `Z56_FAMDESIGN` §4.4's model scale 10^{8.3}.
+  This is a model extrapolation only: the finite certificate says nothing about primes above 10¹², and the fitted
+  tail is not a proof that the zero set is finite.)
 * **First hit (EVIDENCE; `firsthit_1e8/1e9/1e10.txt`).** Exponent θ₁ := log d₁(p)/log p over the primes p ≡ 1 (4) in
   [10⁸, 10⁸ + 4·10⁵] (10 819 primes), [10⁹, 10⁹ + 4·10⁵] (9 613), [10¹⁰, 10¹⁰ + 10⁵] (2 150):
   mean θ₁ = 0.109, 0.097, 0.088; median 0.060, 0.053, 0.085; P(θ₁ > 0.2) = 9.5 %, 7.4 %, 4.8 %; P(θ₁ > 0.3) = 1.6 %, 1.0 %,
@@ -238,7 +245,8 @@ fixed p across moduli. This is the exact shape of the obstruction.
   prime-d hits are corner solutions, so 11 primes have no prime-d 𝔊*-hit below p^{0.8}). Composite d are essential:
   prime-d hits number only ≍ log p in expectation (Assessment).
 * **Local data of the zeros (`z57_bff_zeros_local.py`).** All 38 have (p/3) = +1 (p ≡ 2 (3) gives the hit d = 3) and
-  least prime QNR in {5, 7, 11, 13, 17, 19, 23, 29}; 6 of them are ≡ 1 (mod 840), 30 are ≡ 1 (mod 8). They are not
+  least *odd* prime QNR in {5, 7, 11, 13, 17, 19, 23, 29} (2 is a QNR at the 8 zeros ≡ 5 (mod 8): 37, 157, 1621,
+  4357, 12301, 184837, 434437, 571741); 6 of them are ≡ 1 (mod 840), 30 are ≡ 1 (mod 8). They are not
   confined to Mordell's six classes mod 840 (e.g. 37, 157, 577 have (p/5) = −1): the classical identities for those
   classes produce (★) solutions in the Burgess corner (e.g. p ≡ 5 (mod 8): (o, e, C) = (1, 2, (p + 3)/8), 2⁴ < p) or
   non-(★) shapes (Assessment; not traced class by class).
@@ -255,9 +263,10 @@ fixed p across moduli. This is the exact shape of the obstruction.
   sufficient with the cutoff ⌊p^{3/4}⌋ + 1 and the 𝔊* inequality) — with its two coordinates being the n-lines and
   C-levels of z56; (ii) the proof that every hit has (d/p) = −1 (so primality must be used at least there) and that the
   Burgess threshold p^{1/4} is where this quadratic obstruction is known to disappear, which matches the 𝔊* boundary of
-  Thm V from the d-side; (iii) the identification of the decisive range d ≤ p^{1/3}, where uniform positivity
-  provably fails below c·log p (Linnik example) and no estimate is supplied above it; (iv) a certified zero-free range to 10¹² by
-  an independent decider.
+  Thm V from the d-side; (iii) the identification of d ≤ p^{1/3} as the range where this lane's attack stops: uniform
+  positivity provably fails below c·log p (Linnik example) and no estimate is supplied above it by the additive-character
+  route (larger-d routes are not excluded; the proved sufficient range is d ≤ p^{3/5}, the exact one ⌊p^{3/4}⌋ + 1 with
+  membership); (iv) a certified zero-free range to 10¹² by an independent decider.
   **ES is OPEN; R_𝔊*(p) ≥ 1 for all large p is not proved, and no weaker pointwise theorem beyond the classical
   identity classes was found.**
 * **For SYNTH/FRONTIER (proposed text, not applied):** "Z57_BFF: R_𝔊*(p) ≥ 1 ⟺ ∃ d ≡ 3 (4), d ≤ ⌊p^{3/4}⌋ + 1, with
@@ -283,3 +292,12 @@ fixed p across moduli. This is the exact shape of the obstruction.
   d ≠ p, e.g. p = 5, d = 15; the §0 divisor-class wording; the quadratic threshold sentence; all three medians and
   "≈ 99.9 %"; the prime-d statistic labelled as unrestricted HIT (11 vs 9); impossibility language softened to "no
   estimate supplied / none can hold below c·log p"; the §4 T1 sentence).
+* **Cross-model review** (`data/z57/xreview/REVIEW_BFF.md`, audit `scripts/z57_xrev_bff_audit.py`; ACCEPT-WITH-FIXES).
+  Lemmas 1.1–1.6, Cor 1.5, identity (2.1), (S1)–(S3) and the decider were derived/tested independently (exhaustive rerun
+  of [5, 10⁹] with the same 38 zeros; all 192 block files parsed, sums and 192 extremal witnesses re-verified; all
+  22 582 sample first hits re-checked). Applied: Burgess count corrected to D/8 (half of the D/4 integers ≡ 3 (4));
+  the below-p^{1/4} sentence replaced by the correct distinction (BGHS positive density from p^{1/(4√e)+ε} among all d,
+  equidistribution in d ≡ 3 (4) from p^{1/4+ε}, neither bearing on HIT); "decisive range d ≤ p^{1/3}" qualified as where
+  this lane's attack stops (larger-d routes not excluded; "narrowed" = reformulation, not analytic progress); the sieve
+  bullet no longer asserts universal impossibility; "least prime QNR" renamed "least odd prime QNR" (2 is a QNR at the
+  8 zeros ≡ 5 mod 8); the model tail remark explicitly limited.
