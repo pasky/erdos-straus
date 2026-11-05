@@ -1,0 +1,6 @@
+q=11 n=2 mode=star shapes(cls0,cls1,cls2)=2,0,0  #irr=55 #comp=55 #sq=11
+  full     zeros: irr=22 comp=22 sq=11 | mean R: irr=2.4000 comp=2.0000 sq=0.0000 all=2.0000
+  s=1      zeros: irr=22 comp=22 sq=11 | mean R: irr=2.4000 comp=2.0000 sq=0.0000 all=2.0000
+  s=1mod4  zeros: irr=22 comp=22 sq=11 | mean R: irr=2.4000 comp=2.0000 sq=0.0000 all=2.0000
+  s=3mod4  zeros: irr=55 comp=55 sq=11 | mean R: irr=0.0000 comp=0.0000 sq=0.0000 all=0.0000
+  R_full mod 3 among irreducibles: 22 33 0

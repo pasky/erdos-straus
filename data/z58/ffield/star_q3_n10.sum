@@ -1,0 +1,6 @@
+q=3 n=10 mode=star shapes(cls0,cls1,cls2)=10,8,12  #irr=5880 #comp=52926 #sq=243
+  full     zeros: irr=6 comp=87 sq=243 | mean R: irr=45.1204 comp=28.4579 sq=0.0000 all=30.0000
+  s=1      zeros: irr=126 comp=2709 sq=243 | mean R: irr=14.6582 comp=9.5284 sq=0.0000 all=10.0000
+  s=1mod4  zeros: irr=15 comp=594 sq=243 | mean R: irr=26.8765 comp=17.0965 sq=0.0000 all=18.0000
+  s=3mod4  zeros: irr=18 comp=963 sq=243 | mean R: irr=18.2439 comp=11.3614 sq=0.0000 all=12.0000
+  R_full mod 3 among irreducibles: 1950 2031 1899

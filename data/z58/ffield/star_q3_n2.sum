@@ -1,0 +1,6 @@
+q=3 n=2 mode=star shapes(cls0,cls1,cls2)=2,0,0  #irr=3 #comp=3 #sq=3
+  full     zeros: irr=0 comp=0 sq=3 | mean R: irr=4.0000 comp=2.0000 sq=0.0000 all=2.0000
+  s=1      zeros: irr=0 comp=0 sq=3 | mean R: irr=4.0000 comp=2.0000 sq=0.0000 all=2.0000
+  s=1mod4  zeros: irr=0 comp=0 sq=3 | mean R: irr=4.0000 comp=2.0000 sq=0.0000 all=2.0000
+  s=3mod4  zeros: irr=3 comp=3 sq=3 | mean R: irr=0.0000 comp=0.0000 sq=0.0000 all=0.0000
+  R_full mod 3 among irreducibles: 0 3 0

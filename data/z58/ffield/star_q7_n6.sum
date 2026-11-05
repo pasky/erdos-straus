@@ -1,0 +1,6 @@
+q=7 n=6 mode=star shapes(cls0,cls1,cls2)=6,2,4  #irr=19544 #comp=97762 #sq=343
+  full     zeros: irr=280 comp=2422 sq=343 | mean R: irr=14.0537 comp=11.6315 sq=0.0000 all=12.0000
+  s=1      zeros: irr=686 comp=6300 sq=343 | mean R: irr=7.0086 comp=5.8194 sq=0.0000 all=6.0000
+  s=1mod4  zeros: irr=686 comp=6300 sq=343 | mean R: irr=9.3467 comp=7.7588 sq=0.0000 all=8.0000
+  s=3mod4  zeros: irr=3346 comp=21616 sq=343 | mean R: irr=4.7070 comp=3.8727 sq=0.0000 all=4.0000
+  R_full mod 3 among irreducibles: 6370 6538 6636
