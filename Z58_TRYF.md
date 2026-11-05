@@ -46,10 +46,10 @@ flippable" (Layer 2 and, for p ≡ 1 (24), the layers of order dividing 24 via c
 
 ## §1 Exact reformulations (PROVED, elementary)
 
-Throughout p is an odd prime, d ≡ 3 (mod 4), r_d := (−p mod d) ∈ [1, d−1] (d ∤ p since d ≠ p), and
+Throughout p is a prime ≡ 1 (mod 4), d ≡ 3 (mod 4), r_d := (−p mod d) ∈ [1, d−1] (d ∤ p since d ≢ p mod 4 and d < 3p), and
 H_d := {−k mod d : k | (d+1)/4}. A **hit** at d means p mod d ∈ H_d, i.e. r_d | (d+1)/4. R(p) := #{d ≡ 3 (4), 3 ≤ d ≤ (4p+1)/3 : hit}.
 
-**Lemma 1.1.** The following are equivalent for an odd prime p:
+**Lemma 1.1.** The following are equivalent for a prime p ≡ 1 (4):
 (a) R(p) ≥ 1;  (b) ∃ u, B, C ≥ 1 with p = 4uBC − u − B;  (c) ∃ u ≥ 1 such that p + u has a divisor ≡ −1 (mod 4u);
 (d) ∃ C ≥ 1 such that 4Cp + 1 has a divisor ≡ −1 (mod 4C).
 Moreover the bound d ≤ (4p+1)/3 in (★) is automatic: every d ≡ 3 (4) with r_d | (d+1)/4 satisfies d ≤ (4p+1)/3.
@@ -213,6 +213,29 @@ penalty from p being a QR mod 3, 7). (iii) L_n fluctuates on the scale of the ma
 p ≈ 10⁷), so the event R(p) = 0 is "L_n ≈ −M": a ≈ 1.5σ deviation of the non-real layer. Any proof of (★) must show
 L_n > −M for every large p; nothing short of controlling the full non-real character spectrum of p modulo all
 d ≤ 4p/3 does that. This is the quantitative content of "HCE is the whole problem".
-## §7 Falsifiers re-stated; hostile review; verdict
+## §7 Falsifiers re-stated; verdict
 
-(to be written)
+What is PROVED here: Lemma 1.1 (equivalences, automatic bound), Lemma 1.2 (quadratic constraint; F1), Lemma 3.1
+(exact layer identity), Theorem 2.1 (Burgess: the quadratic layer removes at most 1/8 + o(1) of the expected hits).
+What is CONDITIONAL: Theorem 3.2 ((★) for large p under HCE(δ)); HCE is a quantitative restatement of the problem.
+What is EVIDENCE: §4 (stats to 2·10⁸; layer tables for 23 primes). Nothing here proves (★) or ES for any new prime.
+
+* (F1) squares: Lemma 1.2 shows R(m²) = 0; in the layer decomposition L₂ = −L₀ + O(1) for n = m², so the
+  "quadratically filtered main term" Q_n vanishes. Theorem 2.1 uses that χ_p is non-principal — the identifiable
+  primality/non-squareness step. ✓ (the argument fails at squares where it must).
+* (F2) C even: every proved statement (Lemmas 1.1–1.2, 3.1, Theorem 2.1) holds verbatim for the C-even half with M
+  halved; so these statements cannot imply R₈(p) ≥ 1, and indeed they do not imply R ≥ 1 either — only Theorem 3.2
+  does, under HCE, and HCE restricted to C even is false at p ≈ 10¹⁰ (12 primes), at ≈ 10⁻³ of Mordell primes in
+  [10⁷, 10⁸] (§4.2). So the only route to (★) in this memo passes through an unproved hypothesis whose half-family
+  analogue is false; the memo claims nothing for p > 10¹⁰. Not a hot lead.
+* (F3) 285 composites, (F4) 14 primes: the decomposition reproduces R = 0 exactly (L_n = −L₀ − L₂ − L_r, §4.3) and
+  explains it as a ≈ 1.5σ fluctuation of the non-real layer; the asymptotic statements have thresholds far above
+  these n and p and are consistent.
+
+Verdict: NO PROOF; no hot lead. The contribution is a clean separation of (★) into a reciprocity-flippable part
+(principal + all real characters mod d: provably or heuristically harmless, Theorem 2.1 and §4.3) and an irreducible
+part L_n (non-real characters mod d evaluated at −p), which is exactly where every known individual-p tool fails and
+which fluctuates on the scale of the main term. Recommended next steps for other lanes: (a) a rigorous bound for L_r
+(Shiu + Pólya–Vinogradov; sketched in §3) to pin the main term's local factor for the Mordell classes; (b) do NOT
+spend effort on subfamilies with bounded C or bounded min(u,B) — §4.2 shows each fails for infinitely-many-looking
+sets of primes up to 10⁸.
