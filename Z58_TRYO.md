@@ -220,3 +220,80 @@ No HOT LEAD. Nothing here proves (★) for any individual prime not already chec
 * (F4) 14 prime zeros: kill the least-non-residue covering route for every q ∈ [11, 47] inside 𝔐 (§3.3); my
   engines independently reproduce the 9 𝔐-zeros ≤ 10⁸ (§5).
 Hostile review (subagent, this lane): no FATAL/MAJOR issues; all MINOR/NIT items addressed in the final commit.
+
+## §8 Round 2 — pointwise attack (one fixed prime p)
+
+Brief for round 2: almost-all statements don't count; find a mechanism forcing a hit at one fixed p, or prove pointwise
+partial results. **Outcome: no pointwise mechanism found; one CERTIFIED pointwise range (§8.6); the mechanisms tried are
+reduced to equivalent statements or refuted by data.** Details below.
+
+### 8.1 Mechanism A: binary quadratic forms of discriminant −4p (where primality has global structure)
+
+**Lemma 8.1 (square levels = forms; PROVED).** For s ≥ 1, (★) has a solution with u = s² iff there is a positive
+definite form Ax² + 2sxy + By² of discriminant −4p (i.e. AB − s² = p) with A ≡ −1 (mod 4s²); then C = (A+1)/(4s²).
+*Proof.* p + s² = AB ⟺ (2s)² − 4AB = −4p, and Lemma 1.1(iii) with d = A, u = s². ∎
+
+**Lemma 8.2 (genus; PROVED).** For p ≡ 1 (4) prime, D = −4p has exactly two genera (genus characters χ_{−4}, χ_p with
+χ_{−4}χ_p = 1 on represented values prime to D). A form as in Lemma 8.1 represents A ≡ 3 (4), so it lies in the
+NON-principal genus. At C = 1 more generally: (★) at level C = 1 ⟺ the principal ideal (1 + 2√−p) of ℤ[√−p] has a
+prime-ideal divisor in the non-principal genus ⟺ 4p+1 has a prime factor q ≡ 3 (4) (since χ_p(q) = χ_{−4}(q)).
+*Proof.* Genus theory for D = −4p (two prime discriminants −4 and p). A ≡ 3 (4) gives χ_{−4}(A) = −1. For q | 4p+1,
+(−p/q) = 1 so q splits; the genus of a prime ideal above q is read off from χ_{−4}(q). ∎
+
+What this buys: hits at square levels / C = 1 are exactly "ideal divisors of explicit principal ideals landing in the
+non-principal genus". Primality enters as "two genera, the non-principal one has h(−4p)/2 classes". For n = m² the
+analogue fails by Lemma 1.3. **Why it does not force a hit (EVIDENCE/heuristic):** each class of the non-principal genus
+contributes ≈ (log p)/√p expected hits (a primitive representation A of the class gives an attached root s uniformly
+distributed mod A; one needs |s| ≤ √A/2 and 4s² | A+1), and there are ≈ √p classes, so the total is ≈ log p — a
+polylog quantity with no pigeonhole slack; composition of forms randomises s (CRT), destroying "s small".
+Level u is a pure genus condition only when (ℤ/4u)^× is elementary 2-abelian, i.e. u ∈ {1, 2, 3, 6} (same for C);
+for all other levels the condition d ≡ −1 (4u) needs non-quadratic characters, which no genus/Legendre information sees.
+
+### 8.2 Mechanism B: forcing between levels (EVIDENCE: none)
+
+`scripts/z58_tryo_levels.c`, `data/z58/tryo/levels_1e6_3e7.txt`: for the 55 369 primes p ∈ 𝔐 ∩ [10⁶, 3·10⁷] and the
+24 levels u = 1..12 (p+u) and C = 1..12 (4Cp+1), the co-failure ratios P(fail_i ∧ fail_j)/(P(fail_i)P(fail_j)) for
+i ≠ j lie in [0.98, 1.11]: the levels behave independently; no level's failure forces another's success. 47 of the
+55 369 primes fail all 24 levels. A forcing law among small levels would show up as a ratio ≈ 0; there is none.
+
+### 8.3 Mechanism C: Chebotarev / higher-residue laws (EVIDENCE: none)
+
+A law "p fails ⇒ p splits completely in L" for a non-abelian L would give a non-congruence pointwise theorem. Tested on
+the 9 𝔐-zeros: cubic, quartic, octic residuosity of 2, 3, 5, 7, 11, 13, −1, −3, 6, 10 mod p — no symbol is trivial at all
+9 zeros except the forced ones (−1 quartic since p ≡ 1 (8); −1 cubic). In particular 2 is a quartic residue at 8 of 9
+(not at 1 724 209), so "2 not a quartic residue ⇒ (★)" is false. p = x² + 24y², x² + 48y², x² + 72y² at all 9 zeros,
+but 24, 48, 72 are idoneal, so these are congruence consequences of p ∈ 𝔐 (one class per genus).
+
+### 8.4 Where primality acts, quantitatively (PROVED remark + EVIDENCE)
+
+Whether level u hits depends only on the multiset of classes in G_u = (ℤ/4u)^× of the prime factors of (p+u)'
+(Lemma 1.2). The only constraint p imposes on that multiset beyond its product (≡ (p+u)' mod 4u, local) is the
+quadratic one of Lemma 1.4: (q/p) = ψ_u(q), whose product is (u/p) = (p/u)·(±) — again determined by p mod 4u. Characters
+of order ≥ 3 mod 4u are invisible to Legendre information (their analogue (−u/q)_k is an Artin symbol of the non-abelian
+field ℚ(ζ_k, (−u)^{1/k}), not a function of q mod 4u). So **primality acts only through local data at each level** —
+whereas the square obstruction (Lemma 1.3) is global.
+Data (`scripts/z58_tryo_legeffect.c`, `data/z58/tryo/legeffect_1e6_3e7.txt`, p ∈ 𝔐 ∩ [10⁶, 3·10⁷]): failure rate at
+level u given (u/p) = +1 vs −1: u = 11: 0.756 vs 0.475; u = 13: 0.914 vs 0.732; u = 17: 0.856 vs 0.659; u = 26:
+0.848 vs 0.701 — a non-residue u roughly doubles the hit probability, as Lemma 1.4 predicts, but does not force a hit.
+**Primes vs non-square composites (EVIDENCE).** Among n ≤ 8·10⁶, n ≡ 1 (4), gcd(n, 105) = 1: zero rate for primes
+13/269 758 = 4.8·10⁻⁵, for non-square composites 20/643 882 = 3.1·10⁻⁵ (20 = composite zeros coprime to 210, from
+`composite_zeros_le8e6.txt`; largest 3 210 601 = 19·37·4567; 15 of them in 𝔐). So primality per se gives no advantage:
+the operative properties are non-squareness and the local data; most composite zeros (214/285) are divisible by 3,
+a local defect primes > 3 don't have. A pointwise proof for primes is therefore, in substance, a pointwise statement
+about the factorisations of n+u for large non-square n with prescribed local data.
+
+### 8.5 Meta-obstruction to counting proofs (heuristic, not a theorem)
+
+R(p) = Σ_{d ≡ 3 (4)} #{u | (d+1)/4 : p ≡ −u (mod d)} (Lemma 1.1(iii)), main term ≍ log² p. A counting proof for one p
+would need the error in this sum — a sum over moduli d up to ≈ p of indicator functions of p mod d at resolution 1/d —
+to be o(log² p). Every known pointwise-in-p technique (exponential sums in p/d, Kloosterman/Weil bounds on the modular
+hyperbola xy ≡ 1 (p) with x, y ≡ −1 (4C), large sieve) has errors that are powers of p or at least larger than polylog
+at this resolution; the modular-hyperbola count for one level C has main term ≈ log p/C against Weil error ≈ p^{1/2}.
+So pointwise existence needs an algebraic forcing mechanism, and §8.1–8.4 indicate none exists at the level of genus,
+small levels, or Chebotarev data. This is the honest state of round 2.
+
+### 8.6 CERTIFIED pointwise range
+
+`scripts/z58_tryo_range.c` (for each p ∈ 𝔐 in range: least u ≤ 10⁵ with a divisor d ≡ −1 (4u) of p+u, factoring by
+trial division to 1000 + Pollard rho + 12-base Miller–Rabin (deterministic < 3.3·10²⁴); every reported solution is
+re-verified as 4uBC − u − B = p in 128-bit arithmetic). Results: see §8.7 when the run finishes.
