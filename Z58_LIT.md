@@ -1,16 +1,27 @@
 # Z58_LIT — 2024–2026 literature, verified, read against (MS) and the z58 falsifiers (wave z58, lane LIT)
 
 **Verdict: narrowed — no HOT LEAD.** The lane found one **important external item**: Kandukoori–Ramesh–Kumar prove
-E(N) ≪ N exp(−c(log N)^{3/4}). It is public since 2026-07-30 and has an axiom-free Lean proof (CI green 2026-10-30). It
-**pre-dates the campaign's internal 3/4 note (2026-09-06)**, which says "We are not aware of an earlier improvement" (§2.1).
+E(N) ≪ N exp(−c(log N)^{3/4}). Their currently public repository has a commit dated 2026-07-30 containing the claim. Its
+Lean proof now uses no axioms beyond Lean's three standard ones (CI green 2026-10-30; we did not rebuild it). That commit
+date is **earlier than the campaign's first commit of its internal 3/4 note (2026-09-06)**, which says "We are not aware of an
+earlier improvement" (§2.1).
 Two items are new to the repo: Ventas arXiv:2610.41027 and Akaka v0.8. Pomerance–Weingartner is now published. The lane also
-proves a (★) analogue of Ventas's modular-inversion symmetry (Prop I, §2.3). No literature mechanism found passes all four
-falsifiers.
+proves a (★) analogue of Ventas's modular-inversion symmetry (Prop I, §2.3). No *direct, verified transfer* of a
+literature result yields (MS), and none of the mechanisms read here passes all four falsifiers as a verbatim port
+(Assessment).
 
 ES is OPEN; nothing here proves or disproves it. Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Literature statements are quoted from the opened source, with theorem number, unless marked "abstract only".
 Proofs of cited papers were **not** re-checked, and preprints are unrefereed unless a journal is named. All sources were
 accessed 2026-11-05.
+
+Verification classes (review fix 14):
+* *CERTIFIED (API/source fact)*: bibliographic and repository facts that this lane re-queried (arXiv, Crossref, Zenodo,
+  GitHub API, archived PDFs).
+* *cited theorem*: a statement PROVED in the cited source, quoted, with the proof not audited.
+* *author claim*: e.g. Zenodo descriptions.
+* *inherited*: records taken from earlier repo sweeps and not re-opened here. Examples are the Bradford and Chamberland
+  journal data and the subagent-only items in `q2`/`q3`, unless marked as re-opened.
 
 Files:
 * source notes from the three research subagents: `data/z58/lit/q1_es_2024_2026.md` (ES 2024–26 audit),
@@ -35,45 +46,52 @@ Screens (`data/z58/screens/`):
 * **F4** 14 (★)-zero primes (the last is 8 813 281; 9 are in 𝔐) and 38 𝔊*-zeros (the last is 564 661 441).
 
 **F3 screen data (CERTIFIED counts from the screen file).**
-* Per half-decade [10^k, 10^{k+1/2}) the composite-zero counts are 12, 12, 25, 35, 45, 50, 62 for k = 3, 3.5, …, 6, and 35
-  in the partial bin [10^{6.5}, 8·10⁶].
+* Per half-decade [10^k, 10^{k+1/2}) the composite-zero counts are 1, 3, 5, 12, 12, 25, 35, 45, 50, 62 for
+  k = 1.5, 2, …, 6, and 35 in the partial bin [10^{6.5}, 8·10⁶]. The smallest zero is 57 and the largest 7 753 881.
 * 71 of the 285 are ≡ 1 (mod 24).
 * **15 lie in 𝔐**: 1969 = 11·179, 2641 = 19·139, 5161 = 13·397, 18001, 23881, 90889, 112849, 199369, 345361, 349609, 510169,
   539281, 897961, 2956321 = 211·14011, 3210601 = 19·37·4567.
 
-*Readings of the F3 data (EVIDENCE):*
-* The composite zeros show no sign of thinning in absolute numbers (the per-half-decade counts rise up to 10^{6.5}).
-* Restricting to 𝔐 leaves composite zeros too.
-* A mechanism of the form "every non-square n except a finite sporadic set" would therefore give a statement that the
-  composite data contradict, unless it uses primality.
-* Probe (`negpell_f3.txt`):
+*Readings of the F3 data (EVIDENCE; corrected after review findings 1, 7, 11):*
+* The absolute counts per half-decade rise up to 10^{6.5}. The bins grow geometrically, so this is **not** evidence of
+  non-thinning density.
+* Finite data cannot refute a statement of the form "all non-squares except a finite set". Whether there are infinitely
+  many composite zeros is a **CONJECTURE**.
+* What the data do refute: any *exception-free* non-square positivity statement for R, and any explicit exceptional list or
+  threshold below 7 753 881 that omits an observed composite zero.
+* Restricting to 𝔐 leaves composite zeros as well (largest 3 210 601).
+* Probe (`negpell_f3.txt`; the samples are small and not size-matched):
   * A prime factor ≡ 3 (mod 4) occurs in 91 % of the composite zeros, against 77 % of 20 000 random non-square
     composites ≡ 1 (4) in [10⁵, 8·10⁶].
-  * Restricted to n whose prime factors are all ≡ 1 (mod 4), negative Pell is solvable at 20/26 = 0.77 of the zeros
-    (12/17 = 0.71 above 10⁵), against 0.67 of the controls.
-  * So composite zeros are mildly enriched in prime factors ≡ 3 (4).
-  * They are **not** enriched in negative-Pell (2-class-group) failure.
-  * The control is not size-matched, so this is a weak signal only.
+  * So, unconditionally, negative-Pell *failure* is enriched among the zeros: 265/285 = 93 % against 84.8 % of the
+    controls. This comes through the elementary local obstruction (a prime factor ≡ 3 (4)).
+  * Conditioned on all prime factors ≡ 1 (4), negative Pell fails at 6/26 of the zeros (Wilson 95 % interval ≈ 0.11–0.42)
+    and at 0.33 of the controls. There is no *additional* enrichment visible, but the sample cannot establish absence of an
+    association with the 2-class group.
 
 | mechanism (literature) | what it proves | F1 odd squares | F2 C-even line | F3 composites | F4 known zeros |
 |---|---|---|---|---|---|
-| Divisors in classes or intervals (Erdős–Hall, Tenenbaum, Ford, Ford–Green–Koukoulopoulos (FGK), Koukoulopoulos–Tao) | almost-all n or mean values; pointwise only **upper** bounds (Lenstra 1984 Thm; Coppersmith–Howgrave-Graham–Nagaraj (CHN) via Hales 2410.05030 Thm 4.2) | invisible (squares have density 0) | invisible | invisible (exceptional sets allowed) | allowed |
-| Exceptional-set sieves: Vaughan 1970; **Kandukoori–Ramesh–Kumar 2026 (3/4)**; Akaka v0.8 ((log X)³ at almost all primes) | all n except a set of density → 0; Janson/Spencer no-hit bound for one forced-class family | invisible | consistent: Akaka v0.8 concerns *all* Type II solutions of m/p (m = 8 included), allowing ≤ C·m·X/(log X)⁴ bad primes per block. R₈ is only the c = 1 line of 8/p, so an R₈-zero need not be a bad prime there | invisible | consistent; no pointwise content |
+| Divisors in classes or intervals (Erdős–Hall, Tenenbaum, Ford, Ford–Green–Koukoulopoulos (FGK), Koukoulopoulos–Tao) | almost-all n or mean values. Pointwise there are only **upper** bounds: Lenstra 1984 Thm (0 < r < s < n, gcd(r,s) = 1, s > n^{1/3}) and Coppersmith–Howgrave-Graham–Nagaraj (CHN) via Hales 2410.05030 Thm 4.2 (also gcd(s,n) = 1, n > n₀(α)) | invisible (squares have density 0) | invisible | invisible (exceptional sets allowed) | allowed |
+| Exceptional-set sieves: Vaughan 1970; **Kandukoori–Ramesh–Kumar 2026 (3/4)**; Akaka v0.8 ((log X)³ at almost all primes) | all n except a set of density → 0; Janson/Spencer no-hit bound for one forced-class family | invisible | no conflict: Akaka v0.8 concerns the full strict Type II family of m/p (x < y < z, p | y, z, p ∤ x; m = 8 included), with ≤ C·m·X/(log X)⁴ bad primes per block for unspecified C, X₀. R₈ is only the c = 1 line of 8/p, so an R₈-zero need not be a bad prime there | invisible | consistent; no pointwise content |
 | Least prime in AP, explicit (Bennett–Martin–O'Bryant–Rechnitzer (BMOR) 1802.00085 Thms 1.1/1.5; Xylouris) | pointwise and explicit; produces a *free* prime in a class | not engaged | not engaged | not engaged | not engaged: supplies no divisor of p + u |
-| Least (prime) quadratic non-residue: Burgess, GRH (Lamzouri–Li–Soundararajan (LLS) Cor 1.1), Pollack (JNT 187 (2018) abstract; 1508.05035 Thm 1.1) | pointwise | **native**: a non-residue exists iff n is not a square | blind | **fails**: every non-square composite also has one | gives only a *necessary* condition (every witness d has a prime ℓ \| d with (p/ℓ) = −1) |
+| Least (prime) quadratic non-residue: Burgess, GRH (Lamzouri–Li–Soundararajan (LLS) Cor 1.1), Pollack (JNT 187 (2018) abstract; 1508.05035 Thm 1.1) | pointwise | **native** in the Jacobi form: for odd n, some a coprime to n has (a/n) = −1 iff n is not a square. (Ordinary quadratic non-residues exist mod squares too, e.g. 2 mod 9; the prime-modulus results above do not state this dichotomy) | blind | does not separate primes from composites: every odd non-square composite also has such an a | gives only a *necessary* condition (every witness d has a prime ℓ \| d with (p/ℓ) = −1) |
 | Brauer–Manin on ES surfaces (Bright–Loughran (BL) Thms 1.1–1.9; Yamamoto; EST Prop 1.6) | obstruction side; no BM obstruction to existence for n ≥ 2 | **explains** T1 (reciprocity) | not addressed by BL (open question for STRUCT: is there BM data on the C-even sub-family?) | at the 285 composites: open. If BM does not obstruct there, "BM is the only obstruction" fails for the (★) surface (STRUCT lane) | same as F3 |
-| Integral HP failures on cubic / Markoff-type log K3 (Lyczak–Mitankin–Uppal (LMU) 2311.10008 Thm 1.4; Dao 2504.10992 Thm 5.2; Ghosh–Sarnak; Loughran–Mitankin) | failure families (Dao: square parameters k = ℓ²); "almost all" positivity results | Dao Thm 5.2 is an *analogue* of T1 (square parameter, BM obstruction) | none | none of these gives existence for prime parameters | none |
-| Thin-orbit reciprocity local–global (Rickards–Stange Thm 2.8; HKRS; Alkauskas) | squares plus a finite sporadic set (RS fat case PROVED) | **native** | blind | **fails** (F3 data above) | wrong shape: 14 + 285 zeros, apparently unbounded |
-| Legendre descent: x² − py² = −1 for every prime p ≡ 1 (4) (§2.6) | pointwise, rigid, every p | native (impossible at squares) | n/a | **uses primality** at the split (x−1)(x+1) = py²; fails for every n with a prime factor ≡ 3 (4) and for a positive proportion of the rest (Koymans–Pagano) | **fails**: no threshold, so a verbatim port would "prove" R(p) ≥ 1 at 8 813 281 |
-| Modular inversion (Ventas 2610.41027 Thm 3.1; (★) analogue Prop I, §2.3) | symmetry of finite hit patterns, not existence | consistent (squares ↦ squares) | **swaps** C-even with u-even, so it does not preserve the R₈ line | symmetric over all units: no primality | the D-cutoff breaks it; nothing pointwise |
+| Integral HP failures on cubic / Markoff-type log K3 (Lyczak–Mitankin–Uppal (LMU) 2311.10008 Thm 1.4; Dao 2504.10992 Thm 5.2; Ghosh–Sarnak; Loughran–Mitankin) | failure families, and "almost all" positivity results. Dao Thm 5.2 concerns a restricted square-parameter family k = ℓ²: ℓ ≡ 1 mod P and (p,13)_p = 0 for every prime p \| ℓ | Dao Thm 5.2 is an *analogue* of T1 (BM obstruction at those square parameters) | none | none of these gives existence for prime parameters | none |
+| Thin-orbit reciprocity local–global (Rickards–Stange Thm 2.8; HKRS; Alkauskas) | squares plus a finite sporadic set (RS Thm 2.8 for its orbit, PROVED) | **native** | blind | not refuted by finite data. It would need a sporadic set containing all 285 composite zeros, i.e. a statement for primes only, or a size threshold (review fix 1) | needs ≥ 14 sporadic primes up to 8 813 281 |
+| Legendre descent: x² − py² = −1 for every prime p ≡ 1 (4) (§2.6) | pointwise, rigid, every p | native (impossible at squares) | n/a | **uses primality** at the split (x−1)(x+1) = py²; fails for every n with a prime factor ≡ 3 (4), and for ≈ 42 % of squarefree d whose prime factors are all 1 or 2 mod 4 (Koymans–Pagano Thm 1.1, via Conrad Rem. 3.6) | **fails**: no threshold, so a verbatim port would "prove" R(p) ≥ 1 at 8 813 281 |
+| Modular inversion (Ventas 2610.41027 Thm 3.1; (★) analogue Prop I, §2.3) | symmetry of finite hit patterns, not existence | consistent (squares ↦ squares) | **swaps** C-even with u-even, so it does not preserve the R₈ line | symmetric over all units: no primality | holds at every fixed D, but nothing preserves the two complete n-dependent search ranges d ≤ (4n+1)/3; nothing pointwise |
 
-**Reading (Assessment).**
-* F1 is passed by every T1-native mechanism: characters, reciprocity, Pell.
-* F3 rules out all of them except mechanisms that use primality at a rigid step (Legendre type).
-* F4 rules out rigid steps that have no size threshold.
-* So a literature mechanism surviving all four would have to be **prime-specific AND threshold-bearing**: an analytic count
-  with an error term at one prime, or a size squeeze in the style of Chebyshev or Zsigmondy.
-* **None was found** (§2.5–2.6), in line with Z53_LIT (J)103.
+**Reading (Assessment; scoped after review finding 2).** The screens constrain the *conclusion* of a proposed
+positivity statement, not whole proof technologies.
+* Every T1-native mechanism passes F1: characters, reciprocity, Pell.
+* A verbatim port whose conclusion is "R(n) ≥ 1 for all non-squares n (or with an explicit small exceptional set)" is
+  contradicted by F3.
+* A verbatim port with no size threshold for primes is contradicted by F4.
+* So a *direct* transfer would need a conclusion restricted to primes and carrying a threshold above 8 813 281. This is
+  what an analytic count with an error term at one prime would give, or a size squeeze in the style of Chebyshev or
+  Zsigmondy.
+* A primality-blind *criterion* combined with another, size-dependent input is **not** excluded by these screens.
+* No direct transfer of either kind was found (§2.5–2.6), in line with Z53_LIT (J)103.
 
 ## 1. Precise questions (brief, sharpened)
 * **Q1 (ES 2024–2026).**
@@ -125,22 +143,32 @@ Screens (`data/z58/screens/`):
   `IsMainBound f := ∃ c > 0, ∃ C > 0, ∀ N ≥ 3, f N ≤ C·N·saving c N`. `esExceptional n := ¬∃ x y z > 0, 4/n = 1/x+1/y+1/z`
   (Congruences/Certificates.lean l. 17–25).
 * So the statement is faithful as read. **We did not build the project.** The build needs a Mathlib cache that exceeds this
-  lane's memory budget.
-* The first public commit, `268ebdbf` (2026-07-30), already defines the same 3/4 saving (EscAnalytic/Counting.lean l. 44).
+  lane's memory budget. "Axiom-free" in this memo means "no axioms beyond Lean's three standard ones", per the CI.
+* The root commit `268ebdbf` (commit date 2026-07-30; the repository was created 2026-07-12) already defines the same 3/4
+  saving (EscAnalytic/Counting.lean l. 44). Git dates are not publication attestations, and we have no dated public
+  snapshot.
   At that time it rested on nine named analytic axioms, the version that `LITERATURE_2026_UPDATE.md` §1 recorded on
   2026-10-21.
 
 **Consequences for the campaign (Assessment).**
-1. **Priority.** The campaign's `paper/es-threequarter-note.tex` was first committed 2026-09-06; it is internal and not
-   posted. Its abstract says "We are not aware of an earlier improvement of the exponent 2/3". FRONTIER §2 (l. 61) lists the
-   bound as "INTERNALLY PROVED". The K-R-K claim was public on 2026-07-30 and is now formalised without extra axioms.
-   * The note's abstract must be corrected.
-   * FRONTIER/STATUS must cite K-R-K as the first public (and machine-checked) 3/4 result.
+1. **Chronology and citation.**
+   * The campaign's `paper/es-threequarter-note.tex` was first committed 2026-09-06. It is internal and not posted.
+   * Its abstract says "We are not aware of an earlier improvement of the exponent 2/3". FRONTIER §2 (l. 61) lists the bound
+     as "INTERNALLY PROVED".
+   * The currently public K-R-K repository contains the 3/4 claim in a commit dated 2026-07-30. It is now formalised with
+     only Lean's standard axioms.
+   * The note's abstract must be corrected, and FRONTIER/STATUS must cite K-R-K.
+   * Exact *public* priority needs a dated public snapshot or release, which we do not have. The commit-date ordering is what
+     is verified.
    * `LITERATURE_2026_UPDATE.md` §1 ("neither … nor a new bound shown to surpass Vaughan") is now outdated.
-2. **Independent confirmation.** The campaign's note uses the same architecture: classical Type II classes, cubic mass
-   ≍ (log X)³, conditioning, then counting on [1, N]. A Lean proof of the same exponent strongly corroborates the internal
-   result. The campaign's sharpness theorem (3/4 is the limit of CRT/coefficient-sum sieves, `EXCEPTIONAL_KARY3.md`) agrees
-   with K-R-K Remark 1.2.
+2. **Corroboration.** The campaign's note uses the same architecture: classical Type II classes, cubic mass ≍ (log X)³,
+   conditioning, then counting on [1, N].
+   * A Lean proof of the same exponent corroborates the internal result (a *separate* proof; independence of development
+     is not documented).
+   * K-R-K Remark 1.2 is an *achievability* calculation: mass (log X)^k plus their overlap/level conditions gives k/(k+1).
+   * This is consistent with the campaign's mass-to-exponent accounting. It is not a sharpness theorem. The campaign's
+     ceiling (`EXCEPTIONAL_KARY3.md` Cor 4.2) is scoped to the audited class of K2-type whole-avoider majorants and
+     coefficient-sum sieves, not to all CRT sieves.
 3. **Possibly still campaign-new** (Assessment; needs a careful comparison by the paper owner):
    * interval and progression versions, E(I) ≪ H exp(−c(log H)^{3/4}) ((D)30);
    * uniformity in m, E_m ≪ H exp(−c(log H)^{3/4}m^{−1/4}) ((D)31).
@@ -157,9 +185,9 @@ Screens (`data/z58/screens/`):
   Bombieri-Vinogradov development").
 * It states: "This does not prove the universal Erdos-Straus or Schinzel conjecture … Independent human specialist review …
   remain[s] outstanding."
-* Assessment: an almost-all statement with no pointwise content. It does not conflict with F2. It counts all Type II
-  solutions of 8/p; R₈ is only their c = 1 line, so an R₈-zero need not be an exceptional prime for it. Even if it were,
-  12 primes are far below the allowed ≈ X/(log X)⁴.
+* Assessment: an almost-all author claim with no pointwise content. It does not conflict with F2. It counts the full strict
+  Type II family of 8/p (x < y < z, p | y, z, p ∤ x); R₈ is only its c = 1 line, so an R₈-zero need not be an exceptional
+  prime for it. No numerical allowance at 10¹⁰ can be read off, since C and X₀ are unspecified.
 
 ### 2.3 Ventas arXiv:2610.41027v1 (2026-10-29), and its (★) analogue (PROVED, elementary)
 **Source.** "Erdős–Straus Conjecture: Modular Inversion in Mordell Classes", 8 pp., no journal reference, archived.
@@ -171,10 +199,11 @@ Screens (`data/z58/screens/`):
 * Prop 4.1: the inverse b_p of a Mordell prime at cutoff T_p = (p−1)/2 is never a square. The proof uses a QNR ≤ (p−1)/2
   and reciprocity, so it is T1-native.
 * Thm 6.1: for fixed cutoff, paired classes have equal limiting prime-pattern frequencies (PNT in APs).
-* The paper says: "The identities do not establish universal Grid coverage."
+* The paper says: "The identities do not establish universal Grid coverage or a reduction of that question to four
+  ordinary prime classes."
 
 **Prop I (PROVED here, elementary; checked by `scripts/z58_lit_inversion.py` for all d ≤ 20 000, 0 violations).**
-* Setup. For d ≡ 3 (mod 4) let H_d = {−r mod d : 1 ≤ r < d, r | (d+1)/4} be the (★) hit set (Z57_SYNTH Lemma A.1).
+* Setup. For a positive d ≡ 3 (mod 4), with x ranging over (ℤ/d)^×, let H_d = {−r mod d : 1 ≤ r < d, r | (d+1)/4} be the (★) hit set (Z57_SYNTH Lemma A.1).
 * Claim: x ∈ H_d ⟺ (4x)^{−1} mod d ∈ H_d.
 * Under this map the hit (u, C) = (r, (d+1)/(4r)) goes to (C, u).
 * *Proof.*
@@ -186,27 +215,32 @@ Screens (`data/z58/screens/`):
   n* ≡ (4n)^{−1} (mod L_D) have the same set of hit levels d ≤ D. At each level the hit's (u, C) is swapped.
 * On 𝔐, the odd part 105 pairs the classes as {1, 289}, {121, 169}, {361, 529}. These are three 2-orbits. They differ from
   Ventas's Grid orbits (computed in the script).
-* By Dirichlet's theorem in APs mod lcm(840, L_D), primes in paired classes have equal limiting frequencies of every
-  hit-pattern on d ≤ D. This is the analogue of Ventas Thm 6.1 (PROVED relative to PNT in APs).
+* Extend the inversion to lcm(840, L_D) by keeping the residue 1 mod 8. By the prime number theorem in APs (unconditional,
+  classical), primes in paired classes then have equal limiting frequencies of every hit-pattern on d ≤ D. This is the
+  analogue of Ventas Thm 6.1 (PROVED).
 * *F-readings.*
   * F1: squares map to squares, (4m²)^{−1} = ((2m)^{−1})², which is consistent with T1.
   * F2: the map exchanges the C-even sub-line with the u-even sub-line, so R₈ is not invariant.
-  * F3/F4: the symmetry holds on all units, so it uses no primality. The cutoff d ≤ (4p+1)/3 breaks it, since n* is huge.
+  * F3/F4: the symmetry holds on all units, so it uses no primality. It holds at every fixed D, but nothing preserves the
+    two complete n-dependent ranges d ≤ (4n+1)/3 and d ≤ (4n*+1)/3. The representative n* can be chosen in infinitely many
+    ways.
   * Assessment: a fixed-D distributional symmetry (B1-level), with no existence content.
 * *Data aside.* Zero counts in the paired classes:
   * (★)-zeros: {1: 3, 289: 1}, {121: 0, 169: 0}, {361: 3, 529: 2};
   * 𝔊*-zeros: {1: 6, 289: 2}, {121: 0, 169: 2}, {361: 7, 529: 3}.
   * These counts are too small to read anything from, but they are offered to the MORDELL lane.
 
-### 2.4 Status changes (verified)
+### 2.4 Status changes (CERTIFIED API/source facts unless marked inherited)
 * **Pomerance–Weingartner** arXiv:2511.16817 is published: *The Ramanujan Journal* 69 (2026), no. 2, article 31,
   DOI 10.1007/s11139-025-01312-2, online 2026-01-14. This is from the Crossref API record (title "Exceptions to the
   Erdős–Straus–Schinzel conjecture"). The arXiv record carries no journal reference.
 * Unchanged (arXiv API, 2026-11-05):
   * Mihnea–Dumitru 2509.00128 is still v1 with no journal reference;
   * Cao–Xu 2610.32302 v1; Xu 2605.23601 v2; Ventas 2605.04551 v3; Jiang 2609.09204 v2 (withdrawn);
-  * Bradford, *Integers* 25 #A54; Chamberland, *Integers* 26 #A42.
-* arXiv `all:Straus` sorted by date shows **no ES preprint after 2610.41027** (2026-10-29).
+  * Bradford, *Integers* 25 #A54, and Chamberland, *Integers* 26 #A42: *inherited* from `LITERATURE_2026.md`, not
+    re-opened here (the journal site failed DNS in the review).
+* The arXiv query `all:Straus`, sorted by submission date, returns **no ES item after 2610.41027** (2026-10-29). This
+  verifies a search result; it does not establish completeness.
 * erdosproblems.com/242 (opened 2026-11-05, via the visit-webpage skill, which strips formulas):
   * it still lists Vaughan [Va70] as the exceptional-set record and MiDu25 for the 10¹⁸ verification;
   * K-R-K is not mentioned.
@@ -219,8 +253,10 @@ Screens (`data/z58/screens/`):
 
 ### 2.5 Q2: pointwise single-integer existence — answer: none (Assessment, scoped)
 Details are in `data/z58/lit/q2_single_integer.md`; every item was already in the repo.
-* Lenstra 1984 Thm (p. 331): "at most 11 positive divisors of n that are congruent to r modulo s" when s > n^{1/3}.
-* CHN 2008, via Hales arXiv:2410.05030 Thm 4.2: an upper bound for s > n^α, α > 1/4.
+* Lenstra 1984 Thm (p. 331): "Let r, s and n be integers satisfying 0 < r < s < n, s > n^(1/3), gcd(r,s)=1. Then there
+  exist at most 11 positive divisors of n that are congruent to r modulo s".
+* CHN 2008, via Hales arXiv:2410.05030 Thm 4.2: an upper bound for s > n^α, α > 1/4, gcd(r,s) = gcd(s,n) = 1, n > n₀(α).
+* Both are cited theorems; quoted from the subagent note, and the reviewer re-opened them.
 * Both are **upper** bounds. Explicit-AP and least-QNR results (BMOR Thm 1.1/1.5; Pollack; LLS Cor 1.1) give free primes or
   character witnesses.
 * **No pointwise lower bound for the divisors of one integer in a residue class modulo a modulus growing with the integer
@@ -228,34 +264,40 @@ Details are in `data/z58/lit/q2_single_integer.md`; every item was already in th
 
 ### 2.6 Q3: existence obstructed at squares — answer: no item of the target shape (Assessment, scoped)
 Details are in `data/z58/lit/q3_hasse_squares.md`; every arXiv item was already in the repo.
-* Closest square-parameter analogue: Dao, arXiv:2504.10992v2, Thm 5.2. For k = ℓ² in a congruence class, a Markoff-type K3
-  integral model has local points but an algebraic BM obstruction. This is failure at squares; it says nothing about
-  success at primes.
+* Closest square-parameter analogue: Dao, arXiv:2504.10992v2, Thm 5.2 (p. 22; cited theorem).
+  * Hypotheses: k = ℓ² with ℓ > 0, ℓ ≡ 1 mod P, and (p,13)_p = 0 for every prime p | ℓ.
+  * Conclusion: the explicitly defined Markoff-type K3 integral model has local points but an algebraic BM obstruction.
+  * This is failure at restricted square parameters; it says nothing about success at primes.
 * **Correction to the subagent report.** The report lists negative Pell for primes as "NOT VERIFIED". It is classical:
   * Chiang–Ciou–Tsai, NNTDM 24(3) (2018) 10–26, Example 4: "It is known that x² − py² = −1 is solvable in integers for p a
     prime congruent to 1 modulo 4". This is a secondary statement.
-  * Proof (Legendre's descent, standard): take the least solution of x² − py² = 1. Since p ≡ 1 (4), x is odd and y is even.
+  * Proof (Legendre's descent, standard): take the least nontrivial positive solution of x² − py² = 1. Since p ≡ 1 (4), x is odd and y is even.
     Then (x−1)(x+1) = py² with gcd(x−1, x+1) = 2. *Primality* forces {x−1, x+1} = {2a², 2pb²}. Minimality excludes
     x + 1 = 2a², so a² − pb² = −1.
   * Our check: no failure among primes p ≡ 1 (4) below 2·10⁵ (CF-period parity, `negpell_f3.txt`).
-  * It fails at every square and at every n with a prime factor ≡ 3 (4).
-  * Among squarefree n with all prime factors ≡ 1 (4), the solvable proportion is 1 − ∏_{j odd}(1 − 2^{−j}) ≈ 58 %
-    (Koymans–Pagano arXiv:2201.13424, as quoted in K. Conrad, "Pell's equation II", Remark 3.6).
-  * So negative Pell is the cleanest literature instance of "all primes in the class succeed, squares fail, a positive
-    proportion of composites fail". It is the exact shape of (MS) **minus F4**: it has no small prime exceptions.
-  * Its proof is rigid (a unit plus a factor split), so it cannot model (★), which has 14 prime zeros. The F3 probe (§0)
-    found no link between (★)-composite zeros and negative-Pell failure.
+  * It fails at every square n > 1 and at every n with a prime factor ≡ 3 (4).
+  * Among squarefree d > 0 with no prime factor ≡ 3 (4) (so prime factors 1 or 2 mod 4), the solvable proportion is
+    1 − ∏_{j odd}(1 − 2^{−j}) ≈ 58 %. This is Koymans–Pagano arXiv:2201.13424 Thm 1.1, cited theorem, as quoted in
+    K. Conrad, "Pell's equation II", Remark 3.6. We do not claim the odd-only or non-squarefree refinement.
+  * So negative Pell is the cleanest literature instance of the shape "all primes in the class succeed, squares fail, a
+    positive proportion of (squarefree) composites fail". This is the shape of (MS) **minus F4**: there are no small prime
+    exceptions.
+  * Its proof is rigid (a unit plus a factor split), so a verbatim port cannot model (★), which has 14 prime zeros.
+  * The F3 probe (§0) shows the elementary local enrichment. It shows no *additional* enrichment after conditioning, but the
+    small sample cannot rule one out (EVIDENCE).
 * Assessment: no theorem was found of the shape "every sufficiently large prime has a point, infinitely many composites fail,
   squares are obstructed, and finitely many small primes fail".
 
 ## 3. Verdict, screens, proposed additions, bottom line
 
 **Verdict: narrowed** (Assessment).
-* What the literature offers (§0, §2.5–2.6) splits three ways:
-  * T1-native but primality-blind mechanisms (characters, reciprocity, thin orbits), which F3 kills;
-  * rigid prime-specific mechanisms (Legendre type), which F4 kills;
-  * averaged or exceptional-set mechanisms, to which F1–F4 are invisible.
-* No item supplies a pointwise, prime-specific, threshold-bearing existence argument.
+* The mechanisms read here (§0, §2.5–2.6) split three ways, each judged as a *verbatim* transfer:
+  * T1-native, primality-blind mechanisms (characters, reciprocity, thin orbits). Their natural conclusion over all
+    non-squares conflicts with F3, unless the exceptional set is unbounded or the conclusion is restricted to primes.
+  * Rigid prime-specific mechanisms (Legendre type), which conflict with F4.
+  * Averaged or exceptional-set mechanisms, to which F1–F4 are invisible.
+* No item found supplies, by direct transfer, a pointwise prime-specific existence argument with a threshold above the known
+  zeros. Combinations (a primality-blind criterion plus a separate size-dependent input) are not excluded by the screens.
 * The one substantive new external result (K-R-K) is an exceptional-set theorem. It matters for the campaign's
   **priority and citations**, not for (MS).
 
@@ -266,12 +308,13 @@ Details are in `data/z58/lit/q3_hasse_squares.md`; every arXiv item was already 
 **Proposed `LITERATURE_2026.md` additions** (do not apply here; for the parent):
 * *Wave z58 (2026-11-05).*
   * **Kandukoori–Ramesh–Kumar**, "An improved bound for the exceptional set of the Erdős–Straus equation" (dated 2026-07-29;
-    sushaan-k.github.io/erdos-straus; Lean github.com/sushaan-k/erdos-straus-lean, axiom-free at f6c99eaa, 2026-10-30, CI
-    green).
+    sushaan-k.github.io/erdos-straus; Lean github.com/sushaan-k/erdos-straus-lean, only standard Lean axioms at f6c99eaa,
+    2026-10-30, CI green; not rebuilt by us).
     * Thm 1: E(N) ≪ N exp(−c(log N)^{3/4}). The same holds for primes, and Thm 2 gives it for fixed m ≥ 4.
     * Method: cubic-mass Type II family plus a Janson/Spencer no-hit bound.
-    * Public since 2026-07-30, so it **precedes `paper/es-threequarter-note.tex` (2026-09-06)**. Supersedes
-      LITERATURE_2026_UPDATE §1's "no sharper exponent" remark. Unrefereed, no arXiv record.
+    * The public repository's root commit (dated 2026-07-30) already contains the 3/4 claim. That date is earlier than the
+      first commit of `paper/es-threequarter-note.tex` (2026-09-06).
+    * Supersedes LITERATURE_2026_UPDATE §1's "no sharper exponent" remark. Unrefereed, no arXiv record.
   * **Akaka v0.8**, Zenodo 22905042 (2026-09-22): a block-uniform version for 4 ≤ m ≤ (log X)³, with a Lean certificate
     claimed. AI-assisted and unrefereed.
   * **Ventas**, arXiv:2610.41027v1 (2026-10-29): modular inversion of Type I Grid patterns in the Mordell classes. Thm 3.1,
@@ -282,21 +325,48 @@ Details are in `data/z58/lit/q3_hasse_squares.md`; every arXiv item was already 
     for the "all primes / not squares / not all composites" shape.
 
 **Proposed FRONTIER text** (do not apply here):
-* §2, exceptional set: "E(N) ≪ N exp(−c(log N)^{3/4}) was first made public by Kandukoori–Ramesh–Kumar (2026-07-30,
-  Lean-formalised from Mathlib, CI-checked axioms); the campaign's `es-threequarter-note` (2026-09-06) is an independent
-  internal proof of the same exponent; its interval/progression and uniform-in-m extensions ((D)30/(D)31) are not in K-R-K
-  (Assessment)."
-* §4 screening: "Literature mechanisms split into T1-native/primality-blind (killed by F3), rigid prime-specific (killed by
-  F4), and averaged (blind to F1–F4); a viable mechanism must be prime-specific and threshold-bearing (Z58_LIT §0)."
+* §2, exceptional set: "E(N) ≪ N exp(−c(log N)^{3/4}) is also claimed by Kandukoori–Ramesh–Kumar. Their public repository
+  commit is dated 2026-07-30, earlier than the campaign's note; it is Lean-formalised from Mathlib with CI-checked standard
+  axioms. The campaign's `es-threequarter-note` (2026-09-06) is a separate internal proof of the same exponent. Its
+  interval/progression and uniform-in-m extensions ((D)30/(D)31) are not stated in K-R-K (Assessment)."
+* §4 screening: "Read as verbatim transfers, literature mechanisms split three ways: T1-native/primality-blind (natural
+  all-non-square conclusions conflict with F3), rigid prime-specific (conflict with F4), and averaged (blind to F1–F4). A
+  direct transfer would need a prime-only conclusion with a threshold above the known zeros (Z58_LIT §0; Assessment)."
 
-**Bottom line.** The 2024–2026 literature, read through the z58 falsifiers, contains no mechanism that could prove (MS):
-* those that see squares (characters, reciprocity, thin orbits) cannot tell primes from the 285 composite zeros;
+**Bottom line.** Read through the z58 falsifiers, the 2024–2026 literature that this lane searched contains no result that
+transfers directly to (MS):
+* the square-sensitive mechanisms (characters, reciprocity, thin orbits) do not by themselves separate primes from the 285
+  composite zeros;
 * the classical prime-specific one (Legendre's negative-Pell descent) has no room for the 14 small prime zeros;
-* everything else is averaged.
+* the rest is averaged.
 
 The most important find is administrative but significant. The campaign's "internally proved" 3/4 exceptional-set
-exponent was made public two months earlier by Kandukoori–Ramesh–Kumar, and it now has an axiom-free Lean proof. The
-campaign's 3/4 note and FRONTIER must cite it.
+exponent is also claimed by Kandukoori–Ramesh–Kumar, whose public repository has a commit dated five weeks before the
+campaign's first commit of its note. It now has a Lean proof using only standard axioms (CI). The campaign's 3/4 note and
+FRONTIER must cite it.
 
 ## 4. Review log
-(Hostile citation review: pending.)
+**Hostile citation review** (deep-mode subagent, `reviews/z58-lit-review.md`): no BLOCKER, 8 MAJOR and 8 MINOR findings.
+All were applied:
+* (1, 2) Finite F3 data cannot refute "finitely many exceptions", and the screens constrain conclusions, not proof
+  technologies. The §0 reading, §3 and the proposed FRONTIER text are rescoped to *verbatim transfers*. Infinitude of
+  composite zeros is labelled CONJECTURE.
+* (3) Dao's prime-factor Hilbert-symbol hypothesis restored.
+* (4) Lenstra/CHN coprimality hypotheses restored.
+* (5) Priority rephrased as commit-date ordering, with "separate" instead of "independent" proof.
+* (6) Sieve-ceiling scope fixed.
+* (7) Negative-Pell probe re-read: the unconditional enrichment (93 % vs 84.8 %) is via the elementary local obstruction;
+  conditional absence is not established.
+* (8) Jacobi-character form of the F1 cell.
+* (9) PNT in APs instead of Dirichlet.
+* (10) Prop I domain and the cutoff limitation.
+* (11) All half-decade bins listed; absolute counts are not density evidence.
+* (12) Koymans–Pagano population quoted exactly.
+* (13) Akaka's strict family; numeric allowance removed.
+* (14) Verification classes split.
+* (15) Search-scope wording.
+* (16) Full Ventas sentence.
+
+The reviewer independently confirmed: the K-R-K statements, the Lean definitions and the CI run (Build and Check axioms
+successful at f6c99eaa); the Akaka v0.8 record; the Ventas quotes; the Type I nature of the Grid family; the proof of
+Prop I and its script; the Crossref and arXiv metadata; the Legendre proof; and the F3 ledger.
