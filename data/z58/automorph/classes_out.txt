@@ -1,0 +1,18 @@
+# local square classes: count of zeros n that are l-adic square units for all odd l <= P and n ≡ 1 (8)
+# columns: P, composite(all), composite(squarefree), composite(sqf, n>1e6), star primes, G* primes, R8 primes
+3 71 58 9 14 30 6 examples(sqf): [4104145, 5925745, 7359121]
+5 31 31 5 12 24 5 examples(sqf): [3249169, 3713521, 7359121]
+7 15 15 2 9 20 4 examples(sqf): [897961, 2956321, 3210601]
+11 7 7 2 8 13 4 examples(sqf): [897961, 2956321, 3210601]
+13 6 6 2 4 8 3 examples(sqf): [897961, 2956321, 3210601]
+17 4 4 2 3 5 3 examples(sqf): [897961, 2956321, 3210601]
+19 1 1 1 2 3 2 examples(sqf): [2956321]
+23 1 1 1 0 1 1 examples(sqf): [2956321]
+# composite zeros per range [10^k, 10^(k+1)) and locally-square-at-7 among them
+1 1 0
+2 8 0
+3 24 3
+4 60 3
+5 95 7
+6 97 2
+sign example: max over odd m <= 20001 of a(m^2)/m^4 = (1, 0)
