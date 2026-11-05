@@ -524,7 +524,7 @@ objects or arguments*. None is a necessity theorem for every proof, and none pro
   * The positive-integral BM set (real region u, B, C > 0, resp. a, b, c, d > 0) is **empty iff n is a square** for
     numerator 4, and iff n ∈ □ ∪ 2□ for numerator 8.
   * Cor A′ (S_n): BM (even étale-BM) nonemptiness does not give a positive integral point. This fails at the 14 (★)-zero
-    primes and the 285 composites, and on the C-even model at the 1 270 R₈-zero primes ≤ 10⁸ and the 12 above 10¹⁰.
+    primes and the 285 composites, and on the C-even model at the 1 270 R₈-zero primes ≤ 10⁸ and the 12 in [10¹⁰, 1.1·10¹⁰].
     Primality alone does not rescue it.
   * X_n: 4545 has a nonempty BM set and local points (also under ET coprimality) but N_II(4545) = 0 (Thm 4.1). An argument
     using only BM-nonemptiness plus primality, π₁, Br, local solvability and smoothness that applies verbatim to fixed
