@@ -47,7 +47,9 @@ static int decide(uint64_t p, uint64_t *dfirst){
 }
 
 int main(int argc, char**argv){
+  if (argc < 3) { fprintf(stderr, "usage: decide A B\n"); return 2; }
   uint64_t A = strtoull(argv[1],0,10), B = strtoull(argv[2],0,10);
+  if (B > 6000000000000ULL) { fprintf(stderr, "B too large: p^3 must fit in 128 bits (B <= 6e12)\n"); return 2; }
   const uint64_t SEG = 1ULL<<26; // segment of odd numbers
   // small primes up to sqrt(B)
   uint64_t lim = (uint64_t)sqrtl((long double)B) + 2;

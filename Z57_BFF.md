@@ -19,16 +19,16 @@ Definitions from `Z56_FAMDESIGN.md` §0–§1 only: p ≡ 1 (4) prime, (★) sol
   **R_𝔊*(p) ≥ 1 ⟺ some d ≡ 3 (4), d ≤ ⌊p^{3/4}⌋ + 1, has HIT(d) with max(n_d, m)⁴ > min(n_d, m)·p**, m = (p + n_d)/d;
   HIT(d) with d⁴(d + 1) ≤ 4p³ (e.g. d ≤ p^{3/5}) is automatically in 𝔊*.
 * **Lemma 1.4 (PROVED; where primality enters).** HIT(d) forces the Jacobi symbols (−n_d/d) = −1, (p/d) = −1 and (with
-  p ≡ 1 (4)) (d/p) = −1. Hence R(N) = 0 for every odd square N (T1 audit passes: the target is false at odd squares and
-  the only place a proof can use primality is the quadratic character of d modulo p). A hit needs d ∈ QNR(p); for
+  p ≡ 1 (4)) (d/p) = −1. Hence R(N) = 0 for every odd square N (T1 audit passes: the target is false at odd squares,
+  and every hit a proof produces must satisfy (d/p) = −1). A hit needs d ∈ QNR(p); for
   D ≥ p^{1/4+ε} Burgess gives #{d ≤ D, d ≡ 3 (4), (d/p) = −1} = D/4 + O(D^{1−δ}), so in the Burgess range this is no
   obstruction, while for D ≤ p^{1/4−ε} nothing excludes "p is a QR modulo every d ≤ D" (the 𝔊* boundary of Thm V is
   exactly this threshold, now seen from the d-side).
 * **Where the attack stops (§2; Assessment).** The count H(p; D) = #{d ≤ D, d ≡ 3 (4) : HIT(d)} is a sum over the pairs
   (n, C) of 1[(4nC − 1) | p + n]. Its "expected value" (1/8 + o(1))log²D is the a = 0 term of the additive-character
   expansion; the a ≠ 0 terms are Σ_d d⁻¹Σ_{a≠0} e(ap/d)S_d(a) with S_d(a) = Σ_{n | (d+1)/4} e(an/d). For d ≤ p^{1/3−ε} the
-  phase ap/d has derivative ≫ 1 in d, so no exponential-sum method bounds the d-sum (the values p mod d for d ≤ p^{1/3−ε}
-  are not controllable at a single p: by CRT any prescription of p mod d for all d ≤ c·log p is realised by some prime);
+  phase ap/d has derivative ≫ 1 in d and the a-sum is complete, and no bound for the weighted error is supplied (below
+  c·log p none exists: p ≡ 1 (mod lcm(4, 1..D₀)) gives H(p; D₀) = 0 by the Jacobi lemma, with such p ≤ exp(C·D₀) by Linnik);
   for d ≥ p^{1/3} the sum is the number of divisors of the single integers p + n in the class −(p + n) (mod 4n), i.e. B2
   in tied form. Three further routes (fixing a QNR prime ℓ of p, norm-form descriptions of level failures, multiplicative
   links between different d) are shown in §2 to give no pointwise inequality. No weaker pointwise theorem beyond the
@@ -53,10 +53,10 @@ onto the set of *ordered* solutions (n, m, C) (both orders of each unordered sol
 (n, m, C) ↦ (n, 4nC − 1).
 *Proof.* If d | p + n and d = 4nC − 1 then m := (p + n)/d satisfies (4nC − 1)m = p + n, i.e. 4nmC − n − m = p.
 Conversely for a solution, d := 4nC − 1 ≡ −1 (mod 4n) and d·m = 4nmC − m = p + n. The two maps are inverse. ∎
-(So R_𝔊*(p) ≥ 1 ⟺ some n ≥ 1 is such that p + n has a divisor ≡ −1 (mod 4n) whose cofactor m satisfies the 𝔊*
-inequality; equivalently p + n has a divisor m ≡ −(p + n) (mod 4n).)
+(So R_𝔊*(p) ≥ 1 ⟺ some n ≥ 1 is such that p + n = d·m with d ≡ −1 (mod 4n) and max(n, m)⁴ > min(n, m)·p; then
+necessarily m ≡ −(p + n) (mod 4n), but that congruence alone does not imply d ≡ −1 (mod 4n) when gcd(m, 4n) > 1.)
 
-**Lemma 1.2 (defect / hyperbola form).** Let d ≡ 3 (mod 4), 3 ≤ d < p. Put n_d := d − (p mod d) (so 1 ≤ n_d ≤ d − 1,
+**Lemma 1.2 (defect / hyperbola form).** Let d ≡ 3 (mod 4), d ≠ p (so gcd(d, p) = 1). Put n_d := d − (p mod d) (so 1 ≤ n_d ≤ d − 1,
 n_d ≡ −p (mod d), gcd(n_d, d) = gcd(p, d) = 1) and C_d := the least positive residue of −(4p)⁻¹ (mod d). Then:
  (i) 4·n_d·C_d ≡ 1 (mod d), so 4n_dC_d ∈ {d + 1, 2d + 1, 3d + 1, …};
  (ii) the following are equivalent: (a) ∃ n ≥ 1 with d | p + n and d ≡ −1 (mod 4n); (b) 4n_d | d + 1; (c) 4C_d | d + 1;
@@ -98,18 +98,20 @@ d ≡ 7 (mod 8) and (2/d) = 1; so (n/d) = (n′/d). By Jacobi reciprocity for th
 
 **Corollary 1.5 (T1 audit).** For an odd square N = M², no d has HIT(d) (with p replaced by N in Lemma 1.2): HIT(d)
 gives gcd(N, d) = gcd(n_d, d) = 1 and (N/d) = (M/d)² = 1, contradicting (N/d) = (−n_d/d) = −1. So R(M²) = 0 for all odd
-M (consistent with `Z56_FAMDESIGN` §4.3 controls / `Z55_CROSSO` Cor 1.2). *Any proof of the target must therefore use
-(d/p) = −1 for the d it produces; this is the only place primality of p (as opposed to p ≡ 1 (4), p non-square) enters.*
+M (consistent with `Z56_FAMDESIGN` §4.3 controls / `Z55_CROSSO` Cor 1.2). *Every hit a proof produces satisfies
+(d/p) = −1; so an argument valid for all odd N ≡ 1 (4) cannot exist, and the non-square nature of p must be used at
+least through the Legendre symbols of the moduli d it produces.*
 
 **Lemma 1.6 (level failures as norm-form conditions; PROVED, standard).** Let N_C := 4Cp + 1 (≡ 1 mod 4C). The
 C-level has no hit (no d | N_C with d ≡ −1 (mod 4C)) iff no sub-multiset of the prime factors of N_C (with
 multiplicity) has product ≡ −1 (mod 4C). In particular: level 1 fails ⟺ 4p + 1 has no prime factor ≡ 3 (4) ⟺
-4p + 1 = a² + b² with gcd(a, b) = 1 ⟺ p = t(t + 1) + s² for some integers t, s; level 2 fails ⟺ all prime factors
+4p + 1 = a² + b² with gcd(a, b) = 1 ⟺ p = t(t + 1) + s² with gcd(2t + 1, s) = 1 (e.g. 29 = 4·5 + 3² is *not* a
+level-1 failure: 117 = 9² + 6² is imprimitive and 3 | 117); level 2 fails ⟺ all prime factors
 of 8p + 1 lie in {1, 3} (mod 8) or all lie in {1, 5} (mod 8) ⟺ 8p + 1 = a² + 2b² or a² + b² with gcd(a, b) = 1;
 level 3 fails ⟺ 12p + 1 = a² + b² or a² + 3b² primitively. (Proof: a divisor ≡ −1 (mod 4C) of N_C is a sub-multiset
 product; for the norm forms use that a² + kb² (k = 1, 2, 3) represents N primitively iff −k is a square modulo N, N odd,
-and the class number of the corresponding discriminant is 1. For p = t(t+1) + s²: 4p + 1 = a² + b² with a odd forces
-b ≡ 2 (mod 4), b = 2s, and p = ((a−1)/2)((a+1)/2) + s².) The 38 𝔊*-zero primes satisfy all of these (checked,
+and the class number of the corresponding discriminant (−4, −8, −12) is 1. For p = t(t+1) + s²: 4p + 1 = a² + b² with
+a odd forces b ≡ 2 (mod 4), b = 2s, a = 2t + 1, p = t(t+1) + s², and gcd(a, b) = gcd(2t+1, s).) The 38 𝔊*-zero primes satisfy all of these (checked,
 `z57_bff_levels_check.py`, `data/z57/bff/levels_check.txt`), e.g. 564 661 441 = 23 408·23 409 + 4 087²,
 8p + 1 = 60 799² + 2·20 258², 12p + 1 = 82 253² + 3 222².
 
@@ -118,31 +120,31 @@ b ≡ 2 (mod 4), b = 2s, and p = ((a−1)/2)((a+1)/2) + s².) The 38 𝔊*-zero 
 ### 2.1 The count and its "expected" size (PROVED identity; heuristic size)
 
 By Lemma 1.2, for D ≥ 3 put
-  H(p; D) := #{d ≡ 3 (mod 4), 3 ≤ d ≤ D : HIT(d)} = Σ_{n ≥ 1} Σ_{C ≥ 1, 4nC − 1 ≤ D} 1[(4nC − 1) | p + n].
+  H(p; D) := #{d ≡ 3 (mod 4), 3 ≤ d ≤ D, d ≠ p : HIT(d)} = Σ_{n ≥ 1} Σ_{C ≥ 1, 4nC − 1 ≤ D, 4nC − 1 ≠ p} 1[(4nC − 1) | p + n].
 By Lemma 1.3, H(p; p^{3/5}) ≥ 1 ⟹ R_𝔊*(p) ≥ 1, and R_𝔊*(p) ≥ 1 ⟹ H(p; ⌊p^{3/4}⌋ + 1) ≥ 1. Writing
 1[d | p + n] = d⁻¹Σ_{a mod d} e(a(p + n)/d) and S_d(a) := Σ_{n | (d+1)/4} e(an/d),
   H(p; D) = Σ_{d ≤ D, d ≡ 3 (4)} τ((d+1)/4)/d  +  Σ_{d ≤ D, d ≡ 3 (4)} d⁻¹ Σ_{a=1}^{d−1} e(ap/d) S_d(a).        (2.1)
-The first sum is Σ_{k ≤ (D+1)/4} τ(k)/(4k − 1) = (1/8)log²D + O(log D) (PROVED, elementary); it is the mean of H over p
-in the naive model "p mod d uniform". The second sum E(p; D) is an exact function of the residues p mod d, d ≤ D; the
-target is E(p; p^{3/5}) > −(1/8)log²p·(1 − o(1)) for every large prime p ≡ 1 (4), or merely H(p; p^{3/4}) ≥ 1.
-(The genus main term of `Z56_FAMDESIGN` Thm V is the part of (2.1) that Burgess/Heath-Brown can evaluate at every p; its
-value (5/(4π²))log²p counts both orders over all of 𝔊*, while (1/8)log²(p^{3/4}) = 0.0703 log²p counts each 𝔊* solution
-via d_P (and some corner solutions); the two bookkeepings agree in size: 0.0703 ≈ 0.0633 + corner share.)
+The first sum A(D) := Σ_{k ≤ (D+1)/4} τ(k)/(4k − 1) = (1/8)log²D + O(log D) (PROVED, elementary); it is the mean of H
+over p in the naive model "p mod d uniform". The second sum E(p; D) is an exact function of the residues p mod d, d ≤ D.
+A sufficient condition for the target is E(p; D) > −A(D) for some D ≤ p^{3/5} (e.g. D = p^{3/5}, A = (9/200 + o(1))log²p)
+at every large prime p ≡ 1 (4). (H(p; D) counts each unordered solution once via d_P and a second time when also
+d_Q ≤ D, and includes corner solutions when D > p^{3/5}; no exact comparison with Thm V's constant 5/(4π²) is made.)
 
 ### 2.2 Why the d-sum cannot be bounded at a single p (Assessment, with the computations)
 
-* **d ≤ p^{1/3−ε}.** For fixed a ≠ 0, Σ_{d ~ D} e(ap/d) has phase derivative ap/d² ≥ p^{1/3+2ε} ≫ 1; the van der
-  Corput / exponent-pair bounds give (ap/D)^{1/2} + (D³/ap)^{1/2}, which exceeds D for D < (ap)^{1/3}. There is no
-  cancellation to be had, and in fact none exists in general: by the Chinese remainder theorem and Dirichlet's theorem
-  any prescription of the residues p mod d for all d ≤ D₀ (modulus lcm(1..D₀) = e^{(1+o(1))D₀}) is realised by primes
-  p ≍ e^{(1+o(1))D₀}, so for D₀ ≤ (1 − ε)·log p there are primes with H(p; D₀) = 0 and (2.1) is uninformative. Between
-  log p and p^{1/4} the only known single-p information is quadratic (Burgess: (d/p) is −1 for ~half of the d ≥ p^{1/4+ε});
-  Lemma 1.4 shows this is necessary for a hit but it is far from sufficient (HIT(d) has probability ≈ 2τ((d+1)/4)/φ(d)
-  among d ∈ QNR(p)).
+* **d ≤ p^{1/3−ε}.** For fixed a ≠ 0, Σ_{d ~ D} e(ap/d) has phase derivative ap/d² ≥ p^{1/3+2ε} ≫ 1; the second
+  derivative test gives (ap/D)^{1/2} + (D³/ap)^{1/2}, trivial for D < (ap)^{1/3} (other exponent pairs, e.g. (1/6, 2/3),
+  are non-trivial for the bare sum down to D > (ap)^{1/4+ε}). But a runs over all residues mod d with the weights S_d(a)/d,
+  and no estimate for the full weighted error E(p; D) is supplied here or known to me. Below c·log p there is provably
+  nothing: if p ≡ 1 (mod lcm(4, 1, …, D₀)) then (p/d) = 1 for every d ≤ D₀, so H(p; D₀) = 0 by Lemma 1.4, and Linnik's
+  theorem gives such primes p ≤ exp(C·D₀) (modulus e^{(1+o(1))D₀}); hence for every large p₀ there are primes
+  p ∈ [p₀, p₀^{C'}] with H(p; c·log p) = 0. Between log p and p^{1/4} the only known single-p information is quadratic
+  (Burgess: (d/p) = −1 for ~half of the d once D ≥ p^{1/4+ε}); Lemma 1.4 shows this is necessary for a hit but it is far
+  from sufficient (HIT(d) has probability ≈ 2τ((d+1)/4)/φ(d) among d ∈ QNR(p)).
 * **p^{1/3} ≤ d ≤ p^{3/4}.** Here one can sum e(ap/(4nC − 1)) over C for fixed small n and a, but the a-sum runs over
   all residues mod d; grouping by n instead, Σ_C 1[(4nC − 1) | p + n] is the number of divisors of the single integer
-  p + n in the class −1 (mod 4n) and size range [p^{1/3}, p^{3/4}], equivalently of its divisors m ≡ −(p + n) (mod 4n) in
-  [p^{1/4}, p^{2/3}]. No method evaluates the divisor function of one integer in a residue class; this is B2 in tied form
+  p + n in the class −1 (mod 4n) and size range [p^{1/3}, p^{3/4}] (their cofactors m lie in [p^{1/4}, p^{2/3}]). No method
+  evaluates the divisor function of one integer in a residue class; this is B2 in tied form
   (`Z56_FAMDESIGN` §5 item 1).
 * **Fixing a quadratic non-residue.** Let ℓ be the least prime with (p/ℓ) = −1 (ℓ ≤ p^{1/(4√e)+ε} by Burgess; ℓ ≥ 5 at
   every 𝔊*-zero, and ℓ ∈ {5, …, 29} at the 38 of them, `data/z57/bff` via `z57_bff_zeros_local.py`). The d with
@@ -155,9 +157,9 @@ via d_P (and some corner solutions); the two bookkeepings agree in size: 0.0703 
   limited to o(log X/log log X) by the level of distribution.
 * **Multiplicative links between different d.** For coprime d₁, d₂: n_{d₁d₂} ≡ n_{d_i} (mod d_i), but 4n_dC_d = d + 1 is a
   statement about the *integer* n_dC_d (branch k = 1 of 4n_dC_d = kd + 1, k ≡ 1 (mod 4)), not about residues; HIT(d₁) and
-  HIT(d₂) say nothing about HIT(d₁d₂) (at p = 100 000 037 the 26 hits d ≤ p^{3/4} have 0 of their 48 pairwise products
-  ≤ p^{3/4} in the hit set; 9 of the 36 pairs a | b of a hit b and a 3 (mod 4) divisor a are both hits, 5 of them with
-  a = 3 — the trivial effect of p ≡ 2 (mod 3); `z57_bff_hitset_closure.py`). The only closure is within an n-line:
+  HIT(d₂) say nothing about HIT(d₁d₂) (a product of two hits is ≡ 1 (mod 4), never a hit; at p = 100 000 037, 9 of
+  the 36 pairs a | b with b one of the 26 hits ≤ p^{3/4} and a ≡ 3 (4) a divisor have a a hit too, 5 of them with a = 3 —
+  the trivial effect of p ≡ 2 (mod 3); `z57_bff_hitset_closure.py`). The only closure is within an n-line:
   the divisors of p + n in the class −1 (mod 4n) are closed under taking divisors in that class — a restatement. The switch (n, m, C) ↦ (m, n, C) (`Z56_FAMATTACK` Lemma L(a)) maps HIT(d_P) to
   HIT(d_Q) with d_Pd_Q = 4Cp + 1 — it maps a hit to a hit and an empty set to an empty set.
 
@@ -166,10 +168,10 @@ via d_P (and some corner solutions); the two bookkeepings agree in size: 0.0703 
 Any of the following implies the target (PROVED implications via Lemmas 1.2–1.3), and each fails at odd squares only
 through Lemma 1.4:
  (S1) for every large p ≡ 1 (4) there is d ≡ 3 (4), d ≤ p^{3/5}, with (−p mod d)·(−(4p)⁻¹ mod d) < 5d/4;
- (S2) for every large p ≡ 1 (4) there is n ≤ p^{1/3} such that p + n has a divisor in the class −(p + n) (mod 4n) lying in
-      [p^{1/4}, p^{2/3}] (then d = (p+n)/m ≤ p^{3/4}, m ≥ p^{1/4}; the 𝔊* check is the inequality of Lemma 1.3);
+ (S2) for every large p ≡ 1 (4) there are n ≥ 1 and d ≡ −1 (mod 4n) with d | p + n and d ≤ p^{3/5} (Lemma 1.3);
  (S3) for every large p ≡ 1 (4) some C ≤ (p/64)^{1/3} has 4Cp + 1 ∉ 𝒮_C, where 𝒮_C is the set of integers ≡ 1 (mod 4C)
-      none of whose sub-multisets of prime factors multiplies to −1 (mod 4C).
+      none of whose sub-multisets of prime factors multiplies to −1 (mod 4C) (every solution with 64C³ ≤ p lies in 𝔊*,
+      `Z56_FAMDESIGN` §1: otherwise Q ≤ p^{1/3} and PQ ≤ p^{2/3}, while PQ = (p + P + Q)/(4C) > p^{2/3}).
 No proof of any of them is offered. (S1) is the sharpest: the branch structure 4n_dC_d ∈ {d + 1, 5d + 1, 9d + 1, …}
 means the hit is the event "n_dC_d is below the second branch", a gap of factor 5 — a lower bound of the form
 #{d ≤ D : n_dC_d < 5d/4} ≥ 1 for one p is a *small-product* statement on the modular hyperbola 4xy ≡ 1 across all moduli
@@ -199,18 +201,19 @@ fixed p across moduli. This is the exact shape of the obstruction.
 ### 3.2 Results
 
 * **Zero-free range (CERTIFIED).** No 𝔊*-zero in (10¹⁰, 10¹¹]: all 1 831 497 005 primes p ≡ 1 (4) there have a
-  𝔊* hit (`decide_1e10_1e11_summary.txt`; ten blocks of 10¹⁰, ≈ 11 min each on a loaded machine; the prime counts per
+  𝔊* hit (`decide_1e10_1e11_summary.txt`; nine blocks of 10¹⁰, ≈ 11 min each on a loaded machine; the prime counts per
   block are listed, and 2 880 504 + 22 542 987 = 25 423 491 = π(10⁹; 4, 1) on the validation ranges). With z56's
   exhaustive 10¹⁰ result: **R_𝔊*(p) = 0 at exactly 38 primes p ≡ 1 (4) ≤ 10¹¹, the last 564 661 441.** The largest
   first-hit d in (10¹⁰, 10¹¹] is 2 923 999 ≈ p^{0.600} (p = 61 032 630 877); per block the maxima are 0.8–2.9·10⁶,
-  i.e. every prime up to 10¹¹ has a 𝔊* hit with d ≤ p^{0.71} (and the decider needs on average ≈ p^{0.09} steps).
+  all below p^{0.61}. So every prime p ≡ 1 (4) in (10⁸, 10¹¹] other than the zero 564 661 441 has a 𝔊* hit with
+  d ≤ p^{0.705} (and the decider needs on average ≈ p^{0.09} steps). FIRSTHIT_1E9_1E10_PLACEHOLDER
   Extension to 5·10¹¹: EXT_PLACEHOLDER
 * **First hit (EVIDENCE; `firsthit_1e8/1e9/1e10.txt`).** Exponent θ₁ := log d₁(p)/log p over the primes p ≡ 1 (4) in
   [10⁸, 10⁸ + 4·10⁵] (10 819 primes), [10⁹, 10⁹ + 4·10⁵] (9 613), [10¹⁰, 10¹⁰ + 10⁵] (2 150):
   mean θ₁ = 0.109, 0.097, 0.088; median 0.060, 0.053; P(θ₁ > 0.2) = 9.5 %, 7.4 %, 4.8 %; P(θ₁ > 0.3) = 1.6 %, 1.0 %,
   0.2 %; P(θ₁ > 0.4) = 0.17 %, 0.05 %, 0; max 0.49, 0.50, 0.34. Exhaustive maxima of d₁: 157 055 (p = 94 704 157,
   θ₁ = 0.651) on [5, 10⁸]; 787 439 (p = 231 507 061, θ₁ = 0.705) on (10⁸, 10⁹]. The tail decays with p roughly like the
-  model exp(−c·(1/8)·θ²log²p) (c ≈ 1–1.5 fitted); at the 38 zeros θ₁ > 3/4 by definition. First hits restricted to *prime* d:
+  model exp(−c·(1/8)·θ²log²p) (c ≈ 1–1.5 fitted); at the 38 zeros d₁ is undefined (no 𝔊* hit below the cutoff ⌊p^{3/4}⌋ + 1). First hits restricted to *prime* d:
   mean exponent 0.12, 0.6 % above 0.5, and 9 of 10 819 primes near 10⁸ have no prime-d hit below p^{0.8} at all
   (composite d are essential: prime-d hits number only ≍ log p in expectation, Assessment).
 * **Local data of the zeros (`z57_bff_zeros_local.py`).** All 38 have (p/3) = +1 (p ≡ 2 (3) gives the hit d = 3) and
@@ -227,11 +230,13 @@ fixed p across moduli. This is the exact shape of the obstruction.
 * **Fixed-p / 8/131 / B2.** Not applicable (no positivity claim). The 38 zeros satisfy every necessary condition
   derived here (Lemma 1.6 at levels 1–3 checked; (p/3) = +1 for all).
 * **Verdict: narrowed, not proved.** The lane's contribution is (i) the exact and symmetric defect/hyperbola form of the
-  target — "some d ≡ 3 (4) below p^{3/4} has (−p mod d)·(−(4p)⁻¹ mod d) < 5d/4" — with its two coordinates being the
-  n-lines and C-levels of z56; (ii) the proof that primality enters only through (d/p) = −1 and that the Burgess
-  threshold p^{1/4} is where the quadratic obstruction disappears, which explains the 𝔊* boundary of Thm V from the
-  d-side; (iii) the identification of the decisive range d ≤ p^{1/3} where single-p information is provably absent
-  below c·log p and unavailable above it; (iv) a certified zero-free range to 10¹¹ by an independent decider.
+  target — "some d ≡ 3 (4) below p^{3/5} has (−p mod d)·(−(4p)⁻¹ mod d) < 5d/4" (sufficient; necessary and
+  sufficient with the cutoff ⌊p^{3/4}⌋ + 1 and the 𝔊* inequality) — with its two coordinates being the n-lines and
+  C-levels of z56; (ii) the proof that every hit has (d/p) = −1 (so primality must be used at least there) and that the
+  Burgess threshold p^{1/4} is where this quadratic obstruction is known to disappear, which matches the 𝔊* boundary of
+  Thm V from the d-side; (iii) the identification of the decisive range d ≤ p^{1/3}, where single-p information is
+  provably absent below c·log p (Linnik example) and not supplied above it; (iv) a certified zero-free range to 10¹¹ by
+  an independent decider.
   **ES is OPEN; R_𝔊*(p) ≥ 1 for all large p is not proved, and no weaker pointwise theorem beyond the classical
   identity classes was found.**
 * **For SYNTH/FRONTIER (proposed text, not applied):** "Z57_BFF: R_𝔊*(p) ≥ 1 ⟺ ∃ d ≡ 3 (4), d ≤ ⌊p^{3/4}⌋ + 1, with
