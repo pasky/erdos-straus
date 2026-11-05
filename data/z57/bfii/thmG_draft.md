@@ -71,7 +71,7 @@ Here Σ_{j≥3, j odd}j⁻²=π²/8−1<1/4; finite product inequalities followe
 
 ### Lemma 2. A mixed hyperbola estimate
 
-Suppose F is primitive nonprincipal of conductor ≤4u, and G is a nonprincipal character whose primitive conductor is cube-free and ≤4up, with any removed primes dividing 2u. Put
+Suppose F is primitive nonprincipal of conductor ≤4u, and G is a nonprincipal character whose primitive conductor is cube-free and divides 4up, with any removed primes dividing 2u (so G has period dividing 4up). Put
 
  K_F := max(1, C₁√(4u)log(8u)),
  K_G := max(1, C₂τ(rad(2u))(4up)^{3/16+10⁻⁶}),
