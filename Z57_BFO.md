@@ -238,7 +238,8 @@ ends with the decider's final summary for exactly its interval (printed only aft
 **CERTIFIED: R_𝔊*(p) ≥ 1 (and R(p) ≥ 1) for all 213 578 615 primes p ≡ 1 (4) in (10¹⁰, 2·10¹⁰].** Together with
 `Z56_FAMDESIGN` §4.3 the 𝔊*-zeros ≤ 2·10¹⁰ are exactly the 38 listed there (last 564 661 441). Side results: the
 Burgess-only family F4L = 𝔊*_{1/15} has a zero at **11 406 999 713** (R = 46, hits HC 6, H3 6, F4 15, F4L 0), beyond Z56's
-last F4L zero 6 122 428 657; HC and H3 have 19 and 14 zeros in the interval (the last H3 zero is below 1.75·10¹⁰).
+last F4L zero 6 122 428 657 (confirmed by the independent all-solution engine `z56_famdesign_scan.c`:
+all 23, F4 15, F4L 0, K 8; `data/z57/bfo/f4l_zero_check.txt`); HC and H3 have 19 and 14 zeros in the interval (the last H3 zero is below 1.75·10¹⁰).
 (The prime count is the decider's own segmented-sieve count, the sieve validated in Z56 §4.1; it is consistent with
 π(2·10¹⁰) − π(10¹⁰) = 427 154 205 ≈ 2 × 213.58·10⁶.)
 
