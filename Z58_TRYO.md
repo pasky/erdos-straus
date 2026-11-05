@@ -15,10 +15,10 @@ solution of (★)") is NOT proved. What is proved here:
 * Props 3.1–3.2 (PROVED, Dirichlet/Linnik): no finite set of congruence identities covers 𝔐; there are infinitely
   many p ∈ 𝔐 with no solution having uB < (1/L₀ − o(1)) log p, L₀ a Linnik exponent (possibly vacuously). Plus CERTIFIED: the
   least-non-residue route is dead (each prime q ∈ [11, 47] is a non-residue of some 𝔐-zero of (★)).
-* Round 2 (§8, pointwise): no forcing mechanism found. PROVED: square levels ⟺ forms of disc −4p in the non-principal
-  genus (Lemmas 8.1–8.2); weak pointwise Prop 8.7. CERTIFIED: (★) for all 355 096 166 primes p ∈ 𝔐 ∩ (10¹⁰, 3·10¹¹].
-  EVIDENCE: small levels independent; no Chebotarev law; primality acts only locally (prime vs coprime-composite zero
-  rates comparable).
+* Round 2 (§8, pointwise): no forcing mechanism found. PROVED: square levels ⟺ forms Ax²+2sxy+By² of disc −4p with
+  A ≡ −1 (4s²), which lie in the non-principal genus (Lemmas 8.1–8.2); weak pointwise Prop 8.7. CERTIFIED: (★) for all 355 096 166 primes p ∈ 𝔐 ∩ (10¹⁰, 3·10¹¹].
+  EVIDENCE: small levels independent; no Chebotarev law among the tested cubic/quartic/octic symbols; primality
+  appears to act only locally (heuristic; prime vs coprime-composite zero rates comparable in a small sample).
 * EVIDENCE (§5): for hard p the solution is "C small, uB ≈ p/(4C)" or "u small": min u ≤ 469 for all 179 468 primes
   p ∈ 𝔐, p ≤ 10⁸, except the 9 𝔐-zeros; min C reaches 41 027; min uB reaches ≈ p/4.
 
@@ -213,7 +213,7 @@ instead of u, and these are different problems (data: min u ≤ 469 but min C re
 | §3.3 route B dead | CERTIFIED (screen data) |
 | Lemma 8.1, 8.2 (square levels ↔ forms, genus) | PROVED |
 | Prop 8.7 (square obstruction broken at level ≤ n₂(p)) | PROVED (Burgess; GRH: Ankeny–Bach) |
-| §8.2–8.4 independence / no Chebotarev law / primality-local | EVIDENCE |
+| §8.2–8.4 independence / no tested Chebotarev law / primality-local (heuristic) | EVIDENCE |
 | §8.6 (★) for all p ∈ 𝔐 ∩ (10¹⁰, 3·10¹¹] | CERTIFIED |
 | full statement for all large p | NOT PROVED |
 
@@ -228,6 +228,7 @@ No HOT LEAD. Nothing here proves (★) for any individual prime not already chec
 * (F4) 14 prime zeros: kill the least-non-residue covering route for every q ∈ [11, 47] inside 𝔐 (§3.3); my
   engines independently reproduce the 9 𝔐-zeros ≤ 10⁸ (§5).
 Hostile review (subagent, this lane): no FATAL/MAJOR issues; all MINOR/NIT items addressed in the final commit.
+Round-2 hostile review: no FATAL; one MAJOR (§8.4 labelled PROVED → now heuristic) and MINOR/NITs, all addressed.
 
 ## §8 Round 2 — pointwise attack (one fixed prime p)
 
@@ -254,8 +255,8 @@ analogue fails by Lemma 1.3. **Why it does not force a hit (EVIDENCE/heuristic):
 contributes ≈ (log p)/√p expected hits (a primitive representation A of the class gives an attached root s uniformly
 distributed mod A; one needs |s| ≤ √A/2 and 4s² | A+1), and there are ≈ √p classes, so the total is ≈ log p — a
 polylog quantity with no pigeonhole slack; composition of forms randomises s (CRT), destroying "s small".
-Level u is a pure genus condition only when (ℤ/4u)^× is elementary 2-abelian, i.e. u ∈ {1, 2, 3, 6} (same for C);
-for all other levels the condition d ≡ −1 (4u) needs non-quadratic characters, which no genus/Legendre information sees.
+Level u is expressible by quadratic Dirichlet characters only when (ℤ/4u)^× is elementary 2-abelian, i.e. 4u | 24,
+u ∈ {1, 2, 3, 6} (same for C); only u = 1 and C = 1 are genus conditions for disc −4p. For all other levels the condition d ≡ −1 (4u) needs non-quadratic characters, which no genus/Legendre information sees.
 
 ### 8.2 Mechanism B: forcing between levels (EVIDENCE: none)
 
@@ -264,7 +265,7 @@ for all other levels the condition d ≡ −1 (4u) needs non-quadratic character
 i ≠ j lie in [0.98, 1.11]: the levels behave independently; no level's failure forces another's success. 47 of the
 55 369 primes fail all 24 levels. A forcing law among small levels would show up as a ratio ≈ 0; there is none.
 
-### 8.3 Mechanism C: Chebotarev / higher-residue laws (EVIDENCE: none)
+### 8.3 Mechanism C: Chebotarev / higher-residue laws (EVIDENCE: none among those tested)
 
 A law "p fails ⇒ p splits completely in L" for a non-abelian L would give a non-congruence pointwise theorem. Tested on
 the 9 𝔐-zeros: cubic, quartic, octic residuosity of 2, 3, 5, 7, 11, 13, −1, −3, 6, 10 mod p — no symbol is trivial at all
@@ -272,20 +273,24 @@ the 9 𝔐-zeros: cubic, quartic, octic residuosity of 2, 3, 5, 7, 11, 13, −1,
 (not at 1 724 209), so "2 not a quartic residue ⇒ (★)" is false. p = x² + 24y², x² + 48y², x² + 72y² at all 9 zeros,
 but 24, 48, 72 are idoneal, so these are congruence consequences of p ∈ 𝔐 (one class per genus).
 
-### 8.4 Where primality acts, quantitatively (PROVED remark + EVIDENCE)
+### 8.4 Where primality acts, quantitatively (heuristic remark + EVIDENCE)
 
 Whether level u hits depends only on the multiset of classes in G_u = (ℤ/4u)^× of the prime factors of (p+u)'
 (Lemma 1.2). The only constraint p imposes on that multiset beyond its product (≡ (p+u)' mod 4u, local) is the
-quadratic one of Lemma 1.4: (q/p) = ψ_u(q), whose product is (u/p) = (p/u)·(±) — again determined by p mod 4u. Characters
-of order ≥ 3 mod 4u are invisible to Legendre information (their analogue (−u/q)_k is an Artin symbol of the non-abelian
-field ℚ(ζ_k, (−u)^{1/k}), not a function of q mod 4u). So **primality acts only through local data at each level** —
-whereas the square obstruction (Lemma 1.3) is global.
+quadratic one of Lemma 1.4: (q/p) = ψ_u(q), whose product is (u/p) = (2/p)^a (p/v) (u = 2^a v) — again determined by
+p mod 4u. Characters
+of order ≥ 3 mod 4u are invisible to Legendre information (their analogue (−u/q)_k, for q ≡ 1 (k) and −u not a k-th power
+(nor of the form −4·(4th power) when k = 4), is an Artin symbol of the non-abelian field ℚ(ζ_k, (−u)^{1/k}), not a
+function of q mod 4u). Heuristically, then, primality acts at each level only through local data — whereas the square
+obstruction (Lemma 1.3) is global. (Not a theorem: k-th power relations (p/q)_k = (−u/q)_k do exist.)
 Data (`scripts/z58_tryo_legeffect.c`, `data/z58/tryo/legeffect_1e6_3e7.txt`, p ∈ 𝔐 ∩ [10⁶, 3·10⁷]): failure rate at
 level u given (u/p) = +1 vs −1: u = 11: 0.756 vs 0.475; u = 13: 0.914 vs 0.732; u = 17: 0.856 vs 0.659; u = 26:
-0.848 vs 0.701 — a non-residue u roughly doubles the hit probability, as Lemma 1.4 predicts, but does not force a hit.
-**Primes vs non-square composites (EVIDENCE).** Among n ≤ 8·10⁶, n ≡ 1 (4), gcd(n, 105) = 1: zero rate for primes
+0.848 vs 0.700 — a non-residue u roughly doubles the hit probability (hit ratios ≈ 2.2, 3.1, 2.4, 2.0), consistent with
+Lemma 1.4, but does not force a hit.
+**Primes vs non-square composites (EVIDENCE).** Among n ≤ 8·10⁶ (composite-zero file covers n ≤ 7 999 801), n ≡ 1 (4), gcd(n, 105) = 1: zero rate for primes
 13/269 758 = 4.8·10⁻⁵, for non-square composites 20/643 882 = 3.1·10⁻⁵ (20 = composite zeros coprime to 210, from
-`composite_zeros_le8e6.txt`; largest 3 210 601 = 19·37·4567; 15 of them in 𝔐). So primality per se gives no advantage:
+`composite_zeros_le8e6.txt`; largest 3 210 601 = 19·37·4567; 15 of them in 𝔐). So, in this small sample (13 vs 20 events; zeros cluster at small n, where primes
+are denser), primality per se gives no detectable advantage:
 the operative properties are non-squareness and the local data; most composite zeros (214/285) are divisible by 3,
 a local defect primes > 3 don't have. A pointwise proof for primes is therefore, in substance, a pointwise statement
 about the factorisations of n+u for large non-square n with prescribed local data.
@@ -294,7 +299,7 @@ about the factorisations of n+u for large non-square n with prescribed local dat
 
 R(p) = Σ_{d ≡ 3 (4)} #{u | (d+1)/4 : p ≡ −u (mod d)} (Lemma 1.1(iii)), main term ≍ log² p. A counting proof for one p
 would need the error in this sum — a sum over moduli d up to ≈ p of indicator functions of p mod d at resolution 1/d —
-to be o(log² p). Every known pointwise-in-p technique (exponential sums in p/d, Kloosterman/Weil bounds on the modular
+to be o(log² p). The pointwise-in-p techniques listed here (exponential sums in p/d, Kloosterman/Weil bounds on the modular
 hyperbola xy ≡ 1 (p) with x, y ≡ −1 (4C), large sieve) has errors that are powers of p or at least larger than polylog
 at this resolution; the modular-hyperbola count for one level C has main term ≈ log p/C against Weil error ≈ p^{1/2}.
 So pointwise existence needs an algebraic forcing mechanism, and §8.1–8.4 indicate none exists at the level of genus,
@@ -303,13 +308,13 @@ small levels, or Chebotarev data. This is the honest state of round 2.
 ### 8.6 CERTIFIED pointwise range
 
 `scripts/z58_tryo_range.c` (for each p ∈ 𝔐 in range: least u ≤ 10⁵ with a divisor d ≡ −1 (4u) of p+u, factoring by
-trial division to 1000 + Pollard rho + 12-base Miller–Rabin (deterministic < 3.3·10²⁴); every reported solution is
+trial division to 1000 + Pollard rho + 12-base Miller–Rabin (bases 2..37, deterministic below ≈ 3.18·10²³); every reported solution is
 re-verified as 4uBC − u − B = p in 128-bit arithmetic).
 **CERTIFIED: (★) holds for every prime p ∈ 𝔐 with 10¹⁰ < p ≤ 3·10¹¹** — 355 096 166 primes in four contiguous runs
 (`data/z58/tryo/range_{a,b,c,d}.txt`: [10¹⁰, 5.5·10¹⁰] 58 344 306, (5.5·10¹⁰, 10¹¹] 56 111 206, (10¹¹, 2·10¹¹]
 121 533 478, (2·10¹¹, 3·10¹¹] 119 107 176), hard = 0, VERIFYFAIL = 0. Largest least-u: 316 at p = 53 499 061 849 (d = 447 455,
-C = 354, B = 119 563); other run maxima: 263 (p = 60 921 814 801), 158, 289 (p = 219 564 149 401). Least-u histogram: > 2⁸ only for
-a handful of p per run. Sanity: on [1, 10⁸] the same engine returns exactly the 9 𝔐-zeros as HARD.
+C = 354, B = 119 563); other run maxima: 263 (p = 60 921 814 801), 158, 289 (p = 219 564 149 401). Least-u > 2⁸ occurs for at most one
+p per run (1, 1, 0, 1). Sanity: on [1, 10⁸] the same engine returns exactly the 9 𝔐-zeros as HARD.
 
 ### 8.7 The one pointwise statement that does follow (PROVED, weak)
 
@@ -320,12 +325,12 @@ every level u) is broken for primes at a level u ≤ n₂(p).
 *Proof.* u := n₂(p) is prime and odd (2 is a residue as p ≡ 1 (8)), u < p, (u/p) = −1; apply Lemma 1.4. ∎
 This is necessary, not sufficient, for a hit at u: (ℤ/4u)^× still has φ(4u)/2 − 1 = u − 2 other odd characters and the
 non-kernel failure mode of Lemma 1.2(c). The 𝔐-zeros have n₂(p) ∈ {11, 13, 17, 19, 23} (§3.3), so the statement is
-consistent with F4, vacuous at squares (no non-residue exists, matching Lemma 1.3), and says nothing at F2/F3 level.
+consistent with F4, does not apply to squares (for n = m², the Jacobi symbol (u/n) = 1 for every u, matching
+Lemma 1.3), and says nothing at F2/F3 level.
 (For the C-side there is no analogue: ∏_{q | 4Cp+1} (q/p)^{v_q} = ((4Cp+1)/p) = 1 always.)
 
 ### 8.8 Falsifier ledger for round 2
-* (F1) Lemma 8.1/8.2 and Prop 8.7 are vacuous or false-as-hit-sources at squares exactly as required (Lemma 1.3; no
-  non-residue). No round-2 mechanism produces a hit, so none can produce one at a square.
+* (F1) Lemma 8.1/8.2 give no hit at squares (Lemma 1.3); Prop 8.7 does not apply to squares (Jacobi (u/m²) = 1 ∀u). No round-2 mechanism produces a hit, so none can produce one at a square.
 * (F2) Nothing in round 2 is specific to C even or odd; nothing claims a hit for all p.
 * (F3) §8.4 data: zero rates of primes and of non-square composites coprime to 105 are comparable — a warning that any
   argument using "p prime" only through non-squareness + local data must still explain the 20 coprime composite zeros
