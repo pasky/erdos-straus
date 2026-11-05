@@ -200,3 +200,40 @@ Numerical confirmation (`scripts/z59_convo_schinzel.py`): R = 7: t = 16, 110, 17
 18481, 29569, 65521, 66529 with min ρ = 15, 19, 11, 11, 31 (> 7); R = 15: p = 2402401, 9609601, 12307681,
 12603361 with min ρ 23, 23, 19, 19; R = 23: p = 1621531850401, 4062963310561 with min ρ 31, 31. (66529 is one of
 the three a = 1 zeros.)
+
+## §8 Summary of claims
+
+| claim | status |
+|---|---|
+| Lemma 1.1–1.3 reformulations (ρ-form, p + 4a²d = fρ, pc + a has divisor ≡ −1 mod 4ac) | PROVED (+ checked) |
+| Lemma 2.1: every solution has f ≡ a/b (mod p) and (ab/p) = −1 | PROVED (+ checked, p < 2·10⁴) |
+| Criterion 3.1 (ratio set of divisors of N_ρ mod ρ contains −1); consecutive-integer form | PROVED |
+| Identity 3.2 (character expansion), Lemma 3.3 (square cancellation; ψ₀ − λ ≥ 0 for primes) | PROVED |
+| Cor 3.4 (ρ = 3 works iff (p+3)/4 has a prime factor ≡ 2 mod 3; ρ \| p + 4 ⇒ ρ works) | PROVED |
+| Lemma 4.1 (global colouring λ_ρ(ℓ) = (ℓ/p)), Lemma 4.2 (escape) | PROVED |
+| "escape ⇒ solution" is false (4545; and failing NR ρ at primes, e.g. 8 803 369) | CERTIFIED |
+| Lemma 5.1 (no solution with ab \| L when n ≡ 1 mod 4L) — Mordell barrier | PROVED |
+| min ρ ≤ 107 for all primes p ≡ 1 (24), p ≤ 10⁸ | CERTIFIED (computation) |
+| Thm 7.7: under Hypothesis H, min ρ unbounded on primes p ≡ 1 (24) | CONDITIONAL (Schinzel H) |
+| **The pointwise statement for large primes p ≡ 1 (24)** | **NOT PROVED** |
+
+The lane produced no proof and no hot lead. The sharpest structural output: (i) the problem is exactly
+"for some j, the integer (p+3)/4 + j has two divisors a, b, ab | it, with a + b ≡ 0 mod 4j + 3"; (ii) the only
+prime-specific input (the global quadratic colouring) controls one character per ρ and is provably insufficient
+(4545); (iii) residue information is provably insufficient (Lemma 5.1); (iv) bounded ρ is (conditionally) insufficient
+(Thm 7.7). A proof would need pointwise control of the residues mod ρ of the prime factors of (p+ρ)/4 for a
+growing range of ρ — which for p = m² is impossible (all such residues lie in ker λ_ρ), so any such control must
+come from p being prime in a way that is not a congruence and not the colouring.
+
+## §9 Falsifier re-audit (end)
+
+* (F1) squares: every PROVED positive statement here is either an equivalence (holds for all n) or a necessary
+  condition; the only existence statements (Cor 3.4, ρ | p + 4) have hypotheses that fail for n = m²
+  (m² + 3 has no prime factor ≡ 2 mod 3 other than possibly via 3 ∤; indeed λ ≡ 1 on its factors by Lemma 3.3(i);
+  ρ | m² + 4 with ρ ≡ 3 mod 4 impossible since −4 is a non-residue mod every prime ≡ 3 mod 4). ✓ No false proof.
+* (F2) d even: the criterion restricts to ρ ≡ −p (mod 8) and N_ρ/2; Cor 3.4 (ρ = 3) is unavailable for p ≡ 1 (8)
+  on this half (ρ must be ≡ 7 mod 8). d-even zeros recomputed (§6). Nothing claimed for the d-even half. ✓
+* (F3) 4545: used as the counterexample that kills "escape ⇒ solution" (§4). ✓
+* (F4) c = 1 and a = 1 zeros: all 17 have small working ρ with c ≥ 2, resp. a, b ≥ 2 (§6); Thm 7.7 even produces
+  66529 (an a = 1 zero) inside its family. No argument here is confined to one line. ✓
+Verdict: no hot lead; nothing survives as a proof.
