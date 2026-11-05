@@ -7,6 +7,7 @@ repository file, with a pointer. When a summary and its source disagree, the sou
 > **The Erdős–Straus conjecture (ES) is not solved — not here, not anywhere.** No case of "ES for all large primes" is
 > proved here, conditionally on any standard conjecture or otherwise. The literature was checked through 2026-09-28
 > (`LITERATURE_2026.md`; the verification record was re-checked on 2026-10-18); every recent claimed proof has an identifiable gap.
+> *(z58: literature addendum to 2026-10-30 in `Z58_LIT.md`; it includes the priority item under "Exceptional set" in §1.)*
 
 **Labels** (as in `DISCOVERIES.md`). PROVED = complete proof in the repo, possibly *relative to* named published theorems;
 CONDITIONAL = proved assuming a named hypothesis (GRH, Dickson, Hypothesis H, SEL, …); CERTIFIED = an exact finite computation,
@@ -61,6 +62,23 @@ approximation always exists, and BM does not explain all failures of strong appr
 * **E(N) ≪ N exp(−c(log N)^{3/4})** (`paper/es-threequarter-note.tex`; INTERNALLY PROVED, three reviews incl. a blind
   audit). Extends to every interval of length H (E(I) ≪ H exp(−c(log H)^{3/4}), (D)30) and to m/n uniformly in m ≥ 4
   (E_m(I) ≪ H exp(−c(log H)^{3/4} m^{−1/4}), (D)31).
+  *(z58 priority note, `Z58_LIT.md` §2.1; cross-model reviewed.)*
+  * **External prior claim.** Kandukoori–Ramesh–Kumar (K-R-K), *An improved bound for the exceptional set of the
+    Erdős–Straus equation*, state Theorem 1: E(N) ≪ N exp(−c(log N)^{3/4}) for all N ≥ 3, with the same saving for
+    exceptional primes. Theorem 2 covers E_m for each *fixed* m ≥ 4.
+  * **Source.** PDF dated 2026-07-29, archived in `data/z58/lit/sources/`; no arXiv record; unrefereed as far as known.
+  * **Lean repository.** The root commit is dated 2026-07-30 and already has the 3/4 saving, then conditional on nine
+    named analytic axioms. HEAD `f6c99eaa` (2026-10-30) closes with Lean's three standard axioms: the CI was verified,
+    the project was not rebuilt locally, and the analytic proof was not re-audited.
+  * **Chronology.** The campaign's note was first committed 2026-09-06. That date dates the file, not the discovery.
+    Exact public priority is unverified (no dated public snapshot).
+  * **Required wording.** Cite K-R-K wherever the internal 3/4 bound is mentioned. Do not call the campaign's bound
+    first; the note's abstract ("not aware of an earlier improvement") needs correction, **needs the user**.
+  * **What may still be campaign-new** (Assessment, to be compared): (D)30 and (D)31. Count-note Theorems A–D are
+    not superseded.
+  * Akaka Zenodo v0.8 (22905042, 2026-09-22) claims, as an author claim with a Lean certificate and specialist review
+    outstanding: at most CmX/(log X)⁴ primes in (X, 2X] have R_II,m(p) < c(log X)³/m, for 4 ≤ m ≤ (log X)³. This
+    concerns the full strict Type II family.
 * 3/4 is proved *sharp* for every CRT/coefficient-sum sieve architecture analysed (`EXCEPTIONAL_KARY3.md`, (D)24; STATUS
   "Exceptional-set exponent"); θ > 3/4 needs non-CRT input (tuple counts of growing order, residue-dense large sieves, weak
   SPW — each reduced to a precisely stated open statement).
@@ -77,7 +95,7 @@ an algebraic factorisation (Sophie Germain, 4X⁴ + 1 = (2X² + 2X + 1)(2X² −
 menu ladder collapses to B1/B2).
 
 **Other numerators.** m/n for m ≥ 5 has genuine exceptions for large m (Schinzel exceptions n_m ≥ exp(m^{1/3+o(1)}),
-Pomerance–Weingartner); **8/n fails at n = 131 and 241** (E₈ ∩ primes < 2000 = {2, 3, 11, 17, 131, 241}; `AMPLIFY_EXCEPTION.md`
+Pomerance–Weingartner, *Ramanujan J.* 69 (2026), art. 31, per z58 LIT); **8/n fails at n = 131 and 241** (E₈ ∩ primes < 2000 = {2, 3, 11, 17, 131, 241}; `AMPLIFY_EXCEPTION.md`
 Thm 2.5, CERTIFIED; the 8/n failures are known, PW Table 1). 5/n and 7/n have no known exception (7/n: none in [3, 10¹³],
 PW). This matters for §4: a numerator-uniform argument without a threshold would prove 8/131 ((J)41).
 
@@ -220,6 +238,40 @@ supercritical.
   even with constant 1 in Burgess, the relative bound at length q^{1/3} is 0.995 at q = 10¹⁰, so Theorem V's architecture
   as written does not give p₀ ≤ 10¹⁰ (a calibration of the displayed model bound, not a theorem about every Burgess-based
   argument).
+
+*(z58, sixteen lanes on (MS), each with internal hostile review and a cross-model review, all ACCEPT-WITH-FIXES with the
+fixes applied and not re-reviewed; `Z58_SUMMARY.md`.)* **(MS) remains open; no HOT LEAD; B2 did not move.** New data and
+targets for this section:
+* **Census extensions** (CERTIFIED; `Z58_SUMMARY.md` §3).
+  * **(★) holds at every prime p ∈ 𝔐 with 10¹⁰ < p ≤ 3·10¹¹**: 355 096 166 primes (`Z58_TRYO.md` §8.6). One
+    engine; the cross-review checked 8 732 primes in independent slices. This certifies full (★), not R₈ or R_𝔊*.
+  * **Zeros of R on 𝔐, all non-square n ≤ 10¹¹** (`Z58_LADDER.md` §3): exactly 9 primes (the in-𝔐 (★)-zeros, the
+    last 8 813 281) and 18 composites, the last 17 401 609 = 47·370 247. None among the 128 491 751 primes and
+    585 009 682 non-square composites in 𝔐 ∩ (10⁸, 10¹¹]. One engine; the cross-review decided 42 832 inputs pointwise.
+  * `Z58_LOGIC.md` §4 independently sieves this to 10¹⁰: two implementations agree to 4·10⁹.
+* **CONJECTURE (MS⁺)** (`Z58_LOGIC.md` §4): *R(n) ≥ 1 for every non-square n > 17 401 609 with n mod 840 ∈ 𝔐.*
+  * It is primality-blind on 𝔐, and MS⁺(P) ⟹ (MS) for P ≤ 10¹⁰⁷.
+  * It is consistent with the censuses to 10¹¹. In 𝔐 on [10⁷, 10⁸], mean R/L² is 0.1189 for composites against 0.1246 for
+    primes (CERTIFIED means).
+  * Finite data do not establish it, and do not show that 𝔐 is necessary.
+* **CONJECTURE CONV-II** (`Z58_WILDCARD.md` §1): *every odd non-square n ≥ 3 other than n = 4545 has N_II(n) ≥ 1*, where
+  N_II(n) = #{(a, b, c, d) ∈ ℕ⁴ : 4abcd = a + b + nc}.
+  * Status: CERTIFIED for n ≤ 10¹⁰; PROVED for n ≡ 3 (4).
+  * The prime form (MS-II), N_II(p) ≥ 1 for primes p > 10¹⁷ in 𝔐, is implied by (MS) and implies ES relative to
+    Mordell + Salez.
+  * This is the only carried target whose *statement* passes F1–F4 (§4) in the tested ranges. It is a "HOT TARGET"
+    (Assessment about the statement), **not a mechanism**.
+  * 4545 = 3²·5·101 is a genuine positive-integral Hasse failure with a nonempty BM set (`Z58_STRUCT2.md` Thm 4.1,
+    PROVED + CERTIFIED).
+* **Proved surrogate lower bounds, not bounds for R.**
+  * `Z58_TRYF2.md` Thm A (PROVED): M₂(p) ≥ c₀ log²p for every prime p ≡ 1 (4), p ≥ p₀ (c₀ = 1/300 works). Here
+    M₂ = Σ_C 4m_{2,C}/φ(4C) and R = M₂ + E₂ tautologically. What is missing is exactly E₂ > −M₂ pointwise.
+  * `Z58_TRYF.md` Thm 2.1 (PROVED, Burgess): the Jacobi layer L₂ of the character expansion satisfies
+    |L₂| ≤ (1/64 + o(1))log²p against L₀ = (1/8)log²p + O(log p).
+  * Thm 3.2 is CONDITIONAL on HCE(δ), a non-standard lower bound on L_r + L_n, stronger than the target.
+* **Least witness** (`Z58_WITNESS.md`; CERTIFIED). Every prime p ≡ 1 (4) ≤ 10¹⁰ with R(p) ≥ 1 has a solution with
+  min(u, B, C) ≤ 201, and ≤ 0.52 log²p. CONJECTURE W: every prime p ≡ 1 (4), p > 8 813 281, has a (★) solution with
+  min(u, B, C) ≤ (log p)². W ⟹ (MS).
 
 ## 3. The barrier map, as theorems with exact hypotheses
 
