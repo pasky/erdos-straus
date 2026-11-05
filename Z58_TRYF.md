@@ -161,10 +161,58 @@ for a single p, because every reformulation (Lemma 1.1(c),(d)) asks about diviso
 individual-p tool, exponential sums Σ_d e(hp/d) (van der Corput/exponent pairs, giving equidistribution of p mod d at
 resolution d/H for H ≤ p^{1/6} when d ≈ √p), resolves residues only up to scale p^{1/3}, far from the exact
 divisibility r_d | (d+1)/4 required. F2 is the quantitative reminder: HCE(δ) restricted to C even is false at p ≈ 10¹⁰.
-## §4 Numerical evidence (data/z58/tryf/)
+## §4 Numerical evidence (data/z58/tryf/; all EVIDENCE/CERTIFIED-by-computation, not used in proofs)
 
-(to be written)
+**4.1 Engine.** `scripts/z58_tryf_stats.c N` sieves all triples (u,B,C) with n = 4uBC − u − B ≤ N and, for n ≡ 1 (24),
+records R(n), R₈(n) (C even), minC, minUB := min over hits of min(u,B), Rpd := hits with d = 4uC−1 prime, min d.
+Run to N = 2·10⁸ (≈ 1 min): `data/z58/tryf/stats_2e8.txt` (Mordell-class primes and all R = 0 lines).
+Cross-check with the screens: the primes with R = 0 are exactly the 14 of `star_prime_zeros.txt` (all ≡ 1 mod 24),
+none in [8 813 281, 2·10⁸]; non-square composites n ≡ 1 (24) with R(n) = 0: 84 up to 2·10⁸ (last: 162 267 625), the
+ones ≤ 8·10⁶ agree with `composite_zeros_le8e6.txt`.
 
+**4.2 Mordell-class primes by decade** (p ∈ [10^k, 10^{k+1}); decade 8 is [10⁸, 2·10⁸]):
+
+| k | #primes | R=0 | mean R | min R | R₈=0 | Rpd=0 | max minC | #minC>20 | max minUB | #minUB>100 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 3 | 27 | 2 | 6.96 | 0 | 7 | 5 | ∞ | 2 | ∞ | 2 |
+| 4 | 246 | 1 | 11.83 | 0 | 25 | 16 | ∞ | 4 | ∞ | 1 |
+| 5 | 2097 | 2 | 19.04 | 0 | 64 | 37 | ∞ | 33 | ∞ | 3 |
+| 6 | 18143 | 4 | 28.18 | 0 | 99 | 87 | ∞ | 127 | ∞ | 7 |
+| 7 | 158955 | 0 | 38.92 | 2 | 136 | 245 | 41027 | 658 | 469 | 4 |
+| 8 | 166140 | 0 | 44.90 | 4 | 35 | 123 | 324 | 511 | 156 | 2 |
+
+Readings. (i) mean R ≈ (log p)²/8 (e.g. 44.9 vs 0.125·(log 1.4·10⁸)² ≈ 44), i.e. the local factors of the Mordell
+classes are close to 1 on average (the Mordell penalty L_r is O(1), see 4.3). (ii) The C-even half fails for ≈ 10⁻³ of
+the primes in decade 7 (F2 at 10¹⁰ is the same phenomenon), and the prime-d subfamily fails for a similar proportion.
+(iii) Neither small C nor small min(u,B) suffices uniformly: in decade 7 one prime needs C ≥ 41 027 for every hit
+(while having a hit with min(u,B) ≤ 469), and some need min(u,B) > 100. Any proof must use u, B, C all unbounded.
+
+**4.3 Character layers** (`scripts/z58_tryf_layers.c`; exact decomposition of §3, X = X_p; also re-verifies
+Lemma 1.2 at every d ≤ X_p — no failure for any of the 23 primes below). Files `layers_exceptional.txt`, `layers_sample.txt`.
+
+| p | R | R̃ | L₀ = M | L₂ = −S_p | L_r | L_n | Q_p |
+|---|---|---|---|---|---|---|---|
+| 409 | 0 | 0 | 4.76 | +0.64 | −0.07 | −5.32 | 2.70 |
+| 5569 | 0 | 0 | 9.57 | −0.89 | −1.24 | −7.45 | 4.34 |
+| 102001 | 0 | 0 | 16.94 | −0.80 | −0.90 | −15.24 | 8.07 |
+| 1134241 | 0 | 0 | 24.64 | −0.86 | −0.66 | −23.12 | 11.89 |
+| 8813281 | 0 | 0 | 32.34 | −1.64 | −2.09 | −28.61 | 15.35 |
+| 1021441 | 2 | 1.97 | 24.28 | −1.26 | −1.26 | −19.78 | 11.51 |
+| 1065409 | 10 | 9.01 | 24.42 | −1.40 | −2.23 | −11.78 | 11.51 |
+| 1062601 | 20 | 16.90 | 24.41 | −2.18 | −2.65 | −2.69 | 11.12 |
+| 1032721 | 50 | 42.10 | 24.31 | −0.24 | −1.47 | +19.49 | 12.04 |
+| 10087009 | 4 | 3.45 | 32.89 | −1.64 | −1.47 | −26.32 | 15.62 |
+| 10024009 | 24 | 19.77 | 32.86 | −1.06 | −2.70 | −9.34 | 15.90 |
+| 10003729 | 68 | 56.10 | 32.85 | −0.40 | −1.53 | +25.18 | 16.22 |
+| 1000033 (∉𝔐) | 32 | 24.71 | 24.20 | −0.26 | −0.59 | +1.36 | 11.97 |
+| 1000081 (∉𝔐) | 14 | 12.48 | 24.20 | −0.39 | −0.52 | −10.82 | 11.91 |
+
+Readings. (i) L₀ = M(X_p) ≈ (log p)²/8 as in §2. (ii) The flippable layers L₂, L_r are O(1) in this range — far
+below the Burgess worst case (log p)²/64 ≈ 3–4 of Theorem 2.1 — and L_r < 0 for all Mordell-class primes (local
+penalty from p being a QR mod 3, 7). (iii) L_n fluctuates on the scale of the main term itself (−28.6 … +25.2 at
+p ≈ 10⁷), so the event R(p) = 0 is "L_n ≈ −M": a ≈ 1.5σ deviation of the non-real layer. Any proof of (★) must show
+L_n > −M for every large p; nothing short of controlling the full non-real character spectrum of p modulo all
+d ≤ 4p/3 does that. This is the quantitative content of "HCE is the whole problem".
 ## §7 Falsifiers re-stated; hostile review; verdict
 
 (to be written)
