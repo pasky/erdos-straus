@@ -172,8 +172,11 @@ satisfies (4uC − 1)B = fB = n + 4d = n + u, i.e. 4uBC − u − B = n. The inv
 (★) events at least T = 8, 44, 8.
 
 **What is and is not excluded (scoped).**
-* PROVED: complementarity on a *shared* integer is impossible, since the stronger event implies the weaker (Prop 3.1).
-  Any rescue of one line by the other uses an integer the first line does not use.
+* PROVED: within one coordinate system, on a *shared* integer the stronger event implies the weaker (Prop 3.1), so
+  rescue there goes in one direction only. A (★)-zero rescued by a = 1 needs 4 ∤ T in the T-system; an a = 1 zero
+  rescued by (★) needs 4 ∤ y in the shift system. This is *not* a statement that every rescue uses an integer unavailable
+  to the other family in every coordinate system: at n = 193, T = 8, the integer 1545 = 15·103 is used by both T-families;
+  the (★) event holds there (103 ≡ −1 mod 8), the a = 1 event (mod 32) fails, and a = 1 fails globally at 193.
 * PROVED (fixed finite menus): for a fixed finite set of events (T, f), every prime p ≡ 1 (mod 840·∏f) makes all of them
   fail. Such f | Tp + 1 forces f | T + 1, which is impossible: for 4 | T, f ≥ T − 1 and T ≥ 4; otherwise
   f ≥ 4T − 1 > T + 1. This is the Z57_BFII Prop 3.2 argument; Dirichlet gives infinitely many such p.
@@ -260,8 +263,11 @@ E(4c²dn + 1, 4cd), d ≥ 1. Fix m and the admissible c (c² | m).
 * Two admissible c need not be comparable. With m = 36: at n = 31, E₃ holds (divisors 47, 95 ≡ −1 mod 48) and E₂ fails
   (mod 72); at the prime n = 461, E₂ holds (71 ≡ −1 mod 72) and E₃ fails. Both imply E₆.
 * Every admissible c divides r(m), so every admissible c-event implies the r(m)-event. That event is itself admissible.
-* Hence the union of all c-lines is the single line m ↦ E(4mn + 1, 4m/r(m)). "All c-lines fail" is one line failing,
-  and complementarity among c-lines on a shared integer is impossible.
+* Hence the union of all c-lines is the single line m ↦ E(4mn + 1, 4m/r(m)): all admissible events are contained in
+  the greatest event E_{r(m)}, and their union equals it. "All c-lines fail" is one line failing. Nested pairs
+  (c | c′) cannot rescue each other in both directions; incomparable pairs can (the m = 36 example above: c = 2 and c = 3
+  rescue each other on the same integer). The greatest-event reparametrisation does not show that cross-line effects
+  are absent.
 * For m ≠ m′, gcd(4mn + 1, 4m′n + 1) divides 4(m − m′). This bounds common factors only. ∎
 
 *Reading (Assessment).* The brief asked whether inheritance or the numerator ladder gives a genuinely pointwise
@@ -311,8 +317,9 @@ duplicate it.
 
 **Verdict: narrowed (scoped structure) + a sharper target. No mechanism.**
 * *Narrowed.* PROVED, each in its stated scope:
-  * a shared integer cannot give complementarity between the c = 1 and a = 1 lines (Prop 3.1), nor among c-lines
-    (Prop 4.2);
+  * within one coordinate system, on a shared integer the c = 1 and a = 1 events are nested, so rescue goes in one
+    direction only (Prop 3.1); the c-line events on a shared integer all lie inside the greatest event E_{r(m)}, whose
+    union they are (Prop 4.2; incomparable c can rescue each other);
   * fixed finite event menus fail jointly on a congruence class;
   * equation-scaling transports (inheritance, numerator ladder, dilation) give no descent into a prime (Prop 4.1);
   * the Type II tie is never weaker than a square root (Prop 2.1(a)).
@@ -329,8 +336,9 @@ duplicate it.
 * F3: {105, 4545} ≤ 10¹⁰.
 * F4: all known zeros rescued.
 
-The structural statements of §§2–4 are theorems about the families, not mechanisms. None of them proves positivity
-anywhere.
+The structural statements of §§2–4 are theorems about the families, not mechanisms. None of them proves universal
+positivity beyond the established local covering classes (Prop 2.2: U(n) ≥ 1 whenever gcd(n, f) = 1 and (n/f) = −1 for
+some f ∈ {3, 7, 15}; e.g. n = 5 via f = 3).
 
 **Proposed FRONTIER text** (for the integrator; FRONTIER is not edited here).
 * §2.4 / ladder: "(MS-U): U(p) ≥ 1 for primes p > 10¹⁷ in 𝔐. Here U = (c = 1) ∪ (a = 1) is the single line ∃T: Tp + 1
@@ -338,8 +346,9 @@ anywhere.
   'cp + 1 mod 4c' form). (MS) ⟹ (MS-U) ⟹ (MS-II). At primes U is López's Conjecture 1. Its only odd non-square zeros
   ≤ 10¹⁰ are 105 and 4545 (CERTIFIED; previously to 4·10⁶). Numerator 8: U⁽⁸⁾ has 61 prime zeros ≤ 10⁸ (all odd
   primes; last 3 869 153)."
-* §6: "(z59) Coordinate lines of Type II cannot complement each other on a shared integer: the stronger event implies
-  the weaker (`Z59_CONV2.md` Props 3.1, 4.2). Equation-scaling transports (inheritance, numerator ladder) give no
+* §6: "(z59) Coordinate lines of Type II on a shared integer: c = 1 and a = 1 events are nested within each coordinate
+  system, so rescue there is one-directional (`Z59_CONV2.md` Prop 3.1); all c-line events on 4mn + 1 lie inside the
+  greatest event E_{r(m)}, whose union they are (Prop 4.2; incomparable c can rescue each other)." Equation-scaling transports (inheritance, numerator ladder) give no
   descent into a prime (Prop 4.1). In the certified range the full family beyond U is needed only at n = 105."
 * §7 item 18: add "a fixed-p argument for the U-line (Lemma 1(iii)) suffices for (MS-II). In the tested range the
   screens do not require the full family beyond U; the a = 1 branch of U itself uses c ≥ 2."
@@ -350,7 +359,8 @@ anywhere.
 * The family's good behaviour under the falsifiers, by contrast, is already present in the union of two one-parameter
   lines. That union is a single line: Tp + 1 must have a divisor ≡ −1 modulo T (4 | T) or 4T (otherwise). Up to 10¹⁰
   it fails at no odd non-square except 105 and 4545.
-* The two lines cannot complement each other on the integers they share.
+* On an integer the two lines share (within one coordinate system) their events are nested, so rescue there goes in
+  one direction only.
 * Inheritance and the numerator ladder never transport a solution *to* a prime from anything smaller.
 * No mechanism was found for the private integers. The data are consistent with a count heuristic, and the measured
   whole-family association is positive.
@@ -404,4 +414,11 @@ Fixes applied:
 | 12 | stale LATE counts and data size | 11 366 + 215 858 checked; K = 8 files gzipped, total ≈ 3.4 MB |
 | 13 | min(2, τ(u)); gcd(n, f) = 1; transport endpoints; C-parity attribution (Z57_SYNTH); reproduction wrappers; rawform exit code | all applied |
 
-A cross-model review will follow (WAIT; not merged).
+**Cross-model review** (`data/z59/xreview/REVIEW_CONV2.md`, ACCEPT-WITH-FIXES). It confirmed Lemma 1, Props 2.1–4.2
+(formal statements), the engine, an independent direct-progression census of U to 10⁹ (exactly {105, 4545}), a replay
+of all three intervals to 10¹⁰, the K = 8 total 819 = 61 + 758, all LATE certificates, masks and screens. Fixes applied:
+1. §3 rescue sentence restricted to its coordinate system and direction; n = 193, T = 8 counter-example recorded.
+2. The c-line "no complementarity" claim (Prop 4.2, §6 verdict, proposed FRONTIER §6 text) replaced by the
+   greatest-event statement; incomparable c (m = 36: c = 2, 3) can rescue each other.
+3. "None of them proves positivity anywhere" replaced by "no universal positivity beyond the local covering classes of
+   Prop 2.2".
