@@ -1,0 +1,4 @@
+(★)-zero primes 14 | locally rescued (f = 3, 7, 15): 5 | in 𝔐: 9
+(★)-zero composites 285 | locally rescued (f = 3, 7, 15): 51 | in 𝔐: 15
+locally rescued primes: [409, 577, 23929, 329617, 1134241]  all outside 𝔐: True
+composites not locally rescued: 234 | 3|n: 176 | 5|n: 98 | 7|n: 94 | coprime to 105: [1969, 2641, 5161, 18001, 23881, 90889, 112849, 199369, 345361, 349609, 510169, 539281, 897961, 2956321, 3210601]
