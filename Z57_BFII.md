@@ -21,9 +21,8 @@ Scripts `scripts/z57_bfii_*`, data `data/z57/bfii/`.
   odd n has (n/f) = −1 for both witness moduli f = 4acd − 1 and f′ = 4bcd − 1. Consequences: (i) **T1:** N_II(m²) = 0
   for every m (all four-parameter N-points, not only primitive ones); (ii) **witness barrier:** at a prime p ≡ 1 (4),
   min(4acd − 1, 4bcd − 1) ≥ n_p, the least quadratic non-residue mod p. So any argument that always produces a solution
-  with witness modulus ≤ g(p) proves n_p ≤ g(p); with g(p) = p^θ, θ < 1/(4√e), that would beat Burgess. The witness
-  cannot be polylogarithmically bounded uniformly in shape-free arguments without first solving Vinogradov's problem
-  (unconditionally n_p ≫ log p · log log log p infinitely often, Graham–Ringrose).
+  with witness modulus ≤ g(p) proves n_p ≤ g(p): g(p) = p^θ with θ < 1/(4√e) would beat Burgess, g(p) = (log p)^A
+  would prove an open (GRH-strength) least-non-residue bound, and g(p) = C log p is impossible for infinitely many p.
 * **Complete moduli (§3, PROVED + CERTIFIED).** −T_f is the full set of Jacobi-non-residue units mod f exactly for
   f ∈ {3, 7, 15} among f < 4000 (CERTIFIED), and for only finitely many f in total (PROVED). Hence (PROVED, Mordell-type)
   f_II(p) ≥ 1 whenever p is a non-residue mod 3, 5 or 7, with explicit solutions; for every other modulus the target set
@@ -84,8 +83,9 @@ direct (a ≤ b) counts at 10 values of n up to 10⁵: all agree) — `data/z57/
 
 *Remark (what c changes).* In form (a) the c = 1 line forces e = a + b; c ≥ 2 lets e be a proper divisor of a + b. In (d)
 the c = 1 targets are the τ(m_f) integers a | m_f, the full targets are the ≤ τ₃(m_f) fractions a/c. Example: f = 3
-(a = c = d = 1) solves every p ≡ 2 (mod 3) via (x, y, z) = ((p + 1)/3, p, p(p + 1)/3); the c = 1 line alone has no
-f = 3 analogue beyond p ≡ 5 (mod 8)… and in the data the least c = 1 witness exceeds 4·10⁵ for 18 primes < 10⁹.
+(a = c = d = 1) solves every p ≡ 2 (mod 3) via (x, y, z) = ((p + 1)/3, p, p(p + 1)/3); here c = 1 already suffices
+(T_3 = {1}). The first difference is f = 7: c = 1 gives the targets {1, 2}, all c give {1, 2, 4} (complete, §3). In the
+data the least c = 1 witness exceeds 4·10⁵ for 18 primes < 10⁹, while the least Type II witness never exceeds 3263 (§4.2).
 
 ## 2. The QNR-witness lemma, T1, and the witness barrier
 
@@ -109,10 +109,12 @@ fail at n = m², i.e. must use some f with (p/f) = −1 — Proposition 2.2 says
 *Proof.* (p/f) = −1 forces a prime ℓ | f with (p/ℓ) = −1; by reciprocity (ℓ/p) = (p/ℓ) = −1 (p ≡ 1 mod 4), so
 n_p ≤ ℓ ≤ f. ∎
 *Consequence (Assessment, rigorous as stated).* An argument that, for every large p, exhibits a solution with
-4acd − 1 ≤ g(p) proves n_p ≤ g(p). The best unconditional bound is n_p ≪ p^{1/(4√e)+ε} (Burgess), and
-n_p ≫ log p·log log log p for infinitely many p (Graham–Ringrose; ≫ log p·log log p under GRH, Montgomery). So a proof
-must allow witness moduli of size at least ≫ log p·logloglog p, and one confined to f ≤ p^θ, θ < 1/(4√e) ≈ 0.152, would
-improve Burgess. (It does not constrain e or d: e = 3 works for half of all primes.) CERTIFIED check: in the scans of §4
+4acd − 1 ≤ g(p) proves n_p ≤ g(p). The best unconditional bound is n_p ≪ p^{1/(4√e)+ε} (Burgess); n_p ≤ 2 log²p is
+known only under GRH (Ankeny/Bach); and n_p ≫ log p·log log log p for infinitely many p (Graham–Ringrose 1990;
+≫ log p·log log p under GRH, Montgomery) — these two lower bounds are quoted from memory, and whether the exceptional
+primes can be taken ≡ 1 (mod 4) was not re-checked (Assessment; the usual constructions take p ≡ 1 mod 8). So a proof
+confined to f ≤ p^θ, θ < 1/(4√e) ≈ 0.152, would improve Burgess, and one confined to f ≤ (log p)^A would prove a
+GRH-strength least-non-residue bound unconditionally. (It does not constrain e or d: e = 3 works for half of all primes.) CERTIFIED check: in the scans of §4
 the least witness f is ≥ n_p for all 25 423 491 primes p ≡ 1 (4) below 10⁹ (0 violations).
 
 ## 3. Complete moduli: what finite covering gives
@@ -129,7 +131,7 @@ character mod f and the right side has φ(f)/2 elements.
     Explicit witnesses (a, c, d): f = 3: (1, 1, 1); f = 7: (1, 1, 2), (2, 1, 1), (1, 2, 1) for p ≡ 6, 5, 3 (mod 7);
     f = 15: (1, 1, 4), (2, 1, 2), (4, 1, 1), (1, 2, 2), (1, 4, 1), (2, 2, 1) ; then b = (cp + a)/f and
     (x, y, z) = (abd, acdp, bcdp).
-*Proof.* (a) is a finite check (done by hand in §1 of the script output and above). (b) τ₃(m) ≪_ε m^ε and
+*Proof.* (a) is a finite check (by hand: the pairs (a, c) with ac | m_f are listed in (c); also `cover.txt`). (b) τ₃(m) ≪_ε m^ε and
 φ(f) ≫_ε f^{1−ε}. (c) If (p/f) = −1 for a complete f then p mod f ∈ −T_f, i.e. −p mod f ∈ T_f, and Lemma 1.1(d) gives a
 solution. (p/15) = −1 with (p/3) = 1 means (p/5) = −1; conversely if (p/3) = (p/7) = 1 and (p/5) = 1 none of the three
 applies. ∎
@@ -145,7 +147,7 @@ and at that point the question is the distribution of the single residue sequenc
 **4.1 Exhaustive counts (CERTIFIED).** `z57_bfii_enum.c` loops over (a, b, d) with 4abd − (a + b) ≤ X and e | a + b
 (precomputed divisor lists), recording for every n ≤ X = 10⁷: N_II(n), the c = 1 count R(n), the primitive count
 (= f_II(n) for primes), the largest c and the least e. Runtime 8 min. Results (`stats_1e7.txt`):
-* odd n ≤ 10⁷ with N_II(n) = 0: the 1580 odd squares and **n = 4545 = 3²·5·101** (ES holds there through the factor 5);
+* odd 1 < n ≤ 10⁷ with N_II(n) = 0: the 1580 odd squares 3², …, 3161² and **n = 4545 = 3²·5·101** (ES holds there through the factor 5);
 * every prime p ≤ 10⁷ has N_II(p) ≥ 1; minimum of f_II(p) over p ≡ 1 (4) is 2 (p = 5, 13);
 * R(p) = 0 for 14 primes p ≡ 1 (4) ≤ 10⁷ (last 8 813 281) and 10 primes p ≡ 3 (4); there N_II(p) ∈ [76, 184].
 
@@ -200,8 +202,9 @@ that integer. No slice has an averaging variable independent of p; e.g. the a = 
 modulus class of a fixed integer. (In the language of the brief: c *is* attached to p — it multiplies p in (2.15).)
 
 **5.2 c as a target enlargement.** Fourier-expanding form (a) per pair (a, b) (moduli q = 4ab, targets −e, e | a + b):
-  N_II(p) = Σ_{a,b} φ(q)⁻¹ Σ_{χ mod q} χ(−p)·σ_χ̄(a + b),  σ_ψ(m) := Σ_{e | m} ψ(e)
-(the terms with gcd(e, q) > 1 vanish since gcd(p, q) = 1 and χ(e) = 0). Compared with the c = 1 line (σ replaced by
+  N_II(p) = Σ_{a,b: 4ab ≤ p+a+b} φ(q)⁻¹ Σ_{χ mod q} χ(−p)·σ_χ̄(a + b),  σ_ψ(m) := Σ_{e | m} ψ(e)
+(p ≡ −e (mod q) with p + e > 0 makes d = (p + e)/q a positive integer automatically; it is impossible when
+q > p + a + b and when gcd(e, q) > 1, matching χ(e) = 0). Compared with the c = 1 line (σ replaced by
 χ̄(a + b)), each modulus carries the multiplicatively smoothed weight σ_χ̄(a + b), whose size is τ(a + b) for χ trivial on
 the primes of a + b and typically ~τ(a + b)^{1/2}: this is the 1.8× relative gain of §4.4. Splitting real χ (genus
 part M_gen) from order ≥ 3 (X), Corollary 2.3 gives X(m²) = −M_gen(m²) for every sub-family (both are 0 there), and at
@@ -225,10 +228,11 @@ above (a positive density decaying in H), never to zero for one given p; squares
 **5.5 What would suffice (CONDITIONAL statement, for the record).** Hypothesis SB(θ): for every large prime
 p ≡ 1 (4) there is F ∈ [p^θ, p^{1/2}] such that Σ_{F<f≤2F, f≡3(4)} #{(a, c) : ac | m_f, a c⁻¹ ≡ −p (f)} ≥ ½ G_F(p),
 G_F(p) := Σ_{F<f≤2F} G_f(p). Then f_II(p) ≥ 1 for large p *provided* G_F(p) > 0, which is a genus (real-character)
-statement of Theorem V type. SB(θ) is not a standard conjecture: it is false at squares (left side 0, G_F(m²) > 0 is
-possible only through non-genus... in fact G_F(m²) = 0 by Cor. 2.3's argument applied to the genus weight), it is not
-implied by GRH (which controls χ(p) on average over characters, not the order-≥3 Fourier mass at one p), and §4.4 shows
-that its block version with ½ replaced by 0.30 held for all 3087 tested primes at 10⁷ (EVIDENCE only).
+statement of Theorem V type (Assessment: G_F(p) ≫ log²F should follow by the §5.3 route for F in the Burgess range).
+SB(θ) is consistent with T1 — at n = m² both sides vanish, since −m²·c·a⁻¹ is never a square unit mod f
+((−ac/f) = −1 by Lemma 2.1) — so all the non-squareness enters through G_F(p) > 0 and the ½. It is not a standard
+conjecture and (Assessment) not implied by GRH, which controls χ(p) on average over characters, not the order-≥3 Fourier
+mass at one p. §4.4: its block version with ½ replaced by 0.30 held for all 3087 tested primes at 10⁷ (EVIDENCE only).
 
 ## 6. Bottom line
 
