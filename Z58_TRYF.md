@@ -34,15 +34,18 @@ where the attack stops (hypothesis HCE, §3).
   survives F2 only in the weak sense that it proves nothing without HCE; it does not pass F2 as a proof.
 * (F3) 285 non-square composites n ≡ 1 (4) ≤ 8·10⁶: Layer 2 for composite non-square n uses the Jacobi
   character (·/n) (non-principal; its primitive part is (·/core(n)), core(n) = product of the primes with odd exponent in n), Burgess still applies; so Layers 0+2
-  do not distinguish primes from non-square composites. The asymptotic reduction says nothing at n ≤ 8·10⁶.
+  do not distinguish primes from non-square composites. The asymptotic statements say nothing at n ≤ 8·10⁶.
   The hypothetical HCE would have to be false for these n (and is, since R(n) = 0 there); consistent, no
   information.
-* (F4) 14 primes 409 … 8 813 281 with R(p) = 0: same as F3 — the reduction is asymptotic with an ineffective
-  threshold; nothing is claimed below the threshold.
+* (F4) 14 primes 409 … 8 813 281 with R(p) = 0: same as F3 — Theorem 2.1 is asymptotic with an astronomically large
+  threshold and HCE is unproved; nothing is claimed below the threshold.
 
 Conclusion of §0: the idea is NOT a hot lead. It isolates exactly which part of the problem is "reciprocity-
-flippable" (Layer 2 and, for p ≡ 1 (24), the layers of order dividing 24 via cubic/higher reciprocity in
-ℤ[ζ_m]) and which is not (all other characters mod d, i.e. (d−1)−O(1) of them).
+flippable" (Layer 2, all real characters mod composite d, and for prime d the ≤ 6 characters of order dividing 6 via
+cubic reciprocity) and which is not (all other characters mod d, i.e. (d−1)−O(1) of them).
+Note also that the numerical §4.4 shows a non-zero mean of the "irreducible" layer L_n (≈ −3 at p ≈ 10⁶): the
+small-conductor non-real characters (p mod 5, 7, 9, … beyond quadratic information) are local factors, trivially known
+in a fixed residue class; the genuinely non-local remainder is what fluctuates.
 
 ## §1 Exact reformulations (PROVED, elementary)
 
