@@ -21,7 +21,7 @@ pari.allocatemem(2_000_000_000)
 
 CURVES = [(-27, 90), (36, 144), (6, 16), (-18, 8), (-56, 0), (-28, 112), (42, 92)]  # y^2 = x^3 + a x + b
 MORD = {1, 121, 169, 289, 361, 529}
-ROOT = "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/"
+ROOT = str(__import__("pathlib").Path(__file__).resolve().parents[1]) + "/"
 zp = [int(x) for x in open(ROOT + "data/z58/screens/star_prime_zeros.txt") if x.strip() and x[0] != "#"]
 zc_all = [int(x) for x in gzip.open(ROOT + "data/z58/logic/zeros_1e10.txt.gz", "rt") if x.strip() and x[0] != "#"]
 zc = [n for n in zc_all if not pari.isprime(n) and pari.issquarefree(n) and n > 1]

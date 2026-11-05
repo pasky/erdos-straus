@@ -1,4 +1,5 @@
 #!/bin/bash
+set -o pipefail
 # z59 WALDS: sweep of scripts/z59_walds_halfint.py over levels L = 4N (N | 840 subset given as args) and all
 # positive fundamental D (incl. 1) whose conductor divides L; both T1 variants (l0=0: all odd m^2; l0=11: primes >= 11).
 # Usage: bash scripts/z59_walds_halfint_sweep.sh B L1 L2 ...   (appends to stdout)

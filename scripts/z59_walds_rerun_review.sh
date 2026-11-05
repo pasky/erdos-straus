@@ -1,6 +1,7 @@
 #!/bin/bash
 # z59 WALDS: reruns after internal review (good-square rows on the cusp space; level-840 survivor screens).
 # Usage: bash scripts/z59_walds_rerun_review.sh   (writes data/z59/walds/halfint_cusp_good.txt, diag_survivors_good.txt)
+set -o pipefail
 cd "$(dirname "$0")/.."
 ulimit -v 4000000
 for D in 1 8 21 56 105 168 280 840; do

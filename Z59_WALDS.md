@@ -13,13 +13,15 @@ data `data/z59/walds/` (< 1 MB). Literature log: `data/z59/walds/lit_verify.md`.
    𝒞₁ (Lemma W0). For an effective proxy, "valid at large primes of the class" is equivalent to (MS) there (Prop W5).
 2. **CERTIFIED (finite, exact) + EVIDENCE.** Gauss-exceptional φ exist already at small level (e.g. φ = the conductor-84
    curve y² = x³ − x² − 36x − 72, G_φ = φ ⊗ χ_{−168} of rank ≥ 2). An exact sweep of M_{3/2}(Γ₀(L), (D/·)), 24 levels
-   L | 3360, all ψ (§5), finds non-zero T1-kernel on 𝒞₁ ∩ [1, B] at 15 (L, ψ) pairs, each of rank 1 and each matching
-   a predicted rational Gauss-exceptional φ (the matching is EVIDENCE); every survivor is non-zero at known R-zeros
+   L | 3360, 121 (L, ψ) pairs (123 comparisons: 118 full-space + 5 cusp-space runs; §5), finds non-zero T1-kernel on
+   𝒞₁ ∩ [1, B] at 15 (L, ψ) pairs — rank 1 at 13 of them in the full space; at (840, χ₁₀₅), (840, χ₈₄₀) the full-space
+   rank at B = 8000 is 5, and rank 1 only in the cusp space at B = 16 000 — each matching a predicted rational
+   Gauss-exceptional φ (the matching is EVIDENCE); every survivor is non-zero at known R-zeros
    (5569, 9601, 23929, composites 1969, 2641, 5161), so at each swept (L, ψ) **every valid proxy vanishes on
    𝒞₁ ∩ [1, B]** (CERTIFIED; scope in §5.3).
 3. **Positivity of one eigensystem** at p is L(G_φ ⊗ χ_p, ½) ≠ 0. GRH does not give it (Assessment); the literature has
    only lower bounds / proportions over discriminants; it fails at explicit 𝔐-primes for the survivors found (13
-   PROVED unconditionally via rank ≥ 2 + Gross–Zagier–Kolyvagin; 57/238 resp. 54/238 coefficient zeros, L-value reading
+   𝒞₁-primes PROVED unconditionally via rank ≥ 2 + Gross–Zagier–Kolyvagin, **six of them in 𝔐**; 57/238 resp. 54/238 coefficient zeros, L-value reading
    CONDITIONAL); eventual effectiveness is unproved and, by a residue-class version of CKRS's conjecture, false
    (CONJECTURE). None of this excludes higher-level signed or multi-eigensystem proxies (escapes in §7).
 
@@ -42,8 +44,8 @@ i.e. (Waldspurger) from central values L(½, φ ⊗ ψχ_{−4}χ_p) at the sing
 |---|---|
 | **F1 odd squares** | **This is where the residue is decided.** An odd square m² (gcd(m,2N) = 1) lies in 𝒞₁ with squarefree part t = 1, and Waldspurger's twist character at t = 1 is χ₀^{−1} = ψ̄·(−1/·): the twist is **G_φ = φ ⊗ ψχ_{−4}**, field ℚ(√−d) (up to squares) for θ-lattices of determinant d (ℚ(i) for d = 1 — the field of the C = 1 norm form 4m²+1 = N(1+2mi) of T1; TERNARY Lemma D(d) uses ℚ(√−C)). Thm W1: T1 forces g_φ(1) = 0 for every eigensystem φ, and Waldspurger's Cor. 2 transports a(1) = 0 to the whole square class unless **L(G_φ, ½) = 0** ("Gauss-exceptional"). Non-squareness is used exactly here: the odd squares pin the anchor coefficient a(1). Finite exact check: at every swept (L, ψ) the T1-kernel on 𝒞₁ ∩ [1, B] is 0 or a single line, and the lines occur exactly at the 15 (L, ψ) where a rational Gauss-exceptional φ of conductor | 2N exists (§5.2; the identification is EVIDENCE). |
 | **F2 C-even (R₈)** | Everything negative here (W1, W1′, W2, W5, Lemma W0) is line-blind and applies verbatim to R₈-support proxies (R₈ also vanishes on odd squares), so nothing false is proved. The only positive statement (Prop W4, dictionary) assumes validity. For an R₈-support proxy whose 𝒞₁-part is a *single* line, validity needs L(½, G_φ ⊗ χ_p) = 0 at the 4 in-𝔐 R₈-zero primes 10 301 993 881, 10 529 331 121, 10 532 106 649, 10 868 474 401 (not screened: B too small, conductors too large); for a multi-line sum only the cancellation Σ_φ K_φA_φ(p) = 0 is needed. |
-| **F3 composites** | All 18 non-square composite R-zeros in 𝔐 ≤ 10¹⁰ (1969 … 17 401 609) are **squarefree**, hence in 𝒞₁ with their own twist χ_t; they enter exactly like prime zeros (Prop W4), and the survivors of §5.3 are non-zero at 1969, 2641, 5161 (invalid there too). The algebraic identities W1/W1′/W4 do not use primality beyond "t squarefree in 𝒞₁"; any use of primality would have to come in a subsequent analytic non-vanishing/cancellation step (none is available, §4.1). |
-| **F4 known zeros** | Prop W4(d) (PROVED rel. Waldspurger Cor. 2): a proxy whose 𝒞₁-part is one Gauss-exceptional line is **invalid** as soon as that line is non-zero at one R-zero of 𝒞₁. **Exact screen (§5.3, CERTIFIED):** at each of the 15 (L, ψ) with a survivor, the survivor is non-zero at known in-class R-zeros — 5569 and 9601 (all pairs except the two at L = 420, whose survivors vanish there; also 23929 at L = 240) and/or the 𝔐 composite zeros 1969, 2641, 5161 — and adding the R-zero rows leaves rank 0 on 𝒞₁ ∩ [1, B] in all 15 cases, so every valid proxy of each swept (L, ψ) vanishes on 𝒞₁ ∩ [1, B] (full space; TERNARY class for three cusp-space runs at L = 840). Supplementary numerical screen (§6.2): 7 larger-conductor Gauss-exceptional G (rank-2 curves) all have numerically non-zero central values at in-class (★)-zero primes. |
+| **F3 composites** | Mandatory 285-entry screen (`composite_zeros_le8e6.txt`): exactly **15/285 lie in 𝔐, all squarefree**; the other 270 are outside 𝔐 but **not automatically outside a level-dependent 𝒞₁(2N)** (for levels with fewer odd primes 𝒞₁ is larger), so they are potential validity witnesses there too. The enlarged LOGIC list (to 10¹⁰) has 18 𝔐-composites (1969 … 17 401 609), all squarefree. Squarefree zeros in 𝒞₁ enter exactly like prime zeros (Prop W4); the survivors of §5.3 are non-zero at 1969, 2641, 5161 (invalid there), and the R-zero rows of the certificates (§5.3(b)) include *all* composite zeros ≤ B. The algebraic identities W1/W1′/W4 do not use primality beyond "t squarefree in 𝒞₁"; any use of primality would have to come in a subsequent analytic non-vanishing/cancellation step (none is available, §4.1). |
+| **F4 known zeros** | Prop W4(d) (PROVED rel. Waldspurger Cor. 2): a proxy whose 𝒞₁-part is one Gauss-exceptional line is **invalid** as soon as that line is non-zero at one R-zero of 𝒞₁. **Exact screen (§5.3, CERTIFIED):** at each of the 15 (L, ψ) with a survivor, the survivor is non-zero at known in-class R-zeros — 5569 and 9601 (all pairs except the two at L = 420, whose survivors vanish there; also 23929 at L = 240) and/or the 𝔐 composite zeros 1969, 2641, 5161 — and adding the R-zero rows leaves rank 0 on 𝒞₁ ∩ [1, B] in all 15 cases, so every valid proxy of each swept (L, ψ) vanishes on 𝒞₁ ∩ [1, B] (full space; TERNARY class for three cusp-space runs at L = 840). Supplementary numerical screen (§6.2): 7 larger-conductor Gauss-exceptional G (rank-2 curves) all have numerically non-zero central values at in-class (★)-zero primes. **𝔊\* zeros.** 9 of the 14 (★)-zero primes and 20 of the 38 𝔊\*-zero primes lie in 𝔐; all 14 (★)-zero primes are among the 38 𝔊\*-zeros, so every R-support invalidity witness above also invalidates the corresponding 𝔊\*-support proxy; the other 24 𝔊\*-zeros are not R-zeros and cannot be used against R-support proxies (none were used). No 𝔊\*-specific screen was run. |
 
 ---
 
@@ -189,8 +191,8 @@ L(½, G_φ ⊗ χ_p) ≠ 0 — *provided* the proxy is valid, which is the subje
 ### 4.1 GRH, known results, conjectures (literature verified, §2 and `lit_verify.md`)
 * **GRH does not give it** (Assessment, elementary): GRH constrains Re ρ only; a zero at s = ½ is on the critical line.
   W1/W3 make the point sharp: every contributing G_φ *itself* has a central zero (of even order ≥ 2 in all cases found),
-  and §6.1 exhibits, for the survivors actually found, explicit 𝔐-primes p with L(G_φ ⊗ χ_p, ½) = 0 (13 proved
-  unconditionally; more from exact coefficients, CONDITIONAL). Finitely many such p do not refute *eventual*
+  and §6.1 exhibits, for the survivors actually found, explicit 𝔐-primes p with L(G_φ ⊗ χ_p, ½) = 0 (13 𝒞₁-primes proved
+  unconditionally, six of them in 𝔐; more from exact coefficients, CONDITIONAL). Finitely many such p do not refute *eventual*
   non-vanishing; they refute only the everywhere version.
 * **Under GRH, only proportions**: Heath-Brown, Duke Math. J. 122 (2004), Thm 3 (average analytic rank ≤ 3/2 + o(1) in
   each sign family, under RH for the twists) and Thm 4 (≥ 1/4 of the + family has rank 0, weighted). Nothing pointwise.
@@ -275,11 +277,14 @@ proves rank ≥ 2 (so L(G_φ, 1) = 0 by Gross–Zagier–Kolyvagin; lit_verify #
 
 **Outcome.** Labels: every finite matrix rank below is CERTIFIED (exact rational arithmetic in pari); that the finite
 kernel has stabilised in B, and the identification of the 𝒞₁-lines with the listed φ, are EVIDENCE (the T1 rows not
-reaching full rank — "sat" — is a heuristic stopping signal, not a certificate). Of the 123 full-space runs with
-all-odd-square rows (`compare_W1.txt`), 121 match the prediction exactly; the 2 that do not, (840, χ₁₀₅) and (840, χ₈₄₀) at
-B = 8000 (rows at full rank 45 = #rows, observed 5), give rank 1 = prediction in the cusp space at B = 16 000 (cusp-space
-runs are a different ambient space; see §5.3 for what they certify). Non-zero 𝒞₁-restrictions occur at exactly 15
-(L, ψ) pairs (nine pairs at the six levels 168, 240, 280, 336, 420, 560, and six at L = 840), all of rank 1:
+reaching full rank — "sat" — is a heuristic stopping signal, not a certificate). `compare_W1.txt` records 123 comparisons
+(118 full-space runs with all-odd-square rows + 5 cusp-space runs) covering 121 distinct (L, ψ) pairs; 121 match the
+prediction exactly. The 2 that do not are the **full-space** runs (840, χ₁₀₅) and (840, χ₈₄₀) at B = 8000 (rows at full
+rank 45 = #rows): their 𝒞₁-restricted kernel has **rank 5**. The rank-1 values for these two pairs come from separate
+cusp-space runs at B = 16 000 — a different ambient space, not merely a larger B; see §5.3 for what each certifies.
+Non-zero 𝒞₁-restrictions occur at exactly 15 (L, ψ) pairs (nine pairs at the six levels 168, 240, 280, 336, 420, 560,
+and six at L = 840): rank 1 in the full space at 13 of them, and at the two remaining pairs rank 5 (full, B = 8000) resp.
+rank 1 (cusp, B = 16 000):
 
 | L | ψ | D' | rational φ (conductor | 2N) with ε(φ ⊗ χ_{D'}) = +1 and rank(φ ⊗ χ_{D'}) ≥ 2 |
 |---|---|---|---|
@@ -316,9 +321,12 @@ coefficients (−96, −48, −48, 48, −48) and (8, 0, 8, 8, 24) at (1969, 264
 g(z) = 0 at every known R-zero z ≤ B (all n ≡ 1 (4), n ≤ B, with R(n) = 0, from the LOGIC census):
 **rank 0 on 𝒞₁ ∩ [1, B] in all 15 runs** — the nine L ≤ 560 pairs and (840, χ₅₆), (840, χ₁₆₈), (840, χ₂₈₀) in the
 full space (B = 10⁴ resp. 8000), and (840, χ₂₁), (840, χ₁₀₅), (840, χ₈₄₀) in the cusp space with good-square rows and
-in-𝒞₁ zero rows (B = 16 000). For the three L = 840 characters whose full-space runs overflowed (ψ = 1, χ₈, χ₂₁), the
-rank-0 statement holds in the cusp space with good-square rows (`halfint_cusp_good.txt` for ψ = 1, χ₈ at B = 16 000;
-`cert_survivors.txt` for χ₂₁), i.e. for the TERNARY class.
+in-𝒞₁ zero rows (B = 16 000). **Full-space certificates for χ₁₀₅, χ₈₄₀** (after cross-model review, which computed them
+first; reproduced here, `cert_full_840_105_840.txt`): with all 77 R-zero rows ≤ 8000 added, the full-space rank-5
+restrictions drop to rank 0, so these two characters are certified in the full space **up to B = 8000 only** (the
+B = 16 000 statement for them remains cusp-space / TERNARY class). The remaining L = 840 characters certified only in
+the cusp space with good-square rows — i.e. for the TERNARY class, not all of M_{3/2} — are ψ = 1, χ₈ (B = 16 000,
+`halfint_cusp_good.txt`) and χ₂₁ (B = 16 000, `cert_survivors.txt`); their full-space runs overflowed.
 A full-space run with rank 0 here certifies: **every valid proxy in M_{3/2}(Γ₀(L), ψ) vanishes on 𝒞₁(2N) ∩ [1, B]**. A
 cusp-space run (good-square rows) certifies the same for the TERNARY class (genus-theta Eisenstein part: by Thm F,
 E = 0 on 𝒞₁, so the cusp part h = g − E satisfies h(m²) = g(m²) = 0 for gcd(m, 2N) = 1 and h(z) = g(z) at z ∈ 𝒞₁; at
@@ -373,9 +381,10 @@ S(4N, ψ, φ) ≠ 0 there, were not computed; the screen is of the L-functions.)
   represents the square class). Remark W3 (sign −1 components vanish on 𝒞₁) needs (H2), else CONDITIONAL on (W-loc).
 * **CERTIFIED (finite, exact):** at 24 levels L | 3360 and all ψ the T1-kernel on 𝒞₁ ∩ [1, B] is 0 except at 15 (L, ψ),
   where it is one line, non-zero at known R-zeros; with the R-zero rows added, **every valid proxy of each swept (L, ψ)
-  vanishes on 𝒞₁ ∩ [1, B]** (full space, or the TERNARY class for the three cusp-space L = 840 runs; §5.3). EVIDENCE: the
-  lines are the predicted Gauss-exceptional φ (121/123 runs match; 2 unsaturated runs match after enlarging B).
-* **PROVED (13 primes) / CONDITIONAL (57 + 54 coefficient zeros):** explicit 𝔐-primes with L(G_φ ⊗ χ_p, ½) = 0 for the
+  vanishes on 𝒞₁ ∩ [1, B]** (full space, except at L = 840 for ψ ∈ {1, χ₈, χ₂₁}: TERNARY class only; χ₁₀₅, χ₈₄₀ full space
+  to B = 8000; §5.3). EVIDENCE: the lines are the predicted Gauss-exceptional φ (121 of 123 comparisons match; the 2
+  full-space rank-5 runs at L = 840, B = 8000 differ, and the cusp-space runs at B = 16 000 match).
+* **PROVED (13 𝒞₁-primes, six in 𝔐) / CONDITIONAL (57 + 54 coefficient zeros):** explicit 𝒞₁- and 𝔐-primes with L(G_φ ⊗ χ_p, ½) = 0 for the
   survivors. **CONJECTURE** (residue-class CKRS): single-eigensystem effectiveness fails infinitely often.
   **Assessment:** rational pure-cusp proxies with non-degenerate 𝒞₁-part are expected to vanish at T^{3/4+o(1)} primes;
   the cusp residue is heuristically worse than (MS).
@@ -398,10 +407,11 @@ that is false at explicit p.
 > proxy g ∈ M_{3/2}(Γ₀(4N), ψ) vanishing at the odd squares, a Shimura eigensystem φ can contribute on squarefree
 > integers of the square class 𝒞₁ (⊇ 𝔐 for {3,5,7}-levels) only if its Gaussian twist G_φ = φ ⊗ ψχ_{−4} has
 > L(G_φ, ½) = 0, and then (given an L-non-zero anchor, or Waldspurger's (H2)) by at most one line. Exact sweep (24 levels
-> | 3360, all ψ; CERTIFIED to B ≈ 10⁴): lines occur at 15 (L, ψ), matching rational Gauss-exceptional φ (EVIDENCE), each
-> non-zero at known (★)-zeros (5569, 9601, …) or composite zeros; every valid proxy of a swept (L, ψ) vanishes on
-> 𝒞₁ ∩ [1, B]. Single-line positivity at p is L(G_φ ⊗ χ_p, ½) ≠ 0: not given by GRH, false at explicit 𝔐-primes (13
-> proved), eventually false under a residue-class CKRS conjecture. For an effective proxy, validity is equivalent to (MS)
+> | 3360, 121 (L, ψ) pairs; CERTIFIED to B ≈ 10⁴): non-zero 𝒞₁-kernels occur at 15 (L, ψ) (one line each, except
+> rank 5 in the full space at (840, χ₁₀₅), (840, χ₈₄₀), B = 8000), matching rational Gauss-exceptional φ (EVIDENCE),
+> non-zero at known (★)-zeros (5569, 9601, …) or composite zeros; with R-zero rows, every valid proxy of a swept (L, ψ)
+> vanishes on 𝒞₁ ∩ [1, B] (full space; TERNARY class only for L = 840, ψ ∈ {1, χ₈, χ₂₁}). Single-line positivity at p
+> is L(G_φ ⊗ χ_p, ½) ≠ 0: not given by GRH, false at 13 explicit 𝒞₁-primes (proved; six in 𝔐), eventually false under a residue-class CKRS conjecture. For an effective proxy, validity is equivalent to (MS)
 > on its class; termwise recipe lattices miss 𝒞₁ entirely (Lemma W0). Not excluded: many-φ levels with a validity
 > identity, coset thetas, mixed ψ, higher weight, p-dependent levels (= B2).
 > Add to §6: "single-eigensystem cusp/Waldspurger positivity for ternary-theta proxies on 𝔐 (and termwise recipe lattices
@@ -438,6 +448,8 @@ All runs under `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent process
 * `uv run … scripts/z59_walds_rank2_search.py` → `rank2_search.txt`; `uv run … scripts/z59_walds_f4.py > f4_screen.txt`
   (summary `f4_summary.txt`; an earlier, slower partial run without `ellrank`: `f4_screen_run1_partial.txt`)
 * `python3 scripts/z59_walds_w0check.py 24 20000 > w0check.txt`
+* after cross-model review: `uv run --with cypari2 python scripts/z59_walds_halfint.py 840 D 8000 0 4 1` for D = 105, 840
+  → `cert_full_840_105_840.txt` (full space, all R-zero rows ≤ 8000; rank 0 on 𝒞₁).
 * after review: `bash scripts/z59_walds_cert.sh > cert_survivors.txt` (15 certificate runs, R-zero rows);
   `scripts/z59_walds_rerun_review.sh` was started and stopped after its first run (840, ψ = 1, good-square rows, cusp,
   B = 16 000 → `halfint_cusp_good.txt`); (840, χ₈) was then run by hand with the same arguments and appended there.
@@ -471,4 +483,17 @@ All runs under `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent process
     `ellrank` [0,2] cases, `rank2_search.py` import fixed, rerun drivers checked in (`z59_walds_runC.sh`,
     `z59_walds_cert.sh`, `z59_walds_rerun_review.sh`), exponent t^{1/4}, L-normalisation (1/π), "even order ≥ 2",
     heuristic narrowed to non-degenerate 𝒞₁-parts with T^{3/4+o(1)}.
-* Cross-model review: pending.
+* **Cross-model review** (`data/z59/xreview/REVIEW_WALDS.md`, ACCEPT-WITH-FIXES; W1, W1′, W2–W5, W0 independently
+  re-derived and source-checked; matrices, the 57/238 and 54/238 counts and the 13 rank-2 twists reproduced with an
+  independent implementation). Fixes applied:
+  1. Sweep summaries corrected everywhere (verdict, §5.2, §5.3, §7, FRONTIER text): 123 comparisons = 118 full-space +
+     5 cusp-space runs over 121 distinct (L, ψ); the two full-space rank-5 restrictions at (840, χ₁₀₅), (840, χ₈₄₀),
+     B = 8000, are stated explicitly ("all rank 1" only for the cusp-space substitutes). Adopted the reviewer's
+     full-space certificates for these two characters up to B = 8000 (reproduced: `cert_full_840_105_840.txt`, rank 0
+     with all 77 R-zero rows); only ψ ∈ {1, χ₈, χ₂₁} at L = 840 remain TERNARY-class (cusp-space) certificates.
+  2. "13 unconditional L-zeros" now reads "13 𝒞₁-primes, six in 𝔐" in the verdict, §4.1, §7 and FRONTIER text.
+  3. Falsifier table completed: F3 uses the mandatory 285-entry screen (15/285 in 𝔐, all squarefree; the other 270 are
+     not automatically outside a level-dependent 𝒞₁), F4 adds the (★)/𝔊* distinction (9/14 and 20/38 in 𝔐; all 14
+     (★)-zero primes are 𝔊*-zeros; the other 24 𝔊*-zeros are not R-zeros). Counts re-verified.
+  4. Reproducibility: `z59_walds_halfint.py`, `z59_walds_diag.py`, `z59_walds_f4.py` use a repository-relative data root;
+     `z59_walds_runC.sh` uses a relative `cd`; all shell drivers set `pipefail`.

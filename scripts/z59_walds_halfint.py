@@ -61,7 +61,7 @@ sub = pari("(C,r)->vecextract(C, apply(x->x+1, r), [1..matsize(C)[2]])")
 A = sub(C, rows)
 if ZROWS:
     import gzip
-    ROOT = "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/"
+    ROOT = str(__import__("pathlib").Path(__file__).resolve().parents[1]) + "/"
     zs = sorted(int(x) for x in gzip.open(ROOT + "data/z58/logic/zeros_1e10.txt.gz", "rt")
                 if x.strip() and x[0] != "#" and int(x) <= B)          # all n = 1 (4), n <= 1e10, with R(n) = 0
     if SPACE != 4:  # cusp space (TERNARY class): only zeros in C1 coprime to 2N, where E = 0 by Thm F, so h(z) = g(z)

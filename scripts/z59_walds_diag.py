@@ -15,7 +15,7 @@ pari.allocatemem(3_000_000_000)
 L, D, B = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
 N = L // 4
 MORD = {1, 121, 169, 289, 361, 529}
-ROOT = "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0044/"
+ROOT = str(__import__("pathlib").Path(__file__).resolve().parents[1]) + "/"
 RZ = set(int(x) for x in open(ROOT + "data/z58/screens/star_prime_zeros.txt") if x.strip() and x[0] != "#")
 import gzip
 ZC = set(int(x) for x in gzip.open(ROOT + "data/z58/logic/zeros_1e10.txt.gz", "rt") if x.strip() and x[0] != "#" and int(x) <= 10**6)

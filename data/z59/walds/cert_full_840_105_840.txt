@@ -1,0 +1,14 @@
+cert_full_105.txt:L=840 N=210 D=105 space=4 zrows=1 dim=108 B=8000 l0=0 #T1-conditions=77 rank(cond)=52 dimK=56
+cert_full_105.txt:  rank of K on C1 (n<=B, 59 indices) = 0
+cert_full_105.txt:  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+cert_full_105.txt:  rank of K on C1-primes (n<=B, 19 indices) = 0
+cert_full_105.txt:  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+cert_full_105.txt:  time 18.1s (coefs 18.0s)
+cert_full_105.txt:exit 0
+cert_full_840.txt:L=840 N=210 D=840 space=4 zrows=1 dim=108 B=8000 l0=0 #T1-conditions=77 rank(cond)=52 dimK=56
+cert_full_840.txt:  rank of K on C1 (n<=B, 59 indices) = 0
+cert_full_840.txt:  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+cert_full_840.txt:  rank of K on C1-primes (n<=B, 19 indices) = 0
+cert_full_840.txt:  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+cert_full_840.txt:  time 39.9s (coefs 39.8s)
+cert_full_840.txt:exit 0
