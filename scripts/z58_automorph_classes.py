@@ -36,6 +36,12 @@ def main():
         print(P, len(c_all), len(c_sqf), len(c_big), sum(locally_square(p, P) for p in star),
               sum(locally_square(p, P) for p in gst), sum(locally_square(p, P) for p in r8),
               "examples(sqf):", c_sqf[-3:])
+    # single-prime levels: n ≡ 1 (8) and a unit square mod the single odd prime l (the joint class of 1 at level 8l)
+    print("# single odd prime l: zeros with n ≡ 1 (8), (n/l) = 1; columns l, composite, composite sqf n>1e6, star, G*, R8")
+    for l in (3, 5, 7, 11, 13, 23, 101):
+        f = lambda n: n % 8 == 1 and legendre(n, l) == 1
+        print(l, sum(map(f, comp)), sum(1 for n in comp if f(n) and n > 10**6 and all(e == 1 for e in factorint(n).values())),
+              sum(map(f, star)), sum(map(f, gst)), sum(map(f, r8)))
     # composite zeros per range, for growth
     print("# composite zeros per range [10^k, 10^(k+1)) and locally-square-at-7 among them")
     for k in range(1, 7):

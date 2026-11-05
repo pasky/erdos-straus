@@ -8,6 +8,14 @@
 17 4 4 2 3 5 3 examples(sqf): [897961, 2956321, 3210601]
 19 1 1 1 2 3 2 examples(sqf): [2956321]
 23 1 1 1 0 1 1 examples(sqf): [2956321]
+# single odd prime l: zeros with n ≡ 1 (8), (n/l) = 1; columns l, composite, composite sqf n>1e6, star, G*, R8
+3 71 9 14 30 6
+5 123 26 12 24 5
+7 141 26 10 22 7
+11 145 25 11 19 9
+13 147 26 7 19 7
+23 147 37 7 15 8
+101 139 27 8 16 4
 # composite zeros per range [10^k, 10^(k+1)) and locally-square-at-7 among them
 1 1 0
 2 8 0

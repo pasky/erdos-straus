@@ -1,4 +1,4 @@
-# Z58_AUTOMORPH — modular / mock-modular generating functions for (MS): a T1 no-go for every Hecke-finite proxy, and where the escape lies
+# Z58_AUTOMORPH — modular / mock-modular generating functions for (MS): T1 at p², p⁴, … kills every effective Hecke-finite support proxy; where the escape lies
 
 Status: z58 lane AUTOMORPH (brief `z52bbriefs/z58_lanes.md` §AUTOMORPH, common rules `z52bbriefs/z53_depth.md`).
 Internal; internally reviewed only. **ES is OPEN; nothing here proves or disproves ES, (★), or (MS).**
@@ -8,8 +8,8 @@ Read: `paper/es-automorphic-barrier-note.tex` (§§1, 4.1, 6, 7), `METAPLECTIC_E
 `SIGN_IDENTITY.md` (Thm 2.2, Prop 2.3, Prop 2.4), `STRONG_APPROX_ES.md` Thm 9.1, `GROWING_IDENTITIES` (Eichler–Selberg
 item in DISCOVERIES #10), `BRAINSTORM/z39_square_discriminant_shadow.md`, `Z57_SYNTH.md` §§0–2, the falsifier data.
 
-**Checkpoint 1 (this version): §0 falsifier table, §1 precise statements, §2 Lemma S and Theorem A (PROVED) with a
-numerical sanity check.** Later sections are placeholders.
+History: checkpoint 1 = §§0–2; final = §§3–7. A hostile deep review (§7) found 2 FATAL + 10 MAJOR + 2 MINOR issues.
+All are repaired in this version; repaired places are marked "(R1-n)".
 
 ---
 
@@ -21,12 +21,14 @@ term at a single prime."
 
 | screen | behaviour of the mechanism |
 |---|---|
-| **F1 odd squares** | The proxy must vanish at 1, p², p⁴, … (all odd squares). **Theorem A (PROVED):** for every *Hecke-finite* proxy (holomorphic forms of integral weight, any level/character, Eisenstein or cuspidal, quasi-modular forms, real-parameter s-derivatives of Eisenstein series) this vanishing *at the powers of p alone* forces a(p) = 0, unless the Satake multiset at p contains a pair γ, −γ. Such ± collisions are twist characters ψ(p) = −1 (plus accidental collisions). So the only place primality (non-squareness) enters is through *quadratic characters of p of bounded conductor*, i.e. through congruence data. On a positive-density set of 𝔐-primes (all ≡ 1 mod 840), every such proxy vanishes. In half-integral weight, squares and primes lie in different Shimura square classes, so F1 does not bind the same way; see §4 (escape E1). |
-| **F2 C-even sub-line** | Theorem A applies verbatim to R₈ (R₈ ≤ R, so R₈(m²) = 0): the no-go is line-blind and proves nothing false. For the escape E1 any proxy has to tell the C-odd line from the C-even line. No candidate does (§4). |
-| **F3 composites** | Theorem A uses only T1 at the powers of p, not the 285 composite zeros. The composite zeros constrain the half-integral-weight escape: they force the weight-3/2 Eisenstein density to vanish on square classes where infinitely many zeros live. That step is CONDITIONAL (§4, Prop C). |
+| **F1 odd squares** | A support proxy must vanish at 1, p², p⁴, … (all odd squares). **Theorem A (PROVED):** for every *Hecke-finite* proxy in the arithmetic class 𝓗 (§2: eigenvalue systems of holomorphic integral-weight forms, any level/character, Eisenstein or cuspidal; their n^j-twists = quasi-modular forms; real-parameter divisor sums Σ d^a(n/d)^b and their parameter derivatives), vanishing *at the powers of p alone* forces a(p) = 0, unless the Satake multiset at p contains a pair γ, −γ. On a positive-density set of 𝔐-primes (all ≡ 1 mod 840) no such pair exists, so every such proxy vanishes there. Typical collisions come from twists f, f⊗ψ with ψ(p) = −1, i.e. congruence data. CM forms and weight-one forms give further collisions (R1-4). Squares and primes lie in different Shimura square classes in half-integral weight, so F1 does not bind the same way there; see §4 (escape E1). |
+| **F2 C-even sub-line** | Theorem A applies verbatim to R₈ (R₈ ≤ R, so R₈(m²) = 0): the no-go is line-blind and proves nothing false. For the escape E1 any proxy has to tell the C-odd line from the C-even line. No candidate examined does (§4). |
+| **F3 composites** | Theorem A uses only T1 at the powers of p, not the 285 composite zeros. The composite zeros constrain the half-integral-weight escape. Under an explicit Eisenstein lower-bound hypothesis they force the weight-3/2 Eisenstein part to vanish on local classes that carry infinitely many zeros (§4, Prop C, CONDITIONAL). |
 | **F4 known zeros** | The no-go proves no positivity, so nothing to check. Any proxy must vanish at the 14 (★)-zeros (three of them ≡ 1 mod 840: 712 321, 1 726 201, 8 813 281) and, if it is meant for 𝔊*, at the 38 𝔊*-zeros. |
 
-Verdict at checkpoint 1: the mechanism is **dead for every Hecke-finite object** (Thm A). The escapes it leaves are
+Verdict: the mechanism is **dead for every Hecke-finite object in 𝓗**, in the sense that no support proxy in 𝓗 is
+both valid and effective (Thm A, Cor A1). Valid but ineffective proxies exist, e.g. τ(n)·1[n ≡ 5 mod 12] (R1-5). The
+escapes it leaves are
 (E1) half-integral weight, (E2) objects that are not Hecke-finite in n (level sums Σ_C over the variable 4Cn + 1,
 Poincaré/Rademacher series, Fourier–Jacobi expansions), and (E3) higher-depth objects without Hecke theory.
 
@@ -54,17 +56,20 @@ explicit constants?
   p ≡ 1 (mod L).
 * METAPLECTIC Thm K: each level is a Kronecker theta quotient plus weight-0 data, with no cusp forms.
 * METAPLECTIC Prop S: holomorphic weight ½ is Serre–Stark.
-* Paper Thm 4.1 ("ternary"): fixed-complexity theta-series embeddings are covered by Mordell classes only.
-* DISCOVERIES #10 (GROWING_IDENTITIES Prop 2.1/2.2): ES is the sign-odd part of the split-hyperbolic Eichler–Selberg
-  term.
+* Paper Thm 4.1 ("ternary", `thm:ternary`). For positive-definite Q and fixed-complexity embeddings, a representation
+  *theorem* producing sets of generic size p^{(k−2)/2−ε₀} proves ES only on the Mordell-type union U. The paper notes
+  that an embedding supported on a *thin* set can still work outside U (R1-11).
+* DISCOVERIES item (J)10 (GROWING_IDENTITIES Prop 2.1/2.2): ES is the sign-odd part of the split-hyperbolic
+  Eichler–Selberg term.
 
 **What is new here.**
-* Theorem A extends the T1 kill from Eisenstein to *all* GL₂ Hecke-finite objects, including cusp forms (where Deligne
-  bounds live), quasi-modular forms and real-parameter Eisenstein derivatives (the "mock with Eisenstein shadow" class,
-  which has the right log² size and so escapes Thm 2.2).
+* Theorem A extends the T1 kill (support form) from Eisenstein combinations to the class 𝓗 of GL₂ Hecke-finite
+  arithmetic functions. That class includes cusp forms (where Deligne bounds live), quasi-modular forms, and
+  real-parameter divisor sums with their derivatives (log-power sizes, which Thm 2.2's size argument does not reach).
+  The identification of 𝓗 with a class of mock-modular objects is *not* claimed: full non-holomorphic coefficients
+  carry Whittaker factors, and a prescribed shadow allows further additions (R1-9).
 * It needs only T1 at the powers of the single prime p.
-* It identifies exactly what such an object can see at p: ± collisions of Satake parameters, i.e. quadratic
-  characters.
+* It shows that such an object can be non-zero at p only through a ± collision of Satake parameters at p.
 
 ---
 
@@ -99,7 +104,8 @@ semisimply, and a_f(n) = a_{T_n f}(1) = λ(n) a_f(1) on each eigencomponent. Old
 Σ_m λ_i(p^m) T^m = 1/((1 − α_i T)(1 − β_i T)), with α_i + β_i = λ_i(p) and α_iβ_i = ψ_i(p)p^{k_i−1}.
 Type (ii) replaces (α, β) by (p^jα, p^jβ). Type (iii) gives ∂^e of 1/((1 − x(s)T)(1 − y(s)T)) with
 x = ψ₁(p)p^{s+u}, y = ψ₂(p)p^{−s+v}; this is proper, with poles only at 1/x(s₀), 1/y(s₀). So for every a ∈ 𝓗_M and
-p ∤ M, A_p(T) satisfies the hypotheses of Lemma S with Γ_p := ∪_i {α_i(p), β_i(p)} (resp. {x_i(s₀), y_i(s₀)}).
+p ∤ M, A_p(T) satisfies the rationality and properness hypotheses of Lemma S with Γ_p := ∪_i {α_i(p), β_i(p)}
+(resp. {x_i(s₀), y_i(s₀)}). Collision-freeness still has to be established (R1-14).
 
 **Theorem A (T1 kills every Hecke-finite proxy at collision-free primes; PROVED, relative to the existence of
 λ-adic Galois representations attached to holomorphic eigenforms (Deligne; Deligne–Serre for k = 1) and the
@@ -108,9 +114,9 @@ Chebotarev density theorem).** Let a ∈ 𝓗_M and let p ∤ M be an odd prime 
 2. Γ_p ∩ (−Γ_p) = ∅ holds in the following cases:
    * (a) all λ_i are of Eisenstein type (i)/(ii)/(iii) and p ≡ 1 (mod L), where L is the lcm of the conductors of the
      characters involved and the s-parameters are real. Then Γ_p ⊂ ℝ_{>0}.
-   * (b) In general, for every p that splits completely in an explicit number field F = F(λ_1, …, λ_r; ℓ) containing
-     ℚ(ζ_{840}), for any fixed odd prime ℓ. The primes in (b) have positive density, and all of them are ≡ 1 (mod 840),
-     hence lie in 𝔐.
+   * (b) In general (types (i), (ii), (iii) mixed), for every p ∤ Mℓ that splits completely in an explicit number
+     field F = F(λ_1, …, λ_r; ℓ) ⊇ ℚ(ζ_{840LM}), for any fixed odd prime ℓ. The primes in (b) have positive density,
+     and all of them are ≡ 1 (mod 840), hence lie in 𝔐.
 
 *Proof of 2(b).* Fix an odd prime ℓ. Let E_λ be a finite extension of ℚ_ℓ containing all Hecke fields and the
 characters' values, with ring of integers O and maximal ideal 𝔪. For each cuspidal λ_i, Deligne (k ≥ 2) and
@@ -118,35 +124,56 @@ Deligne–Serre (k = 1) give a continuous ρ_i: G_ℚ → GL₂(O), unramified o
 det(X − ρ_i(Frob_p)) = X² − λ_i(p)X + ψ_i(p)p^{k_i−1}. For Eisenstein λ_i take ρ_i = ψ₁ ⊕ ψ₂ε^{k−1}, with ε the
 ℓ-adic cyclotomic character. Type (ii) twists by ε^j.
 
-Let F be the fixed field of the kernel of ⊕_i ρ̄_i (mod 𝔪) ⊕ (mod-ℓ cyclotomic) ⊕ (mod-840L cyclotomic), a finite
-Galois extension of ℚ (the mod-ℓ cyclotomic factor makes ε^j ≡ 1 at split primes, needed for type (ii)).
-If p ∤ Mℓ splits completely in F, then every ρ_i(Frob_p) ≡ I (mod 𝔪). Its eigenvalues are α_i(p), β_i(p), embedded
-in Ō, and they are ≡ 1 modulo the maximal ideal of Ō. So γ + γ′ ≡ 2 ≢ 0 for all γ, γ′ ∈ Γ_p, since ℓ is odd. Hence
-Γ_p ∩ −Γ_p = ∅. Chebotarev gives density 1/[F : ℚ] > 0.
+Let F be the compositum of the following finite Galois extensions of ℚ:
+* the fixed field of the kernel of ⊕_i ρ̄_i (mod 𝔪);
+* ℚ(ζ_ℓ), which makes ε^j ≡ 1 at split primes, needed for type (ii);
+* ℚ(ζ_{840LM});
+* the normal closures of the Hecke fields of the cuspidal λ_i (R1-3).
 
-For type (iii) only Dirichlet characters and real powers of p occur. At p ≡ 1 (mod L), with L | [F-conductor] (take
-F ⊇ ℚ(ζ_L)), all values are positive reals. ∎
+Let p ∤ Mℓ split completely in F. Three kinds of pairs γ, γ′ have to be checked.
+* *(i)/(ii) against (i)/(ii).* Every ρ_i(Frob_p) ≡ I (mod 𝔪). Its eigenvalues are α_i(p), β_i(p), embedded in Ō, and
+  they are ≡ 1 modulo the maximal ideal of Ō. So γ + γ′ ≡ 2 ≢ 0, since ℓ is odd.
+* *(iii) against (iii), and (iii) against Eisenstein (i)/(ii).* All characters are 1 at p (ζ_{LM} ⊂ F), so these
+  parameters are positive reals and γ + γ′ > 0.
+* *(iii) against cuspidal (i)/(ii) (R1-3).* A collision forces a cuspidal parameter γ = −t with t > 0 real. Since
+  ψ_i(p) = 1, the parameters satisfy αβ = p^w with w = k_i − 1 + 2j, and |α| = |β| = p^{w/2} (Deligne; for k = 1
+  Deligne–Serre gives roots of unity). Hence α = β = −p^{w/2} and λ_i(p)·p^j = −2p^{w/2}.
+  * If w is even, this is a rational integer. But it is ≡ tr ρ_i(Frob_p) ≡ 2 (mod 𝔪), while −2p^{w/2} ≡ −2
+    (p ≡ 1 mod ℓ). So 4 ≡ 0 (mod ℓ), a contradiction.
+  * If w is odd, √p lies in the Hecke field. Then ℚ(√p) ⊆ F, and since p ≡ 1 (mod 4), p ramifies in ℚ(√p). But p
+    splits completely in F, a contradiction.
+
+So Γ_p ∩ −Γ_p = ∅. Chebotarev gives density 1/[F : ℚ] > 0. ∎
 
 **Corollary A1 (answers Q1 and Q2 for 𝓗; PROVED, same inputs).**
 * (a) *(Q2, support form.)* No a ∈ 𝓗_M is both valid and effective. Validity gives a(m²) = 0 for all odd m, and then
   a(p) = 0 for the positive-density set of 𝔐-primes in Thm A.2(b). In case (a) this holds for every p ≡ 1 (mod lcm(L, 840)).
-* (b) *(Q1.)* R ∉ 𝓗_M on primes. If R = a on primes coprime to M, then a(1) = R(1) = 0 and a(p^{2j}) = R(p^{2j}) = 0,
-  so R(p) = 0 for every p splitting completely in F. But there are such p with R(p) ≥ 1. Pick a prime q ≡ 3 (mod 4)
+* (b) *(Q1.)* There is no a ∈ 𝓗_M with a = R on all n ≡ 1 (mod 4) coprime to M. Equality on primes alone is not
+  enough; one needs equality at 1 and at odd squares too (R1-1). If a = R on those n, then a(1) = R(1) = 0 and
+  a(p^{2j}) = R(p^{2j}) = 0, so R(p) = 0 for every p ∤ M splitting completely in F. But there are such p with R(p) ≥ 1. Pick a prime q ≡ 3 (mod 4)
   unramified in F and q ∤ M. Chebotarev in F(ζ_q), with F ∩ ℚ(ζ_q) = ℚ, gives p split in F with 4p + 1 ≡ 0 (mod q).
   Then d = q, C = 1 is a (★) witness, since q | 4p + 1, q ≡ −1 (mod 4) and q ≤ (4p + 1)/3.
-  * This extends SIGN_IDENTITY Thm 2.2 from a size argument to a T1 argument. It now covers quasi-modular forms and
-    real-parameter Eisenstein derivatives, which have the right log-power sizes (τ(n) ~ log, Σ log(n/d²)-type ~ log², …).
-* (c) *(Q3.)* If a main term E ∈ 𝓗 is T1-compatible, then E(p) = 0 on the Thm A.2 set. If it is not T1-compatible,
-  then the error R − E equals −E(m²) at odd squares and is as large as the main term there. So the error bound must use
-  non-squareness of p at a step where, by Thm A, a Hecke-finite object only sees quadratic characters of p.
+  * This complements SIGN_IDENTITY Thm 2.2 (a size argument) with a T1 argument. It covers quasi-modular forms and
+    log-power-size divisor sums (τ(n), Σ_{d|n} log d·log(n/d), …), which the size argument does not reach.
+* (c) *(Q3; elementary observation, R1-6.)*
+  * A *support* proxy E + c ∈ 𝓗 that is valid cannot be effective, by (a).
+  * More generally, if a main term E ∈ 𝓗 is T1-compatible (E(1) = E(p^{2j}) = 0), then E(p) = 0 on the Thm A.2 set.
+  * If E is not T1-compatible, the error R − E equals −E(m²) at odd squares, as large as the main term there. So any
+    error bound has to use non-squareness of p.
+  * This is *not* an impossibility theorem for a prime-only "E + error" argument when the error is not itself in 𝓗.
 
-**What an 𝓗-proxy can see at p (Assessment, with a PROVED core).** By Lemma S, a T1-compatible a ∈ 𝓗 can be non-zero
-only at primes where some γ, −γ ∈ Γ_p. Pairs of twist-equivalent forms f, f ⊗ ψ give exactly the primes with
-ψ(p) = −1. Example: a = f − f ⊗ χ_{−4} vanishes at every square and equals 2λ_f(p) at p ≡ 3 (mod 4). The other
-collisions are λ_i(p) = 0 and accidental α_i(p) = −α_j(p) between non-twist-equivalent forms; by Serre / Ramakrishnan
-(cited, not checked here) they have density 0. So, **up to density 0, a T1-compatible Hecke-finite proxy is
-non-zero only where a quadratic character of bounded conductor takes the value −1 at p. It is a congruence menu in
-automorphic disguise**, subject to B1 and to the infinitely many 𝔐-primes that are squares modulo any fixed modulus.
+**What an 𝓗-proxy can see at p (PROVED core + Assessment, R1-4).** PROVED (Lemma S): a T1-compatible a ∈ 𝓗 can be
+non-zero at p only if some γ, −γ ∈ Γ_p.
+* The main source of collisions is twist pairs f, f ⊗ ψ at primes with ψ(p) = −1, where ψ is any character with
+  ψ(p) = −1, not necessarily quadratic. Example: a = f − f ⊗ χ_{−4} vanishes at every square and equals 2λ_f(p) at
+  p ≡ 3 (mod 4).
+* Other collisions exist on sets of positive density. A CM form has α = −β at the inert primes (density ½), and two
+  CM forms for the same field can collide there. Weight-one forms with finite image can have positive-density
+  trace-zero sets.
+* No classification is claimed. Assessment: in the examples examined, the set where a T1-compatible proxy can be
+  non-zero is cut out by Frobenius conditions in a fixed finite extension, i.e. congruence-type data.
+
+The PROVED consequence is Thm A.2(b): the proxy vanishes on a positive-density Chebotarev set of 𝔐-primes.
 
 **Numerical sanity check (CERTIFIED arithmetic, small range; `scripts/z58_automorph_lemmaS.py`, output
 `data/z58/automorph/lemmaS_out.txt`).**
@@ -157,7 +184,8 @@ automorphic disguise**, subject to B1 and to the infinitely many 𝔐-primes tha
   (pairs {2,3}, {3,5}, {5,2}). With a twist collision (γ, −γ) a(p) ≠ 0 occurs.
 
 **The sign form Q2′ is not covered by a single-prime argument (PROVED by example).** Take
-a(n) = 5σ₁(n) − (2n + 3)·r(n), a holomorphic quasi-modular combination (weight 2, nσ₁ type, and weight 1). For every
+a(n) = 5σ₁(n) − (2n + 3)·r(n): σ₁ is the weight-2 Eisenstein (E₂) piece, n·r(n) is D of the weight-one Eisenstein
+series Σ r(n)qⁿ, and r is weight one (R1-13). For every
 prime p ≡ 1 (4):
 * a(1) = 5 − 5 = 0;
 * a(p) = 5(p + 1) − 2(2p + 3) = p − 1 > 0;
@@ -165,13 +193,13 @@ prime p ≡ 1 (4):
   a(25) = −4, and for j ≥ 2 the factor 2j + 1 ≥ 5 wins. Checked for p < 60, j ≤ 3.
 
 So T1 at the powers of p alone does not force a(p) ≤ 0 in the minorant form. The example fails globally: a(q²) > 0 for
-q ≡ 3 (4) (`lemmaS_out.txt`). A global sign theorem would need T1 at products and is left open (§3, to do).
+q ≡ 3 (4) (`lemmaS_out.txt`). Globally the sign form is not killed by T1 either (§3, Prop B1).
 
 ---
 
 ## 3. The sign / minorant form Q2′: T1 alone does not kill it, and validity is (MS) again
 
-**Prop B1 (T1-sign is satisfiable globally inside 𝓗; PROVED for the stated range, CERTIFIED numerically).** Let
+**Prop B1 (T1-sign is satisfiable globally inside 𝓗; PROVED for all odd m; also checked numerically).** Let
 a(n) := 5σ₂(n) − (2n² + 3)τ(n). It is in 𝓗 via type (iii) with e = 0: σ₂(n) = Σ d², n²τ(n) = Σ d²(n/d)², τ(n) = Σ 1.
 σ₂(n)/n is the arithmetic part of the n-th coefficient of the weight-0 Eisenstein series E(z, 3/2); τ(n) is that of
 ∂_sE(z, s) at s = ½. Then:
@@ -192,19 +220,20 @@ a(p) ≫ R(p).
 
 **Prop B2 (single-prime T1-sign at log scale; PROVED).** Even at log size (exponent-0 Eisenstein derivatives, the size
 class of R) the constraint at one prime is satisfiable. Take
-a(n) = Σ_{d|n} [log²d + log²(n/d) − 5 log d·log(n/d)],
-a type-(iii) second derivative. On p^m:
-a(p^m) = log²p·Σ_{j=0}^m [j² + (m−j)² − 5j(m−j)] = log²p·m(m+1)(2 − m)/2.
-This is 0 at m = 0 and m = 2, log²p at m = 1, and negative for m ≥ 3.
+a(n) = Σ_{d|n} [½(log²d + log²(n/d)) − 5 log d·log(n/d)],
+a type-(iii) combination of second derivatives. On p^m:
+a(p^m) = log²p·Σ_{j=0}^m [½(j² + (m−j)²) − 5j(m−j)] = log²p·[m(m+1)(2m+1)/6 − 5m(m+1)(m−1)/6] = log²p·m(m+1)(2 − m)/2.
+This is 0 at m = 0 and m = 2, log²p at m = 1, and negative for m ≥ 3. (R1-2: the first version omitted the factor ½
+and was wrong.)
 
 **Reading (Assessment).**
 * In Q2′ the automorphic structure does no work. A minorant a with a(n) > 0 ⟹ R(n) ≥ 1 is *valid* only if that
   implication holds at every n. For an abstractly given modular a, checking this at all large primes is (MS) itself.
 * The only automorphic-native proxies are those built from certificates (a(n) = Σ_{solutions} w, w > 0). These are
   support proxies, and Theorem A kills them in 𝓗.
-* Pointwise minorants a ≤ R obtained by sieve inequalities are fixed-conductor divisor-sum weights. That is the B6
-  world (SIGN_IDENTITY Prop 2.3 / STRONG_APPROX Thm 9.1(b) for the exponent-0 holomorphic Eisenstein case). B1–B2 show
-  T1 does not by itself kill them prime-by-prime.
+* Pointwise minorants a ≤ R obtained by sieve inequalities are typically fixed-conductor divisor-sum weights. That is
+  the B6 world; STRONG_APPROX Thm 9.1(b) covers the exponent-0 holomorphic Eisenstein case. B1–B2 show T1 does not by
+  itself kill such weights.
 
 ## 4. The escapes Theorem A leaves, and what each runs into
 
@@ -213,7 +242,8 @@ Theorem A uses exactly two structural facts about a proxy:
   parameters (a Hecke recursion);
 * (H2) the Satake parameters at p, reduced mod 𝔪, are controlled by a finite Galois extension.
 
-The escapes are the objects that violate (H1) or (H2).
+The escapes are the objects that violate (H1) or (H2). The assessments below concern the specific constructions
+examined; none is a classification (R1-12).
 
 ### E1. Half-integral weight (violates H1 across square classes; Assessment + Prop C)
 
@@ -228,19 +258,32 @@ Hecke structure. This is the one place where the Deligne-type template exists *p
 
 This is how Duke–Schulze-Pillot prove representation of large integers by ternary forms.
 
-**Prop C (what the falsifiers force on a weight-3/2 support proxy; CONDITIONAL on the cited weight-3/2 inputs above
-and on the standard shape of weight-3/2 Eisenstein coefficients, E(t f²) = δ(t f²)·(t f²)^{1/2}L(1, χ_{−4t}ψ′)·
-Π_{ℓ|f}(positive factor), with δ depending only on the classes of n in ℚ_ℓ^×/ℚ_ℓ^{×2}, ℓ | 2N — Cohen / Shimura,
-not re-derived here).** Let g = E + U + c be a weight-3/2 support proxy of level 4N:
-g(n) ≠ 0 ⟹ R(n) ≥ 1 for n ≡ 1 (4).
-* (a) If an ℓ-adic square class 𝒞 (ℓ | 2N) contains infinitely many squarefree R-zeros, then δ(𝒞) = 0. Proof: at such
-  n, 0 = E(n) + c(n) with |c(n)| ≪ n^{1/2−1/28+ε} and |E(n)| ≫ |δ(𝒞)|n^{1/2−ε}.
-* (b) Consequently, if the class 𝒞₁ of 1 (n ≡ 1 mod 8, n a unit square at each odd ℓ | N) contains infinitely many
-  squarefree R-zeros, then g(p) = c(p) is a pure cusp coefficient at every prime p ∈ 𝒞₁ with p ≡ 1 (mod 840).
-  This is a positive-density set of 𝔐-primes. There it has no main term, so the Duke template has nothing to bound.
+**Prop C (what the falsifiers force on a weight-3/2 support proxy; CONDITIONAL, R1-7).** Let
+g = E + U + c ∈ M_{3/2}(Γ₀(4N), ψ): Eisenstein part, unary-theta part, and cusp part orthogonal to unary theta series.
+Suppose g is a support proxy: g(n) ≠ 0 ⟹ R(n) ≥ 1 for n ≡ 1 (4). A *joint local class* 𝒞 means a choice of classes in
+ℚ_ℓ^×/ℚ_ℓ^{×2} for every ℓ | 2N, with n ≡ 1 (mod 4).
+
+Hypotheses:
+* (I) Iwaniec–Duke: |c(n)| ≪ n^{1/2−1/28+ε} for squarefree n (cited, not re-checked).
+* (H_E) For each joint local class 𝒞, E is either ≡ 0 on the squarefree n ∈ 𝒞, or |E(n)| ≫_{𝒞,ε} n^{1/2−ε} on all
+  squarefree n ∈ 𝒞. This is an explicit *additional hypothesis*. It is expected from the Siegel–Weil / Cohen–Shimura
+  shape of Eisenstein coefficients (local densities times L(1, χ_{−4n}) times n^{1/2}, plus Siegel's bound), but it is
+  not proved here for arbitrary Eisenstein combinations, where cancellation and character restrictions need care.
+
+Then:
+* (a) If 𝒞 contains infinitely many squarefree R-zeros, E ≡ 0 on the squarefree n ∈ 𝒞. Proof: unary-theta
+  coefficients vanish on squarefree n outside finitely many square classes. At the zeros, 0 = E(n) + c(n). Take
+  ε < 1/56 and compare (I) with (H_E).
+* (b) Consequently, if the joint class 𝒞₁ of 1 (n ≡ 1 mod 8, n a unit square at each odd ℓ | N) contains infinitely
+  many squarefree R-zeros, then g(p) = c(p) is a pure cusp coefficient at every large prime p ∈ 𝒞₁. That includes the
+  positive-density set p ≡ 1 (mod 8N·840) of 𝔐-primes. There g has no main term, so the Duke template has nothing to
+  bound.
 
 **Falsifier data for the hypothesis of (b) (EVIDENCE; `scripts/z58_automorph_classes.py`, `classes_out.txt`).**
-Among the known zeros, these are the counts of n ≡ 1 (8) that are unit squares mod every odd ℓ ≤ P:
+These scripts use the supplied zero lists; they do not re-certify them.
+
+*Table 1.* Counts of known zeros with n ≡ 1 (8) that are unit squares mod **every** odd ℓ ≤ P. This is the class 𝒞₁
+for levels N divisible by all odd primes ≤ P:
 
 | P | composite (285) | composite, squarefree | sqf, n > 10⁶ | (★)-primes (14) | 𝔊*-primes (38) | R₈-primes (12, ~10¹⁰) |
 |---|---|---|---|---|---|---|
@@ -253,83 +296,106 @@ Among the known zeros, these are the counts of n ≡ 1 (8) that are unit squares
 Per decade, the composite zeros that are locally square at {3, 5, 7} number 0, 0, 3, 3, 7, 2 (decades
 10¹…10⁶⁺, the last one truncated at 8·10⁶).
 
-Reading (Assessment):
-* For small levels (N supported on {2, 3, 5, 7}) zeros in 𝒞₁ keep appearing up to 8·10⁶, consistent with (b)'s
-  hypothesis. That is EVIDENCE, not proof; it would need infinitely many composite zeros there.
-* For large levels (N with a prime ≥ 23) the known zero sets are already nearly exhausted. So E1 cannot be closed by
-  the falsifier data. It stays a genuine formal escape.
-* F2: the R₈-zeros near 10¹⁰ include locally-square ones up to P = 23. A C-even weight-3/2 proxy is therefore
-  constrained exactly like the full one, and an E1 argument would have to see C-parity.
+*Table 2 (R1-8).* Single odd prime level N = ℓ: counts of known zeros with n ≡ 1 (8) and (n/ℓ) = 1.
 
-**What E1 runs into when instantiated (Assessment).**
-* A weight-3/2 support proxy has a(p) ≍ p^{1/2−ε} at good primes, but R(p) ≍ log²p on average. So it must weight
-  each certificate by ≍ p^{1/2}/log²p.
-* The natural weight-3/2 objects of that size are class numbers / CM-point counts h(−4p)-type (Zagier ℋ, Gross–Kohnen–
-  Zagier, Duke's theorem).
+| ℓ | composite | composite sqf, n > 10⁶ | (★)-primes | 𝔊*-primes | R₈-primes |
+|---|---|---|---|---|---|
+| 3 | 71 | 9 | 14 | 30 | 6 |
+| 7 | 141 | 26 | 10 | 22 | 7 |
+| 13 | 147 | 26 | 7 | 19 | 7 |
+| 23 | 147 | 37 | 7 | 15 | 8 |
+| 101 | 139 | 27 | 8 | 16 | 4 |
+
+Reading (Assessment):
+* For levels with few prime factors, zeros in 𝒞₁ are plentiful and keep appearing up to 8·10⁶ (Table 2). This is
+  consistent with (b)'s hypothesis. It is EVIDENCE, not proof; (b) needs infinitely many squarefree zeros there.
+* Only for levels divisible by *all* odd primes up to ~20 is the known data nearly exhausted (Table 1). So E1 is not
+  closed by the falsifier data for such levels. It stays a formal escape, conditional anyway on (H_E).
+* F2: the R₈-zeros near 10¹⁰ include locally-square ones (Tables 1–2). A C-even weight-3/2 proxy is constrained exactly
+  like the full one, and an E1 argument would have to see C-parity.
+
+**What E1 runs into when instantiated with CM/Heegner objects (Assessment, scoped to that instantiation).**
+* Support alone does not force a size. But a proxy whose positivity at p comes from a non-zero Eisenstein part has
+  g(p) ≍ p^{1/2±ε} at good primes, while R(p) ≍ log²p on average. If it is a weighted certificate count, the weights
+  are ≍ p^{1/2}/log²p.
+* The natural weight-3/2 objects of that size examined here are class numbers / CM-point counts of h(−4p) type
+  (Zagier ℋ, Gross–Kohnen–Zagier, Duke's theorem).
 * By the paper's dictionary (`es-automorphic-barrier-note.tex`, Prop "wedge" in §2.2 and §6 "What ES needs"),
   certificates correspond to Heegner points lying in *shrinking* targets of width ≍ |D|^{−1/2} (Planck scale). Duke-type
   pointwise theorems control only targets of fixed or slowly shrinking size, ≥ |D|^{−1/24} (Young) or |D|^{−1/8}
   under Lindelöf.
-* So the instantiated E1 lands on the known Planck-scale wall (paper Assessment 6.1). E1 is a formal escape from
-  Theorem A, not an open road.
+* So this instantiation of E1 lands on the known Planck-scale wall (paper Assessment `ass:verdict`, §6). E1 is a
+  formal escape from Theorem A; no open road through it was found.
 
 ### E2. Level sums: objects not Hecke-finite in n (violates H1; Assessment with one PROVED remark)
 
 R itself is Σ_C D⁻_{4C}(4Cn + 1). Each level is Hecke-finite in N = 4Cn + 1 (Thm K: Dirichlet-character divisor sums
 mod 4C), but not in n: the shift n ↦ 4Cn + 1 destroys the Hecke recursion at p-powers, which is exactly what Lemma S
 needs.
-* *C-direction (PROVED, trivial).* For fixed p, C ↦ R_C(p) = D⁻_{4C}(4Cp + 1) has finite support:
-  4Cp + 1 = de with d, e ≡ −1 (mod 4C) forces (4C − 1)² ≤ 4Cp + 1. A non-constant holomorphic modular form of any
-  weight (integral or half-integral) has infinitely many non-zero coefficients. So Σ_C R_C(p) q^C is not modular in C.
-  Any Kudla-type or theta-lift modularity in the level variable needs *completion terms* of the same size: the partner
-  quadrant Q_t of Thm K, i.e. D⁺. Positivity then becomes D⁻ vs D⁺, which is METAPLECTIC's sign-odd part 𝔒 (mean ≈ 0,
-  Cor K1) — B2.
+* *C-direction (PROVED, trivial; R1-10).* For fixed p, C ↦ R_C(p) = D⁻_{4C}(4Cp + 1) has finite support:
+  4Cp + 1 = de with d, e ≡ −1 (mod 4C) forces (4C − 1)² ≤ 4Cp + 1, so C ≤ (p + 2)/4.
+  * A non-zero holomorphic modular form of any weight (integral or half-integral) with finitely many non-zero
+    coefficients is a constant. So when R(p) > 0, the non-zero polynomial Σ_C R_C(p) q^C (no constant term) is not
+    modular in C.
+  * Modularity in the level variable would therefore need added completion terms. One specific mechanism is the
+    partner quadrant Q_t of Thm K (D⁺); positivity then becomes D⁻ vs D⁺, METAPLECTIC's sign-odd part 𝔒. Cor K1 reads
+    its mean ≈ 0 as numerical bookkeeping after a non-modular renormalisation; that qualification stands.
+  * Other completions are not excluded.
 * *n-direction.* Objects whose n-th coefficient is a sum over moduli c of level-c data at cn + const: Poincaré series,
   Rademacher expansions, Kloosterman–Kuznetsov sums. R(n) counts the matrices [[a, n],[4C, e]] ∈ SL₂(ℤ) with
   a ≡ e ≡ −1 (mod 4C) and a, e > 0: one Bruhat cell per modulus, positive part (METAPLECTIC §3). Summing such
   cell-restricted counts over all moduli is the H-A hatch (paper Problem H-A). The Eichler–Selberg version is in
-  DISCOVERIES #10: ES is the sign-odd part of the split-hyperbolic term and the smallest term in the identity.
-* Weakly holomorphic and mock forms with principal parts also live here: their coefficients are exactly Rademacher
-  sums over all c, with exponential growth. They are not excluded by Theorem A. They are also not known to have any
-  support in {R ≥ 1}, and their coefficient size e^{c√n} makes them useless as weights (Assessment).
+  DISCOVERIES item (J)10: ES is the sign-odd part of the split-hyperbolic term and the smallest term in the identity.
+* Weakly holomorphic and mock forms with principal parts also live here: their coefficients are Rademacher sums over
+  all c, with exponential growth. They are not excluded by Theorem A. No such form with support in {R ≥ 1} is known
+  (Assessment). Exponential size alone does not rule them out as support proxies (R1-12).
 
-### E3. Higher depth / objects without GL₂ Hecke theory (violates H2 or H1; Assessment)
+### E3. Higher depth / objects without GL₂ Hecke theory (violates H2 or H1; Assessment, scoped)
 
 * Indefinite theta series of signature (r, 2) and higher-depth mock forms (Zwegers; Alexandrov–Banerjee–Manschot–Pioline)
   are attached to *quadratic* forms on cones.
-* The (★) exponent 4uBC − u − B is cubic. Every linear slice is split binary (C fixed: Thm K; u or B fixed: the same).
-* So the only indefinite-theta packaging of R is Σ_C (split signature-(1,1) theta at level C) = E2. Split binary forms
-  give Eisenstein data, not mock data (`z39_square_discriminant_shadow`).
-* GL(3)-cuspidal coefficients (H-D) violate H1 for GL₂ but satisfy a GL₃ Hecke recursion. Lemma S generalises
-  verbatim: A_p(T) is proper rational with poles at the three Satake parameters. So Theorem A extends to finite
-  combinations of GL(n) eigen-systems with Galois representations (regular algebraic, essentially self-dual) at
-  collision-free primes (Assessment; the Galois input is literature-dependent and not checked here). H-D is therefore
-  open only through objects that are *not* Hecke-finite in n.
+* The (★) exponent 4uBC − u − B is cubic. Every slice obtained by fixing one variable is split binary (C fixed: Thm K;
+  u or B fixed: the same shape).
+* So the indefinite-theta packaging examined here is Σ_C (split signature-(1,1) theta at level C), which is E2. Split
+  binary forms give Eisenstein data in that identity (`z39_square_discriminant_shadow`). This is not a classification
+  of all possible packagings (R1-12).
+* GL(n) Hecke eigen-systems satisfy a degree-n recursion at p. Lemma S applies verbatim, since A_p(T) is proper
+  rational with poles at the n Satake parameters. So *at primes where the Satake parameters have no sign collision*,
+  T1-compatibility at p-powers again forces a(p) = 0.
+* The global Chebotarev step (Thm A.2(b)) needs Galois representations with a mod-𝔪 reduction, available only for
+  suitable (e.g. regular algebraic, essentially self-dual) GL(n) forms. It is literature-dependent and not checked
+  here. Whether H-D is open beyond non-Hecke-finite objects is therefore left open.
 
 ## 5. Verdict, screens, proposed FRONTIER text, bottom line
 
-**Verdict: narrowed** (a scoped no-go that is stronger and cleaner than the prior ones, plus a map of the escapes).
-* *Answer to the brief's question.* Σ R(n)qⁿ is not, and has no support proxy that is, in the Hecke-finite class 𝓗.
-  𝓗 includes all holomorphic integral-weight forms (Eisenstein + cusp, any level, character), quasi-modular forms and
-  real-parameter s-derivatives of Eisenstein series, i.e. the mock objects with Eisenstein shadow that have the right
-  log² size. This is **Theorem A / Corollary A1, PROVED** relative to Deligne / Deligne–Serre and Chebotarev.
-  * The mechanism is T1 at the powers of p alone, through Lemma S.
-  * What survives is "a(p) can be non-zero only where Satake parameters collide in sign", which is quadratic-character
-    (congruence) data up to density 0. So automorphic proxies in 𝓗 are congruence menus in disguise.
-* *Q3 (Eisenstein + cusp with Deligne pointwise).* In 𝓗 any T1-compatible main term is 0 on a positive-density set of
-  𝔐-primes. A T1-incompatible one has error = main term at squares. Dead in 𝓗 (Cor A1(c)).
-* *Q2′ (minorant form).* Not killed by T1 (Props B1, B2, PROVED). But validity of an abstract modular minorant at
-  primes is (MS) itself, so automorphy buys nothing there (Assessment).
+**Verdict: narrowed.** This is a scoped no-go, stronger than the prior ones, plus a map of the escapes.
+* *Answer to the brief's question (R1-5, R1-9).* No support proxy in the Hecke-finite arithmetic class 𝓗 is both valid
+  and effective. R is not an element of 𝓗 on n ≡ 1 (mod 4) coprime to the level.
+  * 𝓗 covers eigenvalue systems of all holomorphic integral-weight forms (Eisenstein + cusp, any level, character),
+    their n^j-twists (quasi-modular forms), and real-parameter divisor sums with parameter derivatives (log-power size).
+  * This is **Theorem A / Corollary A1, PROVED** relative to Deligne / Deligne–Serre and Chebotarev.
+  * The mechanism is T1 at the powers of p alone, through Lemma S. A T1-compatible a ∈ 𝓗 can be non-zero at p only
+    through a sign collision of Satake parameters. Collision-free primes include a positive-density Chebotarev set
+    inside p ≡ 1 (mod 840).
+  * In the examples examined, the collision sets are Frobenius conditions in a fixed finite extension, i.e.
+    congruence-type data (Assessment, not a classification).
+  * Valid but ineffective proxies exist (e.g. τ(n)·1[n ≡ 5 mod 12]).
+* *Q3 (Eisenstein + cusp with Deligne pointwise).* A *support* proxy E + c ∈ 𝓗 cannot be effective (Cor A1(a)). For a
+  prime-only "main term + error" argument, Cor A1(c) is only an elementary observation: the error must use
+  non-squareness. It is not an impossibility theorem when the error is outside 𝓗.
+* *Q2′ (minorant form).* Not killed by T1 (Props B1, B2, PROVED). Validity of an abstract modular minorant at primes is
+  (MS) itself, so automorphy buys nothing there (Assessment).
 * *Escapes.*
-  * E1, half-integral weight, is the only place where a pointwise Deligne/Duke template coexists with T1. Prop C
-    (CONDITIONAL) shows the falsifiers force its Eisenstein density to vanish on every square class carrying infinitely
-    many zeros. Instantiated with CM/Heegner objects it is the Planck-scale wall.
+  * E1, half-integral weight, is the only place found where a pointwise Deligne/Duke template coexists with T1. Prop C
+    (CONDITIONAL on (H_E) and Iwaniec–Duke) shows that the falsifiers force the Eisenstein part to vanish on every joint
+    local class carrying infinitely many squarefree zeros. Instantiated with CM/Heegner objects, it is the Planck-scale
+    wall.
   * E2 (level sums) is H-A/B2.
-  * E3 reduces to E2, or to GL(n) Hecke-finite objects where Lemma S applies again.
+  * E3: the examined packagings reduce to E2. GL(n) Hecke-finite objects fall under Lemma S at collision-free primes.
 
 **Falsifier table, final.**
-* F1: the mechanism uses non-squareness only via Lemma S; the residual primality information is quadratic characters
-  of p (Thm A).
+* F1: the mechanism uses non-squareness only via Lemma S. What remains is the Satake sign-collision set at p. On the
+  Thm A.2(b) set it is empty.
 * F2: line-blind, so no false theorem.
 * F3: not used by Thm A; used by Prop C.
 * F4: nothing is proved positive. The sign example B1 is correctly invalid at the 14 (★)-zero primes.
@@ -343,29 +409,32 @@ needs.
 
 **Proposed FRONTIER §6/§7 text (do not edit FRONTIER here).**
 > *Automorphic proxies (z58 AUTOMORPH, Thm A, PROVED rel. Deligne/Deligne–Serre + Chebotarev).*
-> * If a is a finite combination of GL₂ Hecke eigen-systems (holomorphic integral weight, Eisenstein or cusp, any
->   level/character; quasi-modular; real-parameter Eisenstein s-derivatives) and a(1) = a(p²) = a(p⁴) = … = 0, then
->   a(p) = 0 unless two Satake parameters at p are negatives of each other.
-> * Hence every such "support proxy" (a(n) ≠ 0 ⟹ R(n) ≥ 1) vanishes on a positive-density set of primes ≡ 1 (mod 840),
->   and R is not such an a on primes.
-> * T1-compatible Hecke-finite objects see p only through quadratic characters of bounded conductor: congruence menus
->   in disguise (B1).
+> * Let a be a finite combination of GL₂ Hecke eigen-systems: holomorphic integral weight, Eisenstein or cusp, any
+>   level/character; their n^j-twists (quasi-modular forms); real-parameter divisor sums Σ d^a(n/d)^b and their
+>   parameter derivatives. If a(1) = a(p²) = a(p⁴) = … = 0, then a(p) = 0 unless two Satake parameters at p are
+>   negatives of each other.
+> * Hence a support proxy of this kind (a(n) ≠ 0 ⟹ R(n) ≥ 1) vanishes on a positive-density set of primes
+>   ≡ 1 (mod 840): it cannot be valid and effective. R is not such an a on n ≡ 1 (mod 4).
 > * The minorant form is not killed by T1 (explicit examples), but its validity at primes is (MS) itself.
-> * Escapes: half-integral weight (squares and primes in different Shimura classes; instantiated, it is the Planck-scale
->   wall), level sums (H-A/B2), non-Hecke-finite objects.
-> * Add to §6: "Eisenstein + cusp decomposition with Deligne bounds for any fixed-level integral-weight object or
->   Eisenstein derivative".
+> * Escapes: half-integral weight (squares and primes lie in different Shimura classes; the CM/Heegner instantiation
+>   is the Planck-scale wall), level sums (H-A/B2), non-Hecke-finite objects.
+> * Add to §6: "support proxies with an Eisenstein + cusp decomposition and Deligne bounds, for any fixed-level
+>   integral-weight object, quasi-modular form or real-parameter Eisenstein derivative".
 
 **Bottom line.** The brief asked whether a modular, mock or higher-depth object with a Deligne-strength pointwise
-cusp bound could carry (MS). For every object with a GL₂ Hecke recursion, which is where Deligne bounds live, the answer
-is a clean **no**. Odd-square vanishing at p², p⁴, … alone forces the coefficient at p to vanish unless Satake
-parameters collide in sign, i.e. unless a quadratic character of bounded conductor is −1 at p. That is congruence
-information, and it is blind on a positive-density set of 𝔐-primes. This kills the support form of the proxy question,
-the exact-identity question, and the Eisenstein-plus-cusp template in that class. It extends the prior size-based
-(Thm 2.2) and Eisenstein-only (Thm 9.1, Prop 2.3) no-gos to cusp forms, quasi-modular forms and log-sized Eisenstein
-derivatives. The escape hatches it leaves are precise:
-* half-integral weight, where a pointwise template exists but, when instantiated by CM objects, needs Planck-scale
-  equidistribution;
+cusp bound could carry (MS). For support proxies built from GL₂ Hecke eigen-systems (where Deligne bounds live) the
+answer is a clean **no**.
+* Odd-square vanishing at p², p⁴, … alone forces the coefficient at p to vanish unless two Satake parameters at p are
+  negatives of each other. On a positive-density set of 𝔐-primes that never happens.
+* This kills, in that class, the "valid and effective support proxy" question, the exact-identity question, and the
+  Eisenstein-plus-cusp template for support proxies.
+* It extends the prior size-based (Thm 2.2) and Eisenstein-only (Thm 9.1, Prop 2.3) no-gos to cusp forms,
+  quasi-modular forms and log-sized divisor-sum derivatives.
+* The minorant form survives T1 but gains nothing from automorphy.
+
+The escape hatches it leaves:
+* half-integral weight, where a pointwise template exists but needs Planck-scale equidistribution when instantiated by
+  CM objects;
 * objects with no Hecke recursion in n (level sums), which is the old H-A/B2 wall.
 
 Nothing here moves (MS) toward a proof.
@@ -377,4 +446,25 @@ All runs: `ulimit -v 4000000`, `timeout` as shown.
   (local square classes of the known zeros; global check of Prop B1 for odd m ≤ 20 001).
 
 ## 7. Review log
-(to be filled)
+* **R1 (hostile deep-mode subagent review of the full memo):** 2 FATAL, 10 MAJOR, 2 MINOR. All repaired; places marked
+  (R1-n).
+  * FATAL 1: Cor A1(b) claimed R ∉ 𝓗 "on primes". Equality on primes does not give vanishing at squares. Now stated for
+    equality on all n ≡ 1 (4) coprime to M.
+  * FATAL 2: the Prop B2 polynomial was wrong. The ½ factor is restored; recomputed to m(m+1)(2 − m)/2.
+  * MAJOR:
+    * Thm A.2(b) lacked the cross-collision argument between type-(iii) and cuspidal parameters. It is added, using
+      Deligne purity, F ⊇ ℚ(ζ_{LM}) and the normal closures of the Hecke fields.
+    * The density-0 "quadratic characters only" classification was false as stated (CM forms, weight one). It is
+      deleted and replaced by the PROVED collision statement plus a scoped Assessment.
+    * Headline wording now says "valid and effective", with the counterexample τ(n)·1[n ≡ 5 mod 12].
+    * Cor A1(c) is softened to an observation.
+    * Prop C now has an explicit Eisenstein lower-bound hypothesis (H_E) and joint local classes.
+    * The Table 1 reading is corrected, and Table 2 (single-prime levels) added.
+    * The mock-class identification is removed.
+    * The E2 finite-support remark is restricted to R(p) > 0; other completions are not excluded.
+    * The paper `thm:ternary` citation is corrected (thin-set caveat).
+    * E1/E3 exclusivity claims are scoped.
+  * MINOR: nr(n) is D of weight one. The Σ log(n/d²) ≡ 0 example is removed. B1 is relabelled PROVED globally. The
+    Lemma S hypothesis wording is fixed and the stale checkpoint text removed.
+  * The reviewer reran both scripts under the memory limit; outputs matched the committed files.
+* Cross-model review: pending.
