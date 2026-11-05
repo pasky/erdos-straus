@@ -36,3 +36,4 @@ for n in range(1, N + 1, 2):
     sf = any(any(f % (y if y % 4 == 0 else 4 * y) == (y if y % 4 == 0 else 4 * y) - 1 for f in divs(n + y)) for y in range(1, 4 * n + 4))
     if not (U == raw == tf == sf): bad += 1; print("MISMATCH", n, U, raw, tf, sf)
 print(f"odd n <= {N}: U / raw D-form / T-form / shift form agree on all; mismatches {bad}")
+if bad: sys.exit(1)

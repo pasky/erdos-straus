@@ -6,7 +6,8 @@
 (3) Verify every LATE line in the given data files: K abcd = a + b + n c, line membership, f = K acd - 1.
 Usage: python3 z59_conv2_check.py N K engine_binary [datafiles...]
 """
-import sys, subprocess, math
+import sys, subprocess, math, gzip
+op = lambda fn: gzip.open(fn, 'rt') if fn.endswith('.gz') else open(fn)
 
 def brute(N, K):
     star = bytearray(N + 1); a1 = bytearray(N + 1)
@@ -68,9 +69,9 @@ def main():
     nbad = nlate = 0
     for fn in sys.argv[4:]:
         Kf = None
-        for l in open(fn):
+        for l in op(fn):
             if l.startswith("# K="): Kf = int(l.split()[1][2:]); L = int(l.split()[2][6:])
-        for l in open(fn):
+        for l in op(fn):
             if not l.startswith("LATE"): continue
             p = l.split(); n = int(p[1]); f, a, b, c, d = (int(x.split("=")[1]) for x in p[3:8])
             ok = Kf * a * b * c * d == a + b + n * c and f == Kf * a * c * d - 1
