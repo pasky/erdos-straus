@@ -181,6 +181,10 @@ exp(−c(log x)^{2/3}) bound for the full ES equation. (iii) T1 audit: W is an u
 for odd squares is trivially true (there are ≪ √x of them), so the squares test is vacuous here; primality enters only
 through 0 ∈ Ω(ℓ) (one extra factor log x).
 (iv) W does not touch the pointwise target: it bounds how many primes can be exceptional, not whether any is.
+(v) EVIDENCE for the rate (`scripts/z57_bfo_levelK.py`, `data/z57/bfo/levelK.txt`; 3000 random primes p ≡ 1 (4) in
+[10^k, 2·10^k], k = 6, 8, 10, 12): the fraction with no hit at levels C ≤ K falls from 0.231 to 0.170 (K = 1), 0.049 to
+0.022 (K = 3), 0.009 to 0.0007 (K = 8); fitted exponents −d log P/d log log p = 0.45, 0.89, 1.19 for K = 1, 2, 3 against
+κ_K = 0.5, 0.75, 1.0 (larger K: faster than κ_K, as composite divisors also count; few events).
 
 ## 4. Two calibrations
 
