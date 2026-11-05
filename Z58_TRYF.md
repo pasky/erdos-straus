@@ -221,6 +221,19 @@ penalty from p being a QR mod 3, 7). (iii) L_n (computed as R̃ − L₀ − L�
 term itself (−28.6 … +25.2 at p ≈ 10⁷); the event R(p) = 0 is "L_n = −(L₀+L₂+L_r)". Empirical spread: see 4.4. Any
 proof of (★) must show L_n > −(L₀+L₂+L_r) for every large p; nothing short of controlling the full non-real character spectrum of p modulo all
 d ≤ 4p/3 does that. This is the quantitative content of "HCE is the whole problem".
+**4.4 Empirical distribution of the layers** (`layers_mordell_1e6.txt`: all 329 Mordell-class primes in
+[10⁶, 1.15·10⁶], X = X_p). Means (sd): R = 22.5 (9.1), min R = 2; L₀ = 24.44; L₂ = −1.10 (0.47), positive for 4/329;
+L_r = −1.55 (0.52), positive for 1/329; L_n = −3.18 (7.26), range [−19.8, +21.9].
+Readings. (i) The flippable layers are tightly concentrated and small: L₂ + L_r ≈ −2.65 ± 0.7, i.e. the quadratic
+information (Lemma 1.2 + real characters) costs ≈ 11% of L₀ for Mordell-class primes at this height. (ii) L_n has a
+non-zero mean ≈ −3.2: this is the remaining local-factor information (characters of small conductor and order 3, 4, 6 …
+evaluated at p — e.g. p ≡ 1 (5) means that for 5 | d only k ≡ 4 (5) can hit, of which the real character (·/5)
+captures only half). These small-conductor non-real characters are "flippable" trivially (p mod q is known), so a
+refined main term would be ≈ 0.76·L₀ here; the genuinely non-local part of L_n has sd ≈ 7 and is what decides R(p).
+(iii) R̃ = 0 requires L_n = −(L₀+L₂+L_r) ≈ −21.8, i.e. (−21.8 + 3.2)/7.3 ≈ 2.6 empirical standard deviations below
+the mean at p ≈ 10⁶ (the sd grows roughly like the mean, so this z-score grows only slowly with p, consistent with
+exceptional primes thinning out but existing up to 8.8·10⁶).
+
 ## §7 Falsifiers re-stated; verdict
 
 What is PROVED here: Lemma 1.1 (equivalences, automatic bound), Lemma 1.2 (quadratic constraint; F1), Lemma 3.1
@@ -237,7 +250,7 @@ What is EVIDENCE: §4 (stats to 2·10⁸; layer tables for 23 primes). Nothing h
   [10⁷, 10⁸] (§4.2). So the only route to (★) in this memo passes through an unproved hypothesis whose half-family
   analogue is false; the memo claims nothing for p > 10¹⁰. Not a hot lead.
 * (F3) 285 composites, (F4) 14 primes: in the decomposition R = 0 means L_n = −(L₀ + L₂ + L_r) (§4.3, a tautology,
-  not a check), i.e. a deviation of the non-real layer of about one empirical standard deviation (§4.4); the asymptotic statements have thresholds far above
+  not a check), i.e. a deviation of the non-real layer of ≈ 2.6 empirical standard deviations at p ≈ 10⁶ (§4.4); the asymptotic statements have thresholds far above
   these n and p and are consistent.
 
 Verdict: NO PROOF; no hot lead. The contribution is a clean separation of (★) into a reciprocity-flippable part
