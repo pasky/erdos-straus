@@ -1,0 +1,10 @@
+5 f-form(a<=b) 1 1 direct(a<=b) 1 1 enum(all ordered) 2 2 OK
+13 f-form(a<=b) 1 1 direct(a<=b) 1 1 enum(all ordered) 2 2 OK
+17 f-form(a<=b) 2 1 direct(a<=b) 2 1 enum(all ordered) 4 2 OK
+97 f-form(a<=b) 3 1 direct(a<=b) 3 1 enum(all ordered) 6 2 OK
+3361 f-form(a<=b) 2 1 direct(a<=b) 2 1 enum(all ordered) 4 2 OK
+9973 f-form(a<=b) 33 9 direct(a<=b) 33 9 enum(all ordered) 66 18 OK
+4545 f-form(a<=b) 0 0 direct(a<=b) 0 0 enum(all ordered) 0 0 OK
+2521 f-form(a<=b) 3 1 direct(a<=b) 3 1 enum(all ordered) 6 2 OK
+10009 f-form(a<=b) 38 17 direct(a<=b) 38 17 enum(all ordered) 76 34 OK
+99991 f-form(a<=b) 68 9 direct(a<=b) 68 9 enum(all ordered) 135 18 OK
