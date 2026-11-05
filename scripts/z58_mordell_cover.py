@@ -1,13 +1,15 @@
 # z58 MORDELL: Mordell-type covering of unit residue classes mod L by one-parameter ES identity families
 # (the ET-shaped menu of BRAINSTORM/y7_mordell_levels.md, reimplemented with numpy; plus the (★)-only sub-menu).
-# Families for 4/n (each a polynomial identity; verified symbolically by z58_mordell_identities.py):
+# Families for 4/n (each a polynomial identity; one-line proofs in BRAINSTORM/y7_mordell_levels.md):
 #  II-d: n = 4abd - e, e | a+b                      class -e            mod 4ab        (d free)
 #  II-c: b = ce - a                                  class -4a^2 d - e   mod 4ade       (c free)
 #  II-e: b = ce - a                                  class -4a^2 d       mod 4acd - 1   (e free)   [(★) = II-e with c=1]
 #  I-d : ne + 1 = 4abd, e | a+b, gcd(e,4ab)=1        class -e^{-1}       mod 4ab        (d free)
 #  I-c : b = ce - a, e | 4a^2 d + 1                  class -(4a^2d+1)/e  mod 4ad        (c free)
-# Every n >= 1 in a covered class has an explicit solution (positivity: see y7 memo).
-# Usage: python z58_mordell_cover.py L [menu]   menu in {es, star}; prints uncovered unit classes.
+#  (★) menu ("star") = the one-parameter (★) families: fixed (u,C) [class H_d, d = 4uC-1 = II-e with c=1] and
+#  fixed (u,B) [class -(u+B) mod 4uB = II-d with e = a+b]; menu "starH" = fixed (u,C) only (the H_d classes).
+# Every n >= 1 in a covered class has an explicit solution (positivity: see BRAINSTORM/y7_mordell_levels.md).
+# Usage: python z58_mordell_cover.py L [menu]   menu in {es, star, starH}; prints uncovered unit classes.
 import sys
 from math import gcd
 import numpy as np
@@ -51,6 +53,12 @@ def cover(L, menu="es", M=4):
                 t = M * a * a * d + 1
                 for e in divisors(t):
                     add(-(t // e), q)                           # I-c
+    if menu == "star":                                          # fixed (u,B): n = 4uBC - u - B
+        for q in D:
+            if q % M: continue
+            ab = q // M
+            for a in divisors(ab):
+                add(-(a + ab // a), q)
     for g in D:                                                 # II-e (all c) / (★) (c = 1)
         if (g + 1) % M:
             continue
@@ -58,7 +66,7 @@ def cover(L, menu="es", M=4):
         for a in divisors(acd):
             for d in divisors(acd // a):
                 c = acd // (a * d)
-                if menu == "star" and c != 1:
+                if menu in ("star", "starH") and c != 1:
                     continue
                 add(-M * a * a * d, g)
     return cov

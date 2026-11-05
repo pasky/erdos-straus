@@ -6,10 +6,13 @@ l = 11:
   R= 4 QR          n= 15838 mean R/L^2=0.1182 zeros=0 R<=4: 6
   R= 5 QR          n= 15764 mean R/L^2=0.1190 zeros=0 R<=4: 4
   R= 6 QNR-sterile n= 16059 mean R/L^2=0.1284 zeros=0 R<=4: 0
-  R= 7 QNR-sterile n= 15944 mean R/L^2=0.1212 zeros=0 R<=4: 5
+  R= 7 QNR-hit     n= 15944 mean R/L^2=0.1212 zeros=0 R<=4: 5
   R= 8 QNR-hit     n= 15990 mean R/L^2=0.1410 zeros=0 R<=4: 0
   R= 9 QR          n= 15908 mean R/L^2=0.1203 zeros=0 R<=4: 8
   R=10 QNR-hit     n= 15937 mean R/L^2=0.1493 zeros=0 R<=4: 0
+  group QR         : n=79128 mean=0.11736 se=0.00014 sd=0.0387 #R<=4=25 (3.16 per 10^4)
+  group QNR-sterile: n=31956 mean=0.12384 se=0.00021 sd=0.0381 #R<=4=0 (0.00 per 10^4)
+  group QNR-hit    : n=47871 mean=0.13716 se=0.00019 sd=0.0406 #R<=4=5 (1.04 per 10^4)
 l = 13:
   R= 1 QR          n= 13197 mean R/L^2=0.1198 zeros=0 R<=4: 5
   R= 2 QNR-sterile n= 13244 mean R/L^2=0.1200 zeros=0 R<=4: 2
@@ -23,6 +26,9 @@ l = 13:
   R=10 QR          n= 13187 mean R/L^2=0.1196 zeros=0 R<=4: 8
   R=11 QNR-hit     n= 13350 mean R/L^2=0.1428 zeros=0 R<=4: 0
   R=12 QR          n= 13231 mean R/L^2=0.1259 zeros=0 R<=4: 3
+  group QR         : n=79284 mean=0.12114 se=0.00014 sd=0.0404 #R<=4=24 (3.03 per 10^4)
+  group QNR-sterile: n=53048 mean=0.12229 se=0.00017 sd=0.0383 #R<=4=6 (1.13 per 10^4)
+  group QNR-hit    : n=26623 mean=0.13967 se=0.00024 sd=0.0393 #R<=4=0 (0.00 per 10^4)
 l = 17:
   R= 1 QR          n=  9921 mean R/L^2=0.1202 zeros=0 R<=4: 2
   R= 2 QR          n=  9905 mean R/L^2=0.1222 zeros=0 R<=4: 2
@@ -35,11 +41,14 @@ l = 17:
   R= 9 QR          n=  9877 mean R/L^2=0.1210 zeros=0 R<=4: 2
   R=10 QNR-sterile n= 10051 mean R/L^2=0.1228 zeros=0 R<=4: 2
   R=11 QNR-hit     n=  9945 mean R/L^2=0.1334 zeros=0 R<=4: 0
-  R=12 QNR-sterile n=  9942 mean R/L^2=0.1324 zeros=0 R<=4: 0
+  R=12 QNR-hit     n=  9942 mean R/L^2=0.1324 zeros=0 R<=4: 0
   R=13 QR          n=  9838 mean R/L^2=0.1213 zeros=0 R<=4: 0
   R=14 QNR-sterile n=  9887 mean R/L^2=0.1313 zeros=0 R<=4: 0
   R=15 QR          n=  9880 mean R/L^2=0.1253 zeros=0 R<=4: 4
   R=16 QR          n=  9859 mean R/L^2=0.1271 zeros=0 R<=4: 4
+  group QR         : n=79118 mean=0.12291 se=0.00014 sd=0.0408 #R<=4=16 (2.02 per 10^4)
+  group QNR-sterile: n=59950 mean=0.12415 se=0.00016 sd=0.0391 #R<=4=14 (2.34 per 10^4)
+  group QNR-hit    : n=19887 mean=0.13290 se=0.00028 sd=0.0393 #R<=4=0 (0.00 per 10^4)
 l = 19:
   R= 1 QR          n=  8867 mean R/L^2=0.1188 zeros=0 R<=4: 1
   R= 2 QNR-sterile n=  8936 mean R/L^2=0.1198 zeros=0 R<=4: 1
@@ -59,6 +68,9 @@ l = 19:
   R=16 QR          n=  8808 mean R/L^2=0.1222 zeros=0 R<=4: 3
   R=17 QR          n=  8762 mean R/L^2=0.1239 zeros=0 R<=4: 3
   R=18 QNR-hit     n=  8804 mean R/L^2=0.1523 zeros=0 R<=4: 0
+  group QR         : n=79335 mean=0.12085 se=0.00014 sd=0.0394 #R<=4=19 (2.39 per 10^4)
+  group QNR-sterile: n=53132 mean=0.12205 se=0.00017 sd=0.0385 #R<=4=10 (1.88 per 10^4)
+  group QNR-hit    : n=26488 mean=0.14111 se=0.00025 sd=0.0412 #R<=4=1 (0.38 per 10^4)
 l = 23:
   R= 1 QR          n=  7146 mean R/L^2=0.1193 zeros=0 R<=4: 2
   R= 2 QR          n=  7211 mean R/L^2=0.1193 zeros=0 R<=4: 5
@@ -74,7 +86,7 @@ l = 23:
   R=12 QR          n=  7286 mean R/L^2=0.1212 zeros=0 R<=4: 2
   R=13 QR          n=  7222 mean R/L^2=0.1195 zeros=0 R<=4: 3
   R=14 QNR-sterile n=  7204 mean R/L^2=0.1217 zeros=0 R<=4: 4
-  R=15 QNR-sterile n=  7216 mean R/L^2=0.1236 zeros=0 R<=4: 0
+  R=15 QNR-hit     n=  7216 mean R/L^2=0.1236 zeros=0 R<=4: 0
   R=16 QR          n=  7153 mean R/L^2=0.1197 zeros=0 R<=4: 1
   R=17 QNR-hit     n=  7237 mean R/L^2=0.1388 zeros=0 R<=4: 0
   R=18 QR          n=  7254 mean R/L^2=0.1223 zeros=0 R<=4: 3
@@ -82,3 +94,6 @@ l = 23:
   R=20 QNR-hit     n=  7198 mean R/L^2=0.1384 zeros=0 R<=4: 0
   R=21 QNR-hit     n=  7182 mean R/L^2=0.1434 zeros=0 R<=4: 0
   R=22 QNR-hit     n=  7294 mean R/L^2=0.1495 zeros=0 R<=4: 0
+  group QR         : n=79386 mean=0.12023 se=0.00014 sd=0.0390 #R<=4=22 (2.77 per 10^4)
+  group QNR-sterile: n=43442 mean=0.12090 se=0.00019 sd=0.0388 #R<=4=8 (1.84 per 10^4)
+  group QNR-hit    : n=36127 mean=0.13876 se=0.00021 sd=0.0407 #R<=4=0 (0.00 per 10^4)
