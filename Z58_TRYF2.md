@@ -3,7 +3,10 @@
 Lane: TRYF2 (wave z58). Fresh, unprimed attack per `z52bbriefs/z55_tryhard.md` (z55→z58). Only external data used:
 `data/z58/screens/`. Scripts: `scripts/z58_tryf2_*`; data: `data/z58/tryf2/`.
 
-**Status line (updated at every commit):** NO PROOF. Everything below is labelled PROVED / CERTIFIED / EVIDENCE /
+**Status line (updated at every commit):** NO PROOF of the target; no HOT LEAD. Deliverable: the exact split
+R(p) = M₂(p) + E₂(p) (§3) with **Theorem A (PROVED): M₂(p) ≥ c₀ log² p for all large primes p ≡ 1 (4)**, M₂ ≡ 0 at
+squares, and the open core isolated as the single inequality E₂(p) > −M₂(p) (shown to be non-local, Prop. 2.1, and
+not sub-family-stable, §4(b)/F2). Everything below is labelled PROVED / CONDITIONAL / CERTIFIED /
 CONDITIONAL. No HOT LEAD yet.
 
 Notation. For n ≡ 1 (mod 4) put R(n) := #{(u,B,C) ∈ ℕ³ : 4uBC − u − B = n} = #{(u,d) : u ≥ 1, d | n+u, d ≡ −1 (mod 4u)}
@@ -56,10 +59,11 @@ conversely r_d | (d+1)/4 gives u := r_d, C := (d+1)/(4u) ≥ 1, d | n+u. ∎
 **Remark 1.2 (continued-fraction face).** For u,B ≥ 2 the Euclidean algorithm on (n,d) runs n = (B−1)d + (d−u),
 d = 1·(d−u) + u, d−u = (4C−2)u + (u−1), u = 1·(u−1) + 1, so n/d has regular continued fraction [B−1; 1, 4C−2, 1, u−1]
 and Hirzebruch–Jung expansion n/d = B − 1/(4C − 1/u). Hence R(n) − 2·#{d | n+1 : d ≡ 3 (4)} equals the number of
-d < n for which d/n = [0; a₀, 1, a₂, 1, a₄] has exactly five partial quotients with a₂ ≡ 2 (mod 4). (Checked
-numerically for n ≤ 2000 inside the Lemma-1.3 script? — no: this remark is derived only, EVIDENCE-free but the
-derivation is the four displayed divisions.) This face is recorded because it puts the problem into the
-Gauss–Kuzmin/Kloosterman framework for fractions with fixed denominator n; §5 explains why that framework still
+d < n coprime to n whose canonical regular continued fraction is d/n = [0; a₀, 1, a₂, 1, a₄] with a₄ ≥ 2, or
+[0; a₀, 1, a₂, 2] (the case u = 2), with a₂ ≡ 2 (mod 4). (The subtracted term counts the hits with u = 1 or B = 1.)
+PROVED by the four displayed divisions and uniqueness of canonical expansions; verified for all n ≡ 1 (4), n < 3000
+by `scripts/z58_tryf2_cf_check.py` (0 mismatches). This face is recorded because it puts the problem into the
+Gauss–Kuzmin/Kloosterman framework for fractions with fixed denominator n; §4 explains why that framework still
 cannot see a set of size log² n.
 
 **Lemma 1.3 (Jacobi identity; the square obstruction).** Let n ≡ 1 (4), C ≥ 1, d | 4nC+1, gcd(d,n) = 1. Then
@@ -165,8 +169,9 @@ d < p guarantees gcd(d,p) = 1 for the odd d in B'). By partial summation with St
 *Step 5 (Erdős–Turán on one block).* Let w_d := ½(1 − χ(d))·1_{d odd} ∈ {0,1} (indicator of "odd and χ(d) = −1" for
 d < p), W_j := Σ_{d ∈ B_j} w_d. By Pólya–Vinogradov, W_j = ¼ηD_j + O(√p log p) (count odd d in B_j: ½ηD_j + O(1);
 subtract ½Σ_{d ∈ B_j odd} χ(d), and Σ_{odd d ∈ B'} χ(d) = Σ_{d∈B'} χ(d) − χ(2)Σ_{d' ∈ B'/2} χ(d') ≪ √p log p).
-The weighted Erdős–Turán inequality (nonnegative weights; e.g. Montgomery, *Ten Lectures*, Thm 5.1 applied to the
-multiset in which d is repeated w_d times) gives for every H ≥ 1
+Since w_d ∈ {0,1}, apply the Erdős–Turán inequality (Montgomery, *Ten Lectures on the Interface between Analytic Number
+Theory and Harmonic Analysis*, Ch. 1: for x₁,…,x_N ∈ ℝ/ℤ and any interval I, |#{i: x_i ∈ I} − |I|N| ≤ N/(H+1) +
+3Σ_{h≤H} h⁻¹|Σ_i e(hx_i)|) to the sequence (ξ_d)_{d ∈ B_j, w_d = 1} of length W_j: for every H ≥ 1
   #{d ∈ B_j : w_d = 1, {ξ_d} ∈ I_j} ≥ |I_j|·W_j − W_j/(H+1) − 3Σ_{h=1}^{H} (1/h)|Σ_{d∈B_j} w_d e(hξ_d)|.
 Each exponential sum is ½(Σ_{odd} e(hξ_d) − Σ_{odd} χ(d)e(hξ_d)) ≤ 16√p log p by (3.4). Take H := ⌈p^{ε/4}·D_j/X⌉ ≤ D
 (valid: D_j/X ≤ 2D/X and p^{ε/4}·2D/X ≤ D once X ≥ 2p^{ε/4}). Then
@@ -178,14 +183,13 @@ So #{d ∈ B_j : w_d = 1, {ξ_d} ∈ I_j} ≥ ¼ηX(1 − 4p^{−ε/4}) for ever
 ≥ (log 2)/η − 2 blocks, (3.2) gives
   S(X,D) ≥ ¼X·(log 2)(1 − 5p^{−ε/4}) ≥ X/6     (p ≥ p₀(ε)).                                                  (3.5)
 
-*Step 6 (summing the boxes).* Take X_i := 2^i·p^{1/2+ε} for 0 ≤ i ≤ I := ⌊log₂(p^{1/2−ε}/64)⌋ (so X_i ≤ p/64), and for
-each i the dyadic D_{i,j} := 8X_i·2^j, 0 ≤ j ≤ J_i := ⌊log₂(√(p/X_i)/8)⌋ (so D_{i,j} ≤ √(pX_i)). These boxes are pairwise
-disjoint. By (3.1) and (3.5), M₂(p) ≥ Σ_i Σ_j (X_i/6)/(2X_i) = (1/12)Σ_i (J_i + 1). Now J_i + 1 ≥ ½log₂(p/X_i) − 3 =
-½(log₂ p − i) − ½(½+ε)log₂ p − 3 … simplify: log₂(p/X_i) = (½−ε)log₂ p − i, so Σ_{i=0}^{I}(J_i+1) ≥
-Σ_{i=0}^{I} (½((½−ε)log₂p − i) − 3) ≥ ¼(I+1)((½−ε)log₂ p − I) − 3(I+1) ≥ (1/16)(½−ε)² log₂² p·(1 + o(1)) using
-I + 1 ≥ (½−ε)log₂ p − 7 and (½−ε)log₂p − I ≥ (½−ε)log₂p/2 for … (crude: split the i-range in half; the first half
-has I/2 terms each ≥ ¼·½(½−ε)log₂ p − 3). Hence M₂(p) ≥ (1/12)·(1/16)(½−ε)²(log₂ p)²(1+o(1)) ≥ c₀ log² p with
-c₀ = (½−ε)²/(192·(log 2)²)·(1 − o(1)); for ε = 1/10 this is ≥ 1/300 for p ≥ p₀. ∎
+*Step 6 (summing the boxes).* Put Λ := (½−ε)log₂ p and take X_i := 2^i·p^{1/2+ε} for 0 ≤ i ≤ I := ⌊Λ − 6⌋ (so
+X_i ≤ p/64), and for each i the dyadic D_{i,j} := 8X_i·2^j, 0 ≤ j ≤ J_i := ⌊log₂(√(p/X_i)/8)⌋ (so D_{i,j} ≤ √(pX_i)).
+These boxes are pairwise disjoint and satisfy the hypotheses of Steps 1–5. By (3.1) and (3.5),
+M₂(p) ≥ Σ_i Σ_j (X_i/6)/(2X_i) = (1/12)Σ_{i=0}^{I}(J_i + 1). Since log₂(p/X_i) = Λ − i, J_i + 1 ≥ ½(Λ − i) − 3, so
+  Σ_{i=0}^{I}(J_i+1) ≥ (I+1)(½Λ − 3) − ¼I(I+1) = (I+1)(½Λ − 3 − ¼I) ≥ (Λ−6)(¼Λ − 3/2) = ¼(Λ − 6)²,
+using I ≤ Λ − 6 and I + 1 ≥ Λ − 6. Hence M₂(p) ≥ (Λ − 6)²/48 = ((½−ε)log₂ p − 6)²/48 ≥ c₀ log² p with
+c₀ = (½−ε)²/(48 (log 2)²)·(1 − o(1)); for ε = 1/10 this is ≥ 1/300 for p ≥ p₀. ∎
 
 *Where primality was used.* (i) χ = (·/p) is non-principal, so Pólya–Vinogradov makes the QNR weight w_d have positive
 density — at n = m² the weight is identically 0 and M₂ = 0; (ii) Weil/Salié bounds for the complete sums mod p with
