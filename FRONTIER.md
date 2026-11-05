@@ -1298,6 +1298,20 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   * IOpen plus residues cannot prove MS⁺★(P) (Thm 6.2, PROVED).
   * No natural-proofs barrier was established. An ineffective eventual Σ₂ theorem would not finish the (★) route
     (Assessment).
+* (z59) Single-eigensystem cusp/Waldspurger positivity for ternary-theta proxies on 𝔐, and termwise recipe lattices on the
+  square class → `Z59_WALDS.md` Thm W1, Lemma W0, §6.1 (PROVED in scope; §3 z59). Positivity of one line at p is
+  L(G_φ ⊗ χ_p, ½) ≠ 0, false at 13 explicit 𝒞₁-primes (six in 𝔐); eventual failure only CONJECTURE (residue-class
+  CKRS). Escapes (E-a)–(E-e) remain.
+* (z59) Local means / dead moduli as a proof device for (MS⁺) → `Z59_MSPLUS.md` Thm 1, Remark 2.3 (square-blind and
+  identical for R₈; Assessment that it is no route on its own). Unconditional closure-based reductions between (MS) and
+  (MS⁺) (products, divisors, q²-scaling) fail (CERTIFIED examples); witness-shape-conditioned reductions are not excluded.
+* (z59) Inheritance / numerator ladder / ET dilation as a source of Type II solutions at primes → `Z59_CONV2.md` Prop 4.1
+  (PROVED: no descent into a prime within equation-scaling transports). Non-monomial or adaptive maps are not excluded.
+* (z59) "Some prime factor of N_ρ = (p + ρ)/4 escapes the quadratic kernel ⟹ ρ works" → `Z59_CONVO.md` §4 (refuted by
+  4545 and at p = 8 803 369; CERTIFIED). Other bounded-order character arguments are not excluded.
+* (z59) Tryhard routes for pointwise (★) / Type II (least non-residue, near-squares, Pell / norm forms, Vieta, prime
+  witnesses, Zagier-type involutions, fixed small C, short-interval divisor sums) → `Z59_MSPF.md` §3, `Z59_CONVO.md` §7
+  (Assessment: failed attempts, *not* barriers; each stops at "some n + k has a divisor ≡ −1 (mod 4k)").
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
@@ -2179,7 +2193,8 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
         higher depth; effective signed minorants.
       * TERNARY: cusp nonvanishing on 𝔐, which for one eigenform is Goldfeld-type when the root number is +1. The
         Waldspurger screen (ψ = 1, Cor 2 with anchors) found no valid and effective single-eigensystem R-support proxy
-        among 15 L-functions (EVIDENCE); it does not constrain Type II support. Also E1′ (a thin-set Heegner
+        among 15 L-functions (EVIDENCE); it does not constrain Type II support. *(z59: superseded on 𝒞₁ by
+        `Z59_WALDS.md` W1 + W4 — only Gauss-exceptional eigensystems survive; remaining escapes in item 19.)* Also E1′ (a thin-set Heegner
         hypercycle-incidence theorem) and off-𝒞₁ classes.
       * STRUCT/STRUCT2: the Brauer set of S°; fibre arithmetic (factorisation of kCn + 1, n + u); equidistribution on
         fibres.
@@ -2190,6 +2205,26 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
       * LADDER: cap rungs k ≥ 2; covering scales p^{0.15}–p^{2/3}.
     * **Disproof side** (`Z58_DISPROOF.md`): a slowly decaying zero-law mixture, growing offsets, other polynomial families,
       or a non-local "prime T1" (cf. item 15).
+19. *(z59, `Z59_SUMMARY.md` §5; none of these is a lead.)* **Sharper targets after the survivor probe.**
+    * **CONJECTURE U / (MS-U)** (`Z59_CONV2.md`; §2.4 z59). Every odd non-square n ∉ {105, 4545} has U(n) ≥ 1, U = (c = 1) ∪
+      (a = 1); equivalently some Tn + 1 has a divisor ≡ −1 (mod L_T), L_T = T (4 | T), 4T (else). CERTIFIED to 10¹⁰; at primes
+      López's Conjecture 1. (MS) ⟹ (MS-U) ⟹ (MS-II). *Why:* in the certified range the screens do not need the full Type II
+      family beyond U (only at n = 105), so a fixed-p argument for **one line** T ↦ E(Tp + 1, L_T) suffices for (MS-II); the
+      a = 1 branch itself uses c ≥ 2. U asks for more than CONV-II; that it is harder to prove is not claimed. EVIDENCE: no
+      single class T mod 4 carries the rescue (mask table, ≤ 10⁷).
+    * **(MS⁺) and its primality-free variants** (`Z59_MSPLUS.md`; CONJECTURE). (MS⁺) is CERTIFIED to 10¹² (one engine).
+      (MS⁺₁₀₅): all classes with gcd(n, 105) = 1, threshold 29 210 401; (R⁺_y), y ≥ 47: all prime factors > y, threshold
+      8 813 281; both CERTIFIED to 10¹⁰. *Why:* clean screens, no Mordell input, negligible model tails (EVIDENCE, model
+      only). A proof of (MS) transfers to (R⁺_y) only if every use of primality follows from non-squareness plus the
+      fixed-y exclusion. Versions allowing 3 | n keep zeros past 10¹⁰ (9 with 105 | n in [10¹⁰, 10¹¹]).
+    * **Zero-law questions** (`Z59_MSPLUS.md` §3; EVIDENCE): derive the true second-order class mean (the proposed one was
+      withdrawn); explain the ≈ 6× excess of 𝔐-prime zeros at 10⁶–10⁷ and the ≈ 1.4× under-prediction in later decades.
+    * **Half-integral-weight escapes** (`Z59_WALDS.md` §7): (E-a) levels with several Gauss-exceptional φ and a validity
+      identity not reducible to validity at large primes (none known); (E-b) coset thetas / theta series with
+      characteristics (Thm F, W0 unproved there); (E-c) mixed-ψ signed combinations; (E-d) higher half-integral weight;
+      (E-e) off-𝒞₁ classes, needing p-dependent levels with some ℓ ≥ n_p (B2 again).
+    * **ρ-residues** (`Z59_CONVO.md` §3–§4): control the residues mod ρ of the individual prime factors of (p + ρ)/4 beyond
+      the quadratic colouring (ℓ/p). Witnessing ρ is ≤ 107 for p ≡ 1 (24) ≤ 10⁸ (CERTIFIED) but unbounded under Dickson.
 
 ## 8. Pointers into the repository
 
@@ -2218,5 +2253,7 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
   BM_CORRECTED_COUNT, `z39_kronecker.py` for Theorem K), `logs/`. Run with `PYTHONPATH=scripts uv run python …`.
 * **Wave z58** (`Z58_SUMMARY.md`): `Z58_{WITNESS,FFIELD,AUTOMORPH,MORDELL,LADDER,WILDCARD,STRUCT,STRUCT2,LOGIC,DISPROOF,
   LIT,TRYO,TRYF,TRYF2,TERNARY,CONVF}.md`; cross-model reviews `data/z58/xreview/`; falsifier screens `data/z58/screens/`.
+* **Wave z59** (`Z59_SUMMARY.md`): `Z59_{CONV2,CONVO,WALDS,MSPLUS,MSPF}.md`; cross-model reviews `data/z59/xreview/`; data
+  `data/z59/<lane>/`; papers changes `data/z59/papers/CHANGES.md`.
 * **Reviews:** `reviews/` (hostile reviews per result), `reviews/agent-reports/` (task reports O1–O279), novelty audits
   `reviews/novelty-audit-2026-10*.md`.
