@@ -85,9 +85,11 @@ a(n) = Σ_{i=1}^r c_i λ_i(n), with each λ_i one of the following.
   weight k ≥ 1, level | M, any nebentypus.
 * (ii) n^j λ_f(n), j ∈ ℤ_{≥0}. This covers D^j f and the quasi-modular forms, since QM = ⊕ D^j M ⊕ ℂ D^j E₂ by
   Kaneko–Zagier, and E₂ has λ = σ₁.
-* (iii) A real-parameter derivative ∂_s^e|_{s=s₀} of Σ_{d|n} ψ₁(d)ψ₂(n/d) d^{s+u}(n/d)^{−s+v}, with u, v, s₀ real and
-  ψ₁, ψ₂ characters mod M. These are the coefficients of s-derivatives of holomorphic or non-holomorphic Eisenstein
-  series, including τ(n) and Σ_{d|n} χ(d) log(n/d²).
+* (iii) Σ_{d|n} ψ₁(d)ψ₂(n/d) d^{s+u}(n/d)^{−s+v} or a real-parameter derivative ∂_s^e|_{s=s₀} of it (e ≥ 0), with
+  u, v, s₀ real and ψ₁, ψ₂ characters mod M; also mixed partial derivatives in two such parameters. These are the
+  arithmetic parts of the coefficients (times powers of n) of holomorphic or non-holomorphic Eisenstein series and of
+  their s-derivatives. Examples: σ_a(n), n^bτ(n), τ(n), Σ_{d|n} χ(d) log(n/d²), Σ_{d|n} log d·log(n/d). The modular
+  packaging is standard; the theorem below concerns only the arithmetic functions.
 
 Every element of M_k(Γ₁(N)) restricted to (n, N) = 1 lies in 𝓗_N. Reason: for (n, N) = 1 the operators T_n act
 semisimply, and a_f(n) = a_{T_n f}(1) = λ(n) a_f(1) on each eigencomponent. Old forms f(dz), d > 1, contribute 0 at
@@ -170,16 +172,18 @@ q ≡ 3 (4) (`lemmaS_out.txt`). A global sign theorem would need T1 at products 
 ## 3. The sign / minorant form Q2′: T1 alone does not kill it, and validity is (MS) again
 
 **Prop B1 (T1-sign is satisfiable globally inside 𝓗; PROVED for the stated range, CERTIFIED numerically).** Let
-a(n) := 5σ₂(n) − (2n² + 3)τ(n). This is in 𝓗 via type (iii) without derivative: σ₂(n) is n times the n-th
-coefficient of the weight-0 Eisenstein series E(z, 3/2), and n²τ(n) is a twisted s-derivative. Then:
+a(n) := 5σ₂(n) − (2n² + 3)τ(n). It is in 𝓗 via type (iii) with e = 0: σ₂(n) = Σ d², n²τ(n) = Σ d²(n/d)², τ(n) = Σ 1.
+σ₂(n)/n is the arithmetic part of the n-th coefficient of the weight-0 Eisenstein series E(z, 3/2); τ(n) is that of
+∂_sE(z, s) at s = ½. Then:
 * a(1) = 0 and a(p) = 5(1 + p²) − 2(2p² + 3) = p² − 1 > 0 at every prime p;
 * a(m²) ≤ 0 for every odd m.
 
-*Proof of the second item.* For m = 1, a(1) = 0. For odd m > 1, write m² = Π p^{2e_p}. Then
-σ₂(m²)/m⁴ = Π_p (1 + p^{−2} + … + p^{−4e_p}) < Π_{p odd}(1 − p^{−2})^{−1} = (3/4)ζ(2) < 1.234, while
-τ(m²) = Π(2e_p + 1) ≥ 3. So a(m²) < 5·1.234·m⁴ − 2m⁴·3 − 9 = 0.17m⁴ − 9, which is not yet negative. Refine at
-ω(m) = 1, m = p^e: σ₂(p^{2e})/p^{4e} < p²/(p² − 1) ≤ 9/8, and 5·9/8 = 5.625 < 6 ≤ 2(2e + 1). At ω(m) ≥ 2: τ(m²) ≥ 9,
-and 5·1.234 < 18. ∎
+*Proof of the second item.* For m = 1, a(1) = 5 − 5 = 0. For odd m > 1 write m² = Π p^{2e_p}. Then
+σ₂(m²)/m⁴ = Π_p (1 + p^{−2} + … + p^{−4e_p}) < Π_{p odd}(1 − p^{−2})^{−1} = (3/4)ζ(2) < 1.234, and a(m²) < m⁴(5σ₂(m²)/m⁴ − 2τ(m²)).
+* If ω(m) = 1, m = p^e: σ₂(p^{2e})/p^{4e} < p²/(p² − 1) ≤ 9/8, so 5σ₂/m⁴ < 5.625 < 6 ≤ 2(2e + 1) = 2τ(m²).
+* If ω(m) ≥ 2: τ(m²) ≥ 9, so 5·1.234 < 18 ≤ 2τ(m²).
+
+In both cases a(m²) < 0. ∎
 CERTIFIED for all odd m ≤ 20 001: max a(m²)/m⁴ = 0, attained at m = 1 (`classes_out.txt`).
 
 So, unlike the support form (Thm A), the minorant form is **not** killed by T1, even globally and even with all odd
