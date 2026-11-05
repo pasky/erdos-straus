@@ -24,10 +24,11 @@ classes, prove M₂(p) ≫ log² p for every large prime (Theorem A), and (iv) i
   M₂(m²) = 0 identically. In Theorem A the non-squareness enters at one identifiable step: Pólya–Vinogradov for the
   non-principal character (·/p) gives the weight w_d = 1[(d/p) = −1] positive density (Step 5). ✔ consistent.
 * (F2) C even only. The split R₈ = M₂^{even} + E₂^{even} and Theorem A's proof (with 8p in place of 4p) apply to
-  the C-even sub-family, and at the 12 F2 primes E₂^{even} = −M₂^{even} with M₂^{even}(C ≤ 1500) ≈ 11–16. These are
-  finite counterexamples; they do not disprove an *eventual* C-even statement. What they do establish: no argument
-  in this lane proves E₂ > −M₂ (nothing here does), and any future argument that proves it and applies unchanged to
-  the C-even sub-family must have an explicit threshold exceeding 1.1·10¹⁰. ✔ consistent (nothing is proved that
+  the C-even sub-family, and at the 12 F2 primes E₂^{even} = −M₂^{even} (at the two evaluated ones the truncated
+  values are M₂^{even}(C ≤ 1500) = 11.1 and 15.6). These are finite counterexamples; they do not disprove an
+  *eventual* C-even statement. What they do establish: no argument in this lane proves E₂ > −M₂ (nothing here does),
+  and any future argument proving E₂ > −M₂ for all p ≥ p₀ that applies unchanged to the C-even sub-family must have
+  p₀ > 10 917 229 157 (the largest F2 prime). ✔ consistent (nothing is proved that
   would transfer to the false statement).
 * (F3) 285 composite non-square zeros n ≤ 8·10⁶. Theorem A is proved for primes only; its extension to composite
   non-squares is NOT proved here (the density of units in (ℤ/n) and imprimitive characters need separate treatment).
@@ -82,8 +83,8 @@ because −C < 0 is not a square; its kernel has index 2. ∎
 Numerically verified (`scripts/z58_tryf2_jacobi_check.py`): identity holds for all 40 000+ pairs (C ≤ 400, d | 4nC+1)
 at n ∈ {5, 13, 409, 577, 841, 1225, 57, 105, 2305, 10009, 9601, 12841}; h_C ≤ m_C (notation of §4) throughout.
 
-So the *only* way non-squareness can enter a proof is through the non-principality of the character (·/n) — every
-hit is a Jacobi non-residue, and squares have none.
+In Theorem A's proof non-squareness enters only through the non-principality of the character (·/n): every hit is a
+Jacobi non-residue, and squares have none.
 
 ## §2 No argument with two bounded coordinates can work (PROVED), and how non-local the hits are (EVIDENCE)
 
@@ -241,8 +242,8 @@ in principle do better; none was found).
 argument gives M₂^{even}(p) ≫ log² p after routine changes (C = 2C′, d | 8pC′+1, cutoff 8C′−1, weight 4/φ(8C′), modulus
 8p in Steps 3–4). At the 12 F2 primes E₂^{even} = −M₂^{even}. These are finitely many counterexamples below 1.1·10¹⁰;
 they do not disprove an eventual C-even statement, and they do not prove that a future argument "must" couple
-different C. They do show that an argument proving E₂ > −M₂ for p ≥ p₀ which applies unchanged to C even needs
-p₀ > 1.1·10¹⁰, and heuristically (P(R₈(p) = 0) decays like a power of 1/log p per fixed-C condition, cf. §5) that such
+different C. They do show that an argument proving E₂ > −M₂ for all p ≥ p₀ which applies unchanged to C even needs
+p₀ > 10 917 229 157, and heuristically (P(R₈(p) = 0) decays like a power of 1/log p per fixed-C condition, cf. §5) that such
 counterexamples should keep occurring, in which case per-C or per-parity additivity is genuinely insufficient.
 Couplings looked for and not found: gcd(4pC+1, 4pC′+1) divides C′−C, so two values of C share a divisor only through
 C′−C, and a shared prime q with q ≡ −1 (mod 4C) and q ≡ −1 (mod 4C′) forces 4C, 4C′ | q+1, i.e. both C, C′ ≤ (q+1)/4;
