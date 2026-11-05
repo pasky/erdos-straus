@@ -1,24 +1,33 @@
-# Z59_WALDS — the cusp / Waldspurger residue after TERNARY: odd squares force a *Gaussian-twist* central zero; without such exceptional eigensystems the residue is empty, with them single-twist positivity is conjecturally false, and validity is circular
+# Z59_WALDS — the cusp / Waldspurger residue after TERNARY: odd squares force a *Gaussian-twist* central zero (Thm W1); the residue at a level is spanned by one line per such "Gauss-exceptional" eigensystem — confirmed exactly at 24 levels — and every one found is invalid at known (★)-zeros; single-twist positivity is not given by GRH and is conjecturally (and, at many 𝔐-primes, provably) false; validity is circular unless structural
 
 Status: z59 lane WALDS (brief `z52bbriefs/z59_lanes.md` §WALDS; common rules `z52bbriefs/z58_lanes.md`, `z53_depth.md`).
 Internal; internally reviewed only (§9). **ES is OPEN; nothing here proves or disproves ES, (★), (MS) or (MS⁺).**
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z59_walds_*`,
-data `data/z59/walds/` (< 1 MB). Literature notes: `data/z59/walds/lit_verify.md`.
+data `data/z59/walds/` (< 1 MB). Literature log: `data/z59/walds/lit_verify.md`.
 
-**Verdict: narrowed** (scoped no-go + an exact dictionary; no HOT LEAD). The Waldspurger residue left by TERNARY
-cannot carry (MS): (i) T1 kills every Shimura eigensystem on 𝒞₁ except "Gauss-exceptional" ones (Thm W1, PROVED rel.
-cited inputs); (ii) at the computed small levels there are none and every T1-valid proxy vanishes on 𝒞₁ (CERTIFIED
-finite check, §5); (iii) where they exist, positivity of a single one is a single-twist non-vanishing statement that GRH
-does not give and that CKRS's conjecture predicts to fail infinitely often (§4); (iv) *validity* of an effective proxy
-is literally (MS) on its class unless it is structural, and structural (termwise representation) validity is
-impossible on 𝒞₁ (Lemma W0, Prop W5).
+**Verdict: narrowed** (exact dictionary + scoped no-go; no HOT LEAD). The Waldspurger residue left by TERNARY cannot
+carry (MS) in the ternary-theta class:
+1. T1 (odd squares) kills every Shimura eigensystem φ on the square class 𝒞₁ ⊇ 𝔐 unless the *Gaussian twist*
+   G_φ = φ ⊗ ψχ_{−4} has L(G_φ, 1) = 0 (Thm W1, PROVED rel. Waldspurger 1981 Prop. 1 / Cor. 2, Shimura, TERNARY Thm F);
+   each such φ contributes at most one line on 𝒞₁ (Lemma W1′).
+2. Such Gauss-exceptional φ exist already at small level (e.g. φ = the conductor-84 curve y² = x³ − x² − 36x − 72,
+   G_φ = φ ⊗ χ_{−168} of rank ≥ 2). An exact sweep of M_{3/2}(Γ₀(L), (D/·)) over 24 levels L | 3360 and all ψ
+   (§5, CERTIFIED) finds T1-survivors on 𝒞₁ **exactly** where W1 predicts them (rank on 𝒞₁ = number of rational
+   Gauss-exceptional φ, in every saturated run), and every survivor is non-zero at known (★)-zeros (5569, 9601, 23929,
+   composite zeros): invalid.
+3. Positivity of one eigensystem at a prime is L(G_φ ⊗ χ_p, 1) ≠ 0 for all large p in the class: not given by GRH, known
+   only for positive proportions of fundamental discriminants, predicted false infinitely often by CKRS, and **proved
+   false at many explicit 𝔐-primes** for the survivors found (§6).
+4. Validity of an effective proxy *is* (MS) on its class (Prop W5); termwise (representation-recipe) validity is
+   impossible on 𝒞₁ (Lemma W0).
 
 Notation as in `Z58_TERNARY.md`. g ∈ M_{3/2}(Γ₀(4N), ψ) is a *ternary-theta proxy*: g = Σ cᵢθ_{Lᵢ} + h, Lᵢ positive
-ternary lattices, h a cusp form, one nebentypus ψ (quadratic; pari/Shimura convention: θ_L has ψ = χ of ℚ(√det L),
-checked in §5.1), E = Σcᵢθ_{gen Lᵢ}. 𝒞₁(2N) = {n ≥ 1 : n ∈ ℤ_q^{×2} for every prime q | 2N}; for N with odd prime
-divisors in {3,5,7}, 𝒞₁(2N) ⊇ {n : n mod 840 ∈ 𝔐} (TERNARY Cor F1). *Valid* (R-support): g(n) ≠ 0 ⟹ R(n) ≥ 1 for all
-n ≡ 1 (4); *effective on a class 𝒞*: g(p) ≠ 0 for all sufficiently large primes p ∈ 𝒞. TERNARY Thm F: if g(ℓ²) = 0 for all
-large primes ℓ then E ≡ 0 on 𝒞₁(2N), the t = 1 unary thetas vanish, and g(p) = h⊥(p) at primes p ∈ 𝒞₁(2N).
+ternary lattices, h a cusp form, one nebentypus ψ (quadratic; pari/Shimura convention: θ_L has ψ = character of
+ℚ(√det L), checked in §5.1), E = Σcᵢθ_{gen Lᵢ}. 𝒞₁(2N) = {n ≥ 1 : n ∈ ℤ_q^{×2} for every prime q | 2N}; for N with odd
+prime divisors in {3,5,7}, 𝒞₁(2N) ⊇ {n : n mod 840 ∈ 𝔐} (TERNARY Cor F1). *Valid* (R-support): g(n) ≠ 0 ⟹ R(n) ≥ 1 for
+all n ≡ 1 (4); *effective on a class 𝒞*: g(p) ≠ 0 for all sufficiently large primes p ∈ 𝒞. TERNARY Thm F: if g(ℓ²) = 0
+for all large primes ℓ then E ≡ 0 on 𝒞₁(2N), the t = 1 unary thetas vanish, and g(p) = h⊥(p) at primes p ∈ 𝒞₁(2N).
+D' := discriminant of ℚ(√−D) when ψ = (D/·); then ψχ_{−4} = χ_{D'} and G_φ := φ ⊗ χ_{D'}.
 
 ---
 
@@ -29,10 +38,10 @@ i.e. (Waldspurger) from central values L(½, φ ⊗ ψχ_{−4}χ_p) at the sing
 
 | screen | behaviour |
 |---|---|
-| **F1 odd squares** | **This is where the whole residue is decided.** An odd square m² (gcd(m,2N) = 1) lies in 𝒞₁ with squarefree part t = 1, and Waldspurger's twist character at t = 1 is χ₀^{−1} = ψ̄·(−1/·): the twist is **φ ⊗ ψχ_{−4}**, the field ℚ(√−d) for a lattice of determinant d (ℚ(i) for d = 1 — the same field as the C = 1 norm form 4m²+1 = N(1+2mi) of T1; Lemma D(d) of TERNARY uses ℚ(√−C)). Thm W1: T1 at odd squares forces g_φ(1) = 0 for every eigensystem φ, and then g_φ vanishes on all squarefree t ∈ 𝒞₁ unless **L(½, φ ⊗ ψχ_{−4}) = 0** (φ "Gauss-exceptional"). Non-squareness is used exactly here; the odd squares do not just "give square discriminant": they pin the anchor coefficient a(1), and Waldspurger transports a(1) = 0 to the whole square class. |
+| **F1 odd squares** | **This is where the whole residue is decided.** An odd square m² (gcd(m,2N) = 1) lies in 𝒞₁ with squarefree part t = 1, and Waldspurger's twist character at t = 1 is χ₀^{−1} = ψ̄·(−1/·): the twist is **G_φ = φ ⊗ ψχ_{−4}**, field ℚ(√−d) for θ-lattices of determinant d (ℚ(i) for d = 1 — the field of the C = 1 norm form 4m²+1 = N(1+2mi) of T1; TERNARY Lemma D(d) uses ℚ(√−C)). Thm W1: T1 forces g_φ(1) = 0 for every eigensystem φ, and Waldspurger transports a(1) = 0 to the whole square class unless **L(G_φ, 1) = 0** ("Gauss-exceptional"). Non-squareness is used exactly here: the odd squares pin the anchor coefficient a(1). Exact check: the T1-kernel on 𝒞₁ has rank = #(rational Gauss-exceptional φ) at every saturated swept level (§5.2). |
 | **F2 C-even (R₈)** | Everything negative here (W1, W2, W5, Lemma W0) is line-blind and applies verbatim to R₈-support proxies (R₈ also vanishes on odd squares), so nothing false is proved. The only positive statement (Prop W4, dictionary) is conditional on validity, which is the hypothesis; for an R₈-support proxy validity additionally demands L(½, G ⊗ χ_p) = 0 at the 4 in-𝔐 R₈-zero primes (not screened: conductors > 10¹⁴). |
-| **F3 composites** | All 18 non-square composite R-zeros in 𝔐 ≤ 10¹⁰ (1969 … 17 401 609) are **squarefree**, hence in 𝒞₁ with their own twist χ_t. They enter exactly like prime zeros (Prop W4); the screen of §6 includes the small ones. Primality is *not* used anywhere in W1/W2/W4 beyond "t squarefree in 𝒞₁": the cusp route sees primes and squarefree composites of 𝒞₁ identically. |
-| **F4 known zeros** | Prop W4 (PROVED rel. Waldspurger Cor. 2): a proxy supported on one Gauss-exceptional φ that is non-zero at some squarefree t₀ ∈ 𝒞₁ is **invalid** as soon as L(½, G_φ ⊗ χ_p) ≠ 0 at one R-zero p ∈ 𝒞₁. Screen (§6, EVIDENCE: numerical central values + rigorous `ellrank` lower bounds): for every tested Gauss-exceptional G (7 elliptic curves of rank 2, conductor supported on {2,3,5,7}) some screened zero has rank-0 twist with central value numerically ≈ 0.4–4.7 ⟹ every single-eigensystem proxy built on them is invalid. At the small levels of §5 there is nothing to screen (no Gauss-exceptional φ: the T1-kernel already vanishes on 𝒞₁). |
+| **F3 composites** | All 18 non-square composite R-zeros in 𝔐 ≤ 10¹⁰ (1969 … 17 401 609) are **squarefree**, hence in 𝒞₁ with their own twist χ_t; they enter exactly like prime zeros (Prop W4) and the survivors of §5.3 are non-zero at 1969, 2641, 5161 (invalid there too). Primality is *not* used anywhere in W1/W4/W5 beyond "t squarefree in 𝒞₁": the cusp route sees primes and squarefree composites of 𝒞₁ identically, so it cannot be the place where primality enters an (MS) proof. |
+| **F4 known zeros** | Prop W4(d) (PROVED rel. Waldspurger Cor. 2): a proxy whose 𝒞₁-part is one Gauss-exceptional line is **invalid** as soon as that line is non-zero at one R-zero of 𝒞₁. **Exact screen (§5.3, CERTIFIED):** every T1-survivor found at the 24 swept levels is non-zero at known in-class R-zeros — the (★)-zero primes 5569 and 9601 (and 23929 at level 240), and the 𝔐 composite zeros 1969, 2641, 5161 — so every single-line proxy at these levels is invalid, and at every swept level with one survivor (all of them) **every valid proxy vanishes on 𝒞₁ ∩ [1, B]**. Supplementary numerical screen (§6.2): 7 larger-conductor Gauss-exceptional G (rank-2 curves) — each has rank-0 twists (numerically non-zero central value) at in-class (★)-zero primes. |
 
 ---
 
@@ -119,12 +128,23 @@ hypothesis) Step 3 needs instead linear independence of cuspidal eigenvalue sequ
 covered by Step 3 (pairs (φ, ψ) can share α_ℓ(1) on a density-½ set); positive mixed combinations are covered by
 Lemma W0. (c) W1 is purely about 𝒞₁; off 𝒞₁ the genus term can survive (TERNARY Remark F2).
 
-### 3.2 Corollary W2 (no Gauss-exceptional eigensystem ⟹ the residue is empty)
+### 3.2 Corollary W2 and Lemma W1′ (structure of the residue on 𝒞₁)
 
-**Corollary W2 (PROVED rel. the same inputs).** If L(½, φ ⊗ ψχ_{−4}) ≠ 0 for every φ with S(4N, ψ, φ) ≠ 0, then every
+**Corollary W2 (PROVED rel. the same inputs).** If L(G_φ, 1) ≠ 0 for every φ with S(4N, ψ, φ) ≠ 0, then every
 ternary-theta proxy g ∈ M_{3/2}(Γ₀(4N), ψ) satisfying (T1\*) vanishes at every squarefree n ∈ 𝒞₁(2N) — in particular at
-every 𝔐-prime when the odd primes of N lie in {3,5,7}. (Proof: W1(iii) with Φ_exc = ∅.) So at such a level the
-"cusp/Waldspurger residue" of TERNARY is not merely unforced: it is identically zero on the class.
+every 𝔐-prime when the odd primes of N lie in {3,5,7}. (W1(iii) with Φ_exc = ∅.) The residue is then empty, not merely
+unforced. (§5: this is the situation at most swept (L, ψ); at the others exactly the predicted exceptional φ appear.)
+
+**Lemma W1′ (one line per eigensystem; PROVED rel. (W-C2)).** Let φ be given and suppose L(G_φ ⊗ χ_{t₀}, 1) ≠ 0 for some
+squarefree t₀ ∈ 𝒞₁(2N). Then for every squarefree t ∈ 𝒞₁(2N) the linear functionals x_t : f ↦ a_t(f) on S(4N, ψ, φ)
+satisfy x_t = ±κ_t^{1/2}·x_{t₀} with κ_t := L(G_φ⊗χ_t, 1)t^{1/2}/(L(G_φ⊗χ_{t₀}, 1)ψ(t₀/t)t₀^{1/2}) (the sign may depend
+on t, not on f). Hence the restriction of S(4N, ψ, φ) to the squarefree coefficients of 𝒞₁ has dimension ≤ 1, and
+x_t ≡ 0 ⟺ L(G_φ ⊗ χ_t, 1) = 0 (if x_{t₀} ≢ 0).
+*Proof.* (W-C2) with (n₁, n₂) = (t, t₀) gives x_t(f)² = κ_t x_{t₀}(f)² for every f, an identity of quadratic forms on
+S(4N, ψ, φ); in the polynomial ring (a domain) x_t² − κ_t x_{t₀}² = (x_t − κ_t^{1/2}x_{t₀})(x_t + κ_t^{1/2}x_{t₀}) = 0
+forces one factor to vanish. ∎
+So the T1-valid part of M_{3/2}(Γ₀(4N), ψ) restricted to squarefree 𝒞₁ coefficients has dimension ≤ |Φ_exc(N, ψ)|,
+one explicit line s_φ per Gauss-exceptional φ (whose t-th entry is ±(const)·(t·L(G_φ⊗χ_t,1))^{1/2}).
 
 **Remark W3 (sign).** By (IK), for squarefree t ∈ 𝒞₁(2N) the root number of G_φ ⊗ χ_t equals ε(G_φ)χ_t(−M_{G_φ}) = ε(G_φ):
 χ_t is even (t > 0), and χ_t(q) = (t/q) = 1 for every prime q | M_{G_φ} (all such q divide 2N; t ≡ 1 (8) and t is a
@@ -161,8 +181,9 @@ L(½, G_φ ⊗ χ_p) ≠ 0 — *provided* the proxy is valid, which is the subje
 
 ### 4.1 GRH, known results, conjectures (literature verified, §2 and `lit_verify.md`)
 * **GRH does not give it** (Assessment, elementary): GRH constrains Re ρ only; a zero at s = ½ is on the critical line.
-  W1/W3 make the point sharp: every contributing G_φ *itself* has a double central zero, and §6 exhibits (PROVED via
-  `ellrank` + Gross–Zagier–Kolyvagin, see §6) twists G ⊗ χ_p with p ∈ 𝒞₁ prime and L(G ⊗ χ_p, 1) = 0.
+  W1/W3 make the point sharp: every contributing G_φ *itself* has a central zero (of even order ≥ 2 in all cases found),
+  and §6.1 exhibits, for the survivors actually found, many 𝔐-primes p with L(G_φ ⊗ χ_p, 1) = 0 (PROVED from exact
+  half-integral coefficients via Lemma W1′).
 * **Under GRH, only proportions**: Heath-Brown, Duke Math. J. 122 (2004), Thm 3 (average analytic rank ≤ 3/2 + o(1) in
   each sign family, under RH for the twists) and Thm 4 (≥ 1/4 of the + family has rank 0, weighted). Nothing pointwise.
 * **Unconditionally, only positive proportions over fundamental discriminants, not primes**: Ono–Skinner, Invent. Math.
@@ -221,19 +242,165 @@ n ∈ 𝒞₁(2N) ∩ [1, B] (and at squarefree / prime / 𝔐 members). Nebenty
 θ_{⟨1,1,3⟩} ∈ (12, χ₁₂), θ_{⟨1,1,5⟩} ∈ (20, χ₅), θ_{⟨1,1,2⟩} ∈ (8, χ₈), θ_{⟨1,3,5⟩} ∈ (60, χ₆₀) (pari `mfparams`).
 Sweep `scripts/z59_walds_halfint_sweep.sh`: every positive fundamental D (and D = 1) with D | L; negative D give 0.
 
-### 5.2 Results
-RESULTS_PLACEHOLDER
+### 5.2 Results: the T1-kernel on 𝒞₁ is exactly the predicted Gauss-exceptional span
+Levels L = 4N for N | 840 with N squarefree or N ∈ {4, 8, 12, 20, 28, 60, 84, 140, 210}: L ∈ {4, 8, 12, 16, 20, 24, 28,
+32, 40, 48, 56, 60, 80, 84, 112, 120, 140, 168, 240, 280, 336, 420, 560, 840} (24 levels), every admissible ψ, B = 10⁴
+(8000 for L ∈ {16, 32, 48, 80, 112, 240, 336, 560, 840}; L = 840 also cusp space with B = 16 000), both T1 variants.
+Files `halfint_sweep_{A,B,C}.txt`, `halfint_840_cusp_B16000.txt`; summary `sweep_summary.txt`, comparison
+`compare_W1.txt` (`scripts/z59_walds_compare.py`).
 
-## 6. Computations II — Gauss-exceptional eigensystems exist at larger levels; the F4/F3 screen
+**Prediction (W1 + W1′).** rank on 𝒞₁ ≤ |Φ_exc(N, ψ)|, with equality when every exceptional φ has a non-zero 𝒞₁ line.
+The rational part of Φ_exc is computed independently (`scripts/z59_walds_identify.py` → `identify_rational_1680.txt`):
+the 64 isogeny classes of conductor | 1680 found in the box |a₄| ≤ 150, |a₆| ≤ 1500 (completeness of the box not
+claimed), twisted by all 16 negative fundamental D' | 3360; G_φ is *exceptional* if root number +1 and pari `ellrank`
+proves rank ≥ 2 (so L(G_φ, 1) = 0 by Gross–Zagier–Kolyvagin; lit_verify #12).
 
-RESULTS2_PLACEHOLDER
+**Outcome (CERTIFIED: exact rational arithmetic in pari; EVIDENCE for the B-independence).**
+Of the 123 runs with all-odd-square rows (`compare_W1.txt`), 121 match the prediction exactly; the 2 that do not are
+the unsaturated runs (840, χ₁₀₅) and (840, χ₈₄₀) at B = 8000 (rows at full rank 45 = #rows, observed 5), which match at
+B = 16 000 (cusp space; rank 1 each). Non-zero survivors (all rank 1; φ given by its conductor and Weierstrass data):
+
+| L | ψ | D' | φ (conductor | 2N) with L(φ ⊗ χ_{D'}, 1) = 0 |
+|---|---|---|---|
+| 168 | χ₁₆₈ | −168 | 84: [0,−1,0,−36,−72] |
+| 240 | χ₁₂₀ | −120 | 120: [0,1,0,−136,560] |
+| 280 | χ₅₆ | −56 | 70: [0,0,0,37,−138] |
+| 336 | χ₅₆ / χ₁₆₈ | −56 / −168 | 24: [0,−1,0,−69,189] / 84 |
+| 420 | χ₂₁ / χ₁₀₅ | −84 / −420 | 210: [0,−1,0,−56,−84] / 105: [0,1,0,−120,−432] |
+| 560 | χ₅₆ / χ₂₈₀ | −56 / −280 | 70 / 56: [0,−1,0,−40,−84] |
+| 840 | χ₂₁, χ₅₆, χ₁₀₅, χ₁₆₈, χ₂₈₀, χ₈₄₀ | −84, −56, −420, −168, −280, −840 | 210, 70, 105, 84, 420: [0,1,0,−85,83], 420 |
+
+Every other (L, ψ) — in particular every ψ at the 16 levels L ≤ 140 and at L = 420 for ψ ∈ {1, 5, 12, 28, 60, 140} —
+has T1-kernel identically 0 on 𝒞₁ ∩ [1, B] (Cor W2 situation). The l0 = 11 variant (prime squares ≥ 11 only) gives the
+same survivors at saturated levels (`sweep_summary.txt`).
+* In **every** run whose T1 rows did not reach full rank (the kernel is saturated in practice) the observed rank on
+  𝒞₁ equals the number of rational Gauss-exceptional φ of conductor | 2N for the twist D' — 0 at most (L, ψ), 1 at
+  the 11 (L, ψ) listed; the 2 unsaturated runs (L = 840, B = 8000) are resolved at B = 16 000 (cusp space).
+  No irrational exceptional φ is visible at these levels.
+* The survivors are *exactly* the ones W1 names, e.g. at (L, ψ) = (168, χ₁₆₈) the survivor's implied Shimura
+  eigenvalues a(193ℓ²)/a(193) + ψ(ℓ)(−193/ℓ) are 4, 2, −6 at ℓ = 5, 11, 13 = a_ℓ of the conductor-84 curve
+  y² = x³ − x² − 36x − 72, whose twist by χ_{−168} (conductor 28 224) has rank ≥ 2 (`ellrank` [2,2]); at (240, χ₁₂₀) the
+  eigenvalues 4, 0 at ℓ = 7, 11 match the conductor-120 curve [0,1,0,−136,560] with G = twist by χ_{−120} of rank ≥ 2;
+  at (280, χ₅₆) λ₃ = 0, λ₁₁ = 4 match the conductor-70 curve (`diag_survivors.txt`).
+
+### 5.3 The survivors are invalid (F4/F3, CERTIFIED exact coefficients)
+`scripts/z59_walds_diag.py L D 40000` (cusp space, all odd-square rows, B = 4·10⁴), `diag_survivors.txt`: at each of the
+nine levels L ≤ 560 with a survivor, the survivor is non-zero at known R-zeros of its class 𝒞₁(2N):
+(168, χ₁₆₈): (★)-zeros 5569, 9601; 𝔐 composite zeros 2641, 5161. (280, χ₅₆): 5569, 9601; composite 1969, 2641.
+(240, χ₁₂₀): 5569, 9601, 23929; composites 1969, 2641, 5161. (420, χ₂₁), (420, χ₁₀₅): composites 1969/5161 resp.
+2641/5161 (the prime zeros there vanish on the survivor — validity still fails at the composites).
+(336, χ₅₆) and (336, χ₁₆₈): 5569, 9601; composites 1969 resp. 2641, 5161. (560, χ₅₆): 5569, 9601; 1969, 2641.
+(560, χ₂₈₀): 5569, 9601; 1969, 5161. (The L = 840 survivors are the same eigensystems as at 168, 280, 420.)
+Since each of these (L, ψ) has a one-dimensional 𝒞₁-restriction (rank 1), **every valid proxy of that level and
+nebentypus vanishes at every n ∈ 𝒞₁(2N), n ≤ B** (CERTIFIED), and at every squarefree n ∈ 𝒞₁(2N) whatsoever
+(PROVED rel. W1, W1′, *if* Φ_exc(N, ψ) contains no irrational φ — EVIDENCE only: none visible ≤ B).
+
+### 5.4 Lemma W0 sanity check
+`scripts/z59_walds_w0check.py 24 20000` (`w0check.txt`): of the 2106 primitive diagonal forms ⟨a,b,c⟩, c ≤ 24, 574
+represent no odd square ≤ 2·10⁴, and none of these 574 represents any n ∈ 𝒞₁(2·lcm(a,b,c)), n ≤ 2·10⁴ (as Lemma W0
+predicts; in these examples the obstruction is visibly 2-adic/local).
+
+## 6. What the survivors say about Q2 and the larger-conductor screen
+
+### 6.1 Single-twist positivity fails at explicit 𝔐-primes (PROVED from exact data via Lemma W1′)
+For a survivor line s_φ (non-zero anchor t₀), Lemma W1′ gives: s_φ(p) = 0 ⟺ L(G_φ ⊗ χ_p, 1) = 0. The exact coefficients
+show many such primes:
+* (168, χ₁₆₈), φ = 84-curve, G ⊗ χ_p = E₈₄ ⊗ χ_{−168p}: the survivor vanishes at **57 of the 238 primes p ∈ 𝒞₁(84),
+  p ≤ 4·10⁴**, 36 of them in 𝔐 (1009, 1129, 1201, 1801, 4201, 4729, 5209, 7561, …; `diag_168_168.txt`).
+* (560, χ₂₈₀), φ = 56-curve: vanishes at 54 of 238 primes of 𝒞₁(280) ≤ 4·10⁴, 28 in 𝔐 (1009, 1801, 3889, 6841, …).
+* Independent cross-check (`scripts/z59_walds_crosscheck.py` → `crosscheck_168.txt`): for the first 13 vanishing primes
+  (337 … 4729) pari `ellrank` finds two independent points on E₈₄ ⊗ χ_{−168p} (rank ≥ 2, rigorous; hence
+  L = 0 unconditionally by Gross–Zagier–Kolyvagin), and for 10 non-vanishing ones (193, 673, …, 5569, 9601) the
+  numerical analytic rank is 0 with central value 1.6–19. The half-integral coefficients and the L-values agree in all 23
+  cases — a direct check of the Waldspurger dictionary of Prop W4 / Lemma W1′ at this level.
+(The PROVED reading of the full lists uses Lemma W1′ with Φ_exc = {φ}, i.e. no invisible irrational exceptional
+eigensystem at that level; the 13 cross-checked primes are unconditional.)
+So, for these eigensystems, "L(G_φ ⊗ χ_p, ½) ≠ 0 for all large p ∈ 𝔐" is false at every prime listed (a theorem, not a
+heuristic), and its frequency is in line with CKRS (§4.1). A single-eigensystem proxy built from them is neither valid
+(§5.3) nor effective.
+
+### 6.2 Larger-conductor Gauss-exceptional G (EVIDENCE, numerical)
+`scripts/z59_walds_rank2_search.py` (`rank2_search.txt`): rank-2, sign-+1 curves with conductor supported on {2,3,5,7}
+(3888, 5184, 5760, 6912, 10368, 11520, 12096, 12544, 15552, 15680). For seven of them, `scripts/z59_walds_f4.py`
+(`f4_screen.txt`, summary `f4_summary.txt`; conductor cap 5·10¹³) computes the twists G ⊗ χ_t at t = 1, the in-class
+(★)-zero primes, composite zeros ≤ 3·10⁴ and 8 controls: t = 1 has rank 2 for all (sanity: they are Gauss-exceptional
+for ψ = 1-type classes of the right level); **each G has rank-0 twists (numerically non-zero central values 0.31–11.3)
+at in-class (★)-zero primes** (e.g. 9601 for six of the seven) ⟹ by Prop W4(d) every single-line proxy built on them
+is invalid (EVIDENCE: numerical central values; `ellrank` upper bound 0 agrees). Rank ≥ 2 twists (rigorous lower bound)
+occur among the controls at rates 1/8–5/8 — zeros and controls alike. (The levels 4N hosting these φ, and whether
+S(4N, ψ, φ) ≠ 0 there, were not computed; the screen is of the L-functions.)
 
 ## 7. Verdict, screens, proposed FRONTIER text, bottom line
 
-VERDICT_PLACEHOLDER
+**Verdict: narrowed.**
+* PROVED (rel. Waldspurger 1981 Prop. 1/Cor. 2, Shimura's T(ℓ²) formula, TERNARY Thm F): Thm W1 (T1 ⟹ only
+  Gauss-exceptional eigensystems survive on the square class), Lemma W1′ (one line each), Prop W4 (dictionary and the
+  validity test; (b) needs (H2)), Prop W5 (validity of an effective proxy = (MS) on its class), Lemma W0 (no recipe
+  lattice represents the square class). Remark W3 (sign −1 harmless) needs (H2), else CONDITIONAL on (W-loc).
+* CERTIFIED: at 24 levels L | 3360 and all ψ, the T1-kernel on 𝒞₁ is exactly the predicted exceptional span (rank 0 or 1);
+  each survivor is non-zero at known R-zeros (5569, 9601, 23929; composites 1969, 2641, 5161), so at these (L, ψ) every
+  valid proxy vanishes on 𝒞₁ ≤ B.
+* PROVED from exact data: explicit 𝔐-primes p with L(G_φ ⊗ χ_p, 1) = 0 for the survivors (§6.1).
+* Assessment/CONJECTURE: single-eigensystem effectiveness fails infinitely often (CKRS Conj. 1); rational pure-cusp
+  proxies of any shape are expected to vanish at ≍ T^{3/4} primes ≤ T of the class — the cusp residue is heuristically
+  *worse* than (MS).
+* **Escapes left (named, not excluded):** (E-a) levels with many Gauss-exceptional φ (they grow with the level) and a
+  *non-structural* validity identity — by W5 such an identity must not be "validity at large primes", it must explain the
+  R-zeros of 𝒞₁ (finitely many known; their finiteness is (MS⁺)-type); (E-b) coset theta series / theta series with
+  characteristics (Thm F and W0 not proved for them; a coset-Siegel–Weil version of Thm F is expected, Assessment);
+  (E-c) mixed nebentypus signed combinations (W1 Step 3 not covered); (E-d) off-𝒞₁ classes at levels with primes
+  ℓ ∉ {3,5,7}: there the genus term survives (TERNARY Remark F2), and Lemma W0 allows recipe lattices — but a fixed finite
+  family of them only certifies primes that are non-residues mod some prime of their levels, so it misses every prime
+  p ≡ 1 (mod 8·∏ℓ) (Dirichlet; Lemma W0(b)), i.e. p-dependent levels involving a prime ℓ with (p/ℓ) = −1, ℓ ≥ n_p are
+  needed — this is the B2 / n_p wall (WITNESS Lemma 1.1) again.
+
+**FRONTIER §4 hard screens.** T1 squares: W1 *is* T1, transported by Waldspurger from a(1) to the square class.
+8/131 (line): all negative statements are line-blind (apply to R₈-support proxies). Tied modulus: the tied event is
+invisible to the half-integral side — the survivors are dictated by L-values of G_φ ⊗ χ_t and are non-zero at
+(★)-zeros. Fixed p: statements are pointwise in p after fixing the level; the positive direction would be a fixed-p
+non-vanishing that is false at explicit p.
+
+**Proposed FRONTIER §6/§7 text (do not edit FRONTIER here).**
+> *Waldspurger residue (z59 WALDS, PROVED rel. Waldspurger 1981 Prop. 1/Cor. 2 + TERNARY Thm F).* For a ternary-theta
+> proxy g ∈ M_{3/2}(Γ₀(4N), ψ) vanishing at the odd squares, every Shimura eigensystem φ contributes on the square class
+> 𝒞₁ (⊇ 𝔐 for {3,5,7}-levels) at most one line, and only if its Gaussian twist G_φ = φ ⊗ ψχ_{−4} has L(G_φ, ½) = 0
+> ("Gauss-exceptional"). Exact sweep (24 levels | 3360, all ψ): the surviving lines are exactly the predicted ones
+> (rank 0 or 1) and every survivor is non-zero at known (★)-zeros (5569, 9601, …) — invalid; at these levels every valid
+> proxy vanishes on 𝒞₁. Positivity of one line at p is L(G_φ ⊗ χ_p, ½) ≠ 0: not given by GRH, false at explicit
+> 𝔐-primes, predicted false infinitely often (CKRS). Validity of an effective proxy is (MS) on its class; recipe
+> lattices miss 𝒞₁ entirely (Lemma W0). Add to §6: "cusp/Waldspurger single-twist positivity for ternary proxies on 𝔐".
+> Escapes: many-φ levels with a non-structural validity identity; coset thetas; mixed ψ; p-dependent levels (= B2).
+
+**Bottom line.** TERNARY left (MS) on 𝔐, in half-integral weight, as a pure cusp problem governed by Waldspurger. Making
+the dictionary exact shows the odd squares do far more than kill the Eisenstein part: since an odd square has
+squarefree part 1, T1 pins the anchor coefficient a(1) of every Shimura component to zero, and Waldspurger's
+Corollary 2 then forces each component to vanish on the entire square class unless its Gaussian twist has a central
+zero. An exact computation at 24 levels finds the surviving lines precisely where this predicts (attached to elliptic
+curves of conductor 24–420 whose twists by χ_{−56}, χ_{−84}, χ_{−120}, χ_{−168}, χ_{−280}, χ_{−420} have rank 2), and
+every one of them is non-zero at the known (★)-zeros 5569 and 9601 or at composite zeros — invalid. Even granting a valid
+line, positivity at a prime is a single central value L(G ⊗ χ_p, ½), which GRH does not control, which vanishes at
+explicit 𝔐-primes for the survivors found, and which CKRS predicts to vanish infinitely often. And for an effective
+proxy, validity is (MS) itself; the only non-circular validity (termwise representation recipes) is impossible on the
+square class. The half-integral-weight escape E1 is closed on 𝔐 in the ternary-theta class; what remains (coset thetas,
+mixed nebentypus, many-φ levels with a validity identity, p-dependent levels) is B2 in other clothes.
 
 ## 8. Commands and files
-COMMANDS_PLACEHOLDER
+All runs under `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent processes; Python via `uv run --with cypari2`
+(pari 2.17.2).
+* `bash scripts/z59_walds_halfint_sweep.sh 10000 4 8 12 20 24 28 40 56 60 84 120 140 168 280 420 > data/z59/walds/halfint_sweep_A.txt`
+* `bash scripts/z59_walds_halfint_sweep.sh 8000 16 32 48 80 112 240 336 560 840 > data/z59/walds/halfint_sweep_B.txt`
+* the 12 (L, D) runs that crashed in A/B (an indexing bug in the "first non-zero" printout, triggered only when the rank
+  was non-zero; fixed) or overflowed (L = 840, D ∈ {1, 8, 21}: cusp space) → `halfint_sweep_C.txt` (`/tmp` driver
+  reproduced by: `for p in "168 168 10000 4" … "840 21 8000 1"; do for l0 in 0 11; do uv run … z59_walds_halfint.py $p-fields; done; done`)
+* `uv run … scripts/z59_walds_halfint.py 840 105 16000 0 1`, same with 840 → `halfint_840_cusp_B16000.txt`
+* `uv run … scripts/z59_walds_identify.py 1680 "-3,-4,-7,-8,-15,-20,-24,-35,-40,-56,-84,-120,-168,-280,-420,-840" 150 1500 > identify_rational_1680.txt`
+* `python3 scripts/z59_walds_compare.py identify_rational_1680.txt halfint_sweep_{A,B,C}.txt halfint_840_cusp_B16000.txt > compare_W1.txt`;
+  `python3 scripts/z59_walds_sweep_summary.py … > sweep_summary.txt`
+* `uv run … scripts/z59_walds_diag.py L D 40000` for the nine survivor pairs → `diag_survivors.txt` (the last pair and
+  `diag_168_168.txt` with the prime-vanishing count added later); `uv run … scripts/z59_walds_crosscheck.py > crosscheck_168.txt`
+* `uv run … scripts/z59_walds_rank2_search.py` → `rank2_search.txt`; `uv run … scripts/z59_walds_f4.py > f4_screen.txt`
+  (summary `f4_summary.txt`; an earlier, slower partial run without `ellrank`: `f4_screen_run1_partial.txt`)
+* `python3 scripts/z59_walds_w0check.py 24 20000 > w0check.txt`
 
 ## 9. Review log
 REVIEW_PLACEHOLDER

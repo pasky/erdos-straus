@@ -51,6 +51,11 @@ nz = [n for n in c1 if a(n) != 0]
 print("non-zero C1 indices (first 30):", nz[:30])
 print("of which in Mordell classes:", [n for n in nz if n % 840 in MORD][:20])
 print("of which known (star)-zero primes:", [n for n in nz if n in RZ])
+pr = [n for n in c1 if pari.isprime(n)]
+prz = [n for n in pr if a(n) == 0]
+print(f"C1 primes <= B: {len(pr)}; survivor coefficient = 0 at {len(prz)} of them (each such p has L(G (x) chi_p, 1/2) = 0 "
+      f"by Waldspurger Cor. 2 with a non-zero anchor): {prz[:40]}")
+print("  of which in Mordell classes:", [n for n in prz if n % 840 in MORD][:40])
 t = nz[0]
 psi = lambda l: int(pari.kronecker(D, l))
 for t in nz[:2]:

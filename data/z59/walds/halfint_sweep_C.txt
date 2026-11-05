@@ -1,0 +1,144 @@
+L=168 N=42 D=168 space=4 dim=22 B=10000 l0=0 #T1-conditions=50 rank(cond)=9 dimK=13
+  rank of K on C1 (n<=B, 179 indices) = 1  first nonzero n = 193
+  rank of K on C1-squarefree>1 (n<=B, 149 indices) = 1  first nonzero n = 193
+  rank of K on C1-primes (n<=B, 66 indices) = 1  first nonzero n = 193
+  rank of K on Mordell-classes (n<=B, 72 indices) = 1  first nonzero n = 2521
+  time 3.9s (coefs 3.9s)
+L=168 N=42 D=168 space=4 dim=22 B=10000 l0=11 #T1-conditions=21 rank(cond)=5 dimK=17
+  rank of K on C1 (n<=B, 179 indices) = 1  first nonzero n = 193
+  rank of K on C1-squarefree>1 (n<=B, 149 indices) = 1  first nonzero n = 193
+  rank of K on C1-primes (n<=B, 66 indices) = 1  first nonzero n = 193
+  rank of K on Mordell-classes (n<=B, 72 indices) = 1  first nonzero n = 2521
+  time 4.0s (coefs 3.9s)
+L=280 N=70 D=56 space=4 dim=30 B=10000 l0=0 #T1-conditions=50 rank(cond)=8 dimK=22
+  rank of K on C1 (n<=B, 215 indices) = 1  first nonzero n = 249
+  rank of K on C1-squarefree>1 (n<=B, 169 indices) = 1  first nonzero n = 249
+  rank of K on C1-primes (n<=B, 67 indices) = 1  first nonzero n = 281
+  rank of K on Mordell-classes (n<=B, 72 indices) = 1  first nonzero n = 1009
+  time 11.1s (coefs 11.1s)
+L=280 N=70 D=56 space=4 dim=30 B=10000 l0=11 #T1-conditions=21 rank(cond)=5 dimK=25
+  rank of K on C1 (n<=B, 215 indices) = 1  first nonzero n = 249
+  rank of K on C1-squarefree>1 (n<=B, 169 indices) = 1  first nonzero n = 249
+  rank of K on C1-primes (n<=B, 67 indices) = 1  first nonzero n = 281
+  rank of K on Mordell-classes (n<=B, 72 indices) = 1  first nonzero n = 1009
+  time 11.2s (coefs 11.2s)
+L=420 N=105 D=21 space=4 dim=56 B=10000 l0=0 #T1-conditions=50 rank(cond)=21 dimK=35
+  rank of K on C1 (n<=B, 72 indices) = 1  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 50 indices) = 1  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 27 indices) = 1  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 72 indices) = 1  first nonzero n = 1009
+  time 12.7s (coefs 12.6s)
+L=420 N=105 D=21 space=4 dim=56 B=10000 l0=11 #T1-conditions=21 rank(cond)=10 dimK=46
+  rank of K on C1 (n<=B, 72 indices) = 1  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 50 indices) = 1  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 27 indices) = 1  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 72 indices) = 1  first nonzero n = 1009
+  time 12.8s (coefs 12.7s)
+L=420 N=105 D=105 space=4 dim=56 B=10000 l0=0 #T1-conditions=50 rank(cond)=34 dimK=22
+  rank of K on C1 (n<=B, 72 indices) = 1  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 50 indices) = 1  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 27 indices) = 1  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 72 indices) = 1  first nonzero n = 1009
+  time 10.6s (coefs 10.5s)
+L=420 N=105 D=105 space=4 dim=56 B=10000 l0=11 #T1-conditions=21 rank(cond)=17 dimK=39
+  rank of K on C1 (n<=B, 72 indices) = 1  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 50 indices) = 1  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 27 indices) = 1  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 72 indices) = 1  first nonzero n = 1009
+  time 11.1s (coefs 11.0s)
+L=240 N=60 D=120 space=4 dim=32 B=8000 l0=0 #T1-conditions=45 rank(cond)=13 dimK=19
+  rank of K on C1 (n<=B, 134 indices) = 1  first nonzero n = 241
+  rank of K on C1-squarefree>1 (n<=B, 110 indices) = 1  first nonzero n = 241
+  rank of K on C1-primes (n<=B, 52 indices) = 1  first nonzero n = 241
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1969
+  time 2.7s (coefs 2.6s)
+L=240 N=60 D=120 space=4 dim=32 B=8000 l0=11 #T1-conditions=20 rank(cond)=7 dimK=25
+  rank of K on C1 (n<=B, 134 indices) = 1  first nonzero n = 241
+  rank of K on C1-squarefree>1 (n<=B, 110 indices) = 1  first nonzero n = 241
+  rank of K on C1-primes (n<=B, 52 indices) = 1  first nonzero n = 241
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1969
+  time 2.7s (coefs 2.7s)
+L=336 N=84 D=56 space=4 dim=40 B=8000 l0=0 #T1-conditions=45 rank(cond)=11 dimK=29
+  rank of K on C1 (n<=B, 143 indices) = 1  first nonzero n = 337
+  rank of K on C1-squarefree>1 (n<=B, 116 indices) = 1  first nonzero n = 337
+  rank of K on C1-primes (n<=B, 52 indices) = 1  first nonzero n = 337
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1129
+  time 3.8s (coefs 3.8s)
+L=336 N=84 D=56 space=4 dim=40 B=8000 l0=11 #T1-conditions=20 rank(cond)=7 dimK=33
+  rank of K on C1 (n<=B, 143 indices) = 1  first nonzero n = 337
+  rank of K on C1-squarefree>1 (n<=B, 116 indices) = 1  first nonzero n = 337
+  rank of K on C1-primes (n<=B, 52 indices) = 1  first nonzero n = 337
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1129
+  time 4.1s (coefs 4.1s)
+L=336 N=84 D=168 space=4 dim=40 B=8000 l0=0 #T1-conditions=45 rank(cond)=17 dimK=23
+  rank of K on C1 (n<=B, 143 indices) = 1  first nonzero n = 193
+  rank of K on C1-squarefree>1 (n<=B, 116 indices) = 1  first nonzero n = 193
+  rank of K on C1-primes (n<=B, 52 indices) = 1  first nonzero n = 193
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 2521
+  time 3.6s (coefs 3.5s)
+L=336 N=84 D=168 space=4 dim=40 B=8000 l0=11 #T1-conditions=20 rank(cond)=10 dimK=30
+  rank of K on C1 (n<=B, 143 indices) = 1  first nonzero n = 193
+  rank of K on C1-squarefree>1 (n<=B, 116 indices) = 1  first nonzero n = 193
+  rank of K on C1-primes (n<=B, 52 indices) = 1  first nonzero n = 193
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 2521
+  time 3.5s (coefs 3.4s)
+L=560 N=140 D=56 space=4 dim=56 B=8000 l0=0 #T1-conditions=45 rank(cond)=15 dimK=41
+  rank of K on C1 (n<=B, 172 indices) = 1  first nonzero n = 249
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 1  first nonzero n = 249
+  rank of K on C1-primes (n<=B, 50 indices) = 1  first nonzero n = 281
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1009
+  time 8.9s (coefs 8.9s)
+L=560 N=140 D=56 space=4 dim=56 B=8000 l0=11 #T1-conditions=20 rank(cond)=10 dimK=46
+  rank of K on C1 (n<=B, 172 indices) = 1  first nonzero n = 249
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 1  first nonzero n = 249
+  rank of K on C1-primes (n<=B, 50 indices) = 1  first nonzero n = 281
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1009
+  time 8.4s (coefs 8.4s)
+L=560 N=140 D=280 space=4 dim=56 B=8000 l0=0 #T1-conditions=45 rank(cond)=24 dimK=32
+  rank of K on C1 (n<=B, 172 indices) = 1  first nonzero n = 249
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 1  first nonzero n = 249
+  rank of K on C1-primes (n<=B, 50 indices) = 1  first nonzero n = 281
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1129
+  time 6.2s (coefs 6.2s)
+L=560 N=140 D=280 space=4 dim=56 B=8000 l0=11 #T1-conditions=20 rank(cond)=17 dimK=39
+  rank of K on C1 (n<=B, 172 indices) = 1  first nonzero n = 249
+  rank of K on C1-squarefree>1 (n<=B, 131 indices) = 1  first nonzero n = 249
+  rank of K on C1-primes (n<=B, 50 indices) = 1  first nonzero n = 281
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1129
+  time 6.2s (coefs 6.2s)
+L=840 N=210 D=1 space=1 dim=85 B=8000 l0=0 #T1-conditions=45 rank(cond)=16 dimK=69
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 34.5s (coefs 34.4s)
+L=840 N=210 D=1 space=1 dim=85 B=8000 l0=11 #T1-conditions=20 rank(cond)=7 dimK=78
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 33.4s (coefs 33.3s)
+L=840 N=210 D=8 space=1 dim=85 B=8000 l0=0 #T1-conditions=45 rank(cond)=10 dimK=75
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 84.4s (coefs 84.3s)
+L=840 N=210 D=8 space=1 dim=85 B=8000 l0=11 #T1-conditions=20 rank(cond)=5 dimK=80
+  rank of K on C1 (n<=B, 59 indices) = 0
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 0
+  rank of K on C1-primes (n<=B, 19 indices) = 0
+  rank of K on Mordell-classes (n<=B, 59 indices) = 0
+  time 83.9s (coefs 83.8s)
+L=840 N=210 D=21 space=1 dim=85 B=8000 l0=0 #T1-conditions=45 rank(cond)=29 dimK=56
+  rank of K on C1 (n<=B, 59 indices) = 1  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 1  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 19 indices) = 1  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1009
+  time 21.6s (coefs 21.6s)
+L=840 N=210 D=21 space=1 dim=85 B=8000 l0=11 #T1-conditions=20 rank(cond)=15 dimK=70
+  rank of K on C1 (n<=B, 59 indices) = 1  first nonzero n = 1009
+  rank of K on C1-squarefree>1 (n<=B, 38 indices) = 1  first nonzero n = 1009
+  rank of K on C1-primes (n<=B, 19 indices) = 1  first nonzero n = 1009
+  rank of K on Mordell-classes (n<=B, 59 indices) = 1  first nonzero n = 1009
+  time 21.3s (coefs 21.3s)
