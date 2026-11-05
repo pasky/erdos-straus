@@ -496,6 +496,80 @@ certificate with m ≤ M at any cap (CONDITIONAL on Dickson). *Rules out:* fixed
 rule out:* growing/p-dependent roots, class-group cycle data, arbitrary functions of Pell-cycle data. (The principal-cycle
 root menu itself fails i.o. under H: `Z52D_PELLCYCLE.md` Thm 1.1, see §7.2.)
 
+**(z58) Scoped no-gos from the (MS) probe** (`Z58_SUMMARY.md` §1). Each item is a theorem about a *specified class of
+objects or arguments*. None is a necessity theorem for every proof, and none proves or refutes (MS).
+* **Fixed-level Hecke proxies** (`Z58_AUTOMORPH.md` Thm A, Cor A1).
+  * Setting: 𝓗_M, the arithmetic functions on (n, M) = 1 spanned by GL₂ Hecke eigenvalue systems of integral weight, their
+    n^j-twists, and real-parameter divisor sums and their derivatives.
+  * Thm A (PROVED relative to Deligne/Deligne–Serre, purity and Chebotarev): if a(1) = a(p²) = a(p⁴) = … = 0 and the
+    Satake multiset at p has no pair γ, −γ, then a(p^m) = 0 for all m. Collision-freeness holds at a positive-density set
+    of primes, all ≡ 1 (mod 840); for all-Eisenstein a, at every p ≡ 1 (mod lcm(L, 840)).
+  * Cor A1: no a ∈ 𝓗_M is both a valid R-support proxy and effective; no a ∈ 𝓗_M equals R on all n ≡ 1 (4) prime to M.
+  * Not covered: prime-only arguments whose error lies outside 𝓗. These are escapes E1 (half-integral weight), E2
+    (coefficients outside 𝓗, e.g. variable-level sums) and E3 (higher depth / non-GL₂), plus signed minorants.
+* **Ternary theta proxies lose the genus term on 𝔐** (`Z58_TERNARY.md` Thm F, Cor F1).
+  * Thm F (PROVED relative to (S1)–(S5): Siegel, Duke–Schulze-Pillot, unary/U^⊥ decomposition, Shimura T(ℓ²)). Let
+    g ∈ M_{3/2}(Γ₀(4N), ψ) be a combination of positive-definite ternary theta series (one rational determinant square
+    class) plus a cusp form. If g(ℓ²) = 0 for all large primes ℓ, then the genus part E vanishes on
+    𝒞₁(2N) = {n : n ∈ (ℤ_ℓ^×)² ∀ℓ | 2N}, and g(p) = h⊥(p) (cusp, orthogonal to unary thetas) at primes p ∈ 𝒞₁(2N).
+  * Cor F1 (PROVED): the squares of (ℤ/840)^× are exactly 𝔐. So if the odd primes of N lie in {3, 5, 7}, a valid proxy
+    has no genus main term at any 𝔐-prime p ∤ N.
+  * Scope: one nebentypus, genus-theta combinations, the unit class. The square obstruction applies at the identity's own
+    modulus; finer-modulus identities and off-𝒞₁ classes are not excluded.
+  * What survives is the cusp route. A single eigenform needs Waldspurger nonvanishing (open, Goldfeld-type, when the
+    root number is +1), or a new thin-set Heegner-incidence theorem (E1′).
+* **Positive-integral Brauer–Manin detects exactly T1** (`Z58_STRUCT.md` Thm A, `Z58_STRUCT2.md` Thm B; PROVED).
+  * Both S_n : 4uBC − u − B = n and X_n : 4abcd = a + b + nc have Br/Br(ℚ) ≅ ℤ/2 (a transcendental quaternion class),
+    π₁ = 1 and étale-BM = BM.
+  * The positive-integral BM set (real region u, B, C > 0, resp. a, b, c, d > 0) is **empty iff n is a square** for
+    numerator 4, and iff n ∈ □ ∪ 2□ for numerator 8.
+  * Cor A′ (S_n): BM (even étale-BM) nonemptiness does not give a positive integral point. This fails at the 14 (★)-zero
+    primes and the 285 composites, and on the C-even model at the 1 270 R₈-zero primes ≤ 10⁸ and the 12 above 10¹⁰.
+    Primality alone does not rescue it.
+  * X_n: 4545 has a nonempty BM set and local points (also under ET coprimality) but N_II(4545) = 0 (Thm 4.1). An argument
+    using only BM-nonemptiness plus primality, π₁, Br, local solvability and smoothness that applies verbatim to fixed
+    open-closed local classes proves false statements (CERTIFIED class table).
+  * Not covered: further hypotheses, the open S°, fibre arithmetic.
+  * The integral-model analogue of BL's "no BM obstruction to ES" (§1) is therefore: BM obstructs exactly the squares.
+* **Mordell case splits** (`Z58_MORDELL.md`).
+  * Lemma P (PROVED): every integral positive one-parameter (★) family lies in one H_d residue or one K_{u,B} class.
+  * Thms S1/S3 and the exact B criterion (PROVED): explicit sterility of the 1-points x_{ℓ,R}; sterile for every
+    R ≤ (ℓ − 1)/2.
+  * Cor S2 (PROVED, with Dirichlet): every finite union of H_d and K_{u,B} classes misses infinitely many primes
+    p ≡ 1 (mod M), p ≡ R (mod ℓ), at sterile non-residues R. At M = 840 this applies to class 1; the other five Mordell
+    classes are open.
+  * Prop C1 (PROVED): polynomial certificates U, B, C ∈ ℚ[x, y] for a degree-2 f with irreducible top form (e.g.
+    x² + 840y²) have two constant coordinates, so they reduce to fixed-modulus congruences. Not covered: rational,
+    piecewise or divisor uses of (x, y).
+* **Function-field analogue** (`Z58_FFIELD.md`; an analogy, not a reduction).
+  * Cor 3.2 (PROVED relative to Chebotarev): no fixed N₀ gives MS_q(N₀) for all q ≡ 3 (4). So fixed-degree, large-q
+    positivity is impossible and any threshold must grow, N₀(q) → ∞.
+  * Prop 3.3 (PROVED relative to function-field RH): witness menus d | M with deg M ≤ (1/2 − δ)n leave ≫ q^n/(n 2^{ω(M)})
+    avoiders. A sufficient range, not a sharp barrier.
+  * Prop 3.1 (PROVED): local word counts at ℓ ∤ f are residue-blind, also over ℤ.
+  * Fixed-q methods are not excluded.
+* **Bounded coordinates** (PROVED unless marked).
+  * `Z58_TRYF2.md` Prop 2.1: for every U, every prime p ≡ 1 (mod 840·L_U) has no hit with two coordinates ≤ U. A fixed
+    finite u with B, C unbounded is not excluded.
+  * `Z58_WITNESS.md` Prop 3.1 (CONDITIONAL on Dickson): for every S, infinitely many p ≡ 1 (840) have min(u, B, C) > S.
+    Fixed-congruence selectors p mod M ↦ (d or (u, C)) fail on 𝔐 (PROVED).
+  * `Z58_LOGIC.md` Prop 5.4: polylog (u, C)/(B, C) menus fail i.o. (modulo the OMEGA13 cited inputs); growing polylog
+    (u, B) menus are open.
+  * `Z58_LADDER.md` Cor 1.3: no bounded D works for SC(D). Prop 1.2: SC(D) with D ≤ p^θ, θ < 1/(4√e), would give a
+    beyond-Burgess n_p bound on 𝔐. Lemma 3.1: R^{(k)}(m²) = 0 at every exponent cap k ≤ ∞.
+* **Logic** (`Z58_LOGIC.md`).
+  * Prop 2.1 (PROVED): (MS) is Π⁰₁, so a counterexample has a short Q-refutation, and independence from PA/ZFC would
+    imply truth.
+  * Thm 3.1 (PROVED relative to Buss witnessing): S¹₂ ⊢ (MS) yields a polynomial-time hit-or-factor algorithm on Mordell
+    inputs.
+  * Thm 6.2 (PROVED): IOpen ⊬ MS⁺★(P) for every numeral P (pseudo-squares n₀ + 840t, Shepherdson's model); CONDITIONAL
+    on (MS) for the version with (MS★) added. This is a weak-theory barrier, not a general proof-method barrier.
+* **Type II structure** (`Z58_WILDCARD.md` Lemmas 4.1–4.4, PROVED).
+  * Numerator nesting: N^{(8)} is the d-even half of N_II.
+  * Twisted T1: N^{(K)}(s·m²) = 0 for every odd s | K/4.
+  * Inheritance to multiples is conditional on divisibility (N_II(5) > 0, N_II(4545) = 0).
+  * Odd N_II-zeros n ≡ 1 (4) have (n + 1)/2, n + 4 and 4n + 1 composed of primes ≡ 1 (4).
+
 ## 4. What a proof would need — a five-minute screening checklist
 
 Screen an idea against every line *before* investing in it. Each line names the barrier that killed earlier ideas of that
@@ -524,6 +598,18 @@ has passed all lines.
    Salez's 10¹⁷; they do not refute (MS). A zero of R₈ is a zero of one line of 8/p, not a failure of 8/p. Model
    (Assessment): ≈ 0.003 expected R₈ zeros above 10¹⁷ (crossover ≈ 10^{14.4}), so at the Salez threshold the screen reverts
    to the qualitative form above.
+   *(z58.)* **Extended R₈ zero list.** `Z58_DISPROOF.md` found two more R₈-zero primes, both ≡ 1 (mod 840) and so in
+   𝔐: **20 840 951 041** (R = 24) and **23 296 553 281** (R = 36). They are CERTIFIED by exact enumeration and re-verified
+   by the cross-review. They come from a *sampled* design search, not an interval census, so there is no completeness
+   claim above 1.1·10¹⁰. The screen is in `data/z58/screens/`.
+   Distinguish two numerator-8 objects (`Z58_WILDCARD.md` Lemma 4.1, `Z58_STRUCT2.md`):
+   * the c = 1 line R₈, which has the zeros above;
+   * the full numerator-8 Type II family N^{(8)} (the d-even half of N_II). It has 22 odd prime zeros ≤ 10⁹ (last
+     35 569) and 107 odd non-square composite zeros (last 1 239 315), but witnesses (c > 1) at all R₈ zeros. CERTIFIED to
+     10⁹.
+
+   So an argument through full Type II needs a threshold ≥ 35 569 to also prove numerator 8, which is harmless; one
+   through the c = 1 line needs a step that fails on the C-even sub-line.
 3. **It must not be numerator-uniform in its laws** — no k-uniform transport, square law or recombination law (all refuted
    on k/n models, (J)86, (J)88).
 4. **It must break the tied modulus (B2, PARITY_AUDIT Remark 3.1).** Identify the modulus of the class condition. If it is
@@ -558,12 +644,27 @@ has passed all lines.
 13. **No BM/local-global shortcut.** There is no BM obstruction at any n ≥ 2, so BM supplies nothing to prove; "BM is the
     only obstruction on U_n" is literally ES(n) ((I)7). The BM main term is free pointwise ((J)103 Prop 2.2) — the problem
     is the class inside the coset.
+    *(z58, `Z58_STRUCT.md` Thm A, `Z58_STRUCT2.md` Thm B; PROVED.)* On the positive-integral (★) surface and on the full
+    Type II threefold, the BM set is empty **iff n is a square** (numerator 8: n ∈ □ ∪ 2□). So BM re-derives T1 and
+    nothing else. Every known zero is a non-BM failure: the 14 (★) primes, the 285 composites, the R₈ primes, and 4545
+    for Type II. Any "BM-nonempty + primality ⟹ point" step proves false statements on fixed local classes (§3, z58).
 14. **Run it on the test primes.** (★) fails at 14 primes p ≡ 1 (4) ≤ 10¹⁰: 409, 577, 5569, 9601, 23929, 83449, 102001,
     329617, 712321, …, 8 813 281 (`BM_CORRECTED_COUNT.md` §3.2, `B1_LINE.md` §3.6); the b = 1 line fails at 193, 2521, 66529;
     at p = 3361 the only Type II solutions are 1/850 + 1/(3361·25) + 1/(3361·170) and 1/841 + 1/(3361·290) + 1/(3361·8410), all
     on non-split slices ((J)82; 3361 is conjecturally the only prime without a prime-modulus Type II certificate, PM-II,
     exhaustive to 10⁸); at p = 5101441 the a = 1 slice has a single solution. A mechanism claiming that one fixed line or
     grammar always succeeds must survive these (the board found an HJ grammar that traps at 193).
+    *(z58, composite screen refined; CERTIFIED counts, EVIDENCE reading; `Z58_SUMMARY.md` §2.)*
+    * Where the 285 (★) composite zeros ≤ 7 999 801 sit: 265 have a factor 3, 5 or 7, and 270 lie outside 𝔐.
+    * Above 10⁸, every non-square composite zero ≤ 10¹⁰ is divisible by 3, 5 or 7 (`Z58_LOGIC.md`). The 486 non-square
+      composite zeros n ≡ 1 (4) ≤ 10¹⁰ include 16 coprime to 1155, the last 17 401 609 (`Z58_TERNARY.md`).
+    * In 𝔐, the composite zeros are 18 up to 10¹¹, the last 17 401 609 (`Z58_LADDER.md`, one engine).
+    * Small factors are not the whole story: 897 961 = 443·2027 is a zero.
+
+    So a primality-blind argument on 𝔐 needs threshold ≥ 17 401 609 (cf. (MS⁺), §2.4). An argument that also proves
+    full Type II at composites must respect **4545** (`Z58_WILDCARD.md`; N_II(4545) = 0, the only odd non-square
+    N_II-zero ≤ 10¹⁰), which is not explained by BM or local conditions. A threshold-free argument on the a = 1 line must
+    survive 193, 2521, 66529, and one on c ≤ 2 must survive 102001 and 8 813 281 (`Z58_CONVF.md`, CERTIFIED to 10⁸).
 15. **Square classes mod 840 and near-squares.** The hardest primes are in the Mordell classes and at bounded p − m²; T1
     deforms there ((J)53, (J)55). Check the idea at p = m² + k with small k.
 16. **Thin-family wins do not transfer.** Forced-budget windows (Sophie Germain, moving-gap cubic) prove 3·2^s + 1 etc.;
