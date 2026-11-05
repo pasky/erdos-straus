@@ -47,3 +47,14 @@ under-predicts the zeros of the 3|n groups by factors 10–100 — the lower tai
 
 `scripts/z59_msplus_census.sh` (wraps the z58 LADDER exact decider `scripts/z58_ladder_mdec.c` unchanged), 3 lanes,
 chunks of 5·10¹⁰ from 10¹¹ upwards; output `data/z59/msplus/census/`.
+
+## PRE-REGISTERED PREDICTION (written and committed before the run; zero law fitted on n ∈ [10⁶, 10⁹] only)
+Expected number of non-square zeros of R in [10¹⁰, 10¹¹] (`data/z59/msplus/zerofit_1e9.txt`, Monte-Carlo 2·10⁵):
+| group (n ≡ 1 (4)) | model A | model B |
+|---|---|---|
+| 105 ∣ n | 5.51 | 6.05 |
+| 15 ∣ n, 7 ∤ n | 4.36 | 4.80 |
+| 21 ∣ n, 5 ∤ n | 1.09 | 1.32 |
+| 3 ∣ n only | 0.57 | 0.83 |
+| n mod 840 ∈ 𝔐 (composites) | 3.7·10⁻⁴ | 2.6·10⁻³ |
+Test: `scripts/z59_msplus_cdec.c` (the z58 LADDER exact decider on chosen classes mod 840).
