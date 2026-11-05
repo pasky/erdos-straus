@@ -80,7 +80,7 @@ then (−1/d) = −1 (d ≡ 3 mod 4) and (C/d) = 1: for C odd, (C/d) = (d/C)·(�
 before. So (−C/d) = −1. (ii): for n = m², (d/n) = (d/m)² = 1 for gcd(d,m) = 1, contradicting (i); and a hit d has
 gcd(d,n) = 1 because d | 4nC+1. (iii): t ↦ (−C/t) on odd t coprime to C is a character mod 4C, nontrivial
 because −C < 0 is not a square; its kernel has index 2. ∎
-Numerically verified (`scripts/z58_tryf2_jacobi_check.py`): identity holds for all 40 000+ pairs (C ≤ 400, d | 4nC+1)
+Numerically verified (`scripts/z58_tryf2_jacobi_check.py`): identity holds for all 32 374 distinct pairs (C ≤ 400, d | 4nC+1)
 at n ∈ {5, 13, 409, 577, 841, 1225, 57, 105, 2305, 10009, 9601, 12841}; h_C ≤ m_C (notation of §4) throughout.
 
 In Theorem A's proof non-squareness enters only through the non-principality of the character (·/n): every hit is a
@@ -125,10 +125,13 @@ predicted); u ≤ 8 (B,C free): 254 zeros; C = 1: 17 597 zeros; u = 1: 9308 zero
 Fix n ≡ 1 (4) and C ≥ 1; N_C = 4nC+1 is odd, every divisor is coprime to 2. Define
   h_C := #{d | N_C : d ≡ −1 (mod 4C)}  (so R(n) = Σ_C h_C, the sum is finite: C ≤ (n+2)/4),
   m_C := #{d | N_C : (d/n) = −1},    m₂,C := #{d | N_C : 4C−1 ≤ d < √N_C, (d/n) = −1}.
-By Lemma 1.3, hits pair up (d ↔ N_C/d, both ≡ −1 mod 4C), every hit has (d/n) = −1, and no d < 4C−1 can hit. If the
+By Lemma 1.3, hits pair up (d ↔ N_C/d, both ≡ −1 mod 4C; d = N_C/d is impossible, since d² = 4nC+1 with d = 4uC−1
+would give n = 4Cu² − 2u even), every hit has (d/n) = −1, and no d < 4C−1 can hit. If the
 pair-representatives d < √N_C with (d/n) = −1 and d ≥ 4C−1 were uniformly distributed over the φ(4C)/2 classes of
 O_C, the expected value of h_C would be 2·m₂,C/(φ(4C)/2). Define accordingly
   **M₂(n) := Σ_C 4·m₂,C/φ(4C),   E₂(n) := R(n) − M₂(n).**
+M₂ is a *surrogate* (model) main term: the uniform-distribution assumption behind it is not proved, and the split is a
+tautology (R ≥ 1 ⇔ E₂ > −M₂ because R is a non-negative integer); no bound on E₂ is claimed anywhere in this memo.
 M₂(m²) = 0 for every odd m (no d has (d/m²) = −1). E₂ is the aggregate deviation of the exact class −1 from the
 coset average.
 
@@ -218,13 +221,14 @@ primes only.
 | 409, 577, 5569, 9601, 23929, 83449, 102001 (zeros) | 0 | 2.24, 1.44, 6.24, 6.98, 7.64, 9.94, 6.49† | −1 |
 | 57, 105, 2305 (composite zeros) | 0 | 0.00, 0.00, 2.25 | −1 / n.a. |
 | 841, 1225, 2209 (squares) | 0 | 0 | n.a. |
-| 90 primes ≡ 1 (4) in [10⁵, 1.02·10⁵] | min 4, median ≈ 22 | min 10.4, q10 13.4, median 17.0, q90 24.8, max 39.7 | min −0.63, q10 −0.31, median +0.19, q90 +0.75, max +1.63 |
+| 90 primes ≡ 1 (4) in [10⁵, 1.02·10⁵] | min 4, median 22 | min 10.4, q10 13.4, median 17.0, q90 24.8, max 39.7 | min −0.63, q10 −0.31, median +0.19, q90 +0.75, max +1.63 |
 | 10 868 474 401, 10 156 800 001 (F2 primes), C ≤ 1500, C even only | 0 | 11.1, 15.6 | −1 |
 | same, C odd only | 10, 38 | 17.1, 36.6 | −0.41, +0.04 |
 († 102001 with C ≤ √n only; the 14 zeros with C ≤ √n have M₂ = 1.8, 1.1, 4.9, 5.3, 5.5, 7.2, 6.5, 8.4, 10.5, 14.5, 12.5,
 14.3, 16.4, 16.3, versus 18–51 for the eight size-matched primes computed, `data/z58/tryf2/mterm_zeros_sqrt.txt`;
-the F2 values are truncated at C ≤ 1500 and grow with the cutoff, e.g. 12.7 and 17.4 at C ≤ 3000.) So the model is
-roughly centred (median E₂/M₂ ≈ 0.2 with the crude "uniform on O_C" prediction), the zeros are primes with a comparatively
+the F2 values are truncated at C ≤ 1500 and grow with the cutoff, e.g. 12.7 and 17.4 at C ≤ 3000. All M₂ decimals are
+rounded to 2–3 places; q10/q90 are the lower empirical order statistics (9th and 81st of 90 sorted values).) So on this
+sample the model is roughly centred (median E₂/M₂ ≈ 0.2 with the crude "uniform on O_C" prediction), the zeros are primes with a comparatively
 *low supply* of hit-capable QNR divisors that are additionally unlucky (E₂ = −M₂), and the C-even sub-family shows
 E₂ = −M₂ on a sub-family with M₂^{even} ≳ 11–16 at p ≈ 10¹⁰.
 
@@ -254,9 +258,10 @@ odd character), so no zero-sum theorem forces a hit without extra information on
 not available for an individual n. Only the length Ω(n+u) ≤ log₂(n+u) is known, and it is far below φ(4u) once
 u ≫ log n.
 
-## §5 Other attacks tried (all dead; recorded so nobody repeats them)
+## §5 Other attacks tried (the attempted implementations failed; recorded so nobody repeats them as is)
 
-* Polynomial identities in p for 𝔐: impossible (Prop. 2.1 / F1). Identities using one extra datum (a prime q with
+* Polynomial identities in p for 𝔐: any fixed finite menu of identities covering all target primes is impossible
+  (Prop. 2.1 / F1). Identities using one extra datum (a prime q with
   (p/q) = −1): a prime hit d = q requires p ≡ −r (mod q) with r | (q+1)/4, which is a τ((q+1)/4)-element subset of the
   (q−1)/2 non-residues — "QNR" is necessary (Lemma 1.3), far from sufficient (409 ≡ 3 mod 7 is a QNR but not in
   G₇ = {5,6}).
@@ -280,8 +285,9 @@ No proof, no HOT LEAD. The lane's net contribution is the split R = M₂ + E₂ 
 term M₂(p) ≫ log² p is PROVED for all large primes, using the two square-sensitive inputs that were found (non-principality
 of (·/p); Weil/Salié bounds mod p), and all remaining difficulty is the single inequality E₂(p) > −M₂(p), which
 (i) is not implied by finitely many congruence conditions on p (Prop. 2.1, for arguments whose hit has two bounded
-coordinates), (ii) fails on the C-even sub-family at 12 primes near 10¹⁰ (F2), so that no per-C or per-parity argument
-that is valid down to 10¹⁰ can exist, and (iii) is numerically a fluctuation of relative size ±1 about 0, with the 14
+coordinates), (ii) fails on the C-even sub-family at 12 primes near 10¹⁰ (F2), so that any argument which would also prove
+C-even positivity at all primes ≥ 10¹⁰ is false (parity-dependent bounds whose *sum* proves R ≥ 1, or a successful odd-C
+contribution, are not excluded; see §4(b)), and (iii) is numerically a fluctuation of relative size ±1 about 0, with the 14
 zeros at the low end of the M₂ values computed. A HOT LEAD would be any mechanism coupling hits at different C (or
 different u) for the same p; none was found.
 
@@ -298,3 +304,30 @@ different u) for the same p; none was found.
   M₂(57) = M₂(105) = 0, M₂(2305) = 2.25 (computed). ✔ consistent.
 * (F4) 14 prime zeros ≤ 8 813 281: they are zeros of R with M₂ > 0 (E₂ = −M₂), not counterexamples to Theorem A, which
   bounds M₂, not R. Any positivity theorem for R would need threshold > 8 813 281; none is claimed. ✔ consistent.
+* (F4′) the 38 𝔊*-zeros (`data/z58/screens/gstar_zeros.txt`): recomputed R(p) for all 38 with
+  `scripts/z58_tryf2_gstar_check.c` (`data/z58/tryf2/gstar_zeros_R.txt`): 14 have R = 0 (the F4 list) and 24 have R > 0
+  (e.g. R(37) = 2, R(1621) = 4, R(564 661 441) = 2). So the full-family statement is not contradicted, and nothing in this
+  memo transfers to the restricted family 𝔊*: Theorem A is proved for the full (★) family only; a restricted-family
+  surrogate would need its own cutoffs and proof. ✔ consistent.
+
+## §8 Cross-model review (`data/z58/xreview/REVIEW_TRYF2.md`, verdict ACCEPT-WITH-FIXES) — what was fixed
+
+1. §6(ii): the blanket "no per-C or per-parity argument valid down to 10¹⁰" was replaced by the correct statement: only
+   arguments that would also prove C-even positivity at all primes ≥ 10¹⁰ are excluded.
+2. F4 completed with the 38 𝔊*-zeros (F4′ above; R recomputed by this lane: 14 zeros, 24 with R > 0), and the explicit
+   remark that Theorem A does not transfer to restricted families.
+3. Prior attribution (per the reviewer's `git grep`; this lane did not read those memos by instruction): the five hit faces,
+   the Jacobi/square obstruction, the finite-covering obstruction, the CF dictionary, the "main term + remainder,
+   positivity iff remainder > −main" architecture, the C-even/8-p counterexamples, and pointwise square-sensitive log² p
+   main-term bounds for other surrogates (genus terms) are PRIOR in the repository (Z56_FAMTRY, Z57_SYNTH, Z56_FAMDESIGN,
+   Z57_BFII, Z53_HYP2CYCLE, Z55_CROSSU, Z52_BANKED). What is incremental here: the particular cutoff/pair-corrected
+   surrogate M₂ = Σ 4m₂,C/φ(4C), its reciprocal-Kloosterman/Salié box proof (Theorem A), the Λ and M₂ diagnostics, and the
+   packaging of the C-divisor Jacobi identity. No comparison with the prior genus terms is proved; Theorem A is an
+   alternative main-term proof, not a new reduction of the missing pointwise remainder bound.
+4. Headings/claims narrowed: "all dead" → attempted implementations failed; "polynomial identities impossible" → any
+   fixed finite menu covering all target primes; Jacobi-script pair count corrected to 32 374 distinct pairs; quantile
+   convention and rounding stated in Data 3.1.
+5. §3: the no-diagonal parity argument (d = N_C/d impossible) recorded; M₂ explicitly called a surrogate/model main term
+   with the tautological nature of the split spelled out.
+Net status after the review: Theorem A and the diagnostics stand; **no progress on the required pointwise remainder bound
+E₂ > −M₂; no HOT LEAD; ES remains OPEN.**
