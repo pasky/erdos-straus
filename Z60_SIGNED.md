@@ -284,11 +284,16 @@ Lebesgue-null), so some K ∈ W^⊥ avoids every H_p. (i) ⟹ (ii): K ∈ W^⊥ 
    every line vanishes infinitely often (CKRS, WALDS §4.1), a generic sum vanishes only where **all** lines vanish
    modulo W. WALDS's heuristic "pure-cusp proxies vanish at T^{3/4+o(1)} primes" concerns proxies with *rational*
    coefficients (a single rational number per p, CKRS discretisation); it does not apply to generic K.
-3. *What actually remains* is the non-degeneracy (ii). Under W1′ (each line's t-th entry is ±(const)·t^{1/4}·
-   L(½, G_j ⊗ χ_t)^{1/2}), if W = 0 — i.e. 𝒞₁(2N) contains no R-zero — (ii) reads
-   **(𝒟_N): for every prime p ∈ 𝒞₁(2N), p > P₀, some exceptional G_j has L(½, G_j ⊗ χ_p) ≠ 0** —
-   a *disjunction* of central-value non-vanishings, a statement about L-functions alone. If W ≠ 0, (ii) is the
-   condition that S(p) avoids a fixed proper subspace spanned by the zero vectors.
+3. *What actually remains* is the non-degeneracy (ii). On squarefree t > 1, Thm S2 writes every element of Λ in terms
+   of the exceptional lines ℓ_φ (one per exceptional (φ, ψ), under W1′: t-th entry ±(const)·t^{1/4}·
+   L(½, G_φ ⊗ χ_t)^{1/2}); Λ may be a proper subspace of their span (T1 at the finitely many squares m² with
+   gcd(m, 2N) > 1 imposes finitely many fixed linear relations). In line coordinates, (ii) says: the vector
+   (ℓ_φ(p))_φ is not annihilated by the fixed subspace Λ ∩ W^⊥ — a condition "avoid a fixed proper subspace". When
+   Λ is the full span of the lines and W = 0 (𝒞₁(2N) contains no R-zero), it is
+   **(𝒟_N): for every prime p ∈ 𝒞₁(2N), p > P₀, some exceptional G_φ has L(½, G_φ ⊗ χ_p) ≠ 0** —
+   a *disjunction* of central-value non-vanishings, a statement about L-functions alone. In general it is "the line
+   vector avoids the annihilator of a fixed non-zero subspace" (heuristically rarer to fail the larger
+   dim(Λ ∩ W^⊥) is).
 4. *Validity is still (MS).* (i) presupposes knowing Z (all R-zeros in 𝒞₁); K ∈ W^⊥ is chosen *from* Z. So the proxy
    route on 𝒞₁ is exactly "(MS⁺ on 𝒞₁) ∧ (non-degeneracy)": it re-packages (MS) and adds an L-function condition; it
    supplies no reason for validity. A proof of (MS) through it would need an *independent identity* forcing g_K to
