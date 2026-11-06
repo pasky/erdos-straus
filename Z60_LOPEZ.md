@@ -276,7 +276,9 @@ event (B2) in its plainest form; no easier proof route was demonstrated.
 *Checks* (`scripts/z60_lopez_u7check.py`): independent word enumeration (numpy slices over all (x, y) with 8 | xy) for
 all odd n ≤ 10⁶ gives exactly Z₇ and no odd square with a word; all 342 375 LATE certificates (n, f) in the archived files
 re-verified (f ≡ 7 (8), r | f + 1); 3000 random n ≡ 1 (4) in [10⁸, 10¹⁰] and 2000 random n ∈ 𝔐 in [10¹⁰, 10¹²] re-decided
-by a plain loop over f (no bitmaps): all have witnesses. One production engine above 10⁶; the bitmap path is spot-checked,
+by a plain loop over f (no bitmaps): all have witnesses. Branch halves (review fix): `scripts/z60_lopez_halfcheck.py 20000`
+compares the TGT = 1 / 2 deciders with word enumeration (B-half: 8 | xy, 4 | y; A-half: 8 | xy, 4 | x) for all odd
+n ≤ 2·10⁴: identical zero lists (130 / 55; n = 13 correctly not a zero). One production engine above 10⁶; the bitmap path is spot-checked,
 not duplicated.
 
 *Reading.* On n ≡ 1 (4) the two U_II branches are better described as "(★)" and "the f ≡ 7 (mod 8) half of Type A
@@ -353,6 +355,7 @@ for t in 1 2; do Z60_TGT=$t /tmp/z60u7 7 1 100000000 20000 1 1 > data/z60/lopez/
 Z60_TGT=3 Z60_FMOD=0 /tmp/z60u7 0 1 10000000 20000 0 1;  Z60_TGT=3 Z60_FMOD=0 /tmp/z60u7 0 1 100000000 20000 1 1
 Z60_FMOD=8 Z60_FRES=3 /tmp/z60u7 3 1 1000000 4000 0 0   # likewise Z60_FMOD=16 Z60_FRES=15 / 7 with CLS 7
 uv run --with numpy python scripts/z60_lopez_u7check.py 1000000 3000 100000000 10000000000 data/z60/lopez/u7_all_1e8.txt.gz data/z60/lopez/u7_mod1_chunk*.gz
+uv run python scripts/z60_lopez_halfcheck.py 20000 /tmp/z60u7
 Z60_MORD=1 uv run --with numpy python scripts/z60_lopez_u7check.py 1000 2000 10000000000 1000000000000 data/z60/lopez/u7_M_*.gz
 ```
 
