@@ -179,12 +179,15 @@ s_* = (n + w_*)/Q (elliptic iff w_*² < 4s_*). Hence for odd k
 *Proof.* Two elliptic points w₁ < w₂ (≡ −n mod Q) need Q ≤ w₂ − w₁ < 4σ, σ := √s_max with s_max = (n + w₂)/(4C); from
 w₂ < 2σ: 4Cσ² − 2σ − n < 0, so σ < (1 + √N)/(4C), whence 4C² < 1 + √N. Any elliptic w has |w| < 2σ < (1 + √N)/(2C) ≤ 2C. ∎
 Consequences (PROVED in this form): (a) in this regime, R_C(n) ≥ 1 ⟺ Tr ≠ (ε∞/2)TRIV_k − μ_C·(one class-number term) + S —
-the spectral side *detects* (★) at C as a deviation from an explicit value but carries no sign information; (b) the
-Hecke trace is **not** square-root small here: |Tr| ≥ (ε∞/2)|ES_k − TRIV_k| − μ_C|P_k|H − |S|, and ε∞/(2√dim) ≍ √Q → ∞, so any
-pair (ES or TRIV) with min(d, d′) ≥ √N/K forces |Tr| ≫_K √Q·√dim·N^{(k−1)/2}/τ(N)-scale. A "square-root cancellation"
-hypothesis for Hecke traces uniform in the level, which is what would make Prop 4.2 fire, is **false** exactly in the regime
-where the elliptic side vanishes. (Most (★)-solutions have C ≥ (n/4)^{1/3}·c? — not claimed; the regime is simply where
-Theorem 2 degenerates to a restatement.)
+the spectral side *detects* (★) at C as a deviation from an explicit value but carries no sign information; (b) when moreover
+the window is empty (w_*² ≥ 4s_*; for n ≪ C³ this holds for most residues w_*), Tr = −(ε∞/2)(ES_k − TRIV_k) + S exactly, so the
+Hecke trace is **not** square-root small: |Tr − S| = (ε∞/2)|ES_k − TRIV_k|, so whenever |ES_k − TRIV_k| ≥ K^{1−k}N^{(k−1)/2}
+(e.g. one ES pair with min(d, d′) ≥ √N/K and only the trivial TRIV pairs) |Tr − S| ≥ (ε∞/2)K^{1−k}N^{(k−1)/2}, while
+ε∞/(2√dim) ≍ √Q → ∞. (With a single
+elliptic point present, its term μ_C|P_k|H is of the same order μ_C N^{(k−1)/2}/C and can cancel; no claim there.) A
+"square-root cancellation" hypothesis |Tr| ≪ √dim·τ(N)N^{(k−1)/2} uniform in the level — the kind of input that would make
+Prop 4.2 fire — is therefore **false** in the empty-window regime whenever a balanced ES or TRIV pair exists; there Theorem 2
+is a restatement of the divisor count.
 
 **Prop 4.5 (bounded C is a fixed menu; Assessment + CERTIFIED example).** Any argument that uses Theorem 2 only for C ≤ C₀
 proves at most "R_C(p) ≥ 1 for some C ≤ C₀". This fails at every (★)-zero prime (all C), e.g. the 14 primes of
@@ -206,7 +209,7 @@ fail infinitely often. Not re-proved here.
 Theorem 2 is an identity valid for every n; the screens bite on positivity arguments drawn from it.
 | Screen | Behaviour (labels) | Consequence |
 |---|---|---|
-| F1 odd squares | Identity holds with ES_k(C, m²) = 0 for all C (Lemma 1(v), PROVED). Then Tr = −μE + (ε∞/2)TRIV_k + S exactly. CERTIFIED at 49 + 7 odd squares (C = 2, 3; `screen_C2_k3.tsv`, ranges): the identity holds, the certificate never fires (Prop 4.2 forbids it). Tr/D at squares is not distinguishable from primes (C = 2 max 0.40 at squares vs 0.76 at primes; no structural gap). | No step of the identity uses non-squareness; the square-sensitivity of a positivity argument would have to come from an *external* input on Tr or E (none known). |
+| F1 odd squares | Identity holds with ES_k(C, m²) = 0 for all C (Lemma 1(v), PROVED). Then Tr = −μE + (ε∞/2)TRIV_k + S exactly. CERTIFIED: identity holds with ES = 0 at all screened squares — 49 odd squares 3²…99² (C = 2, list), and the odd squares in the ranges (71 for C = 1, n ≤ 20 000; 27 for C = 2, n ≤ 3000; 12 for C = 3, n ≤ 600); no certificate fires there (Prop 4.2 forbids it). Tr/D at squares is not distinguishable from primes (C = 2 max 0.40 at squares vs 0.76 at primes; no structural gap). | No step of the identity uses non-squareness; the square-sensitivity of a positivity argument would have to come from an *external* input on Tr or E (none known). |
 | F2 C-even (R₈) | The identity is per C; R₈ = Σ_{C even} R_C. Nothing in Theorem 2 or §4 distinguishes C odd from C even (Q = 4C either way). | Any "some C works" argument from this identity, not using C odd, would prove R₈(p) ≥ 1, false at the 12 + 2 R₈-zero primes above 10¹⁰. |
 | F3 composites | Identity holds for all n; primality is never used (Theorem 2 is uniform in n). | A positivity argument would need a primality input beyond the identity. |
 | F4 known zeros | At 409, 577, 5569, 9601 (C = 2, k = 3): identity holds, ES = 0, certificate does not fire (`screen_C2_k3.tsv`; e.g. p = 9601: Tr/D = 0.068). At every (★)-zero prime ES_k(C, p) = 0 for **all** C. | Any spectral lower bound must fail there for every level 4C. |
