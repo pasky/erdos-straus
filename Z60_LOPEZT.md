@@ -72,3 +72,27 @@ an argument using primality must point to the step where p prime (not merely non
 must have threshold > 8 813 281 (BN) or > 66 529 (B4), with a stated reason.
 
 (Status tags below: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE.)
+
+## §1 The witness-modulus form (U5) and the inversion symmetry of the two branches (PROVED)
+
+Fix a witness modulus g ≡ 3 (mod 4), g ∤ p. Let Q := (g+1)/4 and R_g := { −a mod g : a | Q } ⊂ (ℤ/g)^× (all distinct, since a ≤ Q < g).
+
+Lemma 1.1. (BN with this g) ⟺ p mod g ∈ R_g.   (B4 with this g) ⟺ p^{−1} mod g ∈ R_g.   Hence
+  **(U5)  S(p) ⟺ ∃ g ≡ 3 (mod 4) with p^{±1} mod g ∈ R_g = −Div((g+1)/4).**
+Proof. BN: g | p + a with g ≡ −1 (mod 4a) ⟺ a | Q and p ≡ −a (mod g). B4 (U3 form, t = Q/a): g | tp + 1 ⟺ tp ≡ −1 ⟺
+p ≡ −t^{−1} ≡ −4a (mod g) (as 4ta = g + 1 ≡ 1) ⟺ p^{−1} ≡ −(4a)^{−1} ≡ −t (mod g), and t | Q. ∎
+Remarks. (i) R_g ⊂ {QNR mod g}: (−a/g) = −(a/g) = −1 by Lemma 0.5's argument (g ≡ −1 mod 4a ⇒ (a/g) = 1).
+(ii) The g-range: BN witnesses have g ≤ (4p+1)/3, B4 witnesses g ≤ 2p + 1 (t = 1: g | p + 1; t ≥ 2: g(1 − 1/t) ≤ p + 1/t).
+(iii) The numerator-8 analogue is literally: ∃ g ≡ 7 (mod 8) with p^{±1} mod g ∈ −Div((g+1)/8). Since Div((g+1)/8) ⊂ Div((g+1)/4),
+S₈ ⟹ S₄. `scripts/z60_lopezt_u5.c` (which implements (U5) directly) reproduces: S₄ zeros ≤ 6·10⁴ among odd non-squares = {105, 4545},
+no prime zeros ≤ 2·10⁵; S₈ prime zeros ≤ 4·10⁶: exactly 45, last 3 869 153 (`data/z60/lopezt/s8_zeros_le4e6.txt`) — matching the brief,
+which certifies the derivation of the 8-analogue.
+**Sharpened (F2):** every S₄-witness that is not an S₈-witness has either g ≡ 3 (mod 8), or g ≡ 7 (mod 8) with v₂(a) = v₂((g+1)/4)
+(a the divisor used). A proof of S₄ must produce such witnesses for (at least) the 45 primes in the file, or carry a threshold > 3 869 153.
+
+Lemma 1.2 (no finite covering, even inside p ≡ 1 (24)). For any M, let L = lcm{4m : m ≤ M}·24. Every prime p ≡ 1 (mod L) has no
+witness with g ≤ M: for such p, p ≡ 1 is a square mod g, but R_g consists of non-residues. By Linnik there are such primes with
+p ≤ L^{C} = e^{O(M)}, i.e. infinitely many primes p ≡ 1 (24) whose every witness has g ≥ c·log p. More generally, if p is a
+quadratic residue modulo every prime ≤ z, every witness g has a prime factor q > z with (p/q) = −1. ∎
+Consequence: no argument that exhibits a witness from finitely many congruence conditions on p can prove S(p); the witness must be
+built from a prime factor of some tp + 1 / 4tp + 1 that is not determined by p modulo any fixed modulus.
