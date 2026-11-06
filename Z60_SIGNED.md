@@ -310,3 +310,192 @@ fundamental discriminants 8n under GRH — Lester–Radziwiłł Thm 1 — never 
 fixed k. So the *signed* multi-eigensystem route is expected (CONJECTURE) to be ineffective, while the *support* route
 is expected to be effective but is circular (point 4).
 
+## 6. Computations
+
+### 6.1 Mixed-nebentypus validity certificates (CERTIFIED, exact rational linear algebra)
+`scripts/z60_signed_mixed.py L B 0 4 zrows` (driver `scripts/z60_signed_mixed_runs.sh`, output `data/z60/signed/mixed_runs.txt`):
+V = ⊕_ψ M_{3/2}(Γ₀(L), ψ) over **all** quadratic ψ = (D/·) with D = 1 or a positive fundamental discriminant | L (8
+characters at each level), full spaces; rows g(m²) = 0 for all odd m ≤ √B and (zrows = 1) g(z) = 0 at every n ≡ 1 (4),
+n ≤ B, with R(n) = 0 (LOGIC census list, squares and composites included).
+
+| L | B | dim V | rows (zero rows) | rank of mixed kernel on 𝒞₁ ∩ [1, B] | same, without zero rows | Σ_ψ per-ψ ranks (no zero rows) |
+|---|---|---|---|---|---|---|
+| 168 | 40 000 | 176 | 169 (168) | **0** | 3 | 1 (ψ = χ₁₆₈) |
+| 240 | 30 000 | 272 | 150 (149) | **0** | 9 | 1 (ψ = χ₁₂₀) |
+| 280 | 30 000 | 240 | 150 (149) | **0** | 6 | 1 (ψ = χ₅₆) |
+
+**CERTIFIED:** at L ∈ {168, 240, 280}, every valid mixed-nebentypus proxy g ∈ V (support form) vanishes on
+𝒞₁(L/2) ∩ [1, B]. (For signed minorants the analogous finite certificate would need sign rows; not computed — Thm S2(b)
+reduces them to the same kernel asymptotically.)
+**Finite-size caveat (EVIDENCE):** without zero rows the mixed T1-kernel restricted to 𝒞₁ is *larger* than the sum of the
+per-ψ kernels (3, 9, 6 vs 1) — at these B the number of odd squares (100, 87, 87) is far below dim V, so many cross-ψ
+cancellations at squares survive. Theorem S2(a) says they disappear when *all* odd squares are imposed; the finite
+certificate does not rely on S2 (zero rows kill everything). At L = 168, B = 4000 the excess was 16, at B = 40 000 it is 3
+(monotone decrease, as expected).
+
+### 6.2 What the survivor lines see: G-specific Euler factors, not R (EVIDENCE)
+`scripts/z60_signed_pseudosq.py L D 40000 G D′ 200 …` (cusp space, good odd squares, as WALDS's diag; outputs
+`data/z60/signed/pseudosq_L_D.txt`). For each survivor line s (normalised primitive integral) and every squarefree
+n ∈ 𝒞₁ ≤ 40 000: s(n); w(n) := s(n)²/√n (∝ L(½, G ⊗ χ_n) by Waldspurger Cor. 2); the partial Euler product
+P_Y(n) = ∏_{ℓ≤200, good}(1 − a_ℓ(G)χ_n(ℓ)/ℓ + 1/ℓ)^{−1} of G ⊗ χ_n at the centre (the Birch–Swinnerton-Dyer "∏N_ℓ/ℓ"
+statistic); R(n) by enumeration; n_p := least prime non-residue of n.
+
+| (L, ψ), G | 𝒞₁-primes | s(p) = 0 by P_Y tercile (low/mid/high) | ρ_S(w, P_Y) | ρ_S(R, w) | ρ_S(R, n_p) | signs of s(p) ≠ 0 (+/−) | s at the 2 prime R-zeros 5569, 9601 |
+|---|---|---|---|---|---|---|---|
+| (168, χ₁₆₈), E₈₄ ⊗ χ_{−168} | 238 | 31/80, 19/79, 7/79 | 0.58 | 0.01 | −0.29 | 81/100 | 1, −1 |
+| (280, χ₅₆), E₇₀ ⊗ χ_{−56} | 238 | 32/80, 14/79, 13/79 | 0.51 | −0.12 | −0.63 | 87/92 | 1, −1 |
+| (560, χ₂₈₀), E₅₆ ⊗ χ_{−280} | 238 | 24/80, 23/79, 7/79 | 0.49 | 0.13 | −0.63 | 92/92 | 1, 1 |
+| (420, χ₂₁), E₂₁₀ ⊗ χ_{−84} | 108 | 14/37, 6/36, 3/35 | 0.49 | −0.08 | 0.11 | 43/42 | **0, 0** |
+| (420, χ₁₀₅), E₁₀₅ ⊗ χ_{−420} | 108 | 18/37, 11/36, 7/35 | 0.43 | 0.06 | 0.11 | 40/32 | **0, 0** |
+
+(ρ_S = Spearman rank correlation over the 𝒞₁-primes; the squarefree-composite rows behave the same, see the files.)
+Readings (EVIDENCE, finite range): (a) the Waldspurger dictionary is visible numerically — w tracks the partial Euler
+product (ρ ≈ 0.43–0.58) and vanishing concentrates in the low-P_Y tercile; (b) **w is uncorrelated with R**
+(|ρ_S(R, w)| ≤ 0.13 on all five lines), although R itself correlates with pseudo-squareness (ρ_S(R, n_p) down to −0.63);
+the twisted central value weights the small primes by a_ℓ(G), a G-specific pattern, while R depends on the residue
+pattern of n in a G-independent way. So the natural heuristic "both vanish at pseudo-squares, hence validity is
+approximately automatic" is not supported; (c) signs are balanced at every line (signed single-line proxies are not
+eventually positive in the computed range).
+
+### 6.3 The L = 420 coincidence and *prime-only* validity (CERTIFIED ranks / EVIDENCE L-values)
+WALDS §5.3 noted that both L = 420 survivors vanish at the (★)-zero primes 5569 and 9601. A line that vanished at *every*
+(★)-zero prime of 𝔐 would be a "prime-only valid" proxy (g(p) ≠ 0 ⟹ R(p) ≥ 1 at primes — all that (MS) needs; TERNARY
+§4.3's named escape), i.e. an L-function detector of R-zeros. Test (`scripts/z60_signed_zeros_rank.py`,
+`scripts/z60_signed_t420.py`; outputs `zeros_rank_420.txt`, `t420_screen_run1.txt`, `t420_screen.txt`,
+`t420_screen_102001.txt`): for all nine in-𝔐 (★)-zero primes, pari `ellrank` bounds (efforts 0–3) of G ⊗ χ_p
+(rank ≥ 2 ⟹ L(½) = 0 unconditionally by Gross–Zagier–Kolyvagin; upper bound 0 ⟹ algebraic rank 0):
+
+| p | 5569 | 9601 | 83449 | 102001 | 712321 | 1724209 | 1726201 | 5212561 | 8813281 |
+|---|---|---|---|---|---|---|---|---|---|
+| χ₂₁: E₂₁₀ ⊗ χ_{−84p} | 2 | 2 | 2 | **0** (L ≈ 0.380, num.) | 2 | **0** | 2 | 2 | **0** |
+| χ₁₀₅: E₁₀₅ ⊗ χ_{−420p} | 2 | 2 | 2 | 2 | **0** | [0,2] | [0,2] | **0** | **0** |
+
+(Root number +1 throughout; numerical analytic rank 2 at 5569, 9601, 83449 for both lines and at 102001 for χ₁₀₅.)
+**Result.** Neither line is prime-valid: the χ₂₁ line is non-zero at the (★)-zero prime 102001 (numerical central value
+0.380, analytic rank 0; W4(a) with any anchor t₀ where s(t₀) ≠ 0, e.g. t₀ = 1009; the identification of the computed line with
+φ = E₂₁₀ is WALDS's EVIDENCE — so this is EVIDENCE, numerical) and has algebraic rank 0
+at 1724209 and 8813281 (non-vanishing there needs BSD's converse direction — EVIDENCE); the χ₁₀₅ line has algebraic rank
+0 at 712321, 5212561, 8813281 (EVIDENCE likewise). No combination K₁s₁ + K₂s₂ ≠ 0 vanishes at 102001 (χ₂₁ ≠ 0,
+χ₁₀₅ = 0, so K₁ = 0) and at 712321 (χ₂₁ = 0, χ₁₀₅ ≠ 0 expected, so K₂ = 0) — conditional on the BSD-type reading at
+712321. The coincidence is therefore not exact.
+**Residual anomaly (EVIDENCE, weak; recorded for honesty).** Effort-matched base rates over 120 𝔐-primes in each band
+(starting at 10⁵, 10⁶, 5·10⁶; `scripts/z60_signed_baserate.py`, `baserate_runs.txt`, `baserate_effort3.txt`,
+`scripts/z60_signed_baserate_stats.py` → `baserate_stats.txt`): proven rank ≥ 2 in 24 %, 17 %, 12 % (χ₂₁) and 24 %,
+18 %, 13 % (χ₁₀₅). At the seven zeros other than the two that motivated the test, χ₂₁ has proven rank 2 at 4/7
+(expected 1.22; Poisson-binomial P(≥ 4) ≈ 0.019), χ₁₀₅ at 2/7 (expected 1.27; P ≈ 0.37). The effort-robust statistic
+(Selmer rank 0) shows no anomaly (χ₂₁: 3/7 vs 3.57 expected; χ₁₀₅: 3/7 vs 2.77). With two lines and two statistics
+tested, P ≈ 0.02 is not significant; in χ₂₁ the excess sits entirely in "Selmer rank 2 ⟹ points found" (4/4 at the
+zeros vs roughly 35–50 % in the base), which could reflect Sha[2] or point heights rather than ranks. Not a lead.
+
+## 7. What is left, verdict, screens, proposed FRONTIER text, bottom line
+
+### 7.1 The map after this lane (PROVED pieces + Assessment)
+For a *fixed-level* half-integral-weight proxy in the theta class (lattices of odd rank ≥ 3, any finite mixture of
+quadratic nebentypus, support or signed; cosets CONDITIONAL on (SWc)) and the square class 𝒞₁(2N) (⊇ the 𝔐-primes for
+{3,5,7}-levels):
+* **signed = support** (S1, S2(b), S3): T1⁻ at odd squares forces either eventual negativity at all large 𝒞₁-primes or
+  the support-form structure (genus term 0 on 𝒞₁, unary t = 1 part 0, every Shimura anchor 0);
+* **mixed ψ adds nothing** (S2): on squarefree 𝒞₁ only exceptional (φ, ψ) components survive;
+* **exponential growth is square-blind** (S4, S4′ CONDITIONAL): on the class 1 (mod M) primes and squares have the same
+  dominant term;
+* **multi-eigensystem sums** (S5): cancellation is avoidable at all primes at once by generic coefficients; a valid
+  effective proxy exists ⟺ (MS on 𝒞₁ beyond P₀) ∧ (non-degeneracy S(p) ∉ W); with no zeros in 𝒞₁ the latter is the
+  disjunction (𝒟_N) of twisted central-value non-vanishings, heuristically true for ≥ 5 independent rational exceptional
+  lines (Assessment), unprovable with current technology, and in any case **no substitute for a validity mechanism**.
+What is **not** covered and stays open (named escapes):
+1. **A validity identity** (the real gap, at any level): an expansion g(n) = Σ_{certificates of n} w(cert) with structural
+   weights w, or any other non-termwise reason why g vanishes on the R-zeros. Termwise lattice/coset recipes cannot reach
+   𝒞₁ (W0; §4.2). No candidate is known.
+2. **Off-𝒞₁ / varying level** (WALDS (E-e)): at primes p ∉ 𝒞₁(2N) the genus term survives and a *signed* proxy can be
+   positive there (T1⁻ never sees classes with (p/q) = −1 for some q | N); validity there is (MS) on that class (W5); a
+   p-dependent level needs a prime q | N_p with (p/q) = −1, so q ≥ n_p — the B2 / n_p wall.
+3. **Integral weight, signed form**: AUTOMORPH Prop B1 stands — T1⁻ does not constrain 𝓗 (5σ₂ − (2n² + 3)τ is ≤ 0 at odd
+   squares and p² − 1 at primes). Effective T1⁻-compatible signed functions exist there; validity is the whole problem.
+4. Non-quadratic nebentypus and non-genus Eisenstein / general mock objects of polynomial growth (S2 Remark (2) indicates
+   the proof extends; not written out); level sums / sections (AUTOMORPH E2, Fourier–Jacobi §4.4) — B2/H-A.
+
+### 7.2 Verdict
+**Narrowed** (no HOT LEAD). New PROVED scoped no-gos (relative to the cited inputs): S1 (signed T1 in weight 3/2, also
+giving WALDS W1 from prime squares alone), S2 (mixed nebentypus, support and signed), S3 (higher half-integral weight),
+Lemma S4 (square-blind asymptotics); Prop S5 (exact reduction of the multi-eigensystem escape). CONDITIONAL: cosets
+(§4.2, on coset Siegel–Weil), Cor S4′ (on Rademacher-type expansions). CERTIFIED: mixed-ψ validity certificates at
+L = 168, 240, 280; ranks of 18 twists at the nine in-𝔐 (★)-zero primes. EVIDENCE: survivor lines are uncorrelated with R;
+the L = 420 coincidence is not exact (weak residual anomaly, not significant). The brief's suggested closure for (E-a)
+("each exceptional piece vanishes infinitely often, so cancellation cannot be controlled") is shown to be the wrong
+target: by S5 cancellation can always be avoided; what remains is a non-degeneracy condition plus validity, and validity
+is (MS).
+
+### 7.3 Falsifier table (final)
+| screen | behaviour of the best idea (fixed-level signed/multi-eigensystem proxies; S1–S5) |
+|---|---|
+| **F1 odd squares** | Used exactly once, at the anchor: T1⁻ (an inequality) is upgraded to the support-form conclusions at the t = 1 Shimura orbit (S1 Steps 1–4, S2 Steps 1–5) and the genus density of m². Non-squareness is the step "t = p lies in a different Shimura orbit from t = 1, linked only through Waldspurger". In integral weight T1⁻ does nothing (AUTOMORPH B1) — the reason that escape stays open. |
+| **F2 C-even (R₈)** | All no-gos are line-blind and apply verbatim to R₈-proxies (R₈(m²) = 0): nothing false is proved. S5 is an equivalence; for R₈ it correctly demands R₈(p) ≥ 1 on 𝒞₁ beyond P₀, so P₀ > 10 868 474 401 for R₈ on 𝔐-levels. The pseudo-square test (§6.2) shows the survivor lines track G-specific Euler factors; nothing in them distinguishes C odd from C even. |
+| **F3 composites** | S1–S4 do not use composite data. S5's zero set Z contains the squarefree composite zeros of 𝒞₁ exactly like prime zeros; the mixed certificates (§6.1) used all R-zero rows ≤ B (composites and squares included) and kill every valid mixed proxy on 𝒞₁ ∩ [1, B] at L = 168, 240, 280. Primality is never used beyond squarefreeness of t ∈ 𝒞₁ (as in WALDS). |
+| **F4 known zeros** | §6.1 certificates; §6.2: survivor lines are non-zero at known in-class R-zeros (e.g. 1969, 2641, 5161; 5569, 9601 for four lines); §6.3: the two L = 420 lines, which vanish at 5569, 9601 and (χ₂₁) at four further (★)-zero primes, are non-zero (numerically) / have rank 0 at 102001, 1724209, 8813281 resp. 712321, 5212561, 8813281 — no prime-only valid line or combination at L = 420. 𝔊*-zeros: not screened (they constrain 𝔊*-support proxies only, WALDS F4). |
+
+### 7.4 FRONTIER §4 hard screens
+T1 squares: S1/S2/S3 *are* T1 in signed form. 8/131 (line): line-blind. Tied modulus: invisible — the half-integral side
+sees only central values L(½, G ⊗ χ_p), uncorrelated with R (§6.2). Fixed p: everything is pointwise after the level is
+fixed; the positive direction (𝒟_N) is a fixed-p disjunction of non-vanishings, not given by GRH.
+
+### 7.5 Proposed FRONTIER text (do not edit FRONTIER here)
+> *Signed and multi-eigensystem automorphic proxies (z60 SIGNED; PROVED rel. Siegel, Duke 1988 Thm 5, Waldspurger 1981
+> Cor. 2, Rankin–Selberg/Jacquet–Shalika–Ogg–Shahidi at s = 1, Deligne).* In half-integral weight the *signed* form of
+> T1 (g(m²) ≤ 0) is as strong as the support form: a theta-class proxy (lattices of odd rank ≥ 3, any mixture of
+> quadratic nebentypus) is either negative at all large primes of the square class 𝒞₁ or, on squarefree 𝒞₁, a sum of
+> Gauss-exceptional Shimura components (closes WALDS (E-c), (E-d), AUTOMORPH Q2′ in half-integral weight; cosets
+> CONDITIONAL on coset Siegel–Weil). Exponentially growing objects are square-blind on 1 (mod M). For several exceptional
+> components, cancellation is never the obstruction (generic coefficients avoid it at every prime at once): a valid
+> effective proxy exists iff (MS) holds on 𝒞₁ beyond the threshold **and** the vector of twisted central values avoids the
+> span of its values at R-zeros (with no zeros: some L(½, G_j ⊗ χ_p) ≠ 0). So the automorphic route re-packages (MS) and
+> adds an L-function condition; it never supplies validity. CERTIFIED: mixed-ψ validity certificates at L = 168, 240,
+> 280. The L = 420 survivors (vanishing at 5569, 9601) are not prime-valid (non-zero / rank 0 at 102001, 712321, …).
+> Open: a validity identity; off-𝒞₁ / p-dependent levels (q ≥ n_p, B2); integral-weight signed proxies (AUTOMORPH B1).
+> Add to §6: "signed (minorant) and mixed-nebentypus half-integral-weight proxies on 𝒞₁; cancellation-control as the
+> missing step for multi-eigensystem proxies (it is not)".
+
+### 7.6 Bottom line
+The last automorphic escape left by AUTOMORPH/TERNARY/WALDS was "signed or multi-eigensystem proxies". In half-integral
+weight it closes in the expected way: replacing "g = 0 at odd squares" by "g ≤ 0 at odd squares" changes nothing,
+because the only way to keep g(p) > 0 at large primes of the square class is for the genus term to vanish there, after
+which a Rankin–Selberg sign argument kills every Shimura anchor; mixing characters or raising the weight does not help,
+and exponentially large objects cannot even tell p from a square in the class 1 (mod M). The multi-eigensystem question
+turns out to be mis-posed: cancellation between eigensystems can always be avoided by generic coefficients, so no
+"single-p cancellation control" is ever needed — what is needed is (MS) itself (to know where the zeros are) plus a
+non-degeneracy of twisted central values, and nothing in the modular world supplies the former. Numerically, the
+survivor lines follow their own Euler factors and ignore R; the one striking coincidence (both L = 420 lines vanishing
+at the first two in-𝔐 (★)-zeros) does not persist (102001, 712321, …). ES and (MS) remain open; the wall is again B2 —
+here in the form "a reason for validity".
+
+## 8. Literature verification log
+Raw subagent report: `data/z60/signed/lit_verify_raw.md` (research mode). Lane checks:
+| # | Used for | Source | How verified | Status |
+|---|---|---|---|---|
+| 1 | (Duk): weight-3/2 cusp coefficients ≪ t^{1/2−1/28+ε} at squarefree t; all weights ±1/2 + 2ℓ | W. Duke, Invent. Math. 92 (1988) 73–90, Thm 5 (§5) and pp. 74–76 ((1.2): Iwaniec, weight > 5/2, a(n) ≪ n^{k/2−2/7+ε}; "Theorem 5 includes the interesting case of holomorphic cusp forms of weight 3/2") | primary PDF (author-hosted scan of the published paper, math.ucla.edu/~wdduke/preprints/hyperbolic.pdf), text read | VERIFIED |
+| 2 | (RS2): L(1+it, π × π′) ≠ 0 for π ≠ π′ (GL₂ × GL₂: Ogg; general: Shahidi); (RS1): L(s, π) ≠ 0 on Re s = 1 (Jacquet–Shalika 1976) | P. Sarnak, "Nonvanishing of L-functions on Re(s) = 1" (Shalika 60th birthday volume, 2002), §1 | primary PDF (publications.ias.edu/…/ShalikaBday2002.pdf), text read | VERIFIED (as stated there) |
+| 3 | simple pole of L(s, φ × φ) at s = 1 | Rankin–Selberg theory (used in Sarnak §1 eq. (5) as the pole of L(s, π × π̃)) | standard; not separately quoted | standard |
+| 4 | (Sie): L(1, χ_D) ≫_ε |D|^{−ε} | Siegel 1935 | classical; not re-read | standard |
+| 5 | Waldspurger Prop. 1, Cor. 2 (any odd k ≥ 3), Shimura T(ℓ²) | inherited: WALDS `data/z59/walds/lit_verify.md` #1, #5, #13 (primary PDF read by WALDS; statements with general k) | inherited | as there |
+| 6 | (SWc) Siegel's formula for lattice cosets | Weil, Acta Math. 113 (1965) located; exact coset statement/range not confirmed | subagent, partial | **not verified ⟹ §4.2 CONDITIONAL** |
+| 7 | sign changes of half-integral coefficients | Bruinier–Kohnen 2008 Thm 2.1 (a(tn²), t fixed); Lester–Radziwiłł, Math. Ann. 379 (2021) Thms 1–2 (indices 8n, n odd squarefree; GRH for ≫X, unconditional X^{1−ε}); nothing for primes | subagent (primary records) + WALDS #11 | VERIFIED as stated; **no prime-index result found** |
+| 8 | simultaneous non-vanishing of twists | nothing qualifying located | subagent | not found (used only in an Assessment) |
+| 9 | Rademacher-type expansions (Cor S4′) | standard (Rademacher–Zuckerman; Bringmann–Ono) | not re-verified | Cor S4′ CONDITIONAL |
+| 10 | Gross–Zagier–Kolyvagin (rank ≥ 2 ⟹ L(½) = 0) | inherited WALDS lit_verify #12 | inherited | as there |
+
+## 9. Commands and files
+All runs: `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent compute processes; Python via `uv run --with cypari2`.
+* `bash scripts/z60_signed_mixed_runs.sh` → `data/z60/signed/mixed_runs.txt` (§6.1). Single runs:
+  `scripts/z60_signed_mixed.py 168 4000 0 4 0` (excess 16, console), `… 168 40000 0 4 0` (excess 3, console);
+  `… 168 90000 0 4 0` overflowed the PARI stack (`mixed_168_B90000.log`).
+* `scripts/z60_signed_pseudosq.py L D 40000 "[a-invariants]" D′ 200 data/z60/signed/pseudosq_L_D.txt` for
+  (168,168,E₈₄,−168), (420,21,E₂₁₀,−84), (420,105,E₁₀₅,−420), (280,56,E₇₀,−56), (560,280,E₅₆,−280) (§6.2; summary lines
+  are console output reproduced in §6.2).
+* `scripts/z60_signed_t420.py 2e15` (first run, killed after 83449: `t420_screen_run1.txt`), `… 2e15 83449,…`
+  (`t420_screen.txt`, killed during an analytic-rank computation), `… 2e15 102001` (`t420_screen_102001.txt`);
+  `scripts/z60_signed_zeros_rank.py <9 zeros> 3` → `zeros_rank_420.txt`.
+* `scripts/z60_signed_baserate.py X 25|120 line [2]` → `baserate_chi21_8e4.txt`, `baserate_runs.txt`;
+  `scripts/z60_signed_zeros_rank.py <the 360 base primes> 3` → `baserate_effort3.txt`;
+  `python3 scripts/z60_signed_baserate_stats.py` → `baserate_stats.txt` (§6.3).
+
+## 10. Review log
+(pending)
