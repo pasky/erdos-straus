@@ -4,7 +4,8 @@
 import sys, json
 from fractions import Fraction
 import cypari2
-pari = cypari2.Pari(); pari.allocatemem(2*10**9)
+import os
+pari = cypari2.Pari(); pari.allocatemem(int(os.environ.get('Z60_PARIMEM', 2*10**9)))
 
 def Pk(k, t, N):
     # (rho^{k-1}-rhobar^{k-1})/(rho-rhobar): P1=0? use recursion P_1=0,P_2=1,P_{j+1}=t P_j - N P_{j-1}
@@ -19,13 +20,16 @@ def H(D):
 def geom_pieces(C, n, k):
     N = 4*C*n+1
     E = Fraction(0)
-    s = 1
-    # w = 4Cs-n, need w^2 < 4s
-    smin = max(1, (n - 2*int((n/C)**0.5) - 10)//(4*C))
-    for s in range(smin, (n + 2*int((n/C)**0.5) + 10)//(4*C) + 2):
-        w = 4*C*s - n
-        if w*w < 4*s:
-            E += Pk(k, 4*C*w-2, N) * H(4*s - w*w)
+    Q = 4*C
+    # exact enumeration: elliptic needs t^2 < 4N with t = Q*w - 2, i.e. |t| <= L := isqrt(4N-1); s = (n+w)/Q integer >= 1
+    from math import isqrt as _isqrt
+    L = _isqrt(4*N - 1)
+    wmin = -((L - 2)//Q) - 1; wmax = (L + 2)//Q + 1
+    for w in range(wmin, wmax+1):
+        if (n + w) % Q: continue
+        s = (n + w)//Q
+        if s >= 1 and w*w < 4*s:
+            E += Pk(k, Q*w-2, N) * H(4*s - w*w)
     ES = 0; TR = 0
     for d in range(1, N+1):
         if d*d > N: break

@@ -40,3 +40,4 @@ for n in range(1,nmax+1):
     if ES3-TR3 != -8*E3 + (a_eta6(N)+4*lam)/3: bad3+=1; 
     if bad3==1 and ES3-TR3 != -8*E3 + (a_eta6(N)+4*lam)/3: print("k3 mismatch",n,ES3,TR3,E3,a_eta6(N),lam)
 print(f"n<= {nmax}: k=2 mismatches {bad2}, k=3 mismatches {bad3}")
+sys.exit(1 if (bad2 or bad3) else 0)

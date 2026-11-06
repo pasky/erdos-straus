@@ -30,3 +30,4 @@ for n,N,T,E,ES,TR in d['rows']:
         bad+=1
         if bad<=8: print("MISMATCH",n,N,T,g,E,ES,TR)
 print(f"C={C} k={k} dim={d['dim']} mu={m} rows={tot} mismatches={bad}")
+sys.exit(1 if bad else 0)

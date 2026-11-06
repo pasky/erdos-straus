@@ -34,3 +34,5 @@ for C in range(1,7):
         r=isqrt(n)
         if r*r==n: assert not pos, (C,n)
 print("mismatches",bad)
+import sys
+sys.exit(1 if bad else 0)
