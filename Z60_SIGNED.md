@@ -132,7 +132,8 @@ g(m²) = Σ_ψ E_ψ(1)·M_ψ(m) + 2m·u(m) + Σ_{φ,ψ} c_{φ,ψ}·A_{φ,ψ}(m),
 M_ψ(m) := ∏_{ℓ|m}(1 + ℓ − ε_ψ(ℓ)),  A_{φ,ψ}(m) := ∏_{ℓ|m}(a_ℓ(φ) − ε_ψ(ℓ)),  u(m) := Σ_χ κ_{χ,1}χ(m)
 (χ over the odd primitive characters of all t = 1 unary series occurring in the g_ψ).
 *Proof.* Genus part: m² is a unit square at every q ∤ m, so by (S1) only the densities at ℓ | m and the archimedean
-factor change; E_ψ(m²)/E_ψ(1) = ∏_{ℓ|m}ℓα_ℓ(ℓ²)/α_ℓ(1) = ∏(1 + ℓ − ε_ψ(ℓ)) (TERNARY Step 2, densities multiplicative).
+factor change, so termwise for each genus theta (and hence for E_ψ) E_ψ(m²) = E_ψ(1)·∏_{ℓ|m}(1 + ℓ − ε_ψ(ℓ)) (TERNARY
+Step 2, densities multiplicative; no division by E_ψ(1), which may be 0).
 Cusp part: for ℓ ∤ m′, (S4) at n = m′² gives a(ℓ²m′²) = (a_ℓ(φ) − ψ(ℓ)(−m′²/ℓ))a(m′²) = (a_ℓ(φ) − ε_ψ(ℓ))a(m′²); induct.
 Unary part: only t = 1 series reach m² with gcd(m, N) = 1 (TERNARY Step 2), coefficient 2χ(m)m. ∎
 
@@ -165,7 +166,7 @@ E_{ψ₀}(1) ≤ 0.
 **Step 2 (some E_ψ(1) < 0).** On 𝒞₁(2N), each E_ψ(n) = E_ψ(1)B_ψ(n)/B_ψ(1) with B_ψ > 0 (TERNARY Step 1), so for primes
 p ∈ 𝒞₁: E(p) = Σ_ψ E_ψ(1)B_ψ(p)/B_ψ(1) ≤ E_{ψ₁}(1)B_{ψ₁}(p)/B_{ψ₁}(1) ≪ −p^{1/2−ε} (Sie), while the unary part vanishes
 at p and the cusp part is O(p^{1/2−1/28+ε}) (Duk). So g(p) < 0 for large p.
-**Step 3 (all E_ψ(1) = 0: unary).** Now g(m²)/m = 2u(m) + o(1) ≤ 0 (good m → ∞ in a fixed class mod Q); u is odd and
+**Step 3 (all E_ψ(1) = 0: unary).** Now g(ℓ²)/ℓ = 2u(ℓ) + o(1) ≤ 0 for primes ℓ → ∞ in each class mod Q; u is odd and
 periodic mod Q, so as in §2 Step 3 u ≡ 0 on (ℤ/Q)^× and all κ_{χ,1} = 0.
 **Step 4 (cusp: primes).** Write C_φ := Σ_ψ c_{φ,ψ}, H_φ(ℓ) := Σ_ψ c_{φ,ψ}ε_ψ(ℓ), D(ℓ) := Σ_φ H_φ(ℓ) (all real, §2
 Step 4(i)). At m = ℓ: Σ_φ C_φ a_ℓ(φ) − D(ℓ) ≤ 0, i.e. Σ_φ C_φλ_ℓ(φ) ≤ |D(ℓ)|ℓ^{−1/2} = O(ℓ^{−1/2}). The sign
@@ -210,11 +211,19 @@ is E(1)ℓ^{2κ−2}(1 + O(1/ℓ)), which dominates the cusp term (a_ℓ(φ) −
 M_ψ(ℓ) = ℓ^{2κ−2}(1 + ℓ^{−(2κ−2)} − ε_ψ(ℓ)ℓ^{−(κ−1/2)}) (rank-k unimodular densities, internal review R1) differ for distinct ψ wherever ε_ψ differ, and Dedekind
 independence only needs that). The *signed* form does **not**: §3 Step 1 needs the divergence of Σ1/ℓ, whereas in
 rank ≥ 5 the character-dependent corrections to M_ψ(ℓ)/ℓ^{2κ−2} are absolutely summable. **Counterexample (internal
-review R1; coefficient inequalities checked numerically, `scripts/z60_signed_rank5_check.py 20000` →
-`data/z60/signed/rank5_check.txt`):** E₁ = θ of x₁² + … + x₅² (nebentypus 1), E₂ = θ of x₁² + … + x₄² + 2x₅² (χ₈),
-level 8, g := E₂/8 − (3/2)·E₁/10 (normalised at n = 1). Then g(m²) < 0 for all odd m ≤ 141 (max g(m²)/m³ = −0.131;
-reviewer's proof for all good m: E₂(m²)/E₁(m²) ≤ exp(Σ_{n≥11}2/(n² − 1)) < 3/2), while g(p) > 0 at all 289 primes
-p ≡ 17 (mod 24) ≤ 2·10⁴ (reviewer: E₂(p)/E₁(p) ≥ 25/16 from the factor at ℓ = 3) — p ≡ 17 (mod 24) lies in 𝒞₁(4).
+review R1; proof repaired after the cross-model review; numerical check `scripts/z60_signed_rank5_check.py 20000` →
+`data/z60/signed/rank5_check.txt`):** θ₁ = θ of x₁² + … + x₅² (nebentypus 1, θ₁(1) = 10), θ₂ = θ of x₁² + … + x₄² + 2x₅²
+(χ₈, θ₂(1) = 8), level 8. Since dim S_{5/2}(Γ₀(8), 1) = dim S_{5/2}(Γ₀(8), χ₈) = 0 (cross-model review, PARI), both are
+their genus Eisenstein series. Put A₁ := θ₁/10, A₂ := θ₂/8 (normalised at n = 1) and g := A₂ − (3/2)A₁; all ratios below
+are A₂/A₁ (not θ₂/θ₁: e.g. θ₂(17)/θ₁(17) = 736/480 = 23/15).
+*All odd squares (PROVED, rank-5 unimodular densities).* For ℓ^a ∥ m (ℓ odd, ℓ ∤ 2) put U = Σ_{j=0}^{a}ℓ^{3j},
+V = ℓΣ_{j=0}^{a−1}ℓ^{3j}; the normalised genus factor at ℓ is U − ε(ℓ)V, with ε = 1 for A₁ and ε = (2/ℓ) relative to it
+for A₂. Hence A₂(m²)/A₁(m²) = ∏_{ℓ|m, (2/ℓ)=−1}(U + V)/(U − V) ≤ ∏(ℓ² + 1)/(ℓ² − 1) over those ℓ, which is at most
+∏_{ℓ odd, ℓ≠7}(ℓ² + 1)/(ℓ² − 1) = (3/2)·(48/50) = 36/25 < 3/2 (using ∏_{ℓ odd}(ℓ²+1)/(ℓ²−1) = (ζ(2)²/ζ(4))·(3/5) = 3/2
+and (2/7) = +1). So g(m²) < 0 for **every** odd m (numerically: max g(m²)/m³ = −0.131 for odd m ≤ 141).
+*Primes p ≡ 17 (mod 24) (PROVED).* Such p lie in 𝒞₁(4); bad-prime factors cancel against the normalisation and
+(2/p) = 1, so A₂(p)/A₁(p) = ∏[(1 + ℓ^{−2})/(1 − ℓ^{−2})]² over odd ℓ with (2/ℓ) = (p/ℓ) = −1; every factor is ≥ 1 and
+ℓ = 3 contributes 25/16 > 3/2. So g(p) > 0 at every such prime (numerically: all 289 ≤ 2·10⁴).
 So a mixed-ψ signed proxy in weight 5/2 can satisfy T1⁻ and be positive on a positive-density set of 𝒞₁-primes with a
 non-zero genus part: **mixed-nebentypus signed proxies in weight ≥ 5/2 are an open escape** (like AUTOMORPH B1 in
 integral weight). This particular g is negative at all 53 𝔐-primes ≤ 2·10⁴ (the ℓ = 3 boost is absent on 𝔐, where
@@ -328,16 +337,21 @@ Lebesgue-null), so some K ∈ W^⊥ avoids every H_p. (i) ⟹ (ii): K ∈ W^⊥ 
    condition is *not* expected to fail. Known non-vanishing technology gives positive-proportion / infinitely-many
    results for single forms; no simultaneous result was verified (§8 item 8), and nothing pointwise.
 
-**Signed version (corrected after internal review R3).** For a signed minorant the validity condition is
-g(z) ≤ 0 at R-zeros, so the coefficient domain is the closed convex cone 𝒦 := {K : ⟨K, S(z)⟩ ≤ 0 ∀ z ∈ Z}, not W^⊥
-(and Λ must be defined with g(m²) ≤ 0, whose 𝒞₁-restrictions are, by S1/S2(b), again in the span of the exceptional
-components on squarefree t > 1 once eventual negativity is excluded). Effectiveness asks for K ∈ 𝒦 with
-⟨K, S(p)⟩ > 0 for all large primes p ∈ 𝒞₁. No genericity argument is available for a strict sign condition: for a
-single line it requires the sign of s(p) to be eventually constant on 𝒞₁-primes; for k lines it requires the
-(normalised) vectors S(p) to avoid the polar of 𝒦 — a joint sign-distribution question. The finite data of §6.2 show
-both signs at primes in the tested range for every computed line (which does not refute eventual constancy). Proven
-sign-change results concern a(tn²) with t fixed or indices 8n (n odd squarefree; Lester–Radziwiłł), never primes
-(§8 item 7). The §6.1 certificates are for support proxies only and do not transfer to signed minorants.
+**Signed version (corrected after internal review R3 and the cross-model review).** Keep vector spaces and cones apart:
+fix the *linear* ambient space V (and, for coordinates, a basis s₁, …, s_k of the restrictions to 𝒞₁ of all g ∈ V — no
+square conditions imposed in the definition) and impose every condition on the coefficient vector K: the square
+inequalities ⟨K, S(m²)⟩ ≤ 0 (odd m; squares outside 𝒞₁ handled likewise in the extended coordinates) and the validity
+inequalities ⟨K, S(z)⟩ ≤ 0 at R-zeros z. The feasible set is the closed convex cone
+𝒦 := {K : ⟨K, S(m²)⟩ ≤ 0 ∀ odd m, ⟨K, S(z)⟩ ≤ 0 ∀ z ∈ Z} (not W^⊥, and not a vector space). By S1/S2(b), every K ∈ 𝒦
+whose g_K is not eventually negative on 𝒞₁-primes gives, on squarefree t > 1, a combination of exceptional components.
+Effectiveness asks for **one common** K ∈ 𝒦 with ⟨K, S(p)⟩ > 0 for all large primes p ∈ 𝒞₁. No genericity argument is
+available for a strict sign condition. For a single line it requires the sign of s(p) to be eventually constant on
+𝒞₁-primes. For k lines, "each S(p) avoids the polar of 𝒦" is only *necessary*; the actual condition is the
+feasibility of the infinite system {K ∈ 𝒦, ⟨K, S(p)⟩ > 0 ∀ large p} — a joint sign-distribution question. The finite
+data of §6.2 show both signs at primes in the tested range for every computed line (which does not refute eventual
+constancy). Proven sign-change results concern a(tn²) with t fixed (Bruinier–Kohnen) or indices 8n (n odd squarefree;
+Lester–Radziwiłł, stated for weight ≥ 5/2, i.e. not for the weight-3/2 survivor lines), never primes (§8 item 7). The
+§6.1 certificates are for support proxies only and do not transfer to signed minorants.
 
 ## 6. Computations
 
@@ -378,8 +392,9 @@ statistic); R(n) by enumeration; n_p := least prime non-residue of n.
 | (420, χ₁₀₅), E₁₀₅ ⊗ χ_{−420} | 108 | 18/37, 11/36, 7/35 | 0.43 | 0.06 | 0.11 | 40/32 | **0, 0** |
 
 (ρ_S = Spearman rank correlation over the 𝒞₁-primes; the squarefree-composite rows behave the same, see the files.
-After internal review R11 the local factor at good ℓ | n is set to 1 (ramified twist); this changes only composite
-rows — the prime rows and every number in the table are unchanged; driver `scripts/z60_signed_pseudosq_runs.sh` →
+After internal review R11 the local factor at good ℓ | n is set to 1 (ramified twist); this changes the composite rows
+and one prime row — n = 193 at (168, χ₁₆₈), where 193 ≤ Y = 200 is good, so P_Y(193) is multiplied by 194/193 — while
+every rounded number in the table is unchanged; driver `scripts/z60_signed_pseudosq_runs.sh` →
 `data/z60/signed/pseudosq_summary.txt`. The interpretation of w as a central value inherits WALDS's line ↔ eigensystem
 identification, EVIDENCE. Restricted to 𝔐-primes the sign counts are 30/42, 43/45, 40/40, 43/42, 40/32 (reviewer).)
 Readings (EVIDENCE, finite range): (a) the Waldspurger dictionary is visible numerically — w tracks the partial Euler
@@ -533,7 +548,7 @@ Raw subagent report: `data/z60/signed/lit_verify_raw.md` (research mode). Lane c
 | 4 | (Sie): L(1, χ_D) ≫_ε |D|^{−ε} | Siegel 1935 | classical; not re-read | standard |
 | 5 | Waldspurger Prop. 1, Cor. 2 (any odd k ≥ 3), Shimura T(ℓ²) | inherited: WALDS `data/z59/walds/lit_verify.md` #1, #5, #13 (primary PDF read by WALDS; statements with general k) | inherited | as there |
 | 6 | (SWc) Siegel's formula for lattice cosets | Weil, Acta Math. 113 (1965) located; exact coset statement/range not confirmed | subagent, partial | **not verified ⟹ §4.2 CONDITIONAL** |
-| 7 | sign changes of half-integral coefficients | Bruinier–Kohnen 2008 Thm 2.1 (a(tn²), t fixed); Lester–Radziwiłł, Math. Ann. 379 (2021) Thms 1–2 (indices 8n, n odd squarefree; GRH for ≫X, unconditional X^{1−ε}); nothing for primes | subagent (primary records) + WALDS #11 | VERIFIED as stated; **no prime-index result found** |
+| 7 | sign changes of half-integral coefficients | Bruinier–Kohnen 2008 Thm 2.1 (a(tn²), t fixed); Lester–Radziwiłł, Math. Ann. 379 (2021) (weight ≥ 5/2, k ≥ 2) Thms 1–2 (indices 8n, n odd squarefree; GRH for ≫X, unconditional X^{1−ε}); nothing for primes | subagent (primary records) + WALDS #11 | VERIFIED as stated; **no prime-index result found** |
 | 8 | simultaneous non-vanishing of twists | nothing qualifying located | subagent | not found (used only in an Assessment) |
 | 9 | Rademacher-type expansions (Cor S4′) | standard (Rademacher–Zuckerman; Bringmann–Ono) | not re-verified | Cor S4′ CONDITIONAL |
 | 10 | Gross–Zagier–Kolyvagin (rank ≥ 2 ⟹ L(½) = 0) | inherited WALDS lit_verify #12 | inherited | as there |
@@ -578,3 +593,13 @@ All runs: `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent compute proc
   * R9–R13: S2 Remark (1) weakened; S5 wording (level raise, free coordinates, infinitely many squares, W = 0 condition);
     PY statistic fixed at ramified ℓ (prime rows unchanged) and rerun; falsifier inventory with full counts and "three of
     five lines"; P₀ ≥; L = 168 logs saved; §8 item references fixed.
+* **Cross-model review** (`data/z60/xreview/REVIEW_SIGNED.md`, ACCEPT-WITH-FIXES; S1, S2, S3, mixed support extension,
+  S4/S4′, S5 and the §6.1/§6.3 computations independently re-derived / reproduced). Fixes applied:
+  1. Rank-5 counterexample (§4.1): normalisation made explicit (A₁ = θ₁/10, A₂ = θ₂/8; ratios are A₂/A₁), genus =
+     theta by vanishing cusp spaces, and a proof of g(m²) < 0 for **every** odd m (prime powers included; bound 36/25)
+     replacing the earlier squarefree/large-prime argument; prime positivity at p ≡ 17 (mod 24) proved.
+  2. §5 signed paragraph: vector space and cone kept distinct (no Λ defined by inequalities); the common-K feasibility
+     condition retained; "avoids the polar" stated as necessary only.
+  3. Lemma 3.1: no division by a possibly zero E_ψ(1); S2(b) Step 3 uses primes in each class.
+  4. §6.2: the ramified-factor correction also changes the prime row n = 193 (factor 194/193); rounded numbers unchanged.
+  Also noted: Lester–Radziwiłł is for weight ≥ 5/2.
