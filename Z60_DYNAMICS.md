@@ -196,11 +196,12 @@ from this remark.
   finite orbits on it; the (★) equation is linear in each variable, so the Vieta-involution mechanism of Markoff-type
   surfaces is absent (we make no claim about other regular or birational automorphisms). Hence every long orbit is
   auxiliary and the hit set is a fibre-weighted image of ≤ R(n) solutions. Double-coset
-  thickening (Γ_∞γΓ_∞ inside {γ₂₁ = p}) multiplies hits and candidates by the same factor (B4's cancellation, checked:
-  the (★) condition is not double-coset invariant, so a solution occupies one element per coset). Hecke trees at fixed p
+  thickening (Γ_∞γΓ_∞ inside {γ₂₁ = p}): the (★) condition is not double-coset invariant (a solution is one element of
+  its coset), and declaring whole cosets "hits" multiplies hits and candidates by the same coset count, leaving the relative
+  measure unchanged (B4's cancellation). Hecke trees at fixed p
   (level p^k) encode ES(p^k), not ES(p) (ES(p) ⟹ ES(pm), not conversely). **Closed (scoped: encodings whose candidates
   are parametrised with p^{o(1)} multiplicity).**
-* **(E3) The QNR half-orbit (the only place T1 is visible).** **Prop 6 (PROVED).** For n ≡ 1 (4):
+* **(E3) The QNR half-orbit (where T1 is visible in this encoding).** **Prop 6 (PROVED).** For n ≡ 1 (4):
   Σ_x χ_n(x) 1_{T_n}(x, x̄) = −R°(n); hence R°(n) = ½Σ_x (1 − χ_n(x)) 1_{T_n}(x, x̄) and, for n = p prime,
   −R°(p) = Σ_ξ \hat{1_{T_p}}(ξ)·Sal(ξ) with Sal(0, 0) = Σ_x χ_p(x) = 0. *Proof.* Lemma 2 (every T-point of the orbit has
   χ_n = −1), then Fourier expansion. ∎ So the **twisted sum** (which sees T1) equals −R° but has **zero constant Fourier
