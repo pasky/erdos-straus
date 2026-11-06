@@ -128,3 +128,123 @@ Prop 2.1, now in a form where the separating datum is visibly "−I ∉ Γ(4C) a
 generating-function reading: Σ_n E_{C,2}(n)q^{4Cn+1} should be the holomorphic part of the specialisation of Zagier's weight-2
 index-1 class-number Jacobi–Eisenstein series at z = −τ after τ ↦ 4Cτ (Eichler–Zagier Thms 1.3, 2.1; LIT_CHECK §3), whose
 non-holomorphic part sits exactly on the split points; not worked out (Assessment).
+
+## 4. Positivity: what Theorem 2 does and does not give
+
+Throughout k ≥ 3 is odd (k = 2 and even k: Prop 4.1), dim := dim S_k(Γ(Q)) = (k−1)μ_C/12 − ε∞/2 (Γ(Q), Q ≥ 3, torsion-free
+with regular cusps; Diamond–Shurman Thms 3.5.1, 3.6.1, LIT_CHECK §6; matches pari: dim = 1, 5, 20, 72, 208, 408 for
+(C, k) = (1,3), (1,5), (2,3), (3,3), (4,3), (5,3)). Write Tr := Tr(T_Δ | S_k(Γ(Q))), S := the scalar term, and
+`X := TRIV_k − 2Q·E_{C,k}(n) + (2Q/μ_C)·S`.
+
+**Prop 4.1 (exact solution for ES; parity; PROVED from Thm 2).** For odd k: **ES_k(C, n) = X − (2Q/μ_C)·Tr.** For even k:
+ES_k = −TRIV_k − 2Q·E_{C,k} + (2Q/μ_C)(S + δ_{k,2}σ(N) − Tr). Since TRIV_k ≥ 2 always (pairs (1, N), (N, 1)), odd k gives the
+factorisation-free X ≥ X₀ := 2 − 2Q·E_{C,k}(n) + (2Q/μ_C)S; even k would need an *upper* bound for TRIV_k, a class +1
+divisor-in-class count of the same type as ES (Assessment: as hard). So odd weight is the natural carrier; the two classes are
+separated by (−1)^k = the action of −I ∉ Γ(Q) (Remark 2.2). *Proof.* Rearrange Thm 2 with ε∞/2 = μ_C/(2Q). ∎
+
+**Prop 4.2 (slack principle; PROVED).** Let k be odd and let B be any number with Tr ≤ B (an "upper-bound certificate":
+Deligne, Cauchy–Schwarz with a second moment, a hypothetical equidistribution bound, …). Then ES_k(C, n) ≥ X − (2Q/μ_C)B, and
+this lower bound is positive ("the certificate fires") **iff B − Tr < (ε∞/2)·ES_k(C, n).** In particular every certificate
+fires only where R_C(n) ≥ 1 (so it is automatically consistent with F1/F4), and only when it is sharp to within
+(number of cusps)/2 × (ES mass). *Proof.* By Prop 4.1, X − (2Q/μ_C)B = ES_k − (2Q/μ_C)(B − Tr). ∎
+The same tautology holds for any identity "ES-term = explicit − c·(spectral sum)": Selberg-type versions with a test function
+g localising the hyperbolic terms by log(d/d′) and spectral side Σ_j h(r_j)λ_j(N) (weight-1 Maass forms carry the odd
+parity), or harmonic-weighted (Petersson) versions — the certificate must be sharp to within the weighted ES mass.
+
+**Cor 4.3 (Deligne certificates need near-total alignment; PROVED).** Since N ≡ 1 (mod Q) and (N, Q) = 1, T_Δ = −⊕_χ T_N
+(k odd) is diagonalisable on S_k(Γ(Q)) with real eigenvalues −λ_f(N) (λ̄ = χ̄(N)λ = λ), |λ_f(N)| ≤ τ(N)N^{(k−1)/2} (Deligne,
+newform theory). Put ν_f := −λ_f(N)/(τ(N)N^{(k−1)/2}) ∈ [−1, 1], D := dim·τ(N)N^{(k−1)/2} ≥ Tr and
+ρ := ES_k/(τ(N)N^{(k−1)/2}) < 1 (at most τ(N) − 2 ordered ES pairs, each of weight ≤ N^{(k−1)/2}). If the Deligne certificate
+B = D fires at (C, k, n), then
+`(1/dim)·Σ_f ν_f > 1 − ρ·6/((k−1)Q − 6)` (> 1 − 6/((k−1)Q − 6)).
+So for every (k, Q) ≠ (3, 4) firing forces the average normalised eigenvalue above 1 − 6/((k−1)Q − 6) ≥ 0.4, tending to 1 as
+(k−1)Q → ∞: all but a vanishing fraction of the Hecke eigenvalues λ_f(N) must be within o(1) of the Deligne bound, with the
+same sign. Only at Γ(4), k = 3 (dim 1 < ε∞/2 = 3) is no alignment needed — and there the space is the CM line of η(4z)⁶,
+so the identity is Cor 2.1 and decides only C = 1. *Proof.* Firing ⟺ D − Tr < (ε∞/2)ES_k ⟺ Σ_f(1 − ν_f) < (ε∞/2)ρ;
+divide by dim and use (ε∞/2)/dim = (μ_C/2Q)/((k−1)μ_C/12 − μ_C/2Q) = 6/((k−1)Q − 6). ∎
+EVIDENCE (`data/z60/trace/screen_C*_k3*.tsv`; slack ratio r := (D − Tr)/((ε∞/2)ES_k), firing ⟺ r < 1):
+| (C, k), range | n with R_C(n) ≥ 1 | fires | min r (at n) | median r | range of Tr/D |
+|---|---|---|---|---|---|
+| (1, 3), n ≤ 20 000 | 12 229 | 137 | 0.68 (12 655) | 26.0 | — |
+| (2, 3), n ≤ 3000 | 990 | 0 | 3.82 (701) | 96.2 | [−0.77, 0.76] |
+| (3, 3), n ≤ 600 | 109 | 0 | 6.76 (491) | 66.3 | [−0.52, 0.50] |
+Heuristic (Assessment): if Tr fluctuated like a sum of dim independent bounded terms (sd ≍ √dim·N^{(k−1)/2}), the needed
+event Tr > D − (ε∞/2)ES is a deviation of order dim ≫ √dim: essentially never. So worst-case (Deligne) inputs are useless
+beyond Γ(4); only an input that knows the *actual* size of Tr could fire — and Prop 4.4 shows what the actual size is.
+
+**Prop 4.4 (large-C regime: the trace *is* the divisor count; PROVED).** If n ≤ 4C³ − 2C (⟺ 4C² − 1 ≥ √N), the line L_{C,n}
+has at most one elliptic point, namely (s_*, w_*) with w_* the representative of −n (mod Q) in (−2C, 2C) and
+s_* = (n + w_*)/Q (elliptic iff w_*² < 4s_*). Hence for odd k
+`(ε∞/2)·(ES_k − TRIV_k)(C, n) = −Tr − μ_C·[w_*² < 4s_*]·P_k(Qw_* − 2, N)·H(4s_* − w_*²) + S.`
+*Proof.* Two elliptic points w₁ < w₂ (≡ −n mod Q) need Q ≤ w₂ − w₁ < 4σ, σ := √s_max with s_max = (n + w₂)/(4C); from
+w₂ < 2σ: 4Cσ² − 2σ − n < 0, so σ < (1 + √N)/(4C), whence 4C² < 1 + √N. Any elliptic w has |w| < 2σ < (1 + √N)/(2C) ≤ 2C. ∎
+Consequences (PROVED in this form): (a) in this regime, R_C(n) ≥ 1 ⟺ Tr ≠ (ε∞/2)TRIV_k − μ_C·(one class-number term) + S —
+the spectral side *detects* (★) at C as a deviation from an explicit value but carries no sign information; (b) the
+Hecke trace is **not** square-root small here: |Tr| ≥ (ε∞/2)|ES_k − TRIV_k| − μ_C|P_k|H − |S|, and ε∞/(2√dim) ≍ √Q → ∞, so any
+pair (ES or TRIV) with min(d, d′) ≥ √N/K forces |Tr| ≫_K √Q·√dim·N^{(k−1)/2}/τ(N)-scale. A "square-root cancellation"
+hypothesis for Hecke traces uniform in the level, which is what would make Prop 4.2 fire, is **false** exactly in the regime
+where the elliptic side vanishes. (Most (★)-solutions have C ≥ (n/4)^{1/3}·c? — not claimed; the regime is simply where
+Theorem 2 degenerates to a restatement.)
+
+**Prop 4.5 (bounded C is a fixed menu; Assessment + CERTIFIED example).** Any argument that uses Theorem 2 only for C ≤ C₀
+proves at most "R_C(p) ≥ 1 for some C ≤ C₀". This fails at every (★)-zero prime (all C), e.g. the 14 primes of
+`star_prime_zeros.txt`, and — by the campaign's fixed-menu results (FRONTIER §3 B1, §6; Dickson-conditional) — is expected to
+fail infinitely often. Not re-proved here.
+
+**Remark 4.6 (other trace formulas; Assessment).**
+* *Positivity in trace formulas* comes from Σ_f |λ_f(N)|²-type sums = Tr(T T*), whose geometric side lives at N² and its
+  divisors-squared, not at N; its only use here is as the B of Prop 4.2 (Cauchy–Schwarz B = √(dim·Σλ²)), which fires only if
+  the λ_f(N) are nearly *constant* across the eigenbasis — the same alignment.
+* *Kuznetsov / Bruhat cells.* (PROVED, trivial) R(n) = Σ_C #{γ ∈ Γ∞⁺γ_QΓ∞⁺ : b(γ) = n, a(γ), d(γ) > 0} with
+  γ_Q = [[Q−1, Q−2],[Q, Q−1]]: (★) at C is a *single* Bruhat cell of modulus c = Q (residues a ≡ d ≡ −1) with the upper-right
+  entry fixed. Kloosterman sums weight cells by e((ma + nd)/c) and never see b, i.e. the exact factorisation ad = Qn + 1 is an
+  archimedean condition outside the Kuznetsov geometric side (consistent with Z53_HYPKLOOST).
+* *Level-p formulas (Brandt, Γ₀(p))*: z9_brandt_screen and bsC_eichler_orientation already show collapse to B2.
+
+## 5. MANDATORY FALSIFIER TABLE (final)
+
+Theorem 2 is an identity valid for every n; the screens bite on positivity arguments drawn from it.
+| Screen | Behaviour (labels) | Consequence |
+|---|---|---|
+| F1 odd squares | Identity holds with ES_k(C, m²) = 0 for all C (Lemma 1(v), PROVED). Then Tr = −μE + (ε∞/2)TRIV_k + S exactly. CERTIFIED at 49 + 7 odd squares (C = 2, 3; `screen_C2_k3.tsv`, ranges): the identity holds, the certificate never fires (Prop 4.2 forbids it). Tr/D at squares is not distinguishable from primes (C = 2 max 0.40 at squares vs 0.76 at primes; no structural gap). | No step of the identity uses non-squareness; the square-sensitivity of a positivity argument would have to come from an *external* input on Tr or E (none known). |
+| F2 C-even (R₈) | The identity is per C; R₈ = Σ_{C even} R_C. Nothing in Theorem 2 or §4 distinguishes C odd from C even (Q = 4C either way). | Any "some C works" argument from this identity, not using C odd, would prove R₈(p) ≥ 1, false at the 12 + 2 R₈-zero primes above 10¹⁰. |
+| F3 composites | Identity holds for all n; primality is never used (Theorem 2 is uniform in n). | A positivity argument would need a primality input beyond the identity. |
+| F4 known zeros | At 409, 577, 5569, 9601 (C = 2, k = 3): identity holds, ES = 0, certificate does not fire (`screen_C2_k3.tsv`; e.g. p = 9601: Tr/D = 0.068). At every (★)-zero prime ES_k(C, p) = 0 for **all** C. | Any spectral lower bound must fail there for every level 4C. |
+Verdict on the screens: the identity passes all four trivially (it is true); **no positivity mechanism drawn from it passes
+F1–F3**, because none supplies square-, parity- or primality-sensitive information about the spectral side.
+
+## 6. FRONTIER §4 hard screens for the best idea (the odd-weight Γ(4C) identity + an upper-bound certificate)
+1. T1 squares: fails to supply the needed step (identity is square-blind; the certificate cannot fire at squares by Prop 4.2,
+   but nothing makes it fire at primes). 2. 8/131 (numerator 8): numerator-blind — the C-even sub-line has the identical
+   identity (F2). 3. Tied modulus: the level *is* the tied modulus 4C, handled exactly (passes as an identity, no positivity).
+   4. Fixed p: the identity is at a single n (passes), but its spectral side is not controllable at a single N (Cor 4.3,
+   Prop 4.4).
+
+## 7. Verdict
+
+**Narrowed.** (1) PROVED/CERTIFIED: for every C the (★)-solutions at C are exactly the positive split classes of the Hecke set
+Δ_C(N) = {det N, ≡ −I (4C)} on Γ(4C); the Γ(4C) trace formula (Theorem 2) has elliptic side = μ_C × the Hurwitz class-number
+sum along the line 4Cs − w = n, and its hyperbolic side is −(ε∞/2)(ES_k + (−1)^k TRIV_k). (2) Odd weight separates ES from
+TRIV (−I acts by (−1)^k), giving ES_k = X − (2Q/μ)Tr exactly (Prop 4.1). (3) Positivity: every upper-bound certificate must
+be sharp to within (ε∞/2)·ES (Prop 4.2); Deligne needs near-total eigenvalue alignment except at Γ(4), k = 3 (Cor 4.3);
+for C ≳ n^{1/3} the trace is the divisor count itself and is not square-root small (Prop 4.4). Route killed (scoped): "R on the
+geometric side of a Γ(4C) Eichler–Selberg formula + pointwise spectral bounds". Survives: inputs that evaluate the Hecke trace
+at a single N *exactly* or with error ≪ (ε∞/2)·ES (none known), or identities whose spectral side carries an independent
+positivity (none found).
+
+## 8. Proposed FRONTIER §7 text (do not edit FRONTIER here)
+*Trace formulas (z60 TRACE).* For each C, (★) at C = positive split classes of the Hecke set {det N, ≡ −I mod 4C} on Γ(4C)
+(N = 4Cn + 1); the Γ(4C) Eichler–Selberg identity (Z60_TRACE Thm 2; CERTIFIED for C ≤ 5, k ≤ 5, derivation relative to
+Shimura 1974 / Popa 2018) has elliptic side μ_C·Σ_{4Cs−w=n, w²<4s} P_k·H(4s − w²) and hyperbolic side −(ε∞/2)(ES_k + (−1)^k
+TRIV_k). Odd weight gives ES_k exactly up to a Hecke trace; any spectral upper bound must be sharp to within (ε∞/2)·ES
+(PROVED), Deligne needs near-total alignment beyond Γ(4) (PROVED), and for C ≳ n^{1/3} the trace equals the divisor count
+(PROVED). Open: an exact single-N evaluation of the trace by independent means.
+
+**Bottom line.** The cleanest trace formula carrying (★) exists and is exact: at each level 4C the (★)-solutions, the class +1
+divisors and a Hurwitz class-number sum along one line are the hyperbolic(+), hyperbolic(−) and elliptic terms of a single
+Hecke trace on Γ(4C), separated by odd weight. But the spectral side gives no pointwise lower bound: certificates must be
+accurate to within the (★)-mass itself, Deligne would need all eigenvalues aligned at the bound, and where the class-number
+side disappears the Hecke trace simply *is* the divisor count. The identity is square-, parity- and primality-blind. No lead.
+
+## 9. Review log
+TODO (hostile internal review).
