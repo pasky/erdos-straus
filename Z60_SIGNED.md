@@ -15,7 +15,7 @@ Validity at odd squares (T1: R(m²) = 0) gives **(T1⁰)** g(m²) = 0 (support) 
 ## 0. MANDATORY FALSIFIER TABLE (committed at checkpoint 1; final version, with the computed screens, in §7.3)
 
 Mechanism examined: positivity at 𝔐-primes of a fixed-level automorphic proxy that is *signed* (minorant form) or a
-*sum of several eigensystems* (cancellation), in half-integral weight (ternary/odd-rank theta class, any mixture of
+*sum of several eigensystems* (cancellation), in half-integral weight (ternary/odd-rank theta class, mixtures of quadratic
 nebentypus characters), plus exponentially growing (weakly holomorphic / Rademacher) objects.
 
 | screen | behaviour |
@@ -183,9 +183,9 @@ the characters ε_ψ, c_{φ,ψ} = 0 for all φ, ψ. Conclude as in (a). ∎
 Σ_ψ E_ψ(1) = 0, C_φ = 0 and E_ψ(1) + D_ψ = 0 (the cusp anchors can absorb the second-order Eisenstein terms
 ε_ψ(ℓ)E_ψ(1)), so the prime-square argument alone does not separate these terms; composite good m (Lemma 3.1) do.
 (Whether a modular counterexample realising E_ψ(1) ≠ 0 with prime-square vanishing exists was not checked.) Valid
-proxies satisfy T1 at all odd squares, so this is moot for them. (2) Non-quadratic ψ (forms on Γ₁(4N) beyond the ternary-theta class) — the same proof works with complex
-a_ℓ(φ) (φ of nebentypus ψ²), conjugate pairs of components, and |G|² in place of G² (Rankin–Selberg against φ̄′);
-stated only for quadratic ψ here. (3) TERNARY §4.4's gap "mixed nebentypus: only Σ_δ E_δ(1) = 0 follows" is exactly
+proxies satisfy T1 at all odd squares, so this is moot for them. (2) Non-quadratic ψ (forms on Γ₁(4N) beyond the ternary-theta class): the support part (a) plausibly extends with
+complex a_ℓ(φ) (φ of nebentypus ψ²) and Rankin–Selberg against φ̄′; the signed part (b) Step 1 uses the negative-value
+sets of odd *quadratic* characters and does not transfer as written. Assessment only — **not proved here**. (3) TERNARY §4.4's gap "mixed nebentypus: only Σ_δ E_δ(1) = 0 follows" is exactly
 Remark (1): it disappears once composite squares are used.
 
 ## 4. The other fixed-level objects of the brief: higher weight, cosets, exponential growth, Fourier–Jacobi
