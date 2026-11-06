@@ -28,11 +28,14 @@ relation exists is not settled here (Assessment: none is supplied, so no forcing
 (4) **Class number.** Class-number size is T1-blind (squares have ring class numbers ≫ √n/log log n, Prop 5.1). In a
 *fixed* field the expected count of a ray family is proportional to L(1, χ) (Assessment, based on the density identity of
 Prop 5.2 and supported by EVIDENCE: Spearman 0.875 for S₁),
-and single-field families have many zeros (S₁: **160 prime zeros ≤ 10⁷**, count per decade still increasing; 42 % of
-the zeros ≤ 3·10⁶ have L(1, χ_{−4p}) < 0.5 vs 3.8 % of controls). The varying-field family (★) assigns each divisor
-exactly one level class (Prop 5.2(a)). Its leading mean is L-free (Z59_MSPLUS Thm 1), and its t₀ > 1 part is essentially uncorrelated
+and the single-field family S₁ has its own prime counterexamples to all-prime positivity (**160 prime zeros ≤ 10⁷**,
+count per decade still increasing in this finite range; 42 % of the zeros ≤ 3·10⁶ have L(1, χ_{−4p}) < 0.5 vs 3.8 % of
+controls). These finite data do not decide eventual positivity of S₁. On the screens, S₁ rescues all 14 (★)-zeros and
+36 of the 38 𝔊*-zeros (it fails at 37 and 1621). The varying-field family (★) assigns each divisor
+exactly one level class (Prop 5.2(a)). Its leading mean over *all integers of a fixed progression* is L-free (Z59_MSPLUS Thm 1; this is not an L-conditional
+prime mean), and its t₀ > 1 part is essentially uncorrelated
 with L(1, χ_{−4p}) (EVIDENCE, §5). So the class-number information the brief hoped to use pointwise appears in
-single-field routes, and there it works against existence. Assessment: varying the field acts like an average over
+single-field routes, where (heuristically) a small L(1, χ) works against existence. Assessment: varying the field acts like an average over
 quadratic twists. That is one reason (★) behaves better than any single field. It is not a proof that no
 single-field argument can work.
 
@@ -41,9 +44,10 @@ single-field argument can work.
 | **F1 odd squares** | = the event; fails by Lemma 2(c) (K = ℚ(√−t₀) ⊂ ℚ(ζ_M)) | **binds exactly** (Lemma 2: real character χ_{−4C} kills it); CERTIFIED: GV_C(m²) = 0 for all 99 odd squares 9 … 199², all C ≤ 100. Class *number* is T1-blind (Prop 5.1). | S₁(m²) = 0 (Lemma 2, t₀ = 1) | squares: every prime factor of 4Cm² + 1 already satisfies χ_{−4C} = 1, so no joint datum can produce a hit (Lemma 2 is a statement about the integers) |
 | **F2 R₈ (C even)** | restatement | blind to C-parity: at the 12 R₈-zero primes GV_C holds at 16–38 even levels C ≤ 200, hits at none (CERTIFIED) | not applicable | no C-parity mechanism identified |
 | **F3 composites** | restatement | GV_C holds at some level for every odd non-square n (Prop 3.2, PROVED), so it cannot see primality; CERTIFIED: all 285 screen composites have GV_C at 9–38 levels C ≤ 100 | — | no step uses primality (Prop 4.2's identity holds for every n) |
-| **F4 known zeros** | restatement | CERTIFIED: at each of the 14 (★)-zero primes GV_C holds at 64–90 levels C ≤ 300 (least such C: 4, 7, 8, 12 or 13), hits at none | **fails massively**: 160 own prime zeros ≤ 10⁷ (25 in 𝔐, largest 8 841 673; in 𝔐 6 193 441) | n/a |
+| **F4 known zeros** | restatement | CERTIFIED: at each of the 14 (★)-zero primes GV_C holds at 64–90 levels C ≤ 300 (least such C: 4, 7, 8, 12 or 13), hits at none | on the screen: S₁ ≥ 1 at **all 14** (★)-zero primes (CERTIFIED, `s1_at_star_zeros.txt`) and at 36 of the 38 𝔊*-zeros; S₁ = 0 at 37 and 1621 (cross-model review, `scripts/z60_xrev_rayclass_screens.py` on the xrev branch; consistent with this census). Separately, S₁ has its own 160 prime zeros ≤ 10⁷ (25 in 𝔐, largest 8 841 673; in 𝔐 6 193 441): finite counterexamples to all-prime positivity of this specific family, not to eventual positivity | n/a |
 
-Verdict per column: ray layer = restatement; class layer passes F1 only; single-field families fail F4 outright;
+Verdict per column: ray layer = restatement; class layer passes F1 only; the specific single-field family S₁ has finite prime counterexamples to all-prime
+positivity (it is not refuted as an eventual statement, and nothing here concerns all single-field families);
 cross-field data are information with no known p-linked relation beyond total products. **Not a HOT LEAD.**
 
 ## 1. Precise statements attacked
@@ -202,8 +206,9 @@ was constructed.)
 **Proposition 4.2 (total-product identity; PROVED).** Let K = K_{t₀}, β = β_r, and (β) = ∏ 𝔮_i^{e_i}. For every finite
 abelian extension E/K with conductor 𝔣 prime to (β), Artin reciprocity gives
 ∏_i Art_{E/K}(𝔮_i)^{e_i} = Art_{E/K}((β)), which depends only on β mod 𝔣. For E = K(ζ_M) with M coprime to the
-factors used (on the odd-r branch of the a = 1 line with t₀n odd, N(β) is even while 4 | M; restrict to the odd part),
-it reads ∏ N𝔮_i^{e_i} ≡ N(β) (mod M), with the product over the odd prime-ideal factors and N(β) replaced by its odd part.
+factors used it reads ∏ N𝔮_i^{e_i} ≡ N(β) (mod M). (On the odd-r branch of the a = 1 line with t₀n odd, N(β) is even
+while 4 | M, so (β) is not coprime to the Artin modulus. There the statement "∏ over the odd prime-ideal factors of N𝔮_i^{e_i}
+≡ oddpart(N(β)) (mod M)" is an elementary norm identity, not an application of Art((β)).)
 For r even this is 1 + t₀nr² mod M, a function of n mod M. ∎
 
 *Assessment (not a theorem).* For non-abelian Galois E/K, Frobenius classes do not compose, and this lane found no relation
@@ -219,9 +224,14 @@ additional forcing mechanism is supplied here, and none is excluded beyond the C
 
 **Proposition 5.1 (class-number size is T1-blind; PROVED).** For odd m ≥ 3 and C ≥ 1 let O_m = ℤ[2m√−C], the order of
 discriminant −16Cm² containing 1 + 2m√−C (the square analogue of ℤ[2√(−Cp)], discriminant −16Cp). Then
-h(O_m) ≥ φ(f)/3 ≥ c·m/log log m, where f ≥ 2m is its conductor. Hence any criterion "h(−16Cn) ≥ g(n) ⟹ (★) at level C" with
-g(n) ≤ c√n/log log n is false at every odd square. Siegel's bound h(−16Cp) ≫_ε (Cp)^{1/2−ε} is weaker than what squares
-satisfy unconditionally.
+h(O_m) ≥ φ(f)/3 ≥ c·m/log log m, where f ≥ 2m is its conductor. Hence, for fixed C, any unqualified (all-n) criterion
+"h(−16Cn) ≥ g(n) ⟹ (★) at level C" with g(n) ≤ c√n/log log n is false at every odd square. (This does not refute a
+criterion whose hypothesis restricts n to primes, and the m-bound is not uniform in √C.) Siegel's theorem
+(L(1, χ) ≫_ε q^{−ε}, **ineffective**; Elkies, "A nearly zero-free region for L(s,χ), and Siegel's theorem", notes
+pp. 5–7) gives h(−16Cp) ≫_ε (Cp)^{1/2−ε}. For a non-fundamental D = f²D_K one has
+L(1, χ_D) = L(1, χ_{D_K})∏_{ℓ|f}(1 − χ_{D_K}(ℓ)/ℓ) ≥ L(1, χ_{D_K})·φ(f)/f, so the bound extends to orders; any exceptional
+zero belongs to the inducing primitive character. For fixed C this is weaker than what squares satisfy unconditionally,
+and no explicit cutoff (e.g. 10¹⁷) follows from it.
 *Proof.* Cox Thm 7.24: h(O) = h(O_K)·f/[O_K^×: O^×]·∏_{ℓ|f}(1 − (d_K/ℓ)/ℓ) ≥ f·∏_{ℓ|f}(1 − 1/ℓ)/3 = φ(f)/3, and
 φ(f) ≫ f/log log f. −16Cm² = f²d_K with |d_K| ≤ 4C gives f ≥ 2m. ∎ (Thm 7.24 source-checked via citing texts, and
 numerically against PARI `qfbclassno` for 64 pairs (C, m), C ≤ 11, m ≤ 1001: 0 mismatches.)
@@ -230,7 +240,7 @@ numerically against PARI `qfbclassno` for 64 pairs (C, m), C ≤ 11, m ≤ 1001:
 gcd(f, t₀p) = 1.
 (a) Varying fields: #{C mod f : f | 4Cp + 1} = 1.
 (b) One field (fixed t₀): #{s mod f : f | 1 + 4t₀ps²} = ρ_f := #{x mod f : x² ≡ −t₀p}, and
-Σ_{f odd, (f, t₀p)=1} ρ_f f^{−σ} = ∏_{ℓ ∤ 2t₀p} (1 + χ(ℓ)ℓ^{−σ})/(1 − ℓ^{−σ}) = ζ(σ)L(σ, χ)/ζ(2σ) × (Euler factors at ℓ | 2t₀p),
+Σ_{f odd, (f, t₀p)=1} ρ_f f^{−σ} = ∏_{ℓ ∤ 2t₀p} (1 + χ(ℓ)ℓ^{−σ})/(1 − ℓ^{−σ}) = ζ(σ)L(σ, χ)/ζ(2σ) × (Euler factors at ℓ | 2t₀p) for Re σ > 1 (absolute convergence),
 χ = χ_{−4t₀p}.
 So along a single-field ray the density of divisor-candidates is governed by L(1, χ_{−4t₀p}) = π·h(−4t₀p)/(2√(t₀p))
 (Dirichlet's formula for discriminant −4t₀p, w = 2), up to the Euler factors at 2 and t₀p. Along the varying-field
@@ -241,10 +251,12 @@ weights √(X/t₀) and control the error terms; that is not done here.
 *Proof.* (a) 4p is invertible mod f. (b) 1 + 4t₀ps² ≡ 0 ⟺ (2t₀ps)² ≡ −t₀p (multiply by t₀p, a unit), a bijection s ↔ x. The
 Euler factor is 1 + (1 + χ(ℓ))Σ_{k≥1} ℓ^{−kσ} (Hensel, ℓ odd, ℓ ∤ t₀p) = (1 + χ(ℓ)ℓ^{−σ})/(1 − ℓ^{−σ}) =
 (1 − ℓ^{−2σ})/((1 − ℓ^{−σ})(1 − χ(ℓ)ℓ^{−σ})). ∎
-*Assessment (heuristic, not a theorem).* The expected number of hits of a fixed-t₀ ray family at p is ≍ L(1, χ_{−4t₀p})·(log p)^k
+*Assessment (heuristic, not a theorem; Prop 5.2 proves candidate densities only, with no lower bound for divisors in
+the tied target class).* The expected number of hits of a fixed-t₀ ray family at p is ≍ L(1, χ_{−4t₀p})·(log p)^k
 (k = 1 for the (★)-square slices, k = 2 for S₁). For (★) it is L-free at leading order (consistent with Z59_MSPLUS Thm 1).
-Siegel gives L ≫_ε p^{−ε} only; a hypothetical exceptional character χ_{−4p} would make single-field families at p very
-poor, and (★) would not care to first order.
+Siegel gives L ≫_ε p^{−ε} only (ineffective). Heuristically, a hypothetical exceptional character χ_{−4p} would make
+single-field families at p very poor, while the L-free leading term of (★) suggests (★) would be less affected. Neither is
+proved: Z59_MSPLUS Thm 1 averages over all integers of a progression and says nothing conditional on small L.
 
 **EVIDENCE (`counts_1e6_1.2e6.txt`, `lcorr_1e6_1.2e6.txt`; 7 254 primes p ≡ 1 (4) in [10⁶, 1.2·10⁶]).**
 Spearman correlation with L(1, χ_{−4p}) and log-elasticity (slope of log X on log L, over X > 0):
@@ -296,7 +308,10 @@ consistent with 9 of the 14 lying in 𝔐, where (ℓ/p) = 1 for ℓ ≤ 7 and t
 
 ## 7. Answers to the brief, screens, what survives
 
-* **(Q1)** Lemma 1: exact for all orders (odd-norm divisors are prime to the conductor, so they are invertible), with no
+* **(Q1)** Lemma 1: exact for every order *containing β* (in particular ℤ[√(−t₀n)], ℤ[√(−Cn)], ℤ[2√(−Cn)] and O_K).
+  Their odd-norm divisors are prime to the conductor, so they are invertible. For an arbitrary order the statement need
+  not make sense: β = 1 + 2√−5 ∉ ℤ[3√−5]. (Prop 3.1, by contrast, is a theorem about all coprime ideals of an arbitrary
+  order, not about the divisor set of β.) There are no
   non-split primes (every odd q | N(β) splits) and no unit issue. The a = 1 line lives on the same ray; only its odd-r part
   can add to (★). The full
   family is the same ray with the modulus relaxed from t₀r² to 2t₀r (Z59_CONV2's "tie relaxes to ≥ 2√(4m)").
@@ -306,10 +321,12 @@ consistent with 9 of the 14 lying in 𝔐, where (ℓ/p) = 1 for ℓ ≤ 7 and t
 * **(Q3)** No, in the following scopes. Per field, any ring class group carries at most GV_C (Prop 3.1). GV_C holds at
   some level for every non-square n (Prop 3.2), and at 64–90 levels C ≤ 300 at each known zero (CERTIFIED).
   Class-number size is T1-blind (Prop 5.1). The class number enters the expected count of single-field ray families
-  multiplicatively (Prop 5.2 + EVIDENCE), and those families fail F4 (S₁: 160 prime zeros ≤ 10⁷). Small-prime
+  multiplicatively (heuristic, Prop 5.2 + EVIDENCE). The specific family S₁ has finite prime counterexamples to
+all-prime positivity (160 ≤ 10⁷), although it rescues all 14 (★)-zeros. Small-prime
   splitting is Legendre data (CLASS_FORCING Thm 2.1). Across fields more residue information is available (Prop 4.1).
   The only p-linked relations found are total products (Prop 4.2, PROVED identity); "no other relation" is an
-  Assessment.
+  Assessment. Scope: class-number size, small-prime Legendre data and the per-field class function do **not** exhaust
+  class-group-based methods. A method that uses the divisor set of β itself is not covered by Prop 3.1 (§3 caveat).
 * **(Q4)** T1: Lemma 2(c), the field ℚ(√−t₀) ⊂ ℚ(ζ_M). It is a real-character (genus) phenomenon. Class numbers and
   L-values do not degenerate at squares (Prop 5.1; L(1, χ_{−4C}) is a fixed positive number). Primality enters this
   picture only through Lemma 2(b): the square class s = n is large, so no level in range is obstructed by the
@@ -327,13 +344,15 @@ consistent with 9 of the 14 lying in 𝔐, where (ℓ/p) = 1 for ℓ ≤ 7 and t
 
 **Proposed FRONTIER §7 text (do not edit FRONTIER).** "*RAYCLASS (z60), narrowed.* The ray-class picture is a
 restatement. (★), the a = 1 line and the full Type II family are divisor events along one ray 1 + r√(−t₀n) of
-ℚ(√(−t₀n)), with moduli t₀r², 4t₀r², 2t₀r. T1 ⟺ ℚ(√(−t₀s)) ⊂ ℚ(ζ_M) for the square class s of n; the levels obstructed
-this way are exactly s | C. Per field, ring class groups of any order carry at most the real-character shadow GV_C.
+ℚ(√(−t₀n)), with moduli t₀r², 4t₀r², 2t₀r. T1 comes from the quadratic character of ℚ(√(−t₀s)) (s the square class
+of n): when ℚ(√(−t₀s)) ⊂ ℚ(ζ_M) no divisor is ≡ −1 (mod M). For (★) this quadratic-character obstruction occurs exactly
+at the levels with s | C. It is not equivalent to failure of the event. Per field, ring class groups of any order carry at most the real-character shadow GV_C.
 GV_C is satisfiable at every non-square, and at the 14 (★)-zeros it holds at 64–90 levels C ≤ 300 (CERTIFIED). Across
 fields, joint class data can carry quartic characters (group lemma; ℚ(√−17) & ℤ[17i] instance on a sample). The CFT
 relations on the divisors are total products; no other relation was found. Class-number size is T1-blind. In
-single-field families the expected count tracks L(1, χ_{−4t₀p}) (Spearman 0.875 for S₁), and S₁ (Type II with d = 1)
-has 160 prime zeros ≤ 10⁷, still increasing per decade. The t₀ > 1 part of (★) is essentially uncorrelated with
+single-field families the expected count heuristically tracks L(1, χ_{−4t₀p}) (EVIDENCE: Spearman 0.875 for S₁). S₁
+(Type II with d = 1) has 160 prime zeros ≤ 10⁷, still increasing per decade (finite data, not a refutation of eventual
+positivity), but it rescues all 14 (★)-zeros and 36 of the 38 𝔊*-zeros. The t₀ > 1 part of (★) is essentially uncorrelated with
 L(1, χ_{−4p}) (+0.05). Open: a non-CFT relation among the individual prime factors of 4Cp + 1 across levels."
 
 ## 8. Literature verification (research subagent; secondary sources, books not directly accessible)
@@ -341,12 +360,18 @@ L(1, χ_{−4p}) (+0.05). Open: a non-CFT relation among the individual prime fa
 * Cox, *Primes of the form x² + ny²*, **Thm 7.24** (class number of orders): statement quoted verbatim in Daniels &
   Lozano-Robledo (Thm 2.2, citing "[Cox89] Theorem 7.24"); same number in the 2nd and 3rd editions per citing texts.
   Numerically re-verified (§5). Matches.
-* Cox **Lemma 9.3** (ring class field generalized dihedral over ℚ, τ acts by inversion): paraphrased identically in Daniels &
-  Lozano-Robledo, arXiv:1403.2264, and Gil-Muñoz's thesis. Matches. (Lemma 5.28 only gives "Galois over ℚ" for the Hilbert class
+* Cox **Lemma 9.3** (ring class field generalized dihedral over ℚ, τ acts by inversion): used with the Cox citation in
+  Daniels & Lozano-Robledo (Thm 2.2 and the proof of Lemma 3.1; read by the cross-model reviewer). Independent
+  support: R. Paulin, *An explicit André–Oort type result …*, arXiv:1403.2264, Lemma 3.1 and Prop 3.2. (The earlier
+  version wrongly attributed arXiv:1403.2264 to Daniels–Lozano-Robledo.) Gil-Muñoz's thesis also cites Lemma 9.3.
+  The statement is verified through secondary sources only; Cox was not read directly. (Lemma 5.28 only gives "Galois over ℚ" for the Hilbert class
   field.)
 * Burde's rational quartic reciprocity: Lemmermeyer, "Rational quartic reciprocity", Acta Arith. 67 (1994) 387–390, eq. (7):
   for p, q ≡ 1 (4), p = a² + b², q = c² + d², 2 | b, 2 | d, (p/q) = 1: (p/q)₄(q/p)₄ = ((ac − bd)/q), citing Burde, J. Reine
   Angew. Math. 235 (1969). Used only as context for Prop 4.1, whose instance is checked directly.
+
+* Siegel: Elkies, "A nearly zero-free region for L(s,χ), and Siegel's theorem" (Harvard M229 notes, pp. 5–7), gives
+  L(1, χ) ≫_ε q^{−ε} with ineffective constants and the imaginary-quadratic class-number consequence (cross-model reviewer).
 
 ## 9. Review log
 
@@ -368,3 +393,19 @@ is propagated to §0, §7 and the FRONTIER text.
 (10) The all-orders remark is credited to WR Remark 10.4.
 (11) Validation scripts are now in the repository (`z60_rayclass_brute.py`, `z60_rayclass_cox.py`), with exact commands.
 (12) Argument and file checks were added to the C engine.
+
+**Cross-model review** (`data/z60/xreview/REVIEW_RAYCLASS.md`, verdict ACCEPT-WITH-FIXES). All numbers were reproduced
+independently. Fixes applied:
+(1) The F4 entry for S₁ is replaced by the actual screen intersections. S₁ ≥ 1 at all 14 (★)-zeros, rechecked here
+in `s1_at_star_zeros.txt`. S₁ ≥ 1 at 36 of the 38 𝔊*-zeros; S₁ = 0 at 37 and 1621, consistent with this census on the
+34 𝔊*-zeros ≤ 10⁷. The 160-zero census is kept separately as finite counterexamples to all-prime positivity of S₁
+only. "Single-field families fail outright" is withdrawn.
+(2) "Exact for all orders" is now restricted to orders containing β, and Prop 3.1 is contrasted as an all-coprime-ideals
+theorem. A scope note says class-number size and Legendre data do not exhaust class-group methods.
+(3) An ineffective Siegel citation (Elkies notes) is added, with the primitive/imprimitive remark. The 1403.2264
+attribution is corrected to Paulin. The L-weighted expectation and the exceptional-p remark are labelled heuristic
+throughout. The scope of Z59_MSPLUS Thm 1 (all integers of a progression) is stated. Prop 5.1 now says fixed C and
+"unqualified (all-n) criterion".
+(4) The FRONTIER wording now reads "this quadratic-character obstruction occurs exactly at s | C". Re σ > 1 is added
+to Prop 5.2. The odd-part identity in Prop 4.2 is identified as an elementary norm identity.
+
