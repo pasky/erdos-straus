@@ -38,7 +38,7 @@ Lemma 0.4 (complete Type I parametrization; p prime). Solutions 4/p = 1/x + 1/y 
   m p = 4abw − 1, a + b = d' m,   x = w d' a, y = w d' b, z' = abw.
 Equivalently ∃ a, w, c with c | 4a²w + 1 and 4aw | p + c; equivalently ∃ m ≡ 3 (mod 4): (mp+1)/4 = a·b·w with m | a + b.
 (Proof as in 0.3; the gcd step uses gcd(ab, a+b) = 1 and p ∤ ab; the "m ≡ 3 (4)" form assumes p ≡ 1 (mod 4). In the (⇐) direction
-the solution is genuinely Type I: p ∤ abw since p ∤ 4abw − 1, and d' = p(a+b)/(4abw − 1) < p, so p ∤ wd'a, wd'b.)
+the solution is genuinely Type I: p | 4abw − 1 (= mp) forces p ∤ abw, and d' = p(a+b)/(4abw − 1) < p, so p ∤ wd'a, wd'b.)
 For p ≡ 1 (4), every ES solution is Type I or Type II (p divides 1 or 2 of x, y, z; not 0 since 4xyz = p(xy+yz+zx); not 3 since 4 ≤ 3 fails).
 
 **Unified forms of S(p)** (PROVED, by Lemmas 0.1–0.2 and their converses):
@@ -79,7 +79,9 @@ must have threshold > 8 813 281 (BN) or > 66 529 (B4), with a stated reason.
 
 Fix a witness modulus g ≡ 3 (mod 4) with gcd(g, p) = 1 (automatic for actual witnesses, which divide p + a or ap + 1 with a < g). Let Q := (g+1)/4 and R_g := { −a mod g : a | Q } ⊂ (ℤ/g)^× (all distinct, since a ≤ Q < g).
 
-Lemma 1.1. Here "BN" means the modulus-4a condition for *any* a (Lemma 0.1 needs no restriction on a; for 4 | a it is stronger than B4).
+Lemma 1.1. Here "BN" means the enlarged modulus-4a condition for *any* a (Lemma 0.1 needs no restriction on a). The enlargement does
+not change the branch's existence statement: if p = 4tab − a − b with 4 | a then b ≡ 3 (mod 4) (as p ≡ 1 mod 4), and swapping a ↔ b
+gives a witness with 4 ∤ (new a). For fixed g, however, the two readings differ (e.g. p = 337, g = 31: Q = 8, only a = 4 works).
 (BN with this g) ⟺ p mod g ∈ R_g.   (B4 with this g) ⟺ p^{−1} mod g ∈ R_g.   Hence
   **(U5)  S(p) ⟺ ∃ g ≡ 3 (mod 4) with p^{±1} mod g ∈ R_g = −Div((g+1)/4).**
 Proof. BN: g | p + a with g ≡ −1 (mod 4a) ⟺ a | Q and p ≡ −a (mod g). B4 (U3 form, t = Q/a): g | tp + 1 ⟺ tp ≡ −1 ⟺
@@ -90,15 +92,20 @@ Remarks. (i) R_g ⊂ {QNR mod g}: (−a/g) = −(a/g) = −1 by Lemma 0.5's argu
 S₈ ⟹ S₄. `scripts/z60_lopezt_u5.c` (which implements (U5) directly) reproduces: S₄ zeros ≤ 6·10⁴ among odd non-squares = {105, 4545},
 no prime zeros ≤ 2·10⁵; S₈ prime zeros ≤ 4·10⁶: exactly 45, last 3 869 153 (`data/z60/lopezt/s8_zeros_le4e6.txt`) — matching the brief's
 figures (the equivalence itself is the algebra above; the computation is a consistency check against the brief's independent count).
-**Sharpened (F2):** every S₄-witness that is not an S₈-witness has either g ≡ 3 (mod 8), or g ≡ 7 (mod 8) with v₂(a) = v₂((g+1)/4)
-(a the divisor used). A proof of S₄ must produce such witnesses for (at least) the 45 primes in the file, or carry a threshold > 3 869 153.
+**Sharpened (F2)** (in (U5) coordinates — the divisor d ∈ Div(Q) with p ≡ −d (BN) or p^{−1} ≡ −d (B4), Q = (g+1)/4): every S₄-witness
+that is not an S₈-witness has either g ≡ 3 (mod 8), or g ≡ 7 (mod 8) with d ∤ Q/2, i.e. v₂(d) = v₂(Q). In the shift coordinates of (P*)
+below (a := −p mod g for BN, a := −p·4^{−1} mod g for B4, so that d = a resp. d = Q/a) this reads: v₂(a) = v₂(Q) on BN, but **a odd** on B4.
+Cross-model review example: p = 83449 (an S₈-zero) has the B4 witness g = 679, Q = 170, shift divisor a = 17 | Q/2 = 85 — yet it is not
+an S₈-witness because the (U5) divisor is d = Q/a = 10 ∤ 85. A proof of S₄ must produce such non-liftable witnesses for (at least) the
+45 primes in the file, or carry a threshold > 3 869 153.
 
 Lemma 1.2 (no finite covering, even inside p ≡ 1 (24)). For any M, let L = lcm{4m : m ≤ M}·24. Every prime p ≡ 1 (mod L) has no
 witness with g ≤ M: for such p, p ≡ 1 is a square mod g, but R_g consists of non-residues. By Linnik there are such primes with
 p ≤ L^{C} = e^{O(M)}, i.e. infinitely many primes p ≡ 1 (24) whose every witness has g ≥ c·log p. More generally, if p is a
 quadratic residue modulo every prime ≤ z, every witness g has a prime factor q > z with (p/q) = −1. ∎
 Consequence: no argument whose witness moduli stay bounded (g ≤ M for a fixed M) can prove S(p); the same holds verbatim for the
-Type I/II families of §2, whose residue sets are also non-residue sets. Witness moduli must grow with p.
+Type I/II families of §2, whose residue sets are also non-residue sets. Witness moduli must grow with p. This does not exclude
+explicit constructions with growing moduli, nor pointwise analytic methods in general; it only fixes a necessary feature.
 
 ## §2 Where S sits inside ES: the (a, m)-lattice of Type II, and Type I (PROVED)
 
@@ -112,7 +119,9 @@ with g ≡ −1 (mod 4(a/d)(m/d)), so (a/d, m/d) also works. ∎
 mod 4m). In the (U5) language, for a modulus g ≡ 3 (4) with Q = (g+1)/4 the full Type II residue set is
 R^{II}_g = { −a·m^{−1} mod g : am | Q } (ratios of divisors of Q, negated); S uses only {−a} ∪ {−m^{−1}}.
 Off-axis witnesses are genuinely new: n = 105 has the Type II witness (a, m, g) = (3, 2, 71) (213 = 3·71, 71 ≡ −1 mod 24) although
-S(105) fails; n = 4545 has no Type II witness at all (exhaustive: m < 2n suffices since g | n + 4a²k forces m ≤ a + n, a ≤ n/4 + 1).
+S(105) fails; n = 4545 has no Type II witness at all (exhaustive: g = 4amk − 1 ≤ mn + a gives a ≤ (mn+1)/(4m−1) ≤ (n+1)/3, and
+g | n + 4a²k gives m ≤ a + (n+1)/(4ak) ≤ 7(n+1)/12 < n + 1, so the search m ≤ n + 1 in `typecheck.py` is complete). Here "Type II
+witness" for composite n means the algebraic family of Lemma 2.1, not Elsholtz–Tao's coprimality-based type definition.
 So there is no *universal* (primality-free) algebraic map from off-axis Type II witnesses to axis witnesses (F3 is consistent with this: 105 is rescued by Type II
 off-axis, 4545 only by non-Type-II solutions, which for composite n exist outside the prime classification).
 
@@ -152,7 +161,7 @@ Remark. Any witness g has a prime factor q with (p/q) = −1, so g*(p) ≥ n_p :
 primes (n_p ≫ log p·log log log p) give a slightly better lower bound for infinitely many p (not checked that their construction
 respects p ≡ 1 mod 24 — EVIDENCE level). Under GRH, n_p ≪ (log p)², but that is only a lower bound for g*, not an upper bound.
 
-### 3.2 Constructive routes (all blocked, PROVED where stated)
+### 3.2 Constructive routes (scoped assessments: what is PROVED is stated as such; the rest is my judgement, not an impossibility theorem)
 (C1) Finite covering by congruences on p: impossible by Lemma 1.2, even inside p ≡ 1 (24), even using all Type I/II families (all
      residue sets are non-residue sets; p ≡ 1 mod L defeats every modulus ≤ M).
 (C2) "Explicit g as a function of p" (g > p). Witnesses satisfy g ≤ 2p + 1 (Lemma 1.1(ii)). For p ≡ 1 (mod 8) the witnesses with g > p
@@ -172,17 +181,18 @@ N(p) = Σ_{g ≡ 3 (4)} 1[p^{±1} mod g ∈ R_g]. Swapping to "small divisors" d
 a = (−p mod g), and the event a | (g+1)/4 is a single 0/1 event of "probability" τ((g+1)/4)/g. In the classical short-interval divisor
 sum Σ_{n ∈ (p, p+A]} τ(n) every d ≤ A contributes ≥ 1 *pointwise* because the class condition is independent of the shift; here the class
 is −1 mod 4(n − p), so the one candidate shift is pinned by g and nothing is forced. HEURISTIC model (not a theorem): treating the events as independent with
-probability |R_g ∪ R_g^{−1}|/φ(g) ≤ 2τ((g+1)/4)/g gives an expected count ≤ Σ_{g ≤ X} 2τ((g+1)/4)/g ∼ (log X)²/4, and ∼ (log X)²/8 for
-the 8-analogue; conditioning on p ≡ 1 (24) and the branch overlap change the constants, so only the factor-2 *shape* of (F2) is meaningful
-here. I did not prove any almost-all statement in this memo and claim none: a sieve for the exceptional primes would have unbounded
+probability |R_g ∪ R_g^{−1}|/φ(g) ≤ 2τ((g+1)/4)/φ(g) (NOT /g: at g = 15, |R_g ∪ R_g^{−1}| = 4 and 4/φ(15) = 1/2 > 2τ(4)/15) gives an
+expected count ≪ Σ_{g ≤ X} τ((g+1)/4)/φ(g) ≍ (log X)², and the same order with (g+1)/8 for the 8-analogue; I do not claim the
+constants (conditioning on p ≡ 1 (24), the branch overlap and the φ(g)/g factor all enter), only that the 8-family is the thinner one. I did not prove any almost-all statement in this memo and claim none: a sieve for the exceptional primes would have unbounded
 dimension and would at best give an almost-all bound, which the brief excludes anyway.
 
 ### 3.4 What exactly would suffice (the reduced analytic statement)
 (P*) For every large prime p ≡ 1 (24) there is g ≡ 3 (mod 4), g ≤ 2p + 1, with  (−p mod g) | (g+1)/4  or  (−p·4^{−1} mod g) | (g+1)/4.
 Equivalently (U1/U3/U4/U5/U6). I found no route to (P*) that is not equivalent to controlling the factorization of an individual
 number of the form p + a or ap + 1 beyond its small prime factors. The 8-analogue (P*₈) has the identical shape with (g+1)/8, g ≡ 7 (8),
-and is false 45 times below 4·10⁶; a proof of (P*) must therefore use witnesses with g ≡ 3 (mod 8), or with a ∤ (g+1)/8 — i.e. the
-2-adic slack between "4" and "8" — at least below 3 869 153, and cannot be a pure main-term argument.
+(and 8^{−1} in place of 4^{−1}), and is false 45 times below 4·10⁶; a proof of (P*) must therefore use witnesses with g ≡ 3 (mod 8), or
+with (U5)-divisor d ∤ (g+1)/8 (a odd on the B4 shift coordinate; see Sharpened (F2) in §1) — the 2-adic slack between "4" and "8" — at
+least below 3 869 153, and cannot be a pure main-term argument.
 
 ### 3.5 (U7): the four residue classes of a (PROVED; `scripts/z60_lopezt_u7.c` agrees with (U5) on all n ≡ 1 (4), n ≤ 2·10⁴)
 Write p + a = d·b with d ≡ −1 (mod a) (U6 with k = (d+1)/a). Reducing the three 4-conditions mod 4 (p ≡ 1 mod 4):
@@ -207,12 +217,22 @@ holds for every odd n: every witness modulus g has (n/g) = −1, so S(m²) is em
 prime factor q of some p + a or ap + 1 with (p/q) = −1 inside such a witness — the step with no analogue at n = m².
 (F2) numerator 8. The 8-analogue is (P*₈): g ≡ 7 (8), a | (g+1)/8 (Lemma 1.1(iii); certified: exactly the 45 primes of the brief). Any
 argument for (P*) that only uses the main term Σ_g τ((g+1)/4)/g would apply to (P*₈) with half the constant and is therefore wrong below
-3 869 153; a proof must use g ≡ 3 (mod 8) or a with v₂(a) = v₂((g+1)/4) witnesses.
+3 869 153; a proof must use witnesses with g ≡ 3 (mod 8) or with (U5)-divisor d ∤ (g+1)/8 (§1, Sharpened (F2)).
+  Screen rows (CERTIFIED by search, `scripts/z60_lopezt_screens.py`, output `data/z60/lopezt/screens_out.txt`): the 12 R₈-zero primes in
+  [10¹⁰, 1.1·10¹⁰] (`r8_zeros_1e10.txt`) all have B4 witnesses (least g: 11, 3, 131, 87, 11087, 3, 3, 3, 15, 3, 39, 3), all have BN
+  witnesses, and all have numerator-8 B4-analogue witnesses (least g: 1479, 159, 2239, 111, 11087, 143, 447, 143, 15, 1663, 39, 31).
+  They refute the C-even star sub-line only, not S₈ or Type II.
 (F3) 105 and 4545. S(105) and S(4545) fail; 105 has an off-axis Type II witness (a, m, g) = (3, 2, 71), 4545 none. So "S holds for all
 non-squares" is false and "S ⟸ Type II" is false for general odd n (for primes it is open: no prime ≤ 10¹⁰ separates them, and 105 shows
 there is no *universal* algebraic conversion of off-axis witnesses into axis witnesses; a conversion using primality is not excluded).
+  Screen row (CERTIFIED, `screens_out.txt`): all 285 non-square composite BN-zeros of `composite_zeros_le8e6.txt` have BN count 0 by
+  definition; 283 of them have a B4 witness (search g ≤ 4·10⁶), the two without are exactly 105 and 4545 (whose absence of any witness is
+  certified by the exhaustive runs of §0/§1).
 (F4) single-branch zeros. B4 alone fails at 193, 2521, 66529; BN alone at the 14 primes of `star_prime_zeros.txt` (both lists reproduced
-≤ 2·10⁵). In (U5) they are p ∉ R_g^{−1} ∀g resp. p ∉ R_g ∀g; the inversion symmetry (Lemma 1.1) shows the two branches are on equal
+≤ 2·10⁵ by the now cutoff-free `z60_lopezt_branches.c`). Screen rows (CERTIFIED, `screens_out.txt`): all 14 star zeros have B4 witnesses
+(least g: 7, 7, 39, 111, 7, 679, 23, 15, 23, 7, 39, 1735, 87, 111); all 38 G*-zeros of `gstar_zeros.txt` have B4 witnesses, exactly 24 of
+them also have BN witnesses (the two largest ones at g = 2 953 943 for p = 85 664 329 and g = 2 741 075 for p = 564 661 441,
+`scripts/z60_lopezt_bnfind.c`), and the 14 BN-less G*-zeros are exactly the 14 star zeros (star ⊂ G*). In (U5) they are p ∉ R_g^{−1} ∀g resp. p ∉ R_g ∀g; the inversion symmetry (Lemma 1.1) shows the two branches are on equal
 footing, and the record list in `leastg_1e8.txt` shows both branches supplying the least witness in the worst cases.
 
 **Verdict.** NOT PROVED; no HOT LEAD. Delivered (all PROVED unless marked): the exact identities for both branches (B4's was not
@@ -222,4 +242,20 @@ B4 = BN^{−1} symmetry, the forms (U6)/(U7), the no-finite-covering lemma and t
 the certified 8-analogue, and the g*(p) statistics to 10⁸ (CERTIFIED). What is missing is precisely a pointwise handle on the
 factorization of individual shifted numbers p + a, ap + 1 in residue classes tied to a — the same wall as ES itself.
 
-Files: `scripts/z60_lopezt_{branches,u5,u7,leastg}.c`, `scripts/z60_lopezt_{identsearch,typecheck}.py`, `data/z60/lopezt/`.
+Prior work (per the cross-model review; I did not read these memos, per the lane rules): (U5) and the B4 = BN^{−1} inversion symmetry,
+including the full ratio set, are already in `Z59_CONV2.md` Lemma 1(vi), which also records the 45 S₈-union zeros ≡ 1 (4) below 10⁸
+(61 over all odd primes) and the 285/12/38 screen behaviour and {105, 4545} to 10¹⁰; the branch identities, the three B4 exceptions and
+the union conjecture are credited to López in `B1_LINE.md` §§0–2 (B4 census to 10¹¹); the Type II divisor forms, both axes, the Jacobi
+obstruction and the no-finite-covering theorem are in `Z58_CONVF.md` Lemmas 1.1–1.4 (after Elsholtz–Tao and López); `CLASS_FORCING.md`
+§1 has both the p + 4d and cp + 1 lines. So everything structural here is an independent rederivation and verification, not a discovery;
+the incremental deliverables are the (U7) case split, Prop 3.1, and the least-witness census `leastg_1e8.txt`.
+
+Cross-model review (`data/z60/xreview/REVIEW_LOPEZT.md`, verdict ACCEPT-WITH-FIXES) — fixes applied: (1) the 2-adic slack / Sharpened (F2)
+statement is now given in (U5)-divisor coordinates with the branch-dependent shift-coordinate form and the p = 83449 example; (2) the
+false inequality |R_g ∪ R_g^{−1}|/φ(g) ≤ 2τ(Q)/g replaced by the φ(g) version and the unsupported constants withdrawn; (3) the F2/F3/F4
+screen rows (12 R₈-zeros, 285 composites, 14 + 38 primes) added and certified by `z60_lopezt_screens.py`; (4) prior-work attribution added;
+(5) Lemma 0.4 typo (p | 4abw − 1), Type II search bound, enlarged-vs-restricted BN justification fixed; the heuristic cutoff removed from
+`z60_lopezt_branches.c` (rerun ≤ 2·10⁵, identical output); (6) C2–C5 and the counting remarks re-scoped as assessments, not impossibility
+theorems. The verdict (NOT PROVED, no hot lead) is unchanged.
+
+Files: `scripts/z60_lopezt_{branches,u5,u7,leastg,bnfind}.c`, `scripts/z60_lopezt_{identsearch,typecheck,bigg,screens}.py`, `data/z60/lopezt/`.

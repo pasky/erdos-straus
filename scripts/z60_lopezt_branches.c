@@ -2,7 +2,8 @@
 // B4 (4|y, modulus y): exists y=0 mod 4, f | p+y, f = -1 mod y.
 // BN (4∤y, modulus 4y): exists y !=0 mod 4, f | p+y, f = -1 mod 4y.
 // For each n=1 mod 4 (prime or not) up to N report which branches hit.
-// Search y up to YMAX (y <= n suffices? we bound y <= n; f<=p+y). Trial: for each y, enumerate divisors of n+y.
+// Exhaustive: witness f = -1 (mod L_y) divides n+y with f >= L_y - 1 >= y - 1, so y <= n+1; y = n+1 forces f | 2n+1 with
+// f = -1 mod 4(n+1) > 2n+1 (4 does not divide n+1 since n = 1 mod 4), impossible. Hence y <= n suffices. No cutoff.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,7 +20,6 @@ int main(int argc,char**argv){
     for(u64 y=1; y<=n && !(b4&&bn); y++){
       if(y%4==0){ if(!b4 && hasdiv(n+y,y)){b4=1;y4=y;} }
       else { if(!bn && hasdiv(n+y,4*y)){bn=1;yn=y;} }
-      if(y>4*sqrt((double)n)+100 && (b4||bn)) break; // heuristic cutoff after one hit: want zeros exact though
     }
     if(!b4||!bn) printf("%llu %s B4=%d(y=%llu) BN=%d(y=%llu)\n", n, isprime(n)?"P":"C", b4,y4,bn,yn);
   }

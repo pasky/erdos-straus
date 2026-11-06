@@ -1,0 +1,19 @@
+== 12 R8-zero primes in [1e10,1.1e10]: least B4 witness (K=4), least B4_8 witness (K=8), least BN witness
+10156800001 11 1479 7
+10243598993 3 159 3
+10301993881 131 2239 219
+10529331121 87 111 107
+10532106649 11087 11087 1559
+10553835713 3 143 3
+10619482193 3 447 3
+10663548737 3 143 3
+10723946017 15 15 103
+10773657233 3 1663 3
+10868474401 39 39 503
+10917229157 3 31 3
+== 14 star (BN) zeros: least B4 witness
+[(409, 7), (577, 7), (5569, 39), (9601, 111), (23929, 7), (83449, 679), (102001, 23), (329617, 15), (712321, 23), (1134241, 7), (1724209, 39), (1726201, 1735), (5212561, 87), (8813281, 111)]
+== 38 G*-zeros: B4 witness for all?, BN witness (None expected exactly for the 14 star zeros)
+all have B4: True ; with BN witness: 24 ; BN-less set == star zeros: True ; star subset of gstar: True
+== 285 composite BN-zeros: B4 witness count and the exceptions
+count: 285 ; with B4 witness: 283 ; without: [105, 4545]
