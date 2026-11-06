@@ -1,19 +1,19 @@
-n=409 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=1177 |T|/(n L^2/8)=0.637 N*mu=2.87 L^2/8=4.52
-n=577 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=1916 |T|/(n L^2/8)=0.657 N*mu=3.31 L^2/8=5.05
-n=5569 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=38106 |T|/(n L^2/8)=0.736 N*mu=6.84 L^2/8=9.30
-n=9601 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=75717 |T|/(n L^2/8)=0.750 N*mu=7.89 L^2/8=10.51
-n=23929 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=235608 |T|/(n L^2/8)=0.775 N*mu=9.85 L^2/8=12.71
-n=1009 R=6 boundary=0 R_o=6 check=OK jacobi_of_hits=[-1] |T|=4086 |T|/(n L^2/8)=0.677 N*mu=4.05 L^2/8=5.98
-n=1129 R=4 boundary=0 R_o=4 check=OK jacobi_of_hits=[-1] |T|=4787 |T|/(n L^2/8)=0.687 N*mu=4.24 L^2/8=6.18
-n=10007 R=22 boundary=6 R_o=16 check=OK jacobi_of_hits=[1] |T|=79611 |T|/(n L^2/8)=0.750 N*mu=7.95 L^2/8=10.61
-n=10009 R=34 boundary=16 R_o=18 check=OK jacobi_of_hits=[-1] |T|=79265 |T|/(n L^2/8)=0.747 N*mu=7.92 L^2/8=10.61
-n=100049 R=38 boundary=24 R_o=14 check=OK jacobi_of_hits=[-1] |T|=1319057 |T|/(n L^2/8)=0.796 N*mu=13.18 L^2/8=16.57
-n=100153 R=24 boundary=0 R_o=24 check=OK jacobi_of_hits=[-1] |T|=1329150 |T|/(n L^2/8)=0.801 N*mu=13.27 L^2/8=16.57
-n=9 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=1 |T|/(n L^2/8)=0.184 N*mu=0.10 L^2/8=0.60
-n=225 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=501 |T|/(n L^2/8)=0.607 N*mu=2.22 L^2/8=3.67
-n=3025 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=17359 |T|/(n L^2/8)=0.715 N*mu=5.74 L^2/8=8.03
-n=10201 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=81909 |T|/(n L^2/8)=0.754 N*mu=8.03 L^2/8=10.65
-n=57 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=61 |T|/(n L^2/8)=0.524 N*mu=1.05 L^2/8=2.04
-n=105 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=158 |T|/(n L^2/8)=0.556 N*mu=1.49 L^2/8=2.71
-n=177 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=357 |T|/(n L^2/8)=0.602 N*mu=2.01 L^2/8=3.35
-n=4545 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=29631 |T|/(n L^2/8)=0.735 N*mu=6.52 L^2/8=8.87
+n=409 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=1177 |T|/(n L^2/8)=0.637 N=phi(n)=408 N*mu=2.87 L^2/8=4.52
+n=577 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=1916 |T|/(n L^2/8)=0.657 N=phi(n)=576 N*mu=3.31 L^2/8=5.05
+n=5569 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=38106 |T|/(n L^2/8)=0.736 N=phi(n)=5568 N*mu=6.84 L^2/8=9.30
+n=9601 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=75717 |T|/(n L^2/8)=0.750 N=phi(n)=9600 N*mu=7.89 L^2/8=10.51
+n=23929 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=235608 |T|/(n L^2/8)=0.775 N=phi(n)=23928 N*mu=9.85 L^2/8=12.71
+n=1009 R=6 boundary=0 R_o=6 check=OK jacobi_of_hits=[-1] |T|=4086 |T|/(n L^2/8)=0.677 N=phi(n)=1008 N*mu=4.05 L^2/8=5.98
+n=1129 R=4 boundary=0 R_o=4 check=OK jacobi_of_hits=[-1] |T|=4787 |T|/(n L^2/8)=0.687 N=phi(n)=1128 N*mu=4.24 L^2/8=6.18
+n=10007 R=22 boundary=6 R_o=16 check=OK jacobi_of_hits=[1] |T|=79611 |T|/(n L^2/8)=0.750 N=phi(n)=10006 N*mu=7.95 L^2/8=10.61
+n=10009 R=34 boundary=16 R_o=18 check=OK jacobi_of_hits=[-1] |T|=79265 |T|/(n L^2/8)=0.747 N=phi(n)=10008 N*mu=7.92 L^2/8=10.61
+n=100049 R=38 boundary=24 R_o=14 check=OK jacobi_of_hits=[-1] |T|=1319057 |T|/(n L^2/8)=0.796 N=phi(n)=100048 N*mu=13.18 L^2/8=16.57
+n=100153 R=24 boundary=0 R_o=24 check=OK jacobi_of_hits=[-1] |T|=1329150 |T|/(n L^2/8)=0.801 N=phi(n)=100152 N*mu=13.27 L^2/8=16.57
+n=9 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=1 |T|/(n L^2/8)=0.184 N=phi(n)=6 N*mu=0.07 L^2/8=0.60
+n=225 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=501 |T|/(n L^2/8)=0.607 N=phi(n)=120 N*mu=1.19 L^2/8=3.67
+n=3025 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=17359 |T|/(n L^2/8)=0.715 N=phi(n)=2200 N*mu=4.17 L^2/8=8.03
+n=10201 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=81909 |T|/(n L^2/8)=0.754 N=phi(n)=10100 N*mu=7.95 L^2/8=10.65
+n=57 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=61 |T|/(n L^2/8)=0.524 N=phi(n)=36 N*mu=0.68 L^2/8=2.04
+n=105 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=158 |T|/(n L^2/8)=0.556 N=phi(n)=48 N*mu=0.69 L^2/8=2.71
+n=177 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=357 |T|/(n L^2/8)=0.602 N=phi(n)=116 N*mu=1.32 L^2/8=3.35
+n=4545 R=0 boundary=0 R_o=0 check=OK jacobi_of_hits=[] |T|=29631 |T|/(n L^2/8)=0.735 N=phi(n)=2400 N*mu=3.44 L^2/8=8.87

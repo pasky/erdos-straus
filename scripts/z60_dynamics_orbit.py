@@ -86,9 +86,10 @@ def main():
         jac = [jacobi(x, n) for x, _, _ in hits]
         T = target_size(n)
         L = log(n)
+        N = sum(1 for x in range(1, n) if gcd(x, n) == 1)  # orbit size phi(n)
         print(f"n={n} R={R} boundary={bnd} R_o={len(hits)} check={'OK' if R == len(hits) + bnd else 'FAIL'} "
               f"jacobi_of_hits={sorted(set(jac))} |T|={T} |T|/(n L^2/8)={T / (n * L * L / 8):.3f} "
-              f"N*mu={T * (n - 1) / n**2:.2f} L^2/8={L * L / 8:.2f}")
+              f"N=phi(n)={N} N*mu={T * N / n**2:.2f} L^2/8={L * L / 8:.2f}")
 
 
 if __name__ == "__main__":
