@@ -1,0 +1,2 @@
+primes p=1(4) in [10000,14000]: count=209 mean N*mu=8.35 mean D=+1.12 std D=4.55 max|D|=17.77 sqrt(N*mu)=2.89 sqrt(p)=118 zeros(R_o=0)=3
+primes p=1(4) in [100000,104000]: count=171 mean N*mu=13.29 mean D=+1.87 std D=6.28 max|D|=20.72 sqrt(N*mu)=3.65 sqrt(p)=322 zeros(R_o=0)=1
