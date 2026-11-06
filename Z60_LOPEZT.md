@@ -113,7 +113,7 @@ mod 4m). In the (U5) language, for a modulus g ≡ 3 (4) with Q = (g+1)/4 the fu
 R^{II}_g = { −a·m^{−1} mod g : am | Q } (ratios of divisors of Q, negated); S uses only {−a} ∪ {−m^{−1}}.
 Off-axis witnesses are genuinely new: n = 105 has the Type II witness (a, m, g) = (3, 2, 71) (213 = 3·71, 71 ≡ −1 mod 24) although
 S(105) fails; n = 4545 has no Type II witness at all (exhaustive: m < 2n suffices since g | n + 4a²k forces m ≤ a + n, a ≤ n/4 + 1).
-So there is no algebraic map from off-axis Type II witnesses to axis witnesses (F3 is consistent with this: 105 is rescued by Type II
+So there is no *universal* (primality-free) algebraic map from off-axis Type II witnesses to axis witnesses (F3 is consistent with this: 105 is rescued by Type II
 off-axis, 4545 only by non-Type-II solutions, which for composite n exist outside the prime classification).
 
 Lemma 2.2 (Type I divisor form). For p prime, 4/p has a Type I solution ⟺ **∃ a, w, m ≥ 1: 4aw | mp + 1 and m | 4a²w + 1.**
