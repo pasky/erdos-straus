@@ -26,10 +26,11 @@ Z53_WILDCARD row 6's "joint constraints" escape is real *as information*. The re
 imposes on the prime divisors of β are total-product relations (Prop 4.2, PROVED identity). Whether any other
 relation exists is not settled here (Assessment: none is supplied, so no forcing mechanism results).
 (4) **Class number.** Class-number size is T1-blind (squares have ring class numbers ≫ √n/log log n, Prop 5.1). In a
-*fixed* field the expected count of a ray family is proportional to L(1, χ) (Prop 5.2 + EVIDENCE: Spearman 0.875 for S₁),
+*fixed* field the expected count of a ray family is proportional to L(1, χ) (Assessment, based on the density identity of
+Prop 5.2 and supported by EVIDENCE: Spearman 0.875 for S₁),
 and single-field families have many zeros (S₁: **160 prime zeros ≤ 10⁷**, count per decade still increasing; 42 % of
 the zeros ≤ 3·10⁶ have L(1, χ_{−4p}) < 0.5 vs 3.8 % of controls). The varying-field family (★) assigns each divisor
-exactly one level class (Prop 5.2(a)). Its leading mean is L-free, and its t₀ > 1 part is essentially uncorrelated
+exactly one level class (Prop 5.2(a)). Its leading mean is L-free (Z59_MSPLUS Thm 1), and its t₀ > 1 part is essentially uncorrelated
 with L(1, χ_{−4p}) (EVIDENCE, §5). So the class-number information the brief hoped to use pointwise appears in
 single-field routes, and there it works against existence. Assessment: varying the field acts like an average over
 quadratic twists. That is one reason (★) behaves better than any single field. It is not a proof that no
@@ -43,7 +44,7 @@ single-field argument can work.
 | **F4 known zeros** | restatement | CERTIFIED: at each of the 14 (★)-zero primes GV_C holds at 64–90 levels C ≤ 300 (least such C: 4, 7, 8, 12 or 13), hits at none | **fails massively**: 160 own prime zeros ≤ 10⁷ (25 in 𝔐, largest 8 841 673; in 𝔐 6 193 441) | n/a |
 
 Verdict per column: ray layer = restatement; class layer passes F1 only; single-field families fail F4 outright;
-cross-field data are information without a p-linked relation. **Not a HOT LEAD.**
+cross-field data are information with no known p-linked relation beyond total products. **Not a HOT LEAD.**
 
 ## 1. Precise statements attacked
 
