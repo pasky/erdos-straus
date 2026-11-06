@@ -16,8 +16,10 @@ for P in 0 1; do
       [ $((k % 2)) -eq $P ] || continue
       lo=$(python3 -c "print(10**$k)"); hi=$(python3 -c "print(10**$k + 2*10**7)")
       timeout 1700 /tmp/ms105_sm2w $lo $hi 100000000 1000000 $S || { echo "FAIL k=$k"; rc=1; }
-    done > data/z60/ms105/win/lane$P.txt; echo "EXIT $rc" >> data/z60/ms105/win/lane$P.txt ) &
+    done > data/z60/ms105/win/lane$P.txt; echo "EXIT $rc" >> data/z60/ms105/win/lane$P.txt; exit $rc ) &
 done
-( timeout 1700 /tmp/ms105_nsq 1 1000000000 100000000 1000000 $(seq 8 8 200) > data/z60/ms105/nsq/pos.txt; echo "EXIT $?" >> data/z60/ms105/nsq/pos.txt ) &
-( timeout 1700 /tmp/ms105_nsq 1 1000000000 100000000 1000000 $(seq -8 -8 -200) > data/z60/ms105/nsq/neg.txt; echo "EXIT $?" >> data/z60/ms105/nsq/neg.txt ) &
-wait
+( timeout 1700 /tmp/ms105_nsq 1 1000000000 100000000 1000000 $(seq 8 8 200) > data/z60/ms105/nsq/pos.txt; e=$?; echo "EXIT $e" >> data/z60/ms105/nsq/pos.txt; exit $e ) &
+( timeout 1700 /tmp/ms105_nsq 1 1000000000 100000000 1000000 $(seq -8 -8 -200) > data/z60/ms105/nsq/neg.txt; e=$?; echo "EXIT $e" >> data/z60/ms105/nsq/neg.txt; exit $e ) &
+rc=0; for p in $(jobs -p); do wait $p || rc=1; done
+[ $rc -eq 0 ] || echo "SOME LANE FAILED" >&2
+exit $rc

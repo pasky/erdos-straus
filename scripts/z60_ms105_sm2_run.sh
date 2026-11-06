@@ -15,8 +15,11 @@ for s in range(13, 1001, 4):
 PY
 ulimit -v 4000000
 for L in 0 1 2 3; do
-  ( awk -v L=$L 'NR % 4 == L' /tmp/ms105_slist.txt | while read s mm; do
-      timeout 1800 /tmp/ms105_sm2 1 $mm 100000000 100000 $s
-    done > data/z60/ms105/sm2/lane$L.txt; echo "lane $L exit $?" >> data/z60/ms105/sm2/lane$L.txt ) &
+  ( rc=0; while read s mm; do
+      timeout 1700 /tmp/ms105_sm2 1 $mm 100000000 100000 $s || rc=1
+    done < <(awk -v L=$L 'NR % 4 == L' /tmp/ms105_slist.txt) > data/z60/ms105/sm2/lane$L.txt
+    echo "lane $L exit $rc" >> data/z60/ms105/sm2/lane$L.txt; exit $rc ) &
 done
-wait
+rc=0; for p in $(jobs -p); do wait $p || rc=1; done
+[ $rc -eq 0 ] || echo "SOME LANE FAILED" >&2
+exit $rc
