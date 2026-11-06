@@ -21,3 +21,7 @@ print(M, 'admissible',adm.sum(),'uncovered',unc.sum(),'frac %.4f'%(unc.sum()/adm
 sq=np.zeros(M,dtype=bool); sq[(idx*idx)%M]=True
 print(' uncovered that are squares mod M:', (unc&sq).sum(), ' non-square uncovered:', (unc&~sq).sum())
 if len(sys.argv)>2: print(' first non-square uncovered:', idx[unc&~sq][:20].tolist())
+if len(sys.argv)>3:   # consistency check: every listed zero >= M must be uncovered
+    Z=[int(l.split()[0]) for l in open(sys.argv[3]) if l.split()[1]=='NS' and l.split()[2]=='g105=1']
+    bad=[n for n in Z if n>=M and cov[n%M]]
+    print(' zeros >= M checked:', sum(1 for n in Z if n>=M), ' covered (would refute Thm 4.1):', bad)
