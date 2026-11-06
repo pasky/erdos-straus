@@ -7,6 +7,7 @@
 // Output: per-s summary line  "S s mlo mhi count maxd argm unk late(>=2^10) late(>=2^14)"  plus "U s m n" lines for UNK
 // and "L s m n d" lines for first hit d >= LATE.
 // Usage: z60_ms105_sm2 mlo mhi LIM LATE s1 [s2 ...]
+// Compile with -DR8 for the C-even sub-line R8 (sensitivity control; F2).
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -27,12 +28,23 @@ int main(int argc, char **argv) {
       if (N >> 64) { fprintf(stderr, "overflow s=%llu m=%llu\n", s, m); return 3; }
       u64 n = (u64)N;
       u64 found = 0;
+#ifdef R8
+      for (u64 d = 7; d <= LIM; d += 8) {   // R8 (C even): d = 4uC - 1 with C even <=> d = 7 (8), r | (d+1)/8
+        u64 rm = n % d;
+        if (rm == 0) continue;
+        u64 r = d - rm, A = (d + 1) >> 3;
+#else
       for (u64 d = 3; d <= LIM; d += 4) {
         u64 rm = n % d;
         if (rm == 0) continue;
         u64 r = d - rm, A = (d + 1) >> 2;
+#endif
         if (A % r == 0) {
+#ifdef R8
+          u64 u = r, C = 2 * (A / r);
+#else
           u64 u = r, C = A / r;
+#endif
           u128 B = ((u128)n + r) / d;
           u128 v = (u128)4 * u * B * C;
           if (((u128)n + r) % d != 0 || v - u - B != (u128)n) { printf("VERIFYFAIL %llu %llu\n", s, m); return 4; }
