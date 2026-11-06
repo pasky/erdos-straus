@@ -55,7 +55,7 @@ Confidence: **H** = checked in the primary text; **M** = checked in a secondary 
 - **Second version:** ε(X) = 1/6 for scalar, −1/|Stab| for elliptic, 1 for hyperbolic fixing two cusps, 0 otherwise.
 - **Caveat:** the formula gives the trace on M_k + S̄_k, *not* on S_k alone. Remark 3.2 allows replacing S̄_k by S_k under a symmetry assumption.
 - **Directly relevant special cases:**
-  - Torsion-free Γ: dim M_k + dim S_k = (k−1)/6·[Γ₁:Γ] + δ_{k,2}.
+  - Torsion-free Γ: dim M_k + dim S_k = (k−1)/6·[Γ̄₁:Γ̄] + δ_{k,2}, with the **projective** index [PSL₂(ℤ):Γ̄] (z60 xreview correction: with the SL₂-index, Γ(4) would give 16 for dim M₃ + dim S₃ instead of 7 + 1 = 8).
   - Theorem 3 / (1.3): lim_{n→∞, (n, ℓ(ℓ−1))=1} Tr(T_ℓ, M_k(Γ_n)+S_k(Γ_n))/φ(n) = (ℓ^{k−1}−1)/2.
 - **Related papers:**
   - Popa, "A trace formula for Hecke operators on Fuchsian groups", arXiv:2306.10396 (2023). It covers general finite-covolume Γ and a cohomological Lefschetz form Σ(−1)^i tr([Σ], H^i(Γ,V)) = Σ_X ε_Γ(X) tr(M_X, V).
@@ -195,12 +195,12 @@ Notation: H_{a,M}(n) := Σ_{t≡a (M)} H(4n − t²).
 - **Citation:** *Math. Ann.* (2025), doi:10.1007/s00208-024-03070-w; arXiv:2405.14234.
 - **Smaller-divisor sum (1.6):**
   λ_{k,m,M}(n) := Σ*_{t²−s²=4n, t≡m (M), t≥1, s≥0} ((t−s)/2)^{k+1} + (−1)^k Σ*_{t≡−m (M)} … .
-  The star means weight ½ when s = 0. This is the min-divisor sum with congruence condition (d + 4n/d)/2 ≡ ±m (mod M).
+  The star means weight ½ when s = 0. (z60 xreview correction of conventions:) with d := (t − s)/2 one has d | n, t = d + n/d and weight d^{k+1}; equivalently with d′ := t − s one has d′ | 4n, t = (d′ + 4n/d′)/2 and weight (d′/2)^{k+1}. So it is a min-divisor sum with the congruence condition d + n/d ≡ ±m (mod M) on divisors d | n.
 - **Thm 1.7 (= Thm 2.11):** for any M ≥ 1 and m ≠ 0,
   H_{m,M}(n) = (2ζ(2)/(M L(2, 1_M))) Σ_{η primitive, N_η|M} Σ_{d∈S(η,m,M)} a(η,d) σ_{1,η,η̄}(n/d) + a_{0,m,M}(n) − λ_{0,m,M}(n),
   - a_{0,m,M}(n) is the coefficient of a weight-2 cusp form g_{m,M};
   - a(η,d) and S(η,m,M) are given explicitly in (1.7)–(1.8).
-- **Corollary 1.8:** g_{m,M} = 0 iff 1 ≤ M ≤ 5 or (m,M) ∈ {(2,8),(6,8)}. So relations with no cusp form exist only for finitely many progressions.
+- **Corollary 1.8:** for representatives 1 ≤ m ≤ M, g_{m,M} = 0 iff 1 ≤ M ≤ 5 or (m,M) ∈ {(2,8),(6,8)}. So relations with no cusp form exist only for finitely many progressions.
 - **Thm 1.6:** reduces the higher moments to the zeroth moment.
 - **Confidence:** H for the statements. The journal volume and pages were not checked.
 
@@ -258,7 +258,7 @@ Related, not read: Bringmann–Kane–Pujahari, "Formulas for moments of class n
 - **Regularity:** all cusps of Γ(N) are regular. The only irregular cusp among Γ₀(N), Γ₁(N), Γ(N) is 1/2 for Γ₁(4) (§3.8).
 - **Figure 3.4 (Γ(N), N > 2):**
   - g = 1 + d_N(N−6)/(12N);
-  - dim M_k / dim S_k = (k−1)d_N/12 ± d_N/(2N), the same for k even and odd.
+  - dim M_k / dim S_k = (k−1)d_N/12 ± d_N/(2N), the same for k even and odd — **for k ≥ 3 only** (z60 xreview correction: at k = 2, dim S₂ = g, e.g. 0 for Γ(4), not −1).
 - **Confidence:** H.
 
 ---

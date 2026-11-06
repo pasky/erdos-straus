@@ -14,7 +14,7 @@ direct spectral computation on a sparse finite list of (C, k, n); for general (C
 (Lemma 3, CERTIFIED on 21 044 cases), relative to Cohen–Strömberg's Eichler–Selberg formula. Positivity (§4, all CONDITIONAL
 on Thm 2): odd weight gives ES_k exactly as explicit − (8C/μ)·Tr (Prop 4.1); an upper-bound certificate for the trace fires
 iff it is sharp to within (number of cusps)/2 × (ES mass) (Prop 4.2, a rearrangement); the worst-case Deligne bound fires only
-if the average normalised eigenvalue exceeds 1 − 6/((k−1)Q − 6) (≥ 0.4; → 1 as (k−1)Q → ∞; no condition only at Γ(4), k = 3)
+if the average normalised eigenvalue exceeds 1 − 6/((k−1)Q − 6) (≥ 0.4; → 1 as (k−1)Q → ∞; only at Γ(4), k = 3 is there no ρ-free constraint)
 (Cor 4.3); in the empty-elliptic-window regime the trace equals −(ε∞/2)(ES − TRIV) + S, and an explicit family shows that a
 level-uniform square-root bound for the trace is false (Prop 4.4). Screens §5.
 
@@ -196,7 +196,8 @@ B = D fires at (C, k, n), then
 So for every (k, Q) ≠ (3, 4) firing forces the average normalised eigenvalue above 1 − 6/((k−1)Q − 6) (≥ 0.4 at (3, 8), (5, 4);
 → 1 as (k−1)Q → ∞). Only in that limit does this become "near-total alignment" (all but a vanishing fraction of the
 normalised eigenvalues ν_f within o(1) of +1); at a fixed small level it is only the displayed average condition. The
-statement concerns B = D only; sharper pointwise bounds are not covered. Only at Γ(4), k = 3 (dim 1 < ε∞/2 = 3) is no alignment needed — and there the space is the CM line of η(4z)⁶,
+statement concerns B = D only; sharper pointwise bounds are not covered. Only at Γ(4), k = 3 (dim 1 < ε∞/2 = 3) is the ρ-free threshold vacuous (the sharper ρ-dependent necessary condition
+1 − 3ρ < ν still applies) — and there the space is the CM line of η(4z)⁶,
 so the identity is Cor 2.1 and decides only C = 1. *Proof.* Firing ⟺ D − Tr < (ε∞/2)ES_k ⟺ Σ_f(1 − ν_f) < (ε∞/2)ρ;
 divide by dim and use (ε∞/2)/dim = (μ_C/2Q)/((k−1)μ_C/12 − μ_C/2Q) = 6/((k−1)Q − 6). ∎
 EVIDENCE (`data/z60/trace/screen_C*_k3*.tsv`; slack ratio r := (D − Tr)/((ε∞/2)ES_k), firing ⟺ r < 1):
@@ -223,7 +224,7 @@ term) + S — the spectral side *detects* (★) at C as a deviation from an expl
 exactly: there Theorem 2 is a restatement of the divisor count. This does **not** make Tr large at every such n (e.g. n = 1,
 Q ≥ 8: ES = 0, TRIV = 2, Tr = ε∞, which is *below* the square-root scale). (c) **Explicit family (corrected after D3; the
 family is the reviewer's):** for Q = 4C ≥ 8 and n = 2Q − 3 one has N = (Q − 1)(2Q − 1), the unique candidate (w_*, s_*) = (3, 2) is
-not elliptic, S = 0 (Q − 1 ≡ 3 (4) is not a square, so N is not a square), the only ES divisor ≤ √N is Q − 1, no nontrivial TRIV
+not elliptic, S = 0 (gcd(Q − 1, 2Q − 1) = 1, so if N were a square both factors would be squares; but Q − 1 ≡ 3 (4) is not), the only ES divisor ≤ √N is Q − 1, no nontrivial TRIV
 divisor ≤ √N exists (Q + 1 would have to divide 6), hence ES_k = 2(Q − 1)^{k−1}, TRIV_k = 2 and
 **Tr = −ε∞·((Q − 1)^{k−1} − 1).** CERTIFIED at C = 2 (n = 13: Tr = −1152) and C = 3 (n = 21: Tr = −5760). Since ε∞/(2√dim) ≍
 √(Q/(k−1)) and τ(N) = Q^{o(1)}, for fixed k the ratio |Tr|/(√dim·τ(N)N^{(k−1)/2}) grows like Q^{1/2−o(1)}: a square-root
@@ -255,9 +256,10 @@ Theorem 2 is an identity valid for every n; the screens bite on positivity argum
 |---|---|---|
 | F1 odd squares | Identity holds with ES_k(C, m²) = 0 for all C (Lemma 1(v), PROVED). Then Tr = −μE + (ε∞/2)TRIV_k + S exactly. CERTIFIED: identity holds with ES = 0 at all screened squares — 49 odd squares 3²…99² (C = 2, list), and the odd squares in the ranges (71 for C = 1, n ≤ 20 000; 27 for C = 2, n ≤ 3000; 12 for C = 3, n ≤ 600); no certificate fires there (Prop 4.2 forbids it). EVIDENCE/Assessment: Tr/D at squares shows no visible separation from primes (C = 2, n ≤ 3000: max 0.33 over odd squares (n = 225), 0.40 over all squares (n = 1296), 0.76 over primes; the 49-odd-square list reaches 0.66 at n = 81²) — a comparison of maxima, not a statistical test. | No step of the identity uses non-squareness; the square-sensitivity of a positivity argument would have to come from an *external* input on Tr or E (none supplied here). |
 | F2 C-even (R₈) | The identity is per C; R₈ = Σ_{C even} R_C. Nothing in Theorem 2 or §4 distinguishes C odd from C even (Q = 4C either way). | A positivity argument built on this identity that **transports verbatim to the C-even sub-line** (same steps, restricted to even C) and claims a range containing the 12 + 2 R₈-zero primes (∈ [10¹⁰, 2.33·10¹⁰]) would prove a false statement. Those zeros lie below the (MS) threshold 10¹⁷ and refute only such ranges (FRONTIER §4 item 2), not eventual C-even positivity; they are zeros of one line of 8/p, not failures of 8/p. Nothing in Theorem 2 itself distinguishes C odd from C even. |
-| F3 composites | Identity holds for all n; primality is never used (Theorem 2 is uniform in n). | A positivity argument would need a primality input beyond the identity. |
-| F4 known zeros | At 409, 577, 5569, 9601 (C = 2, k = 3): identity holds, ES = 0, certificate does not fire (`screen_C2_k3.tsv`; e.g. p = 9601: Tr/D = 0.068). At every (★)-zero prime ES_k(C, p) = 0 for **all** C. | Any spectral lower bound must fail there for every level 4C. |
-Verdict on the screens: the identity passes all four trivially (it is true); **no positivity mechanism supplied here establishes
+| F3 composites | Identity holds for all n; primality is never used (Theorem 2 is uniform in n). The 285 certified non-square composite zeros n ≡ 1 (4) ≤ 7 999 801 (`data/z58/screens/composite_zeros_le8e6.txt`; independently re-enumerated by the cross-model review: no hits) have ES_k(C, n) = 0 for every C, so the identity holds there with no ES term at any level. | A positivity argument would need a primality input beyond the identity (primality is absent from the identity, not necessarily from future estimates). |
+| F4 known zeros | **14 global (★)-zero primes** (`star_prime_zeros.txt`, re-confirmed by the cross-review): ES_k(C, p) = 0 for **all** C. At 409, 577, 5569, 9601 (C = 2, k = 3) the identity holds, ES = 0, certificate does not fire (`screen_C2_k3.tsv`; e.g. p = 9601: Tr/D = 0.068). **38 𝔊*-zeros** (`gstar_zeros.txt`): these are zeros of the restricted 𝔊* family only; 24 of them have global (★) hits (cross-review, e.g. 37 = 4·1·2·5 − 1 − 2), so the all-C vanishing does **not** extend to them; they obstruct only arguments confined to the 𝔊* subfamily. | Any spectral lower bound for (★) must fail at the 14 global zeros for every level 4C (or have a threshold above 8 813 281). |
+Verdict on the screens: the identity is consistent with all four (it is true; "passes" means consistency, not survival of a
+positivity argument); **no positivity mechanism supplied here establishes
 the needed square-, parity- or primality-sensitive discrimination** (a negative finding, not a theorem excluding future
 arguments that use this identity).
 
@@ -278,7 +280,9 @@ along the line, hyperbolic side −(ε∞/2)(ES_k + (−1)^k TRIV_k). (2) Odd we
 ES_k = X − (2Q/μ)Tr exactly (Prop 4.1). (3) Positivity: an upper-bound certificate fires iff its slack is < (ε∞/2)·ES
 (Prop 4.2, rearrangement); the worst-case Deligne bound needs average normalised eigenvalue > 1 − 6/((k−1)Q − 6) (Cor 4.3);
 in the empty-window regime the trace equals −(ε∞/2)(ES − TRIV) + S and a level-uniform square-root bound for it is false
-(explicit family, Prop 4.4(c)). Scoped negative: Deligne-type worst-case input on this identity does not give (★) beyond Γ(4).
+(explicit family, Prop 4.4(c)). For the worst-case Deligne bound we have only the necessary alignment condition of Cor 4.3
+and finite non-firing evidence (C = 2, 3); universal non-firing beyond Γ(4) is **not** established (corrected after the
+cross-model review).
 Open escapes: single-N bounds for the trace sharper than Deligne with slack ≪ (ε∞/2)·ES (none known; not excluded),
 one-sided estimates or restrictions to the Mordell-hard prime domain (Prop 4.4(c) does not cover it), removal of explicit
 geometric contributions, other C-ranges, and identities whose spectral side carries an independent positivity (none found).
@@ -293,12 +297,13 @@ Hecke trace. Conditional on the identity: an upper-bound certificate fires iff i
 average normalised eigenvalue > 1 − 6/((k−1)Q − 6); a level-uniform square-root bound for the trace is false (explicit family,
 n ≡ 5 mod 8). Open: single-N control of the trace with slack ≪ (ε∞/2)·ES; a proof of the local lemma.
 
-**Bottom line.** A clean trace formula carrying (★) exists (certified exactly on every tested case; general proof reduced to
-one local counting lemma): at each level 4C the (★)-solutions, the class +1 divisors and a Hurwitz class-number sum along one
+**Bottom line.** A clean trace formula carrying (★) is certified exactly on every tested case, and in general holds
+conditionally on one unproved local counting lemma (Lemma 3): at each level 4C the (★)-solutions, the class +1 divisors and a Hurwitz class-number sum along one
 line are the positive-pair, negative-pair and elliptic terms of a single Hecke trace on Γ(4C), separated by odd weight. We
 found no pointwise lower bound from the spectral side: a certificate must be accurate to within the (★)-mass itself, the
 Deligne bound would need strong eigenvalue alignment, and where the class-number side disappears the Hecke trace is just the
-divisor count. Nothing in the identity is square-, parity- or primality-sensitive. No lead.
+divisor count. No discriminating (square-, parity- or primality-sensitive) positivity input was supplied; the spectrum and E do
+depend on the input n, but we found no way to exploit that. No lead.
 
 ## 9. Review log
 Hostile internal review (deep-mode reviewer, `data/z60/trace/REVIEW_internal.md`): 12 defects (1 FATAL-to-a-proof, 6 MAJOR,
@@ -311,5 +316,17 @@ Cor 4.3 narrowed; Cauchy–Schwarz remark relabelled; D5 — F2 transport/thresh
 weighted divisor-pair terms, repeated roots; D7 — higher-weight literature credited, novelty narrowed; D8 — Jacobi rescaling
 corrected, EZ Thm 2.1 citation dropped; D9 — half-open interval; D10 — 66.2, square maxima; D11 — scripts exit nonzero, exact
 integer elliptic enumeration (re-run: identical rows); D12 — size, Prop 4.5 → Remark (no infinitude claim), sparse list in
-FRONTIER text. Not re-reviewed after the fixes. LIT_CHECK.md minor convention issues (D12 bullets 4–6) are recorded in the
+FRONTIER text. Not re-reviewed after the fixes (but see the cross-model review below). LIT_CHECK.md minor convention issues (D12 bullets 4–6) are recorded in the
 review and not edited in LIT_CHECK.
+
+### Cross-model review
+`data/z60/xreview/REVIEW_TRACE.md` (verdict ACCEPT-WITH-FIXES; independent audit script `scripts/z60_xrev_trace_check.py`:
+2 320 + 202 fresh spectral rows and 23 600 TSV rows reconstructed, Lemma 3 re-run on 21 044 cases, explicit family checked for
+C = 2…500, no mismatch). Fixes applied: (1) §7 universal-sounding "does not give (★) beyond Γ(4)" replaced by the necessary
+alignment condition + finite non-firing evidence; bottom line now says "no discriminating positivity input supplied" instead of
+"the identity is insensitive"; (2) F4 completed with the 38 𝔊*-zeros (24 have global (★) hits, so no all-C vanishing there) and
+F3 now names the 285 certified composite zeros; "passes" in §5 means consistency only; (3) Prop 4.4(c): gcd(Q−1, 2Q−1) = 1 step
+added; Cor 4.3 / header: Γ(4), k = 3 exception qualified as absence of a ρ-free constraint; bottom line made conditional on
+Lemma 3; (4) LIT_CHECK convention errors corrected (projective index in Popa's dimension sentence; k ≥ 3 for the Γ(N) dimension
+quotation; KPY divisor conventions d | n vs 2d | 4n). Primary-source limits stand: Cohen–Strömberg, Eichler–Zagier and Serre were
+checked only via secondary sources; the EZ weight-2 completion (Remark 2.2) remains an unworked Assessment.
