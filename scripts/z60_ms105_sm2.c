@@ -24,8 +24,8 @@ int main(int argc, char **argv) {
     u64 cnt = 0, maxd = 0, argm = 0, unk = 0, l10 = 0, l14 = 0;
     for (u64 m = mlo | 1; m <= mhi; m += 2) {
       if (m % 3 == 0 || m % 5 == 0 || m % 7 == 0) continue;
-      u128 N = (u128)s * m * m;
-      if (N >> 64) { fprintf(stderr, "overflow s=%llu m=%llu\n", s, m); return 3; }
+      u128 N;
+      if (__builtin_mul_overflow((u128)s * m, (u128)m, &N) || (N >> 64)) { fprintf(stderr, "overflow s=%llu m=%llu\n", s, m); return 3; }
       u64 n = (u64)N;
       u64 found = 0;
 #ifdef R8

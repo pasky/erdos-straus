@@ -18,12 +18,15 @@ int main(int argc, char **argv) {
   if (mhi > 4200000000ULL) { fprintf(stderr, "mhi too large\n"); return 1; }
   for (int ai = 5; ai < argc; ai++) {
     i64 c = strtoll(argv[ai], 0, 10);
+    if (c > (1LL << 40) || c < -(1LL << 40)) { fprintf(stderr, "c out of range\n"); return 2; }
     u64 cnt = 0, maxd = 0, argm = 0, unk = 0, l10 = 0, l14 = 0;
     for (u64 m = mlo | 1; m <= mhi; m += 2) {
       i64 nn = (i64)0; u64 n;
       u128 sq = (u128)m * m;
       if (c < 0 && sq <= (u128)(-c)) continue;
-      n = (u64)(c < 0 ? sq - (u128)(-c) : sq + (u128)c);
+      u128 nn128 = c < 0 ? sq - (u128)(-c) : sq + (u128)c;
+      if (nn128 >> 64) { fprintf(stderr, "overflow\n"); return 3; }
+      n = (u64)nn128;
       (void)nn;
       if ((n & 3) != 1 || n % 3 == 0 || n % 5 == 0 || n % 7 == 0 || issq(n)) continue;
       u64 found = 0;

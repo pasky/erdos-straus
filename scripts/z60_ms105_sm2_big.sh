@@ -25,4 +25,4 @@ for i, j in enumerate(jobs):
 print(len(S), 'kernels', len(jobs), 'jobs', file=sys.stderr)
 PY
 ulimit -v 4000000
-ls $OUT/jobs/job*.txt | xargs -P 4 -I{} bash -c 'f={}; o=${f%.txt}.out; [ -s $o ] && grep -q "^EXIT 0" $o && exit 0; ( while read s mm; do /tmp/ms105_sm2 1 $mm 100000000 1000000 $s || exit 9; done < $f; ) > $o.tmp; e=$?; echo "EXIT $e" >> $o.tmp; mv $o.tmp $o'
+ls $OUT/jobs/job*.txt | xargs -P 4 -I{} bash -c 'f={}; o=${f%.txt}.out; [ -s $o ] && grep -q "^EXIT 0" $o && exit 0; ( while read s mm; do timeout 1700 /tmp/ms105_sm2 1 $mm 100000000 1000000 $s || exit 9; done < $f; ) > $o.tmp; e=$?; echo "EXIT $e" >> $o.tmp; mv $o.tmp $o'

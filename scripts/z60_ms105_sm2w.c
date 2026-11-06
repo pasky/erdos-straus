@@ -20,8 +20,8 @@ int main(int argc, char **argv) {
     u64 cnt = 0, maxd = 0, argm = 0, unk = 0, l10 = 0, l14 = 0;
     for (u64 m = mlo | 1; m <= mhi; m += 2) {
       if (m % 3 == 0 || m % 5 == 0 || m % 7 == 0) continue;
-      u128 n = (u128)s * m * m;
-      if (n >> 126) { fprintf(stderr, "overflow\n"); return 3; }
+      u128 n;
+      if (__builtin_mul_overflow((u128)s * m, (u128)m, &n) || (n >> 126)) { fprintf(stderr, "overflow\n"); return 3; }
       u64 found = 0;
       for (u64 d = 3; d <= LIM; d += 4) {
         u64 md = m % d, rm = ((s % d) * ((md * md) % d)) % d;

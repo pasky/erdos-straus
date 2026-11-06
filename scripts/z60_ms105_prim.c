@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
   int *R = calloc(N + 1, sizeof(int)), *Rp = calloc(N + 1, sizeof(int));
   char *comp = calloc(N + 1, 1);
   for (long i = 2; i * i <= N; i++) if (!comp[i]) for (long j = i * i; j <= N; j += i) comp[j] = 1;
-  for (long u = 1; 4 * u - 2 <= N + 0; u++)
+  for (long u = 1; 3 * u - 1 <= N; u++)   // B = C = 1 gives n = 3u - 1
     for (long B = 1; 4 * u * B - u - B <= N; B++) {
       int prim = gcd(u, B) == 1;
       for (long n = 4 * u * B - u - B; n <= N; n += 4 * u * B) { R[n]++; if (prim) Rp[n]++; }

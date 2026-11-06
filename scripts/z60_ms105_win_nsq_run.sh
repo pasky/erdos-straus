@@ -12,11 +12,11 @@ def sqf(s): return all(s % (p*p) for p in range(2, int(s**0.5)+1))
 print(' '.join(str(s) for s in range(13,1001,4) if math.gcd(s,105)==1 and sqf(s)))")
 ulimit -v 4000000
 for P in 0 1; do
-  ( for k in 10 11 12 13 14 15 16 17; do
+  ( rc=0; for k in 10 11 12 13 14 15 16 17; do
       [ $((k % 2)) -eq $P ] || continue
       lo=$(python3 -c "print(10**$k)"); hi=$(python3 -c "print(10**$k + 2*10**7)")
-      timeout 1700 /tmp/ms105_sm2w $lo $hi 100000000 1000000 $S || echo "FAIL k=$k"
-    done > data/z60/ms105/win/lane$P.txt; echo "EXIT $?" >> data/z60/ms105/win/lane$P.txt ) &
+      timeout 1700 /tmp/ms105_sm2w $lo $hi 100000000 1000000 $S || { echo "FAIL k=$k"; rc=1; }
+    done > data/z60/ms105/win/lane$P.txt; echo "EXIT $rc" >> data/z60/ms105/win/lane$P.txt ) &
 done
 ( timeout 1700 /tmp/ms105_nsq 1 1000000000 100000000 1000000 $(seq 8 8 200) > data/z60/ms105/nsq/pos.txt; echo "EXIT $?" >> data/z60/ms105/nsq/pos.txt ) &
 ( timeout 1700 /tmp/ms105_nsq 1 1000000000 100000000 1000000 $(seq -8 -8 -200) > data/z60/ms105/nsq/neg.txt; echo "EXIT $?" >> data/z60/ms105/nsq/neg.txt ) &
